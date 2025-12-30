@@ -807,7 +807,7 @@ _ZN5folly6detail17CancellationState4lockEv.exit:  ; preds = %._crit_edge.i
   br label %_ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit.thread
 
 _ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit.thread: ; preds = %32, %1, %_ZN5folly6detail17CancellationState4lockEv.exit.thread, %._crit_edge
-  %.010 = phi i1 [ false, %_ZN5folly6detail17CancellationState4lockEv.exit.thread ], [ true, %1 ], [ false, %._crit_edge ], [ true, %32 ]
+  %.010 = phi i1 [ false, %._crit_edge ], [ false, %_ZN5folly6detail17CancellationState4lockEv.exit.thread ], [ true, %1 ], [ true, %32 ]
   ret i1 %.010
 }
 

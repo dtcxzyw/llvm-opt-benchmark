@@ -135,7 +135,7 @@ define ptr @d2i_DHxparams(ptr noundef captures(address_is_null) %0, ptr noundef 
   br label %44
 
 44:                                               ; preds = %3, %43, %9
-  %.0 = phi ptr [ %4, %43 ], [ null, %9 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %9 ], [ %4, %43 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -287,7 +287,7 @@ define internal range(i32 0, 3) i32 @dh_cb(i32 noundef %0, ptr noundef captures(
   br label %14
 
 14:                                               ; preds = %9, %4, %5, %7
-  %.0 = phi i32 [ %., %5 ], [ 2, %7 ], [ 1, %4 ], [ 1, %9 ]
+  %.0 = phi i32 [ 2, %7 ], [ %., %5 ], [ 1, %4 ], [ 1, %9 ]
   ret i32 %.0
 }
 

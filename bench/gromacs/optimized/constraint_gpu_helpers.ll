@@ -310,9 +310,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc39
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc39, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.21.0 = phi ptr [ %21, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %21, %.noexc39 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.063.0 = phi ptr [ %20, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %20, %.noexc39 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.0.i.i.i.i.i = phi ptr [ %25, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %22, %.noexc39 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.21.0 = phi ptr [ %21, %.noexc39 ], [ %21, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.063.0 = phi ptr [ %20, %.noexc39 ], [ %20, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.0.i.i.i.i.i = phi ptr [ %22, %.noexc39 ], [ %25, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   store i32 0, ptr %.sroa.063.0, align 4, !tbaa !13
   %26 = icmp sgt i32 %15, 0
   br i1 %26, label %.lr.ph.preheader, label %._crit_edge
@@ -736,13 +736,13 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %3
   ret void
 
 .sink.split50:                                    ; preds = %57, %.sink.split49, %37, %.sink.split
-  %.sink = phi ptr [ %30, %37 ], [ %30, %.sink.split ], [ %50, %.sink.split49 ], [ %50, %57 ]
-  %.pn20.pn.pn.ph = phi { ptr, i32 } [ %38, %37 ], [ %.pn20.pn34.ph, %.sink.split ], [ %.pn.pn41.ph, %.sink.split49 ], [ %58, %57 ]
+  %.sink = phi ptr [ %30, %.sink.split ], [ %30, %37 ], [ %50, %.sink.split49 ], [ %50, %57 ]
+  %.pn20.pn.pn.ph = phi { ptr, i32 } [ %.pn20.pn34.ph, %.sink.split ], [ %38, %37 ], [ %.pn.pn41.ph, %.sink.split49 ], [ %58, %57 ]
   call void @__cxa_free_exception(ptr %.sink) #22
   br label %60
 
 60:                                               ; preds = %.sink.split50, %57, %37
-  %.pn20.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %38, %37 ], [ %.pn20.pn.pn.ph, %.sink.split50 ]
+  %.pn20.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %58, %57 ], [ %.pn20.pn.pn.ph, %.sink.split50 ]
   %61 = load ptr, ptr %17, align 8, !tbaa !4
   %.not.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorI25AtomsAdjacencyListElementSaIS0_EED2Ev.exit, label %62

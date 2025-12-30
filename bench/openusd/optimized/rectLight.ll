@@ -1641,8 +1641,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22: ; preds = %87, %93
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit20, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22, %.thread, %98
-  %_ZGVZN32pxrInternal_v0_24__pxrReserved__15UsdLuxRectLight23GetSchemaAttributeNamesEbE8allNames.sink = phi ptr [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__15UsdLuxRectLight23GetSchemaAttributeNamesEbE8allNames, %98 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__15UsdLuxRectLight23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__15UsdLuxRectLight23GetSchemaAttributeNamesEbE10localNames, %.thread ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__15UsdLuxRectLight23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit20 ]
-  %.pn10 = phi { ptr, i32 } [ %99, %98 ], [ %85, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22 ], [ %10, %.thread ], [ %72, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit20 ]
+  %_ZGVZN32pxrInternal_v0_24__pxrReserved__15UsdLuxRectLight23GetSchemaAttributeNamesEbE8allNames.sink = phi ptr [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__15UsdLuxRectLight23GetSchemaAttributeNamesEbE8allNames, %98 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__15UsdLuxRectLight23GetSchemaAttributeNamesEbE10localNames, %.thread ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__15UsdLuxRectLight23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__15UsdLuxRectLight23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit20 ]
+  %.pn10 = phi { ptr, i32 } [ %99, %98 ], [ %10, %.thread ], [ %85, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22 ], [ %72, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit20 ]
   call void @__cxa_guard_abort(ptr nonnull %_ZGVZN32pxrInternal_v0_24__pxrReserved__15UsdLuxRectLight23GetSchemaAttributeNamesEbE8allNames.sink) #16
   resume { ptr, i32 } %.pn10
 }
@@ -3131,7 +3131,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit26: ; preds = %_ZN32
   br label %170
 
 170:                                              ; preds = %116, %166, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit26, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit, %25
-  %.0 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit26 ], [ false, %25 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit ], [ true, %166 ], [ true, %116 ]
+  %.0 = phi i1 [ false, %25 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit26 ], [ true, %166 ], [ true, %116 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__15UsdLuxRectLightD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
   ret i1 %.0
 

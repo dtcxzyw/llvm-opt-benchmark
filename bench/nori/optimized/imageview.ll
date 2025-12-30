@@ -955,7 +955,7 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %7
   br label %_ZN7nanogui5ArrayIfLm2EEpLERKS1_.exit
 
 _ZN7nanogui5ArrayIfLm2EEpLERKS1_.exit:            ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, %3, %7
-  %.0 = phi i1 [ false, %3 ], [ false, %7 ], [ true, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ]
+  %.0 = phi i1 [ false, %7 ], [ false, %3 ], [ true, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ]
   ret i1 %.0
 }
 
@@ -1793,8 +1793,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit74: ; 
   br label %.body
 
 .body:                                            ; preds = %207, %189, %205, %203, %183, %201, %199, %177, %197
-  %.sink = phi ptr [ %18, %203 ], [ %15, %199 ], [ %15, %197 ], [ %15, %177 ], [ %18, %201 ], [ %18, %183 ], [ %21, %205 ], [ %21, %189 ], [ %21, %207 ]
-  %.pn19.pn = phi { ptr, i32 } [ %204, %203 ], [ %200, %199 ], [ %198, %197 ], [ %178, %177 ], [ %202, %201 ], [ %184, %183 ], [ %206, %205 ], [ %190, %189 ], [ %208, %207 ]
+  %.sink = phi ptr [ %15, %197 ], [ %15, %177 ], [ %15, %199 ], [ %18, %201 ], [ %18, %183 ], [ %18, %203 ], [ %21, %205 ], [ %21, %189 ], [ %21, %207 ]
+  %.pn19.pn = phi { ptr, i32 } [ %198, %197 ], [ %178, %177 ], [ %200, %199 ], [ %202, %201 ], [ %184, %183 ], [ %204, %203 ], [ %206, %205 ], [ %190, %189 ], [ %208, %207 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #20
   resume { ptr, i32 } %.pn19.pn
 }

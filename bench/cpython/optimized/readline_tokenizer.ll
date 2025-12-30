@@ -70,7 +70,7 @@ Py_INCREF.exit:                                   ; preds = %22, %27
   br label %30
 
 30:                                               ; preds = %4, %Py_INCREF.exit, %21, %10
-  %.0 = phi ptr [ null, %21 ], [ null, %10 ], [ %5, %Py_INCREF.exit ], [ null, %4 ]
+  %.0 = phi ptr [ null, %10 ], [ %5, %Py_INCREF.exit ], [ null, %21 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -255,7 +255,7 @@ Py_XDECREF.exit.i:                                ; preds = %51, %49
   call void @_Py_Dealloc(ptr noundef nonnull %.1.i) #5
   br label %tok_readline_string.exit.thread
 
-tok_readline_string.exit.thread:                  ; preds = %75, %83, %Py_XDECREF.exit.i, %80, %78, %70, %42, %23
+tok_readline_string.exit.thread:                  ; preds = %Py_XDECREF.exit.i, %80, %83, %70, %75, %78, %42, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %121
 
@@ -331,7 +331,7 @@ tok_readline_string.exit.thread:                  ; preds = %75, %83, %Py_XDECRE
   br label %121
 
 121:                                              ; preds = %tok_readline_string.exit.thread, %102, %116, %114, %90
-  %.0 = phi i32 [ 0, %90 ], [ %120, %116 ], [ 0, %114 ], [ 0, %tok_readline_string.exit.thread ], [ 0, %102 ]
+  %.0 = phi i32 [ 0, %90 ], [ %120, %116 ], [ 0, %114 ], [ 0, %102 ], [ 0, %tok_readline_string.exit.thread ]
   ret i32 %.0
 }
 

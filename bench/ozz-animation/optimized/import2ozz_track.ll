@@ -646,18 +646,18 @@ _ZN3ozz9animation7offline8JsonEnumINS1_18PropertyTypeConfigENS1_11OzzImporter12N
 
 259:                                              ; preds = %_ZN3ozz9animation7offline8JsonEnumINS1_18PropertyTypeConfigENS1_11OzzImporter12NodeProperty4TypeEE15GetEnumFromNameEPKcPS6_.exit
   switch i32 %257, label %_ZN3ozz9animation7offline12_GLOBAL__N_124IsCompatiblePropertyTypeENS1_11OzzImporter12NodeProperty4TypeES5_.exit.thread797 [
-    i32 2, label %_ZN3ozz9animation7offline12_GLOBAL__N_124IsCompatiblePropertyTypeENS1_11OzzImporter12NodeProperty4TypeES5_.exit
-    i32 4, label %260
-    i32 5, label %260
+    i32 2, label %260
+    i32 4, label %_ZN3ozz9animation7offline12_GLOBAL__N_124IsCompatiblePropertyTypeENS1_11OzzImporter12NodeProperty4TypeES5_.exit
+    i32 5, label %_ZN3ozz9animation7offline12_GLOBAL__N_124IsCompatiblePropertyTypeENS1_11OzzImporter12NodeProperty4TypeES5_.exit
   ]
 
-260:                                              ; preds = %259, %259
-  %261 = icmp eq i32 %.0795, 2
-  br i1 %261, label %_ZN3ozz9animation7offline12_GLOBAL__N_124IsCompatiblePropertyTypeENS1_11OzzImporter12NodeProperty4TypeES5_.exit.thread, label %_ZN3ozz9animation7offline12_GLOBAL__N_124IsCompatiblePropertyTypeENS1_11OzzImporter12NodeProperty4TypeES5_.exit.thread797
+260:                                              ; preds = %259
+  %261 = and i32 %.0795, -2
+  %262 = icmp eq i32 %261, 4
+  br i1 %262, label %_ZN3ozz9animation7offline12_GLOBAL__N_124IsCompatiblePropertyTypeENS1_11OzzImporter12NodeProperty4TypeES5_.exit.thread, label %_ZN3ozz9animation7offline12_GLOBAL__N_124IsCompatiblePropertyTypeENS1_11OzzImporter12NodeProperty4TypeES5_.exit.thread797
 
-_ZN3ozz9animation7offline12_GLOBAL__N_124IsCompatiblePropertyTypeENS1_11OzzImporter12NodeProperty4TypeES5_.exit: ; preds = %259
-  %262 = and i32 %.0795, -2
-  %263 = icmp eq i32 %262, 4
+_ZN3ozz9animation7offline12_GLOBAL__N_124IsCompatiblePropertyTypeENS1_11OzzImporter12NodeProperty4TypeES5_.exit: ; preds = %259, %259
+  %263 = icmp eq i32 %.0795, 2
   br i1 %263, label %_ZN3ozz9animation7offline12_GLOBAL__N_124IsCompatiblePropertyTypeENS1_11OzzImporter12NodeProperty4TypeES5_.exit.thread, label %_ZN3ozz9animation7offline12_GLOBAL__N_124IsCompatiblePropertyTypeENS1_11OzzImporter12NodeProperty4TypeES5_.exit.thread797
 
 _ZN3ozz9animation7offline12_GLOBAL__N_124IsCompatiblePropertyTypeENS1_11OzzImporter12NodeProperty4TypeES5_.exit.thread797: ; preds = %259, %260, %_ZN3ozz9animation7offline12_GLOBAL__N_124IsCompatiblePropertyTypeENS1_11OzzImporter12NodeProperty4TypeES5_.exit
@@ -8085,7 +8085,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEED2Ev.exit
   br i1 %2801, label %187, label %._crit_edge, !llvm.loop !91
 
 .thread:                                          ; preds = %1068, %1724, %2134, %2790, %_ZNSolsEPFRSoS_E.exit162
-  %.5.shrunk = phi i1 [ %2792, %2790 ], [ %1070, %1068 ], [ %1726, %1724 ], [ %2136, %2134 ], [ false, %_ZNSolsEPFRSoS_E.exit162 ]
+  %.5.shrunk = phi i1 [ %1070, %1068 ], [ %1726, %1724 ], [ %2136, %2134 ], [ %2792, %2790 ], [ false, %_ZNSolsEPFRSoS_E.exit162 ]
   %.5 = zext i1 %.5.shrunk to i8
   %2802 = add nuw i64 %.0892120, 1
   %2803 = load ptr, ptr %114, align 8, !tbaa !16
@@ -8314,7 +8314,7 @@ _ZNSt6vectorIN3ozz9animation7offline11OzzImporter12NodePropertyENS0_12StdAllocat
   br i1 %or.cond, label %175, label %.critedge, !llvm.loop !93
 
 .body:                                            ; preds = %340, %414, %347, %342, %.body.i, %1002, %.body.i182, %1658, %.body.i416, %2068, %.body.i497, %2724, %242, %243, %338, %2859
-  %.pn97.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %2859 ], [ %.pn91, %242 ], [ %244, %243 ], [ %339, %338 ], [ %341, %340 ], [ %.pn93, %347 ], [ %.pn95, %414 ], [ %lpad.phi886, %2068 ], [ %lpad.phi996, %1002 ], [ %lpad.phi926, %1658 ], [ %343, %342 ], [ %.pn26.i, %.body.i ], [ %.pn26.i183, %.body.i182 ], [ %.pn26.i417, %.body.i416 ], [ %.pn26.i498, %.body.i497 ], [ %lpad.phi816, %2724 ]
+  %.pn97.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %2859 ], [ %244, %243 ], [ %.pn91, %242 ], [ %339, %338 ], [ %341, %340 ], [ %.pn95, %414 ], [ %.pn93, %347 ], [ %343, %342 ], [ %.pn26.i, %.body.i ], [ %lpad.phi996, %1002 ], [ %.pn26.i183, %.body.i182 ], [ %lpad.phi926, %1658 ], [ %.pn26.i417, %.body.i416 ], [ %lpad.phi886, %2068 ], [ %.pn26.i498, %.body.i497 ], [ %lpad.phi816, %2724 ]
   call void @_ZNSt6vectorIN3ozz9animation7offline11OzzImporter12NodePropertyENS0_12StdAllocatorIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %99) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %99)
   br label %2924

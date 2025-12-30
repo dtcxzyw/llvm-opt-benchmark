@@ -375,7 +375,7 @@ _ZNKSt14default_deleteIN4llvm7MatcherEEclEPS1_.exit.i.i.i: ; preds = %.critedge
   br label %.critedge16
 
 .critedge16:                                      ; preds = %.preheader, %_ZNKSt14default_deleteIN4llvm7MatcherEEclEPS1_.exit.i.i.i, %.critedge, %4
-  %.011 = phi ptr [ %6, %4 ], [ %0, %_ZNKSt14default_deleteIN4llvm7MatcherEEclEPS1_.exit.i.i.i ], [ %0, %.critedge ], [ null, %.preheader ]
+  %.011 = phi ptr [ %6, %4 ], [ %0, %.critedge ], [ %0, %_ZNKSt14default_deleteIN4llvm7MatcherEEclEPS1_.exit.i.i.i ], [ null, %.preheader ]
   ret ptr %.011
 }
 
@@ -484,7 +484,7 @@ switch.lookup:                                    ; preds = %5
   br label %_ZNK4llvm7Matcher29isSimplePredicateOrRecordNodeEv.exit
 
 _ZNK4llvm7Matcher29isSimplePredicateOrRecordNodeEv.exit: ; preds = %5, %switch.lookup, %2
-  %.0 = phi i1 [ %switch.masked, %switch.lookup ], [ false, %2 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %2 ], [ %switch.masked, %switch.lookup ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -3929,7 +3929,7 @@ _ZNK4llvm15SmallVectorImplIjEeqERKS1_.exit.thread: ; preds = %31, %_ZNK4llvm15Sm
   br label %_ZNK4llvm15SmallVectorImplINS_3MVT15SimpleValueTypeEEeqERKS3_.exit
 
 _ZNK4llvm15SmallVectorImplINS_3MVT15SimpleValueTypeEEeqERKS3_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.loopexit, %8, %58, %52, %46, %40, %_ZNK4llvm15SmallVectorImplIjEeqERKS1_.exit.thread, %_ZNK4llvm15SmallVectorImplIjEeqERKS1_.exit, %2
-  %64 = phi i1 [ false, %52 ], [ false, %46 ], [ false, %40 ], [ false, %_ZNK4llvm15SmallVectorImplIjEeqERKS1_.exit.thread ], [ false, %_ZNK4llvm15SmallVectorImplIjEeqERKS1_.exit ], [ %63, %58 ], [ false, %2 ], [ false, %8 ], [ false, %.loopexit ], [ false, %.lr.ph.i.i.i.i.i ]
+  %64 = phi i1 [ false, %52 ], [ false, %46 ], [ false, %40 ], [ false, %_ZNK4llvm15SmallVectorImplIjEeqERKS1_.exit.thread ], [ false, %_ZNK4llvm15SmallVectorImplIjEeqERKS1_.exit ], [ false, %2 ], [ %63, %58 ], [ false, %8 ], [ false, %.loopexit ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %64
 }
 
@@ -4038,7 +4038,7 @@ _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %2
   br label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %27, %33, %37, %39, %25, %6, %13, %15, %18, %_ZN4llvmneENS_9StringRefES0_.exit
-  %.1 = phi i1 [ %16, %15 ], [ true, %18 ], [ false, %25 ], [ false, %_ZN4llvmneENS_9StringRefES0_.exit ], [ false, %13 ], [ true, %6 ], [ %spec.select.i, %33 ], [ %spec.select21.i, %39 ], [ true, %37 ], [ false, %27 ]
+  %.1 = phi i1 [ true, %18 ], [ false, %_ZN4llvmneENS_9StringRefES0_.exit ], [ false, %13 ], [ true, %6 ], [ %16, %15 ], [ false, %25 ], [ %spec.select21.i, %39 ], [ %spec.select.i, %33 ], [ true, %37 ], [ false, %27 ]
   ret i1 %.1
 }
 
@@ -4096,7 +4096,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16CheckTypeMatcher19isContradictor
   br label %_ZL21TypesAreContradictoryN4llvm3MVT15SimpleValueTypeES1_.exit
 
 _ZL21TypesAreContradictoryN4llvm3MVT15SimpleValueTypeES1_.exit: ; preds = %20, %18, %14, %6, %2
-  %.05 = phi i1 [ undef, %2 ], [ false, %6 ], [ true, %18 ], [ %spec.select21.i, %20 ], [ %spec.select.i, %14 ]
+  %.05 = phi i1 [ undef, %2 ], [ false, %6 ], [ true, %18 ], [ %spec.select.i, %14 ], [ %spec.select21.i, %20 ]
   %spec.select = and i1 %.not.not.not, %.05
   ret i1 %spec.select
 }
@@ -4161,7 +4161,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm21CheckChildTypeMatcher19isContrad
   br label %_ZL21TypesAreContradictoryN4llvm3MVT15SimpleValueTypeES1_.exit
 
 _ZL21TypesAreContradictoryN4llvm3MVT15SimpleValueTypeES1_.exit: ; preds = %25, %23, %19, %11, %2, %6
-  %.06 = phi i1 [ false, %6 ], [ undef, %2 ], [ false, %11 ], [ true, %23 ], [ %spec.select21.i, %25 ], [ %spec.select.i, %19 ]
+  %.06 = phi i1 [ false, %6 ], [ undef, %2 ], [ false, %11 ], [ true, %23 ], [ %spec.select.i, %19 ], [ %spec.select21.i, %25 ]
   %spec.select = and i1 %.not.not.not, %.06
   ret i1 %spec.select
 }
@@ -4214,7 +4214,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm24CheckChildIntegerMatcher19isCont
   br label %17
 
 17:                                               ; preds = %2, %6, %11
-  %spec.select = phi i1 [ false, %6 ], [ %16, %11 ], [ false, %2 ]
+  %spec.select = phi i1 [ %16, %11 ], [ false, %6 ], [ false, %2 ]
   ret i1 %spec.select
 }
 

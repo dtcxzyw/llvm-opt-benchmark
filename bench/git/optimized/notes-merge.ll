@@ -757,7 +757,7 @@ move_array.exit.i.i.i:                            ; preds = %.loopexit.i.i.i
   br label %308
 
 308:                                              ; preds = %302, %297, %223, %verify_notes_filepair.exit.thread.i.i
-  %.1.i.i = phi i32 [ %.03363.i.i, %verify_notes_filepair.exit.thread.i.i ], [ %.03363.i.i, %223 ], [ %.2.i.i99, %302 ], [ %.2.i.i99, %297 ]
+  %.1.i.i = phi i32 [ %.03363.i.i, %223 ], [ %.03363.i.i, %verify_notes_filepair.exit.thread.i.i ], [ %.2.i.i99, %302 ], [ %.2.i.i99, %297 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %309 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !63
@@ -1476,7 +1476,7 @@ merge_one_change_manual.exit.i.i.i:               ; preds = %572, %568
   unreachable
 
 merge_one_change.exit.i.i:                        ; preds = %604, %595, %586, %577, %574, %merge_one_change_manual.exit.i.i.i
-  %.0.i.i.i = phi i32 [ 1, %merge_one_change_manual.exit.i.i.i ], [ 0, %595 ], [ 0, %574 ], [ 0, %586 ], [ 0, %577 ], [ 0, %604 ]
+  %.0.i.i.i = phi i32 [ 1, %merge_one_change_manual.exit.i.i.i ], [ 0, %577 ], [ 0, %574 ], [ 0, %586 ], [ 0, %595 ], [ 0, %604 ]
   %608 = add nsw i32 %.0.i.i.i, %.02423.i.i
   br label %609
 
@@ -1521,7 +1521,7 @@ merge_changes.exit.i:                             ; preds = %609, %426
   br label %628
 
 628:                                              ; preds = %617, %168, %158, %101, %97
-  %.0 = phi i32 [ 0, %158 ], [ 0, %168 ], [ %618, %617 ], [ 0, %97 ], [ 0, %101 ]
+  %.0 = phi i32 [ 0, %158 ], [ 0, %168 ], [ %618, %617 ], [ 0, %101 ], [ 0, %97 ]
   %629 = load ptr, ptr %16, align 8, !tbaa !15
   call void @free_commit_list(ptr noundef %629) #17
   %630 = getelementptr inbounds nuw i8, ptr %0, i64 24

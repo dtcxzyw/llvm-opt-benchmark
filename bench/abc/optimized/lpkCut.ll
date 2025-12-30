@@ -638,7 +638,7 @@ define void @Lpk_NodeRecordImpact(ptr noundef readonly captures(none) %0) local_
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %14 = load i32, ptr %13, align 4, !tbaa !80
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph47, label %._crit_edge50
+  br i1 %15, label %.lr.ph47, label %.critedge
 
 .lr.ph47:                                         ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -648,12 +648,12 @@ define void @Lpk_NodeRecordImpact(ptr noundef readonly captures(none) %0) local_
 
 .preheader:                                       ; preds = %._crit_edge
   %18 = icmp sgt i32 %.val364863, 1
-  br i1 %18, label %.critedge.lr.ph, label %._crit_edge50
+  br i1 %18, label %.lr.ph50, label %.critedge
 
-.critedge.lr.ph:                                  ; preds = %.preheader
+.lr.ph50:                                         ; preds = %.preheader
   %19 = getelementptr i8, ptr %11, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %.critedge
+  br label %109
 
 21:                                               ; preds = %.lr.ph47, %._crit_edge
   %.val364864 = phi i32 [ 0, %.lr.ph47 ], [ %.val364863, %._crit_edge ]
@@ -739,8 +739,8 @@ define void @Lpk_NodeRecordImpact(ptr noundef readonly captures(none) %0) local_
   br label %Vec_PtrPush.exitthread-pre-split
 
 Vec_PtrPush.exitthread-pre-split:                 ; preds = %62, %64, %53, %55
-  %.sink74 = phi ptr [ %56, %55 ], [ %54, %53 ], [ %63, %62 ], [ %65, %64 ]
-  %.sink = phi i32 [ 16, %55 ], [ 16, %53 ], [ %58, %62 ], [ %58, %64 ]
+  %.sink74 = phi ptr [ %54, %53 ], [ %56, %55 ], [ %63, %62 ], [ %65, %64 ]
+  %.sink = phi i32 [ 16, %53 ], [ 16, %55 ], [ %58, %62 ], [ %58, %64 ]
   store ptr %.sink74, ptr %.phi.trans.insert.i, align 8, !tbaa !47
   store i32 %.sink, ptr %11, align 8, !tbaa !81
   %.pr = load i32, ptr %12, align 4, !tbaa !79
@@ -843,33 +843,33 @@ Vec_PtrPush.exit43:                               ; preds = %.Vec_PtrGrow.exit11
   %108 = icmp slt i64 %indvars.iv.next54, %107
   br i1 %108, label %21, label %.preheader, !llvm.loop !84
 
-.critedge:                                        ; preds = %.critedge.lr.ph, %.critedge
-  %indvars.iv56 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next57, %.critedge ]
+109:                                              ; preds = %.lr.ph50, %109
+  %indvars.iv56 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next57, %109 ]
   %.val31 = load ptr, ptr %19, align 8, !tbaa !47
-  %109 = getelementptr inbounds nuw ptr, ptr %.val31, i64 %indvars.iv56
-  %110 = load ptr, ptr %109, align 8, !tbaa !49
-  %111 = load ptr, ptr %20, align 8, !tbaa !30
-  %112 = ptrtoint ptr %110 to i64
-  %113 = getelementptr i8, ptr %111, i64 32
-  %.val32 = load ptr, ptr %113, align 8, !tbaa !46
-  %114 = getelementptr i8, ptr %.val32, i64 8
-  %.val32.val = load ptr, ptr %114, align 8, !tbaa !47
-  %sext = shl i64 %112, 32
-  %115 = ashr exact i64 %sext, 29
-  %116 = getelementptr inbounds i8, ptr %.val32.val, i64 %115
-  %117 = load ptr, ptr %116, align 8, !tbaa !49
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 20
-  %119 = load i32, ptr %118, align 4
-  %120 = and i32 %119, -65
-  store i32 %120, ptr %118, align 4
+  %110 = getelementptr inbounds nuw ptr, ptr %.val31, i64 %indvars.iv56
+  %111 = load ptr, ptr %110, align 8, !tbaa !49
+  %112 = load ptr, ptr %20, align 8, !tbaa !30
+  %113 = ptrtoint ptr %111 to i64
+  %114 = getelementptr i8, ptr %112, i64 32
+  %.val32 = load ptr, ptr %114, align 8, !tbaa !46
+  %115 = getelementptr i8, ptr %.val32, i64 8
+  %.val32.val = load ptr, ptr %115, align 8, !tbaa !47
+  %sext = shl i64 %113, 32
+  %116 = ashr exact i64 %sext, 29
+  %117 = getelementptr inbounds i8, ptr %.val32.val, i64 %116
+  %118 = load ptr, ptr %117, align 8, !tbaa !49
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 20
+  %120 = load i32, ptr %119, align 4
+  %121 = and i32 %120, -65
+  store i32 %121, ptr %119, align 4
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 2
-  %121 = or disjoint i64 %indvars.iv.next57, 1
+  %122 = or disjoint i64 %indvars.iv.next57, 1
   %.val36 = load i32, ptr %12, align 4, !tbaa !79
-  %122 = sext i32 %.val36 to i64
-  %123 = icmp slt i64 %121, %122
-  br i1 %123, label %.critedge, label %._crit_edge50, !llvm.loop !85
+  %123 = sext i32 %.val36 to i64
+  %124 = icmp slt i64 %122, %123
+  br i1 %124, label %109, label %.critedge, !llvm.loop !85
 
-._crit_edge50:                                    ; preds = %.critedge, %1, %.preheader
+.critedge:                                        ; preds = %109, %1, %.preheader
   ret void
 }
 
@@ -1108,8 +1108,8 @@ define range(i32 0, 2) i32 @Lpk_NodeCutsCheckDsd(ptr noundef captures(none) %0, 
   br i1 %120, label %.critedge6._crit_edge, label %.critedge2
 
 .critedge6._crit_edge:                            ; preds = %.critedge2, %.critedge6, %118, %.critedge.preheader, %.critedge2.preheader
-  %121 = phi i32 [ %89, %.critedge2.preheader ], [ %89, %118 ], [ %12, %.critedge.preheader ], [ %89, %.critedge6 ], [ %89, %.critedge2 ]
-  %.0 = phi i32 [ 0, %.critedge2.preheader ], [ 1, %118 ], [ 0, %.critedge.preheader ], [ 1, %.critedge6 ], [ 0, %.critedge2 ]
+  %121 = phi i32 [ %89, %.critedge2.preheader ], [ %12, %.critedge.preheader ], [ %89, %118 ], [ %89, %.critedge6 ], [ %89, %.critedge2 ]
+  %.0 = phi i32 [ 0, %.critedge2.preheader ], [ 0, %.critedge.preheader ], [ 1, %118 ], [ 0, %.critedge2 ], [ 1, %.critedge6 ]
   %122 = and i32 %121, 63
   %.not102 = icmp eq i32 %122, 0
   br i1 %.not102, label %.critedge8, label %.lr.ph99
@@ -1318,7 +1318,7 @@ Lpk_NodeCutsOneDominance.exit.thread:             ; preds = %69, %54, %Lpk_NodeC
   br i1 %exitcond97.not, label %Lpk_NodeCutsOneDominance.exit, label %8, !llvm.loop !95
 
 Lpk_NodeCutsOneDominance.exit:                    ; preds = %._crit_edge, %Lpk_NodeCutsOneDominance.exit.thread, %._crit_edge.us.i, %32, %3
-  %.041 = phi i32 [ 1, %._crit_edge.us.i ], [ 0, %3 ], [ 1, %32 ], [ 0, %Lpk_NodeCutsOneDominance.exit.thread ], [ 1, %._crit_edge ]
+  %.041 = phi i32 [ 0, %3 ], [ 1, %32 ], [ 1, %._crit_edge.us.i ], [ 1, %._crit_edge ], [ 0, %Lpk_NodeCutsOneDominance.exit.thread ]
   ret i32 %.041
 }
 
@@ -2202,7 +2202,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %14, %._crit_edge.i.
   br i1 %101, label %81, label %.critedge4, !llvm.loop !117
 
 .critedge4:                                       ; preds = %.critedge6, %2, %.critedge.preheader
-  %.0.lcssa80 = phi i32 [ 0, %2 ], [ %.1.lcssa, %.critedge.preheader ], [ %.1.lcssa, %.critedge6 ]
+  %.0.lcssa80 = phi i32 [ %.1.lcssa, %.critedge.preheader ], [ 0, %2 ], [ %.1.lcssa, %.critedge6 ]
   ret i32 %.0.lcssa80
 }
 
@@ -2439,7 +2439,7 @@ Lpk_NodeCutSignature.exit._crit_edge:             ; preds = %Lpk_NodeCutSignatur
   br i1 %.not81.us, label %.loopexit, label %.lr.ph98.us, !llvm.loop !130
 
 .loopexit:                                        ; preds = %._crit_edge99.us, %55, %.preheader, %._crit_edge94, %1
-  %.076 = phi i32 [ 0, %._crit_edge94 ], [ 0, %1 ], [ 1, %.preheader ], [ 0, %55 ], [ 1, %._crit_edge99.us ]
+  %.076 = phi i32 [ 0, %1 ], [ 0, %._crit_edge94 ], [ 1, %.preheader ], [ 0, %55 ], [ 1, %._crit_edge99.us ]
   ret i32 %.076
 }
 

@@ -177,8 +177,8 @@ define dso_local { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) loca
   br i1 %.not81.us, label %select.unfold.us, label %select.unfold.thread
 
 select.unfold.us:                                 ; preds = %._crit_edge.us, %51
-  %.sroa.028.3.us = phi i64 [ %.sroa.028.5.lcssa.us, %._crit_edge.us ], [ %.sroa.028.1102.us, %51 ]
-  %.sroa.12.3.us = phi ptr [ %.sroa.12.5.lcssa.us, %._crit_edge.us ], [ %.sroa.12.1103.us, %51 ]
+  %.sroa.028.3.us = phi i64 [ %.sroa.028.1102.us, %51 ], [ %.sroa.028.5.lcssa.us, %._crit_edge.us ]
+  %.sroa.12.3.us = phi ptr [ %.sroa.12.1103.us, %51 ], [ %.sroa.12.5.lcssa.us, %._crit_edge.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %91 = call i32 @feof(ptr noundef nonnull %30) #9
   %.not75.us = icmp eq i32 %91, 0
@@ -239,8 +239,8 @@ select.unfold.thread:                             ; preds = %._crit_edge.us
   br label %.critedge
 
 select.unfold:                                    ; preds = %112, %93
-  %.sroa.028.3 = phi i64 [ %115, %112 ], [ %.sroa.028.1102, %93 ]
-  %.sroa.12.3 = phi ptr [ %116, %112 ], [ %.sroa.12.1103, %93 ]
+  %.sroa.028.3 = phi i64 [ %.sroa.028.1102, %93 ], [ %115, %112 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1103, %93 ], [ %116, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %117 = call i32 @feof(ptr noundef nonnull %30) #9
   %.not75 = icmp eq i32 %117, 0

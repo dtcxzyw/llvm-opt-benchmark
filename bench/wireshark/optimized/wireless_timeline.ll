@@ -324,7 +324,7 @@ define noundef i32 @_ZN16WirelessTimeline11find_packetEd(ptr noundef readonly al
   br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.loopexit.i
 
 _ZN16WirelessTimeline15find_packet_tsfEm.exit:    ; preds = %.lr.ph.i, %2, %23, %._crit_edge.loopexit.i, %.thread.i
-  %.0.i = phi i32 [ %22, %23 ], [ %22, %2 ], [ %36, %._crit_edge.loopexit.i ], [ %41, %.thread.i ], [ %.02256.i, %.lr.ph.i ]
+  %.0.i = phi i32 [ %41, %.thread.i ], [ %22, %23 ], [ %36, %._crit_edge.loopexit.i ], [ %22, %2 ], [ %.02256.i, %.lr.ph.i ]
   ret i32 %.0.i
 }
 
@@ -419,8 +419,8 @@ define void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef a
   br label %.sink.split
 
 .sink.split:                                      ; preds = %58, %61, %40, %43
-  %.sink41.sink = phi i64 [ %48, %43 ], [ %41, %40 ], [ %59, %58 ], [ %64, %61 ]
-  %storemerge.sink = phi i64 [ %49, %43 ], [ %42, %40 ], [ %60, %58 ], [ %65, %61 ]
+  %.sink41.sink = phi i64 [ %41, %40 ], [ %48, %43 ], [ %59, %58 ], [ %64, %61 ]
+  %storemerge.sink = phi i64 [ %42, %40 ], [ %49, %43 ], [ %60, %58 ], [ %65, %61 ]
   store i64 %.sink41.sink, ptr %18, align 8
   store i64 %storemerge.sink, ptr %21, align 8
   br label %66
@@ -540,7 +540,7 @@ define noundef i32 @_ZN16WirelessTimeline15find_packet_tsfEm(ptr noundef readonl
   br i1 %.not, label %.lr.ph, label %._crit_edge.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %4, %._crit_edge.loopexit, %.thread
-  %.0 = phi i32 [ %3, %4 ], [ %3, %2 ], [ %17, %._crit_edge.loopexit ], [ %22, %.thread ], [ %.02256, %.lr.ph ]
+  %.0 = phi i32 [ %22, %.thread ], [ %3, %4 ], [ %17, %._crit_edge.loopexit ], [ %3, %2 ], [ %.02256, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -888,7 +888,7 @@ _ZN7QStringD2Ev.exit69:                           ; preds = %94, %_ZN17QArrayDat
   ret void
 
 _ZN5QListIiED2Ev.exit75:                          ; preds = %_ZN7QStringD2Ev.exit44, %_ZN7QStringD2Ev.exit69
-  %.pn23 = phi { ptr, i32 } [ %.pn, %_ZN7QStringD2Ev.exit69 ], [ %.pn20, %_ZN7QStringD2Ev.exit44 ]
+  %.pn23 = phi { ptr, i32 } [ %.pn20, %_ZN7QStringD2Ev.exit44 ], [ %.pn, %_ZN7QStringD2Ev.exit69 ]
   resume { ptr, i32 } %.pn23
 }
 
@@ -2644,7 +2644,7 @@ _ZN16WirelessTimeline8positionEmf.exit214:        ; preds = %236, %_ZN16Wireless
   br i1 %.not.i217, label %.lr.ph.i, label %._crit_edge.loopexit.i
 
 _ZN16WirelessTimeline15find_packet_tsfEm.exit:    ; preds = %.lr.ph.i, %278, %.noexc218, %._crit_edge.loopexit.i, %.thread.i
-  %.0.i216 = phi i32 [ %286, %278 ], [ %286, %.noexc218 ], [ %300, %._crit_edge.loopexit.i ], [ %305, %.thread.i ], [ %.02256.i, %.lr.ph.i ]
+  %.0.i216 = phi i32 [ %305, %.thread.i ], [ %286, %.noexc218 ], [ %300, %._crit_edge.loopexit.i ], [ %286, %278 ], [ %.02256.i, %.lr.ph.i ]
   %313 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
   %.not182282 = icmp ugt i32 %.0.i216, %313
   br i1 %.not182282, label %_ZL14accumulate_rgbPA3_fiiffff.exit, label %.lr.ph
@@ -3098,8 +3098,8 @@ _ZL14accumulate_rgbPA3_fiiffff.exit234:           ; preds = %.lr.ph.i230
   %567 = fptosi float %.0165 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i223, %.loopexit.loopexit288, %_ZN16WirelessTimeline14get_wlan_radioEj.exit221, %388, %351, %380, %363, %551
-  %.1154.ph = phi i32 [ %567, %.loopexit.loopexit288 ], [ %.0153283, %_ZN16WirelessTimeline14get_wlan_radioEj.exit221 ], [ %.3156, %388 ], [ %.0153283, %351 ], [ -1, %551 ], [ %.0153283, %363 ], [ %.3156, %380 ], [ %374, %.lr.ph.i223 ]
+.loopexit:                                        ; preds = %.lr.ph.i223, %.loopexit.loopexit288, %_ZN16WirelessTimeline14get_wlan_radioEj.exit221, %363, %351, %380, %388, %551
+  %.1154.ph = phi i32 [ -1, %551 ], [ %.3156, %388 ], [ %.3156, %380 ], [ %.0153283, %351 ], [ %.0153283, %363 ], [ %.0153283, %_ZN16WirelessTimeline14get_wlan_radioEj.exit221 ], [ %567, %.loopexit.loopexit288 ], [ %374, %.lr.ph.i223 ]
   %568 = add i32 %.0152284, 1
   %569 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
   %.not182 = icmp ugt i32 %568, %569
@@ -3157,7 +3157,7 @@ _ZL14accumulate_rgbPA3_fiiffff.exit:              ; preds = %.loopexit, %378, %_
   br label %593
 
 593:                                              ; preds = %.loopexit278, %.loopexit.split-lp, %347, %376, %462, %549, %349, %591
-  %.pn192 = phi { ptr, i32 } [ %592, %591 ], [ %377, %376 ], [ %348, %347 ], [ %350, %349 ], [ %550, %549 ], [ %.pn186, %462 ], [ %lpad.loopexit, %.loopexit278 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn192 = phi { ptr, i32 } [ %592, %591 ], [ %348, %347 ], [ %350, %349 ], [ %550, %549 ], [ %.pn186, %462 ], [ %377, %376 ], [ %lpad.loopexit, %.loopexit278 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN14QGraphicsSceneD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %17) #19
   br label %594
 
@@ -3167,7 +3167,7 @@ _ZL14accumulate_rgbPA3_fiiffff.exit:              ; preds = %.loopexit, %378, %_
   br label %595
 
 595:                                              ; preds = %113, %117, %267, %273, %275, %594, %271, %269, %119, %115, %111
-  %.pn192.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ %120, %119 ], [ %268, %267 ], [ %.pn192.pn, %594 ], [ %270, %269 ], [ %272, %271 ], [ %276, %275 ], [ %274, %273 ]
+  %.pn192.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ %120, %119 ], [ %268, %267 ], [ %.pn192.pn, %594 ], [ %272, %271 ], [ %270, %269 ], [ %276, %275 ], [ %274, %273 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %596
 
@@ -3263,7 +3263,7 @@ define internal fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef al
   br i1 %44, label %._crit_edge41, label %73
 
 ._crit_edge41:                                    ; preds = %._crit_edge, %41
-  %45 = phi float [ %.pre43, %._crit_edge ], [ 1.000000e+00, %41 ]
+  %45 = phi float [ 1.000000e+00, %41 ], [ %.pre43, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %46 = uitofp nneg i32 %.03637 to double
   %47 = sub nsw i32 %39, %.03637

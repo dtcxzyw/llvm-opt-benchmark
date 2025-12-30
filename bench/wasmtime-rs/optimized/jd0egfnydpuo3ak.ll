@@ -3887,7 +3887,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   br label %"_ZN11wasi_common5sched4Poll23earliest_clock_deadline28_$u7b$$u7b$closure$u7d$$u7d$17h97b2f0d476b08442E.llvm.4732387629674352047.exit"
 
 "_ZN11wasi_common5sched4Poll23earliest_clock_deadline28_$u7b$$u7b$closure$u7d$$u7d$17h97b2f0d476b08442E.llvm.4732387629674352047.exit": ; preds = %3, %11, %13, %19
-  %.0.i.i = phi i8 [ %.9.i.i, %19 ], [ 1, %11 ], [ -1, %13 ], [ -1, %3 ]
+  %.0.i.i = phi i8 [ 1, %11 ], [ %.9.i.i, %19 ], [ -1, %13 ], [ -1, %3 ]
   ret i8 %.0.i.i
 }
 
@@ -5514,7 +5514,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br label %_ZN5alloc3vec16in_place_collect13needs_realloc17h67c3ddfb2a6949bfE.exit.thread
 
 _ZN5alloc3vec16in_place_collect13needs_realloc17h67c3ddfb2a6949bfE.exit.thread: ; preds = %73, %71, %"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17hcc179f2a2cf575e6E.exit", %84
-  %.0 = phi ptr [ inttoptr (i64 8 to ptr), %73 ], [ %86, %84 ], [ %9, %"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17hcc179f2a2cf575e6E.exit" ], [ inttoptr (i64 8 to ptr), %71 ]
+  %.0 = phi ptr [ %86, %84 ], [ %9, %"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_drop_remaining17hcc179f2a2cf575e6E.exit" ], [ inttoptr (i64 8 to ptr), %71 ], [ inttoptr (i64 8 to ptr), %73 ]
   store i64 %11, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -6390,7 +6390,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN70_$LT$std..sys..pal..unix..time..
   br label %.thread
 
 .thread:                                          ; preds = %2, %8, %14, %6
-  %.0 = phi i8 [ %.9, %14 ], [ 1, %6 ], [ -1, %8 ], [ -1, %2 ]
+  %.0 = phi i8 [ 1, %6 ], [ %.9, %14 ], [ -1, %8 ], [ -1, %2 ]
   ret i8 %.0
 }
 
@@ -7694,7 +7694,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN11wasi_common5sched4Poll23earliest
   br label %"_ZN70_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..Ord$GT$3cmp17h9d5113581fb03cb8E.llvm.4732387629674352047.exit"
 
 "_ZN70_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..Ord$GT$3cmp17h9d5113581fb03cb8E.llvm.4732387629674352047.exit": ; preds = %3, %11, %13, %19
-  %.0.i = phi i8 [ %.9.i, %19 ], [ 1, %11 ], [ -1, %13 ], [ -1, %3 ]
+  %.0.i = phi i8 [ 1, %11 ], [ %.9.i, %19 ], [ -1, %13 ], [ -1, %3 ]
   ret i8 %.0.i
 }
 

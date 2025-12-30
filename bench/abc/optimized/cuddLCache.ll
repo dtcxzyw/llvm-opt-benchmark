@@ -426,7 +426,7 @@ ddLCHash.exit.i:                                  ; preds = %.lr.ph.i23.split
   br label %cuddLocalCacheResize.exit
 
 cuddLocalCacheResize.exit:                        ; preds = %34, %44, %.loopexit, %67, %47, %53
-  %.0 = phi ptr [ null, %.loopexit ], [ null, %47 ], [ null, %53 ], [ null, %67 ], [ %.pre, %44 ], [ %28, %34 ]
+  %.0 = phi ptr [ null, %53 ], [ null, %47 ], [ null, %67 ], [ null, %.loopexit ], [ %.pre, %44 ], [ %28, %34 ]
   ret ptr %.0
 }
 
@@ -1336,7 +1336,7 @@ ddLCHash.exit:                                    ; preds = %.lr.ph.i, %2
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit.us, %ddLCHash.exit, %46, %.critedge
-  %.2 = phi ptr [ %30, %46 ], [ %30, %.critedge ], [ null, %ddLCHash.exit ], [ null, %.loopexit.us ]
+  %.2 = phi ptr [ %30, %.critedge ], [ %30, %46 ], [ null, %ddLCHash.exit ], [ null, %.loopexit.us ]
   ret ptr %.2
 }
 
@@ -1478,7 +1478,7 @@ define ptr @cuddHashTableLookup1(ptr noundef captures(none) %0, ptr noundef %1) 
   br label %.thread
 
 .thread:                                          ; preds = %20, %42, %24
-  %.2 = phi ptr [ %26, %42 ], [ %26, %24 ], [ null, %20 ]
+  %.2 = phi ptr [ %26, %24 ], [ %26, %42 ], [ null, %20 ]
   ret ptr %.2
 }
 
@@ -1652,7 +1652,7 @@ define ptr @cuddHashTableLookup2(ptr noundef captures(none) %0, ptr noundef %1, 
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !99
 
 .thread:                                          ; preds = %63, %3, %39, %57
-  %.2 = phi ptr [ %41, %39 ], [ %41, %57 ], [ null, %3 ], [ null, %63 ]
+  %.2 = phi ptr [ %41, %57 ], [ %41, %39 ], [ null, %3 ], [ null, %63 ]
   ret ptr %.2
 }
 
@@ -1854,7 +1854,7 @@ define ptr @cuddHashTableLookup3(ptr noundef captures(none) %0, ptr noundef %1, 
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !100
 
 .thread:                                          ; preds = %78, %4, %54, %72
-  %.2 = phi ptr [ %56, %54 ], [ %56, %72 ], [ null, %4 ], [ null, %78 ]
+  %.2 = phi ptr [ %56, %72 ], [ %56, %54 ], [ null, %4 ], [ null, %78 ]
   ret ptr %.2
 }
 

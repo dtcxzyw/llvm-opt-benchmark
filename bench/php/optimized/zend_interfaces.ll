@@ -208,7 +208,7 @@ define dso_local noundef ptr @zend_call_method(ptr noundef %0, ptr noundef %1, p
   br label %44
 
 44:                                               ; preds = %27, %42, %43
-  %.1 = phi ptr [ %.044, %42 ], [ %.044, %43 ], [ %28, %27 ]
+  %.1 = phi ptr [ %.044, %43 ], [ %.044, %42 ], [ %28, %27 ]
   %.not59 = icmp eq ptr %0, null
   br i1 %.not59, label %48, label %45
 
@@ -369,7 +369,7 @@ i_zend_is_true.exit.loopexit:                     ; preds = %14
   br label %i_zend_is_true.exit
 
 i_zend_is_true.exit:                              ; preds = %14, %i_zend_is_true.exit.loopexit, %17, %19, %22, %28, %29, %32, %33, %37, %44, %46
-  %.0.i = phi i1 [ %.not13.i, %33 ], [ false, %i_zend_is_true.exit.loopexit ], [ %45, %44 ], [ %.not.i, %46 ], [ true, %22 ], [ false, %19 ], [ true, %32 ], [ false, %29 ], [ false, %28 ], [ %.not16.i, %17 ], [ true, %37 ], [ true, %14 ]
+  %.0.i = phi i1 [ true, %22 ], [ false, %19 ], [ true, %32 ], [ false, %29 ], [ false, %28 ], [ %45, %44 ], [ %.not16.i, %17 ], [ %.not13.i, %33 ], [ true, %37 ], [ %.not.i, %46 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %14 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #9
   %not. = xor i1 %.0.i, true
   %53 = sext i1 %not. to i32
@@ -946,7 +946,7 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
   br label %44
 
 44:                                               ; preds = %.sink.split, %27, %34
-  %.0 = phi ptr [ %26, %27 ], [ %36, %34 ], [ %.sink.in, %.sink.split ]
+  %.0 = phi ptr [ %36, %34 ], [ %26, %27 ], [ %.sink.in, %.sink.split ]
   %45 = load ptr, ptr %.0, align 8, !tbaa !4
   %46 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %47 = load i32, ptr %46, align 8, !tbaa !4

@@ -95,7 +95,7 @@ define range(i32 0, 5) i32 @dt_develop_blend_default_module_blend_colorspace(ptr
   br label %_blend_default_module_blend_colorspace.exit
 
 _blend_default_module_blend_colorspace.exit:      ; preds = %1, %7, %11, %12, %14, %15, %16
-  %.0.i = phi i32 [ 0, %16 ], [ 1, %7 ], [ 2, %11 ], [ %13, %12 ], [ 3, %14 ], [ 4, %15 ], [ 0, %1 ]
+  %.0.i = phi i32 [ 0, %16 ], [ 2, %11 ], [ %13, %12 ], [ 3, %14 ], [ 4, %15 ], [ 1, %7 ], [ 0, %1 ]
   ret i32 %.0.i
 }
 
@@ -180,7 +180,7 @@ switch.lookup:                                    ; preds = %5
   br label %10
 
 10:                                               ; preds = %5, %switch.lookup, %2
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ %1, %2 ], [ %1, %5 ]
+  %.0 = phi i32 [ %1, %2 ], [ %switch.load, %switch.lookup ], [ %1, %5 ]
   ret i32 %.0
 }
 
@@ -530,7 +530,7 @@ switch.lookup:                                    ; preds = %85
   br label %dt_develop_blend_colorspace.exit
 
 dt_develop_blend_colorspace.exit:                 ; preds = %85, %switch.lookup, %78
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ -1, %78 ], [ -1, %85 ]
+  %.0.i = phi i32 [ -1, %78 ], [ %switch.load, %switch.lookup ], [ -1, %85 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %91 = load i32, ptr %90, align 4, !tbaa !120
   %92 = icmp ne i32 %91, 0
@@ -589,7 +589,7 @@ dt_develop_blend_colorspace.exit:                 ; preds = %85, %switch.lookup,
   br label %130
 
 130:                                              ; preds = %128, %126, %114
-  %131 = phi i1 [ true, %126 ], [ %129, %128 ], [ false, %114 ]
+  %131 = phi i1 [ %129, %128 ], [ true, %126 ], [ false, %114 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, i8 0, i64 12, i1 false)
   br i1 %101, label %132, label %140
 
@@ -1066,7 +1066,7 @@ _get_feathering_eps.exit:                         ; preds = %246, %249
   br label %338
 
 338:                                              ; preds = %337, %335, %.lr.ph.split.us.split.us.split.us.i
-  %339 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %335 ], [ %333, %337 ], [ 0.000000e+00, %.lr.ph.split.us.split.us.split.us.i ]
+  %339 = phi reassoc nsz arcp contract afn float [ %333, %337 ], [ 1.000000e+00, %335 ], [ 0.000000e+00, %.lr.ph.split.us.split.us.split.us.i ]
   store float %339, ptr %323, align 4, !tbaa !31, !alias.scope !139
   %340 = add nuw i64 %.03946.us.us.us.i, 1
   %exitcond53.not.i = icmp eq i64 %340, %33
@@ -1098,7 +1098,7 @@ _get_feathering_eps.exit:                         ; preds = %246, %249
   br label %356
 
 356:                                              ; preds = %355, %353, %.lr.ph.split.us.split.us.split.i
-  %357 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %353 ], [ %351, %355 ], [ 0.000000e+00, %.lr.ph.split.us.split.us.split.i ]
+  %357 = phi reassoc nsz arcp contract afn float [ %351, %355 ], [ 1.000000e+00, %353 ], [ 0.000000e+00, %.lr.ph.split.us.split.us.split.i ]
   store float %357, ptr %341, align 4, !tbaa !31, !alias.scope !139
   %358 = add nuw i64 %.03946.us.us.i, 1
   %exitcond52.not.i = icmp eq i64 %358, %33
@@ -1124,7 +1124,7 @@ _get_feathering_eps.exit:                         ; preds = %246, %249
   br label %370
 
 370:                                              ; preds = %369, %367, %.lr.ph.split.us.split.i
-  %371 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %367 ], [ %365, %369 ], [ 0.000000e+00, %.lr.ph.split.us.split.i ]
+  %371 = phi reassoc nsz arcp contract afn float [ %365, %369 ], [ 1.000000e+00, %367 ], [ 0.000000e+00, %.lr.ph.split.us.split.i ]
   store float %371, ptr %359, align 4, !tbaa !31, !alias.scope !139
   %372 = add nuw i64 %.03946.us.i, 1
   %exitcond51.not.i = icmp eq i64 %372, %33
@@ -1150,7 +1150,7 @@ _get_feathering_eps.exit:                         ; preds = %246, %249
   br label %384
 
 384:                                              ; preds = %383, %381, %.lr.ph.split.i
-  %385 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %381 ], [ %379, %383 ], [ 0.000000e+00, %.lr.ph.split.i ]
+  %385 = phi reassoc nsz arcp contract afn float [ %379, %383 ], [ 1.000000e+00, %381 ], [ 0.000000e+00, %.lr.ph.split.i ]
   store float %385, ptr %373, align 4, !tbaa !31, !alias.scope !139
   %386 = add nuw i64 %.03946.i, 1
   %exitcond.not.i = icmp eq i64 %386, %33
@@ -1382,7 +1382,7 @@ _detail_mask_threshold.exit:                      ; preds = %6
   br label %45
 
 45:                                               ; preds = %.lr.ph, %44, %42
-  %46 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %42 ], [ %40, %44 ], [ 0.000000e+00, %.lr.ph ]
+  %46 = phi reassoc nsz arcp contract afn float [ %40, %44 ], [ 1.000000e+00, %42 ], [ 0.000000e+00, %.lr.ph ]
   %47 = fmul reassoc nsz arcp contract afn float %46, %38
   store float %47, ptr %37, align 4, !tbaa !31
   %48 = add nuw i64 %.049, 1
@@ -1569,7 +1569,7 @@ define internal fastcc void @_write_highlights_raster(i32 noundef range(i32 0, 2
   br label %68
 
 68:                                               ; preds = %67, %65, %64, %.thread.us.us.us
-  %69 = phi reassoc nsz arcp contract afn float [ %47, %.thread.us.us.us ], [ %61, %64 ], [ %54, %67 ], [ %47, %65 ]
+  %69 = phi reassoc nsz arcp contract afn float [ %54, %67 ], [ %61, %64 ], [ %47, %65 ], [ %47, %.thread.us.us.us ]
   %70 = fadd reassoc nsz arcp contract afn float %69, -1.000000e+00
   %71 = fcmp reassoc nsz arcp contract afn olt float %70, 0.000000e+00
   %72 = select reassoc nsz arcp contract afn i1 %71, float 0.000000e+00, float %70
@@ -1586,7 +1586,7 @@ define internal fastcc void @_write_highlights_raster(i32 noundef range(i32 0, 2
   br label %79
 
 79:                                               ; preds = %78, %76, %68
-  %80 = phi reassoc nsz arcp contract afn float [ 2.000000e+00, %76 ], [ %74, %78 ], [ 0.000000e+00, %68 ]
+  %80 = phi reassoc nsz arcp contract afn float [ %74, %78 ], [ 2.000000e+00, %76 ], [ 0.000000e+00, %68 ]
   %81 = getelementptr inbounds nuw float, ptr %5, i64 %37
   %82 = load float, ptr %81, align 4, !tbaa !31
   %83 = fmul reassoc nsz arcp contract afn float %82, %80
@@ -1641,7 +1641,7 @@ define internal fastcc void @_write_highlights_raster(i32 noundef range(i32 0, 2
   br label %109
 
 109:                                              ; preds = %108, %106, %92
-  %110 = phi reassoc nsz arcp contract afn float [ 2.000000e+00, %106 ], [ %104, %108 ], [ 0.000000e+00, %92 ]
+  %110 = phi reassoc nsz arcp contract afn float [ %104, %108 ], [ 2.000000e+00, %106 ], [ 0.000000e+00, %92 ]
   %111 = getelementptr inbounds nuw float, ptr %5, i64 %90
   %112 = load float, ptr %111, align 4, !tbaa !31
   %113 = fmul reassoc nsz arcp contract afn float %112, %110
@@ -2856,7 +2856,7 @@ _fix_masks_combine.exit396:                       ; preds = %417, %420, %.sink.s
   br label %_fix_masks_combine.exit
 
 _fix_masks_combine.exit:                          ; preds = %.sink.split.i390, %407, %399, %.sink.split.i386, %332, %324, %.sink.split.i382, %271, %235, %.sink.split.i378, %225, %201, %.sink.split.i374, %191, %167, %.sink.split.i, %157, %130, %438, %416, %341, %280, %234, %200, %166, %129, %103, %76, %44, %25, %447, %434, %104, %_blend_legacy_blend_mode.exit371, %68, %_blend_legacy_blend_mode.exit, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ 1, %438 ], [ 0, %_blend_legacy_blend_mode.exit ], [ 1, %25 ], [ 0, %68 ], [ 1, %44 ], [ 0, %_blend_legacy_blend_mode.exit371 ], [ 1, %76 ], [ 0, %104 ], [ 1, %103 ], [ 0, %447 ], [ 1, %129 ], [ 0, %.sink.split.i ], [ 1, %166 ], [ 0, %.sink.split.i374 ], [ 1, %200 ], [ 0, %.sink.split.i378 ], [ 1, %234 ], [ 0, %.sink.split.i382 ], [ 1, %280 ], [ 0, %.sink.split.i386 ], [ 1, %341 ], [ 0, %434 ], [ 1, %416 ], [ 0, %130 ], [ 0, %157 ], [ 0, %167 ], [ 0, %191 ], [ 0, %201 ], [ 0, %225 ], [ 0, %235 ], [ 0, %271 ], [ 0, %324 ], [ 0, %332 ], [ 0, %399 ], [ 0, %407 ], [ 0, %.sink.split.i390 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %_blend_legacy_blend_mode.exit ], [ 0, %68 ], [ 0, %_blend_legacy_blend_mode.exit371 ], [ 0, %104 ], [ 0, %434 ], [ 0, %447 ], [ 1, %25 ], [ 1, %44 ], [ 1, %76 ], [ 1, %103 ], [ 1, %129 ], [ 1, %166 ], [ 1, %200 ], [ 1, %234 ], [ 1, %280 ], [ 1, %341 ], [ 1, %416 ], [ 1, %438 ], [ 0, %130 ], [ 0, %157 ], [ 0, %.sink.split.i ], [ 0, %167 ], [ 0, %191 ], [ 0, %.sink.split.i374 ], [ 0, %201 ], [ 0, %225 ], [ 0, %.sink.split.i378 ], [ 0, %235 ], [ 0, %271 ], [ 0, %.sink.split.i382 ], [ 0, %324 ], [ 0, %332 ], [ 0, %.sink.split.i386 ], [ 0, %399 ], [ 0, %407 ], [ 0, %.sink.split.i390 ]
   ret i32 %.0
 }
 

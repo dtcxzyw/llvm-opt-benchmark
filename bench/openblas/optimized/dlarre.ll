@@ -84,8 +84,8 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %64
 
 64:                                               ; preds = %62, %60, %58
-  %65 = phi i1 [ false, %62 ], [ false, %58 ], [ true, %60 ]
-  %66 = phi i1 [ true, %62 ], [ false, %58 ], [ false, %60 ]
+  %65 = phi i1 [ false, %58 ], [ true, %60 ], [ false, %62 ]
+  %66 = phi i1 [ false, %58 ], [ false, %60 ], [ true, %62 ]
   store i32 0, ptr %14, align 4, !tbaa !3
   %67 = tail call double @dlamch_(ptr noundef nonnull @.str.3) #5
   %68 = tail call double @dlamch_(ptr noundef nonnull @.str.4) #5
@@ -435,7 +435,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %exitcond962.not, label %._crit_edge848, label %.lr.ph847, !llvm.loop !13
 
 ._crit_edge848:                                   ; preds = %.lr.ph847, %230
-  %.2717.lcssa = phi i32 [ %225, %230 ], [ %.2717845, %.lr.ph847 ]
+  %.2717.lcssa = phi i32 [ %.2717845, %.lr.ph847 ], [ %225, %230 ]
   %232 = icmp eq i32 %.2717.lcssa, 0
   br i1 %232, label %._crit_edge848.thread, label %233
 
@@ -685,8 +685,8 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.thread798
 
 367:                                              ; preds = %360, %352, %342
-  %.0723 = phi double [ %343, %342 ], [ %363, %360 ], [ %355, %352 ]
-  %.0711 = phi double [ 1.000000e+00, %342 ], [ -1.000000e+00, %360 ], [ 1.000000e+00, %352 ]
+  %.0723 = phi double [ %343, %342 ], [ %355, %352 ], [ %363, %360 ]
+  %.0711 = phi double [ 1.000000e+00, %342 ], [ 1.000000e+00, %352 ], [ -1.000000e+00, %360 ]
   br i1 %.not770, label %.thread798, label %.thread808
 
 .thread808:                                       ; preds = %356, %364, %367

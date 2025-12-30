@@ -366,7 +366,7 @@ define internal range(i32 -1, 1) i32 @_match_inode(ptr noundef writeonly capture
   br label %21
 
 21:                                               ; preds = %5, %8, %20
-  %.0 = phi i32 [ 0, %8 ], [ 0, %20 ], [ -1, %5 ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %8 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -474,7 +474,7 @@ define dso_local range(i32 -1, 1) i32 @find_pid_by_inode(ptr noundef writeonly c
   %47 = call i32 @closedir(ptr noundef nonnull %29)
   br label %.backedge.sink.split
 
-.critedge17:                                      ; preds = %46, %43
+.critedge17:                                      ; preds = %43, %46
   %48 = call i32 @closedir(ptr noundef nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

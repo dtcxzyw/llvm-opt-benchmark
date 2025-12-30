@@ -142,8 +142,8 @@ strcpy_sx.exit50:                                 ; preds = %strcpy_sx.exit.tail
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %18, %44, %46, %20, %13, %9, %4
-  %.031 = phi ptr [ null, %9 ], [ null, %13 ], [ %45, %44 ], [ null, %46 ], [ null, %4 ], [ null, %20 ], [ null, %18 ], [ %43, %._crit_edge ]
-  %.030 = phi i32 [ 3, %9 ], [ 3, %13 ], [ 0, %44 ], [ 2, %46 ], [ 3, %4 ], [ 1, %20 ], [ 1, %18 ], [ 0, %._crit_edge ]
+  %.031 = phi ptr [ null, %9 ], [ null, %13 ], [ %45, %44 ], [ null, %46 ], [ null, %20 ], [ null, %4 ], [ null, %18 ], [ %43, %._crit_edge ]
+  %.030 = phi i32 [ 3, %9 ], [ 3, %13 ], [ 0, %44 ], [ 2, %46 ], [ 1, %20 ], [ 3, %4 ], [ 1, %18 ], [ 0, %._crit_edge ]
   %.not47 = icmp eq ptr %1, null
   br i1 %.not47, label %50, label %49
 
@@ -405,10 +405,10 @@ get_token.exit45:                                 ; preds = %45, %47
   %63 = call i32 (i32, ptr, ...) @set_error(i32 noundef 7, ptr noundef nonnull @.str.12, ptr noundef %62, ptr noundef nonnull %3, ptr noundef nonnull %storemerge.i44, ptr noundef nonnull %.052)
   br label %.thread
 
-.thread:                                          ; preds = %29, %52, %56, %60, %33, %5
-  %.030 = phi ptr [ null, %5 ], [ %.0.i39, %33 ], [ %.0.i39, %52 ], [ %.0.i39, %60 ], [ %.0.i39, %56 ], [ %.0.i39, %29 ]
-  %64 = phi i1 [ false, %5 ], [ false, %33 ], [ false, %52 ], [ false, %60 ], [ false, %56 ], [ true, %29 ]
-  %.028 = phi i32 [ 3, %5 ], [ 6, %33 ], [ 6, %52 ], [ 7, %60 ], [ 7, %56 ], [ 0, %29 ]
+.thread:                                          ; preds = %29, %56, %52, %60, %33, %5
+  %.030 = phi ptr [ null, %5 ], [ %.0.i39, %33 ], [ %.0.i39, %60 ], [ %.0.i39, %52 ], [ %.0.i39, %56 ], [ %.0.i39, %29 ]
+  %64 = phi i1 [ false, %5 ], [ false, %33 ], [ false, %60 ], [ false, %52 ], [ false, %56 ], [ true, %29 ]
+  %.028 = phi i32 [ 3, %5 ], [ 6, %33 ], [ 7, %60 ], [ 6, %52 ], [ 7, %56 ], [ 0, %29 ]
   %.not34 = icmp eq ptr %1, null
   br i1 %.not34, label %66, label %65
 

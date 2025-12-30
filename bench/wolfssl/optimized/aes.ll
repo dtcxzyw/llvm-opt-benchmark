@@ -793,7 +793,7 @@ xorbuf.exit:                                      ; preds = %.lr.ph38.i, %.lr.ph
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !24
 
 .loopexit:                                        ; preds = %xorbuf.exit, %50, %xorbuf.exit.us, %33, %11, %9, %4
-  %.021 = phi i32 [ 0, %9 ], [ -173, %4 ], [ %32, %xorbuf.exit.us ], [ 0, %11 ], [ 0, %33 ], [ %49, %xorbuf.exit ], [ 0, %50 ]
+  %.021 = phi i32 [ -173, %4 ], [ 0, %9 ], [ 0, %11 ], [ %32, %xorbuf.exit.us ], [ 0, %33 ], [ %49, %xorbuf.exit ], [ 0, %50 ]
   ret i32 %.021
 }
 
@@ -3745,7 +3745,7 @@ xorbuf.exit:                                      ; preds = %.lr.ph38.i, %.lr.ph
   br i1 %.not33, label %wc_AesDecrypt.exit, label %77, !llvm.loop !26
 
 wc_AesDecrypt.exit:                               ; preds = %77, %xorbuf.exit, %11, %9, %4
-  %.025 = phi i32 [ -173, %11 ], [ -173, %4 ], [ 0, %9 ], [ -226, %77 ], [ 0, %xorbuf.exit ]
+  %.025 = phi i32 [ -173, %4 ], [ 0, %9 ], [ -173, %11 ], [ -226, %77 ], [ 0, %xorbuf.exit ]
   ret i32 %.025
 }
 
@@ -5459,14 +5459,14 @@ xorbufout.exit99.i:                               ; preds = %.lr.ph52.i71.i, %.l
   br i1 %exitcond.not.i103.i, label %AES_GCM_encrypt_C.exit, label %.lr.ph38.i.i, !llvm.loop !20
 
 AES_GCM_encrypt_C.exit:                           ; preds = %IncrementGcmCounter.exit.i, %.lr.ph38.i.i, %IncrementGcmCounter.exit63.i, %xorbufout.exit99.i, %107, %.loopexit.i111.i
-  %.040.i = phi i32 [ %109, %107 ], [ 0, %.lr.ph38.i.i ], [ %76, %IncrementGcmCounter.exit63.i ], [ 0, %xorbufout.exit99.i ], [ 0, %.loopexit.i111.i ], [ %44, %IncrementGcmCounter.exit.i ]
+  %.040.i = phi i32 [ %76, %IncrementGcmCounter.exit63.i ], [ %109, %107 ], [ 0, %xorbufout.exit99.i ], [ 0, %.loopexit.i111.i ], [ 0, %.lr.ph38.i.i ], [ %44, %IncrementGcmCounter.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %127
 
 127:                                              ; preds = %10, %17, %20, %AES_GCM_encrypt_C.exit
-  %.0 = phi i32 [ %.040.i, %AES_GCM_encrypt_C.exit ], [ -173, %10 ], [ -173, %20 ], [ -173, %17 ]
+  %.0 = phi i32 [ %.040.i, %AES_GCM_encrypt_C.exit ], [ -173, %20 ], [ -173, %17 ], [ -173, %10 ]
   ret i32 %.0
 }
 
@@ -5852,7 +5852,7 @@ define i32 @wc_AesGcmSetIV(ptr noundef %0, i32 noundef %1, ptr noundef readonly 
   br label %.thread32
 
 .thread32:                                        ; preds = %8, %12, %9, %5, %23, %._crit_edge
-  %.134 = phi i32 [ %21, %._crit_edge ], [ 0, %23 ], [ -173, %5 ], [ -173, %8 ], [ -173, %9 ], [ -173, %12 ]
+  %.134 = phi i32 [ 0, %23 ], [ %21, %._crit_edge ], [ -173, %5 ], [ -173, %8 ], [ -173, %9 ], [ -173, %12 ]
   ret i32 %.134
 }
 
@@ -5931,7 +5931,7 @@ define range(i32 -260, 1) i32 @wc_AesGcmEncrypt_ex(ptr noundef %0, ptr noundef %
   br i1 %.not.i, label %.preheader, label %IncCtr.exit, !llvm.loop !43
 
 IncCtr.exit:                                      ; preds = %41, %.preheader, %29, %21, %18, %17, %13, %10, %34
-  %.2 = phi i32 [ -173, %13 ], [ %37, %34 ], [ -260, %29 ], [ -173, %10 ], [ -173, %21 ], [ -173, %18 ], [ -173, %17 ], [ 0, %.preheader ], [ 0, %41 ]
+  %.2 = phi i32 [ %37, %34 ], [ -173, %21 ], [ -173, %18 ], [ -173, %17 ], [ -173, %13 ], [ -173, %10 ], [ -260, %29 ], [ 0, %.preheader ], [ 0, %41 ]
   ret i32 %.2
 }
 
@@ -5978,8 +5978,8 @@ define i32 @wc_Gmac(ptr noundef readonly captures(address_is_null) %0, i32 nound
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %wc_AesGcmSetKey.exit.thread
 
-wc_AesGcmSetKey.exit.thread:                      ; preds = %20, %21, %24
-  %.019.i.ph = phi i32 [ %26, %24 ], [ %22, %21 ], [ -173, %20 ]
+wc_AesGcmSetKey.exit.thread:                      ; preds = %20, %24, %21
+  %.019.i.ph = phi i32 [ %22, %21 ], [ %26, %24 ], [ -173, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.preheader23.i.i
 
@@ -6029,7 +6029,7 @@ wc_AesGcmSetKey.exit.thread:                      ; preds = %20, %21, %24
   br i1 %.not.i.i, label %.preheader.i, label %.preheader23.i.i, !llvm.loop !43
 
 .preheader23.i.i:                                 ; preds = %.preheader.i, %44, %33, %wc_AesGcmSetKey.exit.thread, %29, %28
-  %.1 = phi i32 [ %.019.i.ph, %wc_AesGcmSetKey.exit.thread ], [ -173, %28 ], [ %40, %33 ], [ %31, %29 ], [ 0, %44 ], [ 0, %.preheader.i ]
+  %.1 = phi i32 [ %40, %33 ], [ -173, %28 ], [ %31, %29 ], [ %.019.i.ph, %wc_AesGcmSetKey.exit.thread ], [ 0, %44 ], [ 0, %.preheader.i ]
   br label %.lr.ph29.i.i
 
 .lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i, %.preheader23.i.i
@@ -6158,8 +6158,8 @@ define range(i32 -226, 1) i32 @wc_GmacVerify(ptr noundef readonly captures(addre
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %wc_AesGcmSetKey.exit.thread
 
-wc_AesGcmSetKey.exit.thread:                      ; preds = %19, %20, %23
-  %.019.i.ph = phi i32 [ %25, %23 ], [ %21, %20 ], [ -173, %19 ]
+wc_AesGcmSetKey.exit.thread:                      ; preds = %19, %23, %20
+  %.019.i.ph = phi i32 [ %21, %20 ], [ %25, %23 ], [ -173, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.preheader23.i.i
 
@@ -6183,7 +6183,7 @@ wc_AesGcmSetKey.exit.thread:                      ; preds = %19, %20, %23
   br i1 %.not, label %wc_AesFree.exit, label %.lr.ph29.i.i, !llvm.loop !44
 
 wc_AesFree.exit:                                  ; preds = %.lr.ph29.i.i, %8, %13
-  %.027 = phi i32 [ -173, %8 ], [ -173, %13 ], [ %.0, %.lr.ph29.i.i ]
+  %.027 = phi i32 [ -173, %13 ], [ -173, %8 ], [ %.0, %.lr.ph29.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.027
 }
@@ -6221,7 +6221,7 @@ define range(i32 -226, 1) i32 @wc_GmacSetKey(ptr noundef %0, ptr noundef readonl
   br label %wc_AesGcmSetKey.exit
 
 wc_AesGcmSetKey.exit:                             ; preds = %7, %8, %11, %15
-  %.019.i = phi i32 [ -173, %7 ], [ %9, %8 ], [ 0, %15 ], [ %13, %11 ]
+  %.019.i = phi i32 [ -173, %7 ], [ 0, %15 ], [ %13, %11 ], [ %9, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %16
 

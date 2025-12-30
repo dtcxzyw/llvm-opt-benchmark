@@ -868,7 +868,7 @@ define internal i32 @dissect_lat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %205
 
 205:                                              ; preds = %.loopexit.i.i.i, %193, %183, %173
-  %.1.i.i.i = phi i32 [ %202, %173 ], [ %190, %193 ], [ %184, %183 ], [ %204, %.loopexit.i.i.i ]
+  %.1.i.i.i = phi i32 [ %202, %173 ], [ %184, %183 ], [ %190, %193 ], [ %204, %.loopexit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %206 = add i32 %.1.i.i.i, %167

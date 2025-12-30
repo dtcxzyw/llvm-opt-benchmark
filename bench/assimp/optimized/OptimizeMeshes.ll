@@ -426,7 +426,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %111, %87, %99
-  %.1 = phi i32 [ %.02236, %87 ], [ %.02236, %99 ], [ %104, %111 ], [ %104, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %.1 = phi i32 [ %.02236, %99 ], [ %.02236, %87 ], [ %104, %111 ], [ %104, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %136 = load i32, ptr %4, align 8
   %137 = zext i32 %136 to i64
@@ -850,11 +850,11 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit: ; preds = %121, %_ZNSt6vecto
   store i32 %164, ptr %4, align 8
   br label %_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj.exit.thread
 
-_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj.exit.thread: ; preds = %98, %88, %93, %81, %115, %64, %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit, %_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj.exit, %.lr.ph
-  %165 = phi i32 [ %164, %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit ], [ %54, %_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj.exit ], [ %54, %.lr.ph ], [ %54, %64 ], [ %54, %115 ], [ %54, %81 ], [ %54, %93 ], [ %54, %88 ], [ %54, %98 ]
-  %.143 = phi i32 [ %152, %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit ], [ %.04276, %_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj.exit ], [ %.04276, %.lr.ph ], [ %.04276, %64 ], [ %.04276, %115 ], [ %.04276, %81 ], [ %.04276, %93 ], [ %.04276, %88 ], [ %.04276, %98 ]
-  %.141 = phi i32 [ %155, %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit ], [ %.04077, %_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj.exit ], [ %.04077, %.lr.ph ], [ %.04077, %64 ], [ %.04077, %115 ], [ %.04077, %81 ], [ %.04077, %93 ], [ %.04077, %88 ], [ %.04077, %98 ]
-  %.1 = phi i32 [ %.039.in78, %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit ], [ %.03979, %_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj.exit ], [ %.03979, %.lr.ph ], [ %.03979, %64 ], [ %.03979, %115 ], [ %.03979, %81 ], [ %.03979, %93 ], [ %.03979, %88 ], [ %.03979, %98 ]
+_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj.exit.thread: ; preds = %115, %93, %98, %81, %88, %64, %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit, %_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj.exit, %.lr.ph
+  %165 = phi i32 [ %164, %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit ], [ %54, %_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj.exit ], [ %54, %.lr.ph ], [ %54, %64 ], [ %54, %88 ], [ %54, %81 ], [ %54, %98 ], [ %54, %93 ], [ %54, %115 ]
+  %.143 = phi i32 [ %152, %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit ], [ %.04276, %_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj.exit ], [ %.04276, %.lr.ph ], [ %.04276, %64 ], [ %.04276, %88 ], [ %.04276, %81 ], [ %.04276, %98 ], [ %.04276, %93 ], [ %.04276, %115 ]
+  %.141 = phi i32 [ %155, %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit ], [ %.04077, %_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj.exit ], [ %.04077, %.lr.ph ], [ %.04077, %64 ], [ %.04077, %88 ], [ %.04077, %81 ], [ %.04077, %98 ], [ %.04077, %93 ], [ %.04077, %115 ]
+  %.1 = phi i32 [ %.039.in78, %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit ], [ %.03979, %_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj.exit ], [ %.03979, %.lr.ph ], [ %.03979, %64 ], [ %.03979, %88 ], [ %.03979, %81 ], [ %.03979, %98 ], [ %.03979, %93 ], [ %.03979, %115 ]
   %.039 = add i32 %.1, 1
   %166 = icmp ult i32 %.039, %165
   br i1 %166, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
@@ -1338,7 +1338,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj
   br label %67
 
 67:                                               ; preds = %35, %27, %45, %40, %63, %66, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %63 ], [ false, %27 ], [ false, %40 ], [ %not., %66 ], [ false, %35 ], [ false, %45 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %35 ], [ false, %27 ], [ false, %45 ], [ false, %40 ], [ false, %63 ], [ %not., %66 ]
   ret i1 %.0
 }
 

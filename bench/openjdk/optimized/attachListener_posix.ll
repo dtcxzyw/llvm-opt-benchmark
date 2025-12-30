@@ -174,7 +174,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN19PosixAttachListener4initEv() lo
   br label %.critedge26
 
 .critedge26:                                      ; preds = %8, %16, %13, %.critedge.thread29, %.critedge.thread, %26
-  %.019 = phi i32 [ 0, %.critedge.thread29 ], [ -1, %13 ], [ -1, %26 ], [ -1, %.critedge.thread ], [ -1, %16 ], [ -1, %8 ]
+  %.019 = phi i32 [ -1, %26 ], [ -1, %.critedge.thread ], [ 0, %.critedge.thread29 ], [ -1, %13 ], [ -1, %16 ], [ -1, %8 ]
   ret i32 %.019
 }
 
@@ -361,8 +361,8 @@ define hidden noundef ptr @_ZN19PosixAttachListener12read_requestEi(i32 noundef 
   br i1 %48, label %7, label %49, !llvm.loop !12
 
 49:                                               ; preds = %.critedge, %._crit_edge
-  %.147 = phi i64 [ %.046, %.critedge ], [ %45, %._crit_edge ]
-  %.1 = phi i32 [ %.044, %.critedge ], [ %.2.lcssa, %._crit_edge ]
+  %.147 = phi i64 [ %45, %._crit_edge ], [ %.046, %.critedge ]
+  %.1 = phi i32 [ %.2.lcssa, %._crit_edge ], [ %.044, %.critedge ]
   %.not56 = icmp eq i32 %.1, 5
   br i1 %.not56, label %50, label %_ZN19PosixAttachListener11write_fullyEiPcm.exit
 
@@ -477,7 +477,7 @@ _ZN15AttachOperation7set_argEiPc.exit:            ; preds = %82
   br label %_ZN19PosixAttachListener11write_fullyEiPcm.exit
 
 _ZN19PosixAttachListener11write_fullyEiPcm.exit:  ; preds = %.critedge, %41, %35, %_ZN16ArgumentIterator4nextEv.exit, %55, %62, %49, %90, %85
-  %.0 = phi ptr [ null, %55 ], [ null, %41 ], [ null, %49 ], [ null, %85 ], [ %67, %90 ], [ null, %62 ], [ null, %_ZN16ArgumentIterator4nextEv.exit ], [ null, %35 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %85 ], [ %67, %90 ], [ null, %49 ], [ null, %62 ], [ null, %55 ], [ null, %_ZN16ArgumentIterator4nextEv.exit ], [ null, %35 ], [ null, %41 ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -1096,7 +1096,7 @@ define hidden noundef zeroext i1 @_ZN14AttachListener15is_init_triggerEv() local
   br label %.critedge10.thread
 
 .critedge10.thread:                               ; preds = %.critedge2, %31, %.critedge10, %42, %40, %39, %37, %0, %5
-  %.07 = phi i1 [ true, %39 ], [ false, %0 ], [ false, %5 ], [ true, %37 ], [ false, %40 ], [ false, %42 ], [ false, %.critedge10 ], [ false, %31 ], [ false, %.critedge2 ]
+  %.07 = phi i1 [ false, %5 ], [ false, %0 ], [ true, %37 ], [ true, %39 ], [ false, %40 ], [ false, %42 ], [ false, %.critedge10 ], [ false, %31 ], [ false, %.critedge2 ]
   ret i1 %.07
 }
 

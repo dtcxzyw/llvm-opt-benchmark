@@ -379,7 +379,7 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   %.pre = load ptr, ptr %14, align 8, !tbaa !4
   br label %156
 
-.thread161:                                       ; preds = %145, %141, %133, %131, %152
+.thread161:                                       ; preds = %131, %133, %141, %145, %152
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.thread155
 
@@ -542,11 +542,11 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   call void @BIO_ADDR_free(ptr noundef %52) #10
   br label %247
 
-.thread155:                                       ; preds = %..thread155_crit_edge, %120, %116, %109, %87, %75, %80, %102, %108, %94, %.thread161, %.thread, %213, %204, %189, %185, %179, %171, %51, %45, %35, %28, %196
-  %237 = phi ptr [ null, %28 ], [ %2, %213 ], [ %.pre164, %..thread155_crit_edge ], [ null, %204 ], [ null, %196 ], [ null, %189 ], [ null, %185 ], [ null, %179 ], [ null, %171 ], [ null, %.thread161 ], [ null, %109 ], [ null, %.thread ], [ null, %35 ], [ null, %51 ], [ null, %45 ], [ null, %94 ], [ null, %108 ], [ null, %102 ], [ null, %80 ], [ null, %75 ], [ null, %87 ], [ null, %116 ], [ null, %120 ]
-  %.099 = phi ptr [ null, %28 ], [ %187, %213 ], [ %187, %..thread155_crit_edge ], [ %187, %204 ], [ %187, %196 ], [ %187, %189 ], [ %187, %185 ], [ null, %179 ], [ null, %171 ], [ null, %.thread161 ], [ null, %109 ], [ null, %.thread ], [ null, %35 ], [ null, %51 ], [ null, %45 ], [ null, %94 ], [ null, %108 ], [ null, %102 ], [ null, %80 ], [ null, %75 ], [ null, %87 ], [ null, %116 ], [ null, %120 ]
-  %.098 = phi ptr [ null, %28 ], [ %52, %213 ], [ %52, %..thread155_crit_edge ], [ %52, %204 ], [ %52, %196 ], [ %52, %189 ], [ %52, %185 ], [ %52, %179 ], [ %52, %171 ], [ %52, %.thread161 ], [ %52, %109 ], [ %52, %.thread ], [ null, %35 ], [ %52, %51 ], [ null, %45 ], [ %52, %94 ], [ %52, %108 ], [ %52, %102 ], [ %52, %80 ], [ %52, %75 ], [ %52, %87 ], [ %52, %116 ], [ %52, %120 ]
-  %.096 = phi ptr [ null, %28 ], [ %.197, %213 ], [ %.197, %..thread155_crit_edge ], [ %.197, %204 ], [ %.197, %196 ], [ %.197, %189 ], [ %.197, %185 ], [ %.197, %179 ], [ %.197, %171 ], [ %.197, %.thread161 ], [ %.197, %109 ], [ %.197, %.thread ], [ %37, %35 ], [ %.197, %51 ], [ %.197, %45 ], [ %.197, %94 ], [ %.197, %108 ], [ %.197, %102 ], [ %.197, %80 ], [ %.197, %75 ], [ %.197, %87 ], [ %.197, %116 ], [ %.197, %120 ]
+.thread155:                                       ; preds = %..thread155_crit_edge, %120, %116, %109, %94, %80, %87, %75, %102, %108, %.thread161, %.thread, %213, %204, %189, %185, %179, %171, %51, %45, %35, %28, %196
+  %237 = phi ptr [ null, %28 ], [ %2, %213 ], [ %.pre164, %..thread155_crit_edge ], [ null, %204 ], [ null, %196 ], [ null, %189 ], [ null, %185 ], [ null, %179 ], [ null, %171 ], [ null, %51 ], [ null, %45 ], [ null, %35 ], [ null, %.thread ], [ null, %.thread161 ], [ null, %108 ], [ null, %102 ], [ null, %75 ], [ null, %87 ], [ null, %80 ], [ null, %94 ], [ null, %109 ], [ null, %116 ], [ null, %120 ]
+  %.099 = phi ptr [ null, %28 ], [ %187, %213 ], [ %187, %..thread155_crit_edge ], [ %187, %204 ], [ %187, %196 ], [ %187, %189 ], [ %187, %185 ], [ null, %179 ], [ null, %171 ], [ null, %51 ], [ null, %45 ], [ null, %35 ], [ null, %.thread ], [ null, %.thread161 ], [ null, %108 ], [ null, %102 ], [ null, %75 ], [ null, %87 ], [ null, %80 ], [ null, %94 ], [ null, %109 ], [ null, %116 ], [ null, %120 ]
+  %.098 = phi ptr [ null, %28 ], [ %52, %213 ], [ %52, %..thread155_crit_edge ], [ %52, %204 ], [ %52, %196 ], [ %52, %189 ], [ %52, %185 ], [ %52, %179 ], [ %52, %171 ], [ %52, %51 ], [ null, %45 ], [ null, %35 ], [ %52, %.thread ], [ %52, %.thread161 ], [ %52, %108 ], [ %52, %102 ], [ %52, %75 ], [ %52, %87 ], [ %52, %80 ], [ %52, %94 ], [ %52, %109 ], [ %52, %116 ], [ %52, %120 ]
+  %.096 = phi ptr [ null, %28 ], [ %.197, %213 ], [ %.197, %..thread155_crit_edge ], [ %.197, %204 ], [ %.197, %196 ], [ %.197, %189 ], [ %.197, %185 ], [ %.197, %179 ], [ %.197, %171 ], [ %.197, %51 ], [ %.197, %45 ], [ %37, %35 ], [ %.197, %.thread ], [ %.197, %.thread161 ], [ %.197, %108 ], [ %.197, %102 ], [ %.197, %75 ], [ %.197, %87 ], [ %.197, %80 ], [ %.197, %94 ], [ %.197, %109 ], [ %.197, %116 ], [ %.197, %120 ]
   call void @SSL_CTX_free(ptr noundef %237) #10
   call void @BIO_ADDR_free(ptr noundef %.098) #10
   %238 = load ptr, ptr %13, align 8, !tbaa !4
@@ -577,7 +577,7 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   br label %247
 
 247:                                              ; preds = %244, %246, %24, %10, %236
-  %.0100 = phi i32 [ 0, %10 ], [ 1, %236 ], [ 0, %24 ], [ 0, %246 ], [ 0, %244 ]
+  %.0100 = phi i32 [ 1, %236 ], [ 0, %10 ], [ 0, %24 ], [ 0, %246 ], [ 0, %244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -777,7 +777,7 @@ define dso_local ptr @qtest_get_bio_method() local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %2, %0, %21
-  %.07 = phi ptr [ %1, %0 ], [ %22, %21 ], [ null, %2 ]
+  %.07 = phi ptr [ %22, %21 ], [ %1, %0 ], [ null, %2 ]
   ret ptr %.07
 }
 
@@ -1022,7 +1022,7 @@ ossl_time_from_timeval.exit:                      ; preds = %30, %27, %25
   br label %41
 
 41:                                               ; preds = %39, %40, %ossl_time_from_timeval.exit, %18, %8, %13, %2, %6
-  %.0 = phi i32 [ 1, %8 ], [ 1, %2 ], [ 0, %18 ], [ 0, %ossl_time_from_timeval.exit ], [ 1, %6 ], [ 1, %13 ], [ 1, %40 ], [ 1, %39 ]
+  %.0 = phi i32 [ 1, %6 ], [ 1, %2 ], [ 1, %13 ], [ 1, %8 ], [ 0, %18 ], [ 0, %ossl_time_from_timeval.exit ], [ 1, %40 ], [ 1, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -1123,9 +1123,9 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_connection_ex(ptr nounde
   br label %32
 
 32:                                               ; preds = %20, %29, %31, %28, %26, %.critedge
-  %.179 = phi i32 [ %.078, %.critedge ], [ 0, %28 ], [ 0, %20 ], [ 1, %31 ], [ 0, %29 ], [ 0, %26 ]
-  %.274 = phi i32 [ %.173, %.critedge ], [ %.173, %28 ], [ %.173, %20 ], [ %.173, %31 ], [ %.173, %29 ], [ 1, %26 ]
-  %.2 = phi i32 [ %.1, %.critedge ], [ 1, %28 ], [ %21, %20 ], [ %21, %31 ], [ %21, %29 ], [ 1, %26 ]
+  %.179 = phi i32 [ %.078, %.critedge ], [ 0, %28 ], [ 1, %31 ], [ 0, %29 ], [ 0, %20 ], [ 0, %26 ]
+  %.274 = phi i32 [ %.173, %.critedge ], [ %.173, %28 ], [ %.173, %31 ], [ %.173, %29 ], [ %.173, %20 ], [ 1, %26 ]
+  %.2 = phi i32 [ %.1, %.critedge ], [ 1, %28 ], [ %21, %31 ], [ %21, %29 ], [ %21, %20 ], [ 1, %26 ]
   %33 = load ptr, ptr @fake_now_lock, align 8, !tbaa !42
   %34 = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %33) #10
   %.not.i = icmp eq i32 %34, 0
@@ -1254,7 +1254,7 @@ qtest_add_time.exit:                              ; preds = %32, %35
   br label %.loopexit
 
 .loopexit:                                        ; preds = %64, %51, %.thread, %.critedge19.thread, %83, %70, %76, %11, %5, %60
-  %.081 = phi i32 [ 0, %5 ], [ 0, %60 ], [ 0, %.critedge19.thread ], [ 1, %83 ], [ 0, %76 ], [ 0, %70 ], [ 0, %.thread ], [ 0, %11 ], [ 0, %51 ], [ 0, %64 ]
+  %.081 = phi i32 [ 0, %60 ], [ 0, %.critedge19.thread ], [ 1, %83 ], [ 0, %76 ], [ 0, %70 ], [ 0, %11 ], [ 0, %5 ], [ 0, %.thread ], [ 0, %51 ], [ 0, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.081
 }
@@ -1331,7 +1331,7 @@ define dso_local range(i32 0, 2) i32 @qtest_shutdown(ptr noundef %0, ptr noundef
   br label %.split
 
 .thread:                                          ; preds = %.split, %17, %.split.us, %13
-  %.us-phi = phi i32 [ 1, %.split.us ], [ 0, %13 ], [ 0, %17 ], [ 1, %.split ]
+  %.us-phi = phi i32 [ 0, %13 ], [ 1, %.split.us ], [ 0, %17 ], [ 1, %.split ]
   store atomic i32 1, ptr @shutdowndone monotonic, align 4
   br i1 %5, label %21, label %27
 
@@ -1410,7 +1410,7 @@ define dso_local range(i32 0, 2) i32 @qtest_check_server_transport_err(ptr nound
   br label %25
 
 25:                                               ; preds = %22, %8, %11, %17, %2
-  %.0 = phi i32 [ 0, %8 ], [ 0, %2 ], [ %spec.select, %22 ], [ 0, %17 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %17 ], [ 0, %11 ], [ 0, %8 ], [ %spec.select, %22 ]
   ret i32 %.0
 }
 
@@ -1636,7 +1636,7 @@ qtest_fault_resize_plain_packet.exit:             ; preds = %7, %18
   br label %23
 
 23:                                               ; preds = %qtest_fault_resize_plain_packet.exit, %3, %21
-  %.0 = phi i32 [ 0, %3 ], [ 1, %21 ], [ 0, %qtest_fault_resize_plain_packet.exit ]
+  %.0 = phi i32 [ 1, %21 ], [ 0, %3 ], [ 0, %qtest_fault_resize_plain_packet.exit ]
   ret i32 %.0
 }
 
@@ -1758,7 +1758,7 @@ define internal range(i32 0, 2) i32 @handshake_mutate(ptr noundef readonly captu
   br label %PACKET_buf_init.exit.thread
 
 PACKET_buf_init.exit.thread:                      ; preds = %14, %10, %43, %47, %17, %5, %51
-  %.029 = phi i32 [ 0, %47 ], [ 0, %5 ], [ 0, %43 ], [ 1, %51 ], [ 0, %17 ], [ 0, %14 ], [ 0, %10 ]
+  %.029 = phi i32 [ 0, %43 ], [ 1, %51 ], [ 0, %5 ], [ 0, %17 ], [ 0, %47 ], [ 0, %10 ], [ 0, %14 ]
   ret i32 %.029
 }
 
@@ -2017,7 +2017,7 @@ qtest_fault_resize_message.exit:                  ; preds = %82, %84
   br label %PACKET_buf_init.exit.thread
 
 PACKET_buf_init.exit.thread:                      ; preds = %33, %23, %21, %11, %5, %qtest_fault_resize_message.exit, %75, %65, %49, %55
-  %.0 = phi i32 [ 0, %49 ], [ 0, %65 ], [ 1, %qtest_fault_resize_message.exit ], [ 0, %55 ], [ 0, %11 ], [ 0, %5 ], [ 0, %75 ], [ 0, %21 ], [ 0, %23 ], [ 0, %33 ]
+  %.0 = phi i32 [ 0, %55 ], [ 0, %49 ], [ 0, %65 ], [ 1, %qtest_fault_resize_message.exit ], [ 0, %75 ], [ 0, %5 ], [ 0, %11 ], [ 0, %21 ], [ 0, %23 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -2205,7 +2205,7 @@ PACKET_buf_init.exit:                             ; preds = %57
   br label %.loopexit
 
 .loopexit:                                        ; preds = %75, %62, %59, %.loopexit.sink.split
-  %.05981 = phi i64 [ %.05982, %62 ], [ %.05981.ph, %.loopexit.sink.split ], [ %.05982, %59 ], [ %.05982, %75 ]
+  %.05981 = phi i64 [ %.05981.ph, %.loopexit.sink.split ], [ %.05982, %59 ], [ %.05982, %62 ], [ %.05982, %75 ]
   %92 = icmp ne i64 %.05981, 0
   %93 = zext i1 %92 to i32
   %94 = load ptr, ptr %16, align 8, !tbaa !15
@@ -2218,7 +2218,7 @@ PACKET_buf_init.exit:                             ; preds = %57
   br label %PACKET_buf_init.exit.thread
 
 PACKET_buf_init.exit.thread:                      ; preds = %57, %35, %6, %.loopexit, %34, %27
-  %.0 = phi i32 [ %93, %.loopexit ], [ %28, %27 ], [ 1, %34 ], [ 0, %6 ], [ 0, %35 ], [ 0, %57 ]
+  %.0 = phi i32 [ %28, %27 ], [ 1, %34 ], [ %93, %.loopexit ], [ 0, %6 ], [ 0, %35 ], [ 0, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2347,7 +2347,7 @@ define dso_local range(i32 0, 2) i32 @qtest_fault_set_bw_limit(ptr noundef reado
   br label %29
 
 29:                                               ; preds = %25, %21, %17, %12, %4, %10
-  %.0 = phi i32 [ 0, %21 ], [ %., %25 ], [ 0, %17 ], [ 0, %12 ], [ 0, %4 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %4 ], [ 0, %12 ], [ 0, %17 ], [ 0, %21 ], [ %., %25 ]
   ret i32 %.0
 }
 

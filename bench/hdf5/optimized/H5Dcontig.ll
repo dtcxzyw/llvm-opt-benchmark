@@ -683,7 +683,7 @@ H5D__contig_may_use_select_io.exit.thread115:     ; preds = %182, %179
   br label %.thread118
 
 .thread118:                                       ; preds = %53, %60, %123, %186, %42, %34
-  %.086122 = phi i32 [ 0, %34 ], [ %40, %186 ], [ 1, %42 ], [ %40, %53 ], [ %40, %60 ], [ %40, %123 ]
+  %.086122 = phi i32 [ %40, %186 ], [ 1, %42 ], [ 0, %34 ], [ %40, %53 ], [ %40, %60 ], [ %40, %123 ]
   %193 = load i8, ptr @H5D_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %194 = trunc nuw i8 %193 to i1
   %195 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -716,8 +716,8 @@ H5D__contig_may_use_select_io.exit.thread115:     ; preds = %182, %179
   br label %H5D__contig_io_term.exit.thread
 
 H5D__contig_io_term.exit.thread:                  ; preds = %142, %171, %155, %H5D__contig_may_use_select_io.exit.thread115, %139, %.thread118, %199, %204, %205
-  %.086121 = phi i32 [ %.086122, %205 ], [ %.086122, %.thread118 ], [ %.086122, %204 ], [ %.086122, %199 ], [ %40, %139 ], [ %40, %H5D__contig_may_use_select_io.exit.thread115 ], [ %40, %155 ], [ %40, %171 ], [ %40, %142 ]
-  %.9 = phi i32 [ -1, %205 ], [ -1, %.thread118 ], [ -1, %204 ], [ -1, %199 ], [ 0, %139 ], [ 0, %H5D__contig_may_use_select_io.exit.thread115 ], [ 0, %155 ], [ 0, %171 ], [ 0, %142 ]
+  %.086121 = phi i32 [ %.086122, %205 ], [ %.086122, %204 ], [ %.086122, %199 ], [ %.086122, %.thread118 ], [ %40, %139 ], [ %40, %H5D__contig_may_use_select_io.exit.thread115 ], [ %40, %155 ], [ %40, %171 ], [ %40, %142 ]
+  %.9 = phi i32 [ -1, %205 ], [ -1, %204 ], [ -1, %199 ], [ -1, %.thread118 ], [ 0, %139 ], [ 0, %H5D__contig_may_use_select_io.exit.thread115 ], [ 0, %155 ], [ 0, %171 ], [ 0, %142 ]
   %.not103 = icmp eq i32 %.086121, 0
   br i1 %.not103, label %220, label %212
 
@@ -903,7 +903,7 @@ define range(i32 -1, 1) i32 @H5D__contig_read(ptr noundef %0, ptr noundef %1) #0
   br label %93
 
 93:                                               ; preds = %2, %43, %82, %84, %89, %42
-  %.039 = phi i32 [ 0, %2 ], [ %.1, %42 ], [ 0, %82 ], [ 0, %43 ], [ -1, %89 ], [ 0, %84 ]
+  %.039 = phi i32 [ %.1, %42 ], [ 0, %82 ], [ 0, %43 ], [ -1, %89 ], [ 0, %84 ], [ 0, %2 ]
   ret i32 %.039
 }
 
@@ -1040,7 +1040,7 @@ define range(i32 -1, 1) i32 @H5D__contig_write(ptr noundef %0, ptr noundef %1) #
   br label %93
 
 93:                                               ; preds = %2, %43, %82, %84, %89, %42
-  %.039 = phi i32 [ 0, %2 ], [ %.1, %42 ], [ 0, %82 ], [ 0, %43 ], [ -1, %89 ], [ 0, %84 ]
+  %.039 = phi i32 [ %.1, %42 ], [ 0, %82 ], [ 0, %43 ], [ -1, %89 ], [ 0, %84 ], [ 0, %2 ]
   ret i32 %.039
 }
 
@@ -1123,7 +1123,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5D__contig_readvv(ptr 
   br label %58
 
 58:                                               ; preds = %10, %41, %57
-  %.029 = phi i64 [ -1, %10 ], [ %.130, %41 ], [ %.2, %57 ]
+  %.029 = phi i64 [ %.130, %41 ], [ %.2, %57 ], [ -1, %10 ]
   ret i64 %.029
 }
 
@@ -1206,7 +1206,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5D__contig_writevv(ptr
   br label %58
 
 58:                                               ; preds = %10, %41, %57
-  %.029 = phi i64 [ -1, %10 ], [ %.130, %41 ], [ %.2, %57 ]
+  %.029 = phi i64 [ %.130, %41 ], [ %.2, %57 ], [ -1, %10 ]
   ret i64 %.029
 }
 
@@ -1482,7 +1482,7 @@ define range(i32 -1, 1) i32 @H5D__contig_fill(ptr noundef %0) local_unnamed_addr
   br i1 %.not, label %.thread, label %67
 
 .thread:                                          ; preds = %98, %54, %91, %77
-  %.132 = phi i32 [ -1, %91 ], [ -1, %77 ], [ 0, %54 ], [ 0, %98 ]
+  %.132 = phi i32 [ -1, %77 ], [ -1, %91 ], [ 0, %54 ], [ 0, %98 ]
   %101 = call i32 @H5D__fill_term(ptr noundef nonnull %12) #9
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %103, label %.thread44
@@ -1627,7 +1627,7 @@ define range(i32 -1, 1) i32 @H5D__contig_check(ptr noundef %0, ptr noundef reado
   br label %47
 
 47:                                               ; preds = %4, %24, %20, %15, %41, %43, %37, %30
-  %.030 = phi i32 [ -1, %15 ], [ -1, %20 ], [ 0, %4 ], [ 0, %24 ], [ -1, %30 ], [ -1, %37 ], [ -1, %43 ], [ 0, %41 ]
+  %.030 = phi i32 [ -1, %15 ], [ -1, %20 ], [ 0, %24 ], [ 0, %4 ], [ -1, %30 ], [ -1, %37 ], [ -1, %43 ], [ 0, %41 ]
   ret i32 %.030
 }
 

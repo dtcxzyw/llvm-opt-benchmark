@@ -2933,7 +2933,7 @@ _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %17, %20, %23
   resume { ptr, i32 } %.pn
 
 _ZN9grpc_core5SliceD2Ev.exit15.sink.split:        ; preds = %11, %10, %9, %8, %7, %3, %12
-  %.010.sink = phi i8 [ -120, %3 ], [ -114, %11 ], [ -115, %10 ], [ -118, %7 ], [ -117, %8 ], [ -116, %9 ], [ -119, %12 ]
+  %.010.sink = phi i8 [ -120, %3 ], [ -118, %7 ], [ -117, %8 ], [ -116, %9 ], [ -115, %10 ], [ -114, %11 ], [ -119, %12 ]
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !103
   %47 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull align 8 dereferenceable(232) %46, i64 noundef 1)
@@ -3517,7 +3517,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %5, %10
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %16, %17, %.thread.i, %21, %26, %29, %32
-  %.sroa.04.0.i = phi i64 [ %spec.select.i, %17 ], [ 9223372036854775807, %16 ], [ -9223372036854775808, %21 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %29 ], [ %33, %32 ], [ 9223372036854775807, %26 ]
+  %.sroa.04.0.i = phi i64 [ 9223372036854775807, %16 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %21 ], [ %33, %32 ], [ 9223372036854775807, %26 ], [ -9223372036854775808, %29 ], [ %spec.select.i, %17 ]
   %34 = tail call i32 @_ZN9grpc_core7Timeout12FromDurationENS_8DurationE(i64 %.sroa.04.0.i)
   %35 = trunc i32 %34 to i24
   store i24 %35, ptr %6, align 4

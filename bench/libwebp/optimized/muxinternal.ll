@@ -213,8 +213,8 @@ ChunkSearchNextInList.exit.loopexit:              ; preds = %.lr.ph.i21
   br i1 %.not.i24, label %ChunkSearchNextInList.exit26.thread, label %.lr.ph.i21, !llvm.loop !23
 
 ChunkSearchNextInList.exit26.thread:              ; preds = %ChunkSearchNextInList.exit.loopexit, %.lr.ph, %14, %ChunkSearchNextInList.exit.preheader
-  %.01634 = phi ptr [ %.01637, %14 ], [ %.06.i, %ChunkSearchNextInList.exit.preheader ], [ %.06.i22, %ChunkSearchNextInList.exit.loopexit ], [ %.01637, %.lr.ph ]
-  %17 = phi i1 [ true, %14 ], [ false, %ChunkSearchNextInList.exit.preheader ], [ %.not5.i20, %.lr.ph ], [ %.not5.i20, %ChunkSearchNextInList.exit.loopexit ]
+  %.01634 = phi ptr [ %.06.i, %ChunkSearchNextInList.exit.preheader ], [ %.01637, %14 ], [ %.06.i22, %ChunkSearchNextInList.exit.loopexit ], [ %.01637, %.lr.ph ]
+  %17 = phi i1 [ false, %ChunkSearchNextInList.exit.preheader ], [ true, %14 ], [ %.not5.i20, %.lr.ph ], [ %.not5.i20, %ChunkSearchNextInList.exit.loopexit ]
   %18 = icmp ne i32 %1, 0
   %or.cond = and i1 %18, %17
   %19 = select i1 %or.cond, ptr null, ptr %.01634
@@ -292,7 +292,7 @@ ChunkRelease.exit:                                ; preds = %6, %14
   store i64 %28, ptr %29, align 8, !tbaa !24
   br label %30
 
-30:                                               ; preds = %17, %25, %19
+30:                                               ; preds = %25, %19, %17
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %31, align 4, !tbaa !3
   br label %33
@@ -385,7 +385,7 @@ define hidden range(i32 -3, 2) i32 @ChunkAppend(ptr noundef captures(none) %0, p
   br label %ChunkSetHead.exit
 
 ChunkSetHead.exit:                                ; preds = %14, %9, %6, %17
-  %.011 = phi i32 [ -3, %6 ], [ 1, %17 ], [ 1, %9 ], [ -3, %14 ]
+  %.011 = phi i32 [ 1, %17 ], [ 1, %9 ], [ -3, %6 ], [ -3, %14 ]
   ret i32 %.011
 }
 
@@ -685,7 +685,7 @@ define hidden i32 @MuxImageCount(ptr noundef readonly captures(address_is_null) 
   unreachable
 
 GetChunkListFromId.exit:                          ; preds = %.lr.ph, %5, %7
-  %.0.i = phi ptr [ %.01219, %.lr.ph ], [ %8, %7 ], [ %6, %5 ]
+  %.0.i = phi ptr [ %6, %5 ], [ %8, %7 ], [ %.01219, %.lr.ph ]
   %10 = load ptr, ptr %.0.i, align 8, !tbaa !28
   %.not15 = icmp eq ptr %10, null
   br i1 %.not15, label %23, label %11
@@ -1450,8 +1450,8 @@ MuxHasAlpha.exit:                                 ; preds = %.lr.ph.i
 MuxHasAlpha.exit.thread:                          ; preds = %92, %88, %96, %101
   br label %.critedge81
 
-.critedge81:                                      ; preds = %79, %.critedge78, %46, %ValidateChunk.exit89, %41, %38, %ValidateChunk.exit85, %32, %29, %ValidateChunk.exit, %23, %20, %17, %ValidateChunk.exit98, %ValidateChunk.exit92, %55, %63, %.critedge, %70, %73, %60, %101, %99, %96, %83, %15, %12, %1, %MuxHasAlpha.exit.thread
-  %.0 = phi i32 [ -1, %101 ], [ -1, %1 ], [ -1, %12 ], [ %16, %15 ], [ %82, %ValidateChunk.exit98 ], [ %19, %17 ], [ %28, %ValidateChunk.exit ], [ %37, %ValidateChunk.exit85 ], [ -1, %55 ], [ %45, %ValidateChunk.exit89 ], [ %49, %ValidateChunk.exit92 ], [ 1, %MuxHasAlpha.exit.thread ], [ -1, %83 ], [ -1, %96 ], [ %100, %99 ], [ -1, %60 ], [ -1, %73 ], [ -1, %70 ], [ -1, %.critedge ], [ -1, %63 ], [ -1, %23 ], [ -1, %20 ], [ -1, %32 ], [ -1, %29 ], [ -1, %41 ], [ -1, %38 ], [ -1, %46 ], [ -1, %79 ], [ %78, %.critedge78 ]
+.critedge81:                                      ; preds = %79, %.critedge78, %46, %ValidateChunk.exit89, %41, %38, %ValidateChunk.exit85, %32, %29, %ValidateChunk.exit, %23, %20, %17, %ValidateChunk.exit98, %ValidateChunk.exit92, %55, %.critedge, %70, %73, %60, %63, %101, %99, %96, %83, %15, %12, %1, %MuxHasAlpha.exit.thread
+  %.0 = phi i32 [ 1, %MuxHasAlpha.exit.thread ], [ -1, %1 ], [ -1, %12 ], [ %16, %15 ], [ -1, %83 ], [ -1, %96 ], [ %100, %99 ], [ -1, %101 ], [ -1, %63 ], [ -1, %60 ], [ -1, %73 ], [ -1, %70 ], [ -1, %.critedge ], [ -1, %55 ], [ %49, %ValidateChunk.exit92 ], [ %82, %ValidateChunk.exit98 ], [ -1, %23 ], [ -1, %20 ], [ %19, %17 ], [ -1, %32 ], [ -1, %29 ], [ %28, %ValidateChunk.exit ], [ -1, %41 ], [ -1, %38 ], [ %37, %ValidateChunk.exit85 ], [ -1, %46 ], [ %45, %ValidateChunk.exit89 ], [ -1, %79 ], [ %78, %.critedge78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

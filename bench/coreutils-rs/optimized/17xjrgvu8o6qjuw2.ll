@@ -536,7 +536,7 @@ define hidden void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$8get_
   ret void
 
 common.resume:                                    ; preds = %33, %27, %80
-  %common.resume.op = phi { ptr, i32 } [ %81, %80 ], [ %28, %27 ], [ %34, %33 ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %81, %80 ], [ %34, %33 ]
   resume { ptr, i32 } %common.resume.op
 
 31:                                               ; preds = %14

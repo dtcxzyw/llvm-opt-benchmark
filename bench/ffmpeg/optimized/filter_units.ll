@@ -163,7 +163,7 @@ define internal i32 @filter_units_init(ptr noundef %0) #0 {
   br label %65
 
 65:                                               ; preds = %49, %64, %31, %29, %24, %16, %9
-  %.0 = phi i32 [ -22, %9 ], [ %14, %16 ], [ 0, %29 ], [ %37, %31 ], [ %22, %24 ], [ %.1, %64 ], [ %37, %49 ]
+  %.0 = phi i32 [ -22, %9 ], [ %14, %16 ], [ %22, %24 ], [ 0, %29 ], [ %37, %31 ], [ %.1, %64 ], [ %37, %49 ]
   ret i32 %.0
 }
 
@@ -470,13 +470,13 @@ define internal fastcc range(i32 -22, 1) i32 @filter_units_make_type_list(ptr no
   store i32 %.138.lcssa, ptr %2, align 4, !tbaa !51
   br label %71
 
-.split.us:                                        ; preds = %.lr.ph54.split, %48, %.lr.ph54.split.us, %23
+.split.us:                                        ; preds = %48, %.lr.ph54.split, %.lr.ph54.split.us, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @av_freep(ptr noundef nonnull %4) #4
   br label %71
 
 71:                                               ; preds = %.thread44, %.split.us, %69
-  %.234 = phi i32 [ -12, %.thread44 ], [ -22, %.split.us ], [ 0, %69 ]
+  %.234 = phi i32 [ -22, %.split.us ], [ 0, %69 ], [ -12, %.thread44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.234
 }

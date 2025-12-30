@@ -142,12 +142,12 @@ define range(i32 -1163346256, 1) i32 @ff_h274_apply_film_grain(ptr noundef reado
   br i1 %91, label %81, label %.loopexit134, !llvm.loop !32
 
 .loopexit134:                                     ; preds = %81, %43, %.preheader133
-  %92 = phi i32 [ %42, %43 ], [ %56, %.preheader133 ], [ %56, %81 ]
-  %93 = phi i32 [ %44, %43 ], [ %59, %.preheader133 ], [ %59, %81 ]
-  %94 = phi ptr [ %46, %43 ], [ %61, %.preheader133 ], [ %61, %81 ]
-  %95 = phi i32 [ %48, %43 ], [ %63, %.preheader133 ], [ %63, %81 ]
-  %96 = phi ptr [ %50, %43 ], [ %65, %.preheader133 ], [ %65, %81 ]
-  %97 = phi i32 [ %52, %43 ], [ %67, %.preheader133 ], [ %67, %81 ]
+  %92 = phi i32 [ %56, %.preheader133 ], [ %42, %43 ], [ %56, %81 ]
+  %93 = phi i32 [ %59, %.preheader133 ], [ %44, %43 ], [ %59, %81 ]
+  %94 = phi ptr [ %61, %.preheader133 ], [ %46, %43 ], [ %61, %81 ]
+  %95 = phi i32 [ %63, %.preheader133 ], [ %48, %43 ], [ %63, %81 ]
+  %96 = phi ptr [ %65, %.preheader133 ], [ %50, %43 ], [ %65, %81 ]
+  %97 = phi i32 [ %67, %.preheader133 ], [ %52, %43 ], [ %67, %81 ]
   %98 = icmp sgt i32 %93, 0
   br i1 %98, label %.preheader130.lr.ph, label %.loopexit132
 
@@ -714,7 +714,7 @@ add_8x8_clip_c.exit.loopexit.us:                  ; preds = %.lr.ph.i.us
   br i1 %exitcond194.not, label %.loopexit136, label %35, !llvm.loop !57
 
 .loopexit136:                                     ; preds = %.loopexit132, %9, %4
-  %.098 = phi i32 [ -1163346256, %9 ], [ -1163346256, %4 ], [ 0, %.loopexit132 ]
+  %.098 = phi i32 [ -1163346256, %4 ], [ -1163346256, %9 ], [ 0, %.loopexit132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.098
 }

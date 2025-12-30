@@ -937,7 +937,7 @@ imap_perform_append.exit.imap_perform_append.exit.thread102_crit_edge.i.i: ; pre
   br label %imap_perform_append.exit.thread102.i.i
 
 imap_perform_append.exit.thread102.i.i:           ; preds = %imap_perform_append.exit.imap_perform_append.exit.thread102_crit_edge.i.i, %357, %334, %292, %262
-  %359 = phi ptr [ %.pre.i.i, %imap_perform_append.exit.imap_perform_append.exit.thread102_crit_edge.i.i ], [ %.val.i79.i.i, %334 ], [ %.val.i.i.i, %262 ], [ %.val.i86.i.i, %357 ], [ %.val.i76.i.i, %292 ]
+  %359 = phi ptr [ %.pre.i.i, %imap_perform_append.exit.imap_perform_append.exit.thread102_crit_edge.i.i ], [ %.val.i86.i.i, %357 ], [ %.val.i79.i.i, %334 ], [ %.val.i76.i.i, %292 ], [ %.val.i.i.i, %262 ]
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 1088
   %361 = call zeroext i1 @Curl_conn_is_ssl(ptr noundef %359, i32 noundef 0) #7
   br i1 %361, label %362, label %374
@@ -994,8 +994,8 @@ imap_perform.exit.i:                              ; preds = %374, %366
   call void @Curl_xfer_setup_nop(ptr noundef nonnull %0) #7
   br label %imap_parse_custom_request.exit
 
-imap_parse_custom_request.exit:                   ; preds = %177, %19, %165, %.thread.i, %387, %384, %381, %imap_perform.exit.i, %imap_perform_append.exit.i.i, %356, %351, %331, %329, %328, %291, %286, %258, %255, %254, %246, %.thread.i.i.i, %239, %229, %224, %168
-  %.0 = phi i32 [ %.464.ph.i, %.thread.i ], [ %.052.i.i, %imap_perform_append.exit.i.i ], [ %170, %168 ], [ %.1.i90.i.i, %imap_perform.exit.i ], [ 0, %387 ], [ 0, %381 ], [ 0, %384 ], [ %236, %229 ], [ %332, %331 ], [ 3, %224 ], [ 25, %254 ], [ 27, %255 ], [ %249, %246 ], [ %242, %.thread.i.i.i ], [ %260, %258 ], [ %241, %239 ], [ %.017.i.i.i, %291 ], [ 27, %286 ], [ 27, %329 ], [ 3, %328 ], [ %.017.i83.i.i, %356 ], [ 27, %351 ], [ %27, %19 ], [ 3, %165 ], [ 27, %177 ]
+imap_parse_custom_request.exit:                   ; preds = %177, %.thread.i, %165, %19, %387, %384, %381, %imap_perform.exit.i, %imap_perform_append.exit.i.i, %356, %351, %331, %329, %328, %291, %286, %258, %255, %254, %246, %.thread.i.i.i, %239, %229, %224, %168
+  %.0 = phi i32 [ %170, %168 ], [ %.1.i90.i.i, %imap_perform.exit.i ], [ 0, %381 ], [ 0, %384 ], [ 0, %387 ], [ 25, %254 ], [ 3, %224 ], [ %242, %.thread.i.i.i ], [ %249, %246 ], [ 27, %255 ], [ %260, %258 ], [ %241, %239 ], [ %236, %229 ], [ %.017.i.i.i, %291 ], [ 27, %286 ], [ 3, %328 ], [ 27, %329 ], [ %332, %331 ], [ %.017.i83.i.i, %356 ], [ 27, %351 ], [ %.052.i.i, %imap_perform_append.exit.i.i ], [ %.464.ph.i, %.thread.i ], [ 3, %165 ], [ %27, %19 ], [ 27, %177 ]
   ret i32 %.0
 }
 
@@ -1086,7 +1086,7 @@ define internal i32 @imap_done(ptr noundef %0, i32 noundef %1, i1 zeroext %2) #0
   br label %44
 
 44:                                               ; preds = %37, %9, %41, %27, %14, %10
-  %.1 = phi i32 [ %1, %9 ], [ 0, %10 ], [ 0, %14 ], [ 0, %27 ], [ %43, %41 ], [ %39, %37 ]
+  %.1 = phi i32 [ %1, %9 ], [ 0, %10 ], [ 0, %14 ], [ %43, %41 ], [ 0, %27 ], [ %39, %37 ]
   %45 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !81
@@ -1248,7 +1248,7 @@ imap_parse_url_options.exit.thread:               ; preds = %.critedge.i
   br label %39
 
 .critedge.thread.i:                               ; preds = %29, %.lr.ph.i, %..critedge.i_crit_edge, %.critedge.i, %2
-  %.0.lcssa59.i = phi i32 [ 0, %.critedge.i ], [ 0, %2 ], [ %35, %..critedge.i_crit_edge ], [ 0, %.lr.ph.i ], [ 3, %29 ]
+  %.0.lcssa59.i = phi i32 [ 0, %.critedge.i ], [ 0, %2 ], [ 0, %.lr.ph.i ], [ %35, %..critedge.i_crit_edge ], [ 3, %29 ]
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 1274
   %38 = load i16, ptr %37, align 2, !tbaa !130
   %switch.selectcmp = icmp eq i16 %38, -33
@@ -2327,11 +2327,11 @@ imap_state_fetch_resp.exit:                       ; preds = %307, %.sink.split.i
   br label %imap_state_servergreet_resp.exit.thread91
 
 imap_state_servergreet_resp.exit:                 ; preds = %265, %179, %143, %141, %131, %128, %imap_state_auth_resp.exit, %imap_state_fetch_resp.exit
-  %.1 = phi i32 [ %.058.i, %imap_state_fetch_resp.exit ], [ %132, %131 ], [ %129, %128 ], [ %183, %179 ], [ %.0.i58, %imap_state_auth_resp.exit ], [ %144, %143 ], [ %142, %141 ], [ %266, %265 ]
+  %.1 = phi i32 [ %.0.i58, %imap_state_auth_resp.exit ], [ %.058.i, %imap_state_fetch_resp.exit ], [ %132, %131 ], [ %129, %128 ], [ %142, %141 ], [ %144, %143 ], [ %183, %179 ], [ %266, %265 ]
   %.not50 = icmp eq i32 %.1, 0
   br i1 %.not50, label %imap_state_servergreet_resp.exit.thread91, label %imap_state_servergreet_resp.exit.thread
 
-imap_state_servergreet_resp.exit.thread91:        ; preds = %79, %.critedge.thread.i, %206, %251, %.critedge.i, %123, %191, %263, %343, %339, %336, %173, %68, %184, %345, %imap_state_servergreet_resp.exit
+imap_state_servergreet_resp.exit.thread91:        ; preds = %79, %343, %339, %336, %263, %251, %.critedge.i, %.critedge.thread.i, %206, %191, %184, %173, %123, %68, %345, %imap_state_servergreet_resp.exit
   %347 = load i32, ptr %11, align 8, !tbaa !110
   %.not51 = icmp eq i32 %347, 0
   br i1 %.not51, label %imap_state_servergreet_resp.exit.thread, label %348
@@ -2343,8 +2343,8 @@ imap_state_servergreet_resp.exit.thread91:        ; preds = %79, %.critedge.thre
 imap_state_servergreet_resp.exit.thread.loopexit: ; preds = %41
   br label %imap_state_servergreet_resp.exit.thread
 
-imap_state_servergreet_resp.exit.thread:          ; preds = %342, %245, %250, %220, %133, %121, %61, %335, %261, %175, %338, %348, %imap_state_servergreet_resp.exit, %imap_state_servergreet_resp.exit.thread91, %39, %41, %imap_state_servergreet_resp.exit.thread.loopexit, %260, %219, %.critedge61.i, %267, %172, %140, %130, %60, %37, %14
-  %.0 = phi i32 [ %15, %14 ], [ %38, %37 ], [ 64, %130 ], [ 78, %219 ], [ 27, %.critedge61.i ], [ 67, %267 ], [ 8, %60 ], [ %42, %41 ], [ 67, %172 ], [ 3, %260 ], [ 64, %140 ], [ 25, %338 ], [ 21, %175 ], [ %262, %261 ], [ 8, %335 ], [ %67, %61 ], [ %122, %121 ], [ 8, %133 ], [ 27, %220 ], [ %.017.i.i, %250 ], [ 27, %245 ], [ 25, %342 ], [ 0, %imap_state_servergreet_resp.exit.thread91 ], [ 0, %348 ], [ %.1, %imap_state_servergreet_resp.exit ], [ %40, %39 ], [ 8, %imap_state_servergreet_resp.exit.thread.loopexit ]
+imap_state_servergreet_resp.exit.thread:          ; preds = %342, %338, %335, %261, %245, %250, %220, %175, %133, %121, %61, %348, %imap_state_servergreet_resp.exit, %imap_state_servergreet_resp.exit.thread91, %39, %41, %imap_state_servergreet_resp.exit.thread.loopexit, %260, %267, %219, %.critedge61.i, %172, %140, %130, %60, %37, %14
+  %.0 = phi i32 [ %15, %14 ], [ %38, %37 ], [ 3, %260 ], [ 67, %267 ], [ 78, %219 ], [ 27, %.critedge61.i ], [ 67, %172 ], [ 64, %140 ], [ 64, %130 ], [ 8, %60 ], [ %42, %41 ], [ %67, %61 ], [ %122, %121 ], [ 8, %133 ], [ 21, %175 ], [ 27, %220 ], [ %.017.i.i, %250 ], [ 27, %245 ], [ %262, %261 ], [ 8, %335 ], [ 25, %338 ], [ 25, %342 ], [ 0, %imap_state_servergreet_resp.exit.thread91 ], [ 0, %348 ], [ %.1, %imap_state_servergreet_resp.exit ], [ %40, %39 ], [ 8, %imap_state_servergreet_resp.exit.thread.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -2452,7 +2452,7 @@ define internal noundef zeroext i1 @imap_endofresp(ptr noundef %0, ptr noundef r
   br label %46
 
 46:                                               ; preds = %44, %33, %30
-  %.028.i = phi ptr [ %45, %44 ], [ %32, %30 ], [ %32, %33 ]
+  %.028.i = phi ptr [ %45, %44 ], [ %32, %33 ], [ %32, %30 ]
   %47 = getelementptr inbounds nuw i8, ptr %.028.i, i64 10
   %.not38.i = icmp ugt ptr %47, %31
   br i1 %.not38.i, label %imap_matchresp.exit.thread, label %48
@@ -2586,7 +2586,7 @@ define internal noundef zeroext i1 @imap_endofresp(ptr noundef %0, ptr noundef r
   br label %108
 
 108:                                              ; preds = %106, %95, %92
-  %.028.i86 = phi ptr [ %107, %106 ], [ %94, %92 ], [ %94, %95 ]
+  %.028.i86 = phi ptr [ %107, %106 ], [ %94, %95 ], [ %94, %92 ]
   %109 = getelementptr inbounds nuw i8, ptr %.028.i86, i64 5
   %.not38.i87 = icmp ugt ptr %109, %93
   br i1 %.not38.i87, label %imap_matchresp.exit.thread, label %110
@@ -2642,7 +2642,7 @@ define internal noundef zeroext i1 @imap_endofresp(ptr noundef %0, ptr noundef r
   br label %133
 
 133:                                              ; preds = %131, %120, %117
-  %.028.i98 = phi ptr [ %132, %131 ], [ %119, %117 ], [ %119, %120 ]
+  %.028.i98 = phi ptr [ %132, %131 ], [ %119, %120 ], [ %119, %117 ]
   %134 = getelementptr inbounds nuw i8, ptr %.028.i98, i64 6
   %.not38.i99 = icmp ugt ptr %134, %118
   br i1 %.not38.i99, label %imap_matchresp.exit.thread, label %135
@@ -2700,12 +2700,12 @@ define internal noundef zeroext i1 @imap_endofresp(ptr noundef %0, ptr noundef r
   br label %imap_matchresp.exit.thread.sink.split
 
 imap_matchresp.exit.thread.sink.split:            ; preds = %155, %152, %152, %27, %89, %86, %83, %80, %77, %74, %71, %68, %66, %.thread111, %60, %50, %112, %137, %23, %20, %.thread
-  %.sink = phi i32 [ 3, %23 ], [ 2, %.thread ], [ 1, %20 ], [ 42, %27 ], [ 42, %137 ], [ 42, %112 ], [ 42, %50 ], [ 42, %60 ], [ 42, %.thread111 ], [ 42, %66 ], [ 42, %68 ], [ 42, %71 ], [ 42, %74 ], [ 42, %77 ], [ 42, %80 ], [ 42, %83 ], [ 42, %86 ], [ 42, %89 ], [ -1, %155 ], [ 43, %152 ], [ 43, %152 ]
+  %.sink = phi i32 [ 2, %.thread ], [ 1, %20 ], [ 3, %23 ], [ 42, %137 ], [ 42, %112 ], [ 42, %50 ], [ 42, %60 ], [ 42, %.thread111 ], [ 42, %66 ], [ 42, %68 ], [ 42, %71 ], [ 42, %74 ], [ 42, %77 ], [ 42, %80 ], [ 42, %83 ], [ 42, %86 ], [ 42, %89 ], [ 42, %27 ], [ -1, %155 ], [ 43, %152 ], [ 43, %152 ]
   store i32 %.sink, ptr %4, align 4, !tbaa !134
   br label %imap_matchresp.exit.thread
 
-imap_matchresp.exit.thread:                       ; preds = %imap_matchresp.exit.thread.sink.split, %133, %135, %137, %129, %.critedge.i106, %108, %110, %112, %104, %.critedge.i94, %46, %48, %50, %42, %.critedge.i, %142, %143, %151, %.thread115, %27, %58, %89
-  %.0 = phi i1 [ false, %27 ], [ false, %.critedge.i106 ], [ false, %108 ], [ false, %129 ], [ false, %137 ], [ false, %142 ], [ false, %58 ], [ false, %46 ], [ false, %135 ], [ false, %133 ], [ false, %89 ], [ false, %.thread115 ], [ false, %151 ], [ false, %143 ], [ false, %.critedge.i ], [ false, %42 ], [ false, %50 ], [ false, %48 ], [ false, %.critedge.i94 ], [ false, %104 ], [ false, %112 ], [ false, %110 ], [ true, %imap_matchresp.exit.thread.sink.split ]
+imap_matchresp.exit.thread:                       ; preds = %imap_matchresp.exit.thread.sink.split, %133, %135, %137, %.critedge.i106, %129, %108, %110, %112, %.critedge.i94, %104, %46, %48, %50, %.critedge.i, %42, %142, %143, %151, %.thread115, %27, %58, %89
+  %.0 = phi i1 [ false, %89 ], [ false, %58 ], [ false, %27 ], [ false, %.thread115 ], [ false, %151 ], [ false, %143 ], [ false, %142 ], [ false, %42 ], [ false, %.critedge.i ], [ false, %50 ], [ false, %48 ], [ false, %46 ], [ false, %104 ], [ false, %.critedge.i94 ], [ false, %112 ], [ false, %110 ], [ false, %108 ], [ false, %129 ], [ false, %.critedge.i106 ], [ false, %137 ], [ false, %135 ], [ false, %133 ], [ true, %imap_matchresp.exit.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -2784,7 +2784,7 @@ define internal fastcc i32 @imap_perform_upgrade_tls(ptr noundef %0, ptr noundef
   br label %imap_perform_capability.exit
 
 imap_perform_capability.exit:                     ; preds = %32, %23, %7, %20, %5
-  %.0 = phi i32 [ %8, %7 ], [ %6, %5 ], [ 0, %20 ], [ %31, %23 ], [ 0, %32 ]
+  %.0 = phi i32 [ %8, %7 ], [ 0, %20 ], [ %6, %5 ], [ %31, %23 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -3057,7 +3057,7 @@ define internal fastcc ptr @imap_atom(ptr noundef %0, i1 noundef zeroext %1) unn
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %16, %22, %12, %2, %24, %8
-  %.0 = phi ptr [ %10, %8 ], [ null, %12 ], [ null, %2 ], [ %25, %24 ], [ null, %22 ], [ null, %16 ], [ null, %18 ]
+  %.0 = phi ptr [ %10, %8 ], [ %25, %24 ], [ null, %2 ], [ null, %12 ], [ null, %22 ], [ null, %16 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -3235,7 +3235,7 @@ define internal fastcc noundef zeroext i1 @imap_matchresp(ptr noundef %0, i64 no
   br label %21
 
 21:                                               ; preds = %19, %8, %3
-  %.028 = phi ptr [ %20, %19 ], [ %6, %3 ], [ %6, %8 ]
+  %.028 = phi ptr [ %20, %19 ], [ %6, %8 ], [ %6, %3 ]
   %22 = getelementptr inbounds nuw i8, ptr %.028, i64 %5
   %.not38 = icmp ugt ptr %22, %4
   br i1 %.not38, label %30, label %23
@@ -3257,7 +3257,7 @@ define internal fastcc noundef zeroext i1 @imap_matchresp(ptr noundef %0, i64 no
   br label %31
 
 31:                                               ; preds = %25, %.critedge, %17, %30
-  %.0 = phi i1 [ false, %30 ], [ false, %.critedge ], [ false, %17 ], [ true, %25 ]
+  %.0 = phi i1 [ false, %30 ], [ false, %17 ], [ false, %.critedge ], [ true, %25 ]
   ret i1 %.0
 }
 

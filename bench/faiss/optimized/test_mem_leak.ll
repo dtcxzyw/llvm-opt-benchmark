@@ -599,7 +599,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %149, %_ZNKSt14defau
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit76
 
 _ZNSt6vectorIlSaIlEED2Ev.exit76:                  ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt6vectorIfSaIfEED2Ev.exit71, %108, %57, %157, %55
-  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %58, %57 ], [ %.pn.pn.pn, %157 ], [ %.pn49140, %108 ], [ %95, %_ZNSt6vectorIfSaIfEED2Ev.exit71 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %.pn.pn.pn, %157 ], [ %58, %57 ], [ %95, %_ZNSt6vectorIfSaIfEED2Ev.exit71 ], [ %.pn49140, %108 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit85
 

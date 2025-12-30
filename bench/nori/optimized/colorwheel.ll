@@ -547,7 +547,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui10ColorWheel18mouse_button_eventERK
   br label %18
 
 18:                                               ; preds = %5, %16, %12
-  %.0 = phi i1 [ true, %16 ], [ %15, %12 ], [ false, %5 ]
+  %.0 = phi i1 [ %15, %12 ], [ true, %16 ], [ false, %5 ]
   ret i1 %.0
 }
 

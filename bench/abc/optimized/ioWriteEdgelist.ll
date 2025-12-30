@@ -1100,7 +1100,7 @@ define ptr @Io_NtkWriteEdgelistDeriveSop(ptr noundef %0, i64 noundef %1, i32 nou
   br label %14
 
 14:                                               ; preds = %8, %4, %11, %13
-  %.0 = phi ptr [ %12, %11 ], [ %12, %13 ], [ @.str.13, %8 ], [ @.str.15, %4 ]
+  %.0 = phi ptr [ %12, %13 ], [ %12, %11 ], [ @.str.13, %8 ], [ @.str.15, %4 ]
   ret ptr %.0
 }
 
@@ -1637,7 +1637,7 @@ define void @Io_NtkEdgelistWriteNodeInt(ptr noundef captures(none) %0, ptr nound
   br label %Io_NtkWriteEdgelistDeriveSop.exit
 
 Io_NtkWriteEdgelistDeriveSop.exit:                ; preds = %111, %118, %120, %122
-  %.0.i = phi ptr [ %121, %120 ], [ %121, %122 ], [ @.str.13, %118 ], [ @.str.15, %111 ]
+  %.0.i = phi ptr [ %121, %122 ], [ %121, %120 ], [ @.str.13, %118 ], [ @.str.15, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %123 = load i32, ptr %indvars.iv205.sroa.phi217, align 4, !tbaa !26
   %124 = icmp sgt i32 %123, 0
@@ -1836,7 +1836,7 @@ Io_NtkWriteEdgelistDeriveSop.exit:                ; preds = %111, %118, %120, %1
   br label %Io_NtkWriteEdgelistDeriveSop.exit164
 
 Io_NtkWriteEdgelistDeriveSop.exit164:             ; preds = %._crit_edge, %217, %219, %221
-  %.0.i163 = phi ptr [ %220, %219 ], [ %220, %221 ], [ @.str.13, %217 ], [ @.str.15, %._crit_edge ]
+  %.0.i163 = phi ptr [ %220, %221 ], [ %220, %219 ], [ @.str.13, %217 ], [ @.str.15, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %fputs = call i32 @fputs(ptr %.0.i163, ptr %0)
   %indvars.iv.next199 = add nsw i64 %indvars.iv198, -1

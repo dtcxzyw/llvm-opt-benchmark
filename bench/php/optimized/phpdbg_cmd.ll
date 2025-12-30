@@ -118,7 +118,7 @@ define dso_local void @phpdbg_clear_param(ptr noundef readonly captures(address_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %7, %4
-  %.sink = phi i64 [ 56, %7 ], [ 48, %4 ], [ 24, %2 ]
+  %.sink = phi i64 [ 48, %4 ], [ 56, %7 ], [ 24, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   tail call void @_efree(ptr noundef %9) #22
@@ -443,7 +443,7 @@ define dso_local i64 @phpdbg_hash_param(ptr noundef readonly captures(none) %0) 
   br label %66
 
 66:                                               ; preds = %52, %22, %1, %42, %38, %34, %11, %4
-  %.0 = phi i64 [ %3, %1 ], [ %41, %38 ], [ %65, %52 ], [ %10, %4 ], [ %21, %11 ], [ %51, %42 ], [ %33, %22 ], [ %37, %34 ]
+  %.0 = phi i64 [ %3, %1 ], [ %10, %4 ], [ %21, %11 ], [ %37, %34 ], [ %41, %38 ], [ %51, %42 ], [ %33, %22 ], [ %65, %52 ]
   ret i64 %.0
 }
 
@@ -596,7 +596,7 @@ define dso_local zeroext i1 @phpdbg_match_param(ptr noundef readonly captures(ad
   br label %86
 
 86:                                               ; preds = %84, %59, %15, %21, %9, %9, %.thread, %33, %27
-  %.045 = phi i1 [ false, %.thread ], [ %26, %21 ], [ true, %9 ], [ %32, %27 ], [ %38, %33 ], [ %60, %59 ], [ %85, %84 ], [ true, %9 ], [ false, %15 ]
+  %.045 = phi i1 [ false, %.thread ], [ %32, %27 ], [ %38, %33 ], [ %60, %59 ], [ %85, %84 ], [ true, %9 ], [ true, %9 ], [ false, %15 ], [ %26, %21 ]
   ret i1 %.045
 }
 
@@ -771,7 +771,7 @@ define dso_local void @phpdbg_stack_free(ptr noundef captures(address_is_null) %
   br i1 %.not29, label %21, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %15, %12
-  %.sink = phi ptr [ %17, %15 ], [ %14, %12 ], [ %20, %18 ]
+  %.sink = phi ptr [ %14, %12 ], [ %17, %15 ], [ %20, %18 ]
   tail call void @_efree(ptr noundef nonnull %.sink) #22
   br label %21
 
@@ -1694,7 +1694,7 @@ phpdbg_command_name.exit191:                      ; preds = %391, %395
   br i1 %.not127300, label %.critedge2, label %.lr.ph
 
 .critedge2:                                       ; preds = %.lr.ph.split, %.thread196, %.split.us, %46, %40, %50, %90, %130, %170, %210, %250, %290, %330, %370
-  %.0110.ph279 = phi i64 [ %.0110.ph358, %370 ], [ %.0110.ph358, %50 ], [ %.0110.ph358, %90 ], [ %.0110.ph358, %130 ], [ %.0110.ph358, %170 ], [ %.0110.ph358, %210 ], [ %.0110.ph358, %250 ], [ %.0110.ph358, %290 ], [ %.0110.ph358, %330 ], [ %.0110.ph358, %40 ], [ %.0110.ph358, %46 ], [ %.0110.ph358, %.lr.ph.split ], [ %.0110.ph358, %.split.us ], [ %.pre-phi, %.thread196 ]
+  %.0110.ph279 = phi i64 [ %.0110.ph358, %50 ], [ %.0110.ph358, %90 ], [ %.0110.ph358, %130 ], [ %.0110.ph358, %170 ], [ %.0110.ph358, %210 ], [ %.0110.ph358, %250 ], [ %.0110.ph358, %290 ], [ %.0110.ph358, %330 ], [ %.0110.ph358, %370 ], [ %.0110.ph358, %40 ], [ %.0110.ph358, %46 ], [ %.pre-phi, %.thread196 ], [ %.0110.ph358, %.lr.ph.split ], [ %.0110.ph358, %.split.us ]
   %413 = icmp ult i64 %.0110.ph279, %.0111
   br i1 %413, label %414, label %.sink.split
 
@@ -1728,8 +1728,8 @@ phpdbg_command_name.exit194:                      ; preds = %414, %418
   %430 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %415, ptr noundef nonnull @.str.37, ptr noundef nonnull %3, i64 noundef %.0111, ptr noundef nonnull %10, i64 noundef %.0110.ph279) #22
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.critedge2, %14, %phpdbg_command_name.exit, %phpdbg_command_name.exit188, %phpdbg_command_name.exit191, %phpdbg_command_name.exit182, %phpdbg_command_name.exit185, %phpdbg_command_name.exit176, %phpdbg_command_name.exit179, %phpdbg_command_name.exit170, %phpdbg_command_name.exit173, %phpdbg_command_name.exit164, %phpdbg_command_name.exit167, %phpdbg_command_name.exit158, %phpdbg_command_name.exit161, %phpdbg_command_name.exit152, %phpdbg_command_name.exit155, %phpdbg_command_name.exit146, %phpdbg_command_name.exit149, %phpdbg_command_name.exit140, %phpdbg_command_name.exit143, %13, %phpdbg_command_name.exit194
-  %.1115.ph = phi i32 [ -1, %phpdbg_command_name.exit194 ], [ 0, %14 ], [ -1, %phpdbg_command_name.exit ], [ -1, %phpdbg_command_name.exit188 ], [ -1, %phpdbg_command_name.exit191 ], [ -1, %phpdbg_command_name.exit182 ], [ -1, %phpdbg_command_name.exit185 ], [ -1, %phpdbg_command_name.exit176 ], [ -1, %phpdbg_command_name.exit179 ], [ -1, %phpdbg_command_name.exit170 ], [ -1, %phpdbg_command_name.exit173 ], [ -1, %phpdbg_command_name.exit164 ], [ -1, %phpdbg_command_name.exit167 ], [ -1, %phpdbg_command_name.exit158 ], [ -1, %phpdbg_command_name.exit161 ], [ -1, %phpdbg_command_name.exit152 ], [ -1, %phpdbg_command_name.exit155 ], [ -1, %phpdbg_command_name.exit146 ], [ -1, %phpdbg_command_name.exit149 ], [ -1, %phpdbg_command_name.exit140 ], [ -1, %phpdbg_command_name.exit143 ], [ 0, %13 ], [ 0, %.critedge2 ]
+.sink.split:                                      ; preds = %.critedge2, %13, %14, %phpdbg_command_name.exit, %phpdbg_command_name.exit188, %phpdbg_command_name.exit191, %phpdbg_command_name.exit182, %phpdbg_command_name.exit185, %phpdbg_command_name.exit176, %phpdbg_command_name.exit179, %phpdbg_command_name.exit170, %phpdbg_command_name.exit173, %phpdbg_command_name.exit164, %phpdbg_command_name.exit167, %phpdbg_command_name.exit158, %phpdbg_command_name.exit161, %phpdbg_command_name.exit152, %phpdbg_command_name.exit155, %phpdbg_command_name.exit146, %phpdbg_command_name.exit149, %phpdbg_command_name.exit140, %phpdbg_command_name.exit143, %phpdbg_command_name.exit194
+  %.1115.ph = phi i32 [ 0, %13 ], [ 0, %14 ], [ -1, %phpdbg_command_name.exit ], [ -1, %phpdbg_command_name.exit188 ], [ -1, %phpdbg_command_name.exit191 ], [ -1, %phpdbg_command_name.exit182 ], [ -1, %phpdbg_command_name.exit185 ], [ -1, %phpdbg_command_name.exit176 ], [ -1, %phpdbg_command_name.exit179 ], [ -1, %phpdbg_command_name.exit170 ], [ -1, %phpdbg_command_name.exit173 ], [ -1, %phpdbg_command_name.exit164 ], [ -1, %phpdbg_command_name.exit167 ], [ -1, %phpdbg_command_name.exit158 ], [ -1, %phpdbg_command_name.exit161 ], [ -1, %phpdbg_command_name.exit152 ], [ -1, %phpdbg_command_name.exit155 ], [ -1, %phpdbg_command_name.exit146 ], [ -1, %phpdbg_command_name.exit149 ], [ -1, %phpdbg_command_name.exit140 ], [ -1, %phpdbg_command_name.exit143 ], [ -1, %phpdbg_command_name.exit194 ], [ 0, %.critedge2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %431
 
@@ -1799,8 +1799,8 @@ define dso_local ptr @phpdbg_stack_resolve(ptr noundef %0, ptr noundef readonly 
   br i1 %25, label %.thread206.sink.split, label %.thread206
 
 .thread203:                                       ; preds = %.thread, %18
-  %26 = phi ptr [ %.pre, %.thread ], [ %.pre227, %18 ]
-  %.not193202 = phi i1 [ %.not193200, %.thread ], [ true, %18 ]
+  %26 = phi ptr [ %.pre227, %18 ], [ %.pre, %.thread ]
+  %.not193202 = phi i1 [ true, %18 ], [ %.not193200, %.thread ]
   %27 = tail call i32 @strncasecmp(ptr noundef nonnull %9, ptr noundef %26, i64 noundef %13) #23
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %.thread206
@@ -1831,7 +1831,7 @@ define dso_local ptr @phpdbg_stack_resolve(ptr noundef %0, ptr noundef readonly 
   br label %.thread206
 
 .thread206:                                       ; preds = %.thread206.sink.split, %36, %23, %.thread203, %15
-  %.2 = phi i64 [ %.0179213244, %15 ], [ %.0179213244, %23 ], [ %.0179213244, %36 ], [ %.0179213244, %.thread203 ], [ %38, %.thread206.sink.split ]
+  %.2 = phi i64 [ %.0179213244, %23 ], [ %.0179213244, %.thread203 ], [ %.0179213244, %15 ], [ %.0179213244, %36 ], [ %38, %.thread206.sink.split ]
   %39 = getelementptr inbounds nuw i8, ptr %.0182212245, i64 80
   %40 = load ptr, ptr %39, align 8, !tbaa !40
   %.not190 = icmp eq ptr %40, null
@@ -1942,7 +1942,7 @@ define dso_local ptr @phpdbg_stack_resolve(ptr noundef %0, ptr noundef readonly 
   br label %96
 
 96:                                               ; preds = %51, %91, %42, %47, %94, %._crit_edge
-  %.0181 = phi ptr [ null, %._crit_edge ], [ %1, %42 ], [ %95, %94 ], [ null, %47 ], [ %54, %91 ], [ %54, %51 ]
+  %.0181 = phi ptr [ null, %._crit_edge ], [ %95, %94 ], [ null, %47 ], [ %1, %42 ], [ %54, %91 ], [ %54, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0181
 }
@@ -2076,7 +2076,7 @@ phpdbg_internal_stack_execute.exit.thread:        ; preds = %43, %33, %51, %28, 
   br label %.loopexit
 
 phpdbg_internal_stack_execute.exit:               ; preds = %19, %25, %31, %46
-  %.0.i = phi i32 [ %50, %46 ], [ %20, %19 ], [ %26, %25 ], [ %32, %31 ]
+  %.0.i = phi i32 [ %20, %19 ], [ %26, %25 ], [ %32, %31 ], [ %50, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not14 = icmp eq i32 %.0.i, 0
   br i1 %.not14, label %54, label %.loopexit

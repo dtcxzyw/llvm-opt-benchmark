@@ -848,7 +848,7 @@ define range(i32 -1, 1) i32 @H5O__debug_real(ptr noundef %0, ptr noundef %1, i64
   br label %439
 
 439:                                              ; preds = %.thread388, %6, %437
-  %.0328 = phi i32 [ %.1329392, %437 ], [ -1, %.thread388 ], [ 0, %6 ]
+  %.0328 = phi i32 [ %.1329392, %437 ], [ 0, %6 ], [ -1, %.thread388 ]
   ret i32 %.0328
 }
 

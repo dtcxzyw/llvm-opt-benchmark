@@ -1587,7 +1587,7 @@ define hidden range(i32 -901, 7) i32 @nghttp2_frame_unpack_altsvc_payload2(ptr n
   br label %20
 
 20:                                               ; preds = %6, %4, %10
-  %.0 = phi i32 [ 6, %4 ], [ 0, %10 ], [ -901, %6 ]
+  %.0 = phi i32 [ 0, %10 ], [ 6, %4 ], [ -901, %6 ]
   ret i32 %.0
 }
 
@@ -1774,7 +1774,7 @@ define hidden range(i32 -901, 1) i32 @nghttp2_frame_unpack_origin_payload(ptr no
   br label %.outer, !llvm.loop !93
 
 .loopexit:                                        ; preds = %18, %10, %39, %31, %30
-  %.056 = phi i32 [ -901, %31 ], [ -522, %10 ], [ 0, %30 ], [ 0, %39 ], [ -522, %18 ]
+  %.056 = phi i32 [ 0, %30 ], [ -901, %31 ], [ 0, %39 ], [ -522, %10 ], [ -522, %18 ]
   ret i32 %.056
 }
 
@@ -1957,7 +1957,7 @@ define hidden range(i32 0, 2) i32 @nghttp2_nv_equal(ptr noundef readonly capture
   br label %35
 
 35:                                               ; preds = %33, %21, %2, %7, %34
-  %.0 = phi i32 [ 0, %2 ], [ 1, %34 ], [ 0, %21 ], [ 0, %7 ], [ 0, %33 ]
+  %.0 = phi i32 [ 1, %34 ], [ 0, %7 ], [ 0, %2 ], [ 0, %21 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -2071,7 +2071,7 @@ bytes_compar.exit:                                ; preds = %2
   br label %bytes_compar.exit16
 
 bytes_compar.exit16:                              ; preds = %12, %15, %36, %33, %29, %bytes_compar.exit
-  %.0 = phi i32 [ %.21.i13, %36 ], [ %17, %bytes_compar.exit ], [ %30, %29 ], [ %..i15, %33 ], [ %spec.select, %12 ], [ %.21.i, %15 ]
+  %.0 = phi i32 [ %17, %bytes_compar.exit ], [ %30, %29 ], [ %..i15, %33 ], [ %.21.i13, %36 ], [ %.21.i, %15 ], [ %spec.select, %12 ]
   ret i32 %.0
 }
 
@@ -2294,7 +2294,7 @@ define hidden range(i32 0, 2) i32 @nghttp2_iv_check(ptr noundef readonly capture
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %8, %12, %22, %5, %16, %19, %2
-  %.023 = phi i32 [ 1, %2 ], [ 0, %19 ], [ 1, %22 ], [ 0, %16 ], [ 0, %12 ], [ 0, %5 ], [ 0, %8 ]
+  %.023 = phi i32 [ 1, %2 ], [ 0, %19 ], [ 0, %16 ], [ 0, %5 ], [ 1, %22 ], [ 0, %12 ], [ 0, %8 ]
   ret i32 %.023
 }
 

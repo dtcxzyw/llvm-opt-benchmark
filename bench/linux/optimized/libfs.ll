@@ -503,8 +503,8 @@ define internal fastcc noundef ptr @scan_positives(ptr noundef %0, ptr noundef r
   br label %60
 
 60:                                               ; preds = %58, %.critedge, %.lr.ph
-  %61 = phi i64 [ %13, %.lr.ph ], [ %38, %.critedge ], [ %38, %58 ]
-  %62 = phi ptr [ %12, %.lr.ph ], [ %12, %.critedge ], [ %8, %58 ]
+  %61 = phi i64 [ %13, %.lr.ph ], [ %38, %58 ], [ %38, %.critedge ]
+  %62 = phi ptr [ %12, %.lr.ph ], [ %8, %58 ], [ %12, %.critedge ]
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.thread, label %.lr.ph
@@ -572,8 +572,8 @@ define dso_local noundef i32 @dcache_readdir(ptr noundef readonly captures(none)
   br label %33
 
 33:                                               ; preds = %29, %.thread16
-  %34 = phi ptr [ %32, %29 ], [ %28, %.thread16 ]
-  %35 = phi ptr [ %spec.select, %29 ], [ %27, %.thread16 ]
+  %34 = phi ptr [ %28, %.thread16 ], [ %32, %29 ]
+  %35 = phi ptr [ %27, %.thread16 ], [ %spec.select, %29 ]
   %36 = tail call fastcc ptr @scan_positives(ptr noundef %6, ptr noundef nonnull %35, i64 noundef 1, ptr noundef null)
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.loopexit, label %.preheader
@@ -850,7 +850,7 @@ define dso_local range(i32 -2147483648, 1) i32 @simple_offset_rename_exchange(pt
   br label %75
 
 68:                                               ; preds = %.thread, %61, %57
-  %69 = phi i32 [ %.ph, %.thread ], [ %.ph8, %57 ], [ %.ph8, %61 ]
+  %69 = phi i32 [ %.ph8, %57 ], [ %.ph8, %61 ], [ %.ph, %.thread ]
   %70 = inttoptr i64 %23 to ptr
   store ptr %70, ptr %17, align 8
   %71 = call ptr @xa_store(ptr noundef %11, i64 noundef %23, ptr noundef %1, i32 noundef 3264) #15
@@ -2896,7 +2896,7 @@ define dso_local i64 @simple_attr_read(ptr noundef readonly captures(none) %0, p
   br label %59
 
 59:                                               ; preds = %.thread, %.critedge, %55, %51, %43, %38
-  %60 = phi i64 [ %58, %.critedge ], [ %56, %55 ], [ -22, %38 ], [ 0, %43 ], [ -14, %51 ], [ -14, %.thread ]
+  %60 = phi i64 [ %56, %55 ], [ -22, %38 ], [ 0, %43 ], [ -14, %51 ], [ %58, %.critedge ], [ -14, %.thread ]
   call void @mutex_unlock(ptr noundef nonnull %11) #15
   br label %61
 
@@ -3440,7 +3440,7 @@ define dso_local noundef zeroext i1 @inode_maybe_inc_iversion(ptr noundef %0, i1
   br i1 %.not.not.not, label %22, label %.critedge, !llvm.loop !43
 
 .critedge:                                        ; preds = %.lr.ph3, %22, %.lr.ph5, %.lr.ph.split.us, %.lr.ph.split, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph.split ], [ true, %.lr.ph5 ], [ true, %.lr.ph.split.us ], [ %.not.not.not, %22 ], [ %.not.not.not, %.lr.ph3 ]
+  %.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph.split.us ], [ true, %.lr.ph.split ], [ true, %.lr.ph5 ], [ %.not.not.not, %22 ], [ %.not.not.not, %.lr.ph3 ]
   ret i1 %.lcssa
 }
 

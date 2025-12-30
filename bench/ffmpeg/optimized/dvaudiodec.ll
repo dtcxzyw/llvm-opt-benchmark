@@ -247,7 +247,7 @@ dv_get_audio_sample_count.exit:                   ; preds = %20, %22, %24
   br label %dv_audio_12to16.exit
 
 dv_audio_12to16.exit:                             ; preds = %.lr.ph.split, %72, %79
-  %.0.i36 = phi i16 [ %85, %79 ], [ %78, %72 ], [ %65, %.lr.ph.split ]
+  %.0.i36 = phi i16 [ %78, %72 ], [ %85, %79 ], [ %65, %.lr.ph.split ]
   %86 = getelementptr inbounds nuw i8, ptr %.03240, i64 2
   store i16 %.0.i36, ptr %.03240, align 2, !tbaa !38
   %87 = getelementptr inbounds nuw i8, ptr %54, i64 1
@@ -291,7 +291,7 @@ dv_audio_12to16.exit:                             ; preds = %.lr.ph.split, %72, 
   br label %dv_audio_12to16.exit39
 
 dv_audio_12to16.exit39:                           ; preds = %dv_audio_12to16.exit, %104, %111
-  %.0.i38 = phi i16 [ %117, %111 ], [ %110, %104 ], [ %97, %dv_audio_12to16.exit ]
+  %.0.i38 = phi i16 [ %110, %104 ], [ %117, %111 ], [ %97, %dv_audio_12to16.exit ]
   store i16 %.0.i38, ptr %86, align 2, !tbaa !38
   %.1 = getelementptr inbounds nuw i8, ptr %.03240, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

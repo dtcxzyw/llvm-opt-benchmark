@@ -161,14 +161,14 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_get_params(ptr noundef %0, i32 n
   br i1 %.not61, label %.sink.split, label %59
 
 .sink.split:                                      ; preds = %56, %51, %46, %39, %32, %25, %18, %12, %8
-  %.sink = phi i32 [ 91, %51 ], [ 86, %46 ], [ 81, %39 ], [ 75, %32 ], [ 69, %25 ], [ 63, %18 ], [ 57, %12 ], [ 51, %8 ], [ 96, %56 ]
+  %.sink = phi i32 [ 51, %8 ], [ 57, %12 ], [ 63, %18 ], [ 69, %25 ], [ 75, %32 ], [ 81, %39 ], [ 86, %46 ], [ 91, %51 ], [ 96, %56 ]
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.ossl_cipher_generic_get_params) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 104, ptr noundef null) #6
   br label %59
 
 59:                                               ; preds = %.sink.split, %54, %56
-  %.0 = phi i32 [ 1, %54 ], [ 1, %56 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %56 ], [ 1, %54 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -250,7 +250,7 @@ ossl_param_is_empty.exit.thread.sink.split:       ; preds = %16, %12, %20
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %ossl_param_is_empty.exit.thread.sink.split, %2, %8, %6, %ossl_param_is_empty.exit
-  %.011 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 1, %8 ], [ 1, %2 ], [ 0, %6 ], [ %.011.ph, %ossl_param_is_empty.exit.thread.sink.split ]
+  %.011 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %6 ], [ 1, %8 ], [ 1, %2 ], [ %.011.ph, %ossl_param_is_empty.exit.thread.sink.split ]
   ret i32 %.011
 }
 
@@ -387,7 +387,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %42, %46, %.thread49, %.thread48, %.thread, %ossl_param_is_empty.exit, %41, %35
-  %.027 = phi i32 [ 0, %.thread ], [ 1, %42 ], [ 0, %.thread49 ], [ 0, %41 ], [ 0, %35 ], [ 0, %.thread48 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %46 ], [ 1, %2 ]
+  %.027 = phi i32 [ 0, %41 ], [ 0, %35 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %.thread ], [ 0, %.thread48 ], [ 0, %.thread49 ], [ 1, %46 ], [ 1, %42 ], [ 1, %2 ]
   ret i32 %.027
 }
 
@@ -556,7 +556,7 @@ ossl_cipher_generic_initiv.exit:                  ; preds = %21
   br label %59
 
 59:                                               ; preds = %ossl_cipher_generic_initiv.exit.thread, %49, %7, %57, %47
-  %.0 = phi i32 [ 0, %47 ], [ %58, %57 ], [ 0, %ossl_cipher_generic_initiv.exit.thread ], [ 0, %7 ], [ 0, %49 ]
+  %.0 = phi i32 [ 0, %47 ], [ %58, %57 ], [ 0, %7 ], [ 0, %49 ], [ 0, %ossl_cipher_generic_initiv.exit.thread ]
   ret i32 %.0
 }
 
@@ -692,7 +692,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_block_update(ptr noundef %0, ptr
   br i1 %49, label %.lr.ph, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %.preheader, %23
-  %50 = phi i64 [ %5, %23 ], [ %28, %43 ], [ %28, %.preheader ], [ %28, %.lr.ph ]
+  %50 = phi i64 [ %5, %23 ], [ %28, %.preheader ], [ %28, %43 ], [ %28, %.lr.ph ]
   %51 = urem i64 %50, %10
   %.not123 = icmp eq i64 %51, 0
   br i1 %.not123, label %53, label %52
@@ -820,8 +820,8 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_block_update(ptr noundef %0, ptr
   br label %109
 
 109:                                              ; preds = %90, %107, %87
-  %.096 = phi i64 [ %10, %107 ], [ 0, %90 ], [ 0, %87 ]
-  %.092 = phi ptr [ %108, %107 ], [ %1, %90 ], [ %1, %87 ]
+  %.096 = phi i64 [ %10, %107 ], [ 0, %87 ], [ 0, %90 ]
+  %.092 = phi ptr [ %108, %107 ], [ %1, %87 ], [ %1, %90 ]
   %.not112 = icmp eq i64 %.094, 0
   br i1 %.not112, label %thread-pre-split, label %110
 
@@ -918,7 +918,7 @@ thread-pre-split:                                 ; preds = %109, %123
   br label %.critedge
 
 .critedge:                                        ; preds = %30, %33, %139, %66, %69, %144, %131, %122, %116, %106, %98, %77, %59, %52, %22, %14
-  %.091 = phi i32 [ 0, %22 ], [ 0, %52 ], [ 0, %14 ], [ 0, %77 ], [ 0, %59 ], [ 0, %139 ], [ 0, %98 ], [ 0, %122 ], [ %145, %144 ], [ 1, %66 ], [ 0, %131 ], [ 0, %116 ], [ 0, %106 ], [ 1, %69 ], [ 0, %33 ], [ 0, %30 ]
+  %.091 = phi i32 [ 0, %22 ], [ 0, %52 ], [ 0, %77 ], [ 0, %59 ], [ 0, %98 ], [ 0, %122 ], [ %145, %144 ], [ 0, %131 ], [ 0, %116 ], [ 0, %106 ], [ 0, %14 ], [ 1, %69 ], [ 1, %66 ], [ 0, %139 ], [ 0, %33 ], [ 0, %30 ]
   ret i32 %.091
 }
 
@@ -1101,7 +1101,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_block_final(ptr noundef %0, ptr 
   br label %71
 
 71:                                               ; preds = %63, %4, %69, %68, %59, %51, %50, %42, %41, %33, %30, %28, %16, %12
-  %.0 = phi i32 [ 0, %16 ], [ 0, %33 ], [ 1, %42 ], [ 0, %41 ], [ 1, %28 ], [ 0, %30 ], [ 0, %51 ], [ 1, %50 ], [ 0, %68 ], [ 1, %69 ], [ 0, %4 ], [ 0, %59 ], [ 0, %12 ], [ 0, %63 ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %33 ], [ 1, %42 ], [ 0, %41 ], [ 1, %28 ], [ 0, %30 ], [ 0, %51 ], [ 1, %50 ], [ 0, %68 ], [ 1, %69 ], [ 0, %59 ], [ 0, %12 ], [ 0, %4 ], [ 0, %63 ]
   ret i32 %.0
 }
 
@@ -1224,7 +1224,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_stream_update(ptr noundef %0, pt
   br label %56
 
 56:                                               ; preds = %24, %27, %50, %44, %48, %40, %33, %23, %16, %13, %10
-  %.0 = phi i32 [ 1, %13 ], [ 0, %16 ], [ 0, %48 ], [ 0, %40 ], [ 0, %33 ], [ 0, %10 ], [ 0, %23 ], [ 1, %44 ], [ 1, %50 ], [ 1, %27 ], [ 1, %24 ]
+  %.0 = phi i32 [ 1, %13 ], [ 0, %16 ], [ 0, %23 ], [ 0, %10 ], [ 0, %33 ], [ 0, %40 ], [ 0, %48 ], [ 1, %44 ], [ 1, %50 ], [ 1, %27 ], [ 1, %24 ]
   ret i32 %.0
 }
 
@@ -1412,14 +1412,14 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_get_ctx_params(ptr noundef %0, p
   br i1 %.not59, label %.sink.split, label %55
 
 .sink.split:                                      ; preds = %49, %43, %37, %32, %22, %10, %4
-  %.sink = phi i32 [ 635, %43 ], [ 630, %37 ], [ 625, %32 ], [ 618, %22 ], [ 611, %10 ], [ 606, %4 ], [ 641, %49 ]
+  %.sink = phi i32 [ 606, %4 ], [ 611, %10 ], [ 618, %22 ], [ 625, %32 ], [ 630, %37 ], [ 635, %43 ], [ 641, %49 ]
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.ossl_cipher_generic_get_ctx_params) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 104, ptr noundef null) #6
   br label %55
 
 55:                                               ; preds = %.sink.split, %47, %49
-  %.0 = phi i32 [ 1, %47 ], [ 1, %49 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %49 ], [ 1, %47 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

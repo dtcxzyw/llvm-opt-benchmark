@@ -470,7 +470,7 @@ _ZN4core3ptr19swap_nonoverlapping17hcb6abde1f573e640E.exit.i.i.i: ; preds = %40
   br label %.critedge.i
 
 .body34.thread.i:                                 ; preds = %110, %94, %.body34.thread82.i, %.body34.i, %68
-  %.pn.i = phi { ptr, i32 } [ %69, %68 ], [ %lpad.phi.i, %.body34.i ], [ %lpad.phi.i, %110 ], [ %88, %.body34.thread82.i ], [ %95, %94 ]
+  %.pn.i = phi { ptr, i32 } [ %69, %68 ], [ %lpad.phi.i, %110 ], [ %lpad.phi.i, %.body34.i ], [ %88, %.body34.thread82.i ], [ %95, %94 ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$cfg..cfg_expr..CfgExpr$GT$$GT$17hae1d790cd87592b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #16
           to label %.thread62.i unwind label %111, !noalias !84
 
@@ -737,7 +737,7 @@ _ZN4core3ptr19swap_nonoverlapping17hcb6abde1f573e640E.exit.i.i.i: ; preds = %40
   br label %_ZN3cfg3dnf7Builder5lower17h06f4ec09b3be499fE.exit
 
 .thread62.i:                                      ; preds = %115, %.body34.thread.i, %58, %.thread75.i
-  %.pn1661.i = phi { ptr, i32 } [ %59, %58 ], [ %lpad.thr_comm73.i, %.thread75.i ], [ %.pn.i, %.body34.thread.i ], [ %116, %115 ]
+  %.pn1661.i = phi { ptr, i32 } [ %lpad.thr_comm73.i, %.thread75.i ], [ %59, %58 ], [ %.pn.i, %.body34.thread.i ], [ %116, %115 ]
   %148 = load i8, ptr %18, align 8, !range !49, !noalias !82, !noundef !5
   %.off.i = add nsw i8 %148, -29
   %switch.i = icmp ult i8 %.off.i, 2
@@ -751,7 +751,7 @@ _ZN4core3ptr19swap_nonoverlapping17hcb6abde1f573e640E.exit.i.i.i: ; preds = %40
   resume { ptr, i32 } %.pn2052.i
 
 .thread.i:                                        ; preds = %149, %.thread62.i, %136, %52, %.thread54.i
-  %.pn2052.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread54.i ], [ %.pn1661.i, %.thread62.i ], [ %lpad.thr_comm.split-lp74.i, %52 ], [ %.pn1661.i, %149 ], [ %137, %136 ]
+  %.pn2052.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread54.i ], [ %lpad.thr_comm.split-lp74.i, %52 ], [ %.pn1661.i, %.thread62.i ], [ %.pn1661.i, %149 ], [ %137, %136 ]
   invoke void @"_ZN4core3ptr38drop_in_place$LT$cfg..dnf..DnfExpr$GT$17h8dab4ea03e3885d2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #16
           to label %150 unwind label %111, !noalias !84
 
@@ -1374,7 +1374,7 @@ define noundef zeroext i1 @"_ZN56_$LT$cfg..dnf..DnfExpr$u20$as$u20$core..fmt..Di
   br label %"_ZN60_$LT$cfg..dnf..Conjunction$u20$as$u20$core..fmt..Display$GT$3fmt17h662eccf5952d1e8aE.exit.thread"
 
 "_ZN60_$LT$cfg..dnf..Conjunction$u20$as$u20$core..fmt..Display$GT$3fmt17h662eccf5952d1e8aE.exit.thread": ; preds = %51, %"_ZN60_$LT$cfg..dnf..Conjunction$u20$as$u20$core..fmt..Display$GT$3fmt17h662eccf5952d1e8aE.exit", %78, %65, %73, %"_ZN56_$LT$cfg..dnf..Literal$u20$as$u20$core..fmt..Display$GT$3fmt17h3360d7f380dfd00fE.exit", %76, %.critedge._crit_edge.thread, %31, %.critedge._crit_edge
-  %.0 = phi i1 [ true, %31 ], [ %37, %.critedge._crit_edge.thread ], [ false, %.critedge._crit_edge ], [ true, %65 ], [ true, %76 ], [ true, %"_ZN56_$LT$cfg..dnf..Literal$u20$as$u20$core..fmt..Display$GT$3fmt17h3360d7f380dfd00fE.exit" ], [ true, %73 ], [ true, %78 ], [ true, %"_ZN60_$LT$cfg..dnf..Conjunction$u20$as$u20$core..fmt..Display$GT$3fmt17h662eccf5952d1e8aE.exit" ], [ true, %51 ]
+  %.0 = phi i1 [ true, %31 ], [ false, %.critedge._crit_edge ], [ %37, %.critedge._crit_edge.thread ], [ true, %76 ], [ true, %"_ZN56_$LT$cfg..dnf..Literal$u20$as$u20$core..fmt..Display$GT$3fmt17h3360d7f380dfd00fE.exit" ], [ true, %73 ], [ true, %65 ], [ true, %78 ], [ true, %"_ZN60_$LT$cfg..dnf..Conjunction$u20$as$u20$core..fmt..Display$GT$3fmt17h662eccf5952d1e8aE.exit" ], [ true, %51 ]
   ret i1 %.0
 
 38:                                               ; preds = %78, %33
@@ -1497,7 +1497,7 @@ define noundef zeroext i1 @"_ZN56_$LT$cfg..dnf..DnfExpr$u20$as$u20$core..fmt..Di
   br i1 %74, label %"_ZN60_$LT$cfg..dnf..Conjunction$u20$as$u20$core..fmt..Display$GT$3fmt17h662eccf5952d1e8aE.exit.thread", label %.backedge
 
 "_ZN56_$LT$cfg..dnf..Literal$u20$as$u20$core..fmt..Display$GT$3fmt17h3360d7f380dfd00fE.exit": ; preds = %67, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit.i"
-  %.0.i27 = phi i1 [ %.0.in.i.i, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit.i" ], [ %68, %67 ]
+  %.0.i27 = phi i1 [ %68, %67 ], [ %.0.in.i.i, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit.i" ]
   br i1 %.0.i27, label %"_ZN60_$LT$cfg..dnf..Conjunction$u20$as$u20$core..fmt..Display$GT$3fmt17h662eccf5952d1e8aE.exit.thread", label %.backedge
 
 .backedge:                                        ; preds = %"_ZN56_$LT$cfg..dnf..Literal$u20$as$u20$core..fmt..Display$GT$3fmt17h3360d7f380dfd00fE.exit", %73
@@ -1580,8 +1580,8 @@ define internal fastcc void @_ZN3cfg3dnf11Conjunction3new17h1b59c7a9a11d0eb7E(pt
           cleanup
   br label %.body
 
-.body8.thread:                                    ; preds = %127, %131, %91, %59, %59, %144, %.body8, %29
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %eh.lpad-body9, %.body8 ], [ %eh.lpad-body9, %144 ], [ %.pn.i, %59 ], [ %.pn.i, %59 ], [ %.pn.i, %91 ], [ %128, %131 ], [ %128, %127 ]
+.body8.thread:                                    ; preds = %127, %131, %59, %59, %91, %144, %.body8, %29
+  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %eh.lpad-body9, %144 ], [ %eh.lpad-body9, %.body8 ], [ %.pn.i, %59 ], [ %.pn.i, %59 ], [ %.pn.i, %91 ], [ %128, %131 ], [ %128, %127 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$cfg..cfg_expr..CfgExpr$GT$$GT$17h35f7bc83cb4fca90E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #16
           to label %.body unwind label %145
 
@@ -1817,7 +1817,7 @@ define internal fastcc void @_ZN3cfg3dnf11Conjunction3new17h1b59c7a9a11d0eb7E(pt
           to label %95 unwind label %.loopexit
 
 .loopexit:                                        ; preds = %92, %80, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ab78e5124a2226fE.llvm.2694494082933310555.exit.i"
-  %.ph = phi i1 [ false, %92 ], [ true, %80 ], [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ab78e5124a2226fE.llvm.2694494082933310555.exit.i" ]
+  %.ph = phi i1 [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ab78e5124a2226fE.llvm.2694494082933310555.exit.i" ], [ true, %80 ], [ false, %92 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body8
@@ -2023,7 +2023,7 @@ define noundef zeroext i1 @"_ZN60_$LT$cfg..dnf..Conjunction$u20$as$u20$core..fmt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %22, %18, %9, %13
-  %.0 = phi i1 [ true, %9 ], [ %19, %18 ], [ false, %13 ], [ true, %22 ], [ true, %20 ]
+  %.0 = phi i1 [ true, %9 ], [ false, %13 ], [ %19, %18 ], [ true, %22 ], [ true, %20 ]
   ret i1 %.0
 
 20:                                               ; preds = %22, %14
@@ -2117,7 +2117,7 @@ define noundef zeroext i1 @"_ZN56_$LT$cfg..dnf..Literal$u20$as$u20$core..fmt..Di
   br i1 %brmerge, label %33, label %34
 
 33:                                               ; preds = %34, %20, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit", %14
-  %.0 = phi i1 [ %.0.in.i, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit" ], [ %35, %34 ], [ true, %14 ], [ %21, %20 ]
+  %.0 = phi i1 [ true, %14 ], [ %21, %20 ], [ %.0.in.i, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit" ], [ %35, %34 ]
   ret i1 %.0
 
 34:                                               ; preds = %20, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit"
@@ -2440,7 +2440,7 @@ define internal fastcc void @_ZN3cfg3dnf15distribute_conj2go17hf8d5a95f2ebf79b5E
   unreachable
 
 common.resume:                                    ; preds = %78, %51, %21
-  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %22, %21 ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %52, %51 ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1f9d6e7e6c1bef25E.exit": ; preds = %10, %._crit_edge.i

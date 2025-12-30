@@ -62,7 +62,7 @@ define dso_local ptr @bio_f_noisy_dgram_filter() local_unnamed_addr #0 {
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %17, %0, %3, %6, %8, %11, %14
-  %.0 = phi ptr [ null, %3 ], [ %spec.select, %17 ], [ null, %14 ], [ null, %11 ], [ null, %8 ], [ null, %6 ], [ %1, %0 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %11 ], [ null, %8 ], [ null, %6 ], [ null, %3 ], [ %1, %0 ], [ %spec.select, %17 ]
   ret ptr %.0
 }
 
@@ -152,7 +152,7 @@ define internal i64 @noisy_dgram_ctrl(ptr noundef %0, i32 noundef %1, i64 nounde
   br label %.critedge
 
 .critedge:                                        ; preds = %38, %7, %11, %16, %22, %27, %32, %29, %24, %19, %13, %8, %4
-  %.0 = phi i64 [ 0, %24 ], [ 0, %4 ], [ 0, %29 ], [ 0, %19 ], [ 0, %13 ], [ 0, %8 ], [ %39, %38 ], [ 1, %32 ], [ 1, %11 ], [ 1, %16 ], [ 1, %22 ], [ 1, %27 ], [ 0, %7 ]
+  %.0 = phi i64 [ 0, %4 ], [ 0, %8 ], [ 0, %13 ], [ 0, %19 ], [ 0, %24 ], [ 0, %29 ], [ %39, %38 ], [ 1, %11 ], [ 1, %16 ], [ 1, %22 ], [ 1, %27 ], [ 1, %32 ], [ 0, %7 ]
   ret i64 %.0
 }
 
@@ -306,7 +306,7 @@ bandwidth_limit.exit.thread:                      ; preds = %64, %bandwidth_limi
   br label %75
 
 75:                                               ; preds = %9, %6, %bandwidth_limit.exit.thread, %73
-  %.0 = phi i32 [ 0, %6 ], [ 0, %73 ], [ %74, %bandwidth_limit.exit.thread ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %73 ], [ %74, %bandwidth_limit.exit.thread ], [ 0, %6 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -688,8 +688,8 @@ flip_bits.exit:                                   ; preds = %.thread, %147, %152
   br label %182
 
 182:                                              ; preds = %109, %180, %174
-  %.1 = phi i64 [ %.2, %174 ], [ %.0114149, %109 ], [ %.2, %180 ]
-  %.287 = phi i64 [ %.186150, %174 ], [ %110, %109 ], [ %181, %180 ]
+  %.1 = phi i64 [ %.2, %174 ], [ %.2, %180 ], [ %.0114149, %109 ]
+  %.287 = phi i64 [ %.186150, %174 ], [ %181, %180 ], [ %110, %109 ]
   %183 = add nuw i64 %.180152, 1
   %184 = getelementptr inbounds nuw i8, ptr %.084151, i64 40
   %185 = load i64, ptr %10, align 8, !tbaa !38
@@ -710,7 +710,7 @@ flip_bits.exit:                                   ; preds = %.thread, %147, %152
   br label %.thread126
 
 .thread126:                                       ; preds = %18, %15, %169, %._crit_edge148, %.lr.ph147, %176, %.thread132, %._crit_edge155, %._crit_edge, %9, %6, %189
-  %.0 = phi i32 [ 0, %9 ], [ 0, %176 ], [ 0, %189 ], [ 0, %._crit_edge ], [ 1, %.thread132 ], [ 0, %.lr.ph147 ], [ 0, %6 ], [ 1, %._crit_edge155 ], [ 0, %169 ], [ 0, %._crit_edge148 ], [ 0, %15 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %189 ], [ 0, %6 ], [ 0, %9 ], [ 0, %._crit_edge ], [ 1, %._crit_edge155 ], [ 1, %.thread132 ], [ 0, %176 ], [ 0, %.lr.ph147 ], [ 0, %._crit_edge148 ], [ 0, %169 ], [ 0, %15 ], [ 0, %18 ]
   ret i32 %.0
 }
 

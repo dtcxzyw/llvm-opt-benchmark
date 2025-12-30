@@ -331,7 +331,7 @@ define noundef zeroext i1 @_ZNK6icu_7717CollationSettingseqERKS0_(ptr noundef no
   br i1 %or.cond.not, label %24, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %24, %.preheader, %14, %9, %2
-  %.011 = phi i1 [ false, %14 ], [ false, %2 ], [ false, %9 ], [ true, %.preheader ], [ %.not16, %24 ]
+  %.011 = phi i1 [ false, %2 ], [ false, %9 ], [ false, %14 ], [ true, %.preheader ], [ %.not16, %24 ]
   ret i1 %.011
 }
 

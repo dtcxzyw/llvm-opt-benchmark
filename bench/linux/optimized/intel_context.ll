@@ -240,7 +240,7 @@ define dso_local i32 @intel_context_alloc_state(ptr noundef %0) local_unnamed_ad
   br label %.thread9
 
 .thread9:                                         ; preds = %52, %54, %.thread7, %55, %14, %10, %5
-  %56 = phi i32 [ %19, %14 ], [ 0, %52 ], [ 0, %5 ], [ -5, %10 ], [ 0, %.thread7 ], [ 0, %55 ], [ 0, %54 ]
+  %56 = phi i32 [ %19, %14 ], [ 0, %5 ], [ -5, %10 ], [ 0, %55 ], [ 0, %.thread7 ], [ 0, %54 ], [ 0, %52 ]
   tail call void @mutex_unlock(ptr noundef nonnull %2) #11
   br label %57
 
@@ -471,7 +471,7 @@ define dso_local i32 @__intel_context_do_pin_ww(ptr noundef %0, ptr noundef %1) 
   br i1 %130, label %135, label %.thread35
 
 .thread35:                                        ; preds = %91, %.thread36, %.loopexit
-  %131 = phi i32 [ %97, %.thread36 ], [ %129, %.loopexit ], [ %93, %91 ]
+  %131 = phi i32 [ %129, %.loopexit ], [ %97, %.thread36 ], [ %93, %91 ]
   %132 = load ptr, ptr %85, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 56
   %134 = load ptr, ptr %133, align 8
@@ -510,7 +510,7 @@ define dso_local i32 @__intel_context_do_pin_ww(ptr noundef %0, ptr noundef %1) 
   br label %.thread32
 
 .thread32:                                        ; preds = %.thread23, %47, %11, %20, %78, %33, %142, %8
-  %153 = phi i32 [ %136, %142 ], [ %9, %8 ], [ %36, %33 ], [ %18, %11 ], [ %79, %78 ], [ %27, %20 ], [ %39, %.thread23 ], [ %45, %47 ]
+  %153 = phi i32 [ %136, %142 ], [ %9, %8 ], [ %79, %78 ], [ %36, %33 ], [ %27, %20 ], [ %18, %11 ], [ %39, %.thread23 ], [ %45, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %153
 }
@@ -1308,7 +1308,7 @@ define dso_local ptr @intel_context_get_active_request(ptr noundef %0) local_unn
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %27, %18, %41
-  %42 = phi ptr [ %13, %41 ], [ %13, %27 ], [ %13, %18 ], [ %37, %36 ]
+  %42 = phi ptr [ %13, %41 ], [ %37, %36 ], [ %13, %27 ], [ %13, %18 ]
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.thread, label %44
 

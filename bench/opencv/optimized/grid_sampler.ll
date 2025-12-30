@@ -491,7 +491,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.critedge, %187
   br label %191
 
 188:                                              ; preds = %83, %148
-  %.pn61 = phi { ptr, i32 } [ %.pn55.pn, %148 ], [ %84, %83 ]
+  %.pn61 = phi { ptr, i32 } [ %84, %83 ], [ %.pn55.pn, %148 ]
   %189 = load ptr, ptr %7, align 8, !tbaa !14
   %.not.i.i.i78 = icmp eq ptr %189, null
   br i1 %.not.i.i.i78, label %_ZNSt6vectorIfSaIfEED2Ev.exit79, label %190
@@ -709,7 +709,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit86:               ; preds = %75, %_ZNKSt7__cxx11
   br label %89
 
 81:                                               ; preds = %64, %52
-  %.258 = phi i32 [ %58, %64 ], [ %.05692, %52 ]
+  %.258 = phi i32 [ %.05692, %52 ], [ %58, %64 ]
   %82 = icmp slt i32 %46, 0
   br i1 %82, label %.sink.split, label %83
 

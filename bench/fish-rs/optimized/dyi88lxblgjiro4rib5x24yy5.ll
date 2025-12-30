@@ -121,7 +121,7 @@ define void @_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E(ptr dead_on_un
   br i1 %13, label %17, label %15
 
 14:                                               ; preds = %15, %17, %6, %4
-  %storemerge.sink = phi i8 [ 1, %4 ], [ 0, %6 ], [ 1, %15 ], [ 0, %17 ]
+  %storemerge.sink = phi i8 [ 0, %6 ], [ 1, %4 ], [ 1, %15 ], [ 0, %17 ]
   store i8 %storemerge.sink, ptr %0, align 8
   ret void
 
@@ -173,7 +173,7 @@ define void @_ZN11fish_printf3arg3Arg7as_sint17h429ac602b87100f4E(ptr dead_on_un
   br label %18
 
 18:                                               ; preds = %14, %16, %10, %4
-  %storemerge.sink = phi i8 [ 1, %4 ], [ 0, %10 ], [ 0, %14 ], [ 1, %16 ]
+  %storemerge.sink = phi i8 [ 0, %10 ], [ 1, %4 ], [ 0, %14 ], [ 1, %16 ]
   store i8 %storemerge.sink, ptr %0, align 8
   ret void
 }

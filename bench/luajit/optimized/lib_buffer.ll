@@ -222,7 +222,7 @@ buffer_tobuf.exit:                                ; preds = %10
   br label %37
 
 37:                                               ; preds = %30, %34, %27
-  %.sink = phi ptr [ %29, %27 ], [ %36, %34 ], [ %19, %30 ]
+  %.sink = phi ptr [ %36, %34 ], [ %29, %27 ], [ %19, %30 ]
   store ptr %.sink, ptr %20, align 8, !tbaa !35
   %38 = load ptr, ptr %2, align 8, !tbaa !4
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8

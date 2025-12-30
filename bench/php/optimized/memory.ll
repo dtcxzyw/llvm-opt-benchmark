@@ -615,7 +615,7 @@ zend_string_realloc.exit:                         ; preds = %56, %zend_string_al
   br label %90
 
 90:                                               ; preds = %zend_string_realloc.exit, %51, %zend_string_truncate.exit, %8, %7, %89
-  %.0 = phi i32 [ -2, %89 ], [ -1, %8 ], [ %2, %7 ], [ 0, %zend_string_truncate.exit ], [ 0, %51 ], [ 0, %zend_string_realloc.exit ]
+  %.0 = phi i32 [ -2, %89 ], [ %2, %7 ], [ -1, %8 ], [ 0, %zend_string_truncate.exit ], [ 0, %51 ], [ 0, %zend_string_realloc.exit ]
   ret i32 %.0
 }
 
@@ -944,7 +944,7 @@ define internal i32 @php_stream_temp_cast(ptr noundef %0, i32 noundef %1, ptr no
   br label %37
 
 37:                                               ; preds = %12, %3, %19, %18, %10
-  %.0 = phi i32 [ %11, %10 ], [ -1, %3 ], [ %.mux, %12 ], [ -1, %18 ], [ %36, %19 ]
+  %.0 = phi i32 [ %11, %10 ], [ -1, %18 ], [ %36, %19 ], [ -1, %3 ], [ %.mux, %12 ]
   ret i32 %.0
 }
 
@@ -999,7 +999,7 @@ define internal i32 @php_stream_temp_set_option(ptr noundef readonly captures(no
   br label %18
 
 18:                                               ; preds = %14, %7, %10, %16
-  %.0 = phi i32 [ 0, %7 ], [ %17, %16 ], [ 0, %10 ], [ -2, %14 ]
+  %.0 = phi i32 [ %17, %16 ], [ 0, %10 ], [ 0, %7 ], [ -2, %14 ]
   ret i32 %.0
 }
 
@@ -1480,7 +1480,7 @@ php_stream_temp_seek.exit:                        ; preds = %99, %121
   br label %zend_string_free.exit
 
 zend_string_free.exit:                            ; preds = %158, %157, %151, %159, %6, %89, %82, %63, %52, %38, %27
-  %.0 = phi ptr [ null, %38 ], [ null, %27 ], [ null, %63 ], [ null, %82 ], [ null, %6 ], [ null, %89 ], [ null, %52 ], [ %104, %159 ], [ %104, %151 ], [ %104, %157 ], [ %104, %158 ]
+  %.0 = phi ptr [ null, %27 ], [ null, %63 ], [ null, %82 ], [ null, %89 ], [ null, %52 ], [ null, %38 ], [ null, %6 ], [ %104, %159 ], [ %104, %151 ], [ %104, %157 ], [ %104, %158 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }

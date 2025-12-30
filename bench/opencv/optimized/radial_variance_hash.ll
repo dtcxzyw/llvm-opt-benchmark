@@ -236,7 +236,7 @@ _ZN2cv3PtrINS_8img_hash18RadialVarianceHashEEC2IS2_EEPT_.exit: ; preds = %5
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %44, %41
-  %46 = phi ptr [ %.pr.pre.i.i.i.i, %44 ], [ %38, %41 ]
+  %46 = phi ptr [ %38, %41 ], [ %.pr.pre.i.i.i.i, %44 ]
   %.not8.i.i.i.i = icmp eq ptr %46, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %47
 
@@ -1030,8 +1030,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl13hashCalc
   br label %20
 
 20:                                               ; preds = %19, %17, %._crit_edge.us
-  %.139.us = phi double [ %.0384.us, %17 ], [ %38, %19 ], [ %.0384.us, %._crit_edge.us ]
-  %.1.us = phi double [ %.05.us, %17 ], [ %.05.us, %19 ], [ %38, %._crit_edge.us ]
+  %.139.us = phi double [ %38, %19 ], [ %.0384.us, %17 ], [ %.0384.us, %._crit_edge.us ]
+  %.1.us = phi double [ %.05.us, %19 ], [ %.05.us, %17 ], [ %38, %._crit_edge.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %9, align 4, !tbaa !65
   %22 = sext i32 %21 to i64
@@ -1099,8 +1099,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl13hashCalc
   br label %50
 
 50:                                               ; preds = %.preheader, %47, %49
-  %.139 = phi double [ %.0384, %47 ], [ %., %49 ], [ %.0384, %.preheader ]
-  %.1 = phi double [ %.05, %47 ], [ %.05, %49 ], [ %., %.preheader ]
+  %.139 = phi double [ %., %49 ], [ %.0384, %47 ], [ %.0384, %.preheader ]
+  %.1 = phi double [ %.05, %49 ], [ %.05, %47 ], [ %., %.preheader ]
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next14, %wide.trip.count
   br i1 %exitcond16.not, label %._crit_edge6, label %.preheader, !llvm.loop !66
@@ -1440,8 +1440,8 @@ _ZN12_GLOBAL__N_122RadialVarianceHashImpl20firstHalfProjectionsERKN2cv3MatEiii.e
   br label %_ZN12_GLOBAL__N_122RadialVarianceHashImpl20firstHalfProjectionsERKN2cv3MatEiii.exit
 
 _ZN12_GLOBAL__N_122RadialVarianceHashImpl20firstHalfProjectionsERKN2cv3MatEiii.exit: ; preds = %.lr.ph64.split.i, %_ZN12_GLOBAL__N_122RadialVarianceHashImpl20firstHalfProjectionsERKN2cv3MatEiii.exit.loopexit, %2
-  %138 = phi i32 [ %42, %2 ], [ %126, %_ZN12_GLOBAL__N_122RadialVarianceHashImpl20firstHalfProjectionsERKN2cv3MatEiii.exit.loopexit ], [ %136, %.lr.ph64.split.i ]
-  %139 = phi ptr [ %41, %2 ], [ %.pre, %_ZN12_GLOBAL__N_122RadialVarianceHashImpl20firstHalfProjectionsERKN2cv3MatEiii.exit.loopexit ], [ %41, %.lr.ph64.split.i ]
+  %138 = phi i32 [ %126, %_ZN12_GLOBAL__N_122RadialVarianceHashImpl20firstHalfProjectionsERKN2cv3MatEiii.exit.loopexit ], [ %42, %2 ], [ %136, %.lr.ph64.split.i ]
+  %139 = phi ptr [ %.pre, %_ZN12_GLOBAL__N_122RadialVarianceHashImpl20firstHalfProjectionsERKN2cv3MatEiii.exit.loopexit ], [ %41, %2 ], [ %41, %.lr.ph64.split.i ]
   %140 = mul nsw i32 %138, 3
   %141 = sdiv i32 %140, 4
   %142 = icmp slt i32 %141, %138
@@ -2085,7 +2085,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !53
   br label %40
 
@@ -2559,7 +2559,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %56, %
   br label %147
 
 147:                                              ; preds = %145, %132, %130, %128
-  %.pn47.pn = phi { ptr, i32 } [ %131, %130 ], [ %129, %128 ], [ %133, %132 ], [ %146, %145 ]
+  %.pn47.pn = phi { ptr, i32 } [ %129, %128 ], [ %133, %132 ], [ %131, %130 ], [ %146, %145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)

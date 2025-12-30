@@ -649,7 +649,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h01e92
   br i1 %24, label %.thread.i, label %53
 
 .thread.i:                                        ; preds = %55, %53, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i", %52, %43, %40
-  %eh.lpad-body81922.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %52 ], [ %lpad.thr_comm.i, %55 ], [ %lpad.thr_comm.i, %53 ], [ %lpad.thr_comm.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %41, %43 ], [ %41, %40 ]
+  %eh.lpad-body81922.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %55 ], [ %lpad.thr_comm.i, %53 ], [ %lpad.thr_comm.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %lpad.thr_comm.i, %52 ], [ %41, %43 ], [ %41, %40 ]
   resume { ptr, i32 } %eh.lpad-body81922.i
 
 53:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i", %52
@@ -956,7 +956,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
   br label %.body.thread.i.i.i.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h107304b04d7b0facE.exit.thread12.i.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i.i", %67, %65
-  %.sroa.5.2.i.i.i.i.ph.i.i.i.i.i.i.i = phi i32 [ %63, %65 ], [ %84, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i.i" ], [ %63, %67 ]
+  %.sroa.5.2.i.i.i.i.ph.i.i.i.i.i.i.i = phi i32 [ %63, %67 ], [ %63, %65 ], [ %84, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !136
   br label %.loopexit.i.i.i.i.i
 
@@ -1005,7 +1005,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h16be1788b8386d15E.exit.i"
 
 .body.thread.i.i.i.i.i:                           ; preds = %.body.thread18.loopexit.split-lp.i.i.i.i.i, %.body.thread18.loopexit.i.i.i.i.i, %101, %99, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i.i.i.i.i.i.i.i.i.i.i"
-  %eh.lpad-body16.i.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body8.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i.i.i.i.i.i.i.i.i.i.i" ], [ %.pn4.i.i.i.i.i.i.i.i.i.i.i, %99 ], [ %.pn4.i.i.i.i.i.i.i.i.i.i.i, %101 ], [ %lpad.loopexit.i.i.i.i.i, %.body.thread18.loopexit.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i, %.body.thread18.loopexit.split-lp.i.i.i.i.i ]
+  %eh.lpad-body16.i.i.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i.i.i.i.i.i.i.i.i, %101 ], [ %.pn4.i.i.i.i.i.i.i.i.i.i.i, %99 ], [ %eh.lpad-body8.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i.i.i.i.i.i.i.i.i.i.i" ], [ %lpad.loopexit.i.i.i.i.i, %.body.thread18.loopexit.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i, %.body.thread18.loopexit.split-lp.i.i.i.i.i ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde_wasm_bindgen..ser..MapSerializer$GT$17haad205ece87c0f4cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #10
           to label %.thread.i unwind label %106, !noalias !76
 
@@ -1156,12 +1156,12 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
   br label %.thread.i
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit41.i": ; preds = %153, %.thread.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40.i"
-  %.pn44.i = phi { ptr, i32 } [ %eh.lpad-body3749.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40.i" ], [ %.pn45.i, %153 ], [ %.pn45.i, %.thread.i ]
+  %.pn44.i = phi { ptr, i32 } [ %eh.lpad-body3749.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40.i" ], [ %.pn45.i, %.thread.i ], [ %.pn45.i, %153 ]
   resume { ptr, i32 } %.pn44.i
 
 .thread.i:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40..thread_crit_edge.i", %111, %.body.thread.i.i.i.i.i
-  %.val.i2 = phi i32 [ %.val.pre.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40..thread_crit_edge.i" ], [ %19, %.body.thread.i.i.i.i.i ], [ %19, %111 ]
-  %.pn45.i = phi { ptr, i32 } [ %eh.lpad-body3749.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40..thread_crit_edge.i" ], [ %eh.lpad-body16.i.i.i.i.i, %.body.thread.i.i.i.i.i ], [ %112, %111 ]
+  %.val.i2 = phi i32 [ %.val.pre.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40..thread_crit_edge.i" ], [ %19, %111 ], [ %19, %.body.thread.i.i.i.i.i ]
+  %.pn45.i = phi { ptr, i32 } [ %eh.lpad-body3749.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40..thread_crit_edge.i" ], [ %112, %111 ], [ %eh.lpad-body16.i.i.i.i.i, %.body.thread.i.i.i.i.i ]
   %152 = icmp ugt i32 %.val.i2, 131
   br i1 %152, label %153, label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit41.i"
 
@@ -1170,8 +1170,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit41.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hf9aa1e3c98bd1861E.exit": ; preds = %116, %118, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i", %145, %147, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i"
-  %.sroa.5.2.i = phi i32 [ %114, %118 ], [ %136, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i" ], [ %114, %116 ], [ undef, %147 ], [ undef, %145 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %118 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i" ], [ 1, %116 ], [ 0, %147 ], [ 0, %145 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ]
+  %.sroa.5.2.i = phi i32 [ %136, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i" ], [ %114, %116 ], [ %114, %118 ], [ undef, %147 ], [ undef, %145 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i" ], [ 1, %116 ], [ 1, %118 ], [ 0, %147 ], [ 0, %145 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !81
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -1370,7 +1370,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h0b2fd
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -1384,8 +1384,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h0b2fd
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hca4bbfcdc5adec9aE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !152
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -1667,12 +1667,12 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h1da4d
   br label %.thread.i
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40.i": ; preds = %99, %.thread.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i"
-  %.pn43.i = phi { ptr, i32 } [ %eh.lpad-body3656.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i" ], [ %.pn44.i, %99 ], [ %.pn44.i, %.thread.i ]
+  %.pn43.i = phi { ptr, i32 } [ %eh.lpad-body3656.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i" ], [ %.pn44.i, %.thread.i ], [ %.pn44.i, %99 ]
   resume { ptr, i32 } %.pn43.i
 
 .thread.i:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39..thread_crit_edge.i", %60, %55
-  %.val.i2 = phi i32 [ %.val.pre.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39..thread_crit_edge.i" ], [ %14, %55 ], [ %14, %60 ]
-  %.pn44.i = phi { ptr, i32 } [ %eh.lpad-body3656.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39..thread_crit_edge.i" ], [ %56, %55 ], [ %61, %60 ]
+  %.val.i2 = phi i32 [ %.val.pre.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39..thread_crit_edge.i" ], [ %14, %60 ], [ %14, %55 ]
+  %.pn44.i = phi { ptr, i32 } [ %eh.lpad-body3656.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39..thread_crit_edge.i" ], [ %61, %60 ], [ %56, %55 ]
   %98 = icmp ugt i32 %.val.i2, 131
   br i1 %98, label %99, label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40.i"
 
@@ -1681,8 +1681,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h1da4d
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h9523bca2b5fa5300E.exit": ; preds = %62, %64, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i", %91, %93, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit38.i"
-  %.sroa.5.2.i = phi i32 [ %.sroa.4.1.i.i.i.i.ph.i, %64 ], [ %82, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit38.i" ], [ %.sroa.4.1.i.i.i.i.ph.i, %62 ], [ undef, %93 ], [ undef, %91 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %64 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit38.i" ], [ 1, %62 ], [ 0, %93 ], [ 0, %91 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ]
+  %.sroa.5.2.i = phi i32 [ %82, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit38.i" ], [ %.sroa.4.1.i.i.i.i.ph.i, %62 ], [ %.sroa.4.1.i.i.i.i.ph.i, %64 ], [ undef, %93 ], [ undef, %91 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit38.i" ], [ 1, %62 ], [ 1, %64 ], [ 0, %93 ], [ 0, %91 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !172
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -1881,7 +1881,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h27333
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -1895,8 +1895,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h27333
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hdbb1f84b2e40330cE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !223
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -2095,7 +2095,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2c577
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -2109,8 +2109,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2c577
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h254835e68698ecd6E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !242
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -2403,7 +2403,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
   br label %.body.thread.i.i.i.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5b00737f9e45d30aE.exit.thread12.i.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i.i", %67, %65
-  %.sroa.5.2.i.i.i.i.ph.i.i.i.i.i.i.i = phi i32 [ %63, %65 ], [ %84, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i.i" ], [ %63, %67 ]
+  %.sroa.5.2.i.i.i.i.ph.i.i.i.i.i.i.i = phi i32 [ %63, %67 ], [ %63, %65 ], [ %84, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !316
   br label %.loopexit.i.i.i.i.i
 
@@ -2452,7 +2452,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h56ae87af38158890E.exit.i"
 
 .body.thread.i.i.i.i.i:                           ; preds = %.body.thread18.loopexit.split-lp.i.i.i.i.i, %.body.thread18.loopexit.i.i.i.i.i, %101, %99, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i.i.i.i.i.i.i.i.i.i.i"
-  %eh.lpad-body16.i.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body8.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i.i.i.i.i.i.i.i.i.i.i" ], [ %.pn4.i.i.i.i.i.i.i.i.i.i.i, %99 ], [ %.pn4.i.i.i.i.i.i.i.i.i.i.i, %101 ], [ %lpad.loopexit.i.i.i.i.i, %.body.thread18.loopexit.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i, %.body.thread18.loopexit.split-lp.i.i.i.i.i ]
+  %eh.lpad-body16.i.i.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i.i.i.i.i.i.i.i.i, %101 ], [ %.pn4.i.i.i.i.i.i.i.i.i.i.i, %99 ], [ %eh.lpad-body8.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i.i.i.i.i.i.i.i.i.i.i" ], [ %lpad.loopexit.i.i.i.i.i, %.body.thread18.loopexit.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i, %.body.thread18.loopexit.split-lp.i.i.i.i.i ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde_wasm_bindgen..ser..MapSerializer$GT$17haad205ece87c0f4cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #10
           to label %.thread.i unwind label %106, !noalias !257
 
@@ -2603,12 +2603,12 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
   br label %.thread.i
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit41.i": ; preds = %153, %.thread.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40.i"
-  %.pn44.i = phi { ptr, i32 } [ %eh.lpad-body3749.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40.i" ], [ %.pn45.i, %153 ], [ %.pn45.i, %.thread.i ]
+  %.pn44.i = phi { ptr, i32 } [ %eh.lpad-body3749.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40.i" ], [ %.pn45.i, %.thread.i ], [ %.pn45.i, %153 ]
   resume { ptr, i32 } %.pn44.i
 
 .thread.i:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40..thread_crit_edge.i", %111, %.body.thread.i.i.i.i.i
-  %.val.i2 = phi i32 [ %.val.pre.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40..thread_crit_edge.i" ], [ %19, %.body.thread.i.i.i.i.i ], [ %19, %111 ]
-  %.pn45.i = phi { ptr, i32 } [ %eh.lpad-body3749.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40..thread_crit_edge.i" ], [ %eh.lpad-body16.i.i.i.i.i, %.body.thread.i.i.i.i.i ], [ %112, %111 ]
+  %.val.i2 = phi i32 [ %.val.pre.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40..thread_crit_edge.i" ], [ %19, %111 ], [ %19, %.body.thread.i.i.i.i.i ]
+  %.pn45.i = phi { ptr, i32 } [ %eh.lpad-body3749.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit40..thread_crit_edge.i" ], [ %112, %111 ], [ %eh.lpad-body16.i.i.i.i.i, %.body.thread.i.i.i.i.i ]
   %152 = icmp ugt i32 %.val.i2, 131
   br i1 %152, label %153, label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit41.i"
 
@@ -2617,8 +2617,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit41.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha2940fce069453ddE.exit": ; preds = %116, %118, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i", %145, %147, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i"
-  %.sroa.5.2.i = phi i32 [ %114, %118 ], [ %136, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i" ], [ %114, %116 ], [ undef, %147 ], [ undef, %145 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %118 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i" ], [ 1, %116 ], [ 0, %147 ], [ 0, %145 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ]
+  %.sroa.5.2.i = phi i32 [ %136, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i" ], [ %114, %116 ], [ %114, %118 ], [ undef, %147 ], [ undef, %145 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i" ], [ 1, %116 ], [ 1, %118 ], [ 0, %147 ], [ 0, %145 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !262
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -2817,7 +2817,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h3bec0
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -2831,8 +2831,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h3bec0
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h6f636227ccaa108eE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !331
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -3031,7 +3031,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h48696
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -3045,8 +3045,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h48696
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hc34e0b39be91af74E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !350
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -3245,7 +3245,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4907d
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -3259,8 +3259,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4907d
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h99564a581f8637beE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !369
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -3459,7 +3459,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4ad21
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -3473,8 +3473,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4ad21
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hf17d0bcc0f22fbeaE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !389
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -3673,7 +3673,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4bfea
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -3687,8 +3687,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4bfea
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha0a78e35b157e94bE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !408
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -3887,7 +3887,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h5f5b0
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -3901,8 +3901,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h5f5b0
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h4f6b4ceba478adf6E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !427
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -4101,7 +4101,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h61742
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -4115,8 +4115,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h61742
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hcd9ae0658ace45ddE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !446
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -4315,7 +4315,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h73e35
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -4329,8 +4329,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h73e35
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha2d1a4d848953e94E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !465
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -4529,7 +4529,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h776a5
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -4543,8 +4543,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h776a5
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h870c2259e7a1e0daE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !484
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -4743,7 +4743,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7abc5
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -4757,8 +4757,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7abc5
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h467e42703dbf033eE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !503
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -4958,7 +4958,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7fb43
   br label %69
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %71, %69, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %71 ], [ %.pn40.i, %69 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %71 ]
   resume { ptr, i32 } %.pn39.i
 
 69:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -4972,8 +4972,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7fb43
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h792cb3fc4fa26fc9E.exit": ; preds = %33, %35, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %62, %64, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %31, %35 ], [ %53, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %31, %33 ], [ undef, %64 ], [ undef, %62 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %35 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %33 ], [ 0, %64 ], [ 0, %62 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %53, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %31, %33 ], [ %31, %35 ], [ undef, %64 ], [ undef, %62 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %33 ], [ 1, %35 ], [ 0, %64 ], [ 0, %62 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !522
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -5172,7 +5172,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h84088
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -5186,8 +5186,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h84088
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h34af9a939462cc63E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !542
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -5387,7 +5387,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h841b0
   br label %68
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %70, %68, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %70 ], [ %.pn40.i, %68 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %68 ], [ %.pn40.i, %70 ]
   resume { ptr, i32 } %.pn39.i
 
 68:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -5401,8 +5401,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h841b0
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h3fa8f71f2af9ccdfE.exit": ; preds = %32, %34, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %61, %63, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %30, %34 ], [ %52, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %30, %32 ], [ undef, %63 ], [ undef, %61 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %34 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %32 ], [ 0, %63 ], [ 0, %61 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %52, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %30, %32 ], [ %30, %34 ], [ undef, %63 ], [ undef, %61 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %32 ], [ 1, %34 ], [ 0, %63 ], [ 0, %61 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !561
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -5601,7 +5601,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h845a3
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -5615,8 +5615,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h845a3
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hd2e8abb8b69fdeadE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !580
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -5815,7 +5815,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h874c8
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -5829,8 +5829,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h874c8
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hd23fb903b4c28079E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !599
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -6029,7 +6029,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8bba0
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -6043,8 +6043,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8bba0
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hbd00f2d65107671cE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !618
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -6243,7 +6243,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8da19
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -6257,8 +6257,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8da19
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hb5977aa058a612c4E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !638
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -6457,7 +6457,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h90e88
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -6471,8 +6471,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h90e88
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h3b8afc2b2b2c4a66E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !657
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -6671,7 +6671,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h93512
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -6685,8 +6685,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h93512
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h0eaaca97191571a7E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !676
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -6885,7 +6885,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h95317
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -6899,8 +6899,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h95317
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha393b8411923aaadE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !695
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -7099,7 +7099,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h9995b
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -7113,8 +7113,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h9995b
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h758eb30173a3729cE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !714
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -7313,7 +7313,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha482d
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -7327,8 +7327,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha482d
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h1a49361ad94b2527E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !733
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -7527,7 +7527,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha4a50
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -7541,8 +7541,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha4a50
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h45e84dd299aa5944E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !752
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -7741,7 +7741,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17had201
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -7755,8 +7755,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17had201
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hacde1d0ed038436aE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !772
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -7955,7 +7955,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hbdc8d
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -7969,8 +7969,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hbdc8d
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h20caa9fb4e2f2efdE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !791
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -8169,7 +8169,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hc68f1
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -8183,8 +8183,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hc68f1
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h887e15bc490775d9E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !810
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -8383,7 +8383,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hd7f0a
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -8397,8 +8397,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hd7f0a
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h453c8e53ca996d2fE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !829
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -8597,7 +8597,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he09c7
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -8611,8 +8611,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he09c7
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h54946c564687158dE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !848
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -8811,7 +8811,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he18ea
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -8825,8 +8825,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he18ea
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h4974f26c2e398a94E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !867
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -9029,7 +9029,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he549b
   br label %69
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %71, %69, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %71 ], [ %.pn40.i, %69 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %71 ]
   resume { ptr, i32 } %.pn39.i
 
 69:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -9043,8 +9043,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he549b
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hadfc0b5a0511d368E.exit": ; preds = %33, %35, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %62, %64, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %31, %35 ], [ %53, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %31, %33 ], [ undef, %64 ], [ undef, %62 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %35 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %33 ], [ 0, %64 ], [ 0, %62 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %53, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %31, %33 ], [ %31, %35 ], [ undef, %64 ], [ undef, %62 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %33 ], [ 1, %35 ], [ 0, %64 ], [ 0, %62 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !886
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -9243,7 +9243,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he59fb
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -9257,8 +9257,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he59fb
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17heba9270af64eb599E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !905
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -9457,7 +9457,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hec205
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -9471,8 +9471,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hec205
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hc066b9d5b93ae485E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !924
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -9671,7 +9671,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hefc21
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -9685,8 +9685,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hefc21
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hfbd7cac210cb5d6dE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !943
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -9885,7 +9885,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hf3ed6
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -9899,8 +9899,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hf3ed6
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h1f3a57851c237174E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !962
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -10099,7 +10099,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hfaccd
   br label %67
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i": ; preds = %69, %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i"
-  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %69 ], [ %.pn40.i, %67 ]
+  %.pn39.i = phi { ptr, i32 } [ %eh.lpad-body44.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ], [ %.pn40.i, %67 ], [ %.pn40.i, %69 ]
   resume { ptr, i32 } %.pn39.i
 
 67:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35._crit_edge.i", %.thread.i
@@ -10113,8 +10113,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hfaccd
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h5782105c7635ce52E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
-  %.sroa.5.2.i = phi i32 [ %29, %33 ], [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  %.sroa.0.2.i = phi i32 [ 1, %33 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
+  %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !981
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
@@ -10644,7 +10644,7 @@ define internal fastcc { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSeri
   %30 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %29, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3)
           to label %31 unwind label %.body.thread10
 
-.body.thread10:                                   ; preds = %28, %26, %31
+.body.thread10:                                   ; preds = %26, %31, %28
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %.sroa.020.213 = xor i1 %25, true
@@ -10711,8 +10711,8 @@ define internal fastcc { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSeri
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit33", %49, %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35", %20, %22
-  %.sroa.5.2 = phi i32 [ %18, %22 ], [ %40, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35" ], [ %18, %20 ], [ undef, %51 ], [ undef, %49 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit33" ]
-  %.sroa.0.2 = phi i32 [ 1, %22 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35" ], [ 1, %20 ], [ 0, %51 ], [ 0, %49 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit33" ]
+  %.sroa.5.2 = phi i32 [ %40, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35" ], [ %18, %20 ], [ %18, %22 ], [ undef, %51 ], [ undef, %49 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit33" ]
+  %.sroa.0.2 = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35" ], [ 1, %20 ], [ 1, %22 ], [ 0, %51 ], [ 0, %49 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit33" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %52 = insertvalue { i32, i32 } poison, i32 %.sroa.0.2, 0
   %53 = insertvalue { i32, i32 } %52, i32 %.sroa.5.2, 1
@@ -10749,7 +10749,7 @@ define internal fastcc { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSeri
   br label %58
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit37": ; preds = %60, %58, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36"
-  %.pn3 = phi { ptr, i32 } [ %eh.lpad-body8, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36" ], [ %.pn4, %60 ], [ %.pn4, %58 ]
+  %.pn3 = phi { ptr, i32 } [ %eh.lpad-body8, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36" ], [ %.pn4, %58 ], [ %.pn4, %60 ]
   resume { ptr, i32 } %.pn3
 
 58:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36._crit_edge", %.thread
@@ -11005,7 +11005,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br label %.body.thread.i.i.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9bccb37635889f66E.exit.thread12.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i", %52, %50
-  %.sroa.5.2.i.i.i.i.ph.i.i.i.i.i.i = phi i32 [ %48, %50 ], [ %69, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i" ], [ %48, %52 ]
+  %.sroa.5.2.i.i.i.i.ph.i.i.i.i.i.i = phi i32 [ %48, %52 ], [ %48, %50 ], [ %69, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1087
   br label %.loopexit.i.i.i.i
 
@@ -11051,7 +11051,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h756b16e915ca53f0E.exit"
 
 .body.thread.i.i.i.i:                             ; preds = %.body.thread18.loopexit.split-lp.i.i.i.i, %.body.thread18.loopexit.i.i.i.i, %86, %84, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i.i.i.i.i.i.i.i.i.i"
-  %eh.lpad-body16.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body8.i.i.i.i.i.i.i.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i.i.i.i.i.i.i.i.i.i" ], [ %.pn4.i.i.i.i.i.i.i.i.i.i, %84 ], [ %.pn4.i.i.i.i.i.i.i.i.i.i, %86 ], [ %lpad.loopexit.i.i.i.i, %.body.thread18.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.body.thread18.loopexit.split-lp.i.i.i.i ]
+  %eh.lpad-body16.i.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i.i.i.i.i.i.i.i, %86 ], [ %.pn4.i.i.i.i.i.i.i.i.i.i, %84 ], [ %eh.lpad-body8.i.i.i.i.i.i.i.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i.i.i.i.i.i.i.i.i.i" ], [ %lpad.loopexit.i.i.i.i, %.body.thread18.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.body.thread18.loopexit.split-lp.i.i.i.i ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde_wasm_bindgen..ser..MapSerializer$GT$17haad205ece87c0f4cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #10
           to label %common.resume unwind label %92
 
@@ -11062,7 +11062,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   unreachable
 
 common.resume:                                    ; preds = %107, %110, %.body.thread.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body16.i.i.i.i, %.body.thread.i.i.i.i ], [ %108, %110 ], [ %108, %107 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body16.i.i.i.i, %.body.thread.i.i.i.i ], [ %108, %107 ], [ %108, %110 ]
   resume { ptr, i32 } %common.resume.op
 
 94:                                               ; preds = %4
@@ -11359,7 +11359,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   unreachable
 
 common.resume:                                    ; preds = %49, %52, %38
-  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %50, %52 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %50, %49 ], [ %50, %52 ]
   resume { ptr, i32 } %common.resume.op
 
 42:                                               ; preds = %19, %37
@@ -11486,7 +11486,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   unreachable
 
 common.resume:                                    ; preds = %53, %56, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %56 ], [ %54, %53 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %54, %56 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hd0f948624c6070c9E.exit.thread": ; preds = %4
@@ -11717,7 +11717,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   unreachable
 
 common.resume:                                    ; preds = %64, %67, %48
-  %common.resume.op = phi { ptr, i32 } [ %lpad.thr_comm.i.i.i.i, %48 ], [ %65, %67 ], [ %65, %64 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.thr_comm.i.i.i.i, %48 ], [ %65, %64 ], [ %65, %67 ]
   resume { ptr, i32 } %common.resume.op
 
 51:                                               ; preds = %4
@@ -12056,7 +12056,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br label %.body.thread.i.i.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h14434ca9806ea9e0E.exit.thread10.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i", %50, %48
-  %.sroa.5.2.i.i.i.i.ph.i.i.i.i.i.i = phi i32 [ %46, %48 ], [ %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i" ], [ %46, %50 ]
+  %.sroa.5.2.i.i.i.i.ph.i.i.i.i.i.i = phi i32 [ %46, %50 ], [ %46, %48 ], [ %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1246
   br label %.loopexit.i.i.i.i
 
@@ -12102,7 +12102,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17haf5016ec48200482E.exit"
 
 .body.thread.i.i.i.i:                             ; preds = %.body.thread18.loopexit.split-lp.i.i.i.i, %.body.thread18.loopexit.i.i.i.i, %84, %82, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i.i.i.i.i.i.i.i.i.i"
-  %eh.lpad-body16.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body8.i.i.i.i.i.i.i.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i.i.i.i.i.i.i.i.i.i" ], [ %.pn4.i.i.i.i.i.i.i.i.i.i, %82 ], [ %.pn4.i.i.i.i.i.i.i.i.i.i, %84 ], [ %lpad.loopexit.i.i.i.i, %.body.thread18.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.body.thread18.loopexit.split-lp.i.i.i.i ]
+  %eh.lpad-body16.i.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i.i.i.i.i.i.i.i, %84 ], [ %.pn4.i.i.i.i.i.i.i.i.i.i, %82 ], [ %eh.lpad-body8.i.i.i.i.i.i.i.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i.i.i.i.i.i.i.i.i.i" ], [ %lpad.loopexit.i.i.i.i, %.body.thread18.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.body.thread18.loopexit.split-lp.i.i.i.i ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde_wasm_bindgen..ser..MapSerializer$GT$17haad205ece87c0f4cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #10
           to label %common.resume unwind label %90
 
@@ -12113,7 +12113,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   unreachable
 
 common.resume:                                    ; preds = %105, %108, %.body.thread.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body16.i.i.i.i, %.body.thread.i.i.i.i ], [ %106, %108 ], [ %106, %105 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body16.i.i.i.i, %.body.thread.i.i.i.i ], [ %106, %105 ], [ %106, %108 ]
   resume { ptr, i32 } %common.resume.op
 
 92:                                               ; preds = %4
@@ -12475,7 +12475,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   unreachable
 
 common.resume:                                    ; preds = %53, %56, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %56 ], [ %54, %53 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %54, %56 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h7ad9d16d1047a999E.exit.thread": ; preds = %4
@@ -12740,7 +12740,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   unreachable
 
 common.resume:                                    ; preds = %74, %77, %58
-  %common.resume.op = phi { ptr, i32 } [ %lpad.thr_comm.i.i.i.i, %58 ], [ %75, %77 ], [ %75, %74 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.thr_comm.i.i.i.i, %58 ], [ %75, %74 ], [ %75, %77 ]
   resume { ptr, i32 } %common.resume.op
 
 61:                                               ; preds = %4
@@ -12945,7 +12945,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   unreachable
 
 common.resume:                                    ; preds = %48, %51, %36
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i.i.i.i, %36 ], [ %49, %51 ], [ %49, %48 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i.i.i.i, %36 ], [ %49, %48 ], [ %49, %51 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h3a7736e8ed147a54E.exit.thread": ; preds = %4
@@ -13464,7 +13464,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   unreachable
 
 common.resume:                                    ; preds = %53, %56, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %56 ], [ %54, %53 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %54, %53 ], [ %54, %56 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h260620035a8300c9E.exit.thread": ; preds = %4
@@ -13811,7 +13811,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br label %.body.thread.i.i.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h530c77fd09d832f3E.exit.thread12.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i", %52, %50
-  %.sroa.5.2.i.i.i.i.ph.i.i.i.i.i.i = phi i32 [ %48, %50 ], [ %69, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i" ], [ %48, %52 ]
+  %.sroa.5.2.i.i.i.i.ph.i.i.i.i.i.i = phi i32 [ %48, %52 ], [ %48, %50 ], [ %69, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1505
   br label %.loopexit.i.i.i.i
 
@@ -13857,7 +13857,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17ha9001f1b04b7ffc9E.exit"
 
 .body.thread.i.i.i.i:                             ; preds = %.body.thread18.loopexit.split-lp.i.i.i.i, %.body.thread18.loopexit.i.i.i.i, %86, %84, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i.i.i.i.i.i.i.i.i.i"
-  %eh.lpad-body16.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body8.i.i.i.i.i.i.i.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i.i.i.i.i.i.i.i.i.i" ], [ %.pn4.i.i.i.i.i.i.i.i.i.i, %84 ], [ %.pn4.i.i.i.i.i.i.i.i.i.i, %86 ], [ %lpad.loopexit.i.i.i.i, %.body.thread18.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.body.thread18.loopexit.split-lp.i.i.i.i ]
+  %eh.lpad-body16.i.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i.i.i.i.i.i.i.i, %86 ], [ %.pn4.i.i.i.i.i.i.i.i.i.i, %84 ], [ %eh.lpad-body8.i.i.i.i.i.i.i.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit36.i.i.i.i.i.i.i.i.i.i" ], [ %lpad.loopexit.i.i.i.i, %.body.thread18.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.body.thread18.loopexit.split-lp.i.i.i.i ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde_wasm_bindgen..ser..MapSerializer$GT$17haad205ece87c0f4cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #10
           to label %common.resume unwind label %92
 
@@ -13868,7 +13868,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   unreachable
 
 common.resume:                                    ; preds = %107, %110, %.body.thread.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body16.i.i.i.i, %.body.thread.i.i.i.i ], [ %108, %110 ], [ %108, %107 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body16.i.i.i.i, %.body.thread.i.i.i.i ], [ %108, %107 ], [ %108, %110 ]
   resume { ptr, i32 } %common.resume.op
 
 94:                                               ; preds = %4
@@ -14000,7 +14000,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   unreachable
 
 common.resume:                                    ; preds = %52, %55, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %53, %55 ], [ %53, %52 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %53, %52 ], [ %53, %55 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h18133607a68ad854E.exit.thread": ; preds = %4

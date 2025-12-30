@@ -488,20 +488,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_back
   %221 = load ptr, ptr %220, align 8, !tbaa !18
   %222 = load i64, ptr %221, align 8, !tbaa !8
   switch i64 %222, label %244 [
-    i64 34, label %_ZL16isNeutralElementmm.exit.i
-    i64 28, label %_ZL16isNeutralElementmm.exit.i
-    i64 36, label %_ZL16isNeutralElementmm.exit.i
-    i64 37, label %_ZL16isNeutralElementmm.exit.i
-    i64 30, label %223
-    i64 27, label %223
+    i64 34, label %223
+    i64 28, label %223
+    i64 36, label %223
+    i64 37, label %223
+    i64 30, label %_ZL16isNeutralElementmm.exit.i
+    i64 27, label %_ZL16isNeutralElementmm.exit.i
   ]
 
-223:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33
-  %224 = icmp eq i64 %188, 1
+223:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33
+  %224 = icmp eq i64 %188, 0
   br i1 %224, label %226, label %244
 
-_ZL16isNeutralElementmm.exit.i:                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33
-  %225 = icmp eq i64 %188, 0
+_ZL16isNeutralElementmm.exit.i:                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33
+  %225 = icmp eq i64 %188, 1
   br i1 %225, label %226, label %244
 
 226:                                              ; preds = %_ZL16isNeutralElementmm.exit.i, %223
@@ -540,7 +540,7 @@ _ZL15tryFoldNoOpMathmN4llvm8ArrayRefINS_12DIExpression11ExprOperandEEERmRNS_18DI
   store i64 0, ptr %19, align 8, !tbaa !8
   br label %468, !llvm.loop !23
 
-244:                                              ; preds = %223, %_ZL16isNeutralElementmm.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33
+244:                                              ; preds = %_ZL16isNeutralElementmm.exit.i, %223, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit33
   %245 = load ptr, ptr %21, align 8
   %246 = load ptr, ptr %164, align 8, !tbaa !18
   %247 = icmp eq ptr %245, %246
@@ -858,7 +858,7 @@ _ZL22tryFoldCommutativeMathmN4llvm8ArrayRefINS_12DIExpression11ExprOperandEEERmR
   store i64 %.sink.i70, ptr %19, align 8, !tbaa !8
   br label %468, !llvm.loop !23
 
-402:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit67, %_ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit.i, %356
+402:                                              ; preds = %_ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit.i, %356, %_ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_backES2_.exit67
   %403 = load ptr, ptr %21, align 8
   %404 = load ptr, ptr %164, align 8, !tbaa !18
   %405 = icmp eq ptr %403, %404
@@ -1026,9 +1026,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12DIExpression11ExprOperandELb1EE9push_back
   br i1 %472, label %170, label %.loopexit177
 
 .loopexit177:                                     ; preds = %468, %_ZL27canonicalizeDwarfOperationsN4llvm8ArrayRefImEE.exit.thread, %_ZL27canonicalizeDwarfOperationsN4llvm8ArrayRefImEE.exit, %.thread
-  %473 = phi ptr [ %52, %_ZL27canonicalizeDwarfOperationsN4llvm8ArrayRefImEE.exit.thread ], [ %166, %_ZL27canonicalizeDwarfOperationsN4llvm8ArrayRefImEE.exit ], [ %166, %.thread ], [ %166, %468 ]
-  %.pre-phi = phi i64 [ 0, %_ZL27canonicalizeDwarfOperationsN4llvm8ArrayRefImEE.exit.thread ], [ 0, %_ZL27canonicalizeDwarfOperationsN4llvm8ArrayRefImEE.exit ], [ %.pre208, %.thread ], [ %471, %468 ]
-  %474 = phi i32 [ 0, %_ZL27canonicalizeDwarfOperationsN4llvm8ArrayRefImEE.exit.thread ], [ 0, %_ZL27canonicalizeDwarfOperationsN4llvm8ArrayRefImEE.exit ], [ %.pre206, %.thread ], [ %470, %468 ]
+  %473 = phi ptr [ %166, %_ZL27canonicalizeDwarfOperationsN4llvm8ArrayRefImEE.exit ], [ %166, %.thread ], [ %52, %_ZL27canonicalizeDwarfOperationsN4llvm8ArrayRefImEE.exit.thread ], [ %166, %468 ]
+  %.pre-phi = phi i64 [ 0, %_ZL27canonicalizeDwarfOperationsN4llvm8ArrayRefImEE.exit ], [ %.pre208, %.thread ], [ 0, %_ZL27canonicalizeDwarfOperationsN4llvm8ArrayRefImEE.exit.thread ], [ %471, %468 ]
+  %474 = phi i32 [ 0, %_ZL27canonicalizeDwarfOperationsN4llvm8ArrayRefImEE.exit ], [ %.pre206, %.thread ], [ 0, %_ZL27canonicalizeDwarfOperationsN4llvm8ArrayRefImEE.exit.thread ], [ %470, %468 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %475 = load ptr, ptr %20, align 8, !tbaa !10
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
@@ -1312,7 +1312,7 @@ _ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_.exit41.i: ; preds = %610, %_ZN4
   br label %616
 
 616:                                              ; preds = %_ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_.exit41.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit23.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i118
-  %.1.i110 = phi i64 [ %516, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i118 ], [ %601, %_ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_.exit41.i ], [ %591, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit23.i ]
+  %.1.i110 = phi i64 [ %516, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i118 ], [ %591, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit23.i ], [ %601, %_ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_.exit41.i ]
   %617 = icmp ult i64 %.1.i110, %.pre-phi
   br i1 %617, label %485, label %_ZL23optimizeDwarfOperationsN4llvm8ArrayRefImEE.exit
 
@@ -1622,7 +1622,7 @@ _ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit.thre
   br label %_ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit.thread
 
 _ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit.thread: ; preds = %_ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit.thread.sink.split, %5, %_ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit20, %_ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit, %28, %9
-  %.0 = phi i1 [ false, %28 ], [ false, %_ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit20 ], [ false, %_ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit ], [ false, %9 ], [ false, %5 ], [ true, %_ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit.thread.sink.split ]
+  %.0 = phi i1 [ false, %_ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit20 ], [ false, %_ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit ], [ false, %9 ], [ false, %28 ], [ false, %5 ], [ true, %_ZL35operationsAreFoldableAndCommutativeN4llvm5dwarf12LocationAtomES1_.exit.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -1718,8 +1718,8 @@ _ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4t
   br label %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.thread
 
 _ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.thread: ; preds = %15, %10, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit, %7, %4, %33, %27, %30, %29, %3, %38, %39
-  %.sroa.0.1 = phi i64 [ undef, %38 ], [ %40, %39 ], [ %28, %27 ], [ %34, %33 ], [ undef, %30 ], [ undef, %3 ], [ %spec.select.i.i, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit ], [ %spec.select49, %10 ], [ %spec.select51, %15 ], [ undef, %29 ], [ %spec.select, %4 ], [ %spec.select38, %7 ]
-  %.sroa.7.1.shrunk = phi i1 [ false, %38 ], [ true, %39 ], [ true, %27 ], [ true, %33 ], [ false, %30 ], [ false, %3 ], [ %37, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit ], [ %or.cond.not, %10 ], [ %or.cond46.not, %15 ], [ false, %29 ], [ %6, %4 ], [ %8, %7 ]
+  %.sroa.0.1 = phi i64 [ %40, %39 ], [ undef, %38 ], [ undef, %3 ], [ undef, %29 ], [ undef, %30 ], [ %34, %33 ], [ %28, %27 ], [ %spec.select, %4 ], [ %spec.select38, %7 ], [ %spec.select.i.i, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit ], [ %spec.select49, %10 ], [ %spec.select51, %15 ]
+  %.sroa.7.1.shrunk = phi i1 [ true, %39 ], [ false, %38 ], [ false, %3 ], [ false, %29 ], [ false, %30 ], [ true, %33 ], [ true, %27 ], [ %6, %4 ], [ %8, %7 ], [ %37, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit ], [ %or.cond.not, %10 ], [ %or.cond46.not, %15 ]
   %.sroa.7.1 = zext i1 %.sroa.7.1.shrunk to i8
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.7.1, 1

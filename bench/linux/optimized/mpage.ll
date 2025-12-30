@@ -118,7 +118,7 @@ define dso_local void @mpage_readahead(ptr noundef captures(none) %0, ptr nounde
   br label %37
 
 37:                                               ; preds = %34, %.lr.ph
-  %38 = phi i32 [ 1, %.lr.ph ], [ %36, %34 ]
+  %38 = phi i32 [ %36, %34 ], [ 1, %.lr.ph ]
   store i32 %38, ptr %6, align 4
   %39 = icmp eq ptr %30, null
   br i1 %39, label %.loopexit.loopexit, label %40

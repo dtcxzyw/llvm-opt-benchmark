@@ -209,7 +209,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1159,7 +1159,7 @@ _ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImp
   tail call void @_ZNK6icu_776number24LocalizedNumberFormatter10formatImplEPNS0_4impl20UFormattedNumberDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(496) %18, ptr noundef nonnull %15, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread
 
-_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread: ; preds = %4, %.sink.split.i.i, %.sink.split.i, %_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit
+_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread: ; preds = %.sink.split.i, %4, %.sink.split.i.i, %_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit
   ret void
 }
 
@@ -1216,7 +1216,7 @@ _ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImp
   tail call void @_ZNK6icu_776number24LocalizedNumberFormatter10formatImplEPNS0_4impl20UFormattedNumberDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(496) %18, ptr noundef nonnull %15, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread
 
-_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread: ; preds = %4, %.sink.split.i.i, %.sink.split.i, %_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit
+_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread: ; preds = %.sink.split.i, %4, %.sink.split.i.i, %_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit
   ret void
 }
 
@@ -1272,7 +1272,7 @@ _ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImp
   tail call void @_ZNK6icu_776number24LocalizedNumberFormatter10formatImplEPNS0_4impl20UFormattedNumberDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(496) %22, ptr noundef nonnull %16, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread
 
-_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread: ; preds = %5, %.sink.split.i.i, %.sink.split.i, %_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit, %21
+_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread: ; preds = %.sink.split.i, %5, %.sink.split.i.i, %_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit, %21
   ret void
 }
 
@@ -1342,7 +1342,7 @@ _ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImp
   resume { ptr, i32 } %24
 
 _ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPKS1_R10UErrorCode.exit.thread: ; preds = %.sink.split.i, %4, %21, %18
-  %.0 = phi i32 [ %20, %21 ], [ 0, %18 ], [ 0, %4 ], [ 0, %.sink.split.i ]
+  %.0 = phi i32 [ 0, %18 ], [ %20, %21 ], [ 0, %4 ], [ 0, %.sink.split.i ]
   ret i32 %.0
 }
 
@@ -1417,7 +1417,7 @@ _ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImp
   resume { ptr, i32 } %31
 
 _ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPKS1_R10UErrorCode.exit.thread: ; preds = %.sink.split.i, %3, %25, %13
-  %.0 = phi i8 [ %27, %25 ], [ 0, %13 ], [ 0, %3 ], [ 0, %.sink.split.i ]
+  %.0 = phi i8 [ 0, %13 ], [ %27, %25 ], [ 0, %3 ], [ 0, %.sink.split.i ]
   ret i8 %.0
 }
 
@@ -2233,7 +2233,7 @@ _ZN6icu_776number4impl20UFormattedNumberImpl5setToENS0_15FormattedNumberE.exit: 
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread
 
-_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread: ; preds = %.sink.split.i.i, %4, %.sink.split.i.i18, %.sink.split.i, %43
+_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread: ; preds = %4, %.sink.split.i, %.sink.split.i.i, %.sink.split.i.i18, %43
   ret void
 
 44:                                               ; preds = %38
@@ -2343,7 +2343,7 @@ _ZN6icu_776number4impl20UFormattedNumberImpl5setToENS0_15FormattedNumberE.exit: 
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread
 
-_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread: ; preds = %4, %.sink.split.i.i, %.sink.split.i, %_ZN6icu_776number4impl20UFormattedNumberImpl5setToENS0_15FormattedNumberE.exit
+_ZN6icu_7713IcuCApiHelperI16UFormattedNumberNS_6number4impl20UFormattedNumberImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread: ; preds = %.sink.split.i, %4, %.sink.split.i.i, %_ZN6icu_776number4impl20UFormattedNumberImpl5setToENS0_15FormattedNumberE.exit
   ret void
 
 32:                                               ; preds = %_ZNK6icu_776number21SimpleNumberFormatter11formatInt64ElR10UErrorCode.exit

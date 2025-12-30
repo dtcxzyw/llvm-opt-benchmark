@@ -511,7 +511,7 @@ _ZNSt6vectorIN2cv6Point_IdEESaIS2_EED2Ev.exit:    ; preds = %165
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit76
 
 _ZNSt6vectorIdSaIdEED2Ev.exit76:                  ; preds = %188, %186
-  %.pn46 = phi { ptr, i32 } [ %189, %188 ], [ %187, %186 ]
+  %.pn46 = phi { ptr, i32 } [ %187, %186 ], [ %189, %188 ]
   call void @_ZdlPv(ptr noundef nonnull %55) #21
   br label %_ZNSt6vectorIN2cv6Point_IdEESaIS2_EED2Ev.exit78
 
@@ -1207,7 +1207,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %21
   br label %217
 
 217:                                              ; preds = %176, %195, %197, %215, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133, %167
-  %.pn67.pn = phi { ptr, i32 } [ %168, %167 ], [ %216, %215 ], [ %212, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133 ], [ %198, %197 ], [ %196, %195 ], [ %177, %176 ]
+  %.pn67.pn = phi { ptr, i32 } [ %216, %215 ], [ %212, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133 ], [ %168, %167 ], [ %198, %197 ], [ %196, %195 ], [ %177, %176 ]
   call void @_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %218

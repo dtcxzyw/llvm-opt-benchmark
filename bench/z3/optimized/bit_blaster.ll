@@ -737,7 +737,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8ke
   br label %224
 
 224:                                              ; preds = %220, %222, %146, %135
-  %.pn41 = phi { ptr, i32 } [ %147, %146 ], [ %136, %135 ], [ %221, %220 ], [ %223, %222 ]
+  %.pn41 = phi { ptr, i32 } [ %147, %146 ], [ %136, %135 ], [ %223, %222 ], [ %221, %220 ]
   call void @_ZN6vectorIP9func_declLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN7obj_mapI9func_declP4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
@@ -813,7 +813,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11a
   br label %251
 
 251:                                              ; preds = %.loopexit100, %.loopexit.split-lp, %36, %84, %92, %86, %249, %225
-  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %250, %249 ], [ %.pn41.pn, %225 ], [ %87, %86 ], [ %37, %36 ], [ %.pn45, %92 ], [ %85, %84 ], [ %lpad.loopexit, %.loopexit100 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn, %225 ], [ %250, %249 ], [ %37, %36 ], [ %85, %84 ], [ %.pn45, %92 ], [ %87, %86 ], [ %lpad.loopexit, %.loopexit100 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #18
@@ -1539,7 +1539,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
   br i1 %42, label %.preheader, label %_ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7dec_refERKP4expr.exit, !llvm.loop !130
 
 _ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7dec_refERKP4expr.exit: ; preds = %111, %41, %36, %33
-  %.sink34 = phi i64 [ 16, %41 ], [ 16, %33 ], [ 16, %36 ], [ 24, %111 ]
+  %.sink34 = phi i64 [ 16, %33 ], [ 16, %36 ], [ 16, %41 ], [ 24, %111 ]
   %112 = load ptr, ptr %21, align 8, !tbaa !131
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %112, i64 noundef %.sink34, ptr noundef nonnull %29)
   %113 = load ptr, ptr %5, align 8, !tbaa !116

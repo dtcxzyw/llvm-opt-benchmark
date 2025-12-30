@@ -413,7 +413,7 @@ define internal i32 @regcache_maple_sync(ptr noundef initializes((549, 550)) %0,
   br i1 %67, label %.loopexit, label %.preheader7, !llvm.loop !10
 
 .loopexit:                                        ; preds = %64, %61, %45, %3
-  %68 = phi i32 [ 0, %3 ], [ %46, %45 ], [ 0, %64 ], [ %62, %61 ]
+  %68 = phi i32 [ 0, %3 ], [ %46, %45 ], [ %62, %61 ], [ 0, %64 ]
   call void @__rcu_read_unlock() #10
   store i8 0, ptr %16, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

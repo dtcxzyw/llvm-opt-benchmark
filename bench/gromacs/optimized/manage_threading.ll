@@ -142,7 +142,7 @@ _ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i: ; preds = %48
   br i1 %.not117.i, label %.preheader118.i, label %53
 
 53:                                               ; preds = %_ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i, %43, %32
-  %.291.i = phi i64 [ %49, %_ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i ], [ %.089131.i, %32 ], [ %.089131.i, %43 ]
+  %.291.i = phi i64 [ %.089131.i, %43 ], [ %.089131.i, %32 ], [ %49, %_ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i ]
   %54 = icmp sgt i32 %41, 0
   br i1 %54, label %.thread108.i, label %.thread.i
 
@@ -294,9 +294,9 @@ _ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i: ; preds = %48
   br label %.loopexit119.i
 
 .loopexit119.i:                                   ; preds = %.critedge.us.i, %.critedge.i, %58, %116, %72, %.preheader118.i, %23
-  %128 = phi i8 [ %24, %23 ], [ %24, %.preheader118.i ], [ %66, %116 ], [ %66, %72 ], [ %24, %58 ], [ %66, %.critedge.i ], [ %66, %.critedge.us.i ]
-  %.190.i = phi i64 [ %.089131.i, %23 ], [ %.291107180.i, %.preheader118.i ], [ %.291.i, %116 ], [ %.291.i, %72 ], [ %.291107180.i, %58 ], [ %.291.i, %.critedge.i ], [ %.291.i, %.critedge.us.i ]
-  %.1.i = phi i32 [ %.085132.i, %23 ], [ %.085132.i, %.preheader118.i ], [ %127, %116 ], [ %.085132.i, %72 ], [ %.085132.i, %58 ], [ %.085132.i, %.critedge.i ], [ %.085132.i, %.critedge.us.i ]
+  %128 = phi i8 [ %24, %23 ], [ %66, %116 ], [ %24, %.preheader118.i ], [ %66, %72 ], [ %24, %58 ], [ %66, %.critedge.i ], [ %66, %.critedge.us.i ]
+  %.190.i = phi i64 [ %.089131.i, %23 ], [ %.291.i, %116 ], [ %.291107180.i, %.preheader118.i ], [ %.291.i, %72 ], [ %.291107180.i, %58 ], [ %.291.i, %.critedge.i ], [ %.291.i, %.critedge.us.i ]
+  %.1.i = phi i32 [ %.085132.i, %23 ], [ %127, %116 ], [ %.085132.i, %.preheader118.i ], [ %.085132.i, %72 ], [ %.085132.i, %58 ], [ %.085132.i, %.critedge.i ], [ %.085132.i, %.critedge.us.i ]
   %indvars.iv.next148.i = add nuw nsw i64 %indvars.iv147.i, 1
   %exitcond151.not.i = icmp eq i64 %indvars.iv.next148.i, 95
   br i1 %exitcond151.not.i, label %21, label %23, !llvm.loop !68
@@ -1049,9 +1049,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc13
   br label %23
 
 23:                                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc13, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %24 = phi ptr [ %17, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %17, %.noexc13 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %25 = phi ptr [ %16, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %16, %.noexc13 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %.0.i.i.i.i.i.i = phi ptr [ %22, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %19, %.noexc13 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %24 = phi ptr [ %17, %.noexc13 ], [ %17, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %25 = phi ptr [ %16, %.noexc13 ], [ %16, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %.0.i.i.i.i.i.i = phi ptr [ %19, %.noexc13 ], [ %22, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %.0.i.i.i.i.i.i, ptr %26, align 8, !tbaa !53
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 128

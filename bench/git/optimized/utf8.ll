@@ -180,7 +180,7 @@ define dso_local range(i32 -1, 3) i32 @utf8_width(ptr noundef captures(none) %0,
   br i1 %.not.i17.i, label %git_wcwidth.exit, label %.preheader.i11.i, !llvm.loop !16
 
 git_wcwidth.exit:                                 ; preds = %21, %44, %39, %27, %9, %6, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %9 ], [ 2, %39 ], [ -1, %6 ], [ 1, %27 ], [ 1, %44 ], [ 0, %21 ]
+  %.0 = phi i32 [ 0, %2 ], [ -1, %6 ], [ 1, %27 ], [ 1, %9 ], [ 2, %39 ], [ 1, %44 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -358,8 +358,8 @@ define internal fastcc range(i32 0, 2097152) i32 @pick_one_utf8_char(ptr noundef
   br label %107
 
 103:                                              ; preds = %.thread, %.thread68, %.thread69, %23
-  %.050 = phi i32 [ %101, %.thread69 ], [ %27, %23 ], [ %62, %.thread68 ], [ %9, %.thread ]
-  %.0 = phi i64 [ 4, %.thread69 ], [ 2, %23 ], [ 3, %.thread68 ], [ 1, %.thread ]
+  %.050 = phi i32 [ %27, %23 ], [ %62, %.thread68 ], [ %101, %.thread69 ], [ %9, %.thread ]
+  %.0 = phi i64 [ 2, %23 ], [ 3, %.thread68 ], [ 4, %.thread69 ], [ 1, %.thread ]
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 %.0
   store ptr %104, ptr %0, align 8, !tbaa !9
   br i1 %.not, label %107, label %105
@@ -526,7 +526,7 @@ display_mode_esc_sequence_len.exit:               ; preds = %21
   %.not.i17.i.i = icmp slt i32 %.120.i15.i.i, %.1.i16.i.i
   br i1 %.not.i17.i.i, label %.loopexit, label %.preheader.i11.i.i, !llvm.loop !16
 
-.loopexit:                                        ; preds = %63, %68, %33, %51
+.loopexit:                                        ; preds = %63, %68, %51, %33
   %.0.i13.ph = phi i64 [ 1, %33 ], [ 1, %51 ], [ 2, %63 ], [ 1, %68 ]
   %69 = add i64 %.0.i13.ph, %.032
   br label %utf8_width.exit
@@ -575,7 +575,7 @@ define dso_local range(i32 0, 2) i32 @is_utf8(ptr noundef %0) local_unnamed_addr
   br label %.backedge
 
 .backedge:                                        ; preds = %7, %.backedge.sink.split
-  %3 = phi ptr [ %9, %7 ], [ %.sink, %.backedge.sink.split ]
+  %3 = phi ptr [ %.sink, %.backedge.sink.split ], [ %9, %7 ]
   %4 = load i8, ptr %3, align 1, !tbaa !4
   switch i8 %4, label %7 [
     i8 0, label %10
@@ -595,7 +595,7 @@ define dso_local range(i32 0, 2) i32 @is_utf8(ptr noundef %0) local_unnamed_addr
   br i1 %.not.i.not, label %10, label %.backedge, !llvm.loop !20
 
 10:                                               ; preds = %7, %.backedge
-  %.0 = phi i32 [ 0, %7 ], [ 1, %.backedge ]
+  %.0 = phi i32 [ 1, %.backedge ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -719,7 +719,7 @@ display_mode_esc_sequence_len.exit:               ; preds = %36
   br i1 %46, label %51, label %50
 
 50:                                               ; preds = %49
-  tail call void @strbuf_addchars(ptr noundef %0, i32 noundef 32, i64 noundef %155) #24
+  tail call void @strbuf_addchars(ptr noundef %0, i32 noundef 32, i64 noundef %157) #24
   br label %51
 
 51:                                               ; preds = %49, %50
@@ -853,12 +853,12 @@ strbuf_addch.exit100:                             ; preds = %strbuf_avail.exit.i
   store ptr %99, ptr %6, align 8, !tbaa !9
   br label %.loopexit133.outer.outer.backedge
 
-.loopexit133.outer.outer.backedge:                ; preds = %strbuf_addch.exit100, %156, %153
-  %.159.ph.ph.be = phi ptr [ %spec.select, %153 ], [ %spec.select, %156 ], [ null, %strbuf_addch.exit100 ]
-  %.055.ph.ph.be = phi ptr [ %1, %153 ], [ %1, %156 ], [ %99, %strbuf_addch.exit100 ]
-  %.153.ph.ph.be = phi i32 [ 0, %153 ], [ 0, %156 ], [ %.153, %strbuf_addch.exit100 ]
-  %.148.ph.ph.be = phi i32 [ %spec.select76, %153 ], [ %spec.select76, %156 ], [ %3, %strbuf_addch.exit100 ]
-  %.046.ph.ph.be = phi i32 [ %2, %153 ], [ %2, %156 ], [ %3, %strbuf_addch.exit100 ]
+.loopexit133.outer.outer.backedge:                ; preds = %strbuf_addch.exit100, %153, %155
+  %.159.ph.ph.be = phi ptr [ %spec.select, %155 ], [ %spec.select, %153 ], [ null, %strbuf_addch.exit100 ]
+  %.055.ph.ph.be = phi ptr [ %1, %155 ], [ %1, %153 ], [ %99, %strbuf_addch.exit100 ]
+  %.153.ph.ph.be = phi i32 [ 0, %155 ], [ 0, %153 ], [ %.153, %strbuf_addch.exit100 ]
+  %.148.ph.ph.be = phi i32 [ %spec.select76, %155 ], [ %spec.select76, %153 ], [ %3, %strbuf_addch.exit100 ]
+  %.046.ph.ph.be = phi i32 [ %2, %155 ], [ %2, %153 ], [ %3, %strbuf_addch.exit100 ]
   br label %.loopexit133.outer.outer
 
 100:                                              ; preds = %55, %strbuf_addch.exit90, %56
@@ -963,18 +963,18 @@ strbuf_addch.exit100:                             ; preds = %strbuf_avail.exit.i
   br i1 %.not.i17.i.i, label %utf8_width.exit, label %.preheader.i11.i.i, !llvm.loop !16
 
 utf8_width.exit.thread:                           ; preds = %108, %111
-  %.0.i103.ph = phi i32 [ -1, %108 ], [ 1, %111 ]
+  %.0.i103.ph = phi i32 [ 1, %111 ], [ -1, %108 ]
   %147 = add nsw i32 %.0.i103.ph, %.148
   br label %.loopexit133.backedge
 
 .loopexit133.backedge:                            ; preds = %utf8_width.exit.thread, %158, %utf8_width.exit
-  %.promoted.be = phi ptr [ %106, %utf8_width.exit.thread ], [ %160, %158 ], [ %106, %utf8_width.exit ]
-  %.153.be = phi i32 [ 1, %utf8_width.exit.thread ], [ 0, %158 ], [ 1, %utf8_width.exit ]
-  %.148.be = phi i32 [ %147, %utf8_width.exit.thread ], [ %159, %158 ], [ %148, %utf8_width.exit ]
+  %.promoted.be = phi ptr [ %106, %utf8_width.exit ], [ %160, %158 ], [ %106, %utf8_width.exit.thread ]
+  %.153.be = phi i32 [ 1, %utf8_width.exit ], [ 0, %158 ], [ 1, %utf8_width.exit.thread ]
+  %.148.be = phi i32 [ %148, %utf8_width.exit ], [ %159, %158 ], [ %147, %utf8_width.exit.thread ]
   br label %.loopexit133
 
 utf8_width.exit:                                  ; preds = %123, %141, %146, %104, %129
-  %.0.i103 = phi i32 [ 0, %104 ], [ 1, %146 ], [ 1, %129 ], [ 2, %141 ], [ 0, %123 ]
+  %.0.i103 = phi i32 [ 0, %104 ], [ 1, %129 ], [ 1, %146 ], [ 2, %141 ], [ 0, %123 ]
   %148 = add nsw i32 %.0.i103, %.148
   br i1 %.not.i101, label %149, label %.loopexit133.backedge
 
@@ -993,7 +993,12 @@ utf8_width.exit:                                  ; preds = %123, %141, %146, %1
   store i64 %8, ptr %7, align 8, !tbaa !21
   %154 = load ptr, ptr %11, align 8, !tbaa !26
   %.not9.i = icmp eq ptr %154, @strbuf_slopbuf
-  br i1 %.not9.i, label %.loopexit133.outer.outer.backedge, label %156
+  br i1 %.not9.i, label %.loopexit133.outer.outer.backedge, label %155
+
+155:                                              ; preds = %153
+  %156 = getelementptr inbounds nuw i8, ptr %154, i64 %8
+  store i8 0, ptr %156, align 1, !tbaa !4
+  br label %.loopexit133.outer.outer.backedge
 
 .loopexit133.outer.outer:                         ; preds = %.loopexit133.outer.outer.backedge, %.preheader
   %.159.ph.ph = phi ptr [ %spec.select, %.preheader ], [ %.159.ph.ph.be, %.loopexit133.outer.outer.backedge ]
@@ -1001,7 +1006,7 @@ utf8_width.exit:                                  ; preds = %123, %141, %146, %1
   %.153.ph.ph = phi i32 [ 1, %.preheader ], [ %.153.ph.ph.be, %.loopexit133.outer.outer.backedge ]
   %.148.ph.ph = phi i32 [ %spec.select76, %.preheader ], [ %.148.ph.ph.be, %.loopexit133.outer.outer.backedge ]
   %.046.ph.ph = phi i32 [ %2, %.preheader ], [ %.046.ph.ph.be, %.loopexit133.outer.outer.backedge ]
-  %155 = sext i32 %.046.ph.ph to i64
+  %157 = sext i32 %.046.ph.ph to i64
   br label %.loopexit133.outer
 
 .loopexit133.outer:                               ; preds = %.loopexit133.outer.outer, %100
@@ -1011,18 +1016,13 @@ utf8_width.exit:                                  ; preds = %123, %141, %146, %1
   %.148.ph = phi i32 [ %101, %100 ], [ %.148.ph.ph, %.loopexit133.outer.outer ]
   br label %.loopexit133
 
-156:                                              ; preds = %153
-  %157 = getelementptr inbounds nuw i8, ptr %154, i64 %8
-  store i8 0, ptr %157, align 1, !tbaa !4
-  br label %.loopexit133.outer.outer.backedge
-
 158:                                              ; preds = %103
   %159 = add nsw i32 %.148, 1
   %160 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %160, ptr %6, align 8, !tbaa !9
   br label %.loopexit133.backedge
 
-strbuf_add_indented_text.exit:                    ; preds = %51, %47, %.lr.ph.i, %12
+strbuf_add_indented_text.exit:                    ; preds = %47, %51, %.lr.ph.i, %12
   ret void
 }
 
@@ -1207,11 +1207,11 @@ display_mode_esc_sequence_len.exit.thread:        ; preds = %display_mode_esc_se
   br i1 %.not.i17.i.i, label %utf8_width.exit, label %.preheader.i11.i.i, !llvm.loop !16
 
 utf8_width.exit:                                  ; preds = %51, %69, %74, %32, %57
-  %.0.i38 = phi i32 [ 0, %32 ], [ 1, %74 ], [ 1, %57 ], [ 2, %69 ], [ 0, %51 ]
+  %.0.i38 = phi i32 [ 0, %32 ], [ 1, %57 ], [ 1, %74 ], [ 2, %69 ], [ 0, %51 ]
   br i1 %.not.i36, label %.thread46, label %utf8_width.exit.thread
 
 utf8_width.exit.thread:                           ; preds = %39, %36, %utf8_width.exit
-  %.0.i3842 = phi i32 [ %.0.i38, %utf8_width.exit ], [ -1, %36 ], [ 1, %39 ]
+  %.0.i3842 = phi i32 [ %.0.i38, %utf8_width.exit ], [ 1, %39 ], [ -1, %36 ]
   %spec.store.select = call i32 @llvm.smax.i32(i32 %.0.i3842, i32 0)
   %.not31 = icmp sgt i32 %.0.i3842, 0
   %.not32 = icmp sge i32 %.02363, %1
@@ -1821,10 +1821,10 @@ skip_prefix.exit.i89:                             ; preds = %92
   br label %same_utf_encoding.exit97.thread
 
 same_utf_encoding.exit97.thread:                  ; preds = %77, %93, %skip_prefix.exit.i60, %skip_prefix.exit.i89, %111
-  %.031 = phi ptr [ %2, %skip_prefix.exit.i89 ], [ @.str.5, %111 ], [ @.str.3, %skip_prefix.exit.i60 ], [ %2, %93 ], [ %2, %77 ]
-  %112 = phi i1 [ false, %skip_prefix.exit.i89 ], [ true, %111 ], [ true, %skip_prefix.exit.i60 ], [ false, %93 ], [ false, %77 ]
-  %.028 = phi ptr [ null, %skip_prefix.exit.i89 ], [ @utf16_be_bom, %111 ], [ @utf16_le_bom, %skip_prefix.exit.i60 ], [ null, %93 ], [ null, %77 ]
-  %.0 = phi i64 [ 0, %skip_prefix.exit.i89 ], [ 2, %111 ], [ 2, %skip_prefix.exit.i60 ], [ 0, %93 ], [ 0, %77 ]
+  %.031 = phi ptr [ @.str.5, %111 ], [ %2, %skip_prefix.exit.i89 ], [ @.str.3, %skip_prefix.exit.i60 ], [ %2, %93 ], [ %2, %77 ]
+  %112 = phi i1 [ true, %111 ], [ false, %skip_prefix.exit.i89 ], [ true, %skip_prefix.exit.i60 ], [ false, %93 ], [ false, %77 ]
+  %.028 = phi ptr [ @utf16_be_bom, %111 ], [ null, %skip_prefix.exit.i89 ], [ @utf16_le_bom, %skip_prefix.exit.i60 ], [ null, %93 ], [ null, %77 ]
+  %.0 = phi i64 [ 2, %111 ], [ 0, %skip_prefix.exit.i89 ], [ 2, %skip_prefix.exit.i60 ], [ 0, %93 ], [ 0, %77 ]
   %113 = tail call ptr @iconv_open(ptr noundef %.031, ptr noundef nonnull %41) #24
   %114 = icmp eq ptr %113, inttoptr (i64 -1 to ptr)
   br i1 %114, label %115, label %120
@@ -2256,7 +2256,7 @@ has_bom_prefix.exit113:                           ; preds = %143
   br label %has_bom_prefix.exit118
 
 has_bom_prefix.exit118:                           ; preds = %109, %125, %143, %145, %skip_prefix.exit.i100, %has_bom_prefix.exit113, %has_bom_prefix.exit50, %has_bom_prefix.exit
-  %147 = phi i32 [ 1, %has_bom_prefix.exit50 ], [ 1, %has_bom_prefix.exit ], [ 0, %skip_prefix.exit.i100 ], [ 1, %has_bom_prefix.exit113 ], [ %146, %145 ], [ 0, %125 ], [ 0, %143 ], [ 0, %109 ]
+  %147 = phi i32 [ 1, %has_bom_prefix.exit50 ], [ 1, %has_bom_prefix.exit ], [ 0, %skip_prefix.exit.i100 ], [ 1, %has_bom_prefix.exit113 ], [ %146, %145 ], [ 0, %143 ], [ 0, %125 ], [ 0, %109 ]
   ret i32 %147
 }
 
@@ -2428,7 +2428,7 @@ has_bom_prefix.exit51:                            ; preds = %73
   br label %has_bom_prefix.exit17.thread
 
 has_bom_prefix.exit17.thread:                     ; preds = %40, %55, %75, %73, %38, %has_bom_prefix.exit51, %skip_iprefix.exit12.i35, %has_bom_prefix.exit17
-  %77 = phi i32 [ 1, %has_bom_prefix.exit17 ], [ 0, %skip_iprefix.exit12.i35 ], [ 0, %has_bom_prefix.exit51 ], [ 0, %55 ], [ 1, %38 ], [ 1, %73 ], [ %76, %75 ], [ 0, %40 ]
+  %77 = phi i32 [ 1, %has_bom_prefix.exit17 ], [ 0, %skip_iprefix.exit12.i35 ], [ 0, %has_bom_prefix.exit51 ], [ 1, %38 ], [ %76, %75 ], [ 1, %73 ], [ 0, %55 ], [ 0, %40 ]
   ret i32 %77
 }
 
@@ -2539,7 +2539,7 @@ skip_iprefix.exit12.i.i.preheader:                ; preds = %26
   br label %is_encoding_utf8.exit
 
 is_encoding_utf8.exit:                            ; preds = %11, %30, %skip_iprefix.exit12.i.i.preheader, %48, %45
-  %.0 = phi i32 [ 1, %45 ], [ %52, %48 ], [ 1, %30 ], [ 1, %skip_iprefix.exit12.i.i.preheader ], [ 1, %11 ]
+  %.0 = phi i32 [ %52, %48 ], [ 1, %45 ], [ 1, %skip_iprefix.exit12.i.i.preheader ], [ 1, %30 ], [ 1, %11 ]
   %53 = sext i32 %.0 to i64
   %54 = getelementptr inbounds i8, ptr %6, i64 %53
   store ptr %54, ptr %0, align 8, !tbaa !9
@@ -2602,7 +2602,7 @@ define dso_local range(i32 0, 2) i32 @is_hfs_dotgit(ptr noundef %0) local_unname
   br label %is_hfs_dot_str.exit
 
 is_hfs_dot_str.exit:                              ; preds = %.lr.ph.i.i, %6, %1, %._crit_edge.i.i
-  %.010.i.i = phi i32 [ %19, %._crit_edge.i.i ], [ 0, %1 ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
+  %.010.i.i = phi i32 [ 0, %1 ], [ %19, %._crit_edge.i.i ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.010.i.i
 }
@@ -2651,7 +2651,7 @@ define dso_local range(i32 0, 2) i32 @is_hfs_dotgitmodules(ptr noundef %0) local
   br label %is_hfs_dot_str.exit
 
 is_hfs_dot_str.exit:                              ; preds = %.lr.ph.i.i, %6, %1, %._crit_edge.i.i
-  %.010.i.i = phi i32 [ %19, %._crit_edge.i.i ], [ 0, %1 ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
+  %.010.i.i = phi i32 [ 0, %1 ], [ %19, %._crit_edge.i.i ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.010.i.i
 }
@@ -2700,7 +2700,7 @@ define dso_local range(i32 0, 2) i32 @is_hfs_dotgitignore(ptr noundef %0) local_
   br label %is_hfs_dot_str.exit
 
 is_hfs_dot_str.exit:                              ; preds = %.lr.ph.i.i, %6, %1, %._crit_edge.i.i
-  %.010.i.i = phi i32 [ %19, %._crit_edge.i.i ], [ 0, %1 ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
+  %.010.i.i = phi i32 [ 0, %1 ], [ %19, %._crit_edge.i.i ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.010.i.i
 }
@@ -2749,7 +2749,7 @@ define dso_local range(i32 0, 2) i32 @is_hfs_dotgitattributes(ptr noundef %0) lo
   br label %is_hfs_dot_str.exit
 
 is_hfs_dot_str.exit:                              ; preds = %.lr.ph.i.i, %6, %1, %._crit_edge.i.i
-  %.010.i.i = phi i32 [ %19, %._crit_edge.i.i ], [ 0, %1 ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
+  %.010.i.i = phi i32 [ 0, %1 ], [ %19, %._crit_edge.i.i ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.010.i.i
 }
@@ -2798,7 +2798,7 @@ define dso_local range(i32 0, 2) i32 @is_hfs_dotmailmap(ptr noundef %0) local_un
   br label %is_hfs_dot_str.exit
 
 is_hfs_dot_str.exit:                              ; preds = %.lr.ph.i.i, %6, %1, %._crit_edge.i.i
-  %.010.i.i = phi i32 [ %19, %._crit_edge.i.i ], [ 0, %1 ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
+  %.010.i.i = phi i32 [ 0, %1 ], [ %19, %._crit_edge.i.i ], [ 0, %6 ], [ 0, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.010.i.i
 }

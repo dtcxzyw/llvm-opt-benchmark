@@ -549,7 +549,7 @@ define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %.loopexit18.loopexit, %21, %.loopexit.loopexit, %188, %176, %164, %152, %143, %133, %118, %109, %99, %86, %76, %58, %49, %46, %44, %11
-  %197 = phi i32 [ 0, %11 ], [ %196, %188 ], [ %187, %176 ], [ %175, %164 ], [ %163, %152 ], [ %142, %133 ], [ %151, %143 ], [ %128, %118 ], [ %108, %99 ], [ %117, %109 ], [ %85, %76 ], [ %94, %86 ], [ %71, %58 ], [ %57, %49 ], [ %48, %46 ], [ 0, %44 ], [ %30, %.loopexit.loopexit ], [ 0, %21 ], [ 0, %31 ], [ %43, %.loopexit18.loopexit ]
+  %197 = phi i32 [ 0, %11 ], [ %196, %188 ], [ %187, %176 ], [ %175, %164 ], [ %163, %152 ], [ %142, %133 ], [ %151, %143 ], [ %128, %118 ], [ %108, %99 ], [ %117, %109 ], [ %85, %76 ], [ %94, %86 ], [ %71, %58 ], [ %57, %49 ], [ %48, %46 ], [ 0, %44 ], [ 0, %21 ], [ %30, %.loopexit.loopexit ], [ 0, %31 ], [ %43, %.loopexit18.loopexit ]
   %198 = call zeroext i8 @acpi_ut_get_resource_type(ptr noundef %8) #4
   %199 = icmp eq i8 %198, -114
   %200 = getelementptr inbounds nuw i8, ptr %8, i64 5

@@ -43,7 +43,7 @@ define void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as
   br label %24
 
 24:                                               ; preds = %2, %9
-  %.sink = phi i64 [ 2, %2 ], [ %., %9 ]
+  %.sink = phi i64 [ %., %9 ], [ 2, %2 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -82,7 +82,7 @@ define void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as
   br label %24
 
 24:                                               ; preds = %2, %9
-  %.sink = phi i64 [ 2, %2 ], [ %., %9 ]
+  %.sink = phi i64 [ %., %9 ], [ 2, %2 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -591,7 +591,7 @@ define void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$
   br label %24
 
 24:                                               ; preds = %2, %9
-  %.sink = phi i64 [ 2, %2 ], [ %., %9 ]
+  %.sink = phi i64 [ %., %9 ], [ 2, %2 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -630,7 +630,7 @@ define void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$
   br label %24
 
 24:                                               ; preds = %2, %9
-  %.sink = phi i64 [ 2, %2 ], [ %., %9 ]
+  %.sink = phi i64 [ %., %9 ], [ 2, %2 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }

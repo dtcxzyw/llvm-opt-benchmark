@@ -439,7 +439,7 @@ define dso_local range(i32 0, 2) i32 @ewah_bitmap_is_subset(ptr noundef %0, ptr 
   br i1 %.not7, label %.preheader, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %12, %.lr.ph, %.preheader, %20
-  %.06 = phi i32 [ 0, %20 ], [ 1, %.preheader ], [ 0, %12 ], [ 1, %.lr.ph ]
+  %.06 = phi i32 [ 1, %.preheader ], [ 0, %20 ], [ 0, %12 ], [ 1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.06
@@ -665,7 +665,7 @@ define dso_local range(i32 0, 2) i32 @bitmap_equals(ptr noundef readonly capture
   br i1 %.not, label %23, label %.loopexit
 
 .loopexit:                                        ; preds = %16, %25, %23, %.preheader
-  %.020 = phi i32 [ 1, %.preheader ], [ 1, %23 ], [ 0, %25 ], [ 0, %16 ]
+  %.020 = phi i32 [ 1, %.preheader ], [ 0, %25 ], [ 1, %23 ], [ 0, %16 ]
   ret i32 %.020
 }
 
@@ -726,7 +726,7 @@ define dso_local range(i32 0, 2) i32 @bitmap_equals_ewah(ptr noundef readonly ca
   br i1 %.not11, label %22, label %.loopexit
 
 .loopexit:                                        ; preds = %20, %24, %22, %.preheader
-  %.010 = phi i32 [ 1, %.preheader ], [ 1, %22 ], [ 0, %24 ], [ 0, %20 ]
+  %.010 = phi i32 [ 1, %.preheader ], [ 0, %24 ], [ 1, %22 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.010
@@ -788,7 +788,7 @@ define dso_local range(i32 0, 2) i32 @bitmap_is_subset(ptr noundef readonly capt
   br i1 %.not21, label %17, label %.loopexit
 
 .loopexit:                                        ; preds = %12, %19, %17, %.loopexit22
-  %.018 = phi i32 [ 0, %.loopexit22 ], [ 0, %17 ], [ 1, %19 ], [ 1, %12 ]
+  %.018 = phi i32 [ 0, %.loopexit22 ], [ 1, %19 ], [ 0, %17 ], [ 1, %12 ]
   ret i32 %.018
 }
 

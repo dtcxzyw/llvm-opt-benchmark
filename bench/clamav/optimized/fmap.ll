@@ -122,7 +122,7 @@ define noundef ptr @fmap_check_empty(i32 noundef %0, i64 noundef %1, i64 noundef
   br label %33
 
 33:                                               ; preds = %22, %26, %18, %30, %17, %13, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %30 ], [ null, %18 ], [ null, %13 ], [ null, %17 ], [ %21, %26 ], [ %21, %22 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %30 ], [ null, %17 ], [ null, %13 ], [ null, %18 ], [ %21, %26 ], [ %21, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -376,7 +376,7 @@ define noalias noundef ptr @fmap_duplicate(ptr noundef readonly captures(address
   br label %.thread
 
 .thread:                                          ; preds = %37, %33, %9, %6, %39
-  %.1 = phi ptr [ null, %39 ], [ %8, %37 ], [ null, %6 ], [ null, %9 ], [ %8, %33 ]
+  %.1 = phi ptr [ null, %39 ], [ null, %9 ], [ null, %6 ], [ %8, %33 ], [ %8, %37 ]
   ret ptr %.1
 }
 
@@ -551,7 +551,7 @@ define internal ptr @handle_need(ptr noundef captures(none) %0, i64 noundef %1, 
   br label %29
 
 29:                                               ; preds = %16, %5, %11, %4, %25
-  %.0 = phi ptr [ null, %5 ], [ %28, %25 ], [ null, %4 ], [ null, %11 ], [ null, %16 ]
+  %.0 = phi ptr [ %28, %25 ], [ null, %4 ], [ null, %11 ], [ null, %5 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -690,7 +690,7 @@ fmap_unneed_page.exit:                            ; preds = %52, %56, %57, %58
   br i1 %.not95, label %.thread, label %44
 
 .thread:                                          ; preds = %35, %fmap_unneed_page.exit, %.loopexit, %._crit_edge, %14
-  %.071 = phi ptr [ null, %.loopexit ], [ null, %._crit_edge ], [ null, %14 ], [ null, %fmap_unneed_page.exit ], [ %8, %35 ]
+  %.071 = phi ptr [ null, %14 ], [ null, %._crit_edge ], [ null, %.loopexit ], [ null, %fmap_unneed_page.exit ], [ %8, %35 ]
   ret ptr %.071
 }
 
@@ -794,7 +794,7 @@ define internal noundef ptr @handle_gets(ptr noundef captures(none) %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %4, %17, %.loopexit
-  %.080 = phi ptr [ null, %4 ], [ %1, %.loopexit ], [ null, %17 ], [ null, %.lr.ph ]
+  %.080 = phi ptr [ %1, %.loopexit ], [ null, %17 ], [ null, %4 ], [ null, %.lr.ph ]
   ret ptr %.080
 }
 
@@ -1053,7 +1053,7 @@ define internal ptr @mem_need_offstr(ptr noundef readonly captures(none) %0, i64
   br label %21
 
 21:                                               ; preds = %19, %._crit_edge, %14
-  %.0 = phi ptr [ %., %19 ], [ null, %._crit_edge ], [ null, %14 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %._crit_edge ], [ %., %19 ]
   ret ptr %.0
 }
 
@@ -1323,7 +1323,7 @@ fmap_need_off_once_len.exit:                      ; preds = %45
   br label %73
 
 73:                                               ; preds = %56, %.thread, %38, %39, %70, %15
-  %.0 = phi i32 [ 3, %15 ], [ 20, %.thread ], [ 0, %70 ], [ 14, %56 ], [ %37, %39 ], [ %37, %38 ]
+  %.0 = phi i32 [ 3, %15 ], [ 0, %70 ], [ 14, %56 ], [ %37, %39 ], [ %37, %38 ], [ 20, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1455,26 +1455,26 @@ define range(i32 0, 35) i32 @fmap_get_hash(ptr noundef %0, ptr noundef writeonly
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = load i8, ptr %7, align 8, !tbaa !35, !range !38, !noundef !39
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %48, label %19
+  br i1 %9, label %45, label %19
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 169
   %12 = load i8, ptr %11, align 1, !tbaa !36, !range !38, !noundef !39
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %50, label %19
+  br i1 %13, label %47, label %19
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 190
   %16 = load i8, ptr %15, align 2, !tbaa !37, !range !38, !noundef !39
   %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %52, label %19
+  br i1 %17, label %49, label %19
 
 18:                                               ; preds = %3
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.23, i32 noundef %2) #19
   br label %.thread71
 
 19:                                               ; preds = %14, %10, %6
-  %.str.26.sink = phi ptr [ @.str.25, %10 ], [ @.str.24, %6 ], [ @.str.26, %14 ]
+  %.str.26.sink = phi ptr [ @.str.24, %6 ], [ @.str.25, %10 ], [ @.str.26, %14 ]
   %20 = tail call ptr @cl_hash_init(ptr noundef nonnull %.str.26.sink) #19
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %22, label %.preheader
@@ -1487,88 +1487,88 @@ define range(i32 0, 35) i32 @fmap_get_hash(ptr noundef %0, ptr noundef writeonly
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.27) #19
   br label %.thread71
 
-23:                                               ; preds = %.preheader, %29
-  %.052 = phi i64 [ %30, %29 ], [ %5, %.preheader ]
-  %.050 = phi i64 [ %31, %29 ], [ 0, %.preheader ]
+23:                                               ; preds = %.preheader, %28
+  %.052 = phi i64 [ %29, %28 ], [ %5, %.preheader ]
+  %.050 = phi i64 [ %30, %28 ], [ 0, %.preheader ]
   %.not55 = icmp eq i64 %.052, 0
-  br i1 %.not55, label %34, label %24
+  br i1 %.not55, label %32, label %24
 
 24:                                               ; preds = %23
   %25 = tail call i64 @llvm.umin.i64(i64 %.052, i64 10485760)
   %26 = load ptr, ptr %21, align 8, !tbaa !29
   %27 = tail call ptr %26(ptr noundef nonnull %0, i64 noundef %.050, i64 noundef %25, i32 noundef 0) #19
   %.not56 = icmp eq ptr %27, null
-  br i1 %.not56, label %28, label %29
+  br i1 %.not56, label %51, label %28
 
 28:                                               ; preds = %24
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.28) #19
-  br label %.thread61
+  %29 = sub i64 %.052, %25
+  %30 = add i64 %.050, %25
+  %31 = tail call i32 @cl_update_hash(ptr noundef nonnull %20, ptr noundef nonnull %27, i64 noundef %25) #19
+  %.not57 = icmp eq i32 %31, 0
+  br i1 %.not57, label %23, label %.thread82
 
-29:                                               ; preds = %24
-  %30 = sub i64 %.052, %25
-  %31 = add i64 %.050, %25
-  %32 = tail call i32 @cl_update_hash(ptr noundef nonnull %20, ptr noundef nonnull %27, i64 noundef %25) #19
-  %.not57 = icmp eq i32 %32, 0
-  br i1 %.not57, label %23, label %33
-
-33:                                               ; preds = %29
+.thread82:                                        ; preds = %28
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.29) #19
-  br label %.thread61
-
-34:                                               ; preds = %23
-  switch i32 %2, label %47 [
-    i32 0, label %35
-    i32 1, label %39
-    i32 2, label %43
-  ]
-
-35:                                               ; preds = %34
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 153
-  %37 = tail call i32 @cl_finish_hash(ptr noundef nonnull %20, ptr noundef nonnull %36) #19
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i8 1, ptr %38, align 8, !tbaa !35
-  br label %48
-
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 170
-  %41 = tail call i32 @cl_finish_hash(ptr noundef nonnull %20, ptr noundef nonnull %40) #19
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 169
-  store i8 1, ptr %42, align 1, !tbaa !36
-  br label %50
-
-43:                                               ; preds = %34
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 191
-  %45 = tail call i32 @cl_finish_hash(ptr noundef nonnull %20, ptr noundef nonnull %44) #19
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 190
-  store i8 1, ptr %46, align 2, !tbaa !37
   br label %52
 
-47:                                               ; preds = %34
+32:                                               ; preds = %23
+  switch i32 %2, label %.thread76 [
+    i32 0, label %33
+    i32 1, label %37
+    i32 2, label %41
+  ]
+
+33:                                               ; preds = %32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 153
+  %35 = tail call i32 @cl_finish_hash(ptr noundef nonnull %20, ptr noundef nonnull %34) #19
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i8 1, ptr %36, align 8, !tbaa !35
+  br label %45
+
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 170
+  %39 = tail call i32 @cl_finish_hash(ptr noundef nonnull %20, ptr noundef nonnull %38) #19
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 169
+  store i8 1, ptr %40, align 1, !tbaa !36
+  br label %47
+
+41:                                               ; preds = %32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 191
+  %43 = tail call i32 @cl_finish_hash(ptr noundef nonnull %20, ptr noundef nonnull %42) #19
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 190
+  store i8 1, ptr %44, align 2, !tbaa !37
+  br label %49
+
+.thread76:                                        ; preds = %32
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.23, i32 noundef %2) #19
-  br label %.thread61
+  br label %52
 
-48:                                               ; preds = %35, %6
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 153
-  store ptr %49, ptr %1, align 8, !tbaa !42
+45:                                               ; preds = %33, %6
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 153
+  store ptr %46, ptr %1, align 8, !tbaa !42
   br label %.thread71
 
-50:                                               ; preds = %39, %10
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 170
-  store ptr %51, ptr %1, align 8, !tbaa !42
+47:                                               ; preds = %37, %10
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 170
+  store ptr %48, ptr %1, align 8, !tbaa !42
   br label %.thread71
 
-52:                                               ; preds = %14, %43
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 191
-  store ptr %53, ptr %1, align 8, !tbaa !42
+49:                                               ; preds = %14, %41
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 191
+  store ptr %50, ptr %1, align 8, !tbaa !42
   br label %.thread71
 
-.thread61:                                        ; preds = %28, %33, %47
-  %.046 = phi i32 [ 3, %47 ], [ 12, %33 ], [ 12, %28 ]
+51:                                               ; preds = %24
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.28) #19
+  br label %52
+
+52:                                               ; preds = %51, %.thread82, %.thread76
+  %.04681 = phi i32 [ 3, %.thread76 ], [ 12, %51 ], [ 12, %.thread82 ]
   tail call void @cl_hash_destroy(ptr noundef nonnull %20) #19
   br label %.thread71
 
-.thread71:                                        ; preds = %52, %48, %22, %50, %18, %.thread61
-  %.04675 = phi i32 [ %.046, %.thread61 ], [ 0, %52 ], [ 0, %48 ], [ 34, %22 ], [ 0, %50 ], [ 3, %18 ]
+.thread71:                                        ; preds = %45, %47, %49, %22, %18, %52
+  %.04675 = phi i32 [ %.04681, %52 ], [ 0, %45 ], [ 0, %47 ], [ 0, %49 ], [ 34, %22 ], [ 3, %18 ]
   ret i32 %.04675
 }
 
@@ -1695,7 +1695,7 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
   br label %56
 
 56:                                               ; preds = %52, %37, %33, %22
-  %.175 = phi i64 [ %.07488, %22 ], [ 1, %33 ], [ %.07488, %37 ], [ %spec.select87, %52 ]
+  %.175 = phi i64 [ 1, %33 ], [ %.07488, %22 ], [ %.07488, %37 ], [ %spec.select87, %52 ]
   %57 = add nuw i64 %.089, 1
   %58 = load i64, ptr %17, align 8, !tbaa !27
   %59 = icmp ult i64 %57, %58
@@ -1750,7 +1750,7 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
   br label %82
 
 82:                                               ; preds = %62, %80
-  %.171 = phi ptr [ %.07091.mux, %62 ], [ %68, %80 ]
+  %.171 = phi ptr [ %68, %80 ], [ %.07091.mux, %62 ]
   %83 = load i64, ptr %9, align 8, !tbaa !28
   %84 = getelementptr inbounds nuw i8, ptr %68, i64 %83
   %85 = add nuw i64 %.192, 1
@@ -1898,7 +1898,7 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr noundef captures(n
   br i1 %.not130, label %.sink.split, label %55
 
 .sink.split:                                      ; preds = %54, %47, %52
-  %.sink = phi i64 [ 3221225473, %47 ], [ %53, %52 ], [ 2147483647, %54 ]
+  %.sink = phi i64 [ %53, %52 ], [ 3221225473, %47 ], [ 2147483647, %54 ]
   store i64 %.sink, ptr %42, align 8, !tbaa !40
   br label %55
 
@@ -2011,9 +2011,9 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr noundef captures(n
   br label %.thread166
 
 104:                                              ; preds = %92, %97
-  %.3121 = phi i64 [ %.2120182, %92 ], [ %100, %97 ]
-  %.1117 = phi i64 [ %.0116183, %92 ], [ %99, %97 ]
-  %.3114 = phi ptr [ %.2113184, %92 ], [ %98, %97 ]
+  %.3121 = phi i64 [ %100, %97 ], [ %.2120182, %92 ]
+  %.1117 = phi i64 [ %99, %97 ], [ %.0116183, %92 ]
+  %.3114 = phi ptr [ %98, %97 ], [ %.2113184, %92 ]
   %.not141 = icmp eq i64 %.3121, 0
   br i1 %.not141, label %.loopexit, label %.lr.ph185
 
@@ -2065,7 +2065,7 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr noundef captures(n
   br i1 %.not, label %.thread166, label %37
 
 .thread166:                                       ; preds = %39, %.loopexit, %101, %103, %51, %82, %16
-  %.0 = phi i32 [ 1, %16 ], [ 1, %103 ], [ 1, %51 ], [ 1, %101 ], [ 1, %82 ], [ 0, %.loopexit ], [ 0, %39 ]
+  %.0 = phi i32 [ 1, %16 ], [ 1, %51 ], [ 1, %82 ], [ 1, %103 ], [ 1, %101 ], [ 0, %.loopexit ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

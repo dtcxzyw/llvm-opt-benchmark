@@ -227,7 +227,7 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   br label %114
 
 114:                                              ; preds = %.lr.ph174, %111, %113
-  %.0127 = phi float [ %109, %111 ], [ -1.000000e+00, %113 ], [ 1.000000e+00, %.lr.ph174 ]
+  %.0127 = phi float [ -1.000000e+00, %113 ], [ %109, %111 ], [ 1.000000e+00, %.lr.ph174 ]
   %115 = getelementptr inbounds nuw i8, ptr %.0130173, i64 4
   store float %.0127, ptr %.0130173, align 4
   %.not148 = icmp eq i32 %104, 0
@@ -263,7 +263,7 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   br label %132
 
 132:                                              ; preds = %.lr.ph, %129, %131
-  %.0117 = phi float [ %127, %129 ], [ -1.000000e+00, %131 ], [ 1.000000e+00, %.lr.ph ]
+  %.0117 = phi float [ -1.000000e+00, %131 ], [ %127, %129 ], [ 1.000000e+00, %.lr.ph ]
   %133 = bitcast float %.0117 to i32
   %134 = tail call i32 @llvm.bswap.i32(i32 %133)
   %135 = getelementptr inbounds nuw i8, ptr %.0124170, i64 4
@@ -276,7 +276,7 @@ define hidden zeroext i1 @SDL_MixAudio_REAL(ptr noundef captures(none) %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %132, %114, %86, %72, %67, %.lr.ph193, %.lr.ph198, %.lr.ph203, %116, %102, %83, %69, %49, %37, %.preheader160, %.preheader, %5, %136
-  %.0 = phi i1 [ true, %5 ], [ %137, %136 ], [ true, %83 ], [ true, %69 ], [ true, %49 ], [ true, %37 ], [ true, %.preheader160 ], [ true, %.preheader ], [ true, %102 ], [ true, %116 ], [ true, %.lr.ph203 ], [ true, %.lr.ph198 ], [ true, %.lr.ph193 ], [ true, %67 ], [ true, %72 ], [ true, %86 ], [ true, %114 ], [ true, %132 ]
+  %.0 = phi i1 [ %137, %136 ], [ true, %5 ], [ true, %.preheader ], [ true, %.preheader160 ], [ true, %37 ], [ true, %49 ], [ true, %69 ], [ true, %83 ], [ true, %102 ], [ true, %116 ], [ true, %.lr.ph203 ], [ true, %.lr.ph198 ], [ true, %.lr.ph193 ], [ true, %67 ], [ true, %72 ], [ true, %86 ], [ true, %114 ], [ true, %132 ]
   ret i1 %.0
 }
 

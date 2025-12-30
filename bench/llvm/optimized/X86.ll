@@ -376,7 +376,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
-_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread: ; preds = %.thread25.i.i.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread159, %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, %_ZN4llvmneENS_9StringRefES0_.exit45, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit
+_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread: ; preds = %.thread25.i.i.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread159, %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit, %_ZN4llvmneENS_9StringRefES0_.exit45
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !43
   store i32 126, ptr %8, align 4, !noalias !43
   %88 = call i64 @_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE(ptr noundef nonnull align 8 dereferenceable(176) %2, ptr nonnull %8, i64 1) #15, !noalias !43
@@ -2807,9 +2807,9 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17_
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit397
 
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit397: ; preds = %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i438, %550, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i410, %498, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i396, %469, %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDES6_S6_S6_EEEbDpT_.exit.thread, %491
-  %.not190 = phi i1 [ true, %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDES6_S6_S6_EEEbDpT_.exit.thread ], [ false, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i396 ], [ true, %491 ], [ false, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i410 ], [ false, %469 ], [ false, %498 ], [ false, %550 ], [ false, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i438 ]
-  %572 = phi i1 [ false, %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDES6_S6_S6_EEEbDpT_.exit.thread ], [ true, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i396 ], [ false, %491 ], [ true, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i410 ], [ true, %469 ], [ true, %498 ], [ true, %550 ], [ true, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i438 ]
-  %.0 = phi i64 [ 4294967295, %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDES6_S6_S6_EEEbDpT_.exit.thread ], [ 2776, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i396 ], [ 4294967295, %491 ], [ 2809, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i410 ], [ 2776, %469 ], [ 2809, %498 ], [ 2775, %550 ], [ 2775, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i438 ]
+  %.not190 = phi i1 [ true, %491 ], [ true, %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDES6_S6_S6_EEEbDpT_.exit.thread ], [ false, %469 ], [ false, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i396 ], [ false, %498 ], [ false, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i410 ], [ false, %550 ], [ false, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i438 ]
+  %572 = phi i1 [ false, %491 ], [ false, %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDES6_S6_S6_EEEbDpT_.exit.thread ], [ true, %469 ], [ true, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i396 ], [ true, %498 ], [ true, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i410 ], [ true, %550 ], [ true, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i438 ]
+  %.0 = phi i64 [ 4294967295, %491 ], [ 4294967295, %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDES6_S6_S6_EEEbDpT_.exit.thread ], [ 2776, %469 ], [ 2776, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i396 ], [ 2809, %498 ], [ 2809, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i410 ], [ 2775, %550 ], [ 2775, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i438 ]
   %573 = call noundef zeroext i1 @_ZNK4llvm3opt7ArgList7hasFlagENS0_12OptSpecifierES2_b(ptr noundef nonnull align 8 dereferenceable(176) %2, i32 2410, i32 2571, i1 noundef zeroext false) #15
   br i1 %573, label %574, label %625
 
@@ -3032,7 +3032,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17_
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit467
 
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit467: ; preds = %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i480, %632, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i466, %603, %625
-  %.0179 = phi i32 [ 0, %625 ], [ 2410, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i466 ], [ 2410, %603 ], [ 2409, %632 ], [ 2409, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i480 ]
+  %.0179 = phi i32 [ 0, %625 ], [ 2410, %603 ], [ 2410, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i466 ], [ 2409, %632 ], [ 2409, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i480 ]
   %654 = call noundef zeroext i1 @_ZNK4llvm3opt7ArgList7hasFlagENS0_12OptSpecifierES2_b(ptr noundef nonnull align 8 dereferenceable(176) %2, i32 2790, i32 2646, i1 noundef zeroext false) #15
   br i1 %654, label %655, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit582
 
@@ -4523,7 +4523,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit755:         ; preds = %_ZNSt7__cxx1112basi
   br label %_ZN4llvmeqENS_9StringRefES0_.exit740.thread1526
 
 _ZN4llvmeqENS_9StringRefES0_.exit740.thread1526:  ; preds = %1287, %_ZN5clang17DiagnosticBuilderD2Ev.exit755, %_ZN4llvmeqENS_9StringRefES0_.exit740, %_ZNK4llvm9StringRef11starts_withES0_.exit
-  %1309 = phi i1 [ %1288, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ %1288, %_ZN5clang17DiagnosticBuilderD2Ev.exit755 ], [ %1288, %_ZN4llvmeqENS_9StringRefES0_.exit740 ], [ false, %1287 ]
+  %1309 = phi i1 [ %1288, %_ZN5clang17DiagnosticBuilderD2Ev.exit755 ], [ %1288, %_ZN4llvmeqENS_9StringRefES0_.exit740 ], [ %1288, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ false, %1287 ]
   %1310 = call noundef zeroext i1 @_ZNK4llvm3opt6Option7matchesENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(16) %1227, i32 2194) #15
   br i1 %1310, label %1313, label %1311
 
@@ -4779,7 +4779,7 @@ _ZN4llvmneENS_9StringRefES0_.exit806.thread:      ; preds = %_ZN4llvmneENS_9Stri
   br i1 %.not1613, label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit.i, label %_ZN4llvmneENS_9StringRefES0_.exit810.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit810.thread:      ; preds = %_ZN4llvmneENS_9StringRefES0_.exit798, %_ZN4llvmneENS_9StringRefES0_.exit794, %_ZN4llvmneENS_9StringRefES0_.exit786, %1379, %_ZN4llvm9StringRefC2EPKc.exit778, %_ZN4llvmneENS_9StringRefES0_.exit806.thread
-  %1382 = phi i64 [ %1381, %_ZN4llvm9StringRefC2EPKc.exit778 ], [ 0, %1379 ], [ 2, %_ZN4llvmneENS_9StringRefES0_.exit806.thread ], [ 4, %_ZN4llvmneENS_9StringRefES0_.exit798 ], [ 3, %_ZN4llvmneENS_9StringRefES0_.exit794 ], [ 9, %_ZN4llvmneENS_9StringRefES0_.exit786 ]
+  %1382 = phi i64 [ 2, %_ZN4llvmneENS_9StringRefES0_.exit806.thread ], [ %1381, %_ZN4llvm9StringRefC2EPKc.exit778 ], [ 0, %1379 ], [ 9, %_ZN4llvmneENS_9StringRefES0_.exit786 ], [ 3, %_ZN4llvmneENS_9StringRefES0_.exit794 ], [ 4, %_ZN4llvmneENS_9StringRefES0_.exit798 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %1383 = load ptr, ptr %0, align 8, !tbaa !67, !noalias !361
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %36, ptr noundef nonnull align 8 dereferenceable(15248) %1383, i32 0, i32 noundef 490) #15
@@ -5405,7 +5405,7 @@ _ZN4llvmneENS_9StringRefES0_.exit947:             ; preds = %_ZN4llvm9StringRefC
   br i1 %.not1602, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit907, label %_ZN4llvmneENS_9StringRefES0_.exit947.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit947.thread:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit929, %_ZN4llvmeqENS_9StringRefES0_.exit911, %_ZN4llvmeqENS_9StringRefES0_.exit879, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit714.thread, %_ZN4llvm9StringRefC2EPKc.exit875, %_ZN4llvmneENS_9StringRefES0_.exit947
-  %1584 = phi i64 [ %1478, %_ZN4llvm9StringRefC2EPKc.exit875 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit911 ], [ 4, %_ZN4llvmneENS_9StringRefES0_.exit947 ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit879 ], [ 0, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit714.thread ], [ 12, %_ZN4llvmeqENS_9StringRefES0_.exit929 ]
+  %1584 = phi i64 [ 4, %_ZN4llvmneENS_9StringRefES0_.exit947 ], [ %1478, %_ZN4llvm9StringRefC2EPKc.exit875 ], [ 0, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit714.thread ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit879 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit911 ], [ 12, %_ZN4llvmeqENS_9StringRefES0_.exit929 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %1585 = load ptr, ptr %0, align 8, !tbaa !67, !noalias !402
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %39, ptr noundef nonnull align 8 dereferenceable(15248) %1585, i32 0, i32 noundef 490) #15
@@ -6116,8 +6116,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList13MakeArgStringERKN
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ 0, %9 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ null, %9 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !370
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8

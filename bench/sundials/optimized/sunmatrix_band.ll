@@ -376,7 +376,7 @@ define noundef i32 @SUNMatCopy_Band(ptr noundef readonly captures(none) %0, ptr 
   br i1 %exitcond.not, label %.loopexit, label %44
 
 .loopexit:                                        ; preds = %44, %16, %10
-  %50 = phi ptr [ %6, %10 ], [ %37, %16 ], [ %37, %44 ]
+  %50 = phi ptr [ %37, %16 ], [ %6, %10 ], [ %37, %44 ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %52 = load i64, ptr %51, align 8, !tbaa !31
   %53 = icmp sgt i64 %52, 0

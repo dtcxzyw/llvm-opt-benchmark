@@ -87,7 +87,7 @@ define dso_local ptr @GetPortalByName(ptr noundef %0) local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %1, %5, %2
-  %.1 = phi ptr [ null, %2 ], [ %7, %5 ], [ null, %1 ]
+  %.1 = phi ptr [ %7, %5 ], [ null, %2 ], [ null, %1 ]
   ret ptr %.1
 }
 
@@ -127,7 +127,7 @@ define dso_local ptr @PortalGetPrimaryStmt(ptr noundef readonly captures(none) %
   br i1 %15, label %._crit_edge23, label %9
 
 ._crit_edge23:                                    ; preds = %10, %9, %.lr.ph, %1
-  %16 = phi ptr [ null, %.lr.ph ], [ null, %1 ], [ null, %9 ], [ %12, %10 ]
+  %16 = phi ptr [ null, %1 ], [ null, %.lr.ph ], [ null, %9 ], [ %12, %10 ]
   ret ptr %16
 }
 

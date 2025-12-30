@@ -964,7 +964,7 @@ _ZNSt6vectorIN2cv3PtrINS0_6legacy8tracking7TrackerEEESaIS5_EED2Ev.exit: ; preds 
   br label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit108
 
 _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit108:  ; preds = %321, %323, %326
-  %.pn45.pn = phi { ptr, i32 } [ %324, %326 ], [ %322, %321 ], [ %324, %323 ]
+  %.pn45.pn = phi { ptr, i32 } [ %322, %321 ], [ %324, %323 ], [ %324, %326 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZNSt6vectorIN2cv3PtrINS0_6legacy8tracking7TrackerEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #23
   br label %436
@@ -1092,7 +1092,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit108:  ; preds = %321, %323, %326
   br label %382
 
 382:                                              ; preds = %378, %380
-  %.pn57.pn = phi { ptr, i32 } [ %379, %378 ], [ %381, %380 ]
+  %.pn57.pn = phi { ptr, i32 } [ %381, %380 ], [ %379, %378 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %436
 
@@ -1306,8 +1306,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %_Z
   ret i32 0
 
 436:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit198, %.loopexit.split-lp199, %359, %382, %239, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120, %390, %357, %355, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit108
-  %.sroa.0178.4213 = phi ptr [ %.sroa.0178.5, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit108 ], [ %.sroa.0178.4226, %239 ], [ %.sroa.0178.4226, %.loopexit.split-lp199 ], [ %.sroa.0178.5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120 ], [ %.sroa.0178.5, %390 ], [ %.sroa.0178.5, %357 ], [ %.sroa.0178.5, %355 ], [ %.sroa.0178.5, %359 ], [ %.sroa.0178.5, %382 ], [ %.sroa.0178.4226, %.loopexit198 ], [ %.sroa.0178.5, %.loopexit ], [ %.sroa.0178.5, %.loopexit.split-lp ]
-  %.pn63.pn = phi { ptr, i32 } [ %.pn45.pn, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit108 ], [ %.pn61, %239 ], [ %lpad.loopexit.split-lp201, %.loopexit.split-lp199 ], [ %393, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120 ], [ %391, %390 ], [ %358, %357 ], [ %356, %355 ], [ %360, %359 ], [ %.pn57.pn, %382 ], [ %lpad.loopexit200, %.loopexit198 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.0178.4213 = phi ptr [ %.sroa.0178.5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120 ], [ %.sroa.0178.5, %390 ], [ %.sroa.0178.5, %357 ], [ %.sroa.0178.5, %355 ], [ %.sroa.0178.5, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit108 ], [ %.sroa.0178.4226, %239 ], [ %.sroa.0178.5, %382 ], [ %.sroa.0178.5, %359 ], [ %.sroa.0178.4226, %.loopexit198 ], [ %.sroa.0178.4226, %.loopexit.split-lp199 ], [ %.sroa.0178.5, %.loopexit ], [ %.sroa.0178.5, %.loopexit.split-lp ]
+  %.pn63.pn = phi { ptr, i32 } [ %393, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120 ], [ %391, %390 ], [ %358, %357 ], [ %356, %355 ], [ %.pn45.pn, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit108 ], [ %.pn61, %239 ], [ %.pn57.pn, %382 ], [ %360, %359 ], [ %lpad.loopexit200, %.loopexit198 ], [ %lpad.loopexit.split-lp201, %.loopexit.split-lp199 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN2cv3PtrINS0_6legacy8tracking7TrackerEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %437

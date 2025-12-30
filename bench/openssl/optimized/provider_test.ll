@@ -115,7 +115,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1, %4, %5
-  %.03 = phi i32 [ 1, %4 ], [ 1, %5 ], [ 0, %1 ]
+  %.03 = phi i32 [ 1, %5 ], [ 1, %4 ], [ 0, %1 ]
   ret i32 %.03
 }
 
@@ -312,7 +312,7 @@ test_provider_ex.exit:                            ; preds = %9, %12, %17, %20, %
   br label %52
 
 52:                                               ; preds = %test_provider_ex.exit, %5, %0
-  %.0 = phi i32 [ 0, %5 ], [ 0, %0 ], [ %.018.i, %test_provider_ex.exit ]
+  %.0 = phi i32 [ 0, %0 ], [ 0, %5 ], [ %.018.i, %test_provider_ex.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

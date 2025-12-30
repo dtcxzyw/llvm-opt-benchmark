@@ -4315,7 +4315,7 @@ thread-pre-split:                                 ; preds = %144, %147, %153
   br label %.thread30
 
 .thread30:                                        ; preds = %447, %440, %540, %354
-  %542 = phi ptr [ %355, %354 ], [ %541, %540 ], [ null, %440 ], [ %355, %447 ]
+  %542 = phi ptr [ %541, %540 ], [ %355, %354 ], [ null, %440 ], [ %355, %447 ]
   %543 = call ptr @folio_mapping(ptr noundef %68) #14
   %544 = load i64, ptr %68, align 16
   %545 = and i64 %544, 98304
@@ -4435,7 +4435,7 @@ thread-pre-split:                                 ; preds = %144, %147, %153
   br label %.thread24
 
 .thread24:                                        ; preds = %442, %332, %335, %339, %.thread32, %346, %.thread20, %607, %602, %600, %554, %378, %350, %273, %197, %194, %96
-  %608 = phi i32 [ %86, %96 ], [ %86, %194 ], [ %86, %197 ], [ %303, %332 ], [ %303, %350 ], [ %303, %554 ], [ %303, %.thread32 ], [ %303, %378 ], [ 1, %602 ], [ %86, %600 ], [ %86, %.thread20 ], [ %86, %607 ], [ %86, %273 ], [ %303, %346 ], [ %303, %339 ], [ %303, %335 ], [ %303, %442 ]
+  %608 = phi i32 [ %86, %96 ], [ %86, %194 ], [ %86, %197 ], [ %303, %350 ], [ %303, %554 ], [ %303, %378 ], [ 1, %602 ], [ %86, %600 ], [ %86, %607 ], [ %86, %273 ], [ %86, %.thread20 ], [ %303, %346 ], [ %303, %.thread32 ], [ %303, %339 ], [ %303, %335 ], [ %303, %332 ], [ %303, %442 ]
   %609 = load volatile i64, ptr %68, align 8
   %610 = and i64 %609, 524288
   %611 = icmp eq i64 %610, 0
@@ -4502,7 +4502,7 @@ thread-pre-split:                                 ; preds = %144, %147, %153
   br label %646
 
 646:                                              ; preds = %643, %597, %596, %567, %236
-  %647 = phi i32 [ %65, %643 ], [ %65, %236 ], [ %592, %596 ], [ %568, %567 ], [ %592, %597 ]
+  %647 = phi i32 [ %65, %643 ], [ %65, %236 ], [ %568, %567 ], [ %592, %597 ], [ %592, %596 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %648 = load volatile ptr, ptr %0, align 8
@@ -4668,8 +4668,8 @@ define dso_local noundef zeroext i1 @folio_isolate_lru(ptr noundef %0) local_unn
   br label %.thread
 
 .thread:                                          ; preds = %5, %15
-  %31 = phi i64 [ %12, %5 ], [ %.pre, %15 ]
-  %32 = phi i32 [ 4, %5 ], [ %25, %15 ]
+  %31 = phi i64 [ %.pre, %15 ], [ %12, %5 ]
+  %32 = phi i32 [ %25, %15 ], [ 4, %5 ]
   %33 = lshr i64 %31, 56
   %34 = and i64 %33, 3
   %35 = load volatile i64, ptr %0, align 8
@@ -4692,7 +4692,7 @@ define dso_local noundef zeroext i1 @folio_isolate_lru(ptr noundef %0) local_unn
   br label %.thread1
 
 .thread1:                                         ; preds = %.thread, %44, %38
-  %45 = phi i64 [ %42, %38 ], [ %42, %44 ], [ -1, %.thread ]
+  %45 = phi i64 [ %42, %44 ], [ %42, %38 ], [ -1, %.thread ]
   %46 = shl i64 %45, 32
   %47 = ashr exact i64 %46, 32
   tail call void @__mod_node_page_state(ptr noundef %10, i32 noundef %32, i64 noundef %47) #14
@@ -7565,8 +7565,8 @@ define dso_local void @check_move_unevictable_folios(ptr noundef readonly captur
   br label %.thread
 
 .thread:                                          ; preds = %60, %64
-  %80 = phi i64 [ %61, %60 ], [ %.pre, %64 ]
-  %81 = phi i32 [ 4, %60 ], [ %74, %64 ]
+  %80 = phi i64 [ %.pre, %64 ], [ %61, %60 ]
+  %81 = phi i32 [ %74, %64 ], [ 4, %60 ]
   %82 = lshr i64 %80, 56
   %83 = and i64 %82, 3
   %84 = load volatile i64, ptr %12, align 8
@@ -7589,7 +7589,7 @@ define dso_local void @check_move_unevictable_folios(ptr noundef readonly captur
   br label %.thread6
 
 .thread6:                                         ; preds = %.thread, %93, %87
-  %94 = phi i64 [ %91, %87 ], [ %91, %93 ], [ -1, %.thread ]
+  %94 = phi i64 [ %91, %93 ], [ %91, %87 ], [ -1, %.thread ]
   %95 = getelementptr i8, ptr %44, i64 -13440
   %96 = shl i64 %94, 32
   %97 = ashr exact i64 %96, 32
@@ -7639,7 +7639,7 @@ define dso_local void @check_move_unevictable_folios(ptr noundef readonly captur
   br label %.thread7
 
 .thread7:                                         ; preds = %115, %126, %122
-  %.shrunk = phi i32 [ %124, %122 ], [ %124, %126 ], [ 1, %115 ]
+  %.shrunk = phi i32 [ %124, %126 ], [ %124, %122 ], [ 1, %115 ]
   %127 = zext i32 %.shrunk to i64
   %128 = sext i32 %.shrunk to i64
   tail call void @__mod_node_page_state(ptr noundef %95, i32 noundef %116, i64 noundef %128) #14
@@ -8712,7 +8712,7 @@ define internal fastcc void @shrink_node(ptr noundef %0, ptr noundef captures(ad
   br label %153
 
 153:                                              ; preds = %146, %139
-  %154 = phi i16 [ %152, %146 ], [ 0, %139 ]
+  %154 = phi i16 [ 0, %139 ], [ %152, %146 ]
   %155 = and i16 %.pre43, -8193
   %156 = or disjoint i16 %155, %154
   store i16 %156, ptr %17, align 8
@@ -9696,7 +9696,7 @@ define internal fastcc void @shrink_active_list(i64 noundef range(i64 1, 33) %0,
   br label %folio_putback_lru.exit
 
 folio_putback_lru.exit:                           ; preds = %50, %45, %86, %81
-  %90 = phi i32 [ %25, %86 ], [ %83, %81 ], [ %25, %45 ], [ %25, %50 ]
+  %90 = phi i32 [ %83, %81 ], [ %25, %86 ], [ %25, %45 ], [ %25, %50 ]
   %91 = load volatile ptr, ptr %7, align 8
   %92 = icmp eq ptr %91, %7
   br i1 %92, label %.loopexit, label %24
@@ -9950,9 +9950,9 @@ define internal fastcc i64 @isolate_lru_folios(i64 noundef range(i64 1, 33) %0, 
   br label %.thread12
 
 .thread12:                                        ; preds = %84, %74, %96, %95, %91, %69, %65, %52, %47
-  %104 = phi i64 [ %19, %52 ], [ %19, %65 ], [ %97, %96 ], [ %19, %69 ], [ %19, %47 ], [ %19, %91 ], [ %19, %95 ], [ %19, %74 ], [ %19, %84 ]
-  %105 = phi i64 [ %18, %52 ], [ %48, %65 ], [ %48, %96 ], [ %48, %69 ], [ %48, %47 ], [ %48, %91 ], [ %48, %95 ], [ %48, %74 ], [ %48, %84 ]
-  %106 = phi ptr [ %9, %52 ], [ %11, %65 ], [ %2, %96 ], [ %11, %69 ], [ %11, %47 ], [ %11, %91 ], [ %11, %95 ], [ %11, %74 ], [ %11, %84 ]
+  %104 = phi i64 [ %19, %52 ], [ %97, %96 ], [ %19, %69 ], [ %19, %47 ], [ %19, %91 ], [ %19, %95 ], [ %19, %65 ], [ %19, %74 ], [ %19, %84 ]
+  %105 = phi i64 [ %18, %52 ], [ %48, %96 ], [ %48, %69 ], [ %48, %47 ], [ %48, %91 ], [ %48, %95 ], [ %48, %65 ], [ %48, %74 ], [ %48, %84 ]
+  %106 = phi ptr [ %9, %52 ], [ %2, %96 ], [ %11, %69 ], [ %11, %47 ], [ %11, %91 ], [ %11, %95 ], [ %11, %65 ], [ %11, %74 ], [ %11, %84 ]
   %107 = load ptr, ptr %25, align 8
   %108 = load ptr, ptr %23, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
@@ -9968,8 +9968,8 @@ define internal fastcc i64 @isolate_lru_folios(i64 noundef range(i64 1, 33) %0, 
   br i1 %112, label %16, label %113, !llvm.loop !166
 
 113:                                              ; preds = %.thread12, %16
-  %114 = phi i64 [ %104, %.thread12 ], [ %19, %16 ]
-  %115 = phi i64 [ %40, %.thread12 ], [ %17, %16 ]
+  %114 = phi i64 [ %19, %16 ], [ %104, %.thread12 ]
+  %115 = phi i64 [ %17, %16 ], [ %40, %.thread12 ]
   %116 = load volatile ptr, ptr %9, align 8
   %117 = icmp eq ptr %116, %9
   br i1 %117, label %.loopexit, label %118
@@ -10264,7 +10264,7 @@ folio_putback_lru.exit:                           ; preds = %31, %36
   br label %.thread
 
 .thread:                                          ; preds = %74, %85, %81
-  %.shrunk = phi i32 [ %83, %81 ], [ %83, %85 ], [ 1, %74 ]
+  %.shrunk = phi i32 [ %83, %85 ], [ %83, %81 ], [ 1, %74 ]
   %86 = zext i32 %.shrunk to i64
   %87 = sext i32 %.shrunk to i64
   call void @__mod_node_page_state(ptr noundef %10, i32 noundef %75, i64 noundef %87) #14

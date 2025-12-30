@@ -103,7 +103,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %16, %28
   br i1 %.not48, label %.critedge, label %.lr.ph55
 
 .critedge:                                        ; preds = %13, %48, %.lr.ph55, %.critedge37
-  %.3 = phi i1 [ %47, %48 ], [ true, %.critedge37 ], [ %47, %.lr.ph55 ], [ false, %13 ]
+  %.3 = phi i1 [ true, %.critedge37 ], [ %47, %.lr.ph55 ], [ %47, %48 ], [ false, %13 ]
   ret i1 %.3
 }
 
@@ -158,7 +158,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13Enco
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %27, %23, %7, %12
-  %spec.select = phi i1 [ false, %7 ], [ %22, %12 ], [ false, %23 ], [ true, %27 ]
+  %spec.select = phi i1 [ %22, %12 ], [ false, %7 ], [ false, %23 ], [ true, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %spec.select
 }

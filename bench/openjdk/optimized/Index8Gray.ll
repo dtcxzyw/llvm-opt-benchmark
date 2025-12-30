@@ -1484,8 +1484,8 @@ define hidden void @Index8GrayAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 
   br i1 %105, label %145, label %106
 
 106:                                              ; preds = %104, %94, %95
-  %.094 = phi i32 [ %18, %94 ], [ %100, %95 ], [ 0, %104 ]
-  %.093 = phi i32 [ %.0105, %94 ], [ %103, %95 ], [ 0, %104 ]
+  %.094 = phi i32 [ %100, %95 ], [ %18, %94 ], [ 0, %104 ]
+  %.093 = phi i32 [ %103, %95 ], [ %.0105, %94 ], [ 0, %104 ]
   %.not135 = icmp eq i32 %.4115, 0
   br i1 %.not135, label %130, label %107
 

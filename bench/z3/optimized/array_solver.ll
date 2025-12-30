@@ -1257,7 +1257,7 @@ _ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit.thread: ; preds = %.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %24, %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit.thread, %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit
-  %.1 = phi i32 [ %., %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit.thread ], [ 1, %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit ], [ 1, %24 ], [ 1, %22 ]
+  %.1 = phi i32 [ 1, %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit ], [ %., %_ZNK6vectorIN5array6solver12axiom_recordELb0EjE4sizeEv.exit.thread ], [ 1, %24 ], [ 1, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 }

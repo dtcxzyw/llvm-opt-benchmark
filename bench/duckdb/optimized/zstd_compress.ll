@@ -325,7 +325,7 @@ _ZN11duckdb_zstdL10ZSTD_cpuidEv.exit:             ; preds = %_ZN11duckdb_zstdL25
   br label %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit.thread
 
 _ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit.thread: ; preds = %6, %9, %2, %_ZN11duckdb_zstdL10ZSTD_cpuidEv.exit
-  %.0 = phi ptr [ null, %6 ], [ null, %2 ], [ null, %9 ], [ %0, %_ZN11duckdb_zstdL10ZSTD_cpuidEv.exit ]
+  %.0 = phi ptr [ %0, %_ZN11duckdb_zstdL10ZSTD_cpuidEv.exit ], [ null, %2 ], [ null, %9 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -397,7 +397,7 @@ _ZN11duckdb_zstdL20ZSTD_freeCCtxContentEPNS_11ZSTD_CCtx_sE.exit: ; preds = %_ZN1
   br label %_ZN11duckdb_zstdL15ZSTD_customFreeEPvNS_14ZSTD_customMemE.exit
 
 _ZN11duckdb_zstdL15ZSTD_customFreeEPvNS_14ZSTD_customMemE.exit: ; preds = %19, %18, %_ZN11duckdb_zstdL20ZSTD_freeCCtxContentEPNS_11ZSTD_CCtx_sE.exit, %3, %1
-  %.0 = phi i64 [ -64, %3 ], [ 0, %1 ], [ 0, %_ZN11duckdb_zstdL20ZSTD_freeCCtxContentEPNS_11ZSTD_CCtx_sE.exit ], [ 0, %18 ], [ 0, %19 ]
+  %.0 = phi i64 [ 0, %1 ], [ -64, %3 ], [ 0, %_ZN11duckdb_zstdL20ZSTD_freeCCtxContentEPNS_11ZSTD_CCtx_sE.exit ], [ 0, %18 ], [ 0, %19 ]
   ret i64 %.0
 }
 
@@ -669,7 +669,7 @@ define noundef range(i64 -42, 1) i64 @_ZN11duckdb_zstd29ZSTD_CCtxParams_init_adv
   br label %_ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit
 
 _ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit: ; preds = %21, %.thread12, %24
-  %.0.i25.i = phi i32 [ %28, %24 ], [ 2, %21 ], [ 2, %.thread12 ]
+  %.0.i25.i = phi i32 [ 2, %21 ], [ %28, %24 ], [ 2, %.thread12 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %.0.i25.i, ptr %29, align 8, !tbaa !90
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -679,7 +679,7 @@ _ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_1
   br label %_ZN11duckdb_zstd17ZSTD_checkCParamsENS_26ZSTD_compressionParametersE.exit.thread
 
 _ZN11duckdb_zstd17ZSTD_checkCParamsENS_26ZSTD_compressionParametersE.exit.thread: ; preds = %8, %3, %2, %_ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit
-  %.05 = phi i64 [ 0, %_ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit ], [ -42, %8 ], [ -1, %2 ], [ -42, %3 ]
+  %.05 = phi i64 [ 0, %_ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit ], [ -1, %2 ], [ -42, %3 ], [ -42, %8 ]
   ret i64 %.05
 }
 
@@ -731,7 +731,7 @@ define noundef range(i64 -42, 1) i64 @_ZN11duckdb_zstd17ZSTD_checkCParamsENS_26Z
   br label %26
 
 26:                                               ; preds = %22, %16, %12, %8, %4, %1
-  %.0 = phi i64 [ -42, %1 ], [ %., %22 ], [ -42, %16 ], [ -42, %12 ], [ -42, %8 ], [ -42, %4 ]
+  %.0 = phi i64 [ -42, %1 ], [ -42, %4 ], [ -42, %8 ], [ -42, %12 ], [ -42, %16 ], [ %., %22 ]
   ret i64 %.0
 }
 
@@ -830,8 +830,8 @@ define { i64, i64 } @_ZN11duckdb_zstd21ZSTD_cParam_getBoundsENS_15ZSTD_cParamete
   br label %19
 
 19:                                               ; preds = %1, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.3.0 = phi i64 [ 0, %18 ], [ 98784116736, %2 ], [ 17592186044420, %11 ], [ 128849018886, %3 ], [ 133143986186, %1 ], [ 128849018881, %4 ], [ 30064771075, %5 ], [ 562949953421312, %6 ], [ 38654705665, %7 ], [ 4294967296, %8 ], [ 562949953422336, %17 ], [ 34359738369, %12 ], [ 0, %9 ], [ 107374182400, %13 ], [ 12884901888, %14 ], [ 9223372032559808512, %16 ], [ 8589934592, %10 ], [ 562949953422652, %15 ]
-  %.sroa.0.0 = phi i64 [ -40, %18 ], [ 0, %2 ], [ 0, %11 ], [ 0, %3 ], [ 0, %1 ], [ 0, %4 ], [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %8 ], [ 0, %17 ], [ 0, %12 ], [ 0, %9 ], [ 0, %13 ], [ 0, %14 ], [ 0, %16 ], [ 0, %10 ], [ 0, %15 ]
+  %.sroa.3.0 = phi i64 [ 0, %18 ], [ 98784116736, %2 ], [ 128849018886, %3 ], [ 128849018881, %4 ], [ 30064771075, %5 ], [ 562949953421312, %6 ], [ 38654705665, %7 ], [ 4294967296, %8 ], [ 0, %9 ], [ 8589934592, %10 ], [ 17592186044420, %11 ], [ 34359738369, %12 ], [ 107374182400, %13 ], [ 12884901888, %14 ], [ 562949953422652, %15 ], [ 9223372032559808512, %16 ], [ 562949953422336, %17 ], [ 133143986186, %1 ]
+  %.sroa.0.0 = phi i64 [ -40, %18 ], [ 0, %2 ], [ 0, %3 ], [ 0, %4 ], [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %8 ], [ 0, %9 ], [ 0, %10 ], [ 0, %11 ], [ 0, %12 ], [ 0, %13 ], [ 0, %14 ], [ 0, %15 ], [ 0, %16 ], [ 0, %17 ], [ 0, %1 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -928,7 +928,7 @@ _ZN11duckdb_zstdL23ZSTD_isUpdateAuthorizedENS_15ZSTD_cParameterE.exit: ; preds =
   br label %_ZN11duckdb_zstdL23ZSTD_isUpdateAuthorizedENS_15ZSTD_cParameterE.exit.thread
 
 _ZN11duckdb_zstdL23ZSTD_isUpdateAuthorizedENS_15ZSTD_cParameterE.exit.thread: ; preds = %6, %8, %10, %13
-  %.0 = phi i64 [ -40, %10 ], [ -40, %8 ], [ %15, %13 ], [ -60, %6 ]
+  %.0 = phi i64 [ %15, %13 ], [ -40, %10 ], [ -40, %8 ], [ -60, %6 ]
   ret i64 %.0
 }
 
@@ -1371,7 +1371,7 @@ _ZN11duckdb_zstdL23ZSTD_cParam_clampBoundsENS_15ZSTD_cParameterEPi.exit.thread: 
   br label %182
 
 182:                                              ; preds = %13, %_ZN11duckdb_zstdL23ZSTD_cParam_clampBoundsENS_15ZSTD_cParameterEPi.exit.thread, %105, %37, %172, %122, %110, %100, %95, %46, %33, %28, %23, %18, %3, %177, %167, %162, %157, %152, %147, %142, %137, %132, %127, %116, %90, %84, %83, %82, %81, %78, %76, %73, %71, %41, %4, %179, %174, %169, %164, %159, %154, %149, %144, %139, %134, %129, %124, %119, %112, %107, %102, %97, %92, %85, %66, %60, %55, %50, %47, %43, %38, %34, %30, %25, %20, %6
-  %.0 = phi i64 [ -42, %177 ], [ %7, %6 ], [ -42, %172 ], [ -40, %3 ], [ -42, %4 ], [ %175, %174 ], [ %22, %20 ], [ -42, %162 ], [ %27, %25 ], [ -42, %18 ], [ %32, %30 ], [ -42, %23 ], [ %36, %34 ], [ -42, %28 ], [ %40, %38 ], [ -42, %33 ], [ %45, %43 ], [ -42, %37 ], [ %49, %47 ], [ -42, %41 ], [ %54, %50 ], [ %59, %55 ], [ %65, %60 ], [ %70, %66 ], [ -42, %46 ], [ -42, %71 ], [ %., %81 ], [ -42, %76 ], [ %.130, %82 ], [ %80, %78 ], [ %.131, %83 ], [ %75, %73 ], [ %.132, %84 ], [ %181, %179 ], [ %89, %85 ], [ %94, %92 ], [ -42, %167 ], [ %99, %97 ], [ -42, %90 ], [ %104, %102 ], [ -42, %95 ], [ %109, %107 ], [ -42, %100 ], [ %114, %112 ], [ -42, %105 ], [ %120, %119 ], [ -42, %110 ], [ %126, %124 ], [ -42, %116 ], [ %131, %129 ], [ -42, %122 ], [ %136, %134 ], [ -42, %127 ], [ %141, %139 ], [ -42, %132 ], [ %146, %144 ], [ -42, %137 ], [ %151, %149 ], [ -42, %142 ], [ %156, %154 ], [ -42, %147 ], [ %161, %159 ], [ -42, %152 ], [ %166, %164 ], [ -42, %157 ], [ %171, %169 ], [ %17, %_ZN11duckdb_zstdL23ZSTD_cParam_clampBoundsENS_15ZSTD_cParameterEPi.exit.thread ], [ 3, %13 ]
+  %.0 = phi i64 [ %7, %6 ], [ %22, %20 ], [ %27, %25 ], [ %32, %30 ], [ %36, %34 ], [ %40, %38 ], [ %45, %43 ], [ %49, %47 ], [ %54, %50 ], [ %59, %55 ], [ %65, %60 ], [ %70, %66 ], [ %89, %85 ], [ %94, %92 ], [ %99, %97 ], [ %104, %102 ], [ %109, %107 ], [ %114, %112 ], [ %120, %119 ], [ %126, %124 ], [ %131, %129 ], [ %136, %134 ], [ %141, %139 ], [ %146, %144 ], [ %151, %149 ], [ %156, %154 ], [ %161, %159 ], [ %166, %164 ], [ %171, %169 ], [ %175, %174 ], [ %181, %179 ], [ -42, %4 ], [ -42, %41 ], [ %75, %73 ], [ -42, %71 ], [ %80, %78 ], [ -42, %76 ], [ %., %81 ], [ %.130, %82 ], [ %.131, %83 ], [ %.132, %84 ], [ -42, %90 ], [ -42, %116 ], [ -42, %127 ], [ -42, %132 ], [ -42, %137 ], [ -42, %142 ], [ -42, %147 ], [ -42, %152 ], [ -42, %157 ], [ -42, %162 ], [ -42, %167 ], [ -42, %177 ], [ -40, %3 ], [ -42, %18 ], [ -42, %23 ], [ -42, %28 ], [ -42, %33 ], [ -42, %37 ], [ -42, %46 ], [ -42, %95 ], [ -42, %100 ], [ -42, %105 ], [ -42, %110 ], [ -42, %122 ], [ -42, %172 ], [ %17, %_ZN11duckdb_zstdL23ZSTD_cParam_clampBoundsENS_15ZSTD_cParameterEPi.exit.thread ], [ 3, %13 ]
   ret i64 %.0
 }
 
@@ -1695,7 +1695,7 @@ _ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZST
   br label %_ZN11duckdb_zstd17ZSTD_checkCParamsENS_26ZSTD_compressionParametersE.exit.thread
 
 _ZN11duckdb_zstd17ZSTD_checkCParamsENS_26ZSTD_compressionParametersE.exit.thread: ; preds = %10, %7, %2, %_ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZSTD_cParameterEi.exit85
-  %.1 = phi i64 [ -60, %10 ], [ 0, %_ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZSTD_cParameterEi.exit85 ], [ -42, %7 ], [ -42, %2 ]
+  %.1 = phi i64 [ 0, %_ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZSTD_cParameterEi.exit85 ], [ -42, %2 ], [ -42, %7 ], [ -60, %10 ]
   ret i64 %.1
 }
 
@@ -1806,7 +1806,7 @@ _ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZST
   br label %_ZN11duckdb_zstd17ZSTD_checkCParamsENS_26ZSTD_compressionParametersE.exit.thread
 
 _ZN11duckdb_zstd17ZSTD_checkCParamsENS_26ZSTD_compressionParametersE.exit.thread: ; preds = %_ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZSTD_cParameterEi.exit85.i, %10, %7, %2
-  %.1 = phi i64 [ 0, %_ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZSTD_cParameterEi.exit85.i ], [ -60, %10 ], [ -42, %7 ], [ -42, %2 ]
+  %.1 = phi i64 [ -42, %2 ], [ -42, %7 ], [ -60, %10 ], [ 0, %_ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZSTD_cParameterEi.exit85.i ]
   ret i64 %.1
 }
 
@@ -1890,7 +1890,7 @@ _ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit: ; preds = %18, 
   br label %.thread
 
 .thread:                                          ; preds = %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit, %13, %8, %5, %25
-  %.024 = phi i64 [ 0, %8 ], [ -60, %5 ], [ 0, %25 ], [ -64, %13 ], [ -64, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit ]
+  %.024 = phi i64 [ 0, %25 ], [ -60, %5 ], [ 0, %8 ], [ -64, %13 ], [ -64, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit ]
   ret i64 %.024
 }
 
@@ -2001,7 +2001,7 @@ define noundef range(i64 -60, 1) i64 @_ZN11duckdb_zstd36ZSTD_CCtx_loadDictionary
   br label %_ZN11duckdb_zstd33ZSTD_CCtx_loadDictionary_advancedEPNS_11ZSTD_CCtx_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit
 
 _ZN11duckdb_zstd33ZSTD_CCtx_loadDictionary_advancedEPNS_11ZSTD_CCtx_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit: ; preds = %3, %6, %9
-  %.024.i = phi i64 [ 0, %6 ], [ -60, %3 ], [ 0, %9 ]
+  %.024.i = phi i64 [ 0, %9 ], [ -60, %3 ], [ 0, %6 ]
   ret i64 %.024.i
 }
 
@@ -2059,7 +2059,7 @@ _ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i: ; preds = %16
   br label %_ZN11duckdb_zstd33ZSTD_CCtx_loadDictionary_advancedEPNS_11ZSTD_CCtx_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit
 
 _ZN11duckdb_zstd33ZSTD_CCtx_loadDictionary_advancedEPNS_11ZSTD_CCtx_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit: ; preds = %3, %6, %9, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i, %19
-  %.024.i = phi i64 [ 0, %6 ], [ -60, %3 ], [ 0, %19 ], [ -64, %9 ], [ -64, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i ]
+  %.024.i = phi i64 [ 0, %19 ], [ -60, %3 ], [ 0, %6 ], [ -64, %9 ], [ -64, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i ]
   ret i64 %.024.i
 }
 
@@ -2189,7 +2189,7 @@ define noundef range(i64 -60, 1) i64 @_ZN11duckdb_zstd15ZSTD_CCtx_resetEPNS_11ZS
   br label %16
 
 16:                                               ; preds = %7, %9, %12
-  %.0 = phi i64 [ -60, %9 ], [ 0, %12 ], [ 0, %7 ]
+  %.0 = phi i64 [ 0, %12 ], [ -60, %9 ], [ 0, %7 ]
   ret i64 %.0
 }
 
@@ -2553,7 +2553,7 @@ _ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit: ; preds
   br label %25
 
 25:                                               ; preds = %24, %22, %_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit
-  %.0 = phi i64 [ %spec.select, %24 ], [ 3, %_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit ], [ 0, %22 ]
+  %.0 = phi i64 [ 3, %_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit ], [ 0, %22 ], [ %spec.select, %24 ]
   %26 = getelementptr inbounds nuw [23 x %"struct.duckdb_zstd::ZSTD_compressionParameters"], ptr @_ZN11duckdb_zstdL23ZSTD_defaultCParametersE, i64 %16
   %27 = getelementptr inbounds nuw [23 x %"struct.duckdb_zstd::ZSTD_compressionParameters"], ptr %26, i64 %18
   %28 = getelementptr inbounds nuw [23 x %"struct.duckdb_zstd::ZSTD_compressionParameters"], ptr %27, i64 %20
@@ -2719,7 +2719,7 @@ define noundef i64 @_ZN11duckdb_zstd37ZSTD_estimateCCtxSize_usingCCtxParamsEPKNS
   br label %_ZN11duckdb_zstdL30ZSTD_resolveRowMatchFinderModeENS_18ZSTD_paramSwitch_eEPKNS_26ZSTD_compressionParametersE.exit
 
 _ZN11duckdb_zstdL30ZSTD_resolveRowMatchFinderModeENS_18ZSTD_paramSwitch_eEPKNS_26ZSTD_compressionParametersE.exit: ; preds = %1, %5, %10
-  %.0.i = phi i32 [ %4, %1 ], [ %spec.select.i, %10 ], [ 2, %5 ]
+  %.0.i = phi i32 [ %spec.select.i, %10 ], [ %4, %1 ], [ 2, %5 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %14 = load i32, ptr %13, align 4, !tbaa !128
   %15 = icmp sgt i32 %14, 0
@@ -2924,7 +2924,7 @@ _ZN11duckdb_zstdL29ZSTD_resolveBlockSplitterModeENS_18ZSTD_paramSwitch_eEPKNS_26
   br label %_ZN11duckdb_zstdL30ZSTD_makeCCtxParamsFromCParamsENS_26ZSTD_compressionParametersE.exit
 
 _ZN11duckdb_zstdL30ZSTD_makeCCtxParamsFromCParamsENS_26ZSTD_compressionParametersE.exit: ; preds = %_ZN11duckdb_zstdL29ZSTD_resolveBlockSplitterModeENS_18ZSTD_paramSwitch_eEPKNS_26ZSTD_compressionParametersE.exit.i, %29, %33
-  %.0.i4.i = phi i32 [ %28, %_ZN11duckdb_zstdL29ZSTD_resolveBlockSplitterModeENS_18ZSTD_paramSwitch_eEPKNS_26ZSTD_compressionParametersE.exit.i ], [ %spec.select.i.i, %33 ], [ 2, %29 ]
+  %.0.i4.i = phi i32 [ %spec.select.i.i, %33 ], [ %28, %_ZN11duckdb_zstdL29ZSTD_resolveBlockSplitterModeENS_18ZSTD_paramSwitch_eEPKNS_26ZSTD_compressionParametersE.exit.i ], [ 2, %29 ]
   store i32 %.0.i4.i, ptr %27, align 8, !tbaa !88, !alias.scope !150
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %37 = load i64, ptr %36, align 8, !tbaa !91, !alias.scope !150
@@ -3202,7 +3202,7 @@ _ZN11duckdb_zstd18ZSTD_compressBoundEm.exit:      ; preds = %6
   br label %_ZN11duckdb_zstdL30ZSTD_resolveRowMatchFinderModeENS_18ZSTD_paramSwitch_eEPKNS_26ZSTD_compressionParametersE.exit
 
 _ZN11duckdb_zstdL30ZSTD_resolveRowMatchFinderModeENS_18ZSTD_paramSwitch_eEPKNS_26ZSTD_compressionParametersE.exit: ; preds = %29, %34, %39
-  %.0.i = phi i32 [ %32, %29 ], [ %spec.select.i, %39 ], [ 2, %34 ]
+  %.0.i = phi i32 [ %spec.select.i, %39 ], [ %32, %29 ], [ 2, %34 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %43 = getelementptr i8, ptr %0, i64 192
   %.val = load ptr, ptr %43, align 8, !tbaa !147
@@ -3292,7 +3292,7 @@ _ZN11duckdb_zstdL29ZSTD_resolveBlockSplitterModeENS_18ZSTD_paramSwitch_eEPKNS_26
   br label %_ZN11duckdb_zstdL30ZSTD_makeCCtxParamsFromCParamsENS_26ZSTD_compressionParametersE.exit
 
 _ZN11duckdb_zstdL30ZSTD_makeCCtxParamsFromCParamsENS_26ZSTD_compressionParametersE.exit: ; preds = %_ZN11duckdb_zstdL29ZSTD_resolveBlockSplitterModeENS_18ZSTD_paramSwitch_eEPKNS_26ZSTD_compressionParametersE.exit.i, %26, %30
-  %.0.i4.i = phi i32 [ %25, %_ZN11duckdb_zstdL29ZSTD_resolveBlockSplitterModeENS_18ZSTD_paramSwitch_eEPKNS_26ZSTD_compressionParametersE.exit.i ], [ %spec.select.i.i, %30 ], [ 2, %26 ]
+  %.0.i4.i = phi i32 [ %spec.select.i.i, %30 ], [ %25, %_ZN11duckdb_zstdL29ZSTD_resolveBlockSplitterModeENS_18ZSTD_paramSwitch_eEPKNS_26ZSTD_compressionParametersE.exit.i ], [ 2, %26 ]
   store i32 %.0.i4.i, ptr %24, align 8, !tbaa !88, !alias.scope !160
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %34 = load i64, ptr %33, align 8, !tbaa !91, !alias.scope !160
@@ -3361,7 +3361,7 @@ define noundef i64 @_ZN11duckdb_zstd24ZSTD_estimateCStreamSizeEi(i32 noundef %0)
   br label %9
 
 9:                                                ; preds = %8, %6, %4
-  %.0.i.i = phi i64 [ %spec.select.i.i, %8 ], [ 3, %4 ], [ 0, %6 ]
+  %.0.i.i = phi i64 [ 3, %4 ], [ 0, %6 ], [ %spec.select.i.i, %8 ]
   %10 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTD_compressionParameters", ptr @_ZN11duckdb_zstdL23ZSTD_defaultCParametersE, i64 %.0.i.i
   %.sroa.0.sroa.0.0.copyload.i.i = load i32, ptr %10, align 4, !tbaa !62, !noalias !163
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -3938,7 +3938,7 @@ _ZN11duckdb_zstdL15ZSTD_customFreeEPvNS_14ZSTD_customMemE.exit: ; preds = %27
   br label %46
 
 46:                                               ; preds = %27, %_ZN11duckdb_zstdL15ZSTD_customFreeEPvNS_14ZSTD_customMemE.exit, %24, %18, %44
-  %.2 = phi i64 [ -40, %18 ], [ %45, %44 ], [ %.1.i, %_ZN11duckdb_zstdL15ZSTD_customFreeEPvNS_14ZSTD_customMemE.exit ], [ -40, %24 ], [ -64, %27 ]
+  %.2 = phi i64 [ %45, %44 ], [ %.1.i, %_ZN11duckdb_zstdL15ZSTD_customFreeEPvNS_14ZSTD_customMemE.exit ], [ -40, %24 ], [ -40, %18 ], [ -64, %27 ]
   ret i64 %.2
 }
 
@@ -4123,7 +4123,7 @@ _ZN11duckdb_zstdL34ZSTD_literalsCompressionIsDisabledEPKNS_18ZSTD_CCtx_params_sE
   br label %50
 
 50:                                               ; preds = %47, %45
-  %.092.i = phi i32 [ %spec.select.i, %47 ], [ %32, %45 ]
+  %.092.i = phi i32 [ %32, %45 ], [ %spec.select.i, %47 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2056) %2, i8 0, i64 2056, i1 false)
   %51 = load i32, ptr %9, align 4, !tbaa !62
   %52 = call noundef i32 @_ZN11duckdb_zstd19HUF_optimalTableLogEjmjPvmPmPKji(i32 noundef 11, i64 noundef %16, i32 noundef %51, ptr noundef nonnull %34, i64 noundef %gepdiff.i39, ptr noundef nonnull %2, ptr noundef %5, i32 noundef range(i32 0, 3) %20)
@@ -4169,16 +4169,16 @@ _ZN11duckdb_zstdL34ZSTD_literalsCompressionIsDisabledEPKNS_18ZSTD_CCtx_params_sE
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %2, ptr noundef nonnull align 8 dereferenceable(2064) %1, i64 2064, i1 false)
   br label %_ZN11duckdb_zstdL36ZSTD_buildBlockEntropyStats_literalsEPvmPKNS_17ZSTD_hufCTables_tEPS1_PNS_25ZSTD_hufCTablesMetadata_tEiS0_mi.exit.thread
 
-_ZN11duckdb_zstdL36ZSTD_buildBlockEntropyStats_literalsEPvmPKNS_17ZSTD_hufCTables_tEPS1_PNS_25ZSTD_hufCTablesMetadata_tEiS0_mi.exit.thread: ; preds = %42, %40, %31, %_ZN11duckdb_zstdL34ZSTD_literalsCompressionIsDisabledEPKNS_18ZSTD_CCtx_params_sE.exit, %_ZN11duckdb_zstdL34ZSTD_literalsCompressionIsDisabledEPKNS_18ZSTD_CCtx_params_sE.exit.thread40, %70, %72
-  %.sink = phi i32 [ 0, %31 ], [ 0, %_ZN11duckdb_zstdL34ZSTD_literalsCompressionIsDisabledEPKNS_18ZSTD_CCtx_params_sE.exit ], [ 3, %70 ], [ 0, %72 ], [ 1, %40 ], [ 0, %_ZN11duckdb_zstdL34ZSTD_literalsCompressionIsDisabledEPKNS_18ZSTD_CCtx_params_sE.exit.thread40 ], [ 0, %42 ]
+_ZN11duckdb_zstdL36ZSTD_buildBlockEntropyStats_literalsEPvmPKNS_17ZSTD_hufCTables_tEPS1_PNS_25ZSTD_hufCTablesMetadata_tEiS0_mi.exit.thread: ; preds = %42, %40, %31, %_ZN11duckdb_zstdL34ZSTD_literalsCompressionIsDisabledEPKNS_18ZSTD_CCtx_params_sE.exit, %_ZN11duckdb_zstdL34ZSTD_literalsCompressionIsDisabledEPKNS_18ZSTD_CCtx_params_sE.exit.thread40, %72, %70
+  %.sink = phi i32 [ 0, %72 ], [ 3, %70 ], [ 0, %_ZN11duckdb_zstdL34ZSTD_literalsCompressionIsDisabledEPKNS_18ZSTD_CCtx_params_sE.exit.thread40 ], [ 0, %_ZN11duckdb_zstdL34ZSTD_literalsCompressionIsDisabledEPKNS_18ZSTD_CCtx_params_sE.exit ], [ 0, %31 ], [ 1, %40 ], [ 0, %42 ]
   store i32 %.sink, ptr %4, align 8, !tbaa !234
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i64 0, ptr %73, align 8, !tbaa !235
   br label %78
 
-_ZN11duckdb_zstdL36ZSTD_buildBlockEntropyStats_literalsEPvmPKNS_17ZSTD_hufCTables_tEPS1_PNS_25ZSTD_hufCTablesMetadata_tEiS0_mi.exit.thread48: ; preds = %.critedge.i, %50
-  %.0.i34.ph = phi i64 [ %54, %50 ], [ %38, %.critedge.i ]
+_ZN11duckdb_zstdL36ZSTD_buildBlockEntropyStats_literalsEPvmPKNS_17ZSTD_hufCTables_tEPS1_PNS_25ZSTD_hufCTablesMetadata_tEiS0_mi.exit.thread48: ; preds = %50, %.critedge.i
+  %.0.i34.ph = phi i64 [ %38, %.critedge.i ], [ %54, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i64 %.0.i34.ph, ptr %74, align 8, !tbaa !235
@@ -5115,7 +5115,7 @@ _ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit.i: ; preds = %396
   br label %_ZN11duckdb_zstdL35ZSTD_compressBlock_targetCBlockSizeEPNS_11ZSTD_CCtx_sEPvmPKvmj.exit.i
 
 _ZN11duckdb_zstdL35ZSTD_compressBlock_targetCBlockSizeEPNS_11ZSTD_CCtx_sEPvmPKvmj.exit.i: ; preds = %407, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit.i, %_ZN11duckdb_zstdL29ZSTD_compressBlock_splitBlockEPNS_11ZSTD_CCtx_sEPvmPKvmj.exit.i, %256, %_ZN11duckdb_zstdL40ZSTD_compressBlock_targetCBlockSize_bodyEPNS_11ZSTD_CCtx_sEPvmPKvmmj.exit.thread.i.i
-  %.0125.i = phi i64 [ %415, %407 ], [ %.3.i.i, %_ZN11duckdb_zstdL29ZSTD_compressBlock_splitBlockEPNS_11ZSTD_CCtx_sEPvmPKvmj.exit.i ], [ %397, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit.i ], [ %.037.i28.i.i, %_ZN11duckdb_zstdL40ZSTD_compressBlock_targetCBlockSize_bodyEPNS_11ZSTD_CCtx_sEPvmPKvmmj.exit.thread.i.i ], [ %.037.i28.i.i, %256 ]
+  %.0125.i = phi i64 [ %.3.i.i, %_ZN11duckdb_zstdL29ZSTD_compressBlock_splitBlockEPNS_11ZSTD_CCtx_sEPvmPKvmj.exit.i ], [ %397, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit.i ], [ %415, %407 ], [ %.037.i28.i.i, %_ZN11duckdb_zstdL40ZSTD_compressBlock_targetCBlockSize_bodyEPNS_11ZSTD_CCtx_sEPvmPKvmmj.exit.thread.i.i ], [ %.037.i28.i.i, %256 ]
   %416 = sub i64 %.0119177.i, %spec.select.i
   %417 = getelementptr inbounds nuw i8, ptr %.0132173.i, i64 %.0125.i
   %418 = sub i64 %.0113179.i, %.0125.i
@@ -5163,8 +5163,8 @@ _ZN11duckdb_zstdL24ZSTD_compress_frameChunkEPNS_11ZSTD_CCtx_sEPvmPKvmj.exit: ; p
   %spec.select = select i1 %or.cond94, i64 -72, i64 %432
   br label %_ZN11duckdb_zstdL24ZSTD_compress_frameChunkEPNS_11ZSTD_CCtx_sEPvmPKvmj.exit.thread
 
-_ZN11duckdb_zstdL24ZSTD_compress_frameChunkEPNS_11ZSTD_CCtx_sEPvmPKvmj.exit.thread: ; preds = %157, %194, %390, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit.i, %_ZN11duckdb_zstdL29ZSTD_compressBlock_splitBlockEPNS_11ZSTD_CCtx_sEPvmPKvmj.exit.i, %396, %228, %.critedge.thread.i.i.i, %_ZN11duckdb_zstdL40ZSTD_compressBlock_targetCBlockSize_bodyEPNS_11ZSTD_CCtx_sEPvmPKvmmj.exit.i.i, %271, %269, %258, %428, %_ZN11duckdb_zstdL24ZSTD_compress_frameChunkEPNS_11ZSTD_CCtx_sEPvmPKvmj.exit, %28, %7, %16
-  %.0 = phi i64 [ %23, %16 ], [ %.069, %28 ], [ -60, %7 ], [ %426, %_ZN11duckdb_zstdL24ZSTD_compress_frameChunkEPNS_11ZSTD_CCtx_sEPvmPKvmj.exit ], [ %spec.select, %428 ], [ %259, %258 ], [ -106, %269 ], [ -70, %271 ], [ %242, %_ZN11duckdb_zstdL40ZSTD_compressBlock_targetCBlockSize_bodyEPNS_11ZSTD_CCtx_sEPvmPKvmmj.exit.i.i ], [ -70, %.critedge.thread.i.i.i ], [ %227, %228 ], [ -70, %396 ], [ %.3.i.i, %_ZN11duckdb_zstdL29ZSTD_compressBlock_splitBlockEPNS_11ZSTD_CCtx_sEPvmPKvmj.exit.i ], [ %397, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit.i ], [ %393, %390 ], [ %195, %194 ], [ -70, %157 ]
+_ZN11duckdb_zstdL24ZSTD_compress_frameChunkEPNS_11ZSTD_CCtx_sEPvmPKvmj.exit.thread: ; preds = %390, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit.i, %_ZN11duckdb_zstdL29ZSTD_compressBlock_splitBlockEPNS_11ZSTD_CCtx_sEPvmPKvmj.exit.i, %157, %396, %228, %.critedge.thread.i.i.i, %194, %_ZN11duckdb_zstdL40ZSTD_compressBlock_targetCBlockSize_bodyEPNS_11ZSTD_CCtx_sEPvmPKvmmj.exit.i.i, %271, %258, %269, %428, %_ZN11duckdb_zstdL24ZSTD_compress_frameChunkEPNS_11ZSTD_CCtx_sEPvmPKvmj.exit, %28, %7, %16
+  %.0 = phi i64 [ %23, %16 ], [ -60, %7 ], [ %.069, %28 ], [ %426, %_ZN11duckdb_zstdL24ZSTD_compress_frameChunkEPNS_11ZSTD_CCtx_sEPvmPKvmj.exit ], [ %spec.select, %428 ], [ -106, %269 ], [ %259, %258 ], [ -70, %271 ], [ %242, %_ZN11duckdb_zstdL40ZSTD_compressBlock_targetCBlockSize_bodyEPNS_11ZSTD_CCtx_sEPvmPKvmmj.exit.i.i ], [ %195, %194 ], [ -70, %.critedge.thread.i.i.i ], [ %227, %228 ], [ -70, %396 ], [ -70, %157 ], [ %.3.i.i, %_ZN11duckdb_zstdL29ZSTD_compressBlock_splitBlockEPNS_11ZSTD_CCtx_sEPvmPKvmj.exit.i ], [ %397, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit.i ], [ %393, %390 ]
   ret i64 %.0
 }
 
@@ -5476,7 +5476,7 @@ _ZN11duckdb_zstdL21ZSTD_dictNCountRepeatEPsjj.exit124: ; preds = %100, %.prehead
   br label %.loopexit
 
 .loopexit:                                        ; preds = %106, %_ZN11duckdb_zstdL21ZSTD_dictNCountRepeatEPsjj.exit117, %.critedge104, %.critedge102, %.critedge, %26, %.critedge106
-  %.1 = phi i64 [ -30, %26 ], [ %113, %.critedge106 ], [ -30, %_ZN11duckdb_zstdL21ZSTD_dictNCountRepeatEPsjj.exit117 ], [ -30, %.critedge104 ], [ -30, %.critedge102 ], [ -30, %.critedge ], [ -30, %106 ]
+  %.1 = phi i64 [ %113, %.critedge106 ], [ -30, %26 ], [ -30, %.critedge ], [ -30, %.critedge102 ], [ -30, %.critedge104 ], [ -30, %_ZN11duckdb_zstdL21ZSTD_dictNCountRepeatEPsjj.exit117 ], [ -30, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.1
@@ -5532,7 +5532,7 @@ define noundef range(i64 -119, 1) i64 @_ZN11duckdb_zstd36ZSTD_compressBegin_adva
   br label %_ZN11duckdb_zstd17ZSTD_checkCParamsENS_26ZSTD_compressionParametersE.exit.thread
 
 _ZN11duckdb_zstd17ZSTD_checkCParamsENS_26ZSTD_compressionParametersE.exit.thread: ; preds = %14, %8, %17
-  %.1 = phi i64 [ %18, %17 ], [ -42, %14 ], [ -42, %8 ]
+  %.1 = phi i64 [ %18, %17 ], [ -42, %8 ], [ -42, %14 ]
   ret i64 %.1
 }
 
@@ -6046,7 +6046,7 @@ _ZN11duckdb_zstdL29ZSTD_resetCCtx_byCopyingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_C
   br label %_ZN11duckdb_zstdL25ZSTD_resetCCtx_usingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit
 
 _ZN11duckdb_zstdL25ZSTD_resetCCtx_usingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit: ; preds = %.thread, %291, %288, %_ZN11duckdb_zstdL29ZSTD_resetCCtx_byCopyingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sENS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit.i, %_ZN11duckdb_zstdL31ZSTD_resetCCtx_byAttachingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sENS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit.i, %259
-  %.0 = phi i64 [ %130, %_ZN11duckdb_zstdL29ZSTD_resetCCtx_byCopyingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sENS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit.i ], [ %260, %259 ], [ %86, %_ZN11duckdb_zstdL31ZSTD_resetCCtx_byAttachingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sENS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit.i ], [ %289, %288 ], [ 0, %291 ], [ %262, %.thread ]
+  %.0 = phi i64 [ %260, %259 ], [ %86, %_ZN11duckdb_zstdL31ZSTD_resetCCtx_byAttachingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sENS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit.i ], [ %130, %_ZN11duckdb_zstdL29ZSTD_resetCCtx_byCopyingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sENS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit.i ], [ %289, %288 ], [ 0, %291 ], [ %262, %.thread ]
   ret i64 %.0
 }
 
@@ -6096,7 +6096,7 @@ define noundef range(i64 -119, 1) i64 @_ZN11duckdb_zstd27ZSTD_compressBegin_adva
   br label %_ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit
 
 _ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit: ; preds = %18, %.thread8, %22
-  %.0.i25.i = phi i32 [ %27, %22 ], [ 2, %18 ], [ 2, %.thread8 ]
+  %.0.i25.i = phi i32 [ 2, %18 ], [ %27, %22 ], [ 2, %.thread8 ]
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i32 %.0.i25.i, ptr %28, align 8, !tbaa !90
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 200
@@ -6220,7 +6220,7 @@ _ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_1
   br label %_ZN11duckdb_zstd36ZSTD_compressBegin_advanced_internalEPNS_11ZSTD_CCtx_sEPKvmNS_22ZSTD_dictContentType_eENS_26ZSTD_dictTableLoadMethod_eEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEy.exit
 
 _ZN11duckdb_zstd36ZSTD_compressBegin_advanced_internalEPNS_11ZSTD_CCtx_sEPKvmNS_22ZSTD_dictContentType_eENS_26ZSTD_dictTableLoadMethod_eEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEy.exit: ; preds = %74, %41, %68, %_ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit, %35
-  %.1.i = phi i64 [ -42, %_ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit ], [ -42, %35 ], [ %44, %41 ], [ 0, %74 ], [ %70, %68 ]
+  %.1.i = phi i64 [ -42, %_ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit ], [ -42, %35 ], [ 0, %74 ], [ %44, %41 ], [ %70, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.1.i
 }
@@ -6258,7 +6258,7 @@ _ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i:
   br label %18
 
 18:                                               ; preds = %17, %15, %_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i
-  %.0.i7 = phi i64 [ %spec.select.i, %17 ], [ 3, %_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i ], [ 0, %15 ]
+  %.0.i7 = phi i64 [ 3, %_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i ], [ 0, %15 ], [ %spec.select.i, %17 ]
   %19 = getelementptr inbounds nuw [23 x %"struct.duckdb_zstd::ZSTD_compressionParameters"], ptr @_ZN11duckdb_zstdL23ZSTD_defaultCParametersE, i64 %9
   %20 = getelementptr inbounds nuw [23 x %"struct.duckdb_zstd::ZSTD_compressionParameters"], ptr %19, i64 %11
   %21 = getelementptr inbounds nuw [23 x %"struct.duckdb_zstd::ZSTD_compressionParameters"], ptr %20, i64 %13
@@ -6344,7 +6344,7 @@ _ZN11duckdb_zstdL24ZSTD_getCParams_internalEiymNS_17ZSTD_cParamMode_eE.exit: ; p
   br label %_ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit
 
 _ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit: ; preds = %39, %.thread25, %42
-  %.0.i25.i = phi i32 [ %46, %42 ], [ 2, %39 ], [ 2, %.thread25 ]
+  %.0.i25.i = phi i32 [ 2, %39 ], [ %46, %42 ], [ 2, %.thread25 ]
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store i32 %.0.i25.i, ptr %47, align 8, !tbaa !90
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 200
@@ -6433,7 +6433,7 @@ _ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_1
   br label %_ZN11duckdb_zstdL27ZSTD_compressBegin_internalEPNS_11ZSTD_CCtx_sEPKvmNS_22ZSTD_dictContentType_eENS_26ZSTD_dictTableLoadMethod_eEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit
 
 _ZN11duckdb_zstdL27ZSTD_compressBegin_internalEPNS_11ZSTD_CCtx_sEPKvmNS_22ZSTD_dictContentType_eENS_26ZSTD_dictTableLoadMethod_eEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit: ; preds = %80, %53, %86
-  %.0.i = phi i64 [ %56, %53 ], [ 0, %86 ], [ %82, %80 ]
+  %.0.i = phi i64 [ 0, %86 ], [ %56, %53 ], [ %82, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0.i
 }
@@ -6590,8 +6590,8 @@ define noundef i64 @_ZN11duckdb_zstd23ZSTD_compressEnd_publicEPNS_11ZSTD_CCtx_sE
   br label %45
 
 45:                                               ; preds = %.thread77.i, %32, %9
-  %.242.i = phi ptr [ %37, %32 ], [ %10, %9 ], [ %43, %.thread77.i ]
-  %.238.i = phi i64 [ %39, %32 ], [ %11, %9 ], [ %44, %.thread77.i ]
+  %.242.i = phi ptr [ %37, %32 ], [ %43, %.thread77.i ], [ %10, %9 ]
+  %.238.i = phi i64 [ %39, %32 ], [ %44, %.thread77.i ], [ %11, %9 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %47 = load i32, ptr %46, align 4, !tbaa !260
   %.not52.i = icmp eq i32 %47, 0
@@ -6610,7 +6610,7 @@ define noundef i64 @_ZN11duckdb_zstd23ZSTD_compressEnd_publicEPNS_11ZSTD_CCtx_sE
   br label %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit
 
 _ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit: ; preds = %45, %.thread81.i
-  %.444.i = phi ptr [ %53, %.thread81.i ], [ %.242.i, %45 ]
+  %.444.i = phi ptr [ %.242.i, %45 ], [ %53, %.thread81.i ]
   store i32 0, ptr %0, align 8, !tbaa !183
   %54 = ptrtoint ptr %.444.i to i64
   %55 = ptrtoint ptr %10 to i64
@@ -6697,7 +6697,7 @@ _ZN11duckdb_zstd15ZSTD_CCtx_traceEPNS_11ZSTD_CCtx_sEm.exit: ; preds = %65, %81
   br label %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit.thread
 
 _ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit.thread: ; preds = %13, %40, %48, %9, %61, %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit, %5, %_ZN11duckdb_zstd15ZSTD_CCtx_traceEPNS_11ZSTD_CCtx_sEm.exit
-  %.1 = phi i64 [ %7, %5 ], [ %100, %_ZN11duckdb_zstd15ZSTD_CCtx_traceEPNS_11ZSTD_CCtx_sEm.exit ], [ %56, %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit ], [ -72, %61 ], [ -70, %13 ], [ -70, %40 ], [ -70, %48 ], [ -60, %9 ]
+  %.1 = phi i64 [ %100, %_ZN11duckdb_zstd15ZSTD_CCtx_traceEPNS_11ZSTD_CCtx_sEm.exit ], [ %56, %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit ], [ %7, %5 ], [ -72, %61 ], [ -70, %13 ], [ -70, %40 ], [ -70, %48 ], [ -60, %9 ]
   ret i64 %.1
 }
 
@@ -6785,7 +6785,7 @@ define noundef i64 @_ZN11duckdb_zstd22ZSTD_compress_advancedEPNS_11ZSTD_CCtx_sEP
   br label %_ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit
 
 _ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit: ; preds = %27, %.thread17, %30
-  %.0.i25.i = phi i32 [ %34, %30 ], [ 2, %27 ], [ 2, %.thread17 ]
+  %.0.i25.i = phi i32 [ 2, %27 ], [ %34, %30 ], [ 2, %.thread17 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 %.0.i25.i, ptr %35, align 8, !tbaa !90
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -6796,7 +6796,7 @@ _ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_1
   br label %_ZN11duckdb_zstd17ZSTD_checkCParamsENS_26ZSTD_compressionParametersE.exit.thread
 
 _ZN11duckdb_zstd17ZSTD_checkCParamsENS_26ZSTD_compressionParametersE.exit.thread: ; preds = %13, %8, %_ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit
-  %.1 = phi i64 [ %38, %_ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit ], [ -42, %13 ], [ -42, %8 ]
+  %.1 = phi i64 [ %38, %_ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit ], [ -42, %8 ], [ -42, %13 ]
   ret i64 %.1
 }
 
@@ -6948,7 +6948,7 @@ define noundef i64 @_ZN11duckdb_zstd23ZSTD_compress_usingDictEPNS_11ZSTD_CCtx_sE
   br label %_ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit
 
 _ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit: ; preds = %23, %.thread26, %26
-  %.0.i25.i = phi i32 [ %30, %26 ], [ 2, %23 ], [ 2, %.thread26 ]
+  %.0.i25.i = phi i32 [ 2, %23 ], [ %30, %26 ], [ 2, %.thread26 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 %.0.i25.i, ptr %31, align 8, !tbaa !90
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -7021,7 +7021,7 @@ define noundef i64 @_ZN11duckdb_zstd17ZSTD_compressCCtxEPNS_11ZSTD_CCtx_sEPvmPKv
   br label %_ZN11duckdb_zstd23ZSTD_compress_usingDictEPNS_11ZSTD_CCtx_sEPvmPKvmS4_mi.exit
 
 _ZN11duckdb_zstd23ZSTD_compress_usingDictEPNS_11ZSTD_CCtx_sEPvmPKvmS4_mi.exit: ; preds = %.thread26.i, %20, %23
-  %.0.i25.i.i = phi i32 [ %27, %23 ], [ 2, %20 ], [ 2, %.thread26.i ]
+  %.0.i25.i.i = phi i32 [ 2, %20 ], [ %27, %23 ], [ 2, %.thread26.i ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 %.0.i25.i.i, ptr %28, align 8, !tbaa !90
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -7474,7 +7474,7 @@ _ZN11duckdb_zstdL36ZSTD_dedicatedDictSearch_isSupportedEPKNS_26ZSTD_compressionP
   br label %54
 
 54:                                               ; preds = %52, %49, %44
-  %.0.i = phi i32 [ %48, %44 ], [ %spec.select.i, %52 ], [ 2, %49 ]
+  %.0.i = phi i32 [ %spec.select.i, %52 ], [ %48, %44 ], [ 2, %49 ]
   store i32 %.0.i, ptr %47, align 8
   %.sroa.382.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.382.0.copyload = load ptr, ptr %.sroa.382.0..sroa_idx, align 8, !tbaa !61
@@ -7623,7 +7623,7 @@ _ZN11duckdb_zstdL15ZSTD_cwksp_freeEPNS_10ZSTD_cwkspENS_14ZSTD_customMemE.exit.th
   br label %_ZN11duckdb_zstd14ZSTD_freeCDictEPNS_12ZSTD_CDict_sE.exit
 
 _ZN11duckdb_zstd14ZSTD_freeCDictEPNS_12ZSTD_CDict_sE.exit: ; preds = %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i, %.thread.i, %105, %_ZN11duckdb_zstdL15ZSTD_cwksp_freeEPNS_10ZSTD_cwkspENS_14ZSTD_customMemE.exit.thread.i, %_ZN11duckdb_zstdL15ZSTD_cwksp_freeEPNS_10ZSTD_cwkspENS_14ZSTD_customMemE.exit.i, %85, %6
-  %.0 = phi ptr [ null, %.thread.i ], [ null, %6 ], [ %.0.i.i, %85 ], [ null, %_ZN11duckdb_zstdL15ZSTD_cwksp_freeEPNS_10ZSTD_cwkspENS_14ZSTD_customMemE.exit.i ], [ null, %_ZN11duckdb_zstdL15ZSTD_cwksp_freeEPNS_10ZSTD_cwkspENS_14ZSTD_customMemE.exit.thread.i ], [ null, %105 ], [ null, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i ]
+  %.0 = phi ptr [ null, %6 ], [ %.0.i.i, %85 ], [ null, %_ZN11duckdb_zstdL15ZSTD_cwksp_freeEPNS_10ZSTD_cwkspENS_14ZSTD_customMemE.exit.i ], [ null, %_ZN11duckdb_zstdL15ZSTD_cwksp_freeEPNS_10ZSTD_cwkspENS_14ZSTD_customMemE.exit.thread.i ], [ null, %105 ], [ null, %.thread.i ], [ null, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i ]
   ret ptr %.0
 }
 
@@ -7757,7 +7757,7 @@ _ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit56: ; preds 
   br label %.thread
 
 .thread:                                          ; preds = %70, %61, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit.thread, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit56
-  %.2 = phi i64 [ %59, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit56 ], [ -64, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit ], [ -64, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit.thread ], [ %68, %61 ], [ 0, %70 ]
+  %.2 = phi i64 [ %59, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit56 ], [ -64, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit.thread ], [ -64, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit ], [ %68, %61 ], [ 0, %70 ]
   ret i64 %.2
 }
 
@@ -8117,7 +8117,7 @@ define internal fastcc noundef range(i64 -119, 1) i64 @_ZN11duckdb_zstdL38ZSTD_c
   br label %_ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit
 
 _ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit: ; preds = %35, %.thread42, %38
-  %.0.i25.i = phi i32 [ %42, %38 ], [ 2, %35 ], [ 2, %.thread42 ]
+  %.0.i25.i = phi i32 [ 2, %35 ], [ %42, %38 ], [ 2, %.thread42 ]
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i32 %.0.i25.i, ptr %43, align 8, !tbaa !90
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 200
@@ -8217,7 +8217,7 @@ define noundef range(i64 -119, 1) i64 @_ZN11duckdb_zstd40ZSTD_compressBegin_usin
   br label %_ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit.i
 
 _ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit.i: ; preds = %18, %15, %.thread42.i
-  %.0.i25.i.i = phi i32 [ %22, %18 ], [ 2, %15 ], [ 2, %.thread42.i ]
+  %.0.i25.i.i = phi i32 [ 2, %15 ], [ %22, %18 ], [ 2, %.thread42.i ]
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i32 %.0.i25.i.i, ptr %23, align 8, !tbaa !90
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 200
@@ -8291,7 +8291,7 @@ define noundef range(i64 -119, 1) i64 @_ZN11duckdb_zstd29ZSTD_compressBegin_usin
   br label %_ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit.i.i
 
 _ZN11duckdb_zstdL29ZSTD_CCtxParams_init_internalEPNS_18ZSTD_CCtx_params_sEPKNS_15ZSTD_parametersEi.exit.i.i: ; preds = %18, %15, %.thread42.i.i
-  %.0.i25.i.i.i = phi i32 [ %22, %18 ], [ 2, %15 ], [ 2, %.thread42.i.i ]
+  %.0.i25.i.i.i = phi i32 [ 2, %15 ], [ %22, %18 ], [ 2, %.thread42.i.i ]
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i32 %.0.i25.i.i.i, ptr %23, align 8, !tbaa !90
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 200
@@ -8588,7 +8588,7 @@ _ZN11duckdb_zstdL10ZSTD_cpuidEv.exit.i:           ; preds = %41, %38, %_ZN11duck
   br label %_ZN11duckdb_zstd19ZSTD_initStaticCCtxEPvm.exit
 
 _ZN11duckdb_zstd19ZSTD_initStaticCCtxEPvm.exit:   ; preds = %2, %6, %9, %_ZN11duckdb_zstdL10ZSTD_cpuidEv.exit.i
-  %.0.i = phi ptr [ null, %6 ], [ null, %2 ], [ null, %9 ], [ %0, %_ZN11duckdb_zstdL10ZSTD_cpuidEv.exit.i ]
+  %.0.i = phi ptr [ %0, %_ZN11duckdb_zstdL10ZSTD_cpuidEv.exit.i ], [ null, %2 ], [ null, %9 ], [ null, %6 ]
   ret ptr %.0.i
 }
 
@@ -8657,7 +8657,7 @@ _ZN11duckdb_zstdL20ZSTD_freeCCtxContentEPNS_11ZSTD_CCtx_sE.exit.i: ; preds = %16
   br label %_ZN11duckdb_zstd13ZSTD_freeCCtxEPNS_11ZSTD_CCtx_sE.exit
 
 _ZN11duckdb_zstd13ZSTD_freeCCtxEPNS_11ZSTD_CCtx_sE.exit: ; preds = %1, %3, %_ZN11duckdb_zstdL20ZSTD_freeCCtxContentEPNS_11ZSTD_CCtx_sE.exit.i, %18, %19
-  %.0.i = phi i64 [ -64, %3 ], [ 0, %1 ], [ 0, %_ZN11duckdb_zstdL20ZSTD_freeCCtxContentEPNS_11ZSTD_CCtx_sE.exit.i ], [ 0, %18 ], [ 0, %19 ]
+  %.0.i = phi i64 [ 0, %1 ], [ -64, %3 ], [ 0, %_ZN11duckdb_zstdL20ZSTD_freeCCtxContentEPNS_11ZSTD_CCtx_sE.exit.i ], [ 0, %18 ], [ 0, %19 ]
   ret i64 %.0.i
 }
 
@@ -8745,8 +8745,8 @@ _ZN11duckdb_zstd18ZSTD_CCtx_refCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sE.exit
   store ptr %3, ptr %27, align 8, !tbaa !129
   br label %_ZN11duckdb_zstd24ZSTD_CCtx_loadDictionaryEPNS_11ZSTD_CCtx_sEPKvm.exit.thread
 
-_ZN11duckdb_zstd24ZSTD_CCtx_loadDictionaryEPNS_11ZSTD_CCtx_sEPKvm.exit.thread: ; preds = %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i.i, %12, %22, %10, %_ZN11duckdb_zstd18ZSTD_CCtx_refCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sE.exit
-  %.1 = phi i64 [ 0, %22 ], [ 0, %10 ], [ 0, %_ZN11duckdb_zstd18ZSTD_CCtx_refCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sE.exit ], [ -64, %12 ], [ -64, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i.i ]
+_ZN11duckdb_zstd24ZSTD_CCtx_loadDictionaryEPNS_11ZSTD_CCtx_sEPKvm.exit.thread: ; preds = %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i.i, %12, %10, %22, %_ZN11duckdb_zstd18ZSTD_CCtx_refCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sE.exit
+  %.1 = phi i64 [ 0, %_ZN11duckdb_zstd18ZSTD_CCtx_refCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sE.exit ], [ 0, %22 ], [ 0, %10 ], [ -64, %12 ], [ -64, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i.i ]
   ret i64 %.1
 }
 
@@ -8883,7 +8883,7 @@ _ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i.i: ; preds = %
   br label %_ZN11duckdb_zstd17ZSTD_checkCParamsENS_26ZSTD_compressionParametersE.exit.thread
 
 _ZN11duckdb_zstd17ZSTD_checkCParamsENS_26ZSTD_compressionParametersE.exit.thread: ; preds = %36, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i.i, %26, %20, %17, %_ZN11duckdb_zstd27ZSTD_CCtx_setPledgedSrcSizeEPNS_11ZSTD_CCtx_sEy.exit
-  %.1 = phi i64 [ -42, %17 ], [ -42, %_ZN11duckdb_zstd27ZSTD_CCtx_setPledgedSrcSizeEPNS_11ZSTD_CCtx_sEy.exit ], [ -64, %26 ], [ 0, %20 ], [ -64, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i.i ], [ 0, %36 ]
+  %.1 = phi i64 [ -42, %_ZN11duckdb_zstd27ZSTD_CCtx_setPledgedSrcSizeEPNS_11ZSTD_CCtx_sEy.exit ], [ -42, %17 ], [ 0, %36 ], [ 0, %20 ], [ -64, %26 ], [ -64, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i.i ]
   ret i64 %.1
 }
 
@@ -8907,7 +8907,7 @@ _ZN11duckdb_zstdL23ZSTD_cParam_clampBoundsENS_15ZSTD_cParameterEPi.exit.i: ; pre
   br label %_ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZSTD_cParameterEi.exit
 
 _ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZSTD_cParameterEi.exit: ; preds = %_ZN11duckdb_zstdL23ZSTD_cParam_clampBoundsENS_15ZSTD_cParameterEPi.exit.i, %_ZN11duckdb_zstd22ZSTD_CCtx_setParameterEPNS_11ZSTD_CCtx_sENS_15ZSTD_cParameterEi.exit, %7
-  %.sink = phi i32 [ %spec.select25, %_ZN11duckdb_zstdL23ZSTD_cParam_clampBoundsENS_15ZSTD_cParameterEPi.exit.i ], [ -131072, %_ZN11duckdb_zstd22ZSTD_CCtx_setParameterEPNS_11ZSTD_CCtx_sENS_15ZSTD_cParameterEi.exit ], [ 22, %7 ]
+  %.sink = phi i32 [ -131072, %_ZN11duckdb_zstd22ZSTD_CCtx_setParameterEPNS_11ZSTD_CCtx_sENS_15ZSTD_cParameterEi.exit ], [ 22, %7 ], [ %spec.select25, %_ZN11duckdb_zstdL23ZSTD_cParam_clampBoundsENS_15ZSTD_cParameterEPi.exit.i ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %.sink, ptr %10, align 4, !tbaa !57
   tail call fastcc void @_ZN11duckdb_zstdL18ZSTD_clearAllDictsEPNS_11ZSTD_CCtx_sE(ptr noundef nonnull %0)
@@ -8956,7 +8956,7 @@ _ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i.i: ; preds = %
   br label %28
 
 28:                                               ; preds = %23, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i.i, %13, %_ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZSTD_cParameterEi.exit
-  %spec.select = phi i64 [ 0, %_ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZSTD_cParameterEi.exit ], [ -64, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i.i ], [ 0, %23 ], [ -64, %13 ]
+  %spec.select = phi i64 [ 0, %23 ], [ 0, %_ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZSTD_cParameterEi.exit ], [ -64, %13 ], [ -64, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i.i ]
   ret i64 %spec.select
 }
 
@@ -8994,7 +8994,7 @@ _ZN11duckdb_zstdL23ZSTD_cParam_clampBoundsENS_15ZSTD_cParameterEPi.exit.i: ; pre
   br label %_ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZSTD_cParameterEi.exit
 
 _ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZSTD_cParameterEi.exit: ; preds = %_ZN11duckdb_zstdL23ZSTD_cParam_clampBoundsENS_15ZSTD_cParameterEPi.exit.i, %_ZN11duckdb_zstd22ZSTD_CCtx_setParameterEPNS_11ZSTD_CCtx_sENS_15ZSTD_cParameterEi.exit, %11
-  %.1324.i.sink = phi i32 [ %spec.select35, %_ZN11duckdb_zstdL23ZSTD_cParam_clampBoundsENS_15ZSTD_cParameterEPi.exit.i ], [ -131072, %_ZN11duckdb_zstd22ZSTD_CCtx_setParameterEPNS_11ZSTD_CCtx_sENS_15ZSTD_cParameterEi.exit ], [ 22, %11 ]
+  %.1324.i.sink = phi i32 [ -131072, %_ZN11duckdb_zstd22ZSTD_CCtx_setParameterEPNS_11ZSTD_CCtx_sENS_15ZSTD_cParameterEi.exit ], [ 22, %11 ], [ %spec.select35, %_ZN11duckdb_zstdL23ZSTD_cParam_clampBoundsENS_15ZSTD_cParameterEPi.exit.i ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %.1324.i.sink, ptr %14, align 4, !tbaa !57
   br i1 %.not.i30.not, label %15, label %_ZN11duckdb_zstd27ZSTD_CCtx_setPledgedSrcSizeEPNS_11ZSTD_CCtx_sEy.exit
@@ -9043,7 +9043,7 @@ _ZN11duckdb_zstdL23ZSTD_cParam_clampBoundsENS_15ZSTD_cParameterEPi.exit.i: ; pre
   br label %_ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZSTD_cParameterEi.exit
 
 _ZN11duckdb_zstd28ZSTD_CCtxParams_setParameterEPNS_18ZSTD_CCtx_params_sENS_15ZSTD_cParameterEi.exit: ; preds = %_ZN11duckdb_zstdL23ZSTD_cParam_clampBoundsENS_15ZSTD_cParameterEPi.exit.i, %_ZN11duckdb_zstd22ZSTD_CCtx_setParameterEPNS_11ZSTD_CCtx_sENS_15ZSTD_cParameterEi.exit, %9
-  %.1324.i.sink = phi i32 [ %spec.select, %_ZN11duckdb_zstdL23ZSTD_cParam_clampBoundsENS_15ZSTD_cParameterEPi.exit.i ], [ -131072, %_ZN11duckdb_zstd22ZSTD_CCtx_setParameterEPNS_11ZSTD_CCtx_sENS_15ZSTD_cParameterEi.exit ], [ 22, %9 ]
+  %.1324.i.sink = phi i32 [ -131072, %_ZN11duckdb_zstd22ZSTD_CCtx_setParameterEPNS_11ZSTD_CCtx_sENS_15ZSTD_cParameterEi.exit ], [ 22, %9 ], [ %spec.select, %_ZN11duckdb_zstdL23ZSTD_cParam_clampBoundsENS_15ZSTD_cParameterEPi.exit.i ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %.1324.i.sink, ptr %12, align 4, !tbaa !57
   ret i64 0
@@ -9634,8 +9634,8 @@ _ZN11duckdb_zstdL14ZSTD_limitCopyEPvmPKvm.exit282.i: ; preds = %267, %260
   br label %.thread288.i.outer, !llvm.loop !351
 
 .loopexit.i:                                      ; preds = %_ZN11duckdb_zstdL14ZSTD_limitCopyEPvmPKvm.exit282.i, %180, %170, %167, %275, %259, %179, %.thread284.i
-  %.2221.ph.i = phi ptr [ %258, %259 ], [ %271, %275 ], [ %150, %.thread284.i ], [ %.0219313.i.ph, %179 ], [ %.0219313.i.ph, %167 ], [ %271, %_ZN11duckdb_zstdL14ZSTD_limitCopyEPvmPKvm.exit282.i ], [ %.0219313.i.ph, %170 ], [ %.0219313.i.ph, %180 ]
-  %.4214.ph.i = phi ptr [ %.8218.i, %259 ], [ %.10.i, %275 ], [ %89, %.thread284.i ], [ %89, %179 ], [ %spec.select.i, %167 ], [ %.10.i, %_ZN11duckdb_zstdL14ZSTD_limitCopyEPvmPKvm.exit282.i ], [ %spec.select.i, %170 ], [ %89, %180 ]
+  %.2221.ph.i = phi ptr [ %258, %259 ], [ %150, %.thread284.i ], [ %271, %275 ], [ %.0219313.i.ph, %179 ], [ %.0219313.i.ph, %170 ], [ %.0219313.i.ph, %167 ], [ %271, %_ZN11duckdb_zstdL14ZSTD_limitCopyEPvmPKvm.exit282.i ], [ %.0219313.i.ph, %180 ]
+  %.4214.ph.i = phi ptr [ %.8218.i, %259 ], [ %89, %.thread284.i ], [ %.10.i, %275 ], [ %89, %179 ], [ %spec.select.i, %170 ], [ %spec.select.i, %167 ], [ %.10.i, %_ZN11duckdb_zstdL14ZSTD_limitCopyEPvmPKvm.exit282.i ], [ %89, %180 ]
   %277 = ptrtoint ptr %.4214.ph.i to i64
   %278 = ptrtoint ptr %83 to i64
   %279 = sub i64 %277, %278
@@ -9703,8 +9703,8 @@ _ZN11duckdb_zstdL26ZSTD_setBufferExpectationsEPNS_11ZSTD_CCtx_sEPKNS_16ZSTD_outB
   %311 = sub i64 %309, %310
   br label %_ZN11duckdb_zstdL26ZSTD_setBufferExpectationsEPNS_11ZSTD_CCtx_sEPKNS_16ZSTD_outBuffer_sEPKNS_15ZSTD_inBuffer_sE.exit.thread
 
-_ZN11duckdb_zstdL26ZSTD_setBufferExpectationsEPNS_11ZSTD_CCtx_sEPKNS_16ZSTD_outBuffer_sEPKNS_15ZSTD_inBuffer_sE.exit.thread: ; preds = %.thread288.i, %250, %229, %147, %67, %70, %76, %38, %41, %34, %46, %_ZN11duckdb_zstdL27ZSTD_compressStream_genericEPNS_11ZSTD_CCtx_sEPNS_16ZSTD_outBuffer_sEPNS_15ZSTD_inBuffer_sENS_17ZSTD_EndDirectiveE.exit, %16, %10, %4, %_ZN11duckdb_zstdL26ZSTD_setBufferExpectationsEPNS_11ZSTD_CCtx_sEPKNS_16ZSTD_outBuffer_sEPKNS_15ZSTD_inBuffer_sE.exit71
-  %.0 = phi i64 [ -50, %67 ], [ -70, %4 ], [ -72, %10 ], [ %311, %_ZN11duckdb_zstdL26ZSTD_setBufferExpectationsEPNS_11ZSTD_CCtx_sEPKNS_16ZSTD_outBuffer_sEPKNS_15ZSTD_inBuffer_sE.exit71 ], [ %.1.i, %_ZN11duckdb_zstdL27ZSTD_compressStream_genericEPNS_11ZSTD_CCtx_sEPNS_16ZSTD_outBuffer_sEPNS_15ZSTD_inBuffer_sENS_17ZSTD_EndDirectiveE.exit ], [ %47, %46 ], [ -42, %16 ], [ -50, %38 ], [ %45, %41 ], [ -50, %34 ], [ -50, %76 ], [ -50, %70 ], [ %148, %147 ], [ -62, %.thread288.i ], [ %251, %250 ], [ %230, %229 ]
+_ZN11duckdb_zstdL26ZSTD_setBufferExpectationsEPNS_11ZSTD_CCtx_sEPKNS_16ZSTD_outBuffer_sEPKNS_15ZSTD_inBuffer_sE.exit.thread: ; preds = %.thread288.i, %250, %229, %147, %70, %67, %76, %38, %34, %46, %41, %_ZN11duckdb_zstdL27ZSTD_compressStream_genericEPNS_11ZSTD_CCtx_sEPNS_16ZSTD_outBuffer_sEPNS_15ZSTD_inBuffer_sENS_17ZSTD_EndDirectiveE.exit, %16, %10, %4, %_ZN11duckdb_zstdL26ZSTD_setBufferExpectationsEPNS_11ZSTD_CCtx_sEPKNS_16ZSTD_outBuffer_sEPKNS_15ZSTD_inBuffer_sE.exit71
+  %.0 = phi i64 [ %311, %_ZN11duckdb_zstdL26ZSTD_setBufferExpectationsEPNS_11ZSTD_CCtx_sEPKNS_16ZSTD_outBuffer_sEPKNS_15ZSTD_inBuffer_sE.exit71 ], [ %.1.i, %_ZN11duckdb_zstdL27ZSTD_compressStream_genericEPNS_11ZSTD_CCtx_sEPNS_16ZSTD_outBuffer_sEPNS_15ZSTD_inBuffer_sENS_17ZSTD_EndDirectiveE.exit ], [ -70, %4 ], [ -72, %10 ], [ -42, %16 ], [ -50, %38 ], [ -50, %34 ], [ %47, %46 ], [ %45, %41 ], [ -50, %76 ], [ -50, %67 ], [ -50, %70 ], [ %148, %147 ], [ -62, %.thread288.i ], [ %251, %250 ], [ %230, %229 ]
   ret i64 %.0
 }
 
@@ -9748,7 +9748,7 @@ define internal fastcc noundef range(i64 -119, 1) i64 @_ZN11duckdb_zstdL30ZSTD_C
   store ptr %20, ptr %22, align 8, !tbaa !129
   br label %23
 
-23:                                               ; preds = %11, %3, %21
+23:                                               ; preds = %21, %3, %11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 3696
   %25 = load ptr, ptr %24, align 8, !tbaa !129
@@ -9851,9 +9851,9 @@ _ZN11duckdb_zstdL21ZSTD_shouldAttachDictEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_pa
   br label %_ZN11duckdb_zstdL18ZSTD_getCParamModeEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEm.exit
 
 _ZN11duckdb_zstdL18ZSTD_getCParamModeEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEm.exit: ; preds = %56, %69, %71, %_ZN11duckdb_zstdL21ZSTD_shouldAttachDictEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEm.exit.thread.i
-  %75 = phi i64 [ %73, %_ZN11duckdb_zstdL21ZSTD_shouldAttachDictEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEm.exit.thread.i ], [ %57, %71 ], [ %57, %56 ], [ %57, %69 ]
-  %76 = phi i64 [ %74, %_ZN11duckdb_zstdL21ZSTD_shouldAttachDictEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEm.exit.thread.i ], [ %58, %71 ], [ %58, %56 ], [ %58, %69 ]
-  %.0.i55 = phi i32 [ 0, %_ZN11duckdb_zstdL21ZSTD_shouldAttachDictEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEm.exit.thread.i ], [ 1, %71 ], [ 1, %56 ], [ 1, %69 ]
+  %75 = phi i64 [ %73, %_ZN11duckdb_zstdL21ZSTD_shouldAttachDictEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEm.exit.thread.i ], [ %57, %56 ], [ %57, %69 ], [ %57, %71 ]
+  %76 = phi i64 [ %74, %_ZN11duckdb_zstdL21ZSTD_shouldAttachDictEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEm.exit.thread.i ], [ %58, %56 ], [ %58, %69 ], [ %58, %71 ]
+  %.0.i55 = phi i32 [ 0, %_ZN11duckdb_zstdL21ZSTD_shouldAttachDictEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEm.exit.thread.i ], [ 1, %56 ], [ 1, %69 ], [ 1, %71 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN11duckdb_zstd29ZSTD_getCParamsFromCCtxParamsEPKNS_18ZSTD_CCtx_params_sEmmNS_17ZSTD_cParamMode_eE(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb_zstd::ZSTD_compressionParameters") align 4 %5, ptr noundef nonnull %4, i64 noundef %75, i64 noundef %76, i32 noundef %.0.i55)
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -9918,7 +9918,7 @@ _ZN11duckdb_zstdL21ZSTD_resolveEnableLdmENS_18ZSTD_paramSwitch_eEPKNS_26ZSTD_com
   br label %_ZN11duckdb_zstdL30ZSTD_resolveRowMatchFinderModeENS_18ZSTD_paramSwitch_eEPKNS_26ZSTD_compressionParametersE.exit
 
 _ZN11duckdb_zstdL30ZSTD_resolveRowMatchFinderModeENS_18ZSTD_paramSwitch_eEPKNS_26ZSTD_compressionParametersE.exit: ; preds = %_ZN11duckdb_zstdL21ZSTD_resolveEnableLdmENS_18ZSTD_paramSwitch_eEPKNS_26ZSTD_compressionParametersE.exit, %100, %105
-  %.0.i61 = phi i32 [ %99, %_ZN11duckdb_zstdL21ZSTD_resolveEnableLdmENS_18ZSTD_paramSwitch_eEPKNS_26ZSTD_compressionParametersE.exit ], [ %spec.select.i, %105 ], [ 2, %100 ]
+  %.0.i61 = phi i32 [ %spec.select.i, %105 ], [ %99, %_ZN11duckdb_zstdL21ZSTD_resolveEnableLdmENS_18ZSTD_paramSwitch_eEPKNS_26ZSTD_compressionParametersE.exit ], [ 2, %100 ]
   store i32 %.0.i61, ptr %98, align 8, !tbaa !88
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %109 = load i64, ptr %108, align 8, !tbaa !91
@@ -10124,7 +10124,7 @@ _ZN11duckdb_zstdL20ZSTD_finalizeOffBaseEjPKjj.exit: ; preds = %74
   br i1 %77, label %.sink.split.i, label %_ZN11duckdb_zstdL20ZSTD_finalizeOffBaseEjPKjj.exit.thread
 
 _ZN11duckdb_zstdL20ZSTD_finalizeOffBaseEjPKjj.exit.thread: ; preds = %74, %60, %72, %68, %_ZN11duckdb_zstdL20ZSTD_finalizeOffBaseEjPKjj.exit
-  %.0.i142 = phi i32 [ %64, %_ZN11duckdb_zstdL20ZSTD_finalizeOffBaseEjPKjj.exit ], [ %69, %68 ], [ 1, %60 ], [ %73, %72 ], [ 3, %74 ]
+  %.0.i142 = phi i32 [ %64, %_ZN11duckdb_zstdL20ZSTD_finalizeOffBaseEjPKjj.exit ], [ %73, %72 ], [ %69, %68 ], [ 1, %60 ], [ 3, %74 ]
   %not. = xor i1 %61, true
   %78 = sext i1 %not. to i32
   %79 = add nsw i32 %.0.i142, %78
@@ -10277,8 +10277,8 @@ _ZN11duckdb_zstdL21ZSTD_validateSequenceEjjjmjmi.exit: ; preds = %93
   br i1 %150, label %146, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i, !llvm.loop !368
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i: ; preds = %146, %139, %138
-  %.014.i = phi ptr [ %.0112163, %138 ], [ %39, %139 ], [ %39, %146 ]
-  %.0.i138 = phi ptr [ %122, %138 ], [ %142, %139 ], [ %142, %146 ]
+  %.014.i = phi ptr [ %39, %139 ], [ %.0112163, %138 ], [ %39, %146 ]
+  %.0.i138 = phi ptr [ %142, %139 ], [ %122, %138 ], [ %142, %146 ]
   %151 = icmp ult ptr %.014.i, %121
   br i1 %151, label %.lr.ph.i, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit
 
@@ -10354,9 +10354,9 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit: ; preds = %133
   br i1 %189, label %45, label %.critedge, !llvm.loop !370
 
 .critedge:                                        ; preds = %53, %180
-  %.0112.lcssa = phi ptr [ %186, %180 ], [ %.0112163, %53 ]
-  %.0109.lcssa = phi i32 [ %187, %180 ], [ %.0109166, %53 ]
-  %.lcssa = phi i64 [ %188, %180 ], [ %48, %53 ]
+  %.0112.lcssa = phi ptr [ %.0112163, %53 ], [ %186, %180 ]
+  %.0109.lcssa = phi i32 [ %.0109166, %53 ], [ %187, %180 ]
+  %.lcssa = phi i64 [ %48, %53 ], [ %188, %180 ]
   %190 = icmp ne i32 %6, 2
   %.not126 = icmp eq i32 %.0109.lcssa, %9
   %or.cond = select i1 %190, i1 true, i1 %.not126
@@ -10457,7 +10457,7 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit: ; preds = %133
   br label %.thread
 
 .thread:                                          ; preds = %113, %93, %_ZN11duckdb_zstdL21ZSTD_validateSequenceEjjjmjmi.exit, %241, %242
-  %.4 = phi i64 [ -107, %241 ], [ 0, %242 ], [ -107, %_ZN11duckdb_zstdL21ZSTD_validateSequenceEjjjmjmi.exit ], [ -107, %93 ], [ -107, %113 ]
+  %.4 = phi i64 [ 0, %242 ], [ -107, %241 ], [ -107, %_ZN11duckdb_zstdL21ZSTD_validateSequenceEjjjmjmi.exit ], [ -107, %93 ], [ -107, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.4
 }
@@ -10628,7 +10628,7 @@ _ZN11duckdb_zstdL20ZSTD_finalizeOffBaseEjPKjj.exit: ; preds = %85
   br i1 %88, label %.sink.split.i, label %_ZN11duckdb_zstdL20ZSTD_finalizeOffBaseEjPKjj.exit.thread
 
 _ZN11duckdb_zstdL20ZSTD_finalizeOffBaseEjPKjj.exit.thread: ; preds = %85, %72, %83, %79, %_ZN11duckdb_zstdL20ZSTD_finalizeOffBaseEjPKjj.exit
-  %.0.i184 = phi i32 [ %75, %_ZN11duckdb_zstdL20ZSTD_finalizeOffBaseEjPKjj.exit ], [ %80, %79 ], [ 1, %72 ], [ %84, %83 ], [ 3, %85 ]
+  %.0.i184 = phi i32 [ %75, %_ZN11duckdb_zstdL20ZSTD_finalizeOffBaseEjPKjj.exit ], [ %84, %83 ], [ %80, %79 ], [ 1, %72 ], [ 3, %85 ]
   %not. = xor i1 %73, true
   %89 = sext i1 %not. to i32
   %90 = add nsw i32 %.0.i184, %89
@@ -10781,8 +10781,8 @@ _ZN11duckdb_zstdL21ZSTD_validateSequenceEjjjmjmi.exit: ; preds = %104
   br i1 %161, label %157, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i, !llvm.loop !368
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i: ; preds = %157, %150, %149
-  %.014.i = phi ptr [ %.0131233, %149 ], [ %39, %150 ], [ %39, %157 ]
-  %.0.i174 = phi ptr [ %133, %149 ], [ %153, %150 ], [ %153, %157 ]
+  %.014.i = phi ptr [ %39, %150 ], [ %.0131233, %149 ], [ %39, %157 ]
+  %.0.i174 = phi ptr [ %153, %150 ], [ %133, %149 ], [ %153, %157 ]
   %162 = icmp ult ptr %.014.i, %132
   br i1 %162, label %.lr.ph.i, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit
 
@@ -10892,7 +10892,7 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit: ; preds = %144
   br label %.thread188
 
 .thread188:                                       ; preds = %124, %104, %_ZN11duckdb_zstdL21ZSTD_validateSequenceEjjjmjmi.exit, %.critedge, %205
-  %.4 = phi i64 [ %202, %.critedge ], [ %202, %205 ], [ -107, %_ZN11duckdb_zstdL21ZSTD_validateSequenceEjjjmjmi.exit ], [ -107, %104 ], [ -107, %124 ]
+  %.4 = phi i64 [ %202, %205 ], [ %202, %.critedge ], [ -107, %_ZN11duckdb_zstdL21ZSTD_validateSequenceEjjjmjmi.exit ], [ -107, %104 ], [ -107, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.4
 }
@@ -11169,7 +11169,7 @@ _ZN11duckdb_zstdL21ZSTD_rleCompressBlockEPvmhmj.exit.thread.i: ; preds = %.threa
   br label %153
 
 153:                                              ; preds = %144, %_ZN11duckdb_zstdL21ZSTD_rleCompressBlockEPvmhmj.exit.thread.i, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit166.i
-  %.0149.i = phi i64 [ %119, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit166.i ], [ 4, %_ZN11duckdb_zstdL21ZSTD_rleCompressBlockEPvmhmj.exit.thread.i ], [ %152, %144 ]
+  %.0149.i = phi i64 [ %119, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit166.i ], [ %152, %144 ], [ 4, %_ZN11duckdb_zstdL21ZSTD_rleCompressBlockEPvmhmj.exit.thread.i ]
   %154 = add i64 %.0149.i, %.2129213.i
   br i1 %70, label %_ZN11duckdb_zstdL31ZSTD_compressSequences_internalEPNS_11ZSTD_CCtx_sEPvmPKNS_13ZSTD_SequenceEmPKvm.exit, label %155
 
@@ -11187,13 +11187,13 @@ _ZN11duckdb_zstdL21ZSTD_rleCompressBlockEPvmhmj.exit.thread.i: ; preds = %.threa
   %.not.i = icmp eq i64 %.1133.i, 0
   br i1 %.not.i, label %_ZN11duckdb_zstdL31ZSTD_compressSequences_internalEPNS_11ZSTD_CCtx_sEPvmPKNS_13ZSTD_SequenceEmPKvm.exit, label %43
 
-_ZN11duckdb_zstdL31ZSTD_compressSequences_internalEPNS_11ZSTD_CCtx_sEPvmPKNS_13ZSTD_SequenceEmPKvm.exit.thread: ; preds = %.thread.i, %_ZN11duckdb_zstdL27blockSize_explicitDelimiterEPKNS_13ZSTD_SequenceEmNS_21ZSTD_sequencePositionE.exit.i.i, %62, %80, %_ZN11duckdb_zstdL19determine_blockSizeENS_21ZSTD_sequenceFormat_eEmmPKNS_13ZSTD_SequenceEmNS_21ZSTD_sequencePositionE.exit.i, %90, %47, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit166.i, %92, %69, %118, %49, %29
-  %.2.i.ph = phi i64 [ -107, %49 ], [ -70, %29 ], [ -70, %.thread.i ], [ %spec.select.i.i.i, %_ZN11duckdb_zstdL27blockSize_explicitDelimiterEPKNS_13ZSTD_SequenceEmNS_21ZSTD_sequencePositionE.exit.i.i ], [ -107, %62 ], [ -70, %80 ], [ %66, %_ZN11duckdb_zstdL19determine_blockSizeENS_21ZSTD_sequenceFormat_eEmmPKNS_13ZSTD_SequenceEmNS_21ZSTD_sequencePositionE.exit.i ], [ -70, %90 ], [ -107, %47 ], [ %119, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit166.i ], [ %99, %92 ], [ %75, %69 ], [ -70, %118 ]
+_ZN11duckdb_zstdL31ZSTD_compressSequences_internalEPNS_11ZSTD_CCtx_sEPvmPKNS_13ZSTD_SequenceEmPKvm.exit.thread: ; preds = %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit166.i, %92, %69, %_ZN11duckdb_zstdL19determine_blockSizeENS_21ZSTD_sequenceFormat_eEmmPKNS_13ZSTD_SequenceEmNS_21ZSTD_sequencePositionE.exit.i, %90, %118, %_ZN11duckdb_zstdL27blockSize_explicitDelimiterEPKNS_13ZSTD_SequenceEmNS_21ZSTD_sequencePositionE.exit.i.i, %62, %47, %80, %.thread.i, %49, %29
+  %.2.i.ph = phi i64 [ -70, %29 ], [ -107, %49 ], [ %119, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit166.i ], [ %99, %92 ], [ %75, %69 ], [ %66, %_ZN11duckdb_zstdL19determine_blockSizeENS_21ZSTD_sequenceFormat_eEmmPKNS_13ZSTD_SequenceEmNS_21ZSTD_sequencePositionE.exit.i ], [ -70, %90 ], [ -70, %118 ], [ %spec.select.i.i.i, %_ZN11duckdb_zstdL27blockSize_explicitDelimiterEPKNS_13ZSTD_SequenceEmNS_21ZSTD_sequencePositionE.exit.i.i ], [ -107, %62 ], [ -107, %47 ], [ -70, %80 ], [ -70, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %170
 
 _ZN11duckdb_zstdL31ZSTD_compressSequences_internalEPNS_11ZSTD_CCtx_sEPvmPKNS_13ZSTD_SequenceEmPKvm.exit: ; preds = %153, %156
-  %.2.i = phi i64 [ %154, %153 ], [ %.3130.i, %156 ]
+  %.2.i = phi i64 [ %.3130.i, %156 ], [ %154, %153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %157 = icmp ult i64 %.2.i, -119
   br i1 %157, label %158, label %170
@@ -11220,7 +11220,7 @@ _ZN11duckdb_zstdL31ZSTD_compressSequences_internalEPNS_11ZSTD_CCtx_sEPvmPKNS_13Z
   br label %170
 
 170:                                              ; preds = %166, %161, %_ZN11duckdb_zstdL31ZSTD_compressSequences_internalEPNS_11ZSTD_CCtx_sEPvmPKNS_13ZSTD_SequenceEmPKvm.exit.thread, %158, %_ZN11duckdb_zstdL31ZSTD_compressSequences_internalEPNS_11ZSTD_CCtx_sEPvmPKNS_13ZSTD_SequenceEmPKvm.exit, %7
-  %.1 = phi i64 [ %9, %7 ], [ %.2.i.ph, %_ZN11duckdb_zstdL31ZSTD_compressSequences_internalEPNS_11ZSTD_CCtx_sEPvmPKNS_13ZSTD_SequenceEmPKvm.exit.thread ], [ %.2.i, %_ZN11duckdb_zstdL31ZSTD_compressSequences_internalEPNS_11ZSTD_CCtx_sEPvmPKNS_13ZSTD_SequenceEmPKvm.exit ], [ %159, %158 ], [ %169, %166 ], [ -70, %161 ]
+  %.1 = phi i64 [ %.2.i, %_ZN11duckdb_zstdL31ZSTD_compressSequences_internalEPNS_11ZSTD_CCtx_sEPvmPKNS_13ZSTD_SequenceEmPKvm.exit ], [ %9, %7 ], [ %159, %158 ], [ %.2.i.ph, %_ZN11duckdb_zstdL31ZSTD_compressSequences_internalEPNS_11ZSTD_CCtx_sEPvmPKNS_13ZSTD_SequenceEmPKvm.exit.thread ], [ %169, %166 ], [ -70, %161 ]
   ret i64 %.1
 }
 
@@ -11444,7 +11444,7 @@ define noundef i64 @_ZN11duckdb_zstd14ZSTD_endStreamEPNS_11ZSTD_CCtx_sEPNS_16ZST
   br label %29
 
 29:                                               ; preds = %12, %2, %25
-  %.1 = phi i64 [ %10, %2 ], [ %28, %25 ], [ %10, %12 ]
+  %.1 = phi i64 [ %28, %25 ], [ %10, %2 ], [ %10, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.1
 }
@@ -11604,7 +11604,7 @@ _ZN11duckdb_zstd18ZSTD_compressBoundEm.exit:      ; preds = %32
   br label %66
 
 66:                                               ; preds = %62, %51
-  %67 = phi i32 [ %65, %62 ], [ 1, %51 ]
+  %67 = phi i32 [ 1, %51 ], [ %65, %62 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %69 = load i64, ptr %68, align 8, !tbaa !64
   %70 = icmp ne i64 %69, 0
@@ -11925,8 +11925,8 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit
 
 _ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit: ; preds = %181, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i, %203, %209
-  %210 = phi i32 [ %195, %209 ], [ %195, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i ], [ %195, %203 ], [ %178, %181 ]
-  %.0.i.i208 = phi ptr [ %200, %209 ], [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i ], [ null, %203 ], [ null, %181 ]
+  %210 = phi i32 [ %195, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i ], [ %195, %203 ], [ %195, %209 ], [ %178, %181 ]
+  %.0.i.i208 = phi ptr [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i ], [ null, %203 ], [ %200, %209 ], [ null, %181 ]
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 952
   store ptr %.0.i.i208, ptr %211, align 8, !tbaa !268
   %212 = load i32, ptr %10, align 8, !tbaa !90
@@ -12005,7 +12005,7 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit216
 
 _ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit216: ; preds = %222, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i210, %243, %249
-  %.0.i.i211 = phi ptr [ %240, %249 ], [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i210 ], [ null, %243 ], [ null, %222 ]
+  %.0.i.i211 = phi ptr [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i210 ], [ null, %243 ], [ %240, %249 ], [ null, %222 ]
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   store ptr %.0.i.i211, ptr %251, align 8, !tbaa !396
@@ -12084,8 +12084,8 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit223
 
 _ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit223: ; preds = %258, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i217, %280, %286
-  %287 = phi i32 [ %272, %286 ], [ %272, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i217 ], [ %272, %280 ], [ %255, %258 ]
-  %.0.i.i218 = phi ptr [ %277, %286 ], [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i217 ], [ null, %280 ], [ null, %258 ]
+  %287 = phi i32 [ %272, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i217 ], [ %272, %280 ], [ %272, %286 ], [ %255, %258 ]
+  %.0.i.i218 = phi ptr [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i217 ], [ null, %280 ], [ %277, %286 ], [ null, %258 ]
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 3144
   store ptr %.0.i.i218, ptr %288, align 8, !tbaa !397
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 3152
@@ -12187,8 +12187,8 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit230
 
 _ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit230: ; preds = %308, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i224, %330, %336
-  %337 = phi i32 [ %322, %336 ], [ %322, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i224 ], [ %322, %330 ], [ %297, %308 ]
-  %.0.i.i225 = phi ptr [ %327, %336 ], [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i224 ], [ null, %330 ], [ null, %308 ]
+  %337 = phi i32 [ %322, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i224 ], [ %322, %330 ], [ %322, %336 ], [ %297, %308 ]
+  %.0.i.i225 = phi ptr [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i224 ], [ null, %330 ], [ %327, %336 ], [ null, %308 ]
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 5232
   store ptr %.0.i.i225, ptr %338, align 8, !tbaa !401
   br label %339
@@ -12260,8 +12260,8 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   store ptr %361, ptr %92, align 8, !tbaa !391
   br label %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit.thread
 
-_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit.thread: ; preds = %370, %364
-  %.0.i.i232.ph = phi ptr [ null, %364 ], [ %361, %370 ]
+_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit.thread: ; preds = %364, %370
+  %.0.i.i232.ph = phi ptr [ %361, %370 ], [ null, %364 ]
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 968
   store ptr %.0.i.i232.ph, ptr %371, align 8, !tbaa !402
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 1016
@@ -12342,8 +12342,8 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   store ptr %398, ptr %92, align 8, !tbaa !391
   br label %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit241.thread
 
-_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit241.thread: ; preds = %407, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i236, %401
-  %.0.i.i237.ph = phi ptr [ null, %401 ], [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i236 ], [ %398, %407 ]
+_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit241.thread: ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i236, %401, %407
+  %.0.i.i237.ph = phi ptr [ %398, %407 ], [ null, %401 ], [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i236 ]
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 3536
   store ptr %.0.i.i237.ph, ptr %408, align 8, !tbaa !167
   %409 = getelementptr inbounds nuw i8, ptr %0, i64 3584
@@ -12417,8 +12417,8 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   br label %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit247
 
 _ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit247: ; preds = %410, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i242, %434, %440
-  %441 = phi i32 [ %426, %440 ], [ %426, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i242 ], [ %426, %434 ], [ %340, %410 ]
-  %.0.i.i243 = phi ptr [ %431, %440 ], [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i242 ], [ null, %434 ], [ null, %410 ]
+  %441 = phi i32 [ %426, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i242 ], [ %426, %434 ], [ %426, %440 ], [ %340, %410 ]
+  %.0.i.i243 = phi ptr [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i242 ], [ null, %434 ], [ %431, %440 ], [ null, %410 ]
   %442 = getelementptr inbounds nuw i8, ptr %0, i64 3576
   store ptr %.0.i.i243, ptr %442, align 8, !tbaa !355
   %443 = load i32, ptr %10, align 8, !tbaa !90
@@ -12494,7 +12494,7 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   br label %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit253
 
 _ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit253: ; preds = %454, %473, %479
-  %.0.i.i249 = phi ptr [ %470, %479 ], [ null, %454 ], [ null, %473 ]
+  %.0.i.i249 = phi ptr [ null, %473 ], [ %470, %479 ], [ null, %454 ]
   %480 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store ptr %.0.i.i249, ptr %480, align 8, !tbaa !404
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.i.i249, i8 0, i64 %452, i1 false)
@@ -12575,8 +12575,8 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   store ptr %506, ptr %92, align 8, !tbaa !391
   br label %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit259.thread
 
-_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit259.thread: ; preds = %515, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i254, %509
-  %.0.i.i255.ph = phi ptr [ null, %509 ], [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i254 ], [ %506, %515 ]
+_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit259.thread: ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i254, %509, %515
+  %.0.i.i255.ph = phi ptr [ %506, %515 ], [ null, %509 ], [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i254 ]
   %516 = getelementptr inbounds nuw i8, ptr %0, i64 984
   store ptr %.0.i.i255.ph, ptr %516, align 8, !tbaa !405
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i260
@@ -12644,8 +12644,8 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   store ptr %536, ptr %92, align 8, !tbaa !391
   br label %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit265.thread
 
-_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit265.thread: ; preds = %545, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i260, %539
-  %.0.i.i261.ph = phi ptr [ null, %539 ], [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i260 ], [ %536, %545 ]
+_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit265.thread: ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i260, %539, %545
+  %.0.i.i261.ph = phi ptr [ %536, %545 ], [ null, %539 ], [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i260 ]
   %546 = getelementptr inbounds nuw i8, ptr %0, i64 992
   store ptr %.0.i.i261.ph, ptr %546, align 8, !tbaa !406
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i266
@@ -12714,7 +12714,7 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   br label %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit271
 
 _ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit271: ; preds = %547, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i266, %569, %575
-  %.0.i.i267 = phi ptr [ %566, %575 ], [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i266 ], [ null, %569 ], [ null, %547 ]
+  %.0.i.i267 = phi ptr [ null, %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i266 ], [ null, %569 ], [ %566, %575 ], [ null, %547 ]
   %576 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   store ptr %.0.i.i267, ptr %576, align 8, !tbaa !407
   %577 = getelementptr inbounds nuw i8, ptr %0, i64 948
@@ -12722,7 +12722,7 @@ _ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit271: ; preds
   br label %.thread290
 
 .thread290:                                       ; preds = %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit203.thread, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit.thread, %103, %.thread300, %159, %66, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit271
-  %.1 = phi i64 [ 0, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit271 ], [ %172, %159 ], [ -64, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i ], [ %77, %66 ], [ -64, %.thread300 ], [ -64, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit203.thread ], [ -64, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit.thread ], [ -64, %103 ]
+  %.1 = phi i64 [ 0, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_bufferEPNS_10ZSTD_cwkspEm.exit271 ], [ %172, %159 ], [ %77, %66 ], [ -64, %.thread300 ], [ -64, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit203.thread ], [ -64, %_ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit.thread ], [ -64, %103 ], [ -64, %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i ]
   ret i64 %.1
 }
 
@@ -12777,7 +12777,7 @@ _ZN11duckdb_zstdL23ZSTD_allocateChainTableENS_13ZSTD_strategyENS_18ZSTD_paramSwi
   br label %33
 
 33:                                               ; preds = %31, %_ZN11duckdb_zstdL23ZSTD_allocateChainTableENS_13ZSTD_strategyENS_18ZSTD_paramSwitch_eEj.exit.thread, %27
-  %34 = phi i32 [ %spec.select, %31 ], [ 0, %_ZN11duckdb_zstdL23ZSTD_allocateChainTableENS_13ZSTD_strategyENS_18ZSTD_paramSwitch_eEj.exit.thread ], [ 0, %27 ]
+  %34 = phi i32 [ 0, %27 ], [ 0, %_ZN11duckdb_zstdL23ZSTD_allocateChainTableENS_13ZSTD_strategyENS_18ZSTD_paramSwitch_eEj.exit.thread ], [ %spec.select, %31 ]
   %.not74 = icmp eq i32 %34, 0
   %35 = zext nneg i32 %34 to i64
   %.not75 = icmp eq i32 %5, 0
@@ -12886,9 +12886,9 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   store ptr %80, ptr %60, align 8, !tbaa !67
   br label %._crit_edge.i83
 
-._crit_edge.i83:                                  ; preds = %86, %84
-  %.pre.i85.ph = phi ptr [ %79, %84 ], [ %80, %86 ]
-  %.0.i.ph = phi ptr [ null, %84 ], [ %79, %86 ]
+._crit_edge.i83:                                  ; preds = %84, %86
+  %.pre.i85.ph = phi ptr [ %80, %86 ], [ %79, %84 ]
+  %.0.i.ph = phi ptr [ %79, %86 ], [ null, %84 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %.0.i.ph, ptr %87, align 8, !tbaa !413
   br label %104
@@ -12944,9 +12944,9 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   store ptr %106, ptr %60, align 8, !tbaa !67
   br label %._crit_edge.i91
 
-._crit_edge.i91:                                  ; preds = %112, %110
-  %.pre.i93.ph = phi ptr [ %105, %110 ], [ %106, %112 ]
-  %.0.i86.ph = phi ptr [ null, %110 ], [ %105, %112 ]
+._crit_edge.i91:                                  ; preds = %110, %112
+  %.pre.i93.ph = phi ptr [ %106, %112 ], [ %105, %110 ]
+  %.0.i86.ph = phi ptr [ %105, %112 ], [ null, %110 ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %.0.i86.ph, ptr %113, align 8, !tbaa !414
   %114 = shl nuw nsw i64 4, %35
@@ -13008,8 +13008,8 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   br label %_ZN11duckdb_zstdL24ZSTD_cwksp_reserve_tableEPNS_10ZSTD_cwkspEm.exit98
 
 _ZN11duckdb_zstdL24ZSTD_cwksp_reserve_tableEPNS_10ZSTD_cwkspEm.exit98: ; preds = %116, %141, %143
-  %144 = phi ptr [ %137, %143 ], [ %136, %141 ], [ %44, %116 ]
-  %.0.i94 = phi ptr [ %136, %143 ], [ null, %141 ], [ null, %116 ]
+  %144 = phi ptr [ %136, %141 ], [ %137, %143 ], [ %44, %116 ]
+  %.0.i94 = phi ptr [ null, %141 ], [ %136, %143 ], [ null, %116 ]
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %.0.i94, ptr %145, align 8, !tbaa !415
   %146 = getelementptr i8, ptr %1, i64 56
@@ -13132,7 +13132,7 @@ _ZN11duckdb_zstdL27ZSTD_cwksp_reserve_internalEPNS_10ZSTD_cwkspEmNS_24ZSTD_cwksp
   br label %_ZN11duckdb_zstdL36ZSTD_cwksp_reserve_aligned_init_onceEPNS_10ZSTD_cwkspEm.exit
 
 _ZN11duckdb_zstdL36ZSTD_cwksp_reserve_aligned_init_onceEPNS_10ZSTD_cwkspEm.exit: ; preds = %169, %190, %_ZN11duckdb_zstdL27ZSTD_cwksp_reserve_internalEPNS_10ZSTD_cwkspEmNS_24ZSTD_cwksp_alloc_phase_eE.exit.i, %199
-  %.0.i20.i = phi ptr [ null, %169 ], [ %188, %199 ], [ %188, %_ZN11duckdb_zstdL27ZSTD_cwksp_reserve_internalEPNS_10ZSTD_cwkspEmNS_24ZSTD_cwksp_alloc_phase_eE.exit.i ], [ null, %190 ]
+  %.0.i20.i = phi ptr [ %188, %199 ], [ %188, %_ZN11duckdb_zstdL27ZSTD_cwksp_reserve_internalEPNS_10ZSTD_cwkspEmNS_24ZSTD_cwksp_alloc_phase_eE.exit.i ], [ null, %190 ], [ null, %169 ]
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.0.i20.i, ptr %203, align 8, !tbaa !416
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -13234,7 +13234,7 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit
 
 _ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit: ; preds = %234, %256, %262
-  %.0.i.i = phi ptr [ %254, %262 ], [ null, %234 ], [ null, %256 ]
+  %.0.i.i = phi ptr [ null, %256 ], [ %254, %262 ], [ null, %234 ]
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.0.i.i, ptr %263, align 8, !tbaa !416
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.i.i, i8 0, i64 %26, i1 false)
@@ -13328,8 +13328,8 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   store ptr %297, ptr %295, align 8, !tbaa !391
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit113.thread
 
-_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit113.thread: ; preds = %306, %300
-  %.0.i.i108.ph = phi ptr [ null, %300 ], [ %297, %306 ]
+_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit113.thread: ; preds = %300, %306
+  %.0.i.i108.ph = phi ptr [ %297, %306 ], [ null, %300 ]
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %.0.i.i108.ph, ptr %307, align 8, !tbaa !420
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i114
@@ -13394,8 +13394,8 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   store ptr %326, ptr %324, align 8, !tbaa !391
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit121.thread
 
-_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit121.thread: ; preds = %335, %329
-  %.0.i.i116.ph = phi ptr [ null, %329 ], [ %326, %335 ]
+_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit121.thread: ; preds = %329, %335
+  %.0.i.i116.ph = phi ptr [ %326, %335 ], [ null, %329 ]
   %336 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %.0.i.i116.ph, ptr %336, align 8, !tbaa !421
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i122
@@ -13460,8 +13460,8 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   store ptr %355, ptr %353, align 8, !tbaa !391
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit129.thread
 
-_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit129.thread: ; preds = %364, %358
-  %.0.i.i124.ph = phi ptr [ null, %358 ], [ %355, %364 ]
+_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit129.thread: ; preds = %358, %364
+  %.0.i.i124.ph = phi ptr [ %355, %364 ], [ null, %358 ]
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %.0.i.i124.ph, ptr %365, align 8, !tbaa !422
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i130
@@ -13526,8 +13526,8 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   store ptr %384, ptr %382, align 8, !tbaa !391
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit137.thread
 
-_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit137.thread: ; preds = %393, %387
-  %.0.i.i132.ph = phi ptr [ null, %387 ], [ %384, %393 ]
+_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit137.thread: ; preds = %387, %393
+  %.0.i.i132.ph = phi ptr [ %384, %393 ], [ null, %387 ]
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %.0.i.i132.ph, ptr %394, align 8, !tbaa !423
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i138
@@ -13592,8 +13592,8 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   store ptr %413, ptr %411, align 8, !tbaa !391
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit145.thread
 
-_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit145.thread: ; preds = %422, %416
-  %.0.i.i140.ph = phi ptr [ null, %416 ], [ %413, %422 ]
+_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit145.thread: ; preds = %416, %422
+  %.0.i.i140.ph = phi ptr [ %413, %422 ], [ null, %416 ]
   %423 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %.0.i.i140.ph, ptr %423, align 8, !tbaa !424
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i146
@@ -13659,7 +13659,7 @@ _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit153
 
 _ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit153: ; preds = %424, %445, %451
-  %.0.i.i148 = phi ptr [ %442, %451 ], [ null, %424 ], [ null, %445 ]
+  %.0.i.i148 = phi ptr [ null, %445 ], [ %442, %451 ], [ null, %424 ]
   %452 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %.0.i.i148, ptr %452, align 8, !tbaa !425
   br label %453
@@ -14269,7 +14269,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL27ZSTD_compressBlock_intern
   br label %.thread66
 
 .thread66:                                        ; preds = %13, %42, %46, %44
-  %.15069 = phi i64 [ %34, %44 ], [ %34, %46 ], [ 0, %13 ], [ 1, %42 ]
+  %.15069 = phi i64 [ %34, %46 ], [ %34, %44 ], [ 0, %13 ], [ 1, %42 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 3200
   %50 = load ptr, ptr %49, align 8, !tbaa !69
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 5604
@@ -14281,8 +14281,8 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL27ZSTD_compressBlock_intern
   store i32 1, ptr %51, align 4, !tbaa !180
   br label %.thread
 
-.thread:                                          ; preds = %6, %13, %.thread66, %54, %18, %22
-  %.2 = phi i64 [ %.15069, %.thread66 ], [ 0, %22 ], [ %20, %18 ], [ %.15069, %54 ], [ %7, %6 ], [ -106, %13 ]
+.thread:                                          ; preds = %13, %6, %.thread66, %54, %18, %22
+  %.2 = phi i64 [ 0, %22 ], [ %20, %18 ], [ %.15069, %54 ], [ %.15069, %.thread66 ], [ -106, %13 ], [ %7, %6 ]
   ret i64 %.2
 }
 
@@ -14545,12 +14545,12 @@ _ZN11duckdb_zstdL26ZSTD_fastSequenceLengthSumEPKNS_13ZSTD_SequenceEm.exit.thread
   br label %145
 
 145:                                              ; preds = %_ZN11duckdb_zstdL26ZSTD_fastSequenceLengthSumEPKNS_13ZSTD_SequenceEm.exit, %_ZN11duckdb_zstdL26ZSTD_fastSequenceLengthSumEPKNS_13ZSTD_SequenceEm.exit.thread, %143
-  %.5 = phi i64 [ %141, %_ZN11duckdb_zstdL26ZSTD_fastSequenceLengthSumEPKNS_13ZSTD_SequenceEm.exit.thread ], [ 0, %143 ], [ -107, %_ZN11duckdb_zstdL26ZSTD_fastSequenceLengthSumEPKNS_13ZSTD_SequenceEm.exit ]
+  %.5 = phi i64 [ 0, %143 ], [ %141, %_ZN11duckdb_zstdL26ZSTD_fastSequenceLengthSumEPKNS_13ZSTD_SequenceEm.exit.thread ], [ -107, %_ZN11duckdb_zstdL26ZSTD_fastSequenceLengthSumEPKNS_13ZSTD_SequenceEm.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread165
 
-_ZN11duckdb_zstdL38ZSTD_postProcessSequenceProducerResultEPNS_13ZSTD_SequenceEmmm.exit.thread: ; preds = %99, %120, %_ZN11duckdb_zstdL38ZSTD_postProcessSequenceProducerResultEPNS_13ZSTD_SequenceEmmm.exit
-  %.0.i158 = phi i64 [ %.0.i, %_ZN11duckdb_zstdL38ZSTD_postProcessSequenceProducerResultEPNS_13ZSTD_SequenceEmmm.exit ], [ -106, %120 ], [ -106, %99 ]
+_ZN11duckdb_zstdL38ZSTD_postProcessSequenceProducerResultEPNS_13ZSTD_SequenceEmmm.exit.thread: ; preds = %120, %99, %_ZN11duckdb_zstdL38ZSTD_postProcessSequenceProducerResultEPNS_13ZSTD_SequenceEmmm.exit
+  %.0.i158 = phi i64 [ %.0.i, %_ZN11duckdb_zstdL38ZSTD_postProcessSequenceProducerResultEPNS_13ZSTD_SequenceEmmm.exit ], [ -106, %99 ], [ -106, %120 ]
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %147 = load i32, ptr %146, align 4, !tbaa !448
   %.not141 = icmp eq i32 %147, 0
@@ -14616,8 +14616,8 @@ _ZN11duckdb_zstdL38ZSTD_postProcessSequenceProducerResultEPNS_13ZSTD_SequenceEmm
   store ptr %190, ptr %23, align 8, !tbaa !216
   br label %.thread165
 
-.thread165:                                       ; preds = %_ZN11duckdb_zstdL38ZSTD_postProcessSequenceProducerResultEPNS_13ZSTD_SequenceEmmm.exit.thread, %145, %69, %.thread, %184, %14, %15
-  %.0 = phi i64 [ 1, %15 ], [ 1, %14 ], [ 0, %184 ], [ -41, %69 ], [ %.3.ph, %.thread ], [ %.0.i158, %_ZN11duckdb_zstdL38ZSTD_postProcessSequenceProducerResultEPNS_13ZSTD_SequenceEmmm.exit.thread ], [ %.5, %145 ]
+.thread165:                                       ; preds = %_ZN11duckdb_zstdL38ZSTD_postProcessSequenceProducerResultEPNS_13ZSTD_SequenceEmmm.exit.thread, %145, %.thread, %69, %184, %14, %15
+  %.0 = phi i64 [ 1, %15 ], [ 1, %14 ], [ 0, %184 ], [ %.3.ph, %.thread ], [ -41, %69 ], [ %.0.i158, %_ZN11duckdb_zstdL38ZSTD_postProcessSequenceProducerResultEPNS_13ZSTD_SequenceEmmm.exit.thread ], [ %.5, %145 ]
   ret i64 %.0
 }
 
@@ -14743,7 +14743,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN11duckdb_zstdL10ZSTD_isRL
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %15, %.thread63.i, %49
-  %.1.i = phi i64 [ %27, %.thread63.i ], [ %52, %49 ], [ %18, %15 ]
+  %.1.i = phi i64 [ %52, %49 ], [ %18, %15 ], [ %27, %.thread63.i ]
   %53 = add nsw i64 %6, -1
   %.not27 = icmp eq i64 %.1.i, %53
   br i1 %.not27, label %54, label %.loopexit
@@ -14775,7 +14775,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %15, %.thread63.i, %
   br i1 %.not28, label %.loopexit, label %.preheader, !llvm.loop !450
 
 .loopexit:                                        ; preds = %.critedge, %59, %54, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit, %2
-  %.024 = phi i32 [ 0, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit ], [ 1, %2 ], [ 1, %54 ], [ 0, %59 ], [ 1, %.critedge ]
+  %.024 = phi i32 [ 1, %2 ], [ 0, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit ], [ 1, %54 ], [ 0, %59 ], [ 1, %.critedge ]
   ret i32 %.024
 }
 
@@ -14871,7 +14871,7 @@ _ZN11duckdb_zstdL30ZSTD_resolveRepcodeToRawOffsetEPKjjj.exit33.i: ; preds = %52,
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %58, %34
-  %60 = phi i32 [ %42, %34 ], [ %59, %58 ]
+  %60 = phi i32 [ %59, %58 ], [ %42, %34 ]
   %61 = icmp ugt i32 %60, 3
   br i1 %61, label %62, label %thread-pre-split.thread.i
 
@@ -15104,7 +15104,7 @@ _ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit: ; preds = %130
   br label %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit.thread
 
 _ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit.thread: ; preds = %141, %130, %163, %168, %_ZN11duckdb_zstdL29ZSTD_seqStore_resolveOffCodesEPNS_10repcodes_sES1_PKNS_10seqStore_tEj.exit, %123, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit, %99, %126
-  %.0 = phi i64 [ %111, %99 ], [ 0, %126 ], [ %124, %123 ], [ -70, %_ZN11duckdb_zstdL29ZSTD_seqStore_resolveOffCodesEPNS_10repcodes_sES1_PKNS_10seqStore_tEj.exit ], [ %131, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit ], [ -70, %130 ], [ %.069, %168 ], [ %.069, %163 ], [ -70, %141 ]
+  %.0 = phi i64 [ 0, %126 ], [ %124, %123 ], [ %131, %_ZN11duckdb_zstdL20ZSTD_noCompressBlockEPvmPKvmj.exit ], [ %111, %99 ], [ -70, %_ZN11duckdb_zstdL29ZSTD_seqStore_resolveOffCodesEPNS_10repcodes_sES1_PKNS_10seqStore_tEj.exit ], [ %.069, %168 ], [ %.069, %163 ], [ -70, %130 ], [ -70, %141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i64 %.0
 }
@@ -15420,7 +15420,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL50ZSTD_buildEntropyStatisti
   br label %_ZN11duckdb_zstdL30ZSTD_estimateBlockSize_literalEPKhmPKNS_17ZSTD_hufCTables_tEPKNS_25ZSTD_hufCTablesMetadata_tEPvmi.exit.i
 
 _ZN11duckdb_zstdL30ZSTD_estimateBlockSize_literalEPKhmPKNS_17ZSTD_hufCTables_tEPKNS_25ZSTD_hufCTablesMetadata_tEPvmi.exit.i: ; preds = %61, %58, %48, %47, %17
-  %.025.i.i = phi i64 [ 0, %61 ], [ 1, %47 ], [ %24, %17 ], [ %60, %58 ], [ %24, %48 ]
+  %.025.i.i = phi i64 [ 1, %47 ], [ 0, %61 ], [ %24, %17 ], [ %60, %58 ], [ %24, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %62 = getelementptr inbounds nuw i8, ptr %38, i64 2064
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 5064
@@ -15691,7 +15691,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL28ZSTD_entropyCompressSeqSt
   br label %_ZN11duckdb_zstdL34ZSTD_literalsCompressionIsDisabledEPKNS_18ZSTD_CCtx_params_sE.exit.i
 
 _ZN11duckdb_zstdL34ZSTD_literalsCompressionIsDisabledEPKNS_18ZSTD_CCtx_params_sE.exit.i: ; preds = %46, %44, %43, %._crit_edge.i
-  %.0.i.i = phi i32 [ 0, %._crit_edge.i ], [ 1, %43 ], [ 0, %44 ], [ %50, %46 ]
+  %.0.i.i = phi i32 [ 1, %43 ], [ 0, %._crit_edge.i ], [ 0, %44 ], [ %50, %46 ]
   %51 = tail call noundef i64 @_ZN11duckdb_zstd21ZSTD_compressLiteralsEPvmPKvmS0_mPKNS_17ZSTD_hufCTables_tEPS3_NS_13ZSTD_strategyEiii(ptr noundef %4, i64 noundef %5, ptr noundef %32, i64 noundef %.pre136.i, ptr noundef nonnull %30, i64 noundef 8708, ptr noundef %1, ptr noundef %2, i32 noundef %12, i32 noundef %.0.i.i, i32 noundef %40, i32 noundef %8)
   %52 = icmp ult i64 %51, -119
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 %51
@@ -15805,7 +15805,7 @@ _ZN11duckdb_zstdL37ZSTD_entropyCompressSeqStore_internalEPKNS_10seqStore_tEPKNS_
   br i1 %114, label %_ZN11duckdb_zstdL37ZSTD_entropyCompressSeqStore_internalEPKNS_10seqStore_tEPKNS_21ZSTD_entropyCTables_tEPS3_PKNS_18ZSTD_CCtx_params_sEPvmSA_mi.exit.thread31, label %_ZN11duckdb_zstdL37ZSTD_entropyCompressSeqStore_internalEPKNS_10seqStore_tEPKNS_21ZSTD_entropyCTables_tEPS3_PKNS_18ZSTD_CCtx_params_sEPvmSA_mi.exit.thread
 
 _ZN11duckdb_zstdL37ZSTD_entropyCompressSeqStore_internalEPKNS_10seqStore_tEPKNS_21ZSTD_entropyCTables_tEPS3_PKNS_18ZSTD_CCtx_params_sEPvmSA_mi.exit.thread: ; preds = %85, %.critedge.i, %_ZN11duckdb_zstdL34ZSTD_literalsCompressionIsDisabledEPKNS_18ZSTD_CCtx_params_sE.exit.i, %_ZN11duckdb_zstdL37ZSTD_entropyCompressSeqStore_internalEPKNS_10seqStore_tEPKNS_21ZSTD_entropyCTables_tEPS3_PKNS_18ZSTD_CCtx_params_sEPvmSA_mi.exit
-  %.1.i30 = phi i64 [ %113, %_ZN11duckdb_zstdL37ZSTD_entropyCompressSeqStore_internalEPKNS_10seqStore_tEPKNS_21ZSTD_entropyCTables_tEPS3_PKNS_18ZSTD_CCtx_params_sEPvmSA_mi.exit ], [ %104, %85 ], [ %51, %_ZN11duckdb_zstdL34ZSTD_literalsCompressionIsDisabledEPKNS_18ZSTD_CCtx_params_sE.exit.i ], [ %83, %.critedge.i ]
+  %.1.i30 = phi i64 [ %113, %_ZN11duckdb_zstdL37ZSTD_entropyCompressSeqStore_internalEPKNS_10seqStore_tEPKNS_21ZSTD_entropyCTables_tEPS3_PKNS_18ZSTD_CCtx_params_sEPvmSA_mi.exit ], [ %104, %85 ], [ %83, %.critedge.i ], [ %51, %_ZN11duckdb_zstdL34ZSTD_literalsCompressionIsDisabledEPKNS_18ZSTD_CCtx_params_sE.exit.i ]
   %115 = icmp eq i64 %.1.i30, -70
   %116 = icmp ule i64 %6, %5
   %117 = and i1 %116, %115
@@ -16108,7 +16108,7 @@ define internal fastcc noundef range(i64 -119, 4294967296) i64 @_ZN11duckdb_zstd
   br label %_ZN11duckdb_zstdL23ZSTD_loadZstdDictionaryEPNS_27ZSTD_compressedBlockState_tEPNS_17ZSTD_matchState_tEPNS_10ZSTD_cwkspEPKNS_18ZSTD_CCtx_params_sEPKvmNS_26ZSTD_dictTableLoadMethod_eENS_23ZSTD_tableFillPurpose_eEPv.exit
 
 _ZN11duckdb_zstdL23ZSTD_loadZstdDictionaryEPNS_27ZSTD_compressedBlockState_tEPNS_17ZSTD_matchState_tEPNS_10ZSTD_cwkspEPKNS_18ZSTD_CCtx_params_sEPKvmNS_26ZSTD_dictTableLoadMethod_eENS_23ZSTD_tableFillPurpose_eEPv.exit: ; preds = %37, %33, %25, %14, %26, %23
-  %.0 = phi i64 [ %., %14 ], [ -32, %25 ], [ 0, %23 ], [ 0, %26 ], [ %35, %33 ], [ %34, %37 ]
+  %.0 = phi i64 [ 0, %23 ], [ 0, %26 ], [ %., %14 ], [ -32, %25 ], [ %35, %33 ], [ %34, %37 ]
   ret i64 %.0
 }
 

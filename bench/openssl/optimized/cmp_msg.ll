@@ -261,8 +261,8 @@ OSSL_CMP_MSG_get_bodytype.exit:                   ; preds = %2
   br i1 %16, label %.sink.split, label %17
 
 .sink.split:                                      ; preds = %OSSL_CMP_MSG_get_bodytype.exit, %2, %1, %11, %14, %6
-  %.sink16 = phi i32 [ 124, %11 ], [ 119, %6 ], [ 124, %14 ], [ 129, %1 ], [ 129, %2 ], [ 129, %OSSL_CMP_MSG_get_bodytype.exit ]
-  %.sink = phi i32 [ 118, %11 ], [ 157, %6 ], [ 118, %14 ], [ 133, %1 ], [ 133, %2 ], [ 133, %OSSL_CMP_MSG_get_bodytype.exit ]
+  %.sink16 = phi i32 [ 119, %6 ], [ 124, %14 ], [ 124, %11 ], [ 129, %1 ], [ 129, %2 ], [ 129, %OSSL_CMP_MSG_get_bodytype.exit ]
+  %.sink = phi i32 [ 157, %6 ], [ 118, %14 ], [ 118, %11 ], [ 133, %1 ], [ 133, %2 ], [ 133, %OSSL_CMP_MSG_get_bodytype.exit ]
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink16, ptr noundef nonnull @__func__.OSSL_CMP_MSG_get0_certreq_publickey) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink, ptr noundef null) #7
@@ -474,7 +474,7 @@ ossl_cmp_msg_set_bodytype.exit.thread:            ; preds = %ossl_cmp_msg_set_bo
   br label %OSSL_CMP_MSG_new.exit.thread
 
 OSSL_CMP_MSG_new.exit.thread:                     ; preds = %3, %16, %88, %83, %78, %73, %59, %54, %49, %44, %39, %30, %2, %ossl_cmp_msg_set_bodytype.exit.thread, %69
-  %.0 = phi ptr [ null, %2 ], [ null, %ossl_cmp_msg_set_bodytype.exit.thread ], [ %8, %88 ], [ %8, %30 ], [ %8, %39 ], [ %8, %44 ], [ %8, %49 ], [ %8, %54 ], [ %8, %69 ], [ %8, %59 ], [ %8, %73 ], [ %8, %78 ], [ %8, %83 ], [ null, %16 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %ossl_cmp_msg_set_bodytype.exit.thread ], [ %8, %69 ], [ null, %2 ], [ %8, %30 ], [ %8, %39 ], [ %8, %44 ], [ %8, %49 ], [ %8, %54 ], [ %8, %59 ], [ %8, %73 ], [ %8, %78 ], [ %8, %83 ], [ %8, %88 ], [ null, %16 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -574,7 +574,7 @@ define ptr @OSSL_CMP_CTX_setup_CRM(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %determine_subj.exit
 
 determine_subj.exit:                              ; preds = %25, %28, %33, %35, %41, %44
-  %.0.i = phi ptr [ null, %44 ], [ %34, %33 ], [ null, %25 ], [ %29, %28 ], [ %22, %41 ], [ %22, %35 ]
+  %.0.i = phi ptr [ %34, %33 ], [ null, %44 ], [ %29, %28 ], [ null, %25 ], [ %22, %41 ], [ %22, %35 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %46 = load ptr, ptr %45, align 8, !tbaa !45
   %47 = icmp ne ptr %46, null
@@ -797,7 +797,7 @@ add1_extension.exit:                              ; preds = %133
   br i1 %156, label %add1_extension.exit.thread, label %157
 
 add1_extension.exit.thread:                       ; preds = %154, %149, %133, %97, %145, %141, %add1_extension.exit, %124, %117, %100, %76, %79
-  %.089 = phi ptr [ null, %100 ], [ %.1, %124 ], [ %.1, %133 ], [ %.1, %145 ], [ %.1, %141 ], [ %.1, %add1_extension.exit ], [ %116, %117 ], [ null, %97 ], [ null, %79 ], [ null, %76 ], [ %.1, %149 ], [ %.1, %154 ]
+  %.089 = phi ptr [ null, %100 ], [ %.1, %124 ], [ %.1, %145 ], [ %.1, %141 ], [ %.1, %add1_extension.exit ], [ %116, %117 ], [ null, %97 ], [ null, %79 ], [ null, %76 ], [ %.1, %133 ], [ %.1, %149 ], [ %.1, %154 ]
   call void @OSSL_CRMF_MSG_free(ptr noundef nonnull %74) #7
   br label %157
 
@@ -810,7 +810,7 @@ add1_extension.exit.thread:                       ; preds = %154, %149, %133, %9
   br label %159
 
 159:                                              ; preds = %73, %157, %72, %65
-  %.0 = phi ptr [ null, %72 ], [ null, %65 ], [ null, %73 ], [ %.088, %157 ]
+  %.0 = phi ptr [ null, %72 ], [ %.088, %157 ], [ null, %65 ], [ null, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -998,8 +998,8 @@ define ptr @ossl_cmp_certreq_new(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %.not56 = icmp eq i32 %51, 0
   br i1 %.not56, label %.thread, label %53
 
-.thread:                                          ; preds = %44, %33, %41, %28, %25, %50, %15, %9
-  %.044 = phi ptr [ null, %9 ], [ null, %50 ], [ null, %15 ], [ null, %25 ], [ %31, %33 ], [ null, %41 ], [ null, %28 ], [ %.3, %44 ]
+.thread:                                          ; preds = %44, %41, %28, %33, %25, %50, %15, %9
+  %.044 = phi ptr [ null, %9 ], [ null, %50 ], [ null, %15 ], [ null, %41 ], [ null, %28 ], [ %31, %33 ], [ null, %25 ], [ %.3, %44 ]
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 449, ptr noundef nonnull @__func__.ossl_cmp_certreq_new) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef 163, ptr noundef null) #7
@@ -1337,10 +1337,10 @@ define ptr @ossl_cmp_rr_new(ptr noundef %0) local_unnamed_addr #0 {
   br label %35
 
 35:                                               ; preds = %19, %24, %31
-  %.036 = phi ptr [ null, %31 ], [ %25, %24 ], [ %21, %19 ]
-  %.035 = phi ptr [ %34, %31 ], [ null, %24 ], [ null, %19 ]
-  %.034 = phi ptr [ null, %31 ], [ %27, %24 ], [ %18, %19 ]
-  %.033 = phi ptr [ %32, %31 ], [ null, %24 ], [ null, %19 ]
+  %.036 = phi ptr [ %25, %24 ], [ null, %31 ], [ %21, %19 ]
+  %.035 = phi ptr [ null, %24 ], [ %34, %31 ], [ null, %19 ]
+  %.034 = phi ptr [ %27, %24 ], [ null, %31 ], [ %18, %19 ]
+  %.033 = phi ptr [ null, %24 ], [ %32, %31 ], [ null, %19 ]
   %36 = load ptr, ptr %14, align 8, !tbaa !79
   %37 = tail call i32 @OSSL_CRMF_CERTTEMPLATE_fill(ptr noundef %36, ptr noundef %.033, ptr noundef %.035, ptr noundef %.036, ptr noundef %.034) #7
   %.not54 = icmp eq i32 %37, 0
@@ -1369,7 +1369,7 @@ define ptr @ossl_cmp_rr_new(ptr noundef %0) local_unnamed_addr #0 {
   %49 = icmp eq ptr %48, null
   br i1 %49, label %add_crl_reason_extension.exit.thread, label %add_crl_reason_extension.exit
 
-add_crl_reason_extension.exit.thread:             ; preds = %41, %44, %47
+add_crl_reason_extension.exit.thread:             ; preds = %44, %41, %47
   tail call void @ASN1_ENUMERATED_free(ptr noundef %43) #7
   br label %62
 
@@ -1674,7 +1674,7 @@ define internal fastcc ptr @gen_new(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %15
 
 15:                                               ; preds = %11, %5, %4, %13
-  %.0 = phi ptr [ null, %4 ], [ null, %5 ], [ null, %13 ], [ %6, %11 ]
+  %.0 = phi ptr [ null, %13 ], [ null, %4 ], [ null, %5 ], [ %6, %11 ]
   ret ptr %.0
 }
 
@@ -1962,7 +1962,7 @@ define ptr @ossl_cmp_certConf_new(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %.not44, label %62, label %.critedge
 
 62:                                               ; preds = %59, %56, %44, %41, %34, %29, %18, %15, %28
-  %.030 = phi ptr [ null, %15 ], [ null, %18 ], [ null, %28 ], [ null, %34 ], [ %37, %44 ], [ null, %56 ], [ null, %59 ], [ null, %29 ], [ %37, %41 ]
+  %.030 = phi ptr [ null, %15 ], [ null, %18 ], [ null, %28 ], [ null, %34 ], [ %37, %44 ], [ null, %56 ], [ null, %59 ], [ %37, %41 ], [ null, %29 ]
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 927, ptr noundef nonnull @__func__.ossl_cmp_certConf_new) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef 116, ptr noundef null) #7
@@ -1972,7 +1972,7 @@ define ptr @ossl_cmp_certConf_new(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %4, %59, %62, %14
-  %.0 = phi ptr [ null, %14 ], [ null, %62 ], [ null, %7 ], [ %16, %59 ], [ null, %4 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %62 ], [ %16, %59 ], [ null, %4 ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -2125,7 +2125,7 @@ define ptr @ossl_cmp_revrepcontent_get_pkisi(ptr noundef readonly captures(addre
   br label %7
 
 7:                                                ; preds = %3, %2, %6
-  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ %5, %3 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %2 ], [ %5, %3 ]
   ret ptr %.0
 }
 
@@ -2148,7 +2148,7 @@ define ptr @ossl_cmp_revrepcontent_get_CertId(ptr noundef readonly captures(addr
   br label %8
 
 8:                                                ; preds = %3, %2, %7
-  %.0 = phi ptr [ null, %2 ], [ null, %7 ], [ %6, %3 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %2 ], [ %6, %3 ]
   ret ptr %.0
 }
 
@@ -2201,7 +2201,7 @@ suitable_rid.exit:                                ; preds = %.lr.ph.split
   br label %suitable_rid.exit.thread15
 
 suitable_rid.exit.thread15:                       ; preds = %suitable_rid.exit, %.lr.ph.split.us, %2, %._crit_edge
-  %.010 = phi ptr [ null, %2 ], [ null, %._crit_edge ], [ %6, %.lr.ph.split.us ], [ %7, %suitable_rid.exit ]
+  %.010 = phi ptr [ null, %._crit_edge ], [ null, %2 ], [ %6, %.lr.ph.split.us ], [ %7, %suitable_rid.exit ]
   ret ptr %.010
 }
 
@@ -2263,7 +2263,7 @@ suitable_rid.exit:                                ; preds = %.lr.ph.split
   br label %.critedge
 
 .critedge:                                        ; preds = %suitable_rid.exit, %.lr.ph.split.us, %2, %3, %._crit_edge
-  %.011 = phi ptr [ null, %3 ], [ null, %._crit_edge ], [ null, %2 ], [ %10, %.lr.ph.split.us ], [ %12, %suitable_rid.exit ]
+  %.011 = phi ptr [ null, %._crit_edge ], [ null, %3 ], [ null, %2 ], [ %10, %.lr.ph.split.us ], [ %12, %suitable_rid.exit ]
   ret ptr %.011
 }
 
@@ -2403,7 +2403,7 @@ define ptr @ossl_cmp_certresponse_get1_cert(ptr noundef %0, ptr noundef readonly
   br label %64
 
 64:                                               ; preds = %.thread, %59, %35, %56, %48, %33, %16, %13, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %13 ], [ null, %33 ], [ null, %56 ], [ null, %35 ], [ null, %48 ], [ null, %16 ], [ %.035, %59 ], [ null, %.thread ]
+  %.0 = phi ptr [ null, %8 ], [ null, %13 ], [ null, %33 ], [ null, %56 ], [ null, %48 ], [ null, %16 ], [ null, %35 ], [ %.035, %59 ], [ null, %.thread ]
   ret ptr %.0
 }
 

@@ -205,7 +205,7 @@ _ZNK4lean18reducibility_hints4kindEv.exit20.thread: ; preds = %22
   br label %_ZNK4lean18reducibility_hints10get_heightEv.exit
 
 _ZNK4lean18reducibility_hints10get_heightEv.exit: ; preds = %_ZNK4lean18reducibility_hints4kindEv.exit20.thread, %29, %31, %32
-  %33 = phi ptr [ %3, %_ZNK4lean18reducibility_hints4kindEv.exit20.thread ], [ %3, %29 ], [ %3, %31 ], [ %.pre.i.i, %32 ]
+  %33 = phi ptr [ %3, %29 ], [ %3, %31 ], [ %.pre.i.i, %32 ], [ %3, %_ZNK4lean18reducibility_hints4kindEv.exit20.thread ]
   %34 = tail call noundef i32 @lean_reducibility_hints_get_height(ptr noundef %33)
   %35 = load ptr, ptr %1, align 8, !tbaa !3
   %36 = ptrtoint ptr %35 to i64
@@ -388,7 +388,7 @@ _ZNK4lean18reducibility_hints4kindEv.exit52:      ; preds = %96, %99
   unreachable
 
 108:                                              ; preds = %_ZNK4lean18reducibility_hints4kindEv.exit20.thread, %_ZNK4lean18reducibility_hints4kindEv.exit52, %_ZNK4lean18reducibility_hints4kindEv.exit48, %_ZNK4lean18reducibility_hints4kindEv.exit44, %_ZNK4lean18reducibility_hints4kindEv.exit40, %_ZNK4lean18reducibility_hints4kindEv.exit20, %_ZNK4lean18reducibility_hints10get_heightEv.exit36, %_ZNK4lean18reducibility_hints10get_heightEv.exit26
-  %.0 = phi i32 [ -1, %_ZNK4lean18reducibility_hints4kindEv.exit48 ], [ %., %_ZNK4lean18reducibility_hints10get_heightEv.exit36 ], [ 0, %_ZNK4lean18reducibility_hints10get_heightEv.exit26 ], [ -1, %_ZNK4lean18reducibility_hints4kindEv.exit44 ], [ 0, %_ZNK4lean18reducibility_hints4kindEv.exit20 ], [ 1, %_ZNK4lean18reducibility_hints4kindEv.exit40 ], [ 1, %_ZNK4lean18reducibility_hints4kindEv.exit52 ], [ 0, %_ZNK4lean18reducibility_hints4kindEv.exit20.thread ]
+  %.0 = phi i32 [ 0, %_ZNK4lean18reducibility_hints10get_heightEv.exit26 ], [ %., %_ZNK4lean18reducibility_hints10get_heightEv.exit36 ], [ 0, %_ZNK4lean18reducibility_hints4kindEv.exit20 ], [ 1, %_ZNK4lean18reducibility_hints4kindEv.exit40 ], [ -1, %_ZNK4lean18reducibility_hints4kindEv.exit44 ], [ -1, %_ZNK4lean18reducibility_hints4kindEv.exit48 ], [ 1, %_ZNK4lean18reducibility_hints4kindEv.exit52 ], [ 0, %_ZNK4lean18reducibility_hints4kindEv.exit20.thread ]
   ret i32 %.0
 }
 
@@ -2448,7 +2448,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %66, %71, %73, %74
   unreachable
 
 86:                                               ; preds = %_ZNK4lean11declaration4kindEv.exit, %_ZNK4lean11declaration4kindEv.exit, %80, %_ZN4lean10object_refD2Ev.exit, %_ZNK4lean10opaque_val9is_unsafeEv.exit, %_ZNK4lean9axiom_val9is_unsafeEv.exit, %_ZNK4lean14definition_val10get_safetyEv.exit
-  %.04 = phi i1 [ %25, %_ZNK4lean14definition_val10get_safetyEv.exit ], [ %39, %_ZNK4lean9axiom_val9is_unsafeEv.exit ], [ true, %80 ], [ %53, %_ZNK4lean10opaque_val9is_unsafeEv.exit ], [ %67, %_ZN4lean10object_refD2Ev.exit ], [ false, %_ZNK4lean11declaration4kindEv.exit ], [ false, %_ZNK4lean11declaration4kindEv.exit ]
+  %.04 = phi i1 [ %25, %_ZNK4lean14definition_val10get_safetyEv.exit ], [ %39, %_ZNK4lean9axiom_val9is_unsafeEv.exit ], [ %53, %_ZNK4lean10opaque_val9is_unsafeEv.exit ], [ %67, %_ZN4lean10object_refD2Ev.exit ], [ true, %80 ], [ false, %_ZNK4lean11declaration4kindEv.exit ], [ false, %_ZNK4lean11declaration4kindEv.exit ]
   ret i1 %.04
 }
 
@@ -4588,7 +4588,7 @@ _ZNK4lean12recursor_val9is_unsafeEv.exit:         ; preds = %75, %82, %84, %85
   unreachable
 
 94:                                               ; preds = %1, %1, %_ZNK4lean12recursor_val9is_unsafeEv.exit, %_ZNK4lean15constructor_val9is_unsafeEv.exit, %_ZNK4lean13inductive_val9is_unsafeEv.exit, %_ZNK4lean10opaque_val9is_unsafeEv.exit, %_ZNK4lean14definition_val10get_safetyEv.exit, %_ZNK4lean9axiom_val9is_unsafeEv.exit
-  %.0 = phi i1 [ %18, %_ZNK4lean9axiom_val9is_unsafeEv.exit ], [ %32, %_ZNK4lean14definition_val10get_safetyEv.exit ], [ %88, %_ZNK4lean12recursor_val9is_unsafeEv.exit ], [ %46, %_ZNK4lean10opaque_val9is_unsafeEv.exit ], [ false, %1 ], [ %60, %_ZNK4lean13inductive_val9is_unsafeEv.exit ], [ %74, %_ZNK4lean15constructor_val9is_unsafeEv.exit ], [ false, %1 ]
+  %.0 = phi i1 [ %18, %_ZNK4lean9axiom_val9is_unsafeEv.exit ], [ %32, %_ZNK4lean14definition_val10get_safetyEv.exit ], [ %46, %_ZNK4lean10opaque_val9is_unsafeEv.exit ], [ %60, %_ZNK4lean13inductive_val9is_unsafeEv.exit ], [ %74, %_ZNK4lean15constructor_val9is_unsafeEv.exit ], [ %88, %_ZNK4lean12recursor_val9is_unsafeEv.exit ], [ false, %1 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -5204,7 +5204,7 @@ _ZN4lean8optionalINS_13constant_infoEED2Ev.exit.i.i.i: ; preds = %39, %38, %36, 
   br label %"_ZSt10__invoke_rIbRZN4lean10use_unsafeERKNS0_11environmentERKNS0_4exprEE3$_0JS6_EENSt9enable_ifIXntsr7is_voidIT_EE5valueESA_E4typeEOT0_DpOT1_.exit"
 
 "_ZSt10__invoke_rIbRZN4lean10use_unsafeERKNS0_11environmentERKNS0_4exprEE3$_0JS6_EENSt9enable_ifIXntsr7is_voidIT_EE5valueESA_E4typeEOT0_DpOT1_.exit": ; preds = %2, %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit.i.i.i, %43
-  %.06.i.i.i = phi i1 [ false, %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit.i.i.i ], [ true, %43 ], [ false, %2 ]
+  %.06.i.i.i = phi i1 [ true, %43 ], [ false, %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit.i.i.i ], [ false, %2 ]
   ret i1 %.06.i.i.i
 }
 

@@ -96,8 +96,8 @@ Vec_IntAlloc.exit:                                ; preds = %1, %8
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %36, %38, %28, %30
-  %.sink33 = phi ptr [ %31, %30 ], [ %29, %28 ], [ %37, %36 ], [ %39, %38 ]
-  %.sink = phi i32 [ 16, %30 ], [ 16, %28 ], [ %33, %36 ], [ %33, %38 ]
+  %.sink33 = phi ptr [ %29, %28 ], [ %31, %30 ], [ %37, %36 ], [ %39, %38 ]
+  %.sink = phi i32 [ 16, %28 ], [ 16, %30 ], [ %33, %36 ], [ %33, %38 ]
   store ptr %.sink33, ptr %13, align 8, !tbaa !27
   store i32 %.sink, ptr %5, align 8, !tbaa !26
   br label %Vec_IntPush.exit
@@ -1915,7 +1915,7 @@ xSAT_WatchListPush.exit:                          ; preds = %159, %196
   br label %246
 
 246:                                              ; preds = %.thread, %._crit_edge177
-  %.2 = phi i32 [ %89, %.thread ], [ %.0102.lcssa, %._crit_edge177 ]
+  %.2 = phi i32 [ %.0102.lcssa, %._crit_edge177 ], [ %89, %.thread ]
   ret i32 %.2
 }
 
@@ -2534,7 +2534,7 @@ xSAT_ClauseCompare.exit47.thread.split.us.us:     ; preds = %xSAT_ClauseCompare.
   br i1 %or.cond99, label %.preheader, label %.thread19.i
 
 .thread19.i:                                      ; preds = %117, %116
-  %119 = phi i32 [ %.ph, %116 ], [ %110, %117 ]
+  %119 = phi i32 [ %110, %117 ], [ %.ph, %116 ]
   %120 = load i32, ptr %112, align 4
   %121 = lshr i32 %120, 4
   %122 = load i32, ptr %51, align 4
@@ -3848,7 +3848,7 @@ Vec_IntPush.exit197.i:                            ; preds = %378, %Vec_IntGrow.e
   br label %385
 
 385:                                              ; preds = %.sink.split.i, %xSAT_SolverReadClause.exit183.i, %312, %249, %.lr.ph.i
-  %.2.i = phi i32 [ %.1271.i, %249 ], [ %313, %xSAT_SolverReadClause.exit183.i ], [ %313, %312 ], [ %.1271.i, %.lr.ph.i ], [ %.2.ph.i, %.sink.split.i ]
+  %.2.i = phi i32 [ %313, %xSAT_SolverReadClause.exit183.i ], [ %313, %312 ], [ %.1271.i, %249 ], [ %.1271.i, %.lr.ph.i ], [ %.2.ph.i, %.sink.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %386 = load i32, ptr %234, align 4, !tbaa !47
   %387 = sext i32 %386 to i64
@@ -5210,7 +5210,7 @@ xSAT_HeapRemoveMin.exit.i:                        ; preds = %xSAT_HeapRemoveMin.
   br i1 %1058, label %1029, label %xSAT_HeapPercolateDown.exit.i.i
 
 xSAT_HeapPercolateDown.exit.i.i:                  ; preds = %1052, %1047
-  %.032.lcssa.i.i.i = phi i32 [ %1050, %1052 ], [ %.03251.i.i.i, %1047 ]
+  %.032.lcssa.i.i.i = phi i32 [ %.03251.i.i.i, %1047 ], [ %1050, %1052 ]
   %1059 = sext i32 %.032.lcssa.i.i.i to i64
   %1060 = getelementptr inbounds i32, ptr %.val11.i.i99, i64 %1059
   store i32 %1025, ptr %1060, align 4, !tbaa !30
@@ -5308,7 +5308,7 @@ Vec_IntGrow.exit.i.i109:                          ; preds = %1086, %1084
   br label %.backedge
 
 .thread:                                          ; preds = %39, %.critedge.i98, %975
-  %.2.ph = phi i8 [ 1, %.critedge.i98 ], [ 0, %975 ], [ -1, %39 ]
+  %.2.ph = phi i8 [ 0, %975 ], [ 1, %.critedge.i98 ], [ -1, %39 ]
   ret i8 %.2.ph
 }
 

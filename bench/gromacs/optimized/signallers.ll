@@ -1578,8 +1578,8 @@ _Z11do_per_stepll.exit28.thread.thread:           ; preds = %_Z11do_per_stepll.e
   br label %_Z11do_per_stepll.exit31
 
 _Z11do_per_stepll.exit31:                         ; preds = %24, %_Z11do_per_stepll.exit28.thread.thread, %_Z11do_per_stepll.exit.thread50, %3, %31, %_Z11do_per_stepll.exit28, %_Z11do_per_stepll.exit
-  %36 = phi i1 [ false, %_Z11do_per_stepll.exit28 ], [ true, %_Z11do_per_stepll.exit ], [ false, %_Z11do_per_stepll.exit.thread50 ], [ true, %3 ], [ false, %31 ], [ false, %_Z11do_per_stepll.exit28.thread.thread ], [ false, %24 ]
-  %37 = phi i1 [ true, %_Z11do_per_stepll.exit28 ], [ true, %_Z11do_per_stepll.exit ], [ false, %_Z11do_per_stepll.exit.thread50 ], [ true, %3 ], [ %35, %31 ], [ false, %_Z11do_per_stepll.exit28.thread.thread ], [ false, %24 ]
+  %36 = phi i1 [ false, %_Z11do_per_stepll.exit28 ], [ true, %_Z11do_per_stepll.exit ], [ false, %31 ], [ true, %3 ], [ false, %_Z11do_per_stepll.exit.thread50 ], [ false, %_Z11do_per_stepll.exit28.thread.thread ], [ false, %24 ]
+  %37 = phi i1 [ true, %_Z11do_per_stepll.exit28 ], [ true, %_Z11do_per_stepll.exit ], [ %35, %31 ], [ true, %3 ], [ false, %_Z11do_per_stepll.exit.thread50 ], [ false, %_Z11do_per_stepll.exit28.thread.thread ], [ false, %24 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %39 = load i32, ptr %38, align 4, !tbaa !94
   %.not.i32 = icmp eq i32 %39, 0

@@ -156,7 +156,7 @@ define noundef zeroext i1 @_ZN7glslang15TConstTraverser14visitAggregateENS_6TVis
   br label %.thread
 
 .thread:                                          ; preds = %10, %39, %58, %23
-  %78 = phi i1 [ false, %23 ], [ true, %39 ], [ true, %58 ], [ false, %10 ]
+  %78 = phi i1 [ true, %39 ], [ true, %58 ], [ false, %23 ], [ false, %10 ]
   %79 = load ptr, ptr %2, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 400
   %81 = load ptr, ptr %80, align 8
@@ -287,7 +287,7 @@ define linkonce_odr noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %32, %36
-  %.1 = phi i32 [ %38, %36 ], [ %35, %32 ], [ 0, %13 ], [ %22, %.lr.ph ]
+  %.1 = phi i32 [ %35, %32 ], [ %38, %36 ], [ 0, %13 ], [ %22, %.lr.ph ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = load ptr, ptr %39, align 8
   %.not5 = icmp eq ptr %40, null

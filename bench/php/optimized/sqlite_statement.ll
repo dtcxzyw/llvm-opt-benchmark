@@ -177,7 +177,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_fetch(ptr noundef %0, i32 %
   br label %30
 
 30:                                               ; preds = %16, %14, %3, %26, %18, %12
-  %.0 = phi i32 [ 1, %12 ], [ 0, %3 ], [ 0, %26 ], [ 0, %14 ], [ 0, %18 ], [ 1, %16 ]
+  %.0 = phi i32 [ 1, %12 ], [ 0, %26 ], [ 0, %18 ], [ 0, %3 ], [ 0, %14 ], [ 1, %16 ]
   ret i32 %.0
 }
 
@@ -667,7 +667,7 @@ try_convert_to_string.exit80.thread:              ; preds = %try_convert_to_stri
   br label %162
 
 162:                                              ; preds = %.thread, %20, %3, %try_convert_to_string.exit80.thread, %try_convert_to_string.exit80, %138, %try_convert_to_string.exit.thread, %try_convert_to_string.exit, %105, %68, %61, %40, %36, %158, %112, %77, %47
-  %.0 = phi i32 [ 1, %105 ], [ 0, %158 ], [ 0, %try_convert_to_string.exit80 ], [ 1, %138 ], [ 1, %try_convert_to_string.exit80.thread ], [ 0, %36 ], [ 0, %47 ], [ 1, %40 ], [ 0, %77 ], [ 1, %61 ], [ %., %try_convert_to_string.exit.thread ], [ 0, %try_convert_to_string.exit ], [ 0, %.thread ], [ 1, %68 ], [ 0, %112 ], [ 1, %3 ], [ 1, %20 ]
+  %.0 = phi i32 [ 0, %158 ], [ 0, %47 ], [ 0, %77 ], [ 0, %112 ], [ 0, %36 ], [ 1, %40 ], [ 1, %61 ], [ 1, %68 ], [ 1, %105 ], [ 0, %try_convert_to_string.exit ], [ %., %try_convert_to_string.exit.thread ], [ 1, %138 ], [ 0, %try_convert_to_string.exit80 ], [ 1, %try_convert_to_string.exit80.thread ], [ 1, %3 ], [ 1, %20 ], [ 0, %.thread ]
   ret i32 %.0
 }
 

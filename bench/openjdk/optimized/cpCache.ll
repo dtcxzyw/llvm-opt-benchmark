@@ -1007,7 +1007,7 @@ _ZN15MetadataFactory9new_arrayI18ResolvedFieldEntryEEP5ArrayIT_EP15ClassLoaderDa
   br i1 %51, label %26, label %_ZL33initialize_resolved_entries_arrayI18ResolvedFieldEntryEP5ArrayIT_EP15ClassLoaderData13GrowableArrayIS2_EP10JavaThread.exit, !llvm.loop !7
 
 _ZL33initialize_resolved_entries_arrayI18ResolvedFieldEntryEP5ArrayIT_EP15ClassLoaderData13GrowableArrayIS2_EP10JavaThread.exit: ; preds = %26, %6, %_ZN15MetadataFactory9new_arrayI18ResolvedFieldEntryEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i, %.preheader.i
-  %.09.i = phi ptr [ null, %6 ], [ null, %_ZN15MetadataFactory9new_arrayI18ResolvedFieldEntryEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ %17, %.preheader.i ], [ %17, %26 ]
+  %.09.i = phi ptr [ null, %_ZN15MetadataFactory9new_arrayI18ResolvedFieldEntryEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ null, %6 ], [ %17, %.preheader.i ], [ %17, %26 ]
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = and i64 %53, 1
@@ -1077,7 +1077,7 @@ _ZN15MetadataFactory9new_arrayI17ResolvedIndyEntryEEP5ArrayIT_EP15ClassLoaderDat
   br i1 %exitcond.not, label %_ZL33initialize_resolved_entries_arrayI17ResolvedIndyEntryEP5ArrayIT_EP15ClassLoaderData13GrowableArrayIS2_EP10JavaThread.exit, label %73, !llvm.loop !9
 
 _ZL33initialize_resolved_entries_arrayI17ResolvedIndyEntryEP5ArrayIT_EP15ClassLoaderData13GrowableArrayIS2_EP10JavaThread.exit: ; preds = %73, %58, %_ZN15MetadataFactory9new_arrayI17ResolvedIndyEntryEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i, %.preheader.i22
-  %.09.i21 = phi ptr [ null, %58 ], [ null, %_ZN15MetadataFactory9new_arrayI17ResolvedIndyEntryEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ %66, %.preheader.i22 ], [ %66, %73 ]
+  %.09.i21 = phi ptr [ null, %_ZN15MetadataFactory9new_arrayI17ResolvedIndyEntryEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ null, %58 ], [ %66, %.preheader.i22 ], [ %66, %73 ]
   %76 = and i64 %.sroa.11.0.copyload, 1
   %.not.i26 = icmp eq i64 %76, 0
   %77 = icmp eq i32 %.sroa.6.0.copyload, 0
@@ -1173,7 +1173,7 @@ _ZN15MetadataFactory9new_arrayI19ResolvedMethodEntryEEP5ArrayIT_EP15ClassLoaderD
   br i1 %121, label %96, label %_ZL33initialize_resolved_entries_arrayI19ResolvedMethodEntryEP5ArrayIT_EP15ClassLoaderData13GrowableArrayIS2_EP10JavaThread.exit, !llvm.loop !10
 
 _ZL33initialize_resolved_entries_arrayI19ResolvedMethodEntryEP5ArrayIT_EP15ClassLoaderData13GrowableArrayIS2_EP10JavaThread.exit: ; preds = %96, %79, %_ZN15MetadataFactory9new_arrayI19ResolvedMethodEntryEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i, %.preheader.i31
-  %.09.i30 = phi ptr [ null, %79 ], [ null, %_ZN15MetadataFactory9new_arrayI19ResolvedMethodEntryEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ %88, %.preheader.i31 ], [ %88, %96 ]
+  %.09.i30 = phi ptr [ null, %_ZN15MetadataFactory9new_arrayI19ResolvedMethodEntryEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ null, %79 ], [ %88, %.preheader.i31 ], [ %88, %96 ]
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %123 = load i64, ptr %122, align 8
   %124 = and i64 %123, 1
@@ -1210,7 +1210,7 @@ _ZN13GrowableArrayI19ResolvedMethodEntryED2Ev.exit: ; preds = %_ZL33initialize_r
   br label %136
 
 136:                                              ; preds = %127, %130, %_ZN13GrowableArrayI19ResolvedMethodEntryED2Ev.exit, %_ZN13GrowableArrayI17ResolvedIndyEntryED2Ev.exit, %_ZN13GrowableArrayI18ResolvedFieldEntryED2Ev.exit
-  %.0 = phi ptr [ null, %_ZN13GrowableArrayI19ResolvedMethodEntryED2Ev.exit ], [ null, %_ZN13GrowableArrayI18ResolvedFieldEntryED2Ev.exit ], [ null, %_ZN13GrowableArrayI17ResolvedIndyEntryED2Ev.exit ], [ %128, %130 ], [ null, %127 ]
+  %.0 = phi ptr [ null, %_ZN13GrowableArrayI18ResolvedFieldEntryED2Ev.exit ], [ null, %_ZN13GrowableArrayI17ResolvedIndyEntryED2Ev.exit ], [ null, %_ZN13GrowableArrayI19ResolvedMethodEntryED2Ev.exit ], [ %128, %130 ], [ null, %127 ]
   ret ptr %.0
 }
 
@@ -1571,7 +1571,7 @@ _ZN17ConstantPoolCache27can_archive_resolved_methodEP19ResolvedMethodEntry.exit:
   call void @_ZN19ResolvedMethodEntry17mark_and_relocateEP12ConstantPool(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef %6) #12
   br label %78
 
-.thread53:                                        ; preds = %_ZN17ConstantPoolCache27can_archive_resolved_methodEP19ResolvedMethodEntry.exit, %43, %63, %58, %55
+.thread53:                                        ; preds = %_ZN17ConstantPoolCache27can_archive_resolved_methodEP19ResolvedMethodEntry.exit, %55, %58, %63, %43
   call void @_ZN19ResolvedMethodEntry23remove_unshareable_infoEv(ptr noundef nonnull align 8 dereferenceable(24) %21) #12
   br label %78
 
@@ -1807,7 +1807,7 @@ define hidden noundef zeroext i1 @_ZN17ConstantPoolCache27can_archive_resolved_m
   br label %42
 
 42:                                               ; preds = %2, %39, %32, %36, %24, %19, %16
-  %.0 = phi i1 [ false, %2 ], [ false, %24 ], [ true, %32 ], [ false, %19 ], [ true, %36 ], [ false, %16 ], [ %41, %39 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %19 ], [ false, %24 ], [ true, %36 ], [ true, %32 ], [ %41, %39 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -2248,7 +2248,7 @@ define hidden noundef zeroext i1 @_ZN17ConstantPoolCache32check_no_old_or_obsole
   br label %.loopexit
 
 .loopexit:                                        ; preds = %46, %.loopexit.sink.split, %.preheader, %.loopexit34, %44, %27
-  %.0 = phi i1 [ true, %.preheader ], [ false, %.loopexit.sink.split ], [ false, %27 ], [ false, %44 ], [ true, %.loopexit34 ], [ true, %46 ]
+  %.0 = phi i1 [ false, %27 ], [ false, %44 ], [ true, %.loopexit34 ], [ true, %.preheader ], [ false, %.loopexit.sink.split ], [ true, %46 ]
   %61 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i.i, label %63, label %62
@@ -4414,7 +4414,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
   ret ptr %.0.i.i
 }
 
@@ -4585,7 +4585,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -4773,7 +4773,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
   ret ptr %.0.i.i
 }
 

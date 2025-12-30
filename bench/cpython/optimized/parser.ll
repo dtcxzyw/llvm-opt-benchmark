@@ -417,7 +417,7 @@ CHECK_CALL.exit.i.i:                              ; preds = %98, %89
   br i1 %.not94.i.i, label %121, label %.sink.split.i
 
 112:                                              ; preds = %107, %CHECK_CALL.exit.i.i, %80, %73
-  %.0.i.i = phi ptr [ %74, %73 ], [ %81, %80 ], [ %108, %107 ], [ %99, %CHECK_CALL.exit.i.i ]
+  %.0.i.i = phi ptr [ %81, %80 ], [ %74, %73 ], [ %99, %CHECK_CALL.exit.i.i ], [ %108, %107 ]
   %113 = load i32, ptr %32, align 8, !tbaa !20
   %114 = add i32 %113, -1
   store i32 %114, ptr %32, align 8, !tbaa !20
@@ -816,7 +816,7 @@ type_expressions_rule.exit.thread.i:              ; preds = %type_expressions_ru
   br label %293
 
 type_expressions_rule.exit.i:                     ; preds = %271, %269, %265, %262, %254, %251, %243, %CHECK_CALL.exit181.i.i, %223, %220, %208, %205, %193, %CHECK_CALL.exit.i.i23
-  %.0.i.ph.i = phi ptr [ %263, %262 ], [ null, %265 ], [ null, %254 ], [ null, %243 ], [ null, %223 ], [ null, %208 ], [ null, %193 ], [ null, %271 ], [ %206, %205 ], [ %221, %220 ], [ %241, %CHECK_CALL.exit181.i.i ], [ %252, %251 ], [ %191, %CHECK_CALL.exit.i.i23 ], [ %270, %269 ]
+  %.0.i.ph.i = phi ptr [ %263, %262 ], [ null, %265 ], [ %252, %251 ], [ null, %254 ], [ %241, %CHECK_CALL.exit181.i.i ], [ null, %243 ], [ %221, %220 ], [ null, %223 ], [ %206, %205 ], [ null, %208 ], [ %191, %CHECK_CALL.exit.i.i23 ], [ null, %193 ], [ %270, %269 ], [ null, %271 ]
   %.pr.i = load i32, ptr %159, align 8, !tbaa !21
   %274 = load i32, ptr %153, align 8, !tbaa !20
   %275 = add i32 %274, -1
@@ -1505,14 +1505,14 @@ if_stmt_rule.exit.thread._crit_edge:              ; preds = %if_stmt_rule.exit.t
   %.not40.i242 = icmp eq ptr %163, null
   br i1 %.not40.i242, label %class_def_rule.exit.thread, label %class_def_rule.exit
 
-class_def_rule.exit.thread:                       ; preds = %162, %148, %160, %.thread44.i, %158
+class_def_rule.exit.thread:                       ; preds = %162, %.thread44.i, %148, %160, %158
   %164 = load i32, ptr %2, align 8, !tbaa !20
   %165 = add i32 %164, -1
   store i32 %165, ptr %2, align 8, !tbaa !20
   br label %168
 
 class_def_rule.exit:                              ; preds = %155, %162
-  %.0.i = phi ptr [ %156, %155 ], [ %163, %162 ]
+  %.0.i = phi ptr [ %163, %162 ], [ %156, %155 ]
   %166 = load i32, ptr %2, align 8, !tbaa !20
   %167 = add i32 %166, -1
   store i32 %167, ptr %2, align 8, !tbaa !20
@@ -1618,13 +1618,13 @@ class_def_rule.exit:                              ; preds = %155, %162
   br label %.thread146
 
 .thread146:                                       ; preds = %class_def_rule.exit, %37, %if_stmt_rule.exit, %if_stmt_rule.exit.thread173, %function_def_rule.exit, %206, %204, %198, %190, %182, %174
-  %.171 = phi ptr [ %205, %204 ], [ %199, %198 ], [ %191, %190 ], [ %183, %182 ], [ %175, %174 ], [ %.0.i, %class_def_rule.exit ], [ %29, %function_def_rule.exit ], [ null, %206 ], [ %.281.i, %if_stmt_rule.exit ], [ %76, %if_stmt_rule.exit.thread173 ], [ %38, %37 ]
+  %.171 = phi ptr [ %.0.i, %class_def_rule.exit ], [ %175, %174 ], [ %183, %182 ], [ %191, %190 ], [ %199, %198 ], [ null, %206 ], [ %205, %204 ], [ %29, %function_def_rule.exit ], [ %76, %if_stmt_rule.exit.thread173 ], [ %.281.i, %if_stmt_rule.exit ], [ %38, %37 ]
   %207 = load i32, ptr %2, align 8, !tbaa !20
   br label %208
 
 208:                                              ; preds = %if_stmt_rule.exit.thread.thread, %if_stmt_rule.exit.thread._crit_edge, %function_def_rule.exit.thread.thread, %function_def_rule.exit.thread._crit_edge, %170, %178, %186, %194, %202, %.thread146, %10
-  %.sink236 = phi i32 [ %11, %10 ], [ %34, %function_def_rule.exit.thread.thread ], [ %171, %170 ], [ %179, %178 ], [ %187, %186 ], [ %195, %194 ], [ %203, %202 ], [ %207, %.thread146 ], [ %.pre, %function_def_rule.exit.thread._crit_edge ], [ %.pre212, %if_stmt_rule.exit.thread._crit_edge ], [ %138, %if_stmt_rule.exit.thread.thread ]
-  %.0 = phi ptr [ null, %10 ], [ null, %function_def_rule.exit.thread.thread ], [ null, %170 ], [ null, %178 ], [ null, %186 ], [ null, %194 ], [ null, %202 ], [ %.171, %.thread146 ], [ null, %function_def_rule.exit.thread._crit_edge ], [ null, %if_stmt_rule.exit.thread._crit_edge ], [ null, %if_stmt_rule.exit.thread.thread ]
+  %.sink236 = phi i32 [ %171, %170 ], [ %179, %178 ], [ %187, %186 ], [ %195, %194 ], [ %203, %202 ], [ %207, %.thread146 ], [ %11, %10 ], [ %.pre, %function_def_rule.exit.thread._crit_edge ], [ %34, %function_def_rule.exit.thread.thread ], [ %.pre212, %if_stmt_rule.exit.thread._crit_edge ], [ %138, %if_stmt_rule.exit.thread.thread ]
+  %.0 = phi ptr [ null, %170 ], [ null, %178 ], [ null, %186 ], [ null, %194 ], [ null, %202 ], [ %.171, %.thread146 ], [ null, %10 ], [ null, %function_def_rule.exit.thread._crit_edge ], [ null, %function_def_rule.exit.thread.thread ], [ null, %if_stmt_rule.exit.thread._crit_edge ], [ null, %if_stmt_rule.exit.thread.thread ]
   %209 = add i32 %.sink236, -1
   store i32 %209, ptr %2, align 8, !tbaa !20
   ret ptr %.0
@@ -1778,9 +1778,9 @@ define internal fastcc ptr @simple_stmts_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.critedge.i.i, !llvm.loop !39
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i, %..critedge.i.loopexit_crit_edge.i, %.lr.ph.i.preheader.i, %.preheader76.i.i
-  %.058.lcssa.i.i = phi i64 [ 0, %.preheader76.i.i ], [ 0, %.lr.ph.i.preheader.i ], [ %54, %..critedge.i.loopexit_crit_edge.i ], [ %54, %.lr.ph.i.i ]
-  %.054.lcssa.i.i = phi ptr [ %41, %.preheader76.i.i ], [ %41, %.lr.ph.i.preheader.i ], [ %.256.i.i, %..critedge.i.loopexit_crit_edge.i ], [ %.256.i.i, %.lr.ph.i.i ]
-  %.053.lcssa.i.i = phi i32 [ %40, %.preheader76.i.i ], [ %40, %.lr.ph.i.preheader.i ], [ %56, %..critedge.i.loopexit_crit_edge.i ], [ %56, %.lr.ph.i.i ]
+  %.058.lcssa.i.i = phi i64 [ 0, %.preheader76.i.i ], [ %54, %..critedge.i.loopexit_crit_edge.i ], [ 0, %.lr.ph.i.preheader.i ], [ %54, %.lr.ph.i.i ]
+  %.054.lcssa.i.i = phi ptr [ %41, %.preheader76.i.i ], [ %.256.i.i, %..critedge.i.loopexit_crit_edge.i ], [ %41, %.lr.ph.i.preheader.i ], [ %.256.i.i, %.lr.ph.i.i ]
+  %.053.lcssa.i.i = phi i32 [ %40, %.preheader76.i.i ], [ %56, %..critedge.i.loopexit_crit_edge.i ], [ %40, %.lr.ph.i.preheader.i ], [ %56, %.lr.ph.i.i ]
   store i32 %.053.lcssa.i.i, ptr %11, align 8, !tbaa !22
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %59 = load ptr, ptr %58, align 8, !tbaa !32
@@ -1857,7 +1857,7 @@ _gather_4_rule.exit:                              ; preds = %63, %.preheader.i.i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %78, %80, %21, %18, %7, %.thread52
-  %.0.ph = phi ptr [ null, %.thread52 ], [ null, %7 ], [ %74, %78 ], [ null, %80 ], [ null, %21 ], [ %19, %18 ]
+  %.0.ph = phi ptr [ null, %.thread52 ], [ null, %7 ], [ null, %80 ], [ %74, %78 ], [ null, %21 ], [ %19, %18 ]
   %81 = load i32, ptr %2, align 8, !tbaa !20
   br label %82
 
@@ -1924,7 +1924,7 @@ define internal ptr @_tmp_6_rule(ptr noundef %0) #0 {
   br label %23
 
 23:                                               ; preds = %10, %16, %20, %22, %18, %14, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %18 ], [ null, %14 ], [ %13, %10 ], [ %17, %16 ], [ null, %22 ], [ %21, %20 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %14 ], [ null, %18 ], [ %13, %10 ], [ %17, %16 ], [ null, %22 ], [ %21, %20 ]
   %24 = load i32, ptr %2, align 8, !tbaa !20
   %25 = add i32 %24, -1
   store i32 %25, ptr %2, align 8, !tbaa !20
@@ -2219,7 +2219,7 @@ define internal fastcc ptr @with_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %61, %64, %66, %68, %70, %73, %75, %77, %79, %.thread309, %87, %58, %37, %60
+.thread:                                          ; preds = %.thread.sink.split, %61, %64, %66, %68, %70, %73, %75, %77, %79, %.thread309, %87, %58, %60, %37
   %89 = load i32, ptr %2, align 8, !tbaa !20
   %90 = add i32 %89, -1
   store i32 %90, ptr %2, align 8, !tbaa !20
@@ -2535,7 +2535,7 @@ define internal fastcc ptr @with_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread240.sink.split
 
 .thread240.sink.split:                            ; preds = %91, %227, %.thread282, %223, %127, %117, %155, %145, %189, %179, %220, %209, %225, %206, %192, %.thread272, %176, %158, %.thread260, %142, %130, %.thread248, %114, %94, %7, %19, %129, %157, %191, %222
-  %.0.ph = phi ptr [ null, %192 ], [ null, %158 ], [ null, %130 ], [ null, %94 ], [ null, %191 ], [ null, %176 ], [ null, %157 ], [ null, %142 ], [ null, %129 ], [ null, %114 ], [ null, %206 ], [ null, %7 ], [ null, %225 ], [ null, %222 ], [ null, %19 ], [ null, %.thread248 ], [ null, %.thread260 ], [ null, %.thread272 ], [ %228, %227 ], [ %.0.i, %91 ], [ %187, %179 ], [ %153, %145 ], [ %125, %117 ], [ null, %223 ], [ null, %.thread282 ], [ null, %127 ], [ null, %155 ], [ null, %189 ], [ null, %220 ], [ %218, %209 ]
+  %.0.ph = phi ptr [ null, %222 ], [ null, %191 ], [ null, %157 ], [ null, %129 ], [ null, %19 ], [ null, %7 ], [ null, %94 ], [ null, %114 ], [ null, %.thread248 ], [ null, %130 ], [ null, %142 ], [ null, %.thread260 ], [ null, %158 ], [ null, %176 ], [ null, %.thread272 ], [ null, %192 ], [ null, %206 ], [ null, %225 ], [ %.0.i, %91 ], [ %228, %227 ], [ null, %.thread282 ], [ null, %223 ], [ null, %127 ], [ %125, %117 ], [ null, %155 ], [ %153, %145 ], [ null, %189 ], [ %187, %179 ], [ null, %220 ], [ %218, %209 ]
   %229 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread240
 
@@ -2776,7 +2776,7 @@ define internal fastcc ptr @for_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %59, %62, %64, %66, %68, %70, %72, %74, %.thread200, %82, %56, %37, %58
+.thread:                                          ; preds = %.thread.sink.split, %59, %62, %64, %66, %68, %70, %72, %74, %.thread200, %82, %56, %58, %37
   %84 = load i32, ptr %2, align 8, !tbaa !20
   %85 = add i32 %84, -1
   store i32 %85, ptr %2, align 8, !tbaa !20
@@ -2968,8 +2968,8 @@ define internal fastcc ptr @for_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   store i32 %12, ptr %11, align 8, !tbaa !22
   br label %.thread169.sink.split
 
-.thread169.sink.split:                            ; preds = %168, %164, %86, %112, %122, %150, %161, %166, %147, %125, %109, %89, %7, %19, %.critedge, %124, %.critedge164, %163
-  %.0.ph = phi ptr [ null, %125 ], [ null, %.critedge164 ], [ null, %89 ], [ null, %.critedge ], [ null, %124 ], [ null, %109 ], [ null, %147 ], [ null, %7 ], [ null, %166 ], [ null, %163 ], [ null, %19 ], [ null, %164 ], [ %.0.i, %86 ], [ null, %122 ], [ null, %168 ], [ %120, %112 ], [ %159, %150 ], [ null, %161 ]
+.thread169.sink.split:                            ; preds = %168, %164, %86, %122, %112, %161, %150, %166, %147, %125, %109, %89, %7, %19, %.critedge, %124, %.critedge164, %163
+  %.0.ph = phi ptr [ null, %163 ], [ null, %.critedge164 ], [ null, %124 ], [ null, %.critedge ], [ null, %19 ], [ null, %7 ], [ null, %89 ], [ null, %109 ], [ null, %125 ], [ null, %147 ], [ null, %166 ], [ %.0.i, %86 ], [ null, %168 ], [ null, %164 ], [ null, %122 ], [ %120, %112 ], [ null, %161 ], [ %159, %150 ]
   %169 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread169
 
@@ -3482,7 +3482,7 @@ invalid_try_stmt_rule.exit:                       ; preds = %65, %47
   br label %.thread201.sink.split
 
 .thread201.sink.split:                            ; preds = %228, %invalid_try_stmt_rule.exit, %163, %154, %194, %185, %225, %215, %212, %197, %.thread219, %182, %166, %151, %141, %7, %19, %165, %196, %227
-  %.0.ph = phi ptr [ null, %197 ], [ null, %166 ], [ null, %141 ], [ null, %182 ], [ null, %165 ], [ null, %151 ], [ null, %196 ], [ null, %7 ], [ null, %212 ], [ null, %227 ], [ null, %19 ], [ null, %.thread219 ], [ null, %228 ], [ %192, %185 ], [ %161, %154 ], [ %.179.i, %invalid_try_stmt_rule.exit ], [ null, %163 ], [ null, %194 ], [ null, %225 ], [ %223, %215 ]
+  %.0.ph = phi ptr [ null, %227 ], [ null, %196 ], [ null, %165 ], [ null, %19 ], [ null, %7 ], [ null, %141 ], [ null, %151 ], [ null, %166 ], [ null, %182 ], [ null, %.thread219 ], [ null, %197 ], [ null, %212 ], [ null, %228 ], [ %.179.i, %invalid_try_stmt_rule.exit ], [ null, %163 ], [ %161, %154 ], [ null, %194 ], [ %192, %185 ], [ null, %225 ], [ %223, %215 ]
   %229 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread201
 
@@ -3642,7 +3642,7 @@ define internal fastcc ptr @while_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %53, %55, %57, %59, %61, %69, %49, %37, %51
+.thread:                                          ; preds = %.thread.sink.split, %53, %55, %57, %59, %61, %69, %49, %51, %37
   %71 = load i32, ptr %2, align 8, !tbaa !20
   %72 = add i32 %71, -1
   store i32 %72, ptr %2, align 8, !tbaa !20
@@ -3651,7 +3651,7 @@ define internal fastcc ptr @while_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   br label %76
 
 73:                                               ; preds = %63, %45
-  %.0.i = phi ptr [ %67, %63 ], [ %47, %45 ]
+  %.0.i = phi ptr [ %47, %45 ], [ %67, %63 ]
   %74 = load i32, ptr %2, align 8, !tbaa !20
   %75 = add i32 %74, -1
   store i32 %75, ptr %2, align 8, !tbaa !20
@@ -3718,7 +3718,7 @@ define internal fastcc ptr @while_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread79.sink.split
 
 .thread79.sink.split:                             ; preds = %104, %73, %101, %92, %89, %76, %7, %19, %103
-  %.0.ph = phi ptr [ null, %76 ], [ null, %7 ], [ null, %89 ], [ null, %103 ], [ null, %19 ], [ null, %104 ], [ %.0.i, %73 ], [ null, %101 ], [ %99, %92 ]
+  %.0.ph = phi ptr [ null, %103 ], [ null, %19 ], [ null, %7 ], [ null, %76 ], [ null, %89 ], [ null, %104 ], [ %.0.i, %73 ], [ null, %101 ], [ %99, %92 ]
   %105 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread79
 
@@ -4184,8 +4184,8 @@ case_block_rule.exit.thread115.loopexit.i:        ; preds = %157, %155, %guard_r
   br label %.thread130.i
 
 case_block_rule.exit.thread118.i:                 ; preds = %159, %127, %97
-  %.sink257.i = phi i32 [ -2, %127 ], [ -2, %97 ], [ -1, %159 ]
-  %.235.i121.i = phi ptr [ %131, %127 ], [ %99, %97 ], [ %161, %159 ]
+  %.sink257.i = phi i32 [ -2, %97 ], [ -2, %127 ], [ -1, %159 ]
+  %.235.i121.i = phi ptr [ %99, %97 ], [ %131, %127 ], [ %161, %159 ]
   %166 = load i32, ptr %2, align 8, !tbaa !20
   %167 = add i32 %166, %.sink257.i
   store i32 %167, ptr %2, align 8, !tbaa !20
@@ -4219,7 +4219,7 @@ case_block_rule.exit.thread118.i:                 ; preds = %159, %127, %97
   br label %.thread130.i
 
 .thread130.i:                                     ; preds = %136, %.thread206.i, %178, %case_block_rule.exit.thread115.loopexit.i, %.thread108.i, %guard_rule.exit.thread.i, %65
-  %.sink258.i = phi i32 [ %storemerge.i103.i, %guard_rule.exit.thread.i ], [ %165, %.thread108.i ], [ %66, %65 ], [ %179, %178 ], [ %.pre190.i, %case_block_rule.exit.thread115.loopexit.i ], [ %storemerge133209.i, %.thread206.i ], [ %storemerge133.i, %136 ]
+  %.sink258.i = phi i32 [ %165, %.thread108.i ], [ %66, %65 ], [ %179, %178 ], [ %.pre190.i, %case_block_rule.exit.thread115.loopexit.i ], [ %storemerge.i103.i, %guard_rule.exit.thread.i ], [ %storemerge133209.i, %.thread206.i ], [ %storemerge133.i, %136 ]
   %180 = add i32 %.sink258.i, -1
   store i32 %180, ptr %2, align 8, !tbaa !20
   store i32 %.052.i, ptr %11, align 8, !tbaa !22
@@ -4266,7 +4266,7 @@ case_block_rule.exit.thread118.i:                 ; preds = %159, %127, %97
   %exitcond.not.i = icmp eq i64 %197, %.053.i
   br i1 %exitcond.not.i, label %.loopexit, label %192, !llvm.loop !45
 
-_loop1_39_rule.exit.thread:                       ; preds = %.thread127.i, %52, %47, %184, %54, %190
+_loop1_39_rule.exit.thread:                       ; preds = %52, %184, %.thread127.i, %47, %54, %190
   %198 = load i32, ptr %2, align 8, !tbaa !20
   %199 = add i32 %198, -1
   store i32 %199, ptr %2, align 8, !tbaa !20
@@ -4420,7 +4420,7 @@ INVALID_VERSION_CHECK.exit.i:                     ; preds = %239
   br i1 %.not53.i, label %.thread83, label %.thread83.sink.split
 
 invalid_match_stmt_rule.exit:                     ; preds = %239, %INVALID_VERSION_CHECK.exit.i, %260
-  %.0.i = phi ptr [ %264, %260 ], [ %244, %INVALID_VERSION_CHECK.exit.i ], [ %237, %239 ]
+  %.0.i = phi ptr [ %244, %INVALID_VERSION_CHECK.exit.i ], [ %237, %239 ], [ %264, %260 ]
   %268 = load i32, ptr %2, align 8, !tbaa !20
   %269 = add i32 %268, -1
   store i32 %269, ptr %2, align 8, !tbaa !20
@@ -4430,7 +4430,7 @@ invalid_match_stmt_rule.exit:                     ; preds = %239, %INVALID_VERSI
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread83
 
-.thread83:                                        ; preds = %.thread83.sink.split, %250, %252, %254, %256, %258, %248, %227, %246, %266
+.thread83:                                        ; preds = %.thread83.sink.split, %250, %252, %254, %256, %258, %227, %248, %246, %266
   %270 = load i32, ptr %2, align 8, !tbaa !20
   %271 = add i32 %270, -1
   store i32 %271, ptr %2, align 8, !tbaa !20
@@ -4438,7 +4438,7 @@ invalid_match_stmt_rule.exit:                     ; preds = %239, %INVALID_VERSI
   br label %.thread
 
 .thread:                                          ; preds = %invalid_match_stmt_rule.exit, %.thread83, %218, %215, %206, %221, %203, %24, %7, %217, %23
-  %.0 = phi ptr [ null, %217 ], [ null, %23 ], [ null, %7 ], [ null, %221 ], [ null, %203 ], [ null, %24 ], [ %.0.i, %invalid_match_stmt_rule.exit ], [ null, %218 ], [ null, %.thread83 ], [ null, %215 ], [ %213, %206 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %217 ], [ null, %7 ], [ null, %24 ], [ null, %203 ], [ null, %221 ], [ %.0.i, %invalid_match_stmt_rule.exit ], [ null, %.thread83 ], [ null, %218 ], [ null, %215 ], [ %213, %206 ]
   %272 = load i32, ptr %2, align 8, !tbaa !20
   %273 = add i32 %272, -1
   store i32 %273, ptr %2, align 8, !tbaa !20
@@ -4618,7 +4618,7 @@ define internal fastcc ptr @decorators_rule(ptr noundef %0) unnamed_addr #0 {
   %69 = add i32 %68, -1
   br label %73
 
-70:                                               ; preds = %60, %24, %53, %18, %22, %48
+70:                                               ; preds = %60, %24, %18, %48, %53, %22
   %71 = load i32, ptr %2, align 8, !tbaa !20
   %72 = add i32 %71, -1
   store i32 %14, ptr %13, align 8, !tbaa !22
@@ -5091,7 +5091,7 @@ CHECK_CALL.exit164:                               ; preds = %197, %194, %187
   br label %.thread185.sink.split
 
 .thread185.sink.split:                            ; preds = %208, %invalid_def_raw_rule.exit, %invalid_def_raw_rule.exit.thread208, %154, %CHECK_CALL.exit, %205, %CHECK_CALL.exit164, %184, %157, %.thread195, %134, %108, %7, %19, %156, %207
-  %.0.ph = phi ptr [ null, %157 ], [ null, %108 ], [ null, %134 ], [ null, %156 ], [ null, %7 ], [ null, %184 ], [ null, %207 ], [ null, %19 ], [ null, %.thread195 ], [ null, %208 ], [ %152, %CHECK_CALL.exit ], [ %69, %invalid_def_raw_rule.exit.thread208 ], [ %103, %invalid_def_raw_rule.exit ], [ null, %154 ], [ null, %205 ], [ %203, %CHECK_CALL.exit164 ]
+  %.0.ph = phi ptr [ null, %207 ], [ null, %156 ], [ null, %19 ], [ null, %7 ], [ null, %108 ], [ null, %134 ], [ null, %.thread195 ], [ null, %157 ], [ null, %184 ], [ null, %208 ], [ %103, %invalid_def_raw_rule.exit ], [ %69, %invalid_def_raw_rule.exit.thread208 ], [ null, %154 ], [ %152, %CHECK_CALL.exit ], [ null, %205 ], [ %203, %CHECK_CALL.exit164 ]
   %209 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread185
 
@@ -5325,7 +5325,7 @@ invalid_named_expression_rule.exit.thread67.sink.split: ; preds = %89, %62, %36
   br label %invalid_named_expression_rule.exit.thread67
 
 invalid_named_expression_rule.exit.thread67:      ; preds = %invalid_named_expression_rule.exit.thread67.sink.split, %77, %52, %27
-  %.pre7679 = phi i32 [ %78, %77 ], [ %53, %52 ], [ %29, %27 ], [ 1, %invalid_named_expression_rule.exit.thread67.sink.split ]
+  %.pre7679 = phi i32 [ %29, %27 ], [ %53, %52 ], [ %78, %77 ], [ 1, %invalid_named_expression_rule.exit.thread67.sink.split ]
   %109 = load i32, ptr %3, align 8, !tbaa !20
   %110 = add i32 %109, -1
   store i32 %110, ptr %3, align 8, !tbaa !20
@@ -5514,8 +5514,8 @@ INVALID_VERSION_CHECK.exit:                       ; preds = %53
   store i32 %12, ptr %11, align 8, !tbaa !22
   br label %.thread
 
-.thread:                                          ; preds = %53, %63, %INVALID_VERSION_CHECK.exit, %60, %38, %24, %7, %62, %.critedge, %23
-  %.0 = phi ptr [ null, %62 ], [ null, %23 ], [ null, %7 ], [ null, %38 ], [ null, %.critedge ], [ null, %24 ], [ null, %63 ], [ %58, %INVALID_VERSION_CHECK.exit ], [ null, %60 ], [ %51, %53 ]
+.thread:                                          ; preds = %53, %63, %60, %INVALID_VERSION_CHECK.exit, %38, %24, %7, %62, %.critedge, %23
+  %.0 = phi ptr [ null, %23 ], [ null, %.critedge ], [ null, %62 ], [ null, %7 ], [ null, %24 ], [ null, %38 ], [ null, %63 ], [ null, %60 ], [ %58, %INVALID_VERSION_CHECK.exit ], [ %51, %53 ]
   %64 = load i32, ptr %2, align 8, !tbaa !20
   %65 = add i32 %64, -1
   store i32 %65, ptr %2, align 8, !tbaa !20
@@ -5971,7 +5971,7 @@ define internal fastcc ptr @expression_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread120
 
 .thread120:                                       ; preds = %192, %178, %29, %.thread123, %205, %197, %162, %158, %46, %16
-  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %46 ], [ %216, %.thread123 ], [ null, %158 ], [ null, %205 ], [ null, %162 ], [ null, %197 ], [ null, %178 ], [ null, %192 ]
+  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %46 ], [ null, %158 ], [ null, %162 ], [ null, %197 ], [ null, %205 ], [ %216, %.thread123 ], [ null, %178 ], [ null, %192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %217
 
@@ -6191,7 +6191,7 @@ define internal fastcc ptr @bitwise_or_rule(ptr noundef %0) unnamed_addr #0 {
   br label %bitwise_or_raw.exit
 
 bitwise_or_raw.exit:                              ; preds = %71, %73, %67, %59, %69, %56, %43, %31
-  %.0.i.ph.ph = phi ptr [ null, %43 ], [ null, %31 ], [ null, %69 ], [ null, %56 ], [ %72, %71 ], [ null, %73 ], [ null, %67 ], [ %65, %59 ]
+  %.0.i.ph.ph = phi ptr [ null, %31 ], [ null, %43 ], [ null, %56 ], [ null, %69 ], [ null, %73 ], [ %72, %71 ], [ null, %67 ], [ %65, %59 ]
   %74 = load i32, ptr %3, align 8, !tbaa !20
   %75 = add i32 %74, -1
   store i32 %75, ptr %3, align 8, !tbaa !20
@@ -6374,7 +6374,7 @@ define internal ptr @_tmp_114_rule(ptr noundef %0) #0 {
   br label %35
 
 35:                                               ; preds = %10, %16, %20, %24, %28, %32, %34, %30, %26, %22, %18, %14, %7
-  %.0 = phi ptr [ null, %22 ], [ null, %30 ], [ null, %18 ], [ null, %7 ], [ null, %26 ], [ null, %14 ], [ %13, %10 ], [ %29, %28 ], [ %25, %24 ], [ %21, %20 ], [ %17, %16 ], [ null, %34 ], [ %33, %32 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %14 ], [ null, %18 ], [ null, %22 ], [ null, %26 ], [ null, %30 ], [ %13, %10 ], [ %17, %16 ], [ %21, %20 ], [ %25, %24 ], [ %29, %28 ], [ null, %34 ], [ %33, %32 ]
   %36 = load i32, ptr %2, align 8, !tbaa !20
   %37 = add i32 %36, -1
   store i32 %37, ptr %2, align 8, !tbaa !20
@@ -6543,7 +6543,7 @@ define internal fastcc ptr @bitwise_xor_rule(ptr noundef %0) unnamed_addr #0 {
   br label %bitwise_xor_raw.exit
 
 bitwise_xor_raw.exit:                             ; preds = %71, %73, %67, %59, %69, %56, %43, %31
-  %.0.i.ph.ph = phi ptr [ null, %43 ], [ null, %31 ], [ null, %69 ], [ null, %56 ], [ %72, %71 ], [ null, %73 ], [ null, %67 ], [ %65, %59 ]
+  %.0.i.ph.ph = phi ptr [ null, %31 ], [ null, %43 ], [ null, %56 ], [ null, %69 ], [ null, %73 ], [ %72, %71 ], [ null, %67 ], [ %65, %59 ]
   %74 = load i32, ptr %3, align 8, !tbaa !20
   %75 = add i32 %74, -1
   store i32 %75, ptr %3, align 8, !tbaa !20
@@ -6743,7 +6743,7 @@ define internal fastcc ptr @bitwise_and_rule(ptr noundef %0) unnamed_addr #0 {
   br label %bitwise_and_raw.exit
 
 bitwise_and_raw.exit:                             ; preds = %71, %73, %67, %59, %69, %56, %43, %31
-  %.0.i.ph.ph = phi ptr [ null, %43 ], [ null, %31 ], [ null, %69 ], [ null, %56 ], [ %72, %71 ], [ null, %73 ], [ null, %67 ], [ %65, %59 ]
+  %.0.i.ph.ph = phi ptr [ null, %31 ], [ null, %43 ], [ null, %56 ], [ null, %69 ], [ null, %73 ], [ %72, %71 ], [ null, %67 ], [ %65, %59 ]
   %74 = load i32, ptr %3, align 8, !tbaa !20
   %75 = add i32 %74, -1
   store i32 %75, ptr %3, align 8, !tbaa !20
@@ -6998,7 +6998,7 @@ define internal fastcc ptr @shift_expr_rule(ptr noundef %0) unnamed_addr #0 {
   br label %shift_expr_raw.exit
 
 shift_expr_raw.exit:                              ; preds = %98, %100, %68, %60, %89, %81, %96, %93, %78, %70, %57, %44, %32
-  %.0.i.ph.ph = phi ptr [ null, %70 ], [ null, %44 ], [ null, %32 ], [ null, %93 ], [ null, %57 ], [ null, %78 ], [ null, %96 ], [ %66, %60 ], [ %99, %98 ], [ null, %100 ], [ null, %68 ], [ null, %89 ], [ %87, %81 ]
+  %.0.i.ph.ph = phi ptr [ null, %32 ], [ null, %44 ], [ null, %57 ], [ null, %70 ], [ null, %78 ], [ null, %93 ], [ null, %96 ], [ null, %100 ], [ %99, %98 ], [ null, %68 ], [ %66, %60 ], [ null, %89 ], [ %87, %81 ]
   %101 = load i32, ptr %3, align 8, !tbaa !20
   %102 = add i32 %101, -1
   store i32 %102, ptr %3, align 8, !tbaa !20
@@ -7237,7 +7237,7 @@ define internal fastcc ptr @sum_rule(ptr noundef %0) unnamed_addr #0 {
   br label %sum_raw.exit
 
 sum_raw.exit:                                     ; preds = %92, %94, %67, %59, %88, %80, %90, %77, %69, %56, %43, %31
-  %.0.i.ph.ph = phi ptr [ null, %69 ], [ null, %43 ], [ null, %31 ], [ null, %90 ], [ null, %56 ], [ null, %77 ], [ %93, %92 ], [ %65, %59 ], [ null, %94 ], [ null, %67 ], [ null, %88 ], [ %86, %80 ]
+  %.0.i.ph.ph = phi ptr [ null, %31 ], [ null, %43 ], [ null, %56 ], [ null, %69 ], [ null, %77 ], [ null, %90 ], [ null, %94 ], [ %93, %92 ], [ null, %67 ], [ %65, %59 ], [ null, %88 ], [ %86, %80 ]
   %95 = load i32, ptr %3, align 8, !tbaa !20
   %96 = add i32 %95, -1
   store i32 %96, ptr %3, align 8, !tbaa !20
@@ -7403,7 +7403,7 @@ define internal fastcc void @invalid_arithmetic_rule(ptr noundef %0) unnamed_add
   %.not84.i = icmp eq ptr %49, null
   br i1 %.not84.i, label %_tmp_148_rule.exit.thread, label %52
 
-_tmp_148_rule.exit.thread:                        ; preds = %48, %30, %46, %38, %21, %42, %26, %34
+_tmp_148_rule.exit.thread:                        ; preds = %48, %21, %26, %30, %34, %38, %42, %46
   %50 = load i32, ptr %2, align 8, !tbaa !20
   %51 = add i32 %50, -1
   store i32 %51, ptr %2, align 8, !tbaa !20
@@ -7789,7 +7789,7 @@ define internal fastcc ptr @term_rule(ptr noundef %0) unnamed_addr #0 {
   br label %term_raw.exit
 
 term_raw.exit:                                    ; preds = %162, %164, %68, %60, %89, %81, %110, %102, %131, %123, %153, %144, %160, %157, %141, %133, %120, %112, %99, %91, %78, %70, %57, %44, %32
-  %.0.i.ph.ph = phi ptr [ null, %133 ], [ null, %112 ], [ null, %91 ], [ null, %70 ], [ null, %44 ], [ null, %32 ], [ null, %157 ], [ null, %57 ], [ null, %78 ], [ null, %99 ], [ null, %120 ], [ null, %141 ], [ null, %160 ], [ %66, %60 ], [ %87, %81 ], [ %163, %162 ], [ %129, %123 ], [ %108, %102 ], [ null, %164 ], [ null, %68 ], [ null, %89 ], [ null, %110 ], [ null, %131 ], [ null, %153 ], [ %151, %144 ]
+  %.0.i.ph.ph = phi ptr [ null, %32 ], [ null, %44 ], [ null, %57 ], [ null, %70 ], [ null, %78 ], [ null, %91 ], [ null, %99 ], [ null, %112 ], [ null, %120 ], [ null, %133 ], [ null, %141 ], [ null, %157 ], [ null, %160 ], [ null, %164 ], [ %163, %162 ], [ null, %68 ], [ %66, %60 ], [ null, %89 ], [ %87, %81 ], [ null, %110 ], [ %108, %102 ], [ null, %131 ], [ %129, %123 ], [ null, %153 ], [ %151, %144 ]
   %165 = load i32, ptr %3, align 8, !tbaa !20
   %166 = add i32 %165, -1
   store i32 %166, ptr %3, align 8, !tbaa !20
@@ -8112,7 +8112,7 @@ define internal fastcc ptr @factor_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %125, %111, %96, %82, %67, %53, %29, %.thread121, %130, %101, %72, %43, %16
-  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ %140, %.thread121 ], [ null, %72 ], [ null, %67 ], [ null, %101 ], [ null, %96 ], [ null, %130 ], [ null, %53 ], [ null, %82 ], [ null, %111 ], [ null, %125 ]
+  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %72 ], [ null, %101 ], [ null, %130 ], [ %140, %.thread121 ], [ null, %53 ], [ null, %67 ], [ null, %82 ], [ null, %96 ], [ null, %111 ], [ null, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %141
 
@@ -8187,7 +8187,7 @@ define internal fastcc void @invalid_factor_rule(ptr noundef %0) unnamed_addr #0
   %.not40.i = icmp eq ptr %29, null
   br i1 %.not40.i, label %_tmp_149_rule.exit.thread, label %32
 
-_tmp_149_rule.exit.thread:                        ; preds = %28, %18, %26, %22
+_tmp_149_rule.exit.thread:                        ; preds = %28, %18, %22, %26
   %30 = load i32, ptr %2, align 8, !tbaa !20
   %31 = add i32 %30, -1
   store i32 %31, ptr %2, align 8, !tbaa !20
@@ -8358,7 +8358,7 @@ define internal fastcc ptr @power_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %55, %57, %50, %41, %53, %38, %24, %7, %52, %23
-  %.0 = phi ptr [ null, %52 ], [ null, %23 ], [ null, %7 ], [ null, %53 ], [ null, %38 ], [ null, %24 ], [ %56, %55 ], [ null, %57 ], [ null, %50 ], [ %48, %41 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %52 ], [ null, %7 ], [ null, %24 ], [ null, %38 ], [ null, %53 ], [ null, %57 ], [ %56, %55 ], [ null, %50 ], [ %48, %41 ]
   %58 = load i32, ptr %2, align 8, !tbaa !20
   %59 = add i32 %58, -1
   store i32 %59, ptr %2, align 8, !tbaa !20
@@ -8531,7 +8531,7 @@ define internal fastcc ptr @await_primary_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %68, %53, %29, %.thread64, %73, %43, %16
-  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ %84, %.thread64 ], [ null, %73 ], [ null, %53 ], [ null, %68 ]
+  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %73 ], [ %84, %.thread64 ], [ null, %53 ], [ null, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %85
 
@@ -8843,7 +8843,7 @@ primary_raw.exit.sink.split:                      ; preds = %148, %99
   br label %primary_raw.exit
 
 primary_raw.exit:                                 ; preds = %primary_raw.exit.sink.split, %148, %69, %59, %91, %CHECK_CALL.exit, %122, %.thread48, %144, %136, %146, %133, %124, %104, %93, %77, %71, %56, %43, %31
-  %.0.i.ph.ph = phi ptr [ null, %124 ], [ null, %93 ], [ null, %71 ], [ null, %43 ], [ null, %31 ], [ null, %146 ], [ null, %56 ], [ null, %77 ], [ null, %104 ], [ null, %133 ], [ null, %144 ], [ %149, %148 ], [ %67, %59 ], [ %120, %.thread48 ], [ %89, %CHECK_CALL.exit ], [ %142, %136 ], [ null, %69 ], [ null, %91 ], [ null, %122 ], [ null, %primary_raw.exit.sink.split ]
+  %.0.i.ph.ph = phi ptr [ null, %31 ], [ null, %43 ], [ null, %56 ], [ null, %71 ], [ null, %77 ], [ null, %93 ], [ null, %104 ], [ null, %124 ], [ null, %133 ], [ null, %146 ], [ %149, %148 ], [ null, %69 ], [ %67, %59 ], [ null, %91 ], [ %89, %CHECK_CALL.exit ], [ null, %122 ], [ %120, %.thread48 ], [ null, %144 ], [ %142, %136 ], [ null, %primary_raw.exit.sink.split ]
   %150 = load i32, ptr %3, align 8, !tbaa !20
   %151 = add i32 %150, -1
   store i32 %151, ptr %3, align 8, !tbaa !20
@@ -9073,7 +9073,7 @@ for_if_clauses_rule.exit.thread72:                ; preds = %for_if_clauses_rule
   br label %.thread74
 
 .thread74:                                        ; preds = %83, %for_if_clauses_rule.exit.thread72, %74, %65, %81, %62, %24, %7, %76, %23
-  %.0 = phi ptr [ null, %76 ], [ null, %23 ], [ null, %7 ], [ null, %81 ], [ null, %62 ], [ null, %24 ], [ null, %for_if_clauses_rule.exit.thread72 ], [ null, %83 ], [ null, %74 ], [ %72, %65 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %76 ], [ null, %7 ], [ null, %24 ], [ null, %62 ], [ null, %81 ], [ null, %83 ], [ null, %for_if_clauses_rule.exit.thread72 ], [ null, %74 ], [ %72, %65 ]
   %84 = load i32, ptr %2, align 8, !tbaa !20
   %85 = add i32 %84, -1
   store i32 %85, ptr %2, align 8, !tbaa !20
@@ -9189,7 +9189,7 @@ define internal fastcc ptr @arguments_rule(ptr noundef %0) unnamed_addr #0 {
   br label %49
 
 49:                                               ; preds = %24, %39, %44, %16
-  %.1 = phi ptr [ %19, %16 ], [ null, %24 ], [ %48, %44 ], [ null, %39 ]
+  %.1 = phi ptr [ %19, %16 ], [ null, %24 ], [ null, %39 ], [ %48, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %50
 
@@ -9422,9 +9422,9 @@ define internal fastcc ptr @slices_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %88, %.critedge.i.sink.split.i, %.preheader78.i
-  %.058.i93.i = phi i64 [ %.058.i98.i, %.critedge.i.sink.split.i ], [ 0, %.preheader78.i ], [ %89, %88 ]
-  %.054.i88.i = phi ptr [ %.054.i99.i, %.critedge.i.sink.split.i ], [ %63, %.preheader78.i ], [ %.256.i.i, %88 ]
-  %.053.i83.i = phi i32 [ %.053.i100.i, %.critedge.i.sink.split.i ], [ %62, %.preheader78.i ], [ %91, %88 ]
+  %.058.i93.i = phi i64 [ 0, %.preheader78.i ], [ %.058.i98.i, %.critedge.i.sink.split.i ], [ %89, %88 ]
+  %.054.i88.i = phi ptr [ %63, %.preheader78.i ], [ %.054.i99.i, %.critedge.i.sink.split.i ], [ %.256.i.i, %88 ]
+  %.053.i83.i = phi i32 [ %62, %.preheader78.i ], [ %.053.i100.i, %.critedge.i.sink.split.i ], [ %91, %88 ]
   store i32 %.053.i83.i, ptr %11, align 8, !tbaa !22
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %96 = load ptr, ptr %95, align 8, !tbaa !32
@@ -9519,7 +9519,7 @@ _gather_64_rule.exit:                             ; preds = %100, %.preheader.i
   br label %.thread71
 
 .thread71:                                        ; preds = %127, %34, %124, %116, %113, %36, %24, %7, %126, %23
-  %.0 = phi ptr [ null, %126 ], [ null, %23 ], [ null, %7 ], [ null, %113 ], [ null, %24 ], [ null, %36 ], [ null, %127 ], [ %33, %34 ], [ null, %124 ], [ %122, %116 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %126 ], [ null, %7 ], [ null, %24 ], [ null, %36 ], [ null, %113 ], [ null, %127 ], [ %33, %34 ], [ null, %124 ], [ %122, %116 ]
   %128 = load i32, ptr %2, align 8, !tbaa !20
   %129 = add i32 %128, -1
   store i32 %129, ptr %2, align 8, !tbaa !20
@@ -9815,7 +9815,7 @@ define internal fastcc ptr @atom_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread220
 
 .thread220:                                       ; preds = %138, %30, %95, %99, %105, %111, %117, %50, %41, %69, %60, %88, %79, %135, %126, %123, %119, %113, %107, %101, %97, %91, %76, %72, %57, %53, %38, %34, %24, %7, %137, %90, %71, %52, %23
-  %.0 = phi ptr [ null, %137 ], [ null, %23 ], [ null, %7 ], [ null, %123 ], [ null, %24 ], [ null, %101 ], [ null, %38 ], [ null, %52 ], [ null, %57 ], [ null, %71 ], [ null, %76 ], [ null, %90 ], [ null, %91 ], [ null, %113 ], [ null, %97 ], [ null, %107 ], [ null, %34 ], [ null, %53 ], [ null, %72 ], [ null, %119 ], [ null, %138 ], [ %86, %79 ], [ %112, %111 ], [ %106, %105 ], [ %100, %99 ], [ %96, %95 ], [ %33, %30 ], [ %67, %60 ], [ %48, %41 ], [ %118, %117 ], [ null, %50 ], [ null, %69 ], [ null, %88 ], [ null, %135 ], [ %133, %126 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %52 ], [ null, %71 ], [ null, %90 ], [ null, %137 ], [ null, %7 ], [ null, %24 ], [ null, %34 ], [ null, %38 ], [ null, %53 ], [ null, %57 ], [ null, %72 ], [ null, %76 ], [ null, %91 ], [ null, %97 ], [ null, %101 ], [ null, %107 ], [ null, %113 ], [ null, %119 ], [ null, %123 ], [ null, %138 ], [ %33, %30 ], [ %96, %95 ], [ %100, %99 ], [ %106, %105 ], [ %112, %111 ], [ %118, %117 ], [ null, %50 ], [ %48, %41 ], [ null, %69 ], [ %67, %60 ], [ null, %88 ], [ %86, %79 ], [ null, %135 ], [ %133, %126 ]
   %139 = load i32, ptr %2, align 8, !tbaa !20
   %140 = add i32 %139, -1
   store i32 %140, ptr %2, align 8, !tbaa !20
@@ -10037,7 +10037,7 @@ define internal fastcc void @invalid_comprehension_rule(ptr noundef %0) unnamed_
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread112
 
-for_if_clauses_rule.exit.thread100.sink.split:    ; preds = %37, %20, %24, %16, %26
+for_if_clauses_rule.exit.thread100.sink.split:    ; preds = %37, %24, %20, %16, %26
   %58 = load i32, ptr %2, align 8, !tbaa !20
   %59 = add i32 %58, -1
   store i32 %59, ptr %2, align 8, !tbaa !20
@@ -10654,7 +10654,7 @@ _tmp_131_rule.exit.i:                             ; preds = %._crit_edge.i
   br label %.loopexit293
 
 .sink.split.i:                                    ; preds = %94, %._crit_edge._tmp_131_rule.exit.thread56_crit_edge.i, %_loop0_165_rule.exit.thread46.i, %140, %114, %108, %102, %_tmp_131_rule.exit.thread.i
-  %.sink116.i = phi i32 [ %93, %_tmp_131_rule.exit.thread.i ], [ %.pre.i, %._crit_edge._tmp_131_rule.exit.thread56_crit_edge.i ], [ %storemerge.i49.i, %_loop0_165_rule.exit.thread46.i ], [ %143, %140 ], [ %104, %102 ], [ %111, %108 ], [ %116, %114 ], [ %.pre94.i, %94 ]
+  %.sink116.i = phi i32 [ %93, %_tmp_131_rule.exit.thread.i ], [ %.pre.i, %._crit_edge._tmp_131_rule.exit.thread56_crit_edge.i ], [ %storemerge.i49.i, %_loop0_165_rule.exit.thread46.i ], [ %104, %102 ], [ %111, %108 ], [ %116, %114 ], [ %143, %140 ], [ %.pre94.i, %94 ]
   %170 = add i32 %.sink116.i, -1
   store i32 %170, ptr %2, align 8, !tbaa !20
   br label %.loopexit293
@@ -10683,8 +10683,8 @@ invalid_for_if_clause_rule.exit:                  ; preds = %164
   tail call fastcc void @invalid_for_target_rule(ptr noundef nonnull %0)
   br label %for_if_clause_rule.exit.thread
 
-for_if_clause_rule.exit.thread104:                ; preds = %invalid_for_if_clause_rule.exit, %65, %INVALID_VERSION_CHECK.exit, %45
-  %.164.i107 = phi ptr [ %166, %invalid_for_if_clause_rule.exit ], [ %67, %65 ], [ %49, %INVALID_VERSION_CHECK.exit ], [ %43, %45 ]
+for_if_clause_rule.exit.thread104:                ; preds = %invalid_for_if_clause_rule.exit, %65, %45, %INVALID_VERSION_CHECK.exit
+  %.164.i107 = phi ptr [ %166, %invalid_for_if_clause_rule.exit ], [ %67, %65 ], [ %43, %45 ], [ %49, %INVALID_VERSION_CHECK.exit ]
   %storemerge117.in = load i32, ptr %2, align 8, !tbaa !20
   %storemerge117 = add i32 %storemerge117.in, -1
   store i32 %storemerge117, ptr %2, align 8, !tbaa !20
@@ -10713,7 +10713,7 @@ for_if_clause_rule.exit.thread104:                ; preds = %invalid_for_if_clau
   %188 = tail call ptr @PyErr_NoMemory() #5
   br label %208
 
-for_if_clause_rule.exit.thread:                   ; preds = %72, %74, %61, %63, %53, %37, %39, %26, %.loopexit, %69, %177, %.loopexit293, %175, %71, %52
+for_if_clause_rule.exit.thread:                   ; preds = %72, %74, %61, %63, %53, %37, %39, %26, %.loopexit, %69, %.loopexit293, %177, %175, %71, %52
   %189 = load i32, ptr %2, align 8, !tbaa !20
   %190 = add i32 %189, -1
   store i32 %190, ptr %2, align 8, !tbaa !20
@@ -10766,7 +10766,7 @@ for_if_clause_rule.exit.thread:                   ; preds = %72, %74, %61, %63, 
   br i1 %exitcond.not, label %._crit_edge, label %202, !llvm.loop !61
 
 208:                                              ; preds = %200, %._crit_edge, %16, %7, %187, %14, %194
-  %.051 = phi ptr [ null, %187 ], [ null, %14 ], [ null, %7 ], [ null, %194 ], [ null, %16 ], [ %197, %._crit_edge ], [ null, %200 ]
+  %.051 = phi ptr [ null, %14 ], [ null, %194 ], [ null, %187 ], [ null, %7 ], [ null, %16 ], [ %197, %._crit_edge ], [ null, %200 ]
   %209 = load i32, ptr %2, align 8, !tbaa !20
   %210 = add i32 %209, -1
   store i32 %210, ptr %2, align 8, !tbaa !20
@@ -11025,7 +11025,7 @@ CHECK_CALL.exit:                                  ; preds = %95, %102
   br label %.thread77
 
 .thread77:                                        ; preds = %109, %34, %106, %CHECK_CALL.exit, %92, %36, %24, %7, %108, %23
-  %.0 = phi ptr [ null, %108 ], [ null, %23 ], [ null, %7 ], [ null, %92 ], [ null, %24 ], [ null, %36 ], [ null, %109 ], [ %33, %34 ], [ null, %106 ], [ %104, %CHECK_CALL.exit ]
+  %.0 = phi ptr [ null, %23 ], [ null, %108 ], [ null, %7 ], [ null, %24 ], [ null, %36 ], [ null, %92 ], [ null, %109 ], [ %33, %34 ], [ null, %106 ], [ %104, %CHECK_CALL.exit ]
   %110 = load i32, ptr %2, align 8, !tbaa !20
   %111 = add i32 %110, -1
   store i32 %111, ptr %2, align 8, !tbaa !20
@@ -11350,7 +11350,7 @@ _loop1_59_rule.exit.thread:                       ; preds = %_loop1_59_rule.exit
   br label %.thread86
 
 .thread86:                                        ; preds = %121, %105, %29, %.thread89, %127, %43, %16
-  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ %138, %.thread89 ], [ null, %127 ], [ null, %105 ], [ null, %121 ]
+  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %127 ], [ %138, %.thread89 ], [ null, %105 ], [ null, %121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %139
 
@@ -11495,7 +11495,7 @@ _tmp_158_rule.exit.thread:                        ; preds = %22, %24, %26
   br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !67
 
 55:                                               ; preds = %47, %._crit_edge, %16, %7, %40, %14
-  %.047 = phi ptr [ null, %40 ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %44, %._crit_edge ], [ %44, %47 ]
+  %.047 = phi ptr [ null, %14 ], [ null, %40 ], [ null, %7 ], [ null, %16 ], [ %44, %._crit_edge ], [ %44, %47 ]
   %56 = load i32, ptr %2, align 8, !tbaa !20
   %57 = add i32 %56, -1
   store i32 %57, ptr %2, align 8, !tbaa !20
@@ -11797,7 +11797,7 @@ CHECK_CALL.exit:                                  ; preds = %67, %74
   br label %.thread69
 
 .thread69:                                        ; preds = %81, %64, %29, %.thread72, %88, %43, %16
-  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ %99, %.thread72 ], [ null, %88 ], [ null, %64 ], [ null, %81 ]
+  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %88 ], [ %99, %.thread72 ], [ null, %64 ], [ null, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %100
 
@@ -12057,7 +12057,7 @@ define internal fastcc ptr @target_with_star_atom_rule(ptr noundef %0) unnamed_a
   br label %.thread
 
 .thread:                                          ; preds = %108, %94, %73, %57, %29, %.thread106, %113, %78, %43, %16
-  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ %123, %.thread106 ], [ null, %78 ], [ null, %73 ], [ null, %113 ], [ null, %57 ], [ null, %94 ], [ null, %108 ]
+  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %78 ], [ null, %113 ], [ %123, %.thread106 ], [ null, %57 ], [ null, %73 ], [ null, %94 ], [ null, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %124
 
@@ -12394,7 +12394,7 @@ t_primary_raw.exit.sink.split:                    ; preds = %158, %156, %128
   br label %t_primary_raw.exit
 
 t_primary_raw.exit:                               ; preds = %t_primary_raw.exit.sink.split, %158, %71, %61, %96, %88, %120, %CHECK_CALL.exit, %153, %.thread56, %155, %135, %122, %106, %98, %85, %73, %58, %43, %31
-  %.0.i.ph.ph = phi ptr [ null, %122 ], [ null, %98 ], [ null, %73 ], [ null, %43 ], [ null, %31 ], [ null, %155 ], [ null, %58 ], [ null, %85 ], [ null, %106 ], [ null, %135 ], [ null, %153 ], [ %157, %158 ], [ %69, %61 ], [ %118, %CHECK_CALL.exit ], [ %94, %88 ], [ %151, %.thread56 ], [ null, %71 ], [ null, %96 ], [ null, %120 ], [ null, %t_primary_raw.exit.sink.split ]
+  %.0.i.ph.ph = phi ptr [ null, %31 ], [ null, %43 ], [ null, %58 ], [ null, %73 ], [ null, %85 ], [ null, %98 ], [ null, %106 ], [ null, %122 ], [ null, %135 ], [ null, %155 ], [ %157, %158 ], [ null, %71 ], [ %69, %61 ], [ null, %96 ], [ %94, %88 ], [ null, %120 ], [ %118, %CHECK_CALL.exit ], [ null, %153 ], [ %151, %.thread56 ], [ null, %t_primary_raw.exit.sink.split ]
   %160 = load i32, ptr %3, align 8, !tbaa !20
   %161 = add i32 %160, -1
   store i32 %161, ptr %3, align 8, !tbaa !20
@@ -12495,7 +12495,7 @@ define internal ptr @t_lookahead_rule(ptr noundef %0) #0 {
   br label %23
 
 23:                                               ; preds = %10, %16, %20, %22, %18, %14, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %18 ], [ null, %14 ], [ %13, %10 ], [ %17, %16 ], [ null, %22 ], [ %21, %20 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %14 ], [ null, %18 ], [ %13, %10 ], [ %17, %16 ], [ null, %22 ], [ %21, %20 ]
   %24 = load i32, ptr %2, align 8, !tbaa !20
   %25 = add i32 %24, -1
   store i32 %25, ptr %2, align 8, !tbaa !20
@@ -12717,7 +12717,7 @@ define internal fastcc ptr @star_atom_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread138
 
 .thread138:                                       ; preds = %99, %37, %34, %50, %47, %73, %64, %96, %87, %84, %76, %.thread145, %61, %52, %39, %24, %7, %98, %75, %.thread134, %.thread127, %23
-  %.0 = phi ptr [ null, %98 ], [ null, %23 ], [ null, %7 ], [ null, %.thread127 ], [ null, %24 ], [ null, %.thread134 ], [ null, %39 ], [ null, %84 ], [ null, %61 ], [ null, %75 ], [ null, %52 ], [ null, %76 ], [ null, %.thread145 ], [ null, %99 ], [ %71, %64 ], [ %48, %47 ], [ %35, %34 ], [ null, %37 ], [ null, %50 ], [ null, %73 ], [ null, %96 ], [ %94, %87 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %.thread127 ], [ null, %.thread134 ], [ null, %75 ], [ null, %98 ], [ null, %7 ], [ null, %24 ], [ null, %39 ], [ null, %52 ], [ null, %61 ], [ null, %.thread145 ], [ null, %76 ], [ null, %84 ], [ null, %99 ], [ null, %37 ], [ %35, %34 ], [ null, %50 ], [ %48, %47 ], [ null, %73 ], [ %71, %64 ], [ null, %96 ], [ %94, %87 ]
   %100 = load i32, ptr %2, align 8, !tbaa !20
   %101 = add i32 %100, -1
   store i32 %101, ptr %2, align 8, !tbaa !20
@@ -12959,7 +12959,7 @@ _loop1_96_rule.exit.thread:                       ; preds = %_loop1_96_rule.exit
   br label %.thread73
 
 .thread73:                                        ; preds = %87, %74, %71, %85, %82, %_loop1_96_rule.exit.thread, %.thread79, %7, %.thread85, %.thread76
-  %.0 = phi ptr [ null, %.thread85 ], [ null, %_loop1_96_rule.exit.thread ], [ null, %.thread76 ], [ null, %7 ], [ null, %.thread79 ], [ null, %87 ], [ %72, %71 ], [ null, %74 ], [ null, %85 ], [ %83, %82 ]
+  %.0 = phi ptr [ null, %.thread76 ], [ null, %.thread85 ], [ null, %7 ], [ null, %.thread79 ], [ null, %_loop1_96_rule.exit.thread ], [ null, %87 ], [ null, %74 ], [ %72, %71 ], [ null, %85 ], [ %83, %82 ]
   %88 = load i32, ptr %2, align 8, !tbaa !20
   %89 = add i32 %88, -1
   store i32 %89, ptr %2, align 8, !tbaa !20
@@ -13481,7 +13481,7 @@ _loop1_60_rule.exit.thread:                       ; preds = %_loop1_60_rule.exit
   br label %.thread86
 
 .thread86:                                        ; preds = %121, %105, %29, %.thread89, %127, %43, %16
-  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ %138, %.thread89 ], [ null, %127 ], [ null, %105 ], [ null, %121 ]
+  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %127 ], [ %138, %.thread89 ], [ null, %105 ], [ null, %121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %139
 
@@ -13657,7 +13657,7 @@ define internal fastcc ptr @inversion_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %67, %53, %29, %.thread63, %72, %43, %16
-  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ %83, %.thread63 ], [ null, %72 ], [ null, %53 ], [ null, %67 ]
+  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %72 ], [ %83, %.thread63 ], [ null, %53 ], [ null, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %84
 
@@ -14149,14 +14149,14 @@ compare_op_bitwise_or_pair_rule.exit:             ; preds = %181
   br label %compare_op_bitwise_or_pair_rule.exit.thread
 
 .sink.split:                                      ; preds = %113, %130, %98, %68, %147
-  %.178.i.ph.ph = phi ptr [ %148, %147 ], [ %131, %130 ], [ %114, %113 ], [ %69, %68 ], [ %99, %98 ]
+  %.178.i.ph.ph = phi ptr [ %148, %147 ], [ %114, %113 ], [ %131, %130 ], [ %69, %68 ], [ %99, %98 ]
   %184 = load i32, ptr %2, align 8, !tbaa !20
   %185 = add i32 %184, -1
   store i32 %185, ptr %2, align 8, !tbaa !20
   br label %186
 
-186:                                              ; preds = %.sink.split, %175, %169, %163, %157, %181
-  %.178.i.ph = phi ptr [ %182, %181 ], [ %176, %175 ], [ %164, %163 ], [ %170, %169 ], [ %158, %157 ], [ %.178.i.ph.ph, %.sink.split ]
+186:                                              ; preds = %.sink.split, %157, %163, %169, %175, %181
+  %.178.i.ph = phi ptr [ %182, %181 ], [ %176, %175 ], [ %170, %169 ], [ %164, %163 ], [ %158, %157 ], [ %.178.i.ph.ph, %.sink.split ]
   %187 = load i32, ptr %2, align 8, !tbaa !20
   %188 = add i32 %187, -1
   store i32 %188, ptr %2, align 8, !tbaa !20
@@ -14185,8 +14185,8 @@ compare_op_bitwise_or_pair_rule.exit:             ; preds = %181
   %199 = tail call ptr @PyErr_NoMemory() #5
   br label %_loop1_61_rule.exit.thread.sink.split
 
-compare_op_bitwise_or_pair_rule.exit.thread:      ; preds = %154, %137, %120, %noteq_bitwise_or_rule.exit.i.thread, %eq_bitwise_or_rule.exit.i.thread, %.thread688, %.thread440, %.thread433, %noteq_bitwise_or_rule.exit.i.thread.thread427, %eq_bitwise_or_rule.exit.i.thread.thread422, %noteq_bitwise_or_rule.exit.i.thread.thread, %eq_bitwise_or_rule.exit.i.thread.thread, %161, %173, %167, %179, %54, %compare_op_bitwise_or_pair_rule.exit
-  %.sink406 = phi i32 [ %162, %161 ], [ %64, %eq_bitwise_or_rule.exit.i.thread.thread422 ], [ %174, %173 ], [ %81, %noteq_bitwise_or_rule.exit.i.thread.thread427 ], [ %168, %167 ], [ %119, %.thread433 ], [ %180, %179 ], [ %183, %compare_op_bitwise_or_pair_rule.exit ], [ %153, %.thread688 ], [ %55, %54 ], [ %74, %eq_bitwise_or_rule.exit.i.thread.thread ], [ %103, %noteq_bitwise_or_rule.exit.i.thread.thread ], [ %136, %.thread440 ], [ %156, %154 ], [ %76, %eq_bitwise_or_rule.exit.i.thread ], [ %105, %noteq_bitwise_or_rule.exit.i.thread ], [ %139, %137 ], [ %122, %120 ]
+compare_op_bitwise_or_pair_rule.exit.thread:      ; preds = %154, %137, %120, %noteq_bitwise_or_rule.exit.i.thread, %eq_bitwise_or_rule.exit.i.thread, %.thread688, %.thread440, %.thread433, %noteq_bitwise_or_rule.exit.i.thread.thread427, %eq_bitwise_or_rule.exit.i.thread.thread422, %noteq_bitwise_or_rule.exit.i.thread.thread, %eq_bitwise_or_rule.exit.i.thread.thread, %179, %173, %167, %161, %54, %compare_op_bitwise_or_pair_rule.exit
+  %.sink406 = phi i32 [ %180, %179 ], [ %174, %173 ], [ %168, %167 ], [ %162, %161 ], [ %55, %54 ], [ %183, %compare_op_bitwise_or_pair_rule.exit ], [ %74, %eq_bitwise_or_rule.exit.i.thread.thread ], [ %103, %noteq_bitwise_or_rule.exit.i.thread.thread ], [ %64, %eq_bitwise_or_rule.exit.i.thread.thread422 ], [ %81, %noteq_bitwise_or_rule.exit.i.thread.thread427 ], [ %119, %.thread433 ], [ %136, %.thread440 ], [ %153, %.thread688 ], [ %156, %154 ], [ %76, %eq_bitwise_or_rule.exit.i.thread ], [ %105, %noteq_bitwise_or_rule.exit.i.thread ], [ %122, %120 ], [ %139, %137 ]
   %200 = add i32 %.sink406, -1
   store i32 %200, ptr %2, align 8, !tbaa !20
   store i32 %.052.i, ptr %11, align 8, !tbaa !22
@@ -14302,7 +14302,7 @@ _loop1_61_rule.exit.thread:                       ; preds = %_loop1_61_rule.exit
   br label %.thread160
 
 .thread160:                                       ; preds = %240, %242, %234, %CHECK_CALL.exit69, %_loop1_61_rule.exit.thread, %._crit_edge, %24, %7, %236, %23
-  %.0 = phi ptr [ null, %236 ], [ null, %23 ], [ null, %7 ], [ null, %_loop1_61_rule.exit.thread ], [ null, %._crit_edge ], [ null, %24 ], [ %241, %240 ], [ null, %242 ], [ null, %234 ], [ %232, %CHECK_CALL.exit69 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %236 ], [ null, %7 ], [ null, %24 ], [ null, %._crit_edge ], [ null, %_loop1_61_rule.exit.thread ], [ null, %242 ], [ %241, %240 ], [ null, %234 ], [ %232, %CHECK_CALL.exit69 ]
   %243 = load i32, ptr %2, align 8, !tbaa !20
   %244 = add i32 %243, -1
   store i32 %244, ptr %2, align 8, !tbaa !20
@@ -14938,7 +14938,7 @@ CHECK_CALL.exit103:                               ; preds = %117, %124
   br label %.thread125
 
 .thread125:                                       ; preds = %134, %136, %105, %CHECK_CALL.exit, %129, %CHECK_CALL.exit103, %132, %114, %_loop1_56_rule.exit.thread, %.thread132, %91, %24, %7, %131, %107, %23
-  %.0 = phi ptr [ null, %131 ], [ null, %23 ], [ null, %7 ], [ null, %132 ], [ null, %91 ], [ null, %107 ], [ null, %114 ], [ null, %24 ], [ null, %_loop1_56_rule.exit.thread ], [ null, %.thread132 ], [ %135, %134 ], [ %103, %CHECK_CALL.exit ], [ null, %136 ], [ null, %105 ], [ null, %129 ], [ %127, %CHECK_CALL.exit103 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %107 ], [ null, %131 ], [ null, %7 ], [ null, %24 ], [ null, %91 ], [ null, %.thread132 ], [ null, %_loop1_56_rule.exit.thread ], [ null, %114 ], [ null, %132 ], [ null, %136 ], [ %135, %134 ], [ null, %105 ], [ %103, %CHECK_CALL.exit ], [ null, %129 ], [ %127, %CHECK_CALL.exit103 ]
   %137 = load i32, ptr %2, align 8, !tbaa !20
   %138 = add i32 %137, -1
   store i32 %138, ptr %2, align 8, !tbaa !20
@@ -15151,7 +15151,7 @@ define internal fastcc ptr @star_expression_rule(ptr noundef %0) unnamed_addr #0
   br label %.thread
 
 .thread:                                          ; preds = %67, %53, %29, %.thread63, %72, %43, %16
-  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ %83, %.thread63 ], [ null, %72 ], [ null, %53 ], [ null, %67 ]
+  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %72 ], [ %83, %.thread63 ], [ null, %53 ], [ null, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %84
 
@@ -15360,7 +15360,7 @@ invalid_starred_expression_unpacking_rule.exit:   ; preds = %63, %38, %66
   br label %.thread80.sink.split
 
 .thread80.sink.split:                             ; preds = %94, %.thread87, %90, %87, %78, %92, %75, %69, %7, %19, %89
-  %.0.ph = phi ptr [ null, %69 ], [ null, %75 ], [ null, %7 ], [ null, %92 ], [ null, %89 ], [ null, %19 ], [ %95, %94 ], [ null, %90 ], [ null, %.thread87 ], [ null, %87 ], [ %85, %78 ]
+  %.0.ph = phi ptr [ null, %89 ], [ null, %19 ], [ null, %7 ], [ null, %69 ], [ null, %75 ], [ null, %92 ], [ %95, %94 ], [ null, %.thread87 ], [ null, %90 ], [ null, %87 ], [ %85, %78 ]
   %96 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread80
 
@@ -15481,7 +15481,7 @@ define internal fastcc ptr @star_named_expression_rule(ptr noundef %0) unnamed_a
   br label %.thread
 
 .thread:                                          ; preds = %53, %55, %48, %39, %51, %36, %24, %7, %50, %23
-  %.0 = phi ptr [ null, %50 ], [ null, %23 ], [ null, %7 ], [ null, %51 ], [ null, %36 ], [ null, %24 ], [ %54, %53 ], [ null, %55 ], [ null, %48 ], [ %46, %39 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %50 ], [ null, %7 ], [ null, %24 ], [ null, %36 ], [ null, %51 ], [ null, %55 ], [ %54, %53 ], [ null, %48 ], [ %46, %39 ]
   %56 = load i32, ptr %2, align 8, !tbaa !20
   %57 = add i32 %56, -1
   store i32 %57, ptr %2, align 8, !tbaa !20
@@ -15706,9 +15706,9 @@ define internal fastcc ptr @_loop0_57_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.critedge, !llvm.loop !78
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader76
-  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ 0, %.lr.ph.preheader ], [ %29, %..critedge.loopexit_crit_edge ], [ %29, %.lr.ph ]
-  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %13, %.lr.ph.preheader ], [ %.256, %..critedge.loopexit_crit_edge ], [ %.256, %.lr.ph ]
-  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %12, %.lr.ph.preheader ], [ %31, %..critedge.loopexit_crit_edge ], [ %31, %.lr.ph ]
+  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %29, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %.256, %..critedge.loopexit_crit_edge ], [ %13, %.lr.ph.preheader ], [ %.256, %.lr.ph ]
+  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %31, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph.preheader ], [ %31, %.lr.ph ]
   store i32 %.053.lcssa, ptr %11, align 8, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !32
@@ -15746,7 +15746,7 @@ define internal fastcc ptr @_loop0_57_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !79
 
 .critedge74:                                      ; preds = %38, %._crit_edge, %16, %7, %.thread, %14
-  %.052 = phi ptr [ null, %.thread ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %35, %._crit_edge ], [ %35, %38 ]
+  %.052 = phi ptr [ null, %14 ], [ null, %.thread ], [ null, %7 ], [ null, %16 ], [ %35, %._crit_edge ], [ %35, %38 ]
   %46 = load i32, ptr %2, align 8, !tbaa !20
   %47 = add i32 %46, -1
   store i32 %47, ptr %2, align 8, !tbaa !20
@@ -16053,13 +16053,13 @@ CHECK_CALL_NULL_ALLOWED.exit95:                   ; preds = %CHECK_CALL_NULL_ALL
   br label %.thread109
 
 .thread109:                                       ; preds = %CHECK_CALL_NULL_ALLOWED.exit95, %123, %79, %88, %127
-  %.268 = phi ptr [ null, %127 ], [ %86, %79 ], [ null, %88 ], [ null, %123 ], [ %121, %CHECK_CALL_NULL_ALLOWED.exit95 ]
+  %.268 = phi ptr [ null, %127 ], [ null, %88 ], [ %86, %79 ], [ null, %123 ], [ %121, %CHECK_CALL_NULL_ALLOWED.exit95 ]
   %128 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread105
 
 .thread105:                                       ; preds = %27, %94, %.thread112, %125, %101, %90, %77, %25, %.thread109, %10
-  %.sink142 = phi i32 [ %126, %125 ], [ %102, %101 ], [ %91, %90 ], [ %78, %77 ], [ %26, %25 ], [ %128, %.thread109 ], [ %11, %10 ], [ %95, %94 ], [ %storemerge140, %.thread112 ], [ %.pre149, %27 ]
-  %.0 = phi ptr [ null, %125 ], [ null, %101 ], [ null, %90 ], [ null, %77 ], [ null, %25 ], [ %.268, %.thread109 ], [ null, %10 ], [ null, %94 ], [ null, %.thread112 ], [ null, %27 ]
+  %.sink142 = phi i32 [ %126, %125 ], [ %102, %101 ], [ %91, %90 ], [ %78, %77 ], [ %26, %25 ], [ %128, %.thread109 ], [ %11, %10 ], [ %storemerge140, %.thread112 ], [ %95, %94 ], [ %.pre149, %27 ]
+  %.0 = phi ptr [ null, %125 ], [ null, %101 ], [ null, %90 ], [ null, %77 ], [ null, %25 ], [ %.268, %.thread109 ], [ null, %10 ], [ null, %.thread112 ], [ null, %94 ], [ null, %27 ]
   %129 = add i32 %.sink142, -1
   store i32 %129, ptr %2, align 8, !tbaa !20
   ret ptr %.0
@@ -16436,7 +16436,7 @@ _gather_105_rule.exit.thread263:                  ; preds = %_gather_105_rule.ex
   br label %_tmp_103_rule.exit.thread.sink.split
 
 _gather_105_rule.exit:                            ; preds = %131, %.preheader
-  tail call void @PyMem_Free(ptr noundef %.054.i322) #5
+  tail call void @PyMem_Free(ptr noundef nonnull %.054.i322) #5
   %storemerge.in.i = load i32, ptr %2, align 8, !tbaa !20
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %2, align 8, !tbaa !20
@@ -16779,7 +16779,7 @@ for_if_clauses_rule.exit.thread274:               ; preds = %162, %151, %166, %f
   br label %.thread294
 
 .thread294:                                       ; preds = %289, %141, %170, %197, %222, %257, %245, %242, %287, %284, %276, %247, %237, %.thread292, %212, %for_if_clauses_rule.exit.thread274, %.thread280, %_tmp_103_rule.exit.thread, %_tmp_103_rule.exit.thread.thread, %7, %.thread311, %.thread300, %.thread297, %.thread286, %.thread282, %.thread276, %.thread265
-  %.0 = phi ptr [ null, %.thread311 ], [ null, %276 ], [ null, %.thread265 ], [ null, %7 ], [ null, %.thread276 ], [ null, %_tmp_103_rule.exit.thread ], [ null, %.thread282 ], [ null, %for_if_clauses_rule.exit.thread274 ], [ null, %.thread286 ], [ null, %212 ], [ null, %.thread297 ], [ null, %237 ], [ null, %.thread300 ], [ null, %247 ], [ null, %_tmp_103_rule.exit.thread.thread ], [ null, %.thread280 ], [ null, %.thread292 ], [ null, %289 ], [ %243, %242 ], [ null, %222 ], [ null, %257 ], [ null, %197 ], [ null, %170 ], [ null, %141 ], [ null, %245 ], [ null, %287 ], [ %285, %284 ]
+  %.0 = phi ptr [ null, %.thread265 ], [ null, %.thread276 ], [ null, %.thread282 ], [ null, %.thread286 ], [ null, %.thread297 ], [ null, %.thread300 ], [ null, %.thread311 ], [ null, %7 ], [ null, %_tmp_103_rule.exit.thread.thread ], [ null, %_tmp_103_rule.exit.thread ], [ null, %.thread280 ], [ null, %for_if_clauses_rule.exit.thread274 ], [ null, %212 ], [ null, %.thread292 ], [ null, %237 ], [ null, %247 ], [ null, %276 ], [ null, %289 ], [ null, %141 ], [ null, %170 ], [ null, %197 ], [ null, %222 ], [ null, %257 ], [ null, %245 ], [ %243, %242 ], [ null, %287 ], [ %285, %284 ]
   %290 = load i32, ptr %2, align 8, !tbaa !20
   %291 = add i32 %290, -1
   store i32 %291, ptr %2, align 8, !tbaa !20
@@ -16899,7 +16899,7 @@ _gather_92_rule.exit:                             ; preds = %34
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %24, %.sink.split, %_gather_92_rule.exit, %_gather_90_rule.exit
-  %46 = phi i32 [ %23, %_gather_90_rule.exit ], [ %45, %.sink.split ], [ %38, %_gather_92_rule.exit ], [ %.pr, %24 ]
+  %46 = phi i32 [ %45, %.sink.split ], [ %38, %_gather_92_rule.exit ], [ %23, %_gather_90_rule.exit ], [ %.pr, %24 ]
   store i32 %12, ptr %11, align 8, !tbaa !22
   %47 = load i32, ptr %8, align 8, !tbaa !21
   %.not50 = icmp eq i32 %47, 0
@@ -16988,7 +16988,7 @@ _gather_92_rule.exit127:                          ; preds = %70
   br label %.sink.split124
 
 .sink.split124:                                   ; preds = %_gather_90_rule.exit71, %_gather_92_rule.exit127, %73, %42, %39, %7, %.thread88
-  %.0.ph = phi ptr [ null, %.thread88 ], [ null, %7 ], [ %72, %_gather_92_rule.exit127 ], [ %56, %_gather_90_rule.exit71 ], [ null, %73 ], [ null, %42 ], [ %40, %39 ]
+  %.0.ph = phi ptr [ null, %.thread88 ], [ null, %7 ], [ %56, %_gather_90_rule.exit71 ], [ null, %73 ], [ %72, %_gather_92_rule.exit127 ], [ null, %42 ], [ %40, %39 ]
   %74 = load i32, ptr %2, align 8, !tbaa !20
   br label %75
 
@@ -17206,7 +17206,7 @@ _tmp_159_rule.exit.thread:                        ; preds = %23, %28, %46, %_tmp
   br i1 %exitcond.not, label %._crit_edge, label %73, !llvm.loop !83
 
 .critedge74:                                      ; preds = %71, %._crit_edge, %16, %7, %.thread, %14
-  %.052 = phi ptr [ null, %.thread ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %68, %._crit_edge ], [ null, %71 ]
+  %.052 = phi ptr [ null, %14 ], [ null, %.thread ], [ null, %7 ], [ null, %16 ], [ %68, %._crit_edge ], [ null, %71 ]
   %79 = load i32, ptr %2, align 8, !tbaa !20
   %80 = add i32 %79, -1
   store i32 %80, ptr %2, align 8, !tbaa !20
@@ -17367,7 +17367,7 @@ CHECK_CALL.exit:                                  ; preds = %45, %56
   br label %.thread
 
 .thread:                                          ; preds = %71, %59, %CHECK_CALL.exit, %69, %66, %62, %42, %34, %32, %7, %61, %.thread97, %19
-  %.0 = phi ptr [ null, %61 ], [ null, %19 ], [ null, %7 ], [ null, %62 ], [ null, %32 ], [ null, %.thread97 ], [ null, %42 ], [ null, %34 ], [ null, %71 ], [ %57, %CHECK_CALL.exit ], [ null, %59 ], [ null, %69 ], [ %67, %66 ]
+  %.0 = phi ptr [ null, %19 ], [ null, %.thread97 ], [ null, %61 ], [ null, %7 ], [ null, %32 ], [ null, %34 ], [ null, %42 ], [ null, %62 ], [ null, %71 ], [ null, %59 ], [ %57, %CHECK_CALL.exit ], [ null, %69 ], [ %67, %66 ]
   %72 = load i32, ptr %2, align 8, !tbaa !20
   %73 = add i32 %72, -1
   store i32 %73, ptr %2, align 8, !tbaa !20
@@ -17461,9 +17461,9 @@ define internal fastcc ptr @_loop0_89_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.critedge, !llvm.loop !84
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader76
-  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ 0, %.lr.ph.preheader ], [ %29, %..critedge.loopexit_crit_edge ], [ %29, %.lr.ph ]
-  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %13, %.lr.ph.preheader ], [ %.256, %..critedge.loopexit_crit_edge ], [ %.256, %.lr.ph ]
-  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %12, %.lr.ph.preheader ], [ %31, %..critedge.loopexit_crit_edge ], [ %31, %.lr.ph ]
+  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %29, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %.256, %..critedge.loopexit_crit_edge ], [ %13, %.lr.ph.preheader ], [ %.256, %.lr.ph ]
+  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %31, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph.preheader ], [ %31, %.lr.ph ]
   store i32 %.053.lcssa, ptr %11, align 8, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !32
@@ -17501,7 +17501,7 @@ define internal fastcc ptr @_loop0_89_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !85
 
 .critedge74:                                      ; preds = %38, %._crit_edge, %16, %7, %.thread, %14
-  %.052 = phi ptr [ null, %.thread ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %35, %._crit_edge ], [ %35, %38 ]
+  %.052 = phi ptr [ null, %14 ], [ null, %.thread ], [ null, %7 ], [ null, %16 ], [ %35, %._crit_edge ], [ %35, %38 ]
   %46 = load i32, ptr %2, align 8, !tbaa !20
   %47 = add i32 %46, -1
   store i32 %47, ptr %2, align 8, !tbaa !20
@@ -17574,7 +17574,7 @@ define internal fastcc void @invalid_kwarg_rule(ptr noundef %0) unnamed_addr #0 
   %.not40.i = icmp eq ptr %27, null
   br i1 %.not40.i, label %_tmp_109_rule.exit.thread, label %30
 
-_tmp_109_rule.exit.thread:                        ; preds = %26, %16, %24, %20
+_tmp_109_rule.exit.thread:                        ; preds = %26, %16, %20, %24
   %28 = load i32, ptr %2, align 8, !tbaa !20
   %29 = add i32 %28, -1
   store i32 %29, ptr %2, align 8, !tbaa !20
@@ -18021,7 +18021,7 @@ CHECK_CALL.exit103:                               ; preds = %71, %80
   br label %.thread
 
 .thread:                                          ; preds = %86, %59, %CHECK_CALL.exit, %83, %CHECK_CALL.exit103, %68, %62, %42, %34, %32, %7, %85, %61, %19
-  %.0 = phi ptr [ null, %85 ], [ null, %19 ], [ null, %7 ], [ null, %68 ], [ null, %32 ], [ null, %61 ], [ null, %42 ], [ null, %34 ], [ null, %62 ], [ null, %86 ], [ %57, %CHECK_CALL.exit ], [ null, %59 ], [ null, %83 ], [ %81, %CHECK_CALL.exit103 ]
+  %.0 = phi ptr [ null, %19 ], [ null, %61 ], [ null, %85 ], [ null, %7 ], [ null, %32 ], [ null, %34 ], [ null, %42 ], [ null, %62 ], [ null, %68 ], [ null, %86 ], [ null, %59 ], [ %57, %CHECK_CALL.exit ], [ null, %83 ], [ %81, %CHECK_CALL.exit103 ]
   %87 = load i32, ptr %2, align 8, !tbaa !20
   %88 = add i32 %87, -1
   store i32 %88, ptr %2, align 8, !tbaa !20
@@ -18115,9 +18115,9 @@ define internal fastcc ptr @_loop0_91_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.critedge, !llvm.loop !87
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader76
-  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ 0, %.lr.ph.preheader ], [ %29, %..critedge.loopexit_crit_edge ], [ %29, %.lr.ph ]
-  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %13, %.lr.ph.preheader ], [ %.256, %..critedge.loopexit_crit_edge ], [ %.256, %.lr.ph ]
-  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %12, %.lr.ph.preheader ], [ %31, %..critedge.loopexit_crit_edge ], [ %31, %.lr.ph ]
+  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %29, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %.256, %..critedge.loopexit_crit_edge ], [ %13, %.lr.ph.preheader ], [ %.256, %.lr.ph ]
+  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %31, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph.preheader ], [ %31, %.lr.ph ]
   store i32 %.053.lcssa, ptr %11, align 8, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !32
@@ -18155,7 +18155,7 @@ define internal fastcc ptr @_loop0_91_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !88
 
 .critedge74:                                      ; preds = %38, %._crit_edge, %16, %7, %.thread, %14
-  %.052 = phi ptr [ null, %.thread ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %35, %._crit_edge ], [ %35, %38 ]
+  %.052 = phi ptr [ null, %14 ], [ null, %.thread ], [ null, %7 ], [ null, %16 ], [ %35, %._crit_edge ], [ %35, %38 ]
   %46 = load i32, ptr %2, align 8, !tbaa !20
   %47 = add i32 %46, -1
   store i32 %47, ptr %2, align 8, !tbaa !20
@@ -18528,7 +18528,7 @@ _tmp_65_rule.exit:                                ; preds = %55, %57
   br label %.thread
 
 .thread:                                          ; preds = %78, %80, %74, %65, %77, %.thread80, %62, %24, %7, %76, %23
-  %.0 = phi ptr [ null, %76 ], [ null, %23 ], [ null, %7 ], [ null, %77 ], [ null, %62 ], [ null, %24 ], [ null, %.thread80 ], [ %79, %78 ], [ null, %80 ], [ null, %74 ], [ %72, %65 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %76 ], [ null, %7 ], [ null, %24 ], [ null, %62 ], [ null, %.thread80 ], [ null, %77 ], [ null, %80 ], [ %79, %78 ], [ null, %74 ], [ %72, %65 ]
   %81 = load i32, ptr %2, align 8, !tbaa !20
   %82 = add i32 %81, -1
   store i32 %82, ptr %2, align 8, !tbaa !20
@@ -19256,8 +19256,8 @@ group_rule.exit.thread.thread:                    ; preds = %49, %22
   store i32 %14, ptr %13, align 8, !tbaa !22
   br label %64
 
-group_rule.exit.thread:                           ; preds = %50, %46
-  %.pre65 = phi i32 [ %.pre65.pre, %50 ], [ %.pre65.pre77, %46 ]
+group_rule.exit.thread:                           ; preds = %46, %50
+  %.pre65 = phi i32 [ %.pre65.pre77, %46 ], [ %.pre65.pre, %50 ]
   %56 = load i32, ptr %2, align 8, !tbaa !20
   %57 = add i32 %56, -1
   store i32 %57, ptr %2, align 8, !tbaa !20
@@ -19280,8 +19280,8 @@ group_rule.exit.thread:                           ; preds = %50, %46
   br label %64
 
 64:                                               ; preds = %group_rule.exit.thread, %group_rule.exit.thread.thread, %16, %62, %10
-  %.sink73 = phi i32 [ %11, %10 ], [ %18, %16 ], [ %63, %62 ], [ %55, %group_rule.exit.thread.thread ], [ %57, %group_rule.exit.thread ]
-  %.0 = phi ptr [ null, %10 ], [ null, %16 ], [ %.129, %62 ], [ null, %group_rule.exit.thread.thread ], [ null, %group_rule.exit.thread ]
+  %.sink73 = phi i32 [ %63, %62 ], [ %11, %10 ], [ %18, %16 ], [ %55, %group_rule.exit.thread.thread ], [ %57, %group_rule.exit.thread ]
+  %.0 = phi ptr [ %.129, %62 ], [ null, %10 ], [ null, %16 ], [ null, %group_rule.exit.thread.thread ], [ null, %group_rule.exit.thread ]
   %65 = add i32 %.sink73, -1
   store i32 %65, ptr %2, align 8, !tbaa !20
   ret ptr %.0
@@ -19721,7 +19721,7 @@ dict_rule.exit.thread.thread179:                  ; preds = %94, %18
   br label %228
 
 dict_rule.exit.thread:                            ; preds = %.thread80.sink.split, %74, %37, %dict_rule.exit.thread84, %dict_rule.exit.thread87
-  %.sink169.ph.ph = phi i32 [ %75, %74 ], [ %93, %dict_rule.exit.thread87 ], [ %38, %37 ], [ %98, %dict_rule.exit.thread84 ], [ %storemerge163, %.thread80.sink.split ]
+  %.sink169.ph.ph = phi i32 [ %75, %74 ], [ %38, %37 ], [ %98, %dict_rule.exit.thread84 ], [ %93, %dict_rule.exit.thread87 ], [ %storemerge163, %.thread80.sink.split ]
   %.pr119.pr.pr = load i32, ptr %8, align 8, !tbaa !21
   %103 = add i32 %.sink169.ph.ph, -1
   store i32 %14, ptr %13, align 8, !tbaa !22
@@ -19984,7 +19984,7 @@ dictcomp_rule.exit:                               ; preds = %197
   store i32 %14, ptr %13, align 8, !tbaa !22
   br label %228
 
-220:                                              ; preds = %194, %167, %for_if_clauses_rule.exit.thread73.i, %215, %209
+220:                                              ; preds = %167, %194, %215, %for_if_clauses_rule.exit.thread73.i, %209
   %.pr188 = load i32, ptr %8, align 8, !tbaa !21
   %221 = load i32, ptr %2, align 8, !tbaa !20
   %222 = add i32 %221, -1
@@ -20003,13 +20003,13 @@ dictcomp_rule.exit:                               ; preds = %197
   br label %226
 
 226:                                              ; preds = %dictcomp_rule.exit, %225, %223, %148, %99
-  %.136 = phi ptr [ %89, %99 ], [ %207, %dictcomp_rule.exit ], [ %144, %148 ], [ null, %225 ], [ %224, %223 ]
+  %.136 = phi ptr [ %144, %148 ], [ %89, %99 ], [ %207, %dictcomp_rule.exit ], [ null, %225 ], [ %224, %223 ]
   %227 = load i32, ptr %2, align 8, !tbaa !20
   br label %228
 
 228:                                              ; preds = %dict_rule.exit.thread.thread216, %220, %.thread189, %set_rule.exit.thread.thread183, %dict_rule.exit.thread.thread179, %set_rule.exit.thread, %set_rule.exit.thread.thread, %dict_rule.exit.thread, %dict_rule.exit.thread.thread, %226, %10
-  %.sink171 = phi i32 [ %11, %10 ], [ %103, %dict_rule.exit.thread ], [ %109, %set_rule.exit.thread.thread183 ], [ %227, %226 ], [ %storemerge123, %dict_rule.exit.thread.thread ], [ %storemerge124, %set_rule.exit.thread.thread ], [ %152, %set_rule.exit.thread ], [ %102, %dict_rule.exit.thread.thread179 ], [ %219, %.thread189 ], [ %222, %220 ], [ %68, %dict_rule.exit.thread.thread216 ]
-  %.0 = phi ptr [ null, %10 ], [ null, %dict_rule.exit.thread ], [ null, %set_rule.exit.thread.thread183 ], [ %.136, %226 ], [ null, %dict_rule.exit.thread.thread ], [ null, %set_rule.exit.thread.thread ], [ null, %set_rule.exit.thread ], [ null, %dict_rule.exit.thread.thread179 ], [ null, %.thread189 ], [ null, %220 ], [ null, %dict_rule.exit.thread.thread216 ]
+  %.sink171 = phi i32 [ %227, %226 ], [ %11, %10 ], [ %storemerge123, %dict_rule.exit.thread.thread ], [ %103, %dict_rule.exit.thread ], [ %storemerge124, %set_rule.exit.thread.thread ], [ %152, %set_rule.exit.thread ], [ %102, %dict_rule.exit.thread.thread179 ], [ %109, %set_rule.exit.thread.thread183 ], [ %219, %.thread189 ], [ %222, %220 ], [ %68, %dict_rule.exit.thread.thread216 ]
+  %.0 = phi ptr [ %.136, %226 ], [ null, %10 ], [ null, %dict_rule.exit.thread.thread ], [ null, %dict_rule.exit.thread ], [ null, %set_rule.exit.thread.thread ], [ null, %set_rule.exit.thread ], [ null, %dict_rule.exit.thread.thread179 ], [ null, %set_rule.exit.thread.thread183 ], [ null, %.thread189 ], [ null, %220 ], [ null, %dict_rule.exit.thread.thread216 ]
   %229 = add i32 %.sink171, -1
   store i32 %229, ptr %2, align 8, !tbaa !20
   ret ptr %.0
@@ -20677,14 +20677,14 @@ annotated_rhs_rule.exit.thread:                   ; preds = %annotated_rhs_rule.
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %invalid_replacement_field_rule.exit.thread
 
-invalid_replacement_field_rule.exit.thread:       ; preds = %268, %270, %272, %275, %277, %244, %267, %.thread.i, %86, %.thread275.i, %107, %.thread279.i, %128, %.thread283.i, %149, %.thread290.i, %170, %.thread298.i, %182, %.thread306.i, %197, %.thread346.i, %214, %.thread320.i, %225, %.thread333.i, %.thread313.i, %.thread326.i, %.thread339.i, %.thread328.i, %.thread315.i, %.thread301.i, %.thread293.i, %155, %134, %113, %92, %180, %.thread341.i
+invalid_replacement_field_rule.exit.thread:       ; preds = %268, %270, %272, %275, %277, %.thread.i, %.thread275.i, %.thread279.i, %.thread283.i, %.thread290.i, %.thread298.i, %.thread306.i, %.thread320.i, %.thread333.i, %.thread346.i, %86, %107, %128, %149, %170, %182, %197, %214, %.thread313.i, %225, %.thread326.i, %244, %.thread339.i, %267, %92, %113, %134, %155, %180, %.thread293.i, %.thread301.i, %.thread315.i, %.thread328.i, %.thread341.i
   %286 = load i32, ptr %2, align 8, !tbaa !20
   %287 = add i32 %286, -1
   store i32 %287, ptr %2, align 8, !tbaa !20
   br label %.thread101
 
-invalid_replacement_field_rule.exit.thread119:    ; preds = %281, %176, %192, %209, %239, %262
-  %.0.i.ph = phi ptr [ %264, %262 ], [ %241, %239 ], [ %211, %209 ], [ %194, %192 ], [ %178, %176 ], [ %283, %281 ]
+invalid_replacement_field_rule.exit.thread119:    ; preds = %176, %192, %209, %239, %262, %281
+  %.0.i.ph = phi ptr [ %283, %281 ], [ %264, %262 ], [ %241, %239 ], [ %211, %209 ], [ %194, %192 ], [ %178, %176 ]
   %288 = load i32, ptr %2, align 8, !tbaa !20
   %289 = add i32 %288, -1
   store i32 %289, ptr %2, align 8, !tbaa !20
@@ -20703,7 +20703,7 @@ invalid_replacement_field_rule.exit:              ; preds = %223
   br label %.thread94
 
 .thread94:                                        ; preds = %invalid_replacement_field_rule.exit.thread119, %invalid_replacement_field_rule.exit, %.thread101, %annotated_rhs_rule.exit.thread, %73, %64, %80, %61, %24, %7, %75, %23
-  %.0 = phi ptr [ null, %75 ], [ null, %23 ], [ null, %7 ], [ null, %80 ], [ null, %61 ], [ null, %24 ], [ %290, %invalid_replacement_field_rule.exit ], [ null, %annotated_rhs_rule.exit.thread ], [ null, %.thread101 ], [ null, %73 ], [ %71, %64 ], [ %.0.i.ph, %invalid_replacement_field_rule.exit.thread119 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %75 ], [ null, %7 ], [ null, %24 ], [ null, %61 ], [ null, %80 ], [ %290, %invalid_replacement_field_rule.exit ], [ null, %.thread101 ], [ null, %annotated_rhs_rule.exit.thread ], [ null, %73 ], [ %71, %64 ], [ %.0.i.ph, %invalid_replacement_field_rule.exit.thread119 ]
   %293 = load i32, ptr %2, align 8, !tbaa !20
   %294 = add i32 %293, -1
   store i32 %294, ptr %2, align 8, !tbaa !20
@@ -20916,7 +20916,7 @@ define internal fastcc ptr @fstring_full_format_spec_rule(ptr noundef %0) unname
   br label %.thread
 
 .thread:                                          ; preds = %51, %48, %39, %36, %24, %7, %50, %23
-  %.0 = phi ptr [ null, %50 ], [ null, %23 ], [ null, %7 ], [ null, %36 ], [ null, %24 ], [ null, %51 ], [ null, %48 ], [ %46, %39 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %50 ], [ null, %7 ], [ null, %24 ], [ null, %36 ], [ null, %51 ], [ null, %48 ], [ %46, %39 ]
   %52 = load i32, ptr %2, align 8, !tbaa !20
   %53 = add i32 %52, -1
   store i32 %53, ptr %2, align 8, !tbaa !20
@@ -21070,7 +21070,7 @@ define internal fastcc ptr @yield_expr_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %75, %50, %41, %72, %63, %60, %53, %38, %24, %7, %74, %52, %23
-  %.0 = phi ptr [ null, %74 ], [ null, %23 ], [ null, %7 ], [ null, %60 ], [ null, %38 ], [ null, %52 ], [ null, %24 ], [ null, %53 ], [ null, %75 ], [ %48, %41 ], [ null, %50 ], [ null, %72 ], [ %70, %63 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %52 ], [ null, %74 ], [ null, %7 ], [ null, %24 ], [ null, %38 ], [ null, %53 ], [ null, %60 ], [ null, %75 ], [ null, %50 ], [ %48, %41 ], [ null, %72 ], [ %70, %63 ]
   %76 = load i32, ptr %2, align 8, !tbaa !20
   %77 = add i32 %76, -1
   store i32 %77, ptr %2, align 8, !tbaa !20
@@ -21241,7 +21241,7 @@ fstring_format_spec_rule.exit.thread82:           ; preds = %27, %34
   br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !97
 
 61:                                               ; preds = %53, %._crit_edge, %16, %7, %.thread91, %14
-  %.047 = phi ptr [ null, %.thread91 ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %50, %._crit_edge ], [ %50, %53 ]
+  %.047 = phi ptr [ null, %14 ], [ null, %.thread91 ], [ null, %7 ], [ null, %16 ], [ %50, %._crit_edge ], [ %50, %53 ]
   %62 = load i32, ptr %2, align 8, !tbaa !20
   %63 = add i32 %62, -1
   store i32 %63, ptr %2, align 8, !tbaa !20
@@ -21316,7 +21316,7 @@ define internal ptr @_tmp_144_rule(ptr noundef %0) #0 {
   br label %27
 
 27:                                               ; preds = %10, %16, %20, %24, %26, %22, %18, %14, %7
-  %.0 = phi ptr [ null, %18 ], [ null, %22 ], [ null, %14 ], [ null, %7 ], [ %13, %10 ], [ %21, %20 ], [ %17, %16 ], [ null, %26 ], [ %25, %24 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %14 ], [ null, %18 ], [ null, %22 ], [ %13, %10 ], [ %17, %16 ], [ %21, %20 ], [ null, %26 ], [ %25, %24 ]
   %28 = load i32, ptr %2, align 8, !tbaa !20
   %29 = add i32 %28, -1
   store i32 %29, ptr %2, align 8, !tbaa !20
@@ -21376,7 +21376,7 @@ define internal ptr @_tmp_145_rule(ptr noundef %0) #0 {
   br label %23
 
 23:                                               ; preds = %10, %16, %20, %22, %18, %14, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %18 ], [ null, %14 ], [ %13, %10 ], [ %17, %16 ], [ null, %22 ], [ %21, %20 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %14 ], [ null, %18 ], [ %13, %10 ], [ %17, %16 ], [ null, %22 ], [ %21, %20 ]
   %24 = load i32, ptr %2, align 8, !tbaa !20
   %25 = add i32 %24, -1
   store i32 %25, ptr %2, align 8, !tbaa !20
@@ -21465,7 +21465,7 @@ define internal fastcc ptr @invalid_conversion_character_rule(ptr noundef %0) un
   br label %.thread
 
 .thread:                                          ; preds = %34, %20, %16, %32, %28, %22, %7, %.thread52, %.thread45
-  %.0 = phi ptr [ null, %.thread52 ], [ null, %22 ], [ null, %.thread45 ], [ null, %7 ], [ null, %34 ], [ %18, %16 ], [ null, %20 ], [ null, %32 ], [ %30, %28 ]
+  %.0 = phi ptr [ null, %.thread45 ], [ null, %.thread52 ], [ null, %7 ], [ null, %22 ], [ null, %34 ], [ null, %20 ], [ %18, %16 ], [ null, %32 ], [ %30, %28 ]
   %35 = load i32, ptr %2, align 8, !tbaa !20
   %36 = add i32 %35, -1
   store i32 %36, ptr %2, align 8, !tbaa !20
@@ -21735,7 +21735,7 @@ _tmp_80_rule.exit:                                ; preds = %54, %52, %49
   br label %.thread59
 
 .thread59:                                        ; preds = %72, %69, %60, %57, %24, %7, %71, %23
-  %.0 = phi ptr [ null, %71 ], [ null, %23 ], [ null, %7 ], [ null, %57 ], [ null, %24 ], [ null, %72 ], [ null, %69 ], [ %67, %60 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %71 ], [ null, %7 ], [ null, %24 ], [ null, %57 ], [ null, %72 ], [ null, %69 ], [ %67, %60 ]
   %73 = load i32, ptr %2, align 8, !tbaa !20
   %74 = add i32 %73, -1
   store i32 %74, ptr %2, align 8, !tbaa !20
@@ -22038,7 +22038,7 @@ star_named_expressions_rule.exit.thread93:        ; preds = %54, %star_named_exp
   br label %.thread65
 
 .thread65:                                        ; preds = %star_named_expressions_rule.exit.thread93, %73, %64, %61, %24, %7, %75, %23
-  %.0 = phi ptr [ null, %75 ], [ null, %23 ], [ null, %7 ], [ null, %61 ], [ null, %24 ], [ null, %star_named_expressions_rule.exit.thread93 ], [ null, %73 ], [ %71, %64 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %75 ], [ null, %7 ], [ null, %24 ], [ null, %61 ], [ null, %star_named_expressions_rule.exit.thread93 ], [ null, %73 ], [ %71, %64 ]
   %76 = load i32, ptr %2, align 8, !tbaa !20
   %77 = add i32 %76, -1
   store i32 %77, ptr %2, align 8, !tbaa !20
@@ -22193,7 +22193,7 @@ for_if_clauses_rule.exit.thread72:                ; preds = %45, %for_if_clauses
   br label %.thread74
 
 .thread74:                                        ; preds = %70, %for_if_clauses_rule.exit.thread72, %63, %54, %68, %51, %24, %7, %65, %23
-  %.0 = phi ptr [ null, %65 ], [ null, %23 ], [ null, %7 ], [ null, %68 ], [ null, %51 ], [ null, %24 ], [ null, %for_if_clauses_rule.exit.thread72 ], [ null, %70 ], [ null, %63 ], [ %61, %54 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %65 ], [ null, %7 ], [ null, %24 ], [ null, %51 ], [ null, %68 ], [ null, %70 ], [ null, %for_if_clauses_rule.exit.thread72 ], [ null, %63 ], [ %61, %54 ]
   %71 = load i32, ptr %2, align 8, !tbaa !20
   %72 = add i32 %71, -1
   store i32 %72, ptr %2, align 8, !tbaa !20
@@ -22509,7 +22509,7 @@ invalid_kvpair_rule.exit._crit_edge:              ; preds = %invalid_kvpair_rule
   br label %146
 
 146:                                              ; preds = %invalid_kvpair_rule.exit.thread, %invalid_kvpair_rule.exit._crit_edge, %143, %.thread95, %119, %.thread100, %10
-  %.sink111 = phi i32 [ %144, %143 ], [ %116, %.thread95 ], [ %11, %10 ], [ %120, %119 ], [ %145, %.thread100 ], [ %.pre102, %invalid_kvpair_rule.exit._crit_edge ], [ %96, %invalid_kvpair_rule.exit.thread ]
+  %.sink111 = phi i32 [ %144, %143 ], [ %116, %.thread95 ], [ %120, %119 ], [ %145, %.thread100 ], [ %11, %10 ], [ %.pre102, %invalid_kvpair_rule.exit._crit_edge ], [ %96, %invalid_kvpair_rule.exit.thread ]
   %147 = add i32 %.sink111, -1
   store i32 %147, ptr %2, align 8, !tbaa !20
   ret void
@@ -22576,7 +22576,7 @@ define internal fastcc ptr @double_starred_kvpair_rule(ptr noundef %0) unnamed_a
   br label %.thread
 
 .thread:                                          ; preds = %23, %25, %19, %16, %21, %7, %.thread42
-  %.0 = phi ptr [ null, %7 ], [ null, %21 ], [ null, %.thread42 ], [ %24, %23 ], [ null, %25 ], [ null, %19 ], [ %17, %16 ]
+  %.0 = phi ptr [ null, %.thread42 ], [ null, %7 ], [ null, %21 ], [ null, %25 ], [ %24, %23 ], [ null, %19 ], [ %17, %16 ]
   %26 = load i32, ptr %2, align 8, !tbaa !20
   %27 = add i32 %26, -1
   store i32 %27, ptr %2, align 8, !tbaa !20
@@ -22670,9 +22670,9 @@ define internal fastcc ptr @_loop0_81_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.critedge, !llvm.loop !98
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader76
-  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ 0, %.lr.ph.preheader ], [ %29, %..critedge.loopexit_crit_edge ], [ %29, %.lr.ph ]
-  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %13, %.lr.ph.preheader ], [ %.256, %..critedge.loopexit_crit_edge ], [ %.256, %.lr.ph ]
-  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %12, %.lr.ph.preheader ], [ %31, %..critedge.loopexit_crit_edge ], [ %31, %.lr.ph ]
+  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %29, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %.256, %..critedge.loopexit_crit_edge ], [ %13, %.lr.ph.preheader ], [ %.256, %.lr.ph ]
+  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %31, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph.preheader ], [ %31, %.lr.ph ]
   store i32 %.053.lcssa, ptr %11, align 8, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !32
@@ -22710,7 +22710,7 @@ define internal fastcc ptr @_loop0_81_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !99
 
 .critedge74:                                      ; preds = %38, %._crit_edge, %16, %7, %.thread, %14
-  %.052 = phi ptr [ null, %.thread ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %35, %._crit_edge ], [ %35, %38 ]
+  %.052 = phi ptr [ null, %14 ], [ null, %.thread ], [ null, %7 ], [ null, %16 ], [ %35, %._crit_edge ], [ %35, %38 ]
   %46 = load i32, ptr %2, align 8, !tbaa !20
   %47 = add i32 %46, -1
   store i32 %47, ptr %2, align 8, !tbaa !20
@@ -23199,7 +23199,7 @@ lambda_params_rule.exit.thread:                   ; preds = %lambda_params_rule.
   br label %.thread62
 
 .thread62:                                        ; preds = %lambda_params_rule.exit.thread, %73, %CHECK_CALL.exit, %56, %24, %7, %75, %23
-  %.0 = phi ptr [ null, %75 ], [ null, %23 ], [ null, %7 ], [ null, %56 ], [ null, %24 ], [ null, %lambda_params_rule.exit.thread ], [ null, %73 ], [ %71, %CHECK_CALL.exit ]
+  %.0 = phi ptr [ null, %23 ], [ null, %75 ], [ null, %7 ], [ null, %24 ], [ null, %56 ], [ null, %lambda_params_rule.exit.thread ], [ null, %73 ], [ %71, %CHECK_CALL.exit ]
   %78 = load i32, ptr %2, align 8, !tbaa !20
   %79 = add i32 %78, -1
   store i32 %79, ptr %2, align 8, !tbaa !20
@@ -23402,7 +23402,7 @@ define internal fastcc ptr @expression_without_invalid_rule(ptr noundef %0) unna
   br label %.thread
 
 .thread:                                          ; preds = %61, %65, %67, %56, %47, %63, %59, %44, %26, %9, %58, %25
-  %.0 = phi ptr [ null, %58 ], [ null, %25 ], [ null, %9 ], [ null, %59 ], [ null, %44 ], [ null, %63 ], [ null, %26 ], [ %66, %65 ], [ %62, %61 ], [ null, %67 ], [ null, %56 ], [ %54, %47 ]
+  %.0 = phi ptr [ null, %25 ], [ null, %58 ], [ null, %9 ], [ null, %26 ], [ null, %44 ], [ null, %59 ], [ null, %63 ], [ %62, %61 ], [ null, %67 ], [ %66, %65 ], [ null, %56 ], [ %54, %47 ]
   store i32 %3, ptr %2, align 4, !tbaa !38
   %68 = load i32, ptr %4, align 8, !tbaa !20
   %69 = add i32 %68, -1
@@ -24104,7 +24104,7 @@ INVALID_VERSION_CHECK.exit:                       ; preds = %24
   br label %.thread
 
 .thread:                                          ; preds = %79, %31, %INVALID_VERSION_CHECK.exit, %24, %45, %41, %58, %55, %69, %66, %77, %74, %71, %.thread173, %60, %.thread162, %47, %.thread151, %33, %.thread140, %7, %.thread179, %.thread168, %.thread157, %.thread146, %.thread137
-  %.0 = phi ptr [ null, %.thread179 ], [ null, %71 ], [ null, %.thread137 ], [ null, %7 ], [ null, %.thread146 ], [ null, %33 ], [ null, %.thread157 ], [ null, %47 ], [ null, %.thread168 ], [ null, %60 ], [ null, %.thread140 ], [ null, %.thread151 ], [ null, %.thread162 ], [ null, %.thread173 ], [ null, %79 ], [ %67, %66 ], [ %56, %55 ], [ %43, %41 ], [ %22, %24 ], [ null, %31 ], [ %29, %INVALID_VERSION_CHECK.exit ], [ null, %45 ], [ null, %58 ], [ null, %69 ], [ null, %77 ], [ %75, %74 ]
+  %.0 = phi ptr [ null, %.thread137 ], [ null, %.thread146 ], [ null, %.thread157 ], [ null, %.thread168 ], [ null, %.thread179 ], [ null, %7 ], [ null, %.thread140 ], [ null, %33 ], [ null, %.thread151 ], [ null, %47 ], [ null, %.thread162 ], [ null, %60 ], [ null, %.thread173 ], [ null, %71 ], [ null, %79 ], [ %29, %INVALID_VERSION_CHECK.exit ], [ null, %31 ], [ %22, %24 ], [ null, %45 ], [ %43, %41 ], [ null, %58 ], [ %56, %55 ], [ null, %69 ], [ %67, %66 ], [ null, %77 ], [ %75, %74 ]
   %80 = load i32, ptr %2, align 8, !tbaa !20
   %81 = add i32 %80, -1
   store i32 %81, ptr %2, align 8, !tbaa !20
@@ -24273,7 +24273,7 @@ define internal fastcc ptr @_loop0_75_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge81, label %39, !llvm.loop !106
 
 45:                                               ; preds = %37, %._crit_edge81, %16, %7, %30, %14
-  %.047 = phi ptr [ null, %30 ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
+  %.047 = phi ptr [ null, %14 ], [ null, %30 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
   %46 = load i32, ptr %2, align 8, !tbaa !20
   %47 = add i32 %46, -1
   store i32 %47, ptr %2, align 8, !tbaa !20
@@ -24463,7 +24463,7 @@ define internal fastcc ptr @_loop0_71_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge81, label %39, !llvm.loop !108
 
 45:                                               ; preds = %37, %._crit_edge81, %16, %7, %30, %14
-  %.047 = phi ptr [ null, %30 ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
+  %.047 = phi ptr [ null, %14 ], [ null, %30 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
   %46 = load i32, ptr %2, align 8, !tbaa !20
   %47 = add i32 %46, -1
   store i32 %47, ptr %2, align 8, !tbaa !20
@@ -24526,7 +24526,7 @@ define internal fastcc ptr @invalid_lambda_parameters_helper_rule(ptr noundef %0
   br label %.thread
 
 .thread:                                          ; preds = %21, %23, %17, %14, %19, %7, %.thread40
-  %.0 = phi ptr [ null, %7 ], [ null, %19 ], [ null, %.thread40 ], [ %22, %21 ], [ null, %23 ], [ null, %17 ], [ %15, %14 ]
+  %.0 = phi ptr [ null, %.thread40 ], [ null, %7 ], [ null, %19 ], [ null, %23 ], [ %22, %21 ], [ null, %17 ], [ %15, %14 ]
   %24 = load i32, ptr %2, align 8, !tbaa !20
   %25 = add i32 %24, -1
   store i32 %25, ptr %2, align 8, !tbaa !20
@@ -24690,9 +24690,9 @@ define internal fastcc ptr @_gather_127_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.critedge.i, !llvm.loop !109
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %..critedge.i.loopexit_crit_edge, %.preheader76.i
-  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ 0, %.lr.ph.i.preheader ], [ %36, %..critedge.i.loopexit_crit_edge ], [ %36, %.lr.ph.i ]
-  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %.256.i, %.lr.ph.i ]
-  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %22, %.lr.ph.i.preheader ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %38, %.lr.ph.i ]
+  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
+  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
+  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
   store i32 %.053.lcssa.i, ptr %11, align 8, !tbaa !22
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !32
@@ -24933,7 +24933,7 @@ define internal fastcc ptr @_loop1_76_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge86, label %44, !llvm.loop !112
 
 50:                                               ; preds = %42, %._crit_edge86, %16, %7, %30, %14, %35
-  %.051 = phi ptr [ null, %30 ], [ null, %14 ], [ null, %7 ], [ null, %35 ], [ null, %16 ], [ %39, %._crit_edge86 ], [ %39, %42 ]
+  %.051 = phi ptr [ null, %14 ], [ null, %35 ], [ null, %30 ], [ null, %7 ], [ null, %16 ], [ %39, %._crit_edge86 ], [ %39, %42 ]
   %51 = load i32, ptr %2, align 8, !tbaa !20
   %52 = add i32 %51, -1
   store i32 %52, ptr %2, align 8, !tbaa !20
@@ -25040,7 +25040,7 @@ define internal fastcc ptr @lambda_slash_with_default_rule(ptr noundef %0) unnam
   br label %.thread
 
 .thread:                                          ; preds = %40, %23, %20, %38, %35, %25, %7, %.thread68, %.thread61
-  %.0 = phi ptr [ null, %.thread68 ], [ null, %25 ], [ null, %.thread61 ], [ null, %7 ], [ null, %40 ], [ %21, %20 ], [ null, %23 ], [ null, %38 ], [ %36, %35 ]
+  %.0 = phi ptr [ null, %.thread61 ], [ null, %.thread68 ], [ null, %7 ], [ null, %25 ], [ null, %40 ], [ null, %23 ], [ %21, %20 ], [ null, %38 ], [ %36, %35 ]
   %41 = load i32, ptr %2, align 8, !tbaa !20
   %42 = add i32 %41, -1
   store i32 %42, ptr %2, align 8, !tbaa !20
@@ -25176,7 +25176,7 @@ define internal fastcc ptr @_loop1_74_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge86, label %44, !llvm.loop !114
 
 50:                                               ; preds = %42, %._crit_edge86, %16, %7, %30, %14, %35
-  %.051 = phi ptr [ null, %30 ], [ null, %14 ], [ null, %7 ], [ null, %35 ], [ null, %16 ], [ %39, %._crit_edge86 ], [ %39, %42 ]
+  %.051 = phi ptr [ null, %14 ], [ null, %35 ], [ null, %30 ], [ null, %7 ], [ null, %16 ], [ %39, %._crit_edge86 ], [ %39, %42 ]
   %51 = load i32, ptr %2, align 8, !tbaa !20
   %52 = add i32 %51, -1
   store i32 %52, ptr %2, align 8, !tbaa !20
@@ -25275,7 +25275,7 @@ define internal fastcc ptr @lambda_param_with_default_rule(ptr noundef %0) unnam
   br label %.thread
 
 .thread:                                          ; preds = %36, %21, %18, %34, %31, %23, %7, %.thread64, %.thread57
-  %.0 = phi ptr [ null, %.thread64 ], [ null, %23 ], [ null, %.thread57 ], [ null, %7 ], [ null, %36 ], [ %19, %18 ], [ null, %21 ], [ null, %34 ], [ %32, %31 ]
+  %.0 = phi ptr [ null, %.thread57 ], [ null, %.thread64 ], [ null, %7 ], [ null, %23 ], [ null, %36 ], [ null, %21 ], [ %19, %18 ], [ null, %34 ], [ %32, %31 ]
   %37 = load i32, ptr %2, align 8, !tbaa !20
   %38 = add i32 %37, -1
   store i32 %38, ptr %2, align 8, !tbaa !20
@@ -25377,7 +25377,7 @@ define internal fastcc ptr @lambda_param_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %51, %48, %37, %34, %24, %7, %50, %23
-  %.0 = phi ptr [ null, %50 ], [ null, %23 ], [ null, %7 ], [ null, %34 ], [ null, %24 ], [ null, %51 ], [ null, %48 ], [ %46, %37 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %50 ], [ null, %7 ], [ null, %24 ], [ null, %34 ], [ null, %51 ], [ null, %48 ], [ %46, %37 ]
   %52 = load i32, ptr %2, align 8, !tbaa !20
   %53 = add i32 %52, -1
   store i32 %53, ptr %2, align 8, !tbaa !20
@@ -25481,7 +25481,7 @@ invalid_default_rule.exit:                        ; preds = %.thread, %28, %25, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %invalid_default_rule.exit, %16, %14, %7
-  %.0.ph = phi ptr [ null, %7 ], [ null, %16 ], [ null, %invalid_default_rule.exit ], [ %15, %14 ]
+  %.0.ph = phi ptr [ null, %7 ], [ null, %invalid_default_rule.exit ], [ null, %16 ], [ %15, %14 ]
   %48 = load i32, ptr %2, align 8, !tbaa !20
   br label %49
 
@@ -25642,7 +25642,7 @@ define internal fastcc ptr @lambda_param_maybe_default_rule(ptr noundef %0) unna
   br label %.thread
 
 .thread:                                          ; preds = %37, %22, %19, %35, %32, %24, %.thread60, %7, %.thread66, %.thread57
-  %.0 = phi ptr [ null, %.thread66 ], [ null, %24 ], [ null, %.thread57 ], [ null, %7 ], [ null, %.thread60 ], [ null, %37 ], [ %20, %19 ], [ null, %22 ], [ null, %35 ], [ %33, %32 ]
+  %.0 = phi ptr [ null, %.thread57 ], [ null, %.thread66 ], [ null, %7 ], [ null, %.thread60 ], [ null, %24 ], [ null, %37 ], [ null, %22 ], [ %20, %19 ], [ null, %35 ], [ %33, %32 ]
   %38 = load i32, ptr %2, align 8, !tbaa !20
   %39 = add i32 %38, -1
   store i32 %39, ptr %2, align 8, !tbaa !20
@@ -25778,7 +25778,7 @@ define internal fastcc ptr @_loop1_73_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge86, label %44, !llvm.loop !116
 
 50:                                               ; preds = %42, %._crit_edge86, %16, %7, %30, %14, %35
-  %.051 = phi ptr [ null, %30 ], [ null, %14 ], [ null, %7 ], [ null, %35 ], [ null, %16 ], [ %39, %._crit_edge86 ], [ %39, %42 ]
+  %.051 = phi ptr [ null, %14 ], [ null, %35 ], [ null, %30 ], [ null, %7 ], [ null, %16 ], [ %39, %._crit_edge86 ], [ %39, %42 ]
   %51 = load i32, ptr %2, align 8, !tbaa !20
   %52 = add i32 %51, -1
   store i32 %52, ptr %2, align 8, !tbaa !20
@@ -25899,7 +25899,7 @@ define internal fastcc ptr @_loop0_72_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge81, label %39, !llvm.loop !118
 
 45:                                               ; preds = %37, %._crit_edge81, %16, %7, %30, %14
-  %.047 = phi ptr [ null, %30 ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
+  %.047 = phi ptr [ null, %14 ], [ null, %30 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
   %46 = load i32, ptr %2, align 8, !tbaa !20
   %47 = add i32 %46, -1
   store i32 %47, ptr %2, align 8, !tbaa !20
@@ -26286,7 +26286,7 @@ invalid_lambda_star_etc_rule.exit.thread125:      ; preds = %103, %76, %93, %95,
   br label %.thread131
 
 .thread131:                                       ; preds = %162, %118, %137, %134, %152, %149, %160, %157, %154, %.thread148, %139, %.thread137, %invalid_lambda_star_etc_rule.exit.thread125, %.thread174, %7, %.thread154, %.thread143, %.thread134
-  %.0 = phi ptr [ null, %139 ], [ null, %154 ], [ null, %.thread154 ], [ null, %7 ], [ null, %.thread134 ], [ null, %invalid_lambda_star_etc_rule.exit.thread125 ], [ null, %.thread143 ], [ null, %.thread174 ], [ null, %.thread137 ], [ null, %.thread148 ], [ null, %162 ], [ %150, %149 ], [ %135, %134 ], [ %64, %118 ], [ null, %137 ], [ null, %152 ], [ null, %160 ], [ %158, %157 ]
+  %.0 = phi ptr [ null, %.thread134 ], [ null, %.thread143 ], [ null, %.thread154 ], [ null, %7 ], [ null, %.thread174 ], [ null, %invalid_lambda_star_etc_rule.exit.thread125 ], [ null, %.thread137 ], [ null, %139 ], [ null, %.thread148 ], [ null, %154 ], [ null, %162 ], [ %64, %118 ], [ null, %137 ], [ %135, %134 ], [ null, %152 ], [ %150, %149 ], [ null, %160 ], [ %158, %157 ]
   %163 = load i32, ptr %2, align 8, !tbaa !20
   %164 = add i32 %163, -1
   store i32 %164, ptr %2, align 8, !tbaa !20
@@ -26605,7 +26605,7 @@ define internal fastcc ptr @_tmp_124_rule(ptr noundef %0) unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %10, %16, %20, %22, %18, %14, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %18 ], [ null, %14 ], [ %13, %10 ], [ %17, %16 ], [ null, %22 ], [ %21, %20 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %14 ], [ null, %18 ], [ %13, %10 ], [ %17, %16 ], [ null, %22 ], [ %21, %20 ]
   %24 = load i32, ptr %2, align 8, !tbaa !20
   %25 = add i32 %24, -1
   store i32 %25, ptr %2, align 8, !tbaa !20
@@ -26815,9 +26815,9 @@ define internal fastcc ptr @type_params_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.critedge.i.i.i, !llvm.loop !119
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i, %..critedge.i.loopexit_crit_edge.i.i, %.lr.ph.i.preheader.i.i, %.preheader76.i.i.i
-  %.058.lcssa.i.i.i = phi i64 [ 0, %.preheader76.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i ], [ %75, %..critedge.i.loopexit_crit_edge.i.i ], [ %75, %.lr.ph.i.i.i ]
-  %.054.lcssa.i.i.i = phi ptr [ %62, %.preheader76.i.i.i ], [ %62, %.lr.ph.i.preheader.i.i ], [ %.256.i.i.i, %..critedge.i.loopexit_crit_edge.i.i ], [ %.256.i.i.i, %.lr.ph.i.i.i ]
-  %.053.lcssa.i.i.i = phi i32 [ %61, %.preheader76.i.i.i ], [ %61, %.lr.ph.i.preheader.i.i ], [ %77, %..critedge.i.loopexit_crit_edge.i.i ], [ %77, %.lr.ph.i.i.i ]
+  %.058.lcssa.i.i.i = phi i64 [ 0, %.preheader76.i.i.i ], [ %75, %..critedge.i.loopexit_crit_edge.i.i ], [ 0, %.lr.ph.i.preheader.i.i ], [ %75, %.lr.ph.i.i.i ]
+  %.054.lcssa.i.i.i = phi ptr [ %62, %.preheader76.i.i.i ], [ %.256.i.i.i, %..critedge.i.loopexit_crit_edge.i.i ], [ %62, %.lr.ph.i.preheader.i.i ], [ %.256.i.i.i, %.lr.ph.i.i.i ]
+  %.053.lcssa.i.i.i = phi i32 [ %61, %.preheader76.i.i.i ], [ %77, %..critedge.i.loopexit_crit_edge.i.i ], [ %61, %.lr.ph.i.preheader.i.i ], [ %77, %.lr.ph.i.i.i ]
   store i32 %.053.lcssa.i.i.i, ptr %11, align 8, !tbaa !22
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %80 = load ptr, ptr %79, align 8, !tbaa !32
@@ -26923,7 +26923,7 @@ INVALID_VERSION_CHECK.exit:                       ; preds = %101
   br label %.thread
 
 .thread:                                          ; preds = %110, %108, %INVALID_VERSION_CHECK.exit, %101, %36, %.thread86, %7, %.thread51
-  %.0 = phi ptr [ null, %7 ], [ null, %36 ], [ null, %.thread51 ], [ null, %.thread86 ], [ null, %110 ], [ null, %108 ], [ %106, %INVALID_VERSION_CHECK.exit ], [ %95, %101 ]
+  %.0 = phi ptr [ null, %.thread51 ], [ null, %7 ], [ null, %.thread86 ], [ null, %36 ], [ null, %110 ], [ %106, %INVALID_VERSION_CHECK.exit ], [ null, %108 ], [ %95, %101 ]
   %111 = load i32, ptr %2, align 8, !tbaa !20
   %112 = add i32 %111, -1
   store i32 %112, ptr %2, align 8, !tbaa !20
@@ -27531,12 +27531,12 @@ INVALID_VERSION_CHECK.exit.i:                     ; preds = %207
   br label %.thread162.i
 
 262:                                              ; preds = %257, %249, %238, %224, %INVALID_VERSION_CHECK.exit.i, %207
-  %.0.i = phi ptr [ %205, %207 ], [ %258, %257 ], [ %212, %INVALID_VERSION_CHECK.exit.i ], [ %250, %249 ], [ %239, %238 ], [ %226, %224 ]
+  %.0.i = phi ptr [ %212, %INVALID_VERSION_CHECK.exit.i ], [ %205, %207 ], [ %226, %224 ], [ %239, %238 ], [ %250, %249 ], [ %258, %257 ]
   %263 = load i32, ptr %2, align 8, !tbaa !20
   %264 = add i32 %263, -1
   br label %267
 
-.thread162.i:                                     ; preds = %255, %246, %235, %260, %252, %241, %228, %214, %.thread151.i, %.thread140.i, %243, %.thread168.i, %230, %.thread157.i, %216, %.thread146.i, %193, %.thread137.i, %254, %.thread179.i
+.thread162.i:                                     ; preds = %255, %246, %235, %260, %252, %241, %228, %214, %254, %243, %230, %.thread151.i, %216, %.thread140.i, %193, %.thread179.i, %.thread168.i, %.thread157.i, %.thread146.i, %.thread137.i
   %265 = load i32, ptr %2, align 8, !tbaa !20
   %266 = add i32 %265, -1
   store i32 %14, ptr %13, align 8, !tbaa !22
@@ -27853,7 +27853,7 @@ define internal fastcc ptr @block_rule(ptr noundef %0) unnamed_addr #0 {
   br label %52
 
 52:                                               ; preds = %42, %.thread62, %50, %40, %33
-  %.sink = phi ptr [ %41, %40 ], [ %32, %33 ], [ %51, %50 ], [ null, %.thread62 ], [ null, %42 ]
+  %.sink = phi ptr [ %32, %33 ], [ %41, %40 ], [ %51, %50 ], [ null, %.thread62 ], [ null, %42 ]
   store ptr %.sink, ptr %2, align 8, !tbaa !25
   %53 = call i32 @_PyPegen_insert_memo(ptr noundef nonnull %0, i32 noundef %22, i32 noundef 1029, ptr noundef %.sink) #5
   %54 = load i32, ptr %3, align 8, !tbaa !20
@@ -27863,7 +27863,7 @@ define internal fastcc ptr @block_rule(ptr noundef %0) unnamed_addr #0 {
   br label %57
 
 57:                                               ; preds = %24, %37, %47, %52, %16
-  %.1 = phi ptr [ %19, %16 ], [ null, %24 ], [ %56, %52 ], [ null, %37 ], [ null, %47 ]
+  %.1 = phi ptr [ %19, %16 ], [ null, %24 ], [ null, %37 ], [ null, %47 ], [ %56, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %58
 
@@ -28255,7 +28255,7 @@ type_param_bound_rule.exit:                       ; preds = %58, %60
   br label %.thread
 
 .thread:                                          ; preds = %158, %142, %125, %109, %83, %67, %29, %.thread139, %129, %96, %90, %43, %16
-  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %125 ], [ null, %90 ], [ %166, %.thread139 ], [ null, %96 ], [ null, %83 ], [ null, %129 ], [ null, %67 ], [ null, %109 ], [ null, %142 ], [ null, %158 ]
+  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %90 ], [ null, %96 ], [ null, %129 ], [ %166, %.thread139 ], [ null, %67 ], [ null, %83 ], [ null, %109 ], [ null, %125 ], [ null, %142 ], [ null, %158 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %167
 
@@ -28322,7 +28322,7 @@ INVALID_VERSION_CHECK.exit:                       ; preds = %16
   br label %.thread
 
 .thread:                                          ; preds = %25, %23, %INVALID_VERSION_CHECK.exit, %16, %7, %.thread30
-  %.0 = phi ptr [ null, %.thread30 ], [ null, %7 ], [ null, %25 ], [ null, %23 ], [ %21, %INVALID_VERSION_CHECK.exit ], [ %15, %16 ]
+  %.0 = phi ptr [ null, %.thread30 ], [ null, %7 ], [ null, %25 ], [ %21, %INVALID_VERSION_CHECK.exit ], [ null, %23 ], [ %15, %16 ]
   %26 = load i32, ptr %2, align 8, !tbaa !20
   %27 = add i32 %26, -1
   store i32 %27, ptr %2, align 8, !tbaa !20
@@ -28507,7 +28507,7 @@ INVALID_VERSION_CHECK.exit:                       ; preds = %16
   br label %.thread
 
 .thread:                                          ; preds = %25, %23, %INVALID_VERSION_CHECK.exit, %16, %7, %.thread30
-  %.0 = phi ptr [ null, %.thread30 ], [ null, %7 ], [ null, %25 ], [ null, %23 ], [ %21, %INVALID_VERSION_CHECK.exit ], [ %15, %16 ]
+  %.0 = phi ptr [ null, %.thread30 ], [ null, %7 ], [ null, %25 ], [ %21, %INVALID_VERSION_CHECK.exit ], [ null, %23 ], [ %15, %16 ]
   %26 = load i32, ptr %2, align 8, !tbaa !20
   %27 = add i32 %26, -1
   store i32 %27, ptr %2, align 8, !tbaa !20
@@ -28680,7 +28680,7 @@ define internal fastcc ptr @_loop0_32_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge81, label %39, !llvm.loop !125
 
 45:                                               ; preds = %37, %._crit_edge81, %16, %7, %30, %14
-  %.047 = phi ptr [ null, %30 ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
+  %.047 = phi ptr [ null, %14 ], [ null, %30 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
   %46 = load i32, ptr %2, align 8, !tbaa !20
   %47 = add i32 %46, -1
   store i32 %47, ptr %2, align 8, !tbaa !20
@@ -28870,7 +28870,7 @@ define internal fastcc ptr @_loop0_28_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge81, label %39, !llvm.loop !127
 
 45:                                               ; preds = %37, %._crit_edge81, %16, %7, %30, %14
-  %.047 = phi ptr [ null, %30 ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
+  %.047 = phi ptr [ null, %14 ], [ null, %30 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
   %46 = load i32, ptr %2, align 8, !tbaa !20
   %47 = add i32 %46, -1
   store i32 %47, ptr %2, align 8, !tbaa !20
@@ -28933,7 +28933,7 @@ define internal fastcc ptr @invalid_parameters_helper_rule(ptr noundef %0) unnam
   br label %.thread
 
 .thread:                                          ; preds = %21, %23, %17, %14, %19, %7, %.thread40
-  %.0 = phi ptr [ null, %7 ], [ null, %19 ], [ null, %.thread40 ], [ %22, %21 ], [ null, %23 ], [ null, %17 ], [ %15, %14 ]
+  %.0 = phi ptr [ null, %.thread40 ], [ null, %7 ], [ null, %19 ], [ null, %23 ], [ %22, %21 ], [ null, %17 ], [ %15, %14 ]
   %24 = load i32, ptr %2, align 8, !tbaa !20
   %25 = add i32 %24, -1
   store i32 %25, ptr %2, align 8, !tbaa !20
@@ -29036,7 +29036,7 @@ define internal fastcc ptr @param_no_default_rule(ptr noundef %0) unnamed_addr #
   br label %.thread
 
 .thread:                                          ; preds = %37, %22, %19, %35, %32, %24, %.thread60, %7, %.thread66, %.thread57
-  %.0 = phi ptr [ null, %.thread66 ], [ null, %24 ], [ null, %.thread57 ], [ null, %7 ], [ null, %.thread60 ], [ null, %37 ], [ %20, %19 ], [ null, %22 ], [ null, %35 ], [ %33, %32 ]
+  %.0 = phi ptr [ null, %.thread57 ], [ null, %.thread66 ], [ null, %7 ], [ null, %.thread60 ], [ null, %24 ], [ null, %37 ], [ null, %22 ], [ %20, %19 ], [ null, %35 ], [ %33, %32 ]
   %38 = load i32, ptr %2, align 8, !tbaa !20
   %39 = add i32 %38, -1
   store i32 %39, ptr %2, align 8, !tbaa !20
@@ -29172,7 +29172,7 @@ define internal fastcc ptr @_loop1_30_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge86, label %44, !llvm.loop !129
 
 50:                                               ; preds = %42, %._crit_edge86, %16, %7, %30, %14, %35
-  %.051 = phi ptr [ null, %30 ], [ null, %14 ], [ null, %7 ], [ null, %35 ], [ null, %16 ], [ %39, %._crit_edge86 ], [ %39, %42 ]
+  %.051 = phi ptr [ null, %14 ], [ null, %35 ], [ null, %30 ], [ null, %7 ], [ null, %16 ], [ %39, %._crit_edge86 ], [ %39, %42 ]
   %51 = load i32, ptr %2, align 8, !tbaa !20
   %52 = add i32 %51, -1
   store i32 %52, ptr %2, align 8, !tbaa !20
@@ -29357,7 +29357,7 @@ define internal fastcc ptr @_loop1_33_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge86, label %44, !llvm.loop !131
 
 50:                                               ; preds = %42, %._crit_edge86, %16, %7, %30, %14, %35
-  %.051 = phi ptr [ null, %30 ], [ null, %14 ], [ null, %7 ], [ null, %35 ], [ null, %16 ], [ %39, %._crit_edge86 ], [ %39, %42 ]
+  %.051 = phi ptr [ null, %14 ], [ null, %35 ], [ null, %30 ], [ null, %7 ], [ null, %16 ], [ %39, %._crit_edge86 ], [ %39, %42 ]
   %51 = load i32, ptr %2, align 8, !tbaa !20
   %52 = add i32 %51, -1
   store i32 %52, ptr %2, align 8, !tbaa !20
@@ -29464,7 +29464,7 @@ define internal fastcc ptr @slash_with_default_rule(ptr noundef %0) unnamed_addr
   br label %.thread
 
 .thread:                                          ; preds = %40, %23, %20, %38, %35, %25, %7, %.thread68, %.thread61
-  %.0 = phi ptr [ null, %.thread68 ], [ null, %25 ], [ null, %.thread61 ], [ null, %7 ], [ null, %40 ], [ %21, %20 ], [ null, %23 ], [ null, %38 ], [ %36, %35 ]
+  %.0 = phi ptr [ null, %.thread61 ], [ null, %.thread68 ], [ null, %7 ], [ null, %25 ], [ null, %40 ], [ null, %23 ], [ %21, %20 ], [ null, %38 ], [ %36, %35 ]
   %41 = load i32, ptr %2, align 8, !tbaa !20
   %42 = add i32 %41, -1
   store i32 %42, ptr %2, align 8, !tbaa !20
@@ -29600,7 +29600,7 @@ define internal fastcc ptr @_loop1_31_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge86, label %44, !llvm.loop !133
 
 50:                                               ; preds = %42, %._crit_edge86, %16, %7, %30, %14, %35
-  %.051 = phi ptr [ null, %30 ], [ null, %14 ], [ null, %7 ], [ null, %35 ], [ null, %16 ], [ %39, %._crit_edge86 ], [ %39, %42 ]
+  %.051 = phi ptr [ null, %14 ], [ null, %35 ], [ null, %30 ], [ null, %7 ], [ null, %16 ], [ %39, %._crit_edge86 ], [ %39, %42 ]
   %51 = load i32, ptr %2, align 8, !tbaa !20
   %52 = add i32 %51, -1
   store i32 %52, ptr %2, align 8, !tbaa !20
@@ -29713,7 +29713,7 @@ define internal fastcc ptr @param_with_default_rule(ptr noundef %0) unnamed_addr
   br label %.thread
 
 .thread:                                          ; preds = %41, %24, %21, %39, %36, %26, %.thread68, %7, %.thread74, %.thread65
-  %.0 = phi ptr [ null, %.thread74 ], [ null, %26 ], [ null, %.thread65 ], [ null, %7 ], [ null, %.thread68 ], [ null, %41 ], [ %22, %21 ], [ null, %24 ], [ null, %39 ], [ %37, %36 ]
+  %.0 = phi ptr [ null, %.thread65 ], [ null, %.thread74 ], [ null, %7 ], [ null, %.thread68 ], [ null, %26 ], [ null, %41 ], [ null, %24 ], [ %22, %21 ], [ null, %39 ], [ %37, %36 ]
   %42 = load i32, ptr %2, align 8, !tbaa !20
   %43 = add i32 %42, -1
   store i32 %43, ptr %2, align 8, !tbaa !20
@@ -29861,7 +29861,7 @@ annotation_rule.exit:                             ; preds = %44, %46
   br label %.thread
 
 .thread:                                          ; preds = %64, %61, %50, %47, %24, %7, %63, %23
-  %.0 = phi ptr [ null, %63 ], [ null, %23 ], [ null, %7 ], [ null, %47 ], [ null, %24 ], [ null, %64 ], [ null, %61 ], [ %59, %50 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %63 ], [ null, %7 ], [ null, %24 ], [ null, %47 ], [ null, %64 ], [ null, %61 ], [ %59, %50 ]
   %65 = load i32, ptr %2, align 8, !tbaa !20
   %66 = add i32 %65, -1
   store i32 %66, ptr %2, align 8, !tbaa !20
@@ -29976,7 +29976,7 @@ define internal fastcc ptr @param_maybe_default_rule(ptr noundef %0) unnamed_add
   br label %.thread
 
 .thread:                                          ; preds = %43, %25, %22, %41, %38, %27, %.thread69, %7, %.thread75, %.thread65
-  %.0 = phi ptr [ null, %.thread75 ], [ null, %27 ], [ null, %.thread65 ], [ null, %7 ], [ null, %.thread69 ], [ null, %43 ], [ %23, %22 ], [ null, %25 ], [ null, %41 ], [ %39, %38 ]
+  %.0 = phi ptr [ null, %.thread65 ], [ null, %.thread75 ], [ null, %7 ], [ null, %.thread69 ], [ null, %27 ], [ null, %43 ], [ null, %25 ], [ %23, %22 ], [ null, %41 ], [ %39, %38 ]
   %44 = load i32, ptr %2, align 8, !tbaa !20
   %45 = add i32 %44, -1
   store i32 %45, ptr %2, align 8, !tbaa !20
@@ -30099,7 +30099,7 @@ define internal fastcc ptr @_loop0_29_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge81, label %39, !llvm.loop !135
 
 45:                                               ; preds = %37, %._crit_edge81, %16, %7, %30, %14
-  %.047 = phi ptr [ null, %30 ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
+  %.047 = phi ptr [ null, %14 ], [ null, %30 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
   %46 = load i32, ptr %2, align 8, !tbaa !20
   %47 = add i32 %46, -1
   store i32 %47, ptr %2, align 8, !tbaa !20
@@ -30399,14 +30399,14 @@ _tmp_122_rule.exit.i:                             ; preds = %51, %46
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread185
 
-.thread185:                                       ; preds = %.thread185.sink.split, %114, %19, %77, %91
+.thread185:                                       ; preds = %.thread185.sink.split, %19, %77, %91, %114
   %144 = load i32, ptr %2, align 8, !tbaa !20
   %145 = add i32 %144, -1
   store i32 %145, ptr %2, align 8, !tbaa !20
   store i32 %12, ptr %11, align 8, !tbaa !22
   br label %.thread126
 
-146:                                              ; preds = %116, %118, %120, %122, %124, %99, %62, %126, %89
+146:                                              ; preds = %116, %118, %120, %122, %124, %62, %99, %126, %89
   %.pre163.pr = load i32, ptr %8, align 8, !tbaa !21
   %147 = load i32, ptr %2, align 8, !tbaa !20
   %148 = add i32 %147, -1
@@ -30574,7 +30574,7 @@ _tmp_122_rule.exit.i:                             ; preds = %51, %46
   br label %.thread126
 
 .thread126:                                       ; preds = %201, %141, %161, %158, %176, %173, %191, %188, %199, %196, %193, %.thread154, %178, %.thread143, %163, %.thread132, %146, %.thread185, %7, %.thread160, %.thread149, %.thread138, %.thread129
-  %.0 = phi ptr [ null, %178 ], [ null, %193 ], [ null, %.thread160 ], [ null, %7 ], [ null, %.thread129 ], [ null, %146 ], [ null, %.thread138 ], [ null, %163 ], [ null, %.thread149 ], [ null, %.thread185 ], [ null, %.thread132 ], [ null, %.thread143 ], [ null, %.thread154 ], [ null, %201 ], [ %189, %188 ], [ %174, %173 ], [ %159, %158 ], [ %87, %141 ], [ null, %161 ], [ null, %176 ], [ null, %191 ], [ null, %199 ], [ %197, %196 ]
+  %.0 = phi ptr [ null, %.thread129 ], [ null, %.thread138 ], [ null, %.thread149 ], [ null, %.thread160 ], [ null, %7 ], [ null, %.thread185 ], [ null, %146 ], [ null, %.thread132 ], [ null, %163 ], [ null, %.thread143 ], [ null, %178 ], [ null, %.thread154 ], [ null, %193 ], [ null, %201 ], [ %87, %141 ], [ null, %161 ], [ %159, %158 ], [ null, %176 ], [ %174, %173 ], [ null, %191 ], [ %189, %188 ], [ null, %199 ], [ %197, %196 ]
   %202 = load i32, ptr %2, align 8, !tbaa !20
   %203 = add i32 %202, -1
   store i32 %203, ptr %2, align 8, !tbaa !20
@@ -30883,7 +30883,7 @@ define internal fastcc ptr @param_no_default_star_annotation_rule(ptr noundef %0
   br label %.thread
 
 .thread:                                          ; preds = %37, %22, %19, %35, %32, %24, %.thread60, %7, %.thread66, %.thread57
-  %.0 = phi ptr [ null, %.thread66 ], [ null, %24 ], [ null, %.thread57 ], [ null, %7 ], [ null, %.thread60 ], [ null, %37 ], [ %20, %19 ], [ null, %22 ], [ null, %35 ], [ %33, %32 ]
+  %.0 = phi ptr [ null, %.thread57 ], [ null, %.thread66 ], [ null, %7 ], [ null, %.thread60 ], [ null, %24 ], [ null, %37 ], [ null, %22 ], [ %20, %19 ], [ null, %35 ], [ %33, %32 ]
   %38 = load i32, ptr %2, align 8, !tbaa !20
   %39 = add i32 %38, -1
   store i32 %39, ptr %2, align 8, !tbaa !20
@@ -31069,7 +31069,7 @@ star_annotation_rule.exit.thread:                 ; preds = %41, %43, %39
   br label %.thread
 
 .thread:                                          ; preds = %62, %59, %48, %45, %24, %7, %61, %23
-  %.0 = phi ptr [ null, %61 ], [ null, %23 ], [ null, %7 ], [ null, %45 ], [ null, %24 ], [ null, %62 ], [ null, %59 ], [ %57, %48 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %61 ], [ null, %7 ], [ null, %24 ], [ null, %45 ], [ null, %62 ], [ null, %59 ], [ %57, %48 ]
   %63 = load i32, ptr %2, align 8, !tbaa !20
   %64 = add i32 %63, -1
   store i32 %64, ptr %2, align 8, !tbaa !20
@@ -31289,7 +31289,7 @@ define internal fastcc ptr @invalid_if_stmt_rule(ptr noundef %0) unnamed_addr #0
   br label %.thread
 
 .thread:                                          ; preds = %44, %22, %18, %42, %36, %24, %7, %.thread62, %.thread55
-  %.0 = phi ptr [ null, %.thread62 ], [ null, %24 ], [ null, %.thread55 ], [ null, %7 ], [ null, %44 ], [ %20, %18 ], [ null, %22 ], [ null, %42 ], [ %40, %36 ]
+  %.0 = phi ptr [ null, %.thread55 ], [ null, %.thread62 ], [ null, %7 ], [ null, %24 ], [ null, %44 ], [ null, %22 ], [ %20, %18 ], [ null, %42 ], [ %40, %36 ]
   %45 = load i32, ptr %2, align 8, !tbaa !20
   %46 = add i32 %45, -1
   store i32 %46, ptr %2, align 8, !tbaa !20
@@ -31444,7 +31444,7 @@ define internal fastcc ptr @elif_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %53, %55, %57, %59, %61, %69, %49, %37, %51
+.thread:                                          ; preds = %.thread.sink.split, %53, %55, %57, %59, %61, %69, %49, %51, %37
   %71 = load i32, ptr %2, align 8, !tbaa !20
   %72 = add i32 %71, -1
   store i32 %72, ptr %2, align 8, !tbaa !20
@@ -31453,7 +31453,7 @@ define internal fastcc ptr @elif_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   br label %76
 
 73:                                               ; preds = %63, %45
-  %.0.i = phi ptr [ %67, %63 ], [ %47, %45 ]
+  %.0.i = phi ptr [ %47, %45 ], [ %67, %63 ]
   %74 = load i32, ptr %2, align 8, !tbaa !20
   %75 = add i32 %74, -1
   store i32 %75, ptr %2, align 8, !tbaa !20
@@ -31585,7 +31585,7 @@ CHECK_CALL.exit:                                  ; preds = %91, %98
   br label %.thread123.sink.split
 
 .thread123.sink.split:                            ; preds = %134, %73, %103, %CHECK_CALL.exit, %131, %122, %119, %106, %88, %76, %7, %19, %105, %133
-  %.0.ph = phi ptr [ null, %106 ], [ null, %76 ], [ null, %88 ], [ null, %105 ], [ null, %7 ], [ null, %119 ], [ null, %133 ], [ null, %19 ], [ null, %134 ], [ %101, %CHECK_CALL.exit ], [ %.0.i, %73 ], [ null, %103 ], [ null, %131 ], [ %129, %122 ]
+  %.0.ph = phi ptr [ null, %133 ], [ null, %105 ], [ null, %19 ], [ null, %7 ], [ null, %76 ], [ null, %88 ], [ null, %106 ], [ null, %119 ], [ null, %134 ], [ %.0.i, %73 ], [ null, %103 ], [ %101, %CHECK_CALL.exit ], [ null, %131 ], [ %129, %122 ]
   %135 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread123
 
@@ -31718,7 +31718,7 @@ define internal fastcc ptr @else_block_rule(ptr noundef %0) unnamed_addr #0 {
   br label %51
 
 51:                                               ; preds = %36, %48, %50, %41, %.thread58, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %41 ], [ null, %.thread58 ], [ %32, %36 ], [ null, %50 ], [ %49, %48 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %.thread58 ], [ null, %41 ], [ %32, %36 ], [ null, %50 ], [ %49, %48 ]
   %52 = load i32, ptr %2, align 8, !tbaa !20
   %53 = add i32 %52, -1
   store i32 %53, ptr %2, align 8, !tbaa !20
@@ -31897,7 +31897,7 @@ define internal fastcc ptr @class_def_raw_rule(ptr noundef %0) unnamed_addr #0 {
   store i32 1, ptr %8, align 8, !tbaa !21
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %58, %60, %62, %65, %68, %70, %72, %43, %46, %80, %55, %37, %57
+.thread:                                          ; preds = %.thread.sink.split, %58, %60, %62, %65, %68, %70, %72, %43, %46, %80, %55, %57, %37
   %82 = load i32, ptr %2, align 8, !tbaa !20
   %83 = add i32 %82, -1
   store i32 %83, ptr %2, align 8, !tbaa !20
@@ -31994,7 +31994,7 @@ define internal fastcc ptr @class_def_raw_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread90.sink.split
 
 .thread90.sink.split:                             ; preds = %127, %84, %124, %.thread89, %103, %87, %7, %19, %126
-  %.0.ph = phi ptr [ null, %87 ], [ null, %7 ], [ null, %103 ], [ null, %126 ], [ null, %19 ], [ null, %127 ], [ %.0.i, %84 ], [ null, %124 ], [ %122, %.thread89 ]
+  %.0.ph = phi ptr [ null, %126 ], [ null, %19 ], [ null, %7 ], [ null, %87 ], [ null, %103 ], [ null, %127 ], [ %.0.i, %84 ], [ null, %124 ], [ %122, %.thread89 ]
   %128 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread90
 
@@ -32170,9 +32170,9 @@ define internal fastcc ptr @_gather_35_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.critedge.i, !llvm.loop !136
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %..critedge.i.loopexit_crit_edge, %.preheader76.i
-  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ 0, %.lr.ph.i.preheader ], [ %36, %..critedge.i.loopexit_crit_edge ], [ %36, %.lr.ph.i ]
-  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %.256.i, %.lr.ph.i ]
-  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %22, %.lr.ph.i.preheader ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %38, %.lr.ph.i ]
+  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
+  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
+  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
   store i32 %.053.lcssa.i, ptr %11, align 8, !tbaa !22
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !32
@@ -32363,7 +32363,7 @@ define internal fastcc ptr @invalid_with_stmt_rule(ptr noundef %0) unnamed_addr 
   br label %.thread
 
 .thread:                                          ; preds = %50, %25, %21, %48, %44, %27, %.thread65, %7, %.thread71, %.thread62
-  %.0 = phi ptr [ null, %.thread71 ], [ null, %27 ], [ null, %.thread62 ], [ null, %7 ], [ null, %.thread65 ], [ null, %50 ], [ %23, %21 ], [ null, %25 ], [ null, %48 ], [ %46, %44 ]
+  %.0 = phi ptr [ null, %.thread62 ], [ null, %.thread71 ], [ null, %7 ], [ null, %.thread65 ], [ null, %27 ], [ null, %50 ], [ null, %25 ], [ %23, %21 ], [ null, %48 ], [ %46, %44 ]
   %51 = load i32, ptr %2, align 8, !tbaa !20
   %52 = add i32 %51, -1
   store i32 %52, ptr %2, align 8, !tbaa !20
@@ -32468,9 +32468,9 @@ define internal fastcc ptr @_gather_135_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.critedge.i, !llvm.loop !138
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %..critedge.i.loopexit_crit_edge, %.preheader76.i
-  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ 0, %.lr.ph.i.preheader ], [ %36, %..critedge.i.loopexit_crit_edge ], [ %36, %.lr.ph.i ]
-  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %.256.i, %.lr.ph.i ]
-  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %22, %.lr.ph.i.preheader ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %38, %.lr.ph.i ]
+  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
+  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
+  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
   store i32 %.053.lcssa.i, ptr %11, align 8, !tbaa !22
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !32
@@ -32631,9 +32631,9 @@ define internal fastcc ptr @_gather_137_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.critedge.i, !llvm.loop !140
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %..critedge.i.loopexit_crit_edge, %.preheader76.i
-  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ 0, %.lr.ph.i.preheader ], [ %36, %..critedge.i.loopexit_crit_edge ], [ %36, %.lr.ph.i ]
-  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %.256.i, %.lr.ph.i ]
-  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %22, %.lr.ph.i.preheader ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %38, %.lr.ph.i ]
+  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
+  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
+  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
   store i32 %.053.lcssa.i, ptr %11, align 8, !tbaa !22
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !32
@@ -33083,7 +33083,7 @@ define internal fastcc ptr @expressions_rule(ptr noundef %0) unnamed_addr #0 {
   %exitcond.not.i = icmp eq i64 %87, %.053.i
   br i1 %exitcond.not.i, label %.loopexit, label %82, !llvm.loop !143
 
-_loop1_55_rule.exit.thread:                       ; preds = %68, %44, %39, %73, %46, %80
+_loop1_55_rule.exit.thread:                       ; preds = %44, %73, %68, %39, %46, %80
   %88 = load i32, ptr %2, align 8, !tbaa !20
   %89 = add i32 %88, -1
   store i32 %89, ptr %2, align 8, !tbaa !20
@@ -33202,7 +33202,7 @@ CHECK_CALL.exit103:                               ; preds = %119, %126
   br label %.thread
 
 .thread:                                          ; preds = %136, %138, %108, %CHECK_CALL.exit, %131, %CHECK_CALL.exit103, %134, %116, %111, %.thread112, %94, %24, %7, %133, %110, %23
-  %.0 = phi ptr [ null, %133 ], [ null, %23 ], [ null, %7 ], [ null, %134 ], [ null, %94 ], [ null, %110 ], [ null, %116 ], [ null, %24 ], [ null, %111 ], [ null, %.thread112 ], [ %137, %136 ], [ %106, %CHECK_CALL.exit ], [ null, %138 ], [ null, %108 ], [ null, %131 ], [ %129, %CHECK_CALL.exit103 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %110 ], [ null, %133 ], [ null, %7 ], [ null, %24 ], [ null, %94 ], [ null, %.thread112 ], [ null, %111 ], [ null, %116 ], [ null, %134 ], [ null, %138 ], [ %137, %136 ], [ null, %108 ], [ %106, %CHECK_CALL.exit ], [ null, %131 ], [ %129, %CHECK_CALL.exit103 ]
   %139 = load i32, ptr %2, align 8, !tbaa !20
   %140 = add i32 %139, -1
   store i32 %140, ptr %2, align 8, !tbaa !20
@@ -33391,7 +33391,7 @@ invalid_with_item_rule.exit:                      ; preds = %.thread85, %38, %40
   br label %.sink.split
 
 .sink.split:                                      ; preds = %79, %25, %20, %77, %72, %68, %7, %.thread66, %.thread73
-  %.0.ph = phi ptr [ null, %.thread73 ], [ null, %7 ], [ null, %.thread66 ], [ null, %68 ], [ null, %79 ], [ %23, %20 ], [ null, %25 ], [ null, %77 ], [ %75, %72 ]
+  %.0.ph = phi ptr [ null, %.thread73 ], [ null, %.thread66 ], [ null, %7 ], [ null, %68 ], [ null, %79 ], [ null, %25 ], [ %23, %20 ], [ null, %77 ], [ %75, %72 ]
   %80 = load i32, ptr %2, align 8, !tbaa !20
   br label %81
 
@@ -33456,7 +33456,7 @@ define internal ptr @_tmp_36_rule(ptr noundef %0) #0 {
   br label %23
 
 23:                                               ; preds = %10, %16, %20, %22, %18, %14, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %18 ], [ null, %14 ], [ %13, %10 ], [ %17, %16 ], [ null, %22 ], [ %21, %20 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %14 ], [ null, %18 ], [ %13, %10 ], [ %17, %16 ], [ null, %22 ], [ %21, %20 ]
   %24 = load i32, ptr %2, align 8, !tbaa !20
   %25 = add i32 %24, -1
   store i32 %25, ptr %2, align 8, !tbaa !20
@@ -33588,7 +33588,7 @@ define internal fastcc ptr @finally_block_rule(ptr noundef %0) unnamed_addr #0 {
   br label %51
 
 51:                                               ; preds = %36, %48, %50, %41, %.thread58, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %41 ], [ null, %.thread58 ], [ %32, %36 ], [ null, %50 ], [ %49, %48 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %.thread58 ], [ null, %41 ], [ %32, %36 ], [ null, %50 ], [ %49, %48 ]
   %52 = load i32, ptr %2, align 8, !tbaa !20
   %53 = add i32 %52, -1
   store i32 %53, ptr %2, align 8, !tbaa !20
@@ -33862,8 +33862,8 @@ invalid_except_stmt_indent_rule.exit.thread80:    ; preds = %91, %93, %95, %97, 
   br label %.thread
 
 .thread:                                          ; preds = %_tmp_22_rule.exit.i, %._crit_edge.i, %56, %.thread65.i, %.thread75.i, %invalid_except_stmt_indent_rule.exit.thread80
-  %.pre263 = phi i32 [ %.pre263.pre, %invalid_except_stmt_indent_rule.exit.thread80 ], [ 1, %.thread75.i ], [ %.pr68.i, %._crit_edge.i ], [ %.pre, %56 ], [ 1, %.thread65.i ], [ %.pr.i, %_tmp_22_rule.exit.i ]
-  %storemerge133.in = phi i32 [ %108, %invalid_except_stmt_indent_rule.exit.thread80 ], [ %107, %.thread75.i ], [ %.pre.i, %._crit_edge.i ], [ %57, %56 ], [ %89, %.thread65.i ], [ %storemerge.i.i, %_tmp_22_rule.exit.i ]
+  %.pre263 = phi i32 [ %.pre263.pre, %invalid_except_stmt_indent_rule.exit.thread80 ], [ %.pr68.i, %._crit_edge.i ], [ %.pre, %56 ], [ 1, %.thread65.i ], [ 1, %.thread75.i ], [ %.pr.i, %_tmp_22_rule.exit.i ]
+  %storemerge133.in = phi i32 [ %108, %invalid_except_stmt_indent_rule.exit.thread80 ], [ %.pre.i, %._crit_edge.i ], [ %57, %56 ], [ %89, %.thread65.i ], [ %107, %.thread75.i ], [ %storemerge.i.i, %_tmp_22_rule.exit.i ]
   %storemerge133 = add i32 %storemerge133.in, -1
   store i32 %storemerge133, ptr %2, align 8, !tbaa !20
   store i32 %32, ptr %11, align 8, !tbaa !22
@@ -34352,8 +34352,8 @@ invalid_except_stmt_rule.exit.thread370:          ; preds = %294, %215, %277, %2
   %295 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread107
 
-.thread107:                                       ; preds = %.thread123.i, %.loopexit.loopexit824, %.thread113.i, %._crit_edge.i358, %267, %190, %.thread.i, %.thread118.i, %.thread129.i, %.thread132.i, %invalid_except_stmt_rule.exit.thread370
-  %storemerge.in = phi i32 [ %295, %invalid_except_stmt_rule.exit.thread370 ], [ %storemerge.i.i365, %.thread113.i ], [ %.pre.i359, %._crit_edge.i358 ], [ %268, %267 ], [ %293, %.thread132.i ], [ %191, %190 ], [ %224, %.thread.i ], [ %252, %.thread118.i ], [ %264, %.thread129.i ], [ %.pre923, %.loopexit.loopexit824 ], [ %243, %.thread123.i ]
+.thread107:                                       ; preds = %.thread123.i, %.loopexit.loopexit824, %.thread113.i, %._crit_edge.i358, %190, %267, %.thread.i, %.thread118.i, %.thread129.i, %.thread132.i, %invalid_except_stmt_rule.exit.thread370
+  %storemerge.in = phi i32 [ %295, %invalid_except_stmt_rule.exit.thread370 ], [ %storemerge.i.i365, %.thread113.i ], [ %.pre.i359, %._crit_edge.i358 ], [ %191, %190 ], [ %268, %267 ], [ %224, %.thread.i ], [ %252, %.thread118.i ], [ %264, %.thread129.i ], [ %293, %.thread132.i ], [ %.pre923, %.loopexit.loopexit824 ], [ %243, %.thread123.i ]
   %storemerge = add i32 %storemerge.in, -1
   br label %except_block_rule.exit.thread
 
@@ -34403,7 +34403,7 @@ except_block_rule.exit.thread119:                 ; preds = %except_block_rule.e
   br label %328
 
 except_block_rule.exit.thread:                    ; preds = %_tmp_22_rule.exit, %182, %50, %.thread107, %except_block_rule.exit.thread115.loopexit, %.loopexit.loopexit, %except_block_rule.exit.thread130, %178, %166, %154, %137, %111, %38, %29
-  %.sink353 = phi i32 [ %296, %except_block_rule.exit.thread130 ], [ %179, %178 ], [ %167, %166 ], [ %155, %154 ], [ %138, %137 ], [ %.pre265, %.loopexit.loopexit ], [ %storemerge, %.thread107 ], [ %112, %111 ], [ %.pre603, %except_block_rule.exit.thread115.loopexit ], [ %39, %38 ], [ %30, %29 ], [ %storemerge.i, %_tmp_22_rule.exit ], [ %184, %182 ], [ %51, %50 ]
+  %.sink353 = phi i32 [ %296, %except_block_rule.exit.thread130 ], [ %179, %178 ], [ %167, %166 ], [ %155, %154 ], [ %138, %137 ], [ %112, %111 ], [ %39, %38 ], [ %30, %29 ], [ %.pre265, %.loopexit.loopexit ], [ %.pre603, %except_block_rule.exit.thread115.loopexit ], [ %storemerge, %.thread107 ], [ %storemerge.i, %_tmp_22_rule.exit ], [ %184, %182 ], [ %51, %50 ]
   %310 = add i32 %.sink353, -1
   store i32 %310, ptr %2, align 8, !tbaa !20
   store i32 %.052, ptr %11, align 8, !tbaa !22
@@ -34455,7 +34455,7 @@ except_block_rule.exit.thread:                    ; preds = %_tmp_22_rule.exit, 
   br i1 %exitcond.not, label %._crit_edge, label %322, !llvm.loop !145
 
 328:                                              ; preds = %320, %._crit_edge, %16, %7, %308, %14, %314
-  %.051 = phi ptr [ null, %308 ], [ null, %14 ], [ null, %7 ], [ null, %314 ], [ null, %16 ], [ %317, %._crit_edge ], [ null, %320 ]
+  %.051 = phi ptr [ null, %14 ], [ null, %314 ], [ null, %308 ], [ null, %7 ], [ null, %16 ], [ %317, %._crit_edge ], [ null, %320 ]
   %329 = load i32, ptr %2, align 8, !tbaa !20
   %330 = add i32 %329, -1
   store i32 %330, ptr %2, align 8, !tbaa !20
@@ -35172,8 +35172,8 @@ invalid_except_star_stmt_rule.exit:               ; preds = %205, %233
   %275 = add i32 %274, -1
   br label %except_star_block_rule.exit.thread103
 
-.thread91:                                        ; preds = %.thread131.i, %.loopexit.loopexit, %.thread121.i, %._crit_edge.i, %243, %145, %.thread.i, %.thread126.i, %.thread137.i, %.thread140.i, %invalid_except_star_stmt_rule.exit.thread280
-  %storemerge.in = phi i32 [ %273, %invalid_except_star_stmt_rule.exit.thread280 ], [ %storemerge.i.i274, %.thread121.i ], [ %.pre.i, %._crit_edge.i ], [ %244, %243 ], [ %271, %.thread140.i ], [ %146, %145 ], [ %181, %.thread.i ], [ %211, %.thread126.i ], [ %241, %.thread137.i ], [ %.pre676, %.loopexit.loopexit ], [ %202, %.thread131.i ]
+.thread91:                                        ; preds = %.thread131.i, %.loopexit.loopexit, %.thread121.i, %._crit_edge.i, %145, %243, %.thread.i, %.thread126.i, %.thread137.i, %.thread140.i, %invalid_except_star_stmt_rule.exit.thread280
+  %storemerge.in = phi i32 [ %273, %invalid_except_star_stmt_rule.exit.thread280 ], [ %storemerge.i.i274, %.thread121.i ], [ %.pre.i, %._crit_edge.i ], [ %146, %145 ], [ %244, %243 ], [ %181, %.thread.i ], [ %211, %.thread126.i ], [ %241, %.thread137.i ], [ %271, %.thread140.i ], [ %.pre676, %.loopexit.loopexit ], [ %202, %.thread131.i ]
   %storemerge = add i32 %storemerge.in, -1
   store i32 %storemerge, ptr %2, align 8, !tbaa !20
   br label %.thread115
@@ -35261,7 +35261,7 @@ except_star_block_rule.exit.thread103:            ; preds = %.except_star_block_
   br i1 %exitcond.not, label %._crit_edge, label %299, !llvm.loop !147
 
 305:                                              ; preds = %297, %._crit_edge, %16, %7, %.thread112, %14, %291
-  %.051 = phi ptr [ null, %.thread112 ], [ null, %14 ], [ null, %7 ], [ null, %291 ], [ null, %16 ], [ %294, %._crit_edge ], [ null, %297 ]
+  %.051 = phi ptr [ null, %14 ], [ null, %291 ], [ null, %.thread112 ], [ null, %7 ], [ null, %16 ], [ %294, %._crit_edge ], [ null, %297 ]
   %306 = load i32, ptr %2, align 8, !tbaa !20
   %307 = add i32 %306, -1
   store i32 %307, ptr %2, align 8, !tbaa !20
@@ -35433,7 +35433,7 @@ define internal fastcc ptr @_loop0_139_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge81, label %39, !llvm.loop !149
 
 45:                                               ; preds = %37, %._crit_edge81, %16, %7, %30, %14
-  %.047 = phi ptr [ null, %30 ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
+  %.047 = phi ptr [ null, %14 ], [ null, %30 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
   %46 = load i32, ptr %2, align 8, !tbaa !20
   %47 = add i32 %46, -1
   store i32 %47, ptr %2, align 8, !tbaa !20
@@ -35703,7 +35703,7 @@ CHECK_CALL.exit:                                  ; preds = %42, %49
   br label %.thread
 
 .thread:                                          ; preds = %58, %60, %54, %CHECK_CALL.exit, %57, %.thread74, %39, %24, %7, %56, %23
-  %.0 = phi ptr [ null, %56 ], [ null, %23 ], [ null, %7 ], [ null, %57 ], [ null, %39 ], [ null, %24 ], [ null, %.thread74 ], [ %59, %58 ], [ null, %60 ], [ null, %54 ], [ %52, %CHECK_CALL.exit ]
+  %.0 = phi ptr [ null, %23 ], [ null, %56 ], [ null, %7 ], [ null, %24 ], [ null, %39 ], [ null, %.thread74 ], [ null, %57 ], [ null, %60 ], [ %59, %58 ], [ null, %54 ], [ %52, %CHECK_CALL.exit ]
   %61 = load i32, ptr %2, align 8, !tbaa !20
   %62 = add i32 %61, -1
   store i32 %62, ptr %2, align 8, !tbaa !20
@@ -35816,7 +35816,7 @@ define internal fastcc ptr @patterns_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %51, %53, %46, %37, %49, %34, %24, %7, %48, %23
-  %.0 = phi ptr [ null, %48 ], [ null, %23 ], [ null, %7 ], [ null, %49 ], [ null, %34 ], [ null, %24 ], [ %52, %51 ], [ null, %53 ], [ null, %46 ], [ %44, %37 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %48 ], [ null, %7 ], [ null, %24 ], [ null, %34 ], [ null, %49 ], [ null, %53 ], [ %52, %51 ], [ null, %46 ], [ %44, %37 ]
   %54 = load i32, ptr %2, align 8, !tbaa !20
   %55 = add i32 %54, -1
   store i32 %55, ptr %2, align 8, !tbaa !20
@@ -36342,7 +36342,7 @@ define internal fastcc ptr @star_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %98, %84, %69, %53, %29, %.thread78, %74, %43, %16
-  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ %106, %.thread78 ], [ null, %74 ], [ null, %69 ], [ null, %53 ], [ null, %84 ], [ null, %98 ]
+  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %74 ], [ %106, %.thread78 ], [ null, %53 ], [ null, %69 ], [ null, %84 ], [ null, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %107
 
@@ -36508,7 +36508,7 @@ define internal fastcc ptr @wildcard_pattern_rule(ptr noundef %0) unnamed_addr #
   br label %.thread
 
 .thread:                                          ; preds = %49, %46, %37, %34, %24, %7, %48, %23
-  %.0 = phi ptr [ null, %48 ], [ null, %23 ], [ null, %7 ], [ null, %34 ], [ null, %24 ], [ null, %49 ], [ null, %46 ], [ %44, %37 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %48 ], [ null, %7 ], [ null, %24 ], [ null, %34 ], [ null, %49 ], [ null, %46 ], [ %44, %37 ]
   %50 = load i32, ptr %2, align 8, !tbaa !20
   %51 = add i32 %50, -1
   store i32 %51, ptr %2, align 8, !tbaa !20
@@ -36570,7 +36570,7 @@ define internal ptr @_tmp_43_rule(ptr noundef %0) #0 {
   br label %23
 
 23:                                               ; preds = %10, %16, %20, %22, %18, %14, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %18 ], [ null, %14 ], [ %13, %10 ], [ %17, %16 ], [ null, %22 ], [ %21, %20 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %14 ], [ null, %18 ], [ %13, %10 ], [ %17, %16 ], [ null, %22 ], [ %21, %20 ]
   %24 = load i32, ptr %2, align 8, !tbaa !20
   %25 = add i32 %24, -1
   store i32 %25, ptr %2, align 8, !tbaa !20
@@ -36955,7 +36955,7 @@ invalid_as_pattern_rule.exit:                     ; preds = %invalid_as_pattern_
   br label %.thread
 
 .thread:                                          ; preds = %invalid_as_pattern_rule.exit, %55, %52, %41, %58, %38, %24, %7, %54, %23
-  %.0 = phi ptr [ null, %54 ], [ null, %23 ], [ null, %7 ], [ null, %58 ], [ null, %38 ], [ null, %24 ], [ null, %55 ], [ null, %invalid_as_pattern_rule.exit ], [ null, %52 ], [ %50, %41 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %54 ], [ null, %7 ], [ null, %24 ], [ null, %38 ], [ null, %58 ], [ null, %invalid_as_pattern_rule.exit ], [ null, %55 ], [ null, %52 ], [ %50, %41 ]
   %113 = load i32, ptr %2, align 8, !tbaa !20
   %114 = add i32 %113, -1
   store i32 %114, ptr %2, align 8, !tbaa !20
@@ -37257,8 +37257,8 @@ _gather_41_rule.exit:                             ; preds = %90, %.preheader
   br label %.thread67
 
 .thread67:                                        ; preds = %125, %122, %..thread71_crit_edge, %124, %104, %25, %33, %10
-  %.pre95.sink = phi i32 [ %.pre95, %124 ], [ %105, %104 ], [ %26, %25 ], [ %11, %10 ], [ %34, %33 ], [ %126, %125 ], [ %.pre95, %122 ], [ %.pre94, %..thread71_crit_edge ]
-  %.0 = phi ptr [ null, %124 ], [ null, %104 ], [ null, %25 ], [ null, %10 ], [ null, %33 ], [ null, %125 ], [ null, %122 ], [ %120, %..thread71_crit_edge ]
+  %.pre95.sink = phi i32 [ %.pre95, %124 ], [ %105, %104 ], [ %26, %25 ], [ %34, %33 ], [ %11, %10 ], [ %126, %125 ], [ %.pre95, %122 ], [ %.pre94, %..thread71_crit_edge ]
+  %.0 = phi ptr [ null, %124 ], [ null, %104 ], [ null, %25 ], [ null, %33 ], [ null, %10 ], [ null, %125 ], [ null, %122 ], [ %120, %..thread71_crit_edge ]
   %127 = add i32 %.pre95.sink, -1
   store i32 %127, ptr %2, align 8, !tbaa !20
   ret ptr %.0
@@ -37557,7 +37557,7 @@ define internal fastcc ptr @closed_pattern_rule(ptr noundef %0) unnamed_addr #0 
   br i1 %.not192.i, label %164, label %.thread112.sink.split
 
 159:                                              ; preds = %58, %76, %94, %112, %130, %148
-  %.0.i = phi ptr [ %83, %76 ], [ %65, %58 ], [ %155, %148 ], [ %137, %130 ], [ %119, %112 ], [ %101, %94 ]
+  %.0.i = phi ptr [ %65, %58 ], [ %83, %76 ], [ %101, %94 ], [ %119, %112 ], [ %137, %130 ], [ %155, %148 ]
   %160 = load i32, ptr %3, align 8, !tbaa !20
   %161 = add i32 %160, -1
   store i32 %161, ptr %3, align 8, !tbaa !20
@@ -37573,7 +37573,7 @@ define internal fastcc ptr @closed_pattern_rule(ptr noundef %0) unnamed_addr #0 
   store i32 %22, ptr %21, align 8, !tbaa !22
   br label %167
 
-164:                                              ; preds = %143, %157, %139, %121, %103, %85, %67, %43, %127, %109, %91, %73, %55, %145
+164:                                              ; preds = %143, %157, %139, %121, %103, %85, %67, %145, %127, %109, %91, %73, %55, %43
   %.pr = load i32, ptr %9, align 8, !tbaa !21
   %165 = load i32, ptr %3, align 8, !tbaa !20
   %166 = add i32 %165, -1
@@ -37700,7 +37700,7 @@ define internal fastcc ptr @closed_pattern_rule(ptr noundef %0) unnamed_addr #0 
   br label %215
 
 215:                                              ; preds = %212, %205, %198, %191, %184, %177, %170, %159, %214
-  %.sink = phi ptr [ %206, %205 ], [ %199, %198 ], [ %192, %191 ], [ %185, %184 ], [ %178, %177 ], [ %171, %170 ], [ null, %214 ], [ %.0.i, %159 ], [ %213, %212 ]
+  %.sink = phi ptr [ %.0.i, %159 ], [ null, %214 ], [ %171, %170 ], [ %178, %177 ], [ %185, %184 ], [ %192, %191 ], [ %199, %198 ], [ %206, %205 ], [ %213, %212 ]
   store ptr %.sink, ptr %2, align 8, !tbaa !150
   %216 = call i32 @_PyPegen_insert_memo(ptr noundef nonnull %0, i32 noundef %22, i32 noundef 1069, ptr noundef %.sink) #5
   %217 = load i32, ptr %3, align 8, !tbaa !20
@@ -37710,7 +37710,7 @@ define internal fastcc ptr @closed_pattern_rule(ptr noundef %0) unnamed_addr #0 
   br label %220
 
 220:                                              ; preds = %25, %167, %174, %181, %188, %195, %202, %209, %215, %16
-  %.1 = phi ptr [ %19, %16 ], [ null, %25 ], [ %219, %215 ], [ null, %167 ], [ null, %202 ], [ null, %174 ], [ null, %209 ], [ null, %181 ], [ null, %195 ], [ null, %188 ]
+  %.1 = phi ptr [ %19, %16 ], [ null, %25 ], [ null, %167 ], [ null, %174 ], [ null, %181 ], [ null, %188 ], [ null, %195 ], [ null, %202 ], [ null, %209 ], [ %219, %215 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %221
 
@@ -37814,7 +37814,7 @@ define internal fastcc ptr @capture_pattern_rule(ptr noundef %0) unnamed_addr #0
   br label %.thread
 
 .thread:                                          ; preds = %51, %48, %37, %34, %24, %7, %50, %23
-  %.0 = phi ptr [ null, %50 ], [ null, %23 ], [ null, %7 ], [ null, %34 ], [ null, %24 ], [ null, %51 ], [ null, %48 ], [ %46, %37 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %50 ], [ null, %7 ], [ null, %24 ], [ null, %34 ], [ null, %51 ], [ null, %48 ], [ %46, %37 ]
   %52 = load i32, ptr %2, align 8, !tbaa !20
   %53 = add i32 %52, -1
   store i32 %53, ptr %2, align 8, !tbaa !20
@@ -37919,7 +37919,7 @@ define internal fastcc ptr @value_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %51, %48, %39, %36, %24, %7, %50, %23
-  %.0 = phi ptr [ null, %50 ], [ null, %23 ], [ null, %7 ], [ null, %36 ], [ null, %24 ], [ null, %51 ], [ null, %48 ], [ %46, %39 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %50 ], [ null, %7 ], [ null, %24 ], [ null, %36 ], [ null, %51 ], [ null, %48 ], [ %46, %39 ]
   %52 = load i32, ptr %2, align 8, !tbaa !20
   %53 = add i32 %52, -1
   store i32 %53, ptr %2, align 8, !tbaa !20
@@ -38233,13 +38233,13 @@ maybe_sequence_pattern_rule.exit:                 ; preds = %46
   br label %.thread91
 
 .thread91:                                        ; preds = %86, %95, %60, %69, %99
-  %.264 = phi ptr [ null, %99 ], [ %67, %60 ], [ null, %69 ], [ null, %95 ], [ %93, %86 ]
+  %.264 = phi ptr [ null, %99 ], [ null, %69 ], [ %67, %60 ], [ null, %95 ], [ %93, %86 ]
   %100 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread87
 
 .thread87:                                        ; preds = %.thread94, %._crit_edge105, %97, %84, %71, %58, %25, %.thread91, %33, %10
-  %.sink132 = phi i32 [ %98, %97 ], [ %85, %84 ], [ %72, %71 ], [ %59, %58 ], [ %26, %25 ], [ %100, %.thread91 ], [ %11, %10 ], [ %34, %33 ], [ %.pre106, %._crit_edge105 ], [ %storemerge127, %.thread94 ]
-  %.0 = phi ptr [ null, %97 ], [ null, %84 ], [ null, %71 ], [ null, %58 ], [ null, %25 ], [ %.264, %.thread91 ], [ null, %10 ], [ null, %33 ], [ null, %._crit_edge105 ], [ null, %.thread94 ]
+  %.sink132 = phi i32 [ %98, %97 ], [ %85, %84 ], [ %72, %71 ], [ %59, %58 ], [ %26, %25 ], [ %100, %.thread91 ], [ %34, %33 ], [ %11, %10 ], [ %.pre106, %._crit_edge105 ], [ %storemerge127, %.thread94 ]
+  %.0 = phi ptr [ null, %97 ], [ null, %84 ], [ null, %71 ], [ null, %58 ], [ null, %25 ], [ %.264, %.thread91 ], [ null, %33 ], [ null, %10 ], [ null, %._crit_edge105 ], [ null, %.thread94 ]
   %101 = add i32 %.sink132, -1
   store i32 %101, ptr %2, align 8, !tbaa !20
   ret ptr %.0
@@ -38587,7 +38587,7 @@ CHECK_CALL.exit176:                               ; preds = %CHECK_CALL.exit175,
   br label %.thread
 
 .thread:                                          ; preds = %156, %48, %39, %85, %74, %122, %CHECK_CALL.exit174, %153, %CHECK_CALL.exit176, %135, %125, %.thread203, %102, %88, %.thread191, %71, %51, %36, %24, %7, %155, %124, %87, %50, %23
-  %.0 = phi ptr [ null, %155 ], [ null, %23 ], [ null, %7 ], [ null, %135 ], [ null, %36 ], [ null, %50 ], [ null, %71 ], [ null, %87 ], [ null, %102 ], [ null, %124 ], [ null, %24 ], [ null, %51 ], [ null, %88 ], [ null, %125 ], [ null, %.thread191 ], [ null, %.thread203 ], [ null, %156 ], [ %120, %CHECK_CALL.exit174 ], [ %83, %74 ], [ %46, %39 ], [ null, %48 ], [ null, %85 ], [ null, %122 ], [ null, %153 ], [ %151, %CHECK_CALL.exit176 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %50 ], [ null, %87 ], [ null, %124 ], [ null, %155 ], [ null, %7 ], [ null, %24 ], [ null, %36 ], [ null, %51 ], [ null, %71 ], [ null, %.thread191 ], [ null, %88 ], [ null, %102 ], [ null, %.thread203 ], [ null, %125 ], [ null, %135 ], [ null, %156 ], [ null, %48 ], [ %46, %39 ], [ null, %85 ], [ %83, %74 ], [ null, %122 ], [ %120, %CHECK_CALL.exit174 ], [ null, %153 ], [ %151, %CHECK_CALL.exit176 ]
   %157 = load i32, ptr %2, align 8, !tbaa !20
   %158 = add i32 %157, -1
   store i32 %158, ptr %2, align 8, !tbaa !20
@@ -39058,7 +39058,7 @@ CHECK_CALL.exit211:                               ; preds = %CHECK_CALL.exit210,
   br label %.thread
 
 .thread:                                          ; preds = %204, %199, %64, %55, %106, %97, %156, %CHECK_CALL.exit208, %196, %CHECK_CALL.exit211, %202, %175, %159, %.thread240, %135, %109, %.thread228, %94, %67, %52, %24, %7, %198, %158, %108, %66, %23
-  %.0 = phi ptr [ null, %198 ], [ null, %23 ], [ null, %7 ], [ null, %202 ], [ null, %52 ], [ null, %66 ], [ null, %94 ], [ null, %108 ], [ null, %135 ], [ null, %158 ], [ null, %175 ], [ null, %24 ], [ null, %67 ], [ null, %109 ], [ null, %159 ], [ null, %.thread228 ], [ null, %.thread240 ], [ %62, %55 ], [ null, %199 ], [ %154, %CHECK_CALL.exit208 ], [ %104, %97 ], [ null, %204 ], [ null, %64 ], [ null, %106 ], [ null, %156 ], [ null, %196 ], [ %194, %CHECK_CALL.exit211 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %66 ], [ null, %108 ], [ null, %158 ], [ null, %198 ], [ null, %7 ], [ null, %24 ], [ null, %52 ], [ null, %67 ], [ null, %94 ], [ null, %.thread228 ], [ null, %109 ], [ null, %135 ], [ null, %.thread240 ], [ null, %159 ], [ null, %175 ], [ null, %202 ], [ null, %204 ], [ null, %199 ], [ null, %64 ], [ %62, %55 ], [ null, %106 ], [ %104, %97 ], [ null, %156 ], [ %154, %CHECK_CALL.exit208 ], [ null, %196 ], [ %194, %CHECK_CALL.exit211 ]
   %205 = load i32, ptr %2, align 8, !tbaa !20
   %206 = add i32 %205, -1
   store i32 %206, ptr %2, align 8, !tbaa !20
@@ -39174,7 +39174,7 @@ define internal fastcc ptr @signed_number_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread65
 
 .thread65:                                        ; preds = %55, %30, %52, %43, %40, %34, %24, %7, %54, %23
-  %.0 = phi ptr [ null, %54 ], [ null, %23 ], [ null, %7 ], [ null, %40 ], [ null, %24 ], [ null, %34 ], [ null, %55 ], [ %33, %30 ], [ null, %52 ], [ %50, %43 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %54 ], [ null, %7 ], [ null, %24 ], [ null, %34 ], [ null, %40 ], [ null, %55 ], [ %33, %30 ], [ null, %52 ], [ %50, %43 ]
   %56 = load i32, ptr %2, align 8, !tbaa !20
   %57 = add i32 %56, -1
   store i32 %57, ptr %2, align 8, !tbaa !20
@@ -39420,7 +39420,7 @@ imaginary_number_rule.exit.thread:                ; preds = %43, %.thread27.i, %
   br label %.thread
 
 .thread:                                          ; preds = %92, %66, %57, %89, %80, %77, %69, %52, %24, %7, %91, %68, %23
-  %.0 = phi ptr [ null, %91 ], [ null, %23 ], [ null, %7 ], [ null, %77 ], [ null, %52 ], [ null, %68 ], [ null, %24 ], [ null, %69 ], [ null, %92 ], [ %64, %57 ], [ null, %66 ], [ null, %89 ], [ %87, %80 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %68 ], [ null, %91 ], [ null, %7 ], [ null, %24 ], [ null, %52 ], [ null, %69 ], [ null, %77 ], [ null, %92 ], [ null, %66 ], [ %64, %57 ], [ null, %89 ], [ %87, %80 ]
   %93 = load i32, ptr %2, align 8, !tbaa !20
   %94 = add i32 %93, -1
   store i32 %94, ptr %2, align 8, !tbaa !20
@@ -39599,8 +39599,8 @@ define internal fastcc ptr @signed_real_number_rule(ptr noundef %0) unnamed_addr
   br label %.thread70
 
 .thread70:                                        ; preds = %54, %.thread67, %77, %64, %25, %.thread74, %33, %10
-  %.sink86 = phi i32 [ %78, %77 ], [ %65, %64 ], [ %26, %25 ], [ %80, %.thread74 ], [ %11, %10 ], [ %34, %33 ], [ %53, %.thread67 ], [ %56, %54 ]
-  %.0 = phi ptr [ null, %77 ], [ null, %64 ], [ null, %25 ], [ %.145, %.thread74 ], [ null, %10 ], [ null, %33 ], [ null, %.thread67 ], [ null, %54 ]
+  %.sink86 = phi i32 [ %78, %77 ], [ %65, %64 ], [ %26, %25 ], [ %80, %.thread74 ], [ %34, %33 ], [ %11, %10 ], [ %53, %.thread67 ], [ %56, %54 ]
+  %.0 = phi ptr [ null, %77 ], [ null, %64 ], [ null, %25 ], [ %.145, %.thread74 ], [ null, %33 ], [ null, %10 ], [ null, %.thread67 ], [ null, %54 ]
   %81 = add i32 %.sink86, -1
   store i32 %81, ptr %2, align 8, !tbaa !20
   ret ptr %.0
@@ -39890,7 +39890,7 @@ name_or_attr_rule.exit.thread:                    ; preds = %name_or_attr_rule.e
   br label %attr_raw.exit
 
 attr_raw.exit:                                    ; preds = %name_or_attr_rule.exit.thread, %81, %71, %68, %43, %31
-  %.0.i.ph.ph = phi ptr [ null, %43 ], [ null, %31 ], [ null, %68 ], [ null, %name_or_attr_rule.exit.thread ], [ null, %81 ], [ %79, %71 ]
+  %.0.i.ph.ph = phi ptr [ null, %31 ], [ null, %43 ], [ null, %68 ], [ null, %name_or_attr_rule.exit.thread ], [ null, %81 ], [ %79, %71 ]
   %85 = load i32, ptr %3, align 8, !tbaa !20
   %86 = add i32 %85, -1
   store i32 %86, ptr %3, align 8, !tbaa !20
@@ -40461,7 +40461,7 @@ define internal fastcc ptr @key_value_pattern_rule(ptr noundef %0) unnamed_addr 
   br i1 %.not138.i.i, label %114, label %.thread38.sink.split.i
 
 109:                                              ; preds = %98, %80, %62, %53, %49, %45
-  %.0.i.i = phi ptr [ %50, %49 ], [ %44, %45 ], [ %105, %98 ], [ %87, %80 ], [ %69, %62 ], [ %54, %53 ]
+  %.0.i.i = phi ptr [ %44, %45 ], [ %50, %49 ], [ %54, %53 ], [ %69, %62 ], [ %87, %80 ], [ %105, %98 ]
   %110 = load i32, ptr %2, align 8, !tbaa !20
   %111 = add i32 %110, -1
   br label %119
@@ -40564,7 +40564,7 @@ pattern_rule.exit:                                ; preds = %139
   br label %.thread57
 
 pattern_rule.exit.thread.sink.split:              ; preds = %117, %114, %.thread38.i, %16, %pattern_rule.exit, %130, %137
-  %.sink80 = phi i32 [ %138, %137 ], [ %131, %130 ], [ %141, %pattern_rule.exit ], [ %.pr, %16 ], [ %116, %114 ], [ %113, %.thread38.i ], [ %.pre64, %117 ]
+  %.sink80 = phi i32 [ %138, %137 ], [ %131, %130 ], [ %141, %pattern_rule.exit ], [ %116, %114 ], [ %113, %.thread38.i ], [ %.pr, %16 ], [ %.pre64, %117 ]
   %149 = add i32 %.sink80, -1
   store i32 %149, ptr %2, align 8, !tbaa !20
   br label %pattern_rule.exit.thread
@@ -41336,9 +41336,9 @@ define internal fastcc ptr @_loop0_49_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.critedge
 
 .critedge:                                        ; preds = %41, %.critedge.sink.split, %.preheader90
-  %.058105 = phi i64 [ %.058110, %.critedge.sink.split ], [ 0, %.preheader90 ], [ %42, %41 ]
-  %.054100 = phi ptr [ %.054111, %.critedge.sink.split ], [ %13, %.preheader90 ], [ %.256, %41 ]
-  %.05395 = phi i32 [ %.053112, %.critedge.sink.split ], [ %12, %.preheader90 ], [ %44, %41 ]
+  %.058105 = phi i64 [ 0, %.preheader90 ], [ %.058110, %.critedge.sink.split ], [ %42, %41 ]
+  %.054100 = phi ptr [ %13, %.preheader90 ], [ %.054111, %.critedge.sink.split ], [ %.256, %41 ]
+  %.05395 = phi i32 [ %12, %.preheader90 ], [ %.053112, %.critedge.sink.split ], [ %44, %41 ]
   store i32 %.05395, ptr %11, align 8, !tbaa !22
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %49 = load ptr, ptr %48, align 8, !tbaa !32
@@ -41376,7 +41376,7 @@ define internal fastcc ptr @_loop0_49_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !168
 
 .critedge74:                                      ; preds = %53, %._crit_edge, %16, %7, %.thread88, %14
-  %.052 = phi ptr [ null, %.thread88 ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %50, %._crit_edge ], [ %50, %53 ]
+  %.052 = phi ptr [ null, %14 ], [ null, %.thread88 ], [ null, %7 ], [ null, %16 ], [ %50, %._crit_edge ], [ %50, %53 ]
   %61 = load i32, ptr %2, align 8, !tbaa !20
   %62 = add i32 %61, -1
   store i32 %62, ptr %2, align 8, !tbaa !20
@@ -41842,19 +41842,19 @@ CHECK_CALL.exit.i:                                ; preds = %87, %80
   br label %.critedge.i
 
 177:                                              ; preds = %CHECK_CALL.exit.i, %109, %135, %158
-  %.0.i = phi ptr [ %166, %158 ], [ %143, %135 ], [ %117, %109 ], [ %91, %CHECK_CALL.exit.i ]
+  %.0.i = phi ptr [ %91, %CHECK_CALL.exit.i ], [ %117, %109 ], [ %143, %135 ], [ %166, %158 ]
   %178 = load i32, ptr %3, align 8, !tbaa !20
   %179 = add i32 %178, -1
   store i32 %179, ptr %3, align 8, !tbaa !20
   br label %.thread274.sink.split
 
-.thread266:                                       ; preds = %129, %103, %.thread203.i, %148, %122, %96, %61, %147, %121, %95, %174, %49, %60, %170
+.thread266:                                       ; preds = %129, %103, %174, %148, %122, %96, %.thread203.i, %61, %49, %170, %147, %121, %95, %60
   %180 = load i32, ptr %3, align 8, !tbaa !20
   %181 = add i32 %180, -1
   store i32 %22, ptr %21, align 8, !tbaa !22
   br label %184
 
-.critedge.i:                                      ; preds = %153, %168, %145, %119, %93, %176, %171, %155, %132, %106, %77
+.critedge.i:                                      ; preds = %153, %168, %145, %119, %93, %171, %176, %155, %132, %106, %77
   %.pr = load i32, ptr %9, align 8, !tbaa !21
   %182 = load i32, ptr %3, align 8, !tbaa !20
   %183 = add i32 %182, -1
@@ -42268,7 +42268,7 @@ CHECK_CALL.exit.i:                                ; preds = %87, %80
   br label %.thread274.sink.split
 
 .thread274.sink.split:                            ; preds = %369, %360, %297, %288, %279, %243, %234, %225, %189, %371, %177
-  %.sink = phi ptr [ %361, %360 ], [ %298, %297 ], [ %289, %288 ], [ %280, %279 ], [ %244, %243 ], [ %235, %234 ], [ %226, %225 ], [ %190, %189 ], [ null, %371 ], [ %.0.i, %177 ], [ %370, %369 ]
+  %.sink = phi ptr [ %.0.i, %177 ], [ null, %371 ], [ %190, %189 ], [ %226, %225 ], [ %235, %234 ], [ %244, %243 ], [ %280, %279 ], [ %289, %288 ], [ %298, %297 ], [ %361, %360 ], [ %370, %369 ]
   store ptr %.sink, ptr %2, align 8, !tbaa !169
   br label %.thread274
 
@@ -42282,7 +42282,7 @@ CHECK_CALL.exit.i:                                ; preds = %87, %80
   br label %.thread271
 
 .thread271:                                       ; preds = %350, %336, %323, %309, %269, %255, %215, %201, %29, %.thread274, %364, %355, %328, %301, %292, %283, %274, %247, %238, %229, %220, %193, %184, %44, %16
-  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %44 ], [ %376, %.thread274 ], [ null, %184 ], [ null, %269 ], [ null, %193 ], [ null, %292 ], [ null, %220 ], [ null, %364 ], [ null, %229 ], [ null, %301 ], [ null, %238 ], [ null, %355 ], [ null, %247 ], [ null, %215 ], [ null, %274 ], [ null, %323 ], [ null, %283 ], [ null, %328 ], [ null, %201 ], [ null, %255 ], [ null, %309 ], [ null, %336 ], [ null, %350 ]
+  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %44 ], [ null, %184 ], [ null, %193 ], [ null, %220 ], [ null, %229 ], [ null, %238 ], [ null, %247 ], [ null, %274 ], [ null, %283 ], [ null, %292 ], [ null, %301 ], [ null, %328 ], [ null, %355 ], [ null, %364 ], [ %376, %.thread274 ], [ null, %201 ], [ null, %215 ], [ null, %255 ], [ null, %269 ], [ null, %309 ], [ null, %323 ], [ null, %336 ], [ null, %350 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %377
 
@@ -42415,7 +42415,7 @@ CHECK_CALL.exit:                                  ; preds = %46, %53
   br label %.thread
 
 .thread:                                          ; preds = %62, %59, %CHECK_CALL.exit, %43, %24, %7, %61, %23
-  %.0 = phi ptr [ null, %61 ], [ null, %23 ], [ null, %7 ], [ null, %43 ], [ null, %24 ], [ null, %62 ], [ null, %59 ], [ %57, %CHECK_CALL.exit ]
+  %.0 = phi ptr [ null, %23 ], [ null, %61 ], [ null, %7 ], [ null, %24 ], [ null, %43 ], [ null, %62 ], [ null, %59 ], [ %57, %CHECK_CALL.exit ]
   %63 = load i32, ptr %2, align 8, !tbaa !20
   %64 = add i32 %63, -1
   store i32 %64, ptr %2, align 8, !tbaa !20
@@ -42523,7 +42523,7 @@ define internal fastcc ptr @return_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %52, %49, %40, %37, %24, %7, %51, %23
-  %.0 = phi ptr [ null, %51 ], [ null, %23 ], [ null, %7 ], [ null, %37 ], [ null, %24 ], [ null, %52 ], [ null, %49 ], [ %47, %40 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %51 ], [ null, %7 ], [ null, %24 ], [ null, %37 ], [ null, %52 ], [ null, %49 ], [ %47, %40 ]
   %53 = load i32, ptr %2, align 8, !tbaa !20
   %54 = add i32 %53, -1
   store i32 %54, ptr %2, align 8, !tbaa !20
@@ -42726,9 +42726,9 @@ define internal fastcc ptr @import_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.critedge.i.i.i, !llvm.loop !173
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i, %..critedge.i.loopexit_crit_edge.i.i, %.lr.ph.i.preheader.i.i, %.preheader76.i.i.i
-  %.058.lcssa.i.i.i = phi i64 [ 0, %.preheader76.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i ], [ %54, %..critedge.i.loopexit_crit_edge.i.i ], [ %54, %.lr.ph.i.i.i ]
-  %.054.lcssa.i.i.i = phi ptr [ %41, %.preheader76.i.i.i ], [ %41, %.lr.ph.i.preheader.i.i ], [ %.256.i.i.i, %..critedge.i.loopexit_crit_edge.i.i ], [ %.256.i.i.i, %.lr.ph.i.i.i ]
-  %.053.lcssa.i.i.i = phi i32 [ %40, %.preheader76.i.i.i ], [ %40, %.lr.ph.i.preheader.i.i ], [ %56, %..critedge.i.loopexit_crit_edge.i.i ], [ %56, %.lr.ph.i.i.i ]
+  %.058.lcssa.i.i.i = phi i64 [ 0, %.preheader76.i.i.i ], [ %54, %..critedge.i.loopexit_crit_edge.i.i ], [ 0, %.lr.ph.i.preheader.i.i ], [ %54, %.lr.ph.i.i.i ]
+  %.054.lcssa.i.i.i = phi ptr [ %41, %.preheader76.i.i.i ], [ %.256.i.i.i, %..critedge.i.loopexit_crit_edge.i.i ], [ %41, %.lr.ph.i.preheader.i.i ], [ %.256.i.i.i, %.lr.ph.i.i.i ]
+  %.053.lcssa.i.i.i = phi i32 [ %40, %.preheader76.i.i.i ], [ %56, %..critedge.i.loopexit_crit_edge.i.i ], [ %40, %.lr.ph.i.preheader.i.i ], [ %56, %.lr.ph.i.i.i ]
   store i32 %.053.lcssa.i.i.i, ptr %13, align 8, !tbaa !22
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %59 = load ptr, ptr %58, align 8, !tbaa !32
@@ -43027,9 +43027,9 @@ _gather_133_rule.exit.i:                          ; preds = %63, %.preheader.i.i
   br label %.critedge.i.i.i.i, !llvm.loop !175
 
 .critedge.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i, %..critedge.i.loopexit_crit_edge.i.i.i, %.lr.ph.i.preheader.i.i.i, %.preheader76.i.i.i.i
-  %.058.lcssa.i.i.i.i = phi i64 [ 0, %.preheader76.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i ], [ %172, %..critedge.i.loopexit_crit_edge.i.i.i ], [ %172, %.lr.ph.i.i.i.i ]
-  %.054.lcssa.i.i.i.i = phi ptr [ %159, %.preheader76.i.i.i.i ], [ %159, %.lr.ph.i.preheader.i.i.i ], [ %.256.i.i.i.i, %..critedge.i.loopexit_crit_edge.i.i.i ], [ %.256.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %.053.lcssa.i.i.i.i = phi i32 [ %158, %.preheader76.i.i.i.i ], [ %158, %.lr.ph.i.preheader.i.i.i ], [ %174, %..critedge.i.loopexit_crit_edge.i.i.i ], [ %174, %.lr.ph.i.i.i.i ]
+  %.058.lcssa.i.i.i.i = phi i64 [ 0, %.preheader76.i.i.i.i ], [ %172, %..critedge.i.loopexit_crit_edge.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i ], [ %172, %.lr.ph.i.i.i.i ]
+  %.054.lcssa.i.i.i.i = phi ptr [ %159, %.preheader76.i.i.i.i ], [ %.256.i.i.i.i, %..critedge.i.loopexit_crit_edge.i.i.i ], [ %159, %.lr.ph.i.preheader.i.i.i ], [ %.256.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.053.lcssa.i.i.i.i = phi i32 [ %158, %.preheader76.i.i.i.i ], [ %174, %..critedge.i.loopexit_crit_edge.i.i.i ], [ %158, %.lr.ph.i.preheader.i.i.i ], [ %174, %.lr.ph.i.i.i.i ]
   store i32 %.053.lcssa.i.i.i.i, ptr %13, align 8, !tbaa !22
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %177 = load ptr, ptr %176, align 8, !tbaa !32
@@ -43130,7 +43130,7 @@ dotted_as_names_rule.exit.thread.i:               ; preds = %_gather_24_rule.exi
   store i32 %14, ptr %13, align 8, !tbaa !22
   br label %219
 
-211:                                              ; preds = %133, %dotted_as_names_rule.exit.thread.i, %204, %127, %193
+211:                                              ; preds = %133, %dotted_as_names_rule.exit.thread.i, %204, %193, %127
   %.pr57 = load i32, ptr %8, align 8, !tbaa !21
   %212 = load i32, ptr %2, align 8, !tbaa !20
   %213 = add i32 %212, -1
@@ -43154,8 +43154,8 @@ dotted_as_names_rule.exit.thread.i:               ; preds = %_gather_24_rule.exi
   br label %219
 
 219:                                              ; preds = %211, %.thread58, %109, %217, %10
-  %.sink133 = phi i32 [ %110, %109 ], [ %11, %10 ], [ %218, %217 ], [ %210, %.thread58 ], [ %213, %211 ]
-  %.0 = phi ptr [ null, %109 ], [ null, %10 ], [ %.2, %217 ], [ null, %.thread58 ], [ null, %211 ]
+  %.sink133 = phi i32 [ %110, %109 ], [ %218, %217 ], [ %11, %10 ], [ %210, %.thread58 ], [ %213, %211 ]
+  %.0 = phi ptr [ null, %109 ], [ %.2, %217 ], [ null, %10 ], [ null, %.thread58 ], [ null, %211 ]
   %220 = add i32 %.sink133, -1
   store i32 %220, ptr %2, align 8, !tbaa !20
   ret ptr %.0
@@ -43368,13 +43368,13 @@ _tmp_13_rule.exit:                                ; preds = %51, %53
   br label %.thread88
 
 .thread88:                                        ; preds = %80, %89, %59, %68, %93
-  %.261 = phi ptr [ null, %93 ], [ %66, %59 ], [ null, %68 ], [ null, %89 ], [ %87, %80 ]
+  %.261 = phi ptr [ null, %93 ], [ null, %68 ], [ %66, %59 ], [ null, %89 ], [ %87, %80 ]
   %94 = load i32, ptr %2, align 8, !tbaa !20
   br label %.thread
 
 .thread:                                          ; preds = %.thread92, %._crit_edge102, %91, %78, %70, %57, %25, %.thread88, %33, %10
-  %.sink112 = phi i32 [ %92, %91 ], [ %79, %78 ], [ %71, %70 ], [ %58, %57 ], [ %26, %25 ], [ %94, %.thread88 ], [ %11, %10 ], [ %34, %33 ], [ %.pre103, %._crit_edge102 ], [ %storemerge.i, %.thread92 ]
-  %.0 = phi ptr [ null, %91 ], [ null, %78 ], [ null, %70 ], [ null, %57 ], [ null, %25 ], [ %.261, %.thread88 ], [ null, %10 ], [ null, %33 ], [ null, %._crit_edge102 ], [ null, %.thread92 ]
+  %.sink112 = phi i32 [ %92, %91 ], [ %79, %78 ], [ %71, %70 ], [ %58, %57 ], [ %26, %25 ], [ %94, %.thread88 ], [ %34, %33 ], [ %11, %10 ], [ %.pre103, %._crit_edge102 ], [ %storemerge.i, %.thread92 ]
+  %.0 = phi ptr [ null, %91 ], [ null, %78 ], [ null, %70 ], [ null, %57 ], [ null, %25 ], [ %.261, %.thread88 ], [ null, %33 ], [ null, %10 ], [ null, %._crit_edge102 ], [ null, %.thread92 ]
   %95 = add i32 %.sink112, -1
   store i32 %95, ptr %2, align 8, !tbaa !20
   ret ptr %.0
@@ -43498,7 +43498,7 @@ define internal fastcc ptr @del_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %58, %53, %50, %41, %56, %38, %24, %7, %52, %23
-  %.0 = phi ptr [ null, %52 ], [ null, %23 ], [ null, %7 ], [ null, %56 ], [ null, %38 ], [ null, %24 ], [ null, %53 ], [ null, %58 ], [ null, %50 ], [ %48, %41 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %52 ], [ null, %7 ], [ null, %24 ], [ null, %38 ], [ null, %56 ], [ null, %58 ], [ null, %53 ], [ null, %50 ], [ %48, %41 ]
   %59 = load i32, ptr %2, align 8, !tbaa !20
   %60 = add i32 %59, -1
   store i32 %60, ptr %2, align 8, !tbaa !20
@@ -43598,7 +43598,7 @@ define internal fastcc ptr @yield_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %49, %46, %37, %34, %24, %7, %48, %23
-  %.0 = phi ptr [ null, %48 ], [ null, %23 ], [ null, %7 ], [ null, %34 ], [ null, %24 ], [ null, %49 ], [ null, %46 ], [ %44, %37 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %48 ], [ null, %7 ], [ null, %24 ], [ null, %34 ], [ null, %49 ], [ null, %46 ], [ %44, %37 ]
   %50 = load i32, ptr %2, align 8, !tbaa !20
   %51 = add i32 %50, -1
   store i32 %51, ptr %2, align 8, !tbaa !20
@@ -43749,7 +43749,7 @@ _tmp_17_rule.exit:                                ; preds = %46, %48
   br label %.thread
 
 .thread:                                          ; preds = %64, %61, %52, %49, %24, %7, %63, %23
-  %.0 = phi ptr [ null, %63 ], [ null, %23 ], [ null, %7 ], [ null, %49 ], [ null, %24 ], [ null, %64 ], [ null, %61 ], [ %59, %52 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %63 ], [ null, %7 ], [ null, %24 ], [ null, %49 ], [ null, %64 ], [ null, %61 ], [ %59, %52 ]
   %65 = load i32, ptr %2, align 8, !tbaa !20
   %66 = add i32 %65, -1
   store i32 %66, ptr %2, align 8, !tbaa !20
@@ -43867,7 +43867,7 @@ CHECK_CALL.exit:                                  ; preds = %39, %46
   br label %.thread
 
 .thread:                                          ; preds = %54, %51, %CHECK_CALL.exit, %36, %24, %7, %53, %23
-  %.0 = phi ptr [ null, %53 ], [ null, %23 ], [ null, %7 ], [ null, %36 ], [ null, %24 ], [ null, %54 ], [ null, %51 ], [ %49, %CHECK_CALL.exit ]
+  %.0 = phi ptr [ null, %23 ], [ null, %53 ], [ null, %7 ], [ null, %24 ], [ null, %36 ], [ null, %54 ], [ null, %51 ], [ %49, %CHECK_CALL.exit ]
   %55 = load i32, ptr %2, align 8, !tbaa !20
   %56 = add i32 %55, -1
   store i32 %56, ptr %2, align 8, !tbaa !20
@@ -43981,7 +43981,7 @@ CHECK_CALL.exit:                                  ; preds = %39, %46
   br label %.thread
 
 .thread:                                          ; preds = %54, %51, %CHECK_CALL.exit, %36, %24, %7, %53, %23
-  %.0 = phi ptr [ null, %53 ], [ null, %23 ], [ null, %7 ], [ null, %36 ], [ null, %24 ], [ null, %54 ], [ null, %51 ], [ %49, %CHECK_CALL.exit ]
+  %.0 = phi ptr [ null, %23 ], [ null, %53 ], [ null, %7 ], [ null, %24 ], [ null, %36 ], [ null, %54 ], [ null, %51 ], [ %49, %CHECK_CALL.exit ]
   %55 = load i32, ptr %2, align 8, !tbaa !20
   %56 = add i32 %55, -1
   store i32 %56, ptr %2, align 8, !tbaa !20
@@ -44282,7 +44282,7 @@ define internal fastcc ptr @_loop1_12_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !178
 
 58:                                               ; preds = %50, %._crit_edge, %16, %7, %38, %14, %43
-  %.051 = phi ptr [ null, %38 ], [ null, %14 ], [ null, %7 ], [ null, %43 ], [ null, %16 ], [ %47, %._crit_edge ], [ %47, %50 ]
+  %.051 = phi ptr [ null, %14 ], [ null, %43 ], [ null, %38 ], [ null, %7 ], [ null, %16 ], [ %47, %._crit_edge ], [ %47, %50 ]
   %59 = load i32, ptr %2, align 8, !tbaa !20
   %60 = add i32 %59, -1
   store i32 %60, ptr %2, align 8, !tbaa !20
@@ -44368,7 +44368,7 @@ define internal fastcc ptr @single_target_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread62
 
 .thread62:                                        ; preds = %10, %29, %31, %21, %18, %23, %14, %7, %.thread65
-  %.0 = phi ptr [ null, %.thread65 ], [ null, %23 ], [ null, %14 ], [ null, %7 ], [ %28, %29 ], [ %13, %10 ], [ null, %31 ], [ null, %21 ], [ %19, %18 ]
+  %.0 = phi ptr [ null, %.thread65 ], [ null, %7 ], [ null, %14 ], [ null, %23 ], [ %13, %10 ], [ null, %31 ], [ %28, %29 ], [ null, %21 ], [ %19, %18 ]
   %32 = load i32, ptr %2, align 8, !tbaa !20
   %33 = add i32 %32, -1
   store i32 %33, ptr %2, align 8, !tbaa !20
@@ -44721,7 +44721,7 @@ define internal fastcc ptr @augassign_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %128, %17, %14, %26, %23, %35, %32, %45, %41, %54, %51, %63, %60, %72, %69, %81, %78, %90, %87, %99, %96, %108, %105, %117, %114, %126, %123, %119, %110, %101, %92, %83, %74, %65, %56, %47, %37, %28, %19, %7, %.thread302, %.thread295, %.thread288, %.thread281, %.thread274, %.thread267, %.thread260, %.thread253, %.thread246, %.thread239, %.thread232, %.thread225, %.thread218
-  %.0 = phi ptr [ null, %.thread302 ], [ null, %119 ], [ null, %.thread218 ], [ null, %7 ], [ null, %.thread225 ], [ null, %19 ], [ null, %.thread232 ], [ null, %28 ], [ null, %.thread239 ], [ null, %37 ], [ null, %.thread246 ], [ null, %47 ], [ null, %.thread253 ], [ null, %56 ], [ null, %.thread260 ], [ null, %65 ], [ null, %.thread267 ], [ null, %74 ], [ null, %.thread274 ], [ null, %83 ], [ null, %.thread281 ], [ null, %92 ], [ null, %.thread288 ], [ null, %101 ], [ null, %.thread295 ], [ null, %110 ], [ null, %128 ], [ %115, %114 ], [ %106, %105 ], [ %97, %96 ], [ %88, %87 ], [ %79, %78 ], [ %70, %69 ], [ %61, %60 ], [ %52, %51 ], [ %43, %41 ], [ %33, %32 ], [ %24, %23 ], [ %15, %14 ], [ null, %17 ], [ null, %26 ], [ null, %35 ], [ null, %45 ], [ null, %54 ], [ null, %63 ], [ null, %72 ], [ null, %81 ], [ null, %90 ], [ null, %99 ], [ null, %108 ], [ null, %117 ], [ null, %126 ], [ %124, %123 ]
+  %.0 = phi ptr [ null, %.thread218 ], [ null, %.thread225 ], [ null, %.thread232 ], [ null, %.thread239 ], [ null, %.thread246 ], [ null, %.thread253 ], [ null, %.thread260 ], [ null, %.thread267 ], [ null, %.thread274 ], [ null, %.thread281 ], [ null, %.thread288 ], [ null, %.thread295 ], [ null, %.thread302 ], [ null, %7 ], [ null, %19 ], [ null, %28 ], [ null, %37 ], [ null, %47 ], [ null, %56 ], [ null, %65 ], [ null, %74 ], [ null, %83 ], [ null, %92 ], [ null, %101 ], [ null, %110 ], [ null, %119 ], [ null, %128 ], [ null, %17 ], [ %15, %14 ], [ null, %26 ], [ %24, %23 ], [ null, %35 ], [ %33, %32 ], [ null, %45 ], [ %43, %41 ], [ null, %54 ], [ %52, %51 ], [ null, %63 ], [ %61, %60 ], [ null, %72 ], [ %70, %69 ], [ null, %81 ], [ %79, %78 ], [ null, %90 ], [ %88, %87 ], [ null, %99 ], [ %97, %96 ], [ null, %108 ], [ %106, %105 ], [ null, %117 ], [ %115, %114 ], [ null, %126 ], [ %124, %123 ]
   %129 = load i32, ptr %2, align 8, !tbaa !20
   %130 = add i32 %129, -1
   store i32 %130, ptr %2, align 8, !tbaa !20
@@ -45185,7 +45185,7 @@ define internal fastcc ptr @single_subscript_attribute_target_rule(ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %84, %54, %43, %81, %72, %69, %57, %40, %24, %7, %83, %56, %23
-  %.0 = phi ptr [ null, %83 ], [ null, %23 ], [ null, %7 ], [ null, %69 ], [ null, %40 ], [ null, %56 ], [ null, %24 ], [ null, %57 ], [ null, %84 ], [ %52, %43 ], [ null, %54 ], [ null, %81 ], [ %79, %72 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %56 ], [ null, %83 ], [ null, %7 ], [ null, %24 ], [ null, %40 ], [ null, %57 ], [ null, %69 ], [ null, %84 ], [ null, %54 ], [ %52, %43 ], [ null, %81 ], [ %79, %72 ]
   %85 = load i32, ptr %2, align 8, !tbaa !20
   %86 = add i32 %85, -1
   store i32 %86, ptr %2, align 8, !tbaa !20
@@ -45257,7 +45257,7 @@ define internal fastcc ptr @invalid_ann_assign_target_rule(ptr noundef %0) unnam
   br label %27
 
 27:                                               ; preds = %10, %16, %24, %26, %18, %14, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %18 ], [ null, %14 ], [ %13, %10 ], [ %17, %16 ], [ null, %26 ], [ %23, %24 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %14 ], [ null, %18 ], [ %13, %10 ], [ %17, %16 ], [ null, %26 ], [ %23, %24 ]
   %28 = load i32, ptr %2, align 8, !tbaa !20
   %29 = add i32 %28, -1
   store i32 %29, ptr %2, align 8, !tbaa !20
@@ -45378,7 +45378,7 @@ define internal fastcc ptr @_loop0_115_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge81, label %39, !llvm.loop !180
 
 45:                                               ; preds = %37, %._crit_edge81, %16, %7, %30, %14
-  %.047 = phi ptr [ null, %30 ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
+  %.047 = phi ptr [ null, %14 ], [ null, %30 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
   %46 = load i32, ptr %2, align 8, !tbaa !20
   %47 = add i32 %46, -1
   store i32 %47, ptr %2, align 8, !tbaa !20
@@ -45521,7 +45521,7 @@ define internal fastcc ptr @_loop0_116_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !182
 
 53:                                               ; preds = %45, %._crit_edge, %16, %7, %38, %14
-  %.047 = phi ptr [ null, %38 ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %42, %._crit_edge ], [ %42, %45 ]
+  %.047 = phi ptr [ null, %14 ], [ null, %38 ], [ null, %7 ], [ null, %16 ], [ %42, %._crit_edge ], [ %42, %45 ]
   %54 = load i32, ptr %2, align 8, !tbaa !20
   %55 = add i32 %54, -1
   store i32 %55, ptr %2, align 8, !tbaa !20
@@ -45831,7 +45831,7 @@ _loop0_18_rule.exit.thread:                       ; preds = %_loop0_18_rule.exit
   br label %.thread
 
 .thread:                                          ; preds = %137, %108, %97, %134, %124, %121, %111, %94, %24, %7, %136, %110, %23
-  %.0 = phi ptr [ null, %136 ], [ null, %23 ], [ null, %7 ], [ null, %121 ], [ null, %94 ], [ null, %110 ], [ null, %24 ], [ null, %111 ], [ null, %137 ], [ %106, %97 ], [ null, %108 ], [ null, %134 ], [ %132, %124 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %110 ], [ null, %136 ], [ null, %7 ], [ null, %24 ], [ null, %94 ], [ null, %111 ], [ null, %121 ], [ null, %137 ], [ null, %108 ], [ %106, %97 ], [ null, %134 ], [ %132, %124 ]
   %138 = load i32, ptr %2, align 8, !tbaa !20
   %139 = add i32 %138, -1
   store i32 %139, ptr %2, align 8, !tbaa !20
@@ -45949,7 +45949,7 @@ dotted_name_raw.exit.thread:                      ; preds = %40
   br label %dotted_name_raw.exit
 
 dotted_name_raw.exit:                             ; preds = %44, %46, %40, %37
-  %.129.i = phi ptr [ %45, %44 ], [ null, %46 ], [ null, %40 ], [ %38, %37 ]
+  %.129.i = phi ptr [ null, %46 ], [ %45, %44 ], [ null, %40 ], [ %38, %37 ]
   %47 = load i32, ptr %3, align 8, !tbaa !20
   %48 = add i32 %47, -1
   store i32 %48, ptr %3, align 8, !tbaa !20
@@ -46151,7 +46151,7 @@ _tmp_22_rule.exit:                                ; preds = %44, %46
   br label %.thread
 
 .thread:                                          ; preds = %69, %66, %60, %47, %24, %7, %68, %23
-  %.0 = phi ptr [ null, %68 ], [ null, %23 ], [ null, %7 ], [ null, %47 ], [ null, %24 ], [ null, %69 ], [ null, %66 ], [ %64, %60 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %68 ], [ null, %7 ], [ null, %24 ], [ null, %47 ], [ null, %69 ], [ null, %66 ], [ %64, %60 ]
   %70 = load i32, ptr %2, align 8, !tbaa !20
   %71 = add i32 %70, -1
   store i32 %71, ptr %2, align 8, !tbaa !20
@@ -46326,7 +46326,7 @@ CHECK_CALL.exit:                                  ; preds = %53, %62
   br label %.thread112
 
 .thread112:                                       ; preds = %39, %44, %73, %.thread119, %68, %65, %CHECK_CALL.exit, %71, %50, %46, %41, %.thread106, %24, %7, %67, %23
-  %.0 = phi ptr [ null, %67 ], [ null, %23 ], [ null, %7 ], [ null, %71 ], [ null, %24 ], [ null, %50 ], [ null, %41 ], [ null, %46 ], [ null, %.thread106 ], [ %74, %73 ], [ %43, %44 ], [ null, %68 ], [ %35, %39 ], [ null, %.thread119 ], [ null, %65 ], [ %63, %CHECK_CALL.exit ]
+  %.0 = phi ptr [ null, %23 ], [ null, %67 ], [ null, %7 ], [ null, %24 ], [ null, %.thread106 ], [ null, %41 ], [ null, %46 ], [ null, %50 ], [ null, %71 ], [ %35, %39 ], [ %43, %44 ], [ %74, %73 ], [ null, %.thread119 ], [ null, %68 ], [ null, %65 ], [ %63, %CHECK_CALL.exit ]
   %75 = load i32, ptr %2, align 8, !tbaa !20
   %76 = add i32 %75, -1
   store i32 %76, ptr %2, align 8, !tbaa !20
@@ -46494,7 +46494,7 @@ define internal fastcc ptr @_loop1_19_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %59, !llvm.loop !186
 
 65:                                               ; preds = %57, %._crit_edge, %16, %7, %43, %14, %50
-  %.051 = phi ptr [ null, %43 ], [ null, %14 ], [ null, %7 ], [ null, %50 ], [ null, %16 ], [ %54, %._crit_edge ], [ %54, %57 ]
+  %.051 = phi ptr [ null, %14 ], [ null, %50 ], [ null, %43 ], [ null, %7 ], [ null, %16 ], [ %54, %._crit_edge ], [ %54, %57 ]
   %66 = load i32, ptr %2, align 8, !tbaa !20
   %67 = add i32 %66, -1
   store i32 %67, ptr %2, align 8, !tbaa !20
@@ -46616,9 +46616,9 @@ define internal fastcc ptr @import_from_as_names_rule(ptr noundef %0) unnamed_ad
   br label %.critedge.i.i, !llvm.loop !187
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i, %..critedge.i.loopexit_crit_edge.i, %.lr.ph.i.preheader.i, %.preheader76.i.i
-  %.058.lcssa.i.i = phi i64 [ 0, %.preheader76.i.i ], [ 0, %.lr.ph.i.preheader.i ], [ %43, %..critedge.i.loopexit_crit_edge.i ], [ %43, %.lr.ph.i.i ]
-  %.054.lcssa.i.i = phi ptr [ %30, %.preheader76.i.i ], [ %30, %.lr.ph.i.preheader.i ], [ %.256.i.i, %..critedge.i.loopexit_crit_edge.i ], [ %.256.i.i, %.lr.ph.i.i ]
-  %.053.lcssa.i.i = phi i32 [ %29, %.preheader76.i.i ], [ %29, %.lr.ph.i.preheader.i ], [ %45, %..critedge.i.loopexit_crit_edge.i ], [ %45, %.lr.ph.i.i ]
+  %.058.lcssa.i.i = phi i64 [ 0, %.preheader76.i.i ], [ %43, %..critedge.i.loopexit_crit_edge.i ], [ 0, %.lr.ph.i.preheader.i ], [ %43, %.lr.ph.i.i ]
+  %.054.lcssa.i.i = phi ptr [ %30, %.preheader76.i.i ], [ %.256.i.i, %..critedge.i.loopexit_crit_edge.i ], [ %30, %.lr.ph.i.preheader.i ], [ %.256.i.i, %.lr.ph.i.i ]
+  %.053.lcssa.i.i = phi i32 [ %29, %.preheader76.i.i ], [ %45, %..critedge.i.loopexit_crit_edge.i ], [ %29, %.lr.ph.i.preheader.i ], [ %45, %.lr.ph.i.i ]
   store i32 %.053.lcssa.i.i, ptr %13, align 8, !tbaa !22
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !32
@@ -46776,7 +46776,7 @@ define internal fastcc ptr @invalid_import_from_targets_rule(ptr noundef %0) unn
   br label %.thread
 
 .thread:                                          ; preds = %37, %28, %22, %18, %24, %7, %.thread51, %.thread48
-  %.0 = phi ptr [ null, %.thread51 ], [ null, %24 ], [ null, %.thread48 ], [ null, %7 ], [ null, %37 ], [ null, %28 ], [ null, %22 ], [ %20, %18 ]
+  %.0 = phi ptr [ null, %.thread48 ], [ null, %.thread51 ], [ null, %7 ], [ null, %24 ], [ null, %37 ], [ null, %28 ], [ null, %22 ], [ %20, %18 ]
   %38 = load i32, ptr %2, align 8, !tbaa !20
   %39 = add i32 %38, -1
   store i32 %39, ptr %2, align 8, !tbaa !20
@@ -46934,7 +46934,7 @@ _tmp_22_rule.exit:                                ; preds = %44, %46
   br label %.thread
 
 .thread:                                          ; preds = %69, %66, %60, %47, %24, %7, %68, %23
-  %.0 = phi ptr [ null, %68 ], [ null, %23 ], [ null, %7 ], [ null, %47 ], [ null, %24 ], [ null, %69 ], [ null, %66 ], [ %64, %60 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %68 ], [ null, %7 ], [ null, %24 ], [ null, %47 ], [ null, %69 ], [ null, %66 ], [ %64, %60 ]
   %70 = load i32, ptr %2, align 8, !tbaa !20
   %71 = add i32 %70, -1
   store i32 %71, ptr %2, align 8, !tbaa !20
@@ -47517,7 +47517,7 @@ define internal fastcc ptr @del_target_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %108, %94, %73, %57, %29, %.thread106, %113, %78, %43, %16
-  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ %123, %.thread106 ], [ null, %78 ], [ null, %73 ], [ null, %113 ], [ null, %57 ], [ null, %94 ], [ null, %108 ]
+  %.1 = phi ptr [ %19, %16 ], [ null, %29 ], [ null, %43 ], [ null, %78 ], [ null, %113 ], [ %123, %.thread106 ], [ null, %57 ], [ null, %73 ], [ null, %94 ], [ null, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %124
 
@@ -47741,7 +47741,7 @@ define internal fastcc ptr @del_t_atom_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.thread138
 
 .thread138:                                       ; preds = %99, %37, %34, %50, %47, %73, %64, %96, %87, %84, %76, %.thread145, %61, %52, %39, %24, %7, %98, %75, %.thread134, %.thread127, %23
-  %.0 = phi ptr [ null, %98 ], [ null, %23 ], [ null, %7 ], [ null, %.thread127 ], [ null, %24 ], [ null, %.thread134 ], [ null, %39 ], [ null, %84 ], [ null, %61 ], [ null, %75 ], [ null, %52 ], [ null, %76 ], [ null, %.thread145 ], [ null, %99 ], [ %71, %64 ], [ %48, %47 ], [ %35, %34 ], [ null, %37 ], [ null, %50 ], [ null, %73 ], [ null, %96 ], [ %94, %87 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %.thread127 ], [ null, %.thread134 ], [ null, %75 ], [ null, %98 ], [ null, %7 ], [ null, %24 ], [ null, %39 ], [ null, %52 ], [ null, %61 ], [ null, %.thread145 ], [ null, %76 ], [ null, %84 ], [ null, %99 ], [ null, %37 ], [ %35, %34 ], [ null, %50 ], [ %48, %47 ], [ null, %73 ], [ %71, %64 ], [ null, %96 ], [ %94, %87 ]
   %100 = load i32, ptr %2, align 8, !tbaa !20
   %101 = add i32 %100, -1
   store i32 %101, ptr %2, align 8, !tbaa !20
@@ -47848,9 +47848,9 @@ define internal fastcc ptr @_gather_15_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.critedge.i, !llvm.loop !191
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %..critedge.i.loopexit_crit_edge, %.preheader76.i
-  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ 0, %.lr.ph.i.preheader ], [ %36, %..critedge.i.loopexit_crit_edge ], [ %36, %.lr.ph.i ]
-  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %.256.i, %.lr.ph.i ]
-  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %22, %.lr.ph.i.preheader ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %38, %.lr.ph.i ]
+  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
+  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
+  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
   store i32 %.053.lcssa.i, ptr %11, align 8, !tbaa !22
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !32
@@ -48035,7 +48035,7 @@ define internal fastcc ptr @_loop0_1_rule(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge81, label %39, !llvm.loop !194
 
 45:                                               ; preds = %37, %._crit_edge81, %16, %7, %30, %14
-  %.047 = phi ptr [ null, %30 ], [ null, %14 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
+  %.047 = phi ptr [ null, %14 ], [ null, %30 ], [ null, %7 ], [ null, %16 ], [ %34, %._crit_edge81 ], [ %34, %37 ]
   %46 = load i32, ptr %2, align 8, !tbaa !20
   %47 = add i32 %46, -1
   store i32 %47, ptr %2, align 8, !tbaa !20
@@ -48144,9 +48144,9 @@ define internal fastcc ptr @_gather_101_rule(ptr noundef %0) unnamed_addr #0 {
   br label %.critedge.i, !llvm.loop !195
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %..critedge.i.loopexit_crit_edge, %.preheader76.i
-  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ 0, %.lr.ph.i.preheader ], [ %36, %..critedge.i.loopexit_crit_edge ], [ %36, %.lr.ph.i ]
-  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %.256.i, %.lr.ph.i ]
-  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %22, %.lr.ph.i.preheader ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %38, %.lr.ph.i ]
+  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
+  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
+  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
   store i32 %.053.lcssa.i, ptr %11, align 8, !tbaa !22
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !32

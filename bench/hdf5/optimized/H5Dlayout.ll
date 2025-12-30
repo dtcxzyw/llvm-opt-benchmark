@@ -556,7 +556,7 @@ define range(i32 -1, 1) i32 @H5D__layout_set_latest_indexing(ptr noundef capture
   br label %83
 
 83:                                               ; preds = %82, %3, %12, %22, %18
-  %.055 = phi i32 [ 0, %3 ], [ 0, %12 ], [ -1, %18 ], [ %.3, %82 ], [ 0, %22 ]
+  %.055 = phi i32 [ 0, %12 ], [ 0, %3 ], [ -1, %18 ], [ 0, %22 ], [ %.3, %82 ]
   ret i32 %.055
 }
 
@@ -855,7 +855,7 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
   br label %.thread107
 
 .thread107:                                       ; preds = %28, %40, %155, %162, %168, %171, %4
-  %.085 = phi i32 [ -1, %171 ], [ -1, %168 ], [ -1, %162 ], [ -1, %40 ], [ 0, %4 ], [ -1, %28 ], [ 0, %155 ]
+  %.085 = phi i32 [ -1, %171 ], [ -1, %168 ], [ -1, %162 ], [ 0, %4 ], [ -1, %28 ], [ 0, %155 ], [ -1, %40 ]
   %175 = load i64, ptr %5, align 8, !tbaa !49
   call void @H5AC_tag(i64 noundef %175, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1071,9 +1071,9 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   %116 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__layout_oh_read, i32 noundef 644, i64 noundef %114, i64 noundef %115, ptr noundef nonnull @.str.30) #4
   br i1 %.not.not, label %.thread68, label %117
 
-117:                                              ; preds = %83, %42, %49, %58, %67, %101, %.thread61, %113
-  %.04666 = phi i1 [ false, %.thread61 ], [ %.not54, %113 ], [ %.not54, %101 ], [ true, %67 ], [ false, %58 ], [ false, %49 ], [ false, %42 ], [ %.not54, %83 ]
-  %.04865 = phi i1 [ false, %.thread61 ], [ true, %113 ], [ true, %101 ], [ true, %67 ], [ true, %58 ], [ true, %49 ], [ false, %42 ], [ true, %83 ]
+117:                                              ; preds = %101, %83, %67, %58, %49, %42, %.thread61, %113
+  %.04666 = phi i1 [ false, %.thread61 ], [ %.not54, %113 ], [ false, %42 ], [ false, %49 ], [ false, %58 ], [ true, %67 ], [ %.not54, %83 ], [ %.not54, %101 ]
+  %.04865 = phi i1 [ false, %.thread61 ], [ true, %113 ], [ false, %42 ], [ true, %49 ], [ true, %58 ], [ true, %67 ], [ true, %83 ], [ true, %101 ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %119 = load ptr, ptr %118, align 8, !tbaa !10
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 144
@@ -1090,8 +1090,8 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
 127:                                              ; preds = %117
   br i1 %.04865, label %.thread68, label %137
 
-.thread68:                                        ; preds = %83, %49, %58, %67, %101, %113, %123, %127
-  %.0466072 = phi i1 [ %.04666, %123 ], [ %.04666, %127 ], [ %.not54, %83 ], [ false, %49 ], [ false, %58 ], [ true, %67 ], [ %.not54, %101 ], [ %.not54, %113 ]
+.thread68:                                        ; preds = %101, %83, %67, %58, %49, %113, %123, %127
+  %.0466072 = phi i1 [ %.04666, %127 ], [ %.04666, %123 ], [ %.not54, %101 ], [ %.not54, %83 ], [ true, %67 ], [ false, %58 ], [ false, %49 ], [ %.not54, %113 ]
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %129 = load ptr, ptr %128, align 8, !tbaa !10
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 248
@@ -1106,7 +1106,7 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   br i1 %.0466072, label %138, label %.critedge
 
 137:                                              ; preds = %123, %.thread68, %127
-  %.0466071 = phi i1 [ %.0466072, %.thread68 ], [ %.04666, %123 ], [ %.04666, %127 ]
+  %.0466071 = phi i1 [ %.0466072, %.thread68 ], [ %.04666, %127 ], [ %.04666, %123 ]
   br i1 %.0466071, label %138, label %.critedge
 
 138:                                              ; preds = %133, %137

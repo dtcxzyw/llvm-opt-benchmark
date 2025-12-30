@@ -639,7 +639,7 @@ _ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE3popEv.exit.i.i: ;
   br i1 %exitcond.not.i.i, label %.thread.i.i, label %236, !llvm.loop !66
 
 .thread.i.i:                                      ; preds = %238, %236
-  %.2.i.i = phi i64 [ %.05642.i.i, %236 ], [ %.1.i.i, %238 ]
+  %.2.i.i = phi i64 [ %.1.i.i, %238 ], [ %.05642.i.i, %236 ]
   %.not.i.i = icmp eq i64 %.2.i.i, %.sroa.09.0.copyload28.i.i
   br i1 %.not.i.i, label %.thread.thread.i.i, label %250
 
@@ -884,7 +884,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_
   br i1 %357, label %329, label %._crit_edge.i.i, !llvm.loop !73
 
 358:                                              ; preds = %348, %281, %269, %234
-  %.pn62.pn.i.i = phi { ptr, i32 } [ %349, %348 ], [ %235, %234 ], [ %282, %281 ], [ %270, %269 ]
+  %.pn62.pn.i.i = phi { ptr, i32 } [ %235, %234 ], [ %349, %348 ], [ %282, %281 ], [ %270, %269 ]
   call void @_ZNSt13_Bvector_baseIN3ozz12StdAllocatorIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !24
   call void @_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #17
@@ -936,7 +936,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_
   br i1 %382, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeIfEENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_17AdapterIS5_EEEET_RKSC_RKT0_f.exit.i, label %364
 
 383:                                              ; preds = %358, %86
-  %.pn67.pn.i.i = phi { ptr, i32 } [ %.pn62.pn.i.i, %358 ], [ %87, %86 ]
+  %.pn67.pn.i.i = phi { ptr, i32 } [ %87, %86 ], [ %.pn62.pn.i.i, %358 ]
   call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
   resume { ptr, i32 } %.pn67.pn.i.i
 
@@ -999,7 +999,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_13RawFloatTrackEEEbfRKT_PS5_.exit
 
 _ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_13RawFloatTrackEEEbfRKT_PS5_.exit: ; preds = %3, %_ZN3ozz9animation7offline8internal8RawTrackIfED2Ev.exit.i, %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEED2Ev.exit.i
-  %.0.i = phi i1 [ false, %3 ], [ %406, %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEED2Ev.exit.i ], [ false, %_ZN3ozz9animation7offline8internal8RawTrackIfED2Ev.exit.i ]
+  %.0.i = phi i1 [ %406, %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_EEED2Ev.exit.i ], [ false, %3 ], [ false, %_ZN3ozz9animation7offline8internal8RawTrackIfED2Ev.exit.i ]
   ret i1 %.0.i
 }
 
@@ -1547,7 +1547,7 @@ _ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE3popEv.exit.i.i: ;
   br i1 %exitcond.not.i.i, label %.thread.i.i, label %237, !llvm.loop !92
 
 .thread.i.i:                                      ; preds = %239, %237
-  %.2.i.i = phi i64 [ %.05643.i.i, %237 ], [ %.1.i.i, %239 ]
+  %.2.i.i = phi i64 [ %.1.i.i, %239 ], [ %.05643.i.i, %237 ]
   %.not.i.i = icmp eq i64 %.2.i.i, %.sroa.010.0.copyload29.i.i
   br i1 %.not.i.i, label %.thread.thread.i.i, label %262
 
@@ -1792,7 +1792,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12
   br i1 %369, label %341, label %._crit_edge.i.i, !llvm.loop !96
 
 370:                                              ; preds = %360, %293, %281, %235
-  %.pn62.pn.i.i = phi { ptr, i32 } [ %361, %360 ], [ %236, %235 ], [ %294, %293 ], [ %282, %281 ]
+  %.pn62.pn.i.i = phi { ptr, i32 } [ %236, %235 ], [ %361, %360 ], [ %294, %293 ], [ %282, %281 ]
   call void @_ZNSt13_Bvector_baseIN3ozz12StdAllocatorIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !79
   call void @_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #17
@@ -1854,7 +1854,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12
   br i1 %398, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEET_RKSE_RKT0_f.exit.i, label %376
 
 399:                                              ; preds = %370, %85
-  %.pn67.pn.i.i = phi { ptr, i32 } [ %.pn62.pn.i.i, %370 ], [ %86, %85 ]
+  %.pn67.pn.i.i = phi { ptr, i32 } [ %86, %85 ], [ %.pn62.pn.i.i, %370 ]
   call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
   resume { ptr, i32 } %.pn67.pn.i.i
 
@@ -1917,7 +1917,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_14RawFloat2TrackEEEbfRKT_PS5_.exit
 
 _ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_14RawFloat2TrackEEEbfRKT_PS5_.exit: ; preds = %3, %_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float2EED2Ev.exit.i, %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEED2Ev.exit.i
-  %.0.i = phi i1 [ false, %3 ], [ %422, %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEED2Ev.exit.i ], [ false, %_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float2EED2Ev.exit.i ]
+  %.0.i = phi i1 [ %422, %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12StdAllocatorIS6_EEED2Ev.exit.i ], [ false, %3 ], [ false, %_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float2EED2Ev.exit.i ]
   ret i1 %.0.i
 }
 
@@ -2476,7 +2476,7 @@ _ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE3popEv.exit.i.i: ;
   br i1 %exitcond.not.i.i, label %.thread.i.i, label %240, !llvm.loop !118
 
 .thread.i.i:                                      ; preds = %242, %240
-  %.2.i.i = phi i64 [ %.05545.i.i, %240 ], [ %.1.i.i, %242 ]
+  %.2.i.i = phi i64 [ %.1.i.i, %242 ], [ %.05545.i.i, %240 ]
   %.not.i.i = icmp eq i64 %.2.i.i, %.sroa.012.0.copyload31.i.i
   br i1 %.not.i.i, label %.thread.thread.i.i, label %275
 
@@ -2721,7 +2721,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12
   br i1 %382, label %354, label %._crit_edge.i.i, !llvm.loop !122
 
 383:                                              ; preds = %373, %306, %294, %238
-  %.pn62.pn.i.i = phi { ptr, i32 } [ %374, %373 ], [ %239, %238 ], [ %307, %306 ], [ %295, %294 ]
+  %.pn62.pn.i.i = phi { ptr, i32 } [ %239, %238 ], [ %374, %373 ], [ %307, %306 ], [ %295, %294 ]
   call void @_ZNSt13_Bvector_baseIN3ozz12StdAllocatorIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !101
   call void @_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #17
@@ -2787,7 +2787,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12
   br i1 %414, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEET_RKSE_RKT0_f.exit.i, label %389
 
 415:                                              ; preds = %383, %86
-  %.pn67.pn.i.i = phi { ptr, i32 } [ %.pn62.pn.i.i, %383 ], [ %87, %86 ]
+  %.pn67.pn.i.i = phi { ptr, i32 } [ %87, %86 ], [ %.pn62.pn.i.i, %383 ]
   call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
   resume { ptr, i32 } %.pn67.pn.i.i
 
@@ -2850,7 +2850,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_14RawFloat3TrackEEEbfRKT_PS5_.exit
 
 _ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_14RawFloat3TrackEEEbfRKT_PS5_.exit: ; preds = %3, %_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float3EED2Ev.exit.i, %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEED2Ev.exit.i
-  %.0.i = phi i1 [ false, %3 ], [ %438, %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEED2Ev.exit.i ], [ false, %_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float3EED2Ev.exit.i ]
+  %.0.i = phi i1 [ %438, %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12StdAllocatorIS6_EEED2Ev.exit.i ], [ false, %3 ], [ false, %_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float3EED2Ev.exit.i ]
   ret i1 %.0.i
 }
 
@@ -3419,7 +3419,7 @@ _ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE3popEv.exit.i.i: ;
   br i1 %exitcond.not.i.i, label %.thread.i.i, label %242, !llvm.loop !145
 
 .thread.i.i:                                      ; preds = %244, %242
-  %.2.i.i = phi i64 [ %.05645.i.i, %242 ], [ %.1.i.i, %244 ]
+  %.2.i.i = phi i64 [ %.1.i.i, %244 ], [ %.05645.i.i, %242 ]
   %.not.i.i = icmp eq i64 %.2.i.i, %.sroa.012.0.copyload31.i.i
   br i1 %.not.i.i, label %.thread.thread.i.i, label %285
 
@@ -3664,7 +3664,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12
   br i1 %392, label %364, label %._crit_edge.i.i, !llvm.loop !149
 
 393:                                              ; preds = %383, %316, %304, %240
-  %.pn62.pn.i.i = phi { ptr, i32 } [ %384, %383 ], [ %241, %240 ], [ %317, %316 ], [ %305, %304 ]
+  %.pn62.pn.i.i = phi { ptr, i32 } [ %241, %240 ], [ %384, %383 ], [ %317, %316 ], [ %305, %304 ]
   call void @_ZNSt13_Bvector_baseIN3ozz12StdAllocatorIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !127
   call void @_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #17
@@ -3736,7 +3736,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12
   br i1 %428, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEET_RKSE_RKT0_f.exit.i, label %399
 
 429:                                              ; preds = %393, %86
-  %.pn67.pn.i.i = phi { ptr, i32 } [ %.pn62.pn.i.i, %393 ], [ %87, %86 ]
+  %.pn67.pn.i.i = phi { ptr, i32 } [ %87, %86 ], [ %.pn62.pn.i.i, %393 ]
   call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
   resume { ptr, i32 } %.pn67.pn.i.i
 
@@ -3799,7 +3799,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_14RawFloat4TrackEEEbfRKT_PS5_.exit
 
 _ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_14RawFloat4TrackEEEbfRKT_PS5_.exit: ; preds = %3, %_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float4EED2Ev.exit.i, %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEED2Ev.exit.i
-  %.0.i = phi i1 [ false, %3 ], [ %452, %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEED2Ev.exit.i ], [ false, %_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float4EED2Ev.exit.i ]
+  %.0.i = phi i1 [ %452, %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12StdAllocatorIS6_EEED2Ev.exit.i ], [ false, %3 ], [ false, %_ZN3ozz9animation7offline8internal8RawTrackINS_4math6Float4EED2Ev.exit.i ]
   ret i1 %.0.i
 }
 
@@ -4380,7 +4380,7 @@ _ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE3popEv.exit.i.i: ;
   br i1 %exitcond.not.i.i, label %.thread.i.i, label %245, !llvm.loop !173
 
 .thread.i.i:                                      ; preds = %247, %245
-  %.2.i.i = phi i64 [ %.05645.i.i, %245 ], [ %.1.i.i, %247 ]
+  %.2.i.i = phi i64 [ %.1.i.i, %247 ], [ %.05645.i.i, %245 ]
   %.not.i.i = icmp eq i64 %.2.i.i, %.sroa.012.0.copyload31.i.i
   br i1 %.not.i.i, label %.thread.thread.i.i, label %297
 
@@ -4625,7 +4625,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEN
   br i1 %404, label %376, label %._crit_edge.i.i, !llvm.loop !176
 
 405:                                              ; preds = %395, %328, %316, %243
-  %.pn62.pn.i.i = phi { ptr, i32 } [ %396, %395 ], [ %244, %243 ], [ %329, %328 ], [ %317, %316 ]
+  %.pn62.pn.i.i = phi { ptr, i32 } [ %244, %243 ], [ %396, %395 ], [ %329, %328 ], [ %317, %316 ]
   call void @_ZNSt13_Bvector_baseIN3ozz12StdAllocatorIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !155
   call void @_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #17
@@ -4696,7 +4696,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEN
   br i1 %440, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEET_RKSE_RKT0_f.exit.i, label %411
 
 441:                                              ; preds = %405, %89
-  %.pn67.pn.i.i = phi { ptr, i32 } [ %.pn62.pn.i.i, %405 ], [ %90, %89 ]
+  %.pn67.pn.i.i = phi { ptr, i32 } [ %90, %89 ], [ %.pn62.pn.i.i, %405 ]
   call void @_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
   resume { ptr, i32 } %.pn67.pn.i.i
 
@@ -4759,7 +4759,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEN
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_18RawQuaternionTrackEEEbfRKT_PS5_.exit
 
 _ZN3ozz9animation7offline12_GLOBAL__N_18OptimizeINS1_18RawQuaternionTrackEEEbfRKT_PS5_.exit: ; preds = %3, %_ZN3ozz9animation7offline8internal8RawTrackINS_4math10QuaternionEED2Ev.exit.i, %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEED2Ev.exit.i
-  %.0.i = phi i1 [ false, %3 ], [ %464, %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEED2Ev.exit.i ], [ false, %_ZN3ozz9animation7offline8internal8RawTrackINS_4math10QuaternionEED2Ev.exit.i ]
+  %.0.i = phi i1 [ %464, %_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEENS0_12StdAllocatorIS6_EEED2Ev.exit.i ], [ false, %3 ], [ false, %_ZN3ozz9animation7offline8internal8RawTrackINS_4math10QuaternionEED2Ev.exit.i ]
   ret i1 %.0.i
 }
 
@@ -5399,7 +5399,7 @@ _ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE17_M_deallocate_mapEPPS1
   br label %_ZSt4copyIPPSt4pairImmES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPSt4pairImmES3_ET0_T_S5_S4_.exit:      ; preds = %32, %31, %28, %27, %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE17_M_deallocate_mapEPPS1_m.exit
-  %.0 = phi ptr [ %56, %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE17_M_deallocate_mapEPPS1_m.exit ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %56, %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE17_M_deallocate_mapEPPS1_m.exit ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !38
   %73 = load ptr, ptr %.0, align 8, !tbaa !35
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 24

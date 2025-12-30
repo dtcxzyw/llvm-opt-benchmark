@@ -107,7 +107,7 @@ aeApiCreate.exit.thread:                          ; preds = %aeApiCreate.exit.th
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %aeApiCreate.exit, %1, %aeApiCreate.exit.thread
-  %.030 = phi ptr [ null, %aeApiCreate.exit.thread ], [ null, %1 ], [ %3, %aeApiCreate.exit ], [ %3, %37 ]
+  %.030 = phi ptr [ null, %1 ], [ null, %aeApiCreate.exit.thread ], [ %3, %aeApiCreate.exit ], [ %3, %37 ]
   ret ptr %.030
 }
 
@@ -182,7 +182,7 @@ define dso_local range(i32 -1, 1) i32 @aeResizeSetSize(ptr noundef captures(none
   br label %27
 
 27:                                               ; preds = %8, %18, %6, %2
-  %.0 = phi i32 [ -1, %6 ], [ 0, %2 ], [ 0, %18 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %2 ], [ -1, %6 ], [ 0, %18 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -412,7 +412,7 @@ define dso_local void @aeDeleteFileEvent(ptr noundef captures(none) %0, i32 noun
   br label %aeApiDelEvent.exit
 
 aeApiDelEvent.exit:                               ; preds = %.thread.i, %24
-  %.sink2.i = phi i32 [ %spec.select.i, %24 ], [ 3, %.thread.i ]
+  %.sink2.i = phi i32 [ 3, %.thread.i ], [ %spec.select.i, %24 ]
   store i32 %1, ptr %18, align 4, !tbaa !41
   %25 = load i32, ptr %.val27, align 8, !tbaa !25
   %26 = call i32 @epoll_ctl(i32 noundef %25, i32 noundef %.sink2.i, i32 noundef %1, ptr noundef nonnull %4) #16
@@ -682,7 +682,7 @@ usUntilEarliestTimer.exit:                        ; preds = %31
   br label %.thread
 
 .thread:                                          ; preds = %16, %39, %14, %20, %usUntilEarliestTimer.exit
-  %47 = phi i32 [ -1, %20 ], [ -1, %usUntilEarliestTimer.exit ], [ 0, %14 ], [ %46, %39 ], [ %.mux, %16 ]
+  %47 = phi i32 [ -1, %usUntilEarliestTimer.exit ], [ -1, %20 ], [ %46, %39 ], [ %.mux, %16 ], [ 0, %14 ]
   %.pn.in = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !26
   %48 = load i32, ptr %.pn, align 8, !tbaa !25
@@ -739,7 +739,7 @@ usUntilEarliestTimer.exit:                        ; preds = %31
   unreachable
 
 aeApiPoll.exit:                                   ; preds = %57, %69, %71
-  %.0.i105 = phi i32 [ 0, %69 ], [ 0, %71 ], [ %52, %57 ]
+  %.0.i105 = phi i32 [ 0, %71 ], [ 0, %69 ], [ %52, %57 ]
   %.not90 = icmp ne i32 %4, 0
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %77 = load ptr, ptr %76, align 8, !tbaa !62
@@ -1000,9 +1000,9 @@ aeApiPoll.exit:                                   ; preds = %57, %69, %71
   br label %203
 
 203:                                              ; preds = %200, %175, %173, %150
-  %.3.i108 = phi i64 [ %.4.i, %200 ], [ %.04359.i, %175 ], [ %.245.i, %173 ], [ %.04359.i, %150 ]
-  %.242.i = phi ptr [ %202, %200 ], [ %177, %175 ], [ %152, %173 ], [ %152, %150 ]
-  %.1.i109 = phi i32 [ %.2.i, %200 ], [ %.061.i, %175 ], [ %.061.i, %173 ], [ %.061.i, %150 ]
+  %.3.i108 = phi i64 [ %.04359.i, %175 ], [ %.4.i, %200 ], [ %.245.i, %173 ], [ %.04359.i, %150 ]
+  %.242.i = phi ptr [ %177, %175 ], [ %202, %200 ], [ %152, %173 ], [ %152, %150 ]
+  %.1.i109 = phi i32 [ %.061.i, %175 ], [ %.2.i, %200 ], [ %.061.i, %173 ], [ %.061.i, %150 ]
   %.not.i110 = icmp eq ptr %.242.i, null
   br i1 %.not.i110, label %processTimeEvents.exit, label %.lr.ph.i
 

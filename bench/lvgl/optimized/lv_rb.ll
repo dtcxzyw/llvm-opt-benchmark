@@ -1031,7 +1031,7 @@ rb_left_rotate.exit94:                            ; preds = %160, %165, %166
   br label %.critedge.sink.split
 
 .thread:                                          ; preds = %143, %139, %52, %48
-  %.0.sink = phi ptr [ %.069, %52 ], [ %.069, %48 ], [ %.0, %139 ], [ %.0, %143 ]
+  %.0.sink = phi ptr [ %.069, %48 ], [ %.069, %52 ], [ %.0, %139 ], [ %.0, %143 ]
   %193 = getelementptr inbounds nuw i8, ptr %.0.sink, i64 24
   store i32 0, ptr %193, align 8, !tbaa !19
   %.2 = load ptr, ptr %.071, align 8, !tbaa !18

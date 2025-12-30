@@ -324,7 +324,7 @@ define internal range(i32 -2147483648, 1) i32 @vp9_raw_reorder_filter(ptr nounde
   %171 = lshr i32 %132, 24
   br label %187
 
-172:                                              ; preds = %.critedge.i, %54, %67, %105, %35
+172:                                              ; preds = %54, %67, %105, %35, %.critedge.i
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2, i32 noundef -1094995529) #7
   %173 = load ptr, ptr %3, align 8, !tbaa !18
   %.not.i = icmp eq ptr %173, null
@@ -525,7 +525,7 @@ vp9_raw_reorder_frame_free.exit76:                ; preds = %254
   br label %vp9_raw_reorder_clear_slot.exit
 
 vp9_raw_reorder_clear_slot.exit:                  ; preds = %233, %vp9_raw_reorder_frame_free.exit.i, %223, %254, %vp9_raw_reorder_frame_free.exit76, %220, %13, %vp9_raw_reorder_frame_free.exit, %258, %253, %34, %31, %21, %15
-  %.053 = phi i32 [ 0, %254 ], [ %11, %13 ], [ -11, %258 ], [ -1094995529, %253 ], [ 0, %220 ], [ %16, %15 ], [ -1094995529, %21 ], [ -38, %31 ], [ -1094995529, %vp9_raw_reorder_frame_free.exit ], [ -12, %34 ], [ 0, %vp9_raw_reorder_frame_free.exit76 ], [ -1094995529, %223 ], [ -1094995529, %vp9_raw_reorder_frame_free.exit.i ], [ -1094995529, %233 ]
+  %.053 = phi i32 [ -11, %258 ], [ -1094995529, %253 ], [ %16, %15 ], [ -38, %31 ], [ -1094995529, %vp9_raw_reorder_frame_free.exit ], [ -12, %34 ], [ -1094995529, %21 ], [ %11, %13 ], [ 0, %220 ], [ 0, %vp9_raw_reorder_frame_free.exit76 ], [ 0, %254 ], [ -1094995529, %223 ], [ -1094995529, %vp9_raw_reorder_frame_free.exit.i ], [ -1094995529, %233 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.053
@@ -810,7 +810,7 @@ put_bits.exit121:                                 ; preds = %104, %106
   br label %.thread162
 
 .thread162:                                       ; preds = %84, %73, %52, %58, %.loopexit, %33
-  %.075 = phi i32 [ -541478725, %33 ], [ 0, %52 ], [ 0, %.loopexit ], [ 0, %58 ], [ %89, %84 ], [ -1094995529, %73 ]
+  %.075 = phi i32 [ -541478725, %33 ], [ 0, %.loopexit ], [ 0, %58 ], [ 0, %52 ], [ %89, %84 ], [ -1094995529, %73 ]
   ret i32 %.075
 }
 

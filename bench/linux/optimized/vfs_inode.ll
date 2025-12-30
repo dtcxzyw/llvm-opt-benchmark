@@ -887,7 +887,7 @@ define dso_local i32 @v9fs_vfs_rename(ptr readnone captures(none) %0, ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %37, %39, %23, %40, %28
-  %42 = phi ptr [ %29, %28 ], [ %29, %40 ], [ %26, %23 ], [ %29, %39 ], [ %29, %37 ]
+  %42 = phi ptr [ %29, %40 ], [ %29, %28 ], [ %26, %23 ], [ %29, %39 ], [ %29, %37 ]
   %43 = icmp ugt ptr %42, inttoptr (i64 -4096 to ptr)
   br i1 %43, label %.thread31, label %46
 
@@ -936,7 +936,7 @@ define dso_local i32 @v9fs_vfs_rename(ptr readnone captures(none) %0, ptr nounde
   br label %.thread21
 
 .thread21:                                        ; preds = %60, %62, %46, %63, %51
-  %65 = phi ptr [ %52, %51 ], [ %52, %63 ], [ %49, %46 ], [ %52, %62 ], [ %52, %60 ]
+  %65 = phi ptr [ %52, %63 ], [ %52, %51 ], [ %49, %46 ], [ %52, %62 ], [ %52, %60 ]
   %66 = icmp ugt ptr %65, inttoptr (i64 -4096 to ptr)
   br i1 %66, label %.thread53, label %69
 
@@ -1077,7 +1077,7 @@ define dso_local i32 @v9fs_vfs_rename(ptr readnone captures(none) %0, ptr nounde
   br label %142
 
 142:                                              ; preds = %.thread24, %132, %85
-  %143 = phi i32 [ %106, %.thread24 ], [ 0, %132 ], [ -18, %85 ]
+  %143 = phi i32 [ 0, %132 ], [ %106, %.thread24 ], [ -18, %85 ]
   call void @up_write(ptr noundef nonnull %70) #14
   %144 = icmp eq ptr %65, null
   br i1 %144, label %.thread30, label %145
@@ -1534,7 +1534,7 @@ define internal fastcc zeroext range(i16 0, -12288) i16 @p9mode2unixmode(ptr nou
   br label %79
 
 79:                                               ; preds = %24, %30, %40, %50, %77, %.thread, %76
-  %.in = phi i32 [ %22, %76 ], [ %25, %24 ], [ %31, %30 ], [ %41, %40 ], [ %51, %50 ], [ %71, %.thread ], [ %78, %77 ]
+  %.in = phi i32 [ %22, %76 ], [ %25, %24 ], [ %31, %30 ], [ %41, %40 ], [ %51, %50 ], [ %78, %77 ], [ %71, %.thread ]
   %80 = trunc nuw i32 %.in to i16
   ret i16 %80
 }
@@ -2764,7 +2764,7 @@ define internal i32 @v9fs_vfs_atomic_open(ptr noundef captures(none) %0, ptr nou
   br label %.thread6
 
 .thread6:                                         ; preds = %146, %148, %.thread, %149, %138, %133
-  %137 = phi i32 [ 0, %133 ], [ %96, %138 ], [ %90, %.thread ], [ %96, %149 ], [ %96, %148 ], [ %96, %146 ]
+  %137 = phi i32 [ 0, %133 ], [ %96, %138 ], [ %96, %149 ], [ %90, %.thread ], [ %96, %148 ], [ %96, %146 ]
   call void @dput(ptr noundef %21) #14
   br label %151
 

@@ -172,7 +172,7 @@ define void @_ZN8uv_shell8runnable15WindowsRunnable16from_script_path17hf2c9444e
   br i1 %31, label %select.unfold, label %.lr.ph.i
 
 select.unfold:                                    ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c3f5c6f68285664E.exit12.i.i", %28, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c3f5c6f68285664E.exit4.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c3f5c6f68285664E.exit8.i.i"
-  %.sroa.05.0 = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c3f5c6f68285664E.exit4.i.i" ], [ 0, %28 ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c3f5c6f68285664E.exit8.i.i" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c3f5c6f68285664E.exit12.i.i" ]
+  %.sroa.05.0 = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c3f5c6f68285664E.exit4.i.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c3f5c6f68285664E.exit8.i.i" ], [ 0, %28 ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c3f5c6f68285664E.exit12.i.i" ]
   %.val = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
   %.val26 = load i64, ptr %14, align 8
   %32 = invoke noundef zeroext i1 @_ZN3std4path4Path7is_file17h39a1dfcb973beecfE(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val26)
@@ -192,7 +192,7 @@ _ZN3std7process7Command3new17h69204797e5241925E.exit: ; preds = %63, %53, %"_ZN4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
-.lr.ph.i:                                         ; preds = %28, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c3f5c6f68285664E.exit12.i.i", %17, %22, %.noexc
+.lr.ph.i:                                         ; preds = %28, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c3f5c6f68285664E.exit12.i.i", %22, %17, %.noexc
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -233,8 +233,8 @@ default.unreachable:                              ; preds = %39
   br label %"_ZN8uv_shell8runnable15WindowsRunnable16from_script_path28_$u7b$$u7b$closure$u7d$$u7d$17h4570027e06f59af4E.exit.i.i"
 
 "_ZN8uv_shell8runnable15WindowsRunnable16from_script_path28_$u7b$$u7b$closure$u7d$$u7d$17h4570027e06f59af4E.exit.i.i": ; preds = %44, %43, %42, %39
-  %.sroa.5.0.i.i.i.i = phi i64 [ 3, %44 ], [ 3, %42 ], [ 3, %43 ], [ 0, %39 ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ @anon.61b747a8134b98f7e0dc0c9b0c8f524b.4, %44 ], [ @anon.61b747a8134b98f7e0dc0c9b0c8f524b.2, %42 ], [ @anon.61b747a8134b98f7e0dc0c9b0c8f524b.3, %43 ], [ inttoptr (i64 1 to ptr), %39 ]
+  %.sroa.5.0.i.i.i.i = phi i64 [ 3, %42 ], [ 3, %43 ], [ 3, %44 ], [ 0, %39 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ @anon.61b747a8134b98f7e0dc0c9b0c8f524b.2, %42 ], [ @anon.61b747a8134b98f7e0dc0c9b0c8f524b.3, %43 ], [ @anon.61b747a8134b98f7e0dc0c9b0c8f524b.4, %44 ], [ inttoptr (i64 1 to ptr), %39 ]
   invoke void @_ZN3std4path4Path15_with_extension17hf040240903236796E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %35, ptr noalias noundef nonnull readonly align 1 %40, i64 noundef %41, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.5.0.i.i.i.i)
           to label %.noexc29 unwind label %.loopexit
 

@@ -72,7 +72,7 @@ _ZN8facebook5velox4util10isLeapYearEi.exit:       ; preds = %land.rhs.i
   br label %3
 
 3:                                                ; preds = %_ZN8facebook5velox4util10isLeapYearEi.exit, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread16
-  %4 = phi ptr [ %arrayidx1219, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread16 ], [ %spec.select, %_ZN8facebook5velox4util10isLeapYearEi.exit ], [ %arrayidx13, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread ]
+  %4 = phi ptr [ %arrayidx1219, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread16 ], [ %arrayidx13, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread ], [ %spec.select, %_ZN8facebook5velox4util10isLeapYearEi.exit ]
   %.pn = load i32, ptr %4, align 4
   %cond = icmp sle i32 %day, %.pn
   br label %return
@@ -111,7 +111,7 @@ _ZN8facebook5velox4util10isLeapYearEi.exit.thread5: ; preds = %land.rhs.i, %lor.
   br label %return
 
 return:                                           ; preds = %_ZN8facebook5velox4util10isLeapYearEi.exit.thread5, %entry
-  %retval.0 = phi i1 [ %cmp4, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread5 ], [ false, %entry ]
+  %retval.0 = phi i1 [ false, %entry ], [ %cmp4, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread5 ]
   ret i1 %retval.0
 }
 
@@ -152,7 +152,7 @@ _ZN8facebook5velox4util10isLeapYearEi.exit.i:     ; preds = %land.rhs.i.i
   br label %_ZN8facebook5velox4util16getMaxDayOfMonthEii.exit
 
 _ZN8facebook5velox4util16getMaxDayOfMonthEii.exit: ; preds = %_ZN8facebook5velox4util10isLeapYearEi.exit.thread6.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i
-  %3 = phi ptr [ %arrayidx29.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread6.i ], [ %spec.select.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i ], [ %arrayidx3.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread.i ]
+  %3 = phi ptr [ %arrayidx29.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread6.i ], [ %arrayidx3.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread.i ], [ %spec.select.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i ]
   %cond.i = load i32, ptr %3, align 4
   %call2 = tail call noundef i64 @_ZN8facebook5velox4util22daysSinceEpochFromDateEiii(i32 noundef %add, i32 noundef %add1, i32 noundef %cond.i)
   ret i64 %call2
@@ -189,7 +189,7 @@ _ZN8facebook5velox4util10isLeapYearEi.exit:       ; preds = %land.rhs.i
   br label %1
 
 1:                                                ; preds = %_ZN8facebook5velox4util10isLeapYearEi.exit, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread6
-  %2 = phi ptr [ %arrayidx29, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread6 ], [ %spec.select, %_ZN8facebook5velox4util10isLeapYearEi.exit ], [ %arrayidx3, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread ]
+  %2 = phi ptr [ %arrayidx29, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread6 ], [ %arrayidx3, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread ], [ %spec.select, %_ZN8facebook5velox4util10isLeapYearEi.exit ]
   %cond = load i32, ptr %2, align 4
   ret i32 %cond
 }
@@ -235,7 +235,7 @@ _ZN8facebook5velox4util10isLeapYearEi.exit.i:     ; preds = %land.rhs.i.i
   br label %_ZN8facebook5velox4util11isValidDateEiii.exit
 
 _ZN8facebook5velox4util11isValidDateEiii.exit:    ; preds = %_ZN8facebook5velox4util10isLeapYearEi.exit.thread16.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i
-  %3 = phi ptr [ %arrayidx1219.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread16.i ], [ %spec.select.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i ], [ %arrayidx13.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread.i ]
+  %3 = phi ptr [ %arrayidx1219.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread16.i ], [ %arrayidx13.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread.i ], [ %spec.select.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i ]
   %.pn.i = load i32, ptr %3, align 4
   %cond.i.not = icmp sgt i32 %day, %.pn.i
   br i1 %cond.i.not, label %if.then, label %while.cond.preheader
@@ -319,7 +319,7 @@ _ZN8facebook5velox4util10isLeapYearEi.exit:       ; preds = %land.rhs.i
   br label %33
 
 33:                                               ; preds = %_ZN8facebook5velox4util10isLeapYearEi.exit, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread17
-  %34 = phi ptr [ %29, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread17 ], [ %spec.select, %_ZN8facebook5velox4util10isLeapYearEi.exit ], [ %31, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread ]
+  %34 = phi ptr [ %29, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread17 ], [ %31, %_ZN8facebook5velox4util10isLeapYearEi.exit.thread ], [ %spec.select, %_ZN8facebook5velox4util10isLeapYearEi.exit ]
   %cond.in = getelementptr i8, ptr %34, i64 -4
   %cond = load i32, ptr %cond.in, align 4
   %conv = sext i32 %26 to i64
@@ -369,7 +369,7 @@ _ZN8facebook5velox4util10isLeapYearEi.exit.i.i:   ; preds = %land.rhs.i.i.i
   br label %_ZN8facebook5velox4util11isValidDateEiii.exit.i
 
 _ZN8facebook5velox4util11isValidDateEiii.exit.i:  ; preds = %land.rhs.i.i.i, %if.end9.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i
-  %4 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4), %if.end9.i.i ], [ %spec.select.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), %land.rhs.i.i.i ]
+  %4 = phi ptr [ %spec.select.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4), %if.end9.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), %land.rhs.i.i.i ]
   %.pn.i.i = load i32, ptr %4, align 4
   %cond.i.not.i = icmp slt i32 %.pn.i.i, 4
   br i1 %cond.i.not.i, label %if.then.i, label %while.cond.preheader.i
@@ -440,7 +440,7 @@ _ZN8facebook5velox4util10isLeapYearEi.exit.i:     ; preds = %land.rhs.i.i
   br label %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit
 
 _ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit: ; preds = %land.rhs.i.i, %while.end6.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i
-  %27 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL15kCumulativeDaysE, i64 4), %while.end6.i ], [ %spec.select.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL19kCumulativeLeapDaysE, i64 4), %land.rhs.i.i ]
+  %27 = phi ptr [ %spec.select.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL15kCumulativeDaysE, i64 4), %while.end6.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL19kCumulativeLeapDaysE, i64 4), %land.rhs.i.i ]
   %cond.in.i = getelementptr i8, ptr %27, i64 -4
   %cond.i = load i32, ptr %cond.in.i, align 4
   %conv.i = sext i32 %25 to i64
@@ -544,7 +544,7 @@ _ZN8facebook5velox4util10isLeapYearEi.exit.i.i:   ; preds = %land.rhs.i.i.i
   br label %_ZN8facebook5velox4util11isValidDateEiii.exit.i
 
 _ZN8facebook5velox4util11isValidDateEiii.exit.i:  ; preds = %_ZN8facebook5velox4util16isValidDayOfYearEii.exit.thread, %land.rhs.i.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i
-  %2 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4), %_ZN8facebook5velox4util16isValidDayOfYearEii.exit.thread ], [ %spec.select.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), %land.rhs.i.i.i ]
+  %2 = phi ptr [ %spec.select.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), %land.rhs.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4), %_ZN8facebook5velox4util16isValidDayOfYearEii.exit.thread ]
   %.pn.i.i = load i32, ptr %2, align 4
   %cond.i.not.i = icmp slt i32 %.pn.i.i, 1
   br i1 %cond.i.not.i, label %if.then.i, label %while.cond.preheader.i
@@ -615,7 +615,7 @@ _ZN8facebook5velox4util10isLeapYearEi.exit.i:     ; preds = %land.rhs.i.i4
   br label %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit
 
 _ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit: ; preds = %land.rhs.i.i4, %while.end6.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i
-  %25 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL15kCumulativeDaysE, i64 4), %while.end6.i ], [ %spec.select.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL19kCumulativeLeapDaysE, i64 4), %land.rhs.i.i4 ]
+  %25 = phi ptr [ %spec.select.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL15kCumulativeDaysE, i64 4), %while.end6.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL19kCumulativeLeapDaysE, i64 4), %land.rhs.i.i4 ]
   %cond.in.i = getelementptr i8, ptr %25, i64 -4
   %cond.i = load i32, ptr %cond.in.i, align 4
   %conv.i = sext i32 %23 to i64
@@ -752,9 +752,9 @@ for.inc:                                          ; preds = %_ZN8facebook5velox1
   br i1 %exitcond157.not, label %for.end, label %land.rhs27, !llvm.loop !6
 
 for.end:                                          ; preds = %land.rhs27, %_ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit, %for.inc
-  %.lcssa = phi i64 [ %len, %for.inc ], [ %5, %land.rhs27 ], [ %5, %_ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit ]
-  %cmp26.lcssa = phi i1 [ false, %for.inc ], [ true, %land.rhs27 ], [ true, %_ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit ]
-  %year.1 = phi i32 [ %14, %for.inc ], [ %year.0141, %land.rhs27 ], [ %14, %_ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit ]
+  %.lcssa = phi i64 [ %5, %land.rhs27 ], [ %5, %_ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit ], [ %len, %for.inc ]
+  %cmp26.lcssa = phi i1 [ true, %land.rhs27 ], [ true, %_ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit ], [ false, %for.inc ]
+  %year.1 = phi i32 [ %year.0141, %land.rhs27 ], [ %14, %_ZN8facebook5velox11checkedPlusIiEET_RKS2_S4_PKc.exit ], [ %14, %for.inc ]
   br i1 %cmp6, label %if.then41, label %if.end46
 
 if.then41:                                        ; preds = %for.end
@@ -801,7 +801,7 @@ _ZN8facebook5velox4util10isLeapYearEi.exit.i.i:   ; preds = %land.rhs.i.i.i
   br label %_ZN8facebook5velox4util11isValidDateEiii.exit.i
 
 _ZN8facebook5velox4util11isValidDateEiii.exit.i:  ; preds = %land.rhs.i.i.i, %if.end9.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i
-  %17 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4), %if.end9.i.i ], [ %spec.select.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), %land.rhs.i.i.i ]
+  %17 = phi ptr [ %spec.select.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4), %if.end9.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), %land.rhs.i.i.i ]
   %.pn.i.i = load i32, ptr %17, align 4
   %cond.i.not.i = icmp slt i32 %.pn.i.i, 1
   br i1 %cond.i.not.i, label %if.then.i114, label %while.cond.preheader.i
@@ -872,7 +872,7 @@ _ZN8facebook5velox4util10isLeapYearEi.exit.i:     ; preds = %land.rhs.i.i
   br label %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit
 
 _ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit: ; preds = %land.rhs.i.i, %while.end6.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i
-  %40 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL15kCumulativeDaysE, i64 4), %while.end6.i ], [ %spec.select.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL19kCumulativeLeapDaysE, i64 4), %land.rhs.i.i ]
+  %40 = phi ptr [ %spec.select.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL15kCumulativeDaysE, i64 4), %while.end6.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL19kCumulativeLeapDaysE, i64 4), %land.rhs.i.i ]
   %cond.in.i = getelementptr i8, ptr %40, i64 -4
   %cond.i = load i32, ptr %cond.in.i, align 4
   %conv.i = sext i32 %38 to i64
@@ -1087,7 +1087,7 @@ if.end186:                                        ; preds = %while.body173, %whi
   br label %return
 
 return:                                           ; preds = %while.body, %land.rhs169, %if.end117, %land.lhs.true181, %if.end157, %if.then152, %if.end114, %if.then110, %if.then102, %if.end97, %if.end88, %if.end85, %if.end75, %if.else65, %if.then61, %if.end52, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit, %if.end21, %if.then15, %if.then7, %entry, %if.end186, %if.then105, %if.then82, %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit
-  %retval.0 = phi i1 [ false, %if.then7 ], [ false, %entry ], [ false, %if.then61 ], [ false, %if.end21 ], [ %spec.select.i115, %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit ], [ false, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit ], [ false, %if.end52 ], [ %spec.select.i116, %if.then82 ], [ false, %if.end75 ], [ false, %if.end85 ], [ false, %if.end88 ], [ %spec.select.i117, %if.then105 ], [ false, %if.end97 ], [ false, %if.then110 ], [ true, %if.end114 ], [ %switch.selectcmp, %if.end117 ], [ false, %if.then102 ], [ false, %if.then15 ], [ false, %if.then152 ], [ false, %if.end157 ], [ true, %if.end186 ], [ false, %land.rhs169 ], [ false, %land.lhs.true181 ], [ false, %if.else65 ], [ false, %while.body ]
+  %retval.0 = phi i1 [ %spec.select.i115, %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit ], [ %spec.select.i116, %if.then82 ], [ %spec.select.i117, %if.then105 ], [ true, %if.end186 ], [ false, %entry ], [ false, %if.then7 ], [ false, %if.then15 ], [ false, %if.end21 ], [ false, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit ], [ false, %if.end52 ], [ false, %if.then61 ], [ false, %if.else65 ], [ false, %if.end75 ], [ false, %if.end85 ], [ false, %if.end88 ], [ false, %if.end97 ], [ false, %if.then102 ], [ false, %if.then110 ], [ true, %if.end114 ], [ false, %if.then152 ], [ false, %if.end157 ], [ false, %land.lhs.true181 ], [ %switch.selectcmp, %if.end117 ], [ false, %land.rhs169 ], [ false, %while.body ]
   ret i1 %retval.0
 }
 
@@ -1332,7 +1332,7 @@ if.end80:                                         ; preds = %while.body74, %if.e
   br label %return
 
 return:                                           ; preds = %while.body, %land.rhs70, %if.end40, %if.end34, %if.end31, %if.end23, %if.end18, %_ZN8facebook5velox4util12_GLOBAL__N_116parseDoubleDigitEPKcmRmRi.exit, %if.end4, %entry, %if.end80
-  %retval.0 = phi i1 [ false, %if.end34 ], [ false, %entry ], [ false, %_ZN8facebook5velox4util12_GLOBAL__N_116parseDoubleDigitEPKcmRmRi.exit ], [ true, %if.end80 ], [ false, %land.rhs70 ], [ false, %if.end23 ], [ false, %if.end4 ], [ false, %if.end31 ], [ false, %if.end40 ], [ false, %if.end18 ], [ false, %while.body ]
+  %retval.0 = phi i1 [ true, %if.end80 ], [ false, %entry ], [ false, %if.end4 ], [ false, %_ZN8facebook5velox4util12_GLOBAL__N_116parseDoubleDigitEPKcmRmRi.exit ], [ false, %if.end18 ], [ false, %if.end23 ], [ false, %if.end31 ], [ false, %if.end34 ], [ false, %if.end40 ], [ false, %land.rhs70 ], [ false, %while.body ]
   ret i1 %retval.0
 }
 
@@ -1498,9 +1498,9 @@ if.then23:                                        ; preds = %if.end44.i, %lor.lh
   %sub28 = sub nsw i64 %add.i, %conv27
   br label %if.end30
 
-if.end30:                                         ; preds = %lor.lhs.false.i, %if.end5.i, %if.then15, %if.end.i, %if.then23
-  %pos.promoted = phi i64 [ %add34.sink.i, %if.then23 ], [ %spec.select, %if.end.i ], [ %spec.select, %if.then15 ], [ %spec.select, %if.end5.i ], [ %spec.select, %lor.lhs.false.i ]
-  %retval.sroa.0.1 = phi i64 [ %sub28, %if.then23 ], [ %add.i, %if.end.i ], [ %add.i, %if.then15 ], [ %add.i, %if.end5.i ], [ %add.i, %lor.lhs.false.i ]
+if.end30:                                         ; preds = %if.end5.i, %lor.lhs.false.i, %if.end.i, %if.then15, %if.then23
+  %pos.promoted = phi i64 [ %add34.sink.i, %if.then23 ], [ %spec.select, %if.then15 ], [ %spec.select, %if.end.i ], [ %spec.select, %lor.lhs.false.i ], [ %spec.select, %if.end5.i ]
+  %retval.sroa.0.1 = phi i64 [ %sub28, %if.then23 ], [ %add.i, %if.then15 ], [ %add.i, %if.end.i ], [ %add.i, %lor.lhs.false.i ], [ %add.i, %if.end5.i ]
   %cmp3135 = icmp ult i64 %pos.promoted, %len
   br i1 %cmp3135, label %land.rhs, label %return
 
@@ -1579,7 +1579,7 @@ if.then6:                                         ; preds = %land.lhs.true3
   br label %return
 
 return:                                           ; preds = %entry, %land.lhs.true, %if.then, %land.lhs.true3, %if.then6
-  %retval.0 = phi i1 [ true, %if.then ], [ true, %if.then6 ], [ true, %land.lhs.true3 ], [ false, %land.lhs.true ], [ false, %entry ]
+  %retval.0 = phi i1 [ true, %if.then6 ], [ true, %land.lhs.true3 ], [ true, %if.then ], [ false, %land.lhs.true ], [ false, %entry ]
   ret i1 %retval.0
 }
 

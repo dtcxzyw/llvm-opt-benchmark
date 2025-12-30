@@ -76,7 +76,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isspace(ptr noundef readonly captur
   br i1 %.not12, label %.loopexit, label %12
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %9, %2, %3
-  %.0 = phi ptr [ @_Py_FalseStruct, %2 ], [ @_Py_TrueStruct, %3 ], [ @_Py_TrueStruct, %9 ], [ @_Py_FalseStruct, %.lr.ph ], [ @_Py_TrueStruct, %12 ]
+  %.0 = phi ptr [ @_Py_TrueStruct, %3 ], [ @_Py_FalseStruct, %2 ], [ @_Py_TrueStruct, %9 ], [ @_Py_FalseStruct, %.lr.ph ], [ @_Py_TrueStruct, %12 ]
   ret ptr %.0
 }
 
@@ -117,7 +117,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isalpha(ptr noundef readonly captur
   br i1 %.not12, label %.loopexit, label %12
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %9, %2, %3
-  %.0 = phi ptr [ @_Py_FalseStruct, %2 ], [ @_Py_TrueStruct, %3 ], [ @_Py_TrueStruct, %9 ], [ @_Py_FalseStruct, %.lr.ph ], [ @_Py_TrueStruct, %12 ]
+  %.0 = phi ptr [ @_Py_TrueStruct, %3 ], [ @_Py_FalseStruct, %2 ], [ @_Py_TrueStruct, %9 ], [ @_Py_FalseStruct, %.lr.ph ], [ @_Py_TrueStruct, %12 ]
   ret ptr %.0
 }
 
@@ -158,7 +158,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isalnum(ptr noundef readonly captur
   br i1 %.not12, label %.loopexit, label %12
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %9, %2, %3
-  %.0 = phi ptr [ @_Py_FalseStruct, %2 ], [ @_Py_TrueStruct, %3 ], [ @_Py_TrueStruct, %9 ], [ @_Py_FalseStruct, %.lr.ph ], [ @_Py_TrueStruct, %12 ]
+  %.0 = phi ptr [ @_Py_TrueStruct, %3 ], [ @_Py_FalseStruct, %2 ], [ @_Py_TrueStruct, %9 ], [ @_Py_FalseStruct, %.lr.ph ], [ @_Py_TrueStruct, %12 ]
   ret ptr %.0
 }
 
@@ -199,7 +199,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isdigit(ptr noundef readonly captur
   br i1 %.not12, label %.loopexit, label %12
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %9, %2, %3
-  %.0 = phi ptr [ @_Py_FalseStruct, %2 ], [ @_Py_TrueStruct, %3 ], [ @_Py_TrueStruct, %9 ], [ @_Py_FalseStruct, %.lr.ph ], [ @_Py_TrueStruct, %12 ]
+  %.0 = phi ptr [ @_Py_TrueStruct, %3 ], [ @_Py_FalseStruct, %2 ], [ @_Py_TrueStruct, %9 ], [ @_Py_FalseStruct, %.lr.ph ], [ @_Py_TrueStruct, %12 ]
   ret ptr %.0
 }
 
@@ -354,8 +354,8 @@ define hidden ptr @_Py_bytes_istitle(ptr noundef readonly captures(address) %0, 
   br i1 %.not26, label %.critedge, label %21
 
 21:                                               ; preds = %18, %20, %17
-  %.222 = phi i32 [ 1, %20 ], [ 1, %17 ], [ %.02031, %18 ]
-  %.219 = phi i32 [ 1, %20 ], [ 1, %17 ], [ 0, %18 ]
+  %.222 = phi i32 [ 1, %17 ], [ 1, %20 ], [ %.02031, %18 ]
+  %.219 = phi i32 [ 1, %17 ], [ 1, %20 ], [ 0, %18 ]
   %22 = getelementptr i8, ptr %.02330, i64 1
   %exitcond.not = icmp eq ptr %22, %10
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
@@ -370,7 +370,7 @@ define hidden ptr @_Py_bytes_istitle(ptr noundef readonly captures(address) %0, 
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %20, %2, %3, %._crit_edge
-  %.0 = phi ptr [ %_Py_FalseStruct._Py_TrueStruct, %3 ], [ %24, %._crit_edge ], [ @_Py_FalseStruct, %2 ], [ @_Py_FalseStruct, %20 ], [ @_Py_FalseStruct, %17 ]
+  %.0 = phi ptr [ %24, %._crit_edge ], [ %_Py_FalseStruct._Py_TrueStruct, %3 ], [ @_Py_FalseStruct, %2 ], [ @_Py_FalseStruct, %20 ], [ @_Py_FalseStruct, %17 ]
   ret ptr %.0
 }
 
@@ -457,8 +457,8 @@ define hidden void @_Py_bytes_title(ptr noundef writeonly captures(none) %0, ptr
   br label %17
 
 17:                                               ; preds = %.sink.split, %12, %14, %11
-  %.112 = phi i32 [ 1, %14 ], [ 1, %11 ], [ 0, %12 ], [ 1, %.sink.split ]
-  %.1 = phi i8 [ %6, %14 ], [ %6, %11 ], [ %6, %12 ], [ %16, %.sink.split ]
+  %.112 = phi i32 [ 1, %11 ], [ 1, %14 ], [ 0, %12 ], [ 1, %.sink.split ]
+  %.1 = phi i8 [ %6, %11 ], [ %6, %14 ], [ %6, %12 ], [ %16, %.sink.split ]
   %18 = getelementptr i8, ptr %.01420, i64 1
   store i8 %.1, ptr %.01420, align 1, !tbaa !4
   %19 = add nuw nsw i64 %.01321, 1
@@ -708,7 +708,7 @@ parse_args_finds_byte.exit:                       ; preds = %6
   br label %39
 
 39:                                               ; preds = %33, %35, %37
-  %.048 = phi i64 [ %4, %35 ], [ %spec.store.select, %37 ], [ %1, %33 ]
+  %.048 = phi i64 [ %spec.store.select, %37 ], [ %4, %35 ], [ %1, %33 ]
   %40 = icmp slt i64 %3, 0
   %41 = add i64 %3, %1
   %spec.store.select1 = call i64 @llvm.smax.i64(i64 %41, i64 0)
@@ -779,7 +779,7 @@ parse_args_finds_byte.exit:                       ; preds = %6
   br i1 %73, label %stringlib_find_char.exit, label %68, !llvm.loop !46
 
 stringlib_find_char.exit:                         ; preds = %70, %.lr.ph.i, %63, %54
-  %.lcssa.sink = phi ptr [ %65, %63 ], [ %.01721.i, %.lr.ph.i ], [ %56, %54 ], [ %71, %70 ]
+  %.lcssa.sink = phi ptr [ %56, %54 ], [ %65, %63 ], [ %.01721.i, %.lr.ph.i ], [ %71, %70 ]
   %.lcssa.sink.fr = freeze ptr %.lcssa.sink
   %74 = ptrtoint ptr %.lcssa.sink.fr to i64
   %75 = ptrtoint ptr %48 to i64
@@ -910,7 +910,7 @@ fastsearch.exit.i.i:                              ; preds = %128
   br label %stringlib_find_slice.exit
 
 stringlib_find_slice.exit:                        ; preds = %124, %103, %68, %59, %stringlib_find_char.exit, %63, %.preheader.i, %54, %fastsearch.exit.i.i, %.preheader56.i.i.i.i, %90, %87, %82, %80, %39
-  %.0 = phi i64 [ %.049, %80 ], [ -1, %39 ], [ -1, %.preheader.i ], [ -1, %68 ], [ %spec.select, %stringlib_find_char.exit ], [ %spec.select.i.i, %82 ], [ %.048, %87 ], [ -1, %90 ], [ %spec.select.i.i64, %fastsearch.exit.i.i ], [ -1, %.preheader56.i.i.i.i ], [ -1, %59 ], [ -1, %63 ], [ -1, %54 ], [ -1, %103 ], [ -1, %124 ]
+  %.0 = phi i64 [ -1, %39 ], [ %spec.select.i.i, %82 ], [ %.049, %80 ], [ -1, %90 ], [ -1, %.preheader56.i.i.i.i ], [ %spec.select.i.i64, %fastsearch.exit.i.i ], [ %.048, %87 ], [ -1, %54 ], [ -1, %.preheader.i ], [ -1, %63 ], [ %spec.select, %stringlib_find_char.exit ], [ -1, %59 ], [ -1, %68 ], [ -1, %103 ], [ -1, %124 ]
   br i1 %.not5717, label %parse_args_finds_byte.exit.thread, label %142
 
 142:                                              ; preds = %stringlib_find_slice.exit
@@ -918,7 +918,7 @@ stringlib_find_slice.exit:                        ; preds = %124, %103, %68, %59
   br label %parse_args_finds_byte.exit.thread
 
 parse_args_finds_byte.exit.thread:                ; preds = %22, %.thread.i, %_PyIndex_Check.exit.thread.i, %stringlib_find_slice.exit, %142, %27
-  %.047 = phi i64 [ %.0, %stringlib_find_slice.exit ], [ -2, %27 ], [ %.0, %142 ], [ -2, %_PyIndex_Check.exit.thread.i ], [ -2, %.thread.i ], [ -2, %22 ]
+  %.047 = phi i64 [ -2, %27 ], [ %.0, %142 ], [ %.0, %stringlib_find_slice.exit ], [ -2, %_PyIndex_Check.exit.thread.i ], [ -2, %.thread.i ], [ -2, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.047
@@ -944,7 +944,7 @@ define hidden ptr @_Py_bytes_index(ptr noundef %0, i64 noundef %1, ptr noundef %
   br label %11
 
 11:                                               ; preds = %5, %9, %7
-  %.0 = phi ptr [ %10, %9 ], [ null, %7 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %7 ], [ %10, %9 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -983,7 +983,7 @@ define hidden ptr @_Py_bytes_rindex(ptr noundef %0, i64 noundef %1, ptr noundef 
   br label %11
 
 11:                                               ; preds = %5, %9, %7
-  %.0 = phi ptr [ %10, %9 ], [ null, %7 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %7 ], [ %10, %9 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -1074,7 +1074,7 @@ parse_args_finds_byte.exit:                       ; preds = %5
   br label %38
 
 38:                                               ; preds = %32, %34, %36
-  %.021 = phi i64 [ %4, %34 ], [ %spec.store.select, %36 ], [ %1, %32 ]
+  %.021 = phi i64 [ %spec.store.select, %36 ], [ %4, %34 ], [ %1, %32 ]
   %39 = icmp slt i64 %3, 0
   %40 = add i64 %3, %1
   %spec.store.select1 = call i64 @llvm.smax.i64(i64 %40, i64 0)
@@ -1098,7 +1098,7 @@ parse_args_finds_byte.exit:                       ; preds = %5
   br label %stringlib_count.exit
 
 stringlib_count.exit:                             ; preds = %38, %46, %48
-  %.0.i31 = phi i64 [ 0, %38 ], [ %47, %46 ], [ %..i, %48 ]
+  %.0.i31 = phi i64 [ %47, %46 ], [ 0, %38 ], [ %..i, %48 ]
   %50 = call ptr @PyLong_FromSsize_t(i64 noundef %.0.i31) #14
   br i1 %.not2843, label %parse_args_finds_byte.exit.thread, label %51
 
@@ -1107,7 +1107,7 @@ stringlib_count.exit:                             ; preds = %38, %46, %48
   br label %parse_args_finds_byte.exit.thread
 
 parse_args_finds_byte.exit.thread:                ; preds = %21, %.thread.i, %_PyIndex_Check.exit.thread.i, %stringlib_count.exit, %51, %26
-  %.0 = phi ptr [ %50, %stringlib_count.exit ], [ null, %26 ], [ %50, %51 ], [ null, %_PyIndex_Check.exit.thread.i ], [ null, %.thread.i ], [ null, %21 ]
+  %.0 = phi ptr [ null, %26 ], [ %50, %51 ], [ %50, %stringlib_count.exit ], [ null, %_PyIndex_Check.exit.thread.i ], [ null, %.thread.i ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
@@ -1255,7 +1255,7 @@ define internal fastcc ptr @_Py_bytes_tailmatch(ptr noundef readonly captures(no
   br label %.thread
 
 .thread:                                          ; preds = %14, %21, %.lr.ph, %.preheader, %33, %28, %25
-  %.3 = phi ptr [ null, %28 ], [ null, %25 ], [ %35, %33 ], [ @_Py_FalseStruct, %.preheader ], [ @_Py_TrueStruct, %21 ], [ @_Py_FalseStruct, %14 ], [ null, %.lr.ph ]
+  %.3 = phi ptr [ %35, %33 ], [ null, %28 ], [ null, %25 ], [ @_Py_FalseStruct, %.preheader ], [ @_Py_FalseStruct, %14 ], [ @_Py_TrueStruct, %21 ], [ null, %.lr.ph ]
   ret ptr %.3
 }
 
@@ -1305,7 +1305,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isascii(ptr noundef %0, i64 noundef
   br i1 %.not28.i, label %4, label %stringlib_find_max_char.exit, !llvm.loop !55
 
 stringlib_find_max_char.exit:                     ; preds = %.thread31.i, %13, %4, %10
-  %17 = phi ptr [ @_Py_FalseStruct, %10 ], [ @_Py_FalseStruct, %.thread31.i ], [ @_Py_TrueStruct, %4 ], [ @_Py_TrueStruct, %13 ]
+  %17 = phi ptr [ @_Py_FalseStruct, %10 ], [ @_Py_FalseStruct, %.thread31.i ], [ @_Py_TrueStruct, %13 ], [ @_Py_TrueStruct, %4 ]
   ret ptr %17
 }
 
@@ -1675,7 +1675,7 @@ define internal fastcc i64 @fastsearch(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %182, label %.lr.ph.i76, label %.preheader56.i, !llvm.loop !49
 
 stringlib_find_char.exit:                         ; preds = %96, %._crit_edge95.us.thread.i, %167, %146, %171, %44, %30, %68, %65, %.lr.ph.i69, %.preheader56.i, %.loopexit.i, %50, %38, %35, %26, %20, %17, %.preheader.i, %10, %6, %133, %131, %129
-  %.0 = phi i64 [ -1, %.preheader56.i ], [ -1, %6 ], [ -1, %10 ], [ -1, %167 ], [ %.15065.us.i, %171 ], [ %4, %65 ], [ %spec.select.i, %.lr.ph.i69 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %23, %20 ], [ -1, %17 ], [ %29, %26 ], [ -1, %.preheader.i ], [ %41, %38 ], [ -1, %35 ], [ %53, %50 ], [ -1, %44 ], [ -1, %30 ], [ %121, %.loopexit.i ], [ %.1.i, %68 ], [ -1, %146 ], [ %4, %96 ], [ %.062101.us.i, %._crit_edge95.us.thread.i ]
+  %.0 = phi i64 [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ -1, %6 ], [ -1, %10 ], [ %23, %20 ], [ %29, %26 ], [ -1, %17 ], [ -1, %.preheader.i ], [ %41, %38 ], [ %53, %50 ], [ -1, %35 ], [ %121, %.loopexit.i ], [ -1, %.preheader56.i ], [ %spec.select.i, %.lr.ph.i69 ], [ %4, %65 ], [ %.1.i, %68 ], [ -1, %30 ], [ -1, %44 ], [ %.15065.us.i, %171 ], [ -1, %146 ], [ -1, %167 ], [ %4, %96 ], [ %.062101.us.i, %._crit_edge95.us.thread.i ]
   ret i64 %.0
 }
 
@@ -2362,14 +2362,14 @@ define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, p
   br label %.thread170
 
 .thread170:                                       ; preds = %118, %..preheader_crit_edge.us, %86, %.preheader
-  %.lcssa = phi ptr [ %85, %..preheader_crit_edge.us ], [ %136, %.preheader ], [ %85, %86 ], [ %117, %118 ]
+  %.lcssa = phi ptr [ %136, %.preheader ], [ %85, %86 ], [ %85, %..preheader_crit_edge.us ], [ %117, %118 ]
   %137 = ptrtoint ptr %.lcssa to i64
   %138 = ptrtoint ptr %0 to i64
   %139 = sub i64 %137, %138
   br label %.thread
 
 .thread:                                          ; preds = %.backedge, %.preheader180, %58, %.preheader175, %.thread167.us231, %.preheader175.us215, %104, %.preheader175.us, %.preheader182, %71, %.preheader177._crit_edge, %.thread170
-  %.4 = phi i64 [ -1, %.thread167.us231 ], [ -1, %58 ], [ -1, %71 ], [ %139, %.thread170 ], [ %70, %.preheader177._crit_edge ], [ -1, %.preheader175 ], [ -1, %.preheader182 ], [ -1, %104 ], [ -1, %.preheader175.us ], [ -1, %.preheader175.us215 ], [ -1, %.preheader180 ], [ -1, %.backedge ]
+  %.4 = phi i64 [ %139, %.thread170 ], [ %70, %.preheader177._crit_edge ], [ -1, %71 ], [ -1, %.preheader182 ], [ -1, %.preheader175.us ], [ -1, %104 ], [ -1, %.preheader175.us215 ], [ -1, %.thread167.us231 ], [ -1, %.preheader175 ], [ -1, %58 ], [ -1, %.preheader180 ], [ -1, %.backedge ]
   ret i64 %.4
 }
 
@@ -2420,7 +2420,7 @@ define internal fastcc range(i32 -1, 2) i32 @tailmatch(ptr noundef readonly capt
   br label %23
 
 23:                                               ; preds = %17, %19, %21
-  %.039 = phi i64 [ %4, %19 ], [ %spec.store.select, %21 ], [ %1, %17 ]
+  %.039 = phi i64 [ %spec.store.select, %21 ], [ %4, %19 ], [ %1, %17 ]
   %24 = icmp slt i64 %3, 0
   %25 = add i64 %3, %1
   %spec.store.select1 = call i64 @llvm.smax.i64(i64 %25, i64 0)

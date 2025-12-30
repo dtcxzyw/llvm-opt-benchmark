@@ -303,7 +303,7 @@ define hidden noundef zeroext i1 @_ZN11OptoRuntime8generateEP5ciEnv(ptr noundef 
   br label %55
 
 55:                                               ; preds = %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7, %4, %1
-  %.0 = phi i1 [ false, %49 ], [ false, %1 ], [ false, %4 ], [ false, %7 ], [ false, %10 ], [ false, %13 ], [ false, %16 ], [ false, %19 ], [ false, %22 ], [ false, %25 ], [ false, %28 ], [ false, %31 ], [ false, %34 ], [ false, %37 ], [ false, %40 ], [ false, %43 ], [ false, %46 ], [ %54, %52 ]
+  %.0 = phi i1 [ false, %1 ], [ false, %4 ], [ false, %7 ], [ false, %10 ], [ false, %13 ], [ false, %16 ], [ false, %19 ], [ false, %22 ], [ false, %25 ], [ false, %28 ], [ false, %31 ], [ false, %34 ], [ false, %37 ], [ false, %40 ], [ false, %43 ], [ false, %46 ], [ false, %49 ], [ %54, %52 ]
   ret i1 %.0
 }
 
@@ -2517,7 +2517,7 @@ define internal fastcc noundef ptr @_ZL19make_arraycopy_Type13ArrayCopyType(i32 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread, %._crit_edge.loopexit
-  %.2.lcssa = phi i64 [ 10, %.thread ], [ %24, %._crit_edge.loopexit ]
+  %.2.lcssa = phi i64 [ %24, %._crit_edge.loopexit ], [ 10, %.thread ]
   br i1 %4, label %.thread40, label %30
 
 .thread40:                                        ; preds = %._crit_edge
@@ -3520,7 +3520,7 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i:    ; preds = %92
 _ZN7nmethod11is_deopt_pcEPh.exit:                 ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i
   br i1 %102, label %.thread, label %_ZN7nmethod11is_deopt_pcEPh.exit.thread
 
-_ZN7nmethod11is_deopt_pcEPh.exit.thread:          ; preds = %82, %92, %103, %_ZN7nmethod11is_deopt_pcEPh.exit
+_ZN7nmethod11is_deopt_pcEPh.exit.thread:          ; preds = %92, %82, %103, %_ZN7nmethod11is_deopt_pcEPh.exit
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %6, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 928
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %106) #12, !noalias !17
@@ -3898,8 +3898,8 @@ define hidden void @_ZN11OptoRuntime20print_named_countersEv() local_unnamed_add
   br label %12
 
 12:                                               ; preds = %.lr.ph, %8, %4
-  %.118 = phi i32 [ %.01724, %.lr.ph ], [ %spec.select, %8 ], [ %.01724, %4 ]
-  %.1 = phi i32 [ %.025, %.lr.ph ], [ %10, %8 ], [ %.025, %4 ]
+  %.118 = phi i32 [ %.01724, %4 ], [ %spec.select, %8 ], [ %.01724, %.lr.ph ]
+  %.1 = phi i32 [ %.025, %4 ], [ %10, %8 ], [ %.025, %.lr.ph ]
   %13 = getelementptr inbounds nuw i8, ptr %.01923, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null

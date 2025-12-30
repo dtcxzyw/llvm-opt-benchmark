@@ -151,7 +151,7 @@ define dso_local zeroext i1 @pgstat_wal_have_pending_cb() local_unnamed_addr #3 
   br label %9
 
 9:                                                ; preds = %6, %0
-  %10 = phi i1 [ %8, %6 ], [ true, %0 ]
+  %10 = phi i1 [ true, %0 ], [ %8, %6 ]
   ret i1 %10
 }
 

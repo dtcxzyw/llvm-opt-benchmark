@@ -113,7 +113,7 @@ define internal range(i32 -30, 1) i32 @archive_write_newc_options(ptr noundef %0
   br label %19
 
 19:                                               ; preds = %3, %13, %16
-  %.011 = phi i32 [ %., %16 ], [ -25, %13 ], [ -20, %3 ]
+  %.011 = phi i32 [ -25, %13 ], [ %., %16 ], [ -20, %3 ]
   ret i32 %.011
 }
 
@@ -552,7 +552,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br label %141
 
 141:                                              ; preds = %135, %132, %120, %114, %112, %123, %130, %111, %93, %23
-  %.1 = phi i32 [ -30, %23 ], [ -30, %93 ], [ -25, %111 ], [ %.3, %123 ], [ -30, %112 ], [ -30, %114 ], [ -30, %120 ], [ -30, %132 ], [ %spec.select, %135 ], [ %.3, %130 ]
+  %.1 = phi i32 [ -30, %23 ], [ -30, %93 ], [ -25, %111 ], [ %.3, %130 ], [ %.3, %123 ], [ -30, %112 ], [ -30, %114 ], [ -30, %120 ], [ -30, %132 ], [ %spec.select, %135 ]
   call void @archive_entry_free(ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

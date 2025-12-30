@@ -2777,7 +2777,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %22, %25
-  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %23, %25 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %25 ], [ %23, %22 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %34 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %35 = tail call ptr @__cxa_begin_catch(ptr %34) #21
   invoke void @_ZSt8_DestroyIP8t_filenmEvT_S2_(ptr noundef %2, ptr noundef nonnull %.025)
@@ -3437,7 +3437,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %_ZN
   br label %.loopexit254
 
 .loopexit254:                                     ; preds = %93, %89, %85, %.lr.ph.i.i.i.i.i, %112, %107, %102
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.025.1.i.i.i.i.i, %107 ], [ %spec.select.i.i.i.i.i, %112 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %102 ], [ %86, %85 ], [ %90, %89 ], [ %94, %93 ], [ %.sroa.025.035.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %102 ], [ %.sroa.025.1.i.i.i.i.i, %107 ], [ %spec.select.i.i.i.i.i, %112 ], [ %.sroa.025.035.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %86, %85 ], [ %90, %89 ], [ %94, %93 ]
   %.not249 = icmp eq ptr %77, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br i1 %.not249, label %.thread, label %115
 
@@ -3635,7 +3635,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br label %.loopexit253
 
 .loopexit253:                                     ; preds = %168, %164, %160, %.lr.ph.i.i.i.i, %187, %182, %177
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.1.i.i.i.i, %182 ], [ %spec.select.i.i.i.i, %187 ], [ %.sroa.025.0.lcssa.i.i.i.i, %177 ], [ %165, %164 ], [ %161, %160 ], [ %.sroa.025.035.i.i.i.i, %.lr.ph.i.i.i.i ], [ %169, %168 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %177 ], [ %.sroa.025.1.i.i.i.i, %182 ], [ %spec.select.i.i.i.i, %187 ], [ %169, %168 ], [ %165, %164 ], [ %161, %160 ], [ %.sroa.025.035.i.i.i.i, %.lr.ph.i.i.i.i ]
   %190 = icmp eq ptr %151, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   br i1 %190, label %.thread241, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRA10_KcEEERS5_DpOT_.exit
 
@@ -3772,7 +3772,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br label %.loopexit252
 
 .loopexit252:                                     ; preds = %224, %220, %216, %.lr.ph.i.i.i.i123, %243, %238, %233
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i121 = phi ptr [ %.sroa.025.1.i.i.i.i122, %238 ], [ %spec.select.i.i.i.i120, %243 ], [ %.sroa.025.0.lcssa.i.i.i.i118, %233 ], [ %221, %220 ], [ %217, %216 ], [ %.sroa.025.035.i.i.i.i125, %.lr.ph.i.i.i.i123 ], [ %225, %224 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i121 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i118, %233 ], [ %.sroa.025.1.i.i.i.i122, %238 ], [ %spec.select.i.i.i.i120, %243 ], [ %225, %224 ], [ %221, %220 ], [ %217, %216 ], [ %.sroa.025.035.i.i.i.i125, %.lr.ph.i.i.i.i123 ]
   %246 = icmp eq ptr %208, %.sroa.08.0.in.sroa.speculated.i.i.i.i121
   br i1 %246, label %.thread243, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRA10_KcEEERS5_DpOT_.exit144
 
@@ -3909,7 +3909,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br label %.loopexit
 
 .loopexit:                                        ; preds = %280, %276, %272, %.lr.ph.i.i.i.i152, %299, %294, %289
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i150 = phi ptr [ %.sroa.025.1.i.i.i.i151, %294 ], [ %spec.select.i.i.i.i149, %299 ], [ %.sroa.025.0.lcssa.i.i.i.i147, %289 ], [ %277, %276 ], [ %273, %272 ], [ %.sroa.025.035.i.i.i.i154, %.lr.ph.i.i.i.i152 ], [ %281, %280 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i150 = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i147, %289 ], [ %.sroa.025.1.i.i.i.i151, %294 ], [ %spec.select.i.i.i.i149, %299 ], [ %281, %280 ], [ %277, %276 ], [ %273, %272 ], [ %.sroa.025.035.i.i.i.i154, %.lr.ph.i.i.i.i152 ]
   %302 = icmp eq ptr %264, %.sroa.08.0.in.sroa.speculated.i.i.i.i150
   br i1 %302, label %.thread245, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRA9_KcEEERS5_DpOT_.exit
 

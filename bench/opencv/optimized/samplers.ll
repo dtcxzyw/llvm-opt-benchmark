@@ -1995,7 +1995,7 @@ _ZN2cvL29getQuadrangleSubPix_8u32f_CnREPKhmNS_5Size_IiEEPfmS3_PKdi.exit: ; preds
   ret void
 
 361:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53, %359, %332
-  %.pn35.pn = phi { ptr, i32 } [ %333, %332 ], [ %.pn28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53 ], [ %360, %359 ]
+  %.pn35.pn = phi { ptr, i32 } [ %333, %332 ], [ %360, %359 ], [ %.pn28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #17
   br label %362
 
@@ -2695,8 +2695,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27, %
   br label %45
 
 45:                                               ; preds = %32, %37, %41
-  %.sroa.13.0 = phi i32 [ %39, %37 ], [ 0, %41 ], [ %.sroa.625.0.extract.trunc, %32 ]
-  %.4 = phi ptr [ %.3, %37 ], [ %44, %41 ], [ %.3, %32 ]
+  %.sroa.13.0 = phi i32 [ 0, %41 ], [ %39, %37 ], [ %.sroa.625.0.extract.trunc, %32 ]
+  %.4 = phi ptr [ %44, %41 ], [ %.3, %37 ], [ %.3, %32 ]
   %46 = sub nsw i32 0, %.sroa.6.0.extract.trunc
   %.sroa.9.0 = select i1 %33, i32 0, i32 %46
   store i32 %.sroa.0.0, ptr %6, align 4, !tbaa !32

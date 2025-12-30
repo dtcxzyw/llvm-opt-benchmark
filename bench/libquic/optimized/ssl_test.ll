@@ -382,7 +382,7 @@ _ZL14TestCipherRuleRK10CipherTest.exit.thread.i:  ; preds = %5
   br label %73
 
 .critedge.i.i:                                    ; preds = %37, %65, %32, %.preheader.i.i, %12
-  %.0.ph.i.i = phi i1 [ false, %12 ], [ false, %32 ], [ false, %65 ], [ true, %.preheader.i.i ], [ true, %37 ]
+  %.0.ph.i.i = phi i1 [ false, %32 ], [ false, %12 ], [ false, %65 ], [ true, %.preheader.i.i ], [ true, %37 ]
   invoke void @SSL_CTX_free(ptr noundef nonnull %7)
           to label %_ZL14TestCipherRuleRK10CipherTest.exit.i unwind label %70
 
@@ -1989,7 +1989,7 @@ _ZNSt6vectorIP14ssl_session_stSaIS1_EEaSESt16initializer_listIS1_E.exit62: ; pre
           to label %150 unwind label %108
 
 150:                                              ; preds = %105, %121, %127, %137, %147, %143, %148
-  %.9.ph = phi i1 [ %149, %148 ], [ false, %147 ], [ false, %105 ], [ false, %121 ], [ false, %127 ], [ false, %143 ], [ false, %137 ]
+  %.9.ph = phi i1 [ %149, %148 ], [ false, %143 ], [ false, %147 ], [ false, %137 ], [ false, %127 ], [ false, %121 ], [ false, %105 ]
   invoke void @SSL_SESSION_free(ptr noundef nonnull %99)
           to label %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit64 unwind label %151
 
@@ -2016,7 +2016,7 @@ _ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEE
   br label %159
 
 156:                                              ; preds = %94, %97, %86, %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit64
-  %.8 = phi i1 [ false, %86 ], [ %.981, %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit64 ], [ false, %97 ], [ false, %94 ]
+  %.8 = phi i1 [ %.981, %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit64 ], [ false, %86 ], [ false, %97 ], [ false, %94 ]
   %157 = load ptr, ptr %4, align 8, !tbaa !96
   %.not.i.i.i = icmp eq ptr %157, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIP14ssl_session_stSaIS1_EED2Ev.exit, label %158
@@ -2555,13 +2555,13 @@ _ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev.exit.thread
   br label %.thread112
 
 .thread112:                                       ; preds = %101, %89, %121, %133, %137, %162, %76
-  %.3 = phi i1 [ false, %137 ], [ false, %76 ], [ false, %121 ], [ false, %133 ], [ %.8, %162 ], [ false, %89 ], [ false, %101 ]
+  %.3 = phi i1 [ false, %76 ], [ false, %121 ], [ false, %133 ], [ %.8, %162 ], [ false, %137 ], [ false, %89 ], [ false, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %164
 
 163:                                              ; preds = %124, %128, %149, %130, %126, %92, %104, %106, %94, %79
-  %.pn86.pn.pn.pn.pn = phi { ptr, i32 } [ %105, %104 ], [ %80, %79 ], [ %93, %92 ], [ %95, %94 ], [ %107, %106 ], [ %125, %124 ], [ %127, %126 ], [ %129, %128 ], [ %150, %149 ], [ %131, %130 ]
+  %.pn86.pn.pn.pn.pn = phi { ptr, i32 } [ %80, %79 ], [ %93, %92 ], [ %95, %94 ], [ %107, %106 ], [ %105, %104 ], [ %125, %124 ], [ %127, %126 ], [ %129, %128 ], [ %150, %149 ], [ %131, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %173
@@ -2970,7 +2970,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
+  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !59
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
@@ -3879,7 +3879,7 @@ _ZNSt6vectorIP14ssl_session_stSaIS1_EED2Ev.exit79: ; preds = %_ZNSt6vectorIP14ss
   resume { ptr, i32 } %lpad.phi142
 
 .thread85:                                        ; preds = %10, %._crit_edge, %_ZNSt6vectorIP14ssl_session_stSaIS1_EED2Ev.exit75
-  %.3 = phi i1 [ false, %._crit_edge ], [ %124, %_ZNSt6vectorIP14ssl_session_stSaIS1_EED2Ev.exit75 ], [ false, %10 ]
+  %.3 = phi i1 [ %124, %_ZNSt6vectorIP14ssl_session_stSaIS1_EED2Ev.exit75 ], [ false, %._crit_edge ], [ false, %10 ]
   ret i1 %.3
 }
 
@@ -4470,7 +4470,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us, !llvm.loop !133
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
-  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.07.us, %.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %39 ]
+  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.07.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
   %42 = getelementptr inbounds nuw ptr, ptr %.fr15, i64 %.0.lcssa.i.i.us
   store ptr %21, ptr %42, align 8, !tbaa !60
   %.not.us = icmp eq i64 %.07.us, 0

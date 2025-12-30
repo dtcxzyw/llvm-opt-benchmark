@@ -179,7 +179,7 @@ define dso_local range(i32 -22, 1) i32 @do_set_thread_area(ptr noundef captures(
   br label %.thread
 
 .thread:                                          ; preds = %40, %95, %91, %81, %78, %53, %43, %._crit_edge, %4
-  %99 = phi i32 [ -14, %4 ], [ -22, %._crit_edge ], [ -14, %43 ], [ -22, %53 ], [ 0, %91 ], [ 0, %95 ], [ 0, %78 ], [ 0, %81 ], [ -3, %40 ]
+  %99 = phi i32 [ -14, %4 ], [ -14, %43 ], [ -22, %53 ], [ 0, %91 ], [ 0, %95 ], [ 0, %78 ], [ 0, %81 ], [ -22, %._crit_edge ], [ -3, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %99
 }
@@ -236,7 +236,7 @@ define internal fastcc void @set_tls_desc(ptr noundef captures(address) %0, i32 
   br label %95
 
 ._crit_edge:                                      ; preds = %22, %11
-  %27 = phi i32 [ 0, %22 ], [ %20, %11 ]
+  %27 = phi i32 [ %20, %11 ], [ 0, %22 ]
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %29 = trunc i32 %27 to i16
   store i16 %29, ptr %14, align 1

@@ -878,7 +878,7 @@ OutputFsync.exit.i:                               ; preds = %282, %279, %278, %2
   br i1 %293, label %294, label %.thread193.i
 
 294:                                              ; preds = %291, %289, %OutputFsync.exit.i
-  %.2.i = phi i64 [ %.094268.i, %OutputFsync.exit.i ], [ %.094268.i, %289 ], [ %268, %291 ]
+  %.2.i = phi i64 [ %.094268.i, %289 ], [ %.094268.i, %OutputFsync.exit.i ], [ %268, %291 ]
   %295 = load i32, ptr @outfd, align 4
   %.not144.i = icmp eq i32 %295, -1
   br i1 %.not144.i, label %sub_0208.i, label %296
@@ -1328,8 +1328,8 @@ flushAndSendFeedback.exit176.i:                   ; preds = %463, %460, %459, %4
   br label %.loopexit215.i
 
 .thread198.sink.split.i:                          ; preds = %443, %493, %flushAndSendFeedback.exit176.i
-  %.sink.i = phi i32 [ 1, %493 ], [ 1, %flushAndSendFeedback.exit176.i ], [ 2, %443 ]
-  %.299.ph.ph.i = phi i64 [ %451, %493 ], [ %451, %flushAndSendFeedback.exit176.i ], [ 0, %443 ]
+  %.sink.i = phi i32 [ 1, %flushAndSendFeedback.exit176.i ], [ 1, %493 ], [ 2, %443 ]
+  %.299.ph.ph.i = phi i64 [ %451, %flushAndSendFeedback.exit176.i ], [ %451, %493 ], [ 0, %443 ]
   store volatile i32 %.sink.i, ptr @stop_reason, align 4
   store volatile i32 1, ptr @time_to_abort, align 4
   br label %.thread198.i

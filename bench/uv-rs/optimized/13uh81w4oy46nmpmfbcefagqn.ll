@@ -1171,7 +1171,7 @@ default.unreachable:                              ; preds = %107, %5
           to label %60 unwind label %84, !noalias !239
 
 80:                                               ; preds = %84, %.body.i.i.i
-  %.pn.i.i.i = phi { ptr, i32 } [ %85, %84 ], [ %75, %.body.i.i.i ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %75, %.body.i.i.i ], [ %85, %84 ]
   %81 = load i64, ptr %13, align 8, !range !5, !alias.scope !271, !noalias !242, !noundef !4
   %cond.i.i.i.i = icmp eq i64 %81, 3
   br i1 %cond.i.i.i.i, label %82, label %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uv_git..git..FastPathRev$C$anyhow..Error$GT$$GT$$GT$17h947251d51ad86c4cE.exit.i.i.i"
@@ -1239,7 +1239,7 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h6e7720e8443cf309E.
   br label %194
 
 .body.thread.i:                                   ; preds = %187, %.body18.i, %.body18.thread.i, %146, %142, %.body14.i, %99
-  %.pn.i = phi { ptr, i32 } [ %100, %99 ], [ %143, %146 ], [ %eh.lpad-body19.i, %.body18.i ], [ %eh.lpad-body15.i, %.body14.i ], [ %eh.lpad-body19.i, %187 ], [ %143, %142 ], [ %lpad.loopexit.split-lp19.i, %.body18.thread.i ]
+  %.pn.i = phi { ptr, i32 } [ %100, %99 ], [ %eh.lpad-body19.i, %.body18.i ], [ %eh.lpad-body15.i, %.body14.i ], [ %eh.lpad-body19.i, %187 ], [ %143, %142 ], [ %143, %146 ], [ %lpad.loopexit.split-lp19.i, %.body18.thread.i ]
   %95 = load ptr, ptr %21, align 8, !noalias !219, !noundef !4
   %.not14.i = icmp eq ptr %95, null
   br i1 %.not14.i, label %.body, label %188
@@ -1625,7 +1625,7 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h6e7720e8443cf309E.
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uv_git..git..FastPathRev$C$anyhow..Error$GT$$GT$$GT$17h947251d51ad86c4cE.exit.i.i.i", %.body.thread.i, %96, %188
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.thr_comm.i, %96 ], [ %.pn.i, %.body.thread.i ], [ %.pn.i, %188 ], [ %.pn12.i.i.i, %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uv_git..git..FastPathRev$C$anyhow..Error$GT$$GT$$GT$17h947251d51ad86c4cE.exit.i.i.i" ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %188 ], [ %.pn.i, %.body.thread.i ], [ %.pn12.i.i.i, %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uv_git..git..FastPathRev$C$anyhow..Error$GT$$GT$$GT$17h947251d51ad86c4cE.exit.i.i.i" ], [ %lpad.thr_comm.i, %96 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$tokio..runtime..context..runtime..EnterRuntimeGuard$GT$17h4d11e445e5e856b0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #17
           to label %.thread unwind label %200
 
@@ -1662,7 +1662,7 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h6e7720e8443cf309E.
           to label %.thread unwind label %200
 
 .thread:                                          ; preds = %.body, %195, %203
-  %.pn19 = phi { ptr, i32 } [ %196, %203 ], [ %196, %195 ], [ %eh.lpad-body, %.body ]
+  %.pn19 = phi { ptr, i32 } [ %196, %195 ], [ %196, %203 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn19
 }
 
@@ -1887,7 +1887,7 @@ default.unreachable:                              ; preds = %107, %5
           to label %60 unwind label %84, !noalias !446
 
 80:                                               ; preds = %84, %.body.i.i.i
-  %.pn.i.i.i = phi { ptr, i32 } [ %85, %84 ], [ %75, %.body.i.i.i ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %75, %.body.i.i.i ], [ %85, %84 ]
   %81 = load i64, ptr %13, align 8, !range !5, !alias.scope !468, !noalias !438, !noundef !4
   %cond.i.i.i.i = icmp eq i64 %81, 3
   br i1 %cond.i.i.i.i, label %82, label %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uv_git..git..FastPathRev$C$anyhow..Error$GT$$GT$$GT$17h947251d51ad86c4cE.exit.i.i.i"
@@ -1955,7 +1955,7 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h4ec8b9013108acdcE.
   br label %195
 
 .body.thread.i:                                   ; preds = %188, %.body18.i, %.body18.thread.i, %147, %143, %.body14.i, %99
-  %.pn.i = phi { ptr, i32 } [ %100, %99 ], [ %144, %147 ], [ %eh.lpad-body19.i, %.body18.i ], [ %eh.lpad-body15.i, %.body14.i ], [ %eh.lpad-body19.i, %188 ], [ %144, %143 ], [ %lpad.loopexit.split-lp19.i, %.body18.thread.i ]
+  %.pn.i = phi { ptr, i32 } [ %100, %99 ], [ %eh.lpad-body19.i, %.body18.i ], [ %eh.lpad-body15.i, %.body14.i ], [ %eh.lpad-body19.i, %188 ], [ %144, %143 ], [ %144, %147 ], [ %lpad.loopexit.split-lp19.i, %.body18.thread.i ]
   %95 = load ptr, ptr %21, align 8, !noalias !414, !noundef !4
   %.not14.i = icmp eq ptr %95, null
   br i1 %.not14.i, label %.body, label %189
@@ -2342,7 +2342,7 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h4ec8b9013108acdcE.
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uv_git..git..FastPathRev$C$anyhow..Error$GT$$GT$$GT$17h947251d51ad86c4cE.exit.i.i.i", %.body.thread.i, %96, %189
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.thr_comm.i, %96 ], [ %.pn.i, %.body.thread.i ], [ %.pn.i, %189 ], [ %.pn12.i.i.i, %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uv_git..git..FastPathRev$C$anyhow..Error$GT$$GT$$GT$17h947251d51ad86c4cE.exit.i.i.i" ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %189 ], [ %.pn.i, %.body.thread.i ], [ %.pn12.i.i.i, %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uv_git..git..FastPathRev$C$anyhow..Error$GT$$GT$$GT$17h947251d51ad86c4cE.exit.i.i.i" ], [ %lpad.thr_comm.i, %96 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$tokio..runtime..context..runtime..EnterRuntimeGuard$GT$17h4d11e445e5e856b0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #17
           to label %.thread unwind label %201
 
@@ -2379,7 +2379,7 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h4ec8b9013108acdcE.
           to label %.thread unwind label %201
 
 .thread:                                          ; preds = %.body, %196, %204
-  %.pn19 = phi { ptr, i32 } [ %197, %204 ], [ %197, %196 ], [ %eh.lpad-body, %.body ]
+  %.pn19 = phi { ptr, i32 } [ %197, %196 ], [ %197, %204 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn19
 }
 
@@ -2988,7 +2988,7 @@ _ZN5tokio4task4coop11with_budget17hf557bcaa8d1a098dE.exit.i.i: ; preds = %"_ZN3s
   br label %.thread41
 
 .thread41:                                        ; preds = %.thread41.sink.split, %146, %.noexc13.i, %130, %.noexc9.i.i, %123, %121, %73, %69, %67, %49, %47, %155
-  %.pn39 = phi { ptr, i32 } [ %.pn40, %155 ], [ %128, %.noexc9.i.i ], [ %.pn.i, %67 ], [ %48, %47 ], [ %48, %49 ], [ %128, %130 ], [ %74, %73 ], [ %.pn.i, %69 ], [ %.pn.i14, %.noexc13.i ], [ %.pn.i14, %146 ], [ %122, %123 ], [ %122, %121 ], [ %.pn39.ph, %.thread41.sink.split ]
+  %.pn39 = phi { ptr, i32 } [ %.pn40, %155 ], [ %48, %49 ], [ %48, %47 ], [ %74, %73 ], [ %.pn.i, %69 ], [ %.pn.i, %67 ], [ %.pn.i14, %146 ], [ %.pn.i14, %.noexc13.i ], [ %122, %121 ], [ %122, %123 ], [ %128, %130 ], [ %128, %.noexc9.i.i ], [ %.pn39.ph, %.thread41.sink.split ]
   resume { ptr, i32 } %.pn39
 }
 
@@ -3486,7 +3486,7 @@ _ZN5tokio4task4coop11with_budget17hdf3cf7c31ec968a2E.exit.i.i: ; preds = %"_ZN3s
   br label %.thread41
 
 .thread41:                                        ; preds = %.thread41.sink.split, %145, %.noexc13.i, %129, %.noexc9.i.i, %122, %120, %72, %68, %66, %48, %46, %154
-  %.pn39 = phi { ptr, i32 } [ %.pn40, %154 ], [ %127, %.noexc9.i.i ], [ %.pn.i, %66 ], [ %47, %46 ], [ %47, %48 ], [ %127, %129 ], [ %73, %72 ], [ %.pn.i, %68 ], [ %.pn.i14, %.noexc13.i ], [ %.pn.i14, %145 ], [ %121, %122 ], [ %121, %120 ], [ %.pn39.ph, %.thread41.sink.split ]
+  %.pn39 = phi { ptr, i32 } [ %.pn40, %154 ], [ %47, %48 ], [ %47, %46 ], [ %73, %72 ], [ %.pn.i, %68 ], [ %.pn.i, %66 ], [ %.pn.i14, %145 ], [ %.pn.i14, %.noexc13.i ], [ %121, %120 ], [ %121, %122 ], [ %127, %129 ], [ %127, %.noexc9.i.i ], [ %.pn39.ph, %.thread41.sink.split ]
   resume { ptr, i32 } %.pn39
 }
 
@@ -4154,7 +4154,7 @@ _ZN6rustix4path3arg10with_c_str17ha37a6c0fddc61a35E.llvm.9437547521990941040.exi
   br label %"_ZN76_$LT$which..checker..ExecutableChecker$u20$as$u20$which..finder..Checker$GT$8is_valid17h0d4957cc2c9c2f9bE.llvm.9437547521990941040.exit"
 
 "_ZN76_$LT$which..checker..ExecutableChecker$u20$as$u20$which..finder..Checker$GT$8is_valid17h0d4957cc2c9c2f9bE.llvm.9437547521990941040.exit": ; preds = %31, %_ZN6rustix4path3arg10with_c_str17ha37a6c0fddc61a35E.llvm.9437547521990941040.exit.i, %20, %"_ZN73_$LT$which..checker..ExistedChecker$u20$as$u20$which..finder..Checker$GT$8is_valid17hdf3d809303fb5e19E.llvm.9437547521990941040.exit.thread", %"_ZN73_$LT$which..checker..ExistedChecker$u20$as$u20$which..finder..Checker$GT$8is_valid17hdf3d809303fb5e19E.llvm.9437547521990941040.exit"
-  %.sroa.0.0 = phi i1 [ false, %"_ZN73_$LT$which..checker..ExistedChecker$u20$as$u20$which..finder..Checker$GT$8is_valid17hdf3d809303fb5e19E.llvm.9437547521990941040.exit.thread" ], [ false, %"_ZN73_$LT$which..checker..ExistedChecker$u20$as$u20$which..finder..Checker$GT$8is_valid17hdf3d809303fb5e19E.llvm.9437547521990941040.exit" ], [ false, %31 ], [ true, %_ZN6rustix4path3arg10with_c_str17ha37a6c0fddc61a35E.llvm.9437547521990941040.exit.i ], [ true, %20 ]
+  %.sroa.0.0 = phi i1 [ false, %"_ZN73_$LT$which..checker..ExistedChecker$u20$as$u20$which..finder..Checker$GT$8is_valid17hdf3d809303fb5e19E.llvm.9437547521990941040.exit" ], [ false, %"_ZN73_$LT$which..checker..ExistedChecker$u20$as$u20$which..finder..Checker$GT$8is_valid17hdf3d809303fb5e19E.llvm.9437547521990941040.exit.thread" ], [ false, %31 ], [ true, %_ZN6rustix4path3arg10with_c_str17ha37a6c0fddc61a35E.llvm.9437547521990941040.exit.i ], [ true, %20 ]
   ret i1 %.sroa.0.0
 }
 

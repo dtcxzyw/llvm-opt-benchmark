@@ -648,9 +648,9 @@ _ZN4core5slice4sort20provide_sorted_batch17haf06b41e4fcbfb92E.exit: ; preds = %.
   br label %.body
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h584cf04464fbc180E.exit": ; preds = %217, %208, %201, %196
-  %.sroa.18.1.i = phi ptr [ %210, %208 ], [ %193, %196 ], [ %192, %201 ], [ %219, %217 ]
-  %.sroa.10.1.i = phi ptr [ %212, %208 ], [ %198, %196 ], [ %202, %201 ], [ %202, %217 ]
-  %.sroa.0.0.i59 = phi ptr [ %16, %208 ], [ %16, %196 ], [ %16, %201 ], [ %224, %217 ]
+  %.sroa.18.1.i = phi ptr [ %193, %196 ], [ %192, %201 ], [ %210, %208 ], [ %219, %217 ]
+  %.sroa.10.1.i = phi ptr [ %198, %196 ], [ %202, %201 ], [ %212, %208 ], [ %202, %217 ]
+  %.sroa.0.0.i59 = phi ptr [ %16, %196 ], [ %16, %201 ], [ %16, %208 ], [ %224, %217 ]
   %231 = ptrtoint ptr %.sroa.10.1.i to i64
   %232 = ptrtoint ptr %.sroa.0.0.i59 to i64
   %233 = sub nuw i64 %231, %232
@@ -979,8 +979,8 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hfa237d32bb8cc797E(ptr noal
 
 .invoke:                                          ; preds = %.loopexit77, %81, %167
   %84 = phi i64 [ %163, %167 ], [ %.0127, %81 ], [ %.0127, %.loopexit77 ]
-  %85 = phi i64 [ %172, %167 ], [ %.0.sroa.speculated.i.i, %81 ], [ %88, %.loopexit77 ]
-  %86 = phi ptr [ @anon.6b219b4555739cd893678b08ab5b0deb.19, %167 ], [ @anon.6b219b4555739cd893678b08ab5b0deb.40, %81 ], [ @anon.6b219b4555739cd893678b08ab5b0deb.16, %.loopexit77 ]
+  %85 = phi i64 [ %172, %167 ], [ %88, %.loopexit77 ], [ %.0.sroa.speculated.i.i, %81 ]
+  %86 = phi ptr [ @anon.6b219b4555739cd893678b08ab5b0deb.19, %167 ], [ @anon.6b219b4555739cd893678b08ab5b0deb.16, %.loopexit77 ], [ @anon.6b219b4555739cd893678b08ab5b0deb.40, %81 ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %84, i64 noundef %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %86) #12
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1318,9 +1318,9 @@ _ZN4core5slice4sort20provide_sorted_batch17hec8f06d639fa12e1E.exit: ; preds = %.
   br label %.body
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h639f502dd510c5f0E.exit": ; preds = %209, %196, %187, %182
-  %.sroa.18.1.i = phi ptr [ %198, %196 ], [ %179, %182 ], [ %178, %187 ], [ %211, %209 ]
-  %.sroa.10.1.i = phi ptr [ %200, %196 ], [ %184, %182 ], [ %188, %187 ], [ %188, %209 ]
-  %.sroa.0.0.i57 = phi ptr [ %14, %196 ], [ %14, %182 ], [ %14, %187 ], [ %216, %209 ]
+  %.sroa.18.1.i = phi ptr [ %179, %182 ], [ %178, %187 ], [ %198, %196 ], [ %211, %209 ]
+  %.sroa.10.1.i = phi ptr [ %184, %182 ], [ %188, %187 ], [ %200, %196 ], [ %188, %209 ]
+  %.sroa.0.0.i57 = phi ptr [ %14, %182 ], [ %14, %187 ], [ %14, %196 ], [ %216, %209 ]
   %223 = ptrtoint ptr %.sroa.10.1.i to i64
   %224 = ptrtoint ptr %.sroa.0.0.i57 to i64
   %225 = sub nuw i64 %223, %224

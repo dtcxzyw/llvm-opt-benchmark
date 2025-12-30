@@ -738,7 +738,7 @@ read_old_huffman_tables.exit:                     ; preds = %205
   br label %.thread
 
 .thread199:                                       ; preds = %302, %.thread202
-  %311 = phi i32 [ %307, %.thread202 ], [ %.pr, %302 ]
+  %311 = phi i32 [ %.pr, %302 ], [ %307, %.thread202 ]
   %312 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %313 = load i32, ptr %312, align 8, !tbaa !49
   %314 = icmp eq i32 %313, 2
@@ -757,7 +757,7 @@ read_old_huffman_tables.exit:                     ; preds = %205
   br label %.thread
 
 .thread199.thread.sink.split:                     ; preds = %240, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262
-  %.sink232 = phi i32 [ 93, %301 ], [ 30, %262 ], [ 71, %263 ], [ 73, %264 ], [ 75, %265 ], [ 135, %266 ], [ 137, %267 ], [ 77, %268 ], [ 111, %269 ], [ 5, %270 ], [ 66, %271 ], [ 68, %272 ], [ 131, %273 ], [ 133, %274 ], [ 49, %275 ], [ 70, %276 ], [ 64, %277 ], [ 127, %278 ], [ 129, %279 ], [ 47, %280 ], [ 7, %281 ], [ 31, %282 ], [ 60, %284 ], [ 62, %285 ], [ 123, %286 ], [ 125, %287 ], [ 45, %288 ], [ 6, %289 ], [ 79, %290 ], [ 85, %291 ], [ 91, %292 ], [ 97, %293 ], [ 78, %294 ], [ 83, %295 ], [ 89, %296 ], [ 95, %297 ], [ 33, %298 ], [ 81, %299 ], [ 87, %300 ], [ 8, %240 ]
+  %.sink232 = phi i32 [ 30, %262 ], [ 71, %263 ], [ 73, %264 ], [ 75, %265 ], [ 135, %266 ], [ 137, %267 ], [ 77, %268 ], [ 111, %269 ], [ 5, %270 ], [ 66, %271 ], [ 68, %272 ], [ 131, %273 ], [ 133, %274 ], [ 49, %275 ], [ 70, %276 ], [ 64, %277 ], [ 127, %278 ], [ 129, %279 ], [ 47, %280 ], [ 7, %281 ], [ 31, %282 ], [ 60, %284 ], [ 62, %285 ], [ 123, %286 ], [ 125, %287 ], [ 45, %288 ], [ 6, %289 ], [ 79, %290 ], [ 85, %291 ], [ 91, %292 ], [ 97, %293 ], [ 78, %294 ], [ 83, %295 ], [ 89, %296 ], [ 95, %297 ], [ 33, %298 ], [ 81, %299 ], [ 87, %300 ], [ 93, %301 ], [ 8, %240 ]
   store i32 %.sink232, ptr %16, align 8, !tbaa !36
   br label %.thread199.thread
 
@@ -783,7 +783,7 @@ read_old_huffman_tables.exit:                     ; preds = %205
   br i1 %.not192, label %.thread, label %321
 
 .thread:                                          ; preds = %206, %321, %322, %.thread223, %240, %220, %read_old_huffman_tables.exit, %1, %99, %319, %310
-  %.0172 = phi i32 [ %8, %1 ], [ %212, %read_old_huffman_tables.exit ], [ -1094995529, %310 ], [ -1094995529, %319 ], [ -1094995529, %240 ], [ 0, %321 ], [ -1094995529, %220 ], [ %107, %99 ], [ -1094995529, %.thread223 ], [ -12, %322 ], [ %210, %206 ]
+  %.0172 = phi i32 [ -1094995529, %310 ], [ -1094995529, %319 ], [ %107, %99 ], [ %8, %1 ], [ %212, %read_old_huffman_tables.exit ], [ -1094995529, %220 ], [ -1094995529, %240 ], [ -1094995529, %.thread223 ], [ -12, %322 ], [ 0, %321 ], [ %210, %206 ]
   ret i32 %.0172
 }
 
@@ -2365,7 +2365,7 @@ draw_slice.exit532.i:                             ; preds = %803, %801
   br label %.thread
 
 .thread:                                          ; preds = %118, %139, %.thread549.i, %.thread550.i, %66, %78, %51, %47, %38, %33, %4, %._crit_edge
-  %.096 = phi i32 [ -1094995529, %4 ], [ -12, %33 ], [ %42, %38 ], [ %49, %47 ], [ -1094995529, %51 ], [ -1163346256, %.thread549.i ], [ %1009, %._crit_edge ], [ -1094995529, %78 ], [ -1094995529, %66 ], [ -1163346256, %.thread550.i ], [ -1094995529, %139 ], [ -1094995529, %118 ]
+  %.096 = phi i32 [ %1009, %._crit_edge ], [ -1094995529, %4 ], [ -12, %33 ], [ %42, %38 ], [ %49, %47 ], [ -1094995529, %51 ], [ -1094995529, %78 ], [ -1094995529, %66 ], [ -1163346256, %.thread549.i ], [ -1163346256, %.thread550.i ], [ -1094995529, %139 ], [ -1094995529, %118 ]
   ret i32 %.096
 }
 
@@ -2710,7 +2710,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_joint_tables(ptr 
   br label %82
 
 82:                                               ; preds = %66, %58, %52
-  %.3.us = phi i32 [ %.2152198.us, %52 ], [ %81, %66 ], [ %.2152198.us, %58 ]
+  %.3.us = phi i32 [ %81, %66 ], [ %.2152198.us, %52 ], [ %.2152198.us, %58 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next, %wide.trip.count213
   br i1 %exitcond209.not, label %..loopexit_crit_edge.us, label %52, !llvm.loop !101
@@ -2889,7 +2889,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_joint_tables(ptr 
   br label %172
 
 172:                                              ; preds = %1, %.loopexit181
-  %.0 = phi i32 [ -12, %1 ], [ %.2, %.loopexit181 ]
+  %.0 = phi i32 [ %.2, %.loopexit181 ], [ -12, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -3317,7 +3317,7 @@ define internal fastcc void @decode_plane_bitstream(ptr noundef %0, i32 noundef 
   br i1 %exitcond789.not, label %.critedge, label %176, !llvm.loop !112
 
 .critedge:                                        ; preds = %175, %27, %320, %.preheader732, %.preheader
-  %.4638 = phi i32 [ %.8642, %320 ], [ %10, %.preheader ], [ %10, %.preheader732 ], [ %.3637, %175 ], [ %.0634753, %27 ]
+  %.4638 = phi i32 [ %10, %.preheader ], [ %10, %.preheader732 ], [ %.8642, %320 ], [ %.3637, %175 ], [ %.0634753, %27 ]
   %321 = and i32 %1, 1
   %.not703 = icmp eq i32 %321, 0
   br i1 %.not703, label %394, label %322
@@ -3820,8 +3820,8 @@ define internal fastcc void @decode_plane_bitstream(ptr noundef %0, i32 noundef 
   br label %.critedge2
 
 .critedge2:                                       ; preds = %562, %.critedge2.loopexit, %.preheader735, %.preheader734
-  %.pre-phi = phi i32 [ %400, %.preheader734 ], [ %.pre, %.critedge2.loopexit ], [ %400, %.preheader735 ], [ %564, %562 ]
-  %.4622 = phi i32 [ %398, %.preheader734 ], [ %.8, %.critedge2.loopexit ], [ %398, %.preheader735 ], [ %.3621, %562 ]
+  %.pre-phi = phi i32 [ %.pre, %.critedge2.loopexit ], [ %400, %.preheader735 ], [ %400, %.preheader734 ], [ %564, %562 ]
+  %.4622 = phi i32 [ %.8, %.critedge2.loopexit ], [ %398, %.preheader735 ], [ %398, %.preheader734 ], [ %.3621, %562 ]
   %707 = and i32 %1, 1
   %.not701 = icmp ne i32 %707, 0
   %708 = icmp sgt i32 %.pre-phi, 0
@@ -4308,7 +4308,7 @@ get_vlc2.exit715:                                 ; preds = %get_vlc2.exit711, %
   br i1 %exitcond771.not, label %.critedge4, label %940, !llvm.loop !116
 
 .critedge4:                                       ; preds = %get_vlc2.exit707, %788, %get_vlc2.exit715, %.preheader738, %.preheader737
-  %.val727 = phi i32 [ %1082, %get_vlc2.exit715 ], [ %398, %.preheader737 ], [ %398, %.preheader738 ], [ %789, %788 ], [ %934, %get_vlc2.exit707 ]
+  %.val727 = phi i32 [ %398, %.preheader738 ], [ %398, %.preheader737 ], [ %1082, %get_vlc2.exit715 ], [ %934, %get_vlc2.exit707 ], [ %789, %788 ]
   %1088 = and i32 %1, 1
   %.not697 = icmp ne i32 %1088, 0
   %1089 = icmp sgt i32 %.val722, %.val727
@@ -5622,7 +5622,7 @@ define internal fastcc void @decode_422_bitstream(ptr noundef captures(none) %0,
   br i1 %exitcond711.not, label %.loopexit, label %638, !llvm.loop !120
 
 .loopexit:                                        ; preds = %618, %625, %924, %.critedge, %.preheader
-  %.15 = phi i32 [ %.8, %.critedge ], [ %4, %.preheader ], [ %.8, %625 ], [ %.22, %924 ], [ %.14, %618 ]
+  %.15 = phi i32 [ %4, %.preheader ], [ %.8, %.critedge ], [ %.22, %924 ], [ %.8, %625 ], [ %.14, %618 ]
   store i32 %.15, ptr %3, align 8, !tbaa !105
   ret void
 }
@@ -6057,7 +6057,7 @@ define internal fastcc void @decode_gray_bitstream(ptr noundef captures(none) %0
   br i1 %exitcond261.not, label %.loopexit, label %178, !llvm.loop !123
 
 .loopexit:                                        ; preds = %164, %169, %322, %.critedge, %.preheader
-  %.4 = phi i32 [ %.0212.lcssa, %.critedge ], [ %4, %.preheader ], [ %.0212.lcssa, %169 ], [ %.8, %322 ], [ %.3, %164 ]
+  %.4 = phi i32 [ %4, %.preheader ], [ %.0212.lcssa, %.critedge ], [ %.8, %322 ], [ %.0212.lcssa, %169 ], [ %.3, %164 ]
   store i32 %.4, ptr %3, align 8, !tbaa !105
   ret void
 }
@@ -7321,7 +7321,7 @@ define internal fastcc void @decode_bgr_bitstream(ptr noundef captures(none) %0,
   br i1 %exitcond75.not, label %decode_bgr_1.exit, label %747, !llvm.loop !124
 
 decode_bgr_1.exit:                                ; preds = %514, %244, %233, %20, %1011, %747, %736, %529, %740, %522, %237, %13
-  %.0311.i24.lcssa.sink = phi i32 [ %9, %522 ], [ %9, %740 ], [ %.0311.i48, %20 ], [ %9, %13 ], [ %1017, %1011 ], [ %9, %237 ], [ %.0311.i2460, %529 ], [ %.1312.i25, %736 ], [ %.0311.i2854, %747 ], [ %.1312.i, %233 ], [ %.0311.i1144, %244 ], [ %520, %514 ]
+  %.0311.i24.lcssa.sink = phi i32 [ %9, %13 ], [ %9, %237 ], [ %9, %522 ], [ %9, %740 ], [ %.1312.i25, %736 ], [ %.0311.i2460, %529 ], [ %1017, %1011 ], [ %.0311.i2854, %747 ], [ %.1312.i, %233 ], [ %.0311.i48, %20 ], [ %520, %514 ], [ %.0311.i1144, %244 ]
   store i32 %.0311.i24.lcssa.sink, ptr %8, align 8, !tbaa !105
   ret void
 }

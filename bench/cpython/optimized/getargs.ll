@@ -652,7 +652,7 @@ PyByteArray_GET_SIZE.exit:                        ; preds = %PyByteArray_AS_STRI
   br label %46
 
 46:                                               ; preds = %38, %44, %34, %2
-  %.0 = phi ptr [ null, %34 ], [ null, %2 ], [ %41, %44 ], [ %41, %38 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %34 ], [ %41, %44 ], [ %41, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -825,7 +825,7 @@ PyByteArray_GET_SIZE.exit:                        ; preds = %PyByteArray_AS_STRI
   br label %46
 
 46:                                               ; preds = %38, %44, %34, %2
-  %.0 = phi ptr [ null, %34 ], [ null, %2 ], [ %41, %44 ], [ %41, %38 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %34 ], [ %41, %44 ], [ %41, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1761,7 +1761,7 @@ PyTuple_SET_ITEM.exit:                            ; preds = %Py_SIZE.exit.i
   br label %_Py_NewRef.exit87
 
 _Py_NewRef.exit87:                                ; preds = %51, %PyTuple_SET_ITEM.exit, %.preheader, %120, %117, %59, %.critedge, %._crit_edge, %32, %2, %13
-  %.0 = phi ptr [ null, %2 ], [ null, %13 ], [ @_Py_NoneStruct, %120 ], [ null, %32 ], [ %91, %.preheader ], [ null, %._crit_edge ], [ null, %.critedge ], [ null, %59 ], [ @_Py_NoneStruct, %117 ], [ %91, %PyTuple_SET_ITEM.exit ], [ null, %51 ]
+  %.0 = phi ptr [ null, %13 ], [ null, %2 ], [ null, %32 ], [ null, %._crit_edge ], [ null, %.critedge ], [ null, %59 ], [ @_Py_NoneStruct, %117 ], [ @_Py_NoneStruct, %120 ], [ %91, %.preheader ], [ %91, %PyTuple_SET_ITEM.exit ], [ null, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2114,7 +2114,7 @@ Py_DECREF.exit69:                                 ; preds = %105, %107, %110
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %115, %112, %Py_DECREF.exit69, %102, %99, %Py_DECREF.exit65, %72, %69, %Py_DECREF.exit57, %55, %52, %Py_DECREF.exit53, %25, %22, %Py_DECREF.exit47, %12, %9, %7, %2, %Py_DECREF.exit63, %Py_DECREF.exit51
-  %.0 = phi ptr [ null, %12 ], [ null, %Py_DECREF.exit51 ], [ null, %25 ], [ null, %55 ], [ null, %Py_DECREF.exit63 ], [ null, %72 ], [ null, %102 ], [ null, %2 ], [ null, %7 ], [ null, %9 ], [ null, %Py_DECREF.exit47 ], [ null, %22 ], [ null, %Py_DECREF.exit53 ], [ null, %52 ], [ null, %Py_DECREF.exit57 ], [ null, %69 ], [ null, %Py_DECREF.exit65 ], [ null, %99 ], [ @_Py_NoneStruct, %Py_DECREF.exit69 ], [ @_Py_NoneStruct, %112 ], [ @_Py_NoneStruct, %115 ]
+  %.0 = phi ptr [ null, %Py_DECREF.exit51 ], [ null, %Py_DECREF.exit63 ], [ null, %2 ], [ null, %7 ], [ null, %9 ], [ null, %12 ], [ null, %Py_DECREF.exit47 ], [ null, %22 ], [ null, %25 ], [ null, %Py_DECREF.exit53 ], [ null, %52 ], [ null, %55 ], [ null, %Py_DECREF.exit57 ], [ null, %69 ], [ null, %72 ], [ null, %Py_DECREF.exit65 ], [ null, %99 ], [ null, %102 ], [ @_Py_NoneStruct, %Py_DECREF.exit69 ], [ @_Py_NoneStruct, %112 ], [ @_Py_NoneStruct, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

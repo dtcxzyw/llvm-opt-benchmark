@@ -270,13 +270,13 @@ parse_nal_unit.exit:                              ; preds = %95, %94
   br label %parse_nal_unit.exit.thread
 
 parse_nal_unit.exit.thread:                       ; preds = %51, %89, %84, %71, %63, %parse_nal_unit.exit
-  %.0.i105 = phi i32 [ %.1.i, %parse_nal_unit.exit ], [ %87, %89 ], [ %82, %84 ], [ -1094995529, %63 ], [ -1094995529, %71 ], [ -1094995529, %51 ]
+  %.0.i105 = phi i32 [ %.1.i, %parse_nal_unit.exit ], [ %87, %89 ], [ %82, %84 ], [ -1094995529, %71 ], [ -1094995529, %63 ], [ -1094995529, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #7
   br label %.thread
 
-parse_nal_unit.exit.thread107:                    ; preds = %72, %80, %85, %parse_nal_unit.exit.thread111
-  %.0.i109 = phi i1 [ %.1.i.ph, %parse_nal_unit.exit.thread111 ], [ true, %85 ], [ true, %80 ], [ true, %72 ]
+parse_nal_unit.exit.thread107:                    ; preds = %80, %85, %72, %parse_nal_unit.exit.thread111
+  %.0.i109 = phi i1 [ %.1.i.ph, %parse_nal_unit.exit.thread111 ], [ true, %72 ], [ true, %85 ], [ true, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %121 = load i64, ptr %20, align 8, !tbaa !27
   %122 = zext nneg i32 %49 to i64
@@ -342,14 +342,14 @@ parse_nal_unit.exit.thread107:                    ; preds = %72, %80, %85, %pars
   br label %.thread119
 
 .thread:                                          ; preds = %48, %38, %129, %125, %parse_nal_unit.exit.thread, %47, %.thread124
-  %.3.ph = phi i32 [ %140, %.thread124 ], [ -1094995529, %47 ], [ -1094995529, %129 ], [ -34, %125 ], [ %.0.i105, %parse_nal_unit.exit.thread ], [ %39, %38 ], [ -1094995529, %48 ]
+  %.3.ph = phi i32 [ %140, %.thread124 ], [ -1094995529, %129 ], [ -34, %125 ], [ %.0.i105, %parse_nal_unit.exit.thread ], [ -1094995529, %47 ], [ %39, %38 ], [ -1094995529, %48 ]
   call void @av_packet_unref(ptr noundef nonnull %7) #7
   call void @av_packet_unref(ptr noundef %9) #7
   store i64 0, ptr %20, align 8, !tbaa !27
   br label %.thread119
 
 .thread119:                                       ; preds = %41, %27, %29, %142, %.thread
-  %.2 = phi i32 [ 0, %142 ], [ %.3.ph, %.thread ], [ %25, %27 ], [ -541478725, %29 ], [ -1094995529, %41 ]
+  %.2 = phi i32 [ %.3.ph, %.thread ], [ 0, %142 ], [ -541478725, %29 ], [ %25, %27 ], [ -1094995529, %41 ]
   ret i32 %.2
 }
 

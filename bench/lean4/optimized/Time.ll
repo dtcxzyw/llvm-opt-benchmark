@@ -1326,7 +1326,7 @@ lean_dec.exit232.thread381:                       ; preds = %lean_nat_sub.exit, 
   br label %lean_dec.exit233
 
 lean_dec.exit233:                                 ; preds = %458, %462, %481, %480, %478, %lean_dec.exit232
-  %.1.i377380 = phi ptr [ %.1.i377383, %481 ], [ %469, %lean_dec.exit232 ], [ %.1.i377383, %478 ], [ %.1.i377383, %480 ], [ inttoptr (i64 1 to ptr), %458 ], [ %466, %462 ]
+  %.1.i377380 = phi ptr [ %469, %lean_dec.exit232 ], [ %.1.i377383, %478 ], [ %.1.i377383, %480 ], [ %.1.i377383, %481 ], [ inttoptr (i64 1 to ptr), %458 ], [ %466, %462 ]
   %482 = tail call ptr @l___private_Init_Data_Repr_0__Nat_reprFast(ptr noundef %.1.i377380) #3
   tail call void @lean_inc_heartbeat() #3
   %483 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
@@ -1691,7 +1691,7 @@ lean_alloc_ctor.exit375:                          ; preds = %610
   br label %lean_dec.exit219
 
 lean_dec.exit219:                                 ; preds = %lean_dec.exit234, %525, %527, %528, %lean_dec.exit223, %265, %267, %268, %lean_dec.exit218, %176, %178, %179, %lean_alloc_ctor.exit330, %lean_dec.exit228, %615, %l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Time_elabTimeCmd___spec__1___rarg.exit
-  %.0187 = phi ptr [ %43, %l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Time_elabTimeCmd___spec__1___rarg.exit ], [ %82, %lean_dec.exit228 ], [ %163, %lean_dec.exit218 ], [ %.0, %615 ], [ %331, %lean_alloc_ctor.exit330 ], [ %252, %lean_dec.exit223 ], [ %163, %179 ], [ %163, %178 ], [ %163, %176 ], [ %252, %268 ], [ %252, %267 ], [ %252, %265 ], [ %512, %528 ], [ %512, %527 ], [ %512, %525 ], [ %512, %lean_dec.exit234 ]
+  %.0187 = phi ptr [ %43, %l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Time_elabTimeCmd___spec__1___rarg.exit ], [ %331, %lean_alloc_ctor.exit330 ], [ %82, %lean_dec.exit228 ], [ %.0, %615 ], [ %163, %179 ], [ %163, %178 ], [ %163, %176 ], [ %163, %lean_dec.exit218 ], [ %252, %268 ], [ %252, %267 ], [ %252, %265 ], [ %252, %lean_dec.exit223 ], [ %512, %528 ], [ %512, %527 ], [ %512, %525 ], [ %512, %lean_dec.exit234 ]
   ret ptr %.0187
 }
 

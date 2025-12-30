@@ -518,7 +518,7 @@ lookup_str_sym.exit:                              ; preds = %rb_vm_lock_enter.ex
   br label %31
 
 31:                                               ; preds = %7, %27, %29, %4
-  %.0 = phi i64 [ %0, %7 ], [ 146, %4 ], [ %28, %27 ], [ %30, %29 ]
+  %.0 = phi i64 [ 146, %4 ], [ %0, %7 ], [ %28, %27 ], [ %30, %29 ]
   ret i64 %.0
 }
 
@@ -1179,23 +1179,23 @@ rb_sym_constant_char_p.exit.i:                    ; preds = %90
 rb_sym_constant_char_p.exit.thread.i:             ; preds = %rb_sym_constant_char_p.exit.i, %.critedge.i53.i, %115, %102, %92
   br label %enc_synmane_type_leading_chars.exit.thread78
 
-enc_synmane_type_leading_chars.exit.thread:       ; preds = %76, %85, %85, %82, %60, %57, %61, %64, %70, %73, %is_special_global_name.exit.i, %67, %11, %11, %11, %11, %11, %11, %11
-  %.sroa.32.0.i.ph = phi i32 [ 14, %76 ], [ 14, %73 ], [ 14, %70 ], [ 6, %is_special_global_name.exit.i ], [ 14, %85 ], [ 14, %64 ], [ 14, %61 ], [ 14, %57 ], [ 14, %60 ], [ 14, %67 ], [ 14, %82 ], [ 14, %85 ], [ 14, %11 ], [ 14, %11 ], [ 14, %11 ], [ 14, %11 ], [ 14, %11 ], [ 14, %11 ], [ 14, %11 ]
-  %.sroa.63.0.i.ph = phi i64 [ %.42.i, %76 ], [ %.41.i, %73 ], [ %.40.i, %70 ], [ %1, %is_special_global_name.exit.i ], [ 2, %85 ], [ %.39.i, %64 ], [ %.38.i, %61 ], [ 1, %57 ], [ 2, %60 ], [ 2, %67 ], [ %.43.i, %82 ], [ 2, %85 ], [ 1, %11 ], [ 1, %11 ], [ 1, %11 ], [ 1, %11 ], [ 1, %11 ], [ 1, %11 ], [ 1, %11 ]
+enc_synmane_type_leading_chars.exit.thread:       ; preds = %60, %57, %61, %64, %70, %73, %76, %82, %85, %85, %is_special_global_name.exit.i, %67, %11, %11, %11, %11, %11, %11, %11
+  %.sroa.32.0.i.ph = phi i32 [ 14, %85 ], [ 14, %85 ], [ 14, %82 ], [ 14, %76 ], [ 14, %73 ], [ 14, %70 ], [ 14, %64 ], [ 14, %61 ], [ 14, %57 ], [ 14, %60 ], [ 6, %is_special_global_name.exit.i ], [ 14, %67 ], [ 14, %11 ], [ 14, %11 ], [ 14, %11 ], [ 14, %11 ], [ 14, %11 ], [ 14, %11 ], [ 14, %11 ]
+  %.sroa.63.0.i.ph = phi i64 [ 2, %85 ], [ 2, %85 ], [ %.43.i, %82 ], [ %.42.i, %76 ], [ %.41.i, %73 ], [ %.40.i, %70 ], [ %.39.i, %64 ], [ %.38.i, %61 ], [ 1, %57 ], [ 2, %60 ], [ %1, %is_special_global_name.exit.i ], [ 2, %67 ], [ 1, %11 ], [ 1, %11 ], [ 1, %11 ], [ 1, %11 ], [ 1, %11 ], [ 1, %11 ], [ 1, %11 ]
   %130 = getelementptr i8, ptr %0, i64 %.sroa.63.0.i.ph
   br label %.critedge
 
-enc_synmane_type_leading_chars.exit.thread78:     ; preds = %44, %79, %95, %13, %rb_sym_constant_char_p.exit.thread.i, %rb_sym_constant_char_p.exit.i, %127, %115, %is_special_global_name.exit.i, %30
-  %.sroa.32.0.i.ph76 = phi i64 [ 25769803778, %30 ], [ 25769803778, %is_special_global_name.exit.i ], [ 42949672962, %115 ], [ 42949672962, %127 ], [ 42949672962, %rb_sym_constant_char_p.exit.i ], [ 2, %rb_sym_constant_char_p.exit.thread.i ], [ 25769803778, %13 ], [ 42949672962, %95 ], [ 60129542146, %79 ], [ 25769803778, %44 ]
-  %.sroa.63.0.i.ph77 = phi i64 [ 1, %30 ], [ 1, %is_special_global_name.exit.i ], [ 0, %115 ], [ 0, %127 ], [ 0, %rb_sym_constant_char_p.exit.i ], [ 0, %rb_sym_constant_char_p.exit.thread.i ], [ 1, %13 ], [ 0, %95 ], [ 0, %79 ], [ 1, %44 ]
+enc_synmane_type_leading_chars.exit.thread78:     ; preds = %79, %rb_sym_constant_char_p.exit.thread.i, %rb_sym_constant_char_p.exit.i, %127, %95, %115, %44, %30, %13, %is_special_global_name.exit.i
+  %.sroa.32.0.i.ph76 = phi i64 [ 25769803778, %is_special_global_name.exit.i ], [ 25769803778, %13 ], [ 25769803778, %30 ], [ 25769803778, %44 ], [ 42949672962, %115 ], [ 42949672962, %95 ], [ 42949672962, %127 ], [ 42949672962, %rb_sym_constant_char_p.exit.i ], [ 2, %rb_sym_constant_char_p.exit.thread.i ], [ 60129542146, %79 ]
+  %.sroa.63.0.i.ph77 = phi i64 [ 1, %is_special_global_name.exit.i ], [ 1, %13 ], [ 1, %30 ], [ 1, %44 ], [ 0, %115 ], [ 0, %95 ], [ 0, %127 ], [ 0, %rb_sym_constant_char_p.exit.i ], [ 0, %rb_sym_constant_char_p.exit.thread.i ], [ 0, %79 ]
   %131 = getelementptr i8, ptr %0, i64 %.sroa.63.0.i.ph77
   %.sroa.0.4.extract.shift83 = lshr i64 %.sroa.32.0.i.ph76, 32
   %.sroa.0.4.extract.trunc84 = trunc nuw nsw i64 %.sroa.0.4.extract.shift83 to i32
   br label %133
 
 enc_synmane_type_leading_chars.exit:              ; preds = %54, %88
-  %.sroa.32.0.i = phi i64 [ %.44.i, %88 ], [ %.36.i, %54 ]
-  %.sroa.63.0.i = phi i64 [ 1, %88 ], [ %.37.i, %54 ]
+  %.sroa.32.0.i = phi i64 [ %.36.i, %54 ], [ %.44.i, %88 ]
+  %.sroa.63.0.i = phi i64 [ %.37.i, %54 ], [ 1, %88 ]
   %132 = getelementptr i8, ptr %0, i64 %.sroa.63.0.i
   %.sroa.0.4.extract.shift = lshr i64 %.sroa.32.0.i, 32
   %.sroa.0.4.extract.trunc = trunc nuw nsw i64 %.sroa.0.4.extract.shift to i32
@@ -1311,14 +1311,14 @@ enc_synmane_type_leading_chars.exit:              ; preds = %54, %88
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge2, %enc_synmane_type_leading_chars.exit.thread, %165, %179, %174, %170, %enc_synmane_type_leading_chars.exit
-  %.051 = phi ptr [ %132, %enc_synmane_type_leading_chars.exit ], [ %130, %enc_synmane_type_leading_chars.exit.thread ], [ %.152102, %165 ], [ %171, %170 ], [ %171, %174 ], [ %180, %179 ], [ %163, %.critedge2 ]
-  %.0 = phi i32 [ %.sroa.0.4.extract.trunc, %enc_synmane_type_leading_chars.exit ], [ %.sroa.32.0.i.ph, %enc_synmane_type_leading_chars.exit.thread ], [ %.sroa.0.4.extract.trunc88, %165 ], [ 14, %170 ], [ 14, %174 ], [ 8, %179 ], [ %.sroa.0.4.extract.trunc88, %.critedge2 ]
+  %.051 = phi ptr [ %132, %enc_synmane_type_leading_chars.exit ], [ %.152102, %165 ], [ %171, %170 ], [ %171, %174 ], [ %180, %179 ], [ %130, %enc_synmane_type_leading_chars.exit.thread ], [ %163, %.critedge2 ]
+  %.0 = phi i32 [ %.sroa.0.4.extract.trunc, %enc_synmane_type_leading_chars.exit ], [ %.sroa.0.4.extract.trunc88, %165 ], [ 14, %170 ], [ 14, %174 ], [ 8, %179 ], [ %.sroa.32.0.i.ph, %enc_synmane_type_leading_chars.exit.thread ], [ %.sroa.0.4.extract.trunc88, %.critedge2 ]
   %181 = icmp eq ptr %.051, %7
   %182 = select i1 %181, i32 %.0, i32 -1
   br label %enc_synmane_type_leading_chars.exit.thread91
 
-enc_synmane_type_leading_chars.exit.thread91:     ; preds = %11, %rb_enc_asciicompat.exit.i, %4, %67, %176, %166, %148, %enc_synmane_type_leading_chars.exit, %.critedge, %153
-  %.050 = phi i32 [ %182, %.critedge ], [ -1, %166 ], [ -1, %enc_synmane_type_leading_chars.exit ], [ -1, %153 ], [ 8, %148 ], [ -1, %176 ], [ -1, %67 ], [ -1, %4 ], [ -1, %rb_enc_asciicompat.exit.i ], [ -1, %11 ]
+enc_synmane_type_leading_chars.exit.thread91:     ; preds = %4, %67, %11, %rb_enc_asciicompat.exit.i, %176, %166, %148, %enc_synmane_type_leading_chars.exit, %.critedge, %153
+  %.050 = phi i32 [ %182, %.critedge ], [ -1, %153 ], [ -1, %enc_synmane_type_leading_chars.exit ], [ 8, %148 ], [ -1, %166 ], [ -1, %176 ], [ -1, %rb_enc_asciicompat.exit.i ], [ -1, %11 ], [ -1, %67 ], [ -1, %4 ]
   ret i32 %.050
 }
 
@@ -1725,7 +1725,7 @@ RB_DYNAMIC_SYM_P.exit:                            ; preds = %5
   br label %dsymbol_check.exit
 
 dsymbol_check.exit:                               ; preds = %5, %17, %15, %1, %RB_DYNAMIC_SYM_P.exit
-  %.06 = phi i64 [ %6, %RB_DYNAMIC_SYM_P.exit ], [ %6, %15 ], [ 0, %1 ], [ %25, %17 ], [ %6, %5 ]
+  %.06 = phi i64 [ %6, %RB_DYNAMIC_SYM_P.exit ], [ 0, %1 ], [ %25, %17 ], [ %6, %15 ], [ %6, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.06
 }
@@ -2346,7 +2346,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %RB_DYNAMIC_SYM_P.ex
   br label %27
 
 27:                                               ; preds = %RB_DYNAMIC_SYM_P.exit, %26
-  %.0 = phi i64 [ %2, %RB_DYNAMIC_SYM_P.exit ], [ %22, %26 ]
+  %.0 = phi i64 [ %22, %26 ], [ %2, %RB_DYNAMIC_SYM_P.exit ]
   %28 = tail call ptr @rb_enc_get(i64 noundef %.0) #19
   %29 = getelementptr i8, ptr %28, i64 20
   %.val.i.i = load i32, ptr %29, align 4, !tbaa !40
@@ -2376,7 +2376,7 @@ sym_check_asciionly.exit:                         ; preds = %31, %27, %rb_enc_as
   br label %38
 
 38:                                               ; preds = %15, %sym_check_asciionly.exit, %19, %5
-  %.017 = phi i64 [ %6, %5 ], [ %37, %sym_check_asciionly.exit ], [ 0, %19 ], [ %17, %15 ]
+  %.017 = phi i64 [ %6, %5 ], [ 0, %19 ], [ %37, %sym_check_asciionly.exit ], [ %17, %15 ]
   ret i64 %.017
 }
 
@@ -2496,7 +2496,7 @@ RB_DYNAMIC_SYM_P.exit:                            ; preds = %6
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %RB_DYNAMIC_SYM_P.exit, %6, %14, %18, %4
-  %.0 = phi i64 [ %5, %4 ], [ %., %14 ], [ %19, %18 ], [ 0, %RB_DYNAMIC_SYM_P.exit ], [ 0, %6 ]
+  %.0 = phi i64 [ %5, %4 ], [ %19, %18 ], [ %., %14 ], [ 0, %6 ], [ 0, %RB_DYNAMIC_SYM_P.exit ]
   ret i64 %.0
 }
 
@@ -2589,7 +2589,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %RB_DYNAMIC_SYM_P.ex
   br label %38
 
 38:                                               ; preds = %RB_DYNAMIC_SYM_P.exit, %37
-  %.1 = phi i64 [ %4, %RB_DYNAMIC_SYM_P.exit ], [ %33, %37 ]
+  %.1 = phi i64 [ %33, %37 ], [ %4, %RB_DYNAMIC_SYM_P.exit ]
   %39 = tail call ptr @rb_enc_get(i64 noundef %.1) #19
   %40 = getelementptr i8, ptr %39, i64 20
   %.val.i.i = load i32, ptr %40, align 4, !tbaa !40
@@ -2641,7 +2641,7 @@ lookup_str_sym.exit:                              ; preds = %rb_vm_lock_enter.ex
   br label %53
 
 53:                                               ; preds = %lookup_str_sym.exit, %15, %rb_vm_lock_leave.exit, %1
-  %.0 = phi i64 [ %.0.i24, %rb_vm_lock_leave.exit ], [ %4, %1 ], [ %., %lookup_str_sym.exit ], [ %4, %15 ]
+  %.0 = phi i64 [ %4, %1 ], [ %4, %15 ], [ %.0.i24, %rb_vm_lock_leave.exit ], [ %., %lookup_str_sym.exit ]
   ret i64 %.0
 }
 
@@ -3307,7 +3307,7 @@ define hidden void @rb_id_table_foreach(ptr noundef captures(none) %0, ptr nound
   br label %key2id.exit
 
 key2id.exit:                                      ; preds = %13, %18, %20
-  %.1.i.i = phi i64 [ %22, %20 ], [ %19, %18 ], [ %14, %13 ]
+  %.1.i.i = phi i64 [ %19, %18 ], [ %22, %20 ], [ %14, %13 ]
   %23 = load ptr, ptr %6, align 8, !tbaa !85
   %24 = getelementptr %struct.rb_id_item, ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8

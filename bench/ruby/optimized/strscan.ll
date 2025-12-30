@@ -1370,7 +1370,7 @@ RSTRING_PTR.exit:                                 ; preds = %strscan_must_ascii_
   br label %55
 
 55:                                               ; preds = %34, %RSTRING_PTR.exit, %.critedge
-  %.0 = phi i64 [ 4, %RSTRING_PTR.exit ], [ %54, %.critedge ], [ 4, %34 ]
+  %.0 = phi i64 [ %54, %.critedge ], [ 4, %RSTRING_PTR.exit ], [ 4, %34 ]
   ret i64 %.0
 }
 
@@ -1460,7 +1460,7 @@ RSTRING_PTR.exit:                                 ; preds = %strscan_must_ascii_
   br label %47
 
 47:                                               ; preds = %43, %39, %34
-  %.1 = phi i64 [ %37, %34 ], [ %spec.select, %43 ], [ %37, %39 ]
+  %.1 = phi i64 [ %37, %39 ], [ %37, %34 ], [ %spec.select, %43 ]
   %.not38 = icmp samesign ult i64 %.1, %32
   br i1 %.not38, label %48, label %66
 
@@ -1953,7 +1953,7 @@ rb_type.exit.thread:                              ; preds = %17, %17, %17, %19, 
   br label %rb_num2long_inline.exit
 
 rb_num2long_inline.exit:                          ; preds = %51, %49
-  %.029 = phi i64 [ %52, %51 ], [ %50, %49 ]
+  %.029 = phi i64 [ %50, %49 ], [ %52, %51 ]
   %53 = icmp slt i64 %.029, 0
   br i1 %53, label %54, label %.thread
 
@@ -2037,7 +2037,7 @@ RSTRING_PTR.exit.i:                               ; preds = %96, %91
   br label %extract_range.exit
 
 extract_range.exit:                               ; preds = %RSTRING_PTR.exit.i, %adjust_register_position.exit38, %63, %.thread, %54, %26, %9
-  %.0 = phi i64 [ 4, %26 ], [ 4, %54 ], [ 4, %.thread ], [ 4, %63 ], [ 4, %9 ], [ %99, %RSTRING_PTR.exit.i ], [ 4, %adjust_register_position.exit38 ]
+  %.0 = phi i64 [ 4, %9 ], [ 4, %26 ], [ 4, %54 ], [ 4, %.thread ], [ 4, %63 ], [ %99, %RSTRING_PTR.exit.i ], [ 4, %adjust_register_position.exit38 ]
   ret i64 %.0
 }
 
@@ -3045,7 +3045,7 @@ RSTRING_PTR.exit70:                               ; preds = %RSTRING_PTR.exit66,
   br label %set_registers.exit.sink.split
 
 set_registers.exit.sink.split:                    ; preds = %147, %155, %106, %111
-  %.sink.i73.sink = phi i64 [ %98, %111 ], [ %110, %106 ], [ %154, %147 ], [ %158, %155 ]
+  %.sink.i73.sink = phi i64 [ %110, %106 ], [ %98, %111 ], [ %154, %147 ], [ %158, %155 ]
   %159 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %160 = load ptr, ptr %159, align 8, !tbaa !119
   store i64 %.sink.i73.sink, ptr %160, align 8, !tbaa !10
@@ -3123,7 +3123,7 @@ RSTRING_PTR.exit.i:                               ; preds = %185, %179
   br label %.critedge
 
 .critedge:                                        ; preds = %RSTRING_PTR.exit.i, %173, %63, %RB_ENCODING_GET.exit5.i, %RSTRING_PTR.exit70, %189, %RSTRING_PTR.exit61, %13, %31
-  %.0 = phi i64 [ 4, %RSTRING_PTR.exit70 ], [ %191, %189 ], [ 4, %31 ], [ 4, %63 ], [ 4, %13 ], [ 4, %RSTRING_PTR.exit61 ], [ 4, %RB_ENCODING_GET.exit5.i ], [ %187, %RSTRING_PTR.exit.i ], [ 4, %173 ]
+  %.0 = phi i64 [ 4, %31 ], [ 4, %13 ], [ 4, %RSTRING_PTR.exit61 ], [ %191, %189 ], [ 4, %RSTRING_PTR.exit70 ], [ 4, %RB_ENCODING_GET.exit5.i ], [ 4, %63 ], [ %187, %RSTRING_PTR.exit.i ], [ 4, %173 ]
   ret i64 %.0
 }
 
@@ -3167,8 +3167,8 @@ match_target.exit:                                ; preds = %15
   br label %RSTRING_PTR.exit13
 
 RSTRING_PTR.exit13:                               ; preds = %match_target.exit.thread16, %match_target.exit, %14, %match_target.exit.thread19
-  %.sink = phi ptr [ %13, %14 ], [ %13, %match_target.exit.thread19 ], [ %.sroa.2.0.copyload.i.i, %match_target.exit.thread16 ], [ %.sroa.2.0.copyload.i6.i, %match_target.exit ]
-  %.0.i1523 = phi ptr [ %13, %14 ], [ %18, %match_target.exit.thread19 ], [ %.sroa.2.0.copyload.i.i, %match_target.exit.thread16 ], [ %21, %match_target.exit ]
+  %.sink = phi ptr [ %13, %match_target.exit.thread19 ], [ %13, %14 ], [ %.sroa.2.0.copyload.i.i, %match_target.exit.thread16 ], [ %.sroa.2.0.copyload.i6.i, %match_target.exit ]
+  %.0.i1523 = phi ptr [ %18, %match_target.exit.thread19 ], [ %13, %14 ], [ %.sroa.2.0.copyload.i.i, %match_target.exit.thread16 ], [ %21, %match_target.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !32
   %24 = getelementptr inbounds i8, ptr %.sink, i64 %23

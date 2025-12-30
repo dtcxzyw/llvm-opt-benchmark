@@ -1038,10 +1038,10 @@ define hidden noundef ptr @"_ZN4gpui3app10entity_map18WeakModel$LT$T$GT$6update1
   ret ptr %.sroa.5.040
 
 .body.thread:                                     ; preds = %23, %20, %31
-  %eh.lpad-body33 = phi { ptr, i32 } [ %21, %20 ], [ %lpad.thr_comm, %31 ], [ %24, %23 ]
+  %eh.lpad-body33 = phi { ptr, i32 } [ %lpad.thr_comm, %31 ], [ %24, %23 ], [ %21, %20 ]
   resume { ptr, i32 } %eh.lpad-body33
 
-31:                                               ; preds = %3, %12
+31:                                               ; preds = %12, %3
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$snippet_provider..process_updates..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1070177361e5c99aE"(ptr noalias noundef align 8 dereferenceable(80) %2) #33
@@ -1306,7 +1306,7 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17h1fab59531b962a7dE
   %32 = icmp eq i32 %21, 0
   br i1 %32, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17hc33d1adef4e9b891E.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17hc33d1adef4e9b891E.exit.thread"
 
-"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17hc33d1adef4e9b891E.exit.thread": ; preds = %25, %4, %28
+"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17hc33d1adef4e9b891E.exit.thread": ; preds = %4, %25, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
@@ -4120,7 +4120,7 @@ _ZN4gpui3app10AppContext10try_global17h9290048723b8232cE.exit.thread: ; preds = 
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %_ZN4gpui3app10AppContext10try_global17h9290048723b8232cE.exit.thread, %23
-  %.sroa.0.0 = phi ptr [ null, %_ZN4gpui3app10AppContext10try_global17h9290048723b8232cE.exit.thread ], [ %24, %23 ]
+  %.sroa.0.0 = phi ptr [ %24, %23 ], [ null, %_ZN4gpui3app10AppContext10try_global17h9290048723b8232cE.exit.thread ]
   ret ptr %.sroa.0.0
 
 28:                                               ; preds = %23
@@ -4401,7 +4401,7 @@ _ZN4core3ops8function6FnOnce9call_once17h11db9b14420696abE.exit: ; preds = %48, 
           to label %"_ZN4core3ptr61drop_in_place$LT$snippet_provider..format..VSSnippetsFile$GT$17h0d64b06f1792b4ceE.exit" unwind label %71
 
 "_ZN4core3ptr61drop_in_place$LT$snippet_provider..format..VSSnippetsFile$GT$17h0d64b06f1792b4ceE.exit": ; preds = %62, %58, %75, %76
-  %.pn.pn.pn38 = phi { ptr, i32 } [ %77, %76 ], [ %.pn.pn.ph, %75 ], [ %59, %62 ], [ %59, %58 ]
+  %.pn.pn.pn38 = phi { ptr, i32 } [ %77, %76 ], [ %.pn.pn.ph, %75 ], [ %59, %58 ], [ %59, %62 ]
   resume { ptr, i32 } %.pn.pn.pn38
 
 76:                                               ; preds = %45, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hecd9102e1cff637eE.exit.thread.i.i", %31, %23

@@ -256,8 +256,8 @@ list_length.exit:                                 ; preds = %41
   br label %.lr.ph607
 
 .critedge:                                        ; preds = %.lr.ph.split, %.critedge566
-  %.0465.lcssa = phi i32 [ %.1466, %.critedge566 ], [ %.0465584, %.lr.ph.split ]
-  %.0457.lcssa = phi ptr [ %.1, %.critedge566 ], [ %.0457585, %.lr.ph.split ]
+  %.0465.lcssa = phi i32 [ %.0465584, %.lr.ph.split ], [ %.1466, %.critedge566 ]
+  %.0457.lcssa = phi ptr [ %.0457585, %.lr.ph.split ], [ %.1, %.critedge566 ]
   %.not496 = icmp eq ptr %.0457.lcssa, null
   br i1 %.not496, label %.critedge535, label %.lr.ph607
 
@@ -435,7 +435,7 @@ list_length.exit542:                              ; preds = %.critedge535
   br i1 %.not504, label %.thread558, label %651
 
 .thread558:                                       ; preds = %.critedge535, %list_length.exit542, %152, %150
-  %158 = phi i1 [ %151, %150 ], [ true, %152 ], [ false, %list_length.exit542 ], [ false, %.critedge535 ]
+  %158 = phi i1 [ true, %152 ], [ %151, %150 ], [ false, %list_length.exit542 ], [ false, %.critedge535 ]
   call void @setup_parser_errposition_callback(ptr noundef nonnull %16, ptr noundef %0, i32 noundef %6) #7
   %159 = xor i1 %49, true
   %160 = call i32 @func_get_detail(ptr noundef %1, ptr noundef %.0457.lcssa689, ptr noundef %.0468576, i32 noundef %.0465.lcssa685, ptr noundef nonnull %10, i1 noundef zeroext %159, i1 noundef zeroext true, i1 noundef zeroext %5, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %11, ptr noundef nonnull %12)
@@ -1358,7 +1358,7 @@ make_fn_arguments.exit:                           ; preds = %465, %.critedge534,
   br label %651
 
 651:                                              ; preds = %.thread, %646, %649, %406, %404, %391, %152, %383
-  %.0 = phi ptr [ null, %404 ], [ %411, %406 ], [ %388, %383 ], [ %157, %152 ], [ null, %391 ], [ %.0470, %649 ], [ %.0470, %646 ], [ %590, %.thread ]
+  %.0 = phi ptr [ %388, %383 ], [ %157, %152 ], [ null, %391 ], [ null, %404 ], [ %411, %406 ], [ %.0470, %649 ], [ %.0470, %646 ], [ %590, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -1678,7 +1678,7 @@ func_match_argtypes.exit:                         ; preds = %72
   br i1 %.not190, label %.thread228, label %.thread234
 
 .thread234:                                       ; preds = %24, %._crit_edge, %76, %78
-  %.1153227 = phi ptr [ %77, %76 ], [ %.1, %78 ], [ %19, %._crit_edge ], [ %.0152240, %24 ]
+  %.1153227 = phi ptr [ %.1, %78 ], [ %77, %76 ], [ %19, %._crit_edge ], [ %.0152240, %24 ]
   %79 = getelementptr inbounds nuw i8, ptr %.1153227, i64 12
   %80 = load i32, ptr %79, align 4
   %.not191 = icmp eq i32 %80, 0
@@ -1934,12 +1934,12 @@ list_length.exit:                                 ; preds = %188, %189
   unreachable
 
 210:                                              ; preds = %199, %204, %203, %202
-  %.0168 = phi i32 [ 5, %204 ], [ 2, %202 ], [ 3, %203 ], [ 4, %199 ]
+  %.0168 = phi i32 [ 2, %202 ], [ 3, %203 ], [ 5, %204 ], [ 4, %199 ]
   call void @ReleaseSysCache(ptr noundef nonnull %119) #7
   br label %.thread228
 
 .thread228:                                       ; preds = %74, %.critedge202, %76, %.critedge, %78, %210, %.thread234, %85
-  %.4 = phi i32 [ 6, %.critedge ], [ 0, %85 ], [ 0, %78 ], [ 1, %.thread234 ], [ %.0168, %210 ], [ 1, %76 ], [ 0, %.critedge202 ], [ 0, %74 ]
+  %.4 = phi i32 [ 6, %.critedge ], [ %.0168, %210 ], [ 1, %.thread234 ], [ 0, %85 ], [ 0, %78 ], [ 1, %76 ], [ 0, %.critedge202 ], [ 0, %74 ]
   ret i32 %.4
 }
 
@@ -2144,8 +2144,8 @@ define dso_local void @check_srf_call_placement(ptr noundef %0, ptr noundef read
 31:                                               ; preds = %3
   br label %32
 
-32:                                               ; preds = %3, %3, %31, %30, %29, %16, %28, %27, %17, %26, %25, %24, %23, %18, %19, %20, %21, %22
-  %.017.ph = phi ptr [ @.str.80, %22 ], [ @.str.79, %21 ], [ @.str.78, %20 ], [ @.str.77, %19 ], [ @.str.76, %18 ], [ @.str.81, %23 ], [ @.str.82, %24 ], [ @.str.83, %25 ], [ @.str.84, %26 ], [ @.str.75, %17 ], [ @.str.85, %27 ], [ @.str.86, %28 ], [ @.str.74, %16 ], [ @.str.87, %29 ], [ @.str.88, %30 ], [ @.str.89, %31 ], [ @.str.72, %3 ], [ @.str.72, %3 ]
+32:                                               ; preds = %3, %3, %31, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30
+  %.017.ph = phi ptr [ @.str.88, %30 ], [ @.str.87, %29 ], [ @.str.86, %28 ], [ @.str.85, %27 ], [ @.str.84, %26 ], [ @.str.83, %25 ], [ @.str.82, %24 ], [ @.str.81, %23 ], [ @.str.80, %22 ], [ @.str.79, %21 ], [ @.str.78, %20 ], [ @.str.77, %19 ], [ @.str.76, %18 ], [ @.str.75, %17 ], [ @.str.74, %16 ], [ @.str.89, %31 ], [ @.str.72, %3 ], [ @.str.72, %3 ]
   %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %34 = tail call i32 @errcode(i32 noundef 1088) #7
   %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.90, ptr noundef nonnull %.017.ph) #7
@@ -2321,10 +2321,10 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr noundef readonly
   br label %39
 
 39:                                               ; preds = %._crit_edge, %37, %35
-  %.1204 = phi ptr [ %.0203276, %35 ], [ %.0203276, %37 ], [ %.0198277, %._crit_edge ]
-  %.1189 = phi ptr [ %.0188278, %35 ], [ %.0198277, %37 ], [ %.0198277, %._crit_edge ]
-  %.1177 = phi i32 [ %.0176279, %35 ], [ %38, %37 ], [ 1, %._crit_edge ]
-  %.1173 = phi i32 [ %.0172280, %35 ], [ %.0172280, %37 ], [ %.0169.lcssa, %._crit_edge ]
+  %.1204 = phi ptr [ %.0203276, %37 ], [ %.0203276, %35 ], [ %.0198277, %._crit_edge ]
+  %.1189 = phi ptr [ %.0198277, %37 ], [ %.0188278, %35 ], [ %.0198277, %._crit_edge ]
+  %.1177 = phi i32 [ %38, %37 ], [ %.0176279, %35 ], [ 1, %._crit_edge ]
+  %.1173 = phi i32 [ %.0172280, %37 ], [ %.0172280, %35 ], [ %.0169.lcssa, %._crit_edge ]
   %40 = load ptr, ptr %.0198277, align 8
   %.not221 = icmp eq ptr %40, null
   br i1 %.not221, label %._crit_edge282, label %23, !llvm.loop !15
@@ -2417,10 +2417,10 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr noundef readonly
   br label %67
 
 67:                                               ; preds = %._crit_edge292, %65, %63
-  %.3206 = phi ptr [ %.2205295, %63 ], [ %.2205295, %65 ], [ %.1199296, %._crit_edge292 ]
-  %.3191 = phi ptr [ %.2190297, %63 ], [ %.1199296, %65 ], [ %.1199296, %._crit_edge292 ]
-  %.3179 = phi i32 [ %.2178298, %63 ], [ %66, %65 ], [ 1, %._crit_edge292 ]
-  %.3175 = phi i32 [ %.2174299, %63 ], [ %.2174299, %65 ], [ %.2171.lcssa, %._crit_edge292 ]
+  %.3206 = phi ptr [ %.2205295, %65 ], [ %.2205295, %63 ], [ %.1199296, %._crit_edge292 ]
+  %.3191 = phi ptr [ %.1199296, %65 ], [ %.2190297, %63 ], [ %.1199296, %._crit_edge292 ]
+  %.3179 = phi i32 [ %66, %65 ], [ %.2178298, %63 ], [ 1, %._crit_edge292 ]
+  %.3175 = phi i32 [ %.2174299, %65 ], [ %.2174299, %63 ], [ %.2171.lcssa, %._crit_edge292 ]
   %68 = load ptr, ptr %.1199296, align 8
   %.not223 = icmp eq ptr %68, null
   br i1 %.not223, label %._crit_edge301, label %46, !llvm.loop !18
@@ -2610,7 +2610,7 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr noundef readonly
   br i1 %122, label %.thread252, label %.thread244
 
 .thread244:                                       ; preds = %._crit_edge310.thread, %._crit_edge315, %._crit_edge328.thread437, %._crit_edge328
-  %.4207 = phi ptr [ %.2205.lcssa413418, %._crit_edge328.thread437 ], [ %.2205.lcssa413418.mux, %._crit_edge315 ], [ %.0196324.us, %._crit_edge328 ], [ %.2205.lcssa413418, %._crit_edge310.thread ]
+  %.4207 = phi ptr [ %.2205.lcssa413418.mux, %._crit_edge315 ], [ %.0196324.us, %._crit_edge328 ], [ %.2205.lcssa413418, %._crit_edge328.thread437 ], [ %.2205.lcssa413418, %._crit_edge310.thread ]
   %123 = icmp sge i32 %.0167.lcssa, %0
   %brmerge491 = or i1 %123, %10
   br i1 %brmerge491, label %.thread252, label %.lr.ph336.preheader
@@ -2698,7 +2698,7 @@ define dso_local ptr @func_select_candidate(i32 noundef %0, ptr noundef readonly
   br label %.thread252
 
 .thread252:                                       ; preds = %129, %135, %.thread415, %.thread244, %.preheader, %._crit_edge328.thread437, %._crit_edge328, %._crit_edge301, %._crit_edge282, %._crit_edge337, %._crit_edge346, %._crit_edge346.thread460
-  %.0209 = phi ptr [ %.7195458463, %._crit_edge346.thread460 ], [ %.3206, %._crit_edge301 ], [ %.2205.lcssa413418, %._crit_edge328.thread437 ], [ null, %.thread415 ], [ %.0196324.us, %._crit_edge328 ], [ null, %.thread244 ], [ null, %._crit_edge346 ], [ null, %._crit_edge337 ], [ null, %.preheader ], [ null, %135 ], [ %.1204, %._crit_edge282 ], [ null, %129 ]
+  %.0209 = phi ptr [ %.7195458463, %._crit_edge346.thread460 ], [ null, %.thread415 ], [ null, %.thread244 ], [ null, %._crit_edge346 ], [ null, %._crit_edge337 ], [ %.1204, %._crit_edge282 ], [ %.3206, %._crit_edge301 ], [ %.0196324.us, %._crit_edge328 ], [ %.2205.lcssa413418, %._crit_edge328.thread437 ], [ null, %.preheader ], [ null, %135 ], [ null, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2956,7 +2956,7 @@ define internal fastcc i32 @LookupFuncNameInternal(i32 noundef %0, ptr noundef %
   br label %35
 
 35:                                               ; preds = %33, %29
-  %.1.us41 = phi i32 [ %.02233.us38, %29 ], [ %34, %33 ]
+  %.1.us41 = phi i32 [ %34, %33 ], [ %.02233.us38, %29 ]
   %36 = load ptr, ptr %.034.us37, align 8
   %.not.us42 = icmp eq ptr %36, null
   br i1 %.not.us42, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !27
@@ -2983,7 +2983,7 @@ define internal fastcc i32 @LookupFuncNameInternal(i32 noundef %0, ptr noundef %
   br label %44
 
 44:                                               ; preds = %42, %39
-  %.1.us51 = phi i32 [ %.02233.us47, %39 ], [ %43, %42 ]
+  %.1.us51 = phi i32 [ %43, %42 ], [ %.02233.us47, %39 ]
   %45 = load ptr, ptr %.034.us46, align 8
   %.not.us52 = icmp eq ptr %45, null
   br i1 %.not.us52, label %.loopexit, label %.lr.ph.split.split.us45, !llvm.loop !27
@@ -3007,7 +3007,7 @@ define internal fastcc i32 @LookupFuncNameInternal(i32 noundef %0, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %44, %35, %48, %25, %.loopexit.sink.split, %7
-  %.023 = phi i32 [ %47, %48 ], [ %.1.us41, %35 ], [ 0, %7 ], [ 0, %.loopexit.sink.split ], [ %.1.us, %25 ], [ %.1.us51, %44 ]
+  %.023 = phi i32 [ 0, %7 ], [ 0, %.loopexit.sink.split ], [ %.1.us, %25 ], [ %47, %48 ], [ %.1.us41, %35 ], [ %.1.us51, %44 ]
   ret i32 %.023
 }
 
@@ -3070,7 +3070,7 @@ list_length.exit:                                 ; preds = %3
   br i1 %31, label %.lr.ph133, label %.critedge
 
 .critedge:                                        ; preds = %28, %3, %.lr.ph
-  %32 = phi i32 [ 0, %3 ], [ %9, %.lr.ph ], [ %9, %28 ]
+  %32 = phi i32 [ %9, %.lr.ph ], [ 0, %3 ], [ %9, %28 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = load i8, ptr %33, align 8, !range !4, !noundef !5
   %35 = trunc nuw i8 %34 to i1
@@ -3356,7 +3356,7 @@ list_length.exit:                                 ; preds = %3
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph133, %.thread, %88, %.thread.thread, %63, %72, %80, %.thread123
-  %.3 = phi i32 [ 0, %.thread ], [ %.093126, %63 ], [ %.093126, %.thread123 ], [ %.093126, %80 ], [ %.093126, %72 ], [ 0, %.thread.thread ], [ 0, %88 ], [ 0, %.lr.ph133 ]
+  %.3 = phi i32 [ %.093126, %.thread123 ], [ %.093126, %80 ], [ %.093126, %72 ], [ %.093126, %63 ], [ 0, %.thread.thread ], [ 0, %88 ], [ 0, %.thread ], [ 0, %.lr.ph133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.3

@@ -1519,115 +1519,115 @@ Vec_IntAlloc.exit.i:                              ; preds = %3
   br label %Vec_IntStartFull.exit
 
 Vec_IntStartFull.exit:                            ; preds = %3, %Vec_IntAlloc.exit.i, %10
-  %13 = phi ptr [ %9, %10 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %3 ]
+  %13 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %9, %10 ], [ null, %3 ]
   %14 = getelementptr i8, ptr %1, i64 4
   %.val1519 = load i32, ptr %14, align 4, !tbaa !47
   %15 = icmp sgt i32 %.val1519, 0
-  br i1 %15, label %.critedge.lr.ph, label %._crit_edge
+  br i1 %15, label %.lr.ph, label %.critedge
 
-.critedge.lr.ph:                                  ; preds = %Vec_IntStartFull.exit
+.lr.ph:                                           ; preds = %Vec_IntStartFull.exit
   %16 = getelementptr i8, ptr %1, i64 8
   %.val14 = load ptr, ptr %16, align 8, !tbaa !43
   %17 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %17, align 8, !tbaa !43
   %18 = zext nneg i32 %.val1519 to i64
-  br label %.critedge
+  br label %19
 
-.critedge:                                        ; preds = %.critedge.lr.ph, %.critedge
-  %indvars.iv = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %19 = getelementptr inbounds nuw i32, ptr %.val14, i64 %indvars.iv
-  %20 = load i32, ptr %19, align 4, !tbaa !12
-  %21 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv
-  %22 = load i32, ptr %21, align 4, !tbaa !12
-  %23 = sext i32 %20 to i64
-  %24 = getelementptr inbounds i32, ptr %13, i64 %23
-  store i32 %22, ptr %24, align 4, !tbaa !12
+19:                                               ; preds = %.lr.ph, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
+  %20 = getelementptr inbounds nuw i32, ptr %.val14, i64 %indvars.iv
+  %21 = load i32, ptr %20, align 4, !tbaa !12
+  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv
+  %23 = load i32, ptr %22, align 4, !tbaa !12
+  %24 = sext i32 %21 to i64
+  %25 = getelementptr inbounds i32, ptr %13, i64 %24
+  store i32 %23, ptr %25, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = icmp samesign ult i64 %indvars.iv.next, %18
-  br i1 %25, label %.critedge, label %._crit_edge, !llvm.loop !48
+  %26 = icmp samesign ult i64 %indvars.iv.next, %18
+  br i1 %26, label %19, label %.critedge, !llvm.loop !48
 
-._crit_edge:                                      ; preds = %.critedge, %Vec_IntStartFull.exit
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i32, ptr %26, align 4, !tbaa !3
-  %.fr.i = freeze i32 %27
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !11
-  %30 = add nsw i32 %29, 1
-  %31 = mul nsw i32 %30, %5
-  %32 = add nsw i32 %31, %.fr.i
-  %33 = ashr i32 %32, 5
-  %34 = and i32 %32, 31
-  %35 = icmp ne i32 %34, 0
-  %36 = zext i1 %35 to i32
-  %37 = add nsw i32 %33, %36
-  %38 = sext i32 %37 to i64
-  %39 = shl nsw i64 %38, 2
-  %40 = add nsw i64 %39, 20
-  %calloc.i.i = tail call ptr @calloc(i64 1, i64 %40)
-  %41 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 8
-  store i32 %.fr.i, ptr %41, align 4, !tbaa !3
-  %42 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 12
-  store i32 %5, ptr %42, align 4, !tbaa !8
-  %43 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 16
-  store i32 %32, ptr %43, align 4, !tbaa !9
-  %44 = load i32, ptr %0, align 4, !tbaa !10
-  store i32 %44, ptr %calloc.i.i, align 4, !tbaa !10
-  %45 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 4
-  store i32 %29, ptr %45, align 4, !tbaa !11
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = load i32, ptr %46, align 4, !tbaa !9
-  %48 = icmp slt i32 %.fr.i, %47
-  br i1 %48, label %.lr.ph.i, label %Abc_CexPermute.exit
+.critedge:                                        ; preds = %19, %Vec_IntStartFull.exit
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = load i32, ptr %27, align 4, !tbaa !3
+  %.fr.i = freeze i32 %28
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %30 = load i32, ptr %29, align 4, !tbaa !11
+  %31 = add nsw i32 %30, 1
+  %32 = mul nsw i32 %31, %5
+  %33 = add nsw i32 %32, %.fr.i
+  %34 = ashr i32 %33, 5
+  %35 = and i32 %33, 31
+  %36 = icmp ne i32 %35, 0
+  %37 = zext i1 %36 to i32
+  %38 = add nsw i32 %34, %37
+  %39 = sext i32 %38 to i64
+  %40 = shl nsw i64 %39, 2
+  %41 = add nsw i64 %40, 20
+  %calloc.i.i = tail call ptr @calloc(i64 1, i64 %41)
+  %42 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 8
+  store i32 %.fr.i, ptr %42, align 4, !tbaa !3
+  %43 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 12
+  store i32 %5, ptr %43, align 4, !tbaa !8
+  %44 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 16
+  store i32 %33, ptr %44, align 4, !tbaa !9
+  %45 = load i32, ptr %0, align 4, !tbaa !10
+  store i32 %45, ptr %calloc.i.i, align 4, !tbaa !10
+  %46 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 4
+  store i32 %30, ptr %46, align 4, !tbaa !11
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %48 = load i32, ptr %47, align 4, !tbaa !9
+  %49 = icmp slt i32 %.fr.i, %48
+  br i1 %49, label %.lr.ph.i, label %Abc_CexPermute.exit
 
-.lr.ph.i:                                         ; preds = %._crit_edge
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %50 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 20
-  br label %51
+.lr.ph.i:                                         ; preds = %.critedge
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 20
+  br label %52
 
-51:                                               ; preds = %74, %.lr.ph.i
-  %.025.i = phi i32 [ %.fr.i, %.lr.ph.i ], [ %75, %74 ]
-  %52 = ashr i32 %.025.i, 5
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i32, ptr %49, i64 %53
-  %55 = load i32, ptr %54, align 4, !tbaa !12
-  %56 = and i32 %.025.i, 31
-  %57 = shl nuw i32 1, %56
-  %58 = and i32 %57, %55
-  %.not.i17 = icmp eq i32 %58, 0
-  br i1 %.not.i17, label %74, label %59
+52:                                               ; preds = %75, %.lr.ph.i
+  %.025.i = phi i32 [ %.fr.i, %.lr.ph.i ], [ %76, %75 ]
+  %53 = ashr i32 %.025.i, 5
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i32, ptr %50, i64 %54
+  %56 = load i32, ptr %55, align 4, !tbaa !12
+  %57 = and i32 %.025.i, 31
+  %58 = shl nuw i32 1, %57
+  %59 = and i32 %58, %56
+  %.not.i17 = icmp eq i32 %59, 0
+  br i1 %.not.i17, label %75, label %60
 
-59:                                               ; preds = %51
-  %60 = sub i32 %.025.i, %.fr.i
-  %61 = srem i32 %60, %5
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i32, ptr %13, i64 %62
-  %64 = load i32, ptr %63, align 4, !tbaa !12
-  %65 = sub i32 %.025.i, %61
-  %66 = add nsw i32 %64, %65
-  %67 = and i32 %66, 31
-  %68 = shl nuw i32 1, %67
-  %69 = ashr i32 %66, 5
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %50, i64 %70
-  %72 = load i32, ptr %71, align 4, !tbaa !12
-  %73 = or i32 %68, %72
-  store i32 %73, ptr %71, align 4, !tbaa !12
-  br label %74
+60:                                               ; preds = %52
+  %61 = sub i32 %.025.i, %.fr.i
+  %62 = srem i32 %61, %5
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds i32, ptr %13, i64 %63
+  %65 = load i32, ptr %64, align 4, !tbaa !12
+  %66 = sub i32 %.025.i, %62
+  %67 = add nsw i32 %65, %66
+  %68 = and i32 %67, 31
+  %69 = shl nuw i32 1, %68
+  %70 = ashr i32 %67, 5
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds i32, ptr %51, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !12
+  %74 = or i32 %69, %73
+  store i32 %74, ptr %72, align 4, !tbaa !12
+  br label %75
 
-74:                                               ; preds = %59, %51
-  %75 = add nsw i32 %.025.i, 1
-  %exitcond.not.i = icmp eq i32 %75, %47
-  br i1 %exitcond.not.i, label %Abc_CexPermute.exit, label %51, !llvm.loop !46
+75:                                               ; preds = %60, %52
+  %76 = add nsw i32 %.025.i, 1
+  %exitcond.not.i = icmp eq i32 %76, %48
+  br i1 %exitcond.not.i, label %Abc_CexPermute.exit, label %52, !llvm.loop !46
 
-Abc_CexPermute.exit:                              ; preds = %74, %._crit_edge
+Abc_CexPermute.exit:                              ; preds = %75, %.critedge
   %.not.i18 = icmp eq ptr %13, null
-  br i1 %.not.i18, label %Vec_IntFree.exit, label %76
+  br i1 %.not.i18, label %Vec_IntFree.exit, label %77
 
-76:                                               ; preds = %Abc_CexPermute.exit
+77:                                               ; preds = %Abc_CexPermute.exit
   tail call void @free(ptr noundef nonnull %13) #17
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %Abc_CexPermute.exit, %76
+Vec_IntFree.exit:                                 ; preds = %Abc_CexPermute.exit, %77
   ret ptr %calloc.i.i
 }
 

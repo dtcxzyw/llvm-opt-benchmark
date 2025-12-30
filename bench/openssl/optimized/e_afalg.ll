@@ -464,8 +464,8 @@ define internal fastcc ptr @afalg_aes_cbc(i32 noundef %0) unnamed_addr #1 {
 3:                                                ; preds = %1
   br label %4
 
-4:                                                ; preds = %3, %2, %1
-  %.0.i.ph = phi ptr [ @cbc_handle, %1 ], [ getelementptr inbounds nuw (i8, ptr @cbc_handle, i64 16), %2 ], [ getelementptr inbounds nuw (i8, ptr @cbc_handle, i64 32), %3 ]
+4:                                                ; preds = %2, %3, %1
+  %.0.i.ph = phi ptr [ @cbc_handle, %1 ], [ getelementptr inbounds nuw (i8, ptr @cbc_handle, i64 32), %3 ], [ getelementptr inbounds nuw (i8, ptr @cbc_handle, i64 16), %2 ]
   %5 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = icmp eq ptr %6, null
@@ -515,7 +515,7 @@ define internal fastcc ptr @afalg_aes_cbc(i32 noundef %0) unnamed_addr #1 {
   br i1 %.not21, label %._crit_edge, label %get_cipher_handle.exit
 
 ._crit_edge:                                      ; preds = %22, %20, %18, %16, %14, %12, %8
-  %24 = phi ptr [ null, %8 ], [ %.pre24, %20 ], [ %.pre25, %18 ], [ %.pre26, %16 ], [ %.pre27, %14 ], [ %.pre28, %12 ], [ %.pre29, %22 ]
+  %24 = phi ptr [ %.pre24, %20 ], [ %.pre25, %18 ], [ %.pre26, %16 ], [ %.pre27, %14 ], [ %.pre28, %12 ], [ null, %8 ], [ %.pre29, %22 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %24) #13
   store ptr null, ptr %5, align 8, !tbaa !19
   br label %get_cipher_handle.exit
@@ -653,15 +653,15 @@ define internal range(i32 0, 2) i32 @afalg_cipher_init(ptr noundef %0, ptr nound
   br i1 %48, label %ERR_AFALG_error.exit.sink.split.i, label %ERR_AFALG_error.exit.i
 
 ERR_AFALG_error.exit.sink.split.i:                ; preds = %44, %35, %27
-  %.sink5.ph.i = phi i32 [ 103, %35 ], [ 109, %27 ], [ 110, %44 ]
-  %.sink.ph.i = phi i32 [ 463, %35 ], [ 456, %27 ], [ 470, %44 ]
+  %.sink5.ph.i = phi i32 [ 109, %27 ], [ 103, %35 ], [ 110, %44 ]
+  %.sink.ph.i = phi i32 [ 456, %27 ], [ 463, %35 ], [ 470, %44 ]
   %49 = call i32 @ERR_get_next_error_library() #13
   store i32 %49, ptr @lib_code, align 4, !tbaa !12
   br label %ERR_AFALG_error.exit.i
 
 ERR_AFALG_error.exit.i:                           ; preds = %ERR_AFALG_error.exit.sink.split.i, %44, %35, %27
-  %.sink5.i = phi i32 [ 103, %35 ], [ 110, %44 ], [ 109, %27 ], [ %.sink5.ph.i, %ERR_AFALG_error.exit.sink.split.i ]
-  %.sink.i = phi i32 [ 463, %35 ], [ 470, %44 ], [ 456, %27 ], [ %.sink.ph.i, %ERR_AFALG_error.exit.sink.split.i ]
+  %.sink5.i = phi i32 [ 109, %27 ], [ 103, %35 ], [ 110, %44 ], [ %.sink5.ph.i, %ERR_AFALG_error.exit.sink.split.i ]
+  %.sink.i = phi i32 [ 456, %27 ], [ 463, %35 ], [ 470, %44 ], [ %.sink.ph.i, %ERR_AFALG_error.exit.sink.split.i ]
   call void @ERR_new() #13
   call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 70, ptr noundef nonnull @__func__.ERR_AFALG_error) #13
   %50 = load i32, ptr @lib_code, align 4, !tbaa !12
@@ -741,7 +741,7 @@ afalg_set_key.exit:                               ; preds = %63
   br label %83
 
 83:                                               ; preds = %afalg_create_sk.exit.thread, %16, %14, %11, %8, %4, %78, %77
-  %.0 = phi i32 [ 1, %77 ], [ 0, %4 ], [ 0, %8 ], [ 0, %11 ], [ 0, %14 ], [ 0, %16 ], [ 0, %78 ], [ 0, %afalg_create_sk.exit.thread ]
+  %.0 = phi i32 [ 0, %78 ], [ 1, %77 ], [ 0, %4 ], [ 0, %8 ], [ 0, %11 ], [ 0, %14 ], [ 0, %16 ], [ 0, %afalg_create_sk.exit.thread ]
   ret i32 %.0
 }
 
@@ -942,7 +942,7 @@ afalg_setup_async_event_notification.exit.thread.i: ; preds = %ERR_AFALG_error.e
   br label %afalg_fin_cipher_aio.exit.thread
 
 afalg_setup_async_event_notification.exit.i:      ; preds = %82, %80, %63
-  %storemerge.i = phi i32 [ 2, %63 ], [ 2, %80 ], [ 1, %82 ]
+  %storemerge.i = phi i32 [ 2, %80 ], [ 2, %63 ], [ 1, %82 ]
   store i32 %storemerge.i, ptr %55, align 4, !tbaa !49
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %94
@@ -1103,7 +1103,7 @@ ERR_AFALG_error.exit31.i:                         ; preds = %155, %154
   call void @perror(ptr noundef null) #16
   br label %afalg_fin_cipher_aio.exit.thread
 
-afalg_fin_cipher_aio.exit.thread:                 ; preds = %161, %109, %afalg_setup_async_event_notification.exit.thread.i, %121, %142, %158
+afalg_fin_cipher_aio.exit.thread:                 ; preds = %109, %121, %142, %158, %161, %afalg_setup_async_event_notification.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1131,7 +1131,7 @@ afalg_fin_cipher_aio.exit.thread:                 ; preds = %161, %109, %afalg_s
   br label %171
 
 171:                                              ; preds = %afalg_fin_cipher_aio.exit.thread, %afalg_start_cipher_sk.exit.thread, %167, %170, %afalg_start_cipher_sk.exit, %18, %21, %4
-  %.0 = phi i32 [ 0, %afalg_fin_cipher_aio.exit.thread ], [ 0, %4 ], [ 0, %18 ], [ 0, %afalg_start_cipher_sk.exit ], [ 0, %21 ], [ 1, %170 ], [ 1, %167 ], [ 0, %afalg_start_cipher_sk.exit.thread ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %21 ], [ 0, %18 ], [ 0, %afalg_start_cipher_sk.exit ], [ 1, %170 ], [ 1, %167 ], [ 0, %afalg_start_cipher_sk.exit.thread ], [ 0, %afalg_fin_cipher_aio.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0
 }

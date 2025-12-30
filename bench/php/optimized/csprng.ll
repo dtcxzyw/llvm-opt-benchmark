@@ -49,7 +49,7 @@ define dso_local range(i32 -1, 1) i32 @php_random_bytes_ex(ptr noundef nonnull %
   br label %16
 
 16:                                               ; preds = %12, %12, %14
-  %.252 = phi i64 [ %.05077, %12 ], [ %15, %14 ], [ %.05077, %12 ]
+  %.252 = phi i64 [ %15, %14 ], [ %.05077, %12 ], [ %.05077, %12 ]
   %17 = icmp ult i64 %.252, %1
   br i1 %17, label %7, label %.thread
 
@@ -124,7 +124,7 @@ zend_atomic_int_compare_exchange_ex.exit:         ; preds = %47
   br label %zend_atomic_int_compare_exchange_ex.exit.thread
 
 zend_atomic_int_compare_exchange_ex.exit.thread:  ; preds = %.thread.thread, %47, %zend_atomic_int_compare_exchange_ex.exit
-  %.045 = phi i32 [ %50, %zend_atomic_int_compare_exchange_ex.exit ], [ %23, %47 ], [ %19, %.thread.thread ]
+  %.045 = phi i32 [ %23, %47 ], [ %50, %zend_atomic_int_compare_exchange_ex.exit ], [ %19, %.thread.thread ]
   br label %55
 
 52:                                               ; preds = %55
@@ -155,8 +155,8 @@ zend_atomic_int_compare_exchange_ex.exit.thread:  ; preds = %.thread.thread, %47
   %66 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.6) #8
   br label %.thread.thread92.sink.split
 
-.thread.thread92.sink.split:                      ; preds = %52, %42, %27, %30, %45, %62, %65
-  %.3.ph = phi i32 [ -1, %42 ], [ -1, %65 ], [ -1, %62 ], [ -1, %45 ], [ -1, %30 ], [ -1, %27 ], [ 0, %52 ]
+.thread.thread92.sink.split:                      ; preds = %52, %30, %27, %45, %42, %62, %65
+  %.3.ph = phi i32 [ -1, %65 ], [ -1, %62 ], [ -1, %42 ], [ -1, %45 ], [ -1, %27 ], [ -1, %30 ], [ 0, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread.thread92
 
@@ -299,14 +299,14 @@ php_random_bytes.exit25:                          ; preds = %.lr.ph
   br i1 %.not23, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.split.us, %php_random_bytes.exit25, %.split.preheader, %..critedge_crit_edge
-  %35 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %34, %php_random_bytes.exit25 ], [ %26, %.split.preheader ], [ %27, %.split.us ]
+  %35 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %26, %.split.preheader ], [ %34, %php_random_bytes.exit25 ], [ %27, %.split.us ]
   %36 = urem i64 %35, %21
   %37 = add i64 %36, %0
   store i64 %37, ptr %2, align 8, !tbaa !15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %php_random_bytes.exit25.us, %php_random_bytes.exit25.thread, %php_random_bytes.exit.thread, %php_random_bytes.exit, %.critedge, %18, %9
-  %.0 = phi i32 [ 0, %9 ], [ -1, %php_random_bytes.exit.thread ], [ 0, %18 ], [ 0, %.critedge ], [ -1, %php_random_bytes.exit ], [ -1, %php_random_bytes.exit25.thread ], [ -1, %php_random_bytes.exit25.us ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %18 ], [ 0, %.critedge ], [ -1, %php_random_bytes.exit ], [ -1, %php_random_bytes.exit.thread ], [ -1, %php_random_bytes.exit25.thread ], [ -1, %php_random_bytes.exit25.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

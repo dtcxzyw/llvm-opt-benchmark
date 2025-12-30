@@ -297,7 +297,7 @@ define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$language..language_
   unreachable
 
 common.resume:                                    ; preds = %63, %67, %54, %47
-  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %55, %54 ], [ %64, %67 ], [ %64, %63 ]
+  %common.resume.op = phi { ptr, i32 } [ %55, %54 ], [ %48, %47 ], [ %64, %67 ], [ %64, %63 ]
   resume { ptr, i32 } %common.resume.op
 
 54:                                               ; preds = %25
@@ -1204,7 +1204,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h1c60315b8c
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13500094979475201679.exit.i1.i.i.i", %61, %.body.i
-  %common.resume.op.i = phi { ptr, i32 } [ %62, %61 ], [ %62, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13500094979475201679.exit.i1.i.i.i" ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %62, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13500094979475201679.exit.i1.i.i.i" ], [ %62, %61 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op.i
 
 69:                                               ; preds = %.body.i
@@ -9186,9 +9186,9 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h0c1bec2d5c72beb4E.exi
   br label %.preheader
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h0c1bec2d5c72beb4E.exit.thread: ; preds = %47, %52, %29
-  %.pn.i.pn = phi { i64, i64 } [ %30, %29 ], [ %48, %47 ], [ %53, %52 ]
-  %.sroa.7.0.i.i.ph = extractvalue { i64, i64 } %.pn.i.pn, 0
-  %.sroa.9.0.i.i.ph = extractvalue { i64, i64 } %.pn.i.pn, 1
+  %.pn = phi { i64, i64 } [ %30, %29 ], [ %53, %52 ], [ %48, %47 ]
+  %.sroa.7.0.i.i.ph = extractvalue { i64, i64 } %.pn, 0
+  %.sroa.9.0.i.i.ph = extractvalue { i64, i64 } %.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1818
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17hbde4f7f1e8bffb3eE.exit.i
 
@@ -9490,9 +9490,9 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h0c1bec2d5c72beb4E.exi
   br label %.preheader
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h0c1bec2d5c72beb4E.exit.thread: ; preds = %52, %57, %37
-  %.pn.i.pn = phi { i64, i64 } [ %38, %37 ], [ %53, %52 ], [ %58, %57 ]
-  %.sroa.7.0.i.i.ph = extractvalue { i64, i64 } %.pn.i.pn, 0
-  %.sroa.9.0.i.i.ph = extractvalue { i64, i64 } %.pn.i.pn, 1
+  %.pn = phi { i64, i64 } [ %38, %37 ], [ %58, %57 ], [ %53, %52 ]
+  %.sroa.7.0.i.i.ph = extractvalue { i64, i64 } %.pn, 0
+  %.sroa.9.0.i.i.ph = extractvalue { i64, i64 } %.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1874
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17hbde4f7f1e8bffb3eE.exit.i
 

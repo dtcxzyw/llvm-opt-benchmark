@@ -99,7 +99,7 @@ define internal range(i32 -2147483648, 1) i32 @decimate_init(ptr noundef %0) #0 
   br label %26
 
 26:                                               ; preds = %10, %1, %23, %22
-  %.0 = phi i32 [ 0, %23 ], [ %5, %1 ], [ -22, %22 ], [ %12, %10 ]
+  %.0 = phi i32 [ -22, %22 ], [ 0, %23 ], [ %5, %1 ], [ %12, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -469,7 +469,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %.preheader, %158, %169, %171, %175, %159, %70, %61, %42, %34, %128, %104, %78
-  %.1 = phi i32 [ %40, %34 ], [ %68, %61 ], [ 0, %78 ], [ %59, %70 ], [ 0, %128 ], [ 0, %104 ], [ %32, %42 ], [ 0, %158 ], [ 0, %159 ], [ 0, %175 ], [ 0, %171 ], [ 0, %169 ], [ 0, %.preheader ], [ 0, %14 ]
+  %.1 = phi i32 [ 0, %78 ], [ 0, %128 ], [ 0, %104 ], [ %40, %34 ], [ %32, %42 ], [ %68, %61 ], [ %59, %70 ], [ 0, %159 ], [ 0, %175 ], [ 0, %171 ], [ 0, %169 ], [ 0, %158 ], [ 0, %.preheader ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -678,7 +678,7 @@ define internal range(i32 -22, 1) i32 @config_output(ptr noundef captures(none) 
   br label %132
 
 132:                                              ; preds = %117, %127, %87, %1, %94
-  %.0 = phi i32 [ -12, %87 ], [ -22, %94 ], [ -12, %1 ], [ 0, %117 ], [ 0, %127 ]
+  %.0 = phi i32 [ -22, %94 ], [ -12, %1 ], [ -12, %87 ], [ 0, %127 ], [ 0, %117 ]
   ret i32 %.0
 }
 
@@ -1209,10 +1209,10 @@ calc_diffs.exit:                                  ; preds = %214, %._crit_edge18
   br label %260
 
 260:                                              ; preds = %._crit_edge, %257, %44
-  %.0145 = phi i32 [ 0, %44 ], [ %.1146.lcssa, %257 ], [ %.1146.lcssa, %._crit_edge ]
-  %.0138 = phi i32 [ -2147483648, %44 ], [ %259, %257 ], [ -1, %._crit_edge ]
-  %.0136 = phi i32 [ -1, %44 ], [ %spec.select170, %257 ], [ %spec.select170, %._crit_edge ]
-  %.0135 = phi i32 [ -1, %44 ], [ %.1.lcssa, %257 ], [ %.1.lcssa, %._crit_edge ]
+  %.0145 = phi i32 [ %.1146.lcssa, %257 ], [ 0, %44 ], [ %.1146.lcssa, %._crit_edge ]
+  %.0138 = phi i32 [ %259, %257 ], [ -2147483648, %44 ], [ -1, %._crit_edge ]
+  %.0136 = phi i32 [ %spec.select170, %257 ], [ -1, %44 ], [ %spec.select170, %._crit_edge ]
+  %.0135 = phi i32 [ %.1.lcssa, %257 ], [ -1, %44 ], [ %.1.lcssa, %._crit_edge ]
   %261 = tail call i32 @av_log_get_level() #9
   %262 = icmp sgt i32 %261, 47
   %263 = getelementptr inbounds nuw i8, ptr %7, i64 136
@@ -1404,8 +1404,8 @@ calc_diffs.exit:                                  ; preds = %214, %._crit_edge18
   %361 = icmp slt i32 %360, 0
   br i1 %361, label %362, label %.thread1
 
-.thread1:                                         ; preds = %357, %335
-  %.2144.ph = phi i32 [ %.014216, %335 ], [ %360, %357 ]
+.thread1:                                         ; preds = %335, %357
+  %.2144.ph = phi i32 [ %360, %357 ], [ %.014216, %335 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %363
 
@@ -1422,7 +1422,7 @@ calc_diffs.exit:                                  ; preds = %214, %._crit_edge18
   br i1 %366, label %308, label %.critedge5, !llvm.loop !114
 
 .critedge5:                                       ; preds = %363, %308, %265, %.critedge, %362, %220, %24, %36
-  %.0 = phi i32 [ 0, %24 ], [ 0, %220 ], [ 0, %36 ], [ %360, %362 ], [ 0, %.critedge ], [ 0, %265 ], [ %.014216, %308 ], [ %.3, %363 ]
+  %.0 = phi i32 [ 0, %36 ], [ 0, %24 ], [ 0, %220 ], [ %360, %362 ], [ 0, %.critedge ], [ 0, %265 ], [ %.3, %363 ], [ %.014216, %308 ]
   ret i32 %.0
 }
 

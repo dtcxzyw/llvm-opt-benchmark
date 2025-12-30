@@ -679,7 +679,7 @@ _ZN2cveqIdEEbRKNS_7Scalar_IT_EES5_.exit166.thread: ; preds = %241, %_ZN2cveqIdEE
   br i1 %296, label %219, label %._crit_edge, !llvm.loop !79
 
 297:                                              ; preds = %177, %201, %287, %155, %153
-  %.pn146.pn.pn.pn = phi { ptr, i32 } [ %154, %153 ], [ %156, %155 ], [ %178, %177 ], [ %202, %201 ], [ %.pn139.pn.pn, %287 ]
+  %.pn146.pn.pn.pn = phi { ptr, i32 } [ %156, %155 ], [ %154, %153 ], [ %178, %177 ], [ %202, %201 ], [ %.pn139.pn.pn, %287 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #15
   br label %298
 

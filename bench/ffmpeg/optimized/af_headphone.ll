@@ -206,7 +206,7 @@ parse_map.exit:                                   ; preds = %._crit_edge.i, %42
   br label %.thread32
 
 .thread32:                                        ; preds = %57, %63, %._crit_edge, %65, %.thread, %1, %12
-  %.0 = phi i32 [ -22, %12 ], [ -12, %63 ], [ -12, %.thread ], [ 0, %._crit_edge ], [ %7, %1 ], [ 0, %65 ], [ %58, %57 ]
+  %.0 = phi i32 [ -22, %12 ], [ %7, %1 ], [ -12, %.thread ], [ 0, %65 ], [ 0, %._crit_edge ], [ -12, %63 ], [ %58, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -346,7 +346,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.loopexit45
 
 .loopexit45:                                      ; preds = %42, %34, %32, %20, %15, %11, %9, %3, %.loopexit
-  %.028 = phi i32 [ %8, %3 ], [ -12, %9 ], [ %14, %11 ], [ %19, %15 ], [ -12, %32 ], [ 0, %.loopexit ], [ %24, %20 ], [ %38, %34 ], [ %46, %42 ]
+  %.028 = phi i32 [ 0, %.loopexit ], [ %8, %3 ], [ -12, %9 ], [ %14, %11 ], [ %19, %15 ], [ %24, %20 ], [ -12, %32 ], [ %38, %34 ], [ %46, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.028
 }
@@ -1051,8 +1051,8 @@ ff_clz_c.exit289.i:                               ; preds = %108, %ff_clz_c.exit
   %405 = icmp slt i64 %indvars.iv.next364.i, %404
   br i1 %405, label %271, label %.sink.split, !llvm.loop !96
 
-.loopexit:                                        ; preds = %271, %245, %212, %221, %172, %.thread.i, %210, %208, %206, %204, %215, %243, %241
-  %.2.i.ph = phi i32 [ -12, %245 ], [ -12, %241 ], [ -12, %243 ], [ -12, %215 ], [ -12, %204 ], [ -12, %206 ], [ -12, %208 ], [ -12, %210 ], [ %.1.ph.i, %.thread.i ], [ -12, %172 ], [ -12, %221 ], [ -12, %212 ], [ %277, %271 ]
+.loopexit:                                        ; preds = %271, %210, %208, %206, %204, %172, %215, %212, %243, %241, %221, %245, %.thread.i
+  %.2.i.ph = phi i32 [ %.1.ph.i, %.thread.i ], [ -12, %245 ], [ -12, %221 ], [ -12, %241 ], [ -12, %243 ], [ -12, %212 ], [ -12, %215 ], [ -12, %172 ], [ -12, %204 ], [ -12, %206 ], [ -12, %208 ], [ -12, %210 ], [ %277, %271 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread87
 
@@ -1186,7 +1186,7 @@ headphone_frame.exit:                             ; preds = %421, %450
   br label %.thread87
 
 .thread87:                                        ; preds = %.lr.ph, %.preheader103, %.loopexit, %56, %58, %46, %63, %._crit_edge.thread169, %459, %headphone_frame.exit.thread, %462, %464, %456, %headphone_frame.exit, %406
-  %.1 = phi i32 [ -541478725, %406 ], [ %454, %headphone_frame.exit ], [ %413, %456 ], [ 0, %459 ], [ %.2.i.ph, %.loopexit ], [ -12, %headphone_frame.exit.thread ], [ 0, %464 ], [ 0, %462 ], [ -22, %46 ], [ 0, %._crit_edge.thread169 ], [ -1094995529, %63 ], [ 0, %56 ], [ 0, %58 ], [ 0, %.preheader103 ], [ 0, %.lr.ph ]
+  %.1 = phi i32 [ 0, %459 ], [ -541478725, %406 ], [ %454, %headphone_frame.exit ], [ %413, %456 ], [ 0, %464 ], [ 0, %462 ], [ -12, %headphone_frame.exit.thread ], [ -1094995529, %63 ], [ 0, %._crit_edge.thread169 ], [ 0, %56 ], [ 0, %58 ], [ -22, %46 ], [ %.2.i.ph, %.loopexit ], [ 0, %.preheader103 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }

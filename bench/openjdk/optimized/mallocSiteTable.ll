@@ -322,7 +322,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %83, %.loopexit.sink.split, %41
-  %.0 = phi ptr [ %.0.ph, %.loopexit.sink.split ], [ null, %41 ], [ null, %83 ]
+  %.0 = phi ptr [ null, %41 ], [ %.0.ph, %.loopexit.sink.split ], [ null, %83 ]
   ret ptr %.0
 }
 

@@ -691,13 +691,13 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread289
 
-.critedge283.thread:                              ; preds = %69, %65, %92, %107, %103, %121, %117, %271, %270, %252, %225, %221, %160, %161, %50, %34, %273, %.critedge283
+.critedge283.thread:                              ; preds = %92, %69, %65, %107, %103, %121, %117, %271, %270, %252, %225, %221, %160, %161, %50, %34, %273, %.critedge283
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread289, label %26, !llvm.loop !8
 
-.thread289:                                       ; preds = %.critedge283.thread, %5, %54, %60, %93, %98, %112, %174, %276, %263, %258, %248, %243, %212, %.critedge285, %156, %.thread286, %.thread, %280, %77
-  %.7 = phi i32 [ -1, %54 ], [ -1, %77 ], [ -1, %280 ], [ -1, %.thread ], [ -1, %.thread286 ], [ -1, %156 ], [ -1, %.critedge285 ], [ -1, %212 ], [ -1, %243 ], [ -1, %248 ], [ -1, %258 ], [ -1, %263 ], [ -1, %276 ], [ -1, %174 ], [ -1, %112 ], [ -1, %98 ], [ -1, %93 ], [ -1, %60 ], [ 0, %5 ], [ 0, %.critedge283.thread ]
+.thread289:                                       ; preds = %.critedge283.thread, %5, %.thread286, %.thread, %.critedge285, %54, %60, %93, %98, %112, %174, %276, %263, %258, %248, %243, %212, %156, %280, %77
+  %.7 = phi i32 [ -1, %77 ], [ -1, %280 ], [ -1, %156 ], [ -1, %212 ], [ -1, %243 ], [ -1, %248 ], [ -1, %258 ], [ -1, %263 ], [ -1, %276 ], [ -1, %174 ], [ -1, %112 ], [ -1, %98 ], [ -1, %93 ], [ -1, %60 ], [ -1, %54 ], [ -1, %.critedge285 ], [ -1, %.thread ], [ -1, %.thread286 ], [ 0, %5 ], [ 0, %.critedge283.thread ]
   ret i32 %.7
 }
 

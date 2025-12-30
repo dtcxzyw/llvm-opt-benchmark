@@ -176,7 +176,7 @@ Py_DECREF.exit.i:                                 ; preds = %49, %46, %43
   br label %_symtable_symtable_impl.exit
 
 57:                                               ; preds = %40, %37, %34
-  %.014.i = phi i32 [ 258, %37 ], [ 257, %34 ], [ 256, %40 ]
+  %.014.i = phi i32 [ 257, %34 ], [ 258, %37 ], [ 256, %40 ]
   %58 = call ptr @_Py_SymtableStringObjectFlags(ptr noundef nonnull %32, ptr noundef %31, i32 noundef %.014.i, ptr noundef nonnull %4) #4
   %59 = load i32, ptr %31, align 8, !tbaa !23
   %.not.i17.i = icmp sgt i32 %59, -1
@@ -233,7 +233,7 @@ _Py_NewRef.exit.i:                                ; preds = %77, %72
   br label %_symtable_symtable_impl.exit
 
 _symtable_symtable_impl.exit:                     ; preds = %30, %Py_DECREF.exit.i, %51, %53, %56, %Py_XDECREF.exit23.i, %_Py_NewRef.exit.i
-  %.0.i = phi ptr [ null, %Py_XDECREF.exit23.i ], [ null, %30 ], [ %74, %_Py_NewRef.exit.i ], [ null, %Py_DECREF.exit.i ], [ null, %51 ], [ null, %53 ], [ null, %56 ]
+  %.0.i = phi ptr [ %74, %_Py_NewRef.exit.i ], [ null, %30 ], [ null, %Py_XDECREF.exit23.i ], [ null, %Py_DECREF.exit.i ], [ null, %51 ], [ null, %53 ], [ null, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %79
@@ -400,7 +400,7 @@ define internal range(i32 -1, 1) i32 @symtable_init_constants(ptr noundef %0) #0
   br label %78
 
 78:                                               ; preds = %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7, %4, %1
-  %.0 = phi i32 [ -1, %73 ], [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ -1, %25 ], [ -1, %28 ], [ -1, %31 ], [ -1, %34 ], [ -1, %37 ], [ -1, %40 ], [ -1, %43 ], [ -1, %46 ], [ -1, %49 ], [ -1, %52 ], [ -1, %55 ], [ -1, %58 ], [ -1, %61 ], [ -1, %64 ], [ -1, %67 ], [ -1, %70 ], [ %.lobit, %76 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ -1, %25 ], [ -1, %28 ], [ -1, %31 ], [ -1, %34 ], [ -1, %37 ], [ -1, %40 ], [ -1, %43 ], [ -1, %46 ], [ -1, %49 ], [ -1, %52 ], [ -1, %55 ], [ -1, %58 ], [ -1, %61 ], [ -1, %64 ], [ -1, %67 ], [ -1, %70 ], [ -1, %73 ], [ %.lobit, %76 ]
   ret i32 %.0
 }
 

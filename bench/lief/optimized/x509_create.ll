@@ -328,8 +328,8 @@ parse_attribute_value_hex_der_encoded.exit.thread.sink.split: ; preds = %hexpair
   call void @free(ptr noundef %62) #9
   br label %parse_attribute_value_hex_der_encoded.exit.thread
 
-parse_attribute_value_hex_der_encoded.exit.thread: ; preds = %58, %61, %51, %parse_attribute_value_hex_der_encoded.exit.thread.sink.split
-  %.039.i117 = phi i32 [ -9088, %parse_attribute_value_hex_der_encoded.exit.thread.sink.split ], [ -10368, %61 ], [ -9088, %58 ], [ -9088, %51 ]
+parse_attribute_value_hex_der_encoded.exit.thread: ; preds = %61, %58, %51, %parse_attribute_value_hex_der_encoded.exit.thread.sink.split
+  %.039.i117 = phi i32 [ -9088, %parse_attribute_value_hex_der_encoded.exit.thread.sink.split ], [ -9088, %51 ], [ -9088, %58 ], [ -10368, %61 ]
   %122 = load ptr, ptr %9, align 8, !tbaa !19
   br label %.critedge85.sink.split
 
@@ -522,8 +522,8 @@ hexpair_to_int.exit.i97:                          ; preds = %167, %165, %161
   br i1 %.not75, label %.critedge85, label %.critedge85.sink.split
 
 .critedge85.sink.split:                           ; preds = %._crit_edge, %46, %parse_attribute_value_hex_der_encoded.exit.thread, %124, %184
-  %.pre155.sink = phi ptr [ %47, %46 ], [ %185, %184 ], [ %125, %124 ], [ %122, %parse_attribute_value_hex_der_encoded.exit.thread ], [ %.pre155, %._crit_edge ]
-  %.1.ph = phi i32 [ -9088, %46 ], [ -9088, %184 ], [ -9088, %124 ], [ %.039.i117, %parse_attribute_value_hex_der_encoded.exit.thread ], [ %.159, %._crit_edge ]
+  %.pre155.sink = phi ptr [ %185, %184 ], [ %125, %124 ], [ %122, %parse_attribute_value_hex_der_encoded.exit.thread ], [ %47, %46 ], [ %.pre155, %._crit_edge ]
+  %.1.ph = phi i32 [ -9088, %184 ], [ -9088, %124 ], [ %.039.i117, %parse_attribute_value_hex_der_encoded.exit.thread ], [ -9088, %46 ], [ %.159, %._crit_edge ]
   call void @free(ptr noundef %.pre155.sink) #9
   br label %.critedge85
 
@@ -665,7 +665,7 @@ x509_write_name.exit:                             ; preds = %33
   br label %x509_write_name.exit.thread
 
 x509_write_name.exit.thread:                      ; preds = %33, %26, %23, %19, %16, %.lr.ph, %x509_write_name.exit, %47, %._crit_edge, %50
-  %.022 = phi i32 [ %53, %50 ], [ %48, %47 ], [ %45, %._crit_edge ], [ %14, %.lr.ph ], [ %17, %16 ], [ %21, %19 ], [ %24, %23 ], [ %31, %26 ], [ %34, %33 ], [ %38, %x509_write_name.exit ]
+  %.022 = phi i32 [ %53, %50 ], [ %45, %._crit_edge ], [ %48, %47 ], [ %14, %.lr.ph ], [ %17, %16 ], [ %21, %19 ], [ %24, %23 ], [ %31, %26 ], [ %34, %33 ], [ %38, %x509_write_name.exit ]
   ret i32 %.022
 }
 
@@ -726,7 +726,7 @@ define hidden i32 @mbedtls_x509_write_sig(ptr noundef %0, ptr noundef %1, ptr no
   br label %39
 
 39:                                               ; preds = %30, %27, %22, %15, %7, %10, %34
-  %.036 = phi i32 [ %38, %34 ], [ -108, %7 ], [ -108, %15 ], [ %25, %22 ], [ %28, %27 ], [ -108, %10 ], [ %32, %30 ]
+  %.036 = phi i32 [ %38, %34 ], [ -108, %10 ], [ -108, %7 ], [ -108, %15 ], [ %25, %22 ], [ %28, %27 ], [ %32, %30 ]
   ret i32 %.036
 }
 
@@ -834,7 +834,7 @@ x509_write_extension.exit:                        ; preds = %55
   br i1 %.not, label %x509_write_extension.exit.thread, label %.lr.ph, !llvm.loop !36
 
 x509_write_extension.exit.thread:                 ; preds = %x509_write_extension.exit, %.lr.ph, %12, %17, %26, %32, %39, %43, %46, %55, %62, %3
-  %.011 = phi i32 [ 0, %3 ], [ %15, %12 ], [ %10, %.lr.ph ], [ %63, %62 ], [ %56, %55 ], [ %53, %46 ], [ %44, %43 ], [ %41, %39 ], [ %37, %32 ], [ %27, %26 ], [ %18, %17 ], [ %60, %x509_write_extension.exit ]
+  %.011 = phi i32 [ 0, %3 ], [ %63, %62 ], [ %56, %55 ], [ %53, %46 ], [ %44, %43 ], [ %41, %39 ], [ %37, %32 ], [ %27, %26 ], [ %18, %17 ], [ %15, %12 ], [ %10, %.lr.ph ], [ %60, %x509_write_extension.exit ]
   ret i32 %.011
 }
 

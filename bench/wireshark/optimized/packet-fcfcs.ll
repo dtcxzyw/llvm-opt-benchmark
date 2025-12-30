@@ -494,8 +494,8 @@ define internal i32 @dissect_fcfcs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %91
 
 91:                                               ; preds = %88, %83
-  %.1 = phi i32 [ %., %88 ], [ %31, %83 ]
-  %.0168 = phi i32 [ %.183, %88 ], [ 0, %83 ]
+  %.1 = phi i32 [ %31, %83 ], [ %., %88 ]
+  %.0168 = phi i32 [ 0, %83 ], [ %.183, %88 ]
   %.not185 = icmp eq i32 %.1, 32769
   %92 = load ptr, ptr %9, align 8
   br i1 %.not185, label %.thread, label %94
@@ -692,7 +692,7 @@ dissect_fcfcs_gfn.exit:                           ; preds = %134, %132, %.sink.s
   br label %142
 
 142:                                              ; preds = %4, %dissect_fcfcs_gfn.exit, %96, %79
-  %.0 = phi i32 [ 0, %79 ], [ %141, %dissect_fcfcs_gfn.exit ], [ 0, %96 ], [ 0, %4 ]
+  %.0 = phi i32 [ %141, %dissect_fcfcs_gfn.exit ], [ 0, %96 ], [ 0, %79 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

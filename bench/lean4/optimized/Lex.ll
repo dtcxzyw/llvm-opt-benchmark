@@ -1158,7 +1158,7 @@ lean_nat_add.exit.thread127:                      ; preds = %153
   br label %lean_inc.exit77.backedge
 
 lean_inc.exit77.backedge:                         ; preds = %161, %165, %lean_nat_add.exit.thread127, %171, %173, %174
-  %.054.be = phi ptr [ %168, %174 ], [ %168, %173 ], [ %156, %lean_nat_add.exit.thread127 ], [ %168, %171 ], [ %166, %165 ], [ %164, %161 ]
+  %.054.be = phi ptr [ %156, %lean_nat_add.exit.thread127 ], [ %168, %171 ], [ %168, %173 ], [ %168, %174 ], [ %166, %165 ], [ %164, %161 ]
   br label %lean_inc.exit77
 
 165:                                              ; preds = %157
@@ -1293,8 +1293,8 @@ lean_dec.exit:                                    ; preds = %210, %209, %207, %l
   %211 = load ptr, ptr @l_Std_Range_forIn_x27_loop___at_Vector_instDecidableLTOfDecidableEq___spec__2___rarg___closed__4, align 8, !tbaa !10
   br label %212
 
-212:                                              ; preds = %lean_dec.exit71, %lean_dec.exit, %lean_dec.exit66, %56, %55, %53
-  %.1.ph = phi ptr [ %.050, %53 ], [ %.050, %55 ], [ %.050, %56 ], [ %150, %lean_dec.exit66 ], [ %211, %lean_dec.exit ], [ %.050, %lean_dec.exit71 ]
+212:                                              ; preds = %lean_dec.exit, %lean_dec.exit66, %56, %55, %53, %lean_dec.exit71
+  %.1.ph = phi ptr [ %.050, %lean_dec.exit71 ], [ %.050, %53 ], [ %.050, %55 ], [ %.050, %56 ], [ %150, %lean_dec.exit66 ], [ %211, %lean_dec.exit ]
   ret ptr %.1.ph
 }
 
@@ -2320,7 +2320,7 @@ lean_nat_add.exit.thread127:                      ; preds = %153
   br label %lean_inc.exit77.backedge
 
 lean_inc.exit77.backedge:                         ; preds = %161, %165, %lean_nat_add.exit.thread127, %171, %173, %174
-  %.054.be = phi ptr [ %168, %174 ], [ %168, %173 ], [ %156, %lean_nat_add.exit.thread127 ], [ %168, %171 ], [ %166, %165 ], [ %164, %161 ]
+  %.054.be = phi ptr [ %156, %lean_nat_add.exit.thread127 ], [ %168, %171 ], [ %168, %173 ], [ %168, %174 ], [ %166, %165 ], [ %164, %161 ]
   br label %lean_inc.exit77
 
 165:                                              ; preds = %157
@@ -2455,8 +2455,8 @@ lean_dec.exit:                                    ; preds = %210, %209, %207, %l
   %211 = load ptr, ptr @l_Std_Range_forIn_x27_loop___at_Vector_instDecidableLTOfDecidableEq___spec__2___rarg___closed__4, align 8, !tbaa !10
   br label %212
 
-212:                                              ; preds = %lean_dec.exit71, %lean_dec.exit, %lean_dec.exit66, %56, %55, %53
-  %.1.ph = phi ptr [ %.050, %53 ], [ %.050, %55 ], [ %.050, %56 ], [ %150, %lean_dec.exit66 ], [ %211, %lean_dec.exit ], [ %.050, %lean_dec.exit71 ]
+212:                                              ; preds = %lean_dec.exit, %lean_dec.exit66, %56, %55, %53, %lean_dec.exit71
+  %.1.ph = phi ptr [ %.050, %lean_dec.exit71 ], [ %.050, %53 ], [ %.050, %55 ], [ %.050, %56 ], [ %150, %lean_dec.exit66 ], [ %211, %lean_dec.exit ]
   ret ptr %.1.ph
 }
 
@@ -3317,7 +3317,7 @@ _init_l_Vector_lex___at_Vector_instDecidableLTOfDecidableEq___spec__1___rarg___c
   br label %93
 
 93:                                               ; preds = %.sink.split, %lean_dec_ref.exit19, %lean_dec_ref.exit17, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink47, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %.sink47, %.sink.split ]
   ret ptr %.0
 }
 

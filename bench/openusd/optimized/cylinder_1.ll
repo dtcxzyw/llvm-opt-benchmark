@@ -2071,8 +2071,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28: ; preds = %111, %117
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit26, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28, %.thread, %122
-  %_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdGeomCylinder_123GetSchemaAttributeNamesEbE8allNames.sink = phi ptr [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdGeomCylinder_123GetSchemaAttributeNamesEbE8allNames, %122 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdGeomCylinder_123GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdGeomCylinder_123GetSchemaAttributeNamesEbE10localNames, %.thread ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdGeomCylinder_123GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit26 ]
-  %.pn10 = phi { ptr, i32 } [ %123, %122 ], [ %109, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28 ], [ %10, %.thread ], [ %96, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit26 ]
+  %_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdGeomCylinder_123GetSchemaAttributeNamesEbE8allNames.sink = phi ptr [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdGeomCylinder_123GetSchemaAttributeNamesEbE8allNames, %122 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdGeomCylinder_123GetSchemaAttributeNamesEbE10localNames, %.thread ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdGeomCylinder_123GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdGeomCylinder_123GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit26 ]
+  %.pn10 = phi { ptr, i32 } [ %123, %122 ], [ %10, %.thread ], [ %109, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28 ], [ %96, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit26 ]
   call void @__cxa_guard_abort(ptr nonnull %_ZGVZN32pxrInternal_v0_24__pxrReserved__17UsdGeomCylinder_123GetSchemaAttributeNamesEbE8allNames.sink) #17
   resume { ptr, i32 } %.pn10
 }
@@ -3896,7 +3896,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit47: ; preds = %_ZN32
           to label %191 unwind label %179
 
 191:                                              ; preds = %189, %187, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit47
-  %.1 = phi i1 [ %188, %187 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit47 ], [ %190, %189 ]
+  %.1 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit47 ], [ %188, %187 ], [ %190, %189 ]
   %192 = load ptr, ptr %13, align 8
   %193 = ptrtoint ptr %192 to i64
   %194 = and i64 %193, 7
@@ -3924,12 +3924,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit47: ; preds = %_ZN32
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit50
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %195, %191, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit39, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit30, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit, %27
-  %.0 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit39 ], [ false, %27 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit30 ], [ %.1, %191 ], [ %.1, %195 ]
+  %.0 = phi i1 [ false, %27 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit30 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit39 ], [ %.1, %191 ], [ %.1, %195 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomCylinder_1D1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
   ret i1 %.0
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit50: ; preds = %203, %199, %141, %103, %65, %28
-  %.pn.pn = phi { ptr, i32 } [ %66, %65 ], [ %142, %141 ], [ %29, %28 ], [ %104, %103 ], [ %.pn, %199 ], [ %.pn, %203 ]
+  %.pn.pn = phi { ptr, i32 } [ %142, %141 ], [ %29, %28 ], [ %104, %103 ], [ %66, %65 ], [ %.pn, %199 ], [ %.pn, %203 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomCylinder_1D1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
   resume { ptr, i32 } %.pn.pn
 }

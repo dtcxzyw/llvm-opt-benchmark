@@ -270,8 +270,8 @@ _ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit: ; preds = %8, %
 35:                                               ; preds = %28, %26
   br label %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread
 
-_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread: ; preds = %35, %28, %11, %13, %9, %2, %21, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit
-  %.08 = phi i1 [ false, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit ], [ false, %21 ], [ false, %11 ], [ false, %2 ], [ false, %9 ], [ false, %13 ], [ true, %35 ], [ false, %28 ]
+_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread: ; preds = %35, %28, %9, %11, %13, %2, %21, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit
+  %.08 = phi i1 [ false, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit ], [ false, %21 ], [ false, %2 ], [ false, %13 ], [ false, %11 ], [ false, %9 ], [ true, %35 ], [ false, %28 ]
   ret i1 %.08
 }
 

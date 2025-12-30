@@ -836,7 +836,7 @@ _ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev.exit22
   br label %_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev.exit22
 
 _ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev.exit22: ; preds = %_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev.exit22.sink.split, %107, %68
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %107 ], [ %lpad.phi46, %68 ], [ %.pn.ph, %_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev.exit22.sink.split ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi46, %68 ], [ %lpad.phi, %107 ], [ %.pn.ph, %_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev.exit22.sink.split ]
   resume { ptr, i32 } %.pn
 }
 

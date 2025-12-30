@@ -163,7 +163,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp.i8, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.else, %if.then10, %entry
-  %value.0 = phi double [ 0.000000e+00, %entry ], [ %5, %if.then10 ], [ %8, %if.else ]
+  %value.0 = phi double [ %5, %if.then10 ], [ 0.000000e+00, %entry ], [ %8, %if.else ]
   %newTarget_.i.i = getelementptr inbounds nuw i8, ptr %args, i64 16
   %9 = load ptr, ptr %newTarget_.i.i, align 8
   %10 = load i64, ptr %9, align 8
@@ -241,8 +241,8 @@ if.end9:                                          ; preds = %cond.true.i
   br label %return
 
 return:                                           ; preds = %entry, %if.end9, %if.then7
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.0.0.i, %if.end9 ], [ undef, %if.then7 ], [ %2, %entry ]
-  %retval.sroa.0.0 = phi i32 [ 1, %if.end9 ], [ %call8, %if.then7 ], [ 1, %entry ]
+  %retval.sroa.4.0 = phi i64 [ undef, %if.then7 ], [ %retval.sroa.0.0.i, %if.end9 ], [ %2, %entry ]
+  %retval.sroa.0.0 = phi i32 [ %call8, %if.then7 ], [ 1, %if.end9 ], [ 1, %entry ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -378,8 +378,8 @@ if.end62:                                         ; preds = %_ZN6hermes2vm15Hand
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %if.else15, %if.end62, %if.then36, %if.then29, %if.then6
-  %retval.sroa.0.0 = phi i32 [ 0, %if.else15 ], [ 1, %if.end62 ], [ 1, %if.then36 ], [ %call7, %if.then6 ], [ %call31, %if.then29 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ]
-  %retval.sroa.7.0 = phi i64 [ undef, %if.else15 ], [ %or.i.i.i.i, %if.end62 ], [ %retval.sroa.0.0.copyload.i29, %if.then36 ], [ undef, %if.then6 ], [ undef, %if.then29 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.end62 ], [ 1, %if.then36 ], [ %call31, %if.then29 ], [ %call7, %if.then6 ], [ 0, %if.else15 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ]
+  %retval.sroa.7.0 = phi i64 [ %or.i.i.i.i, %if.end62 ], [ %retval.sroa.0.0.copyload.i29, %if.then36 ], [ undef, %if.then29 ], [ undef, %if.then6 ], [ undef, %if.else15 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.7.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -461,8 +461,8 @@ if.end25:                                         ; preds = %_ZN6hermes2vm15Hand
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %if.end25, %if.then6
-  %retval.sroa.0.0 = phi i32 [ %call7, %if.then6 ], [ 1, %if.end25 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ]
-  %retval.sroa.4.0 = phi i64 [ undef, %if.then6 ], [ %or.i.i.i.i, %if.end25 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.end25 ], [ %call7, %if.then6 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ]
+  %retval.sroa.4.0 = phi i64 [ %or.i.i.i.i, %if.end25 ], [ undef, %if.then6 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -1030,8 +1030,8 @@ if.then.i.i.i205:                                 ; preds = %_ZN4llvh11SmallStri
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i205, %_ZN4llvh11SmallStringILj32EED2Ev.exit, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %entry, %if.end60, %if.then34, %if.then26, %if.then9
-  %retval.sroa.0.0 = phi i32 [ %call28, %if.then26 ], [ %call10, %if.then9 ], [ 1, %if.then34 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ 0, %entry ], [ 1, %if.end60 ], [ %82, %_ZN4llvh11SmallStringILj32EED2Ev.exit ], [ %82, %if.then.i.i.i205 ]
-  %retval.sroa.8.0 = phi i64 [ undef, %if.then26 ], [ undef, %if.then9 ], [ %or.i.i.i, %if.then34 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ undef, %entry ], [ %or.i.i.i.i, %if.end60 ], [ %83, %_ZN4llvh11SmallStringILj32EED2Ev.exit ], [ %83, %if.then.i.i.i205 ]
+  %retval.sroa.0.0 = phi i32 [ %call10, %if.then9 ], [ 1, %if.then34 ], [ 1, %if.end60 ], [ %call28, %if.then26 ], [ 0, %entry ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ %82, %_ZN4llvh11SmallStringILj32EED2Ev.exit ], [ %82, %if.then.i.i.i205 ]
+  %retval.sroa.8.0 = phi i64 [ undef, %if.then9 ], [ %or.i.i.i, %if.then34 ], [ %or.i.i.i.i, %if.end60 ], [ undef, %if.then26 ], [ undef, %entry ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ %83, %_ZN4llvh11SmallStringILj32EED2Ev.exit ], [ %83, %if.then.i.i.i205 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.8.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -1367,8 +1367,8 @@ if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm7Runti
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit, %if.end15, %if.then58, %if.then45, %if.then36, %if.then28, %if.then10
-  %retval.sroa.0.0 = phi i32 [ %call12, %if.then10 ], [ 1, %if.then28 ], [ 1, %if.then36 ], [ 1, %if.then45 ], [ 0, %if.end15 ], [ %call60, %if.then58 ], [ 1, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit ], [ 1, %if.then.i.i.i ]
-  %retval.sroa.8.0 = phi i64 [ undef, %if.then10 ], [ %or.i.i.i, %if.then28 ], [ %or.i.i.i32, %if.then36 ], [ %or.i.i.i36, %if.then45 ], [ undef, %if.end15 ], [ undef, %if.then58 ], [ %47, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit ], [ %47, %if.then.i.i.i ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.then28 ], [ 1, %if.then36 ], [ 1, %if.then45 ], [ %call60, %if.then58 ], [ %call12, %if.then10 ], [ 0, %if.end15 ], [ 1, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit ], [ 1, %if.then.i.i.i ]
+  %retval.sroa.8.0 = phi i64 [ %or.i.i.i, %if.then28 ], [ %or.i.i.i32, %if.then36 ], [ %or.i.i.i36, %if.then45 ], [ undef, %if.then58 ], [ undef, %if.then10 ], [ undef, %if.end15 ], [ %47, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit ], [ %47, %if.then.i.i.i ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.8.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -1865,8 +1865,8 @@ if.then.i.i.i133:                                 ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i133, %cleanup, %if.end41, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %if.then81, %if.then72, %if.then63, %if.then55, %if.end35, %if.then10
-  %retval.sroa.0.0 = phi i32 [ %call12, %if.then10 ], [ 1, %if.end35 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ 1, %if.then55 ], [ 1, %if.then63 ], [ 1, %if.then72 ], [ %call83, %if.then81 ], [ 0, %if.end41 ], [ 1, %cleanup ], [ 1, %if.then.i.i.i133 ]
-  %retval.sroa.13.0 = phi i64 [ undef, %if.then10 ], [ %or.i.i.i.i, %if.end35 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ %or.i.i.i, %if.then55 ], [ %or.i.i.i56, %if.then63 ], [ %or.i.i.i60, %if.then72 ], [ undef, %if.then81 ], [ undef, %if.end41 ], [ %retval.sroa.13.1, %cleanup ], [ %retval.sroa.13.1, %if.then.i.i.i133 ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.end35 ], [ 1, %if.then55 ], [ 1, %if.then63 ], [ 1, %if.then72 ], [ %call83, %if.then81 ], [ %call12, %if.then10 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ 0, %if.end41 ], [ 1, %cleanup ], [ 1, %if.then.i.i.i133 ]
+  %retval.sroa.13.0 = phi i64 [ %or.i.i.i.i, %if.end35 ], [ %or.i.i.i, %if.then55 ], [ %or.i.i.i56, %if.then63 ], [ %or.i.i.i60, %if.then72 ], [ undef, %if.then81 ], [ undef, %if.then10 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ undef, %if.end41 ], [ %retval.sroa.13.1, %cleanup ], [ %retval.sroa.13.1, %if.then.i.i.i133 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.13.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -1993,7 +1993,7 @@ if.end21:                                         ; preds = %if.end15
   br label %return
 
 return:                                           ; preds = %entry, %if.end15, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit, %if.end21
-  %retval.sroa.5.0 = phi i64 [ -1407374883553280, %entry ], [ %or.i.i, %if.end21 ], [ -1407374883553280, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit ], [ -1407374883553280, %if.end15 ]
+  %retval.sroa.5.0 = phi i64 [ %or.i.i, %if.end21 ], [ -1407374883553280, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit ], [ -1407374883553280, %if.end15 ], [ -1407374883553280, %entry ]
   %.fca.1.insert = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %retval.sroa.5.0, 1
   ret { i32, i64 } %.fca.1.insert
 }

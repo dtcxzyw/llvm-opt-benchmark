@@ -431,7 +431,7 @@ define internal range(i32 -2147483648, 1) i32 @read_header(ptr noundef %0) #1 {
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread161, %96, %.thread180, %156, %.thread157, %83, %59, %27, %1, %144
-  %.0 = phi i32 [ -1094995529, %1 ], [ -12, %59 ], [ 0, %.thread180 ], [ -1094995529, %144 ], [ -12, %96 ], [ -12, %27 ], [ %89, %83 ], [ 0, %.thread157 ], [ 0, %156 ], [ 0, %.thread161 ]
+  %.0 = phi i32 [ -1094995529, %144 ], [ -1094995529, %1 ], [ -12, %27 ], [ -12, %59 ], [ %89, %83 ], [ 0, %.thread157 ], [ 0, %156 ], [ 0, %.thread180 ], [ -12, %96 ], [ 0, %.thread161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -574,7 +574,7 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef %0, ptr n
   br label %95
 
 95:                                               ; preds = %92, %80, %77
-  %.1 = phi i32 [ %94, %92 ], [ %79, %77 ], [ %91, %80 ]
+  %.1 = phi i32 [ %79, %77 ], [ %91, %80 ], [ %94, %92 ]
   %96 = icmp slt i32 %.1, 0
   br i1 %96, label %.thread, label %97
 
@@ -604,7 +604,7 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %59, %102, %107, %95, %53, %48, %35, %7, %2, %22
-  %.0 = phi i32 [ -541478725, %2 ], [ -5, %22 ], [ -541478725, %7 ], [ -1094995529, %35 ], [ -1094995529, %48 ], [ -1094995529, %53 ], [ %.1, %95 ], [ %.065, %107 ], [ %.065, %102 ], [ -1163346256, %59 ]
+  %.0 = phi i32 [ -5, %22 ], [ -541478725, %2 ], [ -541478725, %7 ], [ -1094995529, %35 ], [ -1094995529, %48 ], [ -1094995529, %53 ], [ %.1, %95 ], [ %.065, %107 ], [ %.065, %102 ], [ -1163346256, %59 ]
   ret i32 %.0
 }
 
@@ -649,7 +649,7 @@ define internal range(i32 -38, 1) i32 @read_seek(ptr noundef readonly captures(n
   br label %16
 
 16:                                               ; preds = %8, %4, %14
-  %.0 = phi i32 [ -38, %4 ], [ 0, %14 ], [ -5, %8 ]
+  %.0 = phi i32 [ 0, %14 ], [ -38, %4 ], [ -5, %8 ]
   ret i32 %.0
 }
 
@@ -1228,7 +1228,7 @@ read_string.exit:                                 ; preds = %107, %106, %99, %94
   br i1 %.not, label %36, label %read_string.exit.thread302
 
 read_string.exit.thread302:                       ; preds = %read_string.exit, %36, %86, %45, %4, %59
-  %.4 = phi i32 [ -1094995529, %59 ], [ 0, %4 ], [ %88, %86 ], [ 0, %36 ], [ 0, %read_string.exit ], [ %48, %45 ]
+  %.4 = phi i32 [ -1094995529, %59 ], [ 0, %4 ], [ 0, %read_string.exit ], [ 0, %36 ], [ %88, %86 ], [ %48, %45 ]
   ret i32 %.4
 }
 
@@ -1586,7 +1586,7 @@ bytestream2_put_le32.exit83:                      ; preds = %132, %136, %143
   br i1 %exitcond.not, label %123, label %132, !llvm.loop !96
 
 147:                                              ; preds = %123, %6, %4
-  %.061 = phi i32 [ %9, %6 ], [ -1163346256, %4 ], [ %., %123 ]
+  %.061 = phi i32 [ -1163346256, %4 ], [ %9, %6 ], [ %., %123 ]
   ret i32 %.061
 }
 

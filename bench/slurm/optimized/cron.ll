@@ -262,7 +262,7 @@ define dso_local noundef zeroext i1 @valid_cron_entry(ptr noundef readonly captu
   br label %95
 
 95:                                               ; preds = %90, %83, %32, %39, %50, %57, %43, %1, %5, %9, %13, %17, %94
-  %.0 = phi i1 [ false, %83 ], [ false, %1 ], [ true, %94 ], [ false, %32 ], [ false, %17 ], [ false, %13 ], [ false, %9 ], [ false, %5 ], [ false, %43 ], [ false, %57 ], [ false, %50 ], [ false, %39 ], [ false, %90 ]
+  %.0 = phi i1 [ true, %94 ], [ false, %17 ], [ false, %13 ], [ false, %9 ], [ false, %5 ], [ false, %1 ], [ false, %43 ], [ false, %57 ], [ false, %50 ], [ false, %39 ], [ false, %32 ], [ false, %83 ], [ false, %90 ]
   ret i1 %.0
 }
 
@@ -739,7 +739,7 @@ _days_in_month.exit.i59:                          ; preds = %115, %111, %109, %1
   br i1 %.not28.i80, label %.lr.ph38.i75, label %_next_day_of_month.exit82, !llvm.loop !15
 
 _next_day_of_month.exit82:                        ; preds = %120, %.lr.ph38.i75, %127, %.preheader.i70
-  %.123.i67 = phi i32 [ %128, %127 ], [ %119, %.preheader.i70 ], [ %.12536.i77, %.lr.ph38.i75 ], [ %.02433.i64, %120 ]
+  %.123.i67 = phi i32 [ %119, %.preheader.i70 ], [ %128, %127 ], [ %.12536.i77, %.lr.ph38.i75 ], [ %.02433.i64, %120 ]
   %131 = load i32, ptr %21, align 8
   %132 = icmp sgt i32 %131, 6
   br i1 %132, label %.lr.ph33.i95.preheader, label %.lr.ph.i83
@@ -789,12 +789,12 @@ _next_day_of_month.exit82:                        ; preds = %120, %.lr.ph38.i75,
   br i1 %.not24.i100, label %.lr.ph33.i95, label %_next_day_of_week.exit101, !llvm.loop !13
 
 _next_day_of_week.exit101:                        ; preds = %136, %.lr.ph33.i95, %143, %.preheader.i91
-  %.122.i88 = phi i32 [ 0, %143 ], [ 0, %.preheader.i91 ], [ %.12031.i97, %.lr.ph33.i95 ], [ %.01928.i85, %136 ]
+  %.122.i88 = phi i32 [ 0, %.preheader.i91 ], [ 0, %143 ], [ %.12031.i97, %.lr.ph33.i95 ], [ %.01928.i85, %136 ]
   %147 = call i32 @llvm.smin.i32(i32 %.123.i67, i32 %.122.i88)
   br label %_next_day_of_week.exit
 
 _next_day_of_week.exit:                           ; preds = %65, %.lr.ph33.i, %93, %.lr.ph38.i, %_next_day_of_week.exit101
-  %.0 = phi i32 [ %.02433.i, %93 ], [ %147, %_next_day_of_week.exit101 ], [ %.12031.i, %.lr.ph33.i ], [ %.12536.i, %.lr.ph38.i ], [ %.01928.i, %65 ]
+  %.0 = phi i32 [ %147, %_next_day_of_week.exit101 ], [ %.12536.i, %.lr.ph38.i ], [ %.02433.i, %93 ], [ %.12031.i, %.lr.ph33.i ], [ %.01928.i, %65 ]
   %.not33 = icmp eq i32 %.0, 0
   br i1 %.not33, label %_next_day_of_week.exit.thread.preheader, label %_next_day_of_week.exit._next_day_of_week.exit.thread105_crit_edge
 

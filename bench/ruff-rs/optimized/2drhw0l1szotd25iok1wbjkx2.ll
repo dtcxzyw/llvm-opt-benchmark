@@ -383,7 +383,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_101_$LT$impl$u20$serde
   ret { i32, i32 } %43
 
 44:                                               ; preds = %36, %30, %24, %18, %12
-  %.pn = phi { i32, i32 } [ %29, %30 ], [ %11, %12 ], [ %17, %18 ], [ %23, %24 ], [ %35, %36 ]
+  %.pn = phi { i32, i32 } [ %11, %12 ], [ %17, %18 ], [ %23, %24 ], [ %29, %30 ], [ %35, %36 ]
   %.sroa.8.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %41
@@ -582,7 +582,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_101_$LT$impl$u20$serde
   ret { i32, i32 } %67
 
 68:                                               ; preds = %60, %54, %48, %42, %36, %31, %25, %19, %13
-  %.pn = phi { i32, i32 } [ %53, %54 ], [ %12, %13 ], [ %18, %19 ], [ %24, %25 ], [ %30, %31 ], [ %35, %36 ], [ %41, %42 ], [ %47, %48 ], [ %59, %60 ]
+  %.pn = phi { i32, i32 } [ %12, %13 ], [ %18, %19 ], [ %24, %25 ], [ %30, %31 ], [ %35, %36 ], [ %41, %42 ], [ %47, %48 ], [ %53, %54 ], [ %59, %60 ]
   %.sroa.12.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %65
@@ -662,7 +662,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_101_$LT$impl$u20$serde
   ret { i32, i32 } %31
 
 32:                                               ; preds = %24, %19, %13
-  %.pn = phi { i32, i32 } [ %18, %19 ], [ %12, %13 ], [ %23, %24 ]
+  %.pn = phi { i32, i32 } [ %12, %13 ], [ %18, %19 ], [ %23, %24 ]
   %.sroa.6.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %29
@@ -810,7 +810,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_102_$LT$impl$u20$serde
   ret { i32, i32 } %43
 
 44:                                               ; preds = %36, %30, %24, %18, %13
-  %.pn = phi { i32, i32 } [ %29, %30 ], [ %12, %13 ], [ %17, %18 ], [ %23, %24 ], [ %35, %36 ]
+  %.pn = phi { i32, i32 } [ %12, %13 ], [ %17, %18 ], [ %23, %24 ], [ %29, %30 ], [ %35, %36 ]
   %.sroa.8.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %41
@@ -1139,7 +1139,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_107_$LT$impl$u20$serde
   ret { i32, i32 } %37
 
 38:                                               ; preds = %30, %24, %18, %12
-  %.pn = phi { i32, i32 } [ %23, %24 ], [ %11, %12 ], [ %17, %18 ], [ %29, %30 ]
+  %.pn = phi { i32, i32 } [ %11, %12 ], [ %17, %18 ], [ %23, %24 ], [ %29, %30 ]
   %.sroa.7.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %35
@@ -1487,7 +1487,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_84_$LT$impl$u20$serde.
   ret { i32, i32 } %.merged
 
 169:                                              ; preds = %163, %157, %151, %146, %140, %134, %128, %122, %116, %110, %104, %98, %92, %86, %80, %74, %68, %62, %56, %50, %44, %38, %32, %26, %20, %14
-  %.pn = phi { i32, i32 } [ %156, %157 ], [ %13, %14 ], [ %19, %20 ], [ %25, %26 ], [ %31, %32 ], [ %37, %38 ], [ %43, %44 ], [ %49, %50 ], [ %55, %56 ], [ %61, %62 ], [ %67, %68 ], [ %73, %74 ], [ %79, %80 ], [ %85, %86 ], [ %91, %92 ], [ %97, %98 ], [ %103, %104 ], [ %109, %110 ], [ %115, %116 ], [ %121, %122 ], [ %127, %128 ], [ %133, %134 ], [ %139, %140 ], [ %145, %146 ], [ %150, %151 ], [ %162, %163 ]
+  %.pn = phi { i32, i32 } [ %13, %14 ], [ %19, %20 ], [ %25, %26 ], [ %31, %32 ], [ %37, %38 ], [ %43, %44 ], [ %49, %50 ], [ %55, %56 ], [ %61, %62 ], [ %67, %68 ], [ %73, %74 ], [ %79, %80 ], [ %85, %86 ], [ %91, %92 ], [ %97, %98 ], [ %103, %104 ], [ %109, %110 ], [ %115, %116 ], [ %121, %122 ], [ %127, %128 ], [ %133, %134 ], [ %139, %140 ], [ %145, %146 ], [ %150, %151 ], [ %156, %157 ], [ %162, %163 ]
   %.sroa.29.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr59drop_in_place$LT$serde_wasm_bindgen..ser..MapSerializer$GT$17haad205ece87c0f4cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
   br label %170
@@ -1617,7 +1617,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_88_$LT$impl$u20$serde.
   ret { i32, i32 } %.merged
 
 49:                                               ; preds = %43, %37, %31, %25, %19, %13
-  %.pn = phi { i32, i32 } [ %36, %37 ], [ %12, %13 ], [ %18, %19 ], [ %24, %25 ], [ %30, %31 ], [ %42, %43 ]
+  %.pn = phi { i32, i32 } [ %12, %13 ], [ %18, %19 ], [ %24, %25 ], [ %30, %31 ], [ %36, %37 ], [ %42, %43 ]
   %.sroa.9.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr59drop_in_place$LT$serde_wasm_bindgen..ser..MapSerializer$GT$17haad205ece87c0f4cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
   br label %50
@@ -1703,7 +1703,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_88_$LT$impl$u20$serde.
   ret { i32, i32 } %31
 
 32:                                               ; preds = %24, %18, %13
-  %.pn = phi { i32, i32 } [ %17, %18 ], [ %12, %13 ], [ %23, %24 ]
+  %.pn = phi { i32, i32 } [ %12, %13 ], [ %17, %18 ], [ %23, %24 ]
   %.sroa.6.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %29
@@ -2087,7 +2087,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_89_$LT$impl$u20$serde.
   ret { i32, i32 } %193
 
 194:                                              ; preds = %186, %180, %174, %168, %162, %156, %150, %144, %138, %132, %126, %121, %115, %109, %103, %97, %91, %85, %79, %73, %67, %61, %55, %49, %43, %37, %31, %25, %19, %13
-  %.pn = phi { i32, i32 } [ %179, %180 ], [ %12, %13 ], [ %18, %19 ], [ %24, %25 ], [ %30, %31 ], [ %36, %37 ], [ %42, %43 ], [ %48, %49 ], [ %54, %55 ], [ %60, %61 ], [ %66, %67 ], [ %72, %73 ], [ %78, %79 ], [ %84, %85 ], [ %90, %91 ], [ %96, %97 ], [ %102, %103 ], [ %108, %109 ], [ %114, %115 ], [ %120, %121 ], [ %125, %126 ], [ %131, %132 ], [ %137, %138 ], [ %143, %144 ], [ %149, %150 ], [ %155, %156 ], [ %161, %162 ], [ %167, %168 ], [ %173, %174 ], [ %185, %186 ]
+  %.pn = phi { i32, i32 } [ %12, %13 ], [ %18, %19 ], [ %24, %25 ], [ %30, %31 ], [ %36, %37 ], [ %42, %43 ], [ %48, %49 ], [ %54, %55 ], [ %60, %61 ], [ %66, %67 ], [ %72, %73 ], [ %78, %79 ], [ %84, %85 ], [ %90, %91 ], [ %96, %97 ], [ %102, %103 ], [ %108, %109 ], [ %114, %115 ], [ %120, %121 ], [ %125, %126 ], [ %131, %132 ], [ %137, %138 ], [ %143, %144 ], [ %149, %150 ], [ %155, %156 ], [ %161, %162 ], [ %167, %168 ], [ %173, %174 ], [ %179, %180 ], [ %185, %186 ]
   %.sroa.33.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %191
@@ -2229,7 +2229,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_90_$LT$impl$u20$serde.
   ret { i32, i32 } %61
 
 62:                                               ; preds = %54, %48, %42, %36, %30, %24, %18, %12
-  %.pn = phi { i32, i32 } [ %47, %48 ], [ %11, %12 ], [ %17, %18 ], [ %23, %24 ], [ %29, %30 ], [ %35, %36 ], [ %41, %42 ], [ %53, %54 ]
+  %.pn = phi { i32, i32 } [ %11, %12 ], [ %17, %18 ], [ %23, %24 ], [ %29, %30 ], [ %35, %36 ], [ %41, %42 ], [ %47, %48 ], [ %53, %54 ]
   %.sroa.11.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %59
@@ -2448,7 +2448,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_90_$LT$impl$u20$serde.
   ret { i32, i32 } %79
 
 80:                                               ; preds = %48, %42, %36, %30, %24, %19, %13, %72, %66, %60, %54
-  %.pn = phi { i32, i32 } [ %71, %72 ], [ %12, %13 ], [ %18, %19 ], [ %23, %24 ], [ %29, %30 ], [ %35, %36 ], [ %41, %42 ], [ %65, %66 ], [ %53, %54 ], [ %59, %60 ], [ %47, %48 ]
+  %.pn = phi { i32, i32 } [ %53, %54 ], [ %59, %60 ], [ %65, %66 ], [ %71, %72 ], [ %12, %13 ], [ %18, %19 ], [ %23, %24 ], [ %29, %30 ], [ %35, %36 ], [ %41, %42 ], [ %47, %48 ]
   %.sroa.14.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %77
@@ -2578,7 +2578,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_91_$LT$impl$u20$serde.
   ret { i32, i32 } %43
 
 44:                                               ; preds = %36, %31, %25, %19, %13
-  %.pn = phi { i32, i32 } [ %30, %31 ], [ %12, %13 ], [ %18, %19 ], [ %24, %25 ], [ %35, %36 ]
+  %.pn = phi { i32, i32 } [ %12, %13 ], [ %18, %19 ], [ %24, %25 ], [ %30, %31 ], [ %35, %36 ]
   %.sroa.8.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %41
@@ -3220,7 +3220,7 @@ define internal fastcc { i32, i32 } @"_ZN14ruff_workspace7options1_94_$LT$impl$u
   ret { i32, i32 } %229
 
 230:                                              ; preds = %222, %217, %212, %207, %202, %197, %192, %187, %182, %177, %172, %167, %163, %158, %153, %148, %143, %138, %133, %128, %123, %118, %113, %108, %103, %98, %93, %88, %83, %78, %73, %68, %63, %58, %53, %48, %43, %38, %33, %28, %23, %18, %13, %8, %2
-  %.pn = phi { i32, i32 } [ %219, %217 ], [ %224, %222 ], [ %5, %2 ], [ %10, %8 ], [ %15, %13 ], [ %20, %18 ], [ %25, %23 ], [ %30, %28 ], [ %35, %33 ], [ %40, %38 ], [ %45, %43 ], [ %50, %48 ], [ %55, %53 ], [ %60, %58 ], [ %65, %63 ], [ %70, %68 ], [ %75, %73 ], [ %80, %78 ], [ %85, %83 ], [ %90, %88 ], [ %95, %93 ], [ %100, %98 ], [ %105, %103 ], [ %110, %108 ], [ %115, %113 ], [ %120, %118 ], [ %125, %123 ], [ %130, %128 ], [ %135, %133 ], [ %140, %138 ], [ %145, %143 ], [ %150, %148 ], [ %155, %153 ], [ %160, %158 ], [ %164, %163 ], [ %169, %167 ], [ %174, %172 ], [ %179, %177 ], [ %184, %182 ], [ %189, %187 ], [ %194, %192 ], [ %199, %197 ], [ %204, %202 ], [ %209, %207 ], [ %214, %212 ]
+  %.pn = phi { i32, i32 } [ %5, %2 ], [ %10, %8 ], [ %15, %13 ], [ %20, %18 ], [ %25, %23 ], [ %30, %28 ], [ %35, %33 ], [ %40, %38 ], [ %45, %43 ], [ %50, %48 ], [ %55, %53 ], [ %60, %58 ], [ %65, %63 ], [ %70, %68 ], [ %75, %73 ], [ %80, %78 ], [ %85, %83 ], [ %90, %88 ], [ %95, %93 ], [ %100, %98 ], [ %105, %103 ], [ %110, %108 ], [ %115, %113 ], [ %120, %118 ], [ %125, %123 ], [ %130, %128 ], [ %135, %133 ], [ %140, %138 ], [ %145, %143 ], [ %150, %148 ], [ %155, %153 ], [ %160, %158 ], [ %164, %163 ], [ %169, %167 ], [ %174, %172 ], [ %179, %177 ], [ %184, %182 ], [ %189, %187 ], [ %194, %192 ], [ %199, %197 ], [ %204, %202 ], [ %209, %207 ], [ %214, %212 ], [ %219, %217 ], [ %224, %222 ]
   %.sroa.48.0 = extractvalue { i32, i32 } %.pn, 1
   br label %227
 }
@@ -3294,7 +3294,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_94_$LT$impl$u20$serde.
   ret { i32, i32 } %37
 
 38:                                               ; preds = %30, %24, %18, %12
-  %.pn = phi { i32, i32 } [ %23, %24 ], [ %11, %12 ], [ %17, %18 ], [ %29, %30 ]
+  %.pn = phi { i32, i32 } [ %11, %12 ], [ %17, %18 ], [ %23, %24 ], [ %29, %30 ]
   %.sroa.7.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %35
@@ -3384,7 +3384,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_94_$LT$impl$u20$serde.
   ret { i32, i32 } %37
 
 38:                                               ; preds = %30, %24, %18, %13
-  %.pn = phi { i32, i32 } [ %23, %24 ], [ %12, %13 ], [ %17, %18 ], [ %29, %30 ]
+  %.pn = phi { i32, i32 } [ %12, %13 ], [ %17, %18 ], [ %23, %24 ], [ %29, %30 ]
   %.sroa.7.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %35
@@ -3500,7 +3500,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_95_$LT$impl$u20$serde.
   ret { i32, i32 } %31
 
 32:                                               ; preds = %24, %18, %12
-  %.pn = phi { i32, i32 } [ %17, %18 ], [ %11, %12 ], [ %23, %24 ]
+  %.pn = phi { i32, i32 } [ %11, %12 ], [ %17, %18 ], [ %23, %24 ]
   %.sroa.6.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %29
@@ -3612,7 +3612,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_96_$LT$impl$u20$serde.
   ret { i32, i32 } %43
 
 44:                                               ; preds = %36, %30, %24, %18, %12
-  %.pn = phi { i32, i32 } [ %29, %30 ], [ %11, %12 ], [ %17, %18 ], [ %23, %24 ], [ %35, %36 ]
+  %.pn = phi { i32, i32 } [ %11, %12 ], [ %17, %18 ], [ %23, %24 ], [ %29, %30 ], [ %35, %36 ]
   %.sroa.8.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %41
@@ -3761,7 +3761,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_96_$LT$impl$u20$serde.
   ret { i32, i32 } %37
 
 38:                                               ; preds = %30, %24, %18, %12
-  %.pn = phi { i32, i32 } [ %23, %24 ], [ %11, %12 ], [ %17, %18 ], [ %29, %30 ]
+  %.pn = phi { i32, i32 } [ %11, %12 ], [ %17, %18 ], [ %23, %24 ], [ %29, %30 ]
   %.sroa.7.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %35
@@ -4060,7 +4060,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_98_$LT$impl$u20$serde.
   ret { i32, i32 } %49
 
 50:                                               ; preds = %42, %36, %30, %24, %18, %12
-  %.pn = phi { i32, i32 } [ %35, %36 ], [ %11, %12 ], [ %17, %18 ], [ %23, %24 ], [ %29, %30 ], [ %41, %42 ]
+  %.pn = phi { i32, i32 } [ %11, %12 ], [ %17, %18 ], [ %23, %24 ], [ %29, %30 ], [ %35, %36 ], [ %41, %42 ]
   %.sroa.9.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %47
@@ -4152,7 +4152,7 @@ define hidden { i32, i32 } @"_ZN14ruff_workspace7options1_99_$LT$impl$u20$serde.
   ret { i32, i32 } %31
 
 32:                                               ; preds = %24, %19, %13
-  %.pn = phi { i32, i32 } [ %18, %19 ], [ %12, %13 ], [ %23, %24 ]
+  %.pn = phi { i32, i32 } [ %12, %13 ], [ %18, %19 ], [ %23, %24 ]
   %.sroa.6.1 = extractvalue { i32, i32 } %.pn, 1
   call void @"_ZN4core3ptr62drop_in_place$LT$serde_wasm_bindgen..ser..ObjectSerializer$GT$17hb9b47e04753df9bfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %29
@@ -4572,7 +4572,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN185_$LT$ruff_workspace..options
   br i1 %87, label %88, label %6, !prof !6
 
 88:                                               ; preds = %1777, %1746, %1667, %1628, %1592, %1546, %1478, %1435, %1354, %1302, %1250, %1184, %1156, %1118, %1092, %1029, %982, %927, %824, %780, %726, %636, %556, %476, %382, %346, %283, %213, %149, %84, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit11"
-  %.sroa.32.0.insert.insert = phi i64 [ %1792, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit11" ], [ 7168, %1746 ], [ 0, %84 ], [ 768, %149 ], [ 2816, %213 ], [ 256, %283 ], [ 2304, %346 ], [ 2560, %382 ], [ 512, %476 ], [ 3072, %556 ], [ 3328, %636 ], [ 1024, %726 ], [ 1280, %780 ], [ 5632, %824 ], [ 1536, %927 ], [ 1792, %982 ], [ 2048, %1029 ], [ 3584, %1092 ], [ 3840, %1118 ], [ 4096, %1156 ], [ 4352, %1184 ], [ 4608, %1250 ], [ 5376, %1302 ], [ 5888, %1354 ], [ 4864, %1435 ], [ 5120, %1478 ], [ 6400, %1546 ], [ 6144, %1592 ], [ 6912, %1628 ], [ 6656, %1667 ], [ 7424, %1777 ]
+  %.sroa.32.0.insert.insert = phi i64 [ %1792, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit11" ], [ 0, %84 ], [ 768, %149 ], [ 2816, %213 ], [ 256, %283 ], [ 2304, %346 ], [ 2560, %382 ], [ 512, %476 ], [ 3072, %556 ], [ 3328, %636 ], [ 1024, %726 ], [ 1280, %780 ], [ 5632, %824 ], [ 1536, %927 ], [ 1792, %982 ], [ 2048, %1029 ], [ 3584, %1092 ], [ 3840, %1118 ], [ 4096, %1156 ], [ 4352, %1184 ], [ 4608, %1250 ], [ 5376, %1302 ], [ 5888, %1354 ], [ 4864, %1435 ], [ 5120, %1478 ], [ 6400, %1546 ], [ 6144, %1592 ], [ 6912, %1628 ], [ 6656, %1667 ], [ 7168, %1746 ], [ 7424, %1777 ]
   ret i64 %.sroa.32.0.insert.insert
 
 89:                                               ; preds = %16
@@ -7738,7 +7738,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN186_$LT$ruff_workspace..options
   br i1 %99, label %100, label %14, !prof !6
 
 100:                                              ; preds = %673, %606, %556, %485, %430, %391, %316, %285, %242, %195, %96, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit11"
-  %.sroa.13.0.insert.insert = phi i64 [ %688, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit11" ], [ 2304, %606 ], [ 0, %96 ], [ 256, %195 ], [ 512, %242 ], [ 768, %285 ], [ 1024, %316 ], [ 1280, %391 ], [ 1536, %430 ], [ 1792, %485 ], [ 2048, %556 ], [ 2560, %673 ]
+  %.sroa.13.0.insert.insert = phi i64 [ %688, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit11" ], [ 0, %96 ], [ 256, %195 ], [ 512, %242 ], [ 768, %285 ], [ 1024, %316 ], [ 1280, %391 ], [ 1536, %430 ], [ 1792, %485 ], [ 2048, %556 ], [ 2304, %606 ], [ 2560, %673 ]
   ret i64 %.sroa.13.0.insert.insert
 
 101:                                              ; preds = %2
@@ -9982,7 +9982,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
   br i1 %90, label %91, label %6, !prof !6
 
 91:                                               ; preds = %2307, %2268, %2249, %2165, %2071, %1972, %1893, %1861, %1821, %1776, %1693, %1634, %1606, %1578, %1536, %1449, %1353, %1247, %1180, %1164, %1152, %1136, %1099, %1072, %1048, %1014, %958, %902, %832, %813, %762, %714, %667, %601, %585, %573, %519, %503, %446, %383, %310, %270, %230, %156, %87, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit26"
-  %.sroa.47.0.insert.insert = phi i64 [ %2322, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit26" ], [ 8960, %2268 ], [ 0, %87 ], [ 2560, %156 ], [ 5120, %230 ], [ 7168, %270 ], [ 8448, %310 ], [ 256, %383 ], [ 4608, %446 ], [ 512, %503 ], [ 768, %519 ], [ 4864, %573 ], [ 6400, %585 ], [ 6656, %601 ], [ 1024, %667 ], [ 3072, %714 ], [ 4096, %762 ], [ 5376, %813 ], [ 7680, %832 ], [ 1280, %902 ], [ 6144, %958 ], [ 11008, %1014 ], [ 1536, %1048 ], [ 10240, %1072 ], [ 1792, %1099 ], [ 2048, %1136 ], [ 3328, %1152 ], [ 9216, %1164 ], [ 10496, %1180 ], [ 2304, %1247 ], [ 2816, %1353 ], [ 7936, %1449 ], [ 3584, %1536 ], [ 3840, %1578 ], [ 4352, %1606 ], [ 10752, %1634 ], [ 5632, %1693 ], [ 5888, %1776 ], [ 6912, %1821 ], [ 9472, %1861 ], [ 9728, %1893 ], [ 7424, %1972 ], [ 8192, %2071 ], [ 8704, %2165 ], [ 11264, %2249 ], [ 9984, %2307 ]
+  %.sroa.47.0.insert.insert = phi i64 [ %2322, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit26" ], [ 0, %87 ], [ 2560, %156 ], [ 5120, %230 ], [ 7168, %270 ], [ 8448, %310 ], [ 256, %383 ], [ 4608, %446 ], [ 512, %503 ], [ 768, %519 ], [ 4864, %573 ], [ 6400, %585 ], [ 6656, %601 ], [ 1024, %667 ], [ 3072, %714 ], [ 4096, %762 ], [ 5376, %813 ], [ 7680, %832 ], [ 1280, %902 ], [ 6144, %958 ], [ 11008, %1014 ], [ 1536, %1048 ], [ 10240, %1072 ], [ 1792, %1099 ], [ 2048, %1136 ], [ 3328, %1152 ], [ 9216, %1164 ], [ 10496, %1180 ], [ 2304, %1247 ], [ 2816, %1353 ], [ 7936, %1449 ], [ 3584, %1536 ], [ 3840, %1578 ], [ 4352, %1606 ], [ 10752, %1634 ], [ 5632, %1693 ], [ 5888, %1776 ], [ 6912, %1821 ], [ 9472, %1861 ], [ 9728, %1893 ], [ 7424, %1972 ], [ 8192, %2071 ], [ 8704, %2165 ], [ 11264, %2249 ], [ 8960, %2268 ], [ 9984, %2307 ]
   ret i64 %.sroa.47.0.insert.insert
 
 92:                                               ; preds = %19
@@ -13729,7 +13729,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
   br i1 %56, label %57, label %11, !prof !6
 
 57:                                               ; preds = %306, %215, %129, %53, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit6"
-  %.sroa.6.0.insert.insert = phi i64 [ %321, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit6" ], [ 512, %215 ], [ 0, %53 ], [ 256, %129 ], [ 768, %306 ]
+  %.sroa.6.0.insert.insert = phi i64 [ %321, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit6" ], [ 0, %53 ], [ 256, %129 ], [ 512, %215 ], [ 768, %306 ]
   ret i64 %.sroa.6.0.insert.insert
 
 58:                                               ; preds = %2
@@ -14284,7 +14284,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_workspace..options
   br i1 %48, label %49, label %11, !prof !6
 
 49:                                               ; preds = %271, %188, %113, %45, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit5"
-  %.sroa.6.0.insert.insert = phi i64 [ %286, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit5" ], [ 512, %188 ], [ 0, %45 ], [ 256, %113 ], [ 768, %271 ]
+  %.sroa.6.0.insert.insert = phi i64 [ %286, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit5" ], [ 0, %45 ], [ 256, %113 ], [ 512, %188 ], [ 768, %271 ]
   ret i64 %.sroa.6.0.insert.insert
 
 50:                                               ; preds = %2
@@ -14828,7 +14828,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN191_$LT$ruff_workspace..options
   br i1 %68, label %69, label %11, !prof !6
 
 69:                                               ; preds = %235, %121, %65, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit5"
-  %.sroa.5.0.insert.insert = phi i64 [ %250, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit5" ], [ 256, %121 ], [ 0, %65 ], [ 512, %235 ]
+  %.sroa.5.0.insert.insert = phi i64 [ %250, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit5" ], [ 0, %65 ], [ 256, %121 ], [ 512, %235 ]
   ret i64 %.sroa.5.0.insert.insert
 
 70:                                               ; preds = %2
@@ -15333,7 +15333,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN192_$LT$ruff_workspace..options
   br i1 %100, label %101, label %11, !prof !6
 
 101:                                              ; preds = %452, %375, %300, %217, %97, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8"
-  %.sroa.7.0.insert.insert = phi i64 [ %467, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8" ], [ 768, %375 ], [ 0, %97 ], [ 256, %217 ], [ 512, %300 ], [ 1024, %452 ]
+  %.sroa.7.0.insert.insert = phi i64 [ %467, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8" ], [ 0, %97 ], [ 256, %217 ], [ 512, %300 ], [ 768, %375 ], [ 1024, %452 ]
   ret i64 %.sroa.7.0.insert.insert
 
 102:                                              ; preds = %2
@@ -16260,7 +16260,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN192_$LT$ruff_workspace..options
   br i1 %60, label %61, label %11, !prof !6
 
 61:                                               ; preds = %227, %180, %124, %57, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit5"
-  %.sroa.6.0.insert.insert = phi i64 [ %242, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit5" ], [ 512, %180 ], [ 0, %57 ], [ 256, %124 ], [ 768, %227 ]
+  %.sroa.6.0.insert.insert = phi i64 [ %242, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit5" ], [ 0, %57 ], [ 256, %124 ], [ 512, %180 ], [ 768, %227 ]
   ret i64 %.sroa.6.0.insert.insert
 
 62:                                               ; preds = %2
@@ -17288,7 +17288,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN194_$LT$ruff_workspace..options
   br i1 %84, label %85, label %11, !prof !6
 
 85:                                               ; preds = %383, %331, %270, %218, %121, %81, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8"
-  %.sroa.8.0.insert.insert = phi i64 [ %398, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8" ], [ 768, %331 ], [ 0, %81 ], [ 256, %121 ], [ 512, %218 ], [ 1024, %270 ], [ 1280, %383 ]
+  %.sroa.8.0.insert.insert = phi i64 [ %398, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8" ], [ 0, %81 ], [ 256, %121 ], [ 512, %218 ], [ 1024, %270 ], [ 768, %331 ], [ 1280, %383 ]
   ret i64 %.sroa.8.0.insert.insert
 
 86:                                               ; preds = %2
@@ -17930,7 +17930,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN195_$LT$ruff_workspace..options
   br i1 %48, label %49, label %11, !prof !6
 
 49:                                               ; preds = %120, %69, %45, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4"
-  %.sroa.5.0.insert.insert = phi i64 [ %135, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4" ], [ 256, %69 ], [ 0, %45 ], [ 512, %120 ]
+  %.sroa.5.0.insert.insert = phi i64 [ %135, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4" ], [ 0, %45 ], [ 256, %69 ], [ 512, %120 ]
   ret i64 %.sroa.5.0.insert.insert
 
 50:                                               ; preds = %2
@@ -18251,7 +18251,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options
   br i1 %72, label %73, label %11, !prof !6
 
 73:                                               ; preds = %379, %301, %231, %142, %69, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit23"
-  %.sroa.7.0.insert.insert = phi i64 [ %394, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit23" ], [ 768, %301 ], [ 0, %69 ], [ 256, %142 ], [ 512, %231 ], [ 1024, %379 ]
+  %.sroa.7.0.insert.insert = phi i64 [ %394, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit23" ], [ 0, %69 ], [ 256, %142 ], [ 512, %231 ], [ 768, %301 ], [ 1024, %379 ]
   ret i64 %.sroa.7.0.insert.insert
 
 74:                                               ; preds = %2
@@ -19163,7 +19163,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options
   br i1 %84, label %85, label %11, !prof !6
 
 85:                                               ; preds = %854, %735, %672, %549, %454, %347, %263, %169, %81, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4"
-  %.sroa.11.0.insert.insert = phi i64 [ %869, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4" ], [ 1536, %735 ], [ 0, %81 ], [ 256, %169 ], [ 512, %263 ], [ 1792, %347 ], [ 768, %454 ], [ 1024, %549 ], [ 1280, %672 ], [ 2048, %854 ]
+  %.sroa.11.0.insert.insert = phi i64 [ %869, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4" ], [ 0, %81 ], [ 256, %169 ], [ 512, %263 ], [ 1792, %347 ], [ 768, %454 ], [ 1024, %549 ], [ 1280, %672 ], [ 1536, %735 ], [ 2048, %854 ]
   ret i64 %.sroa.11.0.insert.insert
 
 86:                                               ; preds = %2
@@ -20583,7 +20583,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN197_$LT$ruff_workspace..options
   br i1 %88, label %89, label %11, !prof !6
 
 89:                                               ; preds = %230, %124, %85, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8"
-  %.sroa.5.0.insert.insert = phi i64 [ %245, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8" ], [ 256, %124 ], [ 0, %85 ], [ 512, %230 ]
+  %.sroa.5.0.insert.insert = phi i64 [ %245, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8" ], [ 0, %85 ], [ 256, %124 ], [ 512, %230 ]
   ret i64 %.sroa.5.0.insert.insert
 
 90:                                               ; preds = %2
@@ -20948,7 +20948,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN198_$LT$ruff_workspace..options
   br i1 %32, label %33, label %11, !prof !6
 
 33:                                               ; preds = %380, %314, %203, %85, %29, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8"
-  %.sroa.7.0.insert.insert = phi i64 [ %395, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8" ], [ 768, %314 ], [ 0, %29 ], [ 256, %85 ], [ 512, %203 ], [ 1024, %380 ]
+  %.sroa.7.0.insert.insert = phi i64 [ %395, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit8" ], [ 0, %29 ], [ 256, %85 ], [ 512, %203 ], [ 768, %314 ], [ 1024, %380 ]
   ret i64 %.sroa.7.0.insert.insert
 
 34:                                               ; preds = %2
@@ -22367,7 +22367,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN203_$LT$ruff_workspace..options
   br i1 %36, label %37, label %11, !prof !6
 
 37:                                               ; preds = %181, %139, %92, %33, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit9"
-  %.sroa.6.0.insert.insert = phi i64 [ %196, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit9" ], [ 512, %139 ], [ 0, %33 ], [ 256, %92 ], [ 768, %181 ]
+  %.sroa.6.0.insert.insert = phi i64 [ %196, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit9" ], [ 0, %33 ], [ 256, %92 ], [ 512, %139 ], [ 768, %181 ]
   ret i64 %.sroa.6.0.insert.insert
 
 38:                                               ; preds = %2
@@ -25127,7 +25127,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br i1 %.not12.i.i, label %43, label %41
 
 _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.i.i: ; preds = %.preheader.i.i.i, %30, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i
-  %40 = phi i64 [ %16, %30 ], [ %.pre46.pre.i.i, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i ], [ %16, %.preheader.i.i.i ]
+  %40 = phi i64 [ %.pre46.pre.i.i, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i ], [ %16, %30 ], [ %16, %.preheader.i.i.i ]
   store i64 %40, ptr %8, align 8, !alias.scope !191, !noalias !194
   br label %.loopexit.i
 
@@ -25195,8 +25195,8 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.i.i: ; preds = %.pr
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hfa7cd35c653f7fb9E.exit"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hfa7cd35c653f7fb9E.exit": ; preds = %1, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i", %.loopexit.i, %58, %._crit_edge.i.i
-  %.sroa.4.0.i = phi i64 [ undef, %1 ], [ %54, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i" ], [ %62, %._crit_edge.i.i ], [ undef, %58 ], [ undef, %.loopexit.i ]
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %55, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i" ], [ %63, %._crit_edge.i.i ], [ null, %58 ], [ null, %.loopexit.i ]
+  %.sroa.4.0.i = phi i64 [ undef, %1 ], [ %54, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i" ], [ %62, %._crit_edge.i.i ], [ undef, %.loopexit.i ], [ undef, %58 ]
+  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %55, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i" ], [ %63, %._crit_edge.i.i ], [ null, %.loopexit.i ], [ null, %58 ]
   %64 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
   %65 = insertvalue { ptr, i64 } %64, i64 %.sroa.4.0.i, 1
   ret { ptr, i64 } %65

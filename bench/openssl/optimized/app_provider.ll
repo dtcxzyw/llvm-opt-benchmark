@@ -258,7 +258,7 @@ opt_provider_param.exit:                          ; preds = %22, %62, %70, %75, 
   br label %86
 
 86:                                               ; preds = %1, %1, %85, %82, %opt_provider_param.exit, %opt_provider_path.exit, %3
-  %.0 = phi i32 [ 0, %85 ], [ %84, %82 ], [ %6, %3 ], [ %13, %opt_provider_path.exit ], [ %.0.i4, %opt_provider_param.exit ], [ 1, %1 ], [ 1, %1 ]
+  %.0 = phi i32 [ 0, %85 ], [ %6, %3 ], [ %13, %opt_provider_path.exit ], [ %.0.i4, %opt_provider_param.exit ], [ %84, %82 ], [ 1, %1 ], [ 1, %1 ]
   ret i32 %.0
 }
 

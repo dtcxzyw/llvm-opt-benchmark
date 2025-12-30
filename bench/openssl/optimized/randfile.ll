@@ -135,7 +135,7 @@ define i32 @RAND_load_file(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   br label %51
 
 51:                                               ; preds = %.loopexit54, %2, %50, %14, %9
-  %.0 = phi i32 [ -1, %50 ], [ -1, %9 ], [ -1, %14 ], [ 0, %2 ], [ %.1, %.loopexit54 ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %14 ], [ -1, %50 ], [ 0, %2 ], [ %.1, %.loopexit54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -245,7 +245,7 @@ define noundef i32 @RAND_write_file(ptr noundef %0) local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %.critedge, %12, %.thread24, %23, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %23 ], [ %26, %.thread24 ], [ -1, %.critedge ], [ -1, %12 ]
+  %.0 = phi i32 [ -1, %23 ], [ %26, %.thread24 ], [ -1, %11 ], [ -1, %12 ], [ -1, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -318,7 +318,7 @@ define noundef ptr @RAND_file_name(ptr noundef %0, i64 noundef %1) local_unnamed
   br label %23
 
 23:                                               ; preds = %16, %21, %18, %13, %8, %11
-  %.016 = phi ptr [ null, %13 ], [ null, %8 ], [ null, %18 ], [ null, %11 ], [ %0, %21 ], [ %0, %16 ]
+  %.016 = phi ptr [ null, %11 ], [ null, %8 ], [ null, %13 ], [ null, %18 ], [ %0, %21 ], [ %0, %16 ]
   ret ptr %.016
 }
 

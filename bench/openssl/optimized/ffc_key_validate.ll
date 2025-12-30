@@ -70,7 +70,7 @@ define range(i32 0, 2) i32 @ossl_ffc_validate_public_key_partial(ptr noundef rea
   br label %36
 
 36:                                               ; preds = %30, %33, %24, %28, %13, %16
-  %.0.ph = phi i32 [ 1, %30 ], [ 1, %33 ], [ 0, %28 ], [ 0, %16 ], [ 0, %24 ], [ 0, %13 ]
+  %.0.ph = phi i32 [ 1, %30 ], [ 1, %33 ], [ 0, %16 ], [ 0, %28 ], [ 0, %24 ], [ 0, %13 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %11) #2
   tail call void @BN_CTX_free(ptr noundef nonnull %11) #2
   br label %37

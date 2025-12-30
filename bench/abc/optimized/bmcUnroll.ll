@@ -972,7 +972,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %.critedge4
   br label %Vec_IntStartFull.exit
 
 Vec_IntStartFull.exit:                            ; preds = %.critedge4, %Vec_IntAlloc.exit.i, %233
-  %.val244 = phi ptr [ %232, %233 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %.critedge4 ]
+  %.val244 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %232, %233 ], [ null, %.critedge4 ]
   store i32 0, ptr %.val244, align 4, !tbaa !11
   %236 = load ptr, ptr %44, align 8, !tbaa !47
   %237 = getelementptr i8, ptr %236, i64 4
@@ -3106,9 +3106,9 @@ Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge: ; preds = %Gia_ManAppendCi.e
   br label %.critedge2, !llvm.loop !81
 
 .critedge2:                                       ; preds = %.lr.ph132, %.lr.ph132.preheader, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge, %.preheader
-  %.val89.lcssa = phi i32 [ %.val89126, %.preheader ], [ %.val89126, %.lr.ph132.preheader ], [ %.val89, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge ], [ %.val89, %.lr.ph132 ]
-  %.val90.lcssa = phi ptr [ %.val90127, %.preheader ], [ %.val90127, %.lr.ph132.preheader ], [ %.val90, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge ], [ %.val90, %.lr.ph132 ]
-  %.lcssa = phi i32 [ %34, %.preheader ], [ %34, %.lr.ph132.preheader ], [ %101, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge ], [ %101, %.lr.ph132 ]
+  %.val89.lcssa = phi i32 [ %.val89126, %.preheader ], [ %.val89, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge ], [ %.val89126, %.lr.ph132.preheader ], [ %.val89, %.lr.ph132 ]
+  %.val90.lcssa = phi ptr [ %.val90127, %.preheader ], [ %.val90, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge ], [ %.val90127, %.lr.ph132.preheader ], [ %.val90, %.lr.ph132 ]
+  %.lcssa = phi i32 [ %34, %.preheader ], [ %101, %Gia_ManAppendCi.exit..critedge2.loopexit_crit_edge ], [ %34, %.lr.ph132.preheader ], [ %101, %.lr.ph132 ]
   %104 = icmp sgt i32 %.val89.lcssa, 0
   br i1 %104, label %.lr.ph140, label %.critedge4
 
@@ -3402,7 +3402,7 @@ Gia_ManAppendCo.exit..critedge10.loopexit_crit_edge: ; preds = %Gia_ManAppendCo.
   br label %.critedge10, !llvm.loop !85
 
 .critedge10:                                      ; preds = %.lr.ph155, %.lr.ph155.preheader, %Gia_ManAppendCo.exit..critedge10.loopexit_crit_edge, %.critedge8
-  %.val89126181 = phi i32 [ %.val99150, %.critedge8 ], [ %.val99150, %.lr.ph155.preheader ], [ %.val99, %Gia_ManAppendCo.exit..critedge10.loopexit_crit_edge ], [ %.val99, %.lr.ph155 ]
+  %.val89126181 = phi i32 [ %.val99150, %.critedge8 ], [ %.val99, %Gia_ManAppendCo.exit..critedge10.loopexit_crit_edge ], [ %.val99150, %.lr.ph155.preheader ], [ %.val99, %.lr.ph155 ]
   %254 = add nuw nsw i32 %.070157, 1
   %exitcond179.not = icmp eq i32 %254, %1
   br i1 %exitcond179.not, label %.critedge._crit_edge, label %.preheader, !llvm.loop !86

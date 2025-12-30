@@ -263,7 +263,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %49, %57, %60
-  %eh.lpad-body = phi { ptr, i32 } [ %61, %60 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i ], [ %lpad.thr_comm.i.i, %57 ], [ %50, %49 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %61, %60 ], [ %lpad.thr_comm.i.i, %57 ], [ %50, %49 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i ]
   invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$17hf65937c39159cb2eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #15
           to label %65 unwind label %63
 
@@ -486,7 +486,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %.body
 
 .body:                                            ; preds = %.body.i.i.i.i, %57, %60
-  %eh.lpad-body = phi { ptr, i32 } [ %61, %60 ], [ %41, %.body.i.i.i.i ], [ %lpad.thr_comm.i.i, %57 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %61, %60 ], [ %lpad.thr_comm.i.i, %57 ], [ %41, %.body.i.i.i.i ]
   invoke void @"_ZN4core3ptr133drop_in_place$LT$alloc..vec..Vec$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$17h2d6eea50f7e37b30E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #15
           to label %65 unwind label %63
 
@@ -609,7 +609,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   unreachable
 
 common.resume:                                    ; preds = %106, %.body6, %32, %37
-  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %33, %37 ], [ %.pn.ph, %106 ], [ %eh.lpad-body7, %.body6 ]
+  %common.resume.op = phi { ptr, i32 } [ %33, %37 ], [ %33, %32 ], [ %.pn.ph, %106 ], [ %eh.lpad-body7, %.body6 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %15
@@ -800,7 +800,7 @@ common.resume:                                    ; preds = %106, %.body6, %32, 
   br label %.body6
 
 .body6:                                           ; preds = %.body.i.i, %90, %95, %102
-  %eh.lpad-body7 = phi { ptr, i32 } [ %103, %102 ], [ %91, %90 ], [ %91, %95 ], [ %.pn.i.i, %.body.i.i ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %103, %102 ], [ %91, %95 ], [ %91, %90 ], [ %.pn.i.i, %.body.i.i ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$project_model..workspace..PackageRoot$GT$$GT$17hc771665727f8eb54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #15
           to label %common.resume unwind label %104
 

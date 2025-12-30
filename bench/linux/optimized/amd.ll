@@ -2036,7 +2036,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
   br label %435
 
 435:                                              ; preds = %.loopexit, %427, %433, %431, %374, %369
-  %436 = phi i32 [ %365, %369 ], [ %381, %374 ], [ %434, %433 ], [ %432, %431 ], [ %430, %427 ], [ 64, %.loopexit ]
+  %436 = phi i32 [ %365, %369 ], [ %381, %374 ], [ %432, %431 ], [ %434, %433 ], [ %430, %427 ], [ 64, %.loopexit ]
   call void @numa_set_node(i32 noundef %353, i32 noundef %436) #12
   call void @init_amd_cacheinfo(ptr noundef %0) #12
   %437 = getelementptr i8, ptr %0, i64 64

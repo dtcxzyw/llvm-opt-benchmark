@@ -323,7 +323,7 @@ define range(i32 -1, 2) i32 @H5O__is_attr_empty_test(i64 noundef %0) local_unnam
   br label %.thread68
 
 .thread68:                                        ; preds = %.thread64, %75, %78, %61, %37
-  %.376 = phi i32 [ -1, %61 ], [ -1, %37 ], [ %51, %.thread64 ], [ %.163, %75 ], [ -1, %78 ]
+  %.376 = phi i32 [ -1, %37 ], [ -1, %61 ], [ %51, %.thread64 ], [ %.163, %75 ], [ -1, %78 ]
   %82 = call i32 @H5O_unprotect(ptr noundef nonnull %13, ptr noundef nonnull %27, i32 noundef 0) #4
   %83 = icmp slt i32 %82, 0
   br i1 %83, label %84, label %.thread83
@@ -502,7 +502,7 @@ define range(i32 -1, 1) i32 @H5O__num_attrs_test(i64 noundef %0, ptr noundef wri
   br label %.thread67
 
 .thread67:                                        ; preds = %.thread62, %71, %74, %59, %39
-  %.475 = phi i32 [ -1, %59 ], [ -1, %39 ], [ 0, %.thread62 ], [ %.161, %71 ], [ -1, %74 ]
+  %.475 = phi i32 [ -1, %39 ], [ -1, %59 ], [ 0, %.thread62 ], [ %.161, %71 ], [ -1, %74 ]
   %78 = call i32 @H5O_unprotect(ptr noundef nonnull %14, ptr noundef nonnull %28, i32 noundef 0) #4
   %79 = icmp slt i32 %78, 0
   br i1 %79, label %80, label %.thread82
@@ -701,8 +701,8 @@ define range(i32 -1, 1) i32 @H5O__attr_dense_info_test(i64 noundef %0, ptr nound
   br label %93
 
 93:                                               ; preds = %91, %85, %77, %65
-  %.139 = phi ptr [ null, %77 ], [ %75, %85 ], [ %.240, %91 ], [ null, %65 ]
-  %.2 = phi i32 [ -1, %77 ], [ -1, %85 ], [ 0, %91 ], [ -1, %65 ]
+  %.139 = phi ptr [ null, %65 ], [ null, %77 ], [ %75, %85 ], [ %.240, %91 ]
+  %.2 = phi i32 [ -1, %65 ], [ -1, %77 ], [ -1, %85 ], [ 0, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %94 = call i32 @H5B2_close(ptr noundef nonnull %55) #4
   %95 = icmp slt i32 %94, 0
@@ -1000,7 +1000,7 @@ define range(i32 -1, 1) i32 @H5O__get_rc_test(ptr noundef %0, ptr noundef writeo
   br label %24
 
 24:                                               ; preds = %.thread, %15, %20, %2
-  %.0 = phi i32 [ -1, %20 ], [ 0, %15 ], [ -1, %.thread ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %20 ], [ 0, %15 ], [ 0, %2 ], [ -1, %.thread ]
   ret i32 %.0
 }
 
@@ -1093,7 +1093,7 @@ define range(i32 -1, 1) i32 @H5O__msg_get_chunkno_test(i64 noundef %0, i32 nound
   br label %50
 
 50:                                               ; preds = %.loopexit.thread, %.loopexit
-  %.1 = phi i32 [ 0, %.loopexit ], [ -1, %.loopexit.thread ]
+  %.1 = phi i32 [ -1, %.loopexit.thread ], [ 0, %.loopexit ]
   %51 = call i32 @H5O_unprotect(ptr noundef nonnull %12, ptr noundef nonnull %26, i32 noundef 0) #4
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %.thread36
@@ -1281,9 +1281,9 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   br i1 %96, label %.preheader.split, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %92, %70, %37, %.loopexit98
-  %.071 = phi i64 [ 0, %70 ], [ 0, %.loopexit98 ], [ %53, %37 ], [ 0, %92 ]
-  %.069 = phi i64 [ 0, %70 ], [ %91, %.loopexit98 ], [ 0, %37 ], [ 0, %92 ]
-  %.068 = phi i32 [ 0, %70 ], [ %.065102, %.loopexit98 ], [ 0, %37 ], [ 0, %92 ]
+  %.071 = phi i64 [ 0, %.loopexit98 ], [ %53, %37 ], [ 0, %70 ], [ 0, %92 ]
+  %.069 = phi i64 [ %91, %.loopexit98 ], [ 0, %37 ], [ 0, %70 ], [ 0, %92 ]
+  %.068 = phi i32 [ %.065102, %.loopexit98 ], [ 0, %37 ], [ 0, %70 ], [ 0, %92 ]
   %97 = add i64 %.071, %58
   %98 = add i64 %97, %.069
   store i32 %.074109, ptr %4, align 8, !tbaa !63

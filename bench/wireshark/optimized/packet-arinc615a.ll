@@ -735,7 +735,7 @@ dissect_a615a_protocol_file.exit:                 ; preds = %59, %dissect_a615a_
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %259, %dissect_a615a_protocol_file.exit, %26, %22, %24, %4
-  %.019 = phi i1 [ false, %22 ], [ false, %4 ], [ false, %24 ], [ false, %26 ], [ true, %dissect_a615a_protocol_file.exit ], [ false, %259 ]
+  %.019 = phi i1 [ false, %4 ], [ false, %24 ], [ false, %22 ], [ false, %26 ], [ true, %dissect_a615a_protocol_file.exit ], [ false, %259 ]
   ret i1 %.019
 }
 

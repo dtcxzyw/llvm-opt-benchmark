@@ -1078,7 +1078,7 @@ define noundef zeroext i1 @_ZNK3zmq18tcp_address_mask_t13match_addressEPK8sockad
   br label %51
 
 51:                                               ; preds = %17, %39, %43, %.thread, %14
-  %.0 = phi i1 [ false, %.thread ], [ false, %14 ], [ true, %43 ], [ true, %39 ], [ true, %17 ]
+  %.0 = phi i1 [ false, %14 ], [ false, %.thread ], [ true, %43 ], [ true, %39 ], [ true, %17 ]
   ret i1 %.0
 }
 

@@ -278,7 +278,7 @@ define internal fastcc ptr @acpi_pci_irq_lookup(ptr noundef %0, i32 noundef rang
   br label %.thread
 
 .thread:                                          ; preds = %66, %62, %31, %.preheader, %17, %74, %44, %35, %11
-  %78 = phi ptr [ null, %74 ], [ %6, %11 ], [ %6, %17 ], [ %6, %35 ], [ %6, %44 ], [ %6, %31 ], [ %6, %.preheader ], [ %71, %66 ], [ null, %62 ]
+  %78 = phi ptr [ null, %74 ], [ %6, %11 ], [ %6, %35 ], [ %6, %44 ], [ %6, %17 ], [ %6, %.preheader ], [ %6, %31 ], [ %71, %66 ], [ null, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %78
 }

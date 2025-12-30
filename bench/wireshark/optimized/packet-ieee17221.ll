@@ -3290,8 +3290,8 @@ switch.lookup:                                    ; preds = %.lr.ph24
   br label %get_ctrl_ref_vals.exit.i
 
 get_ctrl_ref_vals.exit.i:                         ; preds = %589, %587, %585, %583, %581, %579, %577, %575, %573, %571, %537
-  %.sroa.0.0.i.i = phi i32 [ %590, %589 ], [ %572, %571 ], [ %574, %573 ], [ %576, %575 ], [ %578, %577 ], [ %580, %579 ], [ %582, %581 ], [ %584, %583 ], [ %586, %585 ], [ %588, %587 ], [ -1, %537 ]
-  %.sroa.13.0.i.i = phi i64 [ 8, %589 ], [ 1, %571 ], [ 1, %573 ], [ 2, %575 ], [ 2, %577 ], [ 4, %579 ], [ 4, %581 ], [ 4, %583 ], [ 8, %585 ], [ 8, %587 ], [ 0, %537 ]
+  %.sroa.0.0.i.i = phi i32 [ %572, %571 ], [ %574, %573 ], [ %576, %575 ], [ %578, %577 ], [ %580, %579 ], [ %582, %581 ], [ %584, %583 ], [ %586, %585 ], [ %588, %587 ], [ %590, %589 ], [ -1, %537 ]
+  %.sroa.13.0.i.i = phi i64 [ 1, %571 ], [ 1, %573 ], [ 2, %575 ], [ 2, %577 ], [ 4, %579 ], [ 4, %581 ], [ 4, %583 ], [ 8, %585 ], [ 8, %587 ], [ 8, %589 ], [ 0, %537 ]
   %.sroa.11.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.13.0.i.i to i32
   %591 = icmp ult i16 %564, 10
   br i1 %591, label %.preheader.i, label %619
@@ -3397,9 +3397,9 @@ get_ctrl_ref_vals.exit.i:                         ; preds = %589, %587, %585, %5
   br label %.thread127.sink.split.i
 
 .thread127.sink.split.i:                          ; preds = %.lr.ph.i, %643, %633, %621
-  %hf_aem_unit.sink.i = phi ptr [ @hf_aem_unit, %621 ], [ @hf_aem_binary_blob, %643 ], [ @hf_aem_string, %633 ], [ @hf_aem_unit, %.lr.ph.i ]
-  %.1.lcssa.sink.i = phi i16 [ %627, %621 ], [ %652, %643 ], [ %566, %633 ], [ %631, %.lr.ph.i ]
-  %.sink143.i = phi i32 [ 2, %621 ], [ %649, %643 ], [ -1, %633 ], [ 2, %.lr.ph.i ]
+  %hf_aem_unit.sink.i = phi ptr [ @hf_aem_binary_blob, %643 ], [ @hf_aem_unit, %621 ], [ @hf_aem_string, %633 ], [ @hf_aem_unit, %.lr.ph.i ]
+  %.1.lcssa.sink.i = phi i16 [ %652, %643 ], [ %627, %621 ], [ %566, %633 ], [ %631, %.lr.ph.i ]
+  %.sink143.i = phi i32 [ %649, %643 ], [ 2, %621 ], [ -1, %633 ], [ 2, %.lr.ph.i ]
   %653 = load i32, ptr %hf_aem_unit.sink.i, align 4
   %654 = zext i16 %.1.lcssa.sink.i to i32
   %655 = tail call ptr @proto_tree_add_item(ptr noundef %570, i32 noundef %653, ptr noundef %0, i32 noundef %654, i32 noundef %.sink143.i, i32 noundef 0)

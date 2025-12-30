@@ -381,8 +381,8 @@ getInstallationPaths.exit:                        ; preds = %19
   ]
 
 .backedge:                                        ; preds = %30, %30, %72, %101, %97, %93, %92, %90, %88, %87, %86, %84, %83, %81, %80, %78, %71, %70, %69, %65, %62, %58, %35, %34, %32
-  %.073.be = phi ptr [ %.073, %32 ], [ %.073, %34 ], [ %37, %35 ], [ %.073, %58 ], [ %.073, %62 ], [ %.073, %65 ], [ %.073, %69 ], [ %.073, %70 ], [ %.073, %71 ], [ %.073, %72 ], [ %.073, %78 ], [ %.073, %80 ], [ %.073, %81 ], [ %.073, %83 ], [ %.073, %84 ], [ %.073, %86 ], [ %.073, %87 ], [ %.073, %88 ], [ %.073, %30 ], [ %.073, %30 ], [ %.073, %90 ], [ %.073, %92 ], [ %.073, %93 ], [ %.073, %97 ], [ %.073, %101 ]
-  %.070.be = phi ptr [ %.070, %32 ], [ %.070, %34 ], [ %.070, %35 ], [ %.070, %58 ], [ %64, %62 ], [ %.070, %65 ], [ %.070, %69 ], [ %.070, %70 ], [ %.070, %71 ], [ %.070, %72 ], [ %.070, %78 ], [ %.070, %80 ], [ %.070, %81 ], [ %.070, %83 ], [ %.070, %84 ], [ %.070, %86 ], [ %.070, %87 ], [ %.070, %88 ], [ %.070, %30 ], [ %.070, %30 ], [ %.070, %90 ], [ %.070, %92 ], [ %.070, %93 ], [ %.070, %97 ], [ %.070, %101 ]
+  %.073.be = phi ptr [ %.073, %32 ], [ %.073, %34 ], [ %37, %35 ], [ %.073, %58 ], [ %.073, %62 ], [ %.073, %65 ], [ %.073, %69 ], [ %.073, %70 ], [ %.073, %71 ], [ %.073, %72 ], [ %.073, %78 ], [ %.073, %80 ], [ %.073, %81 ], [ %.073, %83 ], [ %.073, %84 ], [ %.073, %86 ], [ %.073, %87 ], [ %.073, %88 ], [ %.073, %90 ], [ %.073, %92 ], [ %.073, %93 ], [ %.073, %97 ], [ %.073, %101 ], [ %.073, %30 ], [ %.073, %30 ]
+  %.070.be = phi ptr [ %.070, %32 ], [ %.070, %34 ], [ %.070, %35 ], [ %.070, %58 ], [ %64, %62 ], [ %.070, %65 ], [ %.070, %69 ], [ %.070, %70 ], [ %.070, %71 ], [ %.070, %72 ], [ %.070, %78 ], [ %.070, %80 ], [ %.070, %81 ], [ %.070, %83 ], [ %.070, %84 ], [ %.070, %86 ], [ %.070, %87 ], [ %.070, %88 ], [ %.070, %90 ], [ %.070, %92 ], [ %.070, %93 ], [ %.070, %97 ], [ %.070, %101 ], [ %.070, %30 ], [ %.070, %30 ]
   br label %30, !llvm.loop !4
 
 32:                                               ; preds = %30
@@ -978,8 +978,8 @@ sub_0:                                            ; preds = %.lr.ph137, %253
   br label %.critedge115
 
 .critedge115:                                     ; preds = %.critedge115.loopexit, %.lr.ph145
-  %285 = phi ptr [ %.pre172, %.critedge115.loopexit ], [ %271, %.lr.ph145 ]
-  %.075.lcssa = phi i1 [ %284, %.critedge115.loopexit ], [ true, %.lr.ph145 ]
+  %285 = phi ptr [ %271, %.lr.ph145 ], [ %.pre172, %.critedge115.loopexit ]
+  %.075.lcssa = phi i1 [ true, %.lr.ph145 ], [ %284, %.critedge115.loopexit ]
   %286 = icmp ne ptr %285, null
   %or.cond9 = select i1 %.075.lcssa, i1 %286, i1 false
   br i1 %or.cond9, label %299, label %.critedge115.thread
@@ -1496,7 +1496,7 @@ define internal fastcc noundef zeroext i1 @CreateOptsFile(i32 noundef %0, ptr no
   br label %18
 
 18:                                               ; preds = %.sink.split, %._crit_edge, %14, %5
-  %.010 = phi i1 [ false, %14 ], [ false, %5 ], [ true, %._crit_edge ], [ false, %.sink.split ]
+  %.010 = phi i1 [ false, %5 ], [ false, %14 ], [ true, %._crit_edge ], [ false, %.sink.split ]
   ret i1 %.010
 }
 
@@ -1594,7 +1594,7 @@ define internal fastcc ptr @StartChildProcess(i32 noundef range(i32 3, 16) %0) u
   br label %28
 
 28:                                               ; preds = %24, %7, %6, %11, %10, %27
-  %.0 = phi ptr [ null, %7 ], [ %2, %27 ], [ null, %10 ], [ null, %11 ], [ null, %6 ], [ null, %24 ]
+  %.0 = phi ptr [ %2, %27 ], [ null, %10 ], [ null, %11 ], [ null, %6 ], [ null, %7 ], [ null, %24 ]
   ret ptr %.0
 }
 
@@ -1727,7 +1727,7 @@ define internal fastcc void @maybe_start_bgworkers() unnamed_addr #1 {
   %40 = icmp eq i32 %35, 0
   br i1 %40, label %41, label %select.unfold
 
-41:                                               ; preds = %37, %39, %38
+41:                                               ; preds = %37, %38, %39
   store i64 0, ptr %12, align 8
   %42 = tail call ptr @AssignPostmasterChildSlot(i32 noundef 5) #17
   %43 = icmp eq ptr %42, null
@@ -1791,9 +1791,9 @@ define internal fastcc void @maybe_start_bgworkers() unnamed_addr #1 {
   %71 = icmp sgt i32 %70, 99
   br i1 %71, label %bgworker_should_start_now.exit.sink.split, label %select.unfold
 
-select.unfold:                                    ; preds = %32, %10, %.lr.ph, %18, %21, %69, %33, %37, %38, %39
-  %.124.ph = phi i64 [ %.225, %39 ], [ %.225, %38 ], [ %.225, %37 ], [ %.225, %33 ], [ %.225, %69 ], [ %.02354, %21 ], [ %.02354, %18 ], [ %.02354, %.lr.ph ], [ %.02354, %10 ], [ %.3, %32 ]
-  %.1.ph = phi i32 [ %.055, %39 ], [ %.055, %38 ], [ %.055, %37 ], [ %.055, %33 ], [ %70, %69 ], [ %.055, %21 ], [ %.055, %18 ], [ %.055, %.lr.ph ], [ %.055, %10 ], [ %.055, %32 ]
+select.unfold:                                    ; preds = %10, %32, %.lr.ph, %21, %18, %69, %33, %37, %38, %39
+  %.124.ph = phi i64 [ %.225, %39 ], [ %.225, %38 ], [ %.225, %37 ], [ %.225, %33 ], [ %.225, %69 ], [ %.02354, %18 ], [ %.02354, %21 ], [ %.02354, %.lr.ph ], [ %.3, %32 ], [ %.02354, %10 ]
+  %.1.ph = phi i32 [ %.055, %39 ], [ %.055, %38 ], [ %.055, %37 ], [ %.055, %33 ], [ %70, %69 ], [ %.055, %18 ], [ %.055, %21 ], [ %.055, %.lr.ph ], [ %.055, %32 ], [ %.055, %10 ]
   %.not31 = icmp eq ptr %.sroa.8.056, @BackgroundWorkerList
   br i1 %.not31, label %bgworker_should_start_now.exit, label %.lr.ph, !llvm.loop !12
 
@@ -1950,7 +1950,7 @@ ConfigurePostmasterWaitSet.exit:                  ; preds = %.lr.ph.i, %25
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %73, %72, %.lr.ph.i34
-  %.2.i = phi i64 [ %.3.i, %73 ], [ %.138.i, %72 ], [ %.138.i, %.lr.ph.i34 ]
+  %.2.i = phi i64 [ %.138.i, %72 ], [ %.3.i, %73 ], [ %.138.i, %.lr.ph.i34 ]
   %.not28.i = icmp eq ptr %.sroa.8.039.i, @BackgroundWorkerList
   br i1 %.not28.i, label %select.unfold._crit_edge.i, label %.lr.ph.i34, !llvm.loop !14
 
@@ -1966,7 +1966,7 @@ select.unfold._crit_edge.i:                       ; preds = %select.unfold.i
   br label %DetermineSleepTime.exit
 
 DetermineSleepTime.exit:                          ; preds = %47, %49, %56, %58, %select.unfold._crit_edge.i, %79
-  %.0.i = phi i32 [ %55, %49 ], [ %.mux.i, %56 ], [ 60000, %47 ], [ %83, %79 ], [ 60000, %select.unfold._crit_edge.i ], [ 60000, %58 ]
+  %.0.i = phi i32 [ %55, %49 ], [ %83, %79 ], [ 60000, %47 ], [ %.mux.i, %56 ], [ 60000, %select.unfold._crit_edge.i ], [ 60000, %58 ]
   %84 = sext i32 %.0.i to i64
   %85 = call i32 @WaitEventSetWait(ptr noundef %43, i64 noundef %84, ptr noundef nonnull %21, i32 noundef 64, i32 noundef 0) #17
   %86 = icmp sgt i32 %85, 0
@@ -2058,7 +2058,7 @@ StartSysLogger.exit.i:                            ; preds = %102, %96, %._crit_e
   br label %StartChildProcess.exit131
 
 StartChildProcess.exit131:                        ; preds = %120, %123, %111, %113, %126
-  %.0.i130 = phi ptr [ null, %113 ], [ %110, %126 ], [ null, %111 ], [ null, %123 ], [ null, %120 ]
+  %.0.i130 = phi ptr [ %110, %126 ], [ null, %111 ], [ null, %113 ], [ null, %123 ], [ null, %120 ]
   store ptr %.0.i130, ptr @CheckpointerPMChild, align 8
   br label %127
 
@@ -2104,7 +2104,7 @@ StartChildProcess.exit131:                        ; preds = %120, %123, %111, %1
   br label %StartChildProcess.exit128
 
 StartChildProcess.exit128:                        ; preds = %141, %144, %132, %134, %147
-  %.0.i127 = phi ptr [ null, %134 ], [ %131, %147 ], [ null, %132 ], [ null, %144 ], [ null, %141 ]
+  %.0.i127 = phi ptr [ %131, %147 ], [ null, %132 ], [ null, %134 ], [ null, %144 ], [ null, %141 ]
   store ptr %.0.i127, ptr @BgWriterPMChild, align 8
   br label %148
 
@@ -2153,7 +2153,7 @@ StartChildProcess.exit128:                        ; preds = %141, %144, %132, %1
   br label %StartChildProcess.exit125
 
 StartChildProcess.exit125:                        ; preds = %164, %167, %155, %157, %170
-  %.0.i124 = phi ptr [ null, %157 ], [ %154, %170 ], [ null, %155 ], [ null, %167 ], [ null, %164 ]
+  %.0.i124 = phi ptr [ %154, %170 ], [ null, %155 ], [ null, %157 ], [ null, %167 ], [ null, %164 ]
   store ptr %.0.i124, ptr @WalWriterPMChild, align 8
   br label %171
 
@@ -2280,7 +2280,7 @@ StartChildProcess.exit122.thread:                 ; preds = %StartChildProcess.e
   br label %StartChildProcess.exit119
 
 StartChildProcess.exit119:                        ; preds = %222, %225, %213, %215, %228
-  %.0.i118 = phi ptr [ null, %215 ], [ %212, %228 ], [ null, %213 ], [ null, %225 ], [ null, %222 ]
+  %.0.i118 = phi ptr [ %212, %228 ], [ null, %213 ], [ null, %215 ], [ null, %225 ], [ null, %222 ]
   store ptr %.0.i118, ptr @PgArchPMChild, align 8
   br label %229
 
@@ -2343,7 +2343,7 @@ StartChildProcess.exit119:                        ; preds = %222, %225, %213, %2
   br label %StartChildProcess.exit116
 
 StartChildProcess.exit116:                        ; preds = %253, %256, %244, %246, %259
-  %.0.i115 = phi ptr [ null, %246 ], [ %243, %259 ], [ null, %244 ], [ null, %256 ], [ null, %253 ]
+  %.0.i115 = phi ptr [ %243, %259 ], [ null, %244 ], [ null, %246 ], [ null, %256 ], [ null, %253 ]
   store ptr %.0.i115, ptr @SlotSyncWorkerPMChild, align 8
   br label %260
 
@@ -2462,7 +2462,7 @@ StartChildProcess.exit113.thread:                 ; preds = %StartChildProcess.e
   br label %StartChildProcess.exit
 
 StartChildProcess.exit:                           ; preds = %307, %310, %298, %300, %313
-  %.0.i110 = phi ptr [ null, %300 ], [ %297, %313 ], [ null, %298 ], [ null, %310 ], [ null, %307 ]
+  %.0.i110 = phi ptr [ %297, %313 ], [ null, %298 ], [ null, %300 ], [ null, %310 ], [ null, %307 ]
   store ptr %.0.i110, ptr @WalSummarizerPMChild, align 8
   br label %314
 
@@ -2989,12 +2989,12 @@ UpdatePMState.exit79.i:                           ; preds = %switch.lookup26, %T
   br i1 %.not.i292, label %.sink.split.i296, label %.sink.split.sink.split.i293
 
 .sink.split.sink.split.i293:                      ; preds = %507, %503, %498
-  %.sink.ph.i295 = phi i32 [ 2830, %503 ], [ 2808, %498 ], [ 2841, %507 ]
+  %.sink.ph.i295 = phi i32 [ 2808, %498 ], [ 2830, %503 ], [ 2841, %507 ]
   %509 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %495) #17
   br label %.sink.split.i296
 
 .sink.split.i296:                                 ; preds = %.sink.split.sink.split.i293, %507, %503, %498
-  %.sink.i297 = phi i32 [ 2830, %503 ], [ 2841, %507 ], [ 2808, %498 ], [ %.sink.ph.i295, %.sink.split.sink.split.i293 ]
+  %.sink.i297 = phi i32 [ 2808, %498 ], [ 2830, %503 ], [ 2841, %507 ], [ %.sink.ph.i295, %.sink.split.sink.split.i293 ]
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink.i297, ptr noundef nonnull @__func__.LogChildExit) #17
   br label %LogChildExit.exit302
 
@@ -3098,13 +3098,13 @@ UpdatePMState.exit83.i:                           ; preds = %switch.lookup29, %5
   br i1 %.not.i281, label %.sink.split.i285, label %.sink.split.sink.split.i282
 
 .sink.split.sink.split.i282:                      ; preds = %545, %540, %534
-  %.sink57.i283 = phi ptr [ %531, %540 ], [ %.053.i288, %534 ], [ %531, %545 ]
-  %.sink.ph.i284 = phi i32 [ 2830, %540 ], [ 2808, %534 ], [ 2841, %545 ]
+  %.sink57.i283 = phi ptr [ %.053.i288, %534 ], [ %531, %540 ], [ %531, %545 ]
+  %.sink.ph.i284 = phi i32 [ 2808, %534 ], [ 2830, %540 ], [ 2841, %545 ]
   %547 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %.sink57.i283) #17
   br label %.sink.split.i285
 
 .sink.split.i285:                                 ; preds = %.sink.split.sink.split.i282, %545, %540, %534
-  %.sink.i286 = phi i32 [ 2830, %540 ], [ 2841, %545 ], [ 2808, %534 ], [ %.sink.ph.i284, %.sink.split.sink.split.i282 ]
+  %.sink.i286 = phi i32 [ 2808, %534 ], [ 2830, %540 ], [ 2841, %545 ], [ %.sink.ph.i284, %.sink.split.sink.split.i282 ]
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink.i286, ptr noundef nonnull @__func__.LogChildExit) #17
   br label %LogChildExit.exit291
 
@@ -3216,12 +3216,12 @@ UpdatePMState.exit87.i:                           ; preds = %switch.lookup32, %5
   br i1 %.not.i270, label %.sink.split.i274, label %.sink.split.sink.split.i271
 
 .sink.split.sink.split.i271:                      ; preds = %586, %582, %577
-  %.sink.ph.i273 = phi i32 [ 2830, %582 ], [ 2808, %577 ], [ 2841, %586 ]
+  %.sink.ph.i273 = phi i32 [ 2808, %577 ], [ 2830, %582 ], [ 2841, %586 ]
   %588 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %574) #17
   br label %.sink.split.i274
 
 .sink.split.i274:                                 ; preds = %.sink.split.sink.split.i271, %586, %582, %577
-  %.sink.i275 = phi i32 [ 2830, %582 ], [ 2841, %586 ], [ 2808, %577 ], [ %.sink.ph.i273, %.sink.split.sink.split.i271 ]
+  %.sink.i275 = phi i32 [ 2808, %577 ], [ 2830, %582 ], [ 2841, %586 ], [ %.sink.ph.i273, %.sink.split.sink.split.i271 ]
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink.i275, ptr noundef nonnull @__func__.LogChildExit) #17
   br label %LogChildExit.exit280
 
@@ -3366,13 +3366,13 @@ SignalChildren.exit.i55:                          ; preds = %select.unfold.i.i53
   br i1 %.not.i259, label %.sink.split.i263, label %.sink.split.sink.split.i260
 
 .sink.split.sink.split.i260:                      ; preds = %640, %635, %629
-  %.sink57.i261 = phi ptr [ %626, %635 ], [ %.053.i266, %629 ], [ %626, %640 ]
-  %.sink.ph.i262 = phi i32 [ 2830, %635 ], [ 2808, %629 ], [ 2841, %640 ]
+  %.sink57.i261 = phi ptr [ %.053.i266, %629 ], [ %626, %635 ], [ %626, %640 ]
+  %.sink.ph.i262 = phi i32 [ 2808, %629 ], [ 2830, %635 ], [ 2841, %640 ]
   %642 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %.sink57.i261) #17
   br label %.sink.split.i263
 
 .sink.split.i263:                                 ; preds = %.sink.split.sink.split.i260, %640, %635, %629
-  %.sink.i264 = phi i32 [ 2830, %635 ], [ 2841, %640 ], [ 2808, %629 ], [ %.sink.ph.i262, %.sink.split.sink.split.i260 ]
+  %.sink.i264 = phi i32 [ 2808, %629 ], [ 2830, %635 ], [ 2841, %640 ], [ %.sink.ph.i262, %.sink.split.sink.split.i260 ]
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink.i264, ptr noundef nonnull @__func__.LogChildExit) #17
   br label %LogChildExit.exit269
 
@@ -3452,12 +3452,12 @@ LogChildExit.exit269:                             ; preds = %.thread.i265, %633,
   br i1 %.not.i248, label %.sink.split.i252, label %.sink.split.sink.split.i249
 
 .sink.split.sink.split.i249:                      ; preds = %672, %668, %663
-  %.sink.ph.i251 = phi i32 [ 2830, %668 ], [ 2808, %663 ], [ 2841, %672 ]
+  %.sink.ph.i251 = phi i32 [ 2808, %663 ], [ 2830, %668 ], [ 2841, %672 ]
   %674 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %660) #17
   br label %.sink.split.i252
 
 .sink.split.i252:                                 ; preds = %.sink.split.sink.split.i249, %672, %668, %663
-  %.sink.i253 = phi i32 [ 2830, %668 ], [ 2841, %672 ], [ 2808, %663 ], [ %.sink.ph.i251, %.sink.split.sink.split.i249 ]
+  %.sink.i253 = phi i32 [ 2808, %663 ], [ 2830, %668 ], [ 2841, %672 ], [ %.sink.ph.i251, %.sink.split.sink.split.i249 ]
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink.i253, ptr noundef nonnull @__func__.LogChildExit) #17
   br label %LogChildExit.exit258
 
@@ -3540,12 +3540,12 @@ LogChildExit.exit258:                             ; preds = %.thread.i254, %667,
   br i1 %.not.i237, label %.sink.split.i241, label %.sink.split.sink.split.i238
 
 .sink.split.sink.split.i238:                      ; preds = %705, %701, %696
-  %.sink.ph.i240 = phi i32 [ 2830, %701 ], [ 2808, %696 ], [ 2841, %705 ]
+  %.sink.ph.i240 = phi i32 [ 2808, %696 ], [ 2830, %701 ], [ 2841, %705 ]
   %707 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %693) #17
   br label %.sink.split.i241
 
 .sink.split.i241:                                 ; preds = %.sink.split.sink.split.i238, %705, %701, %696
-  %.sink.i242 = phi i32 [ 2830, %701 ], [ 2841, %705 ], [ 2808, %696 ], [ %.sink.ph.i240, %.sink.split.sink.split.i238 ]
+  %.sink.i242 = phi i32 [ 2808, %696 ], [ 2830, %701 ], [ 2841, %705 ], [ %.sink.ph.i240, %.sink.split.sink.split.i238 ]
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink.i242, ptr noundef nonnull @__func__.LogChildExit) #17
   br label %LogChildExit.exit247
 
@@ -3625,12 +3625,12 @@ LogChildExit.exit247:                             ; preds = %.thread.i243, %700,
   br i1 %.not.i226, label %.sink.split.i230, label %.sink.split.sink.split.i227
 
 .sink.split.sink.split.i227:                      ; preds = %737, %733, %728
-  %.sink.ph.i229 = phi i32 [ 2830, %733 ], [ 2808, %728 ], [ 2841, %737 ]
+  %.sink.ph.i229 = phi i32 [ 2808, %728 ], [ 2830, %733 ], [ 2841, %737 ]
   %739 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %725) #17
   br label %.sink.split.i230
 
 .sink.split.i230:                                 ; preds = %.sink.split.sink.split.i227, %737, %733, %728
-  %.sink.i231 = phi i32 [ 2830, %733 ], [ 2841, %737 ], [ 2808, %728 ], [ %.sink.ph.i229, %.sink.split.sink.split.i227 ]
+  %.sink.i231 = phi i32 [ 2808, %728 ], [ 2830, %733 ], [ 2841, %737 ], [ %.sink.ph.i229, %.sink.split.sink.split.i227 ]
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink.i231, ptr noundef nonnull @__func__.LogChildExit) #17
   br label %LogChildExit.exit236
 
@@ -3710,12 +3710,12 @@ LogChildExit.exit236:                             ; preds = %.thread.i232, %732,
   br i1 %.not.i215, label %.sink.split.i219, label %.sink.split.sink.split.i216
 
 .sink.split.sink.split.i216:                      ; preds = %769, %765, %760
-  %.sink.ph.i218 = phi i32 [ 2830, %765 ], [ 2808, %760 ], [ 2841, %769 ]
+  %.sink.ph.i218 = phi i32 [ 2808, %760 ], [ 2830, %765 ], [ 2841, %769 ]
   %771 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %757) #17
   br label %.sink.split.i219
 
 .sink.split.i219:                                 ; preds = %.sink.split.sink.split.i216, %769, %765, %760
-  %.sink.i220 = phi i32 [ 2830, %765 ], [ 2841, %769 ], [ 2808, %760 ], [ %.sink.ph.i218, %.sink.split.sink.split.i216 ]
+  %.sink.i220 = phi i32 [ 2808, %760 ], [ 2830, %765 ], [ 2841, %769 ], [ %.sink.ph.i218, %.sink.split.sink.split.i216 ]
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink.i220, ptr noundef nonnull @__func__.LogChildExit) #17
   br label %LogChildExit.exit225
 
@@ -3798,12 +3798,12 @@ LogChildExit.exit225:                             ; preds = %.thread.i221, %764,
   br i1 %.not.i204, label %.sink.split.i208, label %.sink.split.sink.split.i205
 
 .sink.split.sink.split.i205:                      ; preds = %802, %798, %793
-  %.sink.ph.i207 = phi i32 [ 2830, %798 ], [ 2808, %793 ], [ 2841, %802 ]
+  %.sink.ph.i207 = phi i32 [ 2808, %793 ], [ 2830, %798 ], [ 2841, %802 ]
   %804 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %790) #17
   br label %.sink.split.i208
 
 .sink.split.i208:                                 ; preds = %.sink.split.sink.split.i205, %802, %798, %793
-  %.sink.i209 = phi i32 [ 2830, %798 ], [ 2841, %802 ], [ 2808, %793 ], [ %.sink.ph.i207, %.sink.split.sink.split.i205 ]
+  %.sink.i209 = phi i32 [ 2808, %793 ], [ 2830, %798 ], [ 2841, %802 ], [ %.sink.ph.i207, %.sink.split.sink.split.i205 ]
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink.i209, ptr noundef nonnull @__func__.LogChildExit) #17
   br label %LogChildExit.exit214
 
@@ -3907,12 +3907,12 @@ StartSysLogger.exit.i46:                          ; preds = %829, %823, %814
   br i1 %.not.i193, label %.sink.split.i197, label %.sink.split.sink.split.i194
 
 .sink.split.sink.split.i194:                      ; preds = %846, %842, %837
-  %.sink.ph.i196 = phi i32 [ 2830, %842 ], [ 2808, %837 ], [ 2841, %846 ]
+  %.sink.ph.i196 = phi i32 [ 2808, %837 ], [ 2830, %842 ], [ 2841, %846 ]
   %848 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %834) #17
   br label %.sink.split.i197
 
 .sink.split.i197:                                 ; preds = %.sink.split.sink.split.i194, %846, %842, %837
-  %.sink.i198 = phi i32 [ 2830, %842 ], [ 2841, %846 ], [ 2808, %837 ], [ %.sink.ph.i196, %.sink.split.sink.split.i194 ]
+  %.sink.i198 = phi i32 [ 2808, %837 ], [ 2830, %842 ], [ 2841, %846 ], [ %.sink.ph.i196, %.sink.split.sink.split.i194 ]
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink.i198, ptr noundef nonnull @__func__.LogChildExit) #17
   br label %LogChildExit.exit203
 
@@ -3985,12 +3985,12 @@ LogChildExit.exit203:                             ; preds = %.thread.i199, %841,
   br i1 %.not.i182, label %.sink.split.i186, label %.sink.split.sink.split.i183
 
 .sink.split.sink.split.i183:                      ; preds = %875, %871, %866
-  %.sink.ph.i185 = phi i32 [ 2830, %871 ], [ 2808, %866 ], [ 2841, %875 ]
+  %.sink.ph.i185 = phi i32 [ 2808, %866 ], [ 2830, %871 ], [ 2841, %875 ]
   %877 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %863) #17
   br label %.sink.split.i186
 
 .sink.split.i186:                                 ; preds = %.sink.split.sink.split.i183, %875, %871, %866
-  %.sink.i187 = phi i32 [ 2830, %871 ], [ 2841, %875 ], [ 2808, %866 ], [ %.sink.ph.i185, %.sink.split.sink.split.i183 ]
+  %.sink.i187 = phi i32 [ 2808, %866 ], [ 2830, %871 ], [ 2841, %875 ], [ %.sink.ph.i185, %.sink.split.sink.split.i183 ]
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink.i187, ptr noundef nonnull @__func__.LogChildExit) #17
   br label %LogChildExit.exit192
 
@@ -4101,13 +4101,13 @@ LogChildExit.exit192:                             ; preds = %.thread.i188, %870,
   br i1 %.not.i171, label %.sink.split.i175, label %.sink.split.sink.split.i172
 
 .sink.split.sink.split.i172:                      ; preds = %926, %921, %915
-  %.sink57.i173 = phi ptr [ %912, %921 ], [ %.053.i178, %915 ], [ %912, %926 ]
-  %.sink.ph.i174 = phi i32 [ 2830, %921 ], [ 2808, %915 ], [ 2841, %926 ]
+  %.sink57.i173 = phi ptr [ %.053.i178, %915 ], [ %912, %921 ], [ %912, %926 ]
+  %.sink.ph.i174 = phi i32 [ 2808, %915 ], [ 2830, %921 ], [ 2841, %926 ]
   %928 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %.sink57.i173) #17
   br label %.sink.split.i175
 
 .sink.split.i175:                                 ; preds = %.sink.split.sink.split.i172, %926, %921, %915
-  %.sink.i176 = phi i32 [ 2830, %921 ], [ 2841, %926 ], [ 2808, %915 ], [ %.sink.ph.i174, %.sink.split.sink.split.i172 ]
+  %.sink.i176 = phi i32 [ 2808, %915 ], [ 2830, %921 ], [ 2841, %926 ], [ %.sink.ph.i174, %.sink.split.sink.split.i172 ]
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink.i176, ptr noundef nonnull @__func__.LogChildExit) #17
   br label %LogChildExit.exit181
 
@@ -4279,12 +4279,12 @@ CleanupBackend.exit.i:                            ; preds = %LogChildExit.exit15
   br i1 %.not.i138, label %.sink.split.i142, label %.sink.split.sink.split.i139
 
 .sink.split.sink.split.i139:                      ; preds = %984, %980, %975
-  %.sink.ph.i141 = phi i32 [ 2830, %980 ], [ 2808, %975 ], [ 2841, %984 ]
+  %.sink.ph.i141 = phi i32 [ 2808, %975 ], [ 2830, %980 ], [ 2841, %984 ]
   %986 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %972) #17
   br label %.sink.split.i142
 
 .sink.split.i142:                                 ; preds = %.sink.split.sink.split.i139, %984, %980, %975
-  %.sink.i143 = phi i32 [ 2830, %980 ], [ 2841, %984 ], [ 2808, %975 ], [ %.sink.ph.i141, %.sink.split.sink.split.i139 ]
+  %.sink.i143 = phi i32 [ 2808, %975 ], [ 2830, %980 ], [ 2841, %984 ], [ %.sink.ph.i141, %.sink.split.sink.split.i139 ]
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink.i143, ptr noundef nonnull @__func__.LogChildExit) #17
   br label %LogChildExit.exit148
 
@@ -4413,7 +4413,7 @@ process_pm_child_exit.exit:                       ; preds = %HandleChildCrash.ex
   br label %StartChildProcess.exit318
 
 StartChildProcess.exit318:                        ; preds = %1028, %1031, %1019, %1021, %1034
-  %.0.i317 = phi ptr [ null, %1021 ], [ %1018, %1034 ], [ null, %1019 ], [ null, %1031 ], [ null, %1028 ]
+  %.0.i317 = phi ptr [ %1018, %1034 ], [ null, %1019 ], [ null, %1021 ], [ null, %1031 ], [ null, %1028 ]
   store ptr %.0.i317, ptr @PgArchPMChild, align 8
   br label %1035
 
@@ -4914,7 +4914,7 @@ process_pm_pmsignal.exit:                         ; preds = %1217, %1214, %1212,
   br i1 %.not.i91, label %.thread.i94, label %1263
 
 .thread.i94:                                      ; preds = %1255, %1254, %1252, %1250, %1247
-  %.02036.i = phi i32 [ 5, %1255 ], [ 2, %1247 ], [ 1, %1250 ], [ %..i.i, %1252 ], [ 2, %1254 ]
+  %.02036.i = phi i32 [ 5, %1255 ], [ %..i.i, %1252 ], [ 1, %1250 ], [ 2, %1247 ], [ 2, %1254 ]
   %1257 = call ptr @AllocDeadEndChild() #17
   %.not29.i95 = icmp eq ptr %1257, null
   br i1 %.not29.i95, label %1258, label %1263
@@ -6217,7 +6217,7 @@ ConfigurePostmasterWaitSet.exit:                  ; preds = %22, %24
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %ConfigurePostmasterWaitSet.exit, %20
-  %.sink = phi i32 [ 10, %ConfigurePostmasterWaitSet.exit ], [ 6, %20 ], [ %.sink.ph, %.sink.split.sink.split ]
+  %.sink = phi i32 [ 6, %20 ], [ 10, %ConfigurePostmasterWaitSet.exit ], [ %.sink.ph, %.sink.split.sink.split ]
   store i32 %.sink, ptr @pmState, align 4
   br label %32
 

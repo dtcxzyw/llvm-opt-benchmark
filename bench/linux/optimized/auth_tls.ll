@@ -220,7 +220,7 @@ define internal range(i32 -93, 1) i32 @tls_validate(ptr readnone captures(none) 
   br label %.critedge1
 
 .critedge1:                                       ; preds = %11, %14, %8, %20, %5, %2
-  %24 = phi i32 [ -5, %2 ], [ -5, %5 ], [ -93, %11 ], [ %23, %20 ], [ -93, %8 ], [ -93, %14 ]
+  %24 = phi i32 [ -5, %2 ], [ -5, %5 ], [ %23, %20 ], [ -93, %8 ], [ -93, %14 ], [ -93, %11 ]
   ret i32 %24
 }
 

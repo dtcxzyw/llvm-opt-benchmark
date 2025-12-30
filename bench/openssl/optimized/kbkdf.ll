@@ -56,7 +56,7 @@ define internal noalias ptr @kbkdf_new(ptr noundef %0) #0 {
   br label %11
 
 11:                                               ; preds = %3, %1, %6
-  %.0 = phi ptr [ null, %1 ], [ %4, %6 ], [ null, %3 ]
+  %.0 = phi ptr [ %4, %6 ], [ null, %1 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -620,22 +620,26 @@ ossl_param_is_empty.exit:                         ; preds = %2
   store i32 0, ptr %3, align 4, !tbaa !29
   %75 = call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %73, ptr noundef nonnull %3) #7
   %.not82 = icmp eq i32 %75, 0
-  br i1 %.not82, label %.critedge92, label %76
+  br i1 %.not82, label %81, label %76
 
 76:                                               ; preds = %74
   %77 = load i32, ptr %3, align 4, !tbaa !29
   %78 = add i32 %77, -8
   %79 = call i32 @llvm.fshl.i32(i32 %78, i32 %78, i32 29)
   %switch = icmp ult i32 %79, 4
-  br i1 %switch, label %80, label %.critedge92
+  br i1 %switch, label %.critedge92, label %81
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %77, ptr %81, align 8, !tbaa !12
+.critedge92:                                      ; preds = %76
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %77, ptr %80, align 8, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %82
 
-82:                                               ; preds = %80, %72
+81:                                               ; preds = %76, %74
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %ossl_param_is_empty.exit.thread
+
+82:                                               ; preds = %.critedge92, %72
   %83 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.12) #7
   %.not83 = icmp eq ptr %83, null
   br i1 %.not83, label %87, label %84
@@ -687,12 +691,8 @@ ossl_param_is_empty.exit:                         ; preds = %2
 105:                                              ; preds = %99, %89, %87
   br label %ossl_param_is_empty.exit.thread
 
-.critedge92:                                      ; preds = %76, %74
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %ossl_param_is_empty.exit.thread
-
-ossl_param_is_empty.exit.thread:                  ; preds = %2, %95, %99, %84, %.critedge92, %69, %62, %57, %52, %47, %8, %ossl_param_is_empty.exit, %105, %.critedge, %30
-  %.064 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %8 ], [ 0, %47 ], [ 0, %52 ], [ 0, %57 ], [ 1, %105 ], [ 0, %84 ], [ 0, %69 ], [ 0, %.critedge92 ], [ 0, %62 ], [ 0, %.critedge ], [ 0, %30 ], [ 0, %99 ], [ 0, %95 ], [ 1, %2 ]
+ossl_param_is_empty.exit.thread:                  ; preds = %2, %95, %99, %84, %81, %69, %62, %57, %52, %47, %8, %ossl_param_is_empty.exit, %105, %.critedge, %30
+  %.064 = phi i32 [ 1, %105 ], [ 0, %81 ], [ 0, %.critedge ], [ 0, %30 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %8 ], [ 0, %47 ], [ 0, %52 ], [ 0, %57 ], [ 0, %62 ], [ 0, %69 ], [ 0, %84 ], [ 0, %99 ], [ 0, %95 ], [ 1, %2 ]
   ret i32 %.064
 }
 

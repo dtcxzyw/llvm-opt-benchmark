@@ -207,7 +207,7 @@ _ZNK10arith_util10is_numeralEPK4exprR8rational.exit: ; preds = %38
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN5arith11arith_value4initEv.exit, %41, %44, %50
-  %54 = phi i1 [ %43, %50 ], [ %43, %41 ], [ %43, %44 ], [ false, %_ZN5arith11arith_value4initEv.exit ]
+  %54 = phi i1 [ %43, %41 ], [ %43, %44 ], [ %43, %50 ], [ false, %_ZN5arith11arith_value4initEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %54
 

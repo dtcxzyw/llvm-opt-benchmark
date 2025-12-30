@@ -58,7 +58,7 @@ define dso_local ptr @xdl_get_hunk(ptr noundef captures(none) %0, ptr noundef re
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !19
 
 .critedge:                                        ; preds = %.lr.ph, %24
-  %26 = phi ptr [ %8, %.lr.ph ], [ %25, %24 ]
+  %26 = phi ptr [ %25, %24 ], [ %8, %.lr.ph ]
   %.not64 = icmp eq ptr %26, null
   br i1 %.not64, label %.thread, label %.preheader
 
@@ -134,7 +134,7 @@ define dso_local ptr @xdl_get_hunk(ptr noundef captures(none) %0, ptr noundef re
   br i1 %.not65, label %.thread, label %.lr.ph94, !llvm.loop !22
 
 .thread:                                          ; preds = %55, %.lr.ph94, %41, %2, %.preheader, %.critedge
-  %.0 = phi ptr [ null, %.critedge ], [ %26, %.preheader ], [ null, %2 ], [ %.05690, %.lr.ph94 ], [ %.05690, %41 ], [ %.258, %55 ]
+  %.0 = phi ptr [ null, %.critedge ], [ %26, %.preheader ], [ null, %2 ], [ %.258, %55 ], [ %.05690, %.lr.ph94 ], [ %.05690, %41 ]
   ret ptr %.0
 }
 
@@ -445,7 +445,7 @@ match_func_rec.exit.i:                            ; preds = %118
   %138 = icmp sgt i64 %137, -1
   br i1 %138, label %.lr.ph.i254, label %get_func_line.exit.thread, !llvm.loop !44
 
-get_func_line.exit.thread:                        ; preds = %.lr.ph.i254, %.thread.i, %113
+get_func_line.exit.thread:                        ; preds = %.thread.i, %.lr.ph.i254, %113
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
@@ -543,7 +543,7 @@ is_func_rec.exit272:                              ; preds = %is_empty_rec.exit.t
   br i1 %172, label %.lr.ph497, label %.critedge, !llvm.loop !46
 
 .critedge:                                        ; preds = %is_func_rec.exit272, %171, %is_empty_rec.exit, %152, %get_func_line.exit.thread, %get_func_line.exit, %is_func_rec.exit272.thread383
-  %.0168453 = phi i64 [ -1, %get_func_line.exit.thread ], [ %.0168496, %is_func_rec.exit272.thread383 ], [ %.02636.i, %get_func_line.exit ], [ %.0168496, %152 ], [ %.0168496, %is_func_rec.exit272 ], [ 0, %171 ], [ %.0168496, %is_empty_rec.exit ]
+  %.0168453 = phi i64 [ %.0168496, %is_func_rec.exit272.thread383 ], [ %.02636.i, %get_func_line.exit ], [ -1, %get_func_line.exit.thread ], [ %.0168496, %152 ], [ %.0168496, %is_func_rec.exit272 ], [ 0, %171 ], [ %.0168496, %is_empty_rec.exit ]
   %spec.store.select = call i64 @llvm.smax.i64(i64 %.0168453, i64 0)
   %173 = icmp sgt i64 %85, %spec.store.select
   br i1 %173, label %174, label %.preheader446
@@ -595,9 +595,9 @@ is_func_rec.exit272:                              ; preds = %is_empty_rec.exit.t
   br i1 %.not224, label %.preheader446, label %.lr.ph740
 
 .preheader446:                                    ; preds = %.critedge, %.critedge3, %174, %is_func_rec.exit, %187, %.preheader447.preheader, %is_func_rec.exit.thread365
-  %.0719 = phi ptr [ %.0737, %is_func_rec.exit ], [ %.0737, %187 ], [ %.0737, %is_func_rec.exit.thread365 ], [ %.7361, %.preheader447.preheader ], [ %.3175501, %.critedge3 ], [ %.0737, %.critedge ], [ %.0737, %174 ]
-  %.3197.ph = phi i64 [ %spec.select739, %is_func_rec.exit ], [ %spec.store.select, %187 ], [ %spec.select739, %is_func_rec.exit.thread365 ], [ %spec.select735, %.preheader447.preheader ], [ %spec.select, %.critedge3 ], [ %spec.select739, %.critedge ], [ %spec.store.select, %174 ]
-  %.3191.ph = phi i64 [ %83, %is_func_rec.exit ], [ %spec.select240, %187 ], [ %83, %is_func_rec.exit.thread365 ], [ %80, %.preheader447.preheader ], [ %196, %.critedge3 ], [ %83, %.critedge ], [ %spec.select240, %174 ]
+  %.0719 = phi ptr [ %.0737, %is_func_rec.exit.thread365 ], [ %.7361, %.preheader447.preheader ], [ %.0737, %187 ], [ %.0737, %is_func_rec.exit ], [ %.0737, %174 ], [ %.3175501, %.critedge3 ], [ %.0737, %.critedge ]
+  %.3197.ph = phi i64 [ %spec.select739, %is_func_rec.exit.thread365 ], [ %spec.select735, %.preheader447.preheader ], [ %spec.store.select, %187 ], [ %spec.select739, %is_func_rec.exit ], [ %spec.store.select, %174 ], [ %spec.select, %.critedge3 ], [ %spec.select739, %.critedge ]
+  %.3191.ph = phi i64 [ %83, %is_func_rec.exit.thread365 ], [ %80, %.preheader447.preheader ], [ %spec.select240, %187 ], [ %83, %is_func_rec.exit ], [ %spec.select240, %174 ], [ %196, %.critedge3 ], [ %83, %.critedge ]
   br label %199
 
 199:                                              ; preds = %.preheader446, %315
@@ -686,7 +686,7 @@ match_func_rec.exit.i279:                         ; preds = %227
   %or.cond.i282 = and i1 %247, %248
   br i1 %or.cond.i282, label %.lr.ph.i275, label %.critedge5.thread640, !llvm.loop !44
 
-.critedge5.thread640:                             ; preds = %.thread.i281, %.lr.ph.i275, %220
+.critedge5.thread640:                             ; preds = %.lr.ph.i275, %.thread.i281, %220
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %270
 
@@ -838,7 +838,7 @@ match_func_rec.exit.i308:                         ; preds = %293
   %or.cond.i311 = and i1 %313, %314
   br i1 %or.cond.i311, label %.lr.ph.i304, label %get_func_line.exit320.thread, !llvm.loop !44
 
-get_func_line.exit320.thread:                     ; preds = %.lr.ph.i304, %.thread.i310, %286
+get_func_line.exit320.thread:                     ; preds = %.thread.i310, %.lr.ph.i304, %286
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %315
 
@@ -1044,7 +1044,7 @@ get_func_line.exit341:                            ; preds = %.thread.i331, %.lr.
   br label %.critedge7, !llvm.loop !53
 
 .critedge7:                                       ; preds = %398, %.lr.ph524, %..critedge7.loopexit_crit_edge, %391
-  %414 = phi i64 [ %392, %391 ], [ %392, %.lr.ph524 ], [ %412, %..critedge7.loopexit_crit_edge ], [ %412, %398 ]
+  %414 = phi i64 [ %392, %391 ], [ %412, %..critedge7.loopexit_crit_edge ], [ %392, %.lr.ph524 ], [ %412, %398 ]
   %415 = getelementptr inbounds nuw i8, ptr %.4358, i64 24
   %416 = load i64, ptr %415, align 8, !tbaa !18
   %417 = icmp sgt i64 %416, 0
@@ -1146,7 +1146,7 @@ get_func_line.exit341:                            ; preds = %.thread.i331, %.lr.
   br i1 %.not, label %.thread419, label %20, !llvm.loop !57
 
 .thread419:                                       ; preds = %xdl_get_hunk.exit, %._crit_edge539, %365, %.lr.ph518, %.lr.ph538, %.lr.ph751, %.lr.ph529, %.lr.ph533, %4
-  %.2 = phi i32 [ -1, %.lr.ph529 ], [ -1, %.lr.ph538 ], [ -1, %.lr.ph533 ], [ -1, %.lr.ph518 ], [ 0, %4 ], [ -1, %.lr.ph751 ], [ 0, %._crit_edge539 ], [ 0, %xdl_get_hunk.exit ], [ -1, %365 ]
+  %.2 = phi i32 [ 0, %4 ], [ -1, %.lr.ph533 ], [ -1, %.lr.ph529 ], [ -1, %.lr.ph751 ], [ -1, %.lr.ph538 ], [ -1, %.lr.ph518 ], [ 0, %xdl_get_hunk.exit ], [ 0, %._crit_edge539 ], [ -1, %365 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.2
 }

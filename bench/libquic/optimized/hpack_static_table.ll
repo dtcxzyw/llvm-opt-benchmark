@@ -787,7 +787,7 @@ _ZSt4copyIPPN3net10HpackEntryES3_ET0_T_S5_S4_.exit26: ; preds = %_ZNSt11_Deque_b
   br label %_ZSt4copyIPPN3net10HpackEntryES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPN3net10HpackEntryES3_ET0_T_S5_S4_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN3net10HpackEntryES3_ET0_T_S5_S4_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN3net10HpackEntryES3_ET0_T_S5_S4_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN3net10HpackEntryES3_ET0_T_S5_S4_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !33
   %57 = load ptr, ptr %.0, align 8, !tbaa !38
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1250,7 +1250,7 @@ _ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_t
   ret { ptr, i8 } %.fca.1.insert
 
 _ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_PKN3net10HpackEntryEESaISF_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit30: ; preds = %52, %49, %16
-  %.pn.pn.pn = phi { ptr, i32 } [ %17, %16 ], [ %50, %49 ], [ %53, %52 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %17, %16 ], [ %53, %52 ], [ %50, %49 ]
   tail call void @_ZdlPv(ptr noundef nonnull %3) #14
   resume { ptr, i32 } %.pn.pn.pn
 }

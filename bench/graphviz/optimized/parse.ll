@@ -196,7 +196,7 @@ skipWS.exit.i.i:                                  ; preds = %gv_isspace.exit.i.i
   br label %parseID.exit.i.i
 
 parseID.exit.i.i:                                 ; preds = %51, %49, %58, %55, %40
-  %.0.ptr20.i.i.i = phi ptr [ %.0.ptr23.i.i.i, %55 ], [ %.0.ptr23.i.i.i, %58 ], [ %.0.ptr21.i.i.i, %40 ], [ %.0.ptr23.i.i.i, %49 ], [ %.0.ptr.i.i.i, %51 ]
+  %.0.ptr20.i.i.i = phi ptr [ %.0.ptr23.i.i.i, %58 ], [ %.0.ptr23.i.i.i, %55 ], [ %.0.ptr21.i.i.i, %40 ], [ %.0.ptr23.i.i.i, %49 ], [ %.0.ptr.i.i.i, %51 ]
   store i8 0, ptr %.0.ptr20.i.i.i, align 1, !tbaa !13
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %7, ptr noundef nonnull dereferenceable(6) @.str.7, i64 6)
   %61 = icmp eq i32 %bcmp.i.i, 0
@@ -248,7 +248,7 @@ parseKind.exit.thread19.i:                        ; preds = %71, %39, %skipWS.ex
   br label %86
 
 77:                                               ; preds = %70, %64
-  %.08.i.i = phi i32 [ 5, %64 ], [ 4, %70 ]
+  %.08.i.i = phi i32 [ 4, %70 ], [ 5, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %78 = call fastcc ptr @parseBracket(ptr noundef nonnull %.027126, ptr noundef nonnull %8, i32 noundef 91, i32 noundef 93)
   %79 = load i32, ptr @startLine, align 4, !tbaa !3
@@ -336,12 +336,12 @@ parseCase.exit:                                   ; preds = %86, %88
   br i1 %or.cond145, label %bindAction.exit.backedge, label %101
 
 bindAction.exit.backedge:                         ; preds = %98, %147, %145, %141, %139, %137, %133, %130, %addBlock.exit, %96, %94, %90, %149, %148
-  %.0174.be = phi ptr [ %.0174, %145 ], [ %.0174, %96 ], [ %.1115, %98 ], [ %.0174, %139 ], [ %.0174, %148 ], [ %.0174, %149 ], [ %.0174, %147 ], [ %.0174, %90 ], [ %.0174, %94 ], [ %.0174, %130 ], [ %.1115, %addBlock.exit ], [ %.0174, %133 ], [ %.0174, %137 ], [ %.0174, %141 ]
-  %.0106173.be = phi i32 [ %.0106173, %145 ], [ %.0106173, %96 ], [ %.1112, %98 ], [ %.0106173, %139 ], [ %.0106173, %148 ], [ %.0106173, %149 ], [ %.0106173, %147 ], [ %.0106173, %90 ], [ %.0106173, %94 ], [ %.0106173, %130 ], [ %.1112, %addBlock.exit ], [ %.0106173, %133 ], [ %.0106173, %137 ], [ %.0106173, %141 ]
-  %.sroa.24.0170.be = phi i64 [ %.sroa.24.0170, %145 ], [ %.sroa.24.0170, %96 ], [ %.sroa.24.0170, %98 ], [ %.sroa.24.0170, %139 ], [ %.sroa.24.0170, %148 ], [ %.sroa.24.0170, %149 ], [ %.sroa.24.0170, %147 ], [ %.sroa.24.0170, %90 ], [ %.sroa.24.0170, %94 ], [ %.sroa.24.0170, %130 ], [ %.sroa.24.4, %addBlock.exit ], [ %.sroa.24.0170, %133 ], [ %.sroa.24.0170, %137 ], [ %.sroa.24.0170, %141 ]
-  %.sroa.16.0169.be = phi i64 [ %.sroa.16.0169, %145 ], [ %.sroa.16.0169, %96 ], [ %.sroa.16.0169, %98 ], [ %.sroa.16.0169, %139 ], [ %.sroa.16.0169, %148 ], [ %.sroa.16.0169, %149 ], [ %.sroa.16.0169, %147 ], [ %.sroa.16.0169, %90 ], [ %.sroa.16.0169, %94 ], [ %.sroa.16.0169, %130 ], [ %129, %addBlock.exit ], [ %.sroa.16.0169, %133 ], [ %.sroa.16.0169, %137 ], [ %.sroa.16.0169, %141 ]
-  %.sroa.10.0168.be = phi i64 [ %.sroa.10.0168, %145 ], [ %.sroa.10.0168, %96 ], [ %.sroa.10.0168, %98 ], [ %.sroa.10.0168, %139 ], [ %.sroa.10.0168, %148 ], [ %.sroa.10.0168, %149 ], [ %.sroa.10.0168, %147 ], [ %.sroa.10.0168, %90 ], [ %.sroa.10.0168, %94 ], [ %.sroa.10.0168, %130 ], [ %.sroa.10.5, %addBlock.exit ], [ %.sroa.10.0168, %133 ], [ %.sroa.10.0168, %137 ], [ %.sroa.10.0168, %141 ]
-  %.sroa.0.0167.be = phi ptr [ %.sroa.0.0167, %145 ], [ %.sroa.0.0167, %96 ], [ %.sroa.0.0167, %98 ], [ %.sroa.0.0167, %139 ], [ %.sroa.0.0167, %148 ], [ %.sroa.0.0167, %149 ], [ %.sroa.0.0167, %147 ], [ %.sroa.0.0167, %90 ], [ %.sroa.0.0167, %94 ], [ %.sroa.0.0167, %130 ], [ %.sroa.0.4, %addBlock.exit ], [ %.sroa.0.0167, %133 ], [ %.sroa.0.0167, %137 ], [ %.sroa.0.0167, %141 ]
+  %.0174.be = phi ptr [ %.0174, %148 ], [ %.0174, %149 ], [ %.0174, %90 ], [ %.0174, %94 ], [ %.0174, %96 ], [ %.0174, %130 ], [ %.1115, %addBlock.exit ], [ %.0174, %133 ], [ %.0174, %137 ], [ %.0174, %139 ], [ %.0174, %141 ], [ %.0174, %145 ], [ %.0174, %147 ], [ %.1115, %98 ]
+  %.0106173.be = phi i32 [ %.0106173, %148 ], [ %.0106173, %149 ], [ %.0106173, %90 ], [ %.0106173, %94 ], [ %.0106173, %96 ], [ %.0106173, %130 ], [ %.1112, %addBlock.exit ], [ %.0106173, %133 ], [ %.0106173, %137 ], [ %.0106173, %139 ], [ %.0106173, %141 ], [ %.0106173, %145 ], [ %.0106173, %147 ], [ %.1112, %98 ]
+  %.sroa.24.0170.be = phi i64 [ %.sroa.24.0170, %148 ], [ %.sroa.24.0170, %149 ], [ %.sroa.24.0170, %90 ], [ %.sroa.24.0170, %94 ], [ %.sroa.24.0170, %96 ], [ %.sroa.24.0170, %130 ], [ %.sroa.24.4, %addBlock.exit ], [ %.sroa.24.0170, %133 ], [ %.sroa.24.0170, %137 ], [ %.sroa.24.0170, %139 ], [ %.sroa.24.0170, %141 ], [ %.sroa.24.0170, %145 ], [ %.sroa.24.0170, %147 ], [ %.sroa.24.0170, %98 ]
+  %.sroa.16.0169.be = phi i64 [ %.sroa.16.0169, %148 ], [ %.sroa.16.0169, %149 ], [ %.sroa.16.0169, %90 ], [ %.sroa.16.0169, %94 ], [ %.sroa.16.0169, %96 ], [ %.sroa.16.0169, %130 ], [ %129, %addBlock.exit ], [ %.sroa.16.0169, %133 ], [ %.sroa.16.0169, %137 ], [ %.sroa.16.0169, %139 ], [ %.sroa.16.0169, %141 ], [ %.sroa.16.0169, %145 ], [ %.sroa.16.0169, %147 ], [ %.sroa.16.0169, %98 ]
+  %.sroa.10.0168.be = phi i64 [ %.sroa.10.0168, %148 ], [ %.sroa.10.0168, %149 ], [ %.sroa.10.0168, %90 ], [ %.sroa.10.0168, %94 ], [ %.sroa.10.0168, %96 ], [ %.sroa.10.0168, %130 ], [ %.sroa.10.5, %addBlock.exit ], [ %.sroa.10.0168, %133 ], [ %.sroa.10.0168, %137 ], [ %.sroa.10.0168, %139 ], [ %.sroa.10.0168, %141 ], [ %.sroa.10.0168, %145 ], [ %.sroa.10.0168, %147 ], [ %.sroa.10.0168, %98 ]
+  %.sroa.0.0167.be = phi ptr [ %.sroa.0.0167, %148 ], [ %.sroa.0.0167, %149 ], [ %.sroa.0.0167, %90 ], [ %.sroa.0.0167, %94 ], [ %.sroa.0.0167, %96 ], [ %.sroa.0.0167, %130 ], [ %.sroa.0.4, %addBlock.exit ], [ %.sroa.0.0167, %133 ], [ %.sroa.0.0167, %137 ], [ %.sroa.0.0167, %139 ], [ %.sroa.0.0167, %141 ], [ %.sroa.0.0167, %145 ], [ %.sroa.0.0167, %147 ], [ %.sroa.0.0167, %98 ]
   br label %bindAction.exit, !llvm.loop !15
 
 101:                                              ; preds = %98
@@ -557,10 +557,10 @@ addBlock.exit62:                                  ; preds = %162, %168, %153
   br label %182
 
 182:                                              ; preds = %150, %addBlock.exit62
-  %.sroa.0.3 = phi ptr [ %.sroa.0.0167, %150 ], [ %.sroa.0.5, %addBlock.exit62 ]
-  %.sroa.10.3 = phi i64 [ %.sroa.10.0168, %150 ], [ %.sroa.10.7, %addBlock.exit62 ]
-  %.sroa.16.3 = phi i64 [ %.sroa.16.0169, %150 ], [ %181, %addBlock.exit62 ]
-  %.sroa.24.3 = phi i64 [ %.sroa.24.0170, %150 ], [ %.sroa.24.5, %addBlock.exit62 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.5, %addBlock.exit62 ], [ %.sroa.0.0167, %150 ]
+  %.sroa.10.3 = phi i64 [ %.sroa.10.7, %addBlock.exit62 ], [ %.sroa.10.0168, %150 ]
+  %.sroa.16.3 = phi i64 [ %181, %addBlock.exit62 ], [ %.sroa.16.0169, %150 ]
+  %.sroa.24.3 = phi i64 [ %.sroa.24.5, %addBlock.exit62 ], [ %.sroa.24.0170, %150 ]
   %183 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %.sroa.0.3, ptr %183, align 8, !tbaa !19
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -579,7 +579,7 @@ addBlock.exit62:                                  ; preds = %162, %168, %153
   br label %187
 
 187:                                              ; preds = %182, %186, %21, %12
-  %.028 = phi ptr [ null, %12 ], [ null, %21 ], [ null, %186 ], [ %11, %182 ]
+  %.028 = phi ptr [ null, %21 ], [ null, %12 ], [ null, %186 ], [ %11, %182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.028
@@ -993,7 +993,7 @@ define internal fastcc noundef i32 @readc(ptr noundef nonnull captures(none) %0,
   br label %eol.exit
 
 eol.exit:                                         ; preds = %40, %32, %18, %9, %42, %11, %4, %49, %14, %45, %47, %.split.us
-  %.020 = phi i32 [ %19, %18 ], [ 32, %.split.us ], [ %3, %49 ], [ 10, %4 ], [ 10, %11 ], [ 35, %14 ], [ 47, %47 ], [ 47, %45 ], [ 10, %42 ], [ %8, %9 ], [ %33, %32 ], [ %39, %40 ]
+  %.020 = phi i32 [ 32, %.split.us ], [ %3, %49 ], [ 10, %4 ], [ 35, %14 ], [ 47, %47 ], [ 47, %45 ], [ 10, %11 ], [ 10, %42 ], [ %8, %9 ], [ %19, %18 ], [ %33, %32 ], [ %39, %40 ]
   ret i32 %.020
 }
 
@@ -1213,7 +1213,7 @@ agxbdisown.exit:                                  ; preds = %agxblen.exit.i, %33
   br label %unreadc.exit
 
 unreadc.exit:                                     ; preds = %11, %8, %20, %22, %skipWS.exit, %agxbdisown.exit
-  %.0 = phi ptr [ %.0.i, %agxbdisown.exit ], [ null, %20 ], [ null, %skipWS.exit ], [ null, %22 ], [ null, %8 ], [ null, %11 ]
+  %.0 = phi ptr [ %.0.i, %agxbdisown.exit ], [ null, %skipWS.exit ], [ null, %22 ], [ null, %20 ], [ null, %8 ], [ null, %11 ]
   ret ptr %.0
 }
 

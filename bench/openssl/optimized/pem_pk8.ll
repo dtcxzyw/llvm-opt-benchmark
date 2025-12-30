@@ -58,13 +58,13 @@ define internal fastcc i32 @do_pk8pkey(ptr noundef %0, ptr noundef %1, i32 nound
 
 25:                                               ; preds = %23
   %.not76 = icmp eq ptr %4, null
-  br i1 %.not76, label %.critedge, label %26
+  br i1 %.not76, label %.critedge84, label %26
 
 26:                                               ; preds = %25
   %27 = tail call ptr @EVP_CIPHER_get0_name(ptr noundef nonnull %4) #4
   %28 = tail call i32 @OSSL_ENCODER_CTX_set_cipher(ptr noundef nonnull %12, ptr noundef %27, ptr noundef null) #4
   %.not77 = icmp eq i32 %28, 0
-  br i1 %.not77, label %.critedge84, label %29
+  br i1 %.not77, label %.critedge, label %29
 
 29:                                               ; preds = %26
   %.not78 = icmp eq ptr %.059, null
@@ -74,22 +74,22 @@ define internal fastcc i32 @do_pk8pkey(ptr noundef %0, ptr noundef %1, i32 nound
   %31 = sext i32 %.060 to i64
   %32 = tail call i32 @OSSL_ENCODER_CTX_set_passphrase(ptr noundef nonnull %12, ptr noundef nonnull %.059, i64 noundef %31) #4
   %.not79 = icmp eq i32 %32, 0
-  br i1 %.not79, label %.critedge84, label %33
+  br i1 %.not79, label %.critedge, label %33
 
 33:                                               ; preds = %30, %29
   %.not80 = icmp eq ptr %.062, null
-  br i1 %.not80, label %.critedge, label %34
+  br i1 %.not80, label %.critedge84, label %34
 
 34:                                               ; preds = %33
   %35 = tail call i32 @OSSL_ENCODER_CTX_set_pem_password_cb(ptr noundef nonnull %12, ptr noundef nonnull %.062, ptr noundef %8) #4
   %.not81 = icmp eq i32 %35, 0
-  br i1 %.not81, label %.critedge84, label %.critedge
+  br i1 %.not81, label %.critedge, label %.critedge84
 
-.critedge:                                        ; preds = %25, %33, %34
+.critedge84:                                      ; preds = %25, %33, %34
   %36 = tail call i32 @OSSL_ENCODER_to_bio(ptr noundef nonnull %12, ptr noundef %0) #4
   %37 = icmp ne i32 %36, 0
   %38 = zext i1 %37 to i32
-  br label %.critedge84
+  br label %.critedge
 
 39:                                               ; preds = %23, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -176,15 +176,15 @@ define internal fastcc i32 @do_pk8pkey(ptr noundef %0, ptr noundef %1, i32 nound
   %.3 = phi i32 [ 0, %42 ], [ 0, %52 ], [ 0, %59 ], [ %.4, %67 ], [ %70, %69 ], [ %72, %71 ]
   call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef %40) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.critedge84
+  br label %.critedge
 
-.critedge84:                                      ; preds = %34, %.critedge, %30, %26, %73
-  %.2 = phi i32 [ %.3, %73 ], [ 0, %34 ], [ %38, %.critedge ], [ 0, %30 ], [ 0, %26 ]
+.critedge:                                        ; preds = %34, %.critedge84, %30, %26, %73
+  %.2 = phi i32 [ %.3, %73 ], [ 0, %34 ], [ %38, %.critedge84 ], [ 0, %30 ], [ 0, %26 ]
   call void @OSSL_ENCODER_CTX_free(ptr noundef nonnull %12) #4
   br label %74
 
-74:                                               ; preds = %9, %.critedge84
-  %.0 = phi i32 [ %.2, %.critedge84 ], [ 0, %9 ]
+74:                                               ; preds = %9, %.critedge
+  %.0 = phi i32 [ %.2, %.critedge ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -263,7 +263,7 @@ define ptr @d2i_PKCS8PrivateKey_bio(ptr noundef %0, ptr noundef captures(address
   br label %24
 
 24:                                               ; preds = %21, %22, %19, %15, %4, %14
-  %.0 = phi ptr [ null, %15 ], [ null, %14 ], [ null, %4 ], [ null, %19 ], [ %20, %22 ], [ %20, %21 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %4 ], [ null, %15 ], [ null, %19 ], [ %20, %22 ], [ %20, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

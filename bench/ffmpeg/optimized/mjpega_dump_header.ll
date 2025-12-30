@@ -189,7 +189,7 @@ define internal range(i32 -2147483648, 1) i32 @mjpega_dump_header(ptr noundef %0
   br label %.sink.split
 
 .sink.split:                                      ; preds = %59, %99, %102
-  %.035.ph = phi i32 [ 0, %59 ], [ -1094995529, %102 ], [ 0, %99 ]
+  %.035.ph = phi i32 [ 0, %99 ], [ 0, %59 ], [ -1094995529, %102 ]
   call void @av_packet_free(ptr noundef nonnull %3) #5
   br label %103
 

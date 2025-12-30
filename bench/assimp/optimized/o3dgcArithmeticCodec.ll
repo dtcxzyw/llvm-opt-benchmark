@@ -895,10 +895,10 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_17Static_Data_
   br i1 %.not53, label %.loopexit, label %53, !llvm.loop !8
 
 .loopexit:                                        ; preds = %53, %._crit_edge, %40
-  %61 = phi i32 [ %9, %._crit_edge ], [ %9, %40 ], [ %52, %53 ]
-  %.146 = phi i32 [ %4, %._crit_edge ], [ %44, %40 ], [ %..247, %53 ]
-  %.042 = phi i32 [ %37, %._crit_edge ], [ %37, %40 ], [ %.143., %53 ]
-  %.240 = phi i32 [ %.038.lcssa, %._crit_edge ], [ %.038.lcssa, %40 ], [ %.341..037, %53 ]
+  %61 = phi i32 [ %9, %40 ], [ %9, %._crit_edge ], [ %52, %53 ]
+  %.146 = phi i32 [ %44, %40 ], [ %4, %._crit_edge ], [ %..247, %53 ]
+  %.042 = phi i32 [ %37, %40 ], [ %37, %._crit_edge ], [ %.143., %53 ]
+  %.240 = phi i32 [ %.038.lcssa, %40 ], [ %.038.lcssa, %._crit_edge ], [ %.341..037, %53 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %63 = sub i32 %61, %.042
   store i32 %63, ptr %62, align 4
@@ -1401,10 +1401,10 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_19Adaptive_Dat
   br i1 %.not57, label %.loopexit, label %53, !llvm.loop !15
 
 .loopexit:                                        ; preds = %53, %._crit_edge, %40
-  %61 = phi i32 [ %9, %._crit_edge ], [ %9, %40 ], [ %52, %53 ]
-  %.150 = phi i32 [ %4, %._crit_edge ], [ %44, %40 ], [ %..251, %53 ]
-  %.046 = phi i32 [ %37, %._crit_edge ], [ %37, %40 ], [ %.147., %53 ]
-  %.244 = phi i32 [ %.042.lcssa, %._crit_edge ], [ %.042.lcssa, %40 ], [ %.345..041, %53 ]
+  %61 = phi i32 [ %9, %40 ], [ %9, %._crit_edge ], [ %52, %53 ]
+  %.150 = phi i32 [ %44, %40 ], [ %4, %._crit_edge ], [ %..251, %53 ]
+  %.046 = phi i32 [ %37, %40 ], [ %37, %._crit_edge ], [ %.147., %53 ]
+  %.244 = phi i32 [ %.042.lcssa, %40 ], [ %.042.lcssa, %._crit_edge ], [ %.345..041, %53 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %63 = sub i32 %61, %.046
   store i32 %63, ptr %62, align 4

@@ -583,7 +583,7 @@ define internal range(i32 0, -1) i32 @dissect_mrcpv2_tcp(ptr noundef %0, ptr nou
   br label %37
 
 37:                                               ; preds = %25, %18, %15, %10, %8, %4, %36
-  %.0 = phi i32 [ %.046, %36 ], [ 0, %4 ], [ 0, %8 ], [ 0, %10 ], [ 0, %15 ], [ 0, %25 ], [ 0, %18 ]
+  %.0 = phi i32 [ %.046, %36 ], [ 0, %4 ], [ 0, %8 ], [ 0, %10 ], [ 0, %15 ], [ 0, %18 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1539,7 +1539,7 @@ default.unreachable:                              ; preds = %74
   br label %dissect_mrcpv2_common.exit
 
 dissect_mrcpv2_common.exit:                       ; preds = %4, %20, %30, %51, %54, %70, %.loopexit.i
-  %.0740.i = phi i32 [ -1, %30 ], [ -1, %4 ], [ -1, %20 ], [ -1, %54 ], [ -1, %51 ], [ %509, %.loopexit.i ], [ -1, %70 ]
+  %.0740.i = phi i32 [ %509, %.loopexit.i ], [ -1, %4 ], [ -1, %20 ], [ -1, %30 ], [ -1, %51 ], [ -1, %54 ], [ -1, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

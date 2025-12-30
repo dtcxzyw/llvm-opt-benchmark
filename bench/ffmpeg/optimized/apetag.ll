@@ -236,7 +236,7 @@ ape_tag_read_field.exit.thread:                   ; preds = %89, %.loopexit51, %
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
-ape_tag_read_field.exit.thread48:                 ; preds = %63, %80, %61, %75
+ape_tag_read_field.exit.thread48:                 ; preds = %80, %63, %61, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
@@ -246,14 +246,14 @@ ape_tag_read_field.exit:                          ; preds = %66
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ape_tag_read_field.exit.thread45
 
-ape_tag_read_field.exit.thread45:                 ; preds = %88, %96, %ape_tag_read_field.exit
+ape_tag_read_field.exit.thread45:                 ; preds = %96, %88, %ape_tag_read_field.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %100 = add nuw i32 %.056, 1
   %exitcond.not = icmp eq i32 %100, %28
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !38
 
 .loopexit:                                        ; preds = %ape_tag_read_field.exit.thread45, %35, %ape_tag_read_field.exit.thread48, %ape_tag_read_field.exit.thread, %13, %9, %1, %34, %30, %26, %22, %17
-  %.035 = phi i64 [ 0, %13 ], [ 0, %1 ], [ 0, %9 ], [ 0, %17 ], [ 0, %22 ], [ 0, %26 ], [ 0, %30 ], [ 0, %34 ], [ %41, %ape_tag_read_field.exit.thread48 ], [ %41, %ape_tag_read_field.exit.thread ], [ %41, %35 ], [ %41, %ape_tag_read_field.exit.thread45 ]
+  %.035 = phi i64 [ 0, %17 ], [ 0, %22 ], [ 0, %26 ], [ 0, %30 ], [ 0, %34 ], [ 0, %1 ], [ 0, %9 ], [ 0, %13 ], [ %41, %ape_tag_read_field.exit.thread ], [ %41, %ape_tag_read_field.exit.thread48 ], [ %41, %35 ], [ %41, %ape_tag_read_field.exit.thread45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.035
 }

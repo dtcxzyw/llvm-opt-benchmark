@@ -342,7 +342,7 @@ define internal i32 @b64_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br i1 %143, label %57, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %142, %67, %86, %._crit_edge, %3, %128, %103, %40
-  %.0 = phi i32 [ %105, %103 ], [ %38, %40 ], [ 0, %3 ], [ 0, %._crit_edge ], [ %130, %128 ], [ %88, %86 ], [ %.2131, %142 ], [ %74, %67 ]
+  %.0 = phi i32 [ %38, %40 ], [ %130, %128 ], [ %105, %103 ], [ 0, %3 ], [ 0, %._crit_edge ], [ %88, %86 ], [ %.2131, %142 ], [ %74, %67 ]
   ret i32 %.0
 }
 
@@ -710,9 +710,9 @@ select.unfold:                                    ; preds = %.thread330, %.threa
 ..thread226.loopexit_crit_edge271:                ; preds = %.thread330
   br label %.thread226, !llvm.loop !26
 
-.thread226:                                       ; preds = %select.unfold, %72, %53, %43, %..thread226.loopexit_crit_edge271, %130
-  %.1173240 = phi i32 [ %.1173255, %130 ], [ %.0172, %43 ], [ %.1173255, %..thread226.loopexit_crit_edge271 ], [ %.3175, %select.unfold ], [ %.1173255, %72 ], [ %.1173255, %53 ]
-  %.1166 = phi i32 [ %132, %130 ], [ %spec.select216, %43 ], [ %.3, %..thread226.loopexit_crit_edge271 ], [ %.3, %select.unfold ], [ %.4, %72 ], [ %.0165258, %53 ]
+.thread226:                                       ; preds = %select.unfold, %53, %72, %43, %..thread226.loopexit_crit_edge271, %130
+  %.1173240 = phi i32 [ %.1173255, %130 ], [ %.1173255, %..thread226.loopexit_crit_edge271 ], [ %.0172, %43 ], [ %.3175, %select.unfold ], [ %.1173255, %53 ], [ %.1173255, %72 ]
+  %.1166 = phi i32 [ %132, %130 ], [ %.3, %..thread226.loopexit_crit_edge271 ], [ %spec.select216, %43 ], [ %.3, %select.unfold ], [ %.0165258, %53 ], [ %.4, %72 ]
   call void @BIO_copy_next_retry(ptr noundef %0) #8
   %144 = icmp eq i32 %.1173240, 0
   %145 = select i1 %144, i32 %.1166, i32 %.1173240
@@ -905,7 +905,7 @@ define internal i64 @b64_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
   br label %83
 
 83:                                               ; preds = %32, %9, %16, %77, %79, %81, %25, %43, %54, %50, %21, %39, %4, %61
-  %.0 = phi i64 [ %62, %61 ], [ 0, %4 ], [ %82, %81 ], [ %20, %16 ], [ 1, %9 ], [ %26, %25 ], [ 1, %21 ], [ %44, %43 ], [ 1, %39 ], [ %55, %54 ], [ %52, %50 ], [ %78, %77 ], [ %80, %79 ], [ %34, %32 ]
+  %.0 = phi i64 [ %62, %61 ], [ 0, %4 ], [ %82, %81 ], [ %20, %16 ], [ %26, %25 ], [ %44, %43 ], [ %55, %54 ], [ %52, %50 ], [ %78, %77 ], [ %80, %79 ], [ 1, %9 ], [ 1, %21 ], [ 1, %39 ], [ %34, %32 ]
   ret i64 %.0
 }
 
@@ -936,7 +936,7 @@ define internal range(i32 0, 2) i32 @b64_new(ptr noundef %0) #2 {
   br label %12
 
 12:                                               ; preds = %1, %11, %10
-  %.0 = phi i32 [ 1, %11 ], [ 0, %10 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %10 ], [ 1, %11 ], [ 0, %1 ]
   ret i32 %.0
 }
 

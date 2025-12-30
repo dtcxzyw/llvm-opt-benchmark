@@ -986,7 +986,7 @@ switch.lookup19:                                  ; preds = %40
   unreachable
 
 .body:                                            ; preds = %42, %61
-  %eh.lpad-body = phi { ptr, i32 } [ %62, %61 ], [ %lpad.phi.i.i, %42 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i, %42 ], [ %62, %61 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h15994deaeaf2094aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #32
           to label %common.resume unwind label %71
 
@@ -2516,7 +2516,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5acf855b31
   ret void
 
 .body:                                            ; preds = %33, %30
-  %eh.lpad-body9 = phi { ptr, i32 } [ %27, %30 ], [ %34, %33 ]
+  %eh.lpad-body9 = phi { ptr, i32 } [ %34, %33 ], [ %27, %30 ]
   resume { ptr, i32 } %eh.lpad-body9
 }
 
@@ -2905,7 +2905,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f87d53caf
   ret void
 
 .body:                                            ; preds = %33, %30
-  %eh.lpad-body9 = phi { ptr, i32 } [ %27, %30 ], [ %34, %33 ]
+  %eh.lpad-body9 = phi { ptr, i32 } [ %34, %33 ], [ %27, %30 ]
   resume { ptr, i32 } %eh.lpad-body9
 }
 
@@ -3049,7 +3049,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd10b42a22c
   ret void
 
 .body:                                            ; preds = %34, %31
-  %eh.lpad-body9 = phi { ptr, i32 } [ %28, %31 ], [ %35, %34 ]
+  %eh.lpad-body9 = phi { ptr, i32 } [ %35, %34 ], [ %28, %31 ]
   resume { ptr, i32 } %eh.lpad-body9
 }
 
@@ -3316,7 +3316,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hdc30db06cf
   ret void
 
 .body:                                            ; preds = %34, %31
-  %eh.lpad-body9 = phi { ptr, i32 } [ %28, %31 ], [ %35, %34 ]
+  %eh.lpad-body9 = phi { ptr, i32 } [ %35, %34 ], [ %28, %31 ]
   resume { ptr, i32 } %eh.lpad-body9
 }
 
@@ -7225,7 +7225,7 @@ define void @_ZN10ockam_abac4eval4eval17h2ff188e907bc17cdE(ptr noalias noundef w
           to label %48 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .body:                                            ; preds = %.thread674, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %768, %488, %432, %379, %224, %763, %762, %700, %674, %.body477, %.body465, %.body428
-  %.pn229 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %700 ], [ %eh.lpad-body429, %.body428 ], [ %eh.lpad-body466, %.body465 ], [ %632, %.body477 ], [ %675, %674 ], [ %lpad.loopexit.split-lp719, %763 ], [ %lpad.loopexit.split-lp712, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %.pn2276791015, %762 ], [ %489, %488 ], [ %225, %224 ], [ %380, %379 ], [ %433, %432 ], [ %769, %768 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit699, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit703, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit705, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit708, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1022, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %.pn227679, %.thread674 ]
+  %.pn229 = phi { ptr, i32 } [ %eh.lpad-body429, %.body428 ], [ %eh.lpad-body466, %.body465 ], [ %632, %.body477 ], [ %675, %674 ], [ %lpad.loopexit.split-lp719, %763 ], [ %.pn2276791015, %762 ], [ %lpad.thr_comm.split-lp, %700 ], [ %225, %224 ], [ %380, %379 ], [ %433, %432 ], [ %489, %488 ], [ %769, %768 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit699, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit703, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit705, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit708, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1022, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp712, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %.pn227679, %.thread674 ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$ockam_abac..expr..Expr$GT$$GT$17hcc755fe6112a3b9fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42) #32
           to label %745 unwind label %559
 
@@ -7321,7 +7321,7 @@ thread-pre-splitthread-pre-split:                 ; preds = %228, %772, %736, %6
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %363, %205, %thread-pre-splitthread-pre-split, %189, %414, %470, %182
-  %.pr = phi i64 [ %.pr.pr, %thread-pre-splitthread-pre-split ], [ %210, %205 ], [ %187, %182 ], [ %194, %189 ], [ %419, %414 ], [ %475, %470 ], [ %368, %363 ]
+  %.pr = phi i64 [ %.pr.pr, %thread-pre-splitthread-pre-split ], [ %194, %189 ], [ %419, %414 ], [ %475, %470 ], [ %187, %182 ], [ %210, %205 ], [ %368, %363 ]
   %80 = icmp eq i64 %.pr, 0
   br i1 %80, label %.thread, label %81
 
@@ -8436,9 +8436,9 @@ select.unfold.i:                                  ; preds = %.noexc279, %158
   br i1 %461, label %465, label %.invoke, !prof !1934
 
 .invoke:                                          ; preds = %455, %402, %333, %328
-  %462 = phi i64 [ 1, %402 ], [ 1, %333 ], [ 2, %328 ], [ 1, %455 ]
-  %463 = phi i64 [ %.val247, %402 ], [ %.val249, %333 ], [ %.val251, %328 ], [ %.val245, %455 ]
-  %464 = phi ptr [ @anon.80231634a7076fffeb5494a74d99d4c1.58, %402 ], [ @anon.80231634a7076fffeb5494a74d99d4c1.53, %333 ], [ @anon.80231634a7076fffeb5494a74d99d4c1.52, %328 ], [ @anon.80231634a7076fffeb5494a74d99d4c1.60, %455 ]
+  %462 = phi i64 [ 2, %328 ], [ 1, %333 ], [ 1, %402 ], [ 1, %455 ]
+  %463 = phi i64 [ %.val251, %328 ], [ %.val249, %333 ], [ %.val247, %402 ], [ %.val245, %455 ]
+  %464 = phi ptr [ @anon.80231634a7076fffeb5494a74d99d4c1.52, %328 ], [ @anon.80231634a7076fffeb5494a74d99d4c1.53, %333 ], [ @anon.80231634a7076fffeb5494a74d99d4c1.58, %402 ], [ @anon.80231634a7076fffeb5494a74d99d4c1.60, %455 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17hb0ff58c889dba9eeE(i64 noundef range(i64 1, 4) %462, i64 noundef %463, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %464) #35
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -9416,7 +9416,7 @@ select.unfold.i:                                  ; preds = %.noexc279, %158
   ret void
 
 .thread674:                                       ; preds = %.thread680.loopexit, %731, %700
-  %.pn227679 = phi { ptr, i32 } [ %.pn, %731 ], [ %lpad.thr_comm.split-lp, %700 ], [ %lpad.loopexit718, %.thread680.loopexit ]
+  %.pn227679 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %700 ], [ %.pn, %731 ], [ %lpad.loopexit718, %.thread680.loopexit ]
   %758 = load i8, ptr %13, align 8, !range !478, !noundef !4
   %759 = icmp eq i8 %758, 5
   br i1 %759, label %.body, label %762
@@ -10048,7 +10048,7 @@ default.unreachable190:                           ; preds = %"_ZN61_$LT$ockam_ab
   br label %99
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit69", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit", %172, %148, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit59", %123, %115, %108, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit"
-  %.pr = phi i64 [ %164, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit" ], [ %25, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit" ], [ %25, %172 ], [ %25, %148 ], [ %25, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit59" ], [ %25, %123 ], [ %25, %115 ], [ %25, %108 ], [ %188, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit69" ]
+  %.pr = phi i64 [ %25, %172 ], [ %25, %148 ], [ %25, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit59" ], [ %25, %123 ], [ %25, %115 ], [ %25, %108 ], [ %25, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit" ], [ %164, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit" ], [ %188, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit69" ]
   %98 = icmp eq i64 %.pr, 0
   br i1 %98, label %33, label %23
 
@@ -10408,8 +10408,8 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.exit: ; preds = %3
   br label %24
 
 thread-pre-split:                                 ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit89", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit", %172, %147, %112, %128
-  %.pr = phi i64 [ %26, %128 ], [ %26, %147 ], [ %26, %112 ], [ %26, %172 ], [ %163, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit" ], [ %188, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit89" ]
-  %.047.ph = phi i8 [ 0, %128 ], [ %.044, %147 ], [ 0, %112 ], [ %.0, %172 ], [ %.044, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit" ], [ %.0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit89" ]
+  %.pr = phi i64 [ %26, %128 ], [ %26, %112 ], [ %26, %147 ], [ %26, %172 ], [ %163, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit" ], [ %188, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit89" ]
+  %.047.ph = phi i8 [ 0, %128 ], [ 0, %112 ], [ %.044, %147 ], [ %.0, %172 ], [ %.044, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit" ], [ %.0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc3543196da81f2a2E.exit89" ]
   %23 = icmp eq i64 %.pr, 0
   br i1 %23, label %34, label %24
 
@@ -10683,7 +10683,7 @@ default.unreachable218:                           ; preds = %"_ZN61_$LT$ockam_ab
   br label %128
 
 128:                                              ; preds = %97, %119, %58, %113
-  %.1 = phi i8 [ %.0.i.i.i77, %119 ], [ %., %97 ], [ %118, %113 ], [ %.0.i.i.i, %58 ]
+  %.1 = phi i8 [ %., %97 ], [ %118, %113 ], [ %.0.i.i.i, %58 ], [ %.0.i.i.i77, %119 ]
   %.not56 = icmp eq i8 %.1, 0
   br i1 %.not56, label %thread-pre-split, label %.thread130
 

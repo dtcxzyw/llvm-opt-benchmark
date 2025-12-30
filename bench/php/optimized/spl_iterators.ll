@@ -815,11 +815,11 @@ spl_RecursiveIteratorIterator_free_iterators.exit112: ; preds = %.preheader.i107
   store ptr null, ptr %115, align 8, !tbaa !62
   br label %243
 
-.critedge:                                        ; preds = %12, %41, %instanceof_function.exit.thread
+.critedge:                                        ; preds = %12, %instanceof_function.exit.thread, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %243
 
-243:                                              ; preds = %91, %instanceof_function.exit79.thread, %62, %61, %zend_hash_str_find_ptr.exit98, %spl_RecursiveIteratorIterator_free_iterators.exit112, %.critedge, %111
+243:                                              ; preds = %instanceof_function.exit79.thread, %91, %62, %61, %zend_hash_str_find_ptr.exit98, %spl_RecursiveIteratorIterator_free_iterators.exit112, %.critedge, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1042,7 +1042,7 @@ define hidden void @zim_RecursiveIteratorIterator_valid(ptr noundef readonly cap
   store i8 0, ptr %38, align 8, !tbaa !72
   br label %spl_recursive_it_valid_ex.exit
 
-spl_recursive_it_valid_ex.exit:                   ; preds = %.lr.ph.i, %37, %9
+spl_recursive_it_valid_ex.exit:                   ; preds = %.lr.ph.i, %9, %37
   %39 = phi i32 [ 2, %37 ], [ 2, %9 ], [ 3, %.lr.ph.i ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %39, ptr %40, align 8, !tbaa !11
@@ -1174,7 +1174,7 @@ define hidden void @zim_RecursiveIteratorIterator_current(ptr noundef readonly c
   br label %40
 
 40:                                               ; preds = %.sink.split, %23, %30
-  %.0 = phi ptr [ %22, %23 ], [ %32, %30 ], [ %.sink.in, %.sink.split ]
+  %.0 = phi ptr [ %32, %30 ], [ %22, %23 ], [ %.sink.in, %.sink.split ]
   %41 = load ptr, ptr %.0, align 8, !tbaa !11
   %42 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %43 = load i32, ptr %42, align 8, !tbaa !11
@@ -1458,7 +1458,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   br label %137
 
 137:                                              ; preds = %133, %129
-  %138 = phi i32 [ %.pre191, %129 ], [ %.pre, %133 ]
+  %138 = phi i32 [ %.pre, %133 ], [ %.pre191, %129 ]
   %139 = icmp eq i32 %138, 1
   br i1 %139, label %140, label %.thread199
 
@@ -1834,7 +1834,7 @@ define hidden void @zim_RecursiveIteratorIterator_getSubIterator(ptr noundef rea
   br label %52
 
 52:                                               ; preds = %.sink.split, %33, %42
-  %.0 = phi ptr [ %35, %33 ], [ %44, %42 ], [ %.sink.in, %.sink.split ]
+  %.0 = phi ptr [ %44, %42 ], [ %35, %33 ], [ %.sink.in, %.sink.split ]
   %53 = load ptr, ptr %.0, align 8, !tbaa !11
   %54 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %55 = load i32, ptr %54, align 8, !tbaa !11
@@ -1916,7 +1916,7 @@ define hidden void @zim_RecursiveIteratorIterator_getInnerIterator(ptr noundef r
   br label %34
 
 34:                                               ; preds = %.sink.split, %12, %24
-  %.0 = phi ptr [ %17, %12 ], [ %26, %24 ], [ %.sink.in, %.sink.split ]
+  %.0 = phi ptr [ %26, %24 ], [ %17, %12 ], [ %.sink.in, %.sink.split ]
   %35 = load ptr, ptr %.0, align 8, !tbaa !11
   %36 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !11
@@ -2395,9 +2395,9 @@ smart_str_alloc.exit42:
   br label %smart_str_alloc.exit37
 
 smart_str_alloc.exit37:                           ; preds = %36, %41
-  %42 = phi i64 [ %38, %36 ], [ %.pre47, %41 ]
-  %43 = phi ptr [ %35, %36 ], [ %.pre46, %41 ]
-  %.1.i36 = phi i64 [ %39, %36 ], [ %.0.i35, %41 ]
+  %42 = phi i64 [ %.pre47, %41 ], [ %38, %36 ]
+  %43 = phi ptr [ %.pre46, %41 ], [ %35, %36 ]
+  %.1.i36 = phi i64 [ %.0.i35, %41 ], [ %39, %36 ]
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull align 1 %32, i64 %34, i1 false)
@@ -2429,9 +2429,9 @@ smart_str_alloc.exit37:                           ; preds = %36, %41
   br label %smart_str_alloc.exit32
 
 smart_str_alloc.exit32:                           ; preds = %52, %57
-  %58 = phi i64 [ %54, %52 ], [ %.pre50, %57 ]
-  %59 = phi ptr [ %51, %52 ], [ %.pre48, %57 ]
-  %.1.i31 = phi i64 [ %55, %52 ], [ %.0.i30, %57 ]
+  %58 = phi i64 [ %.pre50, %57 ], [ %54, %52 ]
+  %59 = phi ptr [ %.pre48, %57 ], [ %51, %52 ]
+  %.1.i31 = phi i64 [ %.0.i30, %57 ], [ %55, %52 ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %58
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull align 1 %48, i64 %50, i1 false)
@@ -2500,9 +2500,9 @@ smart_str_alloc.exit32:                           ; preds = %52, %57
   br label %smart_str_alloc.exit27
 
 smart_str_alloc.exit27:                           ; preds = %86, %92
-  %93 = phi i64 [ %88, %86 ], [ %.pre53, %92 ]
-  %94 = phi ptr [ %85, %86 ], [ %.pre51, %92 ]
-  %.1.i26 = phi i64 [ %89, %86 ], [ %.0.i25, %92 ]
+  %93 = phi i64 [ %.pre53, %92 ], [ %88, %86 ]
+  %94 = phi ptr [ %.pre51, %92 ], [ %85, %86 ]
+  %.1.i26 = phi i64 [ %.0.i25, %92 ], [ %89, %86 ]
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 %93
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %96, ptr nonnull align 1 %82, i64 %84, i1 false)
@@ -2536,9 +2536,9 @@ smart_str_alloc.exit27:                           ; preds = %86, %92
   br label %smart_str_alloc.exit22
 
 smart_str_alloc.exit22:                           ; preds = %104, %110
-  %111 = phi i64 [ %106, %104 ], [ %.pre56, %110 ]
-  %112 = phi ptr [ %103, %104 ], [ %.pre54, %110 ]
-  %.1.i21 = phi i64 [ %107, %104 ], [ %.0.i20, %110 ]
+  %111 = phi i64 [ %.pre56, %110 ], [ %106, %104 ]
+  %112 = phi ptr [ %.pre54, %110 ], [ %103, %104 ]
+  %.1.i21 = phi i64 [ %.0.i20, %110 ], [ %107, %104 ]
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 %111
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %114, ptr nonnull align 1 %100, i64 %102, i1 false)
@@ -2579,9 +2579,9 @@ smart_str_alloc.exit22:                           ; preds = %104, %110
   br label %smart_str_0.exit
 
 smart_str_0.exit:                                 ; preds = %124, %130
-  %131 = phi i64 [ %126, %124 ], [ %.pre59, %130 ]
-  %132 = phi ptr [ %123, %124 ], [ %.pre57, %130 ]
-  %.1.i = phi i64 [ %127, %124 ], [ %.0.i, %130 ]
+  %131 = phi i64 [ %.pre59, %130 ], [ %126, %124 ]
+  %132 = phi ptr [ %.pre57, %130 ], [ %123, %124 ]
+  %.1.i = phi i64 [ %.0.i, %130 ], [ %127, %124 ]
   %133 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 %131
@@ -2902,7 +2902,7 @@ define hidden void @zim_RecursiveTreeIterator_current(ptr noundef readonly captu
   br label %43
 
 43:                                               ; preds = %.sink.split, %26, %33
-  %.045 = phi ptr [ %24, %26 ], [ %35, %33 ], [ %.sink.in, %.sink.split ]
+  %.045 = phi ptr [ %35, %33 ], [ %24, %26 ], [ %.sink.in, %.sink.split ]
   %44 = load ptr, ptr %.045, align 8, !tbaa !11
   %45 = getelementptr inbounds nuw i8, ptr %.045, i64 8
   %46 = load i32, ptr %45, align 8, !tbaa !11
@@ -3451,7 +3451,7 @@ define internal fastcc void @spl_dual_it_construct(ptr noundef readonly captures
   %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %42, ptr noundef nonnull @.str.46, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %8) #11
   %44 = icmp eq i32 %43, -1
-  br i1 %44, label %66, label %45
+  br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %40
   %46 = load i64, ptr %8, align 8, !tbaa !9
@@ -3466,29 +3466,25 @@ define internal fastcc void @spl_dual_it_construct(ptr noundef readonly captures
   %55 = and i64 %54, 1
   %56 = add nuw nsw i64 %53, %55
   %57 = icmp samesign ult i64 %56, 2
-  br i1 %57, label %.critedge, label %58
+  br i1 %57, label %59, label %58
 
 58:                                               ; preds = %45
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.17) #11
-  br label %66
+  br label %.critedge
 
-.critedge:                                        ; preds = %45
-  %59 = and i64 %46, 65535
-  %60 = getelementptr inbounds i8, ptr %14, i64 -48
-  %61 = load i64, ptr %60, align 8, !tbaa !11
-  %62 = or i64 %61, %59
-  store i64 %62, ptr %60, align 8, !tbaa !11
-  %63 = call ptr @_zend_new_array_0() #11
-  %64 = getelementptr inbounds i8, ptr %14, i64 -16
-  store ptr %63, ptr %64, align 8, !tbaa !11
-  %65 = getelementptr inbounds i8, ptr %14, i64 -8
-  store i32 775, ptr %65, align 8, !tbaa !11
+59:                                               ; preds = %45
+  %60 = and i64 %46, 65535
+  %61 = getelementptr inbounds i8, ptr %14, i64 -48
+  %62 = load i64, ptr %61, align 8, !tbaa !11
+  %63 = or i64 %62, %60
+  store i64 %63, ptr %61, align 8, !tbaa !11
+  %64 = call ptr @_zend_new_array_0() #11
+  %65 = getelementptr inbounds i8, ptr %14, i64 -16
+  store ptr %64, ptr %65, align 8, !tbaa !11
+  %66 = getelementptr inbounds i8, ptr %14, i64 -8
+  store i32 775, ptr %66, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
-
-66:                                               ; preds = %40, %58
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %200
 
 67:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3596,7 +3592,7 @@ instanceof_function.exit103.thread:               ; preds = %92, %instanceof_fun
   %120 = load i32, ptr %119, align 4, !tbaa !11
   %121 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %120, ptr noundef nonnull @.str.50, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %117, ptr noundef nonnull %118) #11
   %122 = icmp eq i32 %121, -1
-  br i1 %122, label %145, label %123
+  br i1 %122, label %.critedge99, label %123
 
 123:                                              ; preds = %116
   %124 = load i64, ptr %11, align 8, !tbaa !9
@@ -3605,7 +3601,7 @@ instanceof_function.exit103.thread:               ; preds = %92, %instanceof_fun
 
 125:                                              ; preds = %123
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.11) #11
-  br label %145
+  br label %.critedge99
 
 126:                                              ; preds = %123
   %127 = load ptr, ptr @spl_ce_InvalidArgumentException, align 8, !tbaa !4
@@ -3617,40 +3613,35 @@ instanceof_function.exit103.thread:               ; preds = %92, %instanceof_fun
   call void @zend_restore_error_handling(ptr noundef nonnull %7) #11
   %131 = load ptr, ptr %130, align 8, !tbaa !11
   %132 = icmp eq ptr %131, null
-  br i1 %132, label %145, label %.critedge99
+  br i1 %132, label %.critedge99, label %133
 
-.critedge99:                                      ; preds = %126
-  %133 = load i64, ptr %11, align 8, !tbaa !9
-  %134 = trunc i64 %133 to i32
-  %135 = getelementptr inbounds i8, ptr %14, i64 -16
-  store i32 %134, ptr %135, align 8, !tbaa !11
-  %136 = load ptr, ptr %10, align 8, !tbaa !100
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
-  %138 = load i32, ptr %137, align 4, !tbaa !11
-  %139 = and i32 %138, 64
-  %.not.i = icmp eq i32 %139, 0
-  br i1 %.not.i, label %140, label %zend_string_copy.exit
+133:                                              ; preds = %126
+  %134 = load i64, ptr %11, align 8, !tbaa !9
+  %135 = trunc i64 %134 to i32
+  %136 = getelementptr inbounds i8, ptr %14, i64 -16
+  store i32 %135, ptr %136, align 8, !tbaa !11
+  %137 = load ptr, ptr %10, align 8, !tbaa !100
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
+  %139 = load i32, ptr %138, align 4, !tbaa !11
+  %140 = and i32 %139, 64
+  %.not.i = icmp eq i32 %140, 0
+  br i1 %.not.i, label %141, label %zend_string_copy.exit
 
-140:                                              ; preds = %.critedge99
-  %141 = load i32, ptr %136, align 4, !tbaa !61
-  %142 = add i32 %141, 1
-  store i32 %142, ptr %136, align 4, !tbaa !61
+141:                                              ; preds = %133
+  %142 = load i32, ptr %137, align 4, !tbaa !61
+  %143 = add i32 %142, 1
+  store i32 %143, ptr %137, align 4, !tbaa !61
   %.pre = load ptr, ptr %130, align 8, !tbaa !11
   br label %zend_string_copy.exit
 
-zend_string_copy.exit:                            ; preds = %.critedge99, %140
-  %143 = phi ptr [ %131, %.critedge99 ], [ %.pre, %140 ]
-  %144 = getelementptr inbounds i8, ptr %14, i64 -24
-  store ptr %136, ptr %144, align 8, !tbaa !11
-  call void @php_pcre_pce_incref(ptr noundef %143) #11
+zend_string_copy.exit:                            ; preds = %133, %141
+  %144 = phi ptr [ %131, %133 ], [ %.pre, %141 ]
+  %145 = getelementptr inbounds i8, ptr %14, i64 -24
+  store ptr %137, ptr %145, align 8, !tbaa !11
+  call void @php_pcre_pce_incref(ptr noundef %144) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
-
-145:                                              ; preds = %126, %116, %125
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %200
 
 146:                                              ; preds = %24, %24
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -3711,7 +3702,7 @@ zend_fcc_addref.exit:                             ; preds = %164, %167
   br i1 %174, label %200, label %.thread
 
 .thread7:                                         ; preds = %instanceof_function.exit, %instanceof_function.exit103, %72
-  %.175.ph = phi ptr [ %76, %instanceof_function.exit ], [ %.377, %instanceof_function.exit103 ], [ %76, %72 ]
+  %.175.ph = phi ptr [ %.377, %instanceof_function.exit103 ], [ %76, %instanceof_function.exit ], [ %76, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread
 
@@ -3727,8 +3718,8 @@ zend_fcc_addref.exit:                             ; preds = %164, %167
   store i32 776, ptr %178, align 8, !tbaa !11
   br label %190
 
-.thread:                                          ; preds = %zend_fcc_addref.exit, %zend_string_copy.exit, %.critedge, %36, %170, %.thread7
-  %.0744 = phi ptr [ %.175.ph, %.thread7 ], [ null, %170 ], [ null, %36 ], [ null, %.critedge ], [ null, %zend_string_copy.exit ], [ null, %zend_fcc_addref.exit ]
+.thread:                                          ; preds = %zend_fcc_addref.exit, %zend_string_copy.exit, %59, %36, %170, %.thread7
+  %.0744 = phi ptr [ %.175.ph, %.thread7 ], [ null, %170 ], [ null, %36 ], [ null, %59 ], [ null, %zend_string_copy.exit ], [ null, %zend_fcc_addref.exit ]
   store i32 %3, ptr %16, align 8, !tbaa !109
   %179 = load ptr, ptr %5, align 8, !tbaa !12
   %180 = load ptr, ptr %179, align 8, !tbaa !11
@@ -3763,15 +3754,24 @@ zend_fcc_addref.exit:                             ; preds = %164, %167
   store ptr %198, ptr %199, align 8, !tbaa !115
   br label %200
 
-.critedge95:                                      ; preds = %67, %instanceof_function.exit103.thread, %89
+.critedge:                                        ; preds = %40, %58
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %200
+
+.critedge95:                                      ; preds = %instanceof_function.exit103.thread, %67, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br label %200
+
+.critedge99:                                      ; preds = %126, %116, %125
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %200
 
 .critedge101:                                     ; preds = %146
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %200
 
-200:                                              ; preds = %103, %170, %.critedge101, %145, %.critedge95, %66, %25, %190, %.critedge97, %39, %35, %18
+200:                                              ; preds = %103, %170, %.critedge101, %.critedge99, %.critedge95, %.critedge, %25, %190, %.critedge97, %39, %35, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3849,7 +3849,7 @@ define hidden void @zim_IteratorIterator_getInnerIterator(ptr noundef readonly c
   br label %32
 
 32:                                               ; preds = %.sink.split, %16, %22
-  %.025 = phi ptr [ %9, %16 ], [ %24, %22 ], [ %.sink.in, %.sink.split ]
+  %.025 = phi ptr [ %24, %22 ], [ %9, %16 ], [ %.sink.in, %.sink.split ]
   %33 = load ptr, ptr %.025, align 8, !tbaa !11
   %34 = getelementptr inbounds nuw i8, ptr %.025, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !11
@@ -4175,7 +4175,7 @@ define hidden void @zim_IteratorIterator_key(ptr noundef readonly captures(none)
   br label %31
 
 31:                                               ; preds = %.sink.split, %15, %21
-  %.022 = phi ptr [ %12, %15 ], [ %23, %21 ], [ %.sink.in, %.sink.split ]
+  %.022 = phi ptr [ %23, %21 ], [ %12, %15 ], [ %.sink.in, %.sink.split ]
   %32 = load ptr, ptr %.022, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !11
@@ -4256,7 +4256,7 @@ define hidden void @zim_IteratorIterator_current(ptr noundef readonly captures(n
   br label %31
 
 31:                                               ; preds = %.sink.split, %15, %21
-  %.022 = phi ptr [ %12, %15 ], [ %23, %21 ], [ %.sink.in, %.sink.split ]
+  %.022 = phi ptr [ %23, %21 ], [ %12, %15 ], [ %.sink.in, %.sink.split ]
   %32 = load ptr, ptr %.022, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !11
@@ -5026,7 +5026,7 @@ define hidden void @zim_RegexIterator_accept(ptr noundef readonly captures(none)
   br label %zval_get_string.exit93
 
 zval_get_string.exit93:                           ; preds = %51, %48, %43, %38, %35, %30
-  %.075 = phi ptr [ %31, %30 ], [ %39, %38 ], [ %31, %35 ], [ %52, %51 ], [ %44, %48 ], [ %44, %43 ]
+  %.075 = phi ptr [ %39, %38 ], [ %31, %35 ], [ %31, %30 ], [ %52, %51 ], [ %44, %48 ], [ %44, %43 ]
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !33
   %.not79 = icmp eq ptr %53, null
   br i1 %.not79, label %54, label %zend_string_release_ex.exit98
@@ -6731,7 +6731,7 @@ spl_dual_it_fetch.exit.thread57:                  ; preds = %35, %spl_dual_it_fe
   br label %.sink.split
 
 .sink.split:                                      ; preds = %128, %125, %120, %113, %110, %105
-  %.sink = phi ptr [ %106, %105 ], [ %114, %113 ], [ %106, %110 ], [ %129, %128 ], [ %121, %125 ], [ %121, %120 ]
+  %.sink = phi ptr [ %114, %113 ], [ %106, %110 ], [ %106, %105 ], [ %129, %128 ], [ %121, %125 ], [ %121, %120 ]
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %.sink, ptr %130, align 8, !tbaa !11
   br label %131
@@ -7200,7 +7200,7 @@ zend_symtable_find.exit:                          ; preds = %43, %_zend_handle_n
   br label %68
 
 68:                                               ; preds = %.sink.split, %51, %58
-  %.023 = phi ptr [ %.0.i, %51 ], [ %60, %58 ], [ %.sink.in, %.sink.split ]
+  %.023 = phi ptr [ %60, %58 ], [ %.0.i, %51 ], [ %.sink.in, %.sink.split ]
   %69 = load ptr, ptr %.023, align 8, !tbaa !11
   %70 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %71 = load i32, ptr %70, align 8, !tbaa !11
@@ -7761,7 +7761,7 @@ define hidden void @zim_RecursiveCachingIterator_getChildren(ptr noundef readonl
   br label %31
 
 31:                                               ; preds = %.sink.split, %15, %21
-  %.025 = phi ptr [ %12, %15 ], [ %23, %21 ], [ %.sink.in, %.sink.split ]
+  %.025 = phi ptr [ %23, %21 ], [ %12, %15 ], [ %.sink.in, %.sink.split ]
   %32 = load ptr, ptr %.025, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %.025, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !11
@@ -8017,7 +8017,7 @@ define hidden void @zim_NoRewindIterator_current(ptr noundef readonly captures(n
   br label %36
 
 36:                                               ; preds = %.sink.split, %19, %26
-  %.023 = phi ptr [ %18, %19 ], [ %28, %26 ], [ %.sink.in, %.sink.split ]
+  %.023 = phi ptr [ %28, %26 ], [ %18, %19 ], [ %.sink.in, %.sink.split ]
   %37 = load ptr, ptr %.023, align 8, !tbaa !11
   %38 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !11
@@ -8880,7 +8880,7 @@ spl_dual_it_fetch.exit:                           ; preds = %44, %.sink.split.i,
   br label %70
 
 70:                                               ; preds = %.sink.split, %54, %60
-  %.023 = phi ptr [ %51, %54 ], [ %62, %60 ], [ %.sink.in, %.sink.split ]
+  %.023 = phi ptr [ %62, %60 ], [ %51, %54 ], [ %.sink.in, %.sink.split ]
   %71 = load ptr, ptr %.023, align 8, !tbaa !11
   %72 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !11
@@ -9131,7 +9131,7 @@ define hidden void @zim_AppendIterator_getArrayIterator(ptr noundef readonly cap
   br label %29
 
 29:                                               ; preds = %.sink.split, %.critedge, %19
-  %.021 = phi ptr [ %12, %.critedge ], [ %21, %19 ], [ %.sink.in, %.sink.split ]
+  %.021 = phi ptr [ %21, %19 ], [ %12, %.critedge ], [ %.sink.in, %.sink.split ]
   %30 = load ptr, ptr %.021, align 8, !tbaa !11
   %31 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !11
@@ -9271,10 +9271,10 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %12
   br i1 %cond.fr75, label %.critedge, label %.thread85, !prof !127
 
 .thread85:                                        ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_iterable.exit, %7
-  %.095 = phi i32 [ 0, %7 ], [ 1, %zend_parse_arg_iterable.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  %.06294 = phi ptr [ null, %7 ], [ %8, %zend_parse_arg_iterable.exit ], [ %15, %zend_parse_arg_bool_ex.exit ]
-  %.06393 = phi i32 [ 0, %7 ], [ 10, %zend_parse_arg_iterable.exit ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  %.06492 = phi i32 [ 1, %7 ], [ 9, %zend_parse_arg_iterable.exit ], [ 9, %zend_parse_arg_bool_ex.exit ]
+  %.095 = phi i32 [ 1, %zend_parse_arg_iterable.exit ], [ 0, %7 ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.06294 = phi ptr [ %8, %zend_parse_arg_iterable.exit ], [ null, %7 ], [ %15, %zend_parse_arg_bool_ex.exit ]
+  %.06393 = phi i32 [ 10, %zend_parse_arg_iterable.exit ], [ 0, %7 ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.06492 = phi i32 [ 9, %zend_parse_arg_iterable.exit ], [ 1, %7 ], [ 9, %zend_parse_arg_bool_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.06492, i32 noundef %.095, ptr noundef null, i32 noundef %.06393, ptr noundef %.06294) #11
   br label %40
 
@@ -9393,7 +9393,7 @@ define internal range(i32 0, 3) i32 @spl_iterator_to_array_apply(ptr noundef %0,
   br label %30
 
 30:                                               ; preds = %27, %17, %.critedge, %2
-  %.0 = phi i32 [ 2, %.critedge ], [ 2, %2 ], [ 0, %17 ], [ 0, %27 ]
+  %.0 = phi i32 [ 2, %2 ], [ 2, %.critedge ], [ 0, %17 ], [ 0, %27 ]
   ret i32 %.0
 }
 
@@ -12182,7 +12182,7 @@ instanceof_function.exit:                         ; preds = %11
   br label %instanceof_function.exit.thread
 
 instanceof_function.exit.thread:                  ; preds = %11, %instanceof_function.exit, %3, %18
-  %.0 = phi i32 [ -1, %3 ], [ -1, %18 ], [ 0, %instanceof_function.exit ], [ 0, %11 ]
+  %.0 = phi i32 [ -1, %18 ], [ -1, %3 ], [ 0, %instanceof_function.exit ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -12724,7 +12724,7 @@ define internal range(i32 -1, 1) i32 @spl_recursive_it_valid(ptr noundef readonl
   br label %spl_recursive_it_valid_ex.exit
 
 spl_recursive_it_valid_ex.exit:                   ; preds = %.lr.ph.i, %1, %32
-  %.014.i = phi i32 [ -1, %1 ], [ -1, %32 ], [ 0, %.lr.ph.i ]
+  %.014.i = phi i32 [ -1, %32 ], [ -1, %1 ], [ 0, %.lr.ph.i ]
   ret i32 %.014.i
 }
 

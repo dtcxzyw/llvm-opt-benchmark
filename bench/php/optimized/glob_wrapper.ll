@@ -181,9 +181,9 @@ php_glob_stream_get_result_count.exit.thread:     ; preds = %8
   br label %.thread
 
 .thread:                                          ; preds = %php_glob_stream_get_result_count.exit.thread, %23
-  %27 = phi i64 [ %20, %php_glob_stream_get_result_count.exit.thread ], [ %15, %23 ]
-  %28 = phi i64 [ %20, %php_glob_stream_get_result_count.exit.thread ], [ %.pre, %23 ]
-  %29 = phi ptr [ %19, %php_glob_stream_get_result_count.exit.thread ], [ %14, %23 ]
+  %27 = phi i64 [ %15, %23 ], [ %20, %php_glob_stream_get_result_count.exit.thread ]
+  %28 = phi i64 [ %.pre, %23 ], [ %20, %php_glob_stream_get_result_count.exit.thread ]
+  %29 = phi ptr [ %14, %23 ], [ %19, %php_glob_stream_get_result_count.exit.thread ]
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !40
   %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %28

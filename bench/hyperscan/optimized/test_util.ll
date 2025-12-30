@@ -596,11 +596,11 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit:                ; preds = %_ZNSt6vectorIjSaIjE
   br label %110
 
 110:                                              ; preds = %.loopexit92, %.loopexit.split-lp93, %.loopexit86, %.loopexit.split-lp87, %.loopexit, %.loopexit.split-lp, %108
-  %.sroa.056.0112 = phi ptr [ %.sroa.056.0.lcssa, %108 ], [ %.sroa.056.0154, %.loopexit.split-lp87 ], [ %.sroa.056.0154, %.loopexit.split-lp ], [ %.sroa.056.0154, %.loopexit ], [ %.sroa.056.0154, %.loopexit86 ], [ %.sroa.056.0154, %.loopexit92 ], [ %.sroa.056.0154, %.loopexit.split-lp93 ]
-  %.sroa.068.3 = phi ptr [ %.sroa.068.0.lcssa, %108 ], [ %.sroa.068.1.ph88, %.loopexit.split-lp87 ], [ %.sroa.068.0148, %.loopexit.split-lp ], [ %.sroa.068.0148, %.loopexit ], [ %.sroa.068.1.ph, %.loopexit86 ], [ %.sroa.068.4, %.loopexit92 ], [ %.sroa.068.4, %.loopexit.split-lp93 ]
-  %.sroa.061.2 = phi ptr [ %.sroa.061.0.lcssa, %108 ], [ %.sroa.061.0151, %.loopexit.split-lp87 ], [ %.sroa.061.0151, %.loopexit.split-lp ], [ %.sroa.061.0151, %.loopexit ], [ %.sroa.061.0151, %.loopexit86 ], [ %.sroa.061.3, %.loopexit92 ], [ %.sroa.061.3, %.loopexit.split-lp93 ]
-  %.sroa.075.2 = phi ptr [ %.sroa.075.0.lcssa, %108 ], [ %.sroa.075.3, %.loopexit.split-lp87 ], [ %.sroa.075.0160, %.loopexit.split-lp ], [ %.sroa.075.0160, %.loopexit ], [ %.sroa.075.3, %.loopexit86 ], [ %.sroa.075.3, %.loopexit92 ], [ %.sroa.075.3, %.loopexit.split-lp93 ]
-  %.pn.pn = phi { ptr, i32 } [ %109, %108 ], [ %lpad.loopexit.split-lp90, %.loopexit.split-lp87 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit89, %.loopexit86 ], [ %lpad.loopexit94, %.loopexit92 ], [ %lpad.loopexit.split-lp95, %.loopexit.split-lp93 ]
+  %.sroa.056.0112 = phi ptr [ %.sroa.056.0.lcssa, %108 ], [ %.sroa.056.0154, %.loopexit ], [ %.sroa.056.0154, %.loopexit.split-lp ], [ %.sroa.056.0154, %.loopexit86 ], [ %.sroa.056.0154, %.loopexit.split-lp87 ], [ %.sroa.056.0154, %.loopexit92 ], [ %.sroa.056.0154, %.loopexit.split-lp93 ]
+  %.sroa.068.3 = phi ptr [ %.sroa.068.0.lcssa, %108 ], [ %.sroa.068.0148, %.loopexit ], [ %.sroa.068.0148, %.loopexit.split-lp ], [ %.sroa.068.1.ph, %.loopexit86 ], [ %.sroa.068.1.ph88, %.loopexit.split-lp87 ], [ %.sroa.068.4, %.loopexit92 ], [ %.sroa.068.4, %.loopexit.split-lp93 ]
+  %.sroa.061.2 = phi ptr [ %.sroa.061.0.lcssa, %108 ], [ %.sroa.061.0151, %.loopexit ], [ %.sroa.061.0151, %.loopexit.split-lp ], [ %.sroa.061.0151, %.loopexit86 ], [ %.sroa.061.0151, %.loopexit.split-lp87 ], [ %.sroa.061.3, %.loopexit92 ], [ %.sroa.061.3, %.loopexit.split-lp93 ]
+  %.sroa.075.2 = phi ptr [ %.sroa.075.0.lcssa, %108 ], [ %.sroa.075.0160, %.loopexit ], [ %.sroa.075.0160, %.loopexit.split-lp ], [ %.sroa.075.3, %.loopexit86 ], [ %.sroa.075.3, %.loopexit.split-lp87 ], [ %.sroa.075.3, %.loopexit92 ], [ %.sroa.075.3, %.loopexit.split-lp93 ]
+  %.pn.pn = phi { ptr, i32 } [ %109, %108 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit89, %.loopexit86 ], [ %lpad.loopexit.split-lp90, %.loopexit.split-lp87 ], [ %lpad.loopexit94, %.loopexit92 ], [ %lpad.loopexit.split-lp95, %.loopexit.split-lp93 ]
   %.not.i.i.i42 = icmp eq ptr %.sroa.056.0112, null
   br i1 %.not.i.i.i42, label %_ZNSt6vectorIPK11hs_expr_extSaIS2_EED2Ev.exit43, label %111
 
@@ -764,7 +764,7 @@ _ZN7patternD2Ev.exit:                             ; preds = %_ZNSt6vectorI7patte
   br label %.body
 
 .body:                                            ; preds = %.thread, %29, %42
-  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %24, %.thread ], [ %30, %29 ]
+  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %30, %29 ], [ %24, %.thread ]
   %44 = load ptr, ptr %5, align 8
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %46 = icmp eq ptr %44, %45
@@ -992,7 +992,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN7p
   br label %.body
 
 .body:                                            ; preds = %.thread, %45, %60
-  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %40, %.thread ], [ %46, %45 ]
+  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %46, %45 ], [ %40, %.thread ]
   %62 = load ptr, ptr %8, align 8
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %64 = icmp eq ptr %62, %63
@@ -1702,7 +1702,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %78,
   %.not = icmp eq ptr %81, %14
   br i1 %.not, label %.critedge25, label %.lr.ph.split
 
-.critedge:                                        ; preds = %45, %_ZL9isOrderedRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit, %60, %66, %_ZL9isOrderedRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.thread46
+.critedge:                                        ; preds = %45, %60, %_ZL9isOrderedRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit, %66, %_ZL9isOrderedRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.thread46
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %82 = load ptr, ptr %11, align 8

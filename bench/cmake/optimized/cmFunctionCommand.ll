@@ -496,7 +496,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_125cmFunctionFunctionBlocke
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %23, %21, %13
-  %27 = phi i1 [ true, %21 ], [ false, %13 ], [ %26, %23 ]
+  %27 = phi i1 [ false, %13 ], [ %26, %23 ], [ true, %21 ]
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
@@ -2551,7 +2551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103.i.i.i: ; preds
   br i1 %87, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !113
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i: ; preds = %84, %82, %78, %74, %65
-  %.0.i.i.i.i.i = phi i32 [ %83, %82 ], [ %75, %74 ], [ %79, %78 ], [ 1, %65 ], [ %86, %84 ]
+  %.0.i.i.i.i.i = phi i32 [ %75, %74 ], [ %79, %78 ], [ %83, %82 ], [ 1, %65 ], [ %86, %84 ]
   %88 = zext i32 %.0.i.i.i.i.i to i64
   %89 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %89, ptr %10, align 8, !tbaa !9, !alias.scope !110
@@ -3001,7 +3001,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142.i.i.i: ; preds
   br i1 %286, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i146.i.i.i, label %.lr.ph.i.i143.i.i.i, !llvm.loop !113
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i146.i.i.i: ; preds = %283, %281, %277, %273, %267
-  %.0.i.i147.i.i.i = phi i32 [ %282, %281 ], [ %274, %273 ], [ %278, %277 ], [ 1, %267 ], [ %285, %283 ]
+  %.0.i.i147.i.i.i = phi i32 [ %274, %273 ], [ %278, %277 ], [ %282, %281 ], [ 1, %267 ], [ %285, %283 ]
   %.lobit.i.i.i.i = lshr i64 %269, 63
   %287 = trunc nuw nsw i64 %.lobit.i.i.i.i to i32
   %288 = add i32 %.0.i.i147.i.i.i, %287
@@ -3289,8 +3289,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %414
 
 414:                                              ; preds = %413, %410, %409, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit168.i.i.i
-  %cond1.i.i.i = phi i1 [ false, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit168.i.i.i ], [ false, %409 ], [ false, %413 ], [ true, %410 ]
-  %.180.i.i.i = phi i32 [ 1, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit168.i.i.i ], [ 8, %409 ], [ 8, %413 ], [ 0, %410 ]
+  %cond1.i.i.i = phi i1 [ false, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit168.i.i.i ], [ false, %413 ], [ false, %409 ], [ true, %410 ]
+  %.180.i.i.i = phi i32 [ 1, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit168.i.i.i ], [ 8, %413 ], [ 8, %409 ], [ 0, %410 ]
   %415 = load ptr, ptr %340, align 8, !tbaa !54
   %416 = load ptr, ptr %348, align 8, !tbaa !55
   %.not4.i.i.i.i.i.i.i.i = icmp eq ptr %415, %416

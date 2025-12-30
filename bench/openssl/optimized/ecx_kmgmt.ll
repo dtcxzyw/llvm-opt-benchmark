@@ -112,7 +112,7 @@ define internal range(i32 0, 2) i32 @ecx_has(ptr noundef readonly captures(addre
   br label %20
 
 20:                                               ; preds = %.thread, %15, %.thread15, %8, %2
-  %.0 = phi i32 [ 0, %2 ], [ %12, %8 ], [ 0, %15 ], [ %19, %.thread15 ], [ 1, %.thread ]
+  %.0 = phi i32 [ %12, %8 ], [ 0, %2 ], [ 0, %15 ], [ %19, %.thread15 ], [ 1, %.thread ]
   ret i32 %.0
 }
 
@@ -225,8 +225,8 @@ define internal range(i32 0, 2) i32 @ecx_match(ptr noundef %0, ptr noundef %1, i
   br label %.thread
 
 .thread:                                          ; preds = %41, %34, %33, %47, %66, %59, %58, %45
-  %.249 = phi i1 [ false, %47 ], [ false, %45 ], [ true, %58 ], [ true, %59 ], [ true, %66 ], [ true, %33 ], [ true, %34 ], [ true, %41 ]
-  %.4 = phi i32 [ %.046, %47 ], [ %.046, %45 ], [ 0, %58 ], [ 0, %59 ], [ %69, %66 ], [ 0, %33 ], [ 0, %34 ], [ %44, %41 ]
+  %.249 = phi i1 [ false, %45 ], [ true, %58 ], [ true, %59 ], [ true, %66 ], [ false, %47 ], [ true, %33 ], [ true, %34 ], [ true, %41 ]
+  %.4 = phi i32 [ %.046, %45 ], [ 0, %58 ], [ 0, %59 ], [ %69, %66 ], [ %.046, %47 ], [ 0, %33 ], [ 0, %34 ], [ %44, %41 ]
   %70 = icmp ne i32 %.4, 0
   %71 = and i1 %.249, %70
   %72 = zext i1 %71 to i32
@@ -325,8 +325,8 @@ key_to_params.exit:                               ; preds = %23, %20, %18
   tail call void @OSSL_PARAM_free(ptr noundef nonnull %26) #4
   br label %key_to_params.exit.thread
 
-key_to_params.exit.thread:                        ; preds = %13, %23, %key_to_params.exit, %28
-  %.020 = phi i32 [ 0, %key_to_params.exit ], [ %29, %28 ], [ 0, %23 ], [ 0, %13 ]
+key_to_params.exit.thread:                        ; preds = %23, %13, %key_to_params.exit, %28
+  %.020 = phi i32 [ 0, %key_to_params.exit ], [ %29, %28 ], [ 0, %13 ], [ 0, %23 ]
   tail call void @OSSL_PARAM_BLD_free(ptr noundef nonnull %11) #4
   br label %30
 
@@ -435,7 +435,7 @@ define internal range(i32 0, 2) i32 @ecx_gen_set_params(ptr noundef %0, ptr noun
   br label %43
 
 43:                                               ; preds = %37, %22, %19, %.critedge, %2, %42
-  %.028 = phi i32 [ 0, %.critedge ], [ 0, %2 ], [ 0, %19 ], [ 1, %42 ], [ 0, %22 ], [ 0, %37 ]
+  %.028 = phi i32 [ 1, %42 ], [ 0, %2 ], [ 0, %.critedge ], [ 0, %19 ], [ 0, %22 ], [ 0, %37 ]
   ret i32 %.028
 }
 
@@ -819,7 +819,7 @@ define internal fastcc range(i32 0, 2) i32 @ecx_get_params(ptr noundef %0, ptr n
   br label %key_to_params.exit
 
 key_to_params.exit:                               ; preds = %39, %36, %.thread, %27, %22, %15, %11, %7
-  %.0 = phi i32 [ 0, %22 ], [ 0, %15 ], [ 0, %11 ], [ 0, %7 ], [ 0, %27 ], [ 1, %39 ], [ 0, %.thread ], [ 0, %36 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 0, %15 ], [ 0, %22 ], [ 1, %39 ], [ 0, %27 ], [ 0, %.thread ], [ 0, %36 ]
   ret i32 %.0
 }
 
@@ -909,7 +909,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %set_property_query.exit
 
 set_property_query.exit:                          ; preds = %33, %2, %23, %28, %25, %22, %ossl_param_is_empty.exit
-  %.018 = phi i32 [ 0, %22 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %23 ], [ 1, %2 ], [ 0, %25 ], [ %spec.select, %33 ], [ 1, %28 ]
+  %.018 = phi i32 [ 0, %22 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %25 ], [ 1, %28 ], [ 1, %23 ], [ 1, %2 ], [ %spec.select, %33 ]
   ret i32 %.018
 }
 
@@ -1022,7 +1022,7 @@ define internal fastcc range(i32 0, 2) i32 @ecx_validate(ptr noundef %0, i32 nou
   br label %ecd_key_pairwise_check.exit
 
 ecd_key_pairwise_check.exit:                      ; preds = %40, %42, %44
-  %.0.i = phi i32 [ 0, %42 ], [ %49, %44 ], [ 0, %40 ]
+  %.0.i = phi i32 [ %49, %44 ], [ 0, %40 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %62
 
@@ -1054,7 +1054,7 @@ ecx_key_pairwise_check.exit:                      ; preds = %56, %55
   br label %62
 
 62:                                               ; preds = %ecd_key_pairwise_check.exit, %32, %ecx_key_pairwise_check.exit, %50, %30, %11, %4, %15
-  %.023 = phi i32 [ 0, %4 ], [ 1, %11 ], [ %.1, %30 ], [ 0, %15 ], [ %.0.i, %ecd_key_pairwise_check.exit ], [ 0, %32 ], [ 0, %50 ], [ %61, %ecx_key_pairwise_check.exit ]
+  %.023 = phi i32 [ 0, %15 ], [ 0, %4 ], [ 1, %11 ], [ %.1, %30 ], [ 0, %32 ], [ %.0.i, %ecd_key_pairwise_check.exit ], [ 0, %50 ], [ %61, %ecx_key_pairwise_check.exit ]
   ret i32 %.023
 }
 
@@ -1257,7 +1257,7 @@ define internal fastcc ptr @ecx_gen(ptr noundef readonly captures(address_is_nul
   br label %70
 
 70:                                               ; preds = %12, %1, %69, %65, %11
-  %.0 = phi ptr [ %9, %65 ], [ null, %11 ], [ null, %1 ], [ null, %69 ], [ %9, %12 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %69 ], [ %9, %65 ], [ null, %1 ], [ %9, %12 ]
   ret ptr %.0
 }
 

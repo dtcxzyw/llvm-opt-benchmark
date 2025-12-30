@@ -91,7 +91,7 @@ define dso_local range(i32 0, 5) i32 @ipc_get_active_state(ptr noundef %0) local
   br label %ipc_client_close_connection.exit
 
 ipc_client_close_connection.exit:                 ; preds = %22, %15, %11, %7
-  %.0 = phi i32 [ 2, %11 ], [ %10, %7 ], [ %16, %15 ], [ %16, %22 ]
+  %.0 = phi i32 [ %10, %7 ], [ 2, %11 ], [ %16, %15 ], [ %16, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -509,7 +509,7 @@ setup_listener_socket.exit:                       ; preds = %25, %set_socket_blo
   br label %93
 
 93:                                               ; preds = %5, %.loopexit, %45, %set_socket_blocking_flag.exit.thread
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %set_socket_blocking_flag.exit.thread ], [ %.0.i.i, %45 ], [ -1, %5 ]
+  %.0 = phi i32 [ -1, %set_socket_blocking_flag.exit.thread ], [ %.0.i.i, %45 ], [ 0, %.loopexit ], [ -1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

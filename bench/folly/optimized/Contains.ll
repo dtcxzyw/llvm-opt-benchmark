@@ -122,7 +122,7 @@ define noundef zeroext i1 @_ZN5folly4simd6detail11containsU16ENS_6detail13fallba
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit27, %.loopexit.loopexit.split.loop.exit29, %38, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %27
-  %.028.i.i.i = phi ptr [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %4, %38 ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %.029.lcssa.i.i.i, %27 ], [ %41, %.loopexit.loopexit.split.loop.exit29 ], [ %39, %.loopexit.loopexit.split.loop.exit ], [ %40, %.loopexit.loopexit.split.loop.exit27 ], [ %.02946.i.i.i, %7 ]
+  %.028.i.i.i = phi ptr [ %4, %38 ], [ %.029.lcssa.i.i.i, %27 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %39, %.loopexit.loopexit.split.loop.exit ], [ %40, %.loopexit.loopexit.split.loop.exit27 ], [ %41, %.loopexit.loopexit.split.loop.exit29 ], [ %.02946.i.i.i, %7 ]
   %42 = icmp ne ptr %.028.i.i.i, %4
   ret i1 %42
 }
@@ -243,7 +243,7 @@ define noundef zeroext i1 @_ZN5folly4simd6detail11containsU64ENS_6detail13fallba
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit27, %.loopexit.loopexit.split.loop.exit29, %38, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %27
-  %.028.i.i.i = phi ptr [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %4, %38 ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %.029.lcssa.i.i.i, %27 ], [ %41, %.loopexit.loopexit.split.loop.exit29 ], [ %39, %.loopexit.loopexit.split.loop.exit ], [ %40, %.loopexit.loopexit.split.loop.exit27 ], [ %.02946.i.i.i, %7 ]
+  %.028.i.i.i = phi ptr [ %4, %38 ], [ %.029.lcssa.i.i.i, %27 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %39, %.loopexit.loopexit.split.loop.exit ], [ %40, %.loopexit.loopexit.split.loop.exit27 ], [ %41, %.loopexit.loopexit.split.loop.exit29 ], [ %.02946.i.i.i, %7 ]
   %42 = icmp ne ptr %.028.i.i.i, %4
   ret i1 %42
 }

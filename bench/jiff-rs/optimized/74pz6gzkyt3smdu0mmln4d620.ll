@@ -589,7 +589,7 @@ define internal fastcc void @_ZN4jiff5civil4date8DateWith5build17h4abc20559f920a
   br label %.critedge
 
 .critedge:                                        ; preds = %31, %24, %"_ZN4jiff4util8rangeint17ri16$LT$_$C$_$GT$7try_new17hb4cbb60073ef3435E.exit", %12
-  %.sroa.084.0 = phi i16 [ %26, %24 ], [ %38, %"_ZN4jiff4util8rangeint17ri16$LT$_$C$_$GT$7try_new17hb4cbb60073ef3435E.exit" ], [ %14, %12 ], [ %22, %31 ]
+  %.sroa.084.0 = phi i16 [ %14, %12 ], [ %38, %"_ZN4jiff4util8rangeint17ri16$LT$_$C$_$GT$7try_new17hb4cbb60073ef3435E.exit" ], [ %26, %24 ], [ %22, %31 ]
   %15 = load i8, ptr %1, align 2, !range !14, !noundef !13
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %46, label %50
@@ -617,7 +617,7 @@ define internal fastcc void @_ZN4jiff5civil4date8DateWith5build17h4abc20559f920a
   br label %_ZN4jiff5civil4date4Date10new_ranged17h13beb0486dc3afdcE.exit
 
 _ZN4jiff5civil4date4Date10new_ranged17h13beb0486dc3afdcE.exit: ; preds = %78, %76, %137, %134, %132, %128, %125, %55, %43, %40, %33, %28
-  %.sink = phi i16 [ 0, %137 ], [ 1, %134 ], [ 0, %132 ], [ 1, %128 ], [ 1, %125 ], [ 1, %28 ], [ 1, %55 ], [ 1, %43 ], [ 1, %40 ], [ 1, %33 ], [ 0, %76 ], [ 1, %78 ]
+  %.sink = phi i16 [ 0, %137 ], [ 1, %134 ], [ 0, %132 ], [ 1, %128 ], [ 1, %125 ], [ 1, %55 ], [ 1, %43 ], [ 1, %40 ], [ 1, %33 ], [ 1, %28 ], [ 0, %76 ], [ 1, %78 ]
   store i16 %.sink, ptr %0, align 8
   ret void
 
@@ -783,7 +783,7 @@ default.unreachable:                              ; preds = %"_ZN4jiff4util8rang
   br label %103
 
 103:                                              ; preds = %97, %95
-  %104 = phi i16 [ %spec.select.i, %97 ], [ %93, %95 ]
+  %104 = phi i16 [ %93, %95 ], [ %spec.select.i, %97 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !32
   call fastcc void @_ZN4jiff6shared4util5itime5IDate16from_day_of_year17h82d6848e087d6adeE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %4, i16 noundef %.sroa.084.0, i16 noundef %104), !noalias !32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
@@ -1015,8 +1015,8 @@ define hidden { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit", %73, %82, %86, %.loopexit47, %30
-  %.sroa.9.0 = phi ptr [ %83, %82 ], [ %.sroa.9.1, %.loopexit47 ], [ %.sroa.3.0.i, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit" ], [ %35, %30 ], [ %91, %86 ], [ %75, %73 ], [ undef, %1 ], [ undef, %.backedge ]
-  %.sroa.0.0 = phi i64 [ 1, %82 ], [ 1, %.loopexit47 ], [ %spec.select32, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit" ], [ 1, %30 ], [ 1, %86 ], [ 1, %73 ], [ 0, %1 ], [ 0, %.backedge ]
+  %.sroa.9.0 = phi ptr [ %.sroa.9.1, %.loopexit47 ], [ %35, %30 ], [ %91, %86 ], [ %75, %73 ], [ %83, %82 ], [ %.sroa.3.0.i, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit" ], [ undef, %1 ], [ undef, %.backedge ]
+  %.sroa.0.0 = phi i64 [ 1, %.loopexit47 ], [ 1, %30 ], [ 1, %86 ], [ 1, %73 ], [ 1, %82 ], [ %spec.select32, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit" ], [ 0, %1 ], [ 0, %.backedge ]
   %45 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %46 = insertvalue { i64, ptr } %45, ptr %.sroa.9.0, 1
   ret { i64, ptr } %46
@@ -1311,7 +1311,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %109
 
 109:                                              ; preds = %108, %107, %106, %105, %102
-  %.sroa.07.0.i = phi i32 [ 262144, %108 ], [ 65536, %105 ], [ 131072, %106 ], [ 196608, %107 ], [ 0, %102 ]
+  %.sroa.07.0.i = phi i32 [ 65536, %105 ], [ 131072, %106 ], [ 196608, %107 ], [ 262144, %108 ], [ 0, %102 ]
   %110 = add i64 %101, -1
   %111 = icmp eq i64 %110, 0
   br i1 %111, label %114, label %112, !prof !3
@@ -1509,7 +1509,7 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit531: ; preds = %142, %151, %_ZN4
   br i1 %175, label %208, label %181
 
 common.resume:                                    ; preds = %1257, %1254, %1208, %1206, %1141, %1138, %1123, %1120, %1105, %1102, %1087, %1084, %1063, %1060, %1047, %1044, %1015, %1012, %997, %994, %979, %976, %961, %958, %939, %936, %917, %914, %899, %896, %881, %878, %863, %860, %845, %842, %827, %824, %809, %806, %791, %788, %773, %770, %755, %752, %733, %730, %715, %712, %696, %693, %678, %675, %660, %657, %642, %639, %624, %621, %606, %603, %588, %585, %570, %567, %552, %549, %534, %531, %516, %513, %498, %495, %480, %477, %462, %459, %444, %441, %426, %423, %408, %405, %390, %387, %372, %369, %354, %351, %332, %329, %314, %311, %296, %293, %278, %275, %260, %257, %242, %239, %178, %176
-  %common.resume.op = phi { ptr, i32 } [ %1207, %1206 ], [ %177, %176 ], [ %240, %239 ], [ %258, %257 ], [ %276, %275 ], [ %294, %293 ], [ %312, %311 ], [ %330, %329 ], [ %352, %351 ], [ %370, %369 ], [ %388, %387 ], [ %406, %405 ], [ %424, %423 ], [ %442, %441 ], [ %460, %459 ], [ %478, %477 ], [ %496, %495 ], [ %514, %513 ], [ %532, %531 ], [ %550, %549 ], [ %568, %567 ], [ %586, %585 ], [ %604, %603 ], [ %622, %621 ], [ %640, %639 ], [ %658, %657 ], [ %676, %675 ], [ %694, %693 ], [ %713, %712 ], [ %731, %730 ], [ %753, %752 ], [ %771, %770 ], [ %789, %788 ], [ %807, %806 ], [ %825, %824 ], [ %843, %842 ], [ %861, %860 ], [ %879, %878 ], [ %897, %896 ], [ %915, %914 ], [ %937, %936 ], [ %959, %958 ], [ %977, %976 ], [ %995, %994 ], [ %1013, %1012 ], [ %1045, %1044 ], [ %1061, %1060 ], [ %1085, %1084 ], [ %1103, %1102 ], [ %1121, %1120 ], [ %1139, %1138 ], [ %1255, %1254 ], [ %177, %178 ], [ %1255, %1257 ], [ %240, %242 ], [ %694, %696 ], [ %258, %260 ], [ %1207, %1208 ], [ %276, %278 ], [ %915, %917 ], [ %294, %296 ], [ %1139, %1141 ], [ %312, %314 ], [ %713, %715 ], [ %330, %332 ], [ %1121, %1123 ], [ %352, %354 ], [ %861, %863 ], [ %370, %372 ], [ %1103, %1105 ], [ %388, %390 ], [ %731, %733 ], [ %406, %408 ], [ %1085, %1087 ], [ %424, %426 ], [ %897, %899 ], [ %442, %444 ], [ %1061, %1063 ], [ %460, %462 ], [ %753, %755 ], [ %478, %480 ], [ %1045, %1047 ], [ %496, %498 ], [ %825, %827 ], [ %514, %516 ], [ %1013, %1015 ], [ %532, %534 ], [ %771, %773 ], [ %550, %552 ], [ %995, %997 ], [ %568, %570 ], [ %879, %881 ], [ %586, %588 ], [ %977, %979 ], [ %604, %606 ], [ %789, %791 ], [ %622, %624 ], [ %959, %961 ], [ %640, %642 ], [ %843, %845 ], [ %658, %660 ], [ %937, %939 ], [ %676, %678 ], [ %807, %809 ]
+  %common.resume.op = phi { ptr, i32 } [ %177, %178 ], [ %177, %176 ], [ %240, %242 ], [ %240, %239 ], [ %258, %260 ], [ %258, %257 ], [ %276, %278 ], [ %276, %275 ], [ %294, %296 ], [ %294, %293 ], [ %312, %314 ], [ %312, %311 ], [ %330, %332 ], [ %330, %329 ], [ %352, %354 ], [ %352, %351 ], [ %370, %372 ], [ %370, %369 ], [ %388, %390 ], [ %388, %387 ], [ %406, %408 ], [ %406, %405 ], [ %424, %426 ], [ %424, %423 ], [ %442, %444 ], [ %442, %441 ], [ %460, %462 ], [ %460, %459 ], [ %478, %480 ], [ %478, %477 ], [ %496, %498 ], [ %496, %495 ], [ %514, %516 ], [ %514, %513 ], [ %532, %534 ], [ %532, %531 ], [ %550, %552 ], [ %550, %549 ], [ %568, %570 ], [ %568, %567 ], [ %586, %588 ], [ %586, %585 ], [ %604, %606 ], [ %604, %603 ], [ %622, %624 ], [ %622, %621 ], [ %640, %642 ], [ %640, %639 ], [ %658, %660 ], [ %658, %657 ], [ %676, %678 ], [ %676, %675 ], [ %694, %696 ], [ %694, %693 ], [ %713, %715 ], [ %713, %712 ], [ %731, %733 ], [ %731, %730 ], [ %753, %755 ], [ %753, %752 ], [ %771, %773 ], [ %771, %770 ], [ %789, %791 ], [ %789, %788 ], [ %807, %809 ], [ %807, %806 ], [ %825, %827 ], [ %825, %824 ], [ %843, %845 ], [ %843, %842 ], [ %861, %863 ], [ %861, %860 ], [ %879, %881 ], [ %879, %878 ], [ %897, %899 ], [ %897, %896 ], [ %915, %917 ], [ %915, %914 ], [ %937, %939 ], [ %937, %936 ], [ %959, %961 ], [ %959, %958 ], [ %977, %979 ], [ %977, %976 ], [ %995, %997 ], [ %995, %994 ], [ %1013, %1015 ], [ %1013, %1012 ], [ %1045, %1047 ], [ %1045, %1044 ], [ %1061, %1063 ], [ %1061, %1060 ], [ %1085, %1087 ], [ %1085, %1084 ], [ %1103, %1105 ], [ %1103, %1102 ], [ %1121, %1123 ], [ %1121, %1120 ], [ %1139, %1141 ], [ %1139, %1138 ], [ %1207, %1208 ], [ %1207, %1206 ], [ %1255, %1257 ], [ %1255, %1254 ]
   resume { ptr, i32 } %common.resume.op
 
 176:                                              ; preds = %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit531
@@ -4069,8 +4069,8 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit: ; preds = %1172, %1181, %_ZN4j
   br label %1021
 
 "_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread": ; preds = %221, %1028, %1066, %1144, %1233, %1269, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i486", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i483", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i480", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i477", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i474", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i471", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i468", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i465", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i462", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i459", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i456", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i453", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i450", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i447", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i444", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i441", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i438", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i435", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i432", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i429", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i426", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i423", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i420", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i417", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i414", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i411", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i357", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i354", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i408", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i405", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i402", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i399", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i396", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i393", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i390", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i387", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i384", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i381", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i378", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i375", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i372", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i369", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i366", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i363", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i360", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i351", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i348", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i345", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i342", %114, %208, %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8bump_fmt17hccc0efb51a61b585E.exit"
-  %.sroa.59.1 = phi ptr [ undef, %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8bump_fmt17hccc0efb51a61b585E.exit" ], [ %1149, %1144 ], [ %226, %221 ], [ %1137, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i342" ], [ %238, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i486" ], [ %256, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i483" ], [ %274, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i480" ], [ %292, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i477" ], [ %310, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i474" ], [ %328, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i471" ], [ %350, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i468" ], [ %368, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i465" ], [ %386, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i462" ], [ %404, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i459" ], [ %422, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i456" ], [ %440, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i453" ], [ %458, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i450" ], [ %476, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i447" ], [ %494, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i444" ], [ %512, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i441" ], [ %530, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i438" ], [ %548, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i435" ], [ %566, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i432" ], [ %584, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i429" ], [ %602, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i426" ], [ %620, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i423" ], [ %638, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i420" ], [ %656, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i417" ], [ %674, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i414" ], [ %1033, %1028 ], [ %692, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i411" ], [ %1043, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i357" ], [ %1059, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i354" ], [ %711, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i408" ], [ %729, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i405" ], [ %751, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i402" ], [ %769, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i399" ], [ %787, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i396" ], [ %805, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i393" ], [ %823, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i390" ], [ %841, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i387" ], [ %859, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i384" ], [ %877, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i381" ], [ %895, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i378" ], [ %913, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i375" ], [ %935, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i372" ], [ %957, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i369" ], [ %975, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i366" ], [ %993, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i363" ], [ %1071, %1066 ], [ %1011, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i360" ], [ %1083, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i351" ], [ %1101, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i348" ], [ %1119, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i345" ], [ %.sroa.11718.1, %1233 ], [ %.sroa.59.2, %1269 ], [ %.sroa.11724.1, %208 ], [ %119, %114 ]
-  %.sroa.0.1 = phi i64 [ 0, %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8bump_fmt17hccc0efb51a61b585E.exit" ], [ 1, %1144 ], [ 1, %221 ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i342" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i486" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i483" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i480" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i477" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i474" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i471" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i468" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i465" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i462" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i459" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i456" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i453" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i450" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i447" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i444" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i441" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i438" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i435" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i432" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i429" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i426" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i423" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i420" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i417" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i414" ], [ 1, %1028 ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i411" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i357" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i354" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i408" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i405" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i402" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i399" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i396" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i393" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i390" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i387" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i384" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i381" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i378" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i375" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i372" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i369" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i366" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i363" ], [ 1, %1066 ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i360" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i351" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i348" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i345" ], [ 1, %1233 ], [ 1, %1269 ], [ 1, %208 ], [ 1, %114 ]
+  %.sroa.59.1 = phi ptr [ undef, %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8bump_fmt17hccc0efb51a61b585E.exit" ], [ %226, %221 ], [ %1033, %1028 ], [ %1071, %1066 ], [ %.sroa.11718.1, %1233 ], [ %.sroa.59.2, %1269 ], [ %1149, %1144 ], [ %238, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i486" ], [ %256, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i483" ], [ %274, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i480" ], [ %292, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i477" ], [ %310, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i474" ], [ %328, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i471" ], [ %350, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i468" ], [ %368, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i465" ], [ %386, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i462" ], [ %404, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i459" ], [ %422, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i456" ], [ %440, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i453" ], [ %458, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i450" ], [ %476, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i447" ], [ %494, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i444" ], [ %512, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i441" ], [ %530, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i438" ], [ %548, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i435" ], [ %566, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i432" ], [ %584, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i429" ], [ %602, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i426" ], [ %620, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i423" ], [ %638, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i420" ], [ %656, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i417" ], [ %674, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i414" ], [ %692, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i411" ], [ %1043, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i357" ], [ %1059, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i354" ], [ %711, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i408" ], [ %729, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i405" ], [ %751, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i402" ], [ %769, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i399" ], [ %787, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i396" ], [ %805, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i393" ], [ %823, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i390" ], [ %841, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i387" ], [ %859, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i384" ], [ %877, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i381" ], [ %895, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i378" ], [ %913, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i375" ], [ %935, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i372" ], [ %957, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i369" ], [ %975, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i366" ], [ %993, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i363" ], [ %1011, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i360" ], [ %1083, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i351" ], [ %1101, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i348" ], [ %1119, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i345" ], [ %1137, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i342" ], [ %.sroa.11724.1, %208 ], [ %119, %114 ]
+  %.sroa.0.1 = phi i64 [ 0, %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8bump_fmt17hccc0efb51a61b585E.exit" ], [ 1, %221 ], [ 1, %1028 ], [ 1, %1066 ], [ 1, %1233 ], [ 1, %1269 ], [ 1, %1144 ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i486" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i483" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i480" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i477" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i474" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i471" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i468" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i465" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i462" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i459" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i456" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i453" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i450" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i447" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i444" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i441" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i438" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i435" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i432" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i429" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i426" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i423" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i420" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i417" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i414" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i411" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i357" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i354" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i408" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i405" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i402" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i399" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i396" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i393" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i390" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i387" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i384" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i381" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i378" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i375" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i372" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i369" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i366" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i363" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i360" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i351" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i348" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i345" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i342" ], [ 1, %208 ], [ 1, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   %1267 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %1268 = insertvalue { i64, ptr } %1267, ptr %.sroa.59.1, 1
@@ -4172,7 +4172,7 @@ define void @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$20utf8_decode_a
   br label %29
 
 29:                                               ; preds = %25, %27, %22
-  %.sroa.08.0 = phi i64 [ 2, %25 ], [ %., %27 ], [ 1, %22 ]
+  %.sroa.08.0 = phi i64 [ 1, %22 ], [ %., %27 ], [ 2, %25 ]
   %30 = icmp ugt i64 %.sroa.08.0, %9
   br i1 %30, label %35, label %31, !prof !3
 
@@ -4622,7 +4622,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %21
 
 21:                                               ; preds = %20, %"_ZN4core6option15Option$LT$T$GT$7or_else17h7efe24f5e47d1fa1E.exit.thread"
-  %.sroa.0.2.i = phi i8 [ 48, %"_ZN4core6option15Option$LT$T$GT$7or_else17h7efe24f5e47d1fa1E.exit.thread" ], [ 32, %20 ]
+  %.sroa.0.2.i = phi i8 [ 32, %20 ], [ 48, %"_ZN4core6option15Option$LT$T$GT$7or_else17h7efe24f5e47d1fa1E.exit.thread" ]
   %22 = load i8, ptr %0, align 1, !range !14, !alias.scope !317, !noalias !320, !noundef !13
   %23 = trunc nuw i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -4718,7 +4718,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %63, %.preheader, %40
-  %69 = phi i8 [ %.pre, %40 ], [ %55, %.preheader ], [ %65, %63 ]
+  %69 = phi i8 [ %55, %.preheader ], [ %.pre, %40 ], [ %65, %63 ]
   %70 = zext i8 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %72 = load i8, ptr %71, align 1, !noalias !322, !noundef !13
@@ -4838,7 +4838,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %21
 
 21:                                               ; preds = %20, %"_ZN4core6option15Option$LT$T$GT$7or_else17ha9af8962ef049d2dE.exit.thread"
-  %.sroa.0.2.i = phi i8 [ 32, %"_ZN4core6option15Option$LT$T$GT$7or_else17ha9af8962ef049d2dE.exit.thread" ], [ 48, %20 ]
+  %.sroa.0.2.i = phi i8 [ 48, %20 ], [ 32, %"_ZN4core6option15Option$LT$T$GT$7or_else17ha9af8962ef049d2dE.exit.thread" ]
   %22 = load i8, ptr %0, align 1, !range !14, !alias.scope !342, !noalias !345, !noundef !13
   %23 = trunc nuw i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -4934,7 +4934,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %63, %.preheader, %40
-  %69 = phi i8 [ %.pre, %40 ], [ %55, %.preheader ], [ %65, %63 ]
+  %69 = phi i8 [ %55, %.preheader ], [ %.pre, %40 ], [ %65, %63 ]
   %70 = zext i8 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %72 = load i8, ptr %71, align 1, !noalias !347, !noundef !13
@@ -5044,7 +5044,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %21
 
 21:                                               ; preds = %20, %10
-  %.sroa.0.2.i = phi i8 [ 48, %10 ], [ 32, %20 ]
+  %.sroa.0.2.i = phi i8 [ 32, %20 ], [ 48, %10 ]
   %22 = load i8, ptr %0, align 1, !range !14, !alias.scope !361, !noalias !364, !noundef !13
   %23 = trunc nuw i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -5140,7 +5140,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %63, %.preheader, %40
-  %69 = phi i8 [ %.pre, %40 ], [ %55, %.preheader ], [ %65, %63 ]
+  %69 = phi i8 [ %55, %.preheader ], [ %.pre, %40 ], [ %65, %63 ]
   %70 = zext i8 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 21
   %72 = load i8, ptr %71, align 1, !noalias !366, !noundef !13
@@ -5242,7 +5242,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %18
 
 18:                                               ; preds = %17, %10
-  %.sroa.0.2.i = phi i8 [ 48, %10 ], [ 32, %17 ]
+  %.sroa.0.2.i = phi i8 [ 32, %17 ], [ 48, %10 ]
   %19 = load i8, ptr %0, align 1, !range !14, !alias.scope !380, !noalias !383, !noundef !13
   %20 = trunc nuw i8 %19 to i1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -5338,7 +5338,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %60, %.preheader, %37
-  %66 = phi i8 [ %.pre, %37 ], [ %52, %.preheader ], [ %62, %60 ]
+  %66 = phi i8 [ %52, %.preheader ], [ %.pre, %37 ], [ %62, %60 ]
   %67 = zext i8 %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 21
   %69 = load i8, ptr %68, align 1, !noalias !385, !noundef !13
@@ -5445,7 +5445,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %21
 
 21:                                               ; preds = %20, %10
-  %.sroa.0.2.i = phi i8 [ 32, %10 ], [ 48, %20 ]
+  %.sroa.0.2.i = phi i8 [ 48, %20 ], [ 32, %10 ]
   %22 = load i8, ptr %0, align 1, !range !14, !alias.scope !399, !noalias !402, !noundef !13
   %23 = trunc nuw i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -5541,7 +5541,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %63, %.preheader, %40
-  %69 = phi i8 [ %.pre, %40 ], [ %55, %.preheader ], [ %65, %63 ]
+  %69 = phi i8 [ %55, %.preheader ], [ %.pre, %40 ], [ %65, %63 ]
   %70 = zext i8 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 21
   %72 = load i8, ptr %71, align 1, !noalias !404, !noundef !13
@@ -5643,7 +5643,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %18
 
 18:                                               ; preds = %17, %10
-  %.sroa.0.2.i = phi i8 [ 32, %10 ], [ 48, %17 ]
+  %.sroa.0.2.i = phi i8 [ 48, %17 ], [ 32, %10 ]
   %19 = load i8, ptr %0, align 1, !range !14, !alias.scope !418, !noalias !421, !noundef !13
   %20 = trunc nuw i8 %19 to i1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -5739,7 +5739,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %60, %.preheader, %37
-  %66 = phi i8 [ %.pre, %37 ], [ %52, %.preheader ], [ %62, %60 ]
+  %66 = phi i8 [ %52, %.preheader ], [ %.pre, %37 ], [ %62, %60 ]
   %67 = zext i8 %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 21
   %69 = load i8, ptr %68, align 1, !noalias !423, !noundef !13
@@ -5933,7 +5933,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %18
 
 18:                                               ; preds = %17, %10
-  %.sroa.0.2.i = phi i8 [ 48, %10 ], [ 32, %17 ]
+  %.sroa.0.2.i = phi i8 [ 32, %17 ], [ 48, %10 ]
   %19 = load i8, ptr %0, align 1, !range !14, !alias.scope !451, !noalias !454, !noundef !13
   %20 = trunc nuw i8 %19 to i1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -6029,7 +6029,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %60, %.preheader, %37
-  %66 = phi i8 [ %.pre, %37 ], [ %52, %.preheader ], [ %62, %60 ]
+  %66 = phi i8 [ %52, %.preheader ], [ %.pre, %37 ], [ %62, %60 ]
   %67 = zext i8 %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 21
   %69 = load i8, ptr %68, align 1, !noalias !456, !noundef !13
@@ -6146,7 +6146,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %21
 
 21:                                               ; preds = %20, %"_ZN4core6option15Option$LT$T$GT$7or_else17h47d4c172c05870edE.exit.thread"
-  %.sroa.0.2.i = phi i8 [ 48, %"_ZN4core6option15Option$LT$T$GT$7or_else17h47d4c172c05870edE.exit.thread" ], [ 32, %20 ]
+  %.sroa.0.2.i = phi i8 [ 32, %20 ], [ 48, %"_ZN4core6option15Option$LT$T$GT$7or_else17h47d4c172c05870edE.exit.thread" ]
   %22 = load i8, ptr %0, align 1, !range !14, !alias.scope !475, !noalias !478, !noundef !13
   %23 = trunc nuw i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -6242,7 +6242,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %63, %.preheader, %40
-  %69 = phi i8 [ %.pre, %40 ], [ %55, %.preheader ], [ %65, %63 ]
+  %69 = phi i8 [ %55, %.preheader ], [ %.pre, %40 ], [ %65, %63 ]
   %70 = zext i8 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %72 = load i8, ptr %71, align 1, !noalias !480, !noundef !13
@@ -6575,7 +6575,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %40
 
 40:                                               ; preds = %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit", %33, %28
-  %.merged = phi { i64, ptr } [ %23, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit" ], [ %39, %33 ], [ %32, %28 ]
+  %.merged = phi { i64, ptr } [ %32, %28 ], [ %39, %33 ], [ %23, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit" ]
   ret { i64, ptr } %.merged
 }
 
@@ -6652,7 +6652,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %40
 
 40:                                               ; preds = %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit", %33, %28
-  %.merged = phi { i64, ptr } [ %23, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit" ], [ %39, %33 ], [ %32, %28 ]
+  %.merged = phi { i64, ptr } [ %32, %28 ], [ %39, %33 ], [ %23, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit" ]
   ret { i64, ptr } %.merged
 }
 
@@ -6843,7 +6843,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %18
 
 18:                                               ; preds = %17, %10
-  %.sroa.0.2.i = phi i8 [ 48, %10 ], [ 32, %17 ]
+  %.sroa.0.2.i = phi i8 [ 32, %17 ], [ 48, %10 ]
   %19 = load i8, ptr %0, align 1, !range !14, !alias.scope !521, !noalias !524, !noundef !13
   %20 = trunc nuw i8 %19 to i1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -6939,7 +6939,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %60, %.preheader, %37
-  %66 = phi i8 [ %.pre, %37 ], [ %52, %.preheader ], [ %62, %60 ]
+  %66 = phi i8 [ %52, %.preheader ], [ %.pre, %37 ], [ %62, %60 ]
   %67 = zext i8 %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 21
   %69 = load i8, ptr %68, align 1, !noalias !526, !noundef !13
@@ -7043,7 +7043,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %18
 
 18:                                               ; preds = %17, %12
-  %.sroa.0.2.i = phi i8 [ 32, %12 ], [ 48, %17 ]
+  %.sroa.0.2.i = phi i8 [ 48, %17 ], [ 32, %12 ]
   %19 = load i8, ptr %0, align 1, !range !14, !alias.scope !541, !noalias !544, !noundef !13
   %20 = trunc nuw i8 %19 to i1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -7149,7 +7149,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %67, %.preheader, %44
-  %73 = phi i8 [ %.pre, %44 ], [ %59, %.preheader ], [ %69, %67 ]
+  %73 = phi i8 [ %59, %.preheader ], [ %.pre, %44 ], [ %69, %67 ]
   %74 = zext i8 %73 to i64
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 21
   %76 = load i8, ptr %75, align 1, !noalias !546, !noundef !13
@@ -7437,8 +7437,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %43
 
 43:                                               ; preds = %38, %15, %7, %1, %37
-  %.sroa.6.0 = phi ptr [ undef, %1 ], [ %.sroa.65.0, %37 ], [ %spec.select, %38 ], [ undef, %15 ], [ undef, %7 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ 1, %37 ], [ %spec.select16, %38 ], [ 0, %15 ], [ 0, %7 ]
+  %.sroa.6.0 = phi ptr [ %.sroa.65.0, %37 ], [ undef, %1 ], [ undef, %7 ], [ undef, %15 ], [ %spec.select, %38 ]
+  %.sroa.0.0 = phi i64 [ 1, %37 ], [ 0, %1 ], [ 0, %7 ], [ 0, %15 ], [ %spec.select16, %38 ]
   %44 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %45 = insertvalue { i64, ptr } %44, ptr %.sroa.6.0, 1
   ret { i64, ptr } %45
@@ -7481,8 +7481,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %22
 
 22:                                               ; preds = %50, %56, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit", %16
-  %.sroa.6.0 = phi ptr [ %61, %56 ], [ %spec.select, %50 ], [ %21, %16 ], [ %.sroa.3.0.i, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit" ]
-  %.sroa.0.0 = phi i64 [ 1, %56 ], [ %spec.select14, %50 ], [ 1, %16 ], [ %.sroa.0.0.i, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit" ]
+  %.sroa.6.0 = phi ptr [ %61, %56 ], [ %.sroa.3.0.i, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit" ], [ %21, %16 ], [ %spec.select, %50 ]
+  %.sroa.0.0 = phi i64 [ 1, %56 ], [ %.sroa.0.0.i, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit" ], [ 1, %16 ], [ %spec.select14, %50 ]
   %23 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %24 = insertvalue { i64, ptr } %23, ptr %.sroa.6.0, 1
   ret { i64, ptr } %24
@@ -8083,7 +8083,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %45
 
 45:                                               ; preds = %44, %39
-  %.sroa.0.2.i = phi i8 [ 32, %39 ], [ 48, %44 ]
+  %.sroa.0.2.i = phi i8 [ 48, %44 ], [ 32, %39 ]
   %46 = load i8, ptr %0, align 1, !range !14, !alias.scope !611, !noalias !614, !noundef !13
   %47 = trunc nuw i8 %46 to i1
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -8187,7 +8187,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %93, %.preheader, %70
-  %99 = phi i8 [ %.pre, %70 ], [ %85, %.preheader ], [ %95, %93 ]
+  %99 = phi i8 [ %85, %.preheader ], [ %.pre, %70 ], [ %95, %93 ]
   %100 = zext i8 %99 to i64
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %102 = load i8, ptr %101, align 1, !noalias !616, !noundef !13
@@ -8367,7 +8367,7 @@ _ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE
   br label %57
 
 57:                                               ; preds = %56, %_ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE.exit
-  %.sroa.0.2.i = phi i8 [ 32, %_ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE.exit ], [ 48, %56 ]
+  %.sroa.0.2.i = phi i8 [ 48, %56 ], [ 32, %_ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE.exit ]
   %58 = load i8, ptr %0, align 1, !range !14, !alias.scope !635, !noalias !638, !noundef !13
   %59 = trunc nuw i8 %58 to i1
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -8473,7 +8473,7 @@ _ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %106, %.preheader, %83
-  %112 = phi i8 [ %.pre, %83 ], [ %98, %.preheader ], [ %108, %106 ]
+  %112 = phi i8 [ %98, %.preheader ], [ %.pre, %83 ], [ %108, %106 ]
   %113 = zext i8 %112 to i64
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %115 = load i8, ptr %114, align 1, !noalias !640, !noundef !13
@@ -8588,7 +8588,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %24
 
 24:                                               ; preds = %23, %16
-  %.sroa.0.2.i30 = phi i8 [ 48, %16 ], [ 32, %23 ]
+  %.sroa.0.2.i30 = phi i8 [ 32, %23 ], [ 48, %16 ]
   %25 = load i8, ptr %0, align 1, !range !14, !alias.scope !654, !noalias !657, !noundef !13
   %26 = trunc nuw i8 %25 to i1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -8684,7 +8684,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %66, %.preheader, %43
-  %72 = phi i8 [ %.pre27, %43 ], [ %58, %.preheader ], [ %68, %66 ]
+  %72 = phi i8 [ %58, %.preheader ], [ %.pre27, %43 ], [ %68, %66 ]
   %73 = zext i8 %72 to i64
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 21
   %75 = load i8, ptr %74, align 1, !noalias !659, !noundef !13
@@ -8788,8 +8788,8 @@ _ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i: ; preds = %1
   %117 = add i16 %114, %116
   br label %118
 
-118:                                              ; preds = %.thread, %_ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i
-  %.pn3.i.ph = phi i16 [ %117, %_ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i ], [ %98, %.thread ]
+118:                                              ; preds = %_ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i, %.thread
+  %.pn3.i.ph = phi i16 [ %98, %.thread ], [ %117, %_ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i ]
   %119 = getelementptr inbounds nuw i8, ptr %.24.val, i64 109
   %120 = load i8, ptr %119, align 1, !range !587, !noundef !13
   %.not.i39 = icmp eq i8 %120, 0
@@ -8905,7 +8905,7 @@ _ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE
   br label %179
 
 179:                                              ; preds = %178, %_ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE.exit
-  %.sroa.0.2.i = phi i8 [ 48, %_ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE.exit ], [ 32, %178 ]
+  %.sroa.0.2.i = phi i8 [ 32, %178 ], [ 48, %_ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE.exit ]
   %180 = load i8, ptr %0, align 1, !range !14, !alias.scope !683, !noalias !686, !noundef !13
   %181 = trunc nuw i8 %180 to i1
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -9001,7 +9001,7 @@ _ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit37: ; preds = %221, %.preheader12, %198
-  %227 = phi i8 [ %.pre, %198 ], [ %213, %.preheader12 ], [ %223, %221 ]
+  %227 = phi i8 [ %213, %.preheader12 ], [ %.pre, %198 ], [ %223, %221 ]
   %228 = zext i8 %227 to i64
   %229 = getelementptr inbounds nuw i8, ptr %8, i64 21
   %230 = load i8, ptr %229, align 1, !noalias !688, !noundef !13
@@ -9118,7 +9118,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %23
 
 23:                                               ; preds = %22, %"_ZN4core6option15Option$LT$T$GT$7or_else17h5560828c489416b0E.exit.thread"
-  %.sroa.0.2.i = phi i8 [ 48, %"_ZN4core6option15Option$LT$T$GT$7or_else17h5560828c489416b0E.exit.thread" ], [ 32, %22 ]
+  %.sroa.0.2.i = phi i8 [ 32, %22 ], [ 48, %"_ZN4core6option15Option$LT$T$GT$7or_else17h5560828c489416b0E.exit.thread" ]
   %24 = load i8, ptr %0, align 1, !range !14, !alias.scope !707, !noalias !710, !noundef !13
   %25 = trunc nuw i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -9214,7 +9214,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %65, %.preheader, %42
-  %71 = phi i8 [ %.pre, %42 ], [ %57, %.preheader ], [ %67, %65 ]
+  %71 = phi i8 [ %57, %.preheader ], [ %.pre, %42 ], [ %67, %65 ]
   %72 = zext i8 %71 to i64
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %74 = load i8, ptr %73, align 1, !noalias !712, !noundef !13
@@ -9325,7 +9325,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %24
 
 24:                                               ; preds = %23, %16
-  %.sroa.0.2.i30 = phi i8 [ 48, %16 ], [ 32, %23 ]
+  %.sroa.0.2.i30 = phi i8 [ 32, %23 ], [ 48, %16 ]
   %25 = load i8, ptr %0, align 1, !range !14, !alias.scope !726, !noalias !729, !noundef !13
   %26 = trunc nuw i8 %25 to i1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -9421,7 +9421,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %66, %.preheader, %43
-  %72 = phi i8 [ %.pre27, %43 ], [ %58, %.preheader ], [ %68, %66 ]
+  %72 = phi i8 [ %58, %.preheader ], [ %.pre27, %43 ], [ %68, %66 ]
   %73 = zext i8 %72 to i64
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 21
   %75 = load i8, ptr %74, align 1, !noalias !731, !noundef !13
@@ -9525,8 +9525,8 @@ _ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i: ; preds = %1
   %117 = add i16 %114, %116
   br label %118
 
-118:                                              ; preds = %.thread, %_ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i
-  %.pn3.i.ph = phi i16 [ %117, %_ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i ], [ %98, %.thread ]
+118:                                              ; preds = %_ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i, %.thread
+  %.pn3.i.ph = phi i16 [ %98, %.thread ], [ %117, %_ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i ]
   %119 = getelementptr inbounds nuw i8, ptr %.24.val, i64 109
   %120 = load i8, ptr %119, align 1, !range !587, !noundef !13
   %.not.i39 = icmp eq i8 %120, 0
@@ -9644,7 +9644,7 @@ _ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE
   br label %181
 
 181:                                              ; preds = %180, %_ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE.exit
-  %.sroa.0.2.i = phi i8 [ 48, %_ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE.exit ], [ 32, %180 ]
+  %.sroa.0.2.i = phi i8 [ 32, %180 ], [ 48, %_ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE.exit ]
   %182 = load i8, ptr %0, align 1, !range !14, !alias.scope !755, !noalias !758, !noundef !13
   %183 = trunc nuw i8 %182 to i1
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -9740,7 +9740,7 @@ _ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit37: ; preds = %223, %.preheader12, %200
-  %229 = phi i8 [ %.pre, %200 ], [ %215, %.preheader12 ], [ %225, %223 ]
+  %229 = phi i8 [ %215, %.preheader12 ], [ %.pre, %200 ], [ %225, %223 ]
   %230 = zext i8 %229 to i64
   %231 = getelementptr inbounds nuw i8, ptr %8, i64 21
   %232 = load i8, ptr %231, align 1, !noalias !760, !noundef !13
@@ -9854,7 +9854,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %22
 
 22:                                               ; preds = %21, %"_ZN4core6option15Option$LT$T$GT$7or_else17h14ae396101024301E.exit.thread"
-  %.sroa.0.2.i = phi i8 [ 48, %"_ZN4core6option15Option$LT$T$GT$7or_else17h14ae396101024301E.exit.thread" ], [ 32, %21 ]
+  %.sroa.0.2.i = phi i8 [ 32, %21 ], [ 48, %"_ZN4core6option15Option$LT$T$GT$7or_else17h14ae396101024301E.exit.thread" ]
   %23 = load i8, ptr %0, align 1, !range !14, !alias.scope !779, !noalias !782, !noundef !13
   %24 = trunc nuw i8 %23 to i1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -9950,7 +9950,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %64, %.preheader, %41
-  %70 = phi i8 [ %.pre, %41 ], [ %56, %.preheader ], [ %66, %64 ]
+  %70 = phi i8 [ %56, %.preheader ], [ %.pre, %41 ], [ %66, %64 ]
   %71 = zext i8 %70 to i64
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %73 = load i8, ptr %72, align 1, !noalias !784, !noundef !13
@@ -10119,7 +10119,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %41
 
 41:                                               ; preds = %40, %34
-  %.sroa.0.2.i = phi i8 [ 48, %34 ], [ 32, %40 ]
+  %.sroa.0.2.i = phi i8 [ 32, %40 ], [ 48, %34 ]
   %42 = load i8, ptr %0, align 1, !range !14, !alias.scope !803, !noalias !806, !noundef !13
   %43 = trunc nuw i8 %42 to i1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -10213,7 +10213,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %82, %.preheader, %59
-  %88 = phi i8 [ %.pre, %59 ], [ %74, %.preheader ], [ %84, %82 ]
+  %88 = phi i8 [ %74, %.preheader ], [ %.pre, %59 ], [ %84, %82 ]
   %89 = zext i8 %88 to i64
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %91 = load i8, ptr %90, align 1, !noalias !808, !noundef !13
@@ -10317,7 +10317,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %23
 
 23:                                               ; preds = %22, %"_ZN4core6option15Option$LT$T$GT$7or_else17h8f9022a3e7d618bbE.exit.thread"
-  %.sroa.0.2.i = phi i8 [ 32, %"_ZN4core6option15Option$LT$T$GT$7or_else17h8f9022a3e7d618bbE.exit.thread" ], [ 48, %22 ]
+  %.sroa.0.2.i = phi i8 [ 48, %22 ], [ 32, %"_ZN4core6option15Option$LT$T$GT$7or_else17h8f9022a3e7d618bbE.exit.thread" ]
   %24 = load i8, ptr %0, align 1, !range !14, !alias.scope !827, !noalias !830, !noundef !13
   %25 = trunc nuw i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -10423,7 +10423,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %72, %.preheader, %49
-  %78 = phi i8 [ %.pre, %49 ], [ %64, %.preheader ], [ %74, %72 ]
+  %78 = phi i8 [ %64, %.preheader ], [ %.pre, %49 ], [ %74, %72 ]
   %79 = zext i8 %78 to i64
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %81 = load i8, ptr %80, align 1, !noalias !832, !noundef !13
@@ -10549,7 +10549,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %25
 
 25:                                               ; preds = %24, %19
-  %.sroa.0.2.i = phi i8 [ 48, %19 ], [ 32, %24 ]
+  %.sroa.0.2.i = phi i8 [ 32, %24 ], [ 48, %19 ]
   %26 = load i8, ptr %0, align 1, !range !14, !alias.scope !851, !noalias !854, !noundef !13
   %27 = trunc nuw i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -10645,7 +10645,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %67, %.preheader, %44
-  %73 = phi i8 [ %.pre, %44 ], [ %59, %.preheader ], [ %69, %67 ]
+  %73 = phi i8 [ %59, %.preheader ], [ %.pre, %44 ], [ %69, %67 ]
   %74 = zext i8 %73 to i64
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %76 = load i8, ptr %75, align 1, !noalias !856, !noundef !13
@@ -10816,7 +10816,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %44
 
 44:                                               ; preds = %43, %37
-  %.sroa.0.2.i = phi i8 [ 48, %37 ], [ 32, %43 ]
+  %.sroa.0.2.i = phi i8 [ 32, %43 ], [ 48, %37 ]
   %45 = load i8, ptr %0, align 1, !range !14, !alias.scope !875, !noalias !878, !noundef !13
   %46 = trunc nuw i8 %45 to i1
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -10910,7 +10910,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %85, %.preheader, %62
-  %91 = phi i8 [ %.pre, %62 ], [ %77, %.preheader ], [ %87, %85 ]
+  %91 = phi i8 [ %77, %.preheader ], [ %.pre, %62 ], [ %87, %85 ]
   %92 = zext i8 %91 to i64
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %94 = load i8, ptr %93, align 1, !noalias !880, !noundef !13
@@ -11046,7 +11046,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 32:                                               ; preds = %29, %27, %25, %"_ZN4core6option15Option$LT$T$GT$7or_else17ha8f13c31028777abE.exit.thread"
-  %.sroa.013.0 = phi i64 [ 3, %27 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17ha8f13c31028777abE.exit.thread" ], [ 2, %25 ], [ 4, %29 ]
+  %.sroa.013.0 = phi i64 [ 1, %"_ZN4core6option15Option$LT$T$GT$7or_else17ha8f13c31028777abE.exit.thread" ], [ 2, %25 ], [ 3, %27 ], [ 4, %29 ]
   %33 = icmp ne ptr %.32.val, null
   tail call void @llvm.assume(i1 %33)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !899)
@@ -11061,7 +11061,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %37
 
 37:                                               ; preds = %36, %32
-  %.sroa.0.2.i = phi i8 [ 48, %32 ], [ 32, %36 ]
+  %.sroa.0.2.i = phi i8 [ 32, %36 ], [ 48, %32 ]
   %38 = load i8, ptr %0, align 1, !range !14, !alias.scope !899, !noalias !902, !noundef !13
   %39 = trunc nuw i8 %38 to i1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -11141,7 +11141,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %73, %63, %62
-  %79 = phi i8 [ %.pre, %62 ], [ 19, %63 ], [ %75, %73 ]
+  %79 = phi i8 [ 19, %63 ], [ %.pre, %62 ], [ %75, %73 ]
   %80 = zext i8 %79 to i64
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %82 = load i8, ptr %81, align 1, !noalias !904, !noundef !13
@@ -11252,8 +11252,8 @@ _ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i: ; preds = %1
   %31 = add i16 %28, %30
   br label %32
 
-32:                                               ; preds = %.thread, %_ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i
-  %.pn3.i.ph = phi i16 [ %31, %_ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i ], [ %12, %.thread ]
+32:                                               ; preds = %_ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i, %.thread
+  %.pn3.i.ph = phi i16 [ %12, %.thread ], [ %31, %_ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i ]
   %33 = icmp ne ptr %.32.val, null
   tail call void @llvm.assume(i1 %33)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !923)
@@ -11269,7 +11269,7 @@ _ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i: ; preds = %1
   br label %38
 
 38:                                               ; preds = %37, %32
-  %.sroa.0.2.i = phi i8 [ 48, %32 ], [ 32, %37 ]
+  %.sroa.0.2.i = phi i8 [ 32, %37 ], [ 48, %32 ]
   %39 = load i8, ptr %0, align 1, !range !14, !alias.scope !923, !noalias !926, !noundef !13
   %40 = trunc nuw i8 %39 to i1
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -11365,7 +11365,7 @@ _ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i: ; preds = %1
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %80, %.preheader, %57
-  %86 = phi i8 [ %.pre, %57 ], [ %72, %.preheader ], [ %82, %80 ]
+  %86 = phi i8 [ %72, %.preheader ], [ %.pre, %57 ], [ %82, %80 ]
   %87 = zext i8 %86 to i64
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %89 = load i8, ptr %88, align 1, !noalias !928, !noundef !13
@@ -11614,7 +11614,7 @@ _ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread: 
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %77, %.preheader69, %51
-  %83 = phi i8 [ %.pre, %51 ], [ %67, %.preheader69 ], [ %79, %77 ]
+  %83 = phi i8 [ %67, %.preheader69 ], [ %.pre, %51 ], [ %79, %77 ]
   %84 = zext i8 %83 to i64
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 21
   %86 = load i8, ptr %85, align 1, !noundef !13
@@ -11726,7 +11726,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %77, %.prehead
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit58: ; preds = %131, %.preheader68, %105
-  %137 = phi i8 [ %.pre92, %105 ], [ %121, %.preheader68 ], [ %133, %131 ]
+  %137 = phi i8 [ %121, %.preheader68 ], [ %.pre92, %105 ], [ %133, %131 ]
   %138 = zext i8 %137 to i64
   %139 = getelementptr inbounds nuw i8, ptr %5, i64 21
   %140 = load i8, ptr %139, align 1, !noundef !13
@@ -11848,7 +11848,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit58: ; preds = %131, %.preh
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit62: ; preds = %190, %.preheader, %164
-  %196 = phi i8 [ %.pre94, %164 ], [ %180, %.preheader ], [ %192, %190 ]
+  %196 = phi i8 [ %180, %.preheader ], [ %.pre94, %164 ], [ %192, %190 ]
   %197 = zext i8 %196 to i64
   %198 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %199 = load i8, ptr %198, align 1, !noundef !13
@@ -11888,8 +11888,8 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit62: ; preds = %190, %.preh
   br i1 %215, label %217, label %159
 
 217:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit", %212, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit53", %153, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit54", %45
-  %.sroa.8.0 = phi ptr [ %46, %45 ], [ %216, %212 ], [ %98, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit54" ], [ %.sroa.622.0.mux, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit53" ], [ %157, %153 ], [ %spec.select, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit" ]
-  %.sroa.0.0 = phi i64 [ 1, %45 ], [ 1, %212 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit54" ], [ %.mux, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit53" ], [ 1, %153 ], [ %spec.select52, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit" ]
+  %.sroa.8.0 = phi ptr [ %46, %45 ], [ %98, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit54" ], [ %157, %153 ], [ %.sroa.622.0.mux, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit53" ], [ %216, %212 ], [ %spec.select, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit" ]
+  %.sroa.0.0 = phi i64 [ 1, %45 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit54" ], [ 1, %153 ], [ %.mux, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit53" ], [ 1, %212 ], [ %spec.select52, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit" ]
   %218 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %219 = insertvalue { i64, ptr } %218, ptr %.sroa.8.0, 1
   ret { i64, ptr } %219
@@ -12104,7 +12104,7 @@ _ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread: 
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %91, %.preheader92, %65
-  %97 = phi i8 [ %.pre, %65 ], [ %81, %.preheader92 ], [ %93, %91 ]
+  %97 = phi i8 [ %81, %.preheader92 ], [ %.pre, %65 ], [ %93, %91 ]
   %98 = zext i8 %97 to i64
   %99 = getelementptr inbounds nuw i8, ptr %13, i64 21
   %100 = load i8, ptr %99, align 1, !noundef !13
@@ -12236,7 +12236,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit: ; preds = %91, %.prehead
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit61: ; preds = %150, %.preheader91, %124
-  %156 = phi i8 [ %.pre115, %124 ], [ %140, %.preheader91 ], [ %152, %150 ]
+  %156 = phi i8 [ %140, %.preheader91 ], [ %.pre115, %124 ], [ %152, %150 ]
   %157 = zext i8 %156 to i64
   %158 = getelementptr inbounds nuw i8, ptr %12, i64 21
   %159 = load i8, ptr %158, align 1, !noundef !13
@@ -12384,7 +12384,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit61: ; preds = %150, %.preh
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit65: ; preds = %214, %.preheader, %188
-  %220 = phi i8 [ %.pre117, %188 ], [ %204, %.preheader ], [ %216, %214 ]
+  %220 = phi i8 [ %204, %.preheader ], [ %.pre117, %188 ], [ %216, %214 ]
   %221 = zext i8 %220 to i64
   %222 = getelementptr inbounds nuw i8, ptr %11, i64 21
   %223 = load i8, ptr %222, align 1, !noundef !13
@@ -12424,8 +12424,8 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit65: ; preds = %214, %.preh
   br i1 %239, label %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit.thread", label %183
 
 "_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit.thread": ; preds = %56, %49, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit80.thread", %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit77.thread", %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit74.thread", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit", %236, %115, %181
-  %.sroa.8.0 = phi ptr [ undef, %181 ], [ %240, %236 ], [ %114, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit74.thread" ], [ undef, %115 ], [ %180, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit80.thread" ], [ %173, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit77.thread" ], [ %spec.select, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit" ], [ %61, %56 ], [ %54, %49 ]
-  %.sroa.0.0 = phi i64 [ 0, %181 ], [ 1, %236 ], [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit74.thread" ], [ 0, %115 ], [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit80.thread" ], [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit77.thread" ], [ %spec.select55, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit" ], [ 1, %56 ], [ 1, %49 ]
+  %.sroa.8.0 = phi ptr [ undef, %181 ], [ undef, %115 ], [ %240, %236 ], [ %spec.select, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit" ], [ %114, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit74.thread" ], [ %173, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit77.thread" ], [ %180, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit80.thread" ], [ %61, %56 ], [ %54, %49 ]
+  %.sroa.0.0 = phi i64 [ 0, %181 ], [ 0, %115 ], [ 1, %236 ], [ %spec.select55, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit" ], [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit74.thread" ], [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit77.thread" ], [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit80.thread" ], [ 1, %56 ], [ 1, %49 ]
   %241 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %242 = insertvalue { i64, ptr } %241, ptr %.sroa.8.0, 1
   ret { i64, ptr } %242
@@ -12457,7 +12457,7 @@ define internal fastcc void @_ZN4jiff3fmt7strtime14BrokenDownTime12to_timestamp1
   br i1 %14, label %23, label %27
 
 common.resume:                                    ; preds = %63, %59, %48, %46, %19, %15
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %16, %15 ], [ %60, %59 ], [ %16, %19 ], [ %60, %63 ], [ %47, %48 ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %19 ], [ %16, %15 ], [ %47, %48 ], [ %47, %46 ], [ %60, %63 ], [ %60, %59 ]
   resume { ptr, i32 } %common.resume.op
 
 15:                                               ; preds = %2
@@ -12663,7 +12663,7 @@ define internal fastcc void @_ZN4jiff3fmt7strtime14BrokenDownTime11to_datetime17
   br i1 %15, label %24, label %28
 
 common.resume:                                    ; preds = %165, %163, %20, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %164, %163 ], [ %17, %20 ], [ %164, %165 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %20 ], [ %17, %16 ], [ %164, %165 ], [ %164, %163 ]
   resume { ptr, i32 } %common.resume.op
 
 16:                                               ; preds = %2
@@ -13198,7 +13198,7 @@ _ZN4jiff5civil4date4Date10new_ranged17h13beb0486dc3afdcE.exit.i: ; preds = %76, 
   br i1 %83, label %93, label %.thread148
 
 common.resume:                                    ; preds = %350, %352, %436, %440, %212, %214, %298, %302, %133, %146, %150, %84, %86
-  %common.resume.op = phi { ptr, i32 } [ %213, %214 ], [ %85, %84 ], [ %147, %150 ], [ %85, %86 ], [ %134, %133 ], [ %147, %146 ], [ %299, %302 ], [ %213, %212 ], [ %299, %298 ], [ %437, %440 ], [ %351, %350 ], [ %437, %436 ], [ %351, %352 ]
+  %common.resume.op = phi { ptr, i32 } [ %85, %86 ], [ %85, %84 ], [ %134, %133 ], [ %147, %150 ], [ %147, %146 ], [ %213, %214 ], [ %213, %212 ], [ %299, %302 ], [ %299, %298 ], [ %351, %352 ], [ %351, %350 ], [ %437, %440 ], [ %437, %436 ]
   resume { ptr, i32 } %common.resume.op
 
 84:                                               ; preds = %_ZN4jiff5civil4date4Date10new_ranged17h13beb0486dc3afdcE.exit.i
@@ -13721,7 +13721,7 @@ _ZN4jiff5civil4date4Date10new_ranged17h13beb0486dc3afdcE.exit.i85: ; preds = %20
   br label %446
 
 306:                                              ; preds = %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i91", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i71.i", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i68.i", %280, %276
-  %.sroa.15.0 = phi ptr [ %260, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i71.i" ], [ %210, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i68.i" ], [ %277, %276 ], [ %287, %280 ], [ %296, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i91" ]
+  %.sroa.15.0 = phi ptr [ %277, %276 ], [ %287, %280 ], [ %210, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i68.i" ], [ %260, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i71.i" ], [ %296, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i91" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !1107
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !1107
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -14037,7 +14037,7 @@ _ZN4jiff5civil4date4Date10new_ranged17h13beb0486dc3afdcE.exit.i99: ; preds = %33
   br label %454
 
 444:                                              ; preds = %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i117", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i70.i", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i67.i", %418, %413
-  %.sroa.15136.0 = phi ptr [ %397, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i70.i" ], [ %348, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i67.i" ], [ %414, %413 ], [ %425, %418 ], [ %434, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i117" ]
+  %.sroa.15136.0 = phi ptr [ %414, %413 ], [ %425, %418 ], [ %348, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i67.i" ], [ %397, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i70.i" ], [ %434, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i117" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1140
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1140
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -14048,7 +14048,7 @@ _ZN4jiff5civil4date4Date10new_ranged17h13beb0486dc3afdcE.exit.i99: ; preds = %33
   br label %500
 
 446:                                              ; preds = %.thread187, %.thread183, %.thread148, %97
-  %.sroa.10.3.ph = phi i32 [ %.sroa.060.0.copyload.i, %.thread187 ], [ %.sroa.016.0.copyload.i, %.thread183 ], [ %.sroa.011.0.copyload.i, %.thread148 ], [ %.sroa.446.0.copyload, %97 ]
+  %.sroa.10.3.ph = phi i32 [ %.sroa.011.0.copyload.i, %.thread148 ], [ %.sroa.446.0.copyload, %97 ], [ %.sroa.016.0.copyload.i, %.thread183 ], [ %.sroa.060.0.copyload.i, %.thread187 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 109
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !range !587

@@ -21,8 +21,8 @@ define dso_local void @qsort_arg(ptr noundef %0, i64 noundef %1, i64 noundef %2,
   br label %23
 
 .preheader250:                                    ; preds = %.outer, %149, %5
-  %.0186.ph.lcssa267 = phi ptr [ %.0186.ph307, %149 ], [ %0, %5 ], [ %138, %.outer ]
-  %.0.lcssa = phi i64 [ %150, %149 ], [ %1, %5 ], [ %139, %.outer ]
+  %.0186.ph.lcssa267 = phi ptr [ %0, %5 ], [ %.0186.ph307, %149 ], [ %138, %.outer ]
+  %.0.lcssa = phi i64 [ %1, %5 ], [ %150, %149 ], [ %139, %.outer ]
   %10 = mul i64 %.0.lcssa, %2
   %11 = getelementptr inbounds nuw i8, ptr %.0186.ph.lcssa267, i64 %10
   %.not423 = icmp samesign ult i64 %2, %10
@@ -194,8 +194,8 @@ qsort_arg_swapn.exit228.loopexit:                 ; preds = %.lr.ph.i225
   br i1 %.not214, label %.critedge2, label %.lr.ph274.split, !llvm.loop !9
 
 .critedge2:                                       ; preds = %.lr.ph274.split, %81, %.lr.ph274.split.us, %68
-  %.1199.lcssa = phi ptr [ %.0198, %68 ], [ %.0198, %.lr.ph274.split.us ], [ %.1199271, %.lr.ph274.split ], [ %.2200, %81 ]
-  %.1197.lcssa = phi ptr [ %.0196, %68 ], [ %.0196, %.lr.ph274.split.us ], [ %.1197272, %.lr.ph274.split ], [ %82, %81 ]
+  %.1199.lcssa = phi ptr [ %.0198, %68 ], [ %.0198, %.lr.ph274.split.us ], [ %.2200, %81 ], [ %.1199271, %.lr.ph274.split ]
+  %.1197.lcssa = phi ptr [ %.0196, %68 ], [ %.0196, %.lr.ph274.split.us ], [ %82, %81 ], [ %.1197272, %.lr.ph274.split ]
   %.not215282 = icmp ugt ptr %.1197.lcssa, %.0194
   br i1 %.not215282, label %.critedge2._crit_edge, label %.lr.ph286
 

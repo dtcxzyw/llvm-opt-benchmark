@@ -33,7 +33,7 @@ define dso_local void @_ZNK4llvm11MCSymbolELF10setBindingEj(ptr noundef nonnull 
   br label %9
 
 9:                                                ; preds = %2, %8, %7, %6
-  %.0 = phi i64 [ 103079215104, %8 ], [ 34359738368, %6 ], [ 68719476736, %7 ], [ 0, %2 ]
+  %.0 = phi i64 [ 34359738368, %6 ], [ 68719476736, %7 ], [ 103079215104, %8 ], [ 0, %2 ]
   %10 = and i64 %4, -17695265259521
   %11 = or disjoint i64 %10, %.0
   %12 = or disjoint i64 %11, 17592186044416
@@ -107,7 +107,7 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread3:      ; preds = %_ZNK4llvm8MCSymbol9
   br label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread
 
 _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread:       ; preds = %switch.lookup, %6, %18, %16, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread3, %_ZNK4llvm8MCSymbol9isDefinedEv.exit
-  %.1 = phi i32 [ 2, %16 ], [ %switch.load, %switch.lookup ], [ 0, %_ZNK4llvm8MCSymbol9isDefinedEv.exit ], [ 1, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread3 ], [ %., %18 ], [ 0, %6 ]
+  %.1 = phi i32 [ 0, %_ZNK4llvm8MCSymbol9isDefinedEv.exit ], [ 1, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread3 ], [ 2, %16 ], [ %., %18 ], [ 0, %6 ], [ %switch.load, %switch.lookup ]
   ret i32 %.1
 }
 

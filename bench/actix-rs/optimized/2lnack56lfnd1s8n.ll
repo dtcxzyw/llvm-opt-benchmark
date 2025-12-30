@@ -77,7 +77,7 @@ _ZN4core4hash11BuildHasher8hash_one17h569881dcf9df09a6E.exit.i: ; preds = %36, %
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha4e738fc92e4e177E.exit"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha4e738fc92e4e177E.exit": ; preds = %_ZN4core4hash11BuildHasher8hash_one17h569881dcf9df09a6E.exit.i, %2
-  %.0.shrunk = phi i1 [ false, %2 ], [ %47, %_ZN4core4hash11BuildHasher8hash_one17h569881dcf9df09a6E.exit.i ]
+  %.0.shrunk = phi i1 [ %47, %_ZN4core4hash11BuildHasher8hash_one17h569881dcf9df09a6E.exit.i ], [ false, %2 ]
   ret i1 %.0.shrunk
 }
 

@@ -254,9 +254,9 @@ proto_item_set_generated.exit279:                 ; preds = %74, %79, %82
   br label %.critedge
 
 .critedge:                                        ; preds = %51, %66, %87, %62, %proto_item_set_generated.exit279
-  %.0239 = phi i1 [ true, %proto_item_set_generated.exit279 ], [ false, %62 ], [ %.not265, %87 ], [ false, %66 ], [ false, %51 ]
-  %.0236 = phi ptr [ %65, %proto_item_set_generated.exit279 ], [ null, %62 ], [ null, %87 ], [ null, %66 ], [ null, %51 ]
-  %.0235 = phi ptr [ %86, %proto_item_set_generated.exit279 ], [ null, %62 ], [ null, %87 ], [ null, %66 ], [ null, %51 ]
+  %.0239 = phi i1 [ true, %proto_item_set_generated.exit279 ], [ %.not265, %87 ], [ false, %62 ], [ false, %66 ], [ false, %51 ]
+  %.0236 = phi ptr [ %65, %proto_item_set_generated.exit279 ], [ null, %87 ], [ null, %62 ], [ null, %66 ], [ null, %51 ]
+  %.0235 = phi ptr [ %86, %proto_item_set_generated.exit279 ], [ null, %87 ], [ null, %62 ], [ null, %66 ], [ null, %51 ]
   %88 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %89 = icmp sgt i32 %88, 3
   br i1 %89, label %90, label %120
@@ -738,8 +738,8 @@ proto_item_set_generated.exit285:                 ; preds = %proto_item_set_gene
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread305
 
-.thread305:                                       ; preds = %276, %343, %326
-  %.2230.ph = phi i32 [ %.5, %326 ], [ %346, %343 ], [ %280, %276 ]
+.thread305:                                       ; preds = %343, %276, %326
+  %.2230.ph = phi i32 [ %.5, %326 ], [ %280, %276 ], [ %346, %343 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %377
 
@@ -797,7 +797,7 @@ proto_item_set_generated.exit288:                 ; preds = %363, %367, %370
   br label %377
 
 377:                                              ; preds = %proto_item_set_generated.exit288, %.thread300, %347, %.thread305, %210
-  %.1229 = phi i32 [ %.2230.ph, %.thread305 ], [ %226, %210 ], [ %209, %.thread300 ], [ %362, %347 ], [ %376, %proto_item_set_generated.exit288 ]
+  %.1229 = phi i32 [ %226, %210 ], [ %.2230.ph, %.thread305 ], [ %362, %347 ], [ %376, %proto_item_set_generated.exit288 ], [ %209, %.thread300 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1229

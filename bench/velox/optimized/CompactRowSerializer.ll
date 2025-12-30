@@ -900,7 +900,7 @@ cleanup.sink.split.sink.split:                    ; preds = %if.then.i.i.i.i95, 
   br label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %cleanup.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i87
-  %.sink205 = phi ptr [ %85, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ %62, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i87 ], [ %.sink208, %cleanup.sink.split.sink.split ]
+  %.sink205 = phi ptr [ %62, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i87 ], [ %85, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i151 ], [ %.sink208, %cleanup.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i155 = load ptr, ptr %.sink205, align 8
   %vfn3.i.i.i.i.i.i156 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i155, i64 24
   %95 = load ptr, ptr %vfn3.i.i.i.i.i.i156, align 8
@@ -946,7 +946,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit: ; pred
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i, %lpad27, %lpad10
-  %.pn = phi { ptr, i32 } [ %71, %lpad27 ], [ %23, %lpad10 ], [ %lpad.phi.i, %lpad.i ], [ %lpad.loopexit181, %lpad.loopexit ], [ %lpad.loopexit183, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp184, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %lpad10 ], [ %71, %lpad27 ], [ %lpad.phi.i, %lpad.i ], [ %lpad.loopexit181, %lpad.loopexit ], [ %lpad.loopexit183, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp184, %lpad.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %concatenatedRows) #23
   %100 = load ptr, ptr %serializedRows, align 8
   %tobool.not.i.i.i174 = icmp eq ptr %100, null
@@ -2429,7 +2429,7 @@ cleanup:                                          ; preds = %if.then, %if.else, 
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit61, %lpad.loopexit.split-lp62, %lpad.i, %lpad51, %lpad4
-  %.pn = phi { ptr, i32 } [ %23, %lpad4 ], [ %lpad.phi, %lpad51 ], [ %37, %lpad.i ], [ %lpad.loopexit63, %lpad.loopexit61 ], [ %lpad.loopexit.split-lp64, %lpad.loopexit.split-lp62 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad51 ], [ %23, %lpad4 ], [ %37, %lpad.i ], [ %lpad.loopexit63, %lpad.loopexit61 ], [ %lpad.loopexit.split-lp64, %lpad.loopexit.split-lp62 ]
   call void @_ZN8facebook5velox3row10CompactRowD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %row) #23
   resume { ptr, i32 } %.pn
 }

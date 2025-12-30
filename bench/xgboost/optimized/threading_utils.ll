@@ -560,7 +560,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
   br label %68
 
 _ZN7xgboost6common16GetCGroupV1CountERKNSt10filesystem7__cxx114pathES5_.exit: ; preds = %34, %30, %43, %36
-  %spec.select = phi i32 [ %.sroa.speculated.i, %43 ], [ -1, %30 ], [ -1, %36 ], [ -1, %34 ]
+  %spec.select = phi i32 [ -1, %36 ], [ %.sroa.speculated.i, %43 ], [ -1, %30 ], [ -1, %34 ]
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %53 = load ptr, ptr %52, align 8, !tbaa !29
   %.not.i.i.i24 = icmp eq ptr %53, null
@@ -633,7 +633,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit33:        ; preds = %_ZNSt10filesystem7_
           to label %73 unwind label %74
 
 73:                                               ; preds = %.invoke, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %_ZNSt10filesystem7__cxx114pathD2Ev.exit33
-  %.1 = phi i32 [ -1, %.invoke ], [ %spec.select, %_ZNSt10filesystem7__cxx114pathD2Ev.exit33 ], [ %.0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
+  %.1 = phi i32 [ %.0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %spec.select, %_ZNSt10filesystem7__cxx114pathD2Ev.exit33 ], [ -1, %.invoke ]
   ret i32 %.1
 
 74:                                               ; preds = %.invoke

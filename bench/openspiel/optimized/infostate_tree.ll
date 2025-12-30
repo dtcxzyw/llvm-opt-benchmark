@@ -2000,7 +2000,7 @@ _ZNSt6vectorIS_IPN10open_spiel10algorithms13InfostateNodeESaIS3_EESaIS5_EE6resiz
   ret void
 
 210:                                              ; preds = %.loopexit, %.loopexit.split-lp, %145, %135, %133, %70, %62, %44
-  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %63, %62 ], [ %146, %145 ], [ %136, %135 ], [ %134, %133 ], [ %71, %70 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %146, %145 ], [ %136, %135 ], [ %134, %133 ], [ %71, %70 ], [ %63, %62 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIS_IPN10open_spiel10algorithms13InfostateNodeESaIS3_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #23
   %211 = load ptr, ptr %33, align 8
   %.not.i.i.i33 = icmp eq ptr %211, null
@@ -5074,7 +5074,7 @@ _ZSt8_DestroyIPSt6vectorIlSaIlEES2_EvT_S4_RSaIT0_E.exit.i.i180.thread: ; preds =
   br label %_ZN10open_spiel10ActionViewD2Ev.exit
 
 .body157:                                         ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i155, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit171, %.body148
-  %.pn99 = phi { ptr, i32 } [ %.pn96.pn, %.body148 ], [ %421, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit171 ], [ %392, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i155 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn99 = phi { ptr, i32 } [ %421, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit171 ], [ %.pn96.pn, %.body148 ], [ %392, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i155 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN10open_spiel10ActionViewD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #23
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit142
 
@@ -5293,7 +5293,7 @@ _ZN10open_spiel10ActionViewD2Ev.exit:             ; preds = %.invoke, %465, %._c
   ret void
 
 _ZNSt6vectorIlSaIlEED2Ev.exit142:                 ; preds = %529, %.body189, %326, %.body125, %.body157, %338, %.body, %54
-  %.pn105 = phi { ptr, i32 } [ %55, %54 ], [ %.pn103, %.body ], [ %339, %338 ], [ %.pn99, %.body157 ], [ %.pn101, %326 ], [ %.pn101, %.body125 ], [ %.pn93.pn, %.body189 ], [ %.pn93.pn, %529 ]
+  %.pn105 = phi { ptr, i32 } [ %55, %54 ], [ %.pn103, %.body ], [ %.pn99, %.body157 ], [ %339, %338 ], [ %.pn101, %.body125 ], [ %.pn101, %326 ], [ %.pn93.pn, %.body189 ], [ %.pn93.pn, %529 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #23
   resume { ptr, i32 } %.pn105
 }
@@ -5690,7 +5690,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %_ZNSt6vectorISt4pai
   ret void
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit56:      ; preds = %144, %.body62, %89, %.body, %29, %27
-  %.pn44 = phi { ptr, i32 } [ %28, %27 ], [ %30, %29 ], [ %.pn42, %89 ], [ %.pn42, %.body ], [ %.pn, %.body62 ], [ %.pn, %144 ]
+  %.pn44 = phi { ptr, i32 } [ %28, %27 ], [ %30, %29 ], [ %.pn42, %.body ], [ %.pn42, %89 ], [ %.pn, %.body62 ], [ %.pn, %144 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
   resume { ptr, i32 } %.pn44
 }
@@ -5978,7 +5978,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
   br label %102
 
 100:                                              ; preds = %39, %38
-  %.0 = phi i1 [ false, %39 ], [ true, %38 ]
+  %.0 = phi i1 [ true, %38 ], [ false, %39 ]
   %101 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN10open_spiel8ObserverEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
@@ -6001,8 +6001,8 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
   br label %.body26
 
 .body26:                                          ; preds = %24, %104, %102
-  %.pn.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %.pn, %104 ], [ %.pn, %102 ]
-  %.3 = phi i1 [ true, %24 ], [ %.5, %104 ], [ %.5, %102 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %.pn, %102 ], [ %.pn, %104 ]
+  %.3 = phi i1 [ true, %24 ], [ %.5, %102 ], [ %.5, %104 ]
   %109 = load ptr, ptr %5, align 8
   %.not.i.i.i35 = icmp eq ptr %109, null
   br i1 %.not.i.i.i35, label %.bodythread-pre-split, label %110
@@ -6616,7 +6616,7 @@ _ZNSt6vectorIPKN10open_spiel5StateESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIdS
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %199, %59, %93, %201
-  %.pn = phi { ptr, i32 } [ %200, %199 ], [ %202, %201 ], [ %60, %59 ], [ %94, %93 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %202, %201 ], [ %200, %199 ], [ %60, %59 ], [ %94, %93 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %203 = load ptr, ptr %11, align 8
   %.not.i.i.i49 = icmp eq ptr %203, null
   br i1 %.not.i.i.i49, label %_ZNSt6vectorIdSaIdEED2Ev.exit50, label %204
@@ -7716,7 +7716,7 @@ _ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26.i:
   br label %.noexc53
 
 .noexc53:                                         ; preds = %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26.i, %195, %194, %191, %190
-  %.0.i = phi ptr [ %212, %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26.i ], [ %187, %191 ], [ %187, %190 ], [ %187, %194 ], [ %187, %195 ]
+  %.0.i = phi ptr [ %212, %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26.i ], [ %187, %190 ], [ %187, %191 ], [ %187, %194 ], [ %187, %195 ]
   store ptr %.0.i, ptr %49, align 8
   %218 = load ptr, ptr %.0.i, align 8
   store ptr %218, ptr %52, align 8
@@ -7758,7 +7758,7 @@ _ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEE4pus
   br i1 %.not70, label %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE9push_backERKS2_.exit, label %.lr.ph81
 
 _ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEE4pushERKS4_.exit49, %127, %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %104
-  %232 = phi ptr [ %105, %104 ], [ %124, %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %67, %127 ], [ %67, %_ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEE4pushERKS4_.exit49 ]
+  %232 = phi ptr [ %124, %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %105, %104 ], [ %67, %127 ], [ %67, %_ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEE4pushERKS4_.exit49 ]
   %233 = load ptr, ptr %41, align 8
   %234 = load ptr, ptr %42, align 8
   %235 = icmp eq ptr %233, %234
@@ -7822,7 +7822,7 @@ _ZNSt5stackIPKN10open_spiel10algorithms13InfostateNodeESt5dequeIS4_SaIS4_EEED2Ev
   br label %_ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN10open_spiel10algorithms10DecisionIdESaIS2_EED2Ev.exit: ; preds = %15, %.body, %252
-  %.pn134 = phi { ptr, i32 } [ %eh.lpad-body35, %252 ], [ %eh.lpad-body35, %.body ], [ %16, %15 ]
+  %.pn134 = phi { ptr, i32 } [ %eh.lpad-body35, %.body ], [ %eh.lpad-body35, %252 ], [ %16, %15 ]
   resume { ptr, i32 } %.pn134
 }
 
@@ -8697,7 +8697,7 @@ _ZN10open_spiel10algorithms14TreeplexVectorIdED2Ev.exit: ; preds = %216, %219
   ret void
 
 .body:                                            ; preds = %.loopexit187, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %88, %117, %167, %184, %198, %134, %common.resume.i, %109, %98, %152
-  %.pn = phi { ptr, i32 } [ %153, %152 ], [ %89, %88 ], [ %99, %98 ], [ %110, %109 ], [ %118, %117 ], [ %120, %common.resume.i ], [ %185, %184 ], [ %135, %134 ], [ %168, %167 ], [ %lpad.loopexit.split-lp189, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit188, %.loopexit.split-lp.loopexit ], [ %199, %198 ], [ %lpad.loopexit, %.loopexit187 ]
+  %.pn = phi { ptr, i32 } [ %153, %152 ], [ %89, %88 ], [ %99, %98 ], [ %110, %109 ], [ %118, %117 ], [ %120, %common.resume.i ], [ %135, %134 ], [ %168, %167 ], [ %185, %184 ], [ %199, %198 ], [ %lpad.loopexit, %.loopexit187 ], [ %lpad.loopexit188, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp189, %.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i.i.i146 = icmp eq ptr %.sroa.3.0, null
   br i1 %.not.i.i.i.i.i146, label %_ZN10open_spiel10algorithms14TreeplexVectorIdED2Ev.exit147, label %222
 
@@ -8710,7 +8710,7 @@ _ZN10open_spiel10algorithms14TreeplexVectorIdED2Ev.exit: ; preds = %216, %219
   br label %_ZN10open_spiel10algorithms14TreeplexVectorIdED2Ev.exit147
 
 _ZN10open_spiel10algorithms14TreeplexVectorIdED2Ev.exit147: ; preds = %222, %.body, %74, %52
-  %.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %75, %74 ], [ %.pn, %.body ], [ %.pn288, %222 ]
+  %.pn.pn = phi { ptr, i32 } [ %75, %74 ], [ %53, %52 ], [ %.pn, %.body ], [ %.pn288, %222 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -9257,7 +9257,7 @@ _ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit45: 
   br i1 %.not.i43.not, label %_ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit38, label %.lr.ph
 
 _ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit38: ; preds = %_ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit45, %_ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit, %.preheader70, %.preheader
-  %.029.lcssa.sink = phi double [ %57, %_ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit ], [ 0x10000000000000, %.preheader ], [ 0.000000e+00, %.preheader70 ], [ %65, %_ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit45 ]
+  %.029.lcssa.sink = phi double [ 0x10000000000000, %.preheader ], [ 0.000000e+00, %.preheader70 ], [ %57, %_ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit ], [ %65, %_ZN10open_spiel10algorithms8internal10TreeVectorIdNS0_6LeafIdEEixERKS3_.exit45 ]
   %67 = getelementptr inbounds nuw double, ptr %.pre93, i64 %indvars.iv
   store double %.029.lcssa.sink, ptr %67, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9499,7 +9499,7 @@ _ZNK10open_spiel10algorithms8internal10TreeVectorIdNS0_10SequenceIdEEixERKS3_.ex
   br i1 %or.cond.not, label %.lr.ph48, label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK10open_spiel10algorithms8internal10TreeVectorIdNS0_10SequenceIdEEixERKS3_.exit29, %51, %._crit_edge, %30, %_ZNK10open_spiel10algorithms8internal10TreeVectorIdNS0_10SequenceIdEEixERKS3_.exit
-  %.0 = phi i1 [ false, %._crit_edge ], [ false, %_ZNK10open_spiel10algorithms8internal10TreeVectorIdNS0_10SequenceIdEEixERKS3_.exit ], [ true, %30 ], [ true, %51 ], [ %62, %_ZNK10open_spiel10algorithms8internal10TreeVectorIdNS0_10SequenceIdEEixERKS3_.exit29 ]
+  %.0 = phi i1 [ false, %_ZNK10open_spiel10algorithms8internal10TreeVectorIdNS0_10SequenceIdEEixERKS3_.exit ], [ true, %30 ], [ false, %._crit_edge ], [ true, %51 ], [ %62, %_ZNK10open_spiel10algorithms8internal10TreeVectorIdNS0_10SequenceIdEEixERKS3_.exit29 ]
   ret i1 %.0
 }
 
@@ -10926,7 +10926,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112bas
   br label %34
 
 34:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit29, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit28, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit27, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit26
-  %.sink = phi ptr [ %2, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit26 ], [ %1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit28 ], [ %.30, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit29 ], [ %., %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit27 ]
+  %.sink = phi ptr [ %2, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit26 ], [ %., %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit27 ], [ %1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit28 ], [ %.30, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit29 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink) #23
   ret void
 }
@@ -11770,7 +11770,7 @@ _ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26: ;
   br label %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit
 
 _ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPPKN10open_spiel10algorithms13InfostateNodeES6_ET0_T_S8_S7_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8
   %58 = load ptr, ptr %.0, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24

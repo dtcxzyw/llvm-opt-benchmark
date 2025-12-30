@@ -2120,7 +2120,7 @@ mbedtls_ripemd160.exit:                           ; preds = %.split, %._crit_edg
   br label %.critedge
 
 .critedge:                                        ; preds = %mbedtls_ripemd160.exit.us, %.split22.us, %.split24.us, %40
-  %.014 = phi i32 [ 0, %.split24.us ], [ 0, %40 ], [ 1, %.split22.us ], [ 1, %mbedtls_ripemd160.exit.us ]
+  %.014 = phi i32 [ 0, %40 ], [ 0, %.split24.us ], [ 1, %.split22.us ], [ 1, %mbedtls_ripemd160.exit.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.014
 }

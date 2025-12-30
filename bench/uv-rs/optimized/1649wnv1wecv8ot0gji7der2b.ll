@@ -273,7 +273,7 @@ _ZN6fs_err4file4File4open17hf9f7ee31f408202dE.exit: ; preds = %26
   br label %125
 
 .body:                                            ; preds = %111, %82, %63, %38, %129
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %111 ], [ %lpad.thr_comm, %129 ], [ %64, %63 ], [ %39, %38 ], [ %83, %82 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %129 ], [ %lpad.thr_comm.split-lp, %111 ], [ %39, %38 ], [ %64, %63 ], [ %83, %82 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$fs_err..file..File$GT$17h6498608c4ef7b8d2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %19) #10
           to label %common.resume unwind label %130
 
@@ -896,8 +896,8 @@ define { ptr, ptr } @"_ZN67_$LT$uv_trampoline_builder..Error$u20$as$u20$core..er
   br label %18
 
 18:                                               ; preds = %1, %1, %1, %16, %14, %12, %7
-  %.sroa.8.0 = phi ptr [ %11, %7 ], [ undef, %1 ], [ @anon.54d59368cdae977b20e80dba8df63b21.19, %12 ], [ @anon.54d59368cdae977b20e80dba8df63b21.17, %14 ], [ @anon.54d59368cdae977b20e80dba8df63b21.17, %16 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %10, %7 ], [ null, %1 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.8.0 = phi ptr [ %11, %7 ], [ @anon.54d59368cdae977b20e80dba8df63b21.19, %12 ], [ @anon.54d59368cdae977b20e80dba8df63b21.17, %14 ], [ @anon.54d59368cdae977b20e80dba8df63b21.17, %16 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %10, %7 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   %19 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %20 = insertvalue { ptr, ptr } %19, ptr %.sroa.8.0, 1
   ret { ptr, ptr } %20

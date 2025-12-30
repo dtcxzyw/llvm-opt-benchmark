@@ -393,7 +393,7 @@ _.exit74:                                         ; preds = %109, %111
   br label %113
 
 113:                                              ; preds = %99, %83, %71, %57, %_.exit68, %_.exit71, %88, %102, %_.exit74, %104, %60, %_.exit, %4
-  %.0 = phi i32 [ 0, %102 ], [ 0, %_.exit74 ], [ 0, %104 ], [ 0, %57 ], [ %spec.select65, %99 ], [ 0, %_.exit71 ], [ 0, %88 ], [ 0, %4 ], [ %spec.select, %83 ], [ 0, %71 ], [ 0, %_.exit68 ], [ 0, %_.exit ], [ 0, %60 ]
+  %.0 = phi i32 [ 0, %102 ], [ 0, %_.exit74 ], [ 0, %104 ], [ 0, %_.exit71 ], [ 0, %88 ], [ 0, %_.exit68 ], [ 0, %_.exit ], [ 0, %60 ], [ 0, %57 ], [ 0, %4 ], [ 0, %71 ], [ %spec.select, %83 ], [ %spec.select65, %99 ]
   call void @strbuf_release(ptr noundef nonnull %5) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -829,12 +829,12 @@ gitexp.exit.loopexit.i.i:                         ; preds = %.lr.ph.i.i.i
   br label %185
 
 185:                                              ; preds = %184, %._crit_edge.i.i, %._crit_edge.i.thread189.i, %._crit_edge.i.thread.i
-  %186 = phi double [ %179, %._crit_edge.i.thread189.i ], [ %183, %._crit_edge.i.i ], [ %176, %._crit_edge.i.thread.i ], [ %183, %184 ]
-  %187 = phi i32 [ %178, %._crit_edge.i.thread189.i ], [ %182, %._crit_edge.i.i ], [ %175, %._crit_edge.i.thread.i ], [ %182, %184 ]
-  %188 = phi i64 [ %177, %._crit_edge.i.thread189.i ], [ %181, %._crit_edge.i.i ], [ %174, %._crit_edge.i.thread.i ], [ %181, %184 ]
-  %.010.lcssa.i184.i = phi double [ %.010.lcssa.i.ph188.i, %._crit_edge.i.thread189.i ], [ 0.000000e+00, %._crit_edge.i.i ], [ %.010.lcssa.i.ph.i, %._crit_edge.i.thread.i ], [ 0.000000e+00, %184 ]
-  %.pre-phi160182.i = phi i32 [ %149, %._crit_edge.i.thread189.i ], [ %.pre159.i, %._crit_edge.i.i ], [ %149, %._crit_edge.i.thread.i ], [ %.pre159.i, %184 ]
-  %189 = phi double [ %179, %._crit_edge.i.thread189.i ], [ %183, %._crit_edge.i.i ], [ 1.000000e+00, %._crit_edge.i.thread.i ], [ 1.000000e+00, %184 ]
+  %186 = phi double [ %183, %._crit_edge.i.i ], [ %179, %._crit_edge.i.thread189.i ], [ %176, %._crit_edge.i.thread.i ], [ %183, %184 ]
+  %187 = phi i32 [ %182, %._crit_edge.i.i ], [ %178, %._crit_edge.i.thread189.i ], [ %175, %._crit_edge.i.thread.i ], [ %182, %184 ]
+  %188 = phi i64 [ %181, %._crit_edge.i.i ], [ %177, %._crit_edge.i.thread189.i ], [ %174, %._crit_edge.i.thread.i ], [ %181, %184 ]
+  %.010.lcssa.i184.i = phi double [ 0.000000e+00, %._crit_edge.i.i ], [ %.010.lcssa.i.ph188.i, %._crit_edge.i.thread189.i ], [ %.010.lcssa.i.ph.i, %._crit_edge.i.thread.i ], [ 0.000000e+00, %184 ]
+  %.pre-phi160182.i = phi i32 [ %.pre159.i, %._crit_edge.i.i ], [ %149, %._crit_edge.i.thread189.i ], [ %149, %._crit_edge.i.thread.i ], [ %.pre159.i, %184 ]
+  %189 = phi double [ %183, %._crit_edge.i.i ], [ %179, %._crit_edge.i.thread189.i ], [ 1.000000e+00, %._crit_edge.i.thread.i ], [ 1.000000e+00, %184 ]
   %.not1013.i13.i.i = icmp eq i32 %.pre-phi160182.i, 0
   br i1 %.not1013.i13.i.i, label %pseudo_merge_group_size.exit.i, label %.lr.ph.i14.i.i
 
@@ -1686,7 +1686,7 @@ nth_pseudo_merge_ext.exit.thread:                 ; preds = %120, %122
   br label %find_pseudo_merge.exit.thread
 
 find_pseudo_merge.exit.thread:                    ; preds = %35, %126, %_.exit.i, %_.exit20.i, %pseudo_merge_ext_at.exit, %190, %nth_pseudo_merge_ext.exit.thread, %4, %._crit_edge, %.thread71, %187
-  %.038 = phi i32 [ 0, %187 ], [ %.14184, %126 ], [ 0, %190 ], [ %.374, %.thread71 ], [ 0, %._crit_edge ], [ 0, %4 ], [ %.14184, %nth_pseudo_merge_ext.exit.thread ], [ 0, %_.exit.i ], [ 0, %pseudo_merge_ext_at.exit ], [ 0, %_.exit20.i ], [ 0, %35 ]
+  %.038 = phi i32 [ 0, %187 ], [ %.374, %.thread71 ], [ 0, %._crit_edge ], [ 0, %4 ], [ %.14184, %nth_pseudo_merge_ext.exit.thread ], [ 0, %190 ], [ 0, %pseudo_merge_ext_at.exit ], [ 0, %_.exit20.i ], [ 0, %_.exit.i ], [ %.14184, %126 ], [ 0, %35 ]
   ret i32 %.038
 }
 
@@ -1885,7 +1885,7 @@ pseudo_merge_bitmap.exit21:                       ; preds = %._crit_edge.i18, %3
   br label %53
 
 53:                                               ; preds = %10, %4, %50
-  %.0 = phi i32 [ 0, %4 ], [ 1, %50 ], [ 0, %10 ]
+  %.0 = phi i32 [ 1, %50 ], [ 0, %4 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -2120,7 +2120,7 @@ use_pseudo_merge.exit:                            ; preds = %14, %8
   store i8 %31, ptr %11, align 8
   br label %.loopexit
 
-32:                                               ; preds = %26, %use_pseudo_merge.exit
+32:                                               ; preds = %use_pseudo_merge.exit, %26
   %33 = add nuw i64 %.01626, 1
   %34 = load i64, ptr %4, align 8, !tbaa !102
   %35 = icmp ult i64 %33, %34

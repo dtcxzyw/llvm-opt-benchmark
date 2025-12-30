@@ -428,7 +428,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %45
   resume { ptr, i32 } %.pn.pn.pn
 
 72:                                               ; preds = %8, %58, %35, %24
-  %.053 = phi i32 [ %57, %58 ], [ 0, %24 ], [ 0, %35 ], [ 0, %8 ]
+  %.053 = phi i32 [ 0, %24 ], [ 0, %35 ], [ %57, %58 ], [ 0, %8 ]
   ret i32 %.053
 }
 
@@ -577,7 +577,7 @@ _ZN6icu_7713UnicodeString6insertEii.exit:         ; preds = %61
   br i1 %.not64, label %57, label %.loopexit72, !llvm.loop !29
 
 .loopexit72:                                      ; preds = %42, %59, %67, %50
-  %68 = phi ptr [ %35, %59 ], [ %37, %50 ], [ %35, %67 ], [ %37, %42 ]
+  %68 = phi ptr [ %37, %50 ], [ %35, %67 ], [ %35, %59 ], [ %37, %42 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN6icu_7713UnicodeStringC1EPDsii(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef %2, i32 noundef 0, i32 noundef %3)
           to label %69 unwind label %95
@@ -696,7 +696,7 @@ _ZN6icu_7713UnicodeString6insertEii.exit:         ; preds = %61
   resume { ptr, i32 } %.pn.pn.pn
 
 121:                                              ; preds = %8, %118, %32, %21
-  %.053 = phi i32 [ %33, %32 ], [ 0, %21 ], [ %.154, %118 ], [ 0, %8 ]
+  %.053 = phi i32 [ 0, %21 ], [ %.154, %118 ], [ %33, %32 ], [ 0, %8 ]
   ret i32 %.053
 }
 
@@ -760,7 +760,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK6icu_7713UnicodeStringneERKS0_(ptr n
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %6, %11, %28
-  %.0.i = phi i1 [ %10, %6 ], [ %35, %28 ], [ false, %11 ]
+  %.0.i = phi i1 [ %10, %6 ], [ false, %11 ], [ %35, %28 ]
   %36 = xor i1 %.0.i, true
   ret i1 %36
 }

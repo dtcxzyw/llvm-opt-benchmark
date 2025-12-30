@@ -94,7 +94,7 @@ define internal range(i32 -2147483648, 1) i32 @ilbc_read_header(ptr noundef %0) 
   br label %29
 
 29:                                               ; preds = %19, %24, %7, %1, %28
-  %.0 = phi i32 [ %5, %1 ], [ -1094995529, %28 ], [ -12, %7 ], [ 0, %24 ], [ 0, %19 ]
+  %.0 = phi i32 [ -1094995529, %28 ], [ %5, %1 ], [ -12, %7 ], [ 0, %24 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

@@ -383,7 +383,7 @@ define internal range(i32 0, 4) i32 @filter_blobs_none(ptr readnone captures(non
   br label %14
 
 14:                                               ; preds = %10, %11, %7, %7, %7, %9
-  %.0 = phi i32 [ 3, %7 ], [ 3, %7 ], [ 3, %7 ], [ 0, %9 ], [ 1, %11 ], [ 1, %10 ]
+  %.0 = phi i32 [ 0, %9 ], [ 3, %7 ], [ 3, %7 ], [ 3, %7 ], [ 1, %11 ], [ 1, %10 ]
   ret i32 %.0
 }
 
@@ -437,7 +437,7 @@ define internal range(i32 0, 4) i32 @filter_blobs_limit(ptr noundef %0, i32 noun
   br label %24
 
 24:                                               ; preds = %21, %22, %18, %19, %7, %7, %7, %10
-  %.0 = phi i32 [ 3, %7 ], [ 3, %7 ], [ 3, %7 ], [ 0, %10 ], [ 1, %18 ], [ 1, %19 ], [ 3, %22 ], [ 3, %21 ]
+  %.0 = phi i32 [ 0, %10 ], [ 3, %7 ], [ 3, %7 ], [ 3, %7 ], [ 1, %19 ], [ 1, %18 ], [ 3, %22 ], [ 3, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -554,7 +554,7 @@ filter_trees_update_omits.exit42:                 ; preds = %38, %40, %42
   br label %50
 
 50:                                               ; preds = %7, %7, %47, %filter_trees_update_omits.exit, %13
-  %.0 = phi i32 [ %.034, %47 ], [ 3, %7 ], [ 0, %13 ], [ %22, %filter_trees_update_omits.exit ], [ 3, %7 ]
+  %.0 = phi i32 [ 0, %13 ], [ %22, %filter_trees_update_omits.exit ], [ %.034, %47 ], [ 3, %7 ], [ 3, %7 ]
   ret i32 %.0
 }
 
@@ -782,7 +782,7 @@ st_mult.exit:                                     ; preds = %32
   br label %99
 
 99:                                               ; preds = %87, %88, %55, %42, %7, %7, %95, %53
-  %.053 = phi i32 [ 0, %95 ], [ 3, %7 ], [ 3, %7 ], [ 2, %53 ], [ 0, %42 ], [ %.64, %55 ], [ 3, %88 ], [ 3, %87 ]
+  %.053 = phi i32 [ 2, %53 ], [ 0, %95 ], [ 3, %7 ], [ 3, %7 ], [ 0, %42 ], [ %.64, %55 ], [ 3, %88 ], [ 3, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.053
 }
@@ -854,7 +854,7 @@ switch.lookup:                                    ; preds = %15
   br label %22
 
 22:                                               ; preds = %15, %switch.lookup, %7, %18, %12, %9
-  %.0 = phi i32 [ %., %9 ], [ %switch.load, %switch.lookup ], [ %.10, %12 ], [ 0, %7 ], [ %.11, %18 ], [ 1, %15 ]
+  %.0 = phi i32 [ %., %9 ], [ %.10, %12 ], [ %.11, %18 ], [ 0, %7 ], [ %switch.load, %switch.lookup ], [ 1, %15 ]
   ret i32 %.0
 }
 
@@ -947,7 +947,7 @@ list_objects_filter__filter_object.exit.i:        ; preds = %26, %28, %31
   br label %process_subfilter.exit
 
 process_subfilter.exit:                           ; preds = %18, %19, %23, %41, %43
-  %.0.i = phi i32 [ 0, %18 ], [ 0, %23 ], [ 0, %19 ], [ %.0.i.i, %43 ], [ %.0.i.i, %41 ]
+  %.0.i = phi i32 [ 0, %19 ], [ 0, %18 ], [ 0, %23 ], [ %.0.i.i, %43 ], [ %.0.i.i, %41 ]
   %47 = and i32 %.0.i, 2
   %.not = icmp eq i32 %47, 0
   %48 = and i32 %.022, -3

@@ -106,9 +106,9 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %RSTRING_PTR.exit.i,
   br label %unixsock_path_value.exit
 
 unixsock_path_value.exit:                         ; preds = %RSTRING_PTR.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %.pre-phi = phi ptr [ %.phi.trans.insert, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %11, %RSTRING_PTR.exit.i ]
-  %27 = phi i64 [ %.pre, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %17, %RSTRING_PTR.exit.i ]
-  %.0.i = phi i64 [ %26, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %1, %RSTRING_PTR.exit.i ]
+  %.pre-phi = phi ptr [ %11, %RSTRING_PTR.exit.i ], [ %.phi.trans.insert, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
+  %27 = phi i64 [ %17, %RSTRING_PTR.exit.i ], [ %.pre, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
+  %.0.i = phi i64 [ %1, %RSTRING_PTR.exit.i ], [ %26, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %28, i8 noundef 0, i64 noundef 108, i1 noundef false) #7
   store i16 1, ptr %4, align 2, !tbaa !13

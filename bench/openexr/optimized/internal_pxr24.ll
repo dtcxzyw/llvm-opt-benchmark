@@ -216,7 +216,7 @@ define hidden i32 @internal_exr_apply_pxr24(ptr noundef %0) local_unnamed_addr #
   br label %float_to_float24.exit.i
 
 float_to_float24.exit.i:                          ; preds = %105, %99, %98
-  %.0.i.i = phi i32 [ %104, %99 ], [ %spec.select.i.i, %105 ], [ 8355840, %98 ]
+  %.0.i.i = phi i32 [ %104, %99 ], [ 8355840, %98 ], [ %spec.select.i.i, %105 ]
   %112 = lshr i32 %.0155.val.i, 8
   %113 = and i32 %112, 8388608
   %114 = or i32 %.0.i.i, %113
@@ -238,9 +238,9 @@ float_to_float24.exit.i:                          ; preds = %105, %99, %98
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !31
 
 .loopexit.i:                                      ; preds = %float_to_float24.exit.i, %.lr.ph243.i, %.lr.ph251.i, %87, %69, %44, %35, %.lr.ph256.i
-  %.3160.i = phi ptr [ %.1158253.i, %35 ], [ %.1158253.i, %.lr.ph256.i ], [ %70, %69 ], [ %45, %44 ], [ %90, %87 ], [ %70, %.lr.ph243.i ], [ %45, %.lr.ph251.i ], [ %90, %float_to_float24.exit.i ]
-  %.4149.i = phi i64 [ %.2147254.i, %35 ], [ %.2147254.i, %.lr.ph256.i ], [ %67, %69 ], [ %42, %44 ], [ %85, %87 ], [ %67, %.lr.ph243.i ], [ %42, %.lr.ph251.i ], [ %85, %float_to_float24.exit.i ]
-  %.3140.i = phi ptr [ %.1138255.i, %35 ], [ %.1138255.i, %.lr.ph256.i ], [ %72, %69 ], [ %49, %44 ], [ %93, %87 ], [ %72, %.lr.ph243.i ], [ %49, %.lr.ph251.i ], [ %93, %float_to_float24.exit.i ]
+  %.3160.i = phi ptr [ %.1158253.i, %35 ], [ %.1158253.i, %.lr.ph256.i ], [ %45, %44 ], [ %70, %69 ], [ %90, %87 ], [ %45, %.lr.ph251.i ], [ %70, %.lr.ph243.i ], [ %90, %float_to_float24.exit.i ]
+  %.4149.i = phi i64 [ %.2147254.i, %35 ], [ %.2147254.i, %.lr.ph256.i ], [ %42, %44 ], [ %67, %69 ], [ %85, %87 ], [ %42, %.lr.ph251.i ], [ %67, %.lr.ph243.i ], [ %85, %float_to_float24.exit.i ]
+  %.3140.i = phi ptr [ %.1138255.i, %35 ], [ %.1138255.i, %.lr.ph256.i ], [ %49, %44 ], [ %72, %69 ], [ %93, %87 ], [ %49, %.lr.ph251.i ], [ %72, %.lr.ph243.i ], [ %93, %float_to_float24.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %126 = load i16, ptr %15, align 8, !tbaa !17
   %127 = sext i16 %126 to i64
@@ -298,7 +298,7 @@ float_to_float24.exit.i:                          ; preds = %105, %99, %98
   br label %apply_pxr24_impl.exit
 
 apply_pxr24_impl.exit:                            ; preds = %37, %40, %65, %83, %.thread222.i, %149
-  %.9.i = phi i32 [ %139, %.thread222.i ], [ 0, %149 ], [ 1, %83 ], [ 1, %65 ], [ 1, %40 ], [ 3, %37 ]
+  %.9.i = phi i32 [ 0, %149 ], [ %139, %.thread222.i ], [ 3, %37 ], [ 1, %40 ], [ 1, %65 ], [ 1, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %152
 
@@ -527,18 +527,18 @@ define hidden i32 @internal_exr_undo_pxr24(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !50
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph232.i, %.lr.ph240.i, %.preheader213.i, %.preheader211.i, %.preheader.i
-  %.4154.i = phi ptr [ %86, %.preheader211.i ], [ %60, %.preheader.i ], [ %103, %.preheader213.i ], [ %86, %.lr.ph232.i ], [ %60, %.lr.ph240.i ], [ %103, %.lr.ph.i ]
-  %.5147.i = phi i64 [ %87, %.preheader211.i ], [ %61, %.preheader.i ], [ %106, %.preheader213.i ], [ %87, %.lr.ph232.i ], [ %61, %.lr.ph240.i ], [ %106, %.lr.ph.i ]
+  %.4154.i = phi ptr [ %60, %.preheader.i ], [ %86, %.preheader211.i ], [ %103, %.preheader213.i ], [ %60, %.lr.ph240.i ], [ %86, %.lr.ph232.i ], [ %103, %.lr.ph.i ]
+  %.5147.i = phi i64 [ %61, %.preheader.i ], [ %87, %.preheader211.i ], [ %106, %.preheader213.i ], [ %61, %.lr.ph240.i ], [ %87, %.lr.ph232.i ], [ %106, %.lr.ph.i ]
   %125 = getelementptr inbounds nuw i8, ptr %.1128245.i, i64 %40
   %.pre264.i = load i16, ptr %22, align 8, !tbaa !44
   br label %126
 
 126:                                              ; preds = %.loopexit.i, %48, %.lr.ph247.i
-  %127 = phi i16 [ %.pre264.i, %.loopexit.i ], [ %31, %.lr.ph247.i ], [ %31, %48 ]
-  %.3153.i = phi ptr [ %.4154.i, %.loopexit.i ], [ %.1151242.i, %.lr.ph247.i ], [ %.1151242.i, %48 ]
-  %.3145.i = phi i64 [ %.5147.i, %.loopexit.i ], [ %.1143243.i, %.lr.ph247.i ], [ %.1143243.i, %48 ]
-  %.4138.i = phi i64 [ %51, %.loopexit.i ], [ %.2136244.i, %.lr.ph247.i ], [ %.2136244.i, %48 ]
-  %.3130.i = phi ptr [ %125, %.loopexit.i ], [ %.1128245.i, %.lr.ph247.i ], [ %.1128245.i, %48 ]
+  %127 = phi i16 [ %.pre264.i, %.loopexit.i ], [ %31, %48 ], [ %31, %.lr.ph247.i ]
+  %.3153.i = phi ptr [ %.4154.i, %.loopexit.i ], [ %.1151242.i, %48 ], [ %.1151242.i, %.lr.ph247.i ]
+  %.3145.i = phi i64 [ %.5147.i, %.loopexit.i ], [ %.1143243.i, %48 ], [ %.1143243.i, %.lr.ph247.i ]
+  %.4138.i = phi i64 [ %51, %.loopexit.i ], [ %.2136244.i, %48 ], [ %.2136244.i, %.lr.ph247.i ]
+  %.3130.i = phi ptr [ %125, %.loopexit.i ], [ %.1128245.i, %48 ], [ %.1128245.i, %.lr.ph247.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %128 = sext i16 %127 to i64
   %129 = icmp slt i64 %indvars.iv.next.i, %128
@@ -567,7 +567,7 @@ define hidden i32 @internal_exr_undo_pxr24(ptr noundef %0, ptr noundef %1, i64 n
   br label %undo_pxr24_impl.exit
 
 undo_pxr24_impl.exit:                             ; preds = %50, %53, %56, %84, %100, %11, %15, %.thread207.i
-  %.0.i = phi i32 [ %18, %15 ], [ 3, %11 ], [ 0, %.thread207.i ], [ 23, %100 ], [ 23, %84 ], [ 23, %56 ], [ 1, %50 ], [ 3, %53 ]
+  %.0.i = phi i32 [ 0, %.thread207.i ], [ 3, %11 ], [ %18, %15 ], [ 3, %53 ], [ 1, %50 ], [ 23, %56 ], [ 23, %84 ], [ 23, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %135
 

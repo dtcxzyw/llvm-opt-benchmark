@@ -83,7 +83,7 @@ define void @zrule_getName_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %13, %21, %23
-  %.0.i = phi ptr [ %25, %23 ], [ %22, %21 ], [ null, %13 ]
+  %.0.i = phi ptr [ %22, %21 ], [ %25, %23 ], [ null, %13 ]
   %26 = icmp slt i16 %15, 0
   %27 = ashr i16 %15, 5
   %28 = sext i16 %27 to i32
@@ -285,7 +285,7 @@ define void @izrule_getName_77(ptr noundef nonnull %0, ptr noundef nonnull write
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %17, %22, %24
-  %.0.i = phi ptr [ %26, %24 ], [ %23, %22 ], [ null, %17 ]
+  %.0.i = phi ptr [ %23, %22 ], [ %26, %24 ], [ null, %17 ]
   %27 = load i32, ptr %2, align 4, !tbaa !13
   %28 = sext i32 %27 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %16, ptr align 2 %.0.i, i64 %28, i1 false)

@@ -1311,8 +1311,8 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   unreachable
 
 50:                                               ; preds = %2, %41, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit"
-  %.sroa.4.0 = phi ptr [ %.fca.1.extract, %41 ], [ %9, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit" ], [ %9, %2 ]
-  %.sroa.0.0 = phi i64 [ 1, %41 ], [ 0, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit" ], [ 0, %2 ]
+  %.sroa.4.0 = phi ptr [ %9, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit" ], [ %.fca.1.extract, %41 ], [ %9, %2 ]
+  %.sroa.0.0 = phi i64 [ 0, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit" ], [ 1, %41 ], [ 0, %2 ]
   %51 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %52 = insertvalue { i64, ptr } %51, ptr %.sroa.4.0, 1
   ret { i64, ptr } %52
@@ -1391,7 +1391,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   br i1 %46, label %321, label %"_ZN4core3ptr42drop_in_place$LT$tree_sitter..Language$GT$17h6d919a6eb1ceba29E.exit.i"
 
 47:                                               ; preds = %309, %251, %49
-  %.0111.i = phi i8 [ %.6.i, %309 ], [ %.11.i, %251 ], [ 1, %49 ]
+  %.0111.i = phi i8 [ 1, %49 ], [ %.11.i, %251 ], [ %.6.i, %309 ]
   %48 = landingpad { ptr, i32 }
           cleanup
   br label %45
@@ -1459,7 +1459,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
           to label %248 unwind label %285, !noalias !345
 
 69:                                               ; preds = %298, %238, %71
-  %.3.i = phi i8 [ %.10.i, %298 ], [ %.11.i, %238 ], [ 1, %71 ]
+  %.3.i = phi i8 [ 1, %71 ], [ %.11.i, %238 ], [ %.10.i, %298 ]
   %70 = landingpad { ptr, i32 }
           cleanup
   br label %68
@@ -1527,7 +1527,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
           to label %235 unwind label %285, !noalias !345
 
 92:                                               ; preds = %287, %225, %94
-  %.7.i = phi i8 [ %.11.i, %225 ], [ 0, %287 ], [ 1, %94 ]
+  %.7.i = phi i8 [ 1, %94 ], [ %.11.i, %225 ], [ 0, %287 ]
   %93 = landingpad { ptr, i32 }
           cleanup
   br label %91
@@ -2354,7 +2354,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   br i1 %32, label %134, label %"_ZN4core3ptr42drop_in_place$LT$tree_sitter..Language$GT$17h6d919a6eb1ceba29E.exit.i"
 
 33:                                               ; preds = %124, %111, %24
-  %.0.i = phi i8 [ 1, %124 ], [ %.6.i, %111 ], [ 1, %24 ]
+  %.0.i = phi i8 [ 1, %24 ], [ %.6.i, %111 ], [ 1, %124 ]
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -2378,7 +2378,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
           to label %108 unwind label %122, !noalias !466
 
 43:                                               ; preds = %98, %45
-  %.2.i = phi i8 [ %.6.i, %98 ], [ 1, %45 ]
+  %.2.i = phi i8 [ 1, %45 ], [ %.6.i, %98 ]
   %44 = landingpad { ptr, i32 }
           cleanup
   br label %42
@@ -2774,8 +2774,8 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   unreachable
 
 145:                                              ; preds = %.thread, %148, %"_ZN4core3ptr123drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..option..Option$LT$tree_sitter_tags..TagsConfiguration$GT$$GT$$GT$17hb87ded8ea54ff39aE.exit"
-  %.sroa.4.1 = phi ptr [ %0, %148 ], [ %136, %.thread ], [ %0, %"_ZN4core3ptr123drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..option..Option$LT$tree_sitter_tags..TagsConfiguration$GT$$GT$$GT$17hb87ded8ea54ff39aE.exit" ]
-  %.sroa.0.1 = phi i64 [ 0, %148 ], [ 1, %.thread ], [ 0, %"_ZN4core3ptr123drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..option..Option$LT$tree_sitter_tags..TagsConfiguration$GT$$GT$$GT$17hb87ded8ea54ff39aE.exit" ]
+  %.sroa.4.1 = phi ptr [ %0, %148 ], [ %0, %"_ZN4core3ptr123drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..option..Option$LT$tree_sitter_tags..TagsConfiguration$GT$$GT$$GT$17hb87ded8ea54ff39aE.exit" ], [ %136, %.thread ]
+  %.sroa.0.1 = phi i64 [ 0, %148 ], [ 0, %"_ZN4core3ptr123drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..option..Option$LT$tree_sitter_tags..TagsConfiguration$GT$$GT$$GT$17hb87ded8ea54ff39aE.exit" ], [ 1, %.thread ]
   %146 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %147 = insertvalue { i64, ptr } %146, ptr %.sroa.4.1, 1
   ret { i64, ptr } %147

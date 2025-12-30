@@ -148,7 +148,7 @@ if.then16:                                        ; preds = %if.else
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then16, %if.then12
-  %5 = phi ptr [ %2, %if.then12 ], [ %.pr, %if.then16 ]
+  %5 = phi ptr [ %.pr, %if.then16 ], [ %2, %if.then12 ]
   %tobool24.not = icmp eq ptr %5, null
   br i1 %tobool24.not, label %if.end27, label %if.then25
 
@@ -217,7 +217,7 @@ if.end35:                                         ; preds = %if.end32
   br label %return
 
 return:                                           ; preds = %entry, %if.end35, %if.then, %_ZN12_GLOBAL__N_122ShutdownOSGlobalSystemEv.exit
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %_ZN12_GLOBAL__N_122ShutdownOSGlobalSystemEv.exit ], [ true, %if.end35 ], [ true, %entry ]
+  %retval.0 = phi i1 [ false, %_ZN12_GLOBAL__N_122ShutdownOSGlobalSystemEv.exit ], [ false, %if.then ], [ true, %if.end35 ], [ true, %entry ]
   ret i1 %retval.0
 }
 

@@ -319,7 +319,7 @@ define internal i32 @dissect_ccsds(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %63
 
 63:                                               ; preds = %59, %.preheader.i
-  %64 = phi i32 [ 31622400, %.preheader.i ], [ %62, %59 ]
+  %64 = phi i32 [ %62, %59 ], [ 31622400, %.preheader.i ]
   %65 = add i32 %64, %55
   %66 = add nuw nsw i32 %.011.i, 1
   %exitcond.not.i = icmp eq i32 %66, 1980

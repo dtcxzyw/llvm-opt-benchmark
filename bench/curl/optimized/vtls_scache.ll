@@ -579,7 +579,7 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
   br label %23
 
 23:                                               ; preds = %21, %19, %17, %15
-  %.1 = phi i32 [ %22, %21 ], [ %20, %19 ], [ %16, %15 ], [ %18, %17 ]
+  %.1 = phi i32 [ %22, %21 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ]
   %.not106 = icmp eq i32 %.1, 0
   br i1 %.not106, label %.thread, label %151
 
@@ -868,7 +868,7 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
   br label %151
 
 151:                                              ; preds = %144, %145, %147, %142, %134, %127, %120, %115, %110, %103, %99, %96, %92, %87, %82, %77, %71, %._crit_edge162, %56, %48, %37, %32, %27, %23, %4, %149
-  %.0 = phi i32 [ %11, %4 ], [ %.1, %23 ], [ %38, %37 ], [ %67, %._crit_edge162 ], [ %73, %71 ], [ %78, %77 ], [ %83, %82 ], [ %88, %87 ], [ %95, %92 ], [ %98, %96 ], [ %102, %99 ], [ %106, %103 ], [ %111, %110 ], [ %116, %115 ], [ %121, %120 ], [ %128, %127 ], [ %135, %134 ], [ %143, %142 ], [ %148, %147 ], [ 0, %149 ], [ %28, %27 ], [ %51, %48 ], [ %59, %56 ], [ %33, %32 ], [ 2, %145 ], [ 2, %144 ]
+  %.0 = phi i32 [ %11, %4 ], [ %.1, %23 ], [ %38, %37 ], [ %67, %._crit_edge162 ], [ %73, %71 ], [ %78, %77 ], [ %83, %82 ], [ %88, %87 ], [ %95, %92 ], [ %98, %96 ], [ %102, %99 ], [ %106, %103 ], [ %111, %110 ], [ %116, %115 ], [ %121, %120 ], [ %128, %127 ], [ %135, %134 ], [ %143, %142 ], [ %148, %147 ], [ 0, %149 ], [ %51, %48 ], [ %59, %56 ], [ %33, %32 ], [ %28, %27 ], [ 2, %145 ], [ 2, %144 ]
   call void @Curl_dyn_free(ptr noundef nonnull %5) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -950,12 +950,12 @@ define internal fastcc i32 @cf_ssl_peer_key_add_hash(ptr noundef nonnull %0, ptr
   br i1 %.not26, label %13, label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.preheader, %9, %7
-  %.016 = phi i32 [ %12, %9 ], [ %8, %7 ], [ 0, %13 ], [ %18, %.preheader ]
+  %.016 = phi i32 [ %8, %7 ], [ %12, %9 ], [ 0, %13 ], [ %18, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %19
 
 19:                                               ; preds = %3, %.loopexit
-  %.2 = phi i32 [ 0, %3 ], [ %.016, %.loopexit ]
+  %.2 = phi i32 [ %.016, %.loopexit ], [ 0, %3 ]
   ret i32 %.2
 }
 
@@ -1476,7 +1476,7 @@ Curl_ssl_session_destroy.exit96.i:                ; preds = %.lr.ph.i.i, %cf_sca
   br label %cf_scache_add_session.exit
 
 cf_scache_add_session.exit:                       ; preds = %48, %52, %cf_ssl_scache_sesssion_ldestroy.exit.i.i, %108, %cf_ssl_scache_sesssion_ldestroy.exit.i89.i, %203, %204, %211, %217, %232
-  %.0.i = phi i32 [ 0, %cf_ssl_scache_sesssion_ldestroy.exit.i.i ], [ %125, %203 ], [ 0, %cf_ssl_scache_sesssion_ldestroy.exit.i89.i ], [ 0, %204 ], [ 0, %211 ], [ 0, %217 ], [ 0, %232 ], [ 0, %48 ], [ 0, %52 ], [ 0, %108 ]
+  %.0.i = phi i32 [ 0, %204 ], [ 0, %211 ], [ 0, %217 ], [ 0, %232 ], [ %125, %203 ], [ 0, %48 ], [ 0, %52 ], [ 0, %cf_ssl_scache_sesssion_ldestroy.exit.i.i ], [ 0, %108 ], [ 0, %cf_ssl_scache_sesssion_ldestroy.exit.i89.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %234 = load ptr, ptr %36, align 8, !tbaa !45
   %.not.i19 = icmp eq ptr %234, null
@@ -1494,7 +1494,7 @@ cf_scache_add_session.exit:                       ; preds = %48, %52, %cf_ssl_sc
   br label %Curl_ssl_session_destroy.exit
 
 Curl_ssl_session_destroy.exit:                    ; preds = %239, %235, %cf_scache_add_session.exit, %cf_ssl_scache_sesssion_ldestroy.exit.i, %17, %13
-  %.0 = phi i32 [ 0, %cf_ssl_scache_sesssion_ldestroy.exit.i ], [ 0, %13 ], [ 0, %17 ], [ %.0.i, %cf_scache_add_session.exit ], [ %.0.i, %235 ], [ %.0.i, %239 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %17 ], [ 0, %cf_ssl_scache_sesssion_ldestroy.exit.i ], [ %.0.i, %cf_scache_add_session.exit ], [ %.0.i, %235 ], [ %.0.i, %239 ]
   ret i32 %.0
 }
 
@@ -1720,7 +1720,7 @@ Curl_ssl_scache_unlock.exit:                      ; preds = %32, %34, %38
   br label %81
 
 81:                                               ; preds = %54, %53, %47, %40, %80, %79, %73, %66, %4
-  %.0 = phi i32 [ 0, %4 ], [ %18, %53 ], [ %18, %66 ], [ %18, %73 ], [ %18, %79 ], [ %18, %80 ], [ %18, %54 ], [ %18, %40 ], [ %18, %47 ]
+  %.0 = phi i32 [ 0, %4 ], [ %18, %66 ], [ %18, %73 ], [ %18, %79 ], [ %18, %80 ], [ %18, %40 ], [ %18, %47 ], [ %18, %53 ], [ %18, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1930,9 +1930,9 @@ cf_ssl_scache_match_auth.exit.thread:             ; preds = %44, %37, %.lr.ph130
   br label %cf_ssl_scache_match_auth.exit103.thread.us
 
 cf_ssl_scache_match_auth.exit103.thread.us:       ; preds = %91, %78, %75, %72, %68, %.lr.ph149
-  %92 = phi i64 [ %64, %.lr.ph149 ], [ %.pre167, %91 ], [ %64, %75 ], [ %64, %68 ], [ %64, %78 ], [ %64, %72 ]
-  %93 = phi ptr [ %65, %.lr.ph149 ], [ %88, %91 ], [ %65, %75 ], [ %65, %68 ], [ %65, %78 ], [ %65, %72 ]
-  %.268.us = phi i64 [ %.066138.us147, %.lr.ph149 ], [ %.167.us, %91 ], [ %.066138.us147, %75 ], [ %.066138.us147, %68 ], [ %.066138.us147, %78 ], [ %.066138.us147, %72 ]
+  %92 = phi i64 [ %64, %.lr.ph149 ], [ %.pre167, %91 ], [ %64, %68 ], [ %64, %78 ], [ %64, %72 ], [ %64, %75 ]
+  %93 = phi ptr [ %65, %.lr.ph149 ], [ %88, %91 ], [ %65, %68 ], [ %65, %78 ], [ %65, %72 ], [ %65, %75 ]
+  %.268.us = phi i64 [ %.066138.us147, %.lr.ph149 ], [ %.167.us, %91 ], [ %.066138.us147, %68 ], [ %.066138.us147, %78 ], [ %.066138.us147, %72 ], [ %.066138.us147, %75 ]
   %94 = add nuw i64 %.170137.us148, 1
   %95 = icmp ult i64 %94, %92
   br i1 %95, label %.lr.ph149, label %.critedge2
@@ -2051,8 +2051,8 @@ cf_ssl_scache_match_auth.exit103:                 ; preds = %108
   store ptr %148, ptr %4, align 8, !tbaa !161
   br label %.thread
 
-.thread:                                          ; preds = %120, %84, %144, %149
-  %.2.ph = phi i32 [ 0, %149 ], [ 27, %144 ], [ %86, %84 ], [ %124, %120 ]
+.thread:                                          ; preds = %120, %84, %149, %144
+  %.2.ph = phi i32 [ 27, %144 ], [ 0, %149 ], [ %86, %84 ], [ %124, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %169
 
@@ -2061,7 +2061,7 @@ cf_ssl_scache_match_auth.exit103:                 ; preds = %108
   br label %cf_ssl_scache_match_auth.exit103.thread
 
 cf_ssl_scache_match_auth.exit103.thread:          ; preds = %108, %103, %150, %.lr.ph215, %99, %cf_ssl_scache_match_auth.exit103
-  %.268 = phi i64 [ %.066138213, %.lr.ph215 ], [ %.167, %150 ], [ %.066138213, %cf_ssl_scache_match_auth.exit103 ], [ %.066138213, %99 ], [ %.066138213, %108 ], [ %.066138213, %103 ]
+  %.268 = phi i64 [ %.066138213, %.lr.ph215 ], [ %.167, %150 ], [ %.066138213, %cf_ssl_scache_match_auth.exit103 ], [ %.066138213, %99 ], [ %.066138213, %103 ], [ %.066138213, %108 ]
   %151 = add nuw i64 %.170137214, 1
   %152 = load i64, ptr %59, align 8, !tbaa !29
   %153 = icmp ult i64 %151, %152
@@ -2103,7 +2103,7 @@ cf_ssl_scache_match_auth.exit103.thread:          ; preds = %108, %103, %150, %.
   br label %169
 
 169:                                              ; preds = %.thread, %.split.us, %168, %167, %161, %154, %.critedge2
-  %.065 = phi i32 [ 0, %.split.us ], [ %.2.ph, %.thread ], [ 0, %168 ], [ 0, %161 ], [ 0, %167 ], [ 0, %154 ], [ 0, %.critedge2 ]
+  %.065 = phi i32 [ 0, %.split.us ], [ 0, %168 ], [ 0, %161 ], [ 0, %167 ], [ 0, %154 ], [ 0, %.critedge2 ], [ %.2.ph, %.thread ]
   ret i32 %.065
 }
 
@@ -2576,7 +2576,7 @@ cf_ssl_scache_clear_peer.exit:                    ; preds = %104, %119
   br label %.thread55
 
 .thread55:                                        ; preds = %.thread, %.loopexit.i, %103, %cf_ssl_scache_clear_peer.exit, %7, %9, %13
-  %.0 = phi i32 [ 0, %9 ], [ 0, %13 ], [ %8, %7 ], [ %.0.ph.i, %cf_ssl_scache_clear_peer.exit ], [ 0, %103 ], [ 0, %.loopexit.i ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %9 ], [ %8, %7 ], [ %.0.ph.i, %cf_ssl_scache_clear_peer.exit ], [ 0, %103 ], [ 0, %.loopexit.i ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -2648,7 +2648,7 @@ define hidden zeroext i1 @Curl_ssl_scache_get_obj(ptr noundef %0, ptr noundef %1
   br label %36
 
 36:                                               ; preds = %9, %4, %33
-  %.0 = phi i1 [ false, %4 ], [ %35, %33 ], [ false, %9 ]
+  %.0 = phi i1 [ %35, %33 ], [ false, %4 ], [ false, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }

@@ -1506,7 +1506,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.4081
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23, !noalias !170
   unreachable
 
-.thread16:                                        ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17ha3ac769937de9be1E.exit.i", %10, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.4081870161146358760.exit.i, %14
+.thread16:                                        ; preds = %10, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.4081870161146358760.exit.i, %14, %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17ha3ac769937de9be1E.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread12
@@ -1596,7 +1596,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.4081870161146358760.exit.
   unreachable
 
 .thread:                                          ; preds = %27, %.thread12
-  %.pn211 = phi { ptr, i32 } [ %.pn, %27 ], [ %eh.lpad-body15, %.thread12 ]
+  %.pn211 = phi { ptr, i32 } [ %eh.lpad-body15, %.thread12 ], [ %.pn, %27 ]
   resume { ptr, i32 } %.pn211
 
 .thread12:                                        ; preds = %22, %.thread16

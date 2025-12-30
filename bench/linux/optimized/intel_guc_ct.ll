@@ -999,9 +999,9 @@ select.unfold:                                    ; preds = %191, %.thread25.loo
   br label %250
 
 250:                                              ; preds = %.thread25.thread, %248, %242, %235, %select.unfold, %228, %170
-  %251 = phi i32 [ %212, %228 ], [ %221, %.thread25.thread ], [ %.ph, %235 ], [ %.ph, %248 ], [ %.ph, %242 ], [ %.ph, %select.unfold ], [ %124, %170 ]
-  %252 = phi i32 [ -110, %228 ], [ -19, %.thread25.thread ], [ -5, %235 ], [ %249, %248 ], [ %243, %242 ], [ 0, %select.unfold ], [ %175, %170 ]
-  %253 = phi i1 [ false, %228 ], [ false, %.thread25.thread ], [ false, %235 ], [ false, %248 ], [ false, %242 ], [ true, %select.unfold ], [ false, %170 ]
+  %251 = phi i32 [ %212, %228 ], [ %.ph, %235 ], [ %.ph, %248 ], [ %.ph, %242 ], [ %.ph, %select.unfold ], [ %124, %170 ], [ %221, %.thread25.thread ]
+  %252 = phi i32 [ -110, %228 ], [ -5, %235 ], [ %249, %248 ], [ %243, %242 ], [ 0, %select.unfold ], [ %175, %170 ], [ -19, %.thread25.thread ]
+  %253 = phi i1 [ false, %228 ], [ false, %235 ], [ false, %248 ], [ false, %242 ], [ true, %select.unfold ], [ false, %170 ], [ false, %.thread25.thread ]
   %254 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %117) #13
   %255 = load ptr, ptr %120, align 8
   %256 = load ptr, ptr %7, align 8
@@ -1571,7 +1571,7 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
   call void @kfree(ptr noundef %165) #13
   br label %.thread41
 
-.thread41:                                        ; preds = %193, %277, %278, %301, %164
+.thread41:                                        ; preds = %277, %193, %278, %301, %164
   %309 = icmp sgt i32 %166, 0
   br i1 %309, label %310, label %317
 
@@ -2010,7 +2010,7 @@ define internal fastcc i32 @ct_process_request(ptr noundef %0, ptr noundef nonnu
   br label %43
 
 43:                                               ; preds = %41, %39, %35, %18, %16, %14, %12
-  %44 = phi i32 [ %42, %41 ], [ %40, %39 ], [ %13, %12 ], [ %36, %35 ], [ %17, %16 ], [ %15, %14 ], [ %19, %18 ]
+  %44 = phi i32 [ %42, %41 ], [ %40, %39 ], [ %36, %35 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ]
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.thread, label %.thread5, !prof !50
 

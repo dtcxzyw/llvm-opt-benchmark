@@ -183,13 +183,13 @@ define hidden i32 @mbedtls_rsa_deduce_primes(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not58, label %54, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %82, %._crit_edge, %56, %.split.backedge, %78, %76, %74, %64, %62, %.split.preheader, %35, %72, %39, %33, %31
-  %.037 = phi i32 [ %32, %31 ], [ %34, %33 ], [ %73, %72 ], [ %41, %39 ], [ -4, %35 ], [ %79, %78 ], [ %53, %.split.preheader ], [ %77, %76 ], [ %75, %74 ], [ %65, %64 ], [ %63, %62 ], [ %88, %.split.backedge ], [ -4, %82 ], [ -4, %._crit_edge ], [ %57, %56 ]
+  %.037 = phi i32 [ %32, %31 ], [ %34, %33 ], [ %41, %39 ], [ %73, %72 ], [ -4, %35 ], [ %53, %.split.preheader ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %65, %64 ], [ %63, %62 ], [ %88, %.split.backedge ], [ %57, %56 ], [ -4, %._crit_edge ], [ -4, %82 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %7)
   call void @mbedtls_mpi_free(ptr noundef nonnull %6)
   br label %89
 
 89:                                               ; preds = %16, %19, %22, %25, %28, %5, %10, %13, %.loopexit
-  %.0 = phi i32 [ %.037, %.loopexit ], [ -4, %5 ], [ -4, %13 ], [ -4, %10 ], [ -4, %28 ], [ -4, %25 ], [ -4, %22 ], [ -4, %19 ], [ -4, %16 ]
+  %.0 = phi i32 [ %.037, %.loopexit ], [ -4, %13 ], [ -4, %10 ], [ -4, %5 ], [ -4, %28 ], [ -4, %25 ], [ -4, %22 ], [ -4, %19 ], [ -4, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -290,7 +290,7 @@ define hidden i32 @mbedtls_rsa_deduce_private_exponent(ptr noundef %0, ptr nound
   br label %32
 
 32:                                               ; preds = %10, %13, %16, %4, %8, %31
-  %.012 = phi i32 [ %.0, %31 ], [ -4, %4 ], [ -4, %8 ], [ -4, %16 ], [ -4, %13 ], [ -4, %10 ]
+  %.012 = phi i32 [ %.0, %31 ], [ -4, %8 ], [ -4, %4 ], [ -4, %16 ], [ -4, %13 ], [ -4, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.012
@@ -470,14 +470,14 @@ define hidden range(i32 -2147483648, 2147466752) i32 @mbedtls_rsa_validate_param
   %spec.select = select i1 %.not77, i32 0, i32 -16896
   br label %.thread
 
-.thread:                                          ; preds = %60, %35, %15, %23, %36, %50, %18, %32, %29, %26, %39
-  %.1.ph = phi i32 [ 0, %35 ], [ -16896, %39 ], [ -16896, %26 ], [ -16896, %29 ], [ -16896, %32 ], [ -16896, %18 ], [ %spec.select, %60 ], [ -16896, %50 ], [ -16896, %36 ], [ -16896, %23 ], [ -16896, %15 ]
+.thread:                                          ; preds = %60, %35, %18, %15, %32, %29, %26, %23, %39, %36, %50
+  %.1.ph = phi i32 [ -16896, %50 ], [ -16896, %36 ], [ -16896, %39 ], [ -16896, %23 ], [ -16896, %26 ], [ -16896, %29 ], [ -16896, %32 ], [ -16896, %15 ], [ -16896, %18 ], [ 0, %35 ], [ %spec.select, %60 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %8)
   call void @mbedtls_mpi_free(ptr noundef nonnull %9)
   br label %64
 
 62:                                               ; preds = %58, %56, %54, %52, %48, %46, %44, %42, %13
-  %.1 = phi i32 [ %14, %13 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %59, %58 ]
+  %.1 = phi i32 [ %14, %13 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %8)
   call void @mbedtls_mpi_free(ptr noundef nonnull %9)
   %cond = icmp eq i32 %.1, -16896
@@ -486,7 +486,7 @@ define hidden range(i32 -2147483648, 2147466752) i32 @mbedtls_rsa_validate_param
   br label %64
 
 64:                                               ; preds = %62, %.thread
-  %.2 = phi i32 [ %spec.select79, %62 ], [ %.1.ph, %.thread ]
+  %.2 = phi i32 [ %.1.ph, %.thread ], [ %spec.select79, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.2
@@ -587,7 +587,7 @@ define hidden range(i32 -2147483648, 2147466752) i32 @mbedtls_rsa_validate_crt(p
   br label %.thread
 
 42:                                               ; preds = %38, %36, %34, %26, %24, %22, %15, %13, %11
-  %.1 = phi i32 [ %37, %36 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %39, %38 ], [ %35, %34 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ]
+  %.1 = phi i32 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ]
   switch i32 %.1, label %43 [
     i32 -16512, label %.thread
     i32 -16896, label %.thread
@@ -598,7 +598,7 @@ define hidden range(i32 -2147483648, 2147466752) i32 @mbedtls_rsa_validate_crt(p
   br label %.thread
 
 .thread:                                          ; preds = %40, %31, %28, %20, %17, %9, %30, %42, %42, %43
-  %.3 = phi i32 [ %44, %43 ], [ 0, %30 ], [ %.1, %42 ], [ %.1, %42 ], [ -16512, %9 ], [ %spec.select, %40 ], [ -16512, %31 ], [ -16896, %28 ], [ -16512, %20 ], [ -16896, %17 ]
+  %.3 = phi i32 [ %44, %43 ], [ %.1, %42 ], [ %.1, %42 ], [ -16512, %31 ], [ -16896, %28 ], [ -16512, %20 ], [ -16896, %17 ], [ -16512, %9 ], [ 0, %30 ], [ %spec.select, %40 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %7)
   call void @mbedtls_mpi_free(ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

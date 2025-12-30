@@ -338,7 +338,7 @@ Abc_Clock.exit114:                                ; preds = %122, %125
   br label %138
 
 138:                                              ; preds = %135, %113, %93, %137, %103, %45
-  %.078 = phi ptr [ null, %45 ], [ null, %103 ], [ null, %93 ], [ null, %113 ], [ null, %137 ], [ %109, %135 ]
+  %.078 = phi ptr [ null, %45 ], [ null, %137 ], [ null, %103 ], [ null, %93 ], [ null, %113 ], [ %109, %135 ]
   ret ptr %.078
 }
 
@@ -521,7 +521,7 @@ Scl_ConHasInArrs.exit:                            ; preds = %32, %25
   br label %Abc_NtkMapCopyCiArrivalCon.exit
 
 Abc_NtkMapCopyCiArrivalCon.exit:                  ; preds = %.lr.ph.i, %._crit_edge.thread.i, %._crit_edge.i, %38
-  %.sink = phi ptr [ %42, %38 ], [ %61, %._crit_edge.thread.i ], [ %61, %._crit_edge.i ], [ %42, %.lr.ph.i ]
+  %.sink = phi ptr [ %42, %38 ], [ %61, %._crit_edge.i ], [ %61, %._crit_edge.thread.i ], [ %42, %.lr.ph.i ]
   tail call void @Map_ManSetInputArrivals(ptr noundef nonnull %17, ptr noundef %.sink) #16
   %72 = tail call ptr (...) @Scl_ConReadMan() #16
   %.not181 = icmp eq ptr %72, null
@@ -632,7 +632,7 @@ Scl_ConHasOutReqs.exit:                           ; preds = %80, %73
   br label %Abc_NtkMapCopyCoRequiredCon.exit
 
 Abc_NtkMapCopyCoRequiredCon.exit:                 ; preds = %.lr.ph.i159, %._crit_edge.thread.i169, %._crit_edge.i167, %86
-  %.sink221 = phi ptr [ %90, %86 ], [ %109, %._crit_edge.thread.i169 ], [ %109, %._crit_edge.i167 ], [ %90, %.lr.ph.i159 ]
+  %.sink221 = phi ptr [ %90, %86 ], [ %109, %._crit_edge.i167 ], [ %109, %._crit_edge.thread.i169 ], [ %90, %.lr.ph.i159 ]
   tail call void @Map_ManSetOutputRequireds(ptr noundef nonnull %17, ptr noundef %.sink221) #16
   tail call void @Abc_NtkCleanCopy(ptr noundef nonnull %0) #16
   %120 = tail call ptr @Map_ManReadConst1(ptr noundef nonnull %17) #16
@@ -1005,8 +1005,8 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br i1 %38, label %.lr.ph, label %.critedge, !llvm.loop !71
 
 .critedge:                                        ; preds = %.lr.ph, %27
-  %.val75.val95 = phi i32 [ %.val73.val, %27 ], [ %.val75.val95.pre.pre, %.lr.ph ]
-  %.val7594 = phi ptr [ %.val73, %27 ], [ %.val7391, %.lr.ph ]
+  %.val75.val95 = phi i32 [ %.val75.val95.pre.pre, %.lr.ph ], [ %.val73.val, %27 ]
+  %.val7594 = phi ptr [ %.val7391, %.lr.ph ], [ %.val73, %27 ]
   %39 = icmp sgt i32 %.val75.val95, 0
   br i1 %39, label %.lr.ph99, label %.critedge2.preheader
 
@@ -1558,7 +1558,7 @@ define internal fastcc ptr @Abc_NodeFromMap_rec(ptr noundef %0, ptr noundef %1, 
   br label %40
 
 40:                                               ; preds = %17, %10, %15, %23, %21
-  %.0 = phi ptr [ %26, %23 ], [ %11, %10 ], [ %22, %21 ], [ %11, %15 ], [ %18, %17 ]
+  %.0 = phi ptr [ %22, %21 ], [ %26, %23 ], [ %11, %15 ], [ %11, %10 ], [ %18, %17 ]
   ret ptr %.0
 }
 
@@ -2053,7 +2053,7 @@ Abc_NtkFromMapSuperChoice.exit:                   ; preds = %Abc_NodeSuperChoice
   br label %215
 
 215:                                              ; preds = %Abc_NtkFromMapSuperChoice.exit.thread, %212, %Abc_NtkFromMapSuperChoice.exit, %18, %214, %23, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %23 ], [ null, %18 ], [ null, %Abc_NtkFromMapSuperChoice.exit ], [ null, %214 ], [ %61, %212 ], [ null, %Abc_NtkFromMapSuperChoice.exit.thread ]
+  %.0 = phi ptr [ null, %6 ], [ null, %214 ], [ null, %23 ], [ null, %18 ], [ null, %Abc_NtkFromMapSuperChoice.exit ], [ %61, %212 ], [ null, %Abc_NtkFromMapSuperChoice.exit.thread ]
   ret ptr %.0
 }
 
@@ -2115,7 +2115,7 @@ define ptr @Abc_NtkFetchTwinNode(ptr noundef readonly captures(none) %0) local_u
   br label %32
 
 32:                                               ; preds = %28, %15, %22, %25, %8, %1, %5
-  %.0 = phi ptr [ null, %15 ], [ null, %1 ], [ null, %8 ], [ %., %28 ], [ null, %5 ], [ null, %25 ], [ null, %22 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %1 ], [ null, %8 ], [ null, %25 ], [ null, %22 ], [ null, %15 ], [ %., %28 ]
   ret ptr %.0
 }
 

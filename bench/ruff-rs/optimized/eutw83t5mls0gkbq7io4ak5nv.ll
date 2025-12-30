@@ -1160,7 +1160,7 @@ _ZN21ruff_python_formatter9statement9stmt_with24has_magic_trailing_comma17h685bd
   br i1 %.not9.i.i, label %111, label %229
 
 .thread.i.i:                                      ; preds = %123, %89, %75
-  %103 = phi i1 [ false, %89 ], [ true, %123 ], [ false, %75 ]
+  %103 = phi i1 [ true, %123 ], [ false, %89 ], [ false, %75 ]
   %104 = call noundef align 2 dereferenceable(16) ptr @"_ZN97_$LT$ruff_python_formatter..context..PyFormatContext$u20$as$u20$ruff_formatter..FormatContext$GT$7options17h0a38033fd8b6ccd7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %70), !noalias !124
   %105 = call { i8, i8 } @_ZN21ruff_python_formatter7options15PyFormatOptions14target_version17hdac8b74ed4f9c182E(ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %104), !noalias !124
   %106 = extractvalue { i8, i8 } %105, 0
@@ -1900,8 +1900,8 @@ _ZN8smallvec10deallocate17h5aa10cc787becbe2E.exit: ; preds = %37
   br label %_ZN8smallvec12layout_array17h8abdf03617512ba3E.exit77.thread
 
 _ZN8smallvec12layout_array17h8abdf03617512ba3E.exit77.thread: ; preds = %24, %21, %19, %16, %15, %_ZN8smallvec10deallocate17h5aa10cc787becbe2E.exit, %30, %14, %26, %_ZN8smallvec12layout_array17h8abdf03617512ba3E.exit77
-  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17h5aa10cc787becbe2E.exit ], [ %17, %26 ], [ undef, %15 ], [ %17, %_ZN8smallvec12layout_array17h8abdf03617512ba3E.exit77 ], [ %17, %19 ], [ undef, %14 ], [ undef, %30 ], [ %17, %16 ], [ %22, %21 ], [ %22, %24 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17h5aa10cc787becbe2E.exit ], [ 8, %26 ], [ -9223372036854775807, %15 ], [ 8, %_ZN8smallvec12layout_array17h8abdf03617512ba3E.exit77 ], [ 0, %19 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ 0, %16 ], [ 0, %21 ], [ 0, %24 ]
+  %.sroa.7.0 = phi i64 [ %17, %_ZN8smallvec12layout_array17h8abdf03617512ba3E.exit77 ], [ %17, %26 ], [ undef, %14 ], [ undef, %30 ], [ undef, %_ZN8smallvec10deallocate17h5aa10cc787becbe2E.exit ], [ undef, %15 ], [ %17, %16 ], [ %17, %19 ], [ %22, %21 ], [ %22, %24 ]
+  %.sroa.0.0 = phi i64 [ 8, %_ZN8smallvec12layout_array17h8abdf03617512ba3E.exit77 ], [ 8, %26 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h5aa10cc787becbe2E.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %19 ], [ 0, %21 ], [ 0, %24 ]
   %41 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %42 = insertvalue { i64, i64 } %41, i64 %.sroa.7.0, 1
   ret { i64, i64 } %42
@@ -4328,7 +4328,7 @@ switch.lookup:                                    ; preds = %21
   br label %_ZN4core4iter6traits8iterator8Iterator6reduce17h2f54da6b30bccffbE.exit
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h2f54da6b30bccffbE.exit: ; preds = %switch.lookup, %21, %27
-  %.sroa.0.0.i.ph.i = phi i8 [ %switch.load, %switch.lookup ], [ 10, %21 ], [ 11, %27 ]
+  %.sroa.0.0.i.ph.i = phi i8 [ 10, %21 ], [ 11, %27 ], [ %switch.load, %switch.lookup ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !571
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %28 = call noundef i8 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he7ffbd27450aa67dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, i8 noundef %.sroa.0.0.i.ph.i)
@@ -4491,7 +4491,7 @@ switch.lookup:                                    ; preds = %78
   br label %_ZN21ruff_python_formatter10expression11binary_like8Operator10precedence17hec4cd2105a55c6e7E.exit
 
 _ZN21ruff_python_formatter10expression11binary_like8Operator10precedence17hec4cd2105a55c6e7E.exit: ; preds = %switch.lookup, %78, %86
-  %.sroa.01.0.i.i = phi i8 [ 10, %78 ], [ 11, %86 ], [ %switch.load, %switch.lookup ]
+  %.sroa.01.0.i.i = phi i8 [ 11, %86 ], [ 10, %78 ], [ %switch.load, %switch.lookup ]
   %87 = icmp eq i8 %.sroa.01.0.i.i, %phi.call
   br i1 %87, label %117, label %134
 
@@ -4778,7 +4778,7 @@ tailrecurse.backedge.i4.i:                        ; preds = %176, %tailrecurse.i
   br label %_ZN21ruff_python_formatter10expression11binary_like26is_simple_power_expression17h5d57072f6f2876feE.exit
 
 _ZN21ruff_python_formatter10expression11binary_like26is_simple_power_expression17h5d57072f6f2876feE.exit: ; preds = %170, %tailrecurse.i.i, %176, %tailrecurse.i1.i, %186, %181, %_ZN21ruff_python_formatter10expression11binary_like25FlatBinaryExpressionSlice14after_operator17hc4dd5497c0f4e52aE.exit163
-  %.sroa.051.0 = phi i1 [ false, %_ZN21ruff_python_formatter10expression11binary_like25FlatBinaryExpressionSlice14after_operator17hc4dd5497c0f4e52aE.exit163 ], [ %191, %186 ], [ false, %181 ], [ false, %176 ], [ false, %tailrecurse.i1.i ], [ false, %tailrecurse.i.i ], [ false, %170 ]
+  %.sroa.051.0 = phi i1 [ false, %_ZN21ruff_python_formatter10expression11binary_like25FlatBinaryExpressionSlice14after_operator17hc4dd5497c0f4e52aE.exit163 ], [ %191, %186 ], [ false, %181 ], [ false, %tailrecurse.i1.i ], [ false, %176 ], [ false, %tailrecurse.i.i ], [ false, %170 ]
   %192 = load ptr, ptr %37, align 8, !nonnull !3, !align !4, !noundef !3
   %193 = load i64, ptr %50, align 8, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !661)
@@ -5926,7 +5926,7 @@ switch.lookup:                                    ; preds = %1
   br label %_ZN21ruff_python_formatter10expression11binary_like14OperatorSymbol10precedence17hcf4c3ea874b935d5E.exit
 
 _ZN21ruff_python_formatter10expression11binary_like14OperatorSymbol10precedence17hcf4c3ea874b935d5E.exit: ; preds = %switch.lookup, %1, %7
-  %.sroa.01.0.i = phi i8 [ 10, %1 ], [ 11, %7 ], [ %switch.load, %switch.lookup ]
+  %.sroa.01.0.i = phi i8 [ 11, %7 ], [ 10, %1 ], [ %switch.load, %switch.lookup ]
   ret i8 %.sroa.01.0.i
 }
 
@@ -9213,7 +9213,7 @@ define hidden noundef zeroext i1 @_ZN21ruff_python_formatter10expression29can_om
   br i1 %or.cond.not, label %12, label %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit14
 
 _ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit14: ; preds = %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i, %23, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.thread.i11, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i9, %37, %12, %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread, %2
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ false, %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread ], [ false, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i9 ], [ true, %12 ], [ true, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i ], [ false, %37 ], [ %53, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.thread.i11 ], [ true, %23 ]
+  %.sroa.0.0 = phi i1 [ false, %2 ], [ true, %12 ], [ false, %_ZN21ruff_python_formatter10expression29can_omit_optional_parentheses16is_parenthesized17h4c28e89a6e8f08d0E.exit.thread ], [ false, %37 ], [ %53, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.thread.i11 ], [ false, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i9 ], [ true, %23 ], [ true, %_ZN21ruff_python_formatter10expression15has_parentheses17hd09b5be20ff6475aE.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.sroa.0.0
 
@@ -9923,7 +9923,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN21ruff_python_formatter10expression1
   br label %15
 
 15:                                               ; preds = %5, %2
-  %.sroa.0.0 = phi i8 [ %spec.select, %5 ], [ %3, %2 ]
+  %.sroa.0.0 = phi i8 [ %3, %2 ], [ %spec.select, %5 ]
   ret i8 %.sroa.0.0
 }
 
@@ -9985,7 +9985,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN21ruff_python_formatter10expression1
   br label %28
 
 28:                                               ; preds = %52, %34, %49, %41, %13, %20, %10, %2, %16, %48, %27, %9
-  %.sroa.0.0 = phi i8 [ 1, %49 ], [ 1, %27 ], [ %., %10 ], [ 1, %48 ], [ %spec.select6, %52 ], [ 2, %2 ], [ 2, %16 ], [ 1, %13 ], [ 1, %9 ], [ 0, %41 ], [ 0, %20 ], [ %spec.select, %34 ]
+  %.sroa.0.0 = phi i8 [ 1, %27 ], [ 1, %48 ], [ 1, %9 ], [ 2, %16 ], [ 2, %2 ], [ %., %10 ], [ 0, %20 ], [ 1, %13 ], [ %spec.select, %34 ], [ 0, %41 ], [ 1, %49 ], [ %spec.select6, %52 ]
   ret i8 %.sroa.0.0
 
 29:                                               ; preds = %2, %2
@@ -10216,11 +10216,11 @@ tailrecurse.backedge:                             ; preds = %39, %4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %.loopexit.loopexit, %18, %50, %35, %31, %27, %24, %21, %14, %10, %6
-  %.sroa.0.0.shrunk = phi i1 [ true, %.loopexit.loopexit ], [ true, %18 ], [ %34, %31 ], [ %9, %6 ], [ %13, %10 ], [ %17, %14 ], [ %61, %50 ], [ %38, %35 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ]
+  %.sroa.0.0.shrunk = phi i1 [ %9, %6 ], [ %13, %10 ], [ %17, %14 ], [ %61, %50 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %34, %31 ], [ %38, %35 ], [ true, %18 ], [ true, %.loopexit.loopexit ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ]
   ret i1 %.sroa.0.0.shrunk
 
 39:                                               ; preds = %tailrecurse, %tailrecurse, %30
-  %.sink = phi i64 [ 8, %tailrecurse ], [ 40, %30 ], [ 8, %tailrecurse ]
+  %.sink = phi i64 [ 40, %30 ], [ 8, %tailrecurse ], [ 8, %tailrecurse ]
   %40 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink
   %41 = tail call { i64, ptr } @"_ZN15ruff_python_ast10expression154_$LT$impl$u20$core..convert..From$LT$$RF$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$$u20$for$u20$ruff_python_ast..generated..ExprRef$GT$4from17h0d57f84169259fbfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %40)
   %42 = extractvalue { i64, ptr } %41, 0
@@ -10324,7 +10324,7 @@ default.unreachable25:                            ; preds = %5
   br i1 %.not, label %33, label %25
 
 .sink.split:                                      ; preds = %7, %5, %30, %11, %10, %15, %5, %5, %5
-  %.sink28 = phi i64 [ 32, %11 ], [ 8, %5 ], [ 16, %30 ], [ 8, %5 ], [ 8, %5 ], [ 40, %15 ], [ 8, %5 ], [ 16, %10 ], [ 16, %7 ]
+  %.sink28 = phi i64 [ 40, %15 ], [ 16, %10 ], [ 8, %5 ], [ 8, %5 ], [ 8, %5 ], [ 32, %11 ], [ 16, %30 ], [ 8, %5 ], [ 16, %7 ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %.sink28
   %24 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
   br label %25

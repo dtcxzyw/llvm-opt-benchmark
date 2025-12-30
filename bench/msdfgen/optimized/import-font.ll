@@ -623,7 +623,7 @@ if.end9:                                          ; preds = %if.then6, %if.end4
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end9
-  %retval.0 = phi i1 [ false, %entry ], [ %tobool13.not, %if.end9 ], [ false, %if.end ]
+  %retval.0 = phi i1 [ %tobool13.not, %if.end9 ], [ false, %entry ], [ false, %if.end ]
   ret i1 %retval.0
 }
 
@@ -665,7 +665,7 @@ if.end9.i:                                        ; preds = %if.then6.i, %if.end
   br label %_ZN7msdfgen9loadGlyphERNS_5ShapeEPNS_10FontHandleENS_10GlyphIndexEPd.exit
 
 _ZN7msdfgen9loadGlyphERNS_5ShapeEPNS_10FontHandleENS_10GlyphIndexEPd.exit: ; preds = %if.end.i, %if.end9.i
-  %retval.0.i = phi i1 [ false, %if.end.i ], [ %tobool13.not.i, %if.end9.i ]
+  %retval.0.i = phi i1 [ %tobool13.not.i, %if.end9.i ], [ false, %if.end.i ]
   ret i1 %retval.0.i
 }
 
@@ -753,7 +753,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %4 = load ptr, ptr %font, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %call5.i.i.i.i2.i.i9 to i64
@@ -951,7 +951,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   br label %return
 
 return:                                           ; preds = %entry, %if.then, %for.end
-  %retval.0 = phi i1 [ false, %if.then ], [ true, %for.end ], [ false, %entry ]
+  %retval.0 = phi i1 [ true, %for.end ], [ false, %if.then ], [ false, %entry ]
   ret i1 %retval.0
 }
 

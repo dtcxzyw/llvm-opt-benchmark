@@ -1440,7 +1440,7 @@ _ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE12emplace_backIJRiS5_S5_iEE
   ret void
 
 68:                                               ; preds = %.loopexit27, %.loopexit.split-lp, %27, %66, %25, %23
-  %.pn.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit27 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ], [ %28, %27 ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit27 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %69 = load ptr, ptr %7, align 8, !tbaa !54
   %.not.i13 = icmp eq ptr %69, null
   br i1 %.not.i13, label %_ZNSt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3gmx24AnalysisDataStorageFrameEEclEPS1_.exit.i
@@ -2816,7 +2816,7 @@ _ZNK3gmx8internal23AnalysisDataStorageImpl22computeStorageLocationEi.exit.thread
           to label %_ZN3gmx8internal23AnalysisDataStorageImpl15getFrameBuilderEv.exit unwind label %86, !noalias !161
 
 common.resume:                                    ; preds = %61, %59, %86
-  %common.resume.op = phi { ptr, i32 } [ %87, %86 ], [ %60, %59 ], [ %.pn.pn44, %61 ]
+  %common.resume.op = phi { ptr, i32 } [ %87, %86 ], [ %.pn.pn44, %61 ], [ %60, %59 ]
   resume { ptr, i32 } %common.resume.op
 
 86:                                               ; preds = %83

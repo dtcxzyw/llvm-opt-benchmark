@@ -438,7 +438,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6StatusC
   br label %84
 
 81:                                               ; preds = %57, %59
-  %.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %60, %59 ]
+  %.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %58, %57 ]
   %82 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !63
   %.not.i.i25 = icmp eq ptr %83, null

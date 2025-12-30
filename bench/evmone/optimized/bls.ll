@@ -1188,7 +1188,7 @@ _ZNSt6vectorIPKhSaIS1_EE12emplace_backIJRA32_S0_EEERS1_DpOT_.exit: ; preds = %_Z
   %.not = icmp eq ptr %114, %24
   br i1 %.not, label %.critedge, label %26, !llvm.loop !74
 
-115:                                              ; preds = %32, %26
+115:                                              ; preds = %26, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %5) #14
   br label %138
 
@@ -2464,7 +2464,7 @@ _ZN6evmone6crypto3bls12_GLOBAL__N_111validate_p2EPKhS4_.exit: ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %4) #14, !noalias !142
   br label %.thread20
 
-.thread20:                                        ; preds = %42, %39, %.thread20.sink.split
+.thread20:                                        ; preds = %39, %42, %.thread20.sink.split
   call void @llvm.lifetime.end.p0(ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8) #14
   br label %59

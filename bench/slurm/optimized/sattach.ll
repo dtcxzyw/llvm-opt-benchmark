@@ -263,7 +263,7 @@ _mpir_init.exit:                                  ; preds = %53
   br i1 %exitcond27.not.i, label %_nodeid_from_layout.exit, label %.preheader.i, !llvm.loop !13
 
 _nodeid_from_layout.exit:                         ; preds = %._crit_edge.i, %70, %87, %91
-  %.015.i = phi i32 [ %88, %87 ], [ %88, %91 ], [ -1, %70 ], [ -1, %._crit_edge.i ]
+  %.015.i = phi i32 [ %88, %91 ], [ %88, %87 ], [ -1, %70 ], [ -1, %._crit_edge.i ]
   store i32 %.015.i, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 84), align 4
   br label %92
 

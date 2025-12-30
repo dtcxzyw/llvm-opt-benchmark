@@ -192,7 +192,7 @@ ByteReverseWords.exit71.loopexit72:               ; preds = %.lr.ph.i62
   br label %60
 
 60:                                               ; preds = %._crit_edge, %58, %10, %8, %3, %5
-  %.0 = phi i32 [ -132, %10 ], [ -173, %3 ], [ 0, %8 ], [ -173, %5 ], [ 0, %58 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ -173, %5 ], [ -173, %3 ], [ 0, %8 ], [ -132, %10 ], [ 0, %58 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

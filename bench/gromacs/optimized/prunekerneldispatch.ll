@@ -173,10 +173,10 @@ define internal void @_ZN3gmx11PairlistSet19dispatchPruneKernelEPKNS_16nbnxn_ato
   ]
 
 .invoke:                                          ; preds = %23, %33, %34
-  %35 = phi ptr [ @.str.3, %33 ], [ @.str.1, %34 ], [ @.str.4, %23 ]
-  %36 = phi ptr [ @__PRETTY_FUNCTION__._ZZN3gmxL28getClusterDistanceKernelTypeENS_12PairlistTypeERKNS_16nbnxn_atomdata_tEENKUlvE_clEv, %33 ], [ @__PRETTY_FUNCTION__._ZZN3gmxL28getClusterDistanceKernelTypeENS_12PairlistTypeERKNS_16nbnxn_atomdata_tEENKUlvE_clEv, %34 ], [ @"__PRETTY_FUNCTION__._ZZN3gmx11PairlistSet19dispatchPruneKernelEPKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEEENK3$_0clEv", %23 ]
-  %37 = phi ptr [ @.str.2, %33 ], [ @.str.2, %34 ], [ @.str.5, %23 ]
-  %38 = phi i32 [ 116, %33 ], [ 90, %34 ], [ 107, %23 ]
+  %35 = phi ptr [ @.str.1, %34 ], [ @.str.3, %33 ], [ @.str.4, %23 ]
+  %36 = phi ptr [ @__PRETTY_FUNCTION__._ZZN3gmxL28getClusterDistanceKernelTypeENS_12PairlistTypeERKNS_16nbnxn_atomdata_tEENKUlvE_clEv, %34 ], [ @__PRETTY_FUNCTION__._ZZN3gmxL28getClusterDistanceKernelTypeENS_12PairlistTypeERKNS_16nbnxn_atomdata_tEENKUlvE_clEv, %33 ], [ @"__PRETTY_FUNCTION__._ZZN3gmx11PairlistSet19dispatchPruneKernelEPKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEEENK3$_0clEv", %23 ]
+  %37 = phi ptr [ @.str.2, %34 ], [ @.str.2, %33 ], [ @.str.5, %23 ]
+  %38 = phi i32 [ 90, %34 ], [ 116, %33 ], [ 107, %23 ]
   invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, i32 noundef %38) #9
           to label %.cont unwind label %.loopexit.split-lp
 

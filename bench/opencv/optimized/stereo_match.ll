@@ -3273,7 +3273,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit707:                 ; preds = %1064, %1067
   br label %1094
 
 1094:                                             ; preds = %1092, %1090
-  %.pn338 = phi { ptr, i32 } [ %1091, %1090 ], [ %1093, %1092 ]
+  %.pn338 = phi { ptr, i32 } [ %1093, %1092 ], [ %1091, %1090 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %128) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %127) #20
@@ -3617,7 +3617,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit739: ; preds = %11
   br label %1203
 
 1197:                                             ; preds = %.loopexit, %.loopexit.split-lp, %1191, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit736, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit733, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit730, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit727
-  %.pn353 = phi { ptr, i32 } [ %.pn340, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit727 ], [ %1192, %1191 ], [ %.pn347.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit736 ], [ %.pn345, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit733 ], [ %.pn342.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit730 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn353 = phi { ptr, i32 } [ %1192, %1191 ], [ %.pn347.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit736 ], [ %.pn345, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit733 ], [ %.pn342.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit730 ], [ %.pn340, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit727 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %1198 = load ptr, ptr %134, align 8, !tbaa !15
   %1199 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %1200 = icmp eq ptr %1198, %1199
@@ -3674,7 +3674,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit742: ; preds = %11
   br label %1208
 
 1207:                                             ; preds = %959, %1205, %961, %957, %840
-  %.pn353.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn307.pn.pn.pn.pn.pn, %840 ], [ %958, %957 ], [ %960, %959 ], [ %.pn353.pn.pn.pn.pn.pn.pn, %1205 ], [ %962, %961 ]
+  %.pn353.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %958, %957 ], [ %.pn307.pn.pn.pn.pn.pn, %840 ], [ %960, %959 ], [ %.pn353.pn.pn.pn.pn.pn.pn, %1205 ], [ %962, %961 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %53) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
@@ -3690,7 +3690,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit742: ; preds = %11
   br label %1212
 
 1209:                                             ; preds = %1207, %652, %618
-  %.pn353.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %619, %618 ], [ %.pn269, %652 ], [ %.pn353.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1207 ]
+  %.pn353.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn269, %652 ], [ %619, %618 ], [ %.pn353.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1207 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %44) #20
   br label %1210
 
@@ -3706,7 +3706,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit742: ; preds = %11
   br label %1271
 
 1212:                                             ; preds = %579, %573, %174, %570, %1208, %605, %601, %594, %588, %584
-  %.0104 = phi i32 [ 0, %174 ], [ 1, %570 ], [ -1, %573 ], [ -1, %584 ], [ -1, %588 ], [ -1, %594 ], [ -1, %601 ], [ %.1, %1208 ], [ -1, %605 ], [ -1, %579 ]
+  %.0104 = phi i32 [ -1, %584 ], [ -1, %588 ], [ -1, %594 ], [ -1, %601 ], [ %.1, %1208 ], [ -1, %605 ], [ 0, %174 ], [ 1, %570 ], [ -1, %573 ], [ -1, %579 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %1213 = getelementptr inbounds nuw i8, ptr %15, i64 8

@@ -1312,13 +1312,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit259: ; preds = %24
   %256 = icmp slt i32 %255, %68
   br i1 %256, label %.outer368.backedge, label %257
 
+.outer368.backedge:                               ; preds = %254, %257
+  br label %.outer368, !llvm.loop !62
+
 257:                                              ; preds = %254
   %258 = srem i32 %255, %75
   %.not = icmp eq i32 %258, 0
   br i1 %.not, label %259, label %.outer368.backedge
-
-.outer368.backedge:                               ; preds = %257, %254
-  br label %.outer368, !llvm.loop !62
 
 259:                                              ; preds = %257
   %260 = invoke noundef i64 @_ZN2cv12getTickCountEv()
@@ -1592,7 +1592,7 @@ _ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EED2Ev.exit: ; preds =
   br i1 %350, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !98
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %347, %345, %341, %337, %331
-  %.0.i.i = phi i32 [ %346, %345 ], [ %338, %337 ], [ %342, %341 ], [ 1, %331 ], [ %349, %347 ]
+  %.0.i.i = phi i32 [ %338, %337 ], [ %342, %341 ], [ %346, %345 ], [ 1, %331 ], [ %349, %347 ]
   %.lobit.i = lshr i32 %333, 31
   %351 = add i32 %.0.i.i, %.lobit.i
   %352 = zext i32 %351 to i64
@@ -1962,7 +1962,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit291
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit291: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i289
-  %.pn118.pn = phi { ptr, i32 } [ %.pn118, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i289 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %.pn118, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288 ]
+  %.pn118.pn = phi { ptr, i32 } [ %.pn118, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i289 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn118, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288 ]
   %478 = load ptr, ptr %39, align 8, !tbaa !48
   %479 = icmp eq ptr %478, %210
   br i1 %479, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit294, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i292
@@ -2090,7 +2090,7 @@ _ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EED2Ev.exit310: ; pred
   br i1 %501, label %.outer, label %.loopexit367
 
 512:                                              ; preds = %329, %484, %496, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit303, %308, %300, %294
-  %.pn126.pn = phi { ptr, i32 } [ %309, %308 ], [ %295, %294 ], [ %497, %496 ], [ %.pn113.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit303 ], [ %.pn111, %300 ], [ %.pn121.pn.pn, %484 ], [ %330, %329 ]
+  %.pn126.pn = phi { ptr, i32 } [ %309, %308 ], [ %497, %496 ], [ %.pn113.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit303 ], [ %.pn111, %300 ], [ %295, %294 ], [ %.pn121.pn.pn, %484 ], [ %330, %329 ]
   call void @_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %30) #26
   br label %513
 
@@ -2100,8 +2100,8 @@ _ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EED2Ev.exit310: ; pred
   br label %531
 
 .loopexit367:                                     ; preds = %_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EED2Ev.exit310, %251, %230
-  %.185 = phi i64 [ %.084.ph, %251 ], [ %.084.ph, %230 ], [ %274, %_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EED2Ev.exit310 ]
-  %.183 = phi i32 [ %.082.ph370, %251 ], [ %.082.ph370, %230 ], [ %255, %_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EED2Ev.exit310 ]
+  %.185 = phi i64 [ %.084.ph, %230 ], [ %.084.ph, %251 ], [ %274, %_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EED2Ev.exit310 ]
+  %.183 = phi i32 [ %.082.ph370, %230 ], [ %.082.ph370, %251 ], [ %255, %_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EED2Ev.exit310 ]
   %514 = invoke noundef double @_ZN2cv16getTickFrequencyEv()
           to label %515 unwind label %529
 
@@ -2979,8 +2979,8 @@ _ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EE9push_backERKS4_.exi
   %.pre = load i32, ptr %48, align 8, !tbaa !154
   br label %_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EEC2Ev.exit
 
-_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EEC2Ev.exit: ; preds = %._crit_edge.i.i, %127, %135, %123, %115, %109, %76, %_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EE9push_backERKS4_.exit
-  %152 = phi i32 [ %77, %._crit_edge.i.i ], [ %77, %109 ], [ %77, %76 ], [ %.pre, %_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EE9push_backERKS4_.exit ], [ %77, %115 ], [ %77, %123 ], [ %77, %135 ], [ %77, %127 ]
+_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EEC2Ev.exit: ; preds = %._crit_edge.i.i, %127, %135, %115, %123, %109, %76, %_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EE9push_backERKS4_.exit
+  %152 = phi i32 [ %77, %109 ], [ %77, %76 ], [ %.pre, %_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EE9push_backERKS4_.exit ], [ %77, %123 ], [ %77, %115 ], [ %77, %135 ], [ %77, %127 ], [ %77, %._crit_edge.i.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %153 = sext i32 %152 to i64
   %154 = icmp slt i64 %indvars.iv.next, %153
@@ -3526,7 +3526,7 @@ _ZSt4copyIPPN2cv6detail8tracking3tbm13TrackedObjectES6_ET0_T_S8_S7_.exit26: ; pr
   br label %_ZSt4copyIPPN2cv6detail8tracking3tbm13TrackedObjectES6_ET0_T_S8_S7_.exit
 
 _ZSt4copyIPPN2cv6detail8tracking3tbm13TrackedObjectES6_ET0_T_S8_S7_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN2cv6detail8tracking3tbm13TrackedObjectES6_ET0_T_S8_S7_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN2cv6detail8tracking3tbm13TrackedObjectES6_ET0_T_S8_S7_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN2cv6detail8tracking3tbm13TrackedObjectES6_ET0_T_S8_S7_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !75
   %57 = load ptr, ptr %.0, align 8, !tbaa !80
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24

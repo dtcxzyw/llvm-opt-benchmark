@@ -2800,7 +2800,7 @@ define internal noundef zeroext i1 @dissect_giop_heur(ptr noundef %0, ptr nounde
   br label %dissect_giop_tcp.exit
 
 dissect_giop_tcp.exit:                            ; preds = %.sink.split.i, %27, %33, %7, %4
-  %.0 = phi i1 [ false, %7 ], [ false, %4 ], [ true, %33 ], [ true, %27 ], [ true, %.sink.split.i ]
+  %.0 = phi i1 [ false, %4 ], [ false, %7 ], [ true, %33 ], [ true, %27 ], [ true, %.sink.split.i ]
   ret i1 %.0
 }
 
@@ -4405,7 +4405,7 @@ get_CDR_ulong.exit:                               ; preds = %113, %115
   br label %.critedge
 
 .critedge:                                        ; preds = %101, %104, %95, %175, %93, %44
-  %.0 = phi i32 [ %56, %44 ], [ 8, %93 ], [ 8, %95 ], [ %176, %175 ], [ 8, %104 ], [ 8, %101 ]
+  %.0 = phi i32 [ %56, %44 ], [ 8, %93 ], [ %176, %175 ], [ 8, %95 ], [ 8, %104 ], [ 8, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -6619,7 +6619,7 @@ add_sub_handle_repoid_to_comp_req_list.exit:      ; preds = %42, %45, %find_fn_i
   br label %get_modname_from_repoid.exit.thread
 
 get_modname_from_repoid.exit.thread:              ; preds = %7, %26, %51, %55, %add_sub_handle_repoid_to_comp_req_list.exit, %22, %get_modname_from_repoid.exit
-  %.0 = phi i1 [ false, %22 ], [ false, %get_modname_from_repoid.exit ], [ %60, %55 ], [ false, %51 ], [ false, %add_sub_handle_repoid_to_comp_req_list.exit ], [ false, %26 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %get_modname_from_repoid.exit ], [ false, %22 ], [ %60, %55 ], [ false, %51 ], [ false, %add_sub_handle_repoid_to_comp_req_list.exit ], [ false, %26 ], [ false, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
@@ -6636,23 +6636,23 @@ define internal fastcc noundef zeroext i1 @try_heuristic_giop_dissector(ptr noun
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %13 = load i8, ptr %12, align 1
   switch i8 %13, label %is_big_endian.exit.thread [
-    i8 2, label %is_big_endian.exit
-    i8 1, label %is_big_endian.exit
-    i8 0, label %14
+    i8 2, label %14
+    i8 1, label %14
+    i8 0, label %is_big_endian.exit
   ]
 
-14:                                               ; preds = %11
+14:                                               ; preds = %11, %11
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %16 = load i8, ptr %15, align 2
-  %.not.i = icmp eq i8 %16, 0
-  br i1 %.not.i, label %20, label %is_big_endian.exit.thread
-
-is_big_endian.exit:                               ; preds = %11, %11
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %18 = load i8, ptr %17, align 2
-  %19 = and i8 %18, 1
-  %.not3.i = icmp eq i8 %19, 0
+  %17 = and i8 %16, 1
+  %.not3.i = icmp eq i8 %17, 0
   br i1 %.not3.i, label %20, label %is_big_endian.exit.thread
+
+is_big_endian.exit:                               ; preds = %11
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %19 = load i8, ptr %18, align 2
+  %.not.i = icmp eq i8 %19, 0
+  br i1 %.not.i, label %20, label %is_big_endian.exit.thread
 
 20:                                               ; preds = %14, %is_big_endian.exit
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6747,7 +6747,7 @@ is_big_endian.exit.thread:                        ; preds = %11, %14, %is_big_en
   br label %69
 
 69:                                               ; preds = %61, %41, %6, %.critedge._crit_edge
-  %.0 = phi i1 [ false, %6 ], [ true, %61 ], [ false, %.critedge._crit_edge ], [ false, %41 ]
+  %.0 = phi i1 [ true, %61 ], [ false, %.critedge._crit_edge ], [ false, %6 ], [ false, %41 ]
   ret i1 %.0
 }
 
@@ -7391,19 +7391,19 @@ define internal i32 @get_giop_pdu_len(ptr readnone captures(none) %0, ptr nounde
   %12 = add i32 %2, 6
   %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %12)
   switch i8 %11, label %is_big_endian.exit.thread [
-    i8 2, label %is_big_endian.exit
-    i8 1, label %is_big_endian.exit
-    i8 0, label %14
+    i8 2, label %14
+    i8 1, label %14
+    i8 0, label %is_big_endian.exit
   ]
 
-14:                                               ; preds = %9
-  %.not.i = icmp eq i8 %13, 0
-  br i1 %.not.i, label %16, label %is_big_endian.exit.thread
-
-is_big_endian.exit:                               ; preds = %9, %9
+14:                                               ; preds = %9, %9
   %15 = and i8 %13, 1
   %.not3.i = icmp eq i8 %15, 0
   br i1 %.not3.i, label %16, label %is_big_endian.exit.thread
+
+is_big_endian.exit:                               ; preds = %9
+  %.not.i = icmp eq i8 %13, 0
+  br i1 %.not.i, label %16, label %is_big_endian.exit.thread
 
 16:                                               ; preds = %14, %is_big_endian.exit
   %17 = add i32 %2, 8
@@ -7424,7 +7424,7 @@ is_big_endian.exit.thread:                        ; preds = %9, %14, %is_big_end
   br label %25
 
 25:                                               ; preds = %21, %7, %4
-  %.014 = phi i32 [ %spec.select, %21 ], [ 0, %4 ], [ 0, %7 ]
+  %.014 = phi i32 [ 0, %4 ], [ 0, %7 ], [ %spec.select, %21 ]
   ret i32 %.014
 }
 

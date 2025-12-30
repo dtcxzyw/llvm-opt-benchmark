@@ -65,7 +65,7 @@ define hidden range(i32 -5, 1) i32 @handleSocketError(ptr noundef %0, i32 nounde
   br label %7
 
 7:                                                ; preds = %6, %5, %4, %3, %2
-  %.0.i = phi ptr [ @.str.3, %6 ], [ @.str.17, %5 ], [ @.str.15, %3 ], [ @.str.16, %4 ], [ @.str.14, %2 ]
+  %.0.i = phi ptr [ @.str.3, %6 ], [ @.str.15, %3 ], [ @.str.16, %4 ], [ @.str.17, %5 ], [ @.str.14, %2 ]
   %8 = tail call ptr @__errno_location() #7
   store i32 %1, ptr %8, align 4
   tail call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.18) #8
@@ -209,7 +209,7 @@ define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_Net_socket0(ptr noundef %
   br label %26
 
 26:                                               ; preds = %25, %24, %23, %22, %19
-  %.0.i.i = phi ptr [ @.str.3, %25 ], [ @.str.17, %24 ], [ @.str.15, %22 ], [ @.str.16, %23 ], [ @.str.14, %19 ]
+  %.0.i.i = phi ptr [ @.str.3, %25 ], [ @.str.15, %22 ], [ @.str.16, %23 ], [ @.str.17, %24 ], [ @.str.14, %19 ]
   tail call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
@@ -300,7 +300,7 @@ define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_Net_socket0(ptr noundef %
   br label %handleSocketError.exit
 
 handleSocketError.exit:                           ; preds = %41, %26, %19, %51, %60, %57, %63, %55, %49, %39, %33
-  %.0 = phi i32 [ %17, %51 ], [ -1, %33 ], [ -1, %39 ], [ -1, %49 ], [ -1, %55 ], [ -1, %63 ], [ %17, %57 ], [ %17, %60 ], [ 0, %19 ], [ -5, %26 ], [ %17, %41 ]
+  %.0 = phi i32 [ -1, %33 ], [ -1, %39 ], [ -1, %49 ], [ -1, %55 ], [ -1, %63 ], [ %17, %57 ], [ %17, %60 ], [ %17, %51 ], [ 0, %19 ], [ -5, %26 ], [ %17, %41 ]
   ret i32 %.0
 }
 
@@ -363,7 +363,7 @@ define void @Java_sun_nio_ch_Net_bind0(ptr noundef %0, ptr noundef readnone capt
   br label %22
 
 22:                                               ; preds = %21, %20, %19, %18, %15
-  %.0.i.i = phi ptr [ @.str.3, %21 ], [ @.str.17, %20 ], [ @.str.15, %18 ], [ @.str.16, %19 ], [ @.str.14, %15 ]
+  %.0.i.i = phi ptr [ @.str.3, %21 ], [ @.str.15, %18 ], [ @.str.16, %19 ], [ @.str.17, %20 ], [ @.str.14, %15 ]
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
@@ -412,7 +412,7 @@ define void @Java_sun_nio_ch_Net_listen(ptr noundef %0, ptr noundef readnone cap
   br label %15
 
 15:                                               ; preds = %14, %13, %12, %11, %8
-  %.0.i.i = phi ptr [ @.str.3, %14 ], [ @.str.17, %13 ], [ @.str.15, %11 ], [ @.str.16, %12 ], [ @.str.14, %8 ]
+  %.0.i.i = phi ptr [ @.str.3, %14 ], [ @.str.15, %11 ], [ @.str.16, %12 ], [ @.str.17, %13 ], [ @.str.14, %8 ]
   tail call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
@@ -471,12 +471,12 @@ define range(i32 -5, 2) i32 @Java_sun_nio_ch_Net_connect0(ptr noundef %0, ptr no
   br label %22
 
 22:                                               ; preds = %14, %21, %20, %19, %18
-  %.0.i.i = phi ptr [ @.str.3, %21 ], [ @.str.17, %20 ], [ @.str.15, %18 ], [ @.str.16, %19 ], [ @.str.14, %14 ]
+  %.0.i.i = phi ptr [ @.str.3, %21 ], [ @.str.15, %18 ], [ @.str.16, %19 ], [ @.str.17, %20 ], [ @.str.14, %14 ]
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 handleSocketError.exit:                           ; preds = %14, %22, %10, %6, %17
-  %.0 = phi i32 [ -2, %14 ], [ -5, %6 ], [ -3, %17 ], [ 1, %10 ], [ -5, %22 ]
+  %.0 = phi i32 [ -3, %17 ], [ -5, %6 ], [ -2, %14 ], [ 1, %10 ], [ -5, %22 ]
   ret i32 %.0
 }
 
@@ -538,7 +538,7 @@ define range(i32 -5, 2) i32 @Java_sun_nio_ch_Net_accept(ptr noundef %0, ptr noun
   br label %33
 
 33:                                               ; preds = %13, %.loopexit, %20, %17, %29, %16
-  %.0 = phi i32 [ 1, %29 ], [ -2, %.loopexit ], [ -5, %16 ], [ -5, %20 ], [ -5, %17 ], [ -3, %13 ]
+  %.0 = phi i32 [ -5, %16 ], [ 1, %29 ], [ -5, %17 ], [ -5, %20 ], [ -2, %.loopexit ], [ -3, %13 ]
   ret i32 %.0
 }
 
@@ -588,7 +588,7 @@ define i32 @Java_sun_nio_ch_Net_localPort(ptr noundef %0, ptr noundef readnone c
   br label %16
 
 16:                                               ; preds = %15, %14, %13, %12, %9
-  %.0.i.i = phi ptr [ @.str.3, %15 ], [ @.str.17, %14 ], [ @.str.15, %12 ], [ @.str.16, %13 ], [ @.str.14, %9 ]
+  %.0.i.i = phi ptr [ @.str.3, %15 ], [ @.str.15, %12 ], [ @.str.16, %13 ], [ @.str.17, %14 ], [ @.str.14, %9 ]
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
@@ -645,7 +645,7 @@ define ptr @Java_sun_nio_ch_Net_localInetAddress(ptr noundef %0, ptr noundef rea
   br label %17
 
 17:                                               ; preds = %16, %15, %14, %13, %10
-  %.0.i.i = phi ptr [ @.str.3, %16 ], [ @.str.17, %15 ], [ @.str.15, %13 ], [ @.str.16, %14 ], [ @.str.14, %10 ]
+  %.0.i.i = phi ptr [ @.str.3, %16 ], [ @.str.15, %13 ], [ @.str.16, %14 ], [ @.str.17, %15 ], [ @.str.14, %10 ]
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
@@ -696,7 +696,7 @@ define i32 @Java_sun_nio_ch_Net_remotePort(ptr noundef %0, ptr noundef readnone 
   br label %16
 
 16:                                               ; preds = %15, %14, %13, %12, %9
-  %.0.i.i = phi ptr [ @.str.3, %15 ], [ @.str.17, %14 ], [ @.str.15, %12 ], [ @.str.16, %13 ], [ @.str.14, %9 ]
+  %.0.i.i = phi ptr [ @.str.3, %15 ], [ @.str.15, %12 ], [ @.str.16, %13 ], [ @.str.17, %14 ], [ @.str.14, %9 ]
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
@@ -751,7 +751,7 @@ define ptr @Java_sun_nio_ch_Net_remoteInetAddress(ptr noundef %0, ptr noundef re
   br label %17
 
 17:                                               ; preds = %16, %15, %14, %13, %10
-  %.0.i.i = phi ptr [ @.str.3, %16 ], [ @.str.17, %15 ], [ @.str.15, %13 ], [ @.str.16, %14 ], [ @.str.14, %10 ]
+  %.0.i.i = phi ptr [ @.str.3, %16 ], [ @.str.15, %13 ], [ @.str.16, %14 ], [ @.str.17, %15 ], [ @.str.14, %10 ]
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
@@ -989,7 +989,7 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop4(ptr noundef %0, ptr
   br label %32
 
 32:                                               ; preds = %27, %31, %30, %29, %28, %._crit_edge
-  %.0.i = phi ptr [ @.str.3, %31 ], [ @.str.17, %30 ], [ @.str.15, %28 ], [ @.str.16, %29 ], [ @.str.14, %._crit_edge ], [ @.str.14, %27 ]
+  %.0.i = phi ptr [ @.str.3, %31 ], [ @.str.15, %28 ], [ @.str.16, %29 ], [ @.str.17, %30 ], [ @.str.14, %._crit_edge ], [ @.str.14, %27 ]
   call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.12) #8
   br label %handleSocketErrorWithMessage.exit
 
@@ -1068,7 +1068,7 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_blockOrUnblock4(ptr noundef %0,
   br label %24
 
 24:                                               ; preds = %19, %23, %22, %21, %20, %._crit_edge
-  %.0.i.i = phi ptr [ @.str.3, %23 ], [ @.str.17, %22 ], [ @.str.15, %20 ], [ @.str.16, %21 ], [ @.str.14, %._crit_edge ], [ @.str.14, %19 ]
+  %.0.i.i = phi ptr [ @.str.3, %23 ], [ @.str.15, %20 ], [ @.str.16, %21 ], [ @.str.17, %22 ], [ @.str.14, %._crit_edge ], [ @.str.14, %19 ]
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
@@ -1174,7 +1174,7 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop6(ptr noundef %0, ptr
   br label %39
 
 39:                                               ; preds = %34, %38, %37, %36, %35, %._crit_edge
-  %.0.i = phi ptr [ @.str.3, %38 ], [ @.str.17, %37 ], [ @.str.15, %35 ], [ @.str.16, %36 ], [ @.str.14, %._crit_edge ], [ @.str.14, %34 ]
+  %.0.i = phi ptr [ @.str.3, %38 ], [ @.str.15, %35 ], [ @.str.16, %36 ], [ @.str.17, %37 ], [ @.str.14, %._crit_edge ], [ @.str.14, %34 ]
   call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.12) #8
   br label %handleSocketErrorWithMessage.exit
 
@@ -1257,7 +1257,7 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_blockOrUnblock6(ptr noundef %0,
   br label %29
 
 29:                                               ; preds = %24, %28, %27, %26, %25, %._crit_edge
-  %.0.i.i = phi ptr [ @.str.3, %28 ], [ @.str.17, %27 ], [ @.str.15, %25 ], [ @.str.16, %26 ], [ @.str.14, %._crit_edge ], [ @.str.14, %24 ]
+  %.0.i.i = phi ptr [ @.str.3, %28 ], [ @.str.15, %25 ], [ @.str.16, %26 ], [ @.str.17, %27 ], [ @.str.14, %._crit_edge ], [ @.str.14, %24 ]
   call void @JNU_ThrowByNameWithLastError(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
@@ -1307,7 +1307,7 @@ define void @Java_sun_nio_ch_Net_setInterface4(ptr noundef %0, ptr noundef readn
   br label %17
 
 17:                                               ; preds = %16, %15, %14, %13, %10
-  %.0.i.i = phi ptr [ @.str.3, %16 ], [ @.str.17, %15 ], [ @.str.15, %13 ], [ @.str.16, %14 ], [ @.str.14, %10 ]
+  %.0.i.i = phi ptr [ @.str.3, %16 ], [ @.str.15, %13 ], [ @.str.16, %14 ], [ @.str.17, %15 ], [ @.str.14, %10 ]
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
@@ -1353,7 +1353,7 @@ define i32 @Java_sun_nio_ch_Net_getInterface4(ptr noundef %0, ptr noundef readno
   br label %16
 
 16:                                               ; preds = %15, %14, %13, %12, %9
-  %.0.i.i = phi ptr [ @.str.3, %15 ], [ @.str.17, %14 ], [ @.str.15, %12 ], [ @.str.16, %13 ], [ @.str.14, %9 ]
+  %.0.i.i = phi ptr [ @.str.3, %15 ], [ @.str.15, %12 ], [ @.str.16, %13 ], [ @.str.17, %14 ], [ @.str.14, %9 ]
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
@@ -1407,7 +1407,7 @@ define void @Java_sun_nio_ch_Net_setInterface6(ptr noundef %0, ptr noundef readn
   br label %16
 
 16:                                               ; preds = %15, %14, %13, %12, %9
-  %.0.i.i = phi ptr [ @.str.3, %15 ], [ @.str.17, %14 ], [ @.str.15, %12 ], [ @.str.16, %13 ], [ @.str.14, %9 ]
+  %.0.i.i = phi ptr [ @.str.3, %15 ], [ @.str.15, %12 ], [ @.str.16, %13 ], [ @.str.17, %14 ], [ @.str.14, %9 ]
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
@@ -1453,7 +1453,7 @@ define i32 @Java_sun_nio_ch_Net_getInterface6(ptr noundef %0, ptr noundef readno
   br label %16
 
 16:                                               ; preds = %15, %14, %13, %12, %9
-  %.0.i.i = phi ptr [ @.str.3, %15 ], [ @.str.17, %14 ], [ @.str.15, %12 ], [ @.str.16, %13 ], [ @.str.14, %9 ]
+  %.0.i.i = phi ptr [ @.str.3, %15 ], [ @.str.15, %12 ], [ @.str.16, %13 ], [ @.str.17, %14 ], [ @.str.14, %9 ]
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
@@ -1505,7 +1505,7 @@ define void @Java_sun_nio_ch_Net_shutdown(ptr noundef %0, ptr noundef readnone c
   br label %19
 
 19:                                               ; preds = %12, %18, %17, %16, %15
-  %.0.i.i = phi ptr [ @.str.3, %18 ], [ @.str.17, %17 ], [ @.str.15, %15 ], [ @.str.16, %16 ], [ @.str.14, %12 ]
+  %.0.i.i = phi ptr [ @.str.3, %18 ], [ @.str.15, %15 ], [ @.str.16, %16 ], [ @.str.17, %17 ], [ @.str.14, %12 ]
   tail call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
@@ -1568,7 +1568,7 @@ define i32 @Java_sun_nio_ch_Net_available(ptr noundef %0, ptr noundef readnone c
   br label %17
 
 17:                                               ; preds = %16, %15, %14, %13, %.critedge
-  %.0.i.i = phi ptr [ @.str.3, %16 ], [ @.str.17, %15 ], [ @.str.15, %13 ], [ @.str.16, %14 ], [ @.str.14, %.critedge ]
+  %.0.i.i = phi ptr [ @.str.3, %16 ], [ @.str.15, %13 ], [ @.str.16, %14 ], [ @.str.17, %15 ], [ @.str.14, %.critedge ]
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
@@ -1634,7 +1634,7 @@ define range(i32 -32768, 32768) i32 @Java_sun_nio_ch_Net_poll(ptr noundef %0, pt
   br label %24
 
 24:                                               ; preds = %17, %23, %22, %21, %20
-  %.0.i.i = phi ptr [ @.str.3, %23 ], [ @.str.17, %22 ], [ @.str.15, %20 ], [ @.str.16, %21 ], [ @.str.14, %17 ]
+  %.0.i.i = phi ptr [ @.str.3, %23 ], [ @.str.15, %20 ], [ @.str.16, %21 ], [ @.str.17, %22 ], [ @.str.14, %17 ]
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
@@ -1702,7 +1702,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_pollConnect(ptr noundef %0
   br label %24
 
 24:                                               ; preds = %23, %22, %21, %20, %18
-  %.0.i.i = phi ptr [ @.str.3, %23 ], [ @.str.17, %22 ], [ @.str.15, %20 ], [ @.str.16, %21 ], [ @.str.14, %18 ]
+  %.0.i.i = phi ptr [ @.str.3, %23 ], [ @.str.15, %20 ], [ @.str.16, %21 ], [ @.str.17, %22 ], [ @.str.14, %18 ]
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
@@ -1734,7 +1734,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_pollConnect(ptr noundef %0
   br label %31
 
 31:                                               ; preds = %25, %30, %29, %28, %27
-  %.0.i.i19 = phi ptr [ @.str.3, %30 ], [ @.str.17, %29 ], [ @.str.15, %27 ], [ @.str.16, %28 ], [ @.str.14, %25 ]
+  %.0.i.i19 = phi ptr [ @.str.3, %30 ], [ @.str.15, %27 ], [ @.str.16, %28 ], [ @.str.17, %29 ], [ @.str.14, %25 ]
   store i32 %26, ptr %15, align 4
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i19, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
@@ -1765,7 +1765,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_pollConnect(ptr noundef %0
   br label %handleSocketError.exit
 
 handleSocketError.exit:                           ; preds = %25, %31, %24, %18, %36, %38, %32, %42, %35
-  %.0 = phi i8 [ 0, %36 ], [ 0, %24 ], [ 0, %35 ], [ 0, %42 ], [ 1, %32 ], [ 0, %38 ], [ 0, %18 ], [ 0, %25 ], [ 0, %31 ]
+  %.0 = phi i8 [ 0, %35 ], [ 0, %42 ], [ 1, %32 ], [ 0, %38 ], [ 0, %36 ], [ 0, %18 ], [ 0, %24 ], [ 0, %31 ], [ 0, %25 ]
   ret i8 %.0
 }
 

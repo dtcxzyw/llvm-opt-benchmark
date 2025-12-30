@@ -307,8 +307,8 @@ _ZN3std4sync6poison4once4Once9call_once17h62f3a8850022ebfbE.exit23: ; preds = %"
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %12, %_ZN3std4sync6poison4once4Once9call_once17h62f3a8850022ebfbE.exit23
-  %.sroa.4.0 = phi i64 [ %8, %12 ], [ %spec.select21, %_ZN3std4sync6poison4once4Once9call_once17h62f3a8850022ebfbE.exit23 ], [ 1, %17 ]
-  %.sroa.0.0 = phi ptr [ %6, %12 ], [ %spec.select, %_ZN3std4sync6poison4once4Once9call_once17h62f3a8850022ebfbE.exit23 ], [ @anon.0361911e93eb831b3dd31be168eec7d8.11, %17 ]
+  %.sroa.4.0 = phi i64 [ %spec.select21, %_ZN3std4sync6poison4once4Once9call_once17h62f3a8850022ebfbE.exit23 ], [ %8, %12 ], [ 1, %17 ]
+  %.sroa.0.0 = phi ptr [ %spec.select, %_ZN3std4sync6poison4once4Once9call_once17h62f3a8850022ebfbE.exit23 ], [ %6, %12 ], [ @anon.0361911e93eb831b3dd31be168eec7d8.11, %17 ]
   %29 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %30 = insertvalue { ptr, i64 } %29, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %30

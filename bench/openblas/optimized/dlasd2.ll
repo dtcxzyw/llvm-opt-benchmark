@@ -813,8 +813,8 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %.loopexit492
 
 .loopexit492:                                     ; preds = %418, %._crit_edge564, %427
-  %431 = phi i32 [ %.pre641, %427 ], [ %392, %._crit_edge564 ], [ %392, %418 ]
-  %432 = phi i32 [ %.pre640, %427 ], [ %391, %._crit_edge564 ], [ %391, %418 ]
+  %431 = phi i32 [ %392, %._crit_edge564 ], [ %.pre641, %427 ], [ %392, %418 ]
+  %432 = phi i32 [ %391, %._crit_edge564 ], [ %.pre640, %427 ], [ %391, %418 ]
   %433 = icmp sgt i32 %432, %431
   br i1 %433, label %434, label %441
 

@@ -399,7 +399,7 @@ _ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit:   ; preds = %40, %43, %60, %.sin
   br i1 %.not17.i.i14, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit, label %.sink.split.i.i10
 
 .sink.split.i.i10:                                ; preds = %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit, %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit, %95
-  %.sink.i.i11 = phi ptr [ %72, %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit ], [ %72, %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit ], [ %96, %95 ]
+  %.sink.i.i11 = phi ptr [ %96, %95 ], [ %72, %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit ], [ %72, %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit ]
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %101 = load i32, ptr %100, align 4

@@ -1975,12 +1975,12 @@ proto_item_set_generated.exit492:                 ; preds = %proto_item_set_gene
   br label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %322, %360, %348, %116, %..loopexit_crit_edge, %.thread496, %84, %.thread579
-  %.1435 = phi ptr [ %.0434529, %116 ], [ %.0434529, %.thread579 ], [ %.0434529, %.thread496 ], [ %.0434529, %84 ], [ %.0434529, %..loopexit_crit_edge ], [ %353, %348 ], [ null, %360 ], [ %.0434529, %322 ]
-  %.1431 = phi i32 [ %.0430530, %116 ], [ %.0430530, %.thread579 ], [ %.0430530, %.thread496 ], [ %.0430530, %84 ], [ %.0430530, %..loopexit_crit_edge ], [ %338, %348 ], [ %338, %360 ], [ %.0430530, %322 ]
-  %.1427 = phi i32 [ %.0426531, %116 ], [ %.0426531, %.thread579 ], [ %.0426531, %.thread496 ], [ %.0426531, %84 ], [ %.0426531, %..loopexit_crit_edge ], [ %327, %348 ], [ %327, %360 ], [ %.0426531, %322 ]
-  %.1425 = phi i32 [ %.0424532, %116 ], [ %.0424532, %.thread579 ], [ %.0424532, %.thread496 ], [ %.0424532, %84 ], [ %.0424532, %..loopexit_crit_edge ], [ %318, %348 ], [ %318, %360 ], [ %318, %322 ]
-  %.1420 = phi i1 [ %.0419533, %116 ], [ %.0419533, %.thread579 ], [ %.0419533, %.thread496 ], [ %.0419533, %84 ], [ %.0419533, %..loopexit_crit_edge ], [ true, %348 ], [ %.4423, %360 ], [ %.0419533, %322 ]
-  %.1 = phi i32 [ %90, %116 ], [ %404, %.thread579 ], [ %.9, %.thread496 ], [ %82, %84 ], [ %284, %..loopexit_crit_edge ], [ %339, %348 ], [ %339, %360 ], [ %.pre, %322 ]
+  %.1435 = phi ptr [ %.0434529, %.thread579 ], [ %.0434529, %84 ], [ %.0434529, %.thread496 ], [ %.0434529, %..loopexit_crit_edge ], [ %.0434529, %116 ], [ %353, %348 ], [ null, %360 ], [ %.0434529, %322 ]
+  %.1431 = phi i32 [ %.0430530, %.thread579 ], [ %.0430530, %84 ], [ %.0430530, %.thread496 ], [ %.0430530, %..loopexit_crit_edge ], [ %.0430530, %116 ], [ %338, %348 ], [ %338, %360 ], [ %.0430530, %322 ]
+  %.1427 = phi i32 [ %.0426531, %.thread579 ], [ %.0426531, %84 ], [ %.0426531, %.thread496 ], [ %.0426531, %..loopexit_crit_edge ], [ %.0426531, %116 ], [ %327, %348 ], [ %327, %360 ], [ %.0426531, %322 ]
+  %.1425 = phi i32 [ %.0424532, %.thread579 ], [ %.0424532, %84 ], [ %.0424532, %.thread496 ], [ %.0424532, %..loopexit_crit_edge ], [ %.0424532, %116 ], [ %318, %348 ], [ %318, %360 ], [ %318, %322 ]
+  %.1420 = phi i1 [ %.0419533, %.thread579 ], [ %.0419533, %84 ], [ %.0419533, %.thread496 ], [ %.0419533, %..loopexit_crit_edge ], [ %.0419533, %116 ], [ true, %348 ], [ %.4423, %360 ], [ %.0419533, %322 ]
+  %.1 = phi i32 [ %404, %.thread579 ], [ %82, %84 ], [ %.9, %.thread496 ], [ %284, %..loopexit_crit_edge ], [ %90, %116 ], [ %339, %348 ], [ %339, %360 ], [ %.pre, %322 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not = icmp eq i32 %55, 0
   br i1 %.not, label %.loopexit512, label %25
@@ -2384,7 +2384,7 @@ define internal fastcc range(i32 -1, 2) i32 @valid_authenticator(ptr noundef rea
   br label %49
 
 49:                                               ; preds = %37, %23, %5, %44
-  %.0 = phi i32 [ -1, %23 ], [ -1, %5 ], [ %48, %44 ], [ -1, %37 ]
+  %.0 = phi i32 [ %48, %44 ], [ -1, %5 ], [ -1, %23 ], [ -1, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -3312,7 +3312,7 @@ proto_item_set_generated.exit285:                 ; preds = %346, %343, %proto_i
   br label %proto_item_set_generated.exit264
 
 proto_item_set_generated.exit264:                 ; preds = %proto_item_set_generated.exit285, %.thread292, %205, %208, %211
-  %.0217 = phi ptr [ %251, %proto_item_set_generated.exit285 ], [ %.1295, %205 ], [ %.1295, %208 ], [ %.1295, %.thread292 ], [ %.1295, %211 ]
+  %.0217 = phi ptr [ %.1295, %.thread292 ], [ %251, %proto_item_set_generated.exit285 ], [ %.1295, %205 ], [ %.1295, %208 ], [ %.1295, %211 ]
   %351 = getelementptr inbounds nuw i8, ptr %.0217, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %351, i64 16, i1 false)
   br label %proto_item_set_generated.exit264.thread
@@ -4012,7 +4012,7 @@ define internal range(i32 0, 2) i32 @radius_call_equal(ptr noundef readonly capt
   br label %61
 
 61:                                               ; preds = %26, %20, %20, %20, %23, %23, %23, %36, %43, %45, %.thread161.thread183.thread, %.thread161.thread183, %.thread161, %.thread108.thread.thread.thread, %.thread108.thread.thread, %.thread108.thread, %.thread108, %.thread104, %46, %.thread96, %37, %.thread88, %27, %33, %14, %.thread124
-  %.0 = phi i32 [ 0, %.thread124 ], [ 1, %14 ], [ 1, %20 ], [ 1, %23 ], [ 1, %26 ], [ 1, %27 ], [ 1, %.thread88 ], [ 1, %33 ], [ 1, %36 ], [ 1, %37 ], [ 1, %.thread96 ], [ 1, %43 ], [ 1, %45 ], [ 1, %46 ], [ 1, %.thread108 ], [ 1, %.thread104 ], [ 1, %.thread161.thread183.thread ], [ 1, %.thread108.thread.thread.thread ], [ 1, %.thread108.thread.thread ], [ 1, %.thread161 ], [ 1, %.thread161.thread183 ], [ 1, %20 ], [ 1, %20 ], [ 1, %23 ], [ 1, %23 ], [ 1, %.thread108.thread ]
+  %.0 = phi i32 [ 0, %.thread124 ], [ 1, %14 ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 1, %23 ], [ 1, %23 ], [ 1, %23 ], [ 1, %26 ], [ 1, %33 ], [ 1, %36 ], [ 1, %43 ], [ 1, %45 ], [ 1, %27 ], [ 1, %.thread88 ], [ 1, %37 ], [ 1, %.thread96 ], [ 1, %46 ], [ 1, %.thread104 ], [ 1, %.thread108 ], [ 1, %.thread108.thread ], [ 1, %.thread108.thread.thread ], [ 1, %.thread108.thread.thread.thread ], [ 1, %.thread161 ], [ 1, %.thread161.thread183 ], [ 1, %.thread161.thread183.thread ]
   ret i32 %.0
 }
 
@@ -4696,7 +4696,7 @@ define internal void @register_attrs(ptr readnone captures(none) %0, ptr noundef
   br label %129
 
 129:                                              ; preds = %52, %66, %34, %48, %75, %85, %95, %105, %116, %128, %111, %100, %90, %80, %70
-  %.075 = phi i32 [ 2, %128 ], [ 3, %34 ], [ 2, %70 ], [ 2, %75 ], [ 2, %80 ], [ 2, %85 ], [ 2, %90 ], [ 2, %95 ], [ 2, %100 ], [ 2, %105 ], [ 2, %111 ], [ 3, %116 ], [ 3, %48 ], [ 3, %66 ], [ 3, %52 ]
+  %.075 = phi i32 [ 2, %70 ], [ 2, %75 ], [ 2, %80 ], [ 2, %85 ], [ 2, %90 ], [ 2, %95 ], [ 2, %100 ], [ 2, %105 ], [ 2, %111 ], [ 3, %116 ], [ 2, %128 ], [ 3, %48 ], [ 3, %34 ], [ 3, %66 ], [ 3, %52 ]
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %131 = load i8, ptr %130, align 8, !range !6, !noundef !7
   %132 = trunc nuw i8 %131 to i1

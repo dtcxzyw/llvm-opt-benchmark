@@ -758,8 +758,8 @@ addresses_equal.exit:                             ; preds = %273, %266, %264, %2
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %302, %307, %287, %292
-  %.sink = phi i64 [ 32, %287 ], [ 32, %292 ], [ 48, %307 ], [ 48, %302 ]
-  %.pre256.sink = phi i32 [ %.pre257, %287 ], [ %.pre257, %292 ], [ %.pre256, %307 ], [ %.pre256, %302 ]
+  %.sink = phi i64 [ 32, %292 ], [ 32, %287 ], [ 48, %307 ], [ 48, %302 ]
+  %.pre256.sink = phi i32 [ %.pre257, %292 ], [ %.pre257, %287 ], [ %.pre256, %307 ], [ %.pre256, %302 ]
   %309 = getelementptr inbounds nuw i8, ptr %.0224, i64 %.sink
   %310 = load ptr, ptr %309, align 8
   %311 = load i32, ptr %198, align 4

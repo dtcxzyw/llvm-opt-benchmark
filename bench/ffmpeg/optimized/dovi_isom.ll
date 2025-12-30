@@ -110,7 +110,7 @@ define range(i32 -1094995529, 1) i32 @ff_isom_parse_dvcc_dvvc(ptr noundef %0, pt
   br label %72
 
 72:                                               ; preds = %7, %4, %53, %52
-  %.0 = phi i32 [ -1094995529, %4 ], [ 0, %53 ], [ -12, %52 ], [ -12, %7 ]
+  %.0 = phi i32 [ 0, %53 ], [ -12, %52 ], [ -1094995529, %4 ], [ -12, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

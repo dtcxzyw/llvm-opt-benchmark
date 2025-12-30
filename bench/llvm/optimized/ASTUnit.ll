@@ -2598,8 +2598,8 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i: ; preds = %4
   br label %_ZNK5clang7ASTUnit15getMainFileNameEv.exit
 
 _ZNK5clang7ASTUnit15getMainFileNameEv.exit:       ; preds = %37, %41, %42, %45, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i, %56
-  %.sroa.6.0.i = phi i64 [ %.sroa.4.0.copyload.i, %41 ], [ %58, %56 ], [ %40, %37 ], [ 0, %42 ], [ 0, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ 0, %45 ]
-  %.sroa.09.0.i = phi ptr [ %.sroa.3.0.copyload.i, %41 ], [ %57, %56 ], [ %38, %37 ], [ null, %42 ], [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ null, %45 ]
+  %.sroa.6.0.i = phi i64 [ %58, %56 ], [ %40, %37 ], [ %.sroa.4.0.copyload.i, %41 ], [ 0, %42 ], [ 0, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ 0, %45 ]
+  %.sroa.09.0.i = phi ptr [ %57, %56 ], [ %38, %37 ], [ %.sroa.3.0.copyload.i, %41 ], [ null, %42 ], [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ null, %45 ]
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 3, ptr %59, align 8, !tbaa !637, !alias.scope !640
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 33
@@ -3225,8 +3225,8 @@ _ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.thread.i: ; preds = %_ZNK5cl
   br label %_ZL19getDeclShowContextsPKN5clang9NamedDeclERKNS_11LangOptionsERb.exit
 
 _ZL19getDeclShowContextsPKN5clang9NamedDeclERKNS_11LangOptionsERb.exit: ; preds = %314, %307, %300, %_ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit.i, %316, %320, %321, %.fold.split.i, %.fold.split66.i
-  %.0148 = phi i1 [ false, %_ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit.i ], [ false, %320 ], [ true, %321 ], [ false, %.fold.split.i ], [ %304, %300 ], [ %313, %307 ], [ %315, %314 ], [ false, %316 ], [ false, %.fold.split66.i ]
-  %.0.i = phi i64 [ 0, %_ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit.i ], [ 65536, %320 ], [ 131072, %321 ], [ 8589934592, %.fold.split.i ], [ %301, %300 ], [ %.5.i, %307 ], [ %.3.i, %314 ], [ 536871808, %316 ], [ 0, %.fold.split66.i ]
+  %.0148 = phi i1 [ false, %_ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit.i ], [ false, %316 ], [ false, %.fold.split66.i ], [ false, %320 ], [ false, %.fold.split.i ], [ true, %321 ], [ %304, %300 ], [ %313, %307 ], [ %315, %314 ]
+  %.0.i = phi i64 [ 0, %_ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit.i ], [ 536871808, %316 ], [ 0, %.fold.split66.i ], [ 65536, %320 ], [ 8589934592, %.fold.split.i ], [ 131072, %321 ], [ %301, %300 ], [ %.5.i, %307 ], [ %.3.i, %314 ]
   %322 = getelementptr inbounds nuw i8, ptr %.0158, i64 16
   %323 = load i32, ptr %322, align 8, !tbaa !718
   %324 = getelementptr inbounds nuw i8, ptr %.0158, i64 28
@@ -3699,8 +3699,8 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit: ; preds = %23
   br label %.thread
 
 .thread:                                          ; preds = %23, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit, %20, %34, %15, %19
-  %.sroa.6.0 = phi i64 [ %.sroa.4.0.copyload, %19 ], [ %36, %34 ], [ %18, %15 ], [ 0, %20 ], [ 0, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit ], [ 0, %23 ]
-  %.sroa.09.0 = phi ptr [ %.sroa.3.0.copyload, %19 ], [ %35, %34 ], [ %16, %15 ], [ null, %20 ], [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit ], [ null, %23 ]
+  %.sroa.6.0 = phi i64 [ %36, %34 ], [ %18, %15 ], [ %.sroa.4.0.copyload, %19 ], [ 0, %20 ], [ 0, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit ], [ 0, %23 ]
+  %.sroa.09.0 = phi ptr [ %35, %34 ], [ %16, %15 ], [ %.sroa.3.0.copyload, %19 ], [ null, %20 ], [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit ], [ null, %23 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.09.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -4245,9 +4245,9 @@ _ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang17DiagnosticsEngineENS_37C
   br label %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit
 
 _ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit: ; preds = %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang17DiagnosticsEngineENS_37CrashRecoveryContextReleaseRefCleanupIS2_EEEC2EPS2_.exit, %47
-  %.not.i.i30224 = phi i1 [ false, %47 ], [ true, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang17DiagnosticsEngineENS_37CrashRecoveryContextReleaseRefCleanupIS2_EEEC2EPS2_.exit ], [ true, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit ]
-  %.sroa.0157.0223 = phi ptr [ %.sroa.0157.0.ph, %47 ], [ %.sroa.0157.0.ph, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang17DiagnosticsEngineENS_37CrashRecoveryContextReleaseRefCleanupIS2_EEEC2EPS2_.exit ], [ null, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit ]
-  %50 = phi ptr [ %.pr, %47 ], [ null, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang17DiagnosticsEngineENS_37CrashRecoveryContextReleaseRefCleanupIS2_EEEC2EPS2_.exit ], [ null, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit ]
+  %.not.i.i30224 = phi i1 [ true, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang17DiagnosticsEngineENS_37CrashRecoveryContextReleaseRefCleanupIS2_EEEC2EPS2_.exit ], [ false, %47 ], [ true, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit ]
+  %.sroa.0157.0223 = phi ptr [ %.sroa.0157.0.ph, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang17DiagnosticsEngineENS_37CrashRecoveryContextReleaseRefCleanupIS2_EEEC2EPS2_.exit ], [ %.sroa.0157.0.ph, %47 ], [ null, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit ]
+  %50 = phi ptr [ null, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang17DiagnosticsEngineENS_37CrashRecoveryContextReleaseRefCleanupIS2_EEEC2EPS2_.exit ], [ %.pr, %47 ], [ null, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEEC2EPS2_.exit ]
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %_ZN5clang7ASTUnit14ConfigureDiagsEN4llvm18IntrusiveRefCntPtrINS_17DiagnosticsEngineEEERS0_NS_16CaptureDiagsKindE.exit, label %51
 
@@ -6953,7 +6953,7 @@ _ZSt9__find_ifIPN5clang16StoredDiagnosticEN9__gnu_cxx5__ops10_Iter_predIPFbRKS1_
   br label %_ZSt9__find_ifIPN5clang16StoredDiagnosticEN9__gnu_cxx5__ops10_Iter_predIPFbRKS1_EEEET_SB_SB_T0_.exit.i.i.i.i
 
 _ZSt9__find_ifIPN5clang16StoredDiagnosticEN9__gnu_cxx5__ops10_Iter_predIPFbRKS1_EEEET_SB_SB_T0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZSt9__find_ifIPN5clang16StoredDiagnosticEN9__gnu_cxx5__ops10_Iter_predIPFbRKS1_EEEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit8, %_ZSt9__find_ifIPN5clang16StoredDiagnosticEN9__gnu_cxx5__ops10_Iter_predIPFbRKS1_EEEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit10, %_ZSt9__find_ifIPN5clang16StoredDiagnosticEN9__gnu_cxx5__ops10_Iter_predIPFbRKS1_EEEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit12, %35, %30, %25
-  %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %30 ], [ %.029.lcssa.i.i.i.i.i.i, %25 ], [ %.2.i.i.i.i.i.i, %35 ], [ %38, %_ZSt9__find_ifIPN5clang16StoredDiagnosticEN9__gnu_cxx5__ops10_Iter_predIPFbRKS1_EEEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit8 ], [ %40, %_ZSt9__find_ifIPN5clang16StoredDiagnosticEN9__gnu_cxx5__ops10_Iter_predIPFbRKS1_EEEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit12 ], [ %39, %_ZSt9__find_ifIPN5clang16StoredDiagnosticEN9__gnu_cxx5__ops10_Iter_predIPFbRKS1_EEEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit10 ], [ %.02937.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %25 ], [ %.1.i.i.i.i.i.i, %30 ], [ %.2.i.i.i.i.i.i, %35 ], [ %38, %_ZSt9__find_ifIPN5clang16StoredDiagnosticEN9__gnu_cxx5__ops10_Iter_predIPFbRKS1_EEEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit8 ], [ %39, %_ZSt9__find_ifIPN5clang16StoredDiagnosticEN9__gnu_cxx5__ops10_Iter_predIPFbRKS1_EEEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit10 ], [ %40, %_ZSt9__find_ifIPN5clang16StoredDiagnosticEN9__gnu_cxx5__ops10_Iter_predIPFbRKS1_EEEET_SB_SB_T0_.exit.i.i.i.i.loopexit.split.loop.exit12 ], [ %.02937.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %41 = icmp eq ptr %.028.i.i.i.i.i.i, %6
   %.01722.i.i.i.i = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.i.i, i64 104
   %.not23.i.i.i.i = icmp eq ptr %.01722.i.i.i.i, %6
@@ -9794,7 +9794,7 @@ _ZNSt10unique_ptrIN5clang7ASTUnitESt14default_deleteIS1_EED2Ev.exit.thread: ; pr
   br label %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEED2Ev.exit
 
 _ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5clang7ASTUnitESt14default_deleteIS1_EED2Ev.exit.thread, %48, %54
-  %55 = phi ptr [ %47, %_ZNSt10unique_ptrIN5clang7ASTUnitESt14default_deleteIS1_EED2Ev.exit.thread ], [ %51, %54 ], [ %51, %48 ]
+  %55 = phi ptr [ %47, %_ZNSt10unique_ptrIN5clang7ASTUnitESt14default_deleteIS1_EED2Ev.exit.thread ], [ %51, %48 ], [ %51, %54 ]
   %56 = load ptr, ptr %35, align 8, !tbaa !239
   %.not.i.i68 = icmp eq ptr %56, null
   br i1 %.not.i.i68, label %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %57
@@ -10896,8 +10896,8 @@ _ZN4llvm5ErrorD2Ev.exit134:                       ; preds = %479, %482
   br label %490
 
 490:                                              ; preds = %486, %_ZN4llvm5ErrorD2Ev.exit134, %368, %371
-  %.sroa.0194.3 = phi ptr [ %.sroa.0194.4, %_ZN4llvm5ErrorD2Ev.exit134 ], [ %.sroa.0194.0, %368 ], [ null, %486 ], [ %372, %371 ]
-  %.2 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit134 ], [ null, %368 ], [ %spec.select, %486 ], [ null, %371 ]
+  %.sroa.0194.3 = phi ptr [ %.sroa.0194.4, %_ZN4llvm5ErrorD2Ev.exit134 ], [ %372, %371 ], [ %.sroa.0194.0, %368 ], [ null, %486 ]
+  %.2 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit134 ], [ null, %371 ], [ null, %368 ], [ %spec.select, %486 ]
   %.not.i.i136 = icmp eq ptr %.sroa.0160.0, null
   br i1 %.not.i.i136, label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit, label %491
 
@@ -10987,7 +10987,7 @@ _ZNKSt14default_deleteIN5clang7ASTUnitEEclEPS1_.exit.i143: ; preds = %_ZN4llvm36
   br label %_ZNSt10unique_ptrIN5clang7ASTUnitESt14default_deleteIS1_EED2Ev.exit144
 
 _ZNSt10unique_ptrIN5clang7ASTUnitESt14default_deleteIS1_EED2Ev.exit144: ; preds = %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit, %_ZNKSt14default_deleteIN5clang7ASTUnitEEclEPS1_.exit.i143
-  %.052221 = phi ptr [ %.1, %_ZNKSt14default_deleteIN5clang7ASTUnitEEclEPS1_.exit.i143 ], [ %.1, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit ], [ null, %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.052221 = phi ptr [ %.1, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang7ASTUnitENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit ], [ %.1, %_ZNKSt14default_deleteIN5clang7ASTUnitEEclEPS1_.exit.i143 ], [ null, %_ZNSt12__shared_ptrIN5clang18CompilerInvocationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   ret ptr %.052221
 }
 
@@ -11093,7 +11093,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread:
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit
 
 _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread, %49, %56
-  %60 = phi ptr [ %48, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread ], [ %52, %56 ], [ %52, %49 ]
+  %60 = phi ptr [ %48, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread ], [ %52, %49 ], [ %52, %56 ]
   br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN5clang22PCHContainerOperationsELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %61
 
 61:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit
@@ -11252,8 +11252,8 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i: ; preds = %1
   br label %_ZNK5clang7ASTUnit15getMainFileNameEv.exit
 
 _ZNK5clang7ASTUnit15getMainFileNameEv.exit:       ; preds = %109, %113, %114, %117, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i, %128
-  %.sroa.6.0.i = phi i64 [ %.sroa.4.0.copyload.i, %113 ], [ %130, %128 ], [ %112, %109 ], [ 0, %114 ], [ 0, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ 0, %117 ]
-  %.sroa.09.0.i = phi ptr [ %.sroa.3.0.copyload.i, %113 ], [ %129, %128 ], [ %110, %109 ], [ null, %114 ], [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ null, %117 ]
+  %.sroa.6.0.i = phi i64 [ %130, %128 ], [ %112, %109 ], [ %.sroa.4.0.copyload.i, %113 ], [ 0, %114 ], [ 0, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ 0, %117 ]
+  %.sroa.09.0.i = phi ptr [ %129, %128 ], [ %110, %109 ], [ %.sroa.3.0.copyload.i, %113 ], [ null, %114 ], [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ null, %117 ]
   %131 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i8 3, ptr %131, align 8, !tbaa !637, !alias.scope !1966
   %132 = getelementptr inbounds nuw i8, ptr %11, i64 33
@@ -11582,7 +11582,7 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEED2Ev.exit: ; preds = %_
   br label %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit11
 
 _ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit11: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit, %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEED2Ev.exit, %34
-  %37 = phi ptr [ %.pr, %34 ], [ null, %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEED2Ev.exit ], [ null, %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit ]
+  %37 = phi ptr [ null, %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEED2Ev.exit ], [ %.pr, %34 ], [ null, %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !177
   store ptr %37, ptr %38, align 8, !tbaa !177
@@ -11782,7 +11782,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2EPS2_.exit.thread: ; preds =
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit
 
 _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2EPS2_.exit.thread, %119, %125
-  %129 = phi i1 [ %118, %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2EPS2_.exit.thread ], [ %122, %125 ], [ %122, %119 ]
+  %129 = phi i1 [ %118, %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2EPS2_.exit.thread ], [ %122, %119 ], [ %122, %125 ]
   %130 = load ptr, ptr %112, align 8, !tbaa !239
   %.not.i.i24 = icmp eq ptr %130, null
   br i1 %.not.i.i24, label %_ZNSt12__shared_ptrIN5clang22PCHContainerOperationsELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %131
@@ -12576,7 +12576,7 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEED2Ev.exit85: ; preds = 
   br label %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit87
 
 _ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit87: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit81, %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEED2Ev.exit85, %310
-  %313 = phi ptr [ %.pr, %310 ], [ null, %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEED2Ev.exit85 ], [ null, %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit81 ]
+  %313 = phi ptr [ null, %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEED2Ev.exit85 ], [ %.pr, %310 ], [ null, %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticsEngineEEC2ERKS3_.exit81 ]
   %314 = getelementptr inbounds nuw i8, ptr %293, i64 16
   %315 = load ptr, ptr %314, align 8, !tbaa !177
   store ptr %313, ptr %314, align 8, !tbaa !177
@@ -12997,7 +12997,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2ERKS3_.exit119.thread: ; pre
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit121
 
 _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit121: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2ERKS3_.exit119.thread, %491, %497
-  %501 = phi i1 [ %490, %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2ERKS3_.exit119.thread ], [ %494, %497 ], [ %494, %491 ]
+  %501 = phi i1 [ %490, %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2ERKS3_.exit119.thread ], [ %494, %491 ], [ %494, %497 ]
   %502 = load ptr, ptr %486, align 8, !tbaa !239
   %.not.i.i122 = icmp eq ptr %502, null
   br i1 %.not.i.i122, label %_ZNSt12__shared_ptrIN5clang22PCHContainerOperationsELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %503
@@ -13695,8 +13695,8 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i: ; preds = %9
   br label %_ZNK5clang7ASTUnit15getMainFileNameEv.exit
 
 _ZNK5clang7ASTUnit15getMainFileNameEv.exit:       ; preds = %84, %88, %89, %92, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i, %103
-  %.sroa.6.0.i = phi i64 [ %.sroa.4.0.copyload.i, %88 ], [ %105, %103 ], [ %87, %84 ], [ 0, %89 ], [ 0, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ 0, %92 ]
-  %.sroa.09.0.i = phi ptr [ %.sroa.3.0.copyload.i, %88 ], [ %104, %103 ], [ %85, %84 ], [ null, %89 ], [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ null, %92 ]
+  %.sroa.6.0.i = phi i64 [ %105, %103 ], [ %87, %84 ], [ %.sroa.4.0.copyload.i, %88 ], [ 0, %89 ], [ 0, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ 0, %92 ]
+  %.sroa.09.0.i = phi ptr [ %104, %103 ], [ %85, %84 ], [ %.sroa.3.0.copyload.i, %88 ], [ null, %89 ], [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ null, %92 ]
   %106 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 3, ptr %106, align 8, !tbaa !637, !alias.scope !2014
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 33
@@ -14004,7 +14004,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread:
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit36
 
 _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit36: ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread, %218, %225
-  %229 = phi ptr [ %217, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread ], [ %221, %225 ], [ %221, %218 ]
+  %229 = phi ptr [ %217, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread ], [ %221, %218 ], [ %221, %225 ]
   br i1 %.not.i.i.i31, label %_ZNSt12__shared_ptrIN5clang22PCHContainerOperationsELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %230
 
 230:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit36
@@ -15541,7 +15541,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit154: ; preds = %_ZN4l
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %572
 
-.thread:                                          ; preds = %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_0clES2_.exit.i", %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_0clES2_.exit26.i", %._crit_edge, %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_S2_.exit", %539
+.thread:                                          ; preds = %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_0clES2_.exit26.i", %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_0clES2_.exit.i", %._crit_edge, %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_S2_.exit", %539
   %570 = getelementptr inbounds nuw i8, ptr %120, i64 224
   store i32 0, ptr %570, align 8, !tbaa !2097
   %571 = getelementptr inbounds nuw i8, ptr %120, i64 228
@@ -15945,7 +15945,7 @@ _ZN4llvm5ErrorD2Ev.exit5:                         ; preds = %_ZNSt14_Function_ba
   br label %34
 
 34:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit5, %3
-  %.04 = phi i1 [ %.not, %_ZN4llvm5ErrorD2Ev.exit5 ], [ true, %3 ]
+  %.04 = phi i1 [ true, %3 ], [ %.not, %_ZN4llvm5ErrorD2Ev.exit5 ]
   ret i1 %.04
 }
 
@@ -16703,7 +16703,7 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds =
   br label %61
 
 _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i, %46
-  %51 = phi ptr [ %42, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i ], [ %50, %46 ]
+  %51 = phi ptr [ %50, %46 ], [ %42, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %61, label %52
@@ -17159,7 +17159,7 @@ _ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit: ; preds = %22,
   br label %31
 
 31:                                               ; preds = %8, %10, %.critedge
-  %.sroa.05.0 = phi i32 [ %.sroa.05.1, %.critedge ], [ 0, %8 ], [ %1, %10 ]
+  %.sroa.05.0 = phi i32 [ %.sroa.05.1, %.critedge ], [ %1, %10 ], [ 0, %8 ]
   ret i32 %.sroa.05.0
 }
 
@@ -17329,7 +17329,7 @@ _ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit: ; preds = %23,
   br label %31
 
 31:                                               ; preds = %8, %10, %.critedge
-  %.sroa.05.0 = phi i32 [ %.sroa.05.1, %.critedge ], [ 0, %8 ], [ %1, %10 ]
+  %.sroa.05.0 = phi i32 [ %.sroa.05.1, %.critedge ], [ %1, %10 ], [ 0, %8 ]
   ret i32 %.sroa.05.0
 }
 
@@ -17354,7 +17354,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang7ASTUnit18isInPreambleFileIDENS_1
   br label %.thread9
 
 .thread9:                                         ; preds = %2, %5, %9
-  %.0 = phi i1 [ %11, %9 ], [ false, %2 ], [ false, %5 ]
+  %.0 = phi i1 [ %11, %9 ], [ false, %5 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -17379,7 +17379,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang7ASTUnit14isInMainFileIDENS_14Sou
   br label %.thread9
 
 .thread9:                                         ; preds = %2, %5, %9
-  %.0 = phi i1 [ %11, %9 ], [ false, %2 ], [ false, %5 ]
+  %.0 = phi i1 [ %11, %9 ], [ false, %5 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -17409,7 +17409,7 @@ define dso_local i32 @_ZNK5clang7ASTUnit22getEndOfPreambleFileIDEv(ptr noundef n
   br label %_ZNK5clang13SourceManager18getLocForEndOfFileENS_6FileIDE.exit
 
 _ZNK5clang13SourceManager18getLocForEndOfFileENS_6FileIDE.exit: ; preds = %1, %9, %7, %4
-  %.sroa.03.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ %13, %9 ], [ 0, %1 ]
+  %.sroa.03.0 = phi i32 [ 0, %4 ], [ %13, %9 ], [ 0, %7 ], [ 0, %1 ]
   ret i32 %.sroa.03.0
 }
 
@@ -17437,7 +17437,7 @@ define dso_local range(i32 0, -2147483648) i32 @_ZNK5clang7ASTUnit20getStartOfMa
   br label %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit
 
 _ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit: ; preds = %1, %9, %7, %4
-  %.sroa.03.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ %11, %9 ], [ 0, %1 ]
+  %.sroa.03.0 = phi i32 [ 0, %4 ], [ %11, %9 ], [ 0, %7 ], [ 0, %1 ]
   ret i32 %.sroa.03.0
 }
 
@@ -17685,7 +17685,7 @@ define dso_local range(i32 4, 272) i32 @_ZNK5clang7ASTUnit12getInputKindEv(ptr n
   br label %.split10
 
 .split10:                                         ; preds = %6, %1, %16, %14
-  %.0 = phi i32 [ %17, %16 ], [ 8, %1 ], [ %15, %14 ], [ 10, %6 ]
+  %.0 = phi i32 [ %15, %14 ], [ %17, %16 ], [ 8, %1 ], [ 10, %6 ]
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, 28672
@@ -19253,7 +19253,7 @@ _ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit: ; preds = %_ZNK4llvm11Page
   br label %102
 
 102:                                              ; preds = %50, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit, %57
-  %.0 = phi i1 [ %101, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit ], [ false, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ %60, %57 ], [ true, %50 ]
+  %.0 = phi i1 [ %60, %57 ], [ %101, %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit ], [ false, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit ], [ true, %50 ]
   ret i1 %.0
 }
 
@@ -21734,7 +21734,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = 
   br label %50
 
 _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, %40
-  %45 = phi ptr [ %36, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i ], [ %44, %40 ]
+  %45 = phi ptr [ %44, %40 ], [ %36, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %50, label %46
@@ -21747,7 +21747,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4l
   br label %50
 
 50:                                               ; preds = %46, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread
-  %51 = phi ptr [ %spec.select, %46 ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
+  %51 = phi ptr [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ null, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ], [ %spec.select, %46 ]
   ret ptr %51
 }
 
@@ -23304,7 +23304,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %199, 
   br label %227
 
 227:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit, %.critedge, %224, %_ZN4llvm9StringRefC2EPKc.exit31, %180, %156
-  %.023 = phi i32 [ %179, %_ZN4llvm9StringRefC2EPKc.exit31 ], [ %158, %156 ], [ %158, %180 ], [ %158, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit ], [ %225, %224 ], [ %226, %.critedge ]
+  %.023 = phi i32 [ %179, %_ZN4llvm9StringRefC2EPKc.exit31 ], [ %158, %180 ], [ %158, %156 ], [ %158, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit ], [ %225, %224 ], [ %226, %.critedge ]
   %228 = load i32, ptr %141, align 4, !tbaa !2493
   %229 = icmp eq i32 %228, 501
   br i1 %229, label %230, label %253
@@ -24128,7 +24128,7 @@ _ZSt13move_backwardIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit: ; preds
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !2531
 
 _ZSt4copyIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.i54, %.lr.ph.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit, %_ZN4llvm15SmallVectorImplIN5clang20CodeCompletionResultEE6appendIPS2_vEEvT_S6_.exit
-  %.041 = phi ptr [ %37, %_ZN4llvm15SmallVectorImplIN5clang20CodeCompletionResultEE6appendIPS2_vEEvT_S6_.exit ], [ %48, %.lr.ph.i.i.i.i ], [ %48, %_ZSt13move_backwardIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit ], [ %48, %._crit_edge ], [ %48, %.lr.ph.i.i.i.i.i54 ]
+  %.041 = phi ptr [ %37, %_ZN4llvm15SmallVectorImplIN5clang20CodeCompletionResultEE6appendIPS2_vEEvT_S6_.exit ], [ %48, %_ZSt13move_backwardIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit ], [ %48, %._crit_edge ], [ %48, %.lr.ph.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.i54 ]
   ret ptr %.041
 }
 
@@ -36539,7 +36539,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRN5clang13serializ
   br label %"_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.exit"
 
 "_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.exit": ; preds = %2, %2, %5, %7
-  %.0.i = phi i1 [ true, %7 ], [ false, %2 ], [ true, %5 ], [ false, %2 ]
+  %.0.i = phi i1 [ true, %7 ], [ true, %5 ], [ false, %2 ], [ false, %2 ]
   ret i1 %.0.i
 }
 

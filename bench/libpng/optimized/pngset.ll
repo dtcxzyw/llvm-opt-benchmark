@@ -1530,8 +1530,8 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   br label %58
 
 58:                                               ; preds = %53, %45, %56
-  %.0131 = phi i64 [ 0, %45 ], [ %.1132, %56 ], [ %.1132, %53 ]
-  %.0130 = phi i64 [ 0, %45 ], [ %57, %56 ], [ 0, %53 ]
+  %.0131 = phi i64 [ %.1132, %56 ], [ 0, %45 ], [ %.1132, %53 ]
+  %.0130 = phi i64 [ %57, %56 ], [ 0, %45 ], [ 0, %53 ]
   %59 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !158
   %61 = icmp eq ptr %60, null
@@ -1552,8 +1552,8 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   br label %68
 
 68:                                               ; preds = %65, %66
-  %.sink = phi i32 [ %., %65 ], [ %42, %66 ]
-  %.0134 = phi i64 [ 0, %65 ], [ %67, %66 ]
+  %.sink = phi i32 [ %42, %66 ], [ %., %65 ]
+  %.0134 = phi i64 [ %67, %66 ], [ 0, %65 ]
   store i32 %.sink, ptr %36, align 8, !tbaa !155
   %69 = add i64 %46, 4
   %70 = add i64 %69, %.0131
@@ -1626,14 +1626,14 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   store i32 %105, ptr %12, align 4, !tbaa !151
   br label %106
 
-106:                                              ; preds = %99, %44, %33
-  %107 = phi i32 [ %105, %99 ], [ %34, %44 ], [ %34, %33 ]
+106:                                              ; preds = %44, %99, %33
+  %107 = phi i32 [ %34, %44 ], [ %105, %99 ], [ %34, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !161
 
 .loopexit.sink.split:                             ; preds = %68, %16, %18
-  %.str.54.sink = phi ptr [ @.str.52, %16 ], [ @.str.52, %18 ], [ @.str.54, %68 ]
+  %.str.54.sink = phi ptr [ @.str.52, %18 ], [ @.str.52, %16 ], [ @.str.54, %68 ]
   tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull %.str.54.sink, i32 noundef 1) #12
   br label %.loopexit
 
@@ -2117,7 +2117,7 @@ define void @png_set_unknown_chunk_location(ptr noalias noundef %0, ptr noalias 
   br label %17
 
 17:                                               ; preds = %15, %12
-  %.0 = phi i32 [ %., %15 ], [ %3, %12 ]
+  %.0 = phi i32 [ %3, %12 ], [ %., %15 ]
   %18 = and i32 %.0, 11
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %.preheader.i.preheader
@@ -2384,8 +2384,8 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %33, %66, %._crit_edge, %34
-  %.270.ph = phi ptr [ %.068125127, %._crit_edge ], [ null, %34 ], [ null, %66 ], [ null, %33 ]
-  %.3.ph = phi i32 [ %.2, %._crit_edge ], [ 0, %34 ], [ 0, %66 ], [ 0, %33 ]
+  %.270.ph = phi ptr [ null, %34 ], [ null, %66 ], [ %.068125127, %._crit_edge ], [ null, %33 ]
+  %.3.ph = phi i32 [ 0, %34 ], [ 0, %66 ], [ %.2, %._crit_edge ], [ 0, %33 ]
   %.pr = load ptr, ptr %18, align 8, !tbaa !198
   br label %67
 

@@ -933,7 +933,7 @@ define internal range(i64 7, 157) i64 @fun_si_from_utf_16(ptr noundef captures(n
   br label %28
 
 28:                                               ; preds = %26, %22, %20, %17, %.thread, %16, %11
-  %.0 = phi i64 [ 7, %.thread ], [ 10, %11 ], [ 10, %16 ], [ 15, %22 ], [ 15, %17 ], [ 156, %20 ], [ 20, %26 ]
+  %.0 = phi i64 [ 7, %.thread ], [ 10, %11 ], [ 10, %16 ], [ 15, %17 ], [ 156, %20 ], [ 15, %22 ], [ 20, %26 ]
   ret i64 %.0
 }
 
@@ -954,7 +954,7 @@ define internal range(i64 0, 5) i64 @fun_so_from_utf_16(ptr noundef readonly cap
   br label %11
 
 11:                                               ; preds = %5, %9, %7
-  %.0 = phi i64 [ %10, %9 ], [ %8, %7 ], [ 0, %5 ]
+  %.0 = phi i64 [ %8, %7 ], [ %10, %9 ], [ 0, %5 ]
   ret i64 %.0
 }
 
@@ -1094,7 +1094,7 @@ define internal range(i64 7, 16) i64 @fun_si_from_utf_32(ptr noundef captures(no
   br label %60
 
 60:                                               ; preds = %56, %50, %42, %36, %.thread, %32, %19
-  %.0 = phi i64 [ 7, %.thread ], [ 10, %19 ], [ 10, %32 ], [ 15, %42 ], [ 15, %36 ], [ 15, %50 ], [ 15, %56 ]
+  %.0 = phi i64 [ 7, %.thread ], [ 10, %19 ], [ 10, %32 ], [ 15, %36 ], [ 15, %42 ], [ 15, %50 ], [ 15, %56 ]
   ret i64 %.0
 }
 
@@ -1294,7 +1294,7 @@ define internal range(i64 0, 5) i64 @fun_so_from_utf_32(ptr noundef readonly cap
   br label %fun_so_from_utf_32be.exit
 
 fun_so_from_utf_32be.exit:                        ; preds = %105, %90, %.thread.i16, %80, %45, %29, %.thread.i, %18, %5
-  %.0 = phi i64 [ 3, %29 ], [ 0, %5 ], [ 4, %45 ], [ 1, %18 ], [ 2, %.thread.i ], [ 4, %105 ], [ 1, %80 ], [ 2, %.thread.i16 ], [ 3, %90 ]
+  %.0 = phi i64 [ 0, %5 ], [ 4, %45 ], [ 1, %18 ], [ 2, %.thread.i ], [ 3, %29 ], [ 4, %105 ], [ 1, %80 ], [ 2, %.thread.i16 ], [ 3, %90 ]
   ret i64 %.0
 }
 
@@ -1490,9 +1490,9 @@ define internal range(i64 4, 9) i64 @fun_so_to_utf_32(ptr noundef captures(none)
   br label %fun_so_to_utf_32be.exit
 
 fun_so_to_utf_32be.exit:                          ; preds = %117, %101, %86, %79, %53, %37, %22, %15
-  %.sink22 = phi i64 [ 7, %53 ], [ 7, %15 ], [ 7, %22 ], [ 7, %37 ], [ 3, %79 ], [ 3, %86 ], [ 3, %101 ], [ 3, %117 ]
-  %.sink.i18.sink = phi i8 [ %75, %53 ], [ %18, %15 ], [ %33, %22 ], [ %52, %37 ], [ %82, %79 ], [ %97, %86 ], [ %116, %101 ], [ %139, %117 ]
-  %.0 = phi i64 [ 8, %53 ], [ 8, %15 ], [ 8, %22 ], [ 8, %37 ], [ 4, %79 ], [ 4, %86 ], [ 4, %101 ], [ 4, %117 ]
+  %.sink22 = phi i64 [ 7, %15 ], [ 7, %22 ], [ 7, %37 ], [ 7, %53 ], [ 3, %79 ], [ 3, %86 ], [ 3, %101 ], [ 3, %117 ]
+  %.sink.i18.sink = phi i8 [ %18, %15 ], [ %33, %22 ], [ %52, %37 ], [ %75, %53 ], [ %82, %79 ], [ %97, %86 ], [ %116, %101 ], [ %139, %117 ]
+  %.0 = phi i64 [ 8, %15 ], [ 8, %22 ], [ 8, %37 ], [ 8, %53 ], [ 4, %79 ], [ 4, %86 ], [ 4, %101 ], [ 4, %117 ]
   %140 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink22
   store i8 %.sink.i18.sink, ptr %140, align 1, !tbaa !6
   ret i64 %.0

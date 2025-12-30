@@ -393,7 +393,7 @@ _ZNSt10unique_ptrIN3gmx11PairlistSetESt14default_deleteIS1_EED2Ev.exit16: ; pred
   ret void
 
 .body:                                            ; preds = %19, %14, %17, %9
-  %.pn = phi { ptr, i32 } [ %10, %9 ], [ %18, %17 ], [ %20, %19 ], [ %15, %14 ]
+  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %10, %9 ], [ %20, %19 ], [ %15, %14 ]
   tail call void @_ZNSt10unique_ptrIN3gmx11PairlistSetESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #20
   tail call void @_ZNSt10unique_ptrIN3gmx11PairlistSetESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
   resume { ptr, i32 } %.pn
@@ -590,7 +590,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN3gmx14LogEntryWriterD2Ev.exit11.i.i
 
 common.resume:                                    ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit38.i, %_ZN3gmx14LogEntryWriterD2Ev.exit11.i.i, %_ZN3gmx14LogEntryWriterD2Ev.exit49.i, %_ZN3gmx14LogEntryWriterD2Ev.exit57.i, %_ZN3gmx14LogEntryWriterD2Ev.exit70.i, %358, %247
-  %common.resume.op = phi { ptr, i32 } [ %.pn69.pn.pn.pn.pn, %358 ], [ %248, %247 ], [ %82, %_ZN3gmx14LogEntryWriterD2Ev.exit11.i.i ], [ %55, %_ZN3gmx14LogEntryWriterD2Ev.exit38.i ], [ %167, %_ZN3gmx14LogEntryWriterD2Ev.exit70.i ], [ %144, %_ZN3gmx14LogEntryWriterD2Ev.exit57.i ], [ %121, %_ZN3gmx14LogEntryWriterD2Ev.exit49.i ]
+  %common.resume.op = phi { ptr, i32 } [ %248, %247 ], [ %.pn69.pn.pn.pn.pn, %358 ], [ %82, %_ZN3gmx14LogEntryWriterD2Ev.exit11.i.i ], [ %55, %_ZN3gmx14LogEntryWriterD2Ev.exit38.i ], [ %167, %_ZN3gmx14LogEntryWriterD2Ev.exit70.i ], [ %144, %_ZN3gmx14LogEntryWriterD2Ev.exit57.i ], [ %121, %_ZN3gmx14LogEntryWriterD2Ev.exit49.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3gmx14LogEntryWriterD2Ev.exit11.i.i:           ; preds = %81, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i9.i.i
@@ -627,13 +627,13 @@ _ZN3gmxL20nbnxn_simd_supportedERKNS_8MDLoggerERK10t_inputrec.exit.i: ; preds = %
   %100 = select i1 %.not7.i.i, i64 %99, i64 8589934592
   br label %_ZN3gmxL15sc_jClusterSizeENS_15NbnxmKernelTypeE.exit.i
 
-_ZN3gmxL15sc_jClusterSizeENS_15NbnxmKernelTypeE.exit.i: ; preds = %91, %60, %_ZN3gmxL20nbnxn_simd_supportedERKNS_8MDLoggerERK10t_inputrec.exit.i, %87, %37, %_ZN3gmx14LogEntryWriterD2Ev.exit.i, %39
-  %101 = phi ptr [ %40, %_ZN3gmx14LogEntryWriterD2Ev.exit.i ], [ %64, %91 ], [ %64, %87 ], [ %64, %_ZN3gmxL20nbnxn_simd_supportedERKNS_8MDLoggerERK10t_inputrec.exit.i ], [ %64, %60 ], [ %40, %39 ], [ %38, %37 ]
-  %switch.i = phi i1 [ true, %_ZN3gmx14LogEntryWriterD2Ev.exit.i ], [ false, %91 ], [ false, %87 ], [ false, %_ZN3gmxL20nbnxn_simd_supportedERKNS_8MDLoggerERK10t_inputrec.exit.i ], [ false, %60 ], [ true, %39 ], [ true, %37 ]
-  %102 = phi i32 [ 8, %_ZN3gmx14LogEntryWriterD2Ev.exit.i ], [ 4, %91 ], [ 1, %87 ], [ 4, %_ZN3gmxL20nbnxn_simd_supportedERKNS_8MDLoggerERK10t_inputrec.exit.i ], [ 4, %60 ], [ 8, %39 ], [ 8, %37 ]
-  %.sroa.09.01930.i = phi i32 [ 5, %_ZN3gmx14LogEntryWriterD2Ev.exit.i ], [ %.sroa.09.0.extract.trunc.i, %91 ], [ 6, %87 ], [ 1, %_ZN3gmxL20nbnxn_simd_supportedERKNS_8MDLoggerERK10t_inputrec.exit.i ], [ 1, %60 ], [ 5, %39 ], [ 4, %37 ]
-  %.sroa.13.02227.i = phi i64 [ 12884901888, %_ZN3gmx14LogEntryWriterD2Ev.exit.i ], [ %100, %91 ], [ 4294967296, %87 ], [ 8589934592, %_ZN3gmxL20nbnxn_simd_supportedERKNS_8MDLoggerERK10t_inputrec.exit.i ], [ 8589934592, %60 ], [ 12884901888, %39 ], [ 12884901888, %37 ]
-  %103 = phi i32 [ 4, %_ZN3gmx14LogEntryWriterD2Ev.exit.i ], [ %spec.select171, %91 ], [ 1, %87 ], [ 4, %_ZN3gmxL20nbnxn_simd_supportedERKNS_8MDLoggerERK10t_inputrec.exit.i ], [ 4, %60 ], [ 4, %39 ], [ 4, %37 ]
+_ZN3gmxL15sc_jClusterSizeENS_15NbnxmKernelTypeE.exit.i: ; preds = %91, %_ZN3gmxL20nbnxn_simd_supportedERKNS_8MDLoggerERK10t_inputrec.exit.i, %60, %87, %37, %_ZN3gmx14LogEntryWriterD2Ev.exit.i, %39
+  %101 = phi ptr [ %38, %37 ], [ %40, %_ZN3gmx14LogEntryWriterD2Ev.exit.i ], [ %40, %39 ], [ %64, %87 ], [ %64, %60 ], [ %64, %_ZN3gmxL20nbnxn_simd_supportedERKNS_8MDLoggerERK10t_inputrec.exit.i ], [ %64, %91 ]
+  %switch.i = phi i1 [ true, %37 ], [ true, %_ZN3gmx14LogEntryWriterD2Ev.exit.i ], [ true, %39 ], [ false, %87 ], [ false, %60 ], [ false, %_ZN3gmxL20nbnxn_simd_supportedERKNS_8MDLoggerERK10t_inputrec.exit.i ], [ false, %91 ]
+  %102 = phi i32 [ 8, %37 ], [ 8, %_ZN3gmx14LogEntryWriterD2Ev.exit.i ], [ 8, %39 ], [ 1, %87 ], [ 4, %60 ], [ 4, %_ZN3gmxL20nbnxn_simd_supportedERKNS_8MDLoggerERK10t_inputrec.exit.i ], [ 4, %91 ]
+  %.sroa.09.01930.i = phi i32 [ 4, %37 ], [ 5, %_ZN3gmx14LogEntryWriterD2Ev.exit.i ], [ 5, %39 ], [ 6, %87 ], [ 1, %60 ], [ 1, %_ZN3gmxL20nbnxn_simd_supportedERKNS_8MDLoggerERK10t_inputrec.exit.i ], [ %.sroa.09.0.extract.trunc.i, %91 ]
+  %.sroa.13.02227.i = phi i64 [ 12884901888, %37 ], [ 12884901888, %_ZN3gmx14LogEntryWriterD2Ev.exit.i ], [ 12884901888, %39 ], [ 4294967296, %87 ], [ 8589934592, %60 ], [ 8589934592, %_ZN3gmxL20nbnxn_simd_supportedERKNS_8MDLoggerERK10t_inputrec.exit.i ], [ %100, %91 ]
+  %103 = phi i32 [ 4, %37 ], [ 4, %_ZN3gmx14LogEntryWriterD2Ev.exit.i ], [ 4, %39 ], [ 1, %87 ], [ 4, %60 ], [ 4, %_ZN3gmxL20nbnxn_simd_supportedERKNS_8MDLoggerERK10t_inputrec.exit.i ], [ %spec.select171, %91 ]
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %105 = load ptr, ptr %104, align 8, !tbaa !46
   %106 = icmp eq ptr %105, null
@@ -932,7 +932,7 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit:  ; preds = %_ZN3gmxL17pick_nbnx
   br label %_ZN3gmxL23chooseLJCombinationRuleERK10t_forcerec.exit
 
 _ZN3gmxL23chooseLJCombinationRuleERK10t_forcerec.exit: ; preds = %213, %226, %.thread.i
-  %.sroa.3.0.i = phi i64 [ 4294967298, %.thread.i ], [ 2, %226 ], [ 4294967298, %213 ]
+  %.sroa.3.0.i = phi i64 [ 2, %226 ], [ 4294967298, %.thread.i ], [ 4294967298, %213 ]
   store i64 %.sroa.3.0.i, ptr %27, align 8
   %229 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %.val78.val = load i32, ptr %.val77, align 8, !tbaa !304
@@ -949,7 +949,7 @@ _ZN3gmxL23chooseLJCombinationRuleERK10t_forcerec.exit: ; preds = %213, %226, %.t
   unreachable
 
 _ZN3gmxL26chooseLJPmeCombinationRuleERK10t_forcerec.exit: ; preds = %231, %_ZN3gmxL23chooseLJCombinationRuleERK10t_forcerec.exit
-  %.0.i = phi i32 [ %.val79, %231 ], [ 2, %_ZN3gmxL23chooseLJCombinationRuleERK10t_forcerec.exit ]
+  %.0.i = phi i32 [ 2, %_ZN3gmxL23chooseLJCombinationRuleERK10t_forcerec.exit ], [ %.val79, %231 ]
   %233 = getelementptr inbounds nuw i8, ptr %3, i64 352
   %or.cond3 = or i1 %6, %33
   br i1 %or.cond3, label %236, label %234
@@ -2082,7 +2082,7 @@ _ZNSt10unique_ptrIN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EED2Ev.exit: ;
   ret void
 
 .body:                                            ; preds = %46, %37, %44, %42, %40
-  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %45, %44 ], [ %43, %42 ], [ %47, %46 ], [ %38, %37 ]
+  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %47, %46 ], [ %38, %37 ]
   tail call void @_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #20
   tail call void @_ZNSt10unique_ptrIN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #20
   tail call void @_ZNSt10unique_ptrIN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #20
@@ -2504,7 +2504,7 @@ _ZNSt10unique_ptrIN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EED2Ev.exit: ;
   ret void
 
 .body:                                            ; preds = %41, %32, %39, %37, %35
-  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %40, %39 ], [ %38, %37 ], [ %42, %41 ], [ %33, %32 ]
+  %.pn = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %42, %41 ], [ %33, %32 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %43) #20
   tail call void @_ZNSt10unique_ptrIN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #20

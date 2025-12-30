@@ -554,7 +554,7 @@ _ZN13dep_intervals3mulILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalES5_RS3_.e
           to label %.critedge55 unwind label %67
 
 .critedge55:                                      ; preds = %100, %.critedge57, %120
-  %.4 = phi i1 [ %122, %120 ], [ false, %.critedge57 ], [ true, %100 ]
+  %.4 = phi i1 [ false, %.critedge57 ], [ %122, %120 ], [ true, %100 ]
   %123 = load ptr, ptr %11, align 8, !tbaa !63
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 752
   invoke void @_ZN16interval_managerIN13dep_intervals9im_configEE3delERNS1_8intervalE(ptr noundef nonnull align 8 dereferenceable(672) %124, ptr noundef nonnull align 8 dereferenceable(88) %46)
@@ -1586,7 +1586,7 @@ _ZN8rationalD2Ev.exit87:                          ; preds = %.noexc.i86
   br label %304
 
 304:                                              ; preds = %300, %302, %298, %297
-  %.pn53.pn.pn = phi { ptr, i32 } [ %.pn, %297 ], [ %299, %298 ], [ %303, %302 ], [ %301, %300 ]
+  %.pn53.pn.pn = phi { ptr, i32 } [ %299, %298 ], [ %.pn, %297 ], [ %303, %302 ], [ %301, %300 ]
   call void @_ZN6vectorISt4pairI8rationaljELb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %305
@@ -2968,7 +2968,7 @@ _ZN2lp11explanationD2Ev.exit114:                  ; preds = %_ZN14core_hashtable
   br label %272
 
 272:                                              ; preds = %_ZN2lp11explanationD2Ev.exit86, %120, %_ZN2lp11explanationD2Ev.exit114, %_ZN2lp11explanationD2Ev.exit100
-  %.2 = phi i1 [ false, %_ZN2lp11explanationD2Ev.exit114 ], [ true, %_ZN2lp11explanationD2Ev.exit86 ], [ %12, %120 ], [ false, %_ZN2lp11explanationD2Ev.exit100 ]
+  %.2 = phi i1 [ false, %_ZN2lp11explanationD2Ev.exit100 ], [ false, %_ZN2lp11explanationD2Ev.exit114 ], [ %12, %120 ], [ true, %_ZN2lp11explanationD2Ev.exit86 ]
   ret i1 %.2
 }
 
@@ -3235,7 +3235,7 @@ _ZN8rationalC2ERK3mpq.exit:                       ; preds = %._ZN8rationalC2ERK3
           to label %_ZgtRK8rationalS1_.exit unwind label %149
 
 _ZgtRK8rationalS1_.exit:                          ; preds = %.noexc17, %130, %137
-  %.0.i.i.i = phi i1 [ %136, %.noexc17 ], [ %133, %130 ], [ %138, %137 ]
+  %.0.i.i.i = phi i1 [ %133, %130 ], [ %136, %.noexc17 ], [ %138, %137 ]
   %139 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !216
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %139, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %.noexc.i19 unwind label %140
@@ -3838,7 +3838,7 @@ _ZN8rationalC2ERK3mpq.exit:                       ; preds = %101, %105
           to label %_ZltRK8rationalS1_.exit unwind label %147
 
 _ZltRK8rationalS1_.exit:                          ; preds = %.noexc17, %128, %135
-  %.0.i.i = phi i1 [ %134, %.noexc17 ], [ %131, %128 ], [ %136, %135 ]
+  %.0.i.i = phi i1 [ %131, %128 ], [ %134, %.noexc17 ], [ %136, %135 ]
   %137 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !216
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %137, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %.noexc.i19 unwind label %138
@@ -4829,7 +4829,7 @@ _ZN2lp11explanationD2Ev.exit:                     ; preds = %_ZN14core_hashtable
   br label %244
 
 243:                                              ; preds = %219, %185, %103, %174, %109, %101
-  %.pn88.pn = phi { ptr, i32 } [ %.pn88, %109 ], [ %102, %101 ], [ %104, %103 ], [ %.pn77.pn.pn.pn, %219 ], [ %.pn75, %174 ], [ %.pn83.pn.pn, %185 ]
+  %.pn88.pn = phi { ptr, i32 } [ %.pn88, %109 ], [ %102, %101 ], [ %.pn75, %174 ], [ %104, %103 ], [ %.pn83.pn.pn, %185 ], [ %.pn77.pn.pn.pn, %219 ]
   call void @_ZN2lp11explanationD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   br label %.body
 
@@ -5368,7 +5368,7 @@ _ZN8rationalD2Ev.exit167:                         ; preds = %.noexc.i166
   br label %431
 
 430:                                              ; preds = %.body128, %358, %.body, %99
-  %.pn96.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn88.pn.pn, %.body ], [ %100, %99 ], [ %.pn92, %358 ], [ %.pn96.pn.pn.pn.pn.pn, %.body128 ]
+  %.pn96.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %.pn92, %358 ], [ %.pn88.pn.pn, %.body ], [ %.pn96.pn.pn.pn.pn.pn, %.body128 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn96.pn.pn.pn.pn.pn.pn.pn.pn
@@ -6068,7 +6068,7 @@ _ZNK3nla5monic3endEv.exit:                        ; preds = %4
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %25, %16, %4, %_ZNK3nla5monic3endEv.exit, %24
-  %.not27 = phi i1 [ true, %24 ], [ true, %_ZNK3nla5monic3endEv.exit ], [ true, %4 ], [ false, %16 ], [ true, %25 ]
+  %.not27 = phi i1 [ true, %24 ], [ true, %_ZNK3nla5monic3endEv.exit ], [ true, %4 ], [ true, %25 ], [ false, %16 ]
   ret i1 %.not27
 }
 
@@ -7149,7 +7149,7 @@ _ZN6vectorISt4pairI8rationaljELb1EjED2Ev.exit:    ; preds = %263, %_ZN6vectorISt
   ret void
 
 279:                                              ; preds = %252, %262, %256, %254, %251, %.body
-  %.pn23.pn.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %.pn19, %251 ], [ %253, %252 ], [ %.pn23, %262 ], [ %255, %254 ], [ %257, %256 ]
+  %.pn23.pn.pn.pn = phi { ptr, i32 } [ %.pn19, %251 ], [ %.pn, %.body ], [ %253, %252 ], [ %.pn23, %262 ], [ %255, %254 ], [ %257, %256 ]
   call void @_ZN6vectorISt4pairI8rationaljELb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn23.pn.pn.pn
@@ -7704,7 +7704,7 @@ _ZNK6vectorIjLb0EjE3endEv.exit32:                 ; preds = %22
   br label %.thread34
 
 .thread34:                                        ; preds = %15, %22, %9, %_ZNK6vectorIjLb0EjE3endEv.exit, %_ZNK6vectorIjLb0EjE3endEv.exit32, %.thread34.loopexit42, %20
-  %.3 = phi ptr [ %21, %20 ], [ %.pre, %.thread34.loopexit42 ], [ null, %9 ], [ null, %_ZNK6vectorIjLb0EjE3endEv.exit32 ], [ null, %_ZNK6vectorIjLb0EjE3endEv.exit ], [ null, %22 ], [ null, %15 ]
+  %.3 = phi ptr [ %21, %20 ], [ %.pre, %.thread34.loopexit42 ], [ null, %_ZNK6vectorIjLb0EjE3endEv.exit32 ], [ null, %_ZNK6vectorIjLb0EjE3endEv.exit ], [ null, %9 ], [ null, %22 ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.3
 }
@@ -8075,7 +8075,7 @@ _ZNK3nla5monic3endEv.exit:                        ; preds = %2
   br i1 %15, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %2, %_ZNK3nla5monic3endEv.exit
-  %16 = phi i32 [ -1, %_ZNK3nla5monic3endEv.exit ], [ -1, %2 ], [ %13, %.lr.ph ], [ -1, %11 ]
+  %16 = phi i32 [ -1, %_ZNK3nla5monic3endEv.exit ], [ -1, %2 ], [ -1, %11 ], [ %13, %.lr.ph ]
   ret i32 %16
 }
 
@@ -12534,8 +12534,8 @@ _ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10
   br label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit
 
 _ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit: ; preds = %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i, %24, %18, %.thread9.i, %.thread.i, %11, %4
-  %42 = phi i8 [ %6, %4 ], [ %6, %.thread.i ], [ %6, %11 ], [ %.pre, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i ], [ %6, %18 ], [ %6, %24 ], [ %6, %.thread9.i ]
-  %43 = phi ptr [ null, %4 ], [ null, %.thread.i ], [ %13, %11 ], [ %29, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i ], [ %22, %18 ], [ %13, %24 ], [ %17, %.thread9.i ]
+  %42 = phi i8 [ %6, %4 ], [ %6, %11 ], [ %6, %.thread.i ], [ %.pre, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i ], [ %6, %18 ], [ %6, %24 ], [ %6, %.thread9.i ]
+  %43 = phi ptr [ null, %4 ], [ %13, %11 ], [ null, %.thread.i ], [ %29, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i ], [ %22, %18 ], [ %13, %24 ], [ %17, %.thread9.i ]
   %44 = and i8 %42, 8
   %.not20 = icmp eq i8 %44, 0
   br i1 %.not20, label %45, label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit19
@@ -12602,7 +12602,7 @@ _ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10
   br label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit19
 
 _ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit19: ; preds = %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i14, %62, %56, %.thread9.i18, %.thread.i16, %49, %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit
-  %80 = phi ptr [ null, %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit ], [ null, %.thread.i16 ], [ %51, %49 ], [ %67, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i14 ], [ %60, %56 ], [ %51, %62 ], [ %55, %.thread9.i18 ]
+  %80 = phi ptr [ null, %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit ], [ %51, %49 ], [ null, %.thread.i16 ], [ %67, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i14 ], [ %60, %56 ], [ %51, %62 ], [ %55, %.thread9.i18 ]
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %43, ptr %81, align 8, !tbaa !55
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -12673,7 +12673,7 @@ _ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10
   br label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit
 
 _ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit: ; preds = %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i, %19, %13, %.thread23, %6
-  %.1 = phi ptr [ %12, %.thread23 ], [ %8, %6 ], [ %24, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i ], [ %17, %13 ], [ %8, %19 ]
+  %.1 = phi ptr [ %8, %6 ], [ %24, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i ], [ %17, %13 ], [ %8, %19 ], [ %12, %.thread23 ]
   %37 = and i16 %3, 2
   %.not37 = icmp eq i16 %37, 0
   br i1 %.not37, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16, label %41
@@ -12726,7 +12726,7 @@ _ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10
   br label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16
 
 _ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16: ; preds = %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i14, %47, %41, %.thread27, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit
-  %.2 = phi ptr [ %40, %.thread27 ], [ %.1, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ], [ %52, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i14 ], [ %45, %41 ], [ %.1, %47 ]
+  %.2 = phi ptr [ %.1, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ], [ %52, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i14 ], [ %45, %41 ], [ %.1, %47 ], [ %40, %.thread27 ]
   %65 = and i16 %3, 8
   %.not38 = icmp eq i16 %65, 0
   br i1 %.not38, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit20, label %69
@@ -12779,7 +12779,7 @@ _ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10
   br label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit20
 
 _ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit20: ; preds = %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i18, %75, %69, %.thread31, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16.thread, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16
-  %.3 = phi ptr [ null, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16.thread ], [ %.2, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16 ], [ %80, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i18 ], [ %73, %69 ], [ %.2, %75 ], [ %68, %.thread31 ]
+  %.3 = phi ptr [ %.2, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16 ], [ null, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16.thread ], [ %80, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i18 ], [ %73, %69 ], [ %.2, %75 ], [ %68, %.thread31 ]
   ret ptr %.3
 }
 

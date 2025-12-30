@@ -1996,7 +1996,7 @@ define void @_ZN6LibRaw18xtrans_interpolateEi(ptr noundef nonnull align 8 derefe
   br label %._crit_edge1342
 
 ._crit_edge1342:                                  ; preds = %.lr.ph1341, %._crit_edge1342.loopexit, %._crit_edge1316
-  %1077 = phi i16 [ %.pre1611, %._crit_edge1316 ], [ %.pre1610, %._crit_edge1342.loopexit ], [ %.pre1611, %.lr.ph1341 ]
+  %1077 = phi i16 [ %.pre1610, %._crit_edge1342.loopexit ], [ %.pre1611, %._crit_edge1316 ], [ %.pre1611, %.lr.ph1341 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next1422 = add nuw nsw i64 %indvars.iv1421, 496
   %1078 = zext i16 %1077 to i32

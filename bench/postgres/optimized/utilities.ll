@@ -80,7 +80,7 @@ define hidden i32 @skip_utf8(ptr noundef readonly captures(none) %0, i32 noundef
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !3
 
 .loopexit:                                        ; preds = %16, %.lr.ph, %6
-  %.2 = phi i32 [ %7, %6 ], [ %.123, %.lr.ph ], [ %2, %16 ]
+  %.2 = phi i32 [ %7, %6 ], [ %2, %16 ], [ %.123, %.lr.ph ]
   %18 = add nsw i32 %.027, -1
   %19 = icmp sgt i32 %.027, 1
   br i1 %19, label %.lr.ph28, label %.loopexit22, !llvm.loop !5
@@ -129,7 +129,7 @@ define hidden i32 @skip_b_utf8(ptr noundef readonly captures(none) %0, i32 nound
   br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %17, %.lr.ph, %6
-  %.2 = phi i32 [ %7, %6 ], [ %.121, %.lr.ph ], [ %2, %17 ]
+  %.2 = phi i32 [ %7, %6 ], [ %2, %17 ], [ %.121, %.lr.ph ]
   %20 = add nsw i32 %.025, -1
   %21 = icmp sgt i32 %.025, 1
   br i1 %21, label %.lr.ph26, label %.loopexit20, !llvm.loop !7
@@ -246,8 +246,8 @@ define hidden range(i32 -1, 5) i32 @in_grouping_U(ptr noundef captures(none) %0,
   store i32 %77, ptr %7, align 8
   br i1 %.not16, label %get_utf8.exit.thread26, label %10, !llvm.loop !8
 
-get_utf8.exit.thread26:                           ; preds = %10, %63, %66, %61, %76
-  %.2 = phi i32 [ 0, %76 ], [ -1, %10 ], [ %.0.i.ph, %63 ], [ %.0.i.ph, %66 ], [ %.0.i.ph, %61 ]
+get_utf8.exit.thread26:                           ; preds = %10, %61, %63, %66, %76
+  %.2 = phi i32 [ 0, %76 ], [ -1, %10 ], [ %.0.i.ph, %61 ], [ %.0.i.ph, %63 ], [ %.0.i.ph, %66 ]
   ret i32 %.2
 }
 
@@ -356,8 +356,8 @@ define hidden range(i32 -1, 5) i32 @in_grouping_b_U(ptr noundef captures(none) %
   store i32 %75, ptr %7, align 8
   br i1 %.not16, label %get_b_utf8.exit.thread26, label %10, !llvm.loop !9
 
-get_b_utf8.exit.thread26:                         ; preds = %10, %61, %64, %59, %74
-  %.2 = phi i32 [ 0, %74 ], [ -1, %10 ], [ %.0.i.ph, %61 ], [ %.0.i.ph, %64 ], [ %.0.i.ph, %59 ]
+get_b_utf8.exit.thread26:                         ; preds = %10, %59, %61, %64, %74
+  %.2 = phi i32 [ 0, %74 ], [ -1, %10 ], [ %.0.i.ph, %59 ], [ %.0.i.ph, %61 ], [ %.0.i.ph, %64 ]
   ret i32 %.2
 }
 
@@ -668,7 +668,7 @@ define hidden range(i32 -1, 2) i32 @in_grouping(ptr noundef captures(none) %0, p
   br i1 %exitcond.not, label %.thread, label %33
 
 .thread:                                          ; preds = %33, %38, %41, %51, %.split, %.split.us, %9, %16, %19, %29
-  %.us-phi = phi i32 [ -1, %.split.us ], [ 0, %29 ], [ 1, %9 ], [ 1, %16 ], [ 1, %19 ], [ -1, %.split ], [ 1, %41 ], [ 1, %33 ], [ 1, %38 ], [ -1, %51 ]
+  %.us-phi = phi i32 [ 0, %29 ], [ 1, %9 ], [ 1, %16 ], [ 1, %19 ], [ -1, %.split.us ], [ -1, %.split ], [ 1, %33 ], [ 1, %38 ], [ 1, %41 ], [ -1, %51 ]
   ret i32 %.us-phi
 }
 
@@ -758,7 +758,7 @@ define hidden range(i32 -1, 2) i32 @in_grouping_b(ptr noundef captures(none) %0,
   br i1 %.not, label %34, label %.thread
 
 .thread:                                          ; preds = %34, %39, %42, %52, %.split, %.split.us, %9, %17, %20, %30
-  %.us-phi = phi i32 [ -1, %.split.us ], [ 0, %30 ], [ 1, %9 ], [ 1, %17 ], [ 1, %20 ], [ -1, %.split ], [ 1, %42 ], [ 1, %34 ], [ 1, %39 ], [ -1, %52 ]
+  %.us-phi = phi i32 [ 0, %30 ], [ 1, %9 ], [ 1, %17 ], [ 1, %20 ], [ -1, %.split.us ], [ -1, %.split ], [ 1, %34 ], [ 1, %39 ], [ 1, %42 ], [ -1, %52 ]
   ret i32 %.us-phi
 }
 
@@ -847,7 +847,7 @@ define hidden range(i32 -1, 2) i32 @out_grouping(ptr noundef captures(none) %0, 
   br i1 %exitcond.not, label %.thread, label %33
 
 .thread:                                          ; preds = %41, %51, %.split, %.split.us, %19, %29
-  %.us-phi = phi i32 [ -1, %.split.us ], [ 0, %29 ], [ 1, %19 ], [ -1, %.split ], [ 1, %41 ], [ -1, %51 ]
+  %.us-phi = phi i32 [ 0, %29 ], [ 1, %19 ], [ -1, %.split.us ], [ -1, %.split ], [ 1, %41 ], [ -1, %51 ]
   ret i32 %.us-phi
 }
 
@@ -937,7 +937,7 @@ define hidden range(i32 -1, 2) i32 @out_grouping_b(ptr noundef captures(none) %0
   br i1 %.not, label %34, label %.thread
 
 .thread:                                          ; preds = %42, %52, %.split, %.split.us, %20, %30
-  %.us-phi = phi i32 [ -1, %.split.us ], [ 0, %30 ], [ 1, %20 ], [ -1, %.split ], [ 1, %42 ], [ -1, %52 ]
+  %.us-phi = phi i32 [ 0, %30 ], [ 1, %20 ], [ -1, %.split.us ], [ -1, %.split ], [ 1, %42 ], [ -1, %52 ]
   ret i32 %.us-phi
 }
 
@@ -1135,10 +1135,10 @@ select.unfold:                                    ; preds = %.thread145, %.outer
   br label %.thread145
 
 .thread145:                                       ; preds = %31, %21, %._crit_edge, %select.unfold, %.thread152
-  %34 = phi i32 [ %.070, %._crit_edge ], [ %.06089, %.thread152 ], [ %.070, %select.unfold ], [ %.070, %31 ], [ %11, %21 ]
-  %35 = phi i32 [ %.074, %._crit_edge ], [ %14, %.thread152 ], [ %.074, %select.unfold ], [ %.074, %31 ], [ %14, %21 ]
-  %36 = phi i32 [ %.06089, %._crit_edge ], [ %.072, %.thread152 ], [ %15, %select.unfold ], [ %18, %31 ], [ %.072, %21 ]
-  %37 = phi i32 [ %14, %._crit_edge ], [ %.064, %.thread152 ], [ %14, %select.unfold ], [ %14, %31 ], [ %.064, %21 ]
+  %34 = phi i32 [ %.070, %select.unfold ], [ %.070, %._crit_edge ], [ %.06089, %.thread152 ], [ %.070, %31 ], [ %11, %21 ]
+  %35 = phi i32 [ %.074, %select.unfold ], [ %.074, %._crit_edge ], [ %14, %.thread152 ], [ %.074, %31 ], [ %14, %21 ]
+  %36 = phi i32 [ %15, %select.unfold ], [ %.06089, %._crit_edge ], [ %.072, %.thread152 ], [ %18, %31 ], [ %.072, %21 ]
+  %37 = phi i32 [ %14, %select.unfold ], [ %14, %._crit_edge ], [ %.064, %.thread152 ], [ %14, %31 ], [ %.064, %21 ]
   %38 = sub i32 %35, %37
   %39 = icmp slt i32 %38, 2
   br i1 %39, label %40, label %select.unfold
@@ -1269,10 +1269,10 @@ select.unfold:                                    ; preds = %.thread143, %.outer
   br label %.thread143
 
 .thread143:                                       ; preds = %36, %24, %._crit_edge, %select.unfold, %.thread150
-  %41 = phi i32 [ %.070, %._crit_edge ], [ %.06188, %.thread150 ], [ %.070, %select.unfold ], [ %.070, %36 ], [ %12, %24 ]
-  %42 = phi i32 [ %.074, %._crit_edge ], [ %15, %.thread150 ], [ %.074, %select.unfold ], [ %.074, %36 ], [ %15, %24 ]
-  %43 = phi i32 [ %.06188, %._crit_edge ], [ %.072, %.thread150 ], [ %16, %select.unfold ], [ %19, %36 ], [ %.072, %24 ]
-  %44 = phi i32 [ %15, %._crit_edge ], [ %.064, %.thread150 ], [ %15, %select.unfold ], [ %15, %36 ], [ %.064, %24 ]
+  %41 = phi i32 [ %.070, %select.unfold ], [ %.070, %._crit_edge ], [ %.06188, %.thread150 ], [ %.070, %36 ], [ %12, %24 ]
+  %42 = phi i32 [ %.074, %select.unfold ], [ %.074, %._crit_edge ], [ %15, %.thread150 ], [ %.074, %36 ], [ %15, %24 ]
+  %43 = phi i32 [ %16, %select.unfold ], [ %.06188, %._crit_edge ], [ %.072, %.thread150 ], [ %19, %36 ], [ %.072, %24 ]
+  %44 = phi i32 [ %15, %select.unfold ], [ %15, %._crit_edge ], [ %.064, %.thread150 ], [ %15, %36 ], [ %.064, %24 ]
   %45 = sub i32 %42, %44
   %46 = icmp slt i32 %45, 2
   br i1 %46, label %47, label %select.unfold
@@ -1440,7 +1440,7 @@ increase_size.exit:                               ; preds = %24
   br label %59
 
 59:                                               ; preds = %increase_size.exit.thread, %create_s.exit.thread, %57, %58
-  %.0 = phi i32 [ -1, %increase_size.exit.thread ], [ -1, %create_s.exit.thread ], [ 0, %58 ], [ 0, %57 ]
+  %.0 = phi i32 [ 0, %58 ], [ 0, %57 ], [ -1, %create_s.exit.thread ], [ -1, %increase_size.exit.thread ]
   ret i32 %.0
 }
 
@@ -1481,8 +1481,8 @@ slice_check.exit:                                 ; preds = %15
   %21 = tail call i32 @replace_s(ptr noundef nonnull %0, i32 noundef %5, i32 noundef %9, i32 noundef %1, ptr noundef %2, ptr noundef null)
   br label %slice_check.exit.thread
 
-slice_check.exit.thread:                          ; preds = %7, %11, %15, %3, %slice_check.exit, %20
-  %.0 = phi i32 [ %21, %20 ], [ -1, %slice_check.exit ], [ -1, %3 ], [ -1, %15 ], [ -1, %11 ], [ -1, %7 ]
+slice_check.exit.thread:                          ; preds = %3, %7, %11, %15, %slice_check.exit, %20
+  %.0 = phi i32 [ %21, %20 ], [ -1, %slice_check.exit ], [ -1, %15 ], [ -1, %11 ], [ -1, %7 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -1523,7 +1523,7 @@ slice_check.exit.i:                               ; preds = %16
   br label %slice_from_s.exit
 
 slice_from_s.exit:                                ; preds = %2, %8, %12, %16, %slice_check.exit.i, %21
-  %.0.i = phi i32 [ %22, %21 ], [ -1, %slice_check.exit.i ], [ -1, %2 ], [ -1, %16 ], [ -1, %12 ], [ -1, %8 ]
+  %.0.i = phi i32 [ %22, %21 ], [ -1, %slice_check.exit.i ], [ -1, %16 ], [ -1, %12 ], [ -1, %8 ], [ -1, %2 ]
   ret i32 %.0.i
 }
 
@@ -1562,7 +1562,7 @@ slice_check.exit.i:                               ; preds = %13
   br label %slice_from_s.exit
 
 slice_from_s.exit:                                ; preds = %1, %5, %9, %13, %slice_check.exit.i, %18
-  %.0.i = phi i32 [ %19, %18 ], [ -1, %slice_check.exit.i ], [ -1, %1 ], [ -1, %13 ], [ -1, %9 ], [ -1, %5 ]
+  %.0.i = phi i32 [ %19, %18 ], [ -1, %slice_check.exit.i ], [ -1, %13 ], [ -1, %9 ], [ -1, %5 ], [ -1, %1 ]
   ret i32 %.0.i
 }
 
@@ -1674,7 +1674,7 @@ slice_check.exit:                                 ; preds = %14
   %.not = icmp sgt i32 %12, %18
   br i1 %.not, label %slice_check.exit.thread, label %22
 
-slice_check.exit.thread:                          ; preds = %6, %10, %14, %2, %slice_check.exit
+slice_check.exit.thread:                          ; preds = %2, %6, %10, %14, %slice_check.exit
   %19 = icmp eq ptr %1, null
   br i1 %19, label %lose_s.exit, label %20
 
@@ -1723,7 +1723,7 @@ increase_size.exit:                               ; preds = %27
   br label %lose_s.exit
 
 lose_s.exit:                                      ; preds = %36, %35, %20, %slice_check.exit.thread
-  %.017 = phi ptr [ null, %20 ], [ null, %slice_check.exit.thread ], [ %.018, %36 ], [ null, %35 ]
+  %.017 = phi ptr [ null, %slice_check.exit.thread ], [ null, %20 ], [ %.018, %36 ], [ null, %35 ]
   ret ptr %.017
 }
 

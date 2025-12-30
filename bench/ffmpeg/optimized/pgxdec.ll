@@ -198,7 +198,7 @@ pgx_get_number.exit.thread.i:                     ; preds = %31, %29, %52, %50, 
   br label %pgx_decode_header.exit
 
 91:                                               ; preds = %bytestream2_peek_byte.exit.i, %84
-  %.sroa.0.3.ph = phi ptr [ %spec.select73, %bytestream2_peek_byte.exit.i ], [ %68, %84 ]
+  %.sroa.0.3.ph = phi ptr [ %68, %84 ], [ %spec.select73, %bytestream2_peek_byte.exit.i ]
   %92 = tail call i32 @ff_set_dimensions(ptr noundef %0, i32 noundef %.1, i32 noundef %.154) #4
   %93 = icmp slt i32 %92, 0
   br i1 %93, label %pgx_decode_header.exit, label %94
@@ -336,7 +336,7 @@ write_frame_8.exit:                               ; preds = %._crit_edge.us.i, %
   br label %pgx_decode_header.exit
 
 pgx_decode_header.exit:                           ; preds = %pgx_get_number.exit.thread.i, %bytestream2_init.exit, %107, %99, %91, %write_frame_8.exit, %98
-  %.022 = phi i32 [ -1163346256, %98 ], [ %108, %107 ], [ %92, %91 ], [ -1094995529, %99 ], [ 0, %write_frame_8.exit ], [ -1094995529, %bytestream2_init.exit ], [ -1094995529, %pgx_get_number.exit.thread.i ]
+  %.022 = phi i32 [ 0, %write_frame_8.exit ], [ -1163346256, %98 ], [ %92, %91 ], [ -1094995529, %99 ], [ %108, %107 ], [ -1094995529, %pgx_get_number.exit.thread.i ], [ -1094995529, %bytestream2_init.exit ]
   ret i32 %.022
 }
 

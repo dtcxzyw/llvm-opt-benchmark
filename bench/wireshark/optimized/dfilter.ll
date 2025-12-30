@@ -228,7 +228,7 @@ define hidden ptr @dfilter_resolve_unparsed(ptr noundef %0, ptr noundef %1) loca
   br label %add_deprecated_token.exit
 
 add_deprecated_token.exit:                        ; preds = %.lr.ph.i, %._crit_edge.i, %4, %6, %2
-  %.0 = phi ptr [ %5, %6 ], [ %3, %2 ], [ null, %4 ], [ %5, %._crit_edge.i ], [ %5, %.lr.ph.i ]
+  %.0 = phi ptr [ %3, %2 ], [ %5, %6 ], [ null, %4 ], [ %5, %._crit_edge.i ], [ %5, %.lr.ph.i ]
   ret ptr %.0
 }
 
@@ -800,7 +800,7 @@ compile_filter.exit:                              ; preds = %38, %107, %119, %12
   br label %compile_failure.exit
 
 compile_failure.exit:                             ; preds = %124, %123, %23, %21, %20, %9, %11, %127
-  %.0 = phi i1 [ true, %127 ], [ false, %9 ], [ false, %23 ], [ false, %11 ], [ false, %20 ], [ false, %21 ], [ false, %123 ], [ false, %124 ]
+  %.0 = phi i1 [ true, %127 ], [ false, %11 ], [ false, %9 ], [ false, %20 ], [ false, %21 ], [ false, %23 ], [ false, %123 ], [ false, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -1300,14 +1300,14 @@ define hidden noundef zeroext i1 @dfilter_interested_in_proto(ptr noundef readon
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph, label %.critedge
+  br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %7
 
-7:                                                ; preds = %.lr.ph, %17
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
+7:                                                ; preds = %.lr.ph, %.critedge
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %8 = load ptr, ptr %6, align 8
   %9 = getelementptr i32, ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
@@ -1316,22 +1316,22 @@ define hidden noundef zeroext i1 @dfilter_interested_in_proto(ptr noundef readon
 
 12:                                               ; preds = %7
   %13 = icmp eq i32 %10, %1
-  br i1 %13, label %.critedge, label %17
+  br i1 %13, label %._crit_edge, label %.critedge
 
 14:                                               ; preds = %7
   %15 = tail call i32 @proto_registrar_get_parent(i32 noundef %10)
   %16 = icmp eq i32 %15, %1
-  br i1 %16, label %.critedge, label %17
+  br i1 %16, label %._crit_edge, label %.critedge
 
-17:                                               ; preds = %14, %12
+.critedge:                                        ; preds = %14, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i32, ptr %3, align 8
-  %19 = sext i32 %18 to i64
-  %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %7, label %.critedge, !llvm.loop !12
+  %17 = load i32, ptr %3, align 8
+  %18 = sext i32 %17 to i64
+  %19 = icmp slt i64 %indvars.iv.next, %18
+  br i1 %19, label %7, label %._crit_edge, !llvm.loop !12
 
-.critedge:                                        ; preds = %17, %14, %12, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %12 ], [ true, %14 ], [ false, %17 ]
+._crit_edge:                                      ; preds = %14, %12, %.critedge, %2
+  %.lcssa = phi i1 [ false, %2 ], [ false, %.critedge ], [ true, %12 ], [ true, %14 ]
   ret i1 %.lcssa
 }
 
@@ -1367,8 +1367,8 @@ define noundef zeroext i1 @dfilter_requires_columns(ptr noundef readonly capture
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %14
 
-14:                                               ; preds = %24, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
+14:                                               ; preds = %.critedge.i, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.critedge.i ]
   %15 = load ptr, ptr %13, align 8
   %16 = getelementptr i32, ptr %15, i64 %indvars.iv.i
   %17 = load i32, ptr %16, align 4
@@ -1377,22 +1377,22 @@ define noundef zeroext i1 @dfilter_requires_columns(ptr noundef readonly capture
 
 19:                                               ; preds = %14
   %20 = icmp eq i32 %17, %9
-  br i1 %20, label %dfilter_interested_in_proto.exit, label %24
+  br i1 %20, label %dfilter_interested_in_proto.exit, label %.critedge.i
 
 21:                                               ; preds = %14
   %22 = tail call i32 @proto_registrar_get_parent(i32 noundef %17)
   %23 = icmp eq i32 %22, %9
-  br i1 %23, label %dfilter_interested_in_proto.exit, label %24
+  br i1 %23, label %dfilter_interested_in_proto.exit, label %.critedge.i
 
-24:                                               ; preds = %21, %19
+.critedge.i:                                      ; preds = %21, %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %25 = load i32, ptr %10, align 8
-  %26 = sext i32 %25 to i64
-  %27 = icmp slt i64 %indvars.iv.next.i, %26
-  br i1 %27, label %14, label %dfilter_interested_in_proto.exit, !llvm.loop !12
+  %24 = load i32, ptr %10, align 8
+  %25 = sext i32 %24 to i64
+  %26 = icmp slt i64 %indvars.iv.next.i, %25
+  br i1 %26, label %14, label %dfilter_interested_in_proto.exit, !llvm.loop !12
 
-dfilter_interested_in_proto.exit:                 ; preds = %24, %21, %19, %8, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %8 ], [ false, %24 ], [ true, %21 ], [ true, %19 ]
+dfilter_interested_in_proto.exit:                 ; preds = %.critedge.i, %21, %19, %8, %1
+  %.0 = phi i1 [ false, %1 ], [ false, %8 ], [ true, %21 ], [ true, %19 ], [ false, %.critedge.i ]
   ret i1 %.0
 }
 

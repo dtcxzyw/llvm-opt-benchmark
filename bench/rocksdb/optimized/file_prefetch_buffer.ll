@@ -135,8 +135,8 @@ define void @_ZN7rocksdb18FilePrefetchBuffer20PrepareBufferForReadEPNS_10BufferI
   br label %22
 
 22:                                               ; preds = %17, %11, %8
-  %.033 = phi i64 [ %., %17 ], [ 0, %8 ], [ 0, %11 ]
-  %.0 = phi i1 [ %.not, %17 ], [ false, %8 ], [ false, %11 ]
+  %.033 = phi i64 [ 0, %11 ], [ 0, %8 ], [ %., %17 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %8 ], [ %.not, %17 ]
   br i1 %6, label %38, label %23
 
 23:                                               ; preds = %22
@@ -1720,8 +1720,8 @@ _ZNKSt8functionIFvbRmS0_EEclEbS0_S0_.exit:        ; preds = %13
   br label %73
 
 73:                                               ; preds = %68, %62, %56
-  %.033.i = phi i64 [ %..i, %68 ], [ 0, %56 ], [ 0, %62 ]
-  %.0.i = phi i1 [ %.not.i62, %68 ], [ false, %56 ], [ false, %62 ]
+  %.033.i = phi i64 [ 0, %62 ], [ 0, %56 ], [ %..i, %68 ]
+  %.0.i = phi i1 [ false, %62 ], [ false, %56 ], [ %.not.i62, %68 ]
   br i1 %4, label %_ZN7rocksdb18FilePrefetchBuffer20PrepareBufferForReadEPNS_10BufferInfoEmmmbbRm.exit, label %74
 
 74:                                               ; preds = %73
@@ -1780,7 +1780,7 @@ _ZN7rocksdb18FilePrefetchBuffer20PrepareBufferForReadEPNS_10BufferInfoEmmmbbRm.e
   br i1 %or.cond90, label %_ZN7rocksdb18FilePrefetchBuffer26UpdateReadAheadTrimmedStatEmm.exit, label %_ZN7rocksdb18FilePrefetchBuffer26UpdateReadAheadTrimmedStatEmm.exit.sink.split
 
 _ZN7rocksdb18FilePrefetchBuffer26UpdateReadAheadTrimmedStatEmm.exit.sink.split: ; preds = %_ZN7rocksdb18FilePrefetchBuffer20PrepareBufferForReadEPNS_10BufferInfoEmmmbbRm.exit, %41, %37
-  %.sink84 = phi ptr [ %46, %41 ], [ %39, %37 ], [ %99, %_ZN7rocksdb18FilePrefetchBuffer20PrepareBufferForReadEPNS_10BufferInfoEmmmbbRm.exit ]
+  %.sink84 = phi ptr [ %39, %37 ], [ %46, %41 ], [ %99, %_ZN7rocksdb18FilePrefetchBuffer20PrepareBufferForReadEPNS_10BufferInfoEmmmbbRm.exit ]
   %100 = load ptr, ptr %.sink84, align 8, !tbaa !77
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 176
   %102 = load ptr, ptr %101, align 8
@@ -2113,10 +2113,10 @@ _ZNSt6vectorIPN7rocksdb10BufferInfoESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu
   br label %200
 
 _ZNSt6vectorIPN7rocksdb10BufferInfoESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit: ; preds = %18, %_ZNSt6vectorIPN7rocksdb10BufferInfoESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %58, %_ZN7rocksdb10BufferInfo33IsBufferOutdatedWithAsyncProgressEm.exit
-  %81 = phi ptr [ %57, %58 ], [ %19, %_ZN7rocksdb10BufferInfo33IsBufferOutdatedWithAsyncProgressEm.exit ], [ %57, %_ZNSt6vectorIPN7rocksdb10BufferInfoESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %19, %18 ]
-  %.sroa.13.1 = phi ptr [ %.sroa.13.089, %58 ], [ %.sroa.13.089, %_ZN7rocksdb10BufferInfo33IsBufferOutdatedWithAsyncProgressEm.exit ], [ %80, %_ZNSt6vectorIPN7rocksdb10BufferInfoESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.13.089, %18 ]
-  %.sroa.962.1 = phi ptr [ %60, %58 ], [ %.sroa.962.090, %_ZN7rocksdb10BufferInfo33IsBufferOutdatedWithAsyncProgressEm.exit ], [ %78, %_ZNSt6vectorIPN7rocksdb10BufferInfoESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.962.090, %18 ]
-  %.sroa.058.1 = phi ptr [ %.sroa.058.091, %58 ], [ %.sroa.058.091, %_ZN7rocksdb10BufferInfo33IsBufferOutdatedWithAsyncProgressEm.exit ], [ %73, %_ZNSt6vectorIPN7rocksdb10BufferInfoESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.058.091, %18 ]
+  %81 = phi ptr [ %19, %_ZN7rocksdb10BufferInfo33IsBufferOutdatedWithAsyncProgressEm.exit ], [ %57, %_ZNSt6vectorIPN7rocksdb10BufferInfoESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %57, %58 ], [ %19, %18 ]
+  %.sroa.13.1 = phi ptr [ %.sroa.13.089, %_ZN7rocksdb10BufferInfo33IsBufferOutdatedWithAsyncProgressEm.exit ], [ %80, %_ZNSt6vectorIPN7rocksdb10BufferInfoESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.13.089, %58 ], [ %.sroa.13.089, %18 ]
+  %.sroa.962.1 = phi ptr [ %.sroa.962.090, %_ZN7rocksdb10BufferInfo33IsBufferOutdatedWithAsyncProgressEm.exit ], [ %78, %_ZNSt6vectorIPN7rocksdb10BufferInfoESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %60, %58 ], [ %.sroa.962.090, %18 ]
+  %.sroa.058.1 = phi ptr [ %.sroa.058.091, %_ZN7rocksdb10BufferInfo33IsBufferOutdatedWithAsyncProgressEm.exit ], [ %73, %_ZNSt6vectorIPN7rocksdb10BufferInfoESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.058.091, %58 ], [ %.sroa.058.091, %18 ]
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.054.086, i64 8
   %83 = icmp eq ptr %82, %.sroa.11.087
   br i1 %83, label %84, label %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EppEv.exit
@@ -2395,9 +2395,9 @@ _ZNKSt8functionIFvPvEEclES0_.exit.i:              ; preds = %176
   br i1 %.not66, label %._crit_edge98, label %.lr.ph97
 
 200:                                              ; preds = %.loopexit, %.loopexit.split-lp, %192, %156
-  %.sroa.13.081 = phi ptr [ %.sroa.13.1, %156 ], [ %.sroa.13.1, %192 ], [ %.sroa.13.089.lcssa99, %.loopexit ], [ %.sroa.13.089102, %.loopexit.split-lp ]
-  %.sroa.058.071 = phi ptr [ %.sroa.058.1, %156 ], [ %.sroa.058.1, %192 ], [ %.sroa.058.091, %.loopexit ], [ %.sroa.058.091, %.loopexit.split-lp ]
-  %.pn17 = phi { ptr, i32 } [ %.pn, %156 ], [ %193, %192 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.13.081 = phi ptr [ %.sroa.13.1, %192 ], [ %.sroa.13.1, %156 ], [ %.sroa.13.089.lcssa99, %.loopexit ], [ %.sroa.13.089102, %.loopexit.split-lp ]
+  %.sroa.058.071 = phi ptr [ %.sroa.058.1, %192 ], [ %.sroa.058.1, %156 ], [ %.sroa.058.091, %.loopexit ], [ %.sroa.058.091, %.loopexit.split-lp ]
+  %.pn17 = phi { ptr, i32 } [ %193, %192 ], [ %.pn, %156 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i40 = icmp eq ptr %.sroa.058.071, null
   br i1 %.not.i.i.i40, label %_ZNSt6vectorIPN7rocksdb10BufferInfoESaIS2_EED2Ev.exit41, label %201
 
@@ -3008,7 +3008,7 @@ _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EppEv.exit33: ; preds = %1
   br i1 %.not57, label %._crit_edge68, label %.lr.ph67
 
 167:                                              ; preds = %.loopexit, %.loopexit.split-lp, %156, %127
-  %.pn17 = phi { ptr, i32 } [ %.pn, %127 ], [ %157, %156 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn17 = phi { ptr, i32 } [ %157, %156 ], [ %.pn, %127 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %168 = load ptr, ptr %3, align 8, !tbaa !158
   %.not.i.i.i34 = icmp eq ptr %168, null
   br i1 %.not.i.i.i34, label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit35, label %169
@@ -4864,7 +4864,7 @@ _ZN7rocksdb18FilePrefetchBuffer11UseFSBufferEPNS_22RandomAccessFileReaderE.exit:
   br label %485
 
 _ZN7rocksdb18FilePrefetchBuffer25HandleOverlappingSyncDataEmmRmS1_Rb.exit: ; preds = %_ZN7rocksdb22RandomAccessFileReader4fileEv.exit.thread8.i, %_ZN7rocksdb22RandomAccessFileReader4fileEv.exit.i65, %.noexc, %123, %.noexc67, %170, %.noexc72, %151, %148, %143, %137, %173, %_ZN7rocksdb18FilePrefetchBuffer11UseFSBufferEPNS_22RandomAccessFileReaderE.exit
-  %179 = phi i1 [ true, %170 ], [ %134, %_ZN7rocksdb18FilePrefetchBuffer11UseFSBufferEPNS_22RandomAccessFileReaderE.exit ], [ true, %173 ], [ true, %137 ], [ true, %143 ], [ true, %148 ], [ true, %151 ], [ true, %.noexc72 ], [ false, %.noexc67 ], [ false, %123 ], [ false, %.noexc ], [ false, %_ZN7rocksdb22RandomAccessFileReader4fileEv.exit.i65 ], [ false, %_ZN7rocksdb22RandomAccessFileReader4fileEv.exit.thread8.i ]
+  %179 = phi i1 [ %134, %_ZN7rocksdb18FilePrefetchBuffer11UseFSBufferEPNS_22RandomAccessFileReaderE.exit ], [ true, %173 ], [ true, %137 ], [ true, %143 ], [ true, %148 ], [ true, %151 ], [ true, %.noexc72 ], [ true, %170 ], [ false, %.noexc67 ], [ false, %123 ], [ false, %.noexc ], [ false, %_ZN7rocksdb22RandomAccessFileReader4fileEv.exit.i65 ], [ false, %_ZN7rocksdb22RandomAccessFileReader4fileEv.exit.thread8.i ]
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %182 = load ptr, ptr %180, align 8, !tbaa !97
@@ -5551,7 +5551,7 @@ _ZN7rocksdb18FilePrefetchBuffer14FreeAllBuffersEv.exit: ; preds = %_ZNSt5dequeIP
   br label %_ZN7rocksdb18FilePrefetchBuffer11UpdateStatsEbm.exit91
 
 484:                                              ; preds = %.loopexit, %.loopexit.split-lp, %477, %407
-  %.pn = phi { ptr, i32 } [ %408, %407 ], [ %478, %477 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %478, %477 ], [ %408, %407 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -5564,15 +5564,15 @@ _ZN7rocksdb18FilePrefetchBuffer11UpdateStatsEbm.exit91: ; preds = %.invoke, %298
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %487
 
-.thread206:                                       ; preds = %104, %79
-  %.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %80, %79 ], [ %105, %104 ]
+.thread206:                                       ; preds = %79, %104
+  %.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %105, %104 ], [ %80, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZN7rocksdb6StatusD2Ev.exit132
 
 485:                                              ; preds = %177, %484, %302, %233
-  %486 = phi ptr [ %107, %233 ], [ %107, %302 ], [ %107, %177 ], [ %.pre144, %484 ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %234, %233 ], [ %303, %302 ], [ %178, %177 ], [ %.pn, %484 ]
+  %486 = phi ptr [ %107, %177 ], [ %.pre144, %484 ], [ %107, %233 ], [ %107, %302 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %178, %177 ], [ %.pn, %484 ], [ %234, %233 ], [ %303, %302 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.not.i.i130 = icmp eq ptr %486, null
@@ -5809,8 +5809,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusaSEOS0_.exit.thread
 
 _ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %113, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit
-  %123 = phi i8 [ %122, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %122, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ], [ %114, %113 ]
-  %124 = phi ptr [ %121, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %121, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ], [ %.pre87, %113 ]
+  %123 = phi i8 [ %122, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ], [ %122, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %114, %113 ]
+  %124 = phi ptr [ %121, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ], [ %121, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %.pre87, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %125 = icmp eq i8 %123, 0
   br i1 %125, label %181, label %126
@@ -6465,7 +6465,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit52
 
 _ZN7rocksdb6StatusD2Ev.exit52:                    ; preds = %135, %145, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i50, %.critedge, %192, %203, %119
-  %.3 = phi i1 [ false, %119 ], [ true, %192 ], [ true, %203 ], [ false, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i50 ], [ false, %.critedge ], [ false, %145 ], [ false, %135 ]
+  %.3 = phi i1 [ false, %119 ], [ true, %203 ], [ true, %192 ], [ false, %.critedge ], [ false, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i50 ], [ false, %145 ], [ false, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %209
 
@@ -6804,8 +6804,8 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit.
   br i1 %184, label %_ZN7rocksdb18FilePrefetchBuffer14FreeAllBuffersEv.exit72, label %159, !llvm.loop !245
 
 _ZN7rocksdb18FilePrefetchBuffer14FreeAllBuffersEv.exit72: ; preds = %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit.i70, %_ZN7rocksdb18FilePrefetchBuffer14FreeAllBuffersEv.exit.thread, %123
-  %185 = phi ptr [ %90, %_ZN7rocksdb18FilePrefetchBuffer14FreeAllBuffersEv.exit.thread ], [ %93, %123 ], [ %93, %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit.i70 ]
-  %.040 = phi i1 [ false, %_ZN7rocksdb18FilePrefetchBuffer14FreeAllBuffersEv.exit.thread ], [ true, %123 ], [ false, %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit.i70 ]
+  %185 = phi ptr [ %93, %123 ], [ %90, %_ZN7rocksdb18FilePrefetchBuffer14FreeAllBuffersEv.exit.thread ], [ %93, %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit.i70 ]
+  %.040 = phi i1 [ true, %123 ], [ false, %_ZN7rocksdb18FilePrefetchBuffer14FreeAllBuffersEv.exit.thread ], [ false, %_ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit.i70 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %186 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %186, ptr %14, align 8, !tbaa !279
@@ -7067,9 +7067,9 @@ _ZNK7rocksdb22RandomAccessFileReader13use_direct_ioEv.exit: ; preds = %_ZNK7rock
   br label %300
 
 300:                                              ; preds = %295, %289, %286
-  %301 = phi i64 [ %299, %295 ], [ 0, %286 ], [ 0, %289 ]
-  %.033.i = phi i64 [ %..i, %295 ], [ 0, %286 ], [ 0, %289 ]
-  %.0.i83 = phi i1 [ %.not.i85, %295 ], [ false, %286 ], [ false, %289 ]
+  %301 = phi i64 [ 0, %289 ], [ 0, %286 ], [ %299, %295 ]
+  %.033.i = phi i64 [ 0, %289 ], [ 0, %286 ], [ %..i, %295 ]
+  %.0.i83 = phi i1 [ false, %289 ], [ false, %286 ], [ %.not.i85, %295 ]
   %302 = getelementptr inbounds nuw i8, ptr %261, i64 48
   %303 = load i64, ptr %302, align 8, !tbaa !25
   %304 = icmp uge i64 %303, %5
@@ -7656,7 +7656,7 @@ _ZSt4copyIPPPN7rocksdb10BufferInfoES4_ET0_T_S6_S5_.exit26: ; preds = %_ZNSt11_De
   br label %_ZSt4copyIPPPN7rocksdb10BufferInfoES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPPPN7rocksdb10BufferInfoES4_ET0_T_S6_S5_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPN7rocksdb10BufferInfoES4_ET0_T_S6_S5_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPPN7rocksdb10BufferInfoES4_ET0_T_S6_S5_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPPN7rocksdb10BufferInfoES4_ET0_T_S6_S5_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !105
   %58 = load ptr, ptr %.0, align 8, !tbaa !106
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8837,10 +8837,10 @@ _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53: ; preds = 
   br i1 %176, label %.lr.ph.i43, label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb10BufferInfoES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit21, !llvm.loop !382
 
 _ZSt14__copy_move_a1ILb0EPPN7rocksdb10BufferInfoES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit21: ; preds = %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53, %135, %._crit_edge
-  %.sink98 = phi ptr [ %storemerge.i.i54, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53 ], [ %61, %._crit_edge ], [ %137, %135 ], [ %storemerge.i.i20, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19 ]
-  %.sink = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53 ], [ %60, %._crit_edge ], [ %139, %135 ], [ %.sroa.459.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19 ]
-  %.sroa.8.2.sink = phi ptr [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53 ], [ %59, %._crit_edge ], [ %141, %135 ], [ %.sroa.860.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19 ]
-  %.sroa.12.2.sink = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53 ], [ %58, %._crit_edge ], [ %143, %135 ], [ %.sroa.1262.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19 ]
+  %.sink98 = phi ptr [ %61, %._crit_edge ], [ %137, %135 ], [ %storemerge.i.i54, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53 ], [ %storemerge.i.i20, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19 ]
+  %.sink = phi ptr [ %60, %._crit_edge ], [ %139, %135 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53 ], [ %.sroa.459.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19 ]
+  %.sroa.8.2.sink = phi ptr [ %59, %._crit_edge ], [ %141, %135 ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53 ], [ %.sroa.860.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19 ]
+  %.sroa.12.2.sink = phi ptr [ %58, %._crit_edge ], [ %143, %135 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53 ], [ %.sroa.1262.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19 ]
   store ptr %.sink98, ptr %0, align 8, !tbaa !97
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %177, align 8, !tbaa !107
@@ -9329,10 +9329,10 @@ _ZStmiRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit: ; preds = %2
   br label %_ZSt7advanceISt15_Deque_iteratorIPN7rocksdb10BufferInfoERKS3_PS4_ElEvRT_T0_.exit
 
 _ZSt7advanceISt15_Deque_iteratorIPN7rocksdb10BufferInfoERKS3_PS4_ElEvRT_T0_.exit: ; preds = %283, %277
-  %.sroa.0167.0 = phi ptr [ %278, %277 ], [ %290, %283 ]
-  %.sroa.10171.2 = phi ptr [ %263, %277 ], [ %286, %283 ]
-  %.sroa.17174.2 = phi ptr [ %265, %277 ], [ %287, %283 ]
-  %.sroa.24177.2 = phi ptr [ %267, %277 ], [ %285, %283 ]
+  %.sroa.0167.0 = phi ptr [ %290, %283 ], [ %278, %277 ]
+  %.sroa.10171.2 = phi ptr [ %286, %283 ], [ %263, %277 ]
+  %.sroa.17174.2 = phi ptr [ %287, %283 ], [ %265, %277 ]
+  %.sroa.24177.2 = phi ptr [ %285, %283 ], [ %267, %277 ]
   %291 = load ptr, ptr %50, align 8, !tbaa !97
   store ptr %291, ptr %38, align 8, !tbaa !97
   %292 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -9436,7 +9436,7 @@ _ZSt7advanceISt15_Deque_iteratorIPN7rocksdb10BufferInfoERKS3_PS4_ElEvRT_T0_.exit
   br label %332
 
 332:                                              ; preds = %328, %330, %254, %256, %258
-  %.pn31.pn = phi { ptr, i32 } [ %255, %254 ], [ %259, %258 ], [ %257, %256 ], [ %331, %330 ], [ %329, %328 ]
+  %.pn31.pn = phi { ptr, i32 } [ %259, %258 ], [ %257, %256 ], [ %255, %254 ], [ %331, %330 ], [ %329, %328 ]
   %.1 = extractvalue { ptr, i32 } %.pn31.pn, 0
   %333 = call ptr @__cxa_begin_catch(ptr %.1) #21
   %334 = load ptr, ptr %53, align 8, !tbaa !104
@@ -9804,10 +9804,10 @@ _ZStmiRKSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_El.exit44: ; preds = 
   br label %_ZSt7advanceISt15_Deque_iteratorIPN7rocksdb10BufferInfoERKS3_PS4_ElEvRT_T0_.exit52
 
 _ZSt7advanceISt15_Deque_iteratorIPN7rocksdb10BufferInfoERKS3_PS4_ElEvRT_T0_.exit52: ; preds = %506, %500
-  %.sroa.24.2 = phi ptr [ %508, %506 ], [ %491, %500 ]
-  %.sroa.17.2 = phi ptr [ %510, %506 ], [ %489, %500 ]
-  %.sroa.10.2 = phi ptr [ %509, %506 ], [ %487, %500 ]
-  %.sroa.068.0 = phi ptr [ %513, %506 ], [ %501, %500 ]
+  %.sroa.24.2 = phi ptr [ %491, %500 ], [ %508, %506 ]
+  %.sroa.17.2 = phi ptr [ %489, %500 ], [ %510, %506 ]
+  %.sroa.10.2 = phi ptr [ %487, %500 ], [ %509, %506 ]
+  %.sroa.068.0 = phi ptr [ %501, %500 ], [ %513, %506 ]
   store ptr %.sroa.068.0, ptr %44, align 8, !tbaa !309
   %514 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %.sroa.10.2, ptr %514, align 8, !tbaa !314
@@ -9919,7 +9919,7 @@ _ZSt7advanceISt15_Deque_iteratorIPN7rocksdb10BufferInfoERKS3_PS4_ElEvRT_T0_.exit
   br label %563
 
 563:                                              ; preds = %559, %561, %478, %480, %482
-  %.pn29.pn = phi { ptr, i32 } [ %479, %478 ], [ %483, %482 ], [ %481, %480 ], [ %562, %561 ], [ %560, %559 ]
+  %.pn29.pn = phi { ptr, i32 } [ %483, %482 ], [ %481, %480 ], [ %479, %478 ], [ %562, %561 ], [ %560, %559 ]
   %.5 = extractvalue { ptr, i32 } %.pn29.pn, 0
   %564 = call ptr @__cxa_begin_catch(ptr %.5) #21
   %565 = load ptr, ptr %79, align 8, !tbaa !195
@@ -10884,10 +10884,10 @@ _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53: ; preds = 
   br i1 %176, label %.lr.ph.i43, label %_ZSt14__copy_move_a1ILb1EPPN7rocksdb10BufferInfoES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit21, !llvm.loop !604
 
 _ZSt14__copy_move_a1ILb1EPPN7rocksdb10BufferInfoES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit21: ; preds = %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53, %135, %._crit_edge
-  %.sink98 = phi ptr [ %storemerge.i.i54, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53 ], [ %61, %._crit_edge ], [ %137, %135 ], [ %storemerge.i.i20, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19 ]
-  %.sink = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53 ], [ %60, %._crit_edge ], [ %139, %135 ], [ %.sroa.459.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19 ]
-  %.sroa.8.2.sink = phi ptr [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53 ], [ %59, %._crit_edge ], [ %141, %135 ], [ %.sroa.860.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19 ]
-  %.sroa.12.2.sink = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53 ], [ %58, %._crit_edge ], [ %143, %135 ], [ %.sroa.1262.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19 ]
+  %.sink98 = phi ptr [ %61, %._crit_edge ], [ %137, %135 ], [ %storemerge.i.i54, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53 ], [ %storemerge.i.i20, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19 ]
+  %.sink = phi ptr [ %60, %._crit_edge ], [ %139, %135 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53 ], [ %.sroa.459.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19 ]
+  %.sroa.8.2.sink = phi ptr [ %59, %._crit_edge ], [ %141, %135 ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53 ], [ %.sroa.860.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19 ]
+  %.sroa.12.2.sink = phi ptr [ %58, %._crit_edge ], [ %143, %135 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i53 ], [ %.sroa.1262.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EpLEl.exit.i19 ]
   store ptr %.sink98, ptr %0, align 8, !tbaa !97
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %177, align 8, !tbaa !107
@@ -11313,10 +11313,10 @@ _ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i70: ; preds = 
   br i1 %207, label %.lr.ph.i54, label %_ZSt23__copy_move_backward_a1ILb1EPPN7rocksdb10BufferInfoES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit27, !llvm.loop !618
 
 _ZSt23__copy_move_backward_a1ILb1EPPN7rocksdb10BufferInfoES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit27: ; preds = %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i24, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i70, %157, %._crit_edge
-  %.sink138 = phi ptr [ %storemerge.i.i.i71, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i70 ], [ %68, %._crit_edge ], [ %160, %157 ], [ %storemerge.i.i.i25, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i24 ]
-  %.sink = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i70 ], [ %67, %._crit_edge ], [ %162, %157 ], [ %.sroa.477.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i24 ]
-  %.sroa.9.2.sink = phi ptr [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i70 ], [ %66, %._crit_edge ], [ %164, %157 ], [ %.sroa.978.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i24 ]
-  %.sroa.12.2.sink = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i70 ], [ %65, %._crit_edge ], [ %166, %157 ], [ %.sroa.1279.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i24 ]
+  %.sink138 = phi ptr [ %68, %._crit_edge ], [ %160, %157 ], [ %storemerge.i.i.i71, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i70 ], [ %storemerge.i.i.i25, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i24 ]
+  %.sink = phi ptr [ %67, %._crit_edge ], [ %162, %157 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i70 ], [ %.sroa.477.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i24 ]
+  %.sroa.9.2.sink = phi ptr [ %66, %._crit_edge ], [ %164, %157 ], [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i70 ], [ %.sroa.978.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i24 ]
+  %.sroa.12.2.sink = phi ptr [ %65, %._crit_edge ], [ %166, %157 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i70 ], [ %.sroa.1279.1, %_ZNSt15_Deque_iteratorIPN7rocksdb10BufferInfoERS2_PS2_EmIEl.exit.i24 ]
   store ptr %.sink138, ptr %0, align 8, !tbaa !97
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %208, align 8, !tbaa !107

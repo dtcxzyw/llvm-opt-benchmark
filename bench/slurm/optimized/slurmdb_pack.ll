@@ -1092,7 +1092,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_coord_rec(ptr noundef writ
   br label %16
 
 16:                                               ; preds = %9, %15
-  %.011 = phi i32 [ 0, %9 ], [ -1, %15 ]
+  %.011 = phi i32 [ -1, %15 ], [ 0, %9 ]
   ret i32 %.011
 }
 
@@ -1171,7 +1171,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_wckey_rec(ptr noundef writ
   br label %33
 
 33:                                               ; preds = %29, %3, %32
-  %.025 = phi i32 [ -1, %32 ], [ 0, %3 ], [ 0, %29 ]
+  %.025 = phi i32 [ -1, %32 ], [ 0, %29 ], [ 0, %3 ]
   ret i32 %.025
 }
 
@@ -1813,7 +1813,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_clus_res_rec(ptr noundef w
   br label %16
 
 16:                                               ; preds = %9, %15
-  %.012 = phi i32 [ 0, %9 ], [ -1, %15 ]
+  %.012 = phi i32 [ -1, %15 ], [ 0, %9 ]
   ret i32 %.012
 }
 
@@ -2988,7 +2988,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_federation_rec(ptr noundef
   br label %24
 
 24:                                               ; preds = %17, %9, %23
-  %.018 = phi i32 [ -1, %23 ], [ 0, %17 ], [ 0, %9 ]
+  %.018 = phi i32 [ -1, %23 ], [ 0, %9 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.018
 }
@@ -3729,7 +3729,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_assoc_rec_members(ptr noun
   br label %239
 
 239:                                              ; preds = %.thread277, %130, %238
-  %.0182 = phi i32 [ -1, %238 ], [ 0, %.thread277 ], [ 0, %130 ]
+  %.0182 = phi i32 [ -1, %238 ], [ 0, %130 ], [ 0, %.thread277 ]
   ret i32 %.0182
 }
 
@@ -4571,7 +4571,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_instance_rec(ptr noundef w
   br label %35
 
 35:                                               ; preds = %28, %34
-  %.025 = phi i32 [ 0, %28 ], [ -1, %34 ]
+  %.025 = phi i32 [ -1, %34 ], [ 0, %28 ]
   ret i32 %.025
 }
 
@@ -5912,7 +5912,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_qos_rec(ptr noundef writeo
   br label %300
 
 300:                                              ; preds = %164, %294, %299
-  %.0199 = phi i32 [ 0, %164 ], [ -1, %299 ], [ 0, %294 ]
+  %.0199 = phi i32 [ -1, %299 ], [ 0, %294 ], [ 0, %164 ]
   ret i32 %.0199
 }
 
@@ -6392,7 +6392,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_qos_rec_with_usage(ptr nou
   br label %49
 
 49:                                               ; preds = %3, %48, %45
-  %.0 = phi i32 [ %47, %45 ], [ -1, %48 ], [ -1, %3 ]
+  %.0 = phi i32 [ -1, %48 ], [ %47, %45 ], [ -1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -6939,7 +6939,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_reservation_rec(ptr nounde
   br label %111
 
 111:                                              ; preds = %62, %105, %110
-  %.081 = phi i32 [ 0, %62 ], [ 0, %105 ], [ -1, %110 ]
+  %.081 = phi i32 [ -1, %110 ], [ 0, %105 ], [ 0, %62 ]
   ret i32 %.081
 }
 
@@ -7458,7 +7458,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_txn_rec(ptr noundef writeo
   br label %39
 
 39:                                               ; preds = %35, %3, %38
-  %.029 = phi i32 [ 0, %3 ], [ -1, %38 ], [ 0, %35 ]
+  %.029 = phi i32 [ -1, %38 ], [ 0, %35 ], [ 0, %3 ]
   ret i32 %.029
 }
 
@@ -8269,7 +8269,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_assoc_cond(ptr noundef wri
   store i32 %154, ptr %152, align 8
   br label %155
 
-.thread:                                          ; preds = %147, %59, %61, %64, %67, %78, %81, %89, %92, %95, %98, %101, %104, %107, %115, %123, %131, %139
+.thread:                                          ; preds = %59, %61, %64, %67, %78, %81, %89, %92, %95, %98, %101, %104, %107, %115, %123, %131, %139, %147
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %158
 
@@ -8490,7 +8490,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_account_cond(ptr noundef w
   store i32 %53, ptr %51, align 8
   br label %54
 
-.thread:                                          ; preds = %46, %21, %24, %27, %30, %38
+.thread:                                          ; preds = %21, %24, %27, %30, %38, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %55
 
@@ -14369,7 +14369,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_job_rec(ptr noundef writeo
   br label %1015
 
 1015:                                             ; preds = %1010, %798, %577, %350, %.loopexit
-  %.0700 = phi i32 [ 0, %350 ], [ 0, %798 ], [ -1, %.loopexit ], [ 0, %1010 ], [ 0, %577 ]
+  %.0700 = phi i32 [ -1, %.loopexit ], [ 0, %577 ], [ 0, %1010 ], [ 0, %798 ], [ 0, %350 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -14762,7 +14762,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_step_rec(ptr noundef write
   br label %187
 
 187:                                              ; preds = %99, %181, %186
-  %.0127 = phi i32 [ 0, %99 ], [ -1, %186 ], [ 0, %181 ]
+  %.0127 = phi i32 [ -1, %186 ], [ 0, %181 ], [ 0, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0127
@@ -14999,7 +14999,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_qos_cond(ptr noundef write
   store i16 %69, ptr %67, align 8
   br label %70
 
-.thread:                                          ; preds = %62, %40, %42, %53, %56, %59
+.thread:                                          ; preds = %40, %42, %53, %56, %59, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %71
 
@@ -16316,7 +16316,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_archive_cond(ptr noundef w
   br label %39
 
 39:                                               ; preds = %3, %35, %38
-  %.028 = phi i32 [ 0, %3 ], [ 0, %35 ], [ -1, %38 ]
+  %.028 = phi i32 [ -1, %38 ], [ 0, %35 ], [ 0, %3 ]
   ret i32 %.028
 }
 
@@ -16707,7 +16707,7 @@ define dso_local void @slurmdb_pack_update_object(ptr noundef readonly captures(
   br label %28
 
 18:                                               ; preds = %3, %3, %3, %3, %3, %14, %13, %12, %11, %9, %8, %7, %6
-  %.0 = phi ptr [ @slurmdb_pack_federation_rec, %14 ], [ @slurmdb_pack_assoc_rec, %6 ], [ @slurmdb_pack_qos_rec, %7 ], [ @slurmdb_pack_qos_rec_with_usage, %8 ], [ @slurmdb_pack_wckey_rec, %9 ], [ @slurmdb_pack_res_rec, %11 ], [ @slurmdb_pack_tres_rec, %12 ], [ @slurmdb_pack_stats_msg, %13 ], [ @slurmdb_pack_user_rec, %3 ], [ @slurmdb_pack_user_rec, %3 ], [ @slurmdb_pack_user_rec, %3 ], [ @slurmdb_pack_user_rec, %3 ], [ @slurmdb_pack_user_rec, %3 ]
+  %.0 = phi ptr [ @slurmdb_pack_assoc_rec, %6 ], [ @slurmdb_pack_qos_rec, %7 ], [ @slurmdb_pack_qos_rec_with_usage, %8 ], [ @slurmdb_pack_wckey_rec, %9 ], [ @slurmdb_pack_res_rec, %11 ], [ @slurmdb_pack_tres_rec, %12 ], [ @slurmdb_pack_stats_msg, %13 ], [ @slurmdb_pack_federation_rec, %14 ], [ @slurmdb_pack_user_rec, %3 ], [ @slurmdb_pack_user_rec, %3 ], [ @slurmdb_pack_user_rec, %3 ], [ @slurmdb_pack_user_rec, %3 ], [ @slurmdb_pack_user_rec, %3 ]
   tail call void @pack16(i16 noundef zeroext %5, ptr noundef %2) #6
   %19 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %19, null
@@ -16815,8 +16815,8 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_update_object(ptr noundef 
   br label %22
 
 20:                                               ; preds = %7, %7, %7, %7, %7, %16, %15, %14, %13, %12, %11, %10, %9
-  %.013 = phi ptr [ @slurmdb_unpack_federation_rec, %16 ], [ @slurmdb_unpack_assoc_rec, %9 ], [ @slurmdb_unpack_qos_rec, %10 ], [ @slurmdb_unpack_qos_rec_with_usage, %11 ], [ @slurmdb_unpack_wckey_rec, %12 ], [ @slurmdb_unpack_res_rec, %13 ], [ @slurmdb_unpack_tres_rec, %14 ], [ @slurmdb_unpack_stats_msg, %15 ], [ @slurmdb_unpack_user_rec, %7 ], [ @slurmdb_unpack_user_rec, %7 ], [ @slurmdb_unpack_user_rec, %7 ], [ @slurmdb_unpack_user_rec, %7 ], [ @slurmdb_unpack_user_rec, %7 ]
-  %.0 = phi ptr [ @slurmdb_destroy_federation_rec, %16 ], [ @slurmdb_destroy_assoc_rec, %9 ], [ @slurmdb_destroy_qos_rec, %10 ], [ @slurmdb_destroy_qos_rec, %11 ], [ @slurmdb_destroy_wckey_rec, %12 ], [ @slurmdb_destroy_res_rec, %13 ], [ @slurmdb_destroy_tres_rec, %14 ], [ @slurmdb_destroy_stats_rec, %15 ], [ @slurmdb_destroy_user_rec, %7 ], [ @slurmdb_destroy_user_rec, %7 ], [ @slurmdb_destroy_user_rec, %7 ], [ @slurmdb_destroy_user_rec, %7 ], [ @slurmdb_destroy_user_rec, %7 ]
+  %.013 = phi ptr [ @slurmdb_unpack_assoc_rec, %9 ], [ @slurmdb_unpack_qos_rec, %10 ], [ @slurmdb_unpack_qos_rec_with_usage, %11 ], [ @slurmdb_unpack_wckey_rec, %12 ], [ @slurmdb_unpack_res_rec, %13 ], [ @slurmdb_unpack_tres_rec, %14 ], [ @slurmdb_unpack_stats_msg, %15 ], [ @slurmdb_unpack_federation_rec, %16 ], [ @slurmdb_unpack_user_rec, %7 ], [ @slurmdb_unpack_user_rec, %7 ], [ @slurmdb_unpack_user_rec, %7 ], [ @slurmdb_unpack_user_rec, %7 ], [ @slurmdb_unpack_user_rec, %7 ]
+  %.0 = phi ptr [ @slurmdb_destroy_assoc_rec, %9 ], [ @slurmdb_destroy_qos_rec, %10 ], [ @slurmdb_destroy_qos_rec, %11 ], [ @slurmdb_destroy_wckey_rec, %12 ], [ @slurmdb_destroy_res_rec, %13 ], [ @slurmdb_destroy_tres_rec, %14 ], [ @slurmdb_destroy_stats_rec, %15 ], [ @slurmdb_destroy_federation_rec, %16 ], [ @slurmdb_destroy_user_rec, %7 ], [ @slurmdb_destroy_user_rec, %7 ], [ @slurmdb_destroy_user_rec, %7 ], [ @slurmdb_destroy_user_rec, %7 ], [ @slurmdb_destroy_user_rec, %7 ]
   %21 = tail call i32 @slurm_unpack_list(ptr noundef nonnull %4, ptr noundef nonnull %.013, ptr noundef nonnull %.0, ptr noundef %2, i16 noundef zeroext %1) #6
   %.not15 = icmp eq i32 %21, 0
   br i1 %.not15, label %23, label %22

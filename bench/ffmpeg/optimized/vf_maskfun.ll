@@ -320,7 +320,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %45
 
 45:                                               ; preds = %26, %18, %19, %43
-  %.1 = phi i32 [ -12, %18 ], [ %44, %43 ], [ %23, %19 ], [ -12, %26 ]
+  %.1 = phi i32 [ %44, %43 ], [ %23, %19 ], [ -12, %18 ], [ -12, %26 ]
   ret i32 %.1
 }
 
@@ -539,7 +539,7 @@ fill_frame.exit.loopexit:                         ; preds = %._crit_edge.i
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !26
   br label %fill_frame.exit
 
-fill_frame.exit.thread:                           ; preds = %.preheader.i, %.preheader2.i
+fill_frame.exit.thread:                           ; preds = %.preheader2.i, %.preheader.i
   %120 = getelementptr inbounds nuw i8, ptr %.val50, i64 88
   store i64 0, ptr %120, align 8, !tbaa !25
   br label %set_max_sum.exit
@@ -734,7 +734,7 @@ define internal noundef i32 @maskfun8(ptr noundef readonly captures(none) %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.lr.ph, %.loopexit.loopexit, %41, %25
-  %69 = phi i32 [ %26, %25 ], [ %.pre, %.loopexit.loopexit ], [ %26, %41 ], [ %26, %.preheader.lr.ph ]
+  %69 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %26, %41 ], [ %26, %25 ], [ %26, %.preheader.lr.ph ]
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next73, %70
@@ -830,7 +830,7 @@ define internal range(i32 0, 2) i32 @getsum8(ptr noundef readonly captures(none)
   br i1 %exitcond65.not, label %.loopexit44, label %14, !llvm.loop !79
 
 .loopexit44:                                      ; preds = %.loopexit, %.preheader.lr.ph.split, %._crit_edge.us, %2
-  %.3 = phi i32 [ 0, %2 ], [ 1, %._crit_edge.us ], [ 0, %.loopexit ], [ 1, %.preheader.lr.ph.split ]
+  %.3 = phi i32 [ 0, %2 ], [ 1, %._crit_edge.us ], [ 1, %.preheader.lr.ph.split ], [ 0, %.loopexit ]
   ret i32 %.3
 }
 
@@ -1042,7 +1042,7 @@ define internal range(i32 0, 2) i32 @getsum16(ptr noundef readonly captures(none
   br i1 %exitcond65.not, label %.loopexit44, label %14, !llvm.loop !85
 
 .loopexit44:                                      ; preds = %.loopexit, %.preheader.lr.ph.split, %._crit_edge.us, %2
-  %.3 = phi i32 [ 0, %2 ], [ 1, %._crit_edge.us ], [ 0, %.loopexit ], [ 1, %.preheader.lr.ph.split ]
+  %.3 = phi i32 [ 0, %2 ], [ 1, %._crit_edge.us ], [ 1, %.preheader.lr.ph.split ], [ 0, %.loopexit ]
   ret i32 %.3
 }
 

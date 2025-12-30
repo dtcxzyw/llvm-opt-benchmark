@@ -309,8 +309,8 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %21
 
 21:                                               ; preds = %18, %15, %17, %4
-  %.0166 = phi i1 [ false, %4 ], [ false, %15 ], [ %.not, %18 ], [ false, %17 ]
-  %.0165 = phi i1 [ false, %4 ], [ %.not168, %15 ], [ false, %18 ], [ true, %17 ]
+  %.0166 = phi i1 [ false, %4 ], [ false, %17 ], [ false, %15 ], [ %.not, %18 ]
+  %.0165 = phi i1 [ false, %4 ], [ true, %17 ], [ %.not168, %15 ], [ false, %18 ]
   %22 = load i32, ptr @proto_gre, align 4
   %23 = tail call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @gre_typevals, ptr noundef nonnull @.str.156)
   %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.155, ptr noundef %23)

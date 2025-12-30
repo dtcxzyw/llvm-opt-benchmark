@@ -1541,7 +1541,7 @@ define noundef ptr @l___private_Init_Data_List_ToArray_0__List_anyM_match__1_spl
   br label %lean_inc.exit5
 
 lean_inc.exit5:                                   ; preds = %14, %19, %21, %22, %5, %10, %12, %13
-  %.0 = phi ptr [ %2, %5 ], [ %2, %13 ], [ %2, %12 ], [ %2, %10 ], [ %1, %22 ], [ %1, %21 ], [ %1, %19 ], [ %1, %14 ]
+  %.0 = phi ptr [ %2, %13 ], [ %2, %12 ], [ %2, %10 ], [ %2, %5 ], [ %1, %22 ], [ %1, %21 ], [ %1, %19 ], [ %1, %14 ]
   ret ptr %.0
 }
 
@@ -1648,7 +1648,7 @@ lean_dec.exit8:                                   ; preds = %12, %11, %9, %3
   br label %l___private_Init_Data_List_ToArray_0__List_anyM_match__1_splitter___rarg.exit
 
 l___private_Init_Data_List_ToArray_0__List_anyM_match__1_splitter___rarg.exit: ; preds = %15, %20, %22, %23, %24, %29, %31, %32
-  %.0.i = phi ptr [ %2, %15 ], [ %2, %23 ], [ %2, %22 ], [ %2, %20 ], [ %1, %32 ], [ %1, %31 ], [ %1, %29 ], [ %1, %24 ]
+  %.0.i = phi ptr [ %2, %23 ], [ %2, %22 ], [ %2, %20 ], [ %2, %15 ], [ %1, %32 ], [ %1, %31 ], [ %1, %29 ], [ %1, %24 ]
   %33 = ptrtoint ptr %2 to i64
   %34 = and i64 %33, 1
   %.not14 = icmp eq i64 %34, 0
@@ -1754,7 +1754,7 @@ define noundef ptr @l___private_Init_Data_List_ToArray_0__List_filter_match__1_s
   br label %lean_inc.exit5
 
 lean_inc.exit5:                                   ; preds = %14, %19, %21, %22, %5, %10, %12, %13
-  %.0 = phi ptr [ %2, %5 ], [ %2, %13 ], [ %2, %12 ], [ %2, %10 ], [ %1, %22 ], [ %1, %21 ], [ %1, %19 ], [ %1, %14 ]
+  %.0 = phi ptr [ %2, %13 ], [ %2, %12 ], [ %2, %10 ], [ %2, %5 ], [ %1, %22 ], [ %1, %21 ], [ %1, %19 ], [ %1, %14 ]
   ret ptr %.0
 }
 
@@ -1861,7 +1861,7 @@ lean_dec.exit8:                                   ; preds = %12, %11, %9, %3
   br label %l___private_Init_Data_List_ToArray_0__List_filter_match__1_splitter___rarg.exit
 
 l___private_Init_Data_List_ToArray_0__List_filter_match__1_splitter___rarg.exit: ; preds = %15, %20, %22, %23, %24, %29, %31, %32
-  %.0.i = phi ptr [ %2, %15 ], [ %2, %23 ], [ %2, %22 ], [ %2, %20 ], [ %1, %32 ], [ %1, %31 ], [ %1, %29 ], [ %1, %24 ]
+  %.0.i = phi ptr [ %2, %23 ], [ %2, %22 ], [ %2, %20 ], [ %2, %15 ], [ %1, %32 ], [ %1, %31 ], [ %1, %29 ], [ %1, %24 ]
   %33 = ptrtoint ptr %2 to i64
   %34 = and i64 %33, 1
   %.not14 = icmp eq i64 %34, 0

@@ -249,7 +249,7 @@ _ZN6icu_7725CollationFastLatinBuilder8resetCEsEv.exit: ; preds = %33, %34, %44, 
   br label %59
 
 59:                                               ; preds = %_ZN6icu_7725CollationFastLatinBuilder8resetCEsEv.exit, %14, %12, %3, %55, %11
-  %.0 = phi i8 [ 0, %11 ], [ %56, %55 ], [ 0, %14 ], [ 0, %12 ], [ 0, %3 ], [ 0, %_ZN6icu_7725CollationFastLatinBuilder8resetCEsEv.exit ]
+  %.0 = phi i8 [ %56, %55 ], [ 0, %11 ], [ 0, %3 ], [ 0, %12 ], [ 0, %14 ], [ 0, %_ZN6icu_7725CollationFastLatinBuilder8resetCEsEv.exit ]
   ret i8 %.0
 }
 
@@ -520,8 +520,8 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit34:      ; preds = %71, %73
   br label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i
 
 122:                                              ; preds = %119, %116
-  %.123.i.i = phi i32 [ %113, %119 ], [ %.02237.i.i, %116 ]
-  %.120.i.i = phi i32 [ %.01938.i.i, %119 ], [ %113, %116 ]
+  %.123.i.i = phi i32 [ %.02237.i.i, %116 ], [ %113, %119 ]
+  %.120.i.i = phi i32 [ %113, %116 ], [ %.01938.i.i, %119 ]
   %123 = add nsw i32 %.120.i.i, %.123.i.i
   %124 = sdiv i32 %123, 2
   %125 = sext i32 %124 to i64
@@ -531,7 +531,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit34:      ; preds = %71, %73
   br i1 %128, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i, label %.lr.ph.i.i, !llvm.loop !53
 
 _ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i: ; preds = %122, %120, %117, %.preheader.i.i
-  %.018.i.i = phi i32 [ %107, %.preheader.i.i ], [ %121, %120 ], [ %118, %117 ], [ %124, %122 ]
+  %.018.i.i = phi i32 [ %121, %120 ], [ %118, %117 ], [ %107, %.preheader.i.i ], [ %124, %122 ]
   %129 = icmp slt i32 %.018.i.i, 0
   br i1 %129, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.thread.i, label %_ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode.exit
 
@@ -593,8 +593,8 @@ _ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode.exit: ; preds 
   br label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i44
 
 156:                                              ; preds = %153, %150
-  %.123.i.i42 = phi i32 [ %147, %153 ], [ %.02237.i.i41, %150 ]
-  %.120.i.i43 = phi i32 [ %.01938.i.i40, %153 ], [ %147, %150 ]
+  %.123.i.i42 = phi i32 [ %.02237.i.i41, %150 ], [ %147, %153 ]
+  %.120.i.i43 = phi i32 [ %147, %150 ], [ %.01938.i.i40, %153 ]
   %157 = add nsw i32 %.120.i.i43, %.123.i.i42
   %158 = sdiv i32 %157, 2
   %159 = sext i32 %158 to i64
@@ -604,7 +604,7 @@ _ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode.exit: ; preds 
   br i1 %162, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i44, label %.lr.ph.i.i39, !llvm.loop !53
 
 _ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i44: ; preds = %156, %154, %151, %.preheader.i.i38
-  %.018.i.i45 = phi i32 [ %141, %.preheader.i.i38 ], [ %155, %154 ], [ %152, %151 ], [ %158, %156 ]
+  %.018.i.i45 = phi i32 [ %155, %154 ], [ %152, %151 ], [ %141, %.preheader.i.i38 ], [ %158, %156 ]
   %163 = icmp slt i32 %.018.i.i45, 0
   br i1 %163, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.thread.i46, label %_ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode.exit48
 
@@ -770,13 +770,13 @@ _ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector
   br label %102
 
 59:                                               ; preds = %50, %56, %46, %52, %_ZNK6icu_779UVector6410elementAtiEi.exit
-  %.191 = phi i32 [ %.090104, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ %57, %56 ], [ %51, %50 ], [ 3072, %46 ], [ 4096, %52 ]
-  %.184 = phi i32 [ %.083105, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ 160, %56 ], [ 160, %50 ], [ 160, %46 ], [ 160, %52 ]
-  %.179 = phi i32 [ %.078106, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ 0, %56 ], [ 0, %50 ], [ 0, %46 ], [ 0, %52 ]
-  %.173 = phi i32 [ %.072108, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ 1280, %56 ], [ 1280, %50 ], [ 1280, %46 ], [ 1280, %52 ]
-  %.170 = phi i32 [ %.069109, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ %31, %56 ], [ %31, %50 ], [ %31, %46 ], [ %31, %52 ]
-  %.165 = phi i32 [ %.064110, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ %.367, %56 ], [ %.367, %50 ], [ %.367, %46 ], [ %.367, %52 ]
-  %.1 = phi i32 [ %.063111, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ %.3, %56 ], [ %.3, %50 ], [ %.3, %46 ], [ %.3, %52 ]
+  %.191 = phi i32 [ %.090104, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ %51, %50 ], [ %57, %56 ], [ 3072, %46 ], [ 4096, %52 ]
+  %.184 = phi i32 [ %.083105, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ 160, %50 ], [ 160, %56 ], [ 160, %46 ], [ 160, %52 ]
+  %.179 = phi i32 [ %.078106, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ 0, %50 ], [ 0, %56 ], [ 0, %46 ], [ 0, %52 ]
+  %.173 = phi i32 [ %.072108, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ 1280, %50 ], [ 1280, %56 ], [ 1280, %46 ], [ 1280, %52 ]
+  %.170 = phi i32 [ %.069109, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ %31, %50 ], [ %31, %56 ], [ %31, %46 ], [ %31, %52 ]
+  %.165 = phi i32 [ %.064110, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ %.367, %50 ], [ %.367, %56 ], [ %.367, %46 ], [ %.367, %52 ]
+  %.1 = phi i32 [ %.063111, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ %.3, %50 ], [ %.3, %56 ], [ %.3, %46 ], [ %.3, %52 ]
   %60 = trunc i64 %29 to i32
   %61 = lshr i32 %60, 16
   %.not98 = icmp eq i32 %61, %.173
@@ -831,9 +831,9 @@ _ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector
   br label %86
 
 86:                                               ; preds = %84, %76, %64, %68, %72, %78, %80, %59
-  %.386 = phi i32 [ %.184, %59 ], [ %85, %84 ], [ 384, %64 ], [ %77, %76 ], [ 0, %72 ], [ 160, %78 ], [ %69, %68 ], [ 192, %80 ]
-  %.381 = phi i32 [ %.179, %59 ], [ 0, %84 ], [ 0, %64 ], [ 0, %76 ], [ 0, %72 ], [ 0, %78 ], [ 0, %68 ], [ 0, %80 ]
-  %.375 = phi i32 [ %.173, %59 ], [ %61, %84 ], [ %61, %64 ], [ %61, %76 ], [ %61, %72 ], [ 1280, %78 ], [ %61, %68 ], [ %61, %80 ]
+  %.386 = phi i32 [ %.184, %59 ], [ %77, %76 ], [ %85, %84 ], [ %69, %68 ], [ 384, %64 ], [ 0, %72 ], [ 160, %78 ], [ 192, %80 ]
+  %.381 = phi i32 [ %.179, %59 ], [ 0, %76 ], [ 0, %84 ], [ 0, %68 ], [ 0, %64 ], [ 0, %72 ], [ 0, %78 ], [ 0, %80 ]
+  %.375 = phi i32 [ %.173, %59 ], [ %61, %76 ], [ %61, %84 ], [ %61, %68 ], [ %61, %64 ], [ %61, %72 ], [ 1280, %78 ], [ %61, %80 ]
   %87 = and i32 %60, 16191
   %88 = icmp samesign ugt i32 %87, 1280
   br i1 %88, label %89, label %93
@@ -864,14 +864,14 @@ _ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector
   br label %102
 
 102:                                              ; preds = %89, %82, %74, %66, %48, %95, %98, %58
-  %.sink = phi i16 [ 1, %48 ], [ 1, %66 ], [ 1, %74 ], [ %97, %95 ], [ %101, %98 ], [ 1, %82 ], [ 1, %58 ], [ 1, %89 ]
-  %.292 = phi i32 [ %.090104, %48 ], [ 0, %66 ], [ %.191, %74 ], [ %.191, %95 ], [ %.191, %98 ], [ %.191, %82 ], [ %.090104, %58 ], [ %.191, %89 ]
-  %.285 = phi i32 [ %.083105, %48 ], [ %.184, %66 ], [ %.184, %74 ], [ %.386, %95 ], [ %.386, %98 ], [ %.184, %82 ], [ %.083105, %58 ], [ %.386, %89 ]
-  %.280 = phi i32 [ %.078106, %48 ], [ %.179, %66 ], [ %.179, %74 ], [ %.5, %95 ], [ %.5, %98 ], [ %.179, %82 ], [ %.078106, %58 ], [ %.381, %89 ]
-  %.274 = phi i32 [ %.072108, %48 ], [ %.173, %66 ], [ %.173, %74 ], [ %.375, %95 ], [ %.375, %98 ], [ %.173, %82 ], [ %.072108, %58 ], [ %.375, %89 ]
-  %.271 = phi i32 [ %.069109, %48 ], [ %.170, %66 ], [ %.170, %74 ], [ %.170, %95 ], [ %.170, %98 ], [ %.170, %82 ], [ %.069109, %58 ], [ %.170, %89 ]
-  %.468 = phi i32 [ %.367, %48 ], [ %.165, %66 ], [ %.165, %74 ], [ %.165, %95 ], [ %.165, %98 ], [ %.165, %82 ], [ %.367, %58 ], [ %.165, %89 ]
-  %.4 = phi i32 [ %.3, %48 ], [ %.1, %66 ], [ %.1, %74 ], [ %.1, %95 ], [ %.1, %98 ], [ %.1, %82 ], [ %.3, %58 ], [ %.1, %89 ]
+  %.sink = phi i16 [ %97, %95 ], [ %101, %98 ], [ 1, %58 ], [ 1, %48 ], [ 1, %66 ], [ 1, %74 ], [ 1, %82 ], [ 1, %89 ]
+  %.292 = phi i32 [ %.191, %95 ], [ %.191, %98 ], [ %.090104, %58 ], [ %.090104, %48 ], [ 0, %66 ], [ %.191, %74 ], [ %.191, %82 ], [ %.191, %89 ]
+  %.285 = phi i32 [ %.386, %95 ], [ %.386, %98 ], [ %.083105, %58 ], [ %.083105, %48 ], [ %.184, %66 ], [ %.184, %74 ], [ %.184, %82 ], [ %.386, %89 ]
+  %.280 = phi i32 [ %.5, %95 ], [ %.5, %98 ], [ %.078106, %58 ], [ %.078106, %48 ], [ %.179, %66 ], [ %.179, %74 ], [ %.179, %82 ], [ %.381, %89 ]
+  %.274 = phi i32 [ %.375, %95 ], [ %.375, %98 ], [ %.072108, %58 ], [ %.072108, %48 ], [ %.173, %66 ], [ %.173, %74 ], [ %.173, %82 ], [ %.375, %89 ]
+  %.271 = phi i32 [ %.170, %95 ], [ %.170, %98 ], [ %.069109, %58 ], [ %.069109, %48 ], [ %.170, %66 ], [ %.170, %74 ], [ %.170, %82 ], [ %.170, %89 ]
+  %.468 = phi i32 [ %.165, %95 ], [ %.165, %98 ], [ %.367, %58 ], [ %.367, %48 ], [ %.165, %66 ], [ %.165, %74 ], [ %.165, %82 ], [ %.165, %89 ]
+  %.4 = phi i32 [ %.1, %95 ], [ %.1, %98 ], [ %.3, %58 ], [ %.3, %48 ], [ %.1, %66 ], [ %.1, %74 ], [ %.1, %82 ], [ %.1, %89 ]
   %103 = load ptr, ptr %6, align 8, !tbaa !6
   %104 = getelementptr inbounds nuw i16, ptr %103, i64 %indvars.iv114
   store i16 %.sink, ptr %104, align 2, !tbaa !49
@@ -882,7 +882,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector
   br i1 %107, label %_ZNK6icu_779UVector6410elementAtiEi.exit, label %._crit_edge112, !llvm.loop !56
 
 108:                                              ; preds = %2, %._crit_edge112, %14
-  %.0 = phi i8 [ %26, %._crit_edge112 ], [ 0, %14 ], [ 0, %2 ]
+  %.0 = phi i8 [ 0, %14 ], [ %26, %._crit_edge112 ], [ 0, %2 ]
   ret i8 %.0
 }
 
@@ -1471,8 +1471,8 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %16, %27, %32
   store i64 %97, ptr %98, align 8, !tbaa !51
   br label %.thread.thread
 
-.thread:                                          ; preds = %82, %78, %65, %60, %_ZN6icu_779Collation10ceFromCE32Ej.exit
-  %99 = phi i64 [ %79, %82 ], [ %79, %78 ], [ %.pre, %65 ], [ %62, %60 ], [ %.0.i, %_ZN6icu_779Collation10ceFromCE32Ej.exit ]
+.thread:                                          ; preds = %78, %82, %60, %65, %_ZN6icu_779Collation10ceFromCE32Ej.exit
+  %99 = phi i64 [ %79, %78 ], [ %79, %82 ], [ %62, %60 ], [ %.pre, %65 ], [ %.0.i, %_ZN6icu_779Collation10ceFromCE32Ej.exit ]
   %100 = icmp eq i64 %99, 0
   br i1 %100, label %101, label %.thread.thread
 
@@ -1548,8 +1548,8 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %16, %27, %32
   %.73 = zext i1 %.not70 to i8
   br label %.critedge
 
-.critedge:                                        ; preds = %69, %51, %132, %112, %.thread.thread, %126, %127, %129, %137, %36, %5, %101, %85
-  %.0 = phi i8 [ %86, %85 ], [ %104, %101 ], [ 0, %36 ], [ 0, %5 ], [ 0, %132 ], [ 0, %51 ], [ 0, %126 ], [ 0, %.thread.thread ], [ 0, %112 ], [ %.73, %137 ], [ 0, %127 ], [ 0, %69 ], [ 0, %129 ]
+.critedge:                                        ; preds = %69, %51, %132, %112, %.thread.thread, %127, %126, %129, %137, %36, %5, %101, %85
+  %.0 = phi i8 [ %104, %101 ], [ %86, %85 ], [ 0, %5 ], [ 0, %36 ], [ 0, %.thread.thread ], [ %.73, %137 ], [ 0, %129 ], [ 0, %126 ], [ 0, %127 ], [ 0, %112 ], [ 0, %132 ], [ 0, %51 ], [ 0, %69 ]
   ret i8 %.0
 }
 
@@ -1606,8 +1606,8 @@ define void @_ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode(p
   br label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit
 
 31:                                               ; preds = %28, %25
-  %.123.i = phi i32 [ %22, %28 ], [ %.02237.i, %25 ]
-  %.120.i = phi i32 [ %.01938.i, %28 ], [ %22, %25 ]
+  %.123.i = phi i32 [ %.02237.i, %25 ], [ %22, %28 ]
+  %.120.i = phi i32 [ %22, %25 ], [ %.01938.i, %28 ]
   %32 = add nsw i32 %.120.i, %.123.i
   %33 = sdiv i32 %32, 2
   %34 = sext i32 %33 to i64
@@ -1617,7 +1617,7 @@ define void @_ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode(p
   br i1 %37, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit, label %.lr.ph.i, !llvm.loop !53
 
 _ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit: ; preds = %31, %.preheader.i, %26, %29
-  %.018.i = phi i32 [ %16, %.preheader.i ], [ %30, %29 ], [ %27, %26 ], [ %33, %31 ]
+  %.018.i = phi i32 [ %30, %29 ], [ %27, %26 ], [ %16, %.preheader.i ], [ %33, %31 ]
   %38 = icmp slt i32 %.018.i, 0
   br i1 %38, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.thread, label %40
 
@@ -1769,8 +1769,8 @@ _ZN6icu_779UVector6410addElementElR10UErrorCode.exit25: ; preds = %_ZN6icu_779UV
   br label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i
 
 70:                                               ; preds = %67, %64
-  %.123.i.i = phi i32 [ %61, %67 ], [ %.02237.i.i, %64 ]
-  %.120.i.i = phi i32 [ %.01938.i.i, %67 ], [ %61, %64 ]
+  %.123.i.i = phi i32 [ %.02237.i.i, %64 ], [ %61, %67 ]
+  %.120.i.i = phi i32 [ %61, %64 ], [ %.01938.i.i, %67 ]
   %71 = add nsw i32 %.120.i.i, %.123.i.i
   %72 = sdiv i32 %71, 2
   %73 = sext i32 %72 to i64
@@ -1780,7 +1780,7 @@ _ZN6icu_779UVector6410addElementElR10UErrorCode.exit25: ; preds = %_ZN6icu_779UV
   br i1 %76, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i, label %.lr.ph.i.i, !llvm.loop !53
 
 _ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i: ; preds = %70, %68, %65, %.preheader.i.i
-  %.018.i.i = phi i32 [ %55, %.preheader.i.i ], [ %69, %68 ], [ %66, %65 ], [ %72, %70 ]
+  %.018.i.i = phi i32 [ %69, %68 ], [ %66, %65 ], [ %55, %.preheader.i.i ], [ %72, %70 ]
   %77 = icmp slt i32 %.018.i.i, 0
   br i1 %77, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.thread.i, label %_ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode.exit
 
@@ -1843,8 +1843,8 @@ _ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode.exit: ; preds 
   br label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i35
 
 106:                                              ; preds = %103, %100
-  %.123.i.i33 = phi i32 [ %97, %103 ], [ %.02237.i.i32, %100 ]
-  %.120.i.i34 = phi i32 [ %.01938.i.i31, %103 ], [ %97, %100 ]
+  %.123.i.i33 = phi i32 [ %.02237.i.i32, %100 ], [ %97, %103 ]
+  %.120.i.i34 = phi i32 [ %97, %100 ], [ %.01938.i.i31, %103 ]
   %107 = add nsw i32 %.120.i.i34, %.123.i.i33
   %108 = sdiv i32 %107, 2
   %109 = sext i32 %108 to i64
@@ -1854,7 +1854,7 @@ _ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode.exit: ; preds 
   br i1 %112, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i35, label %.lr.ph.i.i30, !llvm.loop !53
 
 _ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.i35: ; preds = %106, %104, %101, %.preheader.i.i29
-  %.018.i.i36 = phi i32 [ %91, %.preheader.i.i29 ], [ %105, %104 ], [ %102, %101 ], [ %108, %106 ]
+  %.018.i.i36 = phi i32 [ %105, %104 ], [ %102, %101 ], [ %91, %.preheader.i.i29 ], [ %108, %106 ]
   %113 = icmp slt i32 %.018.i.i36, 0
   br i1 %113, label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit.thread.i37, label %_ZN6icu_7725CollationFastLatinBuilder11addUniqueCEElR10UErrorCode.exit39
 
@@ -2054,12 +2054,12 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %45
 68:                                               ; preds = %.thread59
   br i1 %.041.ph86, label %.thread.outer85.backedge, label %69
 
-.thread.outer85.backedge:                         ; preds = %68, %69
-  br label %.thread.outer85, !llvm.loop !68
-
 69:                                               ; preds = %68
   invoke void @_ZN6icu_7725CollationFastLatinBuilder19addContractionEntryEillR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, i32 noundef %.043.ph, i64 noundef 4311744768, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %.thread.outer85.backedge unwind label %.loopexit81
+
+.thread.outer85.backedge:                         ; preds = %69, %68
+  br label %.thread.outer85, !llvm.loop !68
 
 70:                                               ; preds = %.thread59
   br i1 %.041.ph86, label %74, label %71
@@ -2131,7 +2131,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %45
   br label %98
 
 96:                                               ; preds = %.loopexit81, %.loopexit.split-lp82, %.loopexit, %.loopexit.split-lp
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit83, %.loopexit81 ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp82 ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit83, %.loopexit81 ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp82 ]
   call void @_ZN6icu_7710UCharsTrie8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #13
   br label %97
 
@@ -2196,8 +2196,8 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7725CollationFastLatinBuilder9g
   br label %_ZN6icu_7712_GLOBAL__N_112binarySearchEPKlil.exit
 
 24:                                               ; preds = %21, %18
-  %.123.i = phi i32 [ %15, %21 ], [ %.02237.i, %18 ]
-  %.120.i = phi i32 [ %.01938.i, %21 ], [ %15, %18 ]
+  %.123.i = phi i32 [ %.02237.i, %18 ], [ %15, %21 ]
+  %.120.i = phi i32 [ %15, %18 ], [ %.01938.i, %21 ]
   %25 = add nsw i32 %.120.i, %.123.i
   %26 = sdiv i32 %25, 2
   %27 = sext i32 %26 to i64
@@ -2273,8 +2273,8 @@ define noundef i32 @_ZNK6icu_7725CollationFastLatinBuilder12encodeTwoCEsEll(ptr 
   br label %_ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit
 
 27:                                               ; preds = %24, %21
-  %.123.i.i = phi i32 [ %18, %24 ], [ %.02237.i.i, %21 ]
-  %.120.i.i = phi i32 [ %.01938.i.i, %24 ], [ %18, %21 ]
+  %.123.i.i = phi i32 [ %.02237.i.i, %21 ], [ %18, %24 ]
+  %.120.i.i = phi i32 [ %18, %21 ], [ %.01938.i.i, %24 ]
   %28 = add nsw i32 %.120.i.i, %.123.i.i
   %29 = sdiv i32 %28, 2
   %30 = sext i32 %29 to i64
@@ -2341,8 +2341,8 @@ _ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit: ; preds = %27, %5, %.pr
   br label %_ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit58
 
 66:                                               ; preds = %63, %60
-  %.123.i.i55 = phi i32 [ %57, %63 ], [ %.02237.i.i54, %60 ]
-  %.120.i.i56 = phi i32 [ %.01938.i.i53, %63 ], [ %57, %60 ]
+  %.123.i.i55 = phi i32 [ %.02237.i.i54, %60 ], [ %57, %63 ]
+  %.120.i.i56 = phi i32 [ %57, %60 ], [ %.01938.i.i53, %63 ]
   %67 = add nsw i32 %.120.i.i56, %.123.i.i55
   %68 = sdiv i32 %67, 2
   %69 = sext i32 %68 to i64
@@ -2391,7 +2391,7 @@ _ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit58: ; preds = %66, %49, %
   br label %99
 
 99:                                               ; preds = %_ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit, %40, %91, %83, %_ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit58, %3, %4
-  %.0 = phi i32 [ 0, %3 ], [ 1, %4 ], [ %.039, %40 ], [ 1, %_ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit ], [ 1, %_ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit58 ], [ %98, %91 ], [ %90, %83 ]
+  %.0 = phi i32 [ 1, %4 ], [ 0, %3 ], [ 1, %_ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit ], [ %.039, %40 ], [ 1, %_ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit58 ], [ %98, %91 ], [ %90, %83 ]
   ret i32 %.0
 }
 

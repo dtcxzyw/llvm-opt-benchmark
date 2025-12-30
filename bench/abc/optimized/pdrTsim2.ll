@@ -608,7 +608,7 @@ Gia_ObjIsPi.exit.thread:                          ; preds = %.Gia_ObjIsPi.exit.t
   br label %99
 
 99:                                               ; preds = %92, %82, %95, %89
-  %.sink = phi i32 [ %87, %82 ], [ %91, %89 ], [ %98, %95 ], [ %94, %92 ]
+  %.sink = phi i32 [ %87, %82 ], [ %98, %95 ], [ %91, %89 ], [ %94, %92 ]
   %100 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 %.sink, ptr %100, align 4, !tbaa !27
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
@@ -1224,7 +1224,7 @@ Gia_ObjIsPi.exit45.thread:                        ; preds = %64, %Gia_ObjIsPi.ex
   br label %Gia_ObjIsPi.exit
 
 Gia_ObjIsPi.exit:                                 ; preds = %74, %Gia_ObjIsPi.exit45.thread, %52, %50, %35, %33, %62, %Gia_ObjIsPi.exit45, %49, %31, %18, %20
-  %.0 = phi i32 [ %44, %35 ], [ %23, %20 ], [ %61, %52 ], [ 0, %18 ], [ 1, %31 ], [ 1, %49 ], [ 1, %Gia_ObjIsPi.exit45 ], [ %83, %74 ], [ 1, %62 ], [ 0, %33 ], [ 0, %50 ], [ 0, %Gia_ObjIsPi.exit45.thread ]
+  %.0 = phi i32 [ 0, %18 ], [ %23, %20 ], [ 1, %31 ], [ 1, %49 ], [ 1, %Gia_ObjIsPi.exit45 ], [ 1, %62 ], [ 0, %33 ], [ %44, %35 ], [ 0, %50 ], [ %61, %52 ], [ 0, %Gia_ObjIsPi.exit45.thread ], [ %83, %74 ]
   ret i32 %.0
 }
 

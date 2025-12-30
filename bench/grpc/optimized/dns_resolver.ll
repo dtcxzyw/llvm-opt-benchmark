@@ -986,7 +986,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %202, %
   br label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_130NativeClientChannelDNSResolverENS0_16OrphanableDeleteEED2Ev.exit
 
 .body.i:                                          ; preds = %178, %166
-  %eh.lpad-body.i = phi { ptr, i32 } [ %167, %166 ], [ %.pn.pn.pn.i.i, %178 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i, %178 ], [ %167, %166 ]
   call void @_ZN9grpc_core12ResolverArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %7) #27, !noalias !31
   call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 536) #29, !noalias !31
   resume { ptr, i32 } %eh.lpad-body.i
@@ -2240,7 +2240,7 @@ _ZN9grpc_core20InternallyRefCountedINS_8ResolverENS_11UnrefDeleteEE5UnrefERKNS_1
   br label %200
 
 200:                                              ; preds = %198, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51, %92, %55
-  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %.pn29.pn.pn, %92 ], [ %.pn23.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51 ], [ %199, %198 ], [ %56, %55 ]
+  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %.pn29.pn.pn, %92 ], [ %199, %198 ], [ %56, %55 ], [ %.pn23.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51 ]
   call void @_ZN9grpc_core8Resolver6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %4) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume

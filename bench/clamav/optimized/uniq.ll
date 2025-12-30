@@ -136,8 +136,8 @@ define range(i32 0, 27) i32 @uniq_add(ptr noundef captures(address_is_null) %0, 
   br label %49
 
 49:                                               ; preds = %.thread63, %.thread62
-  %50 = phi ptr [ %38, %.thread63 ], [ %19, %.thread62 ]
-  %storemerge = phi ptr [ %spec.select, %.thread63 ], [ null, %.thread62 ]
+  %50 = phi ptr [ %19, %.thread62 ], [ %38, %.thread63 ]
+  %storemerge = phi ptr [ null, %.thread62 ], [ %spec.select, %.thread63 ]
   store ptr %storemerge, ptr %50, align 8, !tbaa !17
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %52 = load i8, ptr %6, align 16, !tbaa !15
@@ -283,7 +283,7 @@ define range(i32 0, 27) i32 @uniq_get(ptr noundef readonly captures(address_is_n
   br i1 %.not25, label %.loopexit, label %28
 
 .loopexit:                                        ; preds = %37, %9, %16, %34, %12, %5
-  %.019 = phi i32 [ 3, %5 ], [ 26, %12 ], [ 0, %34 ], [ 0, %9 ], [ 0, %16 ], [ 0, %37 ]
+  %.019 = phi i32 [ 3, %5 ], [ 26, %12 ], [ 0, %34 ], [ 0, %16 ], [ 0, %9 ], [ 0, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.019
 }

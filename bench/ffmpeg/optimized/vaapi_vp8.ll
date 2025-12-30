@@ -242,7 +242,7 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
   br label %131
 
 131:                                              ; preds = %126, %125
-  %132 = phi i8 [ %104, %125 ], [ %spec.select, %126 ]
+  %132 = phi i8 [ %spec.select, %126 ], [ %104, %125 ]
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.35.0..sroa_idx, i64 %indvars.iv205
   %narrow = tail call i8 @llvm.umin.i8(i8 %132, i8 63)
   store i8 %narrow, ptr %133, align 1, !tbaa !65

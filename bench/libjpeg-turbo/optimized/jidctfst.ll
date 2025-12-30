@@ -84,7 +84,7 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
   br label %150
 
 ._crit_edge:                                      ; preds = %13, %36, %32, %28, %24, %20
-  %52 = phi i16 [ %18, %13 ], [ 0, %36 ], [ 0, %32 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ]
+  %52 = phi i16 [ 0, %36 ], [ 0, %32 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ], [ %18, %13 ]
   %53 = load i16, ptr %.0225264, align 2, !tbaa !32
   %54 = load i16, ptr %.0223265, align 2, !tbaa !32
   %55 = mul i16 %54, %53
@@ -271,7 +271,7 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
   br label %308
 
 ._crit_edge271:                                   ; preds = %154, %180, %176, %172, %168, %164
-  %197 = phi i32 [ %162, %154 ], [ 0, %180 ], [ 0, %176 ], [ 0, %172 ], [ 0, %168 ], [ 0, %164 ]
+  %197 = phi i32 [ 0, %180 ], [ 0, %176 ], [ 0, %172 ], [ 0, %168 ], [ 0, %164 ], [ %162, %154 ]
   %198 = load i32, ptr %.2268, align 4, !tbaa !33
   %199 = getelementptr inbounds nuw i8, ptr %.2268, i64 16
   %200 = load i32, ptr %199, align 4, !tbaa !33

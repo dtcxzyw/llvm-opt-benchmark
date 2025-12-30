@@ -411,7 +411,7 @@ define noundef ptr @_ZN6icu_7715RBBIRuleBuilder11flattenDataEv(ptr noundef nonnu
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %37, %39
-  %.0.i = phi ptr [ %41, %39 ], [ %38, %37 ], [ null, %8 ]
+  %.0.i = phi ptr [ %38, %37 ], [ %41, %39 ], [ null, %8 ]
   %42 = icmp slt i16 %33, 0
   %43 = ashr i16 %33, 5
   %44 = sext i16 %43 to i32
@@ -569,7 +569,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %37, %39
   br label %127
 
 127:                                              ; preds = %124, %122, %._crit_edge
-  %.0.i31 = phi ptr [ %126, %124 ], [ %123, %122 ], [ null, %._crit_edge ]
+  %.0.i31 = phi ptr [ %123, %122 ], [ %126, %124 ], [ null, %._crit_edge ]
   %128 = icmp slt i16 %118, 0
   %129 = ashr i16 %118, 5
   %130 = sext i16 %129 to i32
@@ -719,7 +719,7 @@ define noundef ptr @_ZN6icu_7715RBBIRuleBuilder28createRuleBasedBreakIteratorERK
   resume { ptr, i32 } %.pn
 
 .thread27:                                        ; preds = %.thread, %18, %9, %23, %29, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %9 ], [ %15, %18 ], [ null, %29 ], [ null, %23 ], [ null, %.thread ]
+  %.0 = phi ptr [ null, %3 ], [ null, %9 ], [ null, %29 ], [ null, %23 ], [ %15, %18 ], [ null, %.thread ]
   call void @_ZN6icu_7715RBBIRuleBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %4) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -817,7 +817,7 @@ _ZN6icu_7715RBBIRuleBuilder14optimizeTablesEv.exit: ; preds = %36
   br label %42
 
 42:                                               ; preds = %6, %2, %_ZN6icu_7715RBBIRuleBuilder14optimizeTablesEv.exit, %18
-  %.0 = phi ptr [ %., %_ZN6icu_7715RBBIRuleBuilder14optimizeTablesEv.exit ], [ null, %2 ], [ null, %18 ], [ null, %6 ]
+  %.0 = phi ptr [ null, %18 ], [ %., %_ZN6icu_7715RBBIRuleBuilder14optimizeTablesEv.exit ], [ null, %2 ], [ null, %6 ]
   ret ptr %.0
 }
 

@@ -89,8 +89,8 @@ define internal { i64, ptr } @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h23ec39b1b619a903E.exit"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h23ec39b1b619a903E.exit": ; preds = %2, %2, %3, %14
-  %.sroa.0.0.i = phi i64 [ 1, %2 ], [ 1, %2 ], [ %.sroa.0.1.i.i, %14 ], [ 1, %3 ]
-  %.sroa.4.0.i = phi ptr [ %0, %2 ], [ %0, %2 ], [ %.sroa.4.1.i.i, %14 ], [ %4, %3 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.1.i.i, %14 ], [ 1, %3 ], [ 1, %2 ], [ 1, %2 ]
+  %.sroa.4.0.i = phi ptr [ %.sroa.4.1.i.i, %14 ], [ %4, %3 ], [ %0, %2 ], [ %0, %2 ]
   %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   br label %16
 
@@ -403,7 +403,7 @@ define hidden void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$8get_
   ret void
 
 common.resume:                                    ; preds = %34, %28, %72
-  %common.resume.op = phi { ptr, i32 } [ %73, %72 ], [ %29, %28 ], [ %35, %34 ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %73, %72 ], [ %35, %34 ]
   resume { ptr, i32 } %common.resume.op
 
 32:                                               ; preds = %14

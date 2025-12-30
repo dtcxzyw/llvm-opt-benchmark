@@ -100,7 +100,7 @@ fdt_rw_probe_.exit:                               ; preds = %47, %46
   br label %fdt_rw_probe_.exit.thread
 
 fdt_rw_probe_.exit.thread:                        ; preds = %26, %6, %3, %fdt_rw_probe_.exit, %71
-  %.1 = phi i32 [ %70, %fdt_rw_probe_.exit ], [ 0, %71 ], [ -12, %26 ], [ -10, %6 ], [ %4, %3 ]
+  %.1 = phi i32 [ 0, %71 ], [ %70, %fdt_rw_probe_.exit ], [ -12, %26 ], [ -10, %6 ], [ %4, %3 ]
   ret i32 %.1
 }
 
@@ -234,8 +234,8 @@ define internal fastcc range(i32 -4, 1) i32 @fdt_splice_mem_rsv_(ptr noundef %0,
   store i32 %rev.i.i15, ptr %6, align 4, !tbaa !14
   br label %fdt_splice_.exit.thread
 
-fdt_splice_.exit.thread:                          ; preds = %49, %55, %4, %75
-  %.0 = phi i32 [ 0, %75 ], [ -4, %49 ], [ -3, %55 ], [ -4, %4 ]
+fdt_splice_.exit.thread:                          ; preds = %55, %49, %4, %75
+  %.0 = phi i32 [ 0, %75 ], [ -3, %55 ], [ -4, %49 ], [ -4, %4 ]
   ret i32 %.0
 }
 
@@ -329,7 +329,7 @@ fdt_rw_probe_.exit:                               ; preds = %67, %66
   br label %fdt_rw_probe_.exit.thread
 
 fdt_rw_probe_.exit.thread:                        ; preds = %46, %26, %2, %fdt_rw_probe_.exit, %69
-  %.1 = phi i32 [ -1, %fdt_rw_probe_.exit ], [ %70, %69 ], [ -12, %46 ], [ -10, %26 ], [ %24, %2 ]
+  %.1 = phi i32 [ %70, %69 ], [ -1, %fdt_rw_probe_.exit ], [ -12, %46 ], [ -10, %26 ], [ %24, %2 ]
   ret i32 %.1
 }
 
@@ -423,7 +423,7 @@ fdt_rw_probe_.exit:                               ; preds = %48, %47
   br label %fdt_rw_probe_.exit.thread
 
 fdt_rw_probe_.exit.thread:                        ; preds = %27, %7, %3, %52, %63, %50
-  %.1 = phi i32 [ %62, %52 ], [ 0, %63 ], [ %51, %50 ], [ -12, %27 ], [ -10, %7 ], [ %5, %3 ]
+  %.1 = phi i32 [ 0, %63 ], [ %51, %50 ], [ %62, %52 ], [ -12, %27 ], [ -10, %7 ], [ %5, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
@@ -560,8 +560,8 @@ define internal fastcc range(i32 -4, 1) i32 @fdt_splice_struct_(ptr noundef %0, 
   store i32 %rev.i.i14, ptr %5, align 4, !tbaa !14
   br label %fdt_splice_.exit.thread
 
-fdt_splice_.exit.thread:                          ; preds = %49, %54, %4, %74
-  %.0 = phi i32 [ 0, %74 ], [ -4, %49 ], [ -3, %54 ], [ -4, %4 ]
+fdt_splice_.exit.thread:                          ; preds = %54, %49, %4, %74
+  %.0 = phi i32 [ 0, %74 ], [ -3, %54 ], [ -4, %49 ], [ -4, %4 ]
   ret i32 %.0
 }
 
@@ -685,7 +685,7 @@ fdt_resize_property_.exit:                        ; preds = %53, %55
   br label %fdt_rw_probe_.exit.thread
 
 fdt_rw_probe_.exit.thread:                        ; preds = %30, %10, %5, %67, %68
-  %.1 = phi i32 [ %.016, %67 ], [ 0, %68 ], [ -12, %30 ], [ -10, %10 ], [ %8, %5 ]
+  %.1 = phi i32 [ 0, %68 ], [ %.016, %67 ], [ -12, %30 ], [ -10, %10 ], [ %8, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }
@@ -840,7 +840,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @fdt_add_property_(ptr noun
   br label %fdt_find_add_string_.exit
 
 fdt_find_add_string_.exit:                        ; preds = %50, %115
-  %.0.i = phi i32 [ %54, %50 ], [ %69, %115 ]
+  %.0.i = phi i32 [ %69, %115 ], [ %54, %50 ]
   %133 = icmp slt i32 %.0.i, 0
   br i1 %133, label %fdt_find_add_string_.exit.thread, label %134
 
@@ -911,8 +911,8 @@ fdt_find_add_string_.exit:                        ; preds = %50, %115
   store i32 %rev.i28, ptr %182, align 4, !tbaa !20
   br label %fdt_find_add_string_.exit.thread
 
-fdt_find_add_string_.exit.thread:                 ; preds = %91, %95, %55, %160, %161, %fdt_find_add_string_.exit, %5, %179
-  %.0 = phi i32 [ 0, %179 ], [ %6, %5 ], [ %.0.i, %fdt_find_add_string_.exit ], [ %159, %161 ], [ %159, %160 ], [ -4, %91 ], [ -3, %95 ], [ -4, %55 ]
+fdt_find_add_string_.exit.thread:                 ; preds = %95, %91, %55, %160, %161, %fdt_find_add_string_.exit, %5, %179
+  %.0 = phi i32 [ 0, %179 ], [ %6, %5 ], [ %.0.i, %fdt_find_add_string_.exit ], [ %159, %161 ], [ %159, %160 ], [ -3, %95 ], [ -4, %91 ], [ -4, %55 ]
   ret i32 %.0
 }
 
@@ -1044,7 +1044,7 @@ fdt_rw_probe_.exit.thread.sink.split:             ; preds = %69, %62
   br label %fdt_rw_probe_.exit.thread
 
 fdt_rw_probe_.exit.thread:                        ; preds = %fdt_rw_probe_.exit.thread.sink.split, %30, %10, %5, %67, %53
-  %.1 = phi i32 [ -10, %10 ], [ %68, %67 ], [ %61, %53 ], [ %8, %5 ], [ -12, %30 ], [ 0, %fdt_rw_probe_.exit.thread.sink.split ]
+  %.1 = phi i32 [ %61, %53 ], [ %68, %67 ], [ -12, %30 ], [ -10, %10 ], [ %8, %5 ], [ 0, %fdt_rw_probe_.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
@@ -1125,7 +1125,7 @@ fdt_rw_probe_.exit:                               ; preds = %48, %47
   br label %fdt_rw_probe_.exit.thread
 
 fdt_rw_probe_.exit.thread:                        ; preds = %fdt_rw_probe_.exit, %27, %7, %3, %51
-  %.1 = phi i32 [ %55, %51 ], [ %5, %3 ], [ -12, %27 ], [ -10, %7 ], [ %50, %fdt_rw_probe_.exit ]
+  %.1 = phi i32 [ %55, %51 ], [ -12, %27 ], [ -10, %7 ], [ %5, %3 ], [ %50, %fdt_rw_probe_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
@@ -1254,7 +1254,7 @@ fdt_rw_probe_.exit:                               ; preds = %49, %48
   br label %fdt_rw_probe_.exit.thread
 
 fdt_rw_probe_.exit.thread:                        ; preds = %28, %8, %4, %60, %52, %fdt_rw_probe_.exit, %85
-  %.1 = phi i32 [ %84, %60 ], [ -2, %fdt_rw_probe_.exit ], [ %50, %52 ], [ %56, %85 ], [ -12, %28 ], [ -10, %8 ], [ %6, %4 ]
+  %.1 = phi i32 [ %56, %85 ], [ -2, %fdt_rw_probe_.exit ], [ %50, %52 ], [ %84, %60 ], [ -12, %28 ], [ -10, %8 ], [ %6, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
@@ -1365,7 +1365,7 @@ fdt_rw_probe_.exit:                               ; preds = %46, %45
   br label %fdt_rw_probe_.exit.thread
 
 fdt_rw_probe_.exit.thread:                        ; preds = %25, %5, %2, %fdt_rw_probe_.exit, %49
-  %.1 = phi i32 [ %47, %fdt_rw_probe_.exit ], [ %72, %49 ], [ -12, %25 ], [ -10, %5 ], [ %3, %2 ]
+  %.1 = phi i32 [ %72, %49 ], [ %47, %fdt_rw_probe_.exit ], [ -12, %25 ], [ -10, %5 ], [ %3, %2 ]
   ret i32 %.1
 }
 
@@ -1669,7 +1669,7 @@ define i32 @fdt_open_into(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   br label %237
 
 237:                                              ; preds = %.sink.split, %112, %84, %78, %72, %3
-  %.1 = phi i32 [ %79, %78 ], [ -3, %84 ], [ %24, %3 ], [ %73, %72 ], [ -3, %112 ], [ 0, %.sink.split ]
+  %.1 = phi i32 [ %24, %3 ], [ %73, %72 ], [ %79, %78 ], [ -3, %84 ], [ -3, %112 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }

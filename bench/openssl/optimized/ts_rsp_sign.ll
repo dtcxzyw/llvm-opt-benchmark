@@ -70,7 +70,7 @@ define ptr @TS_RESP_CTX_new_ex(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %16
 
 16:                                               ; preds = %2, %11, %10
-  %.0 = phi ptr [ %3, %11 ], [ null, %10 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %10 ], [ %3, %11 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -389,9 +389,9 @@ define range(i32 0, 2) i32 @TS_RESP_CTX_add_policy(ptr noundef captures(none) %0
   br i1 %.not, label %15, label %16
 
 15:                                               ; preds = %12, %9, %6
-  %.sink9 = phi i32 [ 195, %9 ], [ 191, %6 ], [ 199, %12 ]
-  %.sink = phi i32 [ 524296, %9 ], [ 524303, %6 ], [ 524303, %12 ]
-  %.0 = phi ptr [ null, %9 ], [ null, %6 ], [ %10, %12 ]
+  %.sink9 = phi i32 [ 191, %6 ], [ 195, %9 ], [ 199, %12 ]
+  %.sink = phi i32 [ 524303, %6 ], [ 524296, %9 ], [ 524303, %12 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %9 ], [ %10, %12 ]
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink9, ptr noundef nonnull @__func__.TS_RESP_CTX_add_policy) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef %.sink, ptr noundef null) #9
@@ -613,9 +613,9 @@ define range(i32 0, 2) i32 @TS_RESP_CTX_set_status_info(ptr noundef readonly cap
   br i1 %.not21, label %.sink.split, label %32
 
 .sink.split:                                      ; preds = %28, %25, %22, %11, %14, %6, %3
-  %.sink27 = phi i32 [ 307, %25 ], [ 303, %22 ], [ 298, %11 ], [ 292, %6 ], [ 288, %3 ], [ 298, %14 ], [ 313, %28 ]
-  %.sink = phi i32 [ 524303, %25 ], [ 524303, %22 ], [ 524301, %11 ], [ 524301, %6 ], [ 524335, %3 ], [ 524301, %14 ], [ 524335, %28 ]
-  %.014.ph = phi ptr [ %12, %25 ], [ %12, %22 ], [ %12, %11 ], [ null, %6 ], [ null, %3 ], [ %12, %14 ], [ null, %28 ]
+  %.sink27 = phi i32 [ 288, %3 ], [ 292, %6 ], [ 298, %14 ], [ 298, %11 ], [ 303, %22 ], [ 307, %25 ], [ 313, %28 ]
+  %.sink = phi i32 [ 524335, %3 ], [ 524301, %6 ], [ 524301, %14 ], [ 524301, %11 ], [ 524303, %22 ], [ 524303, %25 ], [ 524335, %28 ]
+  %.014.ph = phi ptr [ null, %3 ], [ null, %6 ], [ %12, %14 ], [ %12, %11 ], [ %12, %22 ], [ %12, %25 ], [ null, %28 ]
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink27, ptr noundef nonnull @__func__.TS_RESP_CTX_set_status_info) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef %.sink, ptr noundef null) #9
@@ -956,7 +956,7 @@ select.unfold.i:                                  ; preds = %58
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef 524301, ptr noundef null) #9
   br label %ts_RESP_check_request.exit.thread
 
-ts_RESP_check_request.exit.thread:                ; preds = %50, %78, %99, %.critedge38.i, %47, %75, %96, %114, %117
+ts_RESP_check_request.exit.thread:                ; preds = %.critedge38.i, %47, %50, %75, %78, %96, %99, %114, %117
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
@@ -1044,8 +1044,8 @@ TS_RESP_CTX_add_failure_info.exit.sink.split.i:   ; preds = %152, %125
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef %.sink.i, ptr noundef null) #9
   br label %.critedge
 
-.loopexit:                                        ; preds = %135, %126, %129
-  %.0.i33.ph = phi ptr [ %.pre.i, %129 ], [ %123, %126 ], [ %137, %135 ]
+.loopexit:                                        ; preds = %135, %129, %126
+  %.0.i33.ph = phi ptr [ %123, %126 ], [ %.pre.i, %129 ], [ %137, %135 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %153 = call ptr @TS_TST_INFO_new() #9
@@ -1151,7 +1151,7 @@ TS_RESP_CTX_add_failure_info.exit.sink.split.i:   ; preds = %152, %125
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %211, %.loopexit.i.i.loopexit, %188
-  %.027.i.i = phi ptr [ %212, %.loopexit.i.i.loopexit ], [ %204, %188 ], [ %.1.i.i, %211 ]
+  %.027.i.i = phi ptr [ %204, %188 ], [ %212, %.loopexit.i.i.loopexit ], [ %.1.i.i, %211 ]
   %214 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 1
   store i8 90, ptr %.027.i.i, align 1, !tbaa !79
   store i8 0, ptr %214, align 1, !tbaa !79
@@ -1219,7 +1219,7 @@ TS_RESP_set_genTime_with_precision.exit.thread.i: ; preds = %219, %.loopexit.i.i
   br i1 %.not78.i, label %.thread.i, label %.thread129.i
 
 .thread129.i:                                     ; preds = %235, %234, %228
-  %.152132.i = phi ptr [ %232, %234 ], [ %232, %235 ], [ null, %228 ]
+  %.152132.i = phi ptr [ %232, %235 ], [ %232, %234 ], [ null, %228 ]
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %238 = load ptr, ptr %237, align 8, !tbaa !43
   %.not79.i = icmp eq ptr %238, null
@@ -1301,10 +1301,10 @@ TS_RESP_set_genTime_with_precision.exit.thread.i: ; preds = %219, %.loopexit.i.i
   br i1 %.not91.i, label %.thread.i, label %ts_RESP_create_tst_info.exit
 
 .thread.i:                                        ; preds = %272, %267, %264, %259, %253, %247, %244, %239, %235, %231, %220, %TS_RESP_set_genTime_with_precision.exit.thread.i, %173, %171, %164, %159, %157, %155, %.loopexit
-  %.0107.i = phi ptr [ %265, %272 ], [ null, %157 ], [ null, %159 ], [ null, %171 ], [ null, %173 ], [ null, %220 ], [ null, %235 ], [ null, %239 ], [ null, %244 ], [ null, %247 ], [ null, %253 ], [ null, %259 ], [ %265, %267 ], [ null, %155 ], [ null, %264 ], [ null, %231 ], [ null, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %164 ], [ null, %.loopexit ]
-  %.051105.i = phi ptr [ %.152132.i, %272 ], [ null, %157 ], [ null, %159 ], [ null, %171 ], [ null, %173 ], [ null, %220 ], [ %232, %235 ], [ %.152132.i, %239 ], [ %.152132.i, %244 ], [ %.152132.i, %247 ], [ %.152132.i, %253 ], [ %.152132.i, %259 ], [ %.152132.i, %267 ], [ null, %155 ], [ %.152132.i, %264 ], [ null, %231 ], [ null, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %164 ], [ null, %.loopexit ]
-  %.053103.i = phi ptr [ %215, %272 ], [ null, %157 ], [ null, %159 ], [ null, %171 ], [ null, %173 ], [ %215, %220 ], [ %215, %235 ], [ %215, %239 ], [ %215, %244 ], [ %215, %247 ], [ %215, %253 ], [ %215, %259 ], [ %215, %267 ], [ null, %155 ], [ %215, %264 ], [ %215, %231 ], [ null, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %164 ], [ null, %.loopexit ]
-  %.054101.i = phi ptr [ %169, %272 ], [ null, %157 ], [ null, %159 ], [ %169, %171 ], [ %169, %173 ], [ %169, %220 ], [ %169, %235 ], [ %169, %239 ], [ %169, %244 ], [ %169, %247 ], [ %169, %253 ], [ %169, %259 ], [ %169, %267 ], [ null, %155 ], [ %169, %264 ], [ %169, %231 ], [ %169, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %164 ], [ null, %.loopexit ]
+  %.0107.i = phi ptr [ %265, %272 ], [ null, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %155 ], [ null, %157 ], [ null, %159 ], [ null, %171 ], [ null, %173 ], [ null, %220 ], [ null, %235 ], [ null, %239 ], [ null, %244 ], [ null, %247 ], [ null, %253 ], [ null, %259 ], [ %265, %267 ], [ null, %264 ], [ null, %231 ], [ null, %164 ], [ null, %.loopexit ]
+  %.051105.i = phi ptr [ %.152132.i, %272 ], [ null, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %155 ], [ null, %157 ], [ null, %159 ], [ null, %171 ], [ null, %173 ], [ null, %220 ], [ %232, %235 ], [ %.152132.i, %239 ], [ %.152132.i, %244 ], [ %.152132.i, %247 ], [ %.152132.i, %253 ], [ %.152132.i, %259 ], [ %.152132.i, %267 ], [ %.152132.i, %264 ], [ null, %231 ], [ null, %164 ], [ null, %.loopexit ]
+  %.053103.i = phi ptr [ %215, %272 ], [ null, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %155 ], [ null, %157 ], [ null, %159 ], [ null, %171 ], [ null, %173 ], [ %215, %220 ], [ %215, %235 ], [ %215, %239 ], [ %215, %244 ], [ %215, %247 ], [ %215, %253 ], [ %215, %259 ], [ %215, %267 ], [ %215, %264 ], [ %215, %231 ], [ null, %164 ], [ null, %.loopexit ]
+  %.054101.i = phi ptr [ %169, %272 ], [ %169, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %155 ], [ null, %157 ], [ null, %159 ], [ %169, %171 ], [ %169, %173 ], [ %169, %220 ], [ %169, %235 ], [ %169, %239 ], [ %169, %244 ], [ %169, %247 ], [ %169, %253 ], [ %169, %259 ], [ %169, %267 ], [ %169, %264 ], [ %169, %231 ], [ null, %164 ], [ null, %.loopexit ]
   call void @TS_TST_INFO_free(ptr noundef %153) #9
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 592, ptr noundef nonnull @__func__.ts_RESP_create_tst_info) #9
@@ -1321,11 +1321,11 @@ TS_RESP_set_genTime_with_precision.exit.thread.i: ; preds = %219, %.loopexit.i.i
   br label %ts_RESP_create_tst_info.exit
 
 ts_RESP_create_tst_info.exit:                     ; preds = %261, %272, %.thread.i, %279
-  %.0106.i = phi ptr [ %265, %272 ], [ %.0107.i, %279 ], [ %.0107.i, %.thread.i ], [ null, %261 ]
-  %.051104.i = phi ptr [ %.152132.i, %272 ], [ %.051105.i, %279 ], [ %.051105.i, %.thread.i ], [ %.152132.i, %261 ]
-  %.053102.i = phi ptr [ %215, %272 ], [ %.053103.i, %279 ], [ %.053103.i, %.thread.i ], [ %215, %261 ]
-  %.054100.i = phi ptr [ %169, %272 ], [ %.054101.i, %279 ], [ %.054101.i, %.thread.i ], [ %169, %261 ]
-  %.055.i = phi ptr [ %153, %272 ], [ null, %279 ], [ null, %.thread.i ], [ %153, %261 ]
+  %.0106.i = phi ptr [ %265, %272 ], [ %.0107.i, %.thread.i ], [ %.0107.i, %279 ], [ null, %261 ]
+  %.051104.i = phi ptr [ %.152132.i, %272 ], [ %.051105.i, %.thread.i ], [ %.051105.i, %279 ], [ %.152132.i, %261 ]
+  %.053102.i = phi ptr [ %215, %272 ], [ %.053103.i, %.thread.i ], [ %.053103.i, %279 ], [ %215, %261 ]
+  %.054100.i = phi ptr [ %169, %272 ], [ %.054101.i, %.thread.i ], [ %.054101.i, %279 ], [ %169, %261 ]
+  %.055.i = phi ptr [ %153, %272 ], [ null, %.thread.i ], [ null, %279 ], [ %153, %261 ]
   call void @GENERAL_NAME_free(ptr noundef %.0106.i) #9
   call void @TS_ACCURACY_free(ptr noundef %.051104.i) #9
   call void @ASN1_GENERALIZEDTIME_free(ptr noundef %.053102.i) #9
@@ -1652,12 +1652,12 @@ ts_TST_INFO_content_new.exit.i:                   ; preds = %414
   br label %430
 
 430:                                              ; preds = %427, %426, %423, %419, %ts_TST_INFO_content_new.exit.thread.i, %401, %394, %393, %376, %361, %357, %311, %309, %308, %300
-  %.070.i = phi ptr [ null, %308 ], [ null, %357 ], [ null, %376 ], [ %.171.i, %419 ], [ %.171.i, %427 ], [ %.171.i, %426 ], [ %.171.i, %423 ], [ %.171.i, %ts_TST_INFO_content_new.exit.thread.i ], [ null, %393 ], [ null, %394 ], [ %397, %401 ], [ null, %361 ], [ null, %311 ], [ null, %309 ], [ null, %300 ]
-  %.068.i = phi ptr [ null, %308 ], [ null, %357 ], [ null, %376 ], [ %.169.i, %419 ], [ %.169.i, %427 ], [ %.169.i, %426 ], [ %.169.i, %423 ], [ %.169.i, %ts_TST_INFO_content_new.exit.thread.i ], [ %378, %393 ], [ null, %394 ], [ null, %401 ], [ null, %361 ], [ null, %311 ], [ null, %309 ], [ null, %300 ]
-  %.067.i = phi ptr [ null, %308 ], [ %306, %357 ], [ %306, %376 ], [ %306, %419 ], [ null, %427 ], [ %306, %426 ], [ %306, %423 ], [ %306, %ts_TST_INFO_content_new.exit.thread.i ], [ %306, %393 ], [ %306, %394 ], [ %306, %401 ], [ %306, %361 ], [ %306, %311 ], [ %306, %309 ], [ null, %300 ]
-  %.066.i = phi ptr [ null, %308 ], [ null, %357 ], [ null, %376 ], [ null, %419 ], [ %417, %427 ], [ %417, %426 ], [ %417, %423 ], [ null, %ts_TST_INFO_content_new.exit.thread.i ], [ null, %393 ], [ null, %394 ], [ null, %401 ], [ null, %361 ], [ null, %311 ], [ null, %309 ], [ null, %300 ]
-  %.064.i = phi ptr [ null, %308 ], [ %.1.i, %357 ], [ %.1.i, %376 ], [ %.1.i, %419 ], [ %.1.i, %427 ], [ %.1.i, %426 ], [ %.1.i, %423 ], [ %.1.i, %ts_TST_INFO_content_new.exit.thread.i ], [ %.1.i, %393 ], [ %.1.i, %394 ], [ %.1.i, %401 ], [ %.1.i, %361 ], [ null, %311 ], [ null, %309 ], [ null, %300 ]
-  %.not96.i = phi i1 [ true, %308 ], [ true, %357 ], [ true, %376 ], [ true, %419 ], [ false, %427 ], [ true, %426 ], [ true, %423 ], [ true, %ts_TST_INFO_content_new.exit.thread.i ], [ true, %393 ], [ true, %394 ], [ true, %401 ], [ true, %361 ], [ true, %311 ], [ true, %309 ], [ true, %300 ]
+  %.070.i = phi ptr [ null, %308 ], [ null, %357 ], [ null, %376 ], [ %.171.i, %419 ], [ %.171.i, %427 ], [ %.171.i, %426 ], [ %.171.i, %423 ], [ null, %393 ], [ null, %394 ], [ %397, %401 ], [ null, %361 ], [ null, %311 ], [ null, %309 ], [ null, %300 ], [ %.171.i, %ts_TST_INFO_content_new.exit.thread.i ]
+  %.068.i = phi ptr [ null, %308 ], [ null, %357 ], [ null, %376 ], [ %.169.i, %419 ], [ %.169.i, %427 ], [ %.169.i, %426 ], [ %.169.i, %423 ], [ %378, %393 ], [ null, %394 ], [ null, %401 ], [ null, %361 ], [ null, %311 ], [ null, %309 ], [ null, %300 ], [ %.169.i, %ts_TST_INFO_content_new.exit.thread.i ]
+  %.067.i = phi ptr [ null, %308 ], [ %306, %357 ], [ %306, %376 ], [ %306, %419 ], [ null, %427 ], [ %306, %426 ], [ %306, %423 ], [ %306, %393 ], [ %306, %394 ], [ %306, %401 ], [ %306, %361 ], [ %306, %311 ], [ %306, %309 ], [ null, %300 ], [ %306, %ts_TST_INFO_content_new.exit.thread.i ]
+  %.066.i = phi ptr [ null, %308 ], [ null, %357 ], [ null, %376 ], [ null, %419 ], [ %417, %427 ], [ %417, %426 ], [ %417, %423 ], [ null, %393 ], [ null, %394 ], [ null, %401 ], [ null, %361 ], [ null, %311 ], [ null, %309 ], [ null, %300 ], [ null, %ts_TST_INFO_content_new.exit.thread.i ]
+  %.064.i = phi ptr [ null, %308 ], [ %.1.i, %357 ], [ %.1.i, %376 ], [ %.1.i, %419 ], [ %.1.i, %427 ], [ %.1.i, %426 ], [ %.1.i, %423 ], [ %.1.i, %393 ], [ %.1.i, %394 ], [ %.1.i, %401 ], [ %.1.i, %361 ], [ null, %311 ], [ null, %309 ], [ null, %300 ], [ %.1.i, %ts_TST_INFO_content_new.exit.thread.i ]
+  %.not96.i = phi i1 [ true, %308 ], [ true, %357 ], [ true, %376 ], [ true, %419 ], [ false, %427 ], [ true, %426 ], [ true, %423 ], [ true, %393 ], [ true, %394 ], [ true, %401 ], [ true, %361 ], [ true, %311 ], [ true, %309 ], [ true, %300 ], [ true, %ts_TST_INFO_content_new.exit.thread.i ]
   %431 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %432 = load ptr, ptr %431, align 8, !tbaa !45
   %.not95.i = icmp eq ptr %.064.i, %432
@@ -1880,7 +1880,7 @@ define internal fastcc i32 @ossl_ess_add1_signing_cert_v2(ptr noundef nonnull %0
   br label %17
 
 17:                                               ; preds = %2, %15, %14
-  %.0 = phi i32 [ %16, %15 ], [ 0, %14 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %14 ], [ %16, %15 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

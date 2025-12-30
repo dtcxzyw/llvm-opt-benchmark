@@ -1660,7 +1660,7 @@ _ZN12OopMapStream7is_doneEv.exit48.thread:        ; preds = %_ZN20CompressedRead
   br i1 %exitcond.not.i54, label %_ZN10OopMapSort21find_derived_positionE11OopMapValuei.exit, label %416, !llvm.loop !16
 
 _ZN10OopMapSort21find_derived_positionE11OopMapValuei.exit: ; preds = %451, %436, %438, %413, %.preheader.split.i
-  %.0.i = phi i32 [ -1, %413 ], [ %spec.select.i, %.preheader.split.i ], [ %.017.us.i, %436 ], [ %.017.us.i, %438 ], [ -1, %451 ]
+  %.0.i = phi i32 [ %spec.select.i, %.preheader.split.i ], [ -1, %413 ], [ %.017.us.i, %438 ], [ %.017.us.i, %436 ], [ -1, %451 ]
   %452 = icmp slt i32 %.0.i, %344
   br i1 %452, label %.lr.ph.preheader.i58, label %..loopexit_crit_edge12.i55
 
@@ -2266,7 +2266,7 @@ define hidden void @_ZN9OopMapSet7oops_doEPK5framePK11RegisterMapP10OopClosure27
   unreachable
 
 _ZNK15ImmutableOopMap7oops_doEPK5framePK11RegisterMapP10OopClosure27DerivedPointerIterationMode.exit: ; preds = %4, %15, %16
-  %.0.i = phi ptr [ %7, %16 ], [ %6, %15 ], [ %5, %4 ]
+  %.0.i = phi ptr [ %6, %15 ], [ %7, %16 ], [ %5, %4 ]
   store ptr %2, ptr %8, align 8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.0.i, ptr %19, align 8
@@ -2318,7 +2318,7 @@ define hidden void @_ZNK15ImmutableOopMap7oops_doEPK5framePK11RegisterMapP10OopC
   unreachable
 
 15:                                               ; preds = %5, %12, %11
-  %.0 = phi ptr [ %8, %12 ], [ %7, %11 ], [ %6, %5 ]
+  %.0 = phi ptr [ %7, %11 ], [ %8, %12 ], [ %6, %5 ]
   store ptr %3, ptr %9, align 8
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.0, ptr %16, align 8
@@ -3042,7 +3042,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i.i:      ; preds = %_ZNK11RegisterMap7i
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit.i
 
 _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit.i: ; preds = %_ZNK11RegisterMap7in_contEv.exit.thread.i.i, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i.i, %104, %100
-  %.0.i.i = phi ptr [ %134, %_ZNK11RegisterMap7in_contEv.exit.thread.i.i ], [ %131, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i.i ], [ %103, %100 ], [ %105, %104 ]
+  %.0.i.i = phi ptr [ %131, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i.i ], [ %134, %_ZNK11RegisterMap7in_contEv.exit.thread.i.i ], [ %103, %100 ], [ %105, %104 ]
   %135 = ptrtoint ptr %82 to i64
   %136 = trunc i64 %135 to i32
   %137 = sub i32 %136, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
@@ -3939,7 +3939,7 @@ define hidden noundef zeroext i1 @_ZNK6OopMap6equalsEPKS_(ptr noundef nonnull re
   br label %20
 
 20:                                               ; preds = %16, %7, %2
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ %.not6, %16 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ %.not6, %16 ]
   ret i1 %.0
 }
 
@@ -5414,7 +5414,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7i
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit
 
 _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit: ; preds = %101, %105, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i, %_ZNK11RegisterMap7in_contEv.exit.thread.i
-  %.0.i = phi ptr [ %134, %_ZNK11RegisterMap7in_contEv.exit.thread.i ], [ %131, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i ], [ %104, %101 ], [ %106, %105 ]
+  %.0.i = phi ptr [ %131, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i ], [ %134, %_ZNK11RegisterMap7in_contEv.exit.thread.i ], [ %104, %101 ], [ %106, %105 ]
   %cond = icmp eq ptr %.0.i, null
   br i1 %cond, label %135, label %141
 
@@ -5523,7 +5523,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i46:      ; preds = %_ZNK11RegisterMap7i
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit48
 
 _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit48: ; preds = %158, %162, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i42, %_ZNK11RegisterMap7in_contEv.exit.thread.i46
-  %.0.i45 = phi ptr [ %191, %_ZNK11RegisterMap7in_contEv.exit.thread.i46 ], [ %188, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i42 ], [ %161, %158 ], [ %163, %162 ]
+  %.0.i45 = phi ptr [ %188, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i42 ], [ %191, %_ZNK11RegisterMap7in_contEv.exit.thread.i46 ], [ %161, %158 ], [ %163, %162 ]
   %.not33 = icmp eq ptr %.0.i45, null
   br i1 %.not33, label %_ZN13SkipNullValue11should_skipEPv.exit.thread, label %192
 
@@ -5882,7 +5882,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i67:      ; preds = %_ZNK11RegisterMap7i
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit69
 
 _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit69: ; preds = %349, %353, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i63, %_ZNK11RegisterMap7in_contEv.exit.thread.i67
-  %.0.i66 = phi ptr [ %382, %_ZNK11RegisterMap7in_contEv.exit.thread.i67 ], [ %379, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i63 ], [ %352, %349 ], [ %354, %353 ]
+  %.0.i66 = phi ptr [ %379, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i63 ], [ %382, %_ZNK11RegisterMap7in_contEv.exit.thread.i67 ], [ %352, %349 ], [ %354, %353 ]
   %cond35 = icmp eq ptr %.0.i66, null
   br i1 %cond35, label %383, label %389
 

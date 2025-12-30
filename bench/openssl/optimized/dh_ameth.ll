@@ -167,7 +167,7 @@ define internal fastcc range(i32 0, 2) i32 @do_dh_print(ptr noundef %0, ptr noun
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %12, %36, %38, %31, %29, %26, %19, %21
-  %.037 = phi i32 [ 524295, %19 ], [ 524295, %21 ], [ 524295, %38 ], [ 524295, %36 ], [ 524295, %31 ], [ 524295, %29 ], [ 524295, %26 ], [ 786690, %12 ]
+  %.037 = phi i32 [ 524295, %21 ], [ 524295, %38 ], [ 524295, %36 ], [ 524295, %31 ], [ 524295, %29 ], [ 524295, %26 ], [ 524295, %19 ], [ 786690, %12 ]
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.11, i32 noundef 296, ptr noundef nonnull @__func__.do_dh_print) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 5, i32 noundef %.037, ptr noundef null) #5
@@ -250,10 +250,10 @@ d2i_dhp.exit:                                     ; preds = %21, %23
   br label %40
 
 39:                                               ; preds = %31, %26, %d2i_dhp.exit, %10
-  %.sink20 = phi i32 [ 91, %26 ], [ 86, %d2i_dhp.exit ], [ 77, %10 ], [ 97, %31 ]
-  %.sink = phi i32 [ 104, %26 ], [ 104, %d2i_dhp.exit ], [ 105, %10 ], [ 109, %31 ]
-  %.013 = phi ptr [ null, %26 ], [ null, %d2i_dhp.exit ], [ null, %10 ], [ %29, %31 ]
-  %.0 = phi ptr [ %.0.i, %26 ], [ null, %d2i_dhp.exit ], [ null, %10 ], [ %.0.i, %31 ]
+  %.sink20 = phi i32 [ 77, %10 ], [ 86, %d2i_dhp.exit ], [ 91, %26 ], [ 97, %31 ]
+  %.sink = phi i32 [ 105, %10 ], [ 104, %d2i_dhp.exit ], [ 104, %26 ], [ 109, %31 ]
+  %.013 = phi ptr [ null, %10 ], [ null, %d2i_dhp.exit ], [ null, %26 ], [ %29, %31 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %d2i_dhp.exit ], [ %.0.i, %26 ], [ %.0.i, %31 ]
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.11, i32 noundef %.sink20, ptr noundef nonnull @__func__.dh_pub_decode) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 5, i32 noundef %.sink, ptr noundef null) #5
@@ -745,7 +745,7 @@ define internal i32 @dh_pkey_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2
   br label %.critedge
 
 .critedge:                                        ; preds = %5, %4, %16, %11, %7, %19, %14
-  %.0 = phi i32 [ 0, %16 ], [ 0, %7 ], [ %15, %14 ], [ %21, %19 ], [ 0, %11 ], [ -2, %4 ], [ 0, %5 ]
+  %.0 = phi i32 [ %15, %14 ], [ %21, %19 ], [ 0, %7 ], [ 0, %11 ], [ 0, %16 ], [ -2, %4 ], [ 0, %5 ]
   ret i32 %.0
 }
 

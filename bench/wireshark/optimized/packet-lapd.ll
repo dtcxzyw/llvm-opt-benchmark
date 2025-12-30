@@ -460,15 +460,15 @@ addresses_equal.exit183:                          ; preds = %125, %76
   %146 = load i32, ptr %142, align 4
   br label %addresses_equal.exit183.thread209
 
-addresses_equal.exit183.thread209:                ; preds = %112, %104, %100, %85, %addresses_equal.exit, %26, %93, %119, %125, %25, %132, %addresses_equal.exit183, %10
-  %.0197 = phi i32 [ 0, %25 ], [ 0, %addresses_equal.exit183 ], [ %146, %132 ], [ %22, %10 ], [ 0, %125 ], [ 0, %119 ], [ 0, %93 ], [ 0, %26 ], [ 0, %addresses_equal.exit ], [ 0, %85 ], [ 0, %100 ], [ 0, %104 ], [ 0, %112 ]
-  %.0157 = phi i8 [ 0, %25 ], [ 0, %addresses_equal.exit183 ], [ %140, %132 ], [ %19, %10 ], [ 0, %125 ], [ 0, %119 ], [ 0, %93 ], [ 0, %26 ], [ 0, %addresses_equal.exit ], [ 0, %85 ], [ 0, %100 ], [ 0, %104 ], [ 0, %112 ]
-  %.0150 = phi i8 [ 0, %25 ], [ 0, %addresses_equal.exit183 ], [ %137, %132 ], [ %16, %10 ], [ 0, %125 ], [ 0, %119 ], [ 0, %93 ], [ 0, %26 ], [ 0, %addresses_equal.exit ], [ 0, %85 ], [ 0, %100 ], [ 0, %104 ], [ 0, %112 ]
-  %.0145 = phi i32 [ 0, %25 ], [ 0, %addresses_equal.exit183 ], [ %133, %132 ], [ %12, %10 ], [ 0, %125 ], [ 0, %119 ], [ 0, %93 ], [ 0, %26 ], [ 0, %addresses_equal.exit ], [ 0, %85 ], [ 0, %100 ], [ 0, %104 ], [ 0, %112 ]
-  %.0144 = phi ptr [ null, %25 ], [ %28, %addresses_equal.exit183 ], [ %28, %132 ], [ null, %10 ], [ %28, %125 ], [ %28, %119 ], [ %28, %93 ], [ null, %26 ], [ %28, %addresses_equal.exit ], [ %28, %85 ], [ %28, %100 ], [ %28, %104 ], [ %28, %112 ]
-  %.0142 = phi i8 [ 0, %25 ], [ 0, %addresses_equal.exit183 ], [ %135, %132 ], [ %14, %10 ], [ 0, %125 ], [ 0, %119 ], [ 0, %93 ], [ 0, %26 ], [ 0, %addresses_equal.exit ], [ 0, %85 ], [ 0, %100 ], [ 0, %104 ], [ 0, %112 ]
-  %.0140 = phi ptr [ null, %25 ], [ null, %addresses_equal.exit183 ], [ %.1141, %132 ], [ %11, %10 ], [ null, %125 ], [ null, %119 ], [ null, %93 ], [ null, %26 ], [ null, %addresses_equal.exit ], [ null, %85 ], [ null, %100 ], [ null, %104 ], [ null, %112 ]
-  %.0 = phi i1 [ true, %25 ], [ %.1, %addresses_equal.exit183 ], [ %.1, %132 ], [ true, %10 ], [ true, %125 ], [ true, %119 ], [ true, %93 ], [ true, %26 ], [ true, %addresses_equal.exit ], [ true, %85 ], [ true, %100 ], [ true, %104 ], [ true, %112 ]
+addresses_equal.exit183.thread209:                ; preds = %112, %104, %100, %93, %85, %addresses_equal.exit, %26, %119, %125, %25, %132, %addresses_equal.exit183, %10
+  %.0197 = phi i32 [ 0, %25 ], [ 0, %addresses_equal.exit183 ], [ %146, %132 ], [ %22, %10 ], [ 0, %125 ], [ 0, %119 ], [ 0, %26 ], [ 0, %addresses_equal.exit ], [ 0, %85 ], [ 0, %93 ], [ 0, %100 ], [ 0, %104 ], [ 0, %112 ]
+  %.0157 = phi i8 [ 0, %25 ], [ 0, %addresses_equal.exit183 ], [ %140, %132 ], [ %19, %10 ], [ 0, %125 ], [ 0, %119 ], [ 0, %26 ], [ 0, %addresses_equal.exit ], [ 0, %85 ], [ 0, %93 ], [ 0, %100 ], [ 0, %104 ], [ 0, %112 ]
+  %.0150 = phi i8 [ 0, %25 ], [ 0, %addresses_equal.exit183 ], [ %137, %132 ], [ %16, %10 ], [ 0, %125 ], [ 0, %119 ], [ 0, %26 ], [ 0, %addresses_equal.exit ], [ 0, %85 ], [ 0, %93 ], [ 0, %100 ], [ 0, %104 ], [ 0, %112 ]
+  %.0145 = phi i32 [ 0, %25 ], [ 0, %addresses_equal.exit183 ], [ %133, %132 ], [ %12, %10 ], [ 0, %125 ], [ 0, %119 ], [ 0, %26 ], [ 0, %addresses_equal.exit ], [ 0, %85 ], [ 0, %93 ], [ 0, %100 ], [ 0, %104 ], [ 0, %112 ]
+  %.0144 = phi ptr [ null, %25 ], [ %28, %addresses_equal.exit183 ], [ %28, %132 ], [ null, %10 ], [ %28, %125 ], [ %28, %119 ], [ null, %26 ], [ %28, %addresses_equal.exit ], [ %28, %85 ], [ %28, %93 ], [ %28, %100 ], [ %28, %104 ], [ %28, %112 ]
+  %.0142 = phi i8 [ 0, %25 ], [ 0, %addresses_equal.exit183 ], [ %135, %132 ], [ %14, %10 ], [ 0, %125 ], [ 0, %119 ], [ 0, %26 ], [ 0, %addresses_equal.exit ], [ 0, %85 ], [ 0, %93 ], [ 0, %100 ], [ 0, %104 ], [ 0, %112 ]
+  %.0140 = phi ptr [ null, %25 ], [ null, %addresses_equal.exit183 ], [ %.1141, %132 ], [ %11, %10 ], [ null, %125 ], [ null, %119 ], [ null, %26 ], [ null, %addresses_equal.exit ], [ null, %85 ], [ null, %93 ], [ null, %100 ], [ null, %104 ], [ null, %112 ]
+  %.0 = phi i1 [ true, %25 ], [ %.1, %addresses_equal.exit183 ], [ %.1, %132 ], [ true, %10 ], [ true, %125 ], [ true, %119 ], [ true, %26 ], [ true, %addresses_equal.exit ], [ true, %85 ], [ true, %93 ], [ true, %100 ], [ true, %104 ], [ true, %112 ]
   %147 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %148 = icmp sgt i32 %147, 0
   br i1 %148, label %.lr.ph, label %._crit_edge
@@ -608,10 +608,10 @@ addresses_equal.exit183.thread209:                ; preds = %112, %104, %100, %8
   br label %new_byte.exit
 
 new_byte.exit:                                    ; preds = %204, %202, %198, %196, %194, %190, %187, %192, %189
-  %.5202 = phi i32 [ %.3200, %189 ], [ %.3200, %190 ], [ %.3200, %192 ], [ %.3200, %194 ], [ %.3200, %187 ], [ %.3200, %196 ], [ %201, %198 ], [ %207, %204 ], [ %.3200, %202 ]
-  %.5155 = phi i8 [ 8, %189 ], [ 0, %190 ], [ 7, %192 ], [ 0, %194 ], [ %.3153, %187 ], [ 0, %196 ], [ 0, %198 ], [ 0, %204 ], [ 0, %202 ]
-  %.6 = phi i32 [ %.3148, %189 ], [ 1, %190 ], [ 0, %192 ], [ 1, %194 ], [ %.3148, %187 ], [ 2, %196 ], [ 2, %198 ], [ 2, %204 ], [ 2, %202 ]
-  %.4 = phi i8 [ %.3, %189 ], [ 0, %190 ], [ %193, %192 ], [ 0, %194 ], [ %.3, %187 ], [ 0, %196 ], [ 0, %198 ], [ 0, %204 ], [ 0, %202 ]
+  %.5202 = phi i32 [ %.3200, %189 ], [ %.3200, %190 ], [ %.3200, %192 ], [ %.3200, %194 ], [ %.3200, %187 ], [ %201, %198 ], [ %.3200, %196 ], [ %207, %204 ], [ %.3200, %202 ]
+  %.5155 = phi i8 [ 8, %189 ], [ 0, %190 ], [ 7, %192 ], [ 0, %194 ], [ %.3153, %187 ], [ 0, %198 ], [ 0, %196 ], [ 0, %204 ], [ 0, %202 ]
+  %.6 = phi i32 [ %.3148, %189 ], [ 1, %190 ], [ 0, %192 ], [ 1, %194 ], [ %.3148, %187 ], [ 2, %198 ], [ 2, %196 ], [ 2, %204 ], [ 2, %202 ]
+  %.4 = phi i8 [ %.3, %189 ], [ 0, %190 ], [ %193, %192 ], [ 0, %194 ], [ %.3, %187 ], [ 0, %198 ], [ 0, %196 ], [ 0, %204 ], [ 0, %202 ]
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.loopexit, label %154, !llvm.loop !18
@@ -968,9 +968,9 @@ define internal fastcc void @dissect_lapd_full(ptr noundef %0, ptr noundef initi
   br label %32
 
 32:                                               ; preds = %27, %21, %23, %28, %4
-  %.0108 = phi i1 [ %22, %23 ], [ false, %4 ], [ %.not112, %28 ], [ %22, %21 ], [ %.not112, %27 ]
-  %.0106 = phi ptr [ %24, %23 ], [ @.str.78, %4 ], [ %30, %28 ], [ @.str.84, %21 ], [ @.str.85, %27 ]
-  %.0105 = phi ptr [ %26, %23 ], [ @.str.78, %4 ], [ %31, %28 ], [ @.str.85, %21 ], [ @.str.84, %27 ]
+  %.0108 = phi i1 [ %22, %23 ], [ %.not112, %28 ], [ false, %4 ], [ %22, %21 ], [ %.not112, %27 ]
+  %.0106 = phi ptr [ %24, %23 ], [ %30, %28 ], [ @.str.78, %4 ], [ @.str.84, %21 ], [ @.str.85, %27 ]
+  %.0105 = phi ptr [ %26, %23 ], [ %31, %28 ], [ @.str.78, %4 ], [ @.str.85, %21 ], [ @.str.84, %27 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0105) #14
   %35 = trunc i64 %34 to i32

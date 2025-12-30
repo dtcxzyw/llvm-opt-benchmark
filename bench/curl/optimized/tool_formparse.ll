@@ -165,7 +165,7 @@ define dso_local i64 @tool_mime_stdin_read(ptr noundef writeonly captures(none) 
   br label %43
 
 43:                                               ; preds = %17, %38, %31, %34, %8
-  %.0 = phi i64 [ 0, %8 ], [ 268435456, %31 ], [ 268435456, %34 ], [ %.2, %38 ], [ 0, %17 ]
+  %.0 = phi i64 [ 0, %8 ], [ 268435456, %34 ], [ 268435456, %31 ], [ %.2, %38 ], [ 0, %17 ]
   ret i64 %.0
 }
 
@@ -231,7 +231,7 @@ define dso_local range(i32 0, 3) i32 @tool_mime_stdin_seek(ptr noundef captures(
   br label %21
 
 21:                                               ; preds = %13, %8, %19
-  %.0 = phi i32 [ 2, %8 ], [ 0, %19 ], [ 2, %13 ]
+  %.0 = phi i32 [ 0, %19 ], [ 2, %8 ], [ 2, %13 ]
   ret i32 %.0
 }
 
@@ -359,8 +359,8 @@ tool2curlmime.exit:                               ; preds = %14, %16
   br label %40
 
 40:                                               ; preds = %23, %36, %20, %31, %10
-  %.2 = phi i32 [ %26, %23 ], [ 0, %10 ], [ %39, %36 ], [ 0, %31 ], [ 0, %20 ]
-  %.0 = phi ptr [ %12, %23 ], [ %12, %10 ], [ %.1, %36 ], [ %12, %31 ], [ %12, %20 ]
+  %.2 = phi i32 [ 0, %10 ], [ 0, %20 ], [ %26, %23 ], [ 0, %31 ], [ %39, %36 ]
+  %.0 = phi ptr [ %12, %10 ], [ %12, %20 ], [ %12, %23 ], [ %12, %31 ], [ %.1, %36 ]
   %41 = icmp eq i32 %.2, 0
   %42 = icmp ne ptr %.0, null
   %or.cond3 = select i1 %41, i1 %42, i1 false
@@ -592,7 +592,7 @@ tool_mime_new_parts.exit.thread:                  ; preds = %14
   br label %tool_mime_new_parts.exit165.thread
 
 tool_mime_new_parts.exit165.thread:               ; preds = %66, %72, %70, %65
-  %.1100 = phi ptr [ %.099, %65 ], [ %69, %72 ], [ %69, %70 ], [ %67, %66 ]
+  %.1100 = phi ptr [ %.099, %65 ], [ %69, %70 ], [ %69, %72 ], [ %67, %66 ]
   %76 = load ptr, ptr %7, align 8, !tbaa !33
   %77 = call fastcc ptr @tool_mime_new_filedata(ptr noundef %.1100, ptr noundef %76, i1 noundef zeroext true, ptr noundef %12)
   %.not140 = icmp eq ptr %77, null
@@ -788,8 +788,8 @@ tool_mime_new.exit.i:                             ; preds = %145
   br i1 %.not151, label %tool_mime_new_parts.exit162.thread178, label %.thread212
 
 .thread212:                                       ; preds = %122, %135, %153, %157
-  %.1102217 = phi i32 [ %.0101, %157 ], [ %.0101, %153 ], [ %116, %135 ], [ %116, %122 ]
-  %.2216 = phi ptr [ %146, %157 ], [ %146, %153 ], [ %121, %135 ], [ %121, %122 ]
+  %.1102217 = phi i32 [ %.0101, %153 ], [ %.0101, %157 ], [ %116, %135 ], [ %116, %122 ]
+  %.2216 = phi ptr [ %146, %153 ], [ %146, %157 ], [ %121, %135 ], [ %121, %122 ]
   %160 = load ptr, ptr %8, align 8, !tbaa !33
   %.not152 = icmp eq ptr %160, null
   br i1 %.not152, label %164, label %161
@@ -827,7 +827,7 @@ tool_mime_new.exit.i:                             ; preds = %145
   br label %175
 
 175:                                              ; preds = %tool_mime_new_parts.exit165, %42, %38, %170, %169
-  %.3 = phi ptr [ %.2216, %170 ], [ %.2216, %169 ], [ %111, %tool_mime_new_parts.exit165 ], [ %31, %38 ], [ %31, %42 ]
+  %.3 = phi ptr [ %.2216, %170 ], [ %.2216, %169 ], [ %111, %tool_mime_new_parts.exit165 ], [ %31, %42 ], [ %31, %38 ]
   %.not157 = icmp eq ptr %spec.select, null
   br i1 %.not157, label %tool_mime_new_parts.exit162, label %176
 
@@ -838,7 +838,7 @@ tool_mime_new.exit.i:                             ; preds = %145
   %.not158 = icmp eq ptr %177, null
   br i1 %.not158, label %tool_mime_new_parts.exit162.thread178, label %tool_mime_new_parts.exit162
 
-tool_mime_new_parts.exit162.thread178:            ; preds = %60, %100, %95, %tool_mime_new_parts.exit165.thread, %105, %68, %166, %161, %157, %138, %118, %42, %134, %114, %53, %26, %176, %29, %89, %tool_mime_new.exit.i, %141
+tool_mime_new_parts.exit162.thread178:            ; preds = %60, %tool_mime_new_parts.exit165.thread, %95, %100, %105, %68, %134, %53, %26, %42, %114, %118, %138, %157, %161, %166, %176, %29, %89, %tool_mime_new.exit.i, %141
   %.pre184 = load ptr, ptr %11, align 8, !tbaa !34
   br label %tool_mime_new_parts.exit162
 
@@ -849,9 +849,9 @@ tool_mime_new_parts.exit162.thread178:            ; preds = %60, %100, %95, %too
   br label %tool_mime_new_parts.exit162
 
 tool_mime_new_parts.exit162:                      ; preds = %tool_mime_new_parts.exit162.thread178, %.thread, %176, %175, %tool_mime_new_parts.exit.thread, %179, %17
-  %182 = phi ptr [ null, %tool_mime_new_parts.exit.thread ], [ null, %17 ], [ null, %179 ], [ null, %175 ], [ null, %176 ], [ null, %.thread ], [ %.pre184, %tool_mime_new_parts.exit162.thread178 ]
-  %.0106 = phi ptr [ null, %tool_mime_new_parts.exit.thread ], [ null, %17 ], [ %18, %179 ], [ %18, %175 ], [ %18, %176 ], [ %18, %.thread ], [ %18, %tool_mime_new_parts.exit162.thread178 ]
-  %.0103 = phi i32 [ 1, %tool_mime_new_parts.exit.thread ], [ 1, %17 ], [ 1, %179 ], [ 0, %175 ], [ 0, %176 ], [ 0, %.thread ], [ 1, %tool_mime_new_parts.exit162.thread178 ]
+  %182 = phi ptr [ null, %179 ], [ null, %17 ], [ null, %tool_mime_new_parts.exit.thread ], [ null, %175 ], [ null, %176 ], [ null, %.thread ], [ %.pre184, %tool_mime_new_parts.exit162.thread178 ]
+  %.0106 = phi ptr [ %18, %179 ], [ null, %17 ], [ null, %tool_mime_new_parts.exit.thread ], [ %18, %175 ], [ %18, %176 ], [ %18, %.thread ], [ %18, %tool_mime_new_parts.exit162.thread178 ]
+  %.0103 = phi i32 [ 1, %179 ], [ 1, %17 ], [ 1, %tool_mime_new_parts.exit.thread ], [ 0, %175 ], [ 0, %176 ], [ 0, %.thread ], [ 1, %tool_mime_new_parts.exit162.thread178 ]
   call void @free(ptr noundef %.0106) #15
   call void @curl_slist_free_all(ptr noundef %182) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1300,8 +1300,8 @@ slist_append.exit.i:                              ; preds = %.critedge.i
   br label %155
 
 .critedge56.i:                                    ; preds = %.critedge7.i, %.critedge.i, %122, %120, %switch.early.test.i, %switch.early.test.i, %119
-  %.3 = phi ptr [ %.2, %122 ], [ %129, %.critedge.i ], [ %.2, %119 ], [ %.2, %120 ], [ %.2, %switch.early.test.i ], [ %.2, %switch.early.test.i ], [ %.2, %.critedge7.i ]
-  %.147.i = phi i64 [ 0, %122 ], [ 0, %.critedge.i ], [ %.046.i, %119 ], [ %.046.i, %120 ], [ %.046.i, %switch.early.test.i ], [ %.046.i, %switch.early.test.i ], [ 0, %.critedge7.i ]
+  %.3 = phi ptr [ %.2, %122 ], [ %.2, %120 ], [ %.2, %switch.early.test.i ], [ %.2, %switch.early.test.i ], [ %.2, %119 ], [ %129, %.critedge.i ], [ %.2, %.critedge7.i ]
+  %.147.i = phi i64 [ 0, %122 ], [ %.046.i, %120 ], [ %.046.i, %switch.early.test.i ], [ %.046.i, %switch.early.test.i ], [ %.046.i, %119 ], [ 0, %.critedge.i ], [ 0, %.critedge7.i ]
   switch i32 %117, label %142 [
     i32 -1, label %131
     i32 13, label %116
@@ -1359,9 +1359,9 @@ slist_append.exit.i:                              ; preds = %.critedge.i
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %150, %148, %142, %140
-  %.046.i.ph.be = phi i64 [ %152, %150 ], [ %.147.i, %140 ], [ %.147.i, %142 ], [ %.147.i, %148 ]
-  %.044.i.ph.be = phi i64 [ %145, %150 ], [ %141, %140 ], [ %143, %142 ], [ %145, %148 ]
-  %.042.i.ph.be = phi i1 [ false, %150 ], [ true, %140 ], [ true, %142 ], [ false, %148 ]
+  %.046.i.ph.be = phi i64 [ %.147.i, %140 ], [ %.147.i, %142 ], [ %.147.i, %148 ], [ %152, %150 ]
+  %.044.i.ph.be = phi i64 [ %141, %140 ], [ %143, %142 ], [ %145, %148 ], [ %145, %150 ]
+  %.042.i.ph.be = phi i1 [ true, %140 ], [ true, %142 ], [ false, %148 ], [ false, %150 ]
   br label %.outer
 
 read_field_headers.exit:                          ; preds = %131
@@ -1590,12 +1590,12 @@ slist_append.exit:                                ; preds = %.critedge38
   br label %.critedge221
 
 .critedge221:                                     ; preds = %.critedge221.loopexit, %.critedge38, %read_field_headers.exit, %110, %212, %218, %.critedge22, %.critedge46, %.critedge16
-  %.1 = phi ptr [ %.0335, %212 ], [ %.0335, %218 ], [ %.0335, %.critedge16 ], [ %.0335, %.critedge46 ], [ %176, %.critedge38 ], [ %.0335, %110 ], [ %.3, %read_field_headers.exit ], [ %.0335, %.critedge22 ], [ %.0335, %.critedge221.loopexit ]
-  %.1152 = phi ptr [ null, %212 ], [ null, %218 ], [ %55, %.critedge16 ], [ null, %.critedge46 ], [ null, %.critedge38 ], [ null, %110 ], [ null, %read_field_headers.exit ], [ null, %.critedge22 ], [ %.5156, %.critedge221.loopexit ]
-  %.1150 = phi i8 [ %215, %212 ], [ %215, %218 ], [ %56, %.critedge16 ], [ %202, %.critedge46 ], [ %175, %.critedge38 ], [ %108, %110 ], [ %108, %read_field_headers.exit ], [ %82, %.critedge22 ], [ %.lcssa347, %.critedge221.loopexit ]
-  %.1148 = phi ptr [ %.0147337, %212 ], [ %.0147337, %218 ], [ %.0147337, %.critedge16 ], [ %189, %.critedge46 ], [ %.0147337, %.critedge38 ], [ %.0147337, %110 ], [ %.0147337, %read_field_headers.exit ], [ %.0147337, %.critedge22 ], [ %.0147337, %.critedge221.loopexit ]
-  %.1146 = phi ptr [ %.0145338, %212 ], [ %.0145338, %218 ], [ %.0145338, %.critedge16 ], [ %.0145338, %.critedge46 ], [ %.0145338, %.critedge38 ], [ %.0145338, %110 ], [ %.0145338, %read_field_headers.exit ], [ %69, %.critedge22 ], [ %.0145338, %.critedge221.loopexit ]
-  %.1141 = phi ptr [ %.0140339, %212 ], [ %.0140339, %218 ], [ %storemerge, %.critedge16 ], [ %.0140339, %.critedge46 ], [ %.0140339, %.critedge38 ], [ %.0140339, %110 ], [ %.0140339, %read_field_headers.exit ], [ %.0140339, %.critedge22 ], [ %.0140339, %.critedge221.loopexit ]
+  %.1 = phi ptr [ %.0335, %212 ], [ %.0335, %218 ], [ %.0335, %.critedge46 ], [ %.0335, %110 ], [ %.3, %read_field_headers.exit ], [ %.0335, %.critedge22 ], [ %.0335, %.critedge16 ], [ %176, %.critedge38 ], [ %.0335, %.critedge221.loopexit ]
+  %.1152 = phi ptr [ null, %212 ], [ null, %218 ], [ null, %.critedge46 ], [ null, %110 ], [ null, %read_field_headers.exit ], [ null, %.critedge22 ], [ %55, %.critedge16 ], [ null, %.critedge38 ], [ %.5156, %.critedge221.loopexit ]
+  %.1150 = phi i8 [ %215, %212 ], [ %215, %218 ], [ %202, %.critedge46 ], [ %108, %110 ], [ %108, %read_field_headers.exit ], [ %82, %.critedge22 ], [ %56, %.critedge16 ], [ %175, %.critedge38 ], [ %.lcssa347, %.critedge221.loopexit ]
+  %.1148 = phi ptr [ %.0147337, %212 ], [ %.0147337, %218 ], [ %189, %.critedge46 ], [ %.0147337, %110 ], [ %.0147337, %read_field_headers.exit ], [ %.0147337, %.critedge22 ], [ %.0147337, %.critedge16 ], [ %.0147337, %.critedge38 ], [ %.0147337, %.critedge221.loopexit ]
+  %.1146 = phi ptr [ %.0145338, %212 ], [ %.0145338, %218 ], [ %.0145338, %.critedge46 ], [ %.0145338, %110 ], [ %.0145338, %read_field_headers.exit ], [ %69, %.critedge22 ], [ %.0145338, %.critedge16 ], [ %.0145338, %.critedge38 ], [ %.0145338, %.critedge221.loopexit ]
+  %.1141 = phi ptr [ %.0140339, %212 ], [ %.0140339, %218 ], [ %.0140339, %.critedge46 ], [ %.0140339, %110 ], [ %.0140339, %read_field_headers.exit ], [ %.0140339, %.critedge22 ], [ %storemerge, %.critedge16 ], [ %.0140339, %.critedge38 ], [ %.0140339, %.critedge221.loopexit ]
   %220 = icmp eq i8 %.1150, 59
   br i1 %220, label %.preheader251, label %._crit_edge, !llvm.loop !63
 
@@ -1670,7 +1670,7 @@ slist_append.exit:                                ; preds = %.critedge38
   br label %241
 
 241:                                              ; preds = %slist_append.exit, %155, %.thread433
-  %.5 = phi i32 [ %239, %.thread433 ], [ -1, %slist_append.exit ], [ -1, %155 ]
+  %.5 = phi i32 [ -1, %slist_append.exit ], [ %239, %.thread433 ], [ -1, %155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.5
@@ -1950,8 +1950,8 @@ define internal fastcc ptr @get_param_word(ptr noundef readonly captures(none) %
   br label %24
 
 24:                                               ; preds = %20, %23, %.preheader
-  %25 = phi i8 [ %22, %23 ], [ 92, %20 ], [ %18, %.preheader ]
-  %.4 = phi ptr [ %21, %23 ], [ %.3, %20 ], [ %.3, %.preheader ]
+  %25 = phi i8 [ %22, %23 ], [ %18, %.preheader ], [ 92, %20 ]
+  %.4 = phi ptr [ %21, %23 ], [ %.3, %.preheader ], [ %.3, %20 ]
   %26 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %27 = getelementptr inbounds nuw i8, ptr %.056, i64 1
   store i8 %25, ptr %.056, align 1, !tbaa !36
@@ -1964,7 +1964,7 @@ define internal fastcc ptr @get_param_word(ptr noundef readonly captures(none) %
   br label %.preheader97
 
 .preheader97:                                     ; preds = %30, %17
-  %.2.pn.ph = phi ptr [ %26, %30 ], [ %.159, %17 ]
+  %.2.pn.ph = phi ptr [ %.159, %17 ], [ %26, %30 ]
   br label %.outer98
 
 .outer98:                                         ; preds = %.preheader97, %35

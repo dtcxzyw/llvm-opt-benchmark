@@ -353,8 +353,8 @@ bytestream2_get_le32.exit130.thread:              ; preds = %107, %117, %bytestr
   br label %.thread
 
 .critedge118:                                     ; preds = %127, %bytestream2_get_le32.exit130.thread, %bytestream2_get_le32.exit130
-  %.096286 = phi i32 [ %.096, %bytestream2_get_le32.exit130 ], [ 0, %bytestream2_get_le32.exit130.thread ], [ 0, %127 ]
-  %.sroa.0.2284 = phi ptr [ %.sroa.0.2, %bytestream2_get_le32.exit130 ], [ %.sroa.0.2285, %bytestream2_get_le32.exit130.thread ], [ %.sroa.0.2285, %127 ]
+  %.096286 = phi i32 [ 0, %bytestream2_get_le32.exit130.thread ], [ %.096, %bytestream2_get_le32.exit130 ], [ 0, %127 ]
+  %.sroa.0.2284 = phi ptr [ %.sroa.0.2285, %bytestream2_get_le32.exit130.thread ], [ %.sroa.0.2, %bytestream2_get_le32.exit130 ], [ %.sroa.0.2285, %127 ]
   %130 = ptrtoint ptr %.sroa.0.2284 to i64
   %131 = sub i64 %21, %130
   %132 = trunc i64 %131 to i32
@@ -609,9 +609,9 @@ bytestream2_get_le32.exit130.thread:              ; preds = %107, %117, %bytestr
   br label %get_vlc2.exit.i.i
 
 get_vlc2.exit.i.i:                                ; preds = %270, %250
-  %.064.i.i.i = phi i32 [ %252, %250 ], [ %272, %270 ]
-  %.062.i.i.i = phi i32 [ %265, %250 ], [ %286, %270 ]
-  %.0.i.i39.i = phi i32 [ %268, %250 ], [ %289, %270 ]
+  %.064.i.i.i = phi i32 [ %272, %270 ], [ %252, %250 ]
+  %.062.i.i.i = phi i32 [ %286, %270 ], [ %265, %250 ]
+  %.0.i.i39.i = phi i32 [ %289, %270 ], [ %268, %250 ]
   %290 = add i32 %.0.i.i39.i, %.064.i.i.i
   %291 = tail call i32 @llvm.umin.i32(i32 %253, i32 %290)
   store i32 %291, ptr %103, align 8, !tbaa !54
@@ -711,9 +711,9 @@ get_vlc2.exit.i.i:                                ; preds = %270, %250
   br label %get_vlc2.exit82.i.i
 
 get_vlc2.exit82.i.i:                              ; preds = %343, %326
-  %.064.i79.i.i = phi i32 [ %327, %326 ], [ %345, %343 ]
-  %.062.i80.i.i = phi i32 [ %338, %326 ], [ %359, %343 ]
-  %.0.i81.i.i = phi i32 [ %341, %326 ], [ %362, %343 ]
+  %.064.i79.i.i = phi i32 [ %345, %343 ], [ %327, %326 ]
+  %.062.i80.i.i = phi i32 [ %359, %343 ], [ %338, %326 ]
+  %.0.i81.i.i = phi i32 [ %362, %343 ], [ %341, %326 ]
   %363 = add i32 %.0.i81.i.i, %.064.i79.i.i
   %364 = tail call i32 @llvm.umin.i32(i32 %303, i32 %363)
   store i32 %364, ptr %103, align 8, !tbaa !54
@@ -927,7 +927,7 @@ tscc2_decode_slice.exit:                          ; preds = %tscc2_decode_slice.
   br label %.thread
 
 .thread:                                          ; preds = %bytestream2_init.exit, %.critedge, %._crit_edge222, %31, %29, %.loopexit, %134, %106, %86, %74, %57, %38, %27
-  %.0 = phi i32 [ -1094995529, %27 ], [ %34, %31 ], [ %9, %29 ], [ -1094995529, %38 ], [ -1094995529, %57 ], [ -1094995529, %74 ], [ -1094995529, %86 ], [ -1094995529, %106 ], [ -1094995529, %134 ], [ -1094995529, %.loopexit ], [ -1094995529, %.critedge ], [ %., %._crit_edge222 ], [ 0, %bytestream2_init.exit ]
+  %.0 = phi i32 [ -1094995529, %27 ], [ -1094995529, %38 ], [ -1094995529, %57 ], [ -1094995529, %74 ], [ -1094995529, %86 ], [ -1094995529, %106 ], [ -1094995529, %134 ], [ -1094995529, %.loopexit ], [ -1094995529, %.critedge ], [ %9, %29 ], [ %34, %31 ], [ %., %._crit_edge222 ], [ 0, %bytestream2_init.exit ]
   ret i32 %.0
 }
 

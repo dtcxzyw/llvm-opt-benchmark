@@ -88,12 +88,12 @@ define void @ff_ac3dsp_downmix_fixed(ptr noundef captures(none) %0, ptr noundef 
   br i1 %.not41, label %.thread.thread, label %.thread.thread56
 
 .thread.thread56.sink.split:                      ; preds = %50, %17
-  %ac3_downmix_5_to_2_symmetric_c_fixed.sink = phi ptr [ @ac3_downmix_5_to_2_symmetric_c_fixed, %17 ], [ @ac3_downmix_5_to_1_symmetric_c_fixed, %50 ]
-  store ptr %ac3_downmix_5_to_2_symmetric_c_fixed.sink, ptr %14, align 8, !tbaa !11
+  %ac3_downmix_5_to_1_symmetric_c_fixed.sink = phi ptr [ @ac3_downmix_5_to_2_symmetric_c_fixed, %17 ], [ @ac3_downmix_5_to_1_symmetric_c_fixed, %50 ]
+  store ptr %ac3_downmix_5_to_1_symmetric_c_fixed.sink, ptr %14, align 8, !tbaa !11
   br label %.thread.thread56
 
 .thread.thread56:                                 ; preds = %.thread.thread56.sink.split, %.thread
-  %56 = phi ptr [ %.pre, %.thread ], [ %ac3_downmix_5_to_2_symmetric_c_fixed.sink, %.thread.thread56.sink.split ]
+  %56 = phi ptr [ %.pre, %.thread ], [ %ac3_downmix_5_to_1_symmetric_c_fixed.sink, %.thread.thread56.sink.split ]
   tail call void %56(ptr noundef %1, ptr noundef %2, i32 noundef %5) #9
   br label %ac3_downmix_c_fixed.exit
 
@@ -466,12 +466,12 @@ define void @ff_ac3dsp_downmix(ptr noundef captures(none) %0, ptr noundef %1, pt
   br i1 %.not42, label %.thread.thread, label %.thread.thread57
 
 .thread.thread57.sink.split:                      ; preds = %50, %17
-  %ac3_downmix_5_to_2_symmetric_c.sink = phi ptr [ @ac3_downmix_5_to_2_symmetric_c, %17 ], [ @ac3_downmix_5_to_1_symmetric_c, %50 ]
-  store ptr %ac3_downmix_5_to_2_symmetric_c.sink, ptr %14, align 8, !tbaa !26
+  %ac3_downmix_5_to_1_symmetric_c.sink = phi ptr [ @ac3_downmix_5_to_2_symmetric_c, %17 ], [ @ac3_downmix_5_to_1_symmetric_c, %50 ]
+  store ptr %ac3_downmix_5_to_1_symmetric_c.sink, ptr %14, align 8, !tbaa !26
   br label %.thread.thread57
 
 .thread.thread57:                                 ; preds = %.thread.thread57.sink.split, %.thread
-  %56 = phi ptr [ %.pre, %.thread ], [ %ac3_downmix_5_to_2_symmetric_c.sink, %.thread.thread57.sink.split ]
+  %56 = phi ptr [ %.pre, %.thread ], [ %ac3_downmix_5_to_1_symmetric_c.sink, %.thread.thread57.sink.split ]
   tail call void %56(ptr noundef %1, ptr noundef %2, i32 noundef %5) #9
   br label %ac3_downmix_c.exit
 

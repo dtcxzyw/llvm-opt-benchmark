@@ -766,7 +766,7 @@ terminate.lpad.i.i72:                             ; preds = %if.then.i.i70
   unreachable
 
 ehcleanup30:                                      ; preds = %if.then.i.i70, %lpad26, %lpad24, %if.then.i.i, %lpad.body.i
-  %.pn3 = phi { ptr, i32 } [ %21, %lpad.body.i ], [ %58, %lpad24 ], [ %21, %if.then.i.i ], [ %59, %lpad26 ], [ %59, %if.then.i.i70 ]
+  %.pn3 = phi { ptr, i32 } [ %58, %lpad24 ], [ %21, %if.then.i.i ], [ %21, %lpad.body.i ], [ %59, %lpad26 ], [ %59, %if.then.i.i70 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21) #16
   br label %ehcleanup31
 
@@ -1301,7 +1301,7 @@ terminate.lpad.i.i72:                             ; preds = %if.then.i.i70
   unreachable
 
 ehcleanup30:                                      ; preds = %if.then.i.i70, %lpad26, %lpad24, %if.then.i.i, %lpad.body.i
-  %.pn3 = phi { ptr, i32 } [ %21, %lpad.body.i ], [ %58, %lpad24 ], [ %21, %if.then.i.i ], [ %59, %lpad26 ], [ %59, %if.then.i.i70 ]
+  %.pn3 = phi { ptr, i32 } [ %58, %lpad24 ], [ %21, %if.then.i.i ], [ %21, %lpad.body.i ], [ %59, %lpad26 ], [ %59, %if.then.i.i70 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21) #16
   br label %ehcleanup31
 
@@ -1825,7 +1825,7 @@ terminate.lpad.i.i72:                             ; preds = %if.then.i.i70
   unreachable
 
 ehcleanup30:                                      ; preds = %if.then.i.i70, %lpad26, %lpad24, %if.then.i.i, %lpad.body.i
-  %.pn3 = phi { ptr, i32 } [ %21, %lpad.body.i ], [ %58, %lpad24 ], [ %21, %if.then.i.i ], [ %59, %lpad26 ], [ %59, %if.then.i.i70 ]
+  %.pn3 = phi { ptr, i32 } [ %58, %lpad24 ], [ %21, %if.then.i.i ], [ %21, %lpad.body.i ], [ %59, %lpad26 ], [ %59, %if.then.i.i70 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21) #16
   br label %ehcleanup31
 
@@ -2349,7 +2349,7 @@ terminate.lpad.i.i72:                             ; preds = %if.then.i.i70
   unreachable
 
 ehcleanup30:                                      ; preds = %if.then.i.i70, %lpad26, %lpad24, %if.then.i.i, %lpad.body.i
-  %.pn3 = phi { ptr, i32 } [ %21, %lpad.body.i ], [ %58, %lpad24 ], [ %21, %if.then.i.i ], [ %59, %lpad26 ], [ %59, %if.then.i.i70 ]
+  %.pn3 = phi { ptr, i32 } [ %58, %lpad24 ], [ %21, %if.then.i.i ], [ %21, %lpad.body.i ], [ %59, %lpad26 ], [ %59, %if.then.i.i70 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21) #16
   br label %ehcleanup31
 
@@ -2873,7 +2873,7 @@ terminate.lpad.i.i72:                             ; preds = %if.then.i.i70
   unreachable
 
 ehcleanup30:                                      ; preds = %if.then.i.i70, %lpad26, %lpad24, %if.then.i.i, %lpad.body.i
-  %.pn3 = phi { ptr, i32 } [ %21, %lpad.body.i ], [ %58, %lpad24 ], [ %21, %if.then.i.i ], [ %59, %lpad26 ], [ %59, %if.then.i.i70 ]
+  %.pn3 = phi { ptr, i32 } [ %58, %lpad24 ], [ %21, %if.then.i.i ], [ %21, %lpad.body.i ], [ %59, %lpad26 ], [ %59, %if.then.i.i70 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21) #16
   br label %ehcleanup31
 
@@ -3675,7 +3675,7 @@ lpad5.i:                                          ; preds = %if.then.i.i.i.i.i.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad.i.loopexit, %lpad.i.loopexit.split-lp, %if.then.i.i.i, %lpad10.i, %lpad5.i
-  %.pn.i = phi { ptr, i32 } [ %7, %lpad5.i ], [ %4, %lpad10.i ], [ %4, %if.then.i.i.i ], [ %lpad.loopexit, %lpad.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad.i.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %7, %lpad5.i ], [ %4, %if.then.i.i.i ], [ %4, %lpad10.i ], [ %lpad.loopexit, %lpad.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad.i.loopexit.split-lp ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__cur.015) #16
   br label %lpad.body
 

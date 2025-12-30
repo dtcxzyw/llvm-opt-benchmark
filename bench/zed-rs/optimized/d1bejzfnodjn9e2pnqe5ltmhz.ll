@@ -761,7 +761,7 @@ define hidden void @_ZN8schemars8_private8metadata15add_description17h92cfab3758
 21:                                               ; preds = %38
   br i1 %.sroa.02.3, label %71, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hdac5ca8127eefe46E.exit"
 
-.thread:                                          ; preds = %19, %4
+.thread:                                          ; preds = %4, %19
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -821,7 +821,7 @@ define hidden void @_ZN8schemars8_private8metadata15add_description17h92cfab3758
           to label %.noexc21 unwind label %38
 
 38:                                               ; preds = %34, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd9dd8594fc38c594E.exit", %27, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd9dd8594fc38c594E.exit.thread", %40
-  %.sroa.02.3 = phi i1 [ true, %34 ], [ false, %40 ], [ true, %27 ], [ true, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd9dd8594fc38c594E.exit.thread" ], [ true, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd9dd8594fc38c594E.exit" ]
+  %.sroa.02.3 = phi i1 [ false, %40 ], [ true, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd9dd8594fc38c594E.exit.thread" ], [ true, %27 ], [ true, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd9dd8594fc38c594E.exit" ], [ true, %34 ]
   %39 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfbdf94f63f0a731aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #21
@@ -930,11 +930,11 @@ define hidden void @_ZN8schemars8_private8metadata15add_description17h92cfab3758
   br label %58
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hdac5ca8127eefe46E.exit": ; preds = %59, %71, %74, %21
-  %.pn825 = phi { ptr, i32 } [ %.pn40, %59 ], [ %39, %21 ], [ %.pn826, %74 ], [ %.pn826, %71 ]
+  %.pn825 = phi { ptr, i32 } [ %39, %21 ], [ %.pn826, %74 ], [ %.pn826, %71 ], [ %.pn40, %59 ]
   resume { ptr, i32 } %.pn825
 
 71:                                               ; preds = %.thread, %21
-  %.pn826 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %39, %21 ]
+  %.pn826 = phi { ptr, i32 } [ %39, %21 ], [ %lpad.thr_comm, %.thread ]
   %72 = load i64, ptr %1, align 8, !range !158, !alias.scope !159, !noundef !4
   %73 = icmp eq i64 %72, -9223372036854775807
   br i1 %73, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hdac5ca8127eefe46E.exit", label %74

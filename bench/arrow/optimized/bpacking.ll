@@ -339,7 +339,7 @@ _ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.ex
   br label %_ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.exit7
 
 _ZNSt6vectorISt4pairIN5arrow8internal13DispatchLevelEPFiPKjPjiiEESaIS9_EED2Ev.exit7: ; preds = %.loopexit, %.loopexit.split-lp, %14, %_ZN5arrow6StatusD2Ev.exit.i
-  %eh.lpad-body = phi { ptr, i32 } [ %29, %_ZN5arrow6StatusD2Ev.exit.i ], [ %15, %14 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %29, %_ZN5arrow6StatusD2Ev.exit.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 48) #17
   resume { ptr, i32 } %eh.lpad-body
 }

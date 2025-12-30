@@ -851,7 +851,7 @@ sub_1:                                            ; preds = %sub_0
   br label %skip_prefix.exit
 
 skip_prefix.exit:                                 ; preds = %6, %31, %29, %27, %22, %20, %18, %.tail.thread, %24
-  %.0 = phi i32 [ 0, %.tail.thread ], [ 0, %20 ], [ 0, %29 ], [ 0, %24 ], [ -1, %22 ], [ -1, %18 ], [ -1, %31 ], [ -1, %27 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %24 ], [ 0, %.tail.thread ], [ -1, %22 ], [ -1, %18 ], [ 0, %20 ], [ -1, %31 ], [ -1, %27 ], [ 0, %29 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -880,7 +880,7 @@ define dso_local range(i32 -1, 1) i32 @parseopt_column_callback(ptr noundef read
   br label %13
 
 13:                                               ; preds = %9, %3, %11
-  %.0 = phi i32 [ 0, %3 ], [ %12, %11 ], [ 0, %9 ]
+  %.0 = phi i32 [ %12, %11 ], [ 0, %3 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -1078,7 +1078,7 @@ parse_option.exit:                                ; preds = %.critedge.us.i, %.c
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %parse_option.exit, %._crit_edge, %70
-  %.2 = phi i32 [ 0, %._crit_edge ], [ 0, %70 ], [ -1, %parse_option.exit ], [ 0, %2 ]
+  %.2 = phi i32 [ 0, %70 ], [ 0, %._crit_edge ], [ -1, %parse_option.exit ], [ 0, %2 ]
   ret i32 %.2
 }
 

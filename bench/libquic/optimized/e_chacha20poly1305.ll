@@ -162,7 +162,7 @@ define internal fastcc range(i32 0, 2) i32 @seal_impl(ptr noundef readonly captu
   br label %29
 
 29:                                               ; preds = %22, %21, %14
-  %.0 = phi i32 [ 0, %14 ], [ 1, %22 ], [ 0, %21 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %21 ], [ 1, %22 ]
   ret i32 %.0
 }
 

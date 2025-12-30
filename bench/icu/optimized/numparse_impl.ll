@@ -323,7 +323,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -3473,7 +3473,7 @@ _ZN6icu_7712LocalPointerINS_8numparse4impl16NumberParserImplEED2Ev.exit: ; preds
   br label %539
 
 _ZN6icu_7712LocalPointerINS_8numparse4impl16NumberParserImplEED2Ev.exit163: ; preds = %203, %526, %528, %85, %83
-  %.pn128.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %86, %85 ], [ %204, %203 ], [ %.pn128.pn.pn.pn.pn.pn.pn219, %528 ], [ %527, %526 ]
+  %.pn128.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %86, %85 ], [ %204, %203 ], [ %527, %526 ], [ %.pn128.pn.pn.pn.pn.pn.pn219, %528 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN6icu_776number4impl15CurrencySymbolsD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %8) #19
   br label %537

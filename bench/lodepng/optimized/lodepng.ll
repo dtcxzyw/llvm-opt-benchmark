@@ -223,7 +223,7 @@ define noundef range(i32 0, 84) i32 @_Z17lodepng_load_filePPhPmPKc(ptr noundef w
   br label %_ZL18lodepng_load_file_PPhPmP8_IO_FILE.exit
 
 _ZL18lodepng_load_file_PPhPmP8_IO_FILE.exit:      ; preds = %5, %7, %10, %13, %17
-  %.0.i = phi i32 [ 83, %13 ], [ 78, %10 ], [ %..i, %17 ], [ 78, %7 ], [ 78, %5 ]
+  %.0.i = phi i32 [ 83, %13 ], [ %..i, %17 ], [ 78, %5 ], [ 78, %7 ], [ 78, %10 ]
   %20 = tail call i32 @fclose(ptr noundef nonnull %4)
   br label %21
 
@@ -651,7 +651,7 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit130: ; preds = %._crit_edge63.i124,
   br i1 %.not85, label %.loopexit, label %.preheader, !llvm.loop !50
 
 .loopexit:                                        ; preds = %._crit_edge152, %._crit_edge148, %_ZL12bpmnode_sortP7BPMNodem.exit
-  %143 = phi ptr [ %84, %_ZL12bpmnode_sortP7BPMNodem.exit ], [ %127, %._crit_edge148 ], [ %127, %._crit_edge152 ]
+  %143 = phi ptr [ %127, %._crit_edge148 ], [ %84, %_ZL12bpmnode_sortP7BPMNodem.exit ], [ %127, %._crit_edge152 ]
   %144 = load ptr, ptr %76, align 8, !tbaa !36
   tail call void @free(ptr noundef %144) #33
   %145 = load ptr, ptr %79, align 8, !tbaa !37
@@ -668,7 +668,7 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit130: ; preds = %._crit_edge63.i124,
   br label %148
 
 148:                                              ; preds = %10, %4, %147
-  %.070 = phi i32 [ 83, %10 ], [ 80, %4 ], [ %.074, %147 ]
+  %.070 = phi i32 [ %.074, %147 ], [ 80, %4 ], [ 83, %10 ]
   ret i32 %.070
 }
 
@@ -1858,8 +1858,8 @@ _ZL19huffmanDecodeSymbolP16LodePNGBitReaderPK11HuffmanTree.exit.i.i: ; preds = %
   br label %.loopexit.i.i
 
 .loopexit.loopexit204.i.i:                        ; preds = %356, %348
-  %.3131.ph205.i.i = phi i32 [ 15, %348 ], [ %.1129.i.i, %356 ]
-  %.3.ph206.in.i.i = phi i64 [ %indvars.iv214.i.i, %348 ], [ %indvars.iv.next215.i.i, %356 ]
+  %.3131.ph205.i.i = phi i32 [ %.1129.i.i, %356 ], [ 15, %348 ]
+  %.3.ph206.in.i.i = phi i64 [ %indvars.iv.next215.i.i, %356 ], [ %indvars.iv214.i.i, %348 ]
   %.3.ph206.i.i = trunc nuw nsw i64 %.3.ph206.in.i.i to i32
   br label %.loopexit.i.i
 
@@ -1890,12 +1890,12 @@ _ZL19huffmanDecodeSymbolP16LodePNGBitReaderPK11HuffmanTree.exit.i.i: ; preds = %
   br label %_ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread.i.i
 
 _ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread.i.i: ; preds = %.loopexit.i.i, %306, %305, %365, %363, %359, %.thread178.i.i, %206, %.preheader.i.preheader._ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread_crit_edge.i.i, %._crit_edge.i.i, %165
-  %367 = phi ptr [ null, %._crit_edge.i.i ], [ %.pre142, %206 ], [ %.pre, %.preheader.i.preheader._ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread_crit_edge.i.i ], [ null, %165 ], [ %.pre142, %359 ], [ %.pre142, %365 ], [ %.pre142, %363 ], [ %.pre142, %.thread178.i.i ], [ %.pre142, %305 ], [ %.pre142, %306 ], [ %.pre142, %.loopexit.i.i ]
-  %.sroa.42.5 = phi i64 [ %195, %._crit_edge.i.i ], [ %195, %206 ], [ %195, %.preheader.i.preheader._ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread_crit_edge.i.i ], [ %162, %165 ], [ %.sroa.42.13, %359 ], [ %.sroa.42.13, %365 ], [ %.sroa.42.13, %363 ], [ %.sroa.42.13, %.thread178.i.i ], [ %.sroa.42.14, %.loopexit.i.i ], [ %297, %306 ], [ %297, %305 ]
-  %368 = phi ptr [ null, %._crit_edge.i.i ], [ %.pre229.i.i, %206 ], [ %.pre.i.i, %.preheader.i.preheader._ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread_crit_edge.i.i ], [ null, %165 ], [ %.pre229.i.i, %359 ], [ %.pre229.i.i, %365 ], [ %.pre229.i.i, %363 ], [ %.pre229.i.i, %.thread178.i.i ], [ %.pre229.i.i, %305 ], [ %.pre229.i.i, %306 ], [ %.pre229.i.i, %.loopexit.i.i ]
-  %.0128.i.i = phi i32 [ 83, %._crit_edge.i.i ], [ 83, %206 ], [ %205, %.preheader.i.preheader._ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread_crit_edge.i.i ], [ 50, %165 ], [ 64, %359 ], [ %366, %365 ], [ %364, %363 ], [ %.1129.i.i, %.thread178.i.i ], [ 50, %.loopexit.i.i ], [ 54, %306 ], [ 16, %305 ]
-  %.0125.i.i = phi ptr [ null, %._crit_edge.i.i ], [ %207, %206 ], [ null, %.preheader.i.preheader._ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread_crit_edge.i.i ], [ null, %165 ], [ %207, %359 ], [ %207, %365 ], [ %207, %363 ], [ %207, %.thread178.i.i ], [ %207, %305 ], [ %207, %306 ], [ %207, %.loopexit.i.i ]
-  %.0124.i.i = phi ptr [ null, %._crit_edge.i.i ], [ %208, %206 ], [ null, %.preheader.i.preheader._ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread_crit_edge.i.i ], [ null, %165 ], [ %208, %359 ], [ %208, %365 ], [ %208, %363 ], [ %208, %.thread178.i.i ], [ %208, %305 ], [ %208, %306 ], [ %208, %.loopexit.i.i ]
+  %367 = phi ptr [ null, %._crit_edge.i.i ], [ %.pre142, %359 ], [ %.pre142, %365 ], [ %.pre142, %363 ], [ %.pre142, %.thread178.i.i ], [ %.pre142, %206 ], [ %.pre, %.preheader.i.preheader._ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread_crit_edge.i.i ], [ null, %165 ], [ %.pre142, %305 ], [ %.pre142, %306 ], [ %.pre142, %.loopexit.i.i ]
+  %.sroa.42.5 = phi i64 [ %195, %._crit_edge.i.i ], [ %.sroa.42.13, %359 ], [ %.sroa.42.13, %365 ], [ %.sroa.42.13, %363 ], [ %.sroa.42.13, %.thread178.i.i ], [ %195, %206 ], [ %195, %.preheader.i.preheader._ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread_crit_edge.i.i ], [ %162, %165 ], [ %.sroa.42.14, %.loopexit.i.i ], [ %297, %306 ], [ %297, %305 ]
+  %368 = phi ptr [ null, %._crit_edge.i.i ], [ %.pre229.i.i, %359 ], [ %.pre229.i.i, %365 ], [ %.pre229.i.i, %363 ], [ %.pre229.i.i, %.thread178.i.i ], [ %.pre229.i.i, %206 ], [ %.pre.i.i, %.preheader.i.preheader._ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread_crit_edge.i.i ], [ null, %165 ], [ %.pre229.i.i, %305 ], [ %.pre229.i.i, %306 ], [ %.pre229.i.i, %.loopexit.i.i ]
+  %.0128.i.i = phi i32 [ 83, %._crit_edge.i.i ], [ 64, %359 ], [ %366, %365 ], [ %364, %363 ], [ %.1129.i.i, %.thread178.i.i ], [ 83, %206 ], [ %205, %.preheader.i.preheader._ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread_crit_edge.i.i ], [ 50, %165 ], [ 50, %.loopexit.i.i ], [ 54, %306 ], [ 16, %305 ]
+  %.0125.i.i = phi ptr [ null, %._crit_edge.i.i ], [ %207, %359 ], [ %207, %365 ], [ %207, %363 ], [ %207, %.thread178.i.i ], [ %207, %206 ], [ null, %.preheader.i.preheader._ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread_crit_edge.i.i ], [ null, %165 ], [ %207, %305 ], [ %207, %306 ], [ %207, %.loopexit.i.i ]
+  %.0124.i.i = phi ptr [ null, %._crit_edge.i.i ], [ %208, %359 ], [ %208, %365 ], [ %208, %363 ], [ %208, %.thread178.i.i ], [ %208, %206 ], [ null, %.preheader.i.preheader._ZL27HuffmanTree_makeFromLengthsP11HuffmanTreePKjmj.exit.thread_crit_edge.i.i ], [ null, %165 ], [ %208, %305 ], [ %208, %306 ], [ %208, %.loopexit.i.i ]
   tail call void @free(ptr noundef nonnull %164) #33
   tail call void @free(ptr noundef %.0125.i.i) #33
   tail call void @free(ptr noundef %.0124.i.i) #33
@@ -1914,7 +1914,7 @@ _ZL21getTreeInflateDynamicP11HuffmanTreeS0_P16LodePNGBitReader.exit.i: ; preds =
   br label %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.i
 
 _ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i: ; preds = %120, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i, %111
-  %.083.ph.i = phi i32 [ 83, %120 ], [ %119, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i ], [ 83, %111 ]
+  %.083.ph.i = phi i32 [ 83, %111 ], [ 83, %120 ], [ %119, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i ]
   %.pre180248.i = load ptr, ptr %13, align 8, !tbaa !80
   %.pre181.i.pre = load ptr, ptr %26, align 8, !tbaa !81
   br label %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit
@@ -2430,8 +2430,8 @@ _ZL19huffmanDecodeSymbolP16LodePNGBitReaderPK11HuffmanTree.exit129.i: ; preds = 
   br i1 %700, label %_ZL14lodepng_memcpyPvPKvm.exit137.thread.i, label %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit
 
 _ZL14lodepng_memcpyPvPKvm.exit137.thread.i:       ; preds = %.lr.ph.i, %699, %.lr.ph.preheader.i135.i, %695, %498
-  %.sroa.42.11 = phi i64 [ %.sink174.i, %498 ], [ %.sroa.42.10, %699 ], [ %.sroa.42.12, %695 ], [ %.sroa.42.12, %.lr.ph.preheader.i135.i ], [ %.sroa.42.12, %.lr.ph.i ]
-  %.not101.i = phi i1 [ true, %498 ], [ false, %699 ], [ true, %695 ], [ true, %.lr.ph.preheader.i135.i ], [ true, %.lr.ph.i ]
+  %.sroa.42.11 = phi i64 [ %.sink174.i, %498 ], [ %.sroa.42.12, %695 ], [ %.sroa.42.12, %.lr.ph.preheader.i135.i ], [ %.sroa.42.10, %699 ], [ %.sroa.42.12, %.lr.ph.i ]
+  %.not101.i = phi i1 [ true, %498 ], [ true, %695 ], [ true, %.lr.ph.preheader.i135.i ], [ false, %699 ], [ true, %.lr.ph.i ]
   %701 = load i64, ptr %11, align 8, !tbaa !59
   %702 = load i64, ptr %10, align 8, !tbaa !58
   %703 = sub i64 %701, %702
@@ -2480,12 +2480,12 @@ _ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSetti
   br label %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit
 
 _ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit: ; preds = %_ZL14lodepng_memcpyPvPKvm.exit137.i, %_ZL16ucvector_reserveP8ucvectorm.exit141.thread.i, %708, %699, %675, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.loopexit.split.loop.exit121, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.i, %661
-  %.sroa.42.9 = phi i64 [ %.sroa.42.7, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.i ], [ %659, %661 ], [ %.sroa.42.11, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.loopexit.split.loop.exit121 ], [ %56, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i ], [ %.sroa.42.12, %675 ], [ %.sroa.42.11, %_ZL16ucvector_reserveP8ucvectorm.exit141.thread.i ], [ %.sroa.42.11, %708 ], [ %.sroa.42.10, %699 ], [ %.sroa.42.11, %_ZL14lodepng_memcpyPvPKvm.exit137.i ]
-  %.pre180250.i = phi ptr [ %.pre180.i, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.i ], [ %.pre180.i, %661 ], [ %.pre180.i, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.loopexit.split.loop.exit121 ], [ %.pre180248.i, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i ], [ %.pre180.i, %675 ], [ %.pre180.i, %699 ], [ %.pre180.i, %708 ], [ %.pre180.i, %_ZL16ucvector_reserveP8ucvectorm.exit141.thread.i ], [ %.pre180.i, %_ZL14lodepng_memcpyPvPKvm.exit137.i ]
-  %718 = phi ptr [ %.pre184.i.pre, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.i ], [ %.pre184.i.pre, %661 ], [ %.pre184.i.pre, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.loopexit.split.loop.exit121 ], [ null, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i ], [ %.pre184.i.pre, %675 ], [ %.pre184.i.pre, %699 ], [ %.pre184.i.pre, %708 ], [ %.pre184.i.pre, %_ZL16ucvector_reserveP8ucvectorm.exit141.thread.i ], [ %.pre184.i.pre, %_ZL14lodepng_memcpyPvPKvm.exit137.i ]
-  %719 = phi ptr [ %.pre182.i.pre, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.i ], [ %.pre182.i.pre, %661 ], [ %.pre182.i.pre, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.loopexit.split.loop.exit121 ], [ null, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i ], [ %.pre182.i.pre, %675 ], [ %.pre182.i.pre, %699 ], [ %.pre182.i.pre, %708 ], [ %.pre182.i.pre, %_ZL16ucvector_reserveP8ucvectorm.exit141.thread.i ], [ %.pre182.i.pre, %_ZL14lodepng_memcpyPvPKvm.exit137.i ]
-  %720 = phi ptr [ %.pre181.i.pre143, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.i ], [ %.pre181.i.pre143, %661 ], [ %.pre181.i.pre143, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.loopexit.split.loop.exit121 ], [ %.pre181.i.pre, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i ], [ %.pre181.i.pre143, %675 ], [ %.pre181.i.pre143, %699 ], [ %.pre181.i.pre143, %708 ], [ %.pre181.i.pre143, %_ZL16ucvector_reserveP8ucvectorm.exit141.thread.i ], [ %.pre181.i.pre143, %_ZL14lodepng_memcpyPvPKvm.exit137.i ]
-  %.2.i = phi i32 [ %.083.i, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.i ], [ %..i, %661 ], [ %spec.select, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.loopexit.split.loop.exit121 ], [ %.083.ph.i, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i ], [ 52, %675 ], [ 51, %_ZL16ucvector_reserveP8ucvectorm.exit141.thread.i ], [ 83, %708 ], [ 16, %699 ], [ 0, %_ZL14lodepng_memcpyPvPKvm.exit137.i ]
+  %.sroa.42.9 = phi i64 [ %659, %661 ], [ %56, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i ], [ %.sroa.42.7, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.i ], [ %.sroa.42.11, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.loopexit.split.loop.exit121 ], [ %.sroa.42.11, %_ZL14lodepng_memcpyPvPKvm.exit137.i ], [ %.sroa.42.11, %_ZL16ucvector_reserveP8ucvectorm.exit141.thread.i ], [ %.sroa.42.11, %708 ], [ %.sroa.42.10, %699 ], [ %.sroa.42.12, %675 ]
+  %.pre180250.i = phi ptr [ %.pre180.i, %661 ], [ %.pre180248.i, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i ], [ %.pre180.i, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.i ], [ %.pre180.i, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.loopexit.split.loop.exit121 ], [ %.pre180.i, %675 ], [ %.pre180.i, %699 ], [ %.pre180.i, %708 ], [ %.pre180.i, %_ZL16ucvector_reserveP8ucvectorm.exit141.thread.i ], [ %.pre180.i, %_ZL14lodepng_memcpyPvPKvm.exit137.i ]
+  %718 = phi ptr [ %.pre184.i.pre, %661 ], [ null, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i ], [ %.pre184.i.pre, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.i ], [ %.pre184.i.pre, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.loopexit.split.loop.exit121 ], [ %.pre184.i.pre, %675 ], [ %.pre184.i.pre, %699 ], [ %.pre184.i.pre, %708 ], [ %.pre184.i.pre, %_ZL16ucvector_reserveP8ucvectorm.exit141.thread.i ], [ %.pre184.i.pre, %_ZL14lodepng_memcpyPvPKvm.exit137.i ]
+  %719 = phi ptr [ %.pre182.i.pre, %661 ], [ null, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i ], [ %.pre182.i.pre, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.i ], [ %.pre182.i.pre, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.loopexit.split.loop.exit121 ], [ %.pre182.i.pre, %675 ], [ %.pre182.i.pre, %699 ], [ %.pre182.i.pre, %708 ], [ %.pre182.i.pre, %_ZL16ucvector_reserveP8ucvectorm.exit141.thread.i ], [ %.pre182.i.pre, %_ZL14lodepng_memcpyPvPKvm.exit137.i ]
+  %720 = phi ptr [ %.pre181.i.pre143, %661 ], [ %.pre181.i.pre, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i ], [ %.pre181.i.pre143, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.i ], [ %.pre181.i.pre143, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.loopexit.split.loop.exit121 ], [ %.pre181.i.pre143, %675 ], [ %.pre181.i.pre143, %699 ], [ %.pre181.i.pre143, %708 ], [ %.pre181.i.pre143, %_ZL16ucvector_reserveP8ucvectorm.exit141.thread.i ], [ %.pre181.i.pre143, %_ZL14lodepng_memcpyPvPKvm.exit137.i ]
+  %.2.i = phi i32 [ %..i, %661 ], [ %.083.ph.i, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.thread.i ], [ %.083.i, %_ZL19getTreeInflateFixedP11HuffmanTreeS0_.exit.i ], [ %spec.select, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.loopexit.split.loop.exit121 ], [ 0, %_ZL14lodepng_memcpyPvPKvm.exit137.i ], [ 51, %_ZL16ucvector_reserveP8ucvectorm.exit141.thread.i ], [ 83, %708 ], [ 16, %699 ], [ 52, %675 ]
   %721 = load ptr, ptr %6, align 8, !tbaa !93
   tail call void @free(ptr noundef %721) #33
   %722 = load ptr, ptr %20, align 8, !tbaa !71
@@ -2518,8 +2518,8 @@ _ZL21LodePNGBitReader_initP16LodePNGBitReaderPKhm.exit: ; preds = %725, %727
   %.not29 = icmp eq i32 %53, 0
   br i1 %.not29, label %28, label %_ZL21LodePNGBitReader_initP16LodePNGBitReaderPKhm.exit.thread
 
-_ZL21LodePNGBitReader_initP16LodePNGBitReaderPKhm.exit.thread: ; preds = %28, %_ZL11ensureBits9P16LodePNGBitReaderm.exit, %727, %82, %71, %87, %57, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit, %_ZL21LodePNGBitReader_initP16LodePNGBitReaderPKhm.exit, %4, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.thread94
-  %.0 = phi i32 [ 83, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.thread94 ], [ 105, %4 ], [ 20, %_ZL11ensureBits9P16LodePNGBitReaderm.exit ], [ 52, %28 ], [ 23, %87 ], [ 21, %71 ], [ 83, %82 ], [ 52, %57 ], [ 0, %_ZL21LodePNGBitReader_initP16LodePNGBitReaderPKhm.exit ], [ 109, %727 ], [ %.2.i, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit ]
+_ZL21LodePNGBitReader_initP16LodePNGBitReaderPKhm.exit.thread: ; preds = %_ZL11ensureBits9P16LodePNGBitReaderm.exit, %28, %727, %82, %87, %71, %57, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit, %_ZL21LodePNGBitReader_initP16LodePNGBitReaderPKhm.exit, %4, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.thread94
+  %.0 = phi i32 [ 83, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit.thread94 ], [ 105, %4 ], [ 52, %28 ], [ 20, %_ZL11ensureBits9P16LodePNGBitReaderm.exit ], [ 109, %727 ], [ 52, %57 ], [ 21, %71 ], [ 23, %87 ], [ 83, %82 ], [ %.2.i, %_ZL20inflateNoCompressionP8ucvectorP16LodePNGBitReaderPK25LodePNGDecompressSettings.exit ], [ 0, %_ZL21LodePNGBitReader_initP16LodePNGBitReaderPKhm.exit ]
   ret i32 %.0
 }
 
@@ -3232,7 +3232,7 @@ _ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit
   br label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
 _ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i: ; preds = %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i, %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit79.critedge.i.i, %.thread.i.i, %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.i.i, %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.thread87.i.i, %148, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.thread82.i.i, %139
-  %.1.i.i = phi i32 [ %153, %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.i.i ], [ %243, %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit79.critedge.i.i ], [ 83, %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.thread87.i.i ], [ 83, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.thread82.i.i ], [ 0, %.thread.i.i ], [ 83, %139 ], [ 83, %148 ], [ %147, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i ], [ 0, %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i ]
+  %.1.i.i = phi i32 [ %153, %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.i.i ], [ 83, %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.thread87.i.i ], [ 0, %.thread.i.i ], [ 83, %148 ], [ 83, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.thread82.i.i ], [ %147, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i ], [ 83, %139 ], [ %243, %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit79.critedge.i.i ], [ 0, %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i ]
   %337 = load ptr, ptr %10, align 8, !tbaa !93
   call void @free(ptr noundef %337) #33
   %338 = load ptr, ptr %125, align 8, !tbaa !71
@@ -3505,7 +3505,7 @@ _ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit241.i.i: ; preds = 
   br i1 %450, label %.lr.ph312.i.i, label %.critedge.i.i, !llvm.loop !149
 
 .critedge.i.i:                                    ; preds = %446, %.lr.ph312.i.i
-  %.0193.lcssa.i.i = phi i32 [ %447, %446 ], [ %.0193311.i.i, %.lr.ph312.i.i ]
+  %.0193.lcssa.i.i = phi i32 [ %.0193311.i.i, %.lr.ph312.i.i ], [ %447, %446 ]
   %451 = icmp eq i32 %441, 0
   %452 = icmp ugt i32 %.0193.lcssa.i.i, 1
   %or.cond7.i.i = and i1 %451, %452
@@ -3626,8 +3626,8 @@ _ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit241.i.i: ; preds = 
   br i1 %.not231.i.i, label %._crit_edge331.i.i, label %.lr.ph330.i.i, !llvm.loop !152
 
 ._crit_edge331.i.i:                               ; preds = %.lr.ph330.i.i, %.preheader295.i.i, %.preheader297.i.i
-  %.not231328413.i.i = phi i1 [ true, %.preheader297.i.i ], [ true, %.preheader295.i.i ], [ false, %.lr.ph330.i.i ]
-  %.0201.lcssa412.i.i = phi i64 [ 0, %.preheader297.i.i ], [ 0, %.preheader295.i.i ], [ %.2203.i.i, %.lr.ph330.i.i ]
+  %.not231328413.i.i = phi i1 [ true, %.preheader295.i.i ], [ true, %.preheader297.i.i ], [ false, %.lr.ph330.i.i ]
+  %.0201.lcssa412.i.i = phi i64 [ 0, %.preheader295.i.i ], [ 0, %.preheader297.i.i ], [ %.2203.i.i, %.lr.ph330.i.i ]
   %504 = call fastcc noundef i32 @_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj(ptr noundef %9, ptr noundef nonnull %349, i64 noundef 19, i64 noundef 19, i32 noundef 7)
   %.not232.i.i = icmp eq i32 %504, 0
   %505 = load ptr, ptr %119, align 8, !tbaa !71
@@ -4012,8 +4012,8 @@ _ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i75.i: ; preds = %592, %583, %5
   br i1 %.not.i277.i.i, label %_ZL9writeBitsP16LodePNGBitWriterjm.exit259.i.i, label %686, !llvm.loop !154
 
 _ZL9writeBitsP16LodePNGBitWriterjm.exit259.i.i:   ; preds = %704, %695, %667, %658, %632, %623, %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i75.i
-  %719 = phi i8 [ %609, %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i75.i ], [ %644, %632 ], [ %680, %667 ], [ %615, %623 ], [ %650, %658 ], [ %717, %704 ], [ %687, %695 ]
-  %.11.i.i = phi i64 [ %.10337.i.i, %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i75.i ], [ %611, %632 ], [ %646, %667 ], [ %611, %623 ], [ %646, %658 ], [ %683, %695 ], [ %683, %704 ]
+  %719 = phi i8 [ %609, %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i75.i ], [ %644, %632 ], [ %615, %623 ], [ %680, %667 ], [ %650, %658 ], [ %717, %704 ], [ %687, %695 ]
+  %.11.i.i = phi i64 [ %.10337.i.i, %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i75.i ], [ %611, %623 ], [ %611, %632 ], [ %646, %658 ], [ %646, %667 ], [ %683, %695 ], [ %683, %704 ]
   %720 = add i64 %.11.i.i, 1
   %.not234.i.i = icmp eq i64 %720, %.0201.lcssa412.i.i
   br i1 %.not234.i.i, label %._crit_edge339.i.loopexit.i, label %565, !llvm.loop !156
@@ -4039,10 +4039,10 @@ _ZL9writeBitsP16LodePNGBitWriterjm.exit259.i.i:   ; preds = %704, %695, %667, %6
   br label %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
 _ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i: ; preds = %725, %._crit_edge339.i.i, %._crit_edge331.i.i, %421, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit241.i.i, %417, %414, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i, %404, %401, %363, %355, %345
-  %730 = phi ptr [ null, %355 ], [ null, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i ], [ null, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit241.i.i ], [ null, %417 ], [ null, %421 ], [ %505, %725 ], [ null, %404 ], [ null, %345 ], [ %505, %._crit_edge339.i.i ], [ null, %363 ], [ null, %401 ], [ null, %414 ], [ %505, %._crit_edge331.i.i ]
-  %.0196.i.i = phi ptr [ null, %355 ], [ null, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i ], [ null, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit241.i.i ], [ null, %417 ], [ %431, %421 ], [ %431, %725 ], [ null, %404 ], [ null, %345 ], [ %431, %._crit_edge339.i.i ], [ null, %363 ], [ null, %401 ], [ null, %414 ], [ %431, %._crit_edge331.i.i ]
-  %.0195.i.i = phi ptr [ null, %355 ], [ null, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i ], [ null, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit241.i.i ], [ null, %417 ], [ %430, %421 ], [ %430, %725 ], [ null, %404 ], [ null, %345 ], [ %430, %._crit_edge339.i.i ], [ null, %363 ], [ null, %401 ], [ null, %414 ], [ %430, %._crit_edge331.i.i ]
-  %.1.i64.i = phi i32 [ %360, %355 ], [ %407, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i ], [ %420, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit241.i.i ], [ %419, %417 ], [ 83, %421 ], [ 0, %725 ], [ %406, %404 ], [ 83, %345 ], [ 64, %._crit_edge339.i.i ], [ 83, %363 ], [ 83, %401 ], [ 83, %414 ], [ %504, %._crit_edge331.i.i ]
+  %730 = phi ptr [ null, %355 ], [ null, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i ], [ null, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit241.i.i ], [ %505, %725 ], [ null, %345 ], [ null, %421 ], [ %505, %._crit_edge339.i.i ], [ null, %363 ], [ null, %401 ], [ null, %404 ], [ null, %414 ], [ null, %417 ], [ %505, %._crit_edge331.i.i ]
+  %.0196.i.i = phi ptr [ null, %355 ], [ null, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i ], [ null, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit241.i.i ], [ %431, %725 ], [ null, %345 ], [ %431, %421 ], [ %431, %._crit_edge339.i.i ], [ null, %363 ], [ null, %401 ], [ null, %404 ], [ null, %414 ], [ null, %417 ], [ %431, %._crit_edge331.i.i ]
+  %.0195.i.i = phi ptr [ null, %355 ], [ null, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i ], [ null, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit241.i.i ], [ %430, %725 ], [ null, %345 ], [ %430, %421 ], [ %430, %._crit_edge339.i.i ], [ null, %363 ], [ null, %401 ], [ null, %404 ], [ null, %414 ], [ null, %417 ], [ %430, %._crit_edge331.i.i ]
+  %.1.i64.i = phi i32 [ %360, %355 ], [ %407, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i ], [ %420, %_ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit241.i.i ], [ 0, %725 ], [ 83, %345 ], [ 83, %421 ], [ 64, %._crit_edge339.i.i ], [ 83, %363 ], [ 83, %401 ], [ %406, %404 ], [ 83, %414 ], [ %419, %417 ], [ %504, %._crit_edge331.i.i ]
   %731 = load ptr, ptr %6, align 8, !tbaa !131
   call void @free(ptr noundef %731) #33
   %732 = load ptr, ptr %7, align 8, !tbaa !93
@@ -4271,8 +4271,8 @@ _ZL7adler32PKhj.exit:                             ; preds = %38, %._crit_edge.lo
 79:                                               ; preds = %_ZL7adler32PKhj.exit, %_ZL8inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings.exit.thread33
   br label %_ZL8inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings.exit.thread
 
-_ZL8inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings.exit.thread: ; preds = %31, %34, %_ZL8inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings.exit, %19, %15, %6, %4, %_ZL7adler32PKhj.exit, %79
-  %.0 = phi i32 [ 58, %_ZL7adler32PKhj.exit ], [ 53, %4 ], [ 24, %6 ], [ 25, %15 ], [ 26, %19 ], [ 0, %79 ], [ %36, %_ZL8inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings.exit ], [ 110, %31 ], [ %spec.select.i, %34 ]
+_ZL8inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings.exit.thread: ; preds = %34, %31, %_ZL8inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings.exit, %19, %15, %6, %4, %_ZL7adler32PKhj.exit, %79
+  %.0 = phi i32 [ 0, %79 ], [ 58, %_ZL7adler32PKhj.exit ], [ 53, %4 ], [ 24, %6 ], [ 25, %15 ], [ 26, %19 ], [ %36, %_ZL8inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings.exit ], [ %spec.select.i, %34 ], [ 110, %31 ]
   ret i32 %.0
 }
 
@@ -4405,7 +4405,7 @@ _ZL7adler32PKhj.exit:                             ; preds = %16, %._crit_edge.lo
   br label %.thread
 
 .thread:                                          ; preds = %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit.thread, %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit.thread38, %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit, %._crit_edge
-  %.03144 = phi i32 [ 0, %._crit_edge ], [ %12, %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 111, %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit.thread38 ], [ 83, %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit.thread ]
+  %.03144 = phi i32 [ 0, %._crit_edge ], [ 111, %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit.thread38 ], [ %12, %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 83, %_ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit.thread ]
   %58 = load ptr, ptr %6, align 8, !tbaa !7
   call void @free(ptr noundef %58) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -5021,7 +5021,7 @@ define noundef ptr @_Z18lodepng_chunk_nextPhS_(ptr noundef %0, ptr noundef %1) l
   br label %58
 
 ._crit_edge:                                      ; preds = %8, %34, %30, %26, %22, %18, %14
-  %40 = phi i8 [ %12, %8 ], [ 80, %34 ], [ 80, %30 ], [ 80, %26 ], [ 80, %22 ], [ 80, %18 ], [ 80, %14 ]
+  %40 = phi i8 [ 80, %34 ], [ 80, %30 ], [ 80, %26 ], [ 80, %22 ], [ 80, %18 ], [ 80, %14 ], [ %12, %8 ]
   %41 = zext i8 %9 to i64
   %42 = shl nuw nsw i64 %41, 24
   %43 = zext i8 %40 to i64
@@ -5043,7 +5043,7 @@ define noundef ptr @_Z18lodepng_chunk_nextPhS_(ptr noundef %0, ptr noundef %1) l
   br label %58
 
 58:                                               ; preds = %2, %._crit_edge, %38
-  %.0 = phi ptr [ %spec.select, %._crit_edge ], [ %39, %38 ], [ %1, %2 ]
+  %.0 = phi ptr [ %39, %38 ], [ %spec.select, %._crit_edge ], [ %1, %2 ]
   ret ptr %.0
 }
 
@@ -5107,7 +5107,7 @@ define noundef ptr @_Z24lodepng_chunk_next_constPKhS0_(ptr noundef %0, ptr nound
   br label %58
 
 ._crit_edge:                                      ; preds = %8, %34, %30, %26, %22, %18, %14
-  %40 = phi i8 [ %12, %8 ], [ 80, %34 ], [ 80, %30 ], [ 80, %26 ], [ 80, %22 ], [ 80, %18 ], [ 80, %14 ]
+  %40 = phi i8 [ 80, %34 ], [ 80, %30 ], [ 80, %26 ], [ 80, %22 ], [ 80, %18 ], [ 80, %14 ], [ %12, %8 ]
   %41 = zext i8 %9 to i64
   %42 = shl nuw nsw i64 %41, 24
   %43 = zext i8 %40 to i64
@@ -5129,7 +5129,7 @@ define noundef ptr @_Z24lodepng_chunk_next_constPKhS0_(ptr noundef %0, ptr nound
   br label %58
 
 58:                                               ; preds = %2, %._crit_edge, %38
-  %.0 = phi ptr [ %spec.select, %._crit_edge ], [ %39, %38 ], [ %1, %2 ]
+  %.0 = phi ptr [ %39, %38 ], [ %spec.select, %._crit_edge ], [ %1, %2 ]
   ret ptr %.0
 }
 
@@ -5239,8 +5239,8 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit.thread.us.._crit_edge.i.us_crit_edge: ;
   br i1 %65, label %81, label %._crit_edge.i.us
 
 ._crit_edge.i.us:                                 ; preds = %_Z25lodepng_chunk_type_equalsPKhPKc.exit.thread.us.._crit_edge.i.us_crit_edge, %62, %58, %54, %49, %47
-  %66 = phi i8 [ %44, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.thread.us.._crit_edge.i.us_crit_edge ], [ 78, %62 ], [ 78, %58 ], [ 78, %54 ], [ %44, %47 ], [ 78, %49 ]
-  %67 = phi i64 [ %46, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.thread.us.._crit_edge.i.us_crit_edge ], [ 5242880, %62 ], [ 5242880, %58 ], [ 5242880, %54 ], [ 5242880, %47 ], [ 5242880, %49 ]
+  %66 = phi i8 [ 78, %62 ], [ 78, %58 ], [ 78, %54 ], [ 78, %49 ], [ %44, %47 ], [ %44, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.thread.us.._crit_edge.i.us_crit_edge ]
+  %67 = phi i64 [ 5242880, %62 ], [ 5242880, %58 ], [ 5242880, %54 ], [ 5242880, %49 ], [ 5242880, %47 ], [ %46, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.thread.us.._crit_edge.i.us_crit_edge ]
   %68 = zext i8 %38 to i64
   %69 = shl nuw nsw i64 %68, 24
   %70 = zext i8 %66 to i64
@@ -5262,7 +5262,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit.thread.us.._crit_edge.i.us_crit_edge: ;
   br label %_Z18lodepng_chunk_nextPhS_.exit.us
 
 _Z18lodepng_chunk_nextPhS_.exit.us:               ; preds = %81, %._crit_edge.i.us
-  %.0.i16.us = phi ptr [ %spec.select.i.us, %._crit_edge.i.us ], [ %82, %81 ]
+  %.0.i16.us = phi ptr [ %82, %81 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.not.us = icmp uge ptr %.0.i16.us, %1
   %83 = ptrtoint ptr %.0.i16.us to i64
   %84 = sub i64 %4, %83
@@ -5271,7 +5271,7 @@ _Z18lodepng_chunk_nextPhS_.exit.us:               ; preds = %81, %._crit_edge.i.
   br i1 %or.cond.us, label %_Z25lodepng_chunk_type_equalsPKhPKc.exit._crit_edge, label %13, !llvm.loop !170
 
 _Z25lodepng_chunk_type_equalsPKhPKc.exit._crit_edge: ; preds = %_Z18lodepng_chunk_nextPhS_.exit.us, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.us, %.lr.ph, %3
-  %.0 = phi ptr [ null, %.lr.ph ], [ null, %3 ], [ %.01022.us, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.us ], [ null, %_Z18lodepng_chunk_nextPhS_.exit.us ]
+  %.0 = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ %.01022.us, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.us ], [ null, %_Z18lodepng_chunk_nextPhS_.exit.us ]
   ret ptr %.0
 }
 
@@ -5381,8 +5381,8 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit.thread.us.._crit_edge.i.us_crit_edge: ;
   br i1 %65, label %81, label %._crit_edge.i.us
 
 ._crit_edge.i.us:                                 ; preds = %_Z25lodepng_chunk_type_equalsPKhPKc.exit.thread.us.._crit_edge.i.us_crit_edge, %62, %58, %54, %49, %47
-  %66 = phi i8 [ %44, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.thread.us.._crit_edge.i.us_crit_edge ], [ 78, %62 ], [ 78, %58 ], [ 78, %54 ], [ %44, %47 ], [ 78, %49 ]
-  %67 = phi i64 [ %46, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.thread.us.._crit_edge.i.us_crit_edge ], [ 5242880, %62 ], [ 5242880, %58 ], [ 5242880, %54 ], [ 5242880, %47 ], [ 5242880, %49 ]
+  %66 = phi i8 [ 78, %62 ], [ 78, %58 ], [ 78, %54 ], [ 78, %49 ], [ %44, %47 ], [ %44, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.thread.us.._crit_edge.i.us_crit_edge ]
+  %67 = phi i64 [ 5242880, %62 ], [ 5242880, %58 ], [ 5242880, %54 ], [ 5242880, %49 ], [ 5242880, %47 ], [ %46, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.thread.us.._crit_edge.i.us_crit_edge ]
   %68 = zext i8 %38 to i64
   %69 = shl nuw nsw i64 %68, 24
   %70 = zext i8 %66 to i64
@@ -5404,7 +5404,7 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit.thread.us.._crit_edge.i.us_crit_edge: ;
   br label %_Z24lodepng_chunk_next_constPKhS0_.exit.us
 
 _Z24lodepng_chunk_next_constPKhS0_.exit.us:       ; preds = %81, %._crit_edge.i.us
-  %.0.i16.us = phi ptr [ %spec.select.i.us, %._crit_edge.i.us ], [ %82, %81 ]
+  %.0.i16.us = phi ptr [ %82, %81 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.not.us = icmp uge ptr %.0.i16.us, %1
   %83 = ptrtoint ptr %.0.i16.us to i64
   %84 = sub i64 %4, %83
@@ -5413,7 +5413,7 @@ _Z24lodepng_chunk_next_constPKhS0_.exit.us:       ; preds = %81, %._crit_edge.i.
   br i1 %or.cond.us, label %_Z25lodepng_chunk_type_equalsPKhPKc.exit._crit_edge, label %13, !llvm.loop !171
 
 _Z25lodepng_chunk_type_equalsPKhPKc.exit._crit_edge: ; preds = %_Z24lodepng_chunk_next_constPKhS0_.exit.us, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.us, %.lr.ph, %3
-  %.0 = phi ptr [ null, %.lr.ph ], [ null, %3 ], [ %.01022.us, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.us ], [ null, %_Z24lodepng_chunk_next_constPKhS0_.exit.us ]
+  %.0 = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ %.01022.us, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.us ], [ null, %_Z24lodepng_chunk_next_constPKhS0_.exit.us ]
   ret ptr %.0
 }
 
@@ -5492,7 +5492,7 @@ _ZL29lodepng_chunk_type_name_validPKh.exit:       ; preds = %4
   br i1 %.not23, label %_ZL29lodepng_chunk_type_name_validPKh.exit.thread, label %38, !llvm.loop !173
 
 _ZL29lodepng_chunk_type_name_validPKh.exit.thread: ; preds = %.critedge.i, %38, %33, %12, %_ZL29lodepng_chunk_type_name_validPKh.exit
-  %.0 = phi i32 [ 77, %12 ], [ 122, %_ZL29lodepng_chunk_type_name_validPKh.exit ], [ 0, %38 ], [ 83, %33 ], [ 121, %.critedge.i ]
+  %.0 = phi i32 [ 122, %_ZL29lodepng_chunk_type_name_validPKh.exit ], [ 77, %12 ], [ 83, %33 ], [ 0, %38 ], [ 121, %.critedge.i ]
   ret i32 %.0
 }
 
@@ -5651,7 +5651,7 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit: ; preds = %2, %5
   br label %_ZL14lodepng_memcpyPvPKvm.exit
 
 _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %12, %.lr.ph.preheader.i, %13, %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit
-  %.0 = phi i32 [ %spec.select, %12 ], [ 0, %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit ], [ 0, %13 ], [ 0, %.lr.ph.preheader.i ]
+  %.0 = phi i32 [ 0, %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit ], [ 0, %13 ], [ 0, %.lr.ph.preheader.i ], [ %spec.select, %12 ]
   ret i32 %.0
 }
 
@@ -5742,7 +5742,7 @@ _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit: ; preds = %.crite
   br label %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread
 
 _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.thread: ; preds = %8, %24, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit, %29
-  %.0 = phi i32 [ 83, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit ], [ 0, %29 ], [ 108, %24 ], [ 83, %8 ]
+  %.0 = phi i32 [ 0, %29 ], [ 83, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit ], [ 108, %24 ], [ 83, %8 ]
   ret i32 %.0
 }
 
@@ -6010,7 +6010,7 @@ _ZL18alloc_string_sizedPKcm.exit:                 ; preds = %_ZL12alloc_stringPK
   br label %.thread
 
 .thread:                                          ; preds = %_ZL18alloc_string_sizedPKcm.exit, %19, %.thread37, %18
-  %.0 = phi i32 [ %spec.select40, %_ZL18alloc_string_sizedPKcm.exit ], [ 83, %19 ], [ 83, %.thread37 ], [ 83, %18 ]
+  %.0 = phi i32 [ 83, %19 ], [ 83, %18 ], [ 83, %.thread37 ], [ %spec.select40, %_ZL18alloc_string_sizedPKcm.exit ]
   ret i32 %.0
 }
 
@@ -6357,7 +6357,7 @@ _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %20
   br label %28
 
 28:                                               ; preds = %_ZL12alloc_stringPKc.exit.thread, %13, %_ZL14lodepng_memcpyPvPKvm.exit, %26
-  %.0 = phi i32 [ 100, %13 ], [ 0, %_ZL14lodepng_memcpyPvPKvm.exit ], [ 83, %26 ], [ 83, %_ZL12alloc_stringPKc.exit.thread ]
+  %.0 = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit ], [ 83, %26 ], [ 100, %13 ], [ 83, %_ZL12alloc_stringPKc.exit.thread ]
   ret i32 %.0
 }
 
@@ -6728,7 +6728,7 @@ _Z16lodepng_set_exifP11LodePNGInfoPKhj.exit.thread: ; preds = %79, %.lr.ph.prehe
   br label %_Z16lodepng_set_exifP11LodePNGInfoPKhj.exit
 
 _Z16lodepng_set_exifP11LodePNGInfoPKhj.exit:      ; preds = %24, %42, %70, %81, %58, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit
-  %.1 = phi i32 [ 83, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit ], [ %83, %81 ], [ 83, %70 ], [ %66, %58 ], [ %55, %42 ], [ %31, %24 ]
+  %.1 = phi i32 [ %66, %58 ], [ 83, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit ], [ %83, %81 ], [ 83, %70 ], [ %55, %42 ], [ %31, %24 ]
   ret i32 %.1
 }
 
@@ -6933,7 +6933,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %_ZL24lodepng_col
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr readonly align 1 %1, i64 %79, i1 false), !tbaa !18, !alias.scope !287
   br label %_ZL14lodepng_memcpyPvPKvm.exit
 
-.loopexit134:                                     ; preds = %64, %52, %24, %26, %31, %37, %42, %47
+.loopexit134:                                     ; preds = %64, %24, %26, %31, %37, %42, %47, %52
   %80 = icmp eq i32 %25, 3
   br i1 %80, label %81, label %.loopexit
 
@@ -7984,7 +7984,7 @@ _ZL14color_tree_getP9ColorTreehhhh.exit.i:        ; preds = %530
   store i8 %469, ptr %616, align 1, !tbaa !18
   br label %617
 
-617:                                              ; preds = %607, %578, %501, %495, %.lr.ph144, %588, %592, %586, %473, %475, %517, %512, %601, %556, %572
+617:                                              ; preds = %501, %495, %.lr.ph144, %588, %592, %586, %473, %475, %517, %512, %601, %607, %556, %572, %578
   %618 = add nuw i64 %.2143, 1
   %.not97 = icmp eq i64 %618, %18
   br i1 %.not97, label %_ZL12rgba8ToPixelPhmPK16LodePNGColorModeP9ColorTreehhhh.exit, label %.lr.ph144, !llvm.loop !346
@@ -7998,7 +7998,7 @@ _ZL12rgba8ToPixelPhmPK16LodePNGColorModeP9ColorTreehhhh.exit: ; preds = %617, %_
   br label %_ZL14color_tree_addP9ColorTreehhhhj.exit
 
 _ZL14color_tree_addP9ColorTreehhhhj.exit:         ; preds = %136, %.lr.ph.i106, %.lr.ph262.i, %.lr.ph266.i, %_ZL26readBitsFromReversedStreamPmPKhm.exit229.loopexit.i, %_ZL26readBitsFromReversedStreamPmPKhm.exit229.us.i, %394, %379, %338, %260, %241, %296, %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit, %.preheader, %.lr.ph.preheader.i.i, %448, %.preheader251.i, %.preheader247.i, %.preheader249.i, %.preheader243.i, %.preheader245.i, %._crit_edge.thread.i, %.preheader240.i, %.preheader241.i, %265, %._crit_edge297.thread.i, %.preheader.i108, %.preheader237.i, %218, %464, %_ZL12rgba8ToPixelPhmPK16LodePNGColorModeP9ColorTreehhhh.exit
-  %.4 = phi i32 [ %.6, %_ZL12rgba8ToPixelPhmPK16LodePNGColorModeP9ColorTreehhhh.exit ], [ 0, %296 ], [ 0, %241 ], [ 0, %464 ], [ 0, %218 ], [ 0, %.preheader237.i ], [ 0, %.preheader.i108 ], [ 0, %._crit_edge297.thread.i ], [ 0, %.preheader ], [ 0, %379 ], [ 0, %265 ], [ 0, %260 ], [ 0, %.preheader241.i ], [ 0, %.preheader240.i ], [ 0, %._crit_edge.thread.i ], [ 0, %394 ], [ 0, %_ZL26readBitsFromReversedStreamPmPKhm.exit229.us.i ], [ 0, %.preheader245.i ], [ 0, %.lr.ph266.i ], [ 0, %.preheader243.i ], [ 0, %_ZL26readBitsFromReversedStreamPmPKhm.exit229.loopexit.i ], [ 0, %.lr.ph262.i ], [ 0, %.preheader249.i ], [ 0, %.preheader247.i ], [ 0, %.lr.ph.i106 ], [ 0, %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit ], [ 0, %.preheader251.i ], [ 0, %448 ], [ 0, %.lr.ph.preheader.i.i ], [ 0, %338 ], [ 83, %136 ]
+  %.4 = phi i32 [ 0, %464 ], [ %.6, %_ZL12rgba8ToPixelPhmPK16LodePNGColorModeP9ColorTreehhhh.exit ], [ 0, %218 ], [ 0, %.preheader237.i ], [ 0, %.preheader.i108 ], [ 0, %._crit_edge297.thread.i ], [ 0, %265 ], [ 0, %.preheader241.i ], [ 0, %.preheader240.i ], [ 0, %._crit_edge.thread.i ], [ 0, %.preheader245.i ], [ 0, %.preheader243.i ], [ 0, %.preheader249.i ], [ 0, %.preheader247.i ], [ 0, %.preheader251.i ], [ 0, %448 ], [ 0, %.lr.ph.preheader.i.i ], [ 0, %.preheader ], [ 0, %_ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit ], [ 0, %296 ], [ 0, %241 ], [ 0, %260 ], [ 0, %338 ], [ 0, %379 ], [ 0, %394 ], [ 0, %_ZL26readBitsFromReversedStreamPmPKhm.exit229.us.i ], [ 0, %_ZL26readBitsFromReversedStreamPmPKhm.exit229.loopexit.i ], [ 0, %.lr.ph266.i ], [ 0, %.lr.ph262.i ], [ 0, %.lr.ph.i106 ], [ 83, %136 ]
   %619 = load i32, ptr %2, align 8, !tbaa !182
   %620 = icmp eq i32 %619, 3
   br i1 %620, label %621, label %_ZL14lodepng_memcpyPvPKvm.exit
@@ -8008,7 +8008,7 @@ _ZL14color_tree_addP9ColorTreehhhhj.exit:         ; preds = %136, %.lr.ph.i106, 
   br label %_ZL14lodepng_memcpyPvPKvm.exit
 
 _ZL14lodepng_memcpyPvPKvm.exit:                   ; preds = %.lr.ph.preheader.i102, %.critedge, %.lr.ph.preheader.i, %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit, %_ZL14color_tree_addP9ColorTreehhhhj.exit, %621, %21
-  %.0 = phi i32 [ %.4, %_ZL14color_tree_addP9ColorTreehhhhj.exit ], [ 107, %21 ], [ 0, %.lr.ph.preheader.i ], [ %.4, %621 ], [ 0, %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit ], [ 0, %.critedge ], [ 0, %.lr.ph.preheader.i102 ]
+  %.0 = phi i32 [ 107, %21 ], [ %.4, %621 ], [ %.4, %_ZL14color_tree_addP9ColorTreehhhhj.exit ], [ 0, %_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit ], [ 0, %.lr.ph.preheader.i ], [ 0, %.critedge ], [ 0, %.lr.ph.preheader.i102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -8099,7 +8099,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL24lodepng_color_mode_equa
   br i1 %.not32, label %41, label %.loopexit
 
 .loopexit:                                        ; preds = %43, %41, %.preheader, %31, %26, %21, %16, %10, %5, %2
-  %.022 = phi i32 [ 0, %31 ], [ 0, %2 ], [ 0, %5 ], [ 0, %10 ], [ 0, %16 ], [ 0, %21 ], [ 0, %26 ], [ 1, %.preheader ], [ 0, %43 ], [ 1, %41 ]
+  %.022 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 0, %10 ], [ 0, %16 ], [ 0, %21 ], [ 0, %26 ], [ 0, %31 ], [ 1, %.preheader ], [ 0, %43 ], [ 1, %41 ]
   ret i32 %.022
 }
 
@@ -8282,7 +8282,7 @@ define internal fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColo
   br label %.sink.split
 
 .sink.split:                                      ; preds = %80, %21, %31, %91, %109, %90
-  %.sink = phi i16 [ -1, %90 ], [ 0, %21 ], [ %142, %109 ], [ %108, %91 ], [ -1, %31 ], [ 0, %80 ]
+  %.sink = phi i16 [ -1, %90 ], [ %142, %109 ], [ %108, %91 ], [ -1, %31 ], [ 0, %21 ], [ 0, %80 ]
   store i16 %.sink, ptr %3, align 2, !tbaa !88
   br label %143
 
@@ -8980,7 +8980,7 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit164:    ; preds = %.lr.ph.i158, %151, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %132, %95, %68, %64, %29, %17, %40, %22, %_ZL26readBitsFromReversedStreamPmPKhm.exit164, %219, %209, %193, %199, %100, %142
-  %.sink = phi i8 [ 0, %95 ], [ -1, %142 ], [ 0, %64 ], [ -1, %100 ], [ %204, %199 ], [ %198, %193 ], [ %218, %209 ], [ %228, %219 ], [ %188, %_ZL26readBitsFromReversedStreamPmPKhm.exit164 ], [ -1, %22 ], [ 0, %29 ], [ 0, %17 ], [ -1, %40 ], [ -1, %68 ], [ 0, %132 ]
+  %.sink = phi i8 [ -1, %142 ], [ -1, %100 ], [ %204, %199 ], [ %198, %193 ], [ %218, %209 ], [ %228, %219 ], [ %188, %_ZL26readBitsFromReversedStreamPmPKhm.exit164 ], [ -1, %22 ], [ -1, %40 ], [ 0, %17 ], [ 0, %29 ], [ -1, %68 ], [ 0, %64 ], [ 0, %95 ], [ 0, %132 ]
   store i8 %.sink, ptr %3, align 1, !tbaa !18
   br label %229
 
@@ -9168,7 +9168,7 @@ define noundef range(i32 0, 83) i32 @_Z19lodepng_convert_rgbPjS_S_jjjPK16LodePNG
   br i1 %93, label %69, label %.loopexit, !llvm.loop !374
 
 .loopexit:                                        ; preds = %90, %.preheader, %50, %52, %48, %62, %59, %56, %.critedge, %8, %23
-  %.0 = phi i32 [ 31, %48 ], [ 31, %8 ], [ 0, %50 ], [ 82, %23 ], [ 82, %56 ], [ 0, %.critedge ], [ 82, %62 ], [ 82, %59 ], [ 0, %52 ], [ 82, %.preheader ], [ 82, %90 ]
+  %.0 = phi i32 [ 82, %23 ], [ 31, %8 ], [ 82, %62 ], [ 82, %59 ], [ 82, %56 ], [ 0, %.critedge ], [ 31, %48 ], [ 0, %52 ], [ 0, %50 ], [ 82, %.preheader ], [ 82, %90 ]
   ret i32 %.0
 }
 
@@ -9246,7 +9246,7 @@ define noundef range(i32 0, 84) i32 @_Z27lodepng_compute_color_statsP17LodePNGCo
   br i1 %.not6.i.i, label %32, label %_Z22lodepng_can_have_alphaPK16LodePNGColorMode.exit
 
 _Z22lodepng_can_have_alphaPK16LodePNGColorMode.exit: ; preds = %32, %34, %5, %27
-  %39 = phi i32 [ 1, %27 ], [ 0, %5 ], [ 0, %34 ], [ 1, %32 ]
+  %39 = phi i32 [ 0, %5 ], [ 1, %27 ], [ 1, %32 ], [ 0, %34 ]
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !185
   %42 = icmp ult i32 %22, 7
@@ -9688,7 +9688,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   br label %_ZL20getValueRequiredBitsh.exit
 
 _ZL20getValueRequiredBitsh.exit:                  ; preds = %220, %222, %225
-  %.0.i = phi i32 [ 1, %220 ], [ %228, %225 ], [ 8, %222 ]
+  %.0.i = phi i32 [ %228, %225 ], [ 1, %220 ], [ 8, %222 ]
   %229 = icmp samesign ugt i32 %.0.i, %.pr.pre
   br i1 %229, label %230, label %thread-pre-split
 
@@ -9697,7 +9697,7 @@ _ZL20getValueRequiredBitsh.exit:                  ; preds = %220, %222, %225
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %_ZL20getValueRequiredBitsh.exit, %218, %230
-  %231 = phi i32 [ %.pr.pre, %_ZL20getValueRequiredBitsh.exit ], [ %.0.i, %230 ], [ %.pr.pre, %218 ]
+  %231 = phi i32 [ %.0.i, %230 ], [ %.pr.pre, %218 ], [ %.pr.pre, %_ZL20getValueRequiredBitsh.exit ]
   %232 = icmp uge i32 %231, %.0.i.i.i
   %233 = zext i1 %232 to i32
   %.not271 = icmp eq i32 %.3208377, 0
@@ -9928,17 +9928,17 @@ _ZL14color_tree_hasP9ColorTreehhhh.exit.thread:   ; preds = %_ZL14color_tree_has
   br i1 %or.cond21, label %._crit_edge, label %.thread345
 
 .thread345:                                       ; preds = %_ZL14color_tree_hasP9ColorTreehhhh.exit, %206, %341
-  %344 = phi i32 [ %207, %206 ], [ %272, %341 ], [ %272, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %345 = phi i32 [ %208, %206 ], [ %342, %341 ], [ %208, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %346 = phi i32 [ %209, %206 ], [ %273, %341 ], [ %273, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %.4244 = phi i32 [ %.3243370, %206 ], [ %233, %341 ], [ %233, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %.6235 = phi i32 [ %.5234371, %206 ], [ %.7236, %341 ], [ 0, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %.5224 = phi i32 [ %.4223372, %206 ], [ %.6225, %341 ], [ %.6225, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %.1218 = phi i8 [ %.0217373, %206 ], [ %210, %341 ], [ %210, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %.1216 = phi i8 [ %.0215374, %206 ], [ %212, %341 ], [ %212, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %.1214 = phi i8 [ %.0213375, %206 ], [ %214, %341 ], [ %214, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %.1212 = phi i8 [ %.0211376, %206 ], [ %216, %341 ], [ %216, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %.4209 = phi i32 [ %.3208377, %206 ], [ %.5210, %341 ], [ %.5210, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %344 = phi i32 [ %272, %341 ], [ %207, %206 ], [ %272, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %345 = phi i32 [ %342, %341 ], [ %208, %206 ], [ %208, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %346 = phi i32 [ %273, %341 ], [ %209, %206 ], [ %273, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %.4244 = phi i32 [ %233, %341 ], [ %.3243370, %206 ], [ %233, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %.6235 = phi i32 [ %.7236, %341 ], [ %.5234371, %206 ], [ 0, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %.5224 = phi i32 [ %.6225, %341 ], [ %.4223372, %206 ], [ %.6225, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %.1218 = phi i8 [ %210, %341 ], [ %.0217373, %206 ], [ %210, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %.1216 = phi i8 [ %212, %341 ], [ %.0215374, %206 ], [ %212, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %.1214 = phi i8 [ %214, %341 ], [ %.0213375, %206 ], [ %214, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %.1212 = phi i8 [ %216, %341 ], [ %.0211376, %206 ], [ %216, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %.4209 = phi i32 [ %.5210, %341 ], [ %.3208377, %206 ], [ %.5210, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
   %347 = add nuw i64 %.4378, 1
   %.not268 = icmp eq i64 %347, %21
   br i1 %.not268, label %._crit_edge, label %206, !llvm.loop !400
@@ -10325,7 +10325,7 @@ define noundef range(i32 0, 95) i32 @_Z15lodepng_inspectPjS_P12LodePNGStatePKhm(
   br label %.critedge
 
 .critedge:                                        ; preds = %150, %153, %174, %140, %149, %146, %144, %138, %78, %74, %53, %13, %9
-  %.0 = phi i32 [ 48, %9 ], [ 27, %13 ], [ 28, %53 ], [ 94, %74 ], [ 93, %138 ], [ 29, %78 ], [ 32, %144 ], [ 33, %146 ], [ 34, %149 ], [ %141, %140 ], [ 57, %174 ], [ 0, %153 ], [ 0, %150 ]
+  %.0 = phi i32 [ 48, %9 ], [ 27, %13 ], [ 28, %53 ], [ 94, %74 ], [ 93, %138 ], [ 32, %144 ], [ 33, %146 ], [ 34, %149 ], [ 57, %174 ], [ 29, %78 ], [ %141, %140 ], [ 0, %153 ], [ 0, %150 ]
   ret i32 %.0
 }
 
@@ -10380,7 +10380,7 @@ define internal fastcc noundef range(i32 0, 38) i32 @_ZL18checkColorValidity16Lo
   br label %21
 
 21:                                               ; preds = %17, %14, %10, %7, %3, %2, %20
-  %.0 = phi i32 [ 37, %10 ], [ 0, %20 ], [ %16, %14 ], [ %19, %17 ], [ 37, %3 ], [ %9, %7 ], [ 31, %2 ]
+  %.0 = phi i32 [ 0, %20 ], [ 31, %2 ], [ 37, %3 ], [ %9, %7 ], [ 37, %10 ], [ %16, %14 ], [ %19, %17 ]
   ret i32 %.0
 }
 
@@ -10802,11 +10802,11 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit117.thread: ; preds = %33, %36, %40, %_Z
   br label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit
 
 _ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit:  ; preds = %133, %145, %157, %186, %200, %226, %238, %244, %232, %151, %139, %128, %46
-  %.0 = phi i32 [ %49, %46 ], [ %229, %226 ], [ %131, %128 ], [ %136, %133 ], [ %142, %139 ], [ %148, %145 ], [ %154, %151 ], [ %160, %157 ], [ %235, %232 ], [ %189, %186 ], [ %241, %238 ], [ %203, %200 ], [ %247, %244 ]
+  %.0 = phi i32 [ %49, %46 ], [ %131, %128 ], [ %136, %133 ], [ %142, %139 ], [ %148, %145 ], [ %154, %151 ], [ %160, %157 ], [ %189, %186 ], [ %203, %200 ], [ %229, %226 ], [ %235, %232 ], [ %241, %238 ], [ %247, %244 ]
   %.not135 = icmp eq i32 %.0, 0
   br i1 %.not135, label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread139, label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread
 
-_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread139: ; preds = %69, %164, %.preheader.i, %207, %.loopexit.sink.split.i, %193, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit
+_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread139: ; preds = %69, %207, %193, %164, %.loopexit.sink.split.i, %.preheader.i, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %249 = load i32, ptr %248, align 8, !tbaa !409
   %.not107 = icmp eq i32 %249, 0
@@ -10818,8 +10818,8 @@ _ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread139: ; preds = %69, %164, 
   %spec.select = select i1 %.not108, i32 0, i32 57
   br label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread
 
-_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread: ; preds = %250, %242, %206, %77, %63, %60, %89, %192, %163, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread139, %27, %8, %4
-  %.088 = phi i32 [ 30, %27 ], [ 30, %4 ], [ 63, %8 ], [ %spec.select, %250 ], [ 0, %242 ], [ 0, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread139 ], [ %.0, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit ], [ 117, %206 ], [ 30, %77 ], [ 39, %63 ], [ 42, %60 ], [ 41, %89 ], [ 98, %192 ], [ 96, %163 ]
+_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread: ; preds = %250, %242, %206, %192, %163, %60, %89, %77, %63, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread139, %27, %8, %4
+  %.088 = phi i32 [ 30, %4 ], [ 63, %8 ], [ 30, %27 ], [ 0, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread139 ], [ %.0, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit ], [ 117, %206 ], [ 98, %192 ], [ 96, %163 ], [ 42, %60 ], [ 41, %89 ], [ 30, %77 ], [ 39, %63 ], [ 0, %242 ], [ %spec.select, %250 ]
   ret i32 %.088
 }
 
@@ -11035,7 +11035,7 @@ define internal fastcc noundef range(i32 0, 104) i32 @_ZL14readChunk_bKGDP11Lode
   br label %59
 
 59:                                               ; preds = %.sink.split, %3, %30, %18, %7, %6
-  %.0 = phi i32 [ 44, %18 ], [ 43, %6 ], [ 45, %30 ], [ 103, %7 ], [ 0, %3 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 43, %6 ], [ 103, %7 ], [ 44, %18 ], [ 45, %30 ], [ 0, %3 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -11063,8 +11063,8 @@ define internal fastcc noundef range(i32 0, 90) i32 @_ZL14readChunk_tEXtP11LodeP
   br i1 %11, label %.lr.ph, label %.critedge, !llvm.loop !424
 
 .critedge:                                        ; preds = %.lr.ph, %8
-  %.034.lcssa = phi i32 [ %9, %8 ], [ %.03449, %.lr.ph ]
-  %.lcssa = phi i64 [ %10, %8 ], [ %5, %.lr.ph ]
+  %.034.lcssa = phi i32 [ %.03449, %.lr.ph ], [ %9, %8 ]
+  %.lcssa = phi i64 [ %5, %.lr.ph ], [ %10, %8 ]
   %12 = add i32 %.034.lcssa, -80
   %or.cond = icmp ult i32 %12, -79
   br i1 %or.cond, label %.critedge.thread, label %13
@@ -11103,9 +11103,9 @@ _ZL14lodepng_memcpyPvPKvm.exit48:                 ; preds = %21, %.lr.ph.prehead
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %3, %_ZL14lodepng_memcpyPvPKvm.exit48, %.critedge, %13, %_ZL14lodepng_memcpyPvPKvm.exit
-  %.138 = phi ptr [ null, %.critedge ], [ %16, %_ZL14lodepng_memcpyPvPKvm.exit48 ], [ null, %13 ], [ %16, %_ZL14lodepng_memcpyPvPKvm.exit ], [ null, %3 ]
-  %.136 = phi ptr [ null, %.critedge ], [ %20, %_ZL14lodepng_memcpyPvPKvm.exit48 ], [ null, %13 ], [ null, %_ZL14lodepng_memcpyPvPKvm.exit ], [ null, %3 ]
-  %.1 = phi i32 [ 89, %.critedge ], [ %24, %_ZL14lodepng_memcpyPvPKvm.exit48 ], [ 83, %13 ], [ 83, %_ZL14lodepng_memcpyPvPKvm.exit ], [ 89, %3 ]
+  %.138 = phi ptr [ %16, %_ZL14lodepng_memcpyPvPKvm.exit48 ], [ null, %.critedge ], [ null, %13 ], [ %16, %_ZL14lodepng_memcpyPvPKvm.exit ], [ null, %3 ]
+  %.136 = phi ptr [ %20, %_ZL14lodepng_memcpyPvPKvm.exit48 ], [ null, %.critedge ], [ null, %13 ], [ null, %_ZL14lodepng_memcpyPvPKvm.exit ], [ null, %3 ]
+  %.1 = phi i32 [ %24, %_ZL14lodepng_memcpyPvPKvm.exit48 ], [ 89, %.critedge ], [ 83, %13 ], [ 83, %_ZL14lodepng_memcpyPvPKvm.exit ], [ 89, %3 ]
   tail call void @free(ptr noundef %.138) #33
   tail call void @free(ptr noundef %.136) #33
   ret i32 %.1
@@ -11223,14 +11223,14 @@ _ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit: ; preds = %28
   br i1 %or.cond62, label %.thread, label %53
 
 .thread:                                          ; preds = %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit.thread54
-  %50 = phi ptr [ %46, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit ], [ %.pre, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit.thread54 ]
-  %51 = phi i64 [ %47, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit ], [ %40, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit.thread54 ]
+  %50 = phi ptr [ %.pre, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit.thread54 ], [ %46, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit ]
+  %51 = phi i64 [ %40, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit.thread54 ], [ %47, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit ]
   %52 = call fastcc noundef i32 @_ZL22lodepng_add_text_sizedP11LodePNGInfoPKcS2_m(ptr noundef %0, ptr noundef nonnull %24, ptr noundef %50, i64 noundef %51)
   br label %53
 
 53:                                               ; preds = %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit, %.thread60, %_ZL14lodepng_memcpyPvPKvm.exit, %21, %19, %.critedge, %.thread
-  %.035 = phi i32 [ 89, %19 ], [ 75, %.critedge ], [ 83, %21 ], [ 72, %_ZL14lodepng_memcpyPvPKvm.exit ], [ %spec.select, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit ], [ %52, %.thread ], [ %spec.select52, %.thread60 ]
-  %.0 = phi ptr [ null, %19 ], [ null, %.critedge ], [ null, %21 ], [ %24, %_ZL14lodepng_memcpyPvPKvm.exit ], [ %24, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit ], [ %24, %.thread ], [ %24, %.thread60 ]
+  %.035 = phi i32 [ %52, %.thread ], [ 75, %.critedge ], [ 89, %19 ], [ 83, %21 ], [ 72, %_ZL14lodepng_memcpyPvPKvm.exit ], [ %spec.select52, %.thread60 ], [ %spec.select, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit ]
+  %.0 = phi ptr [ %24, %.thread ], [ null, %.critedge ], [ null, %19 ], [ null, %21 ], [ %24, %_ZL14lodepng_memcpyPvPKvm.exit ], [ %24, %.thread60 ], [ %24, %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit ]
   call void @free(ptr noundef %.0) #33
   %54 = load ptr, ptr %7, align 8, !tbaa !7
   call void @free(ptr noundef %54) #33
@@ -11427,10 +11427,10 @@ _ZL14lodepng_memcpyPvPKvm.exit124:                ; preds = %60, %.lr.ph.prehead
   br label %87
 
 87:                                               ; preds = %.critedge5, %.critedge3, %_ZL14lodepng_memcpyPvPKvm.exit, %21, %19, %.critedge, %4, %80, %82
-  %.090 = phi i32 [ 89, %19 ], [ 30, %4 ], [ 75, %.critedge ], [ 83, %21 ], [ %.2, %80 ], [ %86, %82 ], [ 83, %.critedge3 ], [ 72, %_ZL14lodepng_memcpyPvPKvm.exit ], [ 83, %.critedge5 ]
-  %.089 = phi ptr [ null, %19 ], [ null, %4 ], [ null, %.critedge ], [ null, %21 ], [ %24, %80 ], [ %24, %82 ], [ %24, %.critedge3 ], [ %24, %_ZL14lodepng_memcpyPvPKvm.exit ], [ %24, %.critedge5 ]
-  %.088 = phi ptr [ null, %19 ], [ null, %4 ], [ null, %.critedge ], [ null, %21 ], [ %41, %80 ], [ %41, %82 ], [ null, %.critedge3 ], [ null, %_ZL14lodepng_memcpyPvPKvm.exit ], [ %41, %.critedge5 ]
-  %.0 = phi ptr [ null, %19 ], [ null, %4 ], [ null, %.critedge ], [ null, %21 ], [ %59, %80 ], [ %59, %82 ], [ null, %.critedge3 ], [ null, %_ZL14lodepng_memcpyPvPKvm.exit ], [ null, %.critedge5 ]
+  %.090 = phi i32 [ %.2, %80 ], [ %86, %82 ], [ 30, %4 ], [ 75, %.critedge ], [ 89, %19 ], [ 83, %21 ], [ 72, %_ZL14lodepng_memcpyPvPKvm.exit ], [ 83, %.critedge3 ], [ 83, %.critedge5 ]
+  %.089 = phi ptr [ %24, %80 ], [ %24, %82 ], [ null, %4 ], [ null, %.critedge ], [ null, %19 ], [ null, %21 ], [ %24, %_ZL14lodepng_memcpyPvPKvm.exit ], [ %24, %.critedge3 ], [ %24, %.critedge5 ]
+  %.088 = phi ptr [ %41, %80 ], [ %41, %82 ], [ null, %4 ], [ null, %.critedge ], [ null, %19 ], [ null, %21 ], [ null, %_ZL14lodepng_memcpyPvPKvm.exit ], [ null, %.critedge3 ], [ %41, %.critedge5 ]
+  %.0 = phi ptr [ %59, %80 ], [ %59, %82 ], [ null, %4 ], [ null, %.critedge ], [ null, %19 ], [ null, %21 ], [ null, %_ZL14lodepng_memcpyPvPKvm.exit ], [ null, %.critedge3 ], [ null, %.critedge5 ]
   call void @free(ptr noundef %.089) #33
   call void @free(ptr noundef %.088) #33
   call void @free(ptr noundef %.0) #33
@@ -11882,7 +11882,7 @@ _ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit: ; preds = %42
   br label %75
 
 75:                                               ; preds = %70, %.thread71, %.thread, %._crit_edge, %29, %27, %.critedge
-  %.0 = phi i32 [ 89, %27 ], [ 75, %.critedge ], [ 83, %29 ], [ 72, %._crit_edge ], [ %spec.select63, %.thread71 ], [ %spec.select, %70 ], [ %69, %.thread ]
+  %.0 = phi i32 [ 75, %.critedge ], [ 89, %27 ], [ 83, %29 ], [ 72, %._crit_edge ], [ %spec.select, %70 ], [ %69, %.thread ], [ %spec.select63, %.thread71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -12162,7 +12162,7 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL14readChunk_sBITP11Lode
   br label %115
 
 .thread:                                          ; preds = %3, %7
-  %23 = phi i32 [ 8, %3 ], [ %9, %7 ]
+  %23 = phi i32 [ %9, %7 ], [ 8, %3 ]
   %.not82 = icmp eq i64 %2, 3
   br i1 %.not82, label %24, label %115
 
@@ -12314,7 +12314,7 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL14readChunk_sBITP11Lode
   br label %115
 
 115:                                              ; preds = %16, %66, %101, %42, %7, %95, %77, %81, %86, %91, %76, %62, %54, %58, %53, %37, %24, %28, %33, %.thread, %11, %10
-  %.0 = phi i32 [ 115, %77 ], [ 114, %10 ], [ 115, %95 ], [ 115, %11 ], [ 114, %.thread ], [ 115, %24 ], [ 115, %37 ], [ 114, %53 ], [ 115, %54 ], [ 115, %62 ], [ 114, %76 ], [ 115, %33 ], [ 115, %28 ], [ 115, %58 ], [ 115, %91 ], [ 115, %86 ], [ 115, %81 ], [ 0, %7 ], [ 0, %42 ], [ 0, %101 ], [ 0, %66 ], [ 0, %16 ]
+  %.0 = phi i32 [ 114, %10 ], [ 115, %11 ], [ 114, %.thread ], [ 115, %33 ], [ 115, %28 ], [ 115, %24 ], [ 115, %37 ], [ 114, %53 ], [ 115, %58 ], [ 115, %54 ], [ 115, %62 ], [ 114, %76 ], [ 115, %91 ], [ 115, %86 ], [ 115, %81 ], [ 115, %77 ], [ 115, %95 ], [ 0, %7 ], [ 0, %42 ], [ 0, %101 ], [ 0, %66 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -12406,7 +12406,7 @@ switch.lookup195:                                 ; preds = %41
   br label %_Z15lodepng_get_bppPK16LodePNGColorMode.exit19.i.i
 
 _Z15lodepng_get_bppPK16LodePNGColorMode.exit19.i.i: ; preds = %switch.lookup195, %41, %switch.lookup192, %37
-  %45 = phi i32 [ 0, %37 ], [ %40, %switch.lookup192 ], [ %44, %switch.lookup195 ], [ 0, %41 ]
+  %45 = phi i32 [ %40, %switch.lookup192 ], [ 0, %37 ], [ %44, %switch.lookup195 ], [ 0, %41 ]
   %46 = zext i32 %22 to i64
   %47 = zext i32 %21 to i64
   %mul.i4.i.i = mul nuw i64 %46, %47
@@ -13080,10 +13080,10 @@ _ZL29lodepng_chunk_type_name_validPKh.exit.i:     ; preds = %356
   br i1 %.not309.i, label %.thread406.i, label %.thread.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.thread.i:          ; preds = %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit, %354, %350, %346, %342, %_ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i, %324, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i, %315, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i, %291, %287, %283, %281, %277, %275, %271, %269, %158, %_Z25lodepng_chunk_type_equalsPKhPKc.exit353.i, %.lr.ph.preheader.i.i, %142
-  %.3271.i = phi i32 [ %.0268475.i, %354 ], [ 2, %158 ], [ %.0268475.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit353.i ], [ %.0268475.i, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit ], [ %.0268475.i, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ %.0268475.i, %271 ], [ %.0268475.i, %269 ], [ %.0268475.i, %277 ], [ %.0268475.i, %275 ], [ %.0268475.i, %283 ], [ %.0268475.i, %281 ], [ %.0268475.i, %287 ], [ %.0268475.i, %291 ], [ %.0268475.i, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ %.0268475.i, %315 ], [ %.0268475.i, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ], [ %.0268475.i, %324 ], [ %.0268475.i, %_ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i ], [ %.0268475.i, %342 ], [ %.0268475.i, %346 ], [ %.0268475.i, %350 ], [ 3, %142 ], [ 3, %.lr.ph.preheader.i.i ]
-  %.4.i = phi i64 [ %.0257476.i, %354 ], [ %.0257476.i, %158 ], [ %.0257476.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit353.i ], [ %.0257476.i, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit ], [ %.0257476.i, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ %.0257476.i, %271 ], [ %.0257476.i, %269 ], [ %.0257476.i, %277 ], [ %.0257476.i, %275 ], [ %.0257476.i, %283 ], [ %.0257476.i, %281 ], [ %.0257476.i, %287 ], [ %.0257476.i, %291 ], [ %.0257476.i, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ %.0257476.i, %315 ], [ %.0257476.i, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ], [ %.0257476.i, %324 ], [ %.0257476.i, %_ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i ], [ %.0257476.i, %342 ], [ %.0257476.i, %346 ], [ %.0257476.i, %350 ], [ %140, %142 ], [ %140, %.lr.ph.preheader.i.i ]
-  %.not332.i = phi i1 [ true, %354 ], [ true, %158 ], [ false, %_Z25lodepng_chunk_type_equalsPKhPKc.exit353.i ], [ true, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit ], [ true, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ true, %271 ], [ true, %269 ], [ true, %277 ], [ true, %275 ], [ true, %283 ], [ true, %281 ], [ true, %287 ], [ true, %291 ], [ true, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ true, %315 ], [ true, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ], [ true, %324 ], [ true, %_ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i ], [ true, %342 ], [ true, %346 ], [ true, %350 ], [ true, %142 ], [ true, %.lr.ph.preheader.i.i ]
-  %.2.i = phi i8 [ 0, %354 ], [ 0, %158 ], [ 1, %_Z25lodepng_chunk_type_equalsPKhPKc.exit353.i ], [ 0, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit ], [ 0, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ 0, %271 ], [ 0, %269 ], [ 0, %277 ], [ 0, %275 ], [ 0, %283 ], [ 0, %281 ], [ 0, %287 ], [ 0, %291 ], [ 0, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ 0, %315 ], [ 0, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ], [ 0, %324 ], [ 0, %_ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i ], [ 0, %342 ], [ 0, %346 ], [ 0, %350 ], [ 0, %142 ], [ 0, %.lr.ph.preheader.i.i ]
+  %.3271.i = phi i32 [ %.0268475.i, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit ], [ %.0268475.i, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ %.0268475.i, %271 ], [ %.0268475.i, %269 ], [ %.0268475.i, %277 ], [ %.0268475.i, %275 ], [ %.0268475.i, %283 ], [ %.0268475.i, %281 ], [ %.0268475.i, %287 ], [ %.0268475.i, %291 ], [ %.0268475.i, %315 ], [ %.0268475.i, %324 ], [ %.0268475.i, %342 ], [ %.0268475.i, %346 ], [ %.0268475.i, %350 ], [ %.0268475.i, %354 ], [ %.0268475.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit353.i ], [ 2, %158 ], [ %.0268475.i, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ %.0268475.i, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ], [ %.0268475.i, %_ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i ], [ 3, %142 ], [ 3, %.lr.ph.preheader.i.i ]
+  %.4.i = phi i64 [ %.0257476.i, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit ], [ %.0257476.i, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ %.0257476.i, %271 ], [ %.0257476.i, %269 ], [ %.0257476.i, %277 ], [ %.0257476.i, %275 ], [ %.0257476.i, %283 ], [ %.0257476.i, %281 ], [ %.0257476.i, %287 ], [ %.0257476.i, %291 ], [ %.0257476.i, %315 ], [ %.0257476.i, %324 ], [ %.0257476.i, %342 ], [ %.0257476.i, %346 ], [ %.0257476.i, %350 ], [ %.0257476.i, %354 ], [ %.0257476.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit353.i ], [ %.0257476.i, %158 ], [ %.0257476.i, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ %.0257476.i, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ], [ %.0257476.i, %_ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i ], [ %140, %142 ], [ %140, %.lr.ph.preheader.i.i ]
+  %.not332.i = phi i1 [ true, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit ], [ true, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ true, %271 ], [ true, %269 ], [ true, %277 ], [ true, %275 ], [ true, %283 ], [ true, %281 ], [ true, %287 ], [ true, %291 ], [ true, %315 ], [ true, %324 ], [ true, %342 ], [ true, %346 ], [ true, %350 ], [ true, %354 ], [ false, %_Z25lodepng_chunk_type_equalsPKhPKc.exit353.i ], [ true, %158 ], [ true, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ true, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ], [ true, %_ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i ], [ true, %142 ], [ true, %.lr.ph.preheader.i.i ]
+  %.2.i = phi i8 [ 0, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit ], [ 0, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ 0, %271 ], [ 0, %269 ], [ 0, %277 ], [ 0, %275 ], [ 0, %283 ], [ 0, %281 ], [ 0, %287 ], [ 0, %291 ], [ 0, %315 ], [ 0, %324 ], [ 0, %342 ], [ 0, %346 ], [ 0, %350 ], [ 0, %354 ], [ 1, %_Z25lodepng_chunk_type_equalsPKhPKc.exit353.i ], [ 0, %158 ], [ 0, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ 0, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ], [ 0, %_ZL14readChunk_cICPP11LodePNGInfoPKhm.exit.thread.i ], [ 0, %142 ], [ 0, %.lr.ph.preheader.i.i ]
   %375 = load i32, ptr %77, align 8, !tbaa !409
   %.not458.i = icmp eq i32 %375, 0
   br i1 %.not458.i, label %376, label %378
@@ -13097,9 +13097,9 @@ _ZL14lodepng_memcpyPvPKvm.exit.thread.i:          ; preds = %_ZL14readChunk_bKGD
   br i1 %.not332.i, label %.thread406.i, label %_ZL14lodepng_memcpyPvPKvm.exit.i
 
 .thread406.i:                                     ; preds = %378, %369, %367
-  %.3271402413.i = phi i32 [ %.3271.i, %378 ], [ %.0268475.i, %369 ], [ %.0268475.i, %367 ]
-  %.4403412.i = phi i64 [ %.4.i, %378 ], [ %.0257476.i, %369 ], [ %.0257476.i, %367 ]
-  %.2405411.i = phi i8 [ %.2.i, %378 ], [ 0, %369 ], [ 0, %367 ]
+  %.3271402413.i = phi i32 [ %.3271.i, %378 ], [ %.0268475.i, %367 ], [ %.0268475.i, %369 ]
+  %.4403412.i = phi i64 [ %.4.i, %378 ], [ %.0257476.i, %367 ], [ %.0257476.i, %369 ]
+  %.2405411.i = phi i8 [ %.2.i, %378 ], [ 0, %367 ], [ 0, %369 ]
   %379 = sub i64 %79, %91
   %380 = icmp uge ptr %.0254477.i, %78
   %381 = icmp ult i64 %379, 12
@@ -13152,8 +13152,8 @@ _ZL14lodepng_memcpyPvPKvm.exit.thread.i:          ; preds = %_ZL14readChunk_bKGD
   br i1 %406, label %_ZL14lodepng_memcpyPvPKvm.exit.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %403, %399, %395, %392, %389, %.._crit_edge.i_crit_edge.i
-  %407 = phi i8 [ %.pre495.i, %.._crit_edge.i_crit_edge.i ], [ 71, %403 ], [ 71, %399 ], [ 71, %395 ], [ 71, %392 ], [ %.pre496.i, %389 ]
-  %408 = phi i64 [ %388, %.._crit_edge.i_crit_edge.i ], [ 5242880, %403 ], [ 5242880, %399 ], [ 5242880, %395 ], [ 5242880, %392 ], [ 5242880, %389 ]
+  %407 = phi i8 [ 71, %403 ], [ 71, %399 ], [ 71, %395 ], [ 71, %392 ], [ %.pre496.i, %389 ], [ %.pre495.i, %.._crit_edge.i_crit_edge.i ]
+  %408 = phi i64 [ 5242880, %403 ], [ 5242880, %399 ], [ 5242880, %395 ], [ 5242880, %392 ], [ 5242880, %389 ], [ %388, %.._crit_edge.i_crit_edge.i ]
   %409 = zext i8 %383 to i64
   %410 = shl nuw nsw i64 %409, 24
   %411 = zext i8 %.pre.i to i64
@@ -13169,15 +13169,15 @@ _ZL14lodepng_memcpyPvPKvm.exit.thread.i:          ; preds = %_ZL14readChunk_bKGD
   br label %_ZL14lodepng_memcpyPvPKvm.exit.i
 
 _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %._crit_edge.i.i, %403, %.thread406.i, %378
-  %.1269.i = phi i32 [ %.3271402413.i, %._crit_edge.i.i ], [ %.3271402413.i, %403 ], [ %.3271402413.i, %.thread406.i ], [ %.3271.i, %378 ]
-  %.2259.i = phi i64 [ %.4403412.i, %._crit_edge.i.i ], [ %.4403412.i, %403 ], [ %.4403412.i, %.thread406.i ], [ %.4.i, %378 ]
-  %.1255.i = phi ptr [ %spec.select.i.i, %._crit_edge.i.i ], [ %127, %403 ], [ %78, %.thread406.i ], [ %.0254477.i, %378 ]
-  %.1.i = phi i8 [ %.2405411.i, %._crit_edge.i.i ], [ %.2405411.i, %403 ], [ %.2405411.i, %.thread406.i ], [ %.2.i, %378 ]
+  %.1269.i = phi i32 [ %.3271.i, %378 ], [ %.3271402413.i, %403 ], [ %.3271402413.i, %.thread406.i ], [ %.3271402413.i, %._crit_edge.i.i ]
+  %.2259.i = phi i64 [ %.4.i, %378 ], [ %.4403412.i, %403 ], [ %.4403412.i, %.thread406.i ], [ %.4403412.i, %._crit_edge.i.i ]
+  %.1255.i = phi ptr [ %.0254477.i, %378 ], [ %127, %403 ], [ %78, %.thread406.i ], [ %spec.select.i.i, %._crit_edge.i.i ]
+  %.1.i = phi i8 [ %.2.i, %378 ], [ %.2405411.i, %403 ], [ %.2405411.i, %.thread406.i ], [ %.2405411.i, %._crit_edge.i.i ]
   %.not283.i = icmp eq i8 %.1.i, 0
   br i1 %.not283.i, label %90, label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZL14lodepng_memcpyPvPKvm.exit.i, %107, %96
-  %.0257474.i = phi i64 [ %.0257476.i, %96 ], [ %.0257476.i, %107 ], [ %.2259.i, %_ZL14lodepng_memcpyPvPKvm.exit.i ]
+  %.0257474.i = phi i64 [ %.0257476.i, %107 ], [ %.0257476.i, %96 ], [ %.2259.i, %_ZL14lodepng_memcpyPvPKvm.exit.i ]
   %420 = load i32, ptr %24, align 8, !tbaa !512
   %421 = icmp eq i32 %420, 3
   br i1 %421, label %422, label %.thread429.i
@@ -13429,8 +13429,8 @@ _ZL15ucvector_resizeP8ucvectorm.exit.i.i:         ; preds = %.thread.i.i.i.i, %5
   br label %.thread426.i
 
 .thread426.i:                                     ; preds = %577, %._ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit_crit_edge.i
-  %.pre502.i = phi i64 [ %580, %577 ], [ %.pre502.pre.i, %._ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit_crit_edge.i ]
-  %.0.i367.i = phi i32 [ %578, %577 ], [ 0, %._ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit_crit_edge.i ]
+  %.pre502.i = phi i64 [ %.pre502.pre.i, %._ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit_crit_edge.i ], [ %580, %577 ]
+  %.0.i367.i = phi i32 [ 0, %._ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit_crit_edge.i ], [ %578, %577 ]
   store i32 %.0.i367.i, ptr %19, align 8, !tbaa !402
   %581 = icmp eq i64 %.pre502.i, %.1261.i
   %.not338.i = icmp ne i32 %.0.i367.i, 0
@@ -13442,8 +13442,8 @@ _ZL15ucvector_resizeP8ucvectorm.exit.i.i:         ; preds = %.thread.i.i.i.i, %5
   call void @free(ptr noundef nonnull %59) #33
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
-.thread.i.sink.split:                             ; preds = %110, %139, %295, %319, %328, %_ZL29lodepng_chunk_type_name_validPKh.exit.i, %364, %376, %226, %242, %225, %233, %180, %170, %168, %189, %.critedge.i.i, %96, %107, %422, %.thread426.thread569.i
-  %.0.i56.ph.sink = phi i32 [ 63, %107 ], [ 30, %96 ], [ 106, %422 ], [ %.0.i367.ph.i, %.thread426.thread569.i ], [ 121, %.critedge.i.i ], [ 44, %233 ], [ 30, %180 ], [ 39, %170 ], [ 42, %168 ], [ 103, %226 ], [ 45, %242 ], [ 43, %225 ], [ 69, %364 ], [ 98, %319 ], [ 122, %_ZL29lodepng_chunk_type_name_validPKh.exit.i ], [ 95, %139 ], [ 64, %110 ], [ 117, %328 ], [ 96, %295 ], [ 57, %376 ], [ 41, %189 ]
+.thread.i.sink.split:                             ; preds = %110, %139, %295, %319, %328, %_ZL29lodepng_chunk_type_name_validPKh.exit.i, %364, %376, %242, %233, %226, %225, %168, %189, %180, %170, %.critedge.i.i, %96, %107, %422, %.thread426.thread569.i
+  %.0.i56.ph.sink = phi i32 [ %.0.i367.ph.i, %.thread426.thread569.i ], [ 30, %96 ], [ 63, %107 ], [ 106, %422 ], [ 121, %.critedge.i.i ], [ 42, %168 ], [ 41, %189 ], [ 30, %180 ], [ 39, %170 ], [ 45, %242 ], [ 44, %233 ], [ 103, %226 ], [ 43, %225 ], [ 57, %376 ], [ 69, %364 ], [ 122, %_ZL29lodepng_chunk_type_name_validPKh.exit.i ], [ 117, %328 ], [ 98, %319 ], [ 96, %295 ], [ 95, %139 ], [ 64, %110 ]
   store i32 %.0.i56.ph.sink, ptr %19, align 8, !tbaa !402
   br label %.thread.i
 
@@ -14097,12 +14097,12 @@ _ZL17removePaddingBitsPhPKhmmj.exit.i.i:          ; preds = %._crit_edge.us.i.i.
   br label %_ZL20postProcessScanlinesPhS_jjPK11LodePNGInfo.exit.i
 
 _ZL20postProcessScanlinesPhS_jjPK11LodePNGInfo.exit.i: ; preds = %_ZL17removePaddingBitsPhPKhmmj.exit.i.i, %.thread.i.i, %654, %619, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit.i372.i
-  %.0.i375.i = phi i32 [ %724, %.thread.i.i ], [ 0, %_ZL17removePaddingBitsPhPKhmmj.exit.i.i ], [ %620, %619 ], [ %655, %654 ], [ 31, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit.i372.i ]
+  %.0.i375.i = phi i32 [ 0, %_ZL17removePaddingBitsPhPKhmmj.exit.i.i ], [ %620, %619 ], [ %655, %654 ], [ 31, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit.i372.i ], [ %724, %.thread.i.i ]
   store i32 %.0.i375.i, ptr %19, align 8, !tbaa !402
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
 _ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread.sink.split: ; preds = %58, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit19.i.i, %_ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.exit.i
-  %.sink = phi i32 [ 92, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit19.i.i ], [ 92, %_ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.exit.i ], [ 83, %58 ]
+  %.sink = phi i32 [ 92, %_ZL22lodepng_pixel_overflowjjPK16LodePNGColorModeS1_.exit.i ], [ 92, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit19.i.i ], [ 83, %58 ]
   store i32 %.sink, ptr %19, align 8, !tbaa !402
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread
 
@@ -14247,7 +14247,7 @@ _Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit: ; preds = %955
   store i32 83, ptr %19, align 8, !tbaa !402
   br label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread87
 
-.loopexit:                                        ; preds = %943, %933, %910, %913, %916, %921, %925, %929
+.loopexit:                                        ; preds = %943, %910, %913, %916, %921, %925, %929, %933
   %958 = load ptr, ptr %0, align 8, !tbaa !7
   switch i32 %911, label %959 [
     i32 2, label %962
@@ -14303,7 +14303,7 @@ _Z20lodepng_get_raw_sizejjPK16LodePNGColorMode.exit: ; preds = %962, %switch.loo
   br label %_ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread87
 
 _ZL24lodepng_color_mode_equalPK16LodePNGColorModeS1_.exit.thread87: ; preds = %941, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread, %.thread90, %.preheader.i, %959, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit, %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread, %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
-  %.039 = phi i32 [ %.ph, %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread ], [ 56, %959 ], [ %.pr, %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit ], [ 83, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit ], [ 0, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread ], [ 0, %.preheader.i ], [ %.pre129, %.thread90 ], [ 0, %941 ]
+  %.039 = phi i32 [ %.pr, %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit ], [ 83, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit ], [ %.ph, %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread ], [ 56, %959 ], [ 0, %.preheader.i ], [ %.pre129, %.thread90 ], [ 0, %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit.thread ], [ 0, %941 ]
   ret i32 %.039
 }
 
@@ -14897,12 +14897,12 @@ define noundef i32 @_Z14lodepng_encodePPhPmPKhjjP12LodePNGState(ptr noundef writ
   %switch.selectcmp40.i = icmp eq i32 %switch.and39.i, 0
   br i1 %switch.selectcmp40.i, label %select.unfold, label %_ZL18checkColorValidity16LodePNGColorTypej.exit.thread
 
-_ZL18checkColorValidity16LodePNGColorTypej.exit.thread: ; preds = %67, %71, %73, %61, %65, %58
-  %.0.i.ph = phi i32 [ 31, %58 ], [ 37, %65 ], [ 37, %61 ], [ 37, %73 ], [ 37, %71 ], [ 37, %67 ]
+_ZL18checkColorValidity16LodePNGColorTypej.exit.thread: ; preds = %58, %61, %65, %67, %71, %73
+  %.0.i.ph = phi i32 [ 37, %73 ], [ 37, %71 ], [ 37, %67 ], [ 37, %65 ], [ 37, %61 ], [ 31, %58 ]
   store i32 %.0.i.ph, ptr %36, align 8, !tbaa !402
   br label %.thread456
 
-select.unfold:                                    ; preds = %65, %73, %71, %61, %67
+select.unfold:                                    ; preds = %73, %71, %65, %61, %67
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %76 = load i32, ptr %75, align 8, !tbaa !546
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 172
@@ -14949,12 +14949,12 @@ select.unfold:                                    ; preds = %65, %73, %71, %61, 
   %switch.selectcmp40.i407 = icmp eq i32 %switch.and39.i406, 0
   br i1 %switch.selectcmp40.i407, label %select.unfold431, label %_ZL18checkColorValidity16LodePNGColorTypej.exit417.thread
 
-_ZL18checkColorValidity16LodePNGColorTypej.exit417.thread: ; preds = %85, %89, %91, %79, %83, %select.unfold
-  %.0.i408.ph = phi i32 [ 31, %select.unfold ], [ 37, %83 ], [ 37, %79 ], [ 37, %91 ], [ 37, %89 ], [ 37, %85 ]
+_ZL18checkColorValidity16LodePNGColorTypej.exit417.thread: ; preds = %select.unfold, %79, %83, %85, %89, %91
+  %.0.i408.ph = phi i32 [ 37, %91 ], [ 37, %89 ], [ 37, %85 ], [ 37, %83 ], [ 37, %79 ], [ 31, %select.unfold ]
   store i32 %.0.i408.ph, ptr %36, align 8, !tbaa !402
   br label %.thread456
 
-select.unfold431:                                 ; preds = %83, %91, %89, %79, %85
+select.unfold431:                                 ; preds = %91, %89, %83, %79, %85
   %93 = call noundef i32 @_Z17lodepng_info_copyP11LodePNGInfoPKS_(ptr noundef nonnull %10, ptr noundef nonnull %17)
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %95 = load i32, ptr %94, align 8, !tbaa !563
@@ -15131,7 +15131,7 @@ _ZL15isRGBICCProfilePKhj.exit.thread:             ; preds = %105, %126, %130, %1
   br label %177
 
 177:                                              ; preds = %175, %173, %.thread441
-  %178 = phi i1 [ false, %173 ], [ false, %.thread441 ], [ %spec.select476, %175 ]
+  %178 = phi i1 [ false, %.thread441 ], [ false, %173 ], [ %spec.select476, %175 ]
   %179 = load i32, ptr %18, align 8, !tbaa !408
   %180 = icmp eq i32 %179, 3
   %181 = load i32, ptr %11, align 8
@@ -15232,7 +15232,7 @@ _ZL15isRGBICCProfilePKhj.exit.thread:             ; preds = %105, %126, %130, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %228
 
-.thread450:                                       ; preds = %_ZL15isRGBICCProfilePKhj.exit.thread, %226, %159
+.thread450:                                       ; preds = %226, %_ZL15isRGBICCProfilePKhj.exit.thread, %159
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread456
 
@@ -16076,7 +16076,7 @@ _ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i._crit_edge: ; pr
   br i1 %.not98, label %_Z19lodepng_palette_addP16LodePNGColorModehhhh.exit.thread, label %44, !llvm.loop !572
 
 _Z19lodepng_palette_addP16LodePNGColorModehhhh.exit.thread: ; preds = %76, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i, %72, %56, %_Z21lodepng_palette_clearP16LodePNGColorMode.exit
-  %.1 = phi i32 [ 0, %_Z21lodepng_palette_clearP16LodePNGColorMode.exit ], [ 83, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i ], [ 83, %56 ], [ 108, %72 ], [ 0, %76 ]
+  %.1 = phi i32 [ 0, %_Z21lodepng_palette_clearP16LodePNGColorMode.exit ], [ 83, %56 ], [ 108, %72 ], [ 83, %_ZL32lodepng_color_mode_alloc_paletteP16LodePNGColorMode.exit.i ], [ 0, %76 ]
   store i32 3, ptr %0, align 8, !tbaa !182
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %27, ptr %99, align 4, !tbaa !185
@@ -16168,7 +16168,7 @@ _Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i: ; preds = %113, %111
   br label %_Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit
 
 _Z23lodepng_color_mode_copyP16LodePNGColorModePKS_.exit: ; preds = %116, %.lr.ph.preheader.i.i, %118, %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i, %_Z19lodepng_palette_addP16LodePNGColorModehhhh.exit.thread, %102, %107, %122, %127
-  %.2 = phi i32 [ 0, %122 ], [ 0, %127 ], [ %.1, %_Z19lodepng_palette_addP16LodePNGColorModehhhh.exit.thread ], [ %.1, %107 ], [ %.1, %102 ], [ %.1, %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i ], [ %.1, %.lr.ph.preheader.i.i ], [ %.1, %118 ], [ %.1, %116 ]
+  %.2 = phi i32 [ 0, %127 ], [ 0, %122 ], [ %.1, %107 ], [ %.1, %102 ], [ %.1, %_Z19lodepng_palette_addP16LodePNGColorModehhhh.exit.thread ], [ %.1, %_Z26lodepng_color_mode_cleanupP16LodePNGColorMode.exit.i ], [ %.1, %118 ], [ %.1, %.lr.ph.preheader.i.i ], [ %.1, %116 ]
   ret i32 %.2
 }
 
@@ -16696,7 +16696,7 @@ _ZL15Adam7_interlacePhPKhjjj.exit.split:          ; preds = %_ZL15Adam7_interlac
   br i1 %.not100, label %254, label %.loopexit
 
 .loopexit:                                        ; preds = %_ZL15Adam7_interlacePhPKhjjj.exit.split, %254, %.thread121.us, %_ZL15Adam7_interlacePhPKhjjj.exit.split.us, %237, %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit
-  %.6 = phi i32 [ 83, %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit ], [ %253, %.thread121.us ], [ 83, %_ZL15Adam7_interlacePhPKhjjj.exit.split.us ], [ 0, %237 ], [ %266, %_ZL15Adam7_interlacePhPKhjjj.exit.split ], [ 0, %254 ]
+  %.6 = phi i32 [ 83, %_ZL19Adam7_getpassvaluesPjS_PmS0_S0_jjj.exit ], [ 83, %_ZL15Adam7_interlacePhPKhjjj.exit.split.us ], [ 0, %237 ], [ %253, %.thread121.us ], [ 0, %254 ], [ %266, %_ZL15Adam7_interlacePhPKhjjj.exit.split ]
   tail call void @free(ptr noundef %107) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -16706,7 +16706,7 @@ _ZL15Adam7_interlacePhPKhjjj.exit.split:          ; preds = %_ZL15Adam7_interlac
   br label %267
 
 267:                                              ; preds = %27, %44, %43, %.loopexit
-  %.3 = phi i32 [ 83, %27 ], [ %.2, %43 ], [ %45, %44 ], [ %.6, %.loopexit ]
+  %.3 = phi i32 [ %.2, %43 ], [ %45, %44 ], [ %.6, %.loopexit ], [ 83, %27 ]
   ret i32 %.3
 }
 
@@ -16836,8 +16836,8 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_IHDRP8ucvecto
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %23)
   br label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
 
-_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %16, %6, %9, %20
-  %.1 = phi i32 [ 0, %20 ], [ 83, %16 ], [ 77, %6 ], [ 77, %9 ]
+_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %16, %9, %6, %20
+  %.1 = phi i32 [ 0, %20 ], [ 83, %16 ], [ 77, %9 ], [ 77, %6 ]
   ret i32 %.1
 }
 
@@ -16987,8 +16987,8 @@ _ZL29lodepng_chunk_type_name_validPKh.exit.i:     ; preds = %11
   br label %_Z18lodepng_chunk_nextPhS_.exit
 
 ._crit_edge.i:                                    ; preds = %.._crit_edge.i_crit_edge, %77, %74, %70, %66, %63
-  %83 = phi i8 [ %.pre31, %.._crit_edge.i_crit_edge ], [ 71, %77 ], [ 71, %74 ], [ 71, %70 ], [ 71, %66 ], [ %.pre32, %63 ]
-  %84 = phi i64 [ %62, %.._crit_edge.i_crit_edge ], [ 5242880, %77 ], [ 5242880, %74 ], [ 5242880, %70 ], [ 5242880, %66 ], [ 5242880, %63 ]
+  %83 = phi i8 [ 71, %77 ], [ 71, %74 ], [ 71, %70 ], [ 71, %66 ], [ %.pre32, %63 ], [ %.pre31, %.._crit_edge.i_crit_edge ]
+  %84 = phi i64 [ 5242880, %77 ], [ 5242880, %74 ], [ 5242880, %70 ], [ 5242880, %66 ], [ 5242880, %63 ], [ %62, %.._crit_edge.i_crit_edge ]
   %85 = zext i8 %57 to i64
   %86 = shl nuw nsw i64 %85, 24
   %87 = zext i8 %.pre to i64
@@ -17004,14 +17004,14 @@ _ZL29lodepng_chunk_type_name_validPKh.exit.i:     ; preds = %11
   br label %_Z18lodepng_chunk_nextPhS_.exit
 
 _Z18lodepng_chunk_nextPhS_.exit:                  ; preds = %52, %81, %._crit_edge.i
-  %.0.i19 = phi ptr [ %spec.select.i, %._crit_edge.i ], [ %82, %81 ], [ %7, %52 ]
+  %.0.i19 = phi ptr [ %82, %81 ], [ %spec.select.i, %._crit_edge.i ], [ %7, %52 ]
   %96 = ptrtoint ptr %.0.i19 to i64
   %97 = sub i64 %96, %4
   %98 = icmp ult i64 %97, %2
   br i1 %98, label %9, label %_Z20lodepng_chunk_appendPPhPmPKh.exit.thread, !llvm.loop !597
 
-_Z20lodepng_chunk_appendPPhPmPKh.exit.thread:     ; preds = %_Z18lodepng_chunk_nextPhS_.exit, %19, %_ZL29lodepng_chunk_type_name_validPKh.exit.i, %40, %.critedge.i.i, %3
-  %.2 = phi i32 [ 0, %3 ], [ 121, %.critedge.i.i ], [ 77, %19 ], [ 122, %_ZL29lodepng_chunk_type_name_validPKh.exit.i ], [ 0, %_Z18lodepng_chunk_nextPhS_.exit ], [ 83, %40 ]
+_Z20lodepng_chunk_appendPPhPmPKh.exit.thread:     ; preds = %_Z18lodepng_chunk_nextPhS_.exit, %_ZL29lodepng_chunk_type_name_validPKh.exit.i, %19, %40, %.critedge.i.i, %3
+  %.2 = phi i32 [ 0, %3 ], [ 121, %.critedge.i.i ], [ 0, %_Z18lodepng_chunk_nextPhS_.exit ], [ 122, %_ZL29lodepng_chunk_type_name_validPKh.exit.i ], [ 77, %19 ], [ 83, %40 ]
   ret i32 %.2
 }
 
@@ -17103,8 +17103,8 @@ define internal fastcc noundef range(i32 0, 117) i32 @_ZL13addChunk_cICPP8ucvect
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %35)
   br label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
 
-_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %28, %18, %21, %14, %10, %6, %2, %32
-  %.0 = phi i32 [ 116, %14 ], [ 116, %2 ], [ 116, %6 ], [ 116, %10 ], [ 0, %32 ], [ 83, %28 ], [ 77, %18 ], [ 77, %21 ]
+_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %28, %21, %18, %14, %10, %6, %2, %32
+  %.0 = phi i32 [ 0, %32 ], [ 116, %2 ], [ 116, %6 ], [ 116, %10 ], [ 116, %14 ], [ 83, %28 ], [ 77, %21 ], [ 77, %18 ]
   ret i32 %.0
 }
 
@@ -17276,7 +17276,7 @@ define internal fastcc noundef range(i32 0, 119) i32 @_ZL13addChunk_mDCvP8ucvect
   br label %121
 
 121:                                              ; preds = %31, %27, %23, %19, %15, %11, %7, %2, %35, %37
-  %.0 = phi i32 [ %36, %35 ], [ 118, %2 ], [ 118, %7 ], [ 118, %11 ], [ 118, %15 ], [ 118, %19 ], [ 118, %23 ], [ 118, %27 ], [ 0, %37 ], [ 118, %31 ]
+  %.0 = phi i32 [ 0, %37 ], [ %36, %35 ], [ 118, %2 ], [ 118, %7 ], [ 118, %11 ], [ 118, %15 ], [ 118, %19 ], [ 118, %23 ], [ 118, %27 ], [ 118, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -17363,8 +17363,8 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_cLLiP8ucvecto
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %19)
   br label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
 
-_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %12, %2, %5, %16
-  %.1 = phi i32 [ 0, %16 ], [ 83, %12 ], [ 77, %2 ], [ 77, %5 ]
+_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %12, %5, %2, %16
+  %.1 = phi i32 [ 0, %16 ], [ 83, %12 ], [ 77, %5 ], [ 77, %2 ]
   ret i32 %.1
 }
 
@@ -17484,8 +17484,8 @@ _ZL14lodepng_memcpyPvPKvm.exit27:                 ; preds = %_ZL14lodepng_memcpy
   call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %41)
   br label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
 
-_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %17, %33, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread, %26, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, %_ZL14lodepng_memcpyPvPKvm.exit27
-  %.01842 = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit27 ], [ 83, %33 ], [ 77, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread ], [ 77, %26 ], [ %19, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 111, %17 ]
+_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %17, %33, %26, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, %_ZL14lodepng_memcpyPvPKvm.exit27
+  %.01842 = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit27 ], [ 83, %33 ], [ 77, %26 ], [ 77, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread ], [ %19, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 111, %17 ]
   %62 = load ptr, ptr %4, align 8, !tbaa !7
   call void @free(ptr noundef %62) #33
   br label %63
@@ -17549,7 +17549,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_sRGBP8ucvecto
   br label %_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit
 
 _ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit: ; preds = %1, %5, %12, %16
-  %.1.i = phi i32 [ 0, %16 ], [ 83, %12 ], [ 77, %1 ], [ 77, %5 ]
+  %.1.i = phi i32 [ 0, %16 ], [ 83, %12 ], [ 77, %5 ], [ 77, %1 ]
   ret i32 %.1.i
 }
 
@@ -17618,8 +17618,8 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_gAMAP8ucvecto
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %19)
   br label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
 
-_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %12, %2, %5, %16
-  %.1 = phi i32 [ 0, %16 ], [ 83, %12 ], [ 77, %2 ], [ 77, %5 ]
+_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %12, %5, %2, %16
+  %.1 = phi i32 [ 0, %16 ], [ 83, %12 ], [ 77, %5 ], [ 77, %2 ]
   ret i32 %.1
 }
 
@@ -17807,8 +17807,8 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_cHRMP8ucvecto
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %19)
   br label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
 
-_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %12, %2, %5, %16
-  %.1 = phi i32 [ 0, %16 ], [ 83, %12 ], [ 77, %2 ], [ 77, %5 ]
+_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %12, %5, %2, %16
+  %.1 = phi i32 [ 0, %16 ], [ 83, %12 ], [ 77, %5 ], [ 77, %2 ]
   ret i32 %.1
 }
 
@@ -17888,7 +17888,7 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvect
   br label %181
 
 .thread:                                          ; preds = %2, %6
-  %39 = phi i32 [ 8, %2 ], [ %9, %6 ]
+  %39 = phi i32 [ %9, %6 ], [ 8, %2 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 356
   %41 = load i32, ptr %40, align 4, !tbaa !502
   %42 = icmp eq i32 %41, 0
@@ -18142,8 +18142,8 @@ define internal fastcc noundef range(i32 0, 116) i32 @_ZL13addChunk_sBITP8ucvect
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %.0122.ph)
   br label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
 
-_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %157, %147, %150, %107, %97, %100, %65, %55, %58, %24, %14, %17, %6, %181, %125, %129, %133, %137, %94, %86, %90, %51, %.thread, %43, %47, %10
-  %.0 = phi i32 [ 77, %100 ], [ 115, %125 ], [ 0, %6 ], [ 115, %10 ], [ 115, %.thread ], [ 77, %17 ], [ 115, %51 ], [ 115, %86 ], [ 77, %58 ], [ 115, %94 ], [ 115, %47 ], [ 115, %43 ], [ 115, %90 ], [ 115, %137 ], [ 115, %133 ], [ 115, %129 ], [ 0, %181 ], [ 83, %24 ], [ 77, %14 ], [ 83, %65 ], [ 77, %55 ], [ 83, %107 ], [ 77, %97 ], [ 83, %157 ], [ 77, %147 ], [ 77, %150 ]
+_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %157, %150, %147, %107, %100, %97, %65, %58, %55, %24, %17, %14, %6, %181, %125, %129, %133, %137, %94, %86, %90, %51, %.thread, %43, %47, %10
+  %.0 = phi i32 [ 115, %10 ], [ 115, %47 ], [ 115, %43 ], [ 115, %.thread ], [ 115, %51 ], [ 115, %90 ], [ 115, %86 ], [ 115, %94 ], [ 115, %137 ], [ 115, %133 ], [ 115, %129 ], [ 115, %125 ], [ 0, %181 ], [ 0, %6 ], [ 83, %24 ], [ 77, %17 ], [ 77, %14 ], [ 83, %65 ], [ 77, %58 ], [ 77, %55 ], [ 83, %107 ], [ 77, %100 ], [ 77, %97 ], [ 83, %157 ], [ 77, %150 ], [ 77, %147 ]
   ret i32 %.0
 }
 
@@ -18216,7 +18216,7 @@ _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %.lr.ph.preheader.i.
   br label %_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit
 
 _ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit: ; preds = %1, %6, %13, %_ZL14lodepng_memcpyPvPKvm.exit.i
-  %.1.i = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit.i ], [ 83, %13 ], [ 77, %1 ], [ 77, %6 ]
+  %.1.i = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit.i ], [ 83, %13 ], [ 77, %6 ], [ 77, %1 ]
   ret i32 %.1.i
 }
 
@@ -18318,8 +18318,8 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %14, %.thread.i.i.i
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %26)
   br label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
 
-_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %18, %6, %11, %2, %._crit_edge
-  %.0 = phi i32 [ 68, %2 ], [ 0, %._crit_edge ], [ 83, %18 ], [ 77, %6 ], [ 77, %11 ]
+_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %18, %11, %6, %2, %._crit_edge
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 68, %2 ], [ 83, %18 ], [ 77, %11 ], [ 77, %6 ]
   ret i32 %.0
 }
 
@@ -18573,12 +18573,12 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %22, %.thread.i.i.i
   br label %.thread101
 
 .thread101:                                       ; preds = %47, %106, %73
-  %.1104 = phi ptr [ %76, %73 ], [ %109, %106 ], [ %34, %47 ]
+  %.1104 = phi ptr [ %109, %106 ], [ %76, %73 ], [ %34, %47 ]
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %.1104)
   br label %.thread105
 
-.thread105:                                       ; preds = %14, %4, %89, %56, %2, %102, %92, %95, %69, %59, %62, %26, %._crit_edge, %19, %.thread101
-  %.3 = phi i32 [ 77, %62 ], [ 77, %95 ], [ 0, %89 ], [ 0, %.thread101 ], [ 83, %26 ], [ 77, %._crit_edge ], [ 77, %19 ], [ 83, %69 ], [ 77, %59 ], [ 83, %102 ], [ 77, %92 ], [ 0, %2 ], [ 0, %56 ], [ 0, %4 ], [ 0, %14 ]
+.thread105:                                       ; preds = %14, %4, %89, %56, %2, %102, %95, %92, %69, %62, %59, %26, %19, %._crit_edge, %.thread101
+  %.3 = phi i32 [ 0, %.thread101 ], [ 83, %26 ], [ 77, %19 ], [ 77, %._crit_edge ], [ 83, %69 ], [ 77, %62 ], [ 77, %59 ], [ 83, %102 ], [ 77, %95 ], [ 77, %92 ], [ 0, %2 ], [ 0, %56 ], [ 0, %89 ], [ 0, %4 ], [ 0, %14 ]
   ret i32 %.3
 }
 
@@ -18782,8 +18782,8 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_bKGDP8ucvecto
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %.0.ph)
   br label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
 
-_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %91, %81, %84, %45, %35, %38, %15, %5, %8, %2, %107
-  %.1 = phi i32 [ 77, %38 ], [ 0, %2 ], [ 77, %8 ], [ 0, %107 ], [ 83, %15 ], [ 77, %5 ], [ 83, %45 ], [ 77, %35 ], [ 83, %91 ], [ 77, %81 ], [ 77, %84 ]
+_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %91, %84, %81, %45, %38, %35, %15, %8, %5, %2, %107
+  %.1 = phi i32 [ 0, %107 ], [ 0, %2 ], [ 83, %15 ], [ 77, %8 ], [ 77, %5 ], [ 83, %45 ], [ 77, %38 ], [ 77, %35 ], [ 83, %91 ], [ 77, %84 ], [ 77, %81 ]
   ret i32 %.1
 }
 
@@ -18874,8 +18874,8 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_pHYsP8ucvecto
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %19)
   br label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
 
-_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %12, %2, %5, %16
-  %.1 = phi i32 [ 0, %16 ], [ 83, %12 ], [ 77, %2 ], [ 77, %5 ]
+_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %12, %5, %2, %16
+  %.1 = phi i32 [ 0, %16 ], [ 83, %12 ], [ 77, %5 ], [ 77, %2 ]
   ret i32 %.1
 }
 
@@ -19032,8 +19032,8 @@ _ZL14lodepng_memcpyPvPKvm.exit.i:                 ; preds = %.lr.ph.preheader.i.
   call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %60)
   br label %_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit18
 
-_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit18: ; preds = %19, %.lr.ph54, %25, %9, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, %_ZL14lodepng_memcpyPvPKvm.exit.i, %51, %45, %._crit_edge
-  %.1 = phi i32 [ 77, %45 ], [ 0, %_ZL14lodepng_memcpyPvPKvm.exit.i ], [ 83, %51 ], [ 77, %._crit_edge ], [ %11, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 111, %9 ], [ 77, %.lr.ph54 ], [ 77, %19 ], [ 83, %25 ]
+_ZL21lodepng_chunk_createvP8ucvectormPKcPKh.exit18: ; preds = %.lr.ph54, %19, %25, %9, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, %_ZL14lodepng_memcpyPvPKvm.exit.i, %51, %45, %._crit_edge
+  %.1 = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit.i ], [ 83, %51 ], [ 77, %45 ], [ 77, %._crit_edge ], [ %11, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 111, %9 ], [ 83, %25 ], [ 77, %19 ], [ 77, %.lr.ph54 ]
   %73 = load ptr, ptr %5, align 8, !tbaa !7
   call void @free(ptr noundef %73) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -19123,8 +19123,8 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL13addChunk_tIMEP8ucvecto
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %19)
   br label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
 
-_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %12, %2, %5, %16
-  %.1 = phi i32 [ 0, %16 ], [ 83, %12 ], [ 77, %2 ], [ 77, %5 ]
+_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %12, %5, %2, %16
+  %.1 = phi i32 [ 0, %16 ], [ 83, %12 ], [ 77, %5 ], [ 77, %2 ]
   ret i32 %.1
 }
 
@@ -19237,8 +19237,8 @@ _ZL14lodepng_memcpyPvPKvm.exit29:                 ; preds = %_ZL14lodepng_memcpy
   call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %35)
   br label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
 
-_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %11, %27, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread, %20, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, %_ZL14lodepng_memcpyPvPKvm.exit29
-  %.01944 = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit29 ], [ 83, %27 ], [ 77, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread ], [ 77, %20 ], [ %13, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 111, %11 ]
+_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %11, %27, %20, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, %_ZL14lodepng_memcpyPvPKvm.exit29
+  %.01944 = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit29 ], [ 83, %27 ], [ 77, %20 ], [ 77, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread ], [ %13, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 111, %11 ]
   %55 = load ptr, ptr %5, align 8, !tbaa !7
   call void @free(ptr noundef %55) #33
   br label %56
@@ -19332,8 +19332,8 @@ _ZL14lodepng_memcpyPvPKvm.exit24:                 ; preds = %_ZL14lodepng_memcpy
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %26)
   br label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
 
-_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %18, %5, %11, %3, %_ZL14lodepng_memcpyPvPKvm.exit24
-  %.0 = phi i32 [ 89, %3 ], [ 0, %_ZL14lodepng_memcpyPvPKvm.exit24 ], [ 83, %18 ], [ 77, %5 ], [ 77, %11 ]
+_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %18, %11, %5, %3, %_ZL14lodepng_memcpyPvPKvm.exit24
+  %.0 = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit24 ], [ 89, %3 ], [ 83, %18 ], [ 77, %11 ], [ 77, %5 ]
   ret i32 %.0
 }
 
@@ -19496,8 +19496,8 @@ _ZL14lodepng_memcpyPvPKvm.exit65:                 ; preds = %.lr.ph.preheader.i6
   call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %42)
   br label %_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread
 
-_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %15, %34, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread, %27, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, %_ZL14lodepng_memcpyPvPKvm.exit65
-  %.190 = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit65 ], [ 83, %34 ], [ 77, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread ], [ 77, %27 ], [ %17, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 111, %15 ]
+_ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit.thread: ; preds = %15, %34, %27, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit, %_ZL14lodepng_memcpyPvPKvm.exit65
+  %.190 = phi i32 [ 0, %_ZL14lodepng_memcpyPvPKvm.exit65 ], [ 83, %34 ], [ 77, %27 ], [ 77, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit.thread ], [ %17, %_ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit ], [ 111, %15 ]
   %75 = load ptr, ptr %8, align 8, !tbaa !7
   call void @free(ptr noundef %75) #33
   br label %76
@@ -19821,7 +19821,7 @@ define noundef range(i32 0, 79) i32 @_ZN7lodepng9load_fileERSt6vectorIhSaIhEERKN
   br label %_ZN7lodepngL10load_file_ERSt6vectorIhSaIhEEP8_IO_FILE.exit
 
 _ZN7lodepngL10load_file_ERSt6vectorIhSaIhEEP8_IO_FILE.exit: ; preds = %5, %7, %10, %13, %15
-  %.0.i = phi i32 [ 0, %13 ], [ 78, %10 ], [ %..i, %15 ], [ 78, %7 ], [ 78, %5 ]
+  %.0.i = phi i32 [ 0, %13 ], [ %..i, %15 ], [ 78, %5 ], [ 78, %7 ], [ 78, %10 ]
   %28 = tail call i32 @fclose(ptr noundef nonnull %4)
   br label %29
 
@@ -19899,7 +19899,7 @@ define noundef i32 @_ZN7lodepng10decompressERSt6vectorIhSaIhEEPKhmRK25LodePNGDec
   br label %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit
 
 _ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exitthread-pre-split: ; preds = %15, %12, %10
-  %.0.i.ph = phi i32 [ 0, %10 ], [ 110, %12 ], [ %spec.select.i, %15 ]
+  %.0.i.ph = phi i32 [ %spec.select.i, %15 ], [ 0, %10 ], [ 110, %12 ]
   %.pr = load ptr, ptr %6, align 8, !tbaa !7
   br label %_ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit
 
@@ -19999,7 +19999,7 @@ _ZL15ucvector_resizeP8ucvectorm.exit:             ; preds = %23, %26, %.thread.i
   br label %35
 
 35:                                               ; preds = %15, %10, %12, %31
-  %.0 = phi i32 [ %32, %31 ], [ %spec.select, %15 ], [ 110, %12 ], [ 0, %10 ]
+  %.0 = phi i32 [ 110, %12 ], [ 0, %10 ], [ %32, %31 ], [ %spec.select, %15 ]
   ret i32 %.0
 }
 
@@ -21354,7 +21354,7 @@ _ZL21HuffmanTree_makeTableP11HuffmanTree.exit.sink.split: ; preds = %80, %.crite
   br label %_ZL21HuffmanTree_makeTableP11HuffmanTree.exit
 
 _ZL21HuffmanTree_makeTableP11HuffmanTree.exit:    ; preds = %142, %131, %188, %186, %184, %_ZL21HuffmanTree_makeTableP11HuffmanTree.exit.sink.split, %.preheader.i, %.preheader165.i, %._crit_edge
-  %.154 = phi i32 [ 83, %_ZL21HuffmanTree_makeTableP11HuffmanTree.exit.sink.split ], [ 55, %188 ], [ 0, %.preheader165.i ], [ 0, %.preheader.i ], [ 83, %._crit_edge ], [ 55, %131 ], [ 0, %184 ], [ 0, %186 ], [ 55, %142 ]
+  %.154 = phi i32 [ 83, %._crit_edge ], [ 0, %.preheader.i ], [ 0, %.preheader165.i ], [ 83, %_ZL21HuffmanTree_makeTableP11HuffmanTree.exit.sink.split ], [ 0, %184 ], [ 0, %186 ], [ 55, %188 ], [ 55, %131 ], [ 55, %142 ]
   ret i32 %.154
 }
 
@@ -21807,8 +21807,8 @@ _ZL15updateHashChainP4Hashmjt.exit:               ; preds = %97, %105
   br i1 %exitcond.not, label %._crit_edge, label %118, !llvm.loop !801
 
 ._crit_edge:                                      ; preds = %168, %118, %149, %150, %156, %164, %_ZL15updateHashChainP4Hashmjt.exit
-  %.1202 = phi i32 [ 0, %_ZL15updateHashChainP4Hashmjt.exit ], [ %.0201299, %118 ], [ %124, %149 ], [ %.2203, %150 ], [ %.2203, %156 ], [ %.2203, %164 ], [ %.2203, %168 ]
-  %.1198 = phi i32 [ 0, %_ZL15updateHashChainP4Hashmjt.exit ], [ %.0197300, %118 ], [ %147, %149 ], [ %.2199, %150 ], [ %.2199, %156 ], [ %.2199, %164 ], [ %.2199, %168 ]
+  %.1202 = phi i32 [ 0, %_ZL15updateHashChainP4Hashmjt.exit ], [ %.2203, %164 ], [ %.2203, %156 ], [ %.2203, %150 ], [ %124, %149 ], [ %.0201299, %118 ], [ %.2203, %168 ]
+  %.1198 = phi i32 [ 0, %_ZL15updateHashChainP4Hashmjt.exit ], [ %.2199, %164 ], [ %.2199, %156 ], [ %.2199, %150 ], [ %147, %149 ], [ %.0197300, %118 ], [ %.2199, %168 ]
   br i1 %.not233, label %.thread, label %170
 
 170:                                              ; preds = %._crit_edge
@@ -22230,17 +22230,17 @@ _ZL15updateHashChainP4Hashmjt.exit273:            ; preds = %364, %370
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZL15updateHashChainP4Hashmjt.exit273, %.loopexit.sink.split, %173
-  %.2207 = phi i32 [ %.1206, %.loopexit.sink.split ], [ %.1206, %173 ], [ %.5, %_ZL15updateHashChainP4Hashmjt.exit273 ]
-  %.2196 = phi i32 [ %.1195, %.loopexit.sink.split ], [ 1, %173 ], [ %.1195, %_ZL15updateHashChainP4Hashmjt.exit273 ]
-  %.1193 = phi i32 [ %.0192329, %.loopexit.sink.split ], [ %.1198, %173 ], [ %.0192329, %_ZL15updateHashChainP4Hashmjt.exit273 ]
-  %.1191 = phi i32 [ %.0190330, %.loopexit.sink.split ], [ %.1202, %173 ], [ %.0190330, %_ZL15updateHashChainP4Hashmjt.exit273 ]
-  %.2 = phi i64 [ %.1189, %.loopexit.sink.split ], [ %.0188331, %173 ], [ %299, %_ZL15updateHashChainP4Hashmjt.exit273 ]
+  %.2207 = phi i32 [ %.1206, %173 ], [ %.1206, %.loopexit.sink.split ], [ %.5, %_ZL15updateHashChainP4Hashmjt.exit273 ]
+  %.2196 = phi i32 [ 1, %173 ], [ %.1195, %.loopexit.sink.split ], [ %.1195, %_ZL15updateHashChainP4Hashmjt.exit273 ]
+  %.1193 = phi i32 [ %.1198, %173 ], [ %.0192329, %.loopexit.sink.split ], [ %.0192329, %_ZL15updateHashChainP4Hashmjt.exit273 ]
+  %.1191 = phi i32 [ %.1202, %173 ], [ %.0190330, %.loopexit.sink.split ], [ %.0190330, %_ZL15updateHashChainP4Hashmjt.exit273 ]
+  %.2 = phi i64 [ %.0188331, %173 ], [ %.1189, %.loopexit.sink.split ], [ %299, %_ZL15updateHashChainP4Hashmjt.exit273 ]
   %376 = add i64 %.2, 1
   %377 = icmp ult i64 %376, %4
   br i1 %377, label %30, label %.thread283, !llvm.loop !804
 
 .thread283:                                       ; preds = %.loopexit, %177, %.thread, %192, %216, %236, %18, %15, %9
-  %.0186 = phi i32 [ 90, %15 ], [ 60, %9 ], [ 0, %18 ], [ 83, %216 ], [ 0, %.loopexit ], [ 83, %192 ], [ 81, %177 ], [ 86, %.thread ], [ 83, %236 ]
+  %.0186 = phi i32 [ 60, %9 ], [ 90, %15 ], [ 0, %18 ], [ 0, %.loopexit ], [ 81, %177 ], [ 86, %.thread ], [ 83, %192 ], [ 83, %216 ], [ 83, %236 ]
   ret i32 %.0186
 }
 
@@ -22663,7 +22663,7 @@ define internal fastcc noundef range(i32 0, 84) i32 @_ZL18lodepng_chunk_initPPhP
   br label %_ZL15ucvector_resizeP8ucvectorm.exit
 
 _ZL15ucvector_resizeP8ucvectorm.exit:             ; preds = %15, %8, %4, %19
-  %.0 = phi i32 [ 77, %8 ], [ 77, %4 ], [ 0, %19 ], [ 83, %15 ]
+  %.0 = phi i32 [ 0, %19 ], [ 77, %4 ], [ 77, %8 ], [ 83, %15 ]
   ret i32 %.0
 }
 
@@ -23001,8 +23001,8 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   br i1 %214, label %.lr.ph834.i, label %.loopexit725.i, !llvm.loop !818
 
 .loopexit725.i:                                   ; preds = %.lr.ph834.i, %.lr.ph839.i, %.lr.ph844.i, %183, %.preheader726.i, %.preheader724.i, %.preheader730.i
-  %.1560.i = phi i64 [ 0, %183 ], [ %134, %.lr.ph844.i ], [ 0, %.preheader730.i ], [ 0, %.preheader724.i ], [ 0, %.preheader726.i ], [ %180, %.lr.ph839.i ], [ %212, %.lr.ph834.i ]
-  %.7.i = phi i64 [ %8, %183 ], [ %133, %.lr.ph844.i ], [ 0, %.preheader730.i ], [ %8, %.preheader724.i ], [ 3, %.preheader726.i ], [ %179, %.lr.ph839.i ], [ %211, %.lr.ph834.i ]
+  %.1560.i = phi i64 [ 0, %183 ], [ 0, %.preheader724.i ], [ 0, %.preheader726.i ], [ 0, %.preheader730.i ], [ %134, %.lr.ph844.i ], [ %180, %.lr.ph839.i ], [ %212, %.lr.ph834.i ]
+  %.7.i = phi i64 [ %8, %183 ], [ %8, %.preheader724.i ], [ 3, %.preheader726.i ], [ 0, %.preheader730.i ], [ %133, %.lr.ph844.i ], [ %179, %.lr.ph839.i ], [ %211, %.lr.ph834.i ]
   %.not634847.i = icmp eq i64 %.7.i, %18
   br i1 %.not634847.i, label %.loopexit, label %.lr.ph851.i
 
@@ -23766,7 +23766,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   br i1 %.not627.i, label %.loopexit736.i, label %.lr.ph816.i, !llvm.loop !828
 
 .loopexit736.i:                                   ; preds = %.lr.ph758.i, %.lr.ph767.i, %.lr.ph778.i, %.lr.ph793.i, %.lr.ph812.i, %.lr.ph816.i, %.preheader737.i, %.preheader739.i, %.preheader741.i, %.preheader743.i, %.preheader745.i, %.preheader747.i, %244
-  %.14.i = phi i64 [ %8, %.lr.ph816.i ], [ %412, %.lr.ph812.i ], [ %540, %.lr.ph793.i ], [ %626, %.lr.ph778.i ], [ 0, %.preheader747.i ], [ %691, %.lr.ph767.i ], [ 0, %244 ], [ 0, %.preheader737.i ], [ 0, %.preheader739.i ], [ 0, %.preheader741.i ], [ 0, %.preheader743.i ], [ 0, %.preheader745.i ], [ %735, %.lr.ph758.i ]
+  %.14.i = phi i64 [ 0, %.preheader737.i ], [ 0, %.preheader739.i ], [ 0, %.preheader741.i ], [ 0, %.preheader743.i ], [ 0, %.preheader745.i ], [ 0, %.preheader747.i ], [ 0, %244 ], [ %8, %.lr.ph816.i ], [ %412, %.lr.ph812.i ], [ %540, %.lr.ph793.i ], [ %626, %.lr.ph778.i ], [ %691, %.lr.ph767.i ], [ %735, %.lr.ph758.i ]
   %.not629818.i = icmp eq i64 %.14.i, %18
   br i1 %.not629818.i, label %.loopexit, label %.lr.ph820.i
 
@@ -23832,7 +23832,7 @@ define internal fastcc noundef range(i32 0, 37) i32 @_ZL8unfilterPhPKhjjj(ptr no
   %.not626.i = icmp eq i64 %802, %18
   br i1 %.not626.i, label %.loopexit, label %.lr.ph827.i, !llvm.loop !831
 
-.loopexit:                                        ; preds = %.lr.ph.i, %.lr.ph820.i, %.lr.ph827.i, %.lr.ph851.i, %.lr.ph858.i, %.lr.ph861.i, %.lr.ph864.i, %.lr.ph871.i, %.lr.ph874.i, %.preheader720.i, %.preheader716.i, %.preheader718.i, %.preheader731.i, %.loopexit725.i, %.preheader713.i, %.preheader.i, %.loopexit736.i
+.loopexit:                                        ; preds = %.lr.ph.i, %.lr.ph820.i, %.lr.ph827.i, %.lr.ph851.i, %.lr.ph858.i, %.lr.ph861.i, %.lr.ph864.i, %.lr.ph871.i, %.lr.ph874.i, %.preheader.i, %.preheader713.i, %.preheader716.i, %.preheader718.i, %.preheader720.i, %.loopexit725.i, %.preheader731.i, %.loopexit736.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZL16unfilterScanlinePhPKhS1_mhm.exit, label %34, !llvm.loop !832
@@ -24203,7 +24203,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %5, %switch.lookup
   br i1 %.not300, label %.loopexit8, label %.lr.ph67, !llvm.loop !839
 
 .loopexit8:                                       ; preds = %.lr.ph67, %.lr.ph71, %.preheader9, %.preheader
-  %.1259 = phi i64 [ %68, %.lr.ph71 ], [ 0, %.preheader ], [ 0, %.preheader9 ], [ %79, %.lr.ph67 ]
+  %.1259 = phi i64 [ 0, %.preheader ], [ 0, %.preheader9 ], [ %68, %.lr.ph71 ], [ %79, %.lr.ph67 ]
   %82 = icmp ult i64 %.1259, %.126873
   %or.cond305 = select i1 %63, i1 true, i1 %82
   %.2269 = select i1 %or.cond305, i64 %.1259, i64 %.126873
@@ -24582,7 +24582,7 @@ _ZL13zlib_compressPPhPmPKhmPK23LodePNGCompressSettings.exit: ; preds = %196, %19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %170, %.lr.ph90, %.preheader17, %.thread3, %.thread, %169, %220, %99, %48, %37
-  %.0 = phi i32 [ 31, %37 ], [ 88, %48 ], [ %spec.select308, %220 ], [ %spec.select, %99 ], [ %spec.select306, %169 ], [ 0, %.thread3 ], [ 31, %.thread ], [ 0, %.preheader17 ], [ 0, %.lr.ph90 ], [ 0, %170 ]
+  %.0 = phi i32 [ 31, %37 ], [ 88, %48 ], [ %spec.select, %99 ], [ %spec.select306, %169 ], [ %spec.select308, %220 ], [ 31, %.thread ], [ 0, %.thread3 ], [ 0, %.preheader17 ], [ 0, %.lr.ph90 ], [ 0, %170 ]
   ret i32 %.0
 }
 
@@ -24887,7 +24887,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
+  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !779
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 

@@ -701,7 +701,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %7, %_
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %21, %26, %31, %34
-  %.sink46.i = phi i32 [ -1, %34 ], [ %14, %26 ], [ %16, %21 ], [ %16, %31 ]
+  %.sink46.i = phi i32 [ -1, %34 ], [ %16, %21 ], [ %14, %26 ], [ %16, %31 ]
   ret i32 %.sink46.i
 }
 
@@ -734,8 +734,8 @@ define hidden void @_ZN2cv4gapi6detail11checkVectorERKNS_8GMatDescE(ptr dead_on_
   br label %_ZL15checkVectorImpliiii.exit
 
 _ZL15checkVectorImpliiii.exit:                    ; preds = %12, %10, %2
-  %.sink46.i = phi i32 [ %spec.select, %12 ], [ %6, %2 ], [ %4, %10 ]
-  %.sink44.i = phi i32 [ %spec.select3, %12 ], [ %8, %2 ], [ %8, %10 ]
+  %.sink46.i = phi i32 [ %6, %2 ], [ %4, %10 ], [ %spec.select, %12 ]
+  %.sink44.i = phi i32 [ %8, %2 ], [ %8, %10 ], [ %spec.select3, %12 ]
   %14 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21, !noalias !44
   store ptr %14, ptr %0, align 8, !tbaa !47, !alias.scope !44
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -813,7 +813,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc20
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.noexc20, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
-  %.0.i.i.i.i.i.ph = phi ptr [ %28, %.noexc20 ], [ %31, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i.ph = phi ptr [ %31, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %28, %.noexc20 ]
   %32 = zext nneg i32 %6 to i64
   br label %.lr.ph
 
@@ -1146,7 +1146,7 @@ _ZN2cv8GMatDescD2Ev.exit.i:                       ; preds = %61, %_ZNSt6vectorIN
   br label %.body.i
 
 .body.i:                                          ; preds = %68, %65, %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-  %.pn.i = phi { ptr, i32 } [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %64, %63 ], [ %66, %65 ], [ %66, %68 ]
+  %.pn.i = phi { ptr, i32 } [ %64, %63 ], [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %66, %65 ], [ %66, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !74
   br label %69
 
@@ -1265,7 +1265,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc11.
   br label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i, %.noexc11.i
-  %.0.i.i.i.i.i.ph.i.i = phi ptr [ %47, %.noexc11.i ], [ %50, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.ph.i.i = phi ptr [ %50, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i ], [ %47, %.noexc11.i ]
   %51 = zext nneg i32 %29 to i64
   br label %.lr.ph.i.i
 
@@ -1360,7 +1360,7 @@ _ZN2cv8GMatDescD2Ev.exit.i:                       ; preds = %69, %_ZNSt6vectorIN
   br label %_ZN2cv8GMatDescD2Ev.exit17.i
 
 _ZN2cv8GMatDescD2Ev.exit17.i:                     ; preds = %74, %71, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn.i = phi { ptr, i32 } [ %72, %74 ], [ %72, %71 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.i = phi { ptr, i32 } [ %72, %71 ], [ %72, %74 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !92
   br label %75
 
@@ -1539,7 +1539,7 @@ _ZN2cv8GMatDescD2Ev.exit.i:                       ; preds = %60, %_ZNSt6vectorIN
   br label %_ZN2cv8GMatDescD2Ev.exit14.i
 
 _ZN2cv8GMatDescD2Ev.exit14.i:                     ; preds = %65, %62, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn.i = phi { ptr, i32 } [ %63, %65 ], [ %63, %62 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.i = phi { ptr, i32 } [ %63, %62 ], [ %63, %65 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !103
   br label %66
 
@@ -1778,7 +1778,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc20.
   br label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i, %.noexc20.i.i
-  %.0.i.i.i.i.i.ph.i.i = phi ptr [ %34, %.noexc20.i.i ], [ %37, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.ph.i.i = phi ptr [ %37, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i ], [ %34, %.noexc20.i.i ]
   %38 = zext nneg i32 %12 to i64
   br label %.lr.ph.i.i
 
@@ -1885,7 +1885,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i20.i: ; preds = %.noexc2
   br label %.lr.ph.preheader.i22.i
 
 .lr.ph.preheader.i22.i:                           ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i20.i, %.noexc20.i19.i
-  %.0.i.i.i.i.i.ph.i23.i = phi ptr [ %79, %.noexc20.i19.i ], [ %82, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i20.i ]
+  %.0.i.i.i.i.i.ph.i23.i = phi ptr [ %82, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i20.i ], [ %79, %.noexc20.i19.i ]
   %83 = zext nneg i32 %57 to i64
   br label %.lr.ph.i24.i
 

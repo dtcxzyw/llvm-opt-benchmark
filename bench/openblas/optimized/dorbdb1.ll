@@ -89,8 +89,8 @@ define void @dorbdb1_(ptr noundef readonly captures(none) %0, ptr noundef readon
   br i1 %or.cond, label %.thread, label %.thread273
 
 .thread273:                                       ; preds = %54, %50, %47, %45, %39, %15
-  %.sink = phi i32 [ -1, %15 ], [ -3, %45 ], [ -5, %47 ], [ -2, %39 ], [ -7, %50 ], [ -14, %54 ]
-  %.neg = phi i32 [ 1, %15 ], [ 3, %45 ], [ 5, %47 ], [ 2, %39 ], [ 7, %50 ], [ 14, %54 ]
+  %.sink = phi i32 [ -1, %15 ], [ -2, %39 ], [ -3, %45 ], [ -5, %47 ], [ -7, %50 ], [ -14, %54 ]
+  %.neg = phi i32 [ 1, %15 ], [ 2, %39 ], [ 3, %45 ], [ 5, %47 ], [ 7, %50 ], [ 14, %54 ]
   store i32 %.sink, ptr %14, align 4, !tbaa !3
   store i32 %.neg, ptr %16, align 4, !tbaa !3
   %65 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %16, i32 noundef 7) #6

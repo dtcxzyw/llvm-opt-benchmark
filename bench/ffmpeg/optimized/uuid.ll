@@ -66,7 +66,7 @@ define range(i32 -22, 1) i32 @av_uuid_parse(ptr noundef readonly captures(none) 
   br i1 %exitcond.not.i, label %av_uuid_parse_range.exit, label %.preheader.i, !llvm.loop !7
 
 av_uuid_parse_range.exit:                         ; preds = %26, %.preheader.i, %2
-  %.0 = phi i32 [ -22, %2 ], [ -22, %.preheader.i ], [ 0, %26 ]
+  %.0 = phi i32 [ -22, %2 ], [ 0, %26 ], [ -22, %.preheader.i ]
   ret i32 %.0
 }
 
@@ -250,7 +250,7 @@ define range(i32 -22, 1) i32 @av_uuid_urn_parse(ptr noundef %0, ptr noundef writ
   br i1 %exitcond.not.i.i, label %av_uuid_parse.exit, label %.preheader.i.i, !llvm.loop !7
 
 av_uuid_parse.exit:                               ; preds = %29, %.preheader.i.i, %4, %2
-  %.0 = phi i32 [ -22, %2 ], [ -22, %4 ], [ 0, %29 ], [ -22, %.preheader.i.i ]
+  %.0 = phi i32 [ -22, %2 ], [ -22, %4 ], [ -22, %.preheader.i.i ], [ 0, %29 ]
   ret i32 %.0
 }
 

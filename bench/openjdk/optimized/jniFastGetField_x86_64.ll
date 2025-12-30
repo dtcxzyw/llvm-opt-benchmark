@@ -697,7 +697,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %95, %102
   br label %125
 
 125:                                              ; preds = %123, %121
-  %.046 = phi ptr [ %124, %123 ], [ %122, %121 ]
+  %.046 = phi ptr [ %122, %121 ], [ %124, %123 ]
   %.not.i.i47 = icmp eq ptr %.046, null
   %126 = select i1 %.not.i.i47, i32 0, i32 7
   call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef %.046, i32 noundef %126) #9

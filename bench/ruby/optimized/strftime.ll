@@ -2632,7 +2632,7 @@ resize_buffer.exit2563.thread:                    ; preds = %1185, %resize_buffe
   unreachable
 
 buffer_size_check.exit2565:                       ; preds = %resize_buffer.exit2563, %1170, %1165
-  %.14 = phi ptr [ %1167, %1165 ], [ %87, %1170 ], [ %1194, %resize_buffer.exit2563 ]
+  %.14 = phi ptr [ %87, %1170 ], [ %1167, %1165 ], [ %1194, %resize_buffer.exit2563 ]
   %1196 = load ptr, ptr %13, align 8, !tbaa !17
   %1197 = ptrtoint ptr %.14 to i64
   %1198 = ptrtoint ptr %1196 to i64
@@ -2689,7 +2689,7 @@ rbimpl_intern_const.exit2573:                     ; preds = %.lr.ph.i2571, %1208
   br label %rb_num2long_inline.exit
 
 rb_num2long_inline.exit:                          ; preds = %1215, %1213
-  %.01883 = phi i64 [ %1216, %1215 ], [ %1214, %1213 ]
+  %.01883 = phi i64 [ %1214, %1213 ], [ %1216, %1215 ]
   %1217 = icmp slt i64 %.01883, 0
   br i1 %1217, label %1220, label %.thread
 
@@ -2827,15 +2827,15 @@ rb_num2long_inline.exit:                          ; preds = %1215, %1213
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1276, %1272, %1248, %1243, %1238, %1233, %1228, %1223, %1290, %1266
-  %.sink4621 = phi i64 [ %1268, %1266 ], [ %1292, %1290 ], [ %1247, %1243 ], [ %1237, %1233 ], [ %1227, %1223 ], [ %1227, %1228 ], [ %1237, %1238 ], [ %1247, %1248 ], [ %1275, %1276 ], [ %1275, %1272 ]
-  %.21893.ph = phi i32 [ %1259, %1266 ], [ %1283, %1290 ], [ %1245, %1243 ], [ %1235, %1233 ], [ %1225, %1223 ], [ %1225, %1228 ], [ %1235, %1238 ], [ %1245, %1248 ], [ %1274, %1276 ], [ %1274, %1272 ]
+  %.sink4621 = phi i64 [ %1268, %1266 ], [ %1292, %1290 ], [ %1227, %1228 ], [ %1227, %1223 ], [ %1237, %1238 ], [ %1237, %1233 ], [ %1247, %1248 ], [ %1247, %1243 ], [ %1275, %1276 ], [ %1275, %1272 ]
+  %.21893.ph = phi i32 [ %1259, %1266 ], [ %1283, %1290 ], [ %1225, %1228 ], [ %1225, %1223 ], [ %1235, %1238 ], [ %1235, %1233 ], [ %1245, %1248 ], [ %1245, %1243 ], [ %1274, %1276 ], [ %1274, %1272 ]
   %1293 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %87, ptr noundef %13, ptr noundef %14, i64 noundef %.sink4621, i64 noundef %9)
   call fastcc void @buffer_size_check(ptr noundef %1293, ptr noundef nonnull %29, i64 noundef %2, ptr noundef %.01872)
   br label %1294
 
 1294:                                             ; preds = %.sink.split, %1260, %1284, %1276, %1248, %1238, %1228
-  %.21893 = phi i32 [ %1274, %1276 ], [ %1225, %1228 ], [ %1259, %1260 ], [ %1235, %1238 ], [ %1283, %1284 ], [ %1245, %1248 ], [ %.21893.ph, %.sink.split ]
-  %.15 = phi ptr [ %87, %1276 ], [ %87, %1228 ], [ %87, %1260 ], [ %87, %1238 ], [ %87, %1284 ], [ %87, %1248 ], [ %1293, %.sink.split ]
+  %.21893 = phi i32 [ %1225, %1228 ], [ %1235, %1238 ], [ %1245, %1248 ], [ %1259, %1260 ], [ %1274, %1276 ], [ %1283, %1284 ], [ %.21893.ph, %.sink.split ]
+  %.15 = phi ptr [ %87, %1228 ], [ %87, %1238 ], [ %87, %1248 ], [ %87, %1260 ], [ %87, %1276 ], [ %87, %1284 ], [ %1293, %.sink.split ]
   %1295 = load ptr, ptr %14, align 8, !tbaa !17
   %1296 = ptrtoint ptr %1295 to i64
   %1297 = ptrtoint ptr %.15 to i64
@@ -4565,7 +4565,7 @@ resize_buffer.exit2789.thread:                    ; preds = %2077, %resize_buffe
   unreachable
 
 buffer_size_check.exit2791:                       ; preds = %resize_buffer.exit2789, %2062, %2057
-  %.28 = phi ptr [ %2059, %2057 ], [ %87, %2062 ], [ %2086, %resize_buffer.exit2789 ]
+  %.28 = phi ptr [ %87, %2062 ], [ %2059, %2057 ], [ %2086, %resize_buffer.exit2789 ]
   %2088 = load ptr, ptr %13, align 8, !tbaa !17
   %2089 = ptrtoint ptr %.28 to i64
   %2090 = ptrtoint ptr %2088 to i64
@@ -5143,7 +5143,7 @@ resize_buffer.exit2850.thread:                    ; preds = %2365, %resize_buffe
   unreachable
 
 buffer_size_check.exit2852:                       ; preds = %resize_buffer.exit2850, %2350, %2345
-  %.31 = phi ptr [ %2347, %2345 ], [ %87, %2350 ], [ %2374, %resize_buffer.exit2850 ]
+  %.31 = phi ptr [ %87, %2350 ], [ %2347, %2345 ], [ %2374, %resize_buffer.exit2850 ]
   %2376 = load ptr, ptr %13, align 8, !tbaa !17
   %2377 = ptrtoint ptr %.31 to i64
   %2378 = ptrtoint ptr %2376 to i64
@@ -5646,11 +5646,11 @@ buffer_size_check.exit2906:                       ; preds = %resize_buffer.exit2
   br label %.backedge
 
 .backedge:                                        ; preds = %2592, %2597, %2601, %.split.loop.exit4619, %2102, %2107, %2603, %2614
-  %.01906.be = phi i8 [ %.11907, %2614 ], [ %.019063480, %2102 ], [ %.019063480, %2107 ], [ 0, %2592 ], [ %.019063480, %2597 ], [ %.019063480, %2601 ], [ 32, %2603 ], [ %.019063480, %.split.loop.exit4619 ]
-  %.01904.be = phi i32 [ %.019043481, %2614 ], [ %.019043481, %2102 ], [ %.019043481, %2107 ], [ %.019043481, %2592 ], [ %.019043481, %2597 ], [ %.019043481, %2601 ], [ %.019043481, %2603 ], [ %.11905.lcssa, %.split.loop.exit4619 ]
-  %.01896.be = phi i32 [ %.018963482, %2614 ], [ %.018963482, %2102 ], [ %.018963482, %2107 ], [ %2593, %2592 ], [ %2598, %2597 ], [ %2602, %2601 ], [ %.018963482, %2603 ], [ %.018963482, %.split.loop.exit4619 ]
-  %.01891.be = phi i32 [ %2621, %2614 ], [ %.018913483, %2102 ], [ %.018913483, %2107 ], [ 0, %2592 ], [ %.018913483, %2597 ], [ %.018913483, %2601 ], [ %.018913483, %2603 ], [ %.018913483, %.split.loop.exit4619 ]
-  %.2.be = phi ptr [ %2623, %2614 ], [ %90, %2102 ], [ %90, %2107 ], [ %90, %2592 ], [ %90, %2597 ], [ %90, %2601 ], [ %90, %2603 ], [ %2612, %.split.loop.exit4619 ]
+  %.01906.be = phi i8 [ %.019063480, %2102 ], [ %.019063480, %2107 ], [ 0, %2592 ], [ %.019063480, %2597 ], [ %.019063480, %2601 ], [ %.019063480, %.split.loop.exit4619 ], [ %.11907, %2614 ], [ 32, %2603 ]
+  %.01904.be = phi i32 [ %.019043481, %2102 ], [ %.019043481, %2107 ], [ %.019043481, %2592 ], [ %.019043481, %2597 ], [ %.019043481, %2601 ], [ %.11905.lcssa, %.split.loop.exit4619 ], [ %.019043481, %2614 ], [ %.019043481, %2603 ]
+  %.01896.be = phi i32 [ %.018963482, %2102 ], [ %.018963482, %2107 ], [ %2593, %2592 ], [ %2598, %2597 ], [ %2602, %2601 ], [ %.018963482, %.split.loop.exit4619 ], [ %.018963482, %2614 ], [ %.018963482, %2603 ]
+  %.01891.be = phi i32 [ %.018913483, %2102 ], [ %.018913483, %2107 ], [ 0, %2592 ], [ %.018913483, %2597 ], [ %.018913483, %2601 ], [ %.018913483, %.split.loop.exit4619 ], [ %2621, %2614 ], [ %.018913483, %2603 ]
+  %.2.be = phi ptr [ %90, %2102 ], [ %90, %2107 ], [ %90, %2592 ], [ %90, %2597 ], [ %90, %2601 ], [ %2612, %.split.loop.exit4619 ], [ %2623, %2614 ], [ %90, %2603 ]
   %2594 = getelementptr i8, ptr %.2.be, i64 1
   %.not2078 = icmp ult ptr %2594, %29
   br i1 %.not2078, label %.lr.ph, label %.loopexit
@@ -5726,31 +5726,31 @@ buffer_size_check.exit2906:                       ; preds = %resize_buffer.exit2
   br i1 %or.cond44, label %.loopexit, label %.backedge
 
 .loopexit:                                        ; preds = %.backedge, %2102, %2099, %2107, %2104, %2590, %2595, %2599, %2603, %.lr.ph, %2614, %2606, %.preheader, %.preheader3171, %.thread
-  %.3 = phi ptr [ %89, %.preheader3171 ], [ %.23484, %.thread ], [ %90, %2606 ], [ %90, %.preheader ], [ %2594, %.backedge ], [ %90, %2102 ], [ %90, %2099 ], [ %90, %2107 ], [ %90, %2104 ], [ %90, %2590 ], [ %90, %2595 ], [ %90, %2599 ], [ %90, %2603 ], [ %90, %.lr.ph ], [ %90, %2614 ]
+  %.3 = phi ptr [ %.23484, %.thread ], [ %89, %.preheader3171 ], [ %90, %.preheader ], [ %90, %2606 ], [ %2594, %.backedge ], [ %90, %2102 ], [ %90, %2099 ], [ %90, %2107 ], [ %90, %2104 ], [ %90, %2590 ], [ %90, %2595 ], [ %90, %2599 ], [ %90, %2603 ], [ %90, %.lr.ph ], [ %90, %2614 ]
   %2624 = ptrtoint ptr %.3 to i64
   %reass.sub = sub i64 %2624, %58
   %2625 = add i64 %reass.sub, 1
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader3162, %RSTRING_PTR.exit2583, %1382, %183, %156, %.loopexit
-  %.21912 = phi i64 [ %.019103521, %.loopexit ], [ %.31913, %1382 ], [ %.31913, %RSTRING_PTR.exit2583 ], [ %.019103521, %183 ], [ %.019103521, %156 ], [ %.31913, %.preheader3162 ]
-  %.21908 = phi i8 [ 0, %.loopexit ], [ %.019063480, %1382 ], [ %.019063480, %RSTRING_PTR.exit2583 ], [ %.019063480, %183 ], [ %.019063480, %156 ], [ %.019063480, %.preheader3162 ]
-  %.21898 = phi i32 [ 0, %.loopexit ], [ %.71903, %1382 ], [ %.71903, %RSTRING_PTR.exit2583 ], [ %.51901, %183 ], [ %.31899, %156 ], [ %.71903, %.preheader3162 ]
-  %.11892 = phi i32 [ -1, %.loopexit ], [ %.018913483, %1382 ], [ %.018913483, %RSTRING_PTR.exit2583 ], [ %.018913483, %183 ], [ %.018913483, %156 ], [ %.018913483, %.preheader3162 ]
-  %.01885 = phi i64 [ %2625, %.loopexit ], [ %1383, %1382 ], [ %1379, %RSTRING_PTR.exit2583 ], [ %187, %183 ], [ %160, %156 ], [ %.218873520, %.preheader3162 ]
-  %.11881 = phi ptr [ %spec.select, %.loopexit ], [ %.sroa.2.0.i2578, %1382 ], [ %15, %RSTRING_PTR.exit2583 ], [ %186, %183 ], [ %159, %156 ], [ %.sroa.2.0.i2578, %.preheader3162 ]
-  %.5 = phi ptr [ %.3, %.loopexit ], [ %90, %1382 ], [ %90, %RSTRING_PTR.exit2583 ], [ %90, %183 ], [ %90, %156 ], [ %90, %.preheader3162 ]
+  %.21912 = phi i64 [ %.019103521, %.loopexit ], [ %.019103521, %156 ], [ %.019103521, %183 ], [ %.31913, %RSTRING_PTR.exit2583 ], [ %.31913, %1382 ], [ %.31913, %.preheader3162 ]
+  %.21908 = phi i8 [ 0, %.loopexit ], [ %.019063480, %156 ], [ %.019063480, %183 ], [ %.019063480, %RSTRING_PTR.exit2583 ], [ %.019063480, %1382 ], [ %.019063480, %.preheader3162 ]
+  %.21898 = phi i32 [ 0, %.loopexit ], [ %.31899, %156 ], [ %.51901, %183 ], [ %.71903, %RSTRING_PTR.exit2583 ], [ %.71903, %1382 ], [ %.71903, %.preheader3162 ]
+  %.11892 = phi i32 [ -1, %.loopexit ], [ %.018913483, %156 ], [ %.018913483, %183 ], [ %.018913483, %RSTRING_PTR.exit2583 ], [ %.018913483, %1382 ], [ %.018913483, %.preheader3162 ]
+  %.01885 = phi i64 [ %2625, %.loopexit ], [ %160, %156 ], [ %187, %183 ], [ %1379, %RSTRING_PTR.exit2583 ], [ %1383, %1382 ], [ %.218873520, %.preheader3162 ]
+  %.11881 = phi ptr [ %spec.select, %.loopexit ], [ %159, %156 ], [ %186, %183 ], [ %15, %RSTRING_PTR.exit2583 ], [ %.sroa.2.0.i2578, %1382 ], [ %.sroa.2.0.i2578, %.preheader3162 ]
+  %.5 = phi ptr [ %.3, %.loopexit ], [ %90, %156 ], [ %90, %183 ], [ %90, %RSTRING_PTR.exit2583 ], [ %90, %1382 ], [ %90, %.preheader3162 ]
   %.not2286 = icmp eq i64 %.01885, 0
   br i1 %.not2286, label %case_conv.exit2939, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %1380, %1349, %174, %561, %161, %170, %149, %138, %145, %.critedge
-  %.53136 = phi ptr [ %.5, %.critedge ], [ %90, %145 ], [ %90, %138 ], [ %90, %149 ], [ %90, %170 ], [ %90, %161 ], [ %90, %561 ], [ %90, %174 ], [ %90, %1349 ], [ %90, %1380 ]
-  %.118813135 = phi ptr [ %.11881, %.critedge ], [ %148, %145 ], [ @.str, %138 ], [ @.str, %149 ], [ %173, %170 ], [ @.str, %161 ], [ %rb_strftime_with_timespec.ampm., %561 ], [ @.str, %174 ], [ @.str.12, %1349 ], [ %.sroa.2.0.i2578, %1380 ]
-  %.018853134 = phi i64 [ %.01885, %.critedge ], [ 3, %145 ], [ 1, %138 ], [ 1, %149 ], [ 3, %170 ], [ 1, %161 ], [ 2, %561 ], [ 1, %174 ], [ 3, %1349 ], [ 100, %1380 ]
-  %.118923133 = phi i32 [ %.11892, %.critedge ], [ %.018913483, %145 ], [ %.018913483, %138 ], [ %.018913483, %149 ], [ %.018913483, %170 ], [ %.018913483, %161 ], [ %.018913483, %561 ], [ %.018913483, %174 ], [ %.018913483, %1349 ], [ %.018913483, %1380 ]
-  %.218983132 = phi i32 [ %.21898, %.critedge ], [ %.11897, %145 ], [ %.11897, %138 ], [ %.31899, %149 ], [ %.41900, %170 ], [ %.41900, %161 ], [ %.61902, %561 ], [ %.51901, %174 ], [ %.71903, %1349 ], [ %.71903, %1380 ]
-  %.219083131 = phi i8 [ %.21908, %.critedge ], [ %.019063480, %145 ], [ %.019063480, %138 ], [ %.019063480, %149 ], [ %.019063480, %170 ], [ %.019063480, %161 ], [ %.019063480, %561 ], [ %.019063480, %174 ], [ %.019063480, %1349 ], [ %.019063480, %1380 ]
-  %.219123130 = phi i64 [ %.21912, %.critedge ], [ %.019103521, %145 ], [ %.019103521, %138 ], [ %.019103521, %149 ], [ %.019103521, %170 ], [ %.019103521, %161 ], [ %.019103521, %561 ], [ %.019103521, %174 ], [ %.019103521, %1349 ], [ %.31913, %1380 ]
+.critedge.thread:                                 ; preds = %1380, %1349, %174, %161, %149, %138, %561, %170, %145, %.critedge
+  %.53136 = phi ptr [ %.5, %.critedge ], [ %90, %145 ], [ %90, %170 ], [ %90, %561 ], [ %90, %138 ], [ %90, %149 ], [ %90, %161 ], [ %90, %174 ], [ %90, %1349 ], [ %90, %1380 ]
+  %.118813135 = phi ptr [ %.11881, %.critedge ], [ %148, %145 ], [ %173, %170 ], [ %rb_strftime_with_timespec.ampm., %561 ], [ @.str, %138 ], [ @.str, %149 ], [ @.str, %161 ], [ @.str, %174 ], [ @.str.12, %1349 ], [ %.sroa.2.0.i2578, %1380 ]
+  %.018853134 = phi i64 [ %.01885, %.critedge ], [ 3, %145 ], [ 3, %170 ], [ 2, %561 ], [ 1, %138 ], [ 1, %149 ], [ 1, %161 ], [ 1, %174 ], [ 3, %1349 ], [ 100, %1380 ]
+  %.118923133 = phi i32 [ %.11892, %.critedge ], [ %.018913483, %145 ], [ %.018913483, %170 ], [ %.018913483, %561 ], [ %.018913483, %138 ], [ %.018913483, %149 ], [ %.018913483, %161 ], [ %.018913483, %174 ], [ %.018913483, %1349 ], [ %.018913483, %1380 ]
+  %.218983132 = phi i32 [ %.21898, %.critedge ], [ %.11897, %145 ], [ %.41900, %170 ], [ %.61902, %561 ], [ %.11897, %138 ], [ %.31899, %149 ], [ %.41900, %161 ], [ %.51901, %174 ], [ %.71903, %1349 ], [ %.71903, %1380 ]
+  %.219083131 = phi i8 [ %.21908, %.critedge ], [ %.019063480, %145 ], [ %.019063480, %170 ], [ %.019063480, %561 ], [ %.019063480, %138 ], [ %.019063480, %149 ], [ %.019063480, %161 ], [ %.019063480, %174 ], [ %.019063480, %1349 ], [ %.019063480, %1380 ]
+  %.219123130 = phi i64 [ %.21912, %.critedge ], [ %.019103521, %145 ], [ %.019103521, %170 ], [ %.019103521, %561 ], [ %.019103521, %138 ], [ %.019103521, %149 ], [ %.019103521, %161 ], [ %.019103521, %174 ], [ %.019103521, %1349 ], [ %.31913, %1380 ]
   %2626 = and i32 %.218983132, 1
   %.not2287 = icmp eq i32 %2626, 0
   br i1 %.not2287, label %2627, label %2660
@@ -5902,7 +5902,7 @@ resize_buffer.exit2924.thread:                    ; preds = %2677, %resize_buffe
   unreachable
 
 ruby_nonempty_memcpy.exit2929:                    ; preds = %resize_buffer.exit2924, %2662, %buffer_size_check.exit2916
-  %.38 = phi ptr [ %2659, %buffer_size_check.exit2916 ], [ %87, %2662 ], [ %2686, %resize_buffer.exit2924 ]
+  %.38 = phi ptr [ %87, %2662 ], [ %2659, %buffer_size_check.exit2916 ], [ %2686, %resize_buffer.exit2924 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.38, ptr noundef nonnull readonly align 1 dereferenceable(1) %.118813135, i64 noundef range(i64 1, 0) %.018853134, i1 noundef false) #12
   %2688 = and i32 %.218983132, 12
   switch i32 %2688, label %2707 [
@@ -5955,9 +5955,9 @@ ruby_nonempty_memcpy.exit2929:                    ; preds = %resize_buffer.exit2
   br label %case_conv.exit2939
 
 case_conv.exit2939:                               ; preds = %2704, %2695, %case_conv.exit2896, %case_conv.exit2749, %case_conv.exit2701, %case_conv.exit2677, %case_conv.exit2653, %case_conv.exit2617, %case_conv.exit2518, %case_conv.exit2494, %case_conv.exit, %1353, %2707, %rbimpl_rstring_getmem.exit2866, %rbimpl_rstring_getmem.exit2854, %rbimpl_rstring_getmem.exit2838, %rbimpl_rstring_getmem.exit2777, %rbimpl_rstring_getmem.exit2793, %rbimpl_rstring_getmem.exit2427, %rbimpl_rstring_getmem.exit2429, %.critedge, %buffer_size_check.exit2906, %2480, %2517, %buffer_size_check.exit2759, %buffer_size_check.exit2711, %buffer_size_check.exit2687, %buffer_size_check.exit2663, %buffer_size_check.exit2627, %1346, %1332, %1315, %rbimpl_rstring_getmem.exit2554, %rbimpl_rstring_getmem.exit2567, %buffer_size_check.exit2528, %buffer_size_check.exit2504, %rbimpl_rstring_getmem.exit2424, %buffer_size_check.exit2341, %rbimpl_rstring_getmem.exit2817, %rbimpl_rstring_getmem.exit2805, %rbimpl_rstring_getmem.exit2735, %rbimpl_rstring_getmem.exit2723, %rbimpl_rstring_getmem.exit2639, %1474, %1428, %rbimpl_rstring_getmem.exit2542, %rbimpl_rstring_getmem.exit2480, %rbimpl_rstring_getmem.exit2465, %rbimpl_rstring_getmem.exit2453, %rbimpl_rstring_getmem.exit2441, %rbimpl_rstring_getmem.exit2412, %rbimpl_rstring_getmem.exit2400, %rbimpl_rstring_getmem.exit2388, %rbimpl_rstring_getmem.exit2376, %rbimpl_rstring_getmem.exit2364, %rbimpl_rstring_getmem.exit, %136
-  %.11911 = phi i64 [ %.219123130, %2707 ], [ %.21912, %.critedge ], [ %.019103521, %136 ], [ %.019103521, %buffer_size_check.exit2341 ], [ %.219123130, %2695 ], [ %.019103521, %rbimpl_rstring_getmem.exit ], [ %.019103521, %rbimpl_rstring_getmem.exit2364 ], [ %.019103521, %rbimpl_rstring_getmem.exit2376 ], [ %.019103521, %rbimpl_rstring_getmem.exit2388 ], [ %.019103521, %rbimpl_rstring_getmem.exit2400 ], [ %.019103521, %rbimpl_rstring_getmem.exit2412 ], [ %.019103521, %rbimpl_rstring_getmem.exit2424 ], [ %.019103521, %case_conv.exit2749 ], [ %.019103521, %rbimpl_rstring_getmem.exit2441 ], [ %.019103521, %rbimpl_rstring_getmem.exit2453 ], [ %.019103521, %rbimpl_rstring_getmem.exit2465 ], [ %.019103521, %rbimpl_rstring_getmem.exit2480 ], [ %.019103521, %buffer_size_check.exit2504 ], [ %.019103521, %case_conv.exit ], [ %.019103521, %buffer_size_check.exit2528 ], [ %.019103521, %case_conv.exit2494 ], [ %.019103521, %rbimpl_rstring_getmem.exit2542 ], [ %.019103521, %rbimpl_rstring_getmem.exit2554 ], [ %.019103521, %rbimpl_rstring_getmem.exit2567 ], [ %.019103521, %1315 ], [ %.019103521, %1346 ], [ %.019103521, %1332 ], [ %.019103521, %1428 ], [ %.019103521, %1474 ], [ %.019103521, %buffer_size_check.exit2627 ], [ %.019103521, %case_conv.exit2518 ], [ %.019103521, %rbimpl_rstring_getmem.exit2639 ], [ %.019103521, %buffer_size_check.exit2663 ], [ %.019103521, %case_conv.exit2617 ], [ %.019103521, %buffer_size_check.exit2687 ], [ %.019103521, %case_conv.exit2653 ], [ %.019103521, %buffer_size_check.exit2711 ], [ %.019103521, %case_conv.exit2677 ], [ %.019103521, %rbimpl_rstring_getmem.exit2723 ], [ %.019103521, %rbimpl_rstring_getmem.exit2735 ], [ %.019103521, %buffer_size_check.exit2759 ], [ %.019103521, %case_conv.exit2701 ], [ %.019103521, %rbimpl_rstring_getmem.exit2427 ], [ %.019103521, %rbimpl_rstring_getmem.exit2805 ], [ %.019103521, %rbimpl_rstring_getmem.exit2817 ], [ %.019103521, %rbimpl_rstring_getmem.exit2777 ], [ %.019103521, %2480 ], [ %.019103521, %2517 ], [ %.019103521, %buffer_size_check.exit2906 ], [ %.019103521, %rbimpl_rstring_getmem.exit2429 ], [ %.019103521, %rbimpl_rstring_getmem.exit2793 ], [ %.019103521, %rbimpl_rstring_getmem.exit2838 ], [ %.019103521, %rbimpl_rstring_getmem.exit2854 ], [ %.019103521, %rbimpl_rstring_getmem.exit2866 ], [ %.019103521, %1353 ], [ %.019103521, %case_conv.exit2896 ], [ %.219123130, %2704 ]
-  %.51878 = phi ptr [ %2708, %2707 ], [ %87, %.critedge ], [ %137, %136 ], [ %257, %buffer_size_check.exit2341 ], [ %2696, %2695 ], [ %307, %rbimpl_rstring_getmem.exit ], [ %355, %rbimpl_rstring_getmem.exit2364 ], [ %406, %rbimpl_rstring_getmem.exit2376 ], [ %454, %rbimpl_rstring_getmem.exit2388 ], [ %503, %rbimpl_rstring_getmem.exit2400 ], [ %551, %rbimpl_rstring_getmem.exit2412 ], [ %610, %rbimpl_rstring_getmem.exit2424 ], [ %1946, %case_conv.exit2749 ], [ %732, %rbimpl_rstring_getmem.exit2441 ], [ %786, %rbimpl_rstring_getmem.exit2453 ], [ %835, %rbimpl_rstring_getmem.exit2465 ], [ %891, %rbimpl_rstring_getmem.exit2480 ], [ %961, %buffer_size_check.exit2504 ], [ %226, %case_conv.exit ], [ %1033, %buffer_size_check.exit2528 ], [ %930, %case_conv.exit2494 ], [ %1086, %rbimpl_rstring_getmem.exit2542 ], [ %1135, %rbimpl_rstring_getmem.exit2554 ], [ %1206, %rbimpl_rstring_getmem.exit2567 ], [ %1316, %1315 ], [ %1348, %1346 ], [ %1334, %1332 ], [ %1429, %1428 ], [ %1475, %1474 ], [ %1545, %buffer_size_check.exit2627 ], [ %1002, %case_conv.exit2518 ], [ %1594, %rbimpl_rstring_getmem.exit2639 ], [ %1664, %buffer_size_check.exit2663 ], [ %1514, %case_conv.exit2617 ], [ %1736, %buffer_size_check.exit2687 ], [ %1633, %case_conv.exit2653 ], [ %1808, %buffer_size_check.exit2711 ], [ %1705, %case_conv.exit2677 ], [ %1857, %rbimpl_rstring_getmem.exit2723 ], [ %1907, %rbimpl_rstring_getmem.exit2735 ], [ %1977, %buffer_size_check.exit2759 ], [ %1777, %case_conv.exit2701 ], [ %642, %rbimpl_rstring_getmem.exit2427 ], [ %2179, %rbimpl_rstring_getmem.exit2805 ], [ %2229, %rbimpl_rstring_getmem.exit2817 ], [ %2028, %rbimpl_rstring_getmem.exit2777 ], [ %.34, %2480 ], [ %.35, %2517 ], [ %2587, %buffer_size_check.exit2906 ], [ %684, %rbimpl_rstring_getmem.exit2429 ], [ %2098, %rbimpl_rstring_getmem.exit2793 ], [ %2315, %rbimpl_rstring_getmem.exit2838 ], [ %2386, %rbimpl_rstring_getmem.exit2854 ], [ %2431, %rbimpl_rstring_getmem.exit2866 ], [ %87, %1353 ], [ %2556, %case_conv.exit2896 ], [ %2705, %2704 ]
-  %.4 = phi ptr [ %.53136, %2707 ], [ %.5, %.critedge ], [ %90, %136 ], [ %90, %buffer_size_check.exit2341 ], [ %.53136, %2695 ], [ %90, %rbimpl_rstring_getmem.exit ], [ %90, %rbimpl_rstring_getmem.exit2364 ], [ %90, %rbimpl_rstring_getmem.exit2376 ], [ %90, %rbimpl_rstring_getmem.exit2388 ], [ %90, %rbimpl_rstring_getmem.exit2400 ], [ %90, %rbimpl_rstring_getmem.exit2412 ], [ %90, %rbimpl_rstring_getmem.exit2424 ], [ %90, %case_conv.exit2749 ], [ %90, %rbimpl_rstring_getmem.exit2441 ], [ %90, %rbimpl_rstring_getmem.exit2453 ], [ %90, %rbimpl_rstring_getmem.exit2465 ], [ %90, %rbimpl_rstring_getmem.exit2480 ], [ %90, %buffer_size_check.exit2504 ], [ %90, %case_conv.exit ], [ %90, %buffer_size_check.exit2528 ], [ %90, %case_conv.exit2494 ], [ %90, %rbimpl_rstring_getmem.exit2542 ], [ %90, %rbimpl_rstring_getmem.exit2554 ], [ %90, %rbimpl_rstring_getmem.exit2567 ], [ %90, %1315 ], [ %90, %1346 ], [ %90, %1332 ], [ %90, %1428 ], [ %90, %1474 ], [ %90, %buffer_size_check.exit2627 ], [ %90, %case_conv.exit2518 ], [ %90, %rbimpl_rstring_getmem.exit2639 ], [ %90, %buffer_size_check.exit2663 ], [ %90, %case_conv.exit2617 ], [ %90, %buffer_size_check.exit2687 ], [ %90, %case_conv.exit2653 ], [ %90, %buffer_size_check.exit2711 ], [ %90, %case_conv.exit2677 ], [ %90, %rbimpl_rstring_getmem.exit2723 ], [ %90, %rbimpl_rstring_getmem.exit2735 ], [ %90, %buffer_size_check.exit2759 ], [ %90, %case_conv.exit2701 ], [ %90, %rbimpl_rstring_getmem.exit2427 ], [ %90, %rbimpl_rstring_getmem.exit2805 ], [ %90, %rbimpl_rstring_getmem.exit2817 ], [ %90, %rbimpl_rstring_getmem.exit2777 ], [ %90, %2480 ], [ %90, %2517 ], [ %90, %buffer_size_check.exit2906 ], [ %90, %rbimpl_rstring_getmem.exit2429 ], [ %90, %rbimpl_rstring_getmem.exit2793 ], [ %90, %rbimpl_rstring_getmem.exit2838 ], [ %90, %rbimpl_rstring_getmem.exit2854 ], [ %90, %rbimpl_rstring_getmem.exit2866 ], [ %90, %1353 ], [ %90, %case_conv.exit2896 ], [ %.53136, %2704 ]
+  %.11911 = phi i64 [ %.21912, %.critedge ], [ %.019103521, %136 ], [ %.019103521, %buffer_size_check.exit2341 ], [ %.019103521, %rbimpl_rstring_getmem.exit ], [ %.019103521, %rbimpl_rstring_getmem.exit2364 ], [ %.019103521, %rbimpl_rstring_getmem.exit2376 ], [ %.019103521, %rbimpl_rstring_getmem.exit2388 ], [ %.019103521, %rbimpl_rstring_getmem.exit2400 ], [ %.019103521, %rbimpl_rstring_getmem.exit2412 ], [ %.019103521, %rbimpl_rstring_getmem.exit2424 ], [ %.019103521, %rbimpl_rstring_getmem.exit2441 ], [ %.019103521, %rbimpl_rstring_getmem.exit2453 ], [ %.019103521, %rbimpl_rstring_getmem.exit2465 ], [ %.019103521, %rbimpl_rstring_getmem.exit2480 ], [ %.019103521, %buffer_size_check.exit2504 ], [ %.019103521, %buffer_size_check.exit2528 ], [ %.019103521, %rbimpl_rstring_getmem.exit2542 ], [ %.019103521, %rbimpl_rstring_getmem.exit2554 ], [ %.019103521, %rbimpl_rstring_getmem.exit2567 ], [ %.019103521, %1315 ], [ %.019103521, %1346 ], [ %.019103521, %1332 ], [ %.019103521, %1428 ], [ %.019103521, %1474 ], [ %.019103521, %buffer_size_check.exit2627 ], [ %.019103521, %rbimpl_rstring_getmem.exit2639 ], [ %.019103521, %buffer_size_check.exit2663 ], [ %.019103521, %buffer_size_check.exit2687 ], [ %.019103521, %buffer_size_check.exit2711 ], [ %.019103521, %rbimpl_rstring_getmem.exit2723 ], [ %.019103521, %rbimpl_rstring_getmem.exit2735 ], [ %.019103521, %buffer_size_check.exit2759 ], [ %.019103521, %rbimpl_rstring_getmem.exit2805 ], [ %.019103521, %rbimpl_rstring_getmem.exit2817 ], [ %.019103521, %2480 ], [ %.019103521, %2517 ], [ %.019103521, %buffer_size_check.exit2906 ], [ %.019103521, %rbimpl_rstring_getmem.exit2429 ], [ %.019103521, %rbimpl_rstring_getmem.exit2427 ], [ %.019103521, %rbimpl_rstring_getmem.exit2793 ], [ %.019103521, %rbimpl_rstring_getmem.exit2777 ], [ %.019103521, %rbimpl_rstring_getmem.exit2838 ], [ %.019103521, %rbimpl_rstring_getmem.exit2854 ], [ %.019103521, %rbimpl_rstring_getmem.exit2866 ], [ %.219123130, %2707 ], [ %.019103521, %1353 ], [ %.019103521, %case_conv.exit ], [ %.019103521, %case_conv.exit2494 ], [ %.019103521, %case_conv.exit2518 ], [ %.019103521, %case_conv.exit2617 ], [ %.019103521, %case_conv.exit2653 ], [ %.019103521, %case_conv.exit2677 ], [ %.019103521, %case_conv.exit2701 ], [ %.019103521, %case_conv.exit2749 ], [ %.019103521, %case_conv.exit2896 ], [ %.219123130, %2695 ], [ %.219123130, %2704 ]
+  %.51878 = phi ptr [ %87, %.critedge ], [ %137, %136 ], [ %257, %buffer_size_check.exit2341 ], [ %307, %rbimpl_rstring_getmem.exit ], [ %355, %rbimpl_rstring_getmem.exit2364 ], [ %406, %rbimpl_rstring_getmem.exit2376 ], [ %454, %rbimpl_rstring_getmem.exit2388 ], [ %503, %rbimpl_rstring_getmem.exit2400 ], [ %551, %rbimpl_rstring_getmem.exit2412 ], [ %610, %rbimpl_rstring_getmem.exit2424 ], [ %732, %rbimpl_rstring_getmem.exit2441 ], [ %786, %rbimpl_rstring_getmem.exit2453 ], [ %835, %rbimpl_rstring_getmem.exit2465 ], [ %891, %rbimpl_rstring_getmem.exit2480 ], [ %961, %buffer_size_check.exit2504 ], [ %1033, %buffer_size_check.exit2528 ], [ %1086, %rbimpl_rstring_getmem.exit2542 ], [ %1135, %rbimpl_rstring_getmem.exit2554 ], [ %1206, %rbimpl_rstring_getmem.exit2567 ], [ %1316, %1315 ], [ %1348, %1346 ], [ %1334, %1332 ], [ %1429, %1428 ], [ %1475, %1474 ], [ %1545, %buffer_size_check.exit2627 ], [ %1594, %rbimpl_rstring_getmem.exit2639 ], [ %1664, %buffer_size_check.exit2663 ], [ %1736, %buffer_size_check.exit2687 ], [ %1808, %buffer_size_check.exit2711 ], [ %1857, %rbimpl_rstring_getmem.exit2723 ], [ %1907, %rbimpl_rstring_getmem.exit2735 ], [ %1977, %buffer_size_check.exit2759 ], [ %2179, %rbimpl_rstring_getmem.exit2805 ], [ %2229, %rbimpl_rstring_getmem.exit2817 ], [ %.34, %2480 ], [ %.35, %2517 ], [ %2587, %buffer_size_check.exit2906 ], [ %684, %rbimpl_rstring_getmem.exit2429 ], [ %642, %rbimpl_rstring_getmem.exit2427 ], [ %2098, %rbimpl_rstring_getmem.exit2793 ], [ %2028, %rbimpl_rstring_getmem.exit2777 ], [ %2315, %rbimpl_rstring_getmem.exit2838 ], [ %2386, %rbimpl_rstring_getmem.exit2854 ], [ %2431, %rbimpl_rstring_getmem.exit2866 ], [ %2708, %2707 ], [ %87, %1353 ], [ %226, %case_conv.exit ], [ %930, %case_conv.exit2494 ], [ %1002, %case_conv.exit2518 ], [ %1514, %case_conv.exit2617 ], [ %1633, %case_conv.exit2653 ], [ %1705, %case_conv.exit2677 ], [ %1777, %case_conv.exit2701 ], [ %1946, %case_conv.exit2749 ], [ %2556, %case_conv.exit2896 ], [ %2696, %2695 ], [ %2705, %2704 ]
+  %.4 = phi ptr [ %.5, %.critedge ], [ %90, %136 ], [ %90, %buffer_size_check.exit2341 ], [ %90, %rbimpl_rstring_getmem.exit ], [ %90, %rbimpl_rstring_getmem.exit2364 ], [ %90, %rbimpl_rstring_getmem.exit2376 ], [ %90, %rbimpl_rstring_getmem.exit2388 ], [ %90, %rbimpl_rstring_getmem.exit2400 ], [ %90, %rbimpl_rstring_getmem.exit2412 ], [ %90, %rbimpl_rstring_getmem.exit2424 ], [ %90, %rbimpl_rstring_getmem.exit2441 ], [ %90, %rbimpl_rstring_getmem.exit2453 ], [ %90, %rbimpl_rstring_getmem.exit2465 ], [ %90, %rbimpl_rstring_getmem.exit2480 ], [ %90, %buffer_size_check.exit2504 ], [ %90, %buffer_size_check.exit2528 ], [ %90, %rbimpl_rstring_getmem.exit2542 ], [ %90, %rbimpl_rstring_getmem.exit2554 ], [ %90, %rbimpl_rstring_getmem.exit2567 ], [ %90, %1315 ], [ %90, %1346 ], [ %90, %1332 ], [ %90, %1428 ], [ %90, %1474 ], [ %90, %buffer_size_check.exit2627 ], [ %90, %rbimpl_rstring_getmem.exit2639 ], [ %90, %buffer_size_check.exit2663 ], [ %90, %buffer_size_check.exit2687 ], [ %90, %buffer_size_check.exit2711 ], [ %90, %rbimpl_rstring_getmem.exit2723 ], [ %90, %rbimpl_rstring_getmem.exit2735 ], [ %90, %buffer_size_check.exit2759 ], [ %90, %rbimpl_rstring_getmem.exit2805 ], [ %90, %rbimpl_rstring_getmem.exit2817 ], [ %90, %2480 ], [ %90, %2517 ], [ %90, %buffer_size_check.exit2906 ], [ %90, %rbimpl_rstring_getmem.exit2429 ], [ %90, %rbimpl_rstring_getmem.exit2427 ], [ %90, %rbimpl_rstring_getmem.exit2793 ], [ %90, %rbimpl_rstring_getmem.exit2777 ], [ %90, %rbimpl_rstring_getmem.exit2838 ], [ %90, %rbimpl_rstring_getmem.exit2854 ], [ %90, %rbimpl_rstring_getmem.exit2866 ], [ %.53136, %2707 ], [ %90, %1353 ], [ %90, %case_conv.exit ], [ %90, %case_conv.exit2494 ], [ %90, %case_conv.exit2518 ], [ %90, %case_conv.exit2617 ], [ %90, %case_conv.exit2653 ], [ %90, %case_conv.exit2677 ], [ %90, %case_conv.exit2701 ], [ %90, %case_conv.exit2749 ], [ %90, %case_conv.exit2896 ], [ %.53136, %2695 ], [ %.53136, %2704 ]
   %2709 = getelementptr i8, ptr %.4, i64 1
   %2710 = icmp ult ptr %2709, %29
   br i1 %2710, label %53, label %ruby_nonempty_memcpy.exit._crit_edge, !llvm.loop !272
@@ -5979,7 +5979,7 @@ ruby_nonempty_memcpy.exit._crit_edge.thread:      ; preds = %ruby_nonempty_memcp
   br label %.loopexit3174
 
 .loopexit3174:                                    ; preds = %1294, %1322, %1337, %2518, %1908, %1739, %1667, %1595, %1476, %964, %892, %188, %RSTRING_PTR.exit, %ruby_nonempty_memcpy.exit._crit_edge, %ruby_nonempty_memcpy.exit._crit_edge.thread
-  %.0 = phi i64 [ 0, %ruby_nonempty_memcpy.exit._crit_edge ], [ 0, %RSTRING_PTR.exit ], [ %0, %ruby_nonempty_memcpy.exit._crit_edge.thread ], [ 0, %188 ], [ 0, %892 ], [ 0, %964 ], [ 0, %1476 ], [ 0, %1595 ], [ 0, %1667 ], [ 0, %1739 ], [ 0, %1908 ], [ 0, %2518 ], [ 0, %1337 ], [ 0, %1322 ], [ 0, %1294 ]
+  %.0 = phi i64 [ %0, %ruby_nonempty_memcpy.exit._crit_edge.thread ], [ 0, %ruby_nonempty_memcpy.exit._crit_edge ], [ 0, %RSTRING_PTR.exit ], [ 0, %188 ], [ 0, %892 ], [ 0, %964 ], [ 0, %1476 ], [ 0, %1595 ], [ 0, %1667 ], [ 0, %1739 ], [ 0, %1908 ], [ 0, %2518 ], [ 0, %1337 ], [ 0, %1322 ], [ 0, %1294 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -6229,7 +6229,7 @@ define internal fastcc range(i32 0, 306783380) i32 @iso8601wknum(ptr noundef non
   br label %isleap.exit
 
 isleap.exit:                                      ; preds = %17, %32
-  %37 = phi i32 [ 365, %17 ], [ %36, %32 ]
+  %37 = phi i32 [ %36, %32 ], [ 365, %17 ]
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %37, ptr %38, align 4, !tbaa !278
   %39 = call fastcc i32 @iso8601wknum(ptr noundef %2)

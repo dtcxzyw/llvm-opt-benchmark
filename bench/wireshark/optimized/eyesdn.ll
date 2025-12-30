@@ -54,7 +54,7 @@ define hidden range(i32 -1, 2) i32 @eyesdn_open(ptr noundef captures(none) %0, p
   br label %18
 
 18:                                               ; preds = %9, %7, %10
-  %.0 = phi i32 [ %., %7 ], [ 1, %10 ], [ 0, %9 ]
+  %.0 = phi i32 [ 1, %10 ], [ %., %7 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -491,12 +491,12 @@ esc_read.exit108:                                 ; preds = %100
   %exitcond.not.i113 = icmp eq i64 %indvars.iv.next.i112, %153
   br i1 %exitcond.not.i113, label %esc_read.exit116, label %.lr.ph.i109, !llvm.loop !6
 
-.critedge:                                        ; preds = %90, %95, %87, %esc_read.exit108, %82
+.critedge:                                        ; preds = %87, %90, %95, %esc_read.exit108, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %esc_read.exit116
 
-esc_read.exit116:                                 ; preds = %171, %13, %18, %10, %166, %161, %158, %144, %.critedge
-  %.0 = phi i1 [ false, %.critedge ], [ false, %13 ], [ false, %158 ], [ false, %166 ], [ false, %161 ], [ true, %144 ], [ false, %10 ], [ false, %18 ], [ true, %171 ]
+esc_read.exit116:                                 ; preds = %171, %10, %13, %18, %166, %161, %158, %144, %.critedge
+  %.0 = phi i1 [ false, %.critedge ], [ false, %166 ], [ false, %161 ], [ false, %158 ], [ true, %144 ], [ false, %18 ], [ false, %13 ], [ false, %10 ], [ true, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -634,8 +634,8 @@ define internal noundef zeroext i1 @eyesdn_dump(ptr noundef %0, ptr noundef read
   br label %88
 
 36:                                               ; preds = %17, %34, %33, %32, %31, %30, %29, %28
-  %.033.shrunk = phi i8 [ %25, %34 ], [ %25, %28 ], [ %25, %29 ], [ -128, %30 ], [ %25, %31 ], [ %25, %32 ], [ %25, %33 ], [ %25, %17 ]
-  %.032 = phi i8 [ 16, %34 ], [ 2, %28 ], [ 10, %29 ], [ 6, %30 ], [ 4, %31 ], [ 8, %32 ], [ 14, %33 ], [ 0, %17 ]
+  %.033.shrunk = phi i8 [ %25, %28 ], [ %25, %29 ], [ -128, %30 ], [ %25, %31 ], [ %25, %32 ], [ %25, %33 ], [ %25, %34 ], [ %25, %17 ]
+  %.032 = phi i8 [ 2, %28 ], [ 10, %29 ], [ 6, %30 ], [ 4, %31 ], [ 8, %32 ], [ 14, %33 ], [ 16, %34 ], [ 0, %17 ]
   %37 = lshr i32 %21, 16
   %38 = trunc i32 %37 to i8
   store i8 %38, ptr %8, align 1
@@ -709,7 +709,7 @@ define internal noundef zeroext i1 @eyesdn_dump(ptr noundef %0, ptr noundef read
   %75 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 1, ptr noundef %3)
   br i1 %75, label %66, label %esc_write.exit.thread
 
-esc_write.exit.thread:                            ; preds = %69, %74
+esc_write.exit.thread:                            ; preds = %74, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %88
 
@@ -756,7 +756,7 @@ esc_write.exit41:                                 ; preds = %78, %81, %86, %76
   br label %88
 
 88:                                               ; preds = %esc_write.exit.thread, %esc_write.exit41, %36, %35, %16, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %16 ], [ false, %35 ], [ false, %esc_write.exit.thread ], [ %.lcssa.i38, %esc_write.exit41 ], [ false, %36 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %16 ], [ false, %35 ], [ false, %36 ], [ %.lcssa.i38, %esc_write.exit41 ], [ false, %esc_write.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }

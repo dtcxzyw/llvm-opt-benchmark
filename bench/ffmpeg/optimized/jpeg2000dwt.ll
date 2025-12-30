@@ -107,7 +107,7 @@ define range(i32 -12, 1) i32 @ff_jpeg2000_dwt_init(ptr noundef writeonly capture
   br label %57
 
 57:                                               ; preds = %._crit_edge, %51, %46, %41, %56
-  %.0 = phi i32 [ -12, %51 ], [ 0, %56 ], [ -12, %46 ], [ -12, %41 ], [ -1, %._crit_edge ]
+  %.0 = phi i32 [ 0, %56 ], [ -12, %41 ], [ -12, %46 ], [ -12, %51 ], [ -1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1251,7 +1251,7 @@ sd_1d53.exit123.i:                                ; preds = %.lr.ph31.i118.i, %.
   br i1 %481, label %324, label %dwt_encode97_float.exit, !llvm.loop !57
 
 dwt_encode97_float.exit:                          ; preds = %._crit_edge152.i, %.lr.ph164.i13, %._crit_edge177.i, %.preheader.i10, %6, %2
-  %.0 = phi i32 [ -1, %6 ], [ 0, %2 ], [ 0, %.lr.ph164.i13 ], [ 0, %._crit_edge177.i ], [ 0, %.preheader.i10 ], [ 0, %._crit_edge152.i ]
+  %.0 = phi i32 [ 0, %2 ], [ -1, %6 ], [ 0, %.preheader.i10 ], [ 0, %._crit_edge177.i ], [ 0, %.lr.ph164.i13 ], [ 0, %._crit_edge152.i ]
   ret i32 %.0
 }
 
@@ -2684,7 +2684,7 @@ sr_1d53.exit123.i:                                ; preds = %596, %595
   br i1 %exitcond211.not.i, label %dwt_decode97_float.exit, label %477, !llvm.loop !96
 
 dwt_decode97_float.exit:                          ; preds = %._crit_edge152.i, %.lr.ph195.i, %._crit_edge178.i, %.preheader.i9, %6, %2
-  %.0 = phi i32 [ -1, %6 ], [ 0, %2 ], [ 0, %.lr.ph195.i ], [ 0, %._crit_edge178.i ], [ 0, %.preheader.i9 ], [ 0, %._crit_edge152.i ]
+  %.0 = phi i32 [ 0, %2 ], [ -1, %6 ], [ 0, %.preheader.i9 ], [ 0, %._crit_edge178.i ], [ 0, %.lr.ph195.i ], [ 0, %._crit_edge152.i ]
   ret i32 %.0
 }
 

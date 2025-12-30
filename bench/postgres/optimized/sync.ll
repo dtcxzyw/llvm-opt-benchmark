@@ -436,10 +436,10 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   br i1 %92, label %.loopexit, label %.lr.ph66, !llvm.loop !10
 
 .loopexit:                                        ; preds = %90, %36, %.thread, %29
-  %.241 = phi i32 [ %67, %.thread ], [ %.03968, %29 ], [ %.03968, %36 ], [ %.03968, %90 ]
-  %.235 = phi i64 [ %spec.select, %.thread ], [ %.03369, %29 ], [ %.03369, %36 ], [ %.03369, %90 ]
-  %.230 = phi i64 [ %66, %.thread ], [ %.02870, %29 ], [ %.02870, %36 ], [ %.02870, %90 ]
-  %.2 = phi i32 [ %.465.lcssa, %.thread ], [ %.071, %29 ], [ %.3, %36 ], [ 10, %90 ]
+  %.241 = phi i32 [ %.03968, %29 ], [ %67, %.thread ], [ %.03968, %36 ], [ %.03968, %90 ]
+  %.235 = phi i64 [ %.03369, %29 ], [ %spec.select, %.thread ], [ %.03369, %36 ], [ %.03369, %90 ]
+  %.230 = phi i64 [ %.02870, %29 ], [ %66, %.thread ], [ %.02870, %36 ], [ %.02870, %90 ]
+  %.2 = phi i32 [ %.071, %29 ], [ %.465.lcssa, %.thread ], [ %.3, %36 ], [ 10, %90 ]
   %93 = load ptr, ptr @pendingOps, align 8
   %94 = call ptr @hash_search(ptr noundef %93, ptr noundef nonnull %24, i32 noundef 2, ptr noundef null) #8
   %95 = icmp eq ptr %94, null

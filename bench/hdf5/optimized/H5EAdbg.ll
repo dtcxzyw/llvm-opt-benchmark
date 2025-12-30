@@ -159,7 +159,7 @@ define range(i32 -1, 1) i32 @H5EA__hdr_debug(ptr noundef %0, i64 noundef %1, ptr
   br label %83
 
 83:                                               ; preds = %30, %26
-  %.1 = phi i32 [ 0, %30 ], [ -1, %26 ]
+  %.1 = phi i32 [ -1, %26 ], [ 0, %30 ]
   %.not82 = icmp eq ptr %.074, null
   br i1 %.not82, label %93, label %84
 
@@ -395,8 +395,8 @@ define range(i32 -1, 1) i32 @H5EA__iblock_debug(ptr noundef %0, i64 noundef %1, 
   br label %125
 
 125:                                              ; preds = %82, %105, %._crit_edge135, %36, %29
-  %.090 = phi ptr [ %34, %82 ], [ null, %29 ], [ null, %36 ], [ %34, %._crit_edge135 ], [ %34, %105 ]
-  %.1 = phi i32 [ -1, %82 ], [ -1, %29 ], [ -1, %36 ], [ 0, %._crit_edge135 ], [ 0, %105 ]
+  %.090 = phi ptr [ null, %29 ], [ null, %36 ], [ %34, %._crit_edge135 ], [ %34, %105 ], [ %34, %82 ]
+  %.1 = phi i32 [ -1, %29 ], [ -1, %36 ], [ 0, %._crit_edge135 ], [ 0, %105 ], [ -1, %82 ]
   %.not105 = icmp eq ptr %.088, null
   br i1 %.not105, label %135, label %126
 
@@ -560,8 +560,8 @@ define range(i32 -1, 1) i32 @H5EA__sblock_debug(ptr noundef %0, i64 noundef %1, 
   br label %75
 
 75:                                               ; preds = %40, %._crit_edge, %36, %29
-  %.059 = phi ptr [ %34, %40 ], [ null, %29 ], [ null, %36 ], [ %34, %._crit_edge ]
-  %.1 = phi i32 [ 0, %40 ], [ -1, %29 ], [ -1, %36 ], [ 0, %._crit_edge ]
+  %.059 = phi ptr [ null, %29 ], [ null, %36 ], [ %34, %._crit_edge ], [ %34, %40 ]
+  %.1 = phi i32 [ -1, %29 ], [ -1, %36 ], [ 0, %._crit_edge ], [ 0, %40 ]
   %.not70 = icmp eq ptr %.057, null
   br i1 %.not70, label %85, label %76
 
@@ -715,8 +715,8 @@ define range(i32 -1, 1) i32 @H5EA__dblock_debug(ptr noundef %0, i64 noundef %1, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %39, %67, %35, %28
-  %.053 = phi ptr [ %33, %67 ], [ null, %28 ], [ null, %35 ], [ %33, %39 ], [ %33, %54 ]
-  %.1 = phi i32 [ -1, %67 ], [ -1, %28 ], [ -1, %35 ], [ 0, %39 ], [ 0, %54 ]
+  %.053 = phi ptr [ null, %28 ], [ null, %35 ], [ %33, %67 ], [ %33, %39 ], [ %33, %54 ]
+  %.1 = phi i32 [ -1, %28 ], [ -1, %35 ], [ -1, %67 ], [ 0, %39 ], [ 0, %54 ]
   %.not62 = icmp eq ptr %.051, null
   br i1 %.not62, label %80, label %71
 

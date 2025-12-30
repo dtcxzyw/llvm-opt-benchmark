@@ -431,7 +431,7 @@ _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exi
   br label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit
 
 _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit: ; preds = %49, %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.i
-  %.0.i = phi ptr [ %24, %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.i ], [ %.018.i, %49 ]
+  %.0.i = phi ptr [ %.018.i, %49 ], [ %24, %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.i ]
   %55 = load i64, ptr %.0.i, align 8, !tbaa !22
   %56 = add i64 %55, 1
   store i64 %56, ptr %.0.i, align 8, !tbaa !22

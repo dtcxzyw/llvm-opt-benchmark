@@ -213,7 +213,7 @@ define hidden ptr @cmsCreateRGBProfileTHR(ptr noundef %0, ptr noundef %1, ptr no
   br label %89
 
 89:                                               ; preds = %84, %85, %4, %87
-  %.0 = phi ptr [ null, %4 ], [ null, %87 ], [ %10, %85 ], [ %10, %84 ]
+  %.0 = phi ptr [ null, %87 ], [ null, %4 ], [ %10, %85 ], [ %10, %84 ]
   ret ptr %.0
 }
 
@@ -264,7 +264,7 @@ define internal fastcc range(i32 0, 2) i32 @SetTextTags(ptr noundef nonnull %0, 
   br i1 %6, label %17, label %.thread
 
 .thread:                                          ; preds = %8, %10, %12, %14, %16
-  %.026 = phi i32 [ 0, %16 ], [ 0, %10 ], [ 0, %12 ], [ %spec.select, %14 ], [ 0, %8 ]
+  %.026 = phi i32 [ 0, %16 ], [ %spec.select, %14 ], [ 0, %8 ], [ 0, %10 ], [ 0, %12 ]
   tail call void @cmsMLUfree(ptr noundef nonnull %4) #7
   br label %17
 
@@ -341,7 +341,7 @@ define hidden ptr @cmsCreateGrayProfileTHR(ptr noundef %0, ptr noundef %1, ptr n
   br label %16
 
 16:                                               ; preds = %11, %12, %3, %14
-  %.0 = phi ptr [ null, %3 ], [ null, %14 ], [ %5, %12 ], [ %5, %11 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %3 ], [ %5, %12 ], [ %5, %11 ]
   ret ptr %.0
 }
 
@@ -735,7 +735,7 @@ define hidden ptr @cmsCreateLab2ProfileTHR(ptr noundef %0, ptr noundef %1) local
   br label %23
 
 23:                                               ; preds = %10, %6, %21, %19
-  %.0 = phi ptr [ null, %6 ], [ null, %21 ], [ %8, %19 ], [ null, %10 ]
+  %.0 = phi ptr [ null, %21 ], [ %8, %19 ], [ null, %6 ], [ null, %10 ]
   ret ptr %.0
 }
 
@@ -802,7 +802,7 @@ define hidden ptr @cmsCreateLab4ProfileTHR(ptr noundef %0, ptr noundef %1) local
   br label %23
 
 23:                                               ; preds = %6, %.thread, %20
-  %.022 = phi ptr [ %8, %20 ], [ null, %.thread ], [ null, %6 ]
+  %.022 = phi ptr [ null, %.thread ], [ %8, %20 ], [ null, %6 ]
   ret ptr %.022
 }
 
@@ -857,7 +857,7 @@ define hidden ptr @cmsCreateXYZProfileTHR(ptr noundef %0) local_unnamed_addr #0 
   br label %18
 
 18:                                               ; preds = %1, %.thread, %15
-  %.020 = phi ptr [ %3, %15 ], [ null, %.thread ], [ null, %1 ]
+  %.020 = phi ptr [ null, %.thread ], [ %3, %15 ], [ null, %1 ]
   ret ptr %.020
 }
 
@@ -1400,7 +1400,7 @@ define hidden ptr @cmsTransform2DeviceLink(ptr noundef %0, double noundef %1, i3
   br label %CreateNamedColorDevicelink.exit
 
 CreateNamedColorDevicelink.exit:                  ; preds = %18, %57, %58
-  %.0.i = phi ptr [ %21, %57 ], [ null, %58 ], [ null, %18 ]
+  %.0.i = phi ptr [ null, %58 ], [ %21, %57 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %245
 
@@ -1872,7 +1872,7 @@ CheckOne.exit.thread.i148:                        ; preds = %197, %196, %CheckOn
   br label %245
 
 FindCombination.exit172.thread:                   ; preds = %CheckOne.exit.thread.i148, %234, %231, %229, %223, %218, %212, %210, %180, %170, %80, %76, %69
-  %.077 = phi ptr [ null, %69 ], [ %82, %231 ], [ %82, %234 ], [ %82, %229 ], [ %82, %223 ], [ %82, %218 ], [ %82, %212 ], [ %82, %210 ], [ %82, %180 ], [ %82, %170 ], [ null, %80 ], [ null, %76 ], [ %82, %CheckOne.exit.thread.i148 ]
+  %.077 = phi ptr [ %82, %231 ], [ %82, %234 ], [ %82, %229 ], [ %82, %223 ], [ %82, %218 ], [ %82, %212 ], [ %82, %210 ], [ %82, %180 ], [ %82, %170 ], [ null, %80 ], [ null, %76 ], [ null, %69 ], [ %82, %CheckOne.exit.thread.i148 ]
   %241 = load ptr, ptr %8, align 8
   %.not112 = icmp eq ptr %241, null
   br i1 %.not112, label %243, label %242
@@ -1886,7 +1886,7 @@ FindCombination.exit172.thread:                   ; preds = %CheckOne.exit.threa
   br label %245
 
 245:                                              ; preds = %60, %3, %243, %237, %CreateNamedColorDevicelink.exit
-  %.0 = phi ptr [ %82, %237 ], [ %.0.i, %CreateNamedColorDevicelink.exit ], [ null, %3 ], [ null, %243 ], [ null, %60 ]
+  %.0 = phi ptr [ %.0.i, %CreateNamedColorDevicelink.exit ], [ null, %243 ], [ %82, %237 ], [ null, %3 ], [ null, %60 ]
   ret ptr %.0
 }
 

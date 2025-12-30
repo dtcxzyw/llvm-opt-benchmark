@@ -102,7 +102,7 @@ sprkStep_CheckNVector.exit:                       ; preds = %32
   %.not47 = icmp eq ptr %37, null
   br i1 %.not47, label %sprkStep_CheckNVector.exit.thread, label %38
 
-sprkStep_CheckNVector.exit.thread:                ; preds = %20, %24, %28, %32, %14, %sprkStep_CheckNVector.exit
+sprkStep_CheckNVector.exit.thread:                ; preds = %14, %20, %24, %28, %32, %sprkStep_CheckNVector.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 78, ptr noundef nonnull @__func__.SPRKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #9
   br label %80
 
@@ -210,7 +210,7 @@ sprkStep_CheckNVector.exit.thread:                ; preds = %20, %24, %28, %32, 
   br label %80
 
 80:                                               ; preds = %73, %79, %72, %55, %48, %44, %41, %sprkStep_CheckNVector.exit.thread, %13, %11, %9, %7
-  %.0 = phi ptr [ null, %41 ], [ null, %44 ], [ null, %72 ], [ null, %79 ], [ null, %7 ], [ null, %55 ], [ null, %48 ], [ null, %sprkStep_CheckNVector.exit.thread ], [ null, %13 ], [ null, %11 ], [ null, %9 ], [ %39, %73 ]
+  %.0 = phi ptr [ null, %41 ], [ null, %44 ], [ null, %72 ], [ null, %79 ], [ null, %55 ], [ null, %48 ], [ null, %sprkStep_CheckNVector.exit.thread ], [ null, %13 ], [ null, %11 ], [ null, %9 ], [ null, %7 ], [ %39, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -258,7 +258,7 @@ define range(i32 0, 2) i32 @sprkStep_CheckNVector(ptr noundef readonly captures(
   br label %27
 
 27:                                               ; preds = %23, %1, %7, %11, %15, %19
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %23 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %7 ], [ 0, %1 ], [ %spec.select, %23 ]
   ret i32 %.0
 }
 
@@ -405,7 +405,7 @@ sprkStep_AccessStepMem.exit:                      ; preds = %3
   br label %52
 
 52:                                               ; preds = %sprkStep_AccessStepMem.exit, %.thread, %49, %7
-  %.0 = phi i32 [ 0, %7 ], [ -21, %sprkStep_AccessStepMem.exit ], [ 0, %49 ], [ 0, %.thread ]
+  %.0 = phi i32 [ -21, %sprkStep_AccessStepMem.exit ], [ 0, %7 ], [ 0, %49 ], [ 0, %.thread ]
   ret i32 %.0
 }
 
@@ -462,7 +462,7 @@ sprkStep_AccessStepMem.exit:                      ; preds = %5
   br label %30
 
 30:                                               ; preds = %sprkStep_AccessStepMem.exit, %20, %29, %28, %19
-  %.0 = phi i32 [ -21, %sprkStep_AccessStepMem.exit ], [ -8, %29 ], [ -8, %19 ], [ -8, %28 ], [ 0, %20 ]
+  %.0 = phi i32 [ -8, %29 ], [ -8, %19 ], [ -8, %28 ], [ -21, %sprkStep_AccessStepMem.exit ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -674,7 +674,7 @@ sprkStep_AccessStepMem.exit:                      ; preds = %6
   br label %38
 
 38:                                               ; preds = %sprkStep_AccessStepMem.exit, %30, %36, %35, %29
-  %.0 = phi i32 [ -20, %29 ], [ -21, %sprkStep_AccessStepMem.exit ], [ -20, %35 ], [ 0, %36 ], [ 0, %30 ]
+  %.0 = phi i32 [ -20, %35 ], [ -20, %29 ], [ -21, %sprkStep_AccessStepMem.exit ], [ 0, %36 ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -804,7 +804,7 @@ sprkStep_AccessARKODEStepMem.exit:                ; preds = %8
   br label %sprkStep_AccessARKODEStepMem.exit.thread
 
 sprkStep_AccessARKODEStepMem.exit.thread:         ; preds = %12, %7, %28, %27, %22, %20, %16
-  %.0 = phi i32 [ -22, %20 ], [ -23, %16 ], [ %26, %27 ], [ 0, %28 ], [ -22, %22 ], [ -21, %7 ], [ -21, %12 ]
+  %.0 = phi i32 [ -23, %16 ], [ %26, %27 ], [ 0, %28 ], [ -22, %22 ], [ -22, %20 ], [ -21, %7 ], [ -21, %12 ]
   ret i32 %.0
 }
 
@@ -1061,8 +1061,8 @@ sprkStep_AccessStepMem.exit:                      ; preds = %3
   store double 0.000000e+00, ptr %1, align 8, !tbaa !58
   br label %.thread
 
-.thread:                                          ; preds = %36, %60, %83, %sprkStep_AccessStepMem.exit, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -21, %sprkStep_AccessStepMem.exit ], [ -38, %83 ], [ -8, %60 ], [ -8, %36 ]
+.thread:                                          ; preds = %60, %36, %83, %sprkStep_AccessStepMem.exit, %._crit_edge
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -21, %sprkStep_AccessStepMem.exit ], [ -38, %83 ], [ -8, %36 ], [ -8, %60 ]
   ret i32 %.0
 }
 

@@ -782,7 +782,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit48: ; pre
   ret ptr %0
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit28: ; preds = %131, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i53, %125, %68, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i27, %62, %123, %60
-  %.pn = phi { ptr, i32 } [ %63, %68 ], [ %126, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i53 ], [ %124, %123 ], [ %61, %60 ], [ %126, %131 ], [ %63, %62 ], [ %63, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i27 ], [ %126, %125 ]
+  %.pn = phi { ptr, i32 } [ %124, %123 ], [ %61, %60 ], [ %63, %62 ], [ %63, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i27 ], [ %63, %68 ], [ %126, %125 ], [ %126, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i53 ], [ %126, %131 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -838,51 +838,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %1, %4, %17
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load atomic i32, ptr %23 monotonic, align 4
   %25 = icmp slt i32 %24, 0
-  br i1 %25, label %26, label %34
+  br i1 %25, label %26, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
 
 26:                                               ; preds = %22
   %.not68.i.i.i = icmp eq i32 %24, -2
-  br i1 %.not68.i.i.i, label %32, label %27
+  br i1 %.not68.i.i.i, label %34, label %27
 
 27:                                               ; preds = %26
   %28 = add nsw i32 %24, 1
   %29 = cmpxchg weak ptr %23, i32 %24, i32 %28 release monotonic, align 4
   %30 = extractvalue { i32, i1 } %29, 1
   %31 = extractvalue { i32, i1 } %29, 0
-  br i1 %30, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, label %32
+  br i1 %30, label %32, label %34
 
-32:                                               ; preds = %27, %26
-  %.067.i.i.i = phi i32 [ %31, %27 ], [ -2, %26 ]
-  %33 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %21, i32 noundef %.067.i.i.i)
-          to label %.noexc.i unwind label %42
-
-.noexc.i:                                         ; preds = %32
+32:                                               ; preds = %27
+  %33 = icmp eq i32 %24, -1
   br i1 %33, label %38, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_13PcpLayerStackEED2Ev.exit
 
-34:                                               ; preds = %22
-  %35 = atomicrmw sub ptr %23, i32 1 release, align 4
-  %36 = icmp eq i32 %35, 1
-  br i1 %36, label %38, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_13PcpLayerStackEED2Ev.exit
+34:                                               ; preds = %27, %26
+  %.067.i.i.i = phi i32 [ %31, %27 ], [ -2, %26 ]
+  %35 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %21, i32 noundef %.067.i.i.i)
+          to label %.noexc.i unwind label %42
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %27
-  %37 = icmp eq i32 %24, -1
+.noexc.i:                                         ; preds = %34
+  br i1 %35, label %38, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_13PcpLayerStackEED2Ev.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %22
+  %36 = atomicrmw sub ptr %23, i32 1 release, align 4
+  %37 = icmp eq i32 %36, 1
   br i1 %37, label %38, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_13PcpLayerStackEED2Ev.exit
 
-38:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %34, %.noexc.i
+38:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %.noexc.i, %32
   %39 = load ptr, ptr %21, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull align 8 dereferenceable(12) %21) #20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_13PcpLayerStackEED2Ev.exit
 
-42:                                               ; preds = %32
+42:                                               ; preds = %34
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
   tail call void @__clang_call_terminate(ptr %44) #22
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_13PcpLayerStackEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %.noexc.i, %34, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %38
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_13PcpLayerStackEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %32, %.noexc.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %38
   ret void
 }
 
@@ -1483,11 +1483,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i: ; pred
   %or.cond.i.i = and i1 %468, %467
   br i1 %or.cond.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread7371, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i, %456
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %456
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   br label %472
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread7371: ; preds = %.noexc1847, %462
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread7371: ; preds = %462, %.noexc1847
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   br label %474
 
@@ -1636,11 +1636,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i1861: ; 
   %or.cond.i.i1864 = and i1 %518, %517
   br i1 %or.cond.i.i1864, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit1866.thread7375, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit1866
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit1866.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit1859, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i1861, %506
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit1866.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i1861, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit1859, %506
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   br label %522
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit1866.thread7375: ; preds = %.noexc1865, %512
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit1866.thread7375: ; preds = %512, %.noexc1865
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   br label %524
 
@@ -2972,7 +2972,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26UsdPrimCompositionQueryArcES
   br label %1047
 
 .body.i:                                          ; preds = %997, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i60.i, %992, %985, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i57.i, %980, %.loopexit.split-lp103.i, %.loopexit102.i, %888, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i37.i, %882, %766, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i.i, %760
-  %.pn19.pn.i = phi { ptr, i32 } [ %.pn.i, %985 ], [ %883, %882 ], [ %761, %760 ], [ %761, %766 ], [ %761, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i.i ], [ %.pn19.i, %997 ], [ %883, %888 ], [ %883, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i37.i ], [ %.pn.i, %980 ], [ %.pn.i, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i57.i ], [ %.pn19.i, %992 ], [ %.pn19.i, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i60.i ], [ %lpad.loopexit104.i, %.loopexit102.i ], [ %lpad.loopexit.split-lp105.i, %.loopexit.split-lp103.i ]
+  %.pn19.pn.i = phi { ptr, i32 } [ %761, %766 ], [ %761, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i.i ], [ %761, %760 ], [ %883, %888 ], [ %883, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i37.i ], [ %883, %882 ], [ %.pn.i, %980 ], [ %.pn.i, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i57.i ], [ %.pn.i, %985 ], [ %.pn19.i, %992 ], [ %.pn19.i, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i60.i ], [ %.pn19.i, %997 ], [ %lpad.loopexit104.i, %.loopexit102.i ], [ %lpad.loopexit.split-lp105.i, %.loopexit.split-lp103.i ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26UsdPrimCompositionQueryArcESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #20
   br label %1046
 
@@ -5040,11 +5040,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i2038: ; 
   %or.cond.i.i2041 = and i1 %1826, %1825
   br i1 %or.cond.i.i2041, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2043.thread7383, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2043
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2043.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i2038, %1814
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2043.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i2038, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, %1814
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %1830
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2043.thread7383: ; preds = %.noexc2042, %1820
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2043.thread7383: ; preds = %1820, %.noexc2042
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %_ZNSt6vectorISt4pairIdfESaIS1_EEC2ERKS3_.exit.i
 
@@ -6585,11 +6585,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i2559: ; 
   %or.cond.i.i2562 = and i1 %2528, %2527
   br i1 %or.cond.i.i2562, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2564.thread7387, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2564
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2564.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit2557, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i2559, %2516
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2564.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i2559, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit2557, %2516
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %2532
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2564.thread7387: ; preds = %.noexc2563, %2522
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2564.thread7387: ; preds = %2522, %.noexc2563
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %2534
 
@@ -8644,11 +8644,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i3234: ; 
   %or.cond.i.i3237 = and i1 %3329, %3328
   br i1 %or.cond.i.i3237, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3239.thread7391, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3239
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3239.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit3232, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i3234, %3317
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3239.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i3234, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit3232, %3317
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %3333
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3239.thread7391: ; preds = %.noexc3238, %3323
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3239.thread7391: ; preds = %3323, %.noexc3238
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %3335
 
@@ -10539,11 +10539,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i3883: ; 
   %or.cond.i.i3886 = and i1 %4097, %4096
   br i1 %or.cond.i.i3886, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3888.thread7395, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3888
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3888.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit3881, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i3883, %4085
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3888.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i3883, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit3881, %4085
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4101
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3888.thread7395: ; preds = %.noexc3887, %4091
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3888.thread7395: ; preds = %4091, %.noexc3887
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4103
 
@@ -14439,11 +14439,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i4528: ; 
   %or.cond.i.i4531 = and i1 %5827, %5826
   br i1 %or.cond.i.i4531, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit4533.thread7400, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit4533
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit4533.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit4526, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i4528, %5815
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit4533.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i4528, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit4526, %5815
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %5831
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit4533.thread7400: ; preds = %.noexc4532, %5821
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit4533.thread7400: ; preds = %5821, %.noexc4532
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %5833
 
@@ -21370,51 +21370,51 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit5640: ; preds = %_ZN32pxrI
   %8940 = getelementptr inbounds nuw i8, ptr %8938, i64 8
   %8941 = load atomic i32, ptr %8940 monotonic, align 4
   %8942 = icmp slt i32 %8941, 0
-  br i1 %8942, label %8943, label %8951
+  br i1 %8942, label %8943, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
 
 8943:                                             ; preds = %8939
   %.not68.i.i.i = icmp eq i32 %8941, -2
-  br i1 %.not68.i.i.i, label %8949, label %8944
+  br i1 %.not68.i.i.i, label %8951, label %8944
 
 8944:                                             ; preds = %8943
   %8945 = add nsw i32 %8941, 1
   %8946 = cmpxchg weak ptr %8940, i32 %8941, i32 %8945 release monotonic, align 4
   %8947 = extractvalue { i32, i1 } %8946, 1
   %8948 = extractvalue { i32, i1 } %8946, 0
-  br i1 %8947, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, label %8949
+  br i1 %8947, label %8949, label %8951
 
-8949:                                             ; preds = %8944, %8943
-  %.067.i.i.i = phi i32 [ %8948, %8944 ], [ -2, %8943 ]
-  %8950 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %8938, i32 noundef %.067.i.i.i)
-          to label %.noexc.i5642 unwind label %8959
-
-.noexc.i5642:                                     ; preds = %8949
+8949:                                             ; preds = %8944
+  %8950 = icmp eq i32 %8941, -1
   br i1 %8950, label %8955, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit
 
-8951:                                             ; preds = %8939
-  %8952 = atomicrmw sub ptr %8940, i32 1 release, align 4
-  %8953 = icmp eq i32 %8952, 1
-  br i1 %8953, label %8955, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit
+8951:                                             ; preds = %8944, %8943
+  %.067.i.i.i = phi i32 [ %8948, %8944 ], [ -2, %8943 ]
+  %8952 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %8938, i32 noundef %.067.i.i.i)
+          to label %.noexc.i5642 unwind label %8959
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %8944
-  %8954 = icmp eq i32 %8941, -1
+.noexc.i5642:                                     ; preds = %8951
+  br i1 %8952, label %8955, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %8939
+  %8953 = atomicrmw sub ptr %8940, i32 1 release, align 4
+  %8954 = icmp eq i32 %8953, 1
   br i1 %8954, label %8955, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit
 
-8955:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %8951, %.noexc.i5642
+8955:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %.noexc.i5642, %8949
   %8956 = load ptr, ptr %8938, align 8
   %8957 = getelementptr inbounds nuw i8, ptr %8956, i64 8
   %8958 = load ptr, ptr %8957, align 8
   call void %8958(ptr noundef nonnull align 8 dereferenceable(12) %8938) #20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit
 
-8959:                                             ; preds = %8949
+8959:                                             ; preds = %8951
   %8960 = landingpad { ptr, i32 }
           catch ptr null
   %8961 = extractvalue { ptr, i32 } %8960, 0
   call void @__clang_call_terminate(ptr %8961) #22
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit5640, %.noexc.i5642, %8951, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %8955
+_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit5640, %8949, %.noexc.i5642, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %8955
   ret void
 
 8962:                                             ; preds = %1804
@@ -21444,7 +21444,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit: ; preds 
   br label %.body2224
 
 .body2224:                                        ; preds = %.thread8386, %1982, %8973
-  %.pn1471 = phi { ptr, i32 } [ %8974, %8973 ], [ %1978, %.thread8386 ], [ %1983, %1982 ]
+  %.pn1471 = phi { ptr, i32 } [ %8974, %8973 ], [ %1983, %1982 ], [ %1978, %.thread8386 ]
   br label %8975
 
 8975:                                             ; preds = %8975, %.body2224
@@ -21455,78 +21455,78 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit: ; preds 
   br i1 %8978, label %.body2220, label %8975
 
 .body2220:                                        ; preds = %8975, %1971, %1968
-  %8979 = phi i1 [ false, %1971 ], [ false, %1968 ], [ true, %8975 ]
-  %.pn1471.pn = phi { ptr, i32 } [ %1969, %1971 ], [ %1969, %1968 ], [ %.pn1471, %8975 ]
+  %8979 = phi i1 [ false, %1968 ], [ false, %1971 ], [ true, %8975 ]
+  %.pn1471.pn = phi { ptr, i32 } [ %1969, %1968 ], [ %1969, %1971 ], [ %.pn1471, %8975 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %112) #20
   br label %.body2203
 
 .body2203:                                        ; preds = %.body2220, %1958, %1955
-  %.19919 = phi i1 [ false, %1958 ], [ false, %1955 ], [ %8979, %.body2220 ]
-  %.19835 = phi ptr [ %1950, %1958 ], [ %1950, %1955 ], [ %1963, %.body2220 ]
-  %.pn1471.pn.pn.pn = phi { ptr, i32 } [ %1956, %1958 ], [ %1956, %1955 ], [ %.pn1471.pn, %.body2220 ]
+  %.19919 = phi i1 [ false, %1955 ], [ false, %1958 ], [ %8979, %.body2220 ]
+  %.19835 = phi ptr [ %1950, %1955 ], [ %1950, %1958 ], [ %1963, %.body2220 ]
+  %.pn1471.pn.pn.pn = phi { ptr, i32 } [ %1956, %1955 ], [ %1956, %1958 ], [ %.pn1471.pn, %.body2220 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %111) #20
   br label %.body2186
 
 .body2186:                                        ; preds = %.body2203, %1945, %1942
-  %.17917 = phi i1 [ false, %1945 ], [ false, %1942 ], [ %.19919, %.body2203 ]
-  %.17833 = phi ptr [ %1937, %1945 ], [ %1937, %1942 ], [ %.19835, %.body2203 ]
-  %.pn1471.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1943, %1945 ], [ %1943, %1942 ], [ %.pn1471.pn.pn.pn, %.body2203 ]
+  %.17917 = phi i1 [ false, %1942 ], [ false, %1945 ], [ %.19919, %.body2203 ]
+  %.17833 = phi ptr [ %1937, %1942 ], [ %1937, %1945 ], [ %.19835, %.body2203 ]
+  %.pn1471.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1943, %1942 ], [ %1943, %1945 ], [ %.pn1471.pn.pn.pn, %.body2203 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %110) #20
   br label %.body2169
 
 .body2169:                                        ; preds = %.body2186, %1932, %1929
-  %.15915 = phi i1 [ false, %1932 ], [ false, %1929 ], [ %.17917, %.body2186 ]
-  %.15831 = phi ptr [ %1924, %1932 ], [ %1924, %1929 ], [ %.17833, %.body2186 ]
-  %.pn1471.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1930, %1932 ], [ %1930, %1929 ], [ %.pn1471.pn.pn.pn.pn.pn, %.body2186 ]
+  %.15915 = phi i1 [ false, %1929 ], [ false, %1932 ], [ %.17917, %.body2186 ]
+  %.15831 = phi ptr [ %1924, %1929 ], [ %1924, %1932 ], [ %.17833, %.body2186 ]
+  %.pn1471.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1930, %1929 ], [ %1930, %1932 ], [ %.pn1471.pn.pn.pn.pn.pn, %.body2186 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %109) #20
   br label %.body2152
 
 .body2152:                                        ; preds = %.body2169, %1919, %1916
-  %.13913 = phi i1 [ false, %1919 ], [ false, %1916 ], [ %.15915, %.body2169 ]
-  %.13829 = phi ptr [ %1911, %1919 ], [ %1911, %1916 ], [ %.15831, %.body2169 ]
-  %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1917, %1919 ], [ %1917, %1916 ], [ %.pn1471.pn.pn.pn.pn.pn.pn.pn, %.body2169 ]
+  %.13913 = phi i1 [ false, %1916 ], [ false, %1919 ], [ %.15915, %.body2169 ]
+  %.13829 = phi ptr [ %1911, %1916 ], [ %1911, %1919 ], [ %.15831, %.body2169 ]
+  %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1917, %1916 ], [ %1917, %1919 ], [ %.pn1471.pn.pn.pn.pn.pn.pn.pn, %.body2169 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %108) #20
   br label %.body2135
 
 .body2135:                                        ; preds = %.body2152, %1906, %1903
-  %.11911 = phi i1 [ false, %1906 ], [ false, %1903 ], [ %.13913, %.body2152 ]
-  %.11827 = phi ptr [ %1898, %1906 ], [ %1898, %1903 ], [ %.13829, %.body2152 ]
-  %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1904, %1906 ], [ %1904, %1903 ], [ %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2152 ]
+  %.11911 = phi i1 [ false, %1903 ], [ false, %1906 ], [ %.13913, %.body2152 ]
+  %.11827 = phi ptr [ %1898, %1903 ], [ %1898, %1906 ], [ %.13829, %.body2152 ]
+  %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1904, %1903 ], [ %1904, %1906 ], [ %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2152 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %107) #20
   br label %.body2118
 
 .body2118:                                        ; preds = %.body2135, %1893, %1890
-  %.9909 = phi i1 [ false, %1893 ], [ false, %1890 ], [ %.11911, %.body2135 ]
-  %.9825 = phi ptr [ %1885, %1893 ], [ %1885, %1890 ], [ %.11827, %.body2135 ]
-  %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1891, %1893 ], [ %1891, %1890 ], [ %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2135 ]
+  %.9909 = phi i1 [ false, %1890 ], [ false, %1893 ], [ %.11911, %.body2135 ]
+  %.9825 = phi ptr [ %1885, %1890 ], [ %1885, %1893 ], [ %.11827, %.body2135 ]
+  %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1891, %1890 ], [ %1891, %1893 ], [ %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2135 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %106) #20
   br label %.body2101
 
 .body2101:                                        ; preds = %.body2118, %1880, %1877
-  %.7907 = phi i1 [ false, %1880 ], [ false, %1877 ], [ %.9909, %.body2118 ]
-  %.7823 = phi ptr [ %1872, %1880 ], [ %1872, %1877 ], [ %.9825, %.body2118 ]
-  %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1878, %1880 ], [ %1878, %1877 ], [ %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2118 ]
+  %.7907 = phi i1 [ false, %1877 ], [ false, %1880 ], [ %.9909, %.body2118 ]
+  %.7823 = phi ptr [ %1872, %1877 ], [ %1872, %1880 ], [ %.9825, %.body2118 ]
+  %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1878, %1877 ], [ %1878, %1880 ], [ %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2118 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %105) #20
   br label %.body2084
 
 .body2084:                                        ; preds = %.body2101, %1867, %1864
-  %.5905 = phi i1 [ false, %1867 ], [ false, %1864 ], [ %.7907, %.body2101 ]
-  %.5821 = phi ptr [ %1859, %1867 ], [ %1859, %1864 ], [ %.7823, %.body2101 ]
-  %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1865, %1867 ], [ %1865, %1864 ], [ %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2101 ]
+  %.5905 = phi i1 [ false, %1864 ], [ false, %1867 ], [ %.7907, %.body2101 ]
+  %.5821 = phi ptr [ %1859, %1864 ], [ %1859, %1867 ], [ %.7823, %.body2101 ]
+  %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1865, %1864 ], [ %1865, %1867 ], [ %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2101 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %104) #20
   br label %.body2067
 
 .body2067:                                        ; preds = %.body2084, %1854, %1851
-  %.3903 = phi i1 [ false, %1854 ], [ false, %1851 ], [ %.5905, %.body2084 ]
-  %.3819 = phi ptr [ %1846, %1854 ], [ %1846, %1851 ], [ %.5821, %.body2084 ]
-  %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1852, %1854 ], [ %1852, %1851 ], [ %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2084 ]
+  %.3903 = phi i1 [ false, %1851 ], [ false, %1854 ], [ %.5905, %.body2084 ]
+  %.3819 = phi ptr [ %1846, %1851 ], [ %1846, %1854 ], [ %.5821, %.body2084 ]
+  %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1852, %1851 ], [ %1852, %1854 ], [ %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2084 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %103) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %102) #20
   %8980 = icmp eq ptr %101, %.3819
   %or.cond4 = select i1 %.3903, i1 true, i1 %8980
   br i1 %or.cond4, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5690, label %.preheader7642
 
-_ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5666.thread7408: ; preds = %1841, %1838
+_ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5666.thread7408: ; preds = %1838, %1841
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %102) #20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5690
 
@@ -21544,7 +21544,7 @@ _ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5666.thread7408: ; preds = %1841, %1838
   br label %.body2477
 
 .body2477:                                        ; preds = %.thread8389, %2318, %8984
-  %.pn1495 = phi { ptr, i32 } [ %8985, %8984 ], [ %2314, %.thread8389 ], [ %2319, %2318 ]
+  %.pn1495 = phi { ptr, i32 } [ %8985, %8984 ], [ %2319, %2318 ], [ %2314, %.thread8389 ]
   br label %8986
 
 8986:                                             ; preds = %8986, %.body2477
@@ -21555,64 +21555,64 @@ _ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5666.thread7408: ; preds = %1841, %1838
   br i1 %8989, label %.body2471, label %8986
 
 .body2471:                                        ; preds = %8986, %2307, %2304
-  %8990 = phi i1 [ false, %2307 ], [ false, %2304 ], [ true, %8986 ]
-  %.pn1495.pn = phi { ptr, i32 } [ %2305, %2307 ], [ %2305, %2304 ], [ %.pn1495, %8986 ]
+  %8990 = phi i1 [ false, %2304 ], [ false, %2307 ], [ true, %8986 ]
+  %.pn1495.pn = phi { ptr, i32 } [ %2305, %2304 ], [ %2305, %2307 ], [ %.pn1495, %8986 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %125) #20
   br label %.body2454
 
 .body2454:                                        ; preds = %.body2471, %2294, %2291
-  %.17960 = phi i1 [ false, %2294 ], [ false, %2291 ], [ %8990, %.body2471 ]
-  %.17939 = phi ptr [ %2286, %2294 ], [ %2286, %2291 ], [ %2299, %.body2471 ]
-  %.pn1495.pn.pn.pn = phi { ptr, i32 } [ %2292, %2294 ], [ %2292, %2291 ], [ %.pn1495.pn, %.body2471 ]
+  %.17960 = phi i1 [ false, %2291 ], [ false, %2294 ], [ %8990, %.body2471 ]
+  %.17939 = phi ptr [ %2286, %2291 ], [ %2286, %2294 ], [ %2299, %.body2471 ]
+  %.pn1495.pn.pn.pn = phi { ptr, i32 } [ %2292, %2291 ], [ %2292, %2294 ], [ %.pn1495.pn, %.body2471 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %124) #20
   br label %.body2437
 
 .body2437:                                        ; preds = %.body2454, %2281, %2278
-  %.15958 = phi i1 [ false, %2281 ], [ false, %2278 ], [ %.17960, %.body2454 ]
-  %.15937 = phi ptr [ %2273, %2281 ], [ %2273, %2278 ], [ %.17939, %.body2454 ]
-  %.pn1495.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2279, %2281 ], [ %2279, %2278 ], [ %.pn1495.pn.pn.pn, %.body2454 ]
+  %.15958 = phi i1 [ false, %2278 ], [ false, %2281 ], [ %.17960, %.body2454 ]
+  %.15937 = phi ptr [ %2273, %2278 ], [ %2273, %2281 ], [ %.17939, %.body2454 ]
+  %.pn1495.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2279, %2278 ], [ %2279, %2281 ], [ %.pn1495.pn.pn.pn, %.body2454 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %123) #20
   br label %.body2420
 
 .body2420:                                        ; preds = %.body2437, %2268, %2265
-  %.13956 = phi i1 [ false, %2268 ], [ false, %2265 ], [ %.15958, %.body2437 ]
-  %.13935 = phi ptr [ %2260, %2268 ], [ %2260, %2265 ], [ %.15937, %.body2437 ]
-  %.pn1495.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2266, %2268 ], [ %2266, %2265 ], [ %.pn1495.pn.pn.pn.pn.pn, %.body2437 ]
+  %.13956 = phi i1 [ false, %2265 ], [ false, %2268 ], [ %.15958, %.body2437 ]
+  %.13935 = phi ptr [ %2260, %2265 ], [ %2260, %2268 ], [ %.15937, %.body2437 ]
+  %.pn1495.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2266, %2265 ], [ %2266, %2268 ], [ %.pn1495.pn.pn.pn.pn.pn, %.body2437 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %122) #20
   br label %.body2403
 
 .body2403:                                        ; preds = %.body2420, %2255, %2252
-  %.11954 = phi i1 [ false, %2255 ], [ false, %2252 ], [ %.13956, %.body2420 ]
-  %.11933 = phi ptr [ %2247, %2255 ], [ %2247, %2252 ], [ %.13935, %.body2420 ]
-  %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2253, %2255 ], [ %2253, %2252 ], [ %.pn1495.pn.pn.pn.pn.pn.pn.pn, %.body2420 ]
+  %.11954 = phi i1 [ false, %2252 ], [ false, %2255 ], [ %.13956, %.body2420 ]
+  %.11933 = phi ptr [ %2247, %2252 ], [ %2247, %2255 ], [ %.13935, %.body2420 ]
+  %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2253, %2252 ], [ %2253, %2255 ], [ %.pn1495.pn.pn.pn.pn.pn.pn.pn, %.body2420 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %121) #20
   br label %.body2386
 
 .body2386:                                        ; preds = %.body2403, %2242, %2239
-  %.9952 = phi i1 [ false, %2242 ], [ false, %2239 ], [ %.11954, %.body2403 ]
-  %.9931 = phi ptr [ %2234, %2242 ], [ %2234, %2239 ], [ %.11933, %.body2403 ]
-  %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2240, %2242 ], [ %2240, %2239 ], [ %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2403 ]
+  %.9952 = phi i1 [ false, %2239 ], [ false, %2242 ], [ %.11954, %.body2403 ]
+  %.9931 = phi ptr [ %2234, %2239 ], [ %2234, %2242 ], [ %.11933, %.body2403 ]
+  %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2240, %2239 ], [ %2240, %2242 ], [ %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2403 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %120) #20
   br label %.body2369
 
 .body2369:                                        ; preds = %.body2386, %2229, %2226
-  %.7950 = phi i1 [ false, %2229 ], [ false, %2226 ], [ %.9952, %.body2386 ]
-  %.7929 = phi ptr [ %2221, %2229 ], [ %2221, %2226 ], [ %.9931, %.body2386 ]
-  %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2227, %2229 ], [ %2227, %2226 ], [ %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2386 ]
+  %.7950 = phi i1 [ false, %2226 ], [ false, %2229 ], [ %.9952, %.body2386 ]
+  %.7929 = phi ptr [ %2221, %2226 ], [ %2221, %2229 ], [ %.9931, %.body2386 ]
+  %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2227, %2226 ], [ %2227, %2229 ], [ %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2386 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %119) #20
   br label %.body2352
 
 .body2352:                                        ; preds = %.body2369, %2216, %2213
-  %.5948 = phi i1 [ false, %2216 ], [ false, %2213 ], [ %.7950, %.body2369 ]
-  %.5927 = phi ptr [ %2208, %2216 ], [ %2208, %2213 ], [ %.7929, %.body2369 ]
-  %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2214, %2216 ], [ %2214, %2213 ], [ %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2369 ]
+  %.5948 = phi i1 [ false, %2213 ], [ false, %2216 ], [ %.7950, %.body2369 ]
+  %.5927 = phi ptr [ %2208, %2213 ], [ %2208, %2216 ], [ %.7929, %.body2369 ]
+  %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2214, %2213 ], [ %2214, %2216 ], [ %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2369 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %118) #20
   br label %.body2335
 
 .body2335:                                        ; preds = %.body2352, %2203, %2200
-  %.3946 = phi i1 [ false, %2203 ], [ false, %2200 ], [ %.5948, %.body2352 ]
-  %.3925 = phi ptr [ %2195, %2203 ], [ %2195, %2200 ], [ %.5927, %.body2352 ]
-  %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2201, %2203 ], [ %2201, %2200 ], [ %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2352 ]
+  %.3946 = phi i1 [ false, %2200 ], [ false, %2203 ], [ %.5948, %.body2352 ]
+  %.3925 = phi ptr [ %2195, %2200 ], [ %2195, %2203 ], [ %.5927, %.body2352 ]
+  %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2201, %2200 ], [ %2201, %2203 ], [ %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2352 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %117) #20
   br label %_ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5688
 
@@ -21621,9 +21621,9 @@ _ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5688.thread: ; preds = %2174, %2177
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5690
 
 _ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5688:    ; preds = %.body2335, %2190, %2187
-  %.1944 = phi i1 [ false, %2190 ], [ false, %2187 ], [ %.3946, %.body2335 ]
-  %.1923 = phi ptr [ %2182, %2190 ], [ %2182, %2187 ], [ %.3925, %.body2335 ]
-  %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2188, %2190 ], [ %2188, %2187 ], [ %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2335 ]
+  %.1944 = phi i1 [ false, %2187 ], [ false, %2190 ], [ %.3946, %.body2335 ]
+  %.1923 = phi ptr [ %2182, %2187 ], [ %2182, %2190 ], [ %.3925, %.body2335 ]
+  %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2188, %2187 ], [ %2188, %2190 ], [ %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2335 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %116) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %115) #20
   %8991 = icmp eq ptr %114, %.1923
@@ -21719,7 +21719,7 @@ _ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5688:    ; preds = %.body2335, %2190, %
   br label %.body2814
 
 .body2814:                                        ; preds = %.thread8392, %2738, %9028
-  %.pn1517 = phi { ptr, i32 } [ %9029, %9028 ], [ %2734, %.thread8392 ], [ %2739, %2738 ]
+  %.pn1517 = phi { ptr, i32 } [ %9029, %9028 ], [ %2739, %2738 ], [ %2734, %.thread8392 ]
   br label %9030
 
 9030:                                             ; preds = %9030, %.body2814
@@ -21730,88 +21730,88 @@ _ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5688:    ; preds = %.body2335, %2190, %
   br i1 %9033, label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5693, label %9030
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5693:    ; preds = %9030, %9026, %2727, %2724
-  %9034 = phi i1 [ false, %9026 ], [ false, %2724 ], [ false, %2727 ], [ true, %9030 ]
-  %.pn1517.pn = phi { ptr, i32 } [ %9027, %9026 ], [ %2725, %2724 ], [ %2725, %2727 ], [ %.pn1517, %9030 ]
+  %9034 = phi i1 [ false, %2724 ], [ false, %2727 ], [ false, %9026 ], [ true, %9030 ]
+  %.pn1517.pn = phi { ptr, i32 } [ %2725, %2724 ], [ %2725, %2727 ], [ %9027, %9026 ], [ %.pn1517, %9030 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %140) #20
   call void @_ZdlPvm(ptr noundef nonnull %2715, i64 noundef 16) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5696
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5696:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5693, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2791, %9024, %2709, %2706
-  %.191005 = phi i1 [ false, %9024 ], [ false, %2706 ], [ false, %2709 ], [ %9034, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5693 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2791 ]
-  %.19982 = phi ptr [ %2696, %9024 ], [ %2696, %2706 ], [ %2696, %2709 ], [ %2714, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5693 ], [ %2714, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2791 ]
-  %.pn1517.pn.pn.pn = phi { ptr, i32 } [ %9025, %9024 ], [ %2707, %2706 ], [ %2707, %2709 ], [ %.pn1517.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5693 ], [ %2716, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2791 ]
+  %.191005 = phi i1 [ false, %2706 ], [ false, %2709 ], [ false, %9024 ], [ %9034, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5693 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2791 ]
+  %.19982 = phi ptr [ %2696, %2706 ], [ %2696, %2709 ], [ %2696, %9024 ], [ %2714, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5693 ], [ %2714, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2791 ]
+  %.pn1517.pn.pn.pn = phi { ptr, i32 } [ %2707, %2706 ], [ %2707, %2709 ], [ %9025, %9024 ], [ %.pn1517.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5693 ], [ %2716, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2791 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %139) #20
   call void @_ZdlPvm(ptr noundef nonnull %2697, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5699
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5699:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5696, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2768, %9022, %2691, %2688
-  %.171003 = phi i1 [ false, %9022 ], [ false, %2688 ], [ false, %2691 ], [ %.191005, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5696 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2768 ]
-  %.17980 = phi ptr [ %2678, %9022 ], [ %2678, %2688 ], [ %2678, %2691 ], [ %.19982, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5696 ], [ %2696, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2768 ]
-  %.pn1517.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9023, %9022 ], [ %2689, %2688 ], [ %2689, %2691 ], [ %.pn1517.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5696 ], [ %2698, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2768 ]
+  %.171003 = phi i1 [ false, %2688 ], [ false, %2691 ], [ false, %9022 ], [ %.191005, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5696 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2768 ]
+  %.17980 = phi ptr [ %2678, %2688 ], [ %2678, %2691 ], [ %2678, %9022 ], [ %.19982, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5696 ], [ %2696, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2768 ]
+  %.pn1517.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2689, %2688 ], [ %2689, %2691 ], [ %9023, %9022 ], [ %.pn1517.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5696 ], [ %2698, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2768 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %138) #20
   call void @_ZdlPvm(ptr noundef nonnull %2679, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5702
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5702:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5699, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2745, %9020, %2673, %2670
-  %.151001 = phi i1 [ false, %9020 ], [ false, %2670 ], [ false, %2673 ], [ %.171003, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5699 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2745 ]
-  %.15978 = phi ptr [ %2660, %9020 ], [ %2660, %2670 ], [ %2660, %2673 ], [ %.17980, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5699 ], [ %2678, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2745 ]
-  %.pn1517.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9021, %9020 ], [ %2671, %2670 ], [ %2671, %2673 ], [ %.pn1517.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5699 ], [ %2680, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2745 ]
+  %.151001 = phi i1 [ false, %2670 ], [ false, %2673 ], [ false, %9020 ], [ %.171003, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5699 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2745 ]
+  %.15978 = phi ptr [ %2660, %2670 ], [ %2660, %2673 ], [ %2660, %9020 ], [ %.17980, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5699 ], [ %2678, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2745 ]
+  %.pn1517.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2671, %2670 ], [ %2671, %2673 ], [ %9021, %9020 ], [ %.pn1517.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5699 ], [ %2680, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2745 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %137) #20
   call void @_ZdlPvm(ptr noundef nonnull %2661, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5705
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5705:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5702, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2722, %9018, %2655, %2652
-  %.13999 = phi i1 [ false, %9018 ], [ false, %2652 ], [ false, %2655 ], [ %.151001, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5702 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2722 ]
-  %.13976 = phi ptr [ %2642, %9018 ], [ %2642, %2652 ], [ %2642, %2655 ], [ %.15978, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5702 ], [ %2660, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2722 ]
-  %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9019, %9018 ], [ %2653, %2652 ], [ %2653, %2655 ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5702 ], [ %2662, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2722 ]
+  %.13999 = phi i1 [ false, %2652 ], [ false, %2655 ], [ false, %9018 ], [ %.151001, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5702 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2722 ]
+  %.13976 = phi ptr [ %2642, %2652 ], [ %2642, %2655 ], [ %2642, %9018 ], [ %.15978, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5702 ], [ %2660, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2722 ]
+  %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2653, %2652 ], [ %2653, %2655 ], [ %9019, %9018 ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5702 ], [ %2662, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2722 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %136) #20
   call void @_ZdlPvm(ptr noundef nonnull %2643, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5708
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5708:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5705, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2699, %9016, %2637, %2634
-  %.11997 = phi i1 [ false, %9016 ], [ false, %2634 ], [ false, %2637 ], [ %.13999, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5705 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2699 ]
-  %.11974 = phi ptr [ %2624, %9016 ], [ %2624, %2634 ], [ %2624, %2637 ], [ %.13976, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5705 ], [ %2642, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2699 ]
-  %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9017, %9016 ], [ %2635, %2634 ], [ %2635, %2637 ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5705 ], [ %2644, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2699 ]
+  %.11997 = phi i1 [ false, %2634 ], [ false, %2637 ], [ false, %9016 ], [ %.13999, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5705 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2699 ]
+  %.11974 = phi ptr [ %2624, %2634 ], [ %2624, %2637 ], [ %2624, %9016 ], [ %.13976, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5705 ], [ %2642, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2699 ]
+  %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2635, %2634 ], [ %2635, %2637 ], [ %9017, %9016 ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5705 ], [ %2644, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2699 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %135) #20
   call void @_ZdlPvm(ptr noundef nonnull %2625, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5711
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5711:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5708, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2676, %9014, %2619, %2616
-  %.9995 = phi i1 [ false, %9014 ], [ false, %2616 ], [ false, %2619 ], [ %.11997, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5708 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2676 ]
-  %.9972 = phi ptr [ %2606, %9014 ], [ %2606, %2616 ], [ %2606, %2619 ], [ %.11974, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5708 ], [ %2624, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2676 ]
-  %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9015, %9014 ], [ %2617, %2616 ], [ %2617, %2619 ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5708 ], [ %2626, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2676 ]
+  %.9995 = phi i1 [ false, %2616 ], [ false, %2619 ], [ false, %9014 ], [ %.11997, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5708 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2676 ]
+  %.9972 = phi ptr [ %2606, %2616 ], [ %2606, %2619 ], [ %2606, %9014 ], [ %.11974, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5708 ], [ %2624, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2676 ]
+  %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2617, %2616 ], [ %2617, %2619 ], [ %9015, %9014 ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5708 ], [ %2626, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2676 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %134) #20
   call void @_ZdlPvm(ptr noundef nonnull %2607, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5714
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5714:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5711, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2653, %9012, %2601, %2598
-  %.7993 = phi i1 [ false, %9012 ], [ false, %2598 ], [ false, %2601 ], [ %.9995, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5711 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2653 ]
-  %.7970 = phi ptr [ %2588, %9012 ], [ %2588, %2598 ], [ %2588, %2601 ], [ %.9972, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5711 ], [ %2606, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2653 ]
-  %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9013, %9012 ], [ %2599, %2598 ], [ %2599, %2601 ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5711 ], [ %2608, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2653 ]
+  %.7993 = phi i1 [ false, %2598 ], [ false, %2601 ], [ false, %9012 ], [ %.9995, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5711 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2653 ]
+  %.7970 = phi ptr [ %2588, %2598 ], [ %2588, %2601 ], [ %2588, %9012 ], [ %.9972, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5711 ], [ %2606, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2653 ]
+  %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2599, %2598 ], [ %2599, %2601 ], [ %9013, %9012 ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5711 ], [ %2608, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2653 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %133) #20
   call void @_ZdlPvm(ptr noundef nonnull %2589, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5717
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5717:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5714, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2630, %9010, %2583, %2580
-  %.5991 = phi i1 [ false, %9010 ], [ false, %2580 ], [ false, %2583 ], [ %.7993, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5714 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2630 ]
-  %.5968 = phi ptr [ %2570, %9010 ], [ %2570, %2580 ], [ %2570, %2583 ], [ %.7970, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5714 ], [ %2588, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2630 ]
-  %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9011, %9010 ], [ %2581, %2580 ], [ %2581, %2583 ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5714 ], [ %2590, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2630 ]
+  %.5991 = phi i1 [ false, %2580 ], [ false, %2583 ], [ false, %9010 ], [ %.7993, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5714 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2630 ]
+  %.5968 = phi ptr [ %2570, %2580 ], [ %2570, %2583 ], [ %2570, %9010 ], [ %.7970, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5714 ], [ %2588, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2630 ]
+  %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2581, %2580 ], [ %2581, %2583 ], [ %9011, %9010 ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5714 ], [ %2590, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2630 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %132) #20
   call void @_ZdlPvm(ptr noundef nonnull %2571, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5720
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5720:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5717, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2607, %9008, %2565, %2562
-  %.3989 = phi i1 [ false, %9008 ], [ false, %2562 ], [ false, %2565 ], [ %.5991, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5717 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2607 ]
-  %.3966 = phi ptr [ %2552, %9008 ], [ %2552, %2562 ], [ %2552, %2565 ], [ %.5968, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5717 ], [ %2570, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2607 ]
-  %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9009, %9008 ], [ %2563, %2562 ], [ %2563, %2565 ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5717 ], [ %2572, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2607 ]
+  %.3989 = phi i1 [ false, %2562 ], [ false, %2565 ], [ false, %9008 ], [ %.5991, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5717 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2607 ]
+  %.3966 = phi ptr [ %2552, %2562 ], [ %2552, %2565 ], [ %2552, %9008 ], [ %.5968, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5717 ], [ %2570, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2607 ]
+  %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2563, %2562 ], [ %2563, %2565 ], [ %9009, %9008 ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5717 ], [ %2572, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2607 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %131) #20
   call void @_ZdlPvm(ptr noundef nonnull %2553, i64 noundef 32) #23
   br label %.body2568
 
 .body2568:                                        ; preds = %2544, %2547, %9006, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2584, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5720
-  %.1987 = phi i1 [ false, %9006 ], [ false, %2544 ], [ false, %2547 ], [ %.3989, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5720 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2584 ]
-  %.1964 = phi ptr [ %129, %9006 ], [ %129, %2544 ], [ %129, %2547 ], [ %.3966, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5720 ], [ %2552, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2584 ]
-  %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9007, %9006 ], [ %2545, %2544 ], [ %2545, %2547 ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5720 ], [ %2554, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2584 ]
+  %.1987 = phi i1 [ false, %2544 ], [ false, %2547 ], [ false, %9006 ], [ %.3989, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5720 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2584 ]
+  %.1964 = phi ptr [ %129, %2544 ], [ %129, %2547 ], [ %129, %9006 ], [ %.3966, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5720 ], [ %2552, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2584 ]
+  %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2545, %2544 ], [ %2545, %2547 ], [ %9007, %9006 ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5720 ], [ %2554, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2584 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %130) #20
   call void @_ZdlPvm(ptr noundef nonnull %2535, i64 noundef 32) #23
   %9035 = icmp eq ptr %129, %.1964
@@ -21877,7 +21877,7 @@ _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5720:    ; preds = %_ZNSt6vectorISt4pai
   br label %.body3141
 
 .body3141:                                        ; preds = %.thread8395, %3119, %9057
-  %.pn1541 = phi { ptr, i32 } [ %9058, %9057 ], [ %3115, %.thread8395 ], [ %3120, %3119 ]
+  %.pn1541 = phi { ptr, i32 } [ %9058, %9057 ], [ %3120, %3119 ], [ %3115, %.thread8395 ]
   br label %9059
 
 9059:                                             ; preds = %9059, %.body3141
@@ -21888,72 +21888,72 @@ _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5720:    ; preds = %_ZNSt6vectorISt4pai
   br i1 %9062, label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5726, label %9059
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5726:    ; preds = %9059, %9055, %3108, %3105
-  %9063 = phi i1 [ false, %9055 ], [ false, %3105 ], [ false, %3108 ], [ true, %9059 ]
-  %.pn1541.pn = phi { ptr, i32 } [ %9056, %9055 ], [ %3106, %3105 ], [ %3106, %3108 ], [ %.pn1541, %9059 ]
+  %9063 = phi i1 [ false, %3105 ], [ false, %3108 ], [ false, %9055 ], [ true, %9059 ]
+  %.pn1541.pn = phi { ptr, i32 } [ %3106, %3105 ], [ %3106, %3108 ], [ %9056, %9055 ], [ %.pn1541, %9059 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %153) #20
   call void @_ZdlPvm(ptr noundef nonnull %3096, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5729
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5729:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5726, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3116, %9053, %3090, %3087
-  %.171046 = phi i1 [ false, %9053 ], [ false, %3087 ], [ false, %3090 ], [ %9063, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5726 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3116 ]
-  %.171025 = phi ptr [ %3077, %9053 ], [ %3077, %3087 ], [ %3077, %3090 ], [ %3095, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5726 ], [ %3095, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3116 ]
-  %.pn1541.pn.pn.pn = phi { ptr, i32 } [ %9054, %9053 ], [ %3088, %3087 ], [ %3088, %3090 ], [ %.pn1541.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5726 ], [ %3097, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3116 ]
+  %.171046 = phi i1 [ false, %3087 ], [ false, %3090 ], [ false, %9053 ], [ %9063, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5726 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3116 ]
+  %.171025 = phi ptr [ %3077, %3087 ], [ %3077, %3090 ], [ %3077, %9053 ], [ %3095, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5726 ], [ %3095, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3116 ]
+  %.pn1541.pn.pn.pn = phi { ptr, i32 } [ %3088, %3087 ], [ %3088, %3090 ], [ %9054, %9053 ], [ %.pn1541.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5726 ], [ %3097, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3116 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %152) #20
   call void @_ZdlPvm(ptr noundef nonnull %3078, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5732
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5732:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5729, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3093, %9051, %3072, %3069
-  %.151044 = phi i1 [ false, %9051 ], [ false, %3069 ], [ false, %3072 ], [ %.171046, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5729 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3093 ]
-  %.151023 = phi ptr [ %3059, %9051 ], [ %3059, %3069 ], [ %3059, %3072 ], [ %.171025, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5729 ], [ %3077, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3093 ]
-  %.pn1541.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9052, %9051 ], [ %3070, %3069 ], [ %3070, %3072 ], [ %.pn1541.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5729 ], [ %3079, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3093 ]
+  %.151044 = phi i1 [ false, %3069 ], [ false, %3072 ], [ false, %9051 ], [ %.171046, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5729 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3093 ]
+  %.151023 = phi ptr [ %3059, %3069 ], [ %3059, %3072 ], [ %3059, %9051 ], [ %.171025, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5729 ], [ %3077, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3093 ]
+  %.pn1541.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3070, %3069 ], [ %3070, %3072 ], [ %9052, %9051 ], [ %.pn1541.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5729 ], [ %3079, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3093 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %151) #20
   call void @_ZdlPvm(ptr noundef nonnull %3060, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5735
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5735:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5732, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3070, %9049, %3054, %3051
-  %.131042 = phi i1 [ false, %9049 ], [ false, %3051 ], [ false, %3054 ], [ %.151044, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5732 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3070 ]
-  %.131021 = phi ptr [ %3041, %9049 ], [ %3041, %3051 ], [ %3041, %3054 ], [ %.151023, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5732 ], [ %3059, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3070 ]
-  %.pn1541.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9050, %9049 ], [ %3052, %3051 ], [ %3052, %3054 ], [ %.pn1541.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5732 ], [ %3061, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3070 ]
+  %.131042 = phi i1 [ false, %3051 ], [ false, %3054 ], [ false, %9049 ], [ %.151044, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5732 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3070 ]
+  %.131021 = phi ptr [ %3041, %3051 ], [ %3041, %3054 ], [ %3041, %9049 ], [ %.151023, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5732 ], [ %3059, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3070 ]
+  %.pn1541.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3052, %3051 ], [ %3052, %3054 ], [ %9050, %9049 ], [ %.pn1541.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5732 ], [ %3061, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3070 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %150) #20
   call void @_ZdlPvm(ptr noundef nonnull %3042, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5738
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5738:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5735, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3047, %9047, %3036, %3033
-  %.111040 = phi i1 [ false, %9047 ], [ false, %3033 ], [ false, %3036 ], [ %.131042, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5735 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3047 ]
-  %.111019 = phi ptr [ %3023, %9047 ], [ %3023, %3033 ], [ %3023, %3036 ], [ %.131021, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5735 ], [ %3041, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3047 ]
-  %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9048, %9047 ], [ %3034, %3033 ], [ %3034, %3036 ], [ %.pn1541.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5735 ], [ %3043, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3047 ]
+  %.111040 = phi i1 [ false, %3033 ], [ false, %3036 ], [ false, %9047 ], [ %.131042, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5735 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3047 ]
+  %.111019 = phi ptr [ %3023, %3033 ], [ %3023, %3036 ], [ %3023, %9047 ], [ %.131021, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5735 ], [ %3041, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3047 ]
+  %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3034, %3033 ], [ %3034, %3036 ], [ %9048, %9047 ], [ %.pn1541.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5735 ], [ %3043, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3047 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %149) #20
   call void @_ZdlPvm(ptr noundef nonnull %3024, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5741
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5741:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5738, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3024, %9045, %3018, %3015
-  %.91038 = phi i1 [ false, %9045 ], [ false, %3015 ], [ false, %3018 ], [ %.111040, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5738 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3024 ]
-  %.91017 = phi ptr [ %3005, %9045 ], [ %3005, %3015 ], [ %3005, %3018 ], [ %.111019, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5738 ], [ %3023, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3024 ]
-  %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9046, %9045 ], [ %3016, %3015 ], [ %3016, %3018 ], [ %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5738 ], [ %3025, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3024 ]
+  %.91038 = phi i1 [ false, %3015 ], [ false, %3018 ], [ false, %9045 ], [ %.111040, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5738 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3024 ]
+  %.91017 = phi ptr [ %3005, %3015 ], [ %3005, %3018 ], [ %3005, %9045 ], [ %.111019, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5738 ], [ %3023, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3024 ]
+  %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3016, %3015 ], [ %3016, %3018 ], [ %9046, %9045 ], [ %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5738 ], [ %3025, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3024 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %148) #20
   call void @_ZdlPvm(ptr noundef nonnull %3006, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5744
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5744:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5741, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3001, %9043, %3000, %2997
-  %.71036 = phi i1 [ false, %9043 ], [ false, %2997 ], [ false, %3000 ], [ %.91038, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5741 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3001 ]
-  %.71015 = phi ptr [ %2987, %9043 ], [ %2987, %2997 ], [ %2987, %3000 ], [ %.91017, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5741 ], [ %3005, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3001 ]
-  %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9044, %9043 ], [ %2998, %2997 ], [ %2998, %3000 ], [ %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5741 ], [ %3007, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3001 ]
+  %.71036 = phi i1 [ false, %2997 ], [ false, %3000 ], [ false, %9043 ], [ %.91038, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5741 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3001 ]
+  %.71015 = phi ptr [ %2987, %2997 ], [ %2987, %3000 ], [ %2987, %9043 ], [ %.91017, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5741 ], [ %3005, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3001 ]
+  %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2998, %2997 ], [ %2998, %3000 ], [ %9044, %9043 ], [ %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5741 ], [ %3007, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3001 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %147) #20
   call void @_ZdlPvm(ptr noundef nonnull %2988, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5747
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5747:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5744, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2978, %9041, %2982, %2979
-  %.51034 = phi i1 [ false, %9041 ], [ false, %2979 ], [ false, %2982 ], [ %.71036, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5744 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2978 ]
-  %.51013 = phi ptr [ %2969, %9041 ], [ %2969, %2979 ], [ %2969, %2982 ], [ %.71015, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5744 ], [ %2987, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2978 ]
-  %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9042, %9041 ], [ %2980, %2979 ], [ %2980, %2982 ], [ %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5744 ], [ %2989, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2978 ]
+  %.51034 = phi i1 [ false, %2979 ], [ false, %2982 ], [ false, %9041 ], [ %.71036, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5744 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2978 ]
+  %.51013 = phi ptr [ %2969, %2979 ], [ %2969, %2982 ], [ %2969, %9041 ], [ %.71015, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5744 ], [ %2987, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2978 ]
+  %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2980, %2979 ], [ %2980, %2982 ], [ %9042, %9041 ], [ %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5744 ], [ %2989, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2978 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %146) #20
   call void @_ZdlPvm(ptr noundef nonnull %2970, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5750
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5750:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5747, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2955, %9039, %2964, %2961
-  %.31032 = phi i1 [ false, %9039 ], [ false, %2961 ], [ false, %2964 ], [ %.51034, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5747 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2955 ]
-  %.31011 = phi ptr [ %2951, %9039 ], [ %2951, %2961 ], [ %2951, %2964 ], [ %.51013, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5747 ], [ %2969, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2955 ]
-  %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9040, %9039 ], [ %2962, %2961 ], [ %2962, %2964 ], [ %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5747 ], [ %2971, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2955 ]
+  %.31032 = phi i1 [ false, %2961 ], [ false, %2964 ], [ false, %9039 ], [ %.51034, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5747 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2955 ]
+  %.31011 = phi ptr [ %2951, %2961 ], [ %2951, %2964 ], [ %2951, %9039 ], [ %.51013, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5747 ], [ %2969, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2955 ]
+  %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2962, %2961 ], [ %2962, %2964 ], [ %9040, %9039 ], [ %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5747 ], [ %2971, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2955 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %145) #20
   call void @_ZdlPvm(ptr noundef nonnull %2952, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5756
@@ -21963,9 +21963,9 @@ _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5756.thread: ; preds = %2930, %2933
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5758
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5756:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5750, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2932, %2946, %2943
-  %.11030 = phi i1 [ false, %2946 ], [ false, %2943 ], [ %.31032, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5750 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2932 ]
-  %.11009 = phi ptr [ %2938, %2946 ], [ %2938, %2943 ], [ %.31011, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5750 ], [ %2951, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2932 ]
-  %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2944, %2946 ], [ %2944, %2943 ], [ %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5750 ], [ %2953, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2932 ]
+  %.11030 = phi i1 [ false, %2943 ], [ false, %2946 ], [ %.31032, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5750 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2932 ]
+  %.11009 = phi ptr [ %2938, %2943 ], [ %2938, %2946 ], [ %.31011, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5750 ], [ %2951, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2932 ]
+  %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %2944, %2943 ], [ %2944, %2946 ], [ %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5750 ], [ %2953, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i2932 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %144) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %143) #20
   %9064 = icmp eq ptr %142, %.11009
@@ -22026,7 +22026,7 @@ _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5756:    ; preds = %_ZNSt6vectorISt4pai
   br label %.body3456
 
 .body3456:                                        ; preds = %.thread8398, %3506, %9087
-  %.pn1563 = phi { ptr, i32 } [ %9088, %9087 ], [ %3502, %.thread8398 ], [ %3507, %3506 ]
+  %.pn1563 = phi { ptr, i32 } [ %9088, %9087 ], [ %3507, %3506 ], [ %3502, %.thread8398 ]
   br label %9089
 
 9089:                                             ; preds = %9089, %.body3456
@@ -22037,81 +22037,81 @@ _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5756:    ; preds = %_ZNSt6vectorISt4pai
   br i1 %9092, label %.body3450, label %9089
 
 .body3450:                                        ; preds = %9089, %3495, %3492
-  %9093 = phi i1 [ false, %3495 ], [ false, %3492 ], [ true, %9089 ]
-  %.pn1563.pn = phi { ptr, i32 } [ %3493, %3495 ], [ %3493, %3492 ], [ %.pn1563, %9089 ]
+  %9093 = phi i1 [ false, %3492 ], [ false, %3495 ], [ true, %9089 ]
+  %.pn1563.pn = phi { ptr, i32 } [ %3493, %3492 ], [ %3493, %3495 ], [ %.pn1563, %9089 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %168) #20
   br label %.body3433
 
 .body3433:                                        ; preds = %.body3450, %9085, %3482, %3479
-  %.231099 = phi i1 [ false, %9085 ], [ false, %3479 ], [ false, %3482 ], [ %9093, %.body3450 ]
-  %.231072 = phi ptr [ %3469, %9085 ], [ %3469, %3479 ], [ %3469, %3482 ], [ %3487, %.body3450 ]
-  %.pn1563.pn.pn.pn = phi { ptr, i32 } [ %9086, %9085 ], [ %3480, %3479 ], [ %3480, %3482 ], [ %.pn1563.pn, %.body3450 ]
+  %.231099 = phi i1 [ false, %3479 ], [ false, %3482 ], [ false, %9085 ], [ %9093, %.body3450 ]
+  %.231072 = phi ptr [ %3469, %3479 ], [ %3469, %3482 ], [ %3469, %9085 ], [ %3487, %.body3450 ]
+  %.pn1563.pn.pn.pn = phi { ptr, i32 } [ %3480, %3479 ], [ %3480, %3482 ], [ %9086, %9085 ], [ %.pn1563.pn, %.body3450 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %167) #20
   call void @_ZdlPvm(ptr noundef nonnull %3470, i64 noundef 32) #23
   br label %.body3410
 
 .body3410:                                        ; preds = %.body3433, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3414, %3464, %3461
-  %.201096 = phi i1 [ false, %3464 ], [ false, %3461 ], [ %.231099, %.body3433 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3414 ]
-  %.201069 = phi ptr [ %3456, %3464 ], [ %3456, %3461 ], [ %.231072, %.body3433 ], [ %3469, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3414 ]
-  %.pn1563.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3462, %3464 ], [ %3462, %3461 ], [ %.pn1563.pn.pn.pn, %.body3433 ], [ %3471, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3414 ]
+  %.201096 = phi i1 [ false, %3461 ], [ false, %3464 ], [ %.231099, %.body3433 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3414 ]
+  %.201069 = phi ptr [ %3456, %3461 ], [ %3456, %3464 ], [ %.231072, %.body3433 ], [ %3469, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3414 ]
+  %.pn1563.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3462, %3461 ], [ %3462, %3464 ], [ %.pn1563.pn.pn.pn, %.body3433 ], [ %3471, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3414 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %166) #20
   br label %.body3393
 
 .body3393:                                        ; preds = %.body3410, %3451, %3448
-  %.181094 = phi i1 [ false, %3451 ], [ false, %3448 ], [ %.201096, %.body3410 ]
-  %.181067 = phi ptr [ %3443, %3451 ], [ %3443, %3448 ], [ %.201069, %.body3410 ]
-  %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3449, %3451 ], [ %3449, %3448 ], [ %.pn1563.pn.pn.pn.pn.pn.pn, %.body3410 ]
+  %.181094 = phi i1 [ false, %3448 ], [ false, %3451 ], [ %.201096, %.body3410 ]
+  %.181067 = phi ptr [ %3443, %3448 ], [ %3443, %3451 ], [ %.201069, %.body3410 ]
+  %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3449, %3448 ], [ %3449, %3451 ], [ %.pn1563.pn.pn.pn.pn.pn.pn, %.body3410 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %165) #20
   br label %.body3376
 
 .body3376:                                        ; preds = %.body3393, %3438, %3435
-  %.161092 = phi i1 [ false, %3438 ], [ false, %3435 ], [ %.181094, %.body3393 ]
-  %.161065 = phi ptr [ %3430, %3438 ], [ %3430, %3435 ], [ %.181067, %.body3393 ]
-  %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3436, %3438 ], [ %3436, %3435 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn, %.body3393 ]
+  %.161092 = phi i1 [ false, %3435 ], [ false, %3438 ], [ %.181094, %.body3393 ]
+  %.161065 = phi ptr [ %3430, %3435 ], [ %3430, %3438 ], [ %.181067, %.body3393 ]
+  %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3436, %3435 ], [ %3436, %3438 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn, %.body3393 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %164) #20
   br label %.body3359
 
 .body3359:                                        ; preds = %.body3376, %3425, %3422
-  %.141090 = phi i1 [ false, %3425 ], [ false, %3422 ], [ %.161092, %.body3376 ]
-  %.141063 = phi ptr [ %3417, %3425 ], [ %3417, %3422 ], [ %.161065, %.body3376 ]
-  %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3423, %3425 ], [ %3423, %3422 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3376 ]
+  %.141090 = phi i1 [ false, %3422 ], [ false, %3425 ], [ %.161092, %.body3376 ]
+  %.141063 = phi ptr [ %3417, %3422 ], [ %3417, %3425 ], [ %.161065, %.body3376 ]
+  %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3423, %3422 ], [ %3423, %3425 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3376 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %163) #20
   br label %.body3342
 
 .body3342:                                        ; preds = %.body3359, %3412, %3409
-  %.121088 = phi i1 [ false, %3412 ], [ false, %3409 ], [ %.141090, %.body3359 ]
-  %.121061 = phi ptr [ %3404, %3412 ], [ %3404, %3409 ], [ %.141063, %.body3359 ]
-  %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3410, %3412 ], [ %3410, %3409 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3359 ]
+  %.121088 = phi i1 [ false, %3409 ], [ false, %3412 ], [ %.141090, %.body3359 ]
+  %.121061 = phi ptr [ %3404, %3409 ], [ %3404, %3412 ], [ %.141063, %.body3359 ]
+  %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3410, %3409 ], [ %3410, %3412 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3359 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %162) #20
   br label %.body3325
 
 .body3325:                                        ; preds = %.body3342, %9083, %3399, %3396
-  %.101086 = phi i1 [ false, %9083 ], [ false, %3396 ], [ false, %3399 ], [ %.121088, %.body3342 ]
-  %.101059 = phi ptr [ %3386, %9083 ], [ %3386, %3396 ], [ %3386, %3399 ], [ %.121061, %.body3342 ]
-  %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9084, %9083 ], [ %3397, %3396 ], [ %3397, %3399 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3342 ]
+  %.101086 = phi i1 [ false, %3396 ], [ false, %3399 ], [ false, %9083 ], [ %.121088, %.body3342 ]
+  %.101059 = phi ptr [ %3386, %3396 ], [ %3386, %3399 ], [ %3386, %9083 ], [ %.121061, %.body3342 ]
+  %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3397, %3396 ], [ %3397, %3399 ], [ %9084, %9083 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3342 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %161) #20
   call void @_ZdlPvm(ptr noundef nonnull %3387, i64 noundef 32) #23
   br label %.body3302
 
 .body3302:                                        ; preds = %.body3325, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3306, %3381, %3378
-  %.71083 = phi i1 [ false, %3381 ], [ false, %3378 ], [ %.101086, %.body3325 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3306 ]
-  %.71056 = phi ptr [ %3373, %3381 ], [ %3373, %3378 ], [ %.101059, %.body3325 ], [ %3386, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3306 ]
-  %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3379, %3381 ], [ %3379, %3378 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3325 ], [ %3388, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3306 ]
+  %.71083 = phi i1 [ false, %3378 ], [ false, %3381 ], [ %.101086, %.body3325 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3306 ]
+  %.71056 = phi ptr [ %3373, %3378 ], [ %3373, %3381 ], [ %.101059, %.body3325 ], [ %3386, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3306 ]
+  %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3379, %3378 ], [ %3379, %3381 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3325 ], [ %3388, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3306 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %160) #20
   br label %.body3285
 
 .body3285:                                        ; preds = %.body3302, %9081, %3368, %3365
-  %.51081 = phi i1 [ false, %9081 ], [ false, %3365 ], [ false, %3368 ], [ %.71083, %.body3302 ]
-  %.51054 = phi ptr [ %3355, %9081 ], [ %3355, %3365 ], [ %3355, %3368 ], [ %.71056, %.body3302 ]
-  %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9082, %9081 ], [ %3366, %3365 ], [ %3366, %3368 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3302 ]
+  %.51081 = phi i1 [ false, %3365 ], [ false, %3368 ], [ false, %9081 ], [ %.71083, %.body3302 ]
+  %.51054 = phi ptr [ %3355, %3365 ], [ %3355, %3368 ], [ %3355, %9081 ], [ %.71056, %.body3302 ]
+  %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3366, %3365 ], [ %3366, %3368 ], [ %9082, %9081 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3302 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %159) #20
   call void @_ZdlPvm(ptr noundef nonnull %3356, i64 noundef 32) #23
   br label %.body3245
 
 .body3245:                                        ; preds = %3347, %3350, %9079, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3266, %.body3285
-  %.21078 = phi i1 [ false, %9079 ], [ false, %3347 ], [ false, %3350 ], [ %.51081, %.body3285 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3266 ]
-  %.21051 = phi ptr [ %157, %9079 ], [ %157, %3347 ], [ %157, %3350 ], [ %.51054, %.body3285 ], [ %3355, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3266 ]
-  %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9080, %9079 ], [ %3348, %3347 ], [ %3348, %3350 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3285 ], [ %3357, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3266 ]
+  %.21078 = phi i1 [ false, %3347 ], [ false, %3350 ], [ false, %9079 ], [ %.51081, %.body3285 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3266 ]
+  %.21051 = phi ptr [ %157, %3347 ], [ %157, %3350 ], [ %157, %9079 ], [ %.51054, %.body3285 ], [ %3355, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3266 ]
+  %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3348, %3347 ], [ %3348, %3350 ], [ %9080, %9079 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3285 ], [ %3357, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3266 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %158) #20
   call void @_ZdlPvm(ptr noundef nonnull %3336, i64 noundef 32) #23
   %9094 = icmp eq ptr %157, %.21051
@@ -22177,7 +22177,7 @@ _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5756:    ; preds = %_ZNSt6vectorISt4pai
   br label %.body3790
 
 .body3790:                                        ; preds = %.thread8401, %3887, %9116
-  %.pn1591 = phi { ptr, i32 } [ %9117, %9116 ], [ %3883, %.thread8401 ], [ %3888, %3887 ]
+  %.pn1591 = phi { ptr, i32 } [ %9117, %9116 ], [ %3888, %3887 ], [ %3883, %.thread8401 ]
   br label %9118
 
 9118:                                             ; preds = %9118, %.body3790
@@ -22188,72 +22188,72 @@ _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5756:    ; preds = %_ZNSt6vectorISt4pai
   br i1 %9121, label %.body3784, label %9118
 
 .body3784:                                        ; preds = %9118, %9114, %3876, %3873
-  %9122 = phi i1 [ false, %9114 ], [ false, %3873 ], [ false, %3876 ], [ true, %9118 ]
-  %.pn1591.pn = phi { ptr, i32 } [ %9115, %9114 ], [ %3874, %3873 ], [ %3874, %3876 ], [ %.pn1591, %9118 ]
+  %9122 = phi i1 [ false, %3873 ], [ false, %3876 ], [ false, %9114 ], [ true, %9118 ]
+  %.pn1591.pn = phi { ptr, i32 } [ %3874, %3873 ], [ %3874, %3876 ], [ %9115, %9114 ], [ %.pn1591, %9118 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %181) #20
   call void @_ZdlPvm(ptr noundef nonnull %3864, i64 noundef 32) #23
   br label %.body3761
 
 .body3761:                                        ; preds = %.body3784, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3765, %9112, %3858, %3855
-  %.241154 = phi i1 [ false, %9112 ], [ false, %3855 ], [ false, %3858 ], [ %9122, %.body3784 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3765 ]
-  %.241126 = phi ptr [ %3845, %9112 ], [ %3845, %3855 ], [ %3845, %3858 ], [ %3863, %.body3784 ], [ %3863, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3765 ]
-  %.pn1591.pn.pn.pn.pn = phi { ptr, i32 } [ %9113, %9112 ], [ %3856, %3855 ], [ %3856, %3858 ], [ %.pn1591.pn, %.body3784 ], [ %3865, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3765 ]
+  %.241154 = phi i1 [ false, %3855 ], [ false, %3858 ], [ false, %9112 ], [ %9122, %.body3784 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3765 ]
+  %.241126 = phi ptr [ %3845, %3855 ], [ %3845, %3858 ], [ %3845, %9112 ], [ %3863, %.body3784 ], [ %3863, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3765 ]
+  %.pn1591.pn.pn.pn.pn = phi { ptr, i32 } [ %3856, %3855 ], [ %3856, %3858 ], [ %9113, %9112 ], [ %.pn1591.pn, %.body3784 ], [ %3865, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3765 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %180) #20
   call void @_ZdlPvm(ptr noundef nonnull %3846, i64 noundef 32) #23
   br label %.body3738
 
 .body3738:                                        ; preds = %.body3761, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3742, %9110, %3840, %3837
-  %.211151 = phi i1 [ false, %9110 ], [ false, %3837 ], [ false, %3840 ], [ %.241154, %.body3761 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3742 ]
-  %.211123 = phi ptr [ %3827, %9110 ], [ %3827, %3837 ], [ %3827, %3840 ], [ %.241126, %.body3761 ], [ %3845, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3742 ]
-  %.pn1591.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9111, %9110 ], [ %3838, %3837 ], [ %3838, %3840 ], [ %.pn1591.pn.pn.pn.pn, %.body3761 ], [ %3847, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3742 ]
+  %.211151 = phi i1 [ false, %3837 ], [ false, %3840 ], [ false, %9110 ], [ %.241154, %.body3761 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3742 ]
+  %.211123 = phi ptr [ %3827, %3837 ], [ %3827, %3840 ], [ %3827, %9110 ], [ %.241126, %.body3761 ], [ %3845, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3742 ]
+  %.pn1591.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3838, %3837 ], [ %3838, %3840 ], [ %9111, %9110 ], [ %.pn1591.pn.pn.pn.pn, %.body3761 ], [ %3847, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3742 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %179) #20
   call void @_ZdlPvm(ptr noundef nonnull %3828, i64 noundef 32) #23
   br label %.body3715
 
 .body3715:                                        ; preds = %.body3738, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3719, %9108, %3822, %3819
-  %.181148 = phi i1 [ false, %9108 ], [ false, %3819 ], [ false, %3822 ], [ %.211151, %.body3738 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3719 ]
-  %.181120 = phi ptr [ %3809, %9108 ], [ %3809, %3819 ], [ %3809, %3822 ], [ %.211123, %.body3738 ], [ %3827, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3719 ]
-  %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9109, %9108 ], [ %3820, %3819 ], [ %3820, %3822 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn, %.body3738 ], [ %3829, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3719 ]
+  %.181148 = phi i1 [ false, %3819 ], [ false, %3822 ], [ false, %9108 ], [ %.211151, %.body3738 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3719 ]
+  %.181120 = phi ptr [ %3809, %3819 ], [ %3809, %3822 ], [ %3809, %9108 ], [ %.211123, %.body3738 ], [ %3827, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3719 ]
+  %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3820, %3819 ], [ %3820, %3822 ], [ %9109, %9108 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn, %.body3738 ], [ %3829, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3719 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %178) #20
   call void @_ZdlPvm(ptr noundef nonnull %3810, i64 noundef 32) #23
   br label %.body3692
 
 .body3692:                                        ; preds = %.body3715, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3696, %9106, %3804, %3801
-  %.151145 = phi i1 [ false, %9106 ], [ false, %3801 ], [ false, %3804 ], [ %.181148, %.body3715 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3696 ]
-  %.151117 = phi ptr [ %3791, %9106 ], [ %3791, %3801 ], [ %3791, %3804 ], [ %.181120, %.body3715 ], [ %3809, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3696 ]
-  %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9107, %9106 ], [ %3802, %3801 ], [ %3802, %3804 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3715 ], [ %3811, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3696 ]
+  %.151145 = phi i1 [ false, %3801 ], [ false, %3804 ], [ false, %9106 ], [ %.181148, %.body3715 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3696 ]
+  %.151117 = phi ptr [ %3791, %3801 ], [ %3791, %3804 ], [ %3791, %9106 ], [ %.181120, %.body3715 ], [ %3809, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3696 ]
+  %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3802, %3801 ], [ %3802, %3804 ], [ %9107, %9106 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3715 ], [ %3811, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3696 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %177) #20
   call void @_ZdlPvm(ptr noundef nonnull %3792, i64 noundef 32) #23
   br label %.body3669
 
 .body3669:                                        ; preds = %.body3692, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3673, %9104, %3786, %3783
-  %.121142 = phi i1 [ false, %9104 ], [ false, %3783 ], [ false, %3786 ], [ %.151145, %.body3692 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3673 ]
-  %.121114 = phi ptr [ %3773, %9104 ], [ %3773, %3783 ], [ %3773, %3786 ], [ %.151117, %.body3692 ], [ %3791, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3673 ]
-  %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9105, %9104 ], [ %3784, %3783 ], [ %3784, %3786 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3692 ], [ %3793, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3673 ]
+  %.121142 = phi i1 [ false, %3783 ], [ false, %3786 ], [ false, %9104 ], [ %.151145, %.body3692 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3673 ]
+  %.121114 = phi ptr [ %3773, %3783 ], [ %3773, %3786 ], [ %3773, %9104 ], [ %.151117, %.body3692 ], [ %3791, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3673 ]
+  %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3784, %3783 ], [ %3784, %3786 ], [ %9105, %9104 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3692 ], [ %3793, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3673 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %176) #20
   call void @_ZdlPvm(ptr noundef nonnull %3774, i64 noundef 32) #23
   br label %.body3646
 
 .body3646:                                        ; preds = %.body3669, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3650, %9102, %3768, %3765
-  %.91139 = phi i1 [ false, %9102 ], [ false, %3765 ], [ false, %3768 ], [ %.121142, %.body3669 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3650 ]
-  %.91111 = phi ptr [ %3755, %9102 ], [ %3755, %3765 ], [ %3755, %3768 ], [ %.121114, %.body3669 ], [ %3773, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3650 ]
-  %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9103, %9102 ], [ %3766, %3765 ], [ %3766, %3768 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3669 ], [ %3775, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3650 ]
+  %.91139 = phi i1 [ false, %3765 ], [ false, %3768 ], [ false, %9102 ], [ %.121142, %.body3669 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3650 ]
+  %.91111 = phi ptr [ %3755, %3765 ], [ %3755, %3768 ], [ %3755, %9102 ], [ %.121114, %.body3669 ], [ %3773, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3650 ]
+  %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3766, %3765 ], [ %3766, %3768 ], [ %9103, %9102 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3669 ], [ %3775, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3650 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %175) #20
   call void @_ZdlPvm(ptr noundef nonnull %3756, i64 noundef 32) #23
   br label %.body3623
 
 .body3623:                                        ; preds = %.body3646, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3627, %9100, %3750, %3747
-  %.61136 = phi i1 [ false, %9100 ], [ false, %3747 ], [ false, %3750 ], [ %.91139, %.body3646 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3627 ]
-  %.61108 = phi ptr [ %3737, %9100 ], [ %3737, %3747 ], [ %3737, %3750 ], [ %.91111, %.body3646 ], [ %3755, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3627 ]
-  %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9101, %9100 ], [ %3748, %3747 ], [ %3748, %3750 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3646 ], [ %3757, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3627 ]
+  %.61136 = phi i1 [ false, %3747 ], [ false, %3750 ], [ false, %9100 ], [ %.91139, %.body3646 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3627 ]
+  %.61108 = phi ptr [ %3737, %3747 ], [ %3737, %3750 ], [ %3737, %9100 ], [ %.91111, %.body3646 ], [ %3755, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3627 ]
+  %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3748, %3747 ], [ %3748, %3750 ], [ %9101, %9100 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3646 ], [ %3757, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3627 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %174) #20
   call void @_ZdlPvm(ptr noundef nonnull %3738, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5818
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5818:    ; preds = %.body3623, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3604, %9098, %3732, %3729
-  %.31133 = phi i1 [ false, %9098 ], [ false, %3729 ], [ false, %3732 ], [ %.61136, %.body3623 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3604 ]
-  %.31105 = phi ptr [ %3719, %9098 ], [ %3719, %3729 ], [ %3719, %3732 ], [ %.61108, %.body3623 ], [ %3737, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3604 ]
-  %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9099, %9098 ], [ %3730, %3729 ], [ %3730, %3732 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3623 ], [ %3739, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3604 ]
+  %.31133 = phi i1 [ false, %3729 ], [ false, %3732 ], [ false, %9098 ], [ %.61136, %.body3623 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3604 ]
+  %.31105 = phi ptr [ %3719, %3729 ], [ %3719, %3732 ], [ %3719, %9098 ], [ %.61108, %.body3623 ], [ %3737, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3604 ]
+  %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3730, %3729 ], [ %3730, %3732 ], [ %9099, %9098 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3623 ], [ %3739, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3604 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %173) #20
   call void @_ZdlPvm(ptr noundef nonnull %3720, i64 noundef 32) #23
   br label %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5824
@@ -22263,9 +22263,9 @@ _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5824.thread: ; preds = %3698, %3701
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5826
 
 _ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5824:    ; preds = %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5818, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3581, %3714, %3711
-  %.11131 = phi i1 [ false, %3714 ], [ false, %3711 ], [ %.31133, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5818 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3581 ]
-  %.11103 = phi ptr [ %3706, %3714 ], [ %3706, %3711 ], [ %.31105, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5818 ], [ %3719, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3581 ]
-  %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3712, %3714 ], [ %3712, %3711 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5818 ], [ %3721, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3581 ]
+  %.11131 = phi i1 [ false, %3711 ], [ false, %3714 ], [ %.31133, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5818 ], [ false, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3581 ]
+  %.11103 = phi ptr [ %3706, %3711 ], [ %3706, %3714 ], [ %.31105, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5818 ], [ %3719, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3581 ]
+  %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %3712, %3711 ], [ %3712, %3714 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5818 ], [ %3721, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3581 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %172) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %171) #20
   %9123 = icmp eq ptr %170, %.11103
@@ -22406,7 +22406,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5834.thread: ; preds = %41
   br label %.body3937
 
 .body3937:                                        ; preds = %.body6088.thread, %4287, %.body6088, %9175
-  %.pn1621 = phi { ptr, i32 } [ %9176, %9175 ], [ %4281, %.body6088 ], [ %4281, %4287 ], [ %4286, %.body6088.thread ]
+  %.pn1621 = phi { ptr, i32 } [ %9176, %9175 ], [ %4281, %4287 ], [ %4281, %.body6088 ], [ %4286, %.body6088.thread ]
   br label %9177
 
 9177:                                             ; preds = %9177, %.body3937
@@ -22577,9 +22577,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5834: ; preds = %9220, %_Z
   br label %.loopexit7633
 
 .loopexit7633:                                    ; preds = %9228, %.preheader7632.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5834.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5834, %9150
-  %.111215 = phi i1 [ %.131217, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5834 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5834.thread ], [ true, %9150 ], [ %.131217, %.preheader7632.preheader ], [ %.131217, %9228 ]
-  %.111169 = phi ptr [ %.131171, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5834 ], [ %4199, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5834.thread ], [ %4152, %9150 ], [ %.131171, %.preheader7632.preheader ], [ %.131171, %9228 ]
-  %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5834 ], [ %9152, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5834.thread ], [ %9151, %9150 ], [ %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7632.preheader ], [ %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9228 ]
+  %.111215 = phi i1 [ %.131217, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5834 ], [ true, %9150 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5834.thread ], [ %.131217, %.preheader7632.preheader ], [ %.131217, %9228 ]
+  %.111169 = phi ptr [ %.131171, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5834 ], [ %4152, %9150 ], [ %4199, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5834.thread ], [ %.131171, %.preheader7632.preheader ], [ %.131171, %9228 ]
+  %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5834 ], [ %9151, %9150 ], [ %9152, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5834.thread ], [ %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7632.preheader ], [ %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9228 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %196) #20
   %9232 = load ptr, ptr %197, align 8
   %9233 = ptrtoint ptr %9232 to i64
@@ -22674,9 +22674,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5844: ; preds = %9263, %_Z
   br label %.loopexit7631
 
 .loopexit7631:                                    ; preds = %9271, %.preheader7630.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5844.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5844, %9143
-  %.51209 = phi i1 [ %.71211, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5844 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5844.thread ], [ true, %9143 ], [ %.71211, %.preheader7630.preheader ], [ %.71211, %9271 ]
-  %.51163 = phi ptr [ %.71165, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5844 ], [ %4152, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5844.thread ], [ %185, %9143 ], [ %.71165, %.preheader7630.preheader ], [ %.71165, %9271 ]
-  %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5844 ], [ %9145, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5844.thread ], [ %9144, %9143 ], [ %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7630.preheader ], [ %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9271 ]
+  %.51209 = phi i1 [ %.71211, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5844 ], [ true, %9143 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5844.thread ], [ %.71211, %.preheader7630.preheader ], [ %.71211, %9271 ]
+  %.51163 = phi ptr [ %.71165, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5844 ], [ %185, %9143 ], [ %4152, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5844.thread ], [ %.71165, %.preheader7630.preheader ], [ %.71165, %9271 ]
+  %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5844 ], [ %9144, %9143 ], [ %9145, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5844.thread ], [ %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7630.preheader ], [ %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9271 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %190) #20
   %9275 = xor i1 %.51209, true
   %9276 = load ptr, ptr %191, align 8
@@ -22965,7 +22965,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5864.thread: ; preds = %51
   br label %.body4279
 
 .body4279:                                        ; preds = %.body6098.thread, %5169, %.body6098, %9385
-  %.pn1649 = phi { ptr, i32 } [ %9386, %9385 ], [ %5163, %.body6098 ], [ %5163, %5169 ], [ %5168, %.body6098.thread ]
+  %.pn1649 = phi { ptr, i32 } [ %9386, %9385 ], [ %5163, %5169 ], [ %5163, %.body6098 ], [ %5168, %.body6098.thread ]
   br label %9387
 
 9387:                                             ; preds = %9387, %.body4279
@@ -23069,9 +23069,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5864: ; preds = %9422, %_Z
   br label %.loopexit7624
 
 .loopexit7624:                                    ; preds = %9430, %.preheader7623.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5864.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5864, %9376
-  %.441382 = phi i1 [ %.461384, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5864 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5864.thread ], [ true, %9376 ], [ %.461384, %.preheader7623.preheader ], [ %.461384, %9430 ]
-  %.441274 = phi ptr [ %5105, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5864 ], [ %5105, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5864.thread ], [ %5058, %9376 ], [ %5105, %.preheader7623.preheader ], [ %5105, %9430 ]
-  %.pn1649.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1649.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5864 ], [ %9378, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5864.thread ], [ %9377, %9376 ], [ %.pn1649.pn.pn.pn.pn.pn, %.preheader7623.preheader ], [ %.pn1649.pn.pn.pn.pn.pn, %9430 ]
+  %.441382 = phi i1 [ %.461384, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5864 ], [ true, %9376 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5864.thread ], [ %.461384, %.preheader7623.preheader ], [ %.461384, %9430 ]
+  %.441274 = phi ptr [ %5105, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5864 ], [ %5058, %9376 ], [ %5105, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5864.thread ], [ %5105, %.preheader7623.preheader ], [ %5105, %9430 ]
+  %.pn1649.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1649.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5864 ], [ %9377, %9376 ], [ %9378, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5864.thread ], [ %.pn1649.pn.pn.pn.pn.pn, %.preheader7623.preheader ], [ %.pn1649.pn.pn.pn.pn.pn, %9430 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %268) #20
   %9434 = load ptr, ptr %269, align 8
   %9435 = ptrtoint ptr %9434 to i64
@@ -23166,9 +23166,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5874: ; preds = %9465, %_Z
   br label %.loopexit7622
 
 .loopexit7622:                                    ; preds = %9473, %.preheader7621.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5874.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5874, %9369
-  %.381376 = phi i1 [ %.401378, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5874 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5874.thread ], [ true, %9369 ], [ %.401378, %.preheader7621.preheader ], [ %.401378, %9473 ]
-  %.381268 = phi ptr [ %.401270, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5874 ], [ %5058, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5874.thread ], [ %5011, %9369 ], [ %.401270, %.preheader7621.preheader ], [ %.401270, %9473 ]
-  %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5874 ], [ %9371, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5874.thread ], [ %9370, %9369 ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7621.preheader ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9473 ]
+  %.381376 = phi i1 [ %.401378, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5874 ], [ true, %9369 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5874.thread ], [ %.401378, %.preheader7621.preheader ], [ %.401378, %9473 ]
+  %.381268 = phi ptr [ %.401270, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5874 ], [ %5011, %9369 ], [ %5058, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5874.thread ], [ %.401270, %.preheader7621.preheader ], [ %.401270, %9473 ]
+  %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5874 ], [ %9370, %9369 ], [ %9371, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5874.thread ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7621.preheader ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9473 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %262) #20
   %9477 = load ptr, ptr %263, align 8
   %9478 = ptrtoint ptr %9477 to i64
@@ -23263,9 +23263,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5884: ; preds = %9508, %_Z
   br label %.loopexit7620
 
 .loopexit7620:                                    ; preds = %9516, %.preheader7619.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5884.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5884, %9362
-  %.321370 = phi i1 [ %.341372, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5884 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5884.thread ], [ true, %9362 ], [ %.341372, %.preheader7619.preheader ], [ %.341372, %9516 ]
-  %.321262 = phi ptr [ %.341264, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5884 ], [ %5011, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5884.thread ], [ %4964, %9362 ], [ %.341264, %.preheader7619.preheader ], [ %.341264, %9516 ]
-  %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5884 ], [ %9364, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5884.thread ], [ %9363, %9362 ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7619.preheader ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9516 ]
+  %.321370 = phi i1 [ %.341372, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5884 ], [ true, %9362 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5884.thread ], [ %.341372, %.preheader7619.preheader ], [ %.341372, %9516 ]
+  %.321262 = phi ptr [ %.341264, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5884 ], [ %4964, %9362 ], [ %5011, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5884.thread ], [ %.341264, %.preheader7619.preheader ], [ %.341264, %9516 ]
+  %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5884 ], [ %9363, %9362 ], [ %9364, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5884.thread ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7619.preheader ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9516 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %256) #20
   %9520 = load ptr, ptr %257, align 8
   %9521 = ptrtoint ptr %9520 to i64
@@ -23360,9 +23360,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5894: ; preds = %9551, %_Z
   br label %.loopexit7618
 
 .loopexit7618:                                    ; preds = %9559, %.preheader7617.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5894.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5894, %9355
-  %.261364 = phi i1 [ %.281366, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5894 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5894.thread ], [ true, %9355 ], [ %.281366, %.preheader7617.preheader ], [ %.281366, %9559 ]
-  %.261256 = phi ptr [ %.281258, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5894 ], [ %4964, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5894.thread ], [ %4917, %9355 ], [ %.281258, %.preheader7617.preheader ], [ %.281258, %9559 ]
-  %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5894 ], [ %9357, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5894.thread ], [ %9356, %9355 ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7617.preheader ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9559 ]
+  %.261364 = phi i1 [ %.281366, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5894 ], [ true, %9355 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5894.thread ], [ %.281366, %.preheader7617.preheader ], [ %.281366, %9559 ]
+  %.261256 = phi ptr [ %.281258, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5894 ], [ %4917, %9355 ], [ %4964, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5894.thread ], [ %.281258, %.preheader7617.preheader ], [ %.281258, %9559 ]
+  %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5894 ], [ %9356, %9355 ], [ %9357, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5894.thread ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7617.preheader ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9559 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %250) #20
   %9563 = load ptr, ptr %251, align 8
   %9564 = ptrtoint ptr %9563 to i64
@@ -23457,9 +23457,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5904: ; preds = %9594, %_Z
   br label %.loopexit7616
 
 .loopexit7616:                                    ; preds = %9602, %.preheader7615.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5904.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5904, %9348
-  %.201358 = phi i1 [ %.221360, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5904 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5904.thread ], [ true, %9348 ], [ %.221360, %.preheader7615.preheader ], [ %.221360, %9602 ]
-  %.201250 = phi ptr [ %.221252, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5904 ], [ %4917, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5904.thread ], [ %4870, %9348 ], [ %.221252, %.preheader7615.preheader ], [ %.221252, %9602 ]
-  %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5904 ], [ %9350, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5904.thread ], [ %9349, %9348 ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7615.preheader ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9602 ]
+  %.201358 = phi i1 [ %.221360, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5904 ], [ true, %9348 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5904.thread ], [ %.221360, %.preheader7615.preheader ], [ %.221360, %9602 ]
+  %.201250 = phi ptr [ %.221252, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5904 ], [ %4870, %9348 ], [ %4917, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5904.thread ], [ %.221252, %.preheader7615.preheader ], [ %.221252, %9602 ]
+  %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5904 ], [ %9349, %9348 ], [ %9350, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5904.thread ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7615.preheader ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9602 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %244) #20
   %9606 = load ptr, ptr %245, align 8
   %9607 = ptrtoint ptr %9606 to i64
@@ -23554,9 +23554,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5914: ; preds = %9637, %_Z
   br label %.loopexit7614
 
 .loopexit7614:                                    ; preds = %9645, %.preheader7613.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5914.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5914, %9341
-  %.141352 = phi i1 [ %.161354, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5914 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5914.thread ], [ true, %9341 ], [ %.161354, %.preheader7613.preheader ], [ %.161354, %9645 ]
-  %.141244 = phi ptr [ %.161246, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5914 ], [ %4870, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5914.thread ], [ %4823, %9341 ], [ %.161246, %.preheader7613.preheader ], [ %.161246, %9645 ]
-  %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5914 ], [ %9343, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5914.thread ], [ %9342, %9341 ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7613.preheader ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9645 ]
+  %.141352 = phi i1 [ %.161354, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5914 ], [ true, %9341 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5914.thread ], [ %.161354, %.preheader7613.preheader ], [ %.161354, %9645 ]
+  %.141244 = phi ptr [ %.161246, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5914 ], [ %4823, %9341 ], [ %4870, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5914.thread ], [ %.161246, %.preheader7613.preheader ], [ %.161246, %9645 ]
+  %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5914 ], [ %9342, %9341 ], [ %9343, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5914.thread ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7613.preheader ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9645 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %238) #20
   %9649 = load ptr, ptr %239, align 8
   %9650 = ptrtoint ptr %9649 to i64
@@ -23651,9 +23651,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5924: ; preds = %9680, %_Z
   br label %.loopexit7612
 
 .loopexit7612:                                    ; preds = %9688, %.preheader7611.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5924.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5924, %9334
-  %.81346 = phi i1 [ %.101348, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5924 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5924.thread ], [ true, %9334 ], [ %.101348, %.preheader7611.preheader ], [ %.101348, %9688 ]
-  %.81238 = phi ptr [ %.101240, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5924 ], [ %4823, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5924.thread ], [ %4776, %9334 ], [ %.101240, %.preheader7611.preheader ], [ %.101240, %9688 ]
-  %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5924 ], [ %9336, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5924.thread ], [ %9335, %9334 ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7611.preheader ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9688 ]
+  %.81346 = phi i1 [ %.101348, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5924 ], [ true, %9334 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5924.thread ], [ %.101348, %.preheader7611.preheader ], [ %.101348, %9688 ]
+  %.81238 = phi ptr [ %.101240, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5924 ], [ %4776, %9334 ], [ %4823, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5924.thread ], [ %.101240, %.preheader7611.preheader ], [ %.101240, %9688 ]
+  %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5924 ], [ %9335, %9334 ], [ %9336, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5924.thread ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7611.preheader ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9688 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %232) #20
   %9692 = load ptr, ptr %233, align 8
   %9693 = ptrtoint ptr %9692 to i64
@@ -23748,9 +23748,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5934: ; preds = %9723, %_Z
   br label %.loopexit7610
 
 .loopexit7610:                                    ; preds = %9731, %.preheader7609.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5934.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5934, %9327
-  %.21340 = phi i1 [ %.41342, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5934 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5934.thread ], [ true, %9327 ], [ %.41342, %.preheader7609.preheader ], [ %.41342, %9731 ]
-  %.21232 = phi ptr [ %.41234, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5934 ], [ %4776, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5934.thread ], [ %4773, %9327 ], [ %.41234, %.preheader7609.preheader ], [ %.41234, %9731 ]
-  %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5934 ], [ %9329, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5934.thread ], [ %9328, %9327 ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7609.preheader ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9731 ]
+  %.21340 = phi i1 [ %.41342, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5934 ], [ true, %9327 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5934.thread ], [ %.41342, %.preheader7609.preheader ], [ %.41342, %9731 ]
+  %.21232 = phi ptr [ %.41234, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5934 ], [ %4773, %9327 ], [ %4776, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5934.thread ], [ %.41234, %.preheader7609.preheader ], [ %.41234, %9731 ]
+  %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5934 ], [ %9328, %9327 ], [ %9329, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5934.thread ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7609.preheader ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9731 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %227) #20
   call void @_ZNSt6vectorISt4pairIdN32pxrInternal_v0_24__pxrReserved__7TfTokenEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %226) #20
   %9735 = xor i1 %.21340, true
@@ -24013,7 +24013,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5946.thread: ; preds = %62
   br label %.body4718
 
 .body4718:                                        ; preds = %.body6109.thread, %6323, %.body6109, %9825
-  %.pn1702 = phi { ptr, i32 } [ %9826, %9825 ], [ %6317, %.body6109 ], [ %6317, %6323 ], [ %6322, %.body6109.thread ]
+  %.pn1702 = phi { ptr, i32 } [ %9826, %9825 ], [ %6317, %6323 ], [ %6317, %.body6109 ], [ %6322, %.body6109.thread ]
   br label %9827
 
 9827:                                             ; preds = %9827, %.body4718
@@ -24128,9 +24128,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5946: ; preds = %9863, %_Z
   br label %.loopexit7606
 
 .loopexit7606:                                    ; preds = %9871, %.preheader7605.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5946.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5946, %9814
-  %.531328 = phi ptr [ %.551330, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5946 ], [ %6256, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5946.thread ], [ %6209, %9814 ], [ %.551330, %.preheader7605.preheader ], [ %.551330, %9871 ]
-  %.53889 = phi i1 [ %.55891, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5946 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5946.thread ], [ true, %9814 ], [ %.55891, %.preheader7605.preheader ], [ %.55891, %9871 ]
-  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5946 ], [ %9816, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5946.thread ], [ %9815, %9814 ], [ %.pn1702.pn.pn.pn.pn.pn.pn, %.preheader7605.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn, %9871 ]
+  %.531328 = phi ptr [ %.551330, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5946 ], [ %6209, %9814 ], [ %6256, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5946.thread ], [ %.551330, %.preheader7605.preheader ], [ %.551330, %9871 ]
+  %.53889 = phi i1 [ %.55891, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5946 ], [ true, %9814 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5946.thread ], [ %.55891, %.preheader7605.preheader ], [ %.55891, %9871 ]
+  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5946 ], [ %9815, %9814 ], [ %9816, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5946.thread ], [ %.pn1702.pn.pn.pn.pn.pn.pn, %.preheader7605.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn, %9871 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %332) #20
   %9875 = load ptr, ptr %333, align 8
   %9876 = ptrtoint ptr %9875 to i64
@@ -24225,9 +24225,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5956: ; preds = %9906, %_Z
   br label %.loopexit7604
 
 .loopexit7604:                                    ; preds = %9914, %.preheader7603.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5956.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5956, %9807
-  %.471322 = phi ptr [ %.491324, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5956 ], [ %6209, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5956.thread ], [ %6162, %9807 ], [ %.491324, %.preheader7603.preheader ], [ %.491324, %9914 ]
-  %.47883 = phi i1 [ %.49885, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5956 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5956.thread ], [ true, %9807 ], [ %.49885, %.preheader7603.preheader ], [ %.49885, %9914 ]
-  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5956 ], [ %9809, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5956.thread ], [ %9808, %9807 ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7603.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9914 ]
+  %.471322 = phi ptr [ %.491324, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5956 ], [ %6162, %9807 ], [ %6209, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5956.thread ], [ %.491324, %.preheader7603.preheader ], [ %.491324, %9914 ]
+  %.47883 = phi i1 [ %.49885, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5956 ], [ true, %9807 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5956.thread ], [ %.49885, %.preheader7603.preheader ], [ %.49885, %9914 ]
+  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5956 ], [ %9808, %9807 ], [ %9809, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5956.thread ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7603.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9914 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %326) #20
   %9918 = load ptr, ptr %327, align 8
   %9919 = ptrtoint ptr %9918 to i64
@@ -24322,9 +24322,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5966: ; preds = %9949, %_Z
   br label %.loopexit7602
 
 .loopexit7602:                                    ; preds = %9957, %.preheader7601.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5966.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5966, %9800
-  %.411316 = phi ptr [ %.431318, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5966 ], [ %6162, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5966.thread ], [ %6115, %9800 ], [ %.431318, %.preheader7601.preheader ], [ %.431318, %9957 ]
-  %.41877 = phi i1 [ %.43879, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5966 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5966.thread ], [ true, %9800 ], [ %.43879, %.preheader7601.preheader ], [ %.43879, %9957 ]
-  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5966 ], [ %9802, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5966.thread ], [ %9801, %9800 ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7601.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9957 ]
+  %.411316 = phi ptr [ %.431318, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5966 ], [ %6115, %9800 ], [ %6162, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5966.thread ], [ %.431318, %.preheader7601.preheader ], [ %.431318, %9957 ]
+  %.41877 = phi i1 [ %.43879, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5966 ], [ true, %9800 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5966.thread ], [ %.43879, %.preheader7601.preheader ], [ %.43879, %9957 ]
+  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5966 ], [ %9801, %9800 ], [ %9802, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5966.thread ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7601.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9957 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %320) #20
   %9961 = load ptr, ptr %321, align 8
   %9962 = ptrtoint ptr %9961 to i64
@@ -24419,9 +24419,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5976: ; preds = %9992, %_Z
   br label %.loopexit7600
 
 .loopexit7600:                                    ; preds = %10000, %.preheader7599.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5976.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5976, %9793
-  %.351310 = phi ptr [ %.371312, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5976 ], [ %6115, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5976.thread ], [ %6068, %9793 ], [ %.371312, %.preheader7599.preheader ], [ %.371312, %10000 ]
-  %.35871 = phi i1 [ %.37873, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5976 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5976.thread ], [ true, %9793 ], [ %.37873, %.preheader7599.preheader ], [ %.37873, %10000 ]
-  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5976 ], [ %9795, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5976.thread ], [ %9794, %9793 ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7599.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10000 ]
+  %.351310 = phi ptr [ %.371312, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5976 ], [ %6068, %9793 ], [ %6115, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5976.thread ], [ %.371312, %.preheader7599.preheader ], [ %.371312, %10000 ]
+  %.35871 = phi i1 [ %.37873, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5976 ], [ true, %9793 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5976.thread ], [ %.37873, %.preheader7599.preheader ], [ %.37873, %10000 ]
+  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5976 ], [ %9794, %9793 ], [ %9795, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5976.thread ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7599.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10000 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %314) #20
   %10004 = load ptr, ptr %315, align 8
   %10005 = ptrtoint ptr %10004 to i64
@@ -24516,9 +24516,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5986: ; preds = %10035, %_
   br label %.loopexit7598
 
 .loopexit7598:                                    ; preds = %10043, %.preheader7597.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5986.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5986, %9786
-  %.291304 = phi ptr [ %.311306, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5986 ], [ %6068, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5986.thread ], [ %6021, %9786 ], [ %.311306, %.preheader7597.preheader ], [ %.311306, %10043 ]
-  %.29865 = phi i1 [ %.31867, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5986 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5986.thread ], [ true, %9786 ], [ %.31867, %.preheader7597.preheader ], [ %.31867, %10043 ]
-  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5986 ], [ %9788, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5986.thread ], [ %9787, %9786 ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7597.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10043 ]
+  %.291304 = phi ptr [ %.311306, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5986 ], [ %6021, %9786 ], [ %6068, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5986.thread ], [ %.311306, %.preheader7597.preheader ], [ %.311306, %10043 ]
+  %.29865 = phi i1 [ %.31867, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5986 ], [ true, %9786 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5986.thread ], [ %.31867, %.preheader7597.preheader ], [ %.31867, %10043 ]
+  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5986 ], [ %9787, %9786 ], [ %9788, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5986.thread ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7597.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10043 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %308) #20
   %10047 = load ptr, ptr %309, align 8
   %10048 = ptrtoint ptr %10047 to i64
@@ -24613,9 +24613,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5996: ; preds = %10078, %_
   br label %.loopexit7596
 
 .loopexit7596:                                    ; preds = %10086, %.preheader7595.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5996.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5996, %9779
-  %.231298 = phi ptr [ %.251300, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5996 ], [ %6021, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5996.thread ], [ %5974, %9779 ], [ %.251300, %.preheader7595.preheader ], [ %.251300, %10086 ]
-  %.23859 = phi i1 [ %.25861, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5996 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5996.thread ], [ true, %9779 ], [ %.25861, %.preheader7595.preheader ], [ %.25861, %10086 ]
-  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5996 ], [ %9781, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5996.thread ], [ %9780, %9779 ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7595.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10086 ]
+  %.231298 = phi ptr [ %.251300, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5996 ], [ %5974, %9779 ], [ %6021, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5996.thread ], [ %.251300, %.preheader7595.preheader ], [ %.251300, %10086 ]
+  %.23859 = phi i1 [ %.25861, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5996 ], [ true, %9779 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5996.thread ], [ %.25861, %.preheader7595.preheader ], [ %.25861, %10086 ]
+  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5996 ], [ %9780, %9779 ], [ %9781, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5996.thread ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7595.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10086 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %302) #20
   %10090 = load ptr, ptr %303, align 8
   %10091 = ptrtoint ptr %10090 to i64
@@ -24710,9 +24710,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6006: ; preds = %10121, %_
   br label %.loopexit7594
 
 .loopexit7594:                                    ; preds = %10129, %.preheader7593.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6006.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6006, %9772
-  %.171292 = phi ptr [ %.191294, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6006 ], [ %5974, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6006.thread ], [ %5927, %9772 ], [ %.191294, %.preheader7593.preheader ], [ %.191294, %10129 ]
-  %.17853 = phi i1 [ %.19855, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6006 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6006.thread ], [ true, %9772 ], [ %.19855, %.preheader7593.preheader ], [ %.19855, %10129 ]
-  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6006 ], [ %9774, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6006.thread ], [ %9773, %9772 ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7593.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10129 ]
+  %.171292 = phi ptr [ %.191294, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6006 ], [ %5927, %9772 ], [ %5974, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6006.thread ], [ %.191294, %.preheader7593.preheader ], [ %.191294, %10129 ]
+  %.17853 = phi i1 [ %.19855, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6006 ], [ true, %9772 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6006.thread ], [ %.19855, %.preheader7593.preheader ], [ %.19855, %10129 ]
+  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6006 ], [ %9773, %9772 ], [ %9774, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6006.thread ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7593.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10129 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %296) #20
   %10133 = load ptr, ptr %297, align 8
   %10134 = ptrtoint ptr %10133 to i64
@@ -24807,9 +24807,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6016: ; preds = %10164, %_
   br label %.loopexit7592
 
 .loopexit7592:                                    ; preds = %10172, %.preheader7591.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6016.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6016, %9765
-  %.111286 = phi ptr [ %.131288, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6016 ], [ %5927, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6016.thread ], [ %5880, %9765 ], [ %.131288, %.preheader7591.preheader ], [ %.131288, %10172 ]
-  %.11847 = phi i1 [ %.13849, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6016 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6016.thread ], [ true, %9765 ], [ %.13849, %.preheader7591.preheader ], [ %.13849, %10172 ]
-  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6016 ], [ %9767, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6016.thread ], [ %9766, %9765 ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7591.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10172 ]
+  %.111286 = phi ptr [ %.131288, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6016 ], [ %5880, %9765 ], [ %5927, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6016.thread ], [ %.131288, %.preheader7591.preheader ], [ %.131288, %10172 ]
+  %.11847 = phi i1 [ %.13849, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6016 ], [ true, %9765 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6016.thread ], [ %.13849, %.preheader7591.preheader ], [ %.13849, %10172 ]
+  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6016 ], [ %9766, %9765 ], [ %9767, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6016.thread ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7591.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10172 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %290) #20
   %10176 = load ptr, ptr %291, align 8
   %10177 = ptrtoint ptr %10176 to i64
@@ -24904,9 +24904,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6026: ; preds = %10207, %_
   br label %.loopexit7590
 
 .loopexit7590:                                    ; preds = %10215, %.preheader7589.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6026.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6026, %9758
-  %.51280 = phi ptr [ %.71282, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6026 ], [ %5880, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6026.thread ], [ %279, %9758 ], [ %.71282, %.preheader7589.preheader ], [ %.71282, %10215 ]
-  %.5841 = phi i1 [ %.7843, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6026 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6026.thread ], [ true, %9758 ], [ %.7843, %.preheader7589.preheader ], [ %.7843, %10215 ]
-  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6026 ], [ %9760, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6026.thread ], [ %9759, %9758 ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7589.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10215 ]
+  %.51280 = phi ptr [ %.71282, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6026 ], [ %279, %9758 ], [ %5880, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6026.thread ], [ %.71282, %.preheader7589.preheader ], [ %.71282, %10215 ]
+  %.5841 = phi i1 [ %.7843, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6026 ], [ true, %9758 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6026.thread ], [ %.7843, %.preheader7589.preheader ], [ %.7843, %10215 ]
+  %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6026 ], [ %9759, %9758 ], [ %9760, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6026.thread ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7589.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10215 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %284) #20
   %10219 = xor i1 %.5841, true
   %10220 = load ptr, ptr %285, align 8
@@ -25090,7 +25090,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6046.thread: ; preds = %70
   br label %.body5000
 
 .body5000:                                        ; preds = %.body6120.thread, %7114, %.body6120, %10294
-  %.pn1765 = phi { ptr, i32 } [ %10295, %10294 ], [ %7108, %.body6120 ], [ %7108, %7114 ], [ %7113, %.body6120.thread ]
+  %.pn1765 = phi { ptr, i32 } [ %10295, %10294 ], [ %7108, %7114 ], [ %7108, %.body6120 ], [ %7113, %.body6120.thread ]
   br label %10296
 
 10296:                                            ; preds = %10296, %.body5000
@@ -25194,9 +25194,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6046: ; preds = %10331, %_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10339, %.preheader7583.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6046.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6046, %10285
-  %.9814 = phi ptr [ %7050, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6046 ], [ %7050, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6046.thread ], [ %7047, %10285 ], [ %7050, %.preheader7583.preheader ], [ %7050, %10339 ]
-  %.9711 = phi i1 [ %.11713, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6046 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6046.thread ], [ true, %10285 ], [ %.11713, %.preheader7583.preheader ], [ %.11713, %10339 ]
-  %.pn1765.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1765.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6046 ], [ %10287, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6046.thread ], [ %10286, %10285 ], [ %.pn1765.pn.pn.pn.pn.pn, %.preheader7583.preheader ], [ %.pn1765.pn.pn.pn.pn.pn, %10339 ]
+  %.9814 = phi ptr [ %7050, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6046 ], [ %7047, %10285 ], [ %7050, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6046.thread ], [ %7050, %.preheader7583.preheader ], [ %7050, %10339 ]
+  %.9711 = phi i1 [ %.11713, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6046 ], [ true, %10285 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6046.thread ], [ %.11713, %.preheader7583.preheader ], [ %.11713, %10339 ]
+  %.pn1765.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1765.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6046 ], [ %10286, %10285 ], [ %10287, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6046.thread ], [ %.pn1765.pn.pn.pn.pn.pn, %.preheader7583.preheader ], [ %.pn1765.pn.pn.pn.pn.pn, %10339 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %363) #20
   call void @_ZNSt6vectorISt4pairIdN32pxrInternal_v0_24__pxrReserved__7TfTokenEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %362) #20
   %10343 = xor i1 %.9711, true
@@ -25419,7 +25419,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.body5259
 
 .body5259:                                        ; preds = %10388, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i6057, %10382, %10376, %7689, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i, %7683, %10398, %.body5241, %.body5213
-  %.pn1795.pn.pn.pn = phi { ptr, i32 } [ %.pn1795.pn.pn, %10398 ], [ %7684, %7683 ], [ %.pn1786, %.body5213 ], [ %.pn1789, %.body5241 ], [ %10377, %10376 ], [ %7684, %7689 ], [ %7684, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i ], [ %10383, %10382 ], [ %10383, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i6057 ], [ %10383, %10388 ]
+  %.pn1795.pn.pn.pn = phi { ptr, i32 } [ %.pn1795.pn.pn, %10398 ], [ %.pn1789, %.body5241 ], [ %.pn1786, %.body5213 ], [ %10377, %10376 ], [ %7684, %7689 ], [ %7684, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i ], [ %7684, %7683 ], [ %10383, %10382 ], [ %10383, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i6057 ], [ %10383, %10388 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdResolveTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %377) #20
   br label %10399
 
@@ -25611,7 +25611,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.body5452
 
 .body5452:                                        ; preds = %10448, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i6074, %10442, %10436, %8238, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i5449, %8232, %10458, %.body5427, %.body5399
-  %.pn1817.pn.pn.pn = phi { ptr, i32 } [ %.pn1817.pn.pn, %10458 ], [ %8233, %8232 ], [ %.pn1808, %.body5399 ], [ %.pn1811, %.body5427 ], [ %10437, %10436 ], [ %8233, %8238 ], [ %8233, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i5449 ], [ %10443, %10442 ], [ %10443, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i6074 ], [ %10443, %10448 ]
+  %.pn1817.pn.pn.pn = phi { ptr, i32 } [ %.pn1817.pn.pn, %10458 ], [ %.pn1811, %.body5427 ], [ %.pn1808, %.body5399 ], [ %10437, %10436 ], [ %8233, %8238 ], [ %8233, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i5449 ], [ %8233, %8232 ], [ %10443, %10442 ], [ %10443, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i6074 ], [ %10443, %10448 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdResolveTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %406) #20
   br label %10459
 
@@ -25626,44 +25626,44 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit6065
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit6065: ; preds = %.preheader7585, %.preheader, %10413, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i6064, %.body5368, %.thread7573, %10352, %.loopexit7588, %10460, %.body5378, %10400, %.body5192, %9751
-  %.pn1817.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1817.pn.pn.pn.pn.pn, %10460 ], [ %.pn1805.pn, %.body5378 ], [ %9753, %.thread7573 ], [ %9752, %9751 ], [ %.pn1795.pn.pn.pn.pn.pn, %10400 ], [ %.pn1783.pn, %.body5192 ], [ %.pn1765.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10352 ], [ %.pn1802.pn, %10413 ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit7588 ], [ %.pn1765.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ], [ %.pn1802.pn, %.body5368 ], [ %.pn1802.pn, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i6064 ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7585 ]
+  %.pn1817.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1817.pn.pn.pn.pn.pn, %10460 ], [ %.pn1805.pn, %.body5378 ], [ %9752, %9751 ], [ %.pn1795.pn.pn.pn.pn.pn, %10400 ], [ %.pn1783.pn, %.body5192 ], [ %.pn1765.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %10352 ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit7588 ], [ %9753, %.thread7573 ], [ %.pn1802.pn, %.body5368 ], [ %.pn1802.pn, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i6064 ], [ %.pn1802.pn, %10413 ], [ %.pn1765.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ], [ %.pn1702.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7585 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %276) #20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5938
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5938: ; preds = %.preheader7626, %.preheader7608, %9747, %9742, %.thread, %9737, %.loopexit7629, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit6065, %9136
-  %.pn1817.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1817.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit6065 ], [ %9138, %.thread ], [ %9137, %9136 ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9737 ], [ %9743, %9747 ], [ %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit7629 ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7608 ], [ %9743, %9742 ], [ %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7626 ]
+  %.pn1817.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1817.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit6065 ], [ %9137, %9136 ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %9737 ], [ %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.loopexit7629 ], [ %9138, %.thread ], [ %9743, %9742 ], [ %9743, %9747 ], [ %.pn1649.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7608 ], [ %.pn1621.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7626 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %182) #20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5826
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5826: ; preds = %.preheader7636, %.preheader7635, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3243, %9132, %9127, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5824.thread, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5824, %.body3245, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5938, %9077
-  %.pn1817.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1817.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5938 ], [ %3699, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5824.thread ], [ %9078, %9077 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5824 ], [ %9128, %9127 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3245 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7635 ], [ %9128, %9132 ], [ %3337, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3243 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7636 ]
+  %.pn1817.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1817.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5938 ], [ %9078, %9077 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5824 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body3245 ], [ %3699, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5824.thread ], [ %9128, %9127 ], [ %9128, %9132 ], [ %3337, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i3243 ], [ %.pn1591.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7635 ], [ %.pn1563.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7636 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %154) #20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5758
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5758: ; preds = %.preheader7639, %.preheader7638, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i, %9073, %9068, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5756.thread, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5756, %.body2568, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5826, %9004
-  %.pn1817.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1817.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5826 ], [ %2931, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5756.thread ], [ %9005, %9004 ], [ %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5756 ], [ %2536, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2568 ], [ %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7638 ], [ %9069, %9073 ], [ %9069, %9068 ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7639 ]
+  %.pn1817.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1817.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5826 ], [ %9005, %9004 ], [ %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5756 ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2568 ], [ %2931, %_ZNSt6vectorISt4pairIdiESaIS1_EED2Ev.exit5756.thread ], [ %9069, %9068 ], [ %9069, %9073 ], [ %2536, %_ZNSt12_Vector_baseISt4pairIdiESaIS1_EED2Ev.exit.i ], [ %.pn1541.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7638 ], [ %.pn1517.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7639 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %126) #20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5690
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5690: ; preds = %.preheader7642, %.preheader7641, %9000, %8995, %_ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5688.thread, %_ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5666.thread7408, %_ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5688, %.body2067, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5758, %8971
-  %.pn1817.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1817.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5758 ], [ %2175, %_ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5688.thread ], [ %8972, %8971 ], [ %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5688 ], [ %8996, %8995 ], [ %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2067 ], [ %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7641 ], [ %8996, %9000 ], [ %1839, %_ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5666.thread7408 ], [ %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7642 ]
+  %.pn1817.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1817.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5758 ], [ %8972, %8971 ], [ %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5688 ], [ %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2067 ], [ %1839, %_ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5666.thread7408 ], [ %2175, %_ZNSt6vectorISt4pairIdfESaIS1_EED2Ev.exit5688.thread ], [ %8996, %8995 ], [ %8996, %9000 ], [ %.pn1495.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7641 ], [ %.pn1471.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7642 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %98) #20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5644
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5644: ; preds = %.loopexit7644, %.loopexit.split-lp, %8967, %8962, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5690
-  %.pn1829 = phi { ptr, i32 } [ %8963, %8967 ], [ %.pn1817.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5690 ], [ %8963, %8962 ], [ %lpad.loopexit, %.loopexit7644 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn1829 = phi { ptr, i32 } [ %.pn1817.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5690 ], [ %8963, %8962 ], [ %8963, %8967 ], [ %lpad.loopexit, %.loopexit7644 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7PcpSiteENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #20
   br label %.body1920
 
 .body1920:                                        ; preds = %.preheader7645, %.body1924.thread, %1673, %1046, %.body1924, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5644
-  %.pn1829.pn = phi { ptr, i32 } [ %.pn1829, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5644 ], [ %.pn1426.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1924 ], [ %.pn1426.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body1924.thread ], [ %1674, %1673 ], [ %.pn19.pn.pn.i, %1046 ], [ %.pn1426.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7645 ]
+  %.pn1829.pn = phi { ptr, i32 } [ %.pn1829, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit5644 ], [ %.pn1426.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body1924 ], [ %1674, %1673 ], [ %.pn19.pn.pn.i, %1046 ], [ %.pn1426.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.body1924.thread ], [ %.pn1426.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader7645 ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16UsdResolveTargetESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %51) #20
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16UsdResolveTargetESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %50) #20
   call void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %46) #20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit2035
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit2035: ; preds = %1669, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2034, %1663, %.body1920
-  %.pn1829.pn.pn = phi { ptr, i32 } [ %.pn1829.pn, %.body1920 ], [ %.pn1423.pn, %1669 ], [ %.pn1423.pn, %1663 ], [ %.pn1423.pn, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2034 ]
+  %.pn1829.pn.pn = phi { ptr, i32 } [ %.pn1829.pn, %.body1920 ], [ %.pn1423.pn, %1663 ], [ %.pn1423.pn, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2034 ], [ %.pn1423.pn, %1669 ]
   %10461 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %10462 = load ptr, ptr %10461, align 8
   %.not.i.i.i.i6080 = icmp eq ptr %10462, null
@@ -26523,8 +26523,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit21: ; pre
   ret void
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit24.sink.split: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i32, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i26, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i23
-  %.sink52 = phi ptr [ %46, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i26 ], [ %40, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i23 ], [ %79, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i32 ]
-  %.pn.ph = phi { ptr, i32 } [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i26 ], [ %39, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i23 ], [ %78, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i32 ]
+  %.sink52 = phi ptr [ %40, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i23 ], [ %46, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i26 ], [ %79, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i32 ]
+  %.pn.ph = phi { ptr, i32 } [ %39, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i23 ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i26 ], [ %78, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i32 ]
   %86 = load ptr, ptr %.sink52, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8
@@ -26532,7 +26532,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit24.sink.s
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit24
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit24: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit24.sink.split, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i32, %77, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i26, %44, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i23, %38
-  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %78, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i32 ], [ %39, %38 ], [ %39, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i23 ], [ %45, %44 ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i26 ], [ %.pn.ph, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit24.sink.split ]
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %39, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i23 ], [ %45, %44 ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i26 ], [ %78, %77 ], [ %78, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i32 ], [ %.pn.ph, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit24.sink.split ]
   resume { ptr, i32 } %.pn
 }
 
@@ -27738,7 +27738,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %296, %294
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit69.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit69.i:                ; preds = %309, %307, %.loopexit.split-lp82.i, %.loopexit81.i
-  %.pn54.i = phi { ptr, i32 } [ %.pn52.i, %309 ], [ %.pn52.i, %307 ], [ %lpad.loopexit83.i, %.loopexit81.i ], [ %lpad.loopexit.split-lp84.i, %.loopexit.split-lp82.i ]
+  %.pn54.i = phi { ptr, i32 } [ %.pn52.i, %307 ], [ %.pn52.i, %309 ], [ %lpad.loopexit83.i, %.loopexit81.i ], [ %lpad.loopexit.split-lp84.i, %.loopexit.split-lp82.i ]
   %314 = load ptr, ptr %9, align 8
   %.not.i.i.i70.i = icmp eq ptr %314, null
   br i1 %.not.i.i.i70.i, label %.body, label %315
@@ -27791,7 +27791,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit69.i:                ; preds = %309, %307, %.loopex
   br label %.body
 
 .body:                                            ; preds = %232, %234, %_ZNSt6vectorIdSaIdEED2Ev.exit69.i, %315, %331
-  %eh.lpad-body = phi { ptr, i32 } [ %332, %331 ], [ %233, %232 ], [ %235, %234 ], [ %.pn54.i, %_ZNSt6vectorIdSaIdEED2Ev.exit69.i ], [ %.pn54.i, %315 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %332, %331 ], [ %235, %234 ], [ %233, %232 ], [ %.pn54.i, %_ZNSt6vectorIdSaIdEED2Ev.exit69.i ], [ %.pn54.i, %315 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %22) #20
   br label %405
 
@@ -28752,7 +28752,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %296, %294
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit69.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit69.i:                ; preds = %309, %307, %.loopexit.split-lp82.i, %.loopexit81.i
-  %.pn54.i = phi { ptr, i32 } [ %.pn52.i, %309 ], [ %.pn52.i, %307 ], [ %lpad.loopexit83.i, %.loopexit81.i ], [ %lpad.loopexit.split-lp84.i, %.loopexit.split-lp82.i ]
+  %.pn54.i = phi { ptr, i32 } [ %.pn52.i, %307 ], [ %.pn52.i, %309 ], [ %lpad.loopexit83.i, %.loopexit81.i ], [ %lpad.loopexit.split-lp84.i, %.loopexit.split-lp82.i ]
   %314 = load ptr, ptr %9, align 8
   %.not.i.i.i70.i = icmp eq ptr %314, null
   br i1 %.not.i.i.i70.i, label %.body, label %315
@@ -28805,7 +28805,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit69.i:                ; preds = %309, %307, %.loopex
   br label %.body
 
 .body:                                            ; preds = %232, %234, %_ZNSt6vectorIdSaIdEED2Ev.exit69.i, %315, %331
-  %eh.lpad-body = phi { ptr, i32 } [ %332, %331 ], [ %233, %232 ], [ %235, %234 ], [ %.pn54.i, %_ZNSt6vectorIdSaIdEED2Ev.exit69.i ], [ %.pn54.i, %315 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %332, %331 ], [ %235, %234 ], [ %233, %232 ], [ %.pn54.i, %_ZNSt6vectorIdSaIdEED2Ev.exit69.i ], [ %.pn54.i, %315 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %22) #20
   br label %405
 
@@ -29768,7 +29768,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit67:                  ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit69
 
 _ZNSt6vectorIdSaIdEED2Ev.exit69:                  ; preds = %.loopexit81, %.loopexit.split-lp82, %201, %199
-  %.pn54 = phi { ptr, i32 } [ %.pn52, %201 ], [ %.pn52, %199 ], [ %lpad.loopexit83, %.loopexit81 ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp82 ]
+  %.pn54 = phi { ptr, i32 } [ %.pn52, %199 ], [ %.pn52, %201 ], [ %lpad.loopexit83, %.loopexit81 ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp82 ]
   %207 = load ptr, ptr %8, align 8
   %.not.i.i.i70 = icmp eq ptr %207, null
   br i1 %.not.i.i.i70, label %_ZNSt6vectorIdSaIdEED2Ev.exit71, label %208
@@ -29783,7 +29783,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit69:                  ; preds = %.loopexit81, %.loop
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit71
 
 _ZNSt6vectorIdSaIdEED2Ev.exit71:                  ; preds = %208, %_ZNSt6vectorIdSaIdEED2Ev.exit69, %114, %112
-  %.pn54.pn = phi { ptr, i32 } [ %113, %112 ], [ %115, %114 ], [ %.pn54, %_ZNSt6vectorIdSaIdEED2Ev.exit69 ], [ %.pn54, %208 ]
+  %.pn54.pn = phi { ptr, i32 } [ %115, %114 ], [ %113, %112 ], [ %.pn54, %_ZNSt6vectorIdSaIdEED2Ev.exit69 ], [ %.pn54, %208 ]
   resume { ptr, i32 } %.pn54.pn
 }
 
@@ -30604,47 +30604,47 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefP
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i
 
 7:                                                ; preds = %3
   %.not68.i.i = icmp eq i32 %5, -2
-  br i1 %.not68.i.i, label %13, label %8
+  br i1 %.not68.i.i, label %15, label %8
 
 8:                                                ; preds = %7
   %9 = add nsw i32 %5, 1
   %10 = cmpxchg weak ptr %4, i32 %5, i32 %9 release monotonic, align 4
   %11 = extractvalue { i32, i1 } %10, 1
   %12 = extractvalue { i32, i1 } %10, 0
-  br i1 %11, label %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, label %13
+  br i1 %11, label %13, label %15
 
-13:                                               ; preds = %8, %7
-  %.067.i.i = phi i32 [ %12, %8 ], [ -2, %7 ]
-  %14 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2, i32 noundef %.067.i.i)
-          to label %.noexc unwind label %23
-
-.noexc:                                           ; preds = %13
+13:                                               ; preds = %8
+  %14 = icmp eq i32 %5, -1
   br i1 %14, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-15:                                               ; preds = %3
-  %16 = atomicrmw sub ptr %4, i32 1 release, align 4
-  %17 = icmp eq i32 %16, 1
-  br i1 %17, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+15:                                               ; preds = %8, %7
+  %.067.i.i = phi i32 [ %12, %8 ], [ -2, %7 ]
+  %16 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter21_RemoveRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef nonnull %2, i32 noundef %.067.i.i)
+          to label %.noexc unwind label %23
 
-_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i: ; preds = %8
-  %18 = icmp eq i32 %5, -1
+.noexc:                                           ; preds = %15
+  br i1 %16, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEE10_RemoveRefEPKNS_9TfRefBaseE.exit
+
+_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i: ; preds = %3
+  %17 = atomicrmw sub ptr %4, i32 1 release, align 4
+  %18 = icmp eq i32 %17, 1
   br i1 %18, label %19, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %15, %.noexc
+19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %13
   %20 = load ptr, ptr %2, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(12) %2) #20
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEE10_RemoveRefEPKNS_9TfRefBaseE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEE10_RemoveRefEPKNS_9TfRefBaseE.exit: ; preds = %19, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %15, %.noexc, %1
+_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEE10_RemoveRefEPKNS_9TfRefBaseE.exit: ; preds = %19, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %13, %1
   ret void
 
-23:                                               ; preds = %13
+23:                                               ; preds = %15
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
@@ -32217,7 +32217,7 @@ _ZSt10_ConstructISt4pairISt6vectorIS0_IdfESaIS2_EEN32pxrInternal_v0_24__pxrReser
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %24, %27
-  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %25, %27 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %27 ], [ %25, %24 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %35 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %36 = tail call ptr @__cxa_begin_catch(ptr %35) #20
   invoke void @_ZSt8_DestroyIPSt4pairISt6vectorIS0_IdfESaIS2_EEN32pxrInternal_v0_24__pxrReserved__7VtValueEEEvT_S9_(ptr noundef %2, ptr noundef nonnull %.023)
@@ -32860,7 +32860,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %.critedge62, 
   ret void
 
 .body:                                            ; preds = %38, %79, %142, %159, %119, %105, %56, %168, %166, %.body83, %127, %.body71, %121
-  %.pn51.pn = phi { ptr, i32 } [ %.pn51, %.body83 ], [ %169, %168 ], [ %167, %166 ], [ %128, %127 ], [ %122, %121 ], [ %.pn, %.body71 ], [ %39, %38 ], [ %57, %56 ], [ %80, %79 ], [ %106, %105 ], [ %143, %142 ], [ %120, %119 ], [ %160, %159 ]
+  %.pn51.pn = phi { ptr, i32 } [ %.pn51, %.body83 ], [ %128, %127 ], [ %.pn, %.body71 ], [ %122, %121 ], [ %169, %168 ], [ %167, %166 ], [ %39, %38 ], [ %57, %56 ], [ %80, %79 ], [ %106, %105 ], [ %143, %142 ], [ %120, %119 ], [ %160, %159 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
   resume { ptr, i32 } %.pn51.pn
 }
@@ -32980,7 +32980,7 @@ _ZSt10_ConstructISt4pairISt6vectorIS0_IdiESaIS2_EEN32pxrInternal_v0_24__pxrReser
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %24, %27
-  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %25, %27 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %27 ], [ %25, %24 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %35 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %36 = tail call ptr @__cxa_begin_catch(ptr %35) #20
   invoke void @_ZSt8_DestroyIPSt4pairISt6vectorIS0_IdiESaIS2_EEN32pxrInternal_v0_24__pxrReserved__7VtValueEEEvT_S9_(ptr noundef %2, ptr noundef nonnull %.023)
@@ -33721,7 +33721,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZN32pxrInter
   ret void
 
 .body:                                            ; preds = %38, %81, %147, %164, %124, %111, %59, %173, %171, %.body81, %132, %.body69, %126
-  %.pn50.pn = phi { ptr, i32 } [ %.pn50, %.body81 ], [ %174, %173 ], [ %172, %171 ], [ %133, %132 ], [ %127, %126 ], [ %.pn, %.body69 ], [ %39, %38 ], [ %60, %59 ], [ %82, %81 ], [ %112, %111 ], [ %148, %147 ], [ %125, %124 ], [ %165, %164 ]
+  %.pn50.pn = phi { ptr, i32 } [ %.pn50, %.body81 ], [ %133, %132 ], [ %.pn, %.body69 ], [ %127, %126 ], [ %174, %173 ], [ %172, %171 ], [ %39, %38 ], [ %60, %59 ], [ %82, %81 ], [ %112, %111 ], [ %148, %147 ], [ %125, %124 ], [ %165, %164 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
   %194 = load ptr, ptr %12, align 8
   %195 = ptrtoint ptr %194 to i64
@@ -34553,7 +34553,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %.critedge60, 
   ret void
 
 .body:                                            ; preds = %35, %95, %105, %147, %130, %68, %156, %154, %120, %114, %113, %107
-  %.pn50.pn = phi { ptr, i32 } [ %.pn50, %120 ], [ %157, %156 ], [ %155, %154 ], [ %115, %114 ], [ %108, %107 ], [ %.pn, %113 ], [ %36, %35 ], [ %69, %68 ], [ %96, %95 ], [ %131, %130 ], [ %106, %105 ], [ %148, %147 ]
+  %.pn50.pn = phi { ptr, i32 } [ %.pn50, %120 ], [ %115, %114 ], [ %.pn, %113 ], [ %108, %107 ], [ %157, %156 ], [ %155, %154 ], [ %36, %35 ], [ %69, %68 ], [ %96, %95 ], [ %131, %130 ], [ %106, %105 ], [ %148, %147 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #20
   resume { ptr, i32 } %.pn50.pn
 }

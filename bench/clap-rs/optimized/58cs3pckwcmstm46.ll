@@ -486,7 +486,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$alloc..boxed..Box$LT$clap_b
   ret void
 
 29:                                               ; preds = %18, %23, %27
-  %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %28, %27 ], [ %19, %23 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %28, %27 ], [ %19, %23 ], [ %19, %18 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 80, i64 noundef 8) #28, !noalias !94
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -5090,7 +5090,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..comma
   br label %"_ZN4core3ptr90drop_in_place$LT$alloc..raw_vec..RawVec$LT$clap_builder..builder..command..Command$GT$$GT$17h4864229cd4f9f6fcE.llvm.13290713768692451428.exit"
 
 .body91:                                          ; preds = %132, %.body96, %.body
-  %.pn30 = phi { ptr, i32 } [ %94, %.body ], [ %124, %.body96 ], [ %124, %132 ]
+  %.pn30 = phi { ptr, i32 } [ %94, %.body ], [ %124, %132 ], [ %124, %.body96 ]
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..arg_group..ArgGroup$GT$$GT$17h10e260c099463d05E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %140) #30
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5153,7 +5153,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..comma
   br label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$clap_builder..builder..value_parser..ValueParser$GT$$GT$17ha114e5fcd870657eE.exit"
 
 .body93:                                          ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.13290713768692451428.exit.i.i.i.i.i", %153, %.body91
-  %.pn34 = phi { ptr, i32 } [ %.pn30, %.body91 ], [ %154, %153 ], [ %154, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.13290713768692451428.exit.i.i.i.i.i" ]
+  %.pn34 = phi { ptr, i32 } [ %.pn30, %.body91 ], [ %154, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.13290713768692451428.exit.i.i.i.i.i" ], [ %154, %153 ]
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 224
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$clap_builder..builder..ext..Extensions$GT$17h6db226f5246b71c5E"(ptr noalias noundef align 8 dereferenceable(48) %168) #30
           to label %common.resume unwind label %192
@@ -5213,7 +5213,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..comma
   br label %"_ZN4core3ptr59drop_in_place$LT$clap_builder..builder..ext..Extensions$GT$17h6db226f5246b71c5E.exit"
 
 common.resume:                                    ; preds = %.body93, %177, %181
-  %common.resume.op = phi { ptr, i32 } [ %178, %177 ], [ %178, %181 ], [ %.pn34, %.body93 ]
+  %common.resume.op = phi { ptr, i32 } [ %178, %181 ], [ %178, %177 ], [ %.pn34, %.body93 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr59drop_in_place$LT$clap_builder..builder..ext..Extensions$GT$17h6db226f5246b71c5E.exit": ; preds = %185, %188

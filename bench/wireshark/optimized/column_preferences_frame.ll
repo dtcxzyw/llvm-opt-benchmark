@@ -467,7 +467,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i27:    ; preds = %183
   br label %_ZN7QStringD2Ev.exit25
 
 _ZN7QStringD2Ev.exit25:                           ; preds = %187, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i27, %183, %181, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i23, %177, %174, %175, %189, %168, %166, %164
-  %.pn13.pn = phi { ptr, i32 } [ %167, %166 ], [ %165, %164 ], [ %169, %168 ], [ %176, %175 ], [ %190, %189 ], [ %178, %181 ], [ %.pn, %174 ], [ %178, %177 ], [ %178, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i23 ], [ %184, %183 ], [ %184, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i27 ], [ %184, %187 ]
+  %.pn13.pn = phi { ptr, i32 } [ %165, %164 ], [ %169, %168 ], [ %167, %166 ], [ %176, %175 ], [ %190, %189 ], [ %.pn, %174 ], [ %178, %177 ], [ %178, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i23 ], [ %178, %181 ], [ %184, %183 ], [ %184, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i27 ], [ %184, %187 ]
   call void @_ZN6QFrameD2Ev(ptr noundef align 8 dereferenceable_or_null(40) %0) #11
   resume { ptr, i32 } %.pn13.pn
 }
@@ -1044,7 +1044,7 @@ _ZN7QStringD2Ev.exit105:                          ; preds = %181, %_ZN17QArrayDa
   br label %187
 
 187:                                              ; preds = %129, %_ZN7QStringD2Ev.exit77, %137, %_ZN7QStringD2Ev.exit81, %145, %147, %_ZN7QStringD2Ev.exit85, %_ZN7QStringD2Ev.exit93, %_ZN7QStringD2Ev.exit101, %179, %_ZN7QStringD2Ev.exit105, %_ZN7QStringD2Ev.exit89, %_ZN7QStringD2Ev.exit97, %_ZN7QStringD2Ev.exit29
-  %.pn.pn = phi { ptr, i32 } [ %29, %_ZN7QStringD2Ev.exit29 ], [ %138, %137 ], [ %182, %_ZN7QStringD2Ev.exit105 ], [ %180, %179 ], [ %174, %_ZN7QStringD2Ev.exit101 ], [ %168, %_ZN7QStringD2Ev.exit97 ], [ %132, %_ZN7QStringD2Ev.exit77 ], [ %162, %_ZN7QStringD2Ev.exit93 ], [ %156, %_ZN7QStringD2Ev.exit89 ], [ %130, %129 ], [ %150, %_ZN7QStringD2Ev.exit85 ], [ %148, %147 ], [ %146, %145 ], [ %140, %_ZN7QStringD2Ev.exit81 ]
+  %.pn.pn = phi { ptr, i32 } [ %29, %_ZN7QStringD2Ev.exit29 ], [ %182, %_ZN7QStringD2Ev.exit105 ], [ %180, %179 ], [ %174, %_ZN7QStringD2Ev.exit101 ], [ %168, %_ZN7QStringD2Ev.exit97 ], [ %162, %_ZN7QStringD2Ev.exit93 ], [ %156, %_ZN7QStringD2Ev.exit89 ], [ %150, %_ZN7QStringD2Ev.exit85 ], [ %148, %147 ], [ %146, %145 ], [ %140, %_ZN7QStringD2Ev.exit81 ], [ %138, %137 ], [ %132, %_ZN7QStringD2Ev.exit77 ], [ %130, %129 ]
   resume { ptr, i32 } %.pn.pn
 }
 

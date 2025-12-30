@@ -655,7 +655,7 @@ select.unfold.i.i:                                ; preds = %139, %._crit_edge.t
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i: ; preds = %143, %select.unfold.i.i
-  %147 = phi i1 [ %146, %143 ], [ true, %select.unfold.i.i ]
+  %147 = phi i1 [ true, %select.unfold.i.i ], [ %146, %143 ]
   %148 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
           to label %.thread unwind label %156
 
@@ -718,7 +718,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boun
   br label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit156
 
 _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit156: ; preds = %165, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i153
-  %.sroa.0.0.i.i155 = phi ptr [ %spec.select.i.i154, %165 ], [ %61, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i153 ]
+  %.sroa.0.0.i.i155 = phi ptr [ %61, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i153 ], [ %spec.select.i.i154, %165 ]
   %.not245 = icmp eq ptr %.sroa.0.0.i.i.ph, %61
   br i1 %.not245, label %172, label %168
 
@@ -745,9 +745,9 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit156: ; preds = %165, %_ZNS
   br label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
 
 _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i: ; preds = %._crit_edge, %177, %._crit_edge272
-  %179 = phi i1 [ true, %._crit_edge272 ], [ %178, %177 ], [ true, %._crit_edge ]
-  %.0114244 = phi i64 [ 0, %._crit_edge272 ], [ %.0114, %177 ], [ 0, %._crit_edge ]
-  %.0115239243 = phi i64 [ 0, %._crit_edge272 ], [ %.0115, %177 ], [ 0, %._crit_edge ]
+  %179 = phi i1 [ %178, %177 ], [ true, %._crit_edge272 ], [ true, %._crit_edge ]
+  %.0114244 = phi i64 [ %.0114, %177 ], [ 0, %._crit_edge272 ], [ 0, %._crit_edge ]
+  %.0115239243 = phi i64 [ %.0115, %177 ], [ 0, %._crit_edge272 ], [ 0, %._crit_edge ]
   %180 = mul nsw i64 %.0115239243, 3
   invoke void @_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %180, i64 noundef %.0115239243, i64 noundef 3)
           to label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit unwind label %260
@@ -1323,7 +1323,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc204._ZNSolsEP
   br i1 %450, label %300, label %._crit_edge291, !llvm.loop !105
 
 451:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit251, %.loopexit.split-lp252, %262, %260, %156
-  %.pn133 = phi { ptr, i32 } [ %157, %156 ], [ %263, %262 ], [ %lpad.loopexit.split-lp254, %.loopexit.split-lp252 ], [ %261, %260 ], [ %lpad.loopexit253, %.loopexit251 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn133 = phi { ptr, i32 } [ %157, %156 ], [ %261, %260 ], [ %263, %262 ], [ %lpad.loopexit253, %.loopexit251 ], [ %lpad.loopexit.split-lp254, %.loopexit.split-lp252 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %452 = load ptr, ptr %62, align 8, !tbaa !45
   invoke void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %452)
           to label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit197 unwind label %453
@@ -1340,7 +1340,7 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit197: ; preds = %451
   br label %456
 
 456:                                              ; preds = %.loopexit257, %.loopexit.split-lp258, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit197, %72
-  %.pn135.pn = phi { ptr, i32 } [ %73, %72 ], [ %.pn133, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit197 ], [ %lpad.loopexit259, %.loopexit257 ], [ %lpad.loopexit.split-lp260, %.loopexit.split-lp258 ]
+  %.pn135.pn = phi { ptr, i32 } [ %.pn133, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit197 ], [ %73, %72 ], [ %lpad.loopexit259, %.loopexit257 ], [ %lpad.loopexit.split-lp260, %.loopexit.split-lp258 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN3igl9MshLoaderD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %12) #24
   br label %457
@@ -1799,7 +1799,7 @@ select.unfold.i.i:                                ; preds = %143, %._crit_edge.t
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i: ; preds = %147, %select.unfold.i.i
-  %151 = phi i1 [ %150, %147 ], [ true, %select.unfold.i.i ]
+  %151 = phi i1 [ true, %select.unfold.i.i ], [ %150, %147 ]
   %152 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
           to label %.thread unwind label %160
 
@@ -1862,7 +1862,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boun
   br label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit156
 
 _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit156: ; preds = %169, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i153
-  %.sroa.0.0.i.i155 = phi ptr [ %spec.select.i.i154, %169 ], [ %61, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i153 ]
+  %.sroa.0.0.i.i155 = phi ptr [ %61, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i153 ], [ %spec.select.i.i154, %169 ]
   %.not245 = icmp eq ptr %.sroa.0.0.i.i.ph, %61
   br i1 %.not245, label %176, label %172
 
@@ -1889,9 +1889,9 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit156: ; preds = %169, %_ZNS
   br label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
 
 _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i: ; preds = %._crit_edge, %181, %._crit_edge270
-  %183 = phi i1 [ true, %._crit_edge270 ], [ %182, %181 ], [ true, %._crit_edge ]
-  %.0114244 = phi i64 [ 0, %._crit_edge270 ], [ %.0114, %181 ], [ 0, %._crit_edge ]
-  %.0115239243 = phi i64 [ 0, %._crit_edge270 ], [ %.0115, %181 ], [ 0, %._crit_edge ]
+  %183 = phi i1 [ %182, %181 ], [ true, %._crit_edge270 ], [ true, %._crit_edge ]
+  %.0114244 = phi i64 [ %.0114, %181 ], [ 0, %._crit_edge270 ], [ 0, %._crit_edge ]
+  %.0115239243 = phi i64 [ %.0115, %181 ], [ 0, %._crit_edge270 ], [ 0, %._crit_edge ]
   %184 = mul nsw i64 %.0115239243, 3
   invoke void @_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %184, i64 noundef %.0115239243, i64 noundef 3)
           to label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit unwind label %264
@@ -2466,7 +2466,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc204._ZNSolsEP
   br i1 %456, label %304, label %._crit_edge289, !llvm.loop !126
 
 457:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit249, %.loopexit.split-lp250, %266, %264, %160
-  %.pn133 = phi { ptr, i32 } [ %161, %160 ], [ %267, %266 ], [ %lpad.loopexit.split-lp252, %.loopexit.split-lp250 ], [ %265, %264 ], [ %lpad.loopexit251, %.loopexit249 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn133 = phi { ptr, i32 } [ %161, %160 ], [ %265, %264 ], [ %267, %266 ], [ %lpad.loopexit251, %.loopexit249 ], [ %lpad.loopexit.split-lp252, %.loopexit.split-lp250 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %458 = load ptr, ptr %62, align 8, !tbaa !45
   invoke void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %458)
           to label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit197 unwind label %459
@@ -2483,7 +2483,7 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit197: ; preds = %457
   br label %462
 
 462:                                              ; preds = %.loopexit255, %.loopexit.split-lp256, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit197, %72
-  %.pn135.pn = phi { ptr, i32 } [ %73, %72 ], [ %.pn133, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit197 ], [ %lpad.loopexit257, %.loopexit255 ], [ %lpad.loopexit.split-lp258, %.loopexit.split-lp256 ]
+  %.pn135.pn = phi { ptr, i32 } [ %.pn133, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit197 ], [ %73, %72 ], [ %lpad.loopexit257, %.loopexit255 ], [ %lpad.loopexit.split-lp258, %.loopexit.split-lp256 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN3igl9MshLoaderD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %12) #24
   br label %463

@@ -191,7 +191,7 @@ define range(i32 -1094995529, 2) i32 @avpriv_fits_header_parse_line(ptr noundef 
   br i1 %exitcond122.not.i, label %read_keyword_value.exit, label %.lr.ph88.i, !llvm.loop !28
 
 read_keyword_value.exit:                          ; preds = %24, %.lr.ph88.i, %.lr.ph88.i, %39, %.critedge.i, %.preheader.i, %.critedge4.i, %.critedge6.i
-  %.057.i = phi ptr [ %31, %.critedge4.i ], [ %36, %.critedge6.i ], [ %9, %.critedge.i ], [ %.36086.i, %.lr.ph88.i ], [ %25, %.preheader.i ], [ %.36086.i, %.lr.ph88.i ], [ %40, %39 ], [ %9, %24 ]
+  %.057.i = phi ptr [ %31, %.critedge4.i ], [ %36, %.critedge6.i ], [ %9, %.critedge.i ], [ %25, %.preheader.i ], [ %.36086.i, %.lr.ph88.i ], [ %.36086.i, %.lr.ph88.i ], [ %40, %39 ], [ %9, %24 ]
   store i8 0, ptr %.057.i, align 1, !tbaa !22
   %41 = load i32, ptr %1, align 8, !tbaa !4
   switch i32 %41, label %dict_set_if_not_null.exit101 [
@@ -581,7 +581,7 @@ dict_set_if_not_null.exit99:                      ; preds = %98, %99
   br label %dict_set_if_not_null.exit101
 
 dict_set_if_not_null.exit101:                     ; preds = %180, %179, %read_keyword_value.exit, %49, %55, %dict_set_if_not_null.exit, %81, %80, %107, %dict_set_if_not_null.exit99, %174, %165, %151, %120, %95, %89, %74, %70, %64, %61, %57, %51, %47, %43
-  %.0 = phi i32 [ -1094995529, %174 ], [ -1094995529, %43 ], [ -1094995529, %47 ], [ -1094995529, %51 ], [ -1094995529, %57 ], [ -1094995529, %61 ], [ -1094995529, %64 ], [ -1094995529, %70 ], [ -1094995529, %74 ], [ -1094995529, %89 ], [ -1094995529, %95 ], [ -1094995529, %165 ], [ 1, %151 ], [ -1094995529, %120 ], [ 0, %dict_set_if_not_null.exit99 ], [ 0, %107 ], [ 0, %80 ], [ 0, %81 ], [ 0, %read_keyword_value.exit ], [ 0, %dict_set_if_not_null.exit ], [ 0, %55 ], [ 0, %49 ], [ 0, %179 ], [ 0, %180 ]
+  %.0 = phi i32 [ -1094995529, %43 ], [ -1094995529, %47 ], [ -1094995529, %51 ], [ -1094995529, %57 ], [ -1094995529, %61 ], [ -1094995529, %64 ], [ -1094995529, %70 ], [ -1094995529, %74 ], [ -1094995529, %89 ], [ -1094995529, %95 ], [ -1094995529, %120 ], [ 1, %151 ], [ -1094995529, %165 ], [ -1094995529, %174 ], [ 0, %dict_set_if_not_null.exit99 ], [ 0, %107 ], [ 0, %80 ], [ 0, %81 ], [ 0, %dict_set_if_not_null.exit ], [ 0, %55 ], [ 0, %49 ], [ 0, %read_keyword_value.exit ], [ 0, %179 ], [ 0, %180 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

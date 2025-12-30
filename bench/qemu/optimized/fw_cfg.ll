@@ -903,7 +903,7 @@ define dso_local void @fw_cfg_add_file_callback(ptr noundef %0, ptr noundef %1, 
   br label %get_fw_cfg_order.exit
 
 get_fw_cfg_order.exit:                            ; preds = %35, %45, %49
-  %.09.i = phi i32 [ 200, %49 ], [ %47, %45 ], [ %.val99, %35 ]
+  %.09.i = phi i32 [ %47, %45 ], [ 200, %49 ], [ %.val99, %35 ]
   %50 = icmp sgt i32 %24, 0
   br i1 %50, label %.lr.ph, label %.critedge.._crit_edge_crit_edge
 
@@ -944,14 +944,14 @@ get_fw_cfg_order.exit:                            ; preds = %35, %45, %49
   br label %.critedge
 
 .critedge:                                        ; preds = %59, %53, %66, %.critedge.loopexit.split.loop.exit
-  %.192 = phi i32 [ 0, %66 ], [ %68, %.critedge.loopexit.split.loop.exit ], [ 0, %59 ], [ %.091103, %53 ]
-  %.0 = phi i32 [ 0, %66 ], [ 0, %.critedge.loopexit.split.loop.exit ], [ %.09.i, %53 ], [ %.09.i, %59 ]
+  %.192 = phi i32 [ %68, %.critedge.loopexit.split.loop.exit ], [ 0, %66 ], [ 0, %59 ], [ %.091103, %53 ]
+  %.0 = phi i32 [ 0, %.critedge.loopexit.split.loop.exit ], [ 0, %66 ], [ %.09.i, %53 ], [ %.09.i, %59 ]
   %69 = icmp sgt i32 %24, %.192
   br i1 %69, label %.lr.ph112, label %.critedge.._crit_edge_crit_edge
 
-.critedge.._crit_edge_crit_edge:                  ; preds = %.preheader, %get_fw_cfg_order.exit, %.critedge
-  %.0138 = phi i32 [ %.0, %.critedge ], [ 0, %.preheader ], [ %.09.i, %get_fw_cfg_order.exit ]
-  %.192136 = phi i32 [ %.192, %.critedge ], [ %24, %.preheader ], [ %24, %get_fw_cfg_order.exit ]
+.critedge.._crit_edge_crit_edge:                  ; preds = %get_fw_cfg_order.exit, %.preheader, %.critedge
+  %.0138 = phi i32 [ %.0, %.critedge ], [ %.09.i, %get_fw_cfg_order.exit ], [ 0, %.preheader ]
+  %.192136 = phi i32 [ %.192, %.critedge ], [ %24, %get_fw_cfg_order.exit ], [ %24, %.preheader ]
   %.pre128 = sext i32 %.192136 to i64
   br label %._crit_edge
 
@@ -1388,7 +1388,7 @@ define dso_local noundef zeroext i1 @fw_cfg_add_file_from_generator(ptr noundef 
   br label %29
 
 29:                                               ; preds = %15, %24, %14, %11
-  %.025 = phi i1 [ true, %24 ], [ false, %11 ], [ false, %14 ], [ false, %15 ]
+  %.025 = phi i1 [ true, %24 ], [ false, %14 ], [ false, %11 ], [ false, %15 ]
   %.val = load ptr, ptr %6, align 8
   %.val30 = load ptr, ptr %7, align 8
   call void @error_propagate(ptr noundef %.val30, ptr noundef %.val) #18

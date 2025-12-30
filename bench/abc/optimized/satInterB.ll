@@ -1480,7 +1480,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br i1 %255, label %.preheader267, label %.loopexit269, !llvm.loop !80
 
 .loopexit269:                                     ; preds = %250, %.preheader268, %174, %88, %79
-  %.1201 = phi i32 [ %.0200309, %88 ], [ %.0200309, %79 ], [ %120, %174 ], [ %120, %.preheader268 ], [ %120, %250 ]
+  %.1201 = phi i32 [ %.0200309, %88 ], [ %120, %174 ], [ %.0200309, %79 ], [ %120, %.preheader268 ], [ %120, %250 ]
   %256 = icmp sgt i64 %indvars.iv357, 1
   br i1 %256, label %79, label %._crit_edge313, !llvm.loop !81
 
@@ -2055,7 +2055,7 @@ Intb_ManEnqueue.exit80:                           ; preds = %136
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %Intb_ManEnqueue.exit, %Intb_ManCancelUntil.exit, %Intb_ManEnqueue.exit80, %._crit_edge, %160, %155, %120
-  %.062 = phi i32 [ 1, %Intb_ManCancelUntil.exit ], [ 0, %Intb_ManEnqueue.exit ], [ 0, %Intb_ManEnqueue.exit80 ], [ 1, %120 ], [ 0, %155 ], [ 1, %160 ], [ 0, %._crit_edge ], [ 1, %23 ]
+  %.062 = phi i32 [ 1, %120 ], [ 0, %155 ], [ 1, %160 ], [ 1, %Intb_ManCancelUntil.exit ], [ 0, %._crit_edge ], [ 0, %Intb_ManEnqueue.exit80 ], [ 0, %Intb_ManEnqueue.exit ], [ 1, %23 ]
   ret i32 %.062
 }
 
@@ -2193,7 +2193,7 @@ Intb_ManEnqueue.exit:                             ; preds = %35
   br label %70
 
 70:                                               ; preds = %59, %66, %50, %56, %67
-  %.033 = phi i32 [ 1, %67 ], [ 0, %50 ], [ 0, %56 ], [ 0, %66 ], [ 0, %59 ]
+  %.033 = phi i32 [ 1, %67 ], [ 0, %56 ], [ 0, %50 ], [ 0, %66 ], [ 0, %59 ]
   ret i32 %.033
 }
 

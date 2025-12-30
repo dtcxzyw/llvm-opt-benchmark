@@ -67,7 +67,7 @@ define dso_local i32 @slurm_pmi_send_kvs_comm_set(ptr noundef %0, i32 noundef %1
   tail call void @slurm_set_addr(ptr noundef nonnull @srun_addr, i16 noundef zeroext %17, ptr noundef nonnull %11) #10
   br label %18
 
-18:                                               ; preds = %8, %15
+18:                                               ; preds = %15, %8
   store i32 0, ptr %6, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = load i32, ptr @pmi_time, align 4
@@ -185,7 +185,7 @@ _set_pmi_time.exit:                               ; preds = %18, %27, %.sink.spl
   br label %_get_addr.exit
 
 _get_addr.exit:                                   ; preds = %10, %3, %._crit_edge, %61
-  %.014 = phi i32 [ %70, %._crit_edge ], [ 22, %3 ], [ -1, %61 ], [ -1, %10 ]
+  %.014 = phi i32 [ -1, %61 ], [ %70, %._crit_edge ], [ 22, %3 ], [ -1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.014
@@ -379,7 +379,7 @@ define dso_local i32 @slurm_pmi_get_kvs_comm_set(ptr noundef writeonly captures(
   %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2) #10
   br label %145
 
-25:                                               ; preds = %13, %20
+25:                                               ; preds = %20, %13
   store i32 0, ptr %5, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = load i32, ptr @pmi_time, align 4
@@ -626,7 +626,7 @@ _set_pmi_time.exit:                               ; preds = %25, %34, %.sink.spl
   br label %145
 
 145:                                              ; preds = %3, %140, %131, %120, %111, %104, %94, %51, %44, %23
-  %.0 = phi i32 [ %144, %140 ], [ -1, %23 ], [ -1, %44 ], [ -1, %51 ], [ -1, %94 ], [ %106, %104 ], [ %114, %111 ], [ %123, %120 ], [ 1000, %131 ], [ 22, %3 ]
+  %.0 = phi i32 [ -1, %23 ], [ -1, %44 ], [ -1, %51 ], [ -1, %94 ], [ %106, %104 ], [ %114, %111 ], [ %123, %120 ], [ 1000, %131 ], [ %144, %140 ], [ 22, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

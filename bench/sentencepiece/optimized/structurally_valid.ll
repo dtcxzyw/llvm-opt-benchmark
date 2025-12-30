@@ -238,9 +238,9 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal15UTF8GenericS
   %136 = icmp eq i8 %105, -3
   br i1 %136, label %27, label %.thread134
 
-.thread134:                                       ; preds = %.critedge3, %.preheader, %133, %.critedge.thread._crit_edge
-  %.10132 = phi ptr [ %131, %.preheader ], [ %.7.lcssa, %.critedge.thread._crit_edge ], [ %131, %133 ], [ %.10, %.critedge3 ]
-  %.2103131 = phi i32 [ 240, %.preheader ], [ 241, %.critedge.thread._crit_edge ], [ 240, %133 ], [ %106, %.critedge3 ]
+.thread134:                                       ; preds = %.critedge3, %133, %.preheader, %.critedge.thread._crit_edge
+  %.10132 = phi ptr [ %.7.lcssa, %.critedge.thread._crit_edge ], [ %131, %.preheader ], [ %131, %133 ], [ %.10, %.critedge3 ]
+  %.2103131 = phi i32 [ 241, %.critedge.thread._crit_edge ], [ 240, %.preheader ], [ 240, %133 ], [ %106, %.critedge3 ]
   %137 = ptrtoint ptr %.10132 to i64
   %138 = ptrtoint ptr %1 to i64
   %139 = sub i64 %137, %138
@@ -318,7 +318,7 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal24UTF8GenericS
   br i1 %35, label %.lr.ph55, label %.critedge2, !llvm.loop !25
 
 .critedge2:                                       ; preds = %.lr.ph, %33, %.lr.ph55, %.critedge
-  %.2 = phi ptr [ %.1.lcssa, %.critedge ], [ %.354, %.lr.ph55 ], [ %34, %33 ], [ %.152, %.lr.ph ]
+  %.2 = phi ptr [ %.1.lcssa, %.critedge ], [ %34, %33 ], [ %.354, %.lr.ph55 ], [ %.152, %.lr.ph ]
   %36 = icmp ult ptr %.2, %9
   br i1 %36, label %.lr.ph60, label %.critedge4
 
@@ -581,7 +581,7 @@ define noundef i32 @_ZN6google8protobuf8internal24UTF8SpnStructurallyValidENS0_1
   br label %_ZN6google8protobuf8internal24UTF8GenericScanFastAsciiEPKNS1_19UTF8StateMachineObjEPKciPi.exit
 
 _ZN6google8protobuf8internal24UTF8GenericScanFastAsciiEPKNS1_19UTF8StateMachineObjEPKciPi.exit: ; preds = %2, %53, %5
-  %.0 = phi i32 [ %56, %53 ], [ 0, %5 ], [ %4, %2 ]
+  %.0 = phi i32 [ 0, %5 ], [ %56, %53 ], [ %4, %2 ]
   ret i32 %.0
 }
 

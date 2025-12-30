@@ -381,9 +381,9 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %85, %_ZNSt10unique_
   br label %89
 
 89:                                               ; preds = %79, %_ZN4llvm5ErrorD2Ev.exit
-  %90 = phi i8 [ %76, %79 ], [ %.pre.pre, %_ZN4llvm5ErrorD2Ev.exit ]
-  %cond5 = phi i1 [ %not., %79 ], [ true, %_ZN4llvm5ErrorD2Ev.exit ]
-  %cond6 = phi i1 [ %81, %79 ], [ false, %_ZN4llvm5ErrorD2Ev.exit ]
+  %90 = phi i8 [ %.pre.pre, %_ZN4llvm5ErrorD2Ev.exit ], [ %76, %79 ]
+  %cond5 = phi i1 [ true, %_ZN4llvm5ErrorD2Ev.exit ], [ %not., %79 ]
+  %cond6 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit ], [ %81, %79 ]
   %91 = trunc i8 %90 to i1
   br i1 %91, label %92, label %_ZN4llvm8ExpectedImED2Ev.exit
 
@@ -847,8 +847,8 @@ _ZN4llvm5ErrorD2Ev.exit93:                        ; preds = %239, %236
   br label %_ZN4llvm5ErrorD2Ev.exit98
 
 _ZN4llvm5ErrorD2Ev.exit98:                        ; preds = %234, %245, %248
-  %.sroa.15.6159 = phi ptr [ %.0.i.i2.i.i.i.i95, %248 ], [ %.0.i.i2.i.i.i.i95, %245 ], [ %.sroa.15.4191, %234 ]
-  %.sroa.0144.6158 = phi i32 [ 4, %248 ], [ 4, %245 ], [ %.sroa.0144.4190, %234 ]
+  %.sroa.15.6159 = phi ptr [ %.0.i.i2.i.i.i.i95, %245 ], [ %.0.i.i2.i.i.i.i95, %248 ], [ %.sroa.15.4191, %234 ]
+  %.sroa.0144.6158 = phi i32 [ 4, %245 ], [ 4, %248 ], [ %.sroa.0144.4190, %234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %252 = load i8, ptr %109, align 8
   %253 = trunc i8 %252 to i1
@@ -926,8 +926,8 @@ _ZN4llvm8ExpectedIjED2Ev.exit110:                 ; preds = %271, %_ZNKSt14defau
   br label %_ZN4llvm8ExpectedIjED2Ev.exit106
 
 _ZN4llvm8ExpectedIjED2Ev.exit106:                 ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit102, %.critedge30, %.loopexit, %_ZN4llvm8ExpectedIjED2Ev.exit110, %._crit_edge, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit38
-  %.sroa.0144.1 = phi i32 [ 2, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit38 ], [ 0, %._crit_edge ], [ 3, %.critedge30 ], [ %.sroa.0144.9, %_ZN4llvm8ExpectedIjED2Ev.exit110 ], [ 2, %.loopexit ], [ %.sroa.0144.6158, %_ZN4llvm8ExpectedIjED2Ev.exit102 ]
-  %.sroa.15.1 = phi ptr [ %.0.i.i2.i.i.i.i36, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit38 ], [ %265, %._crit_edge ], [ %.sroa.15.7, %.critedge30 ], [ %.sroa.15.9, %_ZN4llvm8ExpectedIjED2Ev.exit110 ], [ %.sroa.15.3154, %.loopexit ], [ %.sroa.15.6159, %_ZN4llvm8ExpectedIjED2Ev.exit102 ]
+  %.sroa.0144.1 = phi i32 [ 2, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit38 ], [ 0, %._crit_edge ], [ %.sroa.0144.9, %_ZN4llvm8ExpectedIjED2Ev.exit110 ], [ 2, %.loopexit ], [ 3, %.critedge30 ], [ %.sroa.0144.6158, %_ZN4llvm8ExpectedIjED2Ev.exit102 ]
+  %.sroa.15.1 = phi ptr [ %.0.i.i2.i.i.i.i36, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit38 ], [ %265, %._crit_edge ], [ %.sroa.15.9, %_ZN4llvm8ExpectedIjED2Ev.exit110 ], [ %.sroa.15.3154, %.loopexit ], [ %.sroa.15.7, %.critedge30 ], [ %.sroa.15.6159, %_ZN4llvm8ExpectedIjED2Ev.exit102 ]
   %276 = load i8, ptr %61, align 8, !tbaa !41, !range !62, !noundef !63
   %277 = trunc nuw i8 %276 to i1
   br i1 %277, label %278, label %_ZNSt14_Optional_baseIN4llvm18BitstreamBlockInfoELb0ELb0EED2Ev.exit
@@ -1598,8 +1598,8 @@ _ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit41: ; preds = %9
   br label %.critedge18
 
 _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %._ZN4llvm8ExpectedIjED2Ev.exit_crit_edge, %87
-  %95 = phi ptr [ %88, %87 ], [ %.pre, %._ZN4llvm8ExpectedIjED2Ev.exit_crit_edge ]
-  %.212 = phi i1 [ true, %87 ], [ %.010, %._ZN4llvm8ExpectedIjED2Ev.exit_crit_edge ]
+  %95 = phi ptr [ %.pre, %._ZN4llvm8ExpectedIjED2Ev.exit_crit_edge ], [ %88, %87 ]
+  %.212 = phi i1 [ %.010, %._ZN4llvm8ExpectedIjED2Ev.exit_crit_edge ], [ true, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %96 = icmp eq ptr %95, %33
   br i1 %96, label %_ZN4llvm11SmallVectorImLj1EED2Ev.exit, label %97
@@ -2298,7 +2298,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %301, %_ZNKSt14defau
   %306 = extractvalue { i32, ptr } %71, 1
   br label %.thread158
 
-.thread158:                                       ; preds = %.thread158.loopexit, %98, %_ZN4llvm5ErrorD2Ev.exit63, %91
+.thread158:                                       ; preds = %.thread158.loopexit, %_ZN4llvm5ErrorD2Ev.exit63, %98, %91
   %.sroa.32.4.ph = phi ptr [ %97, %91 ], [ %99, %98 ], [ %.0.i.i2.i.i.i.i60, %_ZN4llvm5ErrorD2Ev.exit63 ], [ %306, %.thread158.loopexit ]
   %.sroa.0154.4.ph = phi i32 [ %96, %91 ], [ 0, %98 ], [ 5, %_ZN4llvm5ErrorD2Ev.exit63 ], [ %72, %.thread158.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -3705,8 +3705,8 @@ _ZN4llvm8ExpectedIjEC2EOS1_.exit.thread:          ; preds = %_ZN4llvm8ExpectedIm
   br label %_ZN4llvm8ExpectedIjED2Ev.exit24
 
 _ZN4llvm8ExpectedIjEC2EOS1_.exit:                 ; preds = %26, %_ZN4llvm5ErrorD2Ev.exit, %._crit_edge
-  %.sroa.032.0 = phi i64 [ %.sroa.032.0.insert.insert41, %._crit_edge ], [ %.sroa.032.275, %_ZN4llvm5ErrorD2Ev.exit ], [ %.sroa.032.0.insert.ext, %26 ]
-  %.sroa.18.0 = phi i8 [ %59, %._crit_edge ], [ %.sroa.18.276, %_ZN4llvm5ErrorD2Ev.exit ], [ %10, %26 ]
+  %.sroa.032.0 = phi i64 [ %.sroa.032.0.insert.ext, %26 ], [ %.sroa.032.0.insert.insert41, %._crit_edge ], [ %.sroa.032.275, %_ZN4llvm5ErrorD2Ev.exit ]
+  %.sroa.18.0 = phi i8 [ %10, %26 ], [ %59, %._crit_edge ], [ %.sroa.18.276, %_ZN4llvm5ErrorD2Ev.exit ]
   %80 = trunc i8 %.sroa.18.0 to i1
   %.not.i.i21 = icmp ne i64 %.sroa.032.0, 0
   %or.cond.not = select i1 %80, i1 %.not.i.i21, i1 false

@@ -1186,7 +1186,7 @@ Abc_Clock.exit269:                                ; preds = %313, %316
   br i1 %.not213.not, label %178, label %.loopexit, !llvm.loop !142
 
 .loopexit:                                        ; preds = %335, %202, %204, %378, %Abc_Clock.exit269, %Abc_Clock.exit255, %261, %309, %306, %343, %340, %256, %145
-  %381 = phi i1 [ true, %145 ], [ true, %343 ], [ true, %340 ], [ true, %256 ], [ true, %261 ], [ true, %309 ], [ true, %306 ], [ true, %Abc_Clock.exit255 ], [ true, %378 ], [ true, %204 ], [ true, %335 ], [ true, %202 ], [ false, %Abc_Clock.exit269 ]
+  %381 = phi i1 [ true, %145 ], [ true, %256 ], [ true, %261 ], [ true, %309 ], [ true, %306 ], [ true, %343 ], [ true, %340 ], [ true, %Abc_Clock.exit255 ], [ true, %335 ], [ true, %202 ], [ true, %204 ], [ true, %378 ], [ false, %Abc_Clock.exit269 ]
   %382 = load i32, ptr %28, align 4, !tbaa !105
   %.not235 = icmp eq i32 %382, 0
   br i1 %.not235, label %393, label %383

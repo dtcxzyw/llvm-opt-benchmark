@@ -278,7 +278,7 @@ define range(i32 0, 2) i32 @X509v3_addr_add_inherit(ptr noundef %0, i32 noundef 
   br label %21
 
 21:                                               ; preds = %.thread.thread, %14, %3, %6, %13, %19
-  %.0 = phi i32 [ 1, %19 ], [ 0, %3 ], [ 1, %14 ], [ 0, %13 ], [ 0, %6 ], [ 0, %.thread.thread ]
+  %.0 = phi i32 [ 1, %19 ], [ 0, %13 ], [ 0, %6 ], [ 0, %3 ], [ 1, %14 ], [ 0, %.thread.thread ]
   ret i32 %.0
 }
 
@@ -377,7 +377,7 @@ define internal fastcc ptr @make_IPAddressFamily(ptr noundef %0, i32 noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %47, %49
-  %.025 = phi ptr [ %29, %47 ], [ null, %49 ], [ %18, %22 ]
+  %.025 = phi ptr [ null, %49 ], [ %29, %47 ], [ %18, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.025
 }
@@ -442,7 +442,7 @@ define range(i32 0, 2) i32 @X509v3_addr_add_prefix(ptr noundef %0, i32 noundef %
   store ptr %21, ptr %28, align 8, !tbaa !16
   br label %29
 
-make_prefix_or_range.exit.thread:                 ; preds = %5, %15, %9, %.thread23.i
+make_prefix_or_range.exit.thread:                 ; preds = %15, %9, %5, %.thread23.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %35
 
@@ -468,7 +468,7 @@ make_prefix_or_range.exit.thread:                 ; preds = %5, %15, %9, %.threa
   br label %35
 
 35:                                               ; preds = %make_prefix_or_range.exit.thread, %31, %29, %34
-  %.0 = phi i32 [ 0, %34 ], [ 0, %make_prefix_or_range.exit.thread ], [ 0, %29 ], [ 1, %31 ]
+  %.0 = phi i32 [ 0, %34 ], [ 0, %29 ], [ 1, %31 ], [ 0, %make_prefix_or_range.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -538,7 +538,7 @@ define internal fastcc range(i32 0, 2) i32 @make_addressPrefix(ptr noundef nonnu
   br label %41
 
 41:                                               ; preds = %11, %4, %40, %37
-  %.0 = phi i32 [ 1, %37 ], [ 0, %4 ], [ 0, %40 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %40 ], [ 1, %37 ], [ 0, %4 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -602,7 +602,7 @@ define range(i32 0, 2) i32 @X509v3_addr_add_range(ptr noundef %0, i32 noundef %1
   store ptr %21, ptr %28, align 8, !tbaa !16
   br label %29
 
-make_prefix_or_range.exit.thread:                 ; preds = %5, %15, %9, %.thread23.i
+make_prefix_or_range.exit.thread:                 ; preds = %15, %9, %5, %.thread23.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %35
 
@@ -628,7 +628,7 @@ make_prefix_or_range.exit.thread:                 ; preds = %5, %15, %9, %.threa
   br label %35
 
 35:                                               ; preds = %make_prefix_or_range.exit.thread, %31, %29, %34
-  %.0 = phi i32 [ 0, %make_prefix_or_range.exit.thread ], [ 0, %29 ], [ 0, %34 ], [ 1, %31 ]
+  %.0 = phi i32 [ 0, %34 ], [ 0, %29 ], [ 1, %31 ], [ 0, %make_prefix_or_range.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -695,8 +695,8 @@ define internal fastcc range(i32 0, 2) i32 @make_addressRange(ptr noundef nonnul
   br label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %16, %.critedge2.split.loop.exit53.i, %.critedge2.split.loop.exit.i
-  %.0.in.lcssa.i = phi i32 [ %29, %.critedge2.split.loop.exit53.i ], [ %27, %.critedge2.split.loop.exit.i ], [ 0, %16 ]
-  %.0.lcssa.i = phi i32 [ %28, %.critedge2.split.loop.exit53.i ], [ %26, %.critedge2.split.loop.exit.i ], [ -1, %16 ]
+  %.0.in.lcssa.i = phi i32 [ %27, %.critedge2.split.loop.exit.i ], [ %29, %.critedge2.split.loop.exit53.i ], [ 0, %16 ]
+  %.0.lcssa.i = phi i32 [ %26, %.critedge2.split.loop.exit.i ], [ %28, %.critedge2.split.loop.exit53.i ], [ -1, %16 ]
   %30 = icmp slt i32 %.035.lcssa.i, %.0.lcssa.i
   br i1 %30, label %range_should_be_prefix.exit.thread, label %31
 
@@ -744,7 +744,7 @@ define internal fastcc range(i32 0, 2) i32 @make_addressRange(ptr noundef nonnul
   br label %47
 
 47:                                               ; preds = %46, %45, %44, %43, %42, %41, %34
-  %.1.i = phi i32 [ 1, %46 ], [ 6, %41 ], [ 5, %42 ], [ 4, %43 ], [ 3, %44 ], [ 2, %45 ], [ 7, %34 ]
+  %.1.i = phi i32 [ 6, %41 ], [ 5, %42 ], [ 4, %43 ], [ 3, %44 ], [ 2, %45 ], [ 1, %46 ], [ 7, %34 ]
   %48 = and i8 %40, %37
   %.not37.i = icmp eq i8 %48, 0
   %49 = and i8 %40, %39
@@ -758,7 +758,7 @@ define internal fastcc range(i32 0, 2) i32 @make_addressRange(ptr noundef nonnul
   br label %range_should_be_prefix.exit
 
 range_should_be_prefix.exit:                      ; preds = %32, %50
-  %.036.i = phi i32 [ %52, %50 ], [ %33, %32 ]
+  %.036.i = phi i32 [ %33, %32 ], [ %52, %50 ]
   %53 = icmp sgt i32 %.036.i, -1
   br i1 %53, label %54, label %range_should_be_prefix.exit.thread
 
@@ -940,7 +940,7 @@ range_should_be_prefix.exit.thread:               ; preds = %47, %34, %.critedge
   br label %148
 
 148:                                              ; preds = %range_should_be_prefix.exit.thread, %4, %147, %146, %54
-  %.056 = phi i32 [ 1, %146 ], [ %55, %54 ], [ 0, %4 ], [ 0, %147 ], [ 0, %range_should_be_prefix.exit.thread ]
+  %.056 = phi i32 [ %55, %54 ], [ 0, %147 ], [ 1, %146 ], [ 0, %4 ], [ 0, %range_should_be_prefix.exit.thread ]
   ret i32 %.056
 }
 
@@ -973,7 +973,7 @@ define range(i32 0, 17) i32 @X509v3_addr_get_range(ptr noundef readonly captures
   br label %15
 
 15:                                               ; preds = %13, %11, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %11 ], [ %spec.select, %13 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %5 ], [ %spec.select, %13 ]
   ret i32 %.0
 }
 
@@ -1140,7 +1140,7 @@ addr_expand.exit27.sink.split.sink.split:         ; preds = %80, %39
   br label %addr_expand.exit27.sink.split
 
 addr_expand.exit27.sink.split:                    ; preds = %addr_expand.exit27.sink.split.sink.split, %79, %80, %38, %39
-  %.sink = phi i32 [ 0, %38 ], [ %.pre44, %80 ], [ %.pre48, %39 ], [ 0, %79 ], [ %.pre43, %addr_expand.exit27.sink.split.sink.split ]
+  %.sink = phi i32 [ %.pre48, %39 ], [ 0, %38 ], [ %.pre44, %80 ], [ 0, %79 ], [ %.pre43, %addr_expand.exit27.sink.split.sink.split ]
   %96 = sext i32 %.sink to i64
   %97 = getelementptr inbounds i8, ptr %2, i64 %96
   %98 = sub nsw i32 %3, %.sink
@@ -1149,7 +1149,7 @@ addr_expand.exit27.sink.split:                    ; preds = %addr_expand.exit27.
   br label %addr_expand.exit27
 
 addr_expand.exit27:                               ; preds = %addr_expand.exit27.sink.split, %46, %8, %69, %30, %6, %4
-  %.0 = phi i32 [ 0, %6 ], [ 0, %30 ], [ 0, %4 ], [ 0, %69 ], [ 0, %8 ], [ 0, %46 ], [ 1, %addr_expand.exit27.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 0, %30 ], [ 0, %69 ], [ 0, %8 ], [ 0, %46 ], [ 1, %addr_expand.exit27.sink.split ]
   ret i32 %.0
 }
 
@@ -1164,21 +1164,21 @@ define range(i32 0, 2) i32 @X509v3_addr_is_canonical(ptr noundef %0) local_unnam
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %0, null
-  br i1 %6, label %.critedge75, label %.preheader107
+  br i1 %6, label %.critedge75, label %.preheader109
 
-.preheader107:                                    ; preds = %1, %19
+.preheader109:                                    ; preds = %1, %19
   %.056 = phi i32 [ %14, %19 ], [ 0, %1 ]
   %7 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #15
   %8 = add nsw i32 %7, -1
   %9 = icmp slt i32 %.056, %8
-  br i1 %9, label %12, label %.preheader105
+  br i1 %9, label %12, label %.preheader107
 
-.preheader105:                                    ; preds = %.preheader107
+.preheader107:                                    ; preds = %.preheader109
   %10 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #15
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph116, label %.critedge75
+  br i1 %11, label %.lr.ph118, label %.critedge75
 
-12:                                               ; preds = %.preheader107
+12:                                               ; preds = %.preheader109
   %13 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.056) #15
   %14 = add nuw nsw i32 %.056, 1
   %15 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %14) #15
@@ -1207,15 +1207,15 @@ define range(i32 0, 2) i32 @X509v3_addr_is_canonical(ptr noundef %0) local_unnam
   %27 = sub nsw i32 %.val.val, %.val78.val
   %spec.select.i = select i1 %.not14.i, i32 %27, i32 %26
   %28 = icmp slt i32 %spec.select.i, 0
-  br i1 %28, label %.preheader107, label %.critedge75, !llvm.loop !37
+  br i1 %28, label %.preheader109, label %.critedge75, !llvm.loop !37
 
-.lr.ph116:                                        ; preds = %.preheader105, %.critedge77
-  %.157115 = phi i32 [ %155, %.critedge77 ], [ 0, %.preheader105 ]
-  %29 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.157115) #15
+.lr.ph118:                                        ; preds = %.preheader107, %155
+  %.157117 = phi i32 [ %156, %155 ], [ 0, %.preheader107 ]
+  %29 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.157117) #15
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.critedge75, label %31
 
-31:                                               ; preds = %.lr.ph116
+31:                                               ; preds = %.lr.ph118
   %32 = load ptr, ptr %29, align 8, !tbaa !3
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.thread97, label %34
@@ -1238,17 +1238,17 @@ X509v3_addr_get_afi.exit:                         ; preds = %38
   %43 = shl nuw nsw i32 %42, 8
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %45 = load i8, ptr %44, align 1, !tbaa !16
-  %.fr103 = freeze i8 %45
-  %46 = zext i8 %.fr103 to i32
+  %.fr105 = freeze i8 %45
+  %46 = zext i8 %.fr105 to i32
   %47 = or disjoint i32 %43, %46
   %switch.selectcmp.i = icmp eq i32 %47, 2
   %spec.select = select i1 %switch.selectcmp.i, i32 16, i32 0
   %switch.selectcmp2.i = icmp eq i32 %47, 1
-  %spec.select102 = select i1 %switch.selectcmp2.i, i32 4, i32 %spec.select
+  %spec.select104 = select i1 %switch.selectcmp2.i, i32 4, i32 %spec.select
   br label %.thread97
 
 .thread97:                                        ; preds = %X509v3_addr_get_afi.exit, %31, %34, %38
-  %48 = phi i32 [ 0, %31 ], [ %spec.select102, %X509v3_addr_get_afi.exit ], [ 0, %38 ], [ 0, %34 ]
+  %48 = phi i32 [ 0, %38 ], [ 0, %34 ], [ 0, %31 ], [ %spec.select104, %X509v3_addr_get_afi.exit ]
   %49 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !17
   %51 = icmp eq ptr %50, null
@@ -1257,7 +1257,7 @@ X509v3_addr_get_afi.exit:                         ; preds = %38
 52:                                               ; preds = %.thread97
   %53 = load i32, ptr %50, align 8, !tbaa !18
   switch i32 %53, label %.critedge75 [
-    i32 0, label %.critedge77
+    i32 0, label %155
     i32 1, label %54
   ]
 
@@ -1272,22 +1272,22 @@ X509v3_addr_get_afi.exit:                         ; preds = %38
   %58 = load ptr, ptr %57, align 8, !tbaa !16
   %59 = tail call i32 @OPENSSL_sk_num(ptr noundef %58) #15
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %.critedge75, label %.preheader104
+  br i1 %60, label %.critedge75, label %.preheader106
 
-.preheader104:                                    ; preds = %56
+.preheader106:                                    ; preds = %56
   %61 = tail call i32 @OPENSSL_sk_num(ptr noundef %58) #15
   %62 = icmp sgt i32 %61, 1
   br i1 %62, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader104
+.lr.ph:                                           ; preds = %.preheader106
   %63 = zext nneg i32 %48 to i64
   %.not42.i = icmp eq i32 %48, 0
   br label %64
 
-64:                                               ; preds = %.lr.ph, %range_should_be_prefix.exit.thread
-  %.058114 = phi i32 [ 0, %.lr.ph ], [ %66, %range_should_be_prefix.exit.thread ]
-  %65 = tail call ptr @OPENSSL_sk_value(ptr noundef %58, i32 noundef %.058114) #15
-  %66 = add nuw nsw i32 %.058114, 1
+64:                                               ; preds = %.lr.ph, %.critedge77
+  %.058116 = phi i32 [ 0, %.lr.ph ], [ %66, %.critedge77 ]
+  %65 = tail call ptr @OPENSSL_sk_value(ptr noundef %58, i32 noundef %.058116) #15
+  %66 = add nuw nsw i32 %.058116, 1
   %67 = tail call ptr @OPENSSL_sk_value(ptr noundef %58, i32 noundef %66) #15
   %68 = call fastcc i32 @extract_min_max(ptr noundef %65, ptr noundef %2, ptr noundef %3, i32 noundef %48)
   %.not70 = icmp eq i32 %68, 0
@@ -1335,7 +1335,7 @@ X509v3_addr_get_afi.exit:                         ; preds = %38
 88:                                               ; preds = %.critedge
   %89 = load i32, ptr %65, align 8, !tbaa !25
   %90 = icmp eq i32 %89, 1
-  br i1 %90, label %91, label %range_should_be_prefix.exit.thread
+  br i1 %90, label %91, label %.critedge77
 
 91:                                               ; preds = %88
   br i1 %.not42.i, label %.critedge.i, label %.lr.ph.i
@@ -1391,10 +1391,10 @@ X509v3_addr_get_afi.exit:                         ; preds = %38
   br label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %99, %.critedge2.split.loop.exit53.i, %.critedge2.split.loop.exit.i
-  %.0.in.lcssa.i = phi i32 [ %112, %.critedge2.split.loop.exit53.i ], [ %110, %.critedge2.split.loop.exit.i ], [ 0, %99 ]
-  %.0.lcssa.i = phi i32 [ %111, %.critedge2.split.loop.exit53.i ], [ %109, %.critedge2.split.loop.exit.i ], [ -1, %99 ]
+  %.0.in.lcssa.i = phi i32 [ %110, %.critedge2.split.loop.exit.i ], [ %112, %.critedge2.split.loop.exit53.i ], [ 0, %99 ]
+  %.0.lcssa.i = phi i32 [ %109, %.critedge2.split.loop.exit.i ], [ %111, %.critedge2.split.loop.exit53.i ], [ -1, %99 ]
   %113 = icmp slt i32 %.035.lcssa.i, %.0.lcssa.i
-  br i1 %113, label %range_should_be_prefix.exit.thread, label %114
+  br i1 %113, label %.critedge77, label %114
 
 114:                                              ; preds = %.critedge2.i
   %.not.i = icmp slt i32 %.035.lcssa.i, %.0.in.lcssa.i
@@ -1411,7 +1411,7 @@ X509v3_addr_get_afi.exit:                         ; preds = %38
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 %118
   %122 = load i8, ptr %121, align 1, !tbaa !16
   %123 = xor i8 %122, %120
-  switch i8 %123, label %range_should_be_prefix.exit.thread [
+  switch i8 %123, label %.critedge77 [
     i8 1, label %130
     i8 3, label %124
     i8 7, label %125
@@ -1440,13 +1440,13 @@ X509v3_addr_get_afi.exit:                         ; preds = %38
   br label %130
 
 130:                                              ; preds = %129, %128, %127, %126, %125, %124, %117
-  %.1.i = phi i32 [ 1, %129 ], [ 6, %124 ], [ 5, %125 ], [ 4, %126 ], [ 3, %127 ], [ 2, %128 ], [ 7, %117 ]
+  %.1.i = phi i32 [ 6, %124 ], [ 5, %125 ], [ 4, %126 ], [ 3, %127 ], [ 2, %128 ], [ 1, %129 ], [ 7, %117 ]
   %131 = and i8 %123, %120
   %.not37.i = icmp eq i8 %131, 0
   %132 = and i8 %123, %122
   %.not38.i = icmp eq i8 %132, %123
   %or.cond.i85 = and i1 %.not37.i, %.not38.i
-  br i1 %or.cond.i85, label %133, label %range_should_be_prefix.exit.thread
+  br i1 %or.cond.i85, label %133, label %.critedge77
 
 133:                                              ; preds = %130
   %134 = shl nsw i32 %.035.lcssa.i, 3
@@ -1454,27 +1454,27 @@ X509v3_addr_get_afi.exit:                         ; preds = %38
   br label %range_should_be_prefix.exit
 
 range_should_be_prefix.exit:                      ; preds = %115, %133
-  %.036.i = phi i32 [ %135, %133 ], [ %116, %115 ]
+  %.036.i = phi i32 [ %116, %115 ], [ %135, %133 ]
   %136 = icmp sgt i32 %.036.i, -1
-  br i1 %136, label %.critedge75, label %range_should_be_prefix.exit.thread
+  br i1 %136, label %.critedge75, label %.critedge77
 
-range_should_be_prefix.exit.thread:               ; preds = %130, %117, %.critedge2.i, %range_should_be_prefix.exit, %88
+.critedge77:                                      ; preds = %130, %117, %.critedge2.i, %range_should_be_prefix.exit, %88
   %137 = tail call i32 @OPENSSL_sk_num(ptr noundef %58) #15
   %138 = add nsw i32 %137, -1
   %139 = icmp slt i32 %66, %138
   br i1 %139, label %64, label %._crit_edge, !llvm.loop !39
 
-._crit_edge:                                      ; preds = %range_should_be_prefix.exit.thread, %.preheader104
+._crit_edge:                                      ; preds = %.critedge77, %.preheader106
   %140 = tail call i32 @OPENSSL_sk_num(ptr noundef %58) #15
   %141 = add nsw i32 %140, -1
   %142 = tail call ptr @OPENSSL_sk_value(ptr noundef %58, i32 noundef %141) #15
   %.not68 = icmp eq ptr %142, null
-  br i1 %.not68, label %.critedge77, label %143
+  br i1 %.not68, label %155, label %143
 
 143:                                              ; preds = %._crit_edge
   %144 = load i32, ptr %142, align 8, !tbaa !25
   %145 = icmp eq i32 %144, 1
-  br i1 %145, label %146, label %.critedge77
+  br i1 %145, label %146, label %155
 
 146:                                              ; preds = %143
   %147 = call fastcc i32 @extract_min_max(ptr noundef nonnull %142, ptr noundef %2, ptr noundef %3, i32 noundef %48)
@@ -1490,16 +1490,16 @@ range_should_be_prefix.exit.thread:               ; preds = %130, %117, %.crited
 152:                                              ; preds = %148
   %153 = call fastcc i32 @range_should_be_prefix(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %48)
   %154 = icmp sgt i32 %153, -1
-  br i1 %154, label %.critedge75, label %.critedge77
+  br i1 %154, label %.critedge75, label %155
 
-.critedge77:                                      ; preds = %._crit_edge, %143, %152, %52
-  %155 = add nuw nsw i32 %.157115, 1
-  %156 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #15
-  %157 = icmp slt i32 %155, %156
-  br i1 %157, label %.lr.ph116, label %.critedge75, !llvm.loop !40
+155:                                              ; preds = %._crit_edge, %143, %152, %52
+  %156 = add nuw nsw i32 %.157117, 1
+  %157 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #15
+  %158 = icmp slt i32 %156, %157
+  br i1 %158, label %.lr.ph118, label %.critedge75, !llvm.loop !40
 
-.critedge75:                                      ; preds = %12, %17, %19, %.critedge77, %54, %148, %56, %.thread97, %146, %152, %.lr.ph116, %52, %71, %.critedge, %69, %77, %74, %range_should_be_prefix.exit, %64, %.preheader105, %1
-  %.0 = phi i32 [ 0, %52 ], [ 1, %1 ], [ 1, %.preheader105 ], [ 0, %71 ], [ 0, %64 ], [ 0, %range_should_be_prefix.exit ], [ 0, %74 ], [ 0, %77 ], [ 0, %69 ], [ 0, %.critedge ], [ 0, %146 ], [ 0, %.thread97 ], [ 0, %56 ], [ 0, %148 ], [ 0, %54 ], [ 1, %.critedge77 ], [ 0, %.lr.ph116 ], [ 0, %152 ], [ 0, %19 ], [ 0, %17 ], [ 0, %12 ]
+.critedge75:                                      ; preds = %17, %12, %19, %155, %.thread97, %54, %56, %146, %152, %148, %.lr.ph118, %52, %69, %64, %77, %74, %71, %.critedge, %range_should_be_prefix.exit, %.preheader107, %1
+  %.0 = phi i32 [ 1, %1 ], [ 1, %.preheader107 ], [ 0, %range_should_be_prefix.exit ], [ 0, %.critedge ], [ 0, %71 ], [ 0, %74 ], [ 0, %77 ], [ 0, %64 ], [ 0, %69 ], [ 1, %155 ], [ 0, %.thread97 ], [ 0, %54 ], [ 0, %56 ], [ 0, %146 ], [ 0, %152 ], [ 0, %148 ], [ 0, %.lr.ph118 ], [ 0, %52 ], [ 0, %19 ], [ 0, %12 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1596,8 +1596,8 @@ define internal fastcc i32 @range_should_be_prefix(ptr noundef readonly captures
   br label %.critedge2
 
 .critedge2:                                       ; preds = %11, %.critedge2.split.loop.exit53, %.critedge2.split.loop.exit
-  %.0.in.lcssa = phi i32 [ %24, %.critedge2.split.loop.exit53 ], [ %22, %.critedge2.split.loop.exit ], [ 0, %11 ]
-  %.0.lcssa = phi i32 [ %23, %.critedge2.split.loop.exit53 ], [ %21, %.critedge2.split.loop.exit ], [ -1, %11 ]
+  %.0.in.lcssa = phi i32 [ %22, %.critedge2.split.loop.exit ], [ %24, %.critedge2.split.loop.exit53 ], [ 0, %11 ]
+  %.0.lcssa = phi i32 [ %21, %.critedge2.split.loop.exit ], [ %23, %.critedge2.split.loop.exit53 ], [ -1, %11 ]
   %25 = icmp slt i32 %.035.lcssa, %.0.lcssa
   br i1 %25, label %48, label %26
 
@@ -1645,7 +1645,7 @@ define internal fastcc i32 @range_should_be_prefix(ptr noundef readonly captures
   br label %42
 
 42:                                               ; preds = %29, %41, %40, %39, %38, %37, %36
-  %.1 = phi i32 [ 1, %41 ], [ 6, %36 ], [ 5, %37 ], [ 4, %38 ], [ 3, %39 ], [ 2, %40 ], [ 7, %29 ]
+  %.1 = phi i32 [ 6, %36 ], [ 5, %37 ], [ 4, %38 ], [ 3, %39 ], [ 2, %40 ], [ 1, %41 ], [ 7, %29 ]
   %43 = and i8 %35, %32
   %.not37 = icmp eq i8 %43, 0
   %44 = and i8 %35, %34
@@ -1659,7 +1659,7 @@ define internal fastcc i32 @range_should_be_prefix(ptr noundef readonly captures
   br label %48
 
 48:                                               ; preds = %42, %29, %.critedge2, %45, %27
-  %.036 = phi i32 [ %47, %45 ], [ %28, %27 ], [ -1, %.critedge2 ], [ -1, %29 ], [ -1, %42 ]
+  %.036 = phi i32 [ %28, %27 ], [ %47, %45 ], [ -1, %.critedge2 ], [ -1, %29 ], [ -1, %42 ]
   ret i32 %.036
 }
 
@@ -1864,8 +1864,8 @@ X509v3_addr_get_afi.exit:                         ; preds = %18
   %83 = call i32 @X509v3_addr_is_canonical(ptr noundef %0)
   br label %IPAddressOrRanges_canonize.exit.thread
 
-IPAddressOrRanges_canonize.exit.thread:           ; preds = %75, %.lr.ph, %.critedge55.i, %.thread.i, %.thread62.i, %._crit_edge
-  %.2 = phi i32 [ %83, %._crit_edge ], [ 0, %.critedge55.i ], [ 0, %.thread62.i ], [ 0, %.thread.i ], [ 0, %.lr.ph ], [ 0, %75 ]
+IPAddressOrRanges_canonize.exit.thread:           ; preds = %75, %.lr.ph, %.critedge55.i, %.thread62.i, %.thread.i, %._crit_edge
+  %.2 = phi i32 [ %83, %._crit_edge ], [ 0, %.thread.i ], [ 0, %.thread62.i ], [ 0, %.critedge55.i ], [ 0, %.lr.ph ], [ 0, %75 ]
   ret i32 %.2
 }
 
@@ -2057,7 +2057,7 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   store i32 0, ptr %78, align 8, !tbaa !18
   br label %X509v3_addr_add_inherit.exit
 
-79:                                               ; preds = %61, %71, %64, %.thread.thread.i
+79:                                               ; preds = %71, %64, %61, %.thread.thread.i
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1016, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 165, ptr noundef null) #15
@@ -2235,15 +2235,15 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %159, ptr noundef nonnull @.str.21, ptr noundef %161) #15
   br label %.thread146
 
-.thread146:                                       ; preds = %55, %26, %32, %43, %157, %79, %95, %158, %110, %116, %133, %139, %147, %153
-  %.1.ph = phi ptr [ null, %26 ], [ %.2, %153 ], [ %.2, %147 ], [ %.2, %139 ], [ %.2, %133 ], [ %.2, %116 ], [ %.2, %110 ], [ %.2, %158 ], [ %.2, %95 ], [ %.2, %79 ], [ %.2, %157 ], [ null, %43 ], [ null, %32 ], [ null, %55 ]
+.thread146:                                       ; preds = %55, %26, %32, %43, %79, %95, %158, %110, %116, %133, %139, %147, %153, %157
+  %.1.ph = phi ptr [ %.2, %157 ], [ %.2, %153 ], [ %.2, %147 ], [ %.2, %139 ], [ %.2, %133 ], [ %.2, %116 ], [ %.2, %110 ], [ %.2, %158 ], [ %.2, %95 ], [ %.2, %79 ], [ null, %43 ], [ null, %32 ], [ null, %26 ], [ null, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %166
 
 X509v3_addr_add_inherit.exit:                     ; preds = %114, %151, %154, %72, %77
-  %.sink = phi i32 [ 1020, %72 ], [ 1020, %77 ], [ 1087, %154 ], [ 1087, %151 ], [ 1087, %114 ]
+  %.sink = phi i32 [ 1020, %77 ], [ 1020, %72 ], [ 1087, %154 ], [ 1087, %151 ], [ 1087, %114 ]
   call void @CRYPTO_free(ptr noundef nonnull %.2, ptr noundef nonnull @.str.13, i32 noundef %.sink) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2259,7 +2259,7 @@ X509v3_addr_add_inherit.exit:                     ; preds = %114, %151, %154, %7
   br i1 %.not, label %166, label %167
 
 166:                                              ; preds = %.thread146, %._crit_edge
-  %.3 = phi ptr [ %.1.ph, %.thread146 ], [ null, %._crit_edge ]
+  %.3 = phi ptr [ null, %._crit_edge ], [ %.1.ph, %.thread146 ]
   call void @CRYPTO_free(ptr noundef %.3, ptr noundef nonnull @.str.13, i32 noundef 1099) #15
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %8, ptr noundef nonnull @IPAddressFamily_free) #15
   br label %167
@@ -2473,8 +2473,8 @@ X509v3_addr_get_afi.exit.thread:                  ; preds = %8, %11, %14, %18, %
   %110 = icmp slt i32 %108, %109
   br i1 %110, label %8, label %i2r_IPAddressOrRanges.exit.thread, !llvm.loop !52
 
-i2r_IPAddressOrRanges.exit.thread:                ; preds = %.critedge, %91, %77, %96, %4
-  %.2 = phi i32 [ 1, %4 ], [ 0, %91 ], [ 0, %96 ], [ 0, %77 ], [ 1, %.critedge ]
+i2r_IPAddressOrRanges.exit.thread:                ; preds = %.critedge, %77, %91, %96, %4
+  %.2 = phi i32 [ 1, %4 ], [ 0, %96 ], [ 0, %91 ], [ 0, %77 ], [ 1, %.critedge ]
   ret i32 %.2
 }
 
@@ -2630,8 +2630,8 @@ X509v3_addr_get_afi.exit:                         ; preds = %42
   %.not32.not = icmp eq i32 %62, 0
   br i1 %.not32.not, label %.critedge, label %30
 
-.critedge:                                        ; preds = %.lr.ph.i, %.lr.ph.i36, %.thread, %30, %40, %38, %.lr.ph, %.loopexit, %5, %2
-  %.0 = phi i32 [ 0, %.lr.ph.i36 ], [ 1, %2 ], [ 0, %5 ], [ 1, %.loopexit ], [ 0, %.lr.ph ], [ 0, %40 ], [ 1, %30 ], [ 0, %38 ], [ 0, %.thread ], [ 0, %.lr.ph.i ]
+.critedge:                                        ; preds = %.lr.ph.i, %.lr.ph.i36, %.thread, %30, %38, %40, %.lr.ph, %.loopexit, %5, %2
+  %.0 = phi i32 [ 1, %2 ], [ 0, %5 ], [ 1, %.loopexit ], [ 0, %.thread ], [ 1, %30 ], [ 0, %38 ], [ 0, %40 ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i36 ], [ 0, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -2708,7 +2708,7 @@ define internal fastcc range(i32 0, 2) i32 @addr_contains(ptr noundef %0, ptr no
   br i1 %.not22, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %19, %28, %15, %.preheader, %31, %.lr.ph, %.preheader24, %10, %3
-  %.019 = phi i32 [ 0, %10 ], [ 1, %3 ], [ 1, %.preheader24 ], [ 0, %31 ], [ 0, %.lr.ph ], [ 1, %15 ], [ 0, %28 ], [ 0, %.preheader ], [ 0, %19 ]
+  %.019 = phi i32 [ 1, %3 ], [ 0, %10 ], [ 1, %.preheader24 ], [ 0, %.lr.ph ], [ 0, %31 ], [ 0, %.preheader ], [ 0, %19 ], [ 0, %28 ], [ 1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3128,14 +3128,14 @@ X509v3_addr_get_afi.exit:                         ; preds = %112
   %183 = icmp slt i32 %180, %182
   br i1 %183, label %.lr.ph238.split, label %.critedge165, !llvm.loop !101
 
-.critedge165:                                     ; preds = %94, %93, %73, %72, %52, %53, %132, %100, %98, %131, %.lr.ph232, %.critedge173, %.lr.ph238.split, %177, %.critedge173.us, %.lr.ph238.split.us, %161, %.preheader, %24, %._crit_edge, %37, %38, %25
-  %.0138 = phi i32 [ 0, %38 ], [ 0, %37 ], [ 1, %._crit_edge ], [ 0, %132 ], [ 1, %.preheader ], [ 0, %177 ], [ 0, %24 ], [ 0, %25 ], [ 0, %.lr.ph232 ], [ 0, %161 ], [ 1, %.critedge173.us ], [ 0, %.lr.ph238.split.us ], [ 0, %.lr.ph238.split ], [ 1, %.critedge173 ], [ 0, %131 ], [ 0, %98 ], [ 0, %100 ], [ 0, %53 ], [ 0, %52 ], [ 0, %72 ], [ 0, %73 ], [ 0, %93 ], [ 0, %94 ]
-  %.0126 = phi ptr [ null, %38 ], [ null, %37 ], [ %35, %._crit_edge ], [ %35, %132 ], [ %35, %.preheader ], [ %35, %.critedge173 ], [ null, %24 ], [ null, %25 ], [ %35, %.lr.ph232 ], [ %35, %.critedge173.us ], [ %35, %161 ], [ %35, %.lr.ph238.split.us ], [ %35, %177 ], [ %35, %.lr.ph238.split ], [ %35, %131 ], [ %35, %98 ], [ %35, %100 ], [ %35, %53 ], [ %35, %52 ], [ %35, %72 ], [ %35, %73 ], [ %35, %93 ], [ %35, %94 ]
+.critedge165:                                     ; preds = %94, %93, %73, %72, %52, %53, %131, %132, %98, %100, %.lr.ph232, %.critedge173, %.lr.ph238.split, %177, %.critedge173.us, %.lr.ph238.split.us, %161, %.preheader, %24, %._crit_edge, %37, %38, %25
+  %.0138 = phi i32 [ 0, %38 ], [ 0, %37 ], [ 0, %25 ], [ 1, %._crit_edge ], [ 0, %24 ], [ 1, %.preheader ], [ 1, %.critedge173.us ], [ 0, %.lr.ph238.split.us ], [ 0, %161 ], [ 1, %.critedge173 ], [ 0, %.lr.ph238.split ], [ 0, %177 ], [ 0, %.lr.ph232 ], [ 0, %100 ], [ 0, %98 ], [ 0, %132 ], [ 0, %131 ], [ 0, %53 ], [ 0, %52 ], [ 0, %72 ], [ 0, %73 ], [ 0, %93 ], [ 0, %94 ]
+  %.0126 = phi ptr [ null, %38 ], [ null, %37 ], [ null, %25 ], [ %35, %._crit_edge ], [ null, %24 ], [ %35, %.preheader ], [ %35, %161 ], [ %35, %.lr.ph238.split.us ], [ %35, %.critedge173.us ], [ %35, %177 ], [ %35, %.lr.ph238.split ], [ %35, %.critedge173 ], [ %35, %.lr.ph232 ], [ %35, %100 ], [ %35, %98 ], [ %35, %132 ], [ %35, %131 ], [ %35, %53 ], [ %35, %52 ], [ %35, %72 ], [ %35, %73 ], [ %35, %93 ], [ %35, %94 ]
   tail call void @OPENSSL_sk_free(ptr noundef %.0126) #15
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %7, %17, %.critedge, %.critedge.thread187, %.critedge165
-  %.0 = phi i32 [ %.0138, %.critedge165 ], [ 1, %17 ], [ 0, %.critedge.thread187 ], [ 0, %.critedge ], [ 0, %7 ]
+  %.0 = phi i32 [ %.0138, %.critedge165 ], [ 0, %.critedge.thread187 ], [ 0, %.critedge ], [ 1, %17 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -3182,7 +3182,7 @@ X509v3_addr_inherits.exit.thread:                 ; preds = %13, %.preheader.i, 
   br label %X509v3_addr_inherits.exit
 
 X509v3_addr_inherits.exit:                        ; preds = %.lr.ph.i, %5, %7, %3, %X509v3_addr_inherits.exit.thread
-  %.0 = phi i32 [ 0, %5 ], [ 1, %3 ], [ %21, %X509v3_addr_inherits.exit.thread ], [ 0, %7 ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ %21, %X509v3_addr_inherits.exit.thread ], [ 1, %3 ], [ 0, %7 ], [ 0, %5 ], [ 0, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -3314,7 +3314,7 @@ define internal fastcc i32 @IPAddressOrRange_cmp(ptr noundef readonly captures(n
   br label %._crit_edge56
 
 ._crit_edge56:                                    ; preds = %42, %50, %43
-  %.pre-phi61 = phi i64 [ %46, %43 ], [ %46, %50 ], [ 0, %42 ]
+  %.pre-phi61 = phi i64 [ %46, %50 ], [ %46, %43 ], [ 0, %42 ]
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 %.pre-phi61
   %60 = sub nsw i32 %2, %41
   %61 = sext i32 %60 to i64
@@ -3418,7 +3418,7 @@ define internal fastcc i32 @IPAddressOrRange_cmp(ptr noundef readonly captures(n
   br label %._crit_edge57
 
 ._crit_edge57:                                    ; preds = %100, %108, %101
-  %.pre-phi59 = phi i64 [ %104, %101 ], [ %104, %108 ], [ 0, %100 ]
+  %.pre-phi59 = phi i64 [ %104, %108 ], [ %104, %101 ], [ 0, %100 ]
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 %.pre-phi59
   %118 = sub nsw i32 %2, %99
   %119 = sext i32 %118 to i64
@@ -3438,7 +3438,7 @@ define internal fastcc i32 @IPAddressOrRange_cmp(ptr noundef readonly captures(n
   br label %addr_expand.exit.thread
 
 addr_expand.exit.thread:                          ; preds = %95, %65, %37, %7, %121, %63, %3, %124
-  %.0 = phi i32 [ -1, %7 ], [ -1, %65 ], [ -1, %63 ], [ %125, %124 ], [ -1, %3 ], [ -1, %37 ], [ %123, %121 ], [ -1, %95 ]
+  %.0 = phi i32 [ %125, %124 ], [ -1, %3 ], [ -1, %63 ], [ %123, %121 ], [ -1, %7 ], [ -1, %37 ], [ -1, %65 ], [ -1, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -3562,7 +3562,7 @@ define internal fastcc range(i32 0, 2) i32 @i2r_address(ptr noundef %0, i32 noun
   br label %._crit_edge52
 
 ._crit_edge52:                                    ; preds = %11, %30, %23, %12
-  %.pre-phi = phi i64 [ %15, %12 ], [ %15, %30 ], [ %15, %23 ], [ 0, %11 ]
+  %.pre-phi = phi i64 [ %15, %30 ], [ %15, %23 ], [ %15, %12 ], [ 0, %11 ]
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 %.pre-phi
   %38 = sub nuw nsw i32 4, %6
   %39 = zext nneg i32 %38 to i64
@@ -3627,7 +3627,7 @@ define internal fastcc range(i32 0, 2) i32 @i2r_address(ptr noundef %0, i32 noun
   br label %addr_expand.exit39
 
 addr_expand.exit39:                               ; preds = %53, %54, %65, %72
-  %.pre-phi54 = phi i64 [ %57, %72 ], [ %57, %54 ], [ %57, %65 ], [ 0, %53 ]
+  %.pre-phi54 = phi i64 [ %57, %54 ], [ %57, %65 ], [ %57, %72 ], [ 0, %53 ]
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 %.pre-phi54
   %80 = sub nuw nsw i32 16, %6
   %81 = zext nneg i32 %80 to i64
@@ -3717,7 +3717,7 @@ addr_expand.exit39:                               ; preds = %53, %54, %65, %72
   br label %addr_expand.exit.thread
 
 addr_expand.exit.thread:                          ; preds = %110, %._crit_edge, %52, %10, %._crit_edge52, %._crit_edge47, %.critedge.thread, %4
-  %.032 = phi i32 [ 0, %52 ], [ 0, %10 ], [ 0, %4 ], [ 1, %110 ], [ 1, %.critedge.thread ], [ 1, %._crit_edge47 ], [ 1, %._crit_edge52 ], [ 1, %._crit_edge ]
+  %.032 = phi i32 [ 0, %4 ], [ 1, %110 ], [ 1, %.critedge.thread ], [ 1, %._crit_edge47 ], [ 1, %._crit_edge52 ], [ 0, %10 ], [ 0, %52 ], [ 1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.032
 }

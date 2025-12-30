@@ -238,7 +238,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -953,7 +953,7 @@ thread-pre-split.i:                               ; preds = %.noexc240
   br i1 %193, label %.lr.ph29.i, label %.critedge4.i, !llvm.loop !41
 
 .critedge4.i:                                     ; preds = %.critedge2.i, %191, %.noexc241, %.critedge.i, %thread-pre-split.i
-  %194 = phi i32 [ %.pre.pre.i, %.noexc241 ], [ %.pr26.i, %.critedge.i ], [ %.pr.i, %thread-pre-split.i ], [ %192, %191 ], [ 0, %.critedge2.i ]
+  %194 = phi i32 [ %.pr26.i, %.critedge.i ], [ %.pr.i, %thread-pre-split.i ], [ %192, %191 ], [ %.pre.pre.i, %.noexc241 ], [ 0, %.critedge2.i ]
   store ptr %164, ptr %6, align 8, !tbaa !42
   %195 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 noundef signext 0, ptr noundef nonnull %6, i32 noundef %194)
           to label %199 unwind label %196
@@ -1336,10 +1336,10 @@ _ZN8DataDict7addWordERKN6icu_7713UnicodeStringEiR10UErrorCode.exit258: ; preds =
   br label %.body242
 
 343:                                              ; preds = %.thread281, %_ZN8DataDict7addWordERKN6icu_7713UnicodeStringEiR10UErrorCode.exit258
-  %.6168 = phi i32 [ %.4166, %.thread281 ], [ %spec.select235, %_ZN8DataDict7addWordERKN6icu_7713UnicodeStringEiR10UErrorCode.exit258 ]
-  %.6160 = phi i32 [ %spec.select, %.thread281 ], [ %spec.select234, %_ZN8DataDict7addWordERKN6icu_7713UnicodeStringEiR10UErrorCode.exit258 ]
-  %.3146 = phi i8 [ %.0143.ph, %.thread281 ], [ 1, %_ZN8DataDict7addWordERKN6icu_7713UnicodeStringEiR10UErrorCode.exit258 ]
-  %.5142 = phi i8 [ 1, %.thread281 ], [ %.0137.ph, %_ZN8DataDict7addWordERKN6icu_7713UnicodeStringEiR10UErrorCode.exit258 ]
+  %.6168 = phi i32 [ %spec.select235, %_ZN8DataDict7addWordERKN6icu_7713UnicodeStringEiR10UErrorCode.exit258 ], [ %.4166, %.thread281 ]
+  %.6160 = phi i32 [ %spec.select234, %_ZN8DataDict7addWordERKN6icu_7713UnicodeStringEiR10UErrorCode.exit258 ], [ %spec.select, %.thread281 ]
+  %.3146 = phi i8 [ 1, %_ZN8DataDict7addWordERKN6icu_7713UnicodeStringEiR10UErrorCode.exit258 ], [ %.0143.ph, %.thread281 ]
+  %.5142 = phi i8 [ %.0137.ph, %_ZN8DataDict7addWordERKN6icu_7713UnicodeStringEiR10UErrorCode.exit258 ], [ 1, %.thread281 ]
   %.5153 = add nsw i32 %.0148.ph, 1
   %344 = load i32, ptr %94, align 8, !tbaa !24
   %345 = icmp slt i32 %344, 1
@@ -1739,13 +1739,13 @@ _ZN6icu_778internal16LocalOpenPointerI8UCHARBUFXadL_Z11ucbuf_closeEEED2Ev.exit: 
   ret i32 0
 
 535:                                              ; preds = %458, %505, %419, %444, %396, %374
-  %.pn209 = phi { ptr, i32 } [ %397, %396 ], [ %375, %374 ], [ %445, %444 ], [ %420, %419 ], [ %459, %458 ], [ %.pn, %505 ]
+  %.pn209 = phi { ptr, i32 } [ %397, %396 ], [ %375, %374 ], [ %420, %419 ], [ %445, %444 ], [ %459, %458 ], [ %.pn, %505 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %15) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.body242
 
 .body242:                                         ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit290, %.loopexit.split-lp291, %196, %229, %320, %342, %535
-  %.pn223.pn.pn = phi { ptr, i32 } [ %197, %196 ], [ %.pn209, %535 ], [ %230, %229 ], [ %lpad.loopexit.split-lp293, %.loopexit.split-lp291 ], [ %.pn215, %342 ], [ %.pn218.pn, %320 ], [ %lpad.loopexit292, %.loopexit290 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn223.pn.pn = phi { ptr, i32 } [ %.pn209, %535 ], [ %230, %229 ], [ %.pn215, %342 ], [ %.pn218.pn, %320 ], [ %197, %196 ], [ %lpad.loopexit292, %.loopexit290 ], [ %lpad.loopexit.split-lp293, %.loopexit.split-lp291 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %536
@@ -1776,7 +1776,7 @@ _ZN6icu_778internal16LocalOpenPointerI8UCHARBUFXadL_Z11ucbuf_closeEEED2Ev.exit: 
   br label %.body
 
 .body:                                            ; preds = %546, %543, %137
-  %.pn228.pn = phi { ptr, i32 } [ %.pn.i, %137 ], [ %.pn228, %546 ], [ %.pn228, %543 ]
+  %.pn228.pn = phi { ptr, i32 } [ %.pn.i, %137 ], [ %.pn228, %543 ], [ %.pn228, %546 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %550
 
@@ -2000,7 +2000,7 @@ define linkonce_odr dso_local void @_ZN8DataDict9transformERKN6icu_7713UnicodeSt
   br label %_ZN8DataDict9transformEiR10UErrorCode.exit
 
 _ZN8DataDict9transformEiR10UErrorCode.exit:       ; preds = %21, %22, %31, %33
-  %.0.i = phi i8 [ %34, %33 ], [ -2, %22 ], [ %32, %31 ], [ -1, %21 ]
+  %.0.i = phi i8 [ -2, %22 ], [ %32, %31 ], [ %34, %33 ], [ -1, %21 ]
   %35 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %2, i8 noundef signext %.0.i, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %36 = icmp ult i32 %18, 65536
   %37 = select i1 %36, i32 1, i32 2

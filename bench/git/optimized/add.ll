@@ -997,7 +997,7 @@ matches_skip_worktree.exit:                       ; preds = %290, %291
   br label %379
 
 379:                                              ; preds = %375, %369, %365, %361, %358, %354
-  %.1.i160 = phi i32 [ %.027.i, %354 ], [ %378, %375 ], [ %.027.i, %365 ], [ %.027.i, %361 ], [ %.027.i, %358 ], [ %.027.i, %369 ]
+  %.1.i160 = phi i32 [ %378, %375 ], [ %.027.i, %358 ], [ %.027.i, %354 ], [ %.027.i, %361 ], [ %.027.i, %365 ], [ %.027.i, %369 ]
   %380 = add nuw nsw i64 %.01926.i, 1
   %381 = load ptr, ptr %165, align 8, !tbaa !89
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 12
@@ -1243,7 +1243,7 @@ check_embedded_repo.exit.i:                       ; preds = %485, %ends_with.exi
   br label %486
 
 486:                                              ; preds = %check_embedded_repo.exit.i, %451, %439
-  %.2.i172 = phi i32 [ %.134.i, %439 ], [ %.134.i, %check_embedded_repo.exit.i ], [ 1, %451 ]
+  %.2.i172 = phi i32 [ %.134.i, %check_embedded_repo.exit.i ], [ %.134.i, %439 ], [ 1, %451 ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %487 = load i32, ptr %426, align 4, !tbaa !102
   %488 = sext i32 %487 to i64
@@ -1355,7 +1355,7 @@ _.exit.us.i:                                      ; preds = %535, %533
   br label %538
 
 538:                                              ; preds = %_.exit.us.i, %529, %517, %514, %510
-  %.1.us.i = phi i32 [ %.02029.us.i, %517 ], [ %.02029.us.i, %510 ], [ %.02029.us.i, %514 ], [ -1, %_.exit.us.i ], [ %.02029.us.i, %529 ]
+  %.1.us.i = phi i32 [ %.02029.us.i, %514 ], [ %.02029.us.i, %510 ], [ %.02029.us.i, %517 ], [ -1, %_.exit.us.i ], [ %.02029.us.i, %529 ]
   %539 = add nuw nsw i64 %.02128.us.i, 1
   %540 = load ptr, ptr %165, align 8, !tbaa !89
   %541 = getelementptr inbounds nuw i8, ptr %540, i64 12
@@ -1429,7 +1429,7 @@ _.exit.i185:                                      ; preds = %574, %572
   br label %577
 
 577:                                              ; preds = %_.exit.i185, %569, %557, %554, %550
-  %.1.i187 = phi i32 [ %.02029.i, %557 ], [ %.02029.i, %550 ], [ %.02029.i, %554 ], [ -1, %_.exit.i185 ], [ %.02029.i, %569 ]
+  %.1.i187 = phi i32 [ %.02029.i, %554 ], [ %.02029.i, %550 ], [ %.02029.i, %557 ], [ -1, %_.exit.i185 ], [ %.02029.i, %569 ]
   %578 = add nuw nsw i64 %.02128.i, 1
   %579 = load ptr, ptr %165, align 8, !tbaa !89
   %580 = getelementptr inbounds nuw i8, ptr %579, i64 12
@@ -1506,7 +1506,7 @@ define internal i32 @add_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %15
 
 15:                                               ; preds = %10, %13, %8
-  %.0 = phi i32 [ 0, %8 ], [ %14, %13 ], [ -1, %10 ]
+  %.0 = phi i32 [ %14, %13 ], [ 0, %8 ], [ -1, %10 ]
   ret i32 %.0
 }
 

@@ -517,9 +517,9 @@ define internal fastcc void @spectre_v2_select_mitigation() unnamed_addr #3 sect
 29:                                               ; preds = %7
   br label %30
 
-30:                                               ; preds = %7, %29, %28, %27, %19, %8
-  %.ph = phi i1 [ false, %8 ], [ false, %19 ], [ true, %29 ], [ false, %27 ], [ true, %28 ], [ false, %7 ]
-  %.ph1 = phi i32 [ 3, %8 ], [ 6, %19 ], [ 4, %29 ], [ 3, %27 ], [ 5, %28 ], [ 6, %7 ]
+30:                                               ; preds = %7, %29, %28, %27, %8, %19
+  %.ph = phi i1 [ false, %19 ], [ false, %8 ], [ false, %27 ], [ true, %28 ], [ true, %29 ], [ false, %7 ]
+  %.ph1 = phi i32 [ 6, %19 ], [ 3, %8 ], [ 3, %27 ], [ 5, %28 ], [ 4, %29 ], [ 6, %7 ]
   %31 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
   %32 = and i64 %31, 256
   %33 = icmp eq i64 %32, 0
@@ -564,15 +564,15 @@ define internal fastcc void @spectre_v2_select_mitigation() unnamed_addr #3 sect
   br label %.thread3
 
 .thread3:                                         ; preds = %7, %7, %12, %17, %17, %19, %46, %39
-  %50 = phi i1 [ true, %7 ], [ %47, %46 ], [ %.ph, %39 ], [ true, %19 ], [ true, %17 ], [ true, %17 ], [ true, %12 ], [ true, %7 ]
-  %51 = phi i1 [ false, %7 ], [ %48, %46 ], [ true, %39 ], [ false, %19 ], [ false, %17 ], [ false, %17 ], [ false, %12 ], [ false, %7 ]
-  %52 = phi i32 [ 1, %7 ], [ %49, %46 ], [ %.ph1, %39 ], [ 1, %19 ], [ 1, %17 ], [ 1, %17 ], [ 1, %12 ], [ 1, %7 ]
+  %50 = phi i1 [ %47, %46 ], [ %.ph, %39 ], [ true, %19 ], [ true, %17 ], [ true, %17 ], [ true, %12 ], [ true, %7 ], [ true, %7 ]
+  %51 = phi i1 [ %48, %46 ], [ true, %39 ], [ false, %19 ], [ false, %17 ], [ false, %17 ], [ false, %12 ], [ false, %7 ], [ false, %7 ]
+  %52 = phi i32 [ %49, %46 ], [ %.ph1, %39 ], [ 1, %19 ], [ 1, %17 ], [ 1, %17 ], [ 1, %12 ], [ 1, %7 ], [ 1, %7 ]
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 85), i32 16, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 85)) #15, !srcloc !12
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 45), i32 16, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 45)) #15, !srcloc !12
   br i1 %50, label %55, label %.thread6
 
 53:                                               ; preds = %40, %39
-  %54 = phi i32 [ 3, %39 ], [ 6, %40 ]
+  %54 = phi i32 [ 6, %40 ], [ 3, %39 ]
   br i1 %.ph, label %55, label %.thread6
 
 55:                                               ; preds = %44, %.thread3, %53
@@ -582,8 +582,8 @@ define internal fastcc void @spectre_v2_select_mitigation() unnamed_addr #3 sect
   br label %.thread6
 
 .thread6:                                         ; preds = %7, %44, %.thread3, %55, %53
-  %58 = phi i32 [ 6, %44 ], [ %56, %55 ], [ %54, %53 ], [ %52, %.thread3 ], [ 0, %7 ]
-  %59 = phi i1 [ true, %44 ], [ %57, %55 ], [ true, %53 ], [ %51, %.thread3 ], [ false, %7 ]
+  %58 = phi i32 [ %56, %55 ], [ %54, %53 ], [ %52, %.thread3 ], [ 6, %44 ], [ 0, %7 ]
+  %59 = phi i1 [ %57, %55 ], [ true, %53 ], [ %51, %.thread3 ], [ true, %44 ], [ false, %7 ]
   store i32 %58, ptr @spectre_v2_enabled, align 4
   %60 = zext nneg i32 %58 to i64
   %61 = getelementptr ptr, ptr @spectre_v2_strings, i64 %60
@@ -2259,7 +2259,7 @@ define dso_local noundef range(i32 -34, 1) i32 @arch_prctl_spec_ctrl_set(ptr nou
   br label %ssb_prctl_set.exit
 
 ssb_prctl_set.exit:                               ; preds = %82, %77, %70, %64, %63, %58, %53, %50, %44, %43, %42, %37, %32, %26, %20, %15, %10, %7, %4, %91, %89, %88, %87, %3
-  %93 = phi i32 [ 0, %42 ], [ -1, %87 ], [ -19, %3 ], [ 0, %91 ], [ 0, %89 ], [ -34, %88 ], [ -6, %4 ], [ -1, %10 ], [ -1, %32 ], [ -34, %7 ], [ 0, %15 ], [ 0, %20 ], [ 0, %26 ], [ 0, %37 ], [ 0, %44 ], [ -1, %53 ], [ -1, %50 ], [ -1, %64 ], [ 0, %70 ], [ -34, %43 ], [ 0, %82 ], [ 0, %58 ], [ 0, %63 ], [ 0, %77 ]
+  %93 = phi i32 [ -19, %3 ], [ 0, %91 ], [ 0, %89 ], [ -34, %88 ], [ -1, %87 ], [ -6, %4 ], [ -1, %10 ], [ -1, %32 ], [ -34, %7 ], [ 0, %15 ], [ 0, %20 ], [ 0, %26 ], [ 0, %37 ], [ 0, %42 ], [ 0, %44 ], [ -1, %53 ], [ -1, %64 ], [ -34, %43 ], [ 0, %82 ], [ 0, %58 ], [ 0, %63 ], [ 0, %77 ], [ -1, %50 ], [ 0, %70 ]
   ret i32 %93
 }
 
@@ -2800,7 +2800,7 @@ default.unreachable:                              ; preds = %44
   unreachable
 
 51:                                               ; preds = %48, %47, %46, %44, %40
-  %52 = phi ptr [ %spec.select, %48 ], [ @.str.144, %47 ], [ @.str.143, %46 ], [ @.str.137, %40 ], [ @.str.142, %44 ]
+  %52 = phi ptr [ @.str.144, %47 ], [ @.str.143, %46 ], [ @.str.137, %40 ], [ @.str.142, %44 ], [ %spec.select, %48 ]
   %53 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
   %54 = and i64 %53, 2251799813685248
   %55 = icmp eq i64 %54, 0
@@ -3043,7 +3043,7 @@ default.unreachable:                              ; preds = %44
   br label %197
 
 197:                                              ; preds = %195, %190, %187, %176, %167, %163, %154, %149, %139, %137, %134, %130, %118, %113, %108, %90, %84, %74, %69, %13, %7
-  %198 = phi i32 [ %196, %195 ], [ %169, %167 ], [ %144, %139 ], [ %138, %137 ], [ %85, %84 ], [ %79, %74 ], [ %194, %190 ], [ %177, %176 ], [ %189, %187 ], [ %8, %7 ], [ %14, %13 ], [ %73, %69 ], [ %95, %90 ], [ %110, %108 ], [ %115, %113 ], [ %122, %118 ], [ %131, %130 ], [ %136, %134 ], [ %150, %149 ], [ %155, %154 ], [ %164, %163 ]
+  %198 = phi i32 [ %196, %195 ], [ %144, %139 ], [ %138, %137 ], [ %85, %84 ], [ %79, %74 ], [ %8, %7 ], [ %14, %13 ], [ %73, %69 ], [ %95, %90 ], [ %110, %108 ], [ %115, %113 ], [ %122, %118 ], [ %131, %130 ], [ %136, %134 ], [ %150, %149 ], [ %155, %154 ], [ %164, %163 ], [ %169, %167 ], [ %177, %176 ], [ %189, %187 ], [ %194, %190 ]
   %199 = sext i32 %198 to i64
   ret i64 %199
 }
@@ -3194,7 +3194,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_tsx_async_abor
   br label %cpu_show_common.exit
 
 cpu_show_common.exit:                             ; preds = %7, %11, %23, %27
-  %30 = phi i32 [ %15, %11 ], [ %8, %7 ], [ %24, %23 ], [ %29, %27 ]
+  %30 = phi i32 [ %8, %7 ], [ %15, %11 ], [ %24, %23 ], [ %29, %27 ]
   %31 = sext i32 %30 to i64
   ret i64 %31
 }
@@ -3752,7 +3752,7 @@ define internal fastcc i32 @spectre_v2_parse_user_cmdline() unnamed_addr #3 sect
   br label %33
 
 33:                                               ; preds = %0, %31, %25, %3, %0
-  %34 = phi i32 [ %27, %25 ], [ 1, %31 ], [ 1, %3 ], [ %2, %0 ], [ %2, %0 ]
+  %34 = phi i32 [ %27, %25 ], [ 1, %31 ], [ %2, %0 ], [ 1, %3 ], [ %2, %0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %34
 }

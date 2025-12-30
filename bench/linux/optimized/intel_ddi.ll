@@ -1975,8 +1975,8 @@ define dso_local void @intel_ddi_sanitize_encoder_pll_mapping(ptr noundef %0) lo
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %32, %12, %8
-  %34 = phi i32 [ %6, %8 ], [ %6, %12 ], [ %.pre.pre, %32 ]
-  %.not = phi i1 [ false, %8 ], [ true, %12 ], [ %33, %32 ]
+  %34 = phi i32 [ %6, %12 ], [ %6, %8 ], [ %.pre.pre, %32 ]
+  %.not = phi i1 [ true, %12 ], [ false, %8 ], [ %33, %32 ]
   %35 = icmp eq i32 %34, 9
   br i1 %35, label %36, label %69
 
@@ -4363,8 +4363,8 @@ define dso_local void @intel_ddi_init(ptr noundef %0, ptr noundef %1) local_unna
   br label %408
 
 403:                                              ; preds = %400, %381, %377, %371, %360, %358, %354, %342
-  %404 = phi i16 [ %326, %342 ], [ %326, %358 ], [ %326, %360 ], [ %.pre, %400 ], [ %326, %354 ], [ %326, %377 ], [ %326, %381 ], [ %326, %371 ]
-  %405 = phi i32 [ %345, %342 ], [ %359, %358 ], [ %361, %360 ], [ %401, %400 ], [ %356, %354 ], [ %380, %377 ], [ %382, %381 ], [ 4, %371 ]
+  %404 = phi i16 [ %326, %342 ], [ %.pre, %400 ], [ %326, %354 ], [ %326, %358 ], [ %326, %360 ], [ %326, %377 ], [ %326, %381 ], [ %326, %371 ]
+  %405 = phi i32 [ %345, %342 ], [ %401, %400 ], [ %356, %354 ], [ %359, %358 ], [ %361, %360 ], [ %380, %377 ], [ %382, %381 ], [ 4, %371 ]
   %406 = getelementptr inbounds nuw i8, ptr %132, i64 368
   store i32 %405, ptr %406, align 8
   %.fr = freeze i16 %404
@@ -5930,7 +5930,7 @@ thread-pre-split.thread:                          ; preds = %119, %181, %thread-
   br label %316
 
 316:                                              ; preds = %315, %312, %312, %312, %312
-  %317 = phi ptr [ null, %315 ], [ %1, %312 ], [ %1, %312 ], [ %1, %312 ], [ %1, %312 ]
+  %317 = phi ptr [ %1, %312 ], [ %1, %312 ], [ %1, %312 ], [ %1, %312 ], [ null, %315 ]
   switch i32 %85, label %318 [
     i32 10, label %319
     i32 7, label %319
@@ -5948,8 +5948,8 @@ thread-pre-split.thread:                          ; preds = %119, %181, %thread-
   br label %319
 
 319:                                              ; preds = %.thread13, %._crit_edge, %318, %316, %316, %316, %316
-  %.pn = phi ptr [ %317, %318 ], [ %317, %316 ], [ %317, %316 ], [ %317, %316 ], [ %317, %316 ], [ %314, %.thread13 ], [ %317, %._crit_edge ]
-  %320 = phi ptr [ null, %318 ], [ %1, %316 ], [ %1, %316 ], [ %1, %316 ], [ %1, %316 ], [ %314, %.thread13 ], [ %.pre16, %._crit_edge ]
+  %.pn = phi ptr [ %317, %316 ], [ %317, %316 ], [ %317, %316 ], [ %317, %316 ], [ %317, %318 ], [ %314, %.thread13 ], [ %317, %._crit_edge ]
+  %320 = phi ptr [ %1, %316 ], [ %1, %316 ], [ %1, %316 ], [ %1, %316 ], [ null, %318 ], [ %314, %.thread13 ], [ %.pre16, %._crit_edge ]
   %321 = getelementptr inbounds nuw i8, ptr %.pn, i64 392
   %322 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %323 = load i32, ptr %322, align 4
@@ -6348,7 +6348,7 @@ define internal void @intel_ddi_pre_enable(ptr noundef %0, ptr noundef %1, ptr n
   br label %108
 
 108:                                              ; preds = %107, %103, %103, %103, %103
-  %109 = phi ptr [ null, %107 ], [ %1, %103 ], [ %1, %103 ], [ %1, %103 ], [ %1, %103 ]
+  %109 = phi ptr [ %1, %103 ], [ %1, %103 ], [ %1, %103 ], [ %1, %103 ], [ null, %107 ]
   %110 = load ptr, ptr %1, align 8
   switch i32 %38, label %111 [
     i32 10, label %112
@@ -6367,9 +6367,9 @@ define internal void @intel_ddi_pre_enable(ptr noundef %0, ptr noundef %1, ptr n
   br label %112
 
 112:                                              ; preds = %.thread, %._crit_edge, %111, %108, %108, %108, %108
-  %113 = phi ptr [ %110, %111 ], [ %110, %108 ], [ %110, %108 ], [ %110, %108 ], [ %110, %108 ], [ %106, %.thread ], [ %110, %._crit_edge ]
-  %114 = phi ptr [ %109, %111 ], [ %109, %108 ], [ %109, %108 ], [ %109, %108 ], [ %109, %108 ], [ %105, %.thread ], [ %109, %._crit_edge ]
-  %115 = phi ptr [ null, %111 ], [ %1, %108 ], [ %1, %108 ], [ %1, %108 ], [ %1, %108 ], [ %105, %.thread ], [ %.pre, %._crit_edge ]
+  %113 = phi ptr [ %110, %108 ], [ %110, %108 ], [ %110, %108 ], [ %110, %108 ], [ %110, %111 ], [ %106, %.thread ], [ %110, %._crit_edge ]
+  %114 = phi ptr [ %109, %108 ], [ %109, %108 ], [ %109, %108 ], [ %109, %108 ], [ %109, %111 ], [ %105, %.thread ], [ %109, %._crit_edge ]
+  %115 = phi ptr [ %1, %108 ], [ %1, %108 ], [ %1, %108 ], [ %1, %108 ], [ null, %111 ], [ %105, %.thread ], [ %.pre, %._crit_edge ]
   %116 = getelementptr i8, ptr %113, i64 7188
   %117 = load i32, ptr %116, align 4
   %118 = and i32 %117, 2048
@@ -6784,7 +6784,7 @@ intel_dp_sink_set_fec_ready.exit:                 ; preds = %289, %304, %312
   br label %365
 
 365:                                              ; preds = %364, %360, %360, %360, %360
-  %366 = phi ptr [ null, %364 ], [ %1, %360 ], [ %1, %360 ], [ %1, %360 ], [ %1, %360 ]
+  %366 = phi ptr [ %1, %360 ], [ %1, %360 ], [ %1, %360 ], [ %1, %360 ], [ null, %364 ]
   %367 = load ptr, ptr %1, align 8
   switch i32 %359, label %368 [
     i32 10, label %369
@@ -6803,9 +6803,9 @@ intel_dp_sink_set_fec_ready.exit:                 ; preds = %289, %304, %312
   br label %369
 
 369:                                              ; preds = %.thread25, %._crit_edge34, %368, %365, %365, %365, %365
-  %370 = phi ptr [ %367, %368 ], [ %367, %365 ], [ %367, %365 ], [ %367, %365 ], [ %367, %365 ], [ %363, %.thread25 ], [ %367, %._crit_edge34 ]
-  %.pn60 = phi ptr [ %366, %368 ], [ %366, %365 ], [ %366, %365 ], [ %366, %365 ], [ %366, %365 ], [ %362, %.thread25 ], [ %366, %._crit_edge34 ]
-  %371 = phi ptr [ null, %368 ], [ %1, %365 ], [ %1, %365 ], [ %1, %365 ], [ %1, %365 ], [ %362, %.thread25 ], [ %.pre36, %._crit_edge34 ]
+  %370 = phi ptr [ %367, %365 ], [ %367, %365 ], [ %367, %365 ], [ %367, %365 ], [ %367, %368 ], [ %363, %.thread25 ], [ %367, %._crit_edge34 ]
+  %.pn60 = phi ptr [ %366, %365 ], [ %366, %365 ], [ %366, %365 ], [ %366, %365 ], [ %366, %368 ], [ %362, %.thread25 ], [ %366, %._crit_edge34 ]
+  %371 = phi ptr [ %1, %365 ], [ %1, %365 ], [ %1, %365 ], [ %1, %365 ], [ null, %368 ], [ %362, %.thread25 ], [ %.pre36, %._crit_edge34 ]
   %372 = getelementptr inbounds nuw i8, ptr %.pn60, i64 392
   %373 = load i32, ptr %33, align 8
   %374 = and i32 %373, 2048
@@ -7204,7 +7204,7 @@ intel_dp_sink_set_fec_ready.exit23:               ; preds = %539, %554, %562
   br label %614
 
 614:                                              ; preds = %613, %607, %607, %607, %607
-  %615 = phi ptr [ null, %613 ], [ %1, %607 ], [ %1, %607 ], [ %1, %607 ], [ %1, %607 ]
+  %615 = phi ptr [ %1, %607 ], [ %1, %607 ], [ %1, %607 ], [ %1, %607 ], [ null, %613 ]
   %616 = load ptr, ptr %1, align 8
   %617 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %618 = load i32, ptr %617, align 4
@@ -7225,11 +7225,11 @@ intel_dp_sink_set_fec_ready.exit23:               ; preds = %539, %554, %562
   br label %620
 
 620:                                              ; preds = %.thread26, %._crit_edge31, %619, %614, %614, %614, %614
-  %621 = phi i32 [ %618, %619 ], [ %618, %614 ], [ %618, %614 ], [ %618, %614 ], [ %618, %614 ], [ %612, %.thread26 ], [ %618, %._crit_edge31 ]
-  %622 = phi ptr [ %617, %619 ], [ %617, %614 ], [ %617, %614 ], [ %617, %614 ], [ %617, %614 ], [ %611, %.thread26 ], [ %617, %._crit_edge31 ]
-  %623 = phi ptr [ %616, %619 ], [ %616, %614 ], [ %616, %614 ], [ %616, %614 ], [ %616, %614 ], [ %610, %.thread26 ], [ %616, %._crit_edge31 ]
-  %.pn = phi ptr [ %615, %619 ], [ %615, %614 ], [ %615, %614 ], [ %615, %614 ], [ %615, %614 ], [ %609, %.thread26 ], [ %615, %._crit_edge31 ]
-  %624 = phi ptr [ null, %619 ], [ %1, %614 ], [ %1, %614 ], [ %1, %614 ], [ %1, %614 ], [ %609, %.thread26 ], [ %.pre33, %._crit_edge31 ]
+  %621 = phi i32 [ %618, %614 ], [ %618, %614 ], [ %618, %614 ], [ %618, %614 ], [ %618, %619 ], [ %612, %.thread26 ], [ %618, %._crit_edge31 ]
+  %622 = phi ptr [ %617, %614 ], [ %617, %614 ], [ %617, %614 ], [ %617, %614 ], [ %617, %619 ], [ %611, %.thread26 ], [ %617, %._crit_edge31 ]
+  %623 = phi ptr [ %616, %614 ], [ %616, %614 ], [ %616, %614 ], [ %616, %614 ], [ %616, %619 ], [ %610, %.thread26 ], [ %616, %._crit_edge31 ]
+  %.pn = phi ptr [ %615, %614 ], [ %615, %614 ], [ %615, %614 ], [ %615, %614 ], [ %615, %619 ], [ %609, %.thread26 ], [ %615, %._crit_edge31 ]
+  %624 = phi ptr [ %1, %614 ], [ %1, %614 ], [ %1, %614 ], [ %1, %614 ], [ null, %619 ], [ %609, %.thread26 ], [ %.pre33, %._crit_edge31 ]
   %625 = getelementptr inbounds nuw i8, ptr %.pn, i64 392
   %626 = load i32, ptr %33, align 8
   %627 = and i32 %626, 2048
@@ -8090,7 +8090,7 @@ define internal void @intel_ddi_post_disable(ptr noundef readonly captures(none)
   br label %.thread11
 
 .thread11:                                        ; preds = %112, %.thread, %144, %140, %.thread10
-  %152 = phi ptr [ %113, %144 ], [ %113, %140 ], [ %113, %112 ], [ %116, %.thread10 ], [ %116, %.thread ]
+  %152 = phi ptr [ %113, %144 ], [ %113, %140 ], [ %116, %.thread10 ], [ %116, %.thread ], [ %113, %112 ]
   tail call fastcc void @intel_disable_ddi_buf(ptr noundef %1, ptr noundef %2)
   %153 = load ptr, ptr %108, align 8
   %154 = getelementptr inbounds nuw i8, ptr %2, i64 4903
@@ -11188,7 +11188,7 @@ define internal void @intel_ddi_encoder_reset(ptr noundef %0) #0 align 16 {
   br label %8
 
 8:                                                ; preds = %7, %1, %1, %1, %1
-  %9 = phi ptr [ null, %7 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ]
+  %9 = phi ptr [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ null, %7 ]
   switch i32 %4, label %10 [
     i32 10, label %11
     i32 7, label %11
@@ -11206,8 +11206,8 @@ define internal void @intel_ddi_encoder_reset(ptr noundef %0) #0 align 16 {
   br label %11
 
 11:                                               ; preds = %.thread, %._crit_edge, %10, %8, %8, %8, %8
-  %12 = phi ptr [ %9, %10 ], [ %9, %8 ], [ %9, %8 ], [ %9, %8 ], [ %9, %8 ], [ %6, %.thread ], [ %9, %._crit_edge ]
-  %13 = phi ptr [ null, %10 ], [ %0, %8 ], [ %0, %8 ], [ %0, %8 ], [ %0, %8 ], [ %6, %.thread ], [ %.pre, %._crit_edge ]
+  %12 = phi ptr [ %9, %8 ], [ %9, %8 ], [ %9, %8 ], [ %9, %8 ], [ %9, %10 ], [ %6, %.thread ], [ %9, %._crit_edge ]
+  %13 = phi ptr [ %0, %8 ], [ %0, %8 ], [ %0, %8 ], [ %0, %8 ], [ null, %10 ], [ %6, %.thread ], [ %.pre, %._crit_edge ]
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 392
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 132
   %16 = load i32, ptr %15, align 4
@@ -11981,7 +11981,7 @@ define internal fastcc void @intel_ddi_init_dp_buf_reg(ptr noundef %0, ptr nound
   br label %9
 
 9:                                                ; preds = %8, %2, %2, %2, %2
-  %10 = phi ptr [ null, %8 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ]
+  %10 = phi ptr [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ null, %8 ]
   switch i32 %5, label %11 [
     i32 10, label %12
     i32 7, label %12
@@ -11999,8 +11999,8 @@ define internal fastcc void @intel_ddi_init_dp_buf_reg(ptr noundef %0, ptr nound
   br label %12
 
 12:                                               ; preds = %.thread, %._crit_edge, %11, %9, %9, %9, %9
-  %13 = phi ptr [ %10, %11 ], [ %10, %9 ], [ %10, %9 ], [ %10, %9 ], [ %10, %9 ], [ %7, %.thread ], [ %10, %._crit_edge ]
-  %14 = phi ptr [ null, %11 ], [ %0, %9 ], [ %0, %9 ], [ %0, %9 ], [ %0, %9 ], [ %7, %.thread ], [ %.pre, %._crit_edge ]
+  %13 = phi ptr [ %10, %9 ], [ %10, %9 ], [ %10, %9 ], [ %10, %9 ], [ %10, %11 ], [ %7, %.thread ], [ %10, %._crit_edge ]
+  %14 = phi ptr [ %0, %9 ], [ %0, %9 ], [ %0, %9 ], [ %0, %9 ], [ null, %11 ], [ %7, %.thread ], [ %.pre, %._crit_edge ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %16 = load i32, ptr %15, align 4
   %17 = tail call i32 @intel_port_to_phy(ptr noundef %3, i32 noundef %16) #14

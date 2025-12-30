@@ -165,8 +165,8 @@ define ptr @Aig_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %61, %68, %89, %95, %144, %151, %170, %177, %125, %128, %130
-  %.tr288.be = phi ptr [ %64, %61 ], [ %71, %68 ], [ %92, %89 ], [ %98, %95 ], [ %180, %177 ], [ %.tr288354, %125 ], [ %.val239, %128 ], [ %147, %144 ], [ %154, %151 ], [ %173, %170 ], [ %.tr288354, %130 ]
-  %.tr289.be = phi ptr [ %.val241, %61 ], [ %.val239, %68 ], [ %.val242, %89 ], [ %.val240, %95 ], [ %.tr288354, %177 ], [ %.val242, %125 ], [ %.tr289355, %128 ], [ %.tr289355, %144 ], [ %.tr289355, %151 ], [ %.tr288354, %170 ], [ %.val240, %130 ]
+  %.tr288.be = phi ptr [ %64, %61 ], [ %71, %68 ], [ %92, %89 ], [ %98, %95 ], [ %147, %144 ], [ %154, %151 ], [ %173, %170 ], [ %180, %177 ], [ %.tr288354, %125 ], [ %.val239, %128 ], [ %.tr288354, %130 ]
+  %.tr289.be = phi ptr [ %.val241, %61 ], [ %.val239, %68 ], [ %.val242, %89 ], [ %.val240, %95 ], [ %.tr289355, %144 ], [ %.tr289355, %151 ], [ %.tr288354, %170 ], [ %.tr288354, %177 ], [ %.val242, %125 ], [ %.tr289355, %128 ], [ %.val240, %130 ]
   %65 = icmp eq ptr %.tr288.be, %.tr289.be
   br i1 %65, label %.thread253, label %7
 
@@ -479,7 +479,7 @@ Aig_ObjIsExorType.exit:                           ; preds = %230
   %238 = tail call ptr @Aig_Exor(ptr noundef nonnull %0, ptr noundef %.val26.i, ptr noundef %.val28.i)
   br label %.thread253
 
-Aig_ObjIsExorType.exit.thread:                    ; preds = %230, %221, %224, %218, %.loopexit
+Aig_ObjIsExorType.exit.thread:                    ; preds = %224, %230, %218, %221, %.loopexit
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %240 = load i64, ptr %239, align 8
   %241 = and i64 %240, -8
@@ -514,8 +514,8 @@ Aig_ObjCreateGhost.exit:                          ; preds = %Aig_ObjIsExorType.e
   %255 = tail call ptr @Aig_ObjCreate(ptr noundef nonnull %0, ptr noundef nonnull %252) #7
   br label %.thread253
 
-.thread253:                                       ; preds = %tailrecurse.backedge, %77, %.thread247, %132, %104, %58, %86, %133, %159, %3, %100, %121, %210, %203, %196, %186, %73, %Aig_ObjCreateGhost.exit, %34, %32, %25, %23, %254, %Aig_ObjIsExorType.exit, %12
-  %.0 = phi ptr [ %253, %Aig_ObjCreateGhost.exit ], [ %16, %12 ], [ %189, %186 ], [ %.tr289355, %23 ], [ %238, %Aig_ObjIsExorType.exit ], [ %.tr288354, %32 ], [ %255, %254 ], [ %27, %25 ], [ %37, %34 ], [ %76, %73 ], [ %206, %203 ], [ %213, %210 ], [ %124, %121 ], [ %199, %196 ], [ %103, %100 ], [ %1, %3 ], [ %.tr288354, %77 ], [ %.tr288354, %.thread247 ], [ %.tr289355, %132 ], [ %.tr289355, %104 ], [ %.tr289355, %58 ], [ %.tr288.be, %tailrecurse.backedge ], [ %.tr288354, %86 ], [ %.tr289355, %133 ], [ %.tr288354, %159 ]
+.thread253:                                       ; preds = %tailrecurse.backedge, %58, %77, %86, %104, %133, %132, %159, %.thread247, %3, %73, %100, %121, %210, %203, %196, %186, %Aig_ObjCreateGhost.exit, %34, %32, %25, %23, %254, %Aig_ObjIsExorType.exit, %12
+  %.0 = phi ptr [ %16, %12 ], [ %238, %Aig_ObjIsExorType.exit ], [ %255, %254 ], [ %27, %25 ], [ %.tr289355, %23 ], [ %37, %34 ], [ %.tr288354, %32 ], [ %253, %Aig_ObjCreateGhost.exit ], [ %76, %73 ], [ %103, %100 ], [ %124, %121 ], [ %213, %210 ], [ %206, %203 ], [ %199, %196 ], [ %189, %186 ], [ %1, %3 ], [ %.tr288.be, %tailrecurse.backedge ], [ %.tr289355, %58 ], [ %.tr288354, %77 ], [ %.tr288354, %86 ], [ %.tr289355, %104 ], [ %.tr289355, %133 ], [ %.tr289355, %132 ], [ %.tr288354, %159 ], [ %.tr288354, %.thread247 ]
   ret ptr %.0
 }
 
@@ -740,8 +740,8 @@ define ptr @Aig_TableLookupInt(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br label %.sink.split
 
 .sink.split:                                      ; preds = %44, %42, %38, %36
-  %.sink15.i35.sink = phi ptr [ %spec.select.i, %38 ], [ %1, %36 ], [ %2, %42 ], [ %spec.select.i33, %44 ]
-  %.sink.i36.sink = phi ptr [ %spec.select17.i, %38 ], [ null, %36 ], [ null, %42 ], [ %spec.select17.i34, %44 ]
+  %.sink15.i35.sink = phi ptr [ %1, %36 ], [ %spec.select.i, %38 ], [ %2, %42 ], [ %spec.select.i33, %44 ]
+  %.sink.i36.sink = phi ptr [ null, %36 ], [ %spec.select17.i, %38 ], [ null, %42 ], [ %spec.select17.i34, %44 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink15.i35.sink, ptr %48, align 8, !tbaa !29
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -751,7 +751,7 @@ define ptr @Aig_TableLookupInt(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br label %52
 
 52:                                               ; preds = %.sink.split, %5, %12, %19, %17, %3
-  %.0 = phi ptr [ %9, %12 ], [ %1, %19 ], [ %1, %3 ], [ %2, %17 ], [ %9, %5 ], [ %51, %.sink.split ]
+  %.0 = phi ptr [ %1, %3 ], [ %2, %17 ], [ %1, %19 ], [ %9, %12 ], [ %9, %5 ], [ %51, %.sink.split ]
   ret ptr %.0
 }
 

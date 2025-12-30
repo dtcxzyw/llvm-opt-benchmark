@@ -906,7 +906,7 @@ _ZN4Node8init_reqEjPS_.exit.sink.split:           ; preds = %189, %205
   br label %_ZN4Node8init_reqEjPS_.exit
 
 _ZN4Node8init_reqEjPS_.exit:                      ; preds = %_ZN4Node8init_reqEjPS_.exit.sink.split, %194, %193, %178, %177
-  %.0 = phi ptr [ %.0.i.i.i43, %194 ], [ %.0.i.i.i40, %177 ], [ %.0.i.i.i40, %178 ], [ %.0.i.i.i43, %193 ], [ %.0.ph, %_ZN4Node8init_reqEjPS_.exit.sink.split ]
+  %.0 = phi ptr [ %.0.i.i.i40, %177 ], [ %.0.i.i.i40, %178 ], [ %.0.i.i.i43, %193 ], [ %.0.i.i.i43, %194 ], [ %.0.ph, %_ZN4Node8init_reqEjPS_.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -1243,7 +1243,7 @@ _ZN4NodenwEm.exit37:                              ; preds = %48, %50
   br label %75
 
 75:                                               ; preds = %_ZN4NodenwEm.exit37, %53, %_ZN4NodenwEm.exit, %31
-  %76 = phi ptr [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i36, %53 ], [ null, %_ZN4NodenwEm.exit37 ]
+  %76 = phi ptr [ %.0.i.i.i, %31 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i36, %53 ], [ null, %_ZN4NodenwEm.exit37 ]
   tail call void @_ZN16PhaseMacroExpand38copy_predefined_input_for_runtime_callEP4NodeP8CallNodeS3_(ptr nonnull align 8 poison, ptr noundef %5, ptr noundef %1, ptr noundef %76)
   %.not32 = icmp eq ptr %6, null
   br i1 %.not32, label %_ZN4Node8init_reqEjPS_.exit, label %77
@@ -2059,7 +2059,7 @@ _ZN11EncodePNodeC2EP4NodePK4Type.exit:            ; preds = %414, %431
   br label %.thread
 
 .thread:                                          ; preds = %85, %386, %387, %437, %351, %181
-  %.0 = phi ptr [ null, %351 ], [ %.074, %387 ], [ %189, %181 ], [ %440, %437 ], [ null, %386 ], [ null, %85 ]
+  %.0 = phi ptr [ %189, %181 ], [ null, %351 ], [ %440, %437 ], [ %.074, %387 ], [ null, %386 ], [ null, %85 ]
   ret ptr %.0
 }
 
@@ -2152,7 +2152,7 @@ _ZN9VectorSet8test_setEj.exit:                    ; preds = %.backedge, %30
   %58 = icmp eq i32 %57, 80
   br i1 %58, label %59, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %54, %._crit_edge, %99
+.backedge.backedge:                               ; preds = %54, %99, %._crit_edge
   %.091124.be = phi ptr [ %41, %99 ], [ %.2, %._crit_edge ], [ %52, %54 ]
   br label %.backedge, !llvm.loop !11
 
@@ -2249,7 +2249,7 @@ _ZN9VectorSet8test_setEj.exit:                    ; preds = %.backedge, %30
   br i1 %.not, label %.loopexit, label %._crit_edge128.thread
 
 ._crit_edge128.thread:                            ; preds = %._crit_edge, %99, %59, %67, %._crit_edge.thread, %._crit_edge128
-  %.091.lcssa149 = phi ptr [ %.091.lcssa, %._crit_edge128 ], [ %52, %59 ], [ %41, %67 ], [ %spec.select114154, %._crit_edge.thread ], [ %41, %99 ], [ %41, %._crit_edge ]
+  %.091.lcssa149 = phi ptr [ %.091.lcssa, %._crit_edge128 ], [ %spec.select114154, %._crit_edge.thread ], [ %52, %59 ], [ %41, %67 ], [ %41, %99 ], [ %41, %._crit_edge ]
   %102 = icmp eq ptr %.091.lcssa149, %18
   %103 = icmp eq ptr %.091.lcssa149, %19
   %or.cond111 = or i1 %102, %103
@@ -2389,7 +2389,7 @@ _ZN10Node_StackC2Ei.exit:                         ; preds = %141, %143
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %_ZN9VectorSet8test_setEj.exit, %155, %.preheader, %._crit_edge128, %168, %_ZN10Node_StackC2Ei.exit, %183, %113, %104
-  %.089 = phi ptr [ %185, %183 ], [ %107, %104 ], [ %124, %113 ], [ null, %.preheader ], [ %151, %_ZN10Node_StackC2Ei.exit ], [ null, %._crit_edge128 ], [ null, %168 ], [ null, %155 ], [ null, %_ZN9VectorSet8test_setEj.exit ], [ null, %49 ]
+  %.089 = phi ptr [ %107, %104 ], [ %124, %113 ], [ %185, %183 ], [ %151, %_ZN10Node_StackC2Ei.exit ], [ null, %168 ], [ null, %._crit_edge128 ], [ null, %.preheader ], [ null, %155 ], [ null, %_ZN9VectorSet8test_setEj.exit ], [ null, %49 ]
   ret ptr %.089
 }
 
@@ -2761,7 +2761,7 @@ _ZN10Node_Stack4pushEP4Nodej.exit:                ; preds = %_ZN7PhiNodeC2EP4Nod
   br i1 %234, label %_ZN13GrowableArrayIP4NodeED2Ev.exit, label %235
 
 235:                                              ; preds = %227, %216, %191, %203, %.thread, %157, %163, %213, %172
-  %.sink = phi ptr [ %174, %172 ], [ %1, %.thread ], [ %202, %191 ], [ %217, %216 ], [ %215, %213 ], [ %161, %157 ], [ %161, %163 ], [ %205, %203 ], [ %233, %227 ]
+  %.sink = phi ptr [ %215, %213 ], [ %174, %172 ], [ %161, %163 ], [ %161, %157 ], [ %1, %.thread ], [ %205, %203 ], [ %202, %191 ], [ %217, %216 ], [ %233, %227 ]
   %236 = sext i32 %.079153 to i64
   %237 = getelementptr inbounds ptr, ptr %82, i64 %236
   store ptr %.sink, ptr %237, align 8
@@ -2851,7 +2851,7 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %_ZN4Node8init_reqEj
   br i1 %exitcond161.not, label %_ZN13GrowableArrayIP4NodeED2Ev.exit, label %239, !llvm.loop !16
 
 _ZN13GrowableArrayIP4NodeED2Ev.exit:              ; preds = %_ZN7PhiNode18is_same_inst_fieldEPK4Typeiiii.exit, %223, %227, %.thread149, %216, %180, %_ZN4Node8init_reqEjPS_.exit, %_ZN10Node_Stack4pushEP4Nodej.exit, %73, %._crit_edge
-  %.078 = phi ptr [ null, %73 ], [ %.0.i.i.i, %_ZN4Node8init_reqEjPS_.exit ], [ %72, %._crit_edge ], [ null, %223 ], [ %.0.i.i.i, %_ZN10Node_Stack4pushEP4Nodej.exit ], [ null, %180 ], [ null, %216 ], [ null, %.thread149 ], [ null, %227 ], [ %29, %_ZN7PhiNode18is_same_inst_fieldEPK4Typeiiii.exit ]
+  %.078 = phi ptr [ %72, %._crit_edge ], [ null, %73 ], [ %.0.i.i.i, %_ZN10Node_Stack4pushEP4Nodej.exit ], [ %.0.i.i.i, %_ZN4Node8init_reqEjPS_.exit ], [ null, %180 ], [ null, %216 ], [ null, %.thread149 ], [ null, %227 ], [ null, %223 ], [ %29, %_ZN7PhiNode18is_same_inst_fieldEPK4Typeiiii.exit ]
   ret ptr %.078
 }
 
@@ -3126,7 +3126,7 @@ define internal fastcc noundef ptr @_ZL14scan_mem_chainP4NodeiiS0_S0_P8PhaseGVN(
   br i1 %or.cond57, label %.loopexit, label %27, !llvm.loop !17
 
 .loopexit:                                        ; preds = %50, %62, %72, %129, %160, %179, %154, %6, %116, %118, %102
-  %.0 = phi ptr [ %103, %102 ], [ %0, %6 ], [ %117, %116 ], [ %122, %118 ], [ %159, %154 ], [ null, %160 ], [ %74, %72 ], [ %45, %62 ], [ %45, %50 ], [ null, %129 ], [ %180, %179 ]
+  %.0 = phi ptr [ %103, %102 ], [ %122, %118 ], [ %117, %116 ], [ %0, %6 ], [ %159, %154 ], [ %45, %50 ], [ %45, %62 ], [ %74, %72 ], [ null, %129 ], [ null, %160 ], [ %180, %179 ]
   ret ptr %.0
 }
 
@@ -3314,7 +3314,7 @@ define hidden noundef zeroext i1 @_ZN16PhaseMacroExpand24can_eliminate_allocatio
   br label %115
 
 115:                                              ; preds = %110, %.lr.ph.split, %106
-  %.4 = phi i8 [ 1, %.lr.ph.split ], [ %spec.select, %110 ], [ 1, %106 ]
+  %.4 = phi i8 [ 1, %.lr.ph.split ], [ 1, %106 ], [ %spec.select, %110 ]
   %116 = getelementptr inbounds nuw i8, ptr %.06794, i64 8
   %117 = icmp ult ptr %116, %83
   %118 = trunc nuw i8 %.4 to i1
@@ -3493,7 +3493,7 @@ _ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE6appendERKS
   br label %.thread.loopexit.sink.split
 
 _ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if_missingERKS1_.exit: ; preds = %164, %115, %98, %77, %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE6appendERKS1_.exit.i, %155, %202, %184, %189, %197, %135
-  %.6 = phi i8 [ %.4, %115 ], [ 1, %135 ], [ 1, %202 ], [ 1, %98 ], [ 1, %77 ], [ 1, %184 ], [ %.5, %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE6appendERKS1_.exit.i ], [ 1, %189 ], [ 1, %197 ], [ %.mux, %155 ], [ %.5, %164 ]
+  %.6 = phi i8 [ 1, %135 ], [ 1, %184 ], [ 1, %189 ], [ 1, %197 ], [ 1, %202 ], [ %.mux, %155 ], [ %.5, %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE6appendERKS1_.exit.i ], [ 1, %77 ], [ 1, %98 ], [ %.4, %115 ], [ %.5, %164 ]
   %219 = getelementptr inbounds nuw i8, ptr %.06895, i64 8
   %220 = icmp ult ptr %219, %56
   %221 = trunc nuw i8 %.6 to i1
@@ -3501,19 +3501,19 @@ _ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if
   br i1 %222, label %59, label %.thread.loopexit.loopexit, !llvm.loop !20
 
 .thread.loopexit.sink.split:                      ; preds = %206, %215
-  %.sink124 = phi ptr [ %218, %215 ], [ %60, %206 ]
-  %223 = load ptr, ptr %.sink124, align 8
+  %.lcssa121.sink123 = phi ptr [ %218, %215 ], [ %60, %206 ]
+  %223 = load ptr, ptr %.lcssa121.sink123, align 8
   %224 = load ptr, ptr %223, align 8
-  %225 = tail call noundef i32 %224(ptr noundef nonnull align 8 dereferenceable(52) %.sink124) #9
+  %225 = tail call noundef i32 %224(ptr noundef nonnull align 8 dereferenceable(52) %.lcssa121.sink123) #9
   br label %.thread
 
 .thread.loopexit.loopexit:                        ; preds = %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, %65, %149
-  %.1.ph.ph = phi i8 [ 0, %149 ], [ 0, %65 ], [ %.6, %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if_missingERKS1_.exit ]
+  %.1.ph.ph = phi i8 [ 0, %65 ], [ %.6, %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if_missingERKS1_.exit ], [ 0, %149 ]
   %226 = trunc nuw i8 %.1.ph.ph to i1
   br label %.thread
 
-.thread:                                          ; preds = %211, %.thread.loopexit.sink.split, %.thread.loopexit.loopexit, %47, %34, %40, %12, %27, %7, %3
-  %.1 = phi i1 [ false, %34 ], [ false, %7 ], [ false, %40 ], [ true, %3 ], [ false, %12 ], [ false, %27 ], [ true, %47 ], [ false, %211 ], [ false, %.thread.loopexit.sink.split ], [ %226, %.thread.loopexit.loopexit ]
+.thread:                                          ; preds = %211, %.thread.loopexit.sink.split, %.thread.loopexit.loopexit, %47, %34, %40, %27, %12, %7, %3
+  %.1 = phi i1 [ false, %27 ], [ false, %12 ], [ false, %7 ], [ true, %3 ], [ false, %40 ], [ false, %34 ], [ true, %47 ], [ false, %211 ], [ false, %.thread.loopexit.sink.split ], [ %226, %.thread.loopexit.loopexit ]
   ret i1 %.1
 }
 
@@ -3583,7 +3583,7 @@ define hidden void @_ZN16PhaseMacroExpand28undo_previous_scalarizationsE13Growab
   br label %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit
 
 _ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit: ; preds = %38, %32, %30, %28, %3
-  %.0 = phi i32 [ 0, %3 ], [ %31, %30 ], [ %29, %28 ], [ -1, %32 ], [ %spec.select.i, %38 ]
+  %.0 = phi i32 [ 0, %3 ], [ %29, %28 ], [ %31, %30 ], [ -1, %32 ], [ %spec.select.i, %38 ]
   %44 = load i32, ptr %1, align 4
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %.lr.ph51, label %._crit_edge52
@@ -3924,13 +3924,13 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %65, %_ZN12ar
   br label %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit
 
 _ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit: ; preds = %41, %39, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit, %3
-  %.081 = phi i64 [ 0, %3 ], [ %77, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ 0, %39 ], [ 0, %41 ]
-  %.080 = phi i64 [ 0, %3 ], [ %78, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ 0, %39 ], [ 0, %41 ]
-  %.079 = phi i32 [ 0, %3 ], [ %55, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ %40, %39 ], [ %42, %41 ]
-  %.078 = phi ptr [ null, %3 ], [ %25, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ %25, %39 ], [ %25, %41 ]
-  %.075 = phi ptr [ null, %3 ], [ %76, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ null, %39 ], [ null, %41 ]
-  %.072 = phi i8 [ 99, %3 ], [ %60, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ 99, %39 ], [ 99, %41 ]
-  %.071 = phi ptr [ null, %3 ], [ null, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ %35, %39 ], [ %35, %41 ]
+  %.081 = phi i64 [ %77, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ 0, %3 ], [ 0, %39 ], [ 0, %41 ]
+  %.080 = phi i64 [ %78, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ 0, %3 ], [ 0, %39 ], [ 0, %41 ]
+  %.079 = phi i32 [ %55, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ 0, %3 ], [ %40, %39 ], [ %42, %41 ]
+  %.078 = phi ptr [ %25, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ null, %3 ], [ %25, %39 ], [ %25, %41 ]
+  %.075 = phi ptr [ %76, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ null, %3 ], [ null, %39 ], [ null, %41 ]
+  %.072 = phi i8 [ %60, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ 99, %3 ], [ 99, %39 ], [ 99, %41 ]
+  %.071 = phi ptr [ null, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ null, %3 ], [ %35, %39 ], [ %35, %41 ]
   %79 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 1808
@@ -4154,9 +4154,9 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZN7ciField11layout
   br label %_ZNK4Type14make_narrowoopEv.exit
 
 _ZNK4Type14make_narrowoopEv.exit:                 ; preds = %196, %194, %190, %_Z17is_reference_type9BasicTypeb.exit, %187, %201
-  %.3 = phi ptr [ %.176107, %201 ], [ %.277, %187 ], [ %200, %_Z17is_reference_type9BasicTypeb.exit ], [ null, %194 ], [ %197, %196 ], [ %.277, %190 ]
-  %.073 = phi i64 [ %203, %201 ], [ %145, %187 ], [ %145, %_Z17is_reference_type9BasicTypeb.exit ], [ %145, %194 ], [ %145, %196 ], [ %145, %190 ]
-  %.2 = phi i8 [ %.1109, %201 ], [ %159, %187 ], [ %159, %_Z17is_reference_type9BasicTypeb.exit ], [ 16, %194 ], [ 16, %196 ], [ 16, %190 ]
+  %.3 = phi ptr [ %.277, %187 ], [ %200, %_Z17is_reference_type9BasicTypeb.exit ], [ %.176107, %201 ], [ %197, %196 ], [ null, %194 ], [ %.277, %190 ]
+  %.073 = phi i64 [ %145, %187 ], [ %145, %_Z17is_reference_type9BasicTypeb.exit ], [ %203, %201 ], [ %145, %196 ], [ %145, %194 ], [ %145, %190 ]
+  %.2 = phi i8 [ %159, %187 ], [ %159, %_Z17is_reference_type9BasicTypeb.exit ], [ %.1109, %201 ], [ 16, %196 ], [ 16, %194 ], [ 16, %190 ]
   %204 = load ptr, ptr %.078, align 8
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 192
   %206 = load ptr, ptr %205, align 8
@@ -4575,8 +4575,8 @@ _ZN13GrowableArrayIP13SafePointNodeE8allocateEv.exit.i: ; preds = %.loopexit.i
   br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i23, !llvm.loop !26
 
 _ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; preds = %.loopexit.i, %.lr.ph19.preheader.i, %.preheader16.i
-  %.sroa.9.1 = phi i32 [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.sroa.9.064, %.loopexit.i ]
-  %.sroa.16.1 = phi ptr [ %78, %.preheader16.i ], [ %78, %.lr.ph19.preheader.i ], [ %.sroa.16.067, %.loopexit.i ]
+  %.sroa.9.1 = phi i32 [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.sroa.9.064, %.loopexit.i ]
+  %.sroa.16.1 = phi ptr [ %78, %.lr.ph19.preheader.i ], [ %78, %.preheader16.i ], [ %.sroa.16.067, %.loopexit.i ]
   %91 = sext i32 %.sroa.0.065 to i64
   %92 = getelementptr inbounds ptr, ptr %.sroa.16.1, i64 %91
   store ptr %17, ptr %92, align 8
@@ -4591,7 +4591,7 @@ _ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if
   br i1 %94, label %_ZN13GrowableArrayIP13SafePointNodeED2Ev.exit15, label %11, !llvm.loop !27
 
 _ZN13GrowableArrayIP13SafePointNodeED2Ev.exit15:  ; preds = %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, %.loopexit.i16, %.loopexit.thread.i, %3, %20
-  %95 = phi i1 [ false, %20 ], [ true, %3 ], [ false, %.loopexit.i16 ], [ false, %.loopexit.thread.i ], [ true, %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if_missingERKS1_.exit ]
+  %95 = phi i1 [ false, %20 ], [ true, %3 ], [ false, %.loopexit.thread.i ], [ false, %.loopexit.i16 ], [ true, %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if_missingERKS1_.exit ]
   ret i1 %95
 }
 
@@ -5372,7 +5372,7 @@ define hidden noundef zeroext i1 @_ZN16PhaseMacroExpand23eliminate_allocate_node
   br label %83
 
 83:                                               ; preds = %55, %60, %47, %82
-  %.1 = phi i1 [ true, %82 ], [ false, %55 ], [ false, %47 ], [ false, %60 ]
+  %.1 = phi i1 [ true, %82 ], [ false, %47 ], [ false, %60 ], [ false, %55 ]
   %84 = load i64, ptr %52, align 8
   %85 = and i64 %84, 1
   %.not.i = icmp eq i64 %85, 0
@@ -5395,7 +5395,7 @@ define hidden noundef zeroext i1 @_ZN16PhaseMacroExpand23eliminate_allocate_node
   br label %_ZN13GrowableArrayIP13SafePointNodeED2Ev.exit
 
 _ZN13GrowableArrayIP13SafePointNodeED2Ev.exit:    ; preds = %.loopexit.i, %.loopexit.thread.i, %83, %86, %42, %2, %6
-  %.028 = phi i1 [ false, %42 ], [ false, %2 ], [ false, %6 ], [ %.1, %83 ], [ %.1, %86 ], [ %.1, %.loopexit.thread.i ], [ %.1, %.loopexit.i ]
+  %.028 = phi i1 [ false, %6 ], [ false, %2 ], [ false, %42 ], [ %.1, %86 ], [ %.1, %83 ], [ %.1, %.loopexit.thread.i ], [ %.1, %.loopexit.i ]
   ret i1 %.028
 }
 
@@ -10964,7 +10964,7 @@ _ZN4Node8init_reqEjPS_.exit261:                   ; preds = %968, %957, %953, %9
   br i1 %exitcond.not, label %.loopexit, label %903, !llvm.loop !37
 
 .loopexit:                                        ; preds = %_ZN4Node8init_reqEjPS_.exit261, %890, %897, %_ZN4Node7set_reqEjPS_.exit245, %895, %_ZN4Node8init_reqEjPS_.exit222
-  %.1 = phi ptr [ %.0.i.i.i155, %_ZN4Node8init_reqEjPS_.exit222 ], [ %1, %895 ], [ %1, %_ZN4Node7set_reqEjPS_.exit245 ], [ %1, %890 ], [ %1, %897 ], [ %.0.i.i.i256, %_ZN4Node8init_reqEjPS_.exit261 ]
+  %.1 = phi ptr [ %.0.i.i.i155, %_ZN4Node8init_reqEjPS_.exit222 ], [ %1, %895 ], [ %1, %_ZN4Node7set_reqEjPS_.exit245 ], [ %1, %897 ], [ %1, %890 ], [ %.0.i.i.i256, %_ZN4Node8init_reqEjPS_.exit261 ]
   ret ptr %.1
 }
 
@@ -11285,7 +11285,7 @@ _ZN12PhaseIterGVN19rehash_node_delayedEP4Node.exit: ; preds = %_ZN9VectorSet8tes
   br label %_ZN16AbstractLockNode12set_box_nodeEP4Node.exit
 
 _ZN16AbstractLockNode12set_box_nodeEP4Node.exit:  ; preds = %143, %135, %69, %75, %60
-  %.076 = phi i8 [ 1, %60 ], [ 1, %75 ], [ 1, %69 ], [ 0, %135 ], [ 0, %143 ]
+  %.076 = phi i8 [ 1, %75 ], [ 1, %69 ], [ 1, %60 ], [ 0, %135 ], [ 0, %143 ]
   %149 = load i32, ptr %65, align 4
   %150 = and i32 %149, 511
   %151 = icmp eq i32 %150, 448
@@ -11421,7 +11421,7 @@ _ZN12PhaseIterGVN19rehash_node_delayedEP4Node.exit88: ; preds = %_ZN9VectorSet8t
   br label %_ZN12FastLockNode12set_box_nodeEP4Node.exit
 
 _ZN12FastLockNode12set_box_nodeEP4Node.exit:      ; preds = %221, %213, %152, %_ZN16AbstractLockNode12set_box_nodeEP4Node.exit
-  %.177 = phi i8 [ %.076, %_ZN16AbstractLockNode12set_box_nodeEP4Node.exit ], [ %.076, %152 ], [ 0, %213 ], [ 0, %221 ]
+  %.177 = phi i8 [ %.076, %152 ], [ %.076, %_ZN16AbstractLockNode12set_box_nodeEP4Node.exit ], [ 0, %213 ], [ 0, %221 ]
   %227 = load i32, ptr %65, align 4
   %228 = and i32 %227, 3
   %229 = icmp eq i32 %228, 3
@@ -11560,7 +11560,7 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit: ; preds = %_ZN9VectorSet8te
   br i1 %exitcond119.not, label %.loopexit98, label %244, !llvm.loop !40
 
 .loopexit98:                                      ; preds = %._crit_edge, %235, %230, %_ZN12FastLockNode12set_box_nodeEP4Node.exit
-  %.2 = phi i8 [ %.177, %_ZN12FastLockNode12set_box_nodeEP4Node.exit ], [ %.177, %230 ], [ %.177, %235 ], [ %.4.lcssa, %._crit_edge ]
+  %.2 = phi i8 [ %.177, %230 ], [ %.177, %_ZN12FastLockNode12set_box_nodeEP4Node.exit ], [ %.177, %235 ], [ %.4.lcssa, %._crit_edge ]
   %307 = zext nneg i8 %.2 to i32
   %spec.select = add i32 %.075109, %307
   %308 = load i32, ptr %54, align 8
@@ -13722,7 +13722,7 @@ _ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i84: ; preds = %22
   tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %282, ptr noundef nonnull %33, ptr noundef %281) #9
   br label %286
 
-286:                                              ; preds = %_ZN9Node_List4pushEP4Node.exit.i, %166, %178, %_ZN9Node_List4pushEP4Node.exit.i82, %237, %264, %_ZN9VectorSet8test_setEj.exit.i, %_ZN9VectorSet8test_setEj.exit.i79, %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i84, %231
+286:                                              ; preds = %166, %178, %237, %264, %_ZN9VectorSet8test_setEj.exit.i, %_ZN9Node_List4pushEP4Node.exit.i, %_ZN9VectorSet8test_setEj.exit.i79, %_ZN9Node_List4pushEP4Node.exit.i82, %_ZN17GrowableArrayViewIP4NodeE18remove_if_existingERKS1_.exit.i84, %231
   %287 = load ptr, ptr %2, align 8
   tail call void @_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node(ptr noundef nonnull align 8 dereferenceable(2316) %287, i32 noundef 57, i32 noundef 5, ptr noundef nonnull %33) #9
   br label %_ZN16Unique_Node_List4pushEP4Node.exit
@@ -14212,7 +14212,7 @@ _ZN16PhaseMacroExpand21expand_allocate_arrayEP17AllocateArrayNode.exit: ; preds 
   br label %_ZN7Compile16check_node_countEjPKc.exit.thread
 
 _ZN7Compile16check_node_countEjPKc.exit.thread:   ; preds = %404, %393, %551, %540, %493, %481, %386, %374, %.split.us, %9, %._crit_edge162
-  %.0 = phi i1 [ true, %374 ], [ true, %9 ], [ true, %551 ], [ true, %386 ], [ true, %481 ], [ false, %._crit_edge162 ], [ true, %.split.us ], [ true, %493 ], [ true, %540 ], [ true, %393 ], [ true, %404 ]
+  %.0 = phi i1 [ false, %._crit_edge162 ], [ true, %9 ], [ true, %.split.us ], [ true, %374 ], [ true, %386 ], [ true, %481 ], [ true, %493 ], [ true, %540 ], [ true, %551 ], [ true, %393 ], [ true, %404 ]
   ret i1 %.0
 }
 

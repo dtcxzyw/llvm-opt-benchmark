@@ -620,7 +620,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit896:              ; preds = %143, %_ZNKSt7__cxx1
           to label %161 unwind label %202
 
 161:                                              ; preds = %149, %155, %158, %159
-  %162 = phi i1 [ false, %149 ], [ true, %158 ], [ true, %155 ], [ %160, %159 ]
+  %162 = phi i1 [ true, %158 ], [ true, %155 ], [ %160, %159 ], [ false, %149 ]
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %164 = load ptr, ptr %163, align 8, !tbaa !172
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -860,8 +860,8 @@ _ZNSt10unique_ptrIN3gmx17EssentialDynamicsESt14default_deleteIS1_EED2Ev.exit: ; 
   br label %308
 
 308:                                              ; preds = %286, %.thread1507, %304
-  %309 = phi i1 [ false, %286 ], [ %298, %.thread1507 ], [ %298, %304 ]
-  %310 = phi i1 [ %291, %286 ], [ true, %.thread1507 ], [ %307, %304 ]
+  %309 = phi i1 [ %298, %304 ], [ %298, %.thread1507 ], [ false, %286 ]
+  %310 = phi i1 [ %307, %304 ], [ true, %.thread1507 ], [ %291, %286 ]
   %311 = getelementptr inbounds nuw i8, ptr %107, i64 608
   %312 = load i8, ptr %311, align 8, !tbaa !258, !range !170, !noundef !171
   %313 = trunc nuw i8 %312 to i1
@@ -878,7 +878,7 @@ _ZNSt10unique_ptrIN3gmx17EssentialDynamicsESt14default_deleteIS1_EED2Ev.exit: ; 
   br label %321
 
 321:                                              ; preds = %314, %308
-  %322 = phi i1 [ %spec.select1535, %314 ], [ false, %308 ]
+  %322 = phi i1 [ false, %308 ], [ %spec.select1535, %314 ]
   %or.cond = select i1 %309, i1 true, i1 %279
   %or.cond3 = or i1 %or.cond, %310
   %spec.select = select i1 %or.cond3, i1 true, i1 %322
@@ -1992,7 +1992,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit943: ; preds = %86
   br label %4259
 
 868:                                              ; preds = %848, %844, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.0584 = phi ptr [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ null, %844 ], [ %855, %848 ]
+  %.0584 = phi ptr [ null, %844 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %855, %848 ]
   %869 = load ptr, ptr %118, align 8, !tbaa !163
   %870 = getelementptr inbounds nuw i8, ptr %869, i64 36
   %871 = load i8, ptr %870, align 4, !tbaa !518, !range !170, !noundef !171
@@ -2976,8 +2976,8 @@ _ZSt11make_uniqueIN3gmx12ResetHandlerEJNS0_6compat8not_nullIPNS0_16SimulationSig
   br label %1431
 
 1431:                                             ; preds = %1423, %1420, %_ZSt11make_uniqueIN3gmx12ResetHandlerEJNS0_6compat8not_nullIPNS0_16SimulationSignalEEEbRKlbRKbRKfRKNS0_8MDLoggerERP13gmx_wallcycleRP23gmx_walltime_accountingEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %storemerge.i = phi i8 [ %1430, %1423 ], [ 0, %1420 ], [ 0, %_ZSt11make_uniqueIN3gmx12ResetHandlerEJNS0_6compat8not_nullIPNS0_16SimulationSignalEEEbRKlbRKbRKfRKNS0_8MDLoggerERP13gmx_wallcycleRP23gmx_walltime_accountingEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
-  %1432 = phi ptr [ %1422, %1423 ], [ null, %1420 ], [ null, %_ZSt11make_uniqueIN3gmx12ResetHandlerEJNS0_6compat8not_nullIPNS0_16SimulationSignalEEEbRKlbRKbRKfRKNS0_8MDLoggerERP13gmx_wallcycleRP23gmx_walltime_accountingEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
+  %storemerge.i = phi i8 [ 0, %1420 ], [ %1430, %1423 ], [ 0, %_ZSt11make_uniqueIN3gmx12ResetHandlerEJNS0_6compat8not_nullIPNS0_16SimulationSignalEEEbRKlbRKbRKfRKNS0_8MDLoggerERP13gmx_wallcycleRP23gmx_walltime_accountingEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
+  %1432 = phi ptr [ null, %1420 ], [ %1422, %1423 ], [ null, %_ZSt11make_uniqueIN3gmx12ResetHandlerEJNS0_6compat8not_nullIPNS0_16SimulationSignalEEEbRKlbRKbRKfRKNS0_8MDLoggerERP13gmx_wallcycleRP23gmx_walltime_accountingEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
   store i8 %storemerge.i, ptr %57, align 8, !tbaa !659
   %1433 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %1432, ptr %1433, align 8, !tbaa !661
@@ -3289,7 +3289,7 @@ _ZSt11make_uniqueIN3gmx12ResetHandlerEJNS0_6compat8not_nullIPNS0_16SimulationSig
           to label %.thread1511 unwind label %1635
 
 .thread1511:                                      ; preds = %1615, %1654, %1618
-  %1673 = phi i1 [ %1622, %1618 ], [ true, %1654 ], [ false, %1615 ]
+  %1673 = phi i1 [ true, %1654 ], [ %1622, %1618 ], [ false, %1615 ]
   %1674 = load ptr, ptr %356, align 8, !tbaa !269
   %1675 = icmp eq ptr %1674, null
   br i1 %1675, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit978, label %1676
@@ -3492,7 +3492,7 @@ _ZN3gmx11StopHandler18isSuitableStopStepEli.exit.fold.split.i: ; preds = %1766
   br label %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEl.exit
 
 _ZNK3gmx11StopHandler24stoppingAfterCurrentStepEl.exit: ; preds = %_ZN3gmx11StopHandler18isSuitableStopStepEli.exit.fold.split.i, %1775, %1771, %1766, %_Z11do_per_stepll.exit985
-  %1779 = phi i1 [ true, %_Z11do_per_stepll.exit985 ], [ true, %1766 ], [ %1778, %1775 ], [ true, %1771 ], [ false, %_ZN3gmx11StopHandler18isSuitableStopStepEli.exit.fold.split.i ]
+  %1779 = phi i1 [ true, %_Z11do_per_stepll.exit985 ], [ true, %1766 ], [ true, %1771 ], [ %1778, %1775 ], [ false, %_ZN3gmx11StopHandler18isSuitableStopStepEli.exit.fold.split.i ]
   %1780 = load i32, ptr %1460, align 4, !tbaa !682
   %.not.i986 = icmp eq i32 %1780, 0
   br i1 %.not.i986, label %_Z11do_per_stepll.exit988.thread, label %_Z11do_per_stepll.exit988
@@ -3511,7 +3511,7 @@ _Z11do_per_stepll.exit988.thread:                 ; preds = %_ZNK3gmx11StopHandl
   br label %1786
 
 1786:                                             ; preds = %_Z11do_per_stepll.exit988.thread, %_Z11do_per_stepll.exit988
-  %1787 = phi i1 [ %spec.select855, %_Z11do_per_stepll.exit988.thread ], [ true, %_Z11do_per_stepll.exit988 ]
+  %1787 = phi i1 [ true, %_Z11do_per_stepll.exit988 ], [ %spec.select855, %_Z11do_per_stepll.exit988.thread ]
   %1788 = load ptr, ptr %118, align 8, !tbaa !163
   %1789 = getelementptr inbounds nuw i8, ptr %1788, i64 48
   %1790 = load i8, ptr %1789, align 8, !tbaa !662, !range !170, !noundef !171
@@ -4316,7 +4316,7 @@ _Z11do_per_stepll.exit1029.thread:                ; preds = %2219, %_Z11do_per_s
   br label %2227
 
 2227:                                             ; preds = %_Z11do_per_stepll.exit1026, %_Z11do_per_stepll.exit1029, %_Z11do_per_stepll.exit1029.thread
-  %2228 = phi i1 [ %2226, %_Z11do_per_stepll.exit1029.thread ], [ false, %_Z11do_per_stepll.exit1026 ], [ true, %_Z11do_per_stepll.exit1029 ]
+  %2228 = phi i1 [ true, %_Z11do_per_stepll.exit1029 ], [ %2226, %_Z11do_per_stepll.exit1029.thread ], [ false, %_Z11do_per_stepll.exit1026 ]
   %2229 = load i32, ptr %517, align 4, !tbaa !479
   %2230 = icmp eq i32 %2229, 2
   br i1 %2230, label %2231, label %_Z11do_per_stepll.exit1032
@@ -4437,7 +4437,7 @@ _Z11do_per_stepll.exit1044.thread:                ; preds = %_Z11do_per_stepll.e
   br label %2284
 
 2284:                                             ; preds = %_Z11do_per_stepll.exit1044.thread, %_Z11do_per_stepll.exit1044, %_Z11do_per_stepll.exit1041, %_Z11do_per_stepll.exit1038, %_Z11do_per_stepll.exit1035, %2262
-  %2285 = phi i1 [ false, %_Z11do_per_stepll.exit1044 ], [ false, %_Z11do_per_stepll.exit1041 ], [ false, %_Z11do_per_stepll.exit1038 ], [ false, %_Z11do_per_stepll.exit1035 ], [ %2283, %_Z11do_per_stepll.exit1044.thread ], [ false, %2262 ]
+  %2285 = phi i1 [ false, %_Z11do_per_stepll.exit1044 ], [ false, %_Z11do_per_stepll.exit1041 ], [ false, %_Z11do_per_stepll.exit1038 ], [ false, %_Z11do_per_stepll.exit1035 ], [ false, %2262 ], [ %2283, %_Z11do_per_stepll.exit1044.thread ]
   %2286 = invoke noundef zeroext i1 @_ZN3gmx10MdGpuGraph15captureThisStepEb(ptr noundef nonnull align 8 dereferenceable(8) %2249, i1 noundef zeroext %2285)
           to label %2287 unwind label %2293
 
@@ -6673,8 +6673,8 @@ _Z11do_per_stepll.exit1123._crit_edge:            ; preds = %_Z11do_per_stepll.e
   br label %_Z11do_per_stepll.exit1137
 
 _Z11do_per_stepll.exit1137:                       ; preds = %3572, %3576, %3579, %3587, %3584
-  %or.cond113 = phi i1 [ false, %3572 ], [ %3591, %3587 ], [ false, %3584 ], [ false, %3576 ], [ %3583, %3579 ]
-  %3592 = phi i1 [ false, %3572 ], [ %3591, %3587 ], [ false, %3584 ], [ false, %3576 ], [ false, %3579 ]
+  %or.cond113 = phi i1 [ false, %3584 ], [ %3591, %3587 ], [ false, %3576 ], [ %3583, %3579 ], [ false, %3572 ]
+  %3592 = phi i1 [ false, %3584 ], [ %3591, %3587 ], [ false, %3576 ], [ false, %3579 ], [ false, %3572 ]
   %or.cond116 = or i1 %2240, %or.cond113
   %or.cond850 = and i1 %or.cond116, %382
   br i1 %or.cond850, label %3593, label %3651
@@ -8007,18 +8007,18 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit: ; preds = %_ZN9t_extmassD2
   ret void
 
 _ZNSt10unique_ptrIN3gmx12ResetHandlerESt14default_deleteIS1_EED2Ev.exit1183: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i1062, %_ZNSt6vectorIiSaIiEED2Ev.exit.i1094, %_ZNSt6vectorIiSaIiEED2Ev.exit.i1109, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %2161, %2183, %2293, %2428, %3367, %3191, %3193, %3324, %3127, %3093, %2864, %2795, %3531, %3422, %3642, %4077, %4107, %3795, %3825, %3849, %3777, %.body1140, %3644, %3640, %2256, %2159, %2258, %2469, %2992, %4119, %1739, %1741, %1803, %2081, %2032, %1961, %1939, %1635, %1453
-  %.pn781.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1454, %1453 ], [ %4120, %4119 ], [ %1636, %1635 ], [ %1740, %1739 ], [ %1742, %1741 ], [ %3017, %_ZNSt6vectorIiSaIiEED2Ev.exit.i1109 ], [ %1804, %1803 ], [ %1962, %1961 ], [ %1940, %1939 ], [ %2082, %2081 ], [ %2033, %2032 ], [ %lpad.loopexit.split-lp1567, %.loopexit.split-lp.loopexit.split-lp ], [ %2160, %2159 ], [ %2162, %2161 ], [ %2184, %2183 ], [ %2257, %2256 ], [ %3423, %3422 ], [ %4078, %4077 ], [ %3194, %3193 ], [ %3368, %3367 ], [ %2294, %2293 ], [ %lpad.phi.i, %2469 ], [ %2429, %2428 ], [ %lpad.phi.i1091, %2992 ], [ %lpad.phi.i1091, %_ZNSt6vectorIiSaIiEED2Ev.exit.i1094 ], [ %3128, %3127 ], [ %3094, %3093 ], [ %2796, %2795 ], [ %2865, %2864 ], [ %3325, %3324 ], [ %3192, %3191 ], [ %3532, %3531 ], [ %3641, %3640 ], [ %3643, %3642 ], [ %eh.lpad-body1141, %.body1140 ], [ %3826, %3825 ], [ %3645, %3644 ], [ %3778, %3777 ], [ %.pn781, %3849 ], [ %3796, %3795 ], [ %4108, %4107 ], [ %2259, %2258 ], [ %2591, %_ZNSt6vectorIiSaIiEED2Ev.exit.i1062 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit1566, %.loopexit.split-lp.loopexit ], [ %lpad.phi.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ]
+  %.pn781.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1454, %1453 ], [ %4120, %4119 ], [ %1636, %1635 ], [ %1742, %1741 ], [ %1740, %1739 ], [ %1804, %1803 ], [ %1940, %1939 ], [ %2082, %2081 ], [ %2033, %2032 ], [ %1962, %1961 ], [ %2160, %2159 ], [ %2184, %2183 ], [ %2162, %2161 ], [ %2257, %2256 ], [ %3368, %3367 ], [ %2429, %2428 ], [ %2294, %2293 ], [ %3128, %3127 ], [ %3094, %3093 ], [ %2865, %2864 ], [ %2796, %2795 ], [ %3325, %3324 ], [ %3192, %3191 ], [ %3194, %3193 ], [ %3532, %3531 ], [ %3423, %3422 ], [ %3641, %3640 ], [ %3643, %3642 ], [ %3645, %3644 ], [ %3778, %3777 ], [ %eh.lpad-body1141, %.body1140 ], [ %.pn781, %3849 ], [ %3796, %3795 ], [ %3826, %3825 ], [ %4108, %4107 ], [ %4078, %4077 ], [ %2259, %2258 ], [ %lpad.phi.i, %2469 ], [ %lpad.phi.i1091, %2992 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit1566, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1567, %.loopexit.split-lp.loopexit.split-lp ], [ %3017, %_ZNSt6vectorIiSaIiEED2Ev.exit.i1109 ], [ %lpad.phi.i1091, %_ZNSt6vectorIiSaIiEED2Ev.exit.i1094 ], [ %2591, %_ZNSt6vectorIiSaIiEED2Ev.exit.i1062 ], [ %lpad.phi.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   call void @_ZdlPvm(ptr noundef nonnull %1408, i64 noundef 16) #24
   br label %_ZNSt10unique_ptrIN3gmx17CheckpointHandlerESt14default_deleteIS1_EED2Ev.exit1186
 
 _ZNSt10unique_ptrIN3gmx17CheckpointHandlerESt14default_deleteIS1_EED2Ev.exit1186: ; preds = %1417, %1451, %_ZNSt10unique_ptrIN3gmx12ResetHandlerESt14default_deleteIS1_EED2Ev.exit1183
-  %.pn781.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn781.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt10unique_ptrIN3gmx12ResetHandlerESt14default_deleteIS1_EED2Ev.exit1183 ], [ %1418, %1417 ], [ %1452, %1451 ]
+  %.pn781.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn781.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt10unique_ptrIN3gmx12ResetHandlerESt14default_deleteIS1_EED2Ev.exit1183 ], [ %1452, %1451 ], [ %1418, %1417 ]
   call void @_ZdlPvm(ptr noundef nonnull %1387, i64 noundef 24) #24
   br label %.body970
 
 .body970:                                         ; preds = %_ZNSt10unique_ptrIN3gmx17CheckpointHandlerESt14default_deleteIS1_EED2Ev.exit1186, %1449, %1391, %_ZN3gmx14LogEntryWriterD2Ev.exit968
-  %.pn781.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1392, %1391 ], [ %1368, %_ZN3gmx14LogEntryWriterD2Ev.exit968 ], [ %.pn781.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt10unique_ptrIN3gmx17CheckpointHandlerESt14default_deleteIS1_EED2Ev.exit1186 ], [ %1450, %1449 ]
+  %.pn781.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1368, %_ZN3gmx14LogEntryWriterD2Ev.exit968 ], [ %.pn781.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt10unique_ptrIN3gmx17CheckpointHandlerESt14default_deleteIS1_EED2Ev.exit1186 ], [ %1450, %1449 ], [ %1392, %1391 ]
   call void @_ZNSt10unique_ptrIN3gmx11StopHandlerESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %55) #25
   br label %4240
 
@@ -8058,7 +8058,7 @@ _ZN3gmx16EnumerationArrayI15TrotterSequenceSt6vectorIiSaIiEELS1_5EED2Ev.exit1189
   br label %4254
 
 4254:                                             ; preds = %1126, %1128, %_ZN3gmx16EnumerationArrayI15TrotterSequenceSt6vectorIiSaIiEELS1_5EED2Ev.exit1189, %1161
-  %.pn806.pn = phi { ptr, i32 } [ %1162, %1161 ], [ %1127, %1126 ], [ %.pn781.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN3gmx16EnumerationArrayI15TrotterSequenceSt6vectorIiSaIiEELS1_5EED2Ev.exit1189 ], [ %1129, %1128 ]
+  %.pn806.pn = phi { ptr, i32 } [ %.pn781.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN3gmx16EnumerationArrayI15TrotterSequenceSt6vectorIiSaIiEELS1_5EED2Ev.exit1189 ], [ %1162, %1161 ], [ %1129, %1128 ], [ %1127, %1126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %4255
 
@@ -8078,7 +8078,7 @@ _ZN3gmx16EnumerationArrayI15TrotterSequenceSt6vectorIiSaIiEELS1_5EED2Ev.exit1189
   br label %4258
 
 4258:                                             ; preds = %1012, %4257, %899
-  %.pn806.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %900, %899 ], [ %1013, %1012 ], [ %.pn806.pn.pn.pn.pn, %4257 ]
+  %.pn806.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %900, %899 ], [ %.pn806.pn.pn.pn.pn, %4257 ], [ %1013, %1012 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %4259
 
@@ -8093,7 +8093,7 @@ _ZN3gmx16EnumerationArrayI15TrotterSequenceSt6vectorIiSaIiEELS1_5EED2Ev.exit1189
   br label %.body
 
 .body:                                            ; preds = %731, %720, %_ZN3gmx14LogEntryWriterD2Ev.exit933, %_ZN3gmx14LogEntryWriterD2Ev.exit921, %4260, %768, %729, %727, %645, %643, %641, %639, %637, %635, %633, %631, %629, %627, %625, %623
-  %.pn816.pn = phi { ptr, i32 } [ %.pn816, %768 ], [ %.pn806.pn.pn.pn.pn.pn.pn.pn.pn, %4260 ], [ %624, %623 ], [ %732, %731 ], [ %730, %729 ], [ %728, %727 ], [ %626, %625 ], [ %721, %720 ], [ %646, %645 ], [ %644, %643 ], [ %642, %641 ], [ %640, %639 ], [ %638, %637 ], [ %636, %635 ], [ %634, %633 ], [ %632, %631 ], [ %630, %629 ], [ %628, %627 ], [ %660, %_ZN3gmx14LogEntryWriterD2Ev.exit921 ], [ %683, %_ZN3gmx14LogEntryWriterD2Ev.exit933 ]
+  %.pn816.pn = phi { ptr, i32 } [ %.pn816, %768 ], [ %.pn806.pn.pn.pn.pn.pn.pn.pn.pn, %4260 ], [ %624, %623 ], [ %730, %729 ], [ %728, %727 ], [ %646, %645 ], [ %644, %643 ], [ %642, %641 ], [ %640, %639 ], [ %638, %637 ], [ %636, %635 ], [ %634, %633 ], [ %632, %631 ], [ %630, %629 ], [ %628, %627 ], [ %626, %625 ], [ %660, %_ZN3gmx14LogEntryWriterD2Ev.exit921 ], [ %683, %_ZN3gmx14LogEntryWriterD2Ev.exit933 ], [ %732, %731 ], [ %721, %720 ]
   call void @_ZNSt10unique_ptrIN3gmx18UpdateConstrainGpuESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %4261
@@ -8125,7 +8125,7 @@ _ZN3gmx16EnumerationArrayI15TrotterSequenceSt6vectorIiSaIiEELS1_5EED2Ev.exit1189
   br label %4266
 
 4266:                                             ; preds = %418, %4265, %339, %332
-  %.pn816.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %333, %332 ], [ %419, %418 ], [ %340, %339 ], [ %.pn816.pn.pn.pn.pn.pn.pn.pn, %4265 ]
+  %.pn816.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %333, %332 ], [ %340, %339 ], [ %.pn816.pn.pn.pn.pn.pn.pn.pn, %4265 ], [ %419, %418 ]
   call void @_ZN3gmx6UpdateD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #25
   br label %4267
 
@@ -8135,13 +8135,13 @@ _ZN3gmx16EnumerationArrayI15TrotterSequenceSt6vectorIiSaIiEELS1_5EED2Ev.exit1189
   br label %4268
 
 4268:                                             ; preds = %328, %4267, %222, %208, %206
-  %.pn816.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %207, %206 ], [ %209, %208 ], [ %.pn715, %222 ], [ %.pn816.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %4267 ], [ %329, %328 ]
+  %.pn816.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %209, %208 ], [ %.pn715, %222 ], [ %207, %206 ], [ %.pn816.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %4267 ], [ %329, %328 ]
   call void @_ZNSt10unique_ptrIN3gmx17EssentialDynamicsESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %4269
 
 4269:                                             ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit896, %202, %4268, %204, %129
-  %.pn816.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %130, %129 ], [ %205, %204 ], [ %203, %202 ], [ %.pn816.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %4268 ], [ %144, %_ZN3gmx14LogEntryWriterD2Ev.exit896 ]
+  %.pn816.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %130, %129 ], [ %203, %202 ], [ %.pn816.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %4268 ], [ %205, %204 ], [ %144, %_ZN3gmx14LogEntryWriterD2Ev.exit896 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)

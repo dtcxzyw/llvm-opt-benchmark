@@ -144,9 +144,9 @@ define hidden range(i32 -1, 1) i32 @dom_text_whole_text_read(ptr noundef %0, ptr
   br label %smart_str_alloc.exit
 
 smart_str_alloc.exit:                             ; preds = %22, %27
-  %28 = phi i64 [ %24, %22 ], [ %.pre41, %27 ]
-  %29 = phi ptr [ %15, %22 ], [ %.pre, %27 ]
-  %.1.i = phi i64 [ %25, %22 ], [ %.0.i, %27 ]
+  %28 = phi i64 [ %.pre41, %27 ], [ %24, %22 ]
+  %29 = phi ptr [ %.pre, %27 ], [ %15, %22 ]
+  %.1.i = phi i64 [ %.0.i, %27 ], [ %25, %22 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %19, i64 %21, i1 false)

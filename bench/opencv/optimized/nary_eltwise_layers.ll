@@ -2739,7 +2739,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i46
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48
 
 139:                                              ; preds = %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30
-  %.sink = phi i32 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ 3, %64 ], [ 5, %70 ], [ 9, %76 ], [ 11, %82 ], [ 13, %88 ], [ 15, %94 ], [ 17, %100 ], [ 19, %106 ], [ 6, %112 ], [ 8, %115 ], [ 0, %109 ], [ 18, %103 ], [ 16, %97 ], [ 14, %91 ], [ 12, %85 ], [ 10, %79 ], [ 7, %73 ], [ 4, %67 ], [ 2, %61 ], [ 20, %118 ]
+  %.sink = phi i32 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ 2, %61 ], [ 3, %64 ], [ 4, %67 ], [ 5, %70 ], [ 7, %73 ], [ 9, %76 ], [ 10, %79 ], [ 11, %82 ], [ 12, %85 ], [ 13, %88 ], [ 14, %91 ], [ 15, %94 ], [ 16, %97 ], [ 17, %100 ], [ 18, %103 ], [ 19, %106 ], [ 0, %109 ], [ 6, %112 ], [ 8, %115 ], [ 20, %118 ]
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i32 %.sink, ptr %140, align 8, !tbaa !27
   %141 = load ptr, ptr %4, align 8, !tbaa !20
@@ -2857,7 +2857,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v2
   tail call void @_ZNK2cv3dnn14dnn4_v202412239DictValue3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_i(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef -1)
   br label %48
 
-_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v202412239DictValueESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv3dnn14dnn4_v202412239DictValueEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %4, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v202412239DictValueESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit
+_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v202412239DictValueESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread: ; preds = %4, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv3dnn14dnn4_v202412239DictValueEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v202412239DictValueESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %33, ptr %0, align 8, !tbaa !13
   %34 = load ptr, ptr %3, align 8, !tbaa !20
@@ -3662,7 +3662,7 @@ switch.lookup9:                                   ; preds = %7
   br label %switch.edge
 
 switch.edge:                                      ; preds = %7, %switch.lookup9, %3, %switch.lookup, %2, %11
-  %.0 = phi i1 [ false, %11 ], [ %switch.masked13, %switch.lookup9 ], [ %switch.masked, %switch.lookup ], [ true, %2 ], [ false, %3 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %11 ], [ true, %2 ], [ %switch.masked, %switch.lookup ], [ false, %3 ], [ %switch.masked13, %switch.lookup9 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -5455,7 +5455,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit218:                 ; preds = %_ZNSt6vectorImSaImE
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit279, %.loopexit.split-lp280, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit
-  %.pn65 = phi { ptr, i32 } [ %lpad.loopexit.split-lp277, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit261, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit265, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit268, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit276, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit281, %.loopexit279 ], [ %lpad.loopexit.split-lp282, %.loopexit.split-lp280 ]
+  %.pn65 = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit261, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit265, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit268, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit276, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp277, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit281, %.loopexit279 ], [ %lpad.loopexit.split-lp282, %.loopexit.split-lp280 ]
   %442 = load ptr, ptr %7, align 8, !tbaa !67
   %.not.i.i.i219 = icmp eq ptr %442, null
   br i1 %.not.i.i.i219, label %_ZNSt6vectorImSaImEED2Ev.exit220, label %443
@@ -5490,8 +5490,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit224:                 ; preds = %._crit_edge298, %44
   ret void
 
 447:                                              ; preds = %.loopexit272, %.loopexit.split-lp273, %.loopexit286, %.loopexit.split-lp287, %_ZNSt6vectorIiSaIiEED2Ev.exit164, %_ZNSt6vectorImSaImEED2Ev.exit166, %_ZNSt6vectorIiSaIiEED2Ev.exit222
-  %.sroa.0253.0 = phi ptr [ %.sroa.0253.3, %_ZNSt6vectorIiSaIiEED2Ev.exit164 ], [ %.sroa.0253.3, %_ZNSt6vectorIiSaIiEED2Ev.exit222 ], [ %.sroa.0253.1, %.loopexit.split-lp287 ], [ %.sroa.0253.3, %_ZNSt6vectorImSaImEED2Ev.exit166 ], [ %.sroa.0253.1, %.loopexit286 ], [ %.sroa.0253.3, %.loopexit.split-lp273 ], [ %.sroa.0253.3, %.loopexit272 ]
-  %.pn65.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit164 ], [ %.pn65, %_ZNSt6vectorIiSaIiEED2Ev.exit222 ], [ %lpad.loopexit.split-lp289, %.loopexit.split-lp287 ], [ %.pn62, %_ZNSt6vectorImSaImEED2Ev.exit166 ], [ %lpad.loopexit288, %.loopexit286 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp273 ], [ %lpad.loopexit274, %.loopexit272 ]
+  %.sroa.0253.0 = phi ptr [ %.sroa.0253.3, %_ZNSt6vectorIiSaIiEED2Ev.exit222 ], [ %.sroa.0253.3, %_ZNSt6vectorImSaImEED2Ev.exit166 ], [ %.sroa.0253.3, %_ZNSt6vectorIiSaIiEED2Ev.exit164 ], [ %.sroa.0253.1, %.loopexit286 ], [ %.sroa.0253.1, %.loopexit.split-lp287 ], [ %.sroa.0253.3, %.loopexit.split-lp273 ], [ %.sroa.0253.3, %.loopexit272 ]
+  %.pn65.pn.pn = phi { ptr, i32 } [ %.pn65, %_ZNSt6vectorIiSaIiEED2Ev.exit222 ], [ %.pn62, %_ZNSt6vectorImSaImEED2Ev.exit166 ], [ %.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit164 ], [ %lpad.loopexit288, %.loopexit286 ], [ %lpad.loopexit.split-lp289, %.loopexit.split-lp287 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp273 ], [ %lpad.loopexit274, %.loopexit272 ]
   %.not.i.i.i225 = icmp eq ptr %.sroa.0253.0, null
   br i1 %.not.i.i.i225, label %_ZNSt6vectorIiSaIiEED2Ev.exit226, label %448
 
@@ -5613,8 +5613,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
   br label %68
 
 68:                                               ; preds = %40, %54, %57
-  %69 = phi i32 [ %51, %57 ], [ %51, %54 ], [ %45, %40 ]
-  %70 = phi i64 [ %67, %57 ], [ %56, %54 ], [ %49, %40 ]
+  %69 = phi i32 [ %51, %54 ], [ %51, %57 ], [ %45, %40 ]
+  %70 = phi i64 [ %56, %54 ], [ %67, %57 ], [ %49, %40 ]
   %71 = getelementptr inbounds nuw %"class.std::vector.3", ptr %14, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8, !tbaa !73
   %73 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv171
@@ -5631,7 +5631,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn17NaryEltwiseHelper24pr
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader122.lr.ph, %._crit_edge.loopexit
-  %77 = phi i32 [ %3, %.preheader122.lr.ph ], [ %.pre, %._crit_edge.loopexit ]
+  %77 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %3, %.preheader122.lr.ph ]
   %78 = add nsw i32 %77, -1
   %79 = icmp sgt i32 %77, 1
   br i1 %79, label %.preheader121.lr.ph, label %.preheader115.lr.ph
@@ -26465,8 +26465,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   br i1 %108, label %91, label %.loopexit, !llvm.loop !821
 
 .loopexit:                                        ; preds = %91, %.lr.ph77, %87, %67
-  %109 = phi i32 [ %84, %.lr.ph77 ], [ %51, %67 ], [ %51, %87 ], [ %106, %91 ]
-  %110 = phi i32 [ %84, %.lr.ph77 ], [ %51, %67 ], [ %52, %87 ], [ %106, %91 ]
+  %109 = phi i32 [ %51, %87 ], [ %51, %67 ], [ %84, %.lr.ph77 ], [ %106, %91 ]
+  %110 = phi i32 [ %52, %87 ], [ %51, %67 ], [ %84, %.lr.ph77 ], [ %106, %91 ]
   %111 = load ptr, ptr %26, align 8, !tbaa !812
   %112 = load i32, ptr %111, align 4, !tbaa !96
   %113 = sext i32 %112 to i64
@@ -26953,8 +26953,8 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
   br i1 %164, label %148, label %.loopexit, !llvm.loop !844
 
 .loopexit:                                        ; preds = %148, %.lr.ph148, %.preheader105, %.preheader
-  %165 = phi i32 [ %145, %.lr.ph148 ], [ %116, %.preheader ], [ %116, %.preheader105 ], [ %162, %148 ]
-  %166 = phi i32 [ %145, %.lr.ph148 ], [ %116, %.preheader ], [ %117, %.preheader105 ], [ %162, %148 ]
+  %165 = phi i32 [ %116, %.preheader105 ], [ %116, %.preheader ], [ %145, %.lr.ph148 ], [ %162, %148 ]
+  %166 = phi i32 [ %117, %.preheader105 ], [ %116, %.preheader ], [ %145, %.lr.ph148 ], [ %162, %148 ]
   %167 = load ptr, ptr %22, align 8, !tbaa !829
   %168 = load i32, ptr %167, align 4, !tbaa !96
   %169 = sext i32 %168 to i64
@@ -27075,9 +27075,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
   br i1 %240, label %222, label %.loopexit107.loopexit, !llvm.loop !848
 
 .loopexit109:                                     ; preds = %.loopexit107, %.loopexit, %.preheader111, %.preheader108
-  %241 = phi i32 [ %168, %.loopexit ], [ %97, %.preheader108 ], [ %175, %.preheader111 ], [ %203, %.loopexit107 ]
-  %242 = phi i32 [ %168, %.loopexit ], [ %97, %.preheader108 ], [ %176, %.preheader111 ], [ %204, %.loopexit107 ]
-  %243 = phi i32 [ %168, %.loopexit ], [ %97, %.preheader108 ], [ %178, %.preheader111 ], [ %204, %.loopexit107 ]
+  %241 = phi i32 [ %175, %.preheader111 ], [ %97, %.preheader108 ], [ %168, %.loopexit ], [ %203, %.loopexit107 ]
+  %242 = phi i32 [ %176, %.preheader111 ], [ %97, %.preheader108 ], [ %168, %.loopexit ], [ %204, %.loopexit107 ]
+  %243 = phi i32 [ %178, %.preheader111 ], [ %97, %.preheader108 ], [ %168, %.loopexit ], [ %204, %.loopexit107 ]
   %indvars.iv.next181 = add nsw i64 %indvars.iv180, 1
   %244 = load i32, ptr %18, align 4, !tbaa !174
   %245 = sext i32 %244 to i64
@@ -27679,8 +27679,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   br i1 %110, label %92, label %.loopexit, !llvm.loop !864
 
 .loopexit:                                        ; preds = %92, %.lr.ph77, %88, %67
-  %111 = phi i32 [ %85, %.lr.ph77 ], [ %51, %67 ], [ %51, %88 ], [ %108, %92 ]
-  %112 = phi i32 [ %85, %.lr.ph77 ], [ %51, %67 ], [ %52, %88 ], [ %108, %92 ]
+  %111 = phi i32 [ %51, %88 ], [ %51, %67 ], [ %85, %.lr.ph77 ], [ %108, %92 ]
+  %112 = phi i32 [ %52, %88 ], [ %51, %67 ], [ %85, %.lr.ph77 ], [ %108, %92 ]
   %113 = load ptr, ptr %26, align 8, !tbaa !855
   %114 = load i32, ptr %113, align 4, !tbaa !96
   %115 = sext i32 %114 to i64
@@ -28169,8 +28169,8 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
   br i1 %165, label %149, label %.loopexit, !llvm.loop !886
 
 .loopexit:                                        ; preds = %149, %.lr.ph148, %.preheader105, %.preheader
-  %166 = phi i32 [ %146, %.lr.ph148 ], [ %117, %.preheader ], [ %117, %.preheader105 ], [ %163, %149 ]
-  %167 = phi i32 [ %146, %.lr.ph148 ], [ %117, %.preheader ], [ %118, %.preheader105 ], [ %163, %149 ]
+  %166 = phi i32 [ %117, %.preheader105 ], [ %117, %.preheader ], [ %146, %.lr.ph148 ], [ %163, %149 ]
+  %167 = phi i32 [ %118, %.preheader105 ], [ %117, %.preheader ], [ %146, %.lr.ph148 ], [ %163, %149 ]
   %168 = load ptr, ptr %22, align 8, !tbaa !871
   %169 = load i32, ptr %168, align 4, !tbaa !96
   %170 = sext i32 %169 to i64
@@ -28292,9 +28292,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
   br i1 %242, label %224, label %.loopexit107.loopexit, !llvm.loop !890
 
 .loopexit109:                                     ; preds = %.loopexit107, %.loopexit, %.preheader111, %.preheader108
-  %243 = phi i32 [ %169, %.loopexit ], [ %97, %.preheader108 ], [ %176, %.preheader111 ], [ %205, %.loopexit107 ]
-  %244 = phi i32 [ %169, %.loopexit ], [ %97, %.preheader108 ], [ %177, %.preheader111 ], [ %206, %.loopexit107 ]
-  %245 = phi i32 [ %169, %.loopexit ], [ %97, %.preheader108 ], [ %179, %.preheader111 ], [ %206, %.loopexit107 ]
+  %243 = phi i32 [ %176, %.preheader111 ], [ %97, %.preheader108 ], [ %169, %.loopexit ], [ %205, %.loopexit107 ]
+  %244 = phi i32 [ %177, %.preheader111 ], [ %97, %.preheader108 ], [ %169, %.loopexit ], [ %206, %.loopexit107 ]
+  %245 = phi i32 [ %179, %.preheader111 ], [ %97, %.preheader108 ], [ %169, %.loopexit ], [ %206, %.loopexit107 ]
   %indvars.iv.next181 = add nsw i64 %indvars.iv180, 1
   %246 = load i32, ptr %18, align 4, !tbaa !174
   %247 = sext i32 %246 to i64
@@ -28894,8 +28894,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   br i1 %108, label %91, label %.loopexit, !llvm.loop !906
 
 .loopexit:                                        ; preds = %91, %.lr.ph77, %87, %67
-  %109 = phi i32 [ %84, %.lr.ph77 ], [ %51, %67 ], [ %51, %87 ], [ %106, %91 ]
-  %110 = phi i32 [ %84, %.lr.ph77 ], [ %51, %67 ], [ %52, %87 ], [ %106, %91 ]
+  %109 = phi i32 [ %51, %87 ], [ %51, %67 ], [ %84, %.lr.ph77 ], [ %106, %91 ]
+  %110 = phi i32 [ %52, %87 ], [ %51, %67 ], [ %84, %.lr.ph77 ], [ %106, %91 ]
   %111 = load ptr, ptr %26, align 8, !tbaa !897
   %112 = load i32, ptr %111, align 4, !tbaa !96
   %113 = sext i32 %112 to i64
@@ -29382,8 +29382,8 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
   br i1 %164, label %148, label %.loopexit, !llvm.loop !928
 
 .loopexit:                                        ; preds = %148, %.lr.ph148, %.preheader105, %.preheader
-  %165 = phi i32 [ %145, %.lr.ph148 ], [ %116, %.preheader ], [ %116, %.preheader105 ], [ %162, %148 ]
-  %166 = phi i32 [ %145, %.lr.ph148 ], [ %116, %.preheader ], [ %117, %.preheader105 ], [ %162, %148 ]
+  %165 = phi i32 [ %116, %.preheader105 ], [ %116, %.preheader ], [ %145, %.lr.ph148 ], [ %162, %148 ]
+  %166 = phi i32 [ %117, %.preheader105 ], [ %116, %.preheader ], [ %145, %.lr.ph148 ], [ %162, %148 ]
   %167 = load ptr, ptr %22, align 8, !tbaa !913
   %168 = load i32, ptr %167, align 4, !tbaa !96
   %169 = sext i32 %168 to i64
@@ -29504,9 +29504,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
   br i1 %240, label %222, label %.loopexit107.loopexit, !llvm.loop !932
 
 .loopexit109:                                     ; preds = %.loopexit107, %.loopexit, %.preheader111, %.preheader108
-  %241 = phi i32 [ %168, %.loopexit ], [ %97, %.preheader108 ], [ %175, %.preheader111 ], [ %203, %.loopexit107 ]
-  %242 = phi i32 [ %168, %.loopexit ], [ %97, %.preheader108 ], [ %176, %.preheader111 ], [ %204, %.loopexit107 ]
-  %243 = phi i32 [ %168, %.loopexit ], [ %97, %.preheader108 ], [ %178, %.preheader111 ], [ %204, %.loopexit107 ]
+  %241 = phi i32 [ %175, %.preheader111 ], [ %97, %.preheader108 ], [ %168, %.loopexit ], [ %203, %.loopexit107 ]
+  %242 = phi i32 [ %176, %.preheader111 ], [ %97, %.preheader108 ], [ %168, %.loopexit ], [ %204, %.loopexit107 ]
+  %243 = phi i32 [ %178, %.preheader111 ], [ %97, %.preheader108 ], [ %168, %.loopexit ], [ %204, %.loopexit107 ]
   %indvars.iv.next181 = add nsw i64 %indvars.iv180, 1
   %244 = load i32, ptr %18, align 4, !tbaa !174
   %245 = sext i32 %244 to i64
@@ -30108,8 +30108,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   br i1 %110, label %92, label %.loopexit, !llvm.loop !948
 
 .loopexit:                                        ; preds = %92, %.lr.ph77, %88, %67
-  %111 = phi i32 [ %85, %.lr.ph77 ], [ %51, %67 ], [ %51, %88 ], [ %108, %92 ]
-  %112 = phi i32 [ %85, %.lr.ph77 ], [ %51, %67 ], [ %52, %88 ], [ %108, %92 ]
+  %111 = phi i32 [ %51, %88 ], [ %51, %67 ], [ %85, %.lr.ph77 ], [ %108, %92 ]
+  %112 = phi i32 [ %52, %88 ], [ %51, %67 ], [ %85, %.lr.ph77 ], [ %108, %92 ]
   %113 = load ptr, ptr %26, align 8, !tbaa !939
   %114 = load i32, ptr %113, align 4, !tbaa !96
   %115 = sext i32 %114 to i64
@@ -30598,8 +30598,8 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
   br i1 %165, label %149, label %.loopexit, !llvm.loop !970
 
 .loopexit:                                        ; preds = %149, %.lr.ph148, %.preheader105, %.preheader
-  %166 = phi i32 [ %146, %.lr.ph148 ], [ %117, %.preheader ], [ %117, %.preheader105 ], [ %163, %149 ]
-  %167 = phi i32 [ %146, %.lr.ph148 ], [ %117, %.preheader ], [ %118, %.preheader105 ], [ %163, %149 ]
+  %166 = phi i32 [ %117, %.preheader105 ], [ %117, %.preheader ], [ %146, %.lr.ph148 ], [ %163, %149 ]
+  %167 = phi i32 [ %118, %.preheader105 ], [ %117, %.preheader ], [ %146, %.lr.ph148 ], [ %163, %149 ]
   %168 = load ptr, ptr %22, align 8, !tbaa !955
   %169 = load i32, ptr %168, align 4, !tbaa !96
   %170 = sext i32 %169 to i64
@@ -30721,9 +30721,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %36, %._crit_edge153
   br i1 %242, label %224, label %.loopexit107.loopexit, !llvm.loop !974
 
 .loopexit109:                                     ; preds = %.loopexit107, %.loopexit, %.preheader111, %.preheader108
-  %243 = phi i32 [ %169, %.loopexit ], [ %97, %.preheader108 ], [ %176, %.preheader111 ], [ %205, %.loopexit107 ]
-  %244 = phi i32 [ %169, %.loopexit ], [ %97, %.preheader108 ], [ %177, %.preheader111 ], [ %206, %.loopexit107 ]
-  %245 = phi i32 [ %169, %.loopexit ], [ %97, %.preheader108 ], [ %179, %.preheader111 ], [ %206, %.loopexit107 ]
+  %243 = phi i32 [ %176, %.preheader111 ], [ %97, %.preheader108 ], [ %169, %.loopexit ], [ %205, %.loopexit107 ]
+  %244 = phi i32 [ %177, %.preheader111 ], [ %97, %.preheader108 ], [ %169, %.loopexit ], [ %206, %.loopexit107 ]
+  %245 = phi i32 [ %179, %.preheader111 ], [ %97, %.preheader108 ], [ %169, %.loopexit ], [ %206, %.loopexit107 ]
   %indvars.iv.next181 = add nsw i64 %indvars.iv180, 1
   %246 = load i32, ptr %18, align 4, !tbaa !174
   %247 = sext i32 %246 to i64
@@ -49010,8 +49010,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   br i1 %99, label %89, label %.loopexit, !llvm.loop !1463
 
 .loopexit:                                        ; preds = %89, %73, %84, %69
-  %100 = phi i32 [ %81, %73 ], [ %57, %69 ], [ %57, %84 ], [ %97, %89 ]
-  %101 = phi i32 [ %81, %73 ], [ %57, %69 ], [ %58, %84 ], [ %97, %89 ]
+  %100 = phi i32 [ %57, %84 ], [ %57, %69 ], [ %81, %73 ], [ %97, %89 ]
+  %101 = phi i32 [ %58, %84 ], [ %57, %69 ], [ %81, %73 ], [ %97, %89 ]
   %102 = load i32, ptr %33, align 4, !tbaa !96
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next94, %103
@@ -49462,8 +49462,8 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   br i1 %146, label %136, label %.loopexit, !llvm.loop !1481
 
 .loopexit:                                        ; preds = %136, %.lr.ph151, %.preheader105, %.preheader
-  %147 = phi i32 [ %133, %.lr.ph151 ], [ %112, %.preheader ], [ %112, %.preheader105 ], [ %144, %136 ]
-  %148 = phi i32 [ %133, %.lr.ph151 ], [ %112, %.preheader ], [ %113, %.preheader105 ], [ %144, %136 ]
+  %147 = phi i32 [ %112, %.preheader105 ], [ %112, %.preheader ], [ %133, %.lr.ph151 ], [ %144, %136 ]
+  %148 = phi i32 [ %113, %.preheader105 ], [ %112, %.preheader ], [ %133, %.lr.ph151 ], [ %144, %136 ]
   %149 = load i32, ptr %24, align 4, !tbaa !96
   %150 = sext i32 %149 to i64
   %151 = icmp slt i64 %indvars.iv.next181, %150
@@ -49567,9 +49567,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   br i1 %203, label %193, label %.loopexit107.loopexit, !llvm.loop !1485
 
 .loopexit109:                                     ; preds = %.loopexit107, %.loopexit, %.preheader111, %.preheader108
-  %204 = phi i32 [ %149, %.loopexit ], [ %97, %.preheader108 ], [ %157, %.preheader111 ], [ %175, %.loopexit107 ]
-  %205 = phi i32 [ %149, %.loopexit ], [ %97, %.preheader108 ], [ %158, %.preheader111 ], [ %176, %.loopexit107 ]
-  %206 = phi i32 [ %149, %.loopexit ], [ %97, %.preheader108 ], [ %160, %.preheader111 ], [ %176, %.loopexit107 ]
+  %204 = phi i32 [ %157, %.preheader111 ], [ %97, %.preheader108 ], [ %149, %.loopexit ], [ %175, %.loopexit107 ]
+  %205 = phi i32 [ %158, %.preheader111 ], [ %97, %.preheader108 ], [ %149, %.loopexit ], [ %176, %.loopexit107 ]
+  %206 = phi i32 [ %160, %.preheader111 ], [ %97, %.preheader108 ], [ %149, %.loopexit ], [ %176, %.loopexit107 ]
   %indvars.iv.next184 = add nsw i64 %indvars.iv183, 1
   %207 = load i32, ptr %18, align 4, !tbaa !174
   %208 = sext i32 %207 to i64
@@ -50162,8 +50162,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   br i1 %99, label %89, label %.loopexit, !llvm.loop !1500
 
 .loopexit:                                        ; preds = %89, %73, %84, %69
-  %100 = phi i32 [ %81, %73 ], [ %57, %69 ], [ %57, %84 ], [ %97, %89 ]
-  %101 = phi i32 [ %81, %73 ], [ %57, %69 ], [ %58, %84 ], [ %97, %89 ]
+  %100 = phi i32 [ %57, %84 ], [ %57, %69 ], [ %81, %73 ], [ %97, %89 ]
+  %101 = phi i32 [ %58, %84 ], [ %57, %69 ], [ %81, %73 ], [ %97, %89 ]
   %102 = load i32, ptr %33, align 4, !tbaa !96
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next94, %103
@@ -50614,8 +50614,8 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   br i1 %146, label %136, label %.loopexit, !llvm.loop !1517
 
 .loopexit:                                        ; preds = %136, %.lr.ph151, %.preheader105, %.preheader
-  %147 = phi i32 [ %133, %.lr.ph151 ], [ %112, %.preheader ], [ %112, %.preheader105 ], [ %144, %136 ]
-  %148 = phi i32 [ %133, %.lr.ph151 ], [ %112, %.preheader ], [ %113, %.preheader105 ], [ %144, %136 ]
+  %147 = phi i32 [ %112, %.preheader105 ], [ %112, %.preheader ], [ %133, %.lr.ph151 ], [ %144, %136 ]
+  %148 = phi i32 [ %113, %.preheader105 ], [ %112, %.preheader ], [ %133, %.lr.ph151 ], [ %144, %136 ]
   %149 = load i32, ptr %24, align 4, !tbaa !96
   %150 = sext i32 %149 to i64
   %151 = icmp slt i64 %indvars.iv.next181, %150
@@ -50719,9 +50719,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   br i1 %203, label %193, label %.loopexit107.loopexit, !llvm.loop !1521
 
 .loopexit109:                                     ; preds = %.loopexit107, %.loopexit, %.preheader111, %.preheader108
-  %204 = phi i32 [ %149, %.loopexit ], [ %97, %.preheader108 ], [ %157, %.preheader111 ], [ %175, %.loopexit107 ]
-  %205 = phi i32 [ %149, %.loopexit ], [ %97, %.preheader108 ], [ %158, %.preheader111 ], [ %176, %.loopexit107 ]
-  %206 = phi i32 [ %149, %.loopexit ], [ %97, %.preheader108 ], [ %160, %.preheader111 ], [ %176, %.loopexit107 ]
+  %204 = phi i32 [ %157, %.preheader111 ], [ %97, %.preheader108 ], [ %149, %.loopexit ], [ %175, %.loopexit107 ]
+  %205 = phi i32 [ %158, %.preheader111 ], [ %97, %.preheader108 ], [ %149, %.loopexit ], [ %176, %.loopexit107 ]
+  %206 = phi i32 [ %160, %.preheader111 ], [ %97, %.preheader108 ], [ %149, %.loopexit ], [ %176, %.loopexit107 ]
   %indvars.iv.next184 = add nsw i64 %indvars.iv183, 1
   %207 = load i32, ptr %18, align 4, !tbaa !174
   %208 = sext i32 %207 to i64
@@ -51314,8 +51314,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   br i1 %99, label %89, label %.loopexit, !llvm.loop !1536
 
 .loopexit:                                        ; preds = %89, %73, %84, %69
-  %100 = phi i32 [ %81, %73 ], [ %57, %69 ], [ %57, %84 ], [ %97, %89 ]
-  %101 = phi i32 [ %81, %73 ], [ %57, %69 ], [ %58, %84 ], [ %97, %89 ]
+  %100 = phi i32 [ %57, %84 ], [ %57, %69 ], [ %81, %73 ], [ %97, %89 ]
+  %101 = phi i32 [ %58, %84 ], [ %57, %69 ], [ %81, %73 ], [ %97, %89 ]
   %102 = load i32, ptr %33, align 4, !tbaa !96
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next94, %103
@@ -51766,8 +51766,8 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   br i1 %146, label %136, label %.loopexit, !llvm.loop !1553
 
 .loopexit:                                        ; preds = %136, %.lr.ph151, %.preheader105, %.preheader
-  %147 = phi i32 [ %133, %.lr.ph151 ], [ %112, %.preheader ], [ %112, %.preheader105 ], [ %144, %136 ]
-  %148 = phi i32 [ %133, %.lr.ph151 ], [ %112, %.preheader ], [ %113, %.preheader105 ], [ %144, %136 ]
+  %147 = phi i32 [ %112, %.preheader105 ], [ %112, %.preheader ], [ %133, %.lr.ph151 ], [ %144, %136 ]
+  %148 = phi i32 [ %113, %.preheader105 ], [ %112, %.preheader ], [ %133, %.lr.ph151 ], [ %144, %136 ]
   %149 = load i32, ptr %24, align 4, !tbaa !96
   %150 = sext i32 %149 to i64
   %151 = icmp slt i64 %indvars.iv.next181, %150
@@ -51871,9 +51871,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   br i1 %203, label %193, label %.loopexit107.loopexit, !llvm.loop !1557
 
 .loopexit109:                                     ; preds = %.loopexit107, %.loopexit, %.preheader111, %.preheader108
-  %204 = phi i32 [ %149, %.loopexit ], [ %97, %.preheader108 ], [ %157, %.preheader111 ], [ %175, %.loopexit107 ]
-  %205 = phi i32 [ %149, %.loopexit ], [ %97, %.preheader108 ], [ %158, %.preheader111 ], [ %176, %.loopexit107 ]
-  %206 = phi i32 [ %149, %.loopexit ], [ %97, %.preheader108 ], [ %160, %.preheader111 ], [ %176, %.loopexit107 ]
+  %204 = phi i32 [ %157, %.preheader111 ], [ %97, %.preheader108 ], [ %149, %.loopexit ], [ %175, %.loopexit107 ]
+  %205 = phi i32 [ %158, %.preheader111 ], [ %97, %.preheader108 ], [ %149, %.loopexit ], [ %176, %.loopexit107 ]
+  %206 = phi i32 [ %160, %.preheader111 ], [ %97, %.preheader108 ], [ %149, %.loopexit ], [ %176, %.loopexit107 ]
   %indvars.iv.next184 = add nsw i64 %indvars.iv183, 1
   %207 = load i32, ptr %18, align 4, !tbaa !174
   %208 = sext i32 %207 to i64
@@ -52466,8 +52466,8 @@ define linkonce_odr hidden void @_ZZN2cv3dnn20NaryEltwiseLayerImpl17nary_forward
   br i1 %99, label %89, label %.loopexit, !llvm.loop !1572
 
 .loopexit:                                        ; preds = %89, %73, %84, %69
-  %100 = phi i32 [ %81, %73 ], [ %57, %69 ], [ %57, %84 ], [ %97, %89 ]
-  %101 = phi i32 [ %81, %73 ], [ %57, %69 ], [ %58, %84 ], [ %97, %89 ]
+  %100 = phi i32 [ %57, %84 ], [ %57, %69 ], [ %81, %73 ], [ %97, %89 ]
+  %101 = phi i32 [ %58, %84 ], [ %57, %69 ], [ %81, %73 ], [ %97, %89 ]
   %102 = load i32, ptr %33, align 4, !tbaa !96
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next94, %103
@@ -52918,8 +52918,8 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   br i1 %146, label %136, label %.loopexit, !llvm.loop !1589
 
 .loopexit:                                        ; preds = %136, %.lr.ph151, %.preheader105, %.preheader
-  %147 = phi i32 [ %133, %.lr.ph151 ], [ %112, %.preheader ], [ %112, %.preheader105 ], [ %144, %136 ]
-  %148 = phi i32 [ %133, %.lr.ph151 ], [ %112, %.preheader ], [ %113, %.preheader105 ], [ %144, %136 ]
+  %147 = phi i32 [ %112, %.preheader105 ], [ %112, %.preheader ], [ %133, %.lr.ph151 ], [ %144, %136 ]
+  %148 = phi i32 [ %113, %.preheader105 ], [ %112, %.preheader ], [ %133, %.lr.ph151 ], [ %144, %136 ]
   %149 = load i32, ptr %24, align 4, !tbaa !96
   %150 = sext i32 %149 to i64
   %151 = icmp slt i64 %indvars.iv.next181, %150
@@ -53023,9 +53023,9 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %48, %._crit_edge156
   br i1 %203, label %193, label %.loopexit107.loopexit, !llvm.loop !1593
 
 .loopexit109:                                     ; preds = %.loopexit107, %.loopexit, %.preheader111, %.preheader108
-  %204 = phi i32 [ %149, %.loopexit ], [ %97, %.preheader108 ], [ %157, %.preheader111 ], [ %175, %.loopexit107 ]
-  %205 = phi i32 [ %149, %.loopexit ], [ %97, %.preheader108 ], [ %158, %.preheader111 ], [ %176, %.loopexit107 ]
-  %206 = phi i32 [ %149, %.loopexit ], [ %97, %.preheader108 ], [ %160, %.preheader111 ], [ %176, %.loopexit107 ]
+  %204 = phi i32 [ %157, %.preheader111 ], [ %97, %.preheader108 ], [ %149, %.loopexit ], [ %175, %.loopexit107 ]
+  %205 = phi i32 [ %158, %.preheader111 ], [ %97, %.preheader108 ], [ %149, %.loopexit ], [ %176, %.loopexit107 ]
+  %206 = phi i32 [ %160, %.preheader111 ], [ %97, %.preheader108 ], [ %149, %.loopexit ], [ %176, %.loopexit107 ]
   %indvars.iv.next184 = add nsw i64 %indvars.iv183, 1
   %207 = load i32, ptr %18, align 4, !tbaa !174
   %208 = sext i32 %207 to i64

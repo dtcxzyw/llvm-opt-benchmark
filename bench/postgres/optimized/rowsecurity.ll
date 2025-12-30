@@ -397,7 +397,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   %33 = icmp eq i8 %18, 100
   br i1 %33, label %.critedge78, label %.critedge76
 
-.critedge78:                                      ; preds = %25, %23, %27, %.lr.ph132, %32
+.critedge78:                                      ; preds = %27, %25, %23, %.lr.ph132, %32
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -455,7 +455,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   store ptr %66, ptr %., align 8
   br label %.critedge76
 
-.critedge76:                                      ; preds = %55, %.loopexit101, %.preheader.i, %25, %23, %27, %22, %32
+.critedge76:                                      ; preds = %55, %.loopexit101, %.preheader.i, %27, %25, %23, %22, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv131, 1
   %67 = load i32, ptr %10, align 4
   %68 = sext i32 %67 to i64
@@ -1002,7 +1002,7 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
   %133 = icmp slt i64 %indvars.iv.next134, %132
   br i1 %133, label %.lr.ph124, label %.critedge89
 
-.critedge.thread:                                 ; preds = %.lr.ph.split.us.split, %.lr.ph.split.split, %8, %.critedge
+.critedge.thread:                                 ; preds = %.lr.ph.split.split, %.lr.ph.split.us.split, %8, %.critedge
   %134 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 105, ptr %134, align 4
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 4

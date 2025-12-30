@@ -1583,7 +1583,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObje
   br label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..SubschemaValidation$GT$$GT$$GT$17h53ea3651ac664993E.exit35"
 
 "_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..SubschemaValidation$GT$$GT$$GT$17h53ea3651ac664993E.exit": ; preds = %94, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hf617f8a6b9d51d35E.exit", %87
-  %.pn8 = phi { ptr, i32 } [ %.pn6, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hf617f8a6b9d51d35E.exit" ], [ %.pn6, %87 ], [ %95, %94 ]
+  %.pn8 = phi { ptr, i32 } [ %.pn6, %87 ], [ %.pn6, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hf617f8a6b9d51d35E.exit" ], [ %95, %94 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val21 = load ptr, ptr %96, align 8, !align !131, !noundef !3
   %97 = icmp eq ptr %.val21, null
@@ -2194,7 +2194,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$schemars..schema..SubschemaV
   unreachable
 
 "_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$$GT$17h0e806a7fb0b0103bE.exit11": ; preds = %67, %.body72, %.body, %34
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %34 ], [ %68, %67 ], [ %51, %.body72 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %34 ], [ %eh.lpad-body, %.body ], [ %68, %67 ], [ %51, %.body72 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %64 = load i64, ptr %63, align 8, !range !25, !alias.scope !342, !noundef !3
   %65 = icmp eq i64 %64, -9223372036854775808
@@ -2283,7 +2283,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$schemars..schema..SubschemaV
   unreachable
 
 "_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$$GT$17h0e806a7fb0b0103bE.exit15": ; preds = %101, %.body81, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$$GT$17h0e806a7fb0b0103bE.exit11", %66
-  %.pn2 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$$GT$17h0e806a7fb0b0103bE.exit11" ], [ %.pn, %66 ], [ %102, %101 ], [ %85, %.body81 ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %66 ], [ %.pn, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$$GT$17h0e806a7fb0b0103bE.exit11" ], [ %102, %101 ], [ %85, %.body81 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %98 = load ptr, ptr %97, align 8, !alias.scope !362, !align !131, !noundef !3
   %99 = icmp eq ptr %98, null
@@ -2324,7 +2324,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$schemars..schema..SubschemaV
   br label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17h2c4e4f4441072ac4E.exit20"
 
 "_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17h2c4e4f4441072ac4E.exit": ; preds = %110, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$$GT$17h0e806a7fb0b0103bE.exit15", %100
-  %.pn4 = phi { ptr, i32 } [ %.pn2, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$$GT$17h0e806a7fb0b0103bE.exit15" ], [ %.pn2, %100 ], [ %111, %110 ]
+  %.pn4 = phi { ptr, i32 } [ %.pn2, %100 ], [ %.pn2, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$$GT$17h0e806a7fb0b0103bE.exit15" ], [ %111, %110 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %113 = load ptr, ptr %112, align 8, !alias.scope !374, !align !131, !noundef !3
   %114 = icmp eq ptr %113, null
@@ -2360,7 +2360,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$schemars..schema..SubschemaV
   br label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17h2c4e4f4441072ac4E.exit24"
 
 "_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17h2c4e4f4441072ac4E.exit22": ; preds = %123, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17h2c4e4f4441072ac4E.exit", %115
-  %.pn6 = phi { ptr, i32 } [ %.pn4, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17h2c4e4f4441072ac4E.exit" ], [ %.pn4, %115 ], [ %124, %123 ]
+  %.pn6 = phi { ptr, i32 } [ %.pn4, %115 ], [ %.pn4, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17h2c4e4f4441072ac4E.exit" ], [ %124, %123 ]
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %126 = load ptr, ptr %125, align 8, !alias.scope !386, !align !131, !noundef !3
   %127 = icmp eq ptr %126, null
@@ -2396,7 +2396,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$schemars..schema..SubschemaV
   br label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17h2c4e4f4441072ac4E.exit28"
 
 "_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17h2c4e4f4441072ac4E.exit26": ; preds = %136, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17h2c4e4f4441072ac4E.exit22", %128
-  %.pn8 = phi { ptr, i32 } [ %.pn6, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17h2c4e4f4441072ac4E.exit22" ], [ %.pn6, %128 ], [ %137, %136 ]
+  %.pn8 = phi { ptr, i32 } [ %.pn6, %128 ], [ %.pn6, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17h2c4e4f4441072ac4E.exit22" ], [ %137, %136 ]
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %139 = load ptr, ptr %138, align 8, !alias.scope !398, !align !131, !noundef !3
   %140 = icmp eq ptr %139, null
@@ -3717,7 +3717,7 @@ define hidden range(i64 2, 235146754) i64 @_ZN14ruff_formatter7printer17invalid_
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %3, %7, %2
-  %.sroa.56.0 = phi i64 [ 196608, %2 ], [ 0, %3 ], [ %13, %7 ]
+  %.sroa.56.0 = phi i64 [ 196608, %2 ], [ %13, %7 ], [ 0, %3 ]
   %.sroa.4.0.insert.ext = zext nneg i8 %0 to i64
   %.sroa.4.0.insert.shift = shl nuw nsw i64 %.sroa.4.0.insert.ext, 8
   %.sroa.4.0.insert.insert = add nuw nsw i64 %.sroa.56.0, %.sroa.4.0.insert.shift
@@ -3746,7 +3746,7 @@ define hidden range(i64 2, 235146754) i64 @_ZN14ruff_formatter7printer17invalid_
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %3, %7, %2
-  %.sroa.56.0 = phi i64 [ 196608, %2 ], [ 0, %3 ], [ %13, %7 ]
+  %.sroa.56.0 = phi i64 [ 196608, %2 ], [ %13, %7 ], [ 0, %3 ]
   %.sroa.4.0.insert.ext = zext nneg i8 %0 to i64
   %.sroa.4.0.insert.shift = shl nuw nsw i64 %.sroa.4.0.insert.ext, 8
   %.sroa.4.0.insert.insert = add nuw nsw i64 %.sroa.56.0, %.sroa.4.0.insert.shift
@@ -3775,7 +3775,7 @@ define hidden range(i64 2, 235146754) i64 @_ZN14ruff_formatter7printer17invalid_
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %3, %7, %2
-  %.sroa.56.0 = phi i64 [ 196608, %2 ], [ 0, %3 ], [ %13, %7 ]
+  %.sroa.56.0 = phi i64 [ 196608, %2 ], [ %13, %7 ], [ 0, %3 ]
   %.sroa.4.0.insert.ext = zext nneg i8 %0 to i64
   %.sroa.4.0.insert.shift = shl nuw nsw i64 %.sroa.4.0.insert.ext, 8
   %.sroa.4.0.insert.insert = add nuw nsw i64 %.sroa.56.0, %.sroa.4.0.insert.shift

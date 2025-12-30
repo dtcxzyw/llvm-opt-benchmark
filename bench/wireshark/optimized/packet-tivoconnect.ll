@@ -191,9 +191,9 @@ define internal fastcc i32 @dissect_tivoconnect(ptr noundef %0, ptr noundef read
   br i1 %47, label %.sink.split, label %53
 
 .sink.split:                                      ; preds = %45, %42, %39, %36, %33, %30, %23
-  %hf_tivoconnect_flavor.sink = phi ptr [ @hf_tivoconnect_flavor, %23 ], [ @hf_tivoconnect_method, %30 ], [ @hf_tivoconnect_machine, %36 ], [ @hf_tivoconnect_services, %42 ], [ @hf_tivoconnect_identity, %39 ], [ @hf_tivoconnect_platform, %33 ], [ @hf_tivoconnect_version, %45 ]
-  %.194.ph = phi ptr [ %.093104, %23 ], [ %.093104, %30 ], [ %24, %36 ], [ %.093104, %42 ], [ %.093104, %39 ], [ %.093104, %33 ], [ %.093104, %45 ]
-  %.1.ph = phi ptr [ %.092105, %23 ], [ %.092105, %30 ], [ %.092105, %36 ], [ %.092105, %42 ], [ %24, %39 ], [ %.092105, %33 ], [ %.092105, %45 ]
+  %hf_tivoconnect_flavor.sink = phi ptr [ @hf_tivoconnect_flavor, %23 ], [ @hf_tivoconnect_method, %30 ], [ @hf_tivoconnect_platform, %33 ], [ @hf_tivoconnect_machine, %36 ], [ @hf_tivoconnect_identity, %39 ], [ @hf_tivoconnect_services, %42 ], [ @hf_tivoconnect_version, %45 ]
+  %.194.ph = phi ptr [ %.093104, %23 ], [ %.093104, %30 ], [ %.093104, %33 ], [ %24, %36 ], [ %.093104, %39 ], [ %.093104, %42 ], [ %.093104, %45 ]
+  %.1.ph = phi ptr [ %.092105, %23 ], [ %.092105, %30 ], [ %.092105, %33 ], [ %.092105, %36 ], [ %24, %39 ], [ %.092105, %42 ], [ %.092105, %45 ]
   %48 = load i32, ptr %hf_tivoconnect_flavor.sink, align 4
   %49 = add i32 %27, %.091106
   %50 = xor i32 %26, -1

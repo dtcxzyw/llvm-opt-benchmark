@@ -323,7 +323,7 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br label %121
 
 121:                                              ; preds = %119, %115, %104
-  %122 = phi i32 [ %120, %119 ], [ %105, %104 ], [ %105, %115 ]
+  %122 = phi i32 [ %105, %115 ], [ %105, %104 ], [ %120, %119 ]
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %.thread, label %.thread19
 

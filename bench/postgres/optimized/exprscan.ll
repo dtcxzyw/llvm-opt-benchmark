@@ -744,7 +744,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i179, %314
   br i1 %.not176, label %.backedge.sink.split889.backedge, label %335
 
 .backedge.sink.split889.backedge:                 ; preds = %yy_try_NUL_trans.exit, %143
-  %.1159.ph.be = phi ptr [ %264, %yy_try_NUL_trans.exit ], [ %.1159, %143 ]
+  %.1159.ph.be = phi ptr [ %.1159, %143 ], [ %264, %yy_try_NUL_trans.exit ]
   br label %.backedge.sink.split889
 
 335:                                              ; preds = %yy_try_NUL_trans.exit
@@ -754,9 +754,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i179, %314
   br label %.loopexit222.backedge
 
 .loopexit222.backedge:                            ; preds = %._crit_edge.i197, %335, %545
-  %.0158.be = phi ptr [ %264, %335 ], [ %543, %545 ], [ %543, %._crit_edge.i197 ]
-  %.0152.be = phi ptr [ %337, %335 ], [ %552, %545 ], [ %552, %._crit_edge.i197 ]
-  %.0146.be = phi i32 [ %336, %335 ], [ %553, %545 ], [ %594, %._crit_edge.i197 ]
+  %.0158.be = phi ptr [ %543, %545 ], [ %264, %335 ], [ %543, %._crit_edge.i197 ]
+  %.0152.be = phi ptr [ %552, %545 ], [ %337, %335 ], [ %552, %._crit_edge.i197 ]
+  %.0146.be = phi i32 [ %553, %545 ], [ %336, %335 ], [ %594, %._crit_edge.i197 ]
   br label %.loopexit222
 
 338:                                              ; preds = %248
@@ -1027,7 +1027,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i179, %314
   br i1 %469, label %.lr.ph172.i, label %.critedge2.i, !llvm.loop !13
 
 .critedge2.i:                                     ; preds = %457, %.lr.ph172.i, %437, %436
-  %470 = phi i32 [ %.1156.i, %436 ], [ %450, %437 ], [ 0, %.lr.ph172.i ], [ %468, %457 ]
+  %470 = phi i32 [ %450, %437 ], [ %.1156.i, %436 ], [ 0, %.lr.ph172.i ], [ %468, %457 ]
   %471 = load ptr, ptr %83, align 8
   %472 = load i64, ptr %84, align 8
   %473 = getelementptr inbounds nuw ptr, ptr %471, i64 %472
@@ -1363,7 +1363,7 @@ yy_get_previous_state.exit200:                    ; preds = %yy_get_next_buffer.
   br label %.loopexit224
 
 .loopexit224:                                     ; preds = %223, %142, %.loopexit224.loopexit890, %.loopexit224.loopexit760, %.loopexit224.loopexit679, %.loopexit224.loopexit, %.loopexit221, %208, %201, %194, %219, %215, %193, %191, %189, %188, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %148, %145
-  %.0 = phi i32 [ 1, %145 ], [ 1, %148 ], [ 0, %157 ], [ 261, %208 ], [ 45, %.loopexit224.loopexit ], [ 42, %.loopexit224.loopexit679 ], [ 47, %.loopexit224.loopexit760 ], [ 37, %.loopexit224.loopexit890 ], [ 61, %142 ], [ 268, %158 ], [ 43, %.loopexit221 ], [ 269, %159 ], [ 270, %160 ], [ 271, %161 ], [ 272, %162 ], [ 60, %163 ], [ 62, %164 ], [ 124, %165 ], [ 38, %166 ], [ 35, %167 ], [ 126, %168 ], [ 40, %169 ], [ 41, %170 ], [ 44, %171 ], [ 265, %172 ], [ 266, %173 ], [ 267, %174 ], [ 273, %175 ], [ 279, %176 ], [ 280, %177 ], [ 274, %178 ], [ 275, %179 ], [ 276, %180 ], [ 277, %181 ], [ 278, %182 ], [ 263, %183 ], [ 258, %188 ], [ 262, %189 ], [ 262, %191 ], [ 260, %193 ], [ 0, %219 ], [ 259, %194 ], [ 261, %201 ], [ 264, %215 ], [ 0, %223 ]
+  %.0 = phi i32 [ 1, %145 ], [ 1, %148 ], [ 0, %157 ], [ 268, %158 ], [ 269, %159 ], [ 270, %160 ], [ 271, %161 ], [ 272, %162 ], [ 60, %163 ], [ 62, %164 ], [ 124, %165 ], [ 38, %166 ], [ 35, %167 ], [ 126, %168 ], [ 40, %169 ], [ 41, %170 ], [ 44, %171 ], [ 265, %172 ], [ 266, %173 ], [ 267, %174 ], [ 273, %175 ], [ 279, %176 ], [ 280, %177 ], [ 274, %178 ], [ 275, %179 ], [ 276, %180 ], [ 277, %181 ], [ 278, %182 ], [ 263, %183 ], [ 258, %188 ], [ 262, %189 ], [ 262, %191 ], [ 260, %193 ], [ 264, %215 ], [ 0, %219 ], [ 259, %194 ], [ 261, %201 ], [ 261, %208 ], [ 43, %.loopexit221 ], [ 45, %.loopexit224.loopexit ], [ 42, %.loopexit224.loopexit679 ], [ 47, %.loopexit224.loopexit760 ], [ 37, %.loopexit224.loopexit890 ], [ 61, %142 ], [ 0, %223 ]
   ret i32 %.0
 }
 
@@ -1810,7 +1810,7 @@ define dso_local void @expr_yy_switch_to_buffer(ptr noundef %0, ptr noundef capt
   br label %50
 
 50:                                               ; preds = %32, %31
-  %51 = phi ptr [ %25, %31 ], [ %.pre, %32 ]
+  %51 = phi ptr [ %.pre, %32 ], [ %25, %31 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds nuw ptr, ptr %51, i64 %53
@@ -2687,7 +2687,7 @@ expr_yy_delete_buffer.exit.i:                     ; preds = %32, %.critedge.i.i
   br label %expr_yypop_buffer_state.exit
 
 expr_yypop_buffer_state.exit:                     ; preds = %26, %44, %47
-  %56 = phi ptr [ %43, %44 ], [ %25, %26 ], [ %43, %47 ]
+  %56 = phi ptr [ %25, %26 ], [ %43, %44 ], [ %43, %47 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8

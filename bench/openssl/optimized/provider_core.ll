@@ -813,8 +813,8 @@ ossl_provider_set_module_path.exit.thread:        ; preds = %76, %ossl_provider_
   store i32 %85, ptr %86, align 8, !tbaa !50
   br label %.critedge70
 
-.critedge70:                                      ; preds = %get_provider_store.exit.thread, %52, %64, %74, %.loopexit75, %36, %ossl_provider_set_module_path.exit.thread, %83
-  %.048 = phi ptr [ null, %get_provider_store.exit.thread ], [ null, %.loopexit75 ], [ %72, %ossl_provider_set_module_path.exit.thread ], [ null, %83 ], [ null, %74 ], [ null, %36 ], [ null, %64 ], [ null, %52 ]
+.critedge70:                                      ; preds = %get_provider_store.exit.thread, %64, %52, %74, %.loopexit75, %36, %ossl_provider_set_module_path.exit.thread, %83
+  %.048 = phi ptr [ %72, %ossl_provider_set_module_path.exit.thread ], [ null, %83 ], [ null, %36 ], [ null, %.loopexit75 ], [ null, %74 ], [ null, %52 ], [ null, %64 ], [ null, %get_provider_store.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.048
 }
@@ -865,7 +865,7 @@ define internal ptr @infopair_copy(ptr noundef readonly captures(none) %0) #0 {
   br label %18
 
 18:                                               ; preds = %9, %12, %1, %16
-  %.0 = phi ptr [ null, %1 ], [ null, %16 ], [ %2, %12 ], [ %2, %9 ]
+  %.0 = phi ptr [ null, %16 ], [ null, %1 ], [ %2, %12 ], [ %2, %9 ]
   ret ptr %.0
 }
 
@@ -943,7 +943,7 @@ define internal fastcc ptr @provider_new(ptr noundef %0, ptr noundef %1, ptr nou
   br label %32
 
 32:                                               ; preds = %3, %30, %29, %24, %11
-  %.0 = phi ptr [ %4, %30 ], [ null, %11 ], [ null, %24 ], [ null, %29 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %24 ], [ null, %29 ], [ %4, %30 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1133,7 +1133,7 @@ ossl_provider_deactivate.exit:                    ; preds = %65, %68
   br label %76
 
 76:                                               ; preds = %get_provider_store.exit.thread, %ossl_provider_deactivate.exit, %70, %get_provider_store.exit, %73, %61
-  %.030 = phi i32 [ 0, %get_provider_store.exit.thread ], [ 0, %73 ], [ 0, %get_provider_store.exit ], [ 0, %61 ], [ 1, %70 ], [ 1, %ossl_provider_deactivate.exit ]
+  %.030 = phi i32 [ 0, %73 ], [ 0, %61 ], [ 0, %get_provider_store.exit ], [ 1, %70 ], [ 1, %ossl_provider_deactivate.exit ], [ 0, %get_provider_store.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.030
 }
@@ -1157,7 +1157,7 @@ define range(i32 0, 2) i32 @ossl_provider_deactivate(ptr noundef %0, i32 noundef
   br label %11
 
 11:                                               ; preds = %9, %7, %2, %4
-  %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ %10, %9 ], [ 1, %7 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %2 ], [ %10, %9 ], [ 1, %7 ]
   ret i32 %.0
 }
 
@@ -1423,7 +1423,7 @@ OSSL_PROVIDER_get_conf_parameters.exit:           ; preds = %19, %56, %.loopexit
   br label %60
 
 60:                                               ; preds = %.tail7, %.tail7.thread, %52, %56, %.tail, %.tail.thread, %37, %41, %OSSL_PROVIDER_get_conf_parameters.exit
-  %.0 = phi i32 [ %2, %OSSL_PROVIDER_get_conf_parameters.exit ], [ 1, %.tail ], [ 1, %41 ], [ 1, %37 ], [ 1, %.tail.thread ], [ 0, %56 ], [ 0, %52 ], [ 0, %.tail7.thread ], [ 0, %.tail7 ]
+  %.0 = phi i32 [ %2, %OSSL_PROVIDER_get_conf_parameters.exit ], [ 1, %41 ], [ 1, %37 ], [ 1, %.tail.thread ], [ 1, %.tail ], [ 0, %56 ], [ 0, %52 ], [ 0, %.tail7.thread ], [ 0, %.tail7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1476,7 +1476,7 @@ get_provider_store.exit:                          ; preds = %6
   br label %18
 
 18:                                               ; preds = %3, %17, %12
-  %.010 = phi i32 [ 0, %17 ], [ 1, %12 ], [ 0, %3 ]
+  %.010 = phi i32 [ 1, %12 ], [ 0, %17 ], [ 0, %3 ]
   ret i32 %.010
 }
 
@@ -1582,7 +1582,7 @@ get_provider_store.exit.i:                        ; preds = %15
   br label %provider_flush_store_cache.exit
 
 provider_flush_store_cache.exit:                  ; preds = %29, %23, %get_provider_store.exit.i, %get_provider_store.exit.thread.i, %10, %13, %6, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %6 ], [ 1, %13 ], [ 0, %10 ], [ 0, %get_provider_store.exit.thread.i ], [ 0, %get_provider_store.exit.i ], [ %42, %29 ], [ 1, %23 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %6 ], [ 1, %13 ], [ 0, %10 ], [ %42, %29 ], [ 0, %get_provider_store.exit.i ], [ 1, %23 ], [ 0, %get_provider_store.exit.thread.i ]
   ret i32 %.0
 }
 
@@ -1709,8 +1709,8 @@ get_provider_store.exit.i:                        ; preds = %25
   br i1 %65, label %.thread136.i, label %68
 
 .thread136.i:                                     ; preds = %62, %.thread129.i, %54
-  %.092142.i = phi ptr [ null, %.thread129.i ], [ %60, %62 ], [ null, %54 ]
-  %.094134140.i = phi ptr [ %.094133.i, %.thread129.i ], [ %.094133.i, %62 ], [ null, %54 ]
+  %.092142.i = phi ptr [ %60, %62 ], [ null, %.thread129.i ], [ null, %54 ]
+  %.094134140.i = phi ptr [ %.094133.i, %62 ], [ %.094133.i, %.thread129.i ], [ null, %54 ]
   %66 = load ptr, ptr %19, align 8, !tbaa !52
   %67 = tail call i32 @DSO_free(ptr noundef %66) #11
   store ptr null, ptr %19, align 8, !tbaa !52
@@ -1855,7 +1855,7 @@ get_provider_store.exit.i:                        ; preds = %25
   br label %118
 
 118:                                              ; preds = %116, %114, %112, %110, %108, %106, %104, %102, %100, %97
-  %.2.i = phi ptr [ %.1.i, %97 ], [ %.1.i, %100 ], [ %.1.i, %102 ], [ %.1.i, %104 ], [ %.1.i, %106 ], [ %.1.i, %108 ], [ %.1.i, %110 ], [ %.1.i, %112 ], [ %.1.i, %114 ], [ %.val125.i, %116 ]
+  %.2.i = phi ptr [ %.1.i, %100 ], [ %.1.i, %102 ], [ %.1.i, %104 ], [ %.1.i, %106 ], [ %.1.i, %108 ], [ %.1.i, %110 ], [ %.1.i, %112 ], [ %.1.i, %114 ], [ %.val125.i, %116 ], [ %.1.i, %97 ]
   %119 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store ptr %119, ptr %4, align 8, !tbaa !78
   br label %97, !llvm.loop !91
@@ -1932,7 +1932,7 @@ get_provider_store.exit.i:                        ; preds = %25
   %153 = call i32 @ERR_load_strings(i32 noundef %136, ptr noundef nonnull %131) #11
   br label %provider_init.exit
 
-provider_init.exit.thread:                        ; preds = %.lr.ph.i, %70, %76, %36, %81, %13, %22, %get_provider_store.exit.thread.i, %get_provider_store.exit.i, %._crit_edge.i
+provider_init.exit.thread:                        ; preds = %.lr.ph.i, %70, %76, %81, %13, %22, %get_provider_store.exit.i, %36, %get_provider_store.exit.thread.i, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %235
@@ -2061,7 +2061,7 @@ create_provider_children.exit.loopexit:           ; preds = %.lr.ph.i48
   br label %create_provider_children.exit
 
 create_provider_children.exit:                    ; preds = %204, %create_provider_children.exit.loopexit, %198, %.critedge
-  %.0 = phi i1 [ false, %.critedge ], [ false, %198 ], [ false, %204 ], [ %219, %create_provider_children.exit.loopexit ]
+  %.0 = phi i1 [ false, %198 ], [ false, %.critedge ], [ false, %204 ], [ %219, %create_provider_children.exit.loopexit ]
   br i1 %.not42, label %233, label %220
 
 220:                                              ; preds = %create_provider_children.exit
@@ -2087,7 +2087,7 @@ create_provider_children.exit:                    ; preds = %204, %create_provid
   br label %235
 
 235:                                              ; preds = %provider_init.exit.thread, %233, %186, %192, %176, %180, %169, %159
-  %.037 = phi i32 [ %spec.select, %233 ], [ -1, %186 ], [ -1, %176 ], [ -1, %169 ], [ -1, %159 ], [ -1, %provider_init.exit.thread ], [ -1, %180 ], [ -1, %192 ]
+  %.037 = phi i32 [ -1, %159 ], [ -1, %169 ], [ -1, %180 ], [ -1, %176 ], [ -1, %192 ], [ -1, %186 ], [ %spec.select, %233 ], [ -1, %provider_init.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.037
 }
@@ -2241,7 +2241,7 @@ get_provider_store.exit:                          ; preds = %12
   br label %82
 
 82:                                               ; preds = %.critedge, %.thread, %get_provider_store.exit, %8, %3, %80, %24
-  %.0 = phi i32 [ %81, %80 ], [ -1, %get_provider_store.exit ], [ -1, %24 ], [ -1, %8 ], [ -1, %3 ], [ -1, %.thread ], [ -1, %.critedge ]
+  %.0 = phi i32 [ %81, %80 ], [ -1, %24 ], [ -1, %3 ], [ -1, %8 ], [ -1, %get_provider_store.exit ], [ -1, %.thread ], [ -1, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -2302,7 +2302,7 @@ get_provider_store.exit:                          ; preds = %1
   br label %33
 
 33:                                               ; preds = %get_provider_store.exit.thread, %9, %19, %15, %get_provider_store.exit
-  %.0 = phi i32 [ 0, %get_provider_store.exit.thread ], [ 0, %15 ], [ 0, %get_provider_store.exit ], [ %32, %19 ], [ 1, %9 ]
+  %.0 = phi i32 [ 0, %get_provider_store.exit ], [ %32, %19 ], [ 0, %15 ], [ 1, %9 ], [ 0, %get_provider_store.exit.thread ]
   ret i32 %.0
 }
 
@@ -2461,9 +2461,9 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %44, %48
   br label %.loopexit
 
 .loopexit:                                        ; preds = %61, %.lr.ph93, %.loopexit.sink.split, %._crit_edge
-  %.05984 = phi i32 [ %.05984.ph, %.loopexit.sink.split ], [ %.261, %._crit_edge ], [ %.261, %.lr.ph93 ], [ %.261, %61 ]
-  %.356 = phi i32 [ %.356.ph, %.loopexit.sink.split ], [ 0, %._crit_edge ], [ 0, %.lr.ph93 ], [ 0, %61 ]
-  %.052 = phi i32 [ %.052.ph, %.loopexit.sink.split ], [ 1, %._crit_edge ], [ 1, %61 ], [ 0, %.lr.ph93 ]
+  %.05984 = phi i32 [ %.261, %._crit_edge ], [ %.05984.ph, %.loopexit.sink.split ], [ %.261, %.lr.ph93 ], [ %.261, %61 ]
+  %.356 = phi i32 [ 0, %._crit_edge ], [ %.356.ph, %.loopexit.sink.split ], [ 0, %.lr.ph93 ], [ 0, %61 ]
+  %.052 = phi i32 [ 1, %._crit_edge ], [ %.052.ph, %.loopexit.sink.split ], [ 1, %61 ], [ 0, %.lr.ph93 ]
   %67 = icmp slt i32 %.356, %.05984
   br i1 %67, label %.lr.ph101, label %._crit_edge102
 
@@ -2518,7 +2518,7 @@ CRYPTO_DOWN_REF.exit74:                           ; preds = %86, %81, %.lr.ph101
   br label %87
 
 87:                                               ; preds = %14, %12, %11, %._crit_edge102, %23
-  %.0 = phi i32 [ 1, %11 ], [ 0, %23 ], [ 0, %14 ], [ %.1.lcssa, %._crit_edge102 ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %23 ], [ %.1.lcssa, %._crit_edge102 ], [ 1, %11 ], [ 0, %12 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -2641,7 +2641,7 @@ define internal fastcc range(i32 0, 2) i32 @provider_activate_fallbacks(ptr noun
   br label %57
 
 57:                                               ; preds = %55, %21
-  %.1 = phi i32 [ %.04465, %21 ], [ %56, %55 ]
+  %.1 = phi i32 [ %56, %55 ], [ %.04465, %21 ]
   %58 = getelementptr inbounds nuw i8, ptr %.04266, i64 40
   %59 = load ptr, ptr %58, align 8, !tbaa !3
   %.not50 = icmp eq ptr %59, null
@@ -2658,13 +2658,13 @@ define internal fastcc range(i32 0, 2) i32 @provider_activate_fallbacks(ptr noun
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.loopexit, %61, %._crit_edge, %48, %54, %.preheader, %14
-  %.045.ph = phi i32 [ 1, %14 ], [ 0, %._crit_edge ], [ 1, %61 ], [ 0, %48 ], [ 0, %54 ], [ 0, %.preheader ], [ 0, %.loopexit ]
+  %.045.ph = phi i32 [ 1, %14 ], [ 1, %61 ], [ 0, %._crit_edge ], [ 0, %48 ], [ 0, %54 ], [ 0, %.preheader ], [ 0, %.loopexit ]
   %64 = load ptr, ptr %2, align 8, !tbaa !25
   %65 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %64) #11
   br label %66
 
 66:                                               ; preds = %.sink.split, %11, %5, %1
-  %.045 = phi i32 [ 0, %11 ], [ 1, %5 ], [ 0, %1 ], [ %.045.ph, %.sink.split ]
+  %.045 = phi i32 [ 0, %1 ], [ 1, %5 ], [ 0, %11 ], [ %.045.ph, %.sink.split ]
   ret i32 %.045
 }
 
@@ -2710,7 +2710,7 @@ get_provider_store.exit:                          ; preds = %2
   br label %19
 
 19:                                               ; preds = %get_provider_store.exit.thread, %6, %12, %8, %get_provider_store.exit
-  %.0 = phi i32 [ 0, %get_provider_store.exit.thread ], [ 0, %8 ], [ 0, %get_provider_store.exit ], [ %16, %12 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %get_provider_store.exit ], [ 0, %8 ], [ %16, %12 ], [ 0, %6 ], [ 0, %get_provider_store.exit.thread ]
   ret i32 %.0
 }
 
@@ -2831,7 +2831,7 @@ define i32 @ossl_provider_self_test(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %1, %9, %4
-  %.07 = phi i32 [ %7, %4 ], [ 0, %9 ], [ 1, %1 ]
+  %.07 = phi i32 [ 0, %9 ], [ %7, %4 ], [ 1, %1 ]
   ret i32 %.07
 }
 
@@ -3082,7 +3082,7 @@ get_provider_store.exit:                          ; preds = %2
   br label %23
 
 23:                                               ; preds = %get_provider_store.exit.thread, %get_provider_store.exit, %._crit_edge
-  %.0 = phi i32 [ 0, %get_provider_store.exit.thread ], [ 1, %._crit_edge ], [ 0, %get_provider_store.exit ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %get_provider_store.exit ], [ 0, %get_provider_store.exit.thread ]
   ret i32 %.0
 }
 
@@ -3512,7 +3512,7 @@ get_provider_store.exit:                          ; preds = %5
   br label %58
 
 58:                                               ; preds = %get_provider_store.exit.thread, %get_provider_store.exit, %55, %20
-  %.0 = phi i32 [ 0, %20 ], [ 0, %get_provider_store.exit.thread ], [ %.157, %55 ], [ 0, %get_provider_store.exit ]
+  %.0 = phi i32 [ %.157, %55 ], [ 0, %20 ], [ 0, %get_provider_store.exit ], [ 0, %get_provider_store.exit.thread ]
   ret i32 %.0
 }
 
@@ -3650,7 +3650,7 @@ define internal range(i32 0, 2) i32 @core_provider_free_intern(ptr noundef %0, i
   br label %provider_free_intern.exit
 
 provider_free_intern.exit:                        ; preds = %3, %5, %8, %10, %12
-  %.0.i = phi i32 [ 1, %12 ], [ 0, %3 ], [ 0, %5 ], [ %11, %10 ], [ 1, %8 ]
+  %.0.i = phi i32 [ 1, %12 ], [ 0, %5 ], [ 0, %3 ], [ %11, %10 ], [ 1, %8 ]
   ret i32 %.0.i
 }
 

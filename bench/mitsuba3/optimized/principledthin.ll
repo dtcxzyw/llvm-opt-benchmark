@@ -1452,7 +1452,7 @@ _ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.ex
   br label %29
 
 29:                                               ; preds = %27, %25
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %28, %27 ]
   call void @_ZN7mitsuba10PropertiesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #24
   br label %32
 
@@ -2426,9 +2426,9 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   br label %185
 
 185:                                              ; preds = %.sink.split.i, %154, %92
-  %186 = phi <4 x i32> [ zeroinitializer, %92 ], [ %179, %.sink.split.i ], [ %179, %154 ]
-  %187 = phi <4 x float> [ zeroinitializer, %92 ], [ %168, %.sink.split.i ], [ %168, %154 ]
-  %.0.shrunk = phi i1 [ true, %92 ], [ %184, %.sink.split.i ], [ false, %154 ]
+  %186 = phi <4 x i32> [ zeroinitializer, %92 ], [ %179, %154 ], [ %179, %.sink.split.i ]
+  %187 = phi <4 x float> [ zeroinitializer, %92 ], [ %168, %154 ], [ %168, %.sink.split.i ]
+  %.0.shrunk = phi i1 [ true, %92 ], [ false, %154 ], [ %184, %.sink.split.i ]
   %.0 = zext i1 %.0.shrunk to i8
   %188 = load i8, ptr %69, align 2
   %189 = trunc i8 %188 to i1
@@ -3764,7 +3764,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   br label %_ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6VectorIS4_Lm3EEESA_SA_RKS4_b.exit
 
 _ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6VectorIS4_Lm3EEESA_SA_RKS4_b.exit: ; preds = %.sink.split.i, %135, %101
-  %147 = phi i1 [ false, %101 ], [ %146, %.sink.split.i ], [ false, %135 ]
+  %147 = phi i1 [ false, %101 ], [ false, %135 ], [ %146, %.sink.split.i ]
   %or.cond7 = and i1 %132, %122
   br i1 %or.cond7, label %148, label %167
 
@@ -4533,7 +4533,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit.i.i1.i.i.i847: ; preds = %635, %632, %_ZN7mi
   br label %.critedge
 
 .critedge:                                        ; preds = %563, %677, %637, %570, %490
-  %.sroa.0.2 = phi <4 x float> [ %676, %637 ], [ %686, %677 ], [ %.sroa.0.3, %563 ], [ %.sroa.0.3, %570 ], [ %.sroa.0.0, %490 ]
+  %.sroa.0.2 = phi <4 x float> [ %676, %637 ], [ %686, %677 ], [ %.sroa.0.3, %570 ], [ %.sroa.0.0, %490 ], [ %.sroa.0.3, %563 ]
   %687 = load i8, ptr %90, align 1
   %688 = trunc i8 %687 to i1
   %689 = and i1 %172, %688
@@ -6184,7 +6184,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 
@@ -6400,7 +6400,7 @@ _ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.ex
   br label %68
 
 68:                                               ; preds = %66, %64
-  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %65, %64 ]
+  %.pn = phi { ptr, i32 } [ %65, %64 ], [ %67, %66 ]
   call void @_ZN7mitsuba10PropertiesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #24
   br label %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit22
 
@@ -6423,7 +6423,7 @@ _ZN7mitsuba3refINS_6ObjectEED2Ev.exit:            ; preds = %41, %45, %_ZN7mitsu
   ret void
 
 _ZN7mitsuba3refINS_6ObjectEED2Ev.exit22:          ; preds = %48, %46, %72, %68, %62, %17
-  %.pn17.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn, %68 ], [ %63, %62 ], [ %73, %72 ], [ %.pn17, %46 ], [ %.pn17, %48 ]
+  %.pn17.pn = phi { ptr, i32 } [ %.pn, %68 ], [ %63, %62 ], [ %73, %72 ], [ %18, %17 ], [ %.pn17, %46 ], [ %.pn17, %48 ]
   resume { ptr, i32 } %.pn17.pn
 }
 
@@ -7543,7 +7543,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -7618,7 +7618,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
   ret ptr %.069
 }
 

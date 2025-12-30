@@ -149,7 +149,7 @@ define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_Watchers(ptr noundef %0) lo
   br label %19
 
 19:                                               ; preds = %16, %13, %10, %7, %4, %1
-  %.0 = phi i32 [ -1, %13 ], [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ -1, %10 ], [ %., %16 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ %., %16 ]
   ret i32 %.0
 }
 
@@ -212,7 +212,7 @@ define internal ptr @add_dict_watcher(ptr readnone captures(none) %0, ptr nounde
   br label %23
 
 23:                                               ; preds = %16, %7, %18
-  %.0 = phi ptr [ null, %7 ], [ %22, %18 ], [ null, %16 ]
+  %.0 = phi ptr [ %22, %18 ], [ null, %7 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -413,7 +413,7 @@ define internal ptr @add_type_watcher(ptr readnone captures(none) %0, ptr nounde
   br label %23
 
 23:                                               ; preds = %16, %7, %18
-  %.0 = phi ptr [ null, %7 ], [ %22, %18 ], [ null, %16 ]
+  %.0 = phi ptr [ %22, %18 ], [ null, %7 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -613,7 +613,7 @@ define internal ptr @add_code_watcher(ptr readnone captures(none) %0, ptr nounde
   br label %23
 
 23:                                               ; preds = %18, %20, %15
-  %.0 = phi ptr [ null, %15 ], [ %22, %20 ], [ null, %18 ]
+  %.0 = phi ptr [ %22, %20 ], [ null, %15 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -782,7 +782,7 @@ define internal ptr @allocate_too_many_code_watchers(ptr readnone captures(none)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.thread, %18
-  %19 = phi ptr [ %12, %18 ], [ %10, %.thread ], [ %12, %13 ]
+  %19 = phi ptr [ %10, %.thread ], [ %12, %18 ], [ %12, %13 ]
   %.not19 = icmp eq ptr %19, null
   br i1 %.not19, label %21, label %20
 
@@ -1027,7 +1027,7 @@ define internal ptr @allocate_too_many_func_watchers(ptr readnone captures(none)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.thread, %18
-  %19 = phi ptr [ %12, %18 ], [ %10, %.thread ], [ %12, %13 ]
+  %19 = phi ptr [ %10, %.thread ], [ %12, %18 ], [ %12, %13 ]
   %.not19 = icmp eq ptr %19, null
   br i1 %.not19, label %21, label %20
 
@@ -1109,7 +1109,7 @@ define internal ptr @add_context_watcher(ptr readnone captures(none) %0, ptr nou
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %25, %28, %18, %23
-  %29 = phi ptr [ %22, %23 ], [ %22, %18 ], [ %.pr.pre, %28 ], [ %22, %25 ]
+  %29 = phi ptr [ %22, %18 ], [ %22, %23 ], [ %.pr.pre, %28 ], [ %22, %25 ]
   %30 = icmp eq ptr %29, null
   br i1 %30, label %34, label %31
 
@@ -1224,7 +1224,7 @@ define internal noundef ptr @clear_context_stack(ptr readnone captures(none) %0,
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %17, %14, %12, %2, %10
-  %.0 = phi ptr [ @_Py_NoneStruct, %2 ], [ null, %10 ], [ @_Py_NoneStruct, %12 ], [ @_Py_NoneStruct, %14 ], [ @_Py_NoneStruct, %17 ]
+  %.0 = phi ptr [ null, %10 ], [ @_Py_NoneStruct, %2 ], [ @_Py_NoneStruct, %12 ], [ @_Py_NoneStruct, %14 ], [ @_Py_NoneStruct, %17 ]
   ret ptr %.0
 }
 
@@ -1330,7 +1330,7 @@ define internal ptr @allocate_too_many_context_watchers(ptr readnone captures(no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.thread, %18
-  %19 = phi ptr [ %12, %18 ], [ %10, %.thread ], [ %12, %13 ]
+  %19 = phi ptr [ %10, %.thread ], [ %12, %18 ], [ %12, %13 ]
   %.not19 = icmp eq ptr %19, null
   br i1 %.not19, label %21, label %20
 

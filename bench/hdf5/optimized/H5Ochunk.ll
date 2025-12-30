@@ -126,7 +126,7 @@ define range(i32 -1, 1) i32 @H5O__chunk_add(ptr noundef %0, ptr noundef %1, i32 
   br label %52
 
 52:                                               ; preds = %23, %34, %48
-  %.031 = phi ptr [ %.132, %48 ], [ null, %23 ], [ null, %34 ]
+  %.031 = phi ptr [ null, %23 ], [ null, %34 ], [ %.132, %48 ]
   %53 = load i8, ptr @H5O_init_g, align 1, !tbaa !22, !range !23, !noundef !24
   %54 = trunc nuw i8 %53 to i1
   %55 = load i8, ptr @H5_libterm_g, align 1, !range !23
@@ -300,7 +300,7 @@ H5O__chunk_dest.exit:                             ; preds = %58
   br label %.thread44
 
 .thread44:                                        ; preds = %48, %19, %43, %H5O__chunk_dest.exit, %26, %47, %64, %3
-  %.028 = phi ptr [ null, %3 ], [ null, %64 ], [ null, %H5O__chunk_dest.exit ], [ null, %48 ], [ %17, %26 ], [ %41, %47 ], [ null, %19 ], [ null, %43 ]
+  %.028 = phi ptr [ null, %64 ], [ null, %H5O__chunk_dest.exit ], [ null, %3 ], [ %17, %26 ], [ %41, %47 ], [ null, %43 ], [ null, %19 ], [ null, %48 ]
   %72 = load i64, ptr %4, align 8, !tbaa !3
   call void @H5AC_tag(i64 noundef %72, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -470,7 +470,7 @@ define range(i32 -1, 1) i32 @H5O__chunk_resize(ptr noundef %0, ptr noundef %1) l
   br label %30
 
 30:                                               ; preds = %.sink.split, %20, %15, %2
-  %.0 = phi i32 [ 0, %20 ], [ 0, %15 ], [ 0, %2 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %20 ], [ 0, %2 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -592,7 +592,7 @@ define range(i32 -1, 1) i32 @H5O__chunk_delete(ptr noundef %0, ptr noundef %1, i
   br label %34
 
 34:                                               ; preds = %.thread, %19, %30, %3
-  %.0 = phi i32 [ -1, %30 ], [ 0, %19 ], [ -1, %.thread ], [ 0, %3 ]
+  %.0 = phi i32 [ -1, %30 ], [ 0, %19 ], [ 0, %3 ], [ -1, %.thread ]
   %35 = load i64, ptr %4, align 8, !tbaa !3
   call void @H5AC_tag(i64 noundef %35, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

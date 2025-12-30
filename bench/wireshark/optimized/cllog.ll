@@ -300,7 +300,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %86, label %.critedge.backedge, label %parseColumnHeaderFields.exit
 
 .critedge.backedge:                               ; preds = %84, %.thread109
-  %.03242.i.be = phi i1 [ true, %.thread109 ], [ %.5.i, %84 ]
+  %.03242.i.be = phi i1 [ %.5.i, %84 ], [ true, %.thread109 ]
   %.03143.i.be = getelementptr i8, ptr %.041.i, i64 1
   %indvars.iv.i.be = add nuw nsw i64 %indvars.iv.i, 1
   br label %.critedge, !llvm.loop !10
@@ -338,7 +338,7 @@ parseColumnHeaderFields.exit.thread:              ; preds = %.thread109, %.crite
   br label %99
 
 99:                                               ; preds = %38, %41, %parseColumnHeaderFields.exit.thread, %90, %47, %46
-  %.4 = phi i32 [ 0, %90 ], [ 0, %46 ], [ -1, %47 ], [ 1, %parseColumnHeaderFields.exit.thread ], [ 0, %41 ], [ 0, %38 ]
+  %.4 = phi i32 [ 0, %46 ], [ -1, %47 ], [ 1, %parseColumnHeaderFields.exit.thread ], [ 0, %90 ], [ 0, %41 ], [ 0, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.4
 }

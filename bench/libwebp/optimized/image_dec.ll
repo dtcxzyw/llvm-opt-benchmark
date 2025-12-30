@@ -84,7 +84,7 @@ define hidden range(i32 0, 6) i32 @WebPGuessImageType(ptr noundef readonly captu
   br label %51
 
 51:                                               ; preds = %47, %49, %5, %42, %43, %43, %44, %2
-  %.0 = phi i32 [ 5, %2 ], [ 5, %47 ], [ 0, %5 ], [ 1, %42 ], [ 2, %43 ], [ %spec.select, %49 ], [ 2, %43 ], [ 3, %44 ]
+  %.0 = phi i32 [ 5, %2 ], [ %spec.select, %49 ], [ 5, %47 ], [ 0, %5 ], [ 1, %42 ], [ 2, %43 ], [ 2, %43 ], [ 3, %44 ]
   ret i32 %.0
 }
 
@@ -192,7 +192,7 @@ define hidden noundef nonnull ptr @WebPGuessImageReader(ptr noundef readonly cap
   br label %WebPGetImageReader.exit
 
 WebPGetImageReader.exit:                          ; preds = %47, %5, %44, %43, %43, %42, %50
-  %.0.i1 = phi ptr [ @FailReader, %50 ], [ @ReadWebP, %44 ], [ @ReadPNM, %47 ], [ @ReadJPEG, %42 ], [ @ReadTIFF, %43 ], [ @ReadTIFF, %43 ], [ @ReadPNG, %5 ]
+  %.0.i1 = phi ptr [ @FailReader, %50 ], [ @ReadJPEG, %42 ], [ @ReadTIFF, %43 ], [ @ReadTIFF, %43 ], [ @ReadWebP, %44 ], [ @ReadPNG, %5 ], [ @ReadPNM, %47 ]
   ret ptr %.0.i1
 }
 

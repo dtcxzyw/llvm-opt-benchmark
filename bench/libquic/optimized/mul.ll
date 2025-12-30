@@ -495,7 +495,7 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, pt
   br label %50
 
 50:                                               ; preds = %31, %40, %43, %45, %48
-  %.not232 = phi i1 [ true, %31 ], [ true, %40 ], [ false, %45 ], [ false, %43 ], [ true, %48 ]
+  %.not232 = phi i1 [ true, %31 ], [ true, %40 ], [ false, %43 ], [ false, %45 ], [ true, %48 ]
   %51 = and i32 %3, 2147483646
   %52 = icmp eq i32 %51, 16
   %or.cond11 = and i1 %52, %13
@@ -550,10 +550,10 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, pt
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %78, i8 0, i64 %79, i1 false)
   br label %80
 
-80:                                               ; preds = %66, %73
-  %.pre-phi265 = phi i64 [ %70, %66 ], [ %77, %73 ]
-  %81 = phi ptr [ %69, %66 ], [ %76, %73 ]
-  %.not232238254263 = phi i1 [ %.not232, %66 ], [ true, %73 ]
+80:                                               ; preds = %73, %66
+  %.pre-phi265 = phi i64 [ %77, %73 ], [ %70, %66 ]
+  %81 = phi ptr [ %76, %73 ], [ %69, %66 ]
+  %.not232238254263 = phi i1 [ true, %73 ], [ %.not232, %66 ]
   tail call fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef %81)
   %82 = getelementptr inbounds nuw i64, ptr %0, i64 %.pre-phi265
   tail call fastcc void @bn_mul_recursive(ptr noundef %82, ptr noundef %33, ptr noundef %36, i32 noundef %8, i32 noundef %4, i32 noundef %5, ptr noundef %81)
@@ -561,7 +561,7 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, pt
   %84 = trunc i64 %83 to i32
   br i1 %.not232238254263, label %92, label %85
 
-85:                                               ; preds = %62, %80
+85:                                               ; preds = %80, %62
   %86 = phi i32 [ %65, %62 ], [ %84, %80 ]
   %87 = phi i64 [ %.pre-phi, %62 ], [ %.pre-phi265, %80 ]
   %88 = getelementptr inbounds nuw i64, ptr %6, i64 %87
@@ -570,7 +570,7 @@ define internal fastcc void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, pt
   %91 = sub nsw i32 %86, %90
   br label %99
 
-92:                                               ; preds = %62, %80
+92:                                               ; preds = %80, %62
   %93 = phi i32 [ %65, %62 ], [ %84, %80 ]
   %94 = phi i64 [ %.pre-phi, %62 ], [ %.pre-phi265, %80 ]
   %95 = getelementptr inbounds nuw i64, ptr %6, i64 %94

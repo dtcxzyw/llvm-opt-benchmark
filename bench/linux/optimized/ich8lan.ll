@@ -239,7 +239,7 @@ define dso_local i32 @e1000_set_eee_pchlan(ptr noundef %0) local_unnamed_addr #0
   br label %.thread
 
 .thread:                                          ; preds = %90, %72, %37, %27, %99, %95, %77, %41, %33, %16
-  %103 = phi i32 [ %19, %16 ], [ %79, %77 ], [ %97, %95 ], [ %102, %99 ], [ %35, %33 ], [ %43, %41 ], [ %75, %72 ], [ %31, %27 ], [ %39, %37 ], [ %93, %90 ]
+  %103 = phi i32 [ %19, %16 ], [ %79, %77 ], [ %97, %95 ], [ %102, %99 ], [ %35, %33 ], [ %43, %41 ], [ %31, %27 ], [ %39, %37 ], [ %75, %72 ], [ %93, %90 ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %105 = load ptr, ptr %104, align 8
   call void %105(ptr noundef %0) #9
@@ -470,7 +470,7 @@ define dso_local i32 @e1000_enable_ulp_lpt_lp(ptr noundef %0, i1 noundef zeroext
   br label %.thread7
 
 .thread7:                                         ; preds = %.preheader, %.loopexit, %.thread8, %134, %128, %14, %8, %8, %8, %8, %2
-  %135 = phi i32 [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %14 ], [ 0, %2 ], [ %130, %128 ], [ 0, %134 ], [ %53, %.loopexit ], [ %.ph, %.thread8 ], [ -2, %.preheader ]
+  %135 = phi i32 [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %14 ], [ 0, %2 ], [ %130, %128 ], [ 0, %134 ], [ %.ph, %.thread8 ], [ %53, %.loopexit ], [ -2, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %135
@@ -1296,7 +1296,7 @@ define dso_local void @e1000_suspend_workarounds_ich8lan(ptr noundef %0) local_u
   br label %114
 
 114:                                              ; preds = %112, %1
-  %115 = phi i32 [ %10, %1 ], [ %113, %112 ]
+  %115 = phi i32 [ %113, %112 ], [ %10, %1 ]
   call void @__ew32(ptr noundef %0, i64 noundef 3856, i32 noundef %115) #9
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %117 = load i32, ptr %116, align 4
@@ -2443,7 +2443,7 @@ thread-pre-split:                                 ; preds = %193, %200
   br label %.thread15
 
 .thread15:                                        ; preds = %104, %.thread13, %167, %164, %158, %149, %124, %108, %90, %56, %208, %211, %222, %215, %206
-  %226 = phi i32 [ 0, %208 ], [ -3, %56 ], [ 0, %222 ], [ 0, %215 ], [ 0, %206 ], [ 0, %211 ], [ %156, %.thread13 ], [ %93, %90 ], [ -2, %167 ], [ %165, %164 ], [ %162, %158 ], [ %150, %149 ], [ %140, %124 ], [ -2, %108 ], [ %106, %104 ]
+  %226 = phi i32 [ 0, %222 ], [ 0, %215 ], [ 0, %206 ], [ 0, %211 ], [ 0, %208 ], [ -3, %56 ], [ %156, %.thread13 ], [ -2, %167 ], [ %165, %164 ], [ %162, %158 ], [ %150, %149 ], [ %140, %124 ], [ -2, %108 ], [ %93, %90 ], [ %106, %104 ]
   ret i32 %226
 }
 
@@ -4120,12 +4120,12 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   br label %369
 
 367:                                              ; preds = %293, %.thread35, %.thread31, %.thread28, %.thread24, %317, %211, %23, %16
-  %368 = phi i32 [ %17, %16 ], [ %26, %23 ], [ %.ph27, %.thread28 ], [ %214, %211 ], [ -3, %293 ], [ 0, %317 ], [ %.ph, %.thread24 ], [ %.ph30, %.thread31 ], [ %.ph34, %.thread35 ]
+  %368 = phi i32 [ %17, %16 ], [ %26, %23 ], [ %214, %211 ], [ -3, %293 ], [ 0, %317 ], [ %.ph, %.thread24 ], [ %.ph27, %.thread28 ], [ %.ph30, %.thread31 ], [ %.ph34, %.thread35 ]
   store i8 1, ptr %13, align 8
   br label %369
 
 369:                                              ; preds = %367, %363, %359, %356, %329, %322, %1
-  %370 = phi i32 [ %368, %367 ], [ -3, %359 ], [ %366, %363 ], [ 0, %1 ], [ %323, %322 ], [ %330, %329 ], [ %357, %356 ]
+  %370 = phi i32 [ %368, %367 ], [ %366, %363 ], [ 0, %1 ], [ %323, %322 ], [ %330, %329 ], [ %357, %356 ], [ -3, %359 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %370
@@ -5349,7 +5349,7 @@ thread-pre-split:                                 ; preds = %26
   br i1 %130, label %133, label %.thread46
 
 .thread46:                                        ; preds = %123, %127, %118
-  %.ph45 = phi i32 [ %125, %123 ], [ %129, %127 ], [ %121, %118 ]
+  %.ph45 = phi i32 [ %129, %127 ], [ %125, %123 ], [ %121, %118 ]
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %132 = load ptr, ptr %131, align 8
   call void %132(ptr noundef %0) #9
@@ -5590,7 +5590,7 @@ thread-pre-split47:                               ; preds = %97, %133
   br i1 %279, label %.loopexit, label %249, !llvm.loop !33
 
 .thread55:                                        ; preds = %249, %258, %268, %233, %237, %.thread49
-  %.ph54 = phi i32 [ %208, %.thread49 ], [ %235, %233 ], [ %242, %237 ], [ %256, %249 ], [ %261, %258 ], [ %274, %268 ]
+  %.ph54 = phi i32 [ %208, %.thread49 ], [ %242, %237 ], [ %235, %233 ], [ %256, %249 ], [ %261, %258 ], [ %274, %268 ]
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %281 = load ptr, ptr %280, align 8
   call void %281(ptr noundef %0) #9
@@ -5661,7 +5661,7 @@ thread-pre-split47:                               ; preds = %97, %133
   br label %.thread43
 
 .thread43:                                        ; preds = %.thread39, %114, %107, %.thread55, %.thread52, %.thread46, %.thread38, %.thread35, %314, %302, %.thread51, %133, %97, %1
-  %318 = phi i32 [ 0, %1 ], [ %99, %97 ], [ %135, %133 ], [ %.ph54, %.thread55 ], [ %304, %302 ], [ %315, %314 ], [ %284, %.thread51 ], [ %.ph, %.thread35 ], [ %.ph37, %.thread38 ], [ %169, %.thread52 ], [ %.ph45, %.thread46 ], [ %105, %.thread39 ], [ %116, %114 ], [ %112, %107 ]
+  %318 = phi i32 [ 0, %1 ], [ %99, %97 ], [ %135, %133 ], [ %304, %302 ], [ %315, %314 ], [ %284, %.thread51 ], [ %.ph, %.thread35 ], [ %.ph37, %.thread38 ], [ %.ph45, %.thread46 ], [ %169, %.thread52 ], [ %.ph54, %.thread55 ], [ %105, %.thread39 ], [ %116, %114 ], [ %112, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %318
 }
@@ -6249,7 +6249,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_valid_nvm_bank_detect
   br label %59
 
 59:                                               ; preds = %.thread, %.critedge, %57, %53, %22, %18, %11
-  %60 = phi i32 [ -1, %11 ], [ -1, %18 ], [ -1, %22 ], [ -1, %.thread ], [ -1, %.critedge ], [ -1, %53 ], [ 0, %57 ]
+  %60 = phi i32 [ -1, %11 ], [ -1, %18 ], [ -1, %22 ], [ -1, %53 ], [ 0, %57 ], [ -1, %.critedge ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %60
 }
@@ -6682,7 +6682,7 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_ich8lan(ptr noundef
   br i1 %44, label %45, label %28, !llvm.loop !42
 
 45:                                               ; preds = %39, %33
-  %46 = phi i32 [ -1, %33 ], [ 0, %39 ]
+  %46 = phi i32 [ 0, %39 ], [ -1, %33 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef %0) #9
@@ -6901,7 +6901,7 @@ define internal i32 @e1000_update_nvm_checksum_ich8lan(ptr noundef %0) #0 align 
   br label %110
 
 110:                                              ; preds = %.critedge12.thread, %105, %7, %1
-  %111 = phi i32 [ %5, %1 ], [ 0, %7 ], [ -1, %.critedge12.thread ], [ 0, %105 ]
+  %111 = phi i32 [ %5, %1 ], [ 0, %7 ], [ 0, %105 ], [ -1, %.critedge12.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %111
@@ -7052,7 +7052,7 @@ define internal fastcc range(i32 -1, 1) i32 @e1000_erase_flash_bank_ich8lan(ptr 
   %9 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %8) #9, !srcloc !15
   %10 = lshr i16 %9, 3
   %11 = and i16 %10, 3
-  switch i16 %11, label %default.unreachable15 [
+  switch i16 %11, label %default.unreachable16 [
     i16 0, label %14
     i16 1, label %.thread
     i16 2, label %12
@@ -7065,7 +7065,7 @@ define internal fastcc range(i32 -1, 1) i32 @e1000_erase_flash_bank_ich8lan(ptr 
 13:                                               ; preds = %2
   br label %.thread
 
-default.unreachable15:                            ; preds = %2
+default.unreachable16:                            ; preds = %2
   unreachable
 
 14:                                               ; preds = %2
@@ -7085,8 +7085,8 @@ default.unreachable15:                            ; preds = %2
   br label %25
 
 25:                                               ; preds = %.critedge.thread5, %.thread
-  %26 = phi i32 [ 0, %.thread ], [ %110, %.critedge.thread5 ]
-  %27 = phi i32 [ 0, %.thread ], [ %109, %.critedge.thread5 ]
+  %26 = phi i32 [ 0, %.thread ], [ %109, %.critedge.thread5 ]
+  %27 = phi i32 [ 0, %.thread ], [ %108, %.critedge.thread5 ]
   %28 = phi i32 [ %23, %.thread ], [ %63, %.critedge.thread5 ]
   %29 = mul i32 %26, %17
   %30 = add i32 %27, 1
@@ -7215,18 +7215,18 @@ default.unreachable15:                            ; preds = %2
 
 .critedge.thread4:                                ; preds = %.loopexit
   %107 = add i32 %34, 1
-  %108 = icmp slt i32 %107, 10
-  br i1 %108, label %32, label %.critedge.thread5, !llvm.loop !47
+  %exitcond.not = icmp eq i32 %107, %31
+  br i1 %exitcond.not, label %.critedge.thread5, label %32, !llvm.loop !47
 
 .critedge.thread5:                                ; preds = %100, %.critedge.thread4
-  %109 = phi i32 [ %34, %100 ], [ %31, %.critedge.thread4 ]
-  %110 = add nuw nsw i32 %26, 1
-  %111 = icmp eq i32 %110, %18
-  br i1 %111, label %.critedge.thread, label %25, !llvm.loop !48
+  %108 = phi i32 [ %31, %.critedge.thread4 ], [ %34, %100 ]
+  %109 = add nuw nsw i32 %26, 1
+  %110 = icmp eq i32 %109, %18
+  br i1 %110, label %.critedge.thread, label %25, !llvm.loop !48
 
 .critedge.thread:                                 ; preds = %.critedge.thread5, %.loopexit, %32, %14
-  %112 = phi i32 [ 0, %14 ], [ -1, %.loopexit ], [ -1, %32 ], [ 0, %.critedge.thread5 ]
-  ret i32 %112
+  %111 = phi i32 [ 0, %14 ], [ -1, %32 ], [ -1, %.loopexit ], [ 0, %.critedge.thread5 ]
+  ret i32 %111
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -7566,7 +7566,7 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_spt(ptr noundef %0,
   br i1 %102, label %31, label %103, !llvm.loop !50
 
 103:                                              ; preds = %95, %72, %45
-  %104 = phi i32 [ -1, %72 ], [ 0, %95 ], [ -1, %45 ]
+  %104 = phi i32 [ 0, %95 ], [ -1, %45 ], [ -1, %72 ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %106 = load ptr, ptr %105, align 8
   tail call void %106(ptr noundef %0) #9
@@ -7768,7 +7768,7 @@ define internal i32 @e1000_update_nvm_checksum_spt(ptr noundef %0) #0 align 16 {
   br label %111
 
 111:                                              ; preds = %.thread14, %106, %7, %1
-  %112 = phi i32 [ %5, %1 ], [ 0, %7 ], [ -1, %.thread14 ], [ 0, %106 ]
+  %112 = phi i32 [ %5, %1 ], [ 0, %7 ], [ 0, %106 ], [ -1, %.thread14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %112

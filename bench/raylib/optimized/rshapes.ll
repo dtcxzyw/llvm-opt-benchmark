@@ -4190,7 +4190,7 @@ define zeroext i1 @CheckCollisionPointRec(<2 x float> %0, <2 x float> %1, <2 x f
   br label %11
 
 11:                                               ; preds = %7, %3
-  %.0 = phi i1 [ %or.cond12, %7 ], [ false, %3 ]
+  %.0 = phi i1 [ false, %3 ], [ %or.cond12, %7 ]
   ret i1 %.0
 }
 
@@ -4320,7 +4320,7 @@ define zeroext i1 @CheckCollisionRecs(<2 x float> %0, <2 x float> %1, <2 x float
   br label %14
 
 14:                                               ; preds = %9, %4
-  %.0 = phi i1 [ %or.cond13, %9 ], [ false, %4 ]
+  %.0 = phi i1 [ false, %4 ], [ %or.cond13, %9 ]
   ret i1 %.0
 }
 
@@ -4562,7 +4562,7 @@ define zeroext i1 @CheckCollisionPointLine(<2 x float> %0, <2 x float> %1, <2 x 
   br label %41
 
 41:                                               ; preds = %33, %37, %23, %27, %4
-  %.0.shrunk = phi i1 [ false, %4 ], [ %30, %27 ], [ %26, %23 ], [ %36, %33 ], [ %40, %37 ]
+  %.0.shrunk = phi i1 [ false, %4 ], [ %26, %23 ], [ %30, %27 ], [ %36, %33 ], [ %40, %37 ]
   ret i1 %.0.shrunk
 }
 
@@ -4617,7 +4617,7 @@ define zeroext i1 @CheckCollisionCircleLine(<2 x float> %0, float noundef %1, <2
   br label %32
 
 32:                                               ; preds = %18, %29, %31
-  %.046 = phi float [ %27, %29 ], [ 0.000000e+00, %31 ], [ 1.000000e+00, %18 ]
+  %.046 = phi float [ 0.000000e+00, %31 ], [ %27, %29 ], [ 1.000000e+00, %18 ]
   %33 = fneg float %.046
   %34 = tail call float @llvm.fmuladd.f32(float %33, float %5, float %.sroa.025.0.vec.extract)
   %35 = fsub float %34, %.sroa.039.0.vec.extract

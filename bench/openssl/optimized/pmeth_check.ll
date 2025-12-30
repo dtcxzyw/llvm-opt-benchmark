@@ -105,7 +105,7 @@ try_provided_check.exit:                          ; preds = %12
   br label %42
 
 42:                                               ; preds = %try_provided_check.exit.thread21, %try_provided_check.exit, %41, %39, %29, %7
-  %.0 = phi i32 [ 0, %7 ], [ %40, %39 ], [ -2, %41 ], [ %30, %29 ], [ %20, %try_provided_check.exit ], [ 0, %try_provided_check.exit.thread21 ]
+  %.0 = phi i32 [ 0, %7 ], [ -2, %41 ], [ %30, %29 ], [ %40, %39 ], [ %20, %try_provided_check.exit ], [ 0, %try_provided_check.exit.thread21 ]
   ret i32 %.0
 }
 
@@ -210,7 +210,7 @@ try_provided_check.exit:                          ; preds = %12
   br label %42
 
 42:                                               ; preds = %try_provided_check.exit.thread21, %try_provided_check.exit, %41, %39, %29, %7
-  %.0 = phi i32 [ 0, %7 ], [ %40, %39 ], [ -2, %41 ], [ %30, %29 ], [ %20, %try_provided_check.exit ], [ 0, %try_provided_check.exit.thread21 ]
+  %.0 = phi i32 [ 0, %7 ], [ -2, %41 ], [ %30, %29 ], [ %40, %39 ], [ %20, %try_provided_check.exit ], [ 0, %try_provided_check.exit.thread21 ]
   ret i32 %.0
 }
 
@@ -381,7 +381,7 @@ try_provided_check.exit:                          ; preds = %11
   br label %41
 
 41:                                               ; preds = %try_provided_check.exit.thread20, %try_provided_check.exit, %40, %38, %28, %6
-  %.0 = phi i32 [ 0, %6 ], [ %39, %38 ], [ -2, %40 ], [ %29, %28 ], [ %19, %try_provided_check.exit ], [ 0, %try_provided_check.exit.thread20 ]
+  %.0 = phi i32 [ 0, %6 ], [ -2, %40 ], [ %29, %28 ], [ %39, %38 ], [ %19, %try_provided_check.exit ], [ 0, %try_provided_check.exit.thread20 ]
   ret i32 %.0
 }
 

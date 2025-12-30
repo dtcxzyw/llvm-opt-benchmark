@@ -1830,7 +1830,7 @@ _Z9b2MakeRotf.exit:                               ; preds = %56
   br label %170
 
 170:                                              ; preds = %166, %168, %164, %162
-  %.pn102.pn = phi { ptr, i32 } [ %163, %162 ], [ %165, %164 ], [ %169, %168 ], [ %167, %166 ]
+  %.pn102.pn = phi { ptr, i32 } [ %165, %164 ], [ %163, %162 ], [ %169, %168 ], [ %167, %166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %224
 
@@ -3429,7 +3429,7 @@ _Z9b2MakeRotf.exit35:                             ; preds = %36
   br label %69
 
 69:                                               ; preds = %65, %67, %63, %61
-  %.pn31.pn = phi { ptr, i32 } [ %62, %61 ], [ %64, %63 ], [ %68, %67 ], [ %66, %65 ]
+  %.pn31.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ], [ %68, %67 ], [ %66, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %70
 
@@ -3619,7 +3619,7 @@ define linkonce_odr dso_local void @_ZN5PivotC2ER8Settings(ptr noundef nonnull a
   br label %53
 
 53:                                               ; preds = %46, %52, %44, %42
-  %.pn33.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %45, %44 ], [ %.pn33, %52 ], [ %47, %46 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ], [ %.pn33, %52 ], [ %47, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 

@@ -232,8 +232,8 @@ define void @ucnv_fromUnicode_UTF8_77(ptr noundef captures(none) %0, ptr noundef
   br i1 %.not105, label %.loopexit, label %103, !llvm.loop !29
 
 .loopexit:                                        ; preds = %113, %.preheader, %45, %43, %100, %29
-  %.392 = phi ptr [ %31, %29 ], [ %38, %45 ], [ %44, %43 ], [ %102, %100 ], [ %.6, %.preheader ], [ %.9, %113 ]
-  %.3 = phi ptr [ %25, %29 ], [ %25, %45 ], [ %25, %43 ], [ %.5, %100 ], [ %.5, %.preheader ], [ %.5, %113 ]
+  %.392 = phi ptr [ %31, %29 ], [ %44, %43 ], [ %38, %45 ], [ %102, %100 ], [ %.6, %.preheader ], [ %.9, %113 ]
+  %.3 = phi ptr [ %25, %29 ], [ %25, %43 ], [ %25, %45 ], [ %.5, %100 ], [ %.5, %.preheader ], [ %.5, %113 ]
   br label %20, !llvm.loop !31
 
 115:                                              ; preds = %67, %66, %20
@@ -516,10 +516,10 @@ define void @ucnv_fromUnicode_UTF8_OFFSETS_LOGIC_77(ptr noundef captures(none) %
   br i1 %.not147, label %.loopexit, label %124, !llvm.loop !34
 
 .loopexit:                                        ; preds = %136, %.preheader, %52, %45, %122, %31
-  %.3131 = phi ptr [ %35, %31 ], [ %43, %52 ], [ %51, %45 ], [ %117, %122 ], [ %.6134, %.preheader ], [ %.9137, %136 ]
-  %.3125 = phi ptr [ %33, %31 ], [ %39, %52 ], [ %47, %45 ], [ %123, %122 ], [ %.6, %.preheader ], [ %.9, %136 ]
-  %.2115 = phi i32 [ %32, %31 ], [ %.1114, %52 ], [ %46, %45 ], [ %.1112, %122 ], [ %.1112, %.preheader ], [ %.1112, %136 ]
-  %.3 = phi ptr [ %27, %31 ], [ %27, %52 ], [ %27, %45 ], [ %.5, %122 ], [ %.5, %.preheader ], [ %.5, %136 ]
+  %.3131 = phi ptr [ %35, %31 ], [ %51, %45 ], [ %43, %52 ], [ %117, %122 ], [ %.6134, %.preheader ], [ %.9137, %136 ]
+  %.3125 = phi ptr [ %33, %31 ], [ %47, %45 ], [ %39, %52 ], [ %123, %122 ], [ %.6, %.preheader ], [ %.9, %136 ]
+  %.2115 = phi i32 [ %32, %31 ], [ %46, %45 ], [ %.1114, %52 ], [ %.1112, %122 ], [ %.1112, %.preheader ], [ %.1112, %136 ]
+  %.3 = phi ptr [ %27, %31 ], [ %27, %45 ], [ %27, %52 ], [ %.5, %122 ], [ %.5, %.preheader ], [ %.5, %136 ]
   br label %22, !llvm.loop !35
 
 138:                                              ; preds = %79, %78, %22
@@ -835,9 +835,9 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
   br label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split, %.split.us.loopexit227, %.split.us.loopexit222, %.split.us.loopexit217
-  %.us-phi = phi ptr [ %.3117.us136, %.split.us.loopexit217 ], [ %.3117.us164, %.split.us.loopexit227 ], [ %.093, %.lr.ph.split.us.split ], [ %.3117, %.split.us.loopexit222 ], [ %.093, %.lr.ph.split.us.split.us ]
-  %.us-phi126 = phi i32 [ %.192118.us135, %.split.us.loopexit217 ], [ %.192118.us163, %.split.us.loopexit227 ], [ %.091, %.lr.ph.split.us.split ], [ %.192118, %.split.us.loopexit222 ], [ %.091, %.lr.ph.split.us.split.us ]
-  %.us-phi127 = phi i32 [ %148, %.split.us.loopexit217 ], [ %150, %.split.us.loopexit227 ], [ %.090, %.lr.ph.split.us.split ], [ %149, %.split.us.loopexit222 ], [ %.090, %.lr.ph.split.us.split.us ]
+  %.us-phi = phi ptr [ %.3117.us136, %.split.us.loopexit217 ], [ %.3117, %.split.us.loopexit222 ], [ %.3117.us164, %.split.us.loopexit227 ], [ %.093, %.lr.ph.split.us.split ], [ %.093, %.lr.ph.split.us.split.us ]
+  %.us-phi126 = phi i32 [ %.192118.us135, %.split.us.loopexit217 ], [ %.192118, %.split.us.loopexit222 ], [ %.192118.us163, %.split.us.loopexit227 ], [ %.091, %.lr.ph.split.us.split ], [ %.091, %.lr.ph.split.us.split.us ]
+  %.us-phi127 = phi i32 [ %148, %.split.us.loopexit217 ], [ %149, %.split.us.loopexit222 ], [ %150, %.split.us.loopexit227 ], [ %.090, %.lr.ph.split.us.split ], [ %.090, %.lr.ph.split.us.split.us ]
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 %.us-phi126, ptr %151, align 8, !tbaa !44
   %152 = getelementptr inbounds nuw i8, ptr %4, i64 76
@@ -863,9 +863,9 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %114, %142, %91, %._crit_edge.loopexit279.split.loop.exit, %._crit_edge.loopexit279.split.loop.exit298, %._crit_edge.loopexit275.split.loop.exit, %._crit_edge.loopexit.split.loop.exit, %.thread272, %.thread, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us, %55, %63, %_ZN6icu_774UTF812isValidTrailEihii.exit.us, %47
-  %.3.lcssa = phi ptr [ %.093, %47 ], [ %.093, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %.3117.us136, %.thread ], [ %.3117, %.thread272 ], [ %.093, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %67, %63 ], [ %59, %55 ], [ %94, %91 ], [ %145, %142 ], [ %.3117.us136, %._crit_edge.loopexit.split.loop.exit ], [ %.3117, %._crit_edge.loopexit275.split.loop.exit ], [ %.3117.us164, %._crit_edge.loopexit279.split.loop.exit ], [ %.3117.us164, %._crit_edge.loopexit279.split.loop.exit298 ], [ %117, %114 ]
-  %.192.lcssa = phi i32 [ %.091, %47 ], [ %.091, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %.192118.us135, %.thread ], [ %.192118, %.thread272 ], [ %.091, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %66, %63 ], [ %58, %55 ], [ %93, %91 ], [ %144, %142 ], [ %.192118.us135, %._crit_edge.loopexit.split.loop.exit ], [ %.192118, %._crit_edge.loopexit275.split.loop.exit ], [ %.192118.us163, %._crit_edge.loopexit279.split.loop.exit ], [ %.192118.us163, %._crit_edge.loopexit279.split.loop.exit298 ], [ %116, %114 ]
-  %.1.lcssa = phi i32 [ %.090, %47 ], [ %.090, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %78, %.thread ], [ %128, %.thread272 ], [ %.090, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ 2, %63 ], [ 2, %55 ], [ 3, %91 ], [ %.0.fr, %142 ], [ %154, %._crit_edge.loopexit.split.loop.exit ], [ %155, %._crit_edge.loopexit275.split.loop.exit ], [ %156, %._crit_edge.loopexit279.split.loop.exit ], [ %157, %._crit_edge.loopexit279.split.loop.exit298 ], [ %.0.fr, %114 ]
+  %.3.lcssa = phi ptr [ %.093, %47 ], [ %67, %63 ], [ %.093, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %59, %55 ], [ %.093, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %.3117.us136, %.thread ], [ %.3117, %.thread272 ], [ %.3117.us136, %._crit_edge.loopexit.split.loop.exit ], [ %.3117, %._crit_edge.loopexit275.split.loop.exit ], [ %.3117.us164, %._crit_edge.loopexit279.split.loop.exit ], [ %.3117.us164, %._crit_edge.loopexit279.split.loop.exit298 ], [ %94, %91 ], [ %145, %142 ], [ %117, %114 ]
+  %.192.lcssa = phi i32 [ %.091, %47 ], [ %66, %63 ], [ %.091, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %58, %55 ], [ %.091, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %.192118.us135, %.thread ], [ %.192118, %.thread272 ], [ %.192118.us135, %._crit_edge.loopexit.split.loop.exit ], [ %.192118, %._crit_edge.loopexit275.split.loop.exit ], [ %.192118.us163, %._crit_edge.loopexit279.split.loop.exit ], [ %.192118.us163, %._crit_edge.loopexit279.split.loop.exit298 ], [ %93, %91 ], [ %144, %142 ], [ %116, %114 ]
+  %.1.lcssa = phi i32 [ %.090, %47 ], [ 2, %63 ], [ %.090, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ 2, %55 ], [ %.090, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %78, %.thread ], [ %128, %.thread272 ], [ %154, %._crit_edge.loopexit.split.loop.exit ], [ %155, %._crit_edge.loopexit275.split.loop.exit ], [ %156, %._crit_edge.loopexit279.split.loop.exit ], [ %157, %._crit_edge.loopexit279.split.loop.exit298 ], [ 3, %91 ], [ %.0.fr, %142 ], [ %.0.fr, %114 ]
   %158 = icmp ne i32 %.1.lcssa, %.0.fr
   %159 = icmp sgt i32 %.1.lcssa, 3
   %or.cond5.not = and i1 %15, %159
@@ -923,8 +923,8 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %180, %183, %.split.us
-  %.398 = phi ptr [ %.095, %.split.us ], [ %173, %180 ], [ %.095, %183 ], [ %.196, %26 ]
-  %.4 = phi ptr [ %.us-phi, %.split.us ], [ %.3.lcssa, %180 ], [ %.3.lcssa, %183 ], [ %.194, %26 ]
+  %.398 = phi ptr [ %173, %180 ], [ %.095, %183 ], [ %.095, %.split.us ], [ %.196, %26 ]
+  %.4 = phi ptr [ %.3.lcssa, %180 ], [ %.3.lcssa, %183 ], [ %.us-phi, %.split.us ], [ %.194, %26 ]
   %185 = icmp uge ptr %.4, %10
   %.not107 = icmp ult ptr %.398, %12
   %or.cond111 = select i1 %185, i1 true, i1 %.not107
@@ -1241,9 +1241,9 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %125
   br label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split, %.split.us.loopexit248, %.split.us.loopexit243, %.split.us.loopexit238
-  %.us-phi = phi ptr [ %.3138.us157, %.split.us.loopexit238 ], [ %.3138.us185, %.split.us.loopexit248 ], [ %.0106, %.lr.ph.split.us.split ], [ %.3138, %.split.us.loopexit243 ], [ %.0106, %.lr.ph.split.us.split.us ]
-  %.us-phi147 = phi i32 [ %.1105139.us156, %.split.us.loopexit238 ], [ %.1105139.us184, %.split.us.loopexit248 ], [ %.0104, %.lr.ph.split.us.split ], [ %.1105139, %.split.us.loopexit243 ], [ %.0104, %.lr.ph.split.us.split.us ]
-  %.us-phi148 = phi i32 [ %152, %.split.us.loopexit238 ], [ %154, %.split.us.loopexit248 ], [ %.0103, %.lr.ph.split.us.split ], [ %153, %.split.us.loopexit243 ], [ %.0103, %.lr.ph.split.us.split.us ]
+  %.us-phi = phi ptr [ %.3138.us157, %.split.us.loopexit238 ], [ %.3138, %.split.us.loopexit243 ], [ %.3138.us185, %.split.us.loopexit248 ], [ %.0106, %.lr.ph.split.us.split ], [ %.0106, %.lr.ph.split.us.split.us ]
+  %.us-phi147 = phi i32 [ %.1105139.us156, %.split.us.loopexit238 ], [ %.1105139, %.split.us.loopexit243 ], [ %.1105139.us184, %.split.us.loopexit248 ], [ %.0104, %.lr.ph.split.us.split ], [ %.0104, %.lr.ph.split.us.split.us ]
+  %.us-phi148 = phi i32 [ %152, %.split.us.loopexit238 ], [ %153, %.split.us.loopexit243 ], [ %154, %.split.us.loopexit248 ], [ %.0103, %.lr.ph.split.us.split ], [ %.0103, %.lr.ph.split.us.split.us ]
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 %.us-phi147, ptr %155, align 8, !tbaa !44
   %156 = getelementptr inbounds nuw i8, ptr %4, i64 76
@@ -1269,9 +1269,9 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %125
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %118, %146, %95, %._crit_edge.loopexit300.split.loop.exit, %._crit_edge.loopexit300.split.loop.exit319, %._crit_edge.loopexit296.split.loop.exit, %._crit_edge.loopexit.split.loop.exit, %.thread293, %.thread, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us, %59, %67, %_ZN6icu_774UTF812isValidTrailEihii.exit.us, %51
-  %.3.lcssa = phi ptr [ %.0106, %51 ], [ %.0106, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %.3138.us157, %.thread ], [ %.3138, %.thread293 ], [ %.0106, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %71, %67 ], [ %63, %59 ], [ %98, %95 ], [ %149, %146 ], [ %.3138.us157, %._crit_edge.loopexit.split.loop.exit ], [ %.3138, %._crit_edge.loopexit296.split.loop.exit ], [ %.3138.us185, %._crit_edge.loopexit300.split.loop.exit ], [ %.3138.us185, %._crit_edge.loopexit300.split.loop.exit319 ], [ %121, %118 ]
-  %.1105.lcssa = phi i32 [ %.0104, %51 ], [ %.0104, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %.1105139.us156, %.thread ], [ %.1105139, %.thread293 ], [ %.0104, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %70, %67 ], [ %62, %59 ], [ %97, %95 ], [ %148, %146 ], [ %.1105139.us156, %._crit_edge.loopexit.split.loop.exit ], [ %.1105139, %._crit_edge.loopexit296.split.loop.exit ], [ %.1105139.us184, %._crit_edge.loopexit300.split.loop.exit ], [ %.1105139.us184, %._crit_edge.loopexit300.split.loop.exit319 ], [ %120, %118 ]
-  %.1.lcssa = phi i32 [ %.0103, %51 ], [ %.0103, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %82, %.thread ], [ %132, %.thread293 ], [ %.0103, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ 2, %67 ], [ 2, %59 ], [ 3, %95 ], [ %.0.fr, %146 ], [ %158, %._crit_edge.loopexit.split.loop.exit ], [ %159, %._crit_edge.loopexit296.split.loop.exit ], [ %160, %._crit_edge.loopexit300.split.loop.exit ], [ %161, %._crit_edge.loopexit300.split.loop.exit319 ], [ %.0.fr, %118 ]
+  %.3.lcssa = phi ptr [ %.0106, %51 ], [ %71, %67 ], [ %.0106, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %63, %59 ], [ %.0106, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %.3138.us157, %.thread ], [ %.3138, %.thread293 ], [ %.3138.us157, %._crit_edge.loopexit.split.loop.exit ], [ %.3138, %._crit_edge.loopexit296.split.loop.exit ], [ %.3138.us185, %._crit_edge.loopexit300.split.loop.exit ], [ %.3138.us185, %._crit_edge.loopexit300.split.loop.exit319 ], [ %98, %95 ], [ %149, %146 ], [ %121, %118 ]
+  %.1105.lcssa = phi i32 [ %.0104, %51 ], [ %70, %67 ], [ %.0104, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %62, %59 ], [ %.0104, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %.1105139.us156, %.thread ], [ %.1105139, %.thread293 ], [ %.1105139.us156, %._crit_edge.loopexit.split.loop.exit ], [ %.1105139, %._crit_edge.loopexit296.split.loop.exit ], [ %.1105139.us184, %._crit_edge.loopexit300.split.loop.exit ], [ %.1105139.us184, %._crit_edge.loopexit300.split.loop.exit319 ], [ %97, %95 ], [ %148, %146 ], [ %120, %118 ]
+  %.1.lcssa = phi i32 [ %.0103, %51 ], [ 2, %67 ], [ %.0103, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ 2, %59 ], [ %.0103, %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us ], [ %82, %.thread ], [ %132, %.thread293 ], [ %158, %._crit_edge.loopexit.split.loop.exit ], [ %159, %._crit_edge.loopexit296.split.loop.exit ], [ %160, %._crit_edge.loopexit300.split.loop.exit ], [ %161, %._crit_edge.loopexit300.split.loop.exit319 ], [ 3, %95 ], [ %.0.fr, %146 ], [ %.0.fr, %118 ]
   %162 = icmp ne i32 %.1.lcssa, %.0.fr
   %163 = icmp sgt i32 %.1.lcssa, 3
   %or.cond5.not = and i1 %17, %163
@@ -1343,9 +1343,9 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %125
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %192, %.split.us
-  %.3116 = phi ptr [ %.0113, %.split.us ], [ %.0113, %192 ], [ %.1114, %28 ]
-  %.3111 = phi ptr [ %.0108, %.split.us ], [ %.0108, %192 ], [ %.1109, %28 ]
-  %.4 = phi ptr [ %.us-phi, %.split.us ], [ %.3.lcssa, %192 ], [ %.1107, %28 ]
+  %.3116 = phi ptr [ %.0113, %192 ], [ %.0113, %.split.us ], [ %.1114, %28 ]
+  %.3111 = phi ptr [ %.0108, %192 ], [ %.0108, %.split.us ], [ %.1109, %28 ]
+  %.4 = phi ptr [ %.3.lcssa, %192 ], [ %.us-phi, %.split.us ], [ %.1107, %28 ]
   %194 = icmp uge ptr %.4, %12
   %.not128 = icmp ult ptr %.3111, %14
   %or.cond132 = select i1 %194, i1 true, i1 %.not128
@@ -1508,8 +1508,8 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
   br i1 %76, label %.thread108, label %77
 
 .thread108:                                       ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit, %69, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137, %53, %_ZN6icu_774UTF812isValidTrailEihii.exit.us
-  %.us-phi = phi i8 [ %.095129.us136, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137 ], [ %.095129.us, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %.095129.us136, %53 ], [ %.095129, %69 ], [ %.095129, %_ZN6icu_774UTF812isValidTrailEihii.exit ]
-  %.us-phi132 = phi ptr [ %.090130.us135, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137 ], [ %.090130.us, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %.090130.us135, %53 ], [ %.090130, %69 ], [ %.090130, %_ZN6icu_774UTF812isValidTrailEihii.exit ]
+  %.us-phi = phi i8 [ %.095129.us, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %.095129.us136, %53 ], [ %.095129.us136, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137 ], [ %.095129, %69 ], [ %.095129, %_ZN6icu_774UTF812isValidTrailEihii.exit ]
+  %.us-phi132 = phi ptr [ %.090130.us, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %.090130.us135, %53 ], [ %.090130.us135, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137 ], [ %.090130, %69 ], [ %.090130, %_ZN6icu_774UTF812isValidTrailEihii.exit ]
   store i32 12, ptr %1, align 4, !tbaa !27
   br label %.loopexit
 
@@ -1619,7 +1619,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
   br label %154
 
 .thread112:                                       ; preds = %116, %126, %130, %109, %88, %98
-  %.5 = phi ptr [ %11, %109 ], [ %99, %98 ], [ %11, %88 ], [ %11, %116 ], [ %127, %126 ], [ %131, %130 ]
+  %.5 = phi ptr [ %11, %88 ], [ %99, %98 ], [ %11, %109 ], [ %11, %116 ], [ %127, %126 ], [ %131, %130 ]
   store ptr %.5, ptr %5, align 8, !tbaa !38
   %144 = getelementptr inbounds nuw i8, ptr %4, i64 65
   br label %145
@@ -1794,7 +1794,7 @@ define internal void @_ZL17ucnv_UTF8FromUTF8P25UConverterFromUnicodeArgsP23UConv
   br label %96
 
 96:                                               ; preds = %86, %64, %42, %54, %56, %52, %81, %76, %78, %39
-  %.3207 = phi i32 [ %40, %39 ], [ %40, %42 ], [ %53, %52 ], [ %40, %54 ], [ 1, %56 ], [ %40, %76 ], [ %spec.select254, %86 ], [ %spec.select253, %64 ], [ 2, %78 ], [ %40, %81 ]
+  %.3207 = phi i32 [ %40, %39 ], [ %40, %42 ], [ %53, %52 ], [ 1, %56 ], [ %40, %54 ], [ 2, %78 ], [ %40, %76 ], [ %spec.select253, %64 ], [ %40, %81 ], [ %spec.select254, %86 ]
   %97 = add nsw i32 %.3207, %32
   br label %98
 

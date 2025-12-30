@@ -3074,7 +3074,7 @@ _ZN4llvm5ErrorD2Ev.exit:
   br label %_ZN4llvm5ErrorD2Ev.exit4
 
 _ZN4llvm5ErrorD2Ev.exit4:                         ; preds = %13, %23, %25
-  %.sroa.2.010 = phi i64 [ 0, %25 ], [ 0, %23 ], [ 4294967296, %13 ]
+  %.sroa.2.010 = phi i64 [ 0, %23 ], [ 0, %25 ], [ 4294967296, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.08.0.insert.ext = zext i32 %14 to i64
   %.sroa.08.0.insert.insert = or disjoint i64 %.sroa.2.010, %.sroa.08.0.insert.ext
@@ -4710,8 +4710,8 @@ _ZNK4llvm21AppleAcceleratorTable11readIthHashEj.exit: ; preds = %62, %64
   br i1 %76, label %42, label %.thread23.loopexit, !llvm.loop !411
 
 .thread23.loopexit:                               ; preds = %.critedge35, %73, %71
-  %.sroa.017.0.ph = phi i64 [ 0, %.critedge35 ], [ %indvars.iv, %71 ], [ 0, %73 ]
-  %.sroa.2.0.ph = phi i64 [ 0, %.critedge35 ], [ 4294967296, %71 ], [ 0, %73 ]
+  %.sroa.017.0.ph = phi i64 [ 0, %.critedge35 ], [ 0, %73 ], [ %indvars.iv, %71 ]
+  %.sroa.2.0.ph = phi i64 [ 0, %.critedge35 ], [ 0, %73 ], [ 4294967296, %71 ]
   %77 = or disjoint i64 %.sroa.2.0.ph, %.sroa.017.0.ph
   br label %.thread23
 
@@ -6608,8 +6608,8 @@ _ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit: ; preds = %17, %.loopexit.i
   br label %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit.thread
 
 _ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit.thread: ; preds = %.lr.ph.i.i, %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit, %29, %35
-  %.sroa.02.0 = phi i64 [ %49, %35 ], [ undef, %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit ], [ undef, %29 ], [ undef, %.lr.ph.i.i ]
-  %.sroa.2.0 = phi i8 [ 1, %35 ], [ 0, %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit ], [ 0, %29 ], [ 0, %.lr.ph.i.i ]
+  %.sroa.02.0 = phi i64 [ %49, %35 ], [ undef, %29 ], [ undef, %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit ], [ undef, %.lr.ph.i.i ]
+  %.sroa.2.0 = phi i8 [ 1, %35 ], [ 0, %29 ], [ 0, %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit ], [ 0, %.lr.ph.i.i ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.02.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -6991,8 +6991,8 @@ _ZNK4llvm15DWARFDebugNames5Entry10getTUIndexEv.exit: ; preds = %.lr.ph.i.i
   br label %52
 
 52:                                               ; preds = %27, %_ZNK4llvm15DWARFDebugNames5Entry10getTUIndexEv.exit, %24, %_ZNK4llvm15DWARFDebugNames5Entry10getTUIndexEv.exit.thread, %32
-  %.sroa.06.0 = phi i64 [ undef, %_ZNK4llvm15DWARFDebugNames5Entry10getTUIndexEv.exit ], [ %51, %32 ], [ undef, %_ZNK4llvm15DWARFDebugNames5Entry10getTUIndexEv.exit.thread ], [ undef, %24 ], [ undef, %27 ]
-  %.sroa.2.0 = phi i8 [ 0, %_ZNK4llvm15DWARFDebugNames5Entry10getTUIndexEv.exit ], [ 1, %32 ], [ 0, %_ZNK4llvm15DWARFDebugNames5Entry10getTUIndexEv.exit.thread ], [ 0, %24 ], [ 0, %27 ]
+  %.sroa.06.0 = phi i64 [ %51, %32 ], [ undef, %_ZNK4llvm15DWARFDebugNames5Entry10getTUIndexEv.exit.thread ], [ undef, %24 ], [ undef, %_ZNK4llvm15DWARFDebugNames5Entry10getTUIndexEv.exit ], [ undef, %27 ]
+  %.sroa.2.0 = phi i8 [ 1, %32 ], [ 0, %_ZNK4llvm15DWARFDebugNames5Entry10getTUIndexEv.exit.thread ], [ 0, %24 ], [ 0, %_ZNK4llvm15DWARFDebugNames5Entry10getTUIndexEv.exit ], [ 0, %27 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.06.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -7160,7 +7160,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14DWARFFormValueELb1EE18uninitialized_moveI
   br label %_ZNSt8optionalIN4llvm15DWARFDebugNames5EntryEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_.exit.i.i
 
 _ZNSt8optionalIN4llvm15DWARFDebugNames5EntryEEC2IS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS2_JSA_EESt14is_convertibleISA_S2_EEEbE4typeELb1EEEOSA_.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_14DWARFFormValueELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i, %_ZN4llvm15SmallVectorImplINS_14DWARFFormValueEE12assignRemoteEOS2_.exit.i, %42, %35
-  %.pre8 = phi i8 [ %.pre8.pre, %_ZN4llvm23SmallVectorTemplateBaseINS_14DWARFFormValueELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i ], [ %28, %35 ], [ %28, %_ZN4llvm15SmallVectorImplINS_14DWARFFormValueEE12assignRemoteEOS2_.exit.i ], [ %28, %42 ]
+  %.pre8 = phi i8 [ %.pre8.pre, %_ZN4llvm23SmallVectorTemplateBaseINS_14DWARFFormValueELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i ], [ %28, %_ZN4llvm15SmallVectorImplINS_14DWARFFormValueEE12assignRemoteEOS2_.exit.i ], [ %28, %42 ], [ %28, %35 ]
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm15DWARFDebugNames5EntryE, i64 16), ptr %0, align 8, !tbaa !83
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -10157,8 +10157,8 @@ _ZNK4llvm15DWARFDebugNames14NameTableEntry10sameNameAsENS_9StringRefE.exit35: ; 
   br label %.critedge27
 
 .critedge27:                                      ; preds = %.thread66, %81, %.critedge, %.critedge27.loopexit79.split.loop.exit85, %.preheader, %.critedge27.loopexit.split.loop.exit92, %12, %62
-  %.sroa.062.0 = phi i64 [ undef, %.preheader ], [ undef, %62 ], [ %136, %.critedge27.loopexit.split.loop.exit92 ], [ undef, %12 ], [ %137, %.critedge27.loopexit79.split.loop.exit85 ], [ undef, %.critedge ], [ undef, %81 ], [ undef, %.thread66 ]
-  %.sroa.3.0 = phi i8 [ 0, %.preheader ], [ 0, %62 ], [ 1, %.critedge27.loopexit.split.loop.exit92 ], [ 0, %12 ], [ 1, %.critedge27.loopexit79.split.loop.exit85 ], [ 0, %.critedge ], [ 0, %81 ], [ 0, %.thread66 ]
+  %.sroa.062.0 = phi i64 [ undef, %62 ], [ %136, %.critedge27.loopexit.split.loop.exit92 ], [ undef, %12 ], [ %137, %.critedge27.loopexit79.split.loop.exit85 ], [ undef, %.preheader ], [ undef, %.critedge ], [ undef, %81 ], [ undef, %.thread66 ]
+  %.sroa.3.0 = phi i8 [ 0, %62 ], [ 1, %.critedge27.loopexit.split.loop.exit92 ], [ 0, %12 ], [ 1, %.critedge27.loopexit79.split.loop.exit85 ], [ 0, %.preheader ], [ 0, %.critedge ], [ 0, %81 ], [ 0, %.thread66 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.062.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -11410,7 +11410,7 @@ _ZL14isObjCSelectorN4llvm9StringRefE.exit:        ; preds = %7, %7
   %11 = icmp eq i8 %10, 91
   br i1 %11, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, label %_ZL14isObjCSelectorN4llvm9StringRefE.exit.thread
 
-_ZL14isObjCSelectorN4llvm9StringRefE.exit.thread: ; preds = %3, %7, %_ZL14isObjCSelectorN4llvm9StringRefE.exit
+_ZL14isObjCSelectorN4llvm9StringRefE.exit.thread: ; preds = %7, %3, %_ZL14isObjCSelectorN4llvm9StringRefE.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 0, ptr %12, align 8, !tbaa !975
   br label %75
@@ -13050,8 +13050,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i20:    ; preds = %_ZNK4llvm9StringRef
   br i1 %22, label %_ZN4llvm9StringRef13consume_frontES0_.exit23.sink.split, label %_ZN4llvm9StringRef13consume_frontES0_.exit23
 
 _ZN4llvm9StringRef13consume_frontES0_.exit23.sink.split: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i20, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14, %_ZNK4llvm9StringRef11starts_withES0_.exit.i8, %_ZNK4llvm9StringRef11starts_withES0_.exit.i
-  %.pre.i19.sink = phi ptr [ %.pre.i13, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14 ], [ %.pre.i7, %_ZNK4llvm9StringRef11starts_withES0_.exit.i8 ], [ %.pre.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %.pre.i19, %_ZNK4llvm9StringRef11starts_withES0_.exit.i20 ]
-  %.0.ph = phi i32 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i8 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i20 ]
+  %.pre.i19.sink = phi ptr [ %.pre.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %.pre.i7, %_ZNK4llvm9StringRef11starts_withES0_.exit.i8 ], [ %.pre.i13, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14 ], [ %.pre.i19, %_ZNK4llvm9StringRef11starts_withES0_.exit.i20 ]
+  %.0.ph = phi i32 [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i8 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i20 ]
   %23 = getelementptr inbounds nuw i8, ptr %.pre.i19.sink, i64 1
   %24 = add i64 %18, -1
   store ptr %23, ptr %7, align 8, !tbaa !150
@@ -13165,7 +13165,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit30:     ; preds = %_ZNK4llvm9StringRef
   br label %26
 
 26:                                               ; preds = %.thread50, %_ZN4llvm9StringRef13consume_frontES0_.exit30, %_ZN4llvm9StringRef13consume_frontES0_.exit18, %_ZN4llvm9StringRef13consume_frontES0_.exit24, %1, %11, %7
-  %.sroa.5.0 = phi i64 [ 4294967297, %7 ], [ 4294967296, %11 ], [ 0, %1 ], [ 4294967299, %_ZN4llvm9StringRef13consume_frontES0_.exit18 ], [ 4294967299, %_ZN4llvm9StringRef13consume_frontES0_.exit24 ], [ 4294967298, %_ZN4llvm9StringRef13consume_frontES0_.exit30 ], [ 4294967298, %.thread50 ]
+  %.sroa.5.0 = phi i64 [ 4294967297, %7 ], [ 4294967296, %11 ], [ 0, %1 ], [ 4294967299, %_ZN4llvm9StringRef13consume_frontES0_.exit24 ], [ 4294967299, %_ZN4llvm9StringRef13consume_frontES0_.exit18 ], [ 4294967298, %_ZN4llvm9StringRef13consume_frontES0_.exit30 ], [ 4294967298, %.thread50 ]
   ret i64 %.sroa.5.0
 }
 
@@ -14166,7 +14166,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %49, label %43, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm15DWARFDebugNames6AbbrevESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNKS3_9NameIndex17dumpAbbreviationsERNS2_13ScopedPrinterEE3$_0EEEvT_T0_SK_T1_T2_.exit.us.i.i.i", !llvm.loop !1081
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm15DWARFDebugNames6AbbrevESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNKS3_9NameIndex17dumpAbbreviationsERNS2_13ScopedPrinterEE3$_0EEEvT_T0_SK_T1_T2_.exit.us.i.i.i": ; preds = %47, %43, %.split.us.i.i.i
-  %.0.lcssa.i.i.us.i.i.i = phi i64 [ %.09.us.i.i.i, %.split.us.i.i.i ], [ %.0911.i.i.us.i.i.i, %47 ], [ %.010.i.i.us.i.i.i, %43 ]
+  %.0.lcssa.i.i.us.i.i.i = phi i64 [ %.09.us.i.i.i, %.split.us.i.i.i ], [ %.010.i.i.us.i.i.i, %43 ], [ %.0911.i.i.us.i.i.i, %47 ]
   %50 = getelementptr inbounds nuw ptr, ptr %.fr8.i.i.i, i64 %.0.lcssa.i.i.us.i.i.i
   store ptr %29, ptr %50, align 8, !tbaa !895
   %.not.us.i.i.i = icmp eq i64 %.09.us.i.i.i, 0

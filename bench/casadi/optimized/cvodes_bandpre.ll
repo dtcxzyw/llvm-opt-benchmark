@@ -407,7 +407,7 @@ cvBandPrecDQJac.exit:                             ; preds = %._crit_edge.i
   br label %150
 
 150:                                              ; preds = %cvBandPrecDQJac.exit, %140, %134
-  %.0 = phi i32 [ %., %140 ], [ -1, %134 ], [ 1, %cvBandPrecDQJac.exit ]
+  %.0 = phi i32 [ -1, %134 ], [ %., %140 ], [ 1, %cvBandPrecDQJac.exit ]
   ret i32 %.0
 }
 

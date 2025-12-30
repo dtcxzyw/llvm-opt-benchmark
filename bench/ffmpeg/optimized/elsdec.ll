@@ -249,7 +249,7 @@ els_import_byte.exit76.thread:                    ; preds = %74
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %77, %64
-  %.1 = phi i32 [ %17, %64 ], [ %86, %77 ], [ %89, %..loopexit_crit_edge ], [ %89, %.preheader ]
+  %.1 = phi i32 [ %86, %77 ], [ %17, %64 ], [ %89, %..loopexit_crit_edge ], [ %89, %.preheader ]
   %100 = load i8, ptr %1, align 1, !tbaa !4
   %101 = and i8 %100, 1
   %102 = xor i8 %101, 1
@@ -279,7 +279,7 @@ els_import_byte.exit76.thread:                    ; preds = %74
   br label %115
 
 115:                                              ; preds = %els_import_byte.exit76.thread, %els_import_byte.exit.thread, %88, %2, %103, %25
-  %.0 = phi i32 [ -541478725, %els_import_byte.exit76.thread ], [ %28, %25 ], [ 0, %2 ], [ %.061, %103 ], [ -541478725, %els_import_byte.exit.thread ], [ %90, %88 ]
+  %.0 = phi i32 [ %28, %25 ], [ %.061, %103 ], [ 0, %2 ], [ %90, %88 ], [ -541478725, %els_import_byte.exit.thread ], [ -541478725, %els_import_byte.exit76.thread ]
   ret i32 %.0
 }
 
@@ -482,7 +482,7 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
   br label %.critedge
 
 .critedge:                                        ; preds = %40, %67, %13, %2, %74, %19, %.thread
-  %.0 = phi i32 [ 0, %2 ], [ 0, %.thread ], [ 0, %19 ], [ 0, %13 ], [ %76, %74 ], [ 0, %40 ], [ %68, %67 ]
+  %.0 = phi i32 [ 0, %.thread ], [ %76, %74 ], [ 0, %19 ], [ 0, %2 ], [ 0, %13 ], [ 0, %40 ], [ %68, %67 ]
   ret i32 %.0
 }
 

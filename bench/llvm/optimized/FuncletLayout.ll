@@ -366,7 +366,7 @@ _ZN4llvm12simple_ilistINS_17MachineBasicBlockEJEE6spliceENS_14ilist_iteratorINS_
   br i1 %53, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findES4_.exit.thread.i.i, label %.lr.ph.i.i.i.i, !prof !44, !llvm.loop !45
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findES4_.exit.thread.i.i: ; preds = %.lr.ph.i.i.i.i, %47, %35
-  %.sroa.0.1.i14.i.i = phi ptr [ %42, %35 ], [ %51, %47 ], [ %33, %.lr.ph.i.i.i.i ]
+  %.sroa.0.1.i14.i.i = phi ptr [ %42, %35 ], [ %33, %.lr.ph.i.i.i.i ], [ %51, %47 ]
   %54 = ptrtoint ptr %.sroa.026.039.i to i64
   %55 = trunc i64 %54 to i32
   %56 = lshr i32 %55, 4
@@ -397,8 +397,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEiNS_12DenseMapInfoI
   br i1 %71, label %"_ZZN12_GLOBAL__N_113FuncletLayout20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clERNS1_17MachineBasicBlockES6_.exit.i", label %.lr.ph.i.i4.i.i, !prof !44, !llvm.loop !45
 
 "_ZZN12_GLOBAL__N_113FuncletLayout20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clERNS1_17MachineBasicBlockES6_.exit.i": ; preds = %65, %.lr.ph.i.i4.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findES4_.exit.thread.i.i, %34
-  %.sroa.0.1.i13.i.i = phi ptr [ %33, %34 ], [ %.sroa.0.1.i14.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findES4_.exit.thread.i.i ], [ %.sroa.0.1.i14.i.i, %.lr.ph.i.i4.i.i ], [ %.sroa.0.1.i14.i.i, %65 ]
-  %.sroa.0.1.i10.i.i = phi ptr [ %33, %34 ], [ %60, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findES4_.exit.thread.i.i ], [ %69, %65 ], [ %33, %.lr.ph.i.i4.i.i ]
+  %.sroa.0.1.i13.i.i = phi ptr [ %.sroa.0.1.i14.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findES4_.exit.thread.i.i ], [ %33, %34 ], [ %.sroa.0.1.i14.i.i, %.lr.ph.i.i4.i.i ], [ %.sroa.0.1.i14.i.i, %65 ]
+  %.sroa.0.1.i10.i.i = phi ptr [ %60, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findES4_.exit.thread.i.i ], [ %33, %34 ], [ %69, %65 ], [ %33, %.lr.ph.i.i4.i.i ]
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i13.i.i, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !46
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i10.i.i, i64 8

@@ -173,7 +173,7 @@ find_lib.exit62.i:                                ; preds = %22
   %or.cond.i = select i1 %30, i1 %32, i1 false
   %33 = icmp ne ptr %24, null
   %or.cond3.i = select i1 %or.cond.i, i1 %33, i1 false
-  br i1 %or.cond3.i, label %46, label %34
+  br i1 %or.cond3.i, label %45, label %34
 
 34:                                               ; preds = %find_lib.exit62.i
   %.not.i63.i = icmp eq ptr %29, null
@@ -198,254 +198,254 @@ find_lib.exit62.i:                                ; preds = %22
 41:                                               ; preds = %39, %37
   %42 = load ptr, ptr @libgdk, align 8
   %.not4.i.i = icmp eq ptr %42, null
-  br i1 %.not4.i.i, label %quit_gtk.exit.i, label %43
+  br i1 %.not4.i.i, label %init_gtk.exit, label %43
 
 43:                                               ; preds = %41
   %44 = tail call i32 @dlclose(ptr noundef nonnull %42) #10
   store ptr null, ptr @libgdk, align 8
-  br label %quit_gtk.exit.i
+  br label %init_gtk.exit
 
-quit_gtk.exit.i:                                  ; preds = %43, %41
-  store i1 false, ptr @gtk_is_init, align 1
-  %45 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #10
-  br i1 %45, label %init_gtk.exit.thread, label %220
+45:                                               ; preds = %find_lib.exit62.i
+  %46 = tail call ptr @dlsym(ptr noundef nonnull %31, ptr noundef nonnull @.str.16) #10
+  store ptr %46, ptr @gtk_init_check, align 8
+  %47 = load ptr, ptr @libgtk, align 8
+  %48 = tail call ptr @dlsym(ptr noundef %47, ptr noundef nonnull @.str.17) #10
+  store ptr %48, ptr @gtk_main_iteration_do, align 8
+  %49 = load ptr, ptr @libgtk, align 8
+  %50 = tail call ptr @dlsym(ptr noundef %49, ptr noundef nonnull @.str.18) #10
+  store ptr %50, ptr @gtk_menu_new, align 8
+  %51 = load ptr, ptr @libgtk, align 8
+  %52 = tail call ptr @dlsym(ptr noundef %51, ptr noundef nonnull @.str.19) #10
+  store ptr %52, ptr @gtk_separator_menu_item_new, align 8
+  %53 = load ptr, ptr @libgtk, align 8
+  %54 = tail call ptr @dlsym(ptr noundef %53, ptr noundef nonnull @.str.20) #10
+  store ptr %54, ptr @gtk_menu_item_new_with_label, align 8
+  %55 = load ptr, ptr @libgtk, align 8
+  %56 = tail call ptr @dlsym(ptr noundef %55, ptr noundef nonnull @.str.21) #10
+  store ptr %56, ptr @gtk_menu_item_set_submenu, align 8
+  %57 = load ptr, ptr @libgtk, align 8
+  %58 = tail call ptr @dlsym(ptr noundef %57, ptr noundef nonnull @.str.22) #10
+  store ptr %58, ptr @gtk_check_menu_item_new_with_label, align 8
+  %59 = load ptr, ptr @libgtk, align 8
+  %60 = tail call ptr @dlsym(ptr noundef %59, ptr noundef nonnull @.str.23) #10
+  store ptr %60, ptr @gtk_check_menu_item_set_active, align 8
+  %61 = load ptr, ptr @libgtk, align 8
+  %62 = tail call ptr @dlsym(ptr noundef %61, ptr noundef nonnull @.str.24) #10
+  store ptr %62, ptr @gtk_widget_set_sensitive, align 8
+  %63 = load ptr, ptr @libgtk, align 8
+  %64 = tail call ptr @dlsym(ptr noundef %63, ptr noundef nonnull @.str.25) #10
+  store ptr %64, ptr @gtk_widget_show, align 8
+  %65 = load ptr, ptr @libgtk, align 8
+  %66 = tail call ptr @dlsym(ptr noundef %65, ptr noundef nonnull @.str.26) #10
+  store ptr %66, ptr @gtk_menu_shell_append, align 8
+  %67 = load ptr, ptr @libgtk, align 8
+  %68 = tail call ptr @dlsym(ptr noundef %67, ptr noundef nonnull @.str.27) #10
+  store ptr %68, ptr @gtk_menu_shell_insert, align 8
+  %69 = load ptr, ptr @libgtk, align 8
+  %70 = tail call ptr @dlsym(ptr noundef %69, ptr noundef nonnull @.str.28) #10
+  store ptr %70, ptr @gtk_widget_destroy, align 8
+  %71 = load ptr, ptr @libgtk, align 8
+  %72 = tail call ptr @dlsym(ptr noundef %71, ptr noundef nonnull @.str.29) #10
+  store ptr %72, ptr @gtk_menu_item_get_label, align 8
+  %73 = load ptr, ptr @libgtk, align 8
+  %74 = tail call ptr @dlsym(ptr noundef %73, ptr noundef nonnull @.str.30) #10
+  store ptr %74, ptr @gtk_menu_item_set_label, align 8
+  %75 = load ptr, ptr @libgtk, align 8
+  %76 = tail call ptr @dlsym(ptr noundef %75, ptr noundef nonnull @.str.31) #10
+  store ptr %76, ptr @gtk_check_menu_item_get_active, align 8
+  %77 = load ptr, ptr @libgtk, align 8
+  %78 = tail call ptr @dlsym(ptr noundef %77, ptr noundef nonnull @.str.32) #10
+  store ptr %78, ptr @gtk_widget_get_sensitive, align 8
+  %79 = load ptr, ptr @libgdk, align 8
+  %80 = tail call ptr @dlsym(ptr noundef %79, ptr noundef nonnull @.str.33) #10
+  store ptr %80, ptr @g_mkdtemp, align 8
+  %81 = load ptr, ptr @libgdk, align 8
+  %82 = tail call ptr @dlsym(ptr noundef %81, ptr noundef nonnull @.str.34) #10
+  store ptr %82, ptr @g_signal_connect_data, align 8
+  %83 = load ptr, ptr @libgdk, align 8
+  %84 = tail call ptr @dlsym(ptr noundef %83, ptr noundef nonnull @.str.35) #10
+  store ptr %84, ptr @g_object_unref, align 8
+  %85 = load ptr, ptr @libgdk, align 8
+  %86 = tail call ptr @dlsym(ptr noundef %85, ptr noundef nonnull @.str.36) #10
+  store ptr %86, ptr @g_object_ref_sink, align 8
+  %87 = load ptr, ptr @libgdk, align 8
+  %88 = tail call ptr @dlsym(ptr noundef %87, ptr noundef nonnull @.str.37) #10
+  store ptr %88, ptr @g_object_ref, align 8
+  %89 = load ptr, ptr @libappindicator, align 8
+  %90 = tail call ptr @dlsym(ptr noundef %89, ptr noundef nonnull @.str.38) #10
+  store ptr %90, ptr @app_indicator_new, align 8
+  %91 = load ptr, ptr @libappindicator, align 8
+  %92 = tail call ptr @dlsym(ptr noundef %91, ptr noundef nonnull @.str.39) #10
+  store ptr %92, ptr @app_indicator_set_status, align 8
+  %93 = load ptr, ptr @libappindicator, align 8
+  %94 = tail call ptr @dlsym(ptr noundef %93, ptr noundef nonnull @.str.40) #10
+  store ptr %94, ptr @app_indicator_set_icon, align 8
+  %95 = load ptr, ptr @libappindicator, align 8
+  %96 = tail call ptr @dlsym(ptr noundef %95, ptr noundef nonnull @.str.41) #10
+  store ptr %96, ptr @app_indicator_set_menu, align 8
+  %97 = load ptr, ptr @gtk_init_check, align 8
+  %98 = icmp ne ptr %97, null
+  %99 = load ptr, ptr @gtk_main_iteration_do, align 8
+  %100 = icmp ne ptr %99, null
+  %or.cond5.i = select i1 %98, i1 %100, i1 false
+  %101 = load ptr, ptr @gtk_menu_new, align 8
+  %102 = icmp ne ptr %101, null
+  %or.cond7.i = select i1 %or.cond5.i, i1 %102, i1 false
+  %103 = load ptr, ptr @gtk_separator_menu_item_new, align 8
+  %104 = icmp ne ptr %103, null
+  %or.cond9.i = select i1 %or.cond7.i, i1 %104, i1 false
+  %105 = load ptr, ptr @gtk_menu_item_new_with_label, align 8
+  %106 = icmp ne ptr %105, null
+  %or.cond11.i = select i1 %or.cond9.i, i1 %106, i1 false
+  %107 = load ptr, ptr @gtk_menu_item_set_submenu, align 8
+  %108 = icmp ne ptr %107, null
+  %or.cond13.i = select i1 %or.cond11.i, i1 %108, i1 false
+  %109 = load ptr, ptr @gtk_check_menu_item_new_with_label, align 8
+  %110 = icmp ne ptr %109, null
+  %or.cond15.i = select i1 %or.cond13.i, i1 %110, i1 false
+  %111 = load ptr, ptr @gtk_check_menu_item_set_active, align 8
+  %112 = icmp ne ptr %111, null
+  %or.cond17.i = select i1 %or.cond15.i, i1 %112, i1 false
+  %113 = load ptr, ptr @gtk_widget_set_sensitive, align 8
+  %114 = icmp ne ptr %113, null
+  %or.cond19.i = select i1 %or.cond17.i, i1 %114, i1 false
+  %115 = load ptr, ptr @gtk_widget_show, align 8
+  %116 = icmp ne ptr %115, null
+  %or.cond21.i = select i1 %or.cond19.i, i1 %116, i1 false
+  %117 = load ptr, ptr @gtk_menu_shell_append, align 8
+  %118 = icmp ne ptr %117, null
+  %or.cond23.i = select i1 %or.cond21.i, i1 %118, i1 false
+  %119 = load ptr, ptr @gtk_menu_shell_insert, align 8
+  %120 = icmp ne ptr %119, null
+  %or.cond25.i = select i1 %or.cond23.i, i1 %120, i1 false
+  %121 = load ptr, ptr @gtk_widget_destroy, align 8
+  %122 = icmp ne ptr %121, null
+  %or.cond27.i = select i1 %or.cond25.i, i1 %122, i1 false
+  %123 = load ptr, ptr @g_mkdtemp, align 8
+  %124 = icmp ne ptr %123, null
+  %or.cond29.i = select i1 %or.cond27.i, i1 %124, i1 false
+  %125 = load ptr, ptr @g_object_ref_sink, align 8
+  %126 = icmp ne ptr %125, null
+  %or.cond31.i = select i1 %or.cond29.i, i1 %126, i1 false
+  %127 = load ptr, ptr @g_object_ref, align 8
+  %128 = icmp ne ptr %127, null
+  %or.cond33.i = select i1 %or.cond31.i, i1 %128, i1 false
+  %129 = load ptr, ptr @g_signal_connect_data, align 8
+  %130 = icmp ne ptr %129, null
+  %or.cond35.i = select i1 %or.cond33.i, i1 %130, i1 false
+  %131 = load ptr, ptr @g_object_unref, align 8
+  %132 = icmp ne ptr %131, null
+  %or.cond37.i = select i1 %or.cond35.i, i1 %132, i1 false
+  %133 = load ptr, ptr @app_indicator_new, align 8
+  %134 = icmp ne ptr %133, null
+  %or.cond39.i = select i1 %or.cond37.i, i1 %134, i1 false
+  %135 = load ptr, ptr @app_indicator_set_status, align 8
+  %136 = icmp ne ptr %135, null
+  %or.cond41.i = select i1 %or.cond39.i, i1 %136, i1 false
+  %137 = load ptr, ptr @app_indicator_set_icon, align 8
+  %138 = icmp ne ptr %137, null
+  %or.cond43.i = select i1 %or.cond41.i, i1 %138, i1 false
+  %139 = icmp ne ptr %96, null
+  %or.cond45.i = select i1 %or.cond43.i, i1 %139, i1 false
+  %140 = load ptr, ptr @gtk_menu_item_get_label, align 8
+  %141 = icmp ne ptr %140, null
+  %or.cond47.i = select i1 %or.cond45.i, i1 %141, i1 false
+  %142 = load ptr, ptr @gtk_menu_item_set_label, align 8
+  %143 = icmp ne ptr %142, null
+  %or.cond49.i = select i1 %or.cond47.i, i1 %143, i1 false
+  %144 = load ptr, ptr @gtk_check_menu_item_get_active, align 8
+  %145 = icmp ne ptr %144, null
+  %or.cond51.i = select i1 %or.cond49.i, i1 %145, i1 false
+  %146 = load ptr, ptr @gtk_widget_get_sensitive, align 8
+  %147 = icmp ne ptr %146, null
+  %or.cond53.i = select i1 %or.cond51.i, i1 %147, i1 false
+  br i1 %or.cond53.i, label %161, label %148
 
-46:                                               ; preds = %find_lib.exit62.i
-  %47 = tail call ptr @dlsym(ptr noundef nonnull %31, ptr noundef nonnull @.str.16) #10
-  store ptr %47, ptr @gtk_init_check, align 8
-  %48 = load ptr, ptr @libgtk, align 8
-  %49 = tail call ptr @dlsym(ptr noundef %48, ptr noundef nonnull @.str.17) #10
-  store ptr %49, ptr @gtk_main_iteration_do, align 8
-  %50 = load ptr, ptr @libgtk, align 8
-  %51 = tail call ptr @dlsym(ptr noundef %50, ptr noundef nonnull @.str.18) #10
-  store ptr %51, ptr @gtk_menu_new, align 8
-  %52 = load ptr, ptr @libgtk, align 8
-  %53 = tail call ptr @dlsym(ptr noundef %52, ptr noundef nonnull @.str.19) #10
-  store ptr %53, ptr @gtk_separator_menu_item_new, align 8
-  %54 = load ptr, ptr @libgtk, align 8
-  %55 = tail call ptr @dlsym(ptr noundef %54, ptr noundef nonnull @.str.20) #10
-  store ptr %55, ptr @gtk_menu_item_new_with_label, align 8
-  %56 = load ptr, ptr @libgtk, align 8
-  %57 = tail call ptr @dlsym(ptr noundef %56, ptr noundef nonnull @.str.21) #10
-  store ptr %57, ptr @gtk_menu_item_set_submenu, align 8
-  %58 = load ptr, ptr @libgtk, align 8
-  %59 = tail call ptr @dlsym(ptr noundef %58, ptr noundef nonnull @.str.22) #10
-  store ptr %59, ptr @gtk_check_menu_item_new_with_label, align 8
-  %60 = load ptr, ptr @libgtk, align 8
-  %61 = tail call ptr @dlsym(ptr noundef %60, ptr noundef nonnull @.str.23) #10
-  store ptr %61, ptr @gtk_check_menu_item_set_active, align 8
-  %62 = load ptr, ptr @libgtk, align 8
-  %63 = tail call ptr @dlsym(ptr noundef %62, ptr noundef nonnull @.str.24) #10
-  store ptr %63, ptr @gtk_widget_set_sensitive, align 8
-  %64 = load ptr, ptr @libgtk, align 8
-  %65 = tail call ptr @dlsym(ptr noundef %64, ptr noundef nonnull @.str.25) #10
-  store ptr %65, ptr @gtk_widget_show, align 8
-  %66 = load ptr, ptr @libgtk, align 8
-  %67 = tail call ptr @dlsym(ptr noundef %66, ptr noundef nonnull @.str.26) #10
-  store ptr %67, ptr @gtk_menu_shell_append, align 8
-  %68 = load ptr, ptr @libgtk, align 8
-  %69 = tail call ptr @dlsym(ptr noundef %68, ptr noundef nonnull @.str.27) #10
-  store ptr %69, ptr @gtk_menu_shell_insert, align 8
-  %70 = load ptr, ptr @libgtk, align 8
-  %71 = tail call ptr @dlsym(ptr noundef %70, ptr noundef nonnull @.str.28) #10
-  store ptr %71, ptr @gtk_widget_destroy, align 8
-  %72 = load ptr, ptr @libgtk, align 8
-  %73 = tail call ptr @dlsym(ptr noundef %72, ptr noundef nonnull @.str.29) #10
-  store ptr %73, ptr @gtk_menu_item_get_label, align 8
-  %74 = load ptr, ptr @libgtk, align 8
-  %75 = tail call ptr @dlsym(ptr noundef %74, ptr noundef nonnull @.str.30) #10
-  store ptr %75, ptr @gtk_menu_item_set_label, align 8
-  %76 = load ptr, ptr @libgtk, align 8
-  %77 = tail call ptr @dlsym(ptr noundef %76, ptr noundef nonnull @.str.31) #10
-  store ptr %77, ptr @gtk_check_menu_item_get_active, align 8
-  %78 = load ptr, ptr @libgtk, align 8
-  %79 = tail call ptr @dlsym(ptr noundef %78, ptr noundef nonnull @.str.32) #10
-  store ptr %79, ptr @gtk_widget_get_sensitive, align 8
-  %80 = load ptr, ptr @libgdk, align 8
-  %81 = tail call ptr @dlsym(ptr noundef %80, ptr noundef nonnull @.str.33) #10
-  store ptr %81, ptr @g_mkdtemp, align 8
-  %82 = load ptr, ptr @libgdk, align 8
-  %83 = tail call ptr @dlsym(ptr noundef %82, ptr noundef nonnull @.str.34) #10
-  store ptr %83, ptr @g_signal_connect_data, align 8
-  %84 = load ptr, ptr @libgdk, align 8
-  %85 = tail call ptr @dlsym(ptr noundef %84, ptr noundef nonnull @.str.35) #10
-  store ptr %85, ptr @g_object_unref, align 8
-  %86 = load ptr, ptr @libgdk, align 8
-  %87 = tail call ptr @dlsym(ptr noundef %86, ptr noundef nonnull @.str.36) #10
-  store ptr %87, ptr @g_object_ref_sink, align 8
-  %88 = load ptr, ptr @libgdk, align 8
-  %89 = tail call ptr @dlsym(ptr noundef %88, ptr noundef nonnull @.str.37) #10
-  store ptr %89, ptr @g_object_ref, align 8
-  %90 = load ptr, ptr @libappindicator, align 8
-  %91 = tail call ptr @dlsym(ptr noundef %90, ptr noundef nonnull @.str.38) #10
-  store ptr %91, ptr @app_indicator_new, align 8
-  %92 = load ptr, ptr @libappindicator, align 8
-  %93 = tail call ptr @dlsym(ptr noundef %92, ptr noundef nonnull @.str.39) #10
-  store ptr %93, ptr @app_indicator_set_status, align 8
-  %94 = load ptr, ptr @libappindicator, align 8
-  %95 = tail call ptr @dlsym(ptr noundef %94, ptr noundef nonnull @.str.40) #10
-  store ptr %95, ptr @app_indicator_set_icon, align 8
-  %96 = load ptr, ptr @libappindicator, align 8
-  %97 = tail call ptr @dlsym(ptr noundef %96, ptr noundef nonnull @.str.41) #10
-  store ptr %97, ptr @app_indicator_set_menu, align 8
-  %98 = load ptr, ptr @gtk_init_check, align 8
-  %99 = icmp ne ptr %98, null
-  %100 = load ptr, ptr @gtk_main_iteration_do, align 8
-  %101 = icmp ne ptr %100, null
-  %or.cond5.i = select i1 %99, i1 %101, i1 false
-  %102 = load ptr, ptr @gtk_menu_new, align 8
-  %103 = icmp ne ptr %102, null
-  %or.cond7.i = select i1 %or.cond5.i, i1 %103, i1 false
-  %104 = load ptr, ptr @gtk_separator_menu_item_new, align 8
-  %105 = icmp ne ptr %104, null
-  %or.cond9.i = select i1 %or.cond7.i, i1 %105, i1 false
-  %106 = load ptr, ptr @gtk_menu_item_new_with_label, align 8
-  %107 = icmp ne ptr %106, null
-  %or.cond11.i = select i1 %or.cond9.i, i1 %107, i1 false
-  %108 = load ptr, ptr @gtk_menu_item_set_submenu, align 8
-  %109 = icmp ne ptr %108, null
-  %or.cond13.i = select i1 %or.cond11.i, i1 %109, i1 false
-  %110 = load ptr, ptr @gtk_check_menu_item_new_with_label, align 8
-  %111 = icmp ne ptr %110, null
-  %or.cond15.i = select i1 %or.cond13.i, i1 %111, i1 false
-  %112 = load ptr, ptr @gtk_check_menu_item_set_active, align 8
-  %113 = icmp ne ptr %112, null
-  %or.cond17.i = select i1 %or.cond15.i, i1 %113, i1 false
-  %114 = load ptr, ptr @gtk_widget_set_sensitive, align 8
-  %115 = icmp ne ptr %114, null
-  %or.cond19.i = select i1 %or.cond17.i, i1 %115, i1 false
-  %116 = load ptr, ptr @gtk_widget_show, align 8
-  %117 = icmp ne ptr %116, null
-  %or.cond21.i = select i1 %or.cond19.i, i1 %117, i1 false
-  %118 = load ptr, ptr @gtk_menu_shell_append, align 8
-  %119 = icmp ne ptr %118, null
-  %or.cond23.i = select i1 %or.cond21.i, i1 %119, i1 false
-  %120 = load ptr, ptr @gtk_menu_shell_insert, align 8
-  %121 = icmp ne ptr %120, null
-  %or.cond25.i = select i1 %or.cond23.i, i1 %121, i1 false
-  %122 = load ptr, ptr @gtk_widget_destroy, align 8
-  %123 = icmp ne ptr %122, null
-  %or.cond27.i = select i1 %or.cond25.i, i1 %123, i1 false
-  %124 = load ptr, ptr @g_mkdtemp, align 8
-  %125 = icmp ne ptr %124, null
-  %or.cond29.i = select i1 %or.cond27.i, i1 %125, i1 false
-  %126 = load ptr, ptr @g_object_ref_sink, align 8
-  %127 = icmp ne ptr %126, null
-  %or.cond31.i = select i1 %or.cond29.i, i1 %127, i1 false
-  %128 = load ptr, ptr @g_object_ref, align 8
-  %129 = icmp ne ptr %128, null
-  %or.cond33.i = select i1 %or.cond31.i, i1 %129, i1 false
-  %130 = load ptr, ptr @g_signal_connect_data, align 8
-  %131 = icmp ne ptr %130, null
-  %or.cond35.i = select i1 %or.cond33.i, i1 %131, i1 false
-  %132 = load ptr, ptr @g_object_unref, align 8
-  %133 = icmp ne ptr %132, null
-  %or.cond37.i = select i1 %or.cond35.i, i1 %133, i1 false
-  %134 = load ptr, ptr @app_indicator_new, align 8
-  %135 = icmp ne ptr %134, null
-  %or.cond39.i = select i1 %or.cond37.i, i1 %135, i1 false
-  %136 = load ptr, ptr @app_indicator_set_status, align 8
-  %137 = icmp ne ptr %136, null
-  %or.cond41.i = select i1 %or.cond39.i, i1 %137, i1 false
-  %138 = load ptr, ptr @app_indicator_set_icon, align 8
-  %139 = icmp ne ptr %138, null
-  %or.cond43.i = select i1 %or.cond41.i, i1 %139, i1 false
-  %140 = icmp ne ptr %97, null
-  %or.cond45.i = select i1 %or.cond43.i, i1 %140, i1 false
-  %141 = load ptr, ptr @gtk_menu_item_get_label, align 8
-  %142 = icmp ne ptr %141, null
-  %or.cond47.i = select i1 %or.cond45.i, i1 %142, i1 false
-  %143 = load ptr, ptr @gtk_menu_item_set_label, align 8
-  %144 = icmp ne ptr %143, null
-  %or.cond49.i = select i1 %or.cond47.i, i1 %144, i1 false
-  %145 = load ptr, ptr @gtk_check_menu_item_get_active, align 8
-  %146 = icmp ne ptr %145, null
-  %or.cond51.i = select i1 %or.cond49.i, i1 %146, i1 false
-  %147 = load ptr, ptr @gtk_widget_get_sensitive, align 8
-  %148 = icmp ne ptr %147, null
-  %or.cond53.i = select i1 %or.cond51.i, i1 %148, i1 false
-  br i1 %or.cond53.i, label %162, label %149
+148:                                              ; preds = %45
+  %149 = load ptr, ptr @libappindicator, align 8
+  %.not.i64.i = icmp eq ptr %149, null
+  br i1 %.not.i64.i, label %152, label %150
 
-149:                                              ; preds = %46
-  %150 = load ptr, ptr @libappindicator, align 8
-  %.not.i64.i = icmp eq ptr %150, null
-  br i1 %.not.i64.i, label %153, label %151
-
-151:                                              ; preds = %149
-  %152 = tail call i32 @dlclose(ptr noundef nonnull %150) #10
+150:                                              ; preds = %148
+  %151 = tail call i32 @dlclose(ptr noundef nonnull %149) #10
   store ptr null, ptr @libappindicator, align 8
-  br label %153
+  br label %152
 
-153:                                              ; preds = %151, %149
-  %154 = load ptr, ptr @libgtk, align 8
-  %.not3.i65.i = icmp eq ptr %154, null
-  br i1 %.not3.i65.i, label %157, label %155
+152:                                              ; preds = %150, %148
+  %153 = load ptr, ptr @libgtk, align 8
+  %.not3.i65.i = icmp eq ptr %153, null
+  br i1 %.not3.i65.i, label %156, label %154
 
-155:                                              ; preds = %153
-  %156 = tail call i32 @dlclose(ptr noundef nonnull %154) #10
+154:                                              ; preds = %152
+  %155 = tail call i32 @dlclose(ptr noundef nonnull %153) #10
   store ptr null, ptr @libgtk, align 8
-  br label %157
+  br label %156
 
-157:                                              ; preds = %155, %153
-  %158 = load ptr, ptr @libgdk, align 8
-  %.not4.i66.i = icmp eq ptr %158, null
-  br i1 %.not4.i66.i, label %quit_gtk.exit67.i, label %159
+156:                                              ; preds = %154, %152
+  %157 = load ptr, ptr @libgdk, align 8
+  %.not4.i66.i = icmp eq ptr %157, null
+  br i1 %.not4.i66.i, label %quit_gtk.exit67.i, label %158
 
-159:                                              ; preds = %157
-  %160 = tail call i32 @dlclose(ptr noundef nonnull %158) #10
+158:                                              ; preds = %156
+  %159 = tail call i32 @dlclose(ptr noundef nonnull %157) #10
   store ptr null, ptr @libgdk, align 8
   br label %quit_gtk.exit67.i
 
-quit_gtk.exit67.i:                                ; preds = %159, %157
+quit_gtk.exit67.i:                                ; preds = %158, %156
   store i1 false, ptr @gtk_is_init, align 1
-  %161 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.42) #10
-  br i1 %161, label %init_gtk.exit.thread, label %220
+  %160 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.42) #10
+  br i1 %160, label %init_gtk.exit.thread, label %220
 
-162:                                              ; preds = %46
-  %163 = tail call i32 %98(ptr noundef null, ptr noundef null) #10
-  %164 = icmp eq i32 %163, 0
-  br i1 %164, label %165, label %177
+161:                                              ; preds = %45
+  %162 = tail call i32 %97(ptr noundef null, ptr noundef null) #10
+  %163 = icmp eq i32 %162, 0
+  br i1 %163, label %164, label %177
 
-165:                                              ; preds = %162
-  %166 = load ptr, ptr @libappindicator, align 8
-  %.not.i68.i = icmp eq ptr %166, null
-  br i1 %.not.i68.i, label %169, label %167
+164:                                              ; preds = %161
+  %165 = load ptr, ptr @libappindicator, align 8
+  %.not.i68.i = icmp eq ptr %165, null
+  br i1 %.not.i68.i, label %168, label %166
 
-167:                                              ; preds = %165
-  %168 = tail call i32 @dlclose(ptr noundef nonnull %166) #10
+166:                                              ; preds = %164
+  %167 = tail call i32 @dlclose(ptr noundef nonnull %165) #10
   store ptr null, ptr @libappindicator, align 8
-  br label %169
+  br label %168
 
-169:                                              ; preds = %167, %165
-  %170 = load ptr, ptr @libgtk, align 8
-  %.not3.i69.i = icmp eq ptr %170, null
-  br i1 %.not3.i69.i, label %173, label %171
+168:                                              ; preds = %166, %164
+  %169 = load ptr, ptr @libgtk, align 8
+  %.not3.i69.i = icmp eq ptr %169, null
+  br i1 %.not3.i69.i, label %172, label %170
 
-171:                                              ; preds = %169
-  %172 = tail call i32 @dlclose(ptr noundef nonnull %170) #10
+170:                                              ; preds = %168
+  %171 = tail call i32 @dlclose(ptr noundef nonnull %169) #10
   store ptr null, ptr @libgtk, align 8
-  br label %173
+  br label %172
 
-173:                                              ; preds = %171, %169
-  %174 = load ptr, ptr @libgdk, align 8
-  %.not4.i70.i = icmp eq ptr %174, null
-  br i1 %.not4.i70.i, label %init_gtk.exit, label %175
+172:                                              ; preds = %170, %168
+  %173 = load ptr, ptr @libgdk, align 8
+  %.not4.i70.i = icmp eq ptr %173, null
+  br i1 %.not4.i70.i, label %quit_gtk.exit71.i, label %174
 
-175:                                              ; preds = %173
-  %176 = tail call i32 @dlclose(ptr noundef nonnull %174) #10
+174:                                              ; preds = %172
+  %175 = tail call i32 @dlclose(ptr noundef nonnull %173) #10
   store ptr null, ptr @libgdk, align 8
-  br label %init_gtk.exit
+  br label %quit_gtk.exit71.i
 
-177:                                              ; preds = %162
+quit_gtk.exit71.i:                                ; preds = %174, %172
+  store i1 false, ptr @gtk_is_init, align 1
+  %176 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43) #10
+  br i1 %176, label %init_gtk.exit.thread, label %220
+
+177:                                              ; preds = %161
   store i1 true, ptr @gtk_is_init, align 1
   br label %init_gtk.exit.thread
 
-init_gtk.exit:                                    ; preds = %173, %175
+init_gtk.exit:                                    ; preds = %41, %43
   store i1 false, ptr @gtk_is_init, align 1
-  %178 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.43) #10
+  %178 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #10
   br i1 %178, label %init_gtk.exit.thread, label %220
 
-init_gtk.exit.thread:                             ; preds = %6, %177, %quit_gtk.exit67.i, %quit_gtk.exit.i, %init_gtk.exit
+init_gtk.exit.thread:                             ; preds = %6, %177, %quit_gtk.exit67.i, %quit_gtk.exit71.i, %init_gtk.exit
   %179 = tail call noalias dereferenceable_or_null(304) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 304) #11
   %.not = icmp eq ptr %179, null
   br i1 %.not, label %220, label %180
@@ -524,8 +524,8 @@ get_appindicator_id.exit:                         ; preds = %201, %208
   tail call void @SDL_RegisterTray(ptr noundef nonnull %179) #10
   br label %220
 
-220:                                              ; preds = %quit_gtk.exit67.i, %quit_gtk.exit.i, %185, %197, %get_appindicator_id.exit, %init_gtk.exit.thread, %init_gtk.exit, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %init_gtk.exit ], [ %179, %get_appindicator_id.exit ], [ null, %197 ], [ null, %185 ], [ null, %init_gtk.exit.thread ], [ null, %quit_gtk.exit.i ], [ null, %quit_gtk.exit67.i ]
+220:                                              ; preds = %quit_gtk.exit67.i, %quit_gtk.exit71.i, %185, %197, %get_appindicator_id.exit, %init_gtk.exit.thread, %init_gtk.exit, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %init_gtk.exit ], [ %179, %get_appindicator_id.exit ], [ null, %197 ], [ null, %185 ], [ null, %init_gtk.exit.thread ], [ null, %quit_gtk.exit71.i ], [ null, %quit_gtk.exit67.i ]
   ret ptr %.0
 }
 
@@ -737,7 +737,7 @@ define hidden ptr @SDL_CreateTraySubmenu_REAL(ptr noundef %0) local_unnamed_addr
   br label %35
 
 35:                                               ; preds = %15, %17, %13, %7, %2
-  %.0 = phi ptr [ null, %7 ], [ %34, %17 ], [ null, %2 ], [ null, %13 ], [ null, %15 ]
+  %.0 = phi ptr [ null, %7 ], [ %34, %17 ], [ null, %13 ], [ null, %2 ], [ null, %15 ]
   ret ptr %.0
 }
 

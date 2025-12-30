@@ -2323,9 +2323,9 @@ argv2int.exit154:                                 ; preds = %105, %lj_strscan_nu
   br label %120
 
 120:                                              ; preds = %95, %100, %argv2int.exit154, %argv2int.exit142
-  %.0129 = phi i32 [ %119, %argv2int.exit154 ], [ %70, %argv2int.exit142 ], [ %96, %100 ], [ %96, %95 ]
-  %.0127 = phi i32 [ %106, %argv2int.exit154 ], [ %57, %argv2int.exit142 ], [ %.1, %100 ], [ %.1, %95 ]
-  %.0 = phi i32 [ %.1, %argv2int.exit154 ], [ %49, %argv2int.exit142 ], [ %.1, %100 ], [ %.1, %95 ]
+  %.0129 = phi i32 [ %70, %argv2int.exit142 ], [ %119, %argv2int.exit154 ], [ %96, %100 ], [ %96, %95 ]
+  %.0127 = phi i32 [ %57, %argv2int.exit142 ], [ %106, %argv2int.exit154 ], [ %.1, %100 ], [ %.1, %95 ]
+  %.0 = phi i32 [ %49, %argv2int.exit142 ], [ %.1, %argv2int.exit154 ], [ %.1, %100 ], [ %.1, %95 ]
   %121 = icmp slt i32 %.0129, 0
   br i1 %121, label %122, label %136
 
@@ -3440,7 +3440,7 @@ define internal void @recff_table_new(ptr noundef %0, ptr readnone captures(none
   br label %31
 
 31:                                               ; preds = %21, %.fold.split, %26
-  %32 = phi i16 [ 0, %21 ], [ %30, %26 ], [ 1, %.fold.split ]
+  %32 = phi i16 [ %30, %26 ], [ 0, %21 ], [ 1, %.fold.split ]
   %33 = icmp sgt i32 %19, 0
   %34 = trunc i32 %19 to i16
   %35 = add i16 %34, 1
@@ -5617,8 +5617,8 @@ define internal fastcc i32 @recff_string_start(ptr noundef %0, ptr noundef reado
   br label %45
 
 45:                                               ; preds = %9, %28, %34
-  %.036 = phi i32 [ %40, %34 ], [ %spec.select, %9 ], [ %5, %28 ]
-  %.0 = phi i32 [ %44, %34 ], [ %spec.select39, %9 ], [ 0, %28 ]
+  %.036 = phi i32 [ %5, %28 ], [ %40, %34 ], [ %spec.select, %9 ]
+  %.0 = phi i32 [ 0, %28 ], [ %44, %34 ], [ %spec.select39, %9 ]
   store i32 %.0, ptr %2, align 4, !tbaa !39
   ret i32 %.036
 }

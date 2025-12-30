@@ -69,7 +69,7 @@ define hidden ptr @lexbor_avl_destroy(ptr noundef %0, i1 noundef zeroext %1) loc
   br label %9
 
 9:                                                ; preds = %4, %2, %7
-  %.0 = phi ptr [ null, %2 ], [ %8, %7 ], [ %0, %4 ]
+  %.0 = phi ptr [ %8, %7 ], [ null, %2 ], [ %0, %4 ]
   ret ptr %.0
 }
 
@@ -117,7 +117,7 @@ define hidden ptr @lexbor_avl_node_destroy(ptr noundef readonly captures(none) %
   br label %8
 
 8:                                                ; preds = %3, %5
-  %.0 = phi ptr [ %1, %3 ], [ %7, %5 ]
+  %.0 = phi ptr [ %7, %5 ], [ %1, %3 ]
   ret ptr %.0
 }
 
@@ -779,7 +779,7 @@ lexbor_avl_node_rotate_right.exit89:              ; preds = %lexbor_avl_node_set
   br label %281
 
 281:                                              ; preds = %276, %280, %lexbor_avl_node_rotate_right.exit89, %lexbor_avl_node_rotate_right.exit83, %lexbor_avl_node_rotate_right.exit77, %lexbor_avl_node_rotate_left.exit61, %lexbor_avl_node_rotate_left.exit55, %lexbor_avl_node_rotate_left.exit
-  %.0 = phi ptr [ %198, %lexbor_avl_node_rotate_right.exit89 ], [ %67, %lexbor_avl_node_rotate_left.exit ], [ %67, %lexbor_avl_node_rotate_left.exit55 ], [ %67, %lexbor_avl_node_rotate_left.exit61 ], [ %198, %lexbor_avl_node_rotate_right.exit77 ], [ %198, %lexbor_avl_node_rotate_right.exit83 ], [ %.pre, %280 ], [ %278, %276 ]
+  %.0 = phi ptr [ %67, %lexbor_avl_node_rotate_left.exit ], [ %67, %lexbor_avl_node_rotate_left.exit55 ], [ %67, %lexbor_avl_node_rotate_left.exit61 ], [ %198, %lexbor_avl_node_rotate_right.exit77 ], [ %198, %lexbor_avl_node_rotate_right.exit83 ], [ %198, %lexbor_avl_node_rotate_right.exit89 ], [ %.pre, %280 ], [ %278, %276 ]
   ret ptr %.0
 }
 
@@ -863,7 +863,7 @@ define hidden ptr @lexbor_avl_remove(ptr noundef captures(none) %0, ptr noundef 
   br label %37
 
 37:                                               ; preds = %.sink.split.i, %35, %17
-  %.0.i21 = phi ptr [ %.0.i, %35 ], [ %..i, %17 ], [ %.0.ph.i, %.sink.split.i ]
+  %.0.i21 = phi ptr [ %..i, %17 ], [ %.0.i, %35 ], [ %.0.ph.i, %.sink.split.i ]
   %38 = load ptr, ptr %16, align 8, !tbaa !19
   %.not68.i = icmp eq ptr %38, null
   br i1 %.not68.i, label %46, label %39
@@ -1028,7 +1028,7 @@ define hidden void @lexbor_avl_remove_by_node(ptr noundef captures(none) %0, ptr
   br label %34
 
 34:                                               ; preds = %.sink.split.i, %32, %14
-  %.0.i8 = phi ptr [ %.0.i, %32 ], [ %..i, %14 ], [ %.0.ph.i, %.sink.split.i ]
+  %.0.i8 = phi ptr [ %..i, %14 ], [ %.0.i, %32 ], [ %.0.ph.i, %.sink.split.i ]
   %35 = load ptr, ptr %13, align 8, !tbaa !19
   %.not68.i = icmp eq ptr %35, null
   br i1 %.not68.i, label %43, label %36
@@ -1237,7 +1237,7 @@ define hidden i32 @lexbor_avl_foreach(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not76, label %.loopexit105, label %.loopexit.backedge
 
 .loopexit105:                                     ; preds = %38, %35, %39, %30, %28, %25, %21
-  %.256 = phi ptr [ %.155, %21 ], [ %22, %25 ], [ %.155, %30 ], [ %29, %35 ], [ %32, %39 ], [ %.155, %28 ], [ %13, %38 ]
+  %.256 = phi ptr [ %.155, %21 ], [ %22, %25 ], [ %13, %38 ], [ %29, %35 ], [ %.155, %28 ], [ %.155, %30 ], [ %32, %39 ]
   %.1 = phi ptr [ %.0.ph, %21 ], [ %22, %25 ], [ %.0.ph, %28 ], [ %.0.ph, %30 ], [ %.0.ph, %39 ], [ %.0.ph, %35 ], [ %.0.ph, %38 ]
   %41 = getelementptr inbounds nuw i8, ptr %.256, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !18
@@ -1266,13 +1266,13 @@ define hidden i32 @lexbor_avl_foreach(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit.outer.backedge
 
 .loopexit.outer.backedge:                         ; preds = %.preheader, %49, %25
-  %.057.ph.be = phi i1 [ %52, %49 ], [ false, %25 ], [ false, %.preheader ]
-  %.155.ph.be = phi ptr [ %13, %49 ], [ %22, %25 ], [ %.4, %.preheader ]
-  %.0.ph.be = phi ptr [ %.191, %49 ], [ %22, %25 ], [ %.1, %.preheader ]
+  %.057.ph.be = phi i1 [ false, %25 ], [ %52, %49 ], [ false, %.preheader ]
+  %.155.ph.be = phi ptr [ %22, %25 ], [ %13, %49 ], [ %.4, %.preheader ]
+  %.0.ph.be = phi ptr [ %22, %25 ], [ %.191, %49 ], [ %.1, %.preheader ]
   br label %.loopexit.outer
 
 .loopexit94:                                      ; preds = %16, %.thread, %.thread86, %23, %4, %6
-  %.053 = phi i32 [ 9, %4 ], [ 9, %6 ], [ %19, %16 ], [ 0, %23 ], [ 0, %.thread86 ], [ %20, %.thread ]
+  %.053 = phi i32 [ 9, %6 ], [ 9, %4 ], [ %19, %16 ], [ 0, %23 ], [ 0, %.thread86 ], [ %20, %.thread ]
   ret i32 %.053
 }
 

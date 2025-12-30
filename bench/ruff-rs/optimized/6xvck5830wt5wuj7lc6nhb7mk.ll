@@ -6292,8 +6292,8 @@ define hidden { i32, i32 } @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h794738907f0ca2a1E.exit.thread"
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h794738907f0ca2a1E.exit.thread": ; preds = %1, %6, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h794738907f0ca2a1E.exit"
-  %.sroa.4.0 = phi i32 [ %13, %6 ], [ 1114112, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h794738907f0ca2a1E.exit" ], [ 1114112, %1 ]
-  %.sroa.0.0 = phi i32 [ %., %6 ], [ 0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h794738907f0ca2a1E.exit" ], [ 0, %1 ]
+  %.sroa.4.0 = phi i32 [ 1114112, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h794738907f0ca2a1E.exit" ], [ %13, %6 ], [ 1114112, %1 ]
+  %.sroa.0.0 = phi i32 [ 0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h794738907f0ca2a1E.exit" ], [ %., %6 ], [ 0, %1 ]
   %14 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %15 = insertvalue { i32, i32 } %14, i32 %.sroa.4.0, 1
   ret { i32, i32 } %15

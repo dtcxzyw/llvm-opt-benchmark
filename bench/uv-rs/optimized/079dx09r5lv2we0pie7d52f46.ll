@@ -830,7 +830,7 @@ common.resume:                                    ; preds = %.body, %42, %31
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %.body.i.i.i, %123, %140
-  %eh.lpad-body = phi { ptr, i32 } [ %141, %140 ], [ %124, %123 ], [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %86 ], [ %102, %.body.i.i.i ], [ %124, %123 ], [ %141, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h221469e9899df878E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #16
           to label %common.resume unwind label %145
 
@@ -2776,7 +2776,7 @@ default.unreachable:                              ; preds = %379, %357, %"_ZN67_
   unreachable
 
 445:                                              ; preds = %.loopexit, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$clap_builder..builder..str..Str$GT$$GT$17h902d5a78cbac0031E.exit34", %103
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %103 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$clap_builder..builder..str..Str$GT$$GT$17h902d5a78cbac0031E.exit34" ], [ %lpad.loopexit, %.loopexit ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$clap_builder..builder..str..Str$GT$$GT$17h902d5a78cbac0031E.exit34" ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %103 ], [ %lpad.loopexit, %.loopexit ]
   store i64 %.sroa.7.0308, ptr %59, align 8
   invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..command..Command$GT$$GT$17hfd149bcd0c5393fcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %49) #16
           to label %446 unwind label %443
@@ -3920,7 +3920,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   unreachable
 
 65:                                               ; preds = %.loopexit, %42, %41
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.i, %41 ], [ %.pn.pn.i, %42 ], [ %lpad.loopexit, %.loopexit ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.i, %42 ], [ %.pn.pn.i, %41 ], [ %lpad.loopexit, %.loopexit ]
   store i64 %.sroa.7.046, ptr %19, align 8
   invoke void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..arg_group..ArgGroup$GT$$GT$17h526e5e01e71098c5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #16
           to label %66 unwind label %63
@@ -4576,7 +4576,7 @@ default.unreachable:                              ; preds = %434, %223, %"_ZN65_
   unreachable
 
 201:                                              ; preds = %193, %191, %.loopexit.i.i.i
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %192, %191 ], [ %192, %193 ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %192, %193 ], [ %192, %191 ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ]
   store i64 %.sroa.7.024.i.i.i, ptr %62, align 8, !noalias !646
   invoke void @"_ZN4core3ptr131drop_in_place$LT$alloc..vec..Vec$LT$$LP$clap_builder..builder..arg_predicate..ArgPredicate$C$clap_builder..util..id..Id$RP$$GT$$GT$17h820df7d4153a8780E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #16
           to label %.body.i unwind label %199, !noalias !668
@@ -5174,7 +5174,7 @@ _ZN4core5clone5Clone5clone17h284ac32ad640b155E.exit.i.i.i: ; preds = %"_ZN75_$LT
   unreachable
 
 391:                                              ; preds = %360, %"_ZN4core3ptr71drop_in_place$LT$clap_builder..builder..arg_predicate..ArgPredicate$GT$17he5fb2c34941d1500E.exit.i.i.i.i", %.loopexit.i.i99.i
-  %eh.lpad-body.i.i95.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %"_ZN4core3ptr71drop_in_place$LT$clap_builder..builder..arg_predicate..ArgPredicate$GT$17he5fb2c34941d1500E.exit.i.i.i.i" ], [ %.pn.i.i.i.i, %360 ], [ %lpad.loopexit.i.i100.i, %.loopexit.i.i99.i ]
+  %eh.lpad-body.i.i95.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %360 ], [ %.pn.i.i.i.i, %"_ZN4core3ptr71drop_in_place$LT$clap_builder..builder..arg_predicate..ArgPredicate$GT$17he5fb2c34941d1500E.exit.i.i.i.i" ], [ %lpad.loopexit.i.i100.i, %.loopexit.i.i99.i ]
   store i64 %.sroa.7.032.i.i.i, ptr %73, align 8, !noalias !722
   invoke void @"_ZN4core3ptr198drop_in_place$LT$alloc..vec..Vec$LT$$LP$clap_builder..util..id..Id$C$clap_builder..builder..arg_predicate..ArgPredicate$C$core..option..Option$LT$clap_builder..builder..os_str..OsStr$GT$$RP$$GT$$GT$17h974b107d16d50a04E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #16
           to label %.body104.i unwind label %389, !noalias !741
@@ -5463,10 +5463,10 @@ _ZN4core5clone5Clone5clone17haabc903b12077cecE.exit.i: ; preds = %"_ZN65_$LT$std
   br label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$clap_builder..builder..str..Str$GT$$GT$$GT$17he0acd88e766f6c23E.exit.i"
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9df5ec0d5cfb1139E.exit.i": ; preds = %.noexc113.i, %466, %440
-  %.sroa.6.0119.i = phi i64 [ undef, %440 ], [ %469, %466 ], [ %473, %.noexc113.i ]
-  %.sroa.5.0118.i = phi ptr [ undef, %440 ], [ %467, %466 ], [ %472, %.noexc113.i ]
-  %479 = phi i1 [ false, %440 ], [ false, %466 ], [ true, %.noexc113.i ]
-  %.sroa.0.0.i12 = phi i64 [ %447, %440 ], [ 0, %466 ], [ 1, %.noexc113.i ]
+  %.sroa.6.0119.i = phi i64 [ %469, %466 ], [ %473, %.noexc113.i ], [ undef, %440 ]
+  %.sroa.5.0118.i = phi ptr [ %467, %466 ], [ %472, %.noexc113.i ], [ undef, %440 ]
+  %479 = phi i1 [ false, %466 ], [ true, %.noexc113.i ], [ false, %440 ]
+  %.sroa.0.0.i12 = phi i64 [ 0, %466 ], [ 1, %.noexc113.i ], [ %447, %440 ]
   store i64 %.sroa.0.0.i12, ptr %23, align 8, !noalias !639
   store ptr %.sroa.5.0118.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !639
   store i64 %.sroa.6.0119.i, ptr %.sroa.6.0..sroa_idx117.i, align 8, !noalias !639
@@ -5665,7 +5665,7 @@ _ZN4core5clone5Clone5clone17haabc903b12077cecE.exit.i: ; preds = %"_ZN65_$LT$std
   unreachable
 
 490:                                              ; preds = %.loopexit, %107, %106
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %106 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %107 ], [ %lpad.loopexit, %.loopexit ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %107 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %106 ], [ %lpad.loopexit, %.loopexit ]
   store i64 %.sroa.7.0617, ptr %56, align 8
   invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..arg..Arg$GT$$GT$17h2cc17616979aca61E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %46) #16
           to label %491 unwind label %488
@@ -6672,7 +6672,7 @@ define internal fastcc void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$
   unreachable
 
 62:                                               ; preds = %54, %52, %.loopexit.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %53, %52 ], [ %53, %54 ], [ %lpad.loopexit.i, %.loopexit.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %53, %54 ], [ %53, %52 ], [ %lpad.loopexit.i, %.loopexit.i ]
   store i64 %.sroa.7.022.i, ptr %16, align 8, !noalias !961
   invoke void @"_ZN4core3ptr117drop_in_place$LT$alloc..vec..Vec$LT$$LP$clap_builder..util..id..Id$C$clap_builder..builder..os_str..OsStr$RP$$GT$$GT$17h340e667c19061032E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #16
           to label %63 unwind label %60, !noalias !978

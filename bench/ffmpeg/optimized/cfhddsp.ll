@@ -577,7 +577,7 @@ define internal void @horiz_filter_clip_bayer(ptr noundef writeonly captures(non
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.thread, %49
-  %.0.i.lcssa = phi i32 [ %50, %.lr.ph.split.us ], [ 1, %.thread ], [ 1, %49 ], [ %56, %.lr.ph.split ]
+  %.0.i.lcssa = phi i32 [ 1, %49 ], [ 1, %.thread ], [ %50, %.lr.ph.split.us ], [ %56, %.lr.ph.split ]
   %147 = zext nneg i32 %.0.i.lcssa to i64
   %148 = getelementptr i16, ptr %1, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !11
@@ -862,7 +862,7 @@ define internal void @horiz_filter_clip(ptr noundef writeonly captures(none) ini
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.thread, %49
-  %.0.i.lcssa = phi i32 [ %50, %.lr.ph.split.us ], [ 1, %.thread ], [ 1, %49 ], [ %56, %.lr.ph.split ]
+  %.0.i.lcssa = phi i32 [ 1, %49 ], [ 1, %.thread ], [ %50, %.lr.ph.split.us ], [ %56, %.lr.ph.split ]
   %137 = zext nneg i32 %.0.i.lcssa to i64
   %138 = getelementptr i16, ptr %1, i64 %137
   %139 = load i16, ptr %138, align 2, !tbaa !11

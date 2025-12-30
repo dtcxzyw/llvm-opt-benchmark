@@ -205,8 +205,8 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noun
   br i1 %.not52, label %.thread.preheader, label %.preheader, !llvm.loop !27
 
 .thread.preheader:                                ; preds = %25, %.preheader, %31, %.loopexit56, %28
-  %.ph = phi i8 [ %30, %31 ], [ 0, %.loopexit56 ], [ %20, %28 ], [ 0, %.preheader ], [ 0, %25 ]
-  %.5.ph = phi ptr [ %.4, %.preheader ], [ %.1, %.loopexit56 ], [ %.263, %28 ], [ %.4, %31 ], [ %26, %25 ]
+  %.ph = phi i8 [ 0, %.loopexit56 ], [ %20, %28 ], [ %30, %31 ], [ 0, %.preheader ], [ 0, %25 ]
+  %.5.ph = phi ptr [ %.1, %.loopexit56 ], [ %.263, %28 ], [ %.4, %31 ], [ %.4, %.preheader ], [ %26, %25 ]
   br label %.thread
 
 .thread:                                          ; preds = %.thread.preheader, %37
@@ -240,7 +240,7 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %.thread, %42, %45
-  %.0 = phi i1 [ false, %42 ], [ true, %45 ], [ false, %.thread ], [ false, %10 ]
+  %.0 = phi i1 [ true, %45 ], [ false, %42 ], [ false, %.thread ], [ false, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -268,7 +268,7 @@ switch.lookup:                                    ; preds = %switch.early.test
   br label %switch.edge
 
 switch.edge:                                      ; preds = %switch.early.test, %switch.lookup, %2
-  %10 = phi i1 [ %switch.masked, %switch.lookup ], [ true, %2 ], [ false, %switch.early.test ]
+  %10 = phi i1 [ true, %2 ], [ %switch.masked, %switch.lookup ], [ false, %switch.early.test ]
   ret i1 %10
 }
 

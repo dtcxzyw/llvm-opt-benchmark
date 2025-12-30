@@ -400,7 +400,7 @@ parse_command_line.exit:                          ; preds = %parse_command_line.
   br label %136
 
 136:                                              ; preds = %115, %135, %128, %123, %100, %96, %89, %85, %78, %71
-  %.032 = phi i64 [ %98, %135 ], [ %98, %115 ], [ -1, %71 ], [ -1, %78 ], [ -1, %85 ], [ -1, %89 ], [ -1, %96 ], [ %98, %100 ], [ %98, %123 ], [ %98, %128 ]
+  %.032 = phi i64 [ -1, %71 ], [ -1, %78 ], [ -1, %85 ], [ -1, %89 ], [ -1, %96 ], [ %98, %100 ], [ %98, %123 ], [ %98, %128 ], [ %98, %135 ], [ %98, %115 ]
   %.not = icmp eq ptr %59, null
   br i1 %.not, label %.thread47, label %137
 
@@ -409,8 +409,8 @@ parse_command_line.exit:                          ; preds = %parse_command_line.
   br label %.thread47
 
 .thread47:                                        ; preds = %12, %32, %37, %53, %56, %137, %136
-  %.03253.ph = phi i64 [ -1, %12 ], [ -1, %32 ], [ -1, %37 ], [ -1, %53 ], [ -1, %56 ], [ %.032, %137 ], [ %.032, %136 ]
-  %.03352.ph = phi i64 [ -1, %12 ], [ -1, %32 ], [ -1, %37 ], [ -1, %53 ], [ -1, %56 ], [ %69, %137 ], [ %69, %136 ]
+  %.03253.ph = phi i64 [ -1, %12 ], [ -1, %32 ], [ -1, %37 ], [ -1, %53 ], [ -1, %56 ], [ %.032, %136 ], [ %.032, %137 ]
+  %.03352.ph = phi i64 [ -1, %12 ], [ -1, %32 ], [ -1, %37 ], [ -1, %53 ], [ -1, %56 ], [ %69, %136 ], [ %69, %137 ]
   %.pr = load ptr, ptr @fname_g, align 8, !tbaa !8
   %.not40 = icmp eq ptr %.pr, null
   br i1 %.not40, label %.thread47.thread, label %138
@@ -420,8 +420,8 @@ parse_command_line.exit:                          ; preds = %parse_command_line.
   br label %.thread47.thread
 
 .thread47.thread:                                 ; preds = %parse_command_line.exit, %138, %.thread47
-  %.0335267 = phi i64 [ %.03352.ph, %.thread47 ], [ %.03352.ph, %138 ], [ -1, %parse_command_line.exit ]
-  %.0325366 = phi i64 [ %.03253.ph, %.thread47 ], [ %.03253.ph, %138 ], [ -1, %parse_command_line.exit ]
+  %.0335267 = phi i64 [ %.03352.ph, %138 ], [ %.03352.ph, %.thread47 ], [ -1, %parse_command_line.exit ]
+  %.0325366 = phi i64 [ %.03253.ph, %138 ], [ %.03253.ph, %.thread47 ], [ -1, %parse_command_line.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

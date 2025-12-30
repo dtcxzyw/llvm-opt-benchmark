@@ -177,7 +177,7 @@ define internal range(i32 0, 2) i32 @call_run_cert(i32 noundef %0) #0 {
   br label %make_cert.exit
 
 make_cert.exit:                                   ; preds = %12, %16, %21
-  %.0.i = phi ptr [ null, %12 ], [ null, %21 ], [ %14, %16 ]
+  %.0.i = phi ptr [ null, %21 ], [ null, %12 ], [ %14, %16 ]
   %22 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 352, ptr noundef nonnull @.str.4, ptr noundef %.0.i) #7
   %.not12 = icmp eq i32 %22, 0
   br i1 %.not12, label %run_cert.exit.thread, label %23
@@ -224,7 +224,7 @@ make_cert.exit:                                   ; preds = %12, %16, %21
   br i1 %43, label %.thread113.i, label %.thread.i
 
 .thread.i:                                        ; preds = %42, %36
-  %.271.ph.i = phi i32 [ 1, %36 ], [ %.069140.i, %42 ]
+  %.271.ph.i = phi i32 [ %.069140.i, %42 ], [ 1, %36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %check_message.exit.i
 
@@ -286,7 +286,7 @@ check_message.exit.i:                             ; preds = %52, %56, %45, %.thr
   br i1 %64, label %.thread126.i, label %.thread121.i
 
 .thread121.i:                                     ; preds = %63, %check_message.exit.i
-  %.473.ph.i = phi i32 [ 1, %check_message.exit.i ], [ %spec.select88.i, %63 ]
+  %.473.ph.i = phi i32 [ %spec.select88.i, %63 ], [ 1, %check_message.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %check_message.exit102.i
 
@@ -525,7 +525,7 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
   br i1 %.not54, label %.split.split.us, label %.split.split.preheader
 
 .split.split.preheader:                           ; preds = %38, %27, %31, %.thread, %.split
-  %.0428385 = phi i32 [ 0, %.split ], [ 0, %27 ], [ 0, %.thread ], [ 0, %31 ], [ 1, %38 ]
+  %.0428385 = phi i32 [ 0, %.split ], [ 0, %.thread ], [ 0, %31 ], [ 0, %27 ], [ 1, %38 ]
   br label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %.split.split.us
@@ -550,7 +550,7 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
   br i1 %exitcond73.not, label %.split65.us, label %.split.split, !llvm.loop !25
 
 .split65.us:                                      ; preds = %.split.split, %.split.split.us, %.split.us.split, %.split.us
-  %.04282 = phi i32 [ 0, %.split.split.us ], [ 0, %.split.us.split ], [ 0, %.split.us ], [ %.0428385, %.split.split ]
+  %.04282 = phi i32 [ 0, %.split.us ], [ 0, %.split.us.split ], [ 0, %.split.split.us ], [ %.0428385, %.split.split ]
   call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.2, i32 noundef 706) #7
   call void @CRYPTO_free(ptr noundef %.fr, ptr noundef nonnull @.str.2, i32 noundef 707) #7
   ret i32 %.04282
@@ -812,10 +812,10 @@ define internal range(i32 0, 2) i32 @set_altname(ptr noundef %0, ...) unnamed_ad
   %spec.select = zext i1 %.not33 to i32
   br label %.thread
 
-.thread:                                          ; preds = %44, %41, %33, %38, %47, %1
-  %.022 = phi ptr [ null, %1 ], [ null, %47 ], [ %36, %44 ], [ null, %33 ], [ %36, %41 ], [ %36, %38 ]
-  %.021 = phi ptr [ null, %1 ], [ null, %47 ], [ null, %44 ], [ null, %33 ], [ %39, %41 ], [ null, %38 ]
-  %.020 = phi i32 [ 0, %1 ], [ %spec.select, %47 ], [ 0, %38 ], [ 0, %33 ], [ 0, %41 ], [ 0, %44 ]
+.thread:                                          ; preds = %44, %41, %38, %33, %47, %1
+  %.022 = phi ptr [ null, %1 ], [ null, %47 ], [ %36, %44 ], [ null, %33 ], [ %36, %38 ], [ %36, %41 ]
+  %.021 = phi ptr [ null, %1 ], [ null, %47 ], [ null, %44 ], [ null, %33 ], [ null, %38 ], [ %39, %41 ]
+  %.020 = phi i32 [ 0, %1 ], [ %spec.select, %47 ], [ 0, %33 ], [ 0, %38 ], [ 0, %41 ], [ 0, %44 ]
   call void @ASN1_IA5STRING_free(ptr noundef %.021) #7
   call void @GENERAL_NAME_free(ptr noundef %.022) #7
   call void @GENERAL_NAMES_free(ptr noundef %3) #7

@@ -465,7 +465,7 @@ define hidden void @_ZN5salsa8function4sync10ClaimGuard35remove_from_map_and_unb
   br label %36
 
 36:                                               ; preds = %35, %25
-  %.sroa.02.0 = phi i1 [ %not., %35 ], [ false, %25 ]
+  %.sroa.02.0 = phi i1 [ false, %25 ], [ %not., %35 ]
   invoke void @_ZN5salsa7runtime7Runtime26unblock_queries_blocked_on17hf204f3cd9686511bE(ptr noundef nonnull align 8 %26, i32 noundef %29, i32 noundef %28, i1 noundef zeroext %.sroa.02.0)
           to label %21 unwind label %12
 
@@ -1082,7 +1082,7 @@ define void @_ZN5salsa5zalsa5Zalsa21lookup_ingredient_mut17he5166600c9cb446aE(pt
   store ptr %1, ptr %27, align 8
   ret void
 
-"_ZN6boxcar3raw12Vec$LT$T$GT$7get_mut17hc9c2a2de0935207fE.exit.thread": ; preds = %3, %15
+"_ZN6boxcar3raw12Vec$LT$T$GT$7get_mut17hc9c2a2de0935207fE.exit.thread": ; preds = %15, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
@@ -1196,7 +1196,7 @@ define noundef range(i64 1, 0) i64 @_ZN5salsa5zalsa5Zalsa12new_revision17h4e6ba7
   %.not27 = icmp eq i64 %26, %49
   br i1 %.not27, label %.loopexit, label %.lr.ph.i
 
-"_ZN6boxcar3raw12Vec$LT$T$GT$7get_mut17hc9c2a2de0935207fE.exit.thread": ; preds = %25, %35
+"_ZN6boxcar3raw12Vec$LT$T$GT$7get_mut17hc9c2a2de0935207fE.exit.thread": ; preds = %35, %25
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %4, ptr %2, align 8
@@ -1309,7 +1309,7 @@ define void @_ZN5salsa5zalsa5Zalsa9evict_lru17hcfd9028e204423afE(ptr noalias nou
   %.not27 = icmp eq i64 %25, %48
   br i1 %.not27, label %.loopexit, label %.lr.ph.i
 
-"_ZN6boxcar3raw12Vec$LT$T$GT$7get_mut17hc9c2a2de0935207fE.exit.thread": ; preds = %24, %34
+"_ZN6boxcar3raw12Vec$LT$T$GT$7get_mut17hc9c2a2de0935207fE.exit.thread": ; preds = %34, %24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %4, ptr %2, align 8

@@ -1645,8 +1645,8 @@ explist1.exit.i.thread:                           ; preds = %621
   br label %retstat.exit
 
 retstat.exit:                                     ; preds = %618, %618, %618, %618, %618, %618, %647, %651, %653
-  %.020.i = phi i32 [ %656, %653 ], [ %650, %647 ], [ %652, %651 ], [ 0, %618 ], [ 0, %618 ], [ 0, %618 ], [ 0, %618 ], [ 0, %618 ], [ 0, %618 ]
-  %.0.i12 = phi i32 [ %627, %653 ], [ -1, %647 ], [ 1, %651 ], [ 0, %618 ], [ 0, %618 ], [ 0, %618 ], [ 0, %618 ], [ 0, %618 ], [ 0, %618 ]
+  %.020.i = phi i32 [ %650, %647 ], [ %652, %651 ], [ %656, %653 ], [ 0, %618 ], [ 0, %618 ], [ 0, %618 ], [ 0, %618 ], [ 0, %618 ], [ 0, %618 ]
+  %.0.i12 = phi i32 [ -1, %647 ], [ 1, %651 ], [ %627, %653 ], [ 0, %618 ], [ 0, %618 ], [ 0, %618 ], [ 0, %618 ], [ 0, %618 ], [ 0, %618 ]
   call void @luaK_ret(ptr noundef %619, i32 noundef %.020.i, i32 noundef %.0.i12) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %statement.exit
@@ -1731,7 +1731,7 @@ exprstat.exit:                                    ; preds = %678, %688
   br label %statement.exit
 
 statement.exit:                                   ; preds = %ifstat.exit, %whilestat.exit, %235, %forstat.exit, %repeatstat.exit, %funcstat.exit, %checknext.exit, %localstat.exit, %retstat.exit, %breakstat.exit, %exprstat.exit
-  %.not = phi i1 [ true, %exprstat.exit ], [ true, %ifstat.exit ], [ true, %whilestat.exit ], [ true, %235 ], [ true, %forstat.exit ], [ true, %repeatstat.exit ], [ true, %funcstat.exit ], [ false, %breakstat.exit ], [ false, %retstat.exit ], [ true, %localstat.exit ], [ true, %checknext.exit ]
+  %.not = phi i1 [ true, %exprstat.exit ], [ true, %ifstat.exit ], [ true, %whilestat.exit ], [ true, %235 ], [ true, %forstat.exit ], [ true, %repeatstat.exit ], [ true, %funcstat.exit ], [ false, %retstat.exit ], [ false, %breakstat.exit ], [ true, %localstat.exit ], [ true, %checknext.exit ]
   %689 = load i32, ptr %32, align 8, !tbaa !54
   %690 = icmp eq i32 %689, 59
   br i1 %690, label %691, label %testnext.exit
@@ -2168,8 +2168,8 @@ enterlevel.exit:                                  ; preds = %3, %11
 15:                                               ; preds = %enterlevel.exit
   br label %16
 
-16:                                               ; preds = %enterlevel.exit, %15, %14
-  %.0.i.ph = phi i32 [ 1, %enterlevel.exit ], [ 0, %14 ], [ 2, %15 ]
+16:                                               ; preds = %enterlevel.exit, %14, %15
+  %.0.i.ph = phi i32 [ 1, %enterlevel.exit ], [ 2, %15 ], [ 0, %14 ]
   tail call void @luaX_next(ptr noundef nonnull %0) #7
   %17 = tail call fastcc i32 @subexpr(ptr noundef %0, ptr noundef %1, i32 noundef 8)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2348,8 +2348,8 @@ simpleexp.exit:                                   ; preds = %67, %66, %63, %62, 
 82:                                               ; preds = %simpleexp.exit
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %82, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80, %81, %simpleexp.exit
-  %.0.i28.ph = phi i32 [ 0, %simpleexp.exit ], [ 13, %81 ], [ 12, %80 ], [ 11, %79 ], [ 10, %78 ], [ 9, %77 ], [ 8, %76 ], [ 7, %75 ], [ 6, %74 ], [ 5, %73 ], [ 4, %72 ], [ 3, %71 ], [ 2, %70 ], [ 1, %69 ], [ 14, %82 ]
+.lr.ph:                                           ; preds = %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80, %81, %82, %simpleexp.exit
+  %.0.i28.ph = phi i32 [ 0, %simpleexp.exit ], [ 14, %82 ], [ 13, %81 ], [ 12, %80 ], [ 11, %79 ], [ 10, %78 ], [ 9, %77 ], [ 8, %76 ], [ 7, %75 ], [ 6, %74 ], [ 5, %73 ], [ 4, %72 ], [ 3, %71 ], [ 2, %70 ], [ 1, %69 ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %84 = trunc nuw i32 %2 to i8
   br label %85
@@ -3079,7 +3079,7 @@ errorlimit.exit:                                  ; preds = %18, %20
   br i1 %exitcond.not.i, label %._crit_edge.i, label %41, !llvm.loop !120
 
 ._crit_edge.i:                                    ; preds = %41, %33, %..._crit_edge_crit_edge.i_crit_edge
-  %43 = phi ptr [ %38, %33 ], [ %.pre25.i.pre, %..._crit_edge_crit_edge.i_crit_edge ], [ %38, %41 ]
+  %43 = phi ptr [ %.pre25.i.pre, %..._crit_edge_crit_edge.i_crit_edge ], [ %38, %33 ], [ %38, %41 ]
   %44 = load i16, ptr %30, align 8, !tbaa !101
   %45 = sext i16 %44 to i64
   %46 = getelementptr inbounds %struct.LocVar, ptr %43, i64 %45
@@ -3214,7 +3214,7 @@ str_checkname.exit:                               ; preds = %9
   br i1 %.not.i, label %adjustlocalvars.exit, label %33, !llvm.loop !85
 
 adjustlocalvars.exit:                             ; preds = %33, %1, %.critedge
-  %40 = phi i8 [ %20, %.critedge ], [ 0, %1 ], [ %20, %33 ]
+  %40 = phi i8 [ 0, %1 ], [ %20, %.critedge ], [ %20, %33 ]
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 74
   %42 = load i8, ptr %41, align 2, !tbaa !66
   %43 = and i8 %40, 1
@@ -4164,7 +4164,7 @@ define internal fastcc void @assignment(ptr noundef nonnull %0, ptr noundef nonn
   br i1 %35, label %.thread.i, label %36
 
 36:                                               ; preds = %31, %.backedge.i
-  %.2.i = phi i32 [ %.02.i, %.backedge.i ], [ %.1.i, %31 ]
+  %.2.i = phi i32 [ %.1.i, %31 ], [ %.02.i, %.backedge.i ]
   %37 = load ptr, ptr %.0171.i, align 8, !tbaa !90
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %39, label %.backedge.i.backedge

@@ -399,7 +399,7 @@ define hidden range(i32 0, 2) i32 @opj_t2_encode_packets(ptr noundef readonly ca
   br i1 %.not164, label %.sink.split, label %.lr.ph.split, !llvm.loop !51
 
 .sink.split:                                      ; preds = %188, %132, %128, %108, %104, %93, %.thread181, %._crit_edge, %38, %47, %.preheader190, %80, %73, %64
-  %.0.ph = phi i32 [ 1, %.preheader190 ], [ 1, %80 ], [ 0, %73 ], [ 0, %64 ], [ 0, %._crit_edge ], [ 0, %108 ], [ 0, %47 ], [ 0, %93 ], [ 1, %.thread181 ], [ 0, %38 ], [ 1, %104 ], [ 1, %128 ], [ 1, %188 ], [ 0, %132 ]
+  %.0.ph = phi i32 [ 0, %64 ], [ 0, %73 ], [ 1, %80 ], [ 1, %.preheader190 ], [ 0, %47 ], [ 0, %38 ], [ 0, %._crit_edge ], [ 1, %.thread181 ], [ 0, %93 ], [ 1, %104 ], [ 0, %108 ], [ 1, %128 ], [ 0, %132 ], [ 1, %188 ]
   tail call void @opj_pi_destroy(ptr noundef nonnull %35, i32 noundef %34) #6
   br label %190
 
@@ -828,9 +828,9 @@ opj_int_floorlog2.exit323:                        ; preds = %opj_int_floorlog2.e
   br i1 %214, label %.lr.ph.i324, label %opj_t2_putcommacode.exit, !llvm.loop !108
 
 opj_t2_putcommacode.exit:                         ; preds = %.lr.ph.i324, %opj_t2_putnumpasses.exit, %._crit_edge376
-  %.0257.lcssa523 = phi i32 [ 0, %opj_t2_putnumpasses.exit ], [ %.1258, %._crit_edge376 ], [ %.1258, %.lr.ph.i324 ]
-  %.0261.lcssa522 = phi i32 [ 0, %opj_t2_putnumpasses.exit ], [ %.1262, %._crit_edge376 ], [ %.1262, %.lr.ph.i324 ]
-  %.0265.lcssa521 = phi i32 [ 0, %opj_t2_putnumpasses.exit ], [ %.1266, %._crit_edge376 ], [ %.1266, %.lr.ph.i324 ]
+  %.0257.lcssa523 = phi i32 [ %.1258, %._crit_edge376 ], [ 0, %opj_t2_putnumpasses.exit ], [ %.1258, %.lr.ph.i324 ]
+  %.0261.lcssa522 = phi i32 [ %.1262, %._crit_edge376 ], [ 0, %opj_t2_putnumpasses.exit ], [ %.1262, %.lr.ph.i324 ]
+  %.0265.lcssa521 = phi i32 [ %.1266, %._crit_edge376 ], [ 0, %opj_t2_putnumpasses.exit ], [ %.1266, %.lr.ph.i324 ]
   tail call void @opj_bio_putbit(ptr noundef nonnull %94, i32 noundef 0) #6
   %215 = getelementptr inbounds nuw i8, ptr %.1271384, i64 44
   %216 = load i32, ptr %215, align 4, !tbaa !102
@@ -1291,7 +1291,7 @@ opj_int_floorlog2.exit329:                        ; preds = %.lr.ph.i326, %236
   br label %.critedge537
 
 .critedge537:                                     ; preds = %364, %.split.us, %398, %247, %88, %265, %267, %.loopexit352, %31, %33, %.critedge2, %254
-  %.0 = phi i32 [ 0, %88 ], [ 0, %.loopexit352 ], [ 1, %.critedge2 ], [ 0, %265 ], [ 0, %254 ], [ 0, %247 ], [ 0, %31 ], [ 0, %33 ], [ 0, %267 ], [ 0, %398 ], [ 0, %.split.us ], [ 0, %364 ]
+  %.0 = phi i32 [ 1, %.critedge2 ], [ 0, %254 ], [ 0, %247 ], [ 0, %88 ], [ 0, %33 ], [ 0, %31 ], [ 0, %.loopexit352 ], [ 0, %267 ], [ 0, %265 ], [ 0, %398 ], [ 0, %.split.us ], [ 0, %364 ]
   ret i32 %.0
 }
 
@@ -1718,9 +1718,9 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.loopexit.loopexit.i.i, %130, %124, %113
-  %239 = phi i32 [ %114, %113 ], [ %114, %124 ], [ %114, %130 ], [ %.pre72.i.i, %.loopexit.loopexit.i.i ]
-  %.1122.i.i = phi ptr [ %.012149.i.i, %113 ], [ %.012149.i.i, %124 ], [ %.012149.i.i, %130 ], [ %.3124.ph.i.i, %.loopexit.loopexit.i.i ]
-  %.1117.i.i = phi i32 [ %.011650.i.i, %113 ], [ %.011650.i.i, %124 ], [ %.011650.i.i, %130 ], [ %236, %.loopexit.loopexit.i.i ]
+  %239 = phi i32 [ %114, %124 ], [ %114, %113 ], [ %114, %130 ], [ %.pre72.i.i, %.loopexit.loopexit.i.i ]
+  %.1122.i.i = phi ptr [ %.012149.i.i, %124 ], [ %.012149.i.i, %113 ], [ %.012149.i.i, %130 ], [ %.3124.ph.i.i, %.loopexit.loopexit.i.i ]
+  %.1117.i.i = phi i32 [ %.011650.i.i, %124 ], [ %.011650.i.i, %113 ], [ %.011650.i.i, %130 ], [ %236, %.loopexit.loopexit.i.i ]
   %.1129.i.i = getelementptr inbounds nuw i8, ptr %.012848.i.i, i64 48
   %240 = add nuw i32 %.010851.i.i, 1
   %241 = icmp ult i32 %240, %239
@@ -1738,13 +1738,13 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   br label %247
 
 247:                                              ; preds = %._crit_edge55.i.i, %98
-  %.pre296 = phi i32 [ %.pre296.pre, %._crit_edge55.i.i ], [ %.pre297, %98 ]
-  %.pre = phi i32 [ %.pre.pre, %._crit_edge55.i.i ], [ %.pre295, %98 ]
-  %248 = phi i32 [ %spec.select.i.i, %._crit_edge55.i.i ], [ 0, %98 ]
+  %.pre296 = phi i32 [ %.pre297, %98 ], [ %.pre296.pre, %._crit_edge55.i.i ]
+  %.pre = phi i32 [ %.pre295, %98 ], [ %.pre.pre, %._crit_edge55.i.i ]
+  %248 = phi i32 [ 0, %98 ], [ %spec.select.i.i, %._crit_edge55.i.i ]
   %249 = add i32 %248, %96
   br label %250
 
-.loopexit160:                                     ; preds = %90, %181, %.thread.i.i
+.loopexit160:                                     ; preds = %90, %.thread.i.i, %181
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   tail call void @opj_pi_destroy(ptr noundef nonnull %24, i32 noundef %23) #6
@@ -1752,9 +1752,9 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   br label %.critedge138
 
 250:                                              ; preds = %247, %95
-  %251 = phi i32 [ %.pre297, %95 ], [ %.pre296, %247 ]
-  %252 = phi i32 [ %.pre295, %95 ], [ %.pre, %247 ]
-  %.1 = phi i32 [ %96, %95 ], [ %249, %247 ]
+  %251 = phi i32 [ %.pre296, %247 ], [ %.pre297, %95 ]
+  %252 = phi i32 [ %.pre, %247 ], [ %.pre295, %95 ]
+  %.1 = phi i32 [ %249, %247 ], [ %96, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %253 = load ptr, ptr %28, align 8, !tbaa !156
@@ -1948,7 +1948,7 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   br i1 %exitcond.not.i.i149, label %.loopexit14.i.i, label %.lr.ph33.i.i, !llvm.loop !160
 
 .loopexit14.i.i:                                  ; preds = %.loopexit.i.i148, %291, %285, %277
-  %.lcssa1521.lcssa25.i = phi i32 [ %.lcssa1521.lcssa26.i, %277 ], [ %.lcssa1521.lcssa26.i, %291 ], [ %.lcssa1521.lcssa26.i, %285 ], [ %.lcssa1521.i, %.loopexit.i.i148 ]
+  %.lcssa1521.lcssa25.i = phi i32 [ %.lcssa1521.lcssa26.i, %291 ], [ %.lcssa1521.lcssa26.i, %285 ], [ %.lcssa1521.lcssa26.i, %277 ], [ %.lcssa1521.i, %.loopexit.i.i148 ]
   %.182.ph.i.i = getelementptr inbounds nuw i8, ptr %.08134.i.i, i64 48
   %347 = add nuw i32 %.07835.i.i, 1
   %exitcond.not.i = icmp eq i32 %347, %273
@@ -1959,8 +1959,8 @@ opj_t2_skip_packet_data.exit.i:                   ; preds = %._crit_edge.i.i145
   br label %.loopexit
 
 .loopexit.i:                                      ; preds = %.loopexit14.i.i, %327, %263
-  %.pre300.pre = phi i32 [ %.pre300.pre303, %263 ], [ %.pre300.pre.pre, %327 ], [ %.pre300.pre303, %.loopexit14.i.i ]
-  %349 = phi i32 [ 0, %263 ], [ %264, %327 ], [ %.lcssa1521.lcssa25.i, %.loopexit14.i.i ]
+  %.pre300.pre = phi i32 [ %.pre300.pre.pre, %327 ], [ %.pre300.pre303, %263 ], [ %.pre300.pre303, %.loopexit14.i.i ]
+  %349 = phi i32 [ %264, %327 ], [ 0, %263 ], [ %.lcssa1521.lcssa25.i, %.loopexit14.i.i ]
   %350 = add i32 %349, %261
   br label %opj_t2_skip_packet.exit
 
@@ -2032,7 +2032,7 @@ opj_t2_skip_packet.exit:                          ; preds = %260, %.loopexit.i
   br label %.critedge138
 
 .critedge138:                                     ; preds = %.loopexit, %.loopexit160, %33, %39, %9, %374
-  %.0 = phi i32 [ 0, %9 ], [ 1, %374 ], [ 0, %39 ], [ 0, %33 ], [ 0, %.loopexit160 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ 1, %374 ], [ 0, %9 ], [ 0, %39 ], [ 0, %33 ], [ 0, %.loopexit160 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 
@@ -2713,7 +2713,7 @@ opj_uint_floorlog2.exit:                          ; preds = %.lr.ph.i, %.prehead
   br label %453
 
 344:                                              ; preds = %336, %334, %329
-  %.sink.i338 = phi i32 [ 109, %334 ], [ 1, %329 ], [ %342, %336 ]
+  %.sink.i338 = phi i32 [ %342, %336 ], [ 1, %329 ], [ 109, %334 ]
   %345 = getelementptr inbounds nuw i8, ptr %332, i64 12
   store i32 %.sink.i338, ptr %345, align 4, !tbaa !141
   br label %.preheader33, !llvm.loop !178
@@ -2826,7 +2826,7 @@ opj_uint_floorlog2.exit347:                       ; preds = %.lr.ph.i344, %.preh
   br label %453
 
 409:                                              ; preds = %401, %399, %394
-  %.sink.i350 = phi i32 [ 109, %399 ], [ 1, %394 ], [ %407, %401 ]
+  %.sink.i350 = phi i32 [ %407, %401 ], [ 1, %394 ], [ 109, %399 ]
   %410 = getelementptr inbounds nuw i8, ptr %397, i64 12
   store i32 %.sink.i350, ptr %410, align 4, !tbaa !141
   br label %.preheader, !llvm.loop !179
@@ -2925,8 +2925,8 @@ opj_uint_floorlog2.exit347:                       ; preds = %.lr.ph.i344, %.preh
   store i32 %452, ptr %4, align 4, !tbaa !30
   br label %453
 
-453:                                              ; preds = %363, %408, %343, %228, %273, %298, %.thread, %440, %76, %444, %436, %429, %417, %126, %122, %115
-  %.4 = phi i32 [ 0, %363 ], [ 0, %.thread ], [ 0, %429 ], [ 0, %436 ], [ 1, %444 ], [ 0, %76 ], [ 0, %417 ], [ 0, %115 ], [ 0, %122 ], [ 1, %126 ], [ 0, %440 ], [ 0, %298 ], [ 0, %273 ], [ 0, %228 ], [ 0, %343 ], [ 0, %408 ]
+453:                                              ; preds = %363, %408, %298, %343, %228, %273, %.thread, %440, %76, %444, %436, %429, %417, %126, %122, %115
+  %.4 = phi i32 [ 0, %429 ], [ 0, %436 ], [ 1, %444 ], [ 0, %417 ], [ 0, %115 ], [ 0, %122 ], [ 1, %126 ], [ 0, %76 ], [ 0, %440 ], [ 0, %.thread ], [ 0, %273 ], [ 0, %228 ], [ 0, %343 ], [ 0, %298 ], [ 0, %408 ], [ 0, %363 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.4

@@ -537,7 +537,7 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
   br label %.loopexit
 
 "_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %56, %59, %62, %70, %74, %78
-  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %74 ], [ %.029.lcssa.i.i.i.i.i, %70 ], [ %.2.i.i.i.i.i, %78 ], [ %57, %56 ], [ %60, %59 ], [ %63, %62 ], [ %.02931.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %70 ], [ %.1.i.i.i.i.i, %74 ], [ %.2.i.i.i.i.i, %78 ], [ %.02931.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %57, %56 ], [ %60, %59 ], [ %63, %62 ]
   %80 = icmp eq ptr %52, %.028.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %80, label %.loopexit, label %81
@@ -564,7 +564,7 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
   br label %.thread59
 
 .thread59:                                        ; preds = %81, %36, %24, %85, %.loopexit, %"_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_17PatternsForOpcodeEEEjZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_0EEDaOT_OT0_T1_.exit", %22
-  %.0 = phi ptr [ null, %"_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_17PatternsForOpcodeEEEjZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_0EEDaOT_OT0_T1_.exit" ], [ null, %22 ], [ null, %.loopexit ], [ %89, %85 ], [ null, %24 ], [ null, %36 ], [ null, %81 ]
+  %.0 = phi ptr [ null, %22 ], [ null, %"_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_17PatternsForOpcodeEEEjZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_0EEDaOT_OT0_T1_.exit" ], [ %89, %85 ], [ null, %.loopexit ], [ null, %24 ], [ null, %36 ], [ null, %81 ]
   ret ptr %.0
 }
 
@@ -1195,7 +1195,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   unreachable
 
 "_ZZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEENK3$_1clERKNS_16AliasPatternCondE.exit": ; preds = %20, %33, %45, %60, %76, %79, %86, %89, %96, %99, %105, %108, %118, %121, %132, %143
-  %.0.i.i = phi i1 [ %32, %20 ], [ %.not.i.i, %33 ], [ true, %45 ], [ true, %60 ], [ %78, %76 ], [ %117, %108 ], [ true, %79 ], [ %104, %99 ], [ %95, %89 ], [ %146, %143 ], [ false, %86 ], [ false, %118 ], [ false, %96 ], [ false, %105 ], [ %142, %132 ], [ false, %121 ]
+  %.0.i.i = phi i1 [ %32, %20 ], [ %.not.i.i, %33 ], [ true, %45 ], [ true, %60 ], [ %78, %76 ], [ %146, %143 ], [ false, %86 ], [ %95, %89 ], [ false, %118 ], [ true, %79 ], [ false, %96 ], [ %104, %99 ], [ false, %105 ], [ %117, %108 ], [ %142, %132 ], [ false, %121 ]
   %148 = xor i1 %.0.i.i, true
   ret i1 %148
 }

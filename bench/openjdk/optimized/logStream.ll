@@ -265,8 +265,8 @@ _ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit.thread: ; preds = %._Z
   br i1 %40, label %49, label %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit.thread9
 
 _ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit.thread9: ; preds = %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit, %3, %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit.thread
-  %41 = phi i64 [ %5, %3 ], [ %36, %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit.thread ], [ %.pre13, %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit ]
-  %.0 = phi i64 [ %2, %3 ], [ %39, %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit.thread ], [ %2, %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit ]
+  %41 = phi i64 [ %36, %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit.thread ], [ %5, %3 ], [ %.pre13, %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit ]
+  %.0 = phi i64 [ %39, %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit.thread ], [ %2, %3 ], [ %2, %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 %41

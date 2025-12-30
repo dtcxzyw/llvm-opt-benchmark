@@ -201,7 +201,7 @@ if.then14:                                        ; preds = %if.then
   br label %return
 
 return:                                           ; preds = %if.then14, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit, %entry, %land.lhs.true, %if.then
-  %retval.sroa.3.0 = phi i32 [ 0, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ], [ 65550, %if.then ], [ %8, %if.then14 ], [ 0, %land.lhs.true ], [ 0, %entry ]
+  %retval.sroa.3.0 = phi i32 [ 65550, %if.then ], [ 0, %land.lhs.true ], [ 0, %entry ], [ 0, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ], [ %8, %if.then14 ]
   ret i32 %retval.sroa.3.0
 }
 
@@ -339,7 +339,7 @@ default.unreachable:                              ; preds = %_ZNK6hermes2vm9Arra
   unreachable
 
 _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit: ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit, %sw.bb.i, %sw.bb4.i, %sw.bb8.i, %sw.bb12.i, %sw.bb18.i, %sw.bb22.i, %sw.bb29.i, %sw.bb36.i, %sw.bb39.i
-  %retval.sroa.0.0.i3 = phi i64 [ %or.i.i.i.i, %sw.bb.i ], [ %or.i.i.i4.i, %sw.bb4.i ], [ %or.i.i.i8.i, %sw.bb8.i ], [ %retval.sroa.0.0.i.i4, %sw.bb12.i ], [ %12, %sw.bb18.i ], [ %or.i.i.i, %sw.bb22.i ], [ %or.i.i14.i, %sw.bb29.i ], [ -1548112371908608, %sw.bb39.i ], [ -1970324836974592, %sw.bb36.i ], [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit ]
+  %retval.sroa.0.0.i3 = phi i64 [ %or.i.i.i.i, %sw.bb.i ], [ %or.i.i.i4.i, %sw.bb4.i ], [ %or.i.i.i8.i, %sw.bb8.i ], [ %retval.sroa.0.0.i.i4, %sw.bb12.i ], [ %12, %sw.bb18.i ], [ %or.i.i.i, %sw.bb22.i ], [ %or.i.i14.i, %sw.bb29.i ], [ -1970324836974592, %sw.bb36.i ], [ -1548112371908608, %sw.bb39.i ], [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit ]
   ret i64 %retval.sroa.0.0.i3
 }
 
@@ -574,7 +574,7 @@ _ZN6hermes2vm9ArrayImpl17setIndexedStorageERNS0_11PointerBaseEPNS0_18SegmentedAr
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_18SegmentedArrayBaseINS0_13HermesValue32EEEEENS0_13MutableHandleIT_EEPS7_.exit, %if.end10, %if.then7, %_ZN6hermes2vm9ArrayImpl17setIndexedStorageERNS0_11PointerBaseEPNS0_18SegmentedArrayBaseINS0_13HermesValue32EEERNS0_7HadesGCE.exit90, %if.then38, %_ZN6hermes2vm9ArrayImpl17setIndexedStorageERNS0_11PointerBaseEPNS0_18SegmentedArrayBaseINS0_13HermesValue32EEERNS0_7HadesGCE.exit63, %_ZN6hermes2vm9ArrayImpl17setIndexedStorageERNS0_11PointerBaseEPNS0_18SegmentedArrayBaseINS0_13HermesValue32EEERNS0_7HadesGCE.exit, %if.then
-  %retval.0 = phi i32 [ %call5, %if.then ], [ 1, %_ZN6hermes2vm9ArrayImpl17setIndexedStorageERNS0_11PointerBaseEPNS0_18SegmentedArrayBaseINS0_13HermesValue32EEERNS0_7HadesGCE.exit90 ], [ 1, %if.then7 ], [ 1, %_ZN6hermes2vm9ArrayImpl17setIndexedStorageERNS0_11PointerBaseEPNS0_18SegmentedArrayBaseINS0_13HermesValue32EEERNS0_7HadesGCE.exit ], [ 1, %_ZN6hermes2vm9ArrayImpl17setIndexedStorageERNS0_11PointerBaseEPNS0_18SegmentedArrayBaseINS0_13HermesValue32EEERNS0_7HadesGCE.exit63 ], [ 1, %if.then38 ], [ 0, %if.end10 ], [ 0, %_ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_18SegmentedArrayBaseINS0_13HermesValue32EEEEENS0_13MutableHandleIT_EEPS7_.exit ]
+  %retval.0 = phi i32 [ %call5, %if.then ], [ 1, %_ZN6hermes2vm9ArrayImpl17setIndexedStorageERNS0_11PointerBaseEPNS0_18SegmentedArrayBaseINS0_13HermesValue32EEERNS0_7HadesGCE.exit ], [ 1, %_ZN6hermes2vm9ArrayImpl17setIndexedStorageERNS0_11PointerBaseEPNS0_18SegmentedArrayBaseINS0_13HermesValue32EEERNS0_7HadesGCE.exit63 ], [ 1, %if.then38 ], [ 1, %_ZN6hermes2vm9ArrayImpl17setIndexedStorageERNS0_11PointerBaseEPNS0_18SegmentedArrayBaseINS0_13HermesValue32EEERNS0_7HadesGCE.exit90 ], [ 1, %if.then7 ], [ 0, %if.end10 ], [ 0, %_ZN6hermes2vm15HandleRootOwner17makeMutableHandleINS0_18SegmentedArrayBaseINS0_13HermesValue32EEEEENS0_13MutableHandleIT_EEPS7_.exit ]
   ret i32 %retval.0
 }
 
@@ -899,7 +899,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i136: ; preds = %cond.f
   br label %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit147
 
 _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit147: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_13HermesValue32EEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit, %sw.bb3.i123, %sw.bb6.i122, %sw.bb9.i118, %sw.bb13.i114, %sw.bb19.i110, %sw.bb23.i106, %sw.bb27.i102, %if.then.i.i145, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i136
-  %retval.sroa.0.0.i105 = phi i32 [ 7, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_13HermesValue32EEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit ], [ %conv.i.i.i.i.i11.i104, %sw.bb27.i102 ], [ 14, %sw.bb3.i123 ], [ 15, %sw.bb6.i122 ], [ %or.i.i.i121, %sw.bb9.i118 ], [ %or.i.i4.i117, %sw.bb13.i114 ], [ %or.i.i.i.i113, %sw.bb19.i110 ], [ %or.i.i.i8.i109, %sw.bb23.i106 ], [ %or.i.i16.i146, %if.then.i.i145 ], [ %or.i.i.i15.i141, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i136 ]
+  %retval.sroa.0.0.i105 = phi i32 [ 14, %sw.bb3.i123 ], [ 15, %sw.bb6.i122 ], [ %or.i.i.i121, %sw.bb9.i118 ], [ %or.i.i4.i117, %sw.bb13.i114 ], [ %or.i.i.i.i113, %sw.bb19.i110 ], [ %or.i.i.i8.i109, %sw.bb23.i106 ], [ %conv.i.i.i.i.i11.i104, %sw.bb27.i102 ], [ 7, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_13HermesValue32EEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit ], [ %or.i.i16.i146, %if.then.i.i145 ], [ %or.i.i.i15.i141, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i136 ]
   %retval.sroa.0.0.copyload.i.i148 = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i149 = and i64 %retval.sroa.0.0.copyload.i.i148, 281474976710655
   %31 = inttoptr i64 %and.i.i.i.i149 to ptr
@@ -1248,7 +1248,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i295: ; preds = %cond.f
   br label %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit306
 
 _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit306: ; preds = %if.end79, %sw.bb3.i282, %sw.bb6.i281, %sw.bb9.i277, %sw.bb13.i273, %sw.bb19.i269, %sw.bb23.i265, %sw.bb27.i261, %if.then.i.i304, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i295
-  %retval.sroa.0.0.i264 = phi i32 [ 7, %if.end79 ], [ %conv.i.i.i.i.i11.i263, %sw.bb27.i261 ], [ 14, %sw.bb3.i282 ], [ 15, %sw.bb6.i281 ], [ %or.i.i.i280, %sw.bb9.i277 ], [ %or.i.i4.i276, %sw.bb13.i273 ], [ %or.i.i.i.i272, %sw.bb19.i269 ], [ %or.i.i.i8.i268, %sw.bb23.i265 ], [ %or.i.i16.i305, %if.then.i.i304 ], [ %or.i.i.i15.i300, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i295 ]
+  %retval.sroa.0.0.i264 = phi i32 [ 14, %sw.bb3.i282 ], [ 15, %sw.bb6.i281 ], [ %or.i.i.i280, %sw.bb9.i277 ], [ %or.i.i4.i276, %sw.bb13.i273 ], [ %or.i.i.i.i272, %sw.bb19.i269 ], [ %or.i.i.i8.i268, %sw.bb23.i265 ], [ %conv.i.i.i.i.i11.i263, %sw.bb27.i261 ], [ 7, %if.end79 ], [ %or.i.i16.i305, %if.then.i.i304 ], [ %or.i.i.i15.i300, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i.i295 ]
   %60 = load ptr, ptr %indexedStorageHandle, align 8
   %agg.tmp.sroa.0.0.copyload.i.i307 = load i64, ptr %60, align 8
   %and.i.i.i.i.i308 = and i64 %agg.tmp.sroa.0.0.copyload.i.i307, 281474976710655
@@ -1443,7 +1443,7 @@ _ZN6hermes2vm9ArrayImpl17setIndexedStorageERNS0_11PointerBaseEPNS0_18SegmentedAr
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE4sizeERNS0_11PointerBaseE.exit, %if.then144, %if.then75, %if.then22, %entry, %_ZN6hermes2vm9ArrayImpl17setIndexedStorageERNS0_11PointerBaseEPNS0_18SegmentedArrayBaseINS0_13HermesValue32EEERNS0_7HadesGCE.exit380, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit247, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit166, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit
-  %retval.sroa.0.0 = phi i32 [ 257, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit ], [ 1, %entry ], [ 257, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit166 ], [ 0, %if.then22 ], [ 257, %_ZN6hermes2vm9ArrayImpl17setIndexedStorageERNS0_11PointerBaseEPNS0_18SegmentedArrayBaseINS0_13HermesValue32EEERNS0_7HadesGCE.exit380 ], [ 0, %if.then75 ], [ 0, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE4sizeERNS0_11PointerBaseE.exit ], [ 0, %if.then144 ], [ %71, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ 257, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit247 ]
+  %retval.sroa.0.0 = phi i32 [ 257, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit ], [ 257, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit166 ], [ 257, %_ZN6hermes2vm9ArrayImpl17setIndexedStorageERNS0_11PointerBaseEPNS0_18SegmentedArrayBaseINS0_13HermesValue32EEERNS0_7HadesGCE.exit380 ], [ 257, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit247 ], [ 1, %entry ], [ 0, %if.then22 ], [ 0, %if.then75 ], [ 0, %if.then144 ], [ 0, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE4sizeERNS0_11PointerBaseE.exit ], [ %71, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ]
   ret i32 %retval.sroa.0.0
 }
 
@@ -1548,7 +1548,7 @@ _ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i: ; preds = %cond.false.
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i, %if.then.i, %entry, %sw.bb27, %sw.bb23, %sw.bb19, %sw.bb13, %sw.bb9, %sw.bb6, %sw.bb3
-  %retval.sroa.0.0 = phi i32 [ 7, %entry ], [ %conv.i.i.i.i.i11, %sw.bb27 ], [ 14, %sw.bb3 ], [ 15, %sw.bb6 ], [ %or.i.i, %sw.bb9 ], [ %or.i.i4, %sw.bb13 ], [ %or.i.i.i, %sw.bb19 ], [ %or.i.i.i8, %sw.bb23 ], [ %or.i.i16, %if.then.i ], [ %or.i.i.i15, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i ]
+  %retval.sroa.0.0 = phi i32 [ 14, %sw.bb3 ], [ 15, %sw.bb6 ], [ %or.i.i, %sw.bb9 ], [ %or.i.i4, %sw.bb13 ], [ %or.i.i.i, %sw.bb19 ], [ %or.i.i.i8, %sw.bb23 ], [ %conv.i.i.i.i.i11, %sw.bb27 ], [ 7, %entry ], [ %or.i.i16, %if.then.i ], [ %or.i.i.i15, %_ZN6hermes2vm11BoxedDouble6createEdRNS0_7RuntimeE.exit.i ]
   ret i32 %retval.sroa.0.0
 }
 
@@ -1995,7 +1995,7 @@ if.end164:                                        ; preds = %if.else, %do.body11
   br label %return
 
 return:                                           ; preds = %if.else, %do.body113, %if.then76, %do.body53, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_9ArgumentsEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit, %if.end164
-  %retval.sroa.0.0 = phi ptr [ inttoptr (i64 -1 to ptr), %do.body113 ], [ inttoptr (i64 -1 to ptr), %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_9ArgumentsEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit ], [ inttoptr (i64 -1 to ptr), %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ inttoptr (i64 -1 to ptr), %do.body53 ], [ inttoptr (i64 -1 to ptr), %if.then76 ], [ %retval.0.i.i.i.i.i.i.i, %if.end164 ], [ inttoptr (i64 -1 to ptr), %if.else ]
+  %retval.sroa.0.0 = phi ptr [ %retval.0.i.i.i.i.i.i.i, %if.end164 ], [ inttoptr (i64 -1 to ptr), %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_9ArgumentsEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit ], [ inttoptr (i64 -1 to ptr), %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ inttoptr (i64 -1 to ptr), %do.body53 ], [ inttoptr (i64 -1 to ptr), %if.then76 ], [ inttoptr (i64 -1 to ptr), %do.body113 ], [ inttoptr (i64 -1 to ptr), %if.else ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -2780,7 +2780,7 @@ _ZN4llvh23SmallVectorTemplateBaseISt4pairIjN6hermes2vm8SymbolIDEELb1EE9push_back
   br label %"_ZZN6hermes2vm7JSArray9setLengthENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsEENK3$_0clENS0_8SymbolIDENS0_23NamedPropertyDescriptorE.exit.i.i"
 
 "_ZZN6hermes2vm7JSArray9setLengthENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsEENK3$_0clENS0_8SymbolIDENS0_23NamedPropertyDescriptorE.exit.i.i": ; preds = %_ZN4llvh23SmallVectorTemplateBaseISt4pairIjN6hermes2vm8SymbolIDEELb1EE9push_backERKS5_.exit.i.i.i, %if.then9.i.i.i, %if.then.i.i47
-  %adjustedLength.4 = phi i32 [ %adjustedLength.2, %if.then.i.i47 ], [ %adjustedLength.2, %_ZN4llvh23SmallVectorTemplateBaseISt4pairIjN6hermes2vm8SymbolIDEELb1EE9push_backERKS5_.exit.i.i.i ], [ %add.i.i.i54, %if.then9.i.i.i ]
+  %adjustedLength.4 = phi i32 [ %adjustedLength.2, %if.then.i.i47 ], [ %add.i.i.i54, %if.then9.i.i.i ], [ %adjustedLength.2, %_ZN4llvh23SmallVectorTemplateBaseISt4pairIjN6hermes2vm8SymbolIDEELb1EE9push_backERKS5_.exit.i.i.i ]
   %conv.i.i.i.i.i.i50 = zext i32 %41 to i64
   %51 = load ptr, ptr %chunks_.i, align 8
   %arrayidx.i20.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %51, i64 %conv.i.i.i.i.i.i50
@@ -2984,7 +2984,7 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit156:  ; preds = %if.then79
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm7JSArray9putLengthEPS1_RNS0_7RuntimeENS0_13HermesValue32E.exit101, %if.then79, %if.then61, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit156, %_ZN6hermes2vm7JSArray9putLengthEPS1_RNS0_7RuntimeENS0_13HermesValue32E.exit
-  %retval.sroa.0.0 = phi i32 [ 257, %_ZN6hermes2vm7JSArray9putLengthEPS1_RNS0_7RuntimeENS0_13HermesValue32E.exit ], [ 1, %if.then79 ], [ %bf.value.i, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit156 ], [ 0, %if.then61 ], [ 257, %_ZN6hermes2vm7JSArray9putLengthEPS1_RNS0_7RuntimeENS0_13HermesValue32E.exit101 ]
+  %retval.sroa.0.0 = phi i32 [ %bf.value.i, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit156 ], [ 257, %_ZN6hermes2vm7JSArray9putLengthEPS1_RNS0_7RuntimeENS0_13HermesValue32E.exit ], [ 0, %if.then61 ], [ 1, %if.then79 ], [ 257, %_ZN6hermes2vm7JSArray9putLengthEPS1_RNS0_7RuntimeENS0_13HermesValue32E.exit101 ]
   ret i32 %retval.sroa.0.0
 }
 
@@ -3395,8 +3395,8 @@ if.end144:                                        ; preds = %sw.bb136
   br label %return
 
 return:                                           ; preds = %sw.bb136, %if.end106, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %if.else, %if.end144, %sw.bb124, %if.then94, %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit, %if.then28, %if.then
-  %retval.sroa.0.0 = phi i32 [ 1, %if.then94 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ 0, %if.end106 ], [ 1, %if.end144 ], [ 1, %sw.bb124 ], [ 1, %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit ], [ %call30, %if.then28 ], [ 1, %if.then ], [ 0, %if.else ], [ 0, %sw.bb136 ]
-  %retval.sroa.11.0 = phi i64 [ %retval.sroa.0.0.copyload.i60, %if.then94 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ undef, %if.end106 ], [ %retval.sroa.0.0.copyload.i84, %if.end144 ], [ %retval.sroa.0.0.copyload.i78, %sw.bb124 ], [ %retval.sroa.0.0.copyload.i45, %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit ], [ undef, %if.then28 ], [ %retval.sroa.0.0.copyload.i, %if.then ], [ undef, %if.else ], [ undef, %sw.bb136 ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.then94 ], [ 1, %if.end144 ], [ 1, %sw.bb124 ], [ 1, %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit ], [ %call30, %if.then28 ], [ 1, %if.then ], [ 0, %if.else ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ 0, %if.end106 ], [ 0, %sw.bb136 ]
+  %retval.sroa.11.0 = phi i64 [ %retval.sroa.0.0.copyload.i60, %if.then94 ], [ %retval.sroa.0.0.copyload.i84, %if.end144 ], [ %retval.sroa.0.0.copyload.i78, %sw.bb124 ], [ %retval.sroa.0.0.copyload.i45, %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit ], [ undef, %if.then28 ], [ %retval.sroa.0.0.copyload.i, %if.then ], [ undef, %if.else ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ undef, %if.end106 ], [ undef, %sw.bb136 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.11.0, 1
   ret { i32, i64 } %.fca.1.insert

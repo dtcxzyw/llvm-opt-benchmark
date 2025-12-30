@@ -116,7 +116,7 @@ define hidden void @_ZNK10bit_matrix3row5beginEv(ptr dead_on_unwind noalias writ
   br i1 %33, label %15, label %.sink.split.i, !llvm.loop !28
 
 .sink.split.i:                                    ; preds = %.critedge2.i.i, %15, %8
-  %.sink.i = phi i32 [ 1, %8 ], [ %storemerge16.i.i, %15 ], [ %storemerge.i.i, %.critedge2.i.i ]
+  %.sink.i = phi i32 [ 1, %8 ], [ %storemerge.i.i, %.critedge2.i.i ], [ %storemerge16.i.i, %15 ]
   store i32 %.sink.i, ptr %3, align 8, !tbaa !11
   br label %_ZN10bit_matrix12col_iteratorC2ERKNS_3rowEb.exit
 
@@ -442,7 +442,7 @@ _ZN10bit_matrix3endEv.exit:
   br i1 %36, label %.lr.ph17.i.i.i, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph17.i.i.i, %.critedge2.i.i.i, %16
-  %.sroa.635.0 = phi i32 [ %.mux, %16 ], [ %storemerge.i.i.i, %.critedge2.i.i.i ], [ %storemerge16.i.i.i, %.lr.ph17.i.i.i ]
+  %.sroa.635.0 = phi i32 [ %.mux, %16 ], [ %storemerge16.i.i.i, %.lr.ph17.i.i.i ], [ %storemerge.i.i.i, %.critedge2.i.i.i ]
   %.not46 = icmp eq i32 %.sroa.635.0, %12
   br i1 %.not46, label %_ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i23, label %_ZN10bit_matrix3endEv.exit22
 
@@ -503,7 +503,7 @@ _ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i:             ; preds = %.lr.ph.i, %.lr.ph.s
   br label %_ZN10bit_matrix12row_iteratorppEv.exit
 
 _ZN10bit_matrix12row_iteratorppEv.exit:           ; preds = %_ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i, %55
-  %.sroa.6.1 = phi ptr [ %.sroa.6.051, %_ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i ], [ %57, %55 ]
+  %.sroa.6.1 = phi ptr [ %57, %55 ], [ %.sroa.6.051, %_ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i ]
   %.not47 = icmp eq i64 %indvars.iv.next, %44
   br i1 %.not47, label %_ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i23, label %.lr.ph.split
 
@@ -518,7 +518,7 @@ _ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i23:           ; preds = %_ZN10bit_matrix12ro
   br label %_ZN10bit_matrix12row_iteratorppEv.exit24
 
 _ZN10bit_matrix12row_iteratorppEv.exit24:         ; preds = %_ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i23, %59
-  %.sroa.8.1 = phi ptr [ %.sroa.8.054, %_ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i23 ], [ %61, %59 ]
+  %.sroa.8.1 = phi ptr [ %61, %59 ], [ %.sroa.8.054, %_ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i23 ]
   %.not = icmp eq i64 %indvars.iv.next63, %15
   br i1 %.not, label %._crit_edge, label %16
 }

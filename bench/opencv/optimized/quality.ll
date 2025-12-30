@@ -4235,9 +4235,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc35
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc35, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.1165.0 = phi ptr [ %63, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %63, %.noexc35 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %68 = phi ptr [ %62, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %62, %.noexc35 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.0.i.i.i.i.i = phi ptr [ %67, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %64, %.noexc35 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.1165.0 = phi ptr [ %63, %.noexc35 ], [ %63, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %68 = phi ptr [ %62, %.noexc35 ], [ %62, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.0.i.i.i.i.i = phi ptr [ %64, %.noexc35 ], [ %67, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %68, ptr %53, align 8, !tbaa !16
@@ -4366,9 +4366,9 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc43
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc43, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.053.0 = phi ptr [ %108, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %108, %.noexc43 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.11.0 = phi ptr [ %109, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %109, %.noexc43 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.0.i.i.i.i.i41 = phi ptr [ %113, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %110, %.noexc43 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.053.0 = phi ptr [ %108, %.noexc43 ], [ %108, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %109, %.noexc43 ], [ %109, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.0.i.i.i.i.i41 = phi ptr [ %110, %.noexc43 ], [ %113, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %114 = load ptr, ptr %54, align 8, !tbaa !17
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -4949,9 +4949,9 @@ _ZN2cv3RNG7uniformEii.exit:                       ; preds = %21
   br i1 %134, label %103, label %.loopexit, !llvm.loop !213
 
 .loopexit:                                        ; preds = %128, %123, %21, %48, %._crit_edge.loopexit, %.preheader
-  %.164 = phi i32 [ 0, %21 ], [ 0, %.preheader ], [ %.063.lcssa.ph, %._crit_edge.loopexit ], [ 0, %48 ], [ %.26592, %123 ], [ %132, %128 ]
-  %.552 = phi i32 [ 0, %21 ], [ 0, %.preheader ], [ %.249.ph, %._crit_edge.loopexit ], [ 0, %48 ], [ %.695, %123 ], [ %.7, %128 ]
-  %.5 = phi float [ 0.000000e+00, %21 ], [ 0.000000e+00, %.preheader ], [ %102, %._crit_edge.loopexit ], [ 0.000000e+00, %48 ], [ 0.000000e+00, %123 ], [ 0.000000e+00, %128 ]
+  %.164 = phi i32 [ 0, %.preheader ], [ 0, %48 ], [ %.063.lcssa.ph, %._crit_edge.loopexit ], [ 0, %21 ], [ %132, %128 ], [ %.26592, %123 ]
+  %.552 = phi i32 [ 0, %.preheader ], [ 0, %48 ], [ %.249.ph, %._crit_edge.loopexit ], [ 0, %21 ], [ %.7, %128 ], [ %.695, %123 ]
+  %.5 = phi float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %48 ], [ %102, %._crit_edge.loopexit ], [ 0.000000e+00, %21 ], [ 0.000000e+00, %123 ], [ 0.000000e+00, %128 ]
   %135 = load i32, ptr %27, align 8, !tbaa !154
   %136 = icmp eq i32 %.164, %135
   br label %137

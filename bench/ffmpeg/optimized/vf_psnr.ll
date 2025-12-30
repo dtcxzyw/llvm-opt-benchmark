@@ -630,7 +630,7 @@ av_cmp_q.exit.thread:                             ; preds = %av_cmp_q.exit.threa
   br label %av_cmp_q.exit44.thread52
 
 av_cmp_q.exit44.thread52:                         ; preds = %58, %56, %av_cmp_q.exit.thread, %11, %1
-  %.0 = phi i32 [ %27, %11 ], [ %9, %1 ], [ 0, %av_cmp_q.exit.thread ], [ 0, %58 ], [ 0, %56 ]
+  %.0 = phi i32 [ %9, %1 ], [ %27, %11 ], [ 0, %av_cmp_q.exit.thread ], [ 0, %56 ], [ 0, %58 ]
   ret i32 %.0
 }
 
@@ -853,8 +853,8 @@ define internal i32 @do_psnr(ptr noundef %0) #0 {
   br i1 %exitcond268.not, label %.lr.ph221, label %99, !llvm.loop !97
 
 ._crit_edge222:                                   ; preds = %124, %.preheader211.lr.ph, %.preheader210
-  %112 = phi i1 [ false, %.preheader211.lr.ph ], [ false, %.preheader210 ], [ true, %124 ]
-  %.0178.lcssa = phi double [ 0.000000e+00, %.preheader211.lr.ph ], [ 0.000000e+00, %.preheader210 ], [ %129, %124 ]
+  %112 = phi i1 [ false, %.preheader210 ], [ false, %.preheader211.lr.ph ], [ true, %124 ]
+  %.0178.lcssa = phi double [ 0.000000e+00, %.preheader210 ], [ 0.000000e+00, %.preheader211.lr.ph ], [ %129, %124 ]
   %113 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %114 = load double, ptr %113, align 8, !tbaa !20
   %115 = fcmp nsz ogt double %114, %.0178.lcssa

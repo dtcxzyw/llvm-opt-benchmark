@@ -123,7 +123,7 @@ mbedtls_psa_ffdh_set_prime_generator.exit.thread46: ; preds = %19, %36, %34, %mb
   br label %42
 
 42:                                               ; preds = %mbedtls_psa_ffdh_set_prime_generator.exit.thread46, %40, %14, %16
-  %.0 = phi i32 [ -138, %14 ], [ 0, %16 ], [ %41, %40 ], [ %.020.i42, %mbedtls_psa_ffdh_set_prime_generator.exit.thread46 ]
+  %.0 = phi i32 [ 0, %16 ], [ -138, %14 ], [ %41, %40 ], [ %.020.i42, %mbedtls_psa_ffdh_set_prime_generator.exit.thread46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

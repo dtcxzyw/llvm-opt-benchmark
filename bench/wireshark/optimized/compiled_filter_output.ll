@@ -1424,7 +1424,7 @@ _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QS
   br i1 %48, label %_ZNK12QHashPrivate4DataINS_4NodeI7QStringS2_EEE4findERKS2_.exit.thread, label %.lr.ph.i, !llvm.loop !20
 
 _ZNK12QHashPrivate4DataINS_4NodeI7QStringS2_EEE4findERKS2_.exit.thread: ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i, %7
-  %.018.lcssa.i18 = phi i64 [ %18, %7 ], [ %.01830.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i ], [ %spec.store.select.i.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ]
+  %.018.lcssa.i18 = phi i64 [ %18, %7 ], [ %spec.store.select.i.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %.01830.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i ]
   %49 = load atomic i32, ptr %3 monotonic, align 4
   %50 = icmp ugt i32 %49, 1
   br i1 %50, label %51, label %_ZN5QHashI7QStringS0_E6detachEv.exit
@@ -1450,8 +1450,8 @@ _ZN5QHashI7QStringS0_E6detachEv.exit:             ; preds = %_ZNK12QHashPrivate4
   br label %_ZNK5QHashI7QStringS0_E7isEmptyEv.exit.thread
 
 _ZNK5QHashI7QStringS0_E7isEmptyEv.exit.thread:    ; preds = %_ZN5QHashI7QStringS0_E6detachEv.exit, %2, %_ZNK5QHashI7QStringS0_E7isEmptyEv.exit
-  %.sroa.3.0 = phi i64 [ 0, %_ZNK5QHashI7QStringS0_E7isEmptyEv.exit ], [ %spec.select, %_ZN5QHashI7QStringS0_E6detachEv.exit ], [ 0, %2 ]
-  %.sroa.013.0 = phi ptr [ null, %_ZNK5QHashI7QStringS0_E7isEmptyEv.exit ], [ %spec.select20, %_ZN5QHashI7QStringS0_E6detachEv.exit ], [ null, %2 ]
+  %.sroa.3.0 = phi i64 [ 0, %_ZNK5QHashI7QStringS0_E7isEmptyEv.exit ], [ 0, %2 ], [ %spec.select, %_ZN5QHashI7QStringS0_E6detachEv.exit ]
+  %.sroa.013.0 = phi ptr [ null, %_ZNK5QHashI7QStringS0_E7isEmptyEv.exit ], [ null, %2 ], [ %spec.select20, %_ZN5QHashI7QStringS0_E6detachEv.exit ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.013.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %.fca.1.insert

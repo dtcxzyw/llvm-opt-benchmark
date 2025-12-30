@@ -57,8 +57,8 @@ define internal noundef i32 @parse(ptr noundef writeonly captures(none) %0, ptr 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %25, %.thread
-  %.sink57 = phi i32 [ %spec.select, %25 ], [ 2, %.thread ]
-  %.sink = phi i32 [ %spec.select59, %25 ], [ 0, %.thread ]
+  %.sink57 = phi i32 [ 2, %.thread ], [ %spec.select, %25 ]
+  %.sink = phi i32 [ 0, %.thread ], [ %spec.select59, %25 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.sink57, ptr %28, align 8, !tbaa !30
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 232

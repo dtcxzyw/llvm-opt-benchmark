@@ -123,7 +123,7 @@ define dso_local ptr @GinDataLeafPageGetItems(ptr noundef %0, ptr noundef %1, i4
   br label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %43, %.lr.ph, %..critedge.loopexit_crit_edge, %18
-  %.130.lcssa = phi ptr [ %11, %18 ], [ %11, %.lr.ph ], [ %.0283845, %..critedge.loopexit_crit_edge ], [ %.0283845, %43 ]
+  %.130.lcssa = phi ptr [ %11, %18 ], [ %.0283845, %..critedge.loopexit_crit_edge ], [ %11, %.lr.ph ], [ %.0283845, %43 ]
   %60 = ptrtoint ptr %17 to i64
   %61 = ptrtoint ptr %.130.lcssa to i64
   %62 = sub i64 %60, %61
@@ -773,7 +773,7 @@ dlist_push_tail.exit31:                           ; preds = %41, %54
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %dlist_push_tail.exit, %38, %dlist_push_tail.exit31, %11
-  %.sink = phi i8 [ 0, %11 ], [ 1, %38 ], [ 1, %dlist_push_tail.exit31 ], [ 0, %dlist_push_tail.exit ]
+  %.sink = phi i8 [ 0, %11 ], [ 1, %dlist_push_tail.exit31 ], [ 1, %38 ], [ 0, %dlist_push_tail.exit ]
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 %.sink, ptr %58, align 8
   ret ptr %2
@@ -924,8 +924,8 @@ define internal fastcc void @computeLeafRecompressWALData(ptr noundef captures(a
   unreachable
 
 63:                                               ; preds = %.thread77, %52, %.thread81
-  %.080 = phi i32 [ %58, %52 ], [ 1, %.thread81 ], [ 1, %.thread77 ]
-  %.055 = phi i64 [ %55, %52 ], [ %47, %.thread81 ], [ 0, %.thread77 ]
+  %.080 = phi i32 [ 1, %.thread81 ], [ %58, %52 ], [ 1, %.thread77 ]
+  %.055 = phi i64 [ %47, %.thread81 ], [ %55, %52 ], [ 0, %.thread77 ]
   %64 = getelementptr inbounds nuw i8, ptr %.05898, i64 2
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 %.055
   %spec.select74 = add i32 %.080, %.06096
@@ -1532,7 +1532,7 @@ BufferGetPage.exit:                               ; preds = %6, %12
   br label %95
 
 95:                                               ; preds = %.thread61, %._crit_edge, %21
-  %.0 = phi i32 [ %35, %21 ], [ %79, %.thread61 ], [ %94, %._crit_edge ]
+  %.0 = phi i32 [ %35, %21 ], [ %94, %._crit_edge ], [ %79, %.thread61 ]
   ret i32 %.0
 }
 
@@ -1689,7 +1689,7 @@ define internal zeroext i16 @dataFindChildPtr(ptr readnone captures(none) %0, pt
   br i1 %.not38, label %.loopexit, label %42, !llvm.loop !16
 
 .loopexit:                                        ; preds = %28, %42, %52, %40, %13
-  %.030 = phi i16 [ 0, %40 ], [ %3, %13 ], [ 0, %52 ], [ %.147, %42 ], [ %.029, %28 ]
+  %.030 = phi i16 [ %3, %13 ], [ 0, %40 ], [ %.147, %42 ], [ 0, %52 ], [ %.029, %28 ]
   ret i16 %.030
 }
 
@@ -2437,9 +2437,9 @@ addItemsToLeaf.exit.i:                            ; preds = %.critedge.thread.i.
   br label %.thread134.i.i
 
 .thread134.i.i:                                   ; preds = %382, %359, %.thread136.i.i, %.thread.i155.i, %277
-  %.3116.i.i = phi ptr [ %.2115.i.i, %.thread.i155.i ], [ %.2115.i.i, %.thread136.i.i ], [ %.2115.i.i, %382 ], [ %.2115.i.i, %359 ], [ %spec.select.i149.i, %277 ]
-  %.2106.i.i = phi i8 [ %.0104153.i.i, %.thread.i155.i ], [ %.0104153.i.i, %.thread136.i.i ], [ %.3107.i.i, %382 ], [ %.0104153.i.i, %359 ], [ %.0104153.i.i, %277 ]
-  %.2.i151.i = phi i32 [ %.0154.i.i, %.thread.i155.i ], [ %.0154.i.i, %.thread136.i.i ], [ %383, %382 ], [ %.0154.i.i, %359 ], [ %.0154.i.i, %277 ]
+  %.3116.i.i = phi ptr [ %.2115.i.i, %382 ], [ %.2115.i.i, %359 ], [ %.2115.i.i, %.thread.i155.i ], [ %.2115.i.i, %.thread136.i.i ], [ %spec.select.i149.i, %277 ]
+  %.2106.i.i = phi i8 [ %.3107.i.i, %382 ], [ %.0104153.i.i, %359 ], [ %.0104153.i.i, %.thread.i155.i ], [ %.0104153.i.i, %.thread136.i.i ], [ %.0104153.i.i, %277 ]
+  %.2.i151.i = phi i32 [ %383, %382 ], [ %.0154.i.i, %359 ], [ %.0154.i.i, %.thread.i155.i ], [ %.0154.i.i, %.thread136.i.i ], [ %.0154.i.i, %277 ]
   %.not.i152.i = icmp eq ptr %.3116.i.i, null
   br i1 %.not.i152.i, label %.loopexit.i.i, label %277, !llvm.loop !21
 
@@ -2706,7 +2706,7 @@ leafRepackItems.exit.i:                           ; preds = %404, %386
   br i1 %.not6.i, label %.loopexit.i, label %490, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %511, %494, %.preheader.i, %485
-  %512 = phi ptr [ %.pre.i, %485 ], [ %.pre.i, %.preheader.i ], [ %491, %494 ], [ %.val139.i, %511 ]
+  %512 = phi ptr [ %.pre.i, %.preheader.i ], [ %.pre.i, %485 ], [ %491, %494 ], [ %.val139.i, %511 ]
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 48
   %514 = load ptr, ptr %513, align 8
   %.not136.i = icmp eq ptr %514, null
@@ -2873,8 +2873,8 @@ dataPlaceToPageLeafSplit.exit.i:                  ; preds = %568
   br label %dataBeginPlaceToPageLeaf.exit
 
 dataBeginPlaceToPageLeaf.exit:                    ; preds = %.thread.i.i, %addItemsToLeaf.exit.i, %465, %475, %575, %586, %.sink.split.i
-  %.2.sink.i = phi i32 [ %.1.i, %addItemsToLeaf.exit.i ], [ %.1.i, %.thread.i.i ], [ %.2.i, %.sink.split.i ], [ %.2.i, %575 ], [ %.2.i, %586 ], [ %.2.i, %465 ], [ %.2.i, %475 ]
-  %.0.i = phi i32 [ 0, %addItemsToLeaf.exit.i ], [ 0, %.thread.i.i ], [ %.ph.i, %.sink.split.i ], [ 2, %575 ], [ 2, %586 ], [ 1, %465 ], [ 1, %475 ]
+  %.2.sink.i = phi i32 [ %.1.i, %.thread.i.i ], [ %.1.i, %addItemsToLeaf.exit.i ], [ %.2.i, %.sink.split.i ], [ %.2.i, %575 ], [ %.2.i, %586 ], [ %.2.i, %465 ], [ %.2.i, %475 ]
+  %.0.i = phi i32 [ 0, %.thread.i.i ], [ 0, %addItemsToLeaf.exit.i ], [ %.ph.i, %.sink.split.i ], [ 2, %575 ], [ 2, %586 ], [ 1, %465 ], [ 1, %475 ]
   %597 = load i32, ptr %42, align 4
   %598 = add i32 %597, %.2.sink.i
   store i32 %598, ptr %42, align 4

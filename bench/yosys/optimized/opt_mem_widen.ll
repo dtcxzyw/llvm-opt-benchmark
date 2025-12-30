@@ -258,7 +258,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br label %common.resume
 
 common.resume:                                    ; preds = %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit150, %32, %35
-  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %33, %35 ], [ %97, %96 ], [ %.pn98.pn.pn, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit150 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154 ]
+  %common.resume.op = phi { ptr, i32 } [ %33, %35 ], [ %33, %32 ], [ %97, %96 ], [ %.pn98.pn.pn, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit150 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_.exit: ; preds = %26
@@ -866,7 +866,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_ha
   br label %.body164
 
 .body164:                                         ; preds = %.loopexit, %.loopexit.split-lp, %219, %224
-  %eh.lpad-body165 = phi { ptr, i32 } [ %220, %219 ], [ %225, %224 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body165 = phi { ptr, i32 } [ %225, %224 ], [ %220, %219 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringENS3_5ConstENS1_8hash_opsIS4_EEE7entry_tESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %189) #21
   %300 = load ptr, ptr %185, align 8, !tbaa !110
   %.not.i.i.i.i.i.i155 = icmp eq ptr %300, null
@@ -1052,7 +1052,7 @@ _ZN5Yosys7MemInitD2Ev.exit:                       ; preds = %_ZNSt6vectorIN5Yosy
   br label %.body
 
 .body:                                            ; preds = %360, %320, %301, %.body164, %366, %359
-  %.pn95 = phi { ptr, i32 } [ %.pn91, %359 ], [ %.pn93, %366 ], [ %361, %360 ], [ %.pn.pn.i, %320 ], [ %eh.lpad-body165, %301 ], [ %eh.lpad-body165, %.body164 ]
+  %.pn95 = phi { ptr, i32 } [ %.pn93, %366 ], [ %.pn91, %359 ], [ %361, %360 ], [ %.pn.pn.i, %320 ], [ %eh.lpad-body165, %301 ], [ %eh.lpad-body165, %.body164 ]
   call void @_ZN5Yosys7MemInitD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %11) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %505

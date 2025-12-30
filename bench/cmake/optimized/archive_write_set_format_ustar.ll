@@ -124,7 +124,7 @@ define internal range(i32 -30, 1) i32 @archive_write_ustar_options(ptr noundef %
   br label %19
 
 19:                                               ; preds = %3, %13, %16
-  %.011 = phi i32 [ %., %16 ], [ -25, %13 ], [ -20, %3 ]
+  %.011 = phi i32 [ -25, %13 ], [ %., %16 ], [ -20, %3 ]
   ret i32 %.011
 }
 
@@ -459,7 +459,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
   br label %74
 
 74:                                               ; preds = %64, %71
-  %.3.ph = phi i32 [ -20, %71 ], [ %.2, %64 ]
+  %.3.ph = phi i32 [ %.2, %64 ], [ -20, %71 ]
   %.pr = load i64, ptr %7, align 8, !tbaa !37
   %.not114 = icmp eq i64 %.pr, 0
   br i1 %.not114, label %82, label %.thread

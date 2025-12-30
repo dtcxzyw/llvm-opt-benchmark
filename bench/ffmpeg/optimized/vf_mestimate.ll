@@ -955,7 +955,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %458, %460, %461, %463
-  %.0.i = phi i32 [ %..i, %460 ], [ %455, %461 ], [ %455, %458 ], [ %.20.i, %463 ]
+  %.0.i = phi i32 [ %455, %458 ], [ %455, %461 ], [ %..i, %460 ], [ %.20.i, %463 ]
   store i32 %.0.i, ptr %80, align 4, !tbaa !88
   %464 = load i32, ptr %79, align 4, !tbaa !52
   %465 = load i32, ptr %83, align 4, !tbaa !52
@@ -1002,7 +1002,7 @@ mid_pred.exit:                                    ; preds = %458, %460, %461, %4
   br label %mid_pred.exit559
 
 mid_pred.exit559:                                 ; preds = %478, %480, %481, %483
-  %.0.i556 = phi i32 [ %..i558, %480 ], [ %475, %481 ], [ %475, %478 ], [ %.20.i557, %483 ]
+  %.0.i556 = phi i32 [ %475, %478 ], [ %475, %481 ], [ %..i558, %480 ], [ %.20.i557, %483 ]
   store i32 %.0.i556, ptr %80, align 4, !tbaa !88
   %484 = load i32, ptr %79, align 4, !tbaa !52
   %485 = load i32, ptr %83, align 4, !tbaa !52
@@ -1036,7 +1036,7 @@ mid_pred.exit559:                                 ; preds = %478, %480, %481, %4
   br label %mid_pred.exit555
 
 mid_pred.exit555:                                 ; preds = %492, %490, %489, %487, %473, %471, %470, %468, %496, %493
-  %.0.i560.sink = phi i32 [ %.20.i553, %473 ], [ 0, %496 ], [ %495, %493 ], [ %..i554, %470 ], [ %465, %471 ], [ %465, %468 ], [ %..i562, %489 ], [ %484, %490 ], [ %484, %487 ], [ %.20.i561, %492 ]
+  %.0.i560.sink = phi i32 [ 0, %496 ], [ %495, %493 ], [ %465, %468 ], [ %465, %471 ], [ %..i554, %470 ], [ %.20.i553, %473 ], [ %484, %487 ], [ %484, %490 ], [ %..i562, %489 ], [ %.20.i561, %492 ]
   store i32 %.0.i560.sink, ptr %81, align 8, !tbaa !89
   %497 = call i64 @ff_me_search_umh(ptr noundef nonnull %17, i32 noundef %403, i32 noundef %404, ptr noundef nonnull %11) #6
   %498 = load i32, ptr %11, align 4, !tbaa !52
@@ -1191,7 +1191,7 @@ mid_pred.exit555:                                 ; preds = %492, %490, %489, %4
   br label %.critedge
 
 .critedge:                                        ; preds = %558, %574, %559
-  %584 = phi i32 [ %571, %559 ], [ %583, %574 ], [ %.pr582, %558 ]
+  %584 = phi i32 [ %583, %574 ], [ %571, %559 ], [ %.pr582, %558 ]
   switch i32 %584, label %628 [
     i32 4, label %585
     i32 3, label %606
@@ -1222,7 +1222,7 @@ mid_pred.exit555:                                 ; preds = %492, %490, %489, %4
   br label %mid_pred.exit568
 
 mid_pred.exit568:                                 ; preds = %590, %592, %593, %595
-  %.0.i565 = phi i32 [ %..i567, %592 ], [ %587, %593 ], [ %587, %590 ], [ %.20.i566, %595 ]
+  %.0.i565 = phi i32 [ %587, %590 ], [ %587, %593 ], [ %..i567, %592 ], [ %.20.i566, %595 ]
   store i32 %.0.i565, ptr %80, align 4, !tbaa !88
   %596 = load i32, ptr %79, align 4, !tbaa !52
   %597 = load i32, ptr %83, align 4, !tbaa !52
@@ -1269,7 +1269,7 @@ mid_pred.exit568:                                 ; preds = %590, %592, %593, %5
   br label %mid_pred.exit576
 
 mid_pred.exit576:                                 ; preds = %610, %612, %613, %615
-  %.0.i573 = phi i32 [ %..i575, %612 ], [ %607, %613 ], [ %607, %610 ], [ %.20.i574, %615 ]
+  %.0.i573 = phi i32 [ %607, %610 ], [ %607, %613 ], [ %..i575, %612 ], [ %.20.i574, %615 ]
   store i32 %.0.i573, ptr %80, align 4, !tbaa !88
   %616 = load i32, ptr %79, align 4, !tbaa !52
   %617 = load i32, ptr %83, align 4, !tbaa !52
@@ -1303,7 +1303,7 @@ mid_pred.exit576:                                 ; preds = %610, %612, %613, %6
   br label %mid_pred.exit572
 
 mid_pred.exit572:                                 ; preds = %624, %622, %621, %619, %605, %603, %602, %600, %625, %628
-  %.0.i569.sink = phi i32 [ %.20.i570, %605 ], [ %627, %625 ], [ 0, %628 ], [ %..i571, %602 ], [ %597, %603 ], [ %597, %600 ], [ %..i579, %621 ], [ %616, %622 ], [ %616, %619 ], [ %.20.i578, %624 ]
+  %.0.i569.sink = phi i32 [ %627, %625 ], [ 0, %628 ], [ %597, %600 ], [ %597, %603 ], [ %..i571, %602 ], [ %.20.i570, %605 ], [ %616, %619 ], [ %616, %622 ], [ %..i579, %621 ], [ %.20.i578, %624 ]
   store i32 %.0.i569.sink, ptr %81, align 8, !tbaa !89
   %629 = load ptr, ptr %35, align 8, !tbaa !46
   %630 = sext i32 %545 to i64
@@ -1504,7 +1504,7 @@ mid_pred.exit572:                                 ; preds = %624, %622, %621, %6
   br i1 %767, label %.preheader592, label %.loopexit, !llvm.loop !94
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge618, %._crit_edge626, %._crit_edge634, %._crit_edge642, %._crit_edge650, %._crit_edge658, %._crit_edge666, %._crit_edge674, %.preheader608, %.preheader606, %.preheader604, %.preheader602, %.preheader600, %.preheader598, %.preheader596, %.preheader594, %.preheader593, %97
-  %.19 = phi i32 [ %.0518679, %97 ], [ %.16.lcssa, %._crit_edge618 ], [ %.2520.lcssa, %._crit_edge674 ], [ %.4522.lcssa, %._crit_edge666 ], [ %.6524.lcssa, %._crit_edge658 ], [ %.8526.lcssa, %._crit_edge650 ], [ %.10.lcssa, %._crit_edge642 ], [ %.12.lcssa, %._crit_edge634 ], [ %.14.lcssa, %._crit_edge626 ], [ %.0518679, %.preheader593 ], [ %.0518679, %.preheader594 ], [ %.0518679, %.preheader596 ], [ %.0518679, %.preheader598 ], [ %.0518679, %.preheader600 ], [ %.0518679, %.preheader602 ], [ %.0518679, %.preheader604 ], [ %.0518679, %.preheader606 ], [ %.0518679, %.preheader608 ], [ %.18.lcssa, %._crit_edge ]
+  %.19 = phi i32 [ %.0518679, %97 ], [ %.0518679, %.preheader593 ], [ %.0518679, %.preheader594 ], [ %.0518679, %.preheader596 ], [ %.0518679, %.preheader598 ], [ %.0518679, %.preheader600 ], [ %.0518679, %.preheader602 ], [ %.0518679, %.preheader604 ], [ %.0518679, %.preheader606 ], [ %.0518679, %.preheader608 ], [ %.2520.lcssa, %._crit_edge674 ], [ %.4522.lcssa, %._crit_edge666 ], [ %.6524.lcssa, %._crit_edge658 ], [ %.8526.lcssa, %._crit_edge650 ], [ %.10.lcssa, %._crit_edge642 ], [ %.12.lcssa, %._crit_edge634 ], [ %.14.lcssa, %._crit_edge626 ], [ %.16.lcssa, %._crit_edge618 ], [ %.18.lcssa, %._crit_edge ]
   br i1 %.not541, label %97, label %768, !llvm.loop !95
 
 768:                                              ; preds = %.loopexit
@@ -1515,7 +1515,7 @@ mid_pred.exit572:                                 ; preds = %624, %622, %621, %6
   br label %773
 
 773:                                              ; preds = %52, %49, %47, %768, %60, %21
-  %.0 = phi i32 [ %25, %21 ], [ %772, %768 ], [ -12, %60 ], [ 0, %49 ], [ -12, %47 ], [ -12, %52 ]
+  %.0 = phi i32 [ %25, %21 ], [ %772, %768 ], [ -12, %60 ], [ -12, %47 ], [ 0, %49 ], [ -12, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

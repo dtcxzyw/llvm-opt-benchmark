@@ -566,10 +566,10 @@ cli_crt_init_fps.exit:                            ; preds = %38
   store i32 %101, ptr %99, align 8, !tbaa !29
   br label %106
 
-102:                                              ; preds = %cli_crt_init_fps.exit.thread, %52, %46, %42, %cli_crt_init_fps.exit
-  %103 = phi ptr [ null, %cli_crt_init_fps.exit.thread ], [ %36, %52 ], [ %36, %46 ], [ %36, %42 ], [ %36, %cli_crt_init_fps.exit ]
-  %104 = phi ptr [ null, %cli_crt_init_fps.exit.thread ], [ %34, %52 ], [ %34, %46 ], [ %34, %42 ], [ %34, %cli_crt_init_fps.exit ]
-  %105 = phi ptr [ null, %cli_crt_init_fps.exit.thread ], [ %32, %52 ], [ %32, %46 ], [ %32, %42 ], [ %32, %cli_crt_init_fps.exit ]
+102:                                              ; preds = %52, %46, %42, %cli_crt_init_fps.exit, %cli_crt_init_fps.exit.thread
+  %103 = phi ptr [ %36, %52 ], [ %36, %46 ], [ %36, %42 ], [ %36, %cli_crt_init_fps.exit ], [ null, %cli_crt_init_fps.exit.thread ]
+  %104 = phi ptr [ %34, %52 ], [ %34, %46 ], [ %34, %42 ], [ %34, %cli_crt_init_fps.exit ], [ null, %cli_crt_init_fps.exit.thread ]
+  %105 = phi ptr [ %32, %52 ], [ %32, %46 ], [ %32, %42 ], [ %32, %cli_crt_init_fps.exit ], [ null, %cli_crt_init_fps.exit.thread ]
   tail call void @BN_free(ptr noundef %105) #11
   tail call void @BN_free(ptr noundef %104) #11
   tail call void @BN_free(ptr noundef %103) #11
@@ -577,7 +577,7 @@ cli_crt_init_fps.exit:                            ; preds = %38
   br label %106
 
 106:                                              ; preds = %crtmgr_block_list_lookup.exit, %28, %98, %crtmgr_block_list_lookup.exit.thread, %102
-  %.06082 = phi i1 [ true, %102 ], [ false, %crtmgr_block_list_lookup.exit ], [ true, %crtmgr_block_list_lookup.exit.thread ], [ false, %28 ], [ false, %98 ]
+  %.06082 = phi i1 [ true, %102 ], [ false, %crtmgr_block_list_lookup.exit ], [ true, %crtmgr_block_list_lookup.exit.thread ], [ false, %98 ], [ false, %28 ]
   ret i1 %.06082
 }
 
@@ -764,9 +764,9 @@ define ptr @crtmgr_verify_crt(ptr noundef readonly captures(none) %0, ptr nounde
   br label %34
 
 34:                                               ; preds = %.thread, %9, %12, %15, %17
-  %.342 = phi ptr [ %.03960, %12 ], [ %.03960, %15 ], [ %.03960, %17 ], [ %spec.select, %.thread ], [ %.03960, %9 ]
-  %.338 = phi i32 [ %.03561, %12 ], [ %.03561, %15 ], [ %.03561, %17 ], [ %spec.select49, %.thread ], [ %.03561, %9 ]
-  %.234 = phi i32 [ %.03262, %12 ], [ %.03262, %15 ], [ %.03262, %17 ], [ %31, %.thread ], [ %.03262, %9 ]
+  %.342 = phi ptr [ %.03960, %12 ], [ %.03960, %15 ], [ %.03960, %17 ], [ %.03960, %9 ], [ %spec.select, %.thread ]
+  %.338 = phi i32 [ %.03561, %12 ], [ %.03561, %15 ], [ %.03561, %17 ], [ %.03561, %9 ], [ %spec.select49, %.thread ]
+  %.234 = phi i32 [ %.03262, %12 ], [ %.03262, %15 ], [ %.03262, %17 ], [ %.03262, %9 ], [ %31, %.thread ]
   %35 = getelementptr inbounds nuw i8, ptr %.04363, i64 400
   %.043 = load ptr, ptr %35, align 8, !tbaa !15
   %.not = icmp eq ptr %.043, null
@@ -781,7 +781,7 @@ define ptr @crtmgr_verify_crt(ptr noundef readonly captures(none) %0, ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %2, %._crit_edge, %37
-  %.2 = phi ptr [ %.342, %._crit_edge ], [ %.342, %37 ], [ null, %2 ], [ %.04363, %21 ]
+  %.2 = phi ptr [ %.342, %37 ], [ %.342, %._crit_edge ], [ null, %2 ], [ %.04363, %21 ]
   ret ptr %.2
 }
 
@@ -928,8 +928,8 @@ switch.lookup:                                    ; preds = %4
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %57, %.lr.ph.i.i, %.thread.i.i, %.loopexit.thread61.i.i, %.loopexit.i.i, %51, %49, %44
-  %.str.27.sink.i = phi ptr [ @.str.26, %49 ], [ @.str.25, %.thread.i.i ], [ @.str.25, %44 ], [ @.str.27, %.loopexit.thread61.i.i ], [ @.str.26, %51 ], [ @.str.27, %.loopexit.i.i ], [ @.str.27, %.lr.ph.i.i ], [ @.str.27, %57 ]
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.27.sink.i, ptr noundef nonnull @__func__._padding_check_PKCS1_type_1) #11
+  %.str.25.sink.i = phi ptr [ @.str.25, %.thread.i.i ], [ @.str.25, %44 ], [ @.str.26, %51 ], [ @.str.26, %49 ], [ @.str.27, %.loopexit.thread61.i.i ], [ @.str.27, %.loopexit.i.i ], [ @.str.27, %.lr.ph.i.i ], [ @.str.27, %57 ]
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.25.sink.i, ptr noundef nonnull @__func__._padding_check_PKCS1_type_1) #11
   br label %64
 
 64:                                               ; preds = %.sink.split.i, %40
@@ -1129,7 +1129,7 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   br label %130
 
 130:                                              ; preds = %crtmgr_get_recov_data.exit, %129, %128, %17, %10
-  %.0 = phi i32 [ 1, %17 ], [ 1, %10 ], [ 1, %129 ], [ 0, %128 ], [ 1, %crtmgr_get_recov_data.exit ]
+  %.0 = phi i32 [ 1, %17 ], [ 1, %129 ], [ 0, %128 ], [ 1, %10 ], [ 1, %crtmgr_get_recov_data.exit ]
   ret i32 %.0
 }
 
@@ -1273,7 +1273,7 @@ define range(i32 0, 2) i32 @crtmgr_add_roots(ptr noundef readonly captures(addre
   br i1 %.not13, label %crtmgr_free.exit, label %.lr.ph.split
 
 crtmgr_free.exit:                                 ; preds = %16, %6, %.lr.ph.i, %.preheader, %.split.us, %3
-  %.010 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ 1, %.split.us ], [ 0, %6 ], [ 1, %.lr.ph.i ], [ 0, %16 ]
+  %.010 = phi i32 [ 0, %3 ], [ 1, %.split.us ], [ 0, %.preheader ], [ 1, %.lr.ph.i ], [ 0, %6 ], [ 0, %16 ]
   ret i32 %.010
 }
 

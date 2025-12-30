@@ -184,7 +184,7 @@ define ptr @ff_default_get_video_buffer2(ptr noundef %0, i32 noundef %1, i32 nou
   br label %62
 
 62:                                               ; preds = %22, %26, %49, %45, %34, %30, %20, %52
-  %.1 = phi ptr [ null, %20 ], [ null, %30 ], [ %51, %52 ], [ null, %45 ], [ null, %34 ], [ null, %49 ], [ %.pre, %26 ], [ %21, %22 ]
+  %.1 = phi ptr [ %51, %52 ], [ null, %20 ], [ null, %30 ], [ null, %34 ], [ null, %45 ], [ null, %49 ], [ %.pre, %26 ], [ %21, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

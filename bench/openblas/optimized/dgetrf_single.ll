@@ -183,7 +183,7 @@ define i32 @dgetrf_single(ptr noundef %0, ptr readnone captures(none) %1, ptr no
   br i1 %108, label %100, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %100, %26, %35
-  %.0 = phi i32 [ 0, %26 ], [ %36, %35 ], [ %.1, %100 ]
+  %.0 = phi i32 [ %36, %35 ], [ 0, %26 ], [ %.1, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

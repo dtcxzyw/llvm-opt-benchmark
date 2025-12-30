@@ -730,13 +730,13 @@ define dso_local i32 @i915_gem_execbuffer2_ioctl(ptr noundef %0, ptr noundef %1,
   br label %.thread55
 
 .thread55:                                        ; preds = %365, %372, %375, %373
-  %376 = phi i32 [ %280, %373 ], [ %280, %375 ], [ %280, %372 ], [ -1, %365 ]
+  %376 = phi i32 [ %280, %375 ], [ %280, %373 ], [ %280, %372 ], [ -1, %365 ]
   call fastcc void @eb_requests_put(ptr noundef nonnull %5)
   br label %377
 
 377:                                              ; preds = %.thread55, %331, %322
-  %378 = phi i32 [ %280, %322 ], [ %280, %331 ], [ %376, %.thread55 ]
-  %379 = phi i32 [ %320, %322 ], [ %333, %331 ], [ %341, %.thread55 ]
+  %378 = phi i32 [ %280, %322 ], [ %376, %.thread55 ], [ %280, %331 ]
+  %379 = phi i32 [ %320, %322 ], [ %341, %.thread55 ], [ %333, %331 ]
   call fastcc void @eb_release_vmas(ptr noundef nonnull %5, i1 noundef zeroext true)
   %380 = icmp eq i32 %379, -35
   br i1 %380, label %381, label %382, !prof !23
@@ -787,8 +787,8 @@ define dso_local i32 @i915_gem_execbuffer2_ioctl(ptr noundef %0, ptr noundef %1,
   br label %.thread52
 
 .thread52:                                        ; preds = %299, %302, %401, %396
-  %404 = phi i32 [ %397, %401 ], [ %397, %396 ], [ %280, %302 ], [ %280, %299 ]
-  %405 = phi i32 [ %398, %401 ], [ %398, %396 ], [ -12, %302 ], [ -12, %299 ]
+  %404 = phi i32 [ %397, %396 ], [ %397, %401 ], [ %280, %302 ], [ %280, %299 ]
+  %405 = phi i32 [ %398, %396 ], [ %398, %401 ], [ -12, %302 ], [ -12, %299 ]
   %406 = icmp eq i32 %404, -1
   br i1 %406, label %408, label %407
 
@@ -821,7 +821,7 @@ define dso_local i32 @i915_gem_execbuffer2_ioctl(ptr noundef %0, ptr noundef %1,
   br label %.thread41
 
 .thread41:                                        ; preds = %415, %417, %.thread46, %195, %186, %182, %163, %160, %418, %408, %265, %167
-  %419 = phi i32 [ %171, %167 ], [ -22, %163 ], [ -22, %265 ], [ %409, %408 ], [ -22, %182 ], [ %409, %418 ], [ -22, %160 ], [ %.ph, %.thread46 ], [ -12, %195 ], [ -14, %186 ], [ %409, %417 ], [ %409, %415 ]
+  %419 = phi i32 [ %171, %167 ], [ -22, %265 ], [ %409, %408 ], [ %409, %418 ], [ -22, %160 ], [ -22, %163 ], [ %.ph, %.thread46 ], [ -12, %195 ], [ -14, %186 ], [ -22, %182 ], [ %409, %417 ], [ %409, %415 ]
   %420 = load ptr, ptr %135, align 8
   %421 = icmp eq ptr %420, null
   br i1 %421, label %453, label %422
@@ -961,7 +961,7 @@ define dso_local i32 @i915_gem_execbuffer2_ioctl(ptr noundef %0, ptr noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %.thread122, %.thread123, %42, %25, %29, %17, %484, %82, %67, %15
-  %487 = phi i32 [ -12, %67 ], [ -14, %82 ], [ %454, %484 ], [ -22, %15 ], [ -22, %17 ], [ -22, %29 ], [ -22, %25 ], [ -22, %.thread122 ], [ -22, %42 ], [ -22, %.thread123 ]
+  %487 = phi i32 [ -12, %67 ], [ -14, %82 ], [ %454, %484 ], [ -22, %15 ], [ -22, %17 ], [ -22, %29 ], [ -22, %25 ], [ -22, %42 ], [ -22, %.thread123 ], [ -22, %.thread122 ]
   ret i32 %487
 }
 
@@ -1617,7 +1617,7 @@ define internal fastcc i32 @eb_select_engine(ptr noundef captures(none) %0) unna
   br label %.thread36
 
 .thread36:                                        ; preds = %330, %332, %150, %152, %129, %131, %333, %266, %153, %132, %107
-  %334 = phi i32 [ %110, %107 ], [ 0, %266 ], [ %272, %333 ], [ -22, %132 ], [ -22, %129 ], [ -22, %153 ], [ -22, %150 ], [ -22, %131 ], [ -22, %152 ], [ %272, %332 ], [ %272, %330 ]
+  %334 = phi i32 [ %110, %107 ], [ 0, %266 ], [ -22, %132 ], [ -22, %153 ], [ %272, %333 ], [ -22, %131 ], [ -22, %129 ], [ -22, %152 ], [ -22, %150 ], [ %272, %332 ], [ %272, %330 ]
   ret i32 %334
 }
 
@@ -1935,7 +1935,7 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
   br i1 %160, label %.thread43, label %.thread45, !prof !42
 
 .thread45:                                        ; preds = %139, %168, %.thread47
-  %170 = phi i32 [ %.ph, %.thread47 ], [ %169, %168 ], [ -4, %139 ]
+  %170 = phi i32 [ %169, %168 ], [ %.ph, %.thread47 ], [ -4, %139 ]
   tail call void @i915_vma_close(ptr noundef %110) #13
   %.val = load ptr, ptr %124, align 8
   tail call fastcc void @i915_vma_put(ptr %.val)
@@ -1954,7 +1954,7 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
   br label %.thread43
 
 .thread43:                                        ; preds = %168, %65, %115, %117, %.thread41, %.loopexit, %118, %.thread35
-  %.ph55 = phi ptr [ %110, %115 ], [ %35, %.thread35 ], [ %110, %118 ], [ %35, %65 ], [ %173, %.loopexit ], [ %108, %.thread41 ], [ %110, %117 ], [ %110, %168 ]
+  %.ph55 = phi ptr [ %35, %.thread35 ], [ %110, %118 ], [ %35, %65 ], [ %173, %.loopexit ], [ %108, %.thread41 ], [ %110, %117 ], [ %110, %115 ], [ %110, %168 ]
   %174 = icmp ugt ptr %.ph55, inttoptr (i64 -4096 to ptr)
   br i1 %174, label %.thread58.loopexit, label %177
 
@@ -2326,7 +2326,7 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
   br label %.thread70
 
 .thread70:                                        ; preds = %395, %332, %353, %365, %378, %383, %.thread58, %1
-  %403 = phi i32 [ %400, %.thread58 ], [ 0, %1 ], [ %376, %383 ], [ -22, %332 ], [ -22, %365 ], [ -22, %353 ], [ %376, %378 ], [ 0, %395 ]
+  %403 = phi i32 [ %400, %.thread58 ], [ 0, %1 ], [ -22, %332 ], [ -22, %365 ], [ -22, %353 ], [ %376, %378 ], [ %376, %383 ], [ 0, %395 ]
   ret i32 %403
 }
 
@@ -2765,8 +2765,8 @@ define internal fastcc i32 @eb_relocate_parse(ptr noundef %0) unnamed_addr #0 al
   br label %49
 
 49:                                               ; preds = %90, %44
-  %50 = phi i64 [ %66, %90 ], [ %36, %44 ]
-  %51 = phi ptr [ %91, %90 ], [ %45, %44 ]
+  %50 = phi i64 [ %36, %44 ], [ %66, %90 ]
+  %51 = phi ptr [ %45, %44 ], [ %91, %90 ]
   %52 = call i64 @llvm.umin.i64(i64 %50, i64 16)
   %53 = load i32, ptr %48, align 4
   %54 = add i32 %53, 1
@@ -2927,7 +2927,7 @@ eb_relocate_vma.exit:                             ; preds = %134, %.thread6.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread18, %19
-  %136 = phi i32 [ %20, %19 ], [ %135, %.thread18 ]
+  %136 = phi i32 [ %135, %.thread18 ], [ %20, %19 ]
   %137 = icmp eq i32 %136, -35
   br i1 %137, label %.thread19, label %.loopexit33
 
@@ -3182,7 +3182,7 @@ eb_relocate_vma.exit:                             ; preds = %134, %.thread6.i
   br label %.thread42.i
 
 .thread42.i:                                      ; preds = %250, %.loopexit71.i, %218, %.preheader70.i, %.loopexit69.i
-  %290 = phi i32 [ -14, %.loopexit69.i ], [ %240, %.preheader70.i ], [ -12, %250 ], [ -14, %218 ], [ %248, %.loopexit71.i ]
+  %290 = phi i32 [ -14, %.loopexit69.i ], [ %240, %.preheader70.i ], [ -12, %250 ], [ %248, %.loopexit71.i ], [ -14, %218 ]
   %291 = and i64 %212, 4294967295
   %292 = icmp eq i64 %291, 0
   br i1 %292, label %.thread50.i, label %.preheader77.i
@@ -3213,7 +3213,7 @@ eb_relocate_vma.exit:                             ; preds = %134, %.thread6.i
   br label %.thread49.i
 
 .thread49.i:                                      ; preds = %286, %.thread.i, %306
-  %.ph.i.ph = phi i8 [ %152, %.thread.i ], [ 1, %306 ], [ 1, %286 ]
+  %.ph.i.ph = phi i8 [ 1, %306 ], [ %152, %.thread.i ], [ 1, %286 ]
   %.pr.i.pr = load i32, ptr %143, align 8
   %308 = load ptr, ptr %4, align 8
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 40
@@ -3260,13 +3260,13 @@ eb_relocate_vma.exit:                             ; preds = %134, %.thread6.i
   br i1 %336, label %.loopexit74.i, label %317, !llvm.loop !73
 
 .thread50.i:                                      ; preds = %.loopexit66.i, %172, %327, %.preheader65.i, %304, %.thread42.i
-  %337 = phi i8 [ %152, %.preheader65.i ], [ 0, %304 ], [ %.ph.i.ph, %327 ], [ 0, %.thread42.i ], [ %152, %172 ], [ %152, %.loopexit66.i ]
-  %338 = phi i32 [ %194, %.preheader65.i ], [ %290, %304 ], [ %328, %327 ], [ %290, %.thread42.i ], [ -14, %172 ], [ %202, %.loopexit66.i ]
+  %337 = phi i8 [ 0, %.thread42.i ], [ 0, %304 ], [ %152, %.preheader65.i ], [ %.ph.i.ph, %327 ], [ %152, %172 ], [ %152, %.loopexit66.i ]
+  %338 = phi i32 [ %290, %.thread42.i ], [ %290, %304 ], [ %194, %.preheader65.i ], [ %328, %327 ], [ %202, %.loopexit66.i ], [ -14, %172 ]
   tail call void @i915_gem_ww_ctx_init(ptr noundef nonnull %6, i1 noundef zeroext true) #13
   br label %.critedge.i
 
 .loopexit74.i:                                    ; preds = %334, %206, %313, %.thread49.i, %158
-  %339 = phi i8 [ %152, %158 ], [ %.ph.i.ph, %313 ], [ %.ph.i.ph, %.thread49.i ], [ 1, %206 ], [ %.ph.i.ph, %334 ]
+  %339 = phi i8 [ %.ph.i.ph, %.thread49.i ], [ %.ph.i.ph, %313 ], [ %152, %158 ], [ 1, %206 ], [ %.ph.i.ph, %334 ]
   tail call void @i915_gem_ww_ctx_init(ptr noundef nonnull %6, i1 noundef zeroext true) #13
   %340 = icmp eq i8 %339, 0
   br label %341
@@ -3313,8 +3313,8 @@ eb_relocate_vma.exit:                             ; preds = %134, %.thread6.i
   br label %366
 
 366:                                              ; preds = %407, %364
-  %367 = phi i64 [ %383, %407 ], [ %356, %364 ]
-  %368 = phi ptr [ %408, %407 ], [ %365, %364 ]
+  %367 = phi i64 [ %356, %364 ], [ %383, %407 ]
+  %368 = phi ptr [ %365, %364 ], [ %408, %407 ]
   %369 = call i64 @llvm.umin.i64(i64 %367, i64 16)
   %370 = load i32, ptr %149, align 4
   %371 = add i32 %370, 1
@@ -3633,8 +3633,8 @@ reloc_cache_reset.exit.i:                         ; preds = %519, %.loopexit62.i
   br i1 %537, label %151, label %.critedge.i, !prof !76
 
 .critedge.i:                                      ; preds = %.loopexit73.i, %532, %151, %.thread50.i
-  %538 = phi i32 [ %338, %.thread50.i ], [ %533, %532 ], [ -512, %.loopexit73.i ], [ -512, %151 ]
-  %539 = phi i8 [ %337, %.thread50.i ], [ %339, %532 ], [ %339, %.loopexit73.i ], [ %152, %151 ]
+  %538 = phi i32 [ %338, %.thread50.i ], [ -512, %.loopexit73.i ], [ %533, %532 ], [ -512, %151 ]
+  %539 = phi i8 [ %337, %.thread50.i ], [ %339, %.loopexit73.i ], [ %339, %532 ], [ %152, %151 ]
   %540 = icmp eq i8 %539, 0
   br i1 %540, label %eb_relocate_parse_slow.exit, label %541
 
@@ -3682,7 +3682,7 @@ eb_relocate_parse_slow.exit.thread:               ; preds = %.thread17, %eb_relo
   br label %.loopexit33
 
 .loopexit33:                                      ; preds = %.thread19, %.loopexit, %15, %eb_relocate_parse_slow.exit.thread, %eb_relocate_parse_slow.exit
-  %566 = phi i32 [ %561, %eb_relocate_parse_slow.exit.thread ], [ 0, %eb_relocate_parse_slow.exit ], [ %139, %.thread19 ], [ %18, %15 ], [ %136, %.loopexit ]
+  %566 = phi i32 [ %561, %eb_relocate_parse_slow.exit.thread ], [ 0, %eb_relocate_parse_slow.exit ], [ %136, %.loopexit ], [ %139, %.thread19 ], [ %18, %15 ]
   ret i32 %566
 }
 
@@ -3856,7 +3856,7 @@ define internal fastcc ptr @eb_requests_create(ptr noundef captures(none) %0, pt
   br label %.loopexit39
 
 .loopexit39:                                      ; preds = %27, %19, %35
-  %37 = phi ptr [ %23, %19 ], [ %36, %35 ], [ null, %27 ]
+  %37 = phi ptr [ %36, %35 ], [ %23, %19 ], [ null, %27 ]
   %38 = tail call ptr @i915_request_create(ptr noundef %37) #13
   %39 = getelementptr ptr, ptr %9, i64 %20
   store ptr %38, ptr %39, align 8
@@ -4099,7 +4099,7 @@ define internal fastcc ptr @eb_requests_create(ptr noundef captures(none) %0, pt
   br i1 %172, label %.thread30, label %173
 
 173:                                              ; preds = %170, %167, %96, %72, %52
-  %174 = phi ptr [ %74, %72 ], [ %98, %96 ], [ %57, %52 ], [ %171, %170 ], [ %158, %167 ]
+  %174 = phi ptr [ %74, %72 ], [ %98, %96 ], [ %57, %52 ], [ %158, %167 ], [ %171, %170 ]
   %175 = icmp ugt ptr %174, inttoptr (i64 -4096 to ptr)
   br i1 %175, label %.thread30, label %.thread31
 
@@ -4157,7 +4157,7 @@ define internal fastcc ptr @eb_requests_create(ptr noundef captures(none) %0, pt
   br i1 %207, label %19, label %.thread30, !llvm.loop !85
 
 .thread30:                                        ; preds = %.thread27, %107, %170, %167, %204, %173, %137, %41, %3
-  %208 = phi ptr [ %38, %41 ], [ null, %3 ], [ inttoptr (i64 -12 to ptr), %137 ], [ inttoptr (i64 -12 to ptr), %.thread27 ], [ inttoptr (i64 -12 to ptr), %107 ], [ inttoptr (i64 -12 to ptr), %167 ], [ inttoptr (i64 -12 to ptr), %170 ], [ %174, %173 ], [ %176, %204 ]
+  %208 = phi ptr [ %38, %41 ], [ null, %3 ], [ inttoptr (i64 -12 to ptr), %137 ], [ inttoptr (i64 -12 to ptr), %.thread27 ], [ inttoptr (i64 -12 to ptr), %107 ], [ inttoptr (i64 -12 to ptr), %170 ], [ inttoptr (i64 -12 to ptr), %167 ], [ %174, %173 ], [ %176, %204 ]
   ret ptr %208
 }
 
@@ -4415,8 +4415,8 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
   br label %.loopexit32, !llvm.loop !90
 
 .loopexit32:                                      ; preds = %162, %144, %140, %..loopexit32.loopexit_crit_edge88
-  %167 = phi i32 [ %154, %144 ], [ %154, %..loopexit32.loopexit_crit_edge88 ], [ 1, %140 ], [ %165, %162 ]
-  %168 = phi i32 [ 0, %144 ], [ 0, %..loopexit32.loopexit_crit_edge88 ], [ 0, %140 ], [ %129, %162 ]
+  %167 = phi i32 [ %154, %..loopexit32.loopexit_crit_edge88 ], [ 1, %140 ], [ %154, %144 ], [ %165, %162 ]
+  %168 = phi i32 [ 0, %..loopexit32.loopexit_crit_edge88 ], [ 0, %140 ], [ 0, %144 ], [ %129, %162 ]
   %169 = icmp eq i32 %167, 0
   br i1 %169, label %.loopexit, label %.loopexit32.thread74
 
@@ -4649,7 +4649,7 @@ define internal fastcc i32 @eb_submit(ptr noundef captures(none) %0) unnamed_add
   br i1 %315, label %179, label %.loopexit, !llvm.loop !100
 
 .loopexit:                                        ; preds = %311, %179, %.thread28, %.thread27, %.loopexit32
-  %316 = phi i32 [ %168, %.loopexit32 ], [ %129, %.thread28 ], [ 0, %.thread27 ], [ %312, %311 ], [ %180, %179 ]
+  %316 = phi i32 [ %168, %.loopexit32 ], [ %129, %.thread28 ], [ 0, %.thread27 ], [ %180, %179 ], [ %312, %311 ]
   ret i32 %316
 }
 
@@ -5510,13 +5510,13 @@ define internal i32 @parse_timeline_fences(ptr noundef %0, ptr noundef captures(
   br label %189
 
 .thread20:                                        ; preds = %46, %59, %62, %165, %173, %83, %107, %141, %106, %104, %140, %138
-  %.ph19 = phi i32 [ %112, %141 ], [ -22, %104 ], [ -22, %107 ], [ -22, %165 ], [ -22, %106 ], [ %112, %140 ], [ %112, %138 ], [ -2, %83 ], [ -12, %173 ], [ -14, %46 ], [ -22, %59 ], [ -14, %62 ]
+  %.ph19 = phi i32 [ %112, %141 ], [ -22, %107 ], [ -2, %83 ], [ -12, %173 ], [ -22, %165 ], [ -22, %106 ], [ -22, %104 ], [ %112, %140 ], [ %112, %138 ], [ -14, %46 ], [ -22, %59 ], [ -14, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 189:                                              ; preds = %149, %177
-  %190 = phi ptr [ %50, %149 ], [ %186, %177 ]
+  %190 = phi ptr [ %186, %177 ], [ %50, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %191 = icmp eq i64 %52, 0
@@ -6401,7 +6401,7 @@ define internal fastcc i32 @eb_validate_vmas(ptr noundef %0) unnamed_addr #0 ali
   br i1 %185, label %.thread35, label %.thread37
 
 186:                                              ; preds = %126, %112, %107
-  %187 = phi i32 [ %127, %126 ], [ %106, %107 ], [ %120, %112 ]
+  %187 = phi i32 [ %106, %107 ], [ %120, %112 ], [ %127, %126 ]
   %cond = icmp eq i32 %187, -35
   br i1 %cond, label %.thread39, label %..thread35_crit_edge
 
@@ -6772,7 +6772,7 @@ i915_gem_object_lock.exit32:                      ; preds = %364, %377
   br i1 %386, label %.thread43, label %.thread39
 
 .thread43:                                        ; preds = %302, %237, %310, %385
-  %387 = phi i32 [ 0, %385 ], [ %239, %302 ], [ %239, %237 ], [ 0, %310 ]
+  %387 = phi i32 [ 0, %385 ], [ %239, %237 ], [ 0, %310 ], [ %239, %302 ]
   %388 = load ptr, ptr %4, align 8
   %389 = icmp eq ptr %388, %4
   br i1 %389, label %.thread52, label %.preheader
@@ -6974,7 +6974,7 @@ i915_gem_object_lock.exit32:                      ; preds = %364, %377
   br i1 %or.cond, label %.thread39, label %237, !llvm.loop !124
 
 .thread39:                                        ; preds = %51, %186, %104, %215, %218, %.thread52, %303, %385, %310, %.thread45, %.preheader63, %390, %.thread33, %.thread.thread
-  %527 = phi i32 [ 0, %390 ], [ 0, %.thread.thread ], [ %.fr, %.thread52 ], [ %106, %104 ], [ %324, %.preheader63 ], [ -35, %.thread33 ], [ %349, %.thread45 ], [ %330, %385 ], [ %308, %303 ], [ %314, %310 ], [ %216, %215 ], [ -35, %186 ], [ %224, %218 ], [ %36, %51 ]
+  %527 = phi i32 [ 0, %.thread.thread ], [ -35, %.thread33 ], [ 0, %390 ], [ %324, %.preheader63 ], [ %349, %.thread45 ], [ %.fr, %.thread52 ], [ %308, %303 ], [ %314, %310 ], [ %330, %385 ], [ %106, %104 ], [ -35, %186 ], [ %216, %215 ], [ %224, %218 ], [ %36, %51 ]
   ret i32 %527
 }
 
@@ -7373,7 +7373,7 @@ i915_gem_object_lock.exit.thread:                 ; preds = %119, %123
   br label %.thread22
 
 .thread22:                                        ; preds = %113, %22, %i915_gem_object_lock.exit.thread, %252, %228, %223, %220, %193, %.thread21, %181, %164, %142, %77, %67, %65, %43, %39, %36
-  %254 = phi i32 [ %144, %142 ], [ %166, %164 ], [ %183, %181 ], [ %79, %77 ], [ -22, %65 ], [ %38, %36 ], [ -22, %43 ], [ -22, %67 ], [ %96, %113 ], [ %191, %.thread21 ], [ %205, %193 ], [ -22, %228 ], [ 0, %252 ], [ 0, %220 ], [ -22, %39 ], [ -22, %223 ], [ -35, %i915_gem_object_lock.exit.thread ], [ 0, %22 ]
+  %254 = phi i32 [ %144, %142 ], [ %166, %164 ], [ %183, %181 ], [ %79, %77 ], [ -22, %65 ], [ %38, %36 ], [ -22, %43 ], [ -22, %67 ], [ %191, %.thread21 ], [ %205, %193 ], [ -22, %228 ], [ 0, %252 ], [ 0, %220 ], [ -22, %39 ], [ -22, %223 ], [ -35, %i915_gem_object_lock.exit.thread ], [ 0, %22 ], [ %96, %113 ]
   ret i32 %254
 }
 
@@ -7629,7 +7629,7 @@ define internal fastcc i32 @eb_pin_timeline(ptr noundef readonly captures(none) 
   br label %.thread23
 
 .thread23:                                        ; preds = %.thread15, %141, %140, %138, %.loopexit, %.thread24, %13
-  %149 = phi i32 [ %15, %13 ], [ %119, %.thread24 ], [ %148, %.loopexit ], [ 0, %138 ], [ 0, %140 ], [ 0, %141 ], [ 0, %.thread15 ]
+  %149 = phi i32 [ %15, %13 ], [ %148, %.loopexit ], [ %119, %.thread24 ], [ 0, %138 ], [ 0, %140 ], [ 0, %141 ], [ 0, %.thread15 ]
   ret i32 %149
 }
 
@@ -8308,8 +8308,8 @@ define internal fastcc i64 @eb_relocate_entry(ptr noundef %0, ptr noundef captur
   %411 = icmp ugt ptr %410, inttoptr (i64 -4096 to ptr)
   br i1 %411, label %.thread29, label %414
 
-.thread29:                                        ; preds = %329, %297, %409
-  %412 = phi ptr [ %410, %409 ], [ inttoptr (i64 -22 to ptr), %297 ], [ inttoptr (i64 -35 to ptr), %329 ]
+.thread29:                                        ; preds = %297, %329, %409
+  %412 = phi ptr [ %410, %409 ], [ inttoptr (i64 -35 to ptr), %329 ], [ inttoptr (i64 -22 to ptr), %297 ]
   %413 = ptrtoint ptr %412 to i64
   br label %.thread
 

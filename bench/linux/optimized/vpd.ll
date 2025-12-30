@@ -1226,7 +1226,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   br label %86
 
 86:                                               ; preds = %85, %.loopexit, %.thread12, %20, %17, %10, %5
-  %87 = phi i64 [ -4, %20 ], [ -19, %5 ], [ -22, %10 ], [ 0, %17 ], [ %23, %85 ], [ %84, %.loopexit ], [ %80, %.thread12 ]
+  %87 = phi i64 [ -19, %5 ], [ -22, %10 ], [ 0, %17 ], [ -4, %20 ], [ %23, %85 ], [ %84, %.loopexit ], [ %80, %.thread12 ]
   ret i64 %87
 }
 
@@ -1423,7 +1423,7 @@ pci_vpd_wait.exit:                                ; preds = %.preheader.i
   br label %75
 
 75:                                               ; preds = %.loopexit, %.thread, %23, %20, %10, %5
-  %76 = phi i64 [ -4, %23 ], [ -19, %5 ], [ -22, %10 ], [ -22, %20 ], [ %2, %.loopexit ], [ %74, %.thread ]
+  %76 = phi i64 [ -19, %5 ], [ -22, %10 ], [ -22, %20 ], [ -4, %23 ], [ %2, %.loopexit ], [ %74, %.thread ]
   ret i64 %76
 }
 

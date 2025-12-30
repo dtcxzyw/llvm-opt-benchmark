@@ -284,7 +284,7 @@ Py_DECREF.exit:                                   ; preds = %18, %19, %22
   br label %Py_DECREF.exit15
 
 Py_DECREF.exit15:                                 ; preds = %31, %28, %27, %25, %5, %Py_DECREF.exit, %2
-  %.0 = phi i32 [ 0, %2 ], [ -1, %Py_DECREF.exit ], [ 64, %25 ], [ -1, %5 ], [ 0, %27 ], [ 0, %28 ], [ 0, %31 ]
+  %.0 = phi i32 [ 0, %2 ], [ 64, %25 ], [ -1, %5 ], [ -1, %Py_DECREF.exit ], [ 0, %27 ], [ 0, %28 ], [ 0, %31 ]
   ret i32 %.0
 }
 
@@ -612,7 +612,7 @@ _PyTokenizer_new_string.exit:                     ; preds = %20, %22
   br label %24
 
 24:                                               ; preds = %_PyTokenizer_new_string.exit, %4, %13, %12, %9
-  %.0 = phi i32 [ 1, %13 ], [ 1, %9 ], [ 1, %12 ], [ 1, %4 ], [ %., %_PyTokenizer_new_string.exit ]
+  %.0 = phi i32 [ 1, %9 ], [ 1, %12 ], [ 1, %13 ], [ 1, %4 ], [ %., %_PyTokenizer_new_string.exit ]
   ret i32 %.0
 }
 
@@ -802,7 +802,7 @@ _PyTokenizer_new_string.exit.thread.i:            ; preds = %33
   br label %get_normal_name.exit.i
 
 get_normal_name.exit.i:                           ; preds = %67, %65, %63, %61, %59, %57, %55, %51
-  %.012.i.i = phi ptr [ @.str.13, %57 ], [ @.str.3, %51 ], [ @.str.3, %55 ], [ %spec.select.i.i, %67 ], [ @.str.13, %65 ], [ @.str.13, %63 ], [ @.str.13, %61 ], [ @.str.13, %59 ]
+  %.012.i.i = phi ptr [ @.str.3, %55 ], [ @.str.3, %51 ], [ @.str.13, %65 ], [ @.str.13, %63 ], [ @.str.13, %61 ], [ @.str.13, %59 ], [ @.str.13, %57 ], [ %spec.select.i.i, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not73.i = icmp eq ptr %38, %.012.i.i
   br i1 %.not73.i, label %83, label %69
@@ -831,7 +831,7 @@ _PyTokenizer_new_string.exit78.i:                 ; preds = %69
   %exitcond104.not.i = icmp eq i64 %75, %11
   br i1 %exitcond104.not.i, label %.loopexit, label %.lr.ph101.i, !llvm.loop !41
 
-.loopexit:                                        ; preds = %15, %.lr.ph.i, %.thread87.i, %._crit_edge.i
+.loopexit:                                        ; preds = %.lr.ph.i, %15, %.thread87.i, %._crit_edge.i
   %76 = icmp sgt i64 %1, 0
   br i1 %76, label %.lr.ph, label %get_coding_spec.exit
 
@@ -932,7 +932,7 @@ _PyTokenizer_error_ret.exit:                      ; preds = %103, %106, %108
   br label %get_coding_spec.exit
 
 get_coding_spec.exit:                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %81, %.loopexit, %_PyTokenizer_new_string.exit78.thread.i, %_PyTokenizer_new_string.exit.thread.i, %96, %113, %79, %_PyTokenizer_error_ret.exit, %92, %8
-  %.029 = phi i32 [ 1, %8 ], [ 1, %79 ], [ 0, %92 ], [ 0, %_PyTokenizer_error_ret.exit ], [ 1, %96 ], [ 1, %113 ], [ 0, %_PyTokenizer_new_string.exit.thread.i ], [ 0, %_PyTokenizer_new_string.exit78.thread.i ], [ 1, %.loopexit ], [ 1, %81 ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ]
+  %.029 = phi i32 [ 1, %8 ], [ 0, %92 ], [ 0, %_PyTokenizer_error_ret.exit ], [ 1, %79 ], [ 1, %113 ], [ 1, %96 ], [ 0, %_PyTokenizer_new_string.exit.thread.i ], [ 0, %_PyTokenizer_new_string.exit78.thread.i ], [ 1, %.loopexit ], [ 1, %81 ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ]
   ret i32 %.029
 }
 
@@ -1002,7 +1002,7 @@ define hidden range(i32 0, 2) i32 @_PyTokenizer_ensure_utf8(ptr noundef readonly
   br i1 %30, label %.thread19, label %.thread.i
 
 .thread.i:                                        ; preds = %29, %27, %17, %13, %12, %8
-  %.020.i = phi i32 [ 2, %17 ], [ 1, %8 ], [ 2, %12 ], [ 3, %29 ], [ 3, %27 ], [ 2, %13 ]
+  %.020.i = phi i32 [ 1, %8 ], [ 2, %17 ], [ 3, %29 ], [ 3, %27 ], [ 2, %13 ], [ 2, %12 ]
   %31 = add nuw nsw i32 %.020.i, 1
   br label %34
 
@@ -1030,7 +1030,7 @@ valid_utf8.exit:                                  ; preds = %valid_utf8.exit.loo
   %.not = icmp eq i8 %40, 0
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !44
 
-.thread19:                                        ; preds = %21, %8, %27, %29, %13, %17, %34
+.thread19:                                        ; preds = %8, %21, %13, %17, %29, %27, %34
   %41 = zext i8 %4 to i32
   %42 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !25
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 2336

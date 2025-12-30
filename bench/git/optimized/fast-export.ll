@@ -2414,7 +2414,7 @@ rewrite_commit.exit.i:                            ; preds = %._crit_edge.i.i
   br label %handle_tag.exit
 
 .sink.split.i:                                    ; preds = %.thread.i.i, %.lr.ph.i.i, %._crit_edge.i.i, %126
-  %.08.i.ph.sink.i = phi ptr [ %108, %126 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ], [ %.021.i.i, %.lr.ph.i.i ], [ %.021.i.i, %.thread.i.i ]
+  %.08.i.ph.sink.i = phi ptr [ %.0.lcssa.i.i, %._crit_edge.i.i ], [ %108, %126 ], [ %.021.i.i, %.lr.ph.i.i ], [ %.021.i.i, %.thread.i.i ]
   %145 = call ptr @lookup_decoration(ptr noundef nonnull @idnums, ptr noundef nonnull %.08.i.ph.sink.i) #20
   %146 = ptrtoint ptr %145 to i64
   %147 = trunc i64 %146 to i32

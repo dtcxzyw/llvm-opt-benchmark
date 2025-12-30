@@ -270,9 +270,9 @@ define ptr @CMS_add0_recipient_password(ptr noundef %0, i32 noundef %1, i32 noun
   br label %103
 
 .sink.split:                                      ; preds = %98, %84, %77, %71, %66
-  %.sink99 = phi i32 [ 161, %84 ], [ 137, %66 ], [ 148, %71 ], [ 154, %77 ], [ 180, %98 ]
-  %.sink = phi i32 [ 524301, %84 ], [ 524301, %66 ], [ 524301, %71 ], [ 524301, %77 ], [ 524303, %98 ]
-  %.061.ph = phi ptr [ %25, %84 ], [ %25, %66 ], [ %25, %71 ], [ %25, %77 ], [ null, %98 ]
+  %.sink99 = phi i32 [ 137, %66 ], [ 148, %71 ], [ 154, %77 ], [ 161, %84 ], [ 180, %98 ]
+  %.sink = phi i32 [ 524301, %66 ], [ 524301, %71 ], [ 524301, %77 ], [ 524301, %84 ], [ 524303, %98 ]
+  %.061.ph = phi ptr [ %25, %66 ], [ %25, %71 ], [ %25, %77 ], [ %25, %84 ], [ null, %98 ]
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink99, ptr noundef nonnull @__func__.CMS_add0_recipient_password) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #5
@@ -291,7 +291,7 @@ define ptr @CMS_add0_recipient_password(ptr noundef %0, i32 noundef %1, i32 noun
   br label %104
 
 104:                                              ; preds = %98, %12, %7, %103, %23, %22
-  %.0 = phi ptr [ null, %12 ], [ null, %7 ], [ null, %22 ], [ null, %23 ], [ null, %103 ], [ %63, %98 ]
+  %.0 = phi ptr [ null, %22 ], [ null, %23 ], [ null, %103 ], [ null, %7 ], [ null, %12 ], [ %63, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
@@ -535,10 +535,10 @@ define range(i32 0, 2) i32 @ossl_cms_RecipientInfo_pwri_crypt(ptr noundef %0, pt
   br label %104
 
 104:                                              ; preds = %77, %98, %83, %73, %69, %63, %40, %97, %61, %48, %39, %35
-  %.060 = phi ptr [ null, %35 ], [ null, %39 ], [ %37, %48 ], [ %37, %61 ], [ %37, %69 ], [ %37, %40 ], [ %37, %73 ], [ %37, %63 ], [ %37, %83 ], [ %37, %97 ], [ %37, %98 ], [ %37, %77 ]
-  %.not76 = phi i1 [ true, %35 ], [ true, %39 ], [ true, %48 ], [ true, %61 ], [ true, %69 ], [ true, %40 ], [ true, %73 ], [ true, %63 ], [ true, %83 ], [ true, %97 ], [ false, %98 ], [ false, %77 ]
-  %.059 = phi i32 [ 0, %35 ], [ 0, %39 ], [ 0, %48 ], [ 0, %61 ], [ 0, %69 ], [ 0, %40 ], [ 0, %73 ], [ 0, %63 ], [ 0, %83 ], [ 0, %97 ], [ 1, %98 ], [ 1, %77 ]
-  %.058 = phi ptr [ null, %35 ], [ null, %39 ], [ null, %48 ], [ null, %61 ], [ null, %69 ], [ null, %40 ], [ %71, %73 ], [ null, %63 ], [ null, %83 ], [ %88, %97 ], [ %88, %98 ], [ %71, %77 ]
+  %.060 = phi ptr [ null, %35 ], [ null, %39 ], [ %37, %48 ], [ %37, %61 ], [ %37, %69 ], [ %37, %73 ], [ %37, %63 ], [ %37, %83 ], [ %37, %97 ], [ %37, %40 ], [ %37, %98 ], [ %37, %77 ]
+  %.not76 = phi i1 [ true, %35 ], [ true, %39 ], [ true, %48 ], [ true, %61 ], [ true, %69 ], [ true, %73 ], [ true, %63 ], [ true, %83 ], [ true, %97 ], [ true, %40 ], [ false, %98 ], [ false, %77 ]
+  %.059 = phi i32 [ 0, %35 ], [ 0, %39 ], [ 0, %48 ], [ 0, %61 ], [ 0, %69 ], [ 0, %73 ], [ 0, %63 ], [ 0, %83 ], [ 0, %97 ], [ 0, %40 ], [ 1, %98 ], [ 1, %77 ]
+  %.058 = phi ptr [ null, %35 ], [ null, %39 ], [ null, %48 ], [ null, %61 ], [ null, %69 ], [ %71, %73 ], [ null, %63 ], [ null, %83 ], [ %88, %97 ], [ null, %40 ], [ %88, %98 ], [ %71, %77 ]
   call void @EVP_CIPHER_free(ptr noundef %33) #5
   call void @EVP_CIPHER_CTX_free(ptr noundef %.060) #5
   br i1 %.not76, label %105, label %106
@@ -649,7 +649,7 @@ define internal fastcc range(i32 0, 2) i32 @kek_wrap_key(ptr noundef %0, ptr nou
   br label %48
 
 48:                                               ; preds = %42, %45, %36, %10, %6, %47
-  %.0 = phi i32 [ 0, %36 ], [ 0, %6 ], [ 0, %10 ], [ 0, %42 ], [ 1, %47 ], [ 0, %45 ]
+  %.0 = phi i32 [ 1, %47 ], [ 0, %6 ], [ 0, %10 ], [ 0, %36 ], [ 0, %45 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

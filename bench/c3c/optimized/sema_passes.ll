@@ -908,7 +908,7 @@ vec_resize.exit:                                  ; preds = %46, %49
   br i1 %119, label %122, label %.critedge
 
 .critedge:                                        ; preds = %115, %110, %95, %100
-  %.us-phi = phi ptr [ %93, %95 ], [ %93, %100 ], [ %108, %110 ], [ %108, %115 ]
+  %.us-phi = phi ptr [ %93, %100 ], [ %93, %95 ], [ %108, %110 ], [ %108, %115 ]
   %120 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
   %121 = load i64, ptr %120, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %121, ptr noundef nonnull @.str.6) #11
@@ -1866,7 +1866,7 @@ analyse_func_body.exit:                           ; preds = %33, %46
   store i64 %50, ptr %30, align 8
   br label %85
 
-51:                                               ; preds = %16, %42, %46, %36
+51:                                               ; preds = %16, %36, %42, %46
   %52 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %53 = load ptr, ptr %52, align 8
   %.not.i48 = icmp eq ptr %53, null
@@ -2849,8 +2849,8 @@ define internal fastcc ptr @sema_load_include(ptr noundef %0, ptr noundef readon
   %70 = call ptr @parse_include_file(ptr noundef nonnull %58, ptr noundef nonnull %0) #11
   br label %.thread
 
-.thread:                                          ; preds = %.critedge, %59, %61, %._crit_edge, %69, %67, %25, %10
-  %.041 = phi ptr [ null, %10 ], [ null, %25 ], [ null, %._crit_edge ], [ null, %67 ], [ %70, %69 ], [ null, %61 ], [ null, %59 ], [ null, %.critedge ]
+.thread:                                          ; preds = %61, %.critedge, %59, %._crit_edge, %69, %67, %25, %10
+  %.041 = phi ptr [ null, %10 ], [ null, %25 ], [ null, %67 ], [ %70, %69 ], [ null, %._crit_edge ], [ null, %59 ], [ null, %.critedge ], [ null, %61 ]
   ret ptr %.041
 }
 

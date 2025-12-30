@@ -260,7 +260,7 @@ _ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_strin
   br i1 %cmp.i9.i.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body.i.i.i, %entry, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8QuantLib15ObservableValueINS6_10TimeSeriesIdS_INS6_4DateEdSt4lessIS9_ESaISt4pairIKS9_dEEEEEEENS6_12IndexManager22CaseInsensitiveCompareESaISC_IKS5_SI_EEE11lower_boundERSL_.exit, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit
-  %__y.addr.0.lcssa.i.i.i10 = phi ptr [ %add.ptr.i.i.i, %entry ], [ %__y.addr.1.i.i.i, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ %__y.addr.1.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8QuantLib15ObservableValueINS6_10TimeSeriesIdS_INS6_4DateEdSt4lessIS9_ESaISt4pairIKS9_dEEEEEEENS6_12IndexManager22CaseInsensitiveCompareESaISC_IKS5_SI_EEE11lower_boundERSL_.exit ], [ %__y.addr.1.i.i.i, %for.body.i.i.i ]
+  %__y.addr.0.lcssa.i.i.i10 = phi ptr [ %__y.addr.1.i.i.i, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ %__y.addr.1.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8QuantLib15ObservableValueINS6_10TimeSeriesIdS_INS6_4DateEdSt4lessIS9_ESaISt4pairIKS9_dEEEEEEENS6_12IndexManager22CaseInsensitiveCompareESaISC_IKS5_SI_EEE11lower_boundERSL_.exit ], [ %add.ptr.i.i.i, %entry ], [ %__y.addr.1.i.i.i, %for.body.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9)
   store ptr %__k, ptr %ref.tmp9, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10)
@@ -717,7 +717,7 @@ if.end.i:                                         ; preds = %_ZNSt3mapIN8QuantLi
   br label %land.end
 
 land.end:                                         ; preds = %if.end.i, %_ZNSt3mapIN8QuantLib4DateEdSt4lessIS1_ESaISt4pairIKS1_dEEE4findERS5_.exit.i, %_ZNSt8_Rb_treeIN8QuantLib4DateESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %land.rhs, %entry
-  %6 = phi i1 [ false, %entry ], [ %5, %if.end.i ], [ false, %_ZNSt3mapIN8QuantLib4DateEdSt4lessIS1_ESaISt4pairIKS1_dEEE4findERS5_.exit.i ], [ false, %land.rhs ], [ false, %_ZNSt8_Rb_treeIN8QuantLib4DateESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i ]
+  %6 = phi i1 [ false, %entry ], [ %5, %if.end.i ], [ false, %_ZNSt3mapIN8QuantLib4DateEdSt4lessIS1_ESaISt4pairIKS1_dEEE4findERS5_.exit.i ], [ false, %_ZNSt8_Rb_treeIN8QuantLib4DateESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i ], [ false, %land.rhs ]
   ret i1 %6
 }
 
@@ -920,7 +920,7 @@ cond.false:                                       ; preds = %if.end.i.i.i, %_ZNK
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body.i.i.i, %entry, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8QuantLib15ObservableValueINS8_10TimeSeriesIdSt3mapINS8_4DateEdSt4lessISC_ESaIS6_IKSC_dEEEEEEEESt10_Select1stISL_ENS8_12IndexManager22CaseInsensitiveCompareESaISL_EE14_M_lower_boundEPSt13_Rb_tree_nodeISL_EPSt18_Rb_tree_node_baseRS7_.exit, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit, %cond.false
-  %retval.sroa.0.0 = phi ptr [ %__y.addr.1.i, %cond.false ], [ %add.ptr.i, %entry ], [ %add.ptr.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8QuantLib15ObservableValueINS8_10TimeSeriesIdSt3mapINS8_4DateEdSt4lessISC_ESaIS6_IKSC_dEEEEEEEESt10_Select1stISL_ENS8_12IndexManager22CaseInsensitiveCompareESaISL_EE14_M_lower_boundEPSt13_Rb_tree_nodeISL_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ %add.ptr.i, %for.body.i.i.i ]
+  %retval.sroa.0.0 = phi ptr [ %__y.addr.1.i, %cond.false ], [ %add.ptr.i, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ %add.ptr.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8QuantLib15ObservableValueINS8_10TimeSeriesIdSt3mapINS8_4DateEdSt4lessISC_ESaIS6_IKSC_dEEEEEEEESt10_Select1stISL_ENS8_12IndexManager22CaseInsensitiveCompareESaISL_EE14_M_lower_boundEPSt13_Rb_tree_nodeISL_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %add.ptr.i, %for.body.i.i.i ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -995,7 +995,7 @@ cleanup.thread.loopexit:                          ; preds = %for.body.i.i.i.i.i
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %cleanup.thread.loopexit, %if.then, %land.rhs33.i.i.i.i.i
-  %8 = phi i1 [ %cmp.i9.i.i.i.i.i, %land.rhs33.i.i.i.i.i ], [ true, %if.then ], [ %cmp.i.i.i.i.i.i.i, %cleanup.thread.loopexit ]
+  %8 = phi i1 [ true, %if.then ], [ %cmp.i9.i.i.i.i.i, %land.rhs33.i.i.i.i.i ], [ %cmp.i.i.i.i.i.i.i, %cleanup.thread.loopexit ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %8, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %9 = load i64, ptr %_M_node_count.i.i, align 8, !tbaa !22
@@ -1288,8 +1288,8 @@ if.else70:                                        ; preds = %if.end.i.i.i121, %_
   br label %cleanup76
 
 cleanup76:                                        ; preds = %if.end.i.i.i89, %for.body.i.i.i, %if.then60, %if.then30, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit99, %if.else70, %if.then47, %if.else40, %if.then17, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit, %if.else
-  %retval.sroa.0.0 = phi ptr [ %8, %if.else ], [ %spec.select, %if.then30 ], [ null, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ %spec.select165, %if.then60 ], [ %__position.coerce, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit99 ], [ %22, %if.else40 ], [ %16, %if.then17 ], [ null, %for.body.i.i.i ], [ %32, %if.else70 ], [ null, %if.then47 ], [ %__position.coerce, %if.end.i.i.i89 ]
-  %retval.sroa.12.0 = phi ptr [ %9, %if.else ], [ %spec.select164, %if.then30 ], [ %1, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ %spec.select166, %if.then60 ], [ null, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit99 ], [ %23, %if.else40 ], [ %16, %if.then17 ], [ %1, %for.body.i.i.i ], [ %33, %if.else70 ], [ %26, %if.then47 ], [ null, %if.end.i.i.i89 ]
+  %retval.sroa.0.0 = phi ptr [ %8, %if.else ], [ null, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ %22, %if.else40 ], [ %16, %if.then17 ], [ %32, %if.else70 ], [ null, %if.then47 ], [ %__position.coerce, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit99 ], [ %spec.select, %if.then30 ], [ %spec.select165, %if.then60 ], [ null, %for.body.i.i.i ], [ %__position.coerce, %if.end.i.i.i89 ]
+  %retval.sroa.12.0 = phi ptr [ %9, %if.else ], [ %1, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ %23, %if.else40 ], [ %16, %if.then17 ], [ %33, %if.else70 ], [ %26, %if.then47 ], [ null, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit99 ], [ %spec.select164, %if.then30 ], [ %spec.select166, %if.then60 ], [ %1, %for.body.i.i.i ], [ null, %if.end.i.i.i89 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -2152,7 +2152,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp.i3.not.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8QuantLib15ObservableValueINS8_10TimeSeriesIdSt3mapINS8_4DateEdSt4lessISC_ESaIS6_IKSC_dEEEEEEEESt10_Select1stISL_ENS8_12IndexManager22CaseInsensitiveCompareESaISL_EE12_M_erase_auxESt23_Rb_tree_const_iteratorISL_EST_.exit, label %while.body.i, !llvm.loop !78
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8QuantLib15ObservableValueINS8_10TimeSeriesIdSt3mapINS8_4DateEdSt4lessISC_ESaIS6_IKSC_dEEEEEEEESt10_Select1stISL_ENS8_12IndexManager22CaseInsensitiveCompareESaISL_EE12_M_erase_auxESt23_Rb_tree_const_iteratorISL_EST_.exit: ; preds = %while.body.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8QuantLib15ObservableValueINS8_10TimeSeriesIdSt3mapINS8_4DateEdSt4lessISC_ESaIS6_IKSC_dEEEEEEEESt10_Select1stISL_ENS8_12IndexManager22CaseInsensitiveCompareESaISL_EE5clearEv.exit.i, %if.else.i
-  %8 = phi i64 [ %2, %if.else.i ], [ 0, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8QuantLib15ObservableValueINS8_10TimeSeriesIdSt3mapINS8_4DateEdSt4lessISC_ESaIS6_IKSC_dEEEEEEEESt10_Select1stISL_ENS8_12IndexManager22CaseInsensitiveCompareESaISL_EE5clearEv.exit.i ], [ %dec.i.i, %while.body.i ]
+  %8 = phi i64 [ 0, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8QuantLib15ObservableValueINS8_10TimeSeriesIdSt3mapINS8_4DateEdSt4lessISC_ESaIS6_IKSC_dEEEEEEEESt10_Select1stISL_ENS8_12IndexManager22CaseInsensitiveCompareESaISL_EE5clearEv.exit.i ], [ %2, %if.else.i ], [ %dec.i.i, %while.body.i ]
   %sub = sub i64 %2, %8
   ret i64 %sub
 }
@@ -2371,16 +2371,16 @@ if.end.i78:                                       ; preds = %for.body.i.i.i.i61,
   br i1 %cmp.not.i83, label %cleanup, label %while.body.i50, !llvm.loop !79
 
 if.end18:                                         ; preds = %for.body.i.i.i, %for.body.i.i.i26, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit44, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit
-  %.sink = phi i64 [ 24, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ 16, %for.body.i.i.i26 ], [ 16, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit44 ], [ 24, %for.body.i.i.i ]
-  %__y.1 = phi ptr [ %__y.0108, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ %__x.0109, %for.body.i.i.i26 ], [ %__x.0109, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit44 ], [ %__y.0108, %for.body.i.i.i ]
+  %.sink = phi i64 [ 24, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ 16, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit44 ], [ 16, %for.body.i.i.i26 ], [ 24, %for.body.i.i.i ]
+  %__y.1 = phi ptr [ %__y.0108, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ %__x.0109, %_ZNK8QuantLib12IndexManager22CaseInsensitiveCompareclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit44 ], [ %__x.0109, %for.body.i.i.i26 ], [ %__y.0108, %for.body.i.i.i ]
   %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.0109, i64 %.sink
   %__x.0 = load ptr, ptr %_M_left.i, align 8, !tbaa !18
   %cmp.not = icmp eq ptr %__x.0, null
   br i1 %cmp.not, label %cleanup, label %while.body, !llvm.loop !80
 
 cleanup:                                          ; preds = %if.end18, %if.end.i78, %entry, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8QuantLib15ObservableValueINS8_10TimeSeriesIdSt3mapINS8_4DateEdSt4lessISC_ESaIS6_IKSC_dEEEEEEEESt10_Select1stISL_ENS8_12IndexManager22CaseInsensitiveCompareESaISL_EE14_M_lower_boundEPSt13_Rb_tree_nodeISL_EPSt18_Rb_tree_node_baseRS7_.exit
-  %retval.sroa.0.0 = phi ptr [ %__y.addr.0.lcssa.i, %if.end.i78 ], [ %__y.addr.0.lcssa.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8QuantLib15ObservableValueINS8_10TimeSeriesIdSt3mapINS8_4DateEdSt4lessISC_ESaIS6_IKSC_dEEEEEEEESt10_Select1stISL_ENS8_12IndexManager22CaseInsensitiveCompareESaISL_EE14_M_lower_boundEPSt13_Rb_tree_nodeISL_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.1, %if.end18 ]
-  %retval.sroa.3.0 = phi ptr [ %__y.addr.1.i80, %if.end.i78 ], [ %__y.0108, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8QuantLib15ObservableValueINS8_10TimeSeriesIdSt3mapINS8_4DateEdSt4lessISC_ESaIS6_IKSC_dEEEEEEEESt10_Select1stISL_ENS8_12IndexManager22CaseInsensitiveCompareESaISL_EE14_M_lower_boundEPSt13_Rb_tree_nodeISL_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.1, %if.end18 ]
+  %retval.sroa.0.0 = phi ptr [ %__y.addr.0.lcssa.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8QuantLib15ObservableValueINS8_10TimeSeriesIdSt3mapINS8_4DateEdSt4lessISC_ESaIS6_IKSC_dEEEEEEEESt10_Select1stISL_ENS8_12IndexManager22CaseInsensitiveCompareESaISL_EE14_M_lower_boundEPSt13_Rb_tree_nodeISL_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.0.lcssa.i, %if.end.i78 ], [ %__y.1, %if.end18 ]
+  %retval.sroa.3.0 = phi ptr [ %__y.0108, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8QuantLib15ObservableValueINS8_10TimeSeriesIdSt3mapINS8_4DateEdSt4lessISC_ESaIS6_IKSC_dEEEEEEEESt10_Select1stISL_ENS8_12IndexManager22CaseInsensitiveCompareESaISL_EE14_M_lower_boundEPSt13_Rb_tree_nodeISL_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.1.i80, %if.end.i78 ], [ %__y.1, %if.end18 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert

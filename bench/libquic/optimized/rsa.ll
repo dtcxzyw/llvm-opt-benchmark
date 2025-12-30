@@ -961,7 +961,7 @@ RSA_size.exit:                                    ; preds = %23, %25
   br label %44
 
 44:                                               ; preds = %41, %36, %34, %43
-  %.0 = phi i32 [ 0, %43 ], [ 0, %34 ], [ 0, %36 ], [ 1, %41 ]
+  %.0 = phi i32 [ 0, %43 ], [ 0, %36 ], [ 0, %34 ], [ 1, %41 ]
   call void @free(ptr noundef nonnull %32) #10
   %45 = load i32, ptr %10, align 4, !tbaa !62
   %.not26 = icmp eq i32 %45, 0
@@ -1153,7 +1153,7 @@ RSA_is_opaque.exit.thread:                        ; preds = %1, %RSA_is_opaque.e
   br label %122
 
 ._crit_edge:                                      ; preds = %58, %53, %56
-  %.not93100 = phi i1 [ true, %53 ], [ true, %56 ], [ false, %58 ]
+  %.not93100 = phi i1 [ true, %56 ], [ true, %53 ], [ false, %58 ]
   %73 = call i32 @BN_div(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %33) #10
   %.not71 = icmp eq i32 %73, 0
   br i1 %.not71, label %80, label %74
@@ -1264,7 +1264,7 @@ RSA_is_opaque.exit.thread:                        ; preds = %1, %RSA_is_opaque.e
   br label %122
 
 122:                                              ; preds = %72, %100, %118, %121, %111, %99, %87, %84, %80, %52
-  %.057 = phi i32 [ 0, %72 ], [ 0, %84 ], [ 0, %99 ], [ 0, %121 ], [ 0, %52 ], [ 0, %111 ], [ 0, %87 ], [ 0, %80 ], [ 1, %118 ], [ 1, %100 ]
+  %.057 = phi i32 [ 0, %72 ], [ 0, %84 ], [ 0, %99 ], [ 0, %121 ], [ 0, %111 ], [ 0, %87 ], [ 0, %80 ], [ 0, %52 ], [ 1, %118 ], [ 1, %100 ]
   call void @BN_free(ptr noundef nonnull %2) #10
   call void @BN_free(ptr noundef nonnull %3) #10
   call void @BN_free(ptr noundef nonnull %4) #10
@@ -1278,7 +1278,7 @@ RSA_is_opaque.exit.thread:                        ; preds = %1, %RSA_is_opaque.e
   br label %123
 
 123:                                              ; preds = %29, %RSA_is_opaque.exit, %122, %35, %28, %21
-  %.0 = phi i32 [ 0, %28 ], [ 0, %21 ], [ 0, %35 ], [ 1, %29 ], [ %.057, %122 ], [ 1, %RSA_is_opaque.exit ]
+  %.0 = phi i32 [ 0, %21 ], [ 0, %35 ], [ %.057, %122 ], [ 0, %28 ], [ 1, %RSA_is_opaque.exit ], [ 1, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1610,8 +1610,8 @@ define hidden range(i32 0, 2) i32 @RSA_recover_crt_params(ptr noundef captures(n
   br label %142
 
 142:                                              ; preds = %136, %141, %119, %115, %85, %66, %63, %49
-  %.not142 = phi i1 [ true, %49 ], [ true, %85 ], [ true, %119 ], [ true, %63 ], [ true, %141 ], [ true, %115 ], [ true, %66 ], [ false, %136 ]
-  %.0 = phi i32 [ 0, %49 ], [ 0, %85 ], [ 0, %119 ], [ 0, %63 ], [ 0, %141 ], [ 0, %115 ], [ 0, %66 ], [ 1, %136 ]
+  %.not142 = phi i1 [ true, %49 ], [ true, %85 ], [ true, %119 ], [ true, %141 ], [ true, %115 ], [ true, %66 ], [ true, %63 ], [ false, %136 ]
+  %.0 = phi i32 [ 0, %49 ], [ 0, %85 ], [ 0, %119 ], [ 0, %141 ], [ 0, %115 ], [ 0, %66 ], [ 0, %63 ], [ 1, %136 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %35) #10
   tail call void @BN_CTX_free(ptr noundef nonnull %35) #10
   br i1 %.not142, label %143, label %149

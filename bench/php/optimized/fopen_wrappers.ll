@@ -224,8 +224,8 @@ smart_str_get_len.exit:                           ; preds = %62
   br i1 %.not12.i.i, label %smart_str_appendl_ex.exit, label %82, !prof !30
 
 82:                                               ; preds = %.thread, %76
-  %83 = phi i64 [ %64, %.thread ], [ %79, %76 ]
-  %.0.i.i = phi i64 [ %64, %.thread ], [ %80, %76 ]
+  %83 = phi i64 [ %79, %76 ], [ %64, %.thread ]
+  %.0.i.i = phi i64 [ %80, %76 ], [ %64, %.thread ]
   call void @smart_str_erealloc(ptr noundef nonnull %7, i64 noundef %.0.i.i) #17
   %.pre72 = load ptr, ptr %7, align 8, !tbaa !24
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre72, i64 16
@@ -233,10 +233,10 @@ smart_str_get_len.exit:                           ; preds = %62
   br label %smart_str_appendl_ex.exit
 
 smart_str_appendl_ex.exit:                        ; preds = %76, %82
-  %84 = phi i64 [ %77, %76 ], [ %.pre73, %82 ]
-  %85 = phi ptr [ %78, %76 ], [ %.pre72, %82 ]
-  %86 = phi i64 [ %79, %76 ], [ %83, %82 ]
-  %.1.i.i = phi i64 [ %80, %76 ], [ %.0.i.i, %82 ]
+  %84 = phi i64 [ %.pre73, %82 ], [ %77, %76 ]
+  %85 = phi ptr [ %.pre72, %82 ], [ %78, %76 ]
+  %86 = phi i64 [ %83, %82 ], [ %79, %76 ]
+  %.1.i.i = phi i64 [ %.0.i.i, %82 ], [ %80, %76 ]
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 %84
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr nonnull align 16 %8, i64 %86, i1 false)
@@ -492,7 +492,7 @@ define dso_local range(i32 -1, 1) i32 @php_check_open_basedir_ex(ptr noundef %0,
   br label %28
 
 28:                                               ; preds = %2, %4, %9, %23, %26
-  %.1 = phi i32 [ -1, %26 ], [ -1, %9 ], [ 0, %23 ], [ 0, %4 ], [ 0, %2 ]
+  %.1 = phi i32 [ -1, %9 ], [ 0, %23 ], [ -1, %26 ], [ 0, %4 ], [ 0, %2 ]
   ret i32 %.1
 }
 
@@ -687,7 +687,7 @@ sub_0:
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %._crit_edge, %82, %94, %78, %91, %17, %14
-  %.0 = phi i32 [ -1, %17 ], [ -1, %14 ], [ -1, %._crit_edge ], [ 0, %91 ], [ -1, %94 ], [ 0, %82 ], [ -1, %78 ], [ -1, %38 ]
+  %.0 = phi i32 [ -1, %14 ], [ -1, %17 ], [ 0, %82 ], [ -1, %94 ], [ -1, %78 ], [ 0, %91 ], [ -1, %._crit_edge ], [ -1, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -898,7 +898,7 @@ zend_string_alloc.exit:                           ; preds = %73
   br i1 %.not74, label %zend_string_release.exit, label %.thread87
 
 .thread87:                                        ; preds = %zend_string_alloc.exit, %65, %84, %.thread95
-  %.290 = phi ptr [ %33, %.thread95 ], [ %87, %84 ], [ %78, %zend_string_alloc.exit ], [ %53, %65 ]
+  %.290 = phi ptr [ %87, %84 ], [ %33, %.thread95 ], [ %78, %zend_string_alloc.exit ], [ %53, %65 ]
   %88 = load ptr, ptr @zend_resolve_path, align 8, !tbaa !57
   %89 = tail call ptr %88(ptr noundef nonnull %.290) #17
   %.not75 = icmp eq ptr %89, null
@@ -1002,7 +1002,7 @@ zend_string_delref.exit:                          ; preds = %121, %zend_string_r
   br label %zend_string_release.exit.thread
 
 zend_string_release.exit.thread:                  ; preds = %zend_string_delref.exit, %73, %.thread92, %127, %129, %zend_string_release.exit, %103
-  %.0 = phi i32 [ -1, %zend_string_release.exit ], [ -1, %73 ], [ -1, %103 ], [ -1, %129 ], [ -1, %127 ], [ -1, %.thread92 ], [ 0, %zend_string_delref.exit ]
+  %.0 = phi i32 [ -1, %103 ], [ -1, %zend_string_release.exit ], [ -1, %129 ], [ -1, %127 ], [ -1, %.thread92 ], [ -1, %73 ], [ 0, %zend_string_delref.exit ]
   ret i32 %.0
 }
 
@@ -1229,8 +1229,8 @@ switch.early.test214:                             ; preds = %72
   br label %101
 
 101:                                              ; preds = %96, %99, %89, %85, %79
-  %.2146 = phi ptr [ %100, %99 ], [ %.1145, %96 ], [ %.1145, %89 ], [ %.1145, %85 ], [ %.1145, %79 ]
-  %.not176 = phi i1 [ false, %99 ], [ true, %96 ], [ true, %89 ], [ true, %85 ], [ true, %79 ]
+  %.2146 = phi ptr [ %100, %99 ], [ %.1145, %89 ], [ %.1145, %85 ], [ %.1145, %79 ], [ %.1145, %96 ]
+  %.not176 = phi i1 [ false, %99 ], [ true, %89 ], [ true, %85 ], [ true, %79 ], [ true, %96 ]
   %102 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.2146, i32 noundef 58) #18
   %.not175 = icmp eq ptr %102, null
   br i1 %.not175, label %116, label %103
@@ -1244,8 +1244,8 @@ switch.early.test214:                             ; preds = %72
   %107 = icmp sgt i64 %106, 4096
   %108 = add i64 %56, %106
   %109 = icmp ult i64 %108, -4096
-  %or.cond267 = or i1 %107, %109
-  br i1 %or.cond267, label %110, label %112
+  %or.cond268 = or i1 %107, %109
+  br i1 %or.cond268, label %110, label %112
 
 110:                                              ; preds = %104, %103
   %111 = getelementptr inbounds nuw i8, ptr %102, i64 1
@@ -1266,8 +1266,8 @@ switch.early.test214:                             ; preds = %72
   %or.cond10 = select i1 %55, i1 true, i1 %118
   %119 = add nuw nsw i64 %57, %117
   %120 = icmp samesign ugt i64 %119, 4094
-  %or.cond269 = select i1 %or.cond10, i1 true, i1 %120
-  br i1 %or.cond269, label %.critedge6, label %121
+  %or.cond270 = select i1 %or.cond10, i1 true, i1 %120
+  br i1 %or.cond270, label %.critedge6, label %121
 
 121:                                              ; preds = %116
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %.0140264, i64 %117, i1 false)
@@ -1395,8 +1395,8 @@ select.unfold:                                    ; preds = %146, %144, %128, %1
   %or.cond12 = and i1 %171, %169
   %172 = add i64 %57, %.0
   %173 = icmp ult i64 %172, 4096
-  %or.cond301 = select i1 %or.cond12, i1 %173, i1 false
-  br i1 %or.cond301, label %174, label %tsrm_realpath_str.exit
+  %or.cond302 = select i1 %or.cond12, i1 %173, i1 false
+  br i1 %or.cond302, label %174, label %tsrm_realpath_str.exit
 
 174:                                              ; preds = %170
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %162, i64 %.0, i1 false)
@@ -1456,10 +1456,10 @@ switch.early.test215:                             ; preds = %177
 
 200:                                              ; preds = %198
   %.not185 = icmp eq ptr %199, @php_plain_files_wrapper
-  br i1 %.not185, label %._crit_edge274, label %201
+  br i1 %.not185, label %._crit_edge275, label %201
 
-._crit_edge274:                                   ; preds = %200
-  %.pre275 = load ptr, ptr %5, align 8, !tbaa !22
+._crit_edge275:                                   ; preds = %200
+  %.pre276 = load ptr, ptr %5, align 8, !tbaa !22
   br label %218
 
 201:                                              ; preds = %200
@@ -1498,13 +1498,13 @@ switch.early.test215:                             ; preds = %177
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %tsrm_realpath_str.exit
 
-218:                                              ; preds = %._crit_edge274, %194, %190, %184
-  %219 = phi ptr [ %.pre275, %._crit_edge274 ], [ %4, %194 ], [ %4, %190 ], [ %4, %184 ]
+218:                                              ; preds = %._crit_edge275, %194, %190, %184
+  %219 = phi ptr [ %.pre276, %._crit_edge275 ], [ %4, %194 ], [ %4, %190 ], [ %4, %184 ]
   %220 = call fastcc ptr @tsrm_realpath_str(ptr noundef %219)
   br label %tsrm_realpath_str.exit
 
 tsrm_realpath_str.exit:                           ; preds = %144, %217, %201, %.thread241, %198, %218, %161, %tsrm_realpath_str.exit220, %.thread224, %.critedge6, %159, %170, %zend_string_alloc.exit.i, %58, %36, %3, %8, %39
-  %.0132 = phi ptr [ null, %161 ], [ null, %3 ], [ null, %39 ], [ %38, %36 ], [ null, %.critedge6 ], [ null, %58 ], [ null, %8 ], [ %63, %zend_string_alloc.exit.i ], [ null, %201 ], [ null, %170 ], [ %152, %tsrm_realpath_str.exit220 ], [ null, %159 ], [ %138, %.thread224 ], [ null, %217 ], [ %211, %.thread241 ], [ null, %198 ], [ %220, %218 ], [ null, %144 ]
+  %.0132 = phi ptr [ null, %39 ], [ null, %8 ], [ null, %3 ], [ %38, %36 ], [ %63, %zend_string_alloc.exit.i ], [ null, %58 ], [ null, %170 ], [ null, %159 ], [ null, %.critedge6 ], [ %138, %.thread224 ], [ %152, %tsrm_realpath_str.exit220 ], [ null, %161 ], [ %211, %.thread241 ], [ null, %198 ], [ %220, %218 ], [ null, %217 ], [ null, %201 ], [ null, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0132
@@ -1855,7 +1855,7 @@ define dso_local noundef ptr @php_strip_url_passwd(ptr noundef captures(address,
   br label %.preheader35
 
 .loopexit:                                        ; preds = %.preheader35, %17, %._crit_edge, %1
-  %.027 = phi ptr [ %0, %._crit_edge ], [ @.str.6, %1 ], [ %0, %17 ], [ %0, %.preheader35 ]
+  %.027 = phi ptr [ @.str.6, %1 ], [ %0, %._crit_edge ], [ %0, %17 ], [ %0, %.preheader35 ]
   ret ptr %.027
 }
 
@@ -1941,7 +1941,7 @@ define dso_local ptr @expand_filepath_with_mode(ptr noundef %0, ptr noundef writ
   store i8 0, ptr %7, align 16, !tbaa !23
   br label %.thread64
 
-.thread64:                                        ; preds = %.thread62, %31, %32, %33, %12
+.thread64:                                        ; preds = %.thread62, %31, %33, %32, %12
   %34 = call noalias ptr @_estrdup(ptr noundef nonnull %7) #17
   store ptr %34, ptr %6, align 8, !tbaa !93
   %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #18
@@ -1983,7 +1983,7 @@ define dso_local ptr @expand_filepath_with_mode(ptr noundef %0, ptr noundef writ
   br label %52
 
 52:                                               ; preds = %14, %29, %5, %50, %38
-  %.037 = phi ptr [ null, %38 ], [ %.5, %50 ], [ null, %5 ], [ %.242, %29 ], [ null, %14 ]
+  %.037 = phi ptr [ null, %38 ], [ %.5, %50 ], [ null, %5 ], [ null, %14 ], [ %.242, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.037

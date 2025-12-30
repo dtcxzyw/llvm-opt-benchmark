@@ -722,7 +722,7 @@ job_txn_add_job_locked.exit64:                    ; preds = %71, %75
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %62, %job_txn_add_job_locked.exit64, %24, %job_get_locked.exit, %16, %13
-  %.0 = phi ptr [ null, %13 ], [ null, %job_get_locked.exit ], [ null, %24 ], [ null, %16 ], [ %26, %job_txn_add_job_locked.exit64 ], [ %26, %62 ]
+  %.0 = phi ptr [ null, %13 ], [ null, %job_get_locked.exit ], [ null, %16 ], [ null, %24 ], [ %26, %job_txn_add_job_locked.exit64 ], [ %26, %62 ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 56) #15
   ret ptr %.0
 }
@@ -1943,7 +1943,7 @@ job_is_cancelled_locked.exit.i.i:                 ; preds = %31
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %37, %24
-  %38 = phi i32 [ -125, %37 ], [ %28, %24 ]
+  %38 = phi i32 [ %28, %24 ], [ -125, %37 ]
   %39 = getelementptr inbounds nuw i8, ptr %.010.i16, i64 192
   %40 = load ptr, ptr %39, align 8
   %.not9.i.i = icmp eq ptr %40, null
@@ -2427,7 +2427,7 @@ job_is_cancelled_locked.exit.i:                   ; preds = %12
   br label %.thread.i
 
 .thread.i:                                        ; preds = %18, %job_is_completed_locked.exit
-  %19 = phi i32 [ -125, %18 ], [ %11, %job_is_completed_locked.exit ]
+  %19 = phi i32 [ %11, %job_is_completed_locked.exit ], [ -125, %18 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %21 = load ptr, ptr %20, align 8
   %.not9.i = icmp eq ptr %21, null
@@ -3156,7 +3156,7 @@ job_update_rc_locked.exit.thread:                 ; preds = %job_is_cancelled_lo
   br label %.thread.i
 
 .thread.i:                                        ; preds = %14, %5
-  %15 = phi i32 [ -125, %14 ], [ %7, %5 ]
+  %15 = phi i32 [ %7, %5 ], [ -125, %14 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %17 = load ptr, ptr %16, align 8
   %.not9.i = icmp eq ptr %17, null
@@ -3232,7 +3232,7 @@ job_commit.exit.sink.split:                       ; preds = %38, %27
   br label %job_commit.exit
 
 job_commit.exit:                                  ; preds = %job_commit.exit.sink.split, %38, %27
-  %43 = phi i32 [ 0, %27 ], [ %.pre, %38 ], [ %.ph, %job_commit.exit.sink.split ]
+  %43 = phi i32 [ %.pre, %38 ], [ 0, %27 ], [ %.ph, %job_commit.exit.sink.split ]
   %44 = tail call zeroext i1 @qemu_in_main_thread() #15
   br i1 %44, label %46, label %45
 

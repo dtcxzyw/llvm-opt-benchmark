@@ -5146,7 +5146,7 @@ define hidden void @_ZN12EventLogDCmd7executeE10DCmdSourceP10JavaThread(ptr noun
   br label %31
 
 31:                                               ; preds = %26, %22, %18, %17, %12
-  %32 = phi i32 [ %30, %26 ], [ %16, %12 ], [ 10, %18 ], [ 10, %17 ], [ 16, %22 ]
+  %32 = phi i32 [ 10, %18 ], [ 10, %17 ], [ 16, %22 ], [ %30, %26 ], [ %16, %12 ]
   %33 = tail call ptr @__errno_location() #19
   store i32 0, ptr %33, align 4
   %34 = call i64 @strtoll(ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef %32) #17
@@ -5186,7 +5186,7 @@ _Z14multiply_by_1kIiEbRT_.exit.thread.i.i:        ; preds = %45
   br label %48
 
 48:                                               ; preds = %_Z14multiply_by_1kIiEbRT_.exit.thread.i.i, %43, %43
-  %.026.i.i = phi i32 [ %47, %_Z14multiply_by_1kIiEbRT_.exit.thread.i.i ], [ %40, %43 ], [ %40, %43 ]
+  %.026.i.i = phi i32 [ %40, %43 ], [ %40, %43 ], [ %47, %_Z14multiply_by_1kIiEbRT_.exit.thread.i.i ]
   %49 = add i32 %.026.i.i, 2097152
   %or.cond.i16.i.i = icmp ult i32 %49, 4194304
   br i1 %or.cond.i16.i.i, label %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i, label %_ZL13parse_integerIiEbPKcPT_.exit.thread
@@ -5196,7 +5196,7 @@ _Z14multiply_by_1kIiEbRT_.exit17.thread.i.i:      ; preds = %48
   br label %51
 
 51:                                               ; preds = %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i, %43, %43
-  %.1.i.i = phi i32 [ %50, %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i ], [ %40, %43 ], [ %40, %43 ]
+  %.1.i.i = phi i32 [ %40, %43 ], [ %40, %43 ], [ %50, %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i ]
   %52 = add i32 %.1.i.i, 2097152
   %or.cond.i18.i.i = icmp ult i32 %52, 4194304
   br i1 %or.cond.i18.i.i, label %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i, label %_ZL13parse_integerIiEbPKcPT_.exit.thread
@@ -5206,7 +5206,7 @@ _Z14multiply_by_1kIiEbRT_.exit19.thread.i.i:      ; preds = %51
   br label %54
 
 54:                                               ; preds = %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i, %43, %43
-  %.2.i.i = phi i32 [ %53, %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i ], [ %40, %43 ], [ %40, %43 ]
+  %.2.i.i = phi i32 [ %40, %43 ], [ %40, %43 ], [ %53, %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i ]
   %55 = add i32 %.2.i.i, 2097152
   %or.cond.i20.i.i = icmp ult i32 %55, 4194304
   br i1 %or.cond.i20.i.i, label %56, label %_ZL13parse_integerIiEbPKcPT_.exit.thread
@@ -6546,7 +6546,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
   ret ptr %.0.i.i
 }
 
@@ -6723,7 +6723,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -6913,7 +6913,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
   ret ptr %.0.i.i
 }
 
@@ -7110,7 +7110,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
   ret ptr %.0.i.i
 }
 
@@ -7225,7 +7225,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
   ret ptr %.0.i.i
 }
 

@@ -151,7 +151,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br label %return
 
 return:                                           ; preds = %if.end3.i, %if.then2.i, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end3.i ], [ false, %if.then2.i ], [ true, %if.end ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then2.i ], [ true, %if.end3.i ], [ true, %if.end ]
   ret i1 %retval.0
 }
 

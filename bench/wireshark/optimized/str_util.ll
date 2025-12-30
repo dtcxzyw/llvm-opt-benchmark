@@ -476,8 +476,8 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
   br label %.critedge3
 
 .critedge3:                                       ; preds = %.preheader.us.preheader, %.preheader, %.critedge3.loopexit91.split.loop.exit93, %.critedge3.loopexit.split.loop.exit95, %.critedge.thread
-  %40 = phi ptr [ %28, %.critedge3.loopexit91.split.loop.exit93 ], [ %18, %.critedge.thread ], [ %28, %.critedge3.loopexit.split.loop.exit95 ], [ %28, %.preheader ], [ %28, %.preheader.us.preheader ]
-  %.1.lcssa = phi i32 [ %39, %.critedge3.loopexit91.split.loop.exit93 ], [ 1, %.critedge.thread ], [ %38, %.critedge3.loopexit.split.loop.exit95 ], [ %spec.store.select, %.preheader ], [ %spec.store.select, %.preheader.us.preheader ]
+  %40 = phi ptr [ %18, %.critedge.thread ], [ %28, %.critedge3.loopexit.split.loop.exit95 ], [ %28, %.critedge3.loopexit91.split.loop.exit93 ], [ %28, %.preheader ], [ %28, %.preheader.us.preheader ]
+  %.1.lcssa = phi i32 [ 1, %.critedge.thread ], [ %38, %.critedge3.loopexit.split.loop.exit95 ], [ %39, %.critedge3.loopexit91.split.loop.exit93 ], [ %spec.store.select, %.preheader ], [ %spec.store.select, %.preheader.us.preheader ]
   %41 = zext i32 %.1.lcssa to i64
   %42 = getelementptr ptr, ptr %40, i64 %41
   store ptr null, ptr %42, align 8
@@ -1252,7 +1252,7 @@ define ptr @ws_escape_string_len(ptr noundef %0, ptr noundef readonly captures(n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %23, %16, %17, %18, %19, %20, %21, %22, %.lr.ph.split.split.i
-  %.sink75.i.ph = phi i8 [ 98, %.lr.ph.split.split.i ], [ 97, %23 ], [ 48, %22 ], [ 102, %16 ], [ 110, %17 ], [ 114, %18 ], [ 116, %19 ], [ 118, %20 ], [ %15, %21 ]
+  %.sink75.i.ph = phi i8 [ 97, %23 ], [ 102, %16 ], [ 110, %17 ], [ 114, %18 ], [ 116, %19 ], [ 118, %20 ], [ %15, %21 ], [ 48, %22 ], [ 98, %.lr.ph.split.split.i ]
   tail call void @wmem_strbuf_append_c(ptr noundef %10, i8 noundef signext 92)
   br label %24
 
@@ -1333,7 +1333,7 @@ define ptr @ws_escape_string(ptr noundef %0, ptr noundef readonly captures(none)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %12, %13, %14, %15, %16, %17, %18, %.lr.ph.split.split.i
-  %.sink75.i.ph = phi i8 [ 98, %.lr.ph.split.split.i ], [ 97, %19 ], [ 48, %18 ], [ 102, %12 ], [ 110, %13 ], [ 114, %14 ], [ 116, %15 ], [ 118, %16 ], [ %11, %17 ]
+  %.sink75.i.ph = phi i8 [ 97, %19 ], [ 102, %12 ], [ 110, %13 ], [ 114, %14 ], [ 116, %15 ], [ 118, %16 ], [ %11, %17 ], [ 48, %18 ], [ 98, %.lr.ph.split.split.i ]
   tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext 92)
   br label %20
 
@@ -1504,7 +1504,7 @@ define ptr @ws_escape_csv(ptr noundef %0, ptr noundef readonly captures(none) %1
   br label %25
 
 25:                                               ; preds = %.lr.ph.split.us.i, %23, %22, %21, %20, %19, %18, %17, %24
-  %.5.ph = phi i8 [ 97, %24 ], [ 48, %23 ], [ 102, %17 ], [ 110, %18 ], [ 114, %19 ], [ 116, %20 ], [ 118, %21 ], [ 92, %22 ], [ 98, %.lr.ph.split.us.i ]
+  %.5.ph = phi i8 [ 97, %24 ], [ 102, %17 ], [ 110, %18 ], [ 114, %19 ], [ 116, %20 ], [ 118, %21 ], [ 92, %22 ], [ 48, %23 ], [ 98, %.lr.ph.split.us.i ]
   tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext 92)
   br label %escape_char.exit35
 
@@ -1624,7 +1624,7 @@ escape_char.exit:                                 ; preds = %.lr.ph.split.split.
   br i1 %.not.i, label %.sink.split97, label %52
 
 .sink.split97:                                    ; preds = %51, %escape_char.exit, %49, %42, %43, %44, %45, %46, %47, %48, %.lr.ph.split.split.i
-  %.sink75.i.ph = phi i8 [ 98, %.lr.ph.split.split.i ], [ %3, %escape_char.exit ], [ 97, %49 ], [ 48, %48 ], [ 102, %42 ], [ 110, %43 ], [ 114, %44 ], [ 116, %45 ], [ 118, %46 ], [ 92, %47 ], [ 92, %51 ]
+  %.sink75.i.ph = phi i8 [ 97, %49 ], [ 102, %42 ], [ 110, %43 ], [ 114, %44 ], [ 116, %45 ], [ 118, %46 ], [ 92, %47 ], [ 48, %48 ], [ 98, %.lr.ph.split.split.i ], [ %3, %escape_char.exit ], [ 92, %51 ]
   tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext 92)
   br label %52
 
@@ -2028,9 +2028,9 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %116 = icmp eq i32 %115, 252
   br i1 %116, label %.thread, label %.thread324
 
-.thread:                                          ; preds = %108, %105, %102, %111, %114
-  %.2265323 = phi i8 [ 1, %114 ], [ 7, %108 ], [ 15, %105 ], [ 31, %102 ], [ 3, %111 ]
-  %.0266321 = phi i32 [ 5, %114 ], [ 3, %108 ], [ 2, %105 ], [ 1, %102 ], [ 4, %111 ]
+.thread:                                          ; preds = %111, %108, %105, %102, %114
+  %.2265323 = phi i8 [ 1, %114 ], [ 3, %111 ], [ 7, %108 ], [ 15, %105 ], [ 31, %102 ]
+  %.0266321 = phi i32 [ 5, %114 ], [ 4, %111 ], [ 3, %108 ], [ 2, %105 ], [ 1, %102 ]
   %117 = zext nneg i32 %.0266321 to i64
   %118 = getelementptr i8, ptr %.0271370, i64 %117
   %scevgep376 = getelementptr i8, ptr %118, i64 1
@@ -2107,10 +2107,10 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br label %.thread356
 
 .thread356:                                       ; preds = %.thread324, %143, %141, %139, %137, %135
-  %.3274334346 = phi ptr [ %.2273.lcssa, %141 ], [ %.2273.lcssa, %135 ], [ %.2273.lcssa, %137 ], [ %.2273.lcssa, %139 ], [ %.2273.lcssa, %143 ], [ %10, %.thread324 ]
-  %.2337344 = phi i32 [ %.1, %141 ], [ %.1, %135 ], [ %.1, %137 ], [ %spec.store.select, %139 ], [ %.1, %143 ], [ 65533, %.thread324 ]
-  %.1267 = phi i32 [ 4, %141 ], [ 1, %135 ], [ 2, %137 ], [ 3, %139 ], [ %.317, %143 ], [ 3, %.thread324 ]
-  %.0261 = phi i32 [ 240, %141 ], [ 0, %135 ], [ 192, %137 ], [ 224, %139 ], [ %.318, %143 ], [ 224, %.thread324 ]
+  %.3274334346 = phi ptr [ %.2273.lcssa, %135 ], [ %.2273.lcssa, %137 ], [ %.2273.lcssa, %139 ], [ %.2273.lcssa, %141 ], [ %.2273.lcssa, %143 ], [ %10, %.thread324 ]
+  %.2337344 = phi i32 [ %.1, %135 ], [ %.1, %137 ], [ %spec.store.select, %139 ], [ %.1, %141 ], [ %.1, %143 ], [ 65533, %.thread324 ]
+  %.1267 = phi i32 [ 1, %135 ], [ 2, %137 ], [ 3, %139 ], [ 4, %141 ], [ %.317, %143 ], [ 3, %.thread324 ]
+  %.0261 = phi i32 [ 0, %135 ], [ 192, %137 ], [ 224, %139 ], [ 240, %141 ], [ %.318, %143 ], [ 224, %.thread324 ]
   %145 = add i32 %.0275368, 1
   %146 = add i32 %145, %.1267
   %.not310 = icmp ult i32 %146, %.0278367
@@ -2405,12 +2405,12 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br label %325
 
 325:                                              ; preds = %182, %168, %170, %219, %259, %186, %187, %188, %189, %190, %191, %198, %._crit_edge
-  %.0275368.sink = phi i32 [ %.0275368, %._crit_edge ], [ %248, %219 ], [ %320, %259 ], [ %.0275368, %168 ], [ %185, %186 ], [ %185, %187 ], [ %185, %188 ], [ %185, %189 ], [ %185, %190 ], [ %185, %191 ], [ %177, %198 ], [ %.0275368, %170 ], [ %185, %182 ]
-  %.8290.sink = phi ptr [ %.6288, %._crit_edge ], [ %.11293, %219 ], [ %.12294, %259 ], [ %.0282366, %168 ], [ %.9291, %186 ], [ %.9291, %187 ], [ %.9291, %188 ], [ %.9291, %189 ], [ %.9291, %190 ], [ %.9291, %191 ], [ %.10292, %198 ], [ %173, %170 ], [ %.9291, %182 ]
-  %.sink = phi i8 [ %155, %._crit_edge ], [ %252, %219 ], [ %324, %259 ], [ 32, %168 ], [ 98, %186 ], [ 102, %187 ], [ 110, %188 ], [ 114, %189 ], [ 116, %190 ], [ 118, %191 ], [ %210, %198 ], [ 32, %170 ], [ 97, %182 ]
-  %.3274333 = phi ptr [ %.3274334346, %._crit_edge ], [ %.3274335, %219 ], [ %.3274335, %259 ], [ %.3274335, %168 ], [ %.3274335, %186 ], [ %.3274335, %187 ], [ %.3274335, %188 ], [ %.3274335, %189 ], [ %.3274335, %190 ], [ %.3274335, %191 ], [ %.3274335, %198 ], [ %.3274335, %170 ], [ %.3274335, %182 ]
-  %.7 = phi i32 [ %.6, %._crit_edge ], [ %.11, %219 ], [ %.12, %259 ], [ %.0278367, %168 ], [ %.9, %186 ], [ %.9, %187 ], [ %.9, %188 ], [ %.9, %189 ], [ %.9, %190 ], [ %.9, %191 ], [ %.10, %198 ], [ %171, %170 ], [ %.9, %182 ]
-  %.1267.pn = phi i32 [ %.1267, %._crit_edge ], [ 6, %219 ], [ 10, %259 ], [ 1, %168 ], [ 2, %186 ], [ 2, %187 ], [ 2, %188 ], [ 2, %189 ], [ 2, %190 ], [ 2, %191 ], [ 4, %198 ], [ 1, %170 ], [ 2, %182 ]
+  %.0275368.sink = phi i32 [ %248, %219 ], [ %320, %259 ], [ %185, %186 ], [ %185, %187 ], [ %185, %188 ], [ %185, %189 ], [ %185, %190 ], [ %185, %191 ], [ %177, %198 ], [ %.0275368, %._crit_edge ], [ %.0275368, %170 ], [ %.0275368, %168 ], [ %185, %182 ]
+  %.8290.sink = phi ptr [ %.11293, %219 ], [ %.12294, %259 ], [ %.9291, %186 ], [ %.9291, %187 ], [ %.9291, %188 ], [ %.9291, %189 ], [ %.9291, %190 ], [ %.9291, %191 ], [ %.10292, %198 ], [ %.6288, %._crit_edge ], [ %173, %170 ], [ %.0282366, %168 ], [ %.9291, %182 ]
+  %.sink = phi i8 [ %252, %219 ], [ %324, %259 ], [ 98, %186 ], [ 102, %187 ], [ 110, %188 ], [ 114, %189 ], [ 116, %190 ], [ 118, %191 ], [ %210, %198 ], [ %155, %._crit_edge ], [ 32, %170 ], [ 32, %168 ], [ 97, %182 ]
+  %.3274333 = phi ptr [ %.3274335, %219 ], [ %.3274335, %259 ], [ %.3274335, %186 ], [ %.3274335, %187 ], [ %.3274335, %188 ], [ %.3274335, %189 ], [ %.3274335, %190 ], [ %.3274335, %191 ], [ %.3274335, %198 ], [ %.3274334346, %._crit_edge ], [ %.3274335, %170 ], [ %.3274335, %168 ], [ %.3274335, %182 ]
+  %.7 = phi i32 [ %.11, %219 ], [ %.12, %259 ], [ %.9, %186 ], [ %.9, %187 ], [ %.9, %188 ], [ %.9, %189 ], [ %.9, %190 ], [ %.9, %191 ], [ %.10, %198 ], [ %.6, %._crit_edge ], [ %171, %170 ], [ %.0278367, %168 ], [ %.9, %182 ]
+  %.1267.pn = phi i32 [ 6, %219 ], [ 10, %259 ], [ 2, %186 ], [ 2, %187 ], [ 2, %188 ], [ 2, %189 ], [ 2, %190 ], [ 2, %191 ], [ 4, %198 ], [ %.1267, %._crit_edge ], [ 1, %170 ], [ 1, %168 ], [ 2, %182 ]
   %326 = zext i32 %.0275368.sink to i64
   %327 = getelementptr i8, ptr %.8290.sink, i64 %326
   store i8 %.sink, ptr %327, align 1
@@ -2540,7 +2540,7 @@ define noalias noundef ptr @format_char(ptr noundef %0, i8 noundef signext %1) l
   br label %20
 
 20:                                               ; preds = %11, %18, %17, %16, %15, %14, %13, %12, %19
-  %.021.ph = phi i8 [ 97, %19 ], [ 48, %18 ], [ 102, %12 ], [ 110, %13 ], [ 114, %14 ], [ 116, %15 ], [ 118, %16 ], [ 92, %17 ], [ 98, %11 ]
+  %.021.ph = phi i8 [ 97, %19 ], [ 102, %12 ], [ 110, %13 ], [ 114, %14 ], [ 116, %15 ], [ 118, %16 ], [ 92, %17 ], [ 48, %18 ], [ 98, %11 ]
   %21 = tail call noalias dereferenceable_or_null(3) ptr @wmem_alloc(ptr noundef %0, i64 noundef 3) #24
   store i8 92, ptr %21, align 1
   %22 = getelementptr i8, ptr %21, i64 1
@@ -2659,7 +2659,7 @@ define noundef zeroext i1 @hex_dump_buffer(ptr noundef readonly captures(none) %
   br i1 %13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %10, %11, %12
-  %.085 = phi i32 [ 8, %12 ], [ %., %11 ], [ 7, %9 ], [ 6, %10 ]
+  %.085 = phi i32 [ 8, %12 ], [ %., %11 ], [ 6, %10 ], [ 7, %9 ]
   %14 = icmp eq i32 %5, 1
   %.not61 = icmp eq i32 %5, 2
   %15 = icmp eq i32 %4, 1

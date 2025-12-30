@@ -967,7 +967,7 @@ lpad8.i.i.i:                                      ; preds = %invoke.cont10.i.i.i
   br label %lpad8.body.i.i.i
 
 lpad8.body.i.i.i:                                 ; preds = %lpad8.i.i.i, %if.then.i.i47.i.i.i.i, %ehcleanup22.i.i.i.i, %if.then.i.i13.i.i.i.i, %lpad2.i.i.i.i, %if.then.i.i8.i.i.i.i, %lpad.i21.i.i.i
-  %eh.lpad-body26.i.i.i = phi { ptr, i32 } [ %37, %if.then.i.i13.i.i.i.i ], [ %32, %if.then.i.i8.i.i.i.i ], [ %32, %lpad.i21.i.i.i ], [ %37, %lpad2.i.i.i.i ], [ %111, %lpad8.i.i.i ], [ %.pn.pn.pn.pn.i.i.i.i, %if.then.i.i47.i.i.i.i ], [ %.pn.pn.pn.pn.i.i.i.i, %ehcleanup22.i.i.i.i ]
+  %eh.lpad-body26.i.i.i = phi { ptr, i32 } [ %32, %lpad.i21.i.i.i ], [ %32, %if.then.i.i8.i.i.i.i ], [ %37, %lpad2.i.i.i.i ], [ %37, %if.then.i.i13.i.i.i.i ], [ %111, %lpad8.i.i.i ], [ %.pn.pn.pn.pn.i.i.i.i, %if.then.i.i47.i.i.i.i ], [ %.pn.pn.pn.pn.i.i.i.i, %ehcleanup22.i.i.i.i ]
   %112 = load ptr, ptr %jsiTimerInternalObject.i.i.i, align 8, !noalias !4
   %tobool.not.i.i70.i.i.i = icmp eq ptr %112, null
   br i1 %tobool.not.i.i70.i.i.i, label %ehcleanup.i.i.i, label %if.then.i.i71.i.i.i
@@ -1005,7 +1005,7 @@ terminate.lpad.i.i.i78.i.i.i:                     ; preds = %if.then.i.i.i76.i.i
   unreachable
 
 ehcleanup12.i.i.i:                                ; preds = %if.then.i.i.i76.i.i.i, %ehcleanup.i.i.i, %if.then.i.i65.i.i.i, %lpad4.body.i.i.i
-  %.pn.pn.i.i.i = phi { ptr, i32 } [ %11, %if.then.i.i65.i.i.i ], [ %.pn.i.i.i, %if.then.i.i.i76.i.i.i ], [ %11, %lpad4.body.i.i.i ], [ %.pn.i.i.i, %ehcleanup.i.i.i ]
+  %.pn.pn.i.i.i = phi { ptr, i32 } [ %11, %lpad4.body.i.i.i ], [ %11, %if.then.i.i65.i.i.i ], [ %.pn.i.i.i, %ehcleanup.i.i.i ], [ %.pn.i.i.i, %if.then.i.i.i76.i.i.i ]
   %120 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !noalias !4
   %tobool.not.i.i82.i.i.i = icmp eq ptr %120, null
   br i1 %tobool.not.i.i82.i.i.i, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit87.i.i.i, label %if.then.i.i83.i.i.i
@@ -4246,7 +4246,7 @@ _ZN8facebook3jsi6StringD2Ev.exit:                 ; preds = %invoke.cont, %if.th
   ret void
 
 lpad.body:                                        ; preds = %lpad.i.i.i, %lpad.i
-  %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad.i ], [ %3, %lpad.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad.i.i.i ], [ %5, %lpad.i ]
   %10 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i5 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i5, label %_ZN8facebook3jsi6StringD2Ev.exit9, label %if.then.i.i6
@@ -4616,7 +4616,7 @@ _ZN8facebook3jsi8FunctionD2Ev.exit:               ; preds = %invoke.cont, %if.th
   ret void
 
 lpad.body:                                        ; preds = %lpad.i.i.i, %lpad.i.i5.i
-  %eh.lpad-body = phi { ptr, i32 } [ %9, %lpad.i.i5.i ], [ %7, %lpad.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %7, %lpad.i.i.i ], [ %9, %lpad.i.i5.i ]
   %14 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i.i2 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i2, label %_ZN8facebook3jsi8FunctionD2Ev.exit6, label %if.then.i.i.i3
@@ -4705,7 +4705,7 @@ _ZN8facebook3jsi6StringD2Ev.exit:                 ; preds = %invoke.cont, %if.th
   ret void
 
 lpad.body:                                        ; preds = %lpad.i.i.i, %lpad.i
-  %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad.i ], [ %3, %lpad.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad.i.i.i ], [ %5, %lpad.i ]
   %10 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i5 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i5, label %_ZN8facebook3jsi6StringD2Ev.exit9, label %if.then.i.i6
@@ -4894,8 +4894,8 @@ lpad:                                             ; preds = %invoke.cont
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad, %lpad.i.i10
-  %arrayinit.endOfInit.0.lpad-body = phi ptr [ %arrayinit.element7, %lpad.i.i10 ], [ %arrayinit.element, %lpad ]
-  %eh.lpad-body = phi { ptr, i32 } [ %8, %lpad.i.i10 ], [ %13, %lpad ]
+  %arrayinit.endOfInit.0.lpad-body = phi ptr [ %arrayinit.element, %lpad ], [ %arrayinit.element7, %lpad.i.i10 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad ], [ %8, %lpad.i.i10 ]
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %lpad.body, %arraydestroy.body
@@ -4913,7 +4913,7 @@ arraydestroy.body18:                              ; preds = %arraydestroy.body18
   br i1 %arraydestroy.done21, label %eh.resume, label %arraydestroy.body18
 
 eh.resume:                                        ; preds = %arraydestroy.body, %arraydestroy.body18, %lpad.body.thread
-  %.pn = phi { ptr, i32 } [ %10, %arraydestroy.body18 ], [ %2, %lpad.body.thread ], [ %eh.lpad-body, %arraydestroy.body ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad.body.thread ], [ %10, %arraydestroy.body18 ], [ %eh.lpad-body, %arraydestroy.body ]
   resume { ptr, i32 } %.pn
 }
 

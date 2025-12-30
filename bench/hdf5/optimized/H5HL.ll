@@ -270,7 +270,7 @@ define range(i32 -1, 1) i32 @H5HL_create(ptr noundef %0, i64 noundef %1, ptr nou
   br label %130
 
 130:                                              ; preds = %110, %.critedge79, %126, %123, %100, %106, %9
-  %.0 = phi i32 [ -1, %106 ], [ -1, %100 ], [ -1, %126 ], [ -1, %123 ], [ -1, %110 ], [ 0, %.critedge79 ], [ 0, %9 ]
+  %.0 = phi i32 [ -1, %106 ], [ -1, %100 ], [ -1, %126 ], [ -1, %123 ], [ -1, %110 ], [ 0, %9 ], [ 0, %.critedge79 ]
   ret i32 %.0
 }
 
@@ -541,7 +541,7 @@ define range(i32 -1, 1) i32 @H5HL_unprotect(ptr noundef captures(none) %0) local
   br label %32
 
 32:                                               ; preds = %.sink.split, %19, %24, %10, %7
-  %.0 = phi i32 [ 0, %10 ], [ 0, %19 ], [ 0, %7 ], [ 0, %24 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %24 ], [ 0, %10 ], [ 0, %7 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1371,8 +1371,8 @@ H5HL__remove_free.exit136:                        ; preds = %119, %139
   %206 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5HL_remove, i32 noundef 831, i64 noundef %204, i64 noundef %205, ptr noundef nonnull @.str.22) #7
   br label %.thread138
 
-.thread138:                                       ; preds = %162, %156, %H5HL__remove_free.exit136, %92, %H5HL__remove_free.exit, %149, %165, %99, %152, %85, %102, %88, %10, %193, %200, %203, %182, %37, %._crit_edge
-  %.099 = phi i32 [ -1, %37 ], [ 0, %193 ], [ 0, %10 ], [ -1, %182 ], [ -1, %203 ], [ 0, %200 ], [ 0, %._crit_edge ], [ 0, %162 ], [ 0, %156 ], [ 0, %H5HL__remove_free.exit136 ], [ 0, %92 ], [ 0, %H5HL__remove_free.exit ], [ 0, %149 ], [ -1, %165 ], [ 0, %99 ], [ -1, %152 ], [ 0, %85 ], [ -1, %102 ], [ -1, %88 ]
+.thread138:                                       ; preds = %162, %156, %149, %H5HL__remove_free.exit136, %99, %92, %85, %H5HL__remove_free.exit, %165, %152, %102, %88, %10, %193, %200, %203, %182, %37, %._crit_edge
+  %.099 = phi i32 [ -1, %37 ], [ -1, %182 ], [ -1, %203 ], [ 0, %200 ], [ 0, %193 ], [ 0, %10 ], [ 0, %._crit_edge ], [ 0, %162 ], [ 0, %156 ], [ 0, %149 ], [ 0, %H5HL__remove_free.exit136 ], [ 0, %99 ], [ 0, %92 ], [ 0, %85 ], [ 0, %H5HL__remove_free.exit ], [ -1, %165 ], [ -1, %152 ], [ -1, %102 ], [ -1, %88 ]
   ret i32 %.099
 }
 
@@ -1514,7 +1514,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__minimize_heap_space(ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge.i, %81, %._crit_edge.i.thread
-  %82 = phi i64 [ %79, %._crit_edge.i.thread ], [ %79, %81 ], [ %71, %._crit_edge.i ]
+  %82 = phi i64 [ %79, %81 ], [ %79, %._crit_edge.i.thread ], [ %71, %._crit_edge.i ]
   %83 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5HL_free_t_reg_free_list, ptr noundef nonnull %.04969) #7
   br label %H5HL__remove_free.exit
 
@@ -1528,7 +1528,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__minimize_heap_space(ptr nound
   br label %H5HL__remove_free.exit
 
 H5HL__remove_free.exit:                           ; preds = %19, %.thread, %63, %.thread60, %84, %56, %22, %11
-  %.051 = phi i64 [ %4, %11 ], [ %62, %56 ], [ %4, %22 ], [ %89, %84 ], [ %82, %.thread ], [ %71, %.thread60 ], [ %64, %63 ], [ %4, %19 ]
+  %.051 = phi i64 [ %4, %11 ], [ %62, %56 ], [ %89, %84 ], [ %4, %22 ], [ %71, %.thread60 ], [ %64, %63 ], [ %82, %.thread ], [ %4, %19 ]
   %90 = load i64, ptr %3, align 8, !tbaa !23
   %.not57 = icmp eq i64 %.051, %90
   br i1 %.not57, label %107, label %91
@@ -1761,7 +1761,7 @@ define range(i32 -1, 1) i32 @H5HL_get_size(ptr noundef %0, i64 noundef %1, ptr n
   br label %49
 
 49:                                               ; preds = %.thread20, %36, %45, %10
-  %.0 = phi i32 [ -1, %45 ], [ 0, %36 ], [ -1, %.thread20 ], [ 0, %10 ]
+  %.0 = phi i32 [ -1, %45 ], [ 0, %36 ], [ 0, %10 ], [ -1, %.thread20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1842,7 +1842,7 @@ define range(i32 -1, 1) i32 @H5HL_heapsize(ptr noundef %0, i64 noundef %1, ptr n
   br label %54
 
 54:                                               ; preds = %.thread21, %36, %50, %10
-  %.0 = phi i32 [ -1, %50 ], [ 0, %36 ], [ -1, %.thread21 ], [ 0, %10 ]
+  %.0 = phi i32 [ -1, %50 ], [ 0, %36 ], [ 0, %10 ], [ -1, %.thread21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

@@ -51,7 +51,7 @@ define hidden i32 @MuxImageFinalize(ptr noundef captures(none) %0) local_unnamed
   br label %.thread21
 
 .thread21:                                        ; preds = %.thread, %20, %17
-  %22 = phi i32 [ %16, %.thread ], [ %15, %20 ], [ %15, %17 ]
+  %22 = phi i32 [ %15, %20 ], [ %15, %17 ], [ %16, %.thread ]
   %23 = load i32, ptr %2, align 4, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %23, ptr %24, align 8, !tbaa !22
@@ -374,15 +374,15 @@ ChunkVerifyAndAssign.exit:                        ; preds = %68
   %141 = call ptr @MuxImageDelete(ptr noundef nonnull %47) #5
   br label %144
 
-.thread:                                          ; preds = %114, %92, %87, %89, %84, %82, %ChunkVerifyAndAssign.exit, %110, %101, %97, %95, %ChunkVerifyAndAssign.exit.thread, %20, %138, %._crit_edge, %45, %38, %30
-  %.074 = phi ptr [ null, %20 ], [ null, %30 ], [ null, %38 ], [ %47, %138 ], [ null, %45 ], [ %47, %._crit_edge ], [ %47, %ChunkVerifyAndAssign.exit.thread ], [ %47, %95 ], [ %47, %97 ], [ %47, %101 ], [ %47, %110 ], [ %47, %ChunkVerifyAndAssign.exit ], [ %47, %82 ], [ %47, %84 ], [ %47, %89 ], [ %47, %87 ], [ %47, %92 ], [ %47, %114 ]
+.thread:                                          ; preds = %114, %110, %101, %97, %95, %92, %89, %87, %84, %82, %ChunkVerifyAndAssign.exit, %ChunkVerifyAndAssign.exit.thread, %20, %138, %._crit_edge, %45, %38, %30
+  %.074 = phi ptr [ null, %30 ], [ null, %38 ], [ null, %45 ], [ %47, %._crit_edge ], [ %47, %138 ], [ null, %20 ], [ %47, %ChunkVerifyAndAssign.exit.thread ], [ %47, %ChunkVerifyAndAssign.exit ], [ %47, %82 ], [ %47, %84 ], [ %47, %87 ], [ %47, %89 ], [ %47, %92 ], [ %47, %95 ], [ %47, %97 ], [ %47, %101 ], [ %47, %110 ], [ %47, %114 ]
   %142 = call ptr @ChunkRelease(ptr noundef nonnull %5) #5
   %143 = call ptr @MuxImageDelete(ptr noundef %.074) #5
   call void @WebPMuxDelete(ptr noundef nonnull %18) #5
   br label %144
 
 144:                                              ; preds = %17, %14, %15, %8, %3, %.thread, %140
-  %.0 = phi ptr [ %18, %140 ], [ null, %3 ], [ null, %15 ], [ null, %8 ], [ null, %17 ], [ null, %14 ], [ null, %.thread ]
+  %.0 = phi ptr [ null, %.thread ], [ %18, %140 ], [ null, %3 ], [ null, %8 ], [ null, %15 ], [ null, %14 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -490,7 +490,7 @@ define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr noundef nonnull re
   %48 = icmp ugt i64 %47, %.03856
   br i1 %48, label %ChunkVerifyAndAssign.exit.thread, label %ChunkVerifyAndAssign.exit
 
-ChunkVerifyAndAssign.exit.thread:                 ; preds = %43, %33, %35
+ChunkVerifyAndAssign.exit.thread:                 ; preds = %33, %35, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -676,7 +676,7 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr noundef nonnul
   br label %49
 
 48:                                               ; preds = %37, %29
-  %.126 = phi i32 [ %34, %29 ], [ 0, %37 ]
+  %.126 = phi i32 [ 0, %37 ], [ %34, %29 ]
   %.not35 = icmp eq ptr %30, null
   br i1 %.not35, label %52, label %49
 
@@ -690,9 +690,9 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr noundef nonnul
   br label %52
 
 52:                                               ; preds = %49, %48, %11
-  %.027 = phi i32 [ %20, %11 ], [ %32, %48 ], [ %.12851, %49 ]
-  %.025 = phi i32 [ %28, %11 ], [ %.126, %48 ], [ %.12652, %49 ]
-  %.024 = phi i32 [ %.val.i, %11 ], [ 0, %48 ], [ %spec.select, %49 ]
+  %.027 = phi i32 [ %20, %11 ], [ %.12851, %49 ], [ %32, %48 ]
+  %.025 = phi i32 [ %28, %11 ], [ %.12652, %49 ], [ %.126, %48 ]
+  %.024 = phi i32 [ %.val.i, %11 ], [ %spec.select, %49 ], [ 0, %48 ]
   %53 = sext i32 %.027 to i64
   %54 = sext i32 %.025 to i64
   %55 = mul nsw i64 %54, %53
@@ -724,7 +724,7 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr noundef nonnul
   br label %63
 
 63:                                               ; preds = %61, %62, %52, %9
-  %.0 = phi i32 [ -2, %52 ], [ -2, %9 ], [ 1, %62 ], [ 1, %61 ]
+  %.0 = phi i32 [ -2, %9 ], [ -2, %52 ], [ 1, %62 ], [ 1, %61 ]
   ret i32 %.0
 }
 
@@ -787,7 +787,7 @@ define range(i32 -1, 2) i32 @WebPMuxGetChunk(ptr noundef readonly captures(addre
   br label %IsWPI.exit
 
 IsWPI.exit:                                       ; preds = %7, %7, %7, %22, %16, %3, %14
-  %.0 = phi i32 [ 0, %16 ], [ -1, %3 ], [ %15, %14 ], [ 1, %22 ], [ -1, %7 ], [ -1, %7 ], [ -1, %7 ]
+  %.0 = phi i32 [ %15, %14 ], [ -1, %3 ], [ 1, %22 ], [ 0, %16 ], [ -1, %7 ], [ -1, %7 ], [ -1, %7 ]
   ret i32 %.0
 }
 
@@ -845,13 +845,13 @@ define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr noundef nonnull readonly 
   br i1 %.not, label %30, label %.sink.split
 
 .sink.split:                                      ; preds = %24, %19, %14, %9, %4
-  %.sink45 = phi ptr [ %23, %19 ], [ %18, %14 ], [ %13, %9 ], [ %8, %4 ], [ %28, %24 ]
+  %.sink45 = phi ptr [ %8, %4 ], [ %13, %9 ], [ %18, %14 ], [ %23, %19 ], [ %28, %24 ]
   %29 = getelementptr inbounds nuw i8, ptr %.sink45, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false)
   br label %30
 
 30:                                               ; preds = %.sink.split, %3, %24, %19, %14, %9, %4
-  %.1 = phi i32 [ 0, %24 ], [ 0, %4 ], [ 0, %9 ], [ 0, %14 ], [ 0, %19 ], [ 0, %3 ], [ 1, %.sink.split ]
+  %.1 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %14 ], [ 0, %19 ], [ 0, %24 ], [ 0, %3 ], [ 1, %.sink.split ]
   ret i32 %.1
 }
 
@@ -967,7 +967,7 @@ MuxGetFrameInternal.exit.sink.split:              ; preds = %13, %32
   br label %MuxGetFrameInternal.exit
 
 MuxGetFrameInternal.exit:                         ; preds = %MuxGetFrameInternal.exit.sink.split, %26, %22, %7, %3
-  %.0 = phi i32 [ %8, %7 ], [ -1, %3 ], [ -2, %26 ], [ -1, %22 ], [ %69, %MuxGetFrameInternal.exit.sink.split ]
+  %.0 = phi i32 [ -1, %3 ], [ %8, %7 ], [ -1, %22 ], [ -2, %26 ], [ %69, %MuxGetFrameInternal.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

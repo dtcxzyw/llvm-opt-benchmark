@@ -1519,7 +1519,7 @@ blake2s_set_lastblock.exit:                       ; preds = %12, %26
   br label %33
 
 33:                                               ; preds = %10, %3, %6, %blake2s_set_lastblock.exit
-  %.019 = phi i32 [ 0, %blake2s_set_lastblock.exit ], [ -1, %3 ], [ -1, %6 ], [ -1, %10 ]
+  %.019 = phi i32 [ 0, %blake2s_set_lastblock.exit ], [ -1, %6 ], [ -1, %3 ], [ -1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.019
 }
@@ -1763,7 +1763,7 @@ blake2s_final.exit:                               ; preds = %.loopexit, %98, %bl
   br label %120
 
 120:                                              ; preds = %blake2s_init_key.exit.thread, %15, %6, %blake2s_final.exit
-  %.0 = phi i32 [ -1, %blake2s_init_key.exit.thread ], [ -1, %6 ], [ 0, %blake2s_final.exit ], [ -1, %15 ]
+  %.0 = phi i32 [ 0, %blake2s_final.exit ], [ -1, %6 ], [ -1, %15 ], [ -1, %blake2s_init_key.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }

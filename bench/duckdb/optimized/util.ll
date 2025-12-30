@@ -61,7 +61,7 @@ define noundef zeroext i1 @duckdb_je_multi_setting_parse_next(ptr noundef captur
   br label %34
 
 34:                                               ; preds = %21, %14, %18, %5, %11, %25
-  %.0 = phi i1 [ false, %25 ], [ true, %5 ], [ true, %14 ], [ true, %11 ], [ true, %18 ], [ true, %21 ]
+  %.0 = phi i1 [ false, %25 ], [ true, %11 ], [ true, %5 ], [ true, %18 ], [ true, %14 ], [ true, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }

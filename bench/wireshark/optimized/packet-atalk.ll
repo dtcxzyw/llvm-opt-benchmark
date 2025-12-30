@@ -1478,7 +1478,7 @@ is_ddp_address.exit.thread.sink.split:            ; preds = %112, %.thread182, %
   br label %is_ddp_address.exit.thread
 
 is_ddp_address.exit.thread:                       ; preds = %is_ddp_address.exit.thread.sink.split, %14, %4, %is_ddp_address.exit, %is_ddp_address.exit172
-  %.0 = phi i32 [ 0, %4 ], [ 0, %14 ], [ 0, %is_ddp_address.exit172 ], [ 0, %is_ddp_address.exit ], [ %160, %is_ddp_address.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %is_ddp_address.exit172 ], [ 0, %is_ddp_address.exit ], [ 0, %4 ], [ 0, %14 ], [ %160, %is_ddp_address.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1694,7 +1694,7 @@ is_ddp_address.exit162:                           ; preds = %14
   br label %is_ddp_address.exit.thread
 
 is_ddp_address.exit.thread:                       ; preds = %14, %6, %86, %79, %71, %66, %61, %56, %51, %123, %112, %106, %99, %92, %21, %is_ddp_address.exit, %is_ddp_address.exit162, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %21 ], [ 0, %is_ddp_address.exit ], [ 0, %is_ddp_address.exit162 ], [ 6, %79 ], [ 4, %86 ], [ 4, %51 ], [ 4, %56 ], [ 4, %61 ], [ 4, %66 ], [ 4, %71 ], [ 4, %123 ], [ 4, %112 ], [ 4, %106 ], [ 4, %99 ], [ 4, %92 ], [ 0, %6 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %is_ddp_address.exit162 ], [ 0, %is_ddp_address.exit ], [ 0, %21 ], [ 4, %86 ], [ 4, %51 ], [ 4, %56 ], [ 4, %61 ], [ 4, %66 ], [ 4, %71 ], [ 6, %79 ], [ 4, %123 ], [ 4, %112 ], [ 4, %106 ], [ 4, %99 ], [ 4, %92 ], [ 0, %6 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -2103,7 +2103,7 @@ is_ddp_address.exit.thread.sink.split:            ; preds = %.lr.ph, %50, %48, %
   br label %is_ddp_address.exit.thread
 
 is_ddp_address.exit.thread:                       ; preds = %is_ddp_address.exit.thread.sink.split, %14, %6, %is_ddp_address.exit, %is_ddp_address.exit77, %4
-  %.067 = phi i32 [ 0, %4 ], [ 0, %is_ddp_address.exit ], [ 0, %6 ], [ 0, %14 ], [ 0, %is_ddp_address.exit77 ], [ %76, %is_ddp_address.exit.thread.sink.split ]
+  %.067 = phi i32 [ 0, %4 ], [ 0, %is_ddp_address.exit77 ], [ 0, %is_ddp_address.exit ], [ 0, %6 ], [ 0, %14 ], [ %76, %is_ddp_address.exit.thread.sink.split ]
   ret i32 %.067
 }
 

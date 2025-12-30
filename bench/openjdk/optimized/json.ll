@@ -626,7 +626,7 @@ _ZN4JSON13skip_to_tokenEv.exit31.thread:          ; preds = %.lr.ph.i.preheader.
   br label %_ZN4JSON13skip_to_tokenEv.exit
 
 _ZN4JSON13skip_to_tokenEv.exit:                   ; preds = %10, %153, %124, %95, %55, %35, %158, %136, %129, %107, %100, %78, %_ZN4JSON13skip_to_tokenEv.exit31, %_ZN4JSON13skip_to_tokenEv.exit21, %45, %25, %164, %163, %74, %72, %70, %68, %66, %65, %_ZN4JSON13skip_to_tokenEv.exit31.thread, %_ZN4JSON13skip_to_tokenEv.exit21.thread
-  %.0 = phi i1 [ false, %163 ], [ false, %66 ], [ false, %95 ], [ false, %_ZN4JSON13skip_to_tokenEv.exit21.thread ], [ false, %35 ], [ false, %25 ], [ false, %124 ], [ false, %_ZN4JSON13skip_to_tokenEv.exit31.thread ], [ false, %153 ], [ false, %45 ], [ false, %65 ], [ false, %164 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ false, %55 ], [ true, %_ZN4JSON13skip_to_tokenEv.exit21 ], [ true, %_ZN4JSON13skip_to_tokenEv.exit31 ], [ %104, %100 ], [ false, %78 ], [ %133, %129 ], [ false, %107 ], [ %162, %158 ], [ false, %136 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %66 ], [ false, %_ZN4JSON13skip_to_tokenEv.exit21.thread ], [ false, %_ZN4JSON13skip_to_tokenEv.exit31.thread ], [ false, %65 ], [ false, %164 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ false, %163 ], [ false, %25 ], [ false, %45 ], [ true, %_ZN4JSON13skip_to_tokenEv.exit21 ], [ true, %_ZN4JSON13skip_to_tokenEv.exit31 ], [ %104, %100 ], [ false, %78 ], [ %133, %129 ], [ false, %107 ], [ %162, %158 ], [ false, %136 ], [ false, %35 ], [ false, %55 ], [ false, %95 ], [ false, %124 ], [ false, %153 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -1228,7 +1228,7 @@ _ZN4JSON4nextEv.exit:                             ; preds = %_ZN4JSON10expect_an
   br label %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit.thread
 
 _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit.thread: ; preds = %_ZN4JSON8mark_posEv.exit58, %.thread92, %61, %._crit_edge.i81, %187, %._crit_edge.i38, %113, %._crit_edge.i, %25, %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit, %_ZN4JSON4nextEv.exit, %71
-  %.0 = phi i1 [ false, %._crit_edge.i81 ], [ false, %71 ], [ false, %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit ], [ %198, %_ZN4JSON4nextEv.exit ], [ false, %._crit_edge.i ], [ false, %25 ], [ false, %187 ], [ false, %61 ], [ false, %113 ], [ false, %._crit_edge.i38 ], [ false, %.thread92 ], [ false, %_ZN4JSON8mark_posEv.exit58 ]
+  %.0 = phi i1 [ false, %71 ], [ %198, %_ZN4JSON4nextEv.exit ], [ false, %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit ], [ false, %25 ], [ false, %._crit_edge.i ], [ false, %113 ], [ false, %._crit_edge.i38 ], [ false, %187 ], [ false, %._crit_edge.i81 ], [ false, %61 ], [ false, %.thread92 ], [ false, %_ZN4JSON8mark_posEv.exit58 ]
   ret i1 %.0
 }
 
@@ -1659,7 +1659,7 @@ _ZN4JSON4nextEv.exit:                             ; preds = %_ZN4JSON10expect_an
   br label %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit.thread
 
 _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit.thread: ; preds = %_ZN4JSON8mark_posEv.exit22, %61, %._crit_edge.i45, %135, %._crit_edge.i, %25, %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit, %_ZN4JSON4nextEv.exit, %71
-  %.0 = phi i1 [ false, %._crit_edge.i45 ], [ false, %71 ], [ false, %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit ], [ %146, %_ZN4JSON4nextEv.exit ], [ false, %._crit_edge.i ], [ false, %61 ], [ false, %135 ], [ false, %25 ], [ false, %_ZN4JSON8mark_posEv.exit22 ]
+  %.0 = phi i1 [ false, %71 ], [ %146, %_ZN4JSON4nextEv.exit ], [ false, %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit ], [ false, %25 ], [ false, %._crit_edge.i ], [ false, %135 ], [ false, %._crit_edge.i45 ], [ false, %61 ], [ false, %_ZN4JSON8mark_posEv.exit22 ]
   ret i1 %.0
 }
 
@@ -1796,7 +1796,7 @@ _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit19: ; preds = %_ZN4JSON4skipEm.e
   br label %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit.thread
 
 _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit.thread: ; preds = %._crit_edge.i16, %_ZN4JSON4skipEm.exit.thread, %._crit_edge.i, %27, %53, %51, %31
-  %.0 = phi i1 [ %54, %53 ], [ false, %31 ], [ false, %._crit_edge.i16 ], [ %52, %51 ], [ false, %_ZN4JSON4skipEm.exit.thread ], [ false, %._crit_edge.i ], [ false, %27 ]
+  %.0 = phi i1 [ false, %31 ], [ %52, %51 ], [ %54, %53 ], [ false, %27 ], [ false, %._crit_edge.i ], [ false, %_ZN4JSON4skipEm.exit.thread ], [ false, %._crit_edge.i16 ]
   ret i1 %.0
 }
 
@@ -1911,7 +1911,7 @@ _ZN4JSON4nextEv.exit.i:                           ; preds = %_ZN4JSON4nextEv.exi
   br label %_ZN4JSON4skipEm.exit
 
 _ZN4JSON4skipEm.exit:                             ; preds = %.lr.phthread-pre-split.i, %_ZN4JSON4nextEv.exit.i, %47, %41, %33, %58
-  %.0 = phi i1 [ false, %41 ], [ false, %58 ], [ false, %33 ], [ true, %47 ], [ true, %_ZN4JSON4nextEv.exit.i ], [ true, %.lr.phthread-pre-split.i ]
+  %.0 = phi i1 [ false, %58 ], [ false, %33 ], [ false, %41 ], [ true, %47 ], [ true, %_ZN4JSON4nextEv.exit.i ], [ true, %.lr.phthread-pre-split.i ]
   ret i1 %.0
 }
 
@@ -2289,7 +2289,7 @@ _ZN4JSON4nextEv.exit.i:                           ; preds = %._crit_edge, %.lr.p
   br i1 %.not.i, label %_ZN4JSON4skipEm.exit, label %.lr.phthread-pre-split.i, !llvm.loop !13
 
 _ZN4JSON4skipEm.exit:                             ; preds = %.lr.phthread-pre-split.i, %_ZN4JSON4nextEv.exit.i, %4, %._crit_edge, %22, %20
-  %28 = phi i1 [ false, %20 ], [ true, %._crit_edge ], [ false, %22 ], [ true, %4 ], [ true, %_ZN4JSON4nextEv.exit.i ], [ true, %.lr.phthread-pre-split.i ]
+  %28 = phi i1 [ true, %._crit_edge ], [ false, %22 ], [ false, %20 ], [ true, %4 ], [ true, %_ZN4JSON4nextEv.exit.i ], [ true, %.lr.phthread-pre-split.i ]
   ret i1 %28
 }
 

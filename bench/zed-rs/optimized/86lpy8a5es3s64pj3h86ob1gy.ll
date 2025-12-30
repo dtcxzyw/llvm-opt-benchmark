@@ -302,7 +302,7 @@ define hidden void @"_ZN117_$LT$ui..components..button..button_like..ButtonLike$
   unreachable
 
 .body:                                            ; preds = %12, %8, %17, %.body6
-  %.pn = phi { ptr, i32 } [ %38, %.body6 ], [ %9, %17 ], [ %9, %12 ], [ %9, %8 ]
+  %.pn = phi { ptr, i32 } [ %38, %.body6 ], [ %9, %12 ], [ %9, %8 ], [ %9, %17 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$ui..components..button..button_like..ButtonLike$GT$17heaeafe0aa0e2e503E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %1) #27
           to label %49 unwind label %47
 
@@ -569,7 +569,7 @@ define hidden void @"_ZN117_$LT$ui..components..button..button_like..ButtonLike$
   unreachable
 
 .body:                                            ; preds = %12, %8, %17, %.body6
-  %.pn = phi { ptr, i32 } [ %38, %.body6 ], [ %9, %17 ], [ %9, %12 ], [ %9, %8 ]
+  %.pn = phi { ptr, i32 } [ %38, %.body6 ], [ %9, %12 ], [ %9, %8 ], [ %9, %17 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$ui..components..button..button_like..ButtonLike$GT$17heaeafe0aa0e2e503E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %1) #27
           to label %49 unwind label %47
 
@@ -690,7 +690,7 @@ define hidden void @"_ZN117_$LT$ui..components..button..button_like..ButtonLike$
   unreachable
 
 .body:                                            ; preds = %12, %8, %17, %.body6
-  %.pn = phi { ptr, i32 } [ %38, %.body6 ], [ %9, %17 ], [ %9, %12 ], [ %9, %8 ]
+  %.pn = phi { ptr, i32 } [ %38, %.body6 ], [ %9, %12 ], [ %9, %8 ], [ %9, %17 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$ui..components..button..button_like..ButtonLike$GT$17heaeafe0aa0e2e503E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %1) #27
           to label %49 unwind label %47
 
@@ -1555,7 +1555,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %31, %23, %11
-  %common.resume.op.i = phi { ptr, i32 } [ %24, %23 ], [ %24, %31 ], [ %12, %11 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %24, %31 ], [ %24, %23 ], [ %12, %11 ]
   resume { ptr, i32 } %common.resume.op.i
 
 32:                                               ; preds = %11
@@ -2057,7 +2057,7 @@ define hidden void @"_ZN4core3ptr141drop_in_place$LT$$LT$quick_action_bar..Quick
   br label %.body
 
 .body:                                            ; preds = %34, %26, %10
-  %.pn = phi { ptr, i32 } [ %11, %10 ], [ %27, %26 ], [ %27, %34 ]
+  %.pn = phi { ptr, i32 } [ %11, %10 ], [ %27, %34 ], [ %27, %26 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void @"_ZN4core3ptr46drop_in_place$LT$gpui..window..FocusHandle$GT$17h0f47dfba4d82a571E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %35) #27
           to label %common.resume unwind label %52
@@ -2104,7 +2104,7 @@ define hidden void @"_ZN4core3ptr141drop_in_place$LT$$LT$quick_action_bar..Quick
   unreachable
 
 common.resume:                                    ; preds = %.body, %37, %43
-  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %38, %43 ], [ %.pn, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %38, %43 ], [ %38, %37 ], [ %.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr46drop_in_place$LT$gpui..window..FocusHandle$GT$17h0f47dfba4d82a571E.exit": ; preds = %44, %49
@@ -3283,7 +3283,7 @@ define hidden noalias noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h86
   unreachable
 
 common.resume:                                    ; preds = %31, %21, %24, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %22, %21 ], [ %lpad.thr_comm, %31 ], [ %25, %24 ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %lpad.thr_comm, %31 ], [ %22, %21 ], [ %25, %24 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr386drop_in_place$LT$gpui..window..ViewContext$LT$quick_action_bar..QuickActionBar$GT$..observe$LT$editor..Editor$C$gpui..view..View$LT$editor..Editor$GT$$C$$LT$quick_action_bar..QuickActionBar$u20$as$u20$workspace..toolbar..ToolbarItemView$GT$..set_active_pane_item..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h93f5136d2f400ac9E.exit": ; preds = %13
@@ -3329,7 +3329,7 @@ common.resume:                                    ; preds = %31, %21, %24, %15
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
   unreachable
 
-31:                                               ; preds = %.noexc21, %3, %10
+31:                                               ; preds = %3, %10, %.noexc21
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr386drop_in_place$LT$gpui..window..ViewContext$LT$quick_action_bar..QuickActionBar$GT$..observe$LT$editor..Editor$C$gpui..view..View$LT$editor..Editor$GT$$C$$LT$quick_action_bar..QuickActionBar$u20$as$u20$workspace..toolbar..ToolbarItemView$GT$..set_active_pane_item..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h93f5136d2f400ac9E"(ptr noalias noundef align 8 dereferenceable(40) %2) #27
@@ -6154,7 +6154,7 @@ define hidden void @"_ZN16quick_action_bar9repl_menu50_$LT$impl$u20$quick_action
 "_ZN4core3ptr47drop_in_place$LT$ui..components..icon..Icon$GT$17h196cdb5c1f5ea7aeE.exit": ; preds = %20, %17, %25
   resume { ptr, i32 } %lpad.thr_comm
 
-17:                                               ; preds = %.noexc2, %4, %8, %.noexc
+17:                                               ; preds = %4, %8, %.noexc, %.noexc2
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1088)
@@ -6711,7 +6711,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17ha45964bebd1b55beE.exit: ; preds = %.no
           to label %166 unwind label %122
 
 "_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17h2d538fdc70213d55E.exit107": ; preds = %382, %379, %387, %311, %308, %316, %267, %264, %272, %223, %220, %228, %170, %167, %175, %160, %157, %165, %122
-  %.pn60 = phi { ptr, i32 } [ %123, %122 ], [ %.pn52, %316 ], [ %.pn, %382 ], [ %.pn58, %170 ], [ %127, %160 ], [ %.pn56, %223 ], [ %.pn58, %167 ], [ %.pn54, %267 ], [ %.pn56, %220 ], [ %.pn52, %311 ], [ %.pn54, %264 ], [ %.pn52, %308 ], [ %.pn, %379 ], [ %127, %165 ], [ %127, %157 ], [ %.pn58, %175 ], [ %.pn56, %228 ], [ %.pn54, %272 ], [ %.pn, %387 ]
+  %.pn60 = phi { ptr, i32 } [ %123, %122 ], [ %127, %165 ], [ %127, %157 ], [ %127, %160 ], [ %.pn58, %175 ], [ %.pn58, %167 ], [ %.pn58, %170 ], [ %.pn56, %228 ], [ %.pn56, %220 ], [ %.pn56, %223 ], [ %.pn54, %272 ], [ %.pn54, %264 ], [ %.pn54, %267 ], [ %.pn52, %316 ], [ %.pn52, %308 ], [ %.pn52, %311 ], [ %.pn, %387 ], [ %.pn, %379 ], [ %.pn, %382 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1213)
   call void @llvm.experimental.noalias.scope.decl(metadata !1216)
   %114 = load i64, ptr %59, align 8, !range !49, !alias.scope !1219, !noundef !10

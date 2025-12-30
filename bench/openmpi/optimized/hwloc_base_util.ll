@@ -617,7 +617,7 @@ split:                                            ; preds = %hwloc_get_numanode_
   br label %split.thread
 
 split.thread:                                     ; preds = %.loopexit, %75, %split
-  %.044.lcssa79 = phi i32 [ %.145, %split ], [ %.145, %75 ], [ %.04457, %.loopexit ]
+  %.044.lcssa79 = phi i32 [ %.145, %75 ], [ %.145, %split ], [ %.04457, %.loopexit ]
   %.not64 = icmp eq i32 %.044.lcssa79, 0
   br i1 %.not64, label %._crit_edge, label %.lr.ph62.preheader
 
@@ -835,8 +835,8 @@ hwloc_get_obj_by_type.exit.i:                     ; preds = %.preheader.i, %60
   br i1 %52, label %hwloc_get_obj_by_type.exit.thread.i, label %53
 
 hwloc_get_obj_by_type.exit.thread.i:              ; preds = %60, %hwloc_get_obj_by_type.exit.i
-  %.117.lcssa.i = phi i32 [ %.218.i, %60 ], [ %.11727.i, %hwloc_get_obj_by_type.exit.i ]
-  %.1.lcssa.i = phi i1 [ %.2.i, %60 ], [ %.129.i, %hwloc_get_obj_by_type.exit.i ]
+  %.117.lcssa.i = phi i32 [ %.11727.i, %hwloc_get_obj_by_type.exit.i ], [ %.218.i, %60 ]
+  %.1.lcssa.i = phi i1 [ %.129.i, %hwloc_get_obj_by_type.exit.i ], [ %.2.i, %60 ]
   %.not22.i = select i1 %46, i1 true, i1 %.1.lcssa.i
   br i1 %.not22.i, label %64, label %.preheader.outer.i, !llvm.loop !52
 
@@ -860,8 +860,8 @@ hwloc_get_obj_by_type.exit.thread.thread.i:       ; preds = %.preheader.i
   br label %60
 
 60:                                               ; preds = %56, %53
-  %.218.i = phi i32 [ %spec.select.i, %56 ], [ %.11727.i, %53 ]
-  %.2.i = phi i1 [ %spec.select24.i, %56 ], [ %.129.i, %53 ]
+  %.218.i = phi i32 [ %.11727.i, %53 ], [ %spec.select.i, %56 ]
+  %.2.i = phi i1 [ %.129.i, %53 ], [ %spec.select24.i, %56 ]
   %61 = add i32 %.01428.i, 1
   %62 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !50
   %63 = tail call i32 @hwloc_get_type_depth(ptr noundef %62, i32 noundef range(i32 14, 13) %.01335.i) #18
@@ -881,7 +881,7 @@ fill_cache_line_size.exit:                        ; preds = %hwloc_get_obj_by_ty
   br label %67
 
 67:                                               ; preds = %42, %9, %fill_cache_line_size.exit, %prte_hwloc_base_topology_set_flags.exit.thread
-  %.0 = phi i32 [ 0, %9 ], [ -8, %prte_hwloc_base_topology_set_flags.exit.thread ], [ 0, %fill_cache_line_size.exit ], [ %44, %42 ]
+  %.0 = phi i32 [ -8, %prte_hwloc_base_topology_set_flags.exit.thread ], [ 0, %fill_cache_line_size.exit ], [ 0, %9 ], [ %44, %42 ]
   ret i32 %.0
 }
 
@@ -1089,7 +1089,7 @@ prte_hwloc_base_topology_set_flags.exit.thread:   ; preds = %28, %prte_hwloc_bas
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !62
 
 .loopexit:                                        ; preds = %81, %.lr.ph, %46, %._crit_edge
-  %82 = phi ptr [ %36, %.lr.ph ], [ %.pre, %._crit_edge ], [ %36, %46 ], [ %36, %81 ]
+  %82 = phi ptr [ %36, %46 ], [ %.pre, %._crit_edge ], [ %36, %.lr.ph ], [ %36, %81 ]
   %83 = tail call ptr @hwloc_topology_get_support(ptr noundef %82) #18
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !63
@@ -1101,7 +1101,7 @@ prte_hwloc_base_topology_set_flags.exit.thread:   ; preds = %28, %prte_hwloc_bas
   br label %88
 
 88:                                               ; preds = %37, %39, %45, %19, %21, %27, %13, %.loopexit, %prte_hwloc_base_topology_set_flags.exit.thread
-  %.037 = phi i32 [ 0, %.loopexit ], [ -8, %13 ], [ -8, %prte_hwloc_base_topology_set_flags.exit.thread ], [ -8, %19 ], [ -8, %27 ], [ -8, %21 ], [ -8, %45 ], [ -8, %39 ], [ -8, %37 ]
+  %.037 = phi i32 [ -8, %prte_hwloc_base_topology_set_flags.exit.thread ], [ 0, %.loopexit ], [ -8, %13 ], [ -8, %27 ], [ -8, %21 ], [ -8, %19 ], [ -8, %45 ], [ -8, %39 ], [ -8, %37 ]
   ret i32 %.037
 }
 
@@ -1134,8 +1134,8 @@ hwloc_get_obj_by_type.exit:                       ; preds = %.preheader, %15
   br i1 %7, label %hwloc_get_obj_by_type.exit.thread, label %8
 
 hwloc_get_obj_by_type.exit.thread:                ; preds = %hwloc_get_obj_by_type.exit, %15
-  %.117.lcssa = phi i32 [ %.218, %15 ], [ %.11727, %hwloc_get_obj_by_type.exit ]
-  %.1.lcssa = phi i1 [ %.2, %15 ], [ %.129, %hwloc_get_obj_by_type.exit ]
+  %.117.lcssa = phi i32 [ %.11727, %hwloc_get_obj_by_type.exit ], [ %.218, %15 ]
+  %.1.lcssa = phi i1 [ %.129, %hwloc_get_obj_by_type.exit ], [ %.2, %15 ]
   %.not22 = select i1 %1, i1 true, i1 %.1.lcssa
   br i1 %.not22, label %19, label %.preheader.outer, !llvm.loop !52
 
@@ -1159,8 +1159,8 @@ hwloc_get_obj_by_type.exit.thread.thread:         ; preds = %.preheader
   br label %15
 
 15:                                               ; preds = %11, %8
-  %.218 = phi i32 [ %spec.select, %11 ], [ %.11727, %8 ]
-  %.2 = phi i1 [ %spec.select24, %11 ], [ %.129, %8 ]
+  %.218 = phi i32 [ %.11727, %8 ], [ %spec.select, %11 ]
+  %.2 = phi i1 [ %.129, %8 ], [ %spec.select24, %11 ]
   %16 = add i32 %.01428, 1
   %17 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !50
   %18 = tail call i32 @hwloc_get_type_depth(ptr noundef %17, i32 noundef range(i32 14, 13) %.01335) #18
@@ -1247,7 +1247,7 @@ define zeroext i1 @prte_hwloc_base_single_cpu(ptr noundef %0) local_unnamed_addr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %1, %._crit_edge.loopexit
-  %.09 = phi i1 [ %9, %._crit_edge.loopexit ], [ false, %1 ], [ false, %5 ]
+  %.09 = phi i1 [ false, %1 ], [ %9, %._crit_edge.loopexit ], [ false, %5 ]
   ret i1 %.09
 }
 
@@ -1328,7 +1328,7 @@ define i32 @prte_hwloc_base_get_npus(ptr noundef %0, i1 noundef zeroext %1, ptr 
   br label %hwloc_get_nbobjs_inside_cpuset_by_type.exit
 
 hwloc_get_nbobjs_inside_cpuset_by_type.exit:      ; preds = %28, %20, %19, %17, %31
-  %.012 = phi i32 [ %32, %31 ], [ 0, %17 ], [ -1, %19 ], [ 0, %20 ], [ %.1.i.i, %28 ]
+  %.012 = phi i32 [ %32, %31 ], [ -1, %19 ], [ 0, %17 ], [ 0, %20 ], [ %.1.i.i, %28 ]
   tail call void @hwloc_bitmap_free(ptr noundef %.0) #18
   br label %33
 
@@ -1492,7 +1492,7 @@ hwloc_get_nbobjs_by_type.exit.thread:             ; preds = %29, %hwloc_get_nbob
   br label %hwloc_get_nbobjs_by_type.exit.thread23
 
 hwloc_get_nbobjs_by_type.exit.thread23:           ; preds = %hwloc_get_numanode_obj_by_os_index.exit, %.preheader25, %29, %hwloc_get_nbobjs_by_type.exit, %4, %hwloc_get_nbobjs_by_type.exit.thread
-  %.0 = phi i32 [ 0, %29 ], [ 0, %4 ], [ 0, %hwloc_get_nbobjs_by_type.exit.thread ], [ %31, %hwloc_get_nbobjs_by_type.exit ], [ 0, %.preheader25 ], [ %spec.select, %hwloc_get_numanode_obj_by_os_index.exit ]
+  %.0 = phi i32 [ 0, %hwloc_get_nbobjs_by_type.exit.thread ], [ 0, %4 ], [ %31, %hwloc_get_nbobjs_by_type.exit ], [ 0, %29 ], [ 0, %.preheader25 ], [ %spec.select, %hwloc_get_numanode_obj_by_os_index.exit ]
   ret i32 %.0
 }
 
@@ -1583,7 +1583,7 @@ hwloc_get_numanode_obj_by_os_index.exit.thread:   ; preds = %17, %12, %hwloc_get
   br label %hwloc_get_obj_by_type.exit
 
 hwloc_get_obj_by_type.exit:                       ; preds = %hwloc_get_numanode_obj_by_os_index.exit, %hwloc_get_numanode_obj_by_os_index.exit.thread, %.preheader25, %35, %33, %5
-  %.0 = phi ptr [ %36, %35 ], [ null, %5 ], [ null, %33 ], [ null, %.preheader25 ], [ %.0.i.i, %hwloc_get_numanode_obj_by_os_index.exit ], [ null, %hwloc_get_numanode_obj_by_os_index.exit.thread ]
+  %.0 = phi ptr [ null, %5 ], [ %36, %35 ], [ null, %33 ], [ null, %.preheader25 ], [ %.0.i.i, %hwloc_get_numanode_obj_by_os_index.exit ], [ null, %hwloc_get_numanode_obj_by_os_index.exit.thread ]
   ret ptr %.0
 }
 
@@ -1783,8 +1783,8 @@ prte_hwloc_base_get_obj_by_type.exit86.i:         ; preds = %92
   br label %prte_hwloc_base_get_obj_by_type.exit86.thread.i
 
 prte_hwloc_base_get_obj_by_type.exit86.thread.i:  ; preds = %prte_hwloc_base_get_obj_by_type.exit86.i, %92
-  %.0.i85123.i = phi i1 [ %95, %prte_hwloc_base_get_obj_by_type.exit86.i ], [ true, %92 ]
-  %96 = phi i32 [ %spec.select126.i, %prte_hwloc_base_get_obj_by_type.exit86.i ], [ 3, %92 ]
+  %.0.i85123.i = phi i1 [ true, %92 ], [ %95, %prte_hwloc_base_get_obj_by_type.exit86.i ]
+  %96 = phi i32 [ 3, %92 ], [ %spec.select126.i, %prte_hwloc_base_get_obj_by_type.exit86.i ]
   %97 = tail call i32 @prte_hwloc_base_get_npus(ptr noundef %1, i1 noundef zeroext %.0.i85123.i, ptr noundef null, ptr noundef nonnull %90)
   %98 = mul i32 %97, %88
   %99 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -2003,7 +2003,7 @@ package_core_to_cpu_set.exit:                     ; preds = %.loopexit.i130
   br i1 %.not121, label %.sink.split, label %.lr.ph168, !llvm.loop !92
 
 .sink.split:                                      ; preds = %78, %.loopexit, %161, %prte_hwloc_base_get_obj_by_type.exit86.thread.i, %108, %41
-  %.sink = phi ptr [ %43, %41 ], [ %85, %prte_hwloc_base_get_obj_by_type.exit86.thread.i ], [ %162, %.loopexit ], [ %85, %108 ], [ %162, %161 ], [ %43, %78 ]
+  %.sink = phi ptr [ %43, %41 ], [ %85, %108 ], [ %85, %prte_hwloc_base_get_obj_by_type.exit86.thread.i ], [ %162, %161 ], [ %162, %.loopexit ], [ %43, %78 ]
   tail call void @PMIx_Argv_free(ptr noundef nonnull %.sink) #18
   br label %200
 
@@ -2015,28 +2015,28 @@ package_core_to_cpu_set.exit:                     ; preds = %.loopexit.i130
   br i1 %.not, label %.sink.split243, label %.lr.ph173, !llvm.loop !93
 
 .sink.split243.sink.split.sink.split:             ; preds = %112, %53, %.lr.ph168, %.lr.ph159, %176
-  %.lcssa.sink = phi ptr [ %165, %.lr.ph168 ], [ %165, %.lr.ph159 ], [ %54, %53 ], [ %21, %176 ], [ %113, %112 ]
-  %.sink245.ph = phi ptr [ %21, %.lr.ph168 ], [ %21, %.lr.ph159 ], [ %43, %53 ], [ %162, %176 ], [ %85, %112 ]
-  %.sink244.ph.ph = phi ptr [ %162, %.lr.ph168 ], [ %162, %.lr.ph159 ], [ %21, %53 ], [ %169, %176 ], [ %21, %112 ]
-  %.0.ph.ph.ph = phi i32 [ -1, %.lr.ph168 ], [ -13, %.lr.ph159 ], [ -1, %53 ], [ -13, %176 ], [ -1, %112 ]
+  %.lcssa.sink = phi ptr [ %21, %176 ], [ %165, %.lr.ph159 ], [ %165, %.lr.ph168 ], [ %54, %53 ], [ %113, %112 ]
+  %.sink245.ph = phi ptr [ %162, %176 ], [ %21, %.lr.ph159 ], [ %21, %.lr.ph168 ], [ %43, %53 ], [ %85, %112 ]
+  %.sink244.ph.ph = phi ptr [ %169, %176 ], [ %162, %.lr.ph159 ], [ %162, %.lr.ph168 ], [ %21, %53 ], [ %21, %112 ]
+  %.0.ph.ph.ph = phi i32 [ -13, %176 ], [ -13, %.lr.ph159 ], [ -1, %.lr.ph168 ], [ -1, %53 ], [ -1, %112 ]
   tail call void @PMIx_Argv_free(ptr noundef %.lcssa.sink) #18
   br label %.sink.split243.sink.split
 
-.sink.split243.sink.split:                        ; preds = %84, %prte_hwloc_base_get_obj_by_type.exit.i128, %.sink.split243.sink.split.sink.split
-  %.sink245 = phi ptr [ %.sink245.ph, %.sink.split243.sink.split.sink.split ], [ %85, %prte_hwloc_base_get_obj_by_type.exit.i128 ], [ %85, %84 ]
-  %.sink244.ph = phi ptr [ %.sink244.ph.ph, %.sink.split243.sink.split.sink.split ], [ %21, %prte_hwloc_base_get_obj_by_type.exit.i128 ], [ %21, %84 ]
-  %.0.ph.ph = phi i32 [ %.0.ph.ph.ph, %.sink.split243.sink.split.sink.split ], [ -13, %prte_hwloc_base_get_obj_by_type.exit.i128 ], [ -13, %84 ]
+.sink.split243.sink.split:                        ; preds = %prte_hwloc_base_get_obj_by_type.exit.i128, %84, %.sink.split243.sink.split.sink.split
+  %.sink245 = phi ptr [ %.sink245.ph, %.sink.split243.sink.split.sink.split ], [ %85, %84 ], [ %85, %prte_hwloc_base_get_obj_by_type.exit.i128 ]
+  %.sink244.ph = phi ptr [ %.sink244.ph.ph, %.sink.split243.sink.split.sink.split ], [ %21, %84 ], [ %21, %prte_hwloc_base_get_obj_by_type.exit.i128 ]
+  %.0.ph.ph = phi i32 [ %.0.ph.ph.ph, %.sink.split243.sink.split.sink.split ], [ -13, %84 ], [ -13, %prte_hwloc_base_get_obj_by_type.exit.i128 ]
   tail call void @PMIx_Argv_free(ptr noundef nonnull %.sink245) #18
   br label %.sink.split243
 
 .sink.split243:                                   ; preds = %200, %package_core_to_cpu_set.exit, %.sink.split243.sink.split, %20
-  %.sink244 = phi ptr [ %.sink244.ph, %.sink.split243.sink.split ], [ %21, %20 ], [ %21, %package_core_to_cpu_set.exit ], [ %21, %200 ]
-  %.0.ph = phi i32 [ %.0.ph.ph, %.sink.split243.sink.split ], [ 0, %20 ], [ 0, %200 ], [ %.3.i, %package_core_to_cpu_set.exit ]
+  %.sink244 = phi ptr [ %21, %20 ], [ %.sink244.ph, %.sink.split243.sink.split ], [ %21, %package_core_to_cpu_set.exit ], [ %21, %200 ]
+  %.0.ph = phi i32 [ 0, %20 ], [ %.0.ph.ph, %.sink.split243.sink.split ], [ 0, %200 ], [ %.3.i, %package_core_to_cpu_set.exit ]
   tail call void @PMIx_Argv_free(ptr noundef nonnull %.sink244) #18
   br label %203
 
 203:                                              ; preds = %.sink.split243, %7, %9, %4
-  %.0 = phi i32 [ -5, %9 ], [ -8, %4 ], [ -5, %7 ], [ %.0.ph, %.sink.split243 ]
+  %.0 = phi i32 [ -8, %4 ], [ -5, %9 ], [ -5, %7 ], [ %.0.ph, %.sink.split243 ]
   ret i32 %.0
 }
 
@@ -2096,7 +2096,7 @@ define zeroext i16 @prte_hwloc_base_get_relative_locality(ptr noundef %0, ptr no
   br i1 %.old49, label %.lr.ph.backedge, label %._crit_edge
 
 .lr.ph.backedge:                                  ; preds = %21, %16
-  %.04347.be = phi i32 [ %19, %16 ], [ %.old, %21 ]
+  %.04347.be = phi i32 [ %.old, %21 ], [ %19, %16 ]
   br label %.lr.ph, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %21, %16, %8
@@ -2326,7 +2326,7 @@ define ptr @prte_hwloc_base_find_coprocessors(ptr noundef %0) local_unnamed_addr
   br label %66
 
 66:                                               ; preds = %._crit_edge.thread, %57, %63, %5, %7, %13
-  %.0 = phi ptr [ null, %5 ], [ null, %13 ], [ null, %7 ], [ %.023, %63 ], [ %.023, %57 ], [ %.023, %._crit_edge.thread ]
+  %.0 = phi ptr [ null, %13 ], [ null, %7 ], [ null, %5 ], [ %.023, %63 ], [ %.023, %57 ], [ %.023, %._crit_edge.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -2596,7 +2596,7 @@ define void @prte_hwloc_build_map(ptr noundef %0, ptr noundef %1, i1 noundef zer
   br label %.critedge24
 
 .critedge24:                                      ; preds = %20, %24, %9, %.lr.ph33.split, %.critedge
-  %.020 = phi i32 [ %28, %.critedge ], [ 0, %24 ], [ 0, %.lr.ph33.split ], [ 0, %9 ], [ 0, %20 ]
+  %.020 = phi i32 [ %28, %.critedge ], [ 0, %.lr.ph33.split ], [ 0, %9 ], [ 0, %24 ], [ 0, %20 ]
   %29 = tail call i32 @hwloc_bitmap_set(ptr noundef %3, i32 noundef %.020) #18
   %30 = tail call i32 @hwloc_bitmap_next(ptr noundef %1, i32 noundef %.01932) #19
   %31 = add i32 %.02129, 1
@@ -2657,7 +2657,7 @@ hwloc_get_nbobjs_by_type.exit.thread.i:           ; preds = %hwloc_get_nbobjs_by
   br label %prte_hwloc_base_get_nbobjs_by_type.exit
 
 prte_hwloc_base_get_nbobjs_by_type.exit:          ; preds = %19, %hwloc_get_nbobjs_by_type.exit.i, %hwloc_get_nbobjs_by_type.exit.thread.i
-  %.0.i = phi i32 [ 0, %19 ], [ %21, %hwloc_get_nbobjs_by_type.exit.i ], [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i ]
+  %.0.i = phi i32 [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i ], [ %21, %hwloc_get_nbobjs_by_type.exit.i ], [ 0, %19 ]
   %23 = tail call noalias ptr @hwloc_bitmap_alloc() #18
   %24 = tail call i32 @hwloc_get_type_depth(ptr noundef %2, i32 noundef 3) #18
   switch i32 %24, label %hwloc_get_nbobjs_by_type.exit.i59 [
@@ -2675,7 +2675,7 @@ hwloc_get_nbobjs_by_type.exit.thread.i57:         ; preds = %hwloc_get_nbobjs_by
   br label %prte_hwloc_base_get_nbobjs_by_type.exit60
 
 prte_hwloc_base_get_nbobjs_by_type.exit60:        ; preds = %prte_hwloc_base_get_nbobjs_by_type.exit, %hwloc_get_nbobjs_by_type.exit.i59, %hwloc_get_nbobjs_by_type.exit.thread.i57
-  %.0.i58 = phi i32 [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit ], [ %25, %hwloc_get_nbobjs_by_type.exit.i59 ], [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i57 ]
+  %.0.i58 = phi i32 [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i57 ], [ %25, %hwloc_get_nbobjs_by_type.exit.i59 ], [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit ]
   %27 = tail call i32 @hwloc_get_type_depth(ptr noundef %2, i32 noundef 2) #18
   switch i32 %27, label %hwloc_get_nbobjs_by_type.exit.i63 [
     i32 -1, label %prte_hwloc_base_get_nbobjs_by_type.exit64
@@ -2692,7 +2692,7 @@ hwloc_get_nbobjs_by_type.exit.thread.i61:         ; preds = %hwloc_get_nbobjs_by
   br label %prte_hwloc_base_get_nbobjs_by_type.exit64
 
 prte_hwloc_base_get_nbobjs_by_type.exit64:        ; preds = %prte_hwloc_base_get_nbobjs_by_type.exit60, %hwloc_get_nbobjs_by_type.exit.i63, %hwloc_get_nbobjs_by_type.exit.thread.i61
-  %.0.i62 = phi i32 [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit60 ], [ %28, %hwloc_get_nbobjs_by_type.exit.i63 ], [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i61 ]
+  %.0.i62 = phi i32 [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i61 ], [ %28, %hwloc_get_nbobjs_by_type.exit.i63 ], [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit60 ]
   %.0.i58.fr = freeze i32 %.0.i58
   %.0.i62.fr = freeze i32 %.0.i62
   %30 = icmp ne i32 %.0.i58.fr, %.0.i62.fr
@@ -2934,7 +2934,7 @@ hwloc_get_nbobjs_by_type.exit.thread.i:           ; preds = %hwloc_get_nbobjs_by
   br label %prte_hwloc_base_get_nbobjs_by_type.exit
 
 prte_hwloc_base_get_nbobjs_by_type.exit:          ; preds = %17, %hwloc_get_nbobjs_by_type.exit.i, %hwloc_get_nbobjs_by_type.exit.thread.i
-  %.0.i = phi i32 [ 0, %17 ], [ %19, %hwloc_get_nbobjs_by_type.exit.i ], [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i ]
+  %.0.i = phi i32 [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i ], [ %19, %hwloc_get_nbobjs_by_type.exit.i ], [ 0, %17 ]
   %21 = tail call noalias ptr @hwloc_bitmap_alloc() #18
   %22 = tail call i32 @hwloc_get_type_depth(ptr noundef %2, i32 noundef 3) #18
   switch i32 %22, label %hwloc_get_nbobjs_by_type.exit.i56 [
@@ -2952,7 +2952,7 @@ hwloc_get_nbobjs_by_type.exit.thread.i54:         ; preds = %hwloc_get_nbobjs_by
   br label %prte_hwloc_base_get_nbobjs_by_type.exit57
 
 prte_hwloc_base_get_nbobjs_by_type.exit57:        ; preds = %prte_hwloc_base_get_nbobjs_by_type.exit, %hwloc_get_nbobjs_by_type.exit.i56, %hwloc_get_nbobjs_by_type.exit.thread.i54
-  %.0.i55 = phi i32 [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit ], [ %23, %hwloc_get_nbobjs_by_type.exit.i56 ], [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i54 ]
+  %.0.i55 = phi i32 [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i54 ], [ %23, %hwloc_get_nbobjs_by_type.exit.i56 ], [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit ]
   %25 = tail call i32 @hwloc_get_type_depth(ptr noundef %2, i32 noundef 2) #18
   switch i32 %25, label %hwloc_get_nbobjs_by_type.exit.i60 [
     i32 -1, label %prte_hwloc_base_get_nbobjs_by_type.exit61
@@ -2969,7 +2969,7 @@ hwloc_get_nbobjs_by_type.exit.thread.i58:         ; preds = %hwloc_get_nbobjs_by
   br label %prte_hwloc_base_get_nbobjs_by_type.exit61
 
 prte_hwloc_base_get_nbobjs_by_type.exit61:        ; preds = %prte_hwloc_base_get_nbobjs_by_type.exit57, %hwloc_get_nbobjs_by_type.exit.i60, %hwloc_get_nbobjs_by_type.exit.thread.i58
-  %.0.i59 = phi i32 [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit57 ], [ %26, %hwloc_get_nbobjs_by_type.exit.i60 ], [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i58 ]
+  %.0.i59 = phi i32 [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i58 ], [ %26, %hwloc_get_nbobjs_by_type.exit.i60 ], [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit57 ]
   %.0.i55.fr = freeze i32 %.0.i55
   %.0.i59.fr = freeze i32 %.0.i59
   %28 = icmp ne i32 %.0.i55.fr, %.0.i59.fr
@@ -3168,7 +3168,7 @@ hwloc_get_numanode_obj_by_os_index.exit.i:        ; preds = %22, %hwloc_get_next
   br i1 %28, label %.preheader.i, label %prte_hwloc_base_get_nbobjs_by_type.exit, !llvm.loop !83
 
 prte_hwloc_base_get_nbobjs_by_type.exit:          ; preds = %hwloc_get_numanode_obj_by_os_index.exit.i, %1, %.preheader25.i
-  %.0.i = phi i32 [ 0, %.preheader25.i ], [ 0, %1 ], [ %spec.select.i, %hwloc_get_numanode_obj_by_os_index.exit.i ]
+  %.0.i = phi i32 [ 0, %1 ], [ 0, %.preheader25.i ], [ %spec.select.i, %hwloc_get_numanode_obj_by_os_index.exit.i ]
   %29 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 1) #18
   switch i32 %29, label %hwloc_get_nbobjs_by_type.exit.i [
     i32 -1, label %prte_hwloc_base_get_nbobjs_by_type.exit36
@@ -3185,7 +3185,7 @@ hwloc_get_nbobjs_by_type.exit.thread.i:           ; preds = %hwloc_get_nbobjs_by
   br label %prte_hwloc_base_get_nbobjs_by_type.exit36
 
 prte_hwloc_base_get_nbobjs_by_type.exit36:        ; preds = %prte_hwloc_base_get_nbobjs_by_type.exit, %hwloc_get_nbobjs_by_type.exit.i, %hwloc_get_nbobjs_by_type.exit.thread.i
-  %.0.i35 = phi i32 [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit ], [ %30, %hwloc_get_nbobjs_by_type.exit.i ], [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i ]
+  %.0.i35 = phi i32 [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i ], [ %30, %hwloc_get_nbobjs_by_type.exit.i ], [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit ]
   %32 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 6) #18
   switch i32 %32, label %hwloc_get_nbobjs_by_type.exit.i39 [
     i32 -1, label %prte_hwloc_base_get_nbobjs_by_type.exit40
@@ -3202,7 +3202,7 @@ hwloc_get_nbobjs_by_type.exit.thread.i37:         ; preds = %hwloc_get_nbobjs_by
   br label %prte_hwloc_base_get_nbobjs_by_type.exit40
 
 prte_hwloc_base_get_nbobjs_by_type.exit40:        ; preds = %prte_hwloc_base_get_nbobjs_by_type.exit36, %hwloc_get_nbobjs_by_type.exit.i39, %hwloc_get_nbobjs_by_type.exit.thread.i37
-  %.0.i38 = phi i32 [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit36 ], [ %33, %hwloc_get_nbobjs_by_type.exit.i39 ], [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i37 ]
+  %.0.i38 = phi i32 [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i37 ], [ %33, %hwloc_get_nbobjs_by_type.exit.i39 ], [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit36 ]
   %35 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 5) #18
   switch i32 %35, label %hwloc_get_nbobjs_by_type.exit.i43 [
     i32 -1, label %prte_hwloc_base_get_nbobjs_by_type.exit44
@@ -3219,7 +3219,7 @@ hwloc_get_nbobjs_by_type.exit.thread.i41:         ; preds = %hwloc_get_nbobjs_by
   br label %prte_hwloc_base_get_nbobjs_by_type.exit44
 
 prte_hwloc_base_get_nbobjs_by_type.exit44:        ; preds = %prte_hwloc_base_get_nbobjs_by_type.exit40, %hwloc_get_nbobjs_by_type.exit.i43, %hwloc_get_nbobjs_by_type.exit.thread.i41
-  %.0.i42 = phi i32 [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit40 ], [ %36, %hwloc_get_nbobjs_by_type.exit.i43 ], [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i41 ]
+  %.0.i42 = phi i32 [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i41 ], [ %36, %hwloc_get_nbobjs_by_type.exit.i43 ], [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit40 ]
   %38 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 4) #18
   switch i32 %38, label %hwloc_get_nbobjs_by_type.exit.i47 [
     i32 -1, label %prte_hwloc_base_get_nbobjs_by_type.exit48
@@ -3236,7 +3236,7 @@ hwloc_get_nbobjs_by_type.exit.thread.i45:         ; preds = %hwloc_get_nbobjs_by
   br label %prte_hwloc_base_get_nbobjs_by_type.exit48
 
 prte_hwloc_base_get_nbobjs_by_type.exit48:        ; preds = %prte_hwloc_base_get_nbobjs_by_type.exit44, %hwloc_get_nbobjs_by_type.exit.i47, %hwloc_get_nbobjs_by_type.exit.thread.i45
-  %.0.i46 = phi i32 [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit44 ], [ %39, %hwloc_get_nbobjs_by_type.exit.i47 ], [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i45 ]
+  %.0.i46 = phi i32 [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i45 ], [ %39, %hwloc_get_nbobjs_by_type.exit.i47 ], [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit44 ]
   %41 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 2) #18
   switch i32 %41, label %hwloc_get_nbobjs_by_type.exit.i51 [
     i32 -1, label %prte_hwloc_base_get_nbobjs_by_type.exit52
@@ -3253,7 +3253,7 @@ hwloc_get_nbobjs_by_type.exit.thread.i49:         ; preds = %hwloc_get_nbobjs_by
   br label %prte_hwloc_base_get_nbobjs_by_type.exit52
 
 prte_hwloc_base_get_nbobjs_by_type.exit52:        ; preds = %prte_hwloc_base_get_nbobjs_by_type.exit48, %hwloc_get_nbobjs_by_type.exit.i51, %hwloc_get_nbobjs_by_type.exit.thread.i49
-  %.0.i50 = phi i32 [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit48 ], [ %42, %hwloc_get_nbobjs_by_type.exit.i51 ], [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i49 ]
+  %.0.i50 = phi i32 [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i49 ], [ %42, %hwloc_get_nbobjs_by_type.exit.i51 ], [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit48 ]
   %44 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 3) #18
   switch i32 %44, label %hwloc_get_nbobjs_by_type.exit.i55 [
     i32 -1, label %prte_hwloc_base_get_nbobjs_by_type.exit56
@@ -3270,7 +3270,7 @@ hwloc_get_nbobjs_by_type.exit.thread.i53:         ; preds = %hwloc_get_nbobjs_by
   br label %prte_hwloc_base_get_nbobjs_by_type.exit56
 
 prte_hwloc_base_get_nbobjs_by_type.exit56:        ; preds = %prte_hwloc_base_get_nbobjs_by_type.exit52, %hwloc_get_nbobjs_by_type.exit.i55, %hwloc_get_nbobjs_by_type.exit.thread.i53
-  %.0.i54 = phi i32 [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit52 ], [ %45, %hwloc_get_nbobjs_by_type.exit.i55 ], [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i53 ]
+  %.0.i54 = phi i32 [ 0, %hwloc_get_nbobjs_by_type.exit.thread.i53 ], [ %45, %hwloc_get_nbobjs_by_type.exit.i55 ], [ 0, %prte_hwloc_base_get_nbobjs_by_type.exit52 ]
   %47 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0) #19
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 224
   %49 = load i32, ptr %48, align 8, !tbaa !55
@@ -3646,7 +3646,7 @@ prte_hwloc_base_get_locality_string_by_depth.exit100: ; preds = %._crit_edge, %1
   br label %117
 
 117:                                              ; preds = %prte_hwloc_base_get_locality_string_by_depth.exit100, %113, %2, %10
-  %.0 = phi ptr [ null, %2 ], [ null, %10 ], [ %.4, %113 ], [ null, %prte_hwloc_base_get_locality_string_by_depth.exit100 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %2 ], [ %.4, %113 ], [ null, %prte_hwloc_base_get_locality_string_by_depth.exit100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0

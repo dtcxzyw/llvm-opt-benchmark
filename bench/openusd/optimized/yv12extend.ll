@@ -1886,7 +1886,7 @@ aom_yv12_copy_frame_c.exit:                       ; preds = %._crit_edge.i, %._c
   br label %93
 
 93:                                               ; preds = %4, %10, %6, %aom_yv12_copy_frame_c.exit
-  %.0 = phi i32 [ %22, %10 ], [ 0, %6 ], [ 0, %aom_yv12_copy_frame_c.exit ], [ -2, %4 ]
+  %.0 = phi i32 [ 0, %aom_yv12_copy_frame_c.exit ], [ 0, %6 ], [ %22, %10 ], [ -2, %4 ]
   ret i32 %.0
 }
 

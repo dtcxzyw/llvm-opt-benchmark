@@ -356,7 +356,7 @@ thread-pre-split.thread.i:                        ; preds = %33
   br label %139
 
 139:                                              ; preds = %137, %136, %118, %117, %113, %94, %93, %92, %82, %78, %60, %59, %thread-pre-split.thread.i, %.thread.i, %27
-  %.pr19.i = phi i32 [ 0, %.thread.i ], [ %.pr18.i, %27 ], [ 1, %60 ], [ 5, %94 ], [ 4, %137 ], [ 3, %118 ], [ 2, %82 ], [ 3, %113 ], [ 0, %117 ], [ 5, %92 ], [ 0, %93 ], [ 5, %136 ], [ 3, %78 ], [ 0, %59 ], [ 0, %thread-pre-split.thread.i ]
+  %.pr19.i = phi i32 [ 0, %.thread.i ], [ 1, %60 ], [ 5, %94 ], [ 4, %137 ], [ 3, %118 ], [ 2, %82 ], [ 3, %113 ], [ 0, %117 ], [ 5, %92 ], [ 0, %93 ], [ 5, %136 ], [ 3, %78 ], [ 0, %59 ], [ 0, %thread-pre-split.thread.i ], [ %.pr18.i, %27 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %gif_find_frame_end.exit, label %27, !llvm.loop !31

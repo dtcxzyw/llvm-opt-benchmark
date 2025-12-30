@@ -1739,9 +1739,9 @@ define void @Amap_ManMergeNodeCutsMux(ptr noundef captures(none) %0, ptr noundef
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.lr.ph138, %.critedge2.loopexit, %.lr.ph141.split
-  %162 = phi ptr [ %57, %.lr.ph141.split ], [ %.pre158, %.critedge2.loopexit ], [ %57, %.lr.ph138 ]
-  %163 = phi ptr [ %58, %.lr.ph141.split ], [ %157, %.critedge2.loopexit ], [ %58, %.lr.ph138 ]
-  %164 = phi ptr [ %59, %.lr.ph141.split ], [ %157, %.critedge2.loopexit ], [ %59, %.lr.ph138 ]
+  %162 = phi ptr [ %.pre158, %.critedge2.loopexit ], [ %57, %.lr.ph141.split ], [ %57, %.lr.ph138 ]
+  %163 = phi ptr [ %157, %.critedge2.loopexit ], [ %58, %.lr.ph141.split ], [ %58, %.lr.ph138 ]
+  %164 = phi ptr [ %157, %.critedge2.loopexit ], [ %59, %.lr.ph141.split ], [ %59, %.lr.ph138 ]
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %165 = getelementptr i8, ptr %162, i64 4
   %.val114 = load i32, ptr %165, align 4, !tbaa !21

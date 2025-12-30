@@ -531,7 +531,7 @@ _ZSt4copyIPPlS1_ET0_T_S3_S2_.exit24.i:            ; preds = %215, %213, %212
   br label %.noexc95
 
 .noexc95:                                         ; preds = %_ZSt4copyIPPlS1_ET0_T_S3_S2_.exit24.i, %194, %192, %189, %181, %179, %178
-  %.0.i = phi ptr [ %207, %_ZSt4copyIPPlS1_ET0_T_S3_S2_.exit24.i ], [ %171, %181 ], [ %171, %178 ], [ %171, %179 ], [ %171, %189 ], [ %171, %192 ], [ %171, %194 ]
+  %.0.i = phi ptr [ %207, %_ZSt4copyIPPlS1_ET0_T_S3_S2_.exit24.i ], [ %171, %178 ], [ %171, %179 ], [ %171, %181 ], [ %171, %189 ], [ %171, %192 ], [ %171, %194 ]
   store ptr %.0.i, ptr %25, align 8, !tbaa !26
   %218 = load ptr, ptr %.0.i, align 8, !tbaa !27
   store ptr %218, ptr %24, align 8, !tbaa !28
@@ -1301,7 +1301,7 @@ _ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i:            ; preds = %222, %220, %219
   br label %.noexc95
 
 .noexc95:                                         ; preds = %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i, %201, %199, %196, %188, %186, %185
-  %.0.i = phi ptr [ %214, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i ], [ %178, %188 ], [ %178, %185 ], [ %178, %186 ], [ %178, %196 ], [ %178, %199 ], [ %178, %201 ]
+  %.0.i = phi ptr [ %214, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24.i ], [ %178, %185 ], [ %178, %186 ], [ %178, %188 ], [ %178, %196 ], [ %178, %199 ], [ %178, %201 ]
   store ptr %.0.i, ptr %28, align 8, !tbaa !64
   %225 = load ptr, ptr %.0.i, align 8, !tbaa !65
   store ptr %225, ptr %27, align 8, !tbaa !66
@@ -2136,7 +2136,7 @@ _ZSt4copyIPPlS1_ET0_T_S3_S2_.exit24:              ; preds = %67, %68, %70
   br label %_ZSt4copyIPPlS1_ET0_T_S3_S2_.exit
 
 _ZSt4copyIPPlS1_ET0_T_S3_S2_.exit:                ; preds = %47, %45, %42, %34, %32, %31, %_ZSt4copyIPPlS1_ET0_T_S3_S2_.exit24
-  %.0 = phi ptr [ %62, %_ZSt4copyIPPlS1_ET0_T_S3_S2_.exit24 ], [ %24, %34 ], [ %24, %31 ], [ %24, %32 ], [ %24, %42 ], [ %24, %45 ], [ %24, %47 ]
+  %.0 = phi ptr [ %62, %_ZSt4copyIPPlS1_ET0_T_S3_S2_.exit24 ], [ %24, %31 ], [ %24, %32 ], [ %24, %34 ], [ %24, %42 ], [ %24, %45 ], [ %24, %47 ]
   store ptr %.0, ptr %6, align 8, !tbaa !26
   %74 = load ptr, ptr %.0, align 8, !tbaa !27
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2478,7 +2478,7 @@ _ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24:              ; preds = %67, %68, %70
   br label %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit
 
 _ZSt4copyIPPiS1_ET0_T_S3_S2_.exit:                ; preds = %47, %45, %42, %34, %32, %31, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24
-  %.0 = phi ptr [ %62, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24 ], [ %24, %34 ], [ %24, %31 ], [ %24, %32 ], [ %24, %42 ], [ %24, %45 ], [ %24, %47 ]
+  %.0 = phi ptr [ %62, %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit24 ], [ %24, %31 ], [ %24, %32 ], [ %24, %34 ], [ %24, %42 ], [ %24, %45 ], [ %24, %47 ]
   store ptr %.0, ptr %6, align 8, !tbaa !64
   %74 = load ptr, ptr %.0, align 8, !tbaa !65
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 24

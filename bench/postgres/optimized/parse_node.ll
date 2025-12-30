@@ -282,7 +282,7 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
   br i1 %or.cond, label %.critedge, label %25
 
 .critedge:                                        ; preds = %25, %.lr.ph, %.preheader
-  %.1 = phi i1 [ false, %.lr.ph ], [ false, %.preheader ], [ %30, %25 ]
+  %.1 = phi i1 [ false, %.preheader ], [ false, %.lr.ph ], [ %30, %25 ]
   %31 = call noundef ptr @palloc0(i64 noundef 56) #7
   store i32 14, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4

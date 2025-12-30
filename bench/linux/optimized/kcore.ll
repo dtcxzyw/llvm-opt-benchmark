@@ -1145,9 +1145,9 @@ define internal i64 @read_kcore_iter(ptr noundef captures(none) %0, ptr noundef 
   %396 = icmp eq i64 %391, 0
   br i1 %396, label %.thread43, label %.lr.ph
 
-.thread43:                                        ; preds = %.thread50, %388, %243, %263, %.thread52, %378, %381, %258, %198, %.critedge, %127, %77, %.thread49, %68
-  %397 = phi i32 [ -14, %68 ], [ -14, %258 ], [ %.ph48, %.thread49 ], [ -12, %77 ], [ -14, %.critedge ], [ -14, %127 ], [ 0, %198 ], [ -14, %378 ], [ -14, %.thread52 ], [ -14, %263 ], [ -14, %243 ], [ -14, %388 ], [ 0, %.thread50 ], [ -14, %381 ]
-  %398 = phi i64 [ %10, %68 ], [ %209, %258 ], [ %138, %.thread49 ], [ %75, %77 ], [ %75, %.critedge ], [ %75, %127 ], [ 0, %198 ], [ %209, %378 ], [ %209, %.thread52 ], [ %209, %263 ], [ %209, %243 ], [ %209, %388 ], [ 0, %.thread50 ], [ %209, %381 ]
+.thread43:                                        ; preds = %.thread50, %243, %263, %.thread52, %378, %381, %388, %258, %198, %.critedge, %127, %77, %.thread49, %68
+  %397 = phi i32 [ -14, %68 ], [ %.ph48, %.thread49 ], [ -14, %.critedge ], [ -14, %127 ], [ -12, %77 ], [ 0, %198 ], [ -14, %258 ], [ 0, %.thread50 ], [ -14, %243 ], [ -14, %263 ], [ -14, %.thread52 ], [ -14, %378 ], [ -14, %381 ], [ -14, %388 ]
+  %398 = phi i64 [ %10, %68 ], [ %138, %.thread49 ], [ %75, %.critedge ], [ %75, %127 ], [ %75, %77 ], [ 0, %198 ], [ %209, %258 ], [ 0, %.thread50 ], [ %209, %243 ], [ %209, %263 ], [ %209, %.thread52 ], [ %209, %378 ], [ %209, %381 ], [ %209, %388 ]
   call void @page_offline_thaw() #15
   call void @up_read(ptr noundef nonnull @kclist_lock) #15
   %399 = icmp eq i32 %397, 0
@@ -1354,7 +1354,7 @@ define internal noundef range(i32 -12, 2) i32 @kclist_add_private(i64 noundef %0
   br label %64
 
 64:                                               ; preds = %61, %53
-  %65 = phi i32 [ %63, %61 ], [ %54, %53 ]
+  %65 = phi i32 [ %54, %53 ], [ %63, %61 ]
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %.thread, label %67
 

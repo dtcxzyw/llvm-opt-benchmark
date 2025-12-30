@@ -293,7 +293,7 @@ define dso_local i32 @intel_timeline_pin(ptr noundef %0, ptr noundef %1) local_u
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %56, %40, %35, %31
-  %59 = phi i32 [ 0, %40 ], [ %33, %31 ], [ %38, %35 ], [ 0, %56 ], [ 0, %.lr.ph ]
+  %59 = phi i32 [ %33, %31 ], [ %38, %35 ], [ 0, %56 ], [ 0, %40 ], [ 0, %.lr.ph ]
   ret i32 %59
 }
 

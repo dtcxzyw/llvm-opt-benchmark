@@ -1396,7 +1396,7 @@ _ZN3ozz9animation12_GLOBAL__N_112InterpolatesEfmRKNS_4spanIKNS0_8internal15Inter
   br label %_ZNK3ozz9animation11SamplingJob8ValidateEv.exit.thread
 
 _ZNK3ozz9animation11SamplingJob8ValidateEv.exit.thread: ; preds = %1, %7, %_ZN3ozz9animation12_GLOBAL__N_112InterpolatesEfmRKNS_4spanIKNS0_8internal15InterpSoaFloat3EEERKNS2_IKNS3_19InterpSoaQuaternionEEES8_RKNS2_INS_4math12SoaTransformEEE.exit, %21, %_ZNK3ozz9animation11SamplingJob8ValidateEv.exit
-  %.0.i95 = phi i1 [ false, %_ZNK3ozz9animation11SamplingJob8ValidateEv.exit ], [ true, %_ZN3ozz9animation12_GLOBAL__N_112InterpolatesEfmRKNS_4spanIKNS0_8internal15InterpSoaFloat3EEERKNS2_IKNS3_19InterpSoaQuaternionEEES8_RKNS2_INS_4math12SoaTransformEEE.exit ], [ true, %21 ], [ false, %7 ], [ false, %1 ]
+  %.0.i95 = phi i1 [ true, %_ZN3ozz9animation12_GLOBAL__N_112InterpolatesEfmRKNS_4spanIKNS0_8internal15InterpSoaFloat3EEERKNS2_IKNS3_19InterpSoaQuaternionEEES8_RKNS2_INS_4math12SoaTransformEEE.exit ], [ true, %21 ], [ false, %_ZNK3ozz9animation11SamplingJob8ValidateEv.exit ], [ false, %7 ], [ false, %1 ]
   ret i1 %.0.i95
 }
 
@@ -1746,8 +1746,8 @@ _ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit92: ; p
   br label %_ZN3ozz9animation12_GLOBAL__N_113TrackBackwardENS_4spanIKjEEjjj.exit
 
 _ZN3ozz9animation12_GLOBAL__N_113TrackBackwardENS_4spanIKjEEjjj.exit: ; preds = %.preheader.i, %149, %.thread.loopexit21.i
-  %.pre-phi = phi i64 [ %.pre18, %.thread.loopexit21.i ], [ %151, %149 ], [ %161, %.preheader.i ]
-  %.1.i97 = phi i32 [ %165, %.thread.loopexit21.i ], [ %.166, %149 ], [ %.0.i99, %.preheader.i ]
+  %.pre-phi = phi i64 [ %151, %149 ], [ %.pre18, %.thread.loopexit21.i ], [ %161, %.preheader.i ]
+  %.1.i97 = phi i32 [ %.166, %149 ], [ %165, %.thread.loopexit21.i ], [ %.0.i99, %.preheader.i ]
   %166 = lshr i32 %.1.i97, 2
   %167 = and i32 %166, 7
   %168 = shl nuw nsw i32 1, %167

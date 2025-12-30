@@ -387,7 +387,7 @@ agxbfree.exit:                                    ; preds = %96, %98
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.i.i, %.preheader37.i.us.us.i, %59, %16, %agxbfree.exit
-  %.1 = phi ptr [ %99, %agxbfree.exit ], [ %4, %.preheader37.i.us.us.i ], [ %4, %16 ], [ %4, %59 ], [ %4, %.preheader.i.i ]
+  %.1 = phi ptr [ %99, %agxbfree.exit ], [ %4, %16 ], [ %4, %59 ], [ %4, %.preheader37.i.us.us.i ], [ %4, %.preheader.i.i ]
   ret ptr %.1
 }
 

@@ -229,9 +229,9 @@ define i64 @OPENSSL_strlcat(ptr noundef captures(none) %0, ptr noundef readonly 
   br i1 %exitcond.not.i, label %.critedge.thread.i, label %.lr.ph.i, !llvm.loop !8
 
 .critedge.thread.i:                               ; preds = %11, %.lr.ph.i, %.critedge
-  %.01122.i = phi ptr [ %.0917, %.critedge ], [ %13, %11 ], [ %.01123.i, %.lr.ph.i ]
-  %.01019.i = phi ptr [ %1, %.critedge ], [ %12, %11 ], [ %.01024.i, %.lr.ph.i ]
-  %.015.i = phi i64 [ 0, %.critedge ], [ %9, %11 ], [ %.026.i, %.lr.ph.i ]
+  %.01122.i = phi ptr [ %.0917, %.critedge ], [ %.01123.i, %.lr.ph.i ], [ %13, %11 ]
+  %.01019.i = phi ptr [ %1, %.critedge ], [ %.01024.i, %.lr.ph.i ], [ %12, %11 ]
+  %.015.i = phi i64 [ 0, %.critedge ], [ %.026.i, %.lr.ph.i ], [ %9, %11 ]
   store i8 0, ptr %.01122.i, align 1, !tbaa !3
   br label %OPENSSL_strlcpy.exit
 
@@ -287,7 +287,7 @@ define range(i32 0, 2) i32 @OPENSSL_strtoul(ptr noundef %0, ptr noundef captures
   br label %24
 
 24:                                               ; preds = %21, %14, %18, %11, %4
-  %.0 = phi i32 [ 0, %18 ], [ 0, %4 ], [ 0, %14 ], [ 0, %11 ], [ %spec.select, %21 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %11 ], [ 0, %18 ], [ 0, %14 ], [ %spec.select, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -573,7 +573,7 @@ define internal fastcc range(i32 0, 2) i32 @buf2hexstr_sep(ptr noundef writeonly
   br label %48
 
 48:                                               ; preds = %13, %._crit_edge, %32
-  %.029 = phi i32 [ 1, %._crit_edge ], [ 0, %32 ], [ 1, %13 ]
+  %.029 = phi i32 [ 0, %32 ], [ 1, %._crit_edge ], [ 1, %13 ]
   ret i32 %.029
 }
 
@@ -654,7 +654,7 @@ buf2hexstr_sep.exit:                              ; preds = %.lr.ph.split.i, %.l
   br label %44
 
 44:                                               ; preds = %buf2hexstr_sep.exit, %7, %5
-  %.0 = phi ptr [ %6, %5 ], [ %12, %buf2hexstr_sep.exit ], [ null, %7 ]
+  %.0 = phi ptr [ %6, %5 ], [ null, %7 ], [ %12, %buf2hexstr_sep.exit ]
   ret ptr %.0
 }
 
@@ -705,7 +705,7 @@ buf2hexstr_sep.exit.i:                            ; preds = %.lr.ph.split.us.i.i
   br label %ossl_buf2hexstr_sep.exit
 
 ossl_buf2hexstr_sep.exit:                         ; preds = %4, %6, %buf2hexstr_sep.exit.i
-  %.0.i = phi ptr [ %5, %4 ], [ %8, %buf2hexstr_sep.exit.i ], [ null, %6 ]
+  %.0.i = phi ptr [ %5, %4 ], [ null, %6 ], [ %8, %buf2hexstr_sep.exit.i ]
   ret ptr %.0.i
 }
 
@@ -781,7 +781,7 @@ define i32 @OPENSSL_strncasecmp(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %3
-  %.07 = phi i32 [ 0, %3 ], [ %10, %.lr.ph ], [ 0, %11 ]
+  %.07 = phi i32 [ 0, %3 ], [ 0, %11 ], [ %10, %.lr.ph ]
   ret i32 %.07
 }
 

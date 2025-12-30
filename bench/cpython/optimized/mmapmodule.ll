@@ -500,7 +500,7 @@ Py_DECREF.exit:                                   ; preds = %8, %11, %14
   br label %124
 
 124:                                              ; preds = %5, %122, %119, %116, %113, %110, %107, %104, %101, %98, %95, %92, %89, %86, %83, %80, %77, %74, %71, %68, %65, %60, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %Py_DECREF.exit, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %5 ], [ -1, %119 ], [ -1, %Py_DECREF.exit ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ -1, %25 ], [ -1, %28 ], [ -1, %31 ], [ -1, %34 ], [ -1, %37 ], [ -1, %40 ], [ -1, %43 ], [ -1, %46 ], [ -1, %49 ], [ -1, %52 ], [ -1, %55 ], [ -1, %60 ], [ -1, %65 ], [ -1, %68 ], [ -1, %71 ], [ -1, %74 ], [ -1, %77 ], [ -1, %80 ], [ -1, %83 ], [ -1, %86 ], [ -1, %89 ], [ -1, %92 ], [ -1, %95 ], [ -1, %98 ], [ -1, %101 ], [ -1, %104 ], [ -1, %107 ], [ -1, %110 ], [ -1, %113 ], [ -1, %116 ], [ %.lobit, %122 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %5 ], [ -1, %Py_DECREF.exit ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ -1, %25 ], [ -1, %28 ], [ -1, %31 ], [ -1, %34 ], [ -1, %37 ], [ -1, %40 ], [ -1, %43 ], [ -1, %46 ], [ -1, %49 ], [ -1, %52 ], [ -1, %55 ], [ -1, %60 ], [ -1, %65 ], [ -1, %68 ], [ -1, %71 ], [ -1, %74 ], [ -1, %77 ], [ -1, %80 ], [ -1, %83 ], [ -1, %86 ], [ -1, %89 ], [ -1, %92 ], [ -1, %95 ], [ -1, %98 ], [ -1, %101 ], [ -1, %104 ], [ -1, %107 ], [ -1, %110 ], [ -1, %113 ], [ -1, %116 ], [ -1, %119 ], [ %.lobit, %122 ]
   ret i32 %.0
 }
 
@@ -814,7 +814,7 @@ Py_DECREF.exit:                                   ; preds = %137, %139, %142
   br label %Py_DECREF.exit51
 
 Py_DECREF.exit51:                                 ; preds = %122, %119, %117, %Py_DECREF.exit, %145, %.thread53, %46, %3, %87, %76, %72, %43, %30, %21, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %21 ], [ %32, %30 ], [ %45, %43 ], [ null, %3 ], [ null, %72 ], [ null, %76 ], [ null, %87 ], [ null, %46 ], [ null, %.thread53 ], [ %91, %145 ], [ null, %Py_DECREF.exit ], [ null, %117 ], [ null, %119 ], [ null, %122 ]
+  %.0 = phi ptr [ null, %16 ], [ null, %21 ], [ %32, %30 ], [ %45, %43 ], [ null, %72 ], [ null, %76 ], [ null, %87 ], [ null, %3 ], [ null, %46 ], [ null, %.thread53 ], [ null, %Py_DECREF.exit ], [ %91, %145 ], [ null, %117 ], [ null, %119 ], [ null, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1086,7 +1086,7 @@ is_writable.exit:                                 ; preds = %29
   br label %37
 
 37:                                               ; preds = %is_writable.exit.thread, %is_writable.exit, %27, %18, %14, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %14 ], [ -1, %18 ], [ -1, %27 ], [ 0, %is_writable.exit ], [ -1, %is_writable.exit.thread ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %14 ], [ -1, %18 ], [ 0, %is_writable.exit ], [ -1, %27 ], [ -1, %is_writable.exit.thread ]
   ret i32 %.0
 }
 
@@ -1245,7 +1245,7 @@ safe_copy_to_slice.exit:                          ; preds = %.lr.ph.i
   br label %78
 
 78:                                               ; preds = %66, %safe_copy_to_slice.exit, %40, %59, %54, %50
-  %.3 = phi ptr [ null, %40 ], [ null, %50 ], [ %55, %54 ], [ %62, %59 ], [ %67, %66 ], [ %77, %safe_copy_to_slice.exit ]
+  %.3 = phi ptr [ null, %50 ], [ %55, %54 ], [ %62, %59 ], [ null, %40 ], [ %67, %66 ], [ %77, %safe_copy_to_slice.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1257,7 +1257,7 @@ safe_copy_to_slice.exit:                          ; preds = %.lr.ph.i
   br label %81
 
 81:                                               ; preds = %26, %31, %33, %17, %79, %78, %9
-  %.029 = phi ptr [ null, %9 ], [ null, %79 ], [ %.3, %78 ], [ %37, %33 ], [ null, %26 ], [ null, %31 ], [ null, %17 ]
+  %.029 = phi ptr [ null, %9 ], [ %.3, %78 ], [ null, %79 ], [ null, %26 ], [ null, %31 ], [ %37, %33 ], [ null, %17 ]
   ret ptr %.029
 }
 
@@ -1483,7 +1483,7 @@ safe_copy_from_slice.exit:                        ; preds = %.lr.ph.i, %91, %87,
   br label %100
 
 100:                                              ; preds = %69, %58, %safe_copy_from_slice.exit, %80, %75, %67
-  %.3 = phi i32 [ 0, %safe_copy_from_slice.exit ], [ -1, %67 ], [ -1, %58 ], [ -1, %75 ], [ -1, %80 ], [ -1, %69 ]
+  %.3 = phi i32 [ -1, %67 ], [ -1, %75 ], [ -1, %80 ], [ 0, %safe_copy_from_slice.exit ], [ -1, %58 ], [ -1, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1496,7 +1496,7 @@ safe_copy_from_slice.exit:                        ; preds = %.lr.ph.i, %91, %87,
   br label %103
 
 103:                                              ; preds = %is_writable.exit.thread, %31, %35, %40, %.thread58, %51, %53, %22, %44, %101, %100, %11
-  %.035 = phi i32 [ -1, %11 ], [ -1, %is_writable.exit.thread ], [ %.3, %100 ], [ -1, %101 ], [ -1, %40 ], [ -1, %31 ], [ -1, %35 ], [ -1, %22 ], [ -1, %.thread58 ], [ -1, %51 ], [ 0, %53 ], [ -1, %44 ]
+  %.035 = phi i32 [ -1, %11 ], [ %.3, %100 ], [ -1, %101 ], [ -1, %31 ], [ -1, %35 ], [ -1, %.thread58 ], [ -1, %51 ], [ 0, %53 ], [ -1, %40 ], [ -1, %22 ], [ -1, %44 ], [ -1, %is_writable.exit.thread ]
   ret i32 %.035
 }
 
@@ -1702,7 +1702,7 @@ define internal noundef ptr @mmap_flush_method(ptr noundef readonly captures(non
   br label %36
 
 36:                                               ; preds = %28, %25, %25, %12, %33, %23, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %23 ], [ null, %12 ], [ null, %33 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %28 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %23 ], [ null, %33 ], [ null, %12 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
@@ -1888,7 +1888,7 @@ is_writable.exit:                                 ; preds = %13
   br label %40
 
 40:                                               ; preds = %is_writable.exit.thread, %11, %38, %35, %33, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %38 ], [ null, %33 ], [ @_Py_NoneStruct, %35 ], [ null, %is_writable.exit.thread ], [ null, %11 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %38 ], [ null, %33 ], [ @_Py_NoneStruct, %35 ], [ null, %11 ], [ null, %is_writable.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2204,8 +2204,8 @@ is_resizeable.exit:                               ; preds = %23, %23
   store i64 %59, ptr %51, align 8, !tbaa !34
   br label %is_resizeable.exit.thread
 
-is_resizeable.exit.thread:                        ; preds = %26, %21, %15, %45, %55, %58, %9, %36, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %36 ], [ null, %9 ], [ @_Py_NoneStruct, %58 ], [ null, %45 ], [ null, %55 ], [ null, %15 ], [ null, %21 ], [ null, %26 ]
+is_resizeable.exit.thread:                        ; preds = %21, %26, %15, %45, %55, %58, %9, %36, %7
+  %.0 = phi ptr [ null, %7 ], [ null, %36 ], [ null, %9 ], [ null, %45 ], [ null, %55 ], [ @_Py_NoneStruct, %58 ], [ null, %15 ], [ null, %26 ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -2288,7 +2288,7 @@ define internal ptr @mmap_seek_method(ptr noundef captures(none) %0, ptr noundef
   %41 = call ptr @PyLong_FromSsize_t(i64 noundef %.0) #12
   br label %44
 
-42:                                               ; preds = %24, %16, %34
+42:                                               ; preds = %16, %24, %34
   %43 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !14
   call void @PyErr_SetString(ptr noundef %43, ptr noundef nonnull @.str.102) #12
   br label %44
@@ -2509,7 +2509,7 @@ is_writable.exit:                                 ; preds = %11
   br label %31
 
 31:                                               ; preds = %is_writable.exit.thread, %9, %26, %24, %17, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %17 ], [ null, %24 ], [ null, %9 ], [ @_Py_NoneStruct, %26 ], [ null, %is_writable.exit.thread ]
+  %.0 = phi ptr [ null, %7 ], [ null, %17 ], [ null, %24 ], [ @_Py_NoneStruct, %26 ], [ null, %9 ], [ null, %is_writable.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

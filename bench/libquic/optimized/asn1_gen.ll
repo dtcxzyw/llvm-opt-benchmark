@@ -712,7 +712,7 @@ asn1_str2type.exit:                               ; preds = %67, %.thread.i, %15
   br label %240
 
 240:                                              ; preds = %238, %239, %155, %154, %2, %23
-  %.0 = phi ptr [ null, %23 ], [ null, %154 ], [ %.057, %155 ], [ null, %2 ], [ %.158, %239 ], [ %.158, %238 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %2 ], [ null, %154 ], [ %.057, %155 ], [ %.158, %239 ], [ %.158, %238 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1074,7 +1074,7 @@ sub_1:                                            ; preds = %sub_0
   br label %137
 
 137:                                              ; preds = %append_exp.exit82.thread, %append_exp.exit78.thread, %append_exp.exit74.thread, %append_exp.exit.thread, %59, %57, %54, %42, %45, %3, %136, %132, %120, %53, %49, %asn1_str2tag.exit.thread
-  %.050 = phi i32 [ -1, %49 ], [ -1, %asn1_str2tag.exit.thread ], [ 1, %136 ], [ -1, %53 ], [ 0, %42 ], [ -1, %57 ], [ -1, %54 ], [ -1, %59 ], [ -1, %append_exp.exit.thread ], [ -1, %append_exp.exit74.thread ], [ -1, %append_exp.exit78.thread ], [ -1, %132 ], [ -1, %120 ], [ 0, %3 ], [ 0, %45 ], [ -1, %append_exp.exit82.thread ]
+  %.050 = phi i32 [ -1, %asn1_str2tag.exit.thread ], [ 1, %136 ], [ -1, %53 ], [ -1, %132 ], [ -1, %120 ], [ -1, %49 ], [ 0, %3 ], [ 0, %45 ], [ 0, %42 ], [ -1, %54 ], [ -1, %57 ], [ -1, %59 ], [ -1, %append_exp.exit.thread ], [ -1, %append_exp.exit74.thread ], [ -1, %append_exp.exit78.thread ], [ -1, %append_exp.exit82.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.050
@@ -1186,7 +1186,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_tagging(ptr noundef %0, i32 no
   br label %32
 
 32:                                               ; preds = %31, %28, %27, %26, %25, %10, %4, %29, %17
-  %.0 = phi i32 [ 0, %4 ], [ 0, %17 ], [ 0, %29 ], [ 0, %10 ], [ 1, %25 ], [ 1, %26 ], [ 1, %27 ], [ 1, %28 ], [ 1, %31 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %29 ], [ 0, %4 ], [ 0, %10 ], [ 1, %25 ], [ 1, %26 ], [ 1, %27 ], [ 1, %28 ], [ 1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1336,7 +1336,7 @@ define internal range(i32 0, 2) i32 @bitstr_cb(ptr noundef %0, i32 noundef %1, p
   br label %19
 
 19:                                               ; preds = %15, %8, %3, %18, %14
-  %.0 = phi i32 [ 0, %3 ], [ 0, %14 ], [ 0, %8 ], [ 0, %18 ], [ 1, %15 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %18 ], [ 0, %3 ], [ 0, %8 ], [ 1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

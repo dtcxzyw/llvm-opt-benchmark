@@ -267,7 +267,7 @@ define range(i32 0, 2) i32 @Abc_NtkCompareAndSaveBest(ptr noundef %0) local_unna
   br label %48
 
 48:                                               ; preds = %21, %27, %6, %5, %3, %47
-  %.016 = phi i32 [ 0, %5 ], [ 1, %47 ], [ 0, %6 ], [ 0, %3 ], [ 0, %21 ], [ 0, %27 ]
+  %.016 = phi i32 [ 1, %47 ], [ 0, %3 ], [ 0, %5 ], [ 0, %6 ], [ 0, %27 ], [ 0, %21 ]
   ret i32 %.016
 }
 
@@ -649,7 +649,7 @@ define float @Abc_NtkGetArea(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !61
 
 .critedge:                                        ; preds = %26, %.preheader, %3, %1
-  %.013 = phi float [ 0.000000e+00, %1 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %.preheader ], [ %.2, %26 ]
+  %.013 = phi float [ 0.000000e+00, %3 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %.preheader ], [ %.2, %26 ]
   ret float %.013
 }
 
@@ -706,8 +706,8 @@ sub_1:                                            ; preds = %sub_0
   br label %22
 
 22:                                               ; preds = %.tail, %11, %.lr.ph
-  %23 = phi ptr [ %6, %.lr.ph ], [ %.pre, %.tail ], [ %6, %11 ]
-  %.1 = phi i32 [ %.018, %.lr.ph ], [ %spec.select, %.tail ], [ %.018, %11 ]
+  %23 = phi ptr [ %6, %.lr.ph ], [ %6, %11 ], [ %.pre, %.tail ]
+  %.1 = phi i32 [ %.018, %.lr.ph ], [ %.018, %11 ], [ %spec.select, %.tail ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = getelementptr i8, ptr %23, i64 4
   %.val13 = load i32, ptr %24, align 4, !tbaa !42
@@ -1161,7 +1161,7 @@ Abc_NtkGetArea.exit.loopexit:                     ; preds = %148
   br label %Abc_NtkGetArea.exit
 
 Abc_NtkGetArea.exit:                              ; preds = %Abc_NtkGetArea.exit.loopexit, %123, %125, %.preheader.i
-  %.013.i = phi double [ 0.000000e+00, %123 ], [ 0.000000e+00, %125 ], [ 0.000000e+00, %.preheader.i ], [ %149, %Abc_NtkGetArea.exit.loopexit ]
+  %.013.i = phi double [ 0.000000e+00, %125 ], [ 0.000000e+00, %123 ], [ 0.000000e+00, %.preheader.i ], [ %149, %Abc_NtkGetArea.exit.loopexit ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.28, double noundef %.013.i)
   br label %.critedge138
 
@@ -1933,7 +1933,7 @@ define void @Abc_NtkPrintLatch(ptr noundef captures(none) %0, ptr noundef readon
   br label %62
 
 62:                                               ; preds = %48, %46, %49, %.lr.ph, %39, %37
-  %.135 = phi i32 [ %.03473, %37 ], [ %.03473, %.lr.ph ], [ %.03473, %39 ], [ %47, %46 ], [ %47, %49 ], [ %47, %48 ]
+  %.135 = phi i32 [ %.03473, %37 ], [ %.03473, %39 ], [ %.03473, %.lr.ph ], [ %47, %49 ], [ %47, %46 ], [ %47, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = load ptr, ptr %6, align 8, !tbaa !86
   %64 = getelementptr i8, ptr %63, i64 4
@@ -2916,8 +2916,8 @@ Vec_IntTwoMerge2.exit:                            ; preds = %.lr.ph17.i.i, %.pre
   br label %Vec_IntPush.exit75.sink.split
 
 Vec_IntPush.exit75.sink.split:                    ; preds = %180, %182, %172, %174
-  %.sink131 = phi ptr [ %175, %174 ], [ %173, %172 ], [ %181, %180 ], [ %183, %182 ]
-  %.sink = phi i32 [ 16, %174 ], [ 16, %172 ], [ %177, %180 ], [ %177, %182 ]
+  %.sink131 = phi ptr [ %173, %172 ], [ %175, %174 ], [ %181, %180 ], [ %183, %182 ]
+  %.sink = phi i32 [ 16, %172 ], [ 16, %174 ], [ %177, %180 ], [ %177, %182 ]
   store ptr %.sink131, ptr %25, align 8, !tbaa !49
   store i32 %.sink, ptr %17, align 8, !tbaa !40
   br label %Vec_IntPush.exit75
@@ -3582,8 +3582,8 @@ Vec_IntTwoMerge2.exit116:                         ; preds = %.lr.ph17.i.i98, %.p
   br label %Vec_IntPush.exit123.sink.split
 
 Vec_IntPush.exit123.sink.split:                   ; preds = %237, %239, %229, %231
-  %.sink192 = phi ptr [ %232, %231 ], [ %230, %229 ], [ %238, %237 ], [ %240, %239 ]
-  %.sink = phi i32 [ 16, %231 ], [ 16, %229 ], [ %234, %237 ], [ %234, %239 ]
+  %.sink192 = phi ptr [ %230, %229 ], [ %232, %231 ], [ %238, %237 ], [ %240, %239 ]
+  %.sink = phi i32 [ 16, %229 ], [ 16, %231 ], [ %234, %237 ], [ %234, %239 ]
   store ptr %.sink192, ptr %26, align 8, !tbaa !49
   store i32 %.sink, ptr %18, align 8, !tbaa !40
   br label %Vec_IntPush.exit123
@@ -4409,8 +4409,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %Vec_IntPush.exit63.sink.split
 
 Vec_IntPush.exit63.sink.split:                    ; preds = %167, %169, %159, %161
-  %.sink111 = phi ptr [ %162, %161 ], [ %160, %159 ], [ %168, %167 ], [ %170, %169 ]
-  %.sink = phi i32 [ 16, %161 ], [ 16, %159 ], [ %164, %167 ], [ %164, %169 ]
+  %.sink111 = phi ptr [ %160, %159 ], [ %162, %161 ], [ %168, %167 ], [ %170, %169 ]
+  %.sink = phi i32 [ 16, %159 ], [ 16, %161 ], [ %164, %167 ], [ %164, %169 ]
   store ptr %.sink111, ptr %25, align 8, !tbaa !49
   store i32 %.sink, ptr %17, align 8, !tbaa !40
   br label %Vec_IntPush.exit63
@@ -4904,8 +4904,8 @@ Vec_IntTwoMerge2.exit:                            ; preds = %.lr.ph17.i.i, %.pre
   br label %Vec_IntPush.exit63.sink.split
 
 Vec_IntPush.exit63.sink.split:                    ; preds = %166, %168, %158, %160
-  %.sink111 = phi ptr [ %161, %160 ], [ %159, %158 ], [ %167, %166 ], [ %169, %168 ]
-  %.sink = phi i32 [ 16, %160 ], [ 16, %158 ], [ %163, %166 ], [ %163, %168 ]
+  %.sink111 = phi ptr [ %159, %158 ], [ %161, %160 ], [ %167, %166 ], [ %169, %168 ]
+  %.sink = phi i32 [ 16, %158 ], [ 16, %160 ], [ %163, %166 ], [ %163, %168 ]
   store ptr %.sink111, ptr %25, align 8, !tbaa !49
   store i32 %.sink, ptr %17, align 8, !tbaa !40
   br label %Vec_IntPush.exit63
@@ -6667,7 +6667,7 @@ define void @Abc_NodePrintSop(ptr noundef captures(none) %0, ptr noundef %1, i32
   br i1 %.not56, label %._crit_edge, label %.lr.ph.split, !llvm.loop !144
 
 ._crit_edge:                                      ; preds = %.loopexit70, %.loopexit.us, %36
-  %.04679 = phi ptr [ null, %.loopexit.us ], [ %38, %36 ], [ %38, %.loopexit70 ]
+  %.04679 = phi ptr [ %38, %36 ], [ null, %.loopexit.us ], [ %38, %.loopexit70 ]
   %fputc57 = tail call i32 @fputc(i32 10, ptr %0)
   %.not58 = icmp eq ptr %.04679, null
   br i1 %.not58, label %84, label %83
@@ -6920,7 +6920,7 @@ define void @Abc_NtkPrintLevel(ptr noundef captures(none) %0, ptr noundef %1, i3
   br label %Abc_NodeGetPrintName.exit
 
 Abc_NodeGetPrintName.exit:                        ; preds = %.preheader.i, %.critedge.loopexit.i
-  %.0.lcssa.sink.i = phi ptr [ %65, %.critedge.loopexit.i ], [ %42, %.preheader.i ]
+  %.0.lcssa.sink.i = phi ptr [ %42, %.preheader.i ], [ %65, %.critedge.loopexit.i ]
   %66 = tail call ptr @Abc_ObjName(ptr noundef %.0.lcssa.sink.i) #22
   %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %66)
   %.pre = load ptr, ptr %33, align 8, !tbaa !39
@@ -7007,8 +7007,8 @@ Abc_NodeGetPrintName.exit:                        ; preds = %.preheader.i, %.cri
   br label %103
 
 103:                                              ; preds = %98, %95
-  %.val174 = phi ptr [ %.val174.pre, %98 ], [ %.val174274, %95 ]
-  %.0139 = phi i64 [ %102, %98 ], [ 0, %95 ]
+  %.val174 = phi ptr [ %.val174274, %95 ], [ %.val174.pre, %98 ]
+  %.0139 = phi i64 [ 0, %95 ], [ %102, %98 ]
   %104 = getelementptr inbounds i32, ptr %calloc, i64 %.0139
   %105 = load i32, ptr %104, align 4, !tbaa !27
   %106 = add nsw i32 %105, 1
@@ -7487,7 +7487,7 @@ define void @Abc_NtkPrintGates(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br label %Abc_ObjIsBarBuf.exit
 
 Abc_ObjIsBarBuf.exit:                             ; preds = %31, %34, %37
-  %41 = phi i1 [ false, %34 ], [ %40, %37 ], [ false, %31 ]
+  %41 = phi i1 [ false, %34 ], [ false, %31 ], [ %40, %37 ]
   %42 = icmp eq i32 %.1137218, 0
   %or.cond = or i1 %42, %41
   br i1 %or.cond, label %54, label %43
@@ -7644,7 +7644,7 @@ Abc_NtkIsBddLogic.exit:                           ; preds = %._crit_edge265
   br label %219
 
 Abc_NtkIsBddLogic.exit.thread:                    ; preds = %._crit_edge265, %Abc_NtkIsAigLogic.exit, %114, %Abc_NtkIsBddLogic.exit
-  %.not170205 = phi i1 [ true, %Abc_NtkIsBddLogic.exit ], [ false, %114 ], [ true, %._crit_edge265 ], [ true, %Abc_NtkIsAigLogic.exit ]
+  %.not170205 = phi i1 [ false, %114 ], [ true, %Abc_NtkIsBddLogic.exit ], [ true, %Abc_NtkIsAigLogic.exit ], [ true, %._crit_edge265 ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %118 = load ptr, ptr %117, align 8, !tbaa !39
   %119 = getelementptr i8, ptr %118, i64 4
@@ -7696,7 +7696,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %._crit_edge265, %Ab
   br label %Abc_ObjIsBarBuf.exit202
 
 Abc_ObjIsBarBuf.exit202:                          ; preds = %129, %132, %135
-  %139 = phi i1 [ false, %132 ], [ %138, %135 ], [ false, %129 ]
+  %139 = phi i1 [ false, %132 ], [ false, %129 ], [ %138, %135 ]
   %140 = icmp eq i64 %indvars.iv262, 0
   %or.cond5 = or i1 %140, %139
   br i1 %or.cond5, label %184, label %141
@@ -8666,10 +8666,10 @@ Abc_Clock.exit:                                   ; preds = %1, %7
   br label %.critedge
 
 .critedge:                                        ; preds = %67, %58, %49, %44, %71
-  %.150 = phi i32 [ %.04971, %44 ], [ %.04971, %71 ], [ %spec.select55, %58 ], [ %spec.select, %49 ], [ %spec.select56, %67 ]
-  %.148 = phi i32 [ %45, %44 ], [ %.04772, %71 ], [ %.04772, %58 ], [ %.04772, %49 ], [ %.04772, %67 ]
-  %.146 = phi i32 [ %.04573, %44 ], [ %.04573, %71 ], [ %59, %58 ], [ %50, %49 ], [ %68, %67 ]
-  %.1 = phi i32 [ %.04474, %44 ], [ %72, %71 ], [ %.04474, %58 ], [ %.04474, %49 ], [ %.04474, %67 ]
+  %.150 = phi i32 [ %.04971, %44 ], [ %.04971, %71 ], [ %spec.select, %49 ], [ %spec.select55, %58 ], [ %spec.select56, %67 ]
+  %.148 = phi i32 [ %45, %44 ], [ %.04772, %71 ], [ %.04772, %49 ], [ %.04772, %58 ], [ %.04772, %67 ]
+  %.146 = phi i32 [ %.04573, %44 ], [ %.04573, %71 ], [ %50, %49 ], [ %59, %58 ], [ %68, %67 ]
+  %.1 = phi i32 [ %.04474, %44 ], [ %72, %71 ], [ %.04474, %49 ], [ %.04474, %58 ], [ %.04474, %67 ]
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
   br i1 %exitcond85.not, label %.critedge2, label %27, !llvm.loop !181
@@ -8754,7 +8754,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %1
   br label %Vec_IntStartFull.exit
 
 Vec_IntStartFull.exit:                            ; preds = %1, %Vec_IntAlloc.exit.i, %8
-  %11 = phi ptr [ %7, %8 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %1 ]
+  %11 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %7, %8 ], [ null, %1 ]
   %12 = getelementptr i8, ptr %0, i64 48
   %.val48 = load ptr, ptr %12, align 8, !tbaa !36
   %13 = getelementptr i8, ptr %.val48, i64 4

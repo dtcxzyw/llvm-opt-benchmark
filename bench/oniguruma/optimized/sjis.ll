@@ -88,7 +88,7 @@ define internal range(i32 -400, 3) i32 @code_to_mbclen(i32 noundef %0) #3 {
   br label %17
 
 17:                                               ; preds = %10, %3, %16
-  %.0 = phi i32 [ 1, %3 ], [ -400, %16 ], [ 2, %10 ]
+  %.0 = phi i32 [ -400, %16 ], [ 1, %3 ], [ 2, %10 ]
   ret i32 %.0
 }
 
@@ -263,7 +263,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1) #2 {
   br label %code_to_mbclen.exit
 
 code_to_mbclen.exit:                              ; preds = %32, %26, %19, %13, %33, %36, %6
-  %.0 = phi i32 [ %12, %6 ], [ 0, %13 ], [ -6, %33 ], [ %40, %36 ], [ 0, %19 ], [ 0, %32 ], [ 1, %26 ]
+  %.0 = phi i32 [ %12, %6 ], [ %40, %36 ], [ -6, %33 ], [ 0, %13 ], [ 0, %32 ], [ 0, %19 ], [ 1, %26 ]
   ret i32 %.0
 }
 
@@ -418,13 +418,13 @@ switch.early.test35:                              ; preds = %20
   ]
 
 23:                                               ; preds = %switch.early.test35, %14, %switch.early.test, %.lr.ph
-  %.sink = phi i64 [ 1, %.lr.ph ], [ 1, %14 ], [ 2, %switch.early.test ], [ 2, %switch.early.test35 ]
+  %.sink = phi i64 [ 1, %.lr.ph ], [ 2, %switch.early.test ], [ 1, %14 ], [ 2, %switch.early.test35 ]
   %24 = getelementptr inbounds nuw i8, ptr %.02437, i64 %.sink
   %25 = icmp ult ptr %24, %1
   br i1 %25, label %.lr.ph, label %switch.early.test35._crit_edge, !llvm.loop !24
 
 switch.early.test35._crit_edge:                   ; preds = %8, %8, %9, %18, %16, %23, %11, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %20, %switch.early.test35, %switch.early.test35, %switch.early.test35, %switch.early.test35, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %23 ], [ 0, %9 ], [ 0, %18 ], [ 0, %20 ], [ 0, %16 ], [ 0, %8 ], [ 0, %11 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %switch.early.test35 ], [ 0, %switch.early.test35 ], [ 0, %switch.early.test35 ], [ 0, %switch.early.test35 ], [ 0, %8 ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %switch.early.test35 ], [ 0, %switch.early.test35 ], [ 0, %switch.early.test35 ], [ 0, %switch.early.test35 ], [ 0, %20 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %11 ], [ 1, %23 ], [ 0, %16 ], [ 0, %18 ], [ 0, %9 ], [ 0, %8 ], [ 0, %8 ]
   ret i32 %.0
 }
 

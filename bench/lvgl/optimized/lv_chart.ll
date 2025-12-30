@@ -208,7 +208,7 @@ define internal void @lv_chart_event(ptr readnone captures(none) %0, ptr noundef
   br label %get_index_from_x.exit
 
 get_index_from_x.exit:                            ; preds = %19, %34, %38, %42, %50
-  %.0.i = phi i32 [ 0, %19 ], [ %37, %34 ], [ %49, %42 ], [ %54, %50 ], [ 0, %38 ]
+  %.0.i = phi i32 [ %37, %34 ], [ %49, %42 ], [ %54, %50 ], [ 0, %19 ], [ 0, %38 ]
   %55 = getelementptr inbounds nuw i8, ptr %18, i64 144
   %56 = load i32, ptr %55, align 8, !tbaa !21
   %.not40 = icmp eq i32 %.0.i, %56
@@ -327,8 +327,8 @@ get_index_from_x.exit:                            ; preds = %19, %34, %38, %42, 
   br label %121
 
 121:                                              ; preds = %115, %113, %90
-  %.075.i = phi i32 [ %89, %90 ], [ %spec.select85.i, %115 ], [ %89, %113 ]
-  %.073.i = phi i16 [ 0, %90 ], [ %.174.i, %115 ], [ %.174.i, %113 ]
+  %.075.i = phi i32 [ %89, %113 ], [ %89, %90 ], [ %spec.select85.i, %115 ]
+  %.073.i = phi i16 [ %.174.i, %113 ], [ 0, %90 ], [ %.174.i, %115 ]
   %sext.i = shl i32 %.075.i, 16
   %122 = ashr exact i32 %sext.i, 16
   %123 = zext nneg i16 %.073.i to i32
@@ -416,8 +416,8 @@ get_index_from_x.exit:                            ; preds = %19, %34, %38, %42, 
   br label %173
 
 173:                                              ; preds = %167, %165, %142
-  %.176.i = phi i32 [ %141, %142 ], [ %spec.select87.i, %167 ], [ %141, %165 ]
-  %.2.i = phi i16 [ 0, %142 ], [ %.3.i, %167 ], [ %.3.i, %165 ]
+  %.176.i = phi i32 [ %141, %165 ], [ %141, %142 ], [ %spec.select87.i, %167 ]
+  %.2.i = phi i16 [ %.3.i, %165 ], [ 0, %142 ], [ %.3.i, %167 ]
   %sext84.i = shl i32 %.176.i, 16
   %174 = ashr exact i32 %sext84.i, 16
   %175 = zext nneg i16 %.2.i to i32
@@ -1326,7 +1326,7 @@ define void @lv_chart_get_point_pos_by_id(ptr noundef %0, ptr noundef readonly c
   br label %78
 
 78:                                               ; preds = %11, %69, %._crit_edge, %17, %24, %20
-  %.sink = phi i32 [ %40, %24 ], [ %68, %._crit_edge ], [ 0, %17 ], [ %23, %20 ], [ %77, %69 ], [ 0, %11 ]
+  %.sink = phi i32 [ %40, %24 ], [ %23, %20 ], [ 0, %17 ], [ %77, %69 ], [ %68, %._crit_edge ], [ 0, %11 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !33
   %79 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 48) #8
   %80 = ptrtoint ptr %79 to i64

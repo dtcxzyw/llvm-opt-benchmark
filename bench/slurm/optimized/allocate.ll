@@ -158,7 +158,7 @@ job_desc_msg_destroy.exit.i12:                    ; preds = %26, %24
   br label %_allocate_test.exit13
 
 _allocate_test.exit13:                            ; preds = %job_desc_msg_destroy.exit.i12, %28, %21, %_allocate_test.exit.thread
-  %.2 = phi i32 [ %.1, %_allocate_test.exit.thread ], [ %30, %job_desc_msg_destroy.exit.i12 ], [ -1, %28 ], [ -1, %21 ]
+  %.2 = phi i32 [ %.1, %_allocate_test.exit.thread ], [ -1, %28 ], [ %30, %job_desc_msg_destroy.exit.i12 ], [ -1, %21 ]
   ret i32 %.2
 }
 
@@ -384,7 +384,7 @@ job_desc_msg_destroy.exit:                        ; preds = %.loopexit, %79
   unreachable
 
 94:                                               ; preds = %9, %job_desc_msg_destroy.exit, %17
-  %.047 = phi ptr [ %.16984, %job_desc_msg_destroy.exit ], [ null, %17 ], [ null, %9 ]
+  %.047 = phi ptr [ null, %17 ], [ %.16984, %job_desc_msg_destroy.exit ], [ null, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.047
 }
@@ -818,7 +818,7 @@ define internal fastcc noundef zeroext i1 @_retry() unnamed_addr #0 {
   br label %39
 
 39:                                               ; preds = %30, %18, %21, %8, %14, %37, %35, %25
-  %.0 = phi i1 [ true, %14 ], [ false, %37 ], [ false, %8 ], [ false, %25 ], [ true, %18 ], [ false, %35 ], [ true, %21 ], [ true, %30 ]
+  %.0 = phi i1 [ true, %14 ], [ false, %25 ], [ false, %35 ], [ false, %37 ], [ false, %8 ], [ true, %21 ], [ true, %18 ], [ true, %30 ]
   ret i1 %.0
 }
 
@@ -856,7 +856,7 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr noundef nonnul
   br label %11
 
 11:                                               ; preds = %4, %6, %8
-  %.2 = phi double [ %.032, %6 ], [ %10, %8 ], [ 1.000000e-01, %4 ]
+  %.2 = phi double [ %10, %8 ], [ %.032, %6 ], [ 1.000000e-01, %4 ]
   %12 = icmp eq i32 %.029, 1
   %13 = tail call i32 @get_log_level() #9
   br i1 %12, label %14, label %17
@@ -951,7 +951,7 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr noundef nonnul
   br label %49
 
 49:                                               ; preds = %.thread, %42, %.thread43, %43, %39, %.critedge
-  %.131 = phi i32 [ 1, %39 ], [ 1, %.critedge ], [ 0, %.thread ], [ 0, %.thread43 ], [ 0, %43 ], [ 0, %42 ]
+  %.131 = phi i32 [ 1, %39 ], [ 1, %.critedge ], [ 0, %43 ], [ 0, %.thread43 ], [ 0, %42 ], [ 0, %.thread ]
   store i32 0, ptr @pending_job_id, align 4
   ret i32 %.131
 }
@@ -1135,7 +1135,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   br i1 %58, label %45, label %.loopexit
 
 .loopexit:                                        ; preds = %56, %57, %51, %54, %.split
-  %.187 = phi ptr [ %48, %54 ], [ %48, %51 ], [ %48, %.split ], [ null, %57 ], [ %48, %56 ]
+  %.187 = phi ptr [ %48, %54 ], [ %48, %51 ], [ %48, %.split ], [ %48, %56 ], [ null, %57 ]
   %.not113 = icmp eq ptr %2, null
   br i1 %.not113, label %60, label %59
 
@@ -1274,7 +1274,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   br i1 %61, label %136, label %.thread135
 
 124:                                              ; preds = %86, %118, %116
-  %.285 = phi i32 [ %.184, %118 ], [ %82, %86 ], [ %.184, %116 ]
+  %.285 = phi i32 [ %82, %86 ], [ %.184, %116 ], [ %.184, %118 ]
   %125 = icmp eq i32 %.285, 0
   br i1 %125, label %.thread135, label %129
 
@@ -1306,7 +1306,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   unreachable
 
 .thread:                                          ; preds = %16, %15, %27, %29, %._crit_edge.thread, %24, %122
-  %.2 = phi ptr [ null, %27 ], [ null, %._crit_edge.thread ], [ %.187, %122 ], [ null, %24 ], [ null, %29 ], [ null, %15 ], [ null, %16 ]
+  %.2 = phi ptr [ %.187, %122 ], [ null, %24 ], [ null, %._crit_edge.thread ], [ null, %29 ], [ null, %27 ], [ null, %15 ], [ null, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.2
 }

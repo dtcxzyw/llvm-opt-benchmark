@@ -1411,7 +1411,7 @@ lean_alloc_ctor.exit329:                          ; preds = %lean_dec.exit192
   br label %512
 
 512:                                              ; preds = %lean_alloc_ctor.exit329, %lean_dec.exit191, %lean_alloc_ctor.exit315, %lean_alloc_ctor.exit304, %lean_dec.exit180, %lean_alloc_ctor.exit322
-  %.3 = phi ptr [ %280, %lean_dec.exit180 ], [ %355, %lean_alloc_ctor.exit315 ], [ %280, %lean_alloc_ctor.exit304 ], [ %398, %lean_alloc_ctor.exit322 ], [ %506, %lean_alloc_ctor.exit329 ], [ %178, %lean_dec.exit191 ]
+  %.3 = phi ptr [ %280, %lean_alloc_ctor.exit304 ], [ %355, %lean_alloc_ctor.exit315 ], [ %398, %lean_alloc_ctor.exit322 ], [ %280, %lean_dec.exit180 ], [ %506, %lean_alloc_ctor.exit329 ], [ %178, %lean_dec.exit191 ]
   ret ptr %.3
 }
 
@@ -1612,8 +1612,8 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
   br i1 %73, label %lean_dec.exit228.backedge, label %74
 
 lean_dec.exit228.backedge:                        ; preds = %72, %74, %84, %83, %81
-  %.0181.be = phi ptr [ %78, %84 ], [ %76, %74 ], [ %78, %81 ], [ %78, %83 ], [ inttoptr (i64 1 to ptr), %72 ]
-  %.0180.be = phi ptr [ %77, %84 ], [ %.1.i337341, %74 ], [ %77, %81 ], [ %77, %83 ], [ %.1.i337341, %72 ]
+  %.0181.be = phi ptr [ %76, %74 ], [ %78, %81 ], [ %78, %83 ], [ %78, %84 ], [ inttoptr (i64 1 to ptr), %72 ]
+  %.0180.be = phi ptr [ %.1.i337341, %74 ], [ %77, %81 ], [ %77, %83 ], [ %77, %84 ], [ %.1.i337341, %72 ]
   br label %lean_dec.exit228
 
 74:                                               ; preds = %72
@@ -2903,8 +2903,8 @@ define ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_applyIteSimproc(ptr n
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %23, %20, %34, %33, %31
-  %.1.i22 = phi ptr [ %28, %34 ], [ %28, %31 ], [ %28, %33 ], [ inttoptr (i64 1 to ptr), %20 ], [ %25, %23 ]
-  %35 = phi ptr [ %27, %34 ], [ %27, %31 ], [ %27, %33 ], [ %21, %20 ], [ %21, %23 ]
+  %.1.i22 = phi ptr [ %28, %31 ], [ %28, %33 ], [ %28, %34 ], [ inttoptr (i64 1 to ptr), %20 ], [ %25, %23 ]
+  %35 = phi ptr [ %27, %31 ], [ %27, %33 ], [ %27, %34 ], [ %21, %20 ], [ %21, %23 ]
   %36 = tail call ptr @l_Lean_Expr_withAppAux___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_applyIteSimproc___spec__1(ptr noundef %0, ptr noundef %35, ptr noundef %.1.i22, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   ret ptr %36
 }
@@ -4500,7 +4500,7 @@ lean_alloc_ctor.exit307:                          ; preds = %lean_dec.exit
   br label %479
 
 479:                                              ; preds = %lean_alloc_ctor.exit307, %lean_dec.exit166, %lean_alloc_ctor.exit293, %lean_alloc_ctor.exit282, %lean_dec.exit176, %lean_alloc_ctor.exit300
-  %.3 = phi ptr [ %254, %lean_dec.exit176 ], [ %329, %lean_alloc_ctor.exit293 ], [ %254, %lean_alloc_ctor.exit282 ], [ %372, %lean_alloc_ctor.exit300 ], [ %473, %lean_alloc_ctor.exit307 ], [ %158, %lean_dec.exit166 ]
+  %.3 = phi ptr [ %254, %lean_alloc_ctor.exit282 ], [ %329, %lean_alloc_ctor.exit293 ], [ %372, %lean_alloc_ctor.exit300 ], [ %254, %lean_dec.exit176 ], [ %473, %lean_alloc_ctor.exit307 ], [ %158, %lean_dec.exit166 ]
   ret ptr %.3
 }
 
@@ -4670,8 +4670,8 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
   br i1 %73, label %lean_dec.exit196.backedge, label %74
 
 lean_dec.exit196.backedge:                        ; preds = %72, %74, %84, %83, %81
-  %.0157.be = phi ptr [ %78, %84 ], [ %76, %74 ], [ %78, %81 ], [ %78, %83 ], [ inttoptr (i64 1 to ptr), %72 ]
-  %.0156.be = phi ptr [ %77, %84 ], [ %.1.i289293, %74 ], [ %77, %81 ], [ %77, %83 ], [ %.1.i289293, %72 ]
+  %.0157.be = phi ptr [ %76, %74 ], [ %78, %81 ], [ %78, %83 ], [ %78, %84 ], [ inttoptr (i64 1 to ptr), %72 ]
+  %.0156.be = phi ptr [ %.1.i289293, %74 ], [ %77, %81 ], [ %77, %83 ], [ %77, %84 ], [ %.1.i289293, %72 ]
   br label %lean_dec.exit196
 
 74:                                               ; preds = %72
@@ -5745,8 +5745,8 @@ define ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_applyCondSimproc(ptr 
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %23, %20, %34, %33, %31
-  %.1.i22 = phi ptr [ %28, %34 ], [ %28, %31 ], [ %28, %33 ], [ inttoptr (i64 1 to ptr), %20 ], [ %25, %23 ]
-  %35 = phi ptr [ %27, %34 ], [ %27, %31 ], [ %27, %33 ], [ %21, %20 ], [ %21, %23 ]
+  %.1.i22 = phi ptr [ %28, %31 ], [ %28, %33 ], [ %28, %34 ], [ inttoptr (i64 1 to ptr), %20 ], [ %25, %23 ]
+  %35 = phi ptr [ %27, %31 ], [ %27, %33 ], [ %27, %34 ], [ %21, %20 ], [ %21, %23 ]
   %36 = tail call ptr @l_Lean_Expr_withAppAux___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_applyCondSimproc___spec__1(ptr noundef %0, ptr noundef %35, ptr noundef %.1.i22, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   ret ptr %36
 }
@@ -5896,7 +5896,7 @@ lean_nat_eq.exit.thread:                          ; preds = %6
   br label %.loopexit
 
 lean_dec.exit:                                    ; preds = %12, %10, %18, %20, %21
-  %.1.i24 = phi ptr [ %15, %21 ], [ %15, %18 ], [ %15, %20 ], [ inttoptr (i64 1 to ptr), %10 ], [ %14, %12 ]
+  %.1.i24 = phi ptr [ %15, %18 ], [ %15, %20 ], [ %15, %21 ], [ inttoptr (i64 1 to ptr), %10 ], [ %14, %12 ]
   %28 = tail call ptr @lean_array_push(ptr noundef %.016, ptr noundef nonnull inttoptr (i64 7 to ptr)) #3
   br label %6
 
@@ -5976,7 +5976,7 @@ lean_nat_add.exit40:                              ; preds = %20, %16, %.critedge
   br label %lean_dec.exit42
 
 lean_dec.exit42:                                  ; preds = %27, %25, %34, %36, %37
-  %.1.i59 = phi ptr [ %31, %37 ], [ %31, %34 ], [ %31, %36 ], [ inttoptr (i64 1 to ptr), %25 ], [ %29, %27 ]
+  %.1.i59 = phi ptr [ %31, %34 ], [ %31, %36 ], [ %31, %37 ], [ inttoptr (i64 1 to ptr), %25 ], [ %29, %27 ]
   %38 = ptrtoint ptr %.1.i59 to i64
   %39 = and i64 %38, 1
   %.not62 = icmp eq i64 %39, 0
@@ -6277,7 +6277,7 @@ lean_nat_eq.exit.thread:                          ; preds = %6
   br label %.loopexit
 
 lean_dec.exit:                                    ; preds = %12, %10, %18, %20, %21
-  %.1.i24 = phi ptr [ %15, %21 ], [ %15, %18 ], [ %15, %20 ], [ inttoptr (i64 1 to ptr), %10 ], [ %14, %12 ]
+  %.1.i24 = phi ptr [ %15, %18 ], [ %15, %20 ], [ %15, %21 ], [ inttoptr (i64 1 to ptr), %10 ], [ %14, %12 ]
   %28 = tail call ptr @lean_array_push(ptr noundef %.016, ptr noundef nonnull inttoptr (i64 7 to ptr)) #3
   br label %6
 
@@ -6355,7 +6355,7 @@ lean_nat_add.exit37:                              ; preds = %20, %16, %.critedge
   br label %lean_dec.exit39
 
 lean_dec.exit39:                                  ; preds = %27, %25, %34, %36, %37
-  %.1.i52 = phi ptr [ %31, %37 ], [ %31, %34 ], [ %31, %36 ], [ inttoptr (i64 1 to ptr), %25 ], [ %29, %27 ]
+  %.1.i52 = phi ptr [ %31, %34 ], [ %31, %36 ], [ %31, %37 ], [ inttoptr (i64 1 to ptr), %25 ], [ %29, %27 ]
   %38 = ptrtoint ptr %.1.i52 to i64
   %39 = and i64 %38, 1
   %.not55 = icmp eq i64 %39, 0

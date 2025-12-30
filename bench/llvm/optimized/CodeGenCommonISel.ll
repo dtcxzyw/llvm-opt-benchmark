@@ -271,7 +271,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %_ZN4llvm26Machin
   %86 = icmp ult i32 %85, 1073741823
   br i1 %86, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.exit, label %.critedge2.i
 
-.critedge2.i:                                     ; preds = %77, %82, %66, %66, %66, %66, %66, %66, %66, %66, %66, %65, %70
+.critedge2.i:                                     ; preds = %77, %82, %65, %66, %66, %66, %66, %66, %66, %66, %66, %66, %70
   %87 = icmp eq ptr %.sroa.0.2, %5
   br i1 %87, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.exit, label %88
 
@@ -307,7 +307,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit33: ; preds
   br label %62, !llvm.loop !101
 
 _ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.exit: ; preds = %66, %.critedge2.i, %67, %72, %82, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit, %57, %50, %2
-  %.sroa.0.0 = phi ptr [ %3, %2 ], [ %.sroa.0.0.i.i.i14, %57 ], [ %3, %50 ], [ %3, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit ], [ %.sroa.045.0, %82 ], [ %.sroa.045.0, %66 ], [ %.sroa.0.2, %.critedge2.i ], [ %.sroa.045.0, %72 ], [ %.sroa.045.0, %67 ]
+  %.sroa.0.0 = phi ptr [ %3, %2 ], [ %3, %50 ], [ %.sroa.0.0.i.i.i14, %57 ], [ %3, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit ], [ %.sroa.045.0, %66 ], [ %.sroa.045.0, %82 ], [ %.sroa.045.0, %72 ], [ %.sroa.045.0, %67 ], [ %.sroa.0.2, %.critedge2.i ]
   ret ptr %.sroa.0.0
 }
 

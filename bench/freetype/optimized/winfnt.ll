@@ -605,7 +605,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   br label %fnt_face_get_dll_font.exit
 
 .thread174.thread.sink.split.i:                   ; preds = %95, %88, %.loopexit.i
-  %.sink253.i = phi i32 [ 3, %88 ], [ 3, %.loopexit.i ], [ 6, %95 ]
+  %.sink253.i = phi i32 [ 3, %.loopexit.i ], [ 3, %88 ], [ 6, %95 ]
   store i32 %.sink253.i, ptr %6, align 4, !tbaa !29
   br label %.thread174.thread.i
 
@@ -949,7 +949,7 @@ fnt_face_get_dll_font.exit:                       ; preds = %32, %.thread182.i, 
   br i1 %.not.i130, label %FNT_Face_Done.exit, label %.thread143
 
 .thread143.sink.split:                            ; preds = %397, %391, %.thread.thread, %312
-  %.sink = phi i32 [ 6, %312 ], [ 3, %391 ], [ 3, %.thread.thread ], [ 3, %397 ]
+  %.sink = phi i32 [ 6, %312 ], [ 3, %.thread.thread ], [ 3, %391 ], [ 3, %397 ]
   store i32 %.sink, ptr %18, align 4, !tbaa !29
   br label %.thread143
 
@@ -989,8 +989,8 @@ fnt_font_done.exit.i:                             ; preds = %443, %.thread143
   %.pre164 = load i32, ptr %18, align 4, !tbaa !29
   br label %FNT_Face_Done.exit
 
-FNT_Face_Done.exit:                               ; preds = %431, %434, %433, %432, %304, %fnt_font_done.exit.i, %435, %313, %fnt_face_get_dll_font.exit
-  %449 = phi i32 [ 0, %431 ], [ 0, %434 ], [ 0, %433 ], [ 0, %432 ], [ %306, %304 ], [ %.pre164, %fnt_font_done.exit.i ], [ %299, %435 ], [ 0, %313 ], [ 0, %fnt_face_get_dll_font.exit ]
+FNT_Face_Done.exit:                               ; preds = %432, %431, %434, %433, %304, %fnt_font_done.exit.i, %435, %313, %fnt_face_get_dll_font.exit
+  %449 = phi i32 [ 0, %432 ], [ 0, %431 ], [ 0, %434 ], [ 0, %433 ], [ %306, %304 ], [ %.pre164, %fnt_font_done.exit.i ], [ %299, %435 ], [ 0, %313 ], [ 0, %fnt_face_get_dll_font.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret i32 %449
 }
@@ -1237,7 +1237,7 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr noundef readonly capture
   br label %117
 
 117:                                              ; preds = %89, %78, %54, %22, %8, %11, %4, %113, %96, %55
-  %118 = phi i32 [ 3, %54 ], [ %.pre, %113 ], [ %101, %96 ], [ 0, %55 ], [ 3, %22 ], [ 6, %8 ], [ 35, %4 ], [ 6, %11 ], [ 3, %78 ], [ 3, %89 ]
+  %118 = phi i32 [ %.pre, %113 ], [ %101, %96 ], [ 0, %55 ], [ 35, %4 ], [ 6, %11 ], [ 6, %8 ], [ 3, %22 ], [ 3, %54 ], [ 3, %78 ], [ 3, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %118
 }
@@ -1421,7 +1421,7 @@ define internal fastcc i32 @fnt_font_load(ptr noundef %0, ptr noundef %1) unname
   br label %31
 
 31:                                               ; preds = %20, %10, %8, %6, %2, %27, %24
-  %.0 = phi i32 [ %30, %27 ], [ 2, %6 ], [ 2, %8 ], [ 2, %10 ], [ %26, %24 ], [ 2, %2 ], [ 2, %20 ]
+  %.0 = phi i32 [ %26, %24 ], [ %30, %27 ], [ 2, %2 ], [ 2, %6 ], [ 2, %8 ], [ 2, %10 ], [ 2, %20 ]
   ret i32 %.0
 }
 
@@ -1507,8 +1507,8 @@ define internal i32 @fnt_cmap_char_next(ptr noundef readonly captures(none) %0, 
   br label %13
 
 13:                                               ; preds = %7, %2
-  %.014 = phi i32 [ %spec.select, %7 ], [ 1, %2 ]
-  %.0 = phi i32 [ %spec.select18, %7 ], [ %6, %2 ]
+  %.014 = phi i32 [ 1, %2 ], [ %spec.select, %7 ]
+  %.0 = phi i32 [ %6, %2 ], [ %spec.select18, %7 ]
   store i32 %.0, ptr %1, align 4, !tbaa !29
   ret i32 %.014
 }

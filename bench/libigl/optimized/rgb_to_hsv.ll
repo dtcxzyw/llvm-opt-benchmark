@@ -343,8 +343,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
   br label %_ZN3igl10rgb_to_hsvIddEEvPKT_PT0_.exit
 
 _ZN3igl10rgb_to_hsvIddEEvPKT_PT0_.exit:           ; preds = %34, %21, %66, %70, %74, %77
-  %.sroa.0.1 = phi double [ %79, %77 ], [ 0.000000e+00, %21 ], [ %71, %70 ], [ %68, %66 ], [ %76, %74 ], [ 0.000000e+00, %34 ]
-  %.sroa.10.1 = phi double [ %50, %77 ], [ 0.000000e+00, %21 ], [ %50, %70 ], [ %50, %66 ], [ %50, %74 ], [ %50, %34 ]
+  %.sroa.0.1 = phi double [ %71, %70 ], [ %68, %66 ], [ %76, %74 ], [ %79, %77 ], [ 0.000000e+00, %21 ], [ 0.000000e+00, %34 ]
+  %.sroa.10.1 = phi double [ %50, %70 ], [ %50, %66 ], [ %50, %74 ], [ %50, %77 ], [ 0.000000e+00, %21 ], [ %50, %34 ]
   %80 = getelementptr double, ptr %18, i64 %.023
   store double %.sroa.0.1, ptr %80, align 8, !tbaa !8
   %81 = getelementptr double, ptr %80, i64 %20
@@ -484,8 +484,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
   br label %_ZN3igl10rgb_to_hsvIffEEvPKT_PT0_.exit
 
 _ZN3igl10rgb_to_hsvIffEEvPKT_PT0_.exit:           ; preds = %34, %72, %76, %81, %21, %66
-  %.sroa.0.1 = phi float [ %70, %66 ], [ 0.000000e+00, %34 ], [ %80, %76 ], [ %85, %81 ], [ %73, %72 ], [ 0.000000e+00, %21 ]
-  %.sroa.6.2 = phi float [ %50, %66 ], [ %50, %34 ], [ %50, %76 ], [ %50, %81 ], [ %50, %72 ], [ 0.000000e+00, %21 ]
+  %.sroa.0.1 = phi float [ %70, %66 ], [ %80, %76 ], [ %85, %81 ], [ %73, %72 ], [ 0.000000e+00, %34 ], [ 0.000000e+00, %21 ]
+  %.sroa.6.2 = phi float [ %50, %66 ], [ %50, %76 ], [ %50, %81 ], [ %50, %72 ], [ %50, %34 ], [ 0.000000e+00, %21 ]
   %86 = getelementptr float, ptr %18, i64 %.021
   store float %.sroa.0.1, ptr %86, align 4, !tbaa !4
   %87 = getelementptr float, ptr %86, i64 %20
@@ -589,8 +589,8 @@ define weak_odr dso_local void @_ZN3igl10rgb_to_hsvIN5Eigen6MatrixIfLi64ELi3ELi1
   br label %_ZN3igl10rgb_to_hsvIffEEvPKT_PT0_.exit
 
 _ZN3igl10rgb_to_hsvIffEEvPKT_PT0_.exit:           ; preds = %17, %55, %59, %64, %4, %49
-  %.sroa.0.1 = phi float [ %53, %49 ], [ 0.000000e+00, %17 ], [ %63, %59 ], [ %68, %64 ], [ %56, %55 ], [ 0.000000e+00, %4 ]
-  %.sroa.6.2 = phi float [ %33, %49 ], [ %33, %17 ], [ %33, %59 ], [ %33, %64 ], [ %33, %55 ], [ 0.000000e+00, %4 ]
+  %.sroa.0.1 = phi float [ %53, %49 ], [ %63, %59 ], [ %68, %64 ], [ %56, %55 ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %4 ]
+  %.sroa.6.2 = phi float [ %33, %49 ], [ %33, %59 ], [ %33, %64 ], [ %33, %55 ], [ %33, %17 ], [ 0.000000e+00, %4 ]
   %69 = getelementptr i8, ptr %1, i64 %.idx.i.i.i
   store float %.sroa.0.1, ptr %69, align 4, !tbaa !4
   %70 = getelementptr i8, ptr %69, i64 4

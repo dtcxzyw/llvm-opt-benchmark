@@ -1623,7 +1623,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i.
   %exitcond.i = icmp eq i64 %.pre-phi316, 3
   br i1 %exitcond.i, label %.loopexit.i, label %176, !llvm.loop !124
 
-196:                                              ; preds = %190, %181
+196:                                              ; preds = %181, %190
   %197 = load ptr, ptr %118, align 8, !tbaa !125
   %198 = load ptr, ptr %119, align 8, !tbaa !126
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1763,7 +1763,7 @@ _ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1
   br label %367
 
 264:                                              ; preds = %214, %213, %257, %258
-  %265 = phi i1 [ false, %214 ], [ true, %213 ], [ true, %257 ], [ false, %258 ]
+  %265 = phi i1 [ false, %214 ], [ true, %213 ], [ false, %258 ], [ true, %257 ]
   %266 = load ptr, ptr %115, align 8, !tbaa !119
   %267 = load i8, ptr %266, align 1, !tbaa !33, !range !35, !noundef !36
   %268 = trunc nuw i8 %267 to i1
@@ -1920,7 +1920,7 @@ _ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1
   br label %351
 
 350:                                              ; preds = %344, %342
-  %.pn93.pn.pn = phi { ptr, i32 } [ %343, %342 ], [ %345, %344 ]
+  %.pn93.pn.pn = phi { ptr, i32 } [ %345, %344 ], [ %343, %342 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %367
 
@@ -1972,7 +1972,7 @@ _ZNSt6vectorIPKN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi3EEESaIS7_
   ret void
 
 367:                                              ; preds = %350, %218, %216, %260, %262, %145
-  %.pn93.pn.pn.pn.pn = phi { ptr, i32 } [ %146, %145 ], [ %.pn93.pn.pn, %350 ], [ %217, %216 ], [ %219, %218 ], [ %261, %260 ], [ %263, %262 ]
+  %.pn93.pn.pn.pn.pn = phi { ptr, i32 } [ %146, %145 ], [ %.pn93.pn.pn, %350 ], [ %217, %216 ], [ %219, %218 ], [ %263, %262 ], [ %261, %260 ]
   %368 = load ptr, ptr %4, align 8, !tbaa !173
   %.not.i.i.i117 = icmp eq ptr %368, null
   br i1 %.not.i.i.i117, label %_ZNSt6vectorIPKN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi3EEESaIS7_EED2Ev.exit118, label %369

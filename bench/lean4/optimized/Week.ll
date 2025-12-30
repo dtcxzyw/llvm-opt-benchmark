@@ -724,7 +724,7 @@ define ptr @l_Std_Time_Week_instOfNatOffset(ptr noundef %0) local_unnamed_addr #
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
+  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
   ret ptr %.1.i
 }
 
@@ -918,7 +918,7 @@ define ptr @l_Std_Time_Week_Ordinal_ofNat(ptr noundef %0, ptr noundef readnone c
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %2, %6
-  %.1.i = phi ptr [ %0, %2 ], [ %8, %6 ]
+  %.1.i = phi ptr [ %8, %6 ], [ %0, %2 ]
   ret ptr %.1.i
 }
 
@@ -969,7 +969,7 @@ lean_dec.exit:                                    ; preds = %4, %12, %11, %9
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %lean_nat_le.exit, %16, %14, %lean_dec.exit
-  %.0 = phi ptr [ %13, %lean_dec.exit ], [ %0, %14 ], [ %18, %16 ], [ %0, %lean_nat_le.exit ]
+  %.0 = phi ptr [ %13, %lean_dec.exit ], [ %18, %16 ], [ %0, %14 ], [ %0, %lean_nat_le.exit ]
   ret ptr %.0
 }
 
@@ -1065,7 +1065,7 @@ define ptr @l_Std_Time_Week_Offset_ofNat(ptr noundef %0) local_unnamed_addr #0 {
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
+  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
   ret ptr %.1.i
 }
 
@@ -1249,7 +1249,7 @@ l_Std_Time_Week_Offset_toMilliseconds.exit.thread5: ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %22, %17, %31, %30, %28, %l_Std_Time_Week_Offset_toMilliseconds.exit.thread5
-  %.0.i.i4 = phi ptr [ %25, %31 ], [ %8, %l_Std_Time_Week_Offset_toMilliseconds.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %23, %22 ], [ %21, %17 ]
+  %.0.i.i4 = phi ptr [ %8, %l_Std_Time_Week_Offset_toMilliseconds.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %25, %31 ], [ %23, %22 ], [ %21, %17 ]
   ret ptr %.0.i.i4
 }
 
@@ -1380,7 +1380,7 @@ l_Std_Time_Week_Offset_ofMilliseconds.exit.thread5: ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %29, %24, %9, %38, %37, %35, %l_Std_Time_Week_Offset_ofMilliseconds.exit.thread5
-  %.1.i.i4 = phi ptr [ %32, %38 ], [ %8, %l_Std_Time_Week_Offset_ofMilliseconds.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
+  %.1.i.i4 = phi ptr [ %8, %l_Std_Time_Week_Offset_ofMilliseconds.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %32, %38 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
   ret ptr %.1.i.i4
 }
 
@@ -1487,7 +1487,7 @@ l_Std_Time_Week_Offset_toNanoseconds.exit.thread5: ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %22, %17, %31, %30, %28, %l_Std_Time_Week_Offset_toNanoseconds.exit.thread5
-  %.0.i.i4 = phi ptr [ %25, %31 ], [ %8, %l_Std_Time_Week_Offset_toNanoseconds.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %23, %22 ], [ %21, %17 ]
+  %.0.i.i4 = phi ptr [ %8, %l_Std_Time_Week_Offset_toNanoseconds.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %25, %31 ], [ %23, %22 ], [ %21, %17 ]
   ret ptr %.0.i.i4
 }
 
@@ -1618,7 +1618,7 @@ l_Std_Time_Week_Offset_ofNanoseconds.exit.thread5: ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %29, %24, %9, %38, %37, %35, %l_Std_Time_Week_Offset_ofNanoseconds.exit.thread5
-  %.1.i.i4 = phi ptr [ %32, %38 ], [ %8, %l_Std_Time_Week_Offset_ofNanoseconds.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
+  %.1.i.i4 = phi ptr [ %8, %l_Std_Time_Week_Offset_ofNanoseconds.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %32, %38 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
   ret ptr %.1.i.i4
 }
 
@@ -1725,7 +1725,7 @@ l_Std_Time_Week_Offset_toSeconds.exit.thread5:    ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %22, %17, %31, %30, %28, %l_Std_Time_Week_Offset_toSeconds.exit.thread5
-  %.0.i.i4 = phi ptr [ %25, %31 ], [ %8, %l_Std_Time_Week_Offset_toSeconds.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %23, %22 ], [ %21, %17 ]
+  %.0.i.i4 = phi ptr [ %8, %l_Std_Time_Week_Offset_toSeconds.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %25, %31 ], [ %23, %22 ], [ %21, %17 ]
   ret ptr %.0.i.i4
 }
 
@@ -1856,7 +1856,7 @@ l_Std_Time_Week_Offset_ofSeconds.exit.thread5:    ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %29, %24, %9, %38, %37, %35, %l_Std_Time_Week_Offset_ofSeconds.exit.thread5
-  %.1.i.i4 = phi ptr [ %32, %38 ], [ %8, %l_Std_Time_Week_Offset_ofSeconds.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
+  %.1.i.i4 = phi ptr [ %8, %l_Std_Time_Week_Offset_ofSeconds.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %32, %38 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
   ret ptr %.1.i.i4
 }
 
@@ -1963,7 +1963,7 @@ l_Std_Time_Week_Offset_toMinutes.exit.thread5:    ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %22, %17, %31, %30, %28, %l_Std_Time_Week_Offset_toMinutes.exit.thread5
-  %.0.i.i4 = phi ptr [ %25, %31 ], [ %8, %l_Std_Time_Week_Offset_toMinutes.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %23, %22 ], [ %21, %17 ]
+  %.0.i.i4 = phi ptr [ %8, %l_Std_Time_Week_Offset_toMinutes.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %25, %31 ], [ %23, %22 ], [ %21, %17 ]
   ret ptr %.0.i.i4
 }
 
@@ -2094,7 +2094,7 @@ l_Std_Time_Week_Offset_ofMinutes.exit.thread5:    ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %29, %24, %9, %38, %37, %35, %l_Std_Time_Week_Offset_ofMinutes.exit.thread5
-  %.1.i.i4 = phi ptr [ %32, %38 ], [ %8, %l_Std_Time_Week_Offset_ofMinutes.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
+  %.1.i.i4 = phi ptr [ %8, %l_Std_Time_Week_Offset_ofMinutes.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %32, %38 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
   ret ptr %.1.i.i4
 }
 
@@ -2201,7 +2201,7 @@ l_Std_Time_Week_Offset_toHours.exit.thread5:      ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %22, %17, %31, %30, %28, %l_Std_Time_Week_Offset_toHours.exit.thread5
-  %.0.i.i4 = phi ptr [ %25, %31 ], [ %8, %l_Std_Time_Week_Offset_toHours.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %23, %22 ], [ %21, %17 ]
+  %.0.i.i4 = phi ptr [ %8, %l_Std_Time_Week_Offset_toHours.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %25, %31 ], [ %23, %22 ], [ %21, %17 ]
   ret ptr %.0.i.i4
 }
 
@@ -2332,7 +2332,7 @@ l_Std_Time_Week_Offset_ofHours.exit.thread5:      ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %29, %24, %9, %38, %37, %35, %l_Std_Time_Week_Offset_ofHours.exit.thread5
-  %.1.i.i4 = phi ptr [ %32, %38 ], [ %8, %l_Std_Time_Week_Offset_ofHours.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
+  %.1.i.i4 = phi ptr [ %8, %l_Std_Time_Week_Offset_ofHours.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %32, %38 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
   ret ptr %.1.i.i4
 }
 
@@ -2439,7 +2439,7 @@ l_Std_Time_Week_Offset_toDays.exit.thread5:       ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %22, %17, %31, %30, %28, %l_Std_Time_Week_Offset_toDays.exit.thread5
-  %.0.i.i4 = phi ptr [ %25, %31 ], [ %8, %l_Std_Time_Week_Offset_toDays.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %23, %22 ], [ %21, %17 ]
+  %.0.i.i4 = phi ptr [ %8, %l_Std_Time_Week_Offset_toDays.exit.thread5 ], [ %25, %28 ], [ %25, %30 ], [ %25, %31 ], [ %23, %22 ], [ %21, %17 ]
   ret ptr %.0.i.i4
 }
 
@@ -2570,7 +2570,7 @@ l_Std_Time_Week_Offset_ofDays.exit.thread5:       ; preds = %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %29, %24, %9, %38, %37, %35, %l_Std_Time_Week_Offset_ofDays.exit.thread5
-  %.1.i.i4 = phi ptr [ %32, %38 ], [ %8, %l_Std_Time_Week_Offset_ofDays.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
+  %.1.i.i4 = phi ptr [ %8, %l_Std_Time_Week_Offset_ofDays.exit.thread5 ], [ %32, %35 ], [ %32, %37 ], [ %32, %38 ], [ %30, %29 ], [ %28, %24 ], [ inttoptr (i64 1 to ptr), %9 ]
   ret ptr %.1.i.i4
 }
 
@@ -3640,7 +3640,7 @@ _init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit: ; pr
   br label %_init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit
 
 _init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit, %473
-  %.1.i.i73 = phi ptr [ %469, %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit ], [ %475, %473 ]
+  %.1.i.i73 = phi ptr [ %475, %473 ], [ %469, %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit ]
   store ptr %.1.i.i73, ptr @l_Std_Time_Week_Offset_toNanoseconds___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i73) #5
   store ptr inttoptr (i64 1209601 to ptr), ptr @l_Std_Time_Week_Offset_toSeconds___closed__1, align 8, !tbaa !11

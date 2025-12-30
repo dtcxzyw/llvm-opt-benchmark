@@ -277,7 +277,7 @@ define noundef ptr @udat_open_77(i32 noundef %0, i32 noundef %1, ptr noundef %2,
   br label %56
 
 .critedge:                                        ; preds = %47, %40, %41, %50
-  %.153 = phi ptr [ %38, %41 ], [ %38, %50 ], [ null, %40 ], [ null, %47 ]
+  %.153 = phi ptr [ %38, %50 ], [ null, %40 ], [ %38, %41 ], [ null, %47 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %58
@@ -372,7 +372,7 @@ define noundef ptr @udat_open_77(i32 noundef %0, i32 noundef %1, ptr noundef %2,
   br label %89
 
 89:                                               ; preds = %68, %85, %.thread84, %19, %8, %64, %60
-  %.0 = phi ptr [ null, %.thread84 ], [ null, %8 ], [ null, %60 ], [ null, %64 ], [ %20, %19 ], [ %.052, %85 ], [ %.052, %68 ]
+  %.0 = phi ptr [ null, %60 ], [ null, %64 ], [ null, %8 ], [ %20, %19 ], [ null, %.thread84 ], [ %.052, %85 ], [ %.052, %68 ]
   ret ptr %.0
 
 90:                                               ; preds = %83, %57, %30
@@ -564,7 +564,7 @@ define noundef i32 @udat_format_77(ptr noundef %0, double noundef %1, ptr nounde
   resume { ptr, i32 } %.pn.pn
 
 49:                                               ; preds = %6, %42, %18
-  %.022 = phi i32 [ %41, %42 ], [ -1, %18 ], [ -1, %6 ]
+  %.022 = phi i32 [ -1, %18 ], [ %41, %42 ], [ -1, %6 ]
   ret i32 %.022
 }
 
@@ -697,7 +697,7 @@ define noundef i32 @udat_formatCalendar_77(ptr noundef %0, ptr noundef %1, ptr n
   resume { ptr, i32 } %.pn.pn
 
 52:                                               ; preds = %6, %45, %18
-  %.022 = phi i32 [ %44, %45 ], [ -1, %18 ], [ -1, %6 ]
+  %.022 = phi i32 [ -1, %18 ], [ %44, %45 ], [ -1, %6 ]
   ret i32 %.022
 }
 
@@ -775,7 +775,7 @@ define noundef i32 @udat_formatForFields_77(ptr noundef %0, double noundef %1, p
   resume { ptr, i32 } %.pn
 
 33:                                               ; preds = %6, %27, %17
-  %.018 = phi i32 [ %26, %27 ], [ -1, %17 ], [ -1, %6 ]
+  %.018 = phi i32 [ -1, %17 ], [ %26, %27 ], [ -1, %6 ]
   ret i32 %.018
 }
 
@@ -858,7 +858,7 @@ define noundef i32 @udat_formatCalendarForFields_77(ptr noundef %0, ptr noundef 
   resume { ptr, i32 } %.pn
 
 36:                                               ; preds = %6, %30, %17
-  %.018 = phi i32 [ %29, %30 ], [ -1, %17 ], [ -1, %6 ]
+  %.018 = phi i32 [ -1, %17 ], [ %29, %30 ], [ -1, %6 ]
   ret i32 %.018
 }
 
@@ -1460,7 +1460,7 @@ define noundef i32 @udat_toPattern_77(ptr noundef %0, i8 noundef signext %1, ptr
   resume { ptr, i32 } %.pn.pn
 
 52:                                               ; preds = %5, %50, %16
-  %.0 = phi i32 [ %.1, %50 ], [ -1, %16 ], [ -1, %5 ]
+  %.0 = phi i32 [ -1, %16 ], [ %.1, %50 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -3456,7 +3456,7 @@ _ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit: ; preds = %11
   resume { ptr, i32 } %.pn
 
 _ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit.thread: ; preds = %.critedge.i, %4, %32, %19
-  %.018 = phi i32 [ %31, %32 ], [ -1, %19 ], [ -1, %4 ], [ -1, %.critedge.i ]
+  %.018 = phi i32 [ -1, %19 ], [ %31, %32 ], [ -1, %4 ], [ -1, %.critedge.i ]
   ret i32 %.018
 }
 
@@ -3550,7 +3550,7 @@ _ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit: ; preds = %11
   resume { ptr, i32 } %.pn
 
 _ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit.thread: ; preds = %.critedge.i, %4, %32, %19
-  %.018 = phi i32 [ %31, %32 ], [ -1, %19 ], [ -1, %4 ], [ -1, %.critedge.i ]
+  %.018 = phi i32 [ -1, %19 ], [ %31, %32 ], [ -1, %4 ], [ -1, %.critedge.i ]
   ret i32 %.018
 }
 

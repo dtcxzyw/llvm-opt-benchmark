@@ -959,7 +959,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.t
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %31, %34, %35, %36, %37, %39
-  %.0.in.i = phi ptr [ %33, %31 ], [ @rb_cNilClass, %35 ], [ @rb_cTrueClass, %36 ], [ @rb_cFalseClass, %34 ], [ @rb_cInteger, %37 ], [ %spec.select.i, %39 ]
+  %.0.in.i = phi ptr [ @rb_cNilClass, %35 ], [ @rb_cTrueClass, %36 ], [ %33, %31 ], [ @rb_cFalseClass, %34 ], [ @rb_cInteger, %37 ], [ %spec.select.i, %39 ]
   %.0.i23 = load i64, ptr %.0.in.i, align 8, !tbaa !47
   %42 = load i64, ptr @rb_cNode, align 8, !tbaa !47
   %43 = icmp eq i64 %.0.i23, %42

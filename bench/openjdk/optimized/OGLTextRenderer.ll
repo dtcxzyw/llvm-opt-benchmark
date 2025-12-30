@@ -789,7 +789,7 @@ OGLTR_AddToGlyphCache.exit.i132:                  ; preds = %273, %267, %260
   br label %338
 
 338:                                              ; preds = %337, %331, %328
-  %.0.i.i = phi i32 [ %spec.select.i.i, %337 ], [ 512, %331 ], [ %291, %328 ]
+  %.0.i.i = phi i32 [ 512, %331 ], [ %spec.select.i.i, %337 ], [ %291, %328 ]
   %339 = add nsw i32 %.0.i.i, %.3142
   %340 = add nsw i32 %.0102, 34
   %341 = load i32, ptr %34, align 4
@@ -1086,7 +1086,7 @@ OGLTR_DisableGlyphModeState.exit.i134:            ; preds = %417, %412
   %504 = icmp samesign ult i32 %440, %415
   br i1 %504, label %.lr.ph.us.i135, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, !llvm.loop !10
 
-OGLTR_DrawGrayscaleGlyphViaCache.exit.thread:     ; preds = %._crit_edge.us.i136, %._crit_edge.us.i, %434, %.lr.ph120.i, %OGLTR_AddToGlyphCache.exit.i132, %385, %169, %OGLTR_AddToGlyphCache.exit.i, %119, %116, %114, %OGLTR_DrawColorGlyphNoCache.exit, %133, %270, %81
+OGLTR_DrawGrayscaleGlyphViaCache.exit.thread:     ; preds = %._crit_edge.us.i136, %._crit_edge.us.i, %.lr.ph120.i, %434, %270, %OGLTR_AddToGlyphCache.exit.i132, %385, %169, %133, %OGLTR_AddToGlyphCache.exit.i, %119, %116, %114, %OGLTR_DrawColorGlyphNoCache.exit, %81
   %505 = add nuw nsw i32 %.0107151, 1
   %exitcond.not = icmp eq i32 %505, %3
   br i1 %exitcond.not, label %OGLTR_DrawGrayscaleGlyphViaCache.exit, label %40, !llvm.loop !11
@@ -1315,7 +1315,7 @@ OGLTR_CreateLCDTextProgram.exit:                  ; preds = %20
   br label %66
 
 66:                                               ; preds = %OGLTR_CreateLCDTextProgram.exit.thread, %12, %._crit_edge
-  %.0 = phi i8 [ 0, %12 ], [ 1, %._crit_edge ], [ 0, %OGLTR_CreateLCDTextProgram.exit.thread ]
+  %.0 = phi i8 [ 1, %._crit_edge ], [ 0, %12 ], [ 0, %OGLTR_CreateLCDTextProgram.exit.thread ]
   ret i8 %.0
 }
 

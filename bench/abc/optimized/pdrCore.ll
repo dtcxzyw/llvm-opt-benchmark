@@ -218,7 +218,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %Vec_IntPush.exit, %.critedge
-  %.val33 = phi i32 [ %.val30, %.critedge ], [ %.val33.pre, %Vec_IntPush.exit ], [ %.val30, %28 ]
+  %.val33 = phi i32 [ %.val33.pre, %Vec_IntPush.exit ], [ %.val30, %.critedge ], [ %.val30, %28 ]
   %64 = getelementptr i8, ptr %11, i64 8
   %.val35 = load ptr, ptr %64, align 8, !tbaa !53
   %65 = tail call ptr @Pdr_SetCreateSubset(ptr noundef %2, ptr noundef %.val35, i32 noundef %.val33) #21
@@ -1025,7 +1025,7 @@ Pdr_ManSortByPriority.exit60:                     ; preds = %._crit_edge.i57, %6
   br i1 %115, label %.lr.ph, label %.loopexit, !llvm.loop !88
 
 .loopexit:                                        ; preds = %54, %110, %7, %Pdr_ManSortByPriority.exit, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %Pdr_ManSortByPriority.exit ], [ 0, %7 ], [ 0, %110 ], [ -1, %54 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %Pdr_ManSortByPriority.exit ], [ 0, %7 ], [ -1, %54 ], [ 0, %110 ]
   ret i32 %.0
 }
 
@@ -1330,7 +1330,7 @@ define range(i32 -1, 2) i32 @ZPdr_ManDown(ptr noundef %0, i32 noundef %1, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %108, %._crit_edge130, %129, %.loopexit.loopexit155, %124, %128, %140
-  %.0 = phi i32 [ 0, %128 ], [ 1, %._crit_edge130 ], [ 0, %124 ], [ 1, %129 ], [ 0, %140 ], [ 0, %108 ], [ %134, %.loopexit.loopexit155 ]
+  %.0 = phi i32 [ 0, %140 ], [ 0, %128 ], [ 0, %124 ], [ 1, %129 ], [ 1, %._crit_edge130 ], [ 0, %108 ], [ %134, %.loopexit.loopexit155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -2247,9 +2247,9 @@ Pdr_ManSortByPriority.exit291:                    ; preds = %._crit_edge.i288, %
   br label %Hash_IntExists.exit
 
 Hash_IntExists.exit:                              ; preds = %.lr.ph.i234, %286, %288, %233, %Hash_IntExists.exit.thread, %Pdr_ManSortByPriority.exit291, %289
-  %.1172 = phi ptr [ %313, %Pdr_ManSortByPriority.exit291 ], [ %.0171333, %Hash_IntExists.exit.thread ], [ %.0171333, %233 ], [ %.2173, %288 ], [ %.2173, %286 ], [ %291, %289 ], [ %.0171333, %.lr.ph.i234 ]
-  %.1168 = phi i32 [ %348, %Pdr_ManSortByPriority.exit291 ], [ %.0167334, %Hash_IntExists.exit.thread ], [ %.0167334, %233 ], [ %.0167334, %288 ], [ %.0167334, %286 ], [ -1, %289 ], [ %.0167334, %.lr.ph.i234 ]
-  %.4 = phi ptr [ %293, %Pdr_ManSortByPriority.exit291 ], [ %.3335, %Hash_IntExists.exit.thread ], [ %.3335, %233 ], [ %.3335, %288 ], [ %.3335, %286 ], [ %290, %289 ], [ %.3335, %.lr.ph.i234 ]
+  %.1172 = phi ptr [ %.0171333, %Hash_IntExists.exit.thread ], [ %.0171333, %233 ], [ %.2173, %288 ], [ %.2173, %286 ], [ %291, %289 ], [ %313, %Pdr_ManSortByPriority.exit291 ], [ %.0171333, %.lr.ph.i234 ]
+  %.1168 = phi i32 [ %.0167334, %Hash_IntExists.exit.thread ], [ %.0167334, %233 ], [ %.0167334, %288 ], [ %.0167334, %286 ], [ -1, %289 ], [ %348, %Pdr_ManSortByPriority.exit291 ], [ %.0167334, %.lr.ph.i234 ]
+  %.4 = phi ptr [ %.3335, %Hash_IntExists.exit.thread ], [ %.3335, %233 ], [ %.3335, %288 ], [ %.3335, %286 ], [ %290, %289 ], [ %293, %Pdr_ManSortByPriority.exit291 ], [ %.3335, %.lr.ph.i234 ]
   %349 = add nsw i32 %.1168, 1
   %350 = getelementptr inbounds nuw i8, ptr %.4, i64 16
   %351 = load i32, ptr %350, align 8, !tbaa !51
@@ -2520,7 +2520,7 @@ Hash_IntFree.exit:                                ; preds = %._crit_edge23.i, %4
   br label %466
 
 466:                                              ; preds = %Abc_Clock.exit319, %Hash_IntFree.exit, %Vec_IntSelectSort.exit, %371, %280, %230, %Abc_Clock.exit224, %Abc_Clock.exit222
-  %.0 = phi i32 [ -1, %371 ], [ 0, %Abc_Clock.exit222 ], [ 1, %Abc_Clock.exit224 ], [ %55, %Vec_IntSelectSort.exit ], [ -1, %230 ], [ -1, %280 ], [ 1, %Hash_IntFree.exit ], [ 1, %Abc_Clock.exit319 ]
+  %.0 = phi i32 [ 0, %Abc_Clock.exit222 ], [ 1, %Abc_Clock.exit224 ], [ -1, %230 ], [ -1, %280 ], [ -1, %371 ], [ %55, %Vec_IntSelectSort.exit ], [ 1, %Hash_IntFree.exit ], [ 1, %Abc_Clock.exit319 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -3102,7 +3102,7 @@ Abc_Clock.exit150:                                ; preds = %235, %238
   br i1 %.not172, label %.lr.ph, label %.loopexit153, !llvm.loop !151
 
 .loopexit153:                                     ; preds = %.outer, %Abc_Clock.exit150, %Abc_Clock.exit148, %Abc_Clock.exit146, %198, %46, %38, %50, %.backedge, %2, %130, %123, %117, %56
-  %.0 = phi i32 [ -1, %123 ], [ -1, %130 ], [ 1, %56 ], [ -1, %117 ], [ 0, %46 ], [ 1, %2 ], [ 1, %50 ], [ 1, %.backedge ], [ 0, %38 ], [ 1, %.outer ], [ -1, %Abc_Clock.exit150 ], [ -1, %Abc_Clock.exit148 ], [ -1, %Abc_Clock.exit146 ], [ -1, %198 ]
+  %.0 = phi i32 [ 1, %56 ], [ -1, %117 ], [ -1, %123 ], [ -1, %130 ], [ 1, %2 ], [ 1, %.backedge ], [ 1, %50 ], [ 0, %38 ], [ 0, %46 ], [ 1, %.outer ], [ -1, %Abc_Clock.exit150 ], [ -1, %Abc_Clock.exit148 ], [ -1, %Abc_Clock.exit146 ], [ -1, %198 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
@@ -5207,8 +5207,8 @@ Abc_Clock.exit618:                                ; preds = %1042, %1045
   store i32 %821, ptr %1062, align 8, !tbaa !17
   br label %.loopexit640
 
-.loopexit640:                                     ; preds = %714, %314, %327, %226, %411, %864, %923, %.loopexit, %946, %983, %1032, %1060, %631, %500, %587, %701
-  %.4.ph = phi i32 [ -1, %701 ], [ -1, %587 ], [ -1, %500 ], [ 0, %631 ], [ -1, %1060 ], [ -1, %1032 ], [ -1, %983 ], [ -1, %946 ], [ 1, %.loopexit ], [ %., %923 ], [ -1, %864 ], [ -1, %314 ], [ -1, %411 ], [ 0, %226 ], [ %328, %327 ], [ 0, %714 ]
+.loopexit640:                                     ; preds = %714, %314, %327, %226, %411, %864, %946, %983, %1032, %1060, %500, %587, %701, %631, %.loopexit, %923
+  %.4.ph = phi i32 [ %., %923 ], [ 1, %.loopexit ], [ 0, %631 ], [ -1, %701 ], [ -1, %587 ], [ -1, %500 ], [ -1, %1060 ], [ -1, %1032 ], [ -1, %983 ], [ -1, %946 ], [ -1, %864 ], [ -1, %411 ], [ 0, %226 ], [ %328, %327 ], [ -1, %314 ], [ 0, %714 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   ret i32 %.4.ph
 }

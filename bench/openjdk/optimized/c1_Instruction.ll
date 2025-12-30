@@ -1055,7 +1055,7 @@ _ZNK8ciMethod15is_final_methodEv.exit:            ; preds = %47
   br label %58
 
 58:                                               ; preds = %_ZNK8ciMethod15is_final_methodEv.exit, %_ZNK8ciMethod15is_final_methodEv.exit.thread, %_ZNK8ciMethod15is_final_methodEv.exit.thread19
-  %59 = phi i32 [ %46, %_ZNK8ciMethod15is_final_methodEv.exit.thread19 ], [ %spec.select21, %_ZNK8ciMethod15is_final_methodEv.exit ], [ %51, %_ZNK8ciMethod15is_final_methodEv.exit.thread ]
+  %59 = phi i32 [ %46, %_ZNK8ciMethod15is_final_methodEv.exit.thread19 ], [ %51, %_ZNK8ciMethod15is_final_methodEv.exit.thread ], [ %spec.select21, %_ZNK8ciMethod15is_final_methodEv.exit ]
   store i32 %59, ptr %24, align 8
   %60 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #14
   %61 = load ptr, ptr %36, align 8
@@ -1615,7 +1615,7 @@ define hidden noundef zeroext i1 @_ZNK8Constant8is_equalEP11Instruction(ptr noun
   br label %143
 
 143:                                              ; preds = %8, %116, %129, %131, %133, %89, %102, %104, %106, %70, %83, %51, %64, %32, %45, %13, %26, %2
-  %.0 = phi i1 [ false, %89 ], [ false, %116 ], [ false, %2 ], [ false, %13 ], [ false, %32 ], [ false, %51 ], [ false, %70 ], [ %31, %26 ], [ %50, %45 ], [ %69, %64 ], [ %88, %83 ], [ false, %104 ], [ false, %102 ], [ %115, %106 ], [ false, %131 ], [ false, %129 ], [ %142, %133 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %13 ], [ %31, %26 ], [ false, %32 ], [ %50, %45 ], [ false, %51 ], [ %69, %64 ], [ false, %70 ], [ %88, %83 ], [ false, %104 ], [ false, %102 ], [ false, %89 ], [ %115, %106 ], [ false, %131 ], [ false, %129 ], [ false, %116 ], [ %142, %133 ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -1875,7 +1875,7 @@ _ZNK10ciMetadata9is_loadedEv.exit68.thread:       ; preds = %_ZNK10ciMetadata9is
   br label %147
 
 147:                                              ; preds = %23, %51, %_ZNK8ciObject9is_loadedEv.exit65.thread, %_ZNK8ciObject9is_loadedEv.exit65, %_ZNK8ciObject9is_loadedEv.exit, %_ZNK10ciMetadata9is_loadedEv.exit68.thread, %_ZNK10ciMetadata9is_loadedEv.exit68, %_ZNK10ciMetadata9is_loadedEv.exit, %20, %9, %3, %145, %142, %111, %108, %77, %74, %72, %69, %67, %64, %49, %46, %44, %41, %39, %36
-  %.0 = phi i32 [ %146, %145 ], [ -1, %3 ], [ -1, %9 ], [ %38, %36 ], [ %40, %39 ], [ %43, %41 ], [ %45, %44 ], [ %48, %46 ], [ %50, %49 ], [ %66, %64 ], [ %68, %67 ], [ %71, %69 ], [ %73, %72 ], [ %76, %74 ], [ %78, %77 ], [ %110, %108 ], [ %112, %111 ], [ %144, %142 ], [ -1, %20 ], [ -1, %_ZNK10ciMetadata9is_loadedEv.exit ], [ -1, %_ZNK10ciMetadata9is_loadedEv.exit68 ], [ -1, %_ZNK10ciMetadata9is_loadedEv.exit68.thread ], [ -1, %_ZNK8ciObject9is_loadedEv.exit ], [ -1, %_ZNK8ciObject9is_loadedEv.exit65 ], [ -1, %_ZNK8ciObject9is_loadedEv.exit65.thread ], [ -1, %51 ], [ -1, %23 ]
+  %.0 = phi i32 [ %38, %36 ], [ %40, %39 ], [ %43, %41 ], [ %45, %44 ], [ %48, %46 ], [ %50, %49 ], [ %66, %64 ], [ %68, %67 ], [ %71, %69 ], [ %73, %72 ], [ %76, %74 ], [ %78, %77 ], [ %110, %108 ], [ %112, %111 ], [ %144, %142 ], [ %146, %145 ], [ -1, %3 ], [ -1, %9 ], [ -1, %20 ], [ -1, %_ZNK10ciMetadata9is_loadedEv.exit ], [ -1, %_ZNK10ciMetadata9is_loadedEv.exit68 ], [ -1, %_ZNK10ciMetadata9is_loadedEv.exit68.thread ], [ -1, %_ZNK8ciObject9is_loadedEv.exit ], [ -1, %_ZNK8ciObject9is_loadedEv.exit65 ], [ -1, %_ZNK8ciObject9is_loadedEv.exit65.thread ], [ -1, %51 ], [ -1, %23 ]
   ret i32 %.0
 }
 
@@ -2231,7 +2231,7 @@ _ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit: ; preds = %33, %_ZNK17Gr
   br label %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.thread
 
 _ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.thread: ; preds = %28, %18, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit
-  %42 = phi ptr [ %.pre23, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit ], [ %9, %18 ], [ %9, %28 ]
+  %42 = phi ptr [ %9, %18 ], [ %.pre23, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit ], [ %9, %28 ]
   %43 = load i32, ptr %42, align 8
   %44 = icmp slt i32 %.06.i.i, %43
   br i1 %44, label %.lr.ph.i.i, label %_ZN8BlockEnd13remove_sux_atEi.exit
@@ -2358,7 +2358,7 @@ _ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i: ; preds = %36, %_ZNK17
   br i1 %45, label %.lr.ph.i.i, label %_ZN10BlockBegin18remove_predecessorEPS_.exit, !llvm.loop !13
 
 _ZN10BlockBegin18remove_predecessorEPS_.exit:     ; preds = %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i, %31, %22
-  %46 = phi i32 [ %25, %31 ], [ %23, %22 ], [ %44, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i ]
+  %46 = phi i32 [ %23, %22 ], [ %25, %31 ], [ %44, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i ]
   %47 = load i32, ptr %10, align 4
   %48 = icmp eq i32 %46, %47
   br i1 %48, label %49, label %_ZN10BlockBegin15add_predecessorEPS_.exit
@@ -3997,7 +3997,7 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
   br i1 %300, label %255, label %.critedge7, !llvm.loop !30
 
 .critedge7:                                       ; preds = %181, %197, %212, %297, %156, %.critedge9, %.critedge4, %148, %154, %8
-  %.0 = phi i1 [ true, %.critedge4 ], [ false, %148 ], [ false, %154 ], [ true, %.critedge9 ], [ false, %8 ], [ true, %156 ], [ true, %297 ], [ false, %197 ], [ false, %181 ], [ true, %212 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %154 ], [ false, %148 ], [ true, %.critedge4 ], [ true, %.critedge9 ], [ true, %156 ], [ true, %297 ], [ false, %181 ], [ false, %197 ], [ true, %212 ]
   ret i1 %.0
 }
 
@@ -4696,7 +4696,7 @@ _ZN11Instruction5substEv.exit12:                  ; preds = %tailrecurse.i10
   br label %41
 
 41:                                               ; preds = %32, %27, %_ZN11Instruction5substEv.exit12, %10, %2, %6
-  %.0 = phi i1 [ false, %27 ], [ false, %2 ], [ false, %10 ], [ false, %_ZN11Instruction5substEv.exit12 ], [ %.not9, %32 ], [ false, %6 ]
+  %.0 = phi i1 [ false, %6 ], [ false, %2 ], [ false, %10 ], [ false, %_ZN11Instruction5substEv.exit12 ], [ false, %27 ], [ %.not9, %32 ]
   ret i1 %.0
 }
 
@@ -4882,7 +4882,7 @@ _ZN11Instruction5substEv.exit18:                  ; preds = %tailrecurse.i16
   br label %35
 
 35:                                               ; preds = %_ZN11Instruction5substEv.exit18, %_ZN11Instruction5substEv.exit12, %8, %2
-  %.0 = phi i1 [ false, %_ZN11Instruction5substEv.exit12 ], [ false, %2 ], [ false, %8 ], [ %.not9, %_ZN11Instruction5substEv.exit18 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %_ZN11Instruction5substEv.exit12 ], [ %.not9, %_ZN11Instruction5substEv.exit18 ]
   ret i1 %.0
 }
 
@@ -5042,7 +5042,7 @@ _ZN11Instruction5substEv.exit18:                  ; preds = %tailrecurse.i16
   br label %35
 
 35:                                               ; preds = %_ZN11Instruction5substEv.exit18, %_ZN11Instruction5substEv.exit12, %8, %2
-  %.0 = phi i1 [ false, %_ZN11Instruction5substEv.exit12 ], [ false, %2 ], [ false, %8 ], [ %.not9, %_ZN11Instruction5substEv.exit18 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %_ZN11Instruction5substEv.exit12 ], [ %.not9, %_ZN11Instruction5substEv.exit18 ]
   ret i1 %.0
 }
 
@@ -5184,7 +5184,7 @@ _ZN11Instruction5substEv.exit18:                  ; preds = %tailrecurse.i16
   br label %35
 
 35:                                               ; preds = %_ZN11Instruction5substEv.exit18, %_ZN11Instruction5substEv.exit12, %8, %2
-  %.0 = phi i1 [ false, %_ZN11Instruction5substEv.exit12 ], [ false, %2 ], [ false, %8 ], [ %.not9, %_ZN11Instruction5substEv.exit18 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %_ZN11Instruction5substEv.exit12 ], [ %.not9, %_ZN11Instruction5substEv.exit18 ]
   ret i1 %.0
 }
 

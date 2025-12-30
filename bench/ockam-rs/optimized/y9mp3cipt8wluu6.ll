@@ -572,7 +572,7 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3n
   ret ptr %10
 
 .body.thread:                                     ; preds = %13, %18
-  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %13 ], [ %19, %18 ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 18:                                               ; preds = %4
@@ -2479,11 +2479,11 @@ default.unreachable117:                           ; preds = %41, %19
           to label %.thread95 unwind label %106
 
 .thread95:                                        ; preds = %.body.i, %.body.i58, %155, %115, %110, %104, %142, %.body.i65, %158, %.thread87
-  %.pn80 = phi { ptr, i32 } [ %111, %110 ], [ %eh.lpad-body86, %158 ], [ %eh.lpad-body86, %.thread87 ], [ %79, %.body.i ], [ %116, %115 ], [ %125, %142 ], [ %125, %.body.i65 ], [ %105, %104 ], [ %156, %155 ], [ %96, %.body.i58 ]
+  %.pn80 = phi { ptr, i32 } [ %eh.lpad-body86, %158 ], [ %eh.lpad-body86, %.thread87 ], [ %125, %142 ], [ %125, %.body.i65 ], [ %156, %155 ], [ %116, %115 ], [ %111, %110 ], [ %105, %104 ], [ %96, %.body.i58 ], [ %79, %.body.i ]
   resume { ptr, i32 } %.pn80
 
 .thread87:                                        ; preds = %52, %69, %.thread99
-  %eh.lpad-body86 = phi { ptr, i32 } [ %70, %69 ], [ %86, %.thread99 ], [ %53, %52 ]
+  %eh.lpad-body86 = phi { ptr, i32 } [ %86, %.thread99 ], [ %70, %69 ], [ %53, %52 ]
   %157 = load i64, ptr %3, align 8, !range !220, !noundef !5
   %.not113 = icmp eq i64 %157, 3
   br i1 %.not113, label %.thread95, label %158

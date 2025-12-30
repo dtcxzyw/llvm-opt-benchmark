@@ -112,7 +112,7 @@ erkStep_CheckNVector.exit:                        ; preds = %31
   %.not34 = icmp eq ptr %36, null
   br i1 %.not34, label %erkStep_CheckNVector.exit.thread, label %37
 
-erkStep_CheckNVector.exit.thread:                 ; preds = %19, %23, %27, %31, %13, %erkStep_CheckNVector.exit
+erkStep_CheckNVector.exit.thread:                 ; preds = %13, %19, %23, %27, %31, %erkStep_CheckNVector.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 67, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #12
   br label %76
 
@@ -206,7 +206,7 @@ erkStep_CheckNVector.exit.thread:                 ; preds = %19, %23, %27, %31, 
   br label %76
 
 76:                                               ; preds = %64, %75, %63, %43, %40, %erkStep_CheckNVector.exit.thread, %12, %10, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %10 ], [ null, %40 ], [ null, %43 ], [ null, %63 ], [ null, %75 ], [ null, %12 ], [ null, %erkStep_CheckNVector.exit.thread ], [ %38, %64 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %10 ], [ null, %40 ], [ null, %43 ], [ null, %63 ], [ null, %75 ], [ null, %erkStep_CheckNVector.exit.thread ], [ null, %12 ], [ %38, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -254,7 +254,7 @@ define range(i32 0, 2) i32 @erkStep_CheckNVector(ptr noundef readonly captures(n
   br label %27
 
 27:                                               ; preds = %23, %1, %7, %11, %15, %19
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %23 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %7 ], [ 0, %1 ], [ %spec.select, %23 ]
   ret i32 %.0
 }
 
@@ -520,7 +520,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %erkStep_AccessStepMem.exit, %89, %77, %7, %.thread, %43, %25, %22
-  %.042 = phi i32 [ 0, %.thread ], [ -21, %erkStep_AccessStepMem.exit ], [ -22, %22 ], [ -22, %25 ], [ -22, %43 ], [ 0, %7 ], [ -20, %89 ], [ -20, %77 ], [ -20, %60 ]
+  %.042 = phi i32 [ -22, %22 ], [ -22, %25 ], [ -22, %43 ], [ 0, %.thread ], [ -21, %erkStep_AccessStepMem.exit ], [ 0, %7 ], [ -20, %77 ], [ -20, %89 ], [ -20, %60 ]
   ret i32 %.042
 }
 
@@ -781,7 +781,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
   br label %136
 
 136:                                              ; preds = %erkStep_AccessStepMem.exit, %._crit_edge.us.i, %32, %91, %98, %60, %._crit_edge.us.i66, %110, %135, %109, %80, %31
-  %.0 = phi i32 [ -8, %109 ], [ -8, %135 ], [ -21, %erkStep_AccessStepMem.exit ], [ -8, %31 ], [ -8, %80 ], [ 0, %110 ], [ 0, %._crit_edge.us.i66 ], [ 0, %60 ], [ 0, %98 ], [ 0, %91 ], [ 0, %32 ], [ 0, %._crit_edge.us.i ]
+  %.0 = phi i32 [ -8, %135 ], [ -8, %31 ], [ -8, %80 ], [ -8, %109 ], [ -21, %erkStep_AccessStepMem.exit ], [ 0, %110 ], [ 0, %._crit_edge.us.i66 ], [ 0, %60 ], [ 0, %98 ], [ 0, %91 ], [ 0, %32 ], [ 0, %._crit_edge.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -1114,7 +1114,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %18, %erkStep_AccessStepMem.exit, %39
-  %.0 = phi i32 [ -21, %erkStep_AccessStepMem.exit ], [ -20, %39 ], [ 0, %18 ], [ 0, %31 ]
+  %.0 = phi i32 [ -20, %39 ], [ -21, %erkStep_AccessStepMem.exit ], [ 0, %18 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -1428,7 +1428,7 @@ erkStep_AccessStepMem.exit:                       ; preds = %5
   br label %57
 
 57:                                               ; preds = %erkStep_AccessStepMem.exit, %56, %21, %52, %18, %15, %47, %40
-  %.0 = phi i32 [ -20, %47 ], [ -21, %erkStep_AccessStepMem.exit ], [ -20, %40 ], [ 0, %15 ], [ 0, %18 ], [ 0, %52 ], [ 0, %21 ], [ 0, %56 ]
+  %.0 = phi i32 [ -21, %erkStep_AccessStepMem.exit ], [ -20, %40 ], [ -20, %47 ], [ 0, %15 ], [ 0, %18 ], [ 0, %52 ], [ 0, %21 ], [ 0, %56 ]
   ret i32 %.0
 }
 
@@ -1495,7 +1495,7 @@ erkStep_AccessARKODEStepMem.exit:                 ; preds = %7
   br label %erkStep_AccessARKODEStepMem.exit.thread
 
 erkStep_AccessARKODEStepMem.exit.thread:          ; preds = %11, %6, %25, %24, %21, %18, %15
-  %.0 = phi i32 [ 0, %25 ], [ -23, %15 ], [ -22, %18 ], [ -22, %21 ], [ %23, %24 ], [ -21, %6 ], [ -21, %11 ]
+  %.0 = phi i32 [ -23, %15 ], [ -22, %18 ], [ -22, %21 ], [ %23, %24 ], [ 0, %25 ], [ -21, %6 ], [ -21, %11 ]
   ret i32 %.0
 }
 
@@ -1788,7 +1788,7 @@ define range(i32 -41, 1) i32 @erkStep_CheckButcherTable(ptr noundef %0) local_un
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %47, %62, %56, %46, %31, %23, %15, %10, %5
-  %.0 = phi i32 [ -21, %5 ], [ -41, %10 ], [ -41, %15 ], [ -41, %56 ], [ -41, %62 ], [ -41, %23 ], [ -41, %46 ], [ -41, %31 ], [ 0, %47 ], [ 0, %57 ]
+  %.0 = phi i32 [ -21, %5 ], [ -41, %10 ], [ -41, %15 ], [ -41, %56 ], [ -41, %62 ], [ -41, %46 ], [ -41, %31 ], [ -41, %23 ], [ 0, %47 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -2271,7 +2271,7 @@ erkStep_ApplyForcing.exit114:                     ; preds = %._crit_edge.us.i111
   br label %203
 
 203:                                              ; preds = %108, %199, %197, %102, %6
-  %.0 = phi i32 [ -21, %6 ], [ -28, %197 ], [ -28, %102 ], [ 0, %199 ], [ 0, %108 ]
+  %.0 = phi i32 [ -21, %6 ], [ -28, %102 ], [ -28, %197 ], [ 0, %199 ], [ 0, %108 ]
   ret i32 %.0
 }
 
@@ -2458,7 +2458,7 @@ define range(i32 -46, 3) i32 @erkStep_RelaxDeltaE(ptr noundef %0, ptr noundef re
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %45, %._crit_edge, %95, %97, %11
-  %.0 = phi i32 [ -21, %11 ], [ -28, %95 ], [ 0, %97 ], [ 2, %51 ], [ -46, %45 ], [ -28, %._crit_edge ]
+  %.0 = phi i32 [ 0, %97 ], [ -21, %11 ], [ -28, %95 ], [ 2, %51 ], [ -46, %45 ], [ -28, %._crit_edge ]
   ret i32 %.0
 }
 

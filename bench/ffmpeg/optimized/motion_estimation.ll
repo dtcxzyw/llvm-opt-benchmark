@@ -242,7 +242,7 @@ define i64 @ff_me_search_tss(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %47
 
 47:                                               ; preds = %30, %36, %46, %42
-  %.2 = phi i64 [ %44, %46 ], [ %.1106, %42 ], [ %.1106, %30 ], [ %.1106, %36 ]
+  %.2 = phi i64 [ %44, %46 ], [ %.1106, %42 ], [ %.1106, %36 ], [ %.1106, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %48, label %30, !llvm.loop !29
@@ -337,7 +337,7 @@ define i64 @ff_me_search_tdls(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   br label %47
 
 47:                                               ; preds = %30, %36, %46, %42
-  %.2 = phi i64 [ %44, %46 ], [ %.188110, %42 ], [ %.188110, %30 ], [ %.188110, %36 ]
+  %.2 = phi i64 [ %44, %46 ], [ %.188110, %42 ], [ %.188110, %36 ], [ %.188110, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %48, label %30, !llvm.loop !31
@@ -444,7 +444,7 @@ define i64 @ff_me_search_ntss(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   br label %47
 
 47:                                               ; preds = %30, %36, %46, %42
-  %.2170 = phi i64 [ %44, %46 ], [ %.1169220, %42 ], [ %.1169220, %30 ], [ %.1169220, %36 ]
+  %.2170 = phi i64 [ %44, %46 ], [ %.1169220, %42 ], [ %.1169220, %36 ], [ %.1169220, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %48, label %30, !llvm.loop !33
@@ -486,7 +486,7 @@ define i64 @ff_me_search_ntss(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   br label %63
 
 63:                                               ; preds = %.preheader216, %53, %62, %58
-  %.5 = phi i64 [ %60, %62 ], [ %.4222, %58 ], [ %.4222, %.preheader216 ], [ %.4222, %53 ]
+  %.5 = phi i64 [ %60, %62 ], [ %.4222, %58 ], [ %.4222, %53 ], [ %.4222, %.preheader216 ]
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %exitcond232.not = icmp eq i64 %indvars.iv.next230, 8
   br i1 %exitcond232.not, label %64, label %.preheader216, !llvm.loop !34
@@ -548,7 +548,7 @@ define i64 @ff_me_search_ntss(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   br label %93
 
 93:                                               ; preds = %.preheader, %83, %92, %88
-  %.7 = phi i64 [ %90, %92 ], [ %.6224, %88 ], [ %.6224, %.preheader ], [ %.6224, %83 ]
+  %.7 = phi i64 [ %90, %92 ], [ %.6224, %88 ], [ %.6224, %83 ], [ %.6224, %.preheader ]
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %exitcond236.not = icmp eq i64 %indvars.iv.next234, 8
   br i1 %exitcond236.not, label %.loopexit, label %.preheader, !llvm.loop !35
@@ -640,7 +640,7 @@ define i64 @ff_me_search_fss(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %45
 
 45:                                               ; preds = %28, %34, %44, %40
-  %.2 = phi i64 [ %42, %44 ], [ %.185106, %40 ], [ %.185106, %28 ], [ %.185106, %34 ]
+  %.2 = phi i64 [ %42, %44 ], [ %.185106, %40 ], [ %.185106, %34 ], [ %.185106, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %46, label %28, !llvm.loop !37
@@ -738,7 +738,7 @@ define i64 @ff_me_search_ds(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   br label %43
 
 43:                                               ; preds = %28, %33, %42, %38
-  %.2 = phi i64 [ %40, %42 ], [ %.1104138, %38 ], [ %.1104138, %28 ], [ %.1104138, %33 ]
+  %.2 = phi i64 [ %40, %42 ], [ %.1104138, %38 ], [ %.1104138, %33 ], [ %.1104138, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %44, label %28, !llvm.loop !39
@@ -790,7 +790,7 @@ define i64 @ff_me_search_ds(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   br label %62
 
 62:                                               ; preds = %.preheader, %52, %61, %57
-  %.4 = phi i64 [ %59, %61 ], [ %.3140, %57 ], [ %.3140, %.preheader ], [ %.3140, %52 ]
+  %.4 = phi i64 [ %59, %61 ], [ %.3140, %57 ], [ %.3140, %52 ], [ %.3140, %.preheader ]
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next145, 4
   br i1 %exitcond147.not, label %.loopexit, label %.preheader, !llvm.loop !41
@@ -871,7 +871,7 @@ define i64 @ff_me_search_hexbs(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   br label %43
 
 43:                                               ; preds = %28, %33, %42, %38
-  %.2 = phi i64 [ %40, %42 ], [ %.1101136, %38 ], [ %.1101136, %28 ], [ %.1101136, %33 ]
+  %.2 = phi i64 [ %40, %42 ], [ %.1101136, %38 ], [ %.1101136, %33 ], [ %.1101136, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %44, label %28, !llvm.loop !42
@@ -923,7 +923,7 @@ define i64 @ff_me_search_hexbs(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   br label %62
 
 62:                                               ; preds = %.preheader, %52, %61, %57
-  %.4 = phi i64 [ %59, %61 ], [ %.3138, %57 ], [ %.3138, %.preheader ], [ %.3138, %52 ]
+  %.4 = phi i64 [ %59, %61 ], [ %.3138, %57 ], [ %.3138, %52 ], [ %.3138, %.preheader ]
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next143, 4
   br i1 %exitcond145.not, label %.loopexit, label %.preheader, !llvm.loop !44
@@ -989,7 +989,7 @@ define i64 @ff_me_search_epzs(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   br label %40
 
 40:                                               ; preds = %30, %34, %26, %4
-  %.0171 = phi i64 [ %33, %34 ], [ -1, %30 ], [ -1, %4 ], [ -1, %26 ]
+  %.0171 = phi i64 [ %33, %34 ], [ -1, %30 ], [ -1, %26 ], [ -1, %4 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %42 = load i32, ptr %41, align 4, !tbaa !47
   %43 = icmp sgt i32 %42, 0
@@ -1049,7 +1049,7 @@ define i64 @ff_me_search_epzs(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   br label %69
 
 69:                                               ; preds = %52, %56, %64, %60
-  %.2173 = phi i64 [ %62, %64 ], [ %.1172219, %60 ], [ %.1172219, %52 ], [ %.1172219, %56 ]
+  %.2173 = phi i64 [ %62, %64 ], [ %.1172219, %60 ], [ %.1172219, %56 ], [ %.1172219, %52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = load i32, ptr %41, align 4, !tbaa !47
   %71 = sext i32 %70 to i64
@@ -1099,7 +1099,7 @@ define i64 @ff_me_search_epzs(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   br label %92
 
 92:                                               ; preds = %75, %79, %87, %83
-  %.4 = phi i64 [ %85, %87 ], [ %.3221, %83 ], [ %.3221, %75 ], [ %.3221, %79 ]
+  %.4 = phi i64 [ %85, %87 ], [ %.3221, %83 ], [ %.3221, %79 ], [ %.3221, %75 ]
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %93 = load i32, ptr %46, align 4, !tbaa !47
   %94 = sext i32 %93 to i64
@@ -1146,7 +1146,7 @@ define i64 @ff_me_search_epzs(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   br label %113
 
 113:                                              ; preds = %98, %103, %112, %108
-  %.7 = phi i64 [ %110, %112 ], [ %.6225, %108 ], [ %.6225, %98 ], [ %.6225, %103 ]
+  %.7 = phi i64 [ %110, %112 ], [ %.6225, %108 ], [ %.6225, %103 ], [ %.6225, %98 ]
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next232, 4
   br i1 %exitcond.not, label %114, label %98, !llvm.loop !51
@@ -1226,7 +1226,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %40
 
 40:                                               ; preds = %30, %34, %26, %4
-  %.0360 = phi i64 [ %33, %34 ], [ -1, %30 ], [ -1, %4 ], [ -1, %26 ]
+  %.0360 = phi i64 [ %33, %34 ], [ -1, %30 ], [ -1, %26 ], [ -1, %4 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %42 = load i32, ptr %41, align 4, !tbaa !47
   %43 = icmp sgt i32 %42, 0
@@ -1273,7 +1273,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %63
 
 63:                                               ; preds = %46, %50, %58, %54
-  %.2362 = phi i64 [ %56, %58 ], [ %.1361483, %54 ], [ %.1361483, %46 ], [ %.1361483, %50 ]
+  %.2362 = phi i64 [ %56, %58 ], [ %.1361483, %54 ], [ %.1361483, %50 ], [ %.1361483, %46 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = load i32, ptr %41, align 4, !tbaa !47
   %65 = sext i32 %64 to i64
@@ -1387,7 +1387,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %104
 
 104:                                              ; preds = %86, %99, %103, %97
-  %.7 = phi i64 [ %101, %103 ], [ %.6.ph, %99 ], [ %.5, %86 ], [ %.6.ph, %97 ]
+  %.7 = phi i64 [ %101, %103 ], [ %.6.ph, %99 ], [ %.6.ph, %97 ], [ %.5, %86 ]
   %105 = add nuw nsw i32 %.0358487, 2
   %106 = load i32, ptr %7, align 8, !tbaa !13
   %.not414 = icmp sgt i32 %105, %106
@@ -1528,7 +1528,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %149
 
 149:                                              ; preds = %132, %138, %148, %144
-  %.13 = phi i64 [ %146, %148 ], [ %.12507, %144 ], [ %.12507, %132 ], [ %.12507, %138 ]
+  %.13 = phi i64 [ %146, %148 ], [ %.12507, %144 ], [ %.12507, %138 ], [ %.12507, %132 ]
   %indvars.iv.next524 = add nuw nsw i64 %indvars.iv523, 1
   %exitcond526.not = icmp eq i64 %indvars.iv.next524, 16
   br i1 %exitcond526.not, label %150, label %132, !llvm.loop !57
@@ -1580,7 +1580,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %171
 
 171:                                              ; preds = %156, %161, %170, %166
-  %.16 = phi i64 [ %168, %170 ], [ %.15513, %166 ], [ %.15513, %156 ], [ %.15513, %161 ]
+  %.16 = phi i64 [ %168, %170 ], [ %.15513, %166 ], [ %.15513, %161 ], [ %.15513, %156 ]
   %indvars.iv.next528 = add nuw nsw i64 %indvars.iv527, 1
   %exitcond530.not = icmp eq i64 %indvars.iv.next528, 6
   br i1 %exitcond530.not, label %172, label %156, !llvm.loop !59
@@ -1632,7 +1632,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %190
 
 190:                                              ; preds = %.preheader, %180, %189, %185
-  %.18 = phi i64 [ %187, %189 ], [ %.17515, %185 ], [ %.17515, %.preheader ], [ %.17515, %180 ]
+  %.18 = phi i64 [ %187, %189 ], [ %.17515, %185 ], [ %.17515, %180 ], [ %.17515, %.preheader ]
   %indvars.iv.next532 = add nuw nsw i64 %indvars.iv531, 1
   %exitcond534.not = icmp eq i64 %indvars.iv.next532, 4
   br i1 %exitcond534.not, label %191, label %.preheader, !llvm.loop !61

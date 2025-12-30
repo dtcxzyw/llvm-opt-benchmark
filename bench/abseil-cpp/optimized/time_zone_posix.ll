@@ -74,7 +74,7 @@ define dso_local noundef zeroext i1 @_ZN4absl13time_internal4cctz14ParsePosixSpe
   br label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19ParseAbbrEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_19ParseAbbrEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.preheader.i, %7, %._crit_edge.i, %29
-  %.0.i = phi ptr [ %.1.lcssa.i, %29 ], [ %16, %7 ], [ null, %._crit_edge.i ], [ null, %.preheader.i ]
+  %.0.i = phi ptr [ %16, %7 ], [ %.1.lcssa.i, %29 ], [ null, %._crit_edge.i ], [ null, %.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = tail call fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_111ParseOffsetEPKciiiPl(ptr noundef %.0.i, i32 noundef 0, i32 noundef 24, i32 noundef -1, ptr noundef nonnull %33)
   %35 = icmp eq ptr %34, null
@@ -135,7 +135,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_19ParseAbbrEPKcPNSt7__cxx1112basic_stri
   br i1 %.not.i41, label %._crit_edge.i28, label %.lr.ph.i33, !llvm.loop !14
 
 ._crit_edge.i28:                                  ; preds = %59, %57, %.lr.ph.i33
-  %.1.lcssa.i29 = phi ptr [ %60, %59 ], [ %.136.i34, %57 ], [ %.136.i34, %.lr.ph.i33 ]
+  %.1.lcssa.i29 = phi ptr [ %.136.i34, %57 ], [ %.136.i34, %.lr.ph.i33 ], [ %60, %59 ]
   %61 = ptrtoint ptr %.1.lcssa.i29 to i64
   %62 = ptrtoint ptr %34 to i64
   %63 = sub i64 %61, %62
@@ -149,7 +149,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_19ParseAbbrEPKcPNSt7__cxx1112basic_stri
   br label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19ParseAbbrEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit42
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_19ParseAbbrEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit42: ; preds = %65, %43
-  %.0.i30 = phi ptr [ %.1.lcssa.i29, %65 ], [ %52, %43 ]
+  %.0.i30 = phi ptr [ %52, %43 ], [ %.1.lcssa.i29, %65 ]
   %69 = load i64, ptr %33, align 8, !tbaa !16
   %70 = add nsw i64 %69, 3600
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -177,7 +177,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_19ParseAbbrEPKcPNSt7__cxx1112basic_stri
   br label %_ZN4absl13time_internal4cctz12_GLOBAL__N_19ParseAbbrEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit42.thread
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_19ParseAbbrEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit42.thread: ; preds = %.preheader.i31, %2, %._crit_edge.i28, %75, %80, %36, %_ZN4absl13time_internal4cctz12_GLOBAL__N_19ParseAbbrEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.023 = phi i1 [ %82, %80 ], [ false, %2 ], [ false, %_ZN4absl13time_internal4cctz12_GLOBAL__N_19ParseAbbrEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ true, %36 ], [ false, %75 ], [ false, %._crit_edge.i28 ], [ false, %.preheader.i31 ]
+  %.023 = phi i1 [ false, %2 ], [ false, %_ZN4absl13time_internal4cctz12_GLOBAL__N_19ParseAbbrEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ true, %36 ], [ false, %75 ], [ %82, %80 ], [ false, %._crit_edge.i28 ], [ false, %.preheader.i31 ]
   ret i1 %.023
 }
 
@@ -298,8 +298,8 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit: ; preds = %._c
   br i1 %.not.i33, label %._crit_edge.i34, label %.lr.ph.i28
 
 ._crit_edge.i34:                                  ; preds = %54, %.lr.ph.i28
-  %.027.lcssa.i35 = phi i32 [ %55, %54 ], [ %.02764.i31, %.lr.ph.i28 ]
-  %.025.lcssa.i36.idx = phi i64 [ %.02565.i30.add, %54 ], [ %.02565.i30.idx, %.lr.ph.i28 ]
+  %.027.lcssa.i35 = phi i32 [ %.02764.i31, %.lr.ph.i28 ], [ %55, %54 ]
+  %.025.lcssa.i36.idx = phi i64 [ %.02565.i30.idx, %.lr.ph.i28 ], [ %.02565.i30.add, %54 ]
   %.025.lcssa.i36.ptr = getelementptr inbounds nuw i8, ptr %.025.lcssa.i, i64 %.025.lcssa.i36.idx
   %58 = icmp eq i64 %.025.lcssa.i36.idx, 1
   %59 = icmp ugt i32 %.027.lcssa.i35, 59
@@ -350,8 +350,8 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit39: ; preds = %.
   br i1 %.not.i47, label %._crit_edge.i48, label %.lr.ph.i42
 
 ._crit_edge.i48:                                  ; preds = %75, %.lr.ph.i42
-  %.027.lcssa.i49 = phi i32 [ %76, %75 ], [ %.02764.i45, %.lr.ph.i42 ]
-  %.025.lcssa.i50.idx = phi i64 [ %.02565.i44.add, %75 ], [ %.02565.i44.idx, %.lr.ph.i42 ]
+  %.027.lcssa.i49 = phi i32 [ %.02764.i45, %.lr.ph.i42 ], [ %76, %75 ]
+  %.025.lcssa.i50.idx = phi i64 [ %.02565.i44.idx, %.lr.ph.i42 ], [ %.02565.i44.add, %75 ]
   %.025.lcssa.i50.ptr = getelementptr inbounds nuw i8, ptr %.025.lcssa.i36.ptr, i64 %.025.lcssa.i50.idx
   %79 = icmp eq i64 %.025.lcssa.i50.idx, 1
   %80 = icmp ugt i32 %.027.lcssa.i49, 59
@@ -359,9 +359,9 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit39: ; preds = %.
   br i1 %or.cond35.i51, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit.thread, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit53
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit53: ; preds = %._crit_edge.i48, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit39, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit
-  %.058 = phi i32 [ 0, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit ], [ %.027.lcssa.i35, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit39 ], [ %.027.lcssa.i35, %._crit_edge.i48 ]
-  %.056 = phi i32 [ 0, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit ], [ 0, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit39 ], [ %.027.lcssa.i49, %._crit_edge.i48 ]
-  %.120 = phi ptr [ %.025.lcssa.i, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit ], [ %.025.lcssa.i36.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit39 ], [ %.025.lcssa.i50.ptr, %._crit_edge.i48 ]
+  %.058 = phi i32 [ %.027.lcssa.i35, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit39 ], [ 0, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit ], [ %.027.lcssa.i35, %._crit_edge.i48 ]
+  %.056 = phi i32 [ 0, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit39 ], [ 0, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit ], [ %.027.lcssa.i49, %._crit_edge.i48 ]
+  %.120 = phi ptr [ %.025.lcssa.i36.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit39 ], [ %.025.lcssa.i, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit ], [ %.025.lcssa.i50.ptr, %._crit_edge.i48 ]
   %81 = mul nsw i32 %.027.lcssa.i, 60
   %82 = add nsw i32 %.058, %81
   %83 = mul nsw i32 %82, 60
@@ -372,7 +372,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit53: ; preds = %.
   br label %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit.thread
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit.thread: ; preds = %.lr.ph, %22, %48, %50, %69, %71, %62, %._crit_edge.i48, %41, %._crit_edge.i34, %13, %._crit_edge.i, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit53, %5
-  %.0 = phi ptr [ null, %5 ], [ %.120, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit53 ], [ null, %62 ], [ null, %._crit_edge.i48 ], [ null, %._crit_edge.i ], [ null, %13 ], [ null, %69 ], [ null, %._crit_edge.i34 ], [ null, %41 ], [ null, %48 ], [ null, %71 ], [ null, %50 ], [ null, %22 ], [ null, %.lr.ph ]
+  %.0 = phi ptr [ null, %5 ], [ %.120, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit53 ], [ null, %._crit_edge.i ], [ null, %13 ], [ null, %._crit_edge.i34 ], [ null, %41 ], [ null, %._crit_edge.i48 ], [ null, %62 ], [ null, %71 ], [ null, %69 ], [ null, %50 ], [ null, %48 ], [ null, %22 ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -434,8 +434,8 @@ define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_113
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %22, %.lr.ph.i
-  %.027.lcssa.i = phi i32 [ %23, %22 ], [ %.02764.i, %.lr.ph.i ]
-  %.025.lcssa.i.idx = phi i64 [ %.02565.i.add, %22 ], [ %.02565.i.idx, %.lr.ph.i ]
+  %.027.lcssa.i = phi i32 [ %.02764.i, %.lr.ph.i ], [ %23, %22 ]
+  %.025.lcssa.i.idx = phi i64 [ %.02565.i.idx, %.lr.ph.i ], [ %.02565.i.add, %22 ]
   %.025.lcssa.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.025.lcssa.i.idx
   %26 = icmp eq i64 %.025.lcssa.i.idx, 2
   %27 = add i32 %.027.lcssa.i, -13
@@ -487,8 +487,8 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit: ; preds = %._c
   br i1 %.not.i45, label %._crit_edge.i46, label %.lr.ph.i40
 
 ._crit_edge.i46:                                  ; preds = %44, %.lr.ph.i40
-  %.027.lcssa.i47 = phi i32 [ %45, %44 ], [ %.02764.i43, %.lr.ph.i40 ]
-  %.025.lcssa.i48.idx = phi i64 [ %.02565.i42.add, %44 ], [ %.02565.i42.idx, %.lr.ph.i40 ]
+  %.027.lcssa.i47 = phi i32 [ %.02764.i43, %.lr.ph.i40 ], [ %45, %44 ]
+  %.025.lcssa.i48.idx = phi i64 [ %.02565.i42.idx, %.lr.ph.i40 ], [ %.02565.i42.add, %44 ]
   %.025.lcssa.i48.ptr = getelementptr inbounds nuw i8, ptr %.025.lcssa.i.ptr, i64 %.025.lcssa.i48.idx
   %48 = icmp eq i64 %.025.lcssa.i48.idx, 1
   %49 = add i32 %.027.lcssa.i47, -6
@@ -552,8 +552,8 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit51: ; preds = %.
   br i1 %.not.i59, label %._crit_edge.i60, label %.lr.ph.i54
 
 ._crit_edge.i60:                                  ; preds = %69, %.lr.ph.i54
-  %.027.lcssa.i61 = phi i32 [ %70, %69 ], [ %.02764.i57, %.lr.ph.i54 ]
-  %.025.lcssa.i62.idx = phi i64 [ %.02565.i56.add, %69 ], [ %.02565.i56.idx, %.lr.ph.i54 ]
+  %.027.lcssa.i61 = phi i32 [ %.02764.i57, %.lr.ph.i54 ], [ %70, %69 ]
+  %.025.lcssa.i62.idx = phi i64 [ %.02565.i56.idx, %.lr.ph.i54 ], [ %.02565.i56.add, %69 ]
   %73 = icmp eq i64 %.025.lcssa.i62.idx, 2
   %74 = add i32 %.027.lcssa.i61, -366
   %75 = icmp ult i32 %74, -365
@@ -605,8 +605,8 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit65: ; preds = %.
   br i1 %.not.i73, label %._crit_edge.i74, label %.lr.ph.i68
 
 ._crit_edge.i74:                                  ; preds = %90, %.lr.ph.i68
-  %.027.lcssa.i75 = phi i32 [ %91, %90 ], [ %.02764.i71, %.lr.ph.i68 ]
-  %.025.lcssa.i76.idx = phi i64 [ %.02565.i70.add, %90 ], [ %.02565.i70.idx, %.lr.ph.i68 ]
+  %.027.lcssa.i75 = phi i32 [ %.02764.i71, %.lr.ph.i68 ], [ %91, %90 ]
+  %.025.lcssa.i76.idx = phi i64 [ %.02565.i70.idx, %.lr.ph.i68 ], [ %.02565.i70.add, %90 ]
   %94 = icmp eq i64 %.025.lcssa.i76.idx, 1
   %95 = icmp ugt i32 %.027.lcssa.i75, 365
   %or.cond35.i77 = select i1 %94, i1 true, i1 %95
@@ -635,8 +635,8 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit79: ; preds = %.
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread104
 
-.thread104:                                       ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit79, %4, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit65, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit51, %98
-  %.0107 = phi ptr [ %55, %98 ], [ %.025.lcssa.i.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit ], [ %.025.lcssa.i76.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit79 ], [ %0, %4 ], [ %.025.lcssa.i62.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit65 ], [ %.025.lcssa.i48.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit51 ]
+.thread104:                                       ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit79, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit65, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit51, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit, %4, %98
+  %.0107 = phi ptr [ %55, %98 ], [ %.025.lcssa.i76.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit79 ], [ %.025.lcssa.i62.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit65 ], [ %.025.lcssa.i48.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit51 ], [ %.025.lcssa.i.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit ], [ %0, %4 ]
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 7200, ptr %106, align 8, !tbaa !27
   %107 = load i8, ptr %.0107, align 1, !tbaa !12
@@ -649,7 +649,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit79: ; preds = %.
   br label %.thread
 
 .thread:                                          ; preds = %63, %65, %16, %18, %38, %40, %84, %86, %78, %._crit_edge.i74, %56, %._crit_edge.i60, %31, %._crit_edge.i46, %9, %._crit_edge.i, %2, %.thread108, %.thread104, %109
-  %.3 = phi ptr [ %111, %109 ], [ %.0107, %.thread104 ], [ null, %.thread108 ], [ null, %2 ], [ null, %._crit_edge.i ], [ null, %9 ], [ null, %._crit_edge.i74 ], [ null, %16 ], [ null, %._crit_edge.i46 ], [ null, %31 ], [ null, %78 ], [ null, %84 ], [ null, %._crit_edge.i60 ], [ null, %56 ], [ null, %38 ], [ null, %86 ], [ null, %40 ], [ null, %18 ], [ null, %65 ], [ null, %63 ]
+  %.3 = phi ptr [ %111, %109 ], [ %.0107, %.thread104 ], [ null, %.thread108 ], [ null, %2 ], [ null, %._crit_edge.i ], [ null, %9 ], [ null, %._crit_edge.i46 ], [ null, %31 ], [ null, %._crit_edge.i60 ], [ null, %56 ], [ null, %._crit_edge.i74 ], [ null, %78 ], [ null, %86 ], [ null, %84 ], [ null, %40 ], [ null, %38 ], [ null, %18 ], [ null, %16 ], [ null, %65 ], [ null, %63 ]
   ret ptr %.3
 }
 
@@ -693,8 +693,8 @@ define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_18P
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
-  %.027.lcssa = phi i32 [ %18, %17 ], [ %.02764, %.lr.ph ]
-  %.025.lcssa = phi ptr [ %19, %17 ], [ %.02565, %.lr.ph ]
+  %.027.lcssa = phi i32 [ %.02764, %.lr.ph ], [ %18, %17 ]
+  %.025.lcssa = phi ptr [ %.02565, %.lr.ph ], [ %19, %17 ]
   %22 = icmp eq ptr %.025.lcssa, %0
   %23 = icmp slt i32 %.027.lcssa, %1
   %24 = icmp sgt i32 %.027.lcssa, %2
@@ -707,7 +707,7 @@ define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_18P
   br label %.thread49
 
 .thread49:                                        ; preds = %11, %13, %4, %._crit_edge, %26
-  %.3 = phi ptr [ null, %._crit_edge ], [ %.025.lcssa, %26 ], [ null, %4 ], [ null, %13 ], [ null, %11 ]
+  %.3 = phi ptr [ %.025.lcssa, %26 ], [ null, %._crit_edge ], [ null, %4 ], [ null, %13 ], [ null, %11 ]
   ret ptr %.3
 }
 

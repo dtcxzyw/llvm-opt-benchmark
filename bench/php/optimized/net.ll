@@ -120,7 +120,7 @@ thread-pre-split:                                 ; preds = %14, %4
   br label %39
 
 39:                                               ; preds = %24, %38, %.thread41, %22, %12, %1
-  %.0 = phi ptr [ null, %1 ], [ %28, %.thread41 ], [ %5, %12 ], [ %15, %22 ], [ null, %38 ], [ null, %24 ]
+  %.0 = phi ptr [ %5, %12 ], [ %15, %22 ], [ null, %1 ], [ %28, %.thread41 ], [ null, %38 ], [ null, %24 ]
   ret ptr %.0
 }
 

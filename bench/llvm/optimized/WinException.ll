@@ -997,7 +997,7 @@ _ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit: ; preds = %56, %60
   br label %96
 
 .thread25:                                        ; preds = %16, %74, %70, %68
-  %86 = phi i1 [ %27, %68 ], [ %27, %74 ], [ %27, %70 ], [ %15, %16 ]
+  %86 = phi i1 [ %27, %74 ], [ %27, %70 ], [ %27, %68 ], [ %15, %16 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %88 = load i8, ptr %87, align 1, !range !407
   %89 = trunc nuw i8 %88 to i1
@@ -4496,7 +4496,7 @@ _ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit: ; preds = %42, %47
   br label %_ZN4llvm12WinException14create32bitRefEPKNS_11GlobalValueE.exit
 
 _ZN4llvm12WinException14create32bitRefEPKNS_11GlobalValueE.exit: ; preds = %67, %62, %75
-  %77 = phi ptr [ %76, %75 ], [ %66, %62 ], [ %74, %67 ]
+  %77 = phi ptr [ %76, %75 ], [ %74, %67 ], [ %66, %62 ]
   %78 = call noundef ptr @_ZNK4llvm17MachineBasicBlock9getSymbolEv(ptr noundef nonnull align 8 dereferenceable(288) %36) #13
   %.not.i39 = icmp eq ptr %78, null
   br i1 %.not.i39, label %79, label %84
@@ -5551,7 +5551,7 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit45: ; pred
   store ptr null, ptr %152, align 8, !tbaa !771
   br label %.thread54
 
-.thread54:                                        ; preds = %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit35, %151, %146
+.thread54:                                        ; preds = %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit35, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit, %151, %146
   ret ptr %0
 }
 

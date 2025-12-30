@@ -214,7 +214,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN15option_parser_
   unreachable
 
 .body:                                            ; preds = %80, %77, %43, %40
-  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %78, %80 ], [ %41, %43 ], [ %78, %77 ]
+  %.pn = phi { ptr, i32 } [ %41, %43 ], [ %41, %40 ], [ %78, %77 ], [ %78, %80 ]
   %85 = load ptr, ptr %8, align 8, !tbaa !3
   %.not.i13 = icmp eq ptr %85, null
   br i1 %.not.i13, label %_ZNSt14_Function_baseD2Ev.exit14, label %86
@@ -344,8 +344,8 @@ define noundef nonnull ptr @_ZN15option_parser_t5parseEPKPKc(ptr noundef nonnull
   br label %47
 
 47:                                               ; preds = %39, %44
-  %.3 = phi ptr [ %45, %44 ], [ %.0105, %39 ]
-  %48 = phi ptr [ %46, %44 ], [ %40, %39 ]
+  %.3 = phi ptr [ %.0105, %39 ], [ %45, %44 ]
+  %48 = phi ptr [ %40, %39 ], [ %46, %44 ]
   %.not50 = icmp eq ptr %48, null
   br i1 %.not50, label %.critedge56, label %.thread84
 
@@ -375,8 +375,8 @@ define noundef nonnull ptr @_ZN15option_parser_t5parseEPKPKc(ptr noundef nonnull
   unreachable
 
 58:                                               ; preds = %.thread84, %.critedge56
-  %59 = phi ptr [ %49, %.thread84 ], [ null, %.critedge56 ]
-  %.382 = phi ptr [ %.387, %.thread84 ], [ %.383, %.critedge56 ]
+  %59 = phi ptr [ null, %.critedge56 ], [ %49, %.thread84 ]
+  %.382 = phi ptr [ %.383, %.critedge56 ], [ %.387, %.thread84 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %59, ptr %3, align 8, !tbaa !22
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.057.0101147, i64 40

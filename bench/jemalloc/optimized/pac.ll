@@ -188,7 +188,7 @@ pac_alloc_real.exit:                              ; preds = %.thread.i, %8
   br label %pac_alloc_new_guarded.exit
 
 pac_alloc_new_guarded.exit:                       ; preds = %11, %18, %24, %54, %.thread.i.i, %32, %pac_alloc_real.exit
-  %.1 = phi ptr [ null, %.thread.i.i ], [ null, %pac_alloc_real.exit ], [ %34, %32 ], [ %.1.i.ph.i, %54 ], [ %13, %11 ], [ %20, %18 ], [ %23, %24 ]
+  %.1 = phi ptr [ null, %pac_alloc_real.exit ], [ %34, %32 ], [ %.1.i.ph.i, %54 ], [ null, %.thread.i.i ], [ %13, %11 ], [ %20, %18 ], [ %23, %24 ]
   ret ptr %.1
 }
 
@@ -252,7 +252,7 @@ define internal noundef zeroext i1 @pac_expand_impl(ptr noundef %0, ptr noundef 
   br label %.thread57
 
 .thread57:                                        ; preds = %.thread52, %31, %24, %33, %32, %7
-  %.042 = phi i1 [ true, %7 ], [ true, %24 ], [ true, %31 ], [ false, %33 ], [ false, %32 ], [ false, %.thread52 ]
+  %.042 = phi i1 [ true, %7 ], [ true, %31 ], [ true, %24 ], [ false, %33 ], [ false, %32 ], [ false, %.thread52 ]
   ret i1 %.042
 }
 
@@ -391,7 +391,7 @@ pac_ns_until_purge.exit:                          ; preds = %11, %18
   br label %pac_ns_until_purge.exit.thread
 
 pac_ns_until_purge.exit.thread:                   ; preds = %45, %25, %2, %pac_ns_until_purge.exit
-  %.0 = phi i64 [ 0, %2 ], [ 0, %pac_ns_until_purge.exit ], [ %48, %45 ], [ 0, %25 ]
+  %.0 = phi i64 [ 0, %pac_ns_until_purge.exit ], [ 0, %2 ], [ %48, %45 ], [ 0, %25 ]
   ret i64 %.0
 }
 

@@ -623,11 +623,11 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %153 = icmp sgt i32 %149, 0
   br i1 %153, label %.lr.ph, label %.preheader140._crit_edge.loopexit178
 
-.thread127:                                       ; preds = %._crit_edge.us, %146, %104, %99, %61
-  %154 = phi ptr [ %38, %61 ], [ %38, %._crit_edge.us ], [ %54, %146 ], [ %54, %99 ], [ %54, %104 ]
-  %155 = phi i32 [ %40, %61 ], [ %40, %._crit_edge.us ], [ %53, %146 ], [ %53, %99 ], [ %53, %104 ]
-  %156 = phi ptr [ %43, %61 ], [ %43, %._crit_edge.us ], [ %51, %146 ], [ %51, %99 ], [ %51, %104 ]
-  %.1 = phi float [ %73, %61 ], [ 1.000000e+00, %._crit_edge.us ], [ %.0..0..0..0.8, %146 ], [ %102, %99 ], [ %107, %104 ]
+.thread127:                                       ; preds = %._crit_edge.us, %146, %99, %104, %61
+  %154 = phi ptr [ %38, %61 ], [ %38, %._crit_edge.us ], [ %54, %146 ], [ %54, %104 ], [ %54, %99 ]
+  %155 = phi i32 [ %40, %61 ], [ %40, %._crit_edge.us ], [ %53, %146 ], [ %53, %104 ], [ %53, %99 ]
+  %156 = phi ptr [ %43, %61 ], [ %43, %._crit_edge.us ], [ %51, %146 ], [ %51, %104 ], [ %51, %99 ]
+  %.1 = phi float [ %73, %61 ], [ 1.000000e+00, %._crit_edge.us ], [ %.0..0..0..0.8, %146 ], [ %107, %104 ], [ %102, %99 ]
   %.fr177 = freeze i32 %155
   %157 = load i8, ptr @IsBinaryUpgrade, align 1, !range !13, !noundef !14
   %158 = trunc nuw i8 %157 to i1
@@ -731,7 +731,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread137
 
 .thread137:                                       ; preds = %.thread134.us, %._crit_edge176.us, %.thread137.loopexit.split, %192
-  %196 = phi i32 [ %182, %192 ], [ %193, %.thread137.loopexit.split ], [ %160, %._crit_edge176.us ], [ %160, %.thread134.us ]
+  %196 = phi i32 [ %193, %.thread137.loopexit.split ], [ %182, %192 ], [ %160, %._crit_edge176.us ], [ %160, %.thread134.us ]
   tail call void @pfree(ptr noundef %156) #9
   tail call void @ReleaseCatCacheList(ptr noundef %154) #9
   store i32 0, ptr %11, align 4

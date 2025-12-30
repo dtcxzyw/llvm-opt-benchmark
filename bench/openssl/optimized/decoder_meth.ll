@@ -337,7 +337,7 @@ OSSL_DECODER_free.exit76:                         ; preds = %CRYPTO_DOWN_REF.exi
   br label %OSSL_DECODER_free.exit
 
 OSSL_DECODER_free.exit:                           ; preds = %3, %44, %CRYPTO_DOWN_REF.exit.i71, %19, %CRYPTO_DOWN_REF.exit.i, %117, %116, %OSSL_DECODER_free.exit76
-  %.0 = phi ptr [ null, %116 ], [ null, %44 ], [ null, %19 ], [ null, %OSSL_DECODER_free.exit76 ], [ %7, %117 ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %CRYPTO_DOWN_REF.exit.i71 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %OSSL_DECODER_free.exit76 ], [ %7, %117 ], [ null, %116 ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %19 ], [ null, %CRYPTO_DOWN_REF.exit.i71 ], [ null, %44 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -415,8 +415,8 @@ define internal fastcc ptr @inner_ossl_decoder_fetch(ptr noundef nonnull %0, ptr
   br i1 %.not61, label %.thread, label %43
 
 .thread:                                          ; preds = %15, %20, %17
-  %or.cond3 = phi i1 [ true, %17 ], [ false, %20 ], [ false, %15 ]
-  %22 = phi i32 [ 0, %17 ], [ %18, %20 ], [ 0, %15 ]
+  %or.cond3 = phi i1 [ false, %20 ], [ true, %17 ], [ false, %15 ]
+  %22 = phi i32 [ %18, %20 ], [ 0, %17 ], [ 0, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) @__const.inner_ossl_decoder_fetch.mcm, i64 56, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -769,7 +769,7 @@ define i32 @OSSL_DECODER_names_do_all(ptr noundef readonly captures(address_is_n
   br label %13
 
 13:                                               ; preds = %5, %3, %7
-  %.0 = phi i32 [ 0, %3 ], [ %12, %7 ], [ 1, %5 ]
+  %.0 = phi i32 [ %12, %7 ], [ 0, %3 ], [ 1, %5 ]
   ret i32 %.0
 }
 
@@ -1076,7 +1076,7 @@ define internal ptr @get_decoder_from_store(ptr noundef %0, ptr noundef %1, ptr 
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %33, %23, %29, %25
-  %.1 = phi ptr [ %spec.select, %33 ], [ null, %25 ], [ null, %23 ], [ null, %29 ], [ null, %8 ]
+  %.1 = phi ptr [ null, %25 ], [ null, %29 ], [ null, %23 ], [ %spec.select, %33 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.1
 }
@@ -1129,7 +1129,7 @@ define internal i32 @put_decoder_in_store(ptr noundef %0, ptr noundef %1, ptr no
   br label %31
 
 31:                                               ; preds = %25, %16, %20, %29
-  %.0 = phi i32 [ %30, %29 ], [ 0, %16 ], [ 0, %20 ], [ 0, %25 ]
+  %.0 = phi i32 [ %30, %29 ], [ 0, %20 ], [ 0, %16 ], [ 0, %25 ]
   ret i32 %.0
 }
 

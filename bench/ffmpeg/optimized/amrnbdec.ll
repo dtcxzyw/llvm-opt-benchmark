@@ -340,7 +340,7 @@ define internal i32 @amrnb_decode_frame(ptr noundef %0, ptr noundef initializes(
   %.not.i.i = icmp eq i8 %118, 0
   br i1 %.not.i.i, label %.loopexit268, label %.lr.ph.i.i, !llvm.loop !62
 
-.loopexit:                                        ; preds = %80, %66
+.loopexit:                                        ; preds = %66, %80
   %119 = getelementptr inbounds nuw i8, ptr %67, i64 116
   store i32 15, ptr %119, align 4, !tbaa !63
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #8
@@ -1693,7 +1693,7 @@ synthesis.exit.thread:                            ; preds = %834
   br i1 %.not134, label %66, label %.thread206, !llvm.loop !109
 
 890:                                              ; preds = %.loopexit, %.loopexit209, %.thread
-  %.3.ph = phi i32 [ -1094995529, %.thread ], [ -1094995529, %.loopexit ], [ -1163346256, %.loopexit209 ]
+  %.3.ph = phi i32 [ -1094995529, %.thread ], [ -1163346256, %.loopexit209 ], [ -1094995529, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %896
@@ -1709,7 +1709,7 @@ synthesis.exit.thread:                            ; preds = %834
   br label %896
 
 896:                                              ; preds = %890, %4, %.thread206
-  %.0 = phi i32 [ %.3.ph, %890 ], [ %895, %.thread206 ], [ %33, %4 ]
+  %.0 = phi i32 [ %895, %.thread206 ], [ %.3.ph, %890 ], [ %33, %4 ]
   ret i32 %.0
 }
 

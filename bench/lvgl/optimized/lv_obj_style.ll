@@ -125,7 +125,7 @@ style_has_flag.exit:                              ; preds = %.lr.ph.i, %.lr.ph32
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #9
   br label %style_has_flag.exit.thread
 
-style_has_flag.exit.thread:                       ; preds = %29, %17, %15, %25, %style_has_flag.exit, %7
+style_has_flag.exit.thread:                       ; preds = %29, %17, %25, %15, %style_has_flag.exit, %7
   tail call void @lv_obj_remove_style(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   %37 = load i16, ptr %4, align 2
   %38 = lshr i16 %37, 4
@@ -452,9 +452,9 @@ style_has_flag.exit:                              ; preds = %.lr.ph.i, %.lr.ph32
   tail call void @lv_obj_invalidate(ptr noundef %0) #9
   br label %.thread
 
-.thread:                                          ; preds = %28, %16, %14, %24, %3, %style_has_flag.exit, %6
-  %.06386 = phi i8 [ %spec.select80, %6 ], [ %spec.select80, %style_has_flag.exit ], [ -1, %3 ], [ %spec.select80, %24 ], [ %spec.select80, %14 ], [ %spec.select80, %16 ], [ %spec.select80, %28 ]
-  %36 = phi i1 [ %9, %6 ], [ %9, %style_has_flag.exit ], [ true, %3 ], [ false, %24 ], [ %9, %14 ], [ %9, %16 ], [ true, %28 ]
+.thread:                                          ; preds = %28, %16, %24, %14, %3, %style_has_flag.exit, %6
+  %.06386 = phi i8 [ %spec.select80, %style_has_flag.exit ], [ %spec.select80, %6 ], [ -1, %3 ], [ %spec.select80, %14 ], [ %spec.select80, %24 ], [ %spec.select80, %16 ], [ %spec.select80, %28 ]
+  %36 = phi i1 [ %9, %style_has_flag.exit ], [ %9, %6 ], [ true, %3 ], [ %9, %14 ], [ false, %24 ], [ %9, %16 ], [ true, %28 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 1008
@@ -1070,7 +1070,7 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef read
   br i1 %104, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %99, %76, %54, %32
-  %.047.lcssa = phi i1 [ %.1.us, %54 ], [ %.1.us76, %76 ], [ %.1.us.us, %32 ], [ %.1, %99 ]
+  %.047.lcssa = phi i1 [ %.1.us.us, %32 ], [ %.1.us, %54 ], [ %.1.us76, %76 ], [ %.1, %99 ]
   br i1 %.047.lcssa, label %105, label %.critedge
 
 105:                                              ; preds = %._crit_edge
@@ -1487,7 +1487,7 @@ lv_obj_get_style_transform_skew_y.exit.i:         ; preds = %.loopexit.i64.i, %g
   br label %calculate_layer_type.exit
 
 calculate_layer_type.exit:                        ; preds = %lv_obj_get_style_transform_rotation.exit.i, %lv_obj_get_style_transform_scale_x.exit.i, %lv_obj_get_style_transform_scale_y.exit.i, %lv_obj_get_style_transform_skew_x.exit.i, %lv_obj_get_style_transform_skew_y.exit.i, %103, %105, %107
-  %.0.i = phi i32 [ 1, %105 ], [ 2, %lv_obj_get_style_transform_rotation.exit.i ], [ 2, %lv_obj_get_style_transform_scale_x.exit.i ], [ 2, %lv_obj_get_style_transform_scale_y.exit.i ], [ 2, %lv_obj_get_style_transform_skew_x.exit.i ], [ 2, %lv_obj_get_style_transform_skew_y.exit.i ], [ 1, %103 ], [ %..i, %107 ]
+  %.0.i = phi i32 [ 2, %lv_obj_get_style_transform_rotation.exit.i ], [ 2, %lv_obj_get_style_transform_scale_x.exit.i ], [ 2, %lv_obj_get_style_transform_scale_y.exit.i ], [ 2, %lv_obj_get_style_transform_skew_x.exit.i ], [ 2, %lv_obj_get_style_transform_skew_y.exit.i ], [ 1, %103 ], [ 1, %105 ], [ %..i, %107 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %110 = load ptr, ptr %109, align 8, !tbaa !87
   %.not = icmp eq ptr %110, null
@@ -1699,7 +1699,7 @@ define internal fastcc range(i32 0, 2) i32 @get_selector_style_prop(ptr noundef 
   br label %.critedge
 
 .critedge:                                        ; preds = %40, %37, %.lr.ph63, %28, %.critedge.sink.split, %.preheader, %21, %32, %.thread, %4
-  %.040 = phi i32 [ 1, %4 ], [ 0, %32 ], [ 0, %37 ], [ 1, %.lr.ph63 ], [ 1, %.critedge.sink.split ], [ 0, %.thread ], [ 0, %.preheader ], [ 0, %21 ], [ 0, %28 ], [ 0, %40 ]
+  %.040 = phi i32 [ 1, %4 ], [ 0, %.thread ], [ 0, %32 ], [ 0, %21 ], [ 0, %.preheader ], [ 1, %.critedge.sink.split ], [ 1, %.lr.ph63 ], [ 0, %28 ], [ 0, %37 ], [ 0, %40 ]
   ret i32 %.040
 }
 
@@ -2130,8 +2130,8 @@ lv_obj_get_style_prop.exit83:                     ; preds = %39, %40
   br label %71
 
 71:                                               ; preds = %66, %67, %50, %lv_obj_get_style_prop.exit83
-  %.sroa.012.0 = phi ptr [ %.sroa.0.0.i75, %lv_obj_get_style_prop.exit83 ], [ %.sroa.0.0.i75, %50 ], [ %70, %67 ], [ %.sroa.0.0.i75, %66 ]
-  %.sroa.019.0 = phi ptr [ %.sroa.0.0.i81, %lv_obj_get_style_prop.exit83 ], [ %.sroa.0.0.i81, %50 ], [ %.sroa.019.1, %67 ], [ %.sroa.019.1, %66 ]
+  %.sroa.012.0 = phi ptr [ %.sroa.0.0.i75, %50 ], [ %.sroa.0.0.i75, %lv_obj_get_style_prop.exit83 ], [ %70, %67 ], [ %.sroa.0.0.i75, %66 ]
+  %.sroa.019.0 = phi ptr [ %.sroa.0.0.i81, %50 ], [ %.sroa.0.0.i81, %lv_obj_get_style_prop.exit83 ], [ %.sroa.019.1, %67 ], [ %.sroa.019.1, %66 ]
   %72 = tail call ptr @lv_ll_ins_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 48)) #9
   %.not = icmp eq ptr %72, null
   br i1 %.not, label %.preheader, label %73
@@ -2490,9 +2490,9 @@ define internal void @trans_anim_cb(ptr noundef readonly captures(none) %0, i32 
   br label %86
 
 86:                                               ; preds = %42, %50, %48, %68, %76, %72, %54, %62, %60, %36, %39, %26, %30
-  %87 = phi i8 [ %23, %68 ], [ %23, %72 ], [ %23, %76 ], [ %23, %26 ], [ %23, %30 ], [ %23, %36 ], [ %23, %39 ], [ %23, %60 ], [ %.pre103, %62 ], [ 97, %50 ], [ 97, %48 ], [ %23, %54 ], [ 97, %42 ]
-  %88 = phi ptr [ %10, %68 ], [ %10, %72 ], [ %10, %76 ], [ %10, %26 ], [ %10, %30 ], [ %10, %36 ], [ %10, %39 ], [ %10, %60 ], [ %.pre, %62 ], [ %10, %50 ], [ %10, %48 ], [ %10, %54 ], [ %10, %42 ]
-  %.sroa.08.0 = phi ptr [ %71, %68 ], [ %75, %72 ], [ %85, %76 ], [ %29, %26 ], [ %33, %30 ], [ %38, %36 ], [ %41, %39 ], [ %61, %60 ], [ %66, %62 ], [ %., %50 ], [ %44, %48 ], [ %56, %54 ], [ %47, %42 ]
+  %87 = phi i8 [ %23, %68 ], [ %23, %72 ], [ %23, %76 ], [ %23, %26 ], [ %23, %30 ], [ %23, %36 ], [ %23, %39 ], [ %23, %54 ], [ %23, %60 ], [ %.pre103, %62 ], [ 97, %48 ], [ 97, %50 ], [ 97, %42 ]
+  %88 = phi ptr [ %10, %68 ], [ %10, %72 ], [ %10, %76 ], [ %10, %26 ], [ %10, %30 ], [ %10, %36 ], [ %10, %39 ], [ %10, %54 ], [ %10, %60 ], [ %.pre, %62 ], [ %10, %48 ], [ %10, %50 ], [ %10, %42 ]
+  %.sroa.08.0 = phi ptr [ %71, %68 ], [ %75, %72 ], [ %85, %76 ], [ %29, %26 ], [ %33, %30 ], [ %38, %36 ], [ %41, %39 ], [ %56, %54 ], [ %61, %60 ], [ %66, %62 ], [ %44, %48 ], [ %., %50 ], [ %47, %42 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %89 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %88, i64 %indvars.iv
@@ -2874,7 +2874,7 @@ lv_obj_get_style_color_filter_opa.exit:           ; preds = %get_selector_style_
   br label %56
 
 56:                                               ; preds = %lv_obj_get_style_color_filter_dsc.exit, %28, %51, %lv_obj_get_style_color_filter_opa.exit, %3
-  %.sroa.013.0 = phi ptr [ %2, %3 ], [ %2, %lv_obj_get_style_color_filter_dsc.exit ], [ %2, %28 ], [ %55, %51 ], [ %2, %lv_obj_get_style_color_filter_opa.exit ]
+  %.sroa.013.0 = phi ptr [ %2, %3 ], [ %2, %28 ], [ %2, %lv_obj_get_style_color_filter_dsc.exit ], [ %55, %51 ], [ %2, %lv_obj_get_style_color_filter_opa.exit ]
   ret ptr %.sroa.013.0
 }
 
@@ -3073,7 +3073,7 @@ define range(i32 0, 4) i32 @lv_obj_style_state_compare(ptr noundef readonly capt
   br label %87
 
 87:                                               ; preds = %86, %58, %60, %62, %64, %66, %68, %70, %72, %74, %76, %78, %80, %82, %84
-  %.357 = phi i32 [ 2, %84 ], [ %spec.store.select, %86 ], [ 2, %58 ], [ 2, %60 ], [ 2, %62 ], [ 2, %64 ], [ 2, %66 ], [ 2, %68 ], [ 2, %70 ], [ 2, %72 ], [ 2, %74 ], [ 2, %76 ], [ 2, %78 ], [ 2, %80 ], [ 2, %82 ]
+  %.357 = phi i32 [ %spec.store.select, %86 ], [ 2, %58 ], [ 2, %60 ], [ 2, %62 ], [ 2, %64 ], [ 2, %66 ], [ 2, %68 ], [ 2, %70 ], [ 2, %72 ], [ 2, %74 ], [ 2, %76 ], [ 2, %78 ], [ 2, %80 ], [ 2, %82 ], [ 2, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load i16, ptr %5, align 2
   br label %88
@@ -4012,8 +4012,8 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull re
   br label %.thread95
 
 .thread95:                                        ; preds = %98, %.lr.ph119, %..thread95_crit_edge, %94, %85, %77, %73, %64
-  %106 = phi i16 [ %65, %64 ], [ %65, %73 ], [ %65, %77 ], [ %.pre, %..thread95_crit_edge ], [ %65, %94 ], [ %65, %.lr.ph119 ], [ %65, %85 ], [ %65, %98 ]
-  %.151 = phi i32 [ %.050122, %64 ], [ %.050122, %73 ], [ %.050122, %77 ], [ %79, %..thread95_crit_edge ], [ %.050122, %94 ], [ %.050122, %.lr.ph119 ], [ %.050122, %85 ], [ %.050122, %98 ]
+  %106 = phi i16 [ %65, %64 ], [ %.pre, %..thread95_crit_edge ], [ %65, %77 ], [ %65, %73 ], [ %65, %85 ], [ %65, %94 ], [ %65, %.lr.ph119 ], [ %65, %98 ]
+  %.151 = phi i32 [ %.050122, %64 ], [ %79, %..thread95_crit_edge ], [ %.050122, %77 ], [ %.050122, %73 ], [ %.050122, %85 ], [ %.050122, %94 ], [ %.050122, %.lr.ph119 ], [ %.050122, %98 ]
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %107 = lshr i16 %106, 4
   %108 = and i16 %107, 63
@@ -4027,7 +4027,7 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull re
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread.us, %.thread, %104, %._crit_edge, %._crit_edge125.loopexit, %.thread90
-  %.4 = phi i32 [ 1, %104 ], [ 1, %.thread90 ], [ 0, %._crit_edge ], [ %112, %._crit_edge125.loopexit ], [ 0, %.thread ], [ 0, %.thread.us ]
+  %.4 = phi i32 [ 1, %.thread90 ], [ 0, %._crit_edge ], [ %112, %._crit_edge125.loopexit ], [ 1, %104 ], [ 0, %.thread ], [ 0, %.thread.us ]
   ret i32 %.4
 }
 

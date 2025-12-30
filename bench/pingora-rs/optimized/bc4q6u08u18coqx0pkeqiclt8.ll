@@ -131,7 +131,7 @@ define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5E
           to label %10 unwind label %34
 
 10:                                               ; preds = %.invoke, %29
-  %.sroa.02.0 = phi i8 [ %9, %.invoke ], [ %32, %29 ]
+  %.sroa.02.0 = phi i8 [ %32, %29 ], [ %9, %.invoke ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
@@ -200,7 +200,7 @@ define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5E
   unreachable
 
 .critedge:                                        ; preds = %38, %20
-  %eh.lpad-body11 = phi { ptr, i32 } [ %21, %20 ], [ %35, %38 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %35, %38 ], [ %21, %20 ]
   resume { ptr, i32 } %eh.lpad-body11
 
 38:                                               ; preds = %34
@@ -271,7 +271,7 @@ define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5E
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #17, !noalias !21
   unreachable
 
-.body.thread5:                                    ; preds = %12, %3
+.body.thread5:                                    ; preds = %3, %12
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -479,7 +479,7 @@ define void @_ZN20pingora_header_serde11HeaderSerde3new17h8d7cd37535d89a94E(ptr 
   br label %20
 
 .thread:                                          ; preds = %13, %27, %17
-  %.pn18 = phi { ptr, i32 } [ %18, %17 ], [ %18, %27 ], [ %14, %13 ]
+  %.pn18 = phi { ptr, i32 } [ %18, %27 ], [ %18, %17 ], [ %14, %13 ]
   resume { ptr, i32 } %.pn18
 
 27:                                               ; preds = %17
@@ -1064,7 +1064,7 @@ define void @_ZN20pingora_header_serde11HeaderSerde11deserialize17hbf751826684d1
   br label %59
 
 57:                                               ; preds = %.thread26, %.thread
-  %.sroa.5.1.i24.in = phi ptr [ %51, %.thread26 ], [ %47, %.thread ]
+  %.sroa.5.1.i24.in = phi ptr [ %47, %.thread ], [ %51, %.thread26 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.5.1.i24.in, ptr %58, align 8
   store i64 3, ptr %0, align 8
@@ -1105,7 +1105,7 @@ define void @_ZN20pingora_header_serde11HeaderSerde11deserialize17hbf751826684d1
           to label %75 unwind label %73, !noalias !71
 
 .body.i:                                          ; preds = %179, %176, %174, %170, %161, %157, %151, %148, %145, %141, %111, %73
-  %.pn.i = phi { ptr, i32 } [ %146, %151 ], [ %158, %157 ], [ %lpad.phi.i.i, %111 ], [ %74, %73 ], [ %142, %141 ], [ %146, %145 ], [ %146, %148 ], [ %171, %170 ], [ %158, %161 ], [ %171, %179 ], [ %171, %176 ], [ %171, %174 ]
+  %.pn.i = phi { ptr, i32 } [ %74, %73 ], [ %lpad.phi.i.i, %111 ], [ %142, %141 ], [ %146, %145 ], [ %146, %148 ], [ %146, %151 ], [ %158, %161 ], [ %158, %157 ], [ %171, %179 ], [ %171, %176 ], [ %171, %174 ], [ %171, %170 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$httparse..Header$GT$$GT$17h1cad26cfe99ac5e0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #16
           to label %.body unwind label %183, !noalias !71
 

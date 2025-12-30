@@ -249,7 +249,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %103, %101, %118
-  %.3368406 = phi i32 [ %.0, %101 ], [ %119, %118 ], [ %.0, %103 ]
+  %.3368406 = phi i32 [ %119, %118 ], [ %.0, %101 ], [ %.0, %103 ]
   %122 = load double, ptr %133, align 8, !tbaa !7
   %123 = icmp eq i32 %.3368406, %.1370.ph
   br i1 %123, label %189, label %124
@@ -549,7 +549,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.outer
 
 .loopexit410:                                     ; preds = %189, %126, %277, %215, %138, %227
-  %.2 = phi i32 [ %32, %227 ], [ %.3, %277 ], [ %32, %138 ], [ %.3, %215 ], [ %.1, %126 ], [ %.1, %189 ]
+  %.2 = phi i32 [ %32, %227 ], [ %32, %138 ], [ %.3, %215 ], [ %.3, %277 ], [ %.1, %126 ], [ %.1, %189 ]
   br i1 %82, label %279, label %278
 
 278:                                              ; preds = %.loopexit410

@@ -124,7 +124,7 @@ define dso_local ptr @drm_gem_fb_get_obj(ptr noundef readonly captures(none) %0,
   br label %38
 
 38:                                               ; preds = %20, %.thread2, %.thread, %19
-  %39 = phi ptr [ null, %.thread2 ], [ null, %19 ], [ null, %.thread ], [ %23, %20 ]
+  %39 = phi ptr [ null, %19 ], [ null, %.thread ], [ null, %.thread2 ], [ %23, %20 ]
   ret ptr %39
 }
 
@@ -458,7 +458,7 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
   br i1 %152, label %.loopexit, label %139, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.thread21, %.thread16, %123, %45, %14
-  %153 = phi i32 [ -22, %45 ], [ -22, %14 ], [ %135, %.thread16 ], [ 0, %123 ], [ %135, %.thread21 ]
+  %153 = phi i32 [ -22, %45 ], [ -22, %14 ], [ 0, %123 ], [ %135, %.thread16 ], [ %135, %.thread21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %153
 }

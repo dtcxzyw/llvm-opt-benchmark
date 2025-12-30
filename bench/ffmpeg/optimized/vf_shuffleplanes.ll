@@ -217,7 +217,7 @@ define internal i32 @shuffleplanes_filter_frame(ptr noundef readonly captures(no
   br label %51
 
 51:                                               ; preds = %50, %44
-  %.019 = phi i32 [ %.017.ph, %50 ], [ %49, %44 ]
+  %.019 = phi i32 [ %49, %44 ], [ %.017.ph, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.019

@@ -2234,7 +2234,7 @@ _init_l_Lean_ScopedEnvExtension_add___at_Lean_Meta_addGlobalInstance___spec__1__
   br label %109
 
 109:                                              ; preds = %.sink.split, %68, %lean_dec_ref.exit16, %7
-  %.0 = phi ptr [ %18, %lean_dec_ref.exit16 ], [ %70, %68 ], [ %8, %7 ], [ %.sink39, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %70, %68 ], [ %.sink39, %.sink.split ]
   ret ptr %.0
 }
 

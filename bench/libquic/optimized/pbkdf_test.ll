@@ -81,7 +81,7 @@ _ZL18TestRFC6070Vectorsv.exit:                    ; preds = %18
   %22 = tail call fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef nonnull @.str.16, i64 noundef 9, ptr noundef nonnull @.str.17, i64 noundef 5, i32 noundef 4096, ptr noundef %21, i64 noundef 16, ptr noundef @__const._ZL18TestRFC6070Vectorsv.kKey3)
   br i1 %22, label %25, label %_ZL18TestRFC6070Vectorsv.exit.thread
 
-_ZL18TestRFC6070Vectorsv.exit.thread:             ; preds = %18, %15, %_ZL18TestRFC6070Vectorsv.exit
+_ZL18TestRFC6070Vectorsv.exit.thread:             ; preds = %15, %18, %_ZL18TestRFC6070Vectorsv.exit
   %23 = load ptr, ptr @stderr, align 8, !tbaa !6
   %24 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 26, i64 1, ptr %23) #7
   br label %51
@@ -219,7 +219,7 @@ _ZL12PrintDataHexPKvm.exit17:                     ; preds = %30
   br label %38
 
 38:                                               ; preds = %15, %_ZL12PrintDataHexPKvm.exit17, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %_ZL12PrintDataHexPKvm.exit17 ], [ true, %15 ]
+  %.0 = phi i1 [ false, %_ZL12PrintDataHexPKvm.exit17 ], [ false, %11 ], [ true, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
 }

@@ -33,7 +33,7 @@ define internal range(i32 -2147483648, 1) i32 @mpv_pic_init(ptr %0, ptr noundef 
   br label %10
 
 10:                                               ; preds = %8, %2
-  %.0 = phi i32 [ %., %8 ], [ %6, %2 ]
+  %.0 = phi i32 [ %6, %2 ], [ %., %8 ]
   ret i32 %.0
 }
 
@@ -247,7 +247,7 @@ define range(i32 -1163346256, 1) i32 @ff_mpv_framesize_alloc(ptr noundef %0, ptr
   br label %33
 
 33:                                               ; preds = %15, %9, %3, %30, %29, %14
-  %.0 = phi i32 [ -12, %29 ], [ 0, %3 ], [ -1163346256, %14 ], [ 0, %9 ], [ 0, %30 ], [ -12, %15 ]
+  %.0 = phi i32 [ -1163346256, %14 ], [ 0, %30 ], [ -12, %29 ], [ 0, %3 ], [ 0, %9 ], [ -12, %15 ]
   ret i32 %.0
 }
 
@@ -492,8 +492,8 @@ set_workpic_from_pic.exit.critedge:               ; preds = %90
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %set_workpic_from_pic.exit.critedge, label %90, !llvm.loop !33
 
-alloc_picture_tables.exit.thread:                 ; preds = %41, %36, %13, %18, %28, %5
-  %.0 = phi i32 [ %11, %5 ], [ -12, %28 ], [ -12, %18 ], [ -12, %13 ], [ -12, %36 ], [ -12, %41 ]
+alloc_picture_tables.exit.thread:                 ; preds = %41, %36, %28, %18, %13, %5
+  %.0 = phi i32 [ %11, %5 ], [ -12, %13 ], [ -12, %18 ], [ -12, %28 ], [ -12, %36 ], [ -12, %41 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.3) #6
   br label %98
 

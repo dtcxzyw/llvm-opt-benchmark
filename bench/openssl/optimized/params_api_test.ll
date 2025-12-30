@@ -267,7 +267,7 @@ define internal range(i32 0, 2) i32 @test_param_int(i32 noundef %0) #0 {
   br label %36
 
 36:                                               ; preds = %31, %26, %23, %16, %12, %34
-  %.0 = phi i32 [ %35, %34 ], [ 0, %26 ], [ 0, %23 ], [ 0, %16 ], [ 0, %12 ], [ 0, %31 ]
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -344,7 +344,7 @@ define internal range(i32 0, 2) i32 @test_param_long(i32 noundef %0) #0 {
   br label %36
 
 36:                                               ; preds = %31, %26, %23, %16, %12, %34
-  %.0 = phi i32 [ %35, %34 ], [ 0, %26 ], [ 0, %23 ], [ 0, %16 ], [ 0, %12 ], [ 0, %31 ]
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -421,7 +421,7 @@ define internal range(i32 0, 2) i32 @test_param_uint(i32 noundef %0) #0 {
   br label %36
 
 36:                                               ; preds = %31, %26, %23, %16, %12, %34
-  %.0 = phi i32 [ %35, %34 ], [ 0, %26 ], [ 0, %23 ], [ 0, %16 ], [ 0, %12 ], [ 0, %31 ]
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -498,7 +498,7 @@ define internal range(i32 0, 2) i32 @test_param_ulong(i32 noundef %0) #0 {
   br label %36
 
 36:                                               ; preds = %31, %26, %23, %16, %12, %34
-  %.0 = phi i32 [ %35, %34 ], [ 0, %26 ], [ 0, %23 ], [ 0, %16 ], [ 0, %12 ], [ 0, %31 ]
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -575,7 +575,7 @@ define internal range(i32 0, 2) i32 @test_param_int32(i32 noundef %0) #0 {
   br label %36
 
 36:                                               ; preds = %31, %26, %23, %16, %12, %34
-  %.0 = phi i32 [ %35, %34 ], [ 0, %26 ], [ 0, %23 ], [ 0, %16 ], [ 0, %12 ], [ 0, %31 ]
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -652,7 +652,7 @@ define internal range(i32 0, 2) i32 @test_param_uint32(i32 noundef %0) #0 {
   br label %36
 
 36:                                               ; preds = %31, %26, %23, %16, %12, %34
-  %.0 = phi i32 [ %35, %34 ], [ 0, %26 ], [ 0, %23 ], [ 0, %16 ], [ 0, %12 ], [ 0, %31 ]
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -729,7 +729,7 @@ define internal range(i32 0, 2) i32 @test_param_size_t(i32 noundef %0) #0 {
   br label %36
 
 36:                                               ; preds = %31, %26, %23, %16, %12, %34
-  %.0 = phi i32 [ %35, %34 ], [ 0, %26 ], [ 0, %23 ], [ 0, %16 ], [ 0, %12 ], [ 0, %31 ]
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -806,7 +806,7 @@ define internal range(i32 0, 2) i32 @test_param_time_t(i32 noundef %0) #0 {
   br label %36
 
 36:                                               ; preds = %31, %26, %23, %16, %12, %34
-  %.0 = phi i32 [ %35, %34 ], [ 0, %26 ], [ 0, %23 ], [ 0, %16 ], [ 0, %12 ], [ 0, %31 ]
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -883,7 +883,7 @@ define internal range(i32 0, 2) i32 @test_param_int64(i32 noundef %0) #0 {
   br label %36
 
 36:                                               ; preds = %31, %26, %23, %16, %12, %34
-  %.0 = phi i32 [ %35, %34 ], [ 0, %26 ], [ 0, %23 ], [ 0, %16 ], [ 0, %12 ], [ 0, %31 ]
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -960,7 +960,7 @@ define internal range(i32 0, 2) i32 @test_param_uint64(i32 noundef %0) #0 {
   br label %36
 
 36:                                               ; preds = %31, %26, %23, %16, %12, %34
-  %.0 = phi i32 [ %35, %34 ], [ 0, %26 ], [ 0, %23 ], [ 0, %16 ], [ 0, %12 ], [ 0, %31 ]
+  %.0 = phi i32 [ %35, %34 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1033,7 +1033,7 @@ define internal range(i32 0, 2) i32 @test_param_bignum(i32 noundef %0) #0 {
   br label %35
 
 35:                                               ; preds = %32, %25, %23, %18, %11
-  %.0 = phi i32 [ 0, %11 ], [ %spec.select, %32 ], [ 0, %25 ], [ 0, %23 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %25 ], [ 0, %23 ], [ 0, %18 ], [ 0, %11 ], [ %spec.select, %32 ]
   call void @BN_free(ptr noundef %16) #4
   %36 = load ptr, ptr %4, align 8, !tbaa !16
   call void @BN_free(ptr noundef %36) #4
@@ -1131,7 +1131,7 @@ define internal range(i32 0, 2) i32 @test_param_signed_bignum(i32 noundef %0) #0
   br label %48
 
 48:                                               ; preds = %41, %32, %27, %18, %11, %44
-  %.0 = phi i32 [ 0, %11 ], [ 0, %44 ], [ 0, %32 ], [ 0, %27 ], [ 0, %18 ], [ 1, %41 ]
+  %.0 = phi i32 [ 0, %44 ], [ 0, %32 ], [ 0, %27 ], [ 0, %18 ], [ 0, %11 ], [ 1, %41 ]
   call void @BN_free(ptr noundef %16) #4
   %49 = load ptr, ptr %4, align 8, !tbaa !16
   call void @BN_free(ptr noundef %49) #4
@@ -1343,8 +1343,8 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
   br label %61
 
 61:                                               ; preds = %1, %58, %56, %54
-  %.089 = phi ptr [ %59, %58 ], [ null, %56 ], [ null, %54 ], [ null, %1 ]
-  %.088 = phi ptr [ %60, %58 ], [ %57, %56 ], [ %55, %54 ], [ %2, %1 ]
+  %.089 = phi ptr [ %59, %58 ], [ null, %54 ], [ null, %56 ], [ null, %1 ]
+  %.088 = phi ptr [ %60, %58 ], [ %55, %54 ], [ %57, %56 ], [ %2, %1 ]
   %62 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef nonnull @.str.82) #4
   %63 = call i32 @test_ptr_null(ptr noundef nonnull @.str.17, i32 noundef 648, ptr noundef nonnull @.str.81, ptr noundef %62) #4
   %.not = icmp eq i32 %63, 0
@@ -1773,8 +1773,8 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
   br label %296
 
 296:                                              ; preds = %293, %287, %270, %273, %276, %281, %255, %262, %266, %239, %242, %247, %252, %228, %233, %236, %215, %222, %225, %203, %206, %211, %178, %181, %186, %190, %195, %199, %170, %176, %122, %125, %130, %135, %139, %144, %61, %168, %118, %89
-  %.087 = phi i32 [ 0, %89 ], [ 0, %118 ], [ 0, %61 ], [ %spec.select, %293 ], [ 0, %287 ], [ 0, %281 ], [ 0, %276 ], [ 0, %273 ], [ 0, %270 ], [ 0, %266 ], [ 0, %262 ], [ 0, %255 ], [ 0, %252 ], [ 0, %247 ], [ 0, %242 ], [ 0, %239 ], [ 0, %236 ], [ 0, %233 ], [ 0, %228 ], [ 0, %225 ], [ 0, %222 ], [ 0, %215 ], [ 0, %211 ], [ 0, %206 ], [ 0, %203 ], [ 0, %199 ], [ 0, %195 ], [ 0, %190 ], [ 0, %186 ], [ 0, %181 ], [ 0, %178 ], [ 0, %176 ], [ 0, %170 ], [ 0, %168 ], [ 0, %144 ], [ 0, %139 ], [ 0, %135 ], [ 0, %130 ], [ 0, %125 ], [ 0, %122 ]
-  %.0 = phi ptr [ null, %89 ], [ null, %118 ], [ null, %61 ], [ %274, %293 ], [ %274, %287 ], [ %274, %281 ], [ %274, %276 ], [ %274, %273 ], [ null, %270 ], [ null, %266 ], [ null, %262 ], [ null, %255 ], [ null, %252 ], [ null, %247 ], [ null, %242 ], [ null, %239 ], [ null, %236 ], [ null, %233 ], [ null, %228 ], [ null, %225 ], [ null, %222 ], [ null, %215 ], [ null, %211 ], [ null, %206 ], [ null, %203 ], [ null, %199 ], [ null, %195 ], [ null, %190 ], [ null, %186 ], [ null, %181 ], [ null, %178 ], [ null, %176 ], [ null, %170 ], [ null, %168 ], [ null, %144 ], [ null, %139 ], [ null, %135 ], [ null, %130 ], [ null, %125 ], [ null, %122 ]
+  %.087 = phi i32 [ 0, %89 ], [ 0, %118 ], [ 0, %287 ], [ 0, %281 ], [ 0, %276 ], [ 0, %273 ], [ 0, %270 ], [ 0, %266 ], [ 0, %262 ], [ 0, %255 ], [ 0, %252 ], [ 0, %247 ], [ 0, %242 ], [ 0, %239 ], [ 0, %236 ], [ 0, %233 ], [ 0, %228 ], [ 0, %225 ], [ 0, %222 ], [ 0, %215 ], [ 0, %211 ], [ 0, %206 ], [ 0, %203 ], [ 0, %199 ], [ 0, %195 ], [ 0, %190 ], [ 0, %186 ], [ 0, %181 ], [ 0, %178 ], [ 0, %176 ], [ 0, %170 ], [ 0, %168 ], [ 0, %144 ], [ 0, %139 ], [ 0, %135 ], [ 0, %130 ], [ 0, %125 ], [ 0, %122 ], [ 0, %61 ], [ %spec.select, %293 ]
+  %.0 = phi ptr [ null, %89 ], [ null, %118 ], [ %274, %287 ], [ %274, %281 ], [ %274, %276 ], [ %274, %273 ], [ null, %270 ], [ null, %266 ], [ null, %262 ], [ null, %255 ], [ null, %252 ], [ null, %247 ], [ null, %242 ], [ null, %239 ], [ null, %236 ], [ null, %233 ], [ null, %228 ], [ null, %225 ], [ null, %222 ], [ null, %215 ], [ null, %211 ], [ null, %206 ], [ null, %203 ], [ null, %199 ], [ null, %195 ], [ null, %190 ], [ null, %186 ], [ null, %181 ], [ null, %178 ], [ null, %176 ], [ null, %170 ], [ null, %168 ], [ null, %144 ], [ null, %139 ], [ null, %135 ], [ null, %130 ], [ null, %125 ], [ null, %122 ], [ null, %61 ], [ %274, %293 ]
   %.not141 = icmp eq ptr %.088, %2
   br i1 %.not141, label %298, label %297
 
@@ -2333,7 +2333,7 @@ define internal fastcc range(i32 0, 2) i32 @test_param_type_extra(ptr noundef no
   br label %95
 
 95:                                               ; preds = %89, %76, %81, %86, %63, %68, %73, %57, %53, %50, %44, %28, %33, %39, %17, %22, %94
-  %.0 = phi i32 [ 1, %94 ], [ 0, %76 ], [ 0, %57 ], [ 0, %63 ], [ 0, %53 ], [ 0, %50 ], [ 0, %44 ], [ 0, %28 ], [ 0, %17 ], [ 0, %22 ], [ 0, %39 ], [ 0, %33 ], [ 0, %73 ], [ 0, %68 ], [ 0, %86 ], [ 0, %81 ], [ 0, %89 ]
+  %.0 = phi i32 [ 1, %94 ], [ 0, %22 ], [ 0, %17 ], [ 0, %39 ], [ 0, %33 ], [ 0, %28 ], [ 0, %44 ], [ 0, %50 ], [ 0, %53 ], [ 0, %57 ], [ 0, %73 ], [ 0, %68 ], [ 0, %63 ], [ 0, %86 ], [ 0, %81 ], [ 0, %76 ], [ 0, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

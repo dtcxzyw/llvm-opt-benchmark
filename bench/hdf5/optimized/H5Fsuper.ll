@@ -527,7 +527,7 @@ define range(i32 -1, 1) i32 @H5F__super_read(ptr noundef %0, ptr noundef %1, i1 
   br label %147
 
 147:                                              ; preds = %128, %146
-  %.2281 = phi i32 [ %spec.select346, %128 ], [ %spec.select347, %146 ]
+  %.2281 = phi i32 [ %spec.select347, %146 ], [ %spec.select346, %128 ]
   %148 = getelementptr inbounds nuw i8, ptr %88, i64 248
   %149 = call i32 @H5P_set(ptr noundef nonnull %55, ptr noundef nonnull @.str.17, ptr noundef nonnull %148) #6
   %150 = icmp slt i32 %149, 0
@@ -1308,7 +1308,7 @@ define range(i32 -1, 1) i32 @H5F__super_read(ptr noundef %0, ptr noundef %1, i1 
   store ptr null, ptr %600, align 8, !tbaa !102
   br label %601
 
-.thread362:                                       ; preds = %439, %446, %456, %474, %487, %500, %509, %517, %525, %578, %594, %585
+.thread362:                                       ; preds = %439, %446, %456, %474, %487, %500, %509, %517, %525, %578, %585, %594
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %602
 
@@ -1384,7 +1384,7 @@ define range(i32 -1, 1) i32 @H5F__super_read(ptr noundef %0, ptr noundef %1, i1 
   %635 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5F__super_read, i32 noundef 919, i64 noundef %633, i64 noundef %634, ptr noundef nonnull @.str.58) #6
   br label %.thread378
 
-.thread378:                                       ; preds = %312, %323, %331, %338, %372, %379, %387, %402, %409, %416, %606, %632, %362, %.thread373, %602, %349
+.thread378:                                       ; preds = %312, %323, %331, %338, %372, %379, %387, %402, %409, %416, %606, %632, %602, %349, %362, %.thread373
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1493,7 +1493,7 @@ define range(i32 -1, 1) i32 @H5F__super_read(ptr noundef %0, ptr noundef %1, i1 
   br label %.thread388
 
 .thread388:                                       ; preds = %672, %649, %685, %676, %641, %638, %637
-  %.3282 = phi i32 [ %.2281, %638 ], [ %spec.select356, %685 ], [ %.2281, %637 ], [ %.2281, %676 ], [ %.2281, %641 ], [ %.2281, %649 ], [ %.2281, %672 ]
+  %.3282 = phi i32 [ %.2281, %676 ], [ %.2281, %641 ], [ %.2281, %638 ], [ %.2281, %637 ], [ %spec.select356, %685 ], [ %.2281, %649 ], [ %.2281, %672 ]
   %687 = load ptr, ptr %25, align 8, !tbaa !25
   %688 = getelementptr inbounds nuw i8, ptr %687, i64 8
   store ptr %88, ptr %688, align 8, !tbaa !102
@@ -1521,9 +1521,9 @@ define range(i32 -1, 1) i32 @H5F__super_read(ptr noundef %0, ptr noundef %1, i1 
   br label %704
 
 704:                                              ; preds = %675, %.thread378, %.thread, %696, %700, %681, %302, %252, %243, %223, %213, %205, %197, %186, %177, %167, %159, %151, %142, %124, %114, %103, %90, %81, %64, %57, %44, %37, %31
-  %705 = phi i1 [ true, %31 ], [ true, %44 ], [ true, %57 ], [ true, %64 ], [ true, %81 ], [ true, %90 ], [ true, %103 ], [ true, %114 ], [ true, %124 ], [ true, %151 ], [ true, %159 ], [ true, %167 ], [ true, %177 ], [ true, %186 ], [ true, %213 ], [ true, %223 ], [ true, %243 ], [ true, %252 ], [ true, %302 ], [ true, %700 ], [ false, %696 ], [ true, %675 ], [ true, %681 ], [ true, %.thread378 ], [ true, %.thread ], [ true, %197 ], [ true, %205 ], [ true, %142 ], [ true, %37 ]
-  %.0279 = phi i32 [ 0, %31 ], [ 0, %44 ], [ 0, %57 ], [ 0, %64 ], [ 0, %81 ], [ 0, %90 ], [ 0, %103 ], [ 0, %114 ], [ 0, %124 ], [ %.2281, %151 ], [ %.2281, %159 ], [ %.2281, %167 ], [ %.2281, %177 ], [ %.2281, %186 ], [ %.2281, %213 ], [ %.2281, %223 ], [ %.2281, %243 ], [ %.2281, %252 ], [ %.2281, %302 ], [ %.3282, %700 ], [ %.3282, %696 ], [ %.2281, %675 ], [ %.2281, %681 ], [ %.2281, %.thread378 ], [ %.2281, %.thread ], [ %.2281, %197 ], [ %.2281, %205 ], [ %spec.select346, %142 ], [ 0, %37 ]
-  %.0274 = phi ptr [ null, %31 ], [ null, %44 ], [ null, %57 ], [ null, %64 ], [ null, %81 ], [ null, %90 ], [ %88, %103 ], [ %88, %114 ], [ %88, %124 ], [ %88, %151 ], [ %88, %159 ], [ %88, %167 ], [ %88, %177 ], [ %88, %186 ], [ %88, %213 ], [ %88, %223 ], [ %88, %243 ], [ %88, %252 ], [ %88, %302 ], [ %88, %700 ], [ %88, %696 ], [ %88, %675 ], [ %88, %681 ], [ %88, %.thread378 ], [ %88, %.thread ], [ %88, %197 ], [ %88, %205 ], [ %88, %142 ], [ null, %37 ]
+  %705 = phi i1 [ true, %31 ], [ true, %44 ], [ true, %57 ], [ true, %64 ], [ true, %81 ], [ true, %90 ], [ true, %103 ], [ true, %114 ], [ true, %124 ], [ true, %151 ], [ true, %159 ], [ true, %167 ], [ true, %177 ], [ true, %186 ], [ true, %213 ], [ true, %223 ], [ true, %243 ], [ true, %252 ], [ true, %302 ], [ true, %700 ], [ false, %696 ], [ true, %675 ], [ true, %681 ], [ true, %197 ], [ true, %205 ], [ true, %142 ], [ true, %37 ], [ true, %.thread ], [ true, %.thread378 ]
+  %.0279 = phi i32 [ 0, %31 ], [ 0, %44 ], [ 0, %57 ], [ 0, %64 ], [ 0, %81 ], [ 0, %90 ], [ 0, %103 ], [ 0, %114 ], [ 0, %124 ], [ %.2281, %151 ], [ %.2281, %159 ], [ %.2281, %167 ], [ %.2281, %177 ], [ %.2281, %186 ], [ %.2281, %213 ], [ %.2281, %223 ], [ %.2281, %243 ], [ %.2281, %252 ], [ %.2281, %302 ], [ %.3282, %700 ], [ %.3282, %696 ], [ %.2281, %675 ], [ %.2281, %681 ], [ %.2281, %197 ], [ %.2281, %205 ], [ %spec.select346, %142 ], [ 0, %37 ], [ %.2281, %.thread ], [ %.2281, %.thread378 ]
+  %.0274 = phi ptr [ null, %31 ], [ null, %44 ], [ null, %57 ], [ null, %64 ], [ null, %81 ], [ null, %90 ], [ %88, %103 ], [ %88, %114 ], [ %88, %124 ], [ %88, %151 ], [ %88, %159 ], [ %88, %167 ], [ %88, %177 ], [ %88, %186 ], [ %88, %213 ], [ %88, %223 ], [ %88, %243 ], [ %88, %252 ], [ %88, %302 ], [ %88, %700 ], [ %88, %696 ], [ %88, %675 ], [ %88, %681 ], [ %88, %197 ], [ %88, %205 ], [ %88, %142 ], [ null, %37 ], [ %88, %.thread ], [ %88, %.thread378 ]
   %706 = load i32, ptr %4, align 4, !tbaa !17
   %.not342 = icmp eq i32 %706, 0
   br i1 %.not342, label %708, label %707
@@ -1991,8 +1991,8 @@ define range(i32 -1, 1) i32 @H5F__super_ext_remove_msg(ptr noundef %0, i32 nound
   br label %89
 
 89:                                               ; preds = %88, %44, %40, %30
-  %90 = phi i1 [ false, %30 ], [ true, %40 ], [ true, %44 ], [ true, %88 ]
-  %.1 = phi i32 [ -1, %30 ], [ -1, %40 ], [ 0, %44 ], [ %.2, %88 ]
+  %90 = phi i1 [ false, %30 ], [ true, %40 ], [ true, %88 ], [ true, %44 ]
+  %.1 = phi i32 [ -1, %30 ], [ -1, %40 ], [ %.2, %88 ], [ 0, %44 ]
   %91 = load i32, ptr %3, align 4, !tbaa !17
   %.not25 = icmp eq i32 %91, 0
   br i1 %.not25, label %93, label %92
@@ -2197,7 +2197,7 @@ define range(i32 -1, 1) i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %82, %78, %75
-  %85 = phi i32 [ 2, %78 ], [ 3, %75 ], [ %spec.select292, %82 ]
+  %85 = phi i32 [ 3, %75 ], [ 2, %78 ], [ %spec.select292, %82 ]
   %86 = getelementptr inbounds nuw i8, ptr %54, i64 1428
   %87 = load i32, ptr %86, align 4, !tbaa !68
   %88 = sext i32 %87 to i64
@@ -2482,7 +2482,7 @@ define range(i32 -1, 1) i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr 
   %cond = icmp eq i64 %.0187, 0
   br i1 %cond, label %.thread, label %250
 
-.critedge:                                        ; preds = %247, %242, %233, %244
+.critedge:                                        ; preds = %242, %244, %247, %233
   call void @H5AC_set_ring(i32 noundef 4, ptr noundef null) #6
   br label %250
 
@@ -2714,13 +2714,13 @@ define range(i32 -1, 1) i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr 
   br label %.thread
 
 .thread:                                          ; preds = %249, %164, %158, %114, %107, %.thread264, %281, %349, %308, %.critedge243, %370, %366, %354, %264, %253, %229, %218, %180, %172, %138, %131, %97, %49, %41, %33, %20
-  %.0193 = phi ptr [ null, %20 ], [ null, %33 ], [ null, %41 ], [ null, %49 ], [ null, %97 ], [ null, %131 ], [ null, %138 ], [ null, %172 ], [ null, %180 ], [ null, %218 ], [ null, %229 ], [ null, %253 ], [ null, %264 ], [ null, %114 ], [ null, %349 ], [ null, %308 ], [ null, %.thread264 ], [ null, %281 ], [ null, %354 ], [ %352, %366 ], [ %352, %370 ], [ null, %.critedge243 ], [ null, %107 ], [ null, %158 ], [ null, %164 ], [ null, %249 ]
-  %.0192 = phi i1 [ false, %20 ], [ false, %33 ], [ false, %41 ], [ false, %49 ], [ false, %97 ], [ false, %131 ], [ false, %138 ], [ false, %172 ], [ false, %180 ], [ false, %218 ], [ false, %229 ], [ false, %253 ], [ false, %264 ], [ false, %114 ], [ false, %349 ], [ false, %308 ], [ false, %.thread264 ], [ false, %281 ], [ false, %354 ], [ false, %366 ], [ true, %370 ], [ false, %.critedge243 ], [ false, %107 ], [ false, %158 ], [ false, %164 ], [ false, %249 ]
-  %.0191 = phi i1 [ false, %20 ], [ false, %33 ], [ false, %41 ], [ false, %49 ], [ false, %97 ], [ false, %131 ], [ false, %138 ], [ false, %172 ], [ false, %180 ], [ false, %218 ], [ true, %229 ], [ true, %253 ], [ true, %264 ], [ false, %114 ], [ true, %349 ], [ true, %308 ], [ true, %.thread264 ], [ true, %281 ], [ true, %354 ], [ true, %366 ], [ true, %370 ], [ true, %.critedge243 ], [ false, %107 ], [ false, %158 ], [ false, %164 ], [ true, %249 ]
-  %.0189 = phi i1 [ false, %20 ], [ false, %33 ], [ false, %41 ], [ false, %49 ], [ false, %97 ], [ false, %131 ], [ false, %138 ], [ false, %172 ], [ false, %180 ], [ false, %218 ], [ false, %229 ], [ true, %253 ], [ true, %264 ], [ false, %114 ], [ true, %349 ], [ true, %308 ], [ true, %.thread264 ], [ true, %281 ], [ true, %354 ], [ true, %366 ], [ true, %370 ], [ true, %.critedge243 ], [ false, %107 ], [ false, %158 ], [ false, %164 ], [ true, %249 ]
-  %.0185 = phi i1 [ false, %20 ], [ false, %33 ], [ false, %41 ], [ false, %49 ], [ false, %97 ], [ false, %131 ], [ false, %138 ], [ false, %172 ], [ false, %180 ], [ false, %218 ], [ false, %229 ], [ false, %253 ], [ true, %264 ], [ false, %114 ], [ true, %349 ], [ true, %308 ], [ true, %.thread264 ], [ true, %281 ], [ false, %354 ], [ false, %366 ], [ false, %370 ], [ false, %.critedge243 ], [ false, %107 ], [ false, %158 ], [ false, %164 ], [ false, %249 ]
-  %.0183 = phi i8 [ 0, %20 ], [ 0, %33 ], [ 0, %41 ], [ 0, %49 ], [ %.1184, %97 ], [ %.1184, %131 ], [ %.1184, %138 ], [ %.1184, %172 ], [ %.1184, %180 ], [ %.1184, %218 ], [ %.1184, %229 ], [ %.1184, %253 ], [ %.1184, %264 ], [ %.1184, %114 ], [ 1, %349 ], [ 0, %308 ], [ %.1184, %.thread264 ], [ %.1184, %281 ], [ 0, %354 ], [ 0, %366 ], [ 0, %370 ], [ 0, %.critedge243 ], [ %.1184, %107 ], [ %.1184, %158 ], [ %.1184, %164 ], [ 0, %249 ]
-  %.1179 = phi i1 [ true, %20 ], [ true, %33 ], [ true, %41 ], [ true, %49 ], [ true, %97 ], [ true, %131 ], [ true, %138 ], [ true, %172 ], [ true, %180 ], [ true, %218 ], [ true, %229 ], [ true, %253 ], [ true, %264 ], [ true, %114 ], [ %350, %349 ], [ false, %308 ], [ true, %.thread264 ], [ true, %281 ], [ true, %354 ], [ true, %366 ], [ false, %370 ], [ false, %.critedge243 ], [ true, %107 ], [ true, %158 ], [ true, %164 ], [ false, %249 ]
+  %.0193 = phi ptr [ null, %20 ], [ null, %33 ], [ null, %41 ], [ null, %49 ], [ null, %97 ], [ null, %131 ], [ null, %138 ], [ null, %172 ], [ null, %180 ], [ null, %218 ], [ null, %229 ], [ null, %253 ], [ null, %264 ], [ null, %349 ], [ null, %308 ], [ null, %281 ], [ null, %354 ], [ %352, %366 ], [ %352, %370 ], [ null, %.critedge243 ], [ null, %.thread264 ], [ null, %107 ], [ null, %114 ], [ null, %158 ], [ null, %164 ], [ null, %249 ]
+  %.0192 = phi i1 [ false, %20 ], [ false, %33 ], [ false, %41 ], [ false, %49 ], [ false, %97 ], [ false, %131 ], [ false, %138 ], [ false, %172 ], [ false, %180 ], [ false, %218 ], [ false, %229 ], [ false, %253 ], [ false, %264 ], [ false, %349 ], [ false, %308 ], [ false, %281 ], [ false, %354 ], [ false, %366 ], [ true, %370 ], [ false, %.critedge243 ], [ false, %.thread264 ], [ false, %107 ], [ false, %114 ], [ false, %158 ], [ false, %164 ], [ false, %249 ]
+  %.0191 = phi i1 [ false, %20 ], [ false, %33 ], [ false, %41 ], [ false, %49 ], [ false, %97 ], [ false, %131 ], [ false, %138 ], [ false, %172 ], [ false, %180 ], [ false, %218 ], [ true, %229 ], [ true, %253 ], [ true, %264 ], [ true, %349 ], [ true, %308 ], [ true, %281 ], [ true, %354 ], [ true, %366 ], [ true, %370 ], [ true, %.critedge243 ], [ true, %.thread264 ], [ false, %107 ], [ false, %114 ], [ false, %158 ], [ false, %164 ], [ true, %249 ]
+  %.0189 = phi i1 [ false, %20 ], [ false, %33 ], [ false, %41 ], [ false, %49 ], [ false, %97 ], [ false, %131 ], [ false, %138 ], [ false, %172 ], [ false, %180 ], [ false, %218 ], [ false, %229 ], [ true, %253 ], [ true, %264 ], [ true, %349 ], [ true, %308 ], [ true, %281 ], [ true, %354 ], [ true, %366 ], [ true, %370 ], [ true, %.critedge243 ], [ true, %.thread264 ], [ false, %107 ], [ false, %114 ], [ false, %158 ], [ false, %164 ], [ true, %249 ]
+  %.0185 = phi i1 [ false, %20 ], [ false, %33 ], [ false, %41 ], [ false, %49 ], [ false, %97 ], [ false, %131 ], [ false, %138 ], [ false, %172 ], [ false, %180 ], [ false, %218 ], [ false, %229 ], [ false, %253 ], [ true, %264 ], [ true, %349 ], [ true, %308 ], [ true, %281 ], [ false, %354 ], [ false, %366 ], [ false, %370 ], [ false, %.critedge243 ], [ true, %.thread264 ], [ false, %107 ], [ false, %114 ], [ false, %158 ], [ false, %164 ], [ false, %249 ]
+  %.0183 = phi i8 [ 0, %20 ], [ 0, %33 ], [ 0, %41 ], [ 0, %49 ], [ %.1184, %97 ], [ %.1184, %131 ], [ %.1184, %138 ], [ %.1184, %172 ], [ %.1184, %180 ], [ %.1184, %218 ], [ %.1184, %229 ], [ %.1184, %253 ], [ %.1184, %264 ], [ 1, %349 ], [ 0, %308 ], [ %.1184, %281 ], [ 0, %354 ], [ 0, %366 ], [ 0, %370 ], [ 0, %.critedge243 ], [ %.1184, %.thread264 ], [ %.1184, %107 ], [ %.1184, %114 ], [ %.1184, %158 ], [ %.1184, %164 ], [ 0, %249 ]
+  %.1179 = phi i1 [ true, %20 ], [ true, %33 ], [ true, %41 ], [ true, %49 ], [ true, %97 ], [ true, %131 ], [ true, %138 ], [ true, %172 ], [ true, %180 ], [ true, %218 ], [ true, %229 ], [ true, %253 ], [ true, %264 ], [ %350, %349 ], [ false, %308 ], [ true, %281 ], [ true, %354 ], [ true, %366 ], [ false, %370 ], [ false, %.critedge243 ], [ true, %.thread264 ], [ true, %107 ], [ true, %114 ], [ true, %158 ], [ true, %164 ], [ false, %249 ]
   %373 = load i32, ptr %2, align 4, !tbaa !17
   %.not233 = icmp eq i32 %373, 0
   br i1 %.not233, label %375, label %374
@@ -3127,8 +3127,8 @@ H5F__update_super_ext_driver_msg.exit:            ; preds = %75
   %87 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5F_eoa_dirty, i32 noundef 1522, i64 noundef %85, i64 noundef %86, ptr noundef nonnull @.str.91) #6
   br label %H5F__update_super_ext_driver_msg.exit.thread
 
-H5F__update_super_ext_driver_msg.exit.thread:     ; preds = %63, %55, %49, %42, %58, %H5F__update_super_ext_driver_msg.exit, %12, %22, %34, %84, %38, %31, %16
-  %.0 = phi i32 [ -1, %12 ], [ -1, %22 ], [ -1, %34 ], [ 0, %31 ], [ -1, %84 ], [ 0, %H5F__update_super_ext_driver_msg.exit ], [ 0, %38 ], [ 0, %16 ], [ 0, %58 ], [ 0, %42 ], [ 0, %49 ], [ 0, %55 ], [ 0, %63 ]
+H5F__update_super_ext_driver_msg.exit.thread:     ; preds = %63, %42, %49, %55, %58, %H5F__update_super_ext_driver_msg.exit, %12, %22, %34, %84, %38, %31, %16
+  %.0 = phi i32 [ -1, %12 ], [ -1, %22 ], [ -1, %34 ], [ 0, %31 ], [ -1, %84 ], [ 0, %H5F__update_super_ext_driver_msg.exit ], [ 0, %38 ], [ 0, %16 ], [ 0, %58 ], [ 0, %55 ], [ 0, %49 ], [ 0, %42 ], [ 0, %63 ]
   ret i32 %.0
 }
 
@@ -3317,8 +3317,8 @@ define range(i32 -1, 1) i32 @H5F__super_size(ptr noundef %0, ptr noundef writeon
   call void @H5AC_set_ring(i32 noundef %.pre, ptr noundef null) #6
   br label %.thread45
 
-.thread45:                                        ; preds = %68, %43, %3, %70, %69
-  %.030 = phi i32 [ %.1, %70 ], [ %.1, %69 ], [ 0, %3 ], [ 0, %43 ], [ 0, %68 ]
+.thread45:                                        ; preds = %43, %68, %3, %70, %69
+  %.030 = phi i32 [ %.1, %70 ], [ %.1, %69 ], [ 0, %3 ], [ 0, %68 ], [ 0, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.030
 }

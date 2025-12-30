@@ -654,7 +654,7 @@ define noundef zeroext i1 @_ZN3gmx15mrcHeaderIsSaneERKNS_19MrcDensityMapHeaderE(
   br label %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread
 
 _ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread: ; preds = %26, %22, %15, %1, %30, %8
-  %.0 = phi i1 [ false, %26 ], [ false, %15 ], [ false, %8 ], [ %or.cond5.i.not, %30 ], [ false, %22 ], [ false, %1 ]
+  %.0 = phi i1 [ false, %8 ], [ %or.cond5.i.not, %30 ], [ false, %1 ], [ false, %15 ], [ false, %22 ], [ false, %26 ]
   ret i1 %.0
 }
 

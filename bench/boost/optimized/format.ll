@@ -320,7 +320,7 @@ define void @_ZN5boost6locale6detail13format_parser12set_one_flagERKNSt7__cxx111
   %or.cond9.i = select i1 %.not.i, i1 true, i1 %30
   br i1 %or.cond9.i, label %_ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERi.exit.thread, label %_ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERi.exit
 
-_ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERi.exit.thread: ; preds = %18, %24
+_ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERi.exit.thread: ; preds = %24, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
@@ -1138,7 +1138,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6locale4util10try_to_int
   br label %22
 
 22:                                               ; preds = %7, %13, %20
-  %.1 = phi i1 [ true, %20 ], [ false, %7 ], [ false, %13 ]
+  %.1 = phi i1 [ true, %20 ], [ false, %13 ], [ false, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %23
 

@@ -1501,8 +1501,8 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit18.critedge: ; preds = %49
   br label %60
 
 60:                                               ; preds = %49, %2, %6, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit18.critedge, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
-  %.sroa.025.0 = phi i32 [ %57, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit18.critedge ], [ %46, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ -1, %2 ], [ -1, %6 ], [ -1, %49 ]
-  %.sroa.5.0 = phi i32 [ %59, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit18.critedge ], [ %48, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ -1, %2 ], [ -1, %6 ], [ -1, %49 ]
+  %.sroa.025.0 = phi i32 [ %46, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ %57, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit18.critedge ], [ -1, %6 ], [ -1, %2 ], [ -1, %49 ]
+  %.sroa.5.0 = phi i32 [ %48, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ %59, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit18.critedge ], [ -1, %6 ], [ -1, %2 ], [ -1, %49 ]
   %.sroa.5.0.insert.ext = zext i32 %.sroa.5.0 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.025.0.insert.ext = zext i32 %.sroa.025.0 to i64

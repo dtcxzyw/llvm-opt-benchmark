@@ -186,7 +186,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_init(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %44, %29, %24, %._crit_edge, %18, %13, %8
-  %.062 = phi i32 [ -22, %8 ], [ -22, %13 ], [ -22, %18 ], [ -12, %29 ], [ %45, %44 ], [ 0, %._crit_edge ], [ -12, %24 ], [ %64, %57 ]
+  %.062 = phi i32 [ -22, %8 ], [ -22, %13 ], [ -22, %18 ], [ 0, %._crit_edge ], [ -12, %24 ], [ -12, %29 ], [ %45, %44 ], [ %64, %57 ]
   ret i32 %.062
 }
 
@@ -525,7 +525,7 @@ flush_put_bits.exit:                              ; preds = %149, %._crit_edge97
   br label %180
 
 180:                                              ; preds = %apply_window_and_mdct.exit, %.loopexit, %179, %90
-  %.065 = phi i32 [ 0, %179 ], [ -22, %apply_window_and_mdct.exit ], [ -22, %90 ], [ %68, %.loopexit ]
+  %.065 = phi i32 [ -22, %90 ], [ 0, %179 ], [ -22, %apply_window_and_mdct.exit ], [ %68, %.loopexit ]
   ret i32 %.065
 }
 
@@ -1673,9 +1673,9 @@ encode_block.exit:                                ; preds = %.lr.ph292.i, %430
   %.pre35 = load i32, ptr %7, align 8, !tbaa !88
   br label %.loopexit
 
-.loopexit.thread:                                 ; preds = %.preheader281.i, %58, %.preheader279.i
-  %.ph = phi i32 [ %.pre.i, %.preheader279.i ], [ 0, %58 ], [ %.pre.i, %.preheader281.i ]
-  %.ph76 = phi i32 [ %.pre376.i, %.preheader279.i ], [ 32, %58 ], [ %.pre376.i, %.preheader281.i ]
+.loopexit.thread:                                 ; preds = %.preheader279.i, %.preheader281.i, %58
+  %.ph = phi i32 [ 0, %58 ], [ %.pre.i, %.preheader281.i ], [ %.pre.i, %.preheader279.i ]
+  %.ph76 = phi i32 [ 32, %58 ], [ %.pre376.i, %.preheader281.i ], [ %.pre376.i, %.preheader279.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %571
 

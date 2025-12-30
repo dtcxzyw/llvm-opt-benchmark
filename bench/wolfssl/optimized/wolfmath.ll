@@ -146,7 +146,7 @@ get_digit.exit:                                   ; preds = %get_digit.exit.lr.p
   br label %get_digit.exit44
 
 get_digit.exit44:                                 ; preds = %34, %33
-  %.0.i40 = phi i64 [ 0, %33 ], [ %36, %34 ]
+  %.0.i40 = phi i64 [ %36, %34 ], [ 0, %33 ]
   %37 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv63
   %38 = load i64, ptr %37, align 8, !tbaa !11
   %39 = xor i64 %38, %.0.i40
@@ -166,7 +166,7 @@ get_digit.exit44:                                 ; preds = %34, %33
   br label %.thread
 
 .thread:                                          ; preds = %3, %._crit_edge, %8
-  %.13371 = phi i32 [ %12, %8 ], [ %12, %._crit_edge ], [ -173, %3 ]
+  %.13371 = phi i32 [ %12, %._crit_edge ], [ %12, %8 ], [ -173, %3 ]
   ret i32 %.13371
 }
 
@@ -221,7 +221,7 @@ define i32 @mp_rand(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
   br i1 %.old2, label %.preheader, label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %23, %6, %9, %3, %.critedge30
-  %.3 = phi i32 [ -236, %3 ], [ -173, %6 ], [ %16, %.critedge30 ], [ -173, %9 ], [ 0, %.preheader ], [ %24, %23 ]
+  %.3 = phi i32 [ %16, %.critedge30 ], [ -236, %3 ], [ -173, %9 ], [ -173, %6 ], [ 0, %.preheader ], [ %24, %23 ]
   ret i32 %.3
 }
 
@@ -262,7 +262,7 @@ define i32 @wc_export_int(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
   br label %21
 
 21:                                               ; preds = %12, %19
-  %.1 = phi i32 [ %13, %12 ], [ %20, %19 ]
+  %.1 = phi i32 [ %20, %19 ], [ %13, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %32
 
@@ -283,7 +283,7 @@ define i32 @wc_export_int(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
   br label %32
 
 32:                                               ; preds = %22, %25, %21, %.critedge, %5
-  %.029 = phi i32 [ %31, %25 ], [ -173, %5 ], [ -132, %.critedge ], [ %.1, %21 ], [ -132, %22 ]
+  %.029 = phi i32 [ -173, %5 ], [ -132, %.critedge ], [ %.1, %21 ], [ %31, %25 ], [ -132, %22 ]
   ret i32 %.029
 }
 

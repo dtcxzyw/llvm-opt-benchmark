@@ -128,7 +128,7 @@ lean_string_dec_eq.exit:                          ; preds = %lean_array_uget.exi
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %30, %34, %36, %37, %38
-  %.225 = phi ptr [ %39, %38 ], [ %.02335, %30 ], [ %.02335, %37 ], [ %.02335, %36 ], [ %.02335, %34 ]
+  %.225 = phi ptr [ %39, %38 ], [ %.02335, %37 ], [ %.02335, %36 ], [ %.02335, %34 ], [ %.02335, %30 ]
   %.not = icmp eq i64 %28, %2
   br i1 %.not, label %._crit_edge, label %6
 
@@ -315,7 +315,7 @@ lean_dec.exit56:                                  ; preds = %lean_nat_lt.exit94
   br label %lean_dec.exit61
 
 lean_dec.exit61:                                  ; preds = %lean_dec.exit56, %65, %67, %68, %lean_dec.exit62, %35, %37, %38, %lean_dec.exit59, %lean_dec.exit65
-  %.2 = phi ptr [ %29, %lean_dec.exit62 ], [ %27, %lean_dec.exit65 ], [ %29, %35 ], [ %57, %lean_dec.exit59 ], [ %29, %38 ], [ %29, %37 ], [ %59, %68 ], [ %59, %67 ], [ %59, %65 ], [ %59, %lean_dec.exit56 ]
+  %.2 = phi ptr [ %27, %lean_dec.exit65 ], [ %57, %lean_dec.exit59 ], [ %29, %38 ], [ %29, %37 ], [ %29, %35 ], [ %29, %lean_dec.exit62 ], [ %59, %68 ], [ %59, %67 ], [ %59, %65 ], [ %59, %lean_dec.exit56 ]
   ret ptr %.2
 }
 

@@ -3135,7 +3135,7 @@ if.then:                                          ; preds = %_ZN10TestObjectaSER
   br label %if.end
 
 if.end:                                           ; preds = %_ZN10TestObjectaSERKS_.exit, %if.then
-  %13 = phi i64 [ %12, %_ZN10TestObjectaSERKS_.exit ], [ 1, %if.then ]
+  %13 = phi i64 [ 1, %if.then ], [ %12, %_ZN10TestObjectaSERKS_.exit ]
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %dec.i = add i64 %13, -1
   store i64 %dec.i, ptr %14, align 8

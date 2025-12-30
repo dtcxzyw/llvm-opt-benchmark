@@ -804,7 +804,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %100, %
   br label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_110RoundRobinENS0_16OrphanableDeleteEED2Ev.exit
 
 .body.i:                                          ; preds = %76, %64
-  %eh.lpad-body.i = phi { ptr, i32 } [ %65, %64 ], [ %.pn.pn.pn.i.i, %76 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i, %76 ], [ %65, %64 ]
   call void @_ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #30, !noalias !24
   call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 368) #32, !noalias !24
   resume { ptr, i32 } %eh.lpad-body.i
@@ -2013,7 +2013,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
 
 _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_110RoundRobinEED2Ev.exit76: ; preds = %.body.thread, %174, %178, %.body104, %241, %194, %182
-  %.pn45.pn = phi { ptr, i32 } [ %242, %241 ], [ %183, %182 ], [ %.pn41.pn.pn, %194 ], [ %.pn37.pn, %.body104 ], [ %175, %174 ], [ %126, %.body.thread ], [ %175, %178 ]
+  %.pn45.pn = phi { ptr, i32 } [ %242, %241 ], [ %183, %182 ], [ %.pn41.pn.pn, %194 ], [ %.pn37.pn, %.body104 ], [ %126, %.body.thread ], [ %175, %174 ], [ %175, %178 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %329
@@ -4277,9 +4277,9 @@ _ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_19LoadBalancingPolicy16SubchannelPic
   br label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEED2Ev.exit.i
 
 _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEED2Ev.exit.i: ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_19LoadBalancingPolicy16SubchannelPickerEEESaIS4_EE9push_backEOS4_.exit.i, %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_19LoadBalancingPolicy16SubchannelPickerEEESaIS4_EE9push_backEOS4_.exit.thread.i
-  %316 = phi ptr [ %315, %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_19LoadBalancingPolicy16SubchannelPickerEEESaIS4_EE9push_backEOS4_.exit.i ], [ %280, %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_19LoadBalancingPolicy16SubchannelPickerEEESaIS4_EE9push_backEOS4_.exit.thread.i ]
-  %317 = phi ptr [ %313, %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_19LoadBalancingPolicy16SubchannelPickerEEESaIS4_EE9push_backEOS4_.exit.i ], [ %295, %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_19LoadBalancingPolicy16SubchannelPickerEEESaIS4_EE9push_backEOS4_.exit.thread.i ]
-  %318 = phi ptr [ %308, %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_19LoadBalancingPolicy16SubchannelPickerEEESaIS4_EE9push_backEOS4_.exit.i ], [ %283, %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_19LoadBalancingPolicy16SubchannelPickerEEESaIS4_EE9push_backEOS4_.exit.thread.i ]
+  %316 = phi ptr [ %280, %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_19LoadBalancingPolicy16SubchannelPickerEEESaIS4_EE9push_backEOS4_.exit.thread.i ], [ %315, %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_19LoadBalancingPolicy16SubchannelPickerEEESaIS4_EE9push_backEOS4_.exit.i ]
+  %317 = phi ptr [ %295, %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_19LoadBalancingPolicy16SubchannelPickerEEESaIS4_EE9push_backEOS4_.exit.thread.i ], [ %313, %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_19LoadBalancingPolicy16SubchannelPickerEEESaIS4_EE9push_backEOS4_.exit.i ]
+  %318 = phi ptr [ %283, %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_19LoadBalancingPolicy16SubchannelPickerEEESaIS4_EE9push_backEOS4_.exit.thread.i ], [ %308, %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_19LoadBalancingPolicy16SubchannelPickerEEESaIS4_EE9push_backEOS4_.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %320
 
@@ -4938,8 +4938,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit139.i: 
   br label %_ZNK4absl12lts_202407226Status7messageEv.exit.i
 
 _ZNK4absl12lts_202407226Status7messageEv.exit.i:  ; preds = %554, %548
-  %.sroa.0.0.i.i = phi i64 [ %spec.select.i.i, %554 ], [ %553, %548 ]
-  %.sroa.4.0.i.i = phi ptr [ %spec.select2.i.i, %554 ], [ %551, %548 ]
+  %.sroa.0.0.i.i = phi i64 [ %553, %548 ], [ %spec.select.i.i, %554 ]
+  %.sroa.4.0.i.i = phi ptr [ %551, %548 ], [ %spec.select2.i.i, %554 ]
   store i64 %.sroa.0.0.i.i, ptr %28, align 8, !tbaa !200
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %.sroa.4.0.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !201

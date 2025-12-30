@@ -822,7 +822,7 @@ select.unfold:                                    ; preds = %20, %7
   br label %59
 
 59:                                               ; preds = %54, %49, %57, %25
-  %.sink = phi double [ 0.000000e+00, %25 ], [ %58, %57 ], [ 0.000000e+00, %49 ], [ 1.000000e+00, %54 ]
+  %.sink = phi double [ %58, %57 ], [ 0.000000e+00, %25 ], [ 0.000000e+00, %49 ], [ 1.000000e+00, %54 ]
   store double %.sink, ptr %4, align 8
   ret void
 }

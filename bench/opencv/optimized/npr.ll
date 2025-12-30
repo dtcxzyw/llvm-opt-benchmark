@@ -3692,7 +3692,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit207:              ; preds = %137
   br label %374
 
 ._crit_edge224:                                   ; preds = %._crit_edge.us226, %_ZNK2cv7MatExprcvNS_3MatEEv.exit207, %.preheader212.lr.ph, %.preheader213
-  %204 = phi i1 [ false, %_ZNK2cv7MatExprcvNS_3MatEEv.exit207 ], [ false, %.preheader213 ], [ true, %.preheader212.lr.ph ], [ true, %._crit_edge.us226 ]
+  %204 = phi i1 [ false, %.preheader213 ], [ true, %.preheader212.lr.ph ], [ false, %_ZNK2cv7MatExprcvNS_3MatEEv.exit207 ], [ true, %._crit_edge.us226 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %14, i32 noundef %40, i32 noundef %39, i32 noundef 5)
           to label %205 unwind label %315

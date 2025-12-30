@@ -331,8 +331,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit12: ; preds = %_ZN4cvc58internal12
   br label %.body
 
 .body:                                            ; preds = %107, %109, %105, %.body.i.i
-  %.sink = phi ptr [ %7, %105 ], [ %7, %.body.i.i ], [ %6, %109 ], [ %6, %107 ]
-  %.pn.pn = phi { ptr, i32 } [ %106, %105 ], [ %.pn.i.i.i, %.body.i.i ], [ %110, %109 ], [ %108, %107 ]
+  %.sink = phi ptr [ %7, %.body.i.i ], [ %7, %105 ], [ %6, %109 ], [ %6, %107 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn.i.i.i, %.body.i.i ], [ %106, %105 ], [ %110, %109 ], [ %108, %107 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn
@@ -952,8 +952,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit16: ; preds = %_ZN4cvc58internal12
   br label %.body
 
 .body:                                            ; preds = %114, %116, %112, %.body.i
-  %.sink = phi ptr [ %9, %112 ], [ %9, %.body.i ], [ %8, %116 ], [ %8, %114 ]
-  %.pn6.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn5.i.i, %.body.i ], [ %117, %116 ], [ %115, %114 ]
+  %.sink = phi ptr [ %9, %.body.i ], [ %9, %112 ], [ %8, %116 ], [ %8, %114 ]
+  %.pn6.pn = phi { ptr, i32 } [ %.pn5.i.i, %.body.i ], [ %113, %112 ], [ %117, %116 ], [ %115, %114 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn6.pn
@@ -1270,8 +1270,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit16: ; preds = %_ZN4cvc58internal12
   br label %.body
 
 .body:                                            ; preds = %114, %116, %112, %.body.i
-  %.sink = phi ptr [ %9, %112 ], [ %9, %.body.i ], [ %8, %116 ], [ %8, %114 ]
-  %.pn6.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn5.i.i, %.body.i ], [ %117, %116 ], [ %115, %114 ]
+  %.sink = phi ptr [ %9, %.body.i ], [ %9, %112 ], [ %8, %116 ], [ %8, %114 ]
+  %.pn6.pn = phi { ptr, i32 } [ %.pn5.i.i, %.body.i ], [ %113, %112 ], [ %117, %116 ], [ %115, %114 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn6.pn

@@ -155,7 +155,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %40, %38, %.lr.ph.i.i, %28
-  %.0.i.i = phi i32 [ 3, %38 ], [ %spec.select, %40 ], [ 2, %.lr.ph.i.i ], [ 1, %28 ]
+  %.0.i.i = phi i32 [ 1, %28 ], [ 2, %.lr.ph.i.i ], [ 3, %38 ], [ %spec.select, %40 ]
   %.lobit.i = lshr i32 %34, 31
   %42 = add nuw nsw i32 %.0.i.i, %.lobit.i
   %43 = zext nneg i32 %42 to i64

@@ -1125,7 +1125,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
+  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 16
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !67
@@ -1172,7 +1172,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
+  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 16
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !68
@@ -1609,7 +1609,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i.i: ; preds = %26, %20
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph, label %.lr.ph.i.i, !llvm.loop !81
 
-_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread.thread: ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
+_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread.thread: ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
 
@@ -3066,15 +3066,15 @@ _ZN8rationalpLERKS_.exit:                         ; preds = %91, %90
 _ZltRK8rationalS1_.exit:                          ; preds = %79
   br i1 %82, label %103, label %99
 
-99:                                               ; preds = %72, %.noexc15, %_ZltRK8rationalS1_.exit
-  %100 = phi ptr [ %54, %72 ], [ %54, %.noexc15 ], [ %81, %_ZltRK8rationalS1_.exit ]
+99:                                               ; preds = %.noexc15, %72, %_ZltRK8rationalS1_.exit
+  %100 = phi ptr [ %54, %.noexc15 ], [ %54, %72 ], [ %81, %_ZltRK8rationalS1_.exit ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %102 = load ptr, ptr %101, align 8, !tbaa !29
   %.not = icmp eq ptr %102, null
   br i1 %.not, label %103, label %_ZN8rationalaSERKS_.exit
 
-103:                                              ; preds = %72, %.noexc15, %99, %_ZltRK8rationalS1_.exit
-  %104 = phi ptr [ %54, %72 ], [ %54, %.noexc15 ], [ %100, %99 ], [ %81, %_ZltRK8rationalS1_.exit ]
+103:                                              ; preds = %.noexc15, %72, %99, %_ZltRK8rationalS1_.exit
+  %104 = phi ptr [ %54, %.noexc15 ], [ %54, %72 ], [ %100, %99 ], [ %81, %_ZltRK8rationalS1_.exit ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %106 = load ptr, ptr %2, align 8, !tbaa !29
   %.not.i.i = icmp eq ptr %106, null

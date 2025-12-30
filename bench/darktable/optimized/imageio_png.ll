@@ -495,7 +495,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_png(ptr noundef %0, ptr noundef %1, 
   br label %113
 
 113:                                              ; preds = %21, %28, %.loopexit, %41, %8
-  %.066 = phi i32 [ 3, %8 ], [ 8, %21 ], [ 6, %28 ], [ 0, %.loopexit ], [ 8, %41 ]
+  %.066 = phi i32 [ 3, %8 ], [ 6, %28 ], [ 8, %21 ], [ 0, %.loopexit ], [ 8, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.066
 }
@@ -643,7 +643,7 @@ define i32 @dt_imageio_png_read_profile(ptr noundef %0, ptr noundef writeonly ca
   br label %68
 
 68:                                               ; preds = %13, %3, %11, %63
-  %.023 = phi i32 [ %67, %63 ], [ 0, %3 ], [ 0, %11 ], [ 0, %13 ]
+  %.023 = phi i32 [ %67, %63 ], [ 0, %11 ], [ 0, %3 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

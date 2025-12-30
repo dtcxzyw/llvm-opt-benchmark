@@ -817,7 +817,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
   %mode1 = getelementptr inbounds nuw i8, ptr %params, i64 8
   store i32 %mode, ptr %mode1, align 8
   %cmp.i594 = icmp sgt i32 %offset, -1
@@ -1525,7 +1525,7 @@ do.body248:                                       ; preds = %_ZNK2v820FunctionCa
   unreachable
 
 sw.epilog:                                        ; preds = %do.end7.i200, %do.end7.i185, %do.end7.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit318, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit372, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit426, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit444, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit462, %sw.bb139, %sw.bb138, %sw.bb137
-  %cipher_nid.0 = phi i32 [ 898, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit318 ], [ 901, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ 904, %do.end7.i ], [ 905, %do.end7.i185 ], [ 419, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit462 ], [ 423, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit444 ], [ 788, %sw.bb137 ], [ 789, %sw.bb138 ], [ 790, %sw.bb139 ], [ 427, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit426 ], [ 895, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit372 ], [ 906, %do.end7.i200 ]
+  %cipher_nid.0 = phi i32 [ 788, %sw.bb137 ], [ 789, %sw.bb138 ], [ 790, %sw.bb139 ], [ 419, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit462 ], [ 423, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit444 ], [ 427, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit426 ], [ 895, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit372 ], [ 898, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit318 ], [ 901, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ 904, %do.end7.i ], [ 905, %do.end7.i185 ], [ 906, %do.end7.i200 ]
   %call250 = call ptr @OBJ_nid2sn(i32 noundef %cipher_nid.0) #17
   %call251 = call ptr @EVP_get_cipherbyname(ptr noundef %call250) #17
   %cipher = getelementptr inbounds nuw i8, ptr %params, i64 16
@@ -1556,7 +1556,7 @@ if.then260:                                       ; preds = %if.end255
   br label %return
 
 return:                                           ; preds = %if.end255, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit300, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit282, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit354, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit336, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit318, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit408, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit390, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit372, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit426, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit444, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit462, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit498, %_ZN4node6crypto12_GLOBAL__N_115ValidateCounterEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEPNS0_15AESCipherConfigE.exit212, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit534, %_ZN4node6crypto12_GLOBAL__N_115ValidateCounterEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEPNS0_15AESCipherConfigE.exit197, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit570, %_ZN4node6crypto12_GLOBAL__N_115ValidateCounterEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEPNS0_15AESCipherConfigE.exit, %if.then260, %if.then253
-  %retval.sroa.0.0 = phi i16 [ 0, %if.then253 ], [ 0, %if.then260 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit300 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit354 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit570 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit534 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit498 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit462 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit444 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit426 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit408 ], [ 0, %_ZN4node6crypto12_GLOBAL__N_115ValidateCounterEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEPNS0_15AESCipherConfigE.exit ], [ 0, %_ZN4node6crypto12_GLOBAL__N_115ValidateCounterEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEPNS0_15AESCipherConfigE.exit197 ], [ 0, %_ZN4node6crypto12_GLOBAL__N_115ValidateCounterEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEPNS0_15AESCipherConfigE.exit212 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit372 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit390 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit318 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit336 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit282 ], [ 257, %if.end255 ]
+  %retval.sroa.0.0 = phi i16 [ 0, %if.then253 ], [ 0, %if.then260 ], [ 0, %_ZN4node6crypto12_GLOBAL__N_115ValidateCounterEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEPNS0_15AESCipherConfigE.exit ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit570 ], [ 0, %_ZN4node6crypto12_GLOBAL__N_115ValidateCounterEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEPNS0_15AESCipherConfigE.exit197 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit534 ], [ 0, %_ZN4node6crypto12_GLOBAL__N_115ValidateCounterEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEEPNS0_15AESCipherConfigE.exit212 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit498 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit462 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit444 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit426 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit372 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit390 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit408 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit318 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit336 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit354 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit282 ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit300 ], [ 257, %if.end255 ]
   ret i16 %retval.sroa.0.0
 }
 
@@ -1774,7 +1774,7 @@ do.body:                                          ; preds = %entry
   unreachable
 
 return:                                           ; preds = %cond.end, %if.end20, %if.then30, %if.then19, %if.then13, %if.then
-  %retval.0 = phi i1 [ false, %if.then13 ], [ false, %if.then19 ], [ false, %if.then ], [ false, %if.then30 ], [ true, %if.end20 ], [ true, %cond.end ]
+  %retval.0 = phi i1 [ false, %if.then13 ], [ false, %if.then ], [ false, %if.then30 ], [ false, %if.then19 ], [ true, %if.end20 ], [ true, %cond.end ]
   ret i1 %retval.0
 }
 
@@ -2138,7 +2138,7 @@ if.then.i.i.i:                                    ; preds = %if.end65
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i, %if.end65, %if.end39, %if.then30, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit
-  %retval.3 = phi i32 [ %call48, %if.end39 ], [ %call33, %if.then30 ], [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ %call58, %if.end65 ], [ %call58, %if.then.i.i.i ]
+  %retval.3 = phi i32 [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ %call33, %if.then30 ], [ %call48, %if.end39 ], [ %call58, %if.end65 ], [ %call58, %if.then.i.i.i ]
   %20 = load ptr, ptr %buf, align 8
   %21 = load i64, ptr %size_.i27, align 8
   call void @CRYPTO_clear_free(ptr noundef %20, i64 noundef %21, ptr noundef nonnull @.str.34, i32 noundef 225) #17
@@ -2421,7 +2421,7 @@ cleanup:                                          ; preds = %if.then145, %do.end
   br label %cleanup157
 
 cleanup157:                                       ; preds = %land.lhs.true92, %do.end66, %if.end37, %lor.lhs.false, %land.lhs.true, %if.end22, %cleanup
-  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 2, %do.end66 ], [ 2, %if.end37 ], [ 2, %land.lhs.true ], [ 2, %if.end22 ], [ 2, %lor.lhs.false ], [ 2, %land.lhs.true92 ]
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 2, %if.end22 ], [ 2, %land.lhs.true ], [ 2, %lor.lhs.false ], [ 2, %if.end37 ], [ 2, %do.end66 ], [ 2, %land.lhs.true92 ]
   %cmp.not.i36 = icmp eq ptr %call16, null
   br i1 %cmp.not.i36, label %_ZNSt10unique_ptrI17evp_cipher_ctx_stN4node15FunctionDeleterIS0_XadL_Z19EVP_CIPHER_CTX_freeEEEEED2Ev.exit, label %if.then.i
 
@@ -3532,7 +3532,7 @@ if.end17:                                         ; preds = %if.end12
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end17, %if.end12, %if.end, %entry
-  %retval.0 = phi i32 [ %., %if.end17 ], [ 2, %if.end12 ], [ 2, %if.end ], [ 2, %entry ]
+  %retval.0 = phi i32 [ 2, %entry ], [ 2, %if.end ], [ 2, %if.end12 ], [ %., %if.end17 ]
   %cmp.not.i = icmp eq ptr %call, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrI17evp_cipher_ctx_stN4node15FunctionDeleterIS0_XadL_Z19EVP_CIPHER_CTX_freeEEEEED2Ev.exit, label %if.then.i
 
@@ -3717,7 +3717,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
   %12 = load ptr, ptr %args, align 8
   %arrayidx.i565 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %13 = load i64, ptr %arrayidx.i565, align 8
@@ -4023,7 +4023,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
   %12 = load ptr, ptr %args, align 8
   %13 = load i64, ptr %12, align 8
   %sub.i.i27.i = add i64 %13, -1
@@ -5696,7 +5696,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.
   br label %if.else.i.i, !llvm.loop !62
 
 if.then8.i.i:                                     ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %6, %if.end.i.i.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i.i = phi ptr [ %6, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
   %graph_.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %11 = load ptr, ptr %graph_.i.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -5803,7 +5803,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i20: ; preds = %lor.lhs.false.
   br label %if.else.i.i21, !llvm.loop !62
 
 if.then8.i.i24:                                   ; preds = %for.cond.i.i.i.i.i.i22, %for.body.i.i.i.i50, %if.end.i.i.i.i.i.i10
-  %retval.sroa.0.1.i.i.i.i25 = phi ptr [ %retval.sroa.0.0.i.i.i.i48, %for.body.i.i.i.i50 ], [ %27, %if.end.i.i.i.i.i.i10 ], [ %29, %for.cond.i.i.i.i.i.i22 ]
+  %retval.sroa.0.1.i.i.i.i25 = phi ptr [ %27, %if.end.i.i.i.i.i.i10 ], [ %retval.sroa.0.0.i.i.i.i48, %for.body.i.i.i.i50 ], [ %29, %for.cond.i.i.i.i.i.i22 ]
   %graph_.i.i26 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %32 = load ptr, ptr %graph_.i.i26, align 8
   %_M_finish.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -6074,7 +6074,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %if.end12, !llvm.loop !62
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %if.end.i.i.i.i ], [ %9, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %7, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %9, %for.cond.i.i.i.i ]
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %12 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -6126,7 +6126,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit17:   ; preds = %_ZNK4node13MemoryTr
   call void %25(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %23, ptr noundef %24, ptr noundef %edge_name) #17
   br label %cleanup
 
-if.end12:                                         ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.end15.i.i
+if.end12:                                         ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %n.i)
   %call.i = call noundef ptr @_ZN4node13MemoryTracker7AddNodeEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %retainer, ptr noundef %edge_name)
   store ptr %call.i, ptr %n.i, align 8
@@ -6306,12 +6306,12 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %if.end, !llvm.loop !62
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %6, %if.end.i.i.i.i ], [ %8, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %6, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %8, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   %11 = load ptr, ptr %second, align 8
   br label %return
 
-if.end:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.end15.i.i
+if.end:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
   %call9 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   tail call void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryTrackerEPKNS_14MemoryRetainerE(ptr noundef nonnull align 8 dereferenceable(49) %call9, ptr noundef nonnull %this, ptr noundef %retainer)
   %graph_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -6865,7 +6865,7 @@ _ZSt4copyIPPPN4node18MemoryRetainerNodeES4_ET0_T_S6_S5_.exit30: ; preds = %_ZNSt
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPPN4node18MemoryRetainerNodeES4_ET0_T_S6_S5_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPN4node18MemoryRetainerNodeES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPN4node18MemoryRetainerNodeES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24

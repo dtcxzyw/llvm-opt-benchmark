@@ -96,7 +96,7 @@ ossl_time_from_timeval.exit35.thread211:          ; preds = %31
   br label %ossl_time_from_timeval.exit35
 
 ossl_time_from_timeval.exit35:                    ; preds = %46, %42
-  %.sroa.07.0 = phi i64 [ %43, %42 ], [ %52, %46 ]
+  %.sroa.07.0 = phi i64 [ %52, %46 ], [ %43, %42 ]
   %.sroa.07.0.fr = freeze i64 %.sroa.07.0
   %.not = icmp eq i64 %.sroa.07.0.fr, 0
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -154,8 +154,8 @@ ossl_time_from_timeval.exit35.split.us:           ; preds = %38, %ossl_time_from
   br label %76
 
 76:                                               ; preds = %73, %65
-  %77 = phi i64 [ %74, %73 ], [ 0, %65 ]
-  %.281.i.us = phi i64 [ %spec.select.i.us, %73 ], [ %.079102.i.us, %65 ]
+  %77 = phi i64 [ 0, %65 ], [ %74, %73 ]
+  %.281.i.us = phi i64 [ %.079102.i.us, %65 ], [ %spec.select.i.us, %73 ]
   %78 = getelementptr inbounds nuw i8, ptr %61, i64 24
   store i64 %77, ptr %78, align 8, !tbaa !25
   %79 = add nuw i64 %.077103.i.us, 1
@@ -303,16 +303,16 @@ ossl_time_from_timeval.exit35.split:              ; preds = %ossl_time_from_time
   br i1 %exitcond134.not.i, label %poll_readout.exit.thread, label %.lr.ph114.i, !llvm.loop !31
 
 124:                                              ; preds = %101, %86
-  %125 = phi i64 [ %102, %101 ], [ 0, %86 ]
-  %.281.i = phi i64 [ %spec.select.i, %101 ], [ %.079102.i, %86 ]
+  %125 = phi i64 [ 0, %86 ], [ %102, %101 ]
+  %.281.i = phi i64 [ %.079102.i, %86 ], [ %spec.select.i, %101 ]
   %126 = getelementptr inbounds nuw i8, ptr %82, i64 24
   store i64 %125, ptr %126, align 8, !tbaa !25
   %127 = add nuw i64 %.077103.i, 1
   %exitcond.not.i = icmp eq i64 %127, %1
   br i1 %exitcond.not.i, label %128, label %80, !llvm.loop !26
 
-poll_readout.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph108.i, %.lr.ph111.i, %.lr.ph114.i, %.split107.us, %.split97.us, %.split102.us, %.split.us
-  %.079102.i59 = phi i64 [ %.us-phi94, %.lr.ph114.i ], [ %.us-phi104, %.lr.ph108.i ], [ %.us-phi109, %.lr.ph111.i ], [ %.us-phi94, %.split.us ], [ %.us-phi109, %.split107.us ], [ %.us-phi99, %.split97.us ], [ %.us-phi104, %.split102.us ], [ %.us-phi99, %.lr.ph.i ]
+poll_readout.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph108.i, %.lr.ph111.i, %.lr.ph114.i, %.split.us, %.split107.us, %.split102.us, %.split97.us
+  %.079102.i59 = phi i64 [ %.us-phi94, %.split.us ], [ %.us-phi109, %.split107.us ], [ %.us-phi104, %.split102.us ], [ %.us-phi99, %.split97.us ], [ %.us-phi94, %.lr.ph114.i ], [ %.us-phi109, %.lr.ph111.i ], [ %.us-phi104, %.lr.ph108.i ], [ %.us-phi99, %.lr.ph.i ]
   %.4.i.ph = add i64 %.079102.i59, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit
@@ -463,8 +463,8 @@ poll_readout.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph10
   br label %185
 
 poll_translate_ssl_quic.exit.thread.sink.split.i.i: ; preds = %157, %155, %149, %147
-  %.sink.i.i = phi i32 [ 54, %147 ], [ 74, %155 ], [ 61, %149 ], [ 81, %157 ]
-  %.str.5.sink.i.i = phi ptr [ @.str.4, %147 ], [ @.str.4, %155 ], [ @.str.5, %149 ], [ @.str.5, %157 ]
+  %.sink.i.i = phi i32 [ 54, %147 ], [ 61, %149 ], [ 74, %155 ], [ 81, %157 ]
+  %.str.5.sink.i.i = phi ptr [ @.str.4, %147 ], [ @.str.5, %149 ], [ @.str.4, %155 ], [ @.str.5, %157 ]
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink.i.i, ptr noundef nonnull @__func__.poll_translate_ssl_quic) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 418, ptr noundef nonnull %.str.5.sink.i.i) #4
@@ -610,7 +610,7 @@ ossl_time_from_timeval.exit.i.i:                  ; preds = %201, %197
   br i1 %exitcond281.not.i.i, label %.loopexit.i.i, label %.lr.ph213.i.i, !llvm.loop !38
 
 226:                                              ; preds = %ossl_time_from_timeval.exit.i.i, %195, %137
-  %.sroa.042.1.i.i = phi i64 [ %.sroa.042.0200.i.i, %195 ], [ %.sroa.042.0200.i.i, %137 ], [ %..i.i.i, %ossl_time_from_timeval.exit.i.i ]
+  %.sroa.042.1.i.i = phi i64 [ %.sroa.042.0200.i.i, %137 ], [ %.sroa.042.0200.i.i, %195 ], [ %..i.i.i, %ossl_time_from_timeval.exit.i.i ]
   %227 = add nuw i64 %.0105199.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %227, %1
   br i1 %exitcond.not.i.i, label %poll_translate.exit.i, label %133, !llvm.loop !39
@@ -718,8 +718,8 @@ poll_block.exit:                                  ; preds = %poll_block.exit.loo
   br i1 %.0.i38, label %.loopexit, label %ossl_time_from_timeval.exit35.split
 
 .loopexit:                                        ; preds = %129, %128, %poll_block.exit, %.loopexit.split.us, %poll_readout.exit.thread, %20, %ossl_time_from_timeval.exit
-  %.040 = phi i64 [ 0, %20 ], [ 0, %ossl_time_from_timeval.exit ], [ %.4.i.ph, %poll_readout.exit.thread ], [ %.281.i.us, %.loopexit.split.us ], [ %.281.i, %128 ], [ 0, %129 ], [ %.2, %poll_block.exit ]
-  %.0 = phi i32 [ 1, %20 ], [ 1, %ossl_time_from_timeval.exit ], [ 0, %poll_readout.exit.thread ], [ 1, %.loopexit.split.us ], [ 1, %128 ], [ 1, %129 ], [ 0, %poll_block.exit ]
+  %.040 = phi i64 [ 0, %20 ], [ 0, %ossl_time_from_timeval.exit ], [ %.4.i.ph, %poll_readout.exit.thread ], [ %.281.i.us, %.loopexit.split.us ], [ %.281.i, %128 ], [ %.2, %poll_block.exit ], [ 0, %129 ]
+  %.0 = phi i32 [ 1, %20 ], [ 1, %ossl_time_from_timeval.exit ], [ 0, %poll_readout.exit.thread ], [ 1, %.loopexit.split.us ], [ 1, %128 ], [ 0, %poll_block.exit ], [ 1, %129 ]
   %.not33 = icmp eq ptr %5, null
   br i1 %.not33, label %257, label %256
 

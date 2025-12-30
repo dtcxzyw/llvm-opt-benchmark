@@ -209,7 +209,7 @@ define range(i32 0, 11) i32 @uriAddBaseUriExMmA(ptr noundef %0, ptr noundef %1, 
   br label %uriAddBaseUriImplA.exit.thread
 
 uriAddBaseUriImplA.exit:                          ; preds = %73, %71, %69, %67, %65, %63, %.thread113.i, %52, %43, %38, %36, %34, %27, %25, %23, %14, %11
-  %.0.i = phi i32 [ 3, %38 ], [ %64, %63 ], [ 2, %11 ], [ 3, %.thread113.i ], [ 3, %25 ], [ 3, %23 ], [ 5, %14 ], [ 3, %36 ], [ 3, %34 ], [ 3, %27 ], [ 3, %65 ], [ 3, %71 ], [ 3, %69 ], [ 3, %67 ], [ 3, %52 ], [ 3, %43 ], [ 3, %73 ]
+  %.0.i = phi i32 [ 3, %65 ], [ 2, %11 ], [ 5, %14 ], [ 3, %23 ], [ 3, %25 ], [ 3, %27 ], [ 3, %34 ], [ 3, %36 ], [ 3, %38 ], [ 3, %43 ], [ 3, %52 ], [ 3, %67 ], [ 3, %69 ], [ 3, %71 ], [ 3, %73 ], [ %64, %63 ], [ 3, %.thread113.i ]
   %83 = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
   br label %uriAddBaseUriImplA.exit.thread
 
@@ -422,7 +422,7 @@ define range(i32 0, 11) i32 @uriAddBaseUriExMmW(ptr noundef %0, ptr noundef %1, 
   br label %uriAddBaseUriImplW.exit.thread
 
 uriAddBaseUriImplW.exit:                          ; preds = %73, %71, %69, %67, %65, %63, %.thread113.i, %52, %43, %38, %36, %34, %27, %25, %23, %14, %11
-  %.0.i = phi i32 [ 3, %38 ], [ %64, %63 ], [ 2, %11 ], [ 3, %.thread113.i ], [ 3, %25 ], [ 3, %23 ], [ 5, %14 ], [ 3, %36 ], [ 3, %34 ], [ 3, %27 ], [ 3, %65 ], [ 3, %71 ], [ 3, %69 ], [ 3, %67 ], [ 3, %52 ], [ 3, %43 ], [ 3, %73 ]
+  %.0.i = phi i32 [ 3, %65 ], [ 2, %11 ], [ 5, %14 ], [ 3, %23 ], [ 3, %25 ], [ 3, %27 ], [ 3, %34 ], [ 3, %36 ], [ 3, %38 ], [ 3, %43 ], [ 3, %52 ], [ 3, %67 ], [ 3, %69 ], [ 3, %71 ], [ 3, %73 ], [ %64, %63 ], [ 3, %.thread113.i ]
   %83 = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
   br label %uriAddBaseUriImplW.exit.thread
 
@@ -489,7 +489,7 @@ define internal fastcc range(i32 0, 4) i32 @uriResolveAbsolutePathFlagA(ptr noun
   br label %20
 
 20:                                               ; preds = %11, %2, %4, %19
-  %.016 = phi i32 [ 0, %2 ], [ 0, %19 ], [ 0, %4 ], [ 3, %11 ]
+  %.016 = phi i32 [ 0, %19 ], [ 0, %4 ], [ 0, %2 ], [ 3, %11 ]
   ret i32 %.016
 }
 
@@ -571,7 +571,7 @@ define internal fastcc range(i32 0, 2) i32 @uriMergePathA(ptr noundef nonnull ca
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %11, %17, %3, %37
-  %.0 = phi i32 [ 0, %11 ], [ 1, %17 ], [ 0, %.thread ], [ 1, %37 ], [ 1, %3 ]
+  %.0 = phi i32 [ 1, %37 ], [ 1, %3 ], [ 1, %17 ], [ 0, %11 ], [ 0, %.thread ]
   ret i32 %.0
 }
 
@@ -632,7 +632,7 @@ define internal fastcc range(i32 0, 4) i32 @uriResolveAbsolutePathFlagW(ptr noun
   br label %20
 
 20:                                               ; preds = %11, %2, %4, %19
-  %.016 = phi i32 [ 0, %2 ], [ 0, %19 ], [ 0, %4 ], [ 3, %11 ]
+  %.016 = phi i32 [ 0, %19 ], [ 0, %4 ], [ 0, %2 ], [ 3, %11 ]
   ret i32 %.016
 }
 
@@ -714,7 +714,7 @@ define internal fastcc range(i32 0, 2) i32 @uriMergePathW(ptr noundef nonnull ca
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %11, %17, %3, %37
-  %.0 = phi i32 [ 0, %11 ], [ 1, %17 ], [ 0, %.thread ], [ 1, %37 ], [ 1, %3 ]
+  %.0 = phi i32 [ 1, %37 ], [ 1, %3 ], [ 1, %17 ], [ 0, %11 ], [ 0, %.thread ]
   ret i32 %.0
 }
 

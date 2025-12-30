@@ -208,7 +208,7 @@ define dso_local i32 @acpi_ex_do_logical_op(i16 noundef zeroext %0, ptr noundef 
   br label %65
 
 15:                                               ; preds = %12, %10, %8
-  %16 = phi i32 [ %9, %8 ], [ %13, %12 ], [ %11, %10 ]
+  %16 = phi i32 [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %65
 

@@ -1021,7 +1021,7 @@ _ZN2cv3VecIhLi3EEC2EPKh.exit:                     ; preds = %63
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %.preheader, %_ZN2cv3VecIhLi3EEC2EPKh.exit
-  %73 = phi i32 [ %.pre, %_ZN2cv3VecIhLi3EEC2EPKh.exit ], [ %47, %.preheader ], [ %47, %56 ]
+  %73 = phi i32 [ %47, %.preheader ], [ %.pre, %_ZN2cv3VecIhLi3EEC2EPKh.exit ], [ %47, %56 ]
   %74 = getelementptr inbounds i8, ptr %.12846, i64 %30
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %75 = sext i32 %73 to i64
@@ -1168,7 +1168,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %108, %111
   ret void
 
 115:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %96, %45
-  %.pn41 = phi { ptr, i32 } [ %46, %45 ], [ %.pn39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn37, %96 ]
+  %.pn41 = phi { ptr, i32 } [ %.pn39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn37, %96 ], [ %46, %45 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #23
   br label %116
 
@@ -2604,8 +2604,8 @@ define linkonce_odr hidden void @_ZNK2cv10KNNInvokerclERKNS_5RangeE(ptr noundef 
   br i1 %exitcond268.not.i.us, label %_ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us, label %136, !llvm.loop !137
 
 _ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us: ; preds = %100, %133, %._crit_edge.i.us, %167, %.thread152.i.us, %.thread148.i.us.thread, %.thread148.i.us
-  %.1.shrunk.us = phi i1 [ %.not135.i.us, %.thread148.i.us ], [ %.not135.i.us, %._crit_edge.i.us ], [ %.not135.i.us90, %.thread148.i.us.thread ], [ true, %133 ], [ %.not135.i.us, %.thread152.i.us ], [ %.not135.i.us, %167 ], [ true, %100 ]
-  %.3.i.us = phi i32 [ 0, %.thread148.i.us ], [ 0, %._crit_edge.i.us ], [ 0, %.thread148.i.us.thread ], [ 1, %133 ], [ 2, %167 ], [ 0, %.thread152.i.us ], [ 1, %100 ]
+  %.1.shrunk.us = phi i1 [ %.not135.i.us, %.thread148.i.us ], [ %.not135.i.us90, %.thread148.i.us.thread ], [ %.not135.i.us, %.thread152.i.us ], [ %.not135.i.us, %167 ], [ %.not135.i.us, %._crit_edge.i.us ], [ true, %133 ], [ true, %100 ]
+  %.3.i.us = phi i32 [ 0, %.thread148.i.us ], [ 0, %.thread148.i.us.thread ], [ 0, %._crit_edge.i.us ], [ 2, %167 ], [ 0, %.thread152.i.us ], [ 1, %133 ], [ 1, %100 ]
   %.1.us = zext i1 %.1.shrunk.us to i8
   %169 = load i32, ptr %33, align 8, !tbaa !69
   %170 = load i32, ptr %34, align 4, !tbaa !70

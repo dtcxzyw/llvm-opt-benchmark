@@ -1331,27 +1331,27 @@ invoke.cont95:                                    ; preds = %if.end88
 
 if.then98:                                        ; preds = %invoke.cont95
   switch i8 %.pre52, label %if.else103 [
-    i8 0, label %land.lhs.true.i
-    i8 1, label %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit
+    i8 0, label %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit
+    i8 1, label %land.rhs.i
   ]
 
-land.lhs.true.i:                                  ; preds = %if.then98
+land.rhs.i:                                       ; preds = %if.then98
   %19 = load i64, ptr %id_, align 8
-  %rem.i = and i64 %19, 1
-  %cmp2.not.i.not = icmp eq i64 %rem.i, 0
-  br i1 %cmp2.not.i.not, label %if.else103, label %if.end107.thread
-
-_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit: ; preds = %if.then98
-  %20 = load i64, ptr %id_, align 8
-  %rem6.i = and i64 %20, 1
+  %rem6.i = and i64 %19, 1
   %cmp7.i = icmp eq i64 %rem6.i, 0
   br i1 %cmp7.i, label %if.end107.thread, label %if.else103
 
-if.end107.thread:                                 ; preds = %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit, %land.lhs.true.i
+_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit: ; preds = %if.then98
+  %20 = load i64, ptr %id_, align 8
+  %rem.i = and i64 %20, 1
+  %cmp2.not.i.not = icmp eq i64 %rem.i, 0
+  br i1 %cmp2.not.i.not, label %if.else103, label %if.end107.thread
+
+if.end107.thread:                                 ; preds = %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit, %land.rhs.i
   store i8 9, ptr %egressState_, align 1
   br label %lor.rhs4.i.i
 
-if.else103:                                       ; preds = %if.then98, %land.lhs.true.i, %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit
+if.else103:                                       ; preds = %if.then98, %land.rhs.i, %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit
   store i8 10, ptr %ingressState_, align 2
   br label %if.end107
 
@@ -1990,7 +1990,7 @@ if.then133:                                       ; preds = %_ZNSt3mapImN8proxyg
   call void @llvm.lifetime.end.p0(ptr nonnull %id.addr.i)
   br label %if.end137
 
-if.end137:                                        ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %for.body114, %if.then133, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
+if.end137:                                        ; preds = %for.body114, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %if.then133, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
   %cmp.i21.not = icmp eq ptr %call.i25, %add.ptr.i.i20
   br i1 %cmp.i21.not, label %for.end138, label %for.body114, !llvm.loop !8
 
@@ -3330,7 +3330,7 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %cleanup,
   ret void
 
 ehcleanup174:                                     ; preds = %lpad, %lpad.i.i, %lpad153, %ehcleanup, %lpad170, %lpad79
-  %lpad.val177.merged = phi { ptr, i32 } [ %67, %lpad153 ], [ %28, %lpad79 ], [ %.pn, %ehcleanup ], [ %70, %lpad170 ], [ %6, %lpad ], [ %54, %lpad.i.i ]
+  %lpad.val177.merged = phi { ptr, i32 } [ %67, %lpad153 ], [ %70, %lpad170 ], [ %.pn, %ehcleanup ], [ %28, %lpad79 ], [ %6, %lpad ], [ %54, %lpad.i.i ]
   call void @_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %g) #30
   resume { ptr, i32 } %lpad.val177.merged
 
@@ -4291,24 +4291,24 @@ if.then.i:                                        ; preds = %land.lhs.true130
   %direction_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 240
   %25 = load i8, ptr %direction_.i.i, align 8
   switch i8 %25, label %if.then.i66 [
-    i8 0, label %land.lhs.true.i.i
-    i8 1, label %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i
+    i8 0, label %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i
+    i8 1, label %land.rhs.i.i
   ]
 
-land.lhs.true.i.i:                                ; preds = %if.then.i
-  %id_.i.i26 = getelementptr inbounds nuw i8, ptr %this, i64 248
-  %26 = load i64, ptr %id_.i.i26, align 8
-  %rem.i.i = and i64 %26, 1
-  %cmp2.not.i.not.i = icmp ne i64 %rem.i.i, 0
-  %or.cond76 = select i1 %cmp2.not.i.not.i, i1 %tobool, i1 false
+land.rhs.i.i:                                     ; preds = %if.then.i
+  %id_5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 248
+  %26 = load i64, ptr %id_5.i.i, align 8
+  %rem6.i.i = and i64 %26, 1
+  %cmp7.i.i = icmp eq i64 %rem6.i.i, 0
+  %or.cond76 = select i1 %cmp7.i.i, i1 %tobool, i1 false
   br i1 %or.cond76, label %land.lhs.true155, label %if.then.i66
 
 _ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i: ; preds = %if.then.i
-  %id_5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 248
-  %27 = load i64, ptr %id_5.i.i, align 8
-  %rem6.i.i = and i64 %27, 1
-  %cmp7.i.i = icmp eq i64 %rem6.i.i, 0
-  %or.cond75 = select i1 %cmp7.i.i, i1 %tobool, i1 false
+  %id_.i.i26 = getelementptr inbounds nuw i8, ptr %this, i64 248
+  %27 = load i64, ptr %id_.i.i26, align 8
+  %rem.i.i = and i64 %27, 1
+  %cmp2.not.i.not.i = icmp ne i64 %rem.i.i, 0
+  %or.cond75 = select i1 %cmp2.not.i.not.i, i1 %tobool, i1 false
   br i1 %or.cond75, label %land.lhs.true155, label %if.then.i66
 
 invoke.cont136:                                   ; preds = %if.end102
@@ -4331,31 +4331,31 @@ if.then.i34:                                      ; preds = %land.lhs.true138
   %direction_.i.i35 = getelementptr inbounds nuw i8, ptr %this, i64 240
   %33 = load i8, ptr %direction_.i.i35, align 8
   switch i8 %33, label %if.end146 [
-    i8 0, label %land.lhs.true.i.i42
-    i8 1, label %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i36
+    i8 0, label %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i42
+    i8 1, label %land.rhs.i.i36
   ]
 
-land.lhs.true.i.i42:                              ; preds = %if.then.i34
-  %id_.i.i43 = getelementptr inbounds nuw i8, ptr %this, i64 248
-  %34 = load i64, ptr %id_.i.i43, align 8
-  %rem.i.i44 = and i64 %34, 1
-  %cmp2.not.i.not.i45 = icmp eq i64 %rem.i.i44, 0
-  br i1 %cmp2.not.i.not.i45, label %if.end146, label %if.then141
-
-_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i36: ; preds = %if.then.i34
+land.rhs.i.i36:                                   ; preds = %if.then.i34
   %id_5.i.i37 = getelementptr inbounds nuw i8, ptr %this, i64 248
-  %35 = load i64, ptr %id_5.i.i37, align 8
-  %rem6.i.i38 = and i64 %35, 1
+  %34 = load i64, ptr %id_5.i.i37, align 8
+  %rem6.i.i38 = and i64 %34, 1
   %cmp7.i.i39 = icmp eq i64 %rem6.i.i38, 0
   br i1 %cmp7.i.i39, label %if.then141, label %if.end146
 
-if.then141:                                       ; preds = %land.lhs.true138, %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i36, %land.lhs.true.i.i42
+_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i42: ; preds = %if.then.i34
+  %id_.i.i43 = getelementptr inbounds nuw i8, ptr %this, i64 248
+  %35 = load i64, ptr %id_.i.i43, align 8
+  %rem.i.i44 = and i64 %35, 1
+  %cmp2.not.i.not.i45 = icmp eq i64 %rem.i.i44, 0
+  br i1 %cmp2.not.i.not.i45, label %if.end146, label %if.then141
+
+if.then141:                                       ; preds = %land.lhs.true138, %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i42, %land.rhs.i.i36
   %bf.load143 = load i32, ptr %aborted_, align 8
   %bf.set145 = or i32 %bf.load143, 4096
   store i32 %bf.set145, ptr %aborted_, align 8
   br label %if.then.i66
 
-if.end146:                                        ; preds = %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i36, %land.lhs.true.i.i42, %if.then.i34, %invoke.cont136
+if.end146:                                        ; preds = %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i42, %land.rhs.i.i36, %if.then.i34, %invoke.cont136
   invoke void @_ZN8proxygen15HTTPTransaction19markIngressCompleteEv(ptr noundef nonnull align 8 dereferenceable(912) %this)
           to label %invoke.cont147 unwind label %lpad
 
@@ -4376,24 +4376,24 @@ if.then.i52:                                      ; preds = %land.lhs.true149
   %direction_.i.i53 = getelementptr inbounds nuw i8, ptr %this, i64 240
   %39 = load i8, ptr %direction_.i.i53, align 8
   switch i8 %39, label %invoke.cont150 [
-    i8 0, label %land.lhs.true.i.i60
-    i8 1, label %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i54
+    i8 0, label %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i60
+    i8 1, label %land.rhs.i.i54
   ]
 
-land.lhs.true.i.i60:                              ; preds = %if.then.i52
-  %id_.i.i61 = getelementptr inbounds nuw i8, ptr %this, i64 248
-  %40 = load i64, ptr %id_.i.i61, align 8
-  %rem.i.i62 = and i64 %40, 1
-  %cmp2.not.i.not.i63 = icmp eq i64 %rem.i.i62, 0
-  %or.cond77 = select i1 %cmp2.not.i.not.i63, i1 %tobool, i1 false
+land.rhs.i.i54:                                   ; preds = %if.then.i52
+  %id_5.i.i55 = getelementptr inbounds nuw i8, ptr %this, i64 248
+  %40 = load i64, ptr %id_5.i.i55, align 8
+  %rem6.i.i56 = and i64 %40, 1
+  %cmp7.i.i57 = icmp ne i64 %rem6.i.i56, 0
+  %or.cond77 = select i1 %cmp7.i.i57, i1 %tobool, i1 false
   br i1 %or.cond77, label %land.lhs.true155, label %if.then.i66
 
-_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i54: ; preds = %if.then.i52
-  %id_5.i.i55 = getelementptr inbounds nuw i8, ptr %this, i64 248
-  %41 = load i64, ptr %id_5.i.i55, align 8
-  %rem6.i.i56 = and i64 %41, 1
-  %cmp7.i.i57 = icmp ne i64 %rem6.i.i56, 0
-  %or.cond78 = select i1 %cmp7.i.i57, i1 %tobool, i1 false
+_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i60: ; preds = %if.then.i52
+  %id_.i.i61 = getelementptr inbounds nuw i8, ptr %this, i64 248
+  %41 = load i64, ptr %id_.i.i61, align 8
+  %rem.i.i62 = and i64 %41, 1
+  %cmp2.not.i.not.i63 = icmp eq i64 %rem.i.i62, 0
+  %or.cond78 = select i1 %cmp2.not.i.not.i63, i1 %tobool, i1 false
   br i1 %or.cond78, label %land.lhs.true155, label %if.then.i66
 
 invoke.cont150:                                   ; preds = %if.then.i52
@@ -4402,7 +4402,7 @@ invoke.cont150:                                   ; preds = %if.then.i52
 sw.epilog:                                        ; preds = %invoke.cont119, %land.lhs.true121, %if.then126, %invoke.cont147, %invoke.cont104, %if.end102
   br i1 %tobool, label %land.lhs.true155, label %if.then.i66
 
-land.lhs.true155:                                 ; preds = %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i54, %land.lhs.true.i.i60, %land.lhs.true.i.i, %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i, %land.lhs.true108, %invoke.cont150, %sw.epilog
+land.lhs.true155:                                 ; preds = %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i60, %land.rhs.i.i54, %land.rhs.i.i, %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i, %invoke.cont150, %land.lhs.true108, %sw.epilog
   %42 = load ptr, ptr %handler_, align 8
   %tobool157.not = icmp eq ptr %42, null
   br i1 %tobool157.not, label %if.then.i66, label %if.then158
@@ -4414,7 +4414,7 @@ if.then158:                                       ; preds = %land.lhs.true155
   call void %43(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(96) %error) #30
   br label %if.then.i66
 
-if.then.i66:                                      ; preds = %if.then141, %if.then158, %land.lhs.true155, %sw.epilog, %invoke.cont150, %land.lhs.true108, %land.lhs.true130, %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i, %land.lhs.true.i.i, %if.then.i, %land.lhs.true149, %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i54, %land.lhs.true.i.i60
+if.then.i66:                                      ; preds = %if.then141, %if.then158, %land.lhs.true155, %sw.epilog, %land.lhs.true108, %invoke.cont150, %land.lhs.true130, %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i, %land.rhs.i.i, %if.then.i, %land.lhs.true149, %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i60, %land.rhs.i.i54
   %guardCount_.i67 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %44 = load i32, ptr %guardCount_.i67, align 8
   %dec.i = add i32 %44, -1
@@ -4999,7 +4999,7 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
   ret void
 
 ehcleanup194:                                     ; preds = %lpad153, %lpad190, %lpad185, %lpad119, %ehcleanup112, %ehcleanup42, %lpad
-  %.pn20.pn = phi { ptr, i32 } [ %.pn20, %ehcleanup42 ], [ %8, %lpad ], [ %32, %lpad153 ], [ %.pn16, %ehcleanup112 ], [ %35, %lpad190 ], [ %33, %lpad185 ], [ %24, %lpad119 ]
+  %.pn20.pn = phi { ptr, i32 } [ %.pn20, %ehcleanup42 ], [ %8, %lpad ], [ %32, %lpad153 ], [ %35, %lpad190 ], [ %33, %lpad185 ], [ %24, %lpad119 ], [ %.pn16, %ehcleanup112 ]
   call void @_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %g) #30
   resume { ptr, i32 } %.pn20.pn
 }
@@ -7635,7 +7635,7 @@ land.lhs.true:                                    ; preds = %lor.rhs4
   br label %lor.end7
 
 lor.end7:                                         ; preds = %land.lhs.true, %lor.rhs4, %_ZNK8proxygen15HTTPTransaction23isExpectingWindowUpdateEv.exit
-  %6 = phi i1 [ true, %_ZNK8proxygen15HTTPTransaction23isExpectingWindowUpdateEv.exit ], [ %spec.select, %land.lhs.true ], [ false, %lor.rhs4 ]
+  %6 = phi i1 [ true, %_ZNK8proxygen15HTTPTransaction23isExpectingWindowUpdateEv.exit ], [ false, %lor.rhs4 ], [ %spec.select, %land.lhs.true ]
   ret i1 %6
 }
 
@@ -7863,8 +7863,8 @@ return:                                           ; preds = %if.end, %invoke.con
   ret i1 %ref.tmp.sroa.2.0.extract.trunc
 
 eh.resume:                                        ; preds = %lpad41, %lpad35, %lpad, %lpad15
-  %ref.tmp34.sink = phi ptr [ %ref.tmp10, %lpad ], [ %ref.tmp10, %lpad15 ], [ %ref.tmp34, %lpad35 ], [ %ref.tmp34, %lpad41 ]
-  %.pn7.pn = phi { ptr, i32 } [ %9, %lpad ], [ %10, %lpad15 ], [ %14, %lpad35 ], [ %15, %lpad41 ]
+  %ref.tmp34.sink = phi ptr [ %ref.tmp10, %lpad15 ], [ %ref.tmp10, %lpad ], [ %ref.tmp34, %lpad35 ], [ %ref.tmp34, %lpad41 ]
+  %.pn7.pn = phi { ptr, i32 } [ %10, %lpad15 ], [ %9, %lpad ], [ %14, %lpad35 ], [ %15, %lpad41 ]
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp34.sink) #30
   resume { ptr, i32 } %.pn7.pn
 }
@@ -8257,8 +8257,8 @@ return:                                           ; preds = %if.end, %invoke.con
   ret i1 %ref.tmp.sroa.2.0.extract.trunc
 
 eh.resume:                                        ; preds = %lpad41, %lpad35, %lpad, %lpad15
-  %ref.tmp34.sink = phi ptr [ %ref.tmp10, %lpad ], [ %ref.tmp10, %lpad15 ], [ %ref.tmp34, %lpad35 ], [ %ref.tmp34, %lpad41 ]
-  %.pn7.pn = phi { ptr, i32 } [ %9, %lpad ], [ %10, %lpad15 ], [ %14, %lpad35 ], [ %15, %lpad41 ]
+  %ref.tmp34.sink = phi ptr [ %ref.tmp10, %lpad15 ], [ %ref.tmp10, %lpad ], [ %ref.tmp34, %lpad35 ], [ %ref.tmp34, %lpad41 ]
+  %.pn7.pn = phi { ptr, i32 } [ %10, %lpad15 ], [ %9, %lpad ], [ %14, %lpad35 ], [ %15, %lpad41 ]
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp34.sink) #30
   resume { ptr, i32 } %.pn7.pn
 }
@@ -8458,7 +8458,7 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
   ret void
 
 ehcleanup:                                        ; preds = %lpad39, %lpad10, %lpad
-  %.pn = phi { ptr, i32 } [ %5, %lpad10 ], [ %15, %lpad39 ], [ %4, %lpad ]
+  %.pn = phi { ptr, i32 } [ %5, %lpad10 ], [ %4, %lpad ], [ %15, %lpad39 ]
   call void @_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %g) #30
   resume { ptr, i32 } %.pn
 }
@@ -8885,7 +8885,7 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
   ret void
 
 ehcleanup:                                        ; preds = %lpad.i, %lpad.i8, %lpad, %lpad8, %lpad43, %lpad41, %lpad33, %lpad31
-  %.pn = phi { ptr, i32 } [ %18, %lpad33 ], [ %17, %lpad31 ], [ %16, %lpad8 ], [ %23, %lpad43 ], [ %22, %lpad41 ], [ %11, %lpad.i ], [ %15, %lpad ], [ %19, %lpad.i8 ]
+  %.pn = phi { ptr, i32 } [ %18, %lpad33 ], [ %17, %lpad31 ], [ %23, %lpad43 ], [ %22, %lpad41 ], [ %16, %lpad8 ], [ %11, %lpad.i ], [ %15, %lpad ], [ %19, %lpad.i8 ]
   call void @_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %g) #30
   resume { ptr, i32 } %.pn
 }
@@ -9374,8 +9374,8 @@ invoke.cont29:                                    ; preds = %if.then27
 if.else:                                          ; preds = %invoke.cont22
   br i1 %tobool.not.i, label %if.end41, label %cond.true.i4
 
-cond.true.i4:                                     ; preds = %invoke.cont12, %cleanup.done, %if.else
-  %21 = phi ptr [ %.pre16, %if.else ], [ %1, %cleanup.done ], [ %1, %invoke.cont12 ]
+cond.true.i4:                                     ; preds = %cleanup.done, %invoke.cont12, %if.else
+  %21 = phi ptr [ %.pre16, %if.else ], [ %1, %invoke.cont12 ], [ %1, %cleanup.done ]
   %vtable.i5 = load ptr, ptr %21, align 8
   %vfn.i6 = getelementptr inbounds nuw i8, ptr %vtable.i5, i64 16
   %22 = load ptr, ptr %vfn.i6, align 8
@@ -11151,7 +11151,7 @@ invoke.cont61:                                    ; preds = %invoke.cont60
   br label %return
 
 return:                                           ; preds = %if.end49, %invoke.cont61, %invoke.cont55, %invoke.cont48, %_ZN8proxygen13HTTPExceptionD2Ev.exit, %invoke.cont32, %invoke.cont17, %invoke.cont10
-  %retval.0 = phi i1 [ false, %invoke.cont10 ], [ false, %invoke.cont17 ], [ false, %invoke.cont32 ], [ false, %invoke.cont48 ], [ false, %invoke.cont55 ], [ false, %_ZN8proxygen13HTTPExceptionD2Ev.exit ], [ false, %invoke.cont61 ], [ true, %if.end49 ]
+  %retval.0 = phi i1 [ false, %invoke.cont10 ], [ false, %invoke.cont17 ], [ false, %invoke.cont32 ], [ false, %invoke.cont48 ], [ false, %invoke.cont55 ], [ false, %invoke.cont61 ], [ false, %_ZN8proxygen13HTTPExceptionD2Ev.exit ], [ true, %if.end49 ]
   ret i1 %retval.0
 
 terminate.lpad:                                   ; preds = %lor.rhs.i, %invoke.cont60, %if.then58, %invoke.cont54, %if.then52, %invoke.cont47, %if.then45, %invoke.cont38, %if.then37, %invoke.cont30, %invoke.cont29, %if.then27, %if.end19, %invoke.cont15, %invoke.cont14, %if.then12, %invoke.cont8, %invoke.cont7, %if.then
@@ -11324,7 +11324,7 @@ if.end23:                                         ; preds = %if.then16, %if.end1
   br label %return
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN8proxygen16DSRRequestSenderESt14default_deleteIS1_EED2Ev.exit, %if.end, %if.end23, %invoke.cont5
-  %retval.0 = phi i1 [ false, %if.end ], [ true, %if.end23 ], [ false, %invoke.cont5 ], [ false, %_ZNSt10unique_ptrIN8proxygen16DSRRequestSenderESt14default_deleteIS1_EED2Ev.exit ]
+  %retval.0 = phi i1 [ true, %if.end23 ], [ false, %invoke.cont5 ], [ false, %if.end ], [ false, %_ZNSt10unique_ptrIN8proxygen16DSRRequestSenderESt14default_deleteIS1_EED2Ev.exit ]
   ret i1 %retval.0
 }
 
@@ -12360,7 +12360,7 @@ if.then141:                                       ; preds = %if.end139
   br label %return
 
 return:                                           ; preds = %if.end139, %if.then141, %if.end, %_ZN8proxygen13HTTPExceptionD2Ev.exit51, %_ZN8proxygen13HTTPExceptionD2Ev.exit37, %_ZN8proxygen13HTTPExceptionD2Ev.exit
-  %retval.0 = phi i64 [ 0, %_ZN8proxygen13HTTPExceptionD2Ev.exit ], [ 0, %if.end ], [ 0, %_ZN8proxygen13HTTPExceptionD2Ev.exit51 ], [ 0, %_ZN8proxygen13HTTPExceptionD2Ev.exit37 ], [ %nbytes.5, %if.then141 ], [ %nbytes.5, %if.end139 ]
+  %retval.0 = phi i64 [ 0, %_ZN8proxygen13HTTPExceptionD2Ev.exit51 ], [ 0, %_ZN8proxygen13HTTPExceptionD2Ev.exit37 ], [ 0, %_ZN8proxygen13HTTPExceptionD2Ev.exit ], [ 0, %if.end ], [ %nbytes.5, %if.then141 ], [ %nbytes.5, %if.end139 ]
   ret i64 %retval.0
 }
 
@@ -13076,7 +13076,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
   unreachable
 
 common.resume:                                    ; preds = %lpad, %lpad12, %lpad43, %lpad.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %11, %lpad.i.i.i ], [ %25, %lpad43 ], [ %2, %lpad ], [ %8, %lpad12 ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %lpad.i.i.i ], [ %25, %lpad43 ], [ %8, %lpad12 ], [ %2, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -13311,7 +13311,7 @@ if.then108:                                       ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %cond.true, %for.end, %if.then108, %if.then71, %cleanup.action, %cond.end, %_ZN8proxygen13HTTPExceptionD2Ev.exit
-  %retval.0 = phi i64 [ 0, %if.then71 ], [ 0, %cond.true ], [ 0, %_ZN8proxygen13HTTPExceptionD2Ev.exit ], [ 0, %cond.end ], [ 0, %cleanup.action ], [ %call80, %if.then108 ], [ %call80, %for.end ]
+  %retval.0 = phi i64 [ 0, %_ZN8proxygen13HTTPExceptionD2Ev.exit ], [ 0, %cond.end ], [ 0, %cleanup.action ], [ 0, %if.then71 ], [ %call80, %if.then108 ], [ %call80, %for.end ], [ 0, %cond.true ]
   ret i64 %retval.0
 }
 
@@ -14216,7 +14216,7 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
   ret void
 
 ehcleanup177:                                     ; preds = %lpad, %lpad.i.i, %lpad159, %lpad64.body, %ehcleanup
-  %.pn7 = phi { ptr, i32 } [ %eh.lpad-body43, %lpad64.body ], [ %.pn, %ehcleanup ], [ %53, %lpad159 ], [ %1, %lpad ], [ %16, %lpad.i.i ]
+  %.pn7 = phi { ptr, i32 } [ %eh.lpad-body43, %lpad64.body ], [ %53, %lpad159 ], [ %.pn, %ehcleanup ], [ %1, %lpad ], [ %16, %lpad.i.i ]
   call void @_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %g) #30
   resume { ptr, i32 } %.pn7
 }
@@ -14397,7 +14397,7 @@ lor.rhs:                                          ; preds = %_ZNSt3mapImN8proxyg
   br i1 %cmp.i5, label %if.then, label %return
 
 if.then:                                          ; preds = %entry, %_ZNSt3mapImN8proxygen9ByteEvent10EventFlagsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit, %lor.rhs
-  %__y.addr.0.lcssa.i.i.i14 = phi ptr [ %__y.addr.1.i.i.i, %lor.rhs ], [ %__y.addr.1.i.i.i, %_ZNSt3mapImN8proxygen9ByteEvent10EventFlagsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit ], [ %add.ptr.i.i.i, %entry ]
+  %__y.addr.0.lcssa.i.i.i14 = phi ptr [ %__y.addr.1.i.i.i, %_ZNSt3mapImN8proxygen9ByteEvent10EventFlagsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #34
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i.i, align 8
@@ -14427,7 +14427,7 @@ lor.rhs.i.i.i.i:                                  ; preds = %if.then.i.i
   br label %cleanup.thread.i.i
 
 cleanup.thread.i.i:                               ; preds = %lor.rhs.i.i.i.i, %if.then.i.i
-  %8 = phi i1 [ %cmp.i.i.i.i.i, %lor.rhs.i.i.i.i ], [ true, %if.then.i.i ]
+  %8 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i.i.i.i, %lor.rhs.i.i.i.i ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %8, ptr noundef nonnull %call5.i.i.i.i.i.i.i, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #30
   %_M_node_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %9 = load i64, ptr %_M_node_count.i.i.i.i, align 8
@@ -14446,8 +14446,8 @@ if.then.i7.i.i:                                   ; preds = %invoke.cont5.i.i
   br label %return
 
 return:                                           ; preds = %lor.rhs, %if.then.i7.i.i, %cleanup.thread.i.i
-  %retval.sroa.0.0 = phi ptr [ %4, %if.then.i7.i.i ], [ %call5.i.i.i.i.i.i.i, %cleanup.thread.i.i ], [ %__y.addr.1.i.i.i, %lor.rhs ]
-  %retval.sroa.3.0 = phi i8 [ 1, %if.then.i7.i.i ], [ 1, %cleanup.thread.i.i ], [ 0, %lor.rhs ]
+  %retval.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i.i, %cleanup.thread.i.i ], [ %4, %if.then.i7.i.i ], [ %__y.addr.1.i.i.i, %lor.rhs ]
+  %retval.sroa.3.0 = phi i8 [ 1, %cleanup.thread.i.i ], [ 1, %if.then.i7.i.i ], [ 0, %lor.rhs ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -15563,7 +15563,7 @@ terminate.lpad.i.i:                               ; preds = %if.then6.i.i
   unreachable
 
 if.then.i.sink.split:                             ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i, %invoke.cont238, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i, %invoke.cont209, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit97.thread
-  %data.sink = phi ptr [ %data, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit97.thread ], [ %agg.tmp, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i ], [ %agg.tmp, %invoke.cont209 ], [ %agg.tmp235, %invoke.cont238 ], [ %agg.tmp235, %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i ]
+  %data.sink = phi ptr [ %data, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit97.thread ], [ %agg.tmp, %invoke.cont209 ], [ %agg.tmp, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i ], [ %agg.tmp235, %invoke.cont238 ], [ %agg.tmp235, %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i ]
   store ptr null, ptr %data.sink, align 8
   br label %if.then.i
 
@@ -15622,7 +15622,7 @@ cleanup246:                                       ; preds = %_ZNSt10unique_ptrIN
   br label %cleanup250, !llvm.loop !105
 
 ehcleanup249:                                     ; preds = %lpad196.loopexit, %lpad196.loopexit.split-lp, %lpad237, %ehcleanup, %lpad208
-  %.pn19 = phi { ptr, i32 } [ %59, %lpad237 ], [ %49, %lpad208 ], [ %.pn, %ehcleanup ], [ %lpad.loopexit, %lpad196.loopexit ], [ %lpad.loopexit.split-lp, %lpad196.loopexit.split-lp ]
+  %.pn19 = phi { ptr, i32 } [ %49, %lpad208 ], [ %.pn, %ehcleanup ], [ %59, %lpad237 ], [ %lpad.loopexit, %lpad196.loopexit ], [ %lpad.loopexit.split-lp, %lpad196.loopexit.split-lp ]
   call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev"(i8 0, ptr nonnull %this) #30
   br label %ehcleanup251
 
@@ -15661,7 +15661,7 @@ ehcleanup251:                                     ; preds = %lpad173, %ehcleanup
   br label %ehcleanup255
 
 ehcleanup255:                                     ; preds = %lpad102, %lpad38, %ehcleanup251, %lpad16
-  %.pn22 = phi { ptr, i32 } [ %16, %lpad38 ], [ %.pn19.pn, %ehcleanup251 ], [ %15, %lpad16 ], [ %25, %lpad102 ]
+  %.pn22 = phi { ptr, i32 } [ %16, %lpad38 ], [ %15, %lpad16 ], [ %25, %lpad102 ], [ %.pn19.pn, %ehcleanup251 ]
   call void @_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %g) #30
   br label %eh.resume
 
@@ -16072,7 +16072,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %lpad, %lpad42, %lpad114, %lpad163, %lpad199, %lpad237, %lpad.i.i38, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %9, %lpad.i.i ], [ %30, %lpad.i.i38 ], [ %7, %lpad ], [ %27, %lpad42 ], [ %52, %lpad163 ], [ %45, %lpad114 ], [ %57, %lpad199 ], [ %65, %lpad237 ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad.i.i ], [ %30, %lpad.i.i38 ], [ %7, %lpad ], [ %52, %lpad163 ], [ %57, %lpad199 ], [ %65, %lpad237 ], [ %45, %lpad114 ], [ %27, %lpad42 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -17000,7 +17000,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %31 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
+  %31 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
   %call5.i.i.i.i.i.i.i.i15 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
           to label %call5.i.i.i.i.i.i.i.i.noexc unwind label %lpad
 
@@ -17015,7 +17015,7 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeImmSt
   br label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont8, %_ZN8proxygen13HTTPExceptionD2Ev.exit, %cond.end, %cleanup.action, %cond.end54, %cleanup.action73, %cond.false, %cond.false52, %if.end12.i.i.i, %call5.i.i.i.i.i.i.i.i.noexc
-  %retval.0 = phi i1 [ false, %invoke.cont8 ], [ false, %cond.false52 ], [ false, %cond.false ], [ false, %_ZN8proxygen13HTTPExceptionD2Ev.exit ], [ false, %cond.end ], [ false, %cleanup.action ], [ false, %cond.end54 ], [ false, %cleanup.action73 ], [ true, %if.end12.i.i.i ], [ true, %call5.i.i.i.i.i.i.i.i.noexc ]
+  %retval.0 = phi i1 [ false, %invoke.cont8 ], [ false, %_ZN8proxygen13HTTPExceptionD2Ev.exit ], [ false, %cond.end ], [ false, %cleanup.action ], [ false, %cond.end54 ], [ false, %cleanup.action73 ], [ false, %cond.false ], [ false, %cond.false52 ], [ true, %if.end12.i.i.i ], [ true, %call5.i.i.i.i.i.i.i.i.noexc ]
   %guardCount_.i16 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %33 = load i32, ptr %guardCount_.i16, align 8
   %dec.i = add i32 %33, -1
@@ -17041,7 +17041,7 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
   ret i1 %retval.0
 
 ehcleanup:                                        ; preds = %lpad65, %lpad29, %lpad14, %lpad2, %lpad
-  %.pn = phi { ptr, i32 } [ %6, %lpad2 ], [ %5, %lpad ], [ %25, %lpad65 ], [ %12, %lpad14 ], [ %16, %lpad29 ]
+  %.pn = phi { ptr, i32 } [ %6, %lpad2 ], [ %5, %lpad ], [ %25, %lpad65 ], [ %16, %lpad29 ], [ %12, %lpad14 ]
   call void @_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %g) #30
   resume { ptr, i32 } %.pn
 }
@@ -17306,7 +17306,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %23 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
+  %23 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
   %call5.i.i.i.i.i.i.i.i11 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
           to label %call5.i.i.i.i.i.i.i.i.noexc unwind label %lpad
 
@@ -17321,7 +17321,7 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeImmSt
   br label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont8, %_ZN8proxygen13HTTPExceptionD2Ev.exit, %invoke.cont25, %invoke.cont38, %if.end12.i.i.i, %call5.i.i.i.i.i.i.i.i.noexc
-  %retval.0 = phi i1 [ false, %invoke.cont8 ], [ false, %_ZN8proxygen13HTTPExceptionD2Ev.exit ], [ false, %invoke.cont25 ], [ false, %invoke.cont38 ], [ true, %if.end12.i.i.i ], [ true, %call5.i.i.i.i.i.i.i.i.noexc ]
+  %retval.0 = phi i1 [ false, %invoke.cont8 ], [ false, %_ZN8proxygen13HTTPExceptionD2Ev.exit ], [ false, %invoke.cont38 ], [ false, %invoke.cont25 ], [ true, %if.end12.i.i.i ], [ true, %call5.i.i.i.i.i.i.i.i.noexc ]
   %guardCount_.i12 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %25 = load i32, ptr %guardCount_.i12, align 8
   %dec.i = add i32 %25, -1
@@ -18435,7 +18435,7 @@ return:                                           ; preds = %invoke.cont35, %if.
   ret void
 
 eh.resume:                                        ; preds = %if.then4.i.i3.i, %if.then.i.i6, %lpad17.body, %lpad20
-  %.pn = phi { ptr, i32 } [ %17, %lpad20 ], [ %5, %if.then.i.i6 ], [ %5, %lpad17.body ], [ %5, %if.then4.i.i3.i ]
+  %.pn = phi { ptr, i32 } [ %17, %lpad20 ], [ %5, %lpad17.body ], [ %5, %if.then.i.i6 ], [ %5, %if.then4.i.i3.i ]
   resume { ptr, i32 } %.pn
 }
 
@@ -18857,7 +18857,7 @@ invoke.cont.i19:                                  ; preds = %if.then.i16
   unreachable
 
 common.resume:                                    ; preds = %lpad.i, %lpad, %lpad64.body, %lpad.i18
-  %common.resume.op = phi { ptr, i32 } [ %27, %lpad.i18 ], [ %eh.lpad-body14, %lpad64.body ], [ %17, %lpad ], [ %9, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %lpad.i18 ], [ %eh.lpad-body14, %lpad64.body ], [ %9, %lpad.i ], [ %17, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i18:                                         ; preds = %if.then.i16
@@ -19020,7 +19020,7 @@ _ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pair
   %cmp.i4.i.i = icmp ult i64 %id, %5
   br i1 %cmp.i4.i.i, label %cond.false, label %cleanup.done
 
-cond.false:                                       ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit, %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
+cond.false:                                       ; preds = %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7, ptr noundef nonnull @.str, i32 noundef 2015)
   %call8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7)
           to label %invoke.cont unwind label %lpad
@@ -19114,7 +19114,7 @@ _ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pair
   %cmp.i4.i.i = icmp ult i64 %id, %2
   br i1 %cmp.i4.i.i, label %cond.false, label %cleanup.done
 
-cond.false:                                       ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %entry, %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
+cond.false:                                       ; preds = %entry, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7, ptr noundef nonnull @.str, i32 noundef 2025)
   %call8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7)
           to label %invoke.cont unwind label %lpad
@@ -19180,8 +19180,8 @@ if.then:                                          ; preds = %_ZNSt3mapImN8proxyg
   tail call void @_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandle13onStopSendingEj(ptr noundef nonnull align 8 dereferenceable(64) %second, i32 noundef %errorCode)
   br label %return
 
-return:                                           ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %entry, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit, %if.then
-  %cmp.i4 = phi i1 [ true, %if.then ], [ false, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit ], [ false, %entry ], [ false, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ]
+return:                                           ; preds = %entry, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit, %if.then
+  %cmp.i4 = phi i1 [ false, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit ], [ true, %if.then ], [ false, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ false, %entry ]
   ret i1 %cmp.i4
 }
 
@@ -19218,7 +19218,7 @@ _ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pai
   %cmp.i4.i.i = icmp ult i64 %id, %2
   br i1 %cmp.i4.i.i, label %cond.false, label %cleanup.done
 
-cond.false:                                       ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %entry, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
+cond.false:                                       ; preds = %entry, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7, ptr noundef nonnull @.str, i32 noundef 2042)
   %call8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7)
           to label %invoke.cont unwind label %lpad
@@ -19493,7 +19493,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
   unreachable
 
 common.resume:                                    ; preds = %lpad45.body, %ehcleanup, %if.then.i.i13, %lpad.i28
-  %common.resume.op = phi { ptr, i32 } [ %28, %lpad.i28 ], [ %.pn, %if.then.i.i13 ], [ %eh.lpad-body47, %lpad45.body ], [ %.pn, %ehcleanup ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %lpad.i28 ], [ %eh.lpad-body47, %lpad45.body ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i13 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i28:                                         ; preds = %if.then.i
@@ -20481,7 +20481,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %12 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
+  %12 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %7, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -20493,7 +20493,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeE
   br label %return
 
 return:                                           ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i, %if.end12.i.i.i, %if.end10, %if.then8, %do.body, %invoke.cont4
-  %retval.0 = phi ptr [ null, %invoke.cont4 ], [ null, %if.then8 ], [ null, %do.body ], [ null, %if.end10 ], [ %call11, %if.end12.i.i.i ], [ %call11, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i ]
+  %retval.0 = phi ptr [ null, %invoke.cont4 ], [ null, %do.body ], [ null, %if.then8 ], [ null, %if.end10 ], [ %call11, %if.end12.i.i.i ], [ %call11, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i ]
   ret ptr %retval.0
 }
 
@@ -20596,7 +20596,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %10 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
+  %10 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %5, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -20857,7 +20857,7 @@ _ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pair
   %cmp.i4.i.i = icmp ult i64 %id, %3
   br i1 %cmp.i4.i.i, label %if.then, label %if.end
 
-if.then:                                          ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %entry, %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
+if.then:                                          ; preds = %entry, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
   store i32 1, ptr %agg.result, align 8
   %which_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 2, ptr %which_.i.i.i, align 8
@@ -20919,7 +20919,7 @@ _ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pai
   %cmp.i4.i.i = icmp ult i64 %id, %3
   br i1 %cmp.i4.i.i, label %if.then, label %if.end
 
-if.then:                                          ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %entry, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
+if.then:                                          ; preds = %entry, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
   store i32 1, ptr %agg.result, align 8
   %which_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 2, ptr %which_.i.i.i, align 8
@@ -21006,8 +21006,8 @@ if.end:                                           ; preds = %_ZNSt3mapImN8proxyg
   call void @llvm.lifetime.end.p0(ptr nonnull %id.addr.i.i)
   br label %return
 
-return:                                           ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %entry, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit, %if.end
-  %retval.sroa.32.0 = phi i64 [ %call.i.i, %if.end ], [ 4294967298, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit ], [ 4294967298, %entry ], [ 4294967298, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ]
+return:                                           ; preds = %entry, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit, %if.end
+  %retval.sroa.32.0 = phi i64 [ %call.i.i, %if.end ], [ 4294967298, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit ], [ 4294967298, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ 4294967298, %entry ]
   ret i64 %retval.sroa.32.0
 }
 
@@ -21064,8 +21064,8 @@ if.end:                                           ; preds = %_ZNSt3mapImN8proxyg
   call void @llvm.lifetime.end.p0(ptr nonnull %id.addr.i.i)
   br label %return
 
-return:                                           ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %entry, %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit, %if.end
-  %retval.sroa.32.0 = phi i64 [ %call.i.i, %if.end ], [ 4294967298, %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit ], [ 4294967298, %entry ], [ 4294967298, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ]
+return:                                           ; preds = %entry, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit, %if.end
+  %retval.sroa.32.0 = phi i64 [ %call.i.i, %if.end ], [ 4294967298, %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit ], [ 4294967298, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ 4294967298, %entry ]
   ret i64 %retval.sroa.32.0
 }
 
@@ -21929,7 +21929,7 @@ _ZSt4copyIPPN8proxygen9HTTPEventES3_ET0_T_S5_S4_.exit30: ; preds = %_ZNSt11_Dequ
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPN8proxygen9HTTPEventES3_ET0_T_S5_S4_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN8proxygen9HTTPEventES3_ET0_T_S5_S4_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN8proxygen9HTTPEventES3_ET0_T_S5_S4_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25261,8 +25261,8 @@ if.end12.i78:                                     ; preds = %if.else.i93, %while
   br label %return
 
 return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ %spec.select, %if.then32 ], [ null, %if.then.i46 ], [ null, %land.lhs.true ], [ %11, %if.then18 ], [ %__position.coerce, %if.else44 ], [ null, %if.then.i ], [ %spec.select111, %if.then64 ], [ null, %if.then50 ], [ %spec.select.i, %if.end12.i ], [ %spec.select.i40, %if.end12.i35 ], [ %spec.select.i83, %if.end12.i78 ], [ null, %if.then.i89 ]
-  %retval.sroa.12.0 = phi ptr [ %spec.select110, %if.then32 ], [ %__y.0.lcssa26.i47, %if.then.i46 ], [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ null, %if.else44 ], [ %__y.0.lcssa26.i, %if.then.i ], [ %spec.select112, %if.then64 ], [ %16, %if.then50 ], [ %spec.select18.i, %if.end12.i ], [ %spec.select18.i41, %if.end12.i35 ], [ %spec.select18.i84, %if.end12.i78 ], [ %__y.0.lcssa26.i90, %if.then.i89 ]
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %11, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %11, %if.then18 ], [ %16, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa26.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa26.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa26.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -25385,7 +25385,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %lor.rhs.i.i, %if.then
-  %7 = phi i1 [ %cmp.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
+  %7 = phi i1 [ true, %if.then ], [ %cmp.i.i.i, %lor.rhs.i.i ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %7, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #30
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %8 = load i64, ptr %_M_node_count.i.i, align 8
@@ -25636,7 +25636,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.then, %lor.rhs.i.i
-  %7 = phi i1 [ %cmp.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
+  %7 = phi i1 [ true, %if.then ], [ %cmp.i.i.i, %lor.rhs.i.i ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %7, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #30
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %8 = load i64, ptr %_M_node_count.i.i, align 8
@@ -25800,8 +25800,8 @@ if.end19.i:                                       ; preds = %if.else.i, %while.b
   br i1 %cmp.not.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE11equal_rangeERS1_.exit, label %while.body.i, !llvm.loop !288
 
 _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE11equal_rangeERS1_.exit: ; preds = %if.end19.i, %while.body.i23.i, %entry, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i
-  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end19.i ]
-  %retval.sroa.3.0.i = phi ptr [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.040.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end19.i ]
+  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
+  %retval.sroa.3.0.i = phi ptr [ %__y.040.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
   %_M_node_count.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25846,7 +25846,7 @@ while.body.i5:                                    ; preds = %if.else.i3, %while.
   br i1 %cmp.i3.not.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS5_ESD_.exit, label %while.body.i5, !llvm.loop !289
 
 _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS5_ESD_.exit: ; preds = %while.body.i5, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE5clearEv.exit.i, %if.else.i3
-  %11 = phi i64 [ %6, %if.else.i3 ], [ 0, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE5clearEv.exit.i ], [ %dec.i.i, %while.body.i5 ]
+  %11 = phi i64 [ 0, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE5clearEv.exit.i ], [ %6, %if.else.i3 ], [ %dec.i.i, %while.body.i5 ]
   %sub = sub i64 %6, %11
   ret i64 %sub
 }
@@ -25927,8 +25927,8 @@ if.end19.i:                                       ; preds = %if.else.i, %while.b
   br i1 %cmp.not.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE11equal_rangeERS1_.exit, label %while.body.i, !llvm.loop !291
 
 _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE11equal_rangeERS1_.exit: ; preds = %if.end19.i, %while.body.i23.i, %entry, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i
-  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end19.i ]
-  %retval.sroa.3.0.i = phi ptr [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.040.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.1.i, %if.end19.i ]
+  %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
+  %retval.sroa.3.0.i = phi ptr [ %__y.040.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
   %_M_node_count.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 24

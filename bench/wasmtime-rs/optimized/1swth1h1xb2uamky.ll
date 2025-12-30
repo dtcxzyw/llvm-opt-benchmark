@@ -274,7 +274,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN3std10sys_common4once5futex4Once5sta
   br label %12
 
 12:                                               ; preds = %1, %11, %10
-  %.0 = phi i8 [ 2, %11 ], [ 1, %10 ], [ 0, %1 ]
+  %.0 = phi i8 [ 1, %10 ], [ 2, %11 ], [ 0, %1 ]
   ret i8 %.0
 }
 
@@ -19943,8 +19943,8 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmE
   br i1 %15, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2c22d33eaacbbdacE.exit", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2c22d33eaacbbdacE.exit.sink.split"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2c22d33eaacbbdacE.exit.sink.split": ; preds = %12, %10, %6
-  %.sink = phi i64 [ 8, %10 ], [ 16, %6 ], [ 16, %12 ]
-  %.sink7 = phi i64 [ %2, %10 ], [ %8, %6 ], [ %14, %12 ]
+  %.sink = phi i64 [ 16, %6 ], [ 8, %10 ], [ 16, %12 ]
+  %.sink7 = phi i64 [ %8, %6 ], [ %2, %10 ], [ %14, %12 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %17 = load ptr, ptr %16, align 8, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %.sink7, i64 noundef 1) #22, !noalias !4
@@ -26206,7 +26206,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$wasmtime_environ..component.
   br label %"_ZN4core3ptr96drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_environ..component..translate..LexicalScope$GT$$GT$17hb7e9410a58c84167E.exit"
 
 .body:                                            ; preds = %15, %11, %2
-  %.pn = phi { ptr, i32 } [ %3, %2 ], [ %12, %11 ], [ %12, %15 ]
+  %.pn = phi { ptr, i32 } [ %3, %2 ], [ %12, %15 ], [ %12, %11 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2032
   invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_environ..module_environ..ModuleTranslation$GT$$GT$17hbaa3122b74d0bbe3E.llvm.11357125133562502446"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21)
           to label %"_ZN4core3ptr153drop_in_place$LT$cranelift_entity..primary..PrimaryMap$LT$wasmtime_types..StaticModuleIndex$C$wasmtime_environ..module_environ..ModuleTranslation$GT$$GT$17he0d9209c1cdc6557E.llvm.11357125133562502446.exit" unwind label %27
@@ -32040,8 +32040,8 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.1135712513356
   br i1 %34, label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17haff15f63822efb32E.llvm.11357125133562502446.exit", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2c22d33eaacbbdacE.exit.sink.split.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2c22d33eaacbbdacE.exit.sink.split.i": ; preds = %31, %29, %25
-  %.sink.i = phi i64 [ 8, %29 ], [ 16, %25 ], [ 16, %31 ]
-  %.sink7.i = phi i64 [ %21, %29 ], [ %27, %25 ], [ %33, %31 ]
+  %.sink.i = phi i64 [ 16, %25 ], [ 8, %29 ], [ 16, %31 ]
+  %.sink7.i = phi i64 [ %27, %25 ], [ %21, %29 ], [ %33, %31 ]
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink.i
   %36 = load ptr, ptr %35, align 8, !alias.scope !17232, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %.sink7.i, i64 noundef 1) #22, !noalias !17232

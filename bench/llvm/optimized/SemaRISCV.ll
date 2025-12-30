@@ -1068,8 +1068,8 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %28, %35
   br label %_ZNK4llvm5APInt12getSExtValueEv.exit.thread
 
 _ZNK4llvm5APInt12getSExtValueEv.exit.thread:      ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit, %_ZNK4llvm5APInt12getSExtValueEv.exit, %_ZNK4llvm5APInt12getSExtValueEv.exit, %_ZNK4llvm5APInt12getSExtValueEv.exit, %_ZNK4llvm5APInt12getSExtValueEv.exit, %_ZNK4llvm5APInt12getSExtValueEv.exit, %_ZNK4llvm5APInt12getSExtValueEv.exit, %38, %23
-  %45 = phi i32 [ %.pre19, %23 ], [ %.pre19, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ %.pre19, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ %.pre, %38 ], [ %.pre19, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ %.pre19, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ %.pre19, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ %.pre19, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ %.pre19, %_ZNK4llvm5APInt12getSExtValueEv.exit ]
-  %.0 = phi i1 [ true, %23 ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ %44, %38 ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ]
+  %45 = phi i32 [ %.pre19, %23 ], [ %.pre, %38 ], [ %.pre19, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ %.pre19, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ %.pre19, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ %.pre19, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ %.pre19, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ %.pre19, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ %.pre19, %_ZNK4llvm5APInt12getSExtValueEv.exit ]
+  %.0 = phi i1 [ true, %23 ], [ %44, %38 ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ]
   %46 = icmp ugt i32 %45, 64
   br i1 %46, label %47, label %_ZN4llvm5APIntD2Ev.exit
 
@@ -1083,7 +1083,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit.thread:      ; preds = %_ZNK4llvm5APInt12ge
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %28, %3, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread, %47, %50
-  %.022 = phi i1 [ %.0, %50 ], [ %.0, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread ], [ %.0, %47 ], [ false, %3 ], [ false, %28 ]
+  %.022 = phi i1 [ %.0, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread ], [ %.0, %47 ], [ %.0, %50 ], [ false, %3 ], [ false, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.022
 }
@@ -2998,7 +2998,7 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %642, %649
   br label %719
 
 719:                                              ; preds = %615, %637, %718, %682, %676, %265, %593, %605, %612, %557, %560, %548, %551, %537, %540, %543, %546, %531, %534, %525, %528, %516, %519, %522, %507, %510, %513, %493, %496, %499, %502, %505, %417, %434, %400, %414, %383, %397, %360, %377, %380, %271, %274, %266, %269, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit, %590, %587, %584, %581, %578, %575, %572, %569, %566, %563, %554, %492, %356, %314
-  %.1 = phi i1 [ true, %612 ], [ %.0, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit ], [ %270, %269 ], [ %317, %314 ], [ %359, %356 ], [ %275, %274 ], [ %382, %380 ], [ %399, %397 ], [ %416, %414 ], [ %.2, %492 ], [ %436, %434 ], [ %506, %505 ], [ %515, %513 ], [ %524, %522 ], [ %530, %528 ], [ %536, %534 ], [ %547, %546 ], [ %556, %554 ], [ %553, %551 ], [ %565, %563 ], [ %568, %566 ], [ %571, %569 ], [ %574, %572 ], [ %577, %575 ], [ %580, %578 ], [ %583, %581 ], [ %586, %584 ], [ %589, %587 ], [ %592, %590 ], [ %562, %560 ], [ true, %266 ], [ true, %271 ], [ true, %377 ], [ true, %360 ], [ true, %383 ], [ true, %400 ], [ true, %417 ], [ true, %502 ], [ true, %499 ], [ true, %496 ], [ true, %493 ], [ true, %510 ], [ true, %507 ], [ true, %519 ], [ true, %516 ], [ true, %525 ], [ true, %531 ], [ true, %543 ], [ true, %540 ], [ true, %537 ], [ true, %548 ], [ true, %557 ], [ false, %265 ], [ true, %593 ], [ true, %605 ], [ true, %615 ], [ true, %637 ], [ %703, %718 ], [ false, %682 ], [ true, %676 ]
+  %.1 = phi i1 [ %317, %314 ], [ %359, %356 ], [ %.2, %492 ], [ %556, %554 ], [ %565, %563 ], [ %568, %566 ], [ %571, %569 ], [ %574, %572 ], [ %577, %575 ], [ %580, %578 ], [ %583, %581 ], [ %586, %584 ], [ %589, %587 ], [ %592, %590 ], [ %.0, %_ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit ], [ true, %266 ], [ %270, %269 ], [ true, %271 ], [ %275, %274 ], [ true, %377 ], [ true, %360 ], [ %382, %380 ], [ true, %383 ], [ %399, %397 ], [ true, %400 ], [ %416, %414 ], [ true, %417 ], [ %436, %434 ], [ true, %502 ], [ true, %499 ], [ true, %496 ], [ true, %493 ], [ %506, %505 ], [ true, %510 ], [ true, %507 ], [ %515, %513 ], [ true, %519 ], [ true, %516 ], [ %524, %522 ], [ true, %525 ], [ %530, %528 ], [ true, %531 ], [ %536, %534 ], [ true, %543 ], [ true, %540 ], [ true, %537 ], [ %547, %546 ], [ true, %548 ], [ %553, %551 ], [ true, %557 ], [ %562, %560 ], [ true, %593 ], [ true, %605 ], [ true, %612 ], [ false, %265 ], [ true, %615 ], [ true, %637 ], [ %703, %718 ], [ false, %682 ], [ true, %676 ]
   ret i1 %.1
 }
 
@@ -3149,7 +3149,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clangL23CheckInvalidVLENandLMULER
   br i1 %50, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !819
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %47, %45, %41, %37, %32
-  %.0.i.i = phi i32 [ %46, %45 ], [ %38, %37 ], [ %42, %41 ], [ 1, %32 ], [ %49, %47 ]
+  %.0.i.i = phi i32 [ %38, %37 ], [ %42, %41 ], [ %46, %45 ], [ 1, %32 ], [ %49, %47 ]
   %51 = zext i32 %.0.i.i to i64
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %52, ptr %11, align 8, !tbaa !781, !alias.scope !816
@@ -3757,7 +3757,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type13isIntegerTypeEv(
   br label %.thread
 
 .thread:                                          ; preds = %9, %24, %16, %29
-  %.1 = phi i1 [ %30, %29 ], [ %28, %24 ], [ %spec.select, %9 ], [ false, %16 ]
+  %.1 = phi i1 [ %30, %29 ], [ %28, %24 ], [ false, %16 ], [ %spec.select, %9 ]
   ret i1 %.1
 }
 
@@ -4238,7 +4238,7 @@ _ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.thread: ; preds = %5, %_ZNK4llvm9S
   br label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
 _ZNK5clang4Type13isIntegerTypeEv.exit:            ; preds = %240, %247, %255, %260
-  %.1.i = phi i1 [ %261, %260 ], [ %259, %255 ], [ %spec.select.i35, %240 ], [ false, %247 ]
+  %.1.i = phi i1 [ %261, %260 ], [ %259, %255 ], [ false, %247 ], [ %spec.select.i35, %240 ]
   %262 = icmp eq i32 %44, 1
   %or.cond = or i1 %262, %.1.i
   br i1 %or.cond, label %264, label %433
@@ -6223,7 +6223,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_18RISCVInterruptAttrEN4llvm11SmallVec
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %12) #21
   br label %471
 
-.loopexit110:                                     ; preds = %34, %3, %23, %_ZN5clangneENS_22specific_attr_iteratorINS_18RISCVInterruptAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i
+.loopexit110:                                     ; preds = %34, %3, %_ZN5clangneENS_22specific_attr_iteratorINS_18RISCVInterruptAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %23
   %50 = load ptr, ptr %0, align 8, !tbaa !730
   %51 = tail call noundef zeroext i1 @_ZNK5clang10ParsedAttr18checkAtMostNumArgsERNS_4SemaEj(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(17504) %50, i32 noundef 1) #21
   br i1 %51, label %52, label %471
@@ -7331,7 +7331,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %3
   br label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread
 
 _ZN4llvm9StringRef13consume_frontES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %3, %6
-  %.0 = phi i1 [ false, %3 ], [ %10, %6 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
+  %.0 = phi i1 [ %10, %6 ], [ false, %3 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
   ret i1 %.0
 }
 
@@ -8419,7 +8419,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %4
   br label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread
 
 _ZN4llvm9StringRef13consume_frontES0_.exit.thread: ; preds = %4, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %._crit_edge, %30, %39
-  %.0 = phi i1 [ true, %39 ], [ true, %._crit_edge ], [ false, %30 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ false, %4 ]
+  %.0 = phi i1 [ true, %._crit_edge ], [ false, %30 ], [ true, %39 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -8577,7 +8577,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22Const
 
 62:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit62.thread.i.i.i.i.i.i", %60
   %.083.i.i.i.i.i.i = phi i64 [ 4, %60 ], [ %110, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit62.thread.i.i.i.i.i.i" ]
-  %.02982.i.i.i.i.i.i.idx = phi i64 [ 0, %60 ], [ %.02982.i.i.i.i.i.i.add199, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit62.thread.i.i.i.i.i.i" ]
+  %.02982.i.i.i.i.i.i.idx = phi i64 [ 0, %60 ], [ %.02982.i.i.i.i.i.i.add200, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit62.thread.i.i.i.i.i.i" ]
   %.02982.i.i.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @_ZZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS3_4sema21RISCVIntrinsicManager13IntrinsicKindEE16FeatureCheckList, i64 %.02982.i.i.i.i.i.i.idx
   %.029.val.i.i.i.i.i.i = load ptr, ptr %.02982.i.i.i.i.i.i.ptr, align 16
   %63 = getelementptr i8, ptr %.02982.i.i.i.i.i.i.ptr, i64 8
@@ -8610,8 +8610,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22Const
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit.thread_crit_edge.i.i.i.i.i.i", %62
   %.val32.val.i.i.i.i.i.i = phi i32 [ %.val32.val.pre.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit.thread_crit_edge.i.i.i.i.i.i" ], [ %.val.val.i.i.i.i.i.i, %62 ]
   %74 = getelementptr inbounds nuw i8, ptr @_ZZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS3_4sema21RISCVIntrinsicManager13IntrinsicKindEE16FeatureCheckList, i64 %.02982.i.i.i.i.i.i.idx
-  %.ptr = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %.val34.i.i.i.i.i.i = load ptr, ptr %.ptr, align 16
+  %.ptr203 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %.val34.i.i.i.i.i.i = load ptr, ptr %.ptr203, align 16
   %75 = getelementptr i8, ptr %.02982.i.i.i.i.i.i.ptr, i64 24
   %.val35.i.i.i.i.i.i = load i32, ptr %75, align 8, !tbaa !1235
   %76 = and i32 %.val35.i.i.i.i.i.i, %.val32.val.i.i.i.i.i.i
@@ -8672,8 +8672,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22Const
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59._ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59.thread_crit_edge.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit56.thread.i.i.i.i.i.i"
   %.val40.val.i.i.i.i.i.i = phi i32 [ %.val40.val.pre.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59._ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59.thread_crit_edge.i.i.i.i.i.i" ], [ %.val36.val.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit56.thread.i.i.i.i.i.i" ]
   %98 = getelementptr inbounds nuw i8, ptr @_ZZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS3_4sema21RISCVIntrinsicManager13IntrinsicKindEE16FeatureCheckList, i64 %.02982.i.i.i.i.i.i.idx
-  %.ptr204 = getelementptr inbounds nuw i8, ptr %98, i64 48
-  %.val42.i.i.i.i.i.i = load ptr, ptr %.ptr204, align 16
+  %.ptr = getelementptr inbounds nuw i8, ptr %98, i64 48
+  %.val42.i.i.i.i.i.i = load ptr, ptr %.ptr, align 16
   %99 = getelementptr i8, ptr %.02982.i.i.i.i.i.i.ptr, i64 56
   %.val43.i.i.i.i.i.i = load i32, ptr %99, align 8, !tbaa !1235
   %100 = and i32 %.val43.i.i.i.i.i.i, %.val40.val.i.i.i.i.i.i
@@ -8697,7 +8697,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22Const
   br i1 %109, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit62.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit62.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit62.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59.thread.i.i.i.i.i.i"
-  %.02982.i.i.i.i.i.i.add199 = add nuw nsw i64 %.02982.i.i.i.i.i.i.idx, 64
+  %.02982.i.i.i.i.i.i.add200 = add nuw nsw i64 %.02982.i.i.i.i.i.i.idx, 64
   %110 = add nsw i64 %.083.i.i.i.i.i.i, -1
   %111 = icmp samesign ugt i64 %.083.i.i.i.i.i.i, 1
   br i1 %111, label %62, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !1241
@@ -9259,7 +9259,7 @@ _ZNSt14_Optional_baseISt6vectorIPN5clang5RISCV7RVVTypeESaIS4_EELb0ELb0EED2Ev.exi
   %exitcond231.not = icmp eq i32 %360, 8
   br i1 %exitcond231.not, label %212, label %225, !llvm.loop !1262
 
-"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread260": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit56.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit71.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit65.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit68.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit", %_ZN4llvm11SmallVectorIN5clang5RISCV19PrototypeDescriptorELj13EED2Ev.exit146
+"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread260": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit56.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit71.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit68.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit65.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit", %_ZN4llvm11SmallVectorIN5clang5RISCV19PrototypeDescriptorELj13EED2Ev.exit146
   %361 = getelementptr inbounds nuw i8, ptr %.0225, i64 40
   %.not = icmp eq ptr %361, %26
   br i1 %.not, label %._crit_edge, label %60
@@ -10534,7 +10534,7 @@ _ZNK5clang9FPOptions15getRoundingModeEv.exit.thread5.i: ; preds = %68, %._crit_e
   br label %_ZNK5clang9FPOptions15isFPConstrainedEv.exit
 
 _ZNK5clang9FPOptions15isFPConstrainedEv.exit:     ; preds = %._crit_edge, %68, %_ZNK5clang9FPOptions15getRoundingModeEv.exit.thread5.i, %74
-  %77 = phi i1 [ true, %_ZNK5clang9FPOptions15getRoundingModeEv.exit.thread5.i ], [ true, %._crit_edge ], [ %76, %74 ], [ true, %68 ]
+  %77 = phi i1 [ true, %_ZNK5clang9FPOptions15getRoundingModeEv.exit.thread5.i ], [ %76, %74 ], [ true, %68 ], [ true, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %61, ptr %7, align 8, !tbaa !731
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 8

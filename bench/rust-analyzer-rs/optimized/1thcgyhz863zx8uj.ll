@@ -1226,7 +1226,7 @@ define void @_ZN4stdx7process27spawn_with_streaming_output17hd69c81b5a3875164E(p
           to label %_ZN3std7process7Command6stdout17h120bc8317945ac9dE.exit unwind label %16
 
 .body:                                            ; preds = %86, %58, %16, %"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17h5550159154c84ca2E.exit"
-  %.pn41.pn = phi { ptr, i32 } [ %.pn41, %"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17h5550159154c84ca2E.exit" ], [ %59, %58 ], [ %17, %16 ], [ %87, %86 ]
+  %.pn41.pn = phi { ptr, i32 } [ %.pn41, %"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17h5550159154c84ca2E.exit" ], [ %17, %16 ], [ %59, %58 ], [ %87, %86 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$std..sys..pal..unix..process..process_common..Command$GT$17hfda5bf4a2a8e1020E.llvm.13721132488288449969"(ptr noalias noundef nonnull align 8 dereferenceable(208) %1)
           to label %"_ZN4core3ptr42drop_in_place$LT$std..process..Command$GT$17hc49acb48170470dfE.exit" unwind label %90
 
@@ -1264,7 +1264,7 @@ _ZN3std7process7Command5stdin17h4f7f4dba1a81359aE.exit: ; preds = %_ZN3std7proce
   br label %"_ZN4core3ptr35drop_in_place$LT$stdx..JodChild$GT$17h35cafc2fe858cf9cE.exit52"
 
 "_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17h5550159154c84ca2E.exit": ; preds = %92, %33, %72, %24
-  %.pn41 = phi { ptr, i32 } [ %25, %24 ], [ %.pn, %72 ], [ %34, %33 ], [ %93, %92 ]
+  %.pn41 = phi { ptr, i32 } [ %25, %24 ], [ %34, %33 ], [ %.pn, %72 ], [ %93, %92 ]
   invoke void @"_ZN4core3ptr35drop_in_place$LT$stdx..JodChild$GT$17h35cafc2fe858cf9cE"(ptr noalias noundef nonnull align 4 dereferenceable(28) %15) #16
           to label %.body unwind label %90
 

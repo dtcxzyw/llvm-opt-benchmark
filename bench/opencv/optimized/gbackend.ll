@@ -585,7 +585,7 @@ _ZNSt10_HashtableIiSt4pairIKiN2cv7Scalar_IdEEESaIS5_ENSt8__detail10_Select1stESt
   br label %common.resume
 
 _ZNSt13unordered_mapIiN2cv7Scalar_IdEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %60, %55, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %71, %.loopexit.i.i ], [ %56, %55 ], [ %62, %60 ]
+  %.pn.i.i = phi ptr [ %56, %55 ], [ %71, %.loopexit.i.i ], [ %62, %60 ]
   %73 = load i64, ptr %2, align 8, !tbaa !37
   %cond = icmp eq i64 %73, 4
   br i1 %cond, label %_ZN2cv4util3getINS_7Scalar_IdEEJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourceEENS_3MatES3_NS_6detail9VectorRefENSC_9OpaqueRefENS_10MediaFrameEEEERKT_RKNS0_7variantIJDpT0_EEE.exit, label %90
@@ -1446,7 +1446,7 @@ _ZNSt10_HashtableIiSt4pairIKiN2cv7Scalar_IdEEESaIS5_ENSt8__detail10_Select1stESt
   br label %common.resume
 
 _ZNSt13unordered_mapIiN2cv7Scalar_IdEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %48, %43, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %59, %.loopexit.i.i ], [ %44, %43 ], [ %50, %48 ]
+  %.pn.i.i = phi ptr [ %44, %43 ], [ %59, %.loopexit.i.i ], [ %50, %48 ]
   %61 = load i64, ptr %2, align 8, !tbaa !137
   %cond = icmp eq i64 %61, 3
   br i1 %cond, label %_ZN2cv4util3getIPNS_7Scalar_IdEEJPNS_4UMatEPNS_3MatEPNS_4RMatES4_PNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEEERKT_RKNS0_7variantIJDpT0_EEE.exit, label %74
@@ -2279,7 +2279,7 @@ _ZNSt10_HashtableIiSt4pairIKiN2cv7Scalar_IdEEESaIS5_ENSt8__detail10_Select1stESt
   br label %common.resume
 
 _ZNSt13unordered_mapIiN2cv7Scalar_IdEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %114, %109, %.loopexit.i.i28
-  %.pn.i.i29 = phi ptr [ %125, %.loopexit.i.i28 ], [ %110, %109 ], [ %116, %114 ]
+  %.pn.i.i29 = phi ptr [ %110, %109 ], [ %125, %.loopexit.i.i28 ], [ %116, %114 ]
   %.1.i.i30 = getelementptr inbounds nuw i8, ptr %.pn.i.i29, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.1.i.i30, i8 0, i64 32, i1 false)
   br label %131
@@ -2390,7 +2390,7 @@ define hidden void @_ZN2cv5gimpl8magazine6getArgERKNS1_5ClassIJNS_3MatENS_7Scala
   unreachable
 
 _ZNKSt13unordered_mapIiN2cv4RMatESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEE2atERS7_.exit: ; preds = %37, %19, %32
-  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %19 ], [ %33, %32 ], [ %39, %37 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %33, %32 ], [ %.sroa.06.0.i.i.i, %19 ], [ %39, %37 ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 696
   %47 = load i64, ptr %46, align 8, !tbaa !161
@@ -2458,7 +2458,7 @@ _ZNKSt13unordered_mapIiN2cv4RMatESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEE2atE
   unreachable
 
 _ZNKSt13unordered_mapIiS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEES9_IiESB_IiESaISD_IKiSH_EEE2atERSK_.exit: ; preds = %69, %51, %64
-  %.sroa.06.1.i.i.i30 = phi ptr [ %.sroa.06.0.i.i.i32, %51 ], [ %65, %64 ], [ %71, %69 ]
+  %.sroa.06.1.i.i.i30 = phi ptr [ %65, %64 ], [ %.sroa.06.0.i.i.i32, %51 ], [ %71, %69 ]
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i30, i64 16
   store i64 1, ptr %0, align 8, !tbaa !37
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2602,7 +2602,7 @@ _ZN2cv7GRunArgC2INS_4RMatEEERKT_RKSt13unordered_mapINSt7__cxx1112basic_stringIcS
   unreachable
 
 _ZNKSt13unordered_mapIiN2cv7Scalar_IdEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE2atERS8_.exit: ; preds = %135, %117, %130
-  %.sroa.06.1.i.i.i42 = phi ptr [ %.sroa.06.0.i.i.i44, %117 ], [ %131, %130 ], [ %137, %135 ]
+  %.sroa.06.1.i.i.i42 = phi ptr [ %131, %130 ], [ %.sroa.06.0.i.i.i44, %117 ], [ %137, %135 ]
   %143 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i42, i64 16
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 528
   %145 = load i64, ptr %144, align 8, !tbaa !161
@@ -2670,7 +2670,7 @@ _ZNKSt13unordered_mapIiN2cv7Scalar_IdEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_E
   unreachable
 
 _ZNKSt13unordered_mapIiS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEES9_IiESB_IiESaISD_IKiSH_EEE2atERSK_.exit58: ; preds = %167, %149, %162
-  %.sroa.06.1.i.i.i54 = phi ptr [ %.sroa.06.0.i.i.i56, %149 ], [ %163, %162 ], [ %169, %167 ]
+  %.sroa.06.1.i.i.i54 = phi ptr [ %163, %162 ], [ %.sroa.06.0.i.i.i56, %149 ], [ %169, %167 ]
   store i64 4, ptr %0, align 8, !tbaa !37
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %176
@@ -2797,7 +2797,7 @@ _ZN2cv7GRunArgC2INS_7Scalar_IdEEEERKT_RKSt13unordered_mapINSt7__cxx1112basic_str
   unreachable
 
 _ZNKSt13unordered_mapIiN2cv6detail9VectorRefESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE2atERS8_.exit: ; preds = %225, %207, %220
-  %.sroa.06.1.i.i.i68 = phi ptr [ %.sroa.06.0.i.i.i70, %207 ], [ %221, %220 ], [ %227, %225 ]
+  %.sroa.06.1.i.i.i68 = phi ptr [ %221, %220 ], [ %.sroa.06.0.i.i.i70, %207 ], [ %227, %225 ]
   %233 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i68, i64 16
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 584
   %235 = load i64, ptr %234, align 8, !tbaa !161
@@ -2865,7 +2865,7 @@ _ZNKSt13unordered_mapIiN2cv6detail9VectorRefESt4hashIiESt8equal_toIiESaISt4pairI
   unreachable
 
 _ZNKSt13unordered_mapIiS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEES9_IiESB_IiESaISD_IKiSH_EEE2atERSK_.exit84: ; preds = %257, %239, %252
-  %.sroa.06.1.i.i.i80 = phi ptr [ %.sroa.06.0.i.i.i82, %239 ], [ %253, %252 ], [ %259, %257 ]
+  %.sroa.06.1.i.i.i80 = phi ptr [ %253, %252 ], [ %.sroa.06.0.i.i.i82, %239 ], [ %259, %257 ]
   %265 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i80, i64 16
   store i64 5, ptr %0, align 8, !tbaa !37
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3009,7 +3009,7 @@ _ZN2cv7GRunArgC2INS_6detail9VectorRefEEERKT_RKSt13unordered_mapINSt7__cxx1112bas
   unreachable
 
 _ZNKSt13unordered_mapIiN2cv6detail9OpaqueRefESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE2atERS8_.exit: ; preds = %326, %308, %321
-  %.sroa.06.1.i.i.i96 = phi ptr [ %.sroa.06.0.i.i.i98, %308 ], [ %322, %321 ], [ %328, %326 ]
+  %.sroa.06.1.i.i.i96 = phi ptr [ %322, %321 ], [ %.sroa.06.0.i.i.i98, %308 ], [ %328, %326 ]
   %334 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i96, i64 16
   %335 = getelementptr inbounds nuw i8, ptr %1, i64 640
   %336 = load i64, ptr %335, align 8, !tbaa !161
@@ -3077,7 +3077,7 @@ _ZNKSt13unordered_mapIiN2cv6detail9OpaqueRefESt4hashIiESt8equal_toIiESaISt4pairI
   unreachable
 
 _ZNKSt13unordered_mapIiS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEES9_IiESB_IiESaISD_IKiSH_EEE2atERSK_.exit112: ; preds = %358, %340, %353
-  %.sroa.06.1.i.i.i108 = phi ptr [ %.sroa.06.0.i.i.i110, %340 ], [ %354, %353 ], [ %360, %358 ]
+  %.sroa.06.1.i.i.i108 = phi ptr [ %354, %353 ], [ %.sroa.06.0.i.i.i110, %340 ], [ %360, %358 ]
   %366 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i108, i64 16
   store i64 6, ptr %0, align 8, !tbaa !37
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3221,7 +3221,7 @@ _ZN2cv7GRunArgC2INS_6detail9OpaqueRefEEERKT_RKSt13unordered_mapINSt7__cxx1112bas
   unreachable
 
 _ZNKSt13unordered_mapIiN2cv10MediaFrameESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEE2atERS7_.exit: ; preds = %427, %409, %422
-  %.sroa.06.1.i.i.i124 = phi ptr [ %.sroa.06.0.i.i.i126, %409 ], [ %423, %422 ], [ %429, %427 ]
+  %.sroa.06.1.i.i.i124 = phi ptr [ %423, %422 ], [ %.sroa.06.0.i.i.i126, %409 ], [ %429, %427 ]
   %435 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i124, i64 16
   %436 = getelementptr inbounds nuw i8, ptr %1, i64 808
   %437 = load i64, ptr %436, align 8, !tbaa !161
@@ -3289,7 +3289,7 @@ _ZNKSt13unordered_mapIiN2cv10MediaFrameESt4hashIiESt8equal_toIiESaISt4pairIKiS1_
   unreachable
 
 _ZNKSt13unordered_mapIiS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEES9_IiESB_IiESaISD_IKiSH_EEE2atERSK_.exit140: ; preds = %459, %441, %454
-  %.sroa.06.1.i.i.i136 = phi ptr [ %.sroa.06.0.i.i.i138, %441 ], [ %455, %454 ], [ %461, %459 ]
+  %.sroa.06.1.i.i.i136 = phi ptr [ %455, %454 ], [ %.sroa.06.0.i.i.i138, %441 ], [ %461, %459 ]
   %467 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i136, i64 16
   store i64 7, ptr %0, align 8, !tbaa !37
   %468 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3474,7 +3474,7 @@ _ZNSt10_HashtableIiSt4pairIKiN2cv7Scalar_IdEEESaIS5_ENSt8__detail10_Select1stESt
   br label %common.resume
 
 _ZNSt13unordered_mapIiN2cv7Scalar_IdEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEEixERS8_.exit: ; preds = %31, %26, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %42, %.loopexit.i.i ], [ %27, %26 ], [ %33, %31 ]
+  %.pn.i.i = phi ptr [ %27, %26 ], [ %42, %.loopexit.i.i ], [ %33, %31 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i64 3, ptr %0, align 8, !tbaa !137
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3549,7 +3549,7 @@ _ZNSt13unordered_mapIiN2cv7Scalar_IdEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EE
   unreachable
 
 _ZNKSt13unordered_mapIiN2cv6detail9VectorRefESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE2atERS8_.exit: ; preds = %70, %52, %65
-  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %52 ], [ %66, %65 ], [ %72, %70 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %66, %65 ], [ %.sroa.06.0.i.i.i, %52 ], [ %72, %70 ]
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   store i64 5, ptr %0, align 8, !tbaa !137
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3653,7 +3653,7 @@ _ZN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFra
   unreachable
 
 _ZNKSt13unordered_mapIiN2cv6detail9OpaqueRefESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE2atERS8_.exit: ; preds = %120, %102, %115
-  %.sroa.06.1.i.i.i24 = phi ptr [ %.sroa.06.0.i.i.i26, %102 ], [ %116, %115 ], [ %122, %120 ]
+  %.sroa.06.1.i.i.i24 = phi ptr [ %116, %115 ], [ %.sroa.06.0.i.i.i26, %102 ], [ %122, %120 ]
   %128 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i24, i64 16
   store i64 6, ptr %0, align 8, !tbaa !137
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3805,7 +3805,7 @@ define hidden void @_ZN2cv5gimpl8magazine9writeBackERKNS1_5ClassIJNS_3MatENS_7Sc
   unreachable
 
 _ZN2cv4util3getIPNS_7Scalar_IdEEJPNS_4UMatEPNS_3MatEPNS_4RMatES4_PNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEEERT_RNS0_7variantIJDpT0_EEE.exit: ; preds = %36, %18, %31
-  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %18 ], [ %32, %31 ], [ %38, %36 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %32, %31 ], [ %.sroa.06.0.i.i.i, %18 ], [ %38, %36 ]
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !141
@@ -3909,7 +3909,7 @@ _ZN2cv4util3getIPNS_7Scalar_IdEEJPNS_4UMatEPNS_3MatEPNS_4RMatES4_PNS_10MediaFram
   unreachable
 
 _ZNKSt13unordered_mapIiN2cv10MediaFrameESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEE2atERS7_.exit: ; preds = %86, %68, %81
-  %.sroa.06.1.i.i.i19 = phi ptr [ %.sroa.06.0.i.i.i21, %68 ], [ %82, %81 ], [ %88, %86 ]
+  %.sroa.06.1.i.i.i19 = phi ptr [ %82, %81 ], [ %.sroa.06.0.i.i.i21, %68 ], [ %88, %86 ]
   %94 = load i64, ptr %2, align 8, !tbaa !137
   %.not.i23 = icmp eq i64 %94, 4
   br i1 %.not.i23, label %_ZN2cv4util3getIPNS_10MediaFrameEJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEES3_NS_6detail9VectorRefENSD_9OpaqueRefEEEERT_RNS0_7variantIJDpT0_EEE.exit, label %95
@@ -8367,7 +8367,7 @@ _ZNSt10_HashtableIiSt4pairIKiN2cv3MatEESaIS4_ENSt8__detail10_Select1stESt8equal_
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph, %..loopexit_crit_edge21.i, %22, %5, %_ZNSt10_HashtableIiSt4pairIKiN2cv3MatEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS6_15_Hash_node_baseEPNS6_10_Hash_nodeIS4_Lb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIiSt4pairIKiN2cv3MatEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS6_15_Hash_node_baseEPNS6_10_Hash_nodeIS4_Lb0EEE.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %22 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph.i ]
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIiSt4pairIKiN2cv3MatEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS6_15_Hash_node_baseEPNS6_10_Hash_nodeIS4_Lb0EEE.exit ], [ 0, %5 ], [ 0, %22 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 
@@ -8546,7 +8546,7 @@ _ZNSt10_HashtableIiSt4pairIKiN2cv4UMatEESaIS4_ENSt8__detail10_Select1stESt8equal
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph, %..loopexit_crit_edge21.i, %22, %5, %_ZNSt10_HashtableIiSt4pairIKiN2cv4UMatEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS6_15_Hash_node_baseEPNS6_10_Hash_nodeIS4_Lb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIiSt4pairIKiN2cv4UMatEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS6_15_Hash_node_baseEPNS6_10_Hash_nodeIS4_Lb0EEE.exit ], [ 0, %.lr.ph ], [ 0, %5 ], [ 0, %22 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph.i ]
+  %.0 = phi i64 [ 1, %_ZNSt10_HashtableIiSt4pairIKiN2cv4UMatEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS6_15_Hash_node_baseEPNS6_10_Hash_nodeIS4_Lb0EEE.exit ], [ 0, %5 ], [ 0, %22 ], [ 0, %..loopexit_crit_edge21.i ], [ 0, %.lr.ph ], [ 0, %.lr.ph.i ]
   ret i64 %.0
 }
 

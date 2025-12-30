@@ -5658,7 +5658,7 @@ if.end371.6:                                      ; preds = %if.then366.6, %if.t
   br i1 %exitcond1165, label %for.cond.cleanup307, label %invoke.cont325, !llvm.loop !163
 
 ehcleanup400:                                     ; preds = %ehcleanup39, %ehcleanup25, %ehcleanup14, %ehcleanup
-  %.pn487.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %.pn476, %ehcleanup14 ], [ %20, %ehcleanup39 ], [ %16, %ehcleanup25 ]
+  %.pn487.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %20, %ehcleanup39 ], [ %16, %ehcleanup25 ], [ %.pn476, %ehcleanup14 ]
   resume { ptr, i32 } %.pn487.pn.pn
 }
 

@@ -326,7 +326,7 @@ define range(i32 0, 2) i32 @X509_print_ex(ptr noundef %0, ptr noundef %1, i64 no
   %120 = call i32 @EVP_PKEY_print_public(ptr noundef %0, ptr noundef nonnull %115, i32 noundef 16, ptr noundef null) #4
   br label %121
 
-.thread128:                                       ; preds = %111, %99, %104, %107
+.thread128:                                       ; preds = %99, %104, %107, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
@@ -421,8 +421,8 @@ define range(i32 0, 2) i32 @X509_print_ex(ptr noundef %0, ptr noundef %1, i64 no
   %155 = call i32 @X509_aux_print(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   br label %.thread
 
-.thread:                                          ; preds = %48, %44, %39, %33, %37, %.thread131, %.thread128, %148, %14, %17, %24, %28, %53, %56, %60, %65, %68, %71, %75, %78, %82, %87, %90, %94, %143, %154, %152
-  %.0 = phi i32 [ 1, %152 ], [ 0, %14 ], [ 0, %17 ], [ 0, %148 ], [ 0, %143 ], [ 0, %.thread131 ], [ 0, %.thread128 ], [ 0, %87 ], [ 0, %90 ], [ 0, %94 ], [ 0, %65 ], [ 0, %68 ], [ 0, %71 ], [ 0, %75 ], [ 0, %78 ], [ 0, %82 ], [ 0, %53 ], [ 0, %56 ], [ 0, %60 ], [ 0, %39 ], [ 1, %154 ], [ 0, %24 ], [ 0, %28 ], [ 0, %37 ], [ 0, %33 ], [ 0, %44 ], [ 0, %48 ]
+.thread:                                          ; preds = %48, %44, %39, %37, %33, %.thread131, %.thread128, %148, %14, %17, %24, %28, %53, %56, %60, %65, %68, %71, %75, %78, %82, %87, %90, %94, %143, %154, %152
+  %.0 = phi i32 [ 0, %148 ], [ 0, %143 ], [ 0, %87 ], [ 0, %90 ], [ 0, %94 ], [ 0, %65 ], [ 0, %68 ], [ 0, %71 ], [ 0, %75 ], [ 0, %78 ], [ 0, %82 ], [ 0, %53 ], [ 0, %56 ], [ 0, %60 ], [ 0, %24 ], [ 0, %28 ], [ 0, %14 ], [ 0, %17 ], [ 1, %154 ], [ 1, %152 ], [ 0, %.thread128 ], [ 0, %.thread131 ], [ 0, %33 ], [ 0, %37 ], [ 0, %39 ], [ 0, %44 ], [ 0, %48 ]
   ret i32 %.0
 }
 
@@ -527,7 +527,7 @@ define range(i32 -1, 1) i32 @ossl_serial_number_print(ptr noundef %0, ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %._crit_edge, %22, %17, %7, %49
-  %.024 = phi i32 [ %., %7 ], [ -1, %._crit_edge ], [ -1, %22 ], [ 0, %49 ], [ -1, %17 ], [ -1, %29 ]
+  %.024 = phi i32 [ 0, %49 ], [ %., %7 ], [ -1, %17 ], [ -1, %22 ], [ -1, %._crit_edge ], [ -1, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.024
 }
@@ -608,7 +608,7 @@ define i32 @X509_signature_print(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %33
 
 33:                                               ; preds = %27, %29, %13, %8, %3, %31
-  %.0 = phi i32 [ %28, %27 ], [ 0, %3 ], [ 0, %8 ], [ 0, %13 ], [ %32, %31 ], [ %.mux, %29 ]
+  %.0 = phi i32 [ %32, %31 ], [ %28, %27 ], [ 0, %3 ], [ 0, %8 ], [ 0, %13 ], [ %.mux, %29 ]
   ret i32 %.0
 }
 
@@ -938,8 +938,8 @@ define range(i32 0, 2) i32 @X509_ocspid_print(ptr noundef %0, ptr noundef %1) lo
   br label %.sink.split
 
 .loopexit:                                        ; preds = %.preheader46, %.preheader, %40, %37, %34, %26, %18, %14, %10, %7
-  %.035 = phi ptr [ null, %7 ], [ null, %10 ], [ null, %14 ], [ %16, %18 ], [ null, %.preheader ], [ null, %34 ], [ null, %37 ], [ %16, %26 ], [ null, %40 ], [ %16, %.preheader46 ]
-  %.0 = phi ptr [ null, %7 ], [ null, %10 ], [ null, %14 ], [ null, %18 ], [ %24, %.preheader ], [ %24, %34 ], [ %24, %37 ], [ %24, %26 ], [ %24, %40 ], [ %24, %.preheader46 ]
+  %.035 = phi ptr [ null, %7 ], [ null, %10 ], [ null, %14 ], [ %16, %18 ], [ null, %34 ], [ null, %37 ], [ null, %40 ], [ %16, %26 ], [ null, %.preheader ], [ %16, %.preheader46 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %10 ], [ null, %14 ], [ null, %18 ], [ %24, %34 ], [ %24, %37 ], [ %24, %40 ], [ %24, %26 ], [ %24, %.preheader ], [ %24, %.preheader46 ]
   call void @CRYPTO_free(ptr noundef %.035, ptr noundef nonnull @.str, i32 noundef 259) #4
   br label %.sink.split
 
@@ -1095,7 +1095,7 @@ X509_print_ex.exit28:                             ; preds = %37, %24
   br label %X509_print_ex.exit.thread
 
 X509_print_ex.exit.thread:                        ; preds = %37, %33, %30, %19, %15, %12, %52, %45, %X509_print_ex.exit28, %27, %24, %9, %55, %5
-  %.0 = phi i32 [ %8, %5 ], [ 0, %24 ], [ 0, %9 ], [ 0, %X509_print_ex.exit28 ], [ 0, %45 ], [ %58, %55 ], [ 0, %27 ], [ 0, %52 ], [ 0, %19 ], [ 0, %12 ], [ 0, %15 ], [ 0, %30 ], [ 0, %33 ], [ 0, %37 ]
+  %.0 = phi i32 [ %8, %5 ], [ %58, %55 ], [ 0, %9 ], [ 0, %24 ], [ 0, %27 ], [ 0, %X509_print_ex.exit28 ], [ 0, %45 ], [ 0, %52 ], [ 0, %12 ], [ 0, %15 ], [ 0, %19 ], [ 0, %30 ], [ 0, %33 ], [ 0, %37 ]
   ret i32 %.0
 }
 

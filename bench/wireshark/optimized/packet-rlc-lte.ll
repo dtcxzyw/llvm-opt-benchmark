@@ -1197,7 +1197,7 @@ define internal noundef zeroext i1 @dissect_rlc_lte_heur(ptr noundef %0, ptr nou
   br label %74
 
 74:                                               ; preds = %7, %4, %72, %53, %.split.us
-  %.070 = phi i1 [ true, %72 ], [ false, %4 ], [ true, %.split.us ], [ true, %53 ], [ false, %7 ]
+  %.070 = phi i1 [ true, %.split.us ], [ true, %53 ], [ true, %72 ], [ false, %4 ], [ false, %7 ]
   ret i1 %.070
 }
 
@@ -1853,8 +1853,8 @@ show_PDU_in_info.exit.i:                          ; preds = %325, %322
   br label %show_PDU_in_info.exit170.i
 
 show_PDU_in_info.exit170.i:                       ; preds = %348, %345, %344, %342, %339, %283
-  %.0154.shrunk.i = phi i1 [ false, %283 ], [ true, %342 ], [ true, %339 ], [ false, %344 ], [ false, %345 ], [ false, %348 ]
-  %.2.i = phi i32 [ %.1152.i, %283 ], [ %.3.lcssa.i, %342 ], [ %.3.lcssa.i, %339 ], [ %.1152.i, %344 ], [ %.1152.i, %345 ], [ %.1152.i, %348 ]
+  %.0154.shrunk.i = phi i1 [ false, %283 ], [ true, %339 ], [ true, %342 ], [ false, %344 ], [ false, %345 ], [ false, %348 ]
+  %.2.i = phi i32 [ %.1152.i, %283 ], [ %.3.lcssa.i, %339 ], [ %.3.lcssa.i, %342 ], [ %.1152.i, %344 ], [ %.1152.i, %345 ], [ %.1152.i, %348 ]
   %352 = load i8, ptr @s_number_of_extensions, align 1
   %.not161.i = icmp eq i8 %352, 0
   br i1 %.not161.i, label %355, label %353
@@ -3015,8 +3015,8 @@ show_PDU_in_info.exit.i185:                       ; preds = %951, %948
   br label %show_PDU_in_info.exit230.i
 
 show_PDU_in_info.exit230.i:                       ; preds = %974, %971, %970, %968, %965, %919
-  %.0205.shrunk.i = phi i1 [ false, %919 ], [ true, %968 ], [ true, %965 ], [ false, %970 ], [ false, %971 ], [ false, %974 ]
-  %.3.i = phi i32 [ %.2.i174, %919 ], [ %.4.lcssa.i, %968 ], [ %.4.lcssa.i, %965 ], [ %.2.i174, %970 ], [ %.2.i174, %971 ], [ %.2.i174, %974 ]
+  %.0205.shrunk.i = phi i1 [ false, %919 ], [ true, %965 ], [ true, %968 ], [ false, %970 ], [ false, %971 ], [ false, %974 ]
+  %.3.i = phi i32 [ %.2.i174, %919 ], [ %.4.lcssa.i, %965 ], [ %.4.lcssa.i, %968 ], [ %.2.i174, %970 ], [ %.2.i174, %971 ], [ %.2.i174, %974 ]
   %978 = load i32, ptr @global_rlc_lte_am_sequence_analysis, align 4
   %979 = icmp eq i32 %978, 1
   br i1 %979, label %980, label %984
@@ -3384,8 +3384,8 @@ proto_item_set_hidden.exit:                       ; preds = %5, %13, %16
   br label %36
 
 36:                                               ; preds = %.thread, %30, %35, %34
-  %lte_rrc_ul_ccch_nb.sink = phi ptr [ %lte_rrc_ul_ccch_nb.lte_rrc_dl_ccch_nb, %30 ], [ @lte_rrc_bcch_dl_sch_nb, %34 ], [ @lte_rrc_pcch_nb, %35 ], [ @lte_rrc_bcch_bch_nb, %.thread ]
-  %lte_rrc_ul_ccch.sink = phi ptr [ %lte_rrc_ul_ccch.lte_rrc_dl_ccch, %30 ], [ @lte_rrc_bcch_dl_sch, %34 ], [ @lte_rrc_pcch, %35 ], [ @lte_rrc_bcch_bch, %.thread ]
+  %lte_rrc_ul_ccch_nb.sink = phi ptr [ @lte_rrc_pcch_nb, %35 ], [ @lte_rrc_bcch_dl_sch_nb, %34 ], [ %lte_rrc_ul_ccch_nb.lte_rrc_dl_ccch_nb, %30 ], [ @lte_rrc_bcch_bch_nb, %.thread ]
+  %lte_rrc_ul_ccch.sink = phi ptr [ @lte_rrc_pcch, %35 ], [ @lte_rrc_bcch_dl_sch, %34 ], [ %lte_rrc_ul_ccch.lte_rrc_dl_ccch, %30 ], [ @lte_rrc_bcch_bch, %.thread ]
   %.sink46.in.in = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sink46.in = load i32, ptr %.sink46.in.in, align 4
   %.sink46 = icmp eq i32 %.sink46.in, 1
@@ -3604,7 +3604,7 @@ define internal fastcc i32 @dissect_rlc_lte_extension_header(ptr noundef %0, ptr
   br label %33
 
 33:                                               ; preds = %14, %26
-  %.sink = phi i32 [ %., %14 ], [ 2, %26 ]
+  %.sink = phi i32 [ 2, %26 ], [ %., %14 ]
   %34 = add i32 %.01, %.sink
   %35 = load i64, ptr %5, align 8
   %36 = trunc i64 %35 to i32
@@ -4923,7 +4923,7 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not5.i152, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
 
 proto_item_set_hidden.exit.sink.split:            ; preds = %249, %204, %159
-  %.sink171 = phi ptr [ %206, %204 ], [ %161, %159 ], [ %251, %249 ]
+  %.sink171 = phi ptr [ %161, %159 ], [ %206, %204 ], [ %251, %249 ]
   %252 = getelementptr inbounds nuw i8, ptr %.sink171, i64 28
   %253 = load i32, ptr %252, align 4
   %254 = or i32 %253, 1
@@ -5820,7 +5820,7 @@ proto_item_set_hidden.exit.thread.sink.split.i:   ; preds = %535, %516
   br label %proto_item_set_hidden.exit.thread.i
 
 proto_item_set_hidden.exit.thread.i:              ; preds = %proto_item_set_hidden.exit.thread.sink.split.i, %proto_item_set_hidden.exit.i, %535, %516
-  %.03.i = phi ptr [ %.0.i, %proto_item_set_hidden.exit.i ], [ %515, %516 ], [ %534, %535 ], [ %.03.ph.i, %proto_item_set_hidden.exit.thread.sink.split.i ]
+  %.03.i = phi ptr [ %.0.i, %proto_item_set_hidden.exit.i ], [ %534, %535 ], [ %515, %516 ], [ %.03.ph.i, %proto_item_set_hidden.exit.thread.sink.split.i ]
   %541 = getelementptr inbounds nuw i8, ptr %.03.i, i64 40
   %542 = load ptr, ptr %541, align 8
   %.not5.i27.i = icmp eq ptr %542, null

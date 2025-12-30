@@ -726,7 +726,7 @@ define dso_local i32 @tcp_v4_connect(ptr noundef %0, ptr noundef readonly captur
   br label %206
 
 206:                                              ; preds = %81, %85, %202, %199, %191, %111, %94, %22, %8, %3
-  %207 = phi i32 [ %196, %191 ], [ -101, %94 ], [ %205, %202 ], [ %109, %111 ], [ -22, %3 ], [ -97, %8 ], [ -22, %22 ], [ 0, %199 ], [ -101, %85 ], [ %83, %81 ]
+  %207 = phi i32 [ -101, %94 ], [ %205, %202 ], [ %109, %111 ], [ -22, %3 ], [ -97, %8 ], [ -22, %22 ], [ 0, %199 ], [ %196, %191 ], [ -101, %85 ], [ %83, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %207
 }
@@ -1759,7 +1759,7 @@ define dso_local ptr @__tcp_md5_do_lookup(ptr noundef %0, i32 noundef %1, ptr no
   br label %99
 
 99:                                               ; preds = %82, %92, %93, %94, %72, %59, %53, %32, %31, %27, %14
-  %100 = phi ptr [ %16, %14 ], [ %16, %32 ], [ %16, %27 ], [ %16, %53 ], [ %16, %31 ], [ %16, %72 ], [ %16, %59 ], [ %98, %94 ], [ %15, %82 ], [ %16, %92 ], [ %15, %93 ]
+  %100 = phi ptr [ %16, %14 ], [ %16, %32 ], [ %16, %27 ], [ %16, %31 ], [ %16, %72 ], [ %16, %59 ], [ %16, %53 ], [ %98, %94 ], [ %15, %82 ], [ %16, %92 ], [ %15, %93 ]
   %101 = load volatile ptr, ptr %15, align 8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %.loopexit, label %14, !llvm.loop !29
@@ -2524,8 +2524,8 @@ define internal void @tcp_v4_reqsk_send_ack(ptr noundef %0, ptr noundef %1, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %80, %28, %24, %16, %14
-  %.sroa.55.0 = phi i32 [ 0, %14 ], [ %spec.select, %80 ], [ 0, %28 ], [ 0, %16 ], [ 0, %24 ]
-  %.sroa.0.0 = phi ptr [ null, %14 ], [ %77, %80 ], [ null, %28 ], [ null, %16 ], [ null, %24 ]
+  %.sroa.55.0 = phi i32 [ 0, %14 ], [ 0, %16 ], [ 0, %24 ], [ 0, %28 ], [ %spec.select, %80 ]
+  %.sroa.0.0 = phi ptr [ null, %14 ], [ null, %16 ], [ null, %24 ], [ null, %28 ], [ %77, %80 ]
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 296
   %83 = load i32, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 124
@@ -4526,7 +4526,7 @@ define dso_local noundef i32 @tcp_v4_early_demux(ptr noundef %0) local_unnamed_a
   br label %dst_check.exit
 
 dst_check.exit:                                   ; preds = %91, %89, %85
-  %93 = phi ptr [ %92, %91 ], [ %90, %89 ], [ %86, %85 ]
+  %93 = phi ptr [ %86, %85 ], [ %90, %89 ], [ %92, %91 ]
   %94 = icmp eq ptr %93, null
   br i1 %94, label %dst_check.exit.thread, label %dst_check.exit.thread5
 
@@ -5270,7 +5270,7 @@ define dso_local noundef i32 @tcp_v4_rcv(ptr noundef %0) local_unnamed_addr #0 a
   br label %189
 
 189:                                              ; preds = %176, %183
-  %190 = phi i8 [ %188, %183 ], [ 1, %176 ]
+  %190 = phi i8 [ 1, %176 ], [ %188, %183 ]
   store ptr null, ptr %129, align 8
   store ptr null, ptr %128, align 8
   %191 = load volatile i8, ptr %177, align 2
@@ -5315,8 +5315,8 @@ define dso_local noundef i32 @tcp_v4_rcv(ptr noundef %0) local_unnamed_addr #0 a
   br label %212
 
 212:                                              ; preds = %.thread35, %211, %209, %205, %202, %199, %196, %189
-  %213 = phi i8 [ 1, %.thread35 ], [ %190, %189 ], [ %190, %199 ], [ %190, %202 ], [ %190, %196 ], [ %190, %205 ], [ 1, %211 ], [ 0, %209 ]
-  %214 = phi ptr [ %172, %.thread35 ], [ %172, %189 ], [ %172, %199 ], [ %172, %202 ], [ %172, %196 ], [ %172, %205 ], [ %207, %211 ], [ %207, %209 ]
+  %213 = phi i8 [ %190, %189 ], [ %190, %199 ], [ %190, %202 ], [ %190, %196 ], [ %190, %205 ], [ 1, %211 ], [ 0, %209 ], [ 1, %.thread35 ]
+  %214 = phi ptr [ %172, %189 ], [ %172, %199 ], [ %172, %202 ], [ %172, %196 ], [ %172, %205 ], [ %207, %211 ], [ %207, %209 ], [ %172, %.thread35 ]
   %215 = icmp ugt ptr %214, inttoptr (i64 -4096 to ptr)
   br i1 %215, label %.thread40, label %.thread39
 
@@ -5794,7 +5794,7 @@ nf_reset_ct.exit:                                 ; preds = %326, %335, %337, %3
   %463 = load i8, ptr %131, align 1
   %464 = and i8 %463, 1
   %.not60 = icmp eq i8 %464, 0
-  br i1 %.not60, label %499, label %465
+  br i1 %.not60, label %504, label %465
 
 465:                                              ; preds = %.lr.ph
   %466 = load ptr, ptr %132, align 8
@@ -5840,44 +5840,44 @@ nf_reset_ct.exit:                                 ; preds = %326, %335, %337, %3
   %496 = load i32, ptr %495, align 4
   %497 = and i32 %496, 2
   %498 = icmp eq i32 %497, 0
-  br i1 %498, label %.critedge30, label %511
+  br i1 %498, label %.critedge30, label %499
 
-499:                                              ; preds = %.lr.ph
-  %500 = getelementptr inbounds nuw i8, ptr %462, i64 2816
+499:                                              ; preds = %494
+  %500 = getelementptr inbounds nuw i8, ptr %484, i64 12
   %501 = load i32, ptr %500, align 4
-  %.not61 = icmp eq i32 %501, 0
-  br i1 %.not61, label %502, label %.thread54
+  %502 = and i32 %501, 1
+  %503 = icmp eq i32 %502, 0
+  br i1 %503, label %.critedge30, label %.critedge32
 
-502:                                              ; preds = %499
-  %503 = getelementptr inbounds nuw i8, ptr %462, i64 2968
-  %504 = load i8, ptr %503, align 1
-  %505 = icmp eq i8 %504, 2
-  br i1 %505, label %.critedge32, label %.thread54
+504:                                              ; preds = %.lr.ph
+  %505 = getelementptr inbounds nuw i8, ptr %462, i64 2816
+  %506 = load i32, ptr %505, align 4
+  %.not61 = icmp eq i32 %506, 0
+  br i1 %.not61, label %507, label %.thread54
 
-.thread54:                                        ; preds = %465, %473, %477, %480, %486, %502, %499
-  %506 = load i16, ptr %133, align 4
-  %507 = and i16 %506, 256
-  %508 = icmp eq i16 %507, 0
-  br i1 %508, label %509, label %.critedge32
+507:                                              ; preds = %504
+  %508 = getelementptr inbounds nuw i8, ptr %462, i64 2968
+  %509 = load i8, ptr %508, align 1
+  %510 = icmp eq i8 %509, 2
+  br i1 %510, label %.critedge32, label %.thread54
 
-509:                                              ; preds = %.thread54
-  %510 = call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 0, ptr noundef %0, i16 noundef zeroext 2) #21
-  %.not = icmp eq i32 %510, 0
+.thread54:                                        ; preds = %465, %473, %477, %480, %486, %507, %504
+  %511 = load i16, ptr %133, align 4
+  %512 = and i16 %511, 256
+  %513 = icmp eq i16 %512, 0
+  br i1 %513, label %514, label %.critedge32
+
+514:                                              ; preds = %.thread54
+  %515 = call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 0, ptr noundef %0, i16 noundef zeroext 2) #21
+  %.not = icmp eq i32 %515, 0
   br i1 %.not, label %.critedge30, label %.critedge32
 
-511:                                              ; preds = %494
-  %512 = getelementptr inbounds nuw i8, ptr %484, i64 12
-  %513 = load i32, ptr %512, align 4
-  %514 = and i32 %513, 1
-  %515 = icmp eq i32 %514, 0
-  br i1 %515, label %.critedge30, label %.critedge32
-
-.critedge30:                                      ; preds = %509, %494, %511
+.critedge30:                                      ; preds = %499, %494, %514
   store i32 14, ptr %2, align 4
   call void @inet_twsk_put(ptr noundef nonnull %459) #21
   br label %.loopexit
 
-.critedge32:                                      ; preds = %509, %.thread54, %502, %511
+.critedge32:                                      ; preds = %499, %.thread54, %507, %514
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %134, i64 24, i1 false)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !83
   %516 = load i32, ptr %234, align 4
@@ -7219,7 +7219,7 @@ define dso_local ptr @tcp_seq_start(ptr noundef readonly captures(none) %0, ptr 
   br i1 %105, label %.preheader.i, label %tcp_get_idx.exit, !llvm.loop !95
 
 tcp_get_idx.exit:                                 ; preds = %.preheader7.i, %.preheader.i, %.loopexit9.i, %.thread15, %.thread12, %.loopexit
-  %106 = phi ptr [ %69, %.loopexit ], [ %.ph14, %.thread15 ], [ inttoptr (i64 1 to ptr), %.thread12 ], [ %101, %.preheader.i ], [ %95, %.loopexit9.i ], [ %87, %.preheader7.i ]
+  %106 = phi ptr [ %69, %.loopexit ], [ inttoptr (i64 1 to ptr), %.thread12 ], [ %.ph14, %.thread15 ], [ %95, %.loopexit9.i ], [ %101, %.preheader.i ], [ %87, %.preheader7.i ]
   %107 = load i64, ptr %1, align 8
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %107, ptr %108, align 8
@@ -7279,7 +7279,7 @@ define dso_local ptr @tcp_seq_next(ptr noundef readonly captures(none) %0, ptr n
   br label %tcp_get_idx.exit
 
 tcp_get_idx.exit:                                 ; preds = %8, %.loopexit9.i, %26, %22, %19, %17
-  %28 = phi ptr [ %25, %22 ], [ null, %17 ], [ %27, %26 ], [ %20, %19 ], [ %16, %.loopexit9.i ], [ %12, %8 ]
+  %28 = phi ptr [ null, %17 ], [ %27, %26 ], [ %20, %19 ], [ %25, %22 ], [ %16, %.loopexit9.i ], [ %12, %8 ]
   %29 = load i64, ptr %2, align 8
   %30 = add i64 %29, 1
   store i64 %30, ptr %2, align 8

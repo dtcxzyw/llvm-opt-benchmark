@@ -118,7 +118,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %22, %23
   br label %28
 
 28:                                               ; preds = %26, %24, %9
-  %.merged = phi { ptr, i32 } [ %25, %24 ], [ %10, %9 ], [ %27, %26 ]
+  %.merged = phi { ptr, i32 } [ %10, %9 ], [ %27, %26 ], [ %25, %24 ]
   br i1 %4, label %29, label %_ZN10z3_log_ctxD2Ev.exit12, !prof !7
 
 29:                                               ; preds = %.thread, %28
@@ -428,7 +428,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %76, %77
   ret i1 %.0
 
 78:                                               ; preds = %74, %72, %62
-  %.merged = phi { ptr, i32 } [ %73, %72 ], [ %.pn16, %62 ], [ %75, %74 ]
+  %.merged = phi { ptr, i32 } [ %.pn16, %62 ], [ %75, %74 ], [ %73, %72 ]
   br i1 %5, label %79, label %_ZN10z3_log_ctxD2Ev.exit23, !prof !7
 
 79:                                               ; preds = %.thread, %78
@@ -859,7 +859,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %25, %26
   br label %32
 
 32:                                               ; preds = %30, %28, %12
-  %.merged = phi { ptr, i32 } [ %29, %28 ], [ %13, %12 ], [ %31, %30 ]
+  %.merged = phi { ptr, i32 } [ %13, %12 ], [ %31, %30 ], [ %29, %28 ]
   br i1 %5, label %33, label %_ZN10z3_log_ctxD2Ev.exit18, !prof !7
 
 33:                                               ; preds = %.thread, %32

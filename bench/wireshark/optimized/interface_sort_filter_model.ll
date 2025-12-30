@@ -934,7 +934,7 @@ _ZN5QListIiE6appendEi.exit:                       ; preds = %_ZNK23QListSpecialM
   ret void
 
 79:                                               ; preds = %69, %75, %74, %35, %37, %24, %22
-  %.pn19.pn.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %25, %24 ], [ %36, %35 ], [ %38, %37 ], [ %.pn, %69 ], [ %76, %75 ], [ %.pn17, %74 ]
+  %.pn19.pn.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ], [ %38, %37 ], [ %36, %35 ], [ %.pn, %69 ], [ %76, %75 ], [ %.pn17, %74 ]
   call void @_ZN5QListIiED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) #19
   resume { ptr, i32 } %.pn19.pn.pn.pn
 }
@@ -1385,7 +1385,7 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.i: ; preds = %13
   br label %_ZNK24InterfaceSortFilterModel20isInterfaceTypeShownEi.exit
 
 _ZNK24InterfaceSortFilterModel20isInterfaceTypeShownEi.exit: ; preds = %.thread.i, %22
-  %not. = phi i1 [ %26, %22 ], [ %21, %.thread.i ]
+  %not. = phi i1 [ %21, %.thread.i ], [ %26, %22 ]
   tail call void @_ZN24InterfaceSortFilterModel23setInterfaceTypeVisibleEib(ptr noundef align 8 dereferenceable_or_null(72) %0, i32 noundef %1, i1 noundef zeroext %not.)
   ret void
 }
@@ -1437,7 +1437,7 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %13
   br label %27
 
 27:                                               ; preds = %23, %.thread
-  %28 = phi i1 [ %26, %23 ], [ %22, %.thread ]
+  %28 = phi i1 [ %22, %.thread ], [ %26, %23 ]
   ret i1 %28
 }
 
@@ -1465,7 +1465,7 @@ define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel16filterAcceptsRowEiRK1
   br label %_ZNK11QModelIndex7isValidEv.exit
 
 _ZNK11QModelIndex7isValidEv.exit:                 ; preds = %3, %14
-  %18 = phi i1 [ %17, %14 ], [ false, %3 ]
+  %18 = phi i1 [ false, %3 ], [ %17, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %18
 }
@@ -1523,7 +1523,7 @@ define noundef zeroext i1 @_ZNK24InterfaceSortFilterModel19filterAcceptsColumnEi
   br label %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit
 
 _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit: ; preds = %26, %3, %31, %17
-  %.0 = phi i1 [ false, %17 ], [ false, %3 ], [ %35, %31 ], [ false, %26 ]
+  %.0 = phi i1 [ %35, %31 ], [ false, %17 ], [ false, %3 ], [ false, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -1641,7 +1641,7 @@ _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit: 
   br label %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.thread
 
 _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.thread: ; preds = %11, %.preheader, %23, %2, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit
-  %.0 = phi i32 [ -1, %.preheader ], [ -1, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit ], [ -1, %2 ], [ %27, %23 ], [ -1, %11 ]
+  %.0 = phi i32 [ -1, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit ], [ -1, %2 ], [ %27, %23 ], [ -1, %.preheader ], [ -1, %11 ]
   ret i32 %.0
 }
 
@@ -3727,7 +3727,7 @@ _ZSt7find_ifIN5QListIiE14const_iteratorEZN9QtPrivate16sequential_eraseIS1_iEEDaR
   br label %_ZSt7find_ifIN5QListIiE14const_iteratorEZN9QtPrivate16sequential_eraseIS1_iEEDaRT_RKT0_EUlS6_E_ES5_S5_S5_S7_.exit
 
 _ZSt7find_ifIN5QListIiE14const_iteratorEZN9QtPrivate16sequential_eraseIS1_iEEDaRT_RKT0_EUlS6_E_ES5_S5_S5_S7_.exit: ; preds = %13, %_ZSt7find_ifIN5QListIiE14const_iteratorEZN9QtPrivate16sequential_eraseIS1_iEEDaRT_RKT0_EUlS6_E_ES5_S5_S5_S7_.exit.loopexit.split.loop.exit, %_ZSt7find_ifIN5QListIiE14const_iteratorEZN9QtPrivate16sequential_eraseIS1_iEEDaRT_RKT0_EUlS6_E_ES5_S5_S5_S7_.exit.loopexit.split.loop.exit78, %_ZSt7find_ifIN5QListIiE14const_iteratorEZN9QtPrivate16sequential_eraseIS1_iEEDaRT_RKT0_EUlS6_E_ES5_S5_S5_S7_.exit.loopexit.split.loop.exit80, %._crit_edge.i.i.i, %33, %39, %45
-  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.1.i.i.i, %39 ], [ %spec.select.i.i.i, %45 ], [ %7, %._crit_edge.i.i.i ], [ %.sroa.034.0.lcssa.i.i.i, %33 ], [ %51, %_ZSt7find_ifIN5QListIiE14const_iteratorEZN9QtPrivate16sequential_eraseIS1_iEEDaRT_RKT0_EUlS6_E_ES5_S5_S5_S7_.exit.loopexit.split.loop.exit80 ], [ %50, %_ZSt7find_ifIN5QListIiE14const_iteratorEZN9QtPrivate16sequential_eraseIS1_iEEDaRT_RKT0_EUlS6_E_ES5_S5_S5_S7_.exit.loopexit.split.loop.exit78 ], [ %49, %_ZSt7find_ifIN5QListIiE14const_iteratorEZN9QtPrivate16sequential_eraseIS1_iEEDaRT_RKT0_EUlS6_E_ES5_S5_S5_S7_.exit.loopexit.split.loop.exit ], [ %.sroa.034.051.i.i.i, %13 ]
+  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %33 ], [ %.sroa.034.1.i.i.i, %39 ], [ %7, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %45 ], [ %49, %_ZSt7find_ifIN5QListIiE14const_iteratorEZN9QtPrivate16sequential_eraseIS1_iEEDaRT_RKT0_EUlS6_E_ES5_S5_S5_S7_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt7find_ifIN5QListIiE14const_iteratorEZN9QtPrivate16sequential_eraseIS1_iEEDaRT_RKT0_EUlS6_E_ES5_S5_S5_S7_.exit.loopexit.split.loop.exit78 ], [ %51, %_ZSt7find_ifIN5QListIiE14const_iteratorEZN9QtPrivate16sequential_eraseIS1_iEEDaRT_RKT0_EUlS6_E_ES5_S5_S5_S7_.exit.loopexit.split.loop.exit80 ], [ %.sroa.034.051.i.i.i, %13 ]
   %52 = ptrtoint ptr %.sroa.010.0.in.sroa.speculated.i.i.i to i64
   %53 = sub i64 %52, %8
   %54 = ashr exact i64 %53, 2

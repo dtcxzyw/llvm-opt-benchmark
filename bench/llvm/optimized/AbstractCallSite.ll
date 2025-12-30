@@ -163,7 +163,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_3UseELb1EE9push_backES3_.exit: ; preds = 
   %.not22 = icmp eq ptr %87, %34
   br i1 %.not22, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %39
 
-_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %86, %_ZNK4llvm6MDNode8operandsEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %5, %2, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %_ZNK4llvm5Value11getMetadataEj.exit
+_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %86, %_ZNK4llvm6MDNode8operandsEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %2, %5, %_ZNK4llvm5Value11getMetadataEj.exit
   ret void
 }
 
@@ -251,7 +251,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %17
   br label %_ZN4llvm8dyn_castINS_8CallBaseENS_4UserEEEDcPT0_.exit63
 
 _ZN4llvm8dyn_castINS_8CallBaseENS_4UserEEEDcPT0_.exit63: ; preds = %25, %31, %31, %31, %32
-  %.0.i.i62 = phi ptr [ null, %32 ], [ null, %25 ], [ %28, %31 ], [ %28, %31 ], [ %28, %31 ]
+  %.0.i.i62 = phi ptr [ null, %25 ], [ null, %32 ], [ %28, %31 ], [ %28, %31 ], [ %28, %31 ]
   store ptr %.0.i.i62, ptr %0, align 8, !tbaa !60
   br label %thread-pre-split
 
@@ -290,7 +290,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i: ; preds = %44
   %51 = icmp eq ptr %48, %50
   br i1 %51, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, label %52
 
-52:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %42, %44
+52:                                               ; preds = %44, %42, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i
   store ptr null, ptr %0, align 8, !tbaa !60
   br label %.loopexit
 
@@ -626,7 +626,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0

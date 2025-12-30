@@ -116,7 +116,7 @@ define i32 @av_int_list_length_for_size(i32 noundef %0, ptr noundef readonly cap
   unreachable
 
 .loopexit:                                        ; preds = %.preheader36, %22, %15, %10, %3
-  %.0 = phi i32 [ 0, %3 ], [ %.2, %15 ], [ %.3, %22 ], [ %.027, %10 ], [ %.4, %.preheader36 ]
+  %.0 = phi i32 [ 0, %3 ], [ %.027, %10 ], [ %.2, %15 ], [ %.3, %22 ], [ %.4, %.preheader36 ]
   ret i32 %.0
 }
 
@@ -156,7 +156,7 @@ define noundef ptr @av_fourcc_make_string(ptr noundef returned writeonly capture
   br label %11
 
 11:                                               ; preds = %8, %9, %3
-  %12 = phi ptr [ @.str.10, %8 ], [ %10, %9 ], [ @.str.9, %3 ]
+  %12 = phi ptr [ @.str.9, %3 ], [ @.str.10, %8 ], [ %10, %9 ]
   %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.03051, i64 noundef %.03448, ptr noundef nonnull %12, i32 noundef %4) #9
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %21, label %15

@@ -980,7 +980,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit152:                 ; preds = %._crit_edge, %324
   br label %331
 
 331:                                              ; preds = %327, %329
-  %.pn77.pn.pn.pn = phi { ptr, i32 } [ %328, %327 ], [ %330, %329 ]
+  %.pn77.pn.pn.pn = phi { ptr, i32 } [ %330, %329 ], [ %328, %327 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -1170,7 +1170,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc155, %361
   br label %375
 
 375:                                              ; preds = %.loopexit, %.loopexit.split-lp, %257, %374
-  %.pn106 = phi { ptr, i32 } [ %258, %257 ], [ %.pn100.pn.pn.pn, %374 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn106 = phi { ptr, i32 } [ %.pn100.pn.pn.pn, %374 ], [ %258, %257 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %376 = load ptr, ptr %18, align 8, !tbaa !49
   %.not.i.i.i157 = icmp eq ptr %376, null
   br i1 %.not.i.i.i157, label %_ZNSt6vectorIiSaIiEED2Ev.exit158, label %377
@@ -1768,7 +1768,7 @@ select.unfold.i.i:                                ; preds = %23, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %27, %select.unfold.i.i
-  %31 = phi i1 [ %30, %27 ], [ true, %select.unfold.i.i ]
+  %31 = phi i1 [ true, %select.unfold.i.i ], [ %30, %27 ]
   %32 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
           to label %.noexc unwind label %39
 

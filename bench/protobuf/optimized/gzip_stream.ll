@@ -331,7 +331,7 @@ return.sink.split:                                ; preds = %if.end, %if.end57
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end44, %entry, %if.end35, %if.end26, %if.then19, %lor.lhs.false6.critedge
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end35 ], [ false, %lor.lhs.false6.critedge ], [ false, %if.then19 ], [ false, %if.end26 ], [ false, %if.end44 ], [ true, %return.sink.split ]
+  %retval.0 = phi i1 [ false, %lor.lhs.false6.critedge ], [ false, %if.then19 ], [ false, %if.end26 ], [ false, %if.end35 ], [ false, %entry ], [ false, %if.end44 ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -785,7 +785,7 @@ if.then15:                                        ; preds = %if.end, %if.end11
   br label %return
 
 return:                                           ; preds = %if.then15, %if.end11, %if.then5, %entry
-  %retval.0 = phi i1 [ false, %if.then5 ], [ false, %entry ], [ true, %if.end11 ], [ true, %if.then15 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then5 ], [ true, %if.end11 ], [ true, %if.then15 ]
   ret i1 %retval.0
 }
 

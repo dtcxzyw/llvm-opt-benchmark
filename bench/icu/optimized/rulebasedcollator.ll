@@ -262,7 +262,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -857,7 +857,7 @@ _ZN6icu_7712LocalPointerINS_18CollationTailoringEED2Ev.exit40: ; preds = %55, %.
   ret void
 
 _ZN6icu_7712LocalPointerINS_18CollationTailoringEED2Ev.exit: ; preds = %41, %43, %44, %25
-  %.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %42, %41 ], [ %lpad.thr_comm, %44 ], [ %lpad.thr_comm.split-lp, %43 ]
+  %.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %42, %41 ], [ %lpad.thr_comm.split-lp, %43 ], [ %lpad.thr_comm, %44 ]
   tail call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %7) #20
   br label %60
 
@@ -1319,7 +1319,7 @@ _ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit25: ; preds = %_ZN6icu_7712Lo
   resume { ptr, i32 } %.pn
 
 63:                                               ; preds = %9, %15, %._crit_edge, %21, %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit25, %7, %2
-  %.017 = phi i1 [ true, %2 ], [ false, %7 ], [ true, %15 ], [ false, %9 ], [ %.333, %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit25 ], [ false, %21 ], [ true, %._crit_edge ]
+  %.017 = phi i1 [ true, %2 ], [ false, %7 ], [ false, %9 ], [ true, %15 ], [ %.333, %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit25 ], [ false, %21 ], [ true, %._crit_edge ]
   ret i1 %.017
 }
 
@@ -1373,7 +1373,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK6icu_7713UnicodeStringeqERKS0_(ptr n
   br label %36
 
 36:                                               ; preds = %11, %28, %6
-  %.0 = phi i1 [ %10, %6 ], [ %35, %28 ], [ false, %11 ]
+  %.0 = phi i1 [ %10, %6 ], [ false, %11 ], [ %35, %28 ]
   ret i1 %.0
 }
 
@@ -2096,7 +2096,7 @@ define noundef range(i32 -524288, 524288) i32 @_ZNK6icu_7717RuleBasedCollator12g
   br label %43
 
 35:                                               ; preds = %6, %33, %26, %25
-  %.0 = phi i32 [ 2, %33 ], [ 1024, %25 ], [ 1, %26 ], [ 2048, %6 ]
+  %.0 = phi i32 [ 1024, %25 ], [ 1, %26 ], [ 2, %33 ], [ 2048, %6 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !33
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -2173,7 +2173,7 @@ define void @_ZN6icu_7717RuleBasedCollator12setAttributeE13UColAttribute18UColAt
   br label %_ZNK6icu_7717RuleBasedCollator12getAttributeE13UColAttributeR10UErrorCode.exit
 
 36:                                               ; preds = %34, %27, %26, %7
-  %.0.i = phi i32 [ 2, %34 ], [ 1024, %26 ], [ 1, %27 ], [ 2048, %7 ]
+  %.0.i = phi i32 [ 1024, %26 ], [ 1, %27 ], [ 2, %34 ], [ 2048, %7 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !33
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
@@ -2768,7 +2768,7 @@ define noundef i32 @_ZN6icu_7717RuleBasedCollator14setVariableTopEPKDsiR10UError
   resume { ptr, i32 } %.pn
 
 99:                                               ; preds = %91, %92, %4, %19, %12
-  %.036 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %19 ], [ 0, %91 ], [ %97, %92 ]
+  %.036 = phi i32 [ 0, %12 ], [ 0, %19 ], [ 0, %4 ], [ 0, %91 ], [ %97, %92 ]
   ret i32 %.036
 }
 
@@ -3106,7 +3106,7 @@ _ZN6icu_7712SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit: ;
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %43, %6
-  %.0 = phi i32 [ %1, %6 ], [ %19, %43 ], [ %19, %17 ]
+  %.0 = phi i32 [ %1, %6 ], [ %19, %17 ], [ %19, %43 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !34
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
@@ -3155,7 +3155,7 @@ define noundef i32 @_ZN6icu_7717RuleBasedCollator14setVariableTopERKNS_13Unicode
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %9, %11
-  %.0.i = phi ptr [ %13, %11 ], [ %10, %9 ], [ null, %3 ]
+  %.0.i = phi ptr [ %10, %9 ], [ %13, %11 ], [ null, %3 ]
   %14 = icmp slt i16 %5, 0
   %15 = ashr i16 %5, 5
   %16 = sext i16 %15 to i32
@@ -3213,7 +3213,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator15getReorderCodesEPiiR10UError
   br label %27
 
 27:                                               ; preds = %21, %22, %13, %4, %12
-  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ %17, %22 ], [ %17, %21 ], [ 0, %13 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ %17, %21 ], [ %17, %22 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -3381,7 +3381,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareERKNS_13UnicodeStringE
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %7, %13, %15
-  %.0.i = phi ptr [ %17, %15 ], [ %14, %13 ], [ null, %7 ]
+  %.0.i = phi ptr [ %14, %13 ], [ %17, %15 ], [ null, %7 ]
   %18 = icmp slt i16 %9, 0
   %19 = ashr i16 %9, 5
   %20 = sext i16 %19 to i32
@@ -3409,7 +3409,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %7, %13, %15
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit10
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit10:    ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit, %29, %31
-  %.0.i8 = phi ptr [ %33, %31 ], [ %30, %29 ], [ null, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
+  %.0.i8 = phi ptr [ %30, %29 ], [ %33, %31 ], [ null, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
   %34 = icmp slt i16 %25, 0
   %35 = ashr i16 %25, 5
   %36 = sext i16 %35 to i32
@@ -3597,11 +3597,11 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   br label %.critedge
 
 .critedge:                                        ; preds = %89, %.critedge.loopexit.split.loop.exit, %.critedge158.thread, %78, %79, %.critedge158
-  %99 = phi i8 [ %68, %78 ], [ %66, %.critedge158 ], [ %68, %79 ], [ %27, %.critedge158.thread ], [ %68, %.critedge.loopexit.split.loop.exit ], [ %68, %89 ]
-  %100 = phi ptr [ %69, %78 ], [ %60, %.critedge158 ], [ %69, %79 ], [ %21, %.critedge158.thread ], [ %69, %.critedge.loopexit.split.loop.exit ], [ %69, %89 ]
-  %.0125190 = phi ptr [ %.0125198, %78 ], [ %37, %.critedge158 ], [ %.0125198, %79 ], [ null, %.critedge158.thread ], [ %.0125198, %.critedge.loopexit.split.loop.exit ], [ %.0125198, %89 ]
-  %.0131189 = phi ptr [ %.0131196, %78 ], [ %39, %.critedge158 ], [ %.0131196, %79 ], [ null, %.critedge158.thread ], [ %.0131196, %.critedge.loopexit.split.loop.exit ], [ %.0131196, %89 ]
-  %.3129 = phi i32 [ %4, %78 ], [ 0, %.critedge158 ], [ %.1127197, %79 ], [ 0, %.critedge158.thread ], [ %indvars.le, %.critedge.loopexit.split.loop.exit ], [ 0, %89 ]
+  %99 = phi i8 [ %68, %79 ], [ %68, %78 ], [ %66, %.critedge158 ], [ %27, %.critedge158.thread ], [ %68, %.critedge.loopexit.split.loop.exit ], [ %68, %89 ]
+  %100 = phi ptr [ %69, %79 ], [ %69, %78 ], [ %60, %.critedge158 ], [ %21, %.critedge158.thread ], [ %69, %.critedge.loopexit.split.loop.exit ], [ %69, %89 ]
+  %.0125190 = phi ptr [ %.0125198, %79 ], [ %.0125198, %78 ], [ %37, %.critedge158 ], [ null, %.critedge158.thread ], [ %.0125198, %.critedge.loopexit.split.loop.exit ], [ %.0125198, %89 ]
+  %.0131189 = phi ptr [ %.0131196, %79 ], [ %.0131196, %78 ], [ %39, %.critedge158 ], [ null, %.critedge158.thread ], [ %.0131196, %.critedge.loopexit.split.loop.exit ], [ %.0131196, %89 ]
+  %.3129 = phi i32 [ %.1127197, %79 ], [ %4, %78 ], [ 0, %.critedge158 ], [ 0, %.critedge158.thread ], [ %indvars.le, %.critedge.loopexit.split.loop.exit ], [ 0, %89 ]
   %101 = load ptr, ptr %100, align 8, !tbaa !33
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 80
   %103 = load i32, ptr %102, align 8, !tbaa !107
@@ -3985,11 +3985,11 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   br label %278
 
 278:                                              ; preds = %263, %276, %233, %179
-  %.pn153.pn.pn = phi { ptr, i32 } [ %234, %233 ], [ %180, %179 ], [ %264, %263 ], [ %.pn151, %276 ]
+  %.pn153.pn.pn = phi { ptr, i32 } [ %180, %179 ], [ %234, %233 ], [ %264, %263 ], [ %.pn151, %276 ]
   resume { ptr, i32 } %.pn153.pn.pn
 
 .loopexit:                                        ; preds = %.lr.ph168, %._crit_edge, %262, %268, %235, %236, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %._crit_edge ], [ %267, %268 ], [ %.1123, %235 ], [ %261, %262 ], [ 0, %236 ], [ 0, %.lr.ph168 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %._crit_edge ], [ 0, %236 ], [ %.1123, %235 ], [ %261, %262 ], [ %267, %268 ], [ 0, %.lr.ph168 ]
   ret i32 %.0
 }
 
@@ -4047,7 +4047,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareERKNS_13UnicodeStringE
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %32, %34
-  %.0.i = phi ptr [ %36, %34 ], [ %33, %32 ], [ null, %12 ]
+  %.0.i = phi ptr [ %33, %32 ], [ %36, %34 ], [ null, %12 ]
   %37 = and i16 %22, 17
   %.not.i24 = icmp eq i16 %37, 0
   br i1 %.not.i24, label %38, label %_ZNK6icu_7713UnicodeString9getBufferEv.exit27
@@ -4067,12 +4067,12 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %32, %34
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit27
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit27:    ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit, %40, %42
-  %.0.i25 = phi ptr [ %44, %42 ], [ %41, %40 ], [ null, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
+  %.0.i25 = phi ptr [ %41, %40 ], [ %44, %42 ], [ null, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
   %45 = tail call noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %.0.i, i32 noundef %spec.select, ptr noundef %.0.i25, i32 noundef %.0, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %46
 
 46:                                               ; preds = %5, %_ZNK6icu_7713UnicodeString9getBufferEv.exit27, %11
-  %.020 = phi i32 [ %45, %_ZNK6icu_7713UnicodeString9getBufferEv.exit27 ], [ 0, %11 ], [ 0, %5 ]
+  %.020 = phi i32 [ 0, %11 ], [ %45, %_ZNK6icu_7713UnicodeString9getBufferEv.exit27 ], [ 0, %5 ]
   ret i32 %.020
 }
 
@@ -4125,7 +4125,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareEPKDsiS2_iR10UErrorCod
   br label %28
 
 28:                                               ; preds = %6, %26, %15
-  %.0 = phi i32 [ %27, %26 ], [ 0, %15 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %15 ], [ %27, %26 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -4262,8 +4262,8 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   br i1 %47, label %._crit_edge, label %.lr.ph, !llvm.loop !156
 
 .critedge241:                                     ; preds = %.lr.ph309, %.lr.ph, %33, %.lr.ph.preheader, %._crit_edge
-  %.promoted258 = phi i32 [ %34, %33 ], [ %2, %._crit_edge ], [ 0, %.lr.ph.preheader ], [ %.pr273307, %.lr.ph309 ], [ %46, %.lr.ph ]
-  %48 = phi i32 [ %34, %33 ], [ %2, %._crit_edge ], [ %4, %.lr.ph.preheader ], [ %.pr273307, %.lr.ph309 ], [ %4, %.lr.ph ]
+  %.promoted258 = phi i32 [ %2, %._crit_edge ], [ 0, %.lr.ph.preheader ], [ %34, %33 ], [ %46, %.lr.ph ], [ %.pr273307, %.lr.ph309 ]
+  %48 = phi i32 [ %2, %._crit_edge ], [ %4, %.lr.ph.preheader ], [ %34, %33 ], [ %4, %.lr.ph ], [ %.pr273307, %.lr.ph309 ]
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %50, label %.critedge
 
@@ -4611,8 +4611,8 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   br i1 %.not227, label %.critedge2, label %238, !llvm.loop !158
 
 .critedge2:                                       ; preds = %248, %251, %.critedge.thread, %232, %.critedge243, %.critedge
-  %254 = phi i8 [ %30, %.critedge.thread ], [ %80, %.critedge ], [ %80, %232 ], [ %80, %.critedge243 ], [ %80, %251 ], [ %80, %248 ]
-  %255 = phi ptr [ %24, %.critedge.thread ], [ %74, %.critedge ], [ %74, %232 ], [ %74, %.critedge243 ], [ %74, %251 ], [ %74, %248 ]
+  %254 = phi i8 [ %30, %.critedge.thread ], [ %80, %232 ], [ %80, %.critedge243 ], [ %80, %.critedge ], [ %80, %251 ], [ %80, %248 ]
+  %255 = phi ptr [ %24, %.critedge.thread ], [ %74, %232 ], [ %74, %.critedge243 ], [ %74, %.critedge ], [ %74, %251 ], [ %74, %248 ]
   %256 = load ptr, ptr %255, align 8, !tbaa !33
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 80
   %258 = load i32, ptr %257, align 8, !tbaa !107
@@ -5063,12 +5063,12 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKhiS2_iR10UErrorCo
   br label %468
 
 468:                                              ; preds = %416, %466, %381, %333
-  %.pn237.pn = phi { ptr, i32 } [ %382, %381 ], [ %334, %333 ], [ %417, %416 ], [ %467, %466 ]
+  %.pn237.pn = phi { ptr, i32 } [ %334, %333 ], [ %382, %381 ], [ %417, %416 ], [ %467, %466 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn237.pn
 
 .loopexit:                                        ; preds = %.lr.ph257, %384, %383, %465, %415, %._crit_edge
-  %.2 = phi i32 [ 0, %._crit_edge ], [ %464, %465 ], [ %.1160, %383 ], [ %414, %415 ], [ 0, %384 ], [ 0, %.lr.ph257 ]
+  %.2 = phi i32 [ 0, %._crit_edge ], [ 0, %384 ], [ %.1160, %383 ], [ %414, %415 ], [ %464, %465 ], [ 0, %.lr.ph257 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %469
 
@@ -5128,7 +5128,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator19internalCompareUTF8EPKciS2_i
   br label %30
 
 30:                                               ; preds = %6, %28, %15
-  %.0 = phi i32 [ %29, %28 ], [ 0, %15 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %15 ], [ %29, %28 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -5401,7 +5401,7 @@ _ZN6icu_7712_GLOBAL__N_111NFDIterator13nextCodePointEv.exit28: ; preds = %48, %5
   br label %_ZN6icu_7712_GLOBAL__N_111NFDIterator23nextDecomposedCodePointERKNS_15Normalizer2ImplEi.exit
 
 _ZN6icu_7712_GLOBAL__N_111NFDIterator23nextDecomposedCodePointERKNS_15Normalizer2ImplEi.exit: ; preds = %88, %83, %80, %77, %75, %74
-  %.021 = phi i32 [ -1, %75 ], [ -2, %74 ], [ %.04.i, %80 ], [ %.04.i, %77 ], [ %94, %88 ], [ %85, %83 ]
+  %.021 = phi i32 [ -2, %74 ], [ -1, %75 ], [ %.04.i, %77 ], [ %.04.i, %80 ], [ %94, %88 ], [ %85, %83 ]
   %95 = icmp slt i32 %.04.i27, 0
   br i1 %95, label %_ZN6icu_7712_GLOBAL__N_111NFDIterator23nextDecomposedCodePointERKNS_15Normalizer2ImplEi.exit30, label %96
 
@@ -5439,7 +5439,7 @@ _ZN6icu_7712_GLOBAL__N_111NFDIterator23nextDecomposedCodePointERKNS_15Normalizer
   br label %_ZN6icu_7712_GLOBAL__N_111NFDIterator23nextDecomposedCodePointERKNS_15Normalizer2ImplEi.exit30
 
 _ZN6icu_7712_GLOBAL__N_111NFDIterator23nextDecomposedCodePointERKNS_15Normalizer2ImplEi.exit30: ; preds = %109, %104, %101, %98, %96, %_ZN6icu_7712_GLOBAL__N_111NFDIterator23nextDecomposedCodePointERKNS_15Normalizer2ImplEi.exit
-  %.020 = phi i32 [ -1, %96 ], [ -2, %_ZN6icu_7712_GLOBAL__N_111NFDIterator23nextDecomposedCodePointERKNS_15Normalizer2ImplEi.exit ], [ %.04.i27, %101 ], [ %.04.i27, %98 ], [ %115, %109 ], [ %106, %104 ]
+  %.020 = phi i32 [ -2, %_ZN6icu_7712_GLOBAL__N_111NFDIterator23nextDecomposedCodePointERKNS_15Normalizer2ImplEi.exit ], [ -1, %96 ], [ %.04.i27, %98 ], [ %.04.i27, %101 ], [ %115, %109 ], [ %106, %104 ]
   %116 = icmp slt i32 %.021, %.020
   br i1 %116, label %.thread, label %117
 
@@ -5605,7 +5605,7 @@ _ZN6icu_7716ReorderingBufferD2Ev.exit:            ; preds = %56, %58
   br label %82
 
 82:                                               ; preds = %79, %77, %72
-  %.0.i = phi ptr [ %81, %79 ], [ %78, %77 ], [ null, %72 ]
+  %.0.i = phi ptr [ %78, %77 ], [ %81, %79 ], [ null, %72 ]
   store ptr %.0.i, ptr %9, align 8, !tbaa !149
   %83 = icmp slt i16 %73, 0
   %84 = ashr i16 %73, 5
@@ -5779,7 +5779,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareER13UCharIteratorS2_R1
   br i1 %.not88, label %.critedge.thread, label %64, !llvm.loop !182
 
 .critedge.thread:                                 ; preds = %64, %70, %55, %56, %49
-  %.176103 = phi i32 [ %.075.lcssa, %55 ], [ 0, %49 ], [ %.075.lcssa, %56 ], [ %71, %70 ], [ 0, %64 ]
+  %.176103 = phi i32 [ 0, %49 ], [ %.075.lcssa, %56 ], [ %.075.lcssa, %55 ], [ 0, %64 ], [ %71, %70 ]
   %74 = load ptr, ptr %17, align 8, !tbaa !33
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load i32, ptr %75, align 8, !tbaa !105
@@ -6135,11 +6135,11 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator7compareER13UCharIteratorS2_R1
   br label %233
 
 233:                                              ; preds = %185, %231, %151, %108
-  %.pn99.pn = phi { ptr, i32 } [ %152, %151 ], [ %109, %108 ], [ %186, %185 ], [ %232, %231 ]
+  %.pn99.pn = phi { ptr, i32 } [ %109, %108 ], [ %152, %151 ], [ %186, %185 ], [ %232, %231 ]
   resume { ptr, i32 } %.pn99.pn
 
 .critedge.thread104:                              ; preds = %.lr.ph, %184, %230, %153, %154, %4
-  %.0 = phi i32 [ 0, %4 ], [ %183, %184 ], [ %.073, %153 ], [ %229, %230 ], [ 0, %154 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %154 ], [ %.073, %153 ], [ %183, %184 ], [ %229, %230 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -6184,7 +6184,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK6icu_7717RuleBasedCo
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %4, %10, %12
-  %.0.i = phi ptr [ %14, %12 ], [ %11, %10 ], [ null, %4 ]
+  %.0.i = phi ptr [ %11, %10 ], [ %14, %12 ], [ null, %4 ]
   %15 = icmp slt i16 %6, 0
   %16 = ashr i16 %6, 5
   %17 = sext i16 %16 to i32
@@ -6500,7 +6500,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator10getSortKeyERKNS_13UnicodeStr
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %4, %13, %15
-  %.0.i = phi ptr [ %17, %15 ], [ %14, %13 ], [ null, %4 ]
+  %.0.i = phi ptr [ %14, %13 ], [ %17, %15 ], [ null, %4 ]
   %18 = icmp slt i16 %9, 0
   %19 = ashr i16 %9, 5
   %20 = sext i16 %19 to i32
@@ -6762,7 +6762,7 @@ _ZN6icu_7715SortKeyByteSink6AppendEj.exit:        ; preds = %18, %37
   br label %74
 
 74:                                               ; preds = %71, %69, %64
-  %.0.i = phi ptr [ %73, %71 ], [ %70, %69 ], [ null, %64 ]
+  %.0.i = phi ptr [ %70, %69 ], [ %73, %71 ], [ null, %64 ]
   %75 = icmp slt i16 %65, 0
   %76 = ashr i16 %65, 5
   %77 = sext i16 %76 to i32
@@ -7032,7 +7032,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
   br label %124
 
 122:                                              ; preds = %107, %113
-  %.2 = phi i32 [ 0, %107 ], [ %4, %113 ]
+  %.2 = phi i32 [ %4, %113 ], [ 0, %107 ]
   call void @_ZN6icu_7713CollationKeys13LevelCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
@@ -7044,7 +7044,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
   br label %183
 
 124:                                              ; preds = %.thread, %35
-  %.079 = phi i32 [ %.180.ph, %.thread ], [ %36, %35 ]
+  %.079 = phi i32 [ %36, %35 ], [ %.180.ph, %.thread ]
   %125 = icmp eq i32 %.079, 6
   br i1 %125, label %126, label %175
 
@@ -7107,7 +7107,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
   br label %155
 
 155:                                              ; preds = %152, %150, %145
-  %.0.i = phi ptr [ %154, %152 ], [ %151, %150 ], [ null, %145 ]
+  %.0.i = phi ptr [ %151, %150 ], [ %154, %152 ], [ null, %145 ]
   %156 = icmp slt i16 %146, 0
   %157 = ashr i16 %146, 5
   %158 = sext i16 %157 to i32
@@ -7139,8 +7139,8 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
   store i32 %131, ptr %30, align 4, !tbaa !12
   br label %.thread112
 
-.thread112:                                       ; preds = %164, %172
-  %.4.ph = phi i32 [ %4, %172 ], [ 0, %164 ]
+.thread112:                                       ; preds = %172, %164
+  %.4.ph = phi i32 [ 0, %164 ], [ %4, %172 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
@@ -7186,7 +7186,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
   resume { ptr, i32 } %.pn99.pn.pn.pn
 
 184:                                              ; preds = %23, %6, %.loopexit, %22
-  %.065 = phi i32 [ %.3, %.loopexit ], [ 0, %22 ], [ 0, %6 ], [ 0, %23 ]
+  %.065 = phi i32 [ 0, %22 ], [ %.3, %.loopexit ], [ 0, %6 ], [ 0, %23 ]
   ret i32 %.065
 }
 
@@ -7223,7 +7223,7 @@ define void @_ZNK6icu_7717RuleBasedCollator14internalGetCEsERKNS_13UnicodeString
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %9, %15, %17
-  %.0.i = phi ptr [ %19, %17 ], [ %16, %15 ], [ null, %9 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %19, %17 ], [ null, %9 ]
   %20 = icmp slt i16 %11, 0
   %21 = ashr i16 %11, 5
   %22 = sext i16 %21 to i32
@@ -8254,7 +8254,7 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit1
   br label %304
 
 304:                                              ; preds = %5, %303, %20
-  %.047 = phi i32 [ %.148, %303 ], [ 0, %20 ], [ 0, %5 ]
+  %.047 = phi i32 [ 0, %20 ], [ %.148, %303 ], [ 0, %5 ]
   ret i32 %.047
 }
 
@@ -8408,7 +8408,7 @@ _ZNK6icu_7717RuleBasedCollator17initMaxExpansionsER10UErrorCode.exit: ; preds = 
   resume { ptr, i32 } %30
 
 .thread12:                                        ; preds = %16, %21, %28, %25, %_ZNK6icu_7717RuleBasedCollator17initMaxExpansionsER10UErrorCode.exit
-  %.0 = phi ptr [ null, %_ZNK6icu_7717RuleBasedCollator17initMaxExpansionsER10UErrorCode.exit ], [ %22, %25 ], [ null, %28 ], [ null, %21 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %_ZNK6icu_7717RuleBasedCollator17initMaxExpansionsER10UErrorCode.exit ], [ null, %28 ], [ %22, %25 ], [ null, %21 ], [ null, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -8485,7 +8485,7 @@ _ZNK6icu_7717RuleBasedCollator17initMaxExpansionsER10UErrorCode.exit: ; preds = 
   resume { ptr, i32 } %30
 
 .thread12:                                        ; preds = %16, %21, %28, %25, %_ZNK6icu_7717RuleBasedCollator17initMaxExpansionsER10UErrorCode.exit
-  %.0 = phi ptr [ null, %_ZNK6icu_7717RuleBasedCollator17initMaxExpansionsER10UErrorCode.exit ], [ %22, %25 ], [ null, %28 ], [ null, %21 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %_ZNK6icu_7717RuleBasedCollator17initMaxExpansionsER10UErrorCode.exit ], [ null, %28 ], [ %22, %25 ], [ null, %21 ], [ null, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -8836,7 +8836,7 @@ define internal noundef range(i32 -1, 4194304) i32 @_ZN6icu_7712_GLOBAL__N_115UT
   br label %88
 
 88:                                               ; preds = %15, %20, %25, %40, %43, %55, %57, %66, %72, %76, %83, %1, %7
-  %.018 = phi i32 [ -1, %1 ], [ -1, %7 ], [ %18, %15 ], [ %86, %83 ], [ 65533, %76 ], [ 65533, %72 ], [ 65533, %66 ], [ 65533, %57 ], [ 65533, %55 ], [ 65533, %43 ], [ 65533, %40 ], [ 65533, %25 ], [ 65533, %20 ]
+  %.018 = phi i32 [ -1, %7 ], [ -1, %1 ], [ %18, %15 ], [ %86, %83 ], [ 65533, %76 ], [ 65533, %72 ], [ 65533, %66 ], [ 65533, %57 ], [ 65533, %55 ], [ 65533, %43 ], [ 65533, %40 ], [ 65533, %25 ], [ 65533, %20 ]
   ret i32 %.018
 }
 

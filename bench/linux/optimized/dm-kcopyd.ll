@@ -201,7 +201,7 @@ define dso_local void @dm_kcopyd_copy(ptr noundef %0, ptr noundef readonly captu
   br label %.loopexit3
 
 .loopexit3:                                       ; preds = %35, %.critedge, %28, %25
-  %49 = phi i64 [ %.pre, %25 ], [ %30, %.critedge ], [ %30, %28 ], [ %30, %35 ]
+  %49 = phi i64 [ %30, %.critedge ], [ %30, %28 ], [ %.pre, %25 ], [ %30, %35 ]
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 280
   store ptr %5, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 288

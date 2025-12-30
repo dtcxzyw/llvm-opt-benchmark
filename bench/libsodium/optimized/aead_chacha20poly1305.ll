@@ -187,7 +187,7 @@ define dso_local i32 @crypto_aead_chacha20poly1305_decrypt_detached(ptr noundef 
   br label %27
 
 27:                                               ; preds = %9, %25, %24
-  %.0 = phi i32 [ 0, %25 ], [ -1, %24 ], [ %21, %9 ]
+  %.0 = phi i32 [ -1, %24 ], [ 0, %25 ], [ %21, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -270,7 +270,7 @@ define dso_local i32 @crypto_aead_chacha20poly1305_ietf_decrypt_detached(ptr nou
   br label %33
 
 33:                                               ; preds = %9, %31, %30
-  %.0 = phi i32 [ 0, %31 ], [ -1, %30 ], [ %27, %9 ]
+  %.0 = phi i32 [ -1, %30 ], [ 0, %31 ], [ %27, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

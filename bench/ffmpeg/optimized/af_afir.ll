@@ -205,7 +205,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %18, %._crit_edge, %1, %23
-  %.028 = phi i32 [ -12, %._crit_edge ], [ 0, %23 ], [ %11, %1 ], [ -12, %.lr.ph ], [ %19, %18 ]
+  %.028 = phi i32 [ 0, %23 ], [ %11, %1 ], [ -12, %._crit_edge ], [ -12, %.lr.ph ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.028
 }
@@ -444,7 +444,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %.thread, label %28
 
-.thread:                                          ; preds = %.lr.ph, %21, %10, %16
+.thread:                                          ; preds = %.lr.ph, %10, %16, %21
   %.025.ph = phi i32 [ %25, %21 ], [ %19, %16 ], [ %14, %10 ], [ %35, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %43
@@ -1250,7 +1250,7 @@ ir_gain_double.exit.us.i:                         ; preds = %ir_gain_double.exit
   br i1 %exitcond.not.i.i, label %._crit_edge.i341.i, label %.lr.ph.i342.i, !llvm.loop !121
 
 ir_gain_float.exit.i:                             ; preds = %._crit_edge.i341.i, %._crit_edge7.i.i, %391
-  %.019.i.i = phi nsz float [ %401, %._crit_edge.i341.i ], [ %396, %._crit_edge7.i.i ], [ 1.000000e+00, %391 ]
+  %.019.i.i = phi nsz float [ %396, %._crit_edge7.i.i ], [ %401, %._crit_edge.i341.i ], [ 1.000000e+00, %391 ]
   %407 = fpext nsz float %.019.i.i to double
   %408 = getelementptr inbounds nuw double, ptr %387, i64 %indvars.iv514.i
   store double %407, ptr %408, align 8, !tbaa !114
@@ -1889,8 +1889,8 @@ fir_frame.exit:                                   ; preds = %730, %731
   call void @ff_inlink_request_frame(ptr noundef %780) #10
   br label %.thread107
 
-.thread107:                                       ; preds = %25, %314, %335, %322, %86, %621, %466, %.preheader, %select.unfold.i, %74, %70, %check_ir.exit, %776, %757, %778, %774, %764
-  %.1 = phi i32 [ 0, %74 ], [ 0, %764 ], [ 0, %774 ], [ 0, %778 ], [ %.076, %757 ], [ -22, %86 ], [ -1497649742, %776 ], [ 0, %.preheader ], [ -22, %check_ir.exit ], [ 0, %70 ], [ -12, %621 ], [ %.0106.i.ph.i, %select.unfold.i ], [ -12, %466 ], [ -558323010, %322 ], [ -12, %335 ], [ %320, %314 ], [ 0, %25 ]
+.thread107:                                       ; preds = %25, %335, %322, %314, %86, %621, %466, %.preheader, %select.unfold.i, %70, %74, %check_ir.exit, %776, %757, %778, %774, %764
+  %.1 = phi i32 [ 0, %764 ], [ 0, %774 ], [ 0, %778 ], [ %.076, %757 ], [ -1497649742, %776 ], [ -22, %check_ir.exit ], [ 0, %74 ], [ 0, %70 ], [ %.0106.i.ph.i, %select.unfold.i ], [ 0, %.preheader ], [ -12, %466 ], [ -12, %621 ], [ %320, %314 ], [ -558323010, %322 ], [ -12, %335 ], [ -22, %86 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2100,7 +2100,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef initial
   br i1 %exitcond118.not, label %.loopexit, label %.lr.ph.us98, !llvm.loop !155
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us99, %.lr.ph97, %.lr.ph94, %.preheader90, %.preheader, %70, %62, %53, %31, %51, %1
-  %.077 = phi i32 [ %29, %1 ], [ -12, %62 ], [ -12, %53 ], [ -12, %31 ], [ -12, %51 ], [ 0, %.preheader ], [ 0, %70 ], [ 0, %.preheader90 ], [ 0, %.lr.ph97 ], [ 0, %.lr.ph94 ], [ 0, %._crit_edge.us99 ], [ 0, %._crit_edge.us ]
+  %.077 = phi i32 [ %29, %1 ], [ -12, %51 ], [ -12, %31 ], [ -12, %53 ], [ -12, %62 ], [ 0, %70 ], [ 0, %.preheader ], [ 0, %.preheader90 ], [ 0, %.lr.ph94 ], [ 0, %.lr.ph97 ], [ 0, %._crit_edge.us99 ], [ 0, %._crit_edge.us ]
   ret i32 %.077
 }
 

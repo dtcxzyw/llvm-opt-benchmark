@@ -182,8 +182,8 @@ define void @_Z19gmx_stats_add_pointP9gmx_statsdddd(ptr noundef captures(none) %
   br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !19
 
 .loopexit:                                        ; preds = %40, %..loopexit_crit_edge, %11
-  %45 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %32, %11 ], [ %32, %40 ]
-  %46 = phi i32 [ %7, %..loopexit_crit_edge ], [ %33, %11 ], [ %33, %40 ]
+  %45 = phi ptr [ %32, %11 ], [ %.pre, %..loopexit_crit_edge ], [ %32, %40 ]
+  %46 = phi i32 [ %33, %11 ], [ %7, %..loopexit_crit_edge ], [ %33, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %48 = load ptr, ptr %47, align 8, !tbaa !4
   %49 = sext i32 %46 to i64

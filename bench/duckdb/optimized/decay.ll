@@ -449,7 +449,7 @@ decay_npurge_after_interval.exit72:               ; preds = %.lr.ph22.i, %.prehe
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %16, %._crit_edge, %53, %40, %3
-  %.0 = phi i64 [ -1, %3 ], [ %17, %16 ], [ %87, %._crit_edge ], [ %41, %40 ], [ %54, %53 ], [ -1, %15 ]
+  %.0 = phi i64 [ -1, %3 ], [ %17, %16 ], [ %41, %40 ], [ %54, %53 ], [ %87, %._crit_edge ], [ -1, %15 ]
   ret i64 %.0
 }
 

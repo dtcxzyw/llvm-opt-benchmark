@@ -137,8 +137,8 @@ define internal fastcc { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$
   br i1 %exitcond5.not.i, label %._crit_edge.i, label %48
 
 "_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haea8de590561ad32E.exit.thread": ; preds = %42, %._crit_edge.i, %37, %18, %1
-  %.sroa.3.0 = phi i64 [ undef, %18 ], [ undef, %1 ], [ %47, %._crit_edge.i ], [ 1, %37 ], [ 1, %42 ]
-  %.sroa.0.0 = phi i64 [ 0, %18 ], [ 0, %1 ], [ 1, %._crit_edge.i ], [ 1, %37 ], [ 1, %42 ]
+  %.sroa.3.0 = phi i64 [ undef, %1 ], [ undef, %18 ], [ %47, %._crit_edge.i ], [ 1, %37 ], [ 1, %42 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ 0, %18 ], [ 1, %._crit_edge.i ], [ 1, %37 ], [ 1, %42 ]
   %52 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %53 = insertvalue { i64, i64 } %52, i64 %.sroa.3.0, 1
   ret { i64, i64 } %53
@@ -269,8 +269,8 @@ define internal fastcc { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$
   br i1 %exitcond5.not.i, label %._crit_edge.i, label %50
 
 "_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h60caa0fed78f5640E.exit.thread": ; preds = %44, %._crit_edge.i, %39, %20, %1
-  %.sroa.3.0 = phi i64 [ undef, %20 ], [ undef, %1 ], [ %49, %._crit_edge.i ], [ 1, %39 ], [ 1, %44 ]
-  %.sroa.0.0 = phi i64 [ 0, %20 ], [ 0, %1 ], [ 1, %._crit_edge.i ], [ 1, %39 ], [ 1, %44 ]
+  %.sroa.3.0 = phi i64 [ undef, %1 ], [ undef, %20 ], [ %49, %._crit_edge.i ], [ 1, %39 ], [ 1, %44 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ 0, %20 ], [ 1, %._crit_edge.i ], [ 1, %39 ], [ 1, %44 ]
   %54 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %55 = insertvalue { i64, i64 } %54, i64 %.sroa.3.0, 1
   ret { i64, i64 } %55
@@ -541,7 +541,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h1ed583c35318bca
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h925bff5a620c3353E.exit.thread"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h925bff5a620c3353E.exit.thread": ; preds = %60, %81, %128, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17haba23939157fb2e4E.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h925bff5a620c3353E.exit.thread": ; preds = %81, %60, %128, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17haba23939157fb2e4E.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
   ret void
 
 132:                                              ; preds = %155
@@ -853,7 +853,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h241516d29a6d416
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d2f95b6d43ea76E.exit.thread"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d2f95b6d43ea76E.exit.thread": ; preds = %55, %67, %113, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17he918fce4c8d91836E.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d2f95b6d43ea76E.exit.thread": ; preds = %67, %55, %113, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17he918fce4c8d91836E.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
   ret void
 
 117:                                              ; preds = %140
@@ -1169,7 +1169,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h30399892404243b
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he8f0f98d06aad12dE.exit.thread"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he8f0f98d06aad12dE.exit.thread": ; preds = %55, %67, %114, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h6d4ff6f82cc1b60cE.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he8f0f98d06aad12dE.exit.thread": ; preds = %67, %55, %114, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h6d4ff6f82cc1b60cE.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
   ret void
 
 118:                                              ; preds = %141
@@ -2124,7 +2124,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h585875728f85943
   br label %48
 
 48:                                               ; preds = %.split.i.i.i.i.i, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i.i.i.i"
-  %.sroa.3.0.i.ph.i.i.i = phi i64 [ %47, %.split.i.i.i.i.i ], [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i.i.i.i" ]
+  %.sroa.3.0.i.ph.i.i.i = phi i64 [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i.i.i.i" ], [ %47, %.split.i.i.i.i.i ]
   %49 = icmp eq ptr %25, %21
   br i1 %49, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h1fbb8c943e0a4637E.exit", label %50
 
@@ -2211,8 +2211,8 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h585875728f85943
   %90 = add nuw nsw i64 %89, 1
   br label %91
 
-91:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i", %.split.i.i
-  %92 = phi i64 [ %90, %.split.i.i ], [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i" ]
+91:                                               ; preds = %.split.i.i, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i"
+  %92 = phi i64 [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i" ], [ %90, %.split.i.i ]
   store i64 %92, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8
@@ -2620,7 +2620,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h5fed8d3905fc38f
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8505d9bc143a73E.exit.thread"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8505d9bc143a73E.exit.thread": ; preds = %59, %79, %126, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hfaea41e05c4080deE.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8505d9bc143a73E.exit.thread": ; preds = %79, %59, %126, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hfaea41e05c4080deE.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
   ret void
 
 130:                                              ; preds = %153
@@ -3642,7 +3642,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h801db48987db936
   br i1 %exitcond5.not.i.i36, label %._crit_edge.i.i30, label %53
 
 .lr.ph.i.i:                                       ; preds = %47, %._crit_edge.i.i30, %42
-  %.sroa.3.0.i23.ph = phi i64 [ %52, %._crit_edge.i.i30 ], [ 1, %42 ], [ 1, %47 ]
+  %.sroa.3.0.i23.ph = phi i64 [ 1, %42 ], [ %52, %._crit_edge.i.i30 ], [ 1, %47 ]
   %57 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %57)
   %58 = icmp ne ptr %21, null
@@ -3750,12 +3750,12 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h801db48987db936
   br i1 %exitcond5.not.i.i, label %._crit_edge.i.i, label %90
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77da55212cb9b364E.exit": ; preds = %84, %82, %._crit_edge.i.i
-  %.sroa.3.0.i = phi i64 [ 1, %82 ], [ %89, %._crit_edge.i.i ], [ 1, %84 ]
+  %.sroa.3.0.i = phi i64 [ %89, %._crit_edge.i.i ], [ 1, %82 ], [ 1, %84 ]
   %94 = icmp eq ptr %63, %22
   br i1 %94, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h16ee570db44069faE.exit", label %62
 
-"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h16ee570db44069faE.exit": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77da55212cb9b364E.exit", %73, %62, %.lr.ph.i.i, %33, %19
-  %.sroa.0.1 = phi i64 [ 0, %33 ], [ 0, %19 ], [ 0, %.lr.ph.i.i ], [ %64, %62 ], [ %64, %73 ], [ %64, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77da55212cb9b364E.exit" ]
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h16ee570db44069faE.exit": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77da55212cb9b364E.exit", %62, %73, %.lr.ph.i.i, %33, %19
+  %.sroa.0.1 = phi i64 [ 0, %19 ], [ 0, %33 ], [ 0, %.lr.ph.i.i ], [ %64, %73 ], [ %64, %62 ], [ %64, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77da55212cb9b364E.exit" ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %96 = load i64, ptr %95, align 8, !noundef !20
   %97 = add i64 %96, %.sroa.0.1
@@ -4534,7 +4534,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h9fecd4d5fa2031b
   br label %56
 
 56:                                               ; preds = %.split.i.i.i.us.i.i, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.i.i.us.i.i"
-  %.sroa.3.0.i.ph.i.us.i.i = phi i64 [ %55, %.split.i.i.i.us.i.i ], [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.i.i.us.i.i" ]
+  %.sroa.3.0.i.ph.i.us.i.i = phi i64 [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.i.i.us.i.i" ], [ %55, %.split.i.i.i.us.i.i ]
   %57 = icmp eq ptr %25, %21
   br i1 %57, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h9a59f40fe2facbedE.exit", label %58
 
@@ -4644,8 +4644,8 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h9fecd4d5fa2031b
   %110 = add i64 %109, 1
   br label %111
 
-111:                                              ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.i", %.split.i.i
-  %112 = phi i64 [ %110, %.split.i.i ], [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.i" ]
+111:                                              ; preds = %.split.i.i, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.i"
+  %112 = phi i64 [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.i" ], [ %110, %.split.i.i ]
   store i64 %112, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8
@@ -4931,7 +4931,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17ha5333c248501ac4
   br i1 %exitcond5.not.i.i36, label %._crit_edge.i.i30, label %51
 
 .lr.ph.i.i:                                       ; preds = %45, %._crit_edge.i.i30, %40
-  %.sroa.3.0.i23.ph = phi i64 [ %50, %._crit_edge.i.i30 ], [ 1, %40 ], [ 1, %45 ]
+  %.sroa.3.0.i23.ph = phi i64 [ 1, %40 ], [ %50, %._crit_edge.i.i30 ], [ 1, %45 ]
   %55 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %55)
   %56 = icmp ne ptr %21, null
@@ -5037,12 +5037,12 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17ha5333c248501ac4
   br i1 %exitcond5.not.i.i, label %._crit_edge.i.i, label %86
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h43b02ccc6249b90fE.exit": ; preds = %80, %78, %._crit_edge.i.i
-  %.sroa.3.0.i = phi i64 [ 1, %78 ], [ %85, %._crit_edge.i.i ], [ 1, %80 ]
+  %.sroa.3.0.i = phi i64 [ %85, %._crit_edge.i.i ], [ 1, %78 ], [ 1, %80 ]
   %90 = icmp eq ptr %61, %22
   br i1 %90, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h01823de78e563341E.exit", label %60
 
-"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h01823de78e563341E.exit": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h43b02ccc6249b90fE.exit", %69, %60, %.lr.ph.i.i, %31, %19
-  %.sroa.0.1 = phi i64 [ 0, %31 ], [ 0, %19 ], [ 0, %.lr.ph.i.i ], [ %62, %60 ], [ %62, %69 ], [ %62, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h43b02ccc6249b90fE.exit" ]
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h01823de78e563341E.exit": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h43b02ccc6249b90fE.exit", %60, %69, %.lr.ph.i.i, %31, %19
+  %.sroa.0.1 = phi i64 [ 0, %19 ], [ 0, %31 ], [ 0, %.lr.ph.i.i ], [ %62, %69 ], [ %62, %60 ], [ %62, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h43b02ccc6249b90fE.exit" ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %92 = load i64, ptr %91, align 8, !noundef !20
   %93 = add i64 %92, %.sroa.0.1
@@ -5437,7 +5437,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hb00de005b062ed4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h36b1353f83c0713eE.exit.thread"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h36b1353f83c0713eE.exit.thread": ; preds = %55, %67, %114, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hf3bdd6d392761e5aE.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h36b1353f83c0713eE.exit.thread": ; preds = %67, %55, %114, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hf3bdd6d392761e5aE.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
   ret void
 
 118:                                              ; preds = %141
@@ -5778,7 +5778,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hb4899c57f38bc04
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c9aeb59aff019c1E.exit.thread"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c9aeb59aff019c1E.exit.thread": ; preds = %60, %81, %127, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hbcaaf30ea8a289f1E.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c9aeb59aff019c1E.exit.thread": ; preds = %81, %60, %127, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hbcaaf30ea8a289f1E.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
   ret void
 
 131:                                              ; preds = %154
@@ -7031,7 +7031,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hddd3dea0510ac3f
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c562d76973434d3E.exit.thread"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c562d76973434d3E.exit.thread": ; preds = %59, %79, %126, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17he311d8a88ab065adE.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c562d76973434d3E.exit.thread": ; preds = %79, %59, %126, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17he311d8a88ab065adE.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
   ret void
 
 130:                                              ; preds = %153
@@ -7495,7 +7495,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he1b047670b2cb37
   br label %55
 
 55:                                               ; preds = %.split.i.i.i.us.i.i, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.i.i.us.i.i"
-  %.sroa.3.0.i.ph.i.us.i.i = phi i64 [ %54, %.split.i.i.i.us.i.i ], [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.i.i.us.i.i" ]
+  %.sroa.3.0.i.ph.i.us.i.i = phi i64 [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.i.i.us.i.i" ], [ %54, %.split.i.i.i.us.i.i ]
   %56 = icmp eq ptr %25, %21
   br i1 %56, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h1c062784e46c74f0E.exit", label %57
 
@@ -7604,8 +7604,8 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he1b047670b2cb37
   %108 = add i64 %107, 1
   br label %109
 
-109:                                              ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.i", %.split.i.i
-  %110 = phi i64 [ %108, %.split.i.i ], [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.i" ]
+109:                                              ; preds = %.split.i.i, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.i"
+  %110 = phi i64 [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.i" ], [ %108, %.split.i.i ]
   store i64 %110, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8
@@ -8015,7 +8015,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he79b8a6fd7bb185
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d66d832acad046fE.exit.thread"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d66d832acad046fE.exit.thread": ; preds = %60, %81, %128, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17ha37204d90491c1f4E.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d66d832acad046fE.exit.thread": ; preds = %81, %60, %128, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17ha37204d90491c1f4E.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
   ret void
 
 132:                                              ; preds = %155
@@ -8898,7 +8898,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hf9e12a5f1112f41
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbef0fc187f1b5368E.exit.thread"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbef0fc187f1b5368E.exit.thread": ; preds = %59, %78, %125, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h5b4448f732e18ee3E.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbef0fc187f1b5368E.exit.thread": ; preds = %78, %59, %125, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h5b4448f732e18ee3E.exit", %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
   ret void
 
 129:                                              ; preds = %152

@@ -49,7 +49,7 @@ define hidden noundef zeroext i1 @SDL_InitHaptics() local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %2, %0, %4
-  %.0 = phi i1 [ false, %0 ], [ false, %4 ], [ true, %2 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %0 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -301,7 +301,7 @@ SDL_GetHapticIndex.exit._crit_edge:               ; preds = %SDL_GetHapticIndex.
   br label %SDL_SetHapticAutocenter_REAL.exit
 
 SDL_SetHapticAutocenter_REAL.exit:                ; preds = %54, %52, %48, %43, %SDL_GetHapticIndex.exit.thread, %38, %SDL_GetHapticIndex.exit._crit_edge, %19, %10
-  %.0 = phi ptr [ %.02844, %10 ], [ null, %SDL_GetHapticIndex.exit._crit_edge ], [ null, %19 ], [ null, %SDL_GetHapticIndex.exit.thread ], [ %15, %38 ], [ %15, %43 ], [ %15, %48 ], [ %15, %52 ], [ %15, %54 ]
+  %.0 = phi ptr [ %.02844, %10 ], [ null, %19 ], [ null, %SDL_GetHapticIndex.exit._crit_edge ], [ %15, %38 ], [ null, %SDL_GetHapticIndex.exit.thread ], [ %15, %43 ], [ %15, %48 ], [ %15, %52 ], [ %15, %54 ]
   ret ptr %.0
 }
 
@@ -806,7 +806,7 @@ SDL_Haptic_Get_Naxes.exit:                        ; preds = %84, %SDL_Haptic_Nax
   br label %SDL_Haptic_Get_Naxes.exit.thread
 
 SDL_Haptic_Get_Naxes.exit.thread:                 ; preds = %SDL_Haptic_Load_Axes_List.exit.thread.i, %SDL_Haptic_Load_Axes_List.exit.i, %SDL_Haptic_Get_Naxes.exit.thread55, %91, %SDL_Haptic_Get_Naxes.exit
-  %.09.i54 = phi i32 [ -1, %SDL_Haptic_Get_Naxes.exit.thread55 ], [ %.1.i, %91 ], [ %.1.i, %SDL_Haptic_Get_Naxes.exit ], [ -1, %SDL_Haptic_Load_Axes_List.exit.i ], [ -1, %SDL_Haptic_Load_Axes_List.exit.thread.i ]
+  %.09.i54 = phi i32 [ %.1.i, %91 ], [ %.1.i, %SDL_Haptic_Get_Naxes.exit ], [ -1, %SDL_Haptic_Get_Naxes.exit.thread55 ], [ -1, %SDL_Haptic_Load_Axes_List.exit.i ], [ -1, %SDL_Haptic_Load_Axes_List.exit.thread.i ]
   %93 = icmp sgt i32 %39, -1
   %94 = icmp sgt i32 %.09.i54, %39
   %or.cond = and i1 %93, %94
@@ -875,7 +875,7 @@ SDL_Haptic_Get_Naxes.exit.thread:                 ; preds = %SDL_Haptic_Load_Axe
   br label %SDL_SetHapticAutocenter_REAL.exit
 
 SDL_SetHapticAutocenter_REAL.exit:                ; preds = %124, %122, %118, %113, %108, %34, %30, %24, %17, %12
-  %.0 = phi ptr [ %.04364, %17 ], [ null, %12 ], [ null, %30 ], [ null, %34 ], [ null, %24 ], [ %23, %108 ], [ %23, %113 ], [ %23, %118 ], [ %23, %122 ], [ %23, %124 ]
+  %.0 = phi ptr [ %.04364, %17 ], [ null, %30 ], [ null, %34 ], [ null, %24 ], [ null, %12 ], [ %23, %108 ], [ %23, %113 ], [ %23, %118 ], [ %23, %122 ], [ %23, %124 ]
   ret ptr %.0
 }
 
@@ -1181,7 +1181,7 @@ define hidden zeroext i1 @SDL_HapticEffectSupported_REAL(ptr noundef %0, ptr nou
   br label %13
 
 13:                                               ; preds = %7, %6, %4
-  %.0 = phi i1 [ %.not6, %7 ], [ false, %6 ], [ false, %4 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %6 ], [ %.not6, %7 ]
   ret i1 %.0
 }
 
@@ -1272,7 +1272,7 @@ SDL_HapticEffectSupported_REAL.exit:              ; preds = %9
   br label %41
 
 41:                                               ; preds = %33, %._crit_edge, %35, %26, %17, %7, %4
-  %.020 = phi i32 [ -1, %17 ], [ %27, %26 ], [ %36, %35 ], [ -1, %4 ], [ -1, %._crit_edge ], [ -1, %7 ], [ -1, %33 ]
+  %.020 = phi i32 [ -1, %17 ], [ %27, %26 ], [ %36, %35 ], [ -1, %._crit_edge ], [ -1, %7 ], [ -1, %4 ], [ -1, %33 ]
   ret i32 %.020
 }
 
@@ -1347,7 +1347,7 @@ ValidEffect.exit:                                 ; preds = %11, %13
   br label %34
 
 34:                                               ; preds = %ValidEffect.exit, %29, %31, %27, %18, %9, %5
-  %.0 = phi i1 [ %10, %9 ], [ %28, %27 ], [ true, %31 ], [ false, %ValidEffect.exit ], [ %19, %18 ], [ false, %5 ], [ false, %29 ]
+  %.0 = phi i1 [ %10, %9 ], [ %28, %27 ], [ true, %31 ], [ %19, %18 ], [ false, %5 ], [ false, %ValidEffect.exit ], [ false, %29 ]
   ret i1 %.0
 }
 
@@ -1395,7 +1395,7 @@ ValidEffect.exit:                                 ; preds = %11, %13
   br label %23
 
 23:                                               ; preds = %ValidEffect.exit, %17, %9, %5
-  %.0 = phi i1 [ %10, %9 ], [ false, %ValidEffect.exit ], [ %22, %17 ], [ false, %5 ]
+  %.0 = phi i1 [ %10, %9 ], [ false, %5 ], [ false, %ValidEffect.exit ], [ %22, %17 ]
   ret i1 %.0
 }
 
@@ -1443,7 +1443,7 @@ ValidEffect.exit:                                 ; preds = %10, %12
   br label %22
 
 22:                                               ; preds = %ValidEffect.exit, %16, %8, %4
-  %.0 = phi i1 [ %9, %8 ], [ false, %ValidEffect.exit ], [ %21, %16 ], [ false, %4 ]
+  %.0 = phi i1 [ %9, %8 ], [ false, %4 ], [ false, %ValidEffect.exit ], [ %21, %16 ]
   ret i1 %.0
 }
 
@@ -1725,7 +1725,7 @@ define hidden zeroext i1 @SDL_InitHapticRumble_REAL(ptr noundef %0) local_unname
   br label %31
 
 31:                                               ; preds = %27, %6, %25, %4
-  %.0 = phi i1 [ false, %4 ], [ %30, %27 ], [ true, %6 ], [ %26, %25 ]
+  %.0 = phi i1 [ %26, %25 ], [ false, %4 ], [ true, %6 ], [ %30, %27 ]
   ret i1 %.0
 }
 
@@ -1763,7 +1763,7 @@ define hidden zeroext i1 @SDL_PlayHapticRumble_REAL(ptr noundef %0, float nounde
   br label %18
 
 18:                                               ; preds = %13, %15, %17
-  %.022 = phi float [ %1, %15 ], [ 0.000000e+00, %17 ], [ 1.000000e+00, %13 ]
+  %.022 = phi float [ 0.000000e+00, %17 ], [ %1, %15 ], [ 1.000000e+00, %13 ]
   %19 = fmul float %.022, 3.276700e+04
   %20 = fptosi float %19 to i16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1835,7 +1835,7 @@ ValidEffect.exit.i:                               ; preds = %42, %40
   br label %SDL_RunHapticEffect_REAL.exit
 
 SDL_RunHapticEffect_REAL.exit:                    ; preds = %46, %ValidEffect.exit.i, %38, %34, %29, %11, %5
-  %.0 = phi i1 [ %12, %11 ], [ false, %29 ], [ false, %5 ], [ %39, %38 ], [ false, %ValidEffect.exit.i ], [ %51, %46 ], [ false, %34 ]
+  %.0 = phi i1 [ %12, %11 ], [ false, %5 ], [ false, %29 ], [ %39, %38 ], [ false, %34 ], [ false, %ValidEffect.exit.i ], [ %51, %46 ]
   ret i1 %.0
 }
 
@@ -1893,7 +1893,7 @@ ValidEffect.exit.i:                               ; preds = %19
   br label %SDL_StopHapticEffect_REAL.exit
 
 SDL_StopHapticEffect_REAL.exit:                   ; preds = %23, %ValidEffect.exit.i, %17, %13, %9, %3
-  %.0 = phi i1 [ %10, %9 ], [ false, %3 ], [ %18, %17 ], [ false, %ValidEffect.exit.i ], [ %28, %23 ], [ false, %13 ]
+  %.0 = phi i1 [ %10, %9 ], [ false, %3 ], [ %18, %17 ], [ false, %13 ], [ false, %ValidEffect.exit.i ], [ %28, %23 ]
   ret i1 %.0
 }
 

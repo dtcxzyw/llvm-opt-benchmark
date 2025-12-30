@@ -79,13 +79,13 @@ define noundef range(i8 0, 4) i8 @_ZN18ruff_python_trivia8comments15SuppressionK
   store i8 0, ptr %.sroa.521.0..sroa_idx, align 1
   br label %34
 
-.sink.split:                                      ; preds = %90, %97, %80, %.loopexit.i
-  %.sroa.0.1.ph = phi i8 [ 3, %97 ], [ 3, %.loopexit.i ], [ 3, %80 ], [ 2, %90 ]
+.sink.split:                                      ; preds = %90, %97, %.loopexit.i, %80
+  %.sroa.0.1.ph = phi i8 [ 3, %80 ], [ 3, %.loopexit.i ], [ 3, %97 ], [ 2, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %24
 
 24:                                               ; preds = %.sink.split, %25, %32, %11, %20, %22
-  %.sroa.0.1 = phi i8 [ 2, %22 ], [ 0, %25 ], [ 1, %32 ], [ 1, %20 ], [ 0, %11 ], [ %.sroa.0.1.ph, %.sink.split ]
+  %.sroa.0.1 = phi i8 [ 0, %11 ], [ 1, %20 ], [ 2, %22 ], [ 0, %25 ], [ 1, %32 ], [ %.sroa.0.1.ph, %.sink.split ]
   ret i8 %.sroa.0.1
 
 25:                                               ; preds = %18
@@ -173,7 +173,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br i1 %.not12.i.i, label %65, label %63
 
 _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.i.i: ; preds = %.preheader.i.i.i, %52, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i
-  %62 = phi i64 [ %38, %52 ], [ %.pre46.pre.i.i, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i ], [ %38, %.preheader.i.i.i ]
+  %62 = phi i64 [ %.pre46.pre.i.i, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.loopexit20_crit_edge.i.i ], [ %38, %52 ], [ %38, %.preheader.i.i.i ]
   store i64 %62, ptr %.sroa.319.sroa.3.0..sroa.319.0..sroa_idx.sroa_idx, align 8, !alias.scope !8, !noalias !11
   br label %.loopexit.i
 
@@ -239,8 +239,8 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread.i.i: ; preds = %.pr
   br label %85
 
 85:                                               ; preds = %._crit_edge.i.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i"
-  %.sroa.4.0.i = phi i64 [ %83, %._crit_edge.i.i ], [ %76, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i" ]
-  %.sroa.0.0.i31 = phi ptr [ %84, %._crit_edge.i.i ], [ %77, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i" ]
+  %.sroa.4.0.i = phi i64 [ %76, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i" ], [ %83, %._crit_edge.i.i ]
+  %.sroa.0.0.i31 = phi ptr [ %77, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h1631b02891b11fa6E.exit.i" ], [ %84, %._crit_edge.i.i ]
   %86 = call { ptr, i64 } @"_ZN72_$LT$str$u20$as$u20$ruff_python_trivia..whitespace..PythonWhitespace$GT$15trim_whitespace17h5f01c5ac2b735456E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i31, i64 noundef %.sroa.4.0.i)
   %87 = extractvalue { ptr, i64 } %86, 0
   %88 = extractvalue { ptr, i64 } %86, 1
@@ -443,7 +443,7 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia8comments19CommentLinePosition
   br i1 %74, label %32, label %_ZN4core3str11validations23next_code_point_reverse17h33d4a8b7fb08afeaE.exit
 
 _ZN4core3str11validations23next_code_point_reverse17h33d4a8b7fb08afeaE.exit: ; preds = %32, %73, %71, %71
-  %.sroa.0.0 = phi i1 [ true, %71 ], [ false, %73 ], [ true, %71 ], [ true, %32 ]
+  %.sroa.0.0 = phi i1 [ true, %71 ], [ true, %71 ], [ false, %73 ], [ true, %32 ]
   ret i1 %.sroa.0.0
 }
 

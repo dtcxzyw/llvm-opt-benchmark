@@ -930,7 +930,7 @@ h223_mux_check_hdlc.exit:                         ; preds = %44
   br i1 %.not71, label %61, label %59
 
 h223_mux_check_hdlc.exit.thread:                  ; preds = %h223_mux_check_hdlc.exit, %44, %39, %.thread, %26
-  %.17081 = phi i1 [ false, %26 ], [ true, %.thread ], [ true, %44 ], [ true, %h223_mux_check_hdlc.exit ], [ true, %39 ]
+  %.17081 = phi i1 [ true, %.thread ], [ false, %26 ], [ true, %h223_mux_check_hdlc.exit ], [ true, %39 ], [ true, %44 ]
   %.0..0..0..0.29 = load volatile i32, ptr %9, align 4
   %53 = call i32 @tvb_reported_length(ptr noundef %0)
   %54 = icmp ult i32 %.0..0..0..0.29, %53
@@ -1112,8 +1112,8 @@ proto_item_set_generated.exit.i:                  ; preds = %124, %121, %118
   unreachable
 
 .thread.i:                                        ; preds = %proto_item_set_generated.exit.i, %108, %96, %95
-  %.not124134.i = phi i1 [ true, %96 ], [ false, %108 ], [ false, %proto_item_set_generated.exit.i ], [ true, %95 ]
-  %.0110131.i = phi ptr [ null, %96 ], [ %101, %108 ], [ %101, %proto_item_set_generated.exit.i ], [ null, %95 ]
+  %.not124134.i = phi i1 [ false, %108 ], [ false, %proto_item_set_generated.exit.i ], [ true, %96 ], [ true, %95 ]
+  %.0110131.i = phi ptr [ %101, %108 ], [ %101, %proto_item_set_generated.exit.i ], [ null, %96 ], [ null, %95 ]
   %.not125.i = icmp eq i32 %.pre.i, 0
   br i1 %.not125.i, label %186, label %136
 
@@ -1272,8 +1272,8 @@ dissect_mux_payload.exit.i:                       ; preds = %181, %178, %171
   br i1 %.not124134152.i, label %dissect_mux_pdu.exit, label %.thread187.i
 
 .thread187.i:                                     ; preds = %203, %193, %.thread167.i
-  %.2192.i = phi i32 [ %202, %193 ], [ %.1.i, %203 ], [ %.0.i79, %.thread167.i ]
-  %.0110131156191.i = phi ptr [ %.0110131154173185.i, %193 ], [ %.0110131154.i, %203 ], [ %101, %.thread167.i ]
+  %.2192.i = phi i32 [ %.1.i, %203 ], [ %202, %193 ], [ %.0.i79, %.thread167.i ]
+  %.0110131156191.i = phi ptr [ %.0110131154.i, %203 ], [ %.0110131154173185.i, %193 ], [ %101, %.thread167.i ]
   %204 = load i32, ptr @hf_h223_mux_hdlc2, align 4
   %205 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0110131156191.i, i32 noundef %204, ptr noundef %.0..0..0..0.39, i32 noundef %.2192.i, i32 noundef 2, i32 noundef 0)
   br label %dissect_mux_pdu.exit
@@ -1359,7 +1359,7 @@ dissect_mux_pdu.exit:                             ; preds = %.thread187.i, %203,
   br label %239
 
 239:                                              ; preds = %.critedge, %234, %57
-  %.0 = phi i32 [ %238, %234 ], [ %.neg76, %57 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ %.neg76, %57 ], [ %238, %234 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1745,7 +1745,7 @@ define internal fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph71, %17, %29, %32
-  %.3 = phi i32 [ %.05974, %29 ], [ %21, %.lr.ph71 ], [ %37, %32 ], [ %.05974, %17 ], [ %24, %.lr.ph ]
+  %.3 = phi i32 [ %37, %32 ], [ %.05974, %29 ], [ %.05974, %17 ], [ %21, %.lr.ph71 ], [ %24, %.lr.ph ]
   %40 = getelementptr inbounds nuw i8, ptr %.075, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null

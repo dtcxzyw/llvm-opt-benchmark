@@ -585,9 +585,9 @@ define hidden void @_ZN5zxing6qrcode17FinderPatternInfo14calculateSidesENS_3RefI
   br label %84
 
 84:                                               ; preds = %81, %6
-  %.sink46 = phi float [ %., %81 ], [ %30, %6 ]
-  %.sink45 = phi float [ %30, %81 ], [ %54, %6 ]
-  %.sink = phi float [ %.47, %81 ], [ %78, %6 ]
+  %.sink46 = phi float [ %30, %6 ], [ %., %81 ]
+  %.sink45 = phi float [ %54, %6 ], [ %30, %81 ]
+  %.sink = phi float [ %78, %6 ], [ %.47, %81 ]
   store float %.sink46, ptr %3, align 4, !tbaa !20
   store float %.sink45, ptr %4, align 4, !tbaa !20
   store float %.sink, ptr %5, align 4, !tbaa !20

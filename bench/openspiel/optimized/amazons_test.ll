@@ -621,12 +621,12 @@ _ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit40.i: ; preds = %217, %214
   br label %.body.i
 
 common.resume:                                    ; preds = %.body.i53, %687, %.body.i37, %571, %.body.i11, %455, %.body.i1, %342, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn11.pn.pn.i, %.body.i ], [ %.pn.i38, %.body.i37 ], [ %.pn.i, %.body.i1 ], [ %.pn.i12, %.body.i11 ], [ %.pn14.pn.i, %342 ], [ %.pn14.pn.i17, %455 ], [ %.pn23.pn.i, %571 ], [ %.pn23.pn.i59, %687 ], [ %.pn.i54, %.body.i53 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn11.pn.pn.i, %.body.i ], [ %.pn14.pn.i, %342 ], [ %.pn.i, %.body.i1 ], [ %.pn14.pn.i17, %455 ], [ %.pn.i12, %.body.i11 ], [ %.pn23.pn.i, %571 ], [ %.pn.i38, %.body.i37 ], [ %.pn23.pn.i59, %687 ], [ %.pn.i54, %.body.i53 ]
   resume { ptr, i32 } %common.resume.op
 
 .body.i:                                          ; preds = %229, %223, %222, %210, %208, %206, %.body, %.body76, %.body79
-  %.sink.i = phi ptr [ %50, %222 ], [ %47, %208 ], [ %47, %206 ], [ %47, %.body79 ], [ %50, %210 ], [ %50, %.body76 ], [ %55, %223 ], [ %55, %.body ], [ %55, %229 ]
-  %.pn11.pn.pn.i = phi { ptr, i32 } [ %.pn8.i, %222 ], [ %209, %208 ], [ %207, %206 ], [ %64, %.body79 ], [ %211, %210 ], [ %74, %.body76 ], [ %224, %223 ], [ %166, %.body ], [ %.pn11.i, %229 ]
+  %.sink.i = phi ptr [ %47, %206 ], [ %47, %.body79 ], [ %47, %208 ], [ %50, %210 ], [ %50, %.body76 ], [ %50, %222 ], [ %55, %223 ], [ %55, %.body ], [ %55, %229 ]
+  %.pn11.pn.pn.i = phi { ptr, i32 } [ %207, %206 ], [ %64, %.body79 ], [ %209, %208 ], [ %211, %210 ], [ %74, %.body76 ], [ %.pn8.i, %222 ], [ %224, %223 ], [ %166, %.body ], [ %.pn11.i, %229 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #13
   br label %common.resume
 

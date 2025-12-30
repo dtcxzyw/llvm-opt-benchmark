@@ -347,41 +347,41 @@ define hidden noundef zeroext i1 @SDL_GetStorageFileSize_REAL(ptr noundef readon
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   %.not14.i = icmp eq ptr %0, null
-  br i1 %.not14.i, label %5, label %7
+  br i1 %.not14.i, label %SDL_GetStoragePathInfo_REAL.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #6
-  br i1 %6, label %20, label %SDL_GetStoragePathInfo_REAL.exit.thread
-
-7:                                                ; preds = %3
   %.not15.i = icmp eq ptr %1, null
-  br i1 %.not15.i, label %8, label %10
+  br i1 %.not15.i, label %6, label %8
 
-8:                                                ; preds = %7
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.9) #6
-  br i1 %9, label %20, label %SDL_GetStoragePathInfo_REAL.exit.thread
+6:                                                ; preds = %5
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.9) #6
+  br i1 %7, label %20, label %SDL_GetStoragePathInfo_REAL.exit.thread
 
-10:                                               ; preds = %7
-  %11 = tail call fastcc zeroext i1 @ValidateStoragePath(ptr noundef nonnull %1)
-  br i1 %11, label %12, label %SDL_GetStoragePathInfo_REAL.exit.thread
+8:                                                ; preds = %5
+  %9 = tail call fastcc zeroext i1 @ValidateStoragePath(ptr noundef nonnull %1)
+  br i1 %9, label %10, label %SDL_GetStoragePathInfo_REAL.exit.thread
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8
-  %.not16.i = icmp eq ptr %14, null
-  br i1 %.not16.i, label %SDL_GetStoragePathInfo_REAL.exit, label %15
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = load ptr, ptr %11, align 8
+  %.not16.i = icmp eq ptr %12, null
+  br i1 %.not16.i, label %13, label %15
 
-15:                                               ; preds = %12
+13:                                               ; preds = %10
+  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.10) #6
+  br i1 %14, label %20, label %SDL_GetStoragePathInfo_REAL.exit.thread
+
+15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = call zeroext i1 %14(ptr noundef %17, ptr noundef nonnull %1, ptr noundef nonnull %4) #6
+  %18 = call zeroext i1 %12(ptr noundef %17, ptr noundef nonnull %1, ptr noundef nonnull %4) #6
   br i1 %18, label %20, label %SDL_GetStoragePathInfo_REAL.exit.thread
 
-SDL_GetStoragePathInfo_REAL.exit:                 ; preds = %12
-  %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.10) #6
+SDL_GetStoragePathInfo_REAL.exit:                 ; preds = %3
+  %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #6
   br i1 %19, label %20, label %SDL_GetStoragePathInfo_REAL.exit.thread
 
-20:                                               ; preds = %5, %8, %15, %SDL_GetStoragePathInfo_REAL.exit
+20:                                               ; preds = %6, %13, %15, %SDL_GetStoragePathInfo_REAL.exit
   %.not8 = icmp eq ptr %2, null
   br i1 %.not8, label %24, label %21
 
@@ -390,7 +390,7 @@ SDL_GetStoragePathInfo_REAL.exit:                 ; preds = %12
   %23 = load i64, ptr %22, align 8
   br label %.sink.split
 
-SDL_GetStoragePathInfo_REAL.exit.thread:          ; preds = %10, %5, %8, %15, %SDL_GetStoragePathInfo_REAL.exit
+SDL_GetStoragePathInfo_REAL.exit.thread:          ; preds = %8, %6, %13, %15, %SDL_GetStoragePathInfo_REAL.exit
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %24, label %.sink.split
 
@@ -449,7 +449,7 @@ define hidden zeroext i1 @SDL_GetStoragePathInfo_REAL(ptr noundef readonly captu
   br label %21
 
 21:                                               ; preds = %10, %17, %15, %8, %5
-  %.0 = phi i1 [ %20, %17 ], [ %16, %15 ], [ %6, %5 ], [ %9, %8 ], [ false, %10 ]
+  %.0 = phi i1 [ %20, %17 ], [ %16, %15 ], [ %9, %8 ], [ %6, %5 ], [ false, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -492,7 +492,7 @@ define hidden zeroext i1 @SDL_ReadStorageFile_REAL(ptr noundef readonly captures
   br label %21
 
 21:                                               ; preds = %10, %17, %15, %8, %5
-  %.0 = phi i1 [ %20, %17 ], [ %16, %15 ], [ %6, %5 ], [ %9, %8 ], [ false, %10 ]
+  %.0 = phi i1 [ %20, %17 ], [ %16, %15 ], [ %9, %8 ], [ %6, %5 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -584,7 +584,7 @@ define hidden zeroext i1 @SDL_WriteStorageFile_REAL(ptr noundef readonly capture
   br label %21
 
 21:                                               ; preds = %10, %17, %15, %8, %5
-  %.0 = phi i1 [ %20, %17 ], [ %16, %15 ], [ %6, %5 ], [ %9, %8 ], [ false, %10 ]
+  %.0 = phi i1 [ %20, %17 ], [ %16, %15 ], [ %9, %8 ], [ %6, %5 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -626,7 +626,7 @@ define hidden zeroext i1 @SDL_CreateStorageDirectory_REAL(ptr noundef readonly c
   br label %19
 
 19:                                               ; preds = %8, %15, %13, %6, %3
-  %.0 = phi i1 [ %18, %15 ], [ %14, %13 ], [ %4, %3 ], [ %7, %6 ], [ false, %8 ]
+  %.0 = phi i1 [ %18, %15 ], [ %14, %13 ], [ %7, %6 ], [ %4, %3 ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -704,7 +704,7 @@ define hidden zeroext i1 @SDL_RemoveStoragePath_REAL(ptr noundef readonly captur
   br label %19
 
 19:                                               ; preds = %8, %15, %13, %6, %3
-  %.0 = phi i1 [ %18, %15 ], [ %14, %13 ], [ %4, %3 ], [ %7, %6 ], [ false, %8 ]
+  %.0 = phi i1 [ %18, %15 ], [ %14, %13 ], [ %7, %6 ], [ %4, %3 ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -758,7 +758,7 @@ define hidden zeroext i1 @SDL_RenameStoragePath_REAL(ptr noundef readonly captur
   br label %25
 
 25:                                               ; preds = %14, %12, %21, %19, %10, %7, %4
-  %.0 = phi i1 [ %24, %21 ], [ %20, %19 ], [ false, %12 ], [ %5, %4 ], [ %11, %10 ], [ %8, %7 ], [ false, %14 ]
+  %.0 = phi i1 [ %24, %21 ], [ %20, %19 ], [ %11, %10 ], [ %8, %7 ], [ %5, %4 ], [ false, %12 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -812,7 +812,7 @@ define hidden zeroext i1 @SDL_CopyStorageFile_REAL(ptr noundef readonly captures
   br label %25
 
 25:                                               ; preds = %14, %12, %21, %19, %10, %7, %4
-  %.0 = phi i1 [ %24, %21 ], [ %20, %19 ], [ false, %12 ], [ %5, %4 ], [ %11, %10 ], [ %8, %7 ], [ false, %14 ]
+  %.0 = phi i1 [ %24, %21 ], [ %20, %19 ], [ %11, %10 ], [ %8, %7 ], [ %5, %4 ], [ false, %12 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -954,7 +954,7 @@ define internal zeroext i1 @GlobStorageDirectoryGetPathInfo(ptr noundef %0, ptr 
   br label %SDL_GetStoragePathInfo_REAL.exit
 
 SDL_GetStoragePathInfo_REAL.exit:                 ; preds = %5, %8, %10, %15, %17
-  %.0.i = phi i1 [ %20, %17 ], [ %16, %15 ], [ %6, %5 ], [ %9, %8 ], [ false, %10 ]
+  %.0.i = phi i1 [ %20, %17 ], [ %16, %15 ], [ %9, %8 ], [ %6, %5 ], [ false, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.i
 }

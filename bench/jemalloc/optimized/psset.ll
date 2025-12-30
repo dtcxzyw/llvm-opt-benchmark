@@ -519,7 +519,7 @@ sz_psz2ind.exit.i:                                ; preds = %17, %11
   br label %psset_purge_list_ind.exit
 
 psset_purge_list_ind.exit:                        ; preds = %8, %sz_psz2ind.exit.i
-  %.0.i = phi i64 [ %..i, %8 ], [ %36, %sz_psz2ind.exit.i ]
+  %.0.i = phi i64 [ %36, %sz_psz2ind.exit.i ], [ %..i, %8 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 4280
   %38 = getelementptr inbounds nuw %struct.hpdata_purge_list_t, ptr %37, i64 %.0.i
   %39 = load ptr, ptr %38, align 8, !tbaa !34
@@ -647,7 +647,7 @@ sz_psz2ind.exit.i.i:                              ; preds = %22, %16
   br label %psset_purge_list_ind.exit.i
 
 psset_purge_list_ind.exit.i:                      ; preds = %sz_psz2ind.exit.i.i, %13
-  %.0.i.i = phi i64 [ %..i.i, %13 ], [ %41, %sz_psz2ind.exit.i.i ]
+  %.0.i.i = phi i64 [ %41, %sz_psz2ind.exit.i.i ], [ %..i.i, %13 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4280
   %43 = getelementptr inbounds nuw %struct.hpdata_purge_list_t, ptr %42, i64 %.0.i.i
   %.val8.i = load ptr, ptr %43, align 8, !tbaa !34
@@ -1231,7 +1231,7 @@ sz_psz2ind.exit.i.i:                              ; preds = %22, %16
   br label %psset_purge_list_ind.exit.i
 
 psset_purge_list_ind.exit.i:                      ; preds = %sz_psz2ind.exit.i.i, %13
-  %.0.i.i = phi i64 [ %..i.i, %13 ], [ %41, %sz_psz2ind.exit.i.i ]
+  %.0.i.i = phi i64 [ %41, %sz_psz2ind.exit.i.i ], [ %..i.i, %13 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4280
   %43 = getelementptr inbounds nuw %struct.hpdata_purge_list_t, ptr %42, i64 %.0.i.i
   %.val8.i = load ptr, ptr %43, align 8, !tbaa !34

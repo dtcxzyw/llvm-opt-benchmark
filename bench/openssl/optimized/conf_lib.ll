@@ -249,7 +249,7 @@ CONF_set_nconf.exit:                              ; preds = %5, %8
   br label %NCONF_get_section.exit
 
 NCONF_get_section.exit:                           ; preds = %16, %17
-  %.0.i = phi ptr [ %18, %17 ], [ null, %16 ]
+  %.0.i = phi ptr [ null, %16 ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 
@@ -436,8 +436,8 @@ NCONF_get_number_e.exit.thread9:                  ; preds = %18, %NCONF_get_stri
   store ptr %31, ptr @default_CONF_method, align 8, !tbaa !3
   br label %NCONF_get_number_e.exit
 
-NCONF_get_number_e.exit.thread:                   ; preds = %10, %.thread.i
-  %.sink = phi i32 [ 106, %10 ], [ 121, %.thread.i ]
+NCONF_get_number_e.exit.thread:                   ; preds = %.thread.i, %10
+  %.sink = phi i32 [ 121, %.thread.i ], [ 106, %10 ]
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 14, i32 noundef %.sink, ptr noundef null) #15
   %32 = tail call i32 @ERR_pop_to_mark() #15
   br label %42

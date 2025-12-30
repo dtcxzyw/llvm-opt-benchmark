@@ -810,7 +810,7 @@ define void @_ZN4perf11bind_socket17hfdcb78e120bad442E(ptr dead_on_unwind noalia
           to label %252 unwind label %266
 
 .thread236.invoke:                                ; preds = %253, %212, %242, %237, %171, %131, %161, %156
-  %251 = phi ptr [ @anon.4dc3c4321294748c2a0ae678ea7ce742.16, %171 ], [ @anon.4dc3c4321294748c2a0ae678ea7ce742.21, %242 ], [ @anon.4dc3c4321294748c2a0ae678ea7ce742.16, %161 ], [ @anon.4dc3c4321294748c2a0ae678ea7ce742.16, %156 ], [ @anon.4dc3c4321294748c2a0ae678ea7ce742.16, %131 ], [ @anon.4dc3c4321294748c2a0ae678ea7ce742.21, %237 ], [ @anon.4dc3c4321294748c2a0ae678ea7ce742.21, %212 ], [ @anon.4dc3c4321294748c2a0ae678ea7ce742.21, %253 ]
+  %251 = phi ptr [ @anon.4dc3c4321294748c2a0ae678ea7ce742.16, %156 ], [ @anon.4dc3c4321294748c2a0ae678ea7ce742.16, %161 ], [ @anon.4dc3c4321294748c2a0ae678ea7ce742.16, %131 ], [ @anon.4dc3c4321294748c2a0ae678ea7ce742.16, %171 ], [ @anon.4dc3c4321294748c2a0ae678ea7ce742.21, %237 ], [ @anon.4dc3c4321294748c2a0ae678ea7ce742.21, %242 ], [ @anon.4dc3c4321294748c2a0ae678ea7ce742.21, %212 ], [ @anon.4dc3c4321294748c2a0ae678ea7ce742.21, %253 ]
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.4dc3c4321294748c2a0ae678ea7ce742.14, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %251) #15
           to label %.thread236.cont unwind label %266
 
@@ -893,7 +893,7 @@ define void @_ZN4perf11bind_socket17hfdcb78e120bad442E(ptr dead_on_unwind noalia
 265:                                              ; preds = %266
   resume { ptr, i32 } %lpad.thr_comm
 
-266:                                              ; preds = %.thread236.invoke, %76, %243, %230, %223, %78, %71, %254, %.thread231, %205, %69, %64, %181, %179, %115, %162, %149, %142, %62, %55, %172, %.thread219, %124, %56, %53, %101, %99, %97, %92, %90, %88, %83, %80
+266:                                              ; preds = %.thread236.invoke, %76, %243, %230, %223, %254, %.thread231, %205, %181, %179, %115, %162, %149, %142, %172, %.thread219, %124, %101, %99, %97, %92, %90, %88, %83, %80, %78, %71, %69, %64, %62, %55, %56, %53
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr44drop_in_place$LT$socket2..socket..Socket$GT$17h50409811d334c874E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %39) #16

@@ -94,7 +94,7 @@ define ptr @l_Std_Tactic_BVDecide_LRAT_Internal_CNF_lift___lambda__1___boxed(ptr
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %12, %8, %21, %20, %18
-  %.0.i.i5 = phi ptr [ %15, %21 ], [ %15, %18 ], [ %15, %20 ], [ %13, %12 ], [ %11, %8 ]
+  %.0.i.i5 = phi ptr [ %15, %18 ], [ %15, %20 ], [ %15, %21 ], [ %13, %12 ], [ %11, %8 ]
   ret ptr %.0.i.i5
 }
 
@@ -795,7 +795,7 @@ lean_inc.exit:                                    ; preds = %9, %8, %6, %1
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %20, %24, %33, %32, %30
-  %.0.i19 = phi ptr [ %27, %33 ], [ %27, %30 ], [ %27, %32 ], [ %25, %24 ], [ %23, %20 ]
+  %.0.i19 = phi ptr [ %27, %30 ], [ %27, %32 ], [ %27, %33 ], [ %25, %24 ], [ %23, %20 ]
   %34 = load ptr, ptr @l_Std_Tactic_BVDecide_LRAT_Internal_CNF_convertLRAT_x27___closed__1, align 8, !tbaa !6
   %35 = tail call ptr @l_List_filterMapTR_go___at_Std_Tactic_BVDecide_LRAT_Internal_CNF_convertLRAT_x27___spec__1(ptr noundef %.0.i19, ptr noundef %12, ptr noundef %34)
   tail call void @lean_inc_heartbeat() #3

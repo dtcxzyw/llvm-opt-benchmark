@@ -2001,8 +2001,8 @@ _ZN13GrowableArrayIP7oopDescE8allocateEv.exit.i:  ; preds = %.loopexit.i
   br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i, !llvm.loop !34
 
 _ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; preds = %.loopexit.i, %.lr.ph19.preheader.i, %.preheader16.i
-  %.sroa.34.7 = phi ptr [ %106, %.preheader16.i ], [ %106, %.lr.ph19.preheader.i ], [ %.sroa.34.2167, %.loopexit.i ]
-  %.sroa.19.7 = phi i32 [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.sroa.19.2168, %.loopexit.i ]
+  %.sroa.34.7 = phi ptr [ %106, %.lr.ph19.preheader.i ], [ %106, %.preheader16.i ], [ %.sroa.34.2167, %.loopexit.i ]
+  %.sroa.19.7 = phi i32 [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.sroa.19.2168, %.loopexit.i ]
   %119 = sext i32 %.sroa.0.2169 to i64
   %120 = getelementptr inbounds ptr, ptr %.sroa.34.7, i64 %119
   store ptr %90, ptr %120, align 8
@@ -2016,9 +2016,9 @@ _ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit
   unreachable
 
 _ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit: ; preds = %94, %60, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i, %88, %_ZN13RelocIterator14metadata_relocEv.exit, %_ZN11OopRecorder7is_realEP8Metadata.exit, %46
-  %.sroa.34.3 = phi ptr [ %.sroa.34.7, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i ], [ %.sroa.34.2167, %_ZN11OopRecorder7is_realEP8Metadata.exit ], [ %.sroa.34.2167, %_ZN13RelocIterator14metadata_relocEv.exit ], [ %.sroa.34.2167, %46 ], [ %.sroa.34.2167, %88 ], [ %.sroa.34.2167, %60 ], [ %.sroa.34.2167, %94 ]
-  %.sroa.19.3 = phi i32 [ %.sroa.19.7, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i ], [ %.sroa.19.2168, %_ZN11OopRecorder7is_realEP8Metadata.exit ], [ %.sroa.19.2168, %_ZN13RelocIterator14metadata_relocEv.exit ], [ %.sroa.19.2168, %46 ], [ %.sroa.19.2168, %88 ], [ %.sroa.19.2168, %60 ], [ %.sroa.19.2168, %94 ]
-  %.sroa.0.3 = phi i32 [ %99, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i ], [ %.sroa.0.2169, %_ZN11OopRecorder7is_realEP8Metadata.exit ], [ %.sroa.0.2169, %_ZN13RelocIterator14metadata_relocEv.exit ], [ %.sroa.0.2169, %46 ], [ %.sroa.0.2169, %88 ], [ %.sroa.0.2169, %60 ], [ %.sroa.0.2169, %94 ]
+  %.sroa.34.3 = phi ptr [ %.sroa.34.2167, %_ZN11OopRecorder7is_realEP8Metadata.exit ], [ %.sroa.34.2167, %_ZN13RelocIterator14metadata_relocEv.exit ], [ %.sroa.34.2167, %46 ], [ %.sroa.34.2167, %88 ], [ %.sroa.34.7, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i ], [ %.sroa.34.2167, %60 ], [ %.sroa.34.2167, %94 ]
+  %.sroa.19.3 = phi i32 [ %.sroa.19.2168, %_ZN11OopRecorder7is_realEP8Metadata.exit ], [ %.sroa.19.2168, %_ZN13RelocIterator14metadata_relocEv.exit ], [ %.sroa.19.2168, %46 ], [ %.sroa.19.2168, %88 ], [ %.sroa.19.7, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i ], [ %.sroa.19.2168, %60 ], [ %.sroa.19.2168, %94 ]
+  %.sroa.0.3 = phi i32 [ %.sroa.0.2169, %_ZN11OopRecorder7is_realEP8Metadata.exit ], [ %.sroa.0.2169, %_ZN13RelocIterator14metadata_relocEv.exit ], [ %.sroa.0.2169, %46 ], [ %.sroa.0.2169, %88 ], [ %99, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i ], [ %.sroa.0.2169, %60 ], [ %.sroa.0.2169, %94 ]
   %123 = load ptr, ptr %6, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 2
   store ptr %124, ptr %6, align 8
@@ -2211,9 +2211,9 @@ _ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit
   unreachable
 
 _ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit52: ; preds = %183, %149, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i43, %177, %_ZN11OopRecorder7is_realEP8Metadata.exit40
-  %.sroa.34.6 = phi ptr [ %.sroa.34.9, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i43 ], [ %.sroa.34.5215, %_ZN11OopRecorder7is_realEP8Metadata.exit40 ], [ %.sroa.34.5215, %177 ], [ %.sroa.34.5215, %149 ], [ %.sroa.34.5215, %183 ]
-  %.sroa.19.6 = phi i32 [ %.sroa.19.9, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i43 ], [ %.sroa.19.5216, %_ZN11OopRecorder7is_realEP8Metadata.exit40 ], [ %.sroa.19.5216, %177 ], [ %.sroa.19.5216, %149 ], [ %.sroa.19.5216, %183 ]
-  %.sroa.0.6 = phi i32 [ %208, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i43 ], [ %.sroa.0.5217, %_ZN11OopRecorder7is_realEP8Metadata.exit40 ], [ %.sroa.0.5217, %177 ], [ %.sroa.0.5217, %149 ], [ %.sroa.0.5217, %183 ]
+  %.sroa.34.6 = phi ptr [ %.sroa.34.5215, %_ZN11OopRecorder7is_realEP8Metadata.exit40 ], [ %.sroa.34.5215, %177 ], [ %.sroa.34.9, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i43 ], [ %.sroa.34.5215, %149 ], [ %.sroa.34.5215, %183 ]
+  %.sroa.19.6 = phi i32 [ %.sroa.19.5216, %_ZN11OopRecorder7is_realEP8Metadata.exit40 ], [ %.sroa.19.5216, %177 ], [ %.sroa.19.9, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i43 ], [ %.sroa.19.5216, %149 ], [ %.sroa.19.5216, %183 ]
+  %.sroa.0.6 = phi i32 [ %.sroa.0.5217, %_ZN11OopRecorder7is_realEP8Metadata.exit40 ], [ %.sroa.0.5217, %177 ], [ %208, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE6appendERKS1_.exit.i43 ], [ %.sroa.0.5217, %149 ], [ %.sroa.0.5217, %183 ]
   %213 = add nuw nsw i32 %.034218, 1
   %.pre = load ptr, ptr %129, align 8
   %214 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
@@ -3277,7 +3277,7 @@ _ZNK11CodeSection14align_at_startEi.exit:         ; preds = %12, %15, %20
   br label %54
 
 54:                                               ; preds = %52, %43, %46
-  %.035 = phi i32 [ %spec.select, %43 ], [ %spec.select42, %52 ], [ %51, %46 ]
+  %.035 = phi i32 [ %51, %46 ], [ %spec.select, %43 ], [ %spec.select42, %52 ]
   %55 = load i64, ptr @CodeEntryAlignment, align 8
   %56 = trunc i64 %55 to i32
   %57 = tail call noundef i32 @llvm.smax.i32(i32 %56, i32 8)

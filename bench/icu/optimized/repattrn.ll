@@ -173,7 +173,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1411,7 +1411,7 @@ define noundef zeroext i1 @_ZNK6icu_7712RegexPatterneqERKS0_(ptr noundef nonnull
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %46, %29, %24, %61, %109, %104
-  %.0 = phi i1 [ true, %61 ], [ %108, %104 ], [ false, %109 ], [ %28, %24 ], [ %53, %46 ], [ false, %29 ]
+  %.0 = phi i1 [ false, %109 ], [ %108, %104 ], [ true, %61 ], [ %28, %24 ], [ false, %29 ], [ %53, %46 ]
   ret i1 %.0
 }
 

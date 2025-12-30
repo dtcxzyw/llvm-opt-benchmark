@@ -256,7 +256,7 @@ define dso_local zeroext i8 @SDLTest_RandomUint8BoundaryValue(i8 noundef zeroext
   br label %SDLTest_GenerateUnsignedBoundaryValues.exit
 
 SDLTest_GenerateUnsignedBoundaryValues.exit:      ; preds = %7, %34, %.thread.i
-  %.043.i = phi i64 [ %44, %.thread.i ], [ 0, %34 ], [ %..i, %7 ]
+  %.043.i = phi i64 [ 0, %34 ], [ %44, %.thread.i ], [ %..i, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = trunc i64 %.043.i to i8
   ret i8 %45
@@ -350,7 +350,7 @@ define dso_local zeroext i16 @SDLTest_RandomUint16BoundaryValue(i16 noundef zero
   br label %SDLTest_GenerateUnsignedBoundaryValues.exit
 
 SDLTest_GenerateUnsignedBoundaryValues.exit:      ; preds = %7, %34, %.thread.i
-  %.043.i = phi i64 [ %44, %.thread.i ], [ 0, %34 ], [ %..i, %7 ]
+  %.043.i = phi i64 [ 0, %34 ], [ %44, %.thread.i ], [ %..i, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = trunc i64 %.043.i to i16
   ret i16 %45
@@ -444,7 +444,7 @@ define dso_local i32 @SDLTest_RandomUint32BoundaryValue(i32 noundef %0, i32 noun
   br label %SDLTest_GenerateUnsignedBoundaryValues.exit
 
 SDLTest_GenerateUnsignedBoundaryValues.exit:      ; preds = %7, %34, %.thread.i
-  %.043.i = phi i64 [ %44, %.thread.i ], [ 0, %34 ], [ %..i, %7 ]
+  %.043.i = phi i64 [ 0, %34 ], [ %44, %.thread.i ], [ %..i, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = trunc i64 %.043.i to i32
   ret i32 %45
@@ -536,7 +536,7 @@ define dso_local i64 @SDLTest_RandomUint64BoundaryValue(i64 noundef %0, i64 noun
   br label %SDLTest_GenerateUnsignedBoundaryValues.exit
 
 SDLTest_GenerateUnsignedBoundaryValues.exit:      ; preds = %5, %32, %.thread.i
-  %.043.i = phi i64 [ %42, %.thread.i ], [ 0, %32 ], [ %..i, %5 ]
+  %.043.i = phi i64 [ 0, %32 ], [ %42, %.thread.i ], [ %..i, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.043.i
 }
@@ -627,7 +627,7 @@ define dso_local signext i8 @SDLTest_RandomSint8BoundaryValue(i8 noundef signext
   br label %SDLTest_GenerateSignedBoundaryValues.exit
 
 SDLTest_GenerateSignedBoundaryValues.exit:        ; preds = %7, %35, %.thread.i
-  %.045.i = phi i64 [ %45, %.thread.i ], [ -128, %35 ], [ %..i, %7 ]
+  %.045.i = phi i64 [ -128, %35 ], [ %45, %.thread.i ], [ %..i, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %46 = trunc i64 %.045.i to i8
   ret i8 %46
@@ -721,7 +721,7 @@ define dso_local signext i16 @SDLTest_RandomSint16BoundaryValue(i16 noundef sign
   br label %SDLTest_GenerateSignedBoundaryValues.exit
 
 SDLTest_GenerateSignedBoundaryValues.exit:        ; preds = %7, %36, %.thread.i
-  %.045.i = phi i64 [ %46, %.thread.i ], [ -32768, %36 ], [ %..i, %7 ]
+  %.045.i = phi i64 [ -32768, %36 ], [ %46, %.thread.i ], [ %..i, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = trunc i64 %.045.i to i16
   ret i16 %47
@@ -815,7 +815,7 @@ define dso_local i32 @SDLTest_RandomSint32BoundaryValue(i32 noundef %0, i32 noun
   br label %SDLTest_GenerateSignedBoundaryValues.exit
 
 SDLTest_GenerateSignedBoundaryValues.exit:        ; preds = %7, %36, %.thread.i
-  %.045.i = phi i64 [ %46, %.thread.i ], [ -2147483648, %36 ], [ %..i, %7 ]
+  %.045.i = phi i64 [ -2147483648, %36 ], [ %46, %.thread.i ], [ %..i, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = trunc i64 %.045.i to i32
   ret i32 %47
@@ -907,7 +907,7 @@ define dso_local i64 @SDLTest_RandomSint64BoundaryValue(i64 noundef %0, i64 noun
   br label %SDLTest_GenerateSignedBoundaryValues.exit
 
 SDLTest_GenerateSignedBoundaryValues.exit:        ; preds = %5, %32, %.thread.i
-  %.045.i = phi i64 [ %42, %.thread.i ], [ -9223372036854775808, %32 ], [ %..i, %5 ]
+  %.045.i = phi i64 [ -9223372036854775808, %32 ], [ %42, %.thread.i ], [ %..i, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.045.i
 }
@@ -1102,7 +1102,7 @@ define dso_local noalias ptr @SDLTest_RandomAsciiStringWithMaximumLength(i32 nou
   br label %SDLTest_RandomAsciiStringOfSize.exit
 
 SDLTest_RandomAsciiStringOfSize.exit:             ; preds = %._crit_edge.i, %5, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %5 ], [ %13, %._crit_edge.i ]
+  %.0 = phi ptr [ null, %3 ], [ %13, %._crit_edge.i ], [ null, %5 ]
   ret ptr %.0
 }
 

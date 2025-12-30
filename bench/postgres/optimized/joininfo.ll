@@ -81,7 +81,7 @@ list_length.exit29:                               ; preds = %list_length.exit, %
   br label %.critedge30
 
 .critedge30:                                      ; preds = %.lr.ph34, %37, %33, %.critedge
-  %.3 = phi i1 [ false, %.critedge ], [ %38, %37 ], [ false, %33 ], [ true, %.lr.ph34 ]
+  %.3 = phi i1 [ %38, %37 ], [ false, %33 ], [ false, %.critedge ], [ true, %.lr.ph34 ]
   ret i1 %.3
 }
 

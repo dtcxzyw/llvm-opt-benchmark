@@ -1038,7 +1038,7 @@ autofs_mount_busy.exit12.thread:                  ; preds = %276, %269
   br label %.thread15
 
 .thread15:                                        ; preds = %46, %.loopexit24, %291, %173, %autofs_mount_busy.exit.thread, %.loopexit25, %165, %160, %156, %94, %84, %83, %76, %74, %69, %66, %62, %55, %53, %47, %4
-  %294 = phi ptr [ null, %.loopexit25 ], [ %0, %160 ], [ null, %4 ], [ null, %autofs_mount_busy.exit.thread ], [ %0, %46 ], [ %0, %66 ], [ null, %84 ], [ null, %94 ], [ %0, %62 ], [ null, %47 ], [ null, %55 ], [ null, %53 ], [ %0, %83 ], [ null, %69 ], [ null, %76 ], [ null, %74 ], [ %0, %156 ], [ %0, %165 ], [ %289, %.loopexit24 ], [ %289, %291 ], [ null, %173 ]
+  %294 = phi ptr [ null, %.loopexit25 ], [ null, %4 ], [ %0, %46 ], [ %0, %66 ], [ null, %84 ], [ null, %94 ], [ %0, %62 ], [ null, %47 ], [ null, %55 ], [ null, %53 ], [ %0, %83 ], [ null, %69 ], [ null, %76 ], [ null, %74 ], [ %0, %156 ], [ %0, %165 ], [ %0, %160 ], [ null, %autofs_mount_busy.exit.thread ], [ %289, %.loopexit24 ], [ %289, %291 ], [ null, %173 ]
   ret ptr %294
 }
 

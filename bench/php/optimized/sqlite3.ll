@@ -1941,7 +1941,7 @@ zend_string_alloc.exit29:                         ; preds = %3
   br label %30
 
 30:                                               ; preds = %3, %zend_string_alloc.exit29, %zend_string_alloc.exit, %7, %5
-  %.sink = phi i32 [ 262, %zend_string_alloc.exit29 ], [ 262, %zend_string_alloc.exit ], [ 4, %5 ], [ 5, %7 ], [ 1, %3 ]
+  %.sink = phi i32 [ 262, %zend_string_alloc.exit29 ], [ 262, %zend_string_alloc.exit ], [ 5, %7 ], [ 4, %5 ], [ 1, %3 ]
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %.sink, ptr %31, align 8, !tbaa !8
   ret void
@@ -2563,7 +2563,7 @@ zend_call_known_fcc.exit:                         ; preds = %43, %35, %zend_stri
   br label %58
 
 58:                                               ; preds = %zend_call_known_fcc.exit, %54, %55
-  %.013 = phi i32 [ %57, %55 ], [ 0, %54 ], [ 0, %zend_call_known_fcc.exit ]
+  %.013 = phi i32 [ 0, %54 ], [ %57, %55 ], [ 0, %zend_call_known_fcc.exit ]
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #17
   br label %59
 
@@ -3811,7 +3811,7 @@ zval_try_get_tmp_string.exit:                     ; preds = %111
   tail call void (ptr, i32, ptr, ...) @php_sqlite3_error(ptr noundef %147, i32 noundef 0, ptr noundef nonnull @.str.59, i64 noundef %43, i64 noundef %148)
   br label %zend_tmp_string_release.exit
 
-zend_tmp_string_release.exit.thread131:           ; preds = %127, %128, %132, %137, %97, %zend_string_release_ex.exit115, %105, %100, %50, %44, %59, %53, %143, %138, %38, %33, %16
+zend_tmp_string_release.exit.thread131:           ; preds = %127, %128, %132, %137, %97, %zend_string_release_ex.exit115, %105, %100, %50, %44, %59, %53, %143, %138, %33, %38, %16
   %149 = getelementptr inbounds nuw i8, ptr %.092142, i64 %15
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %151 = add i32 %.093141, -1
@@ -3903,10 +3903,10 @@ zend_parse_arg_long_ex.exit:                      ; preds = %27
   br i1 %33, label %.critedge, label %.thread, !prof !146
 
 .thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_str_or_long.exit, %14
-  %.0104 = phi i32 [ 3, %zend_parse_arg_long_ex.exit ], [ 0, %14 ], [ 1, %zend_parse_arg_str_or_long.exit ]
-  %.075103 = phi ptr [ %28, %zend_parse_arg_long_ex.exit ], [ null, %14 ], [ %16, %zend_parse_arg_str_or_long.exit ]
-  %.076102 = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %14 ], [ 28, %zend_parse_arg_str_or_long.exit ]
-  %.078101 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %14 ], [ 9, %zend_parse_arg_str_or_long.exit ]
+  %.0104 = phi i32 [ 1, %zend_parse_arg_str_or_long.exit ], [ 0, %14 ], [ 3, %zend_parse_arg_long_ex.exit ]
+  %.075103 = phi ptr [ %16, %zend_parse_arg_str_or_long.exit ], [ null, %14 ], [ %28, %zend_parse_arg_long_ex.exit ]
+  %.076102 = phi i32 [ 28, %zend_parse_arg_str_or_long.exit ], [ 0, %14 ], [ 0, %zend_parse_arg_long_ex.exit ]
+  %.078101 = phi i32 [ 9, %zend_parse_arg_str_or_long.exit ], [ 1, %14 ], [ 9, %zend_parse_arg_long_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.078101, i32 noundef %.0104, ptr noundef null, i32 noundef %.076102, ptr noundef %.075103) #17
   br label %146
 

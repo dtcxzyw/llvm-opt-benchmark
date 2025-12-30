@@ -928,7 +928,7 @@ _ZNSolsEPFRSoS_E.exit63.i:                        ; preds = %303
   br label %.preheader.i27, !llvm.loop !64
 
 332:                                              ; preds = %.split117.i, %.split114.i, %.split111.i, %.split117.us.i, %.split114.us.i, %.split111.us.i
-  %.pn.pn.i = phi { ptr, i32 } [ %299, %.split111.us.i ], [ %300, %.split114.us.i ], [ %321, %.split111.i ], [ %322, %.split114.i ], [ %328, %.split117.i ], [ %301, %.split117.us.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %321, %.split111.i ], [ %299, %.split111.us.i ], [ %322, %.split114.i ], [ %300, %.split114.us.i ], [ %328, %.split117.i ], [ %301, %.split117.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit.i26
 

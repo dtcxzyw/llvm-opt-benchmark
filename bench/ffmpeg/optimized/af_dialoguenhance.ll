@@ -110,7 +110,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   br label %33
 
 33:                                               ; preds = %28, %10, %16, %22, %3
-  %.08 = phi i32 [ %spec.select, %28 ], [ %8, %3 ], [ %14, %10 ], [ %20, %16 ], [ %26, %22 ]
+  %.08 = phi i32 [ %8, %3 ], [ %14, %10 ], [ %20, %16 ], [ %26, %22 ], [ %spec.select, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.08
@@ -226,7 +226,7 @@ filter_frame.exit:                                ; preds = %21, %32
   br label %56
 
 56:                                               ; preds = %15, %52, %55, %53, %.critedge, %46, %filter_frame.exit
-  %.1 = phi i32 [ 0, %15 ], [ %.0.i, %filter_frame.exit ], [ 0, %46 ], [ %18, %.critedge ], [ 0, %53 ], [ 0, %55 ], [ 0, %52 ]
+  %.1 = phi i32 [ %.0.i, %filter_frame.exit ], [ 0, %46 ], [ 0, %15 ], [ %18, %.critedge ], [ 0, %53 ], [ 0, %55 ], [ 0, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -393,7 +393,7 @@ define internal i32 @config_input(ptr noundef %0) #1 {
   br label %de_tx_init_float.exit
 
 de_tx_init_float.exit:                            ; preds = %60, %._crit_edge.i, %88, %93
-  %.029.i = phi i32 [ -12, %60 ], [ %78, %._crit_edge.i ], [ %..i, %93 ], [ %91, %88 ]
+  %.029.i = phi i32 [ -12, %60 ], [ %78, %._crit_edge.i ], [ %91, %88 ], [ %..i, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %136
@@ -468,13 +468,13 @@ de_tx_init_float.exit:                            ; preds = %60, %._crit_edge.i,
   br label %de_tx_init_double.exit
 
 de_tx_init_double.exit:                           ; preds = %98, %._crit_edge.i46, %126, %131
-  %.029.i48 = phi i32 [ -12, %98 ], [ %117, %._crit_edge.i46 ], [ %..i47, %131 ], [ %129, %126 ]
+  %.029.i48 = phi i32 [ -12, %98 ], [ %117, %._crit_edge.i46 ], [ %129, %126 ], [ %..i47, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %136
 
 136:                                              ; preds = %57, %de_tx_init_float.exit, %de_tx_init_double.exit, %1, %49, %51, %53, %55
-  %.037 = phi i32 [ -12, %1 ], [ -12, %55 ], [ -12, %53 ], [ -12, %51 ], [ -12, %49 ], [ undef, %57 ], [ %.029.i, %de_tx_init_float.exit ], [ %.029.i48, %de_tx_init_double.exit ]
+  %.037 = phi i32 [ -12, %55 ], [ -12, %53 ], [ -12, %51 ], [ -12, %49 ], [ -12, %1 ], [ undef, %57 ], [ %.029.i, %de_tx_init_float.exit ], [ %.029.i48, %de_tx_init_double.exit ]
   ret i32 %.037
 }
 

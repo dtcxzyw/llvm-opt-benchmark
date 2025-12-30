@@ -508,8 +508,8 @@ proto_item_set_generated.exit141.i:               ; preds = %148, %145, %proto_i
   br label %proto_item_set_generated.exit135.i
 
 proto_item_set_generated.exit135.i:               ; preds = %proto_item_set_generated.exit141.i, %126, %123, %proto_item_set_generated.exit.i, %93
-  %.2.i = phi i32 [ %.0126.i, %93 ], [ %.3.i, %proto_item_set_generated.exit141.i ], [ %.3.i, %proto_item_set_generated.exit.i ], [ %.3.i, %123 ], [ %.3.i, %126 ]
-  %.0.i = phi i32 [ 0, %93 ], [ %.1.i, %proto_item_set_generated.exit141.i ], [ %.1.i, %proto_item_set_generated.exit.i ], [ %.1.i, %123 ], [ %.1.i, %126 ]
+  %.2.i = phi i32 [ %.3.i, %proto_item_set_generated.exit141.i ], [ %.0126.i, %93 ], [ %.3.i, %proto_item_set_generated.exit.i ], [ %.3.i, %123 ], [ %.3.i, %126 ]
+  %.0.i = phi i32 [ %.1.i, %proto_item_set_generated.exit141.i ], [ 0, %93 ], [ %.1.i, %proto_item_set_generated.exit.i ], [ %.1.i, %123 ], [ %.1.i, %126 ]
   %153 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.1, i32 noundef %.2.i)
   switch i8 %54, label %dissect_gfp_payload.exit [
     i8 0, label %154

@@ -656,7 +656,7 @@ define dso_local void @ResolveRecoveryConflictWithLock(i64 %0, i64 %1, i1 nounde
   br label %GetStandbyLimitTime.exit
 
 GetStandbyLimitTime.exit:                         ; preds = %11, %14, %19, %22
-  %.0.i = phi i64 [ %26, %22 ], [ %18, %14 ], [ 0, %11 ], [ 0, %19 ]
+  %.0.i = phi i64 [ %18, %14 ], [ %26, %22 ], [ 0, %11 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %27 = call i64 @GetCurrentTimestamp() #6
@@ -813,7 +813,7 @@ define dso_local void @ResolveRecoveryConflictWithBufferPin() local_unnamed_addr
   br label %GetStandbyLimitTime.exit
 
 GetStandbyLimitTime.exit:                         ; preds = %6, %9, %14, %17
-  %.0.i = phi i64 [ %21, %17 ], [ %13, %9 ], [ 0, %6 ], [ 0, %14 ]
+  %.0.i = phi i64 [ %13, %9 ], [ %21, %17 ], [ 0, %6 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %22 = call i64 @GetCurrentTimestamp() #6

@@ -57,7 +57,7 @@ define internal noalias ptr @eddsa_newctx(ptr noundef %0, ptr readnone captures(
   br label %9
 
 9:                                                ; preds = %4, %2, %7
-  %.0 = phi ptr [ null, %2 ], [ %5, %7 ], [ null, %4 ]
+  %.0 = phi ptr [ %5, %7 ], [ null, %2 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -87,7 +87,7 @@ define internal range(i32 0, 2) i32 @ed25519_signverify_message_init(ptr noundef
   br label %eddsa_setup_instance.exit.thread
 
 eddsa_setup_instance.exit.thread:                 ; preds = %5, %10, %3
-  %17 = phi i32 [ %16, %10 ], [ 0, %3 ], [ 0, %5 ]
+  %17 = phi i32 [ 0, %3 ], [ %16, %10 ], [ 0, %5 ]
   ret i32 %17
 }
 
@@ -306,7 +306,7 @@ define internal i32 @ed25519_verify(ptr noundef %0, ptr noundef %1, i64 noundef 
   br label %46
 
 46:                                               ; preds = %5, %30, %29, %27, %25
-  %.0 = phi i32 [ 0, %29 ], [ 0, %27 ], [ %45, %30 ], [ 0, %25 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %27 ], [ %45, %30 ], [ 0, %25 ], [ 0, %29 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -364,7 +364,7 @@ define internal ptr @eddsa_dupctx(ptr noundef readonly captures(none) %0) #0 {
   br label %15
 
 15:                                               ; preds = %3, %1, %12, %13
-  %.0 = phi ptr [ null, %1 ], [ %4, %13 ], [ null, %12 ], [ null, %3 ]
+  %.0 = phi ptr [ %4, %13 ], [ null, %12 ], [ null, %1 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -399,7 +399,7 @@ define internal range(i32 0, 2) i32 @ed25519_signverify_init(ptr noundef %0, ptr
   br label %eddsa_setup_instance.exit.thread
 
 eddsa_setup_instance.exit.thread:                 ; preds = %5, %10, %3
-  %17 = phi i32 [ %16, %10 ], [ 0, %3 ], [ 0, %5 ]
+  %17 = phi i32 [ 0, %3 ], [ %16, %10 ], [ 0, %5 ]
   ret i32 %17
 }
 
@@ -468,7 +468,7 @@ eddsa_signverify_init.exit:                       ; preds = %8
   br label %eddsa_signverify_init.exit.thread
 
 eddsa_signverify_init.exit.thread:                ; preds = %18, %14, %.split12, %eddsa_signverify_init.exit, %23, %15, %7
-  %.0 = phi i32 [ 0, %7 ], [ %16, %15 ], [ 0, %14 ], [ 0, %eddsa_signverify_init.exit ], [ %28, %23 ], [ 0, %.split12 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %7 ], [ %16, %15 ], [ 0, %eddsa_signverify_init.exit ], [ %28, %23 ], [ 0, %.split12 ], [ 0, %14 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -508,7 +508,7 @@ define internal range(i32 0, 2) i32 @eddsa_get_ctx_params(ptr noundef %0, ptr no
   br label %14
 
 14:                                               ; preds = %6, %2, %13
-  %.0 = phi i32 [ 0, %2 ], [ 1, %13 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %13 ], [ 0, %2 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -702,13 +702,13 @@ eddsa_setup_instance.exit:                        ; preds = %eddsa_setup_instanc
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ossl_param_is_empty.exit.thread
 
-.critedge:                                        ; preds = %17, %73, %16
+.critedge:                                        ; preds = %73, %17, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %7, %87, %.critedge37, %93, %.critedge, %ossl_param_is_empty.exit, %2
-  %.026 = phi i32 [ 0, %.critedge ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %93 ], [ 1, %.critedge37 ], [ 1, %87 ], [ 1, %7 ]
+  %.026 = phi i32 [ 0, %93 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %.critedge ], [ 1, %.critedge37 ], [ 1, %87 ], [ 1, %7 ]
   ret i32 %.026
 }
 
@@ -743,7 +743,7 @@ define internal range(i32 0, 2) i32 @ed25519ph_signverify_message_init(ptr nound
   br label %eddsa_setup_instance.exit.thread
 
 eddsa_setup_instance.exit.thread:                 ; preds = %5, %10, %3
-  %17 = phi i32 [ %16, %10 ], [ 0, %3 ], [ 0, %5 ]
+  %17 = phi i32 [ 0, %3 ], [ %16, %10 ], [ 0, %5 ]
   ret i32 %17
 }
 
@@ -773,7 +773,7 @@ define internal range(i32 0, 2) i32 @ed25519ph_signverify_init(ptr noundef %0, p
   br label %eddsa_setup_instance.exit.thread
 
 eddsa_setup_instance.exit.thread:                 ; preds = %5, %10, %3
-  %17 = phi i32 [ %16, %10 ], [ 0, %3 ], [ 0, %5 ]
+  %17 = phi i32 [ 0, %3 ], [ %16, %10 ], [ 0, %5 ]
   ret i32 %17
 }
 
@@ -808,7 +808,7 @@ define internal range(i32 0, 2) i32 @ed25519ctx_signverify_message_init(ptr noun
   br label %eddsa_setup_instance.exit.thread
 
 eddsa_setup_instance.exit.thread:                 ; preds = %5, %10, %3
-  %17 = phi i32 [ %16, %10 ], [ 0, %3 ], [ 0, %5 ]
+  %17 = phi i32 [ 0, %3 ], [ %16, %10 ], [ 0, %5 ]
   ret i32 %17
 }
 
@@ -838,7 +838,7 @@ define internal range(i32 0, 2) i32 @ed448_signverify_message_init(ptr noundef %
   br label %eddsa_setup_instance.exit.thread
 
 eddsa_setup_instance.exit.thread:                 ; preds = %5, %10, %3
-  %17 = phi i32 [ %16, %10 ], [ 0, %3 ], [ 0, %5 ]
+  %17 = phi i32 [ 0, %3 ], [ %16, %10 ], [ 0, %5 ]
   ret i32 %17
 }
 
@@ -953,7 +953,7 @@ define internal range(i32 0, 2) i32 @ed448_sign(ptr noundef %0, ptr noundef %1, 
   br label %51
 
 51:                                               ; preds = %28, %6, %50, %49, %34, %32, %21, %16, %13
-  %.0 = phi i32 [ 1, %13 ], [ 0, %16 ], [ 0, %21 ], [ 0, %32 ], [ 0, %49 ], [ 1, %50 ], [ 0, %6 ], [ 0, %34 ], [ 0, %28 ]
+  %.0 = phi i32 [ 1, %13 ], [ 0, %16 ], [ 0, %21 ], [ 0, %32 ], [ 0, %49 ], [ 1, %50 ], [ 0, %34 ], [ 0, %6 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -1028,7 +1028,7 @@ define internal i32 @ed448_verify(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br label %37
 
 37:                                               ; preds = %18, %5, %25, %24, %22
-  %.0 = phi i32 [ 0, %24 ], [ 0, %22 ], [ %36, %25 ], [ 0, %5 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %22 ], [ %36, %25 ], [ 0, %24 ], [ 0, %5 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1064,7 +1064,7 @@ define internal range(i32 0, 2) i32 @ed448_signverify_init(ptr noundef %0, ptr n
   br label %eddsa_setup_instance.exit.thread
 
 eddsa_setup_instance.exit.thread:                 ; preds = %5, %10, %3
-  %17 = phi i32 [ %16, %10 ], [ 0, %3 ], [ 0, %5 ]
+  %17 = phi i32 [ 0, %3 ], [ %16, %10 ], [ 0, %5 ]
   ret i32 %17
 }
 
@@ -1133,7 +1133,7 @@ eddsa_signverify_init.exit:                       ; preds = %8
   br label %eddsa_signverify_init.exit.thread
 
 eddsa_signverify_init.exit.thread:                ; preds = %18, %14, %.split12, %eddsa_signverify_init.exit, %23, %15, %7
-  %.0 = phi i32 [ 0, %7 ], [ %16, %15 ], [ 0, %14 ], [ 0, %eddsa_signverify_init.exit ], [ %28, %23 ], [ 0, %.split12 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %7 ], [ %16, %15 ], [ 0, %eddsa_signverify_init.exit ], [ %28, %23 ], [ 0, %.split12 ], [ 0, %14 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -1175,7 +1175,7 @@ define internal range(i32 0, 2) i32 @ed448ph_signverify_message_init(ptr noundef
   br label %eddsa_setup_instance.exit.thread
 
 eddsa_setup_instance.exit.thread:                 ; preds = %5, %10, %3
-  %17 = phi i32 [ %16, %10 ], [ 0, %3 ], [ 0, %5 ]
+  %17 = phi i32 [ 0, %3 ], [ %16, %10 ], [ 0, %5 ]
   ret i32 %17
 }
 
@@ -1205,7 +1205,7 @@ define internal range(i32 0, 2) i32 @ed448ph_signverify_init(ptr noundef %0, ptr
   br label %eddsa_setup_instance.exit.thread
 
 eddsa_setup_instance.exit.thread:                 ; preds = %5, %10, %3
-  %17 = phi i32 [ %16, %10 ], [ 0, %3 ], [ 0, %5 ]
+  %17 = phi i32 [ 0, %3 ], [ %16, %10 ], [ 0, %5 ]
   ret i32 %17
 }
 
@@ -1320,7 +1320,7 @@ define internal fastcc range(i32 0, 2) i32 @eddsa_signverify_init(ptr noundef %0
   br label %38
 
 38:                                               ; preds = %.thread41, %32, %35, %37, %2, %28, %10, %7
-  %.028 = phi i32 [ 0, %7 ], [ 0, %28 ], [ 0, %2 ], [ 0, %10 ], [ 1, %37 ], [ 1, %35 ], [ 1, %32 ], [ 1, %.thread41 ]
+  %.028 = phi i32 [ 0, %7 ], [ 0, %28 ], [ 0, %10 ], [ 0, %2 ], [ 1, %37 ], [ 1, %35 ], [ 1, %32 ], [ 1, %.thread41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.028
 }
@@ -1404,7 +1404,7 @@ define internal fastcc range(i32 0, 2) i32 @ed448_shake256(ptr noundef %0, ptr n
   br label %15
 
 15:                                               ; preds = %13, %9, %11, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ %spec.select, %13 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %11 ], [ 0, %9 ], [ %spec.select, %13 ]
   tail call void @EVP_MD_CTX_free(ptr noundef %5) #6
   tail call void @EVP_MD_free(ptr noundef %6) #6
   ret i32 %.0

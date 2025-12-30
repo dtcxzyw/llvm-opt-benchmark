@@ -258,7 +258,7 @@ define internal range(i32 -1, 2) i32 @cmppair(ptr noundef readonly captures(none
   br label %16
 
 16:                                               ; preds = %14, %8, %6, %2
-  %.0 = phi i32 [ 1, %8 ], [ 1, %2 ], [ -1, %6 ], [ %., %14 ]
+  %.0 = phi i32 [ 1, %2 ], [ -1, %6 ], [ 1, %8 ], [ %., %14 ]
   ret i32 %.0
 }
 
@@ -326,7 +326,7 @@ define internal range(i32 -1, 2) i32 @cmpmpair(ptr noundef readonly captures(non
   br label %16
 
 16:                                               ; preds = %14, %8, %6, %2
-  %.0 = phi i32 [ 1, %8 ], [ 1, %2 ], [ -1, %6 ], [ %., %14 ]
+  %.0 = phi i32 [ 1, %2 ], [ -1, %6 ], [ 1, %8 ], [ %., %14 ]
   ret i32 %.0
 }
 

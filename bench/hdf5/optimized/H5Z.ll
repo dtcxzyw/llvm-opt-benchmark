@@ -887,7 +887,7 @@ H5Z__check_unregister.exit:                       ; preds = %50
   br label %H5Z__check_unregister.exit.thread20
 
 H5Z__check_unregister.exit.thread20:              ; preds = %34, %H5Z__check_unregister.exit, %61, %57
-  %.1 = phi i32 [ 1, %61 ], [ 0, %H5Z__check_unregister.exit ], [ -1, %57 ], [ 0, %34 ]
+  %.1 = phi i32 [ -1, %57 ], [ 1, %61 ], [ 0, %H5Z__check_unregister.exit ], [ 0, %34 ]
   %.not25 = icmp eq i64 %28, 0
   br i1 %.not25, label %.thread, label %63
 
@@ -1006,7 +1006,7 @@ H5Z__check_unregister.exit:                       ; preds = %50
   br label %H5Z__check_unregister.exit.thread20
 
 H5Z__check_unregister.exit.thread20:              ; preds = %34, %H5Z__check_unregister.exit, %61, %57
-  %.1 = phi i32 [ 1, %61 ], [ 0, %H5Z__check_unregister.exit ], [ -1, %57 ], [ 0, %34 ]
+  %.1 = phi i32 [ -1, %57 ], [ 1, %61 ], [ 0, %H5Z__check_unregister.exit ], [ 0, %34 ]
   %.not25 = icmp eq i64 %28, 0
   br i1 %.not25, label %.thread, label %63
 
@@ -1296,7 +1296,7 @@ define range(i32 -1, 2) i32 @H5Z_filter_avail(i32 noundef %0) local_unnamed_addr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %28, %11, %31, %._crit_edge, %15
-  %.0 = phi i32 [ -1, %11 ], [ 0, %15 ], [ -1, %31 ], [ 1, %28 ], [ 0, %._crit_edge ], [ 1, %22 ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %31 ], [ 0, %._crit_edge ], [ 0, %15 ], [ 1, %28 ], [ 1, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1512,7 +1512,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__prepare_prelude_callback_dcpl(
   br label %.thread69
 
 .thread69:                                        ; preds = %32, %28, %21, %.thread65, %.thread61, %77, %78, %81
-  %.774 = phi i32 [ -1, %81 ], [ -1, %.thread65 ], [ %.344.ph, %.thread61 ], [ %.546, %77 ], [ %.546, %78 ], [ -1, %21 ], [ -1, %28 ], [ 0, %32 ]
+  %.774 = phi i32 [ -1, %.thread65 ], [ %.344.ph, %.thread61 ], [ %.546, %77 ], [ %.546, %78 ], [ -1, %81 ], [ -1, %21 ], [ -1, %28 ], [ 0, %32 ]
   %85 = call ptr @H5MM_xfree(ptr noundef nonnull %12) #9
   br label %86
 
@@ -1813,8 +1813,8 @@ define internal fastcc range(i32 -1, 2) i32 @H5Z__prelude_callback(ptr noundef r
   %108 = icmp ult i64 %106, %107
   br i1 %108, label %.lr.ph.split, label %.thread61, !llvm.loop !68
 
-.thread61:                                        ; preds = %105, %42, %.preheader, %.thread66, %.split83.us, %95, %.thread, %83, %5, %63, %.split.us
-  %.040 = phi i32 [ -1, %.split.us ], [ 1, %5 ], [ -1, %63 ], [ -1, %95 ], [ -1, %.thread66 ], [ -1, %83 ], [ -1, %.thread ], [ -1, %.split83.us ], [ 1, %.preheader ], [ 1, %42 ], [ 1, %105 ]
+.thread61:                                        ; preds = %105, %42, %.preheader, %.thread66, %.split83.us, %.thread, %95, %83, %5, %63, %.split.us
+  %.040 = phi i32 [ -1, %.split.us ], [ -1, %63 ], [ 1, %5 ], [ -1, %83 ], [ -1, %95 ], [ -1, %.thread ], [ -1, %.split83.us ], [ -1, %.thread66 ], [ 1, %.preheader ], [ 1, %42 ], [ 1, %105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.040
 }
@@ -1981,7 +1981,7 @@ define range(i32 -1, 2) i32 @H5Z_ignore_filters(i64 noundef %0, ptr noundef %1, 
   br label %.critedge29
 
 .critedge29:                                      ; preds = %48, %17, %41, %30, %23, %13, %.critedge, %55, %39
-  %.023 = phi i32 [ -1, %13 ], [ -1, %23 ], [ -1, %30 ], [ 0, %39 ], [ 0, %17 ], [ 0, %41 ], [ -1, %55 ], [ 0, %.critedge ], [ 1, %48 ]
+  %.023 = phi i32 [ -1, %13 ], [ -1, %23 ], [ -1, %30 ], [ 0, %41 ], [ 0, %17 ], [ -1, %55 ], [ 0, %.critedge ], [ 0, %39 ], [ 1, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.023
 }
@@ -2140,7 +2140,7 @@ define range(i32 -1, 1) i32 @H5Z_modify(ptr noundef readonly captures(none) %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %67, %18, %72, %32, %14, %56
-  %.049 = phi i32 [ -1, %14 ], [ -1, %32 ], [ 0, %18 ], [ 0, %72 ], [ -1, %56 ], [ 0, %67 ]
+  %.049 = phi i32 [ -1, %14 ], [ -1, %32 ], [ 0, %72 ], [ 0, %18 ], [ -1, %56 ], [ 0, %67 ]
   ret i32 %.049
 }
 
@@ -2613,7 +2613,7 @@ H5Z__find_idx.exit.thread..thread.loopexit291_crit_edge: ; preds = %H5Z__find_id
   br i1 %.not242, label %105, label %.thread
 
 .thread:                                          ; preds = %.preheader.i182, %74, %93, %91, %H5Z__find_idx.exit.thread..thread.loopexit291_crit_edge
-  %95 = phi ptr [ %75, %91 ], [ %.pre306.pre, %H5Z__find_idx.exit.thread..thread.loopexit291_crit_edge ], [ %75, %93 ], [ %75, %74 ], [ %75, %.preheader.i182 ]
+  %95 = phi ptr [ %.pre306.pre, %H5Z__find_idx.exit.thread..thread.loopexit291_crit_edge ], [ %75, %91 ], [ %75, %93 ], [ %75, %74 ], [ %75, %.preheader.i182 ]
   %96 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %95, i64 %39
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %98 = load ptr, ptr %97, align 8, !tbaa !78
@@ -2947,12 +2947,12 @@ H5Z__find_idx.exit194.thread:                     ; preds = %193, %.preheader.i1
   br i1 %273, label %169, label %.loopexit, !llvm.loop !83
 
 .loopexit:                                        ; preds = %164, %270, %32, %.preheader, %165
-  %.2140 = phi i32 [ %.4142, %270 ], [ 0, %165 ], [ 0, %.preheader ], [ 0, %32 ], [ %.1139, %164 ]
+  %.2140 = phi i32 [ 0, %165 ], [ 0, %.preheader ], [ 0, %32 ], [ %.4142, %270 ], [ %.1139, %164 ]
   store i32 %.2140, ptr %2, align 4, !tbaa !46
   br label %.thread220
 
 .thread220:                                       ; preds = %.thread231, %257, %.thread213, %152, %.thread226, %.thread208, %.thread203, %27, %.loopexit, %261, %200, %156, %23
-  %.0130 = phi i32 [ -1, %23 ], [ 0, %27 ], [ -1, %156 ], [ -1, %.thread208 ], [ -1, %.thread203 ], [ 0, %.loopexit ], [ -1, %200 ], [ -1, %.thread213 ], [ -1, %261 ], [ -1, %.thread226 ], [ -1, %152 ], [ -1, %257 ], [ -1, %.thread231 ]
+  %.0130 = phi i32 [ -1, %23 ], [ -1, %156 ], [ 0, %.loopexit ], [ -1, %200 ], [ -1, %261 ], [ 0, %27 ], [ -1, %.thread203 ], [ -1, %.thread208 ], [ -1, %.thread226 ], [ -1, %152 ], [ -1, %.thread213 ], [ -1, %257 ], [ -1, %.thread231 ]
   ret i32 %.0130
 }
 
@@ -3180,7 +3180,7 @@ define range(i32 -1, 2) i32 @H5Z_all_filters_avail(ptr noundef readonly captures
   br i1 %exitcond24.not, label %.loopexit, label %.preheader.us, !llvm.loop !87
 
 .loopexit:                                        ; preds = %33, %._crit_edge.us, %30, %.preheader12, %.preheader.lr.ph, %10, %14
-  %.0 = phi i32 [ -1, %10 ], [ 1, %14 ], [ 0, %.preheader.lr.ph ], [ 1, %.preheader12 ], [ 0, %30 ], [ 1, %33 ], [ 0, %._crit_edge.us ]
+  %.0 = phi i32 [ -1, %10 ], [ 1, %14 ], [ 1, %.preheader12 ], [ 0, %.preheader.lr.ph ], [ 0, %30 ], [ 1, %33 ], [ 0, %._crit_edge.us ]
   ret i32 %.0
 }
 
@@ -3356,7 +3356,7 @@ define range(i32 -1, 1) i32 @H5Z_delete(ptr noundef %0, i32 noundef %1) local_un
   br label %96
 
 96:                                               ; preds = %15, %26, %29, %11, %18, %.loopexit, %.critedge
-  %.063 = phi i32 [ -1, %11 ], [ 0, %15 ], [ -1, %29 ], [ 0, %26 ], [ 0, %18 ], [ 0, %.loopexit ], [ -1, %.critedge ]
+  %.063 = phi i32 [ -1, %11 ], [ -1, %29 ], [ 0, %26 ], [ 0, %15 ], [ 0, %18 ], [ 0, %.loopexit ], [ -1, %.critedge ]
   ret i32 %.063
 }
 

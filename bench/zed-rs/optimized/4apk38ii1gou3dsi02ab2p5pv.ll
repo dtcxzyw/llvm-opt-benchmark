@@ -2699,8 +2699,8 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
   ret void
 
 .body22:                                          ; preds = %199, %203, %190, %140, %.body.thread9.i, %113, %257
-  %.pn14 = phi { ptr, i32 } [ %lpad.phi, %.body.thread9.i ], [ %.pn12.ph, %257 ], [ %141, %140 ], [ %114, %113 ], [ %191, %190 ], [ %200, %203 ], [ %200, %199 ]
-  %.sroa.06.1 = phi i1 [ true, %.body.thread9.i ], [ false, %257 ], [ %.sroa.06.0, %140 ], [ true, %113 ], [ false, %190 ], [ false, %203 ], [ false, %199 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn12.ph, %257 ], [ %141, %140 ], [ %lpad.phi, %.body.thread9.i ], [ %114, %113 ], [ %191, %190 ], [ %200, %203 ], [ %200, %199 ]
+  %.sroa.06.1 = phi i1 [ false, %257 ], [ %.sroa.06.0, %140 ], [ true, %.body.thread9.i ], [ true, %113 ], [ false, %190 ], [ false, %203 ], [ false, %199 ]
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$snippet_provider..format..ListOrDirect$GT$17h6c456b5f4506a725E"(ptr noalias noundef align 8 dereferenceable(32) %30) #24
           to label %258 unwind label %254
 
@@ -3336,10 +3336,10 @@ _ZN3std4path4Path4join17h132750b2c47d815dE.exit:  ; preds = %12
   unreachable
 
 .thread:                                          ; preds = %56, %59, %.body
-  %.pn313 = phi { ptr, i32 } [ %lpad.thr_comm, %56 ], [ %.pn, %.body ], [ %lpad.thr_comm, %59 ]
+  %.pn313 = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.thr_comm, %59 ], [ %lpad.thr_comm, %56 ]
   resume { ptr, i32 } %.pn313
 
-56:                                               ; preds = %12, %4
+56:                                               ; preds = %4, %12
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %57 = atomicrmw sub ptr %1, i64 1 release, align 8, !noalias !483

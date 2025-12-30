@@ -309,7 +309,7 @@ _ZL5add_bP18InteractionsOfTypePiP8sortable.exit.loopexit: ; preds = %51
   br label %_ZL5add_bP18InteractionsOfTypePiP8sortable.exit
 
 _ZL5add_bP18InteractionsOfTypePiP8sortable.exit:  ; preds = %_ZL5add_bP18InteractionsOfTypePiP8sortable.exit.loopexit, %29, %37, %_ZL11IS_CHEMBONDi.exit16
-  %.127 = phi i32 [ %.02640, %29 ], [ %.02640, %_ZL11IS_CHEMBONDi.exit16 ], [ %.02640, %37 ], [ %58, %_ZL5add_bP18InteractionsOfTypePiP8sortable.exit.loopexit ]
+  %.127 = phi i32 [ %.02640, %_ZL11IS_CHEMBONDi.exit16 ], [ %.02640, %37 ], [ %.02640, %29 ], [ %58, %_ZL5add_bP18InteractionsOfTypePiP8sortable.exit.loopexit ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, 95
   br i1 %exitcond58.not, label %27, label %29, !llvm.loop !39
@@ -1008,9 +1008,9 @@ _Z8init_nnbP8t_nextnbii.exit:                     ; preds = %16
   br i1 %82, label %.preheader.lr.ph.i, label %._crit_edge89.i, !llvm.loop !59
 
 ._crit_edge89.i:                                  ; preds = %79, %56, %34, %39
-  %83 = phi ptr [ %.phi.trans.insert125.i, %39 ], [ %.phi.trans.insert125.i, %56 ], [ %36, %34 ], [ %.phi.trans.insert125.i, %79 ]
-  %84 = phi ptr [ %.pre124.i, %39 ], [ %.pre124.i, %56 ], [ %35, %34 ], [ %.pre124.i, %79 ]
-  %.064.lcssa.i = phi i32 [ 0, %39 ], [ %.165.us.i, %56 ], [ 0, %34 ], [ %.165.i, %79 ]
+  %83 = phi ptr [ %.phi.trans.insert125.i, %39 ], [ %36, %34 ], [ %.phi.trans.insert125.i, %56 ], [ %.phi.trans.insert125.i, %79 ]
+  %84 = phi ptr [ %.pre124.i, %39 ], [ %35, %34 ], [ %.pre124.i, %56 ], [ %.pre124.i, %79 ]
+  %.064.lcssa.i = phi i32 [ 0, %39 ], [ 0, %34 ], [ %.165.us.i, %56 ], [ %.165.i, %79 ]
   store i32 %.064.lcssa.i, ptr %83, align 4, !tbaa !23
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
   %85 = load i32, ptr %17, align 4, !tbaa !14
@@ -1514,7 +1514,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !64
   br label %41
 

@@ -150,7 +150,7 @@ switch.lookup:                                    ; preds = %10
   br label %42
 
 42:                                               ; preds = %switch.lookup, %.sink.split, %9
-  %.126 = phi i32 [ %switch.load, %switch.lookup ], [ %0, %9 ], [ %40, %.sink.split ]
+  %.126 = phi i32 [ %0, %9 ], [ %40, %.sink.split ], [ %switch.load, %switch.lookup ]
   ret i32 %.126
 
 43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %36
@@ -442,7 +442,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
   br label %93
 
 93:                                               ; preds = %73, %78, %83, %88, %70, %46, %52, %58, %64, %42, %.split, %14, %36, %30, %23, %15
-  %.020 = phi i32 [ 0, %.split ], [ %22, %15 ], [ %29, %23 ], [ %35, %30 ], [ %41, %36 ], [ 0, %14 ], [ %69, %64 ], [ %51, %46 ], [ %57, %52 ], [ %63, %58 ], [ 0, %42 ], [ %92, %88 ], [ %77, %73 ], [ %82, %78 ], [ %87, %83 ], [ 0, %70 ]
+  %.020 = phi i32 [ %22, %15 ], [ %29, %23 ], [ %35, %30 ], [ %41, %36 ], [ 0, %14 ], [ %51, %46 ], [ %57, %52 ], [ %63, %58 ], [ %69, %64 ], [ 0, %42 ], [ 0, %.split ], [ %77, %73 ], [ %82, %78 ], [ %87, %83 ], [ %92, %88 ], [ 0, %70 ]
   ret i32 %.020
 }
 

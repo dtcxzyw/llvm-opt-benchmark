@@ -69,7 +69,7 @@ define void @Ivy_ManIncrementTravId(ptr noundef captures(none) %0) local_unnamed
   br i1 %exitcond.not.i, label %Ivy_ManCleanTravId.exit, label %11, !llvm.loop !22
 
 Ivy_ManCleanTravId.exit:                          ; preds = %17, %5, %1
-  %18 = phi i32 [ %3, %1 ], [ 1, %5 ], [ 1, %17 ]
+  %18 = phi i32 [ 1, %5 ], [ %3, %1 ], [ 1, %17 ]
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %2, align 8, !tbaa !3
   ret void
@@ -728,8 +728,8 @@ Vec_IntAlloc.exit:                                ; preds = %1, %6
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %41, %43, %33, %35
-  %.sink22 = phi ptr [ %36, %35 ], [ %34, %33 ], [ %42, %41 ], [ %44, %43 ]
-  %.sink = phi i32 [ 16, %35 ], [ 16, %33 ], [ %38, %41 ], [ %38, %43 ]
+  %.sink22 = phi ptr [ %34, %33 ], [ %36, %35 ], [ %42, %41 ], [ %44, %43 ]
+  %.sink = phi i32 [ 16, %33 ], [ 16, %35 ], [ %38, %41 ], [ %38, %43 ]
   store ptr %.sink22, ptr %11, align 8, !tbaa !30
   store i32 %.sink, ptr %3, align 8, !tbaa !29
   br label %Vec_IntPush.exit
@@ -1158,8 +1158,8 @@ tailrecurse:                                      ; preds = %76
   br label %tailrecurse120
 
 .loopexit:                                        ; preds = %tailrecurse, %75, %76, %46, %45, %tailrecurse.us66, %8, %.split.split, %.split.split.us, %89, %88
-  %accumulator.tr57 = phi i32 [ 0, %89 ], [ 0, %88 ], [ 0, %8 ], [ 0, %.split.split.us ], [ 0, %.split.split ], [ %51, %tailrecurse.us66 ], [ %accumulator.tr.us6791, %45 ], [ %accumulator.tr.us6791, %46 ], [ %81, %tailrecurse ], [ %accumulator.tr81, %75 ], [ %accumulator.tr81, %76 ]
-  %.035 = phi i32 [ %.2, %89 ], [ %.2, %88 ], [ 0, %8 ], [ 0, %.split.split.us ], [ 0, %.split.split ], [ 0, %tailrecurse.us66 ], [ %.0.us, %45 ], [ %.0.us, %46 ], [ 0, %tailrecurse ], [ %.0, %75 ], [ %.0, %76 ]
+  %accumulator.tr57 = phi i32 [ 0, %89 ], [ 0, %88 ], [ 0, %8 ], [ 0, %.split.split.us ], [ 0, %.split.split ], [ %accumulator.tr.us6791, %46 ], [ %accumulator.tr.us6791, %45 ], [ %51, %tailrecurse.us66 ], [ %81, %tailrecurse ], [ %accumulator.tr81, %75 ], [ %accumulator.tr81, %76 ]
+  %.035 = phi i32 [ %.2, %89 ], [ %.2, %88 ], [ 0, %8 ], [ 0, %.split.split.us ], [ 0, %.split.split ], [ %.0.us, %46 ], [ %.0.us, %45 ], [ 0, %tailrecurse.us66 ], [ 0, %tailrecurse ], [ %.0, %75 ], [ %.0, %76 ]
   %accumulator.ret.tr52 = add nsw i32 %.035, %accumulator.tr57
   %accumulator.ret.tr124 = add i32 %accumulator.ret.tr52, %accumulator.tr
   ret i32 %accumulator.ret.tr124
@@ -1594,7 +1594,7 @@ Ivy_ObjFaninId1.exit71:                           ; preds = %Ivy_ObjFaninId1.exi
   br label %95
 
 95:                                               ; preds = %36, %54, %72, %89, %Ivy_ObjFaninId1.exit71, %12, %19, %4, %8, %1
-  %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 0, %1 ], [ 0, %8 ], [ 0, %19 ], [ 1, %72 ], [ 1, %54 ], [ 1, %36 ], [ 0, %Ivy_ObjFaninId1.exit71 ], [ %94, %89 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %8 ], [ 0, %4 ], [ 0, %19 ], [ 0, %12 ], [ 1, %72 ], [ 1, %54 ], [ 1, %36 ], [ 0, %Ivy_ObjFaninId1.exit71 ], [ %94, %89 ]
   ret i32 %.0
 }
 

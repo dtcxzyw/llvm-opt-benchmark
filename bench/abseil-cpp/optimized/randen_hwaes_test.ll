@@ -399,7 +399,7 @@ _ZN4absl12log_internal10LogMessagelsILi29EEERS1_RAT__Kc.exit: ; preds = %26
   ret i32 %.0
 
 43:                                               ; preds = %33, %37, %35, %31, %29, %27
-  %.pn.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %32, %31 ], [ %30, %29 ], [ %34, %33 ], [ %38, %37 ], [ %36, %35 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %34, %33 ], [ %38, %37 ], [ %36, %35 ]
   resume { ptr, i32 } %.pn.pn.pn
 }
 

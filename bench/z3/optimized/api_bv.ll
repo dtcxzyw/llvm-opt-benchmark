@@ -332,7 +332,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %45, %46
   ret ptr %.0
 
 47:                                               ; preds = %43, %41, %35
-  %.merged = phi { ptr, i32 } [ %42, %41 ], [ %.pn30, %35 ], [ %44, %43 ]
+  %.merged = phi { ptr, i32 } [ %.pn30, %35 ], [ %44, %43 ], [ %42, %41 ]
   br i1 %5, label %48, label %_ZN10z3_log_ctxD2Ev.exit34, !prof !164
 
 48:                                               ; preds = %.thread, %47
@@ -486,7 +486,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %45, %46
   ret ptr %.0
 
 47:                                               ; preds = %43, %41, %35
-  %.merged = phi { ptr, i32 } [ %42, %41 ], [ %.pn30, %35 ], [ %44, %43 ]
+  %.merged = phi { ptr, i32 } [ %.pn30, %35 ], [ %44, %43 ], [ %42, %41 ]
   br i1 %5, label %48, label %_ZN10z3_log_ctxD2Ev.exit34, !prof !164
 
 48:                                               ; preds = %.thread, %47
@@ -634,7 +634,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %45, %46
   ret ptr %.0
 
 47:                                               ; preds = %43, %41, %35
-  %.merged = phi { ptr, i32 } [ %42, %41 ], [ %.pn30, %35 ], [ %44, %43 ]
+  %.merged = phi { ptr, i32 } [ %.pn30, %35 ], [ %44, %43 ], [ %42, %41 ]
   br i1 %5, label %48, label %_ZN10z3_log_ctxD2Ev.exit34, !prof !164
 
 48:                                               ; preds = %.thread, %47
@@ -783,7 +783,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -794,7 +794,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -943,7 +943,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -954,7 +954,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -1103,7 +1103,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -1114,7 +1114,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -1263,7 +1263,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -1274,7 +1274,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -1423,7 +1423,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -1434,7 +1434,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -1583,7 +1583,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -1594,7 +1594,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -1743,7 +1743,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -1754,7 +1754,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -1903,7 +1903,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -1914,7 +1914,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -2063,7 +2063,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -2074,7 +2074,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -2223,7 +2223,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -2234,7 +2234,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -2383,7 +2383,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -2394,7 +2394,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -2543,7 +2543,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -2554,7 +2554,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -2703,7 +2703,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -2714,7 +2714,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -2863,7 +2863,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -2874,7 +2874,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -3023,7 +3023,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -3034,7 +3034,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -3183,7 +3183,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -3194,7 +3194,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -3343,7 +3343,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -3354,7 +3354,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -3503,7 +3503,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -3514,7 +3514,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -3663,7 +3663,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -3674,7 +3674,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -3823,7 +3823,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -3834,7 +3834,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -3983,7 +3983,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -3994,7 +3994,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -4143,7 +4143,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -4154,7 +4154,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -4303,7 +4303,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -4314,7 +4314,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -4463,7 +4463,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -4474,7 +4474,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -4623,7 +4623,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -4634,7 +4634,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -4783,7 +4783,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -4794,7 +4794,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -4943,7 +4943,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -4954,7 +4954,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -6424,7 +6424,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %128
   br label %138
 
 136:                                              ; preds = %134, %_ZN8rationalD2Ev.exit105
-  %.0 = phi ptr [ %126, %134 ], [ %69, %_ZN8rationalD2Ev.exit105 ]
+  %.0 = phi ptr [ %69, %_ZN8rationalD2Ev.exit105 ], [ %126, %134 ]
   br i1 %11, label %137, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 137:                                              ; preds = %136
@@ -6432,7 +6432,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %128
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 138:                                              ; preds = %77, %135, %81, %119, %83, %79
-  %.pn91.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %78, %77 ], [ %.pn, %135 ], [ %80, %79 ], [ %82, %81 ], [ %.pn91.pn.pn.pn.pn.pn.pn, %119 ]
+  %.pn91.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %135 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %.pn91.pn.pn.pn.pn.pn.pn, %119 ], [ %84, %83 ]
   %.073 = extractvalue { ptr, i32 } %.pn91.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, 1
   br i1 %11, label %139, label %_ZN10z3_log_ctxD2Ev.exit109, !prof !164
 
@@ -6581,7 +6581,7 @@ _ZNK9parameter7get_intEv.exit:                    ; preds = %35
   br label %45
 
 _ZNK4decl13get_decl_kindEv.exit.thread.invoke:    ; preds = %_ZNK4decl13get_decl_kindEv.exit, %_ZNK4decl13get_family_idEv.exit.thread, %24, %18, %21
-  %44 = phi ptr [ @.str.2, %18 ], [ @.str.2, %21 ], [ @.str.3, %24 ], [ @.str.3, %_ZNK4decl13get_family_idEv.exit.thread ], [ @.str.3, %_ZNK4decl13get_decl_kindEv.exit ]
+  %44 = phi ptr [ @.str.2, %21 ], [ @.str.2, %18 ], [ @.str.3, %24 ], [ @.str.3, %_ZNK4decl13get_family_idEv.exit.thread ], [ @.str.3, %_ZNK4decl13get_decl_kindEv.exit ]
   invoke void @_ZN3api7context14set_error_codeE13Z3_error_codePKc(ptr noundef nonnull align 8 dereferenceable(3056) %0, i32 noundef 3, ptr noundef nonnull %44)
           to label %45 unwind label %8
 
@@ -6988,7 +6988,7 @@ define ptr @Z3_mk_bvadd_no_overflow(ptr noundef initializes((1568, 1572)) %0, pt
   br label %82
 
 82:                                               ; preds = %74, %78, %80, %76, %35, %39, %47, %41, %37
-  %.pn98.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %.pn98, %47 ], [ %75, %74 ], [ %77, %76 ], [ %81, %80 ], [ %79, %78 ]
+  %.pn98.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %.pn98, %47 ], [ %42, %41 ], [ %75, %74 ], [ %77, %76 ], [ %81, %80 ], [ %79, %78 ]
   %.085 = extractvalue { ptr, i32 } %.pn98.pn.pn.pn.pn.pn, 1
   %83 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #14
   %84 = icmp eq i32 %.085, %83
@@ -7699,7 +7699,7 @@ define ptr @Z3_mk_bvsub_no_underflow(ptr noundef initializes((1568, 1572)) %0, p
           to label %49 unwind label %50
 
 48:                                               ; preds = %44, %25, %43
-  %.0 = phi ptr [ %21, %25 ], [ null, %43 ], [ %45, %44 ]
+  %.0 = phi ptr [ null, %43 ], [ %21, %25 ], [ %45, %44 ]
   ret ptr %.0
 
 49:                                               ; preds = %46, %38
@@ -7952,7 +7952,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit78:        ; preds = %80
   br label %100
 
 98:                                               ; preds = %.invoke91, %.invoke, %93, %51, %44, %86
-  %.0 = phi ptr [ %78, %86 ], [ null, %.invoke ], [ null, %93 ], [ %36, %44 ], [ null, %51 ], [ null, %.invoke91 ]
+  %.0 = phi ptr [ %36, %44 ], [ %78, %86 ], [ null, %51 ], [ null, %93 ], [ null, %.invoke ], [ null, %.invoke91 ]
   br i1 %8, label %99, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 99:                                               ; preds = %98
@@ -7963,7 +7963,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %98, %99
   ret ptr %.0
 
 100:                                              ; preds = %96, %94, %54, %52, %88, %46
-  %.merged = phi { ptr, i32 } [ %95, %94 ], [ %.pn74, %46 ], [ %53, %52 ], [ %.pn68, %88 ], [ %55, %54 ], [ %97, %96 ]
+  %.merged = phi { ptr, i32 } [ %.pn74, %46 ], [ %.pn68, %88 ], [ %55, %54 ], [ %53, %52 ], [ %97, %96 ], [ %95, %94 ]
   br i1 %8, label %101, label %_ZN10z3_log_ctxD2Ev.exit79, !prof !164
 
 101:                                              ; preds = %.thread, %100
@@ -8112,7 +8112,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %35
   br label %55
 
 53:                                               ; preds = %.invoke, %48, %41
-  %.0 = phi ptr [ %33, %41 ], [ null, %.invoke ], [ null, %48 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %48 ], [ null, %.invoke ]
   br i1 %6, label %54, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 54:                                               ; preds = %53
@@ -8123,7 +8123,7 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %53, %54
   ret ptr %.0
 
 55:                                               ; preds = %51, %49, %43
-  %.merged = phi { ptr, i32 } [ %50, %49 ], [ %.pn36, %43 ], [ %52, %51 ]
+  %.merged = phi { ptr, i32 } [ %.pn36, %43 ], [ %52, %51 ], [ %50, %49 ]
   br i1 %6, label %56, label %_ZN10z3_log_ctxD2Ev.exit40, !prof !164
 
 56:                                               ; preds = %.thread, %55
@@ -8539,7 +8539,7 @@ _Z11check_sortsP11_Z3_contextP3ast.exit:          ; preds = %37
   br label %58
 
 56:                                               ; preds = %.invoke, %50, %43
-  %.0 = phi ptr [ %35, %43 ], [ null, %.invoke ], [ null, %50 ]
+  %.0 = phi ptr [ %35, %43 ], [ null, %50 ], [ null, %.invoke ]
   br i1 %6, label %57, label %_ZN10z3_log_ctxD2Ev.exit, !prof !163
 
 57:                                               ; preds = %56

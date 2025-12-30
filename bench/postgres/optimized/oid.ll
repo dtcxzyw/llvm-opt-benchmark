@@ -270,8 +270,8 @@ define dso_local noundef i64 @oidvectorin(ptr noundef captures(none) %0) local_u
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %67, %45, %29, %20, %1
-  %.026.lcssa = phi ptr [ %.127.us, %29 ], [ %8, %1 ], [ %.02642, %45 ], [ %.02642.us, %20 ], [ %.127, %67 ]
-  %.0.lcssa = phi i32 [ %35, %29 ], [ 0, %1 ], [ %.044, %45 ], [ %.044.us, %20 ], [ %68, %67 ]
+  %.026.lcssa = phi ptr [ %8, %1 ], [ %.02642.us, %20 ], [ %.127.us, %29 ], [ %.02642, %45 ], [ %.127, %67 ]
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %.044.us, %20 ], [ %35, %29 ], [ %.044, %45 ], [ %68, %67 ]
   %70 = shl i32 %.0.lcssa, 4
   %71 = add i32 %70, 96
   store i32 %71, ptr %.026.lcssa, align 4

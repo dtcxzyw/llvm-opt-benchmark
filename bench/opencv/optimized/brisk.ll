@@ -2385,7 +2385,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %243, 
   br label %284
 
 284:                                              ; preds = %275, %271
-  %.0126 = phi i32 [ %spec.select201, %275 ], [ 0, %271 ]
+  %.0126 = phi i32 [ 0, %271 ], [ %spec.select201, %275 ]
   %285 = fcmp olt float %273, 0.000000e+00
   br i1 %285, label %286, label %288
 
@@ -2542,7 +2542,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge283, %34
   ret void
 
 346:                                              ; preds = %220, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit216, %304, %190, %189, %183
-  %.pn187.pn = phi { ptr, i32 } [ %184, %183 ], [ %191, %190 ], [ %.pn177, %189 ], [ %221, %220 ], [ %.pn185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %305, %304 ], [ %.pn181, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit216 ]
+  %.pn187.pn = phi { ptr, i32 } [ %191, %190 ], [ %.pn177, %189 ], [ %184, %183 ], [ %221, %220 ], [ %.pn185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %305, %304 ], [ %.pn181, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit216 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %347
@@ -2559,7 +2559,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge283, %34
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit218
 
 _ZNSt6vectorIiSaIiEED2Ev.exit218:                 ; preds = %348, %347, %.thread, %49, %47
-  %.pn192.pn.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ], [ %84, %.thread ], [ %.pn187.pn.pn.pn, %347 ], [ %.pn187.pn.pn.pn, %348 ]
+  %.pn192.pn.pn.pn = phi { ptr, i32 } [ %48, %47 ], [ %50, %49 ], [ %84, %.thread ], [ %.pn187.pn.pn.pn, %347 ], [ %.pn187.pn.pn.pn, %348 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #28
   br label %349
 
@@ -3740,7 +3740,7 @@ _ZN2cv10BriskLayerD2Ev.exit41:                    ; preds = %_ZNSt6vectorIN2cv10
   br label %237
 
 237:                                              ; preds = %233, %235, %134, %133
-  %.pn14.pn = phi { ptr, i32 } [ %.pn, %133 ], [ %135, %134 ], [ %236, %235 ], [ %234, %233 ]
+  %.pn14.pn = phi { ptr, i32 } [ %135, %134 ], [ %.pn, %133 ], [ %236, %235 ], [ %234, %233 ]
   resume { ptr, i32 } %.pn14.pn
 }
 
@@ -4801,15 +4801,15 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit247: ; preds = %416, %_ZN
   br i1 %443, label %232, label %._crit_edge417, !llvm.loop !203
 
 444:                                              ; preds = %.loopexit330, %.loopexit.split-lp331, %.loopexit318, %.loopexit.split-lp319, %440, %385
-  %.pn173.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp321, %.loopexit.split-lp319 ], [ %.pn173.pn.pn.pn.pn.pn.pn.pn.pn.pn, %385 ], [ %.pn, %440 ], [ %lpad.loopexit320, %.loopexit318 ], [ %lpad.loopexit332, %.loopexit330 ], [ %lpad.loopexit.split-lp333, %.loopexit.split-lp331 ]
+  %.pn173.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn173.pn.pn.pn.pn.pn.pn.pn.pn.pn, %385 ], [ %.pn, %440 ], [ %lpad.loopexit320, %.loopexit318 ], [ %lpad.loopexit.split-lp321, %.loopexit.split-lp319 ], [ %lpad.loopexit332, %.loopexit330 ], [ %lpad.loopexit.split-lp333, %.loopexit.split-lp331 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %450
 
 .loopexit:                                        ; preds = %207, %108, %._crit_edge417
-  %.pr.i540 = phi ptr [ %.pr.i539542544, %._crit_edge417 ], [ %47, %108 ], [ %47, %207 ]
-  %445 = phi ptr [ %231, %._crit_edge417 ], [ %48, %108 ], [ %48, %207 ]
+  %.pr.i540 = phi ptr [ %47, %108 ], [ %.pr.i539542544, %._crit_edge417 ], [ %47, %207 ]
+  %445 = phi ptr [ %48, %108 ], [ %231, %._crit_edge417 ], [ %48, %207 ]
   %.not4.i.i.i.i = icmp eq ptr %.pr.i540, %445
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN2cv8KeyPointESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -4841,7 +4841,7 @@ _ZNSt6vectorIS_IN2cv8KeyPointESaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_Destro
   ret void
 
 450:                                              ; preds = %.loopexit311, %211, %215, %219, %223, %227, %225, %221, %217, %213, %209, %444, %106, %54
-  %.pn197 = phi { ptr, i32 } [ %107, %106 ], [ %55, %54 ], [ %.pn173.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %444 ], [ %226, %225 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ %218, %217 ], [ %220, %219 ], [ %222, %221 ], [ %224, %223 ], [ %lpad.phi316, %227 ], [ %lpad.loopexit, %.loopexit311 ]
+  %.pn197 = phi { ptr, i32 } [ %107, %106 ], [ %.pn173.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %444 ], [ %55, %54 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ %218, %217 ], [ %220, %219 ], [ %222, %221 ], [ %224, %223 ], [ %lpad.phi316, %227 ], [ %226, %225 ], [ %lpad.loopexit, %.loopexit311 ]
   call void @_ZNSt6vectorIS_IN2cv8KeyPointESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn197
@@ -6098,8 +6098,8 @@ define linkonce_odr hidden noundef float @_ZNK2cv15BriskScaleSpace10subpixel2DEi
   br label %126
 
 126:                                              ; preds = %116, %105, %115, %123, %125, %114, %112
-  %.0192 = phi float [ 0.000000e+00, %115 ], [ 1.000000e+00, %114 ], [ 1.000000e+00, %112 ], [ 1.000000e+00, %105 ], [ -1.000000e+00, %125 ], [ -1.000000e+00, %123 ], [ -1.000000e+00, %116 ]
-  %.0190 = phi float [ 0.000000e+00, %115 ], [ -1.000000e+00, %114 ], [ %110, %112 ], [ 1.000000e+00, %105 ], [ -1.000000e+00, %125 ], [ %121, %123 ], [ 1.000000e+00, %116 ]
+  %.0192 = phi float [ 1.000000e+00, %114 ], [ 1.000000e+00, %112 ], [ -1.000000e+00, %125 ], [ -1.000000e+00, %123 ], [ 0.000000e+00, %115 ], [ 1.000000e+00, %105 ], [ -1.000000e+00, %116 ]
+  %.0190 = phi float [ -1.000000e+00, %114 ], [ %110, %112 ], [ -1.000000e+00, %125 ], [ %121, %123 ], [ 0.000000e+00, %115 ], [ 1.000000e+00, %105 ], [ 1.000000e+00, %116 ]
   br i1 %102, label %127, label %137
 
 127:                                              ; preds = %126
@@ -6138,8 +6138,8 @@ define linkonce_odr hidden noundef float @_ZNK2cv15BriskScaleSpace10subpixel2DEi
   br label %148
 
 148:                                              ; preds = %138, %127, %137, %145, %147, %136, %134
-  %.0191 = phi float [ 0.000000e+00, %137 ], [ -1.000000e+00, %136 ], [ %132, %134 ], [ 1.000000e+00, %127 ], [ -1.000000e+00, %147 ], [ %143, %145 ], [ 1.000000e+00, %138 ]
-  %.0189 = phi float [ 0.000000e+00, %137 ], [ 1.000000e+00, %136 ], [ 1.000000e+00, %134 ], [ 1.000000e+00, %127 ], [ -1.000000e+00, %147 ], [ -1.000000e+00, %145 ], [ -1.000000e+00, %138 ]
+  %.0191 = phi float [ -1.000000e+00, %136 ], [ %132, %134 ], [ -1.000000e+00, %147 ], [ %143, %145 ], [ 0.000000e+00, %137 ], [ 1.000000e+00, %127 ], [ 1.000000e+00, %138 ]
+  %.0189 = phi float [ 1.000000e+00, %136 ], [ 1.000000e+00, %134 ], [ -1.000000e+00, %147 ], [ -1.000000e+00, %145 ], [ 0.000000e+00, %137 ], [ 1.000000e+00, %127 ], [ -1.000000e+00, %138 ]
   %149 = sitofp i32 %23 to float
   %150 = fmul float %.0192, %149
   %151 = sitofp i32 %27 to float
@@ -7977,7 +7977,7 @@ thread-pre-split:                                 ; preds = %1023, %1018
   br label %.thread489
 
 .thread489:                                       ; preds = %.lr.ph, %.critedge272.us, %.lr.ph541.split.us, %.lr.ph541.split, %..critedge272_crit_edge, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit, %.critedge, %54, %1033
-  %.0220 = phi float [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %54 ], [ %.5, %1033 ], [ 0.000000e+00, %.critedge272.us ], [ 0.000000e+00, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit ], [ 0.000000e+00, %.lr.ph541.split ], [ 0.000000e+00, %..critedge272_crit_edge ], [ 0.000000e+00, %.lr.ph541.split.us ], [ 0.000000e+00, %.lr.ph ]
+  %.0220 = phi float [ %.5, %1033 ], [ 0.000000e+00, %54 ], [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit ], [ 0.000000e+00, %..critedge272_crit_edge ], [ 0.000000e+00, %.lr.ph541.split ], [ 0.000000e+00, %.lr.ph541.split.us ], [ 0.000000e+00, %.critedge272.us ], [ 0.000000e+00, %.lr.ph ]
   ret float %.0220
 }
 
@@ -9059,14 +9059,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit349:   ; preds = %_ZNK2cv10BriskLayer
 675:                                              ; preds = %673
   br label %.thread
 
-.thread543:                                       ; preds = %627, %624
-  %.sink.i.ph = phi float [ %.sroa.speculated448, %624 ], [ %.0216, %627 ]
-  %.0.i351.ph = phi float [ 1.000000e+00, %624 ], [ 0x3FE6666660000000, %627 ]
+.thread543:                                       ; preds = %624, %627
+  %.sink.i.ph = phi float [ %.0216, %627 ], [ %.sroa.speculated448, %624 ]
+  %.0.i351.ph = phi float [ 0x3FE6666660000000, %627 ], [ 1.000000e+00, %624 ]
   store float %.0.i351.ph, ptr %6, align 4, !tbaa !29
   br label %721
 
 676:                                              ; preds = %633, %644, %646
-  %.044.i = phi float [ %642, %644 ], [ 1.500000e+00, %646 ], [ 0x3FE6666660000000, %633 ]
+  %.044.i = phi float [ 1.500000e+00, %646 ], [ %642, %644 ], [ 0x3FE6666660000000, %633 ]
   %reass.add.i = sub i32 %610, %613
   %reass.mul.i = mul i32 %reass.add.i, 3
   %677 = add i32 %reass.mul.i, %616
@@ -9080,14 +9080,14 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit349:   ; preds = %_ZNK2cv10BriskLayer
   %684 = fcmp ogt float %.044.i, 1.000000e+00
   br i1 %684, label %696, label %721
 
-.thread.thread:                                   ; preds = %656, %653
-  %.sink.i356.ph = phi float [ %.sroa.speculated448, %653 ], [ %.0216, %656 ]
-  %.0.i357.ph = phi float [ 1.000000e+00, %653 ], [ 7.500000e-01, %656 ]
+.thread.thread:                                   ; preds = %653, %656
+  %.sink.i356.ph = phi float [ %.0216, %656 ], [ %.sroa.speculated448, %653 ]
+  %.0.i357.ph = phi float [ 7.500000e-01, %656 ], [ 1.000000e+00, %653 ]
   store float %.0.i357.ph, ptr %6, align 4, !tbaa !29
   br label %.thread530
 
 .thread:                                          ; preds = %662, %673, %675
-  %.044.i355 = phi float [ %671, %673 ], [ 1.500000e+00, %675 ], [ 7.500000e-01, %662 ]
+  %.044.i355 = phi float [ 1.500000e+00, %675 ], [ %671, %673 ], [ 7.500000e-01, %662 ]
   %685 = mul nsw i32 %610, 24
   %.neg50.i = mul i32 %613, -27
   %686 = mul nsw i32 %616, 6
@@ -9158,8 +9158,8 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit349:   ; preds = %_ZNK2cv10BriskLayer
   br label %.critedge
 
 .thread530:                                       ; preds = %.thread, %.thread.thread
-  %738 = phi float [ %.044.i355, %.thread ], [ %.0.i357.ph, %.thread.thread ]
-  %.0525528532 = phi float [ %694, %.thread ], [ %.sink.i356.ph, %.thread.thread ]
+  %738 = phi float [ %.0.i357.ph, %.thread.thread ], [ %.044.i355, %.thread ]
+  %.0525528532 = phi float [ %.sink.i356.ph, %.thread.thread ], [ %694, %.thread ]
   %739 = fadd float %738, -7.500000e-01
   %740 = fmul float %739, 4.000000e+00
   %741 = fsub float 1.000000e+00, %740
@@ -9795,14 +9795,14 @@ _ZNK2cv15BriskScaleSpace10refine1D_1EfffRf.exit.thread538: ; preds = %1120
 1136:                                             ; preds = %1134
   br label %_ZNK2cv15BriskScaleSpace10refine1D_1EfffRf.exit
 
-_ZNK2cv15BriskScaleSpace10refine1D_1EfffRf.exit.thread: ; preds = %1117, %1114
-  %.sink.i438.ph = phi float [ %.sroa.speculated, %1114 ], [ %764, %1117 ]
-  %.0.i439.ph = phi float [ 1.000000e+00, %1114 ], [ 0x3FE5555560000000, %1117 ]
+_ZNK2cv15BriskScaleSpace10refine1D_1EfffRf.exit.thread: ; preds = %1114, %1117
+  %.sink.i438.ph = phi float [ %764, %1117 ], [ %.sroa.speculated, %1114 ]
+  %.0.i439.ph = phi float [ 0x3FE5555560000000, %1117 ], [ 1.000000e+00, %1114 ]
   store float %.0.i439.ph, ptr %6, align 4, !tbaa !29
   br label %1152
 
 _ZNK2cv15BriskScaleSpace10refine1D_1EfffRf.exit:  ; preds = %1123, %1134, %1136
-  %.044.i437 = phi float [ %1132, %1134 ], [ 0x3FF5555560000000, %1136 ], [ 0x3FE5555560000000, %1123 ]
+  %.044.i437 = phi float [ 0x3FF5555560000000, %1136 ], [ %1132, %1134 ], [ 0x3FE5555560000000, %1123 ]
   %1137 = mul nsw i32 %1105, 12
   %1138 = mul nsw i32 %1111, 6
   %1139 = add i32 %1137, %1138
@@ -10635,7 +10635,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %37,
   ret void
 
 53:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn15.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ]
+  %.pn15.pn = phi { ptr, i32 } [ %.pn13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   resume { ptr, i32 } %.pn15.pn
 }
 
@@ -10768,7 +10768,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %39,
   ret void
 
 55:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn15.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ]
+  %.pn15.pn = phi { ptr, i32 } [ %.pn13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   resume { ptr, i32 } %.pn15.pn
 }
 
@@ -12058,7 +12058,7 @@ thread-pre-split:                                 ; preds = %528, %524
   br label %.thread304
 
 .thread304:                                       ; preds = %.lr.ph, %.critedge216.us, %.lr.ph365.split.us, %.lr.ph365.split, %..critedge216_crit_edge, %.lr.ph342.split.us, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit, %.critedge, %60, %538
-  %.0167 = phi float [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %60 ], [ %.5, %538 ], [ 0.000000e+00, %.lr.ph365.split ], [ 0.000000e+00, %.critedge216.us ], [ 0.000000e+00, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit ], [ 0.000000e+00, %.lr.ph342.split.us ], [ 0.000000e+00, %..critedge216_crit_edge ], [ 0.000000e+00, %.lr.ph365.split.us ], [ 0.000000e+00, %.lr.ph ]
+  %.0167 = phi float [ %.5, %538 ], [ 0.000000e+00, %60 ], [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit ], [ 0.000000e+00, %.lr.ph342.split.us ], [ 0.000000e+00, %..critedge216_crit_edge ], [ 0.000000e+00, %.lr.ph365.split ], [ 0.000000e+00, %.lr.ph365.split.us ], [ 0.000000e+00, %.critedge216.us ], [ 0.000000e+00, %.lr.ph ]
   ret float %.0167
 }
 

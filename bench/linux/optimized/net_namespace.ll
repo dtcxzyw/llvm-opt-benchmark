@@ -1384,7 +1384,7 @@ rtnl_net_notifyid.exit:                           ; preds = %133, %135
   br label %.thread
 
 .thread:                                          ; preds = %152, %154, %12, %14, %158, %155, %90, %79, %77, %26, %24, %15
-  %161 = phi i32 [ %92, %90 ], [ %18, %15 ], [ -22, %26 ], [ -22, %24 ], [ -22, %79 ], [ -22, %77 ], [ -22, %12 ], [ %148, %155 ], [ %148, %158 ], [ -22, %14 ], [ %148, %154 ], [ %148, %152 ]
+  %161 = phi i32 [ %92, %90 ], [ %18, %15 ], [ -22, %26 ], [ -22, %24 ], [ -22, %79 ], [ -22, %77 ], [ %148, %155 ], [ %148, %158 ], [ -22, %14 ], [ -22, %12 ], [ %148, %154 ], [ %148, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %161
 }
@@ -1722,7 +1722,7 @@ get_net_ns_by_fd.exit:                            ; preds = %70, %98, %102
   br label %201
 
 184:                                              ; preds = %.thread29, %157
-  %185 = phi ptr [ %166, %.thread29 ], [ %9, %157 ]
+  %185 = phi ptr [ %9, %157 ], [ %166, %.thread29 ]
   %186 = call ptr @__alloc_skb(i32 noundef 36, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #17
   %187 = icmp eq ptr %186, null
   br i1 %187, label %201, label %188
@@ -1808,7 +1808,7 @@ get_net_ns_by_fd.exit:                            ; preds = %70, %98, %102
   br label %.thread25
 
 .thread25:                                        ; preds = %222, %224, %33, %35, %25, %27, %52, %54, %228, %225, %154, %142, %140, %55
-  %231 = phi i32 [ %156, %154 ], [ %203, %228 ], [ %56, %55 ], [ -22, %142 ], [ -22, %140 ], [ -22, %33 ], [ %203, %225 ], [ -22, %54 ], [ -22, %52 ], [ -22, %27 ], [ -22, %25 ], [ -22, %35 ], [ %203, %224 ], [ %203, %222 ]
+  %231 = phi i32 [ %156, %154 ], [ %56, %55 ], [ -22, %142 ], [ -22, %140 ], [ %203, %225 ], [ %203, %228 ], [ -22, %54 ], [ -22, %52 ], [ -22, %27 ], [ -22, %25 ], [ -22, %35 ], [ -22, %33 ], [ %203, %224 ], [ %203, %222 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %231
@@ -1958,8 +1958,8 @@ define internal i32 @rtnl_net_dumpid(ptr noundef %0, ptr noundef captures(none) 
   br label %82
 
 .thread13:                                        ; preds = %40, %71, %70, %39, %37
-  %77 = phi i8 [ 0, %40 ], [ %50, %70 ], [ %50, %71 ], [ 0, %39 ], [ 0, %37 ]
-  %.ph = phi i32 [ %43, %40 ], [ -22, %70 ], [ -22, %71 ], [ -22, %39 ], [ -22, %37 ]
+  %77 = phi i8 [ %50, %70 ], [ %50, %71 ], [ 0, %40 ], [ 0, %39 ], [ 0, %37 ]
+  %.ph = phi i32 [ -22, %70 ], [ -22, %71 ], [ %43, %40 ], [ -22, %39 ], [ -22, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %89
 
@@ -2567,7 +2567,7 @@ define internal fastcc i32 @ops_init(ptr noundef readonly captures(none) %0, ptr
   br label %.thread
 
 .thread:                                          ; preds = %32, %42, %24, %6, %2
-  %44 = phi ptr [ null, %2 ], [ null, %6 ], [ %11, %24 ], [ %11, %42 ], [ %11, %32 ]
+  %44 = phi ptr [ null, %6 ], [ null, %2 ], [ %11, %24 ], [ %11, %42 ], [ %11, %32 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
@@ -2599,8 +2599,8 @@ define internal fastcc i32 @ops_init(ptr noundef readonly captures(none) %0, ptr
   br label %64
 
 64:                                               ; preds = %26, %58, %54, %51
-  %65 = phi i32 [ %49, %51 ], [ %49, %58 ], [ %49, %54 ], [ -12, %26 ]
-  %66 = phi ptr [ %44, %51 ], [ %44, %58 ], [ %44, %54 ], [ %11, %26 ]
+  %65 = phi i32 [ %49, %58 ], [ %49, %54 ], [ %49, %51 ], [ -12, %26 ]
+  %66 = phi ptr [ %44, %58 ], [ %44, %54 ], [ %44, %51 ], [ %11, %26 ]
   tail call void @kfree(ptr noundef %66) #17
   br label %.thread8
 

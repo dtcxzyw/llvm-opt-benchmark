@@ -149,7 +149,7 @@ define noundef i32 @H5I_dump_ids_for_type(i32 noundef %0) local_unnamed_addr #0 
   br label %86
 
 86:                                               ; preds = %82, %80, %73
-  %.1.i = phi ptr [ %74, %73 ], [ %85, %82 ], [ %81, %80 ]
+  %.1.i = phi ptr [ %85, %82 ], [ %74, %73 ], [ %81, %80 ]
   %.not.i = icmp eq ptr %.1.i, null
   br i1 %.not.i, label %H5I__id_dump_cb.exit, label %87
 

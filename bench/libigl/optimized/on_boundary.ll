@@ -752,7 +752,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6v
   br label %.body155
 
 .body155:                                         ; preds = %231, %228, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit279
-  %.pn141 = phi { ptr, i32 } [ %122, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit279 ], [ %229, %231 ], [ %229, %228 ]
+  %.pn141 = phi { ptr, i32 } [ %122, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit279 ], [ %229, %228 ], [ %229, %231 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %257
 
@@ -798,7 +798,7 @@ _ZNSt14_Bit_referenceaSEb.exit192:                ; preds = %247, %244
   br i1 %exitcond346.not, label %239, label %240, !llvm.loop !39
 
 257:                                              ; preds = %.body155, %226
-  %.pn143.pn.pn.pn = phi { ptr, i32 } [ %.pn141, %.body155 ], [ %227, %226 ]
+  %.pn143.pn.pn.pn = phi { ptr, i32 } [ %227, %226 ], [ %.pn141, %.body155 ]
   %258 = load ptr, ptr %6, align 8, !tbaa !26
   %.not.i.i.i193 = icmp eq ptr %258, null
   br i1 %.not.i.i.i193, label %_ZNSt6vectorIiSaIiEED2Ev.exit194, label %259
@@ -1264,7 +1264,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit249:      ; preds = %_ZSt8_DestroyIPSt6v
   br label %.body212
 
 .body212:                                         ; preds = %473, %470, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit284
-  %.pn131 = phi { ptr, i32 } [ %364, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit284 ], [ %471, %473 ], [ %471, %470 ]
+  %.pn131 = phi { ptr, i32 } [ %364, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit284 ], [ %471, %470 ], [ %471, %473 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %499
 
@@ -1310,7 +1310,7 @@ _ZNSt14_Bit_referenceaSEb.exit272:                ; preds = %489, %486
   br i1 %exitcond332.not, label %481, label %482, !llvm.loop !42
 
 499:                                              ; preds = %.body212, %468
-  %.pn133.pn.pn.pn = phi { ptr, i32 } [ %.pn131, %.body212 ], [ %469, %468 ]
+  %.pn133.pn.pn.pn = phi { ptr, i32 } [ %469, %468 ], [ %.pn131, %.body212 ]
   %500 = load ptr, ptr %10, align 8, !tbaa !26
   %.not.i.i.i273 = icmp eq ptr %500, null
   br i1 %.not.i.i.i273, label %_ZNSt6vectorIiSaIiEED2Ev.exit274, label %501

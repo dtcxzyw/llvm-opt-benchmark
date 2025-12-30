@@ -7537,7 +7537,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16X86LegalizerInfo14legalizeCustom
   br label %16
 
 16:                                               ; preds = %4, %14, %12, %7
-  %.0 = phi i1 [ %15, %14 ], [ %11, %7 ], [ %13, %12 ], [ false, %4 ]
+  %.0 = phi i1 [ %11, %7 ], [ %13, %12 ], [ %15, %14 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -8884,7 +8884,7 @@ _ZNK4llvm3LLT14getElementTypeEv.exit.i.i.i:       ; preds = %17, %12
   br label %_ZNK4llvm3LLT9isPointerEv.exit.i.i.i.i.i
 
 _ZNK4llvm3LLT9isPointerEv.exit.i.i.i.i.i:         ; preds = %20, %_ZNK4llvm3LLT14getElementTypeEv.exit.i.i.i
-  %22 = phi i1 [ %.not1.i.i.i.i.i.i, %20 ], [ false, %_ZNK4llvm3LLT14getElementTypeEv.exit.i.i.i ]
+  %22 = phi i1 [ false, %_ZNK4llvm3LLT14getElementTypeEv.exit.i.i.i ], [ %.not1.i.i.i.i.i.i, %20 ]
   %23 = and i64 %.sroa.0.0.i.i.i.i, 6
   %24 = icmp eq i64 %23, 2
   %or.cond.i3.i.i.i.i.i = and i1 %spec.select.i.i.i.i.i.i.i, %24
@@ -9115,7 +9115,7 @@ _ZNK4llvm3LLT14getElementTypeEv.exit.i:           ; preds = %17, %12
   br label %_ZNK4llvm3LLT9isPointerEv.exit.i.i.i
 
 _ZNK4llvm3LLT9isPointerEv.exit.i.i.i:             ; preds = %21, %18
-  %23 = phi i1 [ %.not1.i.i.i.i, %21 ], [ false, %18 ]
+  %23 = phi i1 [ false, %18 ], [ %.not1.i.i.i.i, %21 ]
   %24 = and i64 %.sroa.0.0.i.i, 6
   %25 = icmp eq i64 %24, 2
   %or.cond.i3.i.i.i = and i1 %spec.select.i.i.i.i.i, %25
@@ -10476,7 +10476,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit25.i.i.i:      ; preds = %46, %44
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_2JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_2JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, %.split.i.i.i, %.split1.i.i.i, %58
-  %.0.i.i.i = phi i1 [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i ], [ false, %58 ], [ false, %.split.i.i.i ], [ true, %.split1.i.i.i ]
+  %.0.i.i.i = phi i1 [ false, %58 ], [ false, %.split.i.i.i ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i ], [ true, %.split1.i.i.i ]
   ret i1 %.0.i.i.i
 }
 
@@ -10770,7 +10770,7 @@ _ZNSt14_Function_baseD2Ev.exit65.i.i.i:           ; preds = %113, %108
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_3JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_3JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i.i, %41, %57, %73, %94, %_ZNSt14_Function_baseD2Ev.exit65.i.i.i, %.critedge45.i.i.i
-  %.028.i.i.i = phi i1 [ true, %94 ], [ true, %_ZNSt14_Function_baseD2Ev.exit.i.i.i ], [ true, %41 ], [ true, %57 ], [ true, %73 ], [ false, %.critedge45.i.i.i ], [ %111, %_ZNSt14_Function_baseD2Ev.exit65.i.i.i ]
+  %.028.i.i.i = phi i1 [ true, %_ZNSt14_Function_baseD2Ev.exit.i.i.i ], [ true, %41 ], [ true, %57 ], [ true, %73 ], [ true, %94 ], [ false, %.critedge45.i.i.i ], [ %111, %_ZNSt14_Function_baseD2Ev.exit65.i.i.i ]
   ret i1 %.028.i.i.i
 }
 
@@ -11362,7 +11362,7 @@ _ZNSt14_Function_baseD2Ev.exit106.i.i.i:          ; preds = %178, %173
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_5JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_5JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i.i, %47, %65, %83, %104, %122, %140, %162, %_ZNSt14_Function_baseD2Ev.exit106.i.i.i, %.critedge74.i.i.i
-  %.043.i.i.i = phi i1 [ true, %162 ], [ true, %_ZNSt14_Function_baseD2Ev.exit.i.i.i ], [ true, %47 ], [ true, %65 ], [ true, %83 ], [ true, %104 ], [ true, %122 ], [ true, %140 ], [ false, %.critedge74.i.i.i ], [ %176, %_ZNSt14_Function_baseD2Ev.exit106.i.i.i ]
+  %.043.i.i.i = phi i1 [ true, %_ZNSt14_Function_baseD2Ev.exit.i.i.i ], [ true, %47 ], [ true, %65 ], [ true, %83 ], [ true, %104 ], [ true, %122 ], [ true, %140 ], [ true, %162 ], [ false, %.critedge74.i.i.i ], [ %176, %_ZNSt14_Function_baseD2Ev.exit106.i.i.i ]
   ret i1 %.043.i.i.i
 }
 
@@ -11998,7 +11998,7 @@ _ZNSt14_Function_baseD2Ev.exit52.i.i.i:           ; preds = %85, %80
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_9JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_9JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i.i, %39, %55, %71, %_ZNSt14_Function_baseD2Ev.exit52.i.i.i, %.critedge36.i.i.i
-  %.023.i.i.i = phi i1 [ true, %71 ], [ true, %_ZNSt14_Function_baseD2Ev.exit.i.i.i ], [ true, %39 ], [ true, %55 ], [ false, %.critedge36.i.i.i ], [ %83, %_ZNSt14_Function_baseD2Ev.exit52.i.i.i ]
+  %.023.i.i.i = phi i1 [ true, %_ZNSt14_Function_baseD2Ev.exit.i.i.i ], [ true, %39 ], [ true, %55 ], [ true, %71 ], [ false, %.critedge36.i.i.i ], [ %83, %_ZNSt14_Function_baseD2Ev.exit52.i.i.i ]
   ret i1 %.023.i.i.i
 }
 
@@ -12804,7 +12804,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit57.i.i.i: ; preds = %68
   br label %100
 
 .critedge43.i.i.i:                                ; preds = %92, %.critedge.thread122.i.i.i
-  %99 = phi i1 [ false, %.critedge.thread122.i.i.i ], [ %88, %92 ]
+  %99 = phi i1 [ %88, %92 ], [ false, %.critedge.thread122.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %56, label %101, label %.critedge45.i.i.i
 
@@ -13536,7 +13536,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit59.i.i.i: ; preds = %71
   br label %110
 
 .critedge45.i.i.i:                                ; preds = %102, %.critedge.thread125.i.i.i
-  %109 = phi i1 [ false, %.critedge.thread125.i.i.i ], [ %98, %102 ]
+  %109 = phi i1 [ %98, %102 ], [ false, %.critedge.thread125.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %54, label %111, label %.critedge47.i.i.i
 
@@ -13772,7 +13772,7 @@ _ZNSt14_Function_baseD2Ev.exit19.i.i.i:           ; preds = %48, %44
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_19JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 .critedge15.i.i.i:                                ; preds = %43, %.critedge.thread27.i.i.i
-  %50 = phi i1 [ false, %.critedge.thread27.i.i.i ], [ %39, %43 ]
+  %50 = phi i1 [ %39, %43 ], [ false, %.critedge.thread27.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_19JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
@@ -13963,7 +13963,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit28.i.i.i: ; preds = %27
   br label %69
 
 .critedge24.i.i.i:                                ; preds = %61, %.critedge.thread55.i.i.i
-  %68 = phi i1 [ false, %.critedge.thread55.i.i.i ], [ %57, %61 ]
+  %68 = phi i1 [ %57, %61 ], [ false, %.critedge.thread55.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %10, label %70, label %.critedge26.i.i.i
 
@@ -14180,7 +14180,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit28.i.i.i: ; preds = %27
   br label %69
 
 .critedge24.i.i.i:                                ; preds = %61, %.critedge.thread55.i.i.i
-  %68 = phi i1 [ false, %.critedge.thread55.i.i.i ], [ %57, %61 ]
+  %68 = phi i1 [ %57, %61 ], [ false, %.critedge.thread55.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %10, label %70, label %.critedge26.i.i.i
 
@@ -14343,7 +14343,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit37.i.i.i: ; preds = %27
   br i1 %44, label %45, label %.critedge31.i.i.i
 
 45:                                               ; preds = %41, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit37.i.i.i
-  %.02592.i.i.i = phi i1 [ true, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit37.i.i.i ], [ false, %41 ]
+  %.02592.i.i.i = phi i1 [ false, %41 ], [ true, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit37.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %46 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -14610,7 +14610,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit37.i.i.i: ; preds = %27
   br i1 %44, label %45, label %.critedge31.i.i.i
 
 45:                                               ; preds = %41, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit37.i.i.i
-  %.02592.i.i.i = phi i1 [ true, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit37.i.i.i ], [ false, %41 ]
+  %.02592.i.i.i = phi i1 [ false, %41 ], [ true, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit37.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %46 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %.val, i64 24
@@ -15061,7 +15061,7 @@ _ZNSt14_Function_baseD2Ev.exit32.i.i.i:           ; preds = %58, %.thread.thread
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_25JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_25JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %2, %.thread45.i.i.i, %_ZNSt14_Function_baseD2Ev.exit30.i.i.i, %.critedge22.i.i.i, %_ZNSt14_Function_baseD2Ev.exit32.i.i.i
-  %60 = phi i1 [ %50, %_ZNSt14_Function_baseD2Ev.exit30.i.i.i ], [ %46, %.critedge22.i.i.i ], [ %55, %_ZNSt14_Function_baseD2Ev.exit32.i.i.i ], [ false, %.thread45.i.i.i ], [ false, %2 ]
+  %60 = phi i1 [ %50, %_ZNSt14_Function_baseD2Ev.exit30.i.i.i ], [ %46, %.critedge22.i.i.i ], [ %55, %_ZNSt14_Function_baseD2Ev.exit32.i.i.i ], [ false, %2 ], [ false, %.thread45.i.i.i ]
   ret i1 %60
 }
 
@@ -15213,7 +15213,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit27.i.i.i: ; preds = %27
   br i1 %.11652.i.i.i, label %.thread.thread43.i.i.i, label %.critedge23.i.i.i
 
 .thread.thread43.i.i.i:                           ; preds = %.critedge.i.i.i, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit27.i.i.i
-  %53 = phi i1 [ false, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit27.i.i.i ], [ %49, %.critedge.i.i.i ]
+  %53 = phi i1 [ %49, %.critedge.i.i.i ], [ false, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit27.i.i.i ]
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !174
   %.not.i30.i.i.i = icmp eq ptr %55, null
@@ -15246,7 +15246,7 @@ _ZNSt14_Function_baseD2Ev.exit33.i.i.i:           ; preds = %61, %.critedge23.th
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_26JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_26JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %2, %.thread49.i.i.i, %_ZNSt14_Function_baseD2Ev.exit31.i.i.i, %.critedge23.i.i.i, %_ZNSt14_Function_baseD2Ev.exit33.i.i.i
-  %63 = phi i1 [ %53, %_ZNSt14_Function_baseD2Ev.exit31.i.i.i ], [ %49, %.critedge23.i.i.i ], [ %58, %_ZNSt14_Function_baseD2Ev.exit33.i.i.i ], [ false, %.thread49.i.i.i ], [ false, %2 ]
+  %63 = phi i1 [ %53, %_ZNSt14_Function_baseD2Ev.exit31.i.i.i ], [ %49, %.critedge23.i.i.i ], [ %58, %_ZNSt14_Function_baseD2Ev.exit33.i.i.i ], [ false, %2 ], [ false, %.thread49.i.i.i ]
   ret i1 %63
 }
 
@@ -15562,7 +15562,7 @@ _ZNSt14_Function_baseD2Ev.exit32.i.i.i:           ; preds = %58, %.thread.thread
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_28JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_28JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %2, %.thread45.i.i.i, %_ZNSt14_Function_baseD2Ev.exit30.i.i.i, %.critedge22.i.i.i, %_ZNSt14_Function_baseD2Ev.exit32.i.i.i
-  %60 = phi i1 [ %50, %_ZNSt14_Function_baseD2Ev.exit30.i.i.i ], [ %46, %.critedge22.i.i.i ], [ %55, %_ZNSt14_Function_baseD2Ev.exit32.i.i.i ], [ false, %.thread45.i.i.i ], [ false, %2 ]
+  %60 = phi i1 [ %50, %_ZNSt14_Function_baseD2Ev.exit30.i.i.i ], [ %46, %.critedge22.i.i.i ], [ %55, %_ZNSt14_Function_baseD2Ev.exit32.i.i.i ], [ false, %2 ], [ false, %.thread45.i.i.i ]
   ret i1 %60
 }
 
@@ -15714,7 +15714,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit27.i.i.i: ; preds = %27
   br i1 %.11652.i.i.i, label %.thread.thread43.i.i.i, label %.critedge23.i.i.i
 
 .thread.thread43.i.i.i:                           ; preds = %.critedge.i.i.i, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit27.i.i.i
-  %53 = phi i1 [ false, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit27.i.i.i ], [ %49, %.critedge.i.i.i ]
+  %53 = phi i1 [ %49, %.critedge.i.i.i ], [ false, %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit27.i.i.i ]
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !174
   %.not.i30.i.i.i = icmp eq ptr %55, null
@@ -15747,7 +15747,7 @@ _ZNSt14_Function_baseD2Ev.exit33.i.i.i:           ; preds = %61, %.critedge23.th
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_29JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_29JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %2, %.thread49.i.i.i, %_ZNSt14_Function_baseD2Ev.exit31.i.i.i, %.critedge23.i.i.i, %_ZNSt14_Function_baseD2Ev.exit33.i.i.i
-  %63 = phi i1 [ %53, %_ZNSt14_Function_baseD2Ev.exit31.i.i.i ], [ %49, %.critedge23.i.i.i ], [ %58, %_ZNSt14_Function_baseD2Ev.exit33.i.i.i ], [ false, %.thread49.i.i.i ], [ false, %2 ]
+  %63 = phi i1 [ %53, %_ZNSt14_Function_baseD2Ev.exit31.i.i.i ], [ %49, %.critedge23.i.i.i ], [ %58, %_ZNSt14_Function_baseD2Ev.exit33.i.i.i ], [ false, %2 ], [ false, %.thread49.i.i.i ]
   ret i1 %63
 }
 
@@ -15940,7 +15940,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit40.i.i.i: ; preds = %37
   br label %63
 
 .critedge32.i.i.i:                                ; preds = %55, %.critedge.thread.i.i.i
-  %62 = phi i1 [ false, %.critedge.thread.i.i.i ], [ %.not.i.i41.i.i.i, %55 ]
+  %62 = phi i1 [ %.not.i.i41.i.i.i, %55 ], [ false, %.critedge.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %25, label %64, label %.critedge34.i.i.i
 
@@ -16221,7 +16221,7 @@ _ZNSt14_Function_baseD2Ev.exit24.i.i.i:           ; preds = %104, %100
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_31JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 .critedge20.i.i.i:                                ; preds = %99, %.critedge.thread32.i.i.i
-  %106 = phi i1 [ false, %.critedge.thread32.i.i.i ], [ %95, %99 ]
+  %106 = phi i1 [ %95, %99 ], [ false, %.critedge.thread32.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_31JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
@@ -16450,7 +16450,7 @@ _ZNSt14_Function_baseD2Ev.exit19.i.i.i:           ; preds = %100, %96
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_32JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 .critedge15.i.i.i:                                ; preds = %95, %.critedge.thread27.i.i.i
-  %102 = phi i1 [ false, %.critedge.thread27.i.i.i ], [ %91, %95 ]
+  %102 = phi i1 [ %91, %95 ], [ false, %.critedge.thread27.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZSt10__invoke_rIbRZN4llvm16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE4$_32JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 

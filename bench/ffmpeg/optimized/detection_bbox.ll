@@ -72,7 +72,7 @@ define ptr @av_detection_bbox_create_side_data(ptr noundef %0, i32 noundef %1) l
   br label %av_detection_bbox_alloc.exit.thread
 
 av_detection_bbox_alloc.exit.thread:              ; preds = %2, %15, %17, %14
-  %.0 = phi ptr [ %8, %15 ], [ null, %17 ], [ null, %14 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %17 ], [ null, %14 ], [ %8, %15 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0

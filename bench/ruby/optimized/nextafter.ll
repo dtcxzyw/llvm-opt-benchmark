@@ -120,7 +120,7 @@ thread-pre-split:                                 ; preds = %32, %37
   br label %55
 
 55:                                               ; preds = %51, %26, %24, %21, %18, %10, %5, %2, %53, %14
-  %.040 = phi double [ 0x7FEFFFFFFFFFFFFF, %24 ], [ %0, %2 ], [ %1, %5 ], [ 0xFFF0000000000000, %21 ], [ %15, %14 ], [ %.041, %10 ], [ 0xFFEFFFFFFFFFFFFF, %18 ], [ %., %51 ], [ 0x7FF0000000000000, %26 ], [ %54, %53 ]
+  %.040 = phi double [ %15, %14 ], [ %54, %53 ], [ %0, %2 ], [ %1, %5 ], [ %.041, %10 ], [ 0xFFEFFFFFFFFFFFFF, %18 ], [ 0xFFF0000000000000, %21 ], [ 0x7FEFFFFFFFFFFFFF, %24 ], [ 0x7FF0000000000000, %26 ], [ %., %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret double %.040
 }

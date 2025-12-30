@@ -284,8 +284,8 @@ callHandler.exit:                                 ; preds = %32
   br i1 %.not10.i50, label %.critedge.sink.split, label %.critedge
 
 callHandler.exit52:                               ; preds = %52, %63, %58
-  %70 = phi i16 [ %.pre76, %63 ], [ %53, %58 ], [ %53, %52 ]
-  %71 = phi i1 [ true, %63 ], [ %61, %58 ], [ false, %52 ]
+  %70 = phi i16 [ %53, %58 ], [ %.pre76, %63 ], [ %53, %52 ]
+  %71 = phi i1 [ %61, %58 ], [ true, %63 ], [ false, %52 ]
   br i1 %56, label %72, label %86
 
 72:                                               ; preds = %callHandler.exit52
@@ -697,9 +697,9 @@ define internal range(i32 -1, 1) i32 @connSocketAccept(ptr noundef %0, ptr nound
   %.pre = load i16, ptr %6, align 2, !tbaa !20
   br label %callHandler.exit
 
-callHandler.exit:                                 ; preds = %18, %17, %12
-  %22 = phi i16 [ %13, %12 ], [ %13, %17 ], [ %.pre, %18 ]
-  %23 = phi i32 [ 0, %12 ], [ -1, %17 ], [ -1, %18 ]
+callHandler.exit:                                 ; preds = %17, %18, %12
+  %22 = phi i16 [ %13, %12 ], [ %.pre, %18 ], [ %13, %17 ]
+  %23 = phi i32 [ 0, %12 ], [ -1, %18 ], [ -1, %17 ]
   %24 = add i16 %22, -1
   store i16 %24, ptr %6, align 2, !tbaa !20
   br label %25

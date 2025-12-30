@@ -112,8 +112,8 @@ define hidden noundef i32 @mbedtls_poly1305_update(ptr noundef captures(none) %0
   br label %17
 
 17:                                               ; preds = %15, %4
-  %.038 = phi i64 [ %2, %4 ], [ %16, %15 ]
-  %.0 = phi i64 [ 0, %4 ], [ %8, %15 ]
+  %.038 = phi i64 [ %16, %15 ], [ %2, %4 ]
+  %.0 = phi i64 [ %8, %15 ], [ 0, %4 ]
   %18 = icmp ugt i64 %.038, 15
   br i1 %18, label %19, label %25
 
@@ -536,7 +536,7 @@ define hidden range(i32 -1, 1) i32 @mbedtls_poly1305_self_test(i32 noundef %0) l
   br label %.critedge
 
 .critedge:                                        ; preds = %.split.us, %.split23.us, %23, %.split21.us
-  %.015 = phi i32 [ 0, %.split23.us ], [ -1, %.split21.us ], [ 0, %23 ], [ -1, %.split.us ]
+  %.015 = phi i32 [ -1, %.split21.us ], [ 0, %23 ], [ 0, %.split23.us ], [ -1, %.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.015
 }

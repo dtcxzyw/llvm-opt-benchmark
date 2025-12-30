@@ -1254,10 +1254,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 .body.thread:                                     ; preds = %58, %.noexc34, %29, %.noexc32
-  %eh.lpad-body43 = phi { ptr, i32 } [ %lpad.thr_comm, %58 ], [ %30, %29 ], [ %30, %.noexc32 ], [ %lpad.thr_comm, %.noexc34 ]
+  %eh.lpad-body43 = phi { ptr, i32 } [ %30, %.noexc32 ], [ %30, %29 ], [ %lpad.thr_comm, %.noexc34 ], [ %lpad.thr_comm, %58 ]
   resume { ptr, i32 } %eh.lpad-body43
 
-58:                                               ; preds = %20, %50, %17, %48
+58:                                               ; preds = %17, %20, %50, %48
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !87)

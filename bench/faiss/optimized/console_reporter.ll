@@ -539,7 +539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %38
   br label %_ZN9benchmarkL10FormatTimeB5cxx11Ed.exit
 
 _ZN9benchmarkL10FormatTimeB5cxx11Ed.exit:         ; preds = %48, %52, %54, %56
-  %.str.28.sink.i = phi ptr [ @.str.26, %54 ], [ %.str.27..str.28.i, %56 ], [ @.str.25, %52 ], [ @.str.24, %48 ]
+  %.str.28.sink.i = phi ptr [ @.str.24, %48 ], [ @.str.25, %52 ], [ @.str.26, %54 ], [ %.str.27..str.28.i, %56 ]
   call void (ptr, ptr, ...) @_ZN9benchmark12FormatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull %.str.28.sink.i, double noundef %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %58 = fcmp olt double %50, 1.000000e+00
@@ -559,7 +559,7 @@ _ZN9benchmarkL10FormatTimeB5cxx11Ed.exit:         ; preds = %48, %52, %54, %56
   br label %65
 
 65:                                               ; preds = %63, %61, %59, %_ZN9benchmarkL10FormatTimeB5cxx11Ed.exit
-  %.str.28.sink.i106 = phi ptr [ @.str.26, %61 ], [ %.str.27..str.28.i105, %63 ], [ @.str.25, %59 ], [ @.str.24, %_ZN9benchmarkL10FormatTimeB5cxx11Ed.exit ]
+  %.str.28.sink.i106 = phi ptr [ @.str.24, %_ZN9benchmarkL10FormatTimeB5cxx11Ed.exit ], [ @.str.25, %59 ], [ @.str.26, %61 ], [ %.str.27..str.28.i105, %63 ]
   invoke void (ptr, ptr, ...) @_ZN9benchmark12FormatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull %.str.28.sink.i106, double noundef %50)
           to label %_ZN9benchmarkL10FormatTimeB5cxx11Ed.exit107 unwind label %79
 

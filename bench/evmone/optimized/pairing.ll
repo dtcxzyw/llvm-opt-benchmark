@@ -546,8 +546,8 @@ _ZN6evmmax5bn25411is_infinityERKNS_3ecc5PointINS1_13BaseFieldElemINS0_15BaseFiel
   br label %.preheader.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i:                         ; preds = %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i.i, %_ZN6evmmax5bn25411is_infinityERKNS_3ecc5PointINS1_13BaseFieldElemINS0_15BaseFieldConfigEEEEE.exit
-  %.011.i.i.i.i.i.i.i = phi ptr [ %302, %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i.i ], [ %114, %_ZN6evmmax5bn25411is_infinityERKNS_3ecc5PointINS1_13BaseFieldElemINS0_15BaseFieldConfigEEEEE.exit ]
-  %.0810.i.i.i.i.idx.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i, %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i.i ], [ 0, %_ZN6evmmax5bn25411is_infinityERKNS_3ecc5PointINS1_13BaseFieldElemINS0_15BaseFieldConfigEEEEE.exit ]
+  %.011.i.i.i.i.i.i.i = phi ptr [ %114, %_ZN6evmmax5bn25411is_infinityERKNS_3ecc5PointINS1_13BaseFieldElemINS0_15BaseFieldConfigEEEEE.exit ], [ %302, %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i = phi i64 [ 0, %_ZN6evmmax5bn25411is_infinityERKNS_3ecc5PointINS1_13BaseFieldElemINS0_15BaseFieldConfigEEEEE.exit ], [ %.0810.i.i.i.i.add.i.i.i, %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i.i ]
   %.0810.i.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %120, i64 %.0810.i.i.i.i.idx.i.i.i
   br label %293
 
@@ -581,8 +581,8 @@ _ZN6evmmax3ecceqERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit.i: ; preds 
   br label %.preheader.i.i.i.i.i.i2.i
 
 .preheader.i.i.i.i.i.i2.i:                        ; preds = %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i9.i, %303
-  %.011.i.i.i.i.i.i3.i = phi ptr [ %313, %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i9.i ], [ %115, %303 ]
-  %.0810.i.i.i.i.idx.i.i4.i = phi i64 [ %.0810.i.i.i.i.add.i.i10.i, %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i9.i ], [ 0, %303 ]
+  %.011.i.i.i.i.i.i3.i = phi ptr [ %115, %303 ], [ %313, %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i9.i ]
+  %.0810.i.i.i.i.idx.i.i4.i = phi i64 [ 0, %303 ], [ %.0810.i.i.i.i.add.i.i10.i, %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i9.i ]
   %.0810.i.i.i.i.ptr.i.i5.i = getelementptr inbounds nuw i8, ptr %132, i64 %.0810.i.i.i.i.idx.i.i4.i
   br label %304
 
@@ -1815,8 +1815,8 @@ _ZN6evmmax5bn25412_GLOBAL__N_19final_expERKNS_3ecc12ExtFieldElemINS0_10Fq12Confi
   br label %.preheader.i.i.i.i.i.i.preheader.i.i.i.i.i.i.preheader.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.preheader.i.i.i.i.i.i.preheader.i.i.i.i.i.i: ; preds = %_ZN6evmmax3ecceqERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit.i.i.i.i.i.i, %_ZN6evmmax5bn25412_GLOBAL__N_19final_expERKNS_3ecc12ExtFieldElemINS0_10Fq12ConfigEEE.exit
-  %.012.i.i.i.i.i.i = phi ptr [ %712, %_ZN6evmmax3ecceqERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit.i.i.i.i.i.i ], [ %126, %_ZN6evmmax5bn25412_GLOBAL__N_19final_expERKNS_3ecc12ExtFieldElemINS0_10Fq12ConfigEEE.exit ]
-  %.0811.i.i.i.i.idx.i.i = phi i64 [ %.0811.i.i.i.i.add.i.i, %_ZN6evmmax3ecceqERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit.i.i.i.i.i.i ], [ 0, %_ZN6evmmax5bn25412_GLOBAL__N_19final_expERKNS_3ecc12ExtFieldElemINS0_10Fq12ConfigEEE.exit ]
+  %.012.i.i.i.i.i.i = phi ptr [ %126, %_ZN6evmmax5bn25412_GLOBAL__N_19final_expERKNS_3ecc12ExtFieldElemINS0_10Fq12ConfigEEE.exit ], [ %712, %_ZN6evmmax3ecceqERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit.i.i.i.i.i.i ]
+  %.0811.i.i.i.i.idx.i.i = phi i64 [ 0, %_ZN6evmmax5bn25412_GLOBAL__N_19final_expERKNS_3ecc12ExtFieldElemINS0_10Fq12ConfigEEE.exit ], [ %.0811.i.i.i.i.add.i.i, %_ZN6evmmax3ecceqERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit.i.i.i.i.i.i ]
   %.0811.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %125, i64 %.0811.i.i.i.i.idx.i.i
   br label %.preheader.i.i.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -5605,8 +5605,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6evmmax3ecceqERKNS0_8JacPointI
   br label %.preheader.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i:                           ; preds = %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i, %2
-  %.011.i.i.i.i.i.i = phi ptr [ %22, %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i ], [ %8, %2 ]
-  %.0810.i.i.i.i.idx.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i, %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i ], [ 0, %2 ]
+  %.011.i.i.i.i.i.i = phi ptr [ %8, %2 ], [ %22, %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i = phi i64 [ 0, %2 ], [ %.0810.i.i.i.i.add.i.i, %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i ]
   %.0810.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.0810.i.i.i.i.idx.i.i
   br label %13
 
@@ -5644,8 +5644,8 @@ _ZN6evmmax3ecceqERKNS0_12ExtFieldElemINS_5bn2549Fq2ConfigEEES6_.exit: ; preds = 
   br label %.preheader.i.i.i.i.i.i10
 
 .preheader.i.i.i.i.i.i10:                         ; preds = %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i17, %23
-  %.011.i.i.i.i.i.i11 = phi ptr [ %35, %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i17 ], [ %10, %23 ]
-  %.0810.i.i.i.i.idx.i.i12 = phi i64 [ %.0810.i.i.i.i.add.i.i18, %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i17 ], [ 0, %23 ]
+  %.011.i.i.i.i.i.i11 = phi ptr [ %10, %23 ], [ %35, %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i17 ]
+  %.0810.i.i.i.i.idx.i.i12 = phi i64 [ 0, %23 ], [ %.0810.i.i.i.i.add.i.i18, %_ZN6evmmax3ecceqERKNS0_13BaseFieldElemINS_5bn25415BaseFieldConfigEEES6_.exit.i.i.i.i.i.i17 ]
   %.0810.i.i.i.i.ptr.i.i13 = getelementptr inbounds nuw i8, ptr %9, i64 %.0810.i.i.i.i.idx.i.i12
   br label %26
 

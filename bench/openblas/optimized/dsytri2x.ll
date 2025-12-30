@@ -1580,9 +1580,9 @@ thread-pre-split727:                              ; preds = %._crit_edge833, %.l
   br label %.loopexit731
 
 .loopexit731:                                     ; preds = %..loopexit732_crit_edge, %.thread1237, %._crit_edge933, %..loopexit731_crit_edge
-  %.pre-phi = phi i32 [ %674, %._crit_edge933 ], [ %674, %..loopexit731_crit_edge ], [ %628, %..loopexit732_crit_edge ], [ %631, %.thread1237 ]
-  %700 = phi i32 [ %671, %._crit_edge933 ], [ %671, %..loopexit731_crit_edge ], [ %629, %..loopexit732_crit_edge ], [ %632, %.thread1237 ]
-  %storemerge = phi i32 [ 1, %._crit_edge933 ], [ %.us-phi945, %..loopexit731_crit_edge ], [ %690, %..loopexit732_crit_edge ], [ 1, %.thread1237 ]
+  %.pre-phi = phi i32 [ %674, %..loopexit731_crit_edge ], [ %674, %._crit_edge933 ], [ %628, %..loopexit732_crit_edge ], [ %631, %.thread1237 ]
+  %700 = phi i32 [ %671, %..loopexit731_crit_edge ], [ %671, %._crit_edge933 ], [ %629, %..loopexit732_crit_edge ], [ %632, %.thread1237 ]
+  %storemerge = phi i32 [ %.us-phi945, %..loopexit731_crit_edge ], [ 1, %._crit_edge933 ], [ %690, %..loopexit732_crit_edge ], [ 1, %.thread1237 ]
   store i32 %storemerge, ptr %12, align 4, !tbaa !3
   store i32 %.pre-phi, ptr %16, align 4, !tbaa !3
   %701 = icmp slt i32 %.pre-phi, %700

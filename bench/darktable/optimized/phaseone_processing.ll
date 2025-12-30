@@ -343,7 +343,7 @@ define noundef range(i32 -100010, 1) i32 @_ZN6LibRaw24phase_one_subtract_blackEP
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge94, %._crit_edge100, %.preheader86, %60, %30, %147
-  %.0 = phi i32 [ -100010, %147 ], [ 0, %30 ], [ 0, %60 ], [ 0, %.preheader86 ], [ 0, %._crit_edge94 ], [ 0, %._crit_edge100 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ -100010, %147 ], [ 0, %30 ], [ 0, %60 ], [ 0, %.preheader86 ], [ 0, %._crit_edge100 ], [ 0, %._crit_edge94 ], [ 0, %._crit_edge ]
   ret i32 %.0
 
 149:                                              ; preds = %144

@@ -343,7 +343,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10march_cubeIN5Eigen10
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %36
   br label %.loopexit, !llvm.loop !58
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %16, %..loopexit_crit_edge21.i.i.i.i, %21
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %16, %21, %..loopexit_crit_edge21.i.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !59
   %42 = load i32, ptr %41, align 4, !tbaa !15
@@ -427,8 +427,8 @@ _ZNSt10_HashtableIlSt4pairIKliESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   resume { ptr, i32 } %77
 
 _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit: ; preds = %66, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge, %61
-  %78 = phi ptr [ %.pre35, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge ], [ %54, %61 ], [ %54, %66 ]
-  %.pn.i.i = phi ptr [ %76, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge ], [ %62, %61 ], [ %68, %66 ]
+  %78 = phi ptr [ %54, %61 ], [ %.pre35, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge ], [ %54, %66 ]
+  %.pn.i.i = phi ptr [ %62, %61 ], [ %76, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge ], [ %68, %66 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i32 %53, ptr %.1.i.i, align 4, !tbaa !15
   %79 = load i32, ptr %78, align 4, !tbaa !15
@@ -437,7 +437,7 @@ _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit: ; 
   br label %83
 
 _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit: ; preds = %33, %17, %28
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %17 ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.06.1.i.i = phi ptr [ %29, %28 ], [ %.sroa.06.0.i.i, %17 ], [ %35, %33 ]
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %82 = load i32, ptr %81, align 8, !tbaa !64
   store i32 %82, ptr %3, align 4, !tbaa !15
@@ -703,7 +703,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10march_cubeIN5Eigen10
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %36
   br label %.loopexit, !llvm.loop !58
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %16, %..loopexit_crit_edge21.i.i.i.i, %21
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %16, %21, %..loopexit_crit_edge21.i.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !92
   %42 = load i32, ptr %41, align 4, !tbaa !15
@@ -787,8 +787,8 @@ _ZNSt10_HashtableIlSt4pairIKliESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   resume { ptr, i32 } %77
 
 _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit: ; preds = %66, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge, %61
-  %78 = phi ptr [ %.pre35, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge ], [ %54, %61 ], [ %54, %66 ]
-  %.pn.i.i = phi ptr [ %76, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge ], [ %62, %61 ], [ %68, %66 ]
+  %78 = phi ptr [ %54, %61 ], [ %.pre35, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge ], [ %54, %66 ]
+  %.pn.i.i = phi ptr [ %62, %61 ], [ %76, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge ], [ %68, %66 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i32 %53, ptr %.1.i.i, align 4, !tbaa !15
   %79 = load i32, ptr %78, align 4, !tbaa !15
@@ -797,7 +797,7 @@ _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit: ; 
   br label %83
 
 _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit: ; preds = %33, %17, %28
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %17 ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.06.1.i.i = phi ptr [ %29, %28 ], [ %.sroa.06.0.i.i, %17 ], [ %35, %33 ]
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %82 = load i32, ptr %81, align 8, !tbaa !64
   store i32 %82, ptr %3, align 4, !tbaa !15
@@ -1070,7 +1070,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10march_cubeIN5Eigen10
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %38
   br label %.loopexit, !llvm.loop !58
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %18, %..loopexit_crit_edge21.i.i.i.i, %23
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %18, %23, %..loopexit_crit_edge21.i.i.i.i
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !122
   %44 = load i64, ptr %43, align 8, !tbaa !53
@@ -1155,8 +1155,8 @@ _ZNSt10_HashtableIlSt4pairIKliESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   resume { ptr, i32 } %82
 
 _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit: ; preds = %71, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge, %66
-  %83 = phi ptr [ %.pre35, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge ], [ %58, %66 ], [ %58, %71 ]
-  %.pn.i.i = phi ptr [ %81, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge ], [ %67, %66 ], [ %73, %71 ]
+  %83 = phi ptr [ %58, %66 ], [ %.pre35, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge ], [ %58, %71 ]
+  %.pn.i.i = phi ptr [ %67, %66 ], [ %81, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge ], [ %73, %71 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i32 %59, ptr %.1.i.i, align 4, !tbaa !15
   %84 = load i64, ptr %83, align 8, !tbaa !53
@@ -1165,7 +1165,7 @@ _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit: ; 
   br label %89
 
 _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit: ; preds = %35, %19, %30
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %19 ], [ %31, %30 ], [ %37, %35 ]
+  %.sroa.06.1.i.i = phi ptr [ %31, %30 ], [ %.sroa.06.0.i.i, %19 ], [ %37, %35 ]
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %87 = load i32, ptr %86, align 8, !tbaa !64
   %88 = sext i32 %87 to i64
@@ -1440,7 +1440,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10march_cubeIN5Eigen10
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %36
   br label %.loopexit, !llvm.loop !58
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %16, %..loopexit_crit_edge21.i.i.i.i, %21
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %16, %21, %..loopexit_crit_edge21.i.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !141
   %42 = load i32, ptr %41, align 4, !tbaa !15
@@ -1525,8 +1525,8 @@ _ZNSt10_HashtableIlSt4pairIKliESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   resume { ptr, i32 } %80
 
 _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit: ; preds = %69, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge, %64
-  %81 = phi ptr [ %.pre35, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge ], [ %57, %64 ], [ %57, %69 ]
-  %.pn.i.i = phi ptr [ %79, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge ], [ %65, %64 ], [ %71, %69 ]
+  %81 = phi ptr [ %57, %64 ], [ %.pre35, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge ], [ %57, %69 ]
+  %.pn.i.i = phi ptr [ %65, %64 ], [ %79, %.loopexit.i.i._ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit_crit_edge ], [ %71, %69 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i32 %56, ptr %.1.i.i, align 4, !tbaa !15
   %82 = load i32, ptr %81, align 4, !tbaa !15
@@ -1535,7 +1535,7 @@ _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEEixERS5_.exit: ; 
   br label %86
 
 _ZNSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE4findERS5_.exit: ; preds = %33, %17, %28
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %17 ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.06.1.i.i = phi ptr [ %29, %28 ], [ %.sroa.06.0.i.i, %17 ], [ %35, %33 ]
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %85 = load i32, ptr %84, align 8, !tbaa !64
   store i32 %85, ptr %3, align 4, !tbaa !15

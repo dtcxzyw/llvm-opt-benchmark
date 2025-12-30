@@ -1535,7 +1535,7 @@ define internal i32 @xfrm_send_policy_notify(ptr noundef %0, i32 noundef %1, ptr
   br label %437
 
 .thread27:                                        ; preds = %126, %138, %26, %35, %144, %150, %61, %43
-  %189 = phi i32 [ -90, %43 ], [ -90, %61 ], [ -90, %150 ], [ %145, %144 ], [ -90, %26 ], [ -90, %35 ], [ %139, %138 ], [ %129, %126 ]
+  %189 = phi i32 [ -90, %43 ], [ -90, %61 ], [ %145, %144 ], [ -90, %150 ], [ -90, %35 ], [ -90, %26 ], [ %139, %138 ], [ %129, %126 ]
   call void @kfree_skb_reason(ptr noundef nonnull %24, i32 noundef 2) #16
   br label %437
 
@@ -2705,7 +2705,7 @@ copy_to_user_encap.exit.thread:                   ; preds = %189
   br label %copy_to_user_encap.exit
 
 copy_to_user_encap.exit:                          ; preds = %178, %189, %149, %101, %125, %69, %261, %257, %254, %247, %241, %234, %.thread38, %216, %206, %62, %55, %48
-  %263 = phi i32 [ %49, %48 ], [ %56, %55 ], [ %63, %62 ], [ 0, %257 ], [ -90, %69 ], [ -90, %125 ], [ -90, %189 ], [ -90, %149 ], [ %207, %206 ], [ %217, %216 ], [ %220, %.thread38 ], [ %235, %234 ], [ %242, %241 ], [ %248, %247 ], [ %255, %254 ], [ %262, %261 ], [ -90, %101 ], [ -90, %178 ]
+  %263 = phi i32 [ %49, %48 ], [ %56, %55 ], [ %63, %62 ], [ %207, %206 ], [ %217, %216 ], [ %220, %.thread38 ], [ %235, %234 ], [ %242, %241 ], [ %248, %247 ], [ %255, %254 ], [ %262, %261 ], [ 0, %257 ], [ -90, %69 ], [ -90, %101 ], [ -90, %125 ], [ -90, %149 ], [ -90, %189 ], [ -90, %178 ]
   ret i32 %263
 }
 
@@ -2934,7 +2934,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @verify_newpolicy_info(ptr 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %43, %52, %45, %37, %35, %25, %12, %6
-  %54 = phi i32 [ -22, %6 ], [ -22, %12 ], [ -22, %25 ], [ -22, %35 ], [ -22, %37 ], [ 0, %45 ], [ -22, %52 ], [ -22, %43 ], [ -22, %.thread.sink.split ]
+  %54 = phi i32 [ -22, %6 ], [ -22, %12 ], [ -22, %25 ], [ -22, %35 ], [ -22, %37 ], [ -22, %52 ], [ 0, %45 ], [ -22, %43 ], [ -22, %.thread.sink.split ]
   ret i32 %54
 }
 
@@ -4207,13 +4207,13 @@ define internal i32 @xfrm_add_sa(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %473, label %483, label %.thread43
 
 .thread43.sink.split:                             ; preds = %375, %336, %326, %296
-  %attach_crypt.__msg.sink = phi ptr [ @attach_auth_trunc.__msg.36, %336 ], [ @attach_auth_trunc.__msg, %326 ], [ @attach_aead.__msg, %296 ], [ @attach_crypt.__msg, %375 ]
-  %.ph = phi i32 [ -22, %336 ], [ -38, %326 ], [ -38, %296 ], [ -38, %375 ]
+  %attach_crypt.__msg.sink = phi ptr [ @attach_aead.__msg, %296 ], [ @attach_auth_trunc.__msg, %326 ], [ @attach_auth_trunc.__msg.36, %336 ], [ @attach_crypt.__msg, %375 ]
+  %.ph = phi i32 [ -38, %296 ], [ -38, %326 ], [ -22, %336 ], [ -38, %375 ]
   store ptr %attach_crypt.__msg.sink, ptr %3, align 8
   br label %.thread43
 
 .thread43:                                        ; preds = %.thread43.sink.split, %377, %375, %338, %336, %326, %298, %296, %460, %454, %448, %396, %362, %274, %265
-  %474 = phi i32 [ -12, %265 ], [ -12, %274 ], [ %365, %362 ], [ -38, %326 ], [ -12, %377 ], [ %401, %396 ], [ %452, %448 ], [ %458, %454 ], [ %472, %460 ], [ -12, %298 ], [ -38, %296 ], [ -12, %338 ], [ -22, %336 ], [ -38, %375 ], [ %.ph, %.thread43.sink.split ]
+  %474 = phi i32 [ -12, %265 ], [ -12, %274 ], [ %401, %396 ], [ %452, %448 ], [ %458, %454 ], [ %472, %460 ], [ %365, %362 ], [ -12, %298 ], [ -38, %296 ], [ -12, %338 ], [ -22, %336 ], [ -38, %326 ], [ -12, %377 ], [ -38, %375 ], [ %.ph, %.thread43.sink.split ]
   %475 = getelementptr inbounds nuw i8, ptr %230, i64 200
   store i8 5, ptr %475, align 8
   %476 = getelementptr inbounds nuw i8, ptr %230, i64 72
@@ -4329,7 +4329,7 @@ define internal i32 @xfrm_add_sa(ptr noundef readonly captures(none) %0, ptr nou
   br label %.thread40
 
 .thread40:                                        ; preds = %528, %530, %479, %481, %482, %229, %227, %225, %215, %185, %183, %177, %143, %136, %114, %108, %99, %93, %75, %69, %51, %38, %36, %26, %13, %208, %204, %201, %198, %195, %191, %187, %531
-  %532 = phi i32 [ %502, %531 ], [ %189, %187 ], [ %474, %479 ], [ -22, %227 ], [ -22, %225 ], [ -22, %215 ], [ -22, %185 ], [ -22, %183 ], [ -22, %177 ], [ -22, %143 ], [ -22, %136 ], [ -22, %114 ], [ -22, %108 ], [ -22, %99 ], [ -22, %93 ], [ -22, %75 ], [ -22, %69 ], [ -22, %51 ], [ -22, %38 ], [ -22, %36 ], [ -22, %26 ], [ -22, %13 ], [ %210, %208 ], [ %206, %204 ], [ %202, %201 ], [ %199, %198 ], [ %196, %195 ], [ %193, %191 ], [ %474, %482 ], [ -12, %229 ], [ %474, %481 ], [ %502, %530 ], [ %502, %528 ]
+  %532 = phi i32 [ %502, %531 ], [ -22, %227 ], [ -22, %225 ], [ -22, %215 ], [ -22, %185 ], [ -22, %183 ], [ -22, %177 ], [ -22, %143 ], [ -22, %136 ], [ -22, %114 ], [ -22, %108 ], [ -22, %99 ], [ -22, %93 ], [ -22, %75 ], [ -22, %69 ], [ -22, %51 ], [ -22, %38 ], [ -22, %36 ], [ -22, %26 ], [ -22, %13 ], [ %210, %208 ], [ %206, %204 ], [ %202, %201 ], [ %199, %198 ], [ %196, %195 ], [ %193, %191 ], [ %189, %187 ], [ %474, %482 ], [ -12, %229 ], [ %474, %481 ], [ %474, %479 ], [ %502, %530 ], [ %502, %528 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %532
 }
@@ -4457,7 +4457,7 @@ define internal i32 @xfrm_del_sa(ptr noundef readonly captures(none) %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %72, %74, %30, %75, %41
-  %76 = phi i32 [ -3, %41 ], [ -22, %30 ], [ %66, %75 ], [ %66, %74 ], [ %66, %72 ]
+  %76 = phi i32 [ -3, %41 ], [ %66, %75 ], [ -22, %30 ], [ %66, %74 ], [ %66, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %76
 }
@@ -4596,7 +4596,7 @@ define internal i32 @xfrm_get_sa(ptr noundef %0, ptr noundef %1, ptr noundef rea
   br label %.thread
 
 .thread:                                          ; preds = %78, %80, %30, %81, %41
-  %82 = phi i32 [ -3, %41 ], [ -22, %30 ], [ %74, %81 ], [ %74, %80 ], [ %74, %78 ]
+  %82 = phi i32 [ -3, %41 ], [ %74, %81 ], [ -22, %30 ], [ %74, %80 ], [ %74, %78 ]
   ret i32 %82
 }
 
@@ -4695,7 +4695,7 @@ define internal i32 @xfrm_dump_sa(ptr noundef %0, ptr noundef %1) #2 align 16 {
   br label %60
 
 .thread7:                                         ; preds = %51, %30, %39, %29, %27
-  %.ph = phi i32 [ -22, %51 ], [ -12, %39 ], [ %33, %30 ], [ -22, %29 ], [ -22, %27 ]
+  %.ph = phi i32 [ -12, %39 ], [ %33, %30 ], [ -22, %51 ], [ -22, %29 ], [ -22, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %66
 
@@ -4850,7 +4850,7 @@ define internal i32 @xfrm_add_policy(ptr noundef readonly captures(none) %0, ptr
   br label %.thread8
 
 .thread8:                                         ; preds = %31, %33, %66, %68, %69, %50, %37, %4
-  %70 = phi i32 [ %47, %50 ], [ %38, %37 ], [ %12, %4 ], [ 0, %66 ], [ 0, %69 ], [ 0, %68 ], [ -22, %33 ], [ -22, %31 ]
+  %70 = phi i32 [ %47, %50 ], [ %38, %37 ], [ %12, %4 ], [ 0, %69 ], [ 0, %68 ], [ 0, %66 ], [ -22, %33 ], [ -22, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %70
@@ -5106,7 +5106,7 @@ define internal i32 @xfrm_get_policy(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.thread15
 
 .thread15:                                        ; preds = %75, %73, %31, %33, %25, %27, %.thread22, %78
-  %143 = phi i32 [ %142, %.thread22 ], [ -22, %31 ], [ -2, %78 ], [ -22, %25 ], [ -22, %27 ], [ -22, %33 ], [ -22, %73 ], [ -22, %75 ]
+  %143 = phi i32 [ %142, %.thread22 ], [ -2, %78 ], [ -22, %27 ], [ -22, %25 ], [ -22, %33 ], [ -22, %31 ], [ -22, %73 ], [ -22, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5801,7 +5801,7 @@ define internal i32 @xfrm_add_pol_expire(ptr noundef readonly captures(none) %0,
   br label %.thread11
 
 .thread11:                                        ; preds = %69, %67, %25, %27, %19, %21, %.thread17, %72
-  %103 = phi i32 [ %102, %.thread17 ], [ -22, %25 ], [ -2, %72 ], [ -22, %19 ], [ -22, %21 ], [ -22, %27 ], [ -22, %67 ], [ -22, %69 ]
+  %103 = phi i32 [ %102, %.thread17 ], [ -2, %72 ], [ -22, %21 ], [ -22, %19 ], [ -22, %27 ], [ -22, %25 ], [ -22, %67 ], [ -22, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %103
@@ -6204,7 +6204,7 @@ define internal noundef range(i32 -22, 1) i32 @xfrm_new_ae(ptr noundef readonly 
   br label %.thread
 
 .thread:                                          ; preds = %103, %101, %92, %88, %82, %172, %67, %65
-  %183 = phi i32 [ -22, %65 ], [ 0, %172 ], [ -22, %67 ], [ -22, %82 ], [ -22, %88 ], [ -22, %92 ], [ -22, %101 ], [ -22, %103 ]
+  %183 = phi i32 [ 0, %172 ], [ -22, %67 ], [ -22, %65 ], [ -22, %82 ], [ -22, %88 ], [ -22, %92 ], [ -22, %101 ], [ -22, %103 ]
   %184 = getelementptr inbounds nuw i8, ptr %59, i64 72
   %185 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %184, i32 -1, ptr nonnull elementtype(i32) %184) #16, !srcloc !33
   %186 = icmp eq i32 %185, 1
@@ -6358,7 +6358,7 @@ define internal range(i32 -2147483648, 1) i32 @xfrm_get_ae(ptr noundef readonly 
   br label %.thread
 
 .thread:                                          ; preds = %77, %79, %50, %52, %81, %21
-  %83 = phi i32 [ -3, %21 ], [ %82, %81 ], [ -12, %50 ], [ -12, %52 ], [ %73, %79 ], [ %73, %77 ]
+  %83 = phi i32 [ -3, %21 ], [ %82, %81 ], [ -12, %52 ], [ -12, %50 ], [ %73, %79 ], [ %73, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %83
 }
@@ -6631,7 +6631,7 @@ define internal noundef range(i32 -22, 1) i32 @xfrm_set_spdinfo(ptr noundef read
   br label %.critedge
 
 .critedge:                                        ; preds = %39, %49, %51, %16, %26, %28, %76, %53
-  %79 = phi i32 [ -22, %16 ], [ 0, %76 ], [ 0, %53 ], [ -22, %28 ], [ -22, %26 ], [ -22, %51 ], [ -22, %49 ], [ -22, %39 ]
+  %79 = phi i32 [ 0, %53 ], [ 0, %76 ], [ -22, %28 ], [ -22, %26 ], [ -22, %16 ], [ -22, %51 ], [ -22, %49 ], [ -22, %39 ]
   ret i32 %79
 }
 

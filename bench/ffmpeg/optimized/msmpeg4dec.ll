@@ -259,9 +259,9 @@ define internal range(i32 -1, 1) i32 @msmpeg4v12_decode_mb(ptr noundef %0, ptr n
   br label %get_vlc2.exit
 
 get_vlc2.exit:                                    ; preds = %75, %83
-  %.064.i = phi i32 [ %54, %75 ], [ %85, %83 ]
-  %.062.i = phi i32 [ %78, %75 ], [ %99, %83 ]
-  %.0.i = phi i32 [ %81, %75 ], [ %102, %83 ]
+  %.064.i = phi i32 [ %85, %83 ], [ %54, %75 ]
+  %.062.i = phi i32 [ %99, %83 ], [ %78, %75 ]
+  %.0.i = phi i32 [ %102, %83 ], [ %81, %75 ]
   %103 = add i32 %.0.i, %.064.i
   br label %104
 
@@ -347,9 +347,9 @@ get_vlc2.exit:                                    ; preds = %75, %83
   br label %get_vlc2.exit119
 
 get_vlc2.exit119:                                 ; preds = %137, %147
-  %.064.i116 = phi i32 [ %116, %137 ], [ %149, %147 ]
-  %.062.i117 = phi i32 [ %142, %137 ], [ %163, %147 ]
-  %.0.i118 = phi i32 [ %145, %137 ], [ %166, %147 ]
+  %.064.i116 = phi i32 [ %149, %147 ], [ %116, %137 ]
+  %.062.i117 = phi i32 [ %163, %147 ], [ %142, %137 ]
+  %.0.i118 = phi i32 [ %166, %147 ], [ %145, %137 ]
   %167 = add i32 %.0.i118, %.064.i116
   br label %168
 
@@ -456,9 +456,9 @@ get_vlc2.exit119:                                 ; preds = %137, %147
   br label %get_vlc2.exit.i
 
 get_vlc2.exit.i:                                  ; preds = %226, %197
-  %.064.i.i = phi i32 [ %207, %197 ], [ %228, %226 ]
-  %.062.i.i = phi i32 [ %221, %197 ], [ %242, %226 ]
-  %.0.i.i = phi i32 [ %224, %197 ], [ %245, %226 ]
+  %.064.i.i = phi i32 [ %228, %226 ], [ %207, %197 ]
+  %.062.i.i = phi i32 [ %242, %226 ], [ %221, %197 ]
+  %.0.i.i = phi i32 [ %245, %226 ], [ %224, %197 ]
   %246 = add i32 %.0.i.i, %.064.i.i
   %247 = call i32 @llvm.umin.i32(i32 %208, i32 %246)
   store i32 %247, ptr %179, align 8, !tbaa !62
@@ -500,8 +500,8 @@ get_vlc2.exit.i:                                  ; preds = %226, %197
   br label %msmpeg4v2_decode_motion.exit
 
 msmpeg4v2_decode_motion.exit:                     ; preds = %get_vlc2.exit.i, %249, %265, %267
-  %270 = phi i32 [ %247, %249 ], [ %247, %get_vlc2.exit.i ], [ %spec.select.i.i, %265 ], [ %spec.select.i.i, %267 ]
-  %.0.i130 = phi i32 [ %206, %249 ], [ 65535, %get_vlc2.exit.i ], [ %266, %265 ], [ %spec.select.i129, %267 ]
+  %270 = phi i32 [ %247, %get_vlc2.exit.i ], [ %247, %249 ], [ %spec.select.i.i, %265 ], [ %spec.select.i.i, %267 ]
+  %.0.i130 = phi i32 [ 65535, %get_vlc2.exit.i ], [ %206, %249 ], [ %266, %265 ], [ %spec.select.i129, %267 ]
   store i32 %.0.i130, ptr %3, align 4, !tbaa !67
   %271 = load i32, ptr %4, align 4, !tbaa !67
   %272 = lshr i32 %270, 3
@@ -545,9 +545,9 @@ msmpeg4v2_decode_motion.exit:                     ; preds = %get_vlc2.exit.i, %2
   br label %get_vlc2.exit.i131
 
 get_vlc2.exit.i131:                               ; preds = %288, %msmpeg4v2_decode_motion.exit
-  %.064.i.i132 = phi i32 [ %270, %msmpeg4v2_decode_motion.exit ], [ %290, %288 ]
-  %.062.i.i133 = phi i32 [ %283, %msmpeg4v2_decode_motion.exit ], [ %304, %288 ]
-  %.0.i.i134 = phi i32 [ %286, %msmpeg4v2_decode_motion.exit ], [ %307, %288 ]
+  %.064.i.i132 = phi i32 [ %290, %288 ], [ %270, %msmpeg4v2_decode_motion.exit ]
+  %.062.i.i133 = phi i32 [ %304, %288 ], [ %283, %msmpeg4v2_decode_motion.exit ]
+  %.0.i.i134 = phi i32 [ %307, %288 ], [ %286, %msmpeg4v2_decode_motion.exit ]
   %308 = add i32 %.0.i.i134, %.064.i.i132
   %309 = call i32 @llvm.umin.i32(i32 %208, i32 %308)
   store i32 %309, ptr %179, align 8, !tbaa !62
@@ -589,7 +589,7 @@ get_vlc2.exit.i131:                               ; preds = %288, %msmpeg4v2_dec
   br label %.thread
 
 .thread:                                          ; preds = %329, %327, %311, %get_vlc2.exit.i131
-  %.0.i139 = phi i32 [ %271, %311 ], [ 65535, %get_vlc2.exit.i131 ], [ %328, %327 ], [ %spec.select.i138, %329 ]
+  %.0.i139 = phi i32 [ 65535, %get_vlc2.exit.i131 ], [ %271, %311 ], [ %328, %327 ], [ %spec.select.i138, %329 ]
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 2968
   store i32 1, ptr %332, align 8, !tbaa !68
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 2972
@@ -747,7 +747,7 @@ get_vlc2.exit.i131:                               ; preds = %288, %msmpeg4v2_dec
   br i1 %exitcond.not, label %.critedge, label %416, !llvm.loop !75
 
 .critedge:                                        ; preds = %430, %336, %375, %402, %425, %170, %106, %40
-  %.0 = phi i32 [ 0, %40 ], [ -1, %106 ], [ -1, %425 ], [ -1, %170 ], [ -1, %375 ], [ -1, %336 ], [ -1, %402 ], [ 0, %430 ]
+  %.0 = phi i32 [ 0, %40 ], [ -1, %106 ], [ -1, %425 ], [ -1, %336 ], [ -1, %170 ], [ -1, %402 ], [ -1, %375 ], [ 0, %430 ]
   ret i32 %.0
 }
 
@@ -962,9 +962,9 @@ get_vlc2.exit:                                    ; preds = %50, %71, %92
   br label %get_vlc2.exit92
 
 get_vlc2.exit92:                                  ; preds = %119, %140
-  %.064.i89 = phi i32 [ %.val, %119 ], [ %142, %140 ]
-  %.062.i90 = phi i32 [ %135, %119 ], [ %156, %140 ]
-  %.0.i91 = phi i32 [ %138, %119 ], [ %159, %140 ]
+  %.064.i89 = phi i32 [ %142, %140 ], [ %.val, %119 ]
+  %.062.i90 = phi i32 [ %156, %140 ], [ %135, %119 ]
+  %.0.i91 = phi i32 [ %159, %140 ], [ %138, %119 ]
   %160 = add i32 %.0.i91, %.064.i89
   %161 = tail call i32 @llvm.umin.i32(i32 %122, i32 %160)
   store i32 %161, ptr %19, align 8, !tbaa !62
@@ -1214,7 +1214,7 @@ decode012.exit102:                                ; preds = %266, %280
   br i1 %exitcond113.not, label %.loopexit, label %300, !llvm.loop !87
 
 .loopexit:                                        ; preds = %314, %2, %309, %42
-  %.0 = phi i32 [ -1094995529, %2 ], [ 0, %42 ], [ -1, %309 ], [ 0, %314 ]
+  %.0 = phi i32 [ 0, %42 ], [ -1, %309 ], [ -1094995529, %2 ], [ 0, %314 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1856,7 +1856,7 @@ define range(i32 -1094995529, 1) i32 @ff_msmpeg4_decode_picture_header(ptr nound
   br label %372
 
 372:                                              ; preds = %50, %1, %369, %112, %106, %84, %67
-  %.0 = phi i32 [ -1, %50 ], [ -1, %67 ], [ -1, %84 ], [ -1, %106 ], [ 0, %369 ], [ -1, %112 ], [ -1094995529, %1 ]
+  %.0 = phi i32 [ -1, %67 ], [ -1, %84 ], [ -1, %106 ], [ 0, %369 ], [ -1, %112 ], [ -1, %50 ], [ -1094995529, %1 ]
   ret i32 %.0
 }
 
@@ -2325,7 +2325,7 @@ get_vlc2.exit48.i:                                ; preds = %188, %167, %136
   br label %msmpeg4_decode_dc.exit
 
 msmpeg4_decode_dc.exit:                           ; preds = %224, %.thread.i
-  %.036.i = phi i32 [ %243, %.thread.i ], [ %230, %224 ]
+  %.036.i = phi i32 [ %230, %224 ], [ %243, %.thread.i ]
   %248 = icmp slt i32 %.036.i, 0
   br i1 %248, label %249, label %256
 
@@ -2827,9 +2827,9 @@ msmpeg4_decode_dc.exit:                           ; preds = %224, %.thread.i
   br label %592
 
 592:                                              ; preds = %457, %554, %496, %580
-  %.10 = phi i32 [ %591, %580 ], [ %579, %554 ], [ %.3372, %457 ], [ %520, %496 ]
-  %.4352 = phi i32 [ %586, %580 ], [ %562, %554 ], [ %spec.select415, %457 ], [ %515, %496 ]
-  %.8 = phi i32 [ %589, %580 ], [ %577, %554 ], [ %.4, %457 ], [ %518, %496 ]
+  %.10 = phi i32 [ %591, %580 ], [ %520, %496 ], [ %579, %554 ], [ %.3372, %457 ]
+  %.4352 = phi i32 [ %586, %580 ], [ %515, %496 ], [ %562, %554 ], [ %spec.select415, %457 ]
+  %.8 = phi i32 [ %589, %580 ], [ %518, %496 ], [ %577, %554 ], [ %.4, %457 ]
   %593 = icmp sgt i32 %.4352, 62
   br i1 %593, label %594, label %630
 
@@ -2906,7 +2906,7 @@ msmpeg4_decode_dc.exit:                           ; preds = %224, %.thread.i
   br label %341
 
 637:                                              ; preds = %.thread, %623
-  %.7355 = phi i32 [ 63, %.thread ], [ %595, %623 ]
+  %.7355 = phi i32 [ %595, %623 ], [ 63, %.thread ]
   store i32 %.10, ptr %328, align 8, !tbaa !108
   %638 = load i32, ptr %8, align 8, !tbaa !66
   %.not409 = icmp eq i32 %638, 0
@@ -2927,7 +2927,7 @@ msmpeg4_decode_dc.exit:                           ; preds = %224, %.thread.i
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge434, %284, %267, %641, %303
-  %.0 = phi i32 [ 0, %641 ], [ -1, %284 ], [ 0, %303 ], [ -1, %267 ], [ -1, %._crit_edge434 ]
+  %.0 = phi i32 [ 0, %641 ], [ 0, %303 ], [ -1, %267 ], [ -1, %284 ], [ -1, %._crit_edge434 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -2988,9 +2988,9 @@ define void @ff_msmpeg4_decode_motion(ptr noundef captures(none) %0, ptr noundef
   br label %get_vlc2.exit
 
 get_vlc2.exit:                                    ; preds = %3, %31
-  %.064.i = phi i32 [ %11, %3 ], [ %33, %31 ]
-  %.062.i = phi i32 [ %26, %3 ], [ %47, %31 ]
-  %.0.i = phi i32 [ %29, %3 ], [ %50, %31 ]
+  %.064.i = phi i32 [ %33, %31 ], [ %11, %3 ]
+  %.062.i = phi i32 [ %47, %31 ], [ %26, %3 ]
+  %.0.i = phi i32 [ %50, %31 ], [ %29, %3 ]
   %51 = add i32 %.0.i, %.064.i
   %52 = tail call i32 @llvm.umin.i32(i32 %13, i32 %51)
   store i32 %52, ptr %10, align 8, !tbaa !62

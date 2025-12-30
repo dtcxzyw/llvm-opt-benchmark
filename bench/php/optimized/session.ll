@@ -1208,8 +1208,8 @@ php_get_session_var.exit:                         ; preds = %45
   br label %66
 
 66:                                               ; preds = %65, %60
-  %67 = phi ptr [ %59, %60 ], [ %.pre, %65 ]
-  %.1.i = phi i64 [ %63, %60 ], [ %.0.i, %65 ]
+  %67 = phi ptr [ %.pre, %65 ], [ %59, %60 ]
+  %.1.i = phi i64 [ %.0.i, %65 ], [ %63, %60 ]
   %68 = getelementptr i8, ptr %67, i64 23
   %69 = getelementptr i8, ptr %68, i64 %.1.i
   store i8 %58, ptr %69, align 1, !tbaa !65
@@ -1411,7 +1411,7 @@ zend_string_release_ex.exit:                      ; preds = %php_set_session_var
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %zend_string_release_ex.exit, %2, %70, %65, %62
-  %.2.ph = phi i32 [ -1, %70 ], [ -1, %62 ], [ -1, %65 ], [ 0, %2 ], [ 0, %zend_string_release_ex.exit ]
+  %.2.ph = phi i32 [ -1, %62 ], [ -1, %65 ], [ -1, %70 ], [ 0, %2 ], [ 0, %zend_string_release_ex.exit ]
   call fastcc void @php_session_normalize_vars()
   br label %.critedge
 
@@ -1690,9 +1690,9 @@ php_get_session_var.exit:                         ; preds = %45
   br label %smart_str_appendl_ex.exit
 
 smart_str_appendl_ex.exit:                        ; preds = %58, %63
-  %64 = phi i64 [ %60, %58 ], [ %.pre70, %63 ]
-  %65 = phi ptr [ %57, %58 ], [ %.pre, %63 ]
-  %.1.i.i = phi i64 [ %61, %58 ], [ %.0.i.i, %63 ]
+  %64 = phi i64 [ %.pre70, %63 ], [ %60, %58 ]
+  %65 = phi ptr [ %.pre, %63 ], [ %57, %58 ]
+  %.1.i.i = phi i64 [ %.0.i.i, %63 ], [ %61, %58 ]
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull align 1 %54, i64 %56, i1 false)
@@ -1763,7 +1763,7 @@ smart_str_alloc.exit:                             ; preds = %85, %88
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %103
 
-php_get_session_var.exit.thread:                  ; preds = %42, %45, %35, %41, %smart_str_alloc.exit, %php_get_session_var.exit
+php_get_session_var.exit.thread:                  ; preds = %42, %45, %41, %35, %smart_str_alloc.exit, %php_get_session_var.exit
   %94 = add i32 %.04169, -1
   %.not50 = icmp eq i32 %94, 0
   br i1 %.not50, label %._crit_edge, label %22
@@ -1947,7 +1947,7 @@ zend_string_release_ex.exit:                      ; preds = %php_set_session_var
   br label %zend_string_release_ex.exit21
 
 zend_string_release_ex.exit21:                    ; preds = %zend_string_release_ex.exit, %13, %2, %71, %66, %63
-  %.016 = phi i32 [ 0, %2 ], [ -1, %71 ], [ -1, %63 ], [ -1, %66 ], [ -1, %13 ], [ 0, %zend_string_release_ex.exit ]
+  %.016 = phi i32 [ -1, %63 ], [ -1, %66 ], [ -1, %71 ], [ 0, %2 ], [ -1, %13 ], [ 0, %zend_string_release_ex.exit ]
   call fastcc void @php_session_normalize_vars()
   %72 = load ptr, ptr %4, align 8, !tbaa !84
   call void @php_var_unserialize_destroy(ptr noundef %72) #25
@@ -2261,9 +2261,9 @@ zend_string_release_ex.exit13.i:                  ; preds = %74, %69, %smart_str
   br label %92
 
 92:                                               ; preds = %91, %86
-  %93 = phi i64 [ %88, %86 ], [ %.pre102.i, %91 ]
-  %94 = phi ptr [ %85, %86 ], [ %.pre100.i, %91 ]
-  %.1.i.i59.i = phi i64 [ %89, %86 ], [ %.0.i.i58.i, %91 ]
+  %93 = phi i64 [ %.pre102.i, %91 ], [ %88, %86 ]
+  %94 = phi ptr [ %.pre100.i, %91 ], [ %85, %86 ]
+  %.1.i.i59.i = phi i64 [ %.0.i.i58.i, %91 ], [ %89, %86 ]
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %96, ptr noundef nonnull align 1 dereferenceable(10) @.str.112, i64 10, i1 false)
@@ -2337,9 +2337,9 @@ zend_string_release_ex.exit.thread.i:             ; preds = %zend_string_release
   br label %smart_str_appendl_ex.exit55.i
 
 smart_str_appendl_ex.exit55.i:                    ; preds = %123, %zend_string_release_ex.exit.thread.i
-  %124 = phi i64 [ %119, %zend_string_release_ex.exit.thread.i ], [ %.pre109.i, %123 ]
-  %125 = phi ptr [ %120, %zend_string_release_ex.exit.thread.i ], [ %.pre107.i, %123 ]
-  %.1.i.i54.i = phi i64 [ %121, %zend_string_release_ex.exit.thread.i ], [ %.0.i.i53.i, %123 ]
+  %124 = phi i64 [ %.pre109.i, %123 ], [ %119, %zend_string_release_ex.exit.thread.i ]
+  %125 = phi ptr [ %.pre107.i, %123 ], [ %120, %zend_string_release_ex.exit.thread.i ]
+  %.1.i.i54.i = phi i64 [ %.0.i.i53.i, %123 ], [ %121, %zend_string_release_ex.exit.thread.i ]
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 %124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %127, ptr noundef nonnull align 1 dereferenceable(10) @.str.113, i64 10, i1 false)
@@ -2452,9 +2452,9 @@ smart_str_append_long_ex.exit.i:                  ; preds = %155, %.loopexit.i
   br label %174
 
 174:                                              ; preds = %173, %168
-  %175 = phi i64 [ %170, %168 ], [ %.pre115.i, %173 ]
-  %176 = phi ptr [ %167, %168 ], [ %.pre113.i, %173 ]
-  %.1.i.i49.i = phi i64 [ %171, %168 ], [ %.0.i.i48.i, %173 ]
+  %175 = phi i64 [ %.pre115.i, %173 ], [ %170, %168 ]
+  %176 = phi ptr [ %.pre113.i, %173 ], [ %167, %168 ]
+  %.1.i.i49.i = phi i64 [ %.0.i.i48.i, %173 ], [ %171, %168 ]
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 %175
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %178, ptr noundef nonnull align 1 dereferenceable(7) @.str.114, i64 7, i1 false)
@@ -2514,9 +2514,9 @@ smart_str_appendl_ex.exit45.i:                    ; preds = %185, %174
   br label %203
 
 203:                                              ; preds = %202, %197
-  %204 = phi i64 [ %199, %197 ], [ %.pre121.i, %202 ]
-  %205 = phi ptr [ %196, %197 ], [ %.pre119.i, %202 ]
-  %.1.i.i39.i = phi i64 [ %200, %197 ], [ %.0.i.i38.i, %202 ]
+  %204 = phi i64 [ %.pre121.i, %202 ], [ %199, %197 ]
+  %205 = phi ptr [ %.pre119.i, %202 ], [ %196, %197 ]
+  %.1.i.i39.i = phi i64 [ %.0.i.i38.i, %202 ], [ %200, %197 ]
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 24
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 %204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %207, ptr noundef nonnull align 1 dereferenceable(9) @.str.115, i64 9, i1 false)
@@ -2575,9 +2575,9 @@ smart_str_appendl_ex.exit35.i:                    ; preds = %214, %203
   br label %smart_str_appendl_ex.exit30.i
 
 smart_str_appendl_ex.exit30.i:                    ; preds = %231, %226
-  %232 = phi i64 [ %228, %226 ], [ %.pre127.i, %231 ]
-  %233 = phi ptr [ %225, %226 ], [ %.pre125.i, %231 ]
-  %.1.i.i29.i = phi i64 [ %229, %226 ], [ %.0.i.i28.i, %231 ]
+  %232 = phi i64 [ %.pre127.i, %231 ], [ %228, %226 ]
+  %233 = phi ptr [ %.pre125.i, %231 ], [ %225, %226 ]
+  %.1.i.i29.i = phi i64 [ %.0.i.i28.i, %231 ], [ %229, %226 ]
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 24
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 %232
   store i64 7310034214939992123, ptr %235, align 1
@@ -2613,9 +2613,9 @@ smart_str_appendl_ex.exit30.i:                    ; preds = %231, %226
   br label %smart_str_appendl_ex.exit25.i
 
 smart_str_appendl_ex.exit25.i:                    ; preds = %248, %243
-  %249 = phi i64 [ %245, %243 ], [ %.pre130.i, %248 ]
-  %250 = phi ptr [ %241, %243 ], [ %.pre128.i, %248 ]
-  %.1.i.i24.i = phi i64 [ %246, %243 ], [ %.0.i.i23.i, %248 ]
+  %249 = phi i64 [ %.pre130.i, %248 ], [ %245, %243 ]
+  %250 = phi ptr [ %.pre128.i, %248 ], [ %241, %243 ]
+  %.1.i.i24.i = phi i64 [ %.0.i.i23.i, %248 ], [ %246, %243 ]
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 24
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 %249
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %252, ptr noundef nonnull align 1 dereferenceable(10) @.str.117, i64 10, i1 false)
@@ -2652,9 +2652,9 @@ thread-pre-split:                                 ; preds = %238, %smart_str_app
   br label %264
 
 264:                                              ; preds = %263, %258
-  %265 = phi i64 [ %260, %258 ], [ %.pre133.i, %263 ]
-  %266 = phi ptr [ %.pr.i, %258 ], [ %.pre131.i, %263 ]
-  %.1.i.i19.i = phi i64 [ %261, %258 ], [ %.0.i.i18.i, %263 ]
+  %265 = phi i64 [ %.pre133.i, %263 ], [ %260, %258 ]
+  %266 = phi ptr [ %.pre131.i, %263 ], [ %.pr.i, %258 ]
+  %.1.i.i19.i = phi i64 [ %.0.i.i18.i, %263 ], [ %261, %258 ]
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 24
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 %265
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %268, ptr noundef nonnull align 1 dereferenceable(11) @.str.118, i64 11, i1 false)
@@ -3141,7 +3141,7 @@ zend_string_release_ex.exit:                      ; preds = %zend_string_init.ex
   br label %.critedge43
 
 .critedge43:                                      ; preds = %472, %php_session_send_cookie.exit, %zend_string_release_ex.exit, %452, %8
-  %.0 = phi i32 [ 0, %zend_string_release_ex.exit ], [ -1, %php_session_send_cookie.exit ], [ -1, %8 ], [ 0, %452 ], [ 0, %472 ]
+  %.0 = phi i32 [ -1, %8 ], [ 0, %452 ], [ 0, %zend_string_release_ex.exit ], [ -1, %php_session_send_cookie.exit ], [ 0, %472 ]
   ret i32 %.0
 }
 
@@ -3635,8 +3635,8 @@ zend_string_release_ex.exit:                      ; preds = %202, %206, %211
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 16), align 16, !tbaa !24
   br label %php_session_session_already_started_error.exit
 
-php_session_session_already_started_error.exit:   ; preds = %198, %195, %172, %11, %10, %4, %php_session_cache_limiter.exit, %zend_string_release_ex.exit, %.loopexit, %24
-  %.0 = phi i32 [ -1, %24 ], [ -1, %php_session_cache_limiter.exit ], [ -1, %11 ], [ -1, %.loopexit ], [ -1, %zend_string_release_ex.exit ], [ -1, %4 ], [ -1, %10 ], [ 0, %195 ], [ 0, %172 ], [ 0, %198 ]
+php_session_session_already_started_error.exit:   ; preds = %198, %172, %195, %11, %10, %4, %php_session_cache_limiter.exit, %zend_string_release_ex.exit, %.loopexit, %24
+  %.0 = phi i32 [ -1, %.loopexit ], [ -1, %24 ], [ -1, %zend_string_release_ex.exit ], [ -1, %php_session_cache_limiter.exit ], [ -1, %4 ], [ -1, %10 ], [ -1, %11 ], [ 0, %195 ], [ 0, %172 ], [ 0, %198 ]
   ret i32 %.0
 }
 
@@ -4154,7 +4154,7 @@ zend_string_copy.exit31:                          ; preds = %218, %222
   br label %php_session_abort.exit37
 
 php_session_abort.exit37:                         ; preds = %119, %106, %php_session_cleanup_filename.exit, %zend_string_copy.exit31, %php_session_abort.exit40, %143, %php_session_abort.exit34, %65, %php_session_abort.exit, %27, %4
-  %.0 = phi i32 [ -1, %4 ], [ 0, %php_session_cleanup_filename.exit ], [ -1, %php_session_abort.exit34 ], [ -1, %php_session_abort.exit40 ], [ -1, %php_session_abort.exit ], [ -1, %27 ], [ -1, %65 ], [ -1, %143 ], [ 0, %zend_string_copy.exit31 ], [ -1, %106 ], [ -1, %119 ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %27 ], [ -1, %php_session_abort.exit ], [ -1, %65 ], [ -1, %php_session_abort.exit34 ], [ -1, %143 ], [ -1, %php_session_abort.exit40 ], [ 0, %zend_string_copy.exit31 ], [ 0, %php_session_cleanup_filename.exit ], [ -1, %106 ], [ -1, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -4528,11 +4528,11 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %48
   %cond.fr305 = freeze i1 %53
   br i1 %cond.fr305, label %.critedge, label %.thread321, !prof !162
 
-.thread321:                                       ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_array_ht_or_long.exit, %zend_parse_arg_str_ex.exit276, %zend_parse_arg_str_ex.exit, %zend_parse_arg_bool_ex.exit279, %11
-  %.0201333 = phi i32 [ 1, %11 ], [ 9, %zend_parse_arg_bool_ex.exit279 ], [ 9, %zend_parse_arg_array_ht_or_long.exit ], [ 9, %zend_parse_arg_str_ex.exit276 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %zend_parse_arg_bool_ex.exit ]
-  %.0202332 = phi i32 [ 0, %11 ], [ 4, %zend_parse_arg_bool_ex.exit279 ], [ 1, %zend_parse_arg_array_ht_or_long.exit ], [ 2, %zend_parse_arg_str_ex.exit276 ], [ 3, %zend_parse_arg_str_ex.exit ], [ 5, %zend_parse_arg_bool_ex.exit ]
-  %.0203331 = phi i32 [ 0, %11 ], [ 3, %zend_parse_arg_bool_ex.exit279 ], [ 8, %zend_parse_arg_array_ht_or_long.exit ], [ 5, %zend_parse_arg_str_ex.exit276 ], [ 5, %zend_parse_arg_str_ex.exit ], [ 3, %zend_parse_arg_bool_ex.exit ]
-  %.0204330 = phi ptr [ null, %11 ], [ %44, %zend_parse_arg_bool_ex.exit279 ], [ %13, %zend_parse_arg_array_ht_or_long.exit ], [ %23, %zend_parse_arg_str_ex.exit276 ], [ %32, %zend_parse_arg_str_ex.exit ], [ %52, %zend_parse_arg_bool_ex.exit ]
+.thread321:                                       ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_bool_ex.exit279, %zend_parse_arg_str_ex.exit, %zend_parse_arg_str_ex.exit276, %zend_parse_arg_array_ht_or_long.exit, %11
+  %.0201333 = phi i32 [ 9, %zend_parse_arg_bool_ex.exit279 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %zend_parse_arg_str_ex.exit276 ], [ 9, %zend_parse_arg_array_ht_or_long.exit ], [ 1, %11 ], [ 9, %zend_parse_arg_bool_ex.exit ]
+  %.0202332 = phi i32 [ 4, %zend_parse_arg_bool_ex.exit279 ], [ 3, %zend_parse_arg_str_ex.exit ], [ 2, %zend_parse_arg_str_ex.exit276 ], [ 1, %zend_parse_arg_array_ht_or_long.exit ], [ 0, %11 ], [ 5, %zend_parse_arg_bool_ex.exit ]
+  %.0203331 = phi i32 [ 3, %zend_parse_arg_bool_ex.exit279 ], [ 5, %zend_parse_arg_str_ex.exit ], [ 5, %zend_parse_arg_str_ex.exit276 ], [ 8, %zend_parse_arg_array_ht_or_long.exit ], [ 0, %11 ], [ 3, %zend_parse_arg_bool_ex.exit ]
+  %.0204330 = phi ptr [ %44, %zend_parse_arg_bool_ex.exit279 ], [ %32, %zend_parse_arg_str_ex.exit ], [ %23, %zend_parse_arg_str_ex.exit276 ], [ %13, %zend_parse_arg_array_ht_or_long.exit ], [ null, %11 ], [ %52, %zend_parse_arg_bool_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.0201333, i32 noundef %.0202332, ptr noundef null, i32 noundef %.0203331, ptr noundef %.0204330) #25
   br label %.critedge241
 
@@ -4549,8 +4549,8 @@ switch.lookup384:                                 ; preds = %48
   br label %.critedge
 
 .critedge:                                        ; preds = %switch.lookup384, %zend_parse_arg_bool_ex.exit, %zend_parse_arg_array_ht_or_long.exit.thread, %29, %38, %zend_parse_arg_bool_ex.exit279.thread
-  %.4295 = phi i8 [ %.5296304, %zend_parse_arg_bool_ex.exit ], [ 1, %zend_parse_arg_array_ht_or_long.exit.thread ], [ 1, %29 ], [ 1, %38 ], [ %.5296304, %zend_parse_arg_bool_ex.exit279.thread ], [ %.5296304, %switch.lookup384 ]
-  %.4290 = phi i8 [ 0, %zend_parse_arg_bool_ex.exit ], [ 1, %zend_parse_arg_array_ht_or_long.exit.thread ], [ 1, %29 ], [ 1, %38 ], [ 1, %zend_parse_arg_bool_ex.exit279.thread ], [ %switch.masked392, %switch.lookup384 ]
+  %.4295 = phi i8 [ 1, %zend_parse_arg_array_ht_or_long.exit.thread ], [ 1, %29 ], [ 1, %38 ], [ %.5296304, %zend_parse_arg_bool_ex.exit279.thread ], [ %.5296304, %zend_parse_arg_bool_ex.exit ], [ %.5296304, %switch.lookup384 ]
+  %.4290 = phi i8 [ 1, %zend_parse_arg_array_ht_or_long.exit.thread ], [ 1, %29 ], [ 1, %38 ], [ 1, %zend_parse_arg_bool_ex.exit279.thread ], [ 0, %zend_parse_arg_bool_ex.exit ], [ %switch.masked392, %switch.lookup384 ]
   %56 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 347), align 1, !tbaa !98, !range !66, !noundef !99
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %60, label %58
@@ -5226,7 +5226,7 @@ zend_string_release_ex.exit:                      ; preds = %338, %348, %353
   br label %.sink.split
 
 .sink.split:                                      ; preds = %zend_string_release_ex.exit, %zend_string_release_ex.exit244, %zend_string_release_ex.exit246, %zend_string_release_ex.exit248, %zend_string_release_ex.exit250, %355
-  %.sink377 = phi i32 [ 3, %355 ], [ 2, %zend_string_release_ex.exit244 ], [ 2, %zend_string_release_ex.exit246 ], [ 2, %zend_string_release_ex.exit248 ], [ 2, %zend_string_release_ex.exit250 ], [ 2, %zend_string_release_ex.exit ]
+  %.sink377 = phi i32 [ 3, %355 ], [ 2, %zend_string_release_ex.exit250 ], [ 2, %zend_string_release_ex.exit248 ], [ 2, %zend_string_release_ex.exit246 ], [ 2, %zend_string_release_ex.exit244 ], [ 2, %zend_string_release_ex.exit ]
   %356 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink377, ptr %356, align 8, !tbaa !65
   br label %357
@@ -5369,7 +5369,7 @@ zend_string_release.exit262:                      ; preds = %400, %399, %392, %3
   call void @_efree(ptr noundef nonnull %.4185) #25
   br label %.critedge241
 
-.critedge241:                                     ; preds = %413, %412, %405, %401, %.thread321, %85, %88, %._crit_edge.thread, %91, %94, %zend_string_release.exit, %zend_string_release.exit262, %php_session_headers_already_sent_error.exit, %php_session_session_already_started_error.exit, %58
+.critedge241:                                     ; preds = %413, %412, %405, %401, %.thread321, %85, %88, %._crit_edge.thread, %94, %91, %zend_string_release.exit, %zend_string_release.exit262, %php_session_headers_already_sent_error.exit, %php_session_session_already_started_error.exit, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -7006,7 +7006,7 @@ define internal fastcc noundef zeroext i1 @can_session_handler_be_changed() unna
   br label %php_session_session_already_started_error.exit
 
 php_session_session_already_started_error.exit:   ; preds = %19, %18, %12, %11, %5, %13
-  %.0 = phi i1 [ true, %13 ], [ false, %12 ], [ false, %5 ], [ false, %11 ], [ false, %18 ], [ false, %19 ]
+  %.0 = phi i1 [ true, %13 ], [ false, %5 ], [ false, %11 ], [ false, %12 ], [ false, %18 ], [ false, %19 ]
   ret i1 %.0
 }
 
@@ -7725,7 +7725,7 @@ zend_string_release_ex.exit34:                    ; preds = %169, %173, %178
   br label %.critedge32
 
 .critedge:                                        ; preds = %160, %163, %153, %159, %147
-  %193 = phi ptr [ %140, %147 ], [ %140, %153 ], [ %140, %159 ], [ %161, %160 ], [ %.pre46.pre, %163 ]
+  %193 = phi ptr [ %140, %153 ], [ %140, %159 ], [ %140, %147 ], [ %161, %160 ], [ %.pre46.pre, %163 ]
   %194 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 80), align 16, !tbaa !25
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %196 = load ptr, ptr %195, align 8, !tbaa !149
@@ -8063,9 +8063,9 @@ php_session_create_id.exit:                       ; preds = %74, %bin_to_readabl
   br label %smart_str_append_ex.exit
 
 smart_str_append_ex.exit:                         ; preds = %118, %124
-  %125 = phi i64 [ %120, %118 ], [ %.pre55, %124 ]
-  %126 = phi ptr [ %117, %118 ], [ %.pre54, %124 ]
-  %.1.i.i.i = phi i64 [ %121, %118 ], [ %.0.i.i.i, %124 ]
+  %125 = phi i64 [ %.pre55, %124 ], [ %120, %118 ]
+  %126 = phi ptr [ %.pre54, %124 ], [ %117, %118 ]
+  %.1.i.i.i = phi i64 [ %.0.i.i.i, %124 ], [ %121, %118 ]
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 %125
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %128, ptr nonnull align 1 %114, i64 %116, i1 false)
@@ -9732,9 +9732,9 @@ define internal void @zm_info_session(ptr noundef %0) #0 {
   br label %19
 
 19:                                               ; preds = %18, %13
-  %20 = phi i64 [ %15, %13 ], [ %.pre44, %18 ]
-  %21 = phi ptr [ %7, %13 ], [ %.pre, %18 ]
-  %.1.i.i = phi i64 [ %16, %13 ], [ %.0.i.i, %18 ]
+  %20 = phi i64 [ %.pre44, %18 ], [ %15, %13 ]
+  %21 = phi ptr [ %.pre, %18 ], [ %7, %13 ]
+  %.1.i.i = phi i64 [ %.0.i.i, %18 ], [ %16, %13 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %10, i64 %12, i1 false)
@@ -9798,9 +9798,9 @@ smart_str_alloc.exit27:                           ; preds = %19, %28
   br label %49
 
 49:                                               ; preds = %48, %43
-  %50 = phi i64 [ %45, %43 ], [ %.pre48, %48 ]
-  %51 = phi ptr [ %42, %43 ], [ %.pre46, %48 ]
-  %.1.i.i31 = phi i64 [ %46, %43 ], [ %.0.i.i30, %48 ]
+  %50 = phi i64 [ %.pre48, %48 ], [ %45, %43 ]
+  %51 = phi ptr [ %.pre46, %48 ], [ %42, %43 ]
+  %.1.i.i31 = phi i64 [ %.0.i.i30, %48 ], [ %46, %43 ]
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %50
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull align 1 %39, i64 %41, i1 false)
@@ -10922,8 +10922,8 @@ zend_string_release_ex.exit.i177:                 ; preds = %258, %253, %249
   %.not164 = icmp eq ptr %11, null
   br i1 %.not164, label %264, label %.thread
 
-.thread:                                          ; preds = %200, %192, %189, %175, %172, %107, %103, %zend_string_init.exit165, %smart_str_0.exit, %57, %53, %31, %25, %178, %155, %22, %12, %260
-  %.0140181 = phi ptr [ %11, %260 ], [ %11, %200 ], [ %11, %192 ], [ %11, %189 ], [ %11, %175 ], [ %11, %172 ], [ %11, %107 ], [ %11, %103 ], [ %11, %zend_string_init.exit165 ], [ %11, %smart_str_0.exit ], [ %11, %57 ], [ %11, %53 ], [ %11, %31 ], [ %11, %25 ], [ %11, %178 ], [ %11, %155 ], [ %11, %22 ], [ %13, %12 ]
+.thread:                                          ; preds = %200, %192, %189, %178, %175, %172, %155, %107, %103, %22, %zend_string_init.exit165, %smart_str_0.exit, %57, %53, %31, %25, %12, %260
+  %.0140181 = phi ptr [ %11, %260 ], [ %11, %200 ], [ %11, %192 ], [ %11, %189 ], [ %11, %178 ], [ %11, %175 ], [ %11, %172 ], [ %11, %155 ], [ %11, %107 ], [ %11, %103 ], [ %11, %22 ], [ %11, %zend_string_init.exit165 ], [ %11, %smart_str_0.exit ], [ %11, %57 ], [ %11, %53 ], [ %11, %31 ], [ %11, %25 ], [ %13, %12 ]
   %261 = getelementptr inbounds nuw i8, ptr %.0140181, i64 64
   %262 = load i8, ptr %261, align 8, !tbaa !253, !range !66, !noundef !99
   %263 = trunc nuw i8 %262 to i1
@@ -10933,7 +10933,7 @@ zend_string_release_ex.exit.i177:                 ; preds = %258, %253, %249
   br label %265
 
 265:                                              ; preds = %.thread, %7, %264
-  %.0 = phi i32 [ %.0141, %7 ], [ %.0141, %264 ], [ -1, %.thread ]
+  %.0 = phi i32 [ %.0141, %264 ], [ %.0141, %7 ], [ -1, %.thread ]
   ret i32 %.0
 }
 
@@ -11036,7 +11036,7 @@ define internal i32 @OnUpdateSaveDir(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %php_session_session_already_started_error.exit
 
 php_session_session_already_started_error.exit:   ; preds = %44, %29, %27, %26, %18, %17, %11, %46
-  %.0 = phi i32 [ -1, %27 ], [ -1, %18 ], [ %47, %46 ], [ -1, %11 ], [ -1, %17 ], [ -1, %26 ], [ -1, %29 ], [ -1, %44 ]
+  %.0 = phi i32 [ %47, %46 ], [ -1, %11 ], [ -1, %17 ], [ -1, %18 ], [ -1, %26 ], [ -1, %27 ], [ -1, %29 ], [ -1, %44 ]
   ret i32 %.0
 }
 
@@ -11137,7 +11137,7 @@ define internal i32 @OnUpdateName(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %php_session_session_already_started_error.exit
 
 php_session_session_already_started_error.exit:   ; preds = %27, %26, %18, %17, %11, %41, %42, %44
-  %.022 = phi i32 [ -1, %41 ], [ -1, %18 ], [ %45, %44 ], [ -1, %42 ], [ -1, %11 ], [ -1, %17 ], [ -1, %26 ], [ -1, %27 ]
+  %.022 = phi i32 [ %45, %44 ], [ -1, %42 ], [ -1, %41 ], [ -1, %11 ], [ -1, %17 ], [ -1, %18 ], [ -1, %26 ], [ -1, %27 ]
   ret i32 %.022
 }
 
@@ -11250,7 +11250,7 @@ _php_find_ps_module.exit:                         ; preds = %35
   br label %php_session_session_already_started_error.exit
 
 php_session_session_already_started_error.exit:   ; preds = %27, %26, %18, %17, %11, %41, %42, %.thread, %47
-  %.016 = phi i32 [ -1, %41 ], [ -1, %18 ], [ -1, %47 ], [ 0, %.thread ], [ -1, %42 ], [ -1, %11 ], [ -1, %17 ], [ -1, %26 ], [ -1, %27 ]
+  %.016 = phi i32 [ -1, %47 ], [ 0, %.thread ], [ -1, %42 ], [ -1, %41 ], [ -1, %11 ], [ -1, %17 ], [ -1, %18 ], [ -1, %26 ], [ -1, %27 ]
   ret i32 %.016
 }
 
@@ -11326,7 +11326,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateSessionGcProbability(ptr noundef r
   br label %php_session_session_already_started_error.exit
 
 php_session_session_already_started_error.exit:   ; preds = %27, %26, %18, %17, %11, %32, %33
-  %.0 = phi i32 [ 0, %33 ], [ -1, %18 ], [ -1, %32 ], [ -1, %11 ], [ -1, %17 ], [ -1, %26 ], [ -1, %27 ]
+  %.0 = phi i32 [ -1, %32 ], [ 0, %33 ], [ -1, %11 ], [ -1, %17 ], [ -1, %18 ], [ -1, %26 ], [ -1, %27 ]
   ret i32 %.0
 }
 
@@ -11398,7 +11398,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateSessionDivisor(ptr noundef readonl
   br label %php_session_session_already_started_error.exit
 
 php_session_session_already_started_error.exit:   ; preds = %27, %26, %18, %17, %11, %32, %33
-  %.0 = phi i32 [ 0, %33 ], [ -1, %18 ], [ -1, %32 ], [ -1, %11 ], [ -1, %17 ], [ -1, %26 ], [ -1, %27 ]
+  %.0 = phi i32 [ -1, %32 ], [ 0, %33 ], [ -1, %11 ], [ -1, %17 ], [ -1, %18 ], [ -1, %26 ], [ -1, %27 ]
   ret i32 %.0
 }
 
@@ -11458,7 +11458,7 @@ define internal i32 @OnUpdateSessionLong(ptr noundef %0, ptr noundef %1, ptr nou
   br label %php_session_session_already_started_error.exit
 
 php_session_session_already_started_error.exit:   ; preds = %27, %26, %18, %17, %11, %28
-  %.0 = phi i32 [ %29, %28 ], [ -1, %18 ], [ -1, %11 ], [ -1, %17 ], [ -1, %26 ], [ -1, %27 ]
+  %.0 = phi i32 [ %29, %28 ], [ -1, %11 ], [ -1, %17 ], [ -1, %18 ], [ -1, %26 ], [ -1, %27 ]
   ret i32 %.0
 }
 
@@ -11552,7 +11552,7 @@ _php_find_ps_serializer.exit.thread:              ; preds = %.lr.ph.i, %_php_fin
   br label %php_session_session_already_started_error.exit
 
 php_session_session_already_started_error.exit:   ; preds = %27, %26, %18, %17, %11, %38, %39, %_php_find_ps_serializer.exit.thread
-  %.011 = phi i32 [ -1, %38 ], [ -1, %18 ], [ 0, %_php_find_ps_serializer.exit.thread ], [ -1, %39 ], [ -1, %11 ], [ -1, %17 ], [ -1, %26 ], [ -1, %27 ]
+  %.011 = phi i32 [ 0, %_php_find_ps_serializer.exit.thread ], [ -1, %39 ], [ -1, %38 ], [ -1, %11 ], [ -1, %17 ], [ -1, %18 ], [ -1, %26 ], [ -1, %27 ]
   ret i32 %.011
 }
 
@@ -11626,7 +11626,7 @@ define internal i32 @OnUpdateCookieLifetime(ptr noundef %0, ptr noundef %1, ptr 
   br label %php_session_session_already_started_error.exit
 
 php_session_session_already_started_error.exit:   ; preds = %27, %26, %18, %17, %11, %32, %35, %33
-  %.0 = phi i32 [ 0, %33 ], [ -1, %18 ], [ -1, %32 ], [ %36, %35 ], [ -1, %11 ], [ -1, %17 ], [ -1, %26 ], [ -1, %27 ]
+  %.0 = phi i32 [ -1, %32 ], [ %36, %35 ], [ 0, %33 ], [ -1, %11 ], [ -1, %17 ], [ -1, %18 ], [ -1, %26 ], [ -1, %27 ]
   ret i32 %.0
 }
 
@@ -11686,7 +11686,7 @@ define internal i32 @OnUpdateSessionString(ptr noundef %0, ptr noundef %1, ptr n
   br label %php_session_session_already_started_error.exit
 
 php_session_session_already_started_error.exit:   ; preds = %27, %26, %18, %17, %11, %28
-  %.0 = phi i32 [ %29, %28 ], [ -1, %18 ], [ -1, %11 ], [ -1, %17 ], [ -1, %26 ], [ -1, %27 ]
+  %.0 = phi i32 [ %29, %28 ], [ -1, %11 ], [ -1, %17 ], [ -1, %18 ], [ -1, %26 ], [ -1, %27 ]
   ret i32 %.0
 }
 
@@ -11746,7 +11746,7 @@ define internal i32 @OnUpdateSessionBool(ptr noundef %0, ptr noundef %1, ptr nou
   br label %php_session_session_already_started_error.exit
 
 php_session_session_already_started_error.exit:   ; preds = %27, %26, %18, %17, %11, %28
-  %.0 = phi i32 [ %29, %28 ], [ -1, %18 ], [ -1, %11 ], [ -1, %17 ], [ -1, %26 ], [ -1, %27 ]
+  %.0 = phi i32 [ %29, %28 ], [ -1, %11 ], [ -1, %17 ], [ -1, %18 ], [ -1, %26 ], [ -1, %27 ]
   ret i32 %.0
 }
 
@@ -11814,7 +11814,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateUseOnlyCookies(ptr readnone captur
   br label %php_session_session_already_started_error.exit
 
 php_session_session_already_started_error.exit:   ; preds = %27, %26, %18, %17, %11, %28, %33
-  %.0 = phi i32 [ 0, %28 ], [ -1, %18 ], [ 0, %33 ], [ -1, %11 ], [ -1, %17 ], [ -1, %26 ], [ -1, %27 ]
+  %.0 = phi i32 [ 0, %33 ], [ 0, %28 ], [ -1, %11 ], [ -1, %17 ], [ -1, %18 ], [ -1, %26 ], [ -1, %27 ]
   ret i32 %.0
 }
 
@@ -11884,7 +11884,7 @@ define internal i32 @OnUpdateRefererCheck(ptr noundef %0, ptr noundef %1, ptr no
   br label %php_session_session_already_started_error.exit
 
 php_session_session_already_started_error.exit:   ; preds = %27, %26, %18, %17, %11, %32
-  %.0 = phi i32 [ %33, %32 ], [ -1, %18 ], [ -1, %11 ], [ -1, %17 ], [ -1, %26 ], [ -1, %27 ]
+  %.0 = phi i32 [ %33, %32 ], [ -1, %11 ], [ -1, %17 ], [ -1, %18 ], [ -1, %26 ], [ -1, %27 ]
   ret i32 %.0
 }
 
@@ -11952,7 +11952,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateUseTransSid(ptr readnone captures(
   br label %php_session_session_already_started_error.exit
 
 php_session_session_already_started_error.exit:   ; preds = %27, %26, %18, %17, %11, %28, %33
-  %.0 = phi i32 [ 0, %28 ], [ -1, %18 ], [ 0, %33 ], [ -1, %11 ], [ -1, %17 ], [ -1, %26 ], [ -1, %27 ]
+  %.0 = phi i32 [ 0, %33 ], [ 0, %28 ], [ -1, %11 ], [ -1, %17 ], [ -1, %18 ], [ -1, %26 ], [ -1, %27 ]
   ret i32 %.0
 }
 
@@ -12042,7 +12042,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateSidLength(ptr readnone captures(no
   br label %php_session_session_already_started_error.exit
 
 php_session_session_already_started_error.exit:   ; preds = %28, %27, %19, %18, %12, %41, %40
-  %.0 = phi i32 [ -1, %41 ], [ -1, %19 ], [ 0, %40 ], [ -1, %12 ], [ -1, %18 ], [ -1, %27 ], [ -1, %28 ]
+  %.0 = phi i32 [ 0, %40 ], [ -1, %41 ], [ -1, %12 ], [ -1, %18 ], [ -1, %19 ], [ -1, %27 ], [ -1, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -12133,7 +12133,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateSidBits(ptr readnone captures(none
   br label %php_session_session_already_started_error.exit
 
 php_session_session_already_started_error.exit:   ; preds = %28, %27, %19, %18, %12, %41, %40
-  %.0 = phi i32 [ -1, %41 ], [ -1, %19 ], [ 0, %40 ], [ -1, %12 ], [ -1, %18 ], [ -1, %27 ], [ -1, %28 ]
+  %.0 = phi i32 [ 0, %40 ], [ -1, %41 ], [ -1, %12 ], [ -1, %18 ], [ -1, %19 ], [ -1, %27 ], [ -1, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -12278,7 +12278,7 @@ define internal fastcc void @php_session_rfc1867_early_find_sid(ptr noundef %0) 
   br label %32
 
 32:                                               ; preds = %.sink.split.i, %24, %18
-  %.020.i = phi ptr [ %13, %18 ], [ %26, %24 ], [ %.sink.in.i, %.sink.split.i ]
+  %.020.i = phi ptr [ %26, %24 ], [ %13, %18 ], [ %.sink.in.i, %.sink.split.i ]
   %33 = load ptr, ptr %.020.i, align 8, !tbaa !65
   %34 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !65
@@ -12346,7 +12346,7 @@ early_find_sid_in.exit.thread:                    ; preds = %9, %14, %4, %1
   br label %68
 
 68:                                               ; preds = %.sink.split.i8, %60, %54
-  %.020.i11 = phi ptr [ %49, %54 ], [ %62, %60 ], [ %.sink.in.i9, %.sink.split.i8 ]
+  %.020.i11 = phi ptr [ %62, %60 ], [ %49, %54 ], [ %.sink.in.i9, %.sink.split.i8 ]
   %69 = load ptr, ptr %.020.i11, align 8, !tbaa !65
   %70 = getelementptr inbounds nuw i8, ptr %.020.i11, i64 8
   %71 = load i32, ptr %70, align 8, !tbaa !65

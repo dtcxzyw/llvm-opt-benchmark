@@ -126,7 +126,7 @@ define dso_local noalias noundef ptr @slowlogCreateEntry(ptr noundef %0, ptr nou
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %38, %42, %46, %50
-  %.0.i = phi i64 [ %52, %50 ], [ %49, %46 ], [ %41, %38 ], [ %45, %42 ]
+  %.0.i = phi i64 [ %41, %38 ], [ %45, %42 ], [ %49, %46 ], [ %52, %50 ]
   %53 = icmp ugt i64 %.0.i, 128
   br i1 %53, label %54, label %sdslen.exit.thread
 
@@ -176,7 +176,7 @@ sdslen.exit:                                      ; preds = %38, %42, %46, %50
   br label %sdslen.exit57
 
 sdslen.exit57:                                    ; preds = %54, %63, %66, %70, %74, %78
-  %.0.i56 = phi i64 [ %80, %78 ], [ %65, %63 ], [ %69, %66 ], [ %73, %70 ], [ %77, %74 ], [ 0, %54 ]
+  %.0.i56 = phi i64 [ %65, %63 ], [ %69, %66 ], [ %73, %70 ], [ %77, %74 ], [ %80, %78 ], [ 0, %54 ]
   %81 = add i64 %.0.i56, -128
   %82 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %55, ptr noundef nonnull @.str.1, i64 noundef %81) #9
   %83 = tail call ptr @createObject(i32 noundef 0, ptr noundef %82) #9
@@ -601,7 +601,7 @@ slowlogReset.exit:                                ; preds = %.lr.ph.i, %18
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %._crit_edge, %88, %91, %95, %99, %103
-  %.0.i = phi i64 [ %105, %103 ], [ %90, %88 ], [ %94, %91 ], [ %98, %95 ], [ %102, %99 ], [ 0, %._crit_edge ]
+  %.0.i = phi i64 [ %90, %88 ], [ %94, %91 ], [ %98, %95 ], [ %102, %99 ], [ %105, %103 ], [ 0, %._crit_edge ]
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %83, i64 noundef %.0.i) #9
   %106 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %107 = load ptr, ptr %106, align 8, !tbaa !67
@@ -646,7 +646,7 @@ sdslen.exit:                                      ; preds = %._crit_edge, %88, %
   br label %sdslen.exit46
 
 sdslen.exit46:                                    ; preds = %sdslen.exit, %112, %115, %119, %123, %127
-  %.0.i45 = phi i64 [ %129, %127 ], [ %114, %112 ], [ %118, %115 ], [ %122, %119 ], [ %126, %123 ], [ 0, %sdslen.exit ]
+  %.0.i45 = phi i64 [ %114, %112 ], [ %118, %115 ], [ %122, %119 ], [ %126, %123 ], [ %129, %127 ], [ 0, %sdslen.exit ]
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %107, i64 noundef %.0.i45) #9
   %130 = load i64, ptr %3, align 8, !tbaa !24
   %131 = add nsw i64 %130, -1

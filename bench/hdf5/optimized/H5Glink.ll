@@ -216,7 +216,7 @@ define range(i32 -1, 1) i32 @H5G_link_to_info(ptr noundef readonly captures(none
   br label %87
 
 87:                                               ; preds = %.thread, %79, %83, %17, %32, %43, %39, %13, %85, %51
-  %.042 = phi i32 [ -1, %13 ], [ 0, %17 ], [ 0, %43 ], [ -1, %39 ], [ 0, %32 ], [ -1, %51 ], [ 0, %85 ], [ -1, %79 ], [ 0, %83 ], [ -1, %.thread ]
+  %.042 = phi i32 [ -1, %13 ], [ -1, %39 ], [ 0, %32 ], [ 0, %43 ], [ 0, %17 ], [ -1, %51 ], [ 0, %85 ], [ -1, %79 ], [ 0, %83 ], [ -1, %.thread ]
   ret i32 %.042
 }
 
@@ -454,7 +454,7 @@ define range(i32 -1, 1) i32 @H5G__link_to_ent(ptr noundef %0, ptr noundef %1, pt
   br label %124
 
 124:                                              ; preds = %.thread, %6, %101, %120, %24, %119
-  %.049 = phi i32 [ -1, %24 ], [ -1, %120 ], [ 0, %101 ], [ -1, %.thread ], [ 0, %6 ], [ %.3, %119 ]
+  %.049 = phi i32 [ -1, %24 ], [ -1, %120 ], [ 0, %101 ], [ %.3, %119 ], [ 0, %6 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.049
 }
@@ -578,7 +578,7 @@ define noundef i32 @H5G__link_sort_table(ptr noundef readonly captures(none) %0,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %17, %15, %16, %18
-  %H5G__link_cmp_corder_inc.sink = phi ptr [ @H5G__link_cmp_name_inc, %15 ], [ @H5G__link_cmp_corder_dec, %18 ], [ @H5G__link_cmp_name_dec, %16 ], [ @H5G__link_cmp_corder_inc, %17 ]
+  %H5G__link_cmp_corder_inc.sink = phi ptr [ @H5G__link_cmp_corder_dec, %18 ], [ @H5G__link_cmp_name_dec, %16 ], [ @H5G__link_cmp_name_inc, %15 ], [ @H5G__link_cmp_corder_inc, %17 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !53
   tail call void @qsort(ptr noundef %20, i64 noundef %11, i64 noundef 48, ptr noundef nonnull %H5G__link_cmp_corder_inc.sink) #9
@@ -635,7 +635,7 @@ define internal range(i32 -1, 2) i32 @H5G__link_cmp_corder_inc(ptr noundef reado
   br label %17
 
 17:                                               ; preds = %15, %9, %2
-  %.0 = phi i32 [ -1, %2 ], [ %., %15 ], [ -1, %9 ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %9 ], [ %., %15 ]
   ret i32 %.0
 }
 
@@ -663,7 +663,7 @@ define internal range(i32 -1, 2) i32 @H5G__link_cmp_corder_dec(ptr noundef reado
   br label %17
 
 17:                                               ; preds = %15, %9, %2
-  %.0 = phi i32 [ -1, %2 ], [ %., %15 ], [ 1, %9 ]
+  %.0 = phi i32 [ -1, %2 ], [ 1, %9 ], [ %., %15 ]
   ret i32 %.0
 }
 

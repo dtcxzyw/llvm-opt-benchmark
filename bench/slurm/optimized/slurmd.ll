@@ -1411,11 +1411,11 @@ _slurm_conf_file_exists.exit.i.i:                 ; preds = %305
   unreachable
 
 .sink.split:                                      ; preds = %507, %428, %415, %345, %._crit_edge.i.i
-  %.str.166.sink = phi ptr [ @.str.178, %345 ], [ @.str.166, %415 ], [ @.str.168, %428 ], [ @.str.168, %._crit_edge.i.i ], [ @.str.171, %507 ]
+  %.str.166.sink = phi ptr [ @.str.168, %._crit_edge.i.i ], [ @.str.178, %345 ], [ @.str.166, %415 ], [ @.str.168, %428 ], [ @.str.171, %507 ]
   %528 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.166.sink) #18
   br label %529
 
-529:                                              ; preds = %.sink.split, %413, %392, %394, %409, %411, %417, %437, %439, %450, %452, %456, %458, %461, %505, %357
+529:                                              ; preds = %.sink.split, %392, %394, %409, %411, %413, %417, %437, %439, %450, %452, %456, %458, %461, %505, %357
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %530 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5) #18
@@ -3974,7 +3974,7 @@ define dso_local void @update_slurmd_logging(i32 noundef %0) local_unnamed_addr 
   br label %39
 
 39:                                               ; preds = %35, %30, %16, %38
-  %.sink24 = phi i32 [ %29, %16 ], [ 1, %38 ], [ 0, %30 ], [ %34, %35 ]
+  %.sink24 = phi i32 [ 1, %38 ], [ %29, %16 ], [ 0, %30 ], [ %34, %35 ]
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 4392
   store i32 %.sink24, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 4388
@@ -4295,7 +4295,7 @@ define internal noalias noundef ptr @_try_to_reconfig(ptr readnone captures(none
   br label %138
 
 .split65.us:                                      ; preds = %.lr.ph102, %.lr.ph87.preheader, %.lr.ph102.preheader, %.lr.ph87.preheader.preheader
-  %.us-phi66 = phi i64 [ %117, %.lr.ph87.preheader ], [ %98, %.lr.ph87.preheader.preheader ], [ %86, %.lr.ph102.preheader ], [ %95, %.lr.ph102 ]
+  %.us-phi66 = phi i64 [ %98, %.lr.ph87.preheader.preheader ], [ %86, %.lr.ph102.preheader ], [ %117, %.lr.ph87.preheader ], [ %95, %.lr.ph102 ]
   %123 = and i64 %.us-phi66, 2147483647
   %124 = getelementptr inbounds nuw i8, ptr %.030.ph106, i64 %123
   %125 = sub i64 %.031.ph104, %123
@@ -4337,7 +4337,7 @@ define internal noalias noundef ptr @_try_to_reconfig(ptr readnone captures(none
   call void @_exit(i32 noundef 0) #19
   unreachable
 
-138:                                              ; preds = %106, %111, %.split68.us, %122
+138:                                              ; preds = %106, %111, %122, %.split68.us
   %139 = load i32, ptr %4, align 8
   %140 = call i32 @close(i32 noundef %139) #18
   %141 = load ptr, ptr %3, align 8
@@ -4673,7 +4673,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_tls_certificate() unnamed_addr
   br label %77
 
 77:                                               ; preds = %67, %75, %72, %7, %13, %10, %64, %58, %53, %40, %33
-  %.0 = phi i32 [ -1, %53 ], [ -1, %64 ], [ 0, %7 ], [ -1, %58 ], [ -1, %40 ], [ -1, %33 ], [ 0, %10 ], [ 0, %13 ], [ 0, %72 ], [ 0, %75 ], [ 0, %67 ]
+  %.0 = phi i32 [ -1, %53 ], [ -1, %64 ], [ -1, %58 ], [ -1, %40 ], [ -1, %33 ], [ 0, %10 ], [ 0, %13 ], [ 0, %7 ], [ 0, %72 ], [ 0, %75 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -6450,9 +6450,9 @@ _update_nice.exit:                                ; preds = %update_stepd_loggin
   br label %394
 
 .thread147:                                       ; preds = %349, %374, %371, %367
-  %377 = phi ptr [ %370, %367 ], [ %370, %374 ], [ %370, %371 ], [ %351, %349 ]
-  %378 = phi i16 [ %369, %367 ], [ %369, %374 ], [ %369, %371 ], [ %350, %349 ]
-  %379 = phi i16 [ %368, %367 ], [ %368, %374 ], [ %368, %371 ], [ %350, %349 ]
+  %377 = phi ptr [ %370, %374 ], [ %370, %371 ], [ %370, %367 ], [ %351, %349 ]
+  %378 = phi i16 [ %369, %374 ], [ %369, %371 ], [ %369, %367 ], [ %350, %349 ]
+  %379 = phi i16 [ %368, %374 ], [ %368, %371 ], [ %368, %367 ], [ %350, %349 ]
   %380 = getelementptr inbounds nuw i8, ptr %377, i64 4156
   %381 = load i16, ptr %380, align 4
   %382 = getelementptr inbounds nuw i8, ptr %377, i64 4200
@@ -7434,7 +7434,7 @@ _core_spec_init.exit:                             ; preds = %12, %15, %_resource
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %295
 
-293:                                              ; preds = %_resource_spec_fini.exit39.i, %_resource_spec_fini.exit.i, %_resource_spec_fini.exit42.i, %_resource_spec_fini.exit45.i, %242, %_resource_spec_fini.exit48.i, %_resource_spec_fini.exit31.i
+293:                                              ; preds = %_resource_spec_fini.exit.i, %_resource_spec_fini.exit42.i, %_resource_spec_fini.exit45.i, %242, %_resource_spec_fini.exit48.i, %_resource_spec_fini.exit31.i, %_resource_spec_fini.exit39.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %294 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.220) #18
@@ -7505,12 +7505,12 @@ _core_spec_init.exit:                             ; preds = %12, %15, %_resource
   br label %_memory_spec_init.exit.thread
 
 _memory_spec_init.exit:                           ; preds = %321, %316, %314, %306
-  %.str.240.sink = phi ptr [ @.str.239, %316 ], [ @.str.238, %314 ], [ @.str.237, %306 ], [ @.str.240, %321 ]
+  %.str.240.sink = phi ptr [ @.str.237, %306 ], [ @.str.238, %314 ], [ @.str.239, %316 ], [ @.str.240, %321 ]
   %331 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.240.sink) #18
   %332 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.221) #18
   br label %_memory_spec_init.exit.thread
 
-_memory_spec_init.exit.thread:                    ; preds = %324, %327, %303, %309, %300, %_memory_spec_init.exit
+_memory_spec_init.exit.thread:                    ; preds = %324, %327, %300, %303, %309, %_memory_spec_init.exit
   ret void
 }
 
@@ -8264,8 +8264,8 @@ define internal fastcc range(i32 -1, 1) i32 @_set_work_dir() unnamed_addr #0 {
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.286) #18
   br label %.thread16
 
-.thread16:                                        ; preds = %26, %.thread13, %43, %46, %41
-  %.0 = phi i32 [ -1, %41 ], [ 0, %46 ], [ 0, %43 ], [ 0, %.thread13 ], [ 0, %26 ]
+.thread16:                                        ; preds = %.thread13, %26, %43, %46, %41
+  %.0 = phi i32 [ -1, %41 ], [ 0, %46 ], [ 0, %43 ], [ 0, %26 ], [ 0, %.thread13 ]
   ret i32 %.0
 }
 

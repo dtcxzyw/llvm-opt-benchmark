@@ -207,7 +207,7 @@ define void @Ssw_ManCollectPos_rec(ptr noundef readonly captures(none) %0, ptr n
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 32
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %.loopexit
+  br i1 %.not, label %7, label %.critedge
 
 7:                                                ; preds = %3
   %8 = or disjoint i64 %5, 32
@@ -217,7 +217,7 @@ define void @Ssw_ManCollectPos_rec(ptr noundef readonly captures(none) %0, ptr n
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %12 = load i32, ptr %11, align 4, !tbaa !45
   %13 = icmp sgt i32 %10, %12
-  br i1 %13, label %.loopexit, label %14
+  br i1 %13, label %.critedge, label %14
 
 14:                                               ; preds = %7
   %15 = and i64 %5, 7
@@ -227,7 +227,7 @@ define void @Ssw_ManCollectPos_rec(ptr noundef readonly captures(none) %0, ptr n
 .preheader:                                       ; preds = %14
   %16 = and i64 %5, 4294967232
   %.not36 = icmp eq i64 %16, 0
-  br i1 %.not36, label %.loopexit, label %.lr.ph
+  br i1 %.not36, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -245,7 +245,7 @@ define void @Ssw_ManCollectPos_rec(ptr noundef readonly captures(none) %0, ptr n
   %.val29 = load i32, ptr %24, align 8, !tbaa !48
   %25 = sub nsw i32 %.val28, %.val29
   %.not25 = icmp slt i32 %.val26, %25
-  br i1 %.not25, label %26, label %.loopexit
+  br i1 %.not25, label %26, label %.critedge
 
 26:                                               ; preds = %18
   %27 = sdiv i32 %.val26, 2
@@ -315,11 +315,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %57 = sext i32 %55 to i64
   %58 = getelementptr inbounds i32, ptr %54, i64 %57
   store i32 %27, ptr %58, align 4, !tbaa !47
-  br label %.loopexit
+  br label %.critedge
 
 59:                                               ; preds = %.lr.ph, %Aig_ManObj.exit
-  %.035 = phi i32 [ 0, %.lr.ph ], [ %81, %Aig_ManObj.exit ]
-  %.02234 = phi i32 [ -1, %.lr.ph ], [ %72, %Aig_ManObj.exit ]
+  %.035 = phi i32 [ 0, %.lr.ph ], [ %82, %Aig_ManObj.exit ]
+  %.02234 = phi i32 [ -1, %.lr.ph ], [ %73, %Aig_ManObj.exit ]
   %.not24 = icmp eq i32 %.035, 0
   %60 = load ptr, ptr %17, align 8, !tbaa !3
   br i1 %.not24, label %67, label %61
@@ -330,45 +330,45 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %64 = and i32 %.02234, 1
   %65 = add nuw nsw i32 %64, 3
   %66 = add i32 %65, %63
-  br label %.critedge
+  br label %70
 
 67:                                               ; preds = %59
   %68 = load i32, ptr %9, align 4, !tbaa !35
   %69 = mul nsw i32 %68, 5
-  br label %.critedge
+  br label %70
 
-.critedge:                                        ; preds = %67, %61
+70:                                               ; preds = %67, %61
   %.sink40 = phi i32 [ %69, %67 ], [ %66, %61 ]
   %.val31.sink.in = getelementptr i8, ptr %60, i64 176
   %.val31.sink = load ptr, ptr %.val31.sink.in, align 8, !tbaa !53
-  %70 = sext i32 %.sink40 to i64
-  %71 = getelementptr inbounds i32, ptr %.val31.sink, i64 %70
-  %72 = load i32, ptr %71, align 4, !tbaa !47
-  %73 = getelementptr i8, ptr %60, i64 32
-  %.val32 = load ptr, ptr %73, align 8, !tbaa !54
+  %71 = sext i32 %.sink40 to i64
+  %72 = getelementptr inbounds i32, ptr %.val31.sink, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !47
+  %74 = getelementptr i8, ptr %60, i64 32
+  %.val32 = load ptr, ptr %74, align 8, !tbaa !54
   %.not.i = icmp eq ptr %.val32, null
-  br i1 %.not.i, label %Aig_ManObj.exit, label %74
+  br i1 %.not.i, label %Aig_ManObj.exit, label %75
 
-74:                                               ; preds = %.critedge
-  %75 = ashr i32 %72, 1
-  %76 = getelementptr i8, ptr %.val32, i64 8
-  %.val.i = load ptr, ptr %76, align 8, !tbaa !31
-  %77 = sext i32 %75 to i64
-  %78 = getelementptr inbounds ptr, ptr %.val.i, i64 %77
-  %79 = load ptr, ptr %78, align 8, !tbaa !33
+75:                                               ; preds = %70
+  %76 = ashr i32 %73, 1
+  %77 = getelementptr i8, ptr %.val32, i64 8
+  %.val.i = load ptr, ptr %77, align 8, !tbaa !31
+  %78 = sext i32 %76 to i64
+  %79 = getelementptr inbounds ptr, ptr %.val.i, i64 %78
+  %80 = load ptr, ptr %79, align 8, !tbaa !33
   br label %Aig_ManObj.exit
 
-Aig_ManObj.exit:                                  ; preds = %.critedge, %74
-  %80 = phi ptr [ %79, %74 ], [ null, %.critedge ]
-  tail call void @Ssw_ManCollectPos_rec(ptr noundef nonnull %0, ptr noundef %80, ptr noundef %2)
-  %81 = add nuw nsw i32 %.035, 1
-  %82 = load i64, ptr %4, align 8
-  %83 = trunc i64 %82 to i32
-  %84 = lshr i32 %83, 6
-  %85 = icmp samesign ult i32 %81, %84
-  br i1 %85, label %59, label %.loopexit, !llvm.loop !55
+Aig_ManObj.exit:                                  ; preds = %70, %75
+  %81 = phi ptr [ %80, %75 ], [ null, %70 ]
+  tail call void @Ssw_ManCollectPos_rec(ptr noundef nonnull %0, ptr noundef %81, ptr noundef %2)
+  %82 = add nuw nsw i32 %.035, 1
+  %83 = load i64, ptr %4, align 8
+  %84 = trunc i64 %83 to i32
+  %85 = lshr i32 %84, 6
+  %86 = icmp samesign ult i32 %82, %85
+  br i1 %86, label %59, label %.critedge, !llvm.loop !55
 
-.loopexit:                                        ; preds = %Aig_ManObj.exit, %.preheader, %18, %7, %3, %Vec_IntPush.exit
+.critedge:                                        ; preds = %Aig_ManObj.exit, %.preheader, %18, %7, %3, %Vec_IntPush.exit
   ret void
 }
 

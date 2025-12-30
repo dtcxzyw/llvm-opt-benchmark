@@ -389,11 +389,11 @@ if.end10.i.i.i.i.i:                               ; preds = %if.end6.i.i.i.i.i
   br label %_ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i.i.i
 
 _ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i, %if.end10.i.i.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i, %for.end.i.i.i.i.i
-  %40 = phi ptr [ %.pre3.i.i.i.i, %if.end10.i.i.i.i.i ], [ %34, %for.end.i.i.i.i.i ], [ %.pre3.i.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i ], [ %34, %for.body.i.i.i.i.i ]
-  %41 = phi ptr [ %.pre3.i.i.i.i, %if.end10.i.i.i.i.i ], [ %33, %for.end.i.i.i.i.i ], [ %.pre3.i.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i ], [ %33, %for.body.i.i.i.i.i ]
-  %42 = phi i32 [ %38, %if.end10.i.i.i.i.i ], [ %35, %for.end.i.i.i.i.i ], [ %.pre4.i.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i ], [ %35, %for.body.i.i.i.i.i ]
-  %43 = phi ptr [ %.pre.i.i.i.i, %if.end10.i.i.i.i.i ], [ %33, %for.end.i.i.i.i.i ], [ %.pre.i.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i ], [ %33, %for.body.i.i.i.i.i ]
-  %retval.0.i.i.i.i.i = phi ptr [ %cond.i13.i.i.i.i.i, %if.end10.i.i.i.i.i ], [ %cond.i.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %call7.i.i.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i ], [ %APtr.016.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %40 = phi ptr [ %34, %for.end.i.i.i.i.i ], [ %.pre3.i.i.i.i, %if.end10.i.i.i.i.i ], [ %.pre3.i.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i ], [ %34, %for.body.i.i.i.i.i ]
+  %41 = phi ptr [ %33, %for.end.i.i.i.i.i ], [ %.pre3.i.i.i.i, %if.end10.i.i.i.i.i ], [ %.pre3.i.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i ], [ %33, %for.body.i.i.i.i.i ]
+  %42 = phi i32 [ %35, %for.end.i.i.i.i.i ], [ %38, %if.end10.i.i.i.i.i ], [ %.pre4.i.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i ], [ %35, %for.body.i.i.i.i.i ]
+  %43 = phi ptr [ %33, %for.end.i.i.i.i.i ], [ %.pre.i.i.i.i, %if.end10.i.i.i.i.i ], [ %.pre.i.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i ], [ %33, %for.body.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i = phi ptr [ %cond.i.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %cond.i13.i.i.i.i.i, %if.end10.i.i.i.i.i ], [ %call7.i.i.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i ], [ %APtr.016.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %cmp.i.i4.i.i.i.i.i = icmp eq ptr %43, %41
   %44 = load i32, ptr %CurArraySize.i.i.i.i.i, align 8
   %cond.v.v.i7.i.i.i.i.i = select i1 %cmp.i.i4.i.i.i.i.i, i32 %42, i32 %44
@@ -622,10 +622,10 @@ if.end10.i.i.i72.i.i:                             ; preds = %if.end6.i.i.i67.i.i
   br label %_ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i79.i.i
 
 _ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i79.i.i: ; preds = %for.body.i.i.i105.i.i, %if.end10.i.i.i72.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i96.i.i, %for.end.i.i.i111.i.i
-  %76 = phi ptr [ %.pre3.i.i71.i.i, %if.end10.i.i.i72.i.i ], [ %69, %for.end.i.i.i111.i.i ], [ %.pre3.i.i71.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i96.i.i ], [ %69, %for.body.i.i.i105.i.i ]
-  %77 = phi i32 [ %74, %if.end10.i.i.i72.i.i ], [ %71, %for.end.i.i.i111.i.i ], [ %.pre4.i.i98.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i96.i.i ], [ %71, %for.body.i.i.i105.i.i ]
-  %78 = phi ptr [ %.pre.i.i70.i.i, %if.end10.i.i.i72.i.i ], [ %69, %for.end.i.i.i111.i.i ], [ %.pre.i.i70.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i96.i.i ], [ %69, %for.body.i.i.i105.i.i ]
-  %retval.0.i.i.i80.i.i = phi ptr [ %cond.i13.i.i.i78.i.i, %if.end10.i.i.i72.i.i ], [ %cond.i.i.i.i112.i.i, %for.end.i.i.i111.i.i ], [ %call7.i.i.i68.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i96.i.i ], [ %APtr.016.i.i.i106.i.i, %for.body.i.i.i105.i.i ]
+  %76 = phi ptr [ %69, %for.end.i.i.i111.i.i ], [ %.pre3.i.i71.i.i, %if.end10.i.i.i72.i.i ], [ %.pre3.i.i71.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i96.i.i ], [ %69, %for.body.i.i.i105.i.i ]
+  %77 = phi i32 [ %71, %for.end.i.i.i111.i.i ], [ %74, %if.end10.i.i.i72.i.i ], [ %.pre4.i.i98.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i96.i.i ], [ %71, %for.body.i.i.i105.i.i ]
+  %78 = phi ptr [ %69, %for.end.i.i.i111.i.i ], [ %.pre.i.i70.i.i, %if.end10.i.i.i72.i.i ], [ %.pre.i.i70.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i96.i.i ], [ %69, %for.body.i.i.i105.i.i ]
+  %retval.0.i.i.i80.i.i = phi ptr [ %cond.i.i.i.i112.i.i, %for.end.i.i.i111.i.i ], [ %cond.i13.i.i.i78.i.i, %if.end10.i.i.i72.i.i ], [ %call7.i.i.i68.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i96.i.i ], [ %APtr.016.i.i.i106.i.i, %for.body.i.i.i105.i.i ]
   %cmp.i.i4.i.i.i81.i.i = icmp eq ptr %78, %76
   %79 = load i32, ptr %CurArraySize.i.i.i.i.i, align 8
   %cond.v.v.i7.i.i.i83.i.i = select i1 %cmp.i.i4.i.i.i81.i.i, i32 %77, i32 %79
@@ -770,10 +770,10 @@ if.end10.i.i.i126.i.i:                            ; preds = %if.end6.i.i.i121.i.
   br label %_ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i133.i.i
 
 _ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i133.i.i: ; preds = %for.body.i.i.i159.i.i, %if.end10.i.i.i126.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i150.i.i, %for.end.i.i.i165.i.i
-  %96 = phi ptr [ %.pre3.i.i125.i.i, %if.end10.i.i.i126.i.i ], [ %89, %for.end.i.i.i165.i.i ], [ %.pre3.i.i125.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i150.i.i ], [ %89, %for.body.i.i.i159.i.i ]
-  %97 = phi i32 [ %94, %if.end10.i.i.i126.i.i ], [ %91, %for.end.i.i.i165.i.i ], [ %.pre4.i.i152.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i150.i.i ], [ %91, %for.body.i.i.i159.i.i ]
-  %98 = phi ptr [ %.pre.i.i124.i.i, %if.end10.i.i.i126.i.i ], [ %89, %for.end.i.i.i165.i.i ], [ %.pre.i.i124.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i150.i.i ], [ %89, %for.body.i.i.i159.i.i ]
-  %retval.0.i.i.i134.i.i = phi ptr [ %cond.i13.i.i.i132.i.i, %if.end10.i.i.i126.i.i ], [ %cond.i.i.i.i166.i.i, %for.end.i.i.i165.i.i ], [ %call7.i.i.i122.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i150.i.i ], [ %APtr.016.i.i.i160.i.i, %for.body.i.i.i159.i.i ]
+  %96 = phi ptr [ %89, %for.end.i.i.i165.i.i ], [ %.pre3.i.i125.i.i, %if.end10.i.i.i126.i.i ], [ %.pre3.i.i125.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i150.i.i ], [ %89, %for.body.i.i.i159.i.i ]
+  %97 = phi i32 [ %91, %for.end.i.i.i165.i.i ], [ %94, %if.end10.i.i.i126.i.i ], [ %.pre4.i.i152.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i150.i.i ], [ %91, %for.body.i.i.i159.i.i ]
+  %98 = phi ptr [ %89, %for.end.i.i.i165.i.i ], [ %.pre.i.i124.i.i, %if.end10.i.i.i126.i.i ], [ %.pre.i.i124.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i150.i.i ], [ %89, %for.body.i.i.i159.i.i ]
+  %retval.0.i.i.i134.i.i = phi ptr [ %cond.i.i.i.i166.i.i, %for.end.i.i.i165.i.i ], [ %cond.i13.i.i.i132.i.i, %if.end10.i.i.i126.i.i ], [ %call7.i.i.i122.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i150.i.i ], [ %APtr.016.i.i.i160.i.i, %for.body.i.i.i159.i.i ]
   %cmp.i.i4.i.i.i135.i.i = icmp eq ptr %98, %96
   %99 = load i32, ptr %CurArraySize.i.i.i.i.i, align 8
   %cond.v.v.i7.i.i.i137.i.i = select i1 %cmp.i.i4.i.i.i135.i.i, i32 %97, i32 %99
@@ -835,7 +835,7 @@ for.end144.i.i:                                   ; preds = %for.inc142.i.i, %fo
   br label %cleanup.i.i
 
 cleanup.i.i:                                      ; preds = %for.body.i70.i, %_ZNK4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE5countEPKS2_.exit113.i.i, %for.end144.i.i, %for.end.i72.i
-  %retval.1.i.i = phi i1 [ true, %for.end144.i.i ], [ false, %_ZNK4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE5countEPKS2_.exit113.i.i ], [ false, %for.end.i72.i ], [ false, %for.body.i70.i ]
+  %retval.1.i.i = phi i1 [ true, %for.end144.i.i ], [ false, %for.end.i72.i ], [ false, %_ZNK4llvh15SmallPtrSetImplIPN6hermes10BasicBlockEE5countEPKS2_.exit113.i.i ], [ false, %for.body.i70.i ]
   %104 = load ptr, ptr %orderedParents.i.i, align 8
   %cmp.i.i.i171.i.i = icmp eq ptr %104, %add.ptr.i.i.i.i.i.i67.i
   br i1 %cmp.i.i.i171.i.i, label %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit.i.i, label %if.then.i.i172.i.i
@@ -998,7 +998,7 @@ while.end.i:                                      ; preds = %while.body.i, %whil
   br label %_ZL22optimizeStaticBranchesPN6hermes8FunctionE.exit.thread
 
 for.inc101.i:                                     ; preds = %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit.i, %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i.i, %if.then74.i, %_ZL32attemptBranchRemovalFromPhiNodesPN6hermes10BasicBlockE.exit.i, %_ZL32attemptBranchRemovalFromPhiNodesPN6hermes10BasicBlockE.exit.thread.i, %if.then.i.i.i175.i.i, %if.end56.i, %if.end56.i, %if.end56.i, %if.end51.i, %for.body43.i
-  %changed.4.i = phi i1 [ %changed.2134.i, %if.end51.i ], [ %changed.2134.i, %if.end56.i ], [ %changed.2134.i, %_ZL32attemptBranchRemovalFromPhiNodesPN6hermes10BasicBlockE.exit.i ], [ %changed.2134.i, %for.body43.i ], [ %changed.2134.i, %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit.i ], [ true, %if.then74.i ], [ %changed.2134.i, %_ZL32attemptBranchRemovalFromPhiNodesPN6hermes10BasicBlockE.exit.thread.i ], [ %changed.2134.i, %if.then.i.i.i175.i.i ], [ %changed.2134.i, %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i.i ], [ %changed.2134.i, %if.end56.i ], [ %changed.2134.i, %if.end56.i ]
+  %changed.4.i = phi i1 [ %changed.2134.i, %if.end51.i ], [ %changed.2134.i, %if.end56.i ], [ %changed.2134.i, %_ZL32attemptBranchRemovalFromPhiNodesPN6hermes10BasicBlockE.exit.i ], [ %changed.2134.i, %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit.i ], [ true, %if.then74.i ], [ %changed.2134.i, %for.body43.i ], [ %changed.2134.i, %_ZL32attemptBranchRemovalFromPhiNodesPN6hermes10BasicBlockE.exit.thread.i ], [ %changed.2134.i, %if.then.i.i.i175.i.i ], [ %changed.2134.i, %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i.i ], [ %changed.2134.i, %if.end56.i ], [ %changed.2134.i, %if.end56.i ]
   %Next.i.i.i104.i = getelementptr inbounds nuw i8, ptr %__begin135.sroa.0.0135.i, i64 8
   %__begin135.sroa.0.0.i = load ptr, ptr %Next.i.i.i104.i, align 8
   %cmp.i51.not.i = icmp eq ptr %__begin135.sroa.0.0.i, %BasicBlockList.i.i
@@ -1209,10 +1209,10 @@ if.end10.i.i.i.i:                                 ; preds = %if.end6.i.i.i.i
   br label %_ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i.i
 
 _ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i.i: ; preds = %for.body.i.i.i.i36, %if.end10.i.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i, %for.end.i.i.i.i40
-  %155 = phi ptr [ %.pre3.i.i.i, %if.end10.i.i.i.i ], [ %148, %for.end.i.i.i.i40 ], [ %.pre3.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i ], [ %148, %for.body.i.i.i.i36 ]
-  %156 = phi i32 [ %153, %if.end10.i.i.i.i ], [ %150, %for.end.i.i.i.i40 ], [ %.pre4.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i ], [ %150, %for.body.i.i.i.i36 ]
-  %157 = phi ptr [ %.pre.i.i.i18, %if.end10.i.i.i.i ], [ %148, %for.end.i.i.i.i40 ], [ %.pre.i.i.i18, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i ], [ %148, %for.body.i.i.i.i36 ]
-  %retval.0.i.i.i.i = phi ptr [ %cond.i13.i.i.i.i, %if.end10.i.i.i.i ], [ %cond.i.i.i.i.i, %for.end.i.i.i.i40 ], [ %call7.i.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i ], [ %APtr.016.i.i.i.i, %for.body.i.i.i.i36 ]
+  %155 = phi ptr [ %148, %for.end.i.i.i.i40 ], [ %.pre3.i.i.i, %if.end10.i.i.i.i ], [ %.pre3.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i ], [ %148, %for.body.i.i.i.i36 ]
+  %156 = phi i32 [ %150, %for.end.i.i.i.i40 ], [ %153, %if.end10.i.i.i.i ], [ %.pre4.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i ], [ %150, %for.body.i.i.i.i36 ]
+  %157 = phi ptr [ %148, %for.end.i.i.i.i40 ], [ %.pre.i.i.i18, %if.end10.i.i.i.i ], [ %.pre.i.i.i18, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i ], [ %148, %for.body.i.i.i.i36 ]
+  %retval.0.i.i.i.i = phi ptr [ %cond.i.i.i.i.i, %for.end.i.i.i.i40 ], [ %cond.i13.i.i.i.i, %if.end10.i.i.i.i ], [ %call7.i.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i ], [ %APtr.016.i.i.i.i, %for.body.i.i.i.i36 ]
   %cmp.i.i4.i.i.i.i = icmp eq ptr %157, %155
   %158 = load i32, ptr %CurArraySize.i.i.i.i, align 8
   %cond.v.v.i7.i.i.i.i = select i1 %cmp.i.i4.i.i.i.i, i32 %156, i32 %158

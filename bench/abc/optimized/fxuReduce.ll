@@ -157,8 +157,8 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %4
-  %64 = phi i32 [ %59, %._crit_edge ], [ %8, %4 ]
-  %65 = phi i32 [ %spec.select234, %._crit_edge ], [ 0, %4 ]
+  %64 = phi i32 [ %8, %4 ], [ %59, %._crit_edge ]
+  %65 = phi i32 [ 0, %4 ], [ %spec.select234, %._crit_edge ]
   %66 = sext i32 %65 to i64
   %67 = tail call noalias ptr @calloc(i64 noundef %66, i64 noundef 4) #10
   %68 = icmp sgt i32 %2, 0

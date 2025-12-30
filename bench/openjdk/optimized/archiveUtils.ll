@@ -326,7 +326,7 @@ define hidden void @_ZN16ArchivePtrMarker7compactEPhS0_(ptr noundef %0, ptr noun
   br i1 %37, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZNK6BitMap7iterateI23ArchivePtrBitmapCleanerEEbPT_.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %34, %17
-  %.0.i.i.i.i.i = phi i64 [ %36, %34 ], [ %.0917.i.i.i, %17 ]
+  %.0.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %17 ], [ %36, %34 ]
   %.not.not.i.i.i = icmp ult i64 %.0.i.i.i.i.i, %14
   br i1 %.not.not.i.i.i, label %38, label %_ZNK6BitMap7iterateI23ArchivePtrBitmapCleanerEEbPT_.exit
 

@@ -217,7 +217,7 @@ rsa_md_to_mgf1.exit.thread:                       ; preds = %57
   br label %rsa_md_to_mgf1.exit
 
 rsa_md_to_mgf1.exit:                              ; preds = %65, %69, %71, %73
-  %.01217.i = phi ptr [ %.012.ph.i, %71 ], [ %.012.ph.i, %73 ], [ %.012.ph.i, %69 ], [ null, %65 ]
+  %.01217.i = phi ptr [ %.012.ph.i, %71 ], [ %.012.ph.i, %69 ], [ %.012.ph.i, %73 ], [ null, %65 ]
   %77 = load ptr, ptr %3, align 8, !tbaa !17
   call void @ASN1_STRING_free(ptr noundef %77) #3
   call void @X509_ALGOR_free(ptr noundef %.01217.i) #3
@@ -239,7 +239,7 @@ rsa_md_to_mgf1.exit:                              ; preds = %65, %69, %71, %73
   br label %rsa_md_to_algor.exit
 
 rsa_md_to_algor.exit:                             ; preds = %53, %79, %rsa_md_to_mgf1.exit, %42, %45, %38, %81
-  %.016 = phi i32 [ 1, %81 ], [ 0, %79 ], [ 0, %rsa_md_to_mgf1.exit ], [ 0, %38 ], [ 0, %45 ], [ 0, %42 ], [ 0, %53 ]
+  %.016 = phi i32 [ 1, %81 ], [ 0, %79 ], [ 0, %rsa_md_to_mgf1.exit ], [ 0, %45 ], [ 0, %42 ], [ 0, %38 ], [ 0, %53 ]
   call void @ASN1_item_free(ptr noundef %39, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
   %85 = load ptr, ptr %7, align 8, !tbaa !17
   call void @ASN1_STRING_free(ptr noundef %85) #3
@@ -247,7 +247,7 @@ rsa_md_to_algor.exit:                             ; preds = %53, %79, %rsa_md_to
   br label %86
 
 86:                                               ; preds = %rsa_md_to_algor.exit, %17, %2, %11, %14
-  %.0 = phi i32 [ 0, %2 ], [ 0, %14 ], [ 0, %11 ], [ %.016, %rsa_md_to_algor.exit ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %11 ], [ 0, %2 ], [ %.016, %rsa_md_to_algor.exit ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -476,9 +476,9 @@ rsa_algor_to_md.exit:                             ; preds = %57, %59
   br label %90
 
 90:                                               ; preds = %rsa_algor_to_md.exit.thread, %87, %79, %81, %84, %rsa_algor_to_md.exit, %78, %72, %rsa_pss_decode.exit.thread
-  %.0.i41 = phi ptr [ null, %rsa_pss_decode.exit.thread ], [ %18, %rsa_algor_to_md.exit ], [ %18, %72 ], [ %18, %78 ], [ %18, %79 ], [ %18, %87 ], [ %18, %84 ], [ %18, %81 ], [ %18, %rsa_algor_to_md.exit.thread ]
-  %.139 = phi ptr [ null, %rsa_pss_decode.exit.thread ], [ %.036.ph60, %rsa_algor_to_md.exit ], [ %.036.ph60, %72 ], [ %.036.ph60, %78 ], [ %.036.ph60, %79 ], [ %.036.ph60, %87 ], [ %.036.ph60, %84 ], [ %.036.ph60, %81 ], [ %.036.ph60, %rsa_algor_to_md.exit.thread ]
-  %.018 = phi i32 [ 0, %rsa_pss_decode.exit.thread ], [ 0, %rsa_algor_to_md.exit ], [ 0, %72 ], [ 0, %78 ], [ 0, %79 ], [ %spec.select, %87 ], [ 0, %84 ], [ 0, %81 ], [ 0, %rsa_algor_to_md.exit.thread ]
+  %.0.i41 = phi ptr [ null, %rsa_pss_decode.exit.thread ], [ %18, %rsa_algor_to_md.exit ], [ %18, %72 ], [ %18, %78 ], [ %18, %84 ], [ %18, %81 ], [ %18, %79 ], [ %18, %87 ], [ %18, %rsa_algor_to_md.exit.thread ]
+  %.139 = phi ptr [ null, %rsa_pss_decode.exit.thread ], [ %.036.ph60, %rsa_algor_to_md.exit ], [ %.036.ph60, %72 ], [ %.036.ph60, %78 ], [ %.036.ph60, %84 ], [ %.036.ph60, %81 ], [ %.036.ph60, %79 ], [ %.036.ph60, %87 ], [ %.036.ph60, %rsa_algor_to_md.exit.thread ]
+  %.018 = phi i32 [ 0, %rsa_pss_decode.exit.thread ], [ 0, %rsa_algor_to_md.exit ], [ 0, %72 ], [ 0, %78 ], [ 0, %84 ], [ 0, %81 ], [ 0, %79 ], [ %spec.select, %87 ], [ 0, %rsa_algor_to_md.exit.thread ]
   call void @ASN1_item_free(ptr noundef %.0.i41, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
   call void @X509_ALGOR_free(ptr noundef %.139) #3
   ret i32 %.018

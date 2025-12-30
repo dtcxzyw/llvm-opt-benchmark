@@ -96,7 +96,7 @@ define void @utrace_exit_77(i32 noundef %0, i32 noundef %1, ...) local_unnamed_a
   unreachable
 
 11:                                               ; preds = %5, %9, %8, %7, %6
-  %.0 = phi ptr [ @_ZL17gExitFmtPtrStatus, %9 ], [ @_ZL13gExitFmtValue, %6 ], [ @_ZL14gExitFmtStatus, %7 ], [ @_ZL19gExitFmtValueStatus, %8 ], [ @_ZL8gExitFmt, %5 ]
+  %.0 = phi ptr [ @_ZL13gExitFmtValue, %6 ], [ @_ZL14gExitFmtStatus, %7 ], [ @_ZL19gExitFmtValueStatus, %8 ], [ @_ZL17gExitFmtPtrStatus, %9 ], [ @_ZL8gExitFmt, %5 ]
   call void @llvm.va_start.p0(ptr nonnull %3)
   %12 = load ptr, ptr @_ZL13gTraceContext, align 8, !tbaa !3
   call void %4(ptr noundef %12, i32 noundef %0, ptr noundef nonnull %.0, ptr noundef nonnull %3)
@@ -240,7 +240,7 @@ define range(i32 -2147483647, -2147483648) i32 @utrace_vformat_77(ptr noundef %0
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %37, %36, %34, %25
-  %.promoted546 = phi i32 [ %.lcssa444448451, %34 ], [ %.lcssa444448451, %37 ], [ %.lcssa444448451, %25 ], [ %.lcssa444448451, %36 ], [ %44, %.loopexit.i.loopexit ]
+  %.promoted546 = phi i32 [ %.lcssa444448451, %37 ], [ %.lcssa444448451, %25 ], [ %.lcssa444448451, %36 ], [ %.lcssa444448451, %34 ], [ %44, %.loopexit.i.loopexit ]
   %45 = icmp slt i32 %.promoted546, %1
   br i1 %45, label %46, label %_ZL10outputCharcPcPiii.exit
 
@@ -366,7 +366,7 @@ _ZL10outputCharcPcPiii.exit:                      ; preds = %46, %.loopexit.i
   br label %.loopexit.i161
 
 .loopexit.i161:                                   ; preds = %.loopexit.i161.loopexit, %83, %82, %80, %71
-  %91 = phi i32 [ %.promoted543, %80 ], [ %.promoted543, %83 ], [ %.promoted543, %71 ], [ %.promoted543, %82 ], [ %89, %.loopexit.i161.loopexit ]
+  %91 = phi i32 [ %.promoted543, %83 ], [ %.promoted543, %71 ], [ %.promoted543, %82 ], [ %.promoted543, %80 ], [ %89, %.loopexit.i161.loopexit ]
   %92 = icmp slt i32 %91, %1
   br i1 %92, label %93, label %96
 
@@ -490,7 +490,7 @@ _ZL10outputCharcPcPiii.exit.us.i:                 ; preds = %118, %.split.us.i
   br i1 %exitcond.not.i.us32.i, label %.loopexit.i.us33.i, label %.lr.ph.i.us29.i, !llvm.loop !10
 
 .loopexit.i.us33.i:                               ; preds = %141, %135, %126, %125
-  %.lcssa536539 = phi i32 [ %.lcssa536538, %135 ], [ %.lcssa536538, %126 ], [ %.lcssa536538, %125 ], [ %142, %141 ]
+  %.lcssa536539 = phi i32 [ %.lcssa536538, %125 ], [ %.lcssa536538, %126 ], [ %.lcssa536538, %135 ], [ %142, %141 ]
   %144 = icmp slt i32 %.lcssa536539, %1
   br i1 %144, label %145, label %_ZL10outputCharcPcPiii.exit.us35.i
 
@@ -847,7 +847,7 @@ _ZL14outputPtrBytesPvPcPii.exit:                  ; preds = %_ZL14outputHexBytes
   br i1 %exitcond.not.i208, label %.loopexit.i204, label %.lr.ph.i206, !llvm.loop !10
 
 .loopexit.i204:                                   ; preds = %314, %301, %303, %309
-  %317 = phi i32 [ %.promoted543, %301 ], [ 0, %309 ], [ %.promoted543, %303 ], [ %315, %314 ]
+  %317 = phi i32 [ 0, %309 ], [ %.promoted543, %303 ], [ %.promoted543, %301 ], [ %315, %314 ]
   %318 = icmp slt i32 %317, %1
   br i1 %318, label %319, label %_ZL10outputCharcPcPiii.exit211
 
@@ -994,7 +994,7 @@ _ZL10outputCharcPcPiii.exit.us.i218:              ; preds = %360, %.split.us.i21
   br i1 %exitcond.not.i.us32.i229, label %.loopexit.i.us33.i222, label %.lr.ph.i.us29.i227, !llvm.loop !10
 
 .loopexit.i.us33.i222:                            ; preds = %383, %371, %373, %370, %369
-  %.lcssa499502 = phi i32 [ %.lcssa499501, %371 ], [ %.lcssa499501, %370 ], [ %.lcssa499501, %369 ], [ %.lcssa499501, %373 ], [ %384, %383 ]
+  %.lcssa499502 = phi i32 [ %.lcssa499501, %369 ], [ %.lcssa499501, %370 ], [ %.lcssa499501, %373 ], [ %.lcssa499501, %371 ], [ %384, %383 ]
   %386 = icmp slt i32 %.lcssa499502, %1
   br i1 %386, label %387, label %_ZL10outputCharcPcPiii.exit.us35.i224
 
@@ -1176,7 +1176,7 @@ _ZL14outputPtrBytesPvPcPii.exit245:               ; preds = %_ZL14outputHexBytes
   br label %.loopexit.i246
 
 .loopexit.i246:                                   ; preds = %.loopexit.i246.loopexit, %446, %445, %443, %434
-  %454 = phi i32 [ %.pre.i306, %443 ], [ %.pre.i306, %446 ], [ %.pre.i306, %434 ], [ %.pre.i306, %445 ], [ %452, %.loopexit.i246.loopexit ]
+  %454 = phi i32 [ %.pre.i306, %446 ], [ %.pre.i306, %434 ], [ %.pre.i306, %445 ], [ %.pre.i306, %443 ], [ %452, %.loopexit.i246.loopexit ]
   %455 = icmp slt i32 %454, %1
   br i1 %455, label %456, label %459
 
@@ -1287,7 +1287,7 @@ _ZL10outputCharcPcPiii.exit.us.i268:              ; preds = %473, %.split.us.i26
   br i1 %exitcond.not.i.us32.i279, label %.loopexit.i.us33.i272, label %.lr.ph.i.us29.i277, !llvm.loop !10
 
 .loopexit.i.us33.i272:                            ; preds = %496, %490, %481, %480
-  %.lcssa463466 = phi i32 [ %.lcssa463465, %490 ], [ %.lcssa463465, %481 ], [ %.lcssa463465, %480 ], [ %497, %496 ]
+  %.lcssa463466 = phi i32 [ %.lcssa463465, %480 ], [ %.lcssa463465, %481 ], [ %.lcssa463465, %490 ], [ %497, %496 ]
   %499 = icmp slt i32 %.lcssa463466, %1
   br i1 %499, label %500, label %_ZL10outputCharcPcPiii.exit.us35.i274
 
@@ -1337,7 +1337,7 @@ _ZL12outputStringPKcPcPiii.exit283:               ; preds = %_ZL10outputCharcPcP
   br i1 %exitcond.not.i291, label %.loopexit.i287, label %.lr.ph.i289, !llvm.loop !10
 
 .loopexit.i287:                                   ; preds = %511, %506, %505
-  %514 = phi i32 [ %.promoted467, %505 ], [ 0, %506 ], [ %512, %511 ]
+  %514 = phi i32 [ 0, %506 ], [ %.promoted467, %505 ], [ %512, %511 ]
   %515 = icmp slt i32 %514, %1
   br i1 %515, label %516, label %_ZL10outputCharcPcPiii.exit294
 
@@ -1393,7 +1393,7 @@ _ZL10outputCharcPcPiii.exit294:                   ; preds = %.loopexit.i287, %51
   br i1 %exitcond.not.i302, label %.loopexit.i298, label %.lr.ph.i300, !llvm.loop !10
 
 .loopexit.i298:                                   ; preds = %534, %529, %528
-  %537 = phi i32 [ %526, %528 ], [ 0, %529 ], [ %535, %534 ]
+  %537 = phi i32 [ 0, %529 ], [ %526, %528 ], [ %535, %534 ]
   %538 = icmp slt i32 %537, %1
   br i1 %538, label %539, label %_ZL10outputCharcPcPiii.exit305
 
@@ -1493,7 +1493,7 @@ _ZL14outputHexBytesliPcPii.exit312:               ; preds = %_ZL10outputCharcPcP
   br i1 %exitcond.not.i320, label %.loopexit.i316, label %.lr.ph.i318, !llvm.loop !10
 
 .loopexit.i316:                                   ; preds = %574, %561, %563, %569
-  %577 = phi i32 [ %559, %561 ], [ 0, %569 ], [ %559, %563 ], [ %575, %574 ]
+  %577 = phi i32 [ 0, %569 ], [ %559, %563 ], [ %559, %561 ], [ %575, %574 ]
   %578 = icmp slt i32 %577, %1
   br i1 %578, label %579, label %_ZL10outputCharcPcPiii.exit323
 
@@ -1509,22 +1509,22 @@ _ZL10outputCharcPcPiii.exit323:                   ; preds = %.loopexit.i316, %57
   br label %.thread
 
 .thread:                                          ; preds = %_ZL10outputCharcPcPiii.exit305, %_ZL10outputCharcPcPiii.exit294, %_ZL10outputCharcPcPiii.exit260, %_ZL14outputPtrBytesPvPcPii.exit245, %_ZL10outputCharcPcPiii.exit323, %547
-  %583 = phi i32 [ %.pre.i306, %547 ], [ %582, %_ZL10outputCharcPcPiii.exit323 ], [ %424, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ %462, %_ZL10outputCharcPcPiii.exit260 ], [ %519, %_ZL10outputCharcPcPiii.exit294 ], [ %542, %_ZL10outputCharcPcPiii.exit305 ]
-  %.pr.i262607 = phi i32 [ %.promoted464, %547 ], [ %582, %_ZL10outputCharcPcPiii.exit323 ], [ %424, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ %462, %_ZL10outputCharcPcPiii.exit260 ], [ %519, %_ZL10outputCharcPcPiii.exit294 ], [ %542, %_ZL10outputCharcPcPiii.exit305 ]
-  %.1391 = phi i32 [ 0, %547 ], [ %.1410, %_ZL10outputCharcPcPiii.exit323 ], [ 0, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ 0, %_ZL10outputCharcPcPiii.exit260 ], [ 0, %_ZL10outputCharcPcPiii.exit294 ], [ 0, %_ZL10outputCharcPcPiii.exit305 ]
-  %.1132390 = phi ptr [ %.0131489, %547 ], [ %.0131489, %_ZL10outputCharcPcPiii.exit323 ], [ %430, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ %.0131489, %_ZL10outputCharcPcPiii.exit260 ], [ %523, %_ZL10outputCharcPcPiii.exit294 ], [ %546, %_ZL10outputCharcPcPiii.exit305 ]
-  %.1134389 = phi ptr [ %.0133488, %547 ], [ %.1134408, %_ZL10outputCharcPcPiii.exit323 ], [ %.0133488, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ %.0133488, %_ZL10outputCharcPcPiii.exit260 ], [ %.0133488, %_ZL10outputCharcPcPiii.exit294 ], [ %.0133488, %_ZL10outputCharcPcPiii.exit305 ]
-  %.1136388 = phi ptr [ %.0135487, %547 ], [ %.1136407, %_ZL10outputCharcPcPiii.exit323 ], [ %.0135487, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ %.0135487, %_ZL10outputCharcPcPiii.exit260 ], [ %.0135487, %_ZL10outputCharcPcPiii.exit294 ], [ %.0135487, %_ZL10outputCharcPcPiii.exit305 ]
-  %.1138387 = phi ptr [ %.0137486, %547 ], [ %.1138406, %_ZL10outputCharcPcPiii.exit323 ], [ %.0137486, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ %.0137486, %_ZL10outputCharcPcPiii.exit260 ], [ %.0137486, %_ZL10outputCharcPcPiii.exit294 ], [ %.0137486, %_ZL10outputCharcPcPiii.exit305 ]
-  %.1140386 = phi ptr [ %.0139485, %547 ], [ %.1140405, %_ZL10outputCharcPcPiii.exit323 ], [ %.0139485, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ %465, %_ZL10outputCharcPcPiii.exit260 ], [ %.0139485, %_ZL10outputCharcPcPiii.exit294 ], [ %.0139485, %_ZL10outputCharcPcPiii.exit305 ]
-  %.4385 = phi i64 [ %.3484, %547 ], [ %.4404, %_ZL10outputCharcPcPiii.exit323 ], [ %429, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ %464, %_ZL10outputCharcPcPiii.exit260 ], [ %522, %_ZL10outputCharcPcPiii.exit294 ], [ %545, %_ZL10outputCharcPcPiii.exit305 ]
+  %583 = phi i32 [ %582, %_ZL10outputCharcPcPiii.exit323 ], [ %.pre.i306, %547 ], [ %424, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ %462, %_ZL10outputCharcPcPiii.exit260 ], [ %519, %_ZL10outputCharcPcPiii.exit294 ], [ %542, %_ZL10outputCharcPcPiii.exit305 ]
+  %.pr.i262607 = phi i32 [ %582, %_ZL10outputCharcPcPiii.exit323 ], [ %.promoted464, %547 ], [ %424, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ %462, %_ZL10outputCharcPcPiii.exit260 ], [ %519, %_ZL10outputCharcPcPiii.exit294 ], [ %542, %_ZL10outputCharcPcPiii.exit305 ]
+  %.1391 = phi i32 [ %.1410, %_ZL10outputCharcPcPiii.exit323 ], [ 0, %547 ], [ 0, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ 0, %_ZL10outputCharcPcPiii.exit260 ], [ 0, %_ZL10outputCharcPcPiii.exit294 ], [ 0, %_ZL10outputCharcPcPiii.exit305 ]
+  %.1132390 = phi ptr [ %.0131489, %_ZL10outputCharcPcPiii.exit323 ], [ %.0131489, %547 ], [ %430, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ %.0131489, %_ZL10outputCharcPcPiii.exit260 ], [ %523, %_ZL10outputCharcPcPiii.exit294 ], [ %546, %_ZL10outputCharcPcPiii.exit305 ]
+  %.1134389 = phi ptr [ %.1134408, %_ZL10outputCharcPcPiii.exit323 ], [ %.0133488, %547 ], [ %.0133488, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ %.0133488, %_ZL10outputCharcPcPiii.exit260 ], [ %.0133488, %_ZL10outputCharcPcPiii.exit294 ], [ %.0133488, %_ZL10outputCharcPcPiii.exit305 ]
+  %.1136388 = phi ptr [ %.1136407, %_ZL10outputCharcPcPiii.exit323 ], [ %.0135487, %547 ], [ %.0135487, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ %.0135487, %_ZL10outputCharcPcPiii.exit260 ], [ %.0135487, %_ZL10outputCharcPcPiii.exit294 ], [ %.0135487, %_ZL10outputCharcPcPiii.exit305 ]
+  %.1138387 = phi ptr [ %.1138406, %_ZL10outputCharcPcPiii.exit323 ], [ %.0137486, %547 ], [ %.0137486, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ %.0137486, %_ZL10outputCharcPcPiii.exit260 ], [ %.0137486, %_ZL10outputCharcPcPiii.exit294 ], [ %.0137486, %_ZL10outputCharcPcPiii.exit305 ]
+  %.1140386 = phi ptr [ %.1140405, %_ZL10outputCharcPcPiii.exit323 ], [ %.0139485, %547 ], [ %.0139485, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ %465, %_ZL10outputCharcPcPiii.exit260 ], [ %.0139485, %_ZL10outputCharcPcPiii.exit294 ], [ %.0139485, %_ZL10outputCharcPcPiii.exit305 ]
+  %.4385 = phi i64 [ %.4404, %_ZL10outputCharcPcPiii.exit323 ], [ %.3484, %547 ], [ %429, %_ZL14outputPtrBytesPvPcPii.exit245 ], [ %464, %_ZL10outputCharcPcPiii.exit260 ], [ %522, %_ZL10outputCharcPcPiii.exit294 ], [ %545, %_ZL10outputCharcPcPiii.exit305 ]
   %584 = icmp eq i64 %.4385, 0
   %or.cond = select i1 %354, i1 %584, i1 false
   br i1 %or.cond, label %_ZL12outputStringPKcPcPiii.exit233, label %391
 
 _ZL12outputStringPKcPcPiii.exit233:               ; preds = %.thread, %391, %_ZL10outputCharcPcPiii.exit.us.i218, %_ZL10outputCharcPcPiii.exit.us35.i224, %.preheader
-  %.promoted503 = phi i32 [ %358, %_ZL10outputCharcPcPiii.exit.us.i218 ], [ %.lcssa499502, %_ZL10outputCharcPcPiii.exit.us35.i224 ], [ %.promoted543, %.preheader ], [ %583, %391 ], [ %583, %.thread ]
-  %.2145 = phi i64 [ %.0143.ph, %_ZL10outputCharcPcPiii.exit.us.i218 ], [ %.0143.ph, %_ZL10outputCharcPcPiii.exit.us35.i224 ], [ %.0143.ph, %.preheader ], [ %.4385, %391 ], [ 0, %.thread ]
+  %.promoted503 = phi i32 [ %.promoted543, %.preheader ], [ %.lcssa499502, %_ZL10outputCharcPcPiii.exit.us35.i224 ], [ %358, %_ZL10outputCharcPcPiii.exit.us.i218 ], [ %583, %391 ], [ %583, %.thread ]
+  %.2145 = phi i64 [ %.0143.ph, %.preheader ], [ %.0143.ph, %_ZL10outputCharcPcPiii.exit.us35.i224 ], [ %.0143.ph, %_ZL10outputCharcPcPiii.exit.us.i218 ], [ 0, %.thread ], [ %.4385, %391 ]
   %585 = icmp eq i32 %.promoted503, 0
   br i1 %585, label %594, label %586
 
@@ -1570,7 +1570,7 @@ _ZL12outputStringPKcPcPiii.exit233:               ; preds = %.thread, %391, %_ZL
   br label %.loopexit.i327
 
 .loopexit.i327:                                   ; preds = %.loopexit.i327.loopexit, %586, %588, %594
-  %602 = phi i32 [ %.promoted503, %586 ], [ 0, %594 ], [ %.promoted503, %588 ], [ %600, %.loopexit.i327.loopexit ]
+  %602 = phi i32 [ 0, %594 ], [ %.promoted503, %588 ], [ %.promoted503, %586 ], [ %600, %.loopexit.i327.loopexit ]
   %603 = icmp slt i32 %602, %1
   br i1 %603, label %604, label %_ZL10outputCharcPcPiii.exit334
 
@@ -1651,7 +1651,7 @@ _ZL14outputHexBytesliPcPii.exit341:               ; preds = %_ZL10outputCharcPcP
   br i1 %exitcond.not.i349, label %.loopexit.i345, label %.lr.ph.i347, !llvm.loop !10
 
 .loopexit.i345:                                   ; preds = %633, %620, %622, %628
-  %636 = phi i32 [ %618, %620 ], [ 0, %628 ], [ %618, %622 ], [ %634, %633 ]
+  %636 = phi i32 [ 0, %628 ], [ %618, %622 ], [ %618, %620 ], [ %634, %633 ]
   %637 = icmp slt i32 %636, %1
   br i1 %637, label %638, label %_ZL10outputCharcPcPiii.exit352
 
@@ -1729,7 +1729,7 @@ _ZL10outputCharcPcPiii.exit352:                   ; preds = %.loopexit.i345, %63
   br label %.loopexit.i353
 
 .loopexit.i353:                                   ; preds = %.loopexit.i353.loopexit, %656, %655, %653, %644
-  %664 = phi i32 [ %.promoted543, %653 ], [ %.promoted543, %656 ], [ %.promoted543, %644 ], [ %.promoted543, %655 ], [ %662, %.loopexit.i353.loopexit ]
+  %664 = phi i32 [ %.promoted543, %656 ], [ %.promoted543, %644 ], [ %.promoted543, %655 ], [ %.promoted543, %653 ], [ %662, %.loopexit.i353.loopexit ]
   %665 = icmp slt i32 %664, %1
   br i1 %665, label %666, label %669
 
@@ -1777,9 +1777,9 @@ _ZL10outputCharcPcPiii.exit175.loopexit420:       ; preds = %_ZL10outputCharcPcP
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %_ZL10outputCharcPcPiii.exit175.loopexit420, %_ZL10outputCharcPcPiii.exit175.loopexit419, %_ZL10outputCharcPcPiii.exit175.loopexit418, %_ZL10outputCharcPcPiii.exit175.loopexit417, %_ZL10outputCharcPcPiii.exit175.loopexit416, %_ZL10outputCharcPcPiii.exit175.loopexit, %670, %669, %97, %96, %_ZL10outputCharcPcPiii.exit352, %_ZL10outputCharcPcPiii.exit211, %_ZL14outputPtrBytesPvPcPii.exit, %171
-  %.promoted445.be = phi i32 [ %674, %_ZL10outputCharcPcPiii.exit175.loopexit419 ], [ %641, %_ZL10outputCharcPcPiii.exit352 ], [ %98, %97 ], [ %.promoted445.pre.pre, %171 ], [ %671, %670 ], [ %114, %_ZL10outputCharcPcPiii.exit175.loopexit416 ], [ %672, %_ZL10outputCharcPcPiii.exit175.loopexit417 ], [ %673, %_ZL10outputCharcPcPiii.exit175.loopexit418 ], [ %296, %_ZL14outputPtrBytesPvPcPii.exit ], [ %322, %_ZL10outputCharcPcPiii.exit211 ], [ %91, %96 ], [ %.lcssa536539, %_ZL10outputCharcPcPiii.exit175.loopexit ], [ %664, %669 ], [ %675, %_ZL10outputCharcPcPiii.exit175.loopexit420 ]
-  %.0143.ph.be = phi i64 [ %.0143.ph, %_ZL10outputCharcPcPiii.exit175.loopexit419 ], [ %.2145, %_ZL10outputCharcPcPiii.exit352 ], [ %.0143.ph, %97 ], [ %.0143.ph, %171 ], [ %.0143.ph, %670 ], [ %.0143.ph, %_ZL10outputCharcPcPiii.exit175.loopexit416 ], [ %.0143.ph, %_ZL10outputCharcPcPiii.exit175.loopexit417 ], [ %.0143.ph, %_ZL10outputCharcPcPiii.exit175.loopexit418 ], [ %.0143.ph, %_ZL14outputPtrBytesPvPcPii.exit ], [ %.0143.ph, %_ZL10outputCharcPcPiii.exit211 ], [ %.0143.ph, %96 ], [ %.0143.ph, %_ZL10outputCharcPcPiii.exit175.loopexit ], [ %.0143.ph, %669 ], [ %260, %_ZL10outputCharcPcPiii.exit175.loopexit420 ]
-  %.0141.ph.be = phi i32 [ %51, %_ZL10outputCharcPcPiii.exit175.loopexit419 ], [ %spec.select, %_ZL10outputCharcPcPiii.exit352 ], [ %51, %97 ], [ %51, %171 ], [ %51, %670 ], [ %51, %_ZL10outputCharcPcPiii.exit175.loopexit416 ], [ %51, %_ZL10outputCharcPcPiii.exit175.loopexit417 ], [ %51, %_ZL10outputCharcPcPiii.exit175.loopexit418 ], [ %51, %_ZL14outputPtrBytesPvPcPii.exit ], [ %.lcssa424, %_ZL10outputCharcPcPiii.exit211 ], [ %51, %96 ], [ %51, %_ZL10outputCharcPcPiii.exit175.loopexit ], [ %51, %669 ], [ %51, %_ZL10outputCharcPcPiii.exit175.loopexit420 ]
+  %.promoted445.be = phi i32 [ %.promoted445.pre.pre, %171 ], [ %296, %_ZL14outputPtrBytesPvPcPii.exit ], [ %322, %_ZL10outputCharcPcPiii.exit211 ], [ %641, %_ZL10outputCharcPcPiii.exit352 ], [ %91, %96 ], [ %98, %97 ], [ %664, %669 ], [ %671, %670 ], [ %.lcssa536539, %_ZL10outputCharcPcPiii.exit175.loopexit ], [ %114, %_ZL10outputCharcPcPiii.exit175.loopexit416 ], [ %672, %_ZL10outputCharcPcPiii.exit175.loopexit417 ], [ %673, %_ZL10outputCharcPcPiii.exit175.loopexit418 ], [ %674, %_ZL10outputCharcPcPiii.exit175.loopexit419 ], [ %675, %_ZL10outputCharcPcPiii.exit175.loopexit420 ]
+  %.0143.ph.be = phi i64 [ %.0143.ph, %171 ], [ %.0143.ph, %_ZL14outputPtrBytesPvPcPii.exit ], [ %.0143.ph, %_ZL10outputCharcPcPiii.exit211 ], [ %.2145, %_ZL10outputCharcPcPiii.exit352 ], [ %.0143.ph, %96 ], [ %.0143.ph, %97 ], [ %.0143.ph, %669 ], [ %.0143.ph, %670 ], [ %.0143.ph, %_ZL10outputCharcPcPiii.exit175.loopexit ], [ %.0143.ph, %_ZL10outputCharcPcPiii.exit175.loopexit416 ], [ %.0143.ph, %_ZL10outputCharcPcPiii.exit175.loopexit417 ], [ %.0143.ph, %_ZL10outputCharcPcPiii.exit175.loopexit418 ], [ %.0143.ph, %_ZL10outputCharcPcPiii.exit175.loopexit419 ], [ %260, %_ZL10outputCharcPcPiii.exit175.loopexit420 ]
+  %.0141.ph.be = phi i32 [ %51, %171 ], [ %51, %_ZL14outputPtrBytesPvPcPii.exit ], [ %.lcssa424, %_ZL10outputCharcPcPiii.exit211 ], [ %spec.select, %_ZL10outputCharcPcPiii.exit352 ], [ %51, %96 ], [ %51, %97 ], [ %51, %669 ], [ %51, %670 ], [ %51, %_ZL10outputCharcPcPiii.exit175.loopexit ], [ %51, %_ZL10outputCharcPcPiii.exit175.loopexit416 ], [ %51, %_ZL10outputCharcPcPiii.exit175.loopexit417 ], [ %51, %_ZL10outputCharcPcPiii.exit175.loopexit418 ], [ %51, %_ZL10outputCharcPcPiii.exit175.loopexit419 ], [ %51, %_ZL10outputCharcPcPiii.exit175.loopexit420 ]
   br label %.outer, !llvm.loop !8
 
 676:                                              ; preds = %_ZL10outputCharcPcPiii.exit
@@ -1924,7 +1924,7 @@ _ZL10outputCharcPcPiii.exit.us.i:                 ; preds = %19
   br i1 %exitcond.not.i.us32.i, label %.loopexit.i.us33.i, label %.lr.ph.i.us29.i, !llvm.loop !10
 
 .loopexit.i.us33.i:                               ; preds = %41, %28, %30, %27, %26
-  %45 = phi i32 [ %22, %28 ], [ %22, %27 ], [ %22, %26 ], [ %22, %30 ], [ %43, %41 ]
+  %45 = phi i32 [ %22, %26 ], [ %22, %27 ], [ %22, %30 ], [ %22, %28 ], [ %43, %41 ]
   %46 = icmp slt i32 %45, %4
   br i1 %46, label %47, label %50
 
@@ -2029,7 +2029,7 @@ _ZL14outputHexBytesliPcPii.exit:                  ; preds = %_ZL10outputCharcPcP
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %88, %74, %76, %82
-  %92 = phi i32 [ %71, %74 ], [ 0, %82 ], [ %71, %76 ], [ %90, %88 ]
+  %92 = phi i32 [ 0, %82 ], [ %71, %76 ], [ %71, %74 ], [ %90, %88 ]
   %93 = icmp slt i32 %92, %4
   br i1 %93, label %94, label %_ZL10outputCharcPcPiii.exit
 

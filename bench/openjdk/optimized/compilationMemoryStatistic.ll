@@ -1184,8 +1184,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %7
   br label %16
 
 16:                                               ; preds = %13, %_Z24byte_size_in_proper_unitImET_S0_.exit, %.thread
-  %.0.i72 = phi i64 [ %11, %.thread ], [ %12, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %13 ]
-  %.0.i51 = phi ptr [ @.str.45, %.thread ], [ @.str.44, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.46..str.47.i, %13 ]
+  %.0.i72 = phi i64 [ %12, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %13 ], [ %11, %.thread ]
+  %.0.i51 = phi ptr [ @.str.44, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.46..str.47.i, %13 ], [ @.str.45, %.thread ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, i64 noundef %.0.i72, ptr noundef nonnull %.0.i51) #14
   %17 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 10) #14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1213,8 +1213,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit54:      ; preds = %16
   br label %28
 
 28:                                               ; preds = %25, %_Z24byte_size_in_proper_unitImET_S0_.exit54, %.thread78
-  %.0.i5377 = phi i64 [ %23, %.thread78 ], [ %24, %_Z24byte_size_in_proper_unitImET_S0_.exit54 ], [ %spec.select.i52, %25 ]
-  %.0.i56 = phi ptr [ @.str.45, %.thread78 ], [ @.str.44, %_Z24byte_size_in_proper_unitImET_S0_.exit54 ], [ %.str.46..str.47.i55, %25 ]
+  %.0.i5377 = phi i64 [ %24, %_Z24byte_size_in_proper_unitImET_S0_.exit54 ], [ %spec.select.i52, %25 ], [ %23, %.thread78 ]
+  %.0.i56 = phi ptr [ @.str.44, %_Z24byte_size_in_proper_unitImET_S0_.exit54 ], [ %.str.46..str.47.i55, %25 ], [ @.str.45, %.thread78 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, i64 noundef %.0.i5377, ptr noundef nonnull %.0.i56) #14
   %29 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 20) #14
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1242,8 +1242,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit60:      ; preds = %28
   br label %_Z25proper_unit_for_byte_sizem.exit63
 
 _Z25proper_unit_for_byte_sizem.exit63:            ; preds = %.thread84, %_Z24byte_size_in_proper_unitImET_S0_.exit60, %37
-  %.0.i5983 = phi i64 [ %35, %.thread84 ], [ %36, %_Z24byte_size_in_proper_unitImET_S0_.exit60 ], [ %spec.select.i58, %37 ]
-  %.0.i62 = phi ptr [ @.str.45, %.thread84 ], [ @.str.44, %_Z24byte_size_in_proper_unitImET_S0_.exit60 ], [ %.str.46..str.47.i61, %37 ]
+  %.0.i5983 = phi i64 [ %36, %_Z24byte_size_in_proper_unitImET_S0_.exit60 ], [ %spec.select.i58, %37 ], [ %35, %.thread84 ]
+  %.0.i62 = phi ptr [ @.str.44, %_Z24byte_size_in_proper_unitImET_S0_.exit60 ], [ %.str.46..str.47.i61, %37 ], [ @.str.45, %.thread84 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, i64 noundef %.0.i5983, ptr noundef nonnull %.0.i62) #14
   br label %47
 
@@ -1311,8 +1311,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit66:      ; preds = %60
   br label %_Z25proper_unit_for_byte_sizem.exit69
 
 _Z25proper_unit_for_byte_sizem.exit69:            ; preds = %.thread89, %_Z24byte_size_in_proper_unitImET_S0_.exit66, %66
-  %.0.i6588 = phi i64 [ %64, %.thread89 ], [ %65, %_Z24byte_size_in_proper_unitImET_S0_.exit66 ], [ %spec.select.i64, %66 ]
-  %.0.i68 = phi ptr [ @.str.45, %.thread89 ], [ @.str.44, %_Z24byte_size_in_proper_unitImET_S0_.exit66 ], [ %.str.46..str.47.i67, %66 ]
+  %.0.i6588 = phi i64 [ %65, %_Z24byte_size_in_proper_unitImET_S0_.exit66 ], [ %spec.select.i64, %66 ], [ %64, %.thread89 ]
+  %.0.i68 = phi ptr [ @.str.44, %_Z24byte_size_in_proper_unitImET_S0_.exit66 ], [ %.str.46..str.47.i67, %66 ], [ @.str.45, %.thread89 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.37, i64 noundef %.0.i6588, ptr noundef nonnull %.0.i68) #14
   br label %70
 

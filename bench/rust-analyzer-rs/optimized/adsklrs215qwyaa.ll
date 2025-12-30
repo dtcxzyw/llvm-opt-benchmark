@@ -423,7 +423,7 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$10const_
   %22 = icmp eq i64 %21, 5
   br i1 %22, label %.thread89, label %23
 
-.thread86:                                        ; preds = %.invoke, %29, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %32
+.thread86:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %32, %29
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread81
@@ -631,7 +631,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
           to label %.noexc52 unwind label %67
 
 .critedge38:                                      ; preds = %64, %.noexc52
-  %.pn80 = phi { ptr, i32 } [ %65, %64 ], [ %eh.lpad-body85, %.noexc52 ]
+  %.pn80 = phi { ptr, i32 } [ %eh.lpad-body85, %.noexc52 ], [ %65, %64 ]
   resume { ptr, i32 } %.pn80
 
 .noexc52:                                         ; preds = %74, %.thread81, %71
@@ -1298,7 +1298,7 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$11trait_
   %20 = icmp eq i64 %19, 5
   br i1 %20, label %.thread82, label %21
 
-.thread79:                                        ; preds = %.invoke, %27, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit46", %30
+.thread79:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit46", %30, %27
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread75
@@ -1487,7 +1487,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 .thread:                                          ; preds = %60, %.thread75
-  %.pn74 = phi { ptr, i32 } [ %61, %60 ], [ %eh.lpad-body78, %.thread75 ]
+  %.pn74 = phi { ptr, i32 } [ %eh.lpad-body78, %.thread75 ], [ %61, %60 ]
   resume { ptr, i32 } %.pn74
 
 .thread75:                                        ; preds = %47, %.thread79
@@ -1977,7 +1977,7 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$12layout
   %16 = icmp eq i64 %15, 5
   br i1 %16, label %.thread67, label %17
 
-.thread64:                                        ; preds = %.invoke, %23, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit40", %26
+.thread64:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit40", %26, %23
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread59
@@ -2154,7 +2154,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
           to label %.noexc41 unwind label %56
 
 .critedge33:                                      ; preds = %53, %.noexc41
-  %.pn58 = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body63, %.noexc41 ]
+  %.pn58 = phi { ptr, i32 } [ %eh.lpad-body63, %.noexc41 ], [ %54, %53 ]
   resume { ptr, i32 } %.pn58
 
 .noexc41:                                         ; preds = %61, %.thread59
@@ -2187,7 +2187,7 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$13layout
   %22 = icmp eq i64 %21, 5
   br i1 %22, label %.thread89, label %23
 
-.thread86:                                        ; preds = %.invoke, %29, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %32
+.thread86:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %32, %29
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread81
@@ -2390,7 +2390,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
           to label %.noexc52 unwind label %67
 
 .critedge38:                                      ; preds = %64, %.noexc52
-  %.pn80 = phi { ptr, i32 } [ %65, %64 ], [ %eh.lpad-body85, %.noexc52 ]
+  %.pn80 = phi { ptr, i32 } [ %eh.lpad-body85, %.noexc52 ], [ %65, %64 ]
   resume { ptr, i32 } %.pn80
 
 .noexc52:                                         ; preds = %72, %.thread81
@@ -3428,7 +3428,7 @@ define hidden { i32, ptr } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$
   %19 = icmp eq i64 %18, 5
   br i1 %19, label %.thread89, label %20
 
-.thread86:                                        ; preds = %.invoke, %26, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %29
+.thread86:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %29, %26
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread81
@@ -3620,7 +3620,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
           to label %66 unwind label %64
 
 .critedge38:                                      ; preds = %66, %70, %61
-  %.pn80 = phi { ptr, i32 } [ %62, %61 ], [ %eh.lpad-body85, %66 ], [ %eh.lpad-body85, %70 ]
+  %.pn80 = phi { ptr, i32 } [ %62, %61 ], [ %eh.lpad-body85, %70 ], [ %eh.lpad-body85, %66 ]
   resume { ptr, i32 } %.pn80
 
 66:                                               ; preds = %.thread81
@@ -4572,7 +4572,7 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$22monomo
   %22 = icmp eq i64 %21, 5
   br i1 %22, label %.thread89, label %23
 
-.thread86:                                        ; preds = %.invoke, %29, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %32
+.thread86:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %32, %29
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread81
@@ -4775,7 +4775,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
           to label %.noexc52 unwind label %67
 
 .critedge38:                                      ; preds = %64, %.noexc52
-  %.pn80 = phi { ptr, i32 } [ %65, %64 ], [ %eh.lpad-body85, %.noexc52 ]
+  %.pn80 = phi { ptr, i32 } [ %eh.lpad-body85, %.noexc52 ], [ %65, %64 ]
   resume { ptr, i32 } %.pn80
 
 .noexc52:                                         ; preds = %72, %.thread81
@@ -5689,7 +5689,7 @@ define hidden { ptr, i64 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$
   %19 = icmp eq i64 %18, 5
   br i1 %19, label %.thread83, label %20
 
-.thread80:                                        ; preds = %.invoke, %26, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit47", %29
+.thread80:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit47", %29, %26
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread76
@@ -5880,7 +5880,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 .thread:                                          ; preds = %58, %.thread76
-  %.pn75 = phi { ptr, i32 } [ %59, %58 ], [ %eh.lpad-body79, %.thread76 ]
+  %.pn75 = phi { ptr, i32 } [ %eh.lpad-body79, %.thread76 ], [ %59, %58 ]
   resume { ptr, i32 } %.pn75
 
 .thread76:                                        ; preds = %46, %.thread80
@@ -5918,7 +5918,7 @@ define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatab
   %19 = icmp eq i64 %18, 5
   br i1 %19, label %.thread82, label %20
 
-.thread79:                                        ; preds = %.invoke, %26, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit46", %29
+.thread79:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit46", %29, %26
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread75
@@ -6105,7 +6105,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 .thread:                                          ; preds = %61, %.thread75
-  %.pn74 = phi { ptr, i32 } [ %62, %61 ], [ %eh.lpad-body78, %.thread75 ]
+  %.pn74 = phi { ptr, i32 } [ %eh.lpad-body78, %.thread75 ], [ %62, %61 ]
   resume { ptr, i32 } %.pn74
 
 .thread75:                                        ; preds = %46, %.thread79
@@ -6460,7 +6460,7 @@ define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$34monomo
   %20 = icmp eq i64 %19, 5
   br i1 %20, label %.thread89, label %21
 
-.thread86:                                        ; preds = %.invoke, %27, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %30
+.thread86:                                        ; preds = %.invoke, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit51", %30, %27
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread81
@@ -6662,7 +6662,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
           to label %.noexc52 unwind label %64
 
 .critedge38:                                      ; preds = %61, %.noexc52
-  %.pn80 = phi { ptr, i32 } [ %62, %61 ], [ %eh.lpad-body85, %.noexc52 ]
+  %.pn80 = phi { ptr, i32 } [ %eh.lpad-body85, %.noexc52 ], [ %62, %61 ]
   resume { ptr, i32 } %.pn80
 
 .noexc52:                                         ; preds = %69, %.thread81
@@ -13594,7 +13594,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$core..option..Optio
   br i1 %7, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h5e6262ae92a81dfeE.exit.sink.split.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h5e6262ae92a81dfeE.exit.sink.split.sink.split.i"
 
 "_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h5e6262ae92a81dfeE.exit.sink.split.sink.split.i": ; preds = %15, %12, %9, %5
-  %.val1.i.sink.i = phi i64 [ %.val1.i4.i, %15 ], [ %.val1.i2.i.i, %12 ], [ %.val1.i.i.i, %9 ], [ %.val1.i.i, %5 ]
+  %.val1.i.sink.i = phi i64 [ %.val1.i.i.i, %9 ], [ %.val1.i2.i.i, %12 ], [ %.val1.i4.i, %15 ], [ %.val1.i.i, %5 ]
   %.val.i.i = load ptr, ptr %.8.val, align 8, !nonnull !6, !noundef !6
   tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i, i64 noundef range(i64 1, 0) %.val1.i.sink.i, i64 noundef 1) #16
   br label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h5e6262ae92a81dfeE.exit.sink.split.i"
@@ -15257,7 +15257,7 @@ define hidden { i64, ptr } @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatab
   br i1 %37, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h5e6262ae92a81dfeE.exit.sink.split.i.i.i", label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h5e6262ae92a81dfeE.exit.sink.split.sink.split.i.i.i"
 
 "_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h5e6262ae92a81dfeE.exit.sink.split.sink.split.i.i.i": ; preds = %45, %42, %39, %35
-  %.val1.i.sink.i.i.i = phi i64 [ %.val1.i4.i.i.i, %45 ], [ %.val1.i2.i.i.i.i, %42 ], [ %.val1.i.i.i.i.i, %39 ], [ %.val1.i.i.i.i, %35 ]
+  %.val1.i.sink.i.i.i = phi i64 [ %.val1.i.i.i.i.i, %39 ], [ %.val1.i2.i.i.i.i, %42 ], [ %.val1.i4.i.i.i, %45 ], [ %.val1.i.i.i.i, %35 ]
   %.val.i.i.i.i = load ptr, ptr %.val7.i, align 8, !nonnull !6, !noundef !6
   call void @__rust_dealloc(ptr noundef nonnull %.val.i.i.i.i, i64 noundef range(i64 1, 0) %.val1.i.sink.i.i.i, i64 noundef 1) #16
   br label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h5e6262ae92a81dfeE.exit.sink.split.i.i.i"

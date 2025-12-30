@@ -569,7 +569,7 @@ sub_1:                                            ; preds = %sub_0
   br label %pmix_obj_new_tma.exit
 
 pmix_obj_new_tma.exit:                            ; preds = %151, %201, %199, %199, %._crit_edge, %89
-  %.063 = phi i32 [ -5, %89 ], [ -16, %._crit_edge ], [ %200, %201 ], [ %200, %199 ], [ %200, %199 ], [ -2, %151 ]
+  %.063 = phi i32 [ -5, %89 ], [ -16, %._crit_edge ], [ %200, %199 ], [ %200, %199 ], [ %200, %201 ], [ -2, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.063
@@ -861,7 +861,7 @@ define internal fastcc ptr @split_and_resolve(ptr noundef captures(address_is_nu
   br label %127
 
 127:                                              ; preds = %11, %2, %8, %._crit_edge116.thread
-  %.0 = phi ptr [ %126, %._crit_edge116.thread ], [ null, %2 ], [ null, %8 ], [ null, %11 ]
+  %.0 = phi ptr [ %126, %._crit_edge116.thread ], [ null, %8 ], [ null, %2 ], [ null, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

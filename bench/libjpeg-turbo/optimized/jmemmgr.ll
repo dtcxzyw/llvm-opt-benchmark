@@ -528,7 +528,7 @@ define internal nonnull ptr @alloc_sarray(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %.not117, label %.loopexit124, label %.lr.ph, !llvm.loop !64
 
 .loopexit121:                                     ; preds = %.loopexit124, %.loopexit122, %.loopexit, %68, %55, %36
-  %.0 = phi ptr [ %54, %55 ], [ %38, %36 ], [ %54, %68 ], [ %54, %.loopexit122 ], [ %38, %.loopexit ], [ %54, %.loopexit124 ]
+  %.0 = phi ptr [ %38, %36 ], [ %54, %55 ], [ %54, %68 ], [ %38, %.loopexit ], [ %54, %.loopexit122 ], [ %54, %.loopexit124 ]
   ret ptr %.0
 }
 

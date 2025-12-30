@@ -287,7 +287,7 @@ _ZNSt8ios_base5iwordEi.exit.i6:                   ; preds = %62, %57
   br i1 %exitcond.not.i10, label %.loopexit.i4, label %.lr.ph.i8, !llvm.loop !65
 
 .loopexit.i4:                                     ; preds = %.lr.ph.i8, %_ZNSt8ios_base5iwordEi.exit.i6, %44
-  %73 = phi ptr [ %43, %44 ], [ %.pre5.i7, %_ZNSt8ios_base5iwordEi.exit.i6 ], [ %71, %.lr.ph.i8 ]
+  %73 = phi ptr [ %.pre5.i7, %_ZNSt8ios_base5iwordEi.exit.i6 ], [ %43, %44 ], [ %71, %.lr.ph.i8 ]
   %74 = load i32, ptr %42, align 8, !tbaa !48
   %75 = zext i32 %74 to i64
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %73, i64 noundef %75)
@@ -351,7 +351,7 @@ _ZNSt8ios_base5iwordEi.exit.i14:                  ; preds = %98, %93
   br i1 %exitcond.not.i18, label %.loopexit.i12, label %.lr.ph.i16, !llvm.loop !65
 
 .loopexit.i12:                                    ; preds = %.lr.ph.i16, %_ZNSt8ios_base5iwordEi.exit.i14, %80
-  %109 = phi ptr [ %79, %80 ], [ %.pre5.i15, %_ZNSt8ios_base5iwordEi.exit.i14 ], [ %107, %.lr.ph.i16 ]
+  %109 = phi ptr [ %.pre5.i15, %_ZNSt8ios_base5iwordEi.exit.i14 ], [ %79, %80 ], [ %107, %.lr.ph.i16 ]
   %110 = load i32, ptr %78, align 4, !tbaa !48
   %111 = zext i32 %110 to i64
   %112 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %109, i64 noundef %111)
@@ -413,7 +413,7 @@ _ZNSt8ios_base5iwordEi.exit.i23:                  ; preds = %133, %128
   br i1 %exitcond.not.i27, label %_ZN4cvc58internal11Cvc5ostreamlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS1_RKT_.exit28, label %.lr.ph.i25, !llvm.loop !61
 
 _ZN4cvc58internal11Cvc5ostreamlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS1_RKT_.exit28: ; preds = %.lr.ph.i25, %115, %_ZNSt8ios_base5iwordEi.exit.i23
-  %144 = phi ptr [ %114, %115 ], [ %.pre5.i24, %_ZNSt8ios_base5iwordEi.exit.i23 ], [ %142, %.lr.ph.i25 ]
+  %144 = phi ptr [ %.pre5.i24, %_ZNSt8ios_base5iwordEi.exit.i23 ], [ %114, %115 ], [ %142, %.lr.ph.i25 ]
   %145 = load ptr, ptr %1, align 8, !tbaa !60
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %147 = load i64, ptr %146, align 8, !tbaa !15
@@ -533,7 +533,7 @@ _ZNSt8ios_base5iwordEi.exit:                      ; preds = %18, %23
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !78
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNSt8ios_base5iwordEi.exit, %5
-  %34 = phi ptr [ %4, %5 ], [ %.pre5, %_ZNSt8ios_base5iwordEi.exit ], [ %32, %.lr.ph ]
+  %34 = phi ptr [ %.pre5, %_ZNSt8ios_base5iwordEi.exit ], [ %4, %5 ], [ %32, %.lr.ph ]
   %35 = load i8, ptr %1, align 1, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %35, ptr %3, align 1, !tbaa !18
@@ -618,7 +618,7 @@ _ZNSt8ios_base5iwordEi.exit:                      ; preds = %17, %22
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !80
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNSt8ios_base5iwordEi.exit, %4
-  %33 = phi ptr [ %3, %4 ], [ %.pre5, %_ZNSt8ios_base5iwordEi.exit ], [ %31, %.lr.ph ]
+  %33 = phi ptr [ %.pre5, %_ZNSt8ios_base5iwordEi.exit ], [ %3, %4 ], [ %31, %.lr.ph ]
   %34 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %1, i64 noundef %34)
   br label %36

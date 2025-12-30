@@ -365,7 +365,7 @@ define internal i32 @fbdev_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %._crit_edge, %._crit_edge49
-  %.040 = phi i32 [ %31, %._crit_edge ], [ %100, %._crit_edge49 ], [ -11, %33 ]
+  %.040 = phi i32 [ %100, %._crit_edge49 ], [ %31, %._crit_edge ], [ -11, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.040
 }

@@ -660,8 +660,8 @@ Fxu_CreateCoversFirstCube.exit55:                 ; preds = %37, %38, %31
   br label %.critedge
 
 .critedge:                                        ; preds = %50, %24, %Fxu_CreateCoversFirstCube.exit55, %53
-  %55 = phi i32 [ %25, %24 ], [ %.pre, %53 ], [ %25, %Fxu_CreateCoversFirstCube.exit55 ], [ %25, %50 ]
-  %.141 = phi ptr [ %.04067, %24 ], [ %.09.i47, %53 ], [ %.09.i47, %Fxu_CreateCoversFirstCube.exit55 ], [ %.09.i47, %50 ]
+  %55 = phi i32 [ %25, %Fxu_CreateCoversFirstCube.exit55 ], [ %.pre, %53 ], [ %25, %24 ], [ %25, %50 ]
+  %.141 = phi ptr [ %.09.i47, %Fxu_CreateCoversFirstCube.exit55 ], [ %.09.i47, %53 ], [ %.04067, %24 ], [ %.09.i47, %50 ]
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %.pre76, %56
   br i1 %57, label %24, label %.preheader.loopexit, !llvm.loop !81
@@ -831,8 +831,8 @@ define internal fastcc void @Fxu_CreateCoversNode(ptr noundef %0, ptr noundef re
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %56, %58, %48, %50
-  %.sink146 = phi ptr [ %51, %50 ], [ %49, %48 ], [ %57, %56 ], [ %59, %58 ]
-  %.sink = phi i32 [ 16, %50 ], [ 16, %48 ], [ %53, %56 ], [ %53, %58 ]
+  %.sink146 = phi ptr [ %49, %48 ], [ %51, %50 ], [ %57, %56 ], [ %59, %58 ]
+  %.sink = phi i32 [ 16, %48 ], [ 16, %50 ], [ %53, %56 ], [ %53, %58 ]
   store ptr %.sink146, ptr %38, align 8, !tbaa !47
   store i32 %.sink, ptr %35, align 8, !tbaa !92
   br label %Vec_IntPush.exit

@@ -169,7 +169,7 @@ define noundef ptr @_ZN4LIEF5MachO9to_stringENS0_15DyldBindingInfo4TYPEE(i64 nou
   br label %_ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo4TYPEEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
 _ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo4TYPEEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %3, %1, %6
-  %9 = phi ptr [ %8, %6 ], [ @.str.4, %3 ], [ @.str.4, %1 ]
+  %9 = phi ptr [ %8, %6 ], [ @.str.4, %1 ], [ @.str.4, %3 ]
   ret ptr %9
 }
 

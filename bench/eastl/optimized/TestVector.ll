@@ -18755,7 +18755,7 @@ for.inc.i.i749:                                   ; preds = %while.cond.i.i.i739
   br i1 %cmp.not.i.i752, label %invoke.cont239, label %for.body.i.i733, !llvm.loop !159
 
 invoke.cont239:                                   ; preds = %for.inc.i.i749, %for.body.i.i733, %land.rhs.i.i.i744, %land.rhs.i731, %invoke.cont237
-  %205 = phi i1 [ false, %invoke.cont237 ], [ false, %land.rhs.i.i.i744 ], [ true, %land.rhs.i731 ], [ %cmp.i.i.i738, %for.body.i.i733 ], [ %cmp.i.i.i738, %for.inc.i.i749 ]
+  %205 = phi i1 [ false, %invoke.cont237 ], [ true, %land.rhs.i731 ], [ false, %land.rhs.i.i.i744 ], [ %cmp.i.i.i738, %for.body.i.i733 ], [ %cmp.i.i.i738, %for.inc.i.i749 ]
   %call242 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %205, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 281, ptr noundef nonnull @.str.33)
           to label %invoke.cont241 unwind label %lpad199
 
@@ -20071,7 +20071,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i1340: ; preds = %lpad.i1338
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad3, %ehcleanup287, %_ZN10TestObjectD2Ev.exit1444, %ehcleanup378, %ehcleanup443, %lpad455, %ehcleanup560, %ehcleanup597, %lpad611, %lpad684, %ehcleanup793, %ehcleanup1489, %lpad1497, %ehcleanup1749, %ehcleanup1975, %ehcleanup2116, %lpad2119, %ehcleanup2304, %lpad2306, %lpad2323, %lpad2354, %ehcleanup2444, %lpad2446, %ehcleanup2507, %lpad2509, %_ZN10TestObjectD2Ev.exit5412, %ehcleanup2591, %ehcleanup2624, %ehcleanup2647, %lpad2783, %lpad2820, %_ZN5eastl6vectorI20DefaultConstructibleNS_9allocatorEED2Ev.exit6829, %_ZN5eastl6vectorI17CopyConstructibleNS_9allocatorEED2Ev.exit6839, %ehcleanup3197, %ehcleanup3276, %ehcleanup3309, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i5423, %ehcleanup2778, %if.then.i.i6798, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i6800, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6808, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6816, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6842, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6847, %ehcleanup3078, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6856, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6868, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6872, %lpad.i3731, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i3733, %lpad.i3290, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i3292, %lpad.i1338, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1340
-  %common.resume.op = phi { ptr, i32 } [ %1562, %lpad.i3731 ], [ %378, %lpad.i1338 ], [ %1317, %lpad.i3290 ], [ %378, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1340 ], [ %1317, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i3292 ], [ %1562, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i3733 ], [ %lpad.phi7802, %lpad455 ], [ %lpad.phi7796, %lpad611 ], [ %lpad.phi7793, %lpad684 ], [ %lpad.phi7790, %lpad1497 ], [ %.pn204, %ehcleanup1749 ], [ %.pn202, %ehcleanup2116 ], [ %lpad.phi, %lpad2323 ], [ %.pn198, %ehcleanup3309 ], [ %.pn196, %ehcleanup3276 ], [ %.pn194, %ehcleanup3197 ], [ %.pn106.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup287 ], [ %.pn179.pn, %if.then.i.i6798 ], [ %2369, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6868 ], [ %.pn1888533, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6856 ], [ %2366, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6847 ], [ %2365, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6842 ], [ %lpad.thr_comm7744, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6816 ], [ %.pn186, %_ZN5eastl6vectorI17CopyConstructibleNS_9allocatorEED2Ev.exit6839 ], [ %2362, %_ZN5eastl6vectorI20DefaultConstructibleNS_9allocatorEED2Ev.exit6829 ], [ %2368, %ehcleanup3078 ], [ %.pn179.pn, %ehcleanup2778 ], [ %2361, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6808 ], [ %lpad.thr_comm7756, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6872 ], [ %.pn179.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i6800 ], [ %2360, %lpad2820 ], [ %2359, %lpad2783 ], [ %443, %_ZN10TestObjectD2Ev.exit1444 ], [ %2126, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i5423 ], [ %414, %lpad3 ], [ %.pn175, %ehcleanup2647 ], [ %.pn171.pn.pn, %ehcleanup2624 ], [ %.pn168.pn, %ehcleanup2591 ], [ %.pn162.pn.pn.pn.pn, %_ZN10TestObjectD2Ev.exit5412 ], [ %1960, %lpad2509 ], [ %.pn160, %ehcleanup2507 ], [ %1957, %lpad2446 ], [ %.pn158, %ehcleanup2444 ], [ %1796, %lpad2354 ], [ %1771, %lpad2306 ], [ %.pn155.pn, %ehcleanup2304 ], [ %1762, %lpad2119 ], [ %.pn148.pn, %ehcleanup1975 ], [ %.pn145.pn, %ehcleanup1489 ], [ %.pn142.pn, %ehcleanup793 ], [ %.pn139.pn, %ehcleanup597 ], [ %.pn137, %ehcleanup560 ], [ %.pn134.pn, %ehcleanup443 ], [ %.pn129.pn.pn.pn, %ehcleanup378 ]
+  %common.resume.op = phi { ptr, i32 } [ %378, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1340 ], [ %378, %lpad.i1338 ], [ %1317, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i3292 ], [ %1317, %lpad.i3290 ], [ %1562, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i3733 ], [ %1562, %lpad.i3731 ], [ %lpad.phi7802, %lpad455 ], [ %lpad.phi7796, %lpad611 ], [ %lpad.phi7793, %lpad684 ], [ %lpad.phi7790, %lpad1497 ], [ %.pn204, %ehcleanup1749 ], [ %.pn202, %ehcleanup2116 ], [ %lpad.phi, %lpad2323 ], [ %.pn198, %ehcleanup3309 ], [ %.pn196, %ehcleanup3276 ], [ %.pn194, %ehcleanup3197 ], [ %.pn186, %_ZN5eastl6vectorI17CopyConstructibleNS_9allocatorEED2Ev.exit6839 ], [ %2362, %_ZN5eastl6vectorI20DefaultConstructibleNS_9allocatorEED2Ev.exit6829 ], [ %2360, %lpad2820 ], [ %2359, %lpad2783 ], [ %.pn175, %ehcleanup2647 ], [ %.pn171.pn.pn, %ehcleanup2624 ], [ %.pn168.pn, %ehcleanup2591 ], [ %.pn162.pn.pn.pn.pn, %_ZN10TestObjectD2Ev.exit5412 ], [ %1960, %lpad2509 ], [ %.pn160, %ehcleanup2507 ], [ %1957, %lpad2446 ], [ %.pn158, %ehcleanup2444 ], [ %1796, %lpad2354 ], [ %1771, %lpad2306 ], [ %.pn155.pn, %ehcleanup2304 ], [ %1762, %lpad2119 ], [ %.pn148.pn, %ehcleanup1975 ], [ %.pn145.pn, %ehcleanup1489 ], [ %.pn142.pn, %ehcleanup793 ], [ %.pn139.pn, %ehcleanup597 ], [ %.pn137, %ehcleanup560 ], [ %.pn134.pn, %ehcleanup443 ], [ %.pn129.pn.pn.pn, %ehcleanup378 ], [ %443, %_ZN10TestObjectD2Ev.exit1444 ], [ %.pn106.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup287 ], [ %414, %lpad3 ], [ %2126, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i5423 ], [ %.pn179.pn, %ehcleanup2778 ], [ %.pn179.pn, %if.then.i.i6798 ], [ %.pn179.pn, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i6800 ], [ %2361, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6808 ], [ %lpad.thr_comm7744, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6816 ], [ %2365, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6842 ], [ %2366, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6847 ], [ %2368, %ehcleanup3078 ], [ %.pn1888533, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6856 ], [ %2369, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6868 ], [ %lpad.thr_comm7756, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i6872 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5eastl6vectorIiNS_9allocatorEEC2IiEET_S4_RKS1_.exit1353: ; preds = %for.body.i.i.i.i.i.i1346
@@ -20387,7 +20387,7 @@ ehcleanup264:                                     ; preds = %lpad199, %_ZN5eastl
   br label %ehcleanup265
 
 ehcleanup265:                                     ; preds = %lpad.i622.thread, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i624, %lpad.i622, %ehcleanup264
-  %.pn106.pn = phi { ptr, i32 } [ %.pn106, %ehcleanup264 ], [ %162, %lpad.i622 ], [ %162, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i624 ], [ %161, %lpad.i622.thread ]
+  %.pn106.pn = phi { ptr, i32 } [ %.pn106, %ehcleanup264 ], [ %162, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i624 ], [ %162, %lpad.i622 ], [ %161, %lpad.i622.thread ]
   call void @_ZN5eastl6vectorI10TestObjectNS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %toArray5) #16
   br label %ehcleanup266
 
@@ -20397,7 +20397,7 @@ ehcleanup266:                                     ; preds = %ehcleanup265, %lpad
   br label %ehcleanup267
 
 ehcleanup267:                                     ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i565, %lpad.i563, %ehcleanup266
-  %.pn106.pn.pn.pn = phi { ptr, i32 } [ %.pn106.pn.pn, %ehcleanup266 ], [ %143, %lpad.i563 ], [ %143, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i565 ]
+  %.pn106.pn.pn.pn = phi { ptr, i32 } [ %.pn106.pn.pn, %ehcleanup266 ], [ %143, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i565 ], [ %143, %lpad.i563 ]
   call void @_ZN5eastl5dequeINS_4listI10TestObjectNS_9allocatorEEES3_Lj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(81) %toListDeque) #16
   br label %ehcleanup268
 
@@ -20828,8 +20828,8 @@ for.body.i1551.preheader:                         ; preds = %invoke.cont482.thre
   br label %for.body.i1551
 
 for.body.i1551:                                   ; preds = %for.body.i1551, %for.body.i1551.preheader
-  %first2.addr.06.i = phi ptr [ %incdec.ptr2.i, %for.body.i1551 ], [ @__const._Z10TestVectorv.intArray, %for.body.i1551.preheader ]
-  %first1.addr.05.i = phi ptr [ %incdec.ptr.i1553, %for.body.i1551 ], [ %490, %for.body.i1551.preheader ]
+  %first2.addr.06.i = phi ptr [ @__const._Z10TestVectorv.intArray, %for.body.i1551.preheader ], [ %incdec.ptr2.i, %for.body.i1551 ]
+  %first1.addr.05.i = phi ptr [ %490, %for.body.i1551.preheader ], [ %incdec.ptr.i1553, %for.body.i1551 ]
   %492 = load i32, ptr %first1.addr.05.i, align 4
   %493 = load i32, ptr %first2.addr.06.i, align 4
   %cmp1.i1552 = icmp eq i32 %492, %493
@@ -20981,8 +20981,8 @@ invoke.cont504:                                   ; preds = %_ZN5eastl5equalIPiP
   br label %for.body.i1613
 
 for.body.i1613:                                   ; preds = %for.body.i1613, %invoke.cont504
-  %first2.addr.06.i1614 = phi ptr [ %incdec.ptr2.i1620, %for.body.i1613 ], [ %507, %invoke.cont504 ]
-  %first1.addr.05.i1615.idx = phi i64 [ %first1.addr.05.i1615.add, %for.body.i1613 ], [ 0, %invoke.cont504 ]
+  %first2.addr.06.i1614 = phi ptr [ %507, %invoke.cont504 ], [ %incdec.ptr2.i1620, %for.body.i1613 ]
+  %first1.addr.05.i1615.idx = phi i64 [ 0, %invoke.cont504 ], [ %first1.addr.05.i1615.add, %for.body.i1613 ]
   %first1.addr.05.i1615.ptr = getelementptr inbounds nuw i8, ptr @__const._Z10TestVectorv.intArray, i64 %first1.addr.05.i1615.idx
   %508 = load i32, ptr %first1.addr.05.i1615.ptr, align 4
   %509 = load i32, ptr %first2.addr.06.i1614, align 4
@@ -21030,8 +21030,8 @@ invoke.cont521:                                   ; preds = %_ZN5eastl5equalIPiP
   br label %for.body.i1636
 
 for.body.i1636:                                   ; preds = %for.body.i1636, %invoke.cont521
-  %first2.addr.06.i1637 = phi ptr [ %incdec.ptr2.i1643, %for.body.i1636 ], [ %514, %invoke.cont521 ]
-  %first1.addr.05.i1638.idx = phi i64 [ %first1.addr.05.i1638.add, %for.body.i1636 ], [ 0, %invoke.cont521 ]
+  %first2.addr.06.i1637 = phi ptr [ %514, %invoke.cont521 ], [ %incdec.ptr2.i1643, %for.body.i1636 ]
+  %first1.addr.05.i1638.idx = phi i64 [ 0, %invoke.cont521 ], [ %first1.addr.05.i1638.add, %for.body.i1636 ]
   %515 = load i32, ptr %first2.addr.06.i1637, align 4
   %cmp1.i1639 = icmp eq i32 %515, 99
   %first1.addr.05.i1638.add = add nuw nsw i64 %first1.addr.05.i1638.idx, 4
@@ -29913,7 +29913,7 @@ land.rhs.i5057:                                   ; preds = %_ZN10TestObjectD2Ev
   br label %_ZN10TestObject7IsClearEv.exit5059
 
 _ZN10TestObject7IsClearEv.exit5059:               ; preds = %_ZN10TestObjectD2Ev.exit5053, %land.rhs.i5057
-  %1982 = phi i1 [ %cmp2.i5058, %land.rhs.i5057 ], [ false, %_ZN10TestObjectD2Ev.exit5053 ]
+  %1982 = phi i1 [ false, %_ZN10TestObjectD2Ev.exit5053 ], [ %cmp2.i5058, %land.rhs.i5057 ]
   %call2566 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %1982, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1418, ptr noundef nonnull @.str.35)
   store i64 0, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 0, ptr @_ZN10TestObject12sTOCtorCountE, align 8
@@ -30936,7 +30936,7 @@ _ZN10TestObjectD2Ev.exit5420:                     ; preds = %lpad2581, %if.then.
   br label %ehcleanup2590
 
 ehcleanup2590:                                    ; preds = %_ZN10TestObjectD2Ev.exit5420, %lpad2579
-  %.pn168 = phi { ptr, i32 } [ %2114, %_ZN10TestObjectD2Ev.exit5420 ], [ %2113, %lpad2579 ]
+  %.pn168 = phi { ptr, i32 } [ %2113, %lpad2579 ], [ %2114, %_ZN10TestObjectD2Ev.exit5420 ]
   call void @_ZN5eastl6vectorI10TestObjectNS_9allocatorEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %toTest2576) #16
   br label %ehcleanup2591
 
@@ -32921,7 +32921,7 @@ invoke.cont3.i.i6887:                             ; preds = %lpad3171
   br label %ehcleanup3197
 
 ehcleanup3197:                                    ; preds = %invoke.cont3.i.i6887, %lpad3171, %invoke.cont3.i.i6884, %lpad3167, %invoke.cont3.i.i6881, %lpad3163, %invoke.cont3.i.i6878, %lpad3159, %lpad3153
-  %.pn194 = phi { ptr, i32 } [ %2370, %lpad3153 ], [ %2375, %invoke.cont3.i.i6884 ], [ %2373, %invoke.cont3.i.i6881 ], [ %2371, %invoke.cont3.i.i6878 ], [ %2371, %lpad3159 ], [ %2373, %lpad3163 ], [ %2375, %lpad3167 ], [ %2377, %lpad3171 ], [ %2377, %invoke.cont3.i.i6887 ]
+  %.pn194 = phi { ptr, i32 } [ %2370, %lpad3153 ], [ %2371, %lpad3159 ], [ %2371, %invoke.cont3.i.i6878 ], [ %2373, %lpad3163 ], [ %2373, %invoke.cont3.i.i6881 ], [ %2375, %lpad3167 ], [ %2375, %invoke.cont3.i.i6884 ], [ %2377, %lpad3171 ], [ %2377, %invoke.cont3.i.i6887 ]
   call void @_ZN5eastl6vectorINS_10unique_ptrIiNS_14default_deleteIiEEEE17InstanceAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %v23150) #16
   call void @_ZN5eastl6vectorINS_10unique_ptrIiNS_14default_deleteIiEEEE17InstanceAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %v13149) #16
   br label %common.resume
@@ -35334,7 +35334,7 @@ _ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit42: ; preds = %_ZN5e
   br i1 %cmp.not.i.i.i.i43, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit42, %if.then.i.i.i.i, %if.then10
-  %sub.ptr.sub8.sink = phi i64 [ %sub.ptr.sub.i.i, %if.then.i.i.i.i ], [ %sub.ptr.sub.i.i, %if.then10 ], [ %sub.ptr.sub8, %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit42 ]
+  %sub.ptr.sub8.sink = phi i64 [ %sub.ptr.sub.i.i, %if.then10 ], [ %sub.ptr.sub.i.i, %if.then.i.i.i.i ], [ %sub.ptr.sub8, %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit42 ]
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %position, ptr align 1 %first, i64 %sub.ptr.sub8.sink, i1 false)
   br label %if.end
 
@@ -36845,7 +36845,7 @@ _ZN5eastl22uninitialized_move_ptrIP20HasAddressOfOperatorS2_S2_EET1_T_T0_S3_.exi
   br i1 %cmp.not.i.i.i.i43, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %_ZN5eastl22uninitialized_move_ptrIP20HasAddressOfOperatorS2_S2_EET1_T_T0_S3_.exit42, %if.then.i.i.i.i, %if.then10
-  %sub.ptr.sub8.sink = phi i64 [ %sub.ptr.sub.i.i, %if.then.i.i.i.i ], [ %sub.ptr.sub.i.i, %if.then10 ], [ %sub.ptr.sub8, %_ZN5eastl22uninitialized_move_ptrIP20HasAddressOfOperatorS2_S2_EET1_T_T0_S3_.exit42 ]
+  %sub.ptr.sub8.sink = phi i64 [ %sub.ptr.sub.i.i, %if.then10 ], [ %sub.ptr.sub.i.i, %if.then.i.i.i.i ], [ %sub.ptr.sub8, %_ZN5eastl22uninitialized_move_ptrIP20HasAddressOfOperatorS2_S2_EET1_T_T0_S3_.exit42 ]
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %position, ptr align 1 %first, i64 %sub.ptr.sub8.sink, i1 false)
   br label %if.end
 

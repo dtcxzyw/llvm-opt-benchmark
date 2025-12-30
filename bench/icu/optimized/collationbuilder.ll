@@ -696,8 +696,8 @@ define noundef ptr @_ZN6icu_7716CollationBuilder13parseAndBuildERKNS_13UnicodeSt
           to label %116 unwind label %56
 
 116:                                              ; preds = %113, %50, %82, %98, %34
-  %.sroa.0.1 = phi ptr [ %19, %34 ], [ %19, %98 ], [ %19, %82 ], [ %19, %50 ], [ null, %113 ]
-  %.2 = phi ptr [ null, %34 ], [ null, %98 ], [ null, %82 ], [ null, %50 ], [ %19, %113 ]
+  %.sroa.0.1 = phi ptr [ %19, %98 ], [ %19, %82 ], [ %19, %50 ], [ %19, %34 ], [ null, %113 ]
+  %.2 = phi ptr [ null, %98 ], [ null, %82 ], [ null, %50 ], [ null, %34 ], [ %19, %113 ]
   call void @_ZN6icu_7719CollationRuleParserD1Ev(ptr noundef nonnull align 8 dereferenceable(76) %7) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %120
@@ -729,7 +729,7 @@ _ZN6icu_7712LocalPointerINS_18CollationTailoringEED2Ev.exit: ; preds = %56, %37
   resume { ptr, i32 } %.pn.pn
 
 _ZN6icu_7712LocalPointerINS_18CollationTailoringEED2Ev.exit46: ; preds = %122, %120, %6, %16
-  %.0 = phi ptr [ null, %6 ], [ null, %16 ], [ %.1, %120 ], [ %.1, %122 ]
+  %.0 = phi ptr [ null, %16 ], [ null, %6 ], [ %.1, %120 ], [ %.1, %122 ]
   ret ptr %.0
 }
 
@@ -1195,8 +1195,8 @@ _ZN6icu_7716CollationBuilder18countTailoredNodesEPKlii.exit: ; preds = %_ZN6icu_
   br label %93
 
 93:                                               ; preds = %85, %83, %87, %68
-  %.3105 = phi i32 [ %74, %68 ], [ %.0102190, %83 ], [ %.0102190, %87 ], [ 256, %85 ]
-  %.089 = phi i32 [ %79, %68 ], [ %84, %83 ], [ %92, %87 ], [ 1280, %85 ]
+  %.3105 = phi i32 [ %74, %68 ], [ %.0102190, %87 ], [ %.0102190, %83 ], [ 256, %85 ]
+  %.089 = phi i32 [ %79, %68 ], [ %92, %87 ], [ %84, %83 ], [ 1280, %85 ]
   call void @_ZN6icu_7716CollationWeights15initForTertiaryEv(ptr noundef nonnull align 4 dereferenceable(164) %5)
   %94 = call noundef signext i8 @_ZN6icu_7716CollationWeights12allocWeightsEjji(ptr noundef nonnull align 4 dereferenceable(164) %5, i32 noundef %.3105, i32 noundef %.089, i32 noundef %.012.lcssa.i)
   %.not141.not = icmp eq i8 %94, 0
@@ -1299,8 +1299,8 @@ _ZN6icu_7716CollationBuilder18countTailoredNodesEPKlii.exit149: ; preds = %_ZN6i
   br label %144
 
 144:                                              ; preds = %134, %138, %120
-  %.499 = phi i32 [ %126, %120 ], [ %.095192, %134 ], [ %.095192, %138 ]
-  %.088 = phi i32 [ %132, %120 ], [ %135, %134 ], [ %143, %138 ]
+  %.499 = phi i32 [ %126, %120 ], [ %.095192, %138 ], [ %.095192, %134 ]
+  %.088 = phi i32 [ %132, %120 ], [ %143, %138 ], [ %135, %134 ]
   %145 = icmp eq i32 %.499, 1280
   br i1 %145, label %146, label %.thread158
 
@@ -1435,10 +1435,10 @@ _ZN6icu_7716CollationBuilder18countTailoredNodesEPKlii.exit156: ; preds = %_ZN6i
   br i1 %203, label %_ZNK6icu_779UVector3210elementAtiEi.exit, label %.loopexit, !llvm.loop !104
 
 .loopexit.sink.split:                             ; preds = %_ZN6icu_7716CollationBuilder18countTailoredNodesEPKlii.exit156, %.thread158, %93, %41
-  %.str.30.sink = phi ptr [ @.str.29, %93 ], [ @.str.28, %41 ], [ @.str.30, %.thread158 ], [ @.str.31, %_ZN6icu_7716CollationBuilder18countTailoredNodesEPKlii.exit156 ]
+  %.str.31.sink = phi ptr [ @.str.28, %41 ], [ @.str.29, %93 ], [ @.str.30, %.thread158 ], [ @.str.31, %_ZN6icu_7716CollationBuilder18countTailoredNodesEPKlii.exit156 ]
   store i32 15, ptr %1, align 4, !tbaa !20
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store ptr %.str.30.sink, ptr %204, align 8, !tbaa !23
+  store ptr %.str.31.sink, ptr %204, align 8, !tbaa !23
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.loopexit.sink.split, %8
@@ -2099,7 +2099,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit.i:       ; preds = %137
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader: ; preds = %152, %148
-  %.0.i.ph = phi i64 [ %155, %152 ], [ 0, %148 ]
+  %.0.i.ph = phi i64 [ 0, %148 ], [ %155, %152 ]
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i:     ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader
@@ -2126,7 +2126,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i: ; preds = %_ZNK6icu_779UVec
   br i1 %or.cond.i132, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge, label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i
-  %.0.i.be = phi i64 [ %162, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i ], [ %162, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ]
+  %.0.i.be = phi i64 [ %162, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i ], [ %162, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i ]
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i, !llvm.loop !123
 
 _ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i, %137, %_ZNK6icu_779UVector6410elementAtiEi.exit.i
@@ -2233,7 +2233,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit134.thread: ; preds = %170, %_ZNK6icu_77
   br label %221
 
 221:                                              ; preds = %.loopexit, %212, %_ZNK6icu_779UVector6410elementAtiEi.exit134.thread
-  %.8 = phi i32 [ %220, %_ZNK6icu_779UVector6410elementAtiEi.exit134.thread ], [ %187, %.loopexit ], [ %217, %212 ]
+  %.8 = phi i32 [ %220, %_ZNK6icu_779UVector6410elementAtiEi.exit134.thread ], [ %217, %212 ], [ %187, %.loopexit ]
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %223 = load i32, ptr %222, align 8, !tbaa !92
   %224 = sext i32 %223 to i64
@@ -2263,8 +2263,8 @@ _ZNK6icu_779UVector6410elementAtiEi.exit134.thread: ; preds = %170, %_ZNK6icu_77
   br label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
 
 _ZN6icu_7716CollationBuilder10ceStrengthEl.exit:  ; preds = %127, %_ZNK6icu_779UVector6410elementAtiEi.exit131, %235, %234, %231, %92
-  %.1105 = phi i32 [ %94, %92 ], [ %.8, %234 ], [ %.8, %235 ], [ %.8, %231 ], [ %.3107, %_ZNK6icu_779UVector6410elementAtiEi.exit131 ], [ %.3107, %127 ]
-  %.0 = phi i32 [ %1, %92 ], [ 0, %234 ], [ %238, %235 ], [ %233, %231 ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit131 ], [ 0, %127 ]
+  %.1105 = phi i32 [ %94, %92 ], [ %.8, %231 ], [ %.8, %234 ], [ %.8, %235 ], [ %.3107, %_ZNK6icu_779UVector6410elementAtiEi.exit131 ], [ %.3107, %127 ]
+  %.0 = phi i32 [ %1, %92 ], [ %233, %231 ], [ 0, %234 ], [ %238, %235 ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit131 ], [ 0, %127 ]
   %239 = load i32, ptr %4, align 4, !tbaa !20
   %240 = icmp slt i32 %239, 1
   br i1 %240, label %242, label %241
@@ -2476,8 +2476,8 @@ _ZNK6icu_779UVector6410elementAtiEi.exit83.i:     ; preds = %_ZNK6icu_779UVector
   br i1 %or.cond219, label %_ZNK6icu_779UVector6410elementAtiEi.exit83.i, label %.thread106.i
 
 .thread106.i:                                     ; preds = %.backedge.i, %82, %64, %_ZNK6icu_779UVector6410elementAtiEi.exit.i, %86
-  %.259.i229 = phi i32 [ %.259.i268, %86 ], [ %.0.i150.ph, %_ZNK6icu_779UVector6410elementAtiEi.exit.i ], [ %.0.i150.ph, %64 ], [ %.259.i268, %82 ], [ %75, %.backedge.i ]
-  %91 = phi i32 [ %75, %86 ], [ %73, %_ZNK6icu_779UVector6410elementAtiEi.exit.i ], [ 0, %64 ], [ %75, %82 ], [ %89, %.backedge.i ]
+  %.259.i229 = phi i32 [ %.259.i268, %86 ], [ %.0.i150.ph, %_ZNK6icu_779UVector6410elementAtiEi.exit.i ], [ %.0.i150.ph, %64 ], [ %75, %.backedge.i ], [ %.259.i268, %82 ]
+  %91 = phi i32 [ %75, %86 ], [ %73, %_ZNK6icu_779UVector6410elementAtiEi.exit.i ], [ 0, %64 ], [ %89, %.backedge.i ], [ %75, %82 ]
   %92 = tail call noundef i32 @_ZN6icu_7716CollationBuilder17insertNodeBetweenEiilR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %.259.i229, i32 noundef %91, i64 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %.pre299 = load i32, ptr %3, align 4, !tbaa !20
   br label %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit
@@ -2624,8 +2624,8 @@ _ZNK6icu_779UVector6410elementAtiEi.exit83.i169:  ; preds = %_ZNK6icu_779UVector
   br i1 %or.cond224, label %_ZNK6icu_779UVector6410elementAtiEi.exit83.i169, label %.thread106.i174
 
 .thread106.i174:                                  ; preds = %.backedge.i173, %173, %152, %_ZNK6icu_779UVector6410elementAtiEi.exit.i165, %177
-  %.259.i167243 = phi i32 [ %.259.i167247, %177 ], [ %149, %_ZNK6icu_779UVector6410elementAtiEi.exit.i165 ], [ %149, %152 ], [ %.259.i167247, %173 ], [ %166, %.backedge.i173 ]
-  %182 = phi i32 [ %166, %177 ], [ %164, %_ZNK6icu_779UVector6410elementAtiEi.exit.i165 ], [ 0, %152 ], [ %166, %173 ], [ %180, %.backedge.i173 ]
+  %.259.i167243 = phi i32 [ %.259.i167247, %177 ], [ %149, %_ZNK6icu_779UVector6410elementAtiEi.exit.i165 ], [ %149, %152 ], [ %166, %.backedge.i173 ], [ %.259.i167247, %173 ]
+  %182 = phi i32 [ %166, %177 ], [ %164, %_ZNK6icu_779UVector6410elementAtiEi.exit.i165 ], [ 0, %152 ], [ %180, %.backedge.i173 ], [ %166, %173 ]
   %183 = tail call noundef i32 @_ZN6icu_7716CollationBuilder17insertNodeBetweenEiilR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %.259.i167243, i32 noundef %182, i64 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %.pre291 = load i32, ptr %3, align 4, !tbaa !20
   br label %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit124
@@ -3022,7 +3022,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit144:      ; preds = %405, %387
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit144.thread
 
 _ZNK6icu_779UVector6410elementAtiEi.exit144.thread: ; preds = %417, %412, %_ZNK6icu_779UVector6410elementAtiEi.exit142, %_ZNK6icu_779UVector6410elementAtiEi.exit144
-  %.297 = phi i32 [ %403, %_ZNK6icu_779UVector6410elementAtiEi.exit142 ], [ %.196, %_ZNK6icu_779UVector6410elementAtiEi.exit144 ], [ %424, %417 ], [ 0, %412 ]
+  %.297 = phi i32 [ %.196, %_ZNK6icu_779UVector6410elementAtiEi.exit144 ], [ %403, %_ZNK6icu_779UVector6410elementAtiEi.exit142 ], [ %424, %417 ], [ 0, %412 ]
   %425 = and i32 %.297, 1040384
   %426 = zext nneg i32 %425 to i64
   %427 = shl nuw nsw i64 %426, 43
@@ -3092,7 +3092,7 @@ select.unfold:                                    ; preds = %440, %_ZNK6icu_779U
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit140
 
 _ZNK6icu_779UVector6410elementAtiEi.exit140:      ; preds = %355, %288, %148, %145, %24, %_ZN6icu_7716CollationBuilder20findOrInsertWeakNodeEijiR10UErrorCode.exit162, %21, %375, %_ZNK6icu_779UVector6410elementAtiEi.exit130, %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit124, %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit138, %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit132, %_ZNK6icu_779UVector6410elementAtiEi.exit144.thread, %_ZNK6icu_779UVector6410elementAtiEi.exit140.thread, %456, %select.unfold, %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit, %_ZNK6icu_779UVector6410elementAtiEi.exit.thread, %113, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %287, %286
-  %.0 = phi i64 [ 0, %287 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %133, %_ZNK6icu_779UVector6410elementAtiEi.exit.thread ], [ 0, %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit138 ], [ 0, %286 ], [ 0, %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit ], [ %125, %113 ], [ 0, %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit132 ], [ %.075, %select.unfold ], [ %439, %_ZNK6icu_779UVector6410elementAtiEi.exit144.thread ], [ %.378, %_ZNK6icu_779UVector6410elementAtiEi.exit140.thread ], [ %471, %456 ], [ %232, %_ZNK6icu_779UVector6410elementAtiEi.exit130 ], [ 0, %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit124 ], [ %370, %375 ], [ 0, %288 ], [ 0, %24 ], [ 0, %148 ], [ 0, %21 ], [ 0, %_ZN6icu_7716CollationBuilder20findOrInsertWeakNodeEijiR10UErrorCode.exit162 ], [ 0, %145 ], [ 0, %355 ]
+  %.0 = phi i64 [ 0, %286 ], [ 0, %287 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 0, %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit ], [ %125, %113 ], [ %133, %_ZNK6icu_779UVector6410elementAtiEi.exit.thread ], [ 0, %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit132 ], [ %439, %_ZNK6icu_779UVector6410elementAtiEi.exit144.thread ], [ %.378, %_ZNK6icu_779UVector6410elementAtiEi.exit140.thread ], [ %471, %456 ], [ %.075, %select.unfold ], [ 0, %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit138 ], [ %232, %_ZNK6icu_779UVector6410elementAtiEi.exit130 ], [ 0, %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit124 ], [ %370, %375 ], [ 0, %21 ], [ 0, %_ZN6icu_7716CollationBuilder20findOrInsertWeakNodeEijiR10UErrorCode.exit162 ], [ 0, %24 ], [ 0, %145 ], [ 0, %148 ], [ 0, %288 ], [ 0, %355 ]
   ret i64 %.0
 }
 
@@ -3143,7 +3143,7 @@ define noundef i32 @_ZN6icu_7716CollationBuilder22findOrInsertNodeForCEsEiRPKcR1
   br label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit
 
 _ZN6icu_7716CollationBuilder10ceStrengthEl.exit:  ; preds = %17, %18
-  %22 = phi i32 [ 0, %17 ], [ %21, %18 ]
+  %22 = phi i32 [ %21, %18 ], [ 0, %17 ]
   %.not14 = icmp sgt i32 %22, %1
   br i1 %.not14, label %25, label %40
 
@@ -3206,7 +3206,7 @@ _ZN6icu_7716CollationBuilder10ceStrengthEl.exit.thread: ; preds = %.lr.ph
   br label %_ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit
 
 _ZN6icu_7716CollationBuilder25findOrInsertNodeForRootCEEliR10UErrorCode.exit: ; preds = %52, %49, %43, %.thread, %42, %4
-  %.012 = phi i32 [ 0, %4 ], [ %39, %.thread ], [ 0, %42 ], [ %51, %49 ], [ %47, %43 ], [ %54, %52 ]
+  %.012 = phi i32 [ 0, %4 ], [ %39, %.thread ], [ 0, %42 ], [ %47, %43 ], [ %54, %52 ], [ %51, %49 ]
   ret i32 %.012
 }
 
@@ -3267,8 +3267,8 @@ define noundef i32 @_ZN6icu_7716CollationBuilder26findOrInsertNodeForPrimaryEjR1
   br label %_ZN6icu_7712_GLOBAL__N_130binarySearchForRootPrimaryNodeEPKiiPKlj.exit
 
 36:                                               ; preds = %33, %30
-  %.127.i = phi i32 [ %.02642.i, %33 ], [ %27, %30 ]
-  %.124.i = phi i32 [ %27, %33 ], [ %.02343.i, %30 ]
+  %.127.i = phi i32 [ %27, %30 ], [ %.02642.i, %33 ]
+  %.124.i = phi i32 [ %.02343.i, %30 ], [ %27, %33 ]
   %37 = add nsw i32 %.124.i, %.127.i
   %38 = sdiv i32 %37, 2
   %39 = sext i32 %38 to i64
@@ -3283,7 +3283,7 @@ define noundef i32 @_ZN6icu_7716CollationBuilder26findOrInsertNodeForPrimaryEjR1
   br i1 %47, label %_ZN6icu_7712_GLOBAL__N_130binarySearchForRootPrimaryNodeEPKiiPKlj.exit, label %.lr.ph.i, !llvm.loop !126
 
 _ZN6icu_7712_GLOBAL__N_130binarySearchForRootPrimaryNodeEPKiiPKlj.exit: ; preds = %36, %.preheader.i, %31, %34
-  %.022.i = phi i32 [ %16, %.preheader.i ], [ %35, %34 ], [ %32, %31 ], [ %38, %36 ]
+  %.022.i = phi i32 [ %35, %34 ], [ %32, %31 ], [ %16, %.preheader.i ], [ %38, %36 ]
   %48 = icmp sgt i32 %.022.i, -1
   br i1 %48, label %49, label %_ZN6icu_7712_GLOBAL__N_130binarySearchForRootPrimaryNodeEPKiiPKlj.exit.thread
 
@@ -3394,7 +3394,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %3, %8
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.preheader
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.preheader: ; preds = %23, %29
-  %.0.ph = phi i64 [ %32, %29 ], [ 0, %23 ]
+  %.0.ph = phi i64 [ 0, %23 ], [ %32, %29 ]
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24:       ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit24.backedge, %_ZNK6icu_779UVector6410elementAtiEi.exit24.preheader
@@ -3406,7 +3406,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit24:       ; preds = %_ZNK6icu_779UVector
   br i1 %36, label %_ZNK6icu_779UVector6410elementAtiEi.exit26, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.backedge
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.backedge: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit24, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread, %_ZNK6icu_779UVector6410elementAtiEi.exit26
-  %.0.be = phi i64 [ %39, %_ZNK6icu_779UVector6410elementAtiEi.exit26 ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit24 ], [ %39, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread ]
+  %.0.be = phi i64 [ %39, %_ZNK6icu_779UVector6410elementAtiEi.exit26 ], [ %39, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit24 ]
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24, !llvm.loop !123
 
 _ZNK6icu_779UVector6410elementAtiEi.exit26:       ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit24
@@ -3426,7 +3426,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit26.thread: ; preds = %_ZNK6icu_779UVecto
   br i1 %or.cond, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.backedge, label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread, %19, %21, %_ZNK6icu_779UVector6410elementAtiEi.exit
-  %.018 = phi i32 [ %1, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ %1, %19 ], [ %1, %21 ], [ %35, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread ]
+  %.018 = phi i32 [ %1, %_ZNK6icu_779UVector6410elementAtiEi.exit ], [ %1, %21 ], [ %1, %19 ], [ %35, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread ]
   ret i32 %.018
 }
 
@@ -3699,7 +3699,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit.i:       ; preds = %15, %10
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader: ; preds = %36, %30
-  %.0.i.ph = phi i64 [ %39, %36 ], [ 0, %30 ]
+  %.0.i.ph = phi i64 [ 0, %30 ], [ %39, %36 ]
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i:     ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader
@@ -3727,7 +3727,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i: ; preds = %_ZNK6icu_779UVec
   br i1 %or.cond.i, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge, label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i
-  %.0.i.be = phi i64 [ %46, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i ], [ %46, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ]
+  %.0.i.be = phi i64 [ %46, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i ], [ %46, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i ]
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i, !llvm.loop !123
 
 52:                                               ; preds = %8
@@ -3846,7 +3846,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit83:       ; preds = %.lr.ph, %92
   br label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
 
 _ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit: ; preds = %103, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i, %.thread, %28, %26, %_ZNK6icu_779UVector6410elementAtiEi.exit.i, %.thread106, %5
-  %.0 = phi i32 [ 0, %5 ], [ %115, %.thread106 ], [ %82, %.thread ], [ %42, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ], [ %1, %_ZNK6icu_779UVector6410elementAtiEi.exit.i ], [ %1, %26 ], [ %1, %28 ], [ %90, %103 ]
+  %.0 = phi i32 [ 0, %5 ], [ %115, %.thread106 ], [ %1, %_ZNK6icu_779UVector6410elementAtiEi.exit.i ], [ %1, %28 ], [ %1, %26 ], [ %82, %.thread ], [ %42, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ], [ %90, %103 ]
   ret i32 %.0
 }
 
@@ -4316,7 +4316,7 @@ _ZNK6icu_7716CollationBuilder12ignorePrefixERKNS_13UnicodeStringER10UErrorCode.e
   br label %.body
 
 _ZNK6icu_7716CollationBuilder12ignorePrefixERKNS_13UnicodeStringER10UErrorCode.exit.thread: ; preds = %190, %201, %200, %_ZNK6icu_7716CollationBuilder12ignorePrefixERKNS_13UnicodeStringER10UErrorCode.exit, %187
-  %.0.ph = phi i32 [ -1, %_ZNK6icu_7716CollationBuilder12ignorePrefixERKNS_13UnicodeStringER10UErrorCode.exit ], [ %204, %201 ], [ -1, %187 ], [ -1, %200 ], [ -1, %190 ]
+  %.0.ph = phi i32 [ %204, %201 ], [ -1, %187 ], [ -1, %200 ], [ -1, %_ZNK6icu_7716CollationBuilder12ignorePrefixERKNS_13UnicodeStringER10UErrorCode.exit ], [ -1, %190 ]
   %.pr = load i8, ptr %180, align 1, !tbaa !80
   %.not116 = icmp eq i8 %.pr, 0
   %.pre155 = load i32, ptr %151, align 8, !tbaa !92
@@ -4368,7 +4368,7 @@ _ZNK6icu_7716CollationBuilder12ignorePrefixERKNS_13UnicodeStringER10UErrorCode.e
   ret void
 
 .body:                                            ; preds = %65, %101, %99, %205, %.body134, %39
-  %.pn117.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %102, %101 ], [ %66, %65 ], [ %.pn111, %.body134 ], [ %100, %99 ], [ %206, %205 ]
+  %.pn117.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %66, %65 ], [ %100, %99 ], [ %102, %101 ], [ %206, %205 ], [ %.pn111, %.body134 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %220
@@ -4430,7 +4430,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit.i:       ; preds = %9
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader: ; preds = %26, %22
-  %.0.i.ph = phi i64 [ %29, %26 ], [ 0, %22 ]
+  %.0.i.ph = phi i64 [ 0, %22 ], [ %29, %26 ]
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i:     ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.preheader
@@ -4457,7 +4457,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i: ; preds = %_ZNK6icu_779UVec
   br i1 %or.cond.i, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge, label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i.backedge: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i
-  %.0.i.be = phi i64 [ %36, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i ], [ %36, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ]
+  %.0.i.be = phi i64 [ %36, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i ], [ %36, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i ]
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i, !llvm.loop !123
 
 _ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i, %9, %_ZNK6icu_779UVector6410elementAtiEi.exit.i
@@ -4498,7 +4498,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit.i27:     ; preds = %41
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30.preheader
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i30.preheader: ; preds = %56, %52
-  %.0.i31.ph = phi i64 [ %59, %56 ], [ 0, %52 ]
+  %.0.i31.ph = phi i64 [ 0, %52 ], [ %59, %56 ]
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i30:   ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30.backedge, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30.preheader
@@ -4525,12 +4525,12 @@ _ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36: ; preds = %_ZNK6icu_779UV
   br i1 %or.cond.i37, label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30.backedge, label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38
 
 _ZNK6icu_779UVector6410elementAtiEi.exit24.i30.backedge: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i34, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30
-  %.0.i31.be = phi i64 [ %66, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i34 ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30 ], [ %66, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36 ]
+  %.0.i31.be = phi i64 [ %66, %_ZNK6icu_779UVector6410elementAtiEi.exit26.i34 ], [ %66, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36 ], [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30 ]
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit24.i30, !llvm.loop !123
 
 _ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36, %._ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38_crit_edge, %41, %_ZNK6icu_779UVector6410elementAtiEi.exit.i27, %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
-  %71 = phi i32 [ %.pre, %._ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38_crit_edge ], [ %12, %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit ], [ %12, %_ZNK6icu_779UVector6410elementAtiEi.exit.i27 ], [ %12, %41 ], [ %12, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36 ]
-  %.018 = phi i32 [ %1, %._ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38_crit_edge ], [ %.018.i, %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit ], [ %.018.i, %_ZNK6icu_779UVector6410elementAtiEi.exit.i27 ], [ %.018.i, %41 ], [ %62, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36 ]
+  %71 = phi i32 [ %12, %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit ], [ %.pre, %._ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38_crit_edge ], [ %12, %_ZNK6icu_779UVector6410elementAtiEi.exit.i27 ], [ %12, %41 ], [ %12, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36 ]
+  %.018 = phi i32 [ %.018.i, %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit ], [ %1, %._ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit38_crit_edge ], [ %.018.i, %_ZNK6icu_779UVector6410elementAtiEi.exit.i27 ], [ %.018.i, %41 ], [ %62, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i36 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %73 = icmp sgt i32 %.018, -1
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -4646,7 +4646,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit44:       ; preds = %119, %121
   br label %_ZN6icu_7716CollationBuilder17insertNodeBetweenEiilR10UErrorCode.exit
 
 _ZN6icu_7716CollationBuilder17insertNodeBetweenEiilR10UErrorCode.exit: ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit.i42, %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.i, %.split19, %4
-  %.0 = phi i32 [ 0, %4 ], [ %130, %.split19 ], [ %71, %_ZNK6icu_779UVector6410elementAtiEi.exit.i42 ], [ 0, %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.i ]
+  %.0 = phi i32 [ 0, %4 ], [ %130, %.split19 ], [ 0, %_ZN6icu_779UVector6410addElementElR10UErrorCode.exit.i ], [ %71, %_ZNK6icu_779UVector6410elementAtiEi.exit.i42 ]
   ret i32 %.0
 }
 
@@ -4713,7 +4713,7 @@ _ZN6icu_7716CollationBuilder10ceStrengthEl.exit.thread89: ; preds = %_ZN6icu_771
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %20, %26, %28
-  %.0.i = phi ptr [ %30, %28 ], [ %27, %26 ], [ null, %20 ]
+  %.0.i = phi ptr [ %27, %26 ], [ %30, %28 ], [ null, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8, !tbaa !42
@@ -4963,7 +4963,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK6icu_7713UnicodeStringneERKS0_(ptr n
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %6, %11, %28
-  %.0.i = phi i1 [ %10, %6 ], [ %35, %28 ], [ false, %11 ]
+  %.0.i = phi i1 [ %10, %6 ], [ false, %11 ], [ %35, %28 ]
   %36 = xor i1 %.0.i, true
   ret i1 %36
 }
@@ -5426,14 +5426,14 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread:   ; preds = %75, %73, %_ZNK6icu_
           to label %_ZN6icu_7716CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UErrorCode.exit unwind label %45
 
 _ZN6icu_7716CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UErrorCode.exit: ; preds = %93, %.preheader.i.i, %.noexc112
-  %.017.i = phi i32 [ %.1.i, %.noexc112 ], [ %.178, %.preheader.i.i ], [ %.178, %93 ]
+  %.017.i = phi i32 [ %.178, %.preheader.i.i ], [ %.1.i, %.noexc112 ], [ %.178, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre = load i32, ptr %6, align 4, !tbaa !20
   %106 = icmp slt i32 %.pre, 1
   br i1 %106, label %_ZNK6icu_7716CollationBuilder12ignoreStringERKNS_13UnicodeStringER10UErrorCode.exit.thread, label %.thread
 
 _ZNK6icu_7716CollationBuilder12ignoreStringERKNS_13UnicodeStringER10UErrorCode.exit.thread: ; preds = %_ZN6icu_7716CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UErrorCode.exit, %50, %.noexc, %73, %_ZNK6icu_7716CollationBuilder12ignoreStringERKNS_13UnicodeStringER10UErrorCode.exit, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
-  %.279 = phi i32 [ %.178, %_ZNK6icu_7716CollationBuilder12ignoreStringERKNS_13UnicodeStringER10UErrorCode.exit ], [ %.178, %73 ], [ %.178, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ %.178, %50 ], [ %.178, %.noexc ], [ %.017.i, %_ZN6icu_7716CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UErrorCode.exit ]
+  %.279 = phi i32 [ %.178, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ %.178, %_ZNK6icu_7716CollationBuilder12ignoreStringERKNS_13UnicodeStringER10UErrorCode.exit ], [ %.178, %73 ], [ %.178, %.noexc ], [ %.178, %50 ], [ %.017.i, %_ZN6icu_7716CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UErrorCode.exit ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %39
@@ -5579,13 +5579,13 @@ _ZNK6icu_7716CollationBuilder12ignorePrefixERKNS_13UnicodeStringER10UErrorCode.e
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit122
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit122:       ; preds = %150, %154, %.noexc121
-  %.0.i117 = phi i1 [ %153, %150 ], [ %173, %.noexc121 ], [ false, %154 ]
+  %.0.i117 = phi i1 [ %153, %150 ], [ false, %154 ], [ %173, %.noexc121 ]
   %smax = call i32 @llvm.smax.i32(i32 %.273, i32 3001)
   br label %174
 
 174:                                              ; preds = %_ZNK6icu_7716CollationBuilder12ignoreStringERKNS_13UnicodeStringER10UErrorCode.exit128.thread, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit122
-  %.784 = phi i32 [ %.582, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit122 ], [ %.885, %_ZNK6icu_7716CollationBuilder12ignoreStringERKNS_13UnicodeStringER10UErrorCode.exit128.thread ]
-  %.475 = phi i32 [ %.273, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit122 ], [ %185, %_ZNK6icu_7716CollationBuilder12ignoreStringERKNS_13UnicodeStringER10UErrorCode.exit128.thread ]
+  %.784 = phi i32 [ %.885, %_ZNK6icu_7716CollationBuilder12ignoreStringERKNS_13UnicodeStringER10UErrorCode.exit128.thread ], [ %.582, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit122 ]
+  %.475 = phi i32 [ %185, %_ZNK6icu_7716CollationBuilder12ignoreStringERKNS_13UnicodeStringER10UErrorCode.exit128.thread ], [ %.273, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZN6icu_7717CanonicalIterator4nextEv(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %16, ptr noundef nonnull align 8 dereferenceable(200) %14)
           to label %175 unwind label %180
@@ -5747,7 +5747,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit135.thread: ; preds = %213, %211, %_ZNK6i
           to label %_ZN6icu_7716CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UErrorCode.exit153 unwind label %182
 
 _ZN6icu_7716CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UErrorCode.exit153: ; preds = %231, %.preheader.i.i142, %.noexc151
-  %.017.i141 = phi i32 [ %.1.i139, %.noexc151 ], [ %.784, %.preheader.i.i142 ], [ %.784, %231 ]
+  %.017.i141 = phi i32 [ %.784, %.preheader.i.i142 ], [ %.1.i139, %.noexc151 ], [ %.784, %231 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre260 = load i32, ptr %6, align 4, !tbaa !20
   %244 = icmp slt i32 %.pre260, 1
@@ -5760,7 +5760,7 @@ _ZN6icu_7716CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UEr
   br label %.sink.split
 
 _ZNK6icu_7716CollationBuilder12ignoreStringERKNS_13UnicodeStringER10UErrorCode.exit128.thread: ; preds = %_ZN6icu_7716CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UErrorCode.exit153, %187, %.noexc127, %211, %_ZNK6icu_7716CollationBuilder12ignoreStringERKNS_13UnicodeStringER10UErrorCode.exit128, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit135
-  %.885 = phi i32 [ %.784, %_ZNK6icu_7716CollationBuilder12ignoreStringERKNS_13UnicodeStringER10UErrorCode.exit128 ], [ %.784, %211 ], [ %.784, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit135 ], [ %.784, %187 ], [ %.784, %.noexc127 ], [ %.017.i141, %_ZN6icu_7716CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UErrorCode.exit153 ]
+  %.885 = phi i32 [ %.784, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit135 ], [ %.784, %_ZNK6icu_7716CollationBuilder12ignoreStringERKNS_13UnicodeStringER10UErrorCode.exit128 ], [ %.784, %211 ], [ %.784, %.noexc127 ], [ %.784, %187 ], [ %.017.i141, %_ZN6icu_7716CollationBuilder14addIfDifferentERKNS_13UnicodeStringES3_PKlijR10UErrorCode.exit153 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %16) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %174
@@ -6300,7 +6300,7 @@ _ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit: ; preds = %24, %.sink.split.i
   br label %.critedge
 
 .critedge:                                        ; preds = %86, %100, %11, %_ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit, %111, %119, %.thread, %109, %8
-  %.0 = phi i8 [ 0, %8 ], [ 0, %_ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit ], [ 0, %11 ], [ 1, %111 ], [ 0, %109 ], [ 1, %.thread ], [ 1, %119 ], [ 0, %100 ], [ 0, %86 ]
+  %.0 = phi i8 [ 0, %8 ], [ 0, %11 ], [ 0, %_ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit ], [ 0, %109 ], [ 1, %.thread ], [ 1, %119 ], [ 1, %111 ], [ 0, %100 ], [ 0, %86 ]
   ret i8 %.0
 }
 
@@ -6540,7 +6540,7 @@ define noundef ptr @ucol_openRules_77(ptr noundef %0, i32 noundef %1, i32 nounde
   resume { ptr, i32 } %.pn.pn
 
 38:                                               ; preds = %19, %35, %6, %14
-  %.024 = phi ptr [ null, %6 ], [ null, %14 ], [ null, %19 ], [ %.2, %35 ]
+  %.024 = phi ptr [ null, %14 ], [ null, %6 ], [ null, %19 ], [ %.2, %35 ]
   ret ptr %.024
 }
 
@@ -6672,7 +6672,7 @@ define linkonce_odr noundef i64 @_ZNK6icu_7711CEFinalizer10modifyCE32Ej(ptr noun
   br label %_ZN6icu_7716CollationBuilder10isTempCE32Ej.exit.thread
 
 _ZN6icu_7716CollationBuilder10isTempCE32Ej.exit.thread: ; preds = %2, %4, %8
-  %.0 = phi i64 [ %26, %8 ], [ 4311744768, %2 ], [ 4311744768, %4 ]
+  %.0 = phi i64 [ %26, %8 ], [ 4311744768, %4 ], [ 4311744768, %2 ]
   ret i64 %.0
 }
 

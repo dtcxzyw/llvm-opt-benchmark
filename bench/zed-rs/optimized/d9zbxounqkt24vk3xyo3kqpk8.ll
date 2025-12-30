@@ -807,7 +807,7 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %235
   br i1 %238, label %70, label %332
 
 .noexc17.i.i:                                     ; preds = %234, %228, %163, %82
-  %.sroa.0.0.i.ph.i.i.i.i = phi ptr [ %84, %82 ], [ %230, %228 ], [ %96, %163 ], [ %230, %234 ]
+  %.sroa.0.0.i.ph.i.i.i.i = phi ptr [ %230, %228 ], [ %96, %163 ], [ %84, %82 ], [ %230, %234 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %.sroa.0.0.i.ph.i.i.i.i, ptr %12, align 8
   call void @llvm.assume(i1 %68)
@@ -820,7 +820,7 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %235
   br label %.body.i.i.i.i
 
 .body.i.i.i.i:                                    ; preds = %300, %294, %263, %239
-  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %240, %239 ], [ %264, %263 ], [ %295, %300 ], [ %295, %294 ]
+  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %240, %239 ], [ %264, %263 ], [ %295, %294 ], [ %295, %300 ]
   invoke void @"_ZN81_$LT$async_task..runnable..Runnable$LT$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3ec5830152408337E.llvm.16563453502491001324"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12)
           to label %.body.i.i unwind label %305
 
@@ -1000,7 +1000,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i.i.i.i.i: ; preds = 
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i, %.body.i.i.i.i, %170, %166, %161, %116, %110
-  %.pn.pn.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %lpad.phi.i.i.i.i.i, %170 ], [ %162, %161 ], [ %111, %110 ], [ %lpad.phi.i.i.i.i.i, %166 ], [ %111, %116 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
+  %.pn.pn.i.i = phi { ptr, i32 } [ %111, %110 ], [ %111, %116 ], [ %162, %161 ], [ %lpad.phi.i.i.i.i.i, %170 ], [ %lpad.phi.i.i.i.i.i, %166 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   store i8 2, ptr %65, align 8
   br label %"_ZN4core3ptr51drop_in_place$LT$async_task..runnable..Runnable$GT$17h5f58c9e9069834bdE.exit.i"
 
@@ -1087,7 +1087,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i.i.i.i.i: ; preds = 
   br label %.body
 
 .body:                                            ; preds = %330, %"_ZN4core3ptr51drop_in_place$LT$async_task..runnable..Runnable$GT$17h5f58c9e9069834bdE.exit.i", %21, %338
-  %.pn10.pn = phi { ptr, i32 } [ %22, %21 ], [ %339, %338 ], [ %331, %330 ], [ %.pn10.pn.i, %"_ZN4core3ptr51drop_in_place$LT$async_task..runnable..Runnable$GT$17h5f58c9e9069834bdE.exit.i" ]
+  %.pn10.pn = phi { ptr, i32 } [ %339, %338 ], [ %22, %21 ], [ %331, %330 ], [ %.pn10.pn.i, %"_ZN4core3ptr51drop_in_place$LT$async_task..runnable..Runnable$GT$17h5f58c9e9069834bdE.exit.i" ]
   store i8 2, ptr %14, align 8
   resume { ptr, i32 } %.pn10.pn
 }
@@ -1356,7 +1356,7 @@ common.ret:                                       ; preds = %"_ZN63_$LT$alloc..a
   br label %common.resume
 
 common.resume:                                    ; preds = %40, %50, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i.i.i", %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i1.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %21, %20 ], [ %21, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i1.i.i" ], [ %51, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i.i.i" ], [ %.pn, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %21, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i1.i.i" ], [ %21, %20 ], [ %51, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i.i.i" ], [ %51, %50 ], [ %.pn, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 28:                                               ; preds = %5
@@ -2492,7 +2492,7 @@ common.ret:                                       ; preds = %57, %"_ZN4core3ptr6
           to label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit71" unwind label %184
 
 "_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit84": ; preds = %238, %237, %243, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit64", %233, %184
-  %.pn17 = phi { ptr, i32 } [ %185, %184 ], [ %.pn14, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit64" ], [ %.pn14, %233 ], [ %.pn14, %243 ], [ %.pn14, %237 ], [ %.pn14, %238 ]
+  %.pn17 = phi { ptr, i32 } [ %185, %184 ], [ %.pn14, %233 ], [ %.pn14, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit64" ], [ %.pn14, %243 ], [ %.pn14, %237 ], [ %.pn14, %238 ]
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 378
   store i8 0, ptr %182, align 2
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -2988,7 +2988,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %61, label %common.ret.sink.split, label %common.ret
 
 .body:                                            ; preds = %"_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit25", %25, %18, %105
-  %.pn6 = phi { ptr, i32 } [ %19, %18 ], [ %106, %105 ], [ %.pn4, %"_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit25" ], [ %26, %25 ]
+  %.pn6 = phi { ptr, i32 } [ %106, %105 ], [ %26, %25 ], [ %19, %18 ], [ %.pn4, %"_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit25" ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !724)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !727)
@@ -3546,7 +3546,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit.sink.split", %197, %.body48, %.body26
-  %.pn21 = phi { ptr, i32 } [ %.pn13, %.body48 ], [ %.pn7, %197 ], [ %.pn19, %.body26 ], [ %.pn21.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit.sink.split" ]
+  %.pn21 = phi { ptr, i32 } [ %.pn19, %.body26 ], [ %.pn13, %.body48 ], [ %.pn7, %197 ], [ %.pn21.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit.sink.split" ]
   resume { ptr, i32 } %.pn21
 
 76:                                               ; preds = %195, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$zbus..connection..ConnectionInner$GT$$GT$17h6308812377ac0f5bE.exit", %153, %124, %45, %"_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h96aadb8994b80cfcE.exit60", %"_ZN4core3ptr50drop_in_place$LT$zbus..fdo..NameAcquiredStream$GT$17h85918c21ea836157E.exit57", %182, %"_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h96aadb8994b80cfcE.exit43", %134, %.body, %"_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h96aadb8994b80cfcE.exit", %26
@@ -3563,7 +3563,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %"_ZN4core3ptr50drop_in_place$LT$zbus..fdo..NameAcquiredStream$GT$17h85918c21ea836157E.exit32" unwind label %134
 
 .body:                                            ; preds = %15, %22
-  %eh.lpad-body = phi { ptr, i32 } [ %16, %15 ], [ %23, %22 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %16, %15 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 1888
   invoke void @"_ZN4core3ptr48drop_in_place$LT$zbus..fdo..NameAcquiredArgs$GT$17hdf90ddeed33ef77eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %80) #21
           to label %182 unwind label %76
@@ -4038,7 +4038,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br i1 %49, label %common.ret.sink.split, label %common.ret
 
 "_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h96aadb8994b80cfcE.exit": ; preds = %142, %140, %147, %122, %120, %127, %38, %36, %43
-  %.pn13 = phi { ptr, i32 } [ %109, %122 ], [ %25, %38 ], [ %25, %43 ], [ %25, %36 ], [ %109, %127 ], [ %109, %120 ], [ %.pn7, %147 ], [ %.pn7, %140 ], [ %.pn7, %142 ]
+  %.pn13 = phi { ptr, i32 } [ %25, %43 ], [ %25, %36 ], [ %25, %38 ], [ %109, %127 ], [ %109, %120 ], [ %109, %122 ], [ %.pn7, %147 ], [ %.pn7, %140 ], [ %.pn7, %142 ]
   resume { ptr, i32 } %.pn13
 
 50:                                               ; preds = %147, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$zbus..connection..ConnectionInner$GT$$GT$17h6308812377ac0f5bE.exit", %127, %98, %43, %"_ZN4core3ptr46drop_in_place$LT$zbus..fdo..NameLostStream$GT$17h9812786f74fc8ef1E.exit33", %134, %108, %.body, %24
@@ -4055,7 +4055,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %"_ZN4core3ptr46drop_in_place$LT$zbus..fdo..NameLostStream$GT$17h9812786f74fc8ef1E.exit18" unwind label %108
 
 .body:                                            ; preds = %13, %20
-  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %21, %20 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %14, %13 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 896
   invoke void @"_ZN4core3ptr44drop_in_place$LT$zbus..fdo..NameLostArgs$GT$17h412c2601dc7a2028E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %54) #21
           to label %134 unwind label %50
@@ -4479,7 +4479,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr96
   unreachable
 
 .body:                                            ; preds = %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit", %48, %15, %56
-  %.pn4 = phi { ptr, i32 } [ %57, %56 ], [ %16, %15 ], [ %.pn2, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit" ], [ %.pn2, %48 ]
+  %.pn4 = phi { ptr, i32 } [ %57, %56 ], [ %16, %15 ], [ %.pn2, %48 ], [ %.pn2, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit" ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 139
   store i32 0, ptr %61, align 1
   resume { ptr, i32 } %.pn4
@@ -4901,7 +4901,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr96
   unreachable
 
 .body:                                            ; preds = %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit", %48, %15, %56
-  %.pn4 = phi { ptr, i32 } [ %57, %56 ], [ %16, %15 ], [ %.pn2, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit" ], [ %.pn2, %48 ]
+  %.pn4 = phi { ptr, i32 } [ %57, %56 ], [ %16, %15 ], [ %.pn2, %48 ], [ %.pn2, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit" ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 107
   store i32 0, ptr %61, align 1
   resume { ptr, i32 } %.pn4
@@ -5094,7 +5094,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr96
   unreachable
 
 .body:                                            ; preds = %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit", %48, %15, %56
-  %.pn4 = phi { ptr, i32 } [ %57, %56 ], [ %16, %15 ], [ %.pn2, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit" ], [ %.pn2, %48 ]
+  %.pn4 = phi { ptr, i32 } [ %57, %56 ], [ %16, %15 ], [ %.pn2, %48 ], [ %.pn2, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit" ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 107
   store i32 0, ptr %61, align 1
   resume { ptr, i32 } %.pn4
@@ -6208,7 +6208,7 @@ define hidden void @"_ZN4core3ptr39drop_in_place$LT$zbus..error..Error$GT$17hc34
   br label %"_ZN4core3ptr62drop_in_place$LT$alloc..boxed..Box$LT$zbus..fdo..Error$GT$$GT$17h9907caa141194af8E.exit"
 
 common.resume:                                    ; preds = %415, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hae855055ca1c2f99E.exit", %432, %423, %427, %387
-  %common.resume.op = phi { ptr, i32 } [ %388, %387 ], [ %396, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hae855055ca1c2f99E.exit" ], [ %396, %415 ], [ %424, %432 ], [ %424, %423 ], [ %424, %427 ]
+  %common.resume.op = phi { ptr, i32 } [ %388, %387 ], [ %396, %415 ], [ %396, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hae855055ca1c2f99E.exit" ], [ %424, %432 ], [ %424, %423 ], [ %424, %427 ]
   resume { ptr, i32 } %common.resume.op
 
 387:                                              ; preds = %104
@@ -7003,7 +7003,7 @@ common.ret:                                       ; preds = %26, %21, %19, %1, %
   br label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit19"
 
 .body:                                            ; preds = %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit", %45, %15, %52
-  %.pn3 = phi { ptr, i32 } [ %16, %15 ], [ %53, %52 ], [ %.pn, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit" ], [ %.pn, %45 ]
+  %.pn3 = phi { ptr, i32 } [ %53, %52 ], [ %16, %15 ], [ %.pn, %45 ], [ %.pn, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit" ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 106
   store i8 0, ptr %74, align 2
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 107
@@ -7654,7 +7654,7 @@ common.ret:                                       ; preds = %216, %"_ZN4core3ptr
           to label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..UniqueName$GT$$GT$17h36bef1f2b72328e7E.exit" unwind label %181
 
 .body30:                                          ; preds = %217, %94, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit.i26", %179, %123
-  %.pn14 = phi { ptr, i32 } [ %.pn12, %123 ], [ %180, %179 ], [ %.pn.i27, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit.i26" ], [ %95, %94 ], [ %.pn12, %217 ]
+  %.pn14 = phi { ptr, i32 } [ %180, %179 ], [ %.pn12, %123 ], [ %95, %94 ], [ %.pn.i27, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit.i26" ], [ %.pn12, %217 ]
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 962
   store i8 0, ptr %106, align 2
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 968
@@ -7837,7 +7837,7 @@ common.ret:                                       ; preds = %216, %"_ZN4core3ptr
   unreachable
 
 .body54:                                          ; preds = %175, %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit.i", %"_ZN4core3ptr56drop_in_place$LT$zbus..message_stream..MessageStream$GT$17hd530d808b7489e8bE.exit", %154
-  %.pn10 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr56drop_in_place$LT$zbus..message_stream..MessageStream$GT$17hd530d808b7489e8bE.exit" ], [ %155, %154 ], [ %176, %175 ], [ %.pn.i52, %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit.i" ]
+  %.pn10 = phi { ptr, i32 } [ %155, %154 ], [ %.pn, %"_ZN4core3ptr56drop_in_place$LT$zbus..message_stream..MessageStream$GT$17hd530d808b7489e8bE.exit" ], [ %176, %175 ], [ %.pn.i52, %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit.i" ]
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 961
   store i8 0, ptr %174, align 1
   br label %123
@@ -7961,7 +7961,7 @@ common.ret:                                       ; preds = %216, %"_ZN4core3ptr
           to label %.body30 unwind label %77
 
 "_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h96aadb8994b80cfcE.exit44": ; preds = %110, %.body30, %115, %.body, %92, %181
-  %.pn16.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %182, %181 ], [ %93, %92 ], [ %.pn14, %115 ], [ %.pn14, %.body30 ], [ %.pn14, %110 ]
+  %.pn16.pn = phi { ptr, i32 } [ %182, %181 ], [ %93, %92 ], [ %eh.lpad-body, %.body ], [ %.pn14, %115 ], [ %.pn14, %.body30 ], [ %.pn14, %110 ]
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 963
   %220 = load i8, ptr %219, align 1, !range !26, !noundef !5
   %221 = trunc nuw i8 %220 to i1
@@ -8259,7 +8259,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr50drop
           to label %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17hc21c073fe698ae33E.exit.i.i.i.i.i.i" unwind label %18, !noalias !3428
 
 common.resume:                                    ; preds = %.body, %11, %18
-  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %19, %18 ], [ %36, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %12, %11 ], [ %36, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %17
@@ -9084,7 +9084,7 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
           to label %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit" unwind label %126
 
 .body:                                            ; preds = %"_ZN4core3ptr230drop_in_place$LT$std..collections..hash..map..VacantEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h9c457e2ecf890eb1E.exit45", %38, %31, %20, %13, %123
-  %.pn15 = phi { ptr, i32 } [ %32, %31 ], [ %14, %13 ], [ %124, %123 ], [ %.pn11, %"_ZN4core3ptr230drop_in_place$LT$std..collections..hash..map..VacantEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h9c457e2ecf890eb1E.exit45" ], [ %21, %20 ], [ %39, %38 ]
+  %.pn15 = phi { ptr, i32 } [ %124, %123 ], [ %21, %20 ], [ %14, %13 ], [ %39, %38 ], [ %32, %31 ], [ %.pn11, %"_ZN4core3ptr230drop_in_place$LT$std..collections..hash..map..VacantEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h9c457e2ecf890eb1E.exit45" ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 248
   invoke void @"_ZN4core3ptr48drop_in_place$LT$zbus..match_rule..MatchRule$GT$17hd68ef7508afabc01E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %65)
           to label %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit34" unwind label %84
@@ -9145,7 +9145,7 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
   unreachable
 
 "_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit": ; preds = %60, %53, %68, %74, %66, %81
-  %.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %67, %66 ], [ %82, %81 ], [ %69, %74 ], [ %54, %53 ], [ %61, %60 ]
+  %.pn.pn = phi { ptr, i32 } [ %67, %66 ], [ %82, %81 ], [ %69, %74 ], [ %69, %68 ], [ %61, %60 ], [ %54, %53 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 968
   invoke void @"_ZN4core3ptr125drop_in_place$LT$async_broadcast..Receiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$GT$17hed648acd72c55e2aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %86) #21
           to label %87 unwind label %84
@@ -9535,7 +9535,7 @@ common.ret:                                       ; preds = %44, %"_ZN4core3ptr1
   br label %common.ret
 
 .body:                                            ; preds = %.body5, %17, %52
-  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %53, %52 ], [ %33, %.body5 ]
+  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %18, %17 ], [ %33, %.body5 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3765)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3768)
@@ -9729,7 +9729,7 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
   br i1 %47, label %105, label %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit"
 
 .body:                                            ; preds = %"_ZN4core3ptr232drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h2ab49bfb2ce3ab3eE.exit.sink.split.i37", %19, %12, %103, %"_ZN4core3ptr263drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$$GT$17h3f805d602a295ff6E.exit31"
-  %.pn14 = phi { ptr, i32 } [ %13, %12 ], [ %104, %103 ], [ %.pn10, %"_ZN4core3ptr263drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$$GT$17h3f805d602a295ff6E.exit31" ], [ %.pn10, %"_ZN4core3ptr232drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h2ab49bfb2ce3ab3eE.exit.sink.split.i37" ], [ %20, %19 ]
+  %.pn14 = phi { ptr, i32 } [ %104, %103 ], [ %.pn10, %"_ZN4core3ptr263drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$$GT$17h3f805d602a295ff6E.exit31" ], [ %20, %19 ], [ %13, %12 ], [ %.pn10, %"_ZN4core3ptr232drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h2ab49bfb2ce3ab3eE.exit.sink.split.i37" ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1148
   %49 = load i8, ptr %48, align 4, !range !26, !noundef !5
   %50 = trunc nuw i8 %49 to i1
@@ -9791,7 +9791,7 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
   unreachable
 
 "_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit": ; preds = %41, %34, %53, %59, %51, %66
-  %.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ], [ %67, %66 ], [ %54, %59 ], [ %35, %34 ], [ %42, %41 ]
+  %.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %67, %66 ], [ %54, %59 ], [ %54, %53 ], [ %42, %41 ], [ %35, %34 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 928
   invoke void @"_ZN4core3ptr48drop_in_place$LT$zbus..match_rule..MatchRule$GT$17hd68ef7508afabc01E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %71) #21
           to label %72 unwind label %69
@@ -10442,7 +10442,7 @@ common.ret.sink.split.i.i:                        ; preds = %53, %49
   br label %common.ret
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17heb5dfe8f866bd06fE.exit15": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i14", %65, %89
-  %.pn8 = phi { ptr, i32 } [ %.pn6, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i14" ], [ %90, %89 ], [ %.pn6, %65 ]
+  %.pn8 = phi { ptr, i32 } [ %90, %89 ], [ %.pn6, %65 ], [ %.pn6, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i14" ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 289
   store i8 0, ptr %92, align 1
   resume { ptr, i32 } %.pn8
@@ -10738,7 +10738,7 @@ common.ret:                                       ; preds = %138, %"_ZN81_$LT$as
   br label %37
 
 "_ZN4core3ptr126drop_in_place$LT$async_lock..mutex..MutexGuard$LT$alloc..boxed..Box$LT$dyn$u20$zbus..connection..socket..WriteHalf$GT$$GT$$GT$17hf420127d64a488afE.exit": ; preds = %.body, %79, %86, %.body33, %100, %141, %24
-  %.pn18 = phi { ptr, i32 } [ %142, %141 ], [ %101, %100 ], [ %.pn16, %.body33 ], [ %25, %24 ], [ %80, %79 ], [ %.pn8, %.body ], [ %87, %86 ]
+  %.pn18 = phi { ptr, i32 } [ %142, %141 ], [ %25, %24 ], [ %101, %100 ], [ %.pn16, %.body33 ], [ %.pn8, %.body ], [ %87, %86 ], [ %80, %79 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn18
 
@@ -10779,7 +10779,7 @@ common.ret:                                       ; preds = %138, %"_ZN81_$LT$as
   br label %.thread.i.i
 
 common.resume.i.i.i.i:                            ; preds = %58, %51
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %52, %51 ], [ %59, %58 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %59, %58 ], [ %52, %51 ]
   store i32 1000000000, ptr %38, align 8, !noalias !4200
   %.sroa.525.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %46, ptr %.sroa.525.0..sroa_idx.i.i, align 8, !noalias !4200
@@ -10939,8 +10939,8 @@ common.resume.i.i.i.i:                            ; preds = %58, %51
   unreachable
 
 .body:                                            ; preds = %69, %common.resume.i.i.i.i
-  %107 = phi ptr [ %40, %common.resume.i.i.i.i ], [ %64, %69 ]
-  %.pn8 = phi { ptr, i32 } [ %eh.lpad-body.i.i, %common.resume.i.i.i.i ], [ %70, %69 ]
+  %107 = phi ptr [ %64, %69 ], [ %40, %common.resume.i.i.i.i ]
+  %.pn8 = phi { ptr, i32 } [ %70, %69 ], [ %eh.lpad-body.i.i, %common.resume.i.i.i.i ]
   invoke void @"_ZN4core3ptr120drop_in_place$LT$async_lock..mutex..Lock$LT$alloc..boxed..Box$LT$dyn$u20$zbus..connection..socket..WriteHalf$GT$$GT$$GT$17h22c31e29ec369f35E"(ptr noundef nonnull align 8 %107) #21
           to label %"_ZN4core3ptr126drop_in_place$LT$async_lock..mutex..MutexGuard$LT$alloc..boxed..Box$LT$dyn$u20$zbus..connection..socket..WriteHalf$GT$$GT$$GT$17hf420127d64a488afE.exit" unwind label %105
 
@@ -11021,7 +11021,7 @@ common.resume.i.i.i.i:                            ; preds = %58, %51
   br label %common.ret
 
 .body33:                                          ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i1.i.i", %130, %115
-  %.pn16 = phi { ptr, i32 } [ %116, %115 ], [ %131, %130 ], [ %131, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i1.i.i" ]
+  %.pn16 = phi { ptr, i32 } [ %116, %115 ], [ %131, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i1.i.i" ], [ %131, %130 ]
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val27 = load ptr, ptr %139, align 8, !nonnull !5, !align !16, !noundef !5
   invoke fastcc void @"_ZN80_$LT$async_lock..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8deb1125a4c98704E"(ptr nonnull %.val27)
@@ -11287,7 +11287,7 @@ common.ret:                                       ; preds = %408, %382, %307, %2
   unreachable
 
 .body99:                                          ; preds = %105, %116, %123, %75, %48, %58, %65, %140, %179, %91, %82, %376
-  %.pn68 = phi { ptr, i32 } [ %49, %48 ], [ %83, %82 ], [ %377, %376 ], [ %92, %91 ], [ %.pn63.pn, %179 ], [ %.pn22, %140 ], [ %76, %75 ], [ %66, %65 ], [ %59, %58 ], [ %117, %116 ], [ %106, %105 ], [ %124, %123 ]
+  %.pn68 = phi { ptr, i32 } [ %377, %376 ], [ %83, %82 ], [ %92, %91 ], [ %.pn63.pn, %179 ], [ %.pn22, %140 ], [ %76, %75 ], [ %49, %48 ], [ %66, %65 ], [ %59, %58 ], [ %106, %105 ], [ %124, %123 ], [ %117, %116 ]
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 994
   %100 = load i8, ptr %99, align 2, !range !26, !noundef !5
   %101 = trunc nuw i8 %100 to i1
@@ -11592,7 +11592,7 @@ common.ret:                                       ; preds = %408, %382, %307, %2
   br label %217
 
 "_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit": ; preds = %226, %219, %240, %245, %319, %207
-  %.pn41 = phi { ptr, i32 } [ %320, %319 ], [ %208, %207 ], [ %.pn39, %240 ], [ %.pn39, %245 ], [ %227, %226 ], [ %220, %219 ]
+  %.pn41 = phi { ptr, i32 } [ %320, %319 ], [ %208, %207 ], [ %.pn39, %245 ], [ %.pn39, %240 ], [ %227, %226 ], [ %220, %219 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0183)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0176)
   br label %211
@@ -11760,7 +11760,7 @@ common.ret:                                       ; preds = %408, %382, %307, %2
   br label %261
 
 .body.i:                                          ; preds = %290, %286, %265
-  %.pn4.i = phi { ptr, i32 } [ %287, %286 ], [ %266, %265 ], [ %291, %290 ]
+  %.pn4.i = phi { ptr, i32 } [ %266, %265 ], [ %291, %290 ], [ %287, %286 ]
   %258 = getelementptr inbounds nuw i8, ptr %1, i64 1304
   invoke void @"_ZN4core3ptr48drop_in_place$LT$zbus..match_rule..MatchRule$GT$17hd68ef7508afabc01E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %258)
           to label %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i" unwind label %300, !noalias !4337
@@ -12033,7 +12033,7 @@ common.ret:                                       ; preds = %408, %382, %307, %2
   br label %384
 
 .body142:                                         ; preds = %.body147, %404, %397, %387, %436
-  %.pn53 = phi { ptr, i32 } [ %437, %436 ], [ %398, %397 ], [ %.pn51, %.body147 ], [ %388, %387 ], [ %405, %404 ]
+  %.pn53 = phi { ptr, i32 } [ %437, %436 ], [ %388, %387 ], [ %405, %404 ], [ %398, %397 ], [ %.pn51, %.body147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %211
 
@@ -12135,7 +12135,7 @@ common.ret:                                       ; preds = %408, %382, %307, %2
           to label %"_ZN4core3ptr230drop_in_place$LT$std..collections..hash..map..VacantEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h9c457e2ecf890eb1E.exit135" unwind label %372
 
 "_ZN4core3ptr230drop_in_place$LT$std..collections..hash..map..VacantEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h9c457e2ecf890eb1E.exit156": ; preds = %448, %372, %213
-  %.pn53.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %373, %372 ], [ %.pn53.pn.pn.pn.pn, %213 ], [ %.pn53.pn.pn.pn.pn, %448 ]
+  %.pn53.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn53.pn.pn.pn.pn, %213 ], [ %373, %372 ], [ %.pn53.pn.pn.pn.pn, %448 ]
   %371 = getelementptr inbounds nuw i8, ptr %1, i64 995
   store i8 0, ptr %371, align 1
   br label %179
@@ -12180,8 +12180,8 @@ common.ret:                                       ; preds = %408, %382, %307, %2
   br label %common.ret
 
 .body120:                                         ; preds = %302, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i"
-  %383 = phi ptr [ %263, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i" ], [ %249, %302 ]
-  %.pn37 = phi { ptr, i32 } [ %.pn6.i, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i" ], [ %303, %302 ]
+  %383 = phi ptr [ %249, %302 ], [ %263, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i" ]
+  %.pn37 = phi { ptr, i32 } [ %303, %302 ], [ %.pn6.i, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8194)
   invoke fastcc void @"_ZN4core3ptr86drop_in_place$LT$zbus..fdo..DBusProxy..add_match_rule..$u7b$$u7b$closure$u7d$$u7d$$GT$17heab02ad498905775E"(ptr noundef nonnull align 8 %383) #21
           to label %240 unwind label %97
@@ -12315,7 +12315,7 @@ common.ret:                                       ; preds = %408, %382, %307, %2
   unreachable
 
 .body147:                                         ; preds = %434, %426, %421, %417
-  %.pn51 = phi { ptr, i32 } [ %422, %421 ], [ %418, %417 ], [ %435, %434 ], [ %422, %426 ]
+  %.pn51 = phi { ptr, i32 } [ %418, %417 ], [ %435, %434 ], [ %422, %426 ], [ %422, %421 ]
   invoke fastcc void @"_ZN80_$LT$async_lock..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h520539559d801a24E"(ptr nonnull %386)
           to label %.body142 unwind label %97
 
@@ -12453,7 +12453,7 @@ common.ret:                                       ; preds = %43, %11
   br label %25
 
 .body.i:                                          ; preds = %37, %29
-  %.pn6.i = phi { ptr, i32 } [ %38, %37 ], [ %30, %29 ]
+  %.pn6.i = phi { ptr, i32 } [ %30, %29 ], [ %38, %37 ]
   store i8 2, ptr %26, align 8, !noalias !4436
   br label %.body
 
@@ -12529,7 +12529,7 @@ common.ret:                                       ; preds = %43, %11
   br label %11
 
 .body:                                            ; preds = %41, %.body.i
-  %.pn = phi { ptr, i32 } [ %.pn6.i, %.body.i ], [ %42, %41 ]
+  %.pn = phi { ptr, i32 } [ %42, %41 ], [ %.pn6.i, %.body.i ]
   invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$zbus..abstractions..async_lock..Semaphore..acquire..$u7b$$u7b$closure$u7d$$u7d$$GT$17hee7ba65af2bef162E"(ptr noundef nonnull align 8 %0) #21
           to label %.body13 unwind label %45
 
@@ -13142,9 +13142,9 @@ default.unreachable785:                           ; preds = %3435, %3398, %3368,
           to label %thread-pre-split unwind label %958, !noalias !4465
 
 308:                                              ; preds = %962, %371, %322, %312, %288, %.body.i, %252
-  %309 = phi ptr [ %241, %252 ], [ %241, %.body.i ], [ %345, %962 ], [ %241, %371 ], [ %241, %288 ], [ %241, %322 ], [ %241, %312 ]
-  %310 = phi ptr [ %242, %252 ], [ %242, %.body.i ], [ %346, %962 ], [ %242, %371 ], [ %242, %288 ], [ %242, %322 ], [ %242, %312 ]
-  %.pn22.pn.i = phi { ptr, i32 } [ %253, %252 ], [ %eh.lpad-body.i, %.body.i ], [ %.pn17.pn.i, %962 ], [ %.pn9.i, %371 ], [ %289, %288 ], [ %323, %322 ], [ %313, %312 ]
+  %309 = phi ptr [ %345, %962 ], [ %241, %371 ], [ %241, %252 ], [ %241, %288 ], [ %241, %.body.i ], [ %241, %322 ], [ %241, %312 ]
+  %310 = phi ptr [ %346, %962 ], [ %242, %371 ], [ %242, %252 ], [ %242, %288 ], [ %242, %.body.i ], [ %242, %322 ], [ %242, %312 ]
+  %.pn22.pn.i = phi { ptr, i32 } [ %.pn17.pn.i, %962 ], [ %.pn9.i, %371 ], [ %253, %252 ], [ %289, %288 ], [ %eh.lpad-body.i, %.body.i ], [ %323, %322 ], [ %313, %312 ]
   %311 = getelementptr inbounds nuw i8, ptr %1, i64 1728
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$zbus..guid..OwnedGuid$GT$$GT$17hf539b5b27e2036f6E"(ptr noalias noundef align 8 dereferenceable(24) %311) #21
           to label %955 unwind label %369, !noalias !4465
@@ -13705,12 +13705,12 @@ _ZN3std2os4unix3net4addr10SocketAddr13from_pathname17h86b7d28672f91d98E.exit.i.i
   br label %903
 
 .body84.i.i.i:                                    ; preds = %443, %447, %890, %567, %.body81.i.i.i, %531, %506, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i68.i.i.i", %450, %421, %.body.i.i.i
-  %460 = phi ptr [ %477, %890 ], [ %391, %.body.i.i.i ], [ %490, %567 ], [ %490, %.body81.i.i.i ], [ %391, %450 ], [ %391, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i68.i.i.i" ], [ %391, %421 ], [ %490, %531 ], [ %507, %506 ], [ %391, %447 ], [ %391, %443 ]
-  %461 = phi ptr [ %478, %890 ], [ %392, %.body.i.i.i ], [ %491, %567 ], [ %491, %.body81.i.i.i ], [ %392, %450 ], [ %392, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i68.i.i.i" ], [ %392, %421 ], [ %491, %531 ], [ %508, %506 ], [ %392, %447 ], [ %392, %443 ]
-  %462 = phi ptr [ %479, %890 ], [ %393, %.body.i.i.i ], [ %492, %567 ], [ %492, %.body81.i.i.i ], [ %393, %450 ], [ %393, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i68.i.i.i" ], [ %393, %421 ], [ %492, %531 ], [ %509, %506 ], [ %393, %447 ], [ %393, %443 ]
-  %463 = phi ptr [ %480, %890 ], [ %394, %.body.i.i.i ], [ %495, %567 ], [ %495, %.body81.i.i.i ], [ %394, %450 ], [ %394, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i68.i.i.i" ], [ %394, %421 ], [ %495, %531 ], [ %512, %506 ], [ %394, %447 ], [ %394, %443 ]
-  %464 = phi ptr [ %481, %890 ], [ %395, %.body.i.i.i ], [ %494, %567 ], [ %494, %.body81.i.i.i ], [ %395, %450 ], [ %395, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i68.i.i.i" ], [ %395, %421 ], [ %494, %531 ], [ %511, %506 ], [ %395, %447 ], [ %395, %443 ]
-  %.pn50.pn.i.i.i = phi { ptr, i32 } [ %.pn29.pn.i.i.i, %890 ], [ %405, %.body.i.i.i ], [ %568, %567 ], [ %.pn48.i.i.i, %.body81.i.i.i ], [ %.pn34.i.i.i, %450 ], [ %.pn34.i.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i68.i.i.i" ], [ %422, %421 ], [ %532, %531 ], [ %513, %506 ], [ %448, %447 ], [ %444, %443 ]
+  %460 = phi ptr [ %477, %890 ], [ %490, %.body81.i.i.i ], [ %490, %567 ], [ %391, %450 ], [ %391, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i68.i.i.i" ], [ %391, %421 ], [ %391, %.body.i.i.i ], [ %490, %531 ], [ %507, %506 ], [ %391, %447 ], [ %391, %443 ]
+  %461 = phi ptr [ %478, %890 ], [ %491, %.body81.i.i.i ], [ %491, %567 ], [ %392, %450 ], [ %392, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i68.i.i.i" ], [ %392, %421 ], [ %392, %.body.i.i.i ], [ %491, %531 ], [ %508, %506 ], [ %392, %447 ], [ %392, %443 ]
+  %462 = phi ptr [ %479, %890 ], [ %492, %.body81.i.i.i ], [ %492, %567 ], [ %393, %450 ], [ %393, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i68.i.i.i" ], [ %393, %421 ], [ %393, %.body.i.i.i ], [ %492, %531 ], [ %509, %506 ], [ %393, %447 ], [ %393, %443 ]
+  %463 = phi ptr [ %480, %890 ], [ %495, %.body81.i.i.i ], [ %495, %567 ], [ %394, %450 ], [ %394, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i68.i.i.i" ], [ %394, %421 ], [ %394, %.body.i.i.i ], [ %495, %531 ], [ %512, %506 ], [ %394, %447 ], [ %394, %443 ]
+  %464 = phi ptr [ %481, %890 ], [ %494, %.body81.i.i.i ], [ %494, %567 ], [ %395, %450 ], [ %395, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i68.i.i.i" ], [ %395, %421 ], [ %395, %.body.i.i.i ], [ %494, %531 ], [ %511, %506 ], [ %395, %447 ], [ %395, %443 ]
+  %.pn50.pn.i.i.i = phi { ptr, i32 } [ %.pn29.pn.i.i.i, %890 ], [ %.pn48.i.i.i, %.body81.i.i.i ], [ %568, %567 ], [ %.pn34.i.i.i, %450 ], [ %.pn34.i.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i68.i.i.i" ], [ %422, %421 ], [ %405, %.body.i.i.i ], [ %532, %531 ], [ %513, %506 ], [ %448, %447 ], [ %444, %443 ]
   store i8 2, ptr %463, align 8, !noalias !4623
   br label %.body.i.i
 
@@ -13746,12 +13746,12 @@ _ZN3std2os4unix3net4addr10SocketAddr13from_pathname17h86b7d28672f91d98E.exit.i.i
   br label %572
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17heb5dfe8f866bd06fE.exit92.i.i.i": ; preds = %882, %875, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i91.i.i.i", %643
-  %477 = phi ptr [ %644, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i91.i.i.i" ], [ %644, %643 ], [ %869, %882 ], [ %869, %875 ]
-  %478 = phi ptr [ %645, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i91.i.i.i" ], [ %645, %643 ], [ %870, %882 ], [ %870, %875 ]
-  %479 = phi ptr [ %646, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i91.i.i.i" ], [ %646, %643 ], [ %871, %882 ], [ %871, %875 ]
-  %480 = phi ptr [ %647, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i91.i.i.i" ], [ %647, %643 ], [ %872, %882 ], [ %872, %875 ]
-  %481 = phi ptr [ %648, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i91.i.i.i" ], [ %648, %643 ], [ %873, %882 ], [ %873, %875 ]
-  %.pn29.pn.i.i.i = phi { ptr, i32 } [ %.pn23.i.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i91.i.i.i" ], [ %.pn23.i.i.i, %643 ], [ %883, %882 ], [ %876, %875 ]
+  %477 = phi ptr [ %644, %643 ], [ %644, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i91.i.i.i" ], [ %869, %882 ], [ %869, %875 ]
+  %478 = phi ptr [ %645, %643 ], [ %645, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i91.i.i.i" ], [ %870, %882 ], [ %870, %875 ]
+  %479 = phi ptr [ %646, %643 ], [ %646, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i91.i.i.i" ], [ %871, %882 ], [ %871, %875 ]
+  %480 = phi ptr [ %647, %643 ], [ %647, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i91.i.i.i" ], [ %872, %882 ], [ %872, %875 ]
+  %481 = phi ptr [ %648, %643 ], [ %648, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i91.i.i.i" ], [ %873, %882 ], [ %873, %875 ]
+  %.pn29.pn.i.i.i = phi { ptr, i32 } [ %.pn23.i.i.i, %643 ], [ %.pn23.i.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i91.i.i.i" ], [ %883, %882 ], [ %876, %875 ]
   %482 = getelementptr inbounds nuw i8, ptr %1, i64 1409
   %483 = load i8, ptr %482, align 1, !range !26, !noalias !4623, !noundef !5
   %484 = trunc nuw i8 %483 to i1
@@ -13964,7 +13964,7 @@ _ZN3std2os4unix3net4addr10SocketAddr13from_pathname17h86b7d28672f91d98E.exit.i.i
   br label %559
 
 .body81.i.i.i:                                    ; preds = %551, %548
-  %.pn48.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i.i.i, %548 ], [ %552, %551 ]
+  %.pn48.i.i.i = phi { ptr, i32 } [ %552, %551 ], [ %lpad.thr_comm.i.i.i.i, %548 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %191), !noalias !4623
   br label %.body84.i.i.i
 
@@ -14078,12 +14078,12 @@ _ZN3std2os4unix3net4addr10SocketAddr13from_pathname17h86b7d28672f91d98E.exit.i.i
   br i1 %589, label %596, label %631
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17heb5dfe8f866bd06fE.exit.i.i.i": ; preds = %623, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i", %612, %602
-  %590 = phi ptr [ %613, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i" ], [ %573, %623 ], [ %573, %602 ], [ %613, %612 ]
-  %591 = phi ptr [ %614, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i" ], [ %574, %623 ], [ %574, %602 ], [ %614, %612 ]
-  %592 = phi ptr [ %615, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i" ], [ %575, %623 ], [ %575, %602 ], [ %615, %612 ]
-  %593 = phi ptr [ %616, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i" ], [ %576, %623 ], [ %576, %602 ], [ %616, %612 ]
-  %594 = phi ptr [ %617, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i" ], [ %577, %623 ], [ %577, %602 ], [ %617, %612 ]
-  %.pn20.pn.i.i.i = phi { ptr, i32 } [ %.pn18.i.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i" ], [ %624, %623 ], [ %603, %602 ], [ %.pn18.i.i.i, %612 ]
+  %590 = phi ptr [ %613, %612 ], [ %613, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i" ], [ %573, %623 ], [ %573, %602 ]
+  %591 = phi ptr [ %614, %612 ], [ %614, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i" ], [ %574, %623 ], [ %574, %602 ]
+  %592 = phi ptr [ %615, %612 ], [ %615, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i" ], [ %575, %623 ], [ %575, %602 ]
+  %593 = phi ptr [ %616, %612 ], [ %616, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i" ], [ %576, %623 ], [ %576, %602 ]
+  %594 = phi ptr [ %617, %612 ], [ %617, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i" ], [ %577, %623 ], [ %577, %602 ]
+  %.pn20.pn.i.i.i = phi { ptr, i32 } [ %.pn18.i.i.i, %612 ], [ %.pn18.i.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i" ], [ %624, %623 ], [ %603, %602 ]
   %595 = getelementptr inbounds nuw i8, ptr %1, i64 1640
   invoke void @"_ZN4core3ptr68drop_in_place$LT$async_io..Async$LT$std..net..tcp..TcpStream$GT$$GT$17h8fa93a09c316ab25E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %595) #21
           to label %643 unwind label %455, !noalias !4659
@@ -14500,7 +14500,7 @@ _ZN3std2fs4read17h45b2d28c10c35c5cE.exit.i.i.i:   ; preds = %596
   br label %770
 
 770:                                              ; preds = %767, %764, %760
-  %.sroa.0.0.i.i.i.i.i = phi i8 [ %769, %767 ], [ %spec.select.i.i.i.i.i.i.i, %760 ], [ %766, %764 ]
+  %.sroa.0.0.i.i.i.i.i = phi i8 [ %spec.select.i.i.i.i.i.i.i, %760 ], [ %766, %764 ], [ %769, %767 ]
   %771 = icmp eq i8 %.sroa.0.0.i.i.i.i.i, 13
   br i1 %771, label %.thread51.i.i.i.i, label %794
 
@@ -14559,14 +14559,14 @@ common.ret.sink.split.i38.i.i.i.i:                ; preds = %783, %.body.i.i.i.i
   br label %common.ret.sink.split.i38.i.i.i.i
 
 "_ZN4core3ptr137drop_in_place$LT$async_io..optimistic$LT$async_io..reactor..Writable$LT$std..net..tcp..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h436f412fbae8a761E.exit41.i.i.i.i": ; preds = %common.ret.sink.split.i38.i.i.i.i, %.thread53.i.i.i.i, %747, %.body.i.i.i.i, %.body.thread.i.i.i.i
-  %785 = phi ptr [ %238, %.body.i.i.i.i ], [ %671, %.thread53.i.i.i.i ], [ %238, %common.ret.sink.split.i38.i.i.i.i ], [ %704, %.body.thread.i.i.i.i ], [ %671, %747 ]
-  %786 = phi ptr [ %237, %.body.i.i.i.i ], [ %672, %.thread53.i.i.i.i ], [ %237, %common.ret.sink.split.i38.i.i.i.i ], [ %705, %.body.thread.i.i.i.i ], [ %672, %747 ]
-  %787 = phi ptr [ %.phi.trans.insert.i, %.body.i.i.i.i ], [ %673, %.thread53.i.i.i.i ], [ %.phi.trans.insert.i, %common.ret.sink.split.i38.i.i.i.i ], [ %706, %.body.thread.i.i.i.i ], [ %673, %747 ]
-  %788 = phi ptr [ %.phi.trans.insert.i.i, %.body.i.i.i.i ], [ %674, %.thread53.i.i.i.i ], [ %.phi.trans.insert.i.i, %common.ret.sink.split.i38.i.i.i.i ], [ %707, %.body.thread.i.i.i.i ], [ %674, %747 ]
-  %789 = phi ptr [ %389, %.body.i.i.i.i ], [ %675, %.thread53.i.i.i.i ], [ %389, %common.ret.sink.split.i38.i.i.i.i ], [ %708, %.body.thread.i.i.i.i ], [ %675, %747 ]
-  %790 = phi ptr [ %.phi.trans.insert.i.i.i, %.body.i.i.i.i ], [ %676, %.thread53.i.i.i.i ], [ %.phi.trans.insert.i.i.i, %common.ret.sink.split.i38.i.i.i.i ], [ %709, %.body.thread.i.i.i.i ], [ %676, %747 ]
-  %791 = phi ptr [ %655, %.body.i.i.i.i ], [ %677, %.thread53.i.i.i.i ], [ %655, %common.ret.sink.split.i38.i.i.i.i ], [ %710, %.body.thread.i.i.i.i ], [ %677, %747 ]
-  %.pn18.pn.i.i.i.i = phi { ptr, i32 } [ %745, %.body.i.i.i.i ], [ %778, %.thread53.i.i.i.i ], [ %745, %common.ret.sink.split.i38.i.i.i.i ], [ %.pn7.i.i.i.i.i, %.body.thread.i.i.i.i ], [ %748, %747 ]
+  %785 = phi ptr [ %704, %.body.thread.i.i.i.i ], [ %238, %.body.i.i.i.i ], [ %238, %common.ret.sink.split.i38.i.i.i.i ], [ %671, %747 ], [ %671, %.thread53.i.i.i.i ]
+  %786 = phi ptr [ %705, %.body.thread.i.i.i.i ], [ %237, %.body.i.i.i.i ], [ %237, %common.ret.sink.split.i38.i.i.i.i ], [ %672, %747 ], [ %672, %.thread53.i.i.i.i ]
+  %787 = phi ptr [ %706, %.body.thread.i.i.i.i ], [ %.phi.trans.insert.i, %.body.i.i.i.i ], [ %.phi.trans.insert.i, %common.ret.sink.split.i38.i.i.i.i ], [ %673, %747 ], [ %673, %.thread53.i.i.i.i ]
+  %788 = phi ptr [ %707, %.body.thread.i.i.i.i ], [ %.phi.trans.insert.i.i, %.body.i.i.i.i ], [ %.phi.trans.insert.i.i, %common.ret.sink.split.i38.i.i.i.i ], [ %674, %747 ], [ %674, %.thread53.i.i.i.i ]
+  %789 = phi ptr [ %708, %.body.thread.i.i.i.i ], [ %389, %.body.i.i.i.i ], [ %389, %common.ret.sink.split.i38.i.i.i.i ], [ %675, %747 ], [ %675, %.thread53.i.i.i.i ]
+  %790 = phi ptr [ %709, %.body.thread.i.i.i.i ], [ %.phi.trans.insert.i.i.i, %.body.i.i.i.i ], [ %.phi.trans.insert.i.i.i, %common.ret.sink.split.i38.i.i.i.i ], [ %676, %747 ], [ %676, %.thread53.i.i.i.i ]
+  %791 = phi ptr [ %710, %.body.thread.i.i.i.i ], [ %655, %.body.i.i.i.i ], [ %655, %common.ret.sink.split.i38.i.i.i.i ], [ %677, %747 ], [ %677, %.thread53.i.i.i.i ]
+  %.pn18.pn.i.i.i.i = phi { ptr, i32 } [ %.pn7.i.i.i.i.i, %.body.thread.i.i.i.i ], [ %745, %.body.i.i.i.i ], [ %745, %common.ret.sink.split.i38.i.i.i.i ], [ %748, %747 ], [ %778, %.thread53.i.i.i.i ]
   store i8 2, ptr %790, align 8, !noalias !4890
   br label %.body96.i.i.i
 
@@ -14576,13 +14576,13 @@ common.ret.sink.split.i38.i.i.i.i:                ; preds = %783, %.body.i.i.i.i
   br label %.body96.i.i.i
 
 794:                                              ; preds = %781, %770, %759, %752
-  %795 = phi ptr [ %671, %752 ], [ %734, %781 ], [ %671, %759 ], [ %671, %770 ]
-  %796 = phi ptr [ %672, %752 ], [ %735, %781 ], [ %672, %759 ], [ %672, %770 ]
-  %797 = phi ptr [ %673, %752 ], [ %736, %781 ], [ %673, %759 ], [ %673, %770 ]
-  %798 = phi ptr [ %674, %752 ], [ %737, %781 ], [ %674, %759 ], [ %674, %770 ]
-  %799 = phi ptr [ %675, %752 ], [ %738, %781 ], [ %675, %759 ], [ %675, %770 ]
-  %800 = phi ptr [ %676, %752 ], [ %739, %781 ], [ %676, %759 ], [ %676, %770 ]
-  %common.ret.op.i.i.i.i = phi { i64, ptr } [ %751, %752 ], [ %782, %781 ], [ %751, %759 ], [ %751, %770 ]
+  %795 = phi ptr [ %734, %781 ], [ %671, %759 ], [ %671, %770 ], [ %671, %752 ]
+  %796 = phi ptr [ %735, %781 ], [ %672, %759 ], [ %672, %770 ], [ %672, %752 ]
+  %797 = phi ptr [ %736, %781 ], [ %673, %759 ], [ %673, %770 ], [ %673, %752 ]
+  %798 = phi ptr [ %737, %781 ], [ %674, %759 ], [ %674, %770 ], [ %674, %752 ]
+  %799 = phi ptr [ %738, %781 ], [ %675, %759 ], [ %675, %770 ], [ %675, %752 ]
+  %800 = phi ptr [ %739, %781 ], [ %676, %759 ], [ %676, %770 ], [ %676, %752 ]
+  %common.ret.op.i.i.i.i = phi { i64, ptr } [ %782, %781 ], [ %751, %759 ], [ %751, %770 ], [ %751, %752 ]
   store i8 1, ptr %800, align 8, !noalias !4890
   %801 = extractvalue { i64, ptr } %common.ret.op.i.i.i.i, 0
   %802 = icmp eq i64 %801, 2
@@ -14735,13 +14735,13 @@ common.ret.sink.split.i38.i.i.i.i:                ; preds = %783, %.body.i.i.i.i
   br label %903
 
 .body96.i.i.i:                                    ; preds = %792, %"_ZN4core3ptr137drop_in_place$LT$async_io..optimistic$LT$async_io..reactor..Writable$LT$std..net..tcp..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h436f412fbae8a761E.exit41.i.i.i.i"
-  %862 = phi ptr [ %785, %"_ZN4core3ptr137drop_in_place$LT$async_io..optimistic$LT$async_io..reactor..Writable$LT$std..net..tcp..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h436f412fbae8a761E.exit41.i.i.i.i" ], [ %238, %792 ]
-  %863 = phi ptr [ %786, %"_ZN4core3ptr137drop_in_place$LT$async_io..optimistic$LT$async_io..reactor..Writable$LT$std..net..tcp..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h436f412fbae8a761E.exit41.i.i.i.i" ], [ %237, %792 ]
-  %864 = phi ptr [ %787, %"_ZN4core3ptr137drop_in_place$LT$async_io..optimistic$LT$async_io..reactor..Writable$LT$std..net..tcp..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h436f412fbae8a761E.exit41.i.i.i.i" ], [ %.phi.trans.insert.i, %792 ]
-  %865 = phi ptr [ %788, %"_ZN4core3ptr137drop_in_place$LT$async_io..optimistic$LT$async_io..reactor..Writable$LT$std..net..tcp..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h436f412fbae8a761E.exit41.i.i.i.i" ], [ %.phi.trans.insert.i.i, %792 ]
-  %866 = phi ptr [ %789, %"_ZN4core3ptr137drop_in_place$LT$async_io..optimistic$LT$async_io..reactor..Writable$LT$std..net..tcp..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h436f412fbae8a761E.exit41.i.i.i.i" ], [ %389, %792 ]
-  %867 = phi ptr [ %791, %"_ZN4core3ptr137drop_in_place$LT$async_io..optimistic$LT$async_io..reactor..Writable$LT$std..net..tcp..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h436f412fbae8a761E.exit41.i.i.i.i" ], [ %655, %792 ]
-  %.pn14.i.i.i = phi { ptr, i32 } [ %.pn18.pn.i.i.i.i, %"_ZN4core3ptr137drop_in_place$LT$async_io..optimistic$LT$async_io..reactor..Writable$LT$std..net..tcp..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h436f412fbae8a761E.exit41.i.i.i.i" ], [ %793, %792 ]
+  %862 = phi ptr [ %238, %792 ], [ %785, %"_ZN4core3ptr137drop_in_place$LT$async_io..optimistic$LT$async_io..reactor..Writable$LT$std..net..tcp..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h436f412fbae8a761E.exit41.i.i.i.i" ]
+  %863 = phi ptr [ %237, %792 ], [ %786, %"_ZN4core3ptr137drop_in_place$LT$async_io..optimistic$LT$async_io..reactor..Writable$LT$std..net..tcp..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h436f412fbae8a761E.exit41.i.i.i.i" ]
+  %864 = phi ptr [ %.phi.trans.insert.i, %792 ], [ %787, %"_ZN4core3ptr137drop_in_place$LT$async_io..optimistic$LT$async_io..reactor..Writable$LT$std..net..tcp..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h436f412fbae8a761E.exit41.i.i.i.i" ]
+  %865 = phi ptr [ %.phi.trans.insert.i.i, %792 ], [ %788, %"_ZN4core3ptr137drop_in_place$LT$async_io..optimistic$LT$async_io..reactor..Writable$LT$std..net..tcp..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h436f412fbae8a761E.exit41.i.i.i.i" ]
+  %866 = phi ptr [ %389, %792 ], [ %789, %"_ZN4core3ptr137drop_in_place$LT$async_io..optimistic$LT$async_io..reactor..Writable$LT$std..net..tcp..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h436f412fbae8a761E.exit41.i.i.i.i" ]
+  %867 = phi ptr [ %655, %792 ], [ %791, %"_ZN4core3ptr137drop_in_place$LT$async_io..optimistic$LT$async_io..reactor..Writable$LT$std..net..tcp..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h436f412fbae8a761E.exit41.i.i.i.i" ]
+  %.pn14.i.i.i = phi { ptr, i32 } [ %793, %792 ], [ %.pn18.pn.i.i.i.i, %"_ZN4core3ptr137drop_in_place$LT$async_io..optimistic$LT$async_io..reactor..Writable$LT$std..net..tcp..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h436f412fbae8a761E.exit41.i.i.i.i" ]
   invoke fastcc void @"_ZN4core3ptr227drop_in_place$LT$async_io..Async$LT$std..net..tcp..TcpStream$GT$..write_with$LT$usize$C$zbus..address..transport..Transport..connect..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hacce6dfc5592ac6dE"(ptr noundef nonnull align 8 %867) #21
           to label %612 unwind label %455, !noalias !4659
 
@@ -14957,11 +14957,11 @@ common.ret.sink.split.i38.i.i.i.i:                ; preds = %783, %.body.i.i.i.i
   br label %928
 
 .body.i.i:                                        ; preds = %893, %.body84.i.i.i
-  %934 = phi ptr [ %460, %.body84.i.i.i ], [ %238, %893 ]
-  %935 = phi ptr [ %461, %.body84.i.i.i ], [ %237, %893 ]
-  %936 = phi ptr [ %462, %.body84.i.i.i ], [ %.phi.trans.insert.i, %893 ]
-  %937 = phi ptr [ %464, %.body84.i.i.i ], [ %389, %893 ]
-  %.pn2.i.i = phi { ptr, i32 } [ %.pn50.pn.i.i.i, %.body84.i.i.i ], [ %894, %893 ]
+  %934 = phi ptr [ %238, %893 ], [ %460, %.body84.i.i.i ]
+  %935 = phi ptr [ %237, %893 ], [ %461, %.body84.i.i.i ]
+  %936 = phi ptr [ %.phi.trans.insert.i, %893 ], [ %462, %.body84.i.i.i ]
+  %937 = phi ptr [ %389, %893 ], [ %464, %.body84.i.i.i ]
+  %.pn2.i.i = phi { ptr, i32 } [ %894, %893 ], [ %.pn50.pn.i.i.i, %.body84.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i.sroa.10.sroa.8.i)
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$zbus..address..transport..Transport..connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h409024e4f4df952fE"(ptr noundef nonnull align 8 %937) #21
           to label %381 unwind label %938, !noalias !4622
@@ -15049,9 +15049,9 @@ common.ret.sink.split.i38.i.i.i.i:                ; preds = %783, %.body.i.i.i.i
   br label %955
 
 .body45.i:                                        ; preds = %940, %928
-  %960 = phi ptr [ %929, %928 ], [ %238, %940 ]
-  %961 = phi ptr [ %930, %928 ], [ %237, %940 ]
-  %.pn15.i = phi { ptr, i32 } [ %.pn6.i.i, %928 ], [ %941, %940 ]
+  %960 = phi ptr [ %238, %940 ], [ %929, %928 ]
+  %961 = phi ptr [ %237, %940 ], [ %930, %928 ]
+  %.pn15.i = phi { ptr, i32 } [ %941, %940 ], [ %.pn6.i.i, %928 ]
   invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$zbus..address..Address..connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h81d2e4839cd6d874E"(ptr noundef nonnull align 8 %961) #21
           to label %344 unwind label %369, !noalias !4465
 
@@ -15300,8 +15300,8 @@ common.ret:                                       ; preds = %4570, %4445, %2877,
   br i1 %1027, label %4650, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..OwnedUniqueName$GT$$GT$17h4ab92335e3e21696E.exit321"
 
 .body:                                            ; preds = %965, %955
-  %1028 = phi ptr [ %957, %955 ], [ %237, %965 ]
-  %.pn12 = phi { ptr, i32 } [ %.pn25.i, %955 ], [ %966, %965 ]
+  %1028 = phi ptr [ %237, %965 ], [ %957, %955 ]
+  %.pn12 = phi { ptr, i32 } [ %966, %965 ], [ %.pn25.i, %955 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8373.sroa.0.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8373.sroa.7)
   invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$zbus..connection..builder..Builder..target_connect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0e3086cf9bcd3efdE"(ptr noundef nonnull align 8 %1028) #21
@@ -15381,9 +15381,9 @@ common.ret:                                       ; preds = %4570, %4445, %2877,
   br label %1057
 
 .body.i121:                                       ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i1.i.i.i", %1081, %1066, %1044
-  %1053 = phi ptr [ %1037, %1044 ], [ %1058, %1066 ], [ %1058, %1081 ], [ %1058, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i1.i.i.i" ]
-  %1054 = phi ptr [ %1038, %1044 ], [ %1059, %1066 ], [ %1059, %1081 ], [ %1059, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i1.i.i.i" ]
-  %.pn2.i = phi { ptr, i32 } [ %1045, %1044 ], [ %1067, %1066 ], [ %1082, %1081 ], [ %1082, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i1.i.i.i" ]
+  %1053 = phi ptr [ %1058, %1066 ], [ %1037, %1044 ], [ %1058, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i1.i.i.i" ], [ %1058, %1081 ]
+  %1054 = phi ptr [ %1059, %1066 ], [ %1038, %1044 ], [ %1059, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i1.i.i.i" ], [ %1059, %1081 ]
+  %.pn2.i = phi { ptr, i32 } [ %1067, %1066 ], [ %1045, %1044 ], [ %1082, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i1.i.i.i" ], [ %1082, %1081 ]
   store i8 2, ptr %1053, align 1, !noalias !5006
   br label %.body124
 
@@ -15704,7 +15704,7 @@ common.ret:                                       ; preds = %4570, %4445, %2877,
   br label %1181
 
 1160:                                             ; preds = %1137, %1149, %4761, %"_ZN4core3ptr49drop_in_place$LT$zbus..connection..Connection$GT$17hf3f3826529bc763eE.exit"
-  %.pn80.pn.pn.pn = phi { ptr, i32 } [ %.pn80.pn.pn, %4761 ], [ %.pn80.pn.pn, %"_ZN4core3ptr49drop_in_place$LT$zbus..connection..Connection$GT$17hf3f3826529bc763eE.exit" ], [ %1138, %1137 ], [ %1150, %1149 ]
+  %.pn80.pn.pn.pn = phi { ptr, i32 } [ %.pn80.pn.pn, %4761 ], [ %.pn80.pn.pn, %"_ZN4core3ptr49drop_in_place$LT$zbus..connection..Connection$GT$17hf3f3826529bc763eE.exit" ], [ %1150, %1149 ], [ %1138, %1137 ]
   %1161 = getelementptr inbounds nuw i8, ptr %1, i64 901
   store i8 0, ptr %1161, align 1
   %1162 = getelementptr inbounds nuw i8, ptr %1, i64 902
@@ -15713,7 +15713,7 @@ common.ret:                                       ; preds = %4570, %4445, %2877,
   br i1 %1164, label %4763, label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17heb5dfe8f866bd06fE.exit347"
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17heb5dfe8f866bd06fE.exit347": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i346", %4763, %1118, %1130, %1160
-  %.pn80.pn.pn.pn.pn = phi { ptr, i32 } [ %1119, %1118 ], [ %.pn80.pn.pn.pn, %1160 ], [ %.pn80.pn.pn.pn, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i346" ], [ %1131, %1130 ], [ %.pn80.pn.pn.pn, %4763 ]
+  %.pn80.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn80.pn.pn.pn, %1160 ], [ %1131, %1130 ], [ %1119, %1118 ], [ %.pn80.pn.pn.pn, %4763 ], [ %.pn80.pn.pn.pn, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i346" ]
   %1165 = getelementptr inbounds nuw i8, ptr %1, i64 902
   store i8 0, ptr %1165, align 2
   %1166 = getelementptr inbounds nuw i8, ptr %1, i64 903
@@ -15722,7 +15722,7 @@ common.ret:                                       ; preds = %4570, %4445, %2877,
   br i1 %1168, label %4769, label %.body317
 
 .body317:                                         ; preds = %4646, %4638, %4769, %1105, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17heb5dfe8f866bd06fE.exit347"
-  %.pn80.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn80.pn.pn.pn.pn, %4769 ], [ %.pn80.pn.pn.pn.pn, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17heb5dfe8f866bd06fE.exit347" ], [ %4639, %4638 ], [ %1106, %1105 ], [ %4639, %4646 ]
+  %.pn80.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn80.pn.pn.pn.pn, %4769 ], [ %.pn80.pn.pn.pn.pn, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17heb5dfe8f866bd06fE.exit347" ], [ %1106, %1105 ], [ %4639, %4646 ], [ %4639, %4638 ]
   %1169 = getelementptr inbounds nuw i8, ptr %1, i64 903
   store i8 0, ptr %1169, align 1
   %1170 = getelementptr inbounds nuw i8, ptr %1, i64 908
@@ -15751,8 +15751,8 @@ common.ret:                                       ; preds = %4570, %4445, %2877,
   br label %1024
 
 .body124:                                         ; preds = %1091, %.body.i121
-  %1178 = phi ptr [ %1054, %.body.i121 ], [ %1034, %1091 ]
-  %.pn18 = phi { ptr, i32 } [ %.pn2.i, %.body.i121 ], [ %1092, %1091 ]
+  %1178 = phi ptr [ %1034, %1091 ], [ %1054, %.body.i121 ]
+  %.pn18 = phi { ptr, i32 } [ %1092, %1091 ], [ %.pn2.i, %.body.i121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8421.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8421.sroa.9)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8421.sroa.10)
@@ -16732,7 +16732,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i110.i: ; preds 
           to label %1547 unwind label %1472, !noalias !5072
 
 "_ZN4core3ptr61drop_in_place$LT$zbus_names..unique_name..OwnedUniqueName$GT$17hd23684511a24c4b4E.exit128.i": ; preds = %1542, %1537, %1536, %1532, %1480, %1475, %1474, %1472, %1460
-  %.pn67.i = phi { ptr, i32 } [ %1473, %1472 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186210.i, %1532 ], [ %1418, %1460 ], [ %1418, %1475 ], [ %1418, %1480 ], [ %1418, %1474 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186210.i, %1542 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186210.i, %1536 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186210.i, %1537 ]
+  %.pn67.i = phi { ptr, i32 } [ %1473, %1472 ], [ %1418, %1460 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186210.i, %1532 ], [ %1418, %1480 ], [ %1418, %1474 ], [ %1418, %1475 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186210.i, %1542 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186210.i, %1536 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186210.i, %1537 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %169), !noalias !5072
   store i8 2, ptr %1183, align 1, !noalias !5072
   br label %.body144
@@ -16908,8 +16908,8 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i110.i: ; preds 
   br label %.thread168.i
 
 .thread168.i:                                     ; preds = %1507, %1505, %1188
-  %1508 = phi ptr [ %1185, %1507 ], [ %.pre214.i, %1505 ], [ %1185, %1188 ]
-  %.pn55.pn.pn.pn.pn.pn.pn175.i = phi { ptr, i32 } [ %.pn.i, %1507 ], [ %.pn55.pn.pn.pn.pn.pn18.i, %1505 ], [ %1189, %1188 ]
+  %1508 = phi ptr [ %.pre214.i, %1505 ], [ %1185, %1188 ], [ %1185, %1507 ]
+  %.pn55.pn.pn.pn.pn.pn.pn175.i = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn18.i, %1505 ], [ %1189, %1188 ], [ %.pn.i, %1507 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5420)
   call void @llvm.experimental.noalias.scope.decl(metadata !5421)
   call void @llvm.experimental.noalias.scope.decl(metadata !5422)
@@ -16936,8 +16936,8 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i110.i: ; preds 
   br label %"_ZN4core3ptr42drop_in_place$LT$zbus..guid..OwnedGuid$GT$17h39e22ea31a97f4bcE.exit138.sink.split.i"
 
 "_ZN4core3ptr42drop_in_place$LT$zbus..guid..OwnedGuid$GT$17h39e22ea31a97f4bcE.exit138.sink.split.i": ; preds = %1391, %1514, %1431, %1426
-  %.sroa.07.0180182211.ph.i = phi i1 [ false, %1431 ], [ false, %1426 ], [ true, %1514 ], [ true, %1391 ]
-  %.pn55.pn.pn.pn.pn.pn.pn174186210.ph.i = phi { ptr, i32 } [ %1427, %1431 ], [ %1427, %1426 ], [ %1374, %1514 ], [ %1392, %1391 ]
+  %.sroa.07.0180182211.ph.i = phi i1 [ false, %1426 ], [ false, %1431 ], [ true, %1514 ], [ true, %1391 ]
+  %.pn55.pn.pn.pn.pn.pn.pn174186210.ph.i = phi { ptr, i32 } [ %1427, %1426 ], [ %1427, %1431 ], [ %1374, %1514 ], [ %1392, %1391 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %139), !noalias !5072
   call void @llvm.lifetime.end.p0(ptr nonnull %140), !noalias !5072
   call void @llvm.lifetime.end.p0(ptr nonnull %142), !noalias !5072
@@ -16950,8 +16950,8 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i110.i: ; preds 
   br label %"_ZN4core3ptr42drop_in_place$LT$zbus..guid..OwnedGuid$GT$17h39e22ea31a97f4bcE.exit138.i"
 
 "_ZN4core3ptr42drop_in_place$LT$zbus..guid..OwnedGuid$GT$17h39e22ea31a97f4bcE.exit138.i": ; preds = %1524, %1519, %1517, %"_ZN4core3ptr42drop_in_place$LT$zbus..guid..OwnedGuid$GT$17h39e22ea31a97f4bcE.exit138.sink.split.i"
-  %.sroa.07.0180182211.i = phi i1 [ true, %1524 ], [ true, %1519 ], [ true, %1517 ], [ %.sroa.07.0180182211.ph.i, %"_ZN4core3ptr42drop_in_place$LT$zbus..guid..OwnedGuid$GT$17h39e22ea31a97f4bcE.exit138.sink.split.i" ]
-  %.pn55.pn.pn.pn.pn.pn.pn174186210.i = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn175.i, %1524 ], [ %.pn55.pn.pn.pn.pn.pn.pn175.i, %1519 ], [ %.pn55.pn.pn.pn.pn.pn.pn175.i, %1517 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186210.ph.i, %"_ZN4core3ptr42drop_in_place$LT$zbus..guid..OwnedGuid$GT$17h39e22ea31a97f4bcE.exit138.sink.split.i" ]
+  %.sroa.07.0180182211.i = phi i1 [ true, %1519 ], [ true, %1517 ], [ true, %1524 ], [ %.sroa.07.0180182211.ph.i, %"_ZN4core3ptr42drop_in_place$LT$zbus..guid..OwnedGuid$GT$17h39e22ea31a97f4bcE.exit138.sink.split.i" ]
+  %.pn55.pn.pn.pn.pn.pn.pn174186210.i = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn175.i, %1519 ], [ %.pn55.pn.pn.pn.pn.pn.pn175.i, %1517 ], [ %.pn55.pn.pn.pn.pn.pn.pn175.i, %1524 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186210.ph.i, %"_ZN4core3ptr42drop_in_place$LT$zbus..guid..OwnedGuid$GT$17h39e22ea31a97f4bcE.exit138.sink.split.i" ]
   %1515 = getelementptr inbounds nuw i8, ptr %169, i64 112
   %.val70.i = load ptr, ptr %1515, align 8, !noalias !5072, !noundef !5
   %1516 = getelementptr inbounds nuw i8, ptr %169, i64 120
@@ -17225,13 +17225,13 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i110.i: ; preds 
   br i1 %1608, label %4599, label %"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$std..os..fd..owned..OwnedFd$GT$$GT$17h3afddd558a987a4eE.exit"
 
 .body144:                                         ; preds = %1545, %"_ZN4core3ptr61drop_in_place$LT$zbus_names..unique_name..OwnedUniqueName$GT$17hd23684511a24c4b4E.exit128.i"
-  %1609 = phi ptr [ %1182, %"_ZN4core3ptr61drop_in_place$LT$zbus_names..unique_name..OwnedUniqueName$GT$17hd23684511a24c4b4E.exit128.i" ], [ %1180, %1545 ]
-  %.pn32 = phi { ptr, i32 } [ %.pn67.i, %"_ZN4core3ptr61drop_in_place$LT$zbus_names..unique_name..OwnedUniqueName$GT$17hd23684511a24c4b4E.exit128.i" ], [ %1546, %1545 ]
+  %1609 = phi ptr [ %1180, %1545 ], [ %1182, %"_ZN4core3ptr61drop_in_place$LT$zbus_names..unique_name..OwnedUniqueName$GT$17hd23684511a24c4b4E.exit128.i" ]
+  %.pn32 = phi { ptr, i32 } [ %1546, %1545 ], [ %.pn67.i, %"_ZN4core3ptr61drop_in_place$LT$zbus_names..unique_name..OwnedUniqueName$GT$17hd23684511a24c4b4E.exit128.i" ]
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$zbus..connection..Connection..new..$u7b$$u7b$closure$u7d$$u7d$$GT$17h052a38cf7b0c7773E"(ptr noundef nonnull align 8 %1609) #21
           to label %"_ZN4core3ptr49drop_in_place$LT$zbus..connection..Connection$GT$17hf3f3826529bc763eE.exit" unwind label %1012
 
 "_ZN4core3ptr49drop_in_place$LT$zbus..connection..Connection$GT$17hf3f3826529bc763eE.exit": ; preds = %.body144, %1600, %1605, %4594
-  %.pn80.pn.pn = phi { ptr, i32 } [ %.pn80.pn, %1600 ], [ %4595, %4594 ], [ %.pn80.pn, %1605 ], [ %.pn32, %.body144 ]
+  %.pn80.pn.pn = phi { ptr, i32 } [ %4595, %4594 ], [ %.pn80.pn, %1605 ], [ %.pn80.pn, %1600 ], [ %.pn32, %.body144 ]
   %1610 = getelementptr inbounds nuw i8, ptr %1, i64 901
   %1611 = load i8, ptr %1610, align 1, !range !26, !noundef !5
   %1612 = trunc nuw i8 %1611 to i1
@@ -17321,9 +17321,9 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i110.i: ; preds 
   br i1 %1637, label %2540, label %"_ZN4core3ptr65drop_in_place$LT$zbus..object_server..interface..ArcInterface$GT$17h5f3d32aa12cce471E.exit.i"
 
 "_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit252.i": ; preds = %2586, %2581, %2578, %2490, %"_ZN4core3ptr90drop_in_place$LT$async_lock..rwlock..RwLockWriteGuard$LT$zbus..object_server..Node$GT$$GT$17h75bcb3a01b23b95fE.exit.i"
-  %1638 = phi ptr [ %2491, %2490 ], [ %1844, %2581 ], [ %1844, %"_ZN4core3ptr90drop_in_place$LT$async_lock..rwlock..RwLockWriteGuard$LT$zbus..object_server..Node$GT$$GT$17h75bcb3a01b23b95fE.exit.i" ], [ %1844, %2586 ], [ %1844, %2578 ]
-  %1639 = phi ptr [ %2492, %2490 ], [ %1845, %2581 ], [ %1845, %"_ZN4core3ptr90drop_in_place$LT$async_lock..rwlock..RwLockWriteGuard$LT$zbus..object_server..Node$GT$$GT$17h75bcb3a01b23b95fE.exit.i" ], [ %1845, %2586 ], [ %1845, %2578 ]
-  %.pn99.i = phi { ptr, i32 } [ %2493, %2490 ], [ %.pn97.i, %2581 ], [ %.pn97.i, %"_ZN4core3ptr90drop_in_place$LT$async_lock..rwlock..RwLockWriteGuard$LT$zbus..object_server..Node$GT$$GT$17h75bcb3a01b23b95fE.exit.i" ], [ %.pn97.i, %2586 ], [ %.pn97.i, %2578 ]
+  %1638 = phi ptr [ %2491, %2490 ], [ %1844, %"_ZN4core3ptr90drop_in_place$LT$async_lock..rwlock..RwLockWriteGuard$LT$zbus..object_server..Node$GT$$GT$17h75bcb3a01b23b95fE.exit.i" ], [ %1844, %2586 ], [ %1844, %2578 ], [ %1844, %2581 ]
+  %1639 = phi ptr [ %2492, %2490 ], [ %1845, %"_ZN4core3ptr90drop_in_place$LT$async_lock..rwlock..RwLockWriteGuard$LT$zbus..object_server..Node$GT$$GT$17h75bcb3a01b23b95fE.exit.i" ], [ %1845, %2586 ], [ %1845, %2578 ], [ %1845, %2581 ]
+  %.pn99.i = phi { ptr, i32 } [ %2493, %2490 ], [ %.pn97.i, %"_ZN4core3ptr90drop_in_place$LT$async_lock..rwlock..RwLockWriteGuard$LT$zbus..object_server..Node$GT$$GT$17h75bcb3a01b23b95fE.exit.i" ], [ %.pn97.i, %2586 ], [ %.pn97.i, %2578 ], [ %.pn97.i, %2581 ]
   %1640 = getelementptr inbounds nuw i8, ptr %1, i64 1611
   store i8 0, ptr %1640, align 1, !noalias !5524
   %1641 = getelementptr inbounds nuw i8, ptr %1, i64 1613
@@ -17410,9 +17410,9 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i110.i: ; preds 
   unreachable
 
 "_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit133.i": ; preds = %2260, %1831, %1816, %1812, %1807, %1802, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit.i", %1694, %1677
-  %1673 = phi ptr [ %2261, %2260 ], [ %1832, %1831 ], [ %1647, %1816 ], [ %1647, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit.i" ], [ %1647, %1677 ], [ %1647, %1694 ], [ %1803, %1812 ], [ %1803, %1802 ], [ %1803, %1807 ]
-  %1674 = phi ptr [ %2262, %2260 ], [ %1833, %1831 ], [ %1648, %1816 ], [ %1648, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit.i" ], [ %1648, %1677 ], [ %1648, %1694 ], [ %1804, %1812 ], [ %1804, %1802 ], [ %1804, %1807 ]
-  %.pn92.i = phi { ptr, i32 } [ %2263, %2260 ], [ %.pn88.pn.pn.i, %1831 ], [ %1817, %1816 ], [ %.pn54.i, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit.i" ], [ %1678, %1677 ], [ %1695, %1694 ], [ %.pn52.i, %1812 ], [ %.pn52.i, %1802 ], [ %.pn52.i, %1807 ]
+  %1673 = phi ptr [ %2261, %2260 ], [ %1832, %1831 ], [ %1647, %1816 ], [ %1647, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit.i" ], [ %1647, %1694 ], [ %1647, %1677 ], [ %1803, %1812 ], [ %1803, %1802 ], [ %1803, %1807 ]
+  %1674 = phi ptr [ %2262, %2260 ], [ %1833, %1831 ], [ %1648, %1816 ], [ %1648, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit.i" ], [ %1648, %1694 ], [ %1648, %1677 ], [ %1804, %1812 ], [ %1804, %1802 ], [ %1804, %1807 ]
+  %.pn92.i = phi { ptr, i32 } [ %2263, %2260 ], [ %.pn88.pn.pn.i, %1831 ], [ %1817, %1816 ], [ %.pn54.i, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit.i" ], [ %1695, %1694 ], [ %1678, %1677 ], [ %.pn52.i, %1812 ], [ %.pn52.i, %1802 ], [ %.pn52.i, %1807 ]
   %1675 = getelementptr inbounds nuw i8, ptr %1, i64 1384
   %1676 = load i64, ptr %1675, align 8, !range !106, !noalias !5524, !noundef !5
   %.not.i = icmp eq i64 %1676, 3
@@ -17963,11 +17963,11 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i.i.i: ; preds =
   br label %1914
 
 "_ZN4core3ptr300drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..OwnedObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$$GT$17h7610e44109dc44e3E.exit72.i.i": ; preds = %2118, %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$$RF$zbus..object_server..Node$GT$$GT$17hf6a391e7d32349f9E.exit64.i.i", %1870
-  %1865 = phi ptr [ %1871, %1870 ], [ %1905, %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$$RF$zbus..object_server..Node$GT$$GT$17hf6a391e7d32349f9E.exit64.i.i" ], [ %1905, %2118 ]
-  %1866 = phi ptr [ %1872, %1870 ], [ %1906, %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$$RF$zbus..object_server..Node$GT$$GT$17hf6a391e7d32349f9E.exit64.i.i" ], [ %1906, %2118 ]
-  %1867 = phi ptr [ %1873, %1870 ], [ %1907, %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$$RF$zbus..object_server..Node$GT$$GT$17hf6a391e7d32349f9E.exit64.i.i" ], [ %1907, %2118 ]
-  %1868 = phi ptr [ %1874, %1870 ], [ %1908, %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$$RF$zbus..object_server..Node$GT$$GT$17hf6a391e7d32349f9E.exit64.i.i" ], [ %1908, %2118 ]
-  %.pn33.pn.i.i = phi { ptr, i32 } [ %1875, %1870 ], [ %.pn33.i.i, %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$$RF$zbus..object_server..Node$GT$$GT$17hf6a391e7d32349f9E.exit64.i.i" ], [ %.pn33.i.i, %2118 ]
+  %1865 = phi ptr [ %1905, %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$$RF$zbus..object_server..Node$GT$$GT$17hf6a391e7d32349f9E.exit64.i.i" ], [ %1871, %1870 ], [ %1905, %2118 ]
+  %1866 = phi ptr [ %1906, %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$$RF$zbus..object_server..Node$GT$$GT$17hf6a391e7d32349f9E.exit64.i.i" ], [ %1872, %1870 ], [ %1906, %2118 ]
+  %1867 = phi ptr [ %1907, %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$$RF$zbus..object_server..Node$GT$$GT$17hf6a391e7d32349f9E.exit64.i.i" ], [ %1873, %1870 ], [ %1907, %2118 ]
+  %1868 = phi ptr [ %1908, %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$$RF$zbus..object_server..Node$GT$$GT$17hf6a391e7d32349f9E.exit64.i.i" ], [ %1874, %1870 ], [ %1908, %2118 ]
+  %.pn33.pn.i.i = phi { ptr, i32 } [ %.pn33.i.i, %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$$RF$zbus..object_server..Node$GT$$GT$17hf6a391e7d32349f9E.exit64.i.i" ], [ %1875, %1870 ], [ %.pn33.i.i, %2118 ]
   %1869 = getelementptr inbounds nuw i8, ptr %1, i64 1929
   store i8 0, ptr %1869, align 1, !noalias !5710
   store i8 2, ptr %1867, align 2, !noalias !5710
@@ -18044,11 +18044,11 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i.i.i: ; preds =
   br i1 %1904, label %2041, label %2027
 
 "_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$$RF$zbus..object_server..Node$GT$$GT$17hf6a391e7d32349f9E.exit64.i.i": ; preds = %2083, %"_ZN4core3ptr215drop_in_place$LT$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$17h865ef238915f3772E.exit70.i.i", %1893
-  %1905 = phi ptr [ %2050, %2083 ], [ %1852, %1893 ], [ %2050, %"_ZN4core3ptr215drop_in_place$LT$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$17h865ef238915f3772E.exit70.i.i" ]
-  %1906 = phi ptr [ %2051, %2083 ], [ %1853, %1893 ], [ %2051, %"_ZN4core3ptr215drop_in_place$LT$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$17h865ef238915f3772E.exit70.i.i" ]
-  %1907 = phi ptr [ %2052, %2083 ], [ %1855, %1893 ], [ %2052, %"_ZN4core3ptr215drop_in_place$LT$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$17h865ef238915f3772E.exit70.i.i" ]
-  %1908 = phi ptr [ %2053, %2083 ], [ %1856, %1893 ], [ %2053, %"_ZN4core3ptr215drop_in_place$LT$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$17h865ef238915f3772E.exit70.i.i" ]
-  %.pn33.i.i = phi { ptr, i32 } [ %.pn28.pn.pn.i.i, %2083 ], [ %1894, %1893 ], [ %.pn28.pn.pn.i.i, %"_ZN4core3ptr215drop_in_place$LT$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$17h865ef238915f3772E.exit70.i.i" ]
+  %1905 = phi ptr [ %1852, %1893 ], [ %2050, %"_ZN4core3ptr215drop_in_place$LT$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$17h865ef238915f3772E.exit70.i.i" ], [ %2050, %2083 ]
+  %1906 = phi ptr [ %1853, %1893 ], [ %2051, %"_ZN4core3ptr215drop_in_place$LT$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$17h865ef238915f3772E.exit70.i.i" ], [ %2051, %2083 ]
+  %1907 = phi ptr [ %1855, %1893 ], [ %2052, %"_ZN4core3ptr215drop_in_place$LT$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$17h865ef238915f3772E.exit70.i.i" ], [ %2052, %2083 ]
+  %1908 = phi ptr [ %1856, %1893 ], [ %2053, %"_ZN4core3ptr215drop_in_place$LT$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$17h865ef238915f3772E.exit70.i.i" ], [ %2053, %2083 ]
+  %.pn33.i.i = phi { ptr, i32 } [ %1894, %1893 ], [ %.pn28.pn.pn.i.i, %"_ZN4core3ptr215drop_in_place$LT$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$17h865ef238915f3772E.exit70.i.i" ], [ %.pn28.pn.pn.i.i, %2083 ]
   %1909 = getelementptr inbounds nuw i8, ptr %1, i64 1929
   %1910 = load i8, ptr %1909, align 1, !range !26, !noalias !5710, !noundef !5
   %1911 = trunc nuw i8 %1910 to i1
@@ -18414,11 +18414,11 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$$RF$zbus..object_server..Node$GT$$GT$17hf6a391e7d32349f9E.exit.i.i"
 
 "_ZN4core3ptr215drop_in_place$LT$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$17h865ef238915f3772E.exit70.i.i": ; preds = %2115, %2087, %2058
-  %2050 = phi ptr [ %2059, %2058 ], [ %2088, %2087 ], [ %2088, %2115 ]
-  %2051 = phi ptr [ %2060, %2058 ], [ %2089, %2087 ], [ %2089, %2115 ]
-  %2052 = phi ptr [ %2061, %2058 ], [ %2090, %2087 ], [ %2090, %2115 ]
-  %2053 = phi ptr [ %2062, %2058 ], [ %2091, %2087 ], [ %2091, %2115 ]
-  %.pn28.pn.pn.i.i = phi { ptr, i32 } [ %2063, %2058 ], [ %.pn28.pn.i.i, %2087 ], [ %.pn28.pn.i.i, %2115 ]
+  %2050 = phi ptr [ %2088, %2087 ], [ %2059, %2058 ], [ %2088, %2115 ]
+  %2051 = phi ptr [ %2089, %2087 ], [ %2060, %2058 ], [ %2089, %2115 ]
+  %2052 = phi ptr [ %2090, %2087 ], [ %2061, %2058 ], [ %2090, %2115 ]
+  %2053 = phi ptr [ %2091, %2087 ], [ %2062, %2058 ], [ %2091, %2115 ]
+  %.pn28.pn.pn.i.i = phi { ptr, i32 } [ %.pn28.pn.i.i, %2087 ], [ %2063, %2058 ], [ %.pn28.pn.i.i, %2115 ]
   %2054 = getelementptr inbounds nuw i8, ptr %1, i64 1928
   store i8 0, ptr %2054, align 8, !noalias !5710
   %2055 = getelementptr inbounds nuw i8, ptr %1, i64 1840
@@ -18490,11 +18490,11 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$$RF$zbus..object_server..Node$GT$$GT$17hf6a391e7d32349f9E.exit64.i.i"
 
 2087:                                             ; preds = %"_ZN4core3ptr122drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$17heb81278bb1cdc1a5E.exit.i.i", %2024, %2007, %1969
-  %2088 = phi ptr [ %1952, %2024 ], [ %1952, %2007 ], [ %1952, %1969 ], [ %1915, %"_ZN4core3ptr122drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$17heb81278bb1cdc1a5E.exit.i.i" ]
-  %2089 = phi ptr [ %1953, %2024 ], [ %1953, %2007 ], [ %1953, %1969 ], [ %1916, %"_ZN4core3ptr122drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$17heb81278bb1cdc1a5E.exit.i.i" ]
-  %2090 = phi ptr [ %1954, %2024 ], [ %1954, %2007 ], [ %1954, %1969 ], [ %1917, %"_ZN4core3ptr122drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$17heb81278bb1cdc1a5E.exit.i.i" ]
-  %2091 = phi ptr [ %1955, %2024 ], [ %1955, %2007 ], [ %1955, %1969 ], [ %1918, %"_ZN4core3ptr122drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$17heb81278bb1cdc1a5E.exit.i.i" ]
-  %.pn28.pn.i.i = phi { ptr, i32 } [ %2025, %2024 ], [ %.pn26.i.i, %2007 ], [ %1970, %1969 ], [ %.pn19.pn.i.i, %"_ZN4core3ptr122drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$17heb81278bb1cdc1a5E.exit.i.i" ]
+  %2088 = phi ptr [ %1952, %2024 ], [ %1952, %2007 ], [ %1915, %"_ZN4core3ptr122drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$17heb81278bb1cdc1a5E.exit.i.i" ], [ %1952, %1969 ]
+  %2089 = phi ptr [ %1953, %2024 ], [ %1953, %2007 ], [ %1916, %"_ZN4core3ptr122drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$17heb81278bb1cdc1a5E.exit.i.i" ], [ %1953, %1969 ]
+  %2090 = phi ptr [ %1954, %2024 ], [ %1954, %2007 ], [ %1917, %"_ZN4core3ptr122drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$17heb81278bb1cdc1a5E.exit.i.i" ], [ %1954, %1969 ]
+  %2091 = phi ptr [ %1955, %2024 ], [ %1955, %2007 ], [ %1918, %"_ZN4core3ptr122drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$17heb81278bb1cdc1a5E.exit.i.i" ], [ %1955, %1969 ]
+  %.pn28.pn.i.i = phi { ptr, i32 } [ %2025, %2024 ], [ %.pn26.i.i, %2007 ], [ %.pn19.pn.i.i, %"_ZN4core3ptr122drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$17heb81278bb1cdc1a5E.exit.i.i" ], [ %1970, %1969 ]
   %2092 = getelementptr inbounds nuw i8, ptr %1, i64 1928
   %2093 = load i8, ptr %2092, align 8, !range !26, !noalias !5710, !noundef !5
   %2094 = trunc nuw i8 %2093 to i1
@@ -18513,7 +18513,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
   br label %1914
 
 "_ZN4core3ptr122drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$17heb81278bb1cdc1a5E.exit.i.i": ; preds = %2096, %.thread.i.i164, %1948, %1925, %1919
-  %.pn19.pn.i.i = phi { ptr, i32 } [ %1950, %.thread.i.i164 ], [ %1949, %1948 ], [ %2097, %2096 ], [ %1926, %1925 ], [ %1920, %1919 ]
+  %.pn19.pn.i.i = phi { ptr, i32 } [ %1949, %1948 ], [ %1950, %.thread.i.i164 ], [ %2097, %2096 ], [ %1926, %1925 ], [ %1920, %1919 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %103), !noalias !5710
   br label %2087
 
@@ -18747,19 +18747,19 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
           to label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit.i" unwind label %2260, !noalias !5528
 
 .body.i163:                                       ; preds = %2121, %"_ZN4core3ptr300drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..OwnedObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$$GT$17h7610e44109dc44e3E.exit72.i.i"
-  %2171 = phi ptr [ %1865, %"_ZN4core3ptr300drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..OwnedObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$$GT$17h7610e44109dc44e3E.exit72.i.i" ], [ %1615, %2121 ]
-  %2172 = phi ptr [ %1866, %"_ZN4core3ptr300drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..OwnedObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$$GT$17h7610e44109dc44e3E.exit72.i.i" ], [ %1614, %2121 ]
-  %2173 = phi ptr [ %1868, %"_ZN4core3ptr300drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..OwnedObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$$GT$17h7610e44109dc44e3E.exit72.i.i" ], [ %1850, %2121 ]
-  %.pn64.i = phi { ptr, i32 } [ %.pn33.pn.i.i, %"_ZN4core3ptr300drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..OwnedObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$$GT$17h7610e44109dc44e3E.exit72.i.i" ], [ %2122, %2121 ]
+  %2171 = phi ptr [ %1615, %2121 ], [ %1865, %"_ZN4core3ptr300drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..OwnedObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$$GT$17h7610e44109dc44e3E.exit72.i.i" ]
+  %2172 = phi ptr [ %1614, %2121 ], [ %1866, %"_ZN4core3ptr300drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..OwnedObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$$GT$17h7610e44109dc44e3E.exit72.i.i" ]
+  %2173 = phi ptr [ %1850, %2121 ], [ %1868, %"_ZN4core3ptr300drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..OwnedObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$$GT$17h7610e44109dc44e3E.exit72.i.i" ]
+  %.pn64.i = phi { ptr, i32 } [ %2122, %2121 ], [ %.pn33.pn.i.i, %"_ZN4core3ptr300drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..OwnedObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$$GT$17h7610e44109dc44e3E.exit72.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8316.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9317.i)
   invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$zbus..object_server..Node..get_managed_objects..$u7b$$u7b$closure$u7d$$u7d$$GT$17h94f97504a431d90bE"(ptr noundef nonnull align 8 %2173) #21
           to label %"_ZN4core3ptr300drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..OwnedObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$$GT$17h7610e44109dc44e3E.exit.i" unwind label %1800, !noalias !5528
 
 "_ZN4core3ptr300drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..OwnedObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..OwnedInterfaceName$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$$GT$$GT$17h7610e44109dc44e3E.exit.i": ; preds = %2129, %.body.i163, %2322, %2159
-  %2174 = phi ptr [ %2160, %2322 ], [ %2160, %2159 ], [ %2124, %2129 ], [ %2171, %.body.i163 ]
-  %2175 = phi ptr [ %2161, %2322 ], [ %2161, %2159 ], [ %2125, %2129 ], [ %2172, %.body.i163 ]
-  %.pn88.pn.i = phi { ptr, i32 } [ %.pn88.i, %2322 ], [ %.pn88.i, %2159 ], [ %2130, %2129 ], [ %.pn64.i, %.body.i163 ]
+  %2174 = phi ptr [ %2160, %2159 ], [ %2160, %2322 ], [ %2124, %2129 ], [ %2171, %.body.i163 ]
+  %2175 = phi ptr [ %2161, %2159 ], [ %2161, %2322 ], [ %2125, %2129 ], [ %2172, %.body.i163 ]
+  %.pn88.pn.i = phi { ptr, i32 } [ %.pn88.i, %2159 ], [ %.pn88.i, %2322 ], [ %2130, %2129 ], [ %.pn64.i, %.body.i163 ]
   %2176 = getelementptr inbounds nuw i8, ptr %1, i64 1615
   store i8 0, ptr %2176, align 1, !noalias !5524
   call void @llvm.lifetime.end.p0(ptr nonnull %114), !noalias !5524
@@ -18808,7 +18808,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
   br label %.thread584
 
 "_ZN4core3ptr92drop_in_place$LT$zbus..fdo..ObjectManager..interfaces_added..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbe677cf239ec4d59E.exit185.i": ; preds = %2320, %2196, %2181
-  %.pn80.i = phi { ptr, i32 } [ %2197, %2196 ], [ %2182, %2181 ], [ %2182, %2320 ]
+  %.pn80.i = phi { ptr, i32 } [ %2197, %2196 ], [ %2182, %2320 ], [ %2182, %2181 ]
   %2194 = getelementptr inbounds nuw i8, ptr %1, i64 1760
   %2195 = getelementptr inbounds nuw i8, ptr %1, i64 1792
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h301f26e74f729ca9E(ptr noalias noundef nonnull align 8 dereferenceable(48) %2194, ptr noalias noundef nonnull readonly align 1 %2195, i64 noundef 72, i64 noundef 16)
@@ -19050,7 +19050,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
           to label %.body172.i unwind label %2284, !noalias !6044
 
 .body172.i:                                       ; preds = %2287, %2286, %2278
-  %.pn70.i = phi { ptr, i32 } [ %2279, %2278 ], [ %2288, %2287 ], [ %2279, %2286 ]
+  %.pn70.i = phi { ptr, i32 } [ %2288, %2287 ], [ %2279, %2286 ], [ %2279, %2278 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7337.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10338.i)
   br label %"_ZN4core3ptr185drop_in_place$LT$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$std..collections..hash..map..HashMap$LT$$RF$str$C$zvariant..value..Value$GT$$GT$$GT$17hc754a7ce299f32b9E.exit.i"
@@ -19292,7 +19292,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
           to label %.body198.i unwind label %2357, !noalias !6113
 
 .body198.i:                                       ; preds = %2360, %2359, %2351
-  %.pn32.i160 = phi { ptr, i32 } [ %2352, %2351 ], [ %2361, %2360 ], [ %2352, %2359 ]
+  %.pn32.i160 = phi { ptr, i32 } [ %2361, %2360 ], [ %2352, %2359 ], [ %2352, %2351 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7447.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10448.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8442.i)
@@ -19370,9 +19370,9 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
   br label %2406
 
 "_ZN4core3ptr92drop_in_place$LT$zbus..fdo..ObjectManager..interfaces_added..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbe677cf239ec4d59E.exit245.i": ; preds = %2410, %2423, %2563, %2373
-  %2380 = phi ptr [ %2325, %2373 ], [ %2407, %2423 ], [ %2407, %2410 ], [ %2407, %2563 ]
-  %2381 = phi ptr [ %2326, %2373 ], [ %2408, %2423 ], [ %2408, %2410 ], [ %2408, %2563 ]
-  %.pn44.pn.i = phi { ptr, i32 } [ %.pn38.i, %2373 ], [ %2424, %2423 ], [ %2411, %2410 ], [ %2411, %2563 ]
+  %2380 = phi ptr [ %2325, %2373 ], [ %2407, %2423 ], [ %2407, %2563 ], [ %2407, %2410 ]
+  %2381 = phi ptr [ %2326, %2373 ], [ %2408, %2423 ], [ %2408, %2563 ], [ %2408, %2410 ]
+  %.pn44.pn.i = phi { ptr, i32 } [ %.pn38.i, %2373 ], [ %2424, %2423 ], [ %2411, %2563 ], [ %2411, %2410 ]
   %2382 = getelementptr inbounds nuw i8, ptr %1, i64 1614
   %2383 = load i8, ptr %2382, align 2, !range !26, !noalias !5524, !noundef !5
   %2384 = trunc nuw i8 %2383 to i1
@@ -19404,9 +19404,9 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
           to label %"_ZN4core3ptr122drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$zvariant..owned_value..OwnedValue$GT$$GT$17heb81278bb1cdc1a5E.exit.i" unwind label %2430, !noalias !5528
 
 "_ZN4core3ptr97drop_in_place$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$zvariant..value..Value$GT$$GT$17h8dd2efe1b52568afE.exit.i": ; preds = %2565, %"_ZN4core3ptr92drop_in_place$LT$zbus..fdo..ObjectManager..interfaces_added..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbe677cf239ec4d59E.exit245.i", %.body198.i
-  %2392 = phi ptr [ %2325, %.body198.i ], [ %2380, %"_ZN4core3ptr92drop_in_place$LT$zbus..fdo..ObjectManager..interfaces_added..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbe677cf239ec4d59E.exit245.i" ], [ %2380, %2565 ]
-  %2393 = phi ptr [ %2326, %.body198.i ], [ %2381, %"_ZN4core3ptr92drop_in_place$LT$zbus..fdo..ObjectManager..interfaces_added..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbe677cf239ec4d59E.exit245.i" ], [ %2381, %2565 ]
-  %.pn44.pn.pn.i = phi { ptr, i32 } [ %.pn32.i160, %.body198.i ], [ %.pn44.pn.i, %"_ZN4core3ptr92drop_in_place$LT$zbus..fdo..ObjectManager..interfaces_added..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbe677cf239ec4d59E.exit245.i" ], [ %.pn44.pn.i, %2565 ]
+  %2392 = phi ptr [ %2380, %"_ZN4core3ptr92drop_in_place$LT$zbus..fdo..ObjectManager..interfaces_added..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbe677cf239ec4d59E.exit245.i" ], [ %2325, %.body198.i ], [ %2380, %2565 ]
+  %2393 = phi ptr [ %2381, %"_ZN4core3ptr92drop_in_place$LT$zbus..fdo..ObjectManager..interfaces_added..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbe677cf239ec4d59E.exit245.i" ], [ %2326, %.body198.i ], [ %2381, %2565 ]
+  %.pn44.pn.pn.i = phi { ptr, i32 } [ %.pn44.pn.i, %"_ZN4core3ptr92drop_in_place$LT$zbus..fdo..ObjectManager..interfaces_added..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbe677cf239ec4d59E.exit245.i" ], [ %.pn32.i160, %.body198.i ], [ %.pn44.pn.i, %2565 ]
   %2394 = getelementptr inbounds nuw i8, ptr %1, i64 1614
   store i8 0, ptr %2394, align 2, !noalias !5524
   call void @llvm.lifetime.end.p0(ptr nonnull %109), !noalias !5524
@@ -19579,9 +19579,9 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
           to label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit224.i" unwind label %2466, !noalias !5528
 
 "_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit249.i": ; preds = %2577, %2572, %2571, %2567, %2466, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit133.i"
-  %2463 = phi ptr [ %2467, %2466 ], [ %1673, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit133.i" ], [ %1673, %2567 ], [ %1673, %2577 ], [ %1673, %2571 ], [ %1673, %2572 ]
-  %2464 = phi ptr [ %2468, %2466 ], [ %1674, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit133.i" ], [ %1674, %2567 ], [ %1674, %2577 ], [ %1674, %2571 ], [ %1674, %2572 ]
-  %.pn94.i = phi { ptr, i32 } [ %2469, %2466 ], [ %.pn92.i, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit133.i" ], [ %.pn92.i, %2567 ], [ %.pn92.i, %2577 ], [ %.pn92.i, %2571 ], [ %.pn92.i, %2572 ]
+  %2463 = phi ptr [ %2467, %2466 ], [ %1673, %2567 ], [ %1673, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit133.i" ], [ %1673, %2577 ], [ %1673, %2571 ], [ %1673, %2572 ]
+  %2464 = phi ptr [ %2468, %2466 ], [ %1674, %2567 ], [ %1674, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit133.i" ], [ %1674, %2577 ], [ %1674, %2571 ], [ %1674, %2572 ]
+  %.pn94.i = phi { ptr, i32 } [ %2469, %2466 ], [ %.pn92.i, %2567 ], [ %.pn92.i, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit133.i" ], [ %.pn92.i, %2577 ], [ %.pn92.i, %2571 ], [ %.pn92.i, %2572 ]
   %2465 = getelementptr inbounds nuw i8, ptr %1, i64 1610
   store i8 0, ptr %2465, align 2, !noalias !5524
   br label %1840
@@ -19786,9 +19786,9 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
           to label %"_ZN4core3ptr65drop_in_place$LT$zbus..object_server..interface..ArcInterface$GT$17h5f3d32aa12cce471E.exit.i" unwind label %2552, !noalias !5528
 
 "_ZN4core3ptr65drop_in_place$LT$zbus..object_server..interface..ArcInterface$GT$17h5f3d32aa12cce471E.exit254.i": ; preds = %2592, %2587, %2552, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit252.i"
-  %2546 = phi ptr [ %1835, %2552 ], [ %1638, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit252.i" ], [ %1638, %2592 ], [ %1638, %2587 ]
-  %2547 = phi ptr [ %1836, %2552 ], [ %1639, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit252.i" ], [ %1639, %2592 ], [ %1639, %2587 ]
-  %.pn99.pn.i = phi { ptr, i32 } [ %2553, %2552 ], [ %.pn99.i, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit252.i" ], [ %.pn99.i, %2592 ], [ %.pn99.i, %2587 ]
+  %2546 = phi ptr [ %1638, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit252.i" ], [ %1835, %2552 ], [ %1638, %2592 ], [ %1638, %2587 ]
+  %2547 = phi ptr [ %1639, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit252.i" ], [ %1836, %2552 ], [ %1639, %2592 ], [ %1639, %2587 ]
+  %.pn99.pn.i = phi { ptr, i32 } [ %.pn99.i, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit252.i" ], [ %2553, %2552 ], [ %.pn99.i, %2592 ], [ %.pn99.i, %2587 ]
   %2548 = getelementptr inbounds nuw i8, ptr %1, i64 1613
   store i8 0, ptr %2548, align 1, !noalias !5524
   %2549 = getelementptr inbounds nuw i8, ptr %1, i64 1612
@@ -19931,7 +19931,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
           cleanup
   br label %.body180
 
-.thread584:                                       ; preds = %2422, %2193, %2128, %2334, %.noexc107.i
+.thread584:                                       ; preds = %2193, %2128, %2334, %2422, %.noexc107.i
   %2604 = phi ptr [ %1647, %.noexc107.i ], [ %1915, %2128 ], [ %2178, %2193 ], [ %2325, %2334 ], [ %2407, %2422 ]
   %.sink.i.ph = phi i8 [ 3, %.noexc107.i ], [ 4, %2128 ], [ 5, %2193 ], [ 6, %2334 ], [ 7, %2422 ]
   store i8 %.sink.i.ph, ptr %2604, align 8, !noalias !5524
@@ -20421,7 +20421,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
   br label %2864
 
 .body242:                                         ; preds = %2875, %2871, %2757
-  %.pn61 = phi { ptr, i32 } [ %2758, %2757 ], [ %2872, %2871 ], [ %2876, %2875 ]
+  %.pn61 = phi { ptr, i32 } [ %2872, %2871 ], [ %2758, %2757 ], [ %2876, %2875 ]
   %2762 = getelementptr inbounds nuw i8, ptr %1, i64 906
   %2763 = load i8, ptr %2762, align 2, !range !26, !noundef !5
   %2764 = trunc nuw i8 %2763 to i1
@@ -20681,8 +20681,8 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
           to label %.noexc238 unwind label %4594
 
 .body180:                                         ; preds = %2602, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit257.i"
-  %2863 = phi ptr [ %2504, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit257.i" ], [ %1614, %2602 ]
-  %.pn42 = phi { ptr, i32 } [ %.pn102.i, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit257.i" ], [ %2603, %2602 ]
+  %2863 = phi ptr [ %1614, %2602 ], [ %2504, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit257.i" ]
+  %.pn42 = phi { ptr, i32 } [ %2603, %2602 ], [ %.pn102.i, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit257.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12499.sroa.6.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12499.sroa.6.sroa.8)
   invoke fastcc void @"_ZN4core3ptr143drop_in_place$LT$zbus..object_server..ObjectServer..add_arc_interface$LT$zvariant..object_path..ObjectPath$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2e03c525aeae60daE"(ptr noundef nonnull align 8 %2863) #21
@@ -21021,11 +21021,11 @@ default.unreachable.i.i:                          ; preds = %4095
   br label %2961
 
 "_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h96aadb8994b80cfcE.exit.i.i": ; preds = %4373, %3137, %3132, %"_ZN4core3ptr175drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus_names..well_known_name..WellKnownName$C$zbus..connection..NameStatus$GT$$GT$$GT$17h6e3a3c700d61760bE.exit171.i.i"
-  %2951 = phi ptr [ %4410, %4373 ], [ %3126, %3132 ], [ %3126, %3137 ], [ %3126, %"_ZN4core3ptr175drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus_names..well_known_name..WellKnownName$C$zbus..connection..NameStatus$GT$$GT$$GT$17h6e3a3c700d61760bE.exit171.i.i" ]
-  %2952 = phi ptr [ %4411, %4373 ], [ %3127, %3132 ], [ %3127, %3137 ], [ %3127, %"_ZN4core3ptr175drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus_names..well_known_name..WellKnownName$C$zbus..connection..NameStatus$GT$$GT$$GT$17h6e3a3c700d61760bE.exit171.i.i" ]
-  %2953 = phi ptr [ %4412, %4373 ], [ %3128, %3132 ], [ %3128, %3137 ], [ %3128, %"_ZN4core3ptr175drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus_names..well_known_name..WellKnownName$C$zbus..connection..NameStatus$GT$$GT$$GT$17h6e3a3c700d61760bE.exit171.i.i" ]
-  %2954 = phi ptr [ %4413, %4373 ], [ %3129, %3132 ], [ %3129, %3137 ], [ %3129, %"_ZN4core3ptr175drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus_names..well_known_name..WellKnownName$C$zbus..connection..NameStatus$GT$$GT$$GT$17h6e3a3c700d61760bE.exit171.i.i" ]
-  %.pn125.i.i = phi { ptr, i32 } [ %4374, %4373 ], [ %.pn123.i.i, %3132 ], [ %.pn123.i.i, %3137 ], [ %.pn123.i.i, %"_ZN4core3ptr175drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus_names..well_known_name..WellKnownName$C$zbus..connection..NameStatus$GT$$GT$$GT$17h6e3a3c700d61760bE.exit171.i.i" ]
+  %2951 = phi ptr [ %4410, %4373 ], [ %3126, %3137 ], [ %3126, %"_ZN4core3ptr175drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus_names..well_known_name..WellKnownName$C$zbus..connection..NameStatus$GT$$GT$$GT$17h6e3a3c700d61760bE.exit171.i.i" ], [ %3126, %3132 ]
+  %2952 = phi ptr [ %4411, %4373 ], [ %3127, %3137 ], [ %3127, %"_ZN4core3ptr175drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus_names..well_known_name..WellKnownName$C$zbus..connection..NameStatus$GT$$GT$$GT$17h6e3a3c700d61760bE.exit171.i.i" ], [ %3127, %3132 ]
+  %2953 = phi ptr [ %4412, %4373 ], [ %3128, %3137 ], [ %3128, %"_ZN4core3ptr175drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus_names..well_known_name..WellKnownName$C$zbus..connection..NameStatus$GT$$GT$$GT$17h6e3a3c700d61760bE.exit171.i.i" ], [ %3128, %3132 ]
+  %2954 = phi ptr [ %4413, %4373 ], [ %3129, %3137 ], [ %3129, %"_ZN4core3ptr175drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus_names..well_known_name..WellKnownName$C$zbus..connection..NameStatus$GT$$GT$$GT$17h6e3a3c700d61760bE.exit171.i.i" ], [ %3129, %3132 ]
+  %.pn125.i.i = phi { ptr, i32 } [ %4374, %4373 ], [ %.pn123.i.i, %3137 ], [ %.pn123.i.i, %"_ZN4core3ptr175drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus_names..well_known_name..WellKnownName$C$zbus..connection..NameStatus$GT$$GT$$GT$17h6e3a3c700d61760bE.exit171.i.i" ], [ %.pn123.i.i, %3132 ]
   store i8 2, ptr %2953, align 8, !noalias !6667
   br label %.body.i268
 
@@ -21081,7 +21081,7 @@ default.unreachable.i.i:                          ; preds = %4095
   br label %.thread.i.i.i.i
 
 common.resume.i.i.i.i.i.i:                        ; preds = %2986, %2979
-  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %2980, %2979 ], [ %2987, %2986 ]
+  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %2987, %2986 ], [ %2980, %2979 ]
   store i32 1000000000, ptr %2967, align 8, !noalias !6680
   %.sroa.525.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1712
   store ptr %2974, ptr %.sroa.525.0..sroa_idx.i.i.i.i, align 8, !noalias !6680
@@ -21434,23 +21434,23 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
   br label %"_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit183.i.i"
 
 "_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit183.i.i": ; preds = %4355, %3236, %"_ZN4core3ptr50drop_in_place$LT$zbus..fdo..NameAcquiredStream$GT$17h85918c21ea836157E.exit301.i.i", %3109, %.loopexit.split-lp.i.i, %.loopexit.i.i
-  %3114 = phi ptr [ %4356, %4355 ], [ %3227, %"_ZN4core3ptr50drop_in_place$LT$zbus..fdo..NameAcquiredStream$GT$17h85918c21ea836157E.exit301.i.i" ], [ %3110, %3109 ], [ %3227, %3236 ], [ %3004, %.loopexit.i.i ], [ %3004, %.loopexit.split-lp.i.i ]
-  %3115 = phi ptr [ %4357, %4355 ], [ %3228, %"_ZN4core3ptr50drop_in_place$LT$zbus..fdo..NameAcquiredStream$GT$17h85918c21ea836157E.exit301.i.i" ], [ %3111, %3109 ], [ %3228, %3236 ], [ %3005, %.loopexit.i.i ], [ %3005, %.loopexit.split-lp.i.i ]
-  %3116 = phi ptr [ %4358, %4355 ], [ %3229, %"_ZN4core3ptr50drop_in_place$LT$zbus..fdo..NameAcquiredStream$GT$17h85918c21ea836157E.exit301.i.i" ], [ %3112, %3109 ], [ %3229, %3236 ], [ %3006, %.loopexit.i.i ], [ %3006, %.loopexit.split-lp.i.i ]
-  %3117 = phi ptr [ %4359, %4355 ], [ %3230, %"_ZN4core3ptr50drop_in_place$LT$zbus..fdo..NameAcquiredStream$GT$17h85918c21ea836157E.exit301.i.i" ], [ %3113, %3109 ], [ %3230, %3236 ], [ %3007, %.loopexit.i.i ], [ %3007, %.loopexit.split-lp.i.i ]
-  %.pn121.i.i = phi { ptr, i32 } [ %4360, %4355 ], [ %.pn118.pn.i.i, %"_ZN4core3ptr50drop_in_place$LT$zbus..fdo..NameAcquiredStream$GT$17h85918c21ea836157E.exit301.i.i" ], [ %.pn53.i.i, %3109 ], [ %.pn118.pn.i.i, %3236 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
+  %3114 = phi ptr [ %4356, %4355 ], [ %3110, %3109 ], [ %3227, %3236 ], [ %3227, %"_ZN4core3ptr50drop_in_place$LT$zbus..fdo..NameAcquiredStream$GT$17h85918c21ea836157E.exit301.i.i" ], [ %3004, %.loopexit.i.i ], [ %3004, %.loopexit.split-lp.i.i ]
+  %3115 = phi ptr [ %4357, %4355 ], [ %3111, %3109 ], [ %3228, %3236 ], [ %3228, %"_ZN4core3ptr50drop_in_place$LT$zbus..fdo..NameAcquiredStream$GT$17h85918c21ea836157E.exit301.i.i" ], [ %3005, %.loopexit.i.i ], [ %3005, %.loopexit.split-lp.i.i ]
+  %3116 = phi ptr [ %4358, %4355 ], [ %3112, %3109 ], [ %3229, %3236 ], [ %3229, %"_ZN4core3ptr50drop_in_place$LT$zbus..fdo..NameAcquiredStream$GT$17h85918c21ea836157E.exit301.i.i" ], [ %3006, %.loopexit.i.i ], [ %3006, %.loopexit.split-lp.i.i ]
+  %3117 = phi ptr [ %4359, %4355 ], [ %3113, %3109 ], [ %3230, %3236 ], [ %3230, %"_ZN4core3ptr50drop_in_place$LT$zbus..fdo..NameAcquiredStream$GT$17h85918c21ea836157E.exit301.i.i" ], [ %3007, %.loopexit.i.i ], [ %3007, %.loopexit.split-lp.i.i ]
+  %.pn121.i.i = phi { ptr, i32 } [ %4360, %4355 ], [ %.pn53.i.i, %3109 ], [ %.pn118.pn.i.i, %3236 ], [ %.pn118.pn.i.i, %"_ZN4core3ptr50drop_in_place$LT$zbus..fdo..NameAcquiredStream$GT$17h85918c21ea836157E.exit301.i.i" ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   %3118 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %.val145.i.i = load ptr, ptr %3118, align 8, !noalias !6667, !nonnull !5, !align !16, !noundef !5
   invoke fastcc void @"_ZN80_$LT$async_lock..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1cc2432f78ff9abdE"(ptr nonnull %.val145.i.i)
           to label %"_ZN4core3ptr175drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus_names..well_known_name..WellKnownName$C$zbus..connection..NameStatus$GT$$GT$$GT$17h6e3a3c700d61760bE.exit171.i.i" unwind label %3124, !noalias !6672
 
 .body.i.i283:                                     ; preds = %3001, %common.resume.i.i.i.i.i.i
-  %3119 = phi ptr [ %2962, %common.resume.i.i.i.i.i.i ], [ %2990, %3001 ]
-  %3120 = phi ptr [ %2963, %common.resume.i.i.i.i.i.i ], [ %2991, %3001 ]
-  %3121 = phi ptr [ %2964, %common.resume.i.i.i.i.i.i ], [ %2992, %3001 ]
-  %3122 = phi ptr [ %2965, %common.resume.i.i.i.i.i.i ], [ %2993, %3001 ]
-  %3123 = phi ptr [ %2969, %common.resume.i.i.i.i.i.i ], [ %2996, %3001 ]
-  %.pn41.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %common.resume.i.i.i.i.i.i ], [ %3002, %3001 ]
+  %3119 = phi ptr [ %2990, %3001 ], [ %2962, %common.resume.i.i.i.i.i.i ]
+  %3120 = phi ptr [ %2991, %3001 ], [ %2963, %common.resume.i.i.i.i.i.i ]
+  %3121 = phi ptr [ %2992, %3001 ], [ %2964, %common.resume.i.i.i.i.i.i ]
+  %3122 = phi ptr [ %2993, %3001 ], [ %2965, %common.resume.i.i.i.i.i.i ]
+  %3123 = phi ptr [ %2996, %3001 ], [ %2969, %common.resume.i.i.i.i.i.i ]
+  %.pn41.i.i = phi { ptr, i32 } [ %3002, %3001 ], [ %eh.lpad-body.i.i.i.i, %common.resume.i.i.i.i.i.i ]
   invoke void @"_ZN4core3ptr169drop_in_place$LT$async_lock..mutex..Lock$LT$std..collections..hash..map..HashMap$LT$zbus_names..well_known_name..WellKnownName$C$zbus..connection..NameStatus$GT$$GT$$GT$17h044f6aaf25255570E"(ptr noundef nonnull align 8 %3123) #21
           to label %"_ZN4core3ptr175drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus_names..well_known_name..WellKnownName$C$zbus..connection..NameStatus$GT$$GT$$GT$17h6e3a3c700d61760bE.exit171.i.i" unwind label %3124, !noalias !6672
 
@@ -21461,11 +21461,11 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
   unreachable
 
 "_ZN4core3ptr175drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus_names..well_known_name..WellKnownName$C$zbus..connection..NameStatus$GT$$GT$$GT$17h6e3a3c700d61760bE.exit171.i.i": ; preds = %4361, %.body.i.i283, %"_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit183.i.i", %3022, %3015
-  %3126 = phi ptr [ %4362, %4361 ], [ %3114, %"_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit183.i.i" ], [ %3004, %3015 ], [ %3119, %.body.i.i283 ], [ %3004, %3022 ]
-  %3127 = phi ptr [ %4363, %4361 ], [ %3115, %"_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit183.i.i" ], [ %3005, %3015 ], [ %3120, %.body.i.i283 ], [ %3005, %3022 ]
-  %3128 = phi ptr [ %4364, %4361 ], [ %3116, %"_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit183.i.i" ], [ %3006, %3015 ], [ %3121, %.body.i.i283 ], [ %3006, %3022 ]
-  %3129 = phi ptr [ %4365, %4361 ], [ %3117, %"_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit183.i.i" ], [ %3007, %3015 ], [ %3122, %.body.i.i283 ], [ %3007, %3022 ]
-  %.pn123.i.i = phi { ptr, i32 } [ %4366, %4361 ], [ %.pn121.i.i, %"_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit183.i.i" ], [ %3016, %3015 ], [ %.pn41.i.i, %.body.i.i283 ], [ %3023, %3022 ]
+  %3126 = phi ptr [ %4362, %4361 ], [ %3114, %"_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit183.i.i" ], [ %3119, %.body.i.i283 ], [ %3004, %3022 ], [ %3004, %3015 ]
+  %3127 = phi ptr [ %4363, %4361 ], [ %3115, %"_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit183.i.i" ], [ %3120, %.body.i.i283 ], [ %3005, %3022 ], [ %3005, %3015 ]
+  %3128 = phi ptr [ %4364, %4361 ], [ %3116, %"_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit183.i.i" ], [ %3121, %.body.i.i283 ], [ %3006, %3022 ], [ %3006, %3015 ]
+  %3129 = phi ptr [ %4365, %4361 ], [ %3117, %"_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit183.i.i" ], [ %3122, %.body.i.i283 ], [ %3007, %3022 ], [ %3007, %3015 ]
+  %.pn123.i.i = phi { ptr, i32 } [ %4366, %4361 ], [ %.pn121.i.i, %"_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit183.i.i" ], [ %.pn41.i.i, %.body.i.i283 ], [ %3023, %3022 ], [ %3016, %3015 ]
   %3130 = getelementptr inbounds nuw i8, ptr %1, i64 1008
   call void @llvm.experimental.noalias.scope.decl(metadata !6788)
   call void @llvm.experimental.noalias.scope.decl(metadata !6791)
@@ -21598,7 +21598,7 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
   br label %3171
 
 "_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i.i.i": ; preds = %3205, %3202, %3194, %3179
-  %.pn4.i.i.i = phi { ptr, i32 } [ %3195, %3194 ], [ %3180, %3202 ], [ %3180, %3205 ], [ %3180, %3179 ]
+  %.pn4.i.i.i = phi { ptr, i32 } [ %3195, %3194 ], [ %3180, %3205 ], [ %3180, %3179 ], [ %3180, %3202 ]
   store i8 2, ptr %3176, align 8, !noalias !6811
   br label %.body174.i.i
 
@@ -21767,23 +21767,23 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
           to label %"_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit.i.i" unwind label %4355, !noalias !6672
 
 .body174.i.i:                                     ; preds = %3209, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i.i.i"
-  %3222 = phi ptr [ %3172, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i.i.i" ], [ %2922, %3209 ]
-  %3223 = phi ptr [ %3173, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i.i.i" ], [ %2921, %3209 ]
-  %3224 = phi ptr [ %3174, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i.i.i" ], [ %.phi.trans.insert.i257, %3209 ]
-  %3225 = phi ptr [ %3175, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i.i.i" ], [ %2936, %3209 ]
-  %3226 = phi ptr [ %3177, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i.i.i" ], [ %3159, %3209 ]
-  %.pn57.i.i = phi { ptr, i32 } [ %.pn4.i.i.i, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i.i.i" ], [ %3210, %3209 ]
+  %3222 = phi ptr [ %2922, %3209 ], [ %3172, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i.i.i" ]
+  %3223 = phi ptr [ %2921, %3209 ], [ %3173, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i.i.i" ]
+  %3224 = phi ptr [ %.phi.trans.insert.i257, %3209 ], [ %3174, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i.i.i" ]
+  %3225 = phi ptr [ %2936, %3209 ], [ %3175, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i.i.i" ]
+  %3226 = phi ptr [ %3159, %3209 ], [ %3177, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i.i.i" ]
+  %.pn57.i.i = phi { ptr, i32 } [ %3210, %3209 ], [ %.pn4.i.i.i, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8347.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9348.i.i)
   invoke fastcc void @"_ZN4core3ptr93drop_in_place$LT$zbus..fdo..DBusProxy..receive_name_acquired..$u7b$$u7b$closure$u7d$$u7d$$GT$17had2e91d6e1314201E"(ptr noundef nonnull align 8 %3226) #21
           to label %"_ZN4core3ptr50drop_in_place$LT$zbus..fdo..NameAcquiredStream$GT$17h85918c21ea836157E.exit301.i.i" unwind label %3124, !noalias !6672
 
 "_ZN4core3ptr50drop_in_place$LT$zbus..fdo..NameAcquiredStream$GT$17h85918c21ea836157E.exit301.i.i": ; preds = %4422, %4349, %"_ZN4core3ptr46drop_in_place$LT$zbus..fdo..NameLostStream$GT$17h9812786f74fc8ef1E.exit299.i.i", %.body174.i.i
-  %3227 = phi ptr [ %3314, %4422 ], [ %4350, %4349 ], [ %3314, %"_ZN4core3ptr46drop_in_place$LT$zbus..fdo..NameLostStream$GT$17h9812786f74fc8ef1E.exit299.i.i" ], [ %3222, %.body174.i.i ]
-  %3228 = phi ptr [ %3315, %4422 ], [ %4351, %4349 ], [ %3315, %"_ZN4core3ptr46drop_in_place$LT$zbus..fdo..NameLostStream$GT$17h9812786f74fc8ef1E.exit299.i.i" ], [ %3223, %.body174.i.i ]
-  %3229 = phi ptr [ %3316, %4422 ], [ %4352, %4349 ], [ %3316, %"_ZN4core3ptr46drop_in_place$LT$zbus..fdo..NameLostStream$GT$17h9812786f74fc8ef1E.exit299.i.i" ], [ %3224, %.body174.i.i ]
-  %3230 = phi ptr [ %3317, %4422 ], [ %4353, %4349 ], [ %3317, %"_ZN4core3ptr46drop_in_place$LT$zbus..fdo..NameLostStream$GT$17h9812786f74fc8ef1E.exit299.i.i" ], [ %3225, %.body174.i.i ]
-  %.pn118.pn.i.i = phi { ptr, i32 } [ %.pn115.pn.i.i, %4422 ], [ %4354, %4349 ], [ %.pn115.pn.i.i, %"_ZN4core3ptr46drop_in_place$LT$zbus..fdo..NameLostStream$GT$17h9812786f74fc8ef1E.exit299.i.i" ], [ %.pn57.i.i, %.body174.i.i ]
+  %3227 = phi ptr [ %4350, %4349 ], [ %3314, %"_ZN4core3ptr46drop_in_place$LT$zbus..fdo..NameLostStream$GT$17h9812786f74fc8ef1E.exit299.i.i" ], [ %3314, %4422 ], [ %3222, %.body174.i.i ]
+  %3228 = phi ptr [ %4351, %4349 ], [ %3315, %"_ZN4core3ptr46drop_in_place$LT$zbus..fdo..NameLostStream$GT$17h9812786f74fc8ef1E.exit299.i.i" ], [ %3315, %4422 ], [ %3223, %.body174.i.i ]
+  %3229 = phi ptr [ %4352, %4349 ], [ %3316, %"_ZN4core3ptr46drop_in_place$LT$zbus..fdo..NameLostStream$GT$17h9812786f74fc8ef1E.exit299.i.i" ], [ %3316, %4422 ], [ %3224, %.body174.i.i ]
+  %3230 = phi ptr [ %4353, %4349 ], [ %3317, %"_ZN4core3ptr46drop_in_place$LT$zbus..fdo..NameLostStream$GT$17h9812786f74fc8ef1E.exit299.i.i" ], [ %3317, %4422 ], [ %3225, %.body174.i.i ]
+  %.pn118.pn.i.i = phi { ptr, i32 } [ %4354, %4349 ], [ %.pn115.pn.i.i, %"_ZN4core3ptr46drop_in_place$LT$zbus..fdo..NameLostStream$GT$17h9812786f74fc8ef1E.exit299.i.i" ], [ %.pn115.pn.i.i, %4422 ], [ %.pn57.i.i, %.body174.i.i ]
   %3231 = getelementptr inbounds nuw i8, ptr %1, i64 1690
   store i8 0, ptr %3231, align 2, !noalias !6667
   %3232 = getelementptr inbounds nuw i8, ptr %1, i64 1040
@@ -21836,7 +21836,7 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
   br label %3250
 
 "_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i189.i.i": ; preds = %3288, %3285, %3273, %3258
-  %.pn4.i190.i.i = phi { ptr, i32 } [ %3274, %3273 ], [ %3259, %3285 ], [ %3259, %3288 ], [ %3259, %3258 ]
+  %.pn4.i190.i.i = phi { ptr, i32 } [ %3274, %3273 ], [ %3259, %3288 ], [ %3259, %3258 ], [ %3259, %3285 ]
   store i8 2, ptr %3255, align 8, !noalias !6844
   br label %.body204.i.i
 
@@ -22029,23 +22029,23 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
           to label %"_ZN4core3ptr50drop_in_place$LT$zbus..fdo..NameAcquiredStream$GT$17h85918c21ea836157E.exit.i.i" unwind label %4349, !noalias !6672
 
 .body204.i.i:                                     ; preds = %3292, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i189.i.i"
-  %3309 = phi ptr [ %3251, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i189.i.i" ], [ %2922, %3292 ]
-  %3310 = phi ptr [ %3252, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i189.i.i" ], [ %2921, %3292 ]
-  %3311 = phi ptr [ %3253, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i189.i.i" ], [ %.phi.trans.insert.i257, %3292 ]
-  %3312 = phi ptr [ %3254, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i189.i.i" ], [ %2936, %3292 ]
-  %3313 = phi ptr [ %3256, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i189.i.i" ], [ %3238, %3292 ]
-  %.pn61.i.i = phi { ptr, i32 } [ %.pn4.i190.i.i, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i189.i.i" ], [ %3293, %3292 ]
+  %3309 = phi ptr [ %2922, %3292 ], [ %3251, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i189.i.i" ]
+  %3310 = phi ptr [ %2921, %3292 ], [ %3252, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i189.i.i" ]
+  %3311 = phi ptr [ %.phi.trans.insert.i257, %3292 ], [ %3253, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i189.i.i" ]
+  %3312 = phi ptr [ %2936, %3292 ], [ %3254, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i189.i.i" ]
+  %3313 = phi ptr [ %3238, %3292 ], [ %3256, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i189.i.i" ]
+  %.pn61.i.i = phi { ptr, i32 } [ %3293, %3292 ], [ %.pn4.i190.i.i, %"_ZN4core3ptr99drop_in_place$LT$zbus..proxy..Proxy..receive_signal$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb153a9a67b6d5029E.exit9.i189.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8371.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9372.i.i)
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$zbus..fdo..DBusProxy..receive_name_lost..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbfc55d3f137ba458E"(ptr noundef nonnull align 8 %3313) #21
           to label %"_ZN4core3ptr46drop_in_place$LT$zbus..fdo..NameLostStream$GT$17h9812786f74fc8ef1E.exit299.i.i" unwind label %3124, !noalias !6672
 
 "_ZN4core3ptr46drop_in_place$LT$zbus..fdo..NameLostStream$GT$17h9812786f74fc8ef1E.exit299.i.i": ; preds = %4420, %4392, %4340, %.body204.i.i
-  %3314 = phi ptr [ %4393, %4420 ], [ %3935, %4340 ], [ %4393, %4392 ], [ %3309, %.body204.i.i ]
-  %3315 = phi ptr [ %4394, %4420 ], [ %3936, %4340 ], [ %4394, %4392 ], [ %3310, %.body204.i.i ]
-  %3316 = phi ptr [ %4395, %4420 ], [ %3937, %4340 ], [ %4395, %4392 ], [ %3311, %.body204.i.i ]
-  %3317 = phi ptr [ %4396, %4420 ], [ %3938, %4340 ], [ %4396, %4392 ], [ %3312, %.body204.i.i ]
-  %.pn115.pn.i.i = phi { ptr, i32 } [ %.pn112.pn.i.i, %4420 ], [ %4341, %4340 ], [ %.pn112.pn.i.i, %4392 ], [ %.pn61.i.i, %.body204.i.i ]
+  %3314 = phi ptr [ %3935, %4340 ], [ %4393, %4392 ], [ %4393, %4420 ], [ %3309, %.body204.i.i ]
+  %3315 = phi ptr [ %3936, %4340 ], [ %4394, %4392 ], [ %4394, %4420 ], [ %3310, %.body204.i.i ]
+  %3316 = phi ptr [ %3937, %4340 ], [ %4395, %4392 ], [ %4395, %4420 ], [ %3311, %.body204.i.i ]
+  %3317 = phi ptr [ %3938, %4340 ], [ %4396, %4392 ], [ %4396, %4420 ], [ %3312, %.body204.i.i ]
+  %.pn115.pn.i.i = phi { ptr, i32 } [ %4341, %4340 ], [ %.pn112.pn.i.i, %4392 ], [ %.pn112.pn.i.i, %4420 ], [ %.pn61.i.i, %.body204.i.i ]
   %3318 = getelementptr inbounds nuw i8, ptr %1, i64 1689
   store i8 0, ptr %3318, align 1, !noalias !6667
   %3319 = getelementptr inbounds nuw i8, ptr %1, i64 1690
@@ -22405,19 +22405,19 @@ select.unfold.i.i:                                ; preds = %._crit_edge.i.i.i.i
   br label %3438
 
 "_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i": ; preds = %3907, %3905, %3893, %.body.i.i.i.i.i.i, %3860, %3853
-  %3421 = phi ptr [ %3880, %3907 ], [ %3880, %3905 ], [ %3880, %3893 ], [ %3829, %3860 ], [ %3829, %3853 ], [ %3864, %.body.i.i.i.i.i.i ]
-  %3422 = phi ptr [ %3881, %3907 ], [ %3881, %3905 ], [ %3881, %3893 ], [ %3830, %3860 ], [ %3830, %3853 ], [ %3865, %.body.i.i.i.i.i.i ]
-  %3423 = phi ptr [ %3882, %3907 ], [ %3882, %3905 ], [ %3882, %3893 ], [ %3831, %3860 ], [ %3831, %3853 ], [ %3866, %.body.i.i.i.i.i.i ]
-  %3424 = phi ptr [ %3883, %3907 ], [ %3883, %3905 ], [ %3883, %3893 ], [ %3832, %3860 ], [ %3832, %3853 ], [ %3867, %.body.i.i.i.i.i.i ]
-  %3425 = phi ptr [ %3884, %3907 ], [ %3884, %3905 ], [ %3884, %3893 ], [ %3833, %3860 ], [ %3833, %3853 ], [ %3868, %.body.i.i.i.i.i.i ]
-  %3426 = phi ptr [ %3885, %3907 ], [ %3885, %3905 ], [ %3885, %3893 ], [ %3834, %3860 ], [ %3834, %3853 ], [ %3869, %.body.i.i.i.i.i.i ]
-  %3427 = phi ptr [ %3886, %3907 ], [ %3886, %3905 ], [ %3886, %3893 ], [ %3835, %3860 ], [ %3835, %3853 ], [ %3870, %.body.i.i.i.i.i.i ]
-  %3428 = phi ptr [ %3887, %3907 ], [ %3887, %3905 ], [ %3887, %3893 ], [ %3836, %3860 ], [ %3836, %3853 ], [ %3871, %.body.i.i.i.i.i.i ]
-  %3429 = phi ptr [ %3888, %3907 ], [ %3888, %3905 ], [ %3888, %3893 ], [ %3837, %3860 ], [ %3837, %3853 ], [ %3872, %.body.i.i.i.i.i.i ]
-  %3430 = phi ptr [ %3889, %3907 ], [ %3889, %3905 ], [ %3889, %3893 ], [ %3838, %3860 ], [ %3838, %3853 ], [ %3873, %.body.i.i.i.i.i.i ]
-  %3431 = phi ptr [ %3890, %3907 ], [ %3890, %3905 ], [ %3890, %3893 ], [ %3839, %3860 ], [ %3839, %3853 ], [ %3874, %.body.i.i.i.i.i.i ]
-  %3432 = phi ptr [ %3891, %3907 ], [ %3891, %3905 ], [ %3891, %3893 ], [ %3840, %3860 ], [ %3840, %3853 ], [ %3875, %.body.i.i.i.i.i.i ]
-  %.pn12.i.i.i.i.i.i = phi { ptr, i32 } [ %3894, %3907 ], [ %3906, %3905 ], [ %3894, %3893 ], [ %3861, %3860 ], [ %3854, %3853 ], [ %.pn6.i.i.i.i.i.i, %.body.i.i.i.i.i.i ]
+  %3421 = phi ptr [ %3880, %3905 ], [ %3829, %3860 ], [ %3880, %3907 ], [ %3880, %3893 ], [ %3829, %3853 ], [ %3864, %.body.i.i.i.i.i.i ]
+  %3422 = phi ptr [ %3881, %3905 ], [ %3830, %3860 ], [ %3881, %3907 ], [ %3881, %3893 ], [ %3830, %3853 ], [ %3865, %.body.i.i.i.i.i.i ]
+  %3423 = phi ptr [ %3882, %3905 ], [ %3831, %3860 ], [ %3882, %3907 ], [ %3882, %3893 ], [ %3831, %3853 ], [ %3866, %.body.i.i.i.i.i.i ]
+  %3424 = phi ptr [ %3883, %3905 ], [ %3832, %3860 ], [ %3883, %3907 ], [ %3883, %3893 ], [ %3832, %3853 ], [ %3867, %.body.i.i.i.i.i.i ]
+  %3425 = phi ptr [ %3884, %3905 ], [ %3833, %3860 ], [ %3884, %3907 ], [ %3884, %3893 ], [ %3833, %3853 ], [ %3868, %.body.i.i.i.i.i.i ]
+  %3426 = phi ptr [ %3885, %3905 ], [ %3834, %3860 ], [ %3885, %3907 ], [ %3885, %3893 ], [ %3834, %3853 ], [ %3869, %.body.i.i.i.i.i.i ]
+  %3427 = phi ptr [ %3886, %3905 ], [ %3835, %3860 ], [ %3886, %3907 ], [ %3886, %3893 ], [ %3835, %3853 ], [ %3870, %.body.i.i.i.i.i.i ]
+  %3428 = phi ptr [ %3887, %3905 ], [ %3836, %3860 ], [ %3887, %3907 ], [ %3887, %3893 ], [ %3836, %3853 ], [ %3871, %.body.i.i.i.i.i.i ]
+  %3429 = phi ptr [ %3888, %3905 ], [ %3837, %3860 ], [ %3888, %3907 ], [ %3888, %3893 ], [ %3837, %3853 ], [ %3872, %.body.i.i.i.i.i.i ]
+  %3430 = phi ptr [ %3889, %3905 ], [ %3838, %3860 ], [ %3889, %3907 ], [ %3889, %3893 ], [ %3838, %3853 ], [ %3873, %.body.i.i.i.i.i.i ]
+  %3431 = phi ptr [ %3890, %3905 ], [ %3839, %3860 ], [ %3890, %3907 ], [ %3890, %3893 ], [ %3839, %3853 ], [ %3874, %.body.i.i.i.i.i.i ]
+  %3432 = phi ptr [ %3891, %3905 ], [ %3840, %3860 ], [ %3891, %3907 ], [ %3891, %3893 ], [ %3840, %3853 ], [ %3875, %.body.i.i.i.i.i.i ]
+  %.pn12.i.i.i.i.i.i = phi { ptr, i32 } [ %3906, %3905 ], [ %3861, %3860 ], [ %3894, %3907 ], [ %3894, %3893 ], [ %3854, %3853 ], [ %.pn6.i.i.i.i.i.i, %.body.i.i.i.i.i.i ]
   store i8 2, ptr %3431, align 8, !noalias !6902
   br label %.body.i.i.i.i.i
 
@@ -22727,24 +22727,24 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i.i.i.i.i.i: ; preds 
   br label %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i"
 
 "_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i": ; preds = %3802, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i", %3697, %3696, %3688, %3611, %3584, %3551
-  %3552 = phi ptr [ %3479, %3697 ], [ %3479, %3688 ], [ %3479, %3696 ], [ %3479, %3611 ], [ %3479, %3584 ], [ %3479, %3551 ], [ %3721, %3802 ], [ %3721, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
-  %3553 = phi ptr [ %3480, %3697 ], [ %3480, %3688 ], [ %3480, %3696 ], [ %3480, %3611 ], [ %3480, %3584 ], [ %3480, %3551 ], [ %3722, %3802 ], [ %3722, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
-  %.sroa.320.i.sroa.5.0828 = phi i8 [ %.sroa.320.i.sroa.5.0830, %3697 ], [ %.sroa.320.i.sroa.5.0830, %3688 ], [ %.sroa.320.i.sroa.5.0830, %3696 ], [ %.sroa.320.i.sroa.5.0830, %3611 ], [ %.sroa.320.i.sroa.5.0830, %3584 ], [ %.sroa.320.i.sroa.5.0830, %3551 ], [ %.sroa.320.i.sroa.5.0829, %3802 ], [ %.sroa.320.i.sroa.5.0829, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
-  %.sroa.320.i.sroa.0.0802 = phi ptr [ %.sroa.320.i.sroa.0.0804, %3697 ], [ %.sroa.320.i.sroa.0.0804, %3688 ], [ %.sroa.320.i.sroa.0.0804, %3696 ], [ %.sroa.320.i.sroa.0.0804, %3611 ], [ %.sroa.320.i.sroa.0.0804, %3584 ], [ %.sroa.320.i.sroa.0.0804, %3551 ], [ %.sroa.320.i.sroa.0.0803, %3802 ], [ %.sroa.320.i.sroa.0.0803, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
-  %3554 = phi ptr [ %3481, %3697 ], [ %3481, %3688 ], [ %3481, %3696 ], [ %3481, %3611 ], [ %3481, %3584 ], [ %3481, %3551 ], [ %3723, %3802 ], [ %3723, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
-  %3555 = phi ptr [ %3482, %3697 ], [ %3482, %3688 ], [ %3482, %3696 ], [ %3482, %3611 ], [ %3482, %3584 ], [ %3482, %3551 ], [ %3724, %3802 ], [ %3724, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
-  %3556 = phi ptr [ %3483, %3697 ], [ %3483, %3688 ], [ %3483, %3696 ], [ %3483, %3611 ], [ %3483, %3584 ], [ %3483, %3551 ], [ %3725, %3802 ], [ %3725, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
-  %3557 = phi ptr [ %3484, %3697 ], [ %3484, %3688 ], [ %3484, %3696 ], [ %3484, %3611 ], [ %3484, %3584 ], [ %3484, %3551 ], [ %3726, %3802 ], [ %3726, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
-  %3558 = phi ptr [ %3485, %3697 ], [ %3485, %3688 ], [ %3485, %3696 ], [ %3485, %3611 ], [ %3485, %3584 ], [ %3485, %3551 ], [ %3727, %3802 ], [ %3727, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
-  %3559 = phi ptr [ %3486, %3697 ], [ %3486, %3688 ], [ %3486, %3696 ], [ %3486, %3611 ], [ %3486, %3584 ], [ %3486, %3551 ], [ %3728, %3802 ], [ %3728, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
-  %3560 = phi ptr [ %3487, %3697 ], [ %3487, %3688 ], [ %3487, %3696 ], [ %3487, %3611 ], [ %3487, %3584 ], [ %3487, %3551 ], [ %3729, %3802 ], [ %3729, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
-  %3561 = phi ptr [ %3488, %3697 ], [ %3488, %3688 ], [ %3488, %3696 ], [ %3488, %3611 ], [ %3488, %3584 ], [ %3488, %3551 ], [ %3730, %3802 ], [ %3730, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
-  %3562 = phi ptr [ %3489, %3697 ], [ %3489, %3688 ], [ %3489, %3696 ], [ %3489, %3611 ], [ %3489, %3584 ], [ %3489, %3551 ], [ %3731, %3802 ], [ %3731, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
-  %3563 = phi ptr [ %3490, %3697 ], [ %3490, %3688 ], [ %3490, %3696 ], [ %3490, %3611 ], [ %3490, %3584 ], [ %3490, %3551 ], [ %3732, %3802 ], [ %3732, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
-  %3564 = phi ptr [ %3491, %3697 ], [ %3491, %3688 ], [ %3491, %3696 ], [ %3491, %3611 ], [ %3491, %3584 ], [ %3491, %3551 ], [ %3733, %3802 ], [ %3733, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
-  %3565 = phi ptr [ %3492, %3697 ], [ %3492, %3688 ], [ %3492, %3696 ], [ %3492, %3611 ], [ %3492, %3584 ], [ %3492, %3551 ], [ %3734, %3802 ], [ %3734, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
-  %.sroa.10154.0.i.i.i.i.i.i.i = phi i64 [ %3527, %3697 ], [ %3628, %3688 ], [ %3692, %3696 ], [ %3607, %3611 ], [ %3580, %3584 ], [ %3547, %3551 ], [ %3739, %3802 ], [ %3739, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
-  %.sroa.17.0.i.i.i.i.i.i.i = phi ptr [ %.sroa.886.sroa.0.0.copyload188.i.i.i.i.i.i.i, %3697 ], [ %3631, %3688 ], [ %.sroa.8120.sroa.0.0.copyload168.i.i.i.i.i.i.i, %3696 ], [ %.sroa.8110.sroa.0.0.copyload173.i.i.i.i.i.i.i, %3611 ], [ %.sroa.8101.sroa.0.0.copyload178.i.i.i.i.i.i.i, %3584 ], [ %.sroa.892.sroa.0.0.copyload183.i.i.i.i.i.i.i, %3551 ], [ %.sroa.3149.sroa.0.0.copyload.i.i.i.i.i.i.i, %3802 ], [ %.sroa.3149.sroa.0.0.copyload.i.i.i.i.i.i.i, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %3552 = phi ptr [ %3479, %3688 ], [ %3479, %3696 ], [ %3479, %3611 ], [ %3479, %3584 ], [ %3479, %3551 ], [ %3479, %3697 ], [ %3721, %3802 ], [ %3721, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %3553 = phi ptr [ %3480, %3688 ], [ %3480, %3696 ], [ %3480, %3611 ], [ %3480, %3584 ], [ %3480, %3551 ], [ %3480, %3697 ], [ %3722, %3802 ], [ %3722, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %.sroa.320.i.sroa.5.0828 = phi i8 [ %.sroa.320.i.sroa.5.0830, %3688 ], [ %.sroa.320.i.sroa.5.0830, %3696 ], [ %.sroa.320.i.sroa.5.0830, %3611 ], [ %.sroa.320.i.sroa.5.0830, %3584 ], [ %.sroa.320.i.sroa.5.0830, %3551 ], [ %.sroa.320.i.sroa.5.0830, %3697 ], [ %.sroa.320.i.sroa.5.0829, %3802 ], [ %.sroa.320.i.sroa.5.0829, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %.sroa.320.i.sroa.0.0802 = phi ptr [ %.sroa.320.i.sroa.0.0804, %3688 ], [ %.sroa.320.i.sroa.0.0804, %3696 ], [ %.sroa.320.i.sroa.0.0804, %3611 ], [ %.sroa.320.i.sroa.0.0804, %3584 ], [ %.sroa.320.i.sroa.0.0804, %3551 ], [ %.sroa.320.i.sroa.0.0804, %3697 ], [ %.sroa.320.i.sroa.0.0803, %3802 ], [ %.sroa.320.i.sroa.0.0803, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %3554 = phi ptr [ %3481, %3688 ], [ %3481, %3696 ], [ %3481, %3611 ], [ %3481, %3584 ], [ %3481, %3551 ], [ %3481, %3697 ], [ %3723, %3802 ], [ %3723, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %3555 = phi ptr [ %3482, %3688 ], [ %3482, %3696 ], [ %3482, %3611 ], [ %3482, %3584 ], [ %3482, %3551 ], [ %3482, %3697 ], [ %3724, %3802 ], [ %3724, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %3556 = phi ptr [ %3483, %3688 ], [ %3483, %3696 ], [ %3483, %3611 ], [ %3483, %3584 ], [ %3483, %3551 ], [ %3483, %3697 ], [ %3725, %3802 ], [ %3725, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %3557 = phi ptr [ %3484, %3688 ], [ %3484, %3696 ], [ %3484, %3611 ], [ %3484, %3584 ], [ %3484, %3551 ], [ %3484, %3697 ], [ %3726, %3802 ], [ %3726, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %3558 = phi ptr [ %3485, %3688 ], [ %3485, %3696 ], [ %3485, %3611 ], [ %3485, %3584 ], [ %3485, %3551 ], [ %3485, %3697 ], [ %3727, %3802 ], [ %3727, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %3559 = phi ptr [ %3486, %3688 ], [ %3486, %3696 ], [ %3486, %3611 ], [ %3486, %3584 ], [ %3486, %3551 ], [ %3486, %3697 ], [ %3728, %3802 ], [ %3728, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %3560 = phi ptr [ %3487, %3688 ], [ %3487, %3696 ], [ %3487, %3611 ], [ %3487, %3584 ], [ %3487, %3551 ], [ %3487, %3697 ], [ %3729, %3802 ], [ %3729, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %3561 = phi ptr [ %3488, %3688 ], [ %3488, %3696 ], [ %3488, %3611 ], [ %3488, %3584 ], [ %3488, %3551 ], [ %3488, %3697 ], [ %3730, %3802 ], [ %3730, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %3562 = phi ptr [ %3489, %3688 ], [ %3489, %3696 ], [ %3489, %3611 ], [ %3489, %3584 ], [ %3489, %3551 ], [ %3489, %3697 ], [ %3731, %3802 ], [ %3731, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %3563 = phi ptr [ %3490, %3688 ], [ %3490, %3696 ], [ %3490, %3611 ], [ %3490, %3584 ], [ %3490, %3551 ], [ %3490, %3697 ], [ %3732, %3802 ], [ %3732, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %3564 = phi ptr [ %3491, %3688 ], [ %3491, %3696 ], [ %3491, %3611 ], [ %3491, %3584 ], [ %3491, %3551 ], [ %3491, %3697 ], [ %3733, %3802 ], [ %3733, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %3565 = phi ptr [ %3492, %3688 ], [ %3492, %3696 ], [ %3492, %3611 ], [ %3492, %3584 ], [ %3492, %3551 ], [ %3492, %3697 ], [ %3734, %3802 ], [ %3734, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %.sroa.10154.0.i.i.i.i.i.i.i = phi i64 [ %3628, %3688 ], [ %3692, %3696 ], [ %3607, %3611 ], [ %3580, %3584 ], [ %3547, %3551 ], [ %3527, %3697 ], [ %3739, %3802 ], [ %3739, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
+  %.sroa.17.0.i.i.i.i.i.i.i = phi ptr [ %3631, %3688 ], [ %.sroa.8120.sroa.0.0.copyload168.i.i.i.i.i.i.i, %3696 ], [ %.sroa.8110.sroa.0.0.copyload173.i.i.i.i.i.i.i, %3611 ], [ %.sroa.8101.sroa.0.0.copyload178.i.i.i.i.i.i.i, %3584 ], [ %.sroa.892.sroa.0.0.copyload183.i.i.i.i.i.i.i, %3551 ], [ %.sroa.886.sroa.0.0.copyload188.i.i.i.i.i.i.i, %3697 ], [ %.sroa.3149.sroa.0.0.copyload.i.i.i.i.i.i.i, %3802 ], [ %.sroa.3149.sroa.0.0.copyload.i.i.i.i.i.i.i, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i.i.i.i.i" ]
   %3566 = getelementptr inbounds nuw i8, ptr %1, i64 2623
   store i8 0, ptr %3566, align 1, !noalias !6906
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !6906
@@ -22811,21 +22811,21 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i.i.i.i.i.i: ; preds 
   br label %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i"
 
 "_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit.i.i.i.i.i.i.i": ; preds = %3769, %3689, %3687, %3668, %3625, %3604, %3577, %3544, %3535
-  %3585 = phi ptr [ %3721, %3769 ], [ %3479, %3535 ], [ %3479, %3625 ], [ %3669, %3668 ], [ %3479, %3689 ], [ %3479, %3604 ], [ %3479, %3577 ], [ %3479, %3544 ], [ %3669, %3687 ]
-  %3586 = phi ptr [ %3722, %3769 ], [ %3480, %3535 ], [ %3480, %3625 ], [ %3670, %3668 ], [ %3480, %3689 ], [ %3480, %3604 ], [ %3480, %3577 ], [ %3480, %3544 ], [ %3670, %3687 ]
-  %3587 = phi ptr [ %3723, %3769 ], [ %3481, %3535 ], [ %3481, %3625 ], [ %3671, %3668 ], [ %3481, %3689 ], [ %3481, %3604 ], [ %3481, %3577 ], [ %3481, %3544 ], [ %3671, %3687 ]
-  %3588 = phi ptr [ %3724, %3769 ], [ %3482, %3535 ], [ %3482, %3625 ], [ %3672, %3668 ], [ %3482, %3689 ], [ %3482, %3604 ], [ %3482, %3577 ], [ %3482, %3544 ], [ %3672, %3687 ]
-  %3589 = phi ptr [ %3725, %3769 ], [ %3483, %3535 ], [ %3483, %3625 ], [ %3673, %3668 ], [ %3483, %3689 ], [ %3483, %3604 ], [ %3483, %3577 ], [ %3483, %3544 ], [ %3673, %3687 ]
-  %3590 = phi ptr [ %3726, %3769 ], [ %3484, %3535 ], [ %3484, %3625 ], [ %3674, %3668 ], [ %3484, %3689 ], [ %3484, %3604 ], [ %3484, %3577 ], [ %3484, %3544 ], [ %3674, %3687 ]
-  %3591 = phi ptr [ %3727, %3769 ], [ %3485, %3535 ], [ %3485, %3625 ], [ %3675, %3668 ], [ %3485, %3689 ], [ %3485, %3604 ], [ %3485, %3577 ], [ %3485, %3544 ], [ %3675, %3687 ]
-  %3592 = phi ptr [ %3728, %3769 ], [ %3486, %3535 ], [ %3486, %3625 ], [ %3676, %3668 ], [ %3486, %3689 ], [ %3486, %3604 ], [ %3486, %3577 ], [ %3486, %3544 ], [ %3676, %3687 ]
-  %3593 = phi ptr [ %3729, %3769 ], [ %3487, %3535 ], [ %3487, %3625 ], [ %3677, %3668 ], [ %3487, %3689 ], [ %3487, %3604 ], [ %3487, %3577 ], [ %3487, %3544 ], [ %3677, %3687 ]
-  %3594 = phi ptr [ %3730, %3769 ], [ %3488, %3535 ], [ %3488, %3625 ], [ %3678, %3668 ], [ %3488, %3689 ], [ %3488, %3604 ], [ %3488, %3577 ], [ %3488, %3544 ], [ %3678, %3687 ]
-  %3595 = phi ptr [ %3731, %3769 ], [ %3489, %3535 ], [ %3489, %3625 ], [ %3679, %3668 ], [ %3489, %3689 ], [ %3489, %3604 ], [ %3489, %3577 ], [ %3489, %3544 ], [ %3679, %3687 ]
-  %3596 = phi ptr [ %3732, %3769 ], [ %3490, %3535 ], [ %3490, %3625 ], [ %3680, %3668 ], [ %3490, %3689 ], [ %3490, %3604 ], [ %3490, %3577 ], [ %3490, %3544 ], [ %3680, %3687 ]
-  %3597 = phi ptr [ %3733, %3769 ], [ %3491, %3535 ], [ %3491, %3625 ], [ %3681, %3668 ], [ %3491, %3689 ], [ %3491, %3604 ], [ %3491, %3577 ], [ %3491, %3544 ], [ %3681, %3687 ]
-  %3598 = phi ptr [ %3734, %3769 ], [ %3492, %3535 ], [ %3492, %3625 ], [ %3682, %3668 ], [ %3492, %3689 ], [ %3492, %3604 ], [ %3492, %3577 ], [ %3492, %3544 ], [ %3682, %3687 ]
-  %.pn52.i.i.i.i.i.i.i = phi { ptr, i32 } [ %3770, %3769 ], [ %3536, %3535 ], [ %3626, %3625 ], [ %.pn49.pn.i.i.i.i.i.i.i, %3668 ], [ %3690, %3689 ], [ %3605, %3604 ], [ %3578, %3577 ], [ %3545, %3544 ], [ %.pn49.pn.i.i.i.i.i.i.i, %3687 ]
+  %3585 = phi ptr [ %3721, %3769 ], [ %3479, %3625 ], [ %3479, %3604 ], [ %3479, %3577 ], [ %3479, %3544 ], [ %3479, %3535 ], [ %3669, %3687 ], [ %3669, %3668 ], [ %3479, %3689 ]
+  %3586 = phi ptr [ %3722, %3769 ], [ %3480, %3625 ], [ %3480, %3604 ], [ %3480, %3577 ], [ %3480, %3544 ], [ %3480, %3535 ], [ %3670, %3687 ], [ %3670, %3668 ], [ %3480, %3689 ]
+  %3587 = phi ptr [ %3723, %3769 ], [ %3481, %3625 ], [ %3481, %3604 ], [ %3481, %3577 ], [ %3481, %3544 ], [ %3481, %3535 ], [ %3671, %3687 ], [ %3671, %3668 ], [ %3481, %3689 ]
+  %3588 = phi ptr [ %3724, %3769 ], [ %3482, %3625 ], [ %3482, %3604 ], [ %3482, %3577 ], [ %3482, %3544 ], [ %3482, %3535 ], [ %3672, %3687 ], [ %3672, %3668 ], [ %3482, %3689 ]
+  %3589 = phi ptr [ %3725, %3769 ], [ %3483, %3625 ], [ %3483, %3604 ], [ %3483, %3577 ], [ %3483, %3544 ], [ %3483, %3535 ], [ %3673, %3687 ], [ %3673, %3668 ], [ %3483, %3689 ]
+  %3590 = phi ptr [ %3726, %3769 ], [ %3484, %3625 ], [ %3484, %3604 ], [ %3484, %3577 ], [ %3484, %3544 ], [ %3484, %3535 ], [ %3674, %3687 ], [ %3674, %3668 ], [ %3484, %3689 ]
+  %3591 = phi ptr [ %3727, %3769 ], [ %3485, %3625 ], [ %3485, %3604 ], [ %3485, %3577 ], [ %3485, %3544 ], [ %3485, %3535 ], [ %3675, %3687 ], [ %3675, %3668 ], [ %3485, %3689 ]
+  %3592 = phi ptr [ %3728, %3769 ], [ %3486, %3625 ], [ %3486, %3604 ], [ %3486, %3577 ], [ %3486, %3544 ], [ %3486, %3535 ], [ %3676, %3687 ], [ %3676, %3668 ], [ %3486, %3689 ]
+  %3593 = phi ptr [ %3729, %3769 ], [ %3487, %3625 ], [ %3487, %3604 ], [ %3487, %3577 ], [ %3487, %3544 ], [ %3487, %3535 ], [ %3677, %3687 ], [ %3677, %3668 ], [ %3487, %3689 ]
+  %3594 = phi ptr [ %3730, %3769 ], [ %3488, %3625 ], [ %3488, %3604 ], [ %3488, %3577 ], [ %3488, %3544 ], [ %3488, %3535 ], [ %3678, %3687 ], [ %3678, %3668 ], [ %3488, %3689 ]
+  %3595 = phi ptr [ %3731, %3769 ], [ %3489, %3625 ], [ %3489, %3604 ], [ %3489, %3577 ], [ %3489, %3544 ], [ %3489, %3535 ], [ %3679, %3687 ], [ %3679, %3668 ], [ %3489, %3689 ]
+  %3596 = phi ptr [ %3732, %3769 ], [ %3490, %3625 ], [ %3490, %3604 ], [ %3490, %3577 ], [ %3490, %3544 ], [ %3490, %3535 ], [ %3680, %3687 ], [ %3680, %3668 ], [ %3490, %3689 ]
+  %3597 = phi ptr [ %3733, %3769 ], [ %3491, %3625 ], [ %3491, %3604 ], [ %3491, %3577 ], [ %3491, %3544 ], [ %3491, %3535 ], [ %3681, %3687 ], [ %3681, %3668 ], [ %3491, %3689 ]
+  %3598 = phi ptr [ %3734, %3769 ], [ %3492, %3625 ], [ %3492, %3604 ], [ %3492, %3577 ], [ %3492, %3544 ], [ %3492, %3535 ], [ %3682, %3687 ], [ %3682, %3668 ], [ %3492, %3689 ]
+  %.pn52.i.i.i.i.i.i.i = phi { ptr, i32 } [ %3770, %3769 ], [ %3626, %3625 ], [ %3605, %3604 ], [ %3578, %3577 ], [ %3545, %3544 ], [ %3536, %3535 ], [ %.pn49.pn.i.i.i.i.i.i.i, %3687 ], [ %.pn49.pn.i.i.i.i.i.i.i, %3668 ], [ %3690, %3689 ]
   %3599 = getelementptr inbounds nuw i8, ptr %1, i64 2623
   %3600 = load i8, ptr %3599, align 1, !range !26, !noalias !6906, !noundef !5
   %3601 = trunc nuw i8 %3600 to i1
@@ -23319,21 +23319,21 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i.i.i.i.i.i: ; preds 
           to label %3698 unwind label %3718, !noalias !6911
 
 "_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i": ; preds = %3776, %3717, %3698, %3513, %3495
-  %3804 = phi ptr [ %3777, %3776 ], [ %3699, %3698 ], [ %3699, %3717 ], [ %3479, %3513 ], [ %3479, %3495 ]
-  %3805 = phi ptr [ %3778, %3776 ], [ %3700, %3698 ], [ %3700, %3717 ], [ %3480, %3513 ], [ %3480, %3495 ]
-  %3806 = phi ptr [ %3779, %3776 ], [ %3701, %3698 ], [ %3701, %3717 ], [ %3481, %3513 ], [ %3481, %3495 ]
-  %3807 = phi ptr [ %3780, %3776 ], [ %3702, %3698 ], [ %3702, %3717 ], [ %3482, %3513 ], [ %3482, %3495 ]
-  %3808 = phi ptr [ %3781, %3776 ], [ %3703, %3698 ], [ %3703, %3717 ], [ %3483, %3513 ], [ %3483, %3495 ]
-  %3809 = phi ptr [ %3782, %3776 ], [ %3704, %3698 ], [ %3704, %3717 ], [ %3484, %3513 ], [ %3484, %3495 ]
-  %3810 = phi ptr [ %3783, %3776 ], [ %3705, %3698 ], [ %3705, %3717 ], [ %3485, %3513 ], [ %3485, %3495 ]
-  %3811 = phi ptr [ %3784, %3776 ], [ %3706, %3698 ], [ %3706, %3717 ], [ %3486, %3513 ], [ %3486, %3495 ]
-  %3812 = phi ptr [ %3785, %3776 ], [ %3707, %3698 ], [ %3707, %3717 ], [ %3487, %3513 ], [ %3487, %3495 ]
-  %3813 = phi ptr [ %3786, %3776 ], [ %3708, %3698 ], [ %3708, %3717 ], [ %3488, %3513 ], [ %3488, %3495 ]
-  %3814 = phi ptr [ %3787, %3776 ], [ %3709, %3698 ], [ %3709, %3717 ], [ %3489, %3513 ], [ %3489, %3495 ]
-  %3815 = phi ptr [ %3788, %3776 ], [ %3710, %3698 ], [ %3710, %3717 ], [ %3490, %3513 ], [ %3490, %3495 ]
-  %3816 = phi ptr [ %3789, %3776 ], [ %3711, %3698 ], [ %3711, %3717 ], [ %3491, %3513 ], [ %3491, %3495 ]
-  %3817 = phi ptr [ %3790, %3776 ], [ %3712, %3698 ], [ %3712, %3717 ], [ %3492, %3513 ], [ %3492, %3495 ]
-  %.pn55.i.i.i.i.i.i.i = phi { ptr, i32 } [ %3791, %3776 ], [ %.pn52.pn.i.i.i.i.i.i.i, %3698 ], [ %.pn52.pn.i.i.i.i.i.i.i, %3717 ], [ %3514, %3513 ], [ %3496, %3495 ]
+  %3804 = phi ptr [ %3777, %3776 ], [ %3699, %3717 ], [ %3699, %3698 ], [ %3479, %3495 ], [ %3479, %3513 ]
+  %3805 = phi ptr [ %3778, %3776 ], [ %3700, %3717 ], [ %3700, %3698 ], [ %3480, %3495 ], [ %3480, %3513 ]
+  %3806 = phi ptr [ %3779, %3776 ], [ %3701, %3717 ], [ %3701, %3698 ], [ %3481, %3495 ], [ %3481, %3513 ]
+  %3807 = phi ptr [ %3780, %3776 ], [ %3702, %3717 ], [ %3702, %3698 ], [ %3482, %3495 ], [ %3482, %3513 ]
+  %3808 = phi ptr [ %3781, %3776 ], [ %3703, %3717 ], [ %3703, %3698 ], [ %3483, %3495 ], [ %3483, %3513 ]
+  %3809 = phi ptr [ %3782, %3776 ], [ %3704, %3717 ], [ %3704, %3698 ], [ %3484, %3495 ], [ %3484, %3513 ]
+  %3810 = phi ptr [ %3783, %3776 ], [ %3705, %3717 ], [ %3705, %3698 ], [ %3485, %3495 ], [ %3485, %3513 ]
+  %3811 = phi ptr [ %3784, %3776 ], [ %3706, %3717 ], [ %3706, %3698 ], [ %3486, %3495 ], [ %3486, %3513 ]
+  %3812 = phi ptr [ %3785, %3776 ], [ %3707, %3717 ], [ %3707, %3698 ], [ %3487, %3495 ], [ %3487, %3513 ]
+  %3813 = phi ptr [ %3786, %3776 ], [ %3708, %3717 ], [ %3708, %3698 ], [ %3488, %3495 ], [ %3488, %3513 ]
+  %3814 = phi ptr [ %3787, %3776 ], [ %3709, %3717 ], [ %3709, %3698 ], [ %3489, %3495 ], [ %3489, %3513 ]
+  %3815 = phi ptr [ %3788, %3776 ], [ %3710, %3717 ], [ %3710, %3698 ], [ %3490, %3495 ], [ %3490, %3513 ]
+  %3816 = phi ptr [ %3789, %3776 ], [ %3711, %3717 ], [ %3711, %3698 ], [ %3491, %3495 ], [ %3491, %3513 ]
+  %3817 = phi ptr [ %3790, %3776 ], [ %3712, %3717 ], [ %3712, %3698 ], [ %3492, %3495 ], [ %3492, %3513 ]
+  %.pn55.i.i.i.i.i.i.i = phi { ptr, i32 } [ %3791, %3776 ], [ %.pn52.pn.i.i.i.i.i.i.i, %3717 ], [ %.pn52.pn.i.i.i.i.i.i.i, %3698 ], [ %3496, %3495 ], [ %3514, %3513 ]
   %3818 = getelementptr inbounds nuw i8, ptr %1, i64 2619
   store i32 0, ptr %3818, align 1, !noalias !6906
   store i8 2, ptr %3816, align 8, !noalias !6906
@@ -23361,26 +23361,26 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i.i.i.i.i.i: ; preds 
   br label %3846
 
 3828:                                             ; preds = %3775, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i", %3570, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i"
-  %3829 = phi ptr [ %3552, %3570 ], [ %3552, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3721, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3721, %3775 ]
-  %3830 = phi ptr [ %3553, %3570 ], [ %3553, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3722, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3722, %3775 ]
-  %.sroa.320.i.sroa.5.0827 = phi i8 [ %.sroa.320.i.sroa.5.0828, %3570 ], [ %.sroa.320.i.sroa.5.0828, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %.sroa.320.i.sroa.5.0829, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %.sroa.320.i.sroa.5.0829, %3775 ]
-  %.sroa.320.i.sroa.0.0801 = phi ptr [ %.sroa.320.i.sroa.0.0802, %3570 ], [ %.sroa.320.i.sroa.0.0802, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %.sroa.320.i.sroa.0.0803, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %.sroa.320.i.sroa.0.0803, %3775 ]
-  %3831 = phi ptr [ %3554, %3570 ], [ %3554, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3723, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3723, %3775 ]
-  %3832 = phi ptr [ %3555, %3570 ], [ %3555, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3724, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3724, %3775 ]
-  %3833 = phi ptr [ %3556, %3570 ], [ %3556, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3725, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3725, %3775 ]
-  %3834 = phi ptr [ %3557, %3570 ], [ %3557, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3726, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3726, %3775 ]
-  %3835 = phi ptr [ %3558, %3570 ], [ %3558, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3727, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3727, %3775 ]
-  %3836 = phi ptr [ %3559, %3570 ], [ %3559, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3728, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3728, %3775 ]
-  %3837 = phi ptr [ %3560, %3570 ], [ %3560, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3729, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3729, %3775 ]
-  %3838 = phi ptr [ %3561, %3570 ], [ %3561, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3730, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3730, %3775 ]
-  %3839 = phi ptr [ %3562, %3570 ], [ %3562, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3731, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3731, %3775 ]
-  %3840 = phi ptr [ %3563, %3570 ], [ %3563, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3732, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3732, %3775 ]
-  %3841 = phi ptr [ %3564, %3570 ], [ %3564, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3733, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3733, %3775 ]
-  %3842 = phi ptr [ %3565, %3570 ], [ %3565, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3734, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3734, %3775 ]
-  %.sroa.0152.2.i.i.i.i.i.i.i = phi i64 [ 6, %3570 ], [ 6, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %.sroa.0152.1240.i.i.i.i.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %.sroa.0152.1240.i.i.i.i.i.i.i, %3775 ]
-  %.sroa.10154.2.i.i.i.i.i.i.i = phi i64 [ %.sroa.10154.0.i.i.i.i.i.i.i, %3570 ], [ %.sroa.10154.0.i.i.i.i.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %.sroa.10154.1241.i.i.i.i.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %.sroa.10154.1241.i.i.i.i.i.i.i, %3775 ]
-  %.sroa.17.2.i.i.i.i.i.i.i = phi ptr [ %.sroa.17.0.i.i.i.i.i.i.i, %3570 ], [ %.sroa.17.0.i.i.i.i.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %.sroa.17.1242.i.i.i.i.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %.sroa.17.1242.i.i.i.i.i.i.i, %3775 ]
-  %.sroa.30166.1.i.i.i.i.i.i.i = phi i32 [ undef, %3570 ], [ undef, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %.sroa.30166.0243.i.i.i.i.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %.sroa.30166.0243.i.i.i.i.i.i.i, %3775 ]
+  %3829 = phi ptr [ %3552, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3552, %3570 ], [ %3721, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3721, %3775 ]
+  %3830 = phi ptr [ %3553, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3553, %3570 ], [ %3722, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3722, %3775 ]
+  %.sroa.320.i.sroa.5.0827 = phi i8 [ %.sroa.320.i.sroa.5.0828, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %.sroa.320.i.sroa.5.0828, %3570 ], [ %.sroa.320.i.sroa.5.0829, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %.sroa.320.i.sroa.5.0829, %3775 ]
+  %.sroa.320.i.sroa.0.0801 = phi ptr [ %.sroa.320.i.sroa.0.0802, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %.sroa.320.i.sroa.0.0802, %3570 ], [ %.sroa.320.i.sroa.0.0803, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %.sroa.320.i.sroa.0.0803, %3775 ]
+  %3831 = phi ptr [ %3554, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3554, %3570 ], [ %3723, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3723, %3775 ]
+  %3832 = phi ptr [ %3555, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3555, %3570 ], [ %3724, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3724, %3775 ]
+  %3833 = phi ptr [ %3556, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3556, %3570 ], [ %3725, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3725, %3775 ]
+  %3834 = phi ptr [ %3557, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3557, %3570 ], [ %3726, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3726, %3775 ]
+  %3835 = phi ptr [ %3558, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3558, %3570 ], [ %3727, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3727, %3775 ]
+  %3836 = phi ptr [ %3559, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3559, %3570 ], [ %3728, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3728, %3775 ]
+  %3837 = phi ptr [ %3560, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3560, %3570 ], [ %3729, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3729, %3775 ]
+  %3838 = phi ptr [ %3561, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3561, %3570 ], [ %3730, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3730, %3775 ]
+  %3839 = phi ptr [ %3562, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3562, %3570 ], [ %3731, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3731, %3775 ]
+  %3840 = phi ptr [ %3563, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3563, %3570 ], [ %3732, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3732, %3775 ]
+  %3841 = phi ptr [ %3564, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3564, %3570 ], [ %3733, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3733, %3775 ]
+  %3842 = phi ptr [ %3565, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %3565, %3570 ], [ %3734, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %3734, %3775 ]
+  %.sroa.0152.2.i.i.i.i.i.i.i = phi i64 [ 6, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ 6, %3570 ], [ %.sroa.0152.1240.i.i.i.i.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %.sroa.0152.1240.i.i.i.i.i.i.i, %3775 ]
+  %.sroa.10154.2.i.i.i.i.i.i.i = phi i64 [ %.sroa.10154.0.i.i.i.i.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %.sroa.10154.0.i.i.i.i.i.i.i, %3570 ], [ %.sroa.10154.1241.i.i.i.i.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %.sroa.10154.1241.i.i.i.i.i.i.i, %3775 ]
+  %.sroa.17.2.i.i.i.i.i.i.i = phi ptr [ %.sroa.17.0.i.i.i.i.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ %.sroa.17.0.i.i.i.i.i.i.i, %3570 ], [ %.sroa.17.1242.i.i.i.i.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %.sroa.17.1242.i.i.i.i.i.i.i, %3775 ]
+  %.sroa.30166.1.i.i.i.i.i.i.i = phi i32 [ undef, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i.i.i.i.i" ], [ undef, %3570 ], [ %.sroa.30166.0243.i.i.i.i.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i.i.i.i.i" ], [ %.sroa.30166.0243.i.i.i.i.i.i.i, %3775 ]
   %3843 = getelementptr inbounds nuw i8, ptr %1, i64 2619
   store i32 0, ptr %3843, align 1, !noalias !6906
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.1130.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.24.i.i.i.i.i.i.i, i64 56, i1 false), !noalias !7022
@@ -23457,20 +23457,20 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i.i.i.i.i.i: ; preds 
   br label %3879
 
 .body.i.i.i.i.i.i:                                ; preds = %3819, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i"
-  %3864 = phi ptr [ %3804, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ], [ %2922, %3819 ]
-  %3865 = phi ptr [ %3805, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ], [ %2921, %3819 ]
-  %3866 = phi ptr [ %3806, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ], [ %.phi.trans.insert.i257, %3819 ]
-  %3867 = phi ptr [ %3807, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ], [ %2936, %3819 ]
-  %3868 = phi ptr [ %3808, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ], [ %.phi.trans.insert595.i.i, %3819 ]
-  %3869 = phi ptr [ %3809, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ], [ %3323, %3819 ]
-  %3870 = phi ptr [ %3810, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ], [ %.phi.trans.insert.i.i.i259, %3819 ]
-  %3871 = phi ptr [ %3811, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ], [ %3352, %3819 ]
-  %3872 = phi ptr [ %3812, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ], [ %.phi.trans.insert.i.i.i.i261, %3819 ]
-  %3873 = phi ptr [ %3813, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ], [ %3369, %3819 ]
-  %3874 = phi ptr [ %3814, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ], [ %.phi.trans.insert.i.i.i.i.i263, %3819 ]
-  %3875 = phi ptr [ %3815, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ], [ %3399, %3819 ]
-  %3876 = phi ptr [ %3817, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ], [ %3436, %3819 ]
-  %.pn6.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn55.i.i.i.i.i.i.i, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ], [ %3820, %3819 ]
+  %3864 = phi ptr [ %2922, %3819 ], [ %3804, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ]
+  %3865 = phi ptr [ %2921, %3819 ], [ %3805, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ]
+  %3866 = phi ptr [ %.phi.trans.insert.i257, %3819 ], [ %3806, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ]
+  %3867 = phi ptr [ %2936, %3819 ], [ %3807, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ]
+  %3868 = phi ptr [ %.phi.trans.insert595.i.i, %3819 ], [ %3808, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ]
+  %3869 = phi ptr [ %3323, %3819 ], [ %3809, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ]
+  %3870 = phi ptr [ %.phi.trans.insert.i.i.i259, %3819 ], [ %3810, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ]
+  %3871 = phi ptr [ %3352, %3819 ], [ %3811, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ]
+  %3872 = phi ptr [ %.phi.trans.insert.i.i.i.i261, %3819 ], [ %3812, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ]
+  %3873 = phi ptr [ %3369, %3819 ], [ %3813, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ]
+  %3874 = phi ptr [ %.phi.trans.insert.i.i.i.i.i263, %3819 ], [ %3814, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ]
+  %3875 = phi ptr [ %3399, %3819 ], [ %3815, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ]
+  %3876 = phi ptr [ %3436, %3819 ], [ %3817, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ]
+  %.pn6.i.i.i.i.i.i = phi { ptr, i32 } [ %3820, %3819 ], [ %.pn55.i.i.i.i.i.i.i, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1130.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1231.i.i.i.i.i.i)
   invoke fastcc void @"_ZN4core3ptr358drop_in_place$LT$zbus..connection..Connection..call_method_raw$LT$$RF$zbus_names..bus_name..BusName$C$$RF$str$C$$RF$zbus_names..interface_name..InterfaceName$C$$RF$str$C$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hed5cfcb967e91c68E"(ptr noundef nonnull align 8 %3876) #21
@@ -23592,18 +23592,18 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i.i.i.i.i.i: ; preds 
   br i1 %3918, label %.thread496.i.i, label %3934
 
 .body.i.i.i.i.i:                                  ; preds = %3908, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i"
-  %3919 = phi ptr [ %3421, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ], [ %2922, %3908 ]
-  %3920 = phi ptr [ %3422, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ], [ %2921, %3908 ]
-  %3921 = phi ptr [ %3423, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ], [ %.phi.trans.insert.i257, %3908 ]
-  %3922 = phi ptr [ %3424, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ], [ %2936, %3908 ]
-  %3923 = phi ptr [ %3425, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ], [ %.phi.trans.insert595.i.i, %3908 ]
-  %3924 = phi ptr [ %3426, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ], [ %3323, %3908 ]
-  %3925 = phi ptr [ %3427, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ], [ %.phi.trans.insert.i.i.i259, %3908 ]
-  %3926 = phi ptr [ %3428, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ], [ %3352, %3908 ]
-  %3927 = phi ptr [ %3429, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ], [ %.phi.trans.insert.i.i.i.i261, %3908 ]
-  %3928 = phi ptr [ %3430, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ], [ %3369, %3908 ]
-  %3929 = phi ptr [ %3432, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ], [ %3399, %3908 ]
-  %.pn8.i.i.i.i.i = phi { ptr, i32 } [ %.pn12.i.i.i.i.i.i, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ], [ %3909, %3908 ]
+  %3919 = phi ptr [ %2922, %3908 ], [ %3421, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ]
+  %3920 = phi ptr [ %2921, %3908 ], [ %3422, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ]
+  %3921 = phi ptr [ %.phi.trans.insert.i257, %3908 ], [ %3423, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ]
+  %3922 = phi ptr [ %2936, %3908 ], [ %3424, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ]
+  %3923 = phi ptr [ %.phi.trans.insert595.i.i, %3908 ], [ %3425, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ]
+  %3924 = phi ptr [ %3323, %3908 ], [ %3426, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ]
+  %3925 = phi ptr [ %.phi.trans.insert.i.i.i259, %3908 ], [ %3427, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ]
+  %3926 = phi ptr [ %3352, %3908 ], [ %3428, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ]
+  %3927 = phi ptr [ %.phi.trans.insert.i.i.i.i261, %3908 ], [ %3429, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ]
+  %3928 = phi ptr [ %3369, %3908 ], [ %3430, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ]
+  %3929 = phi ptr [ %3399, %3908 ], [ %3432, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ]
+  %.pn8.i.i.i.i.i = phi { ptr, i32 } [ %3909, %3908 ], [ %.pn12.i.i.i.i.i.i, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.929.i.sroa.9.i.i.i.i)
   invoke fastcc void @"_ZN4core3ptr354drop_in_place$LT$zbus..connection..Connection..call_method$LT$$RF$zbus_names..bus_name..BusName$C$$RF$str$C$$RF$zbus_names..interface_name..InterfaceName$C$$RF$str$C$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hedfe31b57449e956E"(ptr noundef nonnull align 8 %3929) #21
           to label %3394 unwind label %3930, !noalias !6897
@@ -23839,7 +23839,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501f
   unreachable
 
 .body21.i.i.i.i:                                  ; preds = %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit.i.i.i.i", %4000, %3993, %3988, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit17.i.i.i.i"
-  %.pn6.i.i.i.i = phi { ptr, i32 } [ %3949, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit.i.i.i.i" ], [ %.pn4.i.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit17.i.i.i.i" ], [ %4001, %4000 ], [ %3989, %3993 ], [ %3989, %3988 ]
+  %.pn6.i.i.i.i = phi { ptr, i32 } [ %.pn4.i.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit17.i.i.i.i" ], [ %3949, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit.i.i.i.i" ], [ %4001, %4000 ], [ %3989, %3993 ], [ %3989, %3988 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !6889
   br label %4004
 
@@ -23883,16 +23883,16 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501f
   br label %4041
 
 .body.i.i.i.i265:                                 ; preds = %3932, %3394
-  %4014 = phi ptr [ %3919, %3394 ], [ %2922, %3932 ]
-  %4015 = phi ptr [ %3920, %3394 ], [ %2921, %3932 ]
-  %4016 = phi ptr [ %3921, %3394 ], [ %.phi.trans.insert.i257, %3932 ]
-  %4017 = phi ptr [ %3922, %3394 ], [ %2936, %3932 ]
-  %4018 = phi ptr [ %3923, %3394 ], [ %.phi.trans.insert595.i.i, %3932 ]
-  %4019 = phi ptr [ %3924, %3394 ], [ %3323, %3932 ]
-  %4020 = phi ptr [ %3925, %3394 ], [ %.phi.trans.insert.i.i.i259, %3932 ]
-  %4021 = phi ptr [ %3926, %3394 ], [ %3352, %3932 ]
-  %4022 = phi ptr [ %3928, %3394 ], [ %3369, %3932 ]
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %.pn8.i.i.i.i.i, %3394 ], [ %3933, %3932 ]
+  %4014 = phi ptr [ %2922, %3932 ], [ %3919, %3394 ]
+  %4015 = phi ptr [ %2921, %3932 ], [ %3920, %3394 ]
+  %4016 = phi ptr [ %.phi.trans.insert.i257, %3932 ], [ %3921, %3394 ]
+  %4017 = phi ptr [ %2936, %3932 ], [ %3922, %3394 ]
+  %4018 = phi ptr [ %.phi.trans.insert595.i.i, %3932 ], [ %3923, %3394 ]
+  %4019 = phi ptr [ %3323, %3932 ], [ %3924, %3394 ]
+  %4020 = phi ptr [ %.phi.trans.insert.i.i.i259, %3932 ], [ %3925, %3394 ]
+  %4021 = phi ptr [ %3352, %3932 ], [ %3926, %3394 ]
+  %4022 = phi ptr [ %3369, %3932 ], [ %3928, %3394 ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %3933, %3932 ], [ %.pn8.i.i.i.i.i, %3394 ]
   invoke fastcc void @"_ZN4core3ptr250drop_in_place$LT$zbus..proxy..Proxy..call_method$LT$$RF$str$C$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h34f2cbeb50aa0e37E"(ptr noundef nonnull align 8 %4022) #21
           to label %.body10.i.i.i.i unwind label %4002, !noalias !6901
 
@@ -24029,14 +24029,14 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501f
           to label %4071 unwind label %4048, !noalias !6888
 
 .body.i.i.i266:                                   ; preds = %4023, %4004
-  %4060 = phi ptr [ %4005, %4004 ], [ %2922, %4023 ]
-  %4061 = phi ptr [ %4006, %4004 ], [ %2921, %4023 ]
-  %4062 = phi ptr [ %4007, %4004 ], [ %.phi.trans.insert.i257, %4023 ]
-  %4063 = phi ptr [ %4008, %4004 ], [ %2936, %4023 ]
-  %4064 = phi ptr [ %4009, %4004 ], [ %.phi.trans.insert595.i.i, %4023 ]
-  %4065 = phi ptr [ %4010, %4004 ], [ %3323, %4023 ]
-  %4066 = phi ptr [ %4012, %4004 ], [ %3352, %4023 ]
-  %.pn3.i.i.i = phi { ptr, i32 } [ %.pn6.pn.i.i.i.i, %4004 ], [ %4024, %4023 ]
+  %4060 = phi ptr [ %2922, %4023 ], [ %4005, %4004 ]
+  %4061 = phi ptr [ %2921, %4023 ], [ %4006, %4004 ]
+  %4062 = phi ptr [ %.phi.trans.insert.i257, %4023 ], [ %4007, %4004 ]
+  %4063 = phi ptr [ %2936, %4023 ], [ %4008, %4004 ]
+  %4064 = phi ptr [ %.phi.trans.insert595.i.i, %4023 ], [ %4009, %4004 ]
+  %4065 = phi ptr [ %3323, %4023 ], [ %4010, %4004 ]
+  %4066 = phi ptr [ %3352, %4023 ], [ %4012, %4004 ]
+  %.pn3.i.i.i = phi { ptr, i32 } [ %4024, %4023 ], [ %.pn6.pn.i.i.i.i, %4004 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1035.i.i.i)
   invoke fastcc void @"_ZN4core3ptr273drop_in_place$LT$zbus..proxy..Proxy..call$LT$$RF$str$C$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$C$zbus..fdo..RequestNameReply$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbff1dd0b8e2c4c82E"(ptr noundef nonnull align 8 %4066) #21
           to label %3334 unwind label %4067, !noalias !6888
@@ -24124,7 +24124,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501f
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit292.i.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit292.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i291.i.i", %4387, %4300, %.thread559.i.i, %4084
-  %.pn112.i.i = phi { ptr, i32 } [ %.pn108.pn.pn558.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i291.i.i" ], [ %.pn99.pn.i.i, %.thread559.i.i ], [ %.pn108.pn.ph.i.i, %4300 ], [ %4085, %4084 ], [ %.pn108.pn.pn558.i.i, %4387 ]
+  %.pn112.i.i = phi { ptr, i32 } [ %.pn108.pn.ph.i.i, %4300 ], [ %4085, %4084 ], [ %.pn99.pn.i.i, %.thread559.i.i ], [ %.pn108.pn.pn558.i.i, %4387 ], [ %.pn108.pn.pn558.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i291.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %74), !noalias !6667
   br label %4392
 
@@ -24752,7 +24752,7 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
   br label %4195
 
 4286:                                             ; preds = %4284, %4227, %4224, %4217
-  %.pn97.ph.i.i = phi { ptr, i32 } [ %.pn93.i.i, %4284 ], [ %4225, %4224 ], [ %.pn88.i.i, %4227 ], [ %4218, %4217 ]
+  %.pn97.ph.i.i = phi { ptr, i32 } [ %4218, %4217 ], [ %4225, %4224 ], [ %.pn88.i.i, %4227 ], [ %.pn93.i.i, %4284 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !6667
   invoke fastcc void @"_ZN4core3ptr182drop_in_place$LT$zbus..connection..Connection..request_name_with_flags$LT$zbus_names..well_known_name..WellKnownName$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h66f41ad49e8cd136E"(ptr noundef nonnull align 8 %52) #21
           to label %4285 unwind label %3124, !noalias !6672
@@ -25029,7 +25029,7 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
   br label %4377
 
 4377:                                             ; preds = %4376, %4122, %4119, %4112
-  %.pn82.ph.i.i = phi { ptr, i32 } [ %.pn78.i.i, %4376 ], [ %4120, %4119 ], [ %.pn73.i.i, %4122 ], [ %4113, %4112 ]
+  %.pn82.ph.i.i = phi { ptr, i32 } [ %4113, %4112 ], [ %4120, %4119 ], [ %.pn73.i.i, %4122 ], [ %.pn78.i.i, %4376 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !6667
   invoke fastcc void @"_ZN4core3ptr182drop_in_place$LT$zbus..connection..Connection..request_name_with_flags$LT$zbus_names..well_known_name..WellKnownName$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf699708bf7b33b78E"(ptr noundef nonnull align 8 %68) #21
           to label %4378 unwind label %3124, !noalias !6672
@@ -25059,7 +25059,7 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
   br label %.sink.split649.i.i
 
 .sink.split649.i.i:                               ; preds = %4386, %4382, %4379, %4378, %4375, %.thread562.i.i, %4301, %4096
-  %.pn108.pn.pn558.ph.i.i = phi { ptr, i32 } [ %4312, %.thread562.i.i ], [ %4380, %4386 ], [ %.pn102.pn.pn.ph.i.i, %4375 ], [ %4302, %4301 ], [ %4097, %4096 ], [ %.pn82.ph.i.i, %4378 ], [ %4380, %4379 ], [ %4380, %4382 ]
+  %.pn108.pn.pn558.ph.i.i = phi { ptr, i32 } [ %4312, %.thread562.i.i ], [ %4302, %4301 ], [ %.pn102.pn.pn.ph.i.i, %4375 ], [ %.pn82.ph.i.i, %4378 ], [ %4097, %4096 ], [ %4380, %4379 ], [ %4380, %4382 ], [ %4380, %4386 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %71), !noalias !6667
   br label %4387
 
@@ -25130,12 +25130,12 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
           to label %4428 unwind label %4373, !noalias !6672
 
 .body218.i.i:                                     ; preds = %4069, %"_ZN4core3ptr172drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$GT$17h9fd3eb67fb355378E.exit.i.i.i"
-  %4415 = phi ptr [ %4042, %"_ZN4core3ptr172drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$GT$17h9fd3eb67fb355378E.exit.i.i.i" ], [ %2922, %4069 ]
-  %4416 = phi ptr [ %4043, %"_ZN4core3ptr172drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$GT$17h9fd3eb67fb355378E.exit.i.i.i" ], [ %2921, %4069 ]
-  %4417 = phi ptr [ %4044, %"_ZN4core3ptr172drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$GT$17h9fd3eb67fb355378E.exit.i.i.i" ], [ %.phi.trans.insert.i257, %4069 ]
-  %4418 = phi ptr [ %4045, %"_ZN4core3ptr172drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$GT$17h9fd3eb67fb355378E.exit.i.i.i" ], [ %2936, %4069 ]
-  %4419 = phi ptr [ %4047, %"_ZN4core3ptr172drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$GT$17h9fd3eb67fb355378E.exit.i.i.i" ], [ %3323, %4069 ]
-  %.pn67.i.i = phi { ptr, i32 } [ %.pn7.i.i.i, %"_ZN4core3ptr172drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$GT$17h9fd3eb67fb355378E.exit.i.i.i" ], [ %4070, %4069 ]
+  %4415 = phi ptr [ %2922, %4069 ], [ %4042, %"_ZN4core3ptr172drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$GT$17h9fd3eb67fb355378E.exit.i.i.i" ]
+  %4416 = phi ptr [ %2921, %4069 ], [ %4043, %"_ZN4core3ptr172drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$GT$17h9fd3eb67fb355378E.exit.i.i.i" ]
+  %4417 = phi ptr [ %.phi.trans.insert.i257, %4069 ], [ %4044, %"_ZN4core3ptr172drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$GT$17h9fd3eb67fb355378E.exit.i.i.i" ]
+  %4418 = phi ptr [ %2936, %4069 ], [ %4045, %"_ZN4core3ptr172drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$GT$17h9fd3eb67fb355378E.exit.i.i.i" ]
+  %4419 = phi ptr [ %3323, %4069 ], [ %4047, %"_ZN4core3ptr172drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$GT$17h9fd3eb67fb355378E.exit.i.i.i" ]
+  %.pn67.i.i = phi { ptr, i32 } [ %4070, %4069 ], [ %.pn7.i.i.i, %"_ZN4core3ptr172drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus_names..well_known_name..WellKnownName$C$enumflags2..BitFlags$LT$zbus..fdo..RequestNameFlags$C$u32$GT$$RP$$GT$$GT$17h9fd3eb67fb355378E.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8403.sroa.6.i.i)
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$zbus..fdo..DBusProxy..request_name..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf878fdb585333336E"(ptr noundef nonnull align 8 %4419) #21
           to label %4392 unwind label %3124, !noalias !6672
@@ -25227,10 +25227,10 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
   br label %4447
 
 .body.i268:                                       ; preds = %4424, %"_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h96aadb8994b80cfcE.exit.i.i"
-  %4440 = phi ptr [ %2951, %"_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h96aadb8994b80cfcE.exit.i.i" ], [ %2922, %4424 ]
-  %4441 = phi ptr [ %2952, %"_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h96aadb8994b80cfcE.exit.i.i" ], [ %2921, %4424 ]
-  %4442 = phi ptr [ %2954, %"_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h96aadb8994b80cfcE.exit.i.i" ], [ %2936, %4424 ]
-  %.pn3.i = phi { ptr, i32 } [ %.pn125.i.i, %"_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h96aadb8994b80cfcE.exit.i.i" ], [ %4425, %4424 ]
+  %4440 = phi ptr [ %2922, %4424 ], [ %2951, %"_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h96aadb8994b80cfcE.exit.i.i" ]
+  %4441 = phi ptr [ %2921, %4424 ], [ %2952, %"_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h96aadb8994b80cfcE.exit.i.i" ]
+  %4442 = phi ptr [ %2936, %4424 ], [ %2954, %"_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h96aadb8994b80cfcE.exit.i.i" ]
+  %.pn3.i = phi { ptr, i32 } [ %4425, %4424 ], [ %.pn125.i.i, %"_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h96aadb8994b80cfcE.exit.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1216.i.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1216.i.sroa.9)
   invoke fastcc void @"_ZN4core3ptr153drop_in_place$LT$zbus..connection..Connection..request_name_with_flags$LT$zbus_names..well_known_name..WellKnownName$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h56ff3b015b56131dE"(ptr noundef nonnull align 8 %4442) #21
@@ -25558,7 +25558,7 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
   br label %"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17h4a20a31823f77688E.exit"
 
 .body308:                                         ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i.i.i306", %4553, %4574, %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17hb2e085a68d0d124bE.exit311"
-  %.pn96 = phi { ptr, i32 } [ %.pn94, %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17hb2e085a68d0d124bE.exit311" ], [ %.pn94, %4574 ], [ %4554, %4553 ], [ %4554, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i.i.i306" ]
+  %.pn96 = phi { ptr, i32 } [ %.pn94, %4574 ], [ %.pn94, %"_ZN4core3ptr233drop_in_place$LT$std..collections..hash..map..HashMap$LT$zvariant..object_path..ObjectPath$C$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$zbus..object_server..interface..ArcInterface$GT$$GT$$GT$17hb2e085a68d0d124bE.exit311" ], [ %4554, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i.i.i306" ], [ %4554, %4553 ]
   %4562 = getelementptr inbounds nuw i8, ptr %1, i64 384
   invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE"(ptr noalias noundef align 8 dereferenceable(24) %4562) #21
           to label %4563 unwind label %1012
@@ -25867,7 +25867,7 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
           to label %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h56ed182dfa3d54e3E.exit" unwind label %4678
 
 "_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h56ed182dfa3d54e3E.exit349": ; preds = %4783, %4788, %4678, %4495
-  %.pn89.pn = phi { ptr, i32 } [ %4679, %4678 ], [ %.pn89, %4495 ], [ %.pn89, %4788 ], [ %.pn89, %4783 ]
+  %.pn89.pn = phi { ptr, i32 } [ %.pn89, %4495 ], [ %4679, %4678 ], [ %.pn89, %4788 ], [ %.pn89, %4783 ]
   %4676 = getelementptr inbounds nuw i8, ptr %1, i64 904
   store i8 0, ptr %4676, align 8
   %4677 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -26058,7 +26058,7 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
   br label %"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17h4a20a31823f77688E.exit341"
 
 .body339:                                         ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i.i.i336", %4742, %4758, %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h174f4875ff486ddcE.exit345"
-  %.pn78 = phi { ptr, i32 } [ %.pn76, %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h174f4875ff486ddcE.exit345" ], [ %.pn76, %4758 ], [ %4743, %4742 ], [ %4743, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i.i.i336" ]
+  %.pn78 = phi { ptr, i32 } [ %.pn76, %4758 ], [ %.pn76, %"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..set..HashSet$LT$zbus_names..well_known_name..WellKnownName$GT$$GT$17h174f4875ff486ddcE.exit345" ], [ %4743, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i.i.i336" ], [ %4743, %4742 ]
   %4751 = getelementptr inbounds nuw i8, ptr %1, i64 384
   invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE"(ptr noalias noundef align 8 dereferenceable(24) %4751) #21
           to label %4563 unwind label %1012
@@ -26087,8 +26087,8 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
           to label %.body339 unwind label %1012
 
 .body288:                                         ; preds = %4443, %2930
-  %4760 = phi ptr [ %2932, %2930 ], [ %2921, %4443 ]
-  %.pn67 = phi { ptr, i32 } [ %.pn5.i, %2930 ], [ %4444, %4443 ]
+  %4760 = phi ptr [ %2921, %4443 ], [ %2932, %2930 ]
+  %.pn67 = phi { ptr, i32 } [ %4444, %4443 ], [ %.pn5.i, %2930 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8528.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8528.sroa.8)
   invoke fastcc void @"_ZN4core3ptr142drop_in_place$LT$zbus..connection..Connection..request_name$LT$zbus_names..well_known_name..WellKnownName$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h19f31a4c8f2fbfe8E"(ptr noundef nonnull align 8 %4760) #21
@@ -26308,7 +26308,7 @@ default.unreachable44:                            ; preds = %3
   br label %47
 
 .body:                                            ; preds = %.body21, %63, %50, %111
-  %.pn8 = phi { ptr, i32 } [ %112, %111 ], [ %64, %63 ], [ %.pn6, %.body21 ], [ %51, %50 ]
+  %.pn8 = phi { ptr, i32 } [ %112, %111 ], [ %51, %50 ], [ %64, %63 ], [ %.pn6, %.body21 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.experimental.noalias.scope.decl(metadata !7816)
   call void @llvm.experimental.noalias.scope.decl(metadata !7819)
@@ -26324,7 +26324,7 @@ default.unreachable44:                            ; preds = %3
           to label %"_ZN4core3ptr65drop_in_place$LT$zbus..object_server..interface..ArcInterface$GT$17h5f3d32aa12cce471E.exit" unwind label %77
 
 "_ZN4core3ptr65drop_in_place$LT$zbus..object_server..interface..ArcInterface$GT$17h5f3d32aa12cce471E.exit": ; preds = %.body, %44, %118, %21, %14
-  %.pn10 = phi { ptr, i32 } [ %119, %118 ], [ %15, %14 ], [ %22, %21 ], [ %.pn8, %44 ], [ %.pn8, %.body ]
+  %.pn10 = phi { ptr, i32 } [ %119, %118 ], [ %22, %21 ], [ %15, %14 ], [ %.pn8, %44 ], [ %.pn8, %.body ]
   store i8 2, ptr %9, align 8
   resume { ptr, i32 } %.pn10
 
@@ -26415,7 +26415,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr65drop
   br label %79
 
 .body21:                                          ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i1.i.i", %101, %70, %86
-  %.pn6 = phi { ptr, i32 } [ %102, %101 ], [ %87, %86 ], [ %71, %70 ], [ %102, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i1.i.i" ]
+  %.pn6 = phi { ptr, i32 } [ %87, %86 ], [ %71, %70 ], [ %102, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i1.i.i" ], [ %102, %101 ]
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val16 = load ptr, ptr %76, align 8, !nonnull !5, !align !16, !noundef !5
   invoke void @_ZN10async_lock6rwlock3raw9RawRwLock11read_unlock17hcee90b62e25e8c43E(ptr noundef nonnull align 8 %.val16)
@@ -26642,7 +26642,7 @@ default.unreachable67:                            ; preds = %3
   br label %55
 
 "_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit15": ; preds = %66, %62, %56
-  %.pn12.pn = phi { ptr, i32 } [ %.pn10, %66 ], [ %63, %62 ], [ %.pn10, %56 ]
+  %.pn12.pn = phi { ptr, i32 } [ %.pn10, %56 ], [ %63, %62 ], [ %.pn10, %66 ]
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 2657
   store i8 0, ptr %31, align 1
   store i8 2, ptr %9, align 8
@@ -27339,9 +27339,9 @@ _ZN4zbus7message7Message6signal17h8940ccf5738d5ca1E.exit.i: ; preds = %"_ZN4core
   br label %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit44.i"
 
 "_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit44.i": ; preds = %196, %189, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit46.i", %159, %155, %.thread.i, %88, %70
-  %198 = phi ptr [ %66, %70 ], [ %66, %159 ], [ %66, %.thread.i ], [ %66, %155 ], [ %66, %88 ], [ %162, %196 ], [ %162, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit46.i" ], [ %162, %189 ]
-  %199 = phi ptr [ %67, %70 ], [ %67, %159 ], [ %67, %.thread.i ], [ %67, %155 ], [ %67, %88 ], [ %163, %196 ], [ %163, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit46.i" ], [ %163, %189 ]
-  %.pn35.pn.i = phi { ptr, i32 } [ %71, %70 ], [ %160, %159 ], [ %.pn23.pn.pn.i, %.thread.i ], [ %.pn23.pn.pn.i, %155 ], [ %89, %88 ], [ %197, %196 ], [ %.pn33.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit46.i" ], [ %.pn33.i, %189 ]
+  %198 = phi ptr [ %66, %159 ], [ %66, %155 ], [ %66, %.thread.i ], [ %66, %70 ], [ %66, %88 ], [ %162, %196 ], [ %162, %189 ], [ %162, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit46.i" ]
+  %199 = phi ptr [ %67, %159 ], [ %67, %155 ], [ %67, %.thread.i ], [ %67, %70 ], [ %67, %88 ], [ %163, %196 ], [ %163, %189 ], [ %163, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit46.i" ]
+  %.pn35.pn.i = phi { ptr, i32 } [ %160, %159 ], [ %.pn23.pn.pn.i, %155 ], [ %.pn23.pn.pn.i, %.thread.i ], [ %71, %70 ], [ %89, %88 ], [ %197, %196 ], [ %.pn33.i, %189 ], [ %.pn33.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit46.i" ]
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 146
   store i8 0, ptr %200, align 2, !noalias !7875
   %201 = getelementptr inbounds nuw i8, ptr %1, i64 147
@@ -27387,10 +27387,10 @@ _ZN4zbus7message7Message6signal17h8940ccf5738d5ca1E.exit.i: ; preds = %"_ZN4core
   br label %.body
 
 217:                                              ; preds = %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit48.i", %195, %127, %124
-  %218 = phi ptr [ %66, %127 ], [ %66, %124 ], [ %162, %195 ], [ %162, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit48.i" ]
-  %219 = phi ptr [ %67, %127 ], [ %67, %124 ], [ %163, %195 ], [ %163, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit48.i" ]
-  %.sroa.097.1.i = phi i64 [ %.sroa.097.0.i, %127 ], [ %.sroa.097.0.i, %124 ], [ %168, %195 ], [ %168, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit48.i" ]
-  %.sroa.699.1.i = phi ptr [ %.sroa.699.0.i, %127 ], [ %.sroa.699.0.i, %124 ], [ %.sroa.699.0.copyload101.i, %195 ], [ %.sroa.699.0.copyload101.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit48.i" ]
+  %218 = phi ptr [ %66, %124 ], [ %66, %127 ], [ %162, %195 ], [ %162, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit48.i" ]
+  %219 = phi ptr [ %67, %124 ], [ %67, %127 ], [ %163, %195 ], [ %163, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit48.i" ]
+  %.sroa.097.1.i = phi i64 [ %.sroa.097.0.i, %124 ], [ %.sroa.097.0.i, %127 ], [ %168, %195 ], [ %168, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit48.i" ]
+  %.sroa.699.1.i = phi ptr [ %.sroa.699.0.i, %124 ], [ %.sroa.699.0.i, %127 ], [ %.sroa.699.0.copyload101.i, %195 ], [ %.sroa.699.0.copyload101.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit48.i" ]
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 145
   store i32 0, ptr %220, align 1, !noalias !7875
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.1022, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.10104.i, i64 56, i1 false)
@@ -27426,8 +27426,8 @@ common.ret:                                       ; preds = %225, %221
   br label %common.ret
 
 .body:                                            ; preds = %215, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit.i"
-  %226 = phi ptr [ %199, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit.i" ], [ %34, %215 ]
-  %.pn4 = phi { ptr, i32 } [ %.pn35.pn.i, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit.i" ], [ %216, %215 ]
+  %226 = phi ptr [ %34, %215 ], [ %199, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit.i" ]
+  %.pn4 = phi { ptr, i32 } [ %216, %215 ], [ %.pn35.pn.i, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit.i" ]
   invoke fastcc void @"_ZN4core3ptr445drop_in_place$LT$zbus..connection..Connection..emit_signal$LT$$RF$zbus_names..bus_name..BusName$C$$RF$zvariant..object_path..ObjectPath$C$zbus_names..interface_name..InterfaceName$C$$RF$str$C$$LP$$RF$zvariant..object_path..ObjectPath$C$$RF$std..collections..hash..map..HashMap$LT$zbus_names..interface_name..InterfaceName$C$std..collections..hash..map..HashMap$LT$$RF$str$C$zvariant..value..Value$GT$$GT$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9863607a9d9f4623E"(ptr noundef nonnull align 8 %226) #21
           to label %30 unwind label %227
 
@@ -27536,7 +27536,7 @@ default.unreachable30:                            ; preds = %19, %3
   br label %21
 
 "_ZN4core3ptr109drop_in_place$LT$zbus..proxy..Proxy..receive_signal_with_args$LT$$RF$str$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd0b73ccd7ea839eaE.exit10": ; preds = %.body, %.body.thread, %68
-  %.pn4 = phi { ptr, i32 } [ %64, %68 ], [ %.pn8.pn.i, %.body.thread ], [ %64, %.body ]
+  %.pn4 = phi { ptr, i32 } [ %.pn8.pn.i, %.body.thread ], [ %64, %.body ], [ %64, %68 ]
   store i8 2, ptr %8, align 8
   resume { ptr, i32 } %.pn4
 
@@ -28534,9 +28534,9 @@ _ZN4zbus10match_rule7builder7Builder7add_arg17ha6d35849c0ffc5c9E.exit.i: ; preds
   br label %236
 
 236:                                              ; preds = %776, %.body50.i, %291, %233, %225
-  %237 = phi ptr [ %158, %225 ], [ %257, %291 ], [ %234, %233 ], [ %767, %776 ], [ %789, %.body50.i ]
-  %238 = phi ptr [ %159, %225 ], [ %258, %291 ], [ %235, %233 ], [ %768, %776 ], [ %790, %.body50.i ]
-  %.pn27.pn.i = phi { ptr, i32 } [ %226, %225 ], [ %.pn21.i, %291 ], [ %.pn17.i, %233 ], [ %777, %776 ], [ %.pn25.i, %.body50.i ]
+  %237 = phi ptr [ %257, %291 ], [ %234, %233 ], [ %158, %225 ], [ %767, %776 ], [ %789, %.body50.i ]
+  %238 = phi ptr [ %258, %291 ], [ %235, %233 ], [ %159, %225 ], [ %768, %776 ], [ %790, %.body50.i ]
+  %.pn27.pn.i = phi { ptr, i32 } [ %.pn21.i, %291 ], [ %.pn17.i, %233 ], [ %226, %225 ], [ %777, %776 ], [ %.pn25.i, %.body50.i ]
   %239 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %240 = load i8, ptr %239, align 8, !range !26, !noalias !7999, !noundef !5
   %241 = trunc nuw i8 %240 to i1
@@ -28770,7 +28770,7 @@ _ZN4zbus10match_rule7builder7Builder7add_arg17ha6d35849c0ffc5c9E.exit.i: ; preds
   unreachable
 
 .body.i:                                          ; preds = %285, %281, %275
-  %.pn19.i = phi { ptr, i32 } [ %276, %275 ], [ %282, %281 ], [ %282, %285 ]
+  %.pn19.i = phi { ptr, i32 } [ %276, %275 ], [ %282, %285 ], [ %282, %281 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %117), !noalias !7999
   br label %291
 
@@ -29168,11 +29168,11 @@ _ZN4zbus10match_rule7builder7Builder7add_arg17ha6d35849c0ffc5c9E.exit.i: ; preds
   br label %473
 
 "_ZN4core3ptr41drop_in_place$LT$zbus..fdo..DBusProxy$GT$17h3ad0ccd12be9d791E.exit.i.i": ; preds = %591, %507, %498, %486, %479, %433
-  %437 = phi ptr [ %530, %591 ], [ %330, %433 ], [ %499, %498 ], [ %499, %507 ], [ %474, %486 ], [ %474, %479 ]
-  %438 = phi ptr [ %531, %591 ], [ %331, %433 ], [ %500, %498 ], [ %500, %507 ], [ %475, %486 ], [ %475, %479 ]
-  %439 = phi ptr [ %532, %591 ], [ %332, %433 ], [ %501, %498 ], [ %501, %507 ], [ %476, %486 ], [ %476, %479 ]
-  %440 = phi ptr [ %533, %591 ], [ %333, %433 ], [ %502, %498 ], [ %502, %507 ], [ %477, %486 ], [ %477, %479 ]
-  %.pn31.i.i = phi { ptr, i32 } [ %592, %591 ], [ %434, %433 ], [ %.pn28.i.i, %498 ], [ %.pn28.i.i, %507 ], [ %487, %486 ], [ %480, %479 ]
+  %437 = phi ptr [ %530, %591 ], [ %330, %433 ], [ %499, %507 ], [ %499, %498 ], [ %474, %486 ], [ %474, %479 ]
+  %438 = phi ptr [ %531, %591 ], [ %331, %433 ], [ %500, %507 ], [ %500, %498 ], [ %475, %486 ], [ %475, %479 ]
+  %439 = phi ptr [ %532, %591 ], [ %332, %433 ], [ %501, %507 ], [ %501, %498 ], [ %476, %486 ], [ %476, %479 ]
+  %440 = phi ptr [ %533, %591 ], [ %333, %433 ], [ %502, %507 ], [ %502, %498 ], [ %477, %486 ], [ %477, %479 ]
+  %.pn31.i.i = phi { ptr, i32 } [ %592, %591 ], [ %434, %433 ], [ %.pn28.i.i, %507 ], [ %.pn28.i.i, %498 ], [ %487, %486 ], [ %480, %479 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0151.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0145.i.i)
   br label %450
@@ -29218,11 +29218,11 @@ _ZN4zbus10match_rule7builder7Builder7add_arg17ha6d35849c0ffc5c9E.exit.i: ; preds
   unreachable
 
 "_ZN4core3ptr263drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$$GT$17h3f805d602a295ff6E.exit82.i.i": ; preds = %"_ZN4core3ptr232drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h2ab49bfb2ce3ab3eE.exit.sink.split.i133.i.i", %658, %"_ZN4core3ptr263drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$$GT$17h3f805d602a295ff6E.exit100.i.i", %369, %354, %347, %336
-  %466 = phi ptr [ %747, %658 ], [ %643, %"_ZN4core3ptr263drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$$GT$17h3f805d602a295ff6E.exit100.i.i" ], [ %330, %369 ], [ %643, %"_ZN4core3ptr232drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h2ab49bfb2ce3ab3eE.exit.sink.split.i133.i.i" ], [ %330, %347 ], [ %330, %336 ], [ %330, %354 ]
-  %467 = phi ptr [ %748, %658 ], [ %644, %"_ZN4core3ptr263drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$$GT$17h3f805d602a295ff6E.exit100.i.i" ], [ %331, %369 ], [ %644, %"_ZN4core3ptr232drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h2ab49bfb2ce3ab3eE.exit.sink.split.i133.i.i" ], [ %331, %347 ], [ %331, %336 ], [ %331, %354 ]
-  %468 = phi ptr [ %749, %658 ], [ %645, %"_ZN4core3ptr263drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$$GT$17h3f805d602a295ff6E.exit100.i.i" ], [ %332, %369 ], [ %645, %"_ZN4core3ptr232drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h2ab49bfb2ce3ab3eE.exit.sink.split.i133.i.i" ], [ %332, %347 ], [ %332, %336 ], [ %332, %354 ]
-  %469 = phi ptr [ %750, %658 ], [ %646, %"_ZN4core3ptr263drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$$GT$17h3f805d602a295ff6E.exit100.i.i" ], [ %333, %369 ], [ %646, %"_ZN4core3ptr232drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h2ab49bfb2ce3ab3eE.exit.sink.split.i133.i.i" ], [ %333, %347 ], [ %333, %336 ], [ %333, %354 ]
-  %.pn54.i.i = phi { ptr, i32 } [ %659, %658 ], [ %.pn51.i.i, %"_ZN4core3ptr263drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$$GT$17h3f805d602a295ff6E.exit100.i.i" ], [ %370, %369 ], [ %.pn51.i.i, %"_ZN4core3ptr232drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h2ab49bfb2ce3ab3eE.exit.sink.split.i133.i.i" ], [ %348, %347 ], [ %337, %336 ], [ %355, %354 ]
+  %466 = phi ptr [ %747, %658 ], [ %643, %"_ZN4core3ptr263drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$$GT$17h3f805d602a295ff6E.exit100.i.i" ], [ %330, %369 ], [ %643, %"_ZN4core3ptr232drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h2ab49bfb2ce3ab3eE.exit.sink.split.i133.i.i" ], [ %330, %336 ], [ %330, %354 ], [ %330, %347 ]
+  %467 = phi ptr [ %748, %658 ], [ %644, %"_ZN4core3ptr263drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$$GT$17h3f805d602a295ff6E.exit100.i.i" ], [ %331, %369 ], [ %644, %"_ZN4core3ptr232drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h2ab49bfb2ce3ab3eE.exit.sink.split.i133.i.i" ], [ %331, %336 ], [ %331, %354 ], [ %331, %347 ]
+  %468 = phi ptr [ %749, %658 ], [ %645, %"_ZN4core3ptr263drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$$GT$17h3f805d602a295ff6E.exit100.i.i" ], [ %332, %369 ], [ %645, %"_ZN4core3ptr232drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h2ab49bfb2ce3ab3eE.exit.sink.split.i133.i.i" ], [ %332, %336 ], [ %332, %354 ], [ %332, %347 ]
+  %469 = phi ptr [ %750, %658 ], [ %646, %"_ZN4core3ptr263drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$$GT$17h3f805d602a295ff6E.exit100.i.i" ], [ %333, %369 ], [ %646, %"_ZN4core3ptr232drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h2ab49bfb2ce3ab3eE.exit.sink.split.i133.i.i" ], [ %333, %336 ], [ %333, %354 ], [ %333, %347 ]
+  %.pn54.i.i = phi { ptr, i32 } [ %659, %658 ], [ %.pn51.i.i, %"_ZN4core3ptr263drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$$GT$17h3f805d602a295ff6E.exit100.i.i" ], [ %370, %369 ], [ %.pn51.i.i, %"_ZN4core3ptr232drop_in_place$LT$std..collections..hash..map..OccupiedEntry$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$17h2ab49bfb2ce3ab3eE.exit.sink.split.i133.i.i" ], [ %337, %336 ], [ %355, %354 ], [ %348, %347 ]
   %470 = getelementptr inbounds nuw i8, ptr %1, i64 1500
   %471 = load i8, ptr %470, align 4, !range !26, !noalias !8077, !noundef !5
   %472 = trunc nuw i8 %471 to i1
@@ -29394,7 +29394,7 @@ _ZN4zbus10match_rule7builder7Builder7add_arg17ha6d35849c0ffc5c9E.exit.i: ; preds
   br label %529
 
 .body.i.i.i:                                      ; preds = %562, %558, %537
-  %.pn4.i.i.i = phi { ptr, i32 } [ %559, %558 ], [ %538, %537 ], [ %563, %562 ]
+  %.pn4.i.i.i = phi { ptr, i32 } [ %538, %537 ], [ %563, %562 ], [ %559, %558 ]
   %526 = getelementptr inbounds nuw i8, ptr %1, i64 1808
   invoke void @"_ZN4core3ptr48drop_in_place$LT$zbus..match_rule..MatchRule$GT$17hd68ef7508afabc01E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %526)
           to label %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i.i.i" unwind label %572, !noalias !8164
@@ -29667,7 +29667,7 @@ _ZN4zbus10match_rule7builder7Builder7add_arg17ha6d35849c0ffc5c9E.exit.i: ; preds
   unreachable
 
 .body92.i.i:                                      ; preds = %610, %602, %597, %593, %417, %413
-  %.pn33.i.i = phi { ptr, i32 } [ %598, %597 ], [ %611, %610 ], [ %598, %602 ], [ %594, %593 ], [ %414, %417 ], [ %414, %413 ]
+  %.pn33.i.i = phi { ptr, i32 } [ %611, %610 ], [ %598, %602 ], [ %598, %597 ], [ %594, %593 ], [ %414, %417 ], [ %414, %413 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %111), !noalias !8077
   br label %450
 
@@ -29692,7 +29692,7 @@ _ZN4zbus10match_rule7builder7Builder7add_arg17ha6d35849c0ffc5c9E.exit.i: ; preds
   br label %665
 
 .body107.i.i:                                     ; preds = %732, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$zbus..match_rule..OwnedMatchRule$GT$$GT$17hc08ffb40fb8a4e44E.exit.i.i", %689, %682, %672
-  %.pn44.i.i = phi { ptr, i32 } [ %733, %732 ], [ %683, %682 ], [ %.pn41.i.i, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$zbus..match_rule..OwnedMatchRule$GT$$GT$17hc08ffb40fb8a4e44E.exit.i.i" ], [ %673, %672 ], [ %690, %689 ]
+  %.pn44.i.i = phi { ptr, i32 } [ %733, %732 ], [ %673, %672 ], [ %690, %689 ], [ %683, %682 ], [ %.pn41.i.i, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$zbus..match_rule..OwnedMatchRule$GT$$GT$17hc08ffb40fb8a4e44E.exit.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %110), !noalias !8077
   br label %450
 
@@ -29787,12 +29787,12 @@ _ZN4zbus10match_rule7builder7Builder7add_arg17ha6d35849c0ffc5c9E.exit.i: ; preds
   br label %"_ZN4core3ptr263drop_in_place$LT$async_lock..mutex..MutexGuard$LT$std..collections..hash..map..HashMap$LT$zbus..match_rule..OwnedMatchRule$C$$LP$u64$C$async_broadcast..InactiveReceiver$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$RP$$GT$$GT$$GT$17h3f805d602a295ff6E.exit82.i.i"
 
 .body86.i.i:                                      ; preds = %574, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i.i.i"
-  %660 = phi ptr [ %530, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i.i.i" ], [ %155, %574 ]
-  %661 = phi ptr [ %531, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i.i.i" ], [ %154, %574 ]
-  %662 = phi ptr [ %532, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i.i.i" ], [ %.phi.trans.insert.i, %574 ]
-  %663 = phi ptr [ %533, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i.i.i" ], [ %312, %574 ]
-  %664 = phi ptr [ %535, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i.i.i" ], [ %515, %574 ]
-  %.pn26.i.i = phi { ptr, i32 } [ %.pn6.i.i.i, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i.i.i" ], [ %575, %574 ]
+  %660 = phi ptr [ %155, %574 ], [ %530, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i.i.i" ]
+  %661 = phi ptr [ %154, %574 ], [ %531, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i.i.i" ]
+  %662 = phi ptr [ %.phi.trans.insert.i, %574 ], [ %532, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i.i.i" ]
+  %663 = phi ptr [ %312, %574 ], [ %533, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i.i.i" ]
+  %664 = phi ptr [ %515, %574 ], [ %535, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i.i.i" ]
+  %.pn26.i.i = phi { ptr, i32 } [ %575, %574 ], [ %.pn6.i.i.i, %"_ZN4core3ptr96drop_in_place$LT$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$17h23eae3ef4af3eb45E.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8162.i.i)
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$zbus..fdo..DBusProxy..remove_match_rule..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha3861896f4d82caaE"(ptr noundef nonnull align 8 %664) #21
           to label %498 unwind label %464, !noalias !8082
@@ -30182,10 +30182,10 @@ _ZN4zbus10match_rule7builder7Builder7add_arg17ha6d35849c0ffc5c9E.exit.i: ; preds
           to label %799 unwind label %782, !noalias !8004
 
 .body50.i:                                        ; preds = %762, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit.i.i"
-  %789 = phi ptr [ %466, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit.i.i" ], [ %155, %762 ]
-  %790 = phi ptr [ %467, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit.i.i" ], [ %154, %762 ]
-  %791 = phi ptr [ %469, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit.i.i" ], [ %312, %762 ]
-  %.pn25.i = phi { ptr, i32 } [ %.pn54.i.i, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit.i.i" ], [ %763, %762 ]
+  %789 = phi ptr [ %155, %762 ], [ %466, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit.i.i" ]
+  %790 = phi ptr [ %154, %762 ], [ %467, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit.i.i" ]
+  %791 = phi ptr [ %312, %762 ], [ %469, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit.i.i" ]
+  %.pn25.i = phi { ptr, i32 } [ %763, %762 ], [ %.pn54.i.i, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11126.sroa.6.i.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11126.sroa.6.i.sroa.10)
   invoke fastcc void @"_ZN4core3ptr92drop_in_place$LT$zbus..connection..Connection..remove_match..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c01f26cc6f640fdE"(ptr noundef nonnull align 8 %791) #21
@@ -30385,12 +30385,12 @@ common.ret:                                       ; preds = %2118, %"_ZN4core3pt
   br label %832
 
 "_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus_names..member_name..MemberName$GT$$GT$17h293dea2d0ad04b1dE.exit": ; preds = %2115, %831, %820, %825, %826
-  %.sroa.082.0 = phi i64 [ 4, %831 ], [ 4, %826 ], [ 4, %825 ], [ 4, %820 ], [ %.sroa.0683.5.i, %2115 ]
-  %.sroa.383.0 = phi i64 [ %.sroa.0135.2.i, %831 ], [ %.sroa.0135.2.i, %826 ], [ %.sroa.0135.2.i, %825 ], [ %.sroa.0135.2.i, %820 ], [ %.sroa.18684.5.i, %2115 ]
-  %.sroa.986.0 = phi i64 [ %.sroa.13152.i.sroa.11.1, %831 ], [ %.sroa.13152.i.sroa.11.1, %826 ], [ %.sroa.13152.i.sroa.11.1, %825 ], [ %.sroa.13152.i.sroa.11.1, %820 ], [ %.sroa.39.sroa.17.5.i, %2115 ]
-  %.sroa.1087.0 = phi i64 [ %.sroa.13152.i.sroa.13.1, %831 ], [ %.sroa.13152.i.sroa.13.1, %826 ], [ %.sroa.13152.i.sroa.13.1, %825 ], [ %.sroa.13152.i.sroa.13.1, %820 ], [ %.sroa.39.sroa.19.sroa.0.5.i, %2115 ]
-  %.sroa.1390.0 = phi i64 [ undef, %831 ], [ undef, %826 ], [ undef, %825 ], [ undef, %820 ], [ %.sroa.43.0.i, %2115 ]
-  %.sroa.584.0 = phi ptr [ %821, %831 ], [ %821, %826 ], [ %821, %825 ], [ %821, %820 ], [ %.sroa.35.5.i, %2115 ]
+  %.sroa.082.0 = phi i64 [ 4, %826 ], [ 4, %825 ], [ 4, %820 ], [ 4, %831 ], [ %.sroa.0683.5.i, %2115 ]
+  %.sroa.383.0 = phi i64 [ %.sroa.0135.2.i, %826 ], [ %.sroa.0135.2.i, %825 ], [ %.sroa.0135.2.i, %820 ], [ %.sroa.0135.2.i, %831 ], [ %.sroa.18684.5.i, %2115 ]
+  %.sroa.986.0 = phi i64 [ %.sroa.13152.i.sroa.11.1, %826 ], [ %.sroa.13152.i.sroa.11.1, %825 ], [ %.sroa.13152.i.sroa.11.1, %820 ], [ %.sroa.13152.i.sroa.11.1, %831 ], [ %.sroa.39.sroa.17.5.i, %2115 ]
+  %.sroa.1087.0 = phi i64 [ %.sroa.13152.i.sroa.13.1, %826 ], [ %.sroa.13152.i.sroa.13.1, %825 ], [ %.sroa.13152.i.sroa.13.1, %820 ], [ %.sroa.13152.i.sroa.13.1, %831 ], [ %.sroa.39.sroa.19.sroa.0.5.i, %2115 ]
+  %.sroa.1390.0 = phi i64 [ undef, %826 ], [ undef, %825 ], [ undef, %820 ], [ undef, %831 ], [ %.sroa.43.0.i, %2115 ]
+  %.sroa.584.0 = phi ptr [ %821, %826 ], [ %821, %825 ], [ %821, %820 ], [ %821, %831 ], [ %.sroa.35.5.i, %2115 ]
   %836 = getelementptr inbounds nuw i8, ptr %1, i64 73
   store i8 0, ptr %836, align 1
   store i64 %.sroa.082.0, ptr %0, align 8
@@ -30421,8 +30421,8 @@ common.ret:                                       ; preds = %2118, %"_ZN4core3pt
   br label %common.ret
 
 .body:                                            ; preds = %794, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit56.i"
-  %837 = phi ptr [ %252, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit56.i" ], [ %154, %794 ]
-  %.pn2 = phi { ptr, i32 } [ %.pn33.pn.i, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit56.i" ], [ %795, %794 ]
+  %837 = phi ptr [ %154, %794 ], [ %252, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit56.i" ]
+  %.pn2 = phi { ptr, i32 } [ %795, %794 ], [ %.pn33.pn.i, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit56.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1063.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1063.sroa.9)
   invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$zbus..proxy..ProxyInner..subscribe_dest_owner_change..$u7b$$u7b$closure$u7d$$u7d$$GT$17h059b7ff3ccf8d21fE"(ptr noundef nonnull align 8 %837) #21
@@ -30926,9 +30926,9 @@ common.ret:                                       ; preds = %2118, %"_ZN4core3pt
           to label %952 unwind label %948, !noalias !8329
 
 "_ZN4core3ptr63drop_in_place$LT$zbus_names..well_known_name..WellKnownName$GT$17h96aadb8994b80cfcE.exit207.i": ; preds = %1041, %1036, %1030, %964, %948
-  %946 = phi ptr [ %1071, %964 ], [ %949, %948 ], [ %1031, %1036 ], [ %1031, %1041 ], [ %1031, %1030 ]
-  %947 = phi ptr [ %1072, %964 ], [ %950, %948 ], [ %1032, %1036 ], [ %1032, %1041 ], [ %1032, %1030 ]
-  %.pn155.pn.i = phi { ptr, i32 } [ %.pn155.i, %964 ], [ %951, %948 ], [ %.pn144.pn.i, %1036 ], [ %.pn144.pn.i, %1041 ], [ %.pn144.pn.i, %1030 ]
+  %946 = phi ptr [ %1071, %964 ], [ %949, %948 ], [ %1031, %1041 ], [ %1031, %1030 ], [ %1031, %1036 ]
+  %947 = phi ptr [ %1072, %964 ], [ %950, %948 ], [ %1032, %1041 ], [ %1032, %1030 ], [ %1032, %1036 ]
+  %.pn155.pn.i = phi { ptr, i32 } [ %.pn155.i, %964 ], [ %951, %948 ], [ %.pn144.pn.i, %1041 ], [ %.pn144.pn.i, %1030 ], [ %.pn144.pn.i, %1036 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0392.sroa.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0392.sroa.20.sroa.18.sroa.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0392.sroa.20.sroa.18.sroa.18.sroa.17.i)
@@ -31455,9 +31455,9 @@ _ZN4zbus10match_rule7builder7Builder7add_arg17ha6d35849c0ffc5c9E.exit.i49: ; pre
   br label %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit347.i"
 
 "_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit347.i": ; preds = %2110, %2076, %1048, %1042
-  %1049 = phi ptr [ %1127, %2076 ], [ %847, %1048 ], [ %1043, %1042 ], [ %1043, %2110 ]
-  %1050 = phi ptr [ %1128, %2076 ], [ %848, %1048 ], [ %1044, %1042 ], [ %1044, %2110 ]
-  %.pn159.i = phi { ptr, i32 } [ %2077, %2076 ], [ %.pn48.i, %1048 ], [ %.pn155.pn.pn.i, %1042 ], [ %.pn155.pn.pn.i, %2110 ]
+  %1049 = phi ptr [ %1127, %2076 ], [ %1043, %1042 ], [ %847, %1048 ], [ %1043, %2110 ]
+  %1050 = phi ptr [ %1128, %2076 ], [ %1044, %1042 ], [ %848, %1048 ], [ %1044, %2110 ]
+  %.pn159.i = phi { ptr, i32 } [ %2077, %2076 ], [ %.pn155.pn.pn.i, %1042 ], [ %.pn48.i, %1048 ], [ %.pn155.pn.pn.i, %2110 ]
   %1051 = getelementptr inbounds nuw i8, ptr %1, i64 1043
   store i8 0, ptr %1051, align 1, !noalias !8325
   br label %916
@@ -31552,7 +31552,7 @@ _ZN4zbus10match_rule7builder7Builder7add_arg17ha6d35849c0ffc5c9E.exit.i49: ; pre
   br label %1061
 
 "_ZN4core3ptr55drop_in_place$LT$zbus..match_rule..builder..Builder$GT$17h3c47684a4ba76728E.exit214.i": ; preds = %869, %864
-  %.pn.pn.i = phi { ptr, i32 } [ %865, %864 ], [ %870, %869 ]
+  %.pn.pn.i = phi { ptr, i32 } [ %870, %869 ], [ %865, %864 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %89), !noalias !8325
   call void @llvm.lifetime.end.p0(ptr nonnull %90), !noalias !8325
   call void @llvm.lifetime.end.p0(ptr nonnull %91), !noalias !8325
@@ -31968,11 +31968,11 @@ _ZN4zbus10match_rule7builder7Builder7add_arg17ha6d35849c0ffc5c9E.exit.i49: ; pre
   br label %1217
 
 "_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit15.i.i": ; preds = %1213, %1209, %1199, %1146
-  %1168 = phi ptr [ %1135, %1146 ], [ %1176, %1209 ], [ %1200, %1199 ], [ %1200, %1213 ]
-  %1169 = phi ptr [ %1136, %1146 ], [ %1177, %1209 ], [ %1201, %1199 ], [ %1201, %1213 ]
-  %1170 = phi ptr [ %1140, %1146 ], [ %1178, %1209 ], [ %1202, %1199 ], [ %1202, %1213 ]
-  %1171 = phi ptr [ %1141, %1146 ], [ %1179, %1209 ], [ %1203, %1199 ], [ %1203, %1213 ]
-  %.pn12.pn.i.i = phi { ptr, i32 } [ %1147, %1146 ], [ %1210, %1209 ], [ %.pn10.i.i, %1199 ], [ %.pn10.i.i, %1213 ]
+  %1168 = phi ptr [ %1135, %1146 ], [ %1200, %1199 ], [ %1176, %1209 ], [ %1200, %1213 ]
+  %1169 = phi ptr [ %1136, %1146 ], [ %1201, %1199 ], [ %1177, %1209 ], [ %1201, %1213 ]
+  %1170 = phi ptr [ %1140, %1146 ], [ %1202, %1199 ], [ %1178, %1209 ], [ %1202, %1213 ]
+  %1171 = phi ptr [ %1141, %1146 ], [ %1203, %1199 ], [ %1179, %1209 ], [ %1203, %1213 ]
+  %.pn12.pn.i.i = phi { ptr, i32 } [ %1147, %1146 ], [ %.pn10.i.i, %1199 ], [ %1210, %1209 ], [ %.pn10.i.i, %1213 ]
   %1172 = getelementptr inbounds nuw i8, ptr %1, i64 3713
   store i8 0, ptr %1172, align 1, !noalias !8524
   store i8 2, ptr %1170, align 8, !noalias !8524
@@ -32264,10 +32264,10 @@ _ZN4zbus10match_rule7builder7Builder7add_arg17ha6d35849c0ffc5c9E.exit.i49: ; pre
   br label %1018
 
 .body221.i:                                       ; preds = %1215, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit15.i.i"
-  %1236 = phi ptr [ %1168, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit15.i.i" ], [ %845, %1215 ]
-  %1237 = phi ptr [ %1169, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit15.i.i" ], [ %844, %1215 ]
-  %1238 = phi ptr [ %1171, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit15.i.i" ], [ %1133, %1215 ]
-  %.pn59.i = phi { ptr, i32 } [ %.pn12.pn.i.i, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit15.i.i" ], [ %1216, %1215 ]
+  %1236 = phi ptr [ %845, %1215 ], [ %1168, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit15.i.i" ]
+  %1237 = phi ptr [ %844, %1215 ], [ %1169, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit15.i.i" ]
+  %1238 = phi ptr [ %1133, %1215 ], [ %1171, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit15.i.i" ]
+  %.pn59.i = phi { ptr, i32 } [ %1216, %1215 ], [ %.pn12.pn.i.i, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit15.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9485.sroa.6.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10486.sroa.6.sroa.6.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11487.i)
@@ -32275,9 +32275,9 @@ _ZN4zbus10match_rule7builder7Builder7add_arg17ha6d35849c0ffc5c9E.exit.i49: ; pre
           to label %"_ZN4core3ptr291drop_in_place$LT$ordered_stream..adapters..Map$LT$zbus..message_stream..MessageStream$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Left$GT$$GT$17h4d4dcbe09a74dae9E.exit345.i" unwind label %962, !noalias !8329
 
 "_ZN4core3ptr291drop_in_place$LT$ordered_stream..adapters..Map$LT$zbus..message_stream..MessageStream$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Left$GT$$GT$17h4d4dcbe09a74dae9E.exit345.i": ; preds = %.body221.i, %2107, %2072, %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit343.i"
-  %1239 = phi ptr [ %1580, %2107 ], [ %1571, %2072 ], [ %1580, %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit343.i" ], [ %1236, %.body221.i ]
-  %1240 = phi ptr [ %1581, %2107 ], [ %1572, %2072 ], [ %1581, %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit343.i" ], [ %1237, %.body221.i ]
-  %.pn138.pn.i = phi { ptr, i32 } [ %.pn135.pn.i, %2107 ], [ %2073, %2072 ], [ %.pn135.pn.i, %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit343.i" ], [ %.pn59.i, %.body221.i ]
+  %1239 = phi ptr [ %1571, %2072 ], [ %1580, %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit343.i" ], [ %1580, %2107 ], [ %1236, %.body221.i ]
+  %1240 = phi ptr [ %1572, %2072 ], [ %1581, %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit343.i" ], [ %1581, %2107 ], [ %1237, %.body221.i ]
+  %.pn138.pn.i = phi { ptr, i32 } [ %2073, %2072 ], [ %.pn135.pn.i, %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit343.i" ], [ %.pn135.pn.i, %2107 ], [ %.pn59.i, %.body221.i ]
   %1241 = getelementptr inbounds nuw i8, ptr %1, i64 1042
   store i8 0, ptr %1241, align 2, !noalias !8325
   %1242 = getelementptr inbounds nuw i8, ptr %1, i64 1048
@@ -32668,11 +32668,11 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i: ; preds = %"_ZN4co
   br label %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i"
 
 "_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit.i.i": ; preds = %1507, %1447, %1445, %1436, %1403, %1382, %1363, %1338, %1329
-  %1371 = phi ptr [ %1469, %1507 ], [ %1283, %1329 ], [ %1283, %1403 ], [ %1437, %1436 ], [ %1283, %1447 ], [ %1283, %1382 ], [ %1283, %1363 ], [ %1283, %1338 ], [ %1437, %1445 ]
-  %1372 = phi ptr [ %1470, %1507 ], [ %1284, %1329 ], [ %1284, %1403 ], [ %1438, %1436 ], [ %1284, %1447 ], [ %1284, %1382 ], [ %1284, %1363 ], [ %1284, %1338 ], [ %1438, %1445 ]
-  %1373 = phi ptr [ %1471, %1507 ], [ %1285, %1329 ], [ %1285, %1403 ], [ %1439, %1436 ], [ %1285, %1447 ], [ %1285, %1382 ], [ %1285, %1363 ], [ %1285, %1338 ], [ %1439, %1445 ]
-  %1374 = phi ptr [ %1472, %1507 ], [ %1286, %1329 ], [ %1286, %1403 ], [ %1440, %1436 ], [ %1286, %1447 ], [ %1286, %1382 ], [ %1286, %1363 ], [ %1286, %1338 ], [ %1440, %1445 ]
-  %.pn52.i.i = phi { ptr, i32 } [ %1508, %1507 ], [ %1330, %1329 ], [ %1404, %1403 ], [ %.pn49.pn.i.i, %1436 ], [ %1448, %1447 ], [ %1383, %1382 ], [ %1364, %1363 ], [ %1339, %1338 ], [ %.pn49.pn.i.i, %1445 ]
+  %1371 = phi ptr [ %1469, %1507 ], [ %1283, %1403 ], [ %1283, %1382 ], [ %1283, %1363 ], [ %1283, %1338 ], [ %1283, %1329 ], [ %1437, %1445 ], [ %1437, %1436 ], [ %1283, %1447 ]
+  %1372 = phi ptr [ %1470, %1507 ], [ %1284, %1403 ], [ %1284, %1382 ], [ %1284, %1363 ], [ %1284, %1338 ], [ %1284, %1329 ], [ %1438, %1445 ], [ %1438, %1436 ], [ %1284, %1447 ]
+  %1373 = phi ptr [ %1471, %1507 ], [ %1285, %1403 ], [ %1285, %1382 ], [ %1285, %1363 ], [ %1285, %1338 ], [ %1285, %1329 ], [ %1439, %1445 ], [ %1439, %1436 ], [ %1285, %1447 ]
+  %1374 = phi ptr [ %1472, %1507 ], [ %1286, %1403 ], [ %1286, %1382 ], [ %1286, %1363 ], [ %1286, %1338 ], [ %1286, %1329 ], [ %1440, %1445 ], [ %1440, %1436 ], [ %1286, %1447 ]
+  %.pn52.i.i = phi { ptr, i32 } [ %1508, %1507 ], [ %1404, %1403 ], [ %1383, %1382 ], [ %1364, %1363 ], [ %1339, %1338 ], [ %1330, %1329 ], [ %.pn49.pn.i.i, %1445 ], [ %.pn49.pn.i.i, %1436 ], [ %1448, %1447 ]
   %1375 = getelementptr inbounds nuw i8, ptr %1, i64 1447
   %1376 = load i8, ptr %1375, align 1, !range !26, !noalias !8539, !noundef !5
   %1377 = trunc nuw i8 %1376 to i1
@@ -33146,11 +33146,11 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i: ; preds = %"_ZN4co
           to label %1456 unwind label %1466, !noalias !8543
 
 "_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i": ; preds = %1514, %1465, %1456, %1307, %1289
-  %1532 = phi ptr [ %1515, %1514 ], [ %1457, %1456 ], [ %1457, %1465 ], [ %1283, %1307 ], [ %1283, %1289 ]
-  %1533 = phi ptr [ %1516, %1514 ], [ %1458, %1456 ], [ %1458, %1465 ], [ %1284, %1307 ], [ %1284, %1289 ]
-  %1534 = phi ptr [ %1517, %1514 ], [ %1459, %1456 ], [ %1459, %1465 ], [ %1285, %1307 ], [ %1285, %1289 ]
-  %1535 = phi ptr [ %1518, %1514 ], [ %1460, %1456 ], [ %1460, %1465 ], [ %1286, %1307 ], [ %1286, %1289 ]
-  %.pn55.i.i = phi { ptr, i32 } [ %1519, %1514 ], [ %.pn52.pn.i.i, %1456 ], [ %.pn52.pn.i.i, %1465 ], [ %1308, %1307 ], [ %1290, %1289 ]
+  %1532 = phi ptr [ %1515, %1514 ], [ %1457, %1465 ], [ %1457, %1456 ], [ %1283, %1289 ], [ %1283, %1307 ]
+  %1533 = phi ptr [ %1516, %1514 ], [ %1458, %1465 ], [ %1458, %1456 ], [ %1284, %1289 ], [ %1284, %1307 ]
+  %1534 = phi ptr [ %1517, %1514 ], [ %1459, %1465 ], [ %1459, %1456 ], [ %1285, %1289 ], [ %1285, %1307 ]
+  %1535 = phi ptr [ %1518, %1514 ], [ %1460, %1465 ], [ %1460, %1456 ], [ %1286, %1289 ], [ %1286, %1307 ]
+  %.pn55.i.i = phi { ptr, i32 } [ %1519, %1514 ], [ %.pn52.pn.i.i, %1465 ], [ %.pn52.pn.i.i, %1456 ], [ %1290, %1289 ], [ %1308, %1307 ]
   %1536 = getelementptr inbounds nuw i8, ptr %1, i64 1443
   store i32 0, ptr %1536, align 1, !noalias !8539
   store i8 2, ptr %1534, align 8, !noalias !8539
@@ -33277,9 +33277,9 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i: ; preds = %"_ZN4co
   br label %1687
 
 .body329.i:                                       ; preds = %2101, %2068, %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit.i.i", %1971
-  %1563 = phi ptr [ %1750, %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit.i.i" ], [ %1972, %2101 ], [ %1972, %1971 ], [ %1750, %2068 ]
-  %1564 = phi ptr [ %1751, %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit.i.i" ], [ %1973, %2101 ], [ %1973, %1971 ], [ %1751, %2068 ]
-  %.pn133.i = phi { ptr, i32 } [ %.pn.i327.i, %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit.i.i" ], [ %.pn129.pn.pn.i, %2101 ], [ %.pn129.pn.pn.i, %1971 ], [ %2069, %2068 ]
+  %1563 = phi ptr [ %1972, %2101 ], [ %1972, %1971 ], [ %1750, %2068 ], [ %1750, %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit.i.i" ]
+  %1564 = phi ptr [ %1973, %2101 ], [ %1973, %1971 ], [ %1751, %2068 ], [ %1751, %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit.i.i" ]
+  %.pn133.i = phi { ptr, i32 } [ %.pn129.pn.pn.i, %2101 ], [ %.pn129.pn.pn.i, %1971 ], [ %2069, %2068 ], [ %.pn.i327.i, %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit.i.i" ]
   %1565 = getelementptr inbounds nuw i8, ptr %1, i64 1041
   store i8 0, ptr %1565, align 1, !noalias !8325
   %1566 = getelementptr inbounds nuw i8, ptr %1, i64 1047
@@ -33308,10 +33308,10 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i: ; preds = %"_ZN4co
   br i1 %1576, label %2070, label %"_ZN4core3ptr291drop_in_place$LT$ordered_stream..adapters..Map$LT$zbus..message_stream..MessageStream$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Left$GT$$GT$17h4d4dcbe09a74dae9E.exit.i"
 
 .body234.i:                                       ; preds = %1537, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i"
-  %1577 = phi ptr [ %1532, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i" ], [ %845, %1537 ]
-  %1578 = phi ptr [ %1533, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i" ], [ %844, %1537 ]
-  %1579 = phi ptr [ %1535, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i" ], [ %1246, %1537 ]
-  %.pn63.i = phi { ptr, i32 } [ %.pn55.i.i, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i" ], [ %1538, %1537 ]
+  %1577 = phi ptr [ %845, %1537 ], [ %1532, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i" ]
+  %1578 = phi ptr [ %844, %1537 ], [ %1533, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i" ]
+  %1579 = phi ptr [ %1246, %1537 ], [ %1535, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i" ]
+  %.pn63.i = phi { ptr, i32 } [ %1538, %1537 ], [ %.pn55.i.i, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11543.sroa.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11543.sroa.7.sroa.6.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12544.i)
@@ -33319,9 +33319,9 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i: ; preds = %"_ZN4co
           to label %"_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit343.i" unwind label %962, !noalias !8329
 
 "_ZN4core3ptr336drop_in_place$LT$ordered_stream..adapters..Map$LT$ordered_stream..adapters..FromFuture$LT$zbus..connection..PendingMethodCall$GT$$C$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$..Right$GT$$GT$17h2cd74e80fcd1f243E.exit343.i": ; preds = %1551, %.body234.i, %2106, %2103, %.body329.i
-  %1580 = phi ptr [ %1563, %2103 ], [ %1563, %.body329.i ], [ %1563, %2106 ], [ %1542, %1551 ], [ %1577, %.body234.i ]
-  %1581 = phi ptr [ %1564, %2103 ], [ %1564, %.body329.i ], [ %1564, %2106 ], [ %1543, %1551 ], [ %1578, %.body234.i ]
-  %.pn135.pn.i = phi { ptr, i32 } [ %.pn133.i, %2103 ], [ %.pn133.i, %.body329.i ], [ %.pn133.i, %2106 ], [ %1552, %1551 ], [ %.pn63.i, %.body234.i ]
+  %1580 = phi ptr [ %1563, %.body329.i ], [ %1563, %2106 ], [ %1563, %2103 ], [ %1542, %1551 ], [ %1577, %.body234.i ]
+  %1581 = phi ptr [ %1564, %.body329.i ], [ %1564, %2106 ], [ %1564, %2103 ], [ %1543, %1551 ], [ %1578, %.body234.i ]
+  %.pn135.pn.i = phi { ptr, i32 } [ %.pn133.i, %.body329.i ], [ %.pn133.i, %2106 ], [ %.pn133.i, %2103 ], [ %1552, %1551 ], [ %.pn63.i, %.body234.i ]
   %1582 = getelementptr inbounds nuw i8, ptr %1, i64 1047
   store i8 0, ptr %1582, align 1, !noalias !8325
   call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !8325
@@ -33438,8 +33438,8 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i: ; preds = %"_ZN4co
   br label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus_names..unique_name..UniqueName$GT$$GT$17h36bef1f2b72328e7E.exit325.i"
 
 .body241.i:                                       ; preds = %1848, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit.i", %.body248.i, %1612, %1603
-  %.sroa.4577.0..sroa_idx923.i = phi ptr [ %.sroa.4577.0..sroa_idx.i, %1848 ], [ %.sroa.4577.0..sroa_idx.i, %.body248.i ], [ %.sroa.4577.0..sroa_idx.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit.i" ], [ %.sroa.4577.0..sroa_idx922.i, %1603 ], [ %.sroa.4577.0..sroa_idx922.i, %1612 ]
-  %.pn129.i = phi { ptr, i32 } [ %.pn88.i, %1848 ], [ %.pn102.i, %.body248.i ], [ %.pn96.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit.i" ], [ %1604, %1603 ], [ %1613, %1612 ]
+  %.sroa.4577.0..sroa_idx923.i = phi ptr [ %.sroa.4577.0..sroa_idx.i, %.body248.i ], [ %.sroa.4577.0..sroa_idx.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit.i" ], [ %.sroa.4577.0..sroa_idx.i, %1848 ], [ %.sroa.4577.0..sroa_idx922.i, %1603 ], [ %.sroa.4577.0..sroa_idx922.i, %1612 ]
+  %.pn129.i = phi { ptr, i32 } [ %.pn102.i, %.body248.i ], [ %.pn96.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit.i" ], [ %.pn88.i, %1848 ], [ %1604, %1603 ], [ %1613, %1612 ]
   %1618 = load i64, ptr %67, align 8, !range !22, !noalias !8325, !noundef !5
   %1619 = icmp eq i64 %1618, 0
   br i1 %1619, label %1967, label %1684
@@ -33623,7 +33623,7 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i: ; preds = %"_ZN4co
   unreachable
 
 .body248.i:                                       ; preds = %1676, %1669, %1664, %1655, %1632, %1625
-  %.pn102.i = phi { ptr, i32 } [ %1626, %1625 ], [ %.pn100.i, %1655 ], [ %1633, %1632 ], [ %1677, %1676 ], [ %1665, %1669 ], [ %1665, %1664 ]
+  %.pn102.i = phi { ptr, i32 } [ %.pn100.i, %1655 ], [ %1633, %1632 ], [ %1626, %1625 ], [ %1677, %1676 ], [ %1665, %1669 ], [ %1665, %1664 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %66), !noalias !8325
   br label %.body241.i
 
@@ -33815,7 +33815,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17hed7a9a06
           to label %"_ZN4core3ptr56drop_in_place$LT$zbus_names..unique_name..UniqueName$GT$17hc6d0ee30fffc553cE.exit263.i" unwind label %1726, !noalias !8329
 
 "_ZN4core3ptr56drop_in_place$LT$zbus_names..unique_name..UniqueName$GT$17hc6d0ee30fffc553cE.exit.i": ; preds = %1726, %1718, %1714, %1711, %1707
-  %.pn92.i = phi { ptr, i32 } [ %1727, %1726 ], [ %1708, %1707 ], [ %1712, %1714 ], [ %1712, %1718 ], [ %1712, %1711 ]
+  %.pn92.i = phi { ptr, i32 } [ %1727, %1726 ], [ %1708, %1707 ], [ %1712, %1718 ], [ %1712, %1711 ], [ %1712, %1714 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$zbus..message..body..Body$GT$17hcfb317dfe2b2b901E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %59) #21
           to label %1728 unwind label %962, !noalias !8329
 
@@ -34122,7 +34122,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17hed7a9a06
           to label %1851 unwind label %1849, !noalias !8329
 
 1824:                                             ; preds = %1966, %1822, %1794, %1779, %1767, %1763
-  %.pn83.pn.pn.pn.i = phi { ptr, i32 } [ %.pn83.pn.pn.i, %1966 ], [ %1768, %1767 ], [ %1764, %1763 ], [ %.pn75.pn.i, %1822 ], [ %1795, %1794 ], [ %1780, %1779 ]
+  %.pn83.pn.pn.pn.i = phi { ptr, i32 } [ %.pn83.pn.pn.i, %1966 ], [ %.pn75.pn.i, %1822 ], [ %1795, %1794 ], [ %1780, %1779 ], [ %1768, %1767 ], [ %1764, %1763 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$zbus..error..Error$GT$17hc346b937fdc8b0d2E.llvm.10448010716967881624"(ptr noalias noundef nonnull align 8 dereferenceable(72) %58) #21
           to label %1848 unwind label %962, !noalias !8329
 
@@ -34372,7 +34372,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17hed7a9a06
   br i1 %1895, label %.thread959.i, label %1923
 
 1896:                                             ; preds = %1916, %1907
-  %.pn105.pn.pn.i = phi { ptr, i32 } [ %1908, %1907 ], [ %.pn105.i, %1916 ]
+  %.pn105.pn.pn.i = phi { ptr, i32 } [ %.pn105.i, %1916 ], [ %1908, %1907 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$zbus..fdo..NameOwnerChangedArgs$GT$17h469ba2a1ff6a7be4E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %39) #21
           to label %1917 unwind label %962, !noalias !8329
 
@@ -34570,7 +34570,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17hed7a9a06
   br label %1977
 
 .body315.i:                                       ; preds = %2005, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit.i311.i", %1981
-  %.pn123.i = phi { ptr, i32 } [ %.pn.i312.i, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit.i311.i" ], [ %2006, %2005 ], [ %1982, %1981 ]
+  %.pn123.i = phi { ptr, i32 } [ %1982, %1981 ], [ %2006, %2005 ], [ %.pn.i312.i, %"_ZN4core3ptr53drop_in_place$LT$zbus..match_rule..OwnedMatchRule$GT$17h410705a2ff078de6E.exit.i311.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8659.i)
   %1952 = getelementptr inbounds nuw i8, ptr %1, i64 1044
   %1953 = load i8, ptr %1952, align 4, !range !26, !noalias !8325, !noundef !5
@@ -34578,15 +34578,15 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17hed7a9a06
   br i1 %1954, label %2093, label %"_ZN4core3ptr56drop_in_place$LT$zbus..message_stream..MessageStream$GT$17hd530d808b7489e8bE.exit338.i"
 
 "_ZN4core3ptr56drop_in_place$LT$zbus..message_stream..MessageStream$GT$17hd530d808b7489e8bE.exit338.i": ; preds = %2093, %2033, %.body315.i
-  %.pn125.i = phi { ptr, i32 } [ %2034, %2033 ], [ %.pn123.i, %2093 ], [ %.pn123.i, %.body315.i ]
+  %.pn125.i = phi { ptr, i32 } [ %2034, %2033 ], [ %.pn123.i, %.body315.i ], [ %.pn123.i, %2093 ]
   %1955 = getelementptr inbounds nuw i8, ptr %1, i64 1044
   store i8 0, ptr %1955, align 4, !noalias !8325
   br label %1956
 
 1956:                                             ; preds = %"_ZN4core3ptr56drop_in_place$LT$zbus..message_stream..MessageStream$GT$17hd530d808b7489e8bE.exit338.i", %.body306.i, %1879, %1866
-  %1957 = phi ptr [ %1978, %"_ZN4core3ptr56drop_in_place$LT$zbus..message_stream..MessageStream$GT$17hd530d808b7489e8bE.exit338.i" ], [ %1587, %1866 ], [ %1587, %1879 ], [ %1587, %.body306.i ]
-  %1958 = phi ptr [ %1979, %"_ZN4core3ptr56drop_in_place$LT$zbus..message_stream..MessageStream$GT$17hd530d808b7489e8bE.exit338.i" ], [ %1588, %1866 ], [ %1588, %1879 ], [ %1588, %.body306.i ]
-  %.pn125.pn.i = phi { ptr, i32 } [ %.pn125.i, %"_ZN4core3ptr56drop_in_place$LT$zbus..message_stream..MessageStream$GT$17hd530d808b7489e8bE.exit338.i" ], [ %1867, %1866 ], [ %1880, %1879 ], [ %.pn115.i, %.body306.i ]
+  %1957 = phi ptr [ %1978, %"_ZN4core3ptr56drop_in_place$LT$zbus..message_stream..MessageStream$GT$17hd530d808b7489e8bE.exit338.i" ], [ %1587, %1866 ], [ %1587, %.body306.i ], [ %1587, %1879 ]
+  %1958 = phi ptr [ %1979, %"_ZN4core3ptr56drop_in_place$LT$zbus..message_stream..MessageStream$GT$17hd530d808b7489e8bE.exit338.i" ], [ %1588, %1866 ], [ %1588, %.body306.i ], [ %1588, %1879 ]
+  %.pn125.pn.i = phi { ptr, i32 } [ %.pn125.i, %"_ZN4core3ptr56drop_in_place$LT$zbus..message_stream..MessageStream$GT$17hd530d808b7489e8bE.exit338.i" ], [ %1867, %1866 ], [ %.pn115.i, %.body306.i ], [ %1880, %1879 ]
   %1959 = getelementptr inbounds nuw i8, ptr %1, i64 1045
   %1960 = load i8, ptr %1959, align 1, !range !26, !noalias !8325, !noundef !5
   %1961 = trunc nuw i8 %1960 to i1
@@ -35122,8 +35122,8 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17hed7a9a06
   br label %.body17
 
 .body53:                                          ; preds = %2113, %"_ZN4core3ptr39drop_in_place$LT$zbus..proxy..Proxy$GT$17hd7a23b80efb743a9E.exit334.i"
-  %2122 = phi ptr [ %2027, %"_ZN4core3ptr39drop_in_place$LT$zbus..proxy..Proxy$GT$17hd7a23b80efb743a9E.exit334.i" ], [ %844, %2113 ]
-  %.pn8 = phi { ptr, i32 } [ %.pn172.i, %"_ZN4core3ptr39drop_in_place$LT$zbus..proxy..Proxy$GT$17hd7a23b80efb743a9E.exit334.i" ], [ %2114, %2113 ]
+  %2122 = phi ptr [ %844, %2113 ], [ %2027, %"_ZN4core3ptr39drop_in_place$LT$zbus..proxy..Proxy$GT$17hd7a23b80efb743a9E.exit334.i" ]
+  %.pn8 = phi { ptr, i32 } [ %2114, %2113 ], [ %.pn172.i, %"_ZN4core3ptr39drop_in_place$LT$zbus..proxy..Proxy$GT$17hd7a23b80efb743a9E.exit334.i" ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$zbus..proxy..SignalStream..new..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc70f5fbbdfafd72eE"(ptr noundef nonnull align 8 %2122) #21
           to label %.body17 unwind label %838
 
@@ -35380,11 +35380,11 @@ default.unreachable80:                            ; preds = %88, %67, %41, %3
   br label %91
 
 "_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i": ; preds = %448, %446, %434, %.body.i.i, %417, %410
-  %82 = phi ptr [ %429, %448 ], [ %429, %446 ], [ %429, %434 ], [ %398, %417 ], [ %398, %410 ], [ %421, %.body.i.i ]
-  %83 = phi ptr [ %430, %448 ], [ %430, %446 ], [ %430, %434 ], [ %399, %417 ], [ %399, %410 ], [ %422, %.body.i.i ]
-  %84 = phi ptr [ %431, %448 ], [ %431, %446 ], [ %431, %434 ], [ %400, %417 ], [ %400, %410 ], [ %423, %.body.i.i ]
-  %85 = phi ptr [ %432, %448 ], [ %432, %446 ], [ %432, %434 ], [ %401, %417 ], [ %401, %410 ], [ %424, %.body.i.i ]
-  %.pn12.i.i = phi { ptr, i32 } [ %435, %448 ], [ %447, %446 ], [ %435, %434 ], [ %418, %417 ], [ %411, %410 ], [ %.pn6.i.i, %.body.i.i ]
+  %82 = phi ptr [ %429, %446 ], [ %398, %417 ], [ %429, %448 ], [ %429, %434 ], [ %398, %410 ], [ %421, %.body.i.i ]
+  %83 = phi ptr [ %430, %446 ], [ %399, %417 ], [ %430, %448 ], [ %430, %434 ], [ %399, %410 ], [ %422, %.body.i.i ]
+  %84 = phi ptr [ %431, %446 ], [ %400, %417 ], [ %431, %448 ], [ %431, %434 ], [ %400, %410 ], [ %423, %.body.i.i ]
+  %85 = phi ptr [ %432, %446 ], [ %401, %417 ], [ %432, %448 ], [ %432, %434 ], [ %401, %410 ], [ %424, %.body.i.i ]
+  %.pn12.i.i = phi { ptr, i32 } [ %447, %446 ], [ %418, %417 ], [ %435, %448 ], [ %435, %434 ], [ %411, %410 ], [ %.pn6.i.i, %.body.i.i ]
   store i8 2, ptr %84, align 8, !noalias !9008
   br label %.body.i
 
@@ -35674,14 +35674,14 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i.i: ; preds = %"_ZN4
   br label %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i"
 
 "_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i": ; preds = %383, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i", %302, %301, %293, %232, %213, %188
-  %189 = phi ptr [ %124, %302 ], [ %124, %293 ], [ %124, %301 ], [ %124, %232 ], [ %124, %213 ], [ %124, %188 ], [ %318, %383 ], [ %318, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i" ]
-  %190 = phi ptr [ %125, %302 ], [ %125, %293 ], [ %125, %301 ], [ %125, %232 ], [ %125, %213 ], [ %125, %188 ], [ %319, %383 ], [ %319, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i" ]
-  %191 = phi ptr [ %126, %302 ], [ %126, %293 ], [ %126, %301 ], [ %126, %232 ], [ %126, %213 ], [ %126, %188 ], [ %320, %383 ], [ %320, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i" ]
-  %192 = phi ptr [ %127, %302 ], [ %127, %293 ], [ %127, %301 ], [ %127, %232 ], [ %127, %213 ], [ %127, %188 ], [ %321, %383 ], [ %321, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i" ]
-  %193 = phi ptr [ %128, %302 ], [ %128, %293 ], [ %128, %301 ], [ %128, %232 ], [ %128, %213 ], [ %128, %188 ], [ %322, %383 ], [ %322, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i" ]
-  %194 = phi ptr [ %129, %302 ], [ %129, %293 ], [ %129, %301 ], [ %129, %232 ], [ %129, %213 ], [ %129, %188 ], [ %323, %383 ], [ %323, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i" ]
-  %.sroa.10154.0.i.i.i = phi i64 [ %164, %302 ], [ %249, %293 ], [ %297, %301 ], [ %228, %232 ], [ %209, %213 ], [ %184, %188 ], [ %328, %383 ], [ %328, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i" ]
-  %.sroa.17.0.i.i.i = phi ptr [ %.sroa.886.sroa.0.0.copyload188.i.i.i, %302 ], [ %252, %293 ], [ %.sroa.8120.sroa.0.0.copyload168.i.i.i, %301 ], [ %.sroa.8110.sroa.0.0.copyload173.i.i.i, %232 ], [ %.sroa.8101.sroa.0.0.copyload178.i.i.i, %213 ], [ %.sroa.892.sroa.0.0.copyload183.i.i.i, %188 ], [ %.sroa.3149.sroa.0.0.copyload.i.i.i, %383 ], [ %.sroa.3149.sroa.0.0.copyload.i.i.i, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i" ]
+  %189 = phi ptr [ %124, %293 ], [ %124, %301 ], [ %124, %232 ], [ %124, %213 ], [ %124, %188 ], [ %124, %302 ], [ %318, %383 ], [ %318, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i" ]
+  %190 = phi ptr [ %125, %293 ], [ %125, %301 ], [ %125, %232 ], [ %125, %213 ], [ %125, %188 ], [ %125, %302 ], [ %319, %383 ], [ %319, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i" ]
+  %191 = phi ptr [ %126, %293 ], [ %126, %301 ], [ %126, %232 ], [ %126, %213 ], [ %126, %188 ], [ %126, %302 ], [ %320, %383 ], [ %320, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i" ]
+  %192 = phi ptr [ %127, %293 ], [ %127, %301 ], [ %127, %232 ], [ %127, %213 ], [ %127, %188 ], [ %127, %302 ], [ %321, %383 ], [ %321, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i" ]
+  %193 = phi ptr [ %128, %293 ], [ %128, %301 ], [ %128, %232 ], [ %128, %213 ], [ %128, %188 ], [ %128, %302 ], [ %322, %383 ], [ %322, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i" ]
+  %194 = phi ptr [ %129, %293 ], [ %129, %301 ], [ %129, %232 ], [ %129, %213 ], [ %129, %188 ], [ %129, %302 ], [ %323, %383 ], [ %323, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i" ]
+  %.sroa.10154.0.i.i.i = phi i64 [ %249, %293 ], [ %297, %301 ], [ %228, %232 ], [ %209, %213 ], [ %184, %188 ], [ %164, %302 ], [ %328, %383 ], [ %328, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i" ]
+  %.sroa.17.0.i.i.i = phi ptr [ %252, %293 ], [ %.sroa.8120.sroa.0.0.copyload168.i.i.i, %301 ], [ %.sroa.8110.sroa.0.0.copyload173.i.i.i, %232 ], [ %.sroa.8101.sroa.0.0.copyload178.i.i.i, %213 ], [ %.sroa.892.sroa.0.0.copyload183.i.i.i, %188 ], [ %.sroa.886.sroa.0.0.copyload188.i.i.i, %302 ], [ %.sroa.3149.sroa.0.0.copyload.i.i.i, %383 ], [ %.sroa.3149.sroa.0.0.copyload.i.i.i, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$zbus..message_stream..MessageStream$GT$$GT$17h8d3f589d35208bc5E.exit80.i.i.i" ]
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 231
   store i8 0, ptr %195, align 1, !noalias !9012
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !9012
@@ -35748,13 +35748,13 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i.i: ; preds = %"_ZN4
   br label %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i"
 
 "_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit.i.i.i": ; preds = %358, %294, %292, %281, %246, %225, %206, %181, %172
-  %214 = phi ptr [ %318, %358 ], [ %124, %172 ], [ %124, %246 ], [ %282, %281 ], [ %124, %294 ], [ %124, %225 ], [ %124, %206 ], [ %124, %181 ], [ %282, %292 ]
-  %215 = phi ptr [ %319, %358 ], [ %125, %172 ], [ %125, %246 ], [ %283, %281 ], [ %125, %294 ], [ %125, %225 ], [ %125, %206 ], [ %125, %181 ], [ %283, %292 ]
-  %216 = phi ptr [ %320, %358 ], [ %126, %172 ], [ %126, %246 ], [ %284, %281 ], [ %126, %294 ], [ %126, %225 ], [ %126, %206 ], [ %126, %181 ], [ %284, %292 ]
-  %217 = phi ptr [ %321, %358 ], [ %127, %172 ], [ %127, %246 ], [ %285, %281 ], [ %127, %294 ], [ %127, %225 ], [ %127, %206 ], [ %127, %181 ], [ %285, %292 ]
-  %218 = phi ptr [ %322, %358 ], [ %128, %172 ], [ %128, %246 ], [ %286, %281 ], [ %128, %294 ], [ %128, %225 ], [ %128, %206 ], [ %128, %181 ], [ %286, %292 ]
-  %219 = phi ptr [ %323, %358 ], [ %129, %172 ], [ %129, %246 ], [ %287, %281 ], [ %129, %294 ], [ %129, %225 ], [ %129, %206 ], [ %129, %181 ], [ %287, %292 ]
-  %.pn52.i.i.i = phi { ptr, i32 } [ %359, %358 ], [ %173, %172 ], [ %247, %246 ], [ %.pn49.pn.i.i.i, %281 ], [ %295, %294 ], [ %226, %225 ], [ %207, %206 ], [ %182, %181 ], [ %.pn49.pn.i.i.i, %292 ]
+  %214 = phi ptr [ %318, %358 ], [ %124, %246 ], [ %124, %225 ], [ %124, %206 ], [ %124, %181 ], [ %124, %172 ], [ %282, %292 ], [ %282, %281 ], [ %124, %294 ]
+  %215 = phi ptr [ %319, %358 ], [ %125, %246 ], [ %125, %225 ], [ %125, %206 ], [ %125, %181 ], [ %125, %172 ], [ %283, %292 ], [ %283, %281 ], [ %125, %294 ]
+  %216 = phi ptr [ %320, %358 ], [ %126, %246 ], [ %126, %225 ], [ %126, %206 ], [ %126, %181 ], [ %126, %172 ], [ %284, %292 ], [ %284, %281 ], [ %126, %294 ]
+  %217 = phi ptr [ %321, %358 ], [ %127, %246 ], [ %127, %225 ], [ %127, %206 ], [ %127, %181 ], [ %127, %172 ], [ %285, %292 ], [ %285, %281 ], [ %127, %294 ]
+  %218 = phi ptr [ %322, %358 ], [ %128, %246 ], [ %128, %225 ], [ %128, %206 ], [ %128, %181 ], [ %128, %172 ], [ %286, %292 ], [ %286, %281 ], [ %128, %294 ]
+  %219 = phi ptr [ %323, %358 ], [ %129, %246 ], [ %129, %225 ], [ %129, %206 ], [ %129, %181 ], [ %129, %172 ], [ %287, %292 ], [ %287, %281 ], [ %129, %294 ]
+  %.pn52.i.i.i = phi { ptr, i32 } [ %359, %358 ], [ %247, %246 ], [ %226, %225 ], [ %207, %206 ], [ %182, %181 ], [ %173, %172 ], [ %.pn49.pn.i.i.i, %292 ], [ %.pn49.pn.i.i.i, %281 ], [ %295, %294 ]
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 231
   %221 = load i8, ptr %220, align 1, !range !26, !noalias !9012, !noundef !5
   %222 = trunc nuw i8 %221 to i1
@@ -36206,13 +36206,13 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i.i: ; preds = %"_ZN4
           to label %303 unwind label %315, !noalias !9017
 
 "_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i": ; preds = %365, %314, %303, %150, %132
-  %385 = phi ptr [ %366, %365 ], [ %304, %303 ], [ %304, %314 ], [ %124, %150 ], [ %124, %132 ]
-  %386 = phi ptr [ %367, %365 ], [ %305, %303 ], [ %305, %314 ], [ %125, %150 ], [ %125, %132 ]
-  %387 = phi ptr [ %368, %365 ], [ %306, %303 ], [ %306, %314 ], [ %126, %150 ], [ %126, %132 ]
-  %388 = phi ptr [ %369, %365 ], [ %307, %303 ], [ %307, %314 ], [ %127, %150 ], [ %127, %132 ]
-  %389 = phi ptr [ %370, %365 ], [ %308, %303 ], [ %308, %314 ], [ %128, %150 ], [ %128, %132 ]
-  %390 = phi ptr [ %371, %365 ], [ %309, %303 ], [ %309, %314 ], [ %129, %150 ], [ %129, %132 ]
-  %.pn55.i.i.i = phi { ptr, i32 } [ %372, %365 ], [ %.pn52.pn.i.i.i, %303 ], [ %.pn52.pn.i.i.i, %314 ], [ %151, %150 ], [ %133, %132 ]
+  %385 = phi ptr [ %366, %365 ], [ %304, %314 ], [ %304, %303 ], [ %124, %132 ], [ %124, %150 ]
+  %386 = phi ptr [ %367, %365 ], [ %305, %314 ], [ %305, %303 ], [ %125, %132 ], [ %125, %150 ]
+  %387 = phi ptr [ %368, %365 ], [ %306, %314 ], [ %306, %303 ], [ %126, %132 ], [ %126, %150 ]
+  %388 = phi ptr [ %369, %365 ], [ %307, %314 ], [ %307, %303 ], [ %127, %132 ], [ %127, %150 ]
+  %389 = phi ptr [ %370, %365 ], [ %308, %314 ], [ %308, %303 ], [ %128, %132 ], [ %128, %150 ]
+  %390 = phi ptr [ %371, %365 ], [ %309, %314 ], [ %309, %303 ], [ %129, %132 ], [ %129, %150 ]
+  %.pn55.i.i.i = phi { ptr, i32 } [ %372, %365 ], [ %.pn52.pn.i.i.i, %314 ], [ %.pn52.pn.i.i.i, %303 ], [ %133, %132 ], [ %151, %150 ]
   %391 = getelementptr inbounds nuw i8, ptr %1, i64 227
   store i32 0, ptr %391, align 1, !noalias !9012
   store i8 2, ptr %389, align 8, !noalias !9012
@@ -36236,16 +36236,16 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i.i: ; preds = %"_ZN4
   br label %407
 
 397:                                              ; preds = %364, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i", %199, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i"
-  %398 = phi ptr [ %189, %199 ], [ %189, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %318, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %318, %364 ]
-  %399 = phi ptr [ %190, %199 ], [ %190, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %319, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %319, %364 ]
-  %400 = phi ptr [ %191, %199 ], [ %191, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %320, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %320, %364 ]
-  %401 = phi ptr [ %192, %199 ], [ %192, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %321, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %321, %364 ]
-  %402 = phi ptr [ %193, %199 ], [ %193, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %322, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %322, %364 ]
-  %403 = phi ptr [ %194, %199 ], [ %194, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %323, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %323, %364 ]
-  %.sroa.0152.2.i.i.i = phi i64 [ 6, %199 ], [ 6, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %.sroa.0152.1240.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %.sroa.0152.1240.i.i.i, %364 ]
-  %.sroa.10154.2.i.i.i = phi i64 [ %.sroa.10154.0.i.i.i, %199 ], [ %.sroa.10154.0.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %.sroa.10154.1241.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %.sroa.10154.1241.i.i.i, %364 ]
-  %.sroa.17.2.i.i.i = phi ptr [ %.sroa.17.0.i.i.i, %199 ], [ %.sroa.17.0.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %.sroa.17.1242.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %.sroa.17.1242.i.i.i, %364 ]
-  %.sroa.30166.1.i.i.i = phi i32 [ undef, %199 ], [ undef, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %.sroa.30166.0243.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %.sroa.30166.0243.i.i.i, %364 ]
+  %398 = phi ptr [ %189, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %189, %199 ], [ %318, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %318, %364 ]
+  %399 = phi ptr [ %190, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %190, %199 ], [ %319, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %319, %364 ]
+  %400 = phi ptr [ %191, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %191, %199 ], [ %320, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %320, %364 ]
+  %401 = phi ptr [ %192, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %192, %199 ], [ %321, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %321, %364 ]
+  %402 = phi ptr [ %193, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %193, %199 ], [ %322, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %322, %364 ]
+  %403 = phi ptr [ %194, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %194, %199 ], [ %323, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %323, %364 ]
+  %.sroa.0152.2.i.i.i = phi i64 [ 6, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ 6, %199 ], [ %.sroa.0152.1240.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %.sroa.0152.1240.i.i.i, %364 ]
+  %.sroa.10154.2.i.i.i = phi i64 [ %.sroa.10154.0.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %.sroa.10154.0.i.i.i, %199 ], [ %.sroa.10154.1241.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %.sroa.10154.1241.i.i.i, %364 ]
+  %.sroa.17.2.i.i.i = phi ptr [ %.sroa.17.0.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ %.sroa.17.0.i.i.i, %199 ], [ %.sroa.17.1242.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %.sroa.17.1242.i.i.i, %364 ]
+  %.sroa.30166.1.i.i.i = phi i32 [ undef, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit82.i.i.i" ], [ undef, %199 ], [ %.sroa.30166.0243.i.i.i, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit74.i.i.i" ], [ %.sroa.30166.0243.i.i.i, %364 ]
   %404 = getelementptr inbounds nuw i8, ptr %1, i64 227
   store i32 0, ptr %404, align 1, !noalias !9012
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.1130.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.24.i.i.i, i64 56, i1 false), !noalias !9127
@@ -36318,12 +36318,12 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i.i: ; preds = %"_ZN4
   br label %428
 
 .body.i.i:                                        ; preds = %392, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i"
-  %421 = phi ptr [ %385, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i" ], [ %43, %392 ]
-  %422 = phi ptr [ %386, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i" ], [ %42, %392 ]
-  %423 = phi ptr [ %387, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i" ], [ %.phi.trans.insert.i, %392 ]
-  %424 = phi ptr [ %388, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i" ], [ %68, %392 ]
-  %425 = phi ptr [ %390, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i" ], [ %89, %392 ]
-  %.pn6.i.i = phi { ptr, i32 } [ %.pn55.i.i.i, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i" ], [ %393, %392 ]
+  %421 = phi ptr [ %43, %392 ], [ %385, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i" ]
+  %422 = phi ptr [ %42, %392 ], [ %386, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i" ]
+  %423 = phi ptr [ %.phi.trans.insert.i, %392 ], [ %387, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i" ]
+  %424 = phi ptr [ %68, %392 ], [ %388, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i" ]
+  %425 = phi ptr [ %89, %392 ], [ %390, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i" ]
+  %.pn6.i.i = phi { ptr, i32 } [ %393, %392 ], [ %.pn55.i.i.i, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$async_lock..semaphore..SemaphoreGuard$GT$$GT$17h66a8a008dca3fdd6E.exit72.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1130.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1231.i.i)
   invoke fastcc void @"_ZN4core3ptr282drop_in_place$LT$zbus..connection..Connection..call_method_raw$LT$$RF$zbus_names..bus_name..BusName$C$$RF$str$C$$RF$zbus_names..interface_name..InterfaceName$C$$RF$str$C$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfdbd20eca34e12c1E"(ptr noundef nonnull align 8 %425) #21
@@ -36427,10 +36427,10 @@ _ZN4zbus7message7Message6method17hc28746b98bd2814eE.exit.i.i.i: ; preds = %"_ZN4
   br i1 %455, label %463, label %465
 
 .body.i:                                          ; preds = %449, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i"
-  %456 = phi ptr [ %82, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i" ], [ %43, %449 ]
-  %457 = phi ptr [ %83, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i" ], [ %42, %449 ]
-  %458 = phi ptr [ %85, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i" ], [ %68, %449 ]
-  %.pn8.i = phi { ptr, i32 } [ %.pn12.i.i, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i" ], [ %450, %449 ]
+  %456 = phi ptr [ %43, %449 ], [ %82, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i" ]
+  %457 = phi ptr [ %42, %449 ], [ %83, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i" ]
+  %458 = phi ptr [ %68, %449 ], [ %85, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i" ]
+  %.pn8.i = phi { ptr, i32 } [ %450, %449 ], [ %.pn12.i.i, %"_ZN4core3ptr56drop_in_place$LT$zbus..connection..PendingMethodCall$GT$17h10da6501775e518bE.exit18.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.929.i.sroa.8)
   invoke fastcc void @"_ZN4core3ptr278drop_in_place$LT$zbus..connection..Connection..call_method$LT$$RF$zbus_names..bus_name..BusName$C$$RF$str$C$$RF$zbus_names..interface_name..InterfaceName$C$$RF$str$C$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ff844764ca3468fE"(ptr noundef nonnull align 8 %458) #21
           to label %63 unwind label %459, !noalias !9004
@@ -36653,7 +36653,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h4af9f818
   unreachable
 
 .body22:                                          ; preds = %519, %512, %507, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit", %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit18"
-  %.pn6 = phi { ptr, i32 } [ %472, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit" ], [ %.pn4, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit18" ], [ %520, %519 ], [ %508, %512 ], [ %508, %507 ]
+  %.pn6 = phi { ptr, i32 } [ %.pn4, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit18" ], [ %472, %"_ZN4core3ptr43drop_in_place$LT$zbus..message..Message$GT$17h7f3675302dbb5a5cE.exit" ], [ %520, %519 ], [ %508, %512 ], [ %508, %507 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %524
 
@@ -36698,8 +36698,8 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h4af9f818
   br label %521
 
 .body:                                            ; preds = %461, %63
-  %527 = phi ptr [ %457, %63 ], [ %42, %461 ]
-  %.pn = phi { ptr, i32 } [ %.pn8.i, %63 ], [ %462, %461 ]
+  %527 = phi ptr [ %42, %461 ], [ %457, %63 ]
+  %.pn = phi { ptr, i32 } [ %462, %461 ], [ %.pn8.i, %63 ]
   invoke fastcc void @"_ZN4core3ptr174drop_in_place$LT$zbus..proxy..Proxy..call_method$LT$$RF$str$C$zvariant..tuple..DynamicTuple$LT$$LP$zbus..match_rule..MatchRule$C$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3af2c79a483e90cfE"(ptr noundef nonnull align 8 %527) #21
           to label %.body10 unwind label %522
 }
@@ -36805,7 +36805,7 @@ default.unreachable39:                            ; preds = %48, %2
   br label %51
 
 .body19:                                          ; preds = %.body, %33, %28
-  %.pn8 = phi { ptr, i32 } [ %29, %28 ], [ %.pn6, %.body ], [ %34, %33 ]
+  %.pn8 = phi { ptr, i32 } [ %.pn6, %.body ], [ %34, %33 ], [ %29, %28 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 329
   %39 = load i8, ptr %38, align 1, !range !26, !noundef !5
   %40 = trunc nuw i8 %39 to i1
@@ -36818,7 +36818,7 @@ default.unreachable39:                            ; preds = %48, %2
   br label %"_ZN4core3ptr39drop_in_place$LT$zbus..proxy..Proxy$GT$17hd7a23b80efb743a9E.exit"
 
 "_ZN4core3ptr39drop_in_place$LT$zbus..proxy..Proxy$GT$17hd7a23b80efb743a9E.exit23": ; preds = %218, %223, %213, %.body19, %17
-  %.pn10.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn8, %.body19 ], [ %214, %213 ], [ %.pn8, %223 ], [ %.pn8, %218 ]
+  %.pn10.pn = phi { ptr, i32 } [ %.pn8, %.body19 ], [ %214, %213 ], [ %18, %17 ], [ %.pn8, %223 ], [ %.pn8, %218 ]
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 329
   store i8 0, ptr %42, align 1
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 330
@@ -36975,9 +36975,9 @@ default.unreachable39:                            ; preds = %48, %2
   br label %126
 
 .body26.i:                                        ; preds = %140, %136, %96
-  %101 = phi ptr [ %52, %96 ], [ %127, %136 ], [ %127, %140 ]
-  %102 = phi ptr [ %53, %96 ], [ %128, %136 ], [ %128, %140 ]
-  %.pn6.i = phi { ptr, i32 } [ %97, %96 ], [ %137, %136 ], [ %141, %140 ]
+  %101 = phi ptr [ %127, %136 ], [ %52, %96 ], [ %127, %140 ]
+  %102 = phi ptr [ %128, %136 ], [ %53, %96 ], [ %128, %140 ]
+  %.pn6.i = phi { ptr, i32 } [ %137, %136 ], [ %97, %96 ], [ %141, %140 ]
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %104 = load i8, ptr %103, align 8, !range !26, !noalias !9228, !noundef !5
   %105 = trunc nuw i8 %104 to i1
@@ -37028,9 +37028,9 @@ default.unreachable39:                            ; preds = %48, %2
   unreachable
 
 .body.i:                                          ; preds = %195, %117, %110, %106, %.body26.i, %78, %72, %65
-  %121 = phi ptr [ %101, %195 ], [ %101, %.body26.i ], [ %52, %72 ], [ %52, %117 ], [ %52, %65 ], [ %52, %106 ], [ %52, %78 ], [ %52, %110 ]
-  %122 = phi ptr [ %102, %195 ], [ %102, %.body26.i ], [ %53, %72 ], [ %53, %117 ], [ %53, %65 ], [ %53, %106 ], [ %53, %78 ], [ %53, %110 ]
-  %.pn6.pn.i = phi { ptr, i32 } [ %.pn6.i, %195 ], [ %.pn6.i, %.body26.i ], [ %73, %72 ], [ %118, %117 ], [ %66, %65 ], [ %.pn.i, %106 ], [ %73, %78 ], [ %.pn.i, %110 ]
+  %121 = phi ptr [ %101, %195 ], [ %101, %.body26.i ], [ %52, %117 ], [ %52, %65 ], [ %52, %78 ], [ %52, %72 ], [ %52, %110 ], [ %52, %106 ]
+  %122 = phi ptr [ %102, %195 ], [ %102, %.body26.i ], [ %53, %117 ], [ %53, %65 ], [ %53, %78 ], [ %53, %72 ], [ %53, %110 ], [ %53, %106 ]
+  %.pn6.pn.i = phi { ptr, i32 } [ %.pn6.i, %195 ], [ %.pn6.i, %.body26.i ], [ %118, %117 ], [ %66, %65 ], [ %73, %78 ], [ %73, %72 ], [ %.pn.i, %110 ], [ %.pn.i, %106 ]
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 320
   store i8 0, ptr %123, align 8, !noalias !9228
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !9228
@@ -37242,9 +37242,9 @@ default.unreachable39:                            ; preds = %48, %2
   br label %"_ZN4core3ptr89drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$zbus..proxy..CachingResult$GT$$GT$17h9c4df70693376a0dE.exit43.i"
 
 "_ZN4core3ptr89drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$zbus..proxy..CachingResult$GT$$GT$17h9c4df70693376a0dE.exit43.i": ; preds = %191, %183, %178, %.body36.i, %151, %.body.i
-  %193 = phi ptr [ %121, %.body.i ], [ %127, %151 ], [ %127, %191 ], [ %127, %.body36.i ], [ %127, %183 ], [ %127, %178 ]
-  %194 = phi ptr [ %122, %.body.i ], [ %128, %151 ], [ %128, %191 ], [ %128, %.body36.i ], [ %128, %183 ], [ %128, %178 ]
-  %.pn9.pn.pn.i = phi { ptr, i32 } [ %.pn6.pn.i, %.body.i ], [ %152, %151 ], [ %192, %191 ], [ %160, %.body36.i ], [ %.pn9.i, %183 ], [ %.pn9.i, %178 ]
+  %193 = phi ptr [ %121, %.body.i ], [ %127, %191 ], [ %127, %.body36.i ], [ %127, %151 ], [ %127, %183 ], [ %127, %178 ]
+  %194 = phi ptr [ %122, %.body.i ], [ %128, %191 ], [ %128, %.body36.i ], [ %128, %151 ], [ %128, %183 ], [ %128, %178 ]
+  %.pn9.pn.pn.i = phi { ptr, i32 } [ %.pn6.pn.i, %.body.i ], [ %192, %191 ], [ %160, %.body36.i ], [ %152, %151 ], [ %.pn9.i, %183 ], [ %.pn9.i, %178 ]
   store i8 2, ptr %193, align 1, !noalias !9228
   br label %.body
 
@@ -37291,8 +37291,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr39drop
   br label %"_ZN4core3ptr39drop_in_place$LT$zbus..proxy..Proxy$GT$17hd7a23b80efb743a9E.exit"
 
 "_ZN4core3ptr39drop_in_place$LT$zbus..proxy..Proxy$GT$17hd7a23b80efb743a9E.exit": ; preds = %204, %24, %41, %212, %207
-  %.sroa.024.1 = phi i64 [ %.sroa.015.0.copyload16, %207 ], [ %20, %41 ], [ %.sroa.015.0.copyload16, %212 ], [ 21, %24 ], [ 21, %204 ]
-  %.sroa.4.1 = phi ptr [ %.sroa.817.sroa.0.0.copyload, %207 ], [ %23, %41 ], [ %.sroa.817.sroa.0.0.copyload, %212 ], [ %23, %24 ], [ %.pre35, %204 ]
+  %.sroa.024.1 = phi i64 [ %20, %41 ], [ %.sroa.015.0.copyload16, %212 ], [ %.sroa.015.0.copyload16, %207 ], [ 21, %24 ], [ 21, %204 ]
+  %.sroa.4.1 = phi ptr [ %23, %41 ], [ %.sroa.817.sroa.0.0.copyload, %212 ], [ %.sroa.817.sroa.0.0.copyload, %207 ], [ %23, %24 ], [ %.pre35, %204 ]
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 329
   store i8 0, ptr %205, align 1
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 330
@@ -37326,8 +37326,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr39drop
   br label %"_ZN4core3ptr39drop_in_place$LT$zbus..proxy..Proxy$GT$17hd7a23b80efb743a9E.exit23"
 
 .body:                                            ; preds = %196, %"_ZN4core3ptr89drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$zbus..proxy..CachingResult$GT$$GT$17h9c4df70693376a0dE.exit43.i"
-  %215 = phi ptr [ %194, %"_ZN4core3ptr89drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$zbus..proxy..CachingResult$GT$$GT$17h9c4df70693376a0dE.exit43.i" ], [ %49, %196 ]
-  %.pn6 = phi { ptr, i32 } [ %.pn9.pn.pn.i, %"_ZN4core3ptr89drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$zbus..proxy..CachingResult$GT$$GT$17h9c4df70693376a0dE.exit43.i" ], [ %197, %196 ]
+  %215 = phi ptr [ %49, %196 ], [ %194, %"_ZN4core3ptr89drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$zbus..proxy..CachingResult$GT$$GT$17h9c4df70693376a0dE.exit43.i" ]
+  %.pn6 = phi { ptr, i32 } [ %197, %196 ], [ %.pn9.pn.pn.i, %"_ZN4core3ptr89drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$zbus..proxy..CachingResult$GT$$GT$17h9c4df70693376a0dE.exit43.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.817.sroa.6)
   invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$zbus..proxy..PropertiesCache..ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb8ac0a48b91e4608E"(ptr noundef nonnull align 8 %215) #21
           to label %.body19 unwind label %216
@@ -37726,7 +37726,7 @@ common.ret:                                       ; preds = %237, %222, %65
   unreachable
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$core..net..socket_addr..SocketAddr$GT$$GT$17h99f095eafa8dd864E.exit": ; preds = %28, %24, %42, %66, %70, %254, %96
-  %.pn16.pn.pn = phi { ptr, i32 } [ %.pn16.pn, %254 ], [ %.pn16.pn, %96 ], [ %71, %70 ], [ %67, %66 ], [ %44, %42 ], [ %29, %28 ], [ %25, %24 ]
+  %.pn16.pn.pn = phi { ptr, i32 } [ %.pn16.pn, %96 ], [ %.pn16.pn, %254 ], [ %44, %42 ], [ %67, %66 ], [ %71, %70 ], [ %29, %28 ], [ %25, %24 ]
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 81
   store i8 0, ptr %104, align 1
   store i8 2, ptr %17, align 8
@@ -38044,11 +38044,11 @@ common.ret:                                       ; preds = %237, %222, %65
   br label %211
 
 211:                                              ; preds = %218, %209, %202, %198, %.body.i, %118
-  %212 = phi ptr [ %162, %209 ], [ %162, %198 ], [ %162, %202 ], [ %150, %218 ], [ %150, %.body.i ], [ %109, %118 ]
-  %213 = phi ptr [ %163, %209 ], [ %163, %198 ], [ %163, %202 ], [ %151, %218 ], [ %151, %.body.i ], [ %110, %118 ]
-  %.sroa.0.0199 = phi i64 [ %.sroa.0.0195, %209 ], [ %.sroa.0.0195, %198 ], [ %.sroa.0.0195, %202 ], [ %.sroa.0.0200, %218 ], [ %.sroa.0.0200, %.body.i ], [ %.sroa.0.0196, %118 ]
-  %.sroa.11.0190 = phi ptr [ %.sroa.11.0186, %209 ], [ %.sroa.11.0186, %198 ], [ %.sroa.11.0186, %202 ], [ %.sroa.11.0191, %218 ], [ %.sroa.11.0191, %.body.i ], [ %.sroa.11.0187, %118 ]
-  %.pn35.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn29.i, %209 ], [ %199, %198 ], [ %203, %202 ], [ %.pn35.pn.i, %218 ], [ %.pn35.pn.i, %.body.i ], [ %119, %118 ]
+  %212 = phi ptr [ %162, %198 ], [ %162, %202 ], [ %162, %209 ], [ %150, %218 ], [ %150, %.body.i ], [ %109, %118 ]
+  %213 = phi ptr [ %163, %198 ], [ %163, %202 ], [ %163, %209 ], [ %151, %218 ], [ %151, %.body.i ], [ %110, %118 ]
+  %.sroa.0.0199 = phi i64 [ %.sroa.0.0195, %198 ], [ %.sroa.0.0195, %202 ], [ %.sroa.0.0195, %209 ], [ %.sroa.0.0200, %218 ], [ %.sroa.0.0200, %.body.i ], [ %.sroa.0.0196, %118 ]
+  %.sroa.11.0190 = phi ptr [ %.sroa.11.0186, %198 ], [ %.sroa.11.0186, %202 ], [ %.sroa.11.0186, %209 ], [ %.sroa.11.0191, %218 ], [ %.sroa.11.0191, %.body.i ], [ %.sroa.11.0187, %118 ]
+  %.pn35.pn.pn.pn.pn.i = phi { ptr, i32 } [ %199, %198 ], [ %203, %202 ], [ %.pn29.i, %209 ], [ %.pn35.pn.i, %218 ], [ %.pn35.pn.i, %.body.i ], [ %119, %118 ]
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 266
   store i8 0, ptr %214, align 2, !noalias !9439
   store i8 2, ptr %212, align 8, !noalias !9439
@@ -38228,10 +38228,10 @@ common.ret:                                       ; preds = %237, %222, %65
   br label %108
 
 .body40:                                          ; preds = %220, %211
-  %253 = phi ptr [ %213, %211 ], [ %106, %220 ]
-  %.sroa.0.0198 = phi i64 [ %.sroa.0.0199, %211 ], [ undef, %220 ]
-  %.sroa.11.0189 = phi ptr [ %.sroa.11.0190, %211 ], [ undef, %220 ]
-  %.pn10 = phi { ptr, i32 } [ %.pn35.pn.pn.pn.pn.i, %211 ], [ %221, %220 ]
+  %253 = phi ptr [ %106, %220 ], [ %213, %211 ]
+  %.sroa.0.0198 = phi i64 [ undef, %220 ], [ %.sroa.0.0199, %211 ]
+  %.sroa.11.0189 = phi ptr [ undef, %220 ], [ %.sroa.11.0190, %211 ]
+  %.pn10 = phi { ptr, i32 } [ %221, %220 ], [ %.pn35.pn.pn.pn.pn.i, %211 ]
   invoke fastcc void @"_ZN4core3ptr148drop_in_place$LT$async_io..Async$LT$std..net..tcp..TcpStream$GT$..connect$LT$core..net..socket_addr..SocketAddr$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd13bca0bcb4fd454E"(ptr noundef nonnull align 8 %253) #21
           to label %.body43 unwind label %102
 
@@ -38571,10 +38571,10 @@ define internal fastcc void @"_ZN66_$LT$zbus..match_rule..MatchRule$u20$as$u20$c
   unreachable
 
 "_ZN68_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..clone..Clone$GT$5clone17h5c8820590881cc8dE.exit": ; preds = %19, %24, %28, %33
-  %.sink20.i = phi i64 [ 2, %24 ], [ %20, %19 ], [ %29, %28 ], [ 2, %33 ]
-  %.sink19.i = phi ptr [ %21, %24 ], [ %21, %19 ], [ %30, %28 ], [ %30, %33 ]
-  %.sink.i = phi i64 [ %22, %24 ], [ %22, %19 ], [ %31, %28 ], [ %31, %33 ]
-  %storemerge.i = phi i64 [ 0, %24 ], [ 0, %19 ], [ 1, %28 ], [ 1, %33 ]
+  %.sink20.i = phi i64 [ %20, %19 ], [ 2, %24 ], [ %29, %28 ], [ 2, %33 ]
+  %.sink19.i = phi ptr [ %21, %19 ], [ %21, %24 ], [ %30, %28 ], [ %30, %33 ]
+  %.sink.i = phi i64 [ %22, %19 ], [ %22, %24 ], [ %31, %28 ], [ %31, %33 ]
+  %storemerge.i = phi i64 [ 0, %19 ], [ 0, %24 ], [ 1, %28 ], [ 1, %33 ]
   store i64 %storemerge.i, ptr %9, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %.sink20.i, ptr %.sroa.425.0..sroa_idx, align 8
@@ -38731,10 +38731,10 @@ define internal fastcc void @"_ZN66_$LT$zbus..match_rule..MatchRule$u20$as$u20$c
           to label %72 unwind label %148
 
 "_ZN65_$LT$zbus..match_rule..PathSpec$u20$as$u20$core..clone..Clone$GT$5clone17h817d3287dcc9aa7dE.exit": ; preds = %92, %87, %83, %78
-  %.sink20.i15 = phi i64 [ 2, %83 ], [ %79, %78 ], [ %88, %87 ], [ 2, %92 ]
-  %.sink19.i16 = phi ptr [ %80, %83 ], [ %80, %78 ], [ %89, %87 ], [ %89, %92 ]
-  %.sink.i17 = phi i64 [ %81, %83 ], [ %81, %78 ], [ %90, %87 ], [ %90, %92 ]
-  %storemerge.i18 = phi i64 [ 0, %83 ], [ 0, %78 ], [ 1, %87 ], [ 1, %92 ]
+  %.sink20.i15 = phi i64 [ %79, %78 ], [ 2, %83 ], [ %88, %87 ], [ 2, %92 ]
+  %.sink19.i16 = phi ptr [ %80, %78 ], [ %80, %83 ], [ %89, %87 ], [ %89, %92 ]
+  %.sink.i17 = phi i64 [ %81, %78 ], [ %81, %83 ], [ %90, %87 ], [ %90, %92 ]
+  %storemerge.i18 = phi i64 [ 0, %78 ], [ 0, %83 ], [ 1, %87 ], [ 1, %92 ]
   store i64 %storemerge.i18, ptr %6, align 8
   %.sroa.446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sink20.i15, ptr %.sroa.446.0..sroa_idx, align 8
@@ -39022,7 +39022,7 @@ define internal fastcc noundef align 8 ptr @"_ZN81_$LT$async_lock..mutex..Lock$L
   br label %.thread.i
 
 common.resume.i.i.i:                              ; preds = %26, %19
-  %eh.lpad-body.i = phi { ptr, i32 } [ %20, %19 ], [ %27, %26 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ]
   store i32 1000000000, ptr %5, align 8, !noalias !9605
   %.sroa.525.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.525.0..sroa_idx.i, align 8, !noalias !9605
@@ -39116,7 +39116,7 @@ define internal fastcc noundef align 8 ptr @"_ZN81_$LT$async_lock..mutex..Lock$L
   br label %.thread.i
 
 common.resume.i.i.i:                              ; preds = %26, %19
-  %eh.lpad-body.i = phi { ptr, i32 } [ %20, %19 ], [ %27, %26 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ]
   store i32 1000000000, ptr %5, align 8, !noalias !9629
   %.sroa.525.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.525.0..sroa_idx.i, align 8, !noalias !9629

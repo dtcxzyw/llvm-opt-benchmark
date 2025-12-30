@@ -168,8 +168,8 @@ define hidden { i64, i64 } @_ZN11polars_core5utils13last_non_null17h46a64e32dfa5
   br i1 %.not, label %19, label %14
 
 .loopexit:                                        ; preds = %27, %5, %19, %22, %2
-  %.sroa.5.0 = phi i64 [ %21, %19 ], [ undef, %2 ], [ %26, %22 ], [ undef, %5 ], [ undef, %27 ]
-  %.sroa.0.0 = phi i64 [ 1, %19 ], [ 0, %2 ], [ 1, %22 ], [ 0, %5 ], [ 0, %27 ]
+  %.sroa.5.0 = phi i64 [ undef, %2 ], [ %26, %22 ], [ %21, %19 ], [ undef, %5 ], [ undef, %27 ]
+  %.sroa.0.0 = phi i64 [ 0, %2 ], [ 1, %22 ], [ 1, %19 ], [ 0, %5 ], [ 0, %27 ]
   %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %13 = insertvalue { i64, i64 } %12, i64 %.sroa.5.0, 1
   ret { i64, i64 } %13

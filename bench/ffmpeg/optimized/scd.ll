@@ -156,8 +156,8 @@ define internal i32 @scd_read_header(ptr noundef %0) #1 {
   %88 = icmp slt i32 %87, 0
   br i1 %88, label %scd_read_offsets.exit.thread, label %scd_read_offsets.exit
 
-scd_read_offsets.exit.thread:                     ; preds = %86, %43, %48
-  %.0.i.ph = phi i32 [ %84, %48 ], [ %46, %43 ], [ %87, %86 ]
+scd_read_offsets.exit.thread:                     ; preds = %43, %48, %86
+  %.0.i.ph = phi i32 [ %87, %86 ], [ %84, %48 ], [ %46, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
@@ -360,8 +360,8 @@ scd_read_offsets.exit:                            ; preds = %86
   call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %196) #6
   br label %scd_read_track.exit.thread46
 
-scd_read_track.exit.thread:                       ; preds = %190, %123, %127, %161, %178, %185, %113
-  %.0.i42.ph = phi i32 [ -733130664, %113 ], [ -12, %190 ], [ %125, %123 ], [ -1094995529, %127 ], [ -12, %161 ], [ -12, %178 ], [ -12, %185 ]
+scd_read_track.exit.thread:                       ; preds = %123, %127, %161, %178, %185, %190, %113
+  %.0.i42.ph = phi i32 [ -733130664, %113 ], [ %125, %123 ], [ -1094995529, %127 ], [ -12, %161 ], [ -12, %178 ], [ -12, %185 ], [ -12, %190 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
 
@@ -398,7 +398,7 @@ scd_read_track.exit:                              ; preds = %114
   br label %.thread
 
 .thread:                                          ; preds = %scd_read_track.exit, %.preheader, %scd_read_track.exit.thread, %scd_read_offsets.exit.thread, %212, %._crit_edge, %91, %scd_read_offsets.exit, %32, %11, %1, %41, %31
-  %.035 = phi i32 [ %.0.i.ph, %scd_read_offsets.exit.thread ], [ %9, %1 ], [ -1163346256, %31 ], [ -1094995529, %11 ], [ %42, %41 ], [ -1094995529, %32 ], [ %89, %scd_read_offsets.exit ], [ -12, %91 ], [ %spec.select, %212 ], [ 0, %._crit_edge ], [ %.0.i42.ph, %scd_read_track.exit.thread ], [ 0, %.preheader ], [ %206, %scd_read_track.exit ]
+  %.035 = phi i32 [ -1163346256, %31 ], [ %42, %41 ], [ %9, %1 ], [ -1094995529, %11 ], [ -1094995529, %32 ], [ %89, %scd_read_offsets.exit ], [ -12, %91 ], [ 0, %._crit_edge ], [ %spec.select, %212 ], [ %.0.i.ph, %scd_read_offsets.exit.thread ], [ %.0.i42.ph, %scd_read_track.exit.thread ], [ 0, %.preheader ], [ %206, %scd_read_track.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.035
 }
@@ -533,8 +533,8 @@ define internal i32 @scd_read_packet(ptr noundef readonly captures(none) %0, ptr
   %.not56 = icmp samesign ult i32 %81, %82
   br i1 %.not56, label %12, label %.thread, !llvm.loop !102
 
-.thread:                                          ; preds = %79, %2, %54, %36, %71
-  %spec.select57 = phi i32 [ 0, %71 ], [ %50, %54 ], [ %37, %36 ], [ -541478725, %2 ], [ -541478725, %79 ]
+.thread:                                          ; preds = %79, %2, %54, %71, %36
+  %spec.select57 = phi i32 [ %50, %54 ], [ 0, %71 ], [ %37, %36 ], [ -541478725, %2 ], [ -541478725, %79 ]
   ret i32 %spec.select57
 }
 

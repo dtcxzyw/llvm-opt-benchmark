@@ -4689,7 +4689,7 @@ _ZN7OptoReg8as_VMRegEi.exit.i448:                 ; preds = %67
   br label %_ZL8rc_classi.exit454
 
 _ZL8rc_classi.exit454:                            ; preds = %_ZL8rc_classi.exit, %67, %_ZN7OptoReg8as_VMRegEi.exit.i448, %78
-  %.0.i453 = phi i32 [ 0, %_ZL8rc_classi.exit ], [ 4, %67 ], [ %..i452, %78 ], [ 1, %_ZN7OptoReg8as_VMRegEi.exit.i448 ]
+  %.0.i453 = phi i32 [ 0, %_ZL8rc_classi.exit ], [ 4, %67 ], [ 1, %_ZN7OptoReg8as_VMRegEi.exit.i448 ], [ %..i452, %78 ]
   %.not.i463 = icmp eq i16 %65, -1
   br i1 %.not.i463, label %_ZL8rc_classi.exit470, label %82
 
@@ -4720,7 +4720,7 @@ _ZN7OptoReg8as_VMRegEi.exit.i464:                 ; preds = %82
   br label %_ZL8rc_classi.exit470
 
 _ZL8rc_classi.exit470:                            ; preds = %_ZL8rc_classi.exit454, %82, %_ZN7OptoReg8as_VMRegEi.exit.i464, %93
-  %.0.i469 = phi i32 [ 0, %_ZL8rc_classi.exit454 ], [ 4, %82 ], [ %..i468, %93 ], [ 1, %_ZN7OptoReg8as_VMRegEi.exit.i464 ]
+  %.0.i469 = phi i32 [ 0, %_ZL8rc_classi.exit454 ], [ 4, %82 ], [ 1, %_ZN7OptoReg8as_VMRegEi.exit.i464 ], [ %..i468, %93 ]
   %97 = icmp eq i16 %56, %65
   %98 = icmp eq i16 %53, %62
   %or.cond368 = and i1 %98, %97
@@ -7663,7 +7663,7 @@ define hidden noundef zeroext i1 @_ZN7Matcher20match_rule_supportedEi(i32 nounde
   br label %131
 
 131:                                              ; preds = %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %88, %91, %83, %80, %77, %74, %71, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %19, %16, %13, %10, %7, %1, %130
-  %.0 = phi i1 [ true, %130 ], [ false, %1 ], [ false, %7 ], [ false, %10 ], [ false, %13 ], [ false, %16 ], [ false, %19 ], [ false, %24 ], [ false, %27 ], [ false, %30 ], [ false, %33 ], [ false, %36 ], [ false, %39 ], [ false, %42 ], [ false, %45 ], [ false, %48 ], [ false, %124 ], [ false, %51 ], [ false, %54 ], [ false, %57 ], [ false, %60 ], [ false, %63 ], [ false, %66 ], [ false, %69 ], [ false, %71 ], [ false, %74 ], [ false, %77 ], [ false, %80 ], [ false, %83 ], [ false, %88 ], [ false, %121 ], [ false, %94 ], [ false, %97 ], [ false, %100 ], [ false, %103 ], [ false, %106 ], [ false, %109 ], [ false, %112 ], [ false, %115 ], [ false, %118 ], [ false, %91 ], [ false, %127 ]
+  %.0 = phi i1 [ true, %130 ], [ false, %1 ], [ false, %7 ], [ false, %10 ], [ false, %13 ], [ false, %16 ], [ false, %19 ], [ false, %24 ], [ false, %27 ], [ false, %30 ], [ false, %33 ], [ false, %36 ], [ false, %39 ], [ false, %42 ], [ false, %45 ], [ false, %48 ], [ false, %51 ], [ false, %54 ], [ false, %57 ], [ false, %60 ], [ false, %63 ], [ false, %66 ], [ false, %69 ], [ false, %71 ], [ false, %74 ], [ false, %77 ], [ false, %80 ], [ false, %83 ], [ false, %91 ], [ false, %88 ], [ false, %94 ], [ false, %97 ], [ false, %100 ], [ false, %103 ], [ false, %106 ], [ false, %109 ], [ false, %112 ], [ false, %115 ], [ false, %118 ], [ false, %121 ], [ false, %124 ], [ false, %127 ]
   ret i1 %.0
 }
 
@@ -8297,7 +8297,7 @@ _ZL25is_pop_count_instr_target9BasicType.exit:    ; preds = %253
   br label %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit.thread
 
 _ZN7Matcher21vector_size_supportedE9BasicTypei.exit.thread: ; preds = %_ZL25is_pop_count_instr_target9BasicType.exit, %208, %222, %217, %168, %41, %35, %5, %265, %262, %250, %247, %242, %241, %237, %229, %232, %226, %221, %212, %210, %202, %198, %189, %192, %195, %183, %177, %171, %166, %160, %149, %146, %138, %133, %130, %127, %122, %118, %116, %112, %.thread189.thread, %103, %97, %99, %93, %89, %83, %77, %80, %71, %64, %59, %54, %47, %38, %32, %30, %27, %22, %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit, %3, %.thread
-  %.0 = phi i1 [ true, %.thread ], [ false, %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit ], [ false, %22 ], [ false, %27 ], [ false, %30 ], [ false, %38 ], [ false, %32 ], [ false, %41 ], [ false, %47 ], [ false, %54 ], [ false, %59 ], [ false, %64 ], [ false, %71 ], [ false, %77 ], [ false, %83 ], [ false, %93 ], [ false, %97 ], [ false, %103 ], [ false, %.thread189.thread ], [ false, %112 ], [ false, %265 ], [ false, %116 ], [ false, %118 ], [ false, %122 ], [ false, %127 ], [ false, %130 ], [ false, %133 ], [ false, %138 ], [ false, %146 ], [ false, %149 ], [ false, %160 ], [ false, %166 ], [ false, %171 ], [ false, %183 ], [ false, %177 ], [ false, %189 ], [ false, %202 ], [ false, %210 ], [ false, %198 ], [ false, %221 ], [ false, %212 ], [ false, %5 ], [ false, %222 ], [ false, %226 ], [ false, %237 ], [ false, %241 ], [ false, %242 ], [ false, %229 ], [ false, %247 ], [ false, %250 ], [ false, %_ZL25is_pop_count_instr_target9BasicType.exit ], [ false, %262 ], [ false, %3 ], [ false, %35 ], [ false, %80 ], [ false, %89 ], [ false, %99 ], [ false, %168 ], [ false, %195 ], [ false, %192 ], [ false, %232 ], [ false, %217 ], [ false, %208 ]
+  %.0 = phi i1 [ true, %.thread ], [ false, %3 ], [ false, %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit ], [ false, %22 ], [ false, %27 ], [ false, %30 ], [ false, %32 ], [ false, %38 ], [ false, %47 ], [ false, %54 ], [ false, %59 ], [ false, %64 ], [ false, %71 ], [ false, %80 ], [ false, %77 ], [ false, %83 ], [ false, %89 ], [ false, %93 ], [ false, %99 ], [ false, %97 ], [ false, %103 ], [ false, %.thread189.thread ], [ false, %112 ], [ false, %116 ], [ false, %118 ], [ false, %122 ], [ false, %127 ], [ false, %130 ], [ false, %133 ], [ false, %138 ], [ false, %146 ], [ false, %149 ], [ false, %160 ], [ false, %166 ], [ false, %171 ], [ false, %177 ], [ false, %183 ], [ false, %195 ], [ false, %192 ], [ false, %189 ], [ false, %198 ], [ false, %202 ], [ false, %210 ], [ false, %212 ], [ false, %221 ], [ false, %226 ], [ false, %232 ], [ false, %229 ], [ false, %237 ], [ false, %241 ], [ false, %242 ], [ false, %247 ], [ false, %250 ], [ false, %262 ], [ false, %265 ], [ false, %5 ], [ false, %35 ], [ false, %41 ], [ false, %168 ], [ false, %217 ], [ false, %222 ], [ false, %208 ], [ false, %_ZL25is_pop_count_instr_target9BasicType.exit ]
   ret i1 %.0
 }
 
@@ -8537,7 +8537,7 @@ define hidden noundef zeroext i1 @_ZN7Matcher34match_rule_supported_vector_maske
   br label %_ZL25is_pop_count_instr_target9BasicType.exit
 
 _ZL25is_pop_count_instr_target9BasicType.exit:    ; preds = %75, %72, %69, %82, %63, %57, %54, %51, %46, %41, %38, %32, %28, %24, %20, %18, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %14, %10, %3, %85, %66, %49, %35, %17
-  %.0 = phi i1 [ false, %85 ], [ true, %17 ], [ false, %10 ], [ false, %14 ], [ %or.cond, %18 ], [ true, %13 ], [ true, %13 ], [ %23, %20 ], [ true, %13 ], [ %27, %24 ], [ %or.cond5, %28 ], [ true, %13 ], [ true, %35 ], [ true, %13 ], [ false, %32 ], [ %43, %41 ], [ false, %38 ], [ true, %13 ], [ true, %49 ], [ true, %13 ], [ %or.cond10.not, %57 ], [ false, %54 ], [ false, %51 ], [ false, %46 ], [ true, %66 ], [ true, %13 ], [ false, %63 ], [ true, %82 ], [ true, %13 ], [ true, %13 ], [ false, %3 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %69 ], [ false, %72 ], [ %78, %75 ]
+  %.0 = phi i1 [ false, %85 ], [ true, %17 ], [ true, %35 ], [ true, %49 ], [ true, %66 ], [ false, %3 ], [ false, %10 ], [ false, %14 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ %or.cond, %18 ], [ %23, %20 ], [ %27, %24 ], [ %or.cond5, %28 ], [ false, %32 ], [ false, %38 ], [ %43, %41 ], [ false, %46 ], [ false, %51 ], [ false, %54 ], [ %or.cond10.not, %57 ], [ false, %63 ], [ true, %82 ], [ true, %69 ], [ false, %72 ], [ %78, %75 ]
   ret i1 %.0
 }
 
@@ -8997,7 +8997,7 @@ _ZN8MachOpernwEm.exit53:                          ; preds = %252, %254
   unreachable
 
 260:                                              ; preds = %_ZN8MachOpernwEm.exit53, %257, %_ZN8MachOpernwEm.exit50, %235, %_ZN8MachOpernwEm.exit47, %213, %_ZN8MachOpernwEm.exit44, %191, %_ZN8MachOpernwEm.exit41, %169, %_ZN8MachOpernwEm.exit38, %146, %_ZN8MachOpernwEm.exit35, %124, %_ZN8MachOpernwEm.exit32, %102, %_ZN8MachOpernwEm.exit29, %80, %_ZN8MachOpernwEm.exit26, %58, %_ZN8MachOpernwEm.exit, %34
-  %.0 = phi ptr [ null, %_ZN8MachOpernwEm.exit50 ], [ null, %_ZN8MachOpernwEm.exit ], [ null, %_ZN8MachOpernwEm.exit26 ], [ null, %_ZN8MachOpernwEm.exit29 ], [ null, %_ZN8MachOpernwEm.exit32 ], [ null, %_ZN8MachOpernwEm.exit35 ], [ null, %_ZN8MachOpernwEm.exit38 ], [ null, %_ZN8MachOpernwEm.exit41 ], [ null, %_ZN8MachOpernwEm.exit44 ], [ null, %_ZN8MachOpernwEm.exit47 ], [ %.0.i.i.i, %34 ], [ %.0.i.i.i25, %58 ], [ %.0.i.i.i28, %80 ], [ %.0.i.i.i31, %102 ], [ %.0.i.i.i34, %124 ], [ %.0.i.i.i37, %146 ], [ %.0.i.i.i40, %169 ], [ %.0.i.i.i43, %191 ], [ %.0.i.i.i46, %213 ], [ %.0.i.i.i49, %235 ], [ %.0.i.i.i52, %257 ], [ null, %_ZN8MachOpernwEm.exit53 ]
+  %.0 = phi ptr [ %.0.i.i.i, %34 ], [ null, %_ZN8MachOpernwEm.exit ], [ %.0.i.i.i25, %58 ], [ null, %_ZN8MachOpernwEm.exit26 ], [ %.0.i.i.i28, %80 ], [ null, %_ZN8MachOpernwEm.exit29 ], [ %.0.i.i.i31, %102 ], [ null, %_ZN8MachOpernwEm.exit32 ], [ %.0.i.i.i34, %124 ], [ null, %_ZN8MachOpernwEm.exit35 ], [ %.0.i.i.i37, %146 ], [ null, %_ZN8MachOpernwEm.exit38 ], [ %.0.i.i.i40, %169 ], [ null, %_ZN8MachOpernwEm.exit41 ], [ %.0.i.i.i43, %191 ], [ null, %_ZN8MachOpernwEm.exit44 ], [ %.0.i.i.i46, %213 ], [ null, %_ZN8MachOpernwEm.exit47 ], [ %.0.i.i.i49, %235 ], [ null, %_ZN8MachOpernwEm.exit50 ], [ %.0.i.i.i52, %257 ], [ null, %_ZN8MachOpernwEm.exit53 ]
   ret ptr %.0
 }
 
@@ -9167,7 +9167,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN7Matcher21vector_width_i
   br label %37
 
 37:                                               ; preds = %32, %30, %28, %26, %24, %22, %1, %36
-  %.023 = phi i32 [ 0, %30 ], [ 0, %1 ], [ %21, %36 ], [ 0, %22 ], [ 0, %24 ], [ 0, %26 ], [ 0, %28 ], [ 0, %32 ]
+  %.023 = phi i32 [ %21, %36 ], [ 0, %1 ], [ 0, %22 ], [ 0, %24 ], [ 0, %26 ], [ 0, %28 ], [ 0, %30 ], [ 0, %32 ]
   ret i32 %.023
 }
 
@@ -9267,7 +9267,7 @@ define hidden noundef zeroext i1 @_ZN7Matcher13pd_clone_nodeEP4NodeS1_RNS_6MStac
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(52) %2) #24
   %16 = icmp eq i32 %15, 193
-  br i1 %16, label %17, label %23
+  br i1 %16, label %17, label %25
 
 17:                                               ; preds = %12
   store ptr %1, ptr %5, align 8
@@ -9280,51 +9280,51 @@ define hidden noundef zeroext i1 @_ZN7Matcher13pd_clone_nodeEP4NodeS1_RNS_6MStac
 
 21:                                               ; preds = %17
   %22 = call noundef zeroext i1 @_ZN19FusedPatternMatcherI7TypeIntE5matchEiiiii(ptr noundef nonnull align 8 dereferenceable(20) %5, i32 noundef 28, i32 noundef -1, i32 noundef 23, i32 noundef -1, i32 noundef -1)
-  br i1 %22, label %_ZL14is_bmi_patternP4NodeS0_.exit.thread, label %_ZL14is_bmi_patternP4NodeS0_.exit
+  br i1 %22, label %_ZL14is_bmi_patternP4NodeS0_.exit.thread, label %23
 
-23:                                               ; preds = %12
-  %24 = load ptr, ptr %2, align 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(52) %2) #24
-  %27 = icmp eq i32 %26, 196
-  br i1 %27, label %28, label %_ZL14is_bmi_patternP4NodeS0_.exit.thread15
-
-28:                                               ; preds = %23
-  store ptr %1, ptr %6, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %2, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 124, ptr %30, align 8
-  %31 = call noundef zeroext i1 @_ZN19FusedPatternMatcherI8TypeLongE5matchEiiiil(ptr noundef nonnull align 8 dereferenceable(20) %6, i32 noundef 29, i32 noundef -1, i32 noundef 343, i32 noundef 1, i64 noundef 0)
-  br i1 %31, label %_ZL14is_bmi_patternP4NodeS0_.exit.thread, label %32
-
-32:                                               ; preds = %28
-  %33 = call noundef zeroext i1 @_ZN19FusedPatternMatcherI8TypeLongE5matchEiiiil(ptr noundef nonnull align 8 dereferenceable(20) %6, i32 noundef 29, i32 noundef -1, i32 noundef 24, i32 noundef -1, i64 noundef -1)
-  br i1 %33, label %_ZL14is_bmi_patternP4NodeS0_.exit.thread, label %34
-
-34:                                               ; preds = %32
-  %35 = call noundef zeroext i1 @_ZN19FusedPatternMatcherI8TypeLongE5matchEiiiil(ptr noundef nonnull align 8 dereferenceable(20) %6, i32 noundef 354, i32 noundef -1, i32 noundef 24, i32 noundef -1, i64 noundef -1)
+23:                                               ; preds = %21
+  %24 = call noundef zeroext i1 @_ZN19FusedPatternMatcherI7TypeIntE5matchEiiiii(ptr noundef nonnull align 8 dereferenceable(20) %5, i32 noundef 353, i32 noundef -1, i32 noundef 23, i32 noundef -1, i32 noundef -1)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %35, label %37, label %42
+  br i1 %24, label %37, label %42
 
-_ZL14is_bmi_patternP4NodeS0_.exit.thread:         ; preds = %21, %17, %32, %28
+25:                                               ; preds = %12
+  %26 = load ptr, ptr %2, align 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(52) %2) #24
+  %29 = icmp eq i32 %28, 196
+  br i1 %29, label %30, label %_ZL14is_bmi_patternP4NodeS0_.exit.thread15
+
+30:                                               ; preds = %25
+  store ptr %1, ptr %6, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %2, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 124, ptr %32, align 8
+  %33 = call noundef zeroext i1 @_ZN19FusedPatternMatcherI8TypeLongE5matchEiiiil(ptr noundef nonnull align 8 dereferenceable(20) %6, i32 noundef 29, i32 noundef -1, i32 noundef 343, i32 noundef 1, i64 noundef 0)
+  br i1 %33, label %_ZL14is_bmi_patternP4NodeS0_.exit.thread, label %34
+
+34:                                               ; preds = %30
+  %35 = call noundef zeroext i1 @_ZN19FusedPatternMatcherI8TypeLongE5matchEiiiil(ptr noundef nonnull align 8 dereferenceable(20) %6, i32 noundef 29, i32 noundef -1, i32 noundef 24, i32 noundef -1, i64 noundef -1)
+  br i1 %35, label %_ZL14is_bmi_patternP4NodeS0_.exit.thread, label %_ZL14is_bmi_patternP4NodeS0_.exit
+
+_ZL14is_bmi_patternP4NodeS0_.exit.thread:         ; preds = %21, %17, %34, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %37
 
-_ZL14is_bmi_patternP4NodeS0_.exit.thread15:       ; preds = %23, %9
+_ZL14is_bmi_patternP4NodeS0_.exit.thread15:       ; preds = %25, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %42
 
-_ZL14is_bmi_patternP4NodeS0_.exit:                ; preds = %21
-  %36 = call noundef zeroext i1 @_ZN19FusedPatternMatcherI7TypeIntE5matchEiiiii(ptr noundef nonnull align 8 dereferenceable(20) %5, i32 noundef 353, i32 noundef -1, i32 noundef 23, i32 noundef -1, i32 noundef -1)
+_ZL14is_bmi_patternP4NodeS0_.exit:                ; preds = %34
+  %36 = call noundef zeroext i1 @_ZN19FusedPatternMatcherI8TypeLongE5matchEiiiil(ptr noundef nonnull align 8 dereferenceable(20) %6, i32 noundef 354, i32 noundef -1, i32 noundef 24, i32 noundef -1, i64 noundef -1)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %36, label %37, label %42
 
-37:                                               ; preds = %34, %_ZL14is_bmi_patternP4NodeS0_.exit.thread, %_ZL14is_bmi_patternP4NodeS0_.exit
+37:                                               ; preds = %23, %_ZL14is_bmi_patternP4NodeS0_.exit.thread, %_ZL14is_bmi_patternP4NodeS0_.exit
   %38 = load ptr, ptr %3, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %39, ptr %3, align 8
@@ -9333,7 +9333,7 @@ _ZL14is_bmi_patternP4NodeS0_.exit:                ; preds = %21
   %.not.i.i = icmp ult ptr %39, %41
   br i1 %.not.i.i, label %.sink.split, label %.sink.split.sink.split
 
-42:                                               ; preds = %34, %_ZL14is_bmi_patternP4NodeS0_.exit.thread15, %_ZL14is_bmi_patternP4NodeS0_.exit, %4
+42:                                               ; preds = %23, %_ZL14is_bmi_patternP4NodeS0_.exit.thread15, %_ZL14is_bmi_patternP4NodeS0_.exit, %4
   %43 = call noundef zeroext i1 @_ZN7Matcher21is_vshift_con_patternEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef %1, ptr noundef %2) #24
   br i1 %43, label %44, label %50
 
@@ -9903,7 +9903,7 @@ _ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit31: ; preds = %93, %97
   br label %100
 
 100:                                              ; preds = %.sink.split, %4, %9, %_ZNK4Node7get_intEv.exit, %_ZN7Matcher10is_visitedEP4Node.exit
-  %.0 = phi i1 [ false, %9 ], [ false, %4 ], [ false, %_ZN7Matcher10is_visitedEP4Node.exit ], [ false, %_ZNK4Node7get_intEv.exit ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %_ZN7Matcher10is_visitedEP4Node.exit ], [ false, %_ZNK4Node7get_intEv.exit ], [ false, %9 ], [ false, %4 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -59872,8 +59872,8 @@ define hidden void @_ZNK19evgather_maskedNode4emitEP17C2_MacroAssemblerP13PhaseR
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %.split.i.i, %.split.i.i, %.split.i.i, %44, %45
-  %48 = phi i1 [ false, %45 ], [ false, %44 ], [ true, %.split.i.i ], [ true, %.split.i.i ], [ true, %.split.i.i ]
-  %.0.i.i = phi i32 [ 2, %45 ], [ 1, %44 ], [ 0, %.split.i.i ], [ 0, %.split.i.i ], [ 0, %.split.i.i ]
+  %48 = phi i1 [ false, %44 ], [ false, %45 ], [ true, %.split.i.i ], [ true, %.split.i.i ], [ true, %.split.i.i ]
+  %.0.i.i = phi i32 [ 1, %44 ], [ 2, %45 ], [ 0, %.split.i.i ], [ 0, %.split.i.i ], [ 0, %.split.i.i ]
   %49 = tail call noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef nonnull %0) #24
   %50 = load ptr, ptr %34, align 8
   %51 = load ptr, ptr %50, align 8
@@ -64089,8 +64089,8 @@ define hidden void @_ZNK14ReplI_zeroNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %.split.i.i, %.split.i.i, %.split.i.i, %8, %9
-  %12 = phi i1 [ false, %9 ], [ false, %8 ], [ true, %.split.i.i ], [ true, %.split.i.i ], [ true, %.split.i.i ]
-  %.0.i.i = phi i32 [ 2, %9 ], [ 1, %8 ], [ 0, %.split.i.i ], [ 0, %.split.i.i ], [ 0, %.split.i.i ]
+  %12 = phi i1 [ false, %8 ], [ false, %9 ], [ true, %.split.i.i ], [ true, %.split.i.i ], [ true, %.split.i.i ]
+  %.0.i.i = phi i32 [ 1, %8 ], [ 2, %9 ], [ 0, %.split.i.i ], [ 0, %.split.i.i ], [ 0, %.split.i.i ]
   %13 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %14 = and i64 %13, 8724152320
   %or.cond.not = icmp eq i64 %14, 134217728
@@ -64507,8 +64507,8 @@ define hidden void @_ZNK14ReplL_zeroNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %.split.i.i, %.split.i.i, %.split.i.i, %8, %9
-  %12 = phi i1 [ false, %9 ], [ false, %8 ], [ true, %.split.i.i ], [ true, %.split.i.i ], [ true, %.split.i.i ]
-  %.0.i.i = phi i32 [ 2, %9 ], [ 1, %8 ], [ 0, %.split.i.i ], [ 0, %.split.i.i ], [ 0, %.split.i.i ]
+  %12 = phi i1 [ false, %8 ], [ false, %9 ], [ true, %.split.i.i ], [ true, %.split.i.i ], [ true, %.split.i.i ]
+  %.0.i.i = phi i32 [ 1, %8 ], [ 2, %9 ], [ 0, %.split.i.i ], [ 0, %.split.i.i ], [ 0, %.split.i.i ]
   %13 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %14 = and i64 %13, 8724152320
   %or.cond.not = icmp eq i64 %14, 134217728
@@ -64927,8 +64927,8 @@ define hidden void @_ZNK14ReplF_zeroNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %.split.i.i, %.split.i.i, %.split.i.i, %8, %9
-  %12 = phi i1 [ false, %9 ], [ false, %8 ], [ true, %.split.i.i ], [ true, %.split.i.i ], [ true, %.split.i.i ]
-  %.0.i.i = phi i32 [ 2, %9 ], [ 1, %8 ], [ 0, %.split.i.i ], [ 0, %.split.i.i ], [ 0, %.split.i.i ]
+  %12 = phi i1 [ false, %8 ], [ false, %9 ], [ true, %.split.i.i ], [ true, %.split.i.i ], [ true, %.split.i.i ]
+  %.0.i.i = phi i32 [ 1, %8 ], [ 2, %9 ], [ 0, %.split.i.i ], [ 0, %.split.i.i ], [ 0, %.split.i.i ]
   %13 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %14 = and i64 %13, 134217728
   %15 = icmp eq i64 %14, 0
@@ -65350,8 +65350,8 @@ define hidden void @_ZNK14ReplD_zeroNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %.split.i.i, %.split.i.i, %.split.i.i, %8, %9
-  %12 = phi i1 [ false, %9 ], [ false, %8 ], [ true, %.split.i.i ], [ true, %.split.i.i ], [ true, %.split.i.i ]
-  %.0.i.i = phi i32 [ 2, %9 ], [ 1, %8 ], [ 0, %.split.i.i ], [ 0, %.split.i.i ], [ 0, %.split.i.i ]
+  %12 = phi i1 [ false, %8 ], [ false, %9 ], [ true, %.split.i.i ], [ true, %.split.i.i ], [ true, %.split.i.i ]
+  %.0.i.i = phi i32 [ 1, %8 ], [ 2, %9 ], [ 0, %.split.i.i ], [ 0, %.split.i.i ], [ 0, %.split.i.i ]
   %13 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %14 = and i64 %13, 134217728
   %15 = icmp eq i64 %14, 0
@@ -89288,8 +89288,8 @@ define hidden void @_ZNK12vxor_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %.split.i.i, %.split.i.i, %.split.i.i, %16, %17
-  %20 = phi i1 [ false, %17 ], [ false, %16 ], [ true, %.split.i.i ], [ true, %.split.i.i ], [ true, %.split.i.i ]
-  %.0.i.i = phi i32 [ 2, %17 ], [ 1, %16 ], [ 0, %.split.i.i ], [ 0, %.split.i.i ], [ 0, %.split.i.i ]
+  %20 = phi i1 [ false, %16 ], [ false, %17 ], [ true, %.split.i.i ], [ true, %.split.i.i ], [ true, %.split.i.i ]
+  %.0.i.i = phi i32 [ 1, %16 ], [ 2, %17 ], [ 0, %.split.i.i ], [ 0, %.split.i.i ], [ 0, %.split.i.i ]
   %21 = load ptr, ptr %4, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -89370,8 +89370,8 @@ define hidden void @_ZNK12vxor_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %.split.i.i, %.split.i.i, %.split.i.i, %19, %20
-  %23 = phi i1 [ false, %20 ], [ false, %19 ], [ true, %.split.i.i ], [ true, %.split.i.i ], [ true, %.split.i.i ]
-  %.0.i.i = phi i32 [ 2, %20 ], [ 1, %19 ], [ 0, %.split.i.i ], [ 0, %.split.i.i ], [ 0, %.split.i.i ]
+  %23 = phi i1 [ false, %19 ], [ false, %20 ], [ true, %.split.i.i ], [ true, %.split.i.i ], [ true, %.split.i.i ]
+  %.0.i.i = phi i32 [ 1, %19 ], [ 2, %20 ], [ 0, %.split.i.i ], [ 0, %.split.i.i ], [ 0, %.split.i.i ]
   %24 = load ptr, ptr %7, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -89488,8 +89488,8 @@ define hidden void @_ZNK14vxor_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
   unreachable
 
 _ZL22vector_length_encodingPK4Node.exit:          ; preds = %.split.i.i, %.split.i.i, %.split.i.i, %19, %20
-  %23 = phi i1 [ false, %20 ], [ false, %19 ], [ true, %.split.i.i ], [ true, %.split.i.i ], [ true, %.split.i.i ]
-  %.0.i.i = phi i32 [ 2, %20 ], [ 1, %19 ], [ 0, %.split.i.i ], [ 0, %.split.i.i ], [ 0, %.split.i.i ]
+  %23 = phi i1 [ false, %19 ], [ false, %20 ], [ true, %.split.i.i ], [ true, %.split.i.i ], [ true, %.split.i.i ]
+  %.0.i.i = phi i32 [ 1, %19 ], [ 2, %20 ], [ 0, %.split.i.i ], [ 0, %.split.i.i ], [ 0, %.split.i.i ]
   %24 = load ptr, ptr %7, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -93106,8 +93106,8 @@ define hidden void @_ZNK9vcmpuNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr
   unreachable
 
 _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %.split.i.i.i, %.split.i.i.i, %.split.i.i.i, %55, %56
-  %59 = phi i1 [ false, %56 ], [ false, %55 ], [ true, %.split.i.i.i ], [ true, %.split.i.i.i ], [ true, %.split.i.i.i ]
-  %.0.i.i.i = phi i32 [ 2, %56 ], [ 1, %55 ], [ 0, %.split.i.i.i ], [ 0, %.split.i.i.i ], [ 0, %.split.i.i.i ]
+  %59 = phi i1 [ false, %55 ], [ false, %56 ], [ true, %.split.i.i.i ], [ true, %.split.i.i.i ], [ true, %.split.i.i.i ]
+  %.0.i.i.i = phi i32 [ 1, %55 ], [ 2, %56 ], [ 0, %.split.i.i.i ], [ 0, %.split.i.i.i ], [ 0, %.split.i.i.i ]
   %60 = load ptr, ptr %21, align 8
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
@@ -121702,7 +121702,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN19FusedPatternMatcherI7TypeInt
   br i1 %50, label %_ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit, label %_ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit.thread
 
 _ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit: ; preds = %43, %35, %30
-  %.0.i = phi i32 [ 2, %35 ], [ %2, %43 ], [ 1, %30 ]
+  %.0.i = phi i32 [ 1, %30 ], [ 2, %35 ], [ %2, %43 ]
   %51 = and i32 %.0.i, 1
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -121772,7 +121772,7 @@ _ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit: ; preds = %43, %35
   br i1 %102, label %_ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit25, label %_ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit.thread
 
 _ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit25: ; preds = %95, %87, %82
-  %.0.i24 = phi i32 [ 2, %87 ], [ %4, %95 ], [ 1, %82 ]
+  %.0.i24 = phi i32 [ 1, %82 ], [ 2, %87 ], [ %4, %95 ]
   %103 = and i32 %.0.i24, 1
   %104 = load ptr, ptr %71, align 8
   %105 = zext nneg i32 %103 to i64
@@ -121804,8 +121804,8 @@ _ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit25: ; preds = %95, %
 124:                                              ; preds = %_ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit25, %120, %111, %_ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit
   br label %_ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit.thread
 
-_ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit.thread: ; preds = %87, %95, %76, %68, %35, %43, %24, %17, %120, %61, %11, %6, %124
-  %.0 = phi i1 [ false, %124 ], [ false, %6 ], [ false, %11 ], [ true, %120 ], [ false, %61 ], [ false, %35 ], [ false, %17 ], [ false, %24 ], [ false, %43 ], [ false, %68 ], [ false, %76 ], [ false, %95 ], [ false, %87 ]
+_ZN19FusedPatternMatcherI7TypeIntE10match_nextEP4Nodeii.exit.thread: ; preds = %87, %95, %68, %76, %35, %43, %17, %24, %120, %61, %11, %6, %124
+  %.0 = phi i1 [ false, %124 ], [ false, %6 ], [ false, %11 ], [ false, %61 ], [ true, %120 ], [ false, %24 ], [ false, %17 ], [ false, %43 ], [ false, %35 ], [ false, %76 ], [ false, %68 ], [ false, %95 ], [ false, %87 ]
   ret i1 %.0
 }
 
@@ -121873,7 +121873,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN19FusedPatternMatcherI8TypeLon
   br i1 %50, label %_ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit, label %_ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit.thread
 
 _ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit: ; preds = %43, %35, %30
-  %.0.i = phi i32 [ 2, %35 ], [ %2, %43 ], [ 1, %30 ]
+  %.0.i = phi i32 [ 1, %30 ], [ 2, %35 ], [ %2, %43 ]
   %51 = and i32 %.0.i, 1
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -121943,7 +121943,7 @@ _ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit: ; preds = %43, %3
   br i1 %102, label %_ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit25, label %_ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit.thread
 
 _ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit25: ; preds = %95, %87, %82
-  %.0.i24 = phi i32 [ 2, %87 ], [ %4, %95 ], [ 1, %82 ]
+  %.0.i24 = phi i32 [ 1, %82 ], [ 2, %87 ], [ %4, %95 ]
   %103 = and i32 %.0.i24, 1
   %104 = load ptr, ptr %71, align 8
   %105 = zext nneg i32 %103 to i64
@@ -121975,8 +121975,8 @@ _ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit25: ; preds = %95, 
 124:                                              ; preds = %_ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit25, %120, %111, %_ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit
   br label %_ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit.thread
 
-_ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit.thread: ; preds = %87, %95, %76, %68, %35, %43, %24, %17, %120, %61, %11, %6, %124
-  %.0 = phi i1 [ false, %124 ], [ false, %6 ], [ false, %11 ], [ true, %120 ], [ false, %61 ], [ false, %35 ], [ false, %17 ], [ false, %24 ], [ false, %43 ], [ false, %68 ], [ false, %76 ], [ false, %95 ], [ false, %87 ]
+_ZN19FusedPatternMatcherI8TypeLongE10match_nextEP4Nodeii.exit.thread: ; preds = %87, %95, %68, %76, %35, %43, %17, %24, %120, %61, %11, %6, %124
+  %.0 = phi i1 [ false, %124 ], [ false, %6 ], [ false, %11 ], [ false, %61 ], [ true, %120 ], [ false, %24 ], [ false, %17 ], [ false, %43 ], [ false, %35 ], [ false, %76 ], [ false, %68 ], [ false, %95 ], [ false, %87 ]
   ret i1 %.0
 }
 

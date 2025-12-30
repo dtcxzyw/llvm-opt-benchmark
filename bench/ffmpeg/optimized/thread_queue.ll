@@ -223,7 +223,7 @@ define i32 @tq_send(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
   br label %43
 
 43:                                               ; preds = %9, %29, %40, %35, %31
-  %.0 = phi i32 [ %38, %40 ], [ -541478725, %29 ], [ %33, %31 ], [ %38, %35 ], [ -22, %9 ]
+  %.0 = phi i32 [ -541478725, %29 ], [ %33, %31 ], [ %38, %35 ], [ %38, %40 ], [ -22, %9 ]
   %44 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #5
   ret i32 %.0
 }

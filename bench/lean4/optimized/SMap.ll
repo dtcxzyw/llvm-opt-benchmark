@@ -814,7 +814,7 @@ lean_dec.exit398:                                 ; preds = %lean_inc.exit407.th
   br label %lean_dec.exit397
 
 lean_dec.exit397:                                 ; preds = %142, %146, %155, %154, %152
-  %.0.i371677 = phi ptr [ %149, %155 ], [ %149, %152 ], [ %149, %154 ], [ %147, %146 ], [ %145, %142 ]
+  %.0.i371677 = phi ptr [ %149, %152 ], [ %149, %154 ], [ %149, %155 ], [ %147, %146 ], [ %145, %142 ]
   tail call void @lean_inc_heartbeat() #3
   %156 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #3
   %157 = icmp eq ptr %156, null
@@ -974,14 +974,14 @@ lean_dec.exit395.thread:                          ; preds = %lean_dec.exit396
 lean_dec.exit394:                                 ; preds = %219
   br i1 %214, label %223, label %221
 
-221:                                              ; preds = %217, %220, %lean_dec.exit395.thread, %lean_dec.exit394
+221:                                              ; preds = %220, %217, %lean_dec.exit395.thread, %lean_dec.exit394
   %222 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___rarg(ptr noundef %1, ptr noundef nonnull %.0.i.i) #3
   store ptr %222, ptr %59, align 8, !tbaa !4
   store ptr %.0.i371677, ptr %57, align 8, !tbaa !4
   store i8 1, ptr %6, align 1, !tbaa !16
   br label %853
 
-223:                                              ; preds = %217, %220, %lean_dec.exit395.thread, %lean_dec.exit394
+223:                                              ; preds = %220, %217, %lean_dec.exit395.thread, %lean_dec.exit394
   br i1 %.not728, label %224, label %lean_dec.exit393
 
 224:                                              ; preds = %223
@@ -1419,7 +1419,7 @@ lean_dec.exit388:                                 ; preds = %lean_inc.exit414.th
   br label %lean_dec.exit387
 
 lean_dec.exit387:                                 ; preds = %374, %378, %387, %386, %384
-  %.0.i368689 = phi ptr [ %381, %387 ], [ %381, %384 ], [ %381, %386 ], [ %379, %378 ], [ %377, %374 ]
+  %.0.i368689 = phi ptr [ %381, %384 ], [ %381, %386 ], [ %381, %387 ], [ %379, %378 ], [ %377, %374 ]
   tail call void @lean_inc_heartbeat() #3
   %388 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #3
   %389 = icmp eq ptr %388, null
@@ -1579,7 +1579,7 @@ lean_dec.exit385.thread:                          ; preds = %lean_dec.exit386
 lean_dec.exit384:                                 ; preds = %451
   br i1 %446, label %461, label %453
 
-453:                                              ; preds = %449, %452, %lean_dec.exit385.thread, %lean_dec.exit384
+453:                                              ; preds = %452, %449, %lean_dec.exit385.thread, %lean_dec.exit384
   %454 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___rarg(ptr noundef %1, ptr noundef nonnull %.0.i.i576) #3
   tail call void @lean_inc_heartbeat() #3
   %455 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
@@ -1602,7 +1602,7 @@ lean_alloc_ctor.exit584:                          ; preds = %453
   store i8 1, ptr %6, align 8, !tbaa !16
   br label %853
 
-461:                                              ; preds = %449, %452, %lean_dec.exit385.thread, %lean_dec.exit384
+461:                                              ; preds = %452, %449, %lean_dec.exit385.thread, %lean_dec.exit384
   br i1 %.not721, label %462, label %lean_dec.exit383
 
 462:                                              ; preds = %461
@@ -2205,7 +2205,7 @@ lean_dec.exit378:                                 ; preds = %lean_inc.exit423.th
   br label %lean_dec.exit377
 
 lean_dec.exit377:                                 ; preds = %674, %678, %687, %686, %684
-  %.0.i701 = phi ptr [ %681, %687 ], [ %681, %684 ], [ %681, %686 ], [ %679, %678 ], [ %677, %674 ]
+  %.0.i701 = phi ptr [ %681, %684 ], [ %681, %686 ], [ %681, %687 ], [ %679, %678 ], [ %677, %674 ]
   tail call void @lean_inc_heartbeat() #3
   %688 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #3
   %689 = icmp eq ptr %688, null
@@ -2365,7 +2365,7 @@ lean_dec.exit375.thread:                          ; preds = %lean_dec.exit376
 lean_dec.exit374:                                 ; preds = %751
   br i1 %746, label %772, label %753
 
-753:                                              ; preds = %749, %752, %lean_dec.exit375.thread, %lean_dec.exit374
+753:                                              ; preds = %752, %749, %lean_dec.exit375.thread, %lean_dec.exit374
   %754 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___rarg(ptr noundef %1, ptr noundef nonnull %.0.i.i641) #3
   %755 = ptrtoint ptr %.0351 to i64
   %756 = and i64 %755, 1
@@ -2415,7 +2415,7 @@ lean_alloc_ctor.exit651:                          ; preds = %762
   store ptr %522, ptr %771, align 8, !tbaa !4
   br label %853
 
-772:                                              ; preds = %749, %752, %lean_dec.exit375.thread, %lean_dec.exit374
+772:                                              ; preds = %752, %749, %lean_dec.exit375.thread, %lean_dec.exit374
   br i1 %.not709, label %773, label %lean_dec.exit373
 
 773:                                              ; preds = %772
@@ -2633,7 +2633,7 @@ lean_alloc_ctor.exit669:                          ; preds = %843
   br label %853
 
 853:                                              ; preds = %lean_alloc_ctor.exit598, %lean_alloc_ctor.exit585, %lean_alloc_ctor.exit584, %lean_array_uset.exit544, %lean_dec.exit393, %221, %lean_alloc_ctor.exit651, %lean_alloc_ctor.exit654, %lean_alloc_ctor.exit669, %10, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %45, %lean_alloc_ctor.exit ], [ %2, %10 ], [ %2, %221 ], [ %2, %lean_alloc_ctor.exit598 ], [ %2, %lean_alloc_ctor.exit585 ], [ %2, %lean_alloc_ctor.exit584 ], [ %2, %lean_array_uset.exit544 ], [ %2, %lean_dec.exit393 ], [ %846, %lean_alloc_ctor.exit669 ], [ %765, %lean_alloc_ctor.exit651 ], [ %790, %lean_alloc_ctor.exit654 ]
+  %.1 = phi ptr [ %2, %10 ], [ %45, %lean_alloc_ctor.exit ], [ %2, %lean_alloc_ctor.exit598 ], [ %2, %lean_alloc_ctor.exit585 ], [ %2, %lean_alloc_ctor.exit584 ], [ %2, %lean_array_uset.exit544 ], [ %2, %lean_dec.exit393 ], [ %2, %221 ], [ %846, %lean_alloc_ctor.exit669 ], [ %765, %lean_alloc_ctor.exit651 ], [ %790, %lean_alloc_ctor.exit654 ]
   ret ptr %.1
 }
 
@@ -3043,7 +3043,7 @@ lean_dec.exit398:                                 ; preds = %lean_inc.exit417.th
   br label %lean_dec.exit397
 
 lean_dec.exit397:                                 ; preds = %142, %146, %155, %154, %152
-  %.0.i371677 = phi ptr [ %149, %155 ], [ %149, %152 ], [ %149, %154 ], [ %147, %146 ], [ %145, %142 ]
+  %.0.i371677 = phi ptr [ %149, %152 ], [ %149, %154 ], [ %149, %155 ], [ %147, %146 ], [ %145, %142 ]
   tail call void @lean_inc_heartbeat() #3
   %156 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #3
   %157 = icmp eq ptr %156, null
@@ -3203,14 +3203,14 @@ lean_dec.exit395.thread:                          ; preds = %lean_dec.exit396
 lean_dec.exit394:                                 ; preds = %219
   br i1 %214, label %223, label %221
 
-221:                                              ; preds = %217, %220, %lean_dec.exit395.thread, %lean_dec.exit394
+221:                                              ; preds = %220, %217, %lean_dec.exit395.thread, %lean_dec.exit394
   %222 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___rarg(ptr noundef %1, ptr noundef nonnull %.0.i.i) #3
   store ptr %222, ptr %59, align 8, !tbaa !4
   store ptr %.0.i371677, ptr %57, align 8, !tbaa !4
   store i8 1, ptr %6, align 1, !tbaa !16
   br label %853
 
-223:                                              ; preds = %217, %220, %lean_dec.exit395.thread, %lean_dec.exit394
+223:                                              ; preds = %220, %217, %lean_dec.exit395.thread, %lean_dec.exit394
   br i1 %.not728, label %224, label %lean_dec.exit393
 
 224:                                              ; preds = %223
@@ -3648,7 +3648,7 @@ lean_dec.exit388:                                 ; preds = %lean_inc.exit410.th
   br label %lean_dec.exit387
 
 lean_dec.exit387:                                 ; preds = %374, %378, %387, %386, %384
-  %.0.i368689 = phi ptr [ %381, %387 ], [ %381, %384 ], [ %381, %386 ], [ %379, %378 ], [ %377, %374 ]
+  %.0.i368689 = phi ptr [ %381, %384 ], [ %381, %386 ], [ %381, %387 ], [ %379, %378 ], [ %377, %374 ]
   tail call void @lean_inc_heartbeat() #3
   %388 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #3
   %389 = icmp eq ptr %388, null
@@ -3808,7 +3808,7 @@ lean_dec.exit385.thread:                          ; preds = %lean_dec.exit386
 lean_dec.exit384:                                 ; preds = %451
   br i1 %446, label %461, label %453
 
-453:                                              ; preds = %449, %452, %lean_dec.exit385.thread, %lean_dec.exit384
+453:                                              ; preds = %452, %449, %lean_dec.exit385.thread, %lean_dec.exit384
   %454 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___rarg(ptr noundef %1, ptr noundef nonnull %.0.i.i576) #3
   tail call void @lean_inc_heartbeat() #3
   %455 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
@@ -3831,7 +3831,7 @@ lean_alloc_ctor.exit584:                          ; preds = %453
   store i8 1, ptr %6, align 8, !tbaa !16
   br label %853
 
-461:                                              ; preds = %449, %452, %lean_dec.exit385.thread, %lean_dec.exit384
+461:                                              ; preds = %452, %449, %lean_dec.exit385.thread, %lean_dec.exit384
   br i1 %.not721, label %462, label %lean_dec.exit383
 
 462:                                              ; preds = %461
@@ -4434,7 +4434,7 @@ lean_dec.exit378:                                 ; preds = %lean_inc.exit.threa
   br label %lean_dec.exit377
 
 lean_dec.exit377:                                 ; preds = %674, %678, %687, %686, %684
-  %.0.i701 = phi ptr [ %681, %687 ], [ %681, %684 ], [ %681, %686 ], [ %679, %678 ], [ %677, %674 ]
+  %.0.i701 = phi ptr [ %681, %684 ], [ %681, %686 ], [ %681, %687 ], [ %679, %678 ], [ %677, %674 ]
   tail call void @lean_inc_heartbeat() #3
   %688 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #3
   %689 = icmp eq ptr %688, null
@@ -4594,7 +4594,7 @@ lean_dec.exit375.thread:                          ; preds = %lean_dec.exit376
 lean_dec.exit374:                                 ; preds = %751
   br i1 %746, label %772, label %753
 
-753:                                              ; preds = %749, %752, %lean_dec.exit375.thread, %lean_dec.exit374
+753:                                              ; preds = %752, %749, %lean_dec.exit375.thread, %lean_dec.exit374
   %754 = tail call ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___rarg(ptr noundef %1, ptr noundef nonnull %.0.i.i641) #3
   %755 = ptrtoint ptr %.0351 to i64
   %756 = and i64 %755, 1
@@ -4644,7 +4644,7 @@ lean_alloc_ctor.exit651:                          ; preds = %762
   store ptr %522, ptr %771, align 8, !tbaa !4
   br label %853
 
-772:                                              ; preds = %749, %752, %lean_dec.exit375.thread, %lean_dec.exit374
+772:                                              ; preds = %752, %749, %lean_dec.exit375.thread, %lean_dec.exit374
   br i1 %.not709, label %773, label %lean_dec.exit373
 
 773:                                              ; preds = %772
@@ -4862,7 +4862,7 @@ lean_alloc_ctor.exit669:                          ; preds = %843
   br label %853
 
 853:                                              ; preds = %lean_alloc_ctor.exit598, %lean_alloc_ctor.exit585, %lean_alloc_ctor.exit584, %lean_array_uset.exit544, %lean_dec.exit393, %221, %lean_alloc_ctor.exit651, %lean_alloc_ctor.exit654, %lean_alloc_ctor.exit669, %10, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %45, %lean_alloc_ctor.exit ], [ %2, %10 ], [ %2, %221 ], [ %2, %lean_alloc_ctor.exit598 ], [ %2, %lean_alloc_ctor.exit585 ], [ %2, %lean_alloc_ctor.exit584 ], [ %2, %lean_array_uset.exit544 ], [ %2, %lean_dec.exit393 ], [ %846, %lean_alloc_ctor.exit669 ], [ %765, %lean_alloc_ctor.exit651 ], [ %790, %lean_alloc_ctor.exit654 ]
+  %.1 = phi ptr [ %2, %10 ], [ %45, %lean_alloc_ctor.exit ], [ %2, %lean_alloc_ctor.exit598 ], [ %2, %lean_alloc_ctor.exit585 ], [ %2, %lean_alloc_ctor.exit584 ], [ %2, %lean_array_uset.exit544 ], [ %2, %lean_dec.exit393 ], [ %2, %221 ], [ %846, %lean_alloc_ctor.exit669 ], [ %765, %lean_alloc_ctor.exit651 ], [ %790, %lean_alloc_ctor.exit654 ]
   ret ptr %.1
 }
 
@@ -5699,7 +5699,7 @@ lean_inc.exit:                                    ; preds = %35, %34, %32, %25
   br label %lean_inc.exit12
 
 lean_inc.exit12:                                  ; preds = %lean_inc.exit, %39, %41, %42, %16, %21, %23, %24
-  %.0 = phi ptr [ %4, %16 ], [ %4, %24 ], [ %4, %23 ], [ %4, %21 ], [ %27, %42 ], [ %27, %41 ], [ %27, %39 ], [ %27, %lean_inc.exit ]
+  %.0 = phi ptr [ %4, %24 ], [ %4, %23 ], [ %4, %21 ], [ %4, %16 ], [ %27, %42 ], [ %27, %41 ], [ %27, %39 ], [ %27, %lean_inc.exit ]
   ret ptr %.0
 }
 
@@ -12685,7 +12685,7 @@ lean_dec.exit:                                    ; preds = %198, %197, %195, %l
   br label %200
 
 200:                                              ; preds = %lean_dec.exit141, %lean_dec.exit147, %lean_dec.exit129, %lean_alloc_ctor.exit243, %lean_dec.exit
-  %.5 = phi ptr [ %199, %lean_dec.exit ], [ %88, %lean_dec.exit141 ], [ %87, %lean_dec.exit147 ], [ %170, %lean_dec.exit129 ], [ %169, %lean_alloc_ctor.exit243 ]
+  %.5 = phi ptr [ %199, %lean_dec.exit ], [ %87, %lean_dec.exit147 ], [ %88, %lean_dec.exit141 ], [ %169, %lean_alloc_ctor.exit243 ], [ %170, %lean_dec.exit129 ]
   ret ptr %.5
 }
 
@@ -16216,7 +16216,7 @@ lean_dec.exit:                                    ; preds = %198, %197, %195, %l
   br label %200
 
 200:                                              ; preds = %lean_dec.exit141, %lean_dec.exit147, %lean_dec.exit129, %lean_alloc_ctor.exit243, %lean_dec.exit
-  %.5 = phi ptr [ %199, %lean_dec.exit ], [ %88, %lean_dec.exit141 ], [ %87, %lean_dec.exit147 ], [ %170, %lean_dec.exit129 ], [ %169, %lean_alloc_ctor.exit243 ]
+  %.5 = phi ptr [ %199, %lean_dec.exit ], [ %87, %lean_dec.exit147 ], [ %88, %lean_dec.exit141 ], [ %169, %lean_alloc_ctor.exit243 ], [ %170, %lean_dec.exit129 ]
   ret ptr %.5
 }
 
@@ -20756,7 +20756,7 @@ lean_dec.exit:                                    ; preds = %198, %197, %195, %l
   br label %200
 
 200:                                              ; preds = %lean_dec.exit141, %lean_dec.exit147, %lean_dec.exit129, %lean_alloc_ctor.exit243, %lean_dec.exit
-  %.5 = phi ptr [ %199, %lean_dec.exit ], [ %88, %lean_dec.exit141 ], [ %87, %lean_dec.exit147 ], [ %170, %lean_dec.exit129 ], [ %169, %lean_alloc_ctor.exit243 ]
+  %.5 = phi ptr [ %199, %lean_dec.exit ], [ %87, %lean_dec.exit147 ], [ %88, %lean_dec.exit141 ], [ %169, %lean_alloc_ctor.exit243 ], [ %170, %lean_dec.exit129 ]
   ret ptr %.5
 }
 
@@ -24094,7 +24094,7 @@ lean_alloc_ctor.exit131:                          ; preds = %lean_alloc_ctor.exi
   br label %223
 
 223:                                              ; preds = %lean_alloc_ctor.exit120, %lean_alloc_ctor.exit131, %lean_dec.exit69, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %111, %lean_alloc_ctor.exit ], [ %51, %lean_dec.exit69 ], [ %158, %lean_alloc_ctor.exit120 ], [ %222, %lean_alloc_ctor.exit131 ]
+  %.1 = phi ptr [ %51, %lean_dec.exit69 ], [ %111, %lean_alloc_ctor.exit ], [ %158, %lean_alloc_ctor.exit120 ], [ %222, %lean_alloc_ctor.exit131 ]
   ret ptr %.1
 }
 
@@ -25366,7 +25366,7 @@ lean_inc.exit:                                    ; preds = %85, %84, %82, %lean
   br label %101
 
 lean_dec.exit41:                                  ; preds = %lean_inc.exit, %90, %92, %93, %lean_inc.exit45, %lean_obj_tag.exit
-  %.240 = phi ptr [ %86, %lean_inc.exit ], [ %.03884, %lean_obj_tag.exit ], [ %61, %lean_inc.exit45 ], [ %86, %93 ], [ %86, %92 ], [ %86, %90 ]
+  %.240 = phi ptr [ %61, %lean_inc.exit45 ], [ %.03884, %lean_obj_tag.exit ], [ %86, %93 ], [ %86, %92 ], [ %86, %90 ], [ %86, %lean_inc.exit ]
   %.not = icmp eq i64 %26, %3
   br i1 %.not, label %._crit_edge, label %9
 
@@ -25441,7 +25441,7 @@ lean_dec.exit:                                    ; preds = %lean_nat_lt.exit
   br label %lean_dec.exit33
 
 lean_dec.exit33:                                  ; preds = %lean_dec.exit34, %21, %23, %24, %lean_dec.exit, %26
-  %.2 = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit ], [ %2, %lean_dec.exit34 ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2 = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34 ]
   ret ptr %.2
 }
 
@@ -25724,7 +25724,7 @@ lean_dec.exit28.backedge:                         ; preds = %63, %67, %73, %75, 
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.023) #3
   br label %lean_dec.exit28.backedge
 
-77:                                               ; preds = %lean_dec.exit29, %30, %29, %27
+77:                                               ; preds = %30, %29, %27, %lean_dec.exit29
   ret ptr %.025
 }
 
@@ -25897,7 +25897,7 @@ lean_dec.exit.i:                                  ; preds = %lean_nat_lt.exit.i
   br label %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_foldStage2___spec__2___rarg.exit
 
 l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_foldStage2___spec__2___rarg.exit: ; preds = %lean_dec.exit34.i, %21, %23, %24, %lean_dec.exit.i, %26
-  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %lean_dec.exit34.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i ]
   br i1 %.not.i45.i, label %30, label %lean_dec.exit
 
 30:                                               ; preds = %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_foldStage2___spec__2___rarg.exit
@@ -25989,7 +25989,7 @@ lean_dec.exit.i:                                  ; preds = %lean_nat_lt.exit.i
   br label %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_foldStage2___spec__2___rarg.exit
 
 l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_foldStage2___spec__2___rarg.exit: ; preds = %lean_dec.exit34.i, %21, %23, %24, %lean_dec.exit.i, %26
-  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %lean_dec.exit34.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i ]
   ret ptr %.2.i
 }
 
@@ -26084,7 +26084,7 @@ lean_dec.exit.i.i:                                ; preds = %lean_nat_lt.exit.i.
   br label %l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_foldStage2___spec__1___rarg.exit
 
 l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_foldStage2___spec__1___rarg.exit: ; preds = %lean_dec.exit34.i.i, %21, %23, %24, %lean_dec.exit.i.i, %26
-  %.2.i.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i.i ], [ %2, %lean_dec.exit34.i.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i.i ]
   br i1 %.not.i45.i.i, label %30, label %lean_dec.exit
 
 30:                                               ; preds = %l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_foldStage2___spec__1___rarg.exit
@@ -26178,7 +26178,7 @@ lean_dec.exit.i:                                  ; preds = %lean_nat_lt.exit.i
   br label %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_foldStage2___spec__2___rarg.exit
 
 l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_foldStage2___spec__2___rarg.exit: ; preds = %lean_dec.exit34.i, %26, %28, %29, %lean_dec.exit.i, %31
-  %.2.i = phi ptr [ %34, %31 ], [ %30, %lean_dec.exit.i ], [ %4, %lean_dec.exit34.i ], [ %4, %29 ], [ %4, %28 ], [ %4, %26 ]
+  %.2.i = phi ptr [ %34, %31 ], [ %30, %lean_dec.exit.i ], [ %4, %29 ], [ %4, %28 ], [ %4, %26 ], [ %4, %lean_dec.exit34.i ]
   ret ptr %.2.i
 }
 
@@ -26275,7 +26275,7 @@ lean_dec.exit.i.i:                                ; preds = %lean_nat_lt.exit.i.
   br label %l_Lean_SMap_foldStage2___rarg.exit
 
 l_Lean_SMap_foldStage2___rarg.exit:               ; preds = %lean_dec.exit34.i.i, %26, %28, %29, %lean_dec.exit.i.i, %31
-  %.2.i.i = phi ptr [ %34, %31 ], [ %30, %lean_dec.exit.i.i ], [ %4, %lean_dec.exit34.i.i ], [ %4, %29 ], [ %4, %28 ], [ %4, %26 ]
+  %.2.i.i = phi ptr [ %34, %31 ], [ %30, %lean_dec.exit.i.i ], [ %4, %29 ], [ %4, %28 ], [ %4, %26 ], [ %4, %lean_dec.exit34.i.i ]
   %35 = ptrtoint ptr %5 to i64
   %36 = and i64 %35, 1
   %.not = icmp eq i64 %36, 0
@@ -27838,7 +27838,7 @@ lean_inc.exit:                                    ; preds = %85, %84, %82, %lean
   br label %101
 
 lean_dec.exit41:                                  ; preds = %lean_inc.exit, %90, %92, %93, %lean_inc.exit45, %lean_obj_tag.exit
-  %.240 = phi ptr [ %86, %lean_inc.exit ], [ %.03884, %lean_obj_tag.exit ], [ %61, %lean_inc.exit45 ], [ %86, %93 ], [ %86, %92 ], [ %86, %90 ]
+  %.240 = phi ptr [ %61, %lean_inc.exit45 ], [ %.03884, %lean_obj_tag.exit ], [ %86, %93 ], [ %86, %92 ], [ %86, %90 ], [ %86, %lean_inc.exit ]
   %.not = icmp eq i64 %26, %3
   br i1 %.not, label %._crit_edge, label %9
 
@@ -27913,7 +27913,7 @@ lean_dec.exit:                                    ; preds = %lean_nat_lt.exit
   br label %lean_dec.exit33
 
 lean_dec.exit33:                                  ; preds = %lean_dec.exit34, %21, %23, %24, %lean_dec.exit, %26
-  %.2 = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit ], [ %2, %lean_dec.exit34 ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2 = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34 ]
   ret ptr %.2
 }
 
@@ -28196,7 +28196,7 @@ lean_dec.exit28.backedge:                         ; preds = %63, %67, %73, %75, 
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.023) #3
   br label %lean_dec.exit28.backedge
 
-77:                                               ; preds = %lean_dec.exit29, %30, %29, %27
+77:                                               ; preds = %30, %29, %27, %lean_dec.exit29
   ret ptr %.025
 }
 
@@ -28369,7 +28369,7 @@ lean_dec.exit.i:                                  ; preds = %lean_nat_lt.exit.i
   br label %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_fold___spec__3___rarg.exit
 
 l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_fold___spec__3___rarg.exit: ; preds = %lean_dec.exit34.i, %21, %23, %24, %lean_dec.exit.i, %26
-  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %lean_dec.exit34.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i ]
   br i1 %.not.i45.i, label %30, label %lean_dec.exit
 
 30:                                               ; preds = %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_fold___spec__3___rarg.exit
@@ -28461,7 +28461,7 @@ lean_dec.exit.i:                                  ; preds = %lean_nat_lt.exit.i
   br label %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_fold___spec__3___rarg.exit
 
 l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_fold___spec__3___rarg.exit: ; preds = %lean_dec.exit34.i, %21, %23, %24, %lean_dec.exit.i, %26
-  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %lean_dec.exit34.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i ]
   ret ptr %.2.i
 }
 
@@ -28556,7 +28556,7 @@ lean_dec.exit.i.i:                                ; preds = %lean_nat_lt.exit.i.
   br label %l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_fold___spec__2___rarg.exit
 
 l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_fold___spec__2___rarg.exit: ; preds = %lean_dec.exit34.i.i, %21, %23, %24, %lean_dec.exit.i.i, %26
-  %.2.i.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i.i ], [ %2, %lean_dec.exit34.i.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i.i ]
   br i1 %.not.i45.i.i, label %30, label %lean_dec.exit
 
 30:                                               ; preds = %l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_fold___spec__2___rarg.exit
@@ -28858,7 +28858,7 @@ lean_inc.exit:                                    ; preds = %85, %84, %82, %lean
   br label %101
 
 lean_dec.exit41:                                  ; preds = %lean_inc.exit, %90, %92, %93, %lean_inc.exit45, %lean_obj_tag.exit
-  %.240 = phi ptr [ %86, %lean_inc.exit ], [ %.03884, %lean_obj_tag.exit ], [ %61, %lean_inc.exit45 ], [ %86, %93 ], [ %86, %92 ], [ %86, %90 ]
+  %.240 = phi ptr [ %61, %lean_inc.exit45 ], [ %.03884, %lean_obj_tag.exit ], [ %86, %93 ], [ %86, %92 ], [ %86, %90 ], [ %86, %lean_inc.exit ]
   %.not = icmp eq i64 %26, %3
   br i1 %.not, label %._crit_edge, label %9
 
@@ -28933,7 +28933,7 @@ lean_dec.exit:                                    ; preds = %lean_nat_lt.exit
   br label %lean_dec.exit33
 
 lean_dec.exit33:                                  ; preds = %lean_dec.exit34, %21, %23, %24, %lean_dec.exit, %26
-  %.2 = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit ], [ %2, %lean_dec.exit34 ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2 = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34 ]
   ret ptr %.2
 }
 
@@ -29216,7 +29216,7 @@ lean_dec.exit28.backedge:                         ; preds = %63, %67, %73, %75, 
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.023) #3
   br label %lean_dec.exit28.backedge
 
-77:                                               ; preds = %lean_dec.exit29, %30, %29, %27
+77:                                               ; preds = %30, %29, %27, %lean_dec.exit29
   ret ptr %.025
 }
 
@@ -29389,7 +29389,7 @@ lean_dec.exit.i:                                  ; preds = %lean_nat_lt.exit.i
   br label %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_fold___spec__7___rarg.exit
 
 l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_fold___spec__7___rarg.exit: ; preds = %lean_dec.exit34.i, %21, %23, %24, %lean_dec.exit.i, %26
-  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %lean_dec.exit34.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i ]
   br i1 %.not.i45.i, label %30, label %lean_dec.exit
 
 30:                                               ; preds = %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_fold___spec__7___rarg.exit
@@ -29481,7 +29481,7 @@ lean_dec.exit.i:                                  ; preds = %lean_nat_lt.exit.i
   br label %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_fold___spec__7___rarg.exit
 
 l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_fold___spec__7___rarg.exit: ; preds = %lean_dec.exit34.i, %21, %23, %24, %lean_dec.exit.i, %26
-  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %lean_dec.exit34.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i ]
   ret ptr %.2.i
 }
 
@@ -29576,7 +29576,7 @@ lean_dec.exit.i.i:                                ; preds = %lean_nat_lt.exit.i.
   br label %l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_fold___spec__6___rarg.exit
 
 l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_fold___spec__6___rarg.exit: ; preds = %lean_dec.exit34.i.i, %21, %23, %24, %lean_dec.exit.i.i, %26
-  %.2.i.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i.i ], [ %2, %lean_dec.exit34.i.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i.i ]
   br i1 %.not.i45.i.i, label %30, label %lean_dec.exit
 
 30:                                               ; preds = %l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_fold___spec__6___rarg.exit
@@ -30100,7 +30100,7 @@ lean_inc.exit:                                    ; preds = %85, %84, %82, %lean
   br label %101
 
 lean_dec.exit41:                                  ; preds = %lean_inc.exit, %90, %92, %93, %lean_inc.exit45, %lean_obj_tag.exit
-  %.240 = phi ptr [ %86, %lean_inc.exit ], [ %.03884, %lean_obj_tag.exit ], [ %61, %lean_inc.exit45 ], [ %86, %93 ], [ %86, %92 ], [ %86, %90 ]
+  %.240 = phi ptr [ %61, %lean_inc.exit45 ], [ %.03884, %lean_obj_tag.exit ], [ %86, %93 ], [ %86, %92 ], [ %86, %90 ], [ %86, %lean_inc.exit ]
   %.not = icmp eq i64 %26, %3
   br i1 %.not, label %._crit_edge, label %9
 
@@ -30175,7 +30175,7 @@ lean_dec.exit:                                    ; preds = %lean_nat_lt.exit
   br label %lean_dec.exit33
 
 lean_dec.exit33:                                  ; preds = %lean_dec.exit34, %21, %23, %24, %lean_dec.exit, %26
-  %.2 = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit ], [ %2, %lean_dec.exit34 ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2 = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34 ]
   ret ptr %.2
 }
 
@@ -30458,7 +30458,7 @@ lean_dec.exit28.backedge:                         ; preds = %63, %67, %73, %75, 
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.023) #3
   br label %lean_dec.exit28.backedge
 
-77:                                               ; preds = %lean_dec.exit29, %30, %29, %27
+77:                                               ; preds = %30, %29, %27, %lean_dec.exit29
   ret ptr %.025
 }
 
@@ -30631,7 +30631,7 @@ lean_dec.exit.i:                                  ; preds = %lean_nat_lt.exit.i
   br label %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_fold___spec__12___rarg.exit
 
 l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_fold___spec__12___rarg.exit: ; preds = %lean_dec.exit34.i, %21, %23, %24, %lean_dec.exit.i, %26
-  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %lean_dec.exit34.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i ]
   br i1 %.not.i45.i, label %30, label %lean_dec.exit
 
 30:                                               ; preds = %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_fold___spec__12___rarg.exit
@@ -30723,7 +30723,7 @@ lean_dec.exit.i:                                  ; preds = %lean_nat_lt.exit.i
   br label %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_fold___spec__12___rarg.exit
 
 l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_fold___spec__12___rarg.exit: ; preds = %lean_dec.exit34.i, %21, %23, %24, %lean_dec.exit.i, %26
-  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %lean_dec.exit34.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i ]
   ret ptr %.2.i
 }
 
@@ -30818,7 +30818,7 @@ lean_dec.exit.i.i:                                ; preds = %lean_nat_lt.exit.i.
   br label %l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_fold___spec__11___rarg.exit
 
 l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_fold___spec__11___rarg.exit: ; preds = %lean_dec.exit34.i.i, %21, %23, %24, %lean_dec.exit.i.i, %26
-  %.2.i.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i.i ], [ %2, %lean_dec.exit34.i.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i.i ]
   br i1 %.not.i45.i.i, label %30, label %lean_dec.exit
 
 30:                                               ; preds = %l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_fold___spec__11___rarg.exit
@@ -31011,7 +31011,7 @@ lean_dec.exit.i65:                                ; preds = %lean_nat_lt.exit.i6
   br label %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_fold___spec__3___rarg.exit
 
 l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_fold___spec__3___rarg.exit: ; preds = %68, %lean_dec.exit.i65, %66, %65, %63, %lean_dec.exit34.i66, %35, %lean_dec.exit.i, %33, %32, %30, %lean_dec.exit34.i
-  %.0 = phi ptr [ %4, %32 ], [ %4, %30 ], [ %38, %35 ], [ %34, %lean_dec.exit.i ], [ %4, %lean_dec.exit34.i ], [ %4, %33 ], [ %71, %68 ], [ %67, %lean_dec.exit.i65 ], [ %47, %lean_dec.exit34.i66 ], [ %47, %66 ], [ %47, %65 ], [ %47, %63 ]
+  %.0 = phi ptr [ %38, %35 ], [ %34, %lean_dec.exit.i ], [ %4, %33 ], [ %4, %32 ], [ %4, %30 ], [ %4, %lean_dec.exit34.i ], [ %71, %68 ], [ %67, %lean_dec.exit.i65 ], [ %47, %66 ], [ %47, %65 ], [ %47, %63 ], [ %47, %lean_dec.exit34.i66 ]
   ret ptr %.0
 }
 
@@ -31946,7 +31946,7 @@ lean_inc.exit:                                    ; preds = %85, %84, %82, %lean
   br label %101
 
 lean_dec.exit41:                                  ; preds = %lean_inc.exit, %90, %92, %93, %lean_inc.exit45, %lean_obj_tag.exit
-  %.240 = phi ptr [ %86, %lean_inc.exit ], [ %.03884, %lean_obj_tag.exit ], [ %61, %lean_inc.exit45 ], [ %86, %93 ], [ %86, %92 ], [ %86, %90 ]
+  %.240 = phi ptr [ %61, %lean_inc.exit45 ], [ %.03884, %lean_obj_tag.exit ], [ %86, %93 ], [ %86, %92 ], [ %86, %90 ], [ %86, %lean_inc.exit ]
   %.not = icmp eq i64 %26, %3
   br i1 %.not, label %._crit_edge, label %9
 
@@ -32021,7 +32021,7 @@ lean_dec.exit:                                    ; preds = %lean_nat_lt.exit
   br label %lean_dec.exit33
 
 lean_dec.exit33:                                  ; preds = %lean_dec.exit34, %21, %23, %24, %lean_dec.exit, %26
-  %.2 = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit ], [ %2, %lean_dec.exit34 ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2 = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34 ]
   ret ptr %.2
 }
 
@@ -32304,7 +32304,7 @@ lean_dec.exit28.backedge:                         ; preds = %63, %67, %73, %75, 
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.023) #3
   br label %lean_dec.exit28.backedge
 
-77:                                               ; preds = %lean_dec.exit29, %30, %29, %27
+77:                                               ; preds = %30, %29, %27, %lean_dec.exit29
   ret ptr %.025
 }
 
@@ -32477,7 +32477,7 @@ lean_dec.exit.i:                                  ; preds = %lean_nat_lt.exit.i
   br label %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_toList___spec__4___rarg.exit
 
 l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_toList___spec__4___rarg.exit: ; preds = %lean_dec.exit34.i, %21, %23, %24, %lean_dec.exit.i, %26
-  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %lean_dec.exit34.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i ]
   br i1 %.not.i45.i, label %30, label %lean_dec.exit
 
 30:                                               ; preds = %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_toList___spec__4___rarg.exit
@@ -32569,7 +32569,7 @@ lean_dec.exit.i:                                  ; preds = %lean_nat_lt.exit.i
   br label %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_toList___spec__4___rarg.exit
 
 l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_toList___spec__4___rarg.exit: ; preds = %lean_dec.exit34.i, %21, %23, %24, %lean_dec.exit.i, %26
-  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %lean_dec.exit34.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i ]
   ret ptr %.2.i
 }
 
@@ -32664,7 +32664,7 @@ lean_dec.exit.i.i:                                ; preds = %lean_nat_lt.exit.i.
   br label %l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_toList___spec__3___rarg.exit
 
 l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_toList___spec__3___rarg.exit: ; preds = %lean_dec.exit34.i.i, %21, %23, %24, %lean_dec.exit.i.i, %26
-  %.2.i.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i.i ], [ %2, %lean_dec.exit34.i.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i.i ]
   br i1 %.not.i45.i.i, label %30, label %lean_dec.exit
 
 30:                                               ; preds = %l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_toList___spec__3___rarg.exit
@@ -32966,7 +32966,7 @@ lean_inc.exit:                                    ; preds = %85, %84, %82, %lean
   br label %101
 
 lean_dec.exit41:                                  ; preds = %lean_inc.exit, %90, %92, %93, %lean_inc.exit45, %lean_obj_tag.exit
-  %.240 = phi ptr [ %86, %lean_inc.exit ], [ %.03884, %lean_obj_tag.exit ], [ %61, %lean_inc.exit45 ], [ %86, %93 ], [ %86, %92 ], [ %86, %90 ]
+  %.240 = phi ptr [ %61, %lean_inc.exit45 ], [ %.03884, %lean_obj_tag.exit ], [ %86, %93 ], [ %86, %92 ], [ %86, %90 ], [ %86, %lean_inc.exit ]
   %.not = icmp eq i64 %26, %3
   br i1 %.not, label %._crit_edge, label %9
 
@@ -33041,7 +33041,7 @@ lean_dec.exit:                                    ; preds = %lean_nat_lt.exit
   br label %lean_dec.exit33
 
 lean_dec.exit33:                                  ; preds = %lean_dec.exit34, %21, %23, %24, %lean_dec.exit, %26
-  %.2 = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit ], [ %2, %lean_dec.exit34 ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2 = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34 ]
   ret ptr %.2
 }
 
@@ -33324,7 +33324,7 @@ lean_dec.exit28.backedge:                         ; preds = %63, %67, %73, %75, 
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.023) #3
   br label %lean_dec.exit28.backedge
 
-77:                                               ; preds = %lean_dec.exit29, %30, %29, %27
+77:                                               ; preds = %30, %29, %27, %lean_dec.exit29
   ret ptr %.025
 }
 
@@ -33497,7 +33497,7 @@ lean_dec.exit.i:                                  ; preds = %lean_nat_lt.exit.i
   br label %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_toList___spec__8___rarg.exit
 
 l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_toList___spec__8___rarg.exit: ; preds = %lean_dec.exit34.i, %21, %23, %24, %lean_dec.exit.i, %26
-  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %lean_dec.exit34.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i ]
   br i1 %.not.i45.i, label %30, label %lean_dec.exit
 
 30:                                               ; preds = %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_toList___spec__8___rarg.exit
@@ -33589,7 +33589,7 @@ lean_dec.exit.i:                                  ; preds = %lean_nat_lt.exit.i
   br label %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_toList___spec__8___rarg.exit
 
 l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_toList___spec__8___rarg.exit: ; preds = %lean_dec.exit34.i, %21, %23, %24, %lean_dec.exit.i, %26
-  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %lean_dec.exit34.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i ]
   ret ptr %.2.i
 }
 
@@ -33684,7 +33684,7 @@ lean_dec.exit.i.i:                                ; preds = %lean_nat_lt.exit.i.
   br label %l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_toList___spec__7___rarg.exit
 
 l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_toList___spec__7___rarg.exit: ; preds = %lean_dec.exit34.i.i, %21, %23, %24, %lean_dec.exit.i.i, %26
-  %.2.i.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i.i ], [ %2, %lean_dec.exit34.i.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i.i ]
   br i1 %.not.i45.i.i, label %30, label %lean_dec.exit
 
 30:                                               ; preds = %l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_toList___spec__7___rarg.exit
@@ -34208,7 +34208,7 @@ lean_inc.exit:                                    ; preds = %85, %84, %82, %lean
   br label %101
 
 lean_dec.exit41:                                  ; preds = %lean_inc.exit, %90, %92, %93, %lean_inc.exit45, %lean_obj_tag.exit
-  %.240 = phi ptr [ %86, %lean_inc.exit ], [ %.03884, %lean_obj_tag.exit ], [ %61, %lean_inc.exit45 ], [ %86, %93 ], [ %86, %92 ], [ %86, %90 ]
+  %.240 = phi ptr [ %61, %lean_inc.exit45 ], [ %.03884, %lean_obj_tag.exit ], [ %86, %93 ], [ %86, %92 ], [ %86, %90 ], [ %86, %lean_inc.exit ]
   %.not = icmp eq i64 %26, %3
   br i1 %.not, label %._crit_edge, label %9
 
@@ -34283,7 +34283,7 @@ lean_dec.exit:                                    ; preds = %lean_nat_lt.exit
   br label %lean_dec.exit33
 
 lean_dec.exit33:                                  ; preds = %lean_dec.exit34, %21, %23, %24, %lean_dec.exit, %26
-  %.2 = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit ], [ %2, %lean_dec.exit34 ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2 = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34 ]
   ret ptr %.2
 }
 
@@ -34566,7 +34566,7 @@ lean_dec.exit28.backedge:                         ; preds = %63, %67, %73, %75, 
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.023) #3
   br label %lean_dec.exit28.backedge
 
-77:                                               ; preds = %lean_dec.exit29, %30, %29, %27
+77:                                               ; preds = %30, %29, %27, %lean_dec.exit29
   ret ptr %.025
 }
 
@@ -34739,7 +34739,7 @@ lean_dec.exit.i:                                  ; preds = %lean_nat_lt.exit.i
   br label %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_toList___spec__13___rarg.exit
 
 l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_toList___spec__13___rarg.exit: ; preds = %lean_dec.exit34.i, %21, %23, %24, %lean_dec.exit.i, %26
-  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %lean_dec.exit34.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i ]
   br i1 %.not.i45.i, label %30, label %lean_dec.exit
 
 30:                                               ; preds = %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_toList___spec__13___rarg.exit
@@ -34831,7 +34831,7 @@ lean_dec.exit.i:                                  ; preds = %lean_nat_lt.exit.i
   br label %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_toList___spec__13___rarg.exit
 
 l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_toList___spec__13___rarg.exit: ; preds = %lean_dec.exit34.i, %21, %23, %24, %lean_dec.exit.i, %26
-  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %lean_dec.exit34.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i ]
   ret ptr %.2.i
 }
 
@@ -34926,7 +34926,7 @@ lean_dec.exit.i.i:                                ; preds = %lean_nat_lt.exit.i.
   br label %l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_toList___spec__12___rarg.exit
 
 l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_toList___spec__12___rarg.exit: ; preds = %lean_dec.exit34.i.i, %21, %23, %24, %lean_dec.exit.i.i, %26
-  %.2.i.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i.i ], [ %2, %lean_dec.exit34.i.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ]
+  %.2.i.i = phi ptr [ %29, %26 ], [ %25, %lean_dec.exit.i.i ], [ %2, %24 ], [ %2, %23 ], [ %2, %21 ], [ %2, %lean_dec.exit34.i.i ]
   br i1 %.not.i45.i.i, label %30, label %lean_dec.exit
 
 30:                                               ; preds = %l_Lean_PersistentHashMap_foldlM___at_Lean_SMap_toList___spec__12___rarg.exit
@@ -35119,7 +35119,7 @@ lean_dec.exit.i65:                                ; preds = %lean_nat_lt.exit.i6
   br label %l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_toList___spec__4___rarg.exit
 
 l_Lean_PersistentHashMap_foldlMAux___at_Lean_SMap_toList___spec__4___rarg.exit: ; preds = %68, %lean_dec.exit.i65, %66, %65, %63, %lean_dec.exit34.i66, %35, %lean_dec.exit.i, %33, %32, %30, %lean_dec.exit34.i
-  %.0 = phi ptr [ %4, %32 ], [ %4, %30 ], [ %38, %35 ], [ %34, %lean_dec.exit.i ], [ %4, %lean_dec.exit34.i ], [ %4, %33 ], [ %71, %68 ], [ %67, %lean_dec.exit.i65 ], [ %47, %lean_dec.exit34.i66 ], [ %47, %66 ], [ %47, %65 ], [ %47, %63 ]
+  %.0 = phi ptr [ %38, %35 ], [ %34, %lean_dec.exit.i ], [ %4, %33 ], [ %4, %32 ], [ %4, %30 ], [ %4, %lean_dec.exit34.i ], [ %71, %68 ], [ %67, %lean_dec.exit.i65 ], [ %47, %66 ], [ %47, %65 ], [ %47, %63 ], [ %47, %lean_dec.exit34.i66 ]
   ret ptr %.0
 }
 
@@ -37019,7 +37019,7 @@ lean_inc.exit:                                    ; preds = %119, %118, %116, %l
   br label %lean_dec.exit35
 
 lean_dec.exit35:                                  ; preds = %lean_dec.exit36, %38, %40, %41, %lean_dec.exit33, %lean_inc.exit
-  %.0 = phi ptr [ %121, %lean_inc.exit ], [ %86, %lean_dec.exit33 ], [ inttoptr (i64 1 to ptr), %41 ], [ inttoptr (i64 1 to ptr), %40 ], [ inttoptr (i64 1 to ptr), %38 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit36 ]
+  %.0 = phi ptr [ %86, %lean_dec.exit33 ], [ %121, %lean_inc.exit ], [ inttoptr (i64 1 to ptr), %41 ], [ inttoptr (i64 1 to ptr), %40 ], [ inttoptr (i64 1 to ptr), %38 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit36 ]
   ret ptr %.0
 }
 
@@ -37284,7 +37284,7 @@ lean_alloc_ctor.exit67:                           ; preds = %lean_alloc_ctor.exi
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_inc.exit.thread, %97, %96, %94
-  %98 = phi ptr [ %41, %lean_inc.exit.thread ], [ %38, %97 ], [ %38, %96 ], [ %38, %94 ]
+  %98 = phi ptr [ %38, %97 ], [ %38, %96 ], [ %38, %94 ], [ %41, %lean_inc.exit.thread ]
   %99 = load ptr, ptr @l_List_repr___at_Lean_instReprSMap___spec__1___rarg___closed__6, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #3
   %100 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
@@ -37812,7 +37812,7 @@ _init_l_Prod_repr___at_Lean_instReprSMap___spec__3___rarg___closed__3.exit: ; pr
   br label %_init_l_Prod_repr___at_Lean_instReprSMap___spec__3___rarg___closed__6.exit
 
 _init_l_Prod_repr___at_Lean_instReprSMap___spec__3___rarg___closed__6.exit: ; preds = %_init_l_Prod_repr___at_Lean_instReprSMap___spec__3___rarg___closed__3.exit, %83
-  %.1.i.i = phi ptr [ %79, %_init_l_Prod_repr___at_Lean_instReprSMap___spec__3___rarg___closed__3.exit ], [ %85, %83 ]
+  %.1.i.i = phi ptr [ %85, %83 ], [ %79, %_init_l_Prod_repr___at_Lean_instReprSMap___spec__3___rarg___closed__3.exit ]
   store ptr %.1.i.i, ptr @l_Prod_repr___at_Lean_instReprSMap___spec__3___rarg___closed__6, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #3
   %86 = load ptr, ptr @l_Prod_repr___at_Lean_instReprSMap___spec__3___rarg___closed__4, align 8, !tbaa !4
@@ -37900,7 +37900,7 @@ _init_l_List_repr___at_Lean_instReprSMap___spec__1___rarg___closed__2.exit: ; pr
   br label %_init_l_List_repr___at_Lean_instReprSMap___spec__1___rarg___closed__5.exit
 
 _init_l_List_repr___at_Lean_instReprSMap___spec__1___rarg___closed__5.exit: ; preds = %_init_l_List_repr___at_Lean_instReprSMap___spec__1___rarg___closed__2.exit, %116
-  %.1.i.i15 = phi ptr [ %112, %_init_l_List_repr___at_Lean_instReprSMap___spec__1___rarg___closed__2.exit ], [ %118, %116 ]
+  %.1.i.i15 = phi ptr [ %118, %116 ], [ %112, %_init_l_List_repr___at_Lean_instReprSMap___spec__1___rarg___closed__2.exit ]
   store ptr %.1.i.i15, ptr @l_List_repr___at_Lean_instReprSMap___spec__1___rarg___closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i15) #3
   %119 = load ptr, ptr @l_List_repr___at_Lean_instReprSMap___spec__1___rarg___closed__3, align 8, !tbaa !4

@@ -253,7 +253,7 @@ define hidden void @_ZN2cv8tracking4impl3tld15TrackerTLDModelC2ENS_6legacy8track
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %56, %55
-  %58 = phi ptr [ %.pr.pre.i.i.i.i, %56 ], [ %52, %55 ]
+  %58 = phi ptr [ %52, %55 ], [ %.pr.pre.i.i.i.i, %56 ]
   %.not8.i.i.i.i = icmp eq ptr %58, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %59
 
@@ -921,7 +921,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %165, %_ZNSt12_Vect
   br label %391
 
 391:                                              ; preds = %330, %332, %360, %374, %389
-  %.pn110.pn = phi { ptr, i32 } [ %333, %332 ], [ %361, %360 ], [ %390, %389 ], [ %331, %330 ], [ %375, %374 ]
+  %.pn110.pn = phi { ptr, i32 } [ %361, %360 ], [ %390, %389 ], [ %331, %330 ], [ %375, %374 ], [ %333, %332 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #24
   br label %392
 
@@ -1183,7 +1183,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit140:  ; preds = %_ZNSt6vectorIN2cv5R
   ret void
 
 _ZNSt6vectorIiSaIiEED2Ev.exit142:                 ; preds = %487, %465, %392, %223
-  %.pn110.pn.pn.pn = phi { ptr, i32 } [ %.pn110.pn.pn, %392 ], [ %224, %223 ], [ %.pn105.pn, %487 ], [ %466, %465 ]
+  %.pn110.pn.pn.pn = phi { ptr, i32 } [ %.pn110.pn.pn, %392 ], [ %224, %223 ], [ %466, %465 ], [ %.pn105.pn, %487 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #24
   br label %500
 
@@ -1193,7 +1193,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit142:                 ; preds = %487, %465, %392, %2
   br label %.body
 
 .body:                                            ; preds = %200, %41, %217, %219, %500, %216, %211, %206
-  %.pn110.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %220, %219 ], [ %.pn98, %216 ], [ %.pn96, %211 ], [ %.pn, %206 ], [ %.pn110.pn.pn.pn.pn, %500 ], [ %218, %217 ], [ %201, %200 ], [ %42, %41 ]
+  %.pn110.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn98, %216 ], [ %.pn96, %211 ], [ %.pn, %206 ], [ %.pn110.pn.pn.pn.pn, %500 ], [ %218, %217 ], [ %220, %219 ], [ %201, %200 ], [ %42, %41 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #24
@@ -1475,9 +1475,9 @@ define hidden void @_ZN2cv8tracking4impl3tld15TrackerTLDModel13pushIntoModelERKN
   br i1 %exitcond.not, label %34, label %37, !llvm.loop !150
 
 46:                                               ; preds = %25, %34, %4, %13
-  %.sink48 = phi i64 [ 120, %4 ], [ 120, %13 ], [ 144, %34 ], [ 144, %25 ]
-  %.sink47 = phi i64 [ 416, %4 ], [ 416, %13 ], [ 420, %34 ], [ 420, %25 ]
-  %.sink = phi i64 [ 368, %4 ], [ 368, %13 ], [ 392, %34 ], [ 392, %25 ]
+  %.sink48 = phi i64 [ 120, %13 ], [ 120, %4 ], [ 144, %34 ], [ 144, %25 ]
+  %.sink47 = phi i64 [ 416, %13 ], [ 416, %4 ], [ 420, %34 ], [ 420, %25 ]
+  %.sink = phi i64 [ 368, %13 ], [ 368, %4 ], [ 392, %34 ], [ 392, %25 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink48
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink47
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
@@ -2693,7 +2693,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !165
   br label %40
 

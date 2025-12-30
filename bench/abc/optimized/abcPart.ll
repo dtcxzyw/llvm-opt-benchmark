@@ -646,8 +646,8 @@ Vec_IntAlloc.exit:                                ; preds = %1, %7
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %33, %35, %25, %27
-  %.sink12 = phi ptr [ %28, %27 ], [ %26, %25 ], [ %34, %33 ], [ %36, %35 ]
-  %.sink = phi i32 [ 16, %27 ], [ 16, %25 ], [ %30, %33 ], [ %30, %35 ]
+  %.sink12 = phi ptr [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %36, %35 ]
+  %.sink = phi i32 [ 16, %25 ], [ 16, %27 ], [ %30, %33 ], [ %30, %35 ]
   store ptr %.sink12, ptr %12, align 8, !tbaa !37
   store i32 %.sink, ptr %4, align 8, !tbaa !36
   br label %Vec_IntPush.exit
@@ -1585,10 +1585,10 @@ Vec_PtrPush.exit148:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %419, label %280, label %.critedge4, !llvm.loop !64
 
 .critedge4:                                       ; preds = %413, %Vec_PtrPush.exit106, %100, %.lr.ph160
-  %420 = phi i32 [ %91, %.lr.ph160 ], [ %271, %Vec_PtrPush.exit106 ], [ %91, %100 ], [ %414, %413 ]
-  %421 = phi i32 [ %92, %.lr.ph160 ], [ %272, %Vec_PtrPush.exit106 ], [ %92, %100 ], [ %415, %413 ]
-  %422 = phi i32 [ %93, %.lr.ph160 ], [ %272, %Vec_PtrPush.exit106 ], [ %93, %100 ], [ %416, %413 ]
-  %423 = phi i32 [ %94, %.lr.ph160 ], [ %274, %Vec_PtrPush.exit106 ], [ %94, %100 ], [ %417, %413 ]
+  %420 = phi i32 [ %271, %Vec_PtrPush.exit106 ], [ %91, %100 ], [ %91, %.lr.ph160 ], [ %414, %413 ]
+  %421 = phi i32 [ %272, %Vec_PtrPush.exit106 ], [ %92, %100 ], [ %92, %.lr.ph160 ], [ %415, %413 ]
+  %422 = phi i32 [ %272, %Vec_PtrPush.exit106 ], [ %93, %100 ], [ %93, %.lr.ph160 ], [ %416, %413 ]
+  %423 = phi i32 [ %274, %Vec_PtrPush.exit106 ], [ %94, %100 ], [ %94, %.lr.ph160 ], [ %417, %413 ]
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %424 = load ptr, ptr %87, align 8, !tbaa !53
   %425 = getelementptr i8, ptr %424, i64 4
@@ -2772,7 +2772,7 @@ Abc_NtkSuppCharCommon.exit.thread.us:             ; preds = %78, %Abc_NtkSuppCha
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge.thread, %.critedge, %.loopexit.loopexit55, %.loopexit.loopexit
-  %.027 = phi i32 [ %84, %.loopexit.loopexit55 ], [ %83, %.loopexit.loopexit ], [ -1, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
+  %.027 = phi i32 [ %83, %.loopexit.loopexit ], [ %84, %.loopexit.loopexit55 ], [ -1, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
   ret i32 %.027
 }
 

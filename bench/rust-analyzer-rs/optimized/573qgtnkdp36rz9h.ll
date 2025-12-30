@@ -1131,57 +1131,57 @@ define { i32, i32 } @_ZN3vfs3Vfs7file_id17h0b6c396968d10fa1E(ptr noalias noundef
   tail call void @llvm.experimental.noalias.scope.decl(metadata !287)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !290, !noalias !291, !noundef !22
-  switch i64 %5, label %6 [
+  switch i64 %5, label %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit [
     i64 0, label %"_ZN4core6option15Option$LT$T$GT$6filter17h7b8d4edcdbf59eabE.exit"
-    i64 1, label %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit
+    i64 1, label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h25449d48e2516cfeE.exit.i"
   ]
 
-6:                                                ; preds = %2
+"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h25449d48e2516cfeE.exit.i": ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !alias.scope !290, !noalias !291, !nonnull !22, !noundef !22
+  %8 = tail call noundef zeroext i1 @"_ZN67_$LT$vfs..vfs_path..VfsPathRepr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h40321e497a0fa59dE.llvm.5655766238960710218"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7), !noalias !290
+  br i1 %8, label %14, label %"_ZN4core6option15Option$LT$T$GT$6filter17h7b8d4edcdbf59eabE.exit"
+
+_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit: ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !294
   store i64 0, ptr %3, align 8, !noalias !294
   call void @"_ZN63_$LT$vfs..vfs_path..VfsPathRepr$u20$as$u20$core..hash..Hash$GT$4hash17h5d37719b5fcb7280E.llvm.5655766238960710218"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !290
-  %7 = load i64, ptr %3, align 8, !alias.scope !297, !noalias !294, !noundef !22
+  %9 = load i64, ptr %3, align 8, !alias.scope !297, !noalias !294, !noundef !22
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !294
-  %8 = call { i64, i64 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12get_index_of17h4986bb8d417055baE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
-  %9 = extractvalue { i64, i64 } %8, 0
-  %10 = extractvalue { i64, i64 } %8, 1
-  %.not = icmp eq i64 %9, 0
-  %11 = trunc i64 %10 to i32
-  br i1 %.not, label %"_ZN4core6option15Option$LT$T$GT$6filter17h7b8d4edcdbf59eabE.exit", label %15
+  %10 = call { i64, i64 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12get_index_of17h4986bb8d417055baE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
+  %11 = extractvalue { i64, i64 } %10, 0
+  %12 = extractvalue { i64, i64 } %10, 1
+  %.not = icmp eq i64 %11, 0
+  %13 = trunc i64 %12 to i32
+  br i1 %.not, label %"_ZN4core6option15Option$LT$T$GT$6filter17h7b8d4edcdbf59eabE.exit", label %14
 
-_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit: ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !alias.scope !290, !noalias !291, !nonnull !22, !noundef !22
-  %14 = tail call noundef zeroext i1 @"_ZN67_$LT$vfs..vfs_path..VfsPathRepr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h40321e497a0fa59dE.llvm.5655766238960710218"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13), !noalias !290
-  br i1 %14, label %15, label %"_ZN4core6option15Option$LT$T$GT$6filter17h7b8d4edcdbf59eabE.exit"
-
-15:                                               ; preds = %6, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit
-  %16 = phi i32 [ %11, %6 ], [ 0, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ]
+14:                                               ; preds = %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h25449d48e2516cfeE.exit.i", %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit
+  %15 = phi i32 [ 0, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h25449d48e2516cfeE.exit.i" ], [ %13, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ]
   %.val110.in = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val110 = load i64, ptr %.val110.in, align 8
-  %17 = zext i32 %16 to i64
-  %18 = icmp ugt i64 %.val110, %17
-  br i1 %18, label %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i", label %19, !prof !300
+  %16 = zext i32 %15 to i64
+  %17 = icmp ugt i64 %.val110, %16
+  br i1 %17, label %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i", label %18, !prof !300
 
-19:                                               ; preds = %15
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %.val110, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7855ef78f73ea6488ff6900a1ea4815f.33.llvm.12041220681261970885) #22, !noalias !301
+18:                                               ; preds = %14
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %16, i64 noundef %.val110, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7855ef78f73ea6488ff6900a1ea4815f.33.llvm.12041220681261970885) #22, !noalias !301
   unreachable
 
-"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i": ; preds = %15
+"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i": ; preds = %14
   %.val9.in = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.val9 = load ptr, ptr %.val9.in, align 8, !nonnull !22, !noundef !22
-  %20 = getelementptr inbounds nuw i8, ptr %.val9, i64 %17
-  %21 = load i8, ptr %20, align 1, !range !304, !noalias !301, !noundef !22
-  %switch.i.i = icmp samesign ult i8 %21, 2
+  %19 = getelementptr inbounds nuw i8, ptr %.val9, i64 %16
+  %20 = load i8, ptr %19, align 1, !range !304, !noalias !301, !noundef !22
+  %switch.i.i = icmp samesign ult i8 %20, 2
   %spec.select2.i = zext i1 %switch.i.i to i32
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17h7b8d4edcdbf59eabE.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6filter17h7b8d4edcdbf59eabE.exit": ; preds = %2, %6, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i"
-  %.sroa.3.0.i = phi i32 [ %16, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i" ], [ undef, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ], [ undef, %6 ], [ undef, %2 ]
-  %.sroa.04.0.i = phi i32 [ %spec.select2.i, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i" ], [ 0, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ], [ 0, %6 ], [ 0, %2 ]
-  %22 = insertvalue { i32, i32 } poison, i32 %.sroa.04.0.i, 0
-  %23 = insertvalue { i32, i32 } %22, i32 %.sroa.3.0.i, 1
-  ret { i32, i32 } %23
+"_ZN4core6option15Option$LT$T$GT$6filter17h7b8d4edcdbf59eabE.exit": ; preds = %2, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h25449d48e2516cfeE.exit.i", %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i"
+  %.sroa.3.0.i = phi i32 [ undef, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ], [ %15, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i" ], [ undef, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h25449d48e2516cfeE.exit.i" ], [ undef, %2 ]
+  %.sroa.04.0.i = phi i32 [ 0, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ], [ %spec.select2.i, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i" ], [ 0, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h25449d48e2516cfeE.exit.i" ], [ 0, %2 ]
+  %21 = insertvalue { i32, i32 } poison, i32 %.sroa.04.0.i, 0
+  %22 = insertvalue { i32, i32 } %21, i32 %.sroa.3.0.i, 1
+  ret { i32, i32 } %22
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1241,7 +1241,7 @@ define noundef zeroext i1 @_ZN3vfs3Vfs17set_file_contents17hcb6bdaab284509eeE(pt
   br i1 %15, label %127, label %126
 
 16:                                               ; preds = %25, %115, %76, %32, %28
-  %.029 = phi i8 [ 0, %76 ], [ 0, %115 ], [ 1, %25 ], [ 1, %32 ], [ 1, %28 ]
+  %.029 = phi i8 [ 0, %76 ], [ 0, %115 ], [ 1, %32 ], [ 1, %28 ], [ 1, %25 ]
   %17 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1387,8 +1387,8 @@ _ZN3vfs13path_interner12PathInterner6intern17h820e0cb538e82916E.exit.i: ; preds 
   br label %62
 
 .body44:                                          ; preds = %109, %60, %45, %122
-  %.2 = phi i8 [ 0, %122 ], [ 1, %60 ], [ 1, %45 ], [ 0, %109 ]
-  %.pn = phi { ptr, i32 } [ %123, %122 ], [ %61, %60 ], [ %46, %45 ], [ %110, %109 ]
+  %.2 = phi i8 [ 0, %122 ], [ 1, %45 ], [ 1, %60 ], [ 0, %109 ]
+  %.pn = phi { ptr, i32 } [ %123, %122 ], [ %46, %45 ], [ %61, %60 ], [ %110, %109 ]
   invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17hf431f7191f5a61b6E"(ptr noalias noundef align 8 dereferenceable(40) %11) #20
           to label %14 unwind label %124
 
@@ -1488,8 +1488,8 @@ _ZN3vfs13path_interner12PathInterner6intern17h820e0cb538e82916E.exit.i: ; preds 
   br label %96
 
 96:                                               ; preds = %78, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h15310d7750beb9c3E.exit", %93
-  %97 = phi i64 [ %63, %78 ], [ %.pre60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h15310d7750beb9c3E.exit" ], [ %63, %93 ]
-  %.030 = phi i8 [ 2, %78 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h15310d7750beb9c3E.exit" ], [ %., %93 ]
+  %97 = phi i64 [ %63, %93 ], [ %63, %78 ], [ %.pre60, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h15310d7750beb9c3E.exit" ]
+  %.030 = phi i8 [ %., %93 ], [ 2, %78 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h15310d7750beb9c3E.exit" ]
   %98 = icmp ugt i64 %97, %51
   br i1 %98, label %99, label %113, !prof !300
 

@@ -382,7 +382,7 @@ _ZN28TemplateInterpreterGenerator19generate_error_exitEPKc.exit49: ; preds = %_Z
   br label %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit: ; preds = %135, %150
-  %.014.i = phi ptr [ %148, %135 ], [ %151, %150 ]
+  %.014.i = phi ptr [ %151, %150 ], [ %148, %135 ]
   store ptr %.014.i, ptr @_ZN19AbstractInterpreter12_entry_tableE, align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %17) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %18, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.19, i32 noundef -1) #7
@@ -395,7 +395,7 @@ _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter1
   br label %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit51
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit51: ; preds = %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit, %154
-  %.014.i50 = phi ptr [ %152, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit ], [ %155, %154 ]
+  %.014.i50 = phi ptr [ %155, %154 ], [ %152, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit ]
   store ptr %.014.i50, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 8), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %18) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %19, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.20, i32 noundef -1) #7
@@ -408,7 +408,7 @@ _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter1
   br label %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit53
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit53: ; preds = %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit51, %158
-  %.014.i52 = phi ptr [ %156, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit51 ], [ %159, %158 ]
+  %.014.i52 = phi ptr [ %159, %158 ], [ %156, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit51 ]
   store ptr %.014.i52, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 32), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %19) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %20, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.21, i32 noundef -1) #7
@@ -421,7 +421,7 @@ _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter1
   br label %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit55
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit55: ; preds = %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit53, %162
-  %.014.i54 = phi ptr [ %160, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit53 ], [ %163, %162 ]
+  %.014.i54 = phi ptr [ %163, %162 ], [ %160, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit53 ]
   store ptr %.014.i54, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 40), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %20) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %21, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.22, i32 noundef -1) #7
@@ -434,7 +434,7 @@ _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter1
   br label %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit57
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit57: ; preds = %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit55, %166
-  %.014.i56 = phi ptr [ %164, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit55 ], [ %167, %166 ]
+  %.014.i56 = phi ptr [ %167, %166 ], [ %164, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit55 ]
   store ptr %.014.i56, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 48), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %21) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %22, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.23, i32 noundef -1) #7
@@ -857,7 +857,7 @@ _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter1
   br label %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit130
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit130: ; preds = %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit127, %294
-  %.014.i129 = phi ptr [ %292, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit127 ], [ %295, %294 ]
+  %.014.i129 = phi ptr [ %295, %294 ], [ %292, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit127 ]
   store ptr %.014.i129, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 16), align 16
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %40) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %41, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.42, i32 noundef -1) #7
@@ -870,7 +870,7 @@ _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter1
   br label %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit133
 
 _ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit133: ; preds = %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit130, %298
-  %.014.i132 = phi ptr [ %296, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit130 ], [ %299, %298 ]
+  %.014.i132 = phi ptr [ %299, %298 ], [ %296, %_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb.exit130 ]
   store ptr %.014.i132, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 24), align 8
   call void @_ZN11CodeletMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %41) #7
   call void @_ZN11CodeletMarkC1ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %42, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.43, i32 noundef -1) #7
@@ -1788,7 +1788,7 @@ define hidden void @_ZN28TemplateInterpreterGenerator21generate_and_dispatchEP8T
   br label %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit
 
 _ZN9Bytecodes15wide_length_forENS_4CodeE.exit:    ; preds = %18, %17, %11, %10
-  %24 = phi i32 [ -1, %10 ], [ %16, %11 ], [ %23, %18 ], [ -1, %17 ]
+  %24 = phi i32 [ %16, %11 ], [ -1, %10 ], [ %23, %18 ], [ -1, %17 ]
   %25 = icmp eq i32 %2, 11
   br i1 %25, label %26, label %29
 

@@ -1250,7 +1250,7 @@ define hidden i64 @av1_frame_error(i32 noundef %0, i32 noundef %1, ptr noundef %
   br i1 %exitcond29.not.i, label %av1_calc_highbd_frame_error.exit, label %.preheader.us.i16, !llvm.loop !24
 
 av1_calc_highbd_frame_error.exit:                 ; preds = %._crit_edge.us.i, %._crit_edge.us.i22, %46, %.preheader.lr.ph.i, %9
-  %.0 = phi i64 [ %63, %._crit_edge.us.i22 ], [ 0, %9 ], [ 0, %.preheader.lr.ph.i ], [ 0, %46 ], [ %45, %._crit_edge.us.i ]
+  %.0 = phi i64 [ 0, %9 ], [ 0, %.preheader.lr.ph.i ], [ 0, %46 ], [ %63, %._crit_edge.us.i22 ], [ %45, %._crit_edge.us.i ]
   ret i64 %.0
 }
 
@@ -1499,7 +1499,7 @@ av1_calc_frame_error_c.exit.us55.i:               ; preds = %._crit_edge.us.i.us
   br i1 %112, label %.preheader.us.i21, label %highbd_segmented_frame_error.exit, !llvm.loop !28
 
 highbd_segmented_frame_error.exit:                ; preds = %._crit_edge.us.i, %._crit_edge.us.i23, %.preheader.lr.ph.i19, %71, %.preheader.lr.ph.i, %11
-  %.0 = phi i64 [ %.us-phi.us.i24, %._crit_edge.us.i23 ], [ 0, %11 ], [ 0, %.preheader.lr.ph.i ], [ 0, %71 ], [ 0, %.preheader.lr.ph.i19 ], [ %.us-phi.us.i, %._crit_edge.us.i ]
+  %.0 = phi i64 [ 0, %11 ], [ 0, %.preheader.lr.ph.i ], [ 0, %71 ], [ 0, %.preheader.lr.ph.i19 ], [ %.us-phi.us.i24, %._crit_edge.us.i23 ], [ %.us-phi.us.i, %._crit_edge.us.i ]
   ret i64 %.0
 }
 

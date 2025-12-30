@@ -201,8 +201,8 @@ define internal range(i32 -38, 1) i32 @process_command(ptr noundef %0, ptr nound
   call fastcc void @draw_curves(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %48)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %25, %17, %19, %22, %28, %46, %34
-  %.119.ph = phi i32 [ 0, %46 ], [ 0, %34 ], [ -22, %28 ], [ -22, %22 ], [ -22, %19 ], [ -22, %17 ], [ -22, %25 ]
+.sink.split:                                      ; preds = %17, %22, %19, %28, %25, %46, %34
+  %.119.ph = phi i32 [ 0, %34 ], [ 0, %46 ], [ -22, %25 ], [ -22, %28 ], [ -22, %19 ], [ -22, %22 ], [ -22, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -448,7 +448,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   br label %92
 
 92:                                               ; preds = %.thread81, %1, %._crit_edge, %24
-  %.0 = phi i32 [ -22, %.thread81 ], [ %.163.ph, %._crit_edge ], [ -12, %24 ], [ -12, %1 ]
+  %.0 = phi i32 [ %.163.ph, %._crit_edge ], [ -12, %24 ], [ -12, %1 ], [ -22, %.thread81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1074,7 +1074,7 @@ chebyshev1_fo_section.exit.i:                     ; preds = %168, %chebyshev1_fo
   br label %chebyshev2_compute_bw_gain_db.exit
 
 chebyshev2_compute_bw_gain_db.exit:               ; preds = %317, %323, %325, %327
-  %.0.i29 = phi nsz double [ 0.000000e+00, %325 ], [ %324, %323 ], [ 3.000000e+00, %327 ], [ -3.000000e+00, %317 ]
+  %.0.i29 = phi nsz double [ %324, %323 ], [ 3.000000e+00, %327 ], [ 0.000000e+00, %325 ], [ -3.000000e+00, %317 ]
   %328 = fcmp nsz oeq double %319, 0.000000e+00
   br i1 %328, label %butterworth_bp_filter.exit.sink.split, label %329
 

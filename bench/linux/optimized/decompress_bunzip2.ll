@@ -249,7 +249,7 @@ define internal fastcc i32 @read_bunzip(ptr noundef %0, ptr noundef writeonly ca
   br label %20
 
 16:                                               ; preds = %77, %74, %72
-  %17 = phi i32 [ %54, %77 ], [ %67, %74 ], [ %54, %72 ]
+  %17 = phi i32 [ %67, %74 ], [ %54, %72 ], [ %54, %77 ]
   %18 = icmp sgt i32 %55, 4095
   br i1 %18, label %..loopexit_crit_edge, label %20
 
@@ -1280,7 +1280,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   br label %.loopexit50
 
 .loopexit50:                                      ; preds = %.preheader64, %.loopexit56, %.loopexit55, %401, %376, %355, %348, %283, %478, %.thread46, %65, %61, %26, %23, %19, %1
-  %480 = phi i32 [ 0, %478 ], [ -1, %1 ], [ -2, %19 ], [ -7, %23 ], [ -5, %26 ], [ -5, %61 ], [ -5, %65 ], [ -5, %.thread46 ], [ -5, %401 ], [ -5, %.loopexit56 ], [ -5, %355 ], [ -5, %283 ], [ -5, %348 ], [ -5, %376 ], [ -5, %.loopexit55 ], [ -5, %.preheader64 ]
+  %480 = phi i32 [ 0, %478 ], [ -1, %1 ], [ -2, %19 ], [ -7, %23 ], [ -5, %26 ], [ -5, %61 ], [ -5, %65 ], [ -5, %.thread46 ], [ -5, %283 ], [ -5, %348 ], [ -5, %355 ], [ -5, %376 ], [ -5, %401 ], [ -5, %.loopexit55 ], [ -5, %.loopexit56 ], [ -5, %.preheader64 ]
   ret i32 %480
 }
 

@@ -1109,7 +1109,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit73:           ; preds = %192, %196
   br label %211
 
 211:                                              ; preds = %210, %184, %138, %92
-  %.pn40.pn = phi { ptr, i32 } [ %.pn31.pn, %184 ], [ %.pn25.pn, %138 ], [ %.pn19.pn, %92 ], [ %.pn37.pn, %210 ]
+  %.pn40.pn = phi { ptr, i32 } [ %.pn19.pn, %92 ], [ %.pn25.pn, %138 ], [ %.pn31.pn, %184 ], [ %.pn37.pn, %210 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn40.pn
@@ -2606,7 +2606,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit116:          ; preds = %555, %559
   br label %574
 
 574:                                              ; preds = %188, %233, %278, %323, %371, %573, %547, %503, %459, %415, %144
-  %.pn81.pn.pn.pn = phi { ptr, i32 } [ %.pn38.pn, %144 ], [ %.pn62.pn, %415 ], [ %.pn42.pn, %188 ], [ %.pn66.pn, %459 ], [ %.pn58.pn, %371 ], [ %.pn54.pn, %323 ], [ %.pn50.pn, %278 ], [ %.pn46.pn, %233 ], [ %.pn70.pn, %503 ], [ %.pn78.pn, %573 ], [ %.pn74.pn, %547 ]
+  %.pn81.pn.pn.pn = phi { ptr, i32 } [ %.pn38.pn, %144 ], [ %.pn58.pn, %371 ], [ %.pn54.pn, %323 ], [ %.pn50.pn, %278 ], [ %.pn46.pn, %233 ], [ %.pn42.pn, %188 ], [ %.pn78.pn, %573 ], [ %.pn74.pn, %547 ], [ %.pn70.pn, %503 ], [ %.pn66.pn, %459 ], [ %.pn62.pn, %415 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn81.pn.pn.pn
@@ -4103,7 +4103,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit116:          ; preds = %555, %559
   br label %574
 
 574:                                              ; preds = %188, %233, %278, %323, %371, %573, %547, %503, %459, %415, %144
-  %.pn81.pn.pn.pn = phi { ptr, i32 } [ %.pn38.pn, %144 ], [ %.pn62.pn, %415 ], [ %.pn42.pn, %188 ], [ %.pn66.pn, %459 ], [ %.pn58.pn, %371 ], [ %.pn54.pn, %323 ], [ %.pn50.pn, %278 ], [ %.pn46.pn, %233 ], [ %.pn70.pn, %503 ], [ %.pn78.pn, %573 ], [ %.pn74.pn, %547 ]
+  %.pn81.pn.pn.pn = phi { ptr, i32 } [ %.pn38.pn, %144 ], [ %.pn58.pn, %371 ], [ %.pn54.pn, %323 ], [ %.pn50.pn, %278 ], [ %.pn46.pn, %233 ], [ %.pn42.pn, %188 ], [ %.pn78.pn, %573 ], [ %.pn74.pn, %547 ], [ %.pn70.pn, %503 ], [ %.pn66.pn, %459 ], [ %.pn62.pn, %415 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn81.pn.pn.pn
@@ -5612,7 +5612,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit117:          ; preds = %565, %569
   br label %583
 
 583:                                              ; preds = %132, %173, %218, %263, %308, %352, %395, %582, %559, %518, %477, %436
-  %.pn76.pn = phi { ptr, i32 } [ %.pn76, %582 ], [ %.pn73, %559 ], [ %.pn70, %518 ], [ %.pn67, %477 ], [ %.pn64, %436 ], [ %.pn.pn, %132 ], [ %.pn57.pn, %395 ], [ %.pn53.pn, %352 ], [ %.pn49.pn, %308 ], [ %.pn45.pn, %263 ], [ %.pn41.pn, %218 ], [ %.pn37.pn, %173 ]
+  %.pn76.pn = phi { ptr, i32 } [ %.pn76, %582 ], [ %.pn73, %559 ], [ %.pn70, %518 ], [ %.pn67, %477 ], [ %.pn64, %436 ], [ %.pn57.pn, %395 ], [ %.pn53.pn, %352 ], [ %.pn49.pn, %308 ], [ %.pn45.pn, %263 ], [ %.pn41.pn, %218 ], [ %.pn37.pn, %173 ], [ %.pn.pn, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn76.pn
@@ -7123,7 +7123,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit116:          ; preds = %567, %571
   br label %585
 
 585:                                              ; preds = %133, %174, %219, %264, %308, %353, %397, %584, %561, %520, %479, %438
-  %.pn75.pn = phi { ptr, i32 } [ %.pn75, %584 ], [ %.pn72, %561 ], [ %.pn69, %520 ], [ %.pn66, %479 ], [ %.pn63, %438 ], [ %.pn57.pn, %397 ], [ %.pn53.pn, %353 ], [ %.pn49.pn, %308 ], [ %.pn45.pn, %264 ], [ %.pn41.pn, %219 ], [ %.pn.pn, %133 ], [ %.pn37.pn, %174 ]
+  %.pn75.pn = phi { ptr, i32 } [ %.pn75, %584 ], [ %.pn72, %561 ], [ %.pn69, %520 ], [ %.pn66, %479 ], [ %.pn63, %438 ], [ %.pn57.pn, %397 ], [ %.pn53.pn, %353 ], [ %.pn49.pn, %308 ], [ %.pn45.pn, %264 ], [ %.pn41.pn, %219 ], [ %.pn37.pn, %174 ], [ %.pn.pn, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn75.pn
@@ -8634,7 +8634,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit116:          ; preds = %567, %571
   br label %585
 
 585:                                              ; preds = %133, %174, %219, %264, %308, %353, %397, %584, %561, %520, %479, %438
-  %.pn75.pn = phi { ptr, i32 } [ %.pn75, %584 ], [ %.pn72, %561 ], [ %.pn69, %520 ], [ %.pn66, %479 ], [ %.pn63, %438 ], [ %.pn57.pn, %397 ], [ %.pn53.pn, %353 ], [ %.pn49.pn, %308 ], [ %.pn45.pn, %264 ], [ %.pn41.pn, %219 ], [ %.pn.pn, %133 ], [ %.pn37.pn, %174 ]
+  %.pn75.pn = phi { ptr, i32 } [ %.pn75, %584 ], [ %.pn72, %561 ], [ %.pn69, %520 ], [ %.pn66, %479 ], [ %.pn63, %438 ], [ %.pn57.pn, %397 ], [ %.pn53.pn, %353 ], [ %.pn49.pn, %308 ], [ %.pn45.pn, %264 ], [ %.pn41.pn, %219 ], [ %.pn37.pn, %174 ], [ %.pn.pn, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn75.pn
@@ -10143,7 +10143,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit117:          ; preds = %565, %569
   br label %583
 
 583:                                              ; preds = %132, %173, %218, %263, %308, %352, %395, %582, %559, %518, %477, %436
-  %.pn76.pn = phi { ptr, i32 } [ %.pn76, %582 ], [ %.pn73, %559 ], [ %.pn70, %518 ], [ %.pn67, %477 ], [ %.pn64, %436 ], [ %.pn.pn, %132 ], [ %.pn57.pn, %395 ], [ %.pn53.pn, %352 ], [ %.pn49.pn, %308 ], [ %.pn45.pn, %263 ], [ %.pn41.pn, %218 ], [ %.pn37.pn, %173 ]
+  %.pn76.pn = phi { ptr, i32 } [ %.pn76, %582 ], [ %.pn73, %559 ], [ %.pn70, %518 ], [ %.pn67, %477 ], [ %.pn64, %436 ], [ %.pn57.pn, %395 ], [ %.pn53.pn, %352 ], [ %.pn49.pn, %308 ], [ %.pn45.pn, %263 ], [ %.pn41.pn, %218 ], [ %.pn37.pn, %173 ], [ %.pn.pn, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn76.pn
@@ -10969,7 +10969,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %193, %197
   br label %.body
 
 .body:                                            ; preds = %327, %325, %184, %152, %129
-  %.pn24.pn.pn = phi { ptr, i32 } [ %.pn.i.i, %129 ], [ %185, %184 ], [ %.pn11.i.i, %152 ], [ %.pn24.pn, %325 ], [ %.pn24.pn, %327 ]
+  %.pn24.pn.pn = phi { ptr, i32 } [ %185, %184 ], [ %.pn11.i.i, %152 ], [ %.pn.i.i, %129 ], [ %.pn24.pn, %325 ], [ %.pn24.pn, %327 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %.val51 = load ptr, ptr %34, align 8
   %storemerge.in.i101 = load i64, ptr %.val51, align 8, !tbaa !28
@@ -11177,7 +11177,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit103:          ; preds = %339, %343
   br label %.body95
 
 .body95:                                          ; preds = %396, %394, %330, %288, %265
-  %.pn29.pn.pn = phi { ptr, i32 } [ %.pn.i.i86, %265 ], [ %331, %330 ], [ %.pn11.i.i91, %288 ], [ %.pn29.pn, %394 ], [ %.pn29.pn, %396 ]
+  %.pn29.pn.pn = phi { ptr, i32 } [ %331, %330 ], [ %.pn11.i.i91, %288 ], [ %.pn.i.i86, %265 ], [ %.pn29.pn, %394 ], [ %.pn29.pn, %396 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %.val55 = load ptr, ptr %43, align 8
   %storemerge.in.i118 = load i64, ptr %.val55, align 8, !tbaa !28
@@ -13261,7 +13261,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit210: ; preds = %_Z
   br label %585
 
 585:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187, %584, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149, %448, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111, %317
-  %.pn86.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111 ], [ %.pn53.pn.pn.pn.pn.pn, %317 ], [ %.pn68.pn.pn.pn.pn, %448 ], [ %.pn86.pn.pn.pn.pn, %584 ], [ %.pn75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187 ]
+  %.pn86.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn53.pn.pn.pn.pn.pn, %317 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111 ], [ %.pn68.pn.pn.pn.pn, %448 ], [ %.pn61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149 ], [ %.pn86.pn.pn.pn.pn, %584 ], [ %.pn75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187 ]
   %586 = load ptr, ptr %11, align 8, !tbaa !348
   %587 = icmp eq ptr %586, %64
   br i1 %587, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i211

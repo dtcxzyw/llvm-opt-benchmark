@@ -461,7 +461,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %get_rdelta.exit
 
 get_rdelta.exit:                                  ; preds = %193, %202, %210
-  %.0.i = phi nsz double [ %199, %202 ], [ %199, %193 ], [ %.2.i, %210 ]
+  %.0.i = phi nsz double [ %199, %193 ], [ %.2.i, %210 ], [ %199, %202 ]
   store double %.0.i, ptr %60, align 8, !tbaa !67
   %216 = load i32, ptr %62, align 4, !tbaa !69
   %217 = icmp sgt i32 %216, 1
@@ -831,7 +831,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   br label %59
 
 59:                                               ; preds = %55, %50, %18, %27, %1, %58
-  %.0 = phi i32 [ -22, %1 ], [ -22, %58 ], [ -12, %50 ], [ -12, %18 ], [ -12, %27 ], [ 0, %55 ]
+  %.0 = phi i32 [ -22, %58 ], [ -22, %1 ], [ -12, %27 ], [ -12, %18 ], [ -12, %50 ], [ 0, %55 ]
   ret i32 %.0
 }
 
@@ -909,7 +909,7 @@ define internal i32 @request_frame(ptr noundef %0) #3 {
   br label %27
 
 27:                                               ; preds = %1, %10, %16, %14
-  %.1 = phi i32 [ -12, %14 ], [ %26, %16 ], [ -541478725, %10 ], [ %8, %1 ]
+  %.1 = phi i32 [ %26, %16 ], [ -12, %14 ], [ -541478725, %10 ], [ %8, %1 ]
   ret i32 %.1
 }
 

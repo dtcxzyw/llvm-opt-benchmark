@@ -194,7 +194,7 @@ _ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv.exit.sink.spl
   br label %_ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv.exit
 
 _ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv.exit: ; preds = %_ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv.exit.sink.split, %10, %5, %7
-  %.0 = phi ptr [ @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, %7 ], [ @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, %10 ], [ @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, %5 ], [ %.0.ph, %_ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv.exit.sink.split ]
+  %.0 = phi ptr [ @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, %7 ], [ @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, %5 ], [ @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, %10 ], [ %.0.ph, %_ZN4absl13base_internal12_GLOBAL__N_125UnhookedAsyncSigSafeArenaEv.exit.sink.split ]
   %12 = tail call noundef ptr @_ZN4absl13base_internal13LowLevelAlloc14AllocWithArenaEmPNS1_5ArenaE(i64 noundef 328, ptr noundef nonnull %.0)
   tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 8 dereferenceable(324) %12, i32 noundef 0)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 288
@@ -1064,9 +1064,9 @@ _ZN4absl13base_internalL7IntLog2Emm.exit.i:       ; preds = %_ZN4absl13base_inte
   br i1 %.not22.i, label %77, label %.invoke205, !prof !4
 
 .invoke205:                                       ; preds = %71, %70, %66, %61, %54
-  %74 = phi i32 [ 461, %70 ], [ 459, %66 ], [ 458, %61 ], [ 453, %54 ], [ 464, %71 ]
-  %75 = phi ptr [ @.str.40, %70 ], [ @.str.38, %66 ], [ @.str.36, %61 ], [ @.str.34, %54 ], [ @.str.42, %71 ]
-  %76 = phi ptr [ @.str.41, %70 ], [ @.str.39, %66 ], [ @.str.37, %61 ], [ @.str.35, %54 ], [ @.str.43, %71 ]
+  %74 = phi i32 [ 453, %54 ], [ 458, %61 ], [ 459, %66 ], [ 461, %70 ], [ 464, %71 ]
+  %75 = phi ptr [ @.str.34, %54 ], [ @.str.36, %61 ], [ @.str.38, %66 ], [ @.str.40, %70 ], [ @.str.42, %71 ]
+  %76 = phi ptr [ @.str.35, %54 ], [ @.str.37, %61 ], [ @.str.39, %66 ], [ @.str.41, %70 ], [ @.str.43, %71 ]
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef %74, ptr noundef nonnull @.str.1, ptr noundef nonnull %75, ptr noundef nonnull %76)
           to label %.cont206 unwind label %82
 
@@ -1395,7 +1395,7 @@ _ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev.exit: ; preds = %_ZN4absl13b
   br label %206
 
 206:                                              ; preds = %.loopexit, %.loopexit.split-lp, %82, %110, %124, %100, %205, %80
-  %.pn82.pn.pn.pn = phi { ptr, i32 } [ %81, %80 ], [ %.pn, %205 ], [ %83, %82 ], [ %125, %124 ], [ %101, %100 ], [ %111, %110 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn82.pn.pn.pn = phi { ptr, i32 } [ %.pn, %205 ], [ %81, %80 ], [ %83, %82 ], [ %101, %100 ], [ %111, %110 ], [ %125, %124 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val = load i8, ptr %4, align 8, !tbaa !28, !range !34, !noundef !35
   call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_19ArenaLockD2Ev(i8 %.val) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

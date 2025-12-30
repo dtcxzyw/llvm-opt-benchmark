@@ -702,7 +702,7 @@ iso14443_get_transaction.exit.thread.sink.split.i: ; preds = %101, %82
   br label %iso14443_get_transaction.exit.thread.i
 
 iso14443_get_transaction.exit.thread.i:           ; preds = %iso14443_get_transaction.exit.thread.sink.split.i, %101, %97, %95, %82, %79, %76, %72
-  %.0.i.ph.i = phi ptr [ %71, %72 ], [ %90, %101 ], [ %90, %97 ], [ %71, %79 ], [ %71, %76 ], [ %90, %95 ], [ %71, %82 ], [ %.0.i.ph.ph.i, %iso14443_get_transaction.exit.thread.sink.split.i ]
+  %.0.i.ph.i = phi ptr [ %90, %101 ], [ %90, %97 ], [ %71, %82 ], [ %71, %79 ], [ %90, %95 ], [ %71, %72 ], [ %71, %76 ], [ %.0.i.ph.ph.i, %iso14443_get_transaction.exit.thread.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %113
@@ -795,7 +795,7 @@ iso14443_get_transaction.exit.i:                  ; preds = %63
   br i1 %or.cond23.i.i, label %145, label %iso14443_get_cmd_type.exit.i
 
 145:                                              ; preds = %137, %134, %126, %123, %122, %121, %120, %119, %116
-  %.0.i35.ph.i = phi i32 [ 6, %126 ], [ 6, %137 ], [ 3, %123 ], [ 1, %119 ], [ 4, %122 ], [ 5, %121 ], [ 2, %120 ], [ 0, %116 ], [ %136, %134 ]
+  %.0.i35.ph.i = phi i32 [ 6, %137 ], [ 6, %126 ], [ %136, %134 ], [ 3, %123 ], [ 1, %119 ], [ 0, %116 ], [ 4, %122 ], [ 5, %121 ], [ 2, %120 ]
   %146 = getelementptr inbounds nuw i8, ptr %.0.i39.i, i64 8
   store i32 %.0.i35.ph.i, ptr %146, align 4
   br label %iso14443_get_cmd_type.exit.i
@@ -818,7 +818,7 @@ iso14443_get_cmd_type.exit.i:                     ; preds = %145, %137, %126, %1
   br label %dissect_iso14443_msg.exit
 
 dissect_iso14443_msg.exit:                        ; preds = %iso14443_get_cmd_type.exit.i, %154
-  %.028.i = phi i32 [ %152, %iso14443_get_cmd_type.exit.i ], [ %157, %154 ]
+  %.028.i = phi i32 [ %157, %154 ], [ %152, %iso14443_get_cmd_type.exit.i ]
   %.028.i.fr = freeze i32 %.028.i
   %158 = call i32 @llvm.smax.i32(i32 %.028.i.fr, i32 0)
   %spec.select = add nuw i32 %158, 4
@@ -840,7 +840,7 @@ dissect_iso14443_msg.exit:                        ; preds = %iso14443_get_cmd_ty
   br label %dissect_iso14443_msg.exit.thread
 
 dissect_iso14443_msg.exit.thread:                 ; preds = %dissect_iso14443_msg.exit, %iso14443_get_transaction.exit.thread41.i, %iso14443_get_transaction.exit.i, %164, %159, %15, %11, %9, %4
-  %.0 = phi i32 [ 0, %9 ], [ 0, %4 ], [ 0, %11 ], [ 0, %15 ], [ 4, %159 ], [ 4, %164 ], [ 4, %iso14443_get_transaction.exit.thread41.i ], [ %spec.select, %dissect_iso14443_msg.exit ], [ 4, %iso14443_get_transaction.exit.i ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %11 ], [ 0, %15 ], [ 4, %164 ], [ 4, %159 ], [ 4, %iso14443_get_transaction.exit.i ], [ 4, %iso14443_get_transaction.exit.thread41.i ], [ %spec.select, %dissect_iso14443_msg.exit ]
   ret i32 %.0
 }
 
@@ -945,8 +945,8 @@ define internal range(i32 0, 3) i32 @dissect_iso14443_cmd_type_wupa(ptr noundef 
 default.unreachable:                              ; preds = %17
   unreachable
 
-30:                                               ; preds = %17, %28, %29
-  %.046.ph = phi i32 [ 10, %29 ], [ 7, %28 ], [ 4, %17 ]
+30:                                               ; preds = %28, %29, %17
+  %.046.ph = phi i32 [ 4, %17 ], [ 10, %29 ], [ 7, %28 ]
   %31 = load i32, ptr @hf_iso14443_uid_bits, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
   %33 = load i32, ptr @hf_iso14443_uid_size, align 4
@@ -981,7 +981,7 @@ proto_item_set_generated.exit:                    ; preds = %38, %35, %30, %42
   br label %50
 
 50:                                               ; preds = %4, %8, %14, %proto_item_set_generated.exit
-  %.0 = phi i32 [ 0, %4 ], [ 2, %proto_item_set_generated.exit ], [ 1, %14 ], [ 1, %8 ]
+  %.0 = phi i32 [ 2, %proto_item_set_generated.exit ], [ 1, %14 ], [ 1, %8 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1700,7 +1700,7 @@ proto_item_set_generated.exit.i:                  ; preds = %54, %51, %44, %10
   br label %dissect_iso14443_attrib.exit
 
 dissect_iso14443_attrib.exit:                     ; preds = %.thread, %77, %.thread.i, %4, %106
-  %.0 = phi i32 [ 0, %4 ], [ %spec.select46, %.thread ], [ %114, %106 ], [ %spec.select93.i, %.thread.i ], [ %86, %77 ]
+  %.0 = phi i32 [ %114, %106 ], [ 0, %4 ], [ %86, %77 ], [ %spec.select93.i, %.thread.i ], [ %spec.select46, %.thread ]
   ret i32 %.0
 }
 

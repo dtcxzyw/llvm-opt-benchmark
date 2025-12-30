@@ -137,7 +137,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-14:                                               ; preds = %9, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hf57f282e6bfc20bcE.exit.i"
+14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hf57f282e6bfc20bcE.exit.i", %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h741546456d46718aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #16
@@ -499,7 +499,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN5tokio4sync7oneshot15Sender$LT$T$GT
           to label %21 unwind label %22
 
 "_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..oneshot..Inner$LT$bool$GT$$GT$$GT$17hb0246c54cea82555E.exit14": ; preds = %42, %39, %38, %34
-  %.sroa.0.0 = phi i8 [ 2, %38 ], [ 2, %34 ], [ %33, %39 ], [ %33, %42 ]
+  %.sroa.0.0 = phi i8 [ 2, %34 ], [ 2, %38 ], [ %33, %39 ], [ %33, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @"_ZN4core3ptr61drop_in_place$LT$tokio..sync..oneshot..Sender$LT$bool$GT$$GT$17h0ff170f46c645263E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
   ret i8 %.sroa.0.0
@@ -788,7 +788,7 @@ _ZN4core3ops8function6FnOnce9call_once17h119fbab1e8805f36E.exit.thread7.i.i: ; p
   unreachable
 
 .body.thread.i:                                   ; preds = %43, %38, %36, %32
-  %eh.lpad-body12.i = phi { ptr, i32 } [ %37, %36 ], [ %lpad.thr_comm.split-lp.i, %43 ], [ %39, %38 ], [ %33, %32 ]
+  %eh.lpad-body12.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %43 ], [ %33, %32 ], [ %37, %36 ], [ %39, %38 ]
   resume { ptr, i32 } %eh.lpad-body12.i
 
 43:                                               ; preds = %3
@@ -1016,7 +1016,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   unreachable
 
 .critedge:                                        ; preds = %20, %.noexc36
-  %eh.lpad-body40 = phi { ptr, i32 } [ %21, %20 ], [ %26, %.noexc36 ]
+  %eh.lpad-body40 = phi { ptr, i32 } [ %26, %.noexc36 ], [ %21, %20 ]
   resume { ptr, i32 } %eh.lpad-body40
 
 .noexc36:                                         ; preds = %29, %25
@@ -1107,7 +1107,7 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   unreachable
 
 .critedge:                                        ; preds = %18, %.noexc32
-  %eh.lpad-body36 = phi { ptr, i32 } [ %19, %18 ], [ %24, %.noexc32 ]
+  %eh.lpad-body36 = phi { ptr, i32 } [ %24, %.noexc32 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body36
 
 .noexc32:                                         ; preds = %27, %23
@@ -1300,7 +1300,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %17, %21
-  %.pn6 = phi { ptr, i32 } [ %18, %17 ], [ %22, %21 ]
+  %.pn6 = phi { ptr, i32 } [ %22, %21 ], [ %18, %17 ]
   resume { ptr, i32 } %.pn6
 
 21:                                               ; preds = %2
@@ -1363,7 +1363,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %17, %21
-  %.pn6 = phi { ptr, i32 } [ %18, %17 ], [ %22, %21 ]
+  %.pn6 = phi { ptr, i32 } [ %22, %21 ], [ %18, %17 ]
   resume { ptr, i32 } %.pn6
 
 21:                                               ; preds = %2

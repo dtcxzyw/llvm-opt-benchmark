@@ -191,7 +191,7 @@ ASN1_TYPE_set.exit:                               ; preds = %17, %20
   br label %44
 
 44:                                               ; preds = %ASN1_TYPE_set.exit, %.thread, %.thread34, %34, %24
-  %.1 = phi i32 [ 0, %34 ], [ 0, %24 ], [ 1, %.thread34 ], [ 1, %.thread ], [ 1, %ASN1_TYPE_set.exit ]
+  %.1 = phi i32 [ 0, %24 ], [ 0, %34 ], [ 1, %.thread34 ], [ 1, %.thread ], [ 1, %ASN1_TYPE_set.exit ]
   ret i32 %.1
 }
 
@@ -244,7 +244,7 @@ define i32 @ASN1_TYPE_cmp(ptr noundef readonly captures(address_is_null) %0, ptr
   br label %27
 
 27:                                               ; preds = %9, %15, %21, %8, %2, %5
-  %.013 = phi i32 [ -1, %2 ], [ -1, %5 ], [ %26, %21 ], [ %14, %9 ], [ %20, %15 ], [ 0, %8 ]
+  %.013 = phi i32 [ -1, %5 ], [ -1, %2 ], [ %26, %21 ], [ %14, %9 ], [ %20, %15 ], [ 0, %8 ]
   ret i32 %.013
 }
 
@@ -287,7 +287,7 @@ define noundef ptr @ASN1_TYPE_pack_sequence(ptr noundef %0, ptr noundef %1, ptr 
   br label %17
 
 17:                                               ; preds = %10, %8, %16
-  %.0 = phi ptr [ %9, %8 ], [ %13, %16 ], [ %11, %10 ]
+  %.0 = phi ptr [ %13, %16 ], [ %9, %8 ], [ %11, %10 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.0, ptr %4, align 8, !tbaa !9
   %18 = load i32, ptr %.0, align 8, !tbaa !3
@@ -316,7 +316,7 @@ ASN1_TYPE_set.exit:                               ; preds = %17, %17, %19, %22
   br label %25
 
 25:                                               ; preds = %3, %ASN1_TYPE_set.exit, %15
-  %.015 = phi ptr [ null, %15 ], [ %.0, %ASN1_TYPE_set.exit ], [ null, %3 ]
+  %.015 = phi ptr [ %.0, %ASN1_TYPE_set.exit ], [ null, %15 ], [ null, %3 ]
   ret ptr %.015
 }
 

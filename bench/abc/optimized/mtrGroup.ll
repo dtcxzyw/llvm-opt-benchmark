@@ -323,7 +323,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br i1 %.not197, label %.loopexit, label %124, !llvm.loop !20
 
 .loopexit:                                        ; preds = %9, %tailrecurse, %124, %97, %4, %.critedge2, %103, %83, %.thread, %72, %69, %71, %58, %43, %27, %46, %30, %17
-  %.0175 = phi ptr [ null, %103 ], [ null, %.critedge2 ], [ %.tr, %17 ], [ null, %4 ], [ %28, %30 ], [ null, %27 ], [ %44, %46 ], [ %104, %124 ], [ null, %43 ], [ null, %58 ], [ %59, %69 ], [ null, %72 ], [ null, %.thread ], [ null, %83 ], [ %59, %71 ], [ %84, %97 ], [ null, %tailrecurse ], [ null, %9 ]
+  %.0175 = phi ptr [ %.tr, %17 ], [ %28, %30 ], [ %44, %46 ], [ null, %27 ], [ null, %43 ], [ null, %58 ], [ %59, %71 ], [ %59, %69 ], [ null, %72 ], [ null, %.thread ], [ null, %83 ], [ null, %103 ], [ null, %.critedge2 ], [ null, %4 ], [ %84, %97 ], [ %104, %124 ], [ null, %tailrecurse ], [ null, %9 ]
   ret ptr %.0175
 }
 
@@ -470,7 +470,7 @@ tailrecurse:                                      ; preds = %3, %._crit_edge
   br i1 %.not33, label %.split39, label %tailrecurse
 
 .split39:                                         ; preds = %9, %tailrecurse, %14, %17, %._crit_edge, %3
-  %.026.split = phi ptr [ null, %3 ], [ null, %17 ], [ null, %9 ], [ null, %tailrecurse ], [ %.tr, %14 ], [ null, %._crit_edge ]
+  %.026.split = phi ptr [ null, %3 ], [ null, %9 ], [ null, %tailrecurse ], [ %.tr, %14 ], [ null, %17 ], [ null, %._crit_edge ]
   ret ptr %.026.split
 }
 
@@ -552,7 +552,7 @@ define range(i32 0, 2) i32 @Mtr_SwapGroups(ptr noundef %0, ptr noundef %1) local
   br label %43
 
 43:                                               ; preds = %40, %34, %9, %17, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %34 ], [ %42, %40 ], [ 0, %9 ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %17 ], [ 0, %9 ], [ 0, %34 ], [ %42, %40 ]
   ret i32 %.0
 }
 
@@ -778,7 +778,7 @@ Mtr_InitGroupTree.exit:                           ; preds = %2
   br label %34
 
 34:                                               ; preds = %.preheader, %26, %28, %30, %32
-  %.1 = phi i32 [ %.024, %.preheader ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ]
+  %.1 = phi i32 [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %.024, %.preheader ]
   %35 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %.preheader, !llvm.loop !27
 
@@ -792,7 +792,7 @@ Mtr_InitGroupTree.exit.thread.sink.split:         ; preds = %36, %22, %14, %17, 
   br label %Mtr_InitGroupTree.exit.thread
 
 Mtr_InitGroupTree.exit.thread:                    ; preds = %10, %12, %.preheader, %Mtr_InitGroupTree.exit.thread.sink.split, %2
-  %.023 = phi ptr [ null, %.preheader ], [ null, %2 ], [ null, %Mtr_InitGroupTree.exit.thread.sink.split ], [ %6, %12 ], [ %6, %10 ]
+  %.023 = phi ptr [ null, %2 ], [ null, %Mtr_InitGroupTree.exit.thread.sink.split ], [ null, %.preheader ], [ %6, %12 ], [ %6, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

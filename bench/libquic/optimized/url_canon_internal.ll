@@ -281,7 +281,7 @@ _ZN4base16IsValidCharacterEj.exit.thread6:        ; preds = %10, %4
   br label %_ZN4base16IsValidCharacterEj.exit.thread
 
 _ZN4base16IsValidCharacterEj.exit.thread:         ; preds = %10, %6, %_ZN4base16IsValidCharacterEj.exit.thread6
-  %.0 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6 ], [ true, %10 ], [ true, %6 ]
+  %.0 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6 ], [ true, %6 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -313,7 +313,7 @@ _ZN4base16IsValidCharacterEj.exit.thread6:        ; preds = %10, %4
   br label %_ZN4base16IsValidCharacterEj.exit.thread
 
 _ZN4base16IsValidCharacterEj.exit.thread:         ; preds = %10, %6, %_ZN4base16IsValidCharacterEj.exit.thread6
-  %.0 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6 ], [ true, %10 ], [ true, %6 ]
+  %.0 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6 ], [ true, %6 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -368,7 +368,7 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i.i.i:  ; preds = %21, %15
   br label %_ZN3url21AppendUTF8EscapedCharEPKcPiiPNS_12CanonOutputTIcEE.exit.i
 
 _ZN3url21AppendUTF8EscapedCharEPKcPiiPNS_12CanonOutputTIcEE.exit.i: ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i, %21, %17
-  %25 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i ], [ %18, %21 ], [ %18, %17 ]
+  %25 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i ], [ %18, %17 ], [ %18, %21 ]
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %25, ptr noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
@@ -484,7 +484,7 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i.i.i:  ; preds = %21, %15
   br label %_ZN3url21AppendUTF8EscapedCharEPKtPiiPNS_12CanonOutputTIcEE.exit.i
 
 _ZN3url21AppendUTF8EscapedCharEPKtPiiPNS_12CanonOutputTIcEE.exit.i: ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i, %21, %17
-  %25 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i ], [ %18, %21 ], [ %18, %17 ]
+  %25 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i ], [ %18, %17 ], [ %18, %21 ]
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %25, ptr noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
@@ -593,8 +593,8 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i:      ; preds = %12, %.lr.ph
   br label %_ZN3url11ReadUTFCharEPKtPiiPj.exit
 
 _ZN3url11ReadUTFCharEPKtPiiPj.exit:               ; preds = %8, %12, %_ZN4base16IsValidCharacterEj.exit.thread6.i
-  %16 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i ], [ %9, %12 ], [ %9, %8 ]
-  %.0.i = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i ], [ true, %12 ], [ true, %8 ]
+  %16 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i ], [ %9, %8 ], [ %9, %12 ]
+  %.0.i = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i ], [ true, %8 ], [ true, %12 ]
   %17 = and i1 %.06, %.0.i
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %16, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -997,8 +997,8 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i.i.i:  ; preds = %40, %.lr.ph.i.i
   br label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i
 
 _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i:           ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i, %40, %36
-  %44 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i ], [ %37, %40 ], [ %37, %36 ]
-  %.0.i.i.i = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i ], [ true, %40 ], [ true, %36 ]
+  %44 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i ], [ %37, %36 ], [ %37, %40 ]
+  %.0.i.i.i = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i ], [ true, %36 ], [ true, %40 ]
   %45 = and i1 %.06.i.i, %.0.i.i.i
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %44, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -1081,8 +1081,8 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80: ; preds = %73, %.lr.ph.i.i78
   br label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i81
 
 _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i81:         ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80, %73, %69
-  %77 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80 ], [ %70, %73 ], [ %70, %69 ]
-  %.0.i.i.i82 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80 ], [ true, %73 ], [ true, %69 ]
+  %77 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80 ], [ %70, %69 ], [ %70, %73 ]
+  %.0.i.i.i82 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80 ], [ true, %69 ], [ true, %73 ]
   %78 = and i1 %.06.i.i79, %.0.i.i.i82
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %77, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -1165,8 +1165,8 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98: ; preds = %106, %.lr.ph.i.i96
   br label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i99
 
 _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i99:         ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98, %106, %102
-  %110 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98 ], [ %103, %106 ], [ %103, %102 ]
-  %.0.i.i.i100 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98 ], [ true, %106 ], [ true, %102 ]
+  %110 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98 ], [ %103, %102 ], [ %103, %106 ]
+  %.0.i.i.i100 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98 ], [ true, %102 ], [ true, %106 ]
   %111 = and i1 %.06.i.i97, %.0.i.i.i100
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %110, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -1249,8 +1249,8 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116: ; preds = %139, %.lr.ph.i.i1
   br label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i117
 
 _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i117:        ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116, %139, %135
-  %143 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116 ], [ %136, %139 ], [ %136, %135 ]
-  %.0.i.i.i118 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116 ], [ true, %139 ], [ true, %135 ]
+  %143 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116 ], [ %136, %135 ], [ %136, %139 ]
+  %.0.i.i.i118 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116 ], [ true, %135 ], [ true, %139 ]
   %144 = and i1 %.06.i.i115, %.0.i.i.i118
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %143, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -1333,8 +1333,8 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134: ; preds = %172, %.lr.ph.i.i1
   br label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i135
 
 _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i135:        ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134, %172, %168
-  %176 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134 ], [ %169, %172 ], [ %169, %168 ]
-  %.0.i.i.i136 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134 ], [ true, %172 ], [ true, %168 ]
+  %176 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134 ], [ %169, %168 ], [ %169, %172 ]
+  %.0.i.i.i136 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134 ], [ true, %168 ], [ true, %172 ]
   %177 = and i1 %.06.i.i133, %.0.i.i.i136
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %176, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1417,8 +1417,8 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152: ; preds = %205, %.lr.ph.i.i1
   br label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i153
 
 _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i153:        ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152, %205, %201
-  %209 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152 ], [ %202, %205 ], [ %202, %201 ]
-  %.0.i.i.i154 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152 ], [ true, %205 ], [ true, %201 ]
+  %209 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152 ], [ %202, %201 ], [ %202, %205 ]
+  %.0.i.i.i154 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152 ], [ true, %201 ], [ true, %205 ]
   %210 = and i1 %.06.i.i151, %.0.i.i.i154
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %209, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1501,8 +1501,8 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170: ; preds = %238, %.lr.ph.i.i1
   br label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i171
 
 _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i171:        ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170, %238, %234
-  %242 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170 ], [ %235, %238 ], [ %235, %234 ]
-  %.0.i.i.i172 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170 ], [ true, %238 ], [ true, %234 ]
+  %242 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170 ], [ %235, %234 ], [ %235, %238 ]
+  %.0.i.i.i172 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170 ], [ true, %234 ], [ true, %238 ]
   %243 = and i1 %.06.i.i169, %.0.i.i.i172
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %242, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1585,8 +1585,8 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188: ; preds = %271, %.lr.ph.i.i1
   br label %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i189
 
 _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i189:        ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188, %271, %267
-  %275 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188 ], [ %268, %271 ], [ %268, %267 ]
-  %.0.i.i.i190 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188 ], [ true, %271 ], [ true, %267 ]
+  %275 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188 ], [ %268, %267 ], [ %268, %271 ]
+  %.0.i.i.i190 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188 ], [ true, %267 ], [ true, %271 ]
   %276 = and i1 %.06.i.i187, %.0.i.i.i190
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %275, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

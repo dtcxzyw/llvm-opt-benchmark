@@ -967,7 +967,7 @@ sub_1:                                            ; preds = %sub_0
   br label %107
 
 107:                                              ; preds = %104, %.tail.thread, %.tail
-  %.0 = phi i32 [ %spec.select, %104 ], [ 16777216, %.tail ], [ 33554432, %.tail.thread ]
+  %.0 = phi i32 [ 16777216, %.tail ], [ 33554432, %.tail.thread ], [ %spec.select, %104 ]
   %108 = load i32, ptr %1, align 4
   %109 = or i32 %108, %.0
   store i32 %109, ptr %1, align 4

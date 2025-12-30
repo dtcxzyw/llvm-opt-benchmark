@@ -393,8 +393,8 @@ skip_put_bytes.exit:                              ; preds = %flush_put_bits.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %put_bits.exit, %26, %skip_put_bytes.exit
-  %128 = phi i32 [ %.pre67, %skip_put_bytes.exit ], [ %16, %26 ], [ %55, %put_bits.exit ]
-  %129 = phi i32 [ %.pre65, %skip_put_bytes.exit ], [ %.pre66, %26 ], [ %.026.i.i, %put_bits.exit ]
+  %128 = phi i32 [ %16, %26 ], [ %.pre67, %skip_put_bytes.exit ], [ %55, %put_bits.exit ]
+  %129 = phi i32 [ %.pre66, %26 ], [ %.pre65, %skip_put_bytes.exit ], [ %.026.i.i, %put_bits.exit ]
   %130 = shl nsw i32 %4, 1
   %131 = sext i32 %130 to i64
   %132 = getelementptr inbounds i8, ptr %1, i64 %131

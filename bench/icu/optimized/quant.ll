@@ -158,7 +158,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -675,7 +675,7 @@ define noundef range(i32 0, 3) i32 @_ZN6icu_7710Quantifier7matchesERKNS_11Replac
   br label %.thread34
 
 .thread34:                                        ; preds = %28, %33, %.thread, %36
-  %.2 = phi i32 [ 2, %33 ], [ 0, %36 ], [ 1, %.thread ], [ 1, %28 ]
+  %.2 = phi i32 [ 0, %36 ], [ 1, %.thread ], [ 2, %33 ], [ 1, %28 ]
   ret i32 %.2
 }
 
@@ -741,7 +741,7 @@ define noundef range(i32 0, 3) i32 @_ZThn8_N6icu_7710Quantifier7matchesERKNS_11R
   br label %_ZN6icu_7710Quantifier7matchesERKNS_11ReplaceableERiia.exit
 
 _ZN6icu_7710Quantifier7matchesERKNS_11ReplaceableERiia.exit: ; preds = %28, %.thread.i, %33, %36
-  %.2.i = phi i32 [ 2, %33 ], [ 0, %36 ], [ 1, %.thread.i ], [ 1, %28 ]
+  %.2.i = phi i32 [ 0, %36 ], [ 1, %.thread.i ], [ 2, %33 ], [ 1, %28 ]
   ret i32 %.2.i
 }
 

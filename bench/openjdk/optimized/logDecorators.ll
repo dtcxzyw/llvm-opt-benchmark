@@ -69,7 +69,7 @@ define hidden noundef range(i32 0, 14) i32 @_ZN13LogDecorators11from_stringEPKc(
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %12, %.split.loop.exit11, %.split.loop.exit9
-  %.0 = phi i32 [ %15, %.split.loop.exit11 ], [ %14, %.split.loop.exit9 ], [ 13, %12 ]
+  %.0 = phi i32 [ %14, %.split.loop.exit9 ], [ %15, %.split.loop.exit11 ], [ 13, %12 ]
   ret i32 %.0
 }
 

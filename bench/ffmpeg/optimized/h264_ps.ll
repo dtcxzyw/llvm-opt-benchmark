@@ -1207,7 +1207,7 @@ define internal fastcc i32 @decode_scaling_matrices(ptr noundef captures(none) %
   br label %65
 
 65:                                               ; preds = %64, %.thread78
-  %.0 = phi i32 [ %spec.select, %64 ], [ 0, %.thread78 ]
+  %.0 = phi i32 [ 0, %.thread78 ], [ %spec.select, %64 ]
   ret i32 %.0
 }
 
@@ -1762,7 +1762,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_vui_parameters(ptr 
   br label %261
 
 261:                                              ; preds = %.thread, %155, %258, %._crit_edge98, %127, %108, %260, %17
-  %.0 = phi i32 [ 0, %17 ], [ -1094995529, %127 ], [ -1094995529, %108 ], [ -1094995529, %260 ], [ 0, %._crit_edge98 ], [ 0, %258 ], [ 0, %155 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %17 ], [ -1094995529, %260 ], [ -1094995529, %108 ], [ -1094995529, %127 ], [ 0, %._crit_edge98 ], [ 0, %258 ], [ 0, %155 ], [ 0, %.thread ]
   ret i32 %.0
 }
 
@@ -2251,7 +2251,7 @@ get_ue_golomb.exit:                               ; preds = %28
   br label %312
 
 311:                                              ; preds = %267, %150, %237, %149, %137, %103, %101, %94
-  %.0 = phi i32 [ -1094995529, %94 ], [ -1094995529, %101 ], [ -1163346256, %103 ], [ -1163346256, %137 ], [ -1094995529, %149 ], [ -1094995529, %150 ], [ %265, %237 ], [ -1094995529, %267 ]
+  %.0 = phi i32 [ -1094995529, %94 ], [ -1094995529, %101 ], [ -1163346256, %103 ], [ -1163346256, %137 ], [ -1094995529, %149 ], [ %265, %237 ], [ -1094995529, %150 ], [ -1094995529, %267 ]
   call void @av_refstruct_unref(ptr noundef nonnull %5) #11
   br label %312
 
@@ -2860,7 +2860,7 @@ get_se_golomb.exit:                               ; preds = %44, %54
   br label %.loopexit
 
 83:                                               ; preds = %.thread, %.preheader
-  %.138 = phi i32 [ %81, %.thread ], [ 0, %.preheader ]
+  %.138 = phi i32 [ 0, %.preheader ], [ %81, %.thread ]
   %84 = icmp ne i64 %indvars.iv, 0
   %85 = icmp ne i32 %.138, 0
   %or.cond3 = select i1 %84, i1 true, i1 %85
@@ -2883,7 +2883,7 @@ get_se_golomb.exit:                               ; preds = %44, %54
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !132
 
 .loopexit:                                        ; preds = %87, %82, %31, %86
-  %.3 = phi i32 [ -1094995529, %82 ], [ 0, %31 ], [ 0, %86 ], [ 0, %87 ]
+  %.3 = phi i32 [ -1094995529, %82 ], [ 0, %86 ], [ 0, %31 ], [ 0, %87 ]
   ret i32 %.3
 }
 

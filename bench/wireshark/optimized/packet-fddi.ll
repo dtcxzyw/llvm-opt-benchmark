@@ -243,7 +243,7 @@ define internal zeroext i1 @capture_fddi(ptr noundef %0, i32 %1, i32 noundef %2,
   br label %18
 
 18:                                               ; preds = %10, %5, %15
-  %.0 = phi i1 [ false, %5 ], [ %17, %15 ], [ false, %10 ]
+  %.0 = phi i1 [ %17, %15 ], [ false, %5 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -365,7 +365,7 @@ define internal fastcc void @dissect_fddi(ptr noundef %0, ptr noundef initialize
   br label %fddifc_to_str.exit
 
 fddifc_to_str.exit:                               ; preds = %4, %24, %25, %26, %27, %28, %29, %30, %33, %36, %41, %44, %47, %49, %51, %54
-  %.0.i = phi ptr [ @.str.57, %47 ], [ @fddifc_to_str.strbuf, %33 ], [ @fddifc_to_str.strbuf, %36 ], [ @.str.45, %4 ], [ @fddifc_to_str.strbuf, %49 ], [ @fddifc_to_str.strbuf, %41 ], [ @fddifc_to_str.strbuf, %51 ], [ @fddifc_to_str.strbuf, %54 ], [ @.str.51, %29 ], [ @.str.46, %24 ], [ @.str.47, %25 ], [ @.str.48, %26 ], [ @.str.49, %27 ], [ @.str.50, %28 ], [ @fddifc_to_str.strbuf, %44 ], [ @.str.60, %30 ]
+  %.0.i = phi ptr [ @fddifc_to_str.strbuf, %33 ], [ @fddifc_to_str.strbuf, %36 ], [ @fddifc_to_str.strbuf, %49 ], [ @fddifc_to_str.strbuf, %51 ], [ @fddifc_to_str.strbuf, %54 ], [ @.str.46, %24 ], [ @.str.47, %25 ], [ @.str.48, %26 ], [ @.str.49, %27 ], [ @.str.50, %28 ], [ @.str.51, %29 ], [ @.str.45, %4 ], [ @fddifc_to_str.strbuf, %44 ], [ @fddifc_to_str.strbuf, %41 ], [ @.str.57, %47 ], [ @.str.60, %30 ]
   %57 = load ptr, ptr %17, align 8
   tail call void @col_add_str(ptr noundef %57, i32 noundef 25, ptr noundef nonnull %.0.i)
   %.not = icmp eq ptr %2, null
@@ -414,7 +414,7 @@ fddifc_to_str.exit:                               ; preds = %4, %24, %25, %26, %
   br i1 %.not97, label %.sink.split, label %92
 
 .sink.split:                                      ; preds = %85, %84, %58
-  %hf_fddi_fc_smt_subtype.sink = phi ptr [ @hf_fddi_fc_mac_subtype, %84 ], [ @hf_fddi_fc_smt_subtype, %58 ], [ @hf_fddi_fc_prio, %85 ]
+  %hf_fddi_fc_smt_subtype.sink = phi ptr [ @hf_fddi_fc_smt_subtype, %58 ], [ @hf_fddi_fc_mac_subtype, %84 ], [ @hf_fddi_fc_prio, %85 ]
   %87 = load i32, ptr %hf_fddi_fc_smt_subtype.sink, align 4
   %88 = load i8, ptr @fddi_padding, align 1, !range !6, !noundef !7
   %89 = trunc nuw i8 %88 to i1
@@ -423,7 +423,7 @@ fddifc_to_str.exit:                               ; preds = %4, %24, %25, %26, %
   br label %92
 
 92:                                               ; preds = %.sink.split, %58, %84, %85, %fddifc_to_str.exit
-  %.0 = phi ptr [ %65, %58 ], [ %65, %85 ], [ null, %fddifc_to_str.exit ], [ %65, %84 ], [ %65, %.sink.split ]
+  %.0 = phi ptr [ %65, %58 ], [ %65, %84 ], [ %65, %85 ], [ null, %fddifc_to_str.exit ], [ %65, %.sink.split ]
   %93 = load i8, ptr @fddi_padding, align 1, !range !6, !noundef !7
   %94 = trunc nuw i8 %93 to i1
   %95 = select i1 %94, i32 4, i32 1

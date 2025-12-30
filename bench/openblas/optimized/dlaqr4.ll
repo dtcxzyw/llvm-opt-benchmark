@@ -271,8 +271,8 @@ define void @dlaqr4_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %166
 
 166:                                              ; preds = %159, %157, %161
-  %167 = phi i32 [ %158, %159 ], [ %165, %161 ], [ %158, %157 ]
-  %.1482 = phi i32 [ %.0481544, %159 ], [ %spec.store.select, %161 ], [ -1, %157 ]
+  %167 = phi i32 [ %165, %161 ], [ %158, %157 ], [ %158, %159 ]
+  %.1482 = phi i32 [ %spec.store.select, %161 ], [ -1, %157 ], [ %.0481544, %159 ]
   %168 = load i32, ptr %2, align 4, !tbaa !3
   %169 = sub nsw i32 %168, %167
   %170 = add nsw i32 %169, 1

@@ -220,7 +220,7 @@ loader_set_params.exit:                           ; preds = %52
   %79 = icmp eq ptr %78, null
   br i1 %79, label %loader_set_params.exit.thread133, label %loader_set_params.exit.thread138
 
-loader_set_params.exit.thread133:                 ; preds = %60, %74, %57, %loader_set_params.exit
+loader_set_params.exit.thread133:                 ; preds = %57, %60, %74, %loader_set_params.exit
   call void @OSSL_STORE_LOADER_free(ptr noundef nonnull %51) #9
   br label %loader_set_params.exit.thread138
 
@@ -706,7 +706,7 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
     i32 1, label %22
     i32 2, label %31
     i32 3, label %46
-    i32 4, label %51
+    i32 4, label %57
   ]
 
 22:                                               ; preds = %20
@@ -755,25 +755,25 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
   %49 = tail call ptr @EVP_MD_get0_name(ptr noundef %48) #9
   %50 = tail call i32 @OSSL_PARAM_BLD_push_utf8_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.8, ptr noundef %49, i64 noundef 0) #9
   %.not48 = icmp eq i32 %50, 0
-  br i1 %.not48, label %.thread, label %57
+  br i1 %.not48, label %.thread, label %51
 
-51:                                               ; preds = %20
+51:                                               ; preds = %46
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %53 = load ptr, ptr %52, align 8, !tbaa !55
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %55 = load i64, ptr %54, align 8, !tbaa !56
-  %56 = tail call i32 @OSSL_PARAM_BLD_push_utf8_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.10, ptr noundef %53, i64 noundef %55) #9
-  %.not47 = icmp eq i32 %56, 0
-  br i1 %.not47, label %.thread, label %63
+  %56 = tail call i32 @OSSL_PARAM_BLD_push_octet_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.9, ptr noundef %53, i64 noundef %55) #9
+  %.not49 = icmp eq i32 %56, 0
+  br i1 %.not49, label %.thread, label %63
 
-57:                                               ; preds = %46
+57:                                               ; preds = %20
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %59 = load ptr, ptr %58, align 8, !tbaa !55
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %61 = load i64, ptr %60, align 8, !tbaa !56
-  %62 = tail call i32 @OSSL_PARAM_BLD_push_octet_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.9, ptr noundef %59, i64 noundef %61) #9
-  %.not49 = icmp eq i32 %62, 0
-  br i1 %.not49, label %.thread, label %63
+  %62 = tail call i32 @OSSL_PARAM_BLD_push_utf8_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.10, ptr noundef %59, i64 noundef %61) #9
+  %.not47 = icmp eq i32 %62, 0
+  br i1 %.not47, label %.thread, label %63
 
 63:                                               ; preds = %51, %44, %27, %57
   %.061 = phi ptr [ null, %27 ], [ null, %57 ], [ %39, %44 ], [ null, %51 ]
@@ -787,9 +787,9 @@ define i32 @OSSL_STORE_find(ptr noundef readonly captures(none) %0, ptr noundef 
   call void @OSSL_PARAM_free(ptr noundef %64) #9
   br label %.thread
 
-.thread:                                          ; preds = %31, %36, %40, %46, %22, %20, %51, %44, %27, %63, %57
-  %.060 = phi ptr [ %.061, %63 ], [ null, %57 ], [ null, %51 ], [ null, %27 ], [ %39, %44 ], [ null, %31 ], [ null, %36 ], [ %39, %40 ], [ null, %46 ], [ null, %22 ], [ null, %20 ]
-  %.2 = phi i32 [ %70, %63 ], [ 0, %57 ], [ 0, %51 ], [ 0, %27 ], [ 0, %44 ], [ 0, %31 ], [ 0, %36 ], [ 0, %40 ], [ 0, %46 ], [ 0, %22 ], [ 0, %20 ]
+.thread:                                          ; preds = %46, %31, %36, %40, %22, %20, %51, %44, %27, %63, %57
+  %.060 = phi ptr [ %.061, %63 ], [ null, %57 ], [ null, %27 ], [ %39, %44 ], [ null, %51 ], [ null, %46 ], [ null, %31 ], [ null, %36 ], [ %39, %40 ], [ null, %22 ], [ null, %20 ]
+  %.2 = phi i32 [ %70, %63 ], [ 0, %57 ], [ 0, %27 ], [ 0, %44 ], [ 0, %51 ], [ 0, %46 ], [ 0, %31 ], [ 0, %36 ], [ 0, %40 ], [ 0, %22 ], [ 0, %20 ]
   call void @OSSL_PARAM_BLD_free(ptr noundef nonnull %18) #9
   %71 = load ptr, ptr %3, align 8, !tbaa !21
   call void @CRYPTO_free(ptr noundef %71, ptr noundef nonnull @.str.2, i32 noundef 403) #9
@@ -1005,7 +1005,7 @@ OSSL_STORE_eof.exit:                              ; preds = %16, %.thread.i
   br label %.backedge.backedge
 
 .thread74:                                        ; preds = %65, %62, %63, %OSSL_STORE_eof.exit, %.thread64
-  %.1 = phi ptr [ null, %.thread64 ], [ %.44972, %65 ], [ %.44972, %63 ], [ null, %62 ], [ null, %OSSL_STORE_eof.exit ]
+  %.1 = phi ptr [ null, %.thread64 ], [ %.44972, %65 ], [ null, %62 ], [ %.44972, %63 ], [ null, %OSSL_STORE_eof.exit ]
   ret ptr %.1
 }
 
@@ -1893,7 +1893,7 @@ define ptr @OSSL_STORE_SEARCH_by_key_fingerprint(ptr noundef %0, ptr noundef %1,
   br label %18
 
 18:                                               ; preds = %3, %14, %12, %9
-  %.0 = phi ptr [ %4, %14 ], [ null, %9 ], [ null, %12 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %12 ], [ %4, %14 ], [ null, %3 ]
   ret ptr %.0
 }
 

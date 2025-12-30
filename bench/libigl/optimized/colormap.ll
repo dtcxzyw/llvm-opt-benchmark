@@ -367,8 +367,8 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
   br i1 %exitcond92.not.i.i.i.i32, label %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i29, !llvm.loop !27
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i17, %.lr.ph85.i.i.i.i29, %96, %.thread33.thread
-  %.in75 = phi i32 [ %.in.ph, %.lr.ph85.i.i.i.i29 ], [ %.in.ph, %.thread33.thread ], [ %.in, %96 ], [ %.in, %.lr.ph80.i.i.i.i17 ]
-  %.2.i.i.i.i16 = phi i32 [ %106, %.lr.ph85.i.i.i.i29 ], [ %57, %.thread33.thread ], [ %97, %96 ], [ %101, %.lr.ph80.i.i.i.i17 ]
+  %.in75 = phi i32 [ %.in.ph, %.thread33.thread ], [ %.in, %96 ], [ %.in.ph, %.lr.ph85.i.i.i.i29 ], [ %.in, %.lr.ph80.i.i.i.i17 ]
+  %.2.i.i.i.i16 = phi i32 [ %57, %.thread33.thread ], [ %97, %96 ], [ %106, %.lr.ph85.i.i.i.i29 ], [ %101, %.lr.ph80.i.i.i.i17 ]
   %108 = sitofp i32 %.in75 to double
   %109 = sitofp i32 %.2.i.i.i.i16 to double
   br label %.thread
@@ -1552,8 +1552,8 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
   br i1 %exitcond92.not.i.i.i.i32, label %_ZNK5Eigen9DenseBaseINS_5ArrayIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit, label %.lr.ph85.i.i.i.i29, !llvm.loop !66
 
 _ZNK5Eigen9DenseBaseINS_5ArrayIiLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph80.i.i.i.i17, %.lr.ph85.i.i.i.i29, %96, %.thread33.thread
-  %.in75 = phi i32 [ %.in.ph, %.lr.ph85.i.i.i.i29 ], [ %.in.ph, %.thread33.thread ], [ %.in, %96 ], [ %.in, %.lr.ph80.i.i.i.i17 ]
-  %.2.i.i.i.i16 = phi i32 [ %106, %.lr.ph85.i.i.i.i29 ], [ %57, %.thread33.thread ], [ %97, %96 ], [ %101, %.lr.ph80.i.i.i.i17 ]
+  %.in75 = phi i32 [ %.in.ph, %.thread33.thread ], [ %.in, %96 ], [ %.in.ph, %.lr.ph85.i.i.i.i29 ], [ %.in, %.lr.ph80.i.i.i.i17 ]
+  %.2.i.i.i.i16 = phi i32 [ %57, %.thread33.thread ], [ %97, %96 ], [ %106, %.lr.ph85.i.i.i.i29 ], [ %101, %.lr.ph80.i.i.i.i17 ]
   %108 = sitofp i32 %.in75 to double
   %109 = sitofp i32 %.2.i.i.i.i16 to double
   br label %.thread

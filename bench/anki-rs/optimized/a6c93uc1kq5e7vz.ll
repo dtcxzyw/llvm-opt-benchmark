@@ -165,7 +165,7 @@ default.unreachable22:                            ; preds = %2
   br label %77
 
 42:                                               ; preds = %50, %38, %37, %36, %35, %28, %27, %26, %25, %24
-  %.sink = phi ptr [ %9, %24 ], [ %11, %38 ], [ %3, %37 ], [ %4, %36 ], [ %5, %35 ], [ %6, %28 ], [ %7, %27 ], [ %8, %26 ], [ %10, %25 ], [ %16, %50 ]
+  %.sink = phi ptr [ %11, %38 ], [ %3, %37 ], [ %4, %36 ], [ %5, %35 ], [ %6, %28 ], [ %7, %27 ], [ %8, %26 ], [ %10, %25 ], [ %9, %24 ], [ %16, %50 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load ptr, ptr %43, align 8, !nonnull !4, !noundef !4

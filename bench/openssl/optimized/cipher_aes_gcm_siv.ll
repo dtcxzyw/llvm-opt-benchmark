@@ -127,7 +127,7 @@ define internal ptr @ossl_aes_gcm_siv_dupctx(ptr noundef %0) #0 {
   br label %30
 
 30:                                               ; preds = %21, %7, %3, %1, %26
-  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ null, %26 ], [ null, %7 ], [ %8, %21 ]
+  %.0 = phi ptr [ null, %26 ], [ null, %1 ], [ null, %3 ], [ null, %7 ], [ %8, %21 ]
   ret ptr %.0
 }
 
@@ -275,14 +275,14 @@ define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_get_ctx_params(ptr noundef
   br i1 %.not26, label %.sink.split, label %28
 
 .sink.split:                                      ; preds = %24, %20, %8, %12, %15
-  %.sink = phi i32 [ 191, %20 ], [ 185, %8 ], [ 185, %15 ], [ 185, %12 ], [ 196, %24 ]
+  %.sink = phi i32 [ 185, %15 ], [ 185, %12 ], [ 185, %8 ], [ 191, %20 ], [ 196, %24 ]
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.ossl_aes_gcm_siv_get_ctx_params) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 104, ptr noundef null) #5
   br label %28
 
 28:                                               ; preds = %.sink.split, %22, %24
-  %.0 = phi i32 [ 1, %22 ], [ 1, %24 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %24 ], [ 1, %22 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -403,7 +403,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %37, %45, %.critedge, %ossl_param_is_empty.exit, %29, %15
-  %.019 = phi i32 [ 0, %29 ], [ 0, %15 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %.critedge ], [ 1, %45 ], [ 1, %37 ], [ 1, %2 ]
+  %.019 = phi i32 [ 0, %15 ], [ 0, %29 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %.critedge ], [ 1, %45 ], [ 1, %37 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.019
 }

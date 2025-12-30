@@ -381,7 +381,7 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %57, %26
   br label %binascii_a2b_uu_impl.exit
 
 binascii_a2b_uu_impl.exit:                        ; preds = %.backedge.i, %Py_DECREF.exit.sink.split.i, %57, %54, %51, %26, %23, %20, %.preheader.i, %5, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %51 ], [ null, %5 ], [ %11, %.preheader.i ], [ null, %20 ], [ null, %Py_DECREF.exit.sink.split.i ], [ null, %23 ], [ null, %26 ], [ null, %54 ], [ null, %57 ], [ %11, %.backedge.i ]
+  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %20 ], [ null, %51 ], [ null, %23 ], [ null, %26 ], [ null, %54 ], [ null, %57 ], [ %11, %.preheader.i ], [ null, %Py_DECREF.exit.sink.split.i ], [ %11, %.backedge.i ]
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !21
   %.not3 = icmp eq ptr %61, null
@@ -589,7 +589,7 @@ define internal ptr @binascii_b2a_uu(ptr noundef %0, ptr noundef %1, i64 noundef
   br label %binascii_b2a_uu_impl.exit
 
 binascii_b2a_uu_impl.exit:                        ; preds = %32, %35, %37, %._crit_edge59.i
-  %.0.i = phi ptr [ %92, %._crit_edge59.i ], [ null, %35 ], [ null, %32 ], [ null, %37 ]
+  %.0.i = phi ptr [ null, %35 ], [ %92, %._crit_edge59.i ], [ null, %32 ], [ null, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %93
 
@@ -765,10 +765,10 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %75, label %.split44.us.i, label %76
 
 76:                                               ; preds = %72, %70, %64, %58, %54, %53, %48
-  %.286.us.i = phi ptr [ %.08435.us.i, %53 ], [ %57, %54 ], [ %.08435.us.i, %72 ], [ %62, %58 ], [ %.08435.us.i, %70 ], [ %68, %64 ], [ %.08435.us.i, %48 ]
-  %.279.us.i = phi i32 [ 1, %53 ], [ 0, %54 ], [ %.07736.us.i, %72 ], [ 3, %58 ], [ %.07736.us.i, %70 ], [ 2, %64 ], [ %.07736.us.i, %48 ]
-  %.175.us.i = phi i8 [ %51, %53 ], [ 0, %54 ], [ %.07437.us.i, %72 ], [ %63, %58 ], [ %.07437.us.i, %70 ], [ %69, %64 ], [ %.07437.us.i, %48 ]
-  %.1.us.i = phi i32 [ %.07736.us.i, %53 ], [ 0, %54 ], [ %73, %72 ], [ 0, %58 ], [ %.07338.us.i, %70 ], [ 0, %64 ], [ %.07338.us.i, %48 ]
+  %.286.us.i = phi ptr [ %.08435.us.i, %72 ], [ %.08435.us.i, %70 ], [ %.08435.us.i, %53 ], [ %57, %54 ], [ %62, %58 ], [ %68, %64 ], [ %.08435.us.i, %48 ]
+  %.279.us.i = phi i32 [ %.07736.us.i, %72 ], [ %.07736.us.i, %70 ], [ 1, %53 ], [ 0, %54 ], [ 3, %58 ], [ 2, %64 ], [ %.07736.us.i, %48 ]
+  %.175.us.i = phi i8 [ %.07437.us.i, %72 ], [ %.07437.us.i, %70 ], [ %51, %53 ], [ 0, %54 ], [ %63, %58 ], [ %69, %64 ], [ %.07437.us.i, %48 ]
+  %.1.us.i = phi i32 [ %73, %72 ], [ %.07338.us.i, %70 ], [ %.07736.us.i, %53 ], [ 0, %54 ], [ 0, %58 ], [ 0, %64 ], [ %.07338.us.i, %48 ]
   %77 = add nuw i64 %.039.us.i, 1
   %exitcond.not.i = icmp eq i64 %77, %.val33
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.us.split.i, !llvm.loop !28
@@ -896,11 +896,11 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
   unreachable
 
 125:                                              ; preds = %121, %115, %109, %108, %85, %81
-  %.189.i = phi i8 [ 0, %108 ], [ 0, %121 ], [ 1, %85 ], [ 0, %115 ], [ 1, %81 ], [ 0, %109 ]
-  %.286.i = phi ptr [ %.08435.i, %108 ], [ %124, %121 ], [ %.08435.i, %85 ], [ %119, %115 ], [ %.08435.i, %81 ], [ %113, %109 ]
-  %.279.i = phi i32 [ 1, %108 ], [ 0, %121 ], [ %.07736.i, %85 ], [ 3, %115 ], [ %.07736.i, %81 ], [ 2, %109 ]
-  %.175.i = phi i8 [ %98, %108 ], [ 0, %121 ], [ %.07437.i, %85 ], [ %120, %115 ], [ %.07437.i, %81 ], [ %114, %109 ]
-  %.1.i = phi i32 [ %.07736.i, %108 ], [ 0, %121 ], [ %86, %85 ], [ 0, %115 ], [ %.07338.i, %81 ], [ 0, %109 ]
+  %.189.i = phi i8 [ 1, %85 ], [ 0, %108 ], [ 0, %121 ], [ 0, %115 ], [ 0, %109 ], [ 1, %81 ]
+  %.286.i = phi ptr [ %.08435.i, %85 ], [ %.08435.i, %108 ], [ %124, %121 ], [ %119, %115 ], [ %113, %109 ], [ %.08435.i, %81 ]
+  %.279.i = phi i32 [ %.07736.i, %85 ], [ 1, %108 ], [ 0, %121 ], [ 3, %115 ], [ 2, %109 ], [ %.07736.i, %81 ]
+  %.175.i = phi i8 [ %.07437.i, %85 ], [ %98, %108 ], [ 0, %121 ], [ %120, %115 ], [ %114, %109 ], [ %.07437.i, %81 ]
+  %.1.i = phi i32 [ %86, %85 ], [ %.07736.i, %108 ], [ 0, %121 ], [ 0, %115 ], [ 0, %109 ], [ %.07338.i, %81 ]
   %126 = add nuw i64 %.039.i, 1
   %exitcond68.not.i = icmp eq i64 %126, %.val33
   br i1 %exitcond68.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !28
@@ -1130,7 +1130,7 @@ define internal ptr @binascii_b2a_base64(ptr noundef %0, ptr noundef %1, i64 nou
   br label %binascii_b2a_base64_impl.exit
 
 binascii_b2a_base64_impl.exit:                    ; preds = %30, %33, %35, %76
-  %.0.i = phi ptr [ %77, %76 ], [ null, %33 ], [ null, %30 ], [ null, %35 ]
+  %.0.i = phi ptr [ null, %33 ], [ %77, %76 ], [ null, %30 ], [ null, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %78
 
@@ -1245,8 +1245,8 @@ define internal ptr @binascii_b2a_hex(ptr readnone captures(none) %0, ptr nounde
   br i1 %.not41, label %32, label %35
 
 32:                                               ; preds = %22, %25, %30, %21
-  %.027 = phi ptr [ %24, %30 ], [ %24, %25 ], [ %24, %22 ], [ null, %21 ]
-  %.0 = phi i32 [ -1, %30 ], [ %28, %25 ], [ 1, %22 ], [ 1, %21 ]
+  %.027 = phi ptr [ %24, %30 ], [ %24, %25 ], [ null, %21 ], [ %24, %22 ]
+  %.0 = phi i32 [ -1, %30 ], [ %28, %25 ], [ 1, %21 ], [ 1, %22 ]
   %.val43 = load ptr, ptr %6, align 8, !tbaa !12
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val44 = load i64, ptr %33, align 8, !tbaa !18
@@ -1332,8 +1332,8 @@ define internal ptr @binascii_hexlify(ptr readnone captures(none) %0, ptr nounde
   br i1 %.not41, label %32, label %35
 
 32:                                               ; preds = %22, %25, %30, %21
-  %.027 = phi ptr [ %24, %30 ], [ %24, %25 ], [ %24, %22 ], [ null, %21 ]
-  %.0 = phi i32 [ -1, %30 ], [ %28, %25 ], [ 1, %22 ], [ 1, %21 ]
+  %.027 = phi ptr [ %24, %30 ], [ %24, %25 ], [ null, %21 ], [ %24, %22 ]
+  %.0 = phi i32 [ -1, %30 ], [ %28, %25 ], [ 1, %21 ], [ 1, %22 ]
   %.val43 = load ptr, ptr %6, align 8, !tbaa !12
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val44 = load i64, ptr %33, align 8, !tbaa !18
@@ -1483,7 +1483,7 @@ define internal ptr @binascii_crc_hqx(ptr readnone captures(none) %0, ptr nounde
   br i1 %50, label %.lr.ph.i18, label %.sink.split, !llvm.loop !33
 
 .sink.split:                                      ; preds = %.lr.ph.i, %.lr.ph.i18, %.split, %.split9
-  %.sink.shrunk = phi i32 [ %49, %.lr.ph.i18 ], [ 65535, %.split9 ], [ %17, %.split ], [ %31, %.lr.ph.i ]
+  %.sink.shrunk = phi i32 [ 65535, %.split9 ], [ %17, %.split ], [ %49, %.lr.ph.i18 ], [ %31, %.lr.ph.i ]
   %.sink = zext i32 %.sink.shrunk to i64
   %51 = call ptr @PyLong_FromUnsignedLong(i64 noundef %.sink) #5
   br label %52
@@ -1821,8 +1821,8 @@ switch.early.test5.i:                             ; preds = %58
   br label %87
 
 87:                                               ; preds = %83, %79, %74, %62, %49, %.critedge.i
-  %.186.i = phi i64 [ %86, %83 ], [ %.08510.i, %.critedge.i ], [ %50, %49 ], [ %72, %62 ], [ %75, %74 ], [ %80, %79 ]
-  %.3.i = phi i64 [ %85, %83 ], [ %spec.select.i, %.critedge.i ], [ %52, %49 ], [ %71, %62 ], [ %39, %74 ], [ %82, %79 ]
+  %.186.i = phi i64 [ %50, %49 ], [ %72, %62 ], [ %75, %74 ], [ %80, %79 ], [ %86, %83 ], [ %.08510.i, %.critedge.i ]
+  %.3.i = phi i64 [ %52, %49 ], [ %71, %62 ], [ %39, %74 ], [ %82, %79 ], [ %85, %83 ], [ %spec.select.i, %.critedge.i ]
   %88 = icmp slt i64 %.3.i, %.val33
   br i1 %88, label %34, label %._crit_edge.i, !llvm.loop !36
 
@@ -1833,7 +1833,7 @@ switch.early.test5.i:                             ; preds = %58
   br label %binascii_a2b_qp_impl.exit
 
 binascii_a2b_qp_impl.exit:                        ; preds = %._crit_edge.i, %32, %22, %.thread, %16
-  %.023 = phi ptr [ null, %22 ], [ null, %16 ], [ null, %.thread ], [ null, %32 ], [ %89, %._crit_edge.i ]
+  %.023 = phi ptr [ null, %22 ], [ null, %.thread ], [ null, %16 ], [ null, %32 ], [ %89, %._crit_edge.i ]
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !21
   %.not31 = icmp eq ptr %91, null
@@ -2089,7 +2089,7 @@ switch.early.test.i:                              ; preds = %78, %75
   br label %104
 
 104:                                              ; preds = %100, %99
-  %.2.i = phi i64 [ %103, %100 ], [ 0, %99 ]
+  %.2.i = phi i64 [ 0, %99 ], [ %103, %100 ]
   %105 = add nuw nsw i64 %.2.i, 2
   %106 = or disjoint i64 %.2.i, 1
   %.3.i = select i1 %.not274.i, i64 %106, i64 %105
@@ -2330,7 +2330,7 @@ switch.early.test310.i:                           ; preds = %149, %146
   br label %209
 
 209:                                              ; preds = %197, %193, %192
-  %.4235.i = phi i64 [ %208, %197 ], [ %.02319.i, %193 ], [ 0, %192 ]
+  %.4235.i = phi i64 [ %208, %197 ], [ 0, %192 ], [ %.02319.i, %193 ]
   br i1 %.not274.i, label %213, label %210
 
 210:                                              ; preds = %209
@@ -2391,9 +2391,9 @@ switch.early.test310.i:                           ; preds = %149, %146
   br label %237
 
 237:                                              ; preds = %234, %223, %222
-  %.pre.i = phi i8 [ %.pre.pre.i, %234 ], [ %130, %222 ], [ %130, %223 ]
-  %.6237.i = phi i64 [ %235, %234 ], [ %.02319.i, %222 ], [ %.02319.i, %223 ]
-  %.7.i = phi i32 [ 0, %234 ], [ %.423011.i, %222 ], [ %.423011.i, %223 ]
+  %.pre.i = phi i8 [ %.pre.pre.i, %234 ], [ %130, %223 ], [ %130, %222 ]
+  %.6237.i = phi i64 [ %235, %234 ], [ %.02319.i, %223 ], [ %.02319.i, %222 ]
+  %.7.i = phi i32 [ 0, %234 ], [ %.423011.i, %223 ], [ %.423011.i, %222 ]
   %238 = add i32 %.7.i, 1
   %239 = icmp eq i8 %.pre.i, 32
   %or.cond32.i = select i1 %.not278.i, i1 %239, i1 false
@@ -2424,7 +2424,7 @@ switch.early.test310.i:                           ; preds = %149, %146
   br label %binascii_b2a_qp_impl.exit
 
 binascii_b2a_qp_impl.exit:                        ; preds = %._crit_edge14.i, %127, %.thread1.i, %39, %34, %26, %.thread, %17
-  %.037 = phi ptr [ null, %.thread ], [ null, %26 ], [ null, %34 ], [ null, %39 ], [ null, %17 ], [ null, %.thread1.i ], [ null, %127 ], [ %247, %._crit_edge14.i ]
+  %.037 = phi ptr [ null, %.thread ], [ null, %26 ], [ null, %34 ], [ null, %39 ], [ null, %17 ], [ null, %127 ], [ %247, %._crit_edge14.i ], [ null, %.thread1.i ]
   %248 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %249 = load ptr, ptr %248, align 8, !tbaa !21
   %.not54 = icmp eq ptr %249, null
@@ -2620,7 +2620,7 @@ define internal fastcc ptr @binascii_a2b_hex_impl(ptr noundef %0, ptr readonly c
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %29, %11, %26, %42, %39, %36, %8, %3, %6
-  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %42 ], [ null, %26 ], [ null, %8 ], [ null, %36 ], [ null, %39 ], [ %10, %11 ], [ %10, %29 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %3 ], [ null, %8 ], [ null, %36 ], [ null, %39 ], [ null, %42 ], [ null, %26 ], [ %10, %11 ], [ %10, %29 ]
   ret ptr %.0
 }
 
@@ -2674,7 +2674,7 @@ define internal range(i32 -1, 1) i32 @binascii_exec(ptr noundef %0) #0 {
   br label %13
 
 13:                                               ; preds = %9, %4, %1
-  %.0 = phi i32 [ -1, %4 ], [ -1, %1 ], [ %.lobit, %9 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %4 ], [ %.lobit, %9 ]
   ret i32 %.0
 }
 

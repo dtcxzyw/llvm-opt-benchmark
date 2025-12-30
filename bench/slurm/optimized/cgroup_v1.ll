@@ -342,7 +342,7 @@ _cgroup_init.exit:                                ; preds = %19
   br label %_cgroup_init.exit.thread
 
 _cgroup_init.exit.thread:                         ; preds = %_cgroup_init.exit, %22, %16, %10, %26, %1
-  %.09 = phi i32 [ -1, %16 ], [ 0, %1 ], [ -1, %22 ], [ 0, %26 ], [ -1, %10 ], [ 0, %_cgroup_init.exit ]
+  %.09 = phi i32 [ 0, %1 ], [ 0, %26 ], [ 0, %_cgroup_init.exit ], [ -1, %10 ], [ -1, %16 ], [ -1, %22 ]
   ret i32 %.09
 }
 
@@ -636,7 +636,7 @@ define dso_local i32 @cgroup_p_system_destroy(i32 noundef %0) local_unnamed_addr
   br label %.thread
 
 .thread:                                          ; preds = %25, %28, %31, %18, %33, %1, %12, %8
-  %.017 = phi i32 [ -1, %12 ], [ 0, %1 ], [ 0, %8 ], [ 0, %33 ], [ %24, %25 ], [ %24, %28 ], [ %24, %31 ], [ %16, %18 ]
+  %.017 = phi i32 [ -1, %12 ], [ 0, %8 ], [ 0, %1 ], [ 0, %33 ], [ %24, %25 ], [ %24, %28 ], [ %24, %31 ], [ %16, %18 ]
   ret i32 %.017
 }
 
@@ -883,7 +883,7 @@ _remove_cg_subsystem.exit:                        ; preds = %50, %51
   br label %56
 
 56:                                               ; preds = %_remove_cg_subsystem.exit.thread, %_remove_cg_subsystem.exit, %54, %8, %15, %12, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %8 ], [ -1, %_remove_cg_subsystem.exit.thread ], [ 0, %12 ], [ 0, %15 ], [ 0, %54 ], [ %.0.i, %_remove_cg_subsystem.exit ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %12 ], [ 0, %15 ], [ 0, %8 ], [ 0, %54 ], [ %.0.i, %_remove_cg_subsystem.exit ], [ -1, %_remove_cg_subsystem.exit.thread ]
   ret i32 %.0
 }
 
@@ -939,7 +939,7 @@ define dso_local i32 @cgroup_p_step_addto(i32 noundef %0, ptr noundef %1, i32 no
   br label %29
 
 29:                                               ; preds = %3, %25, %23, %19, %15
-  %.0 = phi i32 [ -1, %19 ], [ -1, %23 ], [ %18, %15 ], [ %28, %25 ], [ -1, %3 ]
+  %.0 = phi i32 [ -1, %23 ], [ %18, %15 ], [ %28, %25 ], [ -1, %19 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -1248,7 +1248,7 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   br label %.thread
 
 .thread:                                          ; preds = %24, %50, %52, %6, %.thread98, %38, %13, %54, %70, %68, %31, %7, %72, %60, %5
-  %.071 = phi i32 [ -1, %72 ], [ %0, %5 ], [ 0, %54 ], [ -1, %60 ], [ %spec.select, %7 ], [ %spec.select90, %13 ], [ %spec.select93, %38 ], [ %spec.select92, %31 ], [ %spec.select95, %52 ], [ %69, %68 ], [ %71, %70 ], [ 0, %6 ], [ %spec.select91, %.thread98 ], [ %spec.select94, %50 ], [ 0, %24 ]
+  %.071 = phi i32 [ -1, %72 ], [ %0, %5 ], [ %spec.select, %7 ], [ %spec.select92, %31 ], [ %69, %68 ], [ %71, %70 ], [ -1, %60 ], [ 0, %54 ], [ %spec.select90, %13 ], [ %spec.select93, %38 ], [ %spec.select91, %.thread98 ], [ 0, %6 ], [ %spec.select95, %52 ], [ %spec.select94, %50 ], [ 0, %24 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #11
   br label %74
 
@@ -1539,7 +1539,7 @@ define dso_local i32 @cgroup_p_step_start_oom_mgr(ptr noundef readnone captures(
   %115 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50, ptr noundef %114) #11
   br label %119
 
-116:                                              ; preds = %.split81.us, %51
+116:                                              ; preds = %51, %.split81.us
   %117 = load ptr, ptr %3, align 8
   %118 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.51, ptr noundef %117) #11
   br label %102

@@ -465,8 +465,8 @@ proto_item_set_generated.exit115.i.i:             ; preds = %130, %127, %proto_i
   br label %proto_item_set_generated.exit118.i.i
 
 proto_item_set_generated.exit118.i.i:             ; preds = %142, %139, %136, %.thread128.i.i, %proto_item_set_generated.exit115.i.i, %110, %.thread.i.i, %84, %.thread133.thread.i.i
-  %.not107127.i.i = phi i1 [ true, %.thread.i.i ], [ false, %proto_item_set_generated.exit115.i.i ], [ false, %110 ], [ true, %.thread133.thread.i.i ], [ false, %.thread128.i.i ], [ true, %84 ], [ false, %136 ], [ false, %139 ], [ false, %142 ]
-  %.0125.i.i = phi ptr [ null, %.thread.i.i ], [ %.0124140.i.i, %proto_item_set_generated.exit115.i.i ], [ %.0124140.i.i, %110 ], [ null, %.thread133.thread.i.i ], [ %.0124132.i.i, %.thread128.i.i ], [ null, %84 ], [ %.0124132.i.i, %136 ], [ %.0124132.i.i, %139 ], [ %.0124132.i.i, %142 ]
+  %.not107127.i.i = phi i1 [ true, %.thread.i.i ], [ false, %proto_item_set_generated.exit115.i.i ], [ false, %110 ], [ false, %.thread128.i.i ], [ true, %84 ], [ false, %136 ], [ false, %139 ], [ false, %142 ], [ true, %.thread133.thread.i.i ]
+  %.0125.i.i = phi ptr [ null, %.thread.i.i ], [ %.0124140.i.i, %proto_item_set_generated.exit115.i.i ], [ %.0124140.i.i, %110 ], [ %.0124132.i.i, %.thread128.i.i ], [ null, %84 ], [ %.0124132.i.i, %136 ], [ %.0124132.i.i, %139 ], [ %.0124132.i.i, %142 ], [ null, %.thread133.thread.i.i ]
   %146 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 10)
   %147 = load i32, ptr @hf_aoe_aflags_e, align 4
   %148 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %147, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0)

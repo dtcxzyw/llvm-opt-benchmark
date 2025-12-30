@@ -66,7 +66,7 @@ define ptr @OSSL_CRMF_MSG_get0_regCtrl_regToken(ptr noundef readonly captures(ad
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %6, %1, %3, %19
-  %.0 = phi ptr [ null, %1 ], [ %21, %19 ], [ null, %3 ], [ null, %6 ], [ null, %11 ]
+  %.0 = phi ptr [ %21, %19 ], [ null, %3 ], [ null, %1 ], [ null, %6 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -210,7 +210,7 @@ define ptr @OSSL_CRMF_MSG_get0_regCtrl_authenticator(ptr noundef readonly captur
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %6, %1, %3, %19
-  %.0 = phi ptr [ null, %1 ], [ %21, %19 ], [ null, %3 ], [ null, %6 ], [ null, %11 ]
+  %.0 = phi ptr [ %21, %19 ], [ null, %3 ], [ null, %1 ], [ null, %6 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -392,7 +392,7 @@ define ptr @OSSL_CRMF_MSG_get0_regCtrl_pkiPublicationInfo(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %6, %1, %3, %19
-  %.0 = phi ptr [ null, %1 ], [ %21, %19 ], [ null, %3 ], [ null, %6 ], [ null, %11 ]
+  %.0 = phi ptr [ %21, %19 ], [ null, %3 ], [ null, %1 ], [ null, %6 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -475,7 +475,7 @@ define ptr @OSSL_CRMF_MSG_get0_regCtrl_oldCertID(ptr noundef readonly captures(a
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %6, %1, %3, %19
-  %.0 = phi ptr [ null, %1 ], [ %21, %19 ], [ null, %3 ], [ null, %6 ], [ null, %11 ]
+  %.0 = phi ptr [ %21, %19 ], [ null, %3 ], [ null, %1 ], [ null, %6 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -613,7 +613,7 @@ define ptr @OSSL_CRMF_MSG_get0_regCtrl_protocolEncrKey(ptr noundef readonly capt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %6, %1, %3, %19
-  %.0 = phi ptr [ null, %1 ], [ %21, %19 ], [ null, %3 ], [ null, %6 ], [ null, %11 ]
+  %.0 = phi ptr [ %21, %19 ], [ null, %3 ], [ null, %1 ], [ null, %6 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -696,7 +696,7 @@ define ptr @OSSL_CRMF_MSG_get0_regInfo_utf8Pairs(ptr noundef readonly captures(a
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %6, %1, %3, %19
-  %.0 = phi ptr [ null, %1 ], [ %21, %19 ], [ null, %3 ], [ null, %6 ], [ null, %11 ]
+  %.0 = phi ptr [ %21, %19 ], [ null, %3 ], [ null, %1 ], [ null, %6 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -803,7 +803,7 @@ define ptr @OSSL_CRMF_MSG_get0_regInfo_certReq(ptr noundef readonly captures(add
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %6, %1, %3, %19
-  %.0 = phi ptr [ null, %1 ], [ %21, %19 ], [ null, %3 ], [ null, %6 ], [ null, %11 ]
+  %.0 = phi ptr [ %21, %19 ], [ null, %3 ], [ null, %1 ], [ null, %6 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -1756,7 +1756,7 @@ define range(i32 0, 2) i32 @OSSL_CRMF_CERTTEMPLATE_fill(ptr noundef %0, ptr noun
   br label %27
 
 27:                                               ; preds = %23, %17, %13, %9, %26, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %13 ], [ 1, %26 ], [ 0, %17 ], [ 0, %9 ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %7 ], [ 1, %26 ], [ 0, %9 ], [ 0, %13 ], [ 0, %17 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -1865,19 +1865,19 @@ define ptr @OSSL_CRMF_ENCRYPTEDKEY_get1_pkey(ptr noundef readonly captures(addre
   br i1 %55, label %.sink.split, label %56
 
 .sink.split:                                      ; preds = %53, %51, %48, %45, %27
-  %.sink68 = phi i32 [ 744, %51 ], [ 739, %48 ], [ 731, %45 ], [ 712, %27 ], [ 750, %53 ]
-  %.sink = phi i32 [ 127, %51 ], [ 126, %48 ], [ 126, %45 ], [ 124, %27 ], [ 123, %53 ]
-  %.044.ph = phi ptr [ null, %51 ], [ %49, %48 ], [ null, %45 ], [ null, %27 ], [ %49, %53 ]
-  %.042.ph = phi ptr [ %34, %51 ], [ %34, %48 ], [ %34, %45 ], [ null, %27 ], [ %34, %53 ]
+  %.sink68 = phi i32 [ 712, %27 ], [ 731, %45 ], [ 739, %48 ], [ 744, %51 ], [ 750, %53 ]
+  %.sink = phi i32 [ 124, %27 ], [ 126, %45 ], [ 126, %48 ], [ 127, %51 ], [ 123, %53 ]
+  %.044.ph = phi ptr [ null, %27 ], [ null, %45 ], [ %49, %48 ], [ null, %51 ], [ %49, %53 ]
+  %.042.ph = phi ptr [ null, %27 ], [ %34, %45 ], [ %34, %48 ], [ %34, %51 ], [ %34, %53 ]
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink68, ptr noundef nonnull @__func__.OSSL_CRMF_ENCRYPTEDKEY_get1_pkey) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 56, i32 noundef %.sink, ptr noundef null) #7
   br label %56
 
 56:                                               ; preds = %.sink.split, %53, %42, %39, %32
-  %.044 = phi ptr [ null, %39 ], [ null, %32 ], [ null, %42 ], [ %49, %53 ], [ %.044.ph, %.sink.split ]
-  %.042 = phi ptr [ %34, %39 ], [ null, %32 ], [ %34, %42 ], [ %34, %53 ], [ %.042.ph, %.sink.split ]
-  %.1 = phi ptr [ null, %39 ], [ null, %32 ], [ null, %42 ], [ %54, %53 ], [ null, %.sink.split ]
+  %.044 = phi ptr [ null, %32 ], [ null, %42 ], [ %49, %53 ], [ null, %39 ], [ %.044.ph, %.sink.split ]
+  %.042 = phi ptr [ null, %32 ], [ %34, %42 ], [ %34, %53 ], [ %34, %39 ], [ %.042.ph, %.sink.split ]
+  %.1 = phi ptr [ null, %32 ], [ null, %42 ], [ %54, %53 ], [ null, %39 ], [ null, %.sink.split ]
   tail call void @CMS_SignedData_free(ptr noundef %.042) #7
   %57 = tail call i32 @BIO_free(ptr noundef %30) #7
   %58 = tail call i32 @BIO_free(ptr noundef %.044) #7
@@ -2083,14 +2083,14 @@ define ptr @OSSL_CRMF_ENCRYPTEDVALUE_decrypt(ptr noundef readonly captures(addre
   store i32 %112, ptr %4, align 4, !tbaa !80
   br label %.thread97
 
-.thread97:                                        ; preds = %56, %69, %48, %83, %91, %70, %.thread, %45, %109, %108, %82, %40
-  %.07095 = phi ptr [ null, %40 ], [ %.07096, %70 ], [ %.07096, %82 ], [ %.07096, %83 ], [ %.07096, %91 ], [ %.07096, %109 ], [ %.07096, %108 ], [ %.07096, %.thread ], [ %.07096, %45 ], [ %.07096, %48 ], [ %.07096, %69 ], [ %.07096, %56 ]
-  %.069 = phi ptr [ null, %40 ], [ null, %70 ], [ %73, %82 ], [ %73, %83 ], [ %73, %91 ], [ %73, %109 ], [ %73, %108 ], [ null, %.thread ], [ null, %45 ], [ null, %48 ], [ null, %69 ], [ null, %56 ]
-  %.068 = phi ptr [ null, %40 ], [ null, %70 ], [ null, %82 ], [ null, %83 ], [ %89, %91 ], [ %89, %109 ], [ %89, %108 ], [ null, %.thread ], [ null, %45 ], [ null, %48 ], [ null, %69 ], [ null, %56 ]
-  %.not91 = phi i1 [ true, %40 ], [ true, %70 ], [ true, %82 ], [ true, %83 ], [ true, %91 ], [ false, %109 ], [ true, %108 ], [ true, %.thread ], [ true, %45 ], [ true, %48 ], [ true, %69 ], [ true, %56 ]
-  %.066 = phi ptr [ null, %40 ], [ %44, %70 ], [ %44, %82 ], [ %44, %83 ], [ %44, %91 ], [ %44, %109 ], [ %44, %108 ], [ null, %.thread ], [ %44, %45 ], [ %44, %48 ], [ %44, %69 ], [ %44, %56 ]
-  %.064 = phi ptr [ null, %40 ], [ %58, %70 ], [ %58, %82 ], [ %58, %83 ], [ %58, %91 ], [ %58, %109 ], [ %58, %108 ], [ null, %.thread ], [ null, %45 ], [ null, %48 ], [ %58, %69 ], [ null, %56 ]
-  %.063 = phi ptr [ null, %40 ], [ null, %70 ], [ null, %82 ], [ null, %83 ], [ null, %91 ], [ %92, %109 ], [ %92, %108 ], [ null, %.thread ], [ null, %45 ], [ null, %48 ], [ null, %69 ], [ null, %56 ]
+.thread97:                                        ; preds = %48, %56, %69, %83, %91, %70, %.thread, %45, %109, %108, %82, %40
+  %.07095 = phi ptr [ null, %40 ], [ %.07096, %70 ], [ %.07096, %82 ], [ %.07096, %83 ], [ %.07096, %91 ], [ %.07096, %109 ], [ %.07096, %108 ], [ %.07096, %45 ], [ %.07096, %.thread ], [ %.07096, %69 ], [ %.07096, %56 ], [ %.07096, %48 ]
+  %.069 = phi ptr [ null, %40 ], [ null, %70 ], [ %73, %82 ], [ %73, %83 ], [ %73, %91 ], [ %73, %109 ], [ %73, %108 ], [ null, %45 ], [ null, %.thread ], [ null, %69 ], [ null, %56 ], [ null, %48 ]
+  %.068 = phi ptr [ null, %40 ], [ null, %70 ], [ null, %82 ], [ null, %83 ], [ %89, %91 ], [ %89, %109 ], [ %89, %108 ], [ null, %45 ], [ null, %.thread ], [ null, %69 ], [ null, %56 ], [ null, %48 ]
+  %.not91 = phi i1 [ true, %40 ], [ true, %70 ], [ true, %82 ], [ true, %83 ], [ true, %91 ], [ false, %109 ], [ true, %108 ], [ true, %45 ], [ true, %.thread ], [ true, %69 ], [ true, %56 ], [ true, %48 ]
+  %.066 = phi ptr [ null, %40 ], [ %44, %70 ], [ %44, %82 ], [ %44, %83 ], [ %44, %91 ], [ %44, %109 ], [ %44, %108 ], [ %44, %45 ], [ null, %.thread ], [ %44, %69 ], [ %44, %56 ], [ %44, %48 ]
+  %.064 = phi ptr [ null, %40 ], [ %58, %70 ], [ %58, %82 ], [ %58, %83 ], [ %58, %91 ], [ %58, %109 ], [ %58, %108 ], [ null, %45 ], [ null, %.thread ], [ %58, %69 ], [ null, %56 ], [ null, %48 ]
+  %.063 = phi ptr [ null, %40 ], [ null, %70 ], [ null, %82 ], [ null, %83 ], [ null, %91 ], [ %92, %109 ], [ %92, %108 ], [ null, %45 ], [ null, %.thread ], [ null, %69 ], [ null, %56 ], [ null, %48 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %.066) #7
   call void @EVP_CIPHER_CTX_free(ptr noundef %.063) #7
   call void @EVP_CIPHER_free(ptr noundef %.07095) #7

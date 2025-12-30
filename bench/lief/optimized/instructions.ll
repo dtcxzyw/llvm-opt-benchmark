@@ -105,8 +105,8 @@ _ZNKSt3mapIN4LIEF3DEX7OPCODESENS1_12INST_FORMATSESt4lessIS2_ESaISt4pairIKS2_S3_E
   %22 = load i8, ptr %21, align 1, !tbaa !20
   br label %_ZNKSt3mapIN4LIEF3DEX7OPCODESENS1_12INST_FORMATSESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.thread
 
-_ZNKSt3mapIN4LIEF3DEX7OPCODESENS1_12INST_FORMATSESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.thread: ; preds = %17, %_ZNKSt8_Rb_treeIN4LIEF3DEX7OPCODESESt4pairIKS2_NS1_12INST_FORMATSEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, %11, %_ZNKSt3mapIN4LIEF3DEX7OPCODESENS1_12INST_FORMATSESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit
-  %23 = phi i8 [ %22, %_ZNKSt3mapIN4LIEF3DEX7OPCODESENS1_12INST_FORMATSESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit ], [ 0, %11 ], [ 0, %_ZNKSt8_Rb_treeIN4LIEF3DEX7OPCODESESt4pairIKS2_NS1_12INST_FORMATSEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ 0, %17 ]
+_ZNKSt3mapIN4LIEF3DEX7OPCODESENS1_12INST_FORMATSESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.thread: ; preds = %17, %11, %_ZNKSt8_Rb_treeIN4LIEF3DEX7OPCODESESt4pairIKS2_NS1_12INST_FORMATSEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, %_ZNKSt3mapIN4LIEF3DEX7OPCODESENS1_12INST_FORMATSESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit
+  %23 = phi i8 [ %22, %_ZNKSt3mapIN4LIEF3DEX7OPCODESENS1_12INST_FORMATSESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit ], [ 0, %_ZNKSt8_Rb_treeIN4LIEF3DEX7OPCODESESt4pairIKS2_NS1_12INST_FORMATSEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ 0, %11 ], [ 0, %17 ]
   ret i8 %23
 }
 
@@ -190,7 +190,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3DEX7OPCODESENS1_12INST_FORMATS
   %31 = icmp ult i8 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN4LIEF3DEX7OPCODESESt4pairIKS2_NS1_12INST_FORMATSEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE17_M_insert_unique_IRKS6_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EOT_RT0_.exit.i
 
-select.unfold:                                    ; preds = %28, %._crit_edge.thread.i.i, %12
+select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN4LIEF3DEX7OPCODESESt4pairIKS2_NS1_12INST_FORMATSEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE10_M_insert_IRKS6_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit.i.i, label %33
@@ -203,7 +203,7 @@ select.unfold:                                    ; preds = %28, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIN4LIEF3DEX7OPCODESESt4pairIKS2_NS1_12INST_FORMATSEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE10_M_insert_IRKS6_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN4LIEF3DEX7OPCODESESt4pairIKS2_NS1_12INST_FORMATSEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE10_M_insert_IRKS6_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
-  %38 = phi i1 [ %37, %33 ], [ true, %select.unfold ]
+  %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
   %39 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load i16, ptr %.08.i, align 1
@@ -298,8 +298,8 @@ _ZNKSt3mapIN4LIEF3DEX12INST_FORMATSEmSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.e
   %22 = load i64, ptr %21, align 8, !tbaa !32
   br label %_ZNKSt3mapIN4LIEF3DEX12INST_FORMATSEmSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit.thread
 
-_ZNKSt3mapIN4LIEF3DEX12INST_FORMATSEmSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit.thread: ; preds = %17, %_ZNKSt8_Rb_treeIN4LIEF3DEX12INST_FORMATSESt4pairIKS2_mESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, %11, %_ZNKSt3mapIN4LIEF3DEX12INST_FORMATSEmSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit
-  %23 = phi i64 [ %22, %_ZNKSt3mapIN4LIEF3DEX12INST_FORMATSEmSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit ], [ 0, %11 ], [ 0, %_ZNKSt8_Rb_treeIN4LIEF3DEX12INST_FORMATSESt4pairIKS2_mESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ 0, %17 ]
+_ZNKSt3mapIN4LIEF3DEX12INST_FORMATSEmSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit.thread: ; preds = %17, %11, %_ZNKSt8_Rb_treeIN4LIEF3DEX12INST_FORMATSESt4pairIKS2_mESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, %_ZNKSt3mapIN4LIEF3DEX12INST_FORMATSEmSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit
+  %23 = phi i64 [ %22, %_ZNKSt3mapIN4LIEF3DEX12INST_FORMATSEmSt4lessIS2_ESaISt4pairIKS2_mEEE4findERS6_.exit ], [ 0, %_ZNKSt8_Rb_treeIN4LIEF3DEX12INST_FORMATSESt4pairIKS2_mESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ 0, %11 ], [ 0, %17 ]
   ret i64 %23
 }
 
@@ -377,7 +377,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3DEX12INST_FORMATSEmSt4lessIS2_
   %31 = icmp ult i8 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN4LIEF3DEX12INST_FORMATSESt4pairIKS2_mESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE17_M_insert_unique_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_.exit.i
 
-select.unfold:                                    ; preds = %28, %._crit_edge.thread.i.i, %12
+select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN4LIEF3DEX12INST_FORMATSESt4pairIKS2_mESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i.i, label %33
@@ -390,7 +390,7 @@ select.unfold:                                    ; preds = %28, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIN4LIEF3DEX12INST_FORMATSESt4pairIKS2_mESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN4LIEF3DEX12INST_FORMATSESt4pairIKS2_mESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
-  %38 = phi i1 [ %37, %33 ], [ true, %select.unfold ]
+  %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
   %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %.08.i, i64 16, i1 false)
@@ -431,17 +431,17 @@ define noundef zeroext i1 @_ZN4LIEF3DEX15is_switch_arrayEPKhS2_(ptr noundef %0, 
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
   %6 = icmp ult i64 %5, 4
-  br i1 %6, label %.critedge, label %7
+  br i1 %6, label %15, label %7
 
 7:                                                ; preds = %2
   %8 = load i8, ptr %0, align 1, !tbaa !5
-  switch i8 %8, label %.critedge [
-    i8 14, label %switch.edge
-    i8 0, label %switch.edge
-    i8 115, label %switch.edge
+  switch i8 %8, label %15 [
+    i8 14, label %.critedge
+    i8 0, label %.critedge
+    i8 115, label %.critedge
   ]
 
-switch.edge:                                      ; preds = %7, %7, %7
+.critedge:                                        ; preds = %7, %7, %7
   %9 = zext nneg i8 %8 to i16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !5
@@ -449,16 +449,16 @@ switch.edge:                                      ; preds = %7, %7, %7
   %13 = shl nuw i16 %12, 8
   %trunc = or disjoint i16 %13, %9
   switch i16 %trunc, label %14 [
-    i16 256, label %.critedge
-    i16 512, label %.critedge
-    i16 768, label %.critedge
+    i16 256, label %15
+    i16 512, label %15
+    i16 768, label %15
   ]
 
-14:                                               ; preds = %switch.edge
-  br label %.critedge
+14:                                               ; preds = %.critedge
+  br label %15
 
-.critedge:                                        ; preds = %7, %switch.edge, %switch.edge, %switch.edge, %14, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %switch.edge ], [ false, %14 ], [ true, %switch.edge ], [ true, %switch.edge ], [ false, %7 ]
+15:                                               ; preds = %7, %.critedge, %.critedge, %.critedge, %14, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -473,12 +473,12 @@ define noundef range(i64 -1, 281470681677835) i64 @_ZN4LIEF3DEX17switch_array_si
 7:                                                ; preds = %2
   %8 = load i8, ptr %0, align 1, !tbaa !5
   switch i8 %8, label %_ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit.thread [
-    i8 14, label %switch.edge.i
-    i8 0, label %switch.edge.i
-    i8 115, label %switch.edge.i
+    i8 14, label %.critedge.i
+    i8 0, label %.critedge.i
+    i8 115, label %.critedge.i
   ]
 
-switch.edge.i:                                    ; preds = %7, %7, %7
+.critedge.i:                                      ; preds = %7, %7, %7
   %9 = zext nneg i8 %8 to i16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !5
@@ -491,7 +491,7 @@ switch.edge.i:                                    ; preds = %7, %7, %7
     i16 768, label %_ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit
   ]
 
-_ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit:        ; preds = %switch.edge.i, %switch.edge.i, %switch.edge.i
+_ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit:        ; preds = %.critedge.i, %.critedge.i, %.critedge.i
   %14 = load i16, ptr %0, align 1
   switch i16 %14, label %_ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit.thread [
     i16 256, label %15
@@ -528,8 +528,8 @@ _ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit:        ; preds = %switch.edge.i, %swi
   %37 = add nuw nsw i64 %36, %35
   br label %_ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit.thread
 
-_ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit.thread: ; preds = %switch.edge.i, %7, %2, %15, %21, %27, %_ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit
-  %.0 = phi i64 [ -1, %_ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit ], [ %37, %27 ], [ %20, %15 ], [ %26, %21 ], [ -1, %2 ], [ -1, %7 ], [ -1, %switch.edge.i ]
+_ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit.thread: ; preds = %.critedge.i, %7, %2, %15, %21, %27, %_ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit
+  %.0 = phi i64 [ %20, %15 ], [ %26, %21 ], [ %37, %27 ], [ -1, %_ZN4LIEF3DEX15is_switch_arrayEPKhS2_.exit ], [ -1, %2 ], [ -1, %7 ], [ -1, %.critedge.i ]
   ret i64 %.0
 }
 

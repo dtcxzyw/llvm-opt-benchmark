@@ -192,7 +192,7 @@ _ZN4llvm12is_containedIRSt6vectorIPKNS_11GlobalValueESaIS4_EES4_EEbOT_RKT0_.exit
   br label %_ZN4llvm12is_containedIRSt6vectorIPKNS_11GlobalValueESaIS4_EES4_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRSt6vectorIPKNS_11GlobalValueESaIS4_EES4_EEbOT_RKT0_.exit: ; preds = %13, %_ZN4llvm12is_containedIRSt6vectorIPKNS_11GlobalValueESaIS4_EES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRSt6vectorIPKNS_11GlobalValueESaIS4_EES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit21, %_ZN4llvm12is_containedIRSt6vectorIPKNS_11GlobalValueESaIS4_EES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit23, %33, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i.i, %33 ], [ %46, %_ZN4llvm12is_containedIRSt6vectorIPKNS_11GlobalValueESaIS4_EES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit23 ], [ %45, %_ZN4llvm12is_containedIRSt6vectorIPKNS_11GlobalValueESaIS4_EES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit21 ], [ %44, %_ZN4llvm12is_containedIRSt6vectorIPKNS_11GlobalValueESaIS4_EES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i, %13 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %33 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %44, %_ZN4llvm12is_containedIRSt6vectorIPKNS_11GlobalValueESaIS4_EES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %45, %_ZN4llvm12is_containedIRSt6vectorIPKNS_11GlobalValueESaIS4_EES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit21 ], [ %46, %_ZN4llvm12is_containedIRSt6vectorIPKNS_11GlobalValueESaIS4_EES4_EEbOT_RKT0_.exit.loopexit.split.loop.exit23 ], [ %.sroa.032.051.i.i.i.i, %13 ]
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %6
   br i1 %.not, label %_ZN4llvm12is_containedIRSt6vectorIPKNS_11GlobalValueESaIS4_EES4_EEbOT_RKT0_.exit.thread, label %_ZNSt6vectorIPKN4llvm11GlobalValueESaIS3_EE9push_backERKS3_.exit
 
@@ -406,7 +406,7 @@ _ZNK4llvm8Function21needsUnwindTableEntryEv.exit: ; preds = %32
   br i1 %or.cond, label %44, label %41
 
 .critedge:                                        ; preds = %2, %22, %27
-  %.036 = phi ptr [ %spec.select.i.i, %27 ], [ %spec.select.i.i, %22 ], [ null, %2 ]
+  %.036 = phi ptr [ %spec.select.i.i, %22 ], [ %spec.select.i.i, %27 ], [ null, %2 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %40, align 1, !tbaa !273
   %.old = icmp eq i32 %18, 255
@@ -420,7 +420,7 @@ _ZNK4llvm8Function21needsUnwindTableEntryEv.exit: ; preds = %32
   br label %44
 
 44:                                               ; preds = %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit, %41, %.critedge
-  %45 = phi i8 [ %43, %41 ], [ 0, %.critedge ], [ 0, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit ]
+  %45 = phi i8 [ 0, %.critedge ], [ %43, %41 ], [ 0, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit ]
   store i8 %45, ptr %4, align 8, !tbaa !167
   %46 = getelementptr inbounds nuw i8, ptr %16, i64 936
   %47 = load i32, ptr %46, align 8, !tbaa !274
@@ -459,7 +459,7 @@ _ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit:         ; preds = %44
   br label %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit.thread26
 
 _ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit.thread26: ; preds = %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit, %44, %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit.thread
-  %.shrunk = phi i1 [ false, %44 ], [ %narrow, %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit ], [ %58, %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit.thread ]
+  %.shrunk = phi i1 [ %58, %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit.thread ], [ false, %44 ], [ %narrow, %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit ]
   %63 = zext i1 %.shrunk to i8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 27
   store i8 %63, ptr %64, align 1, !tbaa !410

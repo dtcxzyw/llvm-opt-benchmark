@@ -470,7 +470,7 @@ _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit: ; 
   %178 = icmp slt i8 %177, -1
   br i1 %178, label %.lr.ph.i.i68, label %.loopexit133, !llvm.loop !49
 
-.loopexit133:                                     ; preds = %.lr.ph.i.i68, %163, %161
+.loopexit133:                                     ; preds = %.lr.ph.i.i68, %161, %163
   %.sroa.6.0.i.ph = phi ptr [ %13, %161 ], [ %.sroa.0.0.copyload.i.i.i, %163 ], [ %176, %.lr.ph.i.i68 ]
   %.sroa.0.0.i.ph = phi ptr [ @_ZN4absl18container_internal11kSooControlE, %161 ], [ %.val4.i, %163 ], [ %175, %.lr.ph.i.i68 ]
   %.val52.val = load ptr, ptr %.sroa.6.0.i.ph, align 8, !tbaa !17
@@ -564,7 +564,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
   %220 = icmp slt i8 %219, -1
   br i1 %220, label %.lr.ph.i.i87, label %.loopexit, !llvm.loop !49
 
-.loopexit:                                        ; preds = %.lr.ph.i.i87, %205, %.lr.ph
+.loopexit:                                        ; preds = %.lr.ph.i.i87, %.lr.ph, %205
   %.sroa.6.0.i83.ph = phi ptr [ %13, %.lr.ph ], [ %.sroa.0.0.copyload.i.i.i82, %205 ], [ %218, %.lr.ph.i.i87 ]
   %.sroa.0.0.i84.ph = phi ptr [ @_ZN4absl18container_internal11kSooControlE, %.lr.ph ], [ %.val4.i81, %205 ], [ %217, %.lr.ph.i.i87 ]
   %.val56.val = load ptr, ptr %.sroa.6.0.i83.ph, align 8, !tbaa !17
@@ -953,7 +953,7 @@ define internal void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashM
   br i1 %.not.i.i, label %.lr.ph.i.i, label %.thread.i.i, !llvm.loop !67
 
 72:                                               ; preds = %.thread.i.i, %43
-  %.sroa.011.0.i.i = phi i64 [ %64, %.thread.i.i ], [ %54, %43 ]
+  %.sroa.011.0.i.i = phi i64 [ %54, %43 ], [ %64, %.thread.i.i ]
   %73 = trunc i64 %48 to i8
   %74 = and i8 %73, 127
   %75 = getelementptr inbounds nuw i8, ptr %49, i64 %.sroa.011.0.i.i

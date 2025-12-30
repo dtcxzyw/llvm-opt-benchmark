@@ -426,8 +426,8 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %101, %103, %93, %95
-  %.sink67 = phi ptr [ %96, %95 ], [ %94, %93 ], [ %102, %101 ], [ %104, %103 ]
-  %.sink = phi i32 [ 16, %95 ], [ 16, %93 ], [ %98, %101 ], [ %98, %103 ]
+  %.sink67 = phi ptr [ %94, %93 ], [ %96, %95 ], [ %102, %101 ], [ %104, %103 ]
+  %.sink = phi i32 [ 16, %93 ], [ 16, %95 ], [ %98, %101 ], [ %98, %103 ]
   store ptr %.sink67, ptr %13, align 8, !tbaa !14
   store i32 %.sink, ptr %5, align 8, !tbaa !13
   br label %Vec_IntPush.exit

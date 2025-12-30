@@ -43,7 +43,7 @@ define hidden void @_ZN2ui10styled_ext9StyledExt6h_flex17h3e4417821dcb31b3E(ptr 
   unreachable
 
 common.resume:                                    ; preds = %18, %12, %6
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %7, %6 ], [ %19, %18 ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %6 ], [ %13, %12 ], [ %19, %18 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4gpui6styled6Styled4flex17h69a023d1c91313e1E.llvm.1101809217053872669.exit: ; preds = %2

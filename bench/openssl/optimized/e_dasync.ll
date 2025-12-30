@@ -114,7 +114,7 @@ engine_dasync.exit:                               ; preds = %2
   %9 = tail call i32 @ERR_pop_to_mark() #9
   br label %engine_dasync.exit.thread
 
-engine_dasync.exit.thread:                        ; preds = %4, %0, %engine_dasync.exit
+engine_dasync.exit.thread:                        ; preds = %0, %4, %engine_dasync.exit
   ret void
 }
 
@@ -462,7 +462,7 @@ ERR_DASYNC_error.exit:                            ; preds = %37, %40
   br label %119
 
 119:                                              ; preds = %115, %117, %1, %4, %ERR_DASYNC_error.exit
-  %.0 = phi i32 [ 0, %ERR_DASYNC_error.exit ], [ 0, %1 ], [ 0, %4 ], [ 1, %117 ], [ 1, %115 ]
+  %.0 = phi i32 [ 0, %ERR_DASYNC_error.exit ], [ 0, %4 ], [ 0, %1 ], [ 1, %117 ], [ 1, %115 ]
   ret i32 %.0
 }
 
@@ -1385,7 +1385,7 @@ define internal fastcc i32 @dasync_cipher_helper(ptr noundef %0, ptr noundef %1,
   br label %54
 
 54:                                               ; preds = %22, %14, %51
-  %.0 = phi i32 [ -1, %14 ], [ %.040, %51 ], [ -1, %22 ]
+  %.0 = phi i32 [ %.040, %51 ], [ -1, %14 ], [ -1, %22 ]
   ret i32 %.0
 }
 
@@ -1518,7 +1518,7 @@ define internal fastcc i32 @dasync_cipher_ctrl_helper(ptr noundef %0, i32 nounde
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %19, %22, %14, %10, %9, %69, %33, %36, %65, %40, %25, %6, %26
-  %.056 = phi i32 [ -1, %25 ], [ 20, %40 ], [ %72, %69 ], [ -1, %10 ], [ %31, %26 ], [ 0, %9 ], [ 0, %6 ], [ 0, %65 ], [ -1, %33 ], [ -1, %36 ], [ 1, %14 ], [ 1, %22 ], [ 1, %19 ], [ 1, %16 ]
+  %.056 = phi i32 [ %31, %26 ], [ 0, %6 ], [ -1, %25 ], [ %72, %69 ], [ -1, %33 ], [ -1, %36 ], [ 0, %65 ], [ 20, %40 ], [ 0, %9 ], [ -1, %10 ], [ 1, %14 ], [ 1, %22 ], [ 1, %19 ], [ 1, %16 ]
   ret i32 %.056
 }
 

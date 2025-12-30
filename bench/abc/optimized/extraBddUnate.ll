@@ -465,7 +465,7 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %187
 
 187:                                              ; preds = %70, %80, %100, %110, %134, %144, %158, %168, %._crit_edge178, %51, %17, %15, %12
-  %.0134 = phi ptr [ %14, %12 ], [ %16, %15 ], [ %18, %17 ], [ null, %80 ], [ null, %100 ], [ null, %110 ], [ null, %134 ], [ null, %144 ], [ null, %158 ], [ null, %168 ], [ %.2.lcssa, %._crit_edge178 ], [ null, %70 ], [ null, %51 ]
+  %.0134 = phi ptr [ %14, %12 ], [ %16, %15 ], [ %18, %17 ], [ null, %100 ], [ null, %110 ], [ null, %134 ], [ null, %144 ], [ null, %158 ], [ null, %168 ], [ %.2.lcssa, %._crit_edge178 ], [ null, %70 ], [ null, %80 ], [ null, %51 ]
   ret ptr %.0134
 }
 
@@ -599,7 +599,7 @@ define ptr @extraZddGetSingletonsBoth(ptr noundef %0, ptr noundef %1) #0 {
   br label %72
 
 72:                                               ; preds = %28, %38, %52, %62, %63, %8, %6, %2
-  %.0 = phi ptr [ %7, %6 ], [ %4, %2 ], [ %60, %63 ], [ null, %28 ], [ null, %38 ], [ null, %52 ], [ null, %62 ], [ null, %8 ]
+  %.0 = phi ptr [ %4, %2 ], [ %7, %6 ], [ null, %28 ], [ null, %38 ], [ null, %52 ], [ null, %62 ], [ %60, %63 ], [ null, %8 ]
   ret ptr %.0
 }
 

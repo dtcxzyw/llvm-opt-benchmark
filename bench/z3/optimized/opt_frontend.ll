@@ -1001,7 +1001,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZStlsISt11char_tra
   br i1 %.not48, label %._crit_edge, label %193
 
 233:                                              ; preds = %218, %230, %191
-  %.pn49.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %192, %191 ], [ %219, %218 ], [ %.pn49.pn.pn, %230 ]
+  %.pn49.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %192, %191 ], [ %.pn49.pn.pn, %230 ], [ %219, %218 ]
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %234
@@ -1441,7 +1441,7 @@ _ZL17display_objectivev.exit:                     ; preds = %_ZN7obj_refI4expr11
   br label %.body109
 
 .body109:                                         ; preds = %.loopexit, %.loopexit.split-lp, %318, %390, %393, %391, %280
-  %.merged70 = phi { ptr, i32 } [ %392, %391 ], [ %.pn49.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %280 ], [ %394, %393 ], [ %319, %318 ], [ %.pn.i, %390 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.merged70 = phi { ptr, i32 } [ %.pn49.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %280 ], [ %394, %393 ], [ %392, %391 ], [ %319, %318 ], [ %.pn.i, %390 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #22
   br label %395
 

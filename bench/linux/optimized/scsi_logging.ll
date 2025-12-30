@@ -347,7 +347,7 @@ define internal fastcc range(i64 -4294967296, 4294967295) i64 @scsi_format_opcod
   br label %31
 
 31:                                               ; preds = %.thread, %26
-  %32 = phi i32 [ %20, %.thread ], [ %30, %26 ]
+  %32 = phi i32 [ %30, %26 ], [ %20, %.thread ]
   %33 = call zeroext i1 @scsi_opcode_sa_name(i32 noundef %7, i32 noundef %32, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   br i1 %33, label %62, label %34
 

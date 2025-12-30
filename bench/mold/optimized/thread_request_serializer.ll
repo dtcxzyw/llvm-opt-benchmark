@@ -1096,7 +1096,7 @@ define linkonce_odr void @_ZN3tbb6detail2d18rw_mutex11lock_sharedEv(ptr noundef 
   call void @_ZN3tbb6detail2r117notify_by_addressEPvm(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 0)
   br label %15
 
-15:                                               ; preds = %7, %13
+15:                                               ; preds = %13, %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 3, ptr %4, align 8, !tbaa !66
   call void @llvm.lifetime.start.p0(ptr nonnull %2)

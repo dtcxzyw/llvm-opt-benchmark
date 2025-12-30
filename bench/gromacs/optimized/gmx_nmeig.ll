@@ -1274,7 +1274,7 @@ _ZL20allocateEigenvectorsiiib.exit248:            ; preds = %399
   br i1 %exitcond89.not.i, label %_ZL16nma_full_hessianPfibPK10t_topologyN3gmx8ArrayRefIKiEEiiS_S_.exit, label %.preheader.us.i252, !llvm.loop !96
 
 _ZL16nma_full_hessianPfibPK10t_topologyN3gmx8ArrayRefIKiEEiiS_S_.exit: ; preds = %._crit_edge.us.i, %._crit_edge71.us.i, %.noexc259, %.preheader.lr.ph.i, %.noexc242
-  %.0142 = phi ptr [ %400, %._crit_edge71.us.i ], [ %318, %.noexc242 ], [ %318, %.preheader.lr.ph.i ], [ %400, %.noexc259 ], [ %318, %._crit_edge.us.i ]
+  %.0142 = phi ptr [ %318, %.noexc242 ], [ %318, %.preheader.lr.ph.i ], [ %400, %.noexc259 ], [ %400, %._crit_edge71.us.i ], [ %318, %._crit_edge.us.i ]
   %480 = load i32, ptr @_ZZ9gmx_nmeigiPPcE5begin, align 4, !tbaa !4
   %481 = icmp slt i32 %480, 7
   br i1 %481, label %.lr.ph442.preheader, label %.critedge
@@ -2591,7 +2591,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit.i: ; preds = %1015, %1013
   br label %1032
 
 1032:                                             ; preds = %1030, %1028, %1026, %1024, %1022, %980
-  %.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %981, %980 ], [ %1029, %1028 ], [ %1023, %1022 ], [ %1025, %1024 ], [ %1027, %1026 ], [ %1031, %1030 ]
+  %.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %981, %980 ], [ %1023, %1022 ], [ %1025, %1024 ], [ %1027, %1026 ], [ %1031, %1030 ], [ %1029, %1028 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %1033
 
@@ -2664,7 +2664,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1047, %1049
   br label %1065
 
 .body:                                            ; preds = %.loopexit425, %.loopexit.split-lp, %1043, %1039, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit94.i, %315, %397, %387, %556, %622, %681, %745, %257, %274, %252
-  %.pn205.pn.pn = phi { ptr, i32 } [ %.pn173, %252 ], [ %275, %274 ], [ %.pn176.pn.pn, %556 ], [ %.pn205, %257 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit94.i ], [ %398, %397 ], [ %.pn189.pn.pn, %745 ], [ %.pn185.pn.pn, %681 ], [ %.pn181.pn.pn, %622 ], [ %316, %315 ], [ %388, %387 ], [ %1044, %1043 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %1039 ], [ %lpad.loopexit, %.loopexit425 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn205.pn.pn = phi { ptr, i32 } [ %.pn173, %252 ], [ %.pn205, %257 ], [ %275, %274 ], [ %.pn189.pn.pn, %745 ], [ %.pn185.pn.pn, %681 ], [ %.pn181.pn.pn, %622 ], [ %.pn176.pn.pn, %556 ], [ %316, %315 ], [ %388, %387 ], [ %398, %397 ], [ %1044, %1043 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %1039 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit94.i ], [ %lpad.loopexit, %.loopexit425 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %1055

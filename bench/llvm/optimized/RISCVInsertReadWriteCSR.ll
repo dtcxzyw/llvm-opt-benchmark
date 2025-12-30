@@ -1053,10 +1053,10 @@ _ZN4llvm8DebugLocD2Ev.exit69.i:                   ; preds = %269, %_ZN4llvm10MIM
   br label %_ZN4llvm7RISCVIIL11getFRMOpNumERKNS_11MCInstrDescE.exit.thread.i14
 
 _ZN4llvm7RISCVIIL11getFRMOpNumERKNS_11MCInstrDescE.exit.thread.i14: ; preds = %_ZN4llvm8DebugLocD2Ev.exit69.i, %_ZN4llvm8DebugLocD2Ev.exit61.i, %215, %_ZN4llvm7RISCVIIL11getFRMOpNumERKNS_11MCInstrDescE.exit.i42, %204, %_ZN4llvm8DebugLocD2Ev.exit.i, %186, %161, %158
-  %.sroa.091.1.i = phi i32 [ 0, %161 ], [ %229, %_ZN4llvm8DebugLocD2Ev.exit61.i ], [ 0, %158 ], [ %.sroa.091.0110.i, %_ZN4llvm7RISCVIIL11getFRMOpNumERKNS_11MCInstrDescE.exit.i42 ], [ %.sroa.091.0110.i, %215 ], [ %.sroa.091.0110.i, %_ZN4llvm8DebugLocD2Ev.exit69.i ], [ 0, %_ZN4llvm8DebugLocD2Ev.exit.i ], [ 0, %186 ], [ %.sroa.091.0110.i, %204 ]
-  %.145.i = phi i32 [ %166, %161 ], [ %222, %_ZN4llvm8DebugLocD2Ev.exit61.i ], [ 7, %158 ], [ %.044111.i, %_ZN4llvm7RISCVIIL11getFRMOpNumERKNS_11MCInstrDescE.exit.i42 ], [ %.044111.i, %215 ], [ %222, %_ZN4llvm8DebugLocD2Ev.exit69.i ], [ 7, %_ZN4llvm8DebugLocD2Ev.exit.i ], [ 7, %186 ], [ %.044111.i, %204 ]
-  %.142.i = phi ptr [ %.041112.i, %161 ], [ %.sroa.089.0114.i, %_ZN4llvm8DebugLocD2Ev.exit61.i ], [ %.041112.i, %158 ], [ %.041112.i, %_ZN4llvm7RISCVIIL11getFRMOpNumERKNS_11MCInstrDescE.exit.i42 ], [ %.sroa.089.0114.i, %215 ], [ %.sroa.089.0114.i, %_ZN4llvm8DebugLocD2Ev.exit69.i ], [ %.041112.i, %_ZN4llvm8DebugLocD2Ev.exit.i ], [ %.041112.i, %186 ], [ %.041112.i, %204 ]
-  %.1.i15 = phi i1 [ %.0113.i, %161 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit61.i ], [ %.0113.i, %158 ], [ %.0113.i, %_ZN4llvm7RISCVIIL11getFRMOpNumERKNS_11MCInstrDescE.exit.i42 ], [ true, %215 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit69.i ], [ %.0113.i, %_ZN4llvm8DebugLocD2Ev.exit.i ], [ %.0113.i, %186 ], [ %.0113.i, %204 ]
+  %.sroa.091.1.i = phi i32 [ 0, %161 ], [ %.sroa.091.0110.i, %_ZN4llvm7RISCVIIL11getFRMOpNumERKNS_11MCInstrDescE.exit.i42 ], [ %.sroa.091.0110.i, %215 ], [ %.sroa.091.0110.i, %_ZN4llvm8DebugLocD2Ev.exit69.i ], [ %229, %_ZN4llvm8DebugLocD2Ev.exit61.i ], [ 0, %_ZN4llvm8DebugLocD2Ev.exit.i ], [ 0, %186 ], [ %.sroa.091.0110.i, %204 ], [ 0, %158 ]
+  %.145.i = phi i32 [ %166, %161 ], [ %.044111.i, %_ZN4llvm7RISCVIIL11getFRMOpNumERKNS_11MCInstrDescE.exit.i42 ], [ %.044111.i, %215 ], [ %222, %_ZN4llvm8DebugLocD2Ev.exit69.i ], [ %222, %_ZN4llvm8DebugLocD2Ev.exit61.i ], [ 7, %_ZN4llvm8DebugLocD2Ev.exit.i ], [ 7, %186 ], [ %.044111.i, %204 ], [ 7, %158 ]
+  %.142.i = phi ptr [ %.041112.i, %161 ], [ %.041112.i, %_ZN4llvm7RISCVIIL11getFRMOpNumERKNS_11MCInstrDescE.exit.i42 ], [ %.sroa.089.0114.i, %215 ], [ %.sroa.089.0114.i, %_ZN4llvm8DebugLocD2Ev.exit69.i ], [ %.sroa.089.0114.i, %_ZN4llvm8DebugLocD2Ev.exit61.i ], [ %.041112.i, %_ZN4llvm8DebugLocD2Ev.exit.i ], [ %.041112.i, %186 ], [ %.041112.i, %204 ], [ %.041112.i, %158 ]
+  %.1.i15 = phi i1 [ %.0113.i, %161 ], [ %.0113.i, %_ZN4llvm7RISCVIIL11getFRMOpNumERKNS_11MCInstrDescE.exit.i42 ], [ true, %215 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit69.i ], [ true, %_ZN4llvm8DebugLocD2Ev.exit61.i ], [ %.0113.i, %_ZN4llvm8DebugLocD2Ev.exit.i ], [ %.0113.i, %186 ], [ %.0113.i, %204 ], [ %.0113.i, %158 ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i16 = load i64, ptr %.sroa.089.0114.i, align 8
   %270 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i16, 4
   %.not.i.i.i.i17 = icmp eq i64 %270, 0
@@ -1140,7 +1140,7 @@ _ZN4llvm10MIMetadataD2Ev.exit73.i:                ; preds = %286, %_ZNK4llvm19Ma
   br label %_ZN12_GLOBAL__N_123RISCVInsertReadWriteCSR24emitWriteRoundingModeOptERN4llvm17MachineBasicBlockE.exit
 
 _ZN12_GLOBAL__N_123RISCVInsertReadWriteCSR24emitWriteRoundingModeOptERN4llvm17MachineBasicBlockE.exit: ; preds = %154, %._crit_edge.i, %_ZN4llvm10MIMetadataD2Ev.exit73.i
-  %.0.lcssa135.i = phi i1 [ %.1.i15, %._crit_edge.i ], [ %.1.i15, %_ZN4llvm10MIMetadataD2Ev.exit73.i ], [ false, %154 ]
+  %.0.lcssa135.i = phi i1 [ %.1.i15, %_ZN4llvm10MIMetadataD2Ev.exit73.i ], [ %.1.i15, %._crit_edge.i ], [ false, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

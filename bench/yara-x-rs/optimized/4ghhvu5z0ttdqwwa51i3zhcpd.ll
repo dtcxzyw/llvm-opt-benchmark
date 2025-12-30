@@ -1268,8 +1268,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   unreachable
 
 .sink.split.i.i.i:                                ; preds = %.body69.i.i.i, %112, %.loopexit.split-lp26.i, %.loopexit25.i, %86, %78
-  %.sink.i.i.i = phi ptr [ %52, %78 ], [ %55, %86 ], [ %73, %112 ], [ %73, %.body69.i.i.i ], [ %73, %.loopexit25.i ], [ %73, %.loopexit.split-lp26.i ]
-  %.pn48.ph.i.i.i = phi { ptr, i32 } [ %79, %78 ], [ %87, %86 ], [ %lpad.phi34.i, %112 ], [ %.pn.i.i.i, %.body69.i.i.i ], [ %lpad.loopexit27.i, %.loopexit25.i ], [ %lpad.loopexit.split-lp28.i, %.loopexit.split-lp26.i ]
+  %.sink.i.i.i = phi ptr [ %55, %86 ], [ %52, %78 ], [ %73, %112 ], [ %73, %.body69.i.i.i ], [ %73, %.loopexit25.i ], [ %73, %.loopexit.split-lp26.i ]
+  %.pn48.ph.i.i.i = phi { ptr, i32 } [ %87, %86 ], [ %79, %78 ], [ %lpad.phi34.i, %112 ], [ %.pn.i.i.i, %.body69.i.i.i ], [ %lpad.loopexit27.i, %.loopexit25.i ], [ %lpad.loopexit.split-lp28.i, %.loopexit.split-lp26.i ]
   call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.sink.i.i.i, i64 noundef 24, i64 noundef 8) #14, !noalias !285
   br label %159
 
@@ -1617,7 +1617,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h790d4625732fe672E.exit.i.i.i: ;
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6d6e2527cd9e03fbE.exit"
 
 159:                                              ; preds = %89, %.sink.split.i.i.i, %.loopexit.split-lp.i, %.loopexit.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn48.ph.i.i.i, %.sink.split.i.i.i ], [ %90, %89 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %90, %89 ], [ %.pn48.ph.i.i.i, %.sink.split.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %160 = icmp ne ptr %.sroa.0.0.copyload, null
   call void @llvm.assume(i1 %160)
   store i64 %.val20.i, ptr %.sroa.0.0.copyload, align 8, !noalias !294
@@ -1940,7 +1940,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br label %11
 
 11:                                               ; preds = %9, %7, %2
-  %.sroa.0.0.i = phi i64 [ 2, %7 ], [ %..i, %9 ], [ 1, %2 ]
+  %.sroa.0.0.i = phi i64 [ 1, %2 ], [ %..i, %9 ], [ 2, %7 ]
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd62ed5b6ad3554e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.sroa.0.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.08f70648ac8afc0e83105df9ee4b6318.13)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !458, !nonnull !6, !noundef !6
@@ -2198,7 +2198,7 @@ common.resume:                                    ; preds = %30, %23
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %52, %57
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi5.i.i.i, %57 ], [ %lpad.phi.i.i.i, %52 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %52 ], [ %lpad.phi5.i.i.i, %57 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h27c3fa3867c76799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #17
           to label %30 unwind label %64
 
@@ -2523,7 +2523,7 @@ common.resume:                                    ; preds = %30, %23
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %52, %57
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi5.i.i.i, %57 ], [ %lpad.phi.i.i.i, %52 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %52 ], [ %lpad.phi5.i.i.i, %57 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h27c3fa3867c76799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #17
           to label %30 unwind label %64
 

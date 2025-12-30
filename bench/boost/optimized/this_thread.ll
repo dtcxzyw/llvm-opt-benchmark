@@ -2329,8 +2329,8 @@ _ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7se
   store ptr %36, ptr %7, align 8, !tbaa !59
   br label %_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit
 
-.split.us:                                        ; preds = %53, %_ZNKSt9type_infoeqERKS_.exit.i27, %.lr.ph54.split, %.lr.ph54.split.us
-  %.us-phi55 = phi ptr [ %.153.us, %.lr.ph54.split.us ], [ %.153, %.lr.ph54.split ], [ %.153, %_ZNKSt9type_infoeqERKS_.exit.i27 ], [ %.153, %53 ]
+.split.us:                                        ; preds = %.lr.ph54.split, %53, %_ZNKSt9type_infoeqERKS_.exit.i27, %.lr.ph54.split.us
+  %.us-phi55 = phi ptr [ %.153.us, %.lr.ph54.split.us ], [ %.153, %_ZNKSt9type_infoeqERKS_.exit.i27 ], [ %.153, %53 ], [ %.153, %.lr.ph54.split ]
   %67 = icmp eq ptr %36, null
   br i1 %67, label %_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit, label %68
 
@@ -2341,8 +2341,8 @@ _ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7se
   tail call void %71(ptr noundef nonnull align 8 dereferenceable(40) %36) #5
   br label %_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit
 
-_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit: ; preds = %.lr.ph.split, %_ZNKSt9type_infoeqERKS_.exit.i, %22, %.lr.ph.split.us, %68, %.split.us, %.thread
-  %.018 = phi ptr [ %.us-phi55, %68 ], [ %36, %.thread ], [ %.us-phi55, %.split.us ], [ %.01750.us, %.lr.ph.split.us ], [ %.01750, %22 ], [ %.01750, %_ZNKSt9type_infoeqERKS_.exit.i ], [ %.01750, %.lr.ph.split ]
+_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit: ; preds = %_ZNKSt9type_infoeqERKS_.exit.i, %22, %.lr.ph.split, %.lr.ph.split.us, %68, %.split.us, %.thread
+  %.018 = phi ptr [ %36, %.thread ], [ %.us-phi55, %.split.us ], [ %.us-phi55, %68 ], [ %.01750.us, %.lr.ph.split.us ], [ %.01750, %.lr.ph.split ], [ %.01750, %22 ], [ %.01750, %_ZNKSt9type_infoeqERKS_.exit.i ]
   %72 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #5
   ret ptr %.018
 }

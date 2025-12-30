@@ -367,15 +367,15 @@ _ZNSt6vectorIPhSaIS0_EED2Ev.exit49:               ; preds = %._crit_edge122, %94
   br label %105
 
 105:                                              ; preds = %.loopexit, %.loopexit.split-lp, %104
-  %106 = phi ptr [ %46, %.loopexit ], [ %46, %.loopexit.split-lp ], [ %.pre, %104 ]
-  %.pn28.pn = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn.pn.pn, %104 ]
+  %106 = phi ptr [ %.pre, %104 ], [ %46, %.loopexit.split-lp ], [ %46, %.loopexit ]
+  %.pn28.pn = phi { ptr, i32 } [ %.pn.pn.pn, %104 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   %.not.i.i.i50 = icmp eq ptr %106, null
   br i1 %.not.i.i.i50, label %_ZNSt6vectorIPhSaIS0_EED2Ev.exit51, label %.thread
 
-.thread:                                          ; preds = %.loopexit83, %.loopexit.split-lp84, %105
-  %.pn28.pn159 = phi { ptr, i32 } [ %.pn28.pn, %105 ], [ %lpad.loopexit85, %.loopexit83 ], [ %lpad.loopexit.split-lp86, %.loopexit.split-lp84 ]
-  %.sroa.063.2157 = phi ptr [ %.sroa.063.4, %105 ], [ %.sroa.063.1102, %.loopexit83 ], [ %.sroa.063.1102, %.loopexit.split-lp84 ]
-  %107 = phi ptr [ %106, %105 ], [ %5, %.loopexit83 ], [ %5, %.loopexit.split-lp84 ]
+.thread:                                          ; preds = %.loopexit.split-lp84, %.loopexit83, %105
+  %.pn28.pn159 = phi { ptr, i32 } [ %.pn28.pn, %105 ], [ %lpad.loopexit.split-lp86, %.loopexit.split-lp84 ], [ %lpad.loopexit85, %.loopexit83 ]
+  %.sroa.063.2157 = phi ptr [ %.sroa.063.4, %105 ], [ %.sroa.063.1102, %.loopexit.split-lp84 ], [ %.sroa.063.1102, %.loopexit83 ]
+  %107 = phi ptr [ %106, %105 ], [ %5, %.loopexit.split-lp84 ], [ %5, %.loopexit83 ]
   call void @_ZdlPv(ptr noundef nonnull %107) #14
   br label %_ZNSt6vectorIPhSaIS0_EED2Ev.exit51
 

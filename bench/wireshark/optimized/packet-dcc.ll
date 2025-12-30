@@ -524,7 +524,7 @@ define internal noundef zeroext i1 @dissect_dcc(ptr noundef %0, ptr noundef %1, 
   br label %195
 
 195:                                              ; preds = %36, %61, %135, %179, %184, %.critedge2, %.critedge, %74, %11, %8
-  %.0 = phi i1 [ false, %11 ], [ false, %8 ], [ true, %74 ], [ true, %.critedge ], [ true, %.critedge2 ], [ true, %184 ], [ true, %179 ], [ true, %135 ], [ true, %61 ], [ true, %36 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %11 ], [ true, %74 ], [ true, %.critedge ], [ true, %.critedge2 ], [ true, %184 ], [ true, %179 ], [ true, %135 ], [ true, %61 ], [ true, %36 ]
   ret i1 %.0
 }
 

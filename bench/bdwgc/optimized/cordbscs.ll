@@ -333,10 +333,10 @@ CORD__call_oom_fn.exit102:                        ; preds = %61, %63
   br i1 %70, label %.sink.split, label %75
 
 .sink.split:                                      ; preds = %26, %30, %34, %66, %54
-  %.176137.sink = phi ptr [ %0, %54 ], [ %40, %66 ], [ %0, %34 ], [ %0, %30 ], [ %0, %26 ]
-  %.288.ph = phi i64 [ %28, %54 ], [ %69, %66 ], [ %28, %34 ], [ %28, %30 ], [ %28, %26 ]
-  %.181.ph = phi i64 [ %2, %54 ], [ %55, %66 ], [ %2, %34 ], [ %2, %30 ], [ %2, %26 ]
-  %.279.ph = phi ptr [ %1, %54 ], [ %59, %66 ], [ %1, %34 ], [ %1, %30 ], [ %1, %26 ]
+  %.176137.sink = phi ptr [ %40, %66 ], [ %0, %54 ], [ %0, %34 ], [ %0, %30 ], [ %0, %26 ]
+  %.288.ph = phi i64 [ %69, %66 ], [ %28, %54 ], [ %28, %34 ], [ %28, %30 ], [ %28, %26 ]
+  %.181.ph = phi i64 [ %55, %66 ], [ %2, %54 ], [ %2, %34 ], [ %2, %30 ], [ %2, %26 ]
+  %.279.ph = phi ptr [ %59, %66 ], [ %1, %54 ], [ %1, %34 ], [ %1, %30 ], [ %1, %26 ]
   %71 = getelementptr inbounds nuw i8, ptr %.176137.sink, i64 2
   %72 = load i8, ptr %71, align 2, !tbaa !18
   %73 = sext i8 %72 to i32
@@ -494,7 +494,7 @@ CORD_balance.exit:                                ; preds = %126, %CORD_init_for
   br label %127
 
 127:                                              ; preds = %CORD_balance.exit, %93, %6, %3, %23
-  %.0 = phi ptr [ %0, %6 ], [ %1, %3 ], [ %16, %23 ], [ %.0.i, %CORD_balance.exit ], [ %78, %93 ]
+  %.0 = phi ptr [ %16, %23 ], [ %1, %3 ], [ %0, %6 ], [ %.0.i, %CORD_balance.exit ], [ %78, %93 ]
   ret ptr %.0
 }
 
@@ -611,7 +611,7 @@ CORD_init_forest.exit:                            ; preds = %18
   br i1 %.not.i, label %CORD_concat_forest.exit, label %.lr.ph, !llvm.loop !35
 
 CORD_concat_forest.exit:                          ; preds = %33, %CORD_init_forest.exit, %4, %1
-  %.0 = phi ptr [ %0, %4 ], [ null, %1 ], [ null, %CORD_init_forest.exit ], [ %.112.i, %33 ]
+  %.0 = phi ptr [ null, %1 ], [ %0, %4 ], [ null, %CORD_init_forest.exit ], [ %.112.i, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -712,7 +712,7 @@ CORD__call_oom_fn.exit:                           ; preds = %30, %32
   br label %49
 
 49:                                               ; preds = %47, %42, %4, %2, %8
-  %.0 = phi ptr [ %0, %4 ], [ %1, %2 ], [ %10, %8 ], [ %48, %47 ], [ %28, %42 ]
+  %.0 = phi ptr [ %10, %8 ], [ %1, %2 ], [ %0, %4 ], [ %48, %47 ], [ %28, %42 ]
   ret ptr %.0
 }
 
@@ -813,7 +813,7 @@ CORD__call_oom_fn.exit36:                         ; preds = %28, %30
   br label %38
 
 38:                                               ; preds = %.thread38, %3, %33
-  %.0 = phi ptr [ %26, %33 ], [ %16, %.thread38 ], [ null, %3 ]
+  %.0 = phi ptr [ %26, %33 ], [ null, %3 ], [ %16, %.thread38 ]
   ret ptr %.0
 }
 
@@ -861,7 +861,7 @@ define ptr @CORD_substr(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_un
   br label %CORD_len.exit
 
 CORD_len.exit:                                    ; preds = %7, %9
-  %12 = phi i64 [ %11, %9 ], [ %8, %7 ]
+  %12 = phi i64 [ %8, %7 ], [ %11, %9 ]
   %13 = icmp uge i64 %1, %12
   %14 = icmp eq i64 %2, 0
   %or.cond = or i1 %14, %13
@@ -895,8 +895,8 @@ define internal fastcc ptr @CORD_substr_checked(ptr noundef %0, i64 noundef %1, 
   br label %47
 
 tailrecurse.outer._crit_edge:                     ; preds = %tailrecurse.outer, %tailrecurse, %3
-  %.tr171.ph.lcssa194 = phi i64 [ %.tr171.ph206, %tailrecurse ], [ %1, %3 ], [ %86, %tailrecurse.outer ]
-  %.tr.lcssa = phi ptr [ %91, %tailrecurse ], [ %0, %3 ], [ %85, %tailrecurse.outer ]
+  %.tr171.ph.lcssa194 = phi i64 [ %1, %3 ], [ %.tr171.ph206, %tailrecurse ], [ %86, %tailrecurse.outer ]
+  %.tr.lcssa = phi ptr [ %0, %3 ], [ %91, %tailrecurse ], [ %85, %tailrecurse.outer ]
   %8 = icmp ugt i64 %2, 310
   br i1 %8, label %9, label %34
 
@@ -1400,12 +1400,12 @@ CORD__call_oom_fn.exit136:                        ; preds = %231, %233
   br label %CORD_substr_closure.exit134.thread
 
 CORD_substr_closure.exit134.thread:               ; preds = %221, %224, %179, %236
-  %.4 = phi ptr [ null, %179 ], [ %229, %236 ], [ %.0.i150.ph, %224 ], [ %.0.i150.ph, %221 ]
+  %.4 = phi ptr [ %229, %236 ], [ null, %179 ], [ %.0.i150.ph, %224 ], [ %.0.i150.ph, %221 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %CORD_substr_closure.exit
 
 CORD_substr_closure.exit:                         ; preds = %79, %89, %162, %155, %136, %133, %129, %33, %26, %108, %CORD_substr_closure.exit134.thread, %43
-  %.0 = phi ptr [ %109, %108 ], [ %36, %43 ], [ %.4, %CORD_substr_closure.exit134.thread ], [ %19, %33 ], [ %132, %136 ], [ %132, %133 ], [ %148, %162 ], [ %91, %89 ], [ %148, %155 ], [ %19, %26 ], [ null, %129 ], [ %85, %79 ]
+  %.0 = phi ptr [ %36, %43 ], [ %.4, %CORD_substr_closure.exit134.thread ], [ %109, %108 ], [ %19, %26 ], [ %19, %33 ], [ null, %129 ], [ %132, %133 ], [ %132, %136 ], [ %148, %155 ], [ %148, %162 ], [ %91, %89 ], [ %85, %79 ]
   ret ptr %.0
 }
 
@@ -1556,7 +1556,7 @@ tailrecurse.backedge:                             ; preds = %.thread, %55
   br i1 %.not62, label %65, label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %.thread, %.preheader, %20, %65, %67, %5, %60, %16
-  %.0 = phi i32 [ %17, %16 ], [ 0, %20 ], [ 0, %5 ], [ 1, %67 ], [ 0, %60 ], [ 0, %65 ], [ 1, %.preheader ], [ 0, %tailrecurse.backedge ], [ 1, %.thread ]
+  %.0 = phi i32 [ %17, %16 ], [ 0, %60 ], [ 0, %5 ], [ 0, %65 ], [ 1, %67 ], [ 0, %20 ], [ 1, %.preheader ], [ 0, %tailrecurse.backedge ], [ 1, %.thread ]
   ret i32 %.0
 }
 
@@ -1703,7 +1703,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %tailrecurse, %16, %66, %.thread
-  %.050 = phi i32 [ 1, %66 ], [ 0, %.thread ], [ 1, %16 ], [ 0, %tailrecurse ], [ 1, %51 ]
+  %.050 = phi i32 [ 0, %.thread ], [ 1, %66 ], [ 1, %16 ], [ 0, %tailrecurse ], [ 1, %51 ]
   ret i32 %.050
 }
 
@@ -1727,7 +1727,7 @@ define range(i32 0, 2) i32 @CORD_riter(ptr noundef readonly captures(address) %0
   br label %CORD_len.exit
 
 CORD_len.exit:                                    ; preds = %7, %9
-  %12 = phi i64 [ %11, %9 ], [ %8, %7 ]
+  %12 = phi i64 [ %8, %7 ], [ %11, %9 ]
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %CORD_len.exit.thread, label %14
 
@@ -1976,9 +1976,9 @@ tailrecurse:                                      ; preds = %65, %68, %49
   br i1 %.not.i35, label %CORD_add_forest.exit, label %.lr.ph82, !llvm.loop !46
 
 CORD_add_forest.exit:                             ; preds = %103, %30, %._crit_edge73, %._crit_edge
-  %.lcssa.sink = phi i64 [ %indvars.iv.next110, %30 ], [ %.040.i.lcssa, %._crit_edge ], [ %.040.i29.lcssa, %._crit_edge73 ], [ %indvars.iv.next100, %103 ]
-  %.238.i33.lcssa.sink = phi ptr [ %.339.i, %30 ], [ %19, %._crit_edge ], [ %92, %._crit_edge73 ], [ %.339.i37, %103 ]
-  %.2.i34.lcssa.sink = phi i64 [ %.3.i, %30 ], [ %20, %._crit_edge ], [ %93, %._crit_edge73 ], [ %.3.i38, %103 ]
+  %.lcssa.sink = phi i64 [ %.040.i.lcssa, %._crit_edge ], [ %.040.i29.lcssa, %._crit_edge73 ], [ %indvars.iv.next110, %30 ], [ %indvars.iv.next100, %103 ]
+  %.238.i33.lcssa.sink = phi ptr [ %19, %._crit_edge ], [ %92, %._crit_edge73 ], [ %.339.i, %30 ], [ %.339.i37, %103 ]
+  %.2.i34.lcssa.sink = phi i64 [ %20, %._crit_edge ], [ %93, %._crit_edge73 ], [ %.3.i, %30 ], [ %.3.i38, %103 ]
   %106 = getelementptr %struct.ForestElement, ptr %2, i64 %.lcssa.sink
   %107 = getelementptr i8, ptr %106, i64 -16
   store ptr %.238.i33.lcssa.sink, ptr %107, align 8, !tbaa !32

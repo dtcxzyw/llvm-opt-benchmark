@@ -2645,7 +2645,7 @@ _ZN4entt15basic_schedulerIjSaIvEED2Ev.exit344:    ; preds = %_ZSt8_DestroyIPSt10
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %205, %193, %_ZN7testing7MessageD2Ev.exit316, %570, %_ZN7testing7MessageD2Ev.exit277, %449, %_ZN7testing7MessageD2Ev.exit233, %_ZN7testing7MessageD2Ev.exit211, %_ZN7testing7MessageD2Ev.exit187, %254, %_ZN7testing7MessageD2Ev.exit142, %102
-  %.pn96.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn, %_ZN7testing7MessageD2Ev.exit316 ], [ %.pn92.pn.pn, %570 ], [ %.pn88.pn.pn, %_ZN7testing7MessageD2Ev.exit277 ], [ %.pn84.pn.pn, %449 ], [ %.pn80.pn.pn, %_ZN7testing7MessageD2Ev.exit233 ], [ %.pn76.pn.pn, %_ZN7testing7MessageD2Ev.exit211 ], [ %194, %193 ], [ %.pn72.pn.pn, %_ZN7testing7MessageD2Ev.exit187 ], [ %.pn68.pn.pn, %254 ], [ %.pn.pn.pn, %102 ], [ %.pn64.pn.pn, %_ZN7testing7MessageD2Ev.exit142 ], [ %206, %205 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn96.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn, %_ZN7testing7MessageD2Ev.exit316 ], [ %.pn92.pn.pn, %570 ], [ %.pn88.pn.pn, %_ZN7testing7MessageD2Ev.exit277 ], [ %.pn84.pn.pn, %449 ], [ %.pn80.pn.pn, %_ZN7testing7MessageD2Ev.exit233 ], [ %.pn76.pn.pn, %_ZN7testing7MessageD2Ev.exit211 ], [ %.pn72.pn.pn, %_ZN7testing7MessageD2Ev.exit187 ], [ %.pn68.pn.pn, %254 ], [ %.pn64.pn.pn, %_ZN7testing7MessageD2Ev.exit142 ], [ %.pn.pn.pn, %102 ], [ %206, %205 ], [ %194, %193 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4entt15basic_schedulerIjSaIvEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #25
@@ -5480,7 +5480,7 @@ _ZN4entt15basic_schedulerIjSaIvEED2Ev.exit:       ; preds = %_ZSt8_DestroyIPSt10
   br label %382
 
 382:                                              ; preds = %.loopexit, %.loopexit.split-lp, %381, %311
-  %.pn20 = phi { ptr, i32 } [ %.pn.pn.pn, %311 ], [ %.pn16.pn.pn, %381 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn20 = phi { ptr, i32 } [ %.pn16.pn.pn, %381 ], [ %.pn.pn.pn, %311 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN4entt15basic_schedulerIjSaIvEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -6279,7 +6279,7 @@ _ZN4entt15basic_schedulerIjSaIvEED2Ev.exit:       ; preds = %_ZSt8_DestroyIPSt10
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %25, %_ZN7testing7MessageD2Ev.exit74, %_ZN7testing7MessageD2Ev.exit52, %136
-  %.pn30 = phi { ptr, i32 } [ %137, %136 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn22.pn.pn, %_ZN7testing7MessageD2Ev.exit74 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit52 ], [ %26, %25 ], [ %lpad.loopexit, %.loopexit ]
+  %.pn30 = phi { ptr, i32 } [ %.pn22.pn.pn, %_ZN7testing7MessageD2Ev.exit74 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit52 ], [ %137, %136 ], [ %26, %25 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN4entt15basic_schedulerIjSaIvEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #25
@@ -8352,7 +8352,7 @@ _ZN4entt7processI11foo_processjE4nextIS1_EEDTcmcldtclsr3stdE7declvalIT_EE7aborte
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %_ZN4entt7processI11foo_processjE4nextIS1_EEDTcmcldtclsr3stdE7declvalIT_EE7abortedEcvv_EESt17integral_constantINS2_5stateELS7_5EE.exit.i, %14, %13, %3
-  %.sink.i = phi i8 [ 1, %3 ], [ 7, %_ZN4entt7processI11foo_processjE4nextIS1_EEDTcmcldtclsr3stdE7declvalIT_EE7abortedEcvv_EESt17integral_constantINS2_5stateELS7_5EE.exit.i ], [ 7, %14 ], [ 6, %13 ]
+  %.sink.i = phi i8 [ 7, %_ZN4entt7processI11foo_processjE4nextIS1_EEDTcmcldtclsr3stdE7declvalIT_EE7abortedEcvv_EESt17integral_constantINS2_5stateELS7_5EE.exit.i ], [ 7, %14 ], [ 1, %3 ], [ 6, %13 ]
   store i8 %.sink.i, ptr %4, align 8, !tbaa !50
   br label %_ZN4entt7processI11foo_processjE4tickEjPv.exit
 
@@ -10517,7 +10517,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4entt8internal15process_handle
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %9, %8, %3
-  %.sink.i = phi i8 [ 6, %8 ], [ 1, %3 ], [ 7, %9 ]
+  %.sink.i = phi i8 [ 7, %9 ], [ 6, %8 ], [ 1, %3 ]
   store i8 %.sink.i, ptr %4, align 8, !tbaa !249
   br label %_ZN4entt7processI17succeeded_processjE4tickEjPv.exit
 
@@ -10870,7 +10870,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4entt8internal15process_handle
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %11, %10, %9, %3
-  %.sink.i = phi i8 [ 6, %9 ], [ 7, %11 ], [ 7, %10 ], [ 1, %3 ]
+  %.sink.i = phi i8 [ 7, %11 ], [ 7, %10 ], [ 6, %9 ], [ 1, %3 ]
   store i8 %.sink.i, ptr %4, align 8, !tbaa !252
   br label %_ZN4entt7processI14failed_processjE4tickEjPv.exit
 
@@ -11606,7 +11606,7 @@ _ZN7testing15AssertionResultD2Ev.exit.thread.i.i.i: ; preds = %_ZNKSt14default_d
   br label %.sink.split
 
 "_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEjPv.exit": ; preds = %_ZN7testing15AssertionResultD2Ev.exit.thread.i.i.i, %1
-  %54 = phi i8 [ %7, %1 ], [ %.pr, %_ZN7testing15AssertionResultD2Ev.exit.thread.i.i.i ]
+  %54 = phi i8 [ %.pr, %_ZN7testing15AssertionResultD2Ev.exit.thread.i.i.i ], [ %7, %1 ]
   %switch.tableidx = add i8 %54, -3
   %55 = icmp ult i8 %switch.tableidx, 3
   br i1 %55, label %switch.lookup, label %57
@@ -11619,7 +11619,7 @@ switch.lookup:                                    ; preds = %"_ZN4entt7processIN
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEjPv.exit.thread1", %1
-  %.sink = phi i8 [ 1, %1 ], [ %switch.masked, %switch.lookup ], [ 6, %"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEjPv.exit.thread1" ]
+  %.sink = phi i8 [ 1, %1 ], [ 6, %"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_0jEEjE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEjPv.exit.thread1" ], [ %switch.masked, %switch.lookup ]
   store i8 %.sink, ptr %6, align 8, !tbaa !145
   br label %57
 
@@ -12125,7 +12125,7 @@ _ZN7testing15AssertionResultD2Ev.exit.thread.i.i.i: ; preds = %_ZNKSt14default_d
   br label %.sink.split
 
 "_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEjPv.exit": ; preds = %_ZN7testing15AssertionResultD2Ev.exit.thread.i.i.i, %1
-  %54 = phi i8 [ %7, %1 ], [ %.pr, %_ZN7testing15AssertionResultD2Ev.exit.thread.i.i.i ]
+  %54 = phi i8 [ %.pr, %_ZN7testing15AssertionResultD2Ev.exit.thread.i.i.i ], [ %7, %1 ]
   %switch.tableidx = add i8 %54, -3
   %55 = icmp ult i8 %switch.tableidx, 3
   br i1 %55, label %switch.lookup, label %57
@@ -12138,7 +12138,7 @@ switch.lookup:                                    ; preds = %"_ZN4entt7processIN
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %1, %"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEjPv.exit.thread1"
-  %.sink = phi i8 [ 1, %1 ], [ %switch.masked, %switch.lookup ], [ 7, %"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEjPv.exit.thread1" ]
+  %.sink = phi i8 [ 7, %"_ZN4entt7processINS_15process_adaptorIZN22Scheduler_Functor_Test8TestBodyEvE3$_1jEEjE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEjPv.exit.thread1" ], [ 1, %1 ], [ %switch.masked, %switch.lookup ]
   store i8 %.sink, ptr %6, align 8, !tbaa !153
   br label %57
 
@@ -13063,7 +13063,7 @@ _ZN4entt15basic_schedulerIjSaIvEE4thenI14failed_processJEEERS2_DpOT0_.exit.i.i.i
   br i1 %spec.select.i.i.i.i.i.i, label %.sink.split, label %"_ZN4entt7processINS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEjE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEjPv.exit"
 
 "_ZN4entt7processINS_15process_adaptorIZN30Scheduler_SpawningProcess_Test8TestBodyEvE3$_0jEEjE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEjPv.exit": ; preds = %_ZN4entt15basic_schedulerIjSaIvEE4thenI14failed_processJEEERS2_DpOT0_.exit.i.i.i, %1
-  %47 = phi i8 [ %3, %1 ], [ %.val.i.i.i.i.i, %_ZN4entt15basic_schedulerIjSaIvEE4thenI14failed_processJEEERS2_DpOT0_.exit.i.i.i ]
+  %47 = phi i8 [ %.val.i.i.i.i.i, %_ZN4entt15basic_schedulerIjSaIvEE4thenI14failed_processJEEERS2_DpOT0_.exit.i.i.i ], [ %3, %1 ]
   %switch.tableidx = add i8 %47, -3
   %48 = icmp ult i8 %switch.tableidx, 3
   br i1 %48, label %switch.lookup, label %50
@@ -13076,7 +13076,7 @@ switch.lookup:                                    ; preds = %"_ZN4entt7processIN
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %_ZN4entt15basic_schedulerIjSaIvEE4thenI14failed_processJEEERS2_DpOT0_.exit.i.i.i, %1
-  %.sink = phi i8 [ 1, %1 ], [ %switch.masked, %switch.lookup ], [ 6, %_ZN4entt15basic_schedulerIjSaIvEE4thenI14failed_processJEEERS2_DpOT0_.exit.i.i.i ]
+  %.sink = phi i8 [ 1, %1 ], [ 6, %_ZN4entt15basic_schedulerIjSaIvEE4thenI14failed_processJEEERS2_DpOT0_.exit.i.i.i ], [ %switch.masked, %switch.lookup ]
   store i8 %.sink, ptr %2, align 8, !tbaa !165
   br label %50
 

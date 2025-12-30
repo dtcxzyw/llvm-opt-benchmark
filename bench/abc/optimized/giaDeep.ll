@@ -252,8 +252,8 @@ Abc_Clock.exit104:                                ; preds = %104, %108
   br label %.thread
 
 .thread:                                          ; preds = %78, %Abc_Clock.exit104, %102
-  %.273119 = phi i32 [ %.070149, %102 ], [ %.070149, %Abc_Clock.exit104 ], [ %.071148, %78 ]
-  %.3118 = phi ptr [ %103, %102 ], [ %103, %Abc_Clock.exit104 ], [ %.074147, %78 ]
+  %.273119 = phi i32 [ %.070149, %Abc_Clock.exit104 ], [ %.070149, %102 ], [ %.071148, %78 ]
+  %.3118 = phi ptr [ %103, %Abc_Clock.exit104 ], [ %103, %102 ], [ %.074147, %78 ]
   br i1 %.not89, label %149, label %135
 
 135:                                              ; preds = %.thread
@@ -353,7 +353,7 @@ Abc_Clock.exit112:                                ; preds = %169, %172
   %183 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef 100000, double noundef %182)
   br label %201
 
-184:                                              ; preds = %Abc_Clock.exit110, %145, %147
+184:                                              ; preds = %Abc_Clock.exit110, %147, %145
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.not91 = icmp ne i32 %2, 0
@@ -387,7 +387,7 @@ Abc_Clock.exit114:                                ; preds = %186, %189
   br label %201
 
 201:                                              ; preds = %.thread125, %Abc_Clock.exit112, %Abc_Clock.exit114, %184
-  %.2 = phi ptr [ null, %.thread125 ], [ %.3118, %184 ], [ %.3118, %Abc_Clock.exit114 ], [ %.3118, %Abc_Clock.exit112 ]
+  %.2 = phi ptr [ %.3118, %184 ], [ %.3118, %Abc_Clock.exit114 ], [ %.3118, %Abc_Clock.exit112 ], [ null, %.thread125 ]
   ret ptr %.2
 }
 

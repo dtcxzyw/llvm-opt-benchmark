@@ -399,7 +399,7 @@ define range(i32 0, 2) i32 @ossl_cmp_msg_add_extraCerts(ptr noundef %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %25, %23, %35, %39, %30, %2
-  %.021 = phi i32 [ 0, %30 ], [ 0, %2 ], [ 1, %35 ], [ 1, %39 ], [ 0, %23 ], [ 0, %25 ]
+  %.021 = phi i32 [ 0, %2 ], [ 0, %30 ], [ 1, %39 ], [ 1, %35 ], [ 0, %23 ], [ 0, %25 ]
   ret i32 %.021
 }
 

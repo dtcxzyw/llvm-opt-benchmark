@@ -3485,8 +3485,8 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17hd0a8816f9dc6
   br i1 %77, label %132, label %.invoke, !prof !909
 
 78:                                               ; preds = %69, %65
-  %79 = phi i8 [ %.pre.i, %69 ], [ %67, %65 ]
-  %.sroa.3.0.i.ph.i.i = phi i64 [ %75, %69 ], [ %.sroa.4.1.i.i.i, %65 ]
+  %79 = phi i8 [ %67, %65 ], [ %.pre.i, %69 ]
+  %.sroa.3.0.i.ph.i.i = phi i64 [ %.sroa.4.1.i.i.i, %65 ], [ %75, %69 ]
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %81 = load i64, ptr %80, align 8, !alias.scope !892, !noalias !895, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !935)
@@ -3578,7 +3578,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17hd0a8816f9dc6
   br label %117
 
 117:                                              ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hf4ef08e2cb635833E.exit.i.i", %._crit_edge.i.i.i.i, %._crit_edge.i.i.i
-  %118 = phi i64 [ %.pre.i10, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hf4ef08e2cb635833E.exit.i.i" ], [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
+  %118 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.pre.i10, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hf4ef08e2cb635833E.exit.i.i" ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
   %.pre11.i = load i64, ptr %12, align 8, !alias.scope !955, !noalias !958
   %119 = icmp eq i64 %.pre11.i, %118
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !943
@@ -3682,7 +3682,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17hd0a8816f9dc6
   unreachable
 
 .critedge:                                        ; preds = %131, %123, %156
-  %eh.lpad-body14 = phi { ptr, i32 } [ %128, %131 ], [ %153, %156 ], [ %124, %123 ]
+  %eh.lpad-body14 = phi { ptr, i32 } [ %153, %156 ], [ %128, %131 ], [ %124, %123 ]
   resume { ptr, i32 } %eh.lpad-body14
 
 156:                                              ; preds = %152
@@ -4029,8 +4029,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$
   ret i8 %.sroa.0.0
 
 75:                                               ; preds = %50, %54
-  %76 = phi i8 [ %.pre, %54 ], [ %52, %50 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %60, %54 ], [ %.sroa.6.1.i.i, %50 ]
+  %76 = phi i8 [ %52, %50 ], [ %.pre, %54 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %50 ], [ %60, %54 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %77 = zext i1 %2 to i8
@@ -4222,8 +4222,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   ret i1 %.sroa.0.0
 
 72:                                               ; preds = %50, %54
-  %73 = phi i8 [ %.pre, %54 ], [ %52, %50 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %60, %54 ], [ %.sroa.6.1.i.i, %50 ]
+  %73 = phi i8 [ %52, %50 ], [ %.pre, %54 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %50 ], [ %60, %54 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1104)
@@ -4381,8 +4381,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %58
 
 58:                                               ; preds = %51, %47
-  %59 = phi i8 [ %.pre, %51 ], [ %49, %47 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %57, %51 ], [ %.sroa.6.1.i.i, %47 ]
+  %59 = phi i8 [ %49, %47 ], [ %.pre, %51 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %47 ], [ %57, %51 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1138)
   %60 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.3.0.i.ph.i
   %61 = and i8 %59, 1
@@ -4480,7 +4480,7 @@ default.unreachable:                              ; preds = %4
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
 "_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit": ; preds = %16, %15, %14, %13, %12, %11, %8, %1, %17
-  %.sroa.0.0 = phi i8 [ 26, %1 ], [ %switch.select2, %17 ], [ -121, %16 ], [ 118, %14 ], [ -117, %15 ], [ 26, %13 ], [ 26, %12 ], [ 26, %11 ], [ 26, %8 ]
+  %.sroa.0.0 = phi i8 [ %switch.select2, %17 ], [ 26, %1 ], [ 118, %14 ], [ -117, %15 ], [ -121, %16 ], [ 26, %13 ], [ 26, %12 ], [ 26, %11 ], [ 26, %8 ]
   ret i8 %.sroa.0.0
 }
 

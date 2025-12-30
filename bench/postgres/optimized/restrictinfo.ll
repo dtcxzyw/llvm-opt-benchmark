@@ -598,8 +598,8 @@ rinfo_is_constant_true.exit23:                    ; preds = %37
   br i1 %.not24, label %.sink.split, label %45
 
 .sink.split:                                      ; preds = %rinfo_is_constant_true.exit23, %37, %33, %rinfo_is_constant_true.exit, %27, %23
-  %.sink = phi ptr [ %3, %rinfo_is_constant_true.exit ], [ %3, %23 ], [ %3, %27 ], [ %2, %33 ], [ %2, %37 ], [ %2, %rinfo_is_constant_true.exit23 ]
-  %.val.sink = phi ptr [ %.val22, %rinfo_is_constant_true.exit ], [ %.val22, %23 ], [ %.val22, %27 ], [ %.val, %33 ], [ %.val, %37 ], [ %.val, %rinfo_is_constant_true.exit23 ]
+  %.sink = phi ptr [ %3, %23 ], [ %3, %27 ], [ %3, %rinfo_is_constant_true.exit ], [ %2, %33 ], [ %2, %37 ], [ %2, %rinfo_is_constant_true.exit23 ]
+  %.val.sink = phi ptr [ %.val22, %23 ], [ %.val22, %27 ], [ %.val22, %rinfo_is_constant_true.exit ], [ %.val, %33 ], [ %.val, %37 ], [ %.val, %rinfo_is_constant_true.exit23 ]
   %43 = load ptr, ptr %.sink, align 8
   %44 = tail call ptr @lappend(ptr noundef %43, ptr noundef nonnull %.val.sink) #5
   store ptr %44, ptr %.sink, align 8
@@ -653,7 +653,7 @@ define dso_local zeroext i1 @join_clause_is_movable_to(ptr noundef readonly capt
   br label %27
 
 27:                                               ; preds = %23, %18, %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %13 ], [ %not., %23 ], [ false, %18 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %13 ], [ false, %18 ], [ %not., %23 ]
   ret i1 %.0
 }
 
@@ -679,7 +679,7 @@ define dso_local zeroext i1 @join_clause_is_movable_into(ptr noundef readonly ca
   br label %14
 
 14:                                               ; preds = %10, %7, %3
-  %.0 = phi i1 [ %not., %10 ], [ false, %7 ], [ false, %3 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %7 ], [ %not., %10 ]
   ret i1 %.0
 }
 

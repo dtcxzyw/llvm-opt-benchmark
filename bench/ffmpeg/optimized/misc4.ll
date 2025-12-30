@@ -203,7 +203,7 @@ bytestream2_get_byte.exit47..critedge_crit_edge:  ; preds = %bytestream2_get_byt
   br label %85
 
 85:                                               ; preds = %bytestream2_get_byte.exit47.thread, %bytestream2_get_byte.exit47, %bytestream2_init.exit, %.critedge
-  %.0 = phi i32 [ %22, %bytestream2_init.exit ], [ %84, %.critedge ], [ -1094995529, %bytestream2_get_byte.exit47 ], [ -1094995529, %bytestream2_get_byte.exit47.thread ]
+  %.0 = phi i32 [ %84, %.critedge ], [ %22, %bytestream2_init.exit ], [ -1094995529, %bytestream2_get_byte.exit47 ], [ -1094995529, %bytestream2_get_byte.exit47.thread ]
   ret i32 %.0
 }
 

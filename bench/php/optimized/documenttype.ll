@@ -321,9 +321,9 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
   br label %smart_str_alloc.exit
 
 smart_str_alloc.exit:                             ; preds = %22, %27
-  %28 = phi i64 [ %24, %22 ], [ %.pre39, %27 ]
-  %29 = phi ptr [ %21, %22 ], [ %.pre, %27 ]
-  %.1.i = phi i64 [ %25, %22 ], [ %.0.i, %27 ]
+  %28 = phi i64 [ %.pre39, %27 ], [ %24, %22 ]
+  %29 = phi ptr [ %.pre, %27 ], [ %21, %22 ]
+  %.1.i = phi i64 [ %.0.i, %27 ], [ %25, %22 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %19, i64 %20, i1 false)
@@ -419,7 +419,7 @@ zend_string_alloc.exit.i:                         ; preds = %48, %52
   br label %smart_str_extract_ex.exit
 
 smart_str_extract_ex.exit:                        ; preds = %76, %zend_string_alloc.exit.i, %55, %42, %smart_str_0.exit
-  %80 = phi ptr [ null, %smart_str_0.exit ], [ %41, %42 ], [ %58, %55 ], [ %66, %76 ], [ %66, %zend_string_alloc.exit.i ]
+  %80 = phi ptr [ %41, %42 ], [ null, %smart_str_0.exit ], [ %58, %55 ], [ %66, %76 ], [ %66, %zend_string_alloc.exit.i ]
   store ptr %80, ptr %1, align 8, !tbaa !16
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %81, align 8, !tbaa !16

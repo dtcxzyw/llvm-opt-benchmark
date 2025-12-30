@@ -2655,7 +2655,7 @@ e100_set_multicast_list.exit:                     ; preds = %86, %88
   br label %.thread
 
 .thread:                                          ; preds = %4, %133
-  %135 = phi i32 [ -12, %4 ], [ %134, %133 ]
+  %135 = phi i32 [ %134, %133 ], [ -12, %4 ]
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 660
   %137 = load i32, ptr %136, align 4
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -3027,7 +3027,7 @@ e100_exec_cmd.exit9.thread:                       ; preds = %60, %63
   br label %88
 
 88:                                               ; preds = %e100_exec_cmd.exit9.thread, %e100_exec_cmd.exit.thread, %87, %84, %78, %75, %72, %65, %26, %23
-  %89 = phi i32 [ 0, %87 ], [ %24, %23 ], [ %27, %26 ], [ -11, %e100_exec_cmd.exit.thread ], [ -11, %e100_exec_cmd.exit9.thread ], [ %70, %65 ], [ %73, %72 ], [ %76, %75 ], [ %82, %78 ], [ %85, %84 ]
+  %89 = phi i32 [ 0, %87 ], [ %24, %23 ], [ %27, %26 ], [ %70, %65 ], [ %73, %72 ], [ %76, %75 ], [ %82, %78 ], [ %85, %84 ], [ -11, %e100_exec_cmd.exit.thread ], [ -11, %e100_exec_cmd.exit9.thread ]
   ret i32 %89
 }
 
@@ -3090,7 +3090,7 @@ define internal noundef range(i32 0, 2) i32 @e100_intr(i32 %0, ptr noundef %1) #
   br label %34
 
 34:                                               ; preds = %16, %27, %24
-  %35 = phi i32 [ 1, %24 ], [ 0, %16 ], [ 1, %27 ]
+  %35 = phi i32 [ 0, %16 ], [ 1, %27 ], [ 1, %24 ]
   ret i32 %35
 }
 
@@ -5795,7 +5795,7 @@ define internal fastcc i32 @e100_loopback_test(ptr noundef initializes((64, 88),
   br label %.thread
 
 .thread:                                          ; preds = %5, %121
-  %146 = phi i32 [ -12, %5 ], [ %122, %121 ]
+  %146 = phi i32 [ %122, %121 ], [ -12, %5 ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 660
   %148 = load i32, ptr %147, align 4
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 104

@@ -217,7 +217,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
           cleanup
   br label %.thread104
 
-.thread110.loopexit.loopexit.split-lp:            ; preds = %101, %.noexc, %110, %.noexc75, %150, %.noexc86, %159, %.noexc88, %182, %.noexc93, %191, %.noexc95
+.thread110.loopexit.loopexit.split-lp:            ; preds = %101, %.noexc, %110, %.noexc75, %150, %.noexc86, %159, %.noexc88, %180, %.noexc93, %189, %.noexc95
   %lpad.loopexit.split-lp129 = landingpad { ptr, i32 }
           cleanup
   br label %.thread104
@@ -227,7 +227,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
           cleanup
   br label %.thread104
 
-.thread117.loopexit:                              ; preds = %142, %175, %174, %71, %94, %93, %66, %143
+.thread117.loopexit:                              ; preds = %173, %172, %94, %93, %143, %142, %71, %66
   %lpad.loopexit121 = landingpad { ptr, i32 }
           cleanup
   br label %.thread117
@@ -237,14 +237,14 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
           cleanup
   br label %.thread117
 
-.loopexit:                                        ; preds = %172, %140, %91
-  %.sroa.051.1.ph.ph.ph = phi i8 [ %.sroa.051.5, %91 ], [ %.sroa.051.4, %140 ], [ %.sroa.051.3, %172 ]
+.loopexit:                                        ; preds = %170, %140, %91
+  %.sroa.051.1.ph.ph.ph = phi i8 [ %.sroa.051.4, %140 ], [ %.sroa.051.5, %91 ], [ %.sroa.051.3, %170 ]
   %lpad.loopexit125 = landingpad { ptr, i32 }
           cleanup
   br label %49
 
-.loopexit.split-lp:                               ; preds = %179, %147, %98
-  %.sroa.051.1.ph.ph.ph124 = phi i8 [ %.sroa.051.4, %147 ], [ %.sroa.051.5, %98 ], [ %.sroa.051.3, %179 ]
+.loopexit.split-lp:                               ; preds = %177, %147, %98
+  %.sroa.051.1.ph.ph.ph124 = phi i8 [ %.sroa.051.4, %147 ], [ %.sroa.051.5, %98 ], [ %.sroa.051.3, %177 ]
   %lpad.loopexit.split-lp126 = landingpad { ptr, i32 }
           cleanup
   br label %49
@@ -331,7 +331,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   %76 = invoke zeroext i1 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$GT$19contains_line_break17hedd0451be265ce6dE"(ptr align 1 %2, i64 %3, i32 %.sroa.7.0198, i32 %55)
           to label %78 unwind label %.thread110.loopexit.loopexit
 
-77:                                               ; preds = %179, %147, %98, %74
+77:                                               ; preds = %177, %147, %98, %74
   unreachable
 
 78:                                               ; preds = %75
@@ -341,7 +341,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   %80 = load i64, ptr %28, align 8
   %81 = icmp ugt i64 %80, 1
   %or.cond9 = select i1 %81, i1 %.sroa.045.0.shrunk199, i1 false
-  br i1 %or.cond9, label %174, label %172
+  br i1 %or.cond9, label %172, label %170
 
 82:                                               ; preds = %73
   %83 = icmp eq i32 %59, %.sroa.643.0.ph208
@@ -518,9 +518,9 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
 148:                                              ; preds = %144
   store i32 %54, ptr %145, align 4
   %149 = trunc nuw i8 %.sroa.051.4 to i1
-  br i1 %149, label %167, label %150
+  br i1 %149, label %165, label %150
 
-150:                                              ; preds = %167, %148
+150:                                              ; preds = %165, %148
   store i64 1, ptr %23, align 8
   store ptr %145, ptr %27, align 8
   store i64 1, ptr %28, align 8
@@ -556,129 +556,129 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   %163 = zext i1 %162 to i8
   store i8 %163, ptr %7, align 1
   %164 = invoke zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6078a46c5df88b88E"(ptr nonnull align 1 %7, ptr nonnull align 1 @anon.6bf0958f2535ad383b2804e7ff699b28.14)
-          to label %170 unwind label %.thread110.loopexit.loopexit.split-lp
+          to label %168 unwind label %.thread110.loopexit.loopexit.split-lp
 
-.invoke:                                          ; preds = %.noexc94, %.noexc87, %.noexc74, %.noexc80
-  %165 = phi i64 [ %126, %.noexc80 ], [ %155, %.noexc87 ], [ %106, %.noexc74 ], [ %187, %.noexc94 ]
-  %166 = phi i64 [ %127, %.noexc80 ], [ %156, %.noexc87 ], [ %107, %.noexc74 ], [ %188, %.noexc94 ]
-  invoke void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr align 1 %2, i64 %3, i64 %165, i64 %166, ptr nonnull align 8 @anon.6bf0958f2535ad383b2804e7ff699b28.13) #10
-          to label %.cont unwind label %.thread110.loopexit.split-lp
-
-.cont:                                            ; preds = %.invoke
-  unreachable
-
-167:                                              ; preds = %148
+165:                                              ; preds = %148
   invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$ruff_text_size..size..TextSize$GT$$GT$17hb9feea59ac8ecc76E"(ptr nonnull align 8 %23)
-          to label %150 unwind label %168
+          to label %150 unwind label %166
 
-168:                                              ; preds = %167
-  %169 = landingpad { ptr, i32 }
+166:                                              ; preds = %165
+  %167 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %23, align 8
   store ptr %145, ptr %27, align 8
   store i64 1, ptr %28, align 8
   br label %.thread104
 
-170:                                              ; preds = %.noexc88
+168:                                              ; preds = %.noexc88
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %171 = xor i1 %164, true
+  %169 = xor i1 %164, true
   br label %.outer.backedge
 
-172:                                              ; preds = %175, %79
-  %.sroa.051.3 = phi i8 [ 0, %175 ], [ 1, %79 ]
-  %173 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h1ddd2e43f6da4d81E(ptr nonnull align 1 inttoptr (i64 1 to ptr), i64 4, i64 4, i1 zeroext false)
-          to label %176 unwind label %.loopexit
+170:                                              ; preds = %173, %79
+  %.sroa.051.3 = phi i8 [ 0, %173 ], [ 1, %79 ]
+  %171 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h1ddd2e43f6da4d81E(ptr nonnull align 1 inttoptr (i64 1 to ptr), i64 4, i64 4, i1 zeroext false)
+          to label %174 unwind label %.loopexit
 
-174:                                              ; preds = %79
+172:                                              ; preds = %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   invoke void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha5d48defe6017934E"(ptr nonnull sret([32 x i8]) align 8 %16, ptr nonnull align 8 %21)
-          to label %175 unwind label %.thread117.loopexit
+          to label %173 unwind label %.thread117.loopexit
 
-175:                                              ; preds = %174
+173:                                              ; preds = %172
   invoke void @"_ZN136_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$alloc..vec..into_iter..IntoIter$LT$T$GT$$GT$$GT$11spec_extend17h634282619a098cc6E"(ptr nonnull align 8 %24, ptr nonnull align 8 %16, ptr nonnull align 8 @anon.6bf0958f2535ad383b2804e7ff699b28.12)
-          to label %172 unwind label %.thread117.loopexit
+          to label %170 unwind label %.thread117.loopexit
 
-176:                                              ; preds = %172
-  %177 = extractvalue { ptr, i64 } %173, 0
-  %178 = icmp eq ptr %177, null
-  br i1 %178, label %179, label %180
+174:                                              ; preds = %170
+  %175 = extractvalue { ptr, i64 } %171, 0
+  %176 = icmp eq ptr %175, null
+  br i1 %176, label %177, label %178
 
-179:                                              ; preds = %176
+177:                                              ; preds = %174
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 4, i64 4) #10
           to label %77 unwind label %.loopexit.split-lp
 
-180:                                              ; preds = %176
-  store i32 %54, ptr %177, align 4
-  %181 = trunc nuw i8 %.sroa.051.3 to i1
-  br i1 %181, label %197, label %182
+178:                                              ; preds = %174
+  store i32 %54, ptr %175, align 4
+  %179 = trunc nuw i8 %.sroa.051.3 to i1
+  br i1 %179, label %197, label %180
 
-182:                                              ; preds = %197, %180
+180:                                              ; preds = %197, %178
   store i64 1, ptr %23, align 8
-  store ptr %177, ptr %27, align 8
+  store ptr %175, ptr %27, align 8
   store i64 1, ptr %28, align 8
-  %183 = load i32, ptr %.sroa.067.0200, align 4
-  %184 = getelementptr inbounds nuw i8, ptr %.sroa.067.0200, i64 4
-  %185 = load i32, ptr %184, align 4
+  %181 = load i32, ptr %.sroa.067.0200, align 4
+  %182 = getelementptr inbounds nuw i8, ptr %.sroa.067.0200, i64 4
+  %183 = load i32, ptr %182, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %186 = invoke { i64, i64 } @"_ZN14ruff_text_size5range122_$LT$impl$u20$core..convert..From$LT$ruff_text_size..range..TextRange$GT$$u20$for$u20$core..ops..range..Range$LT$T$GT$$GT$4from17h1499bc8572f215f9E"(i32 %183, i32 %185)
+  %184 = invoke { i64, i64 } @"_ZN14ruff_text_size5range122_$LT$impl$u20$core..convert..From$LT$ruff_text_size..range..TextRange$GT$$u20$for$u20$core..ops..range..Range$LT$T$GT$$GT$4from17h1499bc8572f215f9E"(i32 %181, i32 %183)
           to label %.noexc93 unwind label %.thread110.loopexit.loopexit.split-lp
 
-.noexc93:                                         ; preds = %182
-  %187 = extractvalue { i64, i64 } %186, 0
-  %188 = extractvalue { i64, i64 } %186, 1
-  %189 = invoke { ptr, i64 } @"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17hb51faaef8ef91745E"(i64 %187, i64 %188, ptr align 1 %2, i64 %3)
+.noexc93:                                         ; preds = %180
+  %185 = extractvalue { i64, i64 } %184, 0
+  %186 = extractvalue { i64, i64 } %184, 1
+  %187 = invoke { ptr, i64 } @"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17hb51faaef8ef91745E"(i64 %185, i64 %186, ptr align 1 %2, i64 %3)
           to label %.noexc94 unwind label %.thread110.loopexit.loopexit.split-lp
 
 .noexc94:                                         ; preds = %.noexc93
-  %190 = extractvalue { ptr, i64 } %189, 0
-  %.not.i92 = icmp eq ptr %190, null
-  br i1 %.not.i92, label %.invoke, label %191
+  %188 = extractvalue { ptr, i64 } %187, 0
+  %.not.i92 = icmp eq ptr %188, null
+  br i1 %.not.i92, label %.invoke, label %189
 
-191:                                              ; preds = %.noexc94
-  %192 = extractvalue { ptr, i64 } %189, 1
-  %193 = getelementptr inbounds nuw i8, ptr %190, i64 %192
-  store ptr %190, ptr %6, align 8
-  store ptr %193, ptr %41, align 8
+189:                                              ; preds = %.noexc94
+  %190 = extractvalue { ptr, i64 } %187, 1
+  %191 = getelementptr inbounds nuw i8, ptr %188, i64 %190
+  store ptr %188, ptr %6, align 8
+  store ptr %191, ptr %41, align 8
   store i64 1, ptr %42, align 8
-  %194 = invoke zeroext i1 @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hffb5358ffcd1fe49E"(ptr nonnull align 8 %6)
+  %192 = invoke zeroext i1 @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hffb5358ffcd1fe49E"(ptr nonnull align 8 %6)
           to label %.noexc95 unwind label %.thread110.loopexit.loopexit.split-lp
 
-.noexc95:                                         ; preds = %191
-  %195 = zext i1 %194 to i8
-  store i8 %195, ptr %5, align 1
-  %196 = invoke zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6078a46c5df88b88E"(ptr nonnull align 1 %5, ptr nonnull align 1 @anon.6bf0958f2535ad383b2804e7ff699b28.14)
+.noexc95:                                         ; preds = %189
+  %193 = zext i1 %192 to i8
+  store i8 %193, ptr %5, align 1
+  %194 = invoke zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6078a46c5df88b88E"(ptr nonnull align 1 %5, ptr nonnull align 1 @anon.6bf0958f2535ad383b2804e7ff699b28.14)
           to label %200 unwind label %.thread110.loopexit.loopexit.split-lp
 
-197:                                              ; preds = %180
+.invoke:                                          ; preds = %.noexc94, %.noexc87, %.noexc74, %.noexc80
+  %195 = phi i64 [ %126, %.noexc80 ], [ %106, %.noexc74 ], [ %155, %.noexc87 ], [ %185, %.noexc94 ]
+  %196 = phi i64 [ %127, %.noexc80 ], [ %107, %.noexc74 ], [ %156, %.noexc87 ], [ %186, %.noexc94 ]
+  invoke void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr align 1 %2, i64 %3, i64 %195, i64 %196, ptr nonnull align 8 @anon.6bf0958f2535ad383b2804e7ff699b28.13) #10
+          to label %.cont unwind label %.thread110.loopexit.split-lp
+
+.cont:                                            ; preds = %.invoke
+  unreachable
+
+197:                                              ; preds = %178
   invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$ruff_text_size..size..TextSize$GT$$GT$17hb9feea59ac8ecc76E"(ptr nonnull align 8 %23)
-          to label %182 unwind label %198
+          to label %180 unwind label %198
 
 198:                                              ; preds = %197
   %199 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %23, align 8
-  store ptr %177, ptr %27, align 8
+  store ptr %175, ptr %27, align 8
   store i64 1, ptr %28, align 8
   br label %.thread104
 
 200:                                              ; preds = %.noexc95
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %201 = xor i1 %196, true
+  %201 = xor i1 %194, true
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %200, %119, %170, %67
-  %.sroa.643.0.ph.be = phi i32 [ undef, %67 ], [ %59, %170 ], [ %59, %119 ], [ %59, %200 ]
-  %.sroa.045.0.shrunk.ph.be = phi i1 [ false, %67 ], [ %171, %170 ], [ %120, %119 ], [ %201, %200 ]
+.outer.backedge:                                  ; preds = %200, %119, %168, %67
+  %.sroa.643.0.ph.be = phi i32 [ undef, %67 ], [ %59, %168 ], [ %59, %119 ], [ %59, %200 ]
+  %.sroa.045.0.shrunk.ph.be = phi i1 [ false, %67 ], [ %169, %168 ], [ %120, %119 ], [ %201, %200 ]
   %202 = icmp eq ptr %.sroa.067.1201, %33
   %.sroa.067.1.idx192 = select i1 %202, i64 0, i64 8
   %.sroa.067.1193 = getelementptr inbounds nuw i8, ptr %.sroa.067.1201, i64 %.sroa.067.1.idx192
   br i1 %202, label %.outer._crit_edge, label %.lr.ph
 
-.thread104:                                       ; preds = %.thread110.loopexit.split-lp, %.thread110.loopexit.loopexit.split-lp, %.thread110.loopexit.loopexit, %69, %168, %117, %198, %49
-  %.pn108 = phi { ptr, i32 } [ %199, %198 ], [ %lpad.phi127, %49 ], [ %70, %69 ], [ %169, %168 ], [ %118, %117 ], [ %lpad.loopexit.split-lp, %.thread110.loopexit.split-lp ], [ %lpad.loopexit128, %.thread110.loopexit.loopexit ], [ %lpad.loopexit.split-lp129, %.thread110.loopexit.loopexit.split-lp ]
+.thread104:                                       ; preds = %.thread110.loopexit.split-lp, %.thread110.loopexit.loopexit.split-lp, %.thread110.loopexit.loopexit, %69, %166, %117, %198, %49
+  %.pn108 = phi { ptr, i32 } [ %lpad.phi127, %49 ], [ %70, %69 ], [ %167, %166 ], [ %118, %117 ], [ %199, %198 ], [ %lpad.loopexit.split-lp, %.thread110.loopexit.split-lp ], [ %lpad.loopexit128, %.thread110.loopexit.loopexit ], [ %lpad.loopexit.split-lp129, %.thread110.loopexit.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$ruff_text_size..size..TextSize$GT$$GT$17hb9feea59ac8ecc76E"(ptr nonnull align 8 %23) #11
           to label %.thread117 unwind label %203
 

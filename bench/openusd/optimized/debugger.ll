@@ -210,7 +210,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit14: ; preds = %55, 
   unreachable
 
 103:                                              ; preds = %2, %._crit_edge, %18
-  %.0 = phi i1 [ %38, %._crit_edge ], [ false, %18 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %18 ], [ %38, %._crit_edge ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -375,8 +375,8 @@ define hidden void @_ZN32pxrInternal_v0_24__pxrReserved__23Arch_InitDebuggerAtta
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %49, %44
-  %.2 = phi ptr [ %50, %49 ], [ %48, %44 ], [ %scevgep, %.loopexit.loopexit ]
-  %.1 = phi ptr [ %.0, %49 ], [ %40, %44 ], [ %40, %.loopexit.loopexit ]
+  %.2 = phi ptr [ %48, %44 ], [ %50, %49 ], [ %scevgep, %.loopexit.loopexit ]
+  %.1 = phi ptr [ %40, %44 ], [ %.0, %49 ], [ %40, %.loopexit.loopexit ]
   %51 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br label %37, !llvm.loop !7
 
@@ -584,7 +584,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit.i: ; preds = %19, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L28Arch_DebuggerIsAttachedPosixEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L28Arch_DebuggerIsAttachedPosixEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit.i, %.critedge2.i, %48
-  %.0.i = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit.i ], [ %50, %48 ], [ false, %.critedge2.i ]
+  %.0.i = phi i1 [ %50, %48 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit.i ], [ false, %.critedge2.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0.i

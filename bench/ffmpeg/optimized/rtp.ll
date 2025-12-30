@@ -68,7 +68,7 @@ define range(i32 -1, 1) i32 @ff_rtp_get_codec_info(ptr noundef %0, i32 noundef %
   br i1 %.not, label %.loopexit, label %3, !llvm.loop !25
 
 .loopexit:                                        ; preds = %28, %22, %24
-  %.017 = phi i32 [ 0, %22 ], [ 0, %24 ], [ -1, %28 ]
+  %.017 = phi i32 [ 0, %24 ], [ 0, %22 ], [ -1, %28 ]
   ret i32 %.017
 }
 
@@ -299,7 +299,7 @@ thread-pre-split:                                 ; preds = %83
   br i1 %.not59, label %.split65.us, label %112
 
 .split65.us:                                      ; preds = %95, %105, %107, %43, %37, %64, %62, %52
-  %.us-phi66 = phi ptr [ %29, %43 ], [ %48, %64 ], [ %48, %52 ], [ %48, %62 ], [ %29, %37 ], [ %69, %107 ], [ %69, %105 ], [ %69, %95 ]
+  %.us-phi66 = phi ptr [ %48, %52 ], [ %48, %62 ], [ %48, %64 ], [ %29, %37 ], [ %29, %43 ], [ %69, %107 ], [ %69, %105 ], [ %69, %95 ]
   %111 = load i32, ptr %.us-phi66, align 4, !tbaa !4
   br label %120
 

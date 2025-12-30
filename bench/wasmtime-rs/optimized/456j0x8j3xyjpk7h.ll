@@ -59,7 +59,7 @@ define hidden i8 @_ZN22cranelift_codegen_meta4cdsl8settings7Setting12default_byt
   br label %19
 
 19:                                               ; preds = %7, %1, %14, %11
-  %.0 = phi i8 [ %18, %14 ], [ 0, %1 ], [ %13, %11 ], [ 0, %7 ]
+  %.0 = phi i8 [ %18, %14 ], [ %13, %11 ], [ 0, %1 ], [ 0, %7 ]
   ret i8 %.0
 }
 
@@ -1166,7 +1166,7 @@ define hidden noundef zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..setti
   br label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
 
 "_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread": ; preds = %44, %52, %32, %50, %58, %2, %12, %22, %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit", %69
-  %.0 = phi i1 [ %74, %69 ], [ false, %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit" ], [ false, %22 ], [ false, %12 ], [ false, %2 ], [ false, %50 ], [ false, %58 ], [ false, %32 ], [ false, %52 ], [ false, %44 ]
+  %.0 = phi i1 [ %74, %69 ], [ false, %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit" ], [ false, %22 ], [ false, %12 ], [ false, %2 ], [ false, %58 ], [ false, %50 ], [ false, %32 ], [ false, %52 ], [ false, %44 ]
   ret i1 %.0
 }
 

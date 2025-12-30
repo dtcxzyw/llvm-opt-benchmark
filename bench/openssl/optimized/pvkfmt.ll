@@ -165,7 +165,7 @@ define range(i32 -1, 2) i32 @ossl_do_blob_header(ptr noundef captures(none) %0, 
   br label %50
 
 50:                                               ; preds = %9, %6, %49, %48, %47, %43, %38, %37, %33, %22, %18, %14
-  %.0 = phi i32 [ 0, %18 ], [ 0, %6 ], [ 0, %14 ], [ 0, %22 ], [ -1, %38 ], [ 0, %33 ], [ -1, %48 ], [ 0, %43 ], [ 1, %49 ], [ 0, %47 ], [ 0, %37 ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %22 ], [ -1, %38 ], [ 0, %33 ], [ -1, %48 ], [ 0, %43 ], [ 1, %49 ], [ 0, %47 ], [ 0, %37 ], [ 0, %18 ], [ 0, %6 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -309,8 +309,8 @@ ossl_blob_length.exit:                            ; preds = %19, %22, %26, %28
   br i1 %40, label %.sink.split, label %41
 
 .sink.split:                                      ; preds = %39, %ossl_blob_length.exit, %3
-  %.sink1 = phi i32 [ 299, %ossl_blob_length.exit ], [ 294, %3 ], [ 310, %39 ]
-  %.sink = phi i32 [ 123, %ossl_blob_length.exit ], [ 122, %3 ], [ 110, %39 ]
+  %.sink1 = phi i32 [ 294, %3 ], [ 299, %ossl_blob_length.exit ], [ 310, %39 ]
+  %.sink = phi i32 [ 122, %3 ], [ 123, %ossl_blob_length.exit ], [ 110, %39 ]
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink1, ptr noundef nonnull @__func__.do_b2i_key) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef %.sink, ptr noundef null) #6
@@ -391,7 +391,7 @@ define internal fastcc ptr @evp_pkey_new0_key(ptr noundef %0, i32 noundef range(
   br label %16
 
 .thread23:                                        ; preds = %12, %14, %15
-  %.025 = phi ptr [ null, %15 ], [ %7, %12 ], [ null, %14 ]
+  %.025 = phi ptr [ null, %15 ], [ null, %14 ], [ %7, %12 ]
   tail call void @DSA_free(ptr noundef nonnull %0) #6
   br label %16
 
@@ -533,7 +533,7 @@ ossl_blob_length.exit:                            ; preds = %22, %25, %29, %31
   br label %60
 
 60:                                               ; preds = %10, %59, %37, %9
-  %.018 = phi ptr [ null, %9 ], [ %.0, %59 ], [ null, %37 ], [ null, %10 ]
+  %.018 = phi ptr [ null, %9 ], [ null, %37 ], [ %.0, %59 ], [ null, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -640,16 +640,16 @@ define ptr @ossl_b2i_RSA_after_header(ptr noundef captures(none) %0, i32 noundef
   br label %57
 
 read_lebn.exit.thread:                            ; preds = %11, %14, %19, %25, %28, %33, %37, %41, %45, %3, %49, %51, %54
-  %.sink136 = phi i32 [ 496, %3 ], [ 496, %54 ], [ 496, %51 ], [ 496, %49 ], [ 499, %45 ], [ 499, %41 ], [ 499, %37 ], [ 499, %33 ], [ 499, %28 ], [ 499, %25 ], [ 499, %19 ], [ 499, %14 ], [ 499, %11 ]
-  %.sink = phi i32 [ 524292, %3 ], [ 524292, %54 ], [ 524292, %51 ], [ 524292, %49 ], [ 524291, %45 ], [ 524291, %41 ], [ 524291, %37 ], [ 524291, %33 ], [ 524291, %28 ], [ 524291, %25 ], [ 524291, %19 ], [ 524291, %14 ], [ 524291, %11 ]
-  %.2101 = phi ptr [ null, %3 ], [ %20, %54 ], [ %20, %51 ], [ %20, %49 ], [ %20, %45 ], [ %20, %41 ], [ %20, %37 ], [ %20, %33 ], [ %20, %28 ], [ %20, %25 ], [ null, %19 ], [ null, %14 ], [ null, %11 ]
-  %.398 = phi ptr [ null, %3 ], [ %.297, %54 ], [ %47, %51 ], [ %47, %49 ], [ null, %45 ], [ null, %41 ], [ null, %37 ], [ null, %33 ], [ null, %28 ], [ null, %25 ], [ null, %19 ], [ null, %14 ], [ null, %11 ]
-  %.394 = phi ptr [ null, %3 ], [ null, %54 ], [ null, %51 ], [ %26, %49 ], [ %26, %45 ], [ %26, %41 ], [ %26, %37 ], [ %26, %33 ], [ %26, %28 ], [ null, %25 ], [ null, %19 ], [ null, %14 ], [ null, %11 ]
-  %.390 = phi ptr [ null, %3 ], [ null, %54 ], [ null, %51 ], [ %31, %49 ], [ %31, %45 ], [ %31, %41 ], [ %31, %37 ], [ %31, %33 ], [ null, %28 ], [ null, %25 ], [ null, %19 ], [ null, %14 ], [ null, %11 ]
-  %.386 = phi ptr [ null, %3 ], [ null, %54 ], [ %35, %51 ], [ %35, %49 ], [ %35, %45 ], [ %35, %41 ], [ %35, %37 ], [ null, %33 ], [ null, %28 ], [ null, %25 ], [ null, %19 ], [ null, %14 ], [ null, %11 ]
-  %.382 = phi ptr [ null, %3 ], [ null, %54 ], [ %39, %51 ], [ %39, %49 ], [ %39, %45 ], [ %39, %41 ], [ null, %37 ], [ null, %33 ], [ null, %28 ], [ null, %25 ], [ null, %19 ], [ null, %14 ], [ null, %11 ]
-  %.3 = phi ptr [ null, %3 ], [ null, %54 ], [ %43, %51 ], [ %43, %49 ], [ %43, %45 ], [ null, %41 ], [ null, %37 ], [ null, %33 ], [ null, %28 ], [ null, %25 ], [ null, %19 ], [ null, %14 ], [ null, %11 ]
-  %.1 = phi ptr [ null, %3 ], [ %12, %54 ], [ %12, %51 ], [ %12, %49 ], [ %12, %45 ], [ %12, %41 ], [ %12, %37 ], [ %12, %33 ], [ %12, %28 ], [ %12, %25 ], [ %12, %19 ], [ %12, %14 ], [ %12, %11 ]
+  %.sink136 = phi i32 [ 496, %54 ], [ 496, %51 ], [ 496, %49 ], [ 496, %3 ], [ 499, %45 ], [ 499, %41 ], [ 499, %37 ], [ 499, %33 ], [ 499, %28 ], [ 499, %25 ], [ 499, %19 ], [ 499, %14 ], [ 499, %11 ]
+  %.sink = phi i32 [ 524292, %54 ], [ 524292, %51 ], [ 524292, %49 ], [ 524292, %3 ], [ 524291, %45 ], [ 524291, %41 ], [ 524291, %37 ], [ 524291, %33 ], [ 524291, %28 ], [ 524291, %25 ], [ 524291, %19 ], [ 524291, %14 ], [ 524291, %11 ]
+  %.2101 = phi ptr [ %20, %54 ], [ %20, %51 ], [ %20, %49 ], [ null, %3 ], [ %20, %45 ], [ %20, %41 ], [ %20, %37 ], [ %20, %33 ], [ %20, %28 ], [ %20, %25 ], [ null, %19 ], [ null, %14 ], [ null, %11 ]
+  %.398 = phi ptr [ %.297, %54 ], [ %47, %51 ], [ %47, %49 ], [ null, %3 ], [ null, %45 ], [ null, %41 ], [ null, %37 ], [ null, %33 ], [ null, %28 ], [ null, %25 ], [ null, %19 ], [ null, %14 ], [ null, %11 ]
+  %.394 = phi ptr [ null, %54 ], [ null, %51 ], [ %26, %49 ], [ null, %3 ], [ %26, %45 ], [ %26, %41 ], [ %26, %37 ], [ %26, %33 ], [ %26, %28 ], [ null, %25 ], [ null, %19 ], [ null, %14 ], [ null, %11 ]
+  %.390 = phi ptr [ null, %54 ], [ null, %51 ], [ %31, %49 ], [ null, %3 ], [ %31, %45 ], [ %31, %41 ], [ %31, %37 ], [ %31, %33 ], [ null, %28 ], [ null, %25 ], [ null, %19 ], [ null, %14 ], [ null, %11 ]
+  %.386 = phi ptr [ null, %54 ], [ %35, %51 ], [ %35, %49 ], [ null, %3 ], [ %35, %45 ], [ %35, %41 ], [ %35, %37 ], [ null, %33 ], [ null, %28 ], [ null, %25 ], [ null, %19 ], [ null, %14 ], [ null, %11 ]
+  %.382 = phi ptr [ null, %54 ], [ %39, %51 ], [ %39, %49 ], [ null, %3 ], [ %39, %45 ], [ %39, %41 ], [ null, %37 ], [ null, %33 ], [ null, %28 ], [ null, %25 ], [ null, %19 ], [ null, %14 ], [ null, %11 ]
+  %.3 = phi ptr [ null, %54 ], [ %43, %51 ], [ %43, %49 ], [ null, %3 ], [ %43, %45 ], [ null, %41 ], [ null, %37 ], [ null, %33 ], [ null, %28 ], [ null, %25 ], [ null, %19 ], [ null, %14 ], [ null, %11 ]
+  %.1 = phi ptr [ %12, %54 ], [ %12, %51 ], [ %12, %49 ], [ null, %3 ], [ %12, %45 ], [ %12, %41 ], [ %12, %37 ], [ %12, %33 ], [ %12, %28 ], [ %12, %25 ], [ %12, %19 ], [ %12, %14 ], [ %12, %11 ]
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink136, ptr noundef nonnull @__func__.ossl_b2i_RSA_after_header) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef %.sink, ptr noundef null) #6
@@ -754,14 +754,14 @@ read_lebn.exit32:                                 ; preds = %23
   br label %45
 
 read_lebn.exit.thread:                            ; preds = %30, %34, %37, %9, %12, %17, %23, %27, %3, %40, %42
-  %.sink102 = phi i32 [ 431, %3 ], [ 431, %42 ], [ 431, %40 ], [ 434, %27 ], [ 434, %23 ], [ 434, %17 ], [ 434, %12 ], [ 434, %9 ], [ 434, %37 ], [ 434, %34 ], [ 434, %30 ]
-  %.sink = phi i32 [ 524298, %3 ], [ 524298, %42 ], [ 524298, %40 ], [ 524291, %27 ], [ 524291, %23 ], [ 524291, %17 ], [ 524291, %12 ], [ 524291, %9 ], [ 524291, %37 ], [ 524291, %34 ], [ 524291, %30 ]
-  %.174 = phi ptr [ null, %3 ], [ null, %42 ], [ %10, %40 ], [ %10, %27 ], [ %10, %23 ], [ %10, %17 ], [ %10, %12 ], [ %10, %9 ], [ %10, %37 ], [ %10, %34 ], [ %10, %30 ]
-  %.272 = phi ptr [ null, %3 ], [ null, %42 ], [ %15, %40 ], [ %15, %27 ], [ %15, %23 ], [ %15, %17 ], [ null, %12 ], [ null, %9 ], [ %15, %37 ], [ %15, %34 ], [ %15, %30 ]
-  %.269 = phi ptr [ null, %3 ], [ null, %42 ], [ %19, %40 ], [ %19, %27 ], [ %19, %23 ], [ null, %17 ], [ null, %12 ], [ null, %9 ], [ %19, %37 ], [ %19, %34 ], [ %19, %30 ]
-  %.366 = phi ptr [ null, %3 ], [ %.265, %42 ], [ %.265, %40 ], [ null, %27 ], [ null, %23 ], [ null, %17 ], [ null, %12 ], [ null, %9 ], [ %28, %37 ], [ %28, %34 ], [ %28, %30 ]
-  %.362 = phi ptr [ null, %3 ], [ %.2, %42 ], [ %.2, %40 ], [ null, %27 ], [ null, %23 ], [ null, %17 ], [ null, %12 ], [ null, %9 ], [ %32, %37 ], [ %32, %34 ], [ null, %30 ]
-  %.3 = phi ptr [ null, %3 ], [ null, %42 ], [ null, %40 ], [ null, %27 ], [ null, %23 ], [ null, %17 ], [ null, %12 ], [ null, %9 ], [ %35, %37 ], [ null, %34 ], [ null, %30 ]
+  %.sink102 = phi i32 [ 431, %42 ], [ 431, %40 ], [ 431, %3 ], [ 434, %27 ], [ 434, %23 ], [ 434, %17 ], [ 434, %12 ], [ 434, %9 ], [ 434, %37 ], [ 434, %34 ], [ 434, %30 ]
+  %.sink = phi i32 [ 524298, %42 ], [ 524298, %40 ], [ 524298, %3 ], [ 524291, %27 ], [ 524291, %23 ], [ 524291, %17 ], [ 524291, %12 ], [ 524291, %9 ], [ 524291, %37 ], [ 524291, %34 ], [ 524291, %30 ]
+  %.174 = phi ptr [ null, %42 ], [ %10, %40 ], [ null, %3 ], [ %10, %27 ], [ %10, %23 ], [ %10, %17 ], [ %10, %12 ], [ %10, %9 ], [ %10, %37 ], [ %10, %34 ], [ %10, %30 ]
+  %.272 = phi ptr [ null, %42 ], [ %15, %40 ], [ null, %3 ], [ %15, %27 ], [ %15, %23 ], [ %15, %17 ], [ null, %12 ], [ null, %9 ], [ %15, %37 ], [ %15, %34 ], [ %15, %30 ]
+  %.269 = phi ptr [ null, %42 ], [ %19, %40 ], [ null, %3 ], [ %19, %27 ], [ %19, %23 ], [ null, %17 ], [ null, %12 ], [ null, %9 ], [ %19, %37 ], [ %19, %34 ], [ %19, %30 ]
+  %.366 = phi ptr [ %.265, %42 ], [ %.265, %40 ], [ null, %3 ], [ null, %27 ], [ null, %23 ], [ null, %17 ], [ null, %12 ], [ null, %9 ], [ %28, %37 ], [ %28, %34 ], [ %28, %30 ]
+  %.362 = phi ptr [ %.2, %42 ], [ %.2, %40 ], [ null, %3 ], [ null, %27 ], [ null, %23 ], [ null, %17 ], [ null, %12 ], [ null, %9 ], [ %32, %37 ], [ %32, %34 ], [ null, %30 ]
+  %.3 = phi ptr [ null, %42 ], [ null, %40 ], [ null, %3 ], [ null, %27 ], [ null, %23 ], [ null, %17 ], [ null, %12 ], [ null, %9 ], [ %35, %37 ], [ null, %34 ], [ null, %30 ]
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink102, ptr noundef nonnull @__func__.ossl_b2i_DSA_after_header) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef %.sink, ptr noundef null) #6
@@ -997,7 +997,7 @@ define range(i32 0, 2) i32 @ossl_do_PVK_header(ptr noundef captures(none) %0, i3
   br label %33
 
 33:                                               ; preds = %17, %26, %32, %31, %16, %12, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %16 ], [ 0, %31 ], [ 1, %32 ], [ 0, %12 ], [ 0, %26 ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %31 ], [ 1, %32 ], [ 0, %12 ], [ 0, %16 ], [ 0, %26 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -1181,18 +1181,18 @@ define internal fastcc ptr @do_PVK_key_bio(ptr noundef %0, ptr noundef readonly 
   ]
 
 .thread.sink.split.i:                             ; preds = %80, %48, %39
-  %.sink21.i = phi i32 [ 883, %48 ], [ 869, %39 ], [ 908, %80 ]
-  %.sink.i = phi i32 [ 125, %48 ], [ 104, %39 ], [ 101, %80 ]
-  %.257.ph.ph.i = phi ptr [ %44, %48 ], [ null, %39 ], [ %44, %80 ]
-  %.2.ph.ph.i = phi ptr [ null, %48 ], [ null, %39 ], [ %57, %80 ]
+  %.sink21.i = phi i32 [ 869, %39 ], [ 883, %48 ], [ 908, %80 ]
+  %.sink.i = phi i32 [ 104, %39 ], [ 125, %48 ], [ 101, %80 ]
+  %.257.ph.ph.i = phi ptr [ null, %39 ], [ %44, %48 ], [ %44, %80 ]
+  %.2.ph.ph.i = phi ptr [ null, %39 ], [ null, %48 ], [ %57, %80 ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink21.i, ptr noundef nonnull @__func__.do_PVK_body_key) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef %.sink.i, ptr noundef null) #6
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.sink.split.i, %75, %73, %70, %63, %61, %59, %54, %46, %41
-  %.257.ph.i = phi ptr [ %44, %54 ], [ %44, %59 ], [ %44, %61 ], [ %44, %63 ], [ %44, %70 ], [ %44, %73 ], [ %44, %75 ], [ null, %41 ], [ %44, %46 ], [ %.257.ph.ph.i, %.thread.sink.split.i ]
-  %.2.ph.i = phi ptr [ null, %54 ], [ %57, %59 ], [ %57, %61 ], [ %57, %63 ], [ %57, %70 ], [ %57, %73 ], [ %57, %75 ], [ null, %41 ], [ null, %46 ], [ %.2.ph.ph.i, %.thread.sink.split.i ]
+  %.257.ph.i = phi ptr [ %44, %75 ], [ %44, %73 ], [ %44, %70 ], [ %44, %63 ], [ %44, %61 ], [ %44, %59 ], [ %44, %54 ], [ %44, %46 ], [ null, %41 ], [ %.257.ph.ph.i, %.thread.sink.split.i ]
+  %.2.ph.i = phi ptr [ %57, %75 ], [ %57, %73 ], [ %57, %70 ], [ %57, %63 ], [ %57, %61 ], [ %57, %59 ], [ null, %54 ], [ null, %46 ], [ null, %41 ], [ %.2.ph.ph.i, %.thread.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %85
@@ -1233,7 +1233,7 @@ do_PVK_body_key.exit:                             ; preds = %85, %86
   br label %88
 
 88:                                               ; preds = %19, %17, %87, %16
-  %.017 = phi ptr [ null, %16 ], [ null, %17 ], [ %.0, %87 ], [ null, %19 ]
+  %.017 = phi ptr [ null, %16 ], [ %.0, %87 ], [ null, %17 ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1446,7 +1446,7 @@ define range(i32 -1, -2147483648) i32 @i2b_PVK_bio_ex(ptr noundef %0, ptr nounde
   br i1 %.not69.i, label %.thread.i, label %65
 
 .thread.i:                                        ; preds = %60, %57, %54, %47, %45, %44
-  %.2.ph.i = phi ptr [ null, %44 ], [ null, %47 ], [ %48, %54 ], [ %48, %57 ], [ null, %45 ], [ %48, %60 ]
+  %.2.ph.i = phi ptr [ %48, %57 ], [ %48, %54 ], [ null, %47 ], [ null, %45 ], [ null, %44 ], [ %48, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1475,7 +1475,7 @@ define range(i32 -1, -2147483648) i32 @i2b_PVK_bio_ex(ptr noundef %0, ptr nounde
   call void @CRYPTO_free(ptr noundef nonnull %17, ptr noundef nonnull @.str, i32 noundef 1107) #6
   br label %i2b_PVK.exit
 
-i2b_PVK.exit.thread:                              ; preds = %14, %7
+i2b_PVK.exit.thread:                              ; preds = %7, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %75
 

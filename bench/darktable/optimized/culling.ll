@@ -412,7 +412,7 @@ define internal range(i32 0, 2) i32 @_event_leave_notify(ptr noundef %0, ptr nou
   br label %16
 
 16:                                               ; preds = %7, %11, %11, %14, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %14 ], [ 0, %11 ], [ 0, %11 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %14 ], [ 0, %5 ], [ 0, %11 ], [ 0, %11 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -780,7 +780,7 @@ define internal range(i32 0, 2) i32 @_event_motion_notify(ptr readnone captures(
   br i1 %.not91, label %.lr.ph114.preheader, label %81
 
 .lr.ph114.preheader:                              ; preds = %81, %68, %72
-  %.084112.ph = phi ptr [ %.085107, %68 ], [ %.085107, %72 ], [ %.086103, %81 ]
+  %.084112.ph = phi ptr [ %.085107, %72 ], [ %.085107, %68 ], [ %.086103, %81 ]
   br label %.lr.ph114
 
 .lr.ph114:                                        ; preds = %.lr.ph114.preheader, %129
@@ -1716,7 +1716,7 @@ define void @dt_culling_full_redraw(ptr noundef %0, i32 noundef %1) local_unname
   br label %39
 
 39:                                               ; preds = %35, %34, %29
-  %.1.i = phi i32 [ %spec.select.i, %35 ], [ 0, %29 ], [ 1, %34 ]
+  %.1.i = phi i32 [ 1, %34 ], [ 0, %29 ], [ %spec.select.i, %35 ]
   %40 = load i32, ptr %0, align 8, !tbaa !6
   switch i32 %40, label %_compute_sizes.exit [
     i32 0, label %41
@@ -1770,9 +1770,9 @@ define void @dt_culling_full_redraw(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %.not37.i, label %_compute_sizes.exit, label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %57, %54, %53, %50, %47, %44, %._crit_edge.i
-  %.sink50.i = phi i32 [ %43, %44 ], [ %43, %._crit_edge.i ], [ %43, %50 ], [ %43, %47 ], [ 1, %57 ], [ 1, %54 ], [ 1, %53 ]
-  %.sink48.ph.i = phi i32 [ %.pre.i, %44 ], [ %.pre.i, %._crit_edge.i ], [ %.pre.i, %50 ], [ %.pre.i, %47 ], [ %16, %57 ], [ %16, %54 ], [ %16, %53 ]
-  %.sink.ph.i = phi i32 [ %.pre43.i, %44 ], [ %.pre42.i, %._crit_edge.i ], [ %.pre43.i, %50 ], [ %.pre43.i, %47 ], [ %19, %57 ], [ %19, %54 ], [ %19, %53 ]
+  %.sink50.i = phi i32 [ %43, %._crit_edge.i ], [ %43, %50 ], [ %43, %47 ], [ %43, %44 ], [ 1, %57 ], [ 1, %54 ], [ 1, %53 ]
+  %.sink48.ph.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %.pre.i, %50 ], [ %.pre.i, %47 ], [ %.pre.i, %44 ], [ %16, %57 ], [ %16, %54 ], [ %16, %53 ]
+  %.sink.ph.i = phi i32 [ %.pre42.i, %._crit_edge.i ], [ %.pre43.i, %50 ], [ %.pre43.i, %47 ], [ %.pre43.i, %44 ], [ %19, %57 ], [ %19, %54 ], [ %19, %53 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %.sink50.i, ptr %60, align 8, !tbaa !107
   br label %.sink.split.i
@@ -1788,7 +1788,7 @@ define void @dt_culling_full_redraw(ptr noundef %0, i32 noundef %1) local_unname
   br label %_compute_sizes.exit
 
 _compute_sizes.exit:                              ; preds = %39, %50, %57, %.sink.split.i
-  %.0.i = phi i32 [ %.1.i, %57 ], [ %.1.i, %39 ], [ %.1.i, %50 ], [ %.0.ph.i, %.sink.split.i ]
+  %.0.i = phi i32 [ %.1.i, %57 ], [ %.1.i, %50 ], [ %.1.i, %39 ], [ %.0.ph.i, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %744, label %63
@@ -2290,7 +2290,7 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
   br i1 %.not425.i, label %.lr.ph481.i, label %.lr.ph473.i
 
 ._crit_edge482.i:                                 ; preds = %.lr.ph481.split.i, %.lr.ph481.split.us.i, %295
-  %.0395.lcssa.i = phi i32 [ %.0395..us.i, %.lr.ph481.split.us.i ], [ 0, %295 ], [ %.0395..i, %.lr.ph481.split.i ]
+  %.0395.lcssa.i = phi i32 [ 0, %295 ], [ %.0395..us.i, %.lr.ph481.split.us.i ], [ %.0395..i, %.lr.ph481.split.i ]
   %322 = add nuw nsw i32 %.0375489.i, 1
   %323 = add nuw nsw i32 %322, %.0395.lcssa.i
   %324 = getelementptr inbounds nuw i8, ptr %.0387487.i, i64 8
@@ -3145,7 +3145,7 @@ define noundef i32 @dt_culling_key_move(ptr noundef %0, i32 noundef %1) local_un
   br label %14
 
 14:                                               ; preds = %2, %2, %13, %12, %11, %8, %4, %3
-  %.0 = phi i32 [ 0, %13 ], [ 2147483647, %12 ], [ 1, %3 ], [ %7, %4 ], [ %10, %8 ], [ -2147483647, %11 ], [ -1, %2 ], [ -1, %2 ]
+  %.0 = phi i32 [ 0, %13 ], [ 1, %3 ], [ %7, %4 ], [ %10, %8 ], [ -2147483647, %11 ], [ 2147483647, %12 ], [ -1, %2 ], [ -1, %2 ]
   tail call fastcc void @_thumbs_move(ptr noundef %0, i32 noundef %.0)
   ret i32 1
 }
@@ -3460,8 +3460,8 @@ define internal fastcc void @_thumbs_move(ptr noundef %0, i32 noundef %1) unname
   br label %163
 
 163:                                              ; preds = %.critedge109, %.critedge106, %.critedge, %63
-  %164 = phi i32 [ %160, %.critedge109 ], [ %9, %63 ], [ %125, %.critedge106 ], [ %60, %.critedge ]
-  %.1 = phi i32 [ %.4, %.critedge109 ], [ %spec.select, %63 ], [ %.2, %.critedge106 ], [ %.0, %.critedge ]
+  %164 = phi i32 [ %9, %63 ], [ %60, %.critedge ], [ %125, %.critedge106 ], [ %160, %.critedge109 ]
+  %.1 = phi i32 [ %spec.select, %63 ], [ %.0, %.critedge ], [ %.2, %.critedge106 ], [ %.4, %.critedge109 ]
   %.not104 = icmp eq i32 %.1, %164
   br i1 %.not104, label %166, label %165
 
@@ -3807,7 +3807,7 @@ define internal fastcc void @_thumbs_zoom_add(ptr noundef captures(none) %0, flo
   br label %94
 
 94:                                               ; preds = %93, %91, %.lr.ph103.split.us
-  %95 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %91 ], [ %87, %93 ], [ %89, %.lr.ph103.split.us ]
+  %95 = phi reassoc nsz arcp contract afn float [ %87, %93 ], [ 1.000000e+00, %91 ], [ %89, %.lr.ph103.split.us ]
   %96 = fcmp reassoc nsz arcp contract afn oeq float %95, %86
   br i1 %96, label %_zoom_to_center.exit.thread.us, label %_zoom_to_center.exit.us
 
@@ -4222,7 +4222,7 @@ define internal fastcc range(i32 0, 2) i32 @_zoom_and_shift(ptr noundef %0, i32 
   br label %14
 
 14:                                               ; preds = %4, %13, %11
-  %15 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %11 ], [ %7, %13 ], [ %9, %4 ]
+  %15 = phi reassoc nsz arcp contract afn float [ %7, %13 ], [ 1.000000e+00, %11 ], [ %9, %4 ]
   %16 = fcmp reassoc nsz arcp contract afn oeq float %15, %6
   br i1 %16, label %49, label %17
 

@@ -47,7 +47,7 @@ define ptr @libdeflate_alloc_compressor_ex(i32 noundef %0, ptr noundef readonly 
   br label %10
 
 10:                                               ; preds = %8, %6, %4
-  %.0 = phi i64 [ %spec.select, %8 ], [ 9011712, %4 ], [ 668256, %6 ]
+  %.0 = phi i64 [ 9011712, %4 ], [ 668256, %6 ], [ %spec.select, %8 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %.not81 = icmp eq ptr %12, null
@@ -349,7 +349,7 @@ deflate_init_static_codes.exit:                   ; preds = %127
   br label %133
 
 133:                                              ; preds = %10, %2, %deflate_init_static_codes.exit
-  %.076 = phi ptr [ null, %10 ], [ null, %2 ], [ %15, %deflate_init_static_codes.exit ]
+  %.076 = phi ptr [ %15, %deflate_init_static_codes.exit ], [ null, %2 ], [ null, %10 ]
   ret ptr %.076
 }
 
@@ -860,8 +860,8 @@ ht_matchfinder_longest_match.exit.loopexit.split.loop.exit: ; preds = %.lr.ph
   br label %ht_matchfinder_longest_match.exit
 
 ht_matchfinder_longest_match.exit:                ; preds = %219, %ht_matchfinder_longest_match.exit.loopexit.split.loop.exit, %.preheader195, %222, %lz_extend.exit99, %128, %132, %lz_extend.exit
-  %.067.i = phi ptr [ %81, %132 ], [ %81, %lz_extend.exit99 ], [ %81, %128 ], [ %184, %222 ], [ %spec.select.i, %lz_extend.exit ], [ %184, %.preheader195 ], [ %184, %ht_matchfinder_longest_match.exit.loopexit.split.loop.exit ], [ %184, %219 ]
-  %.0.i73 = phi i32 [ %.047.i93, %132 ], [ %.047.i93, %lz_extend.exit99 ], [ %.047.i93, %128 ], [ %226, %222 ], [ %spec.select77.i, %lz_extend.exit ], [ %.2.i101, %.preheader195 ], [ %227, %ht_matchfinder_longest_match.exit.loopexit.split.loop.exit ], [ %.258, %219 ]
+  %.067.i = phi ptr [ %81, %lz_extend.exit99 ], [ %81, %132 ], [ %81, %128 ], [ %spec.select.i, %lz_extend.exit ], [ %184, %222 ], [ %184, %.preheader195 ], [ %184, %ht_matchfinder_longest_match.exit.loopexit.split.loop.exit ], [ %184, %219 ]
+  %.0.i73 = phi i32 [ %.047.i93, %lz_extend.exit99 ], [ %.047.i93, %132 ], [ %.047.i93, %128 ], [ %spec.select77.i, %lz_extend.exit ], [ %226, %222 ], [ %.2.i101, %.preheader195 ], [ %227, %ht_matchfinder_longest_match.exit.loopexit.split.loop.exit ], [ %.258, %219 ]
   %.not = icmp eq i32 %.0.i73, 0
   br i1 %.not, label %ht_matchfinder_longest_match.exit.thread, label %228
 
@@ -989,7 +989,7 @@ ht_matchfinder_skip_bytes.exit:                   ; preds = %228, %301
   %304 = getelementptr inbounds nuw i8, ptr %.1, i64 %232
   br label %312
 
-ht_matchfinder_longest_match.exit.thread:         ; preds = %180, %182, %66, %ht_matchfinder_longest_match.exit
+ht_matchfinder_longest_match.exit.thread:         ; preds = %182, %180, %66, %ht_matchfinder_longest_match.exit
   %305 = load i8, ptr %.1, align 1, !tbaa !25
   %306 = zext i8 %305 to i64
   %307 = getelementptr inbounds nuw i32, ptr %16, i64 %306
@@ -1603,10 +1603,10 @@ lz_extend.exit.i:                                 ; preds = %240, %lz_extend.exi
   br i1 %or.cond144.i, label %hc_matchfinder_longest_match.exit, label %197
 
 hc_matchfinder_longest_match.exit:                ; preds = %136, %250, %251, %209, %101, %124, %132, %lz_extend.exit163.i, %184, %189
-  %.sroa.8.3 = phi i32 [ %.sroa.8.1, %101 ], [ %119, %184 ], [ %119, %124 ], [ %119, %250 ], [ %119, %189 ], [ %119, %lz_extend.exit163.i ], [ %119, %209 ], [ %119, %132 ], [ %119, %251 ], [ %119, %136 ]
-  %.sroa.0.3 = phi i32 [ %.sroa.0.1, %101 ], [ %117, %184 ], [ %117, %124 ], [ %117, %250 ], [ %117, %189 ], [ %117, %lz_extend.exit163.i ], [ %117, %209 ], [ %117, %132 ], [ %117, %251 ], [ %117, %136 ]
-  %.0106.i = phi ptr [ %.1, %101 ], [ %142, %184 ], [ %.1, %124 ], [ %203, %250 ], [ %.1, %189 ], [ %142, %lz_extend.exit163.i ], [ %.3109.i, %209 ], [ %.1107.i, %132 ], [ %.4110.i, %251 ], [ %.1107.i, %136 ]
-  %.0.i64 = phi i32 [ %74, %101 ], [ %.047.i157.i, %184 ], [ %74, %124 ], [ %.047.i.i, %250 ], [ %74, %189 ], [ %.047.i157.i, %lz_extend.exit163.i ], [ %.3.i, %209 ], [ %.1.i, %132 ], [ %.4.i, %251 ], [ %.1.i, %136 ]
+  %.sroa.8.3 = phi i32 [ %.sroa.8.1, %101 ], [ %119, %184 ], [ %119, %lz_extend.exit163.i ], [ %119, %132 ], [ %119, %124 ], [ %119, %189 ], [ %119, %209 ], [ %119, %251 ], [ %119, %250 ], [ %119, %136 ]
+  %.sroa.0.3 = phi i32 [ %.sroa.0.1, %101 ], [ %117, %184 ], [ %117, %lz_extend.exit163.i ], [ %117, %132 ], [ %117, %124 ], [ %117, %189 ], [ %117, %209 ], [ %117, %251 ], [ %117, %250 ], [ %117, %136 ]
+  %.0106.i = phi ptr [ %.1, %101 ], [ %142, %184 ], [ %142, %lz_extend.exit163.i ], [ %.1107.i, %132 ], [ %.1, %124 ], [ %.1, %189 ], [ %.3109.i, %209 ], [ %203, %250 ], [ %.4110.i, %251 ], [ %.1107.i, %136 ]
+  %.0.i64 = phi i32 [ %74, %101 ], [ %.047.i157.i, %184 ], [ %.047.i157.i, %lz_extend.exit163.i ], [ %.1.i, %132 ], [ %74, %124 ], [ %74, %189 ], [ %.3.i, %209 ], [ %.047.i.i, %250 ], [ %.4.i, %251 ], [ %.1.i, %136 ]
   %256 = ptrtoint ptr %.0106.i to i64
   %257 = sub i64 %76, %256
   %258 = trunc i64 %257 to i32
@@ -2571,10 +2571,10 @@ lz_extend.exit.i280.i:                            ; preds = %281, %lz_extend.exi
   br i1 %or.cond144.i286.i, label %hc_matchfinder_longest_match.exit342.i, label %238
 
 hc_matchfinder_longest_match.exit342.i:           ; preds = %177, %292, %291, %250, %230, %225, %lz_extend.exit163.i323.i, %173, %165, %141
-  %.sroa.13.2 = phi i32 [ %.sroa.13.1, %141 ], [ %159, %225 ], [ %159, %165 ], [ %159, %292 ], [ %159, %230 ], [ %159, %lz_extend.exit163.i323.i ], [ %159, %250 ], [ %159, %173 ], [ %159, %291 ], [ %159, %177 ]
-  %.sroa.0.2 = phi i32 [ %.sroa.0.1, %141 ], [ %157, %225 ], [ %157, %165 ], [ %157, %292 ], [ %157, %230 ], [ %157, %lz_extend.exit163.i323.i ], [ %157, %250 ], [ %157, %173 ], [ %157, %291 ], [ %157, %177 ]
-  %.0106.i253.i = phi ptr [ %.1126.i, %141 ], [ %183, %225 ], [ %.1126.i, %165 ], [ %.4110.i282.i, %292 ], [ %.1126.i, %230 ], [ %183, %lz_extend.exit163.i323.i ], [ %.3109.i260.i, %250 ], [ %.1107.i306.i, %173 ], [ %244, %291 ], [ %.1107.i306.i, %177 ]
-  %.0.i254.i = phi i32 [ %120, %141 ], [ %.047.i157.i324.i, %225 ], [ %120, %165 ], [ %.4.i283.i, %292 ], [ %120, %230 ], [ %.047.i157.i324.i, %lz_extend.exit163.i323.i ], [ %.3.i262.i, %250 ], [ %.1.i307.i, %173 ], [ %.047.i.i281.i, %291 ], [ %.1.i307.i, %177 ]
+  %.sroa.13.2 = phi i32 [ %.sroa.13.1, %141 ], [ %159, %225 ], [ %159, %lz_extend.exit163.i323.i ], [ %159, %173 ], [ %159, %165 ], [ %159, %230 ], [ %159, %250 ], [ %159, %291 ], [ %159, %292 ], [ %159, %177 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.1, %141 ], [ %157, %225 ], [ %157, %lz_extend.exit163.i323.i ], [ %157, %173 ], [ %157, %165 ], [ %157, %230 ], [ %157, %250 ], [ %157, %291 ], [ %157, %292 ], [ %157, %177 ]
+  %.0106.i253.i = phi ptr [ %.1126.i, %141 ], [ %183, %225 ], [ %183, %lz_extend.exit163.i323.i ], [ %.1107.i306.i, %173 ], [ %.1126.i, %165 ], [ %.1126.i, %230 ], [ %.3109.i260.i, %250 ], [ %.4110.i282.i, %292 ], [ %244, %291 ], [ %.1107.i306.i, %177 ]
+  %.0.i254.i = phi i32 [ %120, %141 ], [ %.047.i157.i324.i, %225 ], [ %.047.i157.i324.i, %lz_extend.exit163.i323.i ], [ %.1.i307.i, %173 ], [ %120, %165 ], [ %120, %230 ], [ %.3.i262.i, %250 ], [ %.4.i283.i, %292 ], [ %.047.i.i281.i, %291 ], [ %.1.i307.i, %177 ]
   %297 = ptrtoint ptr %.0106.i253.i to i64
   %298 = sub i64 %.pre-phi, %297
   %299 = trunc i64 %298 to i32
@@ -3200,10 +3200,10 @@ lz_extend.exit.i185.i:                            ; preds = %579, %lz_extend.exi
   br i1 %or.cond144.i191.i, label %hc_matchfinder_longest_match.exit247.i, label %536
 
 hc_matchfinder_longest_match.exit247.i:           ; preds = %475, %590, %589, %548, %528, %523, %lz_extend.exit163.i228.i, %471, %463, %440
-  %.sroa.13.6 = phi i32 [ %.sroa.13.3154, %440 ], [ %457, %523 ], [ %457, %463 ], [ %457, %590 ], [ %457, %528 ], [ %457, %lz_extend.exit163.i228.i ], [ %457, %548 ], [ %457, %471 ], [ %457, %589 ], [ %457, %475 ]
-  %.sroa.0.6 = phi i32 [ %.sroa.0.3155, %440 ], [ %455, %523 ], [ %455, %463 ], [ %455, %590 ], [ %455, %528 ], [ %455, %lz_extend.exit163.i228.i ], [ %455, %548 ], [ %455, %471 ], [ %455, %589 ], [ %455, %475 ]
-  %.0106.i158.i = phi ptr [ %.3.i158, %440 ], [ %481, %523 ], [ %.3.i158, %463 ], [ %.4110.i187.i, %590 ], [ %.3.i158, %528 ], [ %481, %lz_extend.exit163.i228.i ], [ %.3109.i165.i, %548 ], [ %.1107.i211.i, %471 ], [ %542, %589 ], [ %.1107.i211.i, %475 ]
-  %.0.i159.i = phi i32 [ %418, %440 ], [ %.047.i157.i229.i, %523 ], [ %418, %463 ], [ %.4.i188.i, %590 ], [ %418, %528 ], [ %.047.i157.i229.i, %lz_extend.exit163.i228.i ], [ %.3.i167.i, %548 ], [ %.1.i212.i, %471 ], [ %.047.i.i186.i, %589 ], [ %.1.i212.i, %475 ]
+  %.sroa.13.6 = phi i32 [ %.sroa.13.3154, %440 ], [ %457, %523 ], [ %457, %lz_extend.exit163.i228.i ], [ %457, %471 ], [ %457, %463 ], [ %457, %528 ], [ %457, %548 ], [ %457, %589 ], [ %457, %590 ], [ %457, %475 ]
+  %.sroa.0.6 = phi i32 [ %.sroa.0.3155, %440 ], [ %455, %523 ], [ %455, %lz_extend.exit163.i228.i ], [ %455, %471 ], [ %455, %463 ], [ %455, %528 ], [ %455, %548 ], [ %455, %589 ], [ %455, %590 ], [ %455, %475 ]
+  %.0106.i158.i = phi ptr [ %.3.i158, %440 ], [ %481, %523 ], [ %481, %lz_extend.exit163.i228.i ], [ %.1107.i211.i, %471 ], [ %.3.i158, %463 ], [ %.3.i158, %528 ], [ %.3109.i165.i, %548 ], [ %.4110.i187.i, %590 ], [ %542, %589 ], [ %.1107.i211.i, %475 ]
+  %.0.i159.i = phi i32 [ %418, %440 ], [ %.047.i157.i229.i, %523 ], [ %.047.i157.i229.i, %lz_extend.exit163.i228.i ], [ %.1.i212.i, %471 ], [ %418, %463 ], [ %418, %528 ], [ %.3.i167.i, %548 ], [ %.4.i188.i, %590 ], [ %.047.i.i186.i, %589 ], [ %.1.i212.i, %475 ]
   %595 = ptrtoint ptr %.0106.i158.i to i64
   %596 = sub i64 %412, %595
   %597 = trunc i64 %596 to i32
@@ -4177,10 +4177,10 @@ lz_extend.exit.i280.i:                            ; preds = %281, %lz_extend.exi
   br i1 %or.cond144.i286.i, label %hc_matchfinder_longest_match.exit342.i, label %238
 
 hc_matchfinder_longest_match.exit342.i:           ; preds = %177, %292, %291, %250, %230, %225, %lz_extend.exit163.i323.i, %173, %165, %141
-  %.sroa.16.2 = phi i32 [ %.sroa.16.1, %141 ], [ %159, %225 ], [ %159, %165 ], [ %159, %292 ], [ %159, %230 ], [ %159, %lz_extend.exit163.i323.i ], [ %159, %250 ], [ %159, %173 ], [ %159, %291 ], [ %159, %177 ]
-  %.sroa.0.2 = phi i32 [ %.sroa.0.1, %141 ], [ %157, %225 ], [ %157, %165 ], [ %157, %292 ], [ %157, %230 ], [ %157, %lz_extend.exit163.i323.i ], [ %157, %250 ], [ %157, %173 ], [ %157, %291 ], [ %157, %177 ]
-  %.0106.i253.i = phi ptr [ %.1126.i, %141 ], [ %183, %225 ], [ %.1126.i, %165 ], [ %.4110.i282.i, %292 ], [ %.1126.i, %230 ], [ %183, %lz_extend.exit163.i323.i ], [ %.3109.i260.i, %250 ], [ %.1107.i306.i, %173 ], [ %244, %291 ], [ %.1107.i306.i, %177 ]
-  %.0.i254.i = phi i32 [ %120, %141 ], [ %.047.i157.i324.i, %225 ], [ %120, %165 ], [ %.4.i283.i, %292 ], [ %120, %230 ], [ %.047.i157.i324.i, %lz_extend.exit163.i323.i ], [ %.3.i262.i, %250 ], [ %.1.i307.i, %173 ], [ %.047.i.i281.i, %291 ], [ %.1.i307.i, %177 ]
+  %.sroa.16.2 = phi i32 [ %.sroa.16.1, %141 ], [ %159, %225 ], [ %159, %lz_extend.exit163.i323.i ], [ %159, %173 ], [ %159, %165 ], [ %159, %230 ], [ %159, %250 ], [ %159, %291 ], [ %159, %292 ], [ %159, %177 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.1, %141 ], [ %157, %225 ], [ %157, %lz_extend.exit163.i323.i ], [ %157, %173 ], [ %157, %165 ], [ %157, %230 ], [ %157, %250 ], [ %157, %291 ], [ %157, %292 ], [ %157, %177 ]
+  %.0106.i253.i = phi ptr [ %.1126.i, %141 ], [ %183, %225 ], [ %183, %lz_extend.exit163.i323.i ], [ %.1107.i306.i, %173 ], [ %.1126.i, %165 ], [ %.1126.i, %230 ], [ %.3109.i260.i, %250 ], [ %.4110.i282.i, %292 ], [ %244, %291 ], [ %.1107.i306.i, %177 ]
+  %.0.i254.i = phi i32 [ %120, %141 ], [ %.047.i157.i324.i, %225 ], [ %.047.i157.i324.i, %lz_extend.exit163.i323.i ], [ %.1.i307.i, %173 ], [ %120, %165 ], [ %120, %230 ], [ %.3.i262.i, %250 ], [ %.4.i283.i, %292 ], [ %.047.i.i281.i, %291 ], [ %.1.i307.i, %177 ]
   %297 = ptrtoint ptr %.0106.i253.i to i64
   %298 = sub i64 %.pre-phi, %297
   %299 = trunc i64 %298 to i32
@@ -4806,10 +4806,10 @@ lz_extend.exit.i185.i:                            ; preds = %579, %lz_extend.exi
   br i1 %or.cond144.i191.i, label %hc_matchfinder_longest_match.exit247.i, label %536
 
 hc_matchfinder_longest_match.exit247.i:           ; preds = %475, %590, %589, %548, %528, %523, %lz_extend.exit163.i228.i, %471, %463, %440
-  %.sroa.16.6 = phi i32 [ %.sroa.16.3207, %440 ], [ %457, %523 ], [ %457, %463 ], [ %457, %590 ], [ %457, %528 ], [ %457, %lz_extend.exit163.i228.i ], [ %457, %548 ], [ %457, %471 ], [ %457, %589 ], [ %457, %475 ]
-  %.sroa.0.6 = phi i32 [ %.sroa.0.3208, %440 ], [ %455, %523 ], [ %455, %463 ], [ %455, %590 ], [ %455, %528 ], [ %455, %lz_extend.exit163.i228.i ], [ %455, %548 ], [ %455, %471 ], [ %455, %589 ], [ %455, %475 ]
-  %.0106.i158.i = phi ptr [ %.3.i210, %440 ], [ %481, %523 ], [ %.3.i210, %463 ], [ %.4110.i187.i, %590 ], [ %.3.i210, %528 ], [ %481, %lz_extend.exit163.i228.i ], [ %.3109.i165.i, %548 ], [ %.1107.i211.i, %471 ], [ %542, %589 ], [ %.1107.i211.i, %475 ]
-  %.0.i159.i = phi i32 [ %418, %440 ], [ %.047.i157.i229.i, %523 ], [ %418, %463 ], [ %.4.i188.i, %590 ], [ %418, %528 ], [ %.047.i157.i229.i, %lz_extend.exit163.i228.i ], [ %.3.i167.i, %548 ], [ %.1.i212.i, %471 ], [ %.047.i.i186.i, %589 ], [ %.1.i212.i, %475 ]
+  %.sroa.16.6 = phi i32 [ %.sroa.16.3207, %440 ], [ %457, %523 ], [ %457, %lz_extend.exit163.i228.i ], [ %457, %471 ], [ %457, %463 ], [ %457, %528 ], [ %457, %548 ], [ %457, %589 ], [ %457, %590 ], [ %457, %475 ]
+  %.sroa.0.6 = phi i32 [ %.sroa.0.3208, %440 ], [ %455, %523 ], [ %455, %lz_extend.exit163.i228.i ], [ %455, %471 ], [ %455, %463 ], [ %455, %528 ], [ %455, %548 ], [ %455, %589 ], [ %455, %590 ], [ %455, %475 ]
+  %.0106.i158.i = phi ptr [ %.3.i210, %440 ], [ %481, %523 ], [ %481, %lz_extend.exit163.i228.i ], [ %.1107.i211.i, %471 ], [ %.3.i210, %463 ], [ %.3.i210, %528 ], [ %.3109.i165.i, %548 ], [ %.4110.i187.i, %590 ], [ %542, %589 ], [ %.1107.i211.i, %475 ]
+  %.0.i159.i = phi i32 [ %418, %440 ], [ %.047.i157.i229.i, %523 ], [ %.047.i157.i229.i, %lz_extend.exit163.i228.i ], [ %.1.i212.i, %471 ], [ %418, %463 ], [ %418, %528 ], [ %.3.i167.i, %548 ], [ %.4.i188.i, %590 ], [ %.047.i.i186.i, %589 ], [ %.1.i212.i, %475 ]
   %595 = ptrtoint ptr %.0106.i158.i to i64
   %596 = sub i64 %412, %595
   %597 = trunc i64 %596 to i32
@@ -5291,10 +5291,10 @@ lz_extend.exit.i.i:                               ; preds = %792, %lz_extend.exi
   br i1 %or.cond144.i.i, label %hc_matchfinder_longest_match.exit.i, label %749
 
 hc_matchfinder_longest_match.exit.i:              ; preds = %688, %803, %802, %761, %741, %736, %lz_extend.exit163.i.i, %684, %676, %653
-  %.sroa.16.7 = phi i32 [ %.sroa.16.6, %653 ], [ %670, %736 ], [ %670, %676 ], [ %670, %803 ], [ %670, %741 ], [ %670, %lz_extend.exit163.i.i ], [ %670, %761 ], [ %670, %684 ], [ %670, %802 ], [ %670, %688 ]
-  %.sroa.0.7 = phi i32 [ %.sroa.0.6, %653 ], [ %668, %736 ], [ %668, %676 ], [ %668, %803 ], [ %668, %741 ], [ %668, %lz_extend.exit163.i.i ], [ %668, %761 ], [ %668, %684 ], [ %668, %802 ], [ %668, %688 ]
-  %.0106.i.i = phi ptr [ %417, %653 ], [ %694, %736 ], [ %417, %676 ], [ %.4110.i.i, %803 ], [ %417, %741 ], [ %694, %lz_extend.exit163.i.i ], [ %.3109.i.i, %761 ], [ %.1107.i.i, %684 ], [ %755, %802 ], [ %.1107.i.i, %688 ]
-  %.0.i150.i = phi i32 [ %418, %653 ], [ %.047.i157.i.i, %736 ], [ %418, %676 ], [ %.4.i.i, %803 ], [ %418, %741 ], [ %.047.i157.i.i, %lz_extend.exit163.i.i ], [ %.3.i.i, %761 ], [ %.1.i.i, %684 ], [ %.047.i.i.i, %802 ], [ %.1.i.i, %688 ]
+  %.sroa.16.7 = phi i32 [ %.sroa.16.6, %653 ], [ %670, %736 ], [ %670, %lz_extend.exit163.i.i ], [ %670, %684 ], [ %670, %676 ], [ %670, %741 ], [ %670, %761 ], [ %670, %802 ], [ %670, %803 ], [ %670, %688 ]
+  %.sroa.0.7 = phi i32 [ %.sroa.0.6, %653 ], [ %668, %736 ], [ %668, %lz_extend.exit163.i.i ], [ %668, %684 ], [ %668, %676 ], [ %668, %741 ], [ %668, %761 ], [ %668, %802 ], [ %668, %803 ], [ %668, %688 ]
+  %.0106.i.i = phi ptr [ %417, %653 ], [ %694, %736 ], [ %694, %lz_extend.exit163.i.i ], [ %.1107.i.i, %684 ], [ %417, %676 ], [ %417, %741 ], [ %.3109.i.i, %761 ], [ %.4110.i.i, %803 ], [ %755, %802 ], [ %.1107.i.i, %688 ]
+  %.0.i150.i = phi i32 [ %418, %653 ], [ %.047.i157.i.i, %736 ], [ %.047.i157.i.i, %lz_extend.exit163.i.i ], [ %.1.i.i, %684 ], [ %418, %676 ], [ %418, %741 ], [ %.3.i.i, %761 ], [ %.4.i.i, %803 ], [ %.047.i.i.i, %802 ], [ %.1.i.i, %688 ]
   %808 = ptrtoint ptr %.0106.i.i to i64
   %809 = sub i64 %626, %808
   %810 = trunc i64 %809 to i32
@@ -6102,9 +6102,9 @@ lz_extend.exit.i242:                              ; preds = %205, %lz_extend.exi
   br label %bt_matchfinder_advance_one_byte.exit258
 
 228:                                              ; preds = %215, %lz_extend.exit.i242, %.preheader327
-  %.3.i.idx = phi i64 [ %.2135.i214.add, %215 ], [ %.2135.i214.idx, %lz_extend.exit.i242 ], [ %.2135.i214.idx, %.preheader327 ]
-  %.1123.i221 = phi i32 [ %.047.i.i243, %215 ], [ %.047.i.i243, %lz_extend.exit.i242 ], [ %.0122.i219, %.preheader327 ]
-  %.1.i = phi i32 [ %.047.i.i243, %215 ], [ %.0121.i220, %lz_extend.exit.i242 ], [ %.0121.i220, %.preheader327 ]
+  %.3.i.idx = phi i64 [ %.2135.i214.add, %215 ], [ %.2135.i214.idx, %.preheader327 ], [ %.2135.i214.idx, %lz_extend.exit.i242 ]
+  %.1123.i221 = phi i32 [ %.047.i.i243, %215 ], [ %.0122.i219, %.preheader327 ], [ %.047.i.i243, %lz_extend.exit.i242 ]
+  %.1.i = phi i32 [ %.047.i.i243, %215 ], [ %.0121.i220, %.preheader327 ], [ %.0121.i220, %lz_extend.exit.i242 ]
   %229 = zext nneg i32 %.1123.i221 to i64
   %230 = getelementptr inbounds nuw i8, ptr %156, i64 %229
   %231 = load i8, ptr %230, align 1, !tbaa !25
@@ -6953,7 +6953,7 @@ define internal fastcc i64 @deflate_compress_none(ptr noundef %0, i64 noundef %1
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %10, %29, %12
-  %.039 = phi i64 [ 0, %10 ], [ 5, %12 ], [ %32, %29 ], [ 0, %14 ]
+  %.039 = phi i64 [ 5, %12 ], [ %32, %29 ], [ 0, %10 ], [ 0, %14 ]
   ret i64 %.039
 }
 
@@ -7652,9 +7652,9 @@ deflate_compute_full_len_codewords.exit:          ; preds = %301
   br label %.loopexit596
 
 .loopexit596:                                     ; preds = %.lr.ph702, %.lr.ph709, %.loopexit596.sink.split, %.preheader597, %.preheader595
-  %.14524 = phi ptr [ %.12522, %.preheader597 ], [ %405, %.loopexit596.sink.split ], [ %353, %.lr.ph709 ], [ %.12522, %.preheader595 ], [ %396, %.lr.ph702 ]
-  %.14495 = phi i32 [ %392, %.preheader597 ], [ %406, %.loopexit596.sink.split ], [ %354, %.lr.ph709 ], [ %349, %.preheader595 ], [ %397, %.lr.ph702 ]
-  %.14 = phi i64 [ %388, %.preheader597 ], [ %402, %.loopexit596.sink.split ], [ %355, %.lr.ph709 ], [ %345, %.preheader595 ], [ %398, %.lr.ph702 ]
+  %.14524 = phi ptr [ %.12522, %.preheader595 ], [ %.12522, %.preheader597 ], [ %405, %.loopexit596.sink.split ], [ %353, %.lr.ph709 ], [ %396, %.lr.ph702 ]
+  %.14495 = phi i32 [ %349, %.preheader595 ], [ %392, %.preheader597 ], [ %406, %.loopexit596.sink.split ], [ %354, %.lr.ph709 ], [ %397, %.lr.ph702 ]
+  %.14 = phi i64 [ %345, %.preheader595 ], [ %388, %.preheader597 ], [ %402, %.loopexit596.sink.split ], [ %355, %.lr.ph709 ], [ %398, %.lr.ph702 ]
   %407 = zext nneg i32 %335 to i64
   %408 = getelementptr inbounds nuw %struct.deflate_optimum_node, ptr %.0560, i64 %407
   %.not580 = icmp eq ptr %408, %328
@@ -7992,9 +7992,9 @@ deflate_compute_full_len_codewords.exit:          ; preds = %301
   br i1 %623, label %.lr.ph716, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph716, %140, %.preheader593, %611
-  %.2512 = phi ptr [ %145, %140 ], [ %617, %611 ], [ %.26536, %.preheader593 ], [ %620, %.lr.ph716 ]
-  %.1482 = phi i32 [ 0, %140 ], [ %618, %611 ], [ %608, %.preheader593 ], [ %621, %.lr.ph716 ]
-  %.1476 = phi i64 [ 0, %140 ], [ %614, %611 ], [ %604, %.preheader593 ], [ %622, %.lr.ph716 ]
+  %.2512 = phi ptr [ %617, %611 ], [ %.26536, %.preheader593 ], [ %145, %140 ], [ %620, %.lr.ph716 ]
+  %.1482 = phi i32 [ %618, %611 ], [ %608, %.preheader593 ], [ 0, %140 ], [ %621, %.lr.ph716 ]
+  %.1476 = phi i64 [ %614, %611 ], [ %604, %.preheader593 ], [ 0, %140 ], [ %622, %.lr.ph716 ]
   store i64 %.1476, ptr %1, align 8, !tbaa !54
   store i32 %.1482, ptr %8, align 8, !tbaa !55
   store ptr %.2512, ptr %10, align 8, !tbaa !56
@@ -8695,8 +8695,8 @@ define internal fastcc void @deflate_precompute_huffman_header(ptr noundef initi
   br i1 %90, label %77, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %77, %68, %._crit_edge.i
-  %.265.i = phi i32 [ %.063.i, %68 ], [ %.164.lcssa.i, %._crit_edge.i ], [ %88, %77 ]
-  %.2.i = phi ptr [ %.0.i, %68 ], [ %.1.lcssa.i, %._crit_edge.i ], [ %86, %77 ]
+  %.265.i = phi i32 [ %.164.lcssa.i, %._crit_edge.i ], [ %.063.i, %68 ], [ %88, %77 ]
+  %.2.i = phi ptr [ %.1.lcssa.i, %._crit_edge.i ], [ %.0.i, %68 ], [ %86, %77 ]
   %.not7281.i = icmp eq i32 %.265.i, %.lcssa.i
   br i1 %.not7281.i, label %._crit_edge86.i, label %.lr.ph85.i
 

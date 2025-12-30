@@ -922,7 +922,7 @@ Vec_IntPush.exit116:                              ; preds = %.Vec_IntGrow.exit10
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %.critedge2.thread.sink.split, %.preheader118, %.critedge2
-  %.167.lcssa177 = phi i32 [ %.066126, %.preheader118 ], [ %spec.select73, %.critedge2 ], [ %spec.select73, %.critedge2.thread.sink.split ]
+  %.167.lcssa177 = phi i32 [ %spec.select73, %.critedge2 ], [ %.066126, %.preheader118 ], [ %spec.select73, %.critedge2.thread.sink.split ]
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
   br i1 %exitcond149.not, label %._crit_edge, label %.preheader118, !llvm.loop !63
@@ -1780,7 +1780,7 @@ Abc_Clock.exit138:                                ; preds = %99, %105
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %.critedge128, %67, %31
-  %.0 = phi ptr [ null, %31 ], [ null, %67 ], [ %.sink174, %.critedge128 ], [ null, %50 ]
+  %.0 = phi ptr [ null, %67 ], [ %.sink174, %.critedge128 ], [ null, %31 ], [ null, %50 ]
   ret ptr %.0
 }
 

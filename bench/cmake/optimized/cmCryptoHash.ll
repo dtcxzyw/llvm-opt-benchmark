@@ -1031,7 +1031,7 @@ _ZN12cmCryptoHash8FinalizeEv.exit:                ; preds = %63, %_ZNSt6vectorIh
   ret void
 
 .body:                                            ; preds = %86, %88, %69, %71, %34, %75
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %75 ], [ %70, %69 ], [ %35, %34 ], [ %70, %71 ], [ %87, %88 ], [ %87, %86 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %75 ], [ %35, %34 ], [ %70, %71 ], [ %70, %69 ], [ %87, %88 ], [ %87, %86 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn

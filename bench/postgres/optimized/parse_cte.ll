@@ -1661,8 +1661,8 @@ thread-pre-split.thread:                          ; preds = %4, %66
   %128 = tail call zeroext i1 @raw_expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @makeDependencyGraphWalker, ptr noundef %1) #9
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %28, %65, %4, %.critedge, %.critedge128, %.critedge126, %63, %52, %6, %2, %thread-pre-split.thread
-  %.0 = phi i1 [ false, %63 ], [ false, %2 ], [ false, %4 ], [ %128, %thread-pre-split.thread ], [ false, %6 ], [ false, %.critedge128 ], [ false, %.critedge ], [ false, %52 ], [ false, %.critedge126 ], [ false, %65 ], [ false, %28 ]
+.critedge.thread:                                 ; preds = %28, %65, %4, %.critedge, %.critedge128, %.critedge126, %52, %63, %6, %2, %thread-pre-split.thread
+  %.0 = phi i1 [ %128, %thread-pre-split.thread ], [ false, %2 ], [ false, %6 ], [ false, %63 ], [ false, %52 ], [ false, %.critedge126 ], [ false, %.critedge128 ], [ false, %.critedge ], [ false, %4 ], [ false, %65 ], [ false, %28 ]
   ret i1 %.0
 }
 
@@ -1706,14 +1706,14 @@ define internal zeroext i1 @checkWellFormedRecursionWalker(ptr noundef %0, ptr n
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not161 = icmp eq ptr %12, null
-  br i1 %.not161, label %._crit_edge234, label %.lr.ph233
+  br i1 %.not161, label %._crit_edge235, label %.lr.ph233
 
 .lr.ph233:                                        ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %.tr210, i64 24
   %16 = icmp sgt i32 %14, 0
-  br i1 %16, label %.lr.ph240, label %._crit_edge234
+  br i1 %16, label %.lr.ph240, label %._crit_edge235
 
 .lr.ph240:                                        ; preds = %.lr.ph233
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -1759,9 +1759,9 @@ define internal zeroext i1 @checkWellFormedRecursionWalker(ptr noundef %0, ptr n
 ._crit_edge228.split.us:                          ; preds = %28, %.lr.ph227, %19
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %exitcond269.not = icmp eq i64 %indvars.iv.next266, %wide.trip.count268
-  br i1 %exitcond269.not, label %._crit_edge234, label %19
+  br i1 %exitcond269.not, label %._crit_edge235, label %19
 
-._crit_edge234:                                   ; preds = %._crit_edge228.split.us, %.lr.ph233, %10
+._crit_edge235:                                   ; preds = %._crit_edge228.split.us, %.lr.ph233, %10
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -1777,7 +1777,7 @@ define internal zeroext i1 @checkWellFormedRecursionWalker(ptr noundef %0, ptr n
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %.critedge
 
-48:                                               ; preds = %._crit_edge234
+48:                                               ; preds = %._crit_edge235
   %.not166 = icmp eq i32 %5, 0
   br i1 %.not166, label %62, label %49
 
@@ -2027,9 +2027,9 @@ tailrecurse.backedge:                             ; preds = %140, %155, %162, %1
   %189 = tail call zeroext i1 @raw_expression_tree_walker_impl(ptr noundef nonnull %.tr210, ptr noundef nonnull @checkWellFormedRecursionWalker, ptr noundef nonnull %1) #9
   br label %.critedge
 
-.critedge:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %29, %2, %62, %._crit_edge234, %136, %.critedge170, %.critedge168, %7, %188
-  %ret.known.tr199 = phi i1 [ %ret.known.tr212, %188 ], [ %ret.known.tr212, %.critedge168 ], [ %ret.known.tr212, %.critedge170 ], [ %ret.known.tr212, %136 ], [ false, %2 ], [ %ret.known.tr212, %._crit_edge234 ], [ %ret.known.tr212, %7 ], [ %ret.known.tr212, %62 ], [ %ret.known.tr212, %29 ], [ %ret.known.tr212, %.lr.ph ], [ true, %tailrecurse.backedge ]
-  %.0 = phi i1 [ %189, %188 ], [ false, %.critedge168 ], [ false, %.critedge170 ], [ false, %136 ], [ false, %2 ], [ false, %._crit_edge234 ], [ false, %7 ], [ false, %62 ], [ false, %29 ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ]
+.critedge:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %29, %2, %62, %._crit_edge235, %136, %.critedge170, %.critedge168, %7, %188
+  %ret.known.tr199 = phi i1 [ %ret.known.tr212, %188 ], [ %ret.known.tr212, %7 ], [ %ret.known.tr212, %.critedge168 ], [ %ret.known.tr212, %.critedge170 ], [ %ret.known.tr212, %136 ], [ %ret.known.tr212, %._crit_edge235 ], [ %ret.known.tr212, %62 ], [ false, %2 ], [ %ret.known.tr212, %29 ], [ true, %tailrecurse.backedge ], [ %ret.known.tr212, %.lr.ph ]
+  %.0 = phi i1 [ %189, %188 ], [ false, %7 ], [ false, %.critedge168 ], [ false, %.critedge170 ], [ false, %136 ], [ false, %._crit_edge235 ], [ false, %62 ], [ false, %2 ], [ false, %29 ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ]
   %not.ret.known.tr199 = xor i1 %ret.known.tr199, true
   %current.ret.tr184 = select i1 %not.ret.known.tr199, i1 %.0, i1 false
   ret i1 %current.ret.tr184

@@ -359,7 +359,7 @@ define hidden noundef range(i8 0, 42) i8 @_ZN3std3sys3pal4unix17decode_error_kin
   br label %37
 
 37:                                               ; preds = %1, %39, %38, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i8 [ 41, %38 ], [ 13, %39 ], [ 8, %2 ], [ 9, %3 ], [ 28, %4 ], [ 6, %5 ], [ 2, %6 ], [ 3, %7 ], [ 30, %8 ], [ 26, %9 ], [ 12, %10 ], [ 27, %11 ], [ 4, %12 ], [ 35, %13 ], [ 20, %14 ], [ 15, %15 ], [ 18, %16 ], [ 0, %17 ], [ 38, %18 ], [ 24, %19 ], [ 36, %20 ], [ 32, %21 ], [ 33, %22 ], [ 10, %23 ], [ 5, %24 ], [ 7, %25 ], [ 14, %26 ], [ 16, %27 ], [ 11, %28 ], [ 17, %29 ], [ 25, %30 ], [ 19, %31 ], [ 22, %32 ], [ 29, %33 ], [ 31, %34 ], [ 39, %35 ], [ 1, %36 ], [ 34, %1 ]
+  %.sroa.0.0 = phi i8 [ 41, %38 ], [ 8, %2 ], [ 9, %3 ], [ 28, %4 ], [ 6, %5 ], [ 2, %6 ], [ 3, %7 ], [ 30, %8 ], [ 26, %9 ], [ 12, %10 ], [ 27, %11 ], [ 4, %12 ], [ 35, %13 ], [ 20, %14 ], [ 15, %15 ], [ 18, %16 ], [ 0, %17 ], [ 38, %18 ], [ 24, %19 ], [ 36, %20 ], [ 32, %21 ], [ 33, %22 ], [ 10, %23 ], [ 5, %24 ], [ 7, %25 ], [ 14, %26 ], [ 16, %27 ], [ 11, %28 ], [ 17, %29 ], [ 25, %30 ], [ 19, %31 ], [ 22, %32 ], [ 29, %33 ], [ 31, %34 ], [ 39, %35 ], [ 1, %36 ], [ 13, %39 ], [ 34, %1 ]
   ret i8 %.sroa.0.0
 
 38:                                               ; preds = %1
@@ -443,8 +443,8 @@ define hidden { ptr, ptr } @"_ZN44_$LT$$RF$T$u20$as$u20$core..error..Error$GT$5c
   br label %_ZN4core5error5Error5cause17h08cc55bf3a145667E.exit
 
 _ZN4core5error5Error5cause17h08cc55bf3a145667E.exit: ; preds = %1, %8
-  %.sroa.4.0.i.i = phi ptr [ undef, %1 ], [ %11, %8 ]
-  %.sroa.0.0.i.i = phi ptr [ null, %1 ], [ %10, %8 ]
+  %.sroa.4.0.i.i = phi ptr [ %11, %8 ], [ undef, %1 ]
+  %.sroa.0.0.i.i = phi ptr [ %10, %8 ], [ null, %1 ]
   %12 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i.i, 0
   %13 = insertvalue { ptr, ptr } %12, ptr %.sroa.4.0.i.i, 1
   ret { ptr, ptr } %13
@@ -467,8 +467,8 @@ define hidden { ptr, ptr } @"_ZN44_$LT$$RF$T$u20$as$u20$core..error..Error$GT$6s
   br label %"_ZN60_$LT$uv_git..git..GitError$u20$as$u20$core..error..Error$GT$6source17h2c0e7e64e00920c0E.exit"
 
 "_ZN60_$LT$uv_git..git..GitError$u20$as$u20$core..error..Error$GT$6source17h2c0e7e64e00920c0E.exit": ; preds = %1, %8
-  %.sroa.4.0.i = phi ptr [ undef, %1 ], [ %11, %8 ]
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %10, %8 ]
+  %.sroa.4.0.i = phi ptr [ %11, %8 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %10, %8 ], [ null, %1 ]
   %12 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %13 = insertvalue { ptr, ptr } %12, ptr %.sroa.4.0.i, 1
   ret { ptr, ptr } %13
@@ -850,8 +850,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h08cc55bf3a145667E(ptr n
   br label %"_ZN60_$LT$uv_git..git..GitError$u20$as$u20$core..error..Error$GT$6source17h2c0e7e64e00920c0E.exit"
 
 "_ZN60_$LT$uv_git..git..GitError$u20$as$u20$core..error..Error$GT$6source17h2c0e7e64e00920c0E.exit": ; preds = %1, %7
-  %.sroa.4.0.i = phi ptr [ undef, %1 ], [ %10, %7 ]
-  %.sroa.0.0.i = phi ptr [ null, %1 ], [ %9, %7 ]
+  %.sroa.4.0.i = phi ptr [ %10, %7 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %9, %7 ], [ null, %1 ]
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %12 = insertvalue { ptr, ptr } %11, ptr %.sroa.4.0.i, 1
   ret { ptr, ptr } %12
@@ -3641,7 +3641,7 @@ define void @_ZN6uv_git8resolver11GitResolver7precise17h76d5feb58b953be0E(ptr de
 12:                                               ; preds = %"_ZN4core3ptr119drop_in_place$LT$dashmap..mapref..one..Ref$LT$uv_git..resolver..RepositoryReference$C$uv_git_types..oid..GitOid$GT$$GT$17hd643af49e466900eE.exit"
   br i1 %.sroa.0.3, label %.body.thread, label %common.resume
 
-.body.thread30:                                   ; preds = %32, %3
+.body.thread30:                                   ; preds = %3, %32
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -3660,7 +3660,7 @@ define void @_ZN6uv_git8resolver11GitResolver7precise17h76d5feb58b953be0E(ptr de
           to label %12 unwind label %74
 
 16:                                               ; preds = %60, %13
-  %.sroa.0.2 = phi i1 [ false, %60 ], [ true, %13 ]
+  %.sroa.0.2 = phi i1 [ true, %13 ], [ false, %60 ]
   %17 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr119drop_in_place$LT$dashmap..mapref..one..Ref$LT$uv_git..resolver..RepositoryReference$C$uv_git_types..oid..GitOid$GT$$GT$17hd643af49e466900eE.exit"
@@ -3756,7 +3756,7 @@ _ZN6uv_git8resolver11GitResolver3get17hcadcf6f33f68ea91E.exit: ; preds = %13
   unreachable
 
 common.resume:                                    ; preds = %12, %.body.thread, %70, %45
-  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %71, %70 ], [ %.pn324, %.body.thread ], [ %.pn, %12 ]
+  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %.pn324, %.body.thread ], [ %.pn, %12 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr41drop_in_place$LT$uv_git_types..GitUrl$GT$17ha3e6d52ab71a1f30E.exit": ; preds = %.noexc.i5, %40
@@ -3837,7 +3837,7 @@ common.resume:                                    ; preds = %12, %.body.thread, 
   unreachable
 
 .body.thread:                                     ; preds = %30, %.body.thread30, %12
-  %.pn324 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread30 ], [ %.pn, %12 ], [ %31, %30 ]
+  %.pn324 = phi { ptr, i32 } [ %.pn, %12 ], [ %lpad.thr_comm, %.body.thread30 ], [ %31, %30 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$uv_git_types..GitUrl$GT$17ha3e6d52ab71a1f30E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %2) #33
           to label %common.resume unwind label %74
 }
@@ -3865,7 +3865,7 @@ define noundef zeroext i1 @_ZN6uv_git8resolver11GitResolver8same_ref17had9cd6ccd
           to label %18 unwind label %16
 
 .body:                                            ; preds = %116, %92, %16, %23
-  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %93, %92 ], [ %17, %16 ], [ %117, %116 ]
+  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %17, %16 ], [ %93, %92 ], [ %117, %116 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$uv_git..resolver..RepositoryReference$GT$17hb873371653832793E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %15) #33
           to label %common.resume unwind label %132
 
@@ -3961,7 +3961,7 @@ default.unreachable:                              ; preds = %32
   br i1 %.not.i.i33.i, label %"_ZN78_$LT$uv_git_types..reference..GitReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h67c3063111d63d23E.exit", label %"_ZN78_$LT$uv_git_types..reference..GitReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h67c3063111d63d23E.exit.thread"
 
 "_ZN78_$LT$uv_git_types..reference..GitReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h67c3063111d63d23E.exit": ; preds = %33, %36, %39, %42, %45
-  %.val2.sink.i = phi i64 [ %.val6.i, %42 ], [ %.val10.i, %39 ], [ %.val14.i, %36 ], [ %.val18.i, %33 ], [ %.val2.i, %45 ]
+  %.val2.sink.i = phi i64 [ %.val18.i, %33 ], [ %.val14.i, %36 ], [ %.val10.i, %39 ], [ %.val6.i, %42 ], [ %.val2.i, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.val3.i = load ptr, ptr %48, align 8, !alias.scope !302, !noalias !299, !nonnull !3, !noundef !3
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -4160,7 +4160,7 @@ default.unreachable:                              ; preds = %32
   unreachable
 
 common.resume:                                    ; preds = %.body, %128, %104
-  %common.resume.op = phi { ptr, i32 } [ %129, %128 ], [ %105, %104 ], [ %.pn, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %105, %104 ], [ %129, %128 ], [ %.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr58drop_in_place$LT$uv_git..resolver..RepositoryReference$GT$17hb873371653832793E.exit19": ; preds = %.noexc.i18, %100
@@ -4174,7 +4174,7 @@ common.resume:                                    ; preds = %.body, %128, %104
   ret i1 %.sroa.0.2
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17heee8506d574b5348E.exit.thread": ; preds = %32, %18, %"_ZN78_$LT$uv_git_types..reference..GitReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h67c3063111d63d23E.exit", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17heee8506d574b5348E.exit", %79, %63
-  %.sroa.0.0 = phi i1 [ false, %63 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17heee8506d574b5348E.exit" ], [ false, %79 ], [ true, %"_ZN78_$LT$uv_git_types..reference..GitReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h67c3063111d63d23E.exit" ], [ false, %18 ], [ true, %32 ]
+  %.sroa.0.0 = phi i1 [ false, %79 ], [ false, %63 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17heee8506d574b5348E.exit" ], [ true, %"_ZN78_$LT$uv_git_types..reference..GitReference$u20$as$u20$core..cmp..PartialEq$GT$2eq17h67c3063111d63d23E.exit" ], [ false, %18 ], [ true, %32 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !376
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17he1fc73fa8dd266d6E.llvm.9957446542690546543"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %20, i64 noundef 1, i64 noundef 1)
           to label %.noexc.i20 unwind label %116
@@ -4386,8 +4386,8 @@ default.unreachable1:                             ; preds = %1
   br label %"_ZN60_$LT$reqwest..error..Error$u20$as$u20$core..error..Error$GT$6source17h402c9da8ff18297aE.llvm.8523920468416357378.exit"
 
 "_ZN60_$LT$reqwest..error..Error$u20$as$u20$core..error..Error$GT$6source17h402c9da8ff18297aE.llvm.8523920468416357378.exit": ; preds = %19, %13, %1, %22, %8, %3
-  %.sroa.6.0 = phi ptr [ %7, %3 ], [ %26, %22 ], [ %12, %8 ], [ undef, %1 ], [ %21, %19 ], [ undef, %13 ]
-  %.sroa.0.0 = phi ptr [ %6, %3 ], [ %25, %22 ], [ %11, %8 ], [ null, %1 ], [ %17, %19 ], [ null, %13 ]
+  %.sroa.6.0 = phi ptr [ %7, %3 ], [ %12, %8 ], [ %26, %22 ], [ undef, %1 ], [ %21, %19 ], [ undef, %13 ]
+  %.sroa.0.0 = phi ptr [ %6, %3 ], [ %11, %8 ], [ %25, %22 ], [ null, %1 ], [ %17, %19 ], [ null, %13 ]
   %27 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %28 = insertvalue { ptr, ptr } %27, ptr %.sroa.6.0, 1
   ret { ptr, ptr } %28

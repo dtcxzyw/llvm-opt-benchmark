@@ -230,7 +230,7 @@ define internal range(i32 0, 256) i32 @dissect_djiuav_pdu(ptr noundef %0, ptr no
   br label %61
 
 61:                                               ; preds = %56, %53, %49
-  %.052.i = phi ptr [ %60, %56 ], [ %48, %49 ], [ %48, %53 ]
+  %.052.i = phi ptr [ %60, %56 ], [ %48, %53 ], [ %48, %49 ]
   %62 = icmp ne ptr %22, null
   %63 = icmp ne ptr %.052.i, null
   %or.cond.i = select i1 %62, i1 %63, i1 false

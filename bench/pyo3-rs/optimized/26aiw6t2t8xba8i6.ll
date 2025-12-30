@@ -686,7 +686,7 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
           to label %212 unwind label %.loopexit183
 
 211:                                              ; preds = %.loopexit183, %.loopexit.split-lp184, %267, %240
-  %.pn123 = phi { ptr, i32 } [ %.pn118, %240 ], [ %.pn121, %267 ], [ %lpad.loopexit185, %.loopexit183 ], [ %lpad.loopexit.split-lp186, %.loopexit.split-lp184 ]
+  %.pn123 = phi { ptr, i32 } [ %.pn121, %267 ], [ %.pn118, %240 ], [ %lpad.loopexit185, %.loopexit183 ], [ %lpad.loopexit.split-lp186, %.loopexit.split-lp184 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %87) #7
           to label %194 unwind label %135
 
@@ -1054,7 +1054,7 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
           to label %317 unwind label %.loopexit173
 
 316:                                              ; preds = %.loopexit173, %.loopexit.split-lp174, %373, %346
-  %.pn132 = phi { ptr, i32 } [ %.pn127, %346 ], [ %.pn130, %373 ], [ %lpad.loopexit175, %.loopexit173 ], [ %lpad.loopexit.split-lp176, %.loopexit.split-lp174 ]
+  %.pn132 = phi { ptr, i32 } [ %.pn130, %373 ], [ %.pn127, %346 ], [ %lpad.loopexit175, %.loopexit173 ], [ %lpad.loopexit.split-lp176, %.loopexit.split-lp174 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %73) #7
           to label %299 unwind label %135
 

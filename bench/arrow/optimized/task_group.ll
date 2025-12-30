@@ -1455,7 +1455,7 @@ _ZN5arrow6ResultINS_8internal5EmptyEED2Ev.exit:   ; preds = %84, %86, %90
   br label %_ZN5arrow6ResultINS_8internal5EmptyEED2Ev.exit16
 
 _ZN5arrow6ResultINS_8internal5EmptyEED2Ev.exit16: ; preds = %98, %94, %91, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit12, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6
-  %.pn = phi { ptr, i32 } [ %56, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit12 ], [ %43, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6 ], [ %92, %91 ], [ %92, %94 ], [ %92, %98 ]
+  %.pn = phi { ptr, i32 } [ %43, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6 ], [ %56, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit12 ], [ %92, %91 ], [ %92, %94 ], [ %92, %98 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -3800,7 +3800,7 @@ _ZNSt12__shared_ptrIN5arrow8internal12_GLOBAL__N_117ThreadedTaskGroupELN9__gnu_c
   br label %.body
 
 .body:                                            ; preds = %290, %286, %283, %217
-  %.pn = phi { ptr, i32 } [ %.pn.i, %217 ], [ %284, %290 ], [ %284, %283 ], [ %284, %286 ]
+  %.pn = phi { ptr, i32 } [ %.pn.i, %217 ], [ %284, %283 ], [ %284, %286 ], [ %284, %290 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call fastcc void @_ZZN5arrow8internal12_GLOBAL__N_117ThreadedTaskGroup10AppendRealENS0_6FnOnceIFNS_6StatusEvEEEENUlvE_D2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

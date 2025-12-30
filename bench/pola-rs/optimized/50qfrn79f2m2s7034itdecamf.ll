@@ -1521,12 +1521,12 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %40, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u16$u5d$$C$polars_error..PolarsError$GT$$GT$17h0d6899b37e957e03E.exit22"
 
 "_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u16$u5d$$C$polars_error..PolarsError$GT$$GT$17h0d6899b37e957e03E.exit22": ; preds = %.preheader52, %33, %.preheader, %42
-  %.sroa.0.0.in = phi i1 [ %36, %.preheader ], [ %36, %42 ], [ %27, %33 ], [ %27, %.preheader52 ]
+  %.sroa.0.0.in = phi i1 [ %36, %42 ], [ %36, %.preheader ], [ %27, %33 ], [ %27, %.preheader52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN10polars_ops6series3ops7various9check_cmp17h2db7f5f7e1758f0aE.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17h2db7f5f7e1758f0aE.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17h2db7f5f7e1758f0aE.exit.loopexit55, %92, %_ZN10polars_ops6series3ops7various9check_cmp17h2db7f5f7e1758f0aE.exit.loopexit.us, %70, %47, %106, %109, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u16$u5d$$C$polars_error..PolarsError$GT$$GT$17h0d6899b37e957e03E.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u16$u5d$$C$polars_error..PolarsError$GT$$GT$17h0d6899b37e957e03E.exit22" ], [ %103, %109 ], [ %99, %106 ], [ false, %70 ], [ true, %47 ], [ false, %92 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h2db7f5f7e1758f0aE.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h2db7f5f7e1758f0aE.exit.loopexit55 ]
+  %.sroa.0.1 = phi i1 [ %103, %109 ], [ %99, %106 ], [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u16$u5d$$C$polars_error..PolarsError$GT$$GT$17h0d6899b37e957e03E.exit22" ], [ true, %47 ], [ false, %70 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h2db7f5f7e1758f0aE.exit.loopexit.us ], [ false, %92 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h2db7f5f7e1758f0aE.exit.loopexit55 ]
   ret i1 %.sroa.0.1
 
 45:                                               ; preds = %25, %107, %104
@@ -1800,12 +1800,12 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %40, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i16$u5d$$C$polars_error..PolarsError$GT$$GT$17hb8b260d334dfec5dE.exit22"
 
 "_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i16$u5d$$C$polars_error..PolarsError$GT$$GT$17hb8b260d334dfec5dE.exit22": ; preds = %.preheader52, %33, %.preheader, %42
-  %.sroa.0.0.in = phi i1 [ %36, %.preheader ], [ %36, %42 ], [ %27, %33 ], [ %27, %.preheader52 ]
+  %.sroa.0.0.in = phi i1 [ %36, %42 ], [ %36, %.preheader ], [ %27, %33 ], [ %27, %.preheader52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN10polars_ops6series3ops7various9check_cmp17hcda90c7b8256b796E.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17hcda90c7b8256b796E.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17hcda90c7b8256b796E.exit.loopexit55, %92, %_ZN10polars_ops6series3ops7various9check_cmp17hcda90c7b8256b796E.exit.loopexit.us, %70, %47, %106, %109, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i16$u5d$$C$polars_error..PolarsError$GT$$GT$17hb8b260d334dfec5dE.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i16$u5d$$C$polars_error..PolarsError$GT$$GT$17hb8b260d334dfec5dE.exit22" ], [ %103, %109 ], [ %99, %106 ], [ false, %70 ], [ true, %47 ], [ false, %92 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17hcda90c7b8256b796E.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17hcda90c7b8256b796E.exit.loopexit55 ]
+  %.sroa.0.1 = phi i1 [ %103, %109 ], [ %99, %106 ], [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i16$u5d$$C$polars_error..PolarsError$GT$$GT$17hb8b260d334dfec5dE.exit22" ], [ true, %47 ], [ false, %70 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17hcda90c7b8256b796E.exit.loopexit.us ], [ false, %92 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17hcda90c7b8256b796E.exit.loopexit55 ]
   ret i1 %.sroa.0.1
 
 45:                                               ; preds = %25, %107, %104
@@ -2079,12 +2079,12 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %40, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i32$u5d$$C$polars_error..PolarsError$GT$$GT$17h286c522ac3ddf419E.exit22"
 
 "_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i32$u5d$$C$polars_error..PolarsError$GT$$GT$17h286c522ac3ddf419E.exit22": ; preds = %.preheader52, %33, %.preheader, %42
-  %.sroa.0.0.in = phi i1 [ %36, %.preheader ], [ %36, %42 ], [ %27, %33 ], [ %27, %.preheader52 ]
+  %.sroa.0.0.in = phi i1 [ %36, %42 ], [ %36, %.preheader ], [ %27, %33 ], [ %27, %.preheader52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN10polars_ops6series3ops7various9check_cmp17h9a6632012b30f9a4E.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17h9a6632012b30f9a4E.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17h9a6632012b30f9a4E.exit.loopexit55, %92, %_ZN10polars_ops6series3ops7various9check_cmp17h9a6632012b30f9a4E.exit.loopexit.us, %70, %47, %106, %109, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i32$u5d$$C$polars_error..PolarsError$GT$$GT$17h286c522ac3ddf419E.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i32$u5d$$C$polars_error..PolarsError$GT$$GT$17h286c522ac3ddf419E.exit22" ], [ %103, %109 ], [ %99, %106 ], [ false, %70 ], [ true, %47 ], [ false, %92 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h9a6632012b30f9a4E.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h9a6632012b30f9a4E.exit.loopexit55 ]
+  %.sroa.0.1 = phi i1 [ %103, %109 ], [ %99, %106 ], [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i32$u5d$$C$polars_error..PolarsError$GT$$GT$17h286c522ac3ddf419E.exit22" ], [ true, %47 ], [ false, %70 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h9a6632012b30f9a4E.exit.loopexit.us ], [ false, %92 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h9a6632012b30f9a4E.exit.loopexit55 ]
   ret i1 %.sroa.0.1
 
 45:                                               ; preds = %25, %107, %104
@@ -2358,12 +2358,12 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %40, label %.preheader, label %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i128$u5d$$C$polars_error..PolarsError$GT$$GT$17he311b4f54fe82c9dE.exit22"
 
 "_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i128$u5d$$C$polars_error..PolarsError$GT$$GT$17he311b4f54fe82c9dE.exit22": ; preds = %.preheader52, %33, %.preheader, %42
-  %.sroa.0.0.in = phi i1 [ %36, %.preheader ], [ %36, %42 ], [ %27, %33 ], [ %27, %.preheader52 ]
+  %.sroa.0.0.in = phi i1 [ %36, %42 ], [ %36, %.preheader ], [ %27, %33 ], [ %27, %.preheader52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN10polars_ops6series3ops7various9check_cmp17h03df4170f8b5bbeeE.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17h03df4170f8b5bbeeE.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17h03df4170f8b5bbeeE.exit.loopexit55, %92, %_ZN10polars_ops6series3ops7various9check_cmp17h03df4170f8b5bbeeE.exit.loopexit.us, %70, %47, %106, %109, %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i128$u5d$$C$polars_error..PolarsError$GT$$GT$17he311b4f54fe82c9dE.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i128$u5d$$C$polars_error..PolarsError$GT$$GT$17he311b4f54fe82c9dE.exit22" ], [ %103, %109 ], [ %99, %106 ], [ false, %70 ], [ true, %47 ], [ false, %92 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h03df4170f8b5bbeeE.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h03df4170f8b5bbeeE.exit.loopexit55 ]
+  %.sroa.0.1 = phi i1 [ %103, %109 ], [ %99, %106 ], [ %.sroa.0.0.in, %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i128$u5d$$C$polars_error..PolarsError$GT$$GT$17he311b4f54fe82c9dE.exit22" ], [ true, %47 ], [ false, %70 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h03df4170f8b5bbeeE.exit.loopexit.us ], [ false, %92 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h03df4170f8b5bbeeE.exit.loopexit55 ]
   ret i1 %.sroa.0.1
 
 45:                                               ; preds = %25, %107, %104
@@ -2637,12 +2637,12 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %40, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u32$u5d$$C$polars_error..PolarsError$GT$$GT$17h40fe02a301aefa56E.exit22"
 
 "_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u32$u5d$$C$polars_error..PolarsError$GT$$GT$17h40fe02a301aefa56E.exit22": ; preds = %.preheader52, %33, %.preheader, %42
-  %.sroa.0.0.in = phi i1 [ %36, %.preheader ], [ %36, %42 ], [ %27, %33 ], [ %27, %.preheader52 ]
+  %.sroa.0.0.in = phi i1 [ %36, %42 ], [ %36, %.preheader ], [ %27, %33 ], [ %27, %.preheader52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN10polars_ops6series3ops7various9check_cmp17h99564aac81019a67E.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17h99564aac81019a67E.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17h99564aac81019a67E.exit.loopexit55, %92, %_ZN10polars_ops6series3ops7various9check_cmp17h99564aac81019a67E.exit.loopexit.us, %70, %47, %106, %109, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u32$u5d$$C$polars_error..PolarsError$GT$$GT$17h40fe02a301aefa56E.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u32$u5d$$C$polars_error..PolarsError$GT$$GT$17h40fe02a301aefa56E.exit22" ], [ %103, %109 ], [ %99, %106 ], [ false, %70 ], [ true, %47 ], [ false, %92 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h99564aac81019a67E.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h99564aac81019a67E.exit.loopexit55 ]
+  %.sroa.0.1 = phi i1 [ %103, %109 ], [ %99, %106 ], [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u32$u5d$$C$polars_error..PolarsError$GT$$GT$17h40fe02a301aefa56E.exit22" ], [ true, %47 ], [ false, %70 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h99564aac81019a67E.exit.loopexit.us ], [ false, %92 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h99564aac81019a67E.exit.loopexit55 ]
   ret i1 %.sroa.0.1
 
 45:                                               ; preds = %25, %107, %104
@@ -2912,12 +2912,12 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %39, label %.preheader, label %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i8$u5d$$C$polars_error..PolarsError$GT$$GT$17h78c1ae516388f250E.exit21"
 
 "_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i8$u5d$$C$polars_error..PolarsError$GT$$GT$17h78c1ae516388f250E.exit21": ; preds = %.preheader49, %33, %.preheader, %41
-  %.sroa.0.0.in = phi i1 [ %35, %.preheader ], [ %35, %41 ], [ %27, %33 ], [ %27, %.preheader49 ]
+  %.sroa.0.0.in = phi i1 [ %35, %41 ], [ %35, %.preheader ], [ %27, %33 ], [ %27, %.preheader49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN10polars_ops6series3ops7various9check_cmp17ha6474acc85c10d4cE.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17ha6474acc85c10d4cE.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17ha6474acc85c10d4cE.exit.loopexit52, %89, %_ZN10polars_ops6series3ops7various9check_cmp17ha6474acc85c10d4cE.exit.loopexit.us, %68, %45, %102, %105, %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i8$u5d$$C$polars_error..PolarsError$GT$$GT$17h78c1ae516388f250E.exit21"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i8$u5d$$C$polars_error..PolarsError$GT$$GT$17h78c1ae516388f250E.exit21" ], [ %99, %105 ], [ %95, %102 ], [ false, %68 ], [ true, %45 ], [ false, %89 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17ha6474acc85c10d4cE.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17ha6474acc85c10d4cE.exit.loopexit52 ]
+  %.sroa.0.1 = phi i1 [ %99, %105 ], [ %95, %102 ], [ %.sroa.0.0.in, %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i8$u5d$$C$polars_error..PolarsError$GT$$GT$17h78c1ae516388f250E.exit21" ], [ true, %45 ], [ false, %68 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17ha6474acc85c10d4cE.exit.loopexit.us ], [ false, %89 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17ha6474acc85c10d4cE.exit.loopexit52 ]
   ret i1 %.sroa.0.1
 
 43:                                               ; preds = %25, %103, %100
@@ -3191,12 +3191,12 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %44, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f64$u5d$$C$polars_error..PolarsError$GT$$GT$17hd179499f7678504eE.exit22"
 
 "_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f64$u5d$$C$polars_error..PolarsError$GT$$GT$17hd179499f7678504eE.exit22": ; preds = %.preheader50, %35, %.preheader, %46
-  %.sroa.0.0.in = phi i1 [ %38, %.preheader ], [ %38, %46 ], [ %27, %35 ], [ %27, %.preheader50 ]
+  %.sroa.0.0.in = phi i1 [ %38, %46 ], [ %38, %.preheader ], [ %27, %35 ], [ %27, %.preheader50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN10polars_ops6series3ops7various9check_cmp17heed59f7ec513be8fE.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17heed59f7ec513be8fE.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17heed59f7ec513be8fE.exit.loopexit53, %100, %_ZN10polars_ops6series3ops7various9check_cmp17heed59f7ec513be8fE.exit.loopexit.us, %76, %51, %114, %117, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f64$u5d$$C$polars_error..PolarsError$GT$$GT$17hd179499f7678504eE.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f64$u5d$$C$polars_error..PolarsError$GT$$GT$17hd179499f7678504eE.exit22" ], [ %111, %117 ], [ %107, %114 ], [ false, %76 ], [ true, %51 ], [ false, %100 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17heed59f7ec513be8fE.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17heed59f7ec513be8fE.exit.loopexit53 ]
+  %.sroa.0.1 = phi i1 [ %111, %117 ], [ %107, %114 ], [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f64$u5d$$C$polars_error..PolarsError$GT$$GT$17hd179499f7678504eE.exit22" ], [ true, %51 ], [ false, %76 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17heed59f7ec513be8fE.exit.loopexit.us ], [ false, %100 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17heed59f7ec513be8fE.exit.loopexit53 ]
   ret i1 %.sroa.0.1
 
 49:                                               ; preds = %25, %115, %112
@@ -3470,12 +3470,12 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %39, label %.preheader, label %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u8$u5d$$C$polars_error..PolarsError$GT$$GT$17h8806483a82db1697E.exit21"
 
 "_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u8$u5d$$C$polars_error..PolarsError$GT$$GT$17h8806483a82db1697E.exit21": ; preds = %.preheader49, %33, %.preheader, %41
-  %.sroa.0.0.in = phi i1 [ %35, %.preheader ], [ %35, %41 ], [ %27, %33 ], [ %27, %.preheader49 ]
+  %.sroa.0.0.in = phi i1 [ %35, %41 ], [ %35, %.preheader ], [ %27, %33 ], [ %27, %.preheader49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN10polars_ops6series3ops7various9check_cmp17heee686d5c87eff98E.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17heee686d5c87eff98E.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17heee686d5c87eff98E.exit.loopexit52, %89, %_ZN10polars_ops6series3ops7various9check_cmp17heee686d5c87eff98E.exit.loopexit.us, %68, %45, %102, %105, %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u8$u5d$$C$polars_error..PolarsError$GT$$GT$17h8806483a82db1697E.exit21"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u8$u5d$$C$polars_error..PolarsError$GT$$GT$17h8806483a82db1697E.exit21" ], [ %99, %105 ], [ %95, %102 ], [ false, %68 ], [ true, %45 ], [ false, %89 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17heee686d5c87eff98E.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17heee686d5c87eff98E.exit.loopexit52 ]
+  %.sroa.0.1 = phi i1 [ %99, %105 ], [ %95, %102 ], [ %.sroa.0.0.in, %"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u8$u5d$$C$polars_error..PolarsError$GT$$GT$17h8806483a82db1697E.exit21" ], [ true, %45 ], [ false, %68 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17heee686d5c87eff98E.exit.loopexit.us ], [ false, %89 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17heee686d5c87eff98E.exit.loopexit52 ]
   ret i1 %.sroa.0.1
 
 43:                                               ; preds = %25, %103, %100
@@ -3745,12 +3745,12 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %40, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u64$u5d$$C$polars_error..PolarsError$GT$$GT$17h23aa2cd5172ff5a4E.exit22"
 
 "_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u64$u5d$$C$polars_error..PolarsError$GT$$GT$17h23aa2cd5172ff5a4E.exit22": ; preds = %.preheader52, %33, %.preheader, %42
-  %.sroa.0.0.in = phi i1 [ %36, %.preheader ], [ %36, %42 ], [ %27, %33 ], [ %27, %.preheader52 ]
+  %.sroa.0.0.in = phi i1 [ %36, %42 ], [ %36, %.preheader ], [ %27, %33 ], [ %27, %.preheader52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN10polars_ops6series3ops7various9check_cmp17he8a8b523f44c52a2E.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17he8a8b523f44c52a2E.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17he8a8b523f44c52a2E.exit.loopexit55, %92, %_ZN10polars_ops6series3ops7various9check_cmp17he8a8b523f44c52a2E.exit.loopexit.us, %70, %47, %106, %109, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u64$u5d$$C$polars_error..PolarsError$GT$$GT$17h23aa2cd5172ff5a4E.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u64$u5d$$C$polars_error..PolarsError$GT$$GT$17h23aa2cd5172ff5a4E.exit22" ], [ %103, %109 ], [ %99, %106 ], [ false, %70 ], [ true, %47 ], [ false, %92 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17he8a8b523f44c52a2E.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17he8a8b523f44c52a2E.exit.loopexit55 ]
+  %.sroa.0.1 = phi i1 [ %103, %109 ], [ %99, %106 ], [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u64$u5d$$C$polars_error..PolarsError$GT$$GT$17h23aa2cd5172ff5a4E.exit22" ], [ true, %47 ], [ false, %70 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17he8a8b523f44c52a2E.exit.loopexit.us ], [ false, %92 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17he8a8b523f44c52a2E.exit.loopexit55 ]
   ret i1 %.sroa.0.1
 
 45:                                               ; preds = %25, %107, %104
@@ -4028,12 +4028,12 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %44, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f32$u5d$$C$polars_error..PolarsError$GT$$GT$17he8dc429137c87f27E.exit22"
 
 "_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f32$u5d$$C$polars_error..PolarsError$GT$$GT$17he8dc429137c87f27E.exit22": ; preds = %.preheader50, %35, %.preheader, %46
-  %.sroa.0.0.in = phi i1 [ %38, %.preheader ], [ %38, %46 ], [ %27, %35 ], [ %27, %.preheader50 ]
+  %.sroa.0.0.in = phi i1 [ %38, %46 ], [ %38, %.preheader ], [ %27, %35 ], [ %27, %.preheader50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN10polars_ops6series3ops7various9check_cmp17h7fdcc52af5ae8b88E.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17h7fdcc52af5ae8b88E.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17h7fdcc52af5ae8b88E.exit.loopexit53, %100, %_ZN10polars_ops6series3ops7various9check_cmp17h7fdcc52af5ae8b88E.exit.loopexit.us, %76, %51, %114, %117, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f32$u5d$$C$polars_error..PolarsError$GT$$GT$17he8dc429137c87f27E.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f32$u5d$$C$polars_error..PolarsError$GT$$GT$17he8dc429137c87f27E.exit22" ], [ %111, %117 ], [ %107, %114 ], [ false, %76 ], [ true, %51 ], [ false, %100 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h7fdcc52af5ae8b88E.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h7fdcc52af5ae8b88E.exit.loopexit53 ]
+  %.sroa.0.1 = phi i1 [ %111, %117 ], [ %107, %114 ], [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f32$u5d$$C$polars_error..PolarsError$GT$$GT$17he8dc429137c87f27E.exit22" ], [ true, %51 ], [ false, %76 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h7fdcc52af5ae8b88E.exit.loopexit.us ], [ false, %100 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h7fdcc52af5ae8b88E.exit.loopexit53 ]
   ret i1 %.sroa.0.1
 
 49:                                               ; preds = %25, %115, %112
@@ -4311,12 +4311,12 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %40, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i64$u5d$$C$polars_error..PolarsError$GT$$GT$17h37e765759c67a730E.exit22"
 
 "_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i64$u5d$$C$polars_error..PolarsError$GT$$GT$17h37e765759c67a730E.exit22": ; preds = %.preheader52, %33, %.preheader, %42
-  %.sroa.0.0.in = phi i1 [ %36, %.preheader ], [ %36, %42 ], [ %27, %33 ], [ %27, %.preheader52 ]
+  %.sroa.0.0.in = phi i1 [ %36, %42 ], [ %36, %.preheader ], [ %27, %33 ], [ %27, %.preheader52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN10polars_ops6series3ops7various9check_cmp17h81e85dc2d4a2576cE.exit.thread
 
 _ZN10polars_ops6series3ops7various9check_cmp17h81e85dc2d4a2576cE.exit.thread: ; preds = %_ZN10polars_ops6series3ops7various9check_cmp17h81e85dc2d4a2576cE.exit.loopexit55, %92, %_ZN10polars_ops6series3ops7various9check_cmp17h81e85dc2d4a2576cE.exit.loopexit.us, %70, %47, %106, %109, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i64$u5d$$C$polars_error..PolarsError$GT$$GT$17h37e765759c67a730E.exit22"
-  %.sroa.0.1 = phi i1 [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i64$u5d$$C$polars_error..PolarsError$GT$$GT$17h37e765759c67a730E.exit22" ], [ %103, %109 ], [ %99, %106 ], [ false, %70 ], [ true, %47 ], [ false, %92 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h81e85dc2d4a2576cE.exit.loopexit.us ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h81e85dc2d4a2576cE.exit.loopexit55 ]
+  %.sroa.0.1 = phi i1 [ %103, %109 ], [ %99, %106 ], [ %.sroa.0.0.in, %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i64$u5d$$C$polars_error..PolarsError$GT$$GT$17h37e765759c67a730E.exit22" ], [ true, %47 ], [ false, %70 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h81e85dc2d4a2576cE.exit.loopexit.us ], [ false, %92 ], [ true, %_ZN10polars_ops6series3ops7various9check_cmp17h81e85dc2d4a2576cE.exit.loopexit55 ]
   ret i1 %.sroa.0.1
 
 45:                                               ; preds = %25, %107, %104
@@ -11864,7 +11864,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h0
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -12245,7 +12245,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h0
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -12429,7 +12429,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h0
           to label %.critedge.thread unwind label %47
 
 .critedge.thread:                                 ; preds = %62, %63
-  %.pn1542 = phi { ptr, i32 } [ %61, %62 ], [ %64, %63 ]
+  %.pn1542 = phi { ptr, i32 } [ %64, %63 ], [ %61, %62 ]
   resume { ptr, i32 } %.pn1542
 
 63:                                               ; preds = %28
@@ -12750,7 +12750,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h1
           to label %.critedge.thread unwind label %47
 
 .critedge.thread:                                 ; preds = %62, %63
-  %.pn1542 = phi { ptr, i32 } [ %61, %62 ], [ %64, %63 ]
+  %.pn1542 = phi { ptr, i32 } [ %64, %63 ], [ %61, %62 ]
   resume { ptr, i32 } %.pn1542
 
 63:                                               ; preds = %28
@@ -13006,7 +13006,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h1
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34
@@ -13257,7 +13257,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h1
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -13622,7 +13622,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h1
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34
@@ -13967,10 +13967,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -14281,7 +14281,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h2
           to label %.critedge.thread unwind label %47
 
 .critedge.thread:                                 ; preds = %62, %63
-  %.pn1542 = phi { ptr, i32 } [ %61, %62 ], [ %64, %63 ]
+  %.pn1542 = phi { ptr, i32 } [ %64, %63 ], [ %61, %62 ]
   resume { ptr, i32 } %.pn1542
 
 63:                                               ; preds = %28
@@ -15020,10 +15020,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -15276,7 +15276,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h2
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34
@@ -15829,7 +15829,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h2
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -16037,10 +16037,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -16378,10 +16378,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -16706,11 +16706,11 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   tail call void @"_ZN4core3ptr185drop_in_place$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$C$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$GT$$GT$17h1d4251d8111ff027E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
   br label %78
 
-.critedge.thread:                                 ; preds = %79, %75, %91, %96
-  %.pn1459 = phi { ptr, i32 } [ %90, %91 ], [ %lpad.thr_comm, %96 ], [ %eh.lpad-body.ph.i, %75 ], [ %80, %79 ]
+.critedge.thread:                                 ; preds = %75, %79, %91, %96
+  %.pn1459 = phi { ptr, i32 } [ %lpad.thr_comm, %96 ], [ %eh.lpad-body.ph.i, %75 ], [ %80, %79 ], [ %90, %91 ]
   resume { ptr, i32 } %.pn1459
 
-96:                                               ; preds = %92, %37, %40, %7
+96:                                               ; preds = %7, %37, %40, %92
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr185drop_in_place$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$C$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$GT$$GT$17h1d4251d8111ff027E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #18
@@ -17185,10 +17185,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -17478,7 +17478,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h3
           to label %.critedge.thread unwind label %47
 
 .critedge.thread:                                 ; preds = %62, %63
-  %.pn1542 = phi { ptr, i32 } [ %61, %62 ], [ %64, %63 ]
+  %.pn1542 = phi { ptr, i32 } [ %64, %63 ], [ %61, %62 ]
   resume { ptr, i32 } %.pn1542
 
 63:                                               ; preds = %28
@@ -17686,10 +17686,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -18110,7 +18110,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h3
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34
@@ -18654,7 +18654,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h3
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -18862,10 +18862,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -19066,10 +19066,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -19270,10 +19270,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -19478,10 +19478,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -19942,10 +19942,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -20841,7 +20841,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h5
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -21098,10 +21098,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %62
 
 .critedge.thread:                                 ; preds = %63, %75, %80
-  %.pn1554 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %80 ], [ %64, %63 ]
+  %.pn1554 = phi { ptr, i32 } [ %lpad.thr_comm, %80 ], [ %64, %63 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1554
 
-80:                                               ; preds = %76, %36, %39, %8
+80:                                               ; preds = %8, %36, %39, %76
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr83drop_in_place$LT$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$GT$17h59a5f133b6c456f1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %28) #18
@@ -21349,7 +21349,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h5
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -21533,7 +21533,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h5
           to label %.critedge.thread unwind label %47
 
 .critedge.thread:                                 ; preds = %62, %63
-  %.pn1542 = phi { ptr, i32 } [ %61, %62 ], [ %64, %63 ]
+  %.pn1542 = phi { ptr, i32 } [ %64, %63 ], [ %61, %62 ]
   resume { ptr, i32 } %.pn1542
 
 63:                                               ; preds = %28
@@ -21717,7 +21717,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h6
           to label %.critedge.thread unwind label %47
 
 .critedge.thread:                                 ; preds = %62, %63
-  %.pn1542 = phi { ptr, i32 } [ %61, %62 ], [ %64, %63 ]
+  %.pn1542 = phi { ptr, i32 } [ %64, %63 ], [ %61, %62 ]
   resume { ptr, i32 } %.pn1542
 
 63:                                               ; preds = %28
@@ -22124,7 +22124,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h6
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -22380,7 +22380,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h6
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34
@@ -22584,10 +22584,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -22826,10 +22826,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %73, %77
-  %.pn1551 = phi { ptr, i32 } [ %72, %73 ], [ %lpad.thr_comm, %77 ], [ %60, %59 ]
+  %.pn1551 = phi { ptr, i32 } [ %lpad.thr_comm, %77 ], [ %60, %59 ], [ %72, %73 ]
   resume { ptr, i32 } %.pn1551
 
-77:                                               ; preds = %74, %32, %35, %8
+77:                                               ; preds = %8, %32, %35, %74
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr83drop_in_place$LT$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$GT$17h59a5f133b6c456f1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -23077,7 +23077,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h6
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -23285,10 +23285,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -23527,10 +23527,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %73, %77
-  %.pn1551 = phi { ptr, i32 } [ %72, %73 ], [ %lpad.thr_comm, %77 ], [ %60, %59 ]
+  %.pn1551 = phi { ptr, i32 } [ %lpad.thr_comm, %77 ], [ %60, %59 ], [ %72, %73 ]
   resume { ptr, i32 } %.pn1551
 
-77:                                               ; preds = %74, %32, %35, %8
+77:                                               ; preds = %8, %32, %35, %74
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr83drop_in_place$LT$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$GT$17h59a5f133b6c456f1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -23735,10 +23735,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -24253,7 +24253,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h7
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -24509,7 +24509,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h7
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34
@@ -24765,7 +24765,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h8
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34
@@ -25131,10 +25131,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %62
 
 .critedge.thread:                                 ; preds = %63, %75, %80
-  %.pn1554 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %80 ], [ %64, %63 ]
+  %.pn1554 = phi { ptr, i32 } [ %lpad.thr_comm, %80 ], [ %64, %63 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1554
 
-80:                                               ; preds = %76, %36, %39, %8
+80:                                               ; preds = %8, %36, %39, %76
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr83drop_in_place$LT$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$GT$17h59a5f133b6c456f1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %28) #18
@@ -25387,7 +25387,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h8
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34
@@ -25813,10 +25813,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -26017,10 +26017,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -26273,7 +26273,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h8
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34
@@ -26829,10 +26829,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -27033,10 +27033,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -27552,7 +27552,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h9
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34
@@ -27760,10 +27760,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -27944,7 +27944,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h9
           to label %.critedge.thread unwind label %47
 
 .critedge.thread:                                 ; preds = %62, %63
-  %.pn1542 = phi { ptr, i32 } [ %61, %62 ], [ %64, %63 ]
+  %.pn1542 = phi { ptr, i32 } [ %64, %63 ], [ %61, %62 ]
   resume { ptr, i32 } %.pn1542
 
 63:                                               ; preds = %28
@@ -28201,10 +28201,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %62
 
 .critedge.thread:                                 ; preds = %63, %75, %80
-  %.pn1554 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %80 ], [ %64, %63 ]
+  %.pn1554 = phi { ptr, i32 } [ %lpad.thr_comm, %80 ], [ %64, %63 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1554
 
-80:                                               ; preds = %76, %36, %39, %8
+80:                                               ; preds = %8, %36, %39, %76
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr83drop_in_place$LT$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$GT$17h59a5f133b6c456f1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %28) #18
@@ -28518,10 +28518,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -28722,10 +28722,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -28906,7 +28906,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h9
           to label %.critedge.thread unwind label %47
 
 .critedge.thread:                                 ; preds = %62, %63
-  %.pn1542 = phi { ptr, i32 } [ %61, %62 ], [ %64, %63 ]
+  %.pn1542 = phi { ptr, i32 } [ %64, %63 ], [ %61, %62 ]
   resume { ptr, i32 } %.pn1542
 
 63:                                               ; preds = %28
@@ -29749,10 +29749,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -29953,10 +29953,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -30209,7 +30209,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17ha
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34
@@ -30465,7 +30465,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17ha
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34
@@ -31734,10 +31734,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -32086,7 +32086,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hc
           to label %.critedge.thread unwind label %47
 
 .critedge.thread:                                 ; preds = %62, %63
-  %.pn1542 = phi { ptr, i32 } [ %61, %62 ], [ %64, %63 ]
+  %.pn1542 = phi { ptr, i32 } [ %64, %63 ], [ %61, %62 ]
   resume { ptr, i32 } %.pn1542
 
 63:                                               ; preds = %28
@@ -32290,10 +32290,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -32541,7 +32541,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hc
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -32749,10 +32749,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -33000,7 +33000,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hc
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -33256,7 +33256,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hc
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34
@@ -33589,11 +33589,11 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   tail call void @"_ZN4core3ptr185drop_in_place$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$C$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$GT$$GT$17h1d4251d8111ff027E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
   br label %75
 
-.critedge.thread:                                 ; preds = %76, %72, %94, %99
-  %.pn1469 = phi { ptr, i32 } [ %93, %94 ], [ %lpad.thr_comm, %99 ], [ %eh.lpad-body.ph.i, %72 ], [ %77, %76 ]
+.critedge.thread:                                 ; preds = %72, %76, %94, %99
+  %.pn1469 = phi { ptr, i32 } [ %lpad.thr_comm, %99 ], [ %eh.lpad-body.ph.i, %72 ], [ %77, %76 ], [ %93, %94 ]
   resume { ptr, i32 } %.pn1469
 
-99:                                               ; preds = %95, %34, %37, %7
+99:                                               ; preds = %7, %34, %37, %95
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr185drop_in_place$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$C$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$GT$$GT$17h1d4251d8111ff027E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #18
@@ -33846,7 +33846,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hc
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34
@@ -34424,7 +34424,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hc
           to label %.critedge.thread unwind label %47
 
 .critedge.thread:                                 ; preds = %62, %63
-  %.pn1542 = phi { ptr, i32 } [ %61, %62 ], [ %64, %63 ]
+  %.pn1542 = phi { ptr, i32 } [ %64, %63 ], [ %61, %62 ]
   resume { ptr, i32 } %.pn1542
 
 63:                                               ; preds = %28
@@ -34899,10 +34899,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -35259,10 +35259,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -35463,10 +35463,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -35780,10 +35780,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -35964,7 +35964,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17he
           to label %.critedge.thread unwind label %47
 
 .critedge.thread:                                 ; preds = %62, %63
-  %.pn1542 = phi { ptr, i32 } [ %61, %62 ], [ %64, %63 ]
+  %.pn1542 = phi { ptr, i32 } [ %64, %63 ], [ %61, %62 ]
   resume { ptr, i32 } %.pn1542
 
 63:                                               ; preds = %28
@@ -36215,7 +36215,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17he
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -36471,7 +36471,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17he
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34
@@ -36799,11 +36799,11 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   tail call void @"_ZN4core3ptr185drop_in_place$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$C$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$GT$$GT$17h1d4251d8111ff027E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
   br label %78
 
-.critedge.thread:                                 ; preds = %79, %75, %91, %96
-  %.pn1459 = phi { ptr, i32 } [ %90, %91 ], [ %lpad.thr_comm, %96 ], [ %eh.lpad-body.ph.i, %75 ], [ %80, %79 ]
+.critedge.thread:                                 ; preds = %75, %79, %91, %96
+  %.pn1459 = phi { ptr, i32 } [ %lpad.thr_comm, %96 ], [ %eh.lpad-body.ph.i, %75 ], [ %80, %79 ], [ %90, %91 ]
   resume { ptr, i32 } %.pn1459
 
-96:                                               ; preds = %92, %37, %40, %7
+96:                                               ; preds = %7, %37, %40, %92
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr185drop_in_place$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$C$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$GT$$GT$17h1d4251d8111ff027E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #18
@@ -37723,10 +37723,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -37927,10 +37927,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -38178,7 +38178,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17he
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -38429,7 +38429,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17he
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -38685,7 +38685,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17he
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34
@@ -38889,10 +38889,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -39217,11 +39217,11 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   tail call void @"_ZN4core3ptr185drop_in_place$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$C$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$GT$$GT$17h1d4251d8111ff027E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
   br label %78
 
-.critedge.thread:                                 ; preds = %79, %75, %91, %96
-  %.pn1459 = phi { ptr, i32 } [ %90, %91 ], [ %lpad.thr_comm, %96 ], [ %eh.lpad-body.ph.i, %75 ], [ %80, %79 ]
+.critedge.thread:                                 ; preds = %75, %79, %91, %96
+  %.pn1459 = phi { ptr, i32 } [ %lpad.thr_comm, %96 ], [ %eh.lpad-body.ph.i, %75 ], [ %80, %79 ], [ %90, %91 ]
   resume { ptr, i32 } %.pn1459
 
-96:                                               ; preds = %92, %37, %40, %7
+96:                                               ; preds = %7, %37, %40, %92
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr185drop_in_place$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$C$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$GT$$GT$17h1d4251d8111ff027E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #18
@@ -39469,7 +39469,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hf
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -39711,10 +39711,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %73, %77
-  %.pn1551 = phi { ptr, i32 } [ %72, %73 ], [ %lpad.thr_comm, %77 ], [ %60, %59 ]
+  %.pn1551 = phi { ptr, i32 } [ %lpad.thr_comm, %77 ], [ %60, %59 ], [ %72, %73 ]
   resume { ptr, i32 } %.pn1551
 
-77:                                               ; preds = %74, %32, %35, %8
+77:                                               ; preds = %8, %32, %35, %74
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr83drop_in_place$LT$rayon..vec..DrainProducer$LT$polars_core..frame..DataFrame$GT$$GT$17h59a5f133b6c456f1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -39967,7 +39967,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hf
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34
@@ -40218,7 +40218,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hf
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -40422,10 +40422,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %56
 
 .critedge.thread:                                 ; preds = %57, %67, %70
-  %.pn1526 = phi { ptr, i32 } [ %66, %67 ], [ %lpad.thr_comm, %70 ], [ %58, %57 ]
+  %.pn1526 = phi { ptr, i32 } [ %lpad.thr_comm, %70 ], [ %58, %57 ], [ %66, %67 ]
   resume { ptr, i32 } %.pn1526
 
-70:                                               ; preds = %68, %34, %37, %8
+70:                                               ; preds = %68, %34, %8, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #18
@@ -40630,10 +40630,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -40838,10 +40838,10 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   br label %58
 
 .critedge.thread:                                 ; preds = %59, %75, %78
-  %.pn1627 = phi { ptr, i32 } [ %74, %75 ], [ %lpad.thr_comm, %78 ], [ %60, %59 ]
+  %.pn1627 = phi { ptr, i32 } [ %lpad.thr_comm, %78 ], [ %60, %59 ], [ %74, %75 ]
   resume { ptr, i32 } %.pn1627
 
-78:                                               ; preds = %76, %34, %37, %9
+78:                                               ; preds = %76, %34, %9, %37
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$u32$C$bool$RP$$GT$$GT$17h35cde7517990f962E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #18
@@ -41089,7 +41089,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hf
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %86
-  %.pn1430 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %86 ], [ %80, %81 ]
+  %.pn1430 = phi { ptr, i32 } [ %lpad.thr_comm, %86 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1430
 
 86:                                               ; preds = %82, %7, %34
@@ -41345,7 +41345,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hf
   br label %72
 
 .critedge.thread:                                 ; preds = %69, %81, %87
-  %.pn1434 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %69 ], [ %lpad.thr_comm, %87 ], [ %80, %81 ]
+  %.pn1434 = phi { ptr, i32 } [ %lpad.thr_comm, %87 ], [ %80, %81 ], [ %eh.lpad-body.ph.i, %69 ]
   resume { ptr, i32 } %.pn1434
 
 87:                                               ; preds = %82, %7, %34

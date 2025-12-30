@@ -113,7 +113,7 @@ define range(i64 0, 4097) i64 @gpt_detect_size(ptr noundef %0) local_unnamed_add
   br label %26
 
 26:                                               ; preds = %23, %20, %17, %14, %11, %8, %5, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %8 ], [ 0, %14 ], [ %., %23 ], [ 0, %20 ], [ 2048, %17 ], [ 1024, %11 ], [ 512, %5 ]
+  %.0 = phi i64 [ 0, %1 ], [ 512, %5 ], [ 0, %8 ], [ 1024, %11 ], [ 0, %14 ], [ 2048, %17 ], [ 0, %20 ], [ %., %23 ]
   ret i64 %.0
 }
 
@@ -235,7 +235,7 @@ gpt_check_mbr.exit:                               ; preds = %21, %23, %fmap_read
   br label %107
 
 .loopexit.sink.split:                             ; preds = %36, %28, %40
-  %.str.51.sink = phi ptr [ @.str.52, %28 ], [ @.str.53, %40 ], [ @.str.51, %36 ]
+  %.str.51.sink = phi ptr [ @.str.53, %40 ], [ @.str.52, %28 ], [ @.str.51, %36 ]
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull %.str.51.sink) #7
   br label %.loopexit
 
@@ -349,8 +349,8 @@ fmap_readn.exit90:                                ; preds = %68
   br label %.sink.split
 
 .sink.split:                                      ; preds = %75, %73, %fmap_readn.exit90, %64, %68, %80
-  %.str.9.sink = phi ptr [ @.str.9, %fmap_readn.exit90 ], [ @.str.14, %80 ], [ @.str.10, %73 ], [ @.str.9, %68 ], [ @.str.9, %64 ], [ @.str.15, %75 ]
-  %.050.ph = phi i32 [ 1, %fmap_readn.exit90 ], [ 3, %80 ], [ 1, %73 ], [ 1, %68 ], [ 1, %64 ], [ 1, %75 ]
+  %.str.9.sink = phi ptr [ @.str.14, %80 ], [ @.str.9, %68 ], [ @.str.9, %64 ], [ @.str.9, %fmap_readn.exit90 ], [ @.str.10, %73 ], [ @.str.15, %75 ]
+  %.050.ph = phi i32 [ 3, %80 ], [ 1, %68 ], [ 1, %64 ], [ 1, %fmap_readn.exit90 ], [ 1, %73 ], [ 1, %75 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.9.sink) #7
   br label %81
 
@@ -711,7 +711,7 @@ fmap_readn.exit.thread:                           ; preds = %32, %28, %fmap_read
   br i1 %exitcond.not, label %.loopexit, label %28
 
 .loopexit:                                        ; preds = %49, %52, %46, %3, %fmap_readn.exit.thread
-  %.1 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 0, %3 ], [ 0, %52 ], [ %51, %49 ], [ %48, %46 ]
+  %.1 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 0, %3 ], [ %51, %49 ], [ 0, %52 ], [ %48, %46 ]
   %55 = call i32 @partition_intersection_list_free(ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1021,7 +1021,7 @@ fmap_readn.exit.thread:                           ; preds = %117, %113, %fmap_re
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %219, %fmap_readn.exit.thread, %221, %220
-  %.13961 = phi i32 [ %212, %220 ], [ %212, %221 ], [ 0, %._crit_edge ], [ 0, %219 ], [ 26, %fmap_readn.exit.thread ]
+  %.13961 = phi i32 [ %212, %221 ], [ %212, %220 ], [ 0, %._crit_edge ], [ 0, %219 ], [ 26, %fmap_readn.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.13961
 }

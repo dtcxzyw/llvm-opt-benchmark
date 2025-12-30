@@ -132,8 +132,8 @@ define internal fastcc range(i32 -2147483648, 2) i32 @store_packet(ptr noundef %
   br label %91
 
 45:                                               ; preds = %29, %.loopexit102.thread, %.loopexit102
-  %46 = phi ptr [ %26, %.loopexit102.thread ], [ %27, %.loopexit102 ], [ %27, %29 ]
-  %.promoted = phi i32 [ 0, %.loopexit102.thread ], [ %.pre, %.loopexit102 ], [ 0, %29 ]
+  %46 = phi ptr [ %27, %.loopexit102 ], [ %26, %.loopexit102.thread ], [ %27, %29 ]
+  %.promoted = phi i32 [ %.pre, %.loopexit102 ], [ 0, %.loopexit102.thread ], [ 0, %29 ]
   %47 = icmp sgt i32 %14, %.promoted
   br i1 %47, label %.lr.ph.preheader, label %.loopexit
 
@@ -218,7 +218,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @store_packet(ptr noundef %
   br label %91
 
 91:                                               ; preds = %63, %59, %54, %.loopexit, %36, %7, %88, %86, %38, %19, %16
-  %.086 = phi i32 [ %44, %38 ], [ -1094995529, %16 ], [ -1094995529, %19 ], [ -1094995529, %36 ], [ -1094995529, %.loopexit ], [ -1094995529, %54 ], [ -1094995529, %59 ], [ %87, %86 ], [ 0, %88 ], [ -1094995529, %7 ], [ %64, %63 ]
+  %.086 = phi i32 [ -1094995529, %16 ], [ -1094995529, %19 ], [ %87, %86 ], [ 0, %88 ], [ %44, %38 ], [ -1094995529, %7 ], [ -1094995529, %36 ], [ -1094995529, %.loopexit ], [ -1094995529, %54 ], [ -1094995529, %59 ], [ %64, %63 ]
   ret i32 %.086
 }
 
@@ -337,7 +337,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @return_stored_frame(ptr no
   br label %77
 
 77:                                               ; preds = %68, %46, %39, %33, %31, %25, %75, %70, %14
-  %.0 = phi i32 [ %20, %14 ], [ -1094995529, %39 ], [ %74, %70 ], [ %47, %46 ], [ 1, %75 ], [ %26, %25 ], [ -1094995529, %31 ], [ -1094995529, %33 ], [ 1, %68 ]
+  %.0 = phi i32 [ %20, %14 ], [ %74, %70 ], [ 1, %75 ], [ %26, %25 ], [ -1094995529, %31 ], [ -1094995529, %33 ], [ -1094995529, %39 ], [ %47, %46 ], [ 1, %68 ]
   ret i32 %.0
 }
 

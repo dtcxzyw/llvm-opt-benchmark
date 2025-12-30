@@ -286,7 +286,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %50, %52
   unreachable
 
 .body:                                            ; preds = %68, %65, %63, %42, %.body.i
-  %.pn = phi { ptr, i32 } [ %35, %.body.i ], [ %64, %63 ], [ %35, %42 ], [ %66, %65 ], [ %66, %68 ]
+  %.pn = phi { ptr, i32 } [ %64, %63 ], [ %35, %42 ], [ %35, %.body.i ], [ %66, %65 ], [ %66, %68 ]
   %73 = load ptr, ptr %6, align 8, !tbaa !4
   %.not.i.i12 = icmp eq ptr %73, null
   br i1 %.not.i.i12, label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcRKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS5_EEvEEEN3$_0D2Ev.exit14", label %74
@@ -733,7 +733,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %50, %52
   unreachable
 
 .body:                                            ; preds = %68, %65, %63, %43, %.body.i
-  %.pn = phi { ptr, i32 } [ %36, %.body.i ], [ %64, %63 ], [ %36, %43 ], [ %66, %65 ], [ %66, %68 ]
+  %.pn = phi { ptr, i32 } [ %64, %63 ], [ %36, %43 ], [ %36, %.body.i ], [ %66, %65 ], [ %66, %68 ]
   %73 = load ptr, ptr %7, align 8, !tbaa !4
   %.not.i.i13 = icmp eq ptr %73, null
   br i1 %.not.i.i13, label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS_24CommandLineModuleManagerEPKcS4_RKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS7_EEvEEEN3$_0D2Ev.exit15", label %74
@@ -1445,7 +1445,7 @@ _ZNSt12__shared_ptrIN3gmx16TimeUnitBehaviorELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
   br label %203
 
 203:                                              ; preds = %199, %201, %197, %195
-  %.pn.pn = phi { ptr, i32 } [ %196, %195 ], [ %198, %197 ], [ %202, %201 ], [ %200, %199 ]
+  %.pn.pn = phi { ptr, i32 } [ %198, %197 ], [ %196, %195 ], [ %202, %201 ], [ %200, %199 ]
   call void @_ZNSt12__shared_ptrIN3gmx23SelectionOptionBehaviorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %.body
 
@@ -1711,7 +1711,7 @@ _ZNSt10unique_ptrIN3gmx28TrajectoryAnalysisModuleDataESt14default_deleteIS1_EED2
   ret i32 0
 
 .loopexit:                                        ; preds = %.split25, %.split25.us, %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %47, %.split25 ], [ %43, %.split25.us ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %47, %.split25 ], [ %43, %.split25.us ]
   %103 = load ptr, ptr %4, align 8, !tbaa !97
   %.not.i20 = icmp eq ptr %103, null
   br i1 %.not.i20, label %_ZNSt10unique_ptrIN3gmx28TrajectoryAnalysisModuleDataESt14default_deleteIS1_EED2Ev.exit22, label %_ZNKSt14default_deleteIN3gmx28TrajectoryAnalysisModuleDataEEclEPS1_.exit.i21

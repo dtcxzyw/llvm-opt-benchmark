@@ -402,7 +402,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i154
   br label %pmix_cmd_line_get_param.exit.thread
 
 pmix_cmd_line_get_param.exit.thread:              ; preds = %126, %119, %pmix_cmd_line_get_param.exit
-  %.09.i156 = phi ptr [ %.09.i156.pre, %pmix_cmd_line_get_param.exit ], [ %.09.i, %119 ], [ %.09.i, %126 ]
+  %.09.i156 = phi ptr [ %.09.i, %119 ], [ %.09.i156.pre, %pmix_cmd_line_get_param.exit ], [ %.09.i, %126 ]
   %.not10.i157 = icmp eq ptr %.09.i156, %120
   br i1 %.not10.i157, label %pmix_cmd_line_get_param.exit163.thread, label %.lr.ph.i158
 
@@ -432,7 +432,7 @@ pmix_cmd_line_get_param.exit163:                  ; preds = %.lr.ph.i158
   br label %pmix_cmd_line_get_param.exit163.thread
 
 pmix_cmd_line_get_param.exit163.thread:           ; preds = %138, %pmix_cmd_line_get_param.exit.thread, %pmix_cmd_line_get_param.exit163
-  %.09.i164 = phi ptr [ %.09.i164.pre, %pmix_cmd_line_get_param.exit163 ], [ %.09.i156, %pmix_cmd_line_get_param.exit.thread ], [ %.09.i156, %138 ]
+  %.09.i164 = phi ptr [ %.09.i156, %pmix_cmd_line_get_param.exit.thread ], [ %.09.i164.pre, %pmix_cmd_line_get_param.exit163 ], [ %.09.i156, %138 ]
   %.not10.i165 = icmp eq ptr %.09.i164, %120
   br i1 %.not10.i165, label %pmix_cmd_line_get_param.exit171.thread, label %.lr.ph.i166
 
@@ -533,7 +533,7 @@ pmix_cmd_line_get_param.exit171:                  ; preds = %.lr.ph.i166
   br label %361
 
 pmix_cmd_line_get_param.exit171.thread:           ; preds = %150, %pmix_cmd_line_get_param.exit163.thread, %.thread
-  %.09.i172 = phi ptr [ %.09.i172.pre, %.thread ], [ %.09.i164, %pmix_cmd_line_get_param.exit163.thread ], [ %.09.i164, %150 ]
+  %.09.i172 = phi ptr [ %.09.i164, %pmix_cmd_line_get_param.exit163.thread ], [ %.09.i172.pre, %.thread ], [ %.09.i164, %150 ]
   %.not10.i173 = icmp eq ptr %.09.i172, %120
   br i1 %.not10.i173, label %pmix_cmd_line_get_param.exit179.thread, label %.lr.ph.i174
 
@@ -914,7 +914,7 @@ pmix_obj_run_destructors.exit214:                 ; preds = %.lr.ph.i211, %._cri
   br label %361
 
 361:                                              ; preds = %194, %99, %102, %87, %pmix_obj_run_destructors.exit, %pmix_obj_run_destructors.exit, %72, %70, %53, %50, %48, %45, %43, %41, %pmix_obj_run_constructors.exit149, %356, %67
-  %.0 = phi i32 [ -5, %194 ], [ %40, %pmix_obj_run_constructors.exit149 ], [ %42, %41 ], [ %44, %43 ], [ %47, %48 ], [ 1, %67 ], [ %51, %53 ], [ 1, %72 ], [ 0, %pmix_obj_run_destructors.exit ], [ 0, %pmix_obj_run_destructors.exit ], [ %spec.select, %356 ], [ %47, %45 ], [ %51, %50 ], [ 1, %70 ], [ %78, %87 ], [ -1, %102 ], [ -1, %99 ]
+  %.0 = phi i32 [ 1, %67 ], [ %spec.select, %356 ], [ -5, %194 ], [ %40, %pmix_obj_run_constructors.exit149 ], [ %42, %41 ], [ %44, %43 ], [ %47, %45 ], [ %47, %48 ], [ %51, %50 ], [ %51, %53 ], [ 1, %70 ], [ 1, %72 ], [ 0, %pmix_obj_run_destructors.exit ], [ %78, %87 ], [ 0, %pmix_obj_run_destructors.exit ], [ -1, %102 ], [ -1, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

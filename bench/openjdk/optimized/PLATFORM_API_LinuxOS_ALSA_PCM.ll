@@ -81,7 +81,7 @@ define hidden range(i32 0, 7) i32 @getBitIndex(i32 noundef %0, i32 noundef %1) l
   br label %17
 
 17:                                               ; preds = %.thread, %12, %10, %9, %4, %2
-  %.0 = phi i32 [ 2, %12 ], [ 6, %2 ], [ 5, %4 ], [ 4, %9 ], [ 3, %10 ], [ %., %.thread ]
+  %.0 = phi i32 [ 6, %2 ], [ 5, %4 ], [ 4, %9 ], [ 3, %10 ], [ 2, %12 ], [ %., %.thread ]
   ret i32 %.0
 }
 
@@ -225,7 +225,7 @@ define hidden void @DAUDIO_GetFormats(i32 noundef %0, i32 noundef %1, i32 nounde
   br label %getBitIndex.exit.preheader
 
 getBitIndex.exit.preheader:                       ; preds = %42, %46, %51, %52, %54, %.thread.i
-  %indvars.iv.ph = phi i64 [ %59, %.thread.i ], [ 3, %52 ], [ 4, %51 ], [ 5, %46 ], [ 6, %42 ], [ 2, %54 ]
+  %indvars.iv.ph = phi i64 [ %59, %.thread.i ], [ 2, %54 ], [ 3, %52 ], [ 4, %51 ], [ 5, %46 ], [ 6, %42 ]
   br label %getBitIndex.exit
 
 getBitIndex.exit:                                 ; preds = %getBitIndex.exit.preheader, %.loopexit
@@ -278,8 +278,8 @@ getSampleSizeInBytes.exit:                        ; preds = %64, %64, %66
   br label %getSignificantBits.exit
 
 getSignificantBits.exit:                          ; preds = %getSampleSizeInBytes.exit, %64, %getSampleSizeInBytes.exit.thread64, %getSampleSizeInBytes.exit.thread61, %68, %69
-  %.0.i5760 = phi i32 [ %.0.i57, %69 ], [ 4, %getSampleSizeInBytes.exit.thread64 ], [ %.0.i57, %68 ], [ %60, %getSampleSizeInBytes.exit.thread61 ], [ %60, %64 ], [ %.0.i57, %getSampleSizeInBytes.exit ]
-  %.0.i58 = phi i32 [ %70, %69 ], [ 24, %getSampleSizeInBytes.exit.thread64 ], [ 24, %68 ], [ 16, %getSampleSizeInBytes.exit.thread61 ], [ 8, %64 ], [ 20, %getSampleSizeInBytes.exit ]
+  %.0.i5760 = phi i32 [ %.0.i57, %69 ], [ %60, %getSampleSizeInBytes.exit.thread61 ], [ 4, %getSampleSizeInBytes.exit.thread64 ], [ %.0.i57, %68 ], [ %60, %64 ], [ %.0.i57, %getSampleSizeInBytes.exit ]
+  %.0.i58 = phi i32 [ %70, %69 ], [ 16, %getSampleSizeInBytes.exit.thread61 ], [ 24, %getSampleSizeInBytes.exit.thread64 ], [ 24, %68 ], [ 8, %64 ], [ 20, %getSampleSizeInBytes.exit ]
   %71 = load i32, ptr %15, align 4
   %72 = load i32, ptr %14, align 4
   %73 = sub i32 %71, %72
@@ -516,7 +516,7 @@ define hidden range(i32 0, 2) i32 @setHWParams(ptr noundef readonly captures(non
   br label %68
 
 68:                                               ; preds = %63, %58, %53, %44, %39, %32, %27, %22, %17, %5
-  %.0 = phi i32 [ 0, %53 ], [ 0, %5 ], [ 0, %17 ], [ 0, %22 ], [ 0, %27 ], [ 0, %32 ], [ 0, %39 ], [ 0, %44 ], [ %., %63 ], [ 0, %58 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %17 ], [ 0, %22 ], [ 0, %27 ], [ 0, %32 ], [ 0, %39 ], [ 0, %44 ], [ 0, %53 ], [ 0, %58 ], [ %., %63 ]
   ret i32 %.0
 }
 
@@ -570,7 +570,7 @@ define hidden range(i32 0, 2) i32 @setSWParams(ptr noundef readonly captures(non
   br label %24
 
 24:                                               ; preds = %19, %12, %7, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %7 ], [ %., %19 ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %7 ], [ 0, %12 ], [ %., %19 ]
   ret i32 %.0
 }
 
@@ -948,7 +948,7 @@ define hidden range(i32 -1, 2) i32 @xrun_recovery(ptr noundef readonly captures(
   br label %16
 
 16:                                               ; preds = %2, %12, %10, %3, %15
-  %.0 = phi i32 [ %., %3 ], [ -1, %15 ], [ %.12, %10 ], [ %.13, %12 ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %15 ], [ %., %3 ], [ %.12, %10 ], [ %.13, %12 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -1030,7 +1030,7 @@ xrun_recovery.exit.thread.loopexit:               ; preds = %16
   br label %xrun_recovery.exit.thread
 
 xrun_recovery.exit.thread:                        ; preds = %27, %18, %xrun_recovery.exit, %16, %xrun_recovery.exit.thread.loopexit, %25, %3, %5, %35
-  %.0 = phi i32 [ %38, %35 ], [ -1, %3 ], [ 0, %xrun_recovery.exit.thread.loopexit ], [ -1, %5 ], [ %.12.i, %25 ], [ -1, %16 ], [ -1, %xrun_recovery.exit ], [ -1, %18 ], [ -1, %27 ]
+  %.0 = phi i32 [ %38, %35 ], [ -1, %5 ], [ -1, %3 ], [ %.12.i, %25 ], [ 0, %xrun_recovery.exit.thread.loopexit ], [ -1, %16 ], [ -1, %xrun_recovery.exit ], [ -1, %18 ], [ -1, %27 ]
   ret i32 %.0
 }
 
@@ -1117,7 +1117,7 @@ xrun_recovery.exit.thread.loopexit:               ; preds = %22
   br label %xrun_recovery.exit.thread
 
 xrun_recovery.exit.thread:                        ; preds = %33, %24, %xrun_recovery.exit, %22, %xrun_recovery.exit.thread.loopexit, %31, %12, %3, %5, %38
-  %.0 = phi i32 [ -1, %3 ], [ 0, %12 ], [ 0, %xrun_recovery.exit.thread.loopexit ], [ %41, %38 ], [ -1, %5 ], [ %.12.i, %31 ], [ -1, %22 ], [ -1, %xrun_recovery.exit ], [ -1, %24 ], [ -1, %33 ]
+  %.0 = phi i32 [ %41, %38 ], [ -1, %5 ], [ -1, %3 ], [ 0, %12 ], [ %.12.i, %31 ], [ 0, %xrun_recovery.exit.thread.loopexit ], [ -1, %22 ], [ -1, %xrun_recovery.exit ], [ -1, %24 ], [ -1, %33 ]
   ret i32 %.0
 }
 
@@ -1164,7 +1164,7 @@ define hidden range(i32 0, 2) i32 @DAUDIO_Flush(ptr noundef captures(none) %0, i
   br label %13
 
 13:                                               ; preds = %8, %11, %5, %2
-  %.09 = phi i32 [ 0, %5 ], [ 1, %2 ], [ %12, %11 ], [ 0, %8 ]
+  %.09 = phi i32 [ 1, %2 ], [ 0, %5 ], [ %12, %11 ], [ 0, %8 ]
   ret i32 %.09
 }
 

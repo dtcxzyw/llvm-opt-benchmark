@@ -209,7 +209,7 @@ img_width_to_stride.exit:                         ; preds = %55, %57
   %.not96 = icmp eq ptr %71, null
   br i1 %.not96, label %.thread86, label %35, !llvm.loop !53
 
-.thread86:                                        ; preds = %70, %31, %img_width_to_stride.exit, %45
+.thread86:                                        ; preds = %70, %31, %45, %img_width_to_stride.exit
   %.07292 = phi ptr [ %.07293, %45 ], [ %.07293, %img_width_to_stride.exit ], [ null, %31 ], [ null, %70 ]
   %72 = phi i1 [ true, %45 ], [ true, %img_width_to_stride.exit ], [ false, %31 ], [ false, %70 ]
   br i1 %32, label %73, label %76
@@ -251,7 +251,7 @@ img_width_to_stride.exit:                         ; preds = %55, %57
   br label %87
 
 87:                                               ; preds = %76, %85, %.thread88, %21, %28, %10
-  %.2 = phi ptr [ null, %10 ], [ %25, %21 ], [ null, %28 ], [ null, %.thread88 ], [ %.07292, %85 ], [ %.07292, %76 ]
+  %.2 = phi ptr [ null, %10 ], [ null, %28 ], [ %25, %21 ], [ null, %.thread88 ], [ %.07292, %85 ], [ %.07292, %76 ]
   ret ptr %.2
 }
 
@@ -596,7 +596,7 @@ define ptr @lv_image_decoder_post_process(ptr noundef readonly captures(none) %0
   br label %.thread
 
 .thread:                                          ; preds = %21, %.thread56, %13, %8, %4
-  %.038 = phi ptr [ %1, %4 ], [ %1, %8 ], [ %1, %13 ], [ %33, %.thread56 ], [ %1, %21 ]
+  %.038 = phi ptr [ %1, %8 ], [ %1, %4 ], [ %1, %13 ], [ %33, %.thread56 ], [ %1, %21 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %35 = load i8, ptr %34, align 1, !tbaa !75, !range !57, !noundef !58
   %36 = trunc nuw i8 %35 to i1
@@ -634,7 +634,7 @@ define ptr @lv_image_decoder_post_process(ptr noundef readonly captures(none) %0
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %23, %49, %37, %45, %43, %.thread, %2
-  %.035 = phi ptr [ null, %2 ], [ null, %49 ], [ %.038, %.thread ], [ %.038, %37 ], [ %.038, %45 ], [ %.038, %43 ], [ null, %23 ], [ %.038.sink, %.critedge.sink.split ]
+  %.035 = phi ptr [ null, %2 ], [ null, %49 ], [ %.038, %45 ], [ %.038, %43 ], [ %.038, %.thread ], [ %.038, %37 ], [ null, %23 ], [ %.038.sink, %.critedge.sink.split ]
   ret ptr %.035
 }
 

@@ -707,13 +707,13 @@ define internal noundef zeroext i1 @update_config_can_addr_mappings(ptr noundef 
   br i1 %.not31, label %.thread47, label %.thread47.sink.split
 
 .thread47.sink.split:                             ; preds = %31, %30, %29, %28, %27, %26, %14, %.thread36, %13, %.thread35.thread
-  %.str.193.sink = phi ptr [ @.str.192, %30 ], [ @.str.191, %29 ], [ @.str.190, %28 ], [ @.str.189, %27 ], [ @.str.188, %26 ], [ @.str.186, %14 ], [ @.str.187, %.thread35.thread ], [ @.str.185, %13 ], [ @.str.186, %.thread36 ], [ @.str.193, %31 ]
+  %.str.193.sink = phi ptr [ @.str.187, %.thread35.thread ], [ @.str.185, %13 ], [ @.str.186, %.thread36 ], [ @.str.186, %14 ], [ @.str.188, %26 ], [ @.str.189, %27 ], [ @.str.190, %28 ], [ @.str.191, %29 ], [ @.str.192, %30 ], [ @.str.193, %31 ]
   %32 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull %.str.193.sink)
   store ptr %32, ptr %1, align 8
   br label %.thread47
 
 .thread47:                                        ; preds = %.thread47.sink.split, %30, %27, %28, %31
-  %.0 = phi i1 [ true, %30 ], [ true, %31 ], [ true, %28 ], [ true, %27 ], [ false, %.thread47.sink.split ]
+  %.0 = phi i1 [ true, %31 ], [ true, %28 ], [ true, %27 ], [ true, %30 ], [ false, %.thread47.sink.split ]
   ret i1 %.0
 }
 
@@ -996,7 +996,7 @@ define internal noundef zeroext i1 @update_config_pdu_transport_config_item(ptr 
   br i1 %or.cond41, label %.sink.split, label %41
 
 .sink.split:                                      ; preds = %39, %38, %35, %31, %27
-  %.str.207.sink = phi ptr [ @.str.206, %38 ], [ @.str.205, %35 ], [ @.str.204, %31 ], [ @.str.203, %27 ], [ @.str.207, %39 ]
+  %.str.207.sink = phi ptr [ @.str.203, %27 ], [ @.str.204, %31 ], [ @.str.205, %35 ], [ @.str.206, %38 ], [ @.str.207, %39 ]
   %40 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull %.str.207.sink)
   store ptr %40, ptr %1, align 8
   br label %41
@@ -1667,18 +1667,18 @@ find_pdu_transport_config.exit.i:                 ; preds = %103
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %209, %229, %214, %.preheader.i
-  %.sink.i = phi i8 [ %222, %214 ], [ %242, %229 ], [ 0, %.preheader.i ], [ 0, %209 ]
-  %.040.ph.i = phi i8 [ 1, %214 ], [ 2, %229 ], [ 0, %.preheader.i ], [ 0, %209 ]
+  %.sink.i = phi i8 [ %242, %229 ], [ %222, %214 ], [ 0, %.preheader.i ], [ 0, %209 ]
+  %.040.ph.i = phi i8 [ 2, %229 ], [ 1, %214 ], [ 0, %.preheader.i ], [ 0, %209 ]
   store i8 %.sink.i, ptr %60, align 1
   br label %find_config_can_addr_mapping.exit
 
 find_config_can_addr_mapping.exit:                ; preds = %188, %210, %223, %226, %.sink.split.i
-  %.040.i = phi i8 [ 0, %188 ], [ 0, %226 ], [ 0, %210 ], [ 0, %223 ], [ %.040.ph.i, %.sink.split.i ]
+  %.040.i = phi i8 [ 0, %188 ], [ 0, %223 ], [ 0, %226 ], [ 0, %210 ], [ %.040.ph.i, %.sink.split.i ]
   store i8 %.040.i, ptr %59, align 4
   br label %handle_pdu_transport_addresses.exit
 
 handle_pdu_transport_addresses.exit:              ; preds = %178, %find_pdu_transport_config.exit.i, %find_pdu_transport_config.exit.thread.i, %find_config_can_addr_mapping.exit, %187, %82, %180, %62
-  %.0329 = phi i32 [ %77, %62 ], [ %96, %82 ], [ 0, %find_config_can_addr_mapping.exit ], [ 1, %180 ], [ 0, %187 ], [ %.1.i, %178 ], [ 0, %find_pdu_transport_config.exit.i ], [ 0, %find_pdu_transport_config.exit.thread.i ]
+  %.0329 = phi i32 [ %77, %62 ], [ %96, %82 ], [ 1, %180 ], [ 0, %187 ], [ 0, %find_config_can_addr_mapping.exit ], [ %.1.i, %178 ], [ 0, %find_pdu_transport_config.exit.i ], [ 0, %find_pdu_transport_config.exit.thread.i ]
   %243 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0329)
   %244 = load i32, ptr @hf_iso15765_message_type, align 4
   %245 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %57, i32 noundef %244, ptr noundef %0, i32 noundef %.0329, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8)

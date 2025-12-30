@@ -552,7 +552,7 @@ define hidden void @_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new17h6f9
   unreachable
 
 common.resume:                                    ; preds = %29, %12, %8, %11
-  %common.resume.op = phi { ptr, i32 } [ %9, %12 ], [ %9, %11 ], [ %9, %8 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %11 ], [ %9, %8 ], [ %9, %12 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hfad1c4862cac5df9E.llvm.16377625001461121484.exit": ; preds = %2
@@ -697,7 +697,7 @@ define hidden void @_ZN16aws_smithy_types12type_erasure13TypeErasedBox3new17h9fd
   unreachable
 
 common.resume:                                    ; preds = %19, %11, %8
-  %common.resume.op = phi { ptr, i32 } [ %9, %11 ], [ %9, %8 ], [ %20, %19 ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %8 ], [ %9, %11 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hab78d652f88854a9E.llvm.16377625001461121484.exit": ; preds = %2
@@ -1059,7 +1059,7 @@ define hidden void @_ZN16aws_smithy_types12type_erasure13TypeErasedBox8downcast1
   unreachable
 
 .critedge:                                        ; preds = %39, %43, %46, %.noexc5, %65
-  %eh.lpad-body9 = phi { ptr, i32 } [ %25, %.noexc5 ], [ %25, %65 ], [ %40, %39 ], [ %40, %46 ], [ %40, %43 ]
+  %eh.lpad-body9 = phi { ptr, i32 } [ %25, %65 ], [ %25, %.noexc5 ], [ %40, %46 ], [ %40, %43 ], [ %40, %39 ]
   resume { ptr, i32 } %eh.lpad-body9
 
 .noexc5:                                          ; preds = %59, %.body, %56
@@ -1874,7 +1874,7 @@ define hidden void @"_ZN4core3ptr164drop_in_place$LT$aws_smithy_types..type_eras
   br label %"_ZN4core3ptr249drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..type_erasure..TypeErasedError$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$RF$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h7cb9f632340e0e3bE.llvm.16377625001461121484.exit"
 
 common.resume:                                    ; preds = %6, %14, %22
-  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %15, %22 ], [ %7, %6 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %22 ], [ %15, %14 ], [ %7, %6 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr249drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$aws_smithy_types..type_erasure..TypeErasedError$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$RF$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h7cb9f632340e0e3bE.llvm.16377625001461121484.exit": ; preds = %23, %30
@@ -2234,7 +2234,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$aws_sdk_glue..error_meta..Er
   unreachable
 
 common.resume:                                    ; preds = %609, %592, %575, %558, %541, %524, %507, %490, %473, %456, %439, %422, %405, %388, %371, %354, %337, %320, %303, %286, %267, %250, %233, %216, %199, %182, %165, %148, %131, %114, %97, %80, %63, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %593, %592 ], [ %eh.lpad-body.i, %.body.i ], [ %64, %63 ], [ %81, %80 ], [ %98, %97 ], [ %115, %114 ], [ %132, %131 ], [ %149, %148 ], [ %166, %165 ], [ %183, %182 ], [ %200, %199 ], [ %217, %216 ], [ %234, %233 ], [ %251, %250 ], [ %268, %267 ], [ %287, %286 ], [ %304, %303 ], [ %321, %320 ], [ %338, %337 ], [ %355, %354 ], [ %372, %371 ], [ %389, %388 ], [ %406, %405 ], [ %423, %422 ], [ %440, %439 ], [ %457, %456 ], [ %474, %473 ], [ %491, %490 ], [ %508, %507 ], [ %525, %524 ], [ %542, %541 ], [ %559, %558 ], [ %576, %575 ], [ %610, %609 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %64, %63 ], [ %81, %80 ], [ %98, %97 ], [ %115, %114 ], [ %132, %131 ], [ %149, %148 ], [ %166, %165 ], [ %183, %182 ], [ %200, %199 ], [ %217, %216 ], [ %234, %233 ], [ %251, %250 ], [ %268, %267 ], [ %287, %286 ], [ %304, %303 ], [ %321, %320 ], [ %338, %337 ], [ %355, %354 ], [ %372, %371 ], [ %389, %388 ], [ %406, %405 ], [ %423, %422 ], [ %440, %439 ], [ %457, %456 ], [ %474, %473 ], [ %491, %490 ], [ %508, %507 ], [ %525, %524 ], [ %542, %541 ], [ %559, %558 ], [ %576, %575 ], [ %593, %592 ], [ %610, %609 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr69drop_in_place$LT$aws_sdk_glue..error..sealed_unhandled..Unhandled$GT$17hf3ac2da415c7701cE.exit": ; preds = %45

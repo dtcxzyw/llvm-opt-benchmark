@@ -295,7 +295,7 @@ define hidden noundef double @_ZN2cv3ccm15deltaCIEDE2000_ERKNS_3VecIdLi3EEES4_RK
   br label %43
 
 43:                                               ; preds = %5, %38, %41
-  %.0 = phi double [ %39, %38 ], [ %42, %41 ], [ 0.000000e+00, %5 ]
+  %.0 = phi double [ %42, %41 ], [ %39, %38 ], [ 0.000000e+00, %5 ]
   %44 = fcmp oeq double %33, 0.000000e+00
   br i1 %44, label %50, label %45
 
@@ -309,7 +309,7 @@ define hidden noundef double @_ZN2cv3ccm15deltaCIEDE2000_ERKNS_3VecIdLi3EEES4_RK
   br label %50
 
 50:                                               ; preds = %43, %45, %48
-  %.095 = phi double [ %46, %45 ], [ %49, %48 ], [ 0.000000e+00, %43 ]
+  %.095 = phi double [ %49, %48 ], [ %46, %45 ], [ 0.000000e+00, %43 ]
   %51 = fsub double %.095, %.0
   %52 = tail call noundef double @llvm.fabs.f64(double %51)
   %53 = fcmp ugt double %52, 0x400921FB54442D18
@@ -328,7 +328,7 @@ define hidden noundef double @_ZN2cv3ccm15deltaCIEDE2000_ERKNS_3VecIdLi3EEES4_RK
   br label %60
 
 60:                                               ; preds = %50, %56, %58
-  %.096 = phi double [ %59, %58 ], [ %57, %56 ], [ %51, %50 ]
+  %.096 = phi double [ %57, %56 ], [ %59, %58 ], [ %51, %50 ]
   %or.cond = or i1 %37, %44
   br i1 %or.cond, label %61, label %63
 
@@ -508,7 +508,7 @@ define hidden noundef double @_ZN2cv3ccm8deltaCMCERKNS_3VecIdLi3EEES4_RKdS6_(ptr
   br label %29
 
 29:                                               ; preds = %4, %24, %27
-  %.0 = phi double [ %25, %24 ], [ %28, %27 ], [ 0.000000e+00, %4 ]
+  %.0 = phi double [ %28, %27 ], [ %25, %24 ], [ 0.000000e+00, %4 ]
   %30 = tail call noundef double @pow(double noundef %sqrt57, double noundef 4.000000e+00) #15, !tbaa !13
   %31 = fadd double %30, 1.900000e+03
   %32 = tail call double @sqrt(double noundef %31) #15, !tbaa !13

@@ -195,8 +195,8 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_hornerP8PJconsts(ptr
   br i1 %or.cond42.i, label %71, label %_ZL12horner_allocjb.exit
 
 .critedge.i:                                      ; preds = %57, %42, %33
-  %65 = phi ptr [ %31, %57 ], [ %29, %33 ], [ %31, %42 ]
-  %66 = phi ptr [ %55, %57 ], [ null, %33 ], [ %55, %42 ]
+  %65 = phi ptr [ %31, %42 ], [ %31, %57 ], [ %29, %33 ]
+  %66 = phi ptr [ %55, %42 ], [ %55, %57 ], [ null, %33 ]
   %67 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #9
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 88
   store ptr %67, ptr %68, align 8, !tbaa !52
@@ -336,8 +336,8 @@ _ZL12horner_allocjb.exit:                         ; preds = %58
   br label %.critedge121.thread
 
 140:                                              ; preds = %106, %.thread143
-  %.0108.ph145 = phi i1 [ %109, %106 ], [ true, %.thread143 ]
-  %141 = phi ptr [ %spec.select158, %106 ], [ @_ZL17horner_inverse_4dR8PJ_COORDP8PJconsts, %.thread143 ]
+  %.0108.ph145 = phi i1 [ true, %.thread143 ], [ %109, %106 ]
+  %141 = phi ptr [ @_ZL17horner_inverse_4dR8PJ_COORDP8PJconsts, %.thread143 ], [ %spec.select158, %106 ]
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %141, ptr %142, align 8, !tbaa !57
   %143 = add nuw nsw i32 %.sroa.023.0.extract.trunc, 1
@@ -395,7 +395,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %58
   br label %.critedge121.thread
 
 .critedge121:                                     ; preds = %132, %133, %160, %168
-  %.0108137 = phi i1 [ false, %160 ], [ true, %168 ], [ true, %133 ], [ false, %132 ]
+  %.0108137 = phi i1 [ true, %168 ], [ false, %160 ], [ true, %133 ], [ false, %132 ]
   %175 = load ptr, ptr %62, align 8, !tbaa !52
   %176 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %175, ptr noundef nonnull @.str.22, i32 noundef 2)
   %177 = icmp eq i32 %176, 0
@@ -441,7 +441,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %58
   br label %.critedge121.thread
 
 .critedge121.thread:                              ; preds = %173, %166, %158, %151, %130, %138, %88, %192, %196, %185, %178, %17, %15
-  %.0 = phi ptr [ %16, %15 ], [ %18, %17 ], [ %89, %88 ], [ %179, %178 ], [ %186, %185 ], [ %139, %138 ], [ %0, %192 ], [ %0, %196 ], [ %131, %130 ], [ %174, %173 ], [ %167, %166 ], [ %159, %158 ], [ %152, %151 ]
+  %.0 = phi ptr [ %16, %15 ], [ %18, %17 ], [ %89, %88 ], [ %179, %178 ], [ %186, %185 ], [ %0, %196 ], [ %0, %192 ], [ %131, %130 ], [ %139, %138 ], [ %174, %173 ], [ %167, %166 ], [ %159, %158 ], [ %152, %151 ]
   ret ptr %.0
 }
 

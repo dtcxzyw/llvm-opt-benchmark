@@ -340,7 +340,7 @@ define internal range(i32 -22, 1) i32 @fbdev_write_packet(ptr noundef %0, ptr no
   br i1 %exitcond.not, label %.critedge, label %111, !llvm.loop !61
 
 .critedge:                                        ; preds = %111, %107, %100, %75, %88, %63, %34
-  %.0 = phi i32 [ -22, %34 ], [ 0, %100 ], [ 0, %63 ], [ 0, %88 ], [ 0, %75 ], [ 0, %107 ], [ 0, %111 ]
+  %.0 = phi i32 [ -22, %34 ], [ 0, %63 ], [ 0, %88 ], [ 0, %75 ], [ 0, %100 ], [ 0, %107 ], [ 0, %111 ]
   ret i32 %.0
 }
 

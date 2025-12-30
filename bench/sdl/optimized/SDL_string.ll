@@ -739,18 +739,18 @@ define internal fastcc range(i32 0, 1966080) i32 @StepUTF8(ptr noundef captures(
   %87 = or disjoint i32 %86, %81
   br label %.thread.sink.split
 
-.critedge.thread:                                 ; preds = %58, %66, %72, %76, %30, %36, %42, %49, %14, %20, %54
+.critedge.thread:                                 ; preds = %76, %58, %66, %72, %30, %36, %42, %49, %20, %14, %54
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %49, %8, %.critedge.thread, %.critedge, %.critedge80
-  %.sink93 = phi i64 [ 4, %.critedge80 ], [ 1, %8 ], [ 2, %.critedge ], [ 1, %.critedge.thread ], [ 3, %49 ]
-  %.0.ph = phi i32 [ %87, %.critedge80 ], [ %6, %8 ], [ %25, %.critedge ], [ 65533, %.critedge.thread ], [ %51, %49 ]
+  %.sink93 = phi i64 [ 4, %.critedge80 ], [ 2, %.critedge ], [ 1, %.critedge.thread ], [ 1, %8 ], [ 3, %49 ]
+  %.0.ph = phi i32 [ %87, %.critedge80 ], [ %25, %.critedge ], [ 65533, %.critedge.thread ], [ %6, %8 ], [ %51, %49 ]
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink93
   store ptr %88, ptr %0, align 8
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %2, %4
-  %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ %.0.ph, %.thread.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %2 ], [ %.0.ph, %.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -913,7 +913,7 @@ define hidden noundef ptr @SDL_wcsnstr_REAL(ptr noundef readonly %0, ptr noundef
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !9
 
 .critedge:                                        ; preds = %7, %10, %.lr.ph, %.preheader, %3
-  %.0 = phi ptr [ %0, %3 ], [ null, %.preheader ], [ null, %10 ], [ %.01519, %7 ], [ null, %.lr.ph ]
+  %.0 = phi ptr [ %0, %3 ], [ null, %.preheader ], [ %.01519, %7 ], [ null, %10 ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -1020,8 +1020,8 @@ StepUTF32.exit27:                                 ; preds = %15
   %30 = icmp eq i32 %.018, 0
   br i1 %30, label %.thread, label %5
 
-.thread:                                          ; preds = %25, %27, %29
-  %.2 = phi i32 [ 0, %29 ], [ -1, %25 ], [ 1, %27 ]
+.thread:                                          ; preds = %27, %25, %29
+  %.2 = phi i32 [ 0, %29 ], [ 1, %27 ], [ -1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2
@@ -1139,8 +1139,8 @@ StepUTF32.exit40:                                 ; preds = %30, %31, %34
   %49 = icmp eq i32 %.026, 0
   br i1 %49, label %.thread, label %6
 
-.thread:                                          ; preds = %44, %46, %48
-  %.2 = phi i32 [ 0, %48 ], [ -1, %44 ], [ 1, %46 ]
+.thread:                                          ; preds = %46, %44, %48
+  %.2 = phi i32 [ 0, %48 ], [ 1, %46 ], [ -1, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
@@ -1208,7 +1208,7 @@ define hidden range(i64 0, -1) i64 @SDL_utf8strlcpy_REAL(ptr noundef writeonly c
   %or.cond8.i = icmp ult i8 %20, 5
   br i1 %or.cond8.i, label %select.unfold, label %UTF8_GetTrailingBytes.exit
 
-select.unfold:                                    ; preds = %19, %17, %.lr.ph
+select.unfold:                                    ; preds = %19, %.lr.ph, %17
   %.0.i.ph = phi i64 [ 3, %17 ], [ 2, %.lr.ph ], [ 4, %19 ]
   %21 = sub i64 %7, %.049
   %.not43 = icmp eq i64 %21, %.0.i.ph
@@ -1221,7 +1221,7 @@ UTF8_GetTrailingBytes.exit:                       ; preds = %19
   br i1 %.not41, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %UTF8_GetTrailingBytes.exit, %8, %select.unfold, %13
-  %.2 = phi i64 [ %9, %8 ], [ %7, %13 ], [ %spec.select, %select.unfold ], [ %7, %UTF8_GetTrailingBytes.exit ]
+  %.2 = phi i64 [ %7, %13 ], [ %spec.select, %select.unfold ], [ %9, %8 ], [ %7, %UTF8_GetTrailingBytes.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %1, i64 %.2, i1 false)
   br label %23
 
@@ -1447,7 +1447,7 @@ define hidden noundef ptr @SDL_strnstr_REAL(ptr noundef readonly captures(ret: a
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !16
 
 .critedge:                                        ; preds = %7, %10, %.lr.ph, %.preheader, %3
-  %.0 = phi ptr [ %0, %3 ], [ null, %.preheader ], [ null, %10 ], [ %.01317, %7 ], [ null, %.lr.ph ]
+  %.0 = phi ptr [ %0, %3 ], [ null, %.preheader ], [ %.01317, %7 ], [ null, %10 ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -1573,8 +1573,8 @@ define hidden range(i32 -1, 2) i32 @SDL_strncasecmp_REAL(ptr noundef %0, ptr nou
   %41 = icmp eq i32 %.024, 0
   br i1 %41, label %.thread, label %8
 
-.thread:                                          ; preds = %35, %38, %40
-  %.2 = phi i32 [ 0, %40 ], [ -1, %35 ], [ 1, %38 ]
+.thread:                                          ; preds = %38, %35, %40
+  %.2 = phi i32 [ 0, %40 ], [ 1, %38 ], [ -1, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
@@ -2198,8 +2198,8 @@ define hidden range(i32 -1, 2) i32 @SDL_strcasecmp_REAL(ptr noundef %0, ptr noun
   %28 = icmp eq i32 %.017, 0
   br i1 %28, label %.thread, label %7
 
-.thread:                                          ; preds = %23, %25, %27
-  %.2 = phi i32 [ 0, %27 ], [ -1, %23 ], [ 1, %25 ]
+.thread:                                          ; preds = %25, %23, %27
+  %.2 = phi i32 [ 0, %27 ], [ 1, %25 ], [ -1, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2
@@ -2363,7 +2363,7 @@ define hidden i32 @SDL_vswprintf_REAL(ptr noundef %0, i64 noundef %1, ptr nounde
   br label %39
 
 39:                                               ; preds = %.thread60, %23, %38, %36, %15
-  %.1 = phi i32 [ -1, %15 ], [ -1, %23 ], [ %28, %.thread60 ], [ %.039, %38 ], [ %.039, %36 ]
+  %.1 = phi i32 [ -1, %15 ], [ -1, %23 ], [ %.039, %38 ], [ %.039, %36 ], [ %28, %.thread60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40

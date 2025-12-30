@@ -311,7 +311,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc5
   resume { ptr, i32 } %32
 
 .thread:                                          ; preds = %2, %_ZNSolsEPFRSoS_E.exit, %6
-  %33 = phi i1 [ true, %6 ], [ false, %_ZNSolsEPFRSoS_E.exit ], [ true, %2 ]
+  %33 = phi i1 [ false, %_ZNSolsEPFRSoS_E.exit ], [ true, %6 ], [ true, %2 ]
   ret i1 %33
 }
 
@@ -1527,7 +1527,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_110DumpConfigEPKcRKN4Json5ValueE.exit: ; p
   br label %462
 
 .body114:                                         ; preds = %432, %460, %306, %293, %365, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110
-  %.pn55 = phi { ptr, i32 } [ %366, %365 ], [ %433, %432 ], [ %.pn52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110 ], [ %294, %293 ], [ %307, %306 ], [ %.pn17.pn.i, %460 ]
+  %.pn55 = phi { ptr, i32 } [ %.pn52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110 ], [ %366, %365 ], [ %294, %293 ], [ %307, %306 ], [ %.pn17.pn.i, %460 ], [ %433, %432 ]
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #21
   br label %461
 
@@ -2024,7 +2024,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_117SanitizeAnimationERN4Json5ValueEb.exit:
   br i1 %135, label %11, label %.critedge
 
 .critedge:                                        ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_117SanitizeAnimationERN4Json5ValueEb.exit, %11, %.critedge.i.i, %2, %130, %_ZNSolsEPFRSoS_E.exit.i
-  %.not22 = phi i1 [ false, %_ZNSolsEPFRSoS_E.exit.i ], [ false, %130 ], [ true, %2 ], [ false, %_ZN3ozz9animation7offline12_GLOBAL__N_117SanitizeAnimationERN4Json5ValueEb.exit ], [ true, %11 ], [ false, %.critedge.i.i ]
+  %.not22 = phi i1 [ false, %130 ], [ false, %_ZNSolsEPFRSoS_E.exit.i ], [ true, %2 ], [ false, %_ZN3ozz9animation7offline12_GLOBAL__N_117SanitizeAnimationERN4Json5ValueEb.exit ], [ true, %11 ], [ false, %.critedge.i.i ]
   ret i1 %.not22
 }
 
@@ -2047,51 +2047,51 @@ define internal fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N
   %18 = tail call noundef i32 @_ZNK4Json5Value4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %19 = tail call noundef i32 @_ZNK4Json5Value4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   switch i32 %19, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread [
-    i32 0, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit
-    i32 1, label %20
-    i32 2, label %23
-    i32 3, label %25
-    i32 4, label %28
-    i32 5, label %30
-    i32 6, label %32
-    i32 7, label %34
+    i32 0, label %20
+    i32 1, label %22
+    i32 2, label %25
+    i32 3, label %27
+    i32 4, label %30
+    i32 5, label %32
+    i32 6, label %34
+    i32 7, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit
   ]
 
 20:                                               ; preds = %3
-  %21 = add i32 %18, -1
-  %22 = icmp ult i32 %21, 2
-  br i1 %22, label %79, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
+  %21 = icmp eq i32 %18, 0
+  br i1 %21, label %79, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
 
-23:                                               ; preds = %3
-  %24 = icmp eq i32 %18, 2
+22:                                               ; preds = %3
+  %23 = add i32 %18, -1
+  %24 = icmp ult i32 %23, 2
   br i1 %24, label %79, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
 
 25:                                               ; preds = %3
-  %26 = add i32 %18, -1
-  %27 = icmp ult i32 %26, 3
-  br i1 %27, label %79, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
+  %26 = icmp eq i32 %18, 2
+  br i1 %26, label %79, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
 
-28:                                               ; preds = %3
-  %29 = icmp eq i32 %18, 4
+27:                                               ; preds = %3
+  %28 = add i32 %18, -1
+  %29 = icmp ult i32 %28, 3
   br i1 %29, label %79, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
 
 30:                                               ; preds = %3
-  %31 = icmp eq i32 %18, 5
+  %31 = icmp eq i32 %18, 4
   br i1 %31, label %79, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
 
 32:                                               ; preds = %3
-  %33 = icmp eq i32 %18, 6
+  %33 = icmp eq i32 %18, 5
   br i1 %33, label %79, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
 
 34:                                               ; preds = %3
-  %35 = icmp eq i32 %18, 7
+  %35 = icmp eq i32 %18, 6
   br i1 %35, label %79, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
 
 _ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit: ; preds = %3
-  %36 = icmp eq i32 %18, 0
+  %36 = icmp eq i32 %18, 7
   br i1 %36, label %79, label %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread
 
-_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread: ; preds = %25, %3, %20, %23, %28, %30, %32, %34, %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit
+_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit.thread: ; preds = %27, %3, %34, %32, %30, %25, %22, %20, %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN3ozz3log3ErrC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %4)
   %37 = load ptr, ptr %4, align 8, !tbaa !10
@@ -2217,7 +2217,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc131
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %353
 
-79:                                               ; preds = %25, %20, %23, %28, %30, %32, %34, %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit
+79:                                               ; preds = %27, %34, %32, %30, %25, %22, %20, %_ZN3ozz9animation7offline12_GLOBAL__N_116IsCompatibleTypeEN4Json9ValueTypeES4_.exit
   %80 = tail call noundef zeroext i1 @_ZNK4Json5Value7isArrayEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   br i1 %80, label %.preheader, label %159
 
@@ -2955,7 +2955,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123: ; preds = %_Z
   br i1 %347, label %._crit_edge, label %170, !llvm.loop !88
 
 348:                                              ; preds = %337, %344, %274, %259
-  %.pn63.pn.pn.pn = phi { ptr, i32 } [ %260, %259 ], [ %.pn.pn.pn.pn, %274 ], [ %.pn63.pn, %344 ], [ %338, %337 ]
+  %.pn63.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %274 ], [ %260, %259 ], [ %.pn63.pn, %344 ], [ %338, %337 ]
   %349 = load ptr, ptr %11, align 8, !tbaa !47
   %350 = icmp eq ptr %349, %169
   br i1 %350, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i124
@@ -2980,7 +2980,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126: ; preds = %34
   br label %.thread
 
 .thread:                                          ; preds = %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %96, %.preheader, %159, %._crit_edge, %.thread146, %_ZNSolsEPFRSoS_E.exit
-  %.0 = phi i1 [ true, %159 ], [ false, %_ZNSolsEPFRSoS_E.exit ], [ false, %.thread146 ], [ true, %._crit_edge ], [ true, %.preheader ], [ %125, %96 ], [ %125, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
+  %.0 = phi i1 [ false, %_ZNSolsEPFRSoS_E.exit ], [ false, %.thread146 ], [ true, %._crit_edge ], [ true, %159 ], [ true, %.preheader ], [ %125, %96 ], [ %125, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
   ret i1 %.0
 
 353:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126, %158, %77

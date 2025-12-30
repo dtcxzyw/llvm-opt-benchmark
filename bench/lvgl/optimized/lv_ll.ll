@@ -130,7 +130,7 @@ node_set_next.exit31:                             ; preds = %25, %31
   br label %lv_ll_ins_head.exit
 
 lv_ll_ins_head.exit:                              ; preds = %23, %19, %12, %node_set_next.exit31, %24, %2
-  %.0 = phi ptr [ %11, %node_set_next.exit31 ], [ null, %2 ], [ null, %24 ], [ null, %12 ], [ %11, %19 ], [ %11, %23 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %24 ], [ %11, %node_set_next.exit31 ], [ null, %12 ], [ %11, %19 ], [ %11, %23 ]
   ret ptr %.0
 }
 

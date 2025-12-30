@@ -640,7 +640,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDs.exit:       ; preds = %37
   br label %61
 
 60:                                               ; preds = %_ZNK6icu_7713UnicodeString7indexOfEDs.exit, %51, %23
-  %.1 = phi i32 [ %54, %51 ], [ 0, %23 ], [ 0, %_ZNK6icu_7713UnicodeString7indexOfEDs.exit ]
+  %.1 = phi i32 [ 0, %23 ], [ %54, %51 ], [ 0, %_ZNK6icu_7713UnicodeString7indexOfEDs.exit ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %64

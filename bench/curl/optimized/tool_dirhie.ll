@@ -90,7 +90,7 @@ define dso_local range(i32 0, 28) i32 @create_dir_hierarchy(ptr noundef readonly
   br label %.thread63
 
 .thread63:                                        ; preds = %26, %.thread63.loopexit82, %.thread63.loopexit78, %.thread63.loopexit77, %.thread63.loopexit69
-  %.str.7.sink.i = phi ptr [ @.str.6, %.thread63.loopexit78 ], [ @.str.5, %.thread63.loopexit77 ], [ @.str.4, %.thread63.loopexit69 ], [ @.str.7, %.thread63.loopexit82 ], [ @.str.3, %26 ]
+  %.str.7.sink.i = phi ptr [ @.str.4, %.thread63.loopexit69 ], [ @.str.5, %.thread63.loopexit77 ], [ @.str.6, %.thread63.loopexit78 ], [ @.str.7, %.thread63.loopexit82 ], [ @.str.3, %26 ]
   tail call void (ptr, ptr, ...) @errorf(ptr noundef %1, ptr noundef nonnull %.str.7.sink.i, ptr noundef nonnull %7) #11
   br label %.loopexit
 

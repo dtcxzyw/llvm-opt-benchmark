@@ -502,10 +502,10 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %101
 
 101:                                              ; preds = %97, %99, %88
-  %.0170 = phi ptr [ null, %88 ], [ %100, %99 ], [ null, %97 ]
-  %.0169 = phi ptr [ null, %88 ], [ %94, %99 ], [ %94, %97 ]
-  %.0168 = phi ptr [ null, %88 ], [ %98, %99 ], [ null, %97 ]
-  %.0166 = phi ptr [ null, %88 ], [ %.1167, %99 ], [ %.1167, %97 ]
+  %.0170 = phi ptr [ %100, %99 ], [ null, %97 ], [ null, %88 ]
+  %.0169 = phi ptr [ %94, %99 ], [ %94, %97 ], [ null, %88 ]
+  %.0168 = phi ptr [ %98, %99 ], [ null, %97 ], [ null, %88 ]
+  %.0166 = phi ptr [ %.1167, %99 ], [ %.1167, %97 ], [ null, %88 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %18, i8 0, i64 4096, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -949,7 +949,7 @@ define range(i32 0, 2) i32 @supported(ptr noundef readnone captures(none) %0, pt
   br label %20
 
 20:                                               ; preds = %17, %14, %11, %8, %2
-  %.0 = phi i32 [ 1, %14 ], [ 1, %2 ], [ 1, %8 ], [ 1, %11 ], [ %., %17 ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %8 ], [ 1, %11 ], [ 1, %14 ], [ %., %17 ]
   ret i32 %.0
 }
 

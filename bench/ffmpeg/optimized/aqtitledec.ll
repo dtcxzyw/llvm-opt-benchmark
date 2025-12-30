@@ -144,14 +144,14 @@ define internal range(i32 -12, 1) i32 @aqt_read_header(ptr noundef %0) #1 {
   store i64 %.03567, ptr %53, align 8, !tbaa !47
   br label %54
 
-.thread:                                          ; preds = %44, %42
+.thread:                                          ; preds = %42, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %58
 
 54:                                               ; preds = %27, %39, %37, %34, %30, %49, %48
-  %.139 = phi i32 [ 0, %49 ], [ 0, %48 ], [ 1, %34 ], [ %.03866, %39 ], [ 1, %27 ], [ 1, %30 ], [ 1, %37 ]
-  %.136 = phi i64 [ %.03567, %49 ], [ %.03567, %48 ], [ %29, %34 ], [ %.03567, %39 ], [ %29, %27 ], [ %29, %30 ], [ %29, %37 ]
-  %.133 = phi ptr [ %47, %49 ], [ %47, %48 ], [ null, %34 ], [ %.03268, %39 ], [ null, %27 ], [ null, %30 ], [ null, %37 ]
+  %.139 = phi i32 [ 1, %27 ], [ %.03866, %39 ], [ 1, %37 ], [ 1, %34 ], [ 1, %30 ], [ 0, %49 ], [ 0, %48 ]
+  %.136 = phi i64 [ %29, %27 ], [ %.03567, %39 ], [ %29, %37 ], [ %29, %34 ], [ %29, %30 ], [ %.03567, %49 ], [ %.03567, %48 ]
+  %.133 = phi ptr [ null, %27 ], [ %.03268, %39 ], [ null, %37 ], [ null, %34 ], [ null, %30 ], [ %47, %49 ], [ %47, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = load ptr, ptr %15, align 8, !tbaa !43
   %56 = call i32 @avio_feof(ptr noundef %55) #6
@@ -164,7 +164,7 @@ define internal range(i32 -12, 1) i32 @aqt_read_header(ptr noundef %0) #1 {
   br label %58
 
 58:                                               ; preds = %.thread, %1, %.loopexit
-  %.0 = phi i32 [ -12, %.thread ], [ 0, %.loopexit ], [ -12, %1 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -12, %1 ], [ -12, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

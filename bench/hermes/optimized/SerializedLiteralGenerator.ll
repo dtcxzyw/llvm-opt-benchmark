@@ -102,7 +102,7 @@ sw.default:                                       ; preds = %for.body
   unreachable
 
 sw.epilog:                                        ; preds = %if.end19.i, %land.lhs.true.i, %sw.bb, %for.body, %if.else, %cond.end, %sw.bb25
-  %newTag.0 = phi i8 [ 0, %for.body ], [ %cond29, %sw.bb25 ], [ %., %if.else ], [ 64, %cond.end ], [ 112, %land.lhs.true.i ], [ 48, %sw.bb ], [ 48, %if.end19.i ]
+  %newTag.0 = phi i8 [ %cond29, %sw.bb25 ], [ 64, %cond.end ], [ %., %if.else ], [ 0, %for.body ], [ 48, %if.end19.i ], [ 48, %sw.bb ], [ 112, %land.lhs.true.i ]
   %cmp32 = icmp ne i8 %newTag.0, %lastTag.0420
   %cmp33 = icmp eq i64 %seqLength.0419, 4095
   %or.cond = select i1 %cmp32, i1 true, i1 %cmp33

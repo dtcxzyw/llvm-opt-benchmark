@@ -454,7 +454,7 @@ bytestream2_init.exit:                            ; preds = %64
   br i1 %249, label %.lr.ph178, label %._crit_edge.loopexit, !llvm.loop !61
 
 .loopexit168:                                     ; preds = %180, %198, %202, %184, %61, %43, %21, %19, %4, %._crit_edge182, %59
-  %.0146 = phi i32 [ -1094995529, %202 ], [ -1094995529, %4 ], [ -1094995529, %19 ], [ -1094995529, %21 ], [ %60, %59 ], [ %53, %43 ], [ 0, %._crit_edge182 ], [ %62, %61 ], [ -1094995529, %184 ], [ %200, %198 ], [ %182, %180 ]
+  %.0146 = phi i32 [ %60, %59 ], [ 0, %._crit_edge182 ], [ -1094995529, %4 ], [ -1094995529, %19 ], [ -1094995529, %21 ], [ %53, %43 ], [ %62, %61 ], [ -1094995529, %184 ], [ -1094995529, %202 ], [ %200, %198 ], [ %182, %180 ]
   ret i32 %.0146
 }
 
@@ -1137,7 +1137,7 @@ bytestream2_get_byte.exit:                        ; preds = %19, %20
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %bytestream2_get_byte.exit, %.critedge41
-  %.0 = phi i32 [ -1094995529, %bytestream2_get_byte.exit ], [ %49, %.critedge41 ], [ -1094995529, %32 ]
+  %.0 = phi i32 [ %49, %.critedge41 ], [ -1094995529, %bytestream2_get_byte.exit ], [ -1094995529, %32 ]
   ret i32 %.0
 }
 
@@ -1710,7 +1710,7 @@ bits_read_vlc_be.exit:                            ; preds = %bits_peek_be.exit.i
   br label %bits_init8_be.exit.thread
 
 bits_init8_be.exit.thread:                        ; preds = %bits_skip_be.exit108, %.lr.ph222, %206, %bits_read_vlc_be.exit, %4, %.thread186
-  %.049 = phi i32 [ 0, %.thread186 ], [ -1094995529, %.lr.ph222 ], [ -1094995529, %4 ], [ -1094995529, %206 ], [ -1094995529, %bits_read_vlc_be.exit ], [ -1094995529, %bits_skip_be.exit108 ]
+  %.049 = phi i32 [ 0, %.thread186 ], [ -1094995529, %4 ], [ -1094995529, %bits_read_vlc_be.exit ], [ -1094995529, %206 ], [ -1094995529, %.lr.ph222 ], [ -1094995529, %bits_skip_be.exit108 ]
   ret i32 %.049
 }
 

@@ -1647,9 +1647,9 @@ put_sbits.exit.i:                                 ; preds = %471, %463, %453
   br label %asv1_put_level.exit
 
 asv1_put_level.exit:                              ; preds = %put_sbits.exit.i, %put_bits.exit.i23, %473, %asv1_put_level.exit35
-  %475 = phi i32 [ %.pre.i, %473 ], [ %394, %asv1_put_level.exit35 ], [ %.0.i.i.i, %put_bits.exit.i23 ], [ %472, %put_sbits.exit.i ]
-  %476 = phi i32 [ %.pre89.i, %473 ], [ %395, %asv1_put_level.exit35 ], [ %.026.i.i.i24, %put_bits.exit.i23 ], [ %.026.i.i.i.i, %put_sbits.exit.i ]
-  %.261.i = phi i32 [ %474, %473 ], [ 0, %asv1_put_level.exit35 ], [ 0, %put_bits.exit.i23 ], [ 0, %put_sbits.exit.i ]
+  %475 = phi i32 [ %394, %asv1_put_level.exit35 ], [ %.pre.i, %473 ], [ %.0.i.i.i, %put_bits.exit.i23 ], [ %472, %put_sbits.exit.i ]
+  %476 = phi i32 [ %395, %asv1_put_level.exit35 ], [ %.pre89.i, %473 ], [ %.026.i.i.i24, %put_bits.exit.i23 ], [ %.026.i.i.i.i, %put_sbits.exit.i ]
+  %.261.i = phi i32 [ 0, %asv1_put_level.exit35 ], [ %474, %473 ], [ 0, %put_bits.exit.i23 ], [ 0, %put_sbits.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
   br i1 %exitcond.not.i, label %477, label %55, !llvm.loop !86

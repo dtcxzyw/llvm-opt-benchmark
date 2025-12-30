@@ -489,7 +489,7 @@ _ZNKSt14default_deleteIN3gmx25AnalysisDataAverageModuleEEclEPS1_.exit.i14.i: ; p
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNKSt14default_deleteIN3gmx25AnalysisDataAverageModuleEEclEPS1_.exit.i14.i, %76, %74, %24
-  %.pn.i = phi { ptr, i32 } [ %25, %24 ], [ %75, %74 ], [ %77, %76 ], [ %77, %_ZNKSt14default_deleteIN3gmx25AnalysisDataAverageModuleEEclEPS1_.exit.i14.i ]
+  %.pn.i = phi { ptr, i32 } [ %75, %74 ], [ %25, %24 ], [ %77, %76 ], [ %77, %_ZNKSt14default_deleteIN3gmx25AnalysisDataAverageModuleEEclEPS1_.exit.i14.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %101
 
@@ -1691,13 +1691,13 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %102, %_ZNSt6vectorI
   ret void
 
 .sink.split121:                                   ; preds = %97, %.sink.split120, %79, %.sink.split119, %65, %.sink.split118, %51, %.sink.split117, %36, %.sink.split
-  %.sink = phi ptr [ %72, %79 ], [ %58, %65 ], [ %44, %51 ], [ %29, %36 ], [ %29, %.sink.split ], [ %44, %.sink.split117 ], [ %58, %.sink.split118 ], [ %72, %.sink.split119 ], [ %90, %.sink.split120 ], [ %90, %97 ]
-  %.pn46.pn.pn.ph = phi { ptr, i32 } [ %80, %79 ], [ %66, %65 ], [ %52, %51 ], [ %37, %36 ], [ %.pn.pn76.ph, %.sink.split ], [ %.pn46.pn83.ph, %.sink.split117 ], [ %.pn43.pn90.ph, %.sink.split118 ], [ %.pn40.pn97.ph, %.sink.split119 ], [ %.pn37.pn104.ph, %.sink.split120 ], [ %98, %97 ]
+  %.sink = phi ptr [ %29, %.sink.split ], [ %29, %36 ], [ %44, %.sink.split117 ], [ %44, %51 ], [ %58, %.sink.split118 ], [ %58, %65 ], [ %72, %.sink.split119 ], [ %72, %79 ], [ %90, %.sink.split120 ], [ %90, %97 ]
+  %.pn46.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn76.ph, %.sink.split ], [ %37, %36 ], [ %.pn46.pn83.ph, %.sink.split117 ], [ %52, %51 ], [ %.pn43.pn90.ph, %.sink.split118 ], [ %66, %65 ], [ %.pn40.pn97.ph, %.sink.split119 ], [ %80, %79 ], [ %.pn37.pn104.ph, %.sink.split120 ], [ %98, %97 ]
   call void @__cxa_free_exception(ptr %.sink) #25
   br label %130
 
 130:                                              ; preds = %.sink.split121, %97, %79, %65, %51, %36
-  %.pn46.pn.pn = phi { ptr, i32 } [ %80, %79 ], [ %52, %51 ], [ %37, %36 ], [ %66, %65 ], [ %98, %97 ], [ %.pn46.pn.pn.ph, %.sink.split121 ]
+  %.pn46.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %66, %65 ], [ %80, %79 ], [ %98, %97 ], [ %37, %36 ], [ %.pn46.pn.pn.ph, %.sink.split121 ]
   resume { ptr, i32 } %.pn46.pn.pn
 
 131:                                              ; preds = %94, %76, %62, %48, %33
@@ -2507,7 +2507,7 @@ _ZNSt6vectorIN3gmx7IsotopeESaIS1_EED2Ev.exit:     ; preds = %294, %296
   ret void
 
 _ZNSt6vectorIdSaIdEED2Ev.exit58:                  ; preds = %.loopexit, %.loopexit.split-lp, %187, %184, %_ZNSt10unique_ptrIN3gmx9SansDebyeESt14default_deleteIS1_EED2Ev.exit40, %_ZNSt10unique_ptrIN3gmx9SaxsDebyeESt14default_deleteIS1_EED2Ev.exit53, %146, %144, %.body, %39
-  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %.pn.pn, %.body ], [ %.pn29.pn103, %146 ], [ %145, %144 ], [ %.pn25, %_ZNSt10unique_ptrIN3gmx9SaxsDebyeESt14default_deleteIS1_EED2Ev.exit53 ], [ %185, %187 ], [ %.pn27, %_ZNSt10unique_ptrIN3gmx9SansDebyeESt14default_deleteIS1_EED2Ev.exit40 ], [ %185, %184 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %40, %39 ], [ %.pn29.pn103, %146 ], [ %145, %144 ], [ %.pn27, %_ZNSt10unique_ptrIN3gmx9SansDebyeESt14default_deleteIS1_EED2Ev.exit40 ], [ %.pn25, %_ZNSt10unique_ptrIN3gmx9SaxsDebyeESt14default_deleteIS1_EED2Ev.exit53 ], [ %185, %184 ], [ %185, %187 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %302 = load ptr, ptr %4, align 8, !tbaa !185
   %.not.i.i.i68 = icmp eq ptr %302, null
   br i1 %.not.i.i.i68, label %_ZNSt6vectorIN3gmx7IsotopeESaIS1_EED2Ev.exit69, label %303
@@ -3382,8 +3382,8 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i17.i.i: ; preds = %56
   br label %_ZSt11make_uniqueIN3gmx8internal14EnumIndexStoreINS0_15analysismodules12_GLOBAL__N_111ScatterTypeEEEJPS5_PSt6vectorIS5_SaIS5_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 62:                                               ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i
-  %63 = phi ptr [ %.pre.i.i, %.loopexit.split-lp.i.i ], [ %27, %.loopexit.i.i ]
-  %.pn.i.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ]
+  %63 = phi ptr [ %27, %.loopexit.i.i ], [ %.pre.i.i, %.loopexit.split-lp.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   %.not.i.i.i.i.i = icmp eq ptr %63, null
   br i1 %.not.i.i.i.i.i, label %.body.i, label %64
 

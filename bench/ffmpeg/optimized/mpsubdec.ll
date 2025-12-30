@@ -72,8 +72,8 @@ ff_subtitles_next_line.exit:                      ; preds = %15, %20
   %or.cond = select i1 %.not18, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph, label %.thread22
 
-.thread22:                                        ; preds = %ff_subtitles_next_line.exit, %9, %.lr.ph, %1
-  %.2 = phi i32 [ 0, %1 ], [ 16, %9 ], [ 0, %ff_subtitles_next_line.exit ], [ 50, %.lr.ph ]
+.thread22:                                        ; preds = %ff_subtitles_next_line.exit, %.lr.ph, %9, %1
+  %.2 = phi i32 [ 0, %1 ], [ 16, %9 ], [ 50, %.lr.ph ], [ 0, %ff_subtitles_next_line.exit ]
   ret i32 %.2
 }
 
@@ -311,7 +311,7 @@ parse_line.exit:                                  ; preds = %31, %41
   br label %107
 
 .thread98:                                        ; preds = %90, %.thread, %87, %83, %75
-  %.4.ph = phi i32 [ -1094995529, %90 ], [ -1094995529, %.thread ], [ -1094995529, %87 ], [ -12, %83 ], [ %79, %75 ]
+  %.4.ph = phi i32 [ -1094995529, %.thread ], [ -1094995529, %87 ], [ -12, %83 ], [ %79, %75 ], [ -1094995529, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -319,10 +319,10 @@ parse_line.exit:                                  ; preds = %31, %41
   br label %136
 
 107:                                              ; preds = %98, %81, %parse_line.exit, %28
-  %.261 = phi i32 [ %104, %98 ], [ %.059117, %parse_line.exit ], [ %.059117, %28 ], [ %.059117, %81 ]
-  %.155 = phi i64 [ %105, %98 ], [ %.054118, %parse_line.exit ], [ %.054118, %28 ], [ %.054118, %81 ]
-  %.2 = phi i32 [ %79, %98 ], [ %.051119, %parse_line.exit ], [ %.051119, %28 ], [ %79, %81 ]
-  %.sroa.031.2 = phi i32 [ %.sroa.031.0120, %98 ], [ %.sroa.031.0120, %parse_line.exit ], [ %29, %28 ], [ %.sroa.031.0120, %81 ]
+  %.261 = phi i32 [ %.059117, %28 ], [ %.059117, %parse_line.exit ], [ %104, %98 ], [ %.059117, %81 ]
+  %.155 = phi i64 [ %.054118, %28 ], [ %.054118, %parse_line.exit ], [ %105, %98 ], [ %.054118, %81 ]
+  %.2 = phi i32 [ %.051119, %28 ], [ %.051119, %parse_line.exit ], [ %79, %98 ], [ %79, %81 ]
+  %.sroa.031.2 = phi i32 [ %29, %28 ], [ %.sroa.031.0120, %parse_line.exit ], [ %.sroa.031.0120, %98 ], [ %.sroa.031.0120, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -394,7 +394,7 @@ parse_line.exit:                                  ; preds = %31, %41
   br label %136
 
 136:                                              ; preds = %.thread98, %.loopexit.thread, %132
-  %.5 = phi i32 [ %.051112145, %132 ], [ %.4.ph, %.thread98 ], [ -12, %.loopexit.thread ]
+  %.5 = phi i32 [ %.051112145, %132 ], [ -12, %.loopexit.thread ], [ %.4.ph, %.thread98 ]
   %137 = call i32 @av_bprint_finalize(ptr noundef nonnull %6, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.5

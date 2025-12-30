@@ -71,8 +71,8 @@ define void @dsfrk_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %.not497 = icmp slt i32 %37, %38
   br i1 %.not497, label %.thread, label %40
 
-.thread:                                          ; preds = %22, %25, %33, %30, %28, %36
-  %.0468.neg486 = phi i32 [ 8, %36 ], [ 1, %22 ], [ 2, %25 ], [ 5, %33 ], [ 4, %30 ], [ 3, %28 ]
+.thread:                                          ; preds = %33, %30, %28, %25, %22, %36
+  %.0468.neg486 = phi i32 [ 8, %36 ], [ 5, %33 ], [ 4, %30 ], [ 3, %28 ], [ 2, %25 ], [ 1, %22 ]
   store i32 %.0468.neg486, ptr %11, align 4, !tbaa !3
   %39 = call i32 @xerbla_(ptr noundef nonnull @.str.4, ptr noundef nonnull %11, i32 noundef 6) #5
   br label %.loopexit

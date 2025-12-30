@@ -208,7 +208,7 @@ define hidden range(i32 0, 2) i32 @rtpstream_info_cmp(ptr noundef %0, ptr nounde
   br label %9
 
 9:                                                ; preds = %7, %4, %2
-  %.0 = phi i32 [ 1, %4 ], [ 0, %2 ], [ %., %7 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %4 ], [ %., %7 ]
   ret i32 %.0
 }
 

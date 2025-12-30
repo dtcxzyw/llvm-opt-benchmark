@@ -159,7 +159,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -707,13 +707,13 @@ _ZL23whichFileModTimeIsLaterPKcS0_.exit.thread:   ; preds = %61, %66
   br label %_ZL23whichFileModTimeIsLaterPKcS0_.exit66
 
 _ZL23whichFileModTimeIsLaterPKcS0_.exit66:        ; preds = %89, %82, %90
-  %not.or.cond7 = phi i8 [ 0, %90 ], [ 1, %89 ], [ 0, %82 ]
+  %not.or.cond7 = phi i8 [ 0, %90 ], [ 0, %82 ], [ 1, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %93
 
 93:                                               ; preds = %.thread85, %.thread81, %_ZL23whichFileModTimeIsLaterPKcS0_.exit66, %74, %.critedge, %3
-  %.0 = phi i8 [ 0, %74 ], [ 0, %.critedge ], [ 0, %3 ], [ %not.or.cond7, %_ZL23whichFileModTimeIsLaterPKcS0_.exit66 ], [ 0, %.thread85 ], [ %.138, %.thread81 ]
+  %.0 = phi i8 [ 0, %3 ], [ 0, %.critedge ], [ %not.or.cond7, %_ZL23whichFileModTimeIsLaterPKcS0_.exit66 ], [ 0, %74 ], [ 0, %.thread85 ], [ %.138, %.thread81 ]
   ret i8 %.0
 }
 

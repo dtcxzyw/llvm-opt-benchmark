@@ -87,7 +87,7 @@ v3_check_generic.exit:                            ; preds = %31
   %38 = tail call fastcc ptr @v3_generic_extension(ptr noundef %2, ptr noundef nonnull %.1.i, i32 noundef %.08.i, i32 noundef %.012.i, ptr noundef %1)
   br label %43
 
-39:                                               ; preds = %v3_check_critical.exit, %25, %24
+39:                                               ; preds = %25, %24, %v3_check_critical.exit
   %40 = tail call i32 @OBJ_sn2nid(ptr noundef %2) #10
   %41 = tail call fastcc ptr @do_ext_nconf(ptr noundef %0, ptr noundef %1, i32 noundef %40, i32 noundef %.08.i, ptr noundef nonnull %.018)
   %.not12 = icmp eq ptr %41, null
@@ -322,7 +322,7 @@ define internal fastcc ptr @do_ext_nconf(ptr noundef %0, ptr noundef %1, i32 nou
   br label %60
 
 60:                                               ; preds = %56, %57, %48, %36, %32, %50, %47, %25, %10, %7
-  %.041 = phi ptr [ null, %7 ], [ null, %25 ], [ null, %48 ], [ null, %10 ], [ null, %32 ], [ null, %36 ], [ null, %47 ], [ null, %50 ], [ %53, %57 ], [ %53, %56 ]
+  %.041 = phi ptr [ null, %7 ], [ null, %25 ], [ null, %47 ], [ null, %50 ], [ null, %10 ], [ null, %32 ], [ null, %36 ], [ null, %48 ], [ %53, %57 ], [ %53, %56 ]
   ret ptr %.041
 }
 
@@ -405,7 +405,7 @@ v3_check_generic.exit:                            ; preds = %31
   %39 = tail call fastcc ptr @v3_generic_extension(ptr noundef %38, ptr noundef nonnull %.1.i, i32 noundef %.08.i, i32 noundef %.012.i, ptr noundef %1)
   br label %42
 
-40:                                               ; preds = %v3_check_critical.exit, %25, %24
+40:                                               ; preds = %25, %24, %v3_check_critical.exit
   %41 = tail call fastcc ptr @do_ext_nconf(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %.08.i, ptr noundef nonnull %.013)
   br label %42
 
@@ -557,7 +557,7 @@ define hidden range(i32 0, 2) i32 @X509V3_EXT_add_nconf_sk(ptr noundef %0, ptr n
   br i1 %27, label %.lr.ph.split, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %.lr.ph.split, %23, %.lr.ph.split.us, %13, %.preheader, %4
-  %.015 = phi i32 [ 0, %4 ], [ 0, %.lr.ph.split.us ], [ 1, %.preheader ], [ 1, %13 ], [ 0, %.lr.ph.split ], [ 1, %23 ]
+  %.015 = phi i32 [ 0, %4 ], [ 1, %.preheader ], [ 0, %.lr.ph.split.us ], [ 1, %13 ], [ 0, %.lr.ph.split ], [ 1, %23 ]
   ret i32 %.015
 }
 

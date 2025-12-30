@@ -396,7 +396,7 @@ define range(i32 -2147483648, 1) i32 @av_grow_packet(ptr noundef %0, i32 noundef
   br label %73
 
 73:                                               ; preds = %21, %.critedge, %51, %7, %.thread
-  %.0 = phi i32 [ -12, %7 ], [ 0, %.thread ], [ -12, %51 ], [ %44, %.critedge ], [ -12, %21 ]
+  %.0 = phi i32 [ 0, %.thread ], [ -12, %7 ], [ -12, %51 ], [ -12, %21 ], [ %44, %.critedge ]
   ret i32 %.0
 }
 
@@ -432,7 +432,7 @@ define range(i32 -22, 1) i32 @av_packet_from_data(ptr noundef writeonly captures
   br label %12
 
 12:                                               ; preds = %5, %3, %9
-  %.0 = phi i32 [ -22, %3 ], [ 0, %9 ], [ -12, %5 ]
+  %.0 = phi i32 [ 0, %9 ], [ -22, %3 ], [ -12, %5 ]
   ret i32 %.0
 }
 
@@ -532,7 +532,7 @@ define range(i32 -34, 1) i32 @av_packet_add_side_data(ptr noundef captures(none)
   br label %31
 
 31:                                               ; preds = %14, %19, %._crit_edge, %24
-  %.2 = phi i32 [ 0, %14 ], [ -34, %._crit_edge ], [ 0, %24 ], [ -12, %19 ]
+  %.2 = phi i32 [ 0, %14 ], [ 0, %24 ], [ -34, %._crit_edge ], [ -12, %19 ]
   ret i32 %.2
 }
 
@@ -620,7 +620,7 @@ define ptr @av_packet_new_side_data(ptr noundef captures(none) %0, i32 noundef %
   br label %av_packet_add_side_data.exit
 
 av_packet_add_side_data.exit:                     ; preds = %19, %29, %6, %3, %36
-  %.0 = phi ptr [ null, %3 ], [ null, %36 ], [ null, %6 ], [ %8, %29 ], [ %8, %19 ]
+  %.0 = phi ptr [ null, %36 ], [ null, %3 ], [ null, %6 ], [ %8, %29 ], [ %8, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -825,8 +825,8 @@ define range(i32 -2147483648, 1) i32 @av_packet_unpack_dictionary(ptr noundef %0
   %23 = icmp ult ptr %22, %8
   br i1 %23, label %.lr.ph, label %.thread, !llvm.loop !46
 
-.thread:                                          ; preds = %19, %.lr.ph, %14, %16, %7, %3
-  %.0 = phi i32 [ 0, %3 ], [ -1094995529, %7 ], [ 0, %19 ], [ -1094995529, %.lr.ph ], [ -1094995529, %14 ], [ %17, %16 ]
+.thread:                                          ; preds = %19, %14, %.lr.ph, %16, %7, %3
+  %.0 = phi i32 [ 0, %3 ], [ -1094995529, %7 ], [ 0, %19 ], [ -1094995529, %14 ], [ -1094995529, %.lr.ph ], [ %17, %16 ]
   ret i32 %.0
 }
 
@@ -869,7 +869,7 @@ define range(i32 -12, 1) i32 @av_packet_shrink_side_data(ptr noundef readonly ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %3, %15, %19
-  %.012 = phi i32 [ -12, %15 ], [ 0, %19 ], [ -2, %3 ], [ -2, %9 ]
+  %.012 = phi i32 [ 0, %19 ], [ -12, %15 ], [ -2, %3 ], [ -2, %9 ]
   ret i32 %.012
 }
 
@@ -1623,7 +1623,7 @@ av_packet_get_side_data.exit.thread:              ; preds = %11, %5, %av_packet_
   br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !63
 
 .loopexit:                                        ; preds = %31, %.thread.thread, %av_packet_get_side_data.exit.thread, %.thread
-  %.020 = phi i32 [ -12, %av_packet_get_side_data.exit.thread ], [ -12, %.thread ], [ 0, %.thread.thread ], [ 0, %31 ]
+  %.020 = phi i32 [ -12, %.thread ], [ -12, %av_packet_get_side_data.exit.thread ], [ 0, %.thread.thread ], [ 0, %31 ]
   ret i32 %.020
 }
 
@@ -1766,7 +1766,7 @@ define ptr @av_packet_side_data_add(ptr noundef captures(none) %0, ptr noundef c
   br label %packet_side_data_add.exit
 
 packet_side_data_add.exit:                        ; preds = %.thread.i, %._crit_edge.i, %._crit_edge.thread.i, %19
-  %.1.i = phi ptr [ %10, %.thread.i ], [ %21, %19 ], [ null, %._crit_edge.i ], [ null, %._crit_edge.thread.i ]
+  %.1.i = phi ptr [ %21, %19 ], [ null, %._crit_edge.i ], [ null, %._crit_edge.thread.i ], [ %10, %.thread.i ]
   ret ptr %.1.i
 }
 
@@ -1845,7 +1845,7 @@ define ptr @av_packet_side_data_new(ptr noundef captures(none) %0, ptr noundef c
   br label %packet_side_data_add.exit
 
 packet_side_data_add.exit:                        ; preds = %25, %.thread.i, %30, %8, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %8 ], [ null, %30 ], [ %16, %.thread.i ], [ %27, %25 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %8 ], [ null, %30 ], [ %27, %25 ], [ %16, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }

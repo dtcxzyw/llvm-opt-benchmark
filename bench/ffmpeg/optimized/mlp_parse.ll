@@ -472,7 +472,7 @@ truehd_layout.exit101:                            ; preds = %243, %mlp_samplerat
   br label %329
 
 329:                                              ; preds = %47, %33, %truehd_layout.exit101, %32, %mlp_get_major_sync_size.exit
-  %.0 = phi i32 [ -1, %mlp_get_major_sync_size.exit ], [ -1094995529, %32 ], [ -1094995529, %33 ], [ 0, %truehd_layout.exit101 ], [ -1094995529, %47 ]
+  %.0 = phi i32 [ -1, %mlp_get_major_sync_size.exit ], [ -1094995529, %32 ], [ 0, %truehd_layout.exit101 ], [ -1094995529, %33 ], [ -1094995529, %47 ]
   ret i32 %.0
 }
 

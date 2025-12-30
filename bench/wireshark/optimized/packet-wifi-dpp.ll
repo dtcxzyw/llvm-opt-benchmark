@@ -732,7 +732,7 @@ define internal i32 @dissect_wifi_dpp_tcp_pdu(ptr noundef %0, ptr noundef readon
   br label %93
 
 93:                                               ; preds = %4, %57, %83, %20, %12
-  %.0 = phi i32 [ %19, %12 ], [ %46, %20 ], [ 5, %4 ], [ %92, %83 ], [ %82, %57 ]
+  %.0 = phi i32 [ %19, %12 ], [ %46, %20 ], [ %92, %83 ], [ %82, %57 ], [ 5, %4 ]
   ret i32 %.0
 }
 

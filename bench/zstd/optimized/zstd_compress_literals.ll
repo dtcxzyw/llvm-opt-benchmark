@@ -399,7 +399,7 @@ allBytesIdentical.exit:                           ; preds = %.lr.ph.i, %ZSTD_noC
   br label %ZSTD_noCompressLiterals.exit
 
 ZSTD_noCompressLiterals.exit:                     ; preds = %114, %96, %68, %50, %38, %20, %70, %162, %allBytesIdentical.exit.thread
-  %.0 = phi i64 [ -70, %70 ], [ -70, %20 ], [ -70, %50 ], [ %126, %allBytesIdentical.exit.thread ], [ %163, %162 ], [ %27, %38 ], [ %57, %68 ], [ -70, %96 ], [ %103, %114 ]
+  %.0 = phi i64 [ %126, %allBytesIdentical.exit.thread ], [ %163, %162 ], [ -70, %70 ], [ %27, %38 ], [ -70, %20 ], [ %57, %68 ], [ -70, %50 ], [ -70, %96 ], [ %103, %114 ]
   ret i64 %.0
 }
 

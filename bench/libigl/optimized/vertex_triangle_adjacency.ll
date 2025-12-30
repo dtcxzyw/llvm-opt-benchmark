@@ -347,7 +347,7 @@ _ZN5Eigen6MatrixIlLin1ELi1ELi0ELin1ELi1EEC2IliEERKT_RKT0_.exit: ; preds = %_ZN5E
   br i1 %exitcond80.not, label %86, label %89, !llvm.loop !30
 
 .body:                                            ; preds = %84, %43, %.body50, %82
-  %.pn41 = phi { ptr, i32 } [ %44, %43 ], [ %85, %84 ], [ %69, %.body50 ], [ %83, %82 ]
+  %.pn41 = phi { ptr, i32 } [ %69, %.body50 ], [ %83, %82 ], [ %85, %84 ], [ %44, %43 ]
   %106 = load ptr, ptr %5, align 8, !tbaa !11
   call void @free(ptr noundef %106) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3167,7 +3167,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IliEERKT_RKT0_.exit: ; preds = %_ZN5E
   br i1 %exitcond88.not, label %126, label %127, !llvm.loop !121
 
 .body:                                            ; preds = %124, %40, %.body53, %122
-  %.pn41 = phi { ptr, i32 } [ %41, %40 ], [ %125, %124 ], [ %108, %.body53 ], [ %123, %122 ]
+  %.pn41 = phi { ptr, i32 } [ %108, %.body53 ], [ %123, %122 ], [ %125, %124 ], [ %41, %40 ]
   %141 = load ptr, ptr %5, align 8, !tbaa !108
   call void @free(ptr noundef %141) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3525,7 +3525,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IliEERKT_RKT0_.exit: ; preds = %_ZN5E
   br i1 %exitcond88.not, label %126, label %127, !llvm.loop !128
 
 .body:                                            ; preds = %124, %40, %.body53, %122
-  %.pn41 = phi { ptr, i32 } [ %41, %40 ], [ %125, %124 ], [ %108, %.body53 ], [ %123, %122 ]
+  %.pn41 = phi { ptr, i32 } [ %108, %.body53 ], [ %123, %122 ], [ %125, %124 ], [ %41, %40 ]
   %141 = load ptr, ptr %5, align 8, !tbaa !108
   call void @free(ptr noundef %141) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

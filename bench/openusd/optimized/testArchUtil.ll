@@ -87,7 +87,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   unreachable
 
 common.resume:                                    ; preds = %23, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i, %.body.i3
-  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %30, %.body.i3 ], [ %24, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %.body.i3 ], [ %24, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i ], [ %24, %23 ]
   resume { ptr, i32 } %common.resume.op
 
 .preheader:                                       ; preds = %1, %.preheader

@@ -733,7 +733,7 @@ define hidden noundef i32 @_sodium_blake2b_pick_best_implementation() local_unna
   br label %6
 
 6:                                                ; preds = %4, %2, %0
-  %_sodium_blake2b_compress_ref.sink = phi ptr [ @_sodium_blake2b_compress_sse41, %2 ], [ %_sodium_blake2b_compress_ref._sodium_blake2b_compress_ssse3, %4 ], [ @_sodium_blake2b_compress_avx2, %0 ]
+  %_sodium_blake2b_compress_ref.sink = phi ptr [ @_sodium_blake2b_compress_avx2, %0 ], [ @_sodium_blake2b_compress_sse41, %2 ], [ %_sodium_blake2b_compress_ref._sodium_blake2b_compress_ssse3, %4 ]
   store ptr %_sodium_blake2b_compress_ref.sink, ptr @blake2b_compress, align 8
   ret i32 0
 }

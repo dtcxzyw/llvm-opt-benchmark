@@ -254,10 +254,10 @@ define hidden void @_ZN12pingora_core10connectors2l414bind_to_random17h2628a5e3e
   br label %37
 
 37:                                               ; preds = %36, %34, %24, %21
-  %.sroa.0.1.sink = phi i16 [ %14, %21 ], [ undef, %34 ], [ %35, %36 ], [ undef, %24 ]
-  %.sroa.9.1.sink = phi i16 [ %.sroa.012.0, %21 ], [ 2, %34 ], [ 0, %36 ], [ 2, %24 ]
-  %.sink56 = phi i32 [ %.sroa.15.sroa.0.0.insert.insert, %21 ], [ 0, %34 ], [ 0, %36 ], [ 0, %24 ]
-  %.sink = phi i8 [ %23, %21 ], [ 0, %34 ], [ 0, %36 ], [ 0, %24 ]
+  %.sroa.0.1.sink = phi i16 [ %14, %21 ], [ %35, %36 ], [ undef, %34 ], [ undef, %24 ]
+  %.sroa.9.1.sink = phi i16 [ %.sroa.012.0, %21 ], [ 0, %36 ], [ 2, %34 ], [ 2, %24 ]
+  %.sink56 = phi i32 [ %.sroa.15.sroa.0.0.insert.insert, %21 ], [ 0, %36 ], [ 0, %34 ], [ 0, %24 ]
+  %.sink = phi i8 [ %23, %21 ], [ 0, %36 ], [ 0, %34 ], [ 0, %24 ]
   store i16 %.sroa.0.1.sink, ptr %0, align 4
   %.sroa.8.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.8.0..sroa_idx21, ptr noundef nonnull align 2 dereferenceable(30) %.sroa.511, i64 30, i1 false)
@@ -342,10 +342,10 @@ define hidden void @_ZN12pingora_core10connectors2l414bind_to_random17hc04ac5fc3
   br label %37
 
 37:                                               ; preds = %36, %34, %24, %21
-  %.sroa.0.1.sink = phi i16 [ %14, %21 ], [ undef, %34 ], [ %35, %36 ], [ undef, %24 ]
-  %.sroa.9.1.sink = phi i16 [ %.sroa.012.0, %21 ], [ 2, %34 ], [ 0, %36 ], [ 2, %24 ]
-  %.sink56 = phi i32 [ %.sroa.15.sroa.0.0.insert.insert, %21 ], [ 0, %34 ], [ 0, %36 ], [ 0, %24 ]
-  %.sink = phi i8 [ %23, %21 ], [ 0, %34 ], [ 0, %36 ], [ 0, %24 ]
+  %.sroa.0.1.sink = phi i16 [ %14, %21 ], [ %35, %36 ], [ undef, %34 ], [ undef, %24 ]
+  %.sroa.9.1.sink = phi i16 [ %.sroa.012.0, %21 ], [ 0, %36 ], [ 2, %34 ], [ 2, %24 ]
+  %.sink56 = phi i32 [ %.sroa.15.sroa.0.0.insert.insert, %21 ], [ 0, %36 ], [ 0, %34 ], [ 0, %24 ]
+  %.sink = phi i8 [ %23, %21 ], [ 0, %36 ], [ 0, %34 ], [ 0, %24 ]
   store i16 %.sroa.0.1.sink, ptr %0, align 4
   %.sroa.8.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.8.0..sroa_idx21, ptr noundef nonnull align 2 dereferenceable(30) %.sroa.511, i64 30, i1 false)
@@ -554,7 +554,7 @@ define hidden noundef align 8 dereferenceable_or_null(56) ptr @_ZN12pingora_core
   br label %7
 
 7:                                                ; preds = %3, %1
-  %.sroa.0.0 = phi ptr [ %spec.select, %3 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %spec.select, %3 ]
   ret ptr %.sroa.0.0
 }
 
@@ -573,7 +573,7 @@ define hidden noundef align 8 dereferenceable_or_null(56) ptr @_ZN12pingora_core
   br label %7
 
 7:                                                ; preds = %3, %1
-  %.sroa.0.0 = phi ptr [ %spec.select, %3 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %spec.select, %3 ]
   ret ptr %.sroa.0.0
 }
 
@@ -844,11 +844,11 @@ define hidden void @_ZN12pingora_core9upstreams4peer8HttpPeer3new17h5dd3c3c21a81
   unreachable
 
 41:                                               ; preds = %.body.thread, %14
-  %.pn7 = phi { ptr, i32 } [ %33, %14 ], [ %.pn8, %.body.thread ]
+  %.pn7 = phi { ptr, i32 } [ %.pn8, %.body.thread ], [ %33, %14 ]
   resume { ptr, i32 } %.pn7
 
 .body.thread:                                     ; preds = %21, %.body.thread11, %14
-  %.pn8 = phi { ptr, i32 } [ %13, %.body.thread11 ], [ %33, %14 ], [ %22, %21 ]
+  %.pn8 = phi { ptr, i32 } [ %33, %14 ], [ %13, %.body.thread11 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2a930a17f94e3522E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #30
           to label %41 unwind label %39
 }
@@ -3319,9 +3319,9 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !244
   br label %24
 
-24:                                               ; preds = %2, %20
-  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
-  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
+24:                                               ; preds = %20, %2
+  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
+  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #29
   unreachable
 
@@ -3448,9 +3448,9 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i: ; preds = %17
   store i64 %18, ptr %0, align 8, !alias.scope !256
   br label %43
 
-42:                                               ; preds = %13, %17, %37, %14
-  %.sroa.3.0.i.ph = phi i64 [ undef, %14 ], [ %40, %37 ], [ undef, %17 ], [ undef, %13 ]
-  %.sroa.0.0.i.ph = phi i64 [ 0, %14 ], [ %38, %37 ], [ 0, %17 ], [ 0, %13 ]
+42:                                               ; preds = %17, %14, %13, %37
+  %.sroa.3.0.i.ph = phi i64 [ %40, %37 ], [ undef, %13 ], [ undef, %14 ], [ undef, %17 ]
+  %.sroa.0.0.i.ph = phi i64 [ %38, %37 ], [ 0, %13 ], [ 0, %14 ], [ 0, %17 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %.sroa.0.0.i.ph, i64 %.sroa.3.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5) #29
   unreachable
 
@@ -3636,9 +3636,9 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %12
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !260
   br label %40
 
-40:                                               ; preds = %5, %9, %36, %12
-  %.sroa.6.0.i.ph = phi i64 [ undef, %12 ], [ %39, %36 ], [ undef, %9 ], [ undef, %5 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %12 ], [ %37, %36 ], [ 0, %9 ], [ 0, %5 ]
+40:                                               ; preds = %36, %5, %9, %12
+  %.sroa.6.0.i.ph = phi i64 [ undef, %12 ], [ undef, %9 ], [ undef, %5 ], [ %39, %36 ]
+  %.sroa.04.0.i.ph = phi i64 [ 0, %12 ], [ 0, %9 ], [ 0, %5 ], [ %37, %36 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce1b7f10e4a9ac49eb735fa387efb4b9.63) #29
   unreachable
 
@@ -3670,7 +3670,7 @@ define hidden noundef range(i64 0, 2) i64 @_ZN5bytes3buf8buf_impl3Buf15chunks_ve
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %5, %3, %8
-  %.sroa.0.0 = phi i64 [ 0, %3 ], [ 1, %8 ], [ 0, %5 ]
+  %.sroa.0.0 = phi i64 [ 1, %8 ], [ 0, %3 ], [ 0, %5 ]
   ret i64 %.sroa.0.0
 
 8:                                                ; preds = %5

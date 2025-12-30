@@ -341,7 +341,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit65:              ; preds = %_ZNK4llvm9StringRef
   br i1 %21, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.thread, label %.critedge
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit61, %_ZN4llvmeqENS_9StringRefES0_.exit53, %_ZN4llvmeqENS_9StringRefES0_.exit49, %_ZN4llvmeqENS_9StringRefES0_.exit45, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit57.thread
-  %.034 = phi i32 [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit61 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit49 ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit57.thread ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit53 ]
+  %.034 = phi i32 [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit57.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit49 ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit53 ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit61 ]
   store i32 %.034, ptr %0, align 4, !tbaa !24
   %.not39 = icmp eq i64 %.033, -1
   br i1 %.not39, label %.critedge, label %22
@@ -392,7 +392,7 @@ _ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread:   ; preds = %34, %.thread
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit61, %_ZN4llvmeqENS_9StringRefES0_.exit57, %_ZN4llvmeqENS_9StringRefES0_.exit45, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK4llvm9StringRef5rfindEcm.exit.thread, %22, %34, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit65
-  %.0 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit65 ], [ %26, %22 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit57 ], [ false, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread ], [ true, %_ZNK4llvm9StringRef5rfindEcm.exit.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit61 ], [ false, %34 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
+  %.0 = phi i1 [ %26, %22 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit65 ], [ false, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread ], [ false, %34 ], [ true, %_ZNK4llvm9StringRef5rfindEcm.exit.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit57 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit61 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
   ret i1 %.0
 }
 

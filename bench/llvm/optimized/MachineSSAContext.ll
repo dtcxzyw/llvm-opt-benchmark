@@ -348,7 +348,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17GenericSSAContextINS_15MachineFun
   br i1 %or.cond, label %.critedge20, label %27
 
 27:                                               ; preds = %22, %22, %25, %.lr.ph
-  %.sroa.025.1 = phi i32 [ %.sroa.025.031, %22 ], [ %.sroa.025.031, %.lr.ph ], [ %.sroa.025.031, %22 ], [ %21, %25 ]
+  %.sroa.025.1 = phi i32 [ %.sroa.025.031, %22 ], [ %.sroa.025.031, %.lr.ph ], [ %21, %25 ], [ %.sroa.025.031, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.not18.not = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %.not18.not, label %.lr.ph, label %.critedge20, !llvm.loop !166

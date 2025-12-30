@@ -301,8 +301,8 @@ sum_bits.exit154:                                 ; preds = %125
   br label %146
 
 146:                                              ; preds = %._crit_edge192, %sum_bits.exit
-  %.0115 = phi i1 [ %145, %._crit_edge192 ], [ false, %sum_bits.exit ]
-  %.094 = phi i32 [ %.196..4, %._crit_edge192 ], [ %63, %sum_bits.exit ]
+  %.0115 = phi i1 [ false, %sum_bits.exit ], [ %145, %._crit_edge192 ]
+  %.094 = phi i32 [ %63, %sum_bits.exit ], [ %.196..4, %._crit_edge192 ]
   %147 = add nsw i32 %41, -1
   br label %148
 

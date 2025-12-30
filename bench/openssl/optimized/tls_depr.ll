@@ -181,7 +181,7 @@ define range(i32 0, 2) i32 @ssl_hmac_old_final(ptr noundef readonly captures(non
   br label %13
 
 13:                                               ; preds = %3, %9, %10
-  %.0 = phi i32 [ 1, %9 ], [ 1, %10 ], [ 0, %3 ]
+  %.0 = phi i32 [ 1, %10 ], [ 1, %9 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -221,7 +221,7 @@ define noundef ptr @ssl_dh_to_pkey(ptr noundef %0) local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %3, %1, %7
-  %.0 = phi ptr [ null, %1 ], [ null, %7 ], [ %4, %3 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %1 ], [ %4, %3 ]
   ret ptr %.0
 }
 

@@ -259,7 +259,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %48, %50, %52, %54
   br i1 %90, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !32
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %87, %85, %81, %77, %72
-  %.0.i.i = phi i32 [ %86, %85 ], [ %78, %77 ], [ %82, %81 ], [ 1, %72 ], [ %89, %87 ]
+  %.0.i.i = phi i32 [ %78, %77 ], [ %82, %81 ], [ %86, %85 ], [ 1, %72 ], [ %89, %87 ]
   %91 = zext i32 %.0.i.i to i64
   store ptr %60, ptr %8, align 8, !tbaa !4, !alias.scope !29
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %91, i8 noundef signext 45)
@@ -623,7 +623,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !23
   br label %41
 

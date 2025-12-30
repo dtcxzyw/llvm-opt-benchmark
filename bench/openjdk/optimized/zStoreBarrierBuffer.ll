@@ -1179,7 +1179,7 @@ _ZL14make_load_goodPV8zpointer15zaddress_unsafem.exit: ; preds = %51, %54, %_ZN8
   br i1 %97, label %.sink.split, label %45
 
 .sink.split:                                      ; preds = %.loopexit, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, %96, %.lr.ph.split.us, %6
-  %.0.ph = phi i1 [ false, %6 ], [ true, %96 ], [ true, %.lr.ph.split.us ], [ false, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit ], [ false, %.loopexit ]
+  %.0.ph = phi i1 [ false, %6 ], [ true, %.lr.ph.split.us ], [ true, %96 ], [ false, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit ], [ false, %.loopexit ]
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #13
   br label %98
 
@@ -1628,7 +1628,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread: ; preds = %80, %.loopex
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread, %.loopexit.split.loop.exit48, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread, %.loopexit45.i.i.i, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread32
-  %.0 = phi i64 [ %29, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread32 ], [ %47, %.loopexit45.i.i.i ], [ %73, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37 ], [ %91, %.loopexit.split.loop.exit48 ], [ -1, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread ], [ -1, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread ]
+  %.0 = phi i64 [ %29, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread32 ], [ %73, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37 ], [ %47, %.loopexit45.i.i.i ], [ %91, %.loopexit.split.loop.exit48 ], [ -1, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread ], [ -1, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread ]
   ret i64 %.0
 }
 

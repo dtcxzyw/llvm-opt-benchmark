@@ -2278,7 +2278,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i206: ; preds = %397,
           to label %410 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %408, %255, %177
-  %.pn = phi { ptr, i32 } [ %409, %408 ], [ %178, %177 ], [ %256, %255 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit222, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit225, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %256, %255 ], [ %409, %408 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit222, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit225, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   tail call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) #21
   resume { ptr, i32 } %.pn
 
@@ -6026,7 +6026,7 @@ define dso_local noundef float @_ZN29btReducedDeformableBodySolver23solveContact
   br i1 %96, label %.lr.ph116, label %.loopexit, !llvm.loop !330
 
 .loopexit:                                        ; preds = %.lr.ph116, %.preheader96, %._crit_edge
-  %97 = phi ptr [ %52, %._crit_edge ], [ %82, %.preheader96 ], [ %82, %.lr.ph116 ]
+  %97 = phi ptr [ %82, %.preheader96 ], [ %52, %._crit_edge ], [ %82, %.lr.ph116 ]
   %98 = getelementptr inbounds nuw %class.btAlignedObjectArray.34, ptr %46, i64 %indvars.iv150
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %100 = load i32, ptr %99, align 4, !tbaa !133

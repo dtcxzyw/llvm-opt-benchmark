@@ -4015,7 +4015,7 @@ define dso_local void @gen8_de_irq_postinstall(ptr noundef %0) local_unnamed_add
   br label %.thread7
 
 19:                                               ; preds = %12, %7
-  %.ph = phi i32 [ 1052544, %7 ], [ 7344000, %12 ]
+  %.ph = phi i32 [ 7344000, %12 ], [ 1052544, %7 ]
   %20 = icmp eq i16 %5, 12
   br i1 %20, label %.thread7.thread, label %21
 

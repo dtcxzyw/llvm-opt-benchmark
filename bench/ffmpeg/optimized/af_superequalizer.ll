@@ -175,7 +175,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef readonly capture
   br label %alpha.exit.i
 
 alpha.exit.i:                                     ; preds = %60, %52, %47
-  %.0.i.i = phi nsz float [ %62, %60 ], [ %59, %52 ], [ 0.000000e+00, %47 ]
+  %.0.i.i = phi nsz float [ %59, %52 ], [ %62, %60 ], [ 0.000000e+00, %47 ]
   %63 = fmul nsz float %.0.i.i, 5.000000e-01
   %64 = fpext nsz float %63 to double
   br label %65
@@ -202,7 +202,7 @@ izero.exit.i:                                     ; preds = %65
   br label %equ_init.exit
 
 equ_init.exit:                                    ; preds = %1, %10, %15, %35, %37, %izero.exit.i
-  %.041.i = phi i32 [ %13, %10 ], [ %8, %1 ], [ 0, %izero.exit.i ], [ -12, %37 ], [ -12, %35 ], [ -12, %15 ]
+  %.041.i = phi i32 [ 0, %izero.exit.i ], [ %8, %1 ], [ %13, %10 ], [ -12, %37 ], [ -12, %35 ], [ -12, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.041.i
@@ -529,7 +529,7 @@ filter_frame.exit:                                ; preds = %48, %._crit_edge28.
   br label %137
 
 137:                                              ; preds = %132, %15, %.critedge30, %.critedge, %136, %filter_frame.exit
-  %.122 = phi i32 [ 0, %15 ], [ %.0.i, %filter_frame.exit ], [ 0, %136 ], [ %18, %.critedge ], [ 0, %132 ], [ -1497649742, %.critedge30 ]
+  %.122 = phi i32 [ %.0.i, %filter_frame.exit ], [ 0, %136 ], [ 0, %132 ], [ 0, %15 ], [ %18, %.critedge ], [ -1497649742, %.critedge30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.122
 }
@@ -752,7 +752,7 @@ hn.exit.i:                                        ; preds = %hn_lpf.exit29.i.i, 
   br label %alpha.exit.i.i
 
 alpha.exit.i.i:                                   ; preds = %118, %110, %hn.exit.i
-  %.0.i.i31.i = phi nsz float [ %120, %118 ], [ %117, %110 ], [ 0.000000e+00, %hn.exit.i ]
+  %.0.i.i31.i = phi nsz float [ %117, %110 ], [ %120, %118 ], [ 0.000000e+00, %hn.exit.i ]
   %121 = fmul nsz float %64, 4.000000e+00
   %122 = fmul nsz float %121, %64
   %123 = fdiv nsz float %122, %42

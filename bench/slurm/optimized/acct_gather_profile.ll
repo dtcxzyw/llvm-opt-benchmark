@@ -611,7 +611,7 @@ define dso_local range(i32 0, 17) i32 @acct_gather_profile_type_from_string(ptr 
   br label %9
 
 9:                                                ; preds = %7, %5, %3, %1
-  %.0 = phi i32 [ 8, %5 ], [ %., %7 ], [ 4, %3 ], [ 2, %1 ]
+  %.0 = phi i32 [ 2, %1 ], [ 4, %3 ], [ 8, %5 ], [ %., %7 ]
   ret i32 %.0
 }
 
@@ -679,8 +679,8 @@ define dso_local noundef ptr @acct_gather_profile_dataset_str(ptr noundef readon
   br label %29
 
 29:                                               ; preds = %.lr.ph, %18, %7
-  %.126 = phi ptr [ %.02533, %.lr.ph ], [ %17, %7 ], [ %28, %18 ]
-  %.1 = phi i32 [ %.035, %.lr.ph ], [ %16, %7 ], [ %27, %18 ]
+  %.126 = phi ptr [ %17, %7 ], [ %28, %18 ], [ %.02533, %.lr.ph ]
+  %.1 = phi i32 [ %16, %7 ], [ %27, %18 ], [ %.035, %.lr.ph ]
   %.not31 = icmp slt i32 %.1, %3
   %30 = getelementptr inbounds nuw i8, ptr %.02434, i64 16
   br i1 %.not31, label %.lr.ph, label %.critedge

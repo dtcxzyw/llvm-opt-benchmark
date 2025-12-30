@@ -770,7 +770,7 @@ _ZNSt14_Function_baseD2Ev.exit81:                 ; preds = %245, %248
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit71:                 ; preds = %254, %_ZNSt14_Function_baseD2Ev.exit81, %240, %_ZNSt14_Function_baseD2Ev.exit77, %226, %_ZNSt14_Function_baseD2Ev.exit73, %212, %_ZNSt14_Function_baseD2Ev.exit69
-  %.pn = phi { ptr, i32 } [ %232, %240 ], [ %218, %226 ], [ %204, %212 ], [ %204, %_ZNSt14_Function_baseD2Ev.exit69 ], [ %218, %_ZNSt14_Function_baseD2Ev.exit73 ], [ %232, %_ZNSt14_Function_baseD2Ev.exit77 ], [ %246, %_ZNSt14_Function_baseD2Ev.exit81 ], [ %246, %254 ]
+  %.pn = phi { ptr, i32 } [ %204, %_ZNSt14_Function_baseD2Ev.exit69 ], [ %204, %212 ], [ %218, %_ZNSt14_Function_baseD2Ev.exit73 ], [ %218, %226 ], [ %232, %_ZNSt14_Function_baseD2Ev.exit77 ], [ %232, %240 ], [ %246, %_ZNSt14_Function_baseD2Ev.exit81 ], [ %246, %254 ]
   resume { ptr, i32 } %.pn
 
 259:                                              ; preds = %4, %._crit_edge, %16

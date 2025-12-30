@@ -997,7 +997,7 @@ define range(i32 0, 2) i32 @Abc_CommandCS_kLiveness(ptr noundef %0, i32 noundef 
   ]
 
 .backedge:                                        ; preds = %15, %19, %18, %17
-  %.168.be = phi i32 [ 4, %19 ], [ 2, %17 ], [ 3, %18 ], [ 1, %15 ]
+  %.168.be = phi i32 [ 2, %17 ], [ 3, %18 ], [ 4, %19 ], [ 1, %15 ]
   br label %15, !llvm.loop !72
 
 17:                                               ; preds = %15

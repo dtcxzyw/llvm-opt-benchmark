@@ -856,7 +856,7 @@ define hidden noundef zeroext i1 @pm_buffer_append_unicode_codepoint(ptr noundef
   br label %pm_buffer_append_byte.exit
 
 pm_buffer_append_byte.exit:                       ; preds = %111, %106, %86, %81, %51, %46, %24, %19, %89
-  %.0 = phi i1 [ false, %89 ], [ true, %24 ], [ true, %51 ], [ true, %86 ], [ true, %19 ], [ true, %46 ], [ true, %81 ], [ true, %106 ], [ true, %111 ]
+  %.0 = phi i1 [ false, %89 ], [ true, %19 ], [ true, %24 ], [ true, %46 ], [ true, %51 ], [ true, %81 ], [ true, %86 ], [ true, %106 ], [ true, %111 ]
   ret i1 %.0
 }
 

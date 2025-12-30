@@ -543,7 +543,7 @@ define range(i32 0, 2) i32 @Sto_ManLoadNumber(ptr noundef captures(none) %0, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %14, %8
-  %.039 = phi i32 [ 0, %8 ], [ 1, %14 ], [ 0, %.critedge ]
+  %.039 = phi i32 [ 1, %14 ], [ 0, %8 ], [ 0, %.critedge ]
   ret i32 %.039
 }
 

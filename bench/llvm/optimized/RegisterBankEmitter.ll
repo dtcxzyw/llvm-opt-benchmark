@@ -404,7 +404,7 @@ _ZSt6fill_nIPPKN4llvm20CodeGenRegisterClassEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i
   br label %_ZN12_GLOBAL__N_112RegisterBankC2ERKN4llvm6RecordEj.exit
 
 _ZN12_GLOBAL__N_112RegisterBankC2ERKN4llvm6RecordEj.exit: ; preds = %_ZNSt12_Vector_baseIPKN4llvm20CodeGenRegisterClassESaIS3_EEC2EmRKS4_.exit.thread.i.i, %99, %_ZSt6fill_nIPPKN4llvm20CodeGenRegisterClassEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIPKN4llvm20CodeGenRegisterClassESaIS3_EEC2EmRKS4_.exit.thread.i.i ], [ %104, %99 ], [ %107, %_ZSt6fill_nIPPKN4llvm20CodeGenRegisterClassEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.i = phi ptr [ %104, %99 ], [ %107, %_ZSt6fill_nIPPKN4llvm20CodeGenRegisterClassEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIPKN4llvm20CodeGenRegisterClassESaIS3_EEC2EmRKS4_.exit.thread.i.i ]
   store ptr %.0.i.i.i.i.i.i, ptr %64, align 8, !tbaa !91
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !92
   call void @_ZNK4llvm6Record20getValueAsListOfDefsENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.24") align 8 %30, ptr noundef nonnull align 8 dereferenceable(192) %90, ptr nonnull @.str.21, i64 15) #18, !noalias !92
@@ -2543,8 +2543,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit296.i:            ; preds = %1099, %1097
   br label %_ZN4llvmplERKNS_5TwineES2_.exit.i
 
 _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %1108, %1107, %1103
-  %.sink915.i = phi i8 [ %.014.i.i.i, %1108 ], [ 4, %1107 ], [ %1106, %1103 ]
-  %.sink.i = phi i8 [ 4, %1108 ], [ 1, %1107 ], [ 1, %1103 ]
+  %.sink915.i = phi i8 [ 4, %1107 ], [ %.014.i.i.i, %1108 ], [ %1106, %1103 ]
+  %.sink.i = phi i8 [ 1, %1107 ], [ 4, %1108 ], [ 1, %1103 ]
   store i8 %.sink915.i, ptr %806, align 8, !tbaa !241
   store i8 %.sink.i, ptr %807, align 1, !tbaa !241
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(34) %12) #18
@@ -4133,8 +4133,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit440.i: ; preds = %
   br label %_ZN4llvmplERKNS_5TwineES2_.exit455.i
 
 _ZN4llvmplERKNS_5TwineES2_.exit455.i:             ; preds = %1850, %1849, %1845
-  %.sink917.i = phi i8 [ %.014.i.i444.i, %1850 ], [ 4, %1849 ], [ %1848, %1845 ]
-  %.sink916.i = phi i8 [ 4, %1850 ], [ 1, %1849 ], [ 1, %1845 ]
+  %.sink917.i = phi i8 [ 4, %1849 ], [ %.014.i.i444.i, %1850 ], [ %1848, %1845 ]
+  %.sink916.i = phi i8 [ 1, %1849 ], [ 4, %1850 ], [ 1, %1845 ]
   store i8 %.sink917.i, ptr %1596, align 8, !tbaa !241
   store i8 %.sink916.i, ptr %1597, align 1, !tbaa !241
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %18, ptr noundef nonnull align 8 dereferenceable(34) %19) #18
@@ -4739,8 +4739,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit517.i:            ; preds = %2138, %2136
   br label %_ZN4llvm11raw_ostreamlsEc.exit514.i
 
 _ZN4llvm11raw_ostreamlsEc.exit514.i:              ; preds = %2150, %2148, %2127, %2125, %2110
-  %.1178.i = phi i32 [ 0, %2127 ], [ 0, %2110 ], [ 0, %2125 ], [ %2108, %2148 ], [ %2108, %2150 ]
-  %.1.i = phi i1 [ false, %2127 ], [ false, %2110 ], [ false, %2125 ], [ %.0176687.i, %2148 ], [ %.0176687.i, %2150 ]
+  %.1178.i = phi i32 [ 0, %2110 ], [ 0, %2125 ], [ 0, %2127 ], [ %2108, %2148 ], [ %2108, %2150 ]
+  %.1.i = phi i1 [ false, %2110 ], [ false, %2125 ], [ false, %2127 ], [ %.0176687.i, %2148 ], [ %.0176687.i, %2150 ]
   %2152 = load ptr, ptr %293, align 8, !tbaa !125
   %2153 = load ptr, ptr %295, align 8, !tbaa !129
   %2154 = ptrtoint ptr %2152 to i64
@@ -6091,7 +6091,7 @@ _ZN4llvm12is_containedIRSt6vectorIPKNS_20CodeGenRegisterClassESaIS4_EES4_EEbOT_R
   br label %_ZN4llvm12is_containedIRSt6vectorIPKNS_20CodeGenRegisterClassESaIS4_EES4_EEbOT_RKT0_.exit.i.i.i.i
 
 _ZN4llvm12is_containedIRSt6vectorIPKNS_20CodeGenRegisterClassESaIS4_EES4_EEbOT_RKT0_.exit.i.i.i.i: ; preds = %14, %_ZN4llvm12is_containedIRSt6vectorIPKNS_20CodeGenRegisterClassESaIS4_EES4_EEbOT_RKT0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRSt6vectorIPKNS_20CodeGenRegisterClassESaIS4_EES4_EEbOT_RKT0_.exit.i.i.i.i.loopexit.split.loop.exit23, %_ZN4llvm12is_containedIRSt6vectorIPKNS_20CodeGenRegisterClassESaIS4_EES4_EEbOT_RKT0_.exit.i.i.i.i.loopexit.split.loop.exit25, %._crit_edge._crit_edge57.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i, %34
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i.i.i, %34 ], [ %47, %_ZN4llvm12is_containedIRSt6vectorIPKNS_20CodeGenRegisterClassESaIS4_EES4_EEbOT_RKT0_.exit.i.i.i.i.loopexit.split.loop.exit25 ], [ %46, %_ZN4llvm12is_containedIRSt6vectorIPKNS_20CodeGenRegisterClassESaIS4_EES4_EEbOT_RKT0_.exit.i.i.i.i.loopexit.split.loop.exit23 ], [ %45, %_ZN4llvm12is_containedIRSt6vectorIPKNS_20CodeGenRegisterClassESaIS4_EES4_EEbOT_RKT0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i.i.i.i.i, %14 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i.i.i, %34 ], [ %.sroa.032.1.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i.i.i.i ], [ %45, %_ZN4llvm12is_containedIRSt6vectorIPKNS_20CodeGenRegisterClassESaIS4_EES4_EEbOT_RKT0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %46, %_ZN4llvm12is_containedIRSt6vectorIPKNS_20CodeGenRegisterClassESaIS4_EES4_EEbOT_RKT0_.exit.i.i.i.i.loopexit.split.loop.exit23 ], [ %47, %_ZN4llvm12is_containedIRSt6vectorIPKNS_20CodeGenRegisterClassESaIS4_EES4_EEbOT_RKT0_.exit.i.i.i.i.loopexit.split.loop.exit25 ], [ %.sroa.032.051.i.i.i.i.i.i.i.i, %14 ]
   %.not.i.i.i.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i.i.i, %7
   br i1 %.not.i.i.i.i, label %_ZN4llvm12is_containedIRSt6vectorIPKNS_20CodeGenRegisterClassESaIS4_EES4_EEbOT_RKT0_.exit.thread.i.i.i.i, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_119RegisterBankEmitter3runERN4llvm11raw_ostreamEE3$_0JPKNS2_20CodeGenRegisterClassENS2_9StringRefEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 

@@ -1516,7 +1516,7 @@ _ZN5folly7futures7Barrier16freeControlBlockEPNS1_12ControlBlockE.exit: ; preds =
   ret void
 
 .body:                                            ; preds = %_ZN5folly6detail7TryBaseIbED2Ev.exit5.i23, %_ZN5folly6detail7TryBaseIbED2Ev.exit5.i, %57, %37
-  %.pn = phi { ptr, i32 } [ %48, %_ZN5folly6detail7TryBaseIbED2Ev.exit5.i ], [ %38, %37 ], [ %58, %57 ], [ %67, %_ZN5folly6detail7TryBaseIbED2Ev.exit5.i23 ]
+  %.pn = phi { ptr, i32 } [ %58, %57 ], [ %38, %37 ], [ %48, %_ZN5folly6detail7TryBaseIbED2Ev.exit5.i ], [ %67, %_ZN5folly6detail7TryBaseIbED2Ev.exit5.i23 ]
   %100 = load ptr, ptr %0, align 8, !tbaa !129
   %.not.i.i = icmp eq ptr %100, null
   br i1 %.not.i.i, label %_ZN5folly7futures6detail10FutureBaseIbED2Ev.exit, label %101

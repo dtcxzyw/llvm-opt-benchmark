@@ -416,7 +416,7 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   br label %._crit_edge138
 
 ._crit_edge138:                                   ; preds = %.preheader.preheader, %._crit_edge138.loopexit147, %._crit_edge138.loopexit, %29
-  %.0126.lcssa = phi i32 [ %44, %29 ], [ %122, %._crit_edge138.loopexit147 ], [ %121, %._crit_edge138.loopexit ], [ %108, %.preheader.preheader ]
+  %.0126.lcssa = phi i32 [ %44, %29 ], [ %121, %._crit_edge138.loopexit ], [ %122, %._crit_edge138.loopexit147 ], [ %108, %.preheader.preheader ]
   %123 = sub nsw i32 %46, %.0126.lcssa
   %124 = icmp sgt i32 %123, 0
   br i1 %124, label %125, label %137

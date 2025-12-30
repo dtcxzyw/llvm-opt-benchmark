@@ -471,7 +471,7 @@ lv_obj_get_scroll_x.exit:                         ; preds = %._crit_edge.thread,
   br label %67
 
 67:                                               ; preds = %6, %lv_obj_get_scroll_x.exit, %10
-  %.0 = phi i32 [ %66, %lv_obj_get_scroll_x.exit ], [ %13, %10 ], [ 0, %6 ]
+  %.0 = phi i32 [ %13, %10 ], [ %66, %lv_obj_get_scroll_x.exit ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -601,7 +601,7 @@ lv_obj_get_scroll_x.exit:                         ; preds = %52, %58
   br label %66
 
 66:                                               ; preds = %7, %lv_obj_get_scroll_x.exit, %11
-  %.0 = phi i32 [ %65, %lv_obj_get_scroll_x.exit ], [ %13, %11 ], [ 0, %7 ]
+  %.0 = phi i32 [ %13, %11 ], [ %65, %lv_obj_get_scroll_x.exit ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1168,10 +1168,10 @@ lv_obj_get_scroll_snap_y.exit:                    ; preds = %7
   br label %20
 
 20:                                               ; preds = %lv_obj_get_scroll_snap_y.exit, %lv_obj_get_scroll_snap_y.exit.thread
-  %21 = phi ptr [ %19, %lv_obj_get_scroll_snap_y.exit ], [ %10, %lv_obj_get_scroll_snap_y.exit.thread ]
-  %.0.i155177 = phi i32 [ %18, %lv_obj_get_scroll_snap_y.exit ], [ 0, %lv_obj_get_scroll_snap_y.exit.thread ]
-  %.0.i170175 = phi i32 [ %15, %lv_obj_get_scroll_snap_y.exit ], [ 15, %lv_obj_get_scroll_snap_y.exit.thread ]
-  %22 = phi ptr [ %spec.select, %lv_obj_get_scroll_snap_y.exit ], [ %0, %lv_obj_get_scroll_snap_y.exit.thread ]
+  %21 = phi ptr [ %10, %lv_obj_get_scroll_snap_y.exit.thread ], [ %19, %lv_obj_get_scroll_snap_y.exit ]
+  %.0.i155177 = phi i32 [ 0, %lv_obj_get_scroll_snap_y.exit.thread ], [ %18, %lv_obj_get_scroll_snap_y.exit ]
+  %.0.i170175 = phi i32 [ 15, %lv_obj_get_scroll_snap_y.exit.thread ], [ %15, %lv_obj_get_scroll_snap_y.exit ]
+  %22 = phi ptr [ %0, %lv_obj_get_scroll_snap_y.exit.thread ], [ %spec.select, %lv_obj_get_scroll_snap_y.exit ]
   %23 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %5, i32 noundef 0, i8 noundef zeroext 16) #5
   %24 = ptrtoint ptr %23 to i64
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %24 to i32
@@ -1250,7 +1250,7 @@ lv_obj_get_scroll_snap_y.exit:                    ; preds = %7
   br label %lv_obj_get_scroll_top.exit
 
 lv_obj_get_scroll_top.exit:                       ; preds = %67, %64, %20, %75, %73
-  %.0146 = phi i32 [ 0, %73 ], [ 0, %20 ], [ %spec.store.select2, %75 ], [ %72, %67 ], [ 0, %64 ]
+  %.0146 = phi i32 [ %spec.store.select2, %75 ], [ 0, %73 ], [ 0, %20 ], [ %72, %67 ], [ 0, %64 ]
   switch i32 %.0.i155177, label %default.unreachable [
     i32 1, label %79
     i32 2, label %84
@@ -1305,8 +1305,8 @@ lv_obj_get_scroll_snap_x.exit:                    ; preds = %98
   br label %lv_obj_get_scroll_snap_x.exit.thread
 
 lv_obj_get_scroll_snap_x.exit.thread:             ; preds = %lv_obj_get_scroll_snap_x.exit, %98
-  %.0.i162183 = phi i32 [ %104, %lv_obj_get_scroll_snap_x.exit ], [ 0, %98 ]
-  %105 = phi ptr [ %spec.select185, %lv_obj_get_scroll_snap_x.exit ], [ %0, %98 ]
+  %.0.i162183 = phi i32 [ 0, %98 ], [ %104, %lv_obj_get_scroll_snap_x.exit ]
+  %105 = phi ptr [ %0, %98 ], [ %spec.select185, %lv_obj_get_scroll_snap_x.exit ]
   %106 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %5, i32 noundef 0, i8 noundef zeroext 18) #5
   %107 = ptrtoint ptr %106 to i64
   %.sroa.0.0.extract.trunc.i.i163 = trunc i64 %107 to i32
@@ -1371,7 +1371,7 @@ lv_obj_get_scroll_snap_x.exit.thread:             ; preds = %lv_obj_get_scroll_s
   br label %149
 
 149:                                              ; preds = %lv_obj_get_scroll_snap_x.exit.thread, %140, %145, %143
-  %.0148 = phi i32 [ 0, %143 ], [ %spec.store.select5, %140 ], [ %spec.store.select6, %145 ], [ 0, %lv_obj_get_scroll_snap_x.exit.thread ]
+  %.0148 = phi i32 [ %spec.store.select5, %140 ], [ %spec.store.select6, %145 ], [ 0, %143 ], [ 0, %lv_obj_get_scroll_snap_x.exit.thread ]
   %150 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %5) #5
   switch i32 %.0.i162183, label %default.unreachable [
     i32 1, label %151
@@ -1599,9 +1599,9 @@ lv_obj_get_scrollbar_mode.exit:                   ; preds = %5
   br i1 %cond, label %.loopexit, label %.lr.ph, !llvm.loop !46
 
 .loopexit317:                                     ; preds = %.lr.ph, %.thread, %13
-  %20 = phi i1 [ false, %.thread ], [ false, %13 ], [ true, %.lr.ph ]
-  %.0.i299301.shrunk = phi i16 [ 3, %.thread ], [ %11, %13 ], [ 2, %.lr.ph ]
-  %.0 = phi ptr [ %8, %.thread ], [ %14, %13 ], [ %.1320, %.lr.ph ]
+  %20 = phi i1 [ false, %13 ], [ false, %.thread ], [ true, %.lr.ph ]
+  %.0.i299301.shrunk = phi i16 [ %11, %13 ], [ 3, %.thread ], [ 2, %.lr.ph ]
+  %.0 = phi ptr [ %14, %13 ], [ %8, %.thread ], [ %.1320, %.lr.ph ]
   %21 = load ptr, ptr %6, align 8, !tbaa !3
   %22 = icmp eq ptr %21, null
   br i1 %22, label %lv_obj_get_scroll_top.exit, label %23
@@ -1803,7 +1803,7 @@ lv_obj_get_scroll_dir.exit.thread:                ; preds = %lv_obj_get_scroll_t
   br label %132
 
 132:                                              ; preds = %121, %127, %124
-  %133 = phi i32 [ 1, %124 ], [ %131, %127 ], [ %113, %121 ]
+  %133 = phi i32 [ %131, %127 ], [ 1, %124 ], [ %113, %121 ]
   %134 = icmp slt i32 %84, 1
   br i1 %134, label %135, label %142
 
@@ -1982,7 +1982,7 @@ lv_obj_get_scroll_dir.exit.thread:                ; preds = %lv_obj_get_scroll_t
   br label %249
 
 249:                                              ; preds = %238, %244, %241
-  %250 = phi i32 [ 1, %241 ], [ %248, %244 ], [ %230, %238 ]
+  %250 = phi i32 [ %248, %244 ], [ 1, %241 ], [ %230, %238 ]
   %251 = tail call i32 @llvm.smin.i32(i32 %250, i32 %72)
   %252 = icmp slt i32 %209, 1
   br i1 %252, label %253, label %267

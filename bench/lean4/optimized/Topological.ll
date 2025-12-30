@@ -2237,7 +2237,7 @@ _init_l_Lake_recFetchAcyclic___rarg___lambda__4___closed__1.exit: ; preds = %lea
   br label %50
 
 50:                                               ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %8, %7 ], [ %.sink32, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %.sink32, %.sink.split ]
   ret ptr %.0
 }
 

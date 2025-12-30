@@ -37,7 +37,7 @@ define ptr @_yr_arena_new_page(i64 noundef %0) local_unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %1, %9, %8
-  %.0 = phi ptr [ %2, %9 ], [ null, %8 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %8 ], [ %2, %9 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -303,7 +303,7 @@ define range(i32 0, 2) i32 @yr_arena_create(i64 noundef %0, i32 noundef %1, ptr 
   br label %21
 
 21:                                               ; preds = %3, %15, %14
-  %.0 = phi i32 [ 0, %15 ], [ 1, %14 ], [ 1, %3 ]
+  %.0 = phi i32 [ 1, %14 ], [ 0, %15 ], [ 1, %3 ]
   ret i32 %.0
 }
 
@@ -482,7 +482,7 @@ _yr_arena_page_for_address.exit:                  ; preds = %18, %9
   br i1 %.not51, label %.loopexit, label %.lr.ph74
 
 .loopexit:                                        ; preds = %43, %54, %_yr_arena_page_for_address.exit, %31, %45, %49, %39
-  %.040 = phi ptr [ %53, %49 ], [ %42, %39 ], [ %27, %_yr_arena_page_for_address.exit ], [ null, %45 ], [ null, %31 ], [ null, %54 ], [ null, %43 ]
+  %.040 = phi ptr [ %42, %39 ], [ %53, %49 ], [ null, %45 ], [ null, %31 ], [ %27, %_yr_arena_page_for_address.exit ], [ null, %54 ], [ null, %43 ]
   ret ptr %.040
 }
 
@@ -803,7 +803,7 @@ define range(i32 0, 2) i32 @yr_arena_reserve_memory(ptr noundef captures(none) %
   br label %_yr_arena_new_page.exit.thread
 
 _yr_arena_new_page.exit.thread:                   ; preds = %26, %33, %2, %34, %22, %17, %11
-  %.0 = phi i32 [ 1, %17 ], [ 1, %11 ], [ 0, %2 ], [ 0, %22 ], [ 0, %34 ], [ 1, %33 ], [ 1, %26 ]
+  %.0 = phi i32 [ 1, %11 ], [ 1, %17 ], [ 0, %22 ], [ 0, %34 ], [ 0, %2 ], [ 1, %33 ], [ 1, %26 ]
   ret i32 %.0
 }
 
@@ -928,7 +928,7 @@ yr_arena_allocate_memory.exit.thread:             ; preds = %13
   br label %27
 
 27:                                               ; preds = %yr_arena_allocate_memory.exit.thread, %22
-  %.020 = phi ptr [ %20, %yr_arena_allocate_memory.exit.thread ], [ %25, %22 ]
+  %.020 = phi ptr [ %25, %22 ], [ %20, %yr_arena_allocate_memory.exit.thread ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.020, ptr align 1 %1, i64 %2, i1 false)
   %.not18 = icmp eq ptr %3, null
   br i1 %.not18, label %yr_arena_allocate_memory.exit, label %28
@@ -938,7 +938,7 @@ yr_arena_allocate_memory.exit.thread:             ; preds = %13
   br label %yr_arena_allocate_memory.exit
 
 yr_arena_allocate_memory.exit:                    ; preds = %13, %27, %28
-  %.0 = phi i32 [ 0, %27 ], [ 0, %28 ], [ 1, %13 ]
+  %.0 = phi i32 [ 0, %28 ], [ 0, %27 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -981,7 +981,7 @@ yr_arena_allocate_memory.exit.thread.i:           ; preds = %14
   br label %28
 
 28:                                               ; preds = %23, %yr_arena_allocate_memory.exit.thread.i
-  %.020.i = phi ptr [ %21, %yr_arena_allocate_memory.exit.thread.i ], [ %26, %23 ]
+  %.020.i = phi ptr [ %26, %23 ], [ %21, %yr_arena_allocate_memory.exit.thread.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.020.i, ptr nonnull readonly align 1 %1, i64 %5, i1 false)
   %.not18.i = icmp eq ptr %2, null
   br i1 %.not18.i, label %yr_arena_write_data.exit, label %29
@@ -991,7 +991,7 @@ yr_arena_allocate_memory.exit.thread.i:           ; preds = %14
   br label %yr_arena_write_data.exit
 
 yr_arena_write_data.exit:                         ; preds = %14, %28, %29
-  %.0.i = phi i32 [ 0, %28 ], [ 0, %29 ], [ 1, %14 ]
+  %.0.i = phi i32 [ 0, %29 ], [ 0, %28 ], [ 1, %14 ]
   ret i32 %.0.i
 }
 

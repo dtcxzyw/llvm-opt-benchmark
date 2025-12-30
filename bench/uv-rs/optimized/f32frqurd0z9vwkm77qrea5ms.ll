@@ -771,9 +771,9 @@ common.ret:                                       ; preds = %482, %485
           to label %"_ZN4core3ptr123drop_in_place$LT$core..result..Result$LT$reqwest..async_impl..response..Response$C$reqwest_middleware..error..Error$GT$$GT$17hbf196db90513c8deE.exit.i" unwind label %128, !noalias !15
 
 .body.i:                                          ; preds = %472, %459, %185, %180, %169, %155, %128
-  %122 = phi ptr [ %460, %472 ], [ %460, %459 ], [ %96, %128 ], [ %90, %155 ], [ %163, %169 ], [ %163, %180 ], [ %163, %185 ]
-  %123 = phi ptr [ %461, %472 ], [ %461, %459 ], [ %97, %128 ], [ %91, %155 ], [ %164, %169 ], [ %164, %180 ], [ %164, %185 ]
-  %.pn92.pn.i = phi { ptr, i32 } [ %.pn92.i, %472 ], [ %.pn92.i, %459 ], [ %129, %128 ], [ %156, %155 ], [ %170, %169 ], [ %181, %180 ], [ %186, %185 ]
+  %122 = phi ptr [ %460, %472 ], [ %460, %459 ], [ %96, %128 ], [ %163, %169 ], [ %90, %155 ], [ %163, %185 ], [ %163, %180 ]
+  %123 = phi ptr [ %461, %472 ], [ %461, %459 ], [ %97, %128 ], [ %164, %169 ], [ %91, %155 ], [ %164, %185 ], [ %164, %180 ]
+  %.pn92.pn.i = phi { ptr, i32 } [ %.pn92.i, %472 ], [ %.pn92.i, %459 ], [ %129, %128 ], [ %170, %169 ], [ %156, %155 ], [ %186, %185 ], [ %181, %180 ]
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 1101
   store i8 0, ptr %124, align 1, !noalias !11
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 1102
@@ -1747,9 +1747,9 @@ common.ret:                                       ; preds = %482, %485
   br label %459
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6874d4f0d6e52aecE.exit.i": ; preds = %441, %.noexc209.i, %435, %.noexc208.i
-  %.sroa.0342.0.i = phi i64 [ %.sroa.0332.0.copyload.i, %435 ], [ 3, %.noexc208.i ], [ 3, %.noexc209.i ], [ %.sroa.0332.0.copyload.i, %441 ]
-  %.sroa.6343.0.i = phi i64 [ %.sroa.6334.0.copyload.i, %435 ], [ 0, %.noexc208.i ], [ 0, %.noexc209.i ], [ %.sroa.6334.0.copyload.i, %441 ]
-  %.sroa.11344.0.i = phi ptr [ %.sroa.7337.0.copyload.i, %435 ], [ %439, %.noexc208.i ], [ %445, %.noexc209.i ], [ %.sroa.7337.0.copyload.i, %441 ]
+  %.sroa.0342.0.i = phi i64 [ 3, %.noexc208.i ], [ %.sroa.0332.0.copyload.i, %435 ], [ 3, %.noexc209.i ], [ %.sroa.0332.0.copyload.i, %441 ]
+  %.sroa.6343.0.i = phi i64 [ 0, %.noexc208.i ], [ %.sroa.6334.0.copyload.i, %435 ], [ 0, %.noexc209.i ], [ %.sroa.6334.0.copyload.i, %441 ]
+  %.sroa.11344.0.i = phi ptr [ %439, %.noexc208.i ], [ %.sroa.7337.0.copyload.i, %435 ], [ %445, %.noexc209.i ], [ %.sroa.7337.0.copyload.i, %441 ]
   store i8 0, ptr %174, align 1, !noalias !11
   %448 = getelementptr inbounds nuw i8, ptr %1, i64 1102
   store i8 0, ptr %448, align 2, !noalias !11
@@ -1778,9 +1778,9 @@ common.ret:                                       ; preds = %482, %485
   br label %452
 
 459:                                              ; preds = %450, %446, %433, %402, %398, %390, %363, %359, %351, %324, %320, %312, %285, %281, %273, %244, %240, %217, %209, %191, %"_ZN4core3ptr46drop_in_place$LT$tokio..time..sleep..Sleep$GT$17h9e4ebecb552e9cddE.exit211.i"
-  %460 = phi ptr [ %163, %450 ], [ %163, %446 ], [ %163, %191 ], [ %105, %"_ZN4core3ptr46drop_in_place$LT$tokio..time..sleep..Sleep$GT$17h9e4ebecb552e9cddE.exit211.i" ], [ %163, %273 ], [ %163, %398 ], [ %163, %359 ], [ %163, %244 ], [ %163, %320 ], [ %163, %240 ], [ %163, %217 ], [ %163, %209 ], [ %163, %312 ], [ %163, %433 ], [ %163, %363 ], [ %163, %285 ], [ %163, %390 ], [ %163, %281 ], [ %163, %402 ], [ %163, %324 ], [ %163, %351 ]
-  %461 = phi ptr [ %164, %450 ], [ %164, %446 ], [ %164, %191 ], [ %106, %"_ZN4core3ptr46drop_in_place$LT$tokio..time..sleep..Sleep$GT$17h9e4ebecb552e9cddE.exit211.i" ], [ %164, %273 ], [ %164, %398 ], [ %164, %359 ], [ %164, %244 ], [ %164, %320 ], [ %164, %240 ], [ %164, %217 ], [ %164, %209 ], [ %164, %312 ], [ %164, %433 ], [ %164, %363 ], [ %164, %285 ], [ %164, %390 ], [ %164, %281 ], [ %164, %402 ], [ %164, %324 ], [ %164, %351 ]
-  %.pn92.i = phi { ptr, i32 } [ %451, %450 ], [ %447, %446 ], [ %192, %191 ], [ %.pn88.i, %"_ZN4core3ptr46drop_in_place$LT$tokio..time..sleep..Sleep$GT$17h9e4ebecb552e9cddE.exit211.i" ], [ %.pn80.pn.pn.i, %273 ], [ %399, %398 ], [ %360, %359 ], [ %245, %244 ], [ %321, %320 ], [ %241, %240 ], [ %218, %217 ], [ %210, %209 ], [ %.pn72.pn.pn.i, %312 ], [ %.pn48.pn.pn.i, %433 ], [ %364, %363 ], [ %286, %285 ], [ %.pn56.pn.pn.i, %390 ], [ %282, %281 ], [ %403, %402 ], [ %325, %324 ], [ %.pn64.pn.pn.i, %351 ]
+  %460 = phi ptr [ %163, %450 ], [ %163, %446 ], [ %163, %191 ], [ %105, %"_ZN4core3ptr46drop_in_place$LT$tokio..time..sleep..Sleep$GT$17h9e4ebecb552e9cddE.exit211.i" ], [ %163, %273 ], [ %163, %244 ], [ %163, %240 ], [ %163, %312 ], [ %163, %285 ], [ %163, %281 ], [ %163, %351 ], [ %163, %324 ], [ %163, %320 ], [ %163, %390 ], [ %163, %363 ], [ %163, %359 ], [ %163, %433 ], [ %163, %402 ], [ %163, %398 ], [ %163, %217 ], [ %163, %209 ]
+  %461 = phi ptr [ %164, %450 ], [ %164, %446 ], [ %164, %191 ], [ %106, %"_ZN4core3ptr46drop_in_place$LT$tokio..time..sleep..Sleep$GT$17h9e4ebecb552e9cddE.exit211.i" ], [ %164, %273 ], [ %164, %244 ], [ %164, %240 ], [ %164, %312 ], [ %164, %285 ], [ %164, %281 ], [ %164, %351 ], [ %164, %324 ], [ %164, %320 ], [ %164, %390 ], [ %164, %363 ], [ %164, %359 ], [ %164, %433 ], [ %164, %402 ], [ %164, %398 ], [ %164, %217 ], [ %164, %209 ]
+  %.pn92.i = phi { ptr, i32 } [ %451, %450 ], [ %447, %446 ], [ %192, %191 ], [ %.pn88.i, %"_ZN4core3ptr46drop_in_place$LT$tokio..time..sleep..Sleep$GT$17h9e4ebecb552e9cddE.exit211.i" ], [ %.pn80.pn.pn.i, %273 ], [ %245, %244 ], [ %241, %240 ], [ %.pn72.pn.pn.i, %312 ], [ %286, %285 ], [ %282, %281 ], [ %.pn64.pn.pn.i, %351 ], [ %325, %324 ], [ %321, %320 ], [ %.pn56.pn.pn.i, %390 ], [ %364, %363 ], [ %360, %359 ], [ %.pn48.pn.pn.i, %433 ], [ %403, %402 ], [ %399, %398 ], [ %218, %217 ], [ %210, %209 ]
   %462 = getelementptr inbounds nuw i8, ptr %1, i64 1101
   %463 = load i8, ptr %462, align 1, !range !9, !noalias !11, !noundef !7
   %464 = trunc nuw i8 %463 to i1
@@ -1877,8 +1877,8 @@ common.ret:                                       ; preds = %482, %485
   br label %common.ret
 
 .body:                                            ; preds = %475, %452
-  %486 = phi ptr [ %454, %452 ], [ %58, %475 ]
-  %.pn = phi { ptr, i32 } [ %.pn99.i, %452 ], [ %476, %475 ]
+  %486 = phi ptr [ %58, %475 ], [ %454, %452 ]
+  %.pn = phi { ptr, i32 } [ %476, %475 ], [ %.pn99.i, %452 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.1117)
   invoke fastcc void @"_ZN4core3ptr240drop_in_place$LT$reqwest_retry..middleware..RetryTransientMiddleware$LT$retry_policies..policies..exponential_backoff..ExponentialBackoff$C$uv_client..base_client..UvRetryableStrategy$GT$..execute_with_retry..$u7b$$u7b$closure$u7d$$u7d$$GT$17hade1a9d783b9728fE"(ptr noundef nonnull align 8 %486) #32
           to label %51 unwind label %487
@@ -4856,7 +4856,7 @@ define internal void @"_ZN4core3ptr101drop_in_place$LT$uv_pep508..Pep508ErrorSou
   unreachable
 
 common.resume.i:                                  ; preds = %174, %142, %84
-  %common.resume.op.i = phi { ptr, i32 } [ %143, %142 ], [ %85, %84 ], [ %175, %174 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %85, %84 ], [ %143, %142 ], [ %175, %174 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN4core3ptr51drop_in_place$LT$uv_git_types..GitUrlParseError$GT$17hb5273f1245ab30a9E.exit.i": ; preds = %92, %87
@@ -5172,7 +5172,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %common.ret.sink.split
 
 .body:                                            ; preds = %18, %11, %39, %26
-  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %40, %39 ], [ %19, %18 ], [ %12, %11 ]
+  %.pn = phi { ptr, i32 } [ %40, %39 ], [ %27, %26 ], [ %19, %18 ], [ %12, %11 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 789
   store i8 0, ptr %23, align 1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 790
@@ -5589,8 +5589,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hc6e480acd1737d73E(ptr n
   br label %"_ZN76_$LT$uv_client..flat_index..FlatIndexError$u20$as$u20$core..error..Error$GT$6source17h9698b72a0625ac95E.exit"
 
 "_ZN76_$LT$uv_client..flat_index..FlatIndexError$u20$as$u20$core..error..Error$GT$6source17h9698b72a0625ac95E.exit": ; preds = %1, %4, %6
-  %.sroa.4.0.i = phi ptr [ @anon.cb9948ad904fa42f21786b843377faa4.85.llvm.3956870708474992963, %6 ], [ @anon.cb9948ad904fa42f21786b843377faa4.83.llvm.3956870708474992963, %4 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %7, %6 ], [ %5, %4 ], [ null, %1 ]
+  %.sroa.4.0.i = phi ptr [ @anon.cb9948ad904fa42f21786b843377faa4.83.llvm.3956870708474992963, %4 ], [ @anon.cb9948ad904fa42f21786b843377faa4.85.llvm.3956870708474992963, %6 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %5, %4 ], [ %7, %6 ], [ null, %1 ]
   %8 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %.sroa.4.0.i, 1
   ret { ptr, ptr } %9
@@ -6245,8 +6245,8 @@ define hidden { i32, i32 } @"_ZN4rkyv5impls5alloc6string84_$LT$impl$u20$rkyv..tr
   br label %_ZN4rkyv6string14ArchivedString18serialize_from_str17hcc776ed6e3bf53d8E.exit
 
 _ZN4rkyv6string14ArchivedString18serialize_from_str17hcc776ed6e3bf53d8E.exit: ; preds = %2, %8, %10
-  %.sroa.5.0.i = phi i32 [ 0, %2 ], [ %13, %10 ], [ undef, %8 ]
-  %.sroa.0.0.i = phi i32 [ 0, %2 ], [ 0, %10 ], [ 1, %8 ]
+  %.sroa.5.0.i = phi i32 [ 0, %2 ], [ undef, %8 ], [ %13, %10 ]
+  %.sroa.0.0.i = phi i32 [ 0, %2 ], [ 1, %8 ], [ 0, %10 ]
   %14 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i, 0
   %15 = insertvalue { i32, i32 } %14, i32 %.sroa.5.0.i, 1
   ret { i32, i32 } %15
@@ -6432,7 +6432,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i
 
 _ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i: ; preds = %34, %23, %8
-  %.sroa.0.1.i.i = phi i64 [ 4, %8 ], [ 2, %34 ], [ 3, %23 ]
+  %.sroa.0.1.i.i = phi i64 [ 2, %34 ], [ 3, %23 ], [ 4, %8 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i64, ptr %41, align 8, !alias.scope !987, !noundef !7
   %43 = load i64, ptr %0, align 8, !range !994, !alias.scope !987, !noundef !7
@@ -8053,7 +8053,7 @@ define hidden void @"_ZN9uv_client8rkyvutil21OwnedArchive$LT$A$GT$3new17h79fbabc
   br label %.body
 
 .body:                                            ; preds = %49, %38, %24, %19
-  %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %39, %38 ], [ %25, %24 ], [ %50, %49 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %25, %24 ], [ %39, %38 ], [ %50, %49 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1091)
   call void @llvm.experimental.noalias.scope.decl(metadata !1094)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8234,7 +8234,7 @@ _ZN4core3ops8function6FnOnce9call_once17he2fd40c0c4fcc5b2E.llvm.5412606821153286
   br label %20
 
 common.resume:                                    ; preds = %38, %28, %15, %18
-  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %16, %15 ], [ %16, %18 ], [ %39, %38 ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %18 ], [ %16, %15 ], [ %29, %28 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 15:                                               ; preds = %11
@@ -8436,7 +8436,7 @@ _ZN4core3ops8function6FnOnce9call_once17he2fd40c0c4fcc5b2E.llvm.5412606821153286
   br label %20
 
 common.resume:                                    ; preds = %38, %28, %15, %18
-  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %16, %15 ], [ %16, %18 ], [ %39, %38 ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %18 ], [ %16, %15 ], [ %29, %28 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 15:                                               ; preds = %11

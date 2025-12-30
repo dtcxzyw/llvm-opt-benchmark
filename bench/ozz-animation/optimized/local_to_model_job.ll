@@ -354,7 +354,7 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   br i1 %232, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !44
 
 _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit.thread: ; preds = %1, %_ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit, %._crit_edge64
-  %.0.i57 = phi i1 [ true, %._crit_edge64 ], [ false, %_ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit ], [ false, %1 ]
+  %.0.i57 = phi i1 [ false, %_ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit ], [ true, %._crit_edge64 ], [ false, %1 ]
   ret i1 %.0.i57
 }
 

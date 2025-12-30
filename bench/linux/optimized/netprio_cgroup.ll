@@ -306,7 +306,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @netprio_set_prio(i32 %.80.
   br label %45
 
 45:                                               ; preds = %24, %25, %.thread.thread, %8, %7
-  %46 = phi i32 [ 0, %.thread.thread ], [ 0, %8 ], [ 0, %7 ], [ -12, %25 ], [ -28, %24 ]
+  %46 = phi i32 [ 0, %.thread.thread ], [ 0, %8 ], [ 0, %7 ], [ -28, %24 ], [ -12, %25 ]
   ret i32 %46
 }
 

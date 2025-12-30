@@ -1717,7 +1717,7 @@ define dso_local noundef zeroext i1 @drm_mode_equal_no_clocks(ptr noundef readon
   br label %drm_mode_match.exit
 
 drm_mode_match.exit:                              ; preds = %68, %2, %6, %8, %14, %20, %26, %32, %38, %44, %50, %56, %62
-  %73 = phi i1 [ false, %38 ], [ true, %2 ], [ false, %6 ], [ false, %62 ], [ false, %50 ], [ %or.cond, %68 ], [ false, %44 ], [ false, %56 ], [ false, %8 ], [ false, %14 ], [ false, %20 ], [ false, %26 ], [ false, %32 ]
+  %73 = phi i1 [ true, %2 ], [ false, %6 ], [ false, %62 ], [ false, %8 ], [ false, %14 ], [ false, %20 ], [ false, %26 ], [ false, %32 ], [ false, %38 ], [ false, %44 ], [ false, %50 ], [ false, %56 ], [ %or.cond, %68 ]
   ret i1 %73
 }
 
@@ -1911,7 +1911,7 @@ define dso_local i32 @drm_mode_validate_driver(ptr noundef %0, ptr noundef %1) #
   br label %.thread
 
 .thread:                                          ; preds = %46, %34, %38, %42, %18, %22, %26, %30, %15, %7, %2, %56, %50
-  %58 = phi i32 [ %57, %56 ], [ 0, %50 ], [ -2, %2 ], [ 4, %34 ], [ 4, %38 ], [ 4, %42 ], [ 3, %18 ], [ 3, %22 ], [ 3, %26 ], [ 3, %30 ], [ 16, %15 ], [ -2, %7 ], [ 4, %46 ]
+  %58 = phi i32 [ %57, %56 ], [ 0, %50 ], [ 4, %34 ], [ 4, %38 ], [ 4, %42 ], [ 3, %18 ], [ 3, %22 ], [ 3, %26 ], [ 3, %30 ], [ 16, %15 ], [ -2, %7 ], [ -2, %2 ], [ 4, %46 ]
   ret i32 %58
 }
 
@@ -2927,8 +2927,8 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   br label %.thread21.us
 
 .thread21.us:                                     ; preds = %.split.us, %159, %158, %157, %156, %150, %146, %142
-  %160 = phi i8 [ %139, %.split.us ], [ 1, %142 ], [ %139, %146 ], [ %139, %150 ], [ %139, %156 ], [ %139, %157 ], [ %139, %158 ], [ %139, %159 ]
-  %161 = phi i8 [ 1, %.split.us ], [ %138, %142 ], [ %138, %146 ], [ %138, %150 ], [ %138, %156 ], [ %138, %157 ], [ %138, %158 ], [ %138, %159 ]
+  %160 = phi i8 [ 1, %142 ], [ %139, %.split.us ], [ %139, %146 ], [ %139, %150 ], [ %139, %156 ], [ %139, %157 ], [ %139, %158 ], [ %139, %159 ]
+  %161 = phi i8 [ %138, %142 ], [ 1, %.split.us ], [ %138, %146 ], [ %138, %150 ], [ %138, %156 ], [ %138, %157 ], [ %138, %158 ], [ %138, %159 ]
   %162 = add nuw nsw i64 %137, 1
   %163 = icmp eq i64 %162, %136
   br i1 %163, label %.loopexit31, label %.split.us, !llvm.loop !27
@@ -2948,8 +2948,8 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   br label %.thread21
 
 .thread21:                                        ; preds = %169, %.split
-  %170 = phi i8 [ %166, %.split ], [ 1, %169 ]
-  %171 = phi i8 [ 1, %.split ], [ %165, %169 ]
+  %170 = phi i8 [ 1, %169 ], [ %166, %.split ]
+  %171 = phi i8 [ %165, %169 ], [ 1, %.split ]
   %172 = add nuw nsw i64 %164, 1
   %173 = icmp eq i64 %172, %136
   br i1 %173, label %.loopexit31, label %.split, !llvm.loop !27
@@ -2996,10 +2996,10 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   br label %.thread25
 
 .thread25:                                        ; preds = %182, %185, %189, %.thread79, %.loopexit31
-  %191 = phi ptr [ null, %189 ], [ null, %.thread79 ], [ null, %.loopexit31 ], [ %0, %185 ], [ %0, %182 ]
-  %192 = phi ptr [ %190, %189 ], [ %15, %.thread79 ], [ %15, %.loopexit31 ], [ %15, %185 ], [ %15, %182 ]
-  %193 = phi i1 [ false, %189 ], [ true, %.thread79 ], [ true, %.loopexit31 ], [ false, %185 ], [ false, %182 ]
-  %194 = phi i1 [ true, %189 ], [ false, %.thread79 ], [ false, %.loopexit31 ], [ true, %185 ], [ true, %182 ]
+  %191 = phi ptr [ null, %.loopexit31 ], [ null, %.thread79 ], [ %0, %185 ], [ %0, %182 ], [ null, %189 ]
+  %192 = phi ptr [ %15, %.loopexit31 ], [ %15, %.thread79 ], [ %15, %185 ], [ %15, %182 ], [ %190, %189 ]
+  %193 = phi i1 [ true, %.loopexit31 ], [ true, %.thread79 ], [ false, %185 ], [ false, %182 ], [ false, %189 ]
+  %194 = phi i1 [ false, %.loopexit31 ], [ false, %.thread79 ], [ true, %185 ], [ true, %182 ], [ true, %189 ]
   br i1 %45, label %195, label %.thread80
 
 195:                                              ; preds = %.thread25
@@ -3056,7 +3056,7 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread29, %.thread80, %215, %219
-  %224 = phi ptr [ %222, %219 ], [ %191, %.thread80 ], [ %213, %215 ], [ %223, %.thread29 ]
+  %224 = phi ptr [ %222, %219 ], [ %213, %215 ], [ %191, %.thread80 ], [ %223, %.thread29 ]
   %225 = icmp eq ptr %224, null
   br i1 %225, label %.loopexit, label %226
 
@@ -3497,8 +3497,8 @@ drm_mode_parse_cmdline_options.exit:              ; preds = %432
   store i32 %436, ptr %440, align 4
   br label %.thread
 
-.thread:                                          ; preds = %76, %263, %259, %252, %250, %248, %244, %417, %407, %404, %400, %374, %365, %353, %341, %329, %303, %299, %.thread7.i, %.thread6.i, %.thread.i, %.critedge.i, %.thread8.i, %432, %429, %.loopexit, %drm_mode_parse_cmdline_options.exit, %180, %.thread23, %210, %207, %198, %195, %89, %60, %3
-  %441 = phi i1 [ false, %180 ], [ true, %.loopexit ], [ false, %3 ], [ false, %60 ], [ false, %89 ], [ false, %.thread23 ], [ false, %263 ], [ false, %195 ], [ false, %198 ], [ false, %207 ], [ false, %210 ], [ false, %.thread8.i ], [ false, %.critedge.i ], [ false, %.thread.i ], [ false, %.thread6.i ], [ false, %.thread7.i ], [ false, %417 ], [ true, %drm_mode_parse_cmdline_options.exit ], [ false, %429 ], [ false, %432 ], [ false, %299 ], [ false, %303 ], [ false, %329 ], [ false, %341 ], [ false, %353 ], [ false, %365 ], [ false, %374 ], [ false, %400 ], [ false, %404 ], [ false, %407 ], [ false, %244 ], [ false, %248 ], [ false, %250 ], [ false, %252 ], [ false, %259 ], [ false, %76 ]
+.thread:                                          ; preds = %76, %263, %259, %252, %250, %248, %244, %417, %407, %404, %400, %374, %365, %353, %341, %329, %303, %299, %.thread8.i, %.thread7.i, %.thread6.i, %.thread.i, %.critedge.i, %432, %429, %.loopexit, %drm_mode_parse_cmdline_options.exit, %180, %.thread23, %210, %207, %198, %195, %89, %60, %3
+  %441 = phi i1 [ false, %3 ], [ false, %60 ], [ false, %89 ], [ false, %195 ], [ false, %198 ], [ false, %207 ], [ false, %210 ], [ false, %.thread23 ], [ false, %180 ], [ true, %drm_mode_parse_cmdline_options.exit ], [ true, %.loopexit ], [ false, %429 ], [ false, %432 ], [ false, %.critedge.i ], [ false, %.thread.i ], [ false, %.thread6.i ], [ false, %.thread7.i ], [ false, %.thread8.i ], [ false, %299 ], [ false, %303 ], [ false, %329 ], [ false, %341 ], [ false, %353 ], [ false, %365 ], [ false, %374 ], [ false, %400 ], [ false, %404 ], [ false, %407 ], [ false, %417 ], [ false, %244 ], [ false, %248 ], [ false, %250 ], [ false, %252 ], [ false, %259 ], [ false, %263 ], [ false, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %441
@@ -3924,7 +3924,7 @@ define dso_local noundef range(i32 -34, 1) i32 @drm_mode_convert_umode(ptr nound
   br i1 %95, label %.thread11, label %97
 
 .thread11:                                        ; preds = %93, %84, %87, %90, %72, %75, %78, %81, %69, %63, %58
-  %.ph = phi i32 [ -2, %58 ], [ 4, %84 ], [ 4, %87 ], [ 4, %90 ], [ 3, %72 ], [ 3, %75 ], [ 3, %78 ], [ 3, %81 ], [ 16, %69 ], [ -2, %63 ], [ 4, %93 ]
+  %.ph = phi i32 [ 4, %84 ], [ 4, %87 ], [ 4, %90 ], [ 3, %72 ], [ 3, %75 ], [ 3, %78 ], [ 3, %81 ], [ 16, %69 ], [ -2, %63 ], [ -2, %58 ], [ 4, %93 ]
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 %.ph, ptr %96, align 8
   br label %109

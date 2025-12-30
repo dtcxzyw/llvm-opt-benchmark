@@ -417,7 +417,7 @@ define internal range(i32 -1, 1) i32 @H5D__single_idx_delete(ptr noundef readonl
   br label %H5D__single_idx_remove.exit
 
 H5D__single_idx_remove.exit:                      ; preds = %28, %24, %8, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %8 ], [ -1, %24 ], [ 0, %28 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %1 ], [ -1, %24 ], [ 0, %28 ]
   ret i32 %.0
 }
 

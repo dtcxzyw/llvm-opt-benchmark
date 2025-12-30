@@ -901,7 +901,7 @@ sub_0139:                                         ; preds = %.tail.thread
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.critedge.thread, %225
-  %.0 = phi i32 [ 0, %.critedge.thread ], [ 0, %225 ], [ -1094995529, %._crit_edge ]
+  %.0 = phi i32 [ 0, %225 ], [ 0, %.critedge.thread ], [ -1094995529, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1059,8 +1059,8 @@ define internal fastcc noundef ptr @ass_split_section(ptr noundef nonnull %0, pt
   br i1 %exitcond.not, label %.loopexit210, label %30, !llvm.loop !57
 
 .loopexit210:                                     ; preds = %41, %36, %28, %19
-  %.2143 = phi ptr [ %38, %36 ], [ %.0141231, %19 ], [ %.0141231, %28 ], [ %.0141231, %41 ]
-  %.2140 = phi ptr [ %32, %36 ], [ %.0138232, %19 ], [ %.0138232, %28 ], [ %.0138232, %41 ]
+  %.2143 = phi ptr [ %38, %36 ], [ %.0141231, %28 ], [ %.0141231, %19 ], [ %.0141231, %41 ]
+  %.2140 = phi ptr [ %32, %36 ], [ %.0138232, %28 ], [ %.0138232, %19 ], [ %.0138232, %41 ]
   %42 = getelementptr inbounds nuw i8, ptr %.2140, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !58
   %44 = icmp eq ptr %43, null
@@ -1433,9 +1433,9 @@ skip_space.exit198:                               ; preds = %221
   br label %.critedge3.thread
 
 .critedge3.thread:                                ; preds = %159, %159, %159, %161, %208, %.preheader208, %.lr.ph234, %107, %103, %skip_space.exit198, %200, %15, %is_eol.exit.thread
-  %.1142 = phi ptr [ %.0141231, %.lr.ph234 ], [ %.0141231, %15 ], [ %.2143, %103 ], [ %.2143, %is_eol.exit.thread ], [ %.2143, %107 ], [ %.2143, %skip_space.exit198 ], [ %.2143, %.preheader208 ], [ %.2143, %200 ], [ %.2143, %208 ], [ %.2143, %161 ], [ %.2143, %159 ], [ %.2143, %159 ], [ %.2143, %159 ]
-  %.1139 = phi ptr [ %.0138232, %.lr.ph234 ], [ %.0138232, %15 ], [ %.2140, %103 ], [ %.2140, %is_eol.exit.thread ], [ %.2140, %107 ], [ %.2140, %skip_space.exit198 ], [ %.2140, %.preheader208 ], [ %.2140, %200 ], [ %.2140, %208 ], [ %.2140, %161 ], [ %.2140, %159 ], [ %.2140, %159 ], [ %.2140, %159 ]
-  %.1135 = phi ptr [ %.0134233, %.lr.ph234 ], [ %.0134233, %15 ], [ %.0134233, %103 ], [ %.2136, %is_eol.exit.thread ], [ %.0134233, %107 ], [ %.0.i197, %skip_space.exit198 ], [ %.0134233, %.preheader208 ], [ %.0134233, %200 ], [ %.0134233, %208 ], [ %.4, %161 ], [ %.4, %159 ], [ %.4, %159 ], [ %.4, %159 ]
+  %.1142 = phi ptr [ %.0141231, %15 ], [ %.2143, %103 ], [ %.2143, %107 ], [ %.2143, %skip_space.exit198 ], [ %.2143, %200 ], [ %.2143, %is_eol.exit.thread ], [ %.0141231, %.lr.ph234 ], [ %.2143, %.preheader208 ], [ %.2143, %208 ], [ %.2143, %161 ], [ %.2143, %159 ], [ %.2143, %159 ], [ %.2143, %159 ]
+  %.1139 = phi ptr [ %.0138232, %15 ], [ %.2140, %103 ], [ %.2140, %107 ], [ %.2140, %skip_space.exit198 ], [ %.2140, %200 ], [ %.2140, %is_eol.exit.thread ], [ %.0138232, %.lr.ph234 ], [ %.2140, %.preheader208 ], [ %.2140, %208 ], [ %.2140, %161 ], [ %.2140, %159 ], [ %.2140, %159 ], [ %.2140, %159 ]
+  %.1135 = phi ptr [ %.0134233, %15 ], [ %.0134233, %103 ], [ %.0134233, %107 ], [ %.0.i197, %skip_space.exit198 ], [ %.0134233, %200 ], [ %.2136, %is_eol.exit.thread ], [ %.0134233, %.lr.ph234 ], [ %.0134233, %.preheader208 ], [ %.0134233, %208 ], [ %.4, %161 ], [ %.4, %159 ], [ %.4, %159 ], [ %.4, %159 ]
   %234 = call i64 @strcspn(ptr noundef nonnull %.1135, ptr noundef nonnull @.str.39) #10
   %235 = getelementptr inbounds nuw i8, ptr %.1135, i64 %234
   %236 = load i8, ptr %235, align 1, !tbaa !14
@@ -1445,7 +1445,7 @@ skip_space.exit198:                               ; preds = %221
   br label %.lr.ph234
 
 .critedge:                                        ; preds = %.lr.ph234, %111, %138, %skip_space.exit, %2, %14
-  %.2 = phi ptr [ null, %2 ], [ %.0134233, %14 ], [ null, %skip_space.exit ], [ null, %138 ], [ null, %111 ], [ %.0134233, %.lr.ph234 ]
+  %.2 = phi ptr [ %.0134233, %14 ], [ null, %2 ], [ null, %skip_space.exit ], [ null, %138 ], [ null, %111 ], [ %.0134233, %.lr.ph234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.2
 }

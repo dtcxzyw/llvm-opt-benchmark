@@ -540,7 +540,7 @@ _ZN5clang6format17UnwrappedLineNodeD2Ev.exit:     ; preds = %_ZNSt7__cxx114listI
   br label %"_ZSt7find_ifIPSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS4_EEZNS3_19createUnwrappedLineERKS4_iE3$_2ET_SC_SC_T0_.exit"
 
 "_ZSt7find_ifIPSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS4_EEZNS3_19createUnwrappedLineERKS4_iE3$_2ET_SC_SC_T0_.exit": ; preds = %.lr.ph.i.i.i, %75, %72, %69, %83, %87, %91, %93
-  %94 = phi ptr [ %.1.val.i.i.i, %87 ], [ %.pre, %93 ], [ %.2.val.i.i.i, %91 ], [ %.029.val32.i.i.i, %83 ], [ %.029.val.i.i.i, %.lr.ph.i.i.i ], [ %.val31.i.i.i, %75 ], [ %.val30.i.i.i, %72 ], [ %.val.i.i.i, %69 ]
+  %94 = phi ptr [ %.pre, %93 ], [ %.029.val32.i.i.i, %83 ], [ %.1.val.i.i.i, %87 ], [ %.2.val.i.i.i, %91 ], [ %.029.val.i.i.i, %.lr.ph.i.i.i ], [ %.val31.i.i.i, %75 ], [ %.val30.i.i.i, %72 ], [ %.val.i.i.i, %69 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5clang6format22MacroCallReconstructor19createUnwrappedLineERKNS1_17ReconstructedLineEi(ptr dead_on_unwind nonnull writable sret(%"struct.clang::format::UnwrappedLine") align 8 %6, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(72) %94, i32 noundef %3)
   %95 = load ptr, ptr %6, align 8, !tbaa !28
@@ -816,7 +816,7 @@ _ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11Form
   br label %41
 
 41:                                               ; preds = %_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit, %16, %9, %5
-  %.0.shrunk = phi i1 [ %3, %5 ], [ %3, %9 ], [ %spec.select, %_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit ], [ %3, %16 ]
+  %.0.shrunk = phi i1 [ %3, %5 ], [ %3, %16 ], [ %3, %9 ], [ %spec.select, %_ZN5clang6format22MacroCallReconstructor26reconstructActiveCallUntilEPNS0_11FormatTokenE.exit ]
   tail call void @_ZN5clang6format22MacroCallReconstructor13prepareParentEPNS0_11FormatTokenEbj(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %2, i1 noundef zeroext %.0.shrunk, i32 noundef %4)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %43 = load i8, ptr %42, align 8, !tbaa !118, !range !119, !noundef !120
@@ -2091,7 +2091,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format22MacroCallReconstructor14MacroC
   br label %137
 
 137:                                              ; preds = %21, %17, %.thread, %122, %92, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format22MacroCallReconstructor14MacroCallStateELb1EE9push_backERKS4_.exit
-  %.0 = phi i1 [ false, %122 ], [ false, %17 ], [ false, %.thread ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format22MacroCallReconstructor14MacroCallStateELb1EE9push_backERKS4_.exit ], [ true, %92 ], [ false, %21 ]
+  %.0 = phi i1 [ false, %.thread ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format22MacroCallReconstructor14MacroCallStateELb1EE9push_backERKS4_.exit ], [ true, %92 ], [ false, %122 ], [ false, %17 ], [ false, %21 ]
   ret i1 %.0
 }
 
@@ -2330,7 +2330,7 @@ define dso_local void @_ZNK5clang6format22MacroCallReconstructor14debugParentMap
   br i1 %.not.i9.i15.i7.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang6format11FormatTokenES5_NS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S5_EEEES5_S5_S7_SA_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i, !llvm.loop !171
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang6format11FormatTokenES5_NS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S5_EEEES5_S5_S7_SA_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i6.i, %13, %15
-  %.pn14.i = phi ptr [ %14, %13 ], [ %9, %15 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %16, %.critedge2.i8.i14.i6.i ]
+  %.pn14.i = phi ptr [ %14, %13 ], [ %9, %15 ], [ %16, %.critedge2.i8.i14.i6.i ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ]
   %.pn12.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ %16, %.critedge2.i8.i14.i6.i ], [ %16, %.lr.ph.i6.i12.i3.i ]
   %19 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.69", ptr %9, i64 %12
   %.not7682 = icmp eq ptr %.pn14.i, %19
@@ -2376,7 +2376,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang6format11FormatTokenES5_NS_12DenseM
   br i1 %.not.i9.i15.i7.i17, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang6format11FormatTokenES5_NS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S5_EEEES5_S5_S7_SA_E5beginEv.exit22, label %.lr.ph.i6.i12.i3.i13, !llvm.loop !171
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang6format11FormatTokenES5_NS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S5_EEEES5_S5_S7_SA_E5beginEv.exit22: ; preds = %.lr.ph.i6.i12.i3.i13, %.critedge2.i8.i14.i6.i16, %24, %26
-  %.pn14.i18 = phi ptr [ %25, %24 ], [ %21, %26 ], [ %.sroa.0.3.i4.i14, %.lr.ph.i6.i12.i3.i13 ], [ %27, %.critedge2.i8.i14.i6.i16 ]
+  %.pn14.i18 = phi ptr [ %25, %24 ], [ %21, %26 ], [ %27, %.critedge2.i8.i14.i6.i16 ], [ %.sroa.0.3.i4.i14, %.lr.ph.i6.i12.i3.i13 ]
   %.pn12.i19 = phi ptr [ %25, %24 ], [ %27, %26 ], [ %27, %.critedge2.i8.i14.i6.i16 ], [ %27, %.lr.ph.i6.i12.i3.i13 ]
   %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.69", ptr %21, i64 %.pre-phi
   %.not7788 = icmp eq ptr %.pn14.i18, %30
@@ -3660,7 +3660,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeIN5clang6format17UnwrappedLineNodeEEEE7
   br i1 %.not.i.i, label %_ZNSt7__cxx1110_List_baseIN5clang6format17UnwrappedLineNodeESaIS3_EED2Ev.exit, label %.lr.ph.i, !llvm.loop !115
 
 _ZNSt7__cxx1110_List_baseIN5clang6format17UnwrappedLineNodeESaIS3_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeIN5clang6format17UnwrappedLineNodeEEEE7destroyIS3_EEvRS5_PT_.exit.i, %4, %29
-  %.sroa.05.026 = phi ptr [ %1, %4 ], [ %.sroa.05.0, %29 ], [ %.sroa.05.0, %_ZNSt16allocator_traitsISaISt10_List_nodeIN5clang6format17UnwrappedLineNodeEEEE7destroyIS3_EEvRS5_PT_.exit.i ]
+  %.sroa.05.026 = phi ptr [ %.sroa.05.0, %29 ], [ %1, %4 ], [ %.sroa.05.0, %_ZNSt16allocator_traitsISaISt10_List_nodeIN5clang6format17UnwrappedLineNodeEEEE7destroyIS3_EEvRS5_PT_.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.05.026
 }

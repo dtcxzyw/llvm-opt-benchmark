@@ -231,7 +231,7 @@ define void @_ZN11OpenImageIO6v3_1_012convert_typeIfN9Imath_3_14halfEEEvPKT_PT0_
   br label %_ZN9Imath_3_14halfaSEf.exit
 
 _ZN9Imath_3_14halfaSEf.exit:                      ; preds = %22, %25, %35, %37, %46, %60, %63
-  %.0.i.i.i = phi i16 [ %18, %46 ], [ %32, %25 ], [ %36, %35 ], [ %45, %37 ], [ %23, %22 ], [ %64, %63 ], [ %58, %60 ]
+  %.0.i.i.i = phi i16 [ %32, %25 ], [ %36, %35 ], [ %45, %37 ], [ %23, %22 ], [ %18, %46 ], [ %64, %63 ], [ %58, %60 ]
   store i16 %.0.i.i.i, ptr %12, align 2, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -330,7 +330,7 @@ _ZNK11OpenImageIO6v3_1_04simd7vfloat45storeEPN9Imath_3_14halfE.exit: ; preds = %
   br label %_ZN9Imath_3_14halfaSEf.exit16
 
 _ZN9Imath_3_14halfaSEf.exit16:                    ; preds = %82, %85, %95, %97, %106, %120, %123
-  %.0.i.i.i15 = phi i16 [ %78, %106 ], [ %92, %85 ], [ %96, %95 ], [ %105, %97 ], [ %83, %82 ], [ %124, %123 ], [ %118, %120 ]
+  %.0.i.i.i15 = phi i16 [ %92, %85 ], [ %96, %95 ], [ %105, %97 ], [ %83, %82 ], [ %78, %106 ], [ %124, %123 ], [ %118, %120 ]
   store i16 %.0.i.i.i15, ptr %.11025, align 2, !tbaa !3
   %.not = icmp eq i64 %69, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph27, !llvm.loop !20

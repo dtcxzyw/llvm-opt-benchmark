@@ -980,8 +980,8 @@ define dso_local void @intel_shared_dpll_init(ptr noundef %0) local_unnamed_addr
   %49 = icmp ult i32 %48, -2
   br i1 %49, label %.critedge, label %.thread
 
-.thread:                                          ; preds = %37, %33, %31, %28, %26, %23, %20, %17, %14, %39, %45
-  %50 = phi ptr [ @pch_pll_mgr, %45 ], [ @skl_pll_mgr, %37 ], [ @bxt_pll_mgr, %33 ], [ @icl_pll_mgr, %31 ], [ @ehl_pll_mgr, %28 ], [ @tgl_pll_mgr, %26 ], [ @rkl_pll_mgr, %23 ], [ @dg1_pll_mgr, %20 ], [ @adls_pll_mgr, %17 ], [ @adlp_pll_mgr, %14 ], [ @hsw_pll_mgr, %39 ]
+.thread:                                          ; preds = %39, %37, %33, %31, %28, %26, %23, %20, %17, %14, %45
+  %50 = phi ptr [ @pch_pll_mgr, %45 ], [ @hsw_pll_mgr, %39 ], [ @skl_pll_mgr, %37 ], [ @bxt_pll_mgr, %33 ], [ @icl_pll_mgr, %31 ], [ @ehl_pll_mgr, %28 ], [ @tgl_pll_mgr, %26 ], [ @rkl_pll_mgr, %23 ], [ @dg1_pll_mgr, %20 ], [ @adls_pll_mgr, %17 ], [ @adlp_pll_mgr, %14 ]
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
@@ -2392,10 +2392,10 @@ default.unreachable74:                            ; preds = %473
 86:                                               ; preds = %.thread20
   br label %.thread
 
-.thread:                                          ; preds = %75, %61, %85, %84, %.thread20, %86, %.thread23, %.thread25, %67
-  %.ph = phi i32 [ %83, %86 ], [ 1, %61 ], [ 2, %.thread25 ], [ %83, %85 ], [ %83, %.thread20 ], [ 2, %.thread23 ], [ %83, %84 ], [ 2, %67 ], [ 2, %75 ]
-  %.ph27 = phi i32 [ 1, %86 ], [ 1, %61 ], [ %74, %.thread25 ], [ 1, %85 ], [ 1, %.thread20 ], [ %66, %.thread23 ], [ 1, %84 ], [ %69, %67 ], [ %77, %75 ]
-  %.ph29 = phi i32 [ 8, %86 ], [ 1, %61 ], [ 4, %.thread25 ], [ 4, %85 ], [ 1, %.thread20 ], [ 1, %.thread23 ], [ 2, %84 ], [ 2, %67 ], [ 8, %75 ]
+.thread:                                          ; preds = %75, %61, %.thread20, %84, %85, %86, %.thread23, %.thread25, %67
+  %.ph = phi i32 [ %83, %86 ], [ %83, %85 ], [ 2, %.thread25 ], [ %83, %84 ], [ 2, %.thread23 ], [ %83, %.thread20 ], [ 2, %67 ], [ 1, %61 ], [ 2, %75 ]
+  %.ph27 = phi i32 [ 1, %86 ], [ 1, %85 ], [ %74, %.thread25 ], [ 1, %84 ], [ %66, %.thread23 ], [ 1, %.thread20 ], [ %69, %67 ], [ 1, %61 ], [ %77, %75 ]
+  %.ph29 = phi i32 [ 8, %86 ], [ 4, %85 ], [ 4, %.thread25 ], [ 2, %84 ], [ 1, %.thread23 ], [ 1, %.thread20 ], [ 2, %67 ], [ 1, %61 ], [ 8, %75 ]
   %87 = icmp ne i32 %.ph27, 1
   %88 = zext i1 %87 to i32
   br label %93
@@ -3093,7 +3093,7 @@ ehl_combo_pll_div_frac_wa_needed.exit16:          ; preds = %258, %262
   br label %.thread42
 
 .thread42:                                        ; preds = %331, %347, %348, %364, %54, %131, %500, %481, %195
-  %502 = phi i32 [ 0, %500 ], [ 0, %195 ], [ -22, %131 ], [ 0, %481 ], [ -22, %54 ], [ -22, %364 ], [ -22, %348 ], [ -22, %347 ], [ -22, %331 ]
+  %502 = phi i32 [ 0, %500 ], [ 0, %195 ], [ 0, %481 ], [ -22, %54 ], [ -22, %131 ], [ -22, %364 ], [ -22, %348 ], [ -22, %347 ], [ -22, %331 ]
   ret i32 %502
 }
 
@@ -5201,8 +5201,8 @@ define internal fastcc ptr @intel_find_shared_dpll(ptr noundef captures(none) %0
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %119, i32 noundef 2, ptr noundef nonnull @.str.57, i32 noundef %120, ptr noundef %121, ptr noundef %122, i32 noundef %123, i32 noundef %126) #13
   br label %141
 
-127:                                              ; preds = %108, %.thread, %111
-  %.ph = phi ptr [ %69, %111 ], [ %69, %.thread ], [ %110, %108 ]
+127:                                              ; preds = %108, %111, %.thread
+  %.ph = phi ptr [ %69, %.thread ], [ %69, %111 ], [ %110, %108 ]
   %128 = add i64 %76, 1
   br label %68, !llvm.loop !250
 
@@ -7124,12 +7124,12 @@ define internal noundef range(i32 -22, 1) i32 @skl_compute_dpll(ptr noundef read
   br label %.thread21
 
 .thread21:                                        ; preds = %128, %146, %145, %144, %143, %137
-  %147 = phi i32 [ %142, %146 ], [ %142, %137 ], [ %142, %144 ], [ %142, %143 ], [ %142, %145 ], [ 16, %128 ]
-  %148 = phi i32 [ %141, %146 ], [ %141, %137 ], [ %141, %144 ], [ %141, %143 ], [ %141, %145 ], [ 7, %128 ]
-  %149 = phi i32 [ %140, %146 ], [ %140, %137 ], [ %140, %144 ], [ %140, %143 ], [ %140, %145 ], [ 1, %128 ]
-  %150 = phi i32 [ %139, %146 ], [ %139, %137 ], [ %139, %144 ], [ %139, %143 ], [ %139, %145 ], [ 1, %128 ]
-  %151 = phi i32 [ %138, %146 ], [ %138, %137 ], [ %138, %144 ], [ %138, %143 ], [ %138, %145 ], [ %132, %128 ]
-  %152 = phi i32 [ 0, %146 ], [ 0, %137 ], [ 64, %144 ], [ 32, %143 ], [ 96, %145 ], [ 96, %128 ]
+  %147 = phi i32 [ %142, %146 ], [ %142, %144 ], [ %142, %143 ], [ %142, %137 ], [ %142, %145 ], [ 16, %128 ]
+  %148 = phi i32 [ %141, %146 ], [ %141, %144 ], [ %141, %143 ], [ %141, %137 ], [ %141, %145 ], [ 7, %128 ]
+  %149 = phi i32 [ %140, %146 ], [ %140, %144 ], [ %140, %143 ], [ %140, %137 ], [ %140, %145 ], [ 1, %128 ]
+  %150 = phi i32 [ %139, %146 ], [ %139, %144 ], [ %139, %143 ], [ %139, %137 ], [ %139, %145 ], [ 1, %128 ]
+  %151 = phi i32 [ %138, %146 ], [ %138, %144 ], [ %138, %143 ], [ %138, %137 ], [ %138, %145 ], [ %132, %128 ]
+  %152 = phi i32 [ 0, %146 ], [ 64, %144 ], [ 32, %143 ], [ 0, %137 ], [ 96, %145 ], [ 96, %128 ]
   %.fr = freeze i32 %149
   %153 = icmp eq i32 %.fr, 1
   %154 = mul nuw nsw i32 %.fr, %148

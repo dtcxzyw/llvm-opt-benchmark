@@ -1040,8 +1040,8 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef %
   br i1 %.not135, label %thread-pre-split, label %.thread
 
 .thread:                                          ; preds = %93, %119, %123
-  %.0114156 = phi i32 [ %.0114, %123 ], [ %.0114, %119 ], [ 0, %93 ]
-  %.0116154 = phi ptr [ %.0116, %123 ], [ %.0116, %119 ], [ null, %93 ]
+  %.0114156 = phi i32 [ %.0114, %119 ], [ %.0114, %123 ], [ 0, %93 ]
+  %.0116154 = phi ptr [ %.0116, %119 ], [ %.0116, %123 ], [ null, %93 ]
   store float 0x7FF8000000000000, ptr %28, align 64, !tbaa !46
   store i32 0, ptr %32, align 8, !tbaa !143
   %125 = tail call ptr @cmsCreateProofingTransform(ptr noundef %12, i32 noundef 4849820, ptr noundef %.0118, i32 noundef %.0115, ptr noundef %.0116154, i32 noundef %.0119, i32 noundef 1, i32 noundef %.0114156) #17
@@ -1717,7 +1717,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %15
 
 15:                                               ; preds = %12, %2, %10, %6
-  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %12 ], [ %11, %10 ], [ %7, %6 ]
+  %.0 = phi ptr [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %12 ]
   ret ptr %.0
 }
 
@@ -1744,7 +1744,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %9
 
 9:                                                ; preds = %7, %5, %3, %1
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ %., %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
+  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ %., %7 ]
   ret ptr %.0
 }
 

@@ -127,12 +127,12 @@ _ZL13pk_get_pk_algPPhPKhP17mbedtls_pk_type_tP16mbedtls_asn1_buf.exit: ; preds = 
   br i1 %.not35, label %.thread47, label %.thread43
 
 .thread43:                                        ; preds = %44, %47, %41
-  %.146 = phi i32 [ -15206, %47 ], [ -15488, %41 ], [ %45, %44 ]
+  %.146 = phi i32 [ -15488, %41 ], [ -15206, %47 ], [ %45, %44 ]
   call void @mbedtls_pk_free(ptr noundef %2)
   br label %.thread47
 
 .thread47:                                        ; preds = %47, %31, %_ZL13pk_get_pk_algPPhPKhP17mbedtls_pk_type_tP16mbedtls_asn1_buf.exit.thread, %.thread43, %39, %35, %_ZL13pk_get_pk_algPPhPKhP17mbedtls_pk_type_tP16mbedtls_asn1_buf.exit, %29, %9
-  %.0 = phi i32 [ %10, %9 ], [ %40, %39 ], [ %30, %29 ], [ %.0.i.ph, %_ZL13pk_get_pk_algPPhPKhP17mbedtls_pk_type_tP16mbedtls_asn1_buf.exit.thread ], [ %26, %_ZL13pk_get_pk_algPPhPKhP17mbedtls_pk_type_tP16mbedtls_asn1_buf.exit ], [ -15488, %35 ], [ %.146, %.thread43 ], [ 0, %47 ], [ -15206, %31 ]
+  %.0 = phi i32 [ %10, %9 ], [ %30, %29 ], [ %26, %_ZL13pk_get_pk_algPPhPKhP17mbedtls_pk_type_tP16mbedtls_asn1_buf.exit ], [ -15488, %35 ], [ %40, %39 ], [ %.146, %.thread43 ], [ %.0.i.ph, %_ZL13pk_get_pk_algPPhPKhP17mbedtls_pk_type_tP16mbedtls_asn1_buf.exit.thread ], [ -15206, %31 ], [ 0, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -223,7 +223,7 @@ define internal fastcc noundef range(i32 -2147483648, 2147468544) i32 @_ZL16pk_g
   br label %40
 
 40:                                               ; preds = %38, %8, %31, %36, %27, %16, %25, %14, %6
-  %.0 = phi i32 [ %7, %6 ], [ %spec.select, %38 ], [ %15, %14 ], [ -15104, %31 ], [ %26, %25 ], [ -15104, %16 ], [ -15104, %27 ], [ -15206, %8 ], [ -15104, %36 ]
+  %.0 = phi i32 [ %7, %6 ], [ %15, %14 ], [ %26, %25 ], [ -15104, %16 ], [ -15104, %27 ], [ -15104, %36 ], [ -15104, %31 ], [ -15206, %8 ], [ %spec.select, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -342,7 +342,7 @@ define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noun
   br label %49
 
 49:                                               ; preds = %45, %.thread58, %30, %15, %7, %48, %38, %28, %27, %26
-  %.0 = phi i32 [ -15616, %48 ], [ %.2, %26 ], [ -15616, %7 ], [ -15360, %27 ], [ %16, %28 ], [ %36, %38 ], [ -15232, %15 ], [ %31, %30 ], [ 0, %.thread58 ], [ 0, %45 ]
+  %.0 = phi i32 [ %.2, %26 ], [ -15360, %27 ], [ %16, %28 ], [ %36, %38 ], [ -15616, %48 ], [ -15616, %7 ], [ -15232, %15 ], [ %31, %30 ], [ 0, %.thread58 ], [ 0, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -499,7 +499,7 @@ _ZL20asn1_get_nonzero_mpiPPhPKhP11mbedtls_mpi.exit: ; preds = %23
   br i1 %.not72, label %67, label %.thread79
 
 _ZL20asn1_get_nonzero_mpiPPhPKhP11mbedtls_mpi.exit.thread: ; preds = %21, %_ZL20asn1_get_nonzero_mpiPPhPKhP11mbedtls_mpi.exit, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %48, %50, %53, %55, %58, %60
-  %.0.ph = phi i32 [ %26, %_ZL20asn1_get_nonzero_mpiPPhPKhP11mbedtls_mpi.exit ], [ %61, %60 ], [ %59, %58 ], [ %57, %55 ], [ %54, %53 ], [ %52, %50 ], [ %49, %48 ], [ %47, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %22, %21 ]
+  %.0.ph = phi i32 [ %61, %60 ], [ %59, %58 ], [ %57, %55 ], [ %54, %53 ], [ %52, %50 ], [ %49, %48 ], [ %47, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %_ZL20asn1_get_nonzero_mpiPPhPKhP11mbedtls_mpi.exit ], [ %22, %21 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %7)
   %64 = and i32 %.0.ph, 65408
   %65 = icmp eq i32 %64, 0
@@ -653,7 +653,7 @@ _ZL13pk_get_pk_algPPhPKhP17mbedtls_pk_type_tP16mbedtls_asn1_buf.exit: ; preds = 
   br label %57
 
 57:                                               ; preds = %40, %_ZL13pk_get_pk_algPPhPKhP17mbedtls_pk_type_tP16mbedtls_asn1_buf.exit.thread, %21, %52, %49, %47, %43, %_ZL13pk_get_pk_algPPhPKhP17mbedtls_pk_type_tP16mbedtls_asn1_buf.exit, %56, %38, %19, %12
-  %.0 = phi i32 [ %13, %12 ], [ %20, %19 ], [ 0, %52 ], [ %48, %47 ], [ %39, %38 ], [ %.0.i.ph, %_ZL13pk_get_pk_algPPhPKhP17mbedtls_pk_type_tP16mbedtls_asn1_buf.exit.thread ], [ %35, %_ZL13pk_get_pk_algPPhPKhP17mbedtls_pk_type_tP16mbedtls_asn1_buf.exit ], [ -15488, %43 ], [ %55, %56 ], [ -15488, %49 ], [ -15744, %21 ], [ -15712, %40 ]
+  %.0 = phi i32 [ %13, %12 ], [ %20, %19 ], [ %39, %38 ], [ %55, %56 ], [ %35, %_ZL13pk_get_pk_algPPhPKhP17mbedtls_pk_type_tP16mbedtls_asn1_buf.exit ], [ -15488, %43 ], [ %48, %47 ], [ -15488, %49 ], [ 0, %52 ], [ -15744, %21 ], [ %.0.i.ph, %_ZL13pk_get_pk_algPPhPKhP17mbedtls_pk_type_tP16mbedtls_asn1_buf.exit.thread ], [ -15712, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -781,7 +781,7 @@ define hidden i32 @mbedtls_pk_parse_public_key(ptr noundef %0, ptr noundef %1, i
   br label %49
 
 49:                                               ; preds = %46, %43, %41, %.thread56, %18, %14, %3, %47, %38, %32, %28, %27
-  %.0 = phi i32 [ %48, %47 ], [ -15616, %3 ], [ -15488, %14 ], [ %25, %27 ], [ %13, %28 ], [ %37, %32 ], [ %31, %38 ], [ %19, %18 ], [ -15488, %.thread56 ], [ %42, %41 ], [ 0, %43 ], [ %44, %46 ]
+  %.0 = phi i32 [ %25, %27 ], [ %13, %28 ], [ %37, %32 ], [ %31, %38 ], [ %48, %47 ], [ -15616, %3 ], [ -15488, %14 ], [ %19, %18 ], [ -15488, %.thread56 ], [ %42, %41 ], [ 0, %43 ], [ %44, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

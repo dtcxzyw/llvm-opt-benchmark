@@ -25,7 +25,7 @@ define i32 @fdt_setprop_inplace_namelen_partial(ptr noundef %0, i32 noundef %1, 
   br label %18
 
 18:                                               ; preds = %7, %11, %14
-  %.0 = phi i32 [ -3, %11 ], [ 0, %14 ], [ %10, %7 ]
+  %.0 = phi i32 [ 0, %14 ], [ -3, %11 ], [ %10, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -66,12 +66,12 @@ define i32 @fdt_setprop_inplace(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br label %fdt_setprop_inplace_namelen_partial.exit
 
 fdt_setprop_inplace_namelen_partial.exit:         ; preds = %11, %16, %18
-  %.0.i = phi i32 [ -3, %16 ], [ 0, %18 ], [ %15, %11 ]
+  %.0.i = phi i32 [ 0, %18 ], [ -3, %16 ], [ %15, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %20
 
 20:                                               ; preds = %5, %10, %fdt_setprop_inplace_namelen_partial.exit
-  %.0 = phi i32 [ -3, %10 ], [ %.0.i, %fdt_setprop_inplace_namelen_partial.exit ], [ %9, %5 ]
+  %.0 = phi i32 [ %.0.i, %fdt_setprop_inplace_namelen_partial.exit ], [ -3, %10 ], [ %9, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -105,7 +105,7 @@ define i32 @fdt_nop_property(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
   br i1 %13, label %.lr.ph.i, label %fdt_nop_region_.exit, !llvm.loop !7
 
 fdt_nop_region_.exit:                             ; preds = %.lr.ph.i, %3, %7
-  %.0 = phi i32 [ %6, %3 ], [ 0, %7 ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ 0, %7 ], [ %6, %3 ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -177,7 +177,7 @@ fdt_node_end_offset_.exit:                        ; preds = %.lr.ph.i
   br i1 %18, label %.lr.ph.i9, label %fdt_nop_region_.exit, !llvm.loop !7
 
 fdt_nop_region_.exit:                             ; preds = %.lr.ph.i9, %11, %fdt_node_end_offset_.exit.thread, %fdt_node_end_offset_.exit
-  %.0 = phi i32 [ %1, %fdt_node_end_offset_.exit.thread ], [ %5, %fdt_node_end_offset_.exit ], [ 0, %11 ], [ 0, %.lr.ph.i9 ]
+  %.0 = phi i32 [ %5, %fdt_node_end_offset_.exit ], [ %1, %fdt_node_end_offset_.exit.thread ], [ 0, %11 ], [ 0, %.lr.ph.i9 ]
   ret i32 %.0
 }
 

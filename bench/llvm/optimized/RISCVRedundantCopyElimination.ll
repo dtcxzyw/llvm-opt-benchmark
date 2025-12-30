@@ -470,14 +470,14 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
   br i1 %.not85.i, label %126, label %.thread79.i
 
 126:                                              ; preds = %.thread.i, %123
-  %.sroa.019.4.i = phi ptr [ %.sroa.019.090.i, %.thread.i ], [ %88, %123 ]
-  %.442.i = phi i1 [ %.03891.i, %.thread.i ], [ true, %123 ]
+  %.sroa.019.4.i = phi ptr [ %88, %123 ], [ %.sroa.019.090.i, %.thread.i ]
+  %.442.i = phi i1 [ true, %123 ], [ %.03891.i, %.thread.i ]
   %.not84.i = icmp eq ptr %88, %76
   br i1 %.not84.i, label %.thread79.i, label %.lr.ph.i
 
 .thread79.i:                                      ; preds = %126, %.thread.i
-  %.sroa.019.0.lcssa.i = phi ptr [ %.sroa.019.4.i, %126 ], [ %.sroa.019.090.i, %.thread.i ]
-  %.038.lcssa.i = phi i1 [ %.442.i, %126 ], [ %.03891.i, %.thread.i ]
+  %.sroa.019.0.lcssa.i = phi ptr [ %.sroa.019.090.i, %.thread.i ], [ %.sroa.019.4.i, %126 ]
+  %.038.lcssa.i = phi i1 [ %.03891.i, %.thread.i ], [ %.442.i, %126 ]
   br i1 %.038.lcssa.i, label %127, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i
 
 127:                                              ; preds = %.thread79.i
@@ -600,7 +600,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit56.i: ; pre
   br i1 %.not86.i, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i, label %.lr.ph98.i
 
 _ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i: ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit56.i, %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit, %.thread79.i, %73, %70, %66, %61, %56, %51, %46, %39
-  %.2.i = phi i1 [ false, %39 ], [ false, %66 ], [ false, %.thread79.i ], [ false, %46 ], [ false, %51 ], [ false, %56 ], [ false, %61 ], [ false, %70 ], [ true, %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit ], [ false, %73 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit56.i ]
+  %.2.i = phi i1 [ false, %39 ], [ false, %46 ], [ false, %51 ], [ false, %56 ], [ false, %61 ], [ false, %66 ], [ false, %70 ], [ false, %.thread79.i ], [ true, %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit ], [ false, %73 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit56.i ]
   %171 = load ptr, ptr %5, align 8, !tbaa !156
   %172 = icmp eq ptr %171, %27
   br i1 %172, label %_ZN4llvm11SmallVectorINS_14MachineOperandELj3EED2Ev.exit.i, label %173

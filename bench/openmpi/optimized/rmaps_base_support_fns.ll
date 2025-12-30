@@ -147,7 +147,7 @@ define noundef i32 @prte_rmaps_base_filter_nodes(ptr noundef %0, ptr noundef %1,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %32, %30, %28, %11, %9, %17, %36
-  %.020.ph = phi i32 [ %29, %30 ], [ -43, %36 ], [ %10, %11 ], [ -43, %17 ], [ %10, %9 ], [ %29, %28 ], [ 0, %32 ]
+  %.020.ph = phi i32 [ -43, %36 ], [ -43, %17 ], [ %10, %9 ], [ %10, %11 ], [ %29, %28 ], [ %29, %30 ], [ 0, %32 ]
   %41 = load ptr, ptr %4, align 8, !tbaa !3
   call void @free(ptr noundef %41) #11
   br label %42
@@ -1808,12 +1808,12 @@ pmix_obj_run_destructors.exit461:                 ; preds = %.lr.ph.i458, %834
   br label %848
 
 848:                                              ; preds = %pmix_obj_update.exit399, %847, %845, %pmix_obj_update.exit398, %754, %752, %pmix_obj_update.exit397, %706, %704, %pmix_obj_update.exit396, %658, %656, %pmix_obj_update.exit395, %608, %606, %798, %778
-  %.2316 = phi i32 [ %.1315508, %798 ], [ %.1315508, %pmix_obj_update.exit395 ], [ %.1315508, %pmix_obj_update.exit396 ], [ %.1315508, %pmix_obj_update.exit397 ], [ %779, %778 ], [ %.1315508, %pmix_obj_update.exit398 ], [ %.1315508, %606 ], [ %.1315508, %608 ], [ %.1315508, %656 ], [ %.1315508, %658 ], [ %.1315508, %704 ], [ %.1315508, %706 ], [ %.1315508, %752 ], [ %.1315508, %754 ], [ %.1315508, %845 ], [ %.1315508, %847 ], [ %.1315508, %pmix_obj_update.exit399 ]
+  %.2316 = phi i32 [ %779, %778 ], [ %.1315508, %798 ], [ %.1315508, %606 ], [ %.1315508, %608 ], [ %.1315508, %pmix_obj_update.exit395 ], [ %.1315508, %656 ], [ %.1315508, %658 ], [ %.1315508, %pmix_obj_update.exit396 ], [ %.1315508, %704 ], [ %.1315508, %706 ], [ %.1315508, %pmix_obj_update.exit397 ], [ %.1315508, %752 ], [ %.1315508, %754 ], [ %.1315508, %pmix_obj_update.exit398 ], [ %.1315508, %845 ], [ %.1315508, %847 ], [ %.1315508, %pmix_obj_update.exit399 ]
   %.not367 = icmp eq ptr %.2313511, %467
   br i1 %.not367, label %.loopexit, label %558, !llvm.loop !89
 
 .loopexit:                                        ; preds = %553, %848, %470, %554
-  %.0314 = phi i32 [ 2147483647, %470 ], [ 0, %554 ], [ %.2316, %848 ], [ 2147483647, %553 ]
+  %.0314 = phi i32 [ 0, %554 ], [ 2147483647, %470 ], [ %.2316, %848 ], [ 2147483647, %553 ]
   %849 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %850 = load volatile i64, ptr %849, align 8, !tbaa !8
   %851 = icmp eq i64 %850, 0
@@ -1944,7 +1944,7 @@ prte_rmaps_base_get_starting_point.exit:          ; preds = %.lr.ph516, %.lr.ph.
   br i1 %.not380, label %pmix_obj_run_destructors.exit, label %.lr.ph524, !llvm.loop !92
 
 pmix_obj_run_destructors.exit:                    ; preds = %910, %.lr.ph.i403, %65, %898, %87, %prte_rmaps_base_get_starting_point.exit, %852, %450, %448, %435, %436, %69, %853, %48
-  %.0 = phi i32 [ %45, %48 ], [ 0, %prte_rmaps_base_get_starting_point.exit ], [ %449, %450 ], [ -43, %853 ], [ -4, %852 ], [ -43, %435 ], [ %67, %65 ], [ %67, %69 ], [ -43, %436 ], [ %449, %448 ], [ 0, %898 ], [ -43, %87 ], [ -43, %.lr.ph.i403 ], [ 0, %910 ]
+  %.0 = phi i32 [ %45, %48 ], [ -43, %853 ], [ %67, %69 ], [ -43, %436 ], [ -43, %435 ], [ %449, %448 ], [ %449, %450 ], [ -4, %852 ], [ 0, %prte_rmaps_base_get_starting_point.exit ], [ -43, %87 ], [ 0, %898 ], [ %67, %65 ], [ -43, %.lr.ph.i403 ], [ 0, %910 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -2393,7 +2393,7 @@ pmix_obj_update.exit:                             ; preds = %155
   br label %165
 
 165:                                              ; preds = %pmix_obj_update.exit66, %141, %139, %pmix_obj_update.exit67, %109, %107, %pmix_obj_update.exit69, %62, %60, %pmix_obj_update.exit
-  %.0 = phi ptr [ %7, %pmix_obj_update.exit ], [ null, %pmix_obj_update.exit69 ], [ null, %pmix_obj_update.exit67 ], [ null, %60 ], [ null, %62 ], [ null, %107 ], [ null, %109 ], [ null, %139 ], [ null, %141 ], [ null, %pmix_obj_update.exit66 ]
+  %.0 = phi ptr [ %7, %pmix_obj_update.exit ], [ null, %60 ], [ null, %62 ], [ null, %pmix_obj_update.exit69 ], [ null, %107 ], [ null, %109 ], [ null, %pmix_obj_update.exit67 ], [ null, %139 ], [ null, %141 ], [ null, %pmix_obj_update.exit66 ]
   ret ptr %.0
 }
 
@@ -2487,7 +2487,7 @@ define i32 @prte_rmaps_base_get_ncpus(ptr noundef readonly captures(none) %0, pt
   br i1 %.not13.i.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit, label %.preheader.i.i, !llvm.loop !118
 
 hwloc_get_nbobjs_inside_cpuset_by_type.exit:      ; preds = %43, %35, %34, %27, %24
-  %.0 = phi i32 [ %26, %24 ], [ 0, %27 ], [ -1, %34 ], [ 0, %35 ], [ %.1.i.i, %43 ]
+  %.0 = phi i32 [ %26, %24 ], [ -1, %34 ], [ 0, %27 ], [ 0, %35 ], [ %.1.i.i, %43 ]
   ret i32 %.0
 }
 
@@ -2735,8 +2735,8 @@ pmix_obj_update.exit:                             ; preds = %120
   store i32 %141, ptr %139, align 8, !tbaa !130
   br label %.thread
 
-.thread:                                          ; preds = %83, %81, %36, %42, %113, %pmix_obj_update.exit60, %34, %pmix_obj_update.exit, %116
-  %.04864 = phi i1 [ true, %116 ], [ true, %pmix_obj_update.exit ], [ false, %34 ], [ false, %pmix_obj_update.exit60 ], [ false, %113 ], [ false, %42 ], [ false, %36 ], [ false, %81 ], [ false, %83 ]
+.thread:                                          ; preds = %pmix_obj_update.exit60, %83, %81, %34, %36, %42, %113, %pmix_obj_update.exit, %116
+  %.04864 = phi i1 [ true, %pmix_obj_update.exit ], [ true, %116 ], [ false, %113 ], [ false, %42 ], [ false, %36 ], [ false, %34 ], [ false, %81 ], [ false, %83 ], [ false, %pmix_obj_update.exit60 ]
   ret i1 %.04864
 }
 
@@ -2872,7 +2872,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_base_check_support(ptr noundef readonly
   br label %.thread
 
 .thread:                                          ; preds = %47, %49, %35, %39, %42, %53, %3, %7, %57, %31
-  %.0 = phi i32 [ -43, %31 ], [ 0, %3 ], [ -43, %57 ], [ 0, %7 ], [ 0, %53 ], [ 0, %47 ], [ 0, %42 ], [ 0, %39 ], [ 0, %35 ], [ 0, %49 ]
+  %.0 = phi i32 [ -43, %57 ], [ -43, %31 ], [ 0, %7 ], [ 0, %3 ], [ 0, %53 ], [ 0, %42 ], [ 0, %39 ], [ 0, %35 ], [ 0, %49 ], [ 0, %47 ]
   ret i32 %.0
 }
 
@@ -2981,7 +2981,7 @@ define range(i32 -46, 1) i32 @prte_rmaps_base_check_oversubscribed(ptr noundef c
   br label %58
 
 58:                                               ; preds = %.sink.split, %8, %._crit_edge, %47, %36, %14, %4
-  %.0 = phi i32 [ 0, %4 ], [ -46, %8 ], [ -43, %47 ], [ 0, %._crit_edge ], [ 0, %14 ], [ -43, %36 ], [ -43, %.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %14 ], [ -43, %36 ], [ -43, %47 ], [ 0, %._crit_edge ], [ -46, %8 ], [ -43, %.sink.split ]
   ret i32 %.0
 }
 

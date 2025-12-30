@@ -171,7 +171,7 @@ define ptr @H5FA__dblock_alloc(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread59
 
 .thread59:                                        ; preds = %61, %55, %56, %11, %1, %74, %77
-  %.044 = phi ptr [ null, %77 ], [ null, %74 ], [ %9, %61 ], [ null, %1 ], [ null, %11 ], [ %9, %55 ], [ %9, %56 ]
+  %.044 = phi ptr [ null, %77 ], [ null, %74 ], [ null, %1 ], [ null, %11 ], [ %9, %56 ], [ %9, %55 ], [ %9, %61 ]
   ret ptr %.044
 }
 
@@ -422,7 +422,7 @@ define i64 @H5FA__dblock_create(ptr noundef %0, ptr noundef writeonly captures(n
   br label %.thread
 
 .thread:                                          ; preds = %12, %82, %105, %108, %2
-  %.0 = phi i64 [ -1, %108 ], [ -1, %105 ], [ -1, %12 ], [ -1, %2 ], [ %40, %82 ]
+  %.0 = phi i64 [ -1, %108 ], [ -1, %105 ], [ -1, %2 ], [ %40, %82 ], [ -1, %12 ]
   ret i64 %.0
 }
 
@@ -506,7 +506,7 @@ define ptr @H5FA__dblock_protect(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br label %.thread
 
 .thread:                                          ; preds = %17, %21, %24, %32, %43, %34, %3
-  %.0 = phi ptr [ null, %43 ], [ null, %34 ], [ null, %17 ], [ null, %3 ], [ %15, %21 ], [ %15, %24 ], [ %15, %32 ]
+  %.0 = phi ptr [ null, %43 ], [ null, %34 ], [ null, %3 ], [ %15, %21 ], [ %15, %24 ], [ %15, %32 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -612,7 +612,7 @@ define range(i32 -1, 1) i32 @H5FA__dblock_delete(ptr noundef %0, i64 noundef %1)
   br label %H5FA__dblock_unprotect.exit.thread
 
 .loopexit:                                        ; preds = %34, %30, %12
-  %.1.ph = phi i32 [ 0, %12 ], [ -1, %30 ], [ 0, %34 ]
+  %.1.ph = phi i32 [ -1, %30 ], [ 0, %12 ], [ 0, %34 ]
   %44 = load i8, ptr @H5FA_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %45 = trunc nuw i8 %44 to i1
   %46 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -643,7 +643,7 @@ define range(i32 -1, 1) i32 @H5FA__dblock_delete(ptr noundef %0, i64 noundef %1)
   br label %H5FA__dblock_unprotect.exit.thread
 
 H5FA__dblock_unprotect.exit.thread:               ; preds = %.loopexit, %50, %40, %2, %59
-  %.023 = phi i32 [ -1, %59 ], [ 0, %2 ], [ -1, %40 ], [ %.1.ph, %50 ], [ %.1.ph, %.loopexit ]
+  %.023 = phi i32 [ -1, %59 ], [ -1, %40 ], [ 0, %2 ], [ %.1.ph, %50 ], [ %.1.ph, %.loopexit ]
   ret i32 %.023
 }
 

@@ -527,7 +527,7 @@ _ZN7consoleL9getchar32Ev.exit86.i:                ; preds = %.preheader.i
   br i1 %.not.i87.i, label %136, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %138, %136
-  %.09.lcssa.i.i = phi i64 [ %.0912.i.i, %138 ], [ %135, %136 ]
+  %.09.lcssa.i.i = phi i64 [ %135, %136 ], [ %.0912.i.i, %138 ]
   %141 = icmp ugt i64 %.09.lcssa.i.i, %132
   br i1 %141, label %142, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit.i.i
 
@@ -1090,9 +1090,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %480
 
 .critedge.i:                                      ; preds = %_ZN7consoleL18pop_back_utf8_charERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %124, %_ZN7consoleL9getchar32Ev.exit86.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %361, %127, %_ZN7consoleL9getchar32Ev.exit85.i
-  %.sroa.10.1.i = phi ptr [ %.sroa.10.0.i, %124 ], [ %362, %361 ], [ %379, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.sroa.10.0.i, %_ZN7consoleL9getchar32Ev.exit85.i ], [ %.sroa.10.0.i, %127 ], [ %.sroa.10.0.i, %_ZN7consoleL9getchar32Ev.exit86.i ], [ %129, %_ZN7consoleL18pop_back_utf8_charERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ]
-  %.sroa.18.1.i = phi ptr [ %.sroa.18.0.i, %124 ], [ %.sroa.18.0.i, %361 ], [ %381, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.sroa.18.0.i, %_ZN7consoleL9getchar32Ev.exit85.i ], [ %.sroa.18.0.i, %127 ], [ %.sroa.18.0.i, %_ZN7consoleL9getchar32Ev.exit86.i ], [ %.sroa.18.0.i, %_ZN7consoleL18pop_back_utf8_charERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ]
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %124 ], [ %.sroa.0.0.i, %361 ], [ %375, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.sroa.0.0.i, %_ZN7consoleL9getchar32Ev.exit85.i ], [ %.sroa.0.0.i, %127 ], [ %.sroa.0.0.i, %_ZN7consoleL9getchar32Ev.exit86.i ], [ %.sroa.0.0.i, %_ZN7consoleL18pop_back_utf8_charERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ]
+  %.sroa.10.1.i = phi ptr [ %.sroa.10.0.i, %_ZN7consoleL9getchar32Ev.exit85.i ], [ %.sroa.10.0.i, %127 ], [ %379, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %362, %361 ], [ %.sroa.10.0.i, %_ZN7consoleL9getchar32Ev.exit86.i ], [ %.sroa.10.0.i, %124 ], [ %129, %_ZN7consoleL18pop_back_utf8_charERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ]
+  %.sroa.18.1.i = phi ptr [ %.sroa.18.0.i, %_ZN7consoleL9getchar32Ev.exit85.i ], [ %.sroa.18.0.i, %127 ], [ %381, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.sroa.18.0.i, %361 ], [ %.sroa.18.0.i, %_ZN7consoleL9getchar32Ev.exit86.i ], [ %.sroa.18.0.i, %124 ], [ %.sroa.18.0.i, %_ZN7consoleL18pop_back_utf8_charERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ]
+  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %_ZN7consoleL9getchar32Ev.exit85.i ], [ %.sroa.0.0.i, %127 ], [ %375, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.sroa.0.0.i, %361 ], [ %.sroa.0.0.i, %_ZN7consoleL9getchar32Ev.exit86.i ], [ %.sroa.0.0.i, %124 ], [ %.sroa.0.0.i, %_ZN7consoleL18pop_back_utf8_charERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ]
   %384 = load i64, ptr %88, align 8, !tbaa !45
   %385 = icmp eq i64 %384, 0
   br i1 %385, label %.backedge, label %386
@@ -1280,7 +1280,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i111.i:
   br label %473
 
 473:                                              ; preds = %466, %454, %451, %447, %445, %433
-  %.162.i = phi i1 [ %1, %466 ], [ false, %445 ], [ %440, %433 ], [ false, %451 ], [ false, %447 ], [ false, %454 ]
+  %.162.i = phi i1 [ %1, %466 ], [ %440, %433 ], [ false, %451 ], [ false, %447 ], [ false, %445 ], [ false, %454 ]
   %474 = load ptr, ptr @_ZN7consoleL3outE, align 8, !tbaa !13
   %475 = call i32 @fflush(ptr noundef %474)
   %.not.i.i.i116.i = icmp eq ptr %.sroa.0.0.i, null
@@ -1294,8 +1294,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i111.i:
   br label %_ZN7consoleL15readline_simpleERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit
 
 480:                                              ; preds = %443, %441, %.loopexit.split-lp134.i, %.loopexit133.i, %382, %151, %.loopexit.split-lp.i, %.loopexit.i, %96
-  %.sroa.18.0208.i = phi ptr [ %.sroa.18.0.i, %382 ], [ %.sroa.18.0.i, %96 ], [ %.sroa.18.0.i, %443 ], [ %.sroa.18.0.i, %151 ], [ %.sroa.18.0.i, %441 ], [ %.sroa.18.0.i, %.loopexit.split-lp.i ], [ %.sroa.18.0.i, %.loopexit.i ], [ %.sroa.18.0.lcssa206.i, %.loopexit133.i ], [ %.sroa.10.0.i, %.loopexit.split-lp134.i ]
-  %.pn82.pn.i = phi { ptr, i32 } [ %383, %382 ], [ %97, %96 ], [ %444, %443 ], [ %152, %151 ], [ %442, %441 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit135.i, %.loopexit133.i ], [ %lpad.loopexit.split-lp136.i, %.loopexit.split-lp134.i ]
+  %.sroa.18.0208.i = phi ptr [ %.sroa.18.0.i, %96 ], [ %.sroa.18.0.i, %151 ], [ %.sroa.18.0.i, %382 ], [ %.sroa.18.0.i, %443 ], [ %.sroa.18.0.i, %441 ], [ %.sroa.18.0.i, %.loopexit.i ], [ %.sroa.18.0.i, %.loopexit.split-lp.i ], [ %.sroa.18.0.lcssa206.i, %.loopexit133.i ], [ %.sroa.10.0.i, %.loopexit.split-lp134.i ]
+  %.pn82.pn.i = phi { ptr, i32 } [ %97, %96 ], [ %152, %151 ], [ %383, %382 ], [ %444, %443 ], [ %442, %441 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit135.i, %.loopexit133.i ], [ %lpad.loopexit.split-lp136.i, %.loopexit.split-lp134.i ]
   %.not.i.i.i117.i = icmp eq ptr %.sroa.0.0.i, null
   br i1 %.not.i.i.i117.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit118.i, label %481
 
@@ -1310,7 +1310,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit118.i:               ; preds = %481, %480
   resume { ptr, i32 } %.pn82.pn.i
 
 _ZN7consoleL15readline_simpleERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit: ; preds = %476, %473, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i, %56, %47
-  %.0 = phi i1 [ false, %56 ], [ false, %47 ], [ %.013.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i ], [ %.162.i, %473 ], [ %.162.i, %476 ]
+  %.0 = phi i1 [ false, %47 ], [ %.013.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i ], [ false, %56 ], [ %.162.i, %473 ], [ %.162.i, %476 ]
   ret i1 %.0
 }
 

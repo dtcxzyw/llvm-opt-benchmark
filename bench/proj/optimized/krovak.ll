@@ -608,8 +608,8 @@ define internal { double, double } @_ZL16krovak_e_forward5PJ_LPP8PJconsts(double
   br label %134
 
 134:                                              ; preds = %3, %115, %119
-  %.sroa.10.0 = phi double [ %.sroa.0.1, %115 ], [ %133, %119 ], [ 0.000000e+00, %3 ]
-  %.sroa.0.0 = phi double [ %.sroa.10.1, %115 ], [ %127, %119 ], [ 0.000000e+00, %3 ]
+  %.sroa.10.0 = phi double [ %133, %119 ], [ %.sroa.0.1, %115 ], [ 0.000000e+00, %3 ]
+  %.sroa.0.0 = phi double [ %127, %119 ], [ %.sroa.10.1, %115 ], [ 0.000000e+00, %3 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.10.0, 1
   ret { double, double } %.fca.1.insert

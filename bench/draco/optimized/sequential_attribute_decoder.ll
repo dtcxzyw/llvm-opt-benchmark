@@ -107,7 +107,7 @@ define noundef zeroext i1 @_ZN5draco26SequentialAttributeDecoder23DecodePortable
   br label %23
 
 23:                                               ; preds = %18, %3, %9
-  %.0 = phi i1 [ %22, %18 ], [ false, %3 ], [ false, %9 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %3 ], [ %22, %18 ]
   ret i1 %.0
 }
 
@@ -242,10 +242,10 @@ define noundef zeroext i1 @_ZN5draco26SequentialAttributeDecoder20InitPrediction
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %.critedge24, label %.lr.ph
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %.critedge
-  %.01725 = phi i32 [ %43, %.critedge ], [ 0, %2 ]
+.lr.ph:                                           ; preds = %2, %.critedge24
+  %.01725 = phi i32 [ %43, %.critedge24 ], [ 0, %2 ]
   %9 = load ptr, ptr %3, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !21
@@ -255,7 +255,7 @@ define noundef zeroext i1 @_ZN5draco26SequentialAttributeDecoder20InitPrediction
   %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.01725)
   %16 = tail call noundef i32 @_ZNK5draco10PointCloud19GetNamedAttributeIdENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %11, i32 noundef %15)
   %17 = icmp eq i32 %16, -1
-  br i1 %17, label %.critedge24, label %18
+  br i1 %17, label %._crit_edge, label %18
 
 18:                                               ; preds = %.lr.ph
   %19 = load ptr, ptr %3, align 8, !tbaa !20
@@ -276,31 +276,31 @@ define noundef zeroext i1 @_ZN5draco26SequentialAttributeDecoder20InitPrediction
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %30)
-  br i1 %34, label %.critedge, label %.critedge24
+  br i1 %34, label %.critedge24, label %._crit_edge
 
 35:                                               ; preds = %18
   %36 = tail call noundef ptr @_ZN5draco17PointCloudDecoder20GetPortableAttributeEi(ptr noundef nonnull align 8 dereferenceable(88) %19, i32 noundef %16)
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %.critedge24, label %38
+  br i1 %37, label %._crit_edge, label %38
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr %1, align 8, !tbaa !3
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %36)
-  br i1 %42, label %.critedge, label %.critedge24
+  br i1 %42, label %.critedge24, label %._crit_edge
 
-.critedge:                                        ; preds = %38, %23
+.critedge24:                                      ; preds = %38, %23
   %43 = add nuw nsw i32 %.01725, 1
   %44 = load ptr, ptr %1, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %.not = icmp slt i32 %43, %47
-  br i1 %.not, label %.lr.ph, label %.critedge24, !llvm.loop !84
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !84
 
-.critedge24:                                      ; preds = %.critedge, %38, %35, %.lr.ph, %23, %2
-  %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ false, %.lr.ph ], [ false, %35 ], [ false, %38 ], [ true, %.critedge ]
+._crit_edge:                                      ; preds = %.critedge24, %38, %35, %23, %.lr.ph, %2
+  %.lcssa = phi i1 [ true, %2 ], [ false, %.lr.ph ], [ false, %23 ], [ false, %35 ], [ false, %38 ], [ true, %.critedge24 ]
   ret i1 %.lcssa
 }
 

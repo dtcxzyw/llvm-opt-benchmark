@@ -355,8 +355,8 @@ bytestream2_get_byte.exit.i.bytestream2_get_byte.exit.thread.i_crit_edge: ; pred
   br label %bytestream2_get_byte.exit90.i
 
 bytestream2_get_byte.exit90.i:                    ; preds = %140, %127, %119, %111, %144, %131, %123, %115, %107
-  %.sroa.0130.0 = phi ptr [ %97, %107 ], [ %145, %144 ], [ %116, %115 ], [ %77, %111 ], [ %124, %123 ], [ %77, %119 ], [ %132, %131 ], [ %77, %127 ], [ %77, %140 ]
-  %.279.i = phi i32 [ %.077135.i, %107 ], [ %146, %144 ], [ %118, %115 ], [ 0, %111 ], [ %126, %123 ], [ 0, %119 ], [ %139, %131 ], [ 0, %127 ], [ 0, %140 ]
+  %.sroa.0130.0 = phi ptr [ %97, %107 ], [ %116, %115 ], [ %124, %123 ], [ %132, %131 ], [ %145, %144 ], [ %77, %111 ], [ %77, %119 ], [ %77, %127 ], [ %77, %140 ]
+  %.279.i = phi i32 [ %.077135.i, %107 ], [ %118, %115 ], [ %126, %123 ], [ %139, %131 ], [ %146, %144 ], [ 0, %111 ], [ 0, %119 ], [ 0, %127 ], [ 0, %140 ]
   %147 = trunc i32 %.279.i to i8
   %148 = lshr i32 %.279.i, 8
   %149 = trunc i32 %148 to i8
@@ -436,8 +436,8 @@ bytestream2_get_byte.exit90.i:                    ; preds = %140, %127, %119, %1
   br label %bytestream2_put_byte.exit.i
 
 bytestream2_put_byte.exit.i:                      ; preds = %177, %169, %163, %157, %181, %173, %167, %161, %153
-  %.sroa.51.2 = phi i32 [ %.sroa.51.1, %153 ], [ 0, %161 ], [ 1, %169 ], [ 0, %167 ], [ 1, %157 ], [ 0, %173 ], [ 1, %163 ], [ 0, %181 ], [ 1, %177 ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %153 ], [ %162, %161 ], [ %.sroa.0.1, %169 ], [ %168, %167 ], [ %.sroa.0.1, %157 ], [ %176, %173 ], [ %.sroa.0.1, %163 ], [ %182, %181 ], [ %.sroa.0.1, %177 ]
+  %.sroa.51.2 = phi i32 [ %.sroa.51.1, %153 ], [ 0, %161 ], [ 0, %167 ], [ 0, %173 ], [ 0, %181 ], [ 1, %157 ], [ 1, %163 ], [ 1, %169 ], [ 1, %177 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %153 ], [ %162, %161 ], [ %168, %167 ], [ %176, %173 ], [ %182, %181 ], [ %.sroa.0.1, %157 ], [ %.sroa.0.1, %163 ], [ %.sroa.0.1, %169 ], [ %.sroa.0.1, %177 ]
   %183 = add nuw nsw i32 %.075132.i, 1
   %exitcond.not.i = icmp eq i32 %183, %99
   br i1 %exitcond.not.i, label %184, label %153, !llvm.loop !54
@@ -679,9 +679,9 @@ bytestream2_get_le32.exit107.i:                   ; preds = %290, %294
   br label %bytestream2_put_byte.exit109.i
 
 bytestream2_put_byte.exit109.i:                   ; preds = %bytestream2_get_le32.exit107.i, %bytestream2_get_le24.exit104.i, %bytestream2_get_le16.exit101.i, %bytestream2_get_byte.exit98.i, %300, %281, %263, %251, %.lr.ph.i
-  %.sroa.51.5 = phi i32 [ %.sroa.51.4, %.lr.ph.i ], [ 0, %251 ], [ 1, %bytestream2_get_le24.exit104.i ], [ 0, %263 ], [ 1, %bytestream2_get_byte.exit98.i ], [ 0, %281 ], [ 1, %bytestream2_get_le16.exit101.i ], [ 0, %300 ], [ 1, %bytestream2_get_le32.exit107.i ]
-  %.sroa.0130.6 = phi ptr [ %.sroa.0130.4, %.lr.ph.i ], [ %.sroa.0130.10, %251 ], [ %.sroa.0130.8, %bytestream2_get_le24.exit104.i ], [ %.sroa.0130.9, %263 ], [ %.sroa.0130.10, %bytestream2_get_byte.exit98.i ], [ %.sroa.0130.8, %281 ], [ %.sroa.0130.9, %bytestream2_get_le16.exit101.i ], [ %.sroa.0130.5, %300 ], [ %.sroa.0130.5, %bytestream2_get_le32.exit107.i ]
-  %.sroa.0.5 = phi ptr [ %.sroa.0.4, %.lr.ph.i ], [ %252, %251 ], [ %.sroa.0.4, %bytestream2_get_le24.exit104.i ], [ %264, %263 ], [ %.sroa.0.4, %bytestream2_get_byte.exit98.i ], [ %289, %281 ], [ %.sroa.0.4, %bytestream2_get_le16.exit101.i ], [ %301, %300 ], [ %.sroa.0.4, %bytestream2_get_le32.exit107.i ]
+  %.sroa.51.5 = phi i32 [ %.sroa.51.4, %.lr.ph.i ], [ 0, %251 ], [ 0, %263 ], [ 0, %281 ], [ 0, %300 ], [ 1, %bytestream2_get_byte.exit98.i ], [ 1, %bytestream2_get_le16.exit101.i ], [ 1, %bytestream2_get_le24.exit104.i ], [ 1, %bytestream2_get_le32.exit107.i ]
+  %.sroa.0130.6 = phi ptr [ %.sroa.0130.4, %.lr.ph.i ], [ %.sroa.0130.10, %251 ], [ %.sroa.0130.9, %263 ], [ %.sroa.0130.8, %281 ], [ %.sroa.0130.5, %300 ], [ %.sroa.0130.10, %bytestream2_get_byte.exit98.i ], [ %.sroa.0130.9, %bytestream2_get_le16.exit101.i ], [ %.sroa.0130.8, %bytestream2_get_le24.exit104.i ], [ %.sroa.0130.5, %bytestream2_get_le32.exit107.i ]
+  %.sroa.0.5 = phi ptr [ %.sroa.0.4, %.lr.ph.i ], [ %252, %251 ], [ %264, %263 ], [ %289, %281 ], [ %301, %300 ], [ %.sroa.0.4, %bytestream2_get_byte.exit98.i ], [ %.sroa.0.4, %bytestream2_get_le16.exit101.i ], [ %.sroa.0.4, %bytestream2_get_le24.exit104.i ], [ %.sroa.0.4, %bytestream2_get_le32.exit107.i ]
   %302 = add nuw nsw i32 %.176133.i, 1
   %exitcond146.not.i = icmp eq i32 %302, %191
   br i1 %exitcond146.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !55
@@ -742,8 +742,8 @@ rle_uncompress.exit._crit_edge:                   ; preds = %rle_uncompress.exit
   %332 = load i32, ptr %12, align 8, !tbaa !42
   br label %rle_uncompress.exit.thread
 
-rle_uncompress.exit.thread:                       ; preds = %308, %231, %100, %bytestream2_init_writer.exit, %45, %4, %rle_uncompress.exit._crit_edge, %44, %17
-  %.0 = phi i32 [ %332, %rle_uncompress.exit._crit_edge ], [ -1313558101, %17 ], [ %13, %4 ], [ -1313558101, %44 ], [ %46, %45 ], [ -1094995529, %bytestream2_init_writer.exit ], [ -1094995529, %100 ], [ -1094995529, %231 ], [ -1094995529, %308 ]
+rle_uncompress.exit.thread:                       ; preds = %308, %100, %231, %bytestream2_init_writer.exit, %45, %4, %rle_uncompress.exit._crit_edge, %44, %17
+  %.0 = phi i32 [ -1313558101, %17 ], [ -1313558101, %44 ], [ %332, %rle_uncompress.exit._crit_edge ], [ %13, %4 ], [ %46, %45 ], [ -1094995529, %bytestream2_init_writer.exit ], [ -1094995529, %231 ], [ -1094995529, %100 ], [ -1094995529, %308 ]
   ret i32 %.0
 }
 

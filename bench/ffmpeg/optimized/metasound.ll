@@ -915,7 +915,7 @@ read_cb_data.exit112:                             ; preds = %260, %._crit_edge21
   br label %._crit_edge222
 
 ._crit_edge222:                                   ; preds = %15, %._crit_edge222.loopexit, %4, %50
-  %.0 = phi i32 [ -1094995529, %4 ], [ -1094995529, %50 ], [ 0, %15 ], [ %340, %._crit_edge222.loopexit ]
+  %.0 = phi i32 [ -1094995529, %50 ], [ -1094995529, %4 ], [ 0, %15 ], [ %340, %._crit_edge222.loopexit ]
   ret i32 %.0
 }
 
@@ -1269,7 +1269,7 @@ define internal void @decode_ppc(ptr noundef readonly captures(none) %0, i32 nou
   br label %71
 
 71:                                               ; preds = %64, %70, %69, %66, %65
-  %.046 = phi nsz float [ 4.000000e+00, %70 ], [ 8.000000e+00, %69 ], [ 3.000000e+00, %65 ], [ 2.000000e+00, %64 ], [ %68, %66 ]
+  %.046 = phi nsz float [ 4.000000e+00, %70 ], [ 3.000000e+00, %65 ], [ %68, %66 ], [ 8.000000e+00, %69 ], [ 2.000000e+00, %64 ]
   %72 = fdiv nsz float %22, %.047
   %73 = fdiv nsz float %.046, %72
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 226
@@ -1399,8 +1399,8 @@ define internal void @decode_ppc(ptr noundef readonly captures(none) %0, i32 nou
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !95
 
 ._crit_edge55.i:                                  ; preds = %._crit_edge.us.i, %.lr.ph54.i, %.preheader.i
-  %.143.lcssa.i = phi i32 [ 1, %.preheader.i ], [ %124, %.lr.ph54.i ], [ %124, %._crit_edge.us.i ]
-  %.1.lcssa.i = phi ptr [ %.0.lcssa.i, %.preheader.i ], [ %.0.lcssa.i, %.lr.ph54.i ], [ %138, %._crit_edge.us.i ]
+  %.143.lcssa.i = phi i32 [ %124, %.lr.ph54.i ], [ 1, %.preheader.i ], [ %124, %._crit_edge.us.i ]
+  %.1.lcssa.i = phi ptr [ %.0.lcssa.i, %.lr.ph54.i ], [ %.0.lcssa.i, %.preheader.i ], [ %138, %._crit_edge.us.i ]
   %148 = icmp slt i32 %126, %128
   %149 = icmp ult ptr %.1.lcssa.i, %119
   %150 = select i1 %148, i1 %149, i1 false

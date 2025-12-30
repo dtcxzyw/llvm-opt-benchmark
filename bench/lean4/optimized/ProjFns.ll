@@ -1692,7 +1692,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit58
   br label %lean_dec.exit66
 
 lean_dec.exit66:                                  ; preds = %lean_obj_tag.exit114.thread, %122, %191, %193, %194, %126, %128, %129, %lean_obj_tag.exit97, %23, %27, %29, %30, %lean_alloc_ctor.exit, %lean_dec.exit62
-  %.0 = phi ptr [ inttoptr (i64 1 to ptr), %122 ], [ inttoptr (i64 1 to ptr), %23 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit97 ], [ %66, %lean_dec.exit62 ], [ %183, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %30 ], [ inttoptr (i64 1 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %27 ], [ inttoptr (i64 1 to ptr), %129 ], [ inttoptr (i64 1 to ptr), %128 ], [ inttoptr (i64 1 to ptr), %126 ], [ inttoptr (i64 1 to ptr), %194 ], [ inttoptr (i64 1 to ptr), %193 ], [ inttoptr (i64 1 to ptr), %191 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit114.thread ]
+  %.0 = phi ptr [ %66, %lean_dec.exit62 ], [ %183, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %30 ], [ inttoptr (i64 1 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %27 ], [ inttoptr (i64 1 to ptr), %23 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit97 ], [ inttoptr (i64 1 to ptr), %129 ], [ inttoptr (i64 1 to ptr), %128 ], [ inttoptr (i64 1 to ptr), %126 ], [ inttoptr (i64 1 to ptr), %122 ], [ inttoptr (i64 1 to ptr), %194 ], [ inttoptr (i64 1 to ptr), %193 ], [ inttoptr (i64 1 to ptr), %191 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit114.thread ]
   ret ptr %.0
 }
 
@@ -2445,7 +2445,7 @@ _init_l___private_Lean_ProjFns_0__Lean_reprProjectionFunctionInfo____x40_Lean_Pr
   br label %_init_l___private_Lean_ProjFns_0__Lean_reprProjectionFunctionInfo____x40_Lean_ProjFns___hyg_52____closed__20.exit
 
 _init_l___private_Lean_ProjFns_0__Lean_reprProjectionFunctionInfo____x40_Lean_ProjFns___hyg_52____closed__20.exit: ; preds = %_init_l___private_Lean_ProjFns_0__Lean_reprProjectionFunctionInfo____x40_Lean_ProjFns___hyg_52____closed__17.exit, %94
-  %.1.i.i = phi ptr [ %90, %_init_l___private_Lean_ProjFns_0__Lean_reprProjectionFunctionInfo____x40_Lean_ProjFns___hyg_52____closed__17.exit ], [ %96, %94 ]
+  %.1.i.i = phi ptr [ %96, %94 ], [ %90, %_init_l___private_Lean_ProjFns_0__Lean_reprProjectionFunctionInfo____x40_Lean_ProjFns___hyg_52____closed__17.exit ]
   store ptr %.1.i.i, ptr @l___private_Lean_ProjFns_0__Lean_reprProjectionFunctionInfo____x40_Lean_ProjFns___hyg_52____closed__20, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #3
   %97 = load ptr, ptr @l___private_Lean_ProjFns_0__Lean_reprProjectionFunctionInfo____x40_Lean_ProjFns___hyg_52____closed__18, align 8, !tbaa !4

@@ -284,15 +284,15 @@ thread-pre-split:                                 ; preds = %.critedge
   br label %.critedge71
 
 .sink.split:                                      ; preds = %44, %41, %38, %35, %32, %29, %thread-pre-split
-  %.sink96 = phi i64 [ 3, %thread-pre-split ], [ 9, %32 ], [ 3, %38 ], [ 4, %41 ], [ 9, %35 ], [ 8, %29 ], [ 4, %44 ]
-  %.058.ph = phi float [ 0x7FF8000000000000, %thread-pre-split ], [ 0x7FF0000000000000, %32 ], [ 0x7FF0000000000000, %38 ], [ 0x7FF0000000000000, %41 ], [ 0xFFF0000000000000, %35 ], [ 0x7FF0000000000000, %29 ], [ 0xFFF0000000000000, %44 ]
+  %.sink96 = phi i64 [ 3, %thread-pre-split ], [ 8, %29 ], [ 9, %32 ], [ 9, %35 ], [ 3, %38 ], [ 4, %41 ], [ 4, %44 ]
+  %.058.ph = phi float [ 0x7FF8000000000000, %thread-pre-split ], [ 0x7FF0000000000000, %29 ], [ 0x7FF0000000000000, %32 ], [ 0xFFF0000000000000, %35 ], [ 0x7FF0000000000000, %38 ], [ 0x7FF0000000000000, %41 ], [ 0xFFF0000000000000, %44 ]
   %65 = getelementptr inbounds nuw i8, ptr %.05776, i64 %.sink96
   store ptr %65, ptr %6, align 8
   br label %66
 
 66:                                               ; preds = %.critedge, %.sink.split, %49
-  %.promoted = phi ptr [ %25, %.critedge ], [ %25, %49 ], [ %65, %.sink.split ]
-  %.058 = phi float [ %24, %.critedge ], [ %24, %49 ], [ %.058.ph, %.sink.split ]
+  %.promoted = phi ptr [ %25, %49 ], [ %65, %.sink.split ], [ %25, %.critedge ]
+  %.058 = phi float [ %24, %49 ], [ %.058.ph, %.sink.split ], [ %24, %.critedge ]
   %67 = load i8, ptr %.promoted, align 1
   %.not6679 = icmp eq i8 %67, 0
   br i1 %.not6679, label %.critedge6, label %.lr.ph81
@@ -341,8 +341,8 @@ thread-pre-split:                                 ; preds = %.critedge
   tail call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 309, ptr noundef nonnull @__func__.float4in_internal) #19
   br label %.critedge71
 
-.critedge71:                                      ; preds = %.critedge6, %60, %50, %57, %62, %79, %81, %83, %._crit_edge, %20
-  %.0 = phi float [ %.058, %79 ], [ 0.000000e+00, %81 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %20 ], [ 0.000000e+00, %83 ], [ 0.000000e+00, %60 ], [ 0.000000e+00, %62 ], [ 0.000000e+00, %57 ], [ 0.000000e+00, %50 ], [ %.058, %.critedge6 ]
+.critedge71:                                      ; preds = %.critedge6, %57, %50, %62, %60, %79, %81, %83, %._crit_edge, %20
+  %.0 = phi float [ 0.000000e+00, %20 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %83 ], [ 0.000000e+00, %81 ], [ %.058, %79 ], [ 0.000000e+00, %60 ], [ 0.000000e+00, %62 ], [ 0.000000e+00, %50 ], [ 0.000000e+00, %57 ], [ %.058, %.critedge6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret float %.0
 }
@@ -563,15 +563,15 @@ thread-pre-split:                                 ; preds = %.critedge
   br label %.critedge71
 
 .sink.split:                                      ; preds = %44, %41, %38, %35, %32, %29, %thread-pre-split
-  %.sink96 = phi i64 [ 3, %thread-pre-split ], [ 9, %32 ], [ 3, %38 ], [ 4, %41 ], [ 9, %35 ], [ 8, %29 ], [ 4, %44 ]
-  %.058.ph = phi double [ 0x7FF8000000000000, %thread-pre-split ], [ 0x7FF0000000000000, %32 ], [ 0x7FF0000000000000, %38 ], [ 0x7FF0000000000000, %41 ], [ 0xFFF0000000000000, %35 ], [ 0x7FF0000000000000, %29 ], [ 0xFFF0000000000000, %44 ]
+  %.sink96 = phi i64 [ 3, %thread-pre-split ], [ 8, %29 ], [ 9, %32 ], [ 9, %35 ], [ 3, %38 ], [ 4, %41 ], [ 4, %44 ]
+  %.058.ph = phi double [ 0x7FF8000000000000, %thread-pre-split ], [ 0x7FF0000000000000, %29 ], [ 0x7FF0000000000000, %32 ], [ 0xFFF0000000000000, %35 ], [ 0x7FF0000000000000, %38 ], [ 0x7FF0000000000000, %41 ], [ 0xFFF0000000000000, %44 ]
   %65 = getelementptr inbounds nuw i8, ptr %.05776, i64 %.sink96
   store ptr %65, ptr %6, align 8
   br label %66
 
 66:                                               ; preds = %.critedge, %.sink.split, %49
-  %.promoted = phi ptr [ %25, %.critedge ], [ %25, %49 ], [ %65, %.sink.split ]
-  %.058 = phi double [ %24, %.critedge ], [ %24, %49 ], [ %.058.ph, %.sink.split ]
+  %.promoted = phi ptr [ %25, %49 ], [ %65, %.sink.split ], [ %25, %.critedge ]
+  %.058 = phi double [ %24, %49 ], [ %.058.ph, %.sink.split ], [ %24, %.critedge ]
   %67 = load i8, ptr %.promoted, align 1
   %.not6679 = icmp eq i8 %67, 0
   br i1 %.not6679, label %.critedge6, label %.lr.ph81
@@ -620,8 +620,8 @@ thread-pre-split:                                 ; preds = %.critedge
   tail call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 511, ptr noundef nonnull @__func__.float8in_internal) #19
   br label %.critedge71
 
-.critedge71:                                      ; preds = %.critedge6, %60, %50, %57, %62, %79, %81, %83, %._crit_edge, %20
-  %.0 = phi double [ %.058, %79 ], [ 0.000000e+00, %81 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %20 ], [ 0.000000e+00, %83 ], [ 0.000000e+00, %60 ], [ 0.000000e+00, %62 ], [ 0.000000e+00, %57 ], [ 0.000000e+00, %50 ], [ %.058, %.critedge6 ]
+.critedge71:                                      ; preds = %.critedge6, %57, %50, %62, %60, %79, %81, %83, %._crit_edge, %20
+  %.0 = phi double [ 0.000000e+00, %20 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %83 ], [ 0.000000e+00, %81 ], [ %.058, %79 ], [ 0.000000e+00, %60 ], [ 0.000000e+00, %62 ], [ 0.000000e+00, %50 ], [ 0.000000e+00, %57 ], [ %.058, %.critedge6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret double %.0
 }
@@ -1729,7 +1729,7 @@ define dso_local range(i64 0, 2) i64 @in_range_float8_float8(ptr noundef readonl
   br label %40
 
 40:                                               ; preds = %23, %30, %32, %20, %38, %36, %21
-  %.028.shrunk = phi i1 [ %39, %38 ], [ %22, %21 ], [ true, %30 ], [ true, %20 ], [ %37, %36 ], [ true, %32 ], [ %12, %23 ]
+  %.028.shrunk = phi i1 [ %22, %21 ], [ %37, %36 ], [ %39, %38 ], [ true, %20 ], [ true, %32 ], [ true, %30 ], [ %12, %23 ]
   %.028 = zext i1 %.028.shrunk to i64
   ret i64 %.028
 }
@@ -1813,7 +1813,7 @@ define dso_local range(i64 0, 2) i64 @in_range_float4_float8(ptr noundef readonl
   br label %46
 
 46:                                               ; preds = %27, %34, %36, %24, %44, %42, %25
-  %.028.shrunk = phi i1 [ %45, %44 ], [ %26, %25 ], [ true, %34 ], [ true, %24 ], [ %43, %42 ], [ true, %36 ], [ %16, %27 ]
+  %.028.shrunk = phi i1 [ %26, %25 ], [ %43, %42 ], [ %45, %44 ], [ true, %24 ], [ true, %36 ], [ true, %34 ], [ %16, %27 ]
   %.028 = zext i1 %.028.shrunk to i64
   ret i64 %.028
 }
@@ -2368,12 +2368,12 @@ define dso_local i64 @dpow(ptr noundef readonly captures(none) %0) local_unnamed
   unreachable
 
 93:                                               ; preds = %68, %67, %56, %59, %49, %45, %41, %34, %39, %40, %90, %88
-  %.1 = phi double [ %63, %88 ], [ 0.000000e+00, %40 ], [ %.63, %49 ], [ 1.000000e+00, %45 ], [ 1.000000e+00, %34 ], [ %60, %59 ], [ 0.000000e+00, %67 ], [ %63, %90 ], [ %42, %41 ], [ %., %39 ], [ %58, %56 ], [ 1.000000e+00, %68 ]
+  %.1 = phi double [ %63, %90 ], [ %63, %88 ], [ %42, %41 ], [ 1.000000e+00, %34 ], [ %., %39 ], [ 0.000000e+00, %40 ], [ 1.000000e+00, %45 ], [ %.63, %49 ], [ %58, %56 ], [ %60, %59 ], [ 0.000000e+00, %67 ], [ 1.000000e+00, %68 ]
   %94 = bitcast double %.1 to i64
   br label %95
 
 95:                                               ; preds = %12, %7, %93, %14, %9
-  %.0 = phi i64 [ %94, %93 ], [ 4607182418800017408, %9 ], [ 9221120237041090560, %7 ], [ 4607182418800017408, %14 ], [ 9221120237041090560, %12 ]
+  %.0 = phi i64 [ 4607182418800017408, %9 ], [ 4607182418800017408, %14 ], [ %94, %93 ], [ 9221120237041090560, %7 ], [ 9221120237041090560, %12 ]
   ret i64 %.0
 }
 
@@ -2435,7 +2435,7 @@ define dso_local i64 @dexp(ptr noundef readonly captures(none) %0) local_unnamed
   unreachable
 
 27:                                               ; preds = %1, %8, %24
-  %.0 = phi double [ %13, %24 ], [ %10, %8 ], [ %3, %1 ]
+  %.0 = phi double [ %10, %8 ], [ %13, %24 ], [ %3, %1 ]
   %28 = bitcast double %.0 to i64
   ret i64 %28
 }
@@ -4162,9 +4162,9 @@ float8_pl.exit:                                   ; preds = %54, %59
   unreachable
 
 82:                                               ; preds = %52, %check_float8_array.exit58, %76, %float8_pl.exit
-  %.050 = phi double [ %73, %float8_pl.exit ], [ %50, %check_float8_array.exit58 ], [ %73, %76 ], [ %45, %52 ]
-  %.049 = phi double [ %56, %float8_pl.exit ], [ %48, %check_float8_array.exit58 ], [ %56, %76 ], [ %43, %52 ]
-  %.048 = phi double [ %55, %float8_pl.exit ], [ %46, %check_float8_array.exit58 ], [ %55, %76 ], [ %41, %52 ]
+  %.050 = phi double [ %73, %76 ], [ %73, %float8_pl.exit ], [ %50, %check_float8_array.exit58 ], [ %45, %52 ]
+  %.049 = phi double [ %56, %76 ], [ %56, %float8_pl.exit ], [ %48, %check_float8_array.exit58 ], [ %43, %52 ]
+  %.048 = phi double [ %55, %76 ], [ %55, %float8_pl.exit ], [ %46, %check_float8_array.exit58 ], [ %41, %52 ]
   %83 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
   %.not = icmp eq i32 %83, 0
   br i1 %.not, label %85, label %84
@@ -4285,7 +4285,7 @@ check_float8_array.exit:                          ; preds = %17
   br label %53
 
 53:                                               ; preds = %44, %50, %52, %35
-  %.036 = phi double [ %28, %50 ], [ %41, %35 ], [ 0x7FF8000000000000, %52 ], [ 0x7FF8000000000000, %44 ]
+  %.036 = phi double [ %41, %35 ], [ 0x7FF8000000000000, %52 ], [ %28, %50 ], [ 0x7FF8000000000000, %44 ]
   %54 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
   %.not = icmp eq i32 %54, 0
   br i1 %.not, label %56, label %55
@@ -4408,7 +4408,7 @@ check_float8_array.exit:                          ; preds = %20
   br label %58
 
 58:                                               ; preds = %47, %53, %57, %38
-  %.036 = phi double [ %31, %53 ], [ %44, %38 ], [ 0x7FF8000000000000, %57 ], [ 0x7FF8000000000000, %47 ]
+  %.036 = phi double [ %44, %38 ], [ 0x7FF8000000000000, %57 ], [ %31, %53 ], [ 0x7FF8000000000000, %47 ]
   %59 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
   %.not = icmp eq i32 %59, 0
   br i1 %.not, label %61, label %60
@@ -4887,9 +4887,9 @@ check_float8_array.exit:                          ; preds = %19
   br label %94
 
 94:                                               ; preds = %88, %90, %41, %93, %89
-  %.085 = phi double [ 0x7FF8000000000000, %89 ], [ %53, %88 ], [ %53, %41 ], [ 0x7FF8000000000000, %93 ], [ %.186, %90 ]
-  %.184 = phi double [ %.083113, %89 ], [ %.083, %88 ], [ %51, %41 ], [ 0x7FF8000000000000, %93 ], [ %34, %90 ]
-  %.1 = phi double [ %.082112, %89 ], [ %.082, %88 ], [ %49, %41 ], [ %.2, %93 ], [ %.2, %90 ]
+  %.085 = phi double [ 0x7FF8000000000000, %89 ], [ %53, %88 ], [ 0x7FF8000000000000, %93 ], [ %53, %41 ], [ %.186, %90 ]
+  %.184 = phi double [ %.083113, %89 ], [ %.083, %88 ], [ 0x7FF8000000000000, %93 ], [ %51, %41 ], [ %34, %90 ]
+  %.1 = phi double [ %.082112, %89 ], [ %.082, %88 ], [ %.2, %93 ], [ %49, %41 ], [ %.2, %90 ]
   %95 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
   %.not = icmp eq i32 %95, 0
   br i1 %.not, label %97, label %96
@@ -5138,12 +5138,12 @@ float8_pl.exit114:                                ; preds = %94, %98
   unreachable
 
 133:                                              ; preds = %64, %check_float8_array.exit112, %127, %120
-  %.0100 = phi double [ %124, %120 ], [ %62, %check_float8_array.exit112 ], [ %124, %127 ], [ %51, %64 ]
-  %.099 = phi double [ %111, %120 ], [ %60, %check_float8_array.exit112 ], [ %111, %127 ], [ %49, %64 ]
-  %.098 = phi double [ %95, %120 ], [ %58, %check_float8_array.exit112 ], [ %95, %127 ], [ %47, %64 ]
-  %.097 = phi double [ %85, %120 ], [ %56, %check_float8_array.exit112 ], [ %85, %127 ], [ %45, %64 ]
-  %.096 = phi double [ %68, %120 ], [ %54, %check_float8_array.exit112 ], [ %68, %127 ], [ %43, %64 ]
-  %.095 = phi double [ %67, %120 ], [ %52, %check_float8_array.exit112 ], [ %67, %127 ], [ %41, %64 ]
+  %.0100 = phi double [ %124, %127 ], [ %124, %120 ], [ %62, %check_float8_array.exit112 ], [ %51, %64 ]
+  %.099 = phi double [ %111, %127 ], [ %111, %120 ], [ %60, %check_float8_array.exit112 ], [ %49, %64 ]
+  %.098 = phi double [ %95, %127 ], [ %95, %120 ], [ %58, %check_float8_array.exit112 ], [ %47, %64 ]
+  %.097 = phi double [ %85, %127 ], [ %85, %120 ], [ %56, %check_float8_array.exit112 ], [ %45, %64 ]
+  %.096 = phi double [ %68, %127 ], [ %68, %120 ], [ %54, %check_float8_array.exit112 ], [ %43, %64 ]
+  %.095 = phi double [ %67, %127 ], [ %67, %120 ], [ %52, %check_float8_array.exit112 ], [ %41, %64 ]
   %134 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
   %.not = icmp eq i32 %134, 0
   br i1 %.not, label %136, label %135
@@ -6599,7 +6599,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_float8(ptr
   unreachable
 
 103:                                              ; preds = %68, %35, %95, %72, %39, %62
-  %.0 = phi i32 [ %75, %72 ], [ %65, %62 ], [ %42, %39 ], [ 0, %35 ], [ %98, %95 ], [ 0, %68 ]
+  %.0 = phi i32 [ %65, %62 ], [ %42, %39 ], [ %98, %95 ], [ %75, %72 ], [ 0, %35 ], [ 0, %68 ]
   %104 = sext i32 %.0 to i64
   ret i64 %104
 }

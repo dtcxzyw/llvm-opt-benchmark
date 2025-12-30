@@ -82,7 +82,7 @@ define range(i32 -1094995529, 1) i32 @ff_argo_asf_validate_file_header(ptr nound
   br label %12
 
 12:                                               ; preds = %8, %2, %4
-  %.0 = phi i32 [ -1094995529, %2 ], [ %., %8 ], [ -1094995529, %4 ]
+  %.0 = phi i32 [ -1094995529, %4 ], [ -1094995529, %2 ], [ %., %8 ]
   ret i32 %.0
 }
 
@@ -370,7 +370,7 @@ define internal i32 @argo_asf_read_header(ptr noundef %0) #3 {
   br label %ff_argo_asf_validate_file_header.exit.thread
 
 ff_argo_asf_validate_file_header.exit.thread:     ; preds = %12, %42, %39, %11, %8, %1, %43, %37
-  %.0 = phi i32 [ -12, %1 ], [ %9, %8 ], [ -5, %11 ], [ -5, %42 ], [ %38, %37 ], [ -1094995529, %12 ], [ %40, %39 ], [ %59, %43 ]
+  %.0 = phi i32 [ %38, %37 ], [ %59, %43 ], [ -12, %1 ], [ %9, %8 ], [ -5, %11 ], [ %40, %39 ], [ -5, %42 ], [ -1094995529, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -489,7 +489,7 @@ define internal i32 @argo_asf_seek(ptr noundef readonly captures(none) %0, i32 n
   br label %40
 
 40:                                               ; preds = %4, %38, %36
-  %.0 = phi i32 [ 0, %38 ], [ %37, %36 ], [ -1, %4 ]
+  %.0 = phi i32 [ %37, %36 ], [ 0, %38 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -732,7 +732,7 @@ define internal range(i32 -22, 1) i32 @argo_asf_write_init(ptr noundef %0) #3 {
   br i1 %.not16, label %.sink.split, label %37
 
 .sink.split:                                      ; preds = %31, %27, %19, %16
-  %.str.18.sink = phi ptr [ @.str.17, %27 ], [ @.str.16, %19 ], [ @.str.15, %16 ], [ @.str.18, %31 ]
+  %.str.18.sink = phi ptr [ @.str.15, %16 ], [ @.str.16, %19 ], [ @.str.17, %27 ], [ @.str.18, %31 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.18.sink) #10
   br label %37
 

@@ -1988,8 +1988,8 @@ define linkonce_odr hidden { ptr, i64 } @_ZSt9__find_ifIN4llvm10SwitchInst16Case
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %32, %23, %.lr.ph, %75, %65, %55, %83
-  %.sroa.014.0.in.sroa.speculated = phi ptr [ %0, %65 ], [ %2, %83 ], [ %0, %75 ], [ %0, %55 ], [ %0, %.lr.ph ], [ %0, %23 ], [ %0, %32 ], [ %0, %41 ]
-  %.sroa.9.0 = phi i64 [ %.sroa.15.1, %65 ], [ %3, %83 ], [ %.sroa.15.2, %75 ], [ %.sroa.15.0.lcssa, %55 ], [ %42, %41 ], [ %33, %32 ], [ %24, %23 ], [ %.sroa.15.082, %.lr.ph ]
+  %.sroa.014.0.in.sroa.speculated = phi ptr [ %2, %83 ], [ %0, %55 ], [ %0, %65 ], [ %0, %75 ], [ %0, %.lr.ph ], [ %0, %23 ], [ %0, %32 ], [ %0, %41 ]
+  %.sroa.9.0 = phi i64 [ %3, %83 ], [ %.sroa.15.0.lcssa, %55 ], [ %.sroa.15.1, %65 ], [ %.sroa.15.2, %75 ], [ %42, %41 ], [ %33, %32 ], [ %24, %23 ], [ %.sroa.15.082, %.lr.ph ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.014.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.9.0, 1
   ret { ptr, i64 } %.fca.1.insert

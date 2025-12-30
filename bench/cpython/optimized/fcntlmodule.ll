@@ -298,7 +298,7 @@ define internal ptr @fcntl_fcntl(ptr readnone captures(none) %0, ptr noundef rea
   br label %fcntl_fcntl_impl.exit
 
 fcntl_fcntl_impl.exit:                            ; preds = %55, %74, %33, %.thread.i, %43, %.thread8.i, %60, %63, %.thread20.i, %79
-  %.0.i = phi ptr [ null, %63 ], [ null, %33 ], [ %81, %79 ], [ %78, %.thread20.i ], [ null, %43 ], [ null, %.thread.i ], [ null, %74 ], [ %59, %.thread8.i ], [ %62, %60 ], [ null, %55 ]
+  %.0.i = phi ptr [ %81, %79 ], [ null, %63 ], [ null, %33 ], [ %78, %.thread20.i ], [ null, %.thread.i ], [ %59, %.thread8.i ], [ %62, %60 ], [ null, %43 ], [ null, %74 ], [ null, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -381,7 +381,7 @@ define internal ptr @fcntl_ioctl(ptr readnone captures(none) %0, ptr noundef rea
   br i1 %41, label %113, label %42
 
 42:                                               ; preds = %37, %34
-  %.0 = phi i32 [ %40, %37 ], [ 1, %34 ]
+  %.0 = phi i32 [ 1, %34 ], [ %40, %37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -547,7 +547,7 @@ define internal ptr @fcntl_ioctl(ptr readnone captures(none) %0, ptr noundef rea
   br label %fcntl_ioctl_impl.exit
 
 fcntl_ioctl_impl.exit:                            ; preds = %43, %.thread.i, %59, %72, %76, %79, %87, %95, %98, %100, %107, %110
-  %.0.i = phi ptr [ null, %59 ], [ null, %43 ], [ null, %87 ], [ null, %95 ], [ %99, %98 ], [ null, %107 ], [ %112, %110 ], [ null, %72 ], [ %78, %76 ], [ %80, %79 ], [ null, %100 ], [ null, %.thread.i ]
+  %.0.i = phi ptr [ null, %87 ], [ null, %95 ], [ %99, %98 ], [ null, %107 ], [ %112, %110 ], [ null, %43 ], [ null, %72 ], [ %78, %76 ], [ %80, %79 ], [ null, %59 ], [ null, %100 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -666,8 +666,8 @@ define internal ptr @fcntl_lockf(ptr readnone captures(none) %0, ptr noundef rea
   br i1 %.not29, label %41, label %fcntl_lockf_impl.exit
 
 41:                                               ; preds = %34, %39, %31, %27
-  %.021 = phi ptr [ %33, %34 ], [ null, %27 ], [ %33, %31 ], [ %33, %39 ]
-  %.0 = phi i32 [ %37, %34 ], [ 0, %27 ], [ 0, %31 ], [ -1, %39 ]
+  %.021 = phi ptr [ null, %27 ], [ %33, %31 ], [ %33, %39 ], [ %33, %34 ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %31 ], [ -1, %39 ], [ %37, %34 ]
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %.thread, label %43
 
@@ -795,7 +795,7 @@ define internal ptr @fcntl_lockf(ptr readnone captures(none) %0, ptr noundef rea
   br label %fcntl_lockf_impl.exit
 
 fcntl_lockf_impl.exit:                            ; preds = %.critedge39.i, %88, %85, %.critedge.thread.i, %47, %39, %23, %14, %11, %6
-  %.023 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %14 ], [ null, %23 ], [ null, %39 ], [ null, %.critedge39.i ], [ null, %47 ], [ %89, %88 ], [ %87, %85 ], [ null, %.critedge.thread.i ]
+  %.023 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %14 ], [ null, %23 ], [ null, %39 ], [ %89, %88 ], [ null, %47 ], [ null, %.critedge39.i ], [ %87, %85 ], [ null, %.critedge.thread.i ]
   ret ptr %.023
 }
 
@@ -1247,7 +1247,7 @@ all_ins.exit:                                     ; preds = %137
   %.not138.i.not = icmp eq i32 %.fr, 0
   br i1 %.not138.i.not, label %140, label %all_ins.exit.thread
 
-all_ins.exit.thread:                              ; preds = %135, %133, %131, %129, %127, %125, %123, %121, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %83, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1, %137, %all_ins.exit
+all_ins.exit.thread:                              ; preds = %137, %135, %133, %131, %129, %127, %125, %123, %121, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %83, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1, %all_ins.exit
   br label %140
 
 140:                                              ; preds = %all_ins.exit, %all_ins.exit.thread

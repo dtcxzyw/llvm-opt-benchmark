@@ -97,7 +97,7 @@ define internal range(i32 -22, 1) i32 @init(ptr noundef %0) #0 {
   br label %32
 
 32:                                               ; preds = %23, %13, %1
-  %.0 = phi i32 [ %21, %13 ], [ %11, %1 ], [ %31, %23 ]
+  %.0 = phi i32 [ %11, %1 ], [ %21, %13 ], [ %31, %23 ]
   ret i32 %.0
 }
 
@@ -251,7 +251,7 @@ apply_unsharp.exit:                               ; preds = %66, %19
   br label %88
 
 88:                                               ; preds = %apply_unsharp.exit, %18
-  %.0 = phi i32 [ -12, %18 ], [ %87, %apply_unsharp.exit ]
+  %.0 = phi i32 [ %87, %apply_unsharp.exit ], [ -12, %18 ]
   ret i32 %.0
 }
 
@@ -1223,7 +1223,7 @@ define internal fastcc range(i32 -22, 1) i32 @init_filter_param(ptr noundef %0, 
   br i1 %.not34, label %.loopexit, label %42
 
 .loopexit:                                        ; preds = %.lr.ph, %42, %.preheader, %11, %10
-  %.0 = phi i32 [ -12, %11 ], [ -22, %10 ], [ 0, %.preheader ], [ -12, %.lr.ph ], [ 0, %42 ]
+  %.0 = phi i32 [ -22, %10 ], [ -12, %11 ], [ 0, %.preheader ], [ -12, %.lr.ph ], [ 0, %42 ]
   ret i32 %.0
 }
 

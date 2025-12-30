@@ -1245,7 +1245,7 @@ define hidden void @"_ZN177_$LT$uv_settings..settings.._..$LT$impl$u20$serde..de
   unreachable
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %96, %342, %241, %.body499
-  %.pn = phi { ptr, i32 } [ %242, %241 ], [ %343, %342 ], [ %eh.lpad-body500, %.body499 ], [ %97, %96 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit734, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp735, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body500, %.body499 ], [ %242, %241 ], [ %343, %342 ], [ %97, %96 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit734, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp735, %.loopexit.split-lp.loopexit.split-lp ]
   %100 = load i64, ptr %46, align 8, !range !131, !noundef !9
   %switch = icmp slt i64 %100, -9223372036854775806
   br i1 %switch, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_configuration..trusted_host..TrustedHost$GT$$GT$$GT$17hc195f5ab2351c10fE.exit642", label %397
@@ -1304,17 +1304,17 @@ define hidden void @"_ZN177_$LT$uv_settings..settings.._..$LT$impl$u20$serde..de
   br label %116
 
 116:                                              ; preds = %.thread669, %.thread1856
-  %117 = phi i8 [ %108, %.thread669 ], [ 2, %.thread1856 ]
-  %.sroa.0648.0181618321890 = phi ptr [ %.sroa.0648.0, %.thread669 ], [ %.sroa.0648.01790, %.thread1856 ]
-  %.sroa.5649.0181418341888 = phi i64 [ %.sroa.5649.0, %.thread669 ], [ %.sroa.5649.01789, %.thread1856 ]
-  %.sroa.083.0967180818381886 = phi i8 [ %.sroa.083.0967, %.thread669 ], [ 3, %.thread1856 ]
-  %.sroa.096.01003180618401884 = phi i8 [ %.sroa.096.01003, %.thread669 ], [ 5, %.thread1856 ]
-  %.sroa.0148.01075180218441880 = phi i64 [ %115, %.thread669 ], [ 0, %.thread1856 ]
-  %.sroa.0109.01111180018461878 = phi i8 [ %.sroa.0109.01111, %.thread669 ], [ 4, %.thread1856 ]
-  %.sroa.0122.01147179818481876 = phi i64 [ %111, %.thread669 ], [ 0, %.thread1856 ]
-  %.sroa.0135.01255179218541870 = phi i64 [ %113, %.thread669 ], [ 0, %.thread1856 ]
-  %118 = phi i8 [ %spec.select2364, %.thread669 ], [ 2, %.thread1856 ]
-  %119 = phi i8 [ %spec.select2365, %.thread669 ], [ 2, %.thread1856 ]
+  %117 = phi i8 [ 2, %.thread1856 ], [ %108, %.thread669 ]
+  %.sroa.0648.0181618321890 = phi ptr [ %.sroa.0648.01790, %.thread1856 ], [ %.sroa.0648.0, %.thread669 ]
+  %.sroa.5649.0181418341888 = phi i64 [ %.sroa.5649.01789, %.thread1856 ], [ %.sroa.5649.0, %.thread669 ]
+  %.sroa.083.0967180818381886 = phi i8 [ 3, %.thread1856 ], [ %.sroa.083.0967, %.thread669 ]
+  %.sroa.096.01003180618401884 = phi i8 [ 5, %.thread1856 ], [ %.sroa.096.01003, %.thread669 ]
+  %.sroa.0148.01075180218441880 = phi i64 [ 0, %.thread1856 ], [ %115, %.thread669 ]
+  %.sroa.0109.01111180018461878 = phi i8 [ 4, %.thread1856 ], [ %.sroa.0109.01111, %.thread669 ]
+  %.sroa.0122.01147179818481876 = phi i64 [ 0, %.thread1856 ], [ %111, %.thread669 ]
+  %.sroa.0135.01255179218541870 = phi i64 [ 0, %.thread1856 ], [ %113, %.thread669 ]
+  %118 = phi i8 [ 2, %.thread1856 ], [ %spec.select2364, %.thread669 ]
+  %119 = phi i8 [ 2, %.thread1856 ], [ %spec.select2365, %.thread669 ]
   %120 = load i64, ptr %47, align 8, !range !131, !noundef !9
   %121 = icmp eq i64 %120, -9223372036854775807
   br i1 %121, label %350, label %349
@@ -2515,7 +2515,7 @@ default.unreachable:                              ; preds = %122
           to label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_configuration..trusted_host..TrustedHost$GT$$GT$$GT$17hc195f5ab2351c10fE.exit" unwind label %366
 
 "_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_configuration..trusted_host..TrustedHost$GT$$GT$$GT$17hc195f5ab2351c10fE.exit642": ; preds = %.body, %397, %366
-  %.pn474 = phi { ptr, i32 } [ %367, %366 ], [ %.pn, %.body ], [ %.pn, %397 ]
+  %.pn474 = phi { ptr, i32 } [ %367, %366 ], [ %.pn, %397 ], [ %.pn, %.body ]
   %365 = load i64, ptr %47, align 8, !range !131, !noundef !9
   %.not476 = icmp eq i64 %365, -9223372036854775807
   br i1 %.not476, label %377, label %398
@@ -2601,7 +2601,7 @@ default.unreachable:                              ; preds = %122
           to label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$uv_configuration..required_version..RequiredVersion$GT$$GT$17h44e3d0dfa0709b55E.exit" unwind label %395
 
 .body636:                                         ; preds = %395, %388, %399, %377
-  %.pn481 = phi { ptr, i32 } [ %.pn478, %377 ], [ %.pn478, %399 ], [ %396, %395 ], [ %389, %388 ]
+  %.pn481 = phi { ptr, i32 } [ %.pn478, %399 ], [ %.pn478, %377 ], [ %396, %395 ], [ %389, %388 ]
   %392 = load i8, ptr %1, align 8, !range !3, !alias.scope !407, !noundef !9
   %393 = icmp eq i8 %392, 22
   br i1 %393, label %"_ZN4core3ptr87drop_in_place$LT$serde..__private..de..FlatStructAccess$LT$toml_edit..de..Error$GT$$GT$17hd4a97086c05625cbE.exit640", label %394
@@ -3083,7 +3083,7 @@ define hidden void @"_ZN188_$LT$uv_settings..settings.._..$LT$impl$u20$serde..de
   unreachable
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %148, %592, %561, %530, %499, %413, %369, %282, %251, %234, %214
-  %.pn = phi { ptr, i32 } [ %562, %561 ], [ %593, %592 ], [ %215, %214 ], [ %235, %234 ], [ %252, %251 ], [ %283, %282 ], [ %370, %369 ], [ %149, %148 ], [ %414, %413 ], [ %500, %499 ], [ %531, %530 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit1639, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1640, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %215, %214 ], [ %235, %234 ], [ %252, %251 ], [ %283, %282 ], [ %370, %369 ], [ %414, %413 ], [ %500, %499 ], [ %531, %530 ], [ %562, %561 ], [ %593, %592 ], [ %149, %148 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit1639, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1640, %.loopexit.split-lp.loopexit.split-lp ]
   %152 = load i64, ptr %88, align 8, !range !131, !noundef !9
   %switch = icmp slt i64 %152, -9223372036854775806
   br i1 %switch, label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1386", label %725
@@ -3104,21 +3104,21 @@ define hidden void @"_ZN188_$LT$uv_settings..settings.._..$LT$impl$u20$serde..de
   br label %.body
 
 .thread1503:                                      ; preds = %216, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i", %2
-  %.sroa.0287.02875 = phi i8 [ %.sroa.0287.02876, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ 3, %2 ], [ %.sroa.0287.1, %216 ]
-  %.sroa.0309.02804 = phi i8 [ %.sroa.0309.02877, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ 3, %2 ], [ %.sroa.0309.1, %216 ]
-  %.sroa.0265.02733 = phi i8 [ %.sroa.0265.02878, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ 3, %2 ], [ %.sroa.0265.1, %216 ]
-  %.sroa.0331.02662 = phi i8 [ %.sroa.0331.02879, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ 3, %2 ], [ %.sroa.0331.1, %216 ]
-  %.sroa.0252.02591 = phi i8 [ %.sroa.0252.02880, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ 3, %2 ], [ %.sroa.0252.1, %216 ]
-  %.sroa.0239.02520 = phi i8 [ %.sroa.0239.02881, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ 3, %2 ], [ %.sroa.0239.1, %216 ]
-  %.sroa.0226.02449 = phi i8 [ %.sroa.0226.02882, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ 5, %2 ], [ %.sroa.0226.1, %216 ]
-  %.sroa.0209.02378 = phi i64 [ %.sroa.0209.02883, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ 2, %2 ], [ %.sroa.0209.1, %216 ]
-  %.sroa.0187.02307 = phi i8 [ %.sroa.0187.02884, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ 3, %2 ], [ %.sroa.0187.1, %216 ]
-  %.sroa.0156.02236 = phi i8 [ %.sroa.0156.02885, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ 3, %2 ], [ %.sroa.0156.1, %216 ]
-  %.sroa.0143.02165 = phi i8 [ %.sroa.0143.02886, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ 6, %2 ], [ %.sroa.0143.1, %216 ]
-  %.sroa.0130.02094 = phi i8 [ %.sroa.0130.02887, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ 4, %2 ], [ %.sroa.0130.1, %216 ]
-  %.sroa.0117.02023 = phi i8 [ %.sroa.0117.02888, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ 3, %2 ], [ %.sroa.0117.1, %216 ]
-  %.sroa.0104.01952 = phi i8 [ %.sroa.0104.02889, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ 4, %2 ], [ %.sroa.0104.1, %216 ]
-  %.sroa.082.01881 = phi i8 [ %.sroa.082.02890, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ 3, %2 ], [ %.sroa.082.1, %216 ]
+  %.sroa.0287.02875 = phi i8 [ 3, %2 ], [ %.sroa.0287.02876, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ %.sroa.0287.1, %216 ]
+  %.sroa.0309.02804 = phi i8 [ 3, %2 ], [ %.sroa.0309.02877, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ %.sroa.0309.1, %216 ]
+  %.sroa.0265.02733 = phi i8 [ 3, %2 ], [ %.sroa.0265.02878, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ %.sroa.0265.1, %216 ]
+  %.sroa.0331.02662 = phi i8 [ 3, %2 ], [ %.sroa.0331.02879, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ %.sroa.0331.1, %216 ]
+  %.sroa.0252.02591 = phi i8 [ 3, %2 ], [ %.sroa.0252.02880, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ %.sroa.0252.1, %216 ]
+  %.sroa.0239.02520 = phi i8 [ 3, %2 ], [ %.sroa.0239.02881, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ %.sroa.0239.1, %216 ]
+  %.sroa.0226.02449 = phi i8 [ 5, %2 ], [ %.sroa.0226.02882, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ %.sroa.0226.1, %216 ]
+  %.sroa.0209.02378 = phi i64 [ 2, %2 ], [ %.sroa.0209.02883, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ %.sroa.0209.1, %216 ]
+  %.sroa.0187.02307 = phi i8 [ 3, %2 ], [ %.sroa.0187.02884, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ %.sroa.0187.1, %216 ]
+  %.sroa.0156.02236 = phi i8 [ 3, %2 ], [ %.sroa.0156.02885, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ %.sroa.0156.1, %216 ]
+  %.sroa.0143.02165 = phi i8 [ 6, %2 ], [ %.sroa.0143.02886, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ %.sroa.0143.1, %216 ]
+  %.sroa.0130.02094 = phi i8 [ 4, %2 ], [ %.sroa.0130.02887, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ %.sroa.0130.1, %216 ]
+  %.sroa.0117.02023 = phi i8 [ 3, %2 ], [ %.sroa.0117.02888, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ %.sroa.0117.1, %216 ]
+  %.sroa.0104.01952 = phi i8 [ 4, %2 ], [ %.sroa.0104.02889, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ %.sroa.0104.1, %216 ]
+  %.sroa.082.01881 = phi i8 [ 3, %2 ], [ %.sroa.082.02890, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h5db0e5de67ff1a07E.exit.i.i" ], [ %.sroa.082.1, %216 ]
   %153 = load i64, ptr %98, align 8, !range !131, !noundef !9
   %154 = icmp eq i64 %153, -9223372036854775807
   br i1 %154, label %600, label %599
@@ -5651,7 +5651,7 @@ default.unreachable:                              ; preds = %155
           to label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit" unwind label %665
 
 "_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1386": ; preds = %.body, %725, %665
-  %.pn1005 = phi { ptr, i32 } [ %666, %665 ], [ %.pn, %.body ], [ %.pn, %725 ]
+  %.pn1005 = phi { ptr, i32 } [ %666, %665 ], [ %.pn, %725 ], [ %.pn, %.body ]
   %664 = load i64, ptr %89, align 8, !range !131, !noundef !9
   %switch1605 = icmp slt i64 %664, -9223372036854775806
   br i1 %switch1605, label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1388", label %726
@@ -5672,7 +5672,7 @@ default.unreachable:                              ; preds = %155
           to label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1369" unwind label %670
 
 "_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1388": ; preds = %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1386", %726, %670
-  %.pn1009 = phi { ptr, i32 } [ %671, %670 ], [ %.pn1005, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1386" ], [ %.pn1005, %726 ]
+  %.pn1009 = phi { ptr, i32 } [ %671, %670 ], [ %.pn1005, %726 ], [ %.pn1005, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1386" ]
   %669 = load i64, ptr %90, align 8, !range !131, !noundef !9
   %switch1609 = icmp slt i64 %669, -9223372036854775806
   br i1 %switch1609, label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1390", label %727
@@ -5693,7 +5693,7 @@ default.unreachable:                              ; preds = %155
           to label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1371" unwind label %675
 
 "_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1390": ; preds = %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1388", %727, %675
-  %.pn1013 = phi { ptr, i32 } [ %676, %675 ], [ %.pn1009, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1388" ], [ %.pn1009, %727 ]
+  %.pn1013 = phi { ptr, i32 } [ %676, %675 ], [ %.pn1009, %727 ], [ %.pn1009, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1388" ]
   %674 = load i64, ptr %91, align 8, !range !131, !noundef !9
   %switch1613 = icmp slt i64 %674, -9223372036854775806
   br i1 %switch1613, label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17ha15d96c9ec1a0ca4E.exit1392", label %728
@@ -5714,7 +5714,7 @@ default.unreachable:                              ; preds = %155
           to label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17ha15d96c9ec1a0ca4E.exit" unwind label %680
 
 "_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17ha15d96c9ec1a0ca4E.exit1392": ; preds = %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1390", %728, %680
-  %.pn1017 = phi { ptr, i32 } [ %681, %680 ], [ %.pn1013, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1390" ], [ %.pn1013, %728 ]
+  %.pn1017 = phi { ptr, i32 } [ %681, %680 ], [ %.pn1013, %728 ], [ %.pn1013, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1390" ]
   %679 = load i64, ptr %92, align 8, !range !131, !noundef !9
   %switch1617 = icmp slt i64 %679, -9223372036854775806
   br i1 %switch1617, label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1394", label %729
@@ -5735,7 +5735,7 @@ default.unreachable:                              ; preds = %155
           to label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1374" unwind label %686
 
 "_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h066ec3210495d508E.exit1394": ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17ha15d96c9ec1a0ca4E.exit1392", %729, %686
-  %.pn1021 = phi { ptr, i32 } [ %687, %686 ], [ %.pn1017, %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17ha15d96c9ec1a0ca4E.exit1392" ], [ %.pn1017, %729 ]
+  %.pn1021 = phi { ptr, i32 } [ %687, %686 ], [ %.pn1017, %729 ], [ %.pn1017, %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17ha15d96c9ec1a0ca4E.exit1392" ]
   %685 = load i64, ptr %93, align 8, !range !130, !noundef !9
   %.not1023 = icmp eq i64 %685, 2
   br i1 %.not1023, label %691, label %730
@@ -5790,7 +5790,7 @@ default.unreachable:                              ; preds = %155
           to label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$$GT$17heb8f09ac9026d7fcE.exit" unwind label %698
 
 "_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$$GT$17heb8f09ac9026d7fcE.exit1396": ; preds = %691, %731, %698
-  %.pn1029 = phi { ptr, i32 } [ %699, %698 ], [ %.pn1025, %691 ], [ %.pn1025, %731 ]
+  %.pn1029 = phi { ptr, i32 } [ %699, %698 ], [ %.pn1025, %731 ], [ %.pn1025, %691 ]
   %697 = load i64, ptr %95, align 8, !range !131, !noundef !9
   %switch1625 = icmp slt i64 %697, -9223372036854775806
   br i1 %switch1625, label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipFindLinks$GT$$GT$$GT$17h43f8483ecde6f0b8E.exit1398", label %732
@@ -5811,7 +5811,7 @@ default.unreachable:                              ; preds = %155
           to label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipFindLinks$GT$$GT$$GT$17h43f8483ecde6f0b8E.exit" unwind label %703
 
 "_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipFindLinks$GT$$GT$$GT$17h43f8483ecde6f0b8E.exit1398": ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$$GT$17heb8f09ac9026d7fcE.exit1396", %732, %703
-  %.pn1033 = phi { ptr, i32 } [ %704, %703 ], [ %.pn1029, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$$GT$17heb8f09ac9026d7fcE.exit1396" ], [ %.pn1029, %732 ]
+  %.pn1033 = phi { ptr, i32 } [ %704, %703 ], [ %.pn1029, %732 ], [ %.pn1029, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$$GT$17heb8f09ac9026d7fcE.exit1396" ]
   %702 = load i64, ptr %96, align 8, !range !131, !noundef !9
   %switch1629 = icmp slt i64 %702, -9223372036854775806
   br i1 %switch1629, label %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$17h095153c16d0e9fc0E.exit1400", label %733
@@ -5832,7 +5832,7 @@ default.unreachable:                              ; preds = %155
           to label %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$17h095153c16d0e9fc0E.exit" unwind label %710
 
 "_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$17h095153c16d0e9fc0E.exit1400": ; preds = %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipFindLinks$GT$$GT$$GT$17h43f8483ecde6f0b8E.exit1398", %733, %710
-  %.pn1037 = phi { ptr, i32 } [ %711, %710 ], [ %.pn1033, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipFindLinks$GT$$GT$$GT$17h43f8483ecde6f0b8E.exit1398" ], [ %.pn1033, %733 ]
+  %.pn1037 = phi { ptr, i32 } [ %711, %710 ], [ %.pn1033, %733 ], [ %.pn1033, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipFindLinks$GT$$GT$$GT$17h43f8483ecde6f0b8E.exit1398" ]
   %708 = load i64, ptr %97, align 8, !range !432, !noundef !9
   %709 = icmp samesign ugt i64 %708, 2
   br i1 %709, label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h15aa58256d07a13dE.exit1402", label %734
@@ -5853,7 +5853,7 @@ default.unreachable:                              ; preds = %155
           to label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h15aa58256d07a13dE.exit" unwind label %715
 
 "_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h15aa58256d07a13dE.exit1402": ; preds = %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$17h095153c16d0e9fc0E.exit1400", %734, %715
-  %.pn1041 = phi { ptr, i32 } [ %716, %715 ], [ %.pn1037, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$17h095153c16d0e9fc0E.exit1400" ], [ %.pn1037, %734 ]
+  %.pn1041 = phi { ptr, i32 } [ %716, %715 ], [ %.pn1037, %734 ], [ %.pn1037, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$17h095153c16d0e9fc0E.exit1400" ]
   %714 = load i64, ptr %98, align 8, !range !131, !noundef !9
   %switch1637 = icmp slt i64 %714, -9223372036854775806
   br i1 %switch1637, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h5d2c64df36d8821bE.exit1404", label %735
@@ -5874,7 +5874,7 @@ default.unreachable:                              ; preds = %155
           to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h5d2c64df36d8821bE.exit" unwind label %723
 
 "_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h5d2c64df36d8821bE.exit1404": ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h15aa58256d07a13dE.exit1402", %735, %723
-  %.pn1045 = phi { ptr, i32 } [ %724, %723 ], [ %.pn1041, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h15aa58256d07a13dE.exit1402" ], [ %.pn1041, %735 ]
+  %.pn1045 = phi { ptr, i32 } [ %724, %723 ], [ %.pn1041, %735 ], [ %.pn1041, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h15aa58256d07a13dE.exit1402" ]
   %720 = load i8, ptr %1, align 8, !range !3, !alias.scope !871, !noundef !9
   %721 = icmp eq i8 %720, 22
   br i1 %721, label %"_ZN4core3ptr87drop_in_place$LT$serde..__private..de..FlatStructAccess$LT$toml_edit..de..Error$GT$$GT$17hd4a97086c05625cbE.exit1384", label %722

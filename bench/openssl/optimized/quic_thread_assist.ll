@@ -33,7 +33,7 @@ define range(i32 0, 2) i32 @ossl_quic_thread_assist_init_start(ptr noundef %0, p
   br label %16
 
 16:                                               ; preds = %11, %5, %2, %15
-  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 0, %15 ], [ 1, %11 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %2 ], [ 0, %5 ], [ 1, %11 ]
   ret i32 %.0
 }
 

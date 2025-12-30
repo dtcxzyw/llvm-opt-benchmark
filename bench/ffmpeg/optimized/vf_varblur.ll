@@ -220,7 +220,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %80, %.critedge, %98, %._crit_edge
-  %.084 = phi i32 [ -22, %._crit_edge ], [ %96, %.critedge ], [ %99, %98 ], [ -12, %80 ]
+  %.084 = phi i32 [ -22, %._crit_edge ], [ %99, %98 ], [ %96, %.critedge ], [ -12, %80 ]
   ret i32 %.084
 }
 
@@ -1021,7 +1021,7 @@ blur_frame.exit:                                  ; preds = %40, %86
   br label %88
 
 88:                                               ; preds = %16, %blur_frame.exit, %21
-  %.0 = phi i32 [ %26, %21 ], [ %.0.i, %blur_frame.exit ], [ %17, %16 ]
+  %.0 = phi i32 [ %.0.i, %blur_frame.exit ], [ %26, %21 ], [ %17, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

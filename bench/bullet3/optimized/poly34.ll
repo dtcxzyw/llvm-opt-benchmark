@@ -531,9 +531,9 @@ define dso_local noundef range(i32 0, 5) i32 @_Z9SolveP4DePffff(ptr noundef capt
   br label %_ZL8dblSort3RfS_S_.exit
 
 _ZL8dblSort3RfS_S_.exit:                          ; preds = %23, %33, %35
-  %36 = phi float [ %30, %35 ], [ %30, %33 ], [ %31, %23 ]
-  %37 = phi float [ %29, %35 ], [ %31, %33 ], [ %30, %23 ]
-  %38 = phi float [ %31, %35 ], [ %29, %33 ], [ %29, %23 ]
+  %36 = phi float [ %30, %33 ], [ %30, %35 ], [ %31, %23 ]
+  %37 = phi float [ %31, %33 ], [ %29, %35 ], [ %30, %23 ]
+  %38 = phi float [ %29, %33 ], [ %31, %35 ], [ %29, %23 ]
   %39 = fcmp ogt float %38, 0.000000e+00
   br i1 %39, label %40, label %69
 
@@ -684,7 +684,7 @@ _Z5CSqrtffRfS_.exit:                              ; preds = %105, %107, %108
   br label %131
 
 131:                                              ; preds = %121, %126, %60, %51, %85, %76, %13
-  %.0 = phi i32 [ %14, %13 ], [ 0, %76 ], [ 4, %51 ], [ 4, %60 ], [ 0, %85 ], [ 2, %126 ], [ 2, %121 ]
+  %.0 = phi i32 [ %14, %13 ], [ 4, %60 ], [ 4, %51 ], [ 0, %85 ], [ 0, %76 ], [ 2, %126 ], [ 2, %121 ]
   ret i32 %.0
 }
 
@@ -999,7 +999,7 @@ define dso_local noundef float @_Z9SolveP5_1fffff(float noundef %0, float nounde
   br i1 %77, label %52, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader131, %54, %52, %66, %32, %34, %5
-  %.0106 = phi float [ 0.000000e+00, %5 ], [ %.4, %54 ], [ %.0117, %32 ], [ %.0111, %34 ], [ %.5, %66 ], [ %.2, %52 ], [ %41, %.preheader131 ]
+  %.0106 = phi float [ 0.000000e+00, %5 ], [ %.0117, %32 ], [ %.0111, %34 ], [ %.5, %66 ], [ %.2, %52 ], [ %.4, %54 ], [ %41, %.preheader131 ]
   ret float %.0106
 }
 

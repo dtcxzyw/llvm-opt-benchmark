@@ -660,7 +660,7 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
   br label %193
 
 .thread:                                          ; preds = %146, %60, %31, %27, %162, %159, %.thread30, %152, %56
-  %191 = phi i32 [ %58, %56 ], [ %154, %152 ], [ %157, %.thread30 ], [ %160, %159 ], [ %163, %162 ], [ -19, %27 ], [ -28, %31 ], [ %130, %146 ], [ -19, %60 ]
+  %191 = phi i32 [ %58, %56 ], [ %154, %152 ], [ %157, %.thread30 ], [ %160, %159 ], [ %163, %162 ], [ -28, %31 ], [ -19, %27 ], [ %130, %146 ], [ -19, %60 ]
   %192 = tail call i32 @intel_uc_fw_mark_load_failed(ptr noundef %0, i32 noundef %191) #6
   br label %193
 

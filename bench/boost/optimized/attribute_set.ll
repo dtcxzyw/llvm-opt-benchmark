@@ -537,7 +537,7 @@ _ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i: ; preds = %47, 
   br label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation5eraseENS2_4iterILb0EEE.exit
 
 _ZN5boost3log11v2_mt_posix13attribute_set14implementation5eraseENS2_4iterILb0EEE.exit: ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i, %2, %57, %54
-  %.0 = phi i64 [ 1, %57 ], [ 0, %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i ], [ 1, %54 ], [ 0, %2 ]
+  %.0 = phi i64 [ 1, %54 ], [ 1, %57 ], [ 0, %2 ], [ 0, %_ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14attribute_nameERKNS3_6bucketE.exit.i ]
   ret i64 %.0
 }
 

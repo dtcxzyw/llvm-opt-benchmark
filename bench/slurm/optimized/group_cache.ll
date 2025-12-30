@@ -346,7 +346,7 @@ _init_or_reinit_entry.exit.i:                     ; preds = %110, %104
   br i1 %135, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %_init_or_reinit_entry.exit.i, %37, %36
-  %.039.i = phi ptr [ %28, %36 ], [ %28, %37 ], [ %.1.i, %_init_or_reinit_entry.exit.i ], [ %.1.i, %.lr.ph.i ]
+  %.039.i = phi ptr [ %28, %37 ], [ %28, %36 ], [ %.1.i, %_init_or_reinit_entry.exit.i ], [ %.1.i, %.lr.ph.i ]
   %136 = getelementptr inbounds nuw i8, ptr %.039.i, i64 16
   %137 = load i32, ptr %136, align 8
   call void @slurm_xfree(ptr noundef %3) #10

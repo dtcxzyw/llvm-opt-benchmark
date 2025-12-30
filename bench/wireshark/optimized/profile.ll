@@ -96,7 +96,7 @@ define hidden ptr @get_profile_parent(ptr noundef readonly captures(ret: address
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %._crit_edge, %11, %15, %1
-  %.014 = phi ptr [ null, %11 ], [ %0, %1 ], [ null, %15 ], [ %.2.lcssa, %._crit_edge ]
+  %.014 = phi ptr [ %0, %1 ], [ null, %15 ], [ null, %11 ], [ %.2.lcssa, %._crit_edge ]
   ret ptr %.014
 }
 
@@ -384,7 +384,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   br label %145
 
 145:                                              ; preds = %132, %142, %137, %.lr.ph108
-  %.1 = phi i1 [ %.074106, %.lr.ph108 ], [ %.074106, %137 ], [ true, %142 ], [ true, %132 ]
+  %.1 = phi i1 [ %.074106, %.lr.ph108 ], [ true, %142 ], [ %.074106, %137 ], [ true, %132 ]
   %146 = getelementptr inbounds nuw i8, ptr %.077105, i64 8
   %147 = load ptr, ptr %146, align 8
   %.not85 = icmp eq ptr %147, null

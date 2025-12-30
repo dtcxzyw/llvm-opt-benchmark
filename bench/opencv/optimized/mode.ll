@@ -389,7 +389,7 @@ define hidden noundef i32 @_ZNK5zxing6qrcode4Mode21getCharacterCountBitsEPNS0_7V
   br label %11
 
 11:                                               ; preds = %2, %9, %7
-  %.0.in = phi ptr [ %10, %9 ], [ %8, %7 ], [ %0, %2 ]
+  %.0.in = phi ptr [ %8, %7 ], [ %10, %9 ], [ %0, %2 ]
   %.0 = load i32, ptr %.0.in, align 4, !tbaa !37
   ret i32 %.0
 }

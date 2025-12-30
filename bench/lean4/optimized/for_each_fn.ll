@@ -1774,8 +1774,8 @@ _ZNSt10_HashtableIP11lean_objectS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIP11lean_objectS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -2052,7 +2052,7 @@ _ZL8lean_incP11lean_object.exit.i.i.i:            ; preds = %25, %24, %22, %_ZL8
   br label %"_ZSt10__invoke_rIbRZ14lean_find_exprE3$_0JRKN4lean4exprEEENSt9enable_ifIXntsr7is_voidIT_EE5valueES7_E4typeEOT0_DpOT1_.exit"
 
 "_ZSt10__invoke_rIbRZ14lean_find_exprE3$_0JRKN4lean4exprEEENSt9enable_ifIXntsr7is_voidIT_EE5valueES7_E4typeEOT0_DpOT1_.exit": ; preds = %2, %_ZL8lean_incP11lean_object.exit.i.i.i, %30
-  %.0.i.i.i = phi i1 [ false, %2 ], [ false, %30 ], [ true, %_ZL8lean_incP11lean_object.exit.i.i.i ]
+  %.0.i.i.i = phi i1 [ false, %30 ], [ false, %2 ], [ true, %_ZL8lean_incP11lean_object.exit.i.i.i ]
   ret i1 %.0.i.i.i
 }
 
@@ -2177,7 +2177,7 @@ _ZL8lean_incP11lean_object.exit.i.i.i:            ; preds = %25, %24, %22, %_ZL8
   unreachable
 
 "_ZSt10__invoke_rIbRZ18lean_find_ext_exprE3$_0JRKN4lean4exprEEENSt9enable_ifIXntsr7is_voidIT_EE5valueES7_E4typeEOT0_DpOT1_.exit": ; preds = %2, %_ZL8lean_incP11lean_object.exit.i.i.i, %32, %35
-  %.0.i.i.i = phi i1 [ false, %35 ], [ false, %32 ], [ false, %2 ], [ true, %_ZL8lean_incP11lean_object.exit.i.i.i ]
+  %.0.i.i.i = phi i1 [ false, %32 ], [ false, %35 ], [ false, %2 ], [ true, %_ZL8lean_incP11lean_object.exit.i.i.i ]
   ret i1 %.0.i.i.i
 }
 

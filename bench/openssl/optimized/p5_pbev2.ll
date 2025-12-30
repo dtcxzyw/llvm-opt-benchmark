@@ -435,9 +435,9 @@ define ptr @PKCS5_pbkdf2_set_ex(i32 noundef %0, ptr noundef readonly captures(ad
   br label %59
 
 .sink.split:                                      ; preds = %53, %50, %46, %40, %36, %28, %25, %12, %9, %6
-  %.sink59 = phi i32 [ 255, %50 ], [ 246, %46 ], [ 237, %40 ], [ 233, %36 ], [ 225, %28 ], [ 217, %25 ], [ 203, %12 ], [ 195, %9 ], [ 191, %6 ], [ 265, %53 ]
-  %.sink = phi i32 [ 524299, %50 ], [ 524299, %46 ], [ 524301, %40 ], [ 524301, %36 ], [ 524301, %28 ], [ 524324, %25 ], [ 524550, %12 ], [ 524301, %9 ], [ 524301, %6 ], [ 524301, %53 ]
-  %.0.ph = phi ptr [ null, %50 ], [ null, %46 ], [ null, %40 ], [ null, %36 ], [ null, %28 ], [ null, %25 ], [ null, %12 ], [ null, %9 ], [ null, %6 ], [ %51, %53 ]
+  %.sink59 = phi i32 [ 191, %6 ], [ 195, %9 ], [ 203, %12 ], [ 217, %25 ], [ 225, %28 ], [ 233, %36 ], [ 237, %40 ], [ 246, %46 ], [ 255, %50 ], [ 265, %53 ]
+  %.sink = phi i32 [ 524301, %6 ], [ 524301, %9 ], [ 524550, %12 ], [ 524324, %25 ], [ 524301, %28 ], [ 524301, %36 ], [ 524301, %40 ], [ 524299, %46 ], [ 524299, %50 ], [ 524301, %53 ]
+  %.0.ph = phi ptr [ null, %6 ], [ null, %9 ], [ null, %12 ], [ null, %25 ], [ null, %28 ], [ null, %36 ], [ null, %40 ], [ null, %46 ], [ null, %50 ], [ %51, %53 ]
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef %.sink59, ptr noundef nonnull @__func__.PKCS5_pbkdf2_set_ex) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #5

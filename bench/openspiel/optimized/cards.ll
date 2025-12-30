@@ -5209,7 +5209,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit62:                  ; preds = %_ZNSt6vectorIS_IlSa
   ret void
 
 .body36:                                          ; preds = %.thread, %106, %104, %61, %60, %102
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %60 ], [ %103, %102 ], [ %lpad.phi89, %106 ], [ %lpad.loopexit.split-lp, %61 ], [ %lpad.phi89, %104 ], [ %lpad.loopexit, %.thread ]
+  %.pn = phi { ptr, i32 } [ %103, %102 ], [ %lpad.loopexit.split-lp, %61 ], [ %lpad.loopexit.split-lp, %60 ], [ %lpad.phi89, %104 ], [ %lpad.phi89, %106 ], [ %lpad.loopexit, %.thread ]
   call void @_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
   %134 = load ptr, ptr %4, align 8
   %.not.i.i.i63 = icmp eq ptr %134, null
@@ -5224,7 +5224,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit62:                  ; preds = %_ZNSt6vectorIS_IlSa
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit68
 
 _ZNSt6vectorIlSaIlEED2Ev.exit68:                  ; preds = %31, %.loopexit90, %.loopexit.split-lp91, %135, %.body36
-  %.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %.pn, %.body36 ], [ %.pn, %135 ], [ %lpad.loopexit.split-lp93, %.loopexit.split-lp91 ], [ %lpad.loopexit92, %.loopexit90 ]
+  %.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %.pn, %.body36 ], [ %.pn, %135 ], [ %lpad.loopexit92, %.loopexit90 ], [ %lpad.loopexit.split-lp93, %.loopexit.split-lp91 ]
   call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 432) #21
   resume { ptr, i32 } %.pn.pn
 }
@@ -6514,7 +6514,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6
   br i1 %39, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !17
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %37, %.split.split.us, %._crit_edge.i.us
-  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.0.us, %.split.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %37 ]
+  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.0.us, %.split.split.us ], [ %.0920.i.i.us, %37 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
   %40 = getelementptr inbounds nuw i64, ptr %.fr17, i64 %.0.lcssa.i.i.us
   store i64 %19, ptr %40, align 8
   %41 = icmp eq i64 %.0.us, 0

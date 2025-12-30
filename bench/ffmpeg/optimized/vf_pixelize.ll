@@ -387,7 +387,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef readonl
   br label %63
 
 63:                                               ; preds = %11, %1, %25
-  %.0 = phi i32 [ -558323010, %1 ], [ 0, %25 ], [ %23, %11 ]
+  %.0 = phi i32 [ 0, %25 ], [ -558323010, %1 ], [ %23, %11 ]
   ret i32 %.0
 }
 

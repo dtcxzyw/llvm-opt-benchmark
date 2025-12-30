@@ -1761,7 +1761,7 @@ define internal i32 @dissect_qnet6(ptr noundef %0, ptr noundef readonly captures
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %115, %114, %113, %103, %94
-  %.str.1083.sink.i = phi ptr [ @.str.1083, %103 ], [ @.str.1087, %115 ], [ @.str.1085, %113 ], [ @.str.1086, %114 ], [ @.str.1084, %94 ]
+  %.str.1083.sink.i = phi ptr [ @.str.1083, %103 ], [ @.str.1085, %113 ], [ @.str.1086, %114 ], [ @.str.1087, %115 ], [ @.str.1084, %94 ]
   %116 = load ptr, ptr %10, align 8
   call void @col_set_str(ptr noundef %116, i32 noundef 25, ptr noundef nonnull %.str.1083.sink.i)
   br label %dissect_qnet6_qos.exit
@@ -1829,7 +1829,7 @@ dissect_qnet6_qos.exit:                           ; preds = %.sink.split.i, %96,
   br label %137
 
 137:                                              ; preds = %90, %91, %85, %4, %135
-  %.0 = phi i32 [ 38, %85 ], [ 0, %4 ], [ %136, %135 ], [ 38, %91 ], [ 38, %90 ]
+  %.0 = phi i32 [ %136, %135 ], [ 0, %4 ], [ 38, %85 ], [ 38, %91 ], [ 38, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -2859,10 +2859,10 @@ default.unreachable:                              ; preds = %48
   unreachable
 
 82:                                               ; preds = %77, %72, %67, %62, %57, %52
-  %.1133 = phi ptr [ %81, %77 ], [ %56, %52 ], [ %61, %57 ], [ %66, %62 ], [ %71, %67 ], [ %76, %72 ]
-  %.1130 = phi i32 [ %78, %77 ], [ %53, %52 ], [ %58, %57 ], [ %63, %62 ], [ %68, %67 ], [ %73, %72 ]
-  %.1128 = phi i32 [ %79, %77 ], [ %54, %52 ], [ %59, %57 ], [ %64, %62 ], [ %69, %67 ], [ %74, %72 ]
-  %.1 = phi i32 [ %80, %77 ], [ %55, %52 ], [ %60, %57 ], [ %65, %62 ], [ %70, %67 ], [ %75, %72 ]
+  %.1133 = phi ptr [ %56, %52 ], [ %61, %57 ], [ %66, %62 ], [ %71, %67 ], [ %76, %72 ], [ %81, %77 ]
+  %.1130 = phi i32 [ %53, %52 ], [ %58, %57 ], [ %63, %62 ], [ %68, %67 ], [ %73, %72 ], [ %78, %77 ]
+  %.1128 = phi i32 [ %54, %52 ], [ %59, %57 ], [ %64, %62 ], [ %69, %67 ], [ %74, %72 ], [ %79, %77 ]
+  %.1 = phi i32 [ %55, %52 ], [ %60, %57 ], [ %65, %62 ], [ %70, %67 ], [ %75, %72 ], [ %80, %77 ]
   %83 = load i32, ptr %3, align 4
   %84 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %83, i32 noundef %4)
   %85 = load i32, ptr %3, align 4
@@ -3211,7 +3211,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_qnet6_kif_cred(ptr noundef 
   br label %87
 
 87:                                               ; preds = %._crit_edge, %85, %67, %8, %4
-  %.0116 = phi i32 [ -1, %67 ], [ -1, %4 ], [ -1, %8 ], [ 0, %85 ], [ 0, %._crit_edge ]
+  %.0116 = phi i32 [ -1, %4 ], [ -1, %8 ], [ -1, %67 ], [ 0, %85 ], [ 0, %._crit_edge ]
   ret i32 %.0116
 }
 
@@ -3462,8 +3462,8 @@ tailrecurse.backedge:                             ; preds = %135, %192, %dissect
   br label %146
 
 146:                                              ; preds = %139, %142, %143, %144, %145
-  %hf_qnet6_kif_msg_connect_extra_link_ocb.sink = phi ptr [ @hf_qnet6_kif_msg_connect_extra_data, %145 ], [ @hf_qnet6_kif_msg_connect_extra_symlink_path, %142 ], [ @hf_qnet6_kif_msg_connect_extra_rename_path, %143 ], [ @hf_qnet6_kif_msg_connect_extra_mount, %144 ], [ @hf_qnet6_kif_msg_connect_extra_link_ocb, %139 ]
-  %.sink528 = phi i32 [ 0, %145 ], [ 0, %142 ], [ 0, %143 ], [ 0, %144 ], [ %4, %139 ]
+  %hf_qnet6_kif_msg_connect_extra_link_ocb.sink = phi ptr [ @hf_qnet6_kif_msg_connect_extra_symlink_path, %142 ], [ @hf_qnet6_kif_msg_connect_extra_rename_path, %143 ], [ @hf_qnet6_kif_msg_connect_extra_mount, %144 ], [ @hf_qnet6_kif_msg_connect_extra_data, %145 ], [ @hf_qnet6_kif_msg_connect_extra_link_ocb, %139 ]
+  %.sink528 = phi i32 [ 0, %142 ], [ 0, %143 ], [ 0, %144 ], [ 0, %145 ], [ %4, %139 ]
   %147 = load i32, ptr %hf_qnet6_kif_msg_connect_extra_link_ocb.sink, align 4
   %148 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %147, ptr noundef %0, i32 noundef %140, i32 noundef %141, i32 noundef %.sink528)
   %149 = load i32, ptr %3, align 4
@@ -4812,7 +4812,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit379:      ; preds = %987, %1011, %1015
   br i1 %or.cond.i344, label %tailrecurse.backedge, label %dissect_qnet6_kif_msgsend_msg_devctl.exit
 
 dissect_qnet6_kif_msgsend_msg_devctl.exit:        ; preds = %313, %dissect_qnet6_kif_msgsend_msg_extra.exit542, %dissect_qnet6_kif_msgsend_msg_extra.exit379, %dissect_qnet6_kif_msgsend_msg_extra.exit375, %dissect_qnet6_kif_msgsend_msg_extra.exit373, %dissect_qnet6_kif_msgsend_msg_extra.exit371, %dissect_qnet6_kif_msgsend_msg_extra.exit369, %dissect_qnet6_kif_msgsend_msg_extra.exit367, %dissect_qnet6_kif_msgsend_msg_extra.exit365, %dissect_qnet6_kif_msgsend_msg_extra.exit363, %dissect_qnet6_kif_msgsend_msg_extra.exit361, %dissect_qnet6_kif_msgsend_msg_extra.exit359, %517, %dissect_qnet6_kif_msgsend_msg_extra.exit357, %dissect_qnet6_kif_msgsend_msg_extra.exit355, %dissect_qnet6_kif_msgsend_msg_extra.exit353, %dissect_qnet6_kif_msgsend_msg_extra.exit351, %dissect_qnet6_kif_msgsend_msg_extra.exit349, %dissect_qnet6_kif_msgsend_msg_extra.exit347, %192, %29, %117, %135, %33, %30, %315, %314, %dissect_qnet6_kif_msgsend_msg_notify.exit, %146
-  %.0288 = phi i32 [ 0, %314 ], [ 0, %146 ], [ %.0147.i, %dissect_qnet6_kif_msgsend_msg_notify.exit ], [ 0, %315 ], [ 0, %313 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit542 ], [ -1, %33 ], [ -1, %30 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit379 ], [ -1, %29 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit375 ], [ 0, %117 ], [ 0, %192 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit347 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit349 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit351 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit353 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit355 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit357 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit359 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit361 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit363 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit365 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit367 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit369 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit371 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit373 ], [ -1, %517 ], [ -1, %135 ]
+  %.0288 = phi i32 [ %.0147.i, %dissect_qnet6_kif_msgsend_msg_notify.exit ], [ 0, %146 ], [ 0, %315 ], [ 0, %314 ], [ 0, %313 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit542 ], [ -1, %30 ], [ -1, %33 ], [ -1, %135 ], [ -1, %29 ], [ 0, %117 ], [ 0, %192 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit347 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit349 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit351 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit353 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit355 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit357 ], [ -1, %517 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit359 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit361 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit363 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit365 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit367 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit369 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit371 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit373 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit375 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit379 ]
   ret i32 %.0288
 }
 

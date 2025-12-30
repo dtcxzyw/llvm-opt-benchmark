@@ -1056,7 +1056,7 @@ define internal i32 @invert_initial_buffer(ptr noundef captures(none) %0, ptr no
   br label %98
 
 98:                                               ; preds = %15, %6, %._crit_edge94, %55
-  %.0 = phi i32 [ %97, %._crit_edge94 ], [ 0, %6 ], [ 2147483647, %55 ], [ %18, %15 ]
+  %.0 = phi i32 [ 2147483647, %55 ], [ %97, %._crit_edge94 ], [ 0, %6 ], [ %18, %15 ]
   ret i32 %.0
 }
 
@@ -1262,7 +1262,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
   br label %73
 
 73:                                               ; preds = %59, %68, %70
-  %.0202 = phi nsz double [ %72, %70 ], [ %69, %68 ], [ 1.000000e+00, %59 ]
+  %.0202 = phi nsz double [ %69, %68 ], [ %72, %70 ], [ 1.000000e+00, %59 ]
   switch i32 %7, label %122 [
     i32 0, label %74
     i32 1, label %96
@@ -1333,7 +1333,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
   unreachable
 
 123:                                              ; preds = %78, %89, %111, %96
-  %.2204 = phi nsz double [ %121, %111 ], [ %110, %96 ], [ %88, %78 ], [ %95, %89 ]
+  %.2204 = phi nsz double [ %110, %96 ], [ %121, %111 ], [ %88, %78 ], [ %95, %89 ]
   %124 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv278
   store double %.2204, ptr %124, align 8, !tbaa !69
   %125 = fneg nsz double %.0201235

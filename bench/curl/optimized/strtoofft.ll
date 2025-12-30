@@ -64,7 +64,7 @@ define dso_local range(i32 0, 3) i32 @curlx_strtoofft(ptr noundef %0, ptr nounde
   br label %24
 
 24:                                               ; preds = %20, %17, %.loopexit, %12, %23
-  %.0 = phi i32 [ 0, %23 ], [ 2, %.loopexit ], [ 1, %17 ], [ 2, %12 ], [ 2, %20 ]
+  %.0 = phi i32 [ 0, %23 ], [ 2, %12 ], [ 2, %.loopexit ], [ 1, %17 ], [ 2, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

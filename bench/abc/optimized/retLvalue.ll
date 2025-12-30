@@ -382,7 +382,7 @@ Abc_NtkRetimeGetLags.exit:                        ; preds = %Vec_PtrFree.exit86.
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %Vec_IntAlloc.exit.i.i, %Vec_IntAlloc.exit.thread.i.i, %Abc_NtkRetimeGetLags.exit, %151
-  %.0.i22 = phi ptr [ %.0.i26, %151 ], [ %108, %Abc_NtkRetimeGetLags.exit ], [ %64, %Vec_IntAlloc.exit.thread.i.i ], [ %64, %Vec_IntAlloc.exit.i.i ]
+  %.0.i22 = phi ptr [ %108, %Abc_NtkRetimeGetLags.exit ], [ %.0.i26, %151 ], [ %64, %Vec_IntAlloc.exit.thread.i.i ], [ %64, %Vec_IntAlloc.exit.i.i ]
   call void @free(ptr noundef nonnull %.0.i22) #13
   %153 = call i32 @Abc_NtkCheck(ptr noundef %0) #13
   %.not = icmp eq i32 %153, 0
@@ -966,8 +966,8 @@ Abc_NtkRetimeUpdateLValue.exit:                   ; preds = %.critedge.i, %.crit
   br i1 %exitcond.not, label %Abc_NtkRetimePosOverLimit.exit, label %30, !llvm.loop !56
 
 Abc_NtkRetimePosOverLimit.exit:                   ; preds = %.critedge, %92, %.critedge.preheader
-  %.02761 = phi i32 [ %.02765, %92 ], [ 1, %.critedge.preheader ], [ %16, %.critedge ]
-  %.not58 = phi ptr [ @.str.5, %92 ], [ @.str.4, %.critedge.preheader ], [ @.str.4, %.critedge ]
+  %.02761 = phi i32 [ 1, %.critedge.preheader ], [ %.02765, %92 ], [ %16, %.critedge ]
+  %.not58 = phi ptr [ @.str.4, %.critedge.preheader ], [ @.str.5, %92 ], [ @.str.4, %.critedge ]
   %.not31 = icmp eq i32 %5, 0
   br i1 %.not31, label %110, label %106
 

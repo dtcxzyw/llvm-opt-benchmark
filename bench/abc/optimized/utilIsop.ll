@@ -211,7 +211,7 @@ Abc_IsopAddLits.exit:                             ; preds = %96, %75, %.preheade
   br label %101
 
 101:                                              ; preds = %16, %17, %61, %53, %split, %Abc_IsopAddLits.exit, %11
-  %.069 = phi i64 [ 0, %11 ], [ %4, %61 ], [ %100, %Abc_IsopAddLits.exit ], [ %4, %split ], [ %4, %53 ], [ 4294967296, %17 ], [ 4294967296, %16 ]
+  %.069 = phi i64 [ 0, %11 ], [ %100, %Abc_IsopAddLits.exit ], [ %4, %split ], [ %4, %53 ], [ %4, %61 ], [ 4294967296, %17 ], [ 4294967296, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -379,7 +379,7 @@ Abc_TtStretch6.exit.sink.split:                   ; preds = %6, %.preheader
   br label %Abc_TtStretch6.exit
 
 Abc_TtStretch6.exit:                              ; preds = %._crit_edge.us.i74, %.preheader.us.i58, %Abc_TtStretch6.exit.sink.split, %.split, %.split, %43, %.split36
-  %.034 = phi i64 [ %58, %Abc_TtStretch6.exit.sink.split ], [ %37, %.split ], [ %37, %.preheader.us.i58 ], [ %37, %.split ], [ %41, %.split36 ], [ %41, %43 ], [ %41, %._crit_edge.us.i74 ]
+  %.034 = phi i64 [ %37, %.split ], [ %41, %.split36 ], [ %41, %43 ], [ %37, %.split ], [ %58, %Abc_TtStretch6.exit.sink.split ], [ %37, %.preheader.us.i58 ], [ %41, %._crit_edge.us.i74 ]
   ret i64 %.034
 }
 
@@ -750,7 +750,7 @@ Abc_TtNot.exit75:                                 ; preds = %.lr.ph.i71, %47, %5
   br label %Abc_TtNot.exit61
 
 Abc_TtNot.exit61:                                 ; preds = %.lr.ph.i57, %36, %53, %Abc_TtNot.exit75
-  %.0 = phi i32 [ -1, %53 ], [ %.048, %Abc_TtNot.exit75 ], [ -1, %36 ], [ -1, %.lr.ph.i57 ]
+  %.0 = phi i32 [ %.048, %Abc_TtNot.exit75 ], [ -1, %53 ], [ -1, %36 ], [ -1, %.lr.ph.i57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -979,7 +979,7 @@ define i32 @Abc_IsopCountLits(ptr noundef readonly captures(none) %0, i32 nounde
   br i1 %exitcond36.not, label %.critedge, label %.lr.ph.us, !llvm.loop !41
 
 .critedge:                                        ; preds = %._crit_edge.us, %.lr.ph32, %7, %2, %4
-  %.019 = phi i32 [ %.val24, %2 ], [ 0, %4 ], [ 0, %7 ], [ 0, %.lr.ph32 ], [ %.2.us, %._crit_edge.us ]
+  %.019 = phi i32 [ 0, %4 ], [ %.val24, %2 ], [ 0, %7 ], [ 0, %.lr.ph32 ], [ %.2.us, %._crit_edge.us ]
   ret i32 %.019
 }
 
@@ -1333,7 +1333,7 @@ Abc_EsopAddLits.exit:                             ; preds = %71, %88, %53, %.pre
   br label %114
 
 114:                                              ; preds = %.thread, %7, %8, %46, %41, %33, %split, %4, %Abc_EsopAddLits.exit
-  %.060 = phi i64 [ %113, %Abc_EsopAddLits.exit ], [ %2, %46 ], [ %0, %4 ], [ %2, %split ], [ %2, %33 ], [ %2, %41 ], [ 4294967296, %8 ], [ 4294967296, %7 ], [ %2, %.thread ]
+  %.060 = phi i64 [ %113, %Abc_EsopAddLits.exit ], [ %0, %4 ], [ %2, %split ], [ %2, %33 ], [ %2, %41 ], [ %2, %46 ], [ 4294967296, %8 ], [ 4294967296, %7 ], [ %2, %.thread ]
   ret i64 %.060
 }
 
@@ -1410,7 +1410,7 @@ Abc_TtHasVar.exit.thread:                         ; preds = %.loopexit142, %.lr.
   br label %Abc_EsopCheck.exit
 
 Abc_EsopCheck.exit:                               ; preds = %Abc_TtHasVar.exit.thread, %28
-  %.022.i = phi i64 [ %29, %28 ], [ %27, %Abc_TtHasVar.exit.thread ]
+  %.022.i = phi i64 [ %27, %Abc_TtHasVar.exit.thread ], [ %29, %28 ]
   %.not = icmp ult i64 %.022.i, %2
   br i1 %.not, label %.lr.ph153, label %172
 
@@ -1613,8 +1613,8 @@ Abc_TtHasVar.exit128.thread:                      ; preds = %.loopexit, %.lr.ph1
   br label %Abc_EsopCheck.exit85
 
 Abc_EsopCheck.exit85:                             ; preds = %Abc_TtHasVar.exit128.thread, %98
-  %100 = phi i64 [ %70, %98 ], [ %95, %Abc_TtHasVar.exit128.thread ]
-  %.022.i83 = phi i64 [ %99, %98 ], [ %97, %Abc_TtHasVar.exit128.thread ]
+  %100 = phi i64 [ %95, %Abc_TtHasVar.exit128.thread ], [ %70, %98 ]
+  %.022.i83 = phi i64 [ %97, %Abc_TtHasVar.exit128.thread ], [ %99, %98 ]
   br i1 %.not165, label %._crit_edge164, label %.lr.ph163.preheader
 
 .lr.ph163.preheader:                              ; preds = %Abc_EsopCheck.exit85.thread, %Abc_EsopCheck.exit85
@@ -2687,7 +2687,7 @@ Abc_TtSharp.exit:                                 ; preds = %.lr.ph.i282
   br label %.loopexit318
 
 .loopexit318:                                     ; preds = %.loopexit318.loopexit, %28
-  %394 = phi i64 [ %393, %.loopexit318.loopexit ], [ 0, %28 ]
+  %394 = phi i64 [ 0, %28 ], [ %393, %.loopexit318.loopexit ]
   %395 = load i64, ptr %2, align 8, !tbaa !3
   %396 = icmp eq i32 %3, 0
   %397 = trunc i64 %395 to i1

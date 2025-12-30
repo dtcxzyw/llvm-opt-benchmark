@@ -630,9 +630,9 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h692e8f29bbf67663E.exi
   br label %.preheader
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h692e8f29bbf67663E.exit.thread: ; preds = %56, %61, %43
-  %.pn.i.pn = phi { i64, i64 } [ %44, %43 ], [ %57, %56 ], [ %62, %61 ]
-  %.sroa.7.040 = extractvalue { i64, i64 } %.pn.i.pn, 0
-  %.sroa.12.041 = extractvalue { i64, i64 } %.pn.i.pn, 1
+  %.pn = phi { i64, i64 } [ %44, %43 ], [ %62, %61 ], [ %57, %56 ]
+  %.sroa.7.040 = extractvalue { i64, i64 } %.pn, 0
+  %.sroa.12.041 = extractvalue { i64, i64 } %.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !68
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17hfa527826247a78a4E.exit.i
 

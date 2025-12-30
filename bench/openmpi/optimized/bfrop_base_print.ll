@@ -416,7 +416,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_bool(ptr noundef %0, ptr no
   br label %18
 
 18:                                               ; preds = %12, %9, %4
-  %.0 = phi i32 [ %.12, %12 ], [ %., %9 ], [ -27, %4 ]
+  %.0 = phi i32 [ -27, %4 ], [ %., %9 ], [ %.12, %12 ]
   ret i32 %.0
 }
 
@@ -1414,7 +1414,7 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_proc(ptr noundef %0, ptr no
   br label %21
 
 21:                                               ; preds = %12, %14, %16, %18
-  %.0 = phi i32 [ %17, %16 ], [ %20, %18 ], [ %13, %12 ], [ %15, %14 ]
+  %.0 = phi i32 [ %20, %18 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ]
   %.0.fr = freeze i32 %.0
   %22 = icmp slt i32 %.0.fr, 0
   %spec.select = select i1 %22, i32 -32, i32 0
@@ -2541,7 +2541,7 @@ pmix_bfrops_base_print_coord.exit:                ; preds = %349, %switch.lookup
   br label %pmix_bfrops_base_print_bool.exit
 
 pmix_bfrops_base_print_bool.exit:                 ; preds = %386, %381, %378, %373, %20, %17, %475, %471, %467, %463, %459, %446, %426, %417, %403, %397, %393, %389, %366, %359, %pmix_bfrops_base_print_coord.exit, %334, %327, %320, %310, %306, %302, %295, %288, %281, %pmix_bfrops_base_print_persist.exit, %pmix_bfrops_base_print_bo.exit, %255, %251, %246, %pmix_bfrops_base_print_rank.exit, %pmix_bfrops_base_print_status.exit, %pmix_bfrops_base_print_time.exit, %pmix_bfrops_base_print_timeval.exit, %pmix_bfrops_base_print_double.exit, %pmix_bfrops_base_print_float.exit, %pmix_bfrops_base_print_uint64.exit, %pmix_bfrops_base_print_uint32.exit, %pmix_bfrops_base_print_uint16.exit, %pmix_bfrops_base_print_uint8.exit, %pmix_bfrops_base_print_uint.exit, %pmix_bfrops_base_print_int64.exit, %pmix_bfrops_base_print_int32.exit, %pmix_bfrops_base_print_int16.exit, %pmix_bfrops_base_print_int8.exit, %pmix_bfrops_base_print_int.exit, %pmix_bfrops_base_print_pid.exit, %pmix_bfrops_base_print_size.exit, %pmix_bfrops_base_print_string.exit, %pmix_bfrops_base_print_byte.exit
-  %.1226 = phi i32 [ 0, %475 ], [ %474, %471 ], [ %.11.i, %pmix_bfrops_base_print_byte.exit ], [ %.11.i230, %pmix_bfrops_base_print_string.exit ], [ %.11.i232, %pmix_bfrops_base_print_size.exit ], [ %.11.i234, %pmix_bfrops_base_print_pid.exit ], [ %.11.i236, %pmix_bfrops_base_print_int.exit ], [ %.11.i238, %pmix_bfrops_base_print_int8.exit ], [ %.11.i240, %pmix_bfrops_base_print_int16.exit ], [ %.11.i242, %pmix_bfrops_base_print_int32.exit ], [ %.11.i244, %pmix_bfrops_base_print_int64.exit ], [ %.11.i246, %pmix_bfrops_base_print_uint.exit ], [ %.11.i248, %pmix_bfrops_base_print_uint8.exit ], [ %.11.i250, %pmix_bfrops_base_print_uint16.exit ], [ %.11.i252, %pmix_bfrops_base_print_uint32.exit ], [ %.11.i254, %pmix_bfrops_base_print_uint64.exit ], [ %.11.i256, %pmix_bfrops_base_print_float.exit ], [ %.11.i258, %pmix_bfrops_base_print_double.exit ], [ %.12.i259, %pmix_bfrops_base_print_timeval.exit ], [ %.14.i, %pmix_bfrops_base_print_time.exit ], [ %.11.i261, %pmix_bfrops_base_print_status.exit ], [ %..i263, %pmix_bfrops_base_print_rank.exit ], [ %..i264, %246 ], [ %254, %251 ], [ %258, %255 ], [ %.13.i, %pmix_bfrops_base_print_bo.exit ], [ %.9.i, %pmix_bfrops_base_print_persist.exit ], [ %..i265, %281 ], [ %..i266, %288 ], [ %..i267, %295 ], [ %305, %302 ], [ %309, %306 ], [ %.0.i268, %310 ], [ %..i269, %320 ], [ %..i270, %327 ], [ %.0.i272, %334 ], [ %..i274, %pmix_bfrops_base_print_coord.exit ], [ %..i275, %359 ], [ %..i276, %366 ], [ %..i, %17 ], [ %..i277, %378 ], [ %392, %389 ], [ %396, %393 ], [ %..i281, %397 ], [ %.0.i283, %403 ], [ %..i284, %417 ], [ %.0.i286, %426 ], [ %.0.i288, %446 ], [ %462, %459 ], [ %466, %463 ], [ %470, %467 ], [ %.12.i, %20 ], [ -47, %373 ], [ -47, %381 ], [ %..i279, %386 ]
+  %.1226 = phi i32 [ 0, %475 ], [ %.11.i, %pmix_bfrops_base_print_byte.exit ], [ %.11.i230, %pmix_bfrops_base_print_string.exit ], [ %.11.i232, %pmix_bfrops_base_print_size.exit ], [ %.11.i234, %pmix_bfrops_base_print_pid.exit ], [ %.11.i236, %pmix_bfrops_base_print_int.exit ], [ %.11.i238, %pmix_bfrops_base_print_int8.exit ], [ %.11.i240, %pmix_bfrops_base_print_int16.exit ], [ %.11.i242, %pmix_bfrops_base_print_int32.exit ], [ %.11.i244, %pmix_bfrops_base_print_int64.exit ], [ %.11.i246, %pmix_bfrops_base_print_uint.exit ], [ %.11.i248, %pmix_bfrops_base_print_uint8.exit ], [ %.11.i250, %pmix_bfrops_base_print_uint16.exit ], [ %.11.i252, %pmix_bfrops_base_print_uint32.exit ], [ %.11.i254, %pmix_bfrops_base_print_uint64.exit ], [ %.11.i256, %pmix_bfrops_base_print_float.exit ], [ %.11.i258, %pmix_bfrops_base_print_double.exit ], [ %.12.i259, %pmix_bfrops_base_print_timeval.exit ], [ %.14.i, %pmix_bfrops_base_print_time.exit ], [ %.11.i261, %pmix_bfrops_base_print_status.exit ], [ %..i263, %pmix_bfrops_base_print_rank.exit ], [ %..i264, %246 ], [ %254, %251 ], [ %258, %255 ], [ %.13.i, %pmix_bfrops_base_print_bo.exit ], [ %.9.i, %pmix_bfrops_base_print_persist.exit ], [ %..i265, %281 ], [ %..i266, %288 ], [ %..i267, %295 ], [ %305, %302 ], [ %309, %306 ], [ %.0.i268, %310 ], [ %..i269, %320 ], [ %..i270, %327 ], [ %.0.i272, %334 ], [ %..i274, %pmix_bfrops_base_print_coord.exit ], [ %..i275, %359 ], [ %..i276, %366 ], [ %392, %389 ], [ %396, %393 ], [ %..i281, %397 ], [ %.0.i283, %403 ], [ %..i284, %417 ], [ %.0.i286, %426 ], [ %.0.i288, %446 ], [ %462, %459 ], [ %466, %463 ], [ %470, %467 ], [ %474, %471 ], [ %..i, %17 ], [ %.12.i, %20 ], [ -47, %373 ], [ %..i277, %378 ], [ -47, %381 ], [ %..i279, %386 ]
   %480 = load ptr, ptr %5, align 8, !tbaa !3
   %.not = icmp eq ptr %480, null
   br i1 %.not, label %490, label %481
@@ -2998,7 +2998,7 @@ pmix_bfrops_base_print_coord.exit:                ; preds = %26, %switch.lookup
   br label %48
 
 48:                                               ; preds = %.sink.split, %36, %4
-  %.017 = phi i32 [ -29, %36 ], [ -29, %4 ], [ %.017.ph, %.sink.split ]
+  %.017 = phi i32 [ -29, %4 ], [ -29, %36 ], [ %.017.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.017
@@ -3538,7 +3538,7 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_query(ptr noundef writeonly
   br label %64
 
 64:                                               ; preds = %4, %.loopexit, %52, %44, %26, %16
-  %.017 = phi i32 [ 0, %.loopexit ], [ -32, %16 ], [ -32, %26 ], [ %43, %44 ], [ -32, %52 ], [ -32, %4 ]
+  %.017 = phi i32 [ -32, %16 ], [ -32, %26 ], [ %43, %44 ], [ -32, %52 ], [ 0, %.loopexit ], [ -32, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

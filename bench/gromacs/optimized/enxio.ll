@@ -2792,7 +2792,7 @@ _Z22add_subblocks_enxblockP10t_enxblocki.exit242: ; preds = %._crit_edge.i236, %
   br label %433
 
 433:                                              ; preds = %405, %407, %423, %.thread289, %31, %_ZL11enx_warningPKc.exit217, %174, %_ZL11enx_warningPKc.exit215, %_ZL11enx_warningPKc.exit
-  %.0 = phi i1 [ false, %_ZL11enx_warningPKc.exit215 ], [ %176, %174 ], [ false, %_ZL11enx_warningPKc.exit217 ], [ false, %31 ], [ false, %_ZL11enx_warningPKc.exit ], [ %.pre268, %423 ], [ true, %407 ], [ false, %405 ], [ false, %.thread289 ]
+  %.0 = phi i1 [ false, %_ZL11enx_warningPKc.exit215 ], [ %176, %174 ], [ false, %_ZL11enx_warningPKc.exit217 ], [ false, %_ZL11enx_warningPKc.exit ], [ false, %31 ], [ %.pre268, %423 ], [ true, %407 ], [ false, %405 ], [ false, %.thread289 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -3976,7 +3976,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172: ; preds = %51
   br label %542
 
 541:                                              ; preds = %.thread175, %524, %47, %34, %527
-  %.0 = phi i1 [ false, %47 ], [ false, %527 ], [ false, %34 ], [ true, %524 ], [ true, %.thread175 ]
+  %.0 = phi i1 [ false, %527 ], [ false, %34 ], [ false, %47 ], [ true, %524 ], [ true, %.thread175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -5767,9 +5767,9 @@ switch.early.test.i:                              ; preds = %.preheader.i
   br label %446
 
 446:                                              ; preds = %433, %430, %427, %419, %415
-  %.148.i.i = phi float [ %437, %433 ], [ %.04754.i.i, %430 ], [ %.04754.i.i, %427 ], [ %.04754.i.i, %419 ], [ %.04754.i.i, %415 ]
-  %.146.i.i = phi float [ %444, %433 ], [ %.04555.i.i, %430 ], [ %.04555.i.i, %427 ], [ %.04555.i.i, %419 ], [ %.04555.i.i, %415 ]
-  %.1.i.i = phi i32 [ %445, %433 ], [ %.04456.i.i, %430 ], [ %.04456.i.i, %427 ], [ %.04456.i.i, %419 ], [ %.04456.i.i, %415 ]
+  %.148.i.i = phi float [ %437, %433 ], [ %.04754.i.i, %427 ], [ %.04754.i.i, %419 ], [ %.04754.i.i, %415 ], [ %.04754.i.i, %430 ]
+  %.146.i.i = phi float [ %444, %433 ], [ %.04555.i.i, %427 ], [ %.04555.i.i, %419 ], [ %.04555.i.i, %415 ], [ %.04555.i.i, %430 ]
+  %.1.i.i = phi i32 [ %445, %433 ], [ %.04456.i.i, %427 ], [ %.04456.i.i, %419 ], [ %.04456.i.i, %415 ], [ %.04456.i.i, %430 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %415, !llvm.loop !339
@@ -5813,8 +5813,8 @@ _ZL16ener_tensor_diagiPKiS0_P11gmx_enxnm_tS0_iP8t_energyS4_.exit.i: ; preds = %4
   br label %468
 
 468:                                              ; preds = %466, %464, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.preheader.i
-  %.091.i = phi float [ %3, %464 ], [ %.sroa.speculated.i, %466 ], [ %3, %switch.early.test.i ], [ %3, %switch.early.test.i ], [ %3, %switch.early.test.i ], [ %3, %.preheader.i ]
-  %.0.i147 = phi float [ 5.000000e+00, %464 ], [ 5.000000e+00, %466 ], [ %2, %switch.early.test.i ], [ %2, %switch.early.test.i ], [ %2, %switch.early.test.i ], [ %2, %.preheader.i ]
+  %.091.i = phi float [ %.sroa.speculated.i, %466 ], [ %3, %464 ], [ %3, %switch.early.test.i ], [ %3, %switch.early.test.i ], [ %3, %switch.early.test.i ], [ %3, %.preheader.i ]
+  %.0.i147 = phi float [ 5.000000e+00, %466 ], [ 5.000000e+00, %464 ], [ %2, %switch.early.test.i ], [ %2, %switch.early.test.i ], [ %2, %switch.early.test.i ], [ %2, %.preheader.i ]
   %469 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv96.i
   %470 = load i32, ptr %469, align 4, !tbaa !57
   %471 = sext i32 %470 to i64

@@ -144,7 +144,7 @@ define ptr @H5FA__dblk_page_alloc(ptr noundef %0, i64 noundef %1) local_unnamed_
   br label %.thread
 
 .thread:                                          ; preds = %38, %57, %12, %23, %59, %2
-  %.0 = phi ptr [ null, %59 ], [ null, %12 ], [ null, %38 ], [ null, %2 ], [ %10, %23 ], [ null, %57 ]
+  %.0 = phi ptr [ null, %59 ], [ null, %2 ], [ %10, %23 ], [ null, %12 ], [ null, %57 ], [ null, %38 ]
   ret ptr %.0
 }
 
@@ -352,7 +352,7 @@ define range(i32 -1, 1) i32 @H5FA__dblk_page_create(ptr noundef %0, i64 noundef 
   br label %.thread
 
 .thread:                                          ; preds = %67, %86, %13, %47, %54, %88, %3
-  %.0 = phi i32 [ -1, %88 ], [ 0, %47 ], [ -1, %13 ], [ 0, %3 ], [ 0, %54 ], [ -1, %86 ], [ -1, %67 ]
+  %.0 = phi i32 [ -1, %88 ], [ 0, %3 ], [ 0, %47 ], [ 0, %54 ], [ -1, %13 ], [ -1, %86 ], [ -1, %67 ]
   ret i32 %.0
 }
 
@@ -434,7 +434,7 @@ define ptr @H5FA__dblk_page_protect(ptr noundef %0, i64 noundef %1, i64 noundef 
   br label %.thread
 
 .thread:                                          ; preds = %19, %23, %26, %34, %45, %36, %4
-  %.0 = phi ptr [ null, %45 ], [ null, %36 ], [ null, %19 ], [ null, %4 ], [ %17, %23 ], [ %17, %26 ], [ %17, %34 ]
+  %.0 = phi ptr [ null, %45 ], [ null, %36 ], [ null, %4 ], [ %17, %23 ], [ %17, %26 ], [ %17, %34 ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

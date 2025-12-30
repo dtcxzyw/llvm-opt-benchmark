@@ -66,7 +66,7 @@ define noundef zeroext range(i8 0, 4) i8 @_ZN9grpc_core24ValidateHeaderKeyIsLega
   br i1 %.not17.i, label %_ZN9grpc_core12_GLOBAL__N_110ConformsToESt17basic_string_viewIcSt11char_traitsIcEERKNS_6BitSetILm256ELm64EEENS_22ValidateMetadataResultE.exit, label %8
 
 _ZN9grpc_core12_GLOBAL__N_110ConformsToESt17basic_string_viewIcSt11char_traitsIcEERKNS_6BitSetILm256ELm64EEENS_22ValidateMetadataResultE.exit: ; preds = %.lr.ph.i, %8, %4, %2
-  %.0 = phi i8 [ 2, %4 ], [ 1, %2 ], [ 0, %8 ], [ 3, %.lr.ph.i ]
+  %.0 = phi i8 [ 1, %2 ], [ 2, %4 ], [ 3, %.lr.ph.i ], [ 0, %8 ]
   ret i8 %.0
 }
 
@@ -139,7 +139,7 @@ define void @_Z33grpc_validate_header_key_is_legalRK10grpc_slice(ptr dead_on_unw
   br label %_ZN9grpc_core30ValidateMetadataResultToStringENS_22ValidateMetadataResultE.exit.i
 
 _ZN9grpc_core30ValidateMetadataResultToStringENS_22ValidateMetadataResultE.exit.i: ; preds = %13, %2, %28
-  %.0.i.i = phi ptr [ @.str.1, %2 ], [ @.str.3, %28 ], [ @.str.2, %13 ]
+  %.0.i.i = phi ptr [ @.str.3, %28 ], [ @.str.1, %2 ], [ @.str.2, %13 ]
   %29 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #14, !noalias !19
   tail call void @_ZN4absl12lts_2024072213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.absl::lts_20240722::Status") align 8 %0, i64 %29, ptr nonnull %.0.i.i)
   br label %_ZN9grpc_core12_GLOBAL__N_115UpgradeToStatusENS_22ValidateMetadataResultE.exit
@@ -212,7 +212,7 @@ define range(i32 0, 2) i32 @grpc_header_key_is_legal(ptr noundef readonly byval(
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %17, %.loopexit, %29
-  %.val6 = phi i64 [ %.val.pre, %29 ], [ %.val.pre, %.loopexit ], [ 1, %17 ]
+  %.val6 = phi i64 [ %.val.pre, %.loopexit ], [ %.val.pre, %29 ], [ 1, %17 ]
   %34 = icmp eq i64 %.val6, 1
   %35 = zext i1 %34 to i32
   ret i32 %35
@@ -321,7 +321,7 @@ define range(i32 0, 2) i32 @grpc_header_nonbin_value_is_legal(ptr noundef readon
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %13, %1, %23, %25
-  %.val5 = phi i64 [ %.val.pre, %25 ], [ %.val.pre, %23 ], [ 1, %1 ], [ 1, %13 ]
+  %.val5 = phi i64 [ %.val.pre, %23 ], [ %.val.pre, %25 ], [ 1, %1 ], [ 1, %13 ]
   %30 = icmp eq i64 %.val5, 1
   %31 = zext i1 %30 to i32
   ret i32 %31

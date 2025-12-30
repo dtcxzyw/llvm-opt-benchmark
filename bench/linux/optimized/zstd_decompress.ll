@@ -753,8 +753,8 @@ define dso_local i64 @ZSTD_findDecompressedSize(ptr noundef %0, i64 noundef %1) 
   br i1 %37, label %38, label %.thread12
 
 38:                                               ; preds = %16, %34
-  %.pn = phi i64 [ %21, %16 ], [ %36, %34 ]
-  %39 = phi i64 [ %8, %16 ], [ %33, %34 ]
+  %.pn = phi i64 [ %36, %34 ], [ %21, %16 ]
+  %39 = phi i64 [ %33, %34 ], [ %8, %16 ]
   %40 = sub i64 %9, %.pn
   %41 = getelementptr i8, ptr %10, i64 %.pn
   %42 = icmp ult i64 %40, 5
@@ -768,7 +768,7 @@ define dso_local i64 @ZSTD_findDecompressedSize(ptr noundef %0, i64 noundef %1) 
   br label %.thread12
 
 .thread12:                                        ; preds = %23, %16, %14, %34, %32, %.loopexit
-  %47 = phi i64 [ %46, %.loopexit ], [ -2, %16 ], [ -2, %14 ], [ -2, %32 ], [ -2, %34 ], [ %30, %23 ]
+  %47 = phi i64 [ %46, %.loopexit ], [ %30, %23 ], [ -2, %16 ], [ -2, %14 ], [ -2, %32 ], [ -2, %34 ]
   ret i64 %47
 }
 
@@ -1273,7 +1273,7 @@ ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
   br i1 %194, label %.thread32, label %.thread41
 
 .thread32:                                        ; preds = %187, %175, %189, %177, %190
-  %195 = phi i64 [ %193, %190 ], [ 0, %175 ], [ %153, %177 ], [ %183, %189 ], [ 0, %187 ]
+  %195 = phi i64 [ %193, %190 ], [ %183, %189 ], [ %153, %177 ], [ 0, %175 ], [ 0, %187 ]
   %196 = load i32, ptr %37, align 8
   %197 = icmp eq i32 %196, 0
   br i1 %197, label %200, label %198
@@ -1291,8 +1291,8 @@ ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %205, label %206, label %209
 
-.thread41:                                        ; preds = %187, %175, %170, %178, %190, %160, %.lr.ph64, %206, %147
-  %.ph40 = phi i64 [ %151, %147 ], [ -20, %160 ], [ -72, %.lr.ph64 ], [ %207, %206 ], [ -74, %175 ], [ -70, %170 ], [ -70, %178 ], [ %193, %190 ], [ -74, %187 ]
+.thread41:                                        ; preds = %187, %178, %175, %170, %190, %160, %.lr.ph64, %206, %147
+  %.ph40 = phi i64 [ %151, %147 ], [ %207, %206 ], [ -72, %.lr.ph64 ], [ -20, %160 ], [ %193, %190 ], [ -70, %170 ], [ -74, %175 ], [ -70, %178 ], [ -74, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread27
 
@@ -1340,9 +1340,9 @@ ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
   br label %.thread27
 
 .thread27:                                        ; preds = %141, %115, %144, %.thread41, %230, %225, %220, %217, %209, %ZSTD_decompressBegin_usingDict.exit.thread
-  %233 = phi ptr [ %63, %ZSTD_decompressBegin_usingDict.exit.thread ], [ %63, %220 ], [ %63, %225 ], [ %63, %209 ], [ %63, %.thread41 ], [ %231, %230 ], [ %202, %217 ], [ %63, %144 ], [ %63, %115 ], [ %63, %141 ]
-  %234 = phi i64 [ %62, %ZSTD_decompressBegin_usingDict.exit.thread ], [ %62, %220 ], [ %62, %225 ], [ %62, %209 ], [ %62, %.thread41 ], [ %232, %230 ], [ %203, %217 ], [ %62, %144 ], [ %62, %115 ], [ %62, %141 ]
-  %235 = phi i64 [ -72, %ZSTD_decompressBegin_usingDict.exit.thread ], [ -22, %220 ], [ -22, %225 ], [ -20, %209 ], [ %.ph40, %.thread41 ], [ %214, %230 ], [ %214, %217 ], [ %145, %144 ], [ %139, %115 ], [ -72, %141 ]
+  %233 = phi ptr [ %63, %ZSTD_decompressBegin_usingDict.exit.thread ], [ %63, %220 ], [ %63, %225 ], [ %63, %209 ], [ %231, %230 ], [ %202, %217 ], [ %63, %.thread41 ], [ %63, %144 ], [ %63, %115 ], [ %63, %141 ]
+  %234 = phi i64 [ %62, %ZSTD_decompressBegin_usingDict.exit.thread ], [ %62, %220 ], [ %62, %225 ], [ %62, %209 ], [ %232, %230 ], [ %203, %217 ], [ %62, %.thread41 ], [ %62, %144 ], [ %62, %115 ], [ %62, %141 ]
+  %235 = phi i64 [ -72, %ZSTD_decompressBegin_usingDict.exit.thread ], [ -22, %220 ], [ -22, %225 ], [ -20, %209 ], [ %214, %230 ], [ %214, %217 ], [ %.ph40, %.thread41 ], [ %145, %144 ], [ %139, %115 ], [ -72, %141 ]
   %236 = call i32 @ZSTD_getErrorCode(i64 noundef %235) #11
   %237 = icmp eq i32 %236, 10
   %238 = and i1 %56, %237
@@ -1362,8 +1362,8 @@ ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
   br i1 %247, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %241, %77, %14
-  %.lcssa56 = phi ptr [ %57, %77 ], [ %1, %14 ], [ %242, %241 ]
-  %.lcssa = phi i64 [ %79, %77 ], [ %4, %14 ], [ %234, %241 ]
+  %.lcssa56 = phi ptr [ %1, %14 ], [ %57, %77 ], [ %242, %241 ]
+  %.lcssa = phi i64 [ %4, %14 ], [ %79, %77 ], [ %234, %241 ]
   %248 = icmp eq i64 %.lcssa, 0
   br i1 %248, label %249, label %.thread23
 
@@ -1374,7 +1374,7 @@ ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
   br label %.thread23
 
 .thread23:                                        ; preds = %97, %239, %.thread27, %67, %69, %73, %249, %._crit_edge
-  %253 = phi i64 [ %252, %249 ], [ -72, %._crit_edge ], [ -72, %73 ], [ -14, %69 ], [ -72, %67 ], [ %235, %239 ], [ -72, %.thread27 ], [ -30, %97 ]
+  %253 = phi i64 [ %252, %249 ], [ -72, %._crit_edge ], [ -72, %73 ], [ -72, %67 ], [ -14, %69 ], [ -30, %97 ], [ -72, %.thread27 ], [ %235, %239 ]
   ret i64 %253
 }
 
@@ -2275,7 +2275,7 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   br label %.critedge6
 
 .critedge6:                                       ; preds = %64, %.critedge4, %.critedge2, %.critedge, %.thread, %87, %60, %15, %3
-  %93 = phi i64 [ %92, %.thread ], [ -30, %87 ], [ -30, %.critedge4 ], [ -30, %.critedge2 ], [ -30, %.critedge ], [ -30, %15 ], [ -30, %3 ], [ -30, %60 ], [ -30, %64 ]
+  %93 = phi i64 [ %92, %.thread ], [ -30, %87 ], [ -30, %15 ], [ -30, %3 ], [ -30, %60 ], [ -30, %.critedge ], [ -30, %.critedge2 ], [ -30, %.critedge4 ], [ -30, %64 ]
   ret i64 %93
 }
 
@@ -3328,12 +3328,12 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refDDict(ptr noundef c
   br label %128
 
 126:                                              ; preds = %.thread12, %94
-  %127 = phi i64 [ %.ph, %.thread12 ], [ -1, %94 ]
+  %127 = phi i64 [ -1, %94 ], [ %.ph, %.thread12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %128
 
 128:                                              ; preds = %11, %17, %.thread14, %126, %.thread, %2
-  %129 = phi i64 [ %127, %126 ], [ -64, %.thread ], [ -60, %2 ], [ 0, %.thread14 ], [ 0, %17 ], [ 0, %11 ]
+  %129 = phi i64 [ %127, %126 ], [ -60, %2 ], [ -64, %.thread ], [ 0, %.thread14 ], [ 0, %17 ], [ 0, %11 ]
   ret i64 %129
 }
 
@@ -3389,8 +3389,8 @@ define dso_local { i64, i64 } @ZSTD_dParam_getBounds(i32 noundef %0) local_unnam
   br label %4
 
 4:                                                ; preds = %3, %2, %1
-  %5 = phi i64 [ 0, %3 ], [ 133143986186, %1 ], [ 4294967296, %2 ]
-  %6 = phi i64 [ -40, %3 ], [ 0, %1 ], [ 0, %2 ]
+  %5 = phi i64 [ 0, %3 ], [ 4294967296, %2 ], [ 133143986186, %1 ]
+  %6 = phi i64 [ -40, %3 ], [ 0, %2 ], [ 0, %1 ]
   %7 = insertvalue { i64, i64 } poison, i64 %6, 0
   %8 = insertvalue { i64, i64 } %7, i64 %5, 1
   ret { i64, i64 } %8
@@ -4181,11 +4181,6 @@ select.unfold46:                                  ; preds = %323, %314, %311
   %327 = getelementptr i8, ptr %.ph195, i64 %295
   br label %.thread52.outer.backedge
 
-.thread52.outer.backedge:                         ; preds = %select.unfold46, %389, %153
-  %.ph195.be = phi ptr [ %155, %153 ], [ %356, %389 ], [ %327, %select.unfold46 ]
-  %.ph196.be = phi ptr [ %88, %153 ], [ %391, %389 ], [ %326, %select.unfold46 ]
-  br label %.thread52.outer, !llvm.loop !19
-
 328:                                              ; preds = %293
   %329 = icmp eq ptr %.ph195, %11
   br i1 %329, label %.thread63, label %330
@@ -4292,6 +4287,11 @@ select.unfold46:                                  ; preds = %323, %314, %311
   store i32 %390, ptr %42, align 4
   br label %.thread52.outer.backedge
 
+.thread52.outer.backedge:                         ; preds = %389, %153, %select.unfold46
+  %.ph195.be = phi ptr [ %327, %select.unfold46 ], [ %155, %153 ], [ %356, %389 ]
+  %.ph196.be = phi ptr [ %326, %select.unfold46 ], [ %88, %153 ], [ %391, %389 ]
+  br label %.thread52.outer, !llvm.loop !19
+
 392:                                              ; preds = %.thread52
   %393 = load i64, ptr %43, align 8
   %394 = load i64, ptr %44, align 8
@@ -4345,7 +4345,7 @@ select.unfold46:                                  ; preds = %323, %314, %311
   br label %.thread63
 
 .thread63:                                        ; preds = %403, %353, %328, %.thread63.sink.split
-  %417 = phi ptr [ %.ph173, %.thread63.sink.split ], [ %.ph195, %403 ], [ %356, %353 ], [ %11, %328 ]
+  %417 = phi ptr [ %.ph173, %.thread63.sink.split ], [ %.ph195, %403 ], [ %11, %328 ], [ %356, %353 ]
   %418 = phi ptr [ %.ph174, %.thread63.sink.split ], [ %405, %403 ], [ %88, %353 ], [ %88, %328 ]
   %419 = load ptr, ptr %2, align 8
   %420 = ptrtoint ptr %417 to i64
@@ -4435,7 +4435,7 @@ ZSTD_nextInputType.exit:                          ; preds = %440
   br label %.thread38
 
 .thread38:                                        ; preds = %.thread52, %381, %369, %317, %305, %341, %ZSTD_DCtx_selectFrameDDict.exit, %269, %272, %230, %226, %190, %ZSTD_getDDict.exit, %145, %36, %ZSTD_nextInputType.exit, %459, %458, %456, %455, %450, %437, %435, %20, %3
-  %466 = phi i64 [ %180, %ZSTD_getDDict.exit ], [ -72, %3 ], [ -70, %20 ], [ -70, %435 ], [ -72, %437 ], [ %465, %ZSTD_nextInputType.exit ], [ 1, %455 ], [ 0, %456 ], [ 0, %450 ], [ 1, %459 ], [ 1, %458 ], [ %152, %145 ], [ -104, %36 ], [ -1, %.thread52 ], [ %309, %305 ], [ -20, %341 ], [ %94, %ZSTD_DCtx_selectFrameDDict.exit ], [ %228, %226 ], [ -16, %230 ], [ -70, %190 ], [ -64, %269 ], [ -64, %272 ], [ %321, %317 ], [ %385, %381 ], [ %373, %369 ]
+  %466 = phi i64 [ -72, %3 ], [ -70, %20 ], [ -70, %435 ], [ -72, %437 ], [ %465, %ZSTD_nextInputType.exit ], [ 1, %455 ], [ 0, %456 ], [ 0, %450 ], [ 1, %459 ], [ 1, %458 ], [ -104, %36 ], [ %152, %145 ], [ %180, %ZSTD_getDDict.exit ], [ -1, %.thread52 ], [ %228, %226 ], [ -16, %230 ], [ -70, %190 ], [ -64, %269 ], [ -64, %272 ], [ %94, %ZSTD_DCtx_selectFrameDDict.exit ], [ -20, %341 ], [ %321, %317 ], [ %309, %305 ], [ %385, %381 ], [ %373, %369 ]
   ret i64 %466
 }
 

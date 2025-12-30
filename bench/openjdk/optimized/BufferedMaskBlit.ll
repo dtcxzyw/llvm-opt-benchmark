@@ -253,7 +253,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   br label %158
 
 158:                                              ; preds = %121, %118, %125
-  %.sink = phi i32 [ 0, %118 ], [ %157, %125 ], [ %122, %121 ]
+  %.sink = phi i32 [ %157, %125 ], [ 0, %118 ], [ %122, %121 ]
   store i32 %.sink, ptr %.1206, align 4
   %159 = ptrtoint ptr %.1212 to i64
   %160 = add nsw i64 %159, %63
@@ -527,7 +527,7 @@ define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, pt
   br label %337
 
 337:                                              ; preds = %336, %333, %76, %73, %42, %33, %30, %24, %21
-  %.0 = phi i32 [ %3, %21 ], [ %3, %24 ], [ %3, %30 ], [ %3, %33 ], [ %3, %42 ], [ %3, %76 ], [ %3, %73 ], [ %.1, %333 ], [ %.1, %336 ]
+  %.0 = phi i32 [ %3, %21 ], [ %3, %24 ], [ %3, %30 ], [ %3, %33 ], [ %3, %42 ], [ %3, %73 ], [ %3, %76 ], [ %.1, %333 ], [ %.1, %336 ]
   ret i32 %.0
 }
 

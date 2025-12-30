@@ -699,7 +699,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEE
   br label %common.resume
 
 common.resume:                                    ; preds = %.body.thread.i, %.body.i15, %.preheader448.preheader.i, %1514, %.body.i5, %584, %.body.i, %206, %211, %.body.i73, %1587
-  %common.resume.op = phi { ptr, i32 } [ %.pn5.pn.i, %.body.i73 ], [ %.pn.i, %.body.i ], [ %.pn.pn.i, %.body.i5 ], [ %lpad.phi.i, %1587 ], [ %.pn12.i, %211 ], [ %.pn8.pn.pn.i, %206 ], [ %.pn56.pn.pn.pn.pn.i, %584 ], [ %.pn91.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %1514 ], [ %.pn.i16, %.body.i15 ], [ %.pn.pn.ph.i, %.body.thread.i ], [ %.pn.i16, %.preheader448.preheader.i ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %1587 ], [ %.pn5.pn.i, %.body.i73 ], [ %.pn12.i, %211 ], [ %.pn8.pn.pn.i, %206 ], [ %.pn.i, %.body.i ], [ %.pn56.pn.pn.pn.pn.i, %584 ], [ %.pn.pn.i, %.body.i5 ], [ %.pn91.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %1514 ], [ %.pn.i16, %.body.i15 ], [ %.pn.pn.ph.i, %.body.thread.i ], [ %.pn.i16, %.preheader448.preheader.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZL12SetupPluginsv.exit:                          ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_10PlugPluginEEES3_EvT_S5_RSaIT0_E.exit.i.i, %187
@@ -4549,8 +4549,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %common.resume
 
 .body.i15:                                        ; preds = %1427, %1425, %.body124
-  %1431 = phi i1 [ false, %1425 ], [ false, %.body124 ], [ true, %1427 ]
-  %.pn.i16 = phi { ptr, i32 } [ %1426, %1425 ], [ %604, %.body124 ], [ %eh.lpad-body404550.i, %1427 ]
+  %1431 = phi i1 [ false, %.body124 ], [ false, %1425 ], [ true, %1427 ]
+  %.pn.i16 = phi { ptr, i32 } [ %604, %.body124 ], [ %1426, %1425 ], [ %eh.lpad-body404550.i, %1427 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #16
   br i1 %1431, label %common.resume, label %.preheader448.preheader.i
@@ -4790,7 +4790,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %.body276.i
 
 .body276.i:                                       ; preds = %1488, %1124, %1121
-  %.pn85.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn85.pn.pn.pn.i, %1488 ], [ %1122, %1121 ], [ %1122, %1124 ]
+  %.pn85.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn85.pn.pn.pn.i, %1488 ], [ %1122, %1124 ], [ %1122, %1121 ]
   %1489 = getelementptr inbounds nuw i8, ptr %67, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1489) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %67) #16
@@ -4854,7 +4854,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %.body328.i
 
 .body328.i:                                       ; preds = %1503, %1268, %1265
-  %.pn91.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn91.pn.pn.pn.pn.i, %1503 ], [ %1266, %1265 ], [ %1266, %1268 ]
+  %.pn91.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn91.pn.pn.pn.pn.i, %1503 ], [ %1266, %1268 ], [ %1266, %1265 ]
   br label %1504
 
 1504:                                             ; preds = %1504, %.body328.i
@@ -4893,7 +4893,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %1513, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %1509, %.thread443.i, %.thread.i, %.body276.i, %1477, %.body226.i, %.body182.i, %.body143.i, %.body113.i
-  %.pn91.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %1509 ], [ %.pn91.pn.pn.pn.pn.pn.i, %.thread443.i ], [ %.pn85.pn.pn.pn.pn.i, %.body276.i ], [ %1478, %1477 ], [ %.pn65.pn.pn.pn.i, %.body113.i ], [ %.pn78.pn.pn.pn.pn.pn.i, %.body226.i ], [ %.pn74.pn.pn.i, %.body182.i ], [ %.pn70.pn.pn.i, %.body143.i ], [ %1490, %.thread.i ], [ %lpad.thr_comm.i, %.preheader.i ]
+  %.pn91.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %1509 ], [ %1478, %1477 ], [ %.pn78.pn.pn.pn.pn.pn.i, %.body226.i ], [ %.pn74.pn.pn.i, %.body182.i ], [ %.pn70.pn.pn.i, %.body143.i ], [ %.pn65.pn.pn.pn.i, %.body113.i ], [ %1490, %.thread.i ], [ %.pn91.pn.pn.pn.pn.pn.i, %.thread443.i ], [ %.pn85.pn.pn.pn.pn.i, %.body276.i ], [ %lpad.thr_comm.i, %.preheader.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #16
   br label %1514
 
@@ -5238,8 +5238,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit13.i: 
   br label %.body.i73
 
 .body.i73:                                        ; preds = %1607, %1605, %1603, %1601, %1599, %.body130
-  %.sink.i = phi ptr [ %24, %1603 ], [ %24, %1601 ], [ %24, %.body130 ], [ %26, %1605 ], [ %26, %1599 ], [ %26, %1607 ]
-  %.pn5.pn.i = phi { ptr, i32 } [ %1604, %1603 ], [ %1602, %1601 ], [ %1596, %.body130 ], [ %1606, %1605 ], [ %1600, %1599 ], [ %1608, %1607 ]
+  %.sink.i = phi ptr [ %24, %1601 ], [ %24, %.body130 ], [ %24, %1603 ], [ %26, %1605 ], [ %26, %1599 ], [ %26, %1607 ]
+  %.pn5.pn.i = phi { ptr, i32 } [ %1602, %1601 ], [ %1596, %.body130 ], [ %1604, %1603 ], [ %1606, %1605 ], [ %1600, %1599 ], [ %1608, %1607 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #16
   br label %common.resume
 
@@ -7466,7 +7466,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArResolverContextD2Ev.exit: ; preds = %_Z
   br label %.body
 
 .body:                                            ; preds = %.body60.thread, %53, %.body60, %172
-  %.pn = phi { ptr, i32 } [ %173, %172 ], [ %47, %.body60 ], [ %47, %53 ], [ %52, %.body60.thread ]
+  %.pn = phi { ptr, i32 } [ %173, %172 ], [ %47, %53 ], [ %47, %.body60 ], [ %52, %.body60.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   br label %.loopexit23
 
@@ -7514,7 +7514,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArResolverContextD2Ev.exit: ; preds = %_Z
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %168, %.loopexit23, %183, %.body46, %174
-  %.pn25 = phi { ptr, i32 } [ %184, %183 ], [ %.pn22.pn, %.body46 ], [ %169, %168 ], [ %175, %174 ], [ %.pn.pn, %.loopexit23 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp25, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn25 = phi { ptr, i32 } [ %184, %183 ], [ %.pn22.pn, %.body46 ], [ %175, %174 ], [ %.pn.pn, %.loopexit23 ], [ %169, %168 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp25, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17ArResolverContextD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #16
   resume { ptr, i32 } %.pn25
 }

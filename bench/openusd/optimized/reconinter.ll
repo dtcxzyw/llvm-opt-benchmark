@@ -131,7 +131,7 @@ av1_is_scaled.exit.thread22.sink.split:           ; preds = %23, %19
   br label %av1_is_scaled.exit.thread22
 
 av1_is_scaled.exit.thread22:                      ; preds = %av1_is_scaled.exit.thread22.sink.split, %10, %23, %21, %19, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %10 ], [ %.mux, %23 ], [ 1, %19 ], [ 0, %21 ], [ 1, %av1_is_scaled.exit.thread22.sink.split ]
+  %.0 = phi i32 [ 0, %12 ], [ 1, %19 ], [ 0, %21 ], [ %.mux, %23 ], [ 0, %10 ], [ 1, %av1_is_scaled.exit.thread22.sink.split ]
   ret i32 %.0
 }
 
@@ -285,7 +285,7 @@ av1_allow_warp.exit.thread13:                     ; preds = %41, %37
   store i32 1, ptr %0, align 8
   br label %av1_allow_warp.exit.thread
 
-av1_allow_warp.exit.thread:                       ; preds = %41, %39, %31, %13, %5, %9, %av1_allow_warp.exit.thread13
+av1_allow_warp.exit.thread:                       ; preds = %41, %31, %39, %13, %5, %9, %av1_allow_warp.exit.thread13
   ret void
 }
 
@@ -1928,9 +1928,9 @@ build_inter_predictors_sub8x8.exit:               ; preds = %._crit_edge.us.i
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %349
 
-.loopexit:                                        ; preds = %is_inter_block.exit.i, %51, %..loopexit_crit_edge, %23
-  %.pre-phi32 = phi i64 [ %.pre31, %..loopexit_crit_edge ], [ %31, %23 ], [ %31, %51 ], [ %31, %is_inter_block.exit.i ]
-  %.pre-phi = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %25, %23 ], [ %25, %51 ], [ %25, %is_inter_block.exit.i ]
+.loopexit:                                        ; preds = %51, %is_inter_block.exit.i, %..loopexit_crit_edge, %23
+  %.pre-phi32 = phi i64 [ %.pre31, %..loopexit_crit_edge ], [ %31, %23 ], [ %31, %is_inter_block.exit.i ], [ %31, %51 ]
+  %.pre-phi = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %25, %23 ], [ %25, %is_inter_block.exit.i ], [ %25, %51 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -3239,7 +3239,7 @@ is_neighbor_overlappable.exit.thread.i:           ; preds = %is_neighbor_overlap
   br label %av1_get_obmc_mask.exit.i
 
 av1_get_obmc_mask.exit.i:                         ; preds = %.split.i.i, %102
-  %.0.i49.i = phi ptr [ %switch.load, %.split.i.i ], [ null, %102 ]
+  %.0.i49.i = phi ptr [ null, %102 ], [ %switch.load, %.split.i.i ]
   %.val.i22 = load ptr, ptr %44, align 8
   %120 = getelementptr i8, ptr %.val.i22, i64 192
   %.val.val.i = load i32, ptr %120, align 8
@@ -3426,7 +3426,7 @@ is_neighbor_overlappable.exit.thread.i18:         ; preds = %is_neighbor_overlap
   br label %av1_get_obmc_mask.exit.i27
 
 av1_get_obmc_mask.exit.i27:                       ; preds = %.split.i.i32, %208
-  %.0.i.i = phi ptr [ %switch.load42, %.split.i.i32 ], [ null, %208 ]
+  %.0.i.i = phi ptr [ null, %208 ], [ %switch.load42, %.split.i.i32 ]
   %.val.i28 = load ptr, ptr %162, align 8
   %235 = getelementptr i8, ptr %.val.i28, i64 192
   %.val.val.i29 = load i32, ptr %235, align 8
@@ -3694,8 +3694,8 @@ get_ref_frame_map_idx.exit.i57:                   ; preds = %get_ref_frame_map_i
   br label %get_ref_scale_factors_const.exit
 
 get_ref_scale_factors_const.exit:                 ; preds = %get_ref_frame_map_idx.exit.i57, %75
-  %94 = phi ptr [ %.ph, %get_ref_frame_map_idx.exit.i57 ], [ null, %75 ]
-  %95 = phi ptr [ %spec.select61, %get_ref_frame_map_idx.exit.i57 ], [ null, %75 ]
+  %94 = phi ptr [ null, %75 ], [ %.ph, %get_ref_frame_map_idx.exit.i57 ]
+  %95 = phi ptr [ null, %75 ], [ %spec.select61, %get_ref_frame_map_idx.exit.i57 ]
   %96 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv76
   store ptr %95, ptr %96, align 8
   %97 = load i32, ptr %95, align 8
@@ -3901,8 +3901,8 @@ get_ref_frame_map_idx.exit.i57:                   ; preds = %get_ref_frame_map_i
   br label %get_ref_scale_factors_const.exit
 
 get_ref_scale_factors_const.exit:                 ; preds = %get_ref_frame_map_idx.exit.i57, %79
-  %98 = phi ptr [ %.ph, %get_ref_frame_map_idx.exit.i57 ], [ null, %79 ]
-  %99 = phi ptr [ %spec.select61, %get_ref_frame_map_idx.exit.i57 ], [ null, %79 ]
+  %98 = phi ptr [ null, %79 ], [ %.ph, %get_ref_frame_map_idx.exit.i57 ]
+  %99 = phi ptr [ null, %79 ], [ %spec.select61, %get_ref_frame_map_idx.exit.i57 ]
   %100 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv75
   store ptr %99, ptr %100, align 8
   %101 = load i32, ptr %99, align 8

@@ -2038,8 +2038,8 @@ proto_item_set_hidden.exit348:                    ; preds = %proto_item_set_hidd
   %.not315 = icmp eq i32 %.pre, 0
   br i1 %.not315, label %proto_item_set_hidden.exit348.thread, label %proto_item_set_hidden.exit348.thread438
 
-proto_item_set_hidden.exit348.thread438:          ; preds = %356, %344, %348, %353, %proto_item_set_hidden.exit348
-  %378 = phi i32 [ %.pre, %proto_item_set_hidden.exit348 ], [ %343, %353 ], [ %343, %348 ], [ %343, %344 ], [ %343, %356 ]
+proto_item_set_hidden.exit348.thread438:          ; preds = %344, %348, %353, %356, %proto_item_set_hidden.exit348
+  %378 = phi i32 [ %.pre, %proto_item_set_hidden.exit348 ], [ %343, %356 ], [ %343, %353 ], [ %343, %348 ], [ %343, %344 ]
   %379 = load i32, ptr @hf_ecat_dc_diff_ba, align 4
   %380 = load i32, ptr %12, align 16
   %381 = sub i32 %378, %380
@@ -2184,8 +2184,8 @@ proto_item_set_hidden.exit357:                    ; preds = %proto_item_set_hidd
   br label %446
 
 446:                                              ; preds = %440, %426
-  %.0288 = phi i32 [ %168, %426 ], [ %444, %440 ]
-  %.0287 = phi i32 [ %167, %426 ], [ %445, %440 ]
+  %.0288 = phi i32 [ %444, %440 ], [ %168, %426 ]
+  %.0287 = phi i32 [ %445, %440 ], [ %167, %426 ]
   %.not311 = icmp eq i32 %.0287, 0
   br i1 %.not311, label %proto_item_set_hidden.exit363, label %.thread
 
@@ -2535,7 +2535,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0
   br i1 %exitcond83.not, label %.loopexit, label %.split, !llvm.loop !10
 
 .loopexit:                                        ; preds = %._crit_edge.split, %.split, %._crit_edge.split.us.us, %23, %8, %7
-  %.047 = phi i32 [ -1, %8 ], [ -1, %7 ], [ %.173.us, %23 ], [ %.3.us.us, %._crit_edge.split.us.us ], [ %.2.lcssa, %._crit_edge.split ], [ %.173, %.split ]
+  %.047 = phi i32 [ -1, %8 ], [ -1, %7 ], [ %.3.us.us, %._crit_edge.split.us.us ], [ %.173.us, %23 ], [ %.2.lcssa, %._crit_edge.split ], [ %.173, %.split ]
   ret i32 %.047
 }
 

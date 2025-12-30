@@ -155,7 +155,7 @@ switch.lookup:                                    ; preds = %3
   br label %switch.lookup3
 
 switch.lookup3:                                   ; preds = %5, %3, %switch.lookup, %2
-  %.0 = phi i1 [ %spec.select, %5 ], [ false, %3 ], [ %switch.offset, %switch.lookup ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ %switch.offset, %switch.lookup ], [ false, %3 ], [ %spec.select, %5 ]
   ret i1 %.0
 }
 

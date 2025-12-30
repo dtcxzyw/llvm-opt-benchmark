@@ -173,8 +173,8 @@ default.unreachable:                              ; preds = %45
   br label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h7f8e6c323355850cE.exit.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h7f8e6c323355850cE.exit.i.i": ; preds = %52, %49, %45
-  %.sroa.4.0.i.i.i.i = phi ptr [ undef, %52 ], [ %51, %49 ], [ undef, %45 ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ null, %52 ], [ %50, %49 ], [ null, %45 ]
+  %.sroa.4.0.i.i.i.i = phi ptr [ %51, %49 ], [ undef, %52 ], [ undef, %45 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %50, %49 ], [ null, %52 ], [ null, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !55
   br label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9d5760175140b0afE.exit.i"
 

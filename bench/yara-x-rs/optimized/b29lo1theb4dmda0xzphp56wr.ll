@@ -415,7 +415,7 @@ define void @_ZN12yara_x_proto16get_field_format17hca7bc7e70de7bbcdE(ptr dead_on
           to label %42 unwind label %.loopexit.split-lp
 
 .body:                                            ; preds = %91, %100, %.loopexit, %.loopexit.split-lp, %82, %115
-  %.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %116, %115 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %101, %100 ], [ %92, %91 ]
+  %.pn.pn = phi { ptr, i32 } [ %116, %115 ], [ %83, %82 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %101, %100 ], [ %92, %91 ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$protobuf..reflect..message..MessageDescriptor$GT$17h18d0668e699129d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #10
           to label %25 unwind label %103
 

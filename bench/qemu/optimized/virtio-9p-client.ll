@@ -597,7 +597,7 @@ define dso_local void @v9fs_req_recv(ptr noundef captures(none) %0, i8 noundef z
   br label %49
 
 49:                                               ; preds = %40, %33
-  %50 = phi i8 [ %38, %33 ], [ %.pre, %40 ]
+  %50 = phi i8 [ %.pre, %40 ], [ %38, %33 ]
   %51 = icmp eq i8 %50, %1
   br i1 %51, label %.thread, label %52
 
@@ -672,7 +672,7 @@ define internal fastcc noundef nonnull ptr @rmessage_name(i8 noundef zeroext %0)
   br label %7
 
 7:                                                ; preds = %1, %.fold.split23, %.fold.split22, %.fold.split21, %.fold.split20, %.fold.split19, %.fold.split18, %.fold.split17, %.fold.split16, %.fold.split15, %.fold.split14, %.fold.split, %2
-  %8 = phi ptr [ @.str.40, %1 ], [ @.str.50, %.fold.split22 ], [ @.str.41, %.fold.split ], [ @.str.42, %.fold.split14 ], [ @.str.43, %.fold.split15 ], [ @.str.44, %.fold.split16 ], [ @.str.45, %.fold.split17 ], [ @.str.46, %.fold.split18 ], [ @.str.47, %.fold.split19 ], [ @.str.48, %.fold.split20 ], [ @.str.49, %.fold.split21 ], [ %6, %2 ], [ @.str.51, %.fold.split23 ]
+  %8 = phi ptr [ @.str.40, %1 ], [ %6, %2 ], [ @.str.41, %.fold.split ], [ @.str.42, %.fold.split14 ], [ @.str.43, %.fold.split15 ], [ @.str.44, %.fold.split16 ], [ @.str.45, %.fold.split17 ], [ @.str.46, %.fold.split18 ], [ @.str.47, %.fold.split19 ], [ @.str.48, %.fold.split20 ], [ @.str.49, %.fold.split21 ], [ @.str.50, %.fold.split22 ], [ @.str.51, %.fold.split23 ]
   ret ptr %8
 }
 

@@ -742,7 +742,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %159
   br label %184
 
 184:                                              ; preds = %173, %181, %179, %166, %.critedge, %73
-  %.132 = phi i1 [ false, %.critedge ], [ true, %173 ], [ false, %73 ], [ true, %166 ], [ true, %179 ], [ true, %181 ]
+  %.132 = phi i1 [ false, %73 ], [ false, %.critedge ], [ true, %166 ], [ true, %179 ], [ true, %181 ], [ true, %173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %185
 
@@ -1442,7 +1442,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %_ZN
   br label %common.resume
 
 135:                                              ; preds = %48, %54, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %116, %115
-  %.050 = phi ptr [ @_ZN2cv12_GLOBAL__N_114decodeSYCCDataERK9opj_imageRNS_3MatEhb, %116 ], [ @_ZN2cv12_GLOBAL__N_119decodeGrayscaleDataERK9opj_imageRNS_3MatEhb, %115 ], [ @_ZN2cv12_GLOBAL__N_114decodeSRGBDataERK9opj_imageRNS_3MatEhb, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ @_ZN2cv12_GLOBAL__N_114decodeSRGBDataERK9opj_imageRNS_3MatEhb, %54 ], [ @_ZN2cv12_GLOBAL__N_114decodeSRGBDataERK9opj_imageRNS_3MatEhb, %48 ]
+  %.050 = phi ptr [ @_ZN2cv12_GLOBAL__N_119decodeGrayscaleDataERK9opj_imageRNS_3MatEhb, %115 ], [ @_ZN2cv12_GLOBAL__N_114decodeSYCCDataERK9opj_imageRNS_3MatEhb, %116 ], [ @_ZN2cv12_GLOBAL__N_114decodeSRGBDataERK9opj_imageRNS_3MatEhb, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ @_ZN2cv12_GLOBAL__N_114decodeSRGBDataERK9opj_imageRNS_3MatEhb, %54 ], [ @_ZN2cv12_GLOBAL__N_114decodeSRGBDataERK9opj_imageRNS_3MatEhb, %48 ]
   %136 = load i32, ptr %1, align 8, !tbaa !137
   %137 = and i32 %136, 7
   switch i32 %137, label %139 [
@@ -2143,7 +2143,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %173
   br label %184
 
 183:                                              ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %110, %_ZNSt6vectorIPKiSaIS1_EED2Ev.exit, %64, %_ZNSt6vectorIPKiSaIS1_EED2Ev.exit82
-  %.040 = phi i1 [ true, %_ZNSt6vectorIPKiSaIS1_EED2Ev.exit ], [ true, %_ZNSt6vectorIPKiSaIS1_EED2Ev.exit82 ], [ true, %64 ], [ false, %110 ], [ false, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
+  %.040 = phi i1 [ true, %_ZNSt6vectorIPKiSaIS1_EED2Ev.exit82 ], [ true, %64 ], [ true, %_ZNSt6vectorIPKiSaIS1_EED2Ev.exit ], [ false, %110 ], [ false, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
   ret i1 %.040
 
 184:                                              ; preds = %182, %_ZNSt6vectorIPKiSaIS1_EED2Ev.exit80, %71, %36
@@ -2759,11 +2759,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %133
   br label %144
 
 143:                                              ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %70, %52, %62, %_ZNSt6vectorIPKiSaIS1_EED2Ev.exit
-  %.031 = phi i1 [ true, %_ZNSt6vectorIPKiSaIS1_EED2Ev.exit ], [ true, %52 ], [ true, %62 ], [ false, %70 ], [ false, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
+  %.031 = phi i1 [ true, %_ZNSt6vectorIPKiSaIS1_EED2Ev.exit ], [ true, %62 ], [ true, %52 ], [ false, %70 ], [ false, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
   ret i1 %.031
 
 144:                                              ; preds = %142, %61, %34
-  %.pn52.pn = phi { ptr, i32 } [ %.pn52, %34 ], [ %.pn43.pn, %142 ], [ %.pn46, %61 ]
+  %.pn52.pn = phi { ptr, i32 } [ %.pn52, %34 ], [ %.pn46, %61 ], [ %.pn43.pn, %142 ]
   resume { ptr, i32 } %.pn52.pn
 }
 
@@ -4298,7 +4298,7 @@ _ZNSt6vectorI19opj_image_comptparmSaIS0_EED2Ev.exit: ; preds = %424
   br label %_ZNSt6vectorIPiSaIS0_EED2Ev.exit155
 
 _ZNSt6vectorIPiSaIS0_EED2Ev.exit155:              ; preds = %331, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i128, %431
-  %.pn84.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %322, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i128 ], [ %.pn84.pn.pn.pn.pn, %431 ], [ %332, %331 ]
+  %.pn84.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn84.pn.pn.pn.pn, %431 ], [ %322, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i128 ], [ %332, %331 ]
   call void @_ZdlPv(ptr noundef nonnull %233) #24
   br label %432
 

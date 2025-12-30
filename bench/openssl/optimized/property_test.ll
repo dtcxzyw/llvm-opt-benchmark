@@ -524,8 +524,8 @@ define internal range(i32 0, 2) i32 @test_property_string() #0 {
   br label %97
 
 97:                                               ; preds = %93, %90, %87, %84, %81, %78, %75, %72, %69, %65, %62, %59, %56, %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %21, %18, %15, %12, %9, %6, %3, %0
-  %.039 = phi ptr [ null, %0 ], [ %4, %93 ], [ %4, %90 ], [ %4, %87 ], [ %4, %84 ], [ %4, %81 ], [ %4, %78 ], [ %4, %75 ], [ %4, %72 ], [ %4, %69 ], [ %4, %65 ], [ %4, %62 ], [ %4, %59 ], [ %4, %56 ], [ %4, %54 ], [ %4, %51 ], [ %4, %48 ], [ %4, %45 ], [ %4, %42 ], [ %4, %39 ], [ %4, %36 ], [ %4, %33 ], [ %4, %30 ], [ %4, %27 ], [ %4, %24 ], [ %4, %21 ], [ %4, %18 ], [ %4, %15 ], [ %4, %12 ], [ %4, %9 ], [ %4, %6 ], [ %4, %3 ]
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %93 ], [ 0, %90 ], [ 0, %87 ], [ 0, %84 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %72 ], [ 0, %69 ], [ 0, %65 ], [ 0, %62 ], [ 0, %59 ], [ 0, %56 ], [ 0, %54 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %39 ], [ 0, %36 ], [ 0, %33 ], [ 0, %30 ], [ 0, %27 ], [ 0, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ]
+  %.039 = phi ptr [ %4, %90 ], [ %4, %87 ], [ %4, %84 ], [ %4, %81 ], [ %4, %78 ], [ %4, %75 ], [ %4, %72 ], [ %4, %69 ], [ %4, %65 ], [ %4, %62 ], [ %4, %59 ], [ %4, %56 ], [ %4, %54 ], [ %4, %51 ], [ %4, %48 ], [ %4, %45 ], [ %4, %42 ], [ %4, %39 ], [ %4, %36 ], [ %4, %33 ], [ %4, %30 ], [ %4, %27 ], [ %4, %24 ], [ %4, %21 ], [ %4, %18 ], [ %4, %15 ], [ %4, %12 ], [ %4, %9 ], [ %4, %6 ], [ %4, %3 ], [ null, %0 ], [ %4, %93 ]
+  %.0 = phi i32 [ 0, %90 ], [ 0, %87 ], [ 0, %84 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %72 ], [ 0, %69 ], [ 0, %65 ], [ 0, %62 ], [ 0, %59 ], [ 0, %56 ], [ 0, %54 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %39 ], [ 0, %36 ], [ 0, %33 ], [ 0, %30 ], [ 0, %27 ], [ 0, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ %spec.select, %93 ]
   tail call void @ossl_method_store_free(ptr noundef %.039) #6
   tail call void @OSSL_LIB_CTX_free(ptr noundef %1) #6
   ret i32 %.0
@@ -575,10 +575,10 @@ define internal range(i32 0, 2) i32 @test_property_query_value_create() #0 {
   br label %20
 
 20:                                               ; preds = %17, %14, %11, %8, %5, %3, %0
-  %.010 = phi ptr [ null, %0 ], [ %6, %17 ], [ %6, %14 ], [ %6, %11 ], [ %6, %8 ], [ %6, %5 ], [ null, %3 ]
-  %.09 = phi ptr [ null, %0 ], [ %9, %17 ], [ %9, %14 ], [ %9, %11 ], [ %9, %8 ], [ null, %5 ], [ null, %3 ]
-  %.08 = phi ptr [ null, %0 ], [ %12, %17 ], [ %12, %14 ], [ %12, %11 ], [ null, %8 ], [ null, %5 ], [ null, %3 ]
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %17 ], [ 0, %14 ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ], [ 0, %3 ]
+  %.010 = phi ptr [ %6, %14 ], [ %6, %11 ], [ %6, %8 ], [ %6, %5 ], [ null, %3 ], [ null, %0 ], [ %6, %17 ]
+  %.09 = phi ptr [ %9, %14 ], [ %9, %11 ], [ %9, %8 ], [ null, %5 ], [ null, %3 ], [ null, %0 ], [ %9, %17 ]
+  %.08 = phi ptr [ %12, %14 ], [ %12, %11 ], [ null, %8 ], [ null, %5 ], [ null, %3 ], [ null, %0 ], [ %12, %17 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ], [ 0, %3 ], [ 0, %0 ], [ %spec.select, %17 ]
   tail call void @ossl_property_free(ptr noundef %.08) #6
   tail call void @ossl_property_free(ptr noundef %.010) #6
   tail call void @ossl_property_free(ptr noundef %.09) #6
@@ -627,9 +627,9 @@ define internal range(i32 0, 2) i32 @test_property_parse(i32 noundef %0) #0 {
   br label %22
 
 22:                                               ; preds = %17, %12, %6, %4, %1
-  %.09 = phi ptr [ null, %1 ], [ %10, %17 ], [ %10, %12 ], [ %10, %6 ], [ null, %4 ]
-  %.08 = phi ptr [ null, %1 ], [ %15, %17 ], [ %15, %12 ], [ null, %6 ], [ null, %4 ]
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %17 ], [ 0, %12 ], [ 0, %6 ], [ 0, %4 ]
+  %.09 = phi ptr [ %10, %12 ], [ %10, %6 ], [ null, %4 ], [ null, %1 ], [ %10, %17 ]
+  %.08 = phi ptr [ %15, %12 ], [ null, %6 ], [ null, %4 ], [ null, %1 ], [ %15, %17 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %6 ], [ 0, %4 ], [ 0, %1 ], [ %spec.select, %17 ]
   tail call void @ossl_property_free(ptr noundef %.09) #6
   tail call void @ossl_property_free(ptr noundef %.08) #6
   tail call void @ossl_method_store_free(ptr noundef %2) #6
@@ -733,11 +733,11 @@ define internal range(i32 0, 2) i32 @test_property_merge(i32 noundef %0) #0 {
   br label %28
 
 28:                                               ; preds = %25, %22, %17, %13, %6, %4, %1
-  %.015 = phi ptr [ null, %1 ], [ %15, %25 ], [ %15, %22 ], [ %15, %17 ], [ %15, %13 ], [ null, %6 ], [ null, %4 ]
-  %.014 = phi ptr [ null, %1 ], [ %20, %25 ], [ %20, %22 ], [ %20, %17 ], [ null, %13 ], [ null, %6 ], [ null, %4 ]
-  %.013 = phi ptr [ null, %1 ], [ %23, %25 ], [ %23, %22 ], [ null, %17 ], [ null, %13 ], [ null, %6 ], [ null, %4 ]
-  %.012 = phi ptr [ null, %1 ], [ %11, %25 ], [ %11, %22 ], [ %11, %17 ], [ %11, %13 ], [ %11, %6 ], [ null, %4 ]
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %25 ], [ 0, %22 ], [ 0, %17 ], [ 0, %13 ], [ 0, %6 ], [ 0, %4 ]
+  %.015 = phi ptr [ %15, %22 ], [ %15, %17 ], [ %15, %13 ], [ null, %6 ], [ null, %4 ], [ null, %1 ], [ %15, %25 ]
+  %.014 = phi ptr [ %20, %22 ], [ %20, %17 ], [ null, %13 ], [ null, %6 ], [ null, %4 ], [ null, %1 ], [ %20, %25 ]
+  %.013 = phi ptr [ %23, %22 ], [ null, %17 ], [ null, %13 ], [ null, %6 ], [ null, %4 ], [ null, %1 ], [ %23, %25 ]
+  %.012 = phi ptr [ %11, %22 ], [ %11, %17 ], [ %11, %13 ], [ %11, %6 ], [ null, %4 ], [ null, %1 ], [ %11, %25 ]
+  %.0 = phi i32 [ 0, %22 ], [ 0, %17 ], [ 0, %13 ], [ 0, %6 ], [ 0, %4 ], [ 0, %1 ], [ %spec.select, %25 ]
   tail call void @ossl_property_free(ptr noundef %.015) #6
   tail call void @ossl_property_free(ptr noundef %.014) #6
   tail call void @ossl_property_free(ptr noundef %.013) #6
@@ -1019,7 +1019,7 @@ define internal range(i32 0, 2) i32 @test_register_deregister() #0 {
   br label %43
 
 43:                                               ; preds = %33, %38, %0, %4, %16
-  %.026 = phi i32 [ 0, %16 ], [ 0, %33 ], [ 0, %0 ], [ %spec.select, %38 ], [ 0, %4 ]
+  %.026 = phi i32 [ 0, %16 ], [ 0, %33 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %38 ]
   call void @ossl_method_store_free(ptr noundef %2) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.026
@@ -1246,7 +1246,7 @@ define internal range(i32 0, 2) i32 @test_property() #0 {
   br i1 %exitcond107.not, label %.thread81, label %.preheader, !llvm.loop !39
 
 .thread81:                                        ; preds = %107, %105, %95, %71, %61, %37, %0, %5, %21
-  %.056 = phi i32 [ 0, %21 ], [ 0, %37 ], [ 0, %105 ], [ 0, %71 ], [ 0, %0 ], [ 0, %5 ], [ 0, %61 ], [ 0, %95 ], [ 1, %107 ]
+  %.056 = phi i32 [ 0, %21 ], [ 0, %37 ], [ 0, %5 ], [ 0, %0 ], [ 0, %61 ], [ 0, %71 ], [ 0, %95 ], [ 0, %105 ], [ 1, %107 ]
   call void @ossl_method_store_free(ptr noundef %3) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.056
@@ -1342,7 +1342,7 @@ define internal range(i32 0, 2) i32 @test_query_cache_stochastic() #0 {
   br label %41
 
 41:                                               ; preds = %35, %37, %0, %7, %27
-  %.023 = phi i32 [ 0, %27 ], [ 0, %0 ], [ 0, %7 ], [ 0, %35 ], [ %40, %37 ]
+  %.023 = phi i32 [ 0, %27 ], [ 0, %7 ], [ 0, %0 ], [ 0, %35 ], [ %40, %37 ]
   call void @ossl_method_store_free(ptr noundef %5) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1534,9 +1534,9 @@ define internal range(i32 0, 2) i32 @test_property_list_to_string(i32 noundef %0
   br label %25
 
 25:                                               ; preds = %21, %11, %14, %17, %8, %4
-  %.017 = phi i32 [ 0, %4 ], [ %spec.select, %21 ], [ 0, %17 ], [ 0, %14 ], [ 0, %11 ], [ 0, %8 ]
-  %.1 = phi ptr [ %6, %4 ], [ %.016, %21 ], [ %.016, %17 ], [ %.016, %14 ], [ %.016, %11 ], [ %.016, %8 ]
-  %.0 = phi ptr [ null, %4 ], [ %12, %21 ], [ %12, %17 ], [ %12, %14 ], [ %12, %11 ], [ null, %8 ]
+  %.017 = phi i32 [ 0, %17 ], [ 0, %14 ], [ 0, %11 ], [ 0, %8 ], [ 0, %4 ], [ %spec.select, %21 ]
+  %.1 = phi ptr [ %.016, %17 ], [ %.016, %14 ], [ %.016, %11 ], [ %.016, %8 ], [ %6, %4 ], [ %.016, %21 ]
+  %.0 = phi ptr [ %12, %17 ], [ %12, %14 ], [ %12, %11 ], [ null, %8 ], [ null, %4 ], [ %12, %21 ]
   tail call void @CRYPTO_free(ptr noundef %.0, ptr noundef nonnull @.str.12, i32 noundef 685) #6
   tail call void @ossl_property_free(ptr noundef %.1) #6
   ret i32 %.017

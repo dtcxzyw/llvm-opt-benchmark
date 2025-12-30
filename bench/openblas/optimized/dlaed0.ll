@@ -77,8 +77,8 @@ thread-pre-split:                                 ; preds = %30
   br i1 %44, label %.thread, label %46
 
 .thread:                                          ; preds = %42, %39, %36, %32, %12
-  %.sink = phi i32 [ -1, %12 ], [ -2, %32 ], [ -7, %39 ], [ -3, %36 ], [ -9, %42 ]
-  %.neg = phi i32 [ 1, %12 ], [ 2, %32 ], [ 7, %39 ], [ 3, %36 ], [ 9, %42 ]
+  %.sink = phi i32 [ -1, %12 ], [ -2, %32 ], [ -3, %36 ], [ -7, %39 ], [ -9, %42 ]
+  %.neg = phi i32 [ 1, %12 ], [ 2, %32 ], [ 3, %36 ], [ 7, %39 ], [ 9, %42 ]
   store i32 %.sink, ptr %11, align 4, !tbaa !3
   store i32 %.neg, ptr %13, align 4, !tbaa !3
   %45 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %13, i32 noundef 6) #5
@@ -187,8 +187,8 @@ thread-pre-split:                                 ; preds = %30
   br i1 %exitcond451.not, label %._crit_edge400, label %.lr.ph399, !llvm.loop !12
 
 ._crit_edge400:                                   ; preds = %.lr.ph399, %._crit_edge389, %._crit_edge389.thread
-  %.not351.not396498 = phi i1 [ false, %._crit_edge389 ], [ false, %._crit_edge389.thread ], [ true, %.lr.ph399 ]
-  %.0326.lcssa494497 = phi i32 [ %64, %._crit_edge389 ], [ 1, %._crit_edge389.thread ], [ %64, %.lr.ph399 ]
+  %.not351.not396498 = phi i1 [ false, %._crit_edge389.thread ], [ false, %._crit_edge389 ], [ true, %.lr.ph399 ]
+  %.0326.lcssa494497 = phi i32 [ 1, %._crit_edge389.thread ], [ %64, %._crit_edge389 ], [ %64, %.lr.ph399 ]
   %91 = add nsw i32 %.0326.lcssa494497, -1
   %92 = load i32, ptr %2, align 4, !tbaa !3
   %93 = shl i32 %92, 2

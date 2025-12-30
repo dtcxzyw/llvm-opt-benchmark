@@ -211,7 +211,7 @@ if.then17:                                        ; preds = %if.end14
           to label %cleanup unwind label %lpad8
 
 cleanup:                                          ; preds = %if.end14, %if.then17, %invoke.cont11
-  %retval.1 = phi ptr [ null, %if.then17 ], [ null, %invoke.cont11 ], [ %call.i11, %if.end14 ]
+  %retval.1 = phi ptr [ null, %invoke.cont11 ], [ null, %if.then17 ], [ %call.i11, %if.end14 ]
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3re26Regexp6WalkerIPS0_EE, i64 16), ptr %sw, align 8
   invoke void @_ZN3re26Regexp6WalkerIPS0_E5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %sw)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
@@ -255,7 +255,7 @@ terminate.lpad.i.i:                               ; preds = %cleanup
   unreachable
 
 cleanup20:                                        ; preds = %_ZNSt11_Deque_baseIN3re29WalkStateIPNS0_6RegexpEEESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i.i.i, %invoke.cont.i.i, %if.then4, %invoke.cont
-  %retval.0 = phi ptr [ null, %if.then4 ], [ null, %invoke.cont ], [ %retval.1, %invoke.cont.i.i ], [ %retval.1, %_ZNSt11_Deque_baseIN3re29WalkStateIPNS0_6RegexpEEESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i.i.i ]
+  %retval.0 = phi ptr [ null, %invoke.cont ], [ null, %if.then4 ], [ %retval.1, %invoke.cont.i.i ], [ %retval.1, %_ZNSt11_Deque_baseIN3re29WalkStateIPNS0_6RegexpEEESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i.i.i ]
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3re26Regexp6WalkerIPS0_EE, i64 16), ptr %cw, align 8
   invoke void @_ZN3re26Regexp6WalkerIPS0_E5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %cw)
           to label %invoke.cont.i.i17 unwind label %terminate.lpad.i.i16
@@ -485,7 +485,7 @@ switch.lookup:                                    ; preds = %if.end28
   br label %return
 
 return:                                           ; preds = %for.body, %if.end28, %switch.lookup, %sw.bb2, %if.end12, %if.then7, %sw.bb23, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %invoke.cont39, %sw.bb33, %sw.bb19
-  %retval.0 = phi i1 [ false, %invoke.cont39 ], [ false, %sw.bb33 ], [ true, %entry ], [ %switch.masked, %switch.lookup ], [ true, %if.end28 ], [ true, %sw.bb2 ], [ %cmp.i18, %sw.bb19 ], [ %spec.select, %if.then7 ], [ false, %sw.bb23 ], [ %spec.select25, %if.end12 ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ %cmp.i6.not.not, %for.body ]
+  %retval.0 = phi i1 [ false, %invoke.cont39 ], [ %cmp.i18, %sw.bb19 ], [ false, %sw.bb33 ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ false, %sw.bb23 ], [ %spec.select, %if.then7 ], [ %spec.select25, %if.end12 ], [ true, %sw.bb2 ], [ %switch.masked, %switch.lookup ], [ true, %if.end28 ], [ %cmp.i6.not.not, %for.body ]
   ret i1 %retval.0
 }
 
@@ -1068,7 +1068,7 @@ for.inc149:                                       ; preds = %if.end143, %if.then
   br i1 %cmp134, label %for.body135, label %return, !llvm.loop !14
 
 return:                                           ; preds = %for.body71, %for.inc149, %_ZN3re26Regexp8AllocSubEi.exit126, %_ZN3re26Regexp8AllocSubEi.exit149, %for.end, %if.then23, %if.then28, %if.then53, %if.then7, %if.then
-  %retval.0 = phi ptr [ %call2, %if.then ], [ %call54, %if.then53 ], [ %call8, %if.then7 ], [ %call121, %_ZN3re26Regexp8AllocSubEi.exit149 ], [ %call10, %if.then23 ], [ %call10, %for.end ], [ %call10, %if.then28 ], [ %call121, %for.inc149 ], [ %call57, %_ZN3re26Regexp8AllocSubEi.exit126 ], [ %call57, %for.body71 ]
+  %retval.0 = phi ptr [ %call2, %if.then ], [ %call8, %if.then7 ], [ %call54, %if.then53 ], [ %call10, %if.then28 ], [ %call10, %if.then23 ], [ %call10, %for.end ], [ %call121, %_ZN3re26Regexp8AllocSubEi.exit149 ], [ %call57, %_ZN3re26Regexp8AllocSubEi.exit126 ], [ %call121, %for.inc149 ], [ %call57, %for.body71 ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad122, %lpad58, %lpad
@@ -1915,7 +1915,7 @@ lpad85:                                           ; preds = %invoke.cont88, %_ZN
   br label %common.resume
 
 return:                                           ; preds = %sw.bb70, %land.lhs.true, %sw.bb37, %invoke.cont92, %sw.bb81, %if.end76, %invoke.cont66, %if.then47, %invoke.cont32, %if.then23, %for.end, %if.then, %sw.bb
-  %retval.0 = phi ptr [ %call94, %invoke.cont92 ], [ %call2, %sw.bb ], [ %call7, %for.end ], [ %call6, %if.then ], [ %call25, %if.then23 ], [ %call28, %invoke.cont32 ], [ %call83, %sw.bb81 ], [ %call49, %if.then47 ], [ %29, %sw.bb37 ], [ %call60, %invoke.cont66 ], [ %29, %land.lhs.true ], [ %call79, %if.end76 ], [ %40, %sw.bb70 ]
+  %retval.0 = phi ptr [ %call94, %invoke.cont92 ], [ %call2, %sw.bb ], [ %call7, %for.end ], [ %call6, %if.then ], [ %call25, %if.then23 ], [ %call28, %invoke.cont32 ], [ %call49, %if.then47 ], [ %call60, %invoke.cont66 ], [ %call79, %if.end76 ], [ %call83, %sw.bb81 ], [ %29, %sw.bb37 ], [ %29, %land.lhs.true ], [ %40, %sw.bb70 ]
   ret ptr %retval.0
 }
 
@@ -2050,7 +2050,7 @@ _ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit166: ;
   br label %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit
 
 _ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit: ; preds = %for.body.i.i.i.i, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit164, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit166, %sw.bb.i.i.i.i, %sw.bb21.i.i.i.i, %sw.bb26.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %sw.bb21.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.addr.2.i.i.i.i, %sw.bb26.i.i.i.i ], [ %incdec.ptr8.i.i.i.i.le, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit166 ], [ %incdec.ptr4.i.i.i.i.le, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit164 ], [ %incdec.ptr.i.i.i.i.le, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit ], [ %__first.addr.055.i.i.i.i, %for.body.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.addr.1.i.i.i.i, %sw.bb21.i.i.i.i ], [ %__first.addr.2.i.i.i.i, %sw.bb26.i.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.i.le, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit164 ], [ %incdec.ptr8.i.i.i.i.le, %_ZSt6all_ofIPPN3re26RegexpEPFbS2_EEbT_S6_T0_.exit.loopexit.split.loop.exit166 ], [ %__first.addr.055.i.i.i.i, %for.body.i.i.i.i ]
   %cmp.i47 = icmp eq ptr %add.ptr, %retval.0.i.i.i.i
   br i1 %cmp.i47, label %if.then, label %if.end
 
@@ -2374,7 +2374,7 @@ lpad115:                                          ; preds = %invoke.cont112
   br label %common.resume
 
 return:                                           ; preds = %if.end92.thread, %if.end92, %invoke.cont112, %if.then43, %if.then51, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit60, %if.then20, %if.then15
-  %retval.0 = phi ptr [ %call17, %if.then15 ], [ %call22, %if.then20 ], [ %call38, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit60 ], [ %call114, %invoke.cont112 ], [ %call52, %if.then51 ], [ %call44, %if.then43 ], [ %nre.1, %if.end92 ], [ %call.i79, %if.end92.thread ]
+  %retval.0 = phi ptr [ %call17, %if.then15 ], [ %call22, %if.then20 ], [ %call38, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit60 ], [ %call52, %if.then51 ], [ %call44, %if.then43 ], [ %call114, %invoke.cont112 ], [ %nre.1, %if.end92 ], [ %call.i79, %if.end92.thread ]
   ret ptr %retval.0
 }
 
@@ -3243,7 +3243,7 @@ delete.notnull:                                   ; preds = %if.then86
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end10, %if.end75, %delete.notnull, %if.then86, %if.then8
-  %t.0 = phi ptr [ %call9, %if.then8 ], [ %call82, %if.end75 ], [ %call82, %if.then86 ], [ %call82, %delete.notnull ], [ %call14, %if.end10 ]
+  %t.0 = phi ptr [ %call9, %if.then8 ], [ %call82, %if.then86 ], [ %call82, %delete.notnull ], [ %call82, %if.end75 ], [ %call14, %if.end10 ]
   %42 = load ptr, ptr %_M_finish.i.i.i, align 8
   %43 = load ptr, ptr %_M_first3.i.i.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %42, %43
@@ -3490,7 +3490,7 @@ _ZSt4copyIPPN3re29WalkStateIPNS0_6RegexpEEES6_ET0_T_S8_S7_.exit30: ; preds = %_Z
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPN3re29WalkStateIPNS0_6RegexpEEES6_ET0_T_S8_S7_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN3re29WalkStateIPNS0_6RegexpEEES6_ET0_T_S8_S7_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN3re29WalkStateIPNS0_6RegexpEEES6_ET0_T_S8_S7_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24

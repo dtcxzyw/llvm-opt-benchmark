@@ -238,7 +238,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit.i:             ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit.i
 
 61:                                               ; preds = %93, %90, %87, %_ZN20ScopedOpenSSLContextI13env_md_ctx_stiXadL_Z15EVP_MD_CTX_initEEXadL_Z18EVP_MD_CTX_cleanupEEE5ResetEv.exit.i, %.noexc33.i, %_ZNSt6vectorIhSaIhEE6resizeEm.exit32.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i23.i, %74, %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i
-  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.2.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i23.i ], [ %.sroa.0.3.i, %_ZNSt6vectorIhSaIhEE6resizeEm.exit32.i ], [ %.sroa.0.3.i, %.noexc33.i ], [ %.sroa.0.3.i, %_ZN20ScopedOpenSSLContextI13env_md_ctx_stiXadL_Z15EVP_MD_CTX_initEEXadL_Z18EVP_MD_CTX_cleanupEEE5ResetEv.exit.i ], [ %.sroa.0.3.i, %87 ], [ %.sroa.0.3.i, %90 ], [ %.sroa.0.3.i, %93 ], [ %.sroa.0.2.i, %74 ], [ %.sroa.0.2.i, %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i ]
+  %.sroa.0.0.ph.i = phi ptr [ %.sroa.0.2.i, %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i ], [ %.sroa.0.2.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i23.i ], [ %.sroa.0.3.i, %_ZNSt6vectorIhSaIhEE6resizeEm.exit32.i ], [ %.sroa.0.3.i, %.noexc33.i ], [ %.sroa.0.3.i, %_ZN20ScopedOpenSSLContextI13env_md_ctx_stiXadL_Z15EVP_MD_CTX_initEEXadL_Z18EVP_MD_CTX_cleanupEEE5ResetEv.exit.i ], [ %.sroa.0.3.i, %87 ], [ %.sroa.0.3.i, %90 ], [ %.sroa.0.3.i, %93 ], [ %.sroa.0.2.i, %74 ]
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i.i = icmp eq ptr %.sroa.0.0.ph.i, null
@@ -307,7 +307,7 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i27.i: ; preds = %83, %_ZS
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit32.i
 
 _ZNSt6vectorIhSaIhEE6resizeEm.exit32.i:           ; preds = %84, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i27.i, %63
-  %.sroa.0.3.i = phi ptr [ %.sroa.0.2.i, %63 ], [ %77, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i27.i ], [ %77, %84 ]
+  %.sroa.0.3.i = phi ptr [ %77, %84 ], [ %77, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i27.i ], [ %.sroa.0.2.i, %63 ]
   %85 = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %.noexc33.i unwind label %61
 
@@ -486,7 +486,7 @@ _ZN20ScopedOpenSSLContextI13env_md_ctx_stiXadL_Z15EVP_MD_CTX_initEEXadL_Z18EVP_M
   unreachable
 
 139:                                              ; preds = %130, %127, %124, %_ZN20ScopedOpenSSLContextI13env_md_ctx_stiXadL_Z15EVP_MD_CTX_initEEXadL_Z18EVP_MD_CTX_cleanupEEEC2Ev.exit.i3
-  %.03.i = phi i1 [ false, %_ZN20ScopedOpenSSLContextI13env_md_ctx_stiXadL_Z15EVP_MD_CTX_initEEXadL_Z18EVP_MD_CTX_cleanupEEEC2Ev.exit.i3 ], [ %.not6.i, %130 ], [ false, %127 ], [ false, %124 ]
+  %.03.i = phi i1 [ false, %127 ], [ false, %124 ], [ false, %_ZN20ScopedOpenSSLContextI13env_md_ctx_stiXadL_Z15EVP_MD_CTX_initEEXadL_Z18EVP_MD_CTX_cleanupEEEC2Ev.exit.i3 ], [ %.not6.i, %130 ]
   %140 = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %_ZN20ScopedOpenSSLContextI13env_md_ctx_stiXadL_Z15EVP_MD_CTX_initEEXadL_Z18EVP_MD_CTX_cleanupEEED2Ev.exit7.i unwind label %141
 

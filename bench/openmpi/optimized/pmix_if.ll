@@ -347,7 +347,7 @@ pmix_strncpy.exit52:                              ; preds = %.lr.ph.i46, %74, %6
   br label %._crit_edge62.thread
 
 ._crit_edge62.thread:                             ; preds = %15, %pmix_strncpy.exit, %._crit_edge62.thread73, %12, %14, %3, %pmix_strncpy.exit52
-  %.0 = phi i32 [ -46, %12 ], [ -46, %3 ], [ 0, %pmix_strncpy.exit ], [ 0, %pmix_strncpy.exit52 ], [ -46, %14 ], [ -46, %._crit_edge62.thread73 ], [ -46, %15 ]
+  %.0 = phi i32 [ 0, %pmix_strncpy.exit ], [ 0, %pmix_strncpy.exit52 ], [ -46, %3 ], [ -46, %14 ], [ -46, %12 ], [ -46, %._crit_edge62.thread73 ], [ -46, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -525,7 +525,7 @@ define signext i16 @pmix_ifaddrtokindex(ptr noundef %0) local_unnamed_addr #3 {
   br label %._crit_edge56.thread
 
 ._crit_edge56.thread:                             ; preds = %.preheader47, %.thread44, %.thread, %._crit_edge56, %._crit_edge56.thread62, %14, %15
-  %.030 = phi i16 [ -46, %14 ], [ %33, %.thread ], [ %48, %.thread44 ], [ -46, %15 ], [ -46, %._crit_edge56.thread62 ], [ -46, %._crit_edge56 ], [ -46, %.preheader47 ]
+  %.030 = phi i16 [ -46, %15 ], [ -46, %14 ], [ -46, %._crit_edge56.thread62 ], [ -46, %._crit_edge56 ], [ %33, %.thread ], [ %48, %.thread44 ], [ -46, %.preheader47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i16 %.030
@@ -599,7 +599,7 @@ define i32 @pmix_ifnext(i32 noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
 
 .loopexit:                                        ; preds = %15, %.thread, %.preheader, %1
-  %.2 = phi i32 [ %9, %.thread ], [ -1, %1 ], [ -1, %.preheader ], [ -1, %15 ]
+  %.2 = phi i32 [ -1, %1 ], [ %9, %.thread ], [ -1, %.preheader ], [ -1, %15 ]
   ret i32 %.2
 }
 
@@ -1114,7 +1114,7 @@ parse_ipv4_dots.exit:                             ; preds = %20, %.split.loop.ex
   br label %88
 
 59:                                               ; preds = %54, %46, %parse_ipv4_dots.exit, %55, %57, %56, %3
-  %.030 = phi i32 [ %.014.i, %parse_ipv4_dots.exit ], [ 0, %46 ], [ 0, %3 ], [ 0, %55 ], [ 0, %56 ], [ 0, %57 ], [ 0, %54 ]
+  %.030 = phi i32 [ %.014.i, %parse_ipv4_dots.exit ], [ 0, %46 ], [ 0, %55 ], [ 0, %56 ], [ 0, %57 ], [ 0, %3 ], [ 0, %54 ]
   %.not42 = icmp eq ptr %1, null
   br i1 %.not42, label %88, label %60
 
@@ -1178,7 +1178,7 @@ parse_ipv4_dots.exit54:                           ; preds = %67, %.split.loop.ex
   br label %88
 
 88:                                               ; preds = %59, %parse_ipv4_dots.exit54, %58, %45
-  %.033 = phi i32 [ -1363, %58 ], [ -1363, %45 ], [ %.014.i52, %parse_ipv4_dots.exit54 ], [ %.030, %59 ]
+  %.033 = phi i32 [ -1363, %45 ], [ -1363, %58 ], [ %.014.i52, %parse_ipv4_dots.exit54 ], [ %.030, %59 ]
   ret i32 %.033
 }
 
@@ -1365,7 +1365,7 @@ pmix_ifnametokindex.exit.thread:                  ; preds = %43, %32, %55, %pmix
   br i1 %.not32, label %pmix_ifkindextoaddr.exit.thread, label %.preheader, !llvm.loop !73
 
 pmix_ifkindextoaddr.exit.thread:                  ; preds = %14, %pmix_ifnametokindex.exit, %55, %pmix_ifnametokindex.exit.thread, %16, %2, %51
-  %.0 = phi i32 [ -46, %pmix_ifnametokindex.exit.thread ], [ -1, %2 ], [ %50, %51 ], [ -46, %16 ], [ 0, %55 ], [ 0, %pmix_ifnametokindex.exit ], [ -1, %14 ]
+  %.0 = phi i32 [ %50, %51 ], [ -1, %2 ], [ -46, %16 ], [ 0, %pmix_ifnametokindex.exit ], [ 0, %55 ], [ -46, %pmix_ifnametokindex.exit.thread ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

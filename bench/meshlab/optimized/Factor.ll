@@ -85,7 +85,7 @@ define noundef range(i32 0, 3) i32 @_Z6FactordddPA2_dd(double noundef %0, double
   br label %_Z6FactorddPA2_dd.exit
 
 _Z6FactorddPA2_dd.exit:                           ; preds = %11, %8, %23, %32
-  %.0 = phi i32 [ 2, %23 ], [ 2, %32 ], [ 1, %11 ], [ 0, %8 ]
+  %.0 = phi i32 [ 2, %32 ], [ 2, %23 ], [ 1, %11 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -275,7 +275,7 @@ define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, doubl
   br label %_Z6FactordddPA2_dd.exit
 
 _Z6FactordddPA2_dd.exit:                          ; preds = %36, %27, %15, %12, %119
-  %.0 = phi i32 [ 3, %119 ], [ 2, %27 ], [ 2, %36 ], [ 1, %15 ], [ 0, %12 ]
+  %.0 = phi i32 [ 3, %119 ], [ 2, %36 ], [ 2, %27 ], [ 1, %15 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -330,7 +330,7 @@ define noundef double @_Z7ArcTan2dd(double noundef %0, double noundef %1) local_
   br label %21
 
 21:                                               ; preds = %6, %2, %19, %17, %10
-  %.0 = phi double [ %20, %19 ], [ %., %6 ], [ 0.000000e+00, %2 ], [ %12, %10 ], [ %18, %17 ]
+  %.0 = phi double [ %12, %10 ], [ %18, %17 ], [ %20, %19 ], [ 0.000000e+00, %2 ], [ %., %6 ]
   ret double %.0
 }
 
@@ -385,7 +385,7 @@ define noundef double @_Z5AnglePKd(ptr noundef readonly captures(none) %0) local
   br label %_Z7ArcTan2dd.exit
 
 _Z7ArcTan2dd.exit:                                ; preds = %25, %23, %16, %12, %8, %1
-  %.0 = phi double [ 0.000000e+00, %1 ], [ %26, %25 ], [ %..i, %12 ], [ 0.000000e+00, %8 ], [ %18, %16 ], [ %24, %23 ]
+  %.0 = phi double [ 0.000000e+00, %1 ], [ %18, %16 ], [ %24, %23 ], [ %26, %25 ], [ 0.000000e+00, %8 ], [ %..i, %12 ]
   ret double %.0
 }
 
@@ -439,7 +439,7 @@ define void @_Z4SqrtPKdPd(ptr noundef readonly captures(none) %0, ptr noundef wr
   br label %_Z5AnglePKd.exit
 
 _Z5AnglePKd.exit:                                 ; preds = %2, %10, %14, %18, %25, %27
-  %.0.i = phi double [ 0.000000e+00, %2 ], [ %28, %27 ], [ %..i.i, %14 ], [ 0.000000e+00, %10 ], [ %20, %18 ], [ %26, %25 ]
+  %.0.i = phi double [ 0.000000e+00, %2 ], [ %20, %18 ], [ %26, %25 ], [ %28, %27 ], [ 0.000000e+00, %10 ], [ %..i.i, %14 ]
   %29 = fmul double %.0.i, 5.000000e-01
   %30 = tail call double @cos(double noundef %29) #14
   %31 = fmul double %8, %30
@@ -660,7 +660,7 @@ _Z4SqrtPKdPd.exit:                                ; preds = %36, %12, %40
   br label %_Z4SqrtPKdPd.exit68
 
 _Z4SqrtPKdPd.exit68:                              ; preds = %49, %75, %79, %83, %90, %92
-  %.0.i.i66 = phi double [ 0.000000e+00, %49 ], [ %93, %92 ], [ %..i.i.i67, %79 ], [ 0.000000e+00, %75 ], [ %85, %83 ], [ %91, %90 ]
+  %.0.i.i66 = phi double [ 0.000000e+00, %49 ], [ %85, %83 ], [ %91, %90 ], [ %93, %92 ], [ 0.000000e+00, %75 ], [ %..i.i.i67, %79 ]
   %94 = fmul double %.0.i.i66, 5.000000e-01
   %95 = tail call double @cos(double noundef %94) #14
   %96 = fmul double %sqrt131, %95
@@ -711,7 +711,7 @@ _Z4SqrtPKdPd.exit68:                              ; preds = %49, %75, %79, %83, 
   br label %_Z4SqrtPKdPd.exit73
 
 _Z4SqrtPKdPd.exit73:                              ; preds = %_Z4SqrtPKdPd.exit68, %102, %106, %110, %117, %119
-  %.0.i.i71 = phi double [ 0.000000e+00, %_Z4SqrtPKdPd.exit68 ], [ %120, %119 ], [ %..i.i.i72, %106 ], [ 0.000000e+00, %102 ], [ %112, %110 ], [ %118, %117 ]
+  %.0.i.i71 = phi double [ 0.000000e+00, %_Z4SqrtPKdPd.exit68 ], [ %112, %110 ], [ %118, %117 ], [ %120, %119 ], [ 0.000000e+00, %102 ], [ %..i.i.i72, %106 ]
   %121 = fmul double %.0.i.i71, 5.000000e-01
   %122 = tail call double @cos(double noundef %121) #14
   %123 = fmul double %sqrt132, %122
@@ -796,7 +796,7 @@ _Z4SqrtPKdPd.exit78:                              ; preds = %132, %127, %136
   br label %_Z4SqrtPKdPd.exit83
 
 _Z4SqrtPKdPd.exit83:                              ; preds = %_Z4SqrtPKdPd.exit78, %150, %154, %158, %165, %167
-  %.0.i.i81 = phi double [ 0.000000e+00, %_Z4SqrtPKdPd.exit78 ], [ %168, %167 ], [ %..i.i.i82, %154 ], [ 0.000000e+00, %150 ], [ %160, %158 ], [ %166, %165 ]
+  %.0.i.i81 = phi double [ 0.000000e+00, %_Z4SqrtPKdPd.exit78 ], [ %160, %158 ], [ %166, %165 ], [ %168, %167 ], [ 0.000000e+00, %150 ], [ %..i.i.i82, %154 ]
   %169 = fmul double %.0.i.i81, 5.000000e-01
   %170 = tail call double @cos(double noundef %169) #14
   %171 = fmul double %sqrt134, %170
@@ -849,7 +849,7 @@ _Z4SqrtPKdPd.exit83:                              ; preds = %_Z4SqrtPKdPd.exit78
   br label %_Z4SqrtPKdPd.exit88
 
 _Z4SqrtPKdPd.exit88:                              ; preds = %_Z4SqrtPKdPd.exit83, %179, %183, %187, %194, %196
-  %.0.i.i86 = phi double [ 0.000000e+00, %_Z4SqrtPKdPd.exit83 ], [ %197, %196 ], [ %..i.i.i87, %183 ], [ 0.000000e+00, %179 ], [ %189, %187 ], [ %195, %194 ]
+  %.0.i.i86 = phi double [ 0.000000e+00, %_Z4SqrtPKdPd.exit83 ], [ %189, %187 ], [ %195, %194 ], [ %197, %196 ], [ 0.000000e+00, %179 ], [ %..i.i.i87, %183 ]
   %198 = fmul double %.0.i.i86, 5.000000e-01
   %199 = tail call double @cos(double noundef %198) #14
   %200 = fmul double %sqrt135, %199
@@ -1072,7 +1072,7 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr noundef readonly captu
   br i1 %exitcond173.not, label %._crit_edge144, label %.lr.ph143, !llvm.loop !11
 
 ._crit_edge144:                                   ; preds = %._crit_edge, %.lr.ph143, %4, %.preheader121
-  %.0107 = phi i32 [ 1, %.lr.ph143 ], [ 1, %4 ], [ 1, %.preheader121 ], [ 0, %._crit_edge ]
+  %.0107 = phi i32 [ 1, %.preheader121 ], [ 1, %4 ], [ 1, %.lr.ph143 ], [ 0, %._crit_edge ]
   tail call void @_ZdaPv(ptr noundef nonnull %9) #16
   tail call void @_ZdaPv(ptr noundef nonnull %17) #16
   tail call void @_ZdaPv(ptr noundef nonnull %14) #16

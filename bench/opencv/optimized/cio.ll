@@ -538,7 +538,7 @@ opj_stream_flush.exit:                            ; preds = %7, %._crit_edge.loo
   br label %55
 
 55:                                               ; preds = %3, %._crit_edge, %40, %29
-  %.024 = phi i64 [ -1, %29 ], [ %47, %40 ], [ %.0.lcssa, %._crit_edge ], [ -1, %3 ]
+  %.024 = phi i64 [ %47, %40 ], [ %.0.lcssa, %._crit_edge ], [ -1, %29 ], [ -1, %3 ]
   ret i64 %.024
 }
 
@@ -1135,7 +1135,7 @@ opj_stream_flush.exit:                            ; preds = %41, %._crit_edge.lo
   br i1 %.not41, label %27, label %._crit_edge
 
 60:                                               ; preds = %opj_stream_flush.exit.thread, %4, %._crit_edge
-  %.035 = phi i64 [ -1, %4 ], [ %23, %._crit_edge ], [ -1, %opj_stream_flush.exit.thread ]
+  %.035 = phi i64 [ %23, %._crit_edge ], [ -1, %4 ], [ -1, %opj_stream_flush.exit.thread ]
   ret i64 %.035
 }
 

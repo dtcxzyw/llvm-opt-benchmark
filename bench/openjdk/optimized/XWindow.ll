@@ -70,7 +70,7 @@ define hidden i64 @awt_getX11KeySym(i32 noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %5, %3, %12
-  %.07 = phi i64 [ 65406, %3 ], [ %15, %12 ], [ 0, %5 ], [ 0, %7 ]
+  %.07 = phi i64 [ %15, %12 ], [ 65406, %3 ], [ 0, %5 ], [ 0, %7 ]
   ret i64 %.07
 }
 
@@ -204,7 +204,7 @@ define i32 @Java_sun_awt_X11_XWindow_getAWTKeyCodeForKeySym(ptr noundef readnone
   br label %keysymToAWTKeyCode.exit, !llvm.loop !8
 
 keysymToAWTKeyCode.exit:                          ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.keysymToAWTKeyCode.exit.loopexit_crit_edge, %8, %6
-  %.0 = phi i32 [ 262, %6 ], [ 0, %8 ], [ %9, %.lr.ph.i.preheader ], [ 0, %.keysymToAWTKeyCode.exit.loopexit_crit_edge ], [ %13, %.lr.ph.i ]
+  %.0 = phi i32 [ 262, %6 ], [ 0, %8 ], [ 0, %.keysymToAWTKeyCode.exit.loopexit_crit_edge ], [ %9, %.lr.ph.i.preheader ], [ %13, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -403,7 +403,7 @@ define i32 @Java_sun_awt_X11_XWindow_getKeySymForAWTKeyCode(ptr noundef readnone
   br label %awt_getX11KeySym.exit
 
 awt_getX11KeySym.exit:                            ; preds = %9, %5, %7, %14
-  %.07.i = phi i32 [ 65406, %5 ], [ %18, %14 ], [ 0, %7 ], [ 0, %9 ]
+  %.07.i = phi i32 [ %18, %14 ], [ 65406, %5 ], [ 0, %7 ], [ 0, %9 ]
   ret i32 %.07.i
 }
 

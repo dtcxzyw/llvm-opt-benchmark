@@ -495,7 +495,7 @@ define void @_ZN2cv6bgsegm28BackgroundSubtractorLSBPDesc18calcLocalSVDValuesERKN
   br i1 %exitcond93.not, label %._crit_edge, label %113, !llvm.loop !41
 
 143:                                              ; preds = %77, %75, %73
-  %.pn58 = phi { ptr, i32 } [ %74, %73 ], [ %76, %75 ], [ %78, %77 ]
+  %.pn58 = phi { ptr, i32 } [ %78, %77 ], [ %76, %75 ], [ %74, %73 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #29
   br label %144
 
@@ -1856,7 +1856,7 @@ _ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelGSOCEJNS_5Size_IiEEiEEE
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %152, %151
-  %154 = phi ptr [ %.pr.pre.i.i.i.i, %152 ], [ %148, %151 ]
+  %154 = phi ptr [ %148, %151 ], [ %.pr.pre.i.i.i.i, %152 ]
   %.not8.i.i.i.i = icmp eq ptr %154, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %155
 
@@ -2039,7 +2039,7 @@ _ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelGSOCEJNS_5Size_IiEEiEEE
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i192
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i192: ; preds = %221, %220
-  %223 = phi ptr [ %.pr.pre.i.i.i.i198, %221 ], [ %217, %220 ]
+  %223 = phi ptr [ %217, %220 ], [ %.pr.pre.i.i.i.i198, %221 ]
   %.not8.i.i.i.i193 = icmp eq ptr %223, null
   br i1 %.not8.i.i.i.i193, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i197, label %224
 
@@ -2603,8 +2603,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit.us: ; preds = %_ZNSt6ve
   br label %._crit_edge317
 
 ._crit_edge317:                                   ; preds = %.preheader301.lr.ph, %._crit_edge317.loopexit, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit
-  %429 = phi ptr [ %390, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit ], [ %.pre351, %._crit_edge317.loopexit ], [ %390, %.preheader301.lr.ph ]
-  %430 = phi ptr [ %393, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit ], [ %426, %._crit_edge317.loopexit ], [ %393, %.preheader301.lr.ph ]
+  %429 = phi ptr [ %.pre351, %._crit_edge317.loopexit ], [ %390, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit ], [ %390, %.preheader301.lr.ph ]
+  %430 = phi ptr [ %426, %._crit_edge317.loopexit ], [ %393, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit ], [ %393, %.preheader301.lr.ph ]
   %431 = ptrtoint ptr %430 to i64
   %432 = ptrtoint ptr %429 to i64
   %433 = sub i64 %431, %432
@@ -2810,10 +2810,10 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   br label %._crit_edge29.i
 
 ._crit_edge29.i:                                  ; preds = %._crit_edge29.loopexit.i, %.preheader.i
-  %512 = phi i32 [ %506, %.preheader.i ], [ %537, %._crit_edge29.loopexit.i ]
-  %513 = phi i32 [ %507, %.preheader.i ], [ %.pre35.i, %._crit_edge29.loopexit.i ]
-  %514 = phi i32 [ %508, %.preheader.i ], [ %538, %._crit_edge29.loopexit.i ]
-  %515 = phi i32 [ %509, %.preheader.i ], [ %538, %._crit_edge29.loopexit.i ]
+  %512 = phi i32 [ %537, %._crit_edge29.loopexit.i ], [ %506, %.preheader.i ]
+  %513 = phi i32 [ %.pre35.i, %._crit_edge29.loopexit.i ], [ %507, %.preheader.i ]
+  %514 = phi i32 [ %538, %._crit_edge29.loopexit.i ], [ %508, %.preheader.i ]
+  %515 = phi i32 [ %538, %._crit_edge29.loopexit.i ], [ %509, %.preheader.i ]
   %516 = add nuw nsw i32 %.01930.i, 1
   %517 = icmp slt i32 %516, %513
   br i1 %517, label %.preheader.i, label %_ZN2cv6bgsegm12_GLOBAL__N_115BackgroundModelINS1_20BackgroundSampleGSOCEE18motionCompensationERKS4_RKSt6vectorINS_6Point_IfEESaIS9_EE.exit, !llvm.loop !152
@@ -2900,7 +2900,7 @@ _ZN2cv6bgsegm12_GLOBAL__N_115BackgroundModelINS1_20BackgroundSampleGSOCEE18motio
   br label %563
 
 563:                                              ; preds = %.loopexit.split.us, %.loopexit.split-lp, %561, %559
-  %.pn133 = phi { ptr, i32 } [ %562, %561 ], [ %560, %559 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn133 = phi { ptr, i32 } [ %560, %559 ], [ %562, %561 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #29
   br label %564
 
@@ -3338,7 +3338,7 @@ _ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20Backgr
   br label %.body
 
 .body:                                            ; preds = %326, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOCESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i182, %324, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOCESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, %721, %713, %711, %710, %698, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208, %342, %337, %332, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173, %105, %103, %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn133.pn.pn.pn = phi { ptr, i32 } [ %.pn133.pn.pn, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit223 ], [ %.pn130.pn, %721 ], [ %714, %713 ], [ %712, %711 ], [ %.pn120.pn.pn.pn, %710 ], [ %699, %698 ], [ %.pn105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208 ], [ %.pn103, %342 ], [ %.pn101, %337 ], [ %.pn99, %332 ], [ %145, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOCESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ %106, %105 ], [ %104, %103 ], [ %94, %93 ], [ %.pn89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169 ], [ %325, %324 ], [ %327, %326 ], [ %213, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOCESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i182 ]
+  %.pn133.pn.pn.pn = phi { ptr, i32 } [ %.pn133.pn.pn, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit223 ], [ %.pn130.pn, %721 ], [ %714, %713 ], [ %712, %711 ], [ %.pn120.pn.pn.pn, %710 ], [ %699, %698 ], [ %.pn105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208 ], [ %.pn103, %342 ], [ %.pn101, %337 ], [ %.pn99, %332 ], [ %.pn97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ %106, %105 ], [ %104, %103 ], [ %94, %93 ], [ %.pn89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %325, %324 ], [ %145, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOCESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %327, %326 ], [ %213, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOCESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i182 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #29
   br label %722
 
@@ -5076,7 +5076,7 @@ _ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelLSBPEJNS_5Size_IiEEiEEE
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %155, %154
-  %157 = phi ptr [ %.pr.pre.i.i.i.i, %155 ], [ %151, %154 ]
+  %157 = phi ptr [ %151, %154 ], [ %.pr.pre.i.i.i.i, %155 ]
   %.not8.i.i.i.i = icmp eq ptr %157, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %158
 
@@ -5269,7 +5269,7 @@ _ZN2cvL7makePtrINS_6bgsegm12_GLOBAL__N_119BackgroundModelLSBPEJNS_5Size_IiEEiEEE
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i162
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i162: ; preds = %227, %226
-  %229 = phi ptr [ %.pr.pre.i.i.i.i168, %227 ], [ %223, %226 ]
+  %229 = phi ptr [ %223, %226 ], [ %.pr.pre.i.i.i.i168, %227 ]
   %.not8.i.i.i.i163 = icmp eq ptr %229, null
   br i1 %.not8.i.i.i.i163, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i167, label %230
 
@@ -5848,8 +5848,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit.us: ; preds = %_ZNSt6ve
   br label %._crit_edge270
 
 ._crit_edge270:                                   ; preds = %.preheader.lr.ph, %._crit_edge270.loopexit, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit
-  %452 = phi ptr [ %413, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit ], [ %.pre288, %._crit_edge270.loopexit ], [ %413, %.preheader.lr.ph ]
-  %453 = phi ptr [ %416, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit ], [ %449, %._crit_edge270.loopexit ], [ %416, %.preheader.lr.ph ]
+  %452 = phi ptr [ %.pre288, %._crit_edge270.loopexit ], [ %413, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit ], [ %413, %.preheader.lr.ph ]
+  %453 = phi ptr [ %449, %._crit_edge270.loopexit ], [ %416, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit ], [ %416, %.preheader.lr.ph ]
   %454 = ptrtoint ptr %453 to i64
   %455 = ptrtoint ptr %452 to i64
   %456 = sub i64 %454, %455
@@ -6054,10 +6054,10 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   br label %._crit_edge29.i
 
 ._crit_edge29.i:                                  ; preds = %._crit_edge29.loopexit.i, %.preheader.i
-  %534 = phi i32 [ %528, %.preheader.i ], [ %560, %._crit_edge29.loopexit.i ]
-  %535 = phi i32 [ %529, %.preheader.i ], [ %.pre35.i, %._crit_edge29.loopexit.i ]
-  %536 = phi i32 [ %530, %.preheader.i ], [ %561, %._crit_edge29.loopexit.i ]
-  %537 = phi i32 [ %531, %.preheader.i ], [ %561, %._crit_edge29.loopexit.i ]
+  %534 = phi i32 [ %560, %._crit_edge29.loopexit.i ], [ %528, %.preheader.i ]
+  %535 = phi i32 [ %.pre35.i, %._crit_edge29.loopexit.i ], [ %529, %.preheader.i ]
+  %536 = phi i32 [ %561, %._crit_edge29.loopexit.i ], [ %530, %.preheader.i ]
+  %537 = phi i32 [ %561, %._crit_edge29.loopexit.i ], [ %531, %.preheader.i ]
   %538 = add nuw nsw i32 %.01930.i, 1
   %539 = icmp slt i32 %538, %535
   br i1 %539, label %.preheader.i, label %_ZN2cv6bgsegm12_GLOBAL__N_115BackgroundModelINS1_20BackgroundSampleLSBPEE18motionCompensationERKS4_RKSt6vectorINS_6Point_IfEESaIS9_EE.exit, !llvm.loop !282
@@ -6145,7 +6145,7 @@ _ZN2cv6bgsegm12_GLOBAL__N_115BackgroundModelINS1_20BackgroundSampleLSBPEE18motio
   br label %586
 
 586:                                              ; preds = %.loopexit.split.us, %.loopexit.split-lp, %584, %582
-  %.pn99 = phi { ptr, i32 } [ %585, %584 ], [ %583, %582 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn99 = phi { ptr, i32 } [ %583, %582 ], [ %585, %584 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #29
   br label %587
 
@@ -6270,7 +6270,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit193: ; preds = %_ZNSt6vectorIN2cv6P
   br label %.body139
 
 .body139:                                         ; preds = %350, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBPESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i148, %348, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBPESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, %616, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit193, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178, %364, %363, %357, %356, %346, %.body
-  %.pn99.pn.pn.pn = phi { ptr, i32 } [ %.pn99.pn.pn, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit193 ], [ %347, %346 ], [ %617, %616 ], [ %.pn84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178 ], [ %365, %364 ], [ %.pn82, %363 ], [ %358, %357 ], [ %.pn80, %356 ], [ %148, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBPESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %.pn7.i, %.body ], [ %349, %348 ], [ %351, %350 ], [ %219, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBPESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i148 ]
+  %.pn99.pn.pn.pn = phi { ptr, i32 } [ %.pn99.pn.pn, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit193 ], [ %347, %346 ], [ %617, %616 ], [ %.pn84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178 ], [ %365, %364 ], [ %.pn82, %363 ], [ %358, %357 ], [ %.pn80, %356 ], [ %.pn7.i, %.body ], [ %349, %348 ], [ %148, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBPESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %351, %350 ], [ %219, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBPESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i148 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #29
   br label %618
 

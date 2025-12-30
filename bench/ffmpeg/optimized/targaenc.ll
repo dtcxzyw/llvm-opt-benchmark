@@ -339,7 +339,7 @@ targa_encode_normal.exit:                         ; preds = %160, %targa_encode_
   br label %179
 
 179:                                              ; preds = %4, %169, %115
-  %.087 = phi i32 [ 0, %169 ], [ -22, %115 ], [ %16, %4 ]
+  %.087 = phi i32 [ -22, %115 ], [ 0, %169 ], [ %16, %4 ]
   ret i32 %.087
 }
 

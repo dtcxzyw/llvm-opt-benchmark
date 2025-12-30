@@ -90,7 +90,7 @@ define noundef zeroext i1 @_ZN3net17AeadBaseEncrypter6SetKeyEN4base16BasicString
   br i1 %.not.i3, label %_ZN3net12_GLOBAL__N_117DLogOpenSslErrorsEv.exit, label %.preheader, !llvm.loop !18
 
 _ZN3net12_GLOBAL__N_117DLogOpenSslErrorsEv.exit:  ; preds = %.preheader, %6, %3
-  %.0 = phi i1 [ true, %6 ], [ false, %3 ], [ false, %.preheader ]
+  %.0 = phi i1 [ false, %3 ], [ true, %6 ], [ false, %.preheader ]
   ret i1 %.0
 }
 
@@ -212,7 +212,7 @@ _ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_s
   br label %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit.thread
 
 _ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit.thread: ; preds = %19, %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit, %35
-  %.0.i16 = phi i1 [ true, %35 ], [ false, %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit ], [ false, %19 ]
+  %.0.i16 = phi i1 [ false, %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit ], [ true, %35 ], [ false, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %36
 

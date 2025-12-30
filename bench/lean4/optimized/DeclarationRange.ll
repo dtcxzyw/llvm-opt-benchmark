@@ -769,7 +769,7 @@ lean_dec.exit41:                                  ; preds = %106, %105, %103, %9
   br label %lean_dec.exit47
 
 lean_dec.exit47:                                  ; preds = %lean_dec.exit41, %111, %113, %114, %lean_dec.exit43, %93, %95, %96, %lean_dec.exit45, %71, %73, %74, %48, %53, %55, %56, %39, %44, %46, %47
-  %.2 = phi ptr [ %40, %39 ], [ %49, %48 ], [ %87, %lean_dec.exit43 ], [ %65, %lean_dec.exit45 ], [ %40, %47 ], [ %40, %46 ], [ %40, %44 ], [ %49, %56 ], [ %49, %55 ], [ %49, %53 ], [ %65, %74 ], [ %65, %73 ], [ %65, %71 ], [ %87, %96 ], [ %87, %95 ], [ %87, %93 ], [ %107, %114 ], [ %107, %113 ], [ %107, %111 ], [ %107, %lean_dec.exit41 ]
+  %.2 = phi ptr [ %40, %47 ], [ %40, %46 ], [ %40, %44 ], [ %40, %39 ], [ %49, %56 ], [ %49, %55 ], [ %49, %53 ], [ %49, %48 ], [ %65, %74 ], [ %65, %73 ], [ %65, %71 ], [ %65, %lean_dec.exit45 ], [ %87, %96 ], [ %87, %95 ], [ %87, %93 ], [ %87, %lean_dec.exit43 ], [ %107, %114 ], [ %107, %113 ], [ %107, %111 ], [ %107, %lean_dec.exit41 ]
   ret ptr %.2
 }
 
@@ -855,7 +855,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   br label %lean_inc.exit7
 
 lean_inc.exit7:                                   ; preds = %21, %28, %30, %31, %12, %17, %19, %20
-  %.0 = phi ptr [ %0, %12 ], [ %0, %20 ], [ %0, %19 ], [ %0, %17 ], [ %23, %31 ], [ %23, %30 ], [ %23, %28 ], [ %23, %21 ]
+  %.0 = phi ptr [ %0, %20 ], [ %0, %19 ], [ %0, %17 ], [ %0, %12 ], [ %23, %31 ], [ %23, %30 ], [ %23, %28 ], [ %23, %21 ]
   ret ptr %.0
 }
 
@@ -1423,7 +1423,7 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
   br label %l_Lean_Elab_addDeclarationRangesFromSyntax___rarg___lambda__1.exit
 
 l_Lean_Elab_addDeclarationRangesFromSyntax___rarg___lambda__1.exit: ; preds = %12, %17, %19, %20, %21, %28, %30, %31
-  %.0.i = phi ptr [ %0, %12 ], [ %0, %20 ], [ %0, %19 ], [ %0, %17 ], [ %23, %31 ], [ %23, %30 ], [ %23, %28 ], [ %23, %21 ]
+  %.0.i = phi ptr [ %0, %20 ], [ %0, %19 ], [ %0, %17 ], [ %0, %12 ], [ %23, %31 ], [ %23, %30 ], [ %23, %28 ], [ %23, %21 ]
   br i1 %.not.i.i, label %32, label %lean_dec.exit5
 
 32:                                               ; preds = %l_Lean_Elab_addDeclarationRangesFromSyntax___rarg___lambda__1.exit
@@ -2394,7 +2394,7 @@ lean_dec_ref.exit21:                              ; preds = %44, %46, %47
   br label %72
 
 72:                                               ; preds = %.sink.split, %lean_dec_ref.exit19, %lean_dec_ref.exit17, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink41, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %.sink41, %.sink.split ]
   ret ptr %.0
 }
 

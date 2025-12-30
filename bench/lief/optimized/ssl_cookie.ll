@@ -187,7 +187,7 @@ define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_cookie_check(ptr noundef %0,
   %.not14.i = icmp eq i32 %18, 0
   br i1 %.not14.i, label %19, label %ssl_cookie_hmac.exit.thread
 
-ssl_cookie_hmac.exit.thread:                      ; preds = %11, %17, %15, %13
+ssl_cookie_hmac.exit.thread:                      ; preds = %17, %15, %13, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %31
 
@@ -216,7 +216,7 @@ ssl_cookie_hmac.exit.thread:                      ; preds = %11, %17, %15, %13
   br label %31
 
 31:                                               ; preds = %ssl_cookie_hmac.exit.thread, %26, %19, %22
-  %.1 = phi i32 [ -1, %ssl_cookie_hmac.exit.thread ], [ 0, %22 ], [ -1, %19 ], [ %spec.select, %26 ]
+  %.1 = phi i32 [ 0, %22 ], [ -1, %19 ], [ %spec.select, %26 ], [ -1, %ssl_cookie_hmac.exit.thread ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 28) #7
   br label %32
 

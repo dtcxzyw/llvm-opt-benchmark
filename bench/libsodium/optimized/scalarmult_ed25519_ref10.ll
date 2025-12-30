@@ -102,7 +102,7 @@ _crypto_scalarmult_ed25519_is_inf.exit:           ; preds = %32
   br label %44
 
 44:                                               ; preds = %42, %_crypto_scalarmult_ed25519_is_inf.exit, %4, %9, %11, %13
-  %.016 = phi i32 [ -1, %_crypto_scalarmult_ed25519_is_inf.exit ], [ -1, %4 ], [ -1, %13 ], [ -1, %11 ], [ -1, %9 ], [ %spec.select, %42 ]
+  %.016 = phi i32 [ -1, %13 ], [ -1, %11 ], [ -1, %9 ], [ -1, %4 ], [ -1, %_crypto_scalarmult_ed25519_is_inf.exit ], [ %spec.select, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.016

@@ -900,7 +900,7 @@ aes128_lorawan_encrypt.exit.i:                    ; preds = %166
   br label %dissect_lorawan_join_accept.exit
 
 dissect_lorawan_join_accept.exit:                 ; preds = %221, %136, %dissect_lorawan_join_request.exit, %223, %225, %227, %dissect_lorawan_beacon.exit
-  %.062 = phi i32 [ %66, %dissect_lorawan_beacon.exit ], [ %231, %227 ], [ %129, %dissect_lorawan_join_request.exit ], [ %226, %225 ], [ %224, %223 ], [ %141, %136 ], [ %222, %221 ]
+  %.062 = phi i32 [ %66, %dissect_lorawan_beacon.exit ], [ %231, %227 ], [ %129, %dissect_lorawan_join_request.exit ], [ %224, %223 ], [ %226, %225 ], [ %141, %136 ], [ %222, %221 ]
   ret i32 %.062
 }
 
@@ -1272,7 +1272,7 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
   br i1 %.not24, label %54, label %.sink.split
 
 .sink.split:                                      ; preds = %49, %45, %byte_array_reverse.exit, %14, %10, %2
-  %.str.310.sink = phi ptr [ @.str.309, %45 ], [ @.str.308, %byte_array_reverse.exit ], [ @.str.307, %14 ], [ @.str.306, %10 ], [ @.str.305, %2 ], [ @.str.310, %49 ]
+  %.str.310.sink = phi ptr [ @.str.305, %2 ], [ @.str.306, %10 ], [ @.str.307, %14 ], [ @.str.308, %byte_array_reverse.exit ], [ @.str.309, %45 ], [ @.str.310, %49 ]
   %53 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.310.sink)
   br label %54
 
@@ -1536,7 +1536,7 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %64, %60, %51, %47, %43, %byte_array_reverse.exit, %2
-  %.str.312.sink = phi ptr [ @.str.318, %60 ], [ @.str.319, %64 ], [ @.str.311, %2 ], [ @.str.314, %byte_array_reverse.exit ], [ @.str.315, %43 ], [ @.str.316, %47 ], [ @.str.317, %51 ], [ %.str.312.sink.ph, %.sink.split.sink.split ]
+  %.str.312.sink = phi ptr [ @.str.311, %2 ], [ @.str.314, %byte_array_reverse.exit ], [ @.str.315, %43 ], [ @.str.316, %47 ], [ @.str.317, %51 ], [ @.str.318, %60 ], [ @.str.319, %64 ], [ %.str.312.sink.ph, %.sink.split.sink.split ]
   %69 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.312.sink)
   br label %70
 
@@ -1802,18 +1802,18 @@ decrypt_lorawan_frame_payload.exit:               ; preds = %84
 
 93:                                               ; preds = %89
   %94 = call fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %90, ptr noundef %2, i1 noundef zeroext %3)
-  %.4146 = add i32 %94, %.1
+  %.4145 = add i32 %94, %.1
   br label %101
 
 95:                                               ; preds = %89
   %96 = load i32, ptr @hf_lorawan_frame_payload_decrypted_type, align 4
   %97 = call ptr @proto_tree_add_bytes(ptr noundef %92, i32 noundef %96, ptr noundef %90, i32 noundef 0, i32 noundef %44, ptr noundef %65)
-  %.4142 = add i32 %.1, %44
+  %.4146 = add i32 %.1, %44
   br label %101
 
 98:                                               ; preds = %decrypt_lorawan_frame_payload.exit.thread, %decrypt_lorawan_frame_payload.exit
   %99 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_lorawan_decrypting_error, ptr noundef %0, i32 noundef %.1, i32 noundef 4, ptr noundef nonnull @.str.302)
-  %.4145 = add i32 %.1, %44
+  %.4142 = add i32 %.1, %44
   br label %101
 
 100:                                              ; preds = %get_session_key.exit
@@ -1827,7 +1827,7 @@ decrypt_lorawan_frame_payload.exit:               ; preds = %84
 
 101:                                              ; preds = %._crit_edge, %98, %95, %93
   %.pre-phi = phi i8 [ %.pre149, %._crit_edge ], [ %72, %98 ], [ %72, %95 ], [ %72, %93 ]
-  %.4144 = phi i32 [ %.4, %._crit_edge ], [ %.4145, %98 ], [ %.4142, %95 ], [ %.4146, %93 ]
+  %.4144 = phi i32 [ %.4, %._crit_edge ], [ %.4142, %98 ], [ %.4146, %95 ], [ %.4145, %93 ]
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %103 = load ptr, ptr %102, align 8
   %104 = add i32 %.4144, 16
@@ -1944,7 +1944,7 @@ define internal fastcc i32 @calculate_mic(ptr noundef %0, i8 noundef zeroext %1,
   br label %20
 
 20:                                               ; preds = %16, %.sink.split, %3
-  %.0 = phi i32 [ 0, %.sink.split ], [ 0, %3 ], [ %spec.select, %16 ]
+  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %16 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2254,7 +2254,7 @@ define internal fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %0, ptr nou
   br label %169
 
 169:                                              ; preds = %.split, %.split, %163, %157, %151, %145, %139, %133, %119, %108, %102, %85, %76
-  %.1 = phi i32 [ %73, %.split ], [ %118, %108 ], [ %107, %102 ], [ %101, %85 ], [ %84, %76 ], [ %73, %.split ], [ %168, %163 ], [ %162, %157 ], [ %156, %151 ], [ %150, %145 ], [ %144, %139 ], [ %138, %133 ], [ %132, %119 ]
+  %.1 = phi i32 [ %84, %76 ], [ %101, %85 ], [ %107, %102 ], [ %118, %108 ], [ %73, %.split ], [ %73, %.split ], [ %132, %119 ], [ %138, %133 ], [ %144, %139 ], [ %150, %145 ], [ %156, %151 ], [ %162, %157 ], [ %168, %163 ]
   %170 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1)
   %.not = icmp eq i32 %170, 0
   br i1 %.not, label %.split2.us, label %.split, !llvm.loop !23

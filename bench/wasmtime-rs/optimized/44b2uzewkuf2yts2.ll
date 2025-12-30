@@ -507,7 +507,7 @@ _ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit.i.i: ; preds = %37, %29
   unreachable
 
 common.resume.i:                                  ; preds = %83, %81, %70, %58
-  %common.resume.op.i = phi { ptr, i32 } [ %71, %70 ], [ %59, %58 ], [ %82, %83 ], [ %82, %81 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %59, %58 ], [ %71, %70 ], [ %82, %83 ], [ %82, %81 ]
   resume { ptr, i32 } %common.resume.op.i
 
 70:                                               ; preds = %72
@@ -5066,7 +5066,7 @@ _ZN16wasmtime_runtime5table5Table12element_type17h2c468cc7572b170dE.exit: ; pred
   br label %.thread118
 
 .thread118:                                       ; preds = %14, %38, %_ZN16wasmtime_runtime5table5Table12element_type17h2c468cc7572b170dE.exit, %50, %46, %30
-  %.0 = phi i8 [ %37, %30 ], [ %49, %46 ], [ %53, %50 ], [ 3, %38 ], [ 3, %_ZN16wasmtime_runtime5table5Table12element_type17h2c468cc7572b170dE.exit ], [ 3, %14 ]
+  %.0 = phi i8 [ %37, %30 ], [ %49, %46 ], [ %53, %50 ], [ 3, %_ZN16wasmtime_runtime5table5Table12element_type17h2c468cc7572b170dE.exit ], [ 3, %38 ], [ 3, %14 ]
   ret i8 %.0
 }
 
@@ -5319,7 +5319,7 @@ _ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit20: 
   br label %_ZN16wasmtime_runtime8instance8Instance17validate_inbounds17h3544896a8963374aE.llvm.3622975676230304285.exit.thread
 
 _ZN16wasmtime_runtime8instance8Instance17validate_inbounds17h3544896a8963374aE.llvm.3622975676230304285.exit.thread: ; preds = %110, %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit20, %115
-  %.1 = phi i8 [ 17, %115 ], [ 1, %110 ], [ 1, %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit20 ]
+  %.1 = phi i8 [ 17, %115 ], [ 1, %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit20 ], [ 1, %110 ]
   ret i8 %.1
 }
 
@@ -5713,7 +5713,7 @@ _ZN16wasmtime_runtime8instance8Instance9wasm_data17hf24029735212abb4E.exit: ; pr
   br label %_ZN16wasmtime_runtime8instance8Instance17validate_inbounds17h3544896a8963374aE.llvm.3622975676230304285.exit.thread
 
 _ZN16wasmtime_runtime8instance8Instance17validate_inbounds17h3544896a8963374aE.llvm.3622975676230304285.exit.thread: ; preds = %85, %_ZN16wasmtime_runtime8instance8Instance9wasm_data17hf24029735212abb4E.exit, %90
-  %.1 = phi i8 [ 17, %90 ], [ 1, %85 ], [ 1, %_ZN16wasmtime_runtime8instance8Instance9wasm_data17hf24029735212abb4E.exit ]
+  %.1 = phi i8 [ 17, %90 ], [ 1, %_ZN16wasmtime_runtime8instance8Instance9wasm_data17hf24029735212abb4E.exit ], [ 1, %85 ]
   ret i8 %.1
 }
 
@@ -7197,8 +7197,8 @@ define void @"_ZN16wasmtime_runtime12traphandlers84_$LT$impl$u20$wasmtime_runtim
   br i1 %or.cond, label %18, label %15
 
 15:                                               ; preds = %10, %2, %"_ZN16wasmtime_runtime12traphandlers8coredump84_$LT$impl$u20$wasmtime_runtime..traphandlers..call_thread_state..CallThreadState$GT$16capture_coredump17h6e8990234c9eca64E.llvm.3622975676230304285.exit"
-  %.sroa.0.026 = phi i64 [ -9223372036854775808, %2 ], [ %.sroa.0.1, %"_ZN16wasmtime_runtime12traphandlers8coredump84_$LT$impl$u20$wasmtime_runtime..traphandlers..call_thread_state..CallThreadState$GT$16capture_coredump17h6e8990234c9eca64E.llvm.3622975676230304285.exit" ], [ -9223372036854775808, %10 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775808, %2 ], [ %.sroa.0.0.copyload3, %"_ZN16wasmtime_runtime12traphandlers8coredump84_$LT$impl$u20$wasmtime_runtime..traphandlers..call_thread_state..CallThreadState$GT$16capture_coredump17h6e8990234c9eca64E.llvm.3622975676230304285.exit" ], [ -9223372036854775808, %10 ]
+  %.sroa.0.026 = phi i64 [ %.sroa.0.1, %"_ZN16wasmtime_runtime12traphandlers8coredump84_$LT$impl$u20$wasmtime_runtime..traphandlers..call_thread_state..CallThreadState$GT$16capture_coredump17h6e8990234c9eca64E.llvm.3622975676230304285.exit" ], [ -9223372036854775808, %2 ], [ -9223372036854775808, %10 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload3, %"_ZN16wasmtime_runtime12traphandlers8coredump84_$LT$impl$u20$wasmtime_runtime..traphandlers..call_thread_state..CallThreadState$GT$16capture_coredump17h6e8990234c9eca64E.llvm.3622975676230304285.exit" ], [ -9223372036854775808, %2 ], [ -9223372036854775808, %10 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sroa.0.0, ptr %.sroa.27.0..sroa_idx, align 8
@@ -7746,7 +7746,7 @@ define hidden void @_ZN16wasmtime_runtime3sys4unix7signals13platform_init17haaea
   unreachable
 
 common.resume:                                    ; preds = %61, %40, %19
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %20, %19 ], [ %62, %61 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %41, %40 ], [ %62, %61 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN16wasmtime_runtime3sys4unix7signals13platform_init28_$u7b$$u7b$closure$u7d$$u7d$17hf0e63aa1dd24aa70E.llvm.3622975676230304285.exit": ; preds = %1
@@ -8055,7 +8055,7 @@ define hidden noundef align 8 ptr @_ZN16wasmtime_runtime3sys4unix7signals20lazy_
   ]
 
 3:                                                ; preds = %1, %4, %5
-  %.0 = phi ptr [ @_ZN16wasmtime_runtime3sys4unix7signals20lazy_per_thread_init5STACK7__getit3VAL17h570771cadf38c9f8E, %5 ], [ @_ZN16wasmtime_runtime3sys4unix7signals20lazy_per_thread_init5STACK7__getit3VAL17h570771cadf38c9f8E, %4 ], [ null, %1 ]
+  %.0 = phi ptr [ @_ZN16wasmtime_runtime3sys4unix7signals20lazy_per_thread_init5STACK7__getit3VAL17h570771cadf38c9f8E, %4 ], [ @_ZN16wasmtime_runtime3sys4unix7signals20lazy_per_thread_init5STACK7__getit3VAL17h570771cadf38c9f8E, %5 ], [ null, %1 ]
   ret ptr %.0
 
 4:                                                ; preds = %1

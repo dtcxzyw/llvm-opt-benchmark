@@ -441,8 +441,8 @@ Vec_PtrPush.exit155:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not, label %.loopexit, label %146, !llvm.loop !39
 
 .loopexit:                                        ; preds = %229, %132, %Vec_PtrPush.exit155, %216, %138, %141
-  %231 = phi i32 [ %133, %141 ], [ %133, %132 ], [ %211, %Vec_PtrPush.exit155 ], [ %211, %216 ], [ %133, %138 ], [ %133, %229 ]
-  %232 = phi i32 [ %134, %141 ], [ %134, %132 ], [ %213, %Vec_PtrPush.exit155 ], [ %213, %216 ], [ %134, %138 ], [ %134, %229 ]
+  %231 = phi i32 [ %133, %132 ], [ %211, %Vec_PtrPush.exit155 ], [ %211, %216 ], [ %133, %138 ], [ %133, %141 ], [ %133, %229 ]
+  %232 = phi i32 [ %134, %132 ], [ %213, %Vec_PtrPush.exit155 ], [ %213, %216 ], [ %134, %138 ], [ %134, %141 ], [ %134, %229 ]
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %.val116 = load i32, ptr %20, align 4, !tbaa !27
   %233 = trunc nuw i64 %indvars.iv.next181 to i32

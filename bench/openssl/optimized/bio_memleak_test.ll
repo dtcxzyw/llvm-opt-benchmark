@@ -105,7 +105,7 @@ define internal range(i32 0, 2) i32 @test_bio_memleak() #0 {
   br label %14
 
 14:                                               ; preds = %12, %6, %0
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %12 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %0 ], [ %spec.select, %12 ]
   %15 = call i32 @BIO_free(ptr noundef %4) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -155,8 +155,8 @@ define internal range(i32 0, 2) i32 @test_bio_get_mem() #0 {
   br label %23
 
 23:                                               ; preds = %16, %12, %8, %5, %0
-  %.06 = phi i32 [ 0, %0 ], [ %spec.select, %16 ], [ 0, %12 ], [ 0, %8 ], [ 0, %5 ]
-  %.0 = phi ptr [ %3, %0 ], [ null, %16 ], [ %3, %12 ], [ %3, %8 ], [ %3, %5 ]
+  %.06 = phi i32 [ 0, %12 ], [ 0, %8 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %16 ]
+  %.0 = phi ptr [ %3, %12 ], [ %3, %8 ], [ %3, %5 ], [ %3, %0 ], [ null, %16 ]
   %24 = call i32 @BIO_free(ptr noundef %.0) #4
   %25 = load ptr, ptr %1, align 8, !tbaa !13
   call void @BUF_MEM_free(ptr noundef %25) #4
@@ -230,7 +230,7 @@ define internal range(i32 0, 2) i32 @test_bio_new_mem_buf() #0 {
   br label %31
 
 31:                                               ; preds = %29, %26, %22, %20, %17, %14, %10, %8, %5, %0
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %29 ], [ 0, %26 ], [ 0, %22 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ], [ 0, %10 ], [ 0, %8 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %26 ], [ 0, %22 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ], [ 0, %10 ], [ 0, %8 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %29 ]
   %32 = call i32 @BIO_free(ptr noundef %3) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -308,8 +308,8 @@ define internal range(i32 0, 2) i32 @test_bio_rdonly_mem_buf() #0 {
   br label %35
 
 35:                                               ; preds = %33, %30, %26, %24, %19, %14, %10, %8, %5, %0
-  %.012 = phi i32 [ 0, %0 ], [ %spec.select, %33 ], [ 0, %30 ], [ 0, %26 ], [ 0, %24 ], [ 0, %19 ], [ 0, %14 ], [ 0, %10 ], [ 0, %8 ], [ 0, %5 ]
-  %.0 = phi ptr [ null, %0 ], [ %17, %33 ], [ %17, %30 ], [ %17, %26 ], [ %17, %24 ], [ %17, %19 ], [ %17, %14 ], [ null, %10 ], [ null, %8 ], [ null, %5 ]
+  %.012 = phi i32 [ 0, %30 ], [ 0, %26 ], [ 0, %24 ], [ 0, %19 ], [ 0, %14 ], [ 0, %10 ], [ 0, %8 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %33 ]
+  %.0 = phi ptr [ %17, %30 ], [ %17, %26 ], [ %17, %24 ], [ %17, %19 ], [ %17, %14 ], [ null, %10 ], [ null, %8 ], [ null, %5 ], [ null, %0 ], [ %17, %33 ]
   %36 = call i32 @BIO_free(ptr noundef %3) #4
   %37 = call i32 @BIO_free(ptr noundef %.0) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -372,7 +372,7 @@ define internal range(i32 0, 2) i32 @test_bio_rdwr_rdonly() #0 {
   br label %25
 
 25:                                               ; preds = %23, %20, %17, %13, %11, %8, %5, %0
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %23 ], [ 0, %20 ], [ 0, %17 ], [ 0, %13 ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %17 ], [ 0, %13 ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %23 ]
   %26 = call i32 @BIO_free(ptr noundef %3) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
@@ -440,7 +440,7 @@ define internal range(i32 0, 2) i32 @test_bio_nonclear_rst() #0 {
   br label %29
 
 29:                                               ; preds = %26, %22, %20, %17, %13, %11, %8, %5, %0
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %26 ], [ 0, %22 ], [ 0, %20 ], [ 0, %17 ], [ 0, %13 ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %22 ], [ 0, %20 ], [ 0, %17 ], [ 0, %13 ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %26 ]
   %30 = call i32 @BIO_free(ptr noundef %3) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
@@ -504,9 +504,9 @@ define internal range(i32 0, 2) i32 @test_bio_i2d_ASN1_mime() #0 {
   br label %29
 
 29:                                               ; preds = %26, %20, %15, %12, %5, %0
-  %.011 = phi i32 [ 0, %0 ], [ %spec.select, %26 ], [ 0, %20 ], [ 0, %15 ], [ 0, %12 ], [ 0, %5 ]
-  %.010 = phi ptr [ null, %0 ], [ %10, %26 ], [ %10, %20 ], [ %10, %15 ], [ %10, %12 ], [ %10, %5 ]
-  %.0 = phi ptr [ null, %0 ], [ %13, %26 ], [ %13, %20 ], [ %13, %15 ], [ %13, %12 ], [ null, %5 ]
+  %.011 = phi i32 [ 0, %20 ], [ 0, %15 ], [ 0, %12 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %26 ]
+  %.010 = phi ptr [ %10, %20 ], [ %10, %15 ], [ %10, %12 ], [ %10, %5 ], [ null, %0 ], [ %10, %26 ]
+  %.0 = phi ptr [ %13, %20 ], [ %13, %15 ], [ %13, %12 ], [ null, %5 ], [ null, %0 ], [ %13, %26 ]
   %30 = call i32 @BIO_free(ptr noundef %3) #4
   %31 = call i32 @BIO_free(ptr noundef %.010) #4
   call void @PKCS7_free(ptr noundef %.0) #4

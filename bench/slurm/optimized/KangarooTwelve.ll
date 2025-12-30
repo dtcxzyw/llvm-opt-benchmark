@@ -128,13 +128,13 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not93, label %.thread, label %.thread113
 
-.critedge103:                                     ; preds = %48, %52
+.critedge103:                                     ; preds = %52, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread113
 
 .thread:                                          ; preds = %21, %54, %41, %35
-  %.181 = phi i64 [ %44, %54 ], [ %2, %35 ], [ %44, %41 ], [ %24, %21 ]
-  %.170 = phi ptr [ %43, %54 ], [ %1, %35 ], [ %43, %41 ], [ %23, %21 ]
+  %.181 = phi i64 [ %2, %35 ], [ %44, %41 ], [ %44, %54 ], [ %24, %21 ]
+  %.170 = phi ptr [ %1, %35 ], [ %43, %41 ], [ %43, %54 ], [ %23, %21 ]
   %.not96122 = icmp eq i64 %.181, 0
   br i1 %.not96122, label %.thread113, label %.lr.ph
 
@@ -189,7 +189,7 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
   store i32 %61, ptr %57, align 8
   br label %78
 
-.critedge107:                                     ; preds = %69, %73
+.critedge107:                                     ; preds = %73, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread113
 
@@ -198,7 +198,7 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
   br i1 %.not96, label %.thread113, label %59
 
 .thread113:                                       ; preds = %78, %75, %59, %63, %.thread, %.critedge107, %.critedge103, %36, %54, %15, %.critedge, %3
-  %.0 = phi i32 [ 1, %15 ], [ 1, %.critedge103 ], [ 1, %3 ], [ 1, %.critedge107 ], [ 1, %.critedge ], [ 1, %54 ], [ 1, %36 ], [ 0, %.thread ], [ 1, %59 ], [ 1, %75 ], [ 0, %78 ], [ 1, %63 ]
+  %.0 = phi i32 [ 1, %3 ], [ 1, %.critedge ], [ 1, %15 ], [ 1, %54 ], [ 1, %36 ], [ 1, %.critedge103 ], [ 1, %.critedge107 ], [ 0, %.thread ], [ 0, %78 ], [ 1, %75 ], [ 1, %59 ], [ 1, %63 ]
   ret i32 %.0
 }
 
@@ -372,7 +372,7 @@ right_encode.exit62:                              ; preds = %46, %right_encode.e
   %.not43 = icmp eq i32 %74, 0
   br i1 %.not43, label %75, label %.critedge48
 
-.critedge:                                        ; preds = %38, %41
+.critedge:                                        ; preds = %41, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge48
 
@@ -398,8 +398,8 @@ right_encode.exit62:                              ; preds = %46, %right_encode.e
   store i32 3, ptr %7, align 4
   br label %.critedge48
 
-.critedge48:                                      ; preds = %.critedge, %43, %75, %29, %10, %4, %right_encode.exit62, %83, %81
-  %.0 = phi i32 [ 1, %right_encode.exit62 ], [ 1, %4 ], [ 1, %10 ], [ 1, %75 ], [ %82, %81 ], [ 0, %83 ], [ 1, %29 ], [ 1, %43 ], [ 1, %.critedge ]
+.critedge48:                                      ; preds = %43, %.critedge, %75, %29, %10, %4, %right_encode.exit62, %83, %81
+  %.0 = phi i32 [ %82, %81 ], [ 0, %83 ], [ 1, %right_encode.exit62 ], [ 1, %4 ], [ 1, %10 ], [ 1, %29 ], [ 1, %75 ], [ 1, %.critedge ], [ 1, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

@@ -480,7 +480,7 @@ RADIX_PROCESS_init.exit.i:                        ; preds = %26, %25
   br label %bindings_process_init.exit
 
 bindings_process_init.exit:                       ; preds = %RADIX_PROCESS_init.exit.i, %29, %34, %37
-  %.0.i = phi i32 [ %38, %37 ], [ 0, %29 ], [ 0, %RADIX_PROCESS_init.exit.i ], [ 0, %34 ]
+  %.0.i = phi i32 [ %38, %37 ], [ 0, %RADIX_PROCESS_init.exit.i ], [ 0, %29 ], [ 0, %34 ]
   %39 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 28, ptr noundef nonnull @.str.19, i32 noundef %.0.i) #12
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %201, label %40
@@ -779,7 +779,7 @@ bindings_process_finish.exit:                     ; preds = %RADIX_PROCESS_clean
   br label %201
 
 201:                                              ; preds = %bindings_process_finish.exit, %RADIX_PROCESS_join_all_threads.exit.i, %198, %40, %bindings_process_init.exit
-  %.04 = phi i32 [ 0, %40 ], [ 0, %bindings_process_init.exit ], [ 1, %bindings_process_finish.exit ], [ 0, %RADIX_PROCESS_join_all_threads.exit.i ], [ 0, %198 ]
+  %.04 = phi i32 [ 0, %bindings_process_init.exit ], [ 0, %40 ], [ 1, %bindings_process_finish.exit ], [ 0, %RADIX_PROCESS_join_all_threads.exit.i ], [ 0, %198 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.04
 }
@@ -1122,7 +1122,7 @@ TERP_log_spin.exit.i:                             ; preds = %163, %162
   br label %378
 
 170:                                              ; preds = %.thread.i35, %.thread206.i
-  %.388.i = phi i32 [ 1, %.thread.i35 ], [ %.085.i, %.thread206.i ]
+  %.388.i = phi i32 [ %.085.i, %.thread206.i ], [ 1, %.thread.i35 ]
   %171 = load ptr, ptr %138, align 8, !tbaa !75
   %172 = load ptr, ptr %136, align 8, !tbaa !72
   %173 = ptrtoint ptr %171 to i64
@@ -1269,7 +1269,7 @@ SRDR_get_operand.exit147.i:                       ; preds = %214, %207
   br label %TERP_stk_ensure_capacity.exit.i.i
 
 TERP_stk_ensure_capacity.exit.i.i:                ; preds = %232, %226, %219
-  %.0.i.i.i = phi i32 [ 1, %219 ], [ 1, %232 ], [ 0, %226 ]
+  %.0.i.i.i = phi i32 [ 1, %232 ], [ 1, %219 ], [ 0, %226 ]
   %236 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 618, ptr noundef nonnull @.str.272, i32 noundef %.0.i.i.i) #12
   %.not.i148.i = icmp eq i32 %236, 0
   br i1 %.not.i148.i, label %TERP_stk_push.exit.i, label %237
@@ -1341,7 +1341,7 @@ SRDR_get_operand.exit152.i:                       ; preds = %248, %241
   br label %TERP_stk_ensure_capacity.exit.i156.i
 
 TERP_stk_ensure_capacity.exit.i156.i:             ; preds = %266, %260, %253
-  %.0.i.i157.i = phi i32 [ 1, %253 ], [ 1, %266 ], [ 0, %260 ]
+  %.0.i.i157.i = phi i32 [ 1, %266 ], [ 1, %253 ], [ 0, %260 ]
   %270 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 618, ptr noundef nonnull @.str.272, i32 noundef %.0.i.i157.i) #12
   %.not.i158.i = icmp eq i32 %270, 0
   br i1 %.not.i158.i, label %TERP_stk_push.exit160.i, label %271
@@ -1413,7 +1413,7 @@ SRDR_get_operand.exit163.i:                       ; preds = %282, %275
   br label %TERP_stk_ensure_capacity.exit.i167.i
 
 TERP_stk_ensure_capacity.exit.i167.i:             ; preds = %300, %294, %287
-  %.0.i.i168.i = phi i32 [ 1, %287 ], [ 1, %300 ], [ 0, %294 ]
+  %.0.i.i168.i = phi i32 [ 1, %300 ], [ 1, %287 ], [ 0, %294 ]
   %304 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 618, ptr noundef nonnull @.str.272, i32 noundef %.0.i.i168.i) #12
   %.not.i169.i = icmp eq i32 %304, 0
   br i1 %.not.i169.i, label %TERP_stk_push.exit171.i, label %305
@@ -1581,9 +1581,9 @@ SRDR_get_operand.exit180.i:                       ; preds = %340, %333
   br label %TERP_log_spin.exit142.i
 
 TERP_log_spin.exit142.i:                          ; preds = %364, %SRDR_get_operand.exit174.i, %TERP_stk_push.exit171.i, %SRDR_get_operand.exit163.i, %TERP_stk_push.exit160.i, %SRDR_get_operand.exit152.i, %TERP_stk_push.exit.i, %SRDR_get_operand.exit147.i, %SRDR_get_operand.exit.i, %362, %346, %SRDR_get_operand.exit180.i, %SRDR_get_operand.exit177.i, %206, %374, %367, %.thread209.i, %353, %203, %201, %191, %._crit_edge.i36
-  %.184.i = phi i64 [ %183, %191 ], [ %183, %._crit_edge.i36 ], [ %183, %374 ], [ %183, %203 ], [ %183, %.thread209.i ], [ %183, %201 ], [ %183, %362 ], [ %183, %353 ], [ %183, %367 ], [ %183, %206 ], [ %183, %SRDR_get_operand.exit177.i ], [ %183, %SRDR_get_operand.exit180.i ], [ %183, %346 ], [ %.083.i, %SRDR_get_operand.exit.i ], [ %183, %SRDR_get_operand.exit147.i ], [ %183, %SRDR_get_operand.exit152.i ], [ %183, %SRDR_get_operand.exit163.i ], [ %183, %364 ], [ %183, %TERP_stk_push.exit.i ], [ %183, %TERP_stk_push.exit160.i ], [ %183, %SRDR_get_operand.exit174.i ], [ %183, %TERP_stk_push.exit171.i ]
-  %.not120.i = phi i1 [ true, %191 ], [ true, %._crit_edge.i36 ], [ true, %374 ], [ true, %203 ], [ false, %.thread209.i ], [ true, %201 ], [ true, %362 ], [ true, %353 ], [ true, %367 ], [ true, %346 ], [ true, %SRDR_get_operand.exit180.i ], [ true, %SRDR_get_operand.exit177.i ], [ false, %206 ], [ true, %SRDR_get_operand.exit.i ], [ true, %SRDR_get_operand.exit147.i ], [ true, %TERP_stk_push.exit.i ], [ true, %SRDR_get_operand.exit152.i ], [ true, %TERP_stk_push.exit160.i ], [ true, %SRDR_get_operand.exit163.i ], [ true, %TERP_stk_push.exit171.i ], [ true, %SRDR_get_operand.exit174.i ], [ true, %364 ]
-  %.081.i = phi i32 [ 0, %191 ], [ 0, %._crit_edge.i36 ], [ 0, %374 ], [ 0, %203 ], [ 1, %.thread209.i ], [ 0, %201 ], [ 0, %362 ], [ 0, %353 ], [ 0, %367 ], [ 0, %346 ], [ 0, %SRDR_get_operand.exit180.i ], [ 0, %SRDR_get_operand.exit177.i ], [ 1, %206 ], [ 0, %SRDR_get_operand.exit.i ], [ 0, %SRDR_get_operand.exit147.i ], [ 0, %TERP_stk_push.exit.i ], [ 0, %SRDR_get_operand.exit152.i ], [ 0, %TERP_stk_push.exit160.i ], [ 0, %SRDR_get_operand.exit163.i ], [ 0, %TERP_stk_push.exit171.i ], [ 0, %SRDR_get_operand.exit174.i ], [ 0, %364 ]
+  %.184.i = phi i64 [ %183, %._crit_edge.i36 ], [ %183, %374 ], [ %183, %201 ], [ %183, %191 ], [ %183, %203 ], [ %183, %.thread209.i ], [ %183, %367 ], [ %183, %353 ], [ %183, %206 ], [ %183, %SRDR_get_operand.exit177.i ], [ %183, %SRDR_get_operand.exit180.i ], [ %183, %346 ], [ %183, %362 ], [ %183, %SRDR_get_operand.exit174.i ], [ %.083.i, %SRDR_get_operand.exit.i ], [ %183, %SRDR_get_operand.exit147.i ], [ %183, %TERP_stk_push.exit.i ], [ %183, %SRDR_get_operand.exit152.i ], [ %183, %TERP_stk_push.exit160.i ], [ %183, %SRDR_get_operand.exit163.i ], [ %183, %TERP_stk_push.exit171.i ], [ %183, %364 ]
+  %.not120.i = phi i1 [ true, %._crit_edge.i36 ], [ true, %374 ], [ true, %201 ], [ true, %191 ], [ true, %203 ], [ false, %.thread209.i ], [ true, %367 ], [ true, %353 ], [ true, %362 ], [ true, %346 ], [ true, %SRDR_get_operand.exit180.i ], [ true, %SRDR_get_operand.exit177.i ], [ false, %206 ], [ true, %SRDR_get_operand.exit.i ], [ true, %SRDR_get_operand.exit147.i ], [ true, %TERP_stk_push.exit.i ], [ true, %SRDR_get_operand.exit152.i ], [ true, %TERP_stk_push.exit160.i ], [ true, %SRDR_get_operand.exit163.i ], [ true, %TERP_stk_push.exit171.i ], [ true, %SRDR_get_operand.exit174.i ], [ true, %364 ]
+  %.081.i = phi i32 [ 0, %._crit_edge.i36 ], [ 0, %374 ], [ 0, %201 ], [ 0, %191 ], [ 0, %203 ], [ 1, %.thread209.i ], [ 0, %367 ], [ 0, %353 ], [ 0, %362 ], [ 0, %346 ], [ 0, %SRDR_get_operand.exit180.i ], [ 0, %SRDR_get_operand.exit177.i ], [ 1, %206 ], [ 0, %SRDR_get_operand.exit.i ], [ 0, %SRDR_get_operand.exit147.i ], [ 0, %TERP_stk_push.exit.i ], [ 0, %SRDR_get_operand.exit152.i ], [ 0, %TERP_stk_push.exit160.i ], [ 0, %SRDR_get_operand.exit163.i ], [ 0, %TERP_stk_push.exit171.i ], [ 0, %SRDR_get_operand.exit174.i ], [ 0, %364 ]
   %.not119.i = icmp eq i32 %.388.i, 0
   br i1 %.not119.i, label %377, label %375
 
@@ -1640,10 +1640,10 @@ TERP_execute.exit:                                ; preds = %382, %.sink.split.i
   br label %392
 
 392:                                              ; preds = %388, %TERP_execute.exit, %387
-  %393 = phi ptr [ %.pre143, %388 ], [ %.pre142, %387 ], [ %.pre144, %TERP_execute.exit ]
-  %394 = phi ptr [ %.pre, %388 ], [ %.pre142, %387 ], [ %.pre142, %TERP_execute.exit ]
-  %.not28 = phi i1 [ true, %388 ], [ false, %387 ], [ true, %TERP_execute.exit ]
-  %.0 = phi i32 [ 0, %388 ], [ 1, %387 ], [ 0, %TERP_execute.exit ]
+  %393 = phi ptr [ %.pre143, %388 ], [ %.pre144, %TERP_execute.exit ], [ %.pre142, %387 ]
+  %394 = phi ptr [ %.pre, %388 ], [ %.pre142, %TERP_execute.exit ], [ %.pre142, %387 ]
+  %.not28 = phi i1 [ true, %388 ], [ true, %TERP_execute.exit ], [ false, %387 ]
+  %.0 = phi i32 [ 0, %388 ], [ 0, %TERP_execute.exit ], [ 1, %387 ]
   %395 = ptrtoint ptr %393 to i64
   %396 = ptrtoint ptr %394 to i64
   %397 = sub i64 %395, %396
@@ -1667,9 +1667,9 @@ TERP_execute.exit:                                ; preds = %382, %.sink.split.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %157, i8 0, i64 24, i1 false)
   br label %TERP_cleanup.exit
 
-TERP_cleanup.exit:                                ; preds = %106, %TERP_init.exit, %68, %408, %392
-  %.043 = phi i32 [ %.0, %408 ], [ %.0, %392 ], [ 0, %68 ], [ 0, %TERP_init.exit ], [ 0, %106 ]
-  %.not2842 = phi i1 [ %.not28, %408 ], [ %.not28, %392 ], [ true, %68 ], [ true, %TERP_init.exit ], [ true, %106 ]
+TERP_cleanup.exit:                                ; preds = %68, %106, %TERP_init.exit, %408, %392
+  %.043 = phi i32 [ %.0, %392 ], [ %.0, %408 ], [ 0, %TERP_init.exit ], [ 0, %106 ], [ 0, %68 ]
+  %.not2842 = phi i1 [ %.not28, %392 ], [ %.not28, %408 ], [ true, %TERP_init.exit ], [ true, %106 ], [ true, %68 ]
   %410 = load ptr, ptr %8, align 8, !tbaa !66
   call void @CRYPTO_free(ptr noundef %410, ptr noundef nonnull @.str.42, i32 noundef 295) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -2345,7 +2345,7 @@ TERP_stk_pop.exit34:                              ; preds = %16, %26
   br label %ssl_ctx_configure.exit
 
 ssl_ctx_configure.exit:                           ; preds = %48, %56, %60, %64
-  %.0.i36 = phi i32 [ 1, %64 ], [ 0, %56 ], [ %.mux, %48 ], [ 0, %60 ]
+  %.0.i36 = phi i32 [ 1, %64 ], [ %.mux, %48 ], [ 0, %60 ], [ 0, %56 ]
   %65 = tail call i32 @test_true(ptr noundef nonnull @.str.44, i32 noundef 199, ptr noundef nonnull @.str.49, i32 noundef %.0.i36) #12
   %.not26 = icmp eq i32 %65, 0
   br i1 %.not26, label %84, label %66
@@ -2396,8 +2396,8 @@ ssl_ctx_configure.exit:                           ; preds = %48, %56, %60, %64
   br label %84
 
 84:                                               ; preds = %80, %77, %74, %71, %67, %ssl_ctx_configure.exit, %43, %39, %TERP_stk_pop.exit34, %TERP_stk_pop.exit, %83
-  %.019 = phi ptr [ null, %TERP_stk_pop.exit ], [ %41, %83 ], [ %41, %77 ], [ %41, %67 ], [ %41, %71 ], [ %41, %74 ], [ %41, %ssl_ctx_configure.exit ], [ %41, %43 ], [ %41, %39 ], [ null, %TERP_stk_pop.exit34 ], [ %41, %80 ]
-  %.0 = phi i32 [ 0, %TERP_stk_pop.exit ], [ 0, %83 ], [ 0, %77 ], [ 0, %67 ], [ 0, %71 ], [ 0, %74 ], [ 0, %ssl_ctx_configure.exit ], [ 0, %43 ], [ 0, %39 ], [ 0, %TERP_stk_pop.exit34 ], [ 1, %80 ]
+  %.019 = phi ptr [ %41, %83 ], [ %41, %77 ], [ %41, %67 ], [ %41, %71 ], [ %41, %74 ], [ %41, %ssl_ctx_configure.exit ], [ %41, %43 ], [ %41, %39 ], [ null, %TERP_stk_pop.exit34 ], [ null, %TERP_stk_pop.exit ], [ %41, %80 ]
+  %.0 = phi i32 [ 0, %83 ], [ 0, %77 ], [ 0, %67 ], [ 0, %71 ], [ 0, %74 ], [ 0, %ssl_ctx_configure.exit ], [ 0, %43 ], [ 0, %39 ], [ 0, %TERP_stk_pop.exit34 ], [ 0, %TERP_stk_pop.exit ], [ 1, %80 ]
   tail call void @SSL_CTX_free(ptr noundef %.019) #12
   ret i32 %.0
 }
@@ -2617,7 +2617,7 @@ TERP_stk_pop.exit16:                              ; preds = %25, %35
   br label %radix_activate_slot.exit
 
 radix_activate_slot.exit:                         ; preds = %59, %55, %48, %45, %41, %TERP_stk_pop.exit16, %TERP_stk_pop.exit, %expect_slot_ssl.exit, %54
-  %.0 = phi i32 [ 0, %expect_slot_ssl.exit ], [ 0, %54 ], [ 0, %48 ], [ 0, %45 ], [ 0, %41 ], [ 0, %TERP_stk_pop.exit16 ], [ 0, %TERP_stk_pop.exit ], [ 1, %55 ], [ 1, %59 ]
+  %.0 = phi i32 [ 0, %54 ], [ 0, %48 ], [ 0, %45 ], [ 0, %41 ], [ 0, %TERP_stk_pop.exit16 ], [ 0, %TERP_stk_pop.exit ], [ 0, %expect_slot_ssl.exit ], [ 1, %55 ], [ 1, %59 ]
   ret i32 %.0
 }
 
@@ -2671,7 +2671,7 @@ expect_slot_ssl.exit:                             ; preds = %1, %3
   br label %radix_activate_slot.exit
 
 radix_activate_slot.exit:                         ; preds = %21, %17, %14, %9, %expect_slot_ssl.exit
-  %.0 = phi i32 [ 0, %expect_slot_ssl.exit ], [ 0, %9 ], [ 1, %14 ], [ 1, %17 ], [ 1, %21 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %expect_slot_ssl.exit ], [ 1, %14 ], [ 1, %17 ], [ 1, %21 ]
   ret i32 %.0
 }
 
@@ -2784,8 +2784,8 @@ expect_slot_ssl.exit24:                           ; preds = %11, %13
   br label %52
 
 52:                                               ; preds = %46, %36, %42, %28, %33, %25, %19, %23, %expect_slot_ssl.exit24, %expect_slot_ssl.exit
-  %.010 = phi i32 [ 0, %expect_slot_ssl.exit ], [ %spec.select, %46 ], [ 0, %42 ], [ 0, %36 ], [ 0, %33 ], [ 0, %28 ], [ 0, %25 ], [ 0, %23 ], [ 0, %19 ], [ 0, %expect_slot_ssl.exit24 ]
-  %.0 = phi ptr [ null, %expect_slot_ssl.exit ], [ %26, %46 ], [ %26, %42 ], [ %26, %36 ], [ %26, %33 ], [ %26, %28 ], [ %26, %25 ], [ null, %23 ], [ null, %19 ], [ null, %expect_slot_ssl.exit24 ]
+  %.010 = phi i32 [ 0, %42 ], [ 0, %36 ], [ 0, %33 ], [ 0, %28 ], [ 0, %25 ], [ 0, %23 ], [ 0, %19 ], [ 0, %expect_slot_ssl.exit24 ], [ 0, %expect_slot_ssl.exit ], [ %spec.select, %46 ]
+  %.0 = phi ptr [ %26, %42 ], [ %26, %36 ], [ %26, %33 ], [ %26, %28 ], [ %26, %25 ], [ null, %23 ], [ null, %19 ], [ null, %expect_slot_ssl.exit24 ], [ null, %expect_slot_ssl.exit ], [ %26, %46 ]
   call void @BIO_ADDR_free(ptr noundef %.0) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3193,7 +3193,7 @@ expect_slot_ssl.exit:                             ; preds = %33, %35
   br label %51
 
 51:                                               ; preds = %48, %41, %46, %expect_slot_ssl.exit, %TERP_stk_pop.exit12, %TERP_stk_pop.exit
-  %.0 = phi i32 [ 0, %TERP_stk_pop.exit ], [ %spec.select, %48 ], [ 0, %46 ], [ 0, %41 ], [ 0, %expect_slot_ssl.exit ], [ 0, %TERP_stk_pop.exit12 ]
+  %.0 = phi i32 [ 0, %46 ], [ 0, %41 ], [ 0, %expect_slot_ssl.exit ], [ 0, %TERP_stk_pop.exit12 ], [ 0, %TERP_stk_pop.exit ], [ %spec.select, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -3350,7 +3350,7 @@ expect_slot_ssl.exit:                             ; preds = %33, %35
   br label %67
 
 67:                                               ; preds = %54, %66, %41, %expect_slot_ssl.exit, %TERP_stk_pop.exit22, %TERP_stk_pop.exit, %65, %61, %53, %48
-  %.0 = phi i32 [ 2, %48 ], [ 0, %TERP_stk_pop.exit ], [ 0, %65 ], [ 0, %61 ], [ 0, %53 ], [ 0, %41 ], [ 0, %expect_slot_ssl.exit ], [ 0, %TERP_stk_pop.exit22 ], [ 1, %66 ], [ 1, %54 ]
+  %.0 = phi i32 [ 2, %48 ], [ 0, %65 ], [ 0, %61 ], [ 0, %53 ], [ 0, %41 ], [ 0, %expect_slot_ssl.exit ], [ 0, %TERP_stk_pop.exit22 ], [ 0, %TERP_stk_pop.exit ], [ 1, %66 ], [ 1, %54 ]
   ret i32 %.0
 }
 
@@ -3387,7 +3387,7 @@ expect_slot_ssl.exit:                             ; preds = %1, %3
   br label %13
 
 13:                                               ; preds = %9, %expect_slot_ssl.exit, %12
-  %.0 = phi i32 [ 0, %expect_slot_ssl.exit ], [ 0, %12 ], [ 1, %9 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %expect_slot_ssl.exit ], [ 1, %9 ]
   ret i32 %.0
 }
 
@@ -3670,9 +3670,9 @@ define internal fastcc range(i32 0, 2) i32 @ssl_attach_bio_dgram(ptr noundef %0)
   br label %33
 
 33:                                               ; preds = %29, %24, %19, %14, %11, %6, %1
-  %34 = phi i1 [ true, %1 ], [ %.not27.i, %29 ], [ true, %24 ], [ true, %19 ], [ true, %14 ], [ true, %11 ], [ true, %6 ]
-  %.019.i = phi i32 [ 0, %1 ], [ %spec.select29.i, %29 ], [ 0, %24 ], [ 0, %19 ], [ 0, %14 ], [ 0, %11 ], [ 0, %6 ]
-  %.0.i = phi ptr [ null, %1 ], [ %12, %29 ], [ %12, %24 ], [ %12, %19 ], [ %12, %14 ], [ %12, %11 ], [ null, %6 ]
+  %34 = phi i1 [ true, %24 ], [ true, %19 ], [ true, %14 ], [ true, %11 ], [ true, %6 ], [ true, %1 ], [ %.not27.i, %29 ]
+  %.019.i = phi i32 [ 0, %24 ], [ 0, %19 ], [ 0, %14 ], [ 0, %11 ], [ 0, %6 ], [ 0, %1 ], [ %spec.select29.i, %29 ]
+  %.0.i = phi ptr [ %12, %24 ], [ %12, %19 ], [ %12, %14 ], [ %12, %11 ], [ null, %6 ], [ null, %1 ], [ %12, %29 ]
   %35 = icmp sgt i32 %4, -1
   %or.cond.i = and i1 %35, %34
   br i1 %or.cond.i, label %36, label %38
@@ -3718,7 +3718,7 @@ ssl_create_bound_socket.exit:                     ; preds = %38, %36
   br label %51
 
 51:                                               ; preds = %45, %ssl_create_bound_socket.exit, %50, %43
-  %.0 = phi i32 [ 1, %50 ], [ 0, %ssl_create_bound_socket.exit ], [ 0, %43 ], [ 0, %45 ]
+  %.0 = phi i32 [ 1, %50 ], [ 0, %43 ], [ 0, %ssl_create_bound_socket.exit ], [ 0, %45 ]
   ret i32 %.0
 }
 
@@ -3757,7 +3757,7 @@ define internal fastcc range(i32 0, 2) i32 @RADIX_PROCESS_set_ssl(ptr noundef %0
   br label %RADIX_OBJ_new.exit
 
 RADIX_OBJ_new.exit:                               ; preds = %2, %5, %7, %13, %14
-  %.0.i = phi ptr [ %8, %14 ], [ null, %13 ], [ null, %2 ], [ null, %5 ], [ null, %7 ]
+  %.0.i = phi ptr [ %8, %14 ], [ null, %13 ], [ null, %5 ], [ null, %2 ], [ null, %7 ]
   %16 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 471, ptr noundef nonnull @.str.75, ptr noundef %.0.i) #12
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %RADIX_OBJ_free.exit, label %17
@@ -3822,7 +3822,7 @@ RADIX_OBJ_free.exit.i:                            ; preds = %27
   br label %RADIX_PROCESS_set_obj.exit
 
 RADIX_PROCESS_set_obj.exit:                       ; preds = %18, %27, %41
-  %.0.i8 = phi i32 [ 0, %27 ], [ 0, %18 ], [ 1, %41 ]
+  %.0.i8 = phi i32 [ 0, %18 ], [ 0, %27 ], [ 1, %41 ]
   %47 = call i32 @test_true(ptr noundef nonnull @.str.74, i32 noundef 474, ptr noundef nonnull @.str.76, i32 noundef %.0.i8) #12
   %.not6 = icmp ne i32 %47, 0
   %brmerge = or i1 %.not.i7, %.not6
@@ -3843,7 +3843,7 @@ RADIX_PROCESS_set_obj.exit.thread:                ; preds = %40
   br label %RADIX_OBJ_free.exit
 
 RADIX_OBJ_free.exit:                              ; preds = %RADIX_PROCESS_set_obj.exit.thread, %RADIX_PROCESS_set_obj.exit, %49, %RADIX_OBJ_new.exit
-  %.0.shrunk = phi i1 [ false, %RADIX_OBJ_new.exit ], [ %.not62, %RADIX_PROCESS_set_obj.exit.thread ], [ %.not6, %RADIX_PROCESS_set_obj.exit ], [ false, %49 ]
+  %.0.shrunk = phi i1 [ false, %RADIX_OBJ_new.exit ], [ %.not6, %RADIX_PROCESS_set_obj.exit ], [ false, %49 ], [ %.not62, %RADIX_PROCESS_set_obj.exit.thread ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -4007,7 +4007,7 @@ define internal fastcc i32 @check_consistent_want(ptr noundef %0, i32 noundef %1
   br label %27
 
 27:                                               ; preds = %19, %16, %13, %10, %2, %22
-  %28 = phi i32 [ 1, %19 ], [ 1, %16 ], [ 1, %13 ], [ 1, %10 ], [ %26, %22 ], [ 1, %2 ]
+  %28 = phi i32 [ %26, %22 ], [ 1, %2 ], [ 1, %10 ], [ 1, %13 ], [ 1, %16 ], [ 1, %19 ]
   %29 = tail call i32 @test_true(ptr noundef nonnull @.str.44, i32 noundef 531, ptr noundef nonnull @.str.111, i32 noundef %28) #12
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %30, label %31
@@ -4156,7 +4156,7 @@ TERP_stk_pop.exit:                                ; preds = %1, %11
   br label %RADIX_THREAD_free.exit
 
 RADIX_THREAD_free.exit:                           ; preds = %27, %17, %TERP_stk_pop.exit, %35, %19
-  %.012 = phi i32 [ 0, %19 ], [ 0, %17 ], [ 0, %35 ], [ 0, %TERP_stk_pop.exit ], [ 1, %27 ]
+  %.012 = phi i32 [ 0, %19 ], [ 0, %35 ], [ 0, %TERP_stk_pop.exit ], [ 0, %17 ], [ 1, %27 ]
   ret i32 %.012
 }
 
@@ -4317,7 +4317,7 @@ define internal fastcc range(i32 0, 2) i32 @radix_thread_init(ptr noundef %0) un
   br label %17
 
 17:                                               ; preds = %6, %1, %3, %11
-  %.0 = phi i32 [ 1, %11 ], [ 0, %1 ], [ 0, %3 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %11 ], [ 0, %3 ], [ 0, %1 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -5161,7 +5161,7 @@ expect_slot_ssl.exit:                             ; preds = %17, %19
   br label %30
 
 30:                                               ; preds = %25, %expect_slot_ssl.exit, %TERP_stk_pop.exit
-  %.0 = phi i32 [ 0, %TERP_stk_pop.exit ], [ %spec.select, %25 ], [ 0, %expect_slot_ssl.exit ]
+  %.0 = phi i32 [ 0, %expect_slot_ssl.exit ], [ 0, %TERP_stk_pop.exit ], [ %spec.select, %25 ]
   ret i32 %.0
 }
 
@@ -5319,7 +5319,7 @@ expect_slot_ssl.exit:                             ; preds = %49, %51
   br label %76
 
 76:                                               ; preds = %71, %72, %69, %57, %expect_slot_ssl.exit, %TERP_stk_pop.exit25, %TERP_stk_pop.exit22, %TERP_stk_pop.exit, %75, %65
-  %.010 = phi i32 [ 2, %65 ], [ 0, %TERP_stk_pop.exit ], [ 0, %75 ], [ 0, %69 ], [ 0, %57 ], [ 0, %expect_slot_ssl.exit ], [ 0, %TERP_stk_pop.exit25 ], [ 0, %TERP_stk_pop.exit22 ], [ 1, %72 ], [ 1, %71 ]
+  %.010 = phi i32 [ 2, %65 ], [ 0, %75 ], [ 0, %69 ], [ 0, %57 ], [ 0, %expect_slot_ssl.exit ], [ 0, %TERP_stk_pop.exit25 ], [ 0, %TERP_stk_pop.exit22 ], [ 0, %TERP_stk_pop.exit ], [ 1, %72 ], [ 1, %71 ]
   ret i32 %.010
 }
 
@@ -5558,8 +5558,8 @@ expect_slot_ssl.exit67:                           ; preds = %56, %59
   br label %.loopexit73
 
 .loopexit73:                                      ; preds = %80, %74, %74, %93, %90
-  %.037 = phi i64 [ 1, %93 ], [ 0, %74 ], [ 1, %90 ], [ 0, %74 ], [ 5, %80 ]
-  %.036 = phi ptr [ %6, %93 ], [ %6, %74 ], [ %7, %90 ], [ %6, %74 ], [ %6, %80 ]
+  %.037 = phi i64 [ 1, %90 ], [ 1, %93 ], [ 0, %74 ], [ 0, %74 ], [ 5, %80 ]
+  %.036 = phi ptr [ %7, %90 ], [ %6, %93 ], [ %6, %74 ], [ %6, %74 ], [ %6, %80 ]
   store i64 -1, ptr %5, align 8, !tbaa !82
   %96 = tail call i64 @ossl_time_now() #12
   %97 = call i32 @SSL_poll(ptr noundef nonnull %3, i64 noundef 6, i64 noundef 32, ptr noundef nonnull %.036, i64 noundef 0, ptr noundef nonnull %5) #12
@@ -5594,7 +5594,7 @@ expect_slot_ssl.exit67:                           ; preds = %56, %59
   br i1 %.not45, label %.loopexit, label %105
 
 .loopexit:                                        ; preds = %105, %.preheader, %101, %.loopexit73, %74, %expect_slot_ssl.exit67, %expect_slot_ssl.exit62, %expect_slot_ssl.exit57, %expect_slot_ssl.exit52, %expect_slot_ssl.exit, %TERP_stk_pop.exit
-  %.0 = phi i32 [ 0, %74 ], [ 0, %expect_slot_ssl.exit52 ], [ 0, %expect_slot_ssl.exit ], [ 0, %TERP_stk_pop.exit ], [ 0, %101 ], [ 0, %.loopexit73 ], [ 0, %expect_slot_ssl.exit67 ], [ 0, %expect_slot_ssl.exit62 ], [ 0, %expect_slot_ssl.exit57 ], [ 1, %105 ], [ 0, %.preheader ]
+  %.0 = phi i32 [ 0, %74 ], [ 0, %101 ], [ 0, %.loopexit73 ], [ 0, %expect_slot_ssl.exit67 ], [ 0, %expect_slot_ssl.exit62 ], [ 0, %expect_slot_ssl.exit57 ], [ 0, %expect_slot_ssl.exit52 ], [ 0, %expect_slot_ssl.exit ], [ 0, %TERP_stk_pop.exit ], [ 1, %105 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -6169,7 +6169,7 @@ SRDR_get_operand.exit112:                         ; preds = %156, %163
   br label %print_opc.exit114
 
 print_opc.exit114:                                ; preds = %176, %174, %SRDR_get_operand.exit107, %SRDR_get_operand.exit104, %76, %78, %29, %print_opc.exit, %.thread, %.thread131, %.thread133, %154, %SRDR_get_operand.exit112, %SRDR_get_operand.exit99, %SRDR_get_operand.exit94, %SRDR_get_operand.exit89, %SRDR_get_operand.exit84, %178, %SRDR_get_operand.exit
-  %.056 = phi i32 [ 0, %178 ], [ 0, %SRDR_get_operand.exit112 ], [ 0, %SRDR_get_operand.exit ], [ 0, %SRDR_get_operand.exit84 ], [ 0, %SRDR_get_operand.exit89 ], [ 0, %SRDR_get_operand.exit94 ], [ 1, %76 ], [ 0, %SRDR_get_operand.exit99 ], [ 0, %SRDR_get_operand.exit107 ], [ 1, %154 ], [ 1, %.thread133 ], [ 1, %.thread131 ], [ 1, %29 ], [ 1, %.thread ], [ 1, %print_opc.exit ], [ 1, %78 ], [ 0, %SRDR_get_operand.exit104 ], [ 1, %174 ], [ 1, %176 ]
+  %.056 = phi i32 [ 0, %178 ], [ 0, %SRDR_get_operand.exit ], [ 0, %SRDR_get_operand.exit84 ], [ 0, %SRDR_get_operand.exit89 ], [ 0, %SRDR_get_operand.exit94 ], [ 0, %SRDR_get_operand.exit99 ], [ 0, %SRDR_get_operand.exit112 ], [ 1, %154 ], [ 1, %.thread133 ], [ 1, %.thread131 ], [ 1, %.thread ], [ 1, %print_opc.exit ], [ 1, %29 ], [ 1, %78 ], [ 1, %76 ], [ 0, %SRDR_get_operand.exit104 ], [ 0, %SRDR_get_operand.exit107 ], [ 1, %174 ], [ 1, %176 ]
   ret i32 %.056
 }
 

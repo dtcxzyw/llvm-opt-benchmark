@@ -123,7 +123,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %27
 
 27:                                               ; preds = %26, %23, %.lr.ph.i
-  %.1.i = phi nsz float [ %.029.i, %23 ], [ %24, %26 ], [ %21, %.lr.ph.i ]
+  %.1.i = phi nsz float [ %24, %26 ], [ %.029.i, %23 ], [ %21, %.lr.ph.i ]
   %28 = getelementptr inbounds nuw i8, ptr %.01828.i, i64 4
   %29 = load float, ptr %28, align 4, !tbaa !46
   %30 = fcmp nsz ogt float %29, %.1.i
@@ -138,7 +138,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %35
 
 35:                                               ; preds = %34, %31, %27
-  %.2.i = phi nsz float [ %.1.i, %31 ], [ %32, %34 ], [ %29, %27 ]
+  %.2.i = phi nsz float [ %32, %34 ], [ %.1.i, %31 ], [ %29, %27 ]
   %36 = getelementptr inbounds nuw i8, ptr %.01828.i, i64 8
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %calc_stereo_peak.exit, label %.lr.ph.i, !llvm.loop !48

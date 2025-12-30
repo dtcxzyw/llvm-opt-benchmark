@@ -452,7 +452,7 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_from_context(ptr nounde
   br i1 %exitcond.not.i, label %codec_parameters_copy_side_data.exit, label %.lr.ph.i, !llvm.loop !34
 
 codec_parameters_copy_side_data.exit:             ; preds = %128, %.lr.ph.i, %.preheader.i, %113, %118, %102, %67
-  %.0 = phi i32 [ %71, %67 ], [ -12, %102 ], [ 0, %.preheader.i ], [ -12, %118 ], [ 0, %113 ], [ 0, %128 ], [ -12, %.lr.ph.i ]
+  %.0 = phi i32 [ %71, %67 ], [ -12, %102 ], [ -12, %118 ], [ 0, %113 ], [ 0, %.preheader.i ], [ 0, %128 ], [ -12, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -680,7 +680,7 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_to_context(ptr noundef 
   br i1 %exitcond.not.i, label %codec_parameters_copy_side_data.exit, label %.lr.ph.i, !llvm.loop !34
 
 codec_parameters_copy_side_data.exit:             ; preds = %130, %.lr.ph.i, %.preheader.i, %113, %120, %103, %63
-  %.0 = phi i32 [ %69, %63 ], [ -12, %103 ], [ 0, %.preheader.i ], [ -12, %120 ], [ 0, %113 ], [ 0, %130 ], [ -12, %.lr.ph.i ]
+  %.0 = phi i32 [ %69, %63 ], [ -12, %103 ], [ -12, %120 ], [ 0, %113 ], [ 0, %.preheader.i ], [ 0, %130 ], [ -12, %.lr.ph.i ]
   ret i32 %.0
 }
 

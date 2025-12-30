@@ -396,7 +396,7 @@ _ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit117: ; preds = %._cr
   br i1 %171, label %.lr.ph35.i, label %._crit_edge.i122, !llvm.loop !14
 
 _ZN17double_conversionL9TrimZerosENS_6VectorIcEEPiS2_.exit: ; preds = %.lr.ph, %144, %.critedge.i, %.critedge2.i, %._crit_edge.i122
-  %172 = phi i32 [ %.pre150, %._crit_edge.i122 ], [ %.pr.i, %144 ], [ 0, %.critedge.i ], [ %.lcssa135156, %.critedge2.i ], [ %153, %.lr.ph ]
+  %172 = phi i32 [ %.pr.i, %144 ], [ 0, %.critedge.i ], [ %.lcssa135156, %.critedge2.i ], [ %.pre150, %._crit_edge.i122 ], [ %153, %.lr.ph ]
   %173 = sext i32 %172 to i64
   %174 = getelementptr inbounds i8, ptr %2, i64 %173
   store i8 0, ptr %174, align 1, !tbaa !7
@@ -636,7 +636,7 @@ _ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit67: ; preds = %._cri
   br i1 %100, label %.lr.ph34.i82, label %_ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit90.sink.split, !llvm.loop !10
 
 _ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit90.sink.split: ; preds = %42, %71, %.lr.ph34.i82
-  %.022.lcssa.i78.sink = phi i32 [ 7, %71 ], [ %.022.lcssa.i78, %.lr.ph34.i82 ], [ 7, %42 ]
+  %.022.lcssa.i78.sink = phi i32 [ %.022.lcssa.i78, %.lr.ph34.i82 ], [ 7, %71 ], [ 7, %42 ]
   %.pre.i88 = load i32, ptr %2, align 4, !tbaa !3
   %.pre41.i89 = add nsw i32 %.pre.i88, %.022.lcssa.i78.sink
   br label %_ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit90
@@ -775,8 +775,8 @@ define internal fastcc void @_ZN17double_conversionL15FillFractionalsEmiiNS_6Vec
   br label %_ZN17double_conversion7UInt1285ShiftEi.exit
 
 _ZN17double_conversion7UInt1285ShiftEi.exit:      ; preds = %57, %58, %59
-  %.sroa.17.1 = phi i64 [ %0, %58 ], [ %64, %59 ], [ 0, %57 ]
-  %.sroa.0.1 = phi i64 [ 0, %58 ], [ %65, %59 ], [ %0, %57 ]
+  %.sroa.17.1 = phi i64 [ %64, %59 ], [ 0, %57 ], [ %0, %58 ]
+  %.sroa.0.1 = phi i64 [ %65, %59 ], [ %0, %57 ], [ 0, %58 ]
   %66 = icmp sgt i32 %2, 0
   br i1 %66, label %.lr.ph.preheader, label %._crit_edge
 

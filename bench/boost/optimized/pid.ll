@@ -2200,7 +2200,7 @@ define hidden void @_ZN8test_pid11test_methodEv(ptr nonnull readnone align 1 cap
   br label %.loopexit
 
 .loopexit:                                        ; preds = %84, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit48, %.loopexit.loopexit.split.loop.exit50, %._crit_edge.i.i.i, %104, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge57.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %75, %._crit_edge.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i, %104 ], [ %117, %.loopexit.loopexit.split.loop.exit50 ], [ %116, %.loopexit.loopexit.split.loop.exit48 ], [ %115, %.loopexit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i, %84 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %104 ], [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %75, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %115, %.loopexit.loopexit.split.loop.exit ], [ %116, %.loopexit.loopexit.split.loop.exit48 ], [ %117, %.loopexit.loopexit.split.loop.exit50 ], [ %.sroa.032.051.i.i.i, %84 ]
   %118 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_113unit_test_logE, align 8, !tbaa !21
   store ptr @.str.9, ptr %20, align 8, !tbaa !18
   %119 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -3535,7 +3535,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %.loopexit191
 
 .loopexit191:                                     ; preds = %188, %.loopexit191.loopexit.split.loop.exit, %.loopexit191.loopexit.split.loop.exit259, %.loopexit191.loopexit.split.loop.exit261, %._crit_edge._crit_edge57.i.i.i, %._crit_edge._crit_edge.i.i.i, %208, %._crit_edge.i.i.i72
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %180, %._crit_edge.i.i.i72 ], [ %.sroa.032.0.lcssa.i.i.i, %208 ], [ %221, %.loopexit191.loopexit.split.loop.exit261 ], [ %219, %.loopexit191.loopexit.split.loop.exit ], [ %220, %.loopexit191.loopexit.split.loop.exit259 ], [ %.sroa.032.051.i.i.i, %188 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %208 ], [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %180, %._crit_edge.i.i.i72 ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %219, %.loopexit191.loopexit.split.loop.exit ], [ %220, %.loopexit191.loopexit.split.loop.exit259 ], [ %221, %.loopexit191.loopexit.split.loop.exit261 ], [ %.sroa.032.051.i.i.i, %188 ]
   %222 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %180
   %223 = zext i1 %222 to i8
   store i8 %223, ptr %34, align 8, !tbaa !43
@@ -3720,7 +3720,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %.loopexit190
 
 .loopexit190:                                     ; preds = %270, %.loopexit190.loopexit.split.loop.exit, %.loopexit190.loopexit.split.loop.exit267, %.loopexit190.loopexit.split.loop.exit269, %._crit_edge._crit_edge57.i.i.i76, %._crit_edge._crit_edge.i.i.i81, %290, %._crit_edge.i.i.i73
-  %.sroa.08.0.in.sroa.speculated.i.i.i80 = phi ptr [ %.sroa.032.1.i.i.i83, %._crit_edge._crit_edge.i.i.i81 ], [ %spec.select.i.i.i79, %._crit_edge._crit_edge57.i.i.i76 ], [ %262, %._crit_edge.i.i.i73 ], [ %.sroa.032.0.lcssa.i.i.i75, %290 ], [ %303, %.loopexit190.loopexit.split.loop.exit269 ], [ %301, %.loopexit190.loopexit.split.loop.exit ], [ %302, %.loopexit190.loopexit.split.loop.exit267 ], [ %.sroa.032.051.i.i.i87, %270 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i80 = phi ptr [ %.sroa.032.0.lcssa.i.i.i75, %290 ], [ %.sroa.032.1.i.i.i83, %._crit_edge._crit_edge.i.i.i81 ], [ %262, %._crit_edge.i.i.i73 ], [ %spec.select.i.i.i79, %._crit_edge._crit_edge57.i.i.i76 ], [ %301, %.loopexit190.loopexit.split.loop.exit ], [ %302, %.loopexit190.loopexit.split.loop.exit267 ], [ %303, %.loopexit190.loopexit.split.loop.exit269 ], [ %.sroa.032.051.i.i.i87, %270 ]
   %304 = icmp ne ptr %.sroa.08.0.in.sroa.speculated.i.i.i80, %262
   %305 = zext i1 %304 to i8
   store i8 %305, ptr %40, align 8, !tbaa !43
@@ -4179,7 +4179,7 @@ _ZNK5boost6system10error_codecvbEv.exit.thread:   ; preds = %386, %_ZN5boost7pro
   br label %.loopexit
 
 .loopexit:                                        ; preds = %446, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit275, %.loopexit.loopexit.split.loop.exit277, %._crit_edge._crit_edge57.i.i.i114, %._crit_edge._crit_edge.i.i.i119, %466, %._crit_edge.i.i.i111
-  %.sroa.08.0.in.sroa.speculated.i.i.i118 = phi ptr [ %.sroa.032.1.i.i.i121, %._crit_edge._crit_edge.i.i.i119 ], [ %spec.select.i.i.i117, %._crit_edge._crit_edge57.i.i.i114 ], [ %438, %._crit_edge.i.i.i111 ], [ %.sroa.032.0.lcssa.i.i.i113, %466 ], [ %479, %.loopexit.loopexit.split.loop.exit277 ], [ %477, %.loopexit.loopexit.split.loop.exit ], [ %478, %.loopexit.loopexit.split.loop.exit275 ], [ %.sroa.032.051.i.i.i125, %446 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i118 = phi ptr [ %.sroa.032.0.lcssa.i.i.i113, %466 ], [ %.sroa.032.1.i.i.i121, %._crit_edge._crit_edge.i.i.i119 ], [ %438, %._crit_edge.i.i.i111 ], [ %spec.select.i.i.i117, %._crit_edge._crit_edge57.i.i.i114 ], [ %477, %.loopexit.loopexit.split.loop.exit ], [ %478, %.loopexit.loopexit.split.loop.exit275 ], [ %479, %.loopexit.loopexit.split.loop.exit277 ], [ %.sroa.032.051.i.i.i125, %446 ]
   %480 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i118, %438
   %481 = zext i1 %480 to i8
   store i8 %481, ptr %55, align 8, !tbaa !43
@@ -5407,7 +5407,7 @@ _ZNK5boost6system15error_condition6cat_idEv.exit12.i: ; preds = %20
   br label %_ZN5boost6systemeqERKNS0_15error_conditionES3_.exit
 
 _ZN5boost6systemeqERKNS0_15error_conditionES3_.exit: ; preds = %3, %15, %16, %_ZNK5boost6system15error_condition6cat_idEv.exit12.i, %24
-  %.0.i = phi i1 [ %32, %24 ], [ false, %3 ], [ %23, %_ZNK5boost6system15error_condition6cat_idEv.exit12.i ], [ %19, %16 ], [ true, %15 ]
+  %.0.i = phi i1 [ %23, %_ZNK5boost6system15error_condition6cat_idEv.exit12.i ], [ %32, %24 ], [ false, %3 ], [ %19, %16 ], [ true, %15 ]
   ret i1 %.0.i
 }
 
@@ -5465,7 +5465,7 @@ _ZNK5boost6system10error_code5valueEv.exit.i:     ; preds = %12
   br label %_ZNK5boost6system10error_code6equalsEiRKNS0_14error_categoryE.exit
 
 _ZNK5boost6system10error_code6equalsEiRKNS0_14error_categoryE.exit: ; preds = %6, %12, %_ZNK5boost6system10error_code5valueEv.exit.i, %25, %28
-  %.0.i = phi i1 [ %11, %6 ], [ %24, %_ZNK5boost6system10error_code5valueEv.exit.i ], [ false, %12 ], [ false, %25 ], [ %38, %28 ]
+  %.0.i = phi i1 [ %11, %6 ], [ false, %12 ], [ %24, %_ZNK5boost6system10error_code5valueEv.exit.i ], [ false, %25 ], [ %38, %28 ]
   ret i1 %.0.i
 }
 
@@ -8113,7 +8113,7 @@ _ZNKSt9type_infoeqERKS_.exit.i:                   ; preds = %37
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %.split.us, label %_ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7service3keyES7_.exit
 
-.split.us:                                        ; preds = %32, %_ZNKSt9type_infoeqERKS_.exit.i, %.lr.ph.split, %.lr.ph.split.us
+.split.us:                                        ; preds = %.lr.ph.split, %32, %_ZNKSt9type_infoeqERKS_.exit.i, %.lr.ph.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.71)
           to label %44 unwind label %46
@@ -9105,8 +9105,8 @@ _ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7se
   store ptr %36, ptr %7, align 8, !tbaa !204
   br label %_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit29
 
-.split.us:                                        ; preds = %53, %_ZNKSt9type_infoeqERKS_.exit.i24, %.lr.ph51.split, %.lr.ph51.split.us
-  %.us-phi52 = phi ptr [ %.11750.us, %.lr.ph51.split.us ], [ %.11750, %.lr.ph51.split ], [ %.11750, %_ZNKSt9type_infoeqERKS_.exit.i24 ], [ %.11750, %53 ]
+.split.us:                                        ; preds = %.lr.ph51.split, %53, %_ZNKSt9type_infoeqERKS_.exit.i24, %.lr.ph51.split.us
+  %.us-phi52 = phi ptr [ %.11750.us, %.lr.ph51.split.us ], [ %.11750, %_ZNKSt9type_infoeqERKS_.exit.i24 ], [ %.11750, %53 ], [ %.11750, %.lr.ph51.split ]
   %67 = icmp eq ptr %36, null
   br i1 %67, label %_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit29, label %68
 
@@ -9117,8 +9117,8 @@ _ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7se
   tail call void %71(ptr noundef nonnull align 8 dereferenceable(40) %36) #35
   br label %_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit29
 
-_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit29: ; preds = %.lr.ph.split, %_ZNKSt9type_infoeqERKS_.exit.i, %22, %.lr.ph.split.us, %68, %.split.us, %.thread
-  %.0 = phi ptr [ %.us-phi52, %68 ], [ %36, %.thread ], [ %.us-phi52, %.split.us ], [ %.01647.us, %.lr.ph.split.us ], [ %.01647, %22 ], [ %.01647, %_ZNKSt9type_infoeqERKS_.exit.i ], [ %.01647, %.lr.ph.split ]
+_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit29: ; preds = %_ZNKSt9type_infoeqERKS_.exit.i, %22, %.lr.ph.split, %.lr.ph.split.us, %68, %.split.us, %.thread
+  %.0 = phi ptr [ %36, %.thread ], [ %.us-phi52, %.split.us ], [ %.us-phi52, %68 ], [ %.01647.us, %.lr.ph.split.us ], [ %.01647, %.lr.ph.split ], [ %.01647, %22 ], [ %.01647, %_ZNKSt9type_infoeqERKS_.exit.i ]
   %72 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #35
   ret ptr %.0
 }
@@ -9186,7 +9186,7 @@ _ZN5boost4asio6detail26eventfd_select_interrupterC2Ev.exit: ; preds = %2
           to label %_ZN5boost4asio6detail13epoll_reactor17do_timerfd_createEv.exit unwind label %58
 
 _ZN5boost4asio6detail13epoll_reactor17do_timerfd_createEv.exit: ; preds = %32, %28, %24, %34
-  %.0.i = phi i32 [ %26, %24 ], [ -1, %32 ], [ -1, %28 ], [ %33, %34 ]
+  %.0.i = phi i32 [ -1, %32 ], [ -1, %28 ], [ %26, %24 ], [ %33, %34 ]
   store i32 %.0.i, ptr %25, align 4, !tbaa !336
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %36, align 8, !tbaa !337
@@ -10377,7 +10377,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit: ; pred
   br label %72
 
 72:                                               ; preds = %58, %68, %69, %59
-  %.130 = phi i1 [ true, %59 ], [ %.02960, %68 ], [ %spec.select, %58 ], [ %.02960, %69 ]
+  %.130 = phi i1 [ %spec.select, %58 ], [ true, %59 ], [ %.02960, %69 ], [ %.02960, %68 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %53, !llvm.loop !367
@@ -10817,8 +10817,8 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.i: ; preds = %11
   br label %23
 
 23:                                               ; preds = %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.i, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.thread.i
-  %24 = phi ptr [ %22, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.i ], [ %17, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.thread.i ]
-  %25 = phi i64 [ %spec.select.i, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.i ], [ 3, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.thread.i ]
+  %24 = phi ptr [ %17, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.thread.i ], [ %22, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.i ]
+  %25 = phi i64 [ 3, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.thread.i ], [ %spec.select.i, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.i ]
   store i64 %25, ptr %24, align 8, !tbaa !177
   store i32 %10, ptr %5, align 8, !tbaa !16
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -10963,7 +10963,7 @@ _ZN5boost4asio6detail12posix_thread4joinEv.exit.thread: ; preds = %_ZN5boost4asi
   br label %_ZN5boost4asio6detail12posix_threadD2Ev.exit
 
 _ZN5boost4asio6detail12posix_threadD2Ev.exit:     ; preds = %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit, %_ZN5boost4asio6detail12posix_thread4joinEv.exit.thread, %46
-  %49 = phi ptr [ %.pr, %46 ], [ %.pr, %_ZN5boost4asio6detail12posix_thread4joinEv.exit.thread ], [ %37, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit ]
+  %49 = phi ptr [ %.pr, %_ZN5boost4asio6detail12posix_thread4joinEv.exit.thread ], [ %.pr, %46 ], [ %37, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit ]
   tail call void @_ZdlPvm(ptr noundef nonnull %49, i64 noundef 16) #39
   br label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
 
@@ -14091,7 +14091,7 @@ _ZNK5boost6system10error_codecvbEv.exit116.thread: ; preds = %306
   unreachable
 
 _ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit117: ; preds = %306, %303, %314, %310
-  %333 = phi i1 [ true, %306 ], [ false, %314 ], [ false, %310 ], [ true, %303 ]
+  %333 = phi i1 [ false, %310 ], [ false, %314 ], [ true, %303 ], [ true, %306 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %334 = load i32, ptr %10, align 4, !tbaa !42
   %.not.i119 = icmp eq i32 %334, -1
@@ -14153,7 +14153,7 @@ _ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit118: ; preds = %326, 
   br label %_ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit63
 
 _ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit63: ; preds = %239, %234, %232, %174, %133, %128, %70, %65, %_ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit118, %126
-  %.pn59 = phi { ptr, i32 } [ %.pn, %_ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit118 ], [ %66, %70 ], [ %129, %133 ], [ %127, %126 ], [ %175, %174 ], [ %235, %234 ], [ %66, %65 ], [ %129, %128 ], [ %235, %239 ], [ %233, %232 ]
+  %.pn59 = phi { ptr, i32 } [ %127, %126 ], [ %.pn, %_ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit118 ], [ %66, %65 ], [ %66, %70 ], [ %129, %128 ], [ %129, %133 ], [ %233, %232 ], [ %175, %174 ], [ %235, %234 ], [ %235, %239 ]
   call void @_ZN5boost7process2v25posix16default_launcher10pipe_guardD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %10) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit121
@@ -14213,7 +14213,7 @@ _ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit120: ; preds = %350, 
   ret void
 
 _ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit121: ; preds = %362, %357, %_ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit63
-  %.pn61 = phi { ptr, i32 } [ %358, %362 ], [ %.pn59, %_ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit63 ], [ %358, %357 ]
+  %.pn61 = phi { ptr, i32 } [ %.pn59, %_ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit63 ], [ %358, %357 ], [ %358, %362 ]
   resume { ptr, i32 } %.pn61
 }
 
@@ -16736,7 +16736,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !467
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
-  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.08.us, %.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %39 ]
+  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.08.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
   %42 = getelementptr inbounds nuw i32, ptr %.fr16, i64 %.0.lcssa.i.i.us
   store i32 %21, ptr %42, align 4, !tbaa !42
   %.not.us = icmp eq i64 %.08.us, 0
@@ -17821,8 +17821,8 @@ _ZN5boost6system10error_codeaSINS_4asio5error12basic_errorsEEERNSt9enable_ifIXsr
   br label %_ZN5boost6system10error_codeaSINS_4asio5error12basic_errorsEEERNSt9enable_ifIXsr18is_error_code_enumIT_EE5valueES1_E4typeES7_.exit.thread
 
 _ZN5boost6system10error_codeaSINS_4asio5error12basic_errorsEEERNSt9enable_ifIXsr18is_error_code_enumIT_EE5valueES1_E4typeES7_.exit.thread: ; preds = %_ZN5boost6system10error_codeaSINS_4asio5error12basic_errorsEEERNSt9enable_ifIXsr18is_error_code_enumIT_EE5valueES1_E4typeES7_.exit, %.lr.ph
-  %55 = phi i64 [ %.pre44, %_ZN5boost6system10error_codeaSINS_4asio5error12basic_errorsEEERNSt9enable_ifIXsr18is_error_code_enumIT_EE5valueES1_E4typeES7_.exit ], [ %47, %.lr.ph ]
-  %56 = phi i64 [ %spec.select, %_ZN5boost6system10error_codeaSINS_4asio5error12basic_errorsEEERNSt9enable_ifIXsr18is_error_code_enumIT_EE5valueES1_E4typeES7_.exit ], [ 3, %.lr.ph ]
+  %55 = phi i64 [ %47, %.lr.ph ], [ %.pre44, %_ZN5boost6system10error_codeaSINS_4asio5error12basic_errorsEEERNSt9enable_ifIXsr18is_error_code_enumIT_EE5valueES1_E4typeES7_.exit ]
+  %56 = phi i64 [ 3, %.lr.ph ], [ %spec.select, %_ZN5boost6system10error_codeaSINS_4asio5error12basic_errorsEEERNSt9enable_ifIXsr18is_error_code_enumIT_EE5valueES1_E4typeES7_.exit ]
   store i64 125, ptr %49, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 32
   store ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !16
@@ -18190,7 +18190,7 @@ _ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit32.thread, %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit, %_ZNK5boost6system10error_code8categoryEv.exit.i39, %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit58, %3
-  %.0 = phi i32 [ %104, %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit58 ], [ %6, %_ZNK5boost6system10error_code8categoryEv.exit.i39 ], [ 0, %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit ], [ 0, %3 ], [ %6, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit32.thread ]
+  %.0 = phi i32 [ %104, %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit58 ], [ %6, %_ZNK5boost6system10error_code8categoryEv.exit.i39 ], [ 0, %3 ], [ 0, %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit ], [ %6, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit32.thread ]
   ret i32 %.0
 }
 
@@ -18638,7 +18638,7 @@ _ZNKSt9type_infoeqERKS_.exit.i:                   ; preds = %14
   br label %_ZNK5boost4asio9execution6detail17any_executor_base6targetINS0_10io_context19basic_executor_typeISaIvELm0EEEEEPKT_v.exit
 
 _ZNK5boost4asio9execution6detail17any_executor_base6targetINS0_10io_context19basic_executor_typeISaIvELm0EEEEEPKT_v.exit: ; preds = %2, %_ZNKSt9type_infoeqERKS_.exit.thread.i, %14, %_ZNKSt9type_infoeqERKS_.exit.i
-  %19 = phi ptr [ null, %2 ], [ null, %14 ], [ %spec.select.i, %_ZNKSt9type_infoeqERKS_.exit.i ], [ %13, %_ZNKSt9type_infoeqERKS_.exit.thread.i ]
+  %19 = phi ptr [ null, %2 ], [ %13, %_ZNKSt9type_infoeqERKS_.exit.thread.i ], [ null, %14 ], [ %spec.select.i, %_ZNKSt9type_infoeqERKS_.exit.i ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !239
@@ -20260,7 +20260,7 @@ _ZNKSt9type_infoeqERKS_.exit.i:                   ; preds = %14
   br label %_ZNK5boost4asio9execution6detail17any_executor_base6targetINS0_10io_context19basic_executor_typeISaIvELm4EEEEEPKT_v.exit
 
 _ZNK5boost4asio9execution6detail17any_executor_base6targetINS0_10io_context19basic_executor_typeISaIvELm4EEEEEPKT_v.exit: ; preds = %2, %_ZNKSt9type_infoeqERKS_.exit.thread.i, %14, %_ZNKSt9type_infoeqERKS_.exit.i
-  %19 = phi ptr [ null, %2 ], [ null, %14 ], [ %spec.select.i, %_ZNKSt9type_infoeqERKS_.exit.i ], [ %13, %_ZNKSt9type_infoeqERKS_.exit.thread.i ]
+  %19 = phi ptr [ null, %2 ], [ %13, %_ZNKSt9type_infoeqERKS_.exit.thread.i ], [ null, %14 ], [ %spec.select.i, %_ZNKSt9type_infoeqERKS_.exit.i ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !239

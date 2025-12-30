@@ -258,8 +258,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not34, label %.invoke, label %103
 
 .invoke:                                          ; preds = %77, %100, %95, %88
-  %101 = phi ptr [ @.str.6, %95 ], [ @.str.5, %88 ], [ @.str.8, %100 ], [ @.str.3, %77 ]
-  %102 = phi i64 [ 93, %95 ], [ 90, %88 ], [ 96, %100 ], [ 88, %77 ]
+  %101 = phi ptr [ @.str.5, %88 ], [ @.str.6, %95 ], [ @.str.8, %100 ], [ @.str.3, %77 ]
+  %102 = phi i64 [ 90, %88 ], [ 93, %95 ], [ 96, %100 ], [ 88, %77 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10Arch_ErrorEPKcS1_mS1_(ptr noundef nonnull %101, ptr noundef nonnull @__func__.main, i64 noundef %102, ptr noundef nonnull @.str.4) #16
           to label %.cont unwind label %82
 
@@ -380,8 +380,8 @@ _ZNSt10unique_ptrIcN32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperEE5resetEPc
   br i1 %147, label %150, label %.invoke161
 
 .invoke161:                                       ; preds = %122, %146, %143, %130, %128
-  %148 = phi ptr [ @.str.16, %143 ], [ @.str.14, %130 ], [ @.str.12, %128 ], [ @.str.17, %146 ], [ @.str.11, %122 ]
-  %149 = phi i64 [ 117, %143 ], [ 111, %130 ], [ 108, %128 ], [ 118, %146 ], [ 107, %122 ]
+  %148 = phi ptr [ @.str.12, %128 ], [ @.str.14, %130 ], [ @.str.16, %143 ], [ @.str.17, %146 ], [ @.str.11, %122 ]
+  %149 = phi i64 [ 108, %128 ], [ 111, %130 ], [ 117, %143 ], [ 118, %146 ], [ 107, %122 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10Arch_ErrorEPKcS1_mS1_(ptr noundef nonnull %148, ptr noundef nonnull @__func__.main, i64 noundef %149, ptr noundef nonnull @.str.4) #16
           to label %.cont162 unwind label %126
 
@@ -1206,8 +1206,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit85.i: 
   br label %.body.i
 
 .body.i:                                          ; preds = %367, %365, %360, %356, %354, %349, %345, %343, %338, %334, %332, %.body99, %317, %315, %.body101, %300, %298, %.body104, %283, %281, %.body107, %266, %264, %259, %255, %253, %.body110, %238, %236, %.body113, %221, %219, %.body116
-  %.sink.i = phi ptr [ %55, %356 ], [ %52, %345 ], [ %49, %334 ], [ %46, %317 ], [ %43, %300 ], [ %40, %283 ], [ %37, %266 ], [ %34, %255 ], [ %31, %238 ], [ %28, %221 ], [ %28, %219 ], [ %28, %.body116 ], [ %31, %236 ], [ %31, %.body113 ], [ %34, %253 ], [ %34, %.body110 ], [ %37, %264 ], [ %37, %259 ], [ %40, %281 ], [ %40, %.body107 ], [ %43, %298 ], [ %43, %.body104 ], [ %46, %315 ], [ %46, %.body101 ], [ %49, %332 ], [ %49, %.body99 ], [ %52, %343 ], [ %52, %338 ], [ %55, %354 ], [ %55, %349 ], [ %58, %365 ], [ %58, %360 ], [ %58, %367 ]
-  %.pn32.pn.i = phi { ptr, i32 } [ %357, %356 ], [ %346, %345 ], [ %335, %334 ], [ %318, %317 ], [ %301, %300 ], [ %284, %283 ], [ %267, %266 ], [ %256, %255 ], [ %239, %238 ], [ %222, %221 ], [ %220, %219 ], [ %215, %.body116 ], [ %237, %236 ], [ %232, %.body113 ], [ %254, %253 ], [ %249, %.body110 ], [ %265, %264 ], [ %260, %259 ], [ %282, %281 ], [ %277, %.body107 ], [ %299, %298 ], [ %294, %.body104 ], [ %316, %315 ], [ %311, %.body101 ], [ %333, %332 ], [ %328, %.body99 ], [ %344, %343 ], [ %339, %338 ], [ %355, %354 ], [ %350, %349 ], [ %366, %365 ], [ %361, %360 ], [ %368, %367 ]
+  %.sink.i = phi ptr [ %28, %219 ], [ %28, %.body116 ], [ %28, %221 ], [ %31, %236 ], [ %31, %.body113 ], [ %31, %238 ], [ %34, %253 ], [ %34, %.body110 ], [ %34, %255 ], [ %37, %264 ], [ %37, %259 ], [ %37, %266 ], [ %40, %281 ], [ %40, %.body107 ], [ %40, %283 ], [ %43, %298 ], [ %43, %.body104 ], [ %43, %300 ], [ %46, %315 ], [ %46, %.body101 ], [ %46, %317 ], [ %49, %332 ], [ %49, %.body99 ], [ %49, %334 ], [ %52, %343 ], [ %52, %338 ], [ %52, %345 ], [ %55, %354 ], [ %55, %349 ], [ %55, %356 ], [ %58, %365 ], [ %58, %360 ], [ %58, %367 ]
+  %.pn32.pn.i = phi { ptr, i32 } [ %220, %219 ], [ %215, %.body116 ], [ %222, %221 ], [ %237, %236 ], [ %232, %.body113 ], [ %239, %238 ], [ %254, %253 ], [ %249, %.body110 ], [ %256, %255 ], [ %265, %264 ], [ %260, %259 ], [ %267, %266 ], [ %282, %281 ], [ %277, %.body107 ], [ %284, %283 ], [ %299, %298 ], [ %294, %.body104 ], [ %301, %300 ], [ %316, %315 ], [ %311, %.body101 ], [ %318, %317 ], [ %333, %332 ], [ %328, %.body99 ], [ %335, %334 ], [ %344, %343 ], [ %339, %338 ], [ %346, %345 ], [ %355, %354 ], [ %350, %349 ], [ %357, %356 ], [ %366, %365 ], [ %361, %360 ], [ %368, %367 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #15
   br label %.body75
 
@@ -1520,9 +1520,9 @@ _ZN12_GLOBAL__N_114_AbsPathFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br i1 %434, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit90, label %.invoke167
 
 .invoke167:                                       ; preds = %193, %_ZN12_GLOBAL__N_114_AbsPathFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit36.i, %_ZN12_GLOBAL__N_114_AbsPathFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %396, %379, %362, %351, %340, %329, %312, %295, %278, %261, %250, %233, %216
-  %435 = phi ptr [ @.str.56, %_ZN12_GLOBAL__N_114_AbsPathFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ @.str.55, %396 ], [ @.str.53, %379 ], [ @.str.52, %362 ], [ @.str.49, %351 ], [ @.str.47, %340 ], [ @.str.44, %329 ], [ @.str.41, %312 ], [ @.str.39, %295 ], [ @.str.37, %278 ], [ @.str.35, %261 ], [ @.str.32, %250 ], [ @.str.30, %233 ], [ @.str.29, %216 ], [ @.str.58, %_ZN12_GLOBAL__N_114_AbsPathFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit36.i ], [ @.str.27, %193 ]
-  %436 = phi ptr [ @__func__._ZL15TestArchAbsPathv, %_ZN12_GLOBAL__N_114_AbsPathFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ @__func__._ZL15TestArchAbsPathv, %396 ], [ @__func__._ZL15TestArchAbsPathv, %379 ], [ @__func__._ZL16TestArchNormPathv, %362 ], [ @__func__._ZL16TestArchNormPathv, %351 ], [ @__func__._ZL16TestArchNormPathv, %340 ], [ @__func__._ZL16TestArchNormPathv, %329 ], [ @__func__._ZL16TestArchNormPathv, %312 ], [ @__func__._ZL16TestArchNormPathv, %295 ], [ @__func__._ZL16TestArchNormPathv, %278 ], [ @__func__._ZL16TestArchNormPathv, %261 ], [ @__func__._ZL16TestArchNormPathv, %250 ], [ @__func__._ZL16TestArchNormPathv, %233 ], [ @__func__._ZL16TestArchNormPathv, %216 ], [ @__func__._ZL15TestArchAbsPathv, %_ZN12_GLOBAL__N_114_AbsPathFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit36.i ], [ @__func__.main, %193 ]
-  %437 = phi i64 [ 73, %_ZN12_GLOBAL__N_114_AbsPathFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ 72, %396 ], [ 71, %379 ], [ 36, %362 ], [ 34, %351 ], [ 33, %340 ], [ 32, %329 ], [ 31, %312 ], [ 30, %295 ], [ 29, %278 ], [ 28, %261 ], [ 27, %250 ], [ 26, %233 ], [ 25, %216 ], [ 74, %_ZN12_GLOBAL__N_114_AbsPathFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit36.i ], [ 133, %193 ]
+  %435 = phi ptr [ @.str.29, %216 ], [ @.str.30, %233 ], [ @.str.32, %250 ], [ @.str.35, %261 ], [ @.str.37, %278 ], [ @.str.39, %295 ], [ @.str.41, %312 ], [ @.str.44, %329 ], [ @.str.47, %340 ], [ @.str.49, %351 ], [ @.str.52, %362 ], [ @.str.53, %379 ], [ @.str.55, %396 ], [ @.str.56, %_ZN12_GLOBAL__N_114_AbsPathFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ @.str.58, %_ZN12_GLOBAL__N_114_AbsPathFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit36.i ], [ @.str.27, %193 ]
+  %436 = phi ptr [ @__func__._ZL16TestArchNormPathv, %216 ], [ @__func__._ZL16TestArchNormPathv, %233 ], [ @__func__._ZL16TestArchNormPathv, %250 ], [ @__func__._ZL16TestArchNormPathv, %261 ], [ @__func__._ZL16TestArchNormPathv, %278 ], [ @__func__._ZL16TestArchNormPathv, %295 ], [ @__func__._ZL16TestArchNormPathv, %312 ], [ @__func__._ZL16TestArchNormPathv, %329 ], [ @__func__._ZL16TestArchNormPathv, %340 ], [ @__func__._ZL16TestArchNormPathv, %351 ], [ @__func__._ZL16TestArchNormPathv, %362 ], [ @__func__._ZL15TestArchAbsPathv, %379 ], [ @__func__._ZL15TestArchAbsPathv, %396 ], [ @__func__._ZL15TestArchAbsPathv, %_ZN12_GLOBAL__N_114_AbsPathFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ @__func__._ZL15TestArchAbsPathv, %_ZN12_GLOBAL__N_114_AbsPathFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit36.i ], [ @__func__.main, %193 ]
+  %437 = phi i64 [ 25, %216 ], [ 26, %233 ], [ 27, %250 ], [ 28, %261 ], [ 29, %278 ], [ 30, %295 ], [ 31, %312 ], [ 32, %329 ], [ 33, %340 ], [ 34, %351 ], [ 36, %362 ], [ 71, %379 ], [ 72, %396 ], [ 73, %_ZN12_GLOBAL__N_114_AbsPathFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ 74, %_ZN12_GLOBAL__N_114_AbsPathFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit36.i ], [ 133, %193 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10Arch_ErrorEPKcS1_mS1_(ptr noundef nonnull %435, ptr noundef nonnull %436, i64 noundef %437, ptr noundef nonnull @.str.4) #16
           to label %.cont168 unwind label %196
 
@@ -1551,8 +1551,8 @@ _ZN12_GLOBAL__N_114_AbsPathFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %.body.i77
 
 .body.i77:                                        ; preds = %444, %438, %.body119, %421, %415, %.body122, %400, %398, %.body125, %384, %382, %.body128
-  %.sink.i78 = phi ptr [ %21, %421 ], [ %17, %400 ], [ %14, %384 ], [ %14, %382 ], [ %14, %.body128 ], [ %17, %398 ], [ %17, %.body125 ], [ %21, %415 ], [ %21, %.body122 ], [ %25, %438 ], [ %25, %.body119 ], [ %25, %444 ]
-  %.pn14.pn.pn.i = phi { ptr, i32 } [ %.pn11.i, %421 ], [ %401, %400 ], [ %385, %384 ], [ %383, %382 ], [ %378, %.body128 ], [ %399, %398 ], [ %395, %.body125 ], [ %416, %415 ], [ %411, %.body122 ], [ %439, %438 ], [ %431, %.body119 ], [ %.pn14.i, %444 ]
+  %.sink.i78 = phi ptr [ %14, %382 ], [ %14, %.body128 ], [ %14, %384 ], [ %17, %398 ], [ %17, %.body125 ], [ %17, %400 ], [ %21, %415 ], [ %21, %.body122 ], [ %21, %421 ], [ %25, %438 ], [ %25, %.body119 ], [ %25, %444 ]
+  %.pn14.pn.pn.i = phi { ptr, i32 } [ %383, %382 ], [ %378, %.body128 ], [ %385, %384 ], [ %399, %398 ], [ %395, %.body125 ], [ %401, %400 ], [ %416, %415 ], [ %411, %.body122 ], [ %.pn11.i, %421 ], [ %439, %438 ], [ %431, %.body119 ], [ %.pn14.i, %444 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i78) #15
   br label %.body75
 

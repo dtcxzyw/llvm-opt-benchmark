@@ -1614,7 +1614,7 @@ _ZN4ncnn3MatD2Ev.exit273:                         ; preds = %729, %727, %735, %7
   br label %744
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %448, %253, %58, %660, %_ZN4ncnn3MatD2Ev.exit272, %663, %_ZNK4ncnn3Mat5emptyEv.exit262, %_ZNK4ncnn3Mat5emptyEv.exit259, %_ZNK4ncnn3Mat5emptyEv.exit, %650, %_ZN4ncnn3MatD2Ev.exit270, %467, %_ZN4ncnn3MatD2Ev.exit268, %272, %_ZN4ncnn3MatD2Ev.exit, %77
-  %.1 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit262 ], [ 0, %77 ], [ %.2, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %272 ], [ %.5, %_ZN4ncnn3MatD2Ev.exit268 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit259 ], [ 0, %467 ], [ %.8, %_ZN4ncnn3MatD2Ev.exit270 ], [ %651, %650 ], [ %661, %660 ], [ %664, %663 ], [ %.13, %_ZN4ncnn3MatD2Ev.exit272 ], [ -100, %253 ], [ -100, %58 ], [ -100, %448 ]
+  %.1 = phi i32 [ 0, %77 ], [ %.2, %_ZN4ncnn3MatD2Ev.exit ], [ 0, %272 ], [ %.5, %_ZN4ncnn3MatD2Ev.exit268 ], [ 0, %467 ], [ %.8, %_ZN4ncnn3MatD2Ev.exit270 ], [ %651, %650 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit259 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit262 ], [ %661, %660 ], [ %664, %663 ], [ %.13, %_ZN4ncnn3MatD2Ev.exit272 ], [ -100, %58 ], [ -100, %253 ], [ -100, %448 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1895,7 +1895,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %6
   br label %15
 
 15:                                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %6, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread
-  %.0.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread ], [ %11, %6 ], [ %14, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i = phi ptr [ %11, %6 ], [ %14, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i, ptr %16, align 8, !tbaa !79
   ret void

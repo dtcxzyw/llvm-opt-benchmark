@@ -792,7 +792,7 @@ _ZNK4llvm12MemIntrinsic10isVolatileEv.exit:       ; preds = %_ZN4llvm8dyn_castIN
   %59 = icmp eq i32 %58, %53
   br i1 %59, label %.critedge, label %165
 
-.critedge:                                        ; preds = %55, %40, %26, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %23, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %29, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit
+.critedge:                                        ; preds = %55, %40, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %26, %29, %23, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit
   %60 = getelementptr inbounds i8, ptr %5, i64 -32
   %61 = icmp eq ptr %60, %0
   br i1 %61, label %165, label %62
@@ -967,7 +967,7 @@ _ZNK4llvm4User10getOperandEj.exit63:              ; preds = %148, %151
   br label %165
 
 165:                                              ; preds = %55, %162, %138, %.critedge56, %142, %_ZNK4llvm4User10getOperandEj.exit, %101, %91, %84, %105, %98, %95, %88, %81, %8, %77, %_ZNK4llvm8CallBase12doesNotThrowEv.exit.thread, %21, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit, %.critedge, %62, %3, %164, %112
-  %.0 = phi i32 [ 1, %164 ], [ 1, %3 ], [ %.53, %77 ], [ %., %62 ], [ 0, %.critedge ], [ 0, %8 ], [ 1, %98 ], [ 1, %81 ], [ 1, %88 ], [ %.54, %105 ], [ 1, %95 ], [ 2, %112 ], [ %spec.select59, %101 ], [ 2, %21 ], [ 0, %_ZNK4llvm8CallBase12doesNotThrowEv.exit.thread ], [ 1, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit ], [ %spec.select58, %91 ], [ %spec.select57, %84 ], [ 0, %138 ], [ 0, %162 ], [ 1, %.critedge56 ], [ 1, %142 ], [ 1, %_ZNK4llvm4User10getOperandEj.exit ], [ 1, %55 ]
+  %.0 = phi i32 [ 1, %164 ], [ 2, %112 ], [ 1, %3 ], [ 0, %_ZNK4llvm8CallBase12doesNotThrowEv.exit.thread ], [ 2, %21 ], [ 1, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit ], [ 0, %.critedge ], [ %., %62 ], [ %.53, %77 ], [ 0, %8 ], [ 1, %81 ], [ 1, %88 ], [ 1, %98 ], [ 1, %95 ], [ %.54, %105 ], [ %spec.select57, %84 ], [ %spec.select58, %91 ], [ %spec.select59, %101 ], [ 0, %162 ], [ 0, %138 ], [ 1, %.critedge56 ], [ 1, %142 ], [ 1, %_ZNK4llvm4User10getOperandEj.exit ], [ 1, %55 ]
   ret i32 %.0
 }
 
@@ -1038,7 +1038,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm24isNonEscapingLocalObjectEPKNS_5Va
   br label %25
 
 25:                                               ; preds = %11, %.thread, %16, %22
-  %.1 = phi i1 [ %14, %11 ], [ %21, %16 ], [ %21, %22 ], [ false, %.thread ]
+  %.1 = phi i1 [ %14, %11 ], [ %21, %22 ], [ %21, %16 ], [ false, %.thread ]
   ret i1 %.1
 }
 
@@ -1168,7 +1168,7 @@ _ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit: ; p
   br label %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit.thread
 
 _ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit.thread: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i.i, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.i, %14, %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit, %2, %37
-  %.0 = phi i1 [ false, %2 ], [ true, %37 ], [ false, %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit ], [ false, %14 ], [ false, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.i ], [ false, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i.i ]
+  %.0 = phi i1 [ true, %37 ], [ false, %2 ], [ false, %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit ], [ false, %14 ], [ false, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.i ], [ false, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i.i ]
   ret i1 %.0
 }
 
@@ -1589,7 +1589,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPKNS_5ValueEbLj8ENS_12D
   br label %34
 
 34:                                               ; preds = %27, %27, %29
-  %.1 = phi ptr [ %.02738, %27 ], [ %.02738, %27 ], [ %33, %29 ]
+  %.1 = phi ptr [ %.02738, %27 ], [ %33, %29 ], [ %.02738, %27 ]
   %.028.add = add nuw nsw i64 %.028.idx37, 16
   %.not31 = icmp eq i64 %.028.add, 128
   br i1 %.not31, label %25, label %27, !llvm.loop !168

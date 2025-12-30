@@ -216,7 +216,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   br i1 %exitcond509.not, label %.loopexit, label %.lr.ph, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.lr.ph, %63, %.lr.ph440, %._crit_edge445
-  %.0 = phi i32 [ %4, %63 ], [ %4, %.lr.ph440 ], [ %73, %._crit_edge445 ], [ %4, %.lr.ph ]
+  %.0 = phi i32 [ %73, %._crit_edge445 ], [ %4, %.lr.ph440 ], [ %4, %63 ], [ %4, %.lr.ph ]
   %87 = sdiv i32 %.0, 2
   %88 = sub i32 %.0, %87
   %89 = shl nuw nsw i32 1, %87
@@ -467,7 +467,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   br i1 %or.cond417, label %.sink.split, label %160
 
 .sink.split:                                      ; preds = %159, %158, %155, %.lr.ph473
-  %.sink583 = phi i32 [ 49, %.lr.ph473 ], [ 45, %158 ], [ 32, %155 ], [ 63, %159 ]
+  %.sink583 = phi i32 [ 49, %.lr.ph473 ], [ 32, %155 ], [ 45, %158 ], [ 63, %159 ]
   %fputc387 = tail call i32 @fputc(i32 %.sink583, ptr %0)
   br label %160
 
@@ -871,7 +871,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
   br i1 %or.cond317, label %.sink.split, label %87
 
 .sink.split:                                      ; preds = %86, %85, %82, %.lr.ph347
-  %.sink415 = phi i32 [ 49, %.lr.ph347 ], [ 45, %85 ], [ 32, %82 ], [ 63, %86 ]
+  %.sink415 = phi i32 [ 49, %.lr.ph347 ], [ 32, %82 ], [ 45, %85 ], [ 63, %86 ]
   %fputc288 = tail call i32 @fputc(i32 %.sink415, ptr %0)
   br label %87
 

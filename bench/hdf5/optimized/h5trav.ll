@@ -548,7 +548,7 @@ trav_token_add.exit:                              ; preds = %39
   br label %96
 
 96:                                               ; preds = %80, %92, %88, %61, %73, %69, %77, %58
-  %.1 = phi i32 [ 0, %77 ], [ 0, %58 ], [ -1, %61 ], [ -1, %69 ], [ -1, %73 ], [ -1, %88 ], [ -1, %92 ], [ -1, %80 ]
+  %.1 = phi i32 [ 0, %58 ], [ 0, %77 ], [ -1, %69 ], [ -1, %73 ], [ -1, %61 ], [ -1, %88 ], [ -1, %92 ], [ -1, %80 ]
   %97 = load ptr, ptr %41, align 8, !tbaa !45
   %.not35 = icmp eq ptr %97, null
   br i1 %.not35, label %107, label %.preheader
@@ -585,7 +585,7 @@ trav_token_add.exit:                              ; preds = %39
   br label %108
 
 108:                                              ; preds = %20, %24, %12, %35, %107
-  %.026 = phi i32 [ 0, %35 ], [ %.1, %107 ], [ -1, %12 ], [ -1, %24 ], [ -1, %20 ]
+  %.026 = phi i32 [ %.1, %107 ], [ 0, %35 ], [ -1, %12 ], [ -1, %24 ], [ -1, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.026
 }
@@ -1093,7 +1093,7 @@ define i32 @h5trav_getindext(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %38, label %7, label %.thread, !llvm.loop !87
 
 .thread:                                          ; preds = %7, %14, %.loopexit, %26, %32, %.preheader38, %2
-  %.1 = phi i32 [ -1, %2 ], [ %.03042, %26 ], [ -1, %.preheader38 ], [ %.03042, %32 ], [ %.03042, %14 ], [ %.03042, %7 ], [ -1, %.loopexit ]
+  %.1 = phi i32 [ -1, %2 ], [ -1, %.preheader38 ], [ %.03042, %32 ], [ %.03042, %26 ], [ %.03042, %7 ], [ %.03042, %14 ], [ -1, %.loopexit ]
   ret i32 %.1
 }
 
@@ -1657,7 +1657,7 @@ define range(i32 -1, 1) i32 @symlink_visit_add(ptr noundef captures(none) %0, i3
   br label %.thread
 
 .thread:                                          ; preds = %24, %28, %16, %60, %44, %56, %52, %66, %78, %74
-  %.2 = phi i32 [ -1, %74 ], [ -1, %52 ], [ 0, %60 ], [ -1, %44 ], [ -1, %56 ], [ -1, %66 ], [ -1, %78 ], [ -1, %16 ], [ -1, %28 ], [ -1, %24 ]
+  %.2 = phi i32 [ 0, %60 ], [ -1, %44 ], [ -1, %56 ], [ -1, %52 ], [ -1, %66 ], [ -1, %78 ], [ -1, %74 ], [ -1, %16 ], [ -1, %28 ], [ -1, %24 ]
   ret i32 %.2
 }
 
@@ -1905,12 +1905,12 @@ trav_token_add.exit:                              ; preds = %._crit_edge.i, %67
   call void @free(ptr noundef nonnull %.052) #19
   br label %.critedge71
 
-.critedge71:                                      ; preds = %.critedge71.sink.split, %36, %91
+.critedge71:                                      ; preds = %.critedge71.sink.split, %91, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %105, %106, %103, %104, %.critedge71
-  %.151 = phi i32 [ -1, %103 ], [ -1, %.critedge71 ], [ 0, %105 ], [ -1, %20 ], [ -1, %104 ], [ 0, %106 ]
+  %.151 = phi i32 [ -1, %.critedge71 ], [ -1, %104 ], [ -1, %103 ], [ 0, %106 ], [ 0, %105 ], [ -1, %20 ]
   ret i32 %.151
 }
 

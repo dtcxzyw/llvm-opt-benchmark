@@ -578,12 +578,12 @@ calc_payload_hash.exit:                           ; preds = %128
   br label %.thread218
 
 .thread218:                                       ; preds = %139, %calc_payload_hash.exit, %58, %64, %84, %90, %150, %237, %234, %231, %227, %223, %217, %208, %203, %200, %190, %184, %178, %167, %161, %152, %147, %245, %35
-  %.0114 = phi ptr [ null, %35 ], [ null, %147 ], [ null, %152 ], [ null, %161 ], [ null, %167 ], [ %199, %200 ], [ %199, %217 ], [ %199, %223 ], [ %199, %227 ], [ %199, %231 ], [ %199, %234 ], [ %199, %245 ], [ %199, %237 ], [ %199, %208 ], [ %199, %203 ], [ null, %190 ], [ null, %184 ], [ null, %178 ], [ null, %150 ], [ null, %58 ], [ null, %90 ], [ null, %84 ], [ null, %64 ], [ null, %calc_payload_hash.exit ], [ null, %139 ]
-  %.0113 = phi ptr [ null, %35 ], [ null, %147 ], [ null, %152 ], [ null, %161 ], [ null, %167 ], [ null, %200 ], [ %207, %217 ], [ %207, %223 ], [ %207, %227 ], [ %207, %231 ], [ %207, %234 ], [ %207, %245 ], [ %207, %237 ], [ %207, %208 ], [ null, %203 ], [ null, %190 ], [ null, %184 ], [ null, %178 ], [ null, %150 ], [ null, %58 ], [ null, %90 ], [ null, %84 ], [ null, %64 ], [ null, %calc_payload_hash.exit ], [ null, %139 ]
-  %.0112 = phi ptr [ null, %35 ], [ null, %147 ], [ null, %152 ], [ null, %161 ], [ null, %167 ], [ %189, %200 ], [ %189, %217 ], [ %189, %223 ], [ %189, %227 ], [ %189, %231 ], [ %189, %234 ], [ %189, %245 ], [ %189, %237 ], [ %189, %208 ], [ %189, %203 ], [ %189, %190 ], [ null, %184 ], [ null, %178 ], [ null, %150 ], [ null, %58 ], [ null, %90 ], [ null, %84 ], [ null, %64 ], [ null, %calc_payload_hash.exit ], [ null, %139 ]
-  %.0111 = phi ptr [ null, %35 ], [ null, %147 ], [ null, %152 ], [ null, %161 ], [ null, %167 ], [ null, %200 ], [ %216, %217 ], [ %216, %223 ], [ %216, %227 ], [ %216, %231 ], [ %216, %234 ], [ %216, %245 ], [ %216, %237 ], [ null, %208 ], [ null, %203 ], [ null, %190 ], [ null, %184 ], [ null, %178 ], [ null, %150 ], [ null, %58 ], [ null, %90 ], [ null, %84 ], [ null, %64 ], [ null, %calc_payload_hash.exit ], [ null, %139 ]
-  %.0107 = phi ptr [ null, %35 ], [ null, %147 ], [ null, %152 ], [ null, %161 ], [ null, %167 ], [ %183, %200 ], [ %183, %217 ], [ %183, %223 ], [ %183, %227 ], [ %183, %231 ], [ %183, %234 ], [ %183, %245 ], [ %183, %237 ], [ %183, %208 ], [ %183, %203 ], [ %183, %190 ], [ %183, %184 ], [ null, %178 ], [ null, %150 ], [ null, %58 ], [ null, %90 ], [ null, %84 ], [ null, %64 ], [ null, %calc_payload_hash.exit ], [ null, %139 ]
-  %.0104 = phi i32 [ 43, %35 ], [ %149, %147 ], [ %155, %152 ], [ %166, %161 ], [ %171, %167 ], [ 27, %200 ], [ %222, %217 ], [ %226, %223 ], [ %230, %227 ], [ %233, %231 ], [ %236, %234 ], [ 0, %245 ], [ 0, %237 ], [ 27, %208 ], [ 27, %203 ], [ 27, %190 ], [ 27, %184 ], [ 27, %178 ], [ 27, %150 ], [ 3, %58 ], [ 3, %90 ], [ 3, %84 ], [ 3, %64 ], [ %144, %calc_payload_hash.exit ], [ %140, %139 ]
+  %.0114 = phi ptr [ null, %35 ], [ null, %147 ], [ null, %152 ], [ null, %161 ], [ null, %167 ], [ %199, %200 ], [ %199, %217 ], [ %199, %223 ], [ %199, %227 ], [ %199, %231 ], [ %199, %234 ], [ %199, %245 ], [ %199, %237 ], [ %199, %208 ], [ %199, %203 ], [ null, %190 ], [ null, %184 ], [ null, %178 ], [ null, %150 ], [ null, %90 ], [ null, %84 ], [ null, %64 ], [ null, %58 ], [ null, %calc_payload_hash.exit ], [ null, %139 ]
+  %.0113 = phi ptr [ null, %35 ], [ null, %147 ], [ null, %152 ], [ null, %161 ], [ null, %167 ], [ null, %200 ], [ %207, %217 ], [ %207, %223 ], [ %207, %227 ], [ %207, %231 ], [ %207, %234 ], [ %207, %245 ], [ %207, %237 ], [ %207, %208 ], [ null, %203 ], [ null, %190 ], [ null, %184 ], [ null, %178 ], [ null, %150 ], [ null, %90 ], [ null, %84 ], [ null, %64 ], [ null, %58 ], [ null, %calc_payload_hash.exit ], [ null, %139 ]
+  %.0112 = phi ptr [ null, %35 ], [ null, %147 ], [ null, %152 ], [ null, %161 ], [ null, %167 ], [ %189, %200 ], [ %189, %217 ], [ %189, %223 ], [ %189, %227 ], [ %189, %231 ], [ %189, %234 ], [ %189, %245 ], [ %189, %237 ], [ %189, %208 ], [ %189, %203 ], [ %189, %190 ], [ null, %184 ], [ null, %178 ], [ null, %150 ], [ null, %90 ], [ null, %84 ], [ null, %64 ], [ null, %58 ], [ null, %calc_payload_hash.exit ], [ null, %139 ]
+  %.0111 = phi ptr [ null, %35 ], [ null, %147 ], [ null, %152 ], [ null, %161 ], [ null, %167 ], [ null, %200 ], [ %216, %217 ], [ %216, %223 ], [ %216, %227 ], [ %216, %231 ], [ %216, %234 ], [ %216, %245 ], [ %216, %237 ], [ null, %208 ], [ null, %203 ], [ null, %190 ], [ null, %184 ], [ null, %178 ], [ null, %150 ], [ null, %90 ], [ null, %84 ], [ null, %64 ], [ null, %58 ], [ null, %calc_payload_hash.exit ], [ null, %139 ]
+  %.0107 = phi ptr [ null, %35 ], [ null, %147 ], [ null, %152 ], [ null, %161 ], [ null, %167 ], [ %183, %200 ], [ %183, %217 ], [ %183, %223 ], [ %183, %227 ], [ %183, %231 ], [ %183, %234 ], [ %183, %245 ], [ %183, %237 ], [ %183, %208 ], [ %183, %203 ], [ %183, %190 ], [ %183, %184 ], [ null, %178 ], [ null, %150 ], [ null, %90 ], [ null, %84 ], [ null, %64 ], [ null, %58 ], [ null, %calc_payload_hash.exit ], [ null, %139 ]
+  %.0104 = phi i32 [ 43, %35 ], [ %149, %147 ], [ %155, %152 ], [ %166, %161 ], [ %171, %167 ], [ 27, %200 ], [ %222, %217 ], [ %226, %223 ], [ %230, %227 ], [ %233, %231 ], [ %236, %234 ], [ 0, %245 ], [ 0, %237 ], [ 27, %208 ], [ 27, %203 ], [ 27, %190 ], [ 27, %184 ], [ 27, %178 ], [ 27, %150 ], [ 3, %90 ], [ 3, %84 ], [ 3, %64 ], [ 3, %58 ], [ %144, %calc_payload_hash.exit ], [ %140, %139 ]
   call void @Curl_dyn_free(ptr noundef nonnull %14) #10
   call void @Curl_dyn_free(ptr noundef nonnull %15) #10
   call void @Curl_dyn_free(ptr noundef nonnull %12) #10
@@ -604,7 +604,7 @@ calc_payload_hash.exit:                           ; preds = %128
   br label %262
 
 262:                                              ; preds = %2, %.thread218
-  %.0 = phi i32 [ 0, %2 ], [ %.0104, %.thread218 ]
+  %.0 = phi i32 [ %.0104, %.thread218 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -874,8 +874,8 @@ define internal fastcc range(i32 0, 28) i32 @make_headers(ptr noundef %0, ptr no
   call void %61(ptr noundef nonnull %52) #10
   br label %.thread221
 
-62:                                               ; preds = %.critedge2, %39, %43, %53
-  %.5.ph = phi ptr [ %59, %53 ], [ %.4240, %43 ], [ %.4240, %39 ], [ %.4240, %.critedge2 ]
+62:                                               ; preds = %43, %39, %.critedge2, %53
+  %.5.ph = phi ptr [ %59, %53 ], [ %.4240, %.critedge2 ], [ %.4240, %39 ], [ %.4240, %43 ]
   %63 = getelementptr inbounds nuw i8, ptr %.0136241, i64 8
   %.0136 = load ptr, ptr %63, align 8, !tbaa !106
   %.not162 = icmp eq ptr %.0136, null
@@ -957,7 +957,7 @@ define internal fastcc range(i32 0, 28) i32 @make_headers(ptr noundef %0, ptr no
   br i1 %.not41.i, label %.critedge._crit_edge.i, label %.preheader.i, !llvm.loop !113
 
 .critedge._crit_edge.i:                           ; preds = %71, %77, %.critedge.i
-  %.034.lcssa.i = phi ptr [ %80, %.critedge.i ], [ %.03448.i, %77 ], [ %70, %71 ]
+  %.034.lcssa.i = phi ptr [ %.03448.i, %77 ], [ %80, %.critedge.i ], [ %70, %71 ]
   store i8 0, ptr %.034.lcssa.i, align 1, !tbaa !92
   br label %81
 
@@ -1030,7 +1030,7 @@ find_date_hdr.exit:                               ; preds = %trim_headers.exit
   br i1 %.not166, label %.critedge6, label %.lr.ph244, !llvm.loop !117
 
 .critedge6:                                       ; preds = %.preheader226, %.critedge8, %.lr.ph244
-  %.0127.lcssa = phi ptr [ %98, %.critedge8 ], [ %.0127243, %.lr.ph244 ], [ %.0128, %.preheader226 ]
+  %.0127.lcssa = phi ptr [ %.0127243, %.lr.ph244 ], [ %98, %.critedge8 ], [ %.0128, %.preheader226 ]
   %99 = ptrtoint ptr %.0127.lcssa to i64
   %100 = ptrtoint ptr %.0128 to i64
   %101 = sub i64 %99, %100
@@ -1176,9 +1176,9 @@ compare_header_names.exit:                        ; preds = %122, %126
   %.not168 = icmp eq ptr %154, null
   br i1 %.not168, label %.thread221, label %.lr.ph257, !llvm.loop !120
 
-.thread221:                                       ; preds = %50, %152, %147, %.lr.ph257, %140, %149, %.thread218, %106, %60, %.thread, %87, %33
-  %.0131 = phi i32 [ 27, %149 ], [ 27, %60 ], [ 27, %.thread ], [ 27, %106 ], [ 27, %87 ], [ 27, %33 ], [ 0, %.thread218 ], [ 27, %140 ], [ 27, %.lr.ph257 ], [ 27, %147 ], [ 0, %152 ], [ 27, %50 ]
-  %.2 = phi ptr [ %.6306, %152 ], [ %.4240, %60 ], [ null, %.thread ], [ %.4.lcssa, %106 ], [ %.4.lcssa, %87 ], [ %.0126, %33 ], [ null, %.thread218 ], [ %.6306, %149 ], [ %.6306, %140 ], [ %.6306, %.lr.ph257 ], [ %.6306, %147 ], [ %.4240, %50 ]
+.thread221:                                       ; preds = %50, %152, %.lr.ph257, %140, %147, %149, %.thread218, %106, %60, %.thread, %87, %33
+  %.0131 = phi i32 [ 27, %106 ], [ 27, %87 ], [ 27, %33 ], [ 27, %.thread ], [ 27, %60 ], [ 0, %.thread218 ], [ 0, %152 ], [ 27, %.lr.ph257 ], [ 27, %140 ], [ 27, %147 ], [ 27, %149 ], [ 27, %50 ]
+  %.2 = phi ptr [ %.4.lcssa, %106 ], [ %.4.lcssa, %87 ], [ %.0126, %33 ], [ null, %.thread ], [ %.4240, %60 ], [ null, %.thread218 ], [ %.6306, %149 ], [ %.6306, %147 ], [ %.6306, %140 ], [ %.6306, %.lr.ph257 ], [ %.6306, %152 ], [ %.4240, %50 ]
   call void @curl_slist_free_all(ptr noundef %.2) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1274,7 +1274,7 @@ define internal fastcc i32 @canon_query(ptr noundef %0, ptr noundef %1, ptr noun
   br label %36
 
 36:                                               ; preds = %32, %34, %20
-  %.1 = phi i32 [ 0, %20 ], [ 0, %32 ], [ %35, %34 ]
+  %.1 = phi i32 [ 0, %20 ], [ %35, %34 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %37 = add nuw nsw i32 %.04567, 1
   %38 = getelementptr inbounds nuw i8, ptr %.24268, i64 16
@@ -1521,7 +1521,7 @@ define internal i32 @compare_func(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %8, %10, %12
-  %.0 = phi i32 [ %15, %12 ], [ %spec.select, %8 ], [ 1, %10 ]
+  %.0 = phi i32 [ %15, %12 ], [ 1, %10 ], [ %spec.select, %8 ]
   ret i32 %.0
 }
 

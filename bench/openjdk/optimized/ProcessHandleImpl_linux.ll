@@ -307,7 +307,7 @@ define hidden void @os_getCmdlineAndUserInfo(ptr noundef %0, ptr noundef %1, i32
   br i1 %exitcond.not, label %.loopexit102, label %.lr.ph108, !llvm.loop !9
 
 .loopexit102:                                     ; preds = %84, %74, %70
-  %.173 = phi ptr [ null, %70 ], [ null, %74 ], [ %77, %84 ]
+  %.173 = phi ptr [ null, %74 ], [ null, %70 ], [ %77, %84 ]
   br i1 %.not87, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit102

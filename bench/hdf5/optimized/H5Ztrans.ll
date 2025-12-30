@@ -285,7 +285,7 @@ H5Z__xform_find_type.exit.thread:                 ; preds = %114, %117
   br label %124
 
 H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %99, %93, %87, %81, %75, %69, %63, %57, %51, %45, %39
-  %.0.i.in = phi ptr [ @H5T_NATIVE_DOUBLE_g, %111 ], [ @H5T_NATIVE_SHORT_g, %39 ], [ @H5T_NATIVE_INT_g, %45 ], [ @H5T_NATIVE_LONG_g, %51 ], [ @H5T_NATIVE_LLONG_g, %57 ], [ @H5T_NATIVE_UCHAR_g, %63 ], [ @H5T_NATIVE_SCHAR_g, %69 ], [ @H5T_NATIVE_SCHAR_g, %75 ], [ @H5T_NATIVE_USHORT_g, %81 ], [ @H5T_NATIVE_UINT_g, %87 ], [ @H5T_NATIVE_ULONG_g, %93 ], [ @H5T_NATIVE_ULLONG_g, %99 ], [ @H5T_NATIVE_FLOAT_g, %105 ], [ @H5T_NATIVE_LDOUBLE_g, %117 ]
+  %.0.i.in = phi ptr [ @H5T_NATIVE_SHORT_g, %39 ], [ @H5T_NATIVE_INT_g, %45 ], [ @H5T_NATIVE_LONG_g, %51 ], [ @H5T_NATIVE_LLONG_g, %57 ], [ @H5T_NATIVE_UCHAR_g, %63 ], [ @H5T_NATIVE_SCHAR_g, %69 ], [ @H5T_NATIVE_SCHAR_g, %75 ], [ @H5T_NATIVE_USHORT_g, %81 ], [ @H5T_NATIVE_UINT_g, %87 ], [ @H5T_NATIVE_ULONG_g, %93 ], [ @H5T_NATIVE_ULLONG_g, %99 ], [ @H5T_NATIVE_FLOAT_g, %105 ], [ @H5T_NATIVE_DOUBLE_g, %111 ], [ @H5T_NATIVE_LDOUBLE_g, %117 ]
   %.0.i = load i64, ptr %.0.i.in, align 8, !tbaa !10
   %123 = icmp slt i64 %.0.i, 0
   br i1 %123, label %124, label %128
@@ -791,7 +791,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   br i1 %398, label %.lr.ph138, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.lr.ph136, %393, %359, %363, %143, %172, %201, %230, %258, %287, %304, %316, %301, %272, %244, %216, %186, %157, %.critedge, %31
-  %.1 = phi i32 [ 0, %363 ], [ -1, %.critedge ], [ 0, %31 ], [ 0, %157 ], [ 0, %186 ], [ 0, %216 ], [ 0, %244 ], [ 0, %272 ], [ 0, %301 ], [ 0, %316 ], [ 0, %304 ], [ 0, %287 ], [ 0, %258 ], [ 0, %230 ], [ 0, %201 ], [ 0, %172 ], [ 0, %143 ], [ -1, %393 ], [ 0, %359 ], [ 0, %.lr.ph136 ]
+  %.1 = phi i32 [ -1, %.critedge ], [ 0, %31 ], [ 0, %157 ], [ 0, %186 ], [ 0, %216 ], [ 0, %244 ], [ 0, %272 ], [ 0, %301 ], [ 0, %316 ], [ 0, %304 ], [ 0, %287 ], [ 0, %258 ], [ 0, %230 ], [ 0, %201 ], [ 0, %172 ], [ 0, %143 ], [ 0, %363 ], [ 0, %359 ], [ -1, %393 ], [ 0, %.lr.ph136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
@@ -7213,7 +7213,7 @@ switch.early.test:                                ; preds = %60
   br label %71
 
 71:                                               ; preds = %switch.early.test, %switch.early.test, %60, %39, %69
-  %.2 = phi i32 [ %.15792, %switch.early.test ], [ %.15792, %39 ], [ %70, %69 ], [ %.15792, %60 ], [ %.15792, %switch.early.test ]
+  %.2 = phi i32 [ %.15792, %switch.early.test ], [ %70, %69 ], [ %.15792, %39 ], [ %.15792, %60 ], [ %.15792, %switch.early.test ]
   %72 = add i32 %.05890, 1
   %73 = zext i32 %72 to i64
   %74 = icmp ugt i64 %35, %73
@@ -7239,7 +7239,7 @@ switch.early.test:                                ; preds = %60
   br label %.thread114
 
 ._crit_edge.thread:                               ; preds = %.preheader, %75, %._crit_edge
-  %.157.lcssa113 = phi i32 [ 0, %._crit_edge ], [ %.2, %75 ], [ 0, %.preheader ]
+  %.157.lcssa113 = phi i32 [ %.2, %75 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
   store i32 0, ptr %26, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %85 = load i8, ptr @H5Z_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -7286,8 +7286,8 @@ H5Z__xform_parse.exit:                            ; preds = %._crit_edge.thread
   tail call fastcc void @H5Z__xform_destroy_parse_tree(ptr noundef nonnull %93)
   br label %.thread114
 
-.thread114:                                       ; preds = %102, %96, %81
-  %.056119 = phi i32 [ %.157.lcssa113, %102 ], [ 1, %81 ], [ %.157.lcssa113, %96 ]
+.thread114:                                       ; preds = %102, %81, %96
+  %.056119 = phi i32 [ %.157.lcssa113, %102 ], [ %.157.lcssa113, %96 ], [ 1, %81 ]
   %106 = tail call ptr @H5MM_xfree(ptr noundef nonnull %33) #12
   %.not77 = icmp eq i32 %.056119, 0
   br i1 %.not77, label %.thread121, label %107
@@ -7317,7 +7317,7 @@ H5Z__xform_parse.exit:                            ; preds = %._crit_edge.thread
   br label %.thread
 
 .thread:                                          ; preds = %21, %11, %100, %117, %15
-  %.1 = phi ptr [ null, %117 ], [ null, %11 ], [ null, %15 ], [ %19, %100 ], [ null, %21 ]
+  %.1 = phi ptr [ null, %117 ], [ null, %15 ], [ %19, %100 ], [ null, %21 ], [ null, %11 ]
   ret ptr %.1
 }
 
@@ -7524,7 +7524,7 @@ define range(i32 -1, 1) i32 @H5Z_xform_copy(ptr noundef captures(none) %0) local
   br label %86
 
 ._crit_edge.thread:                               ; preds = %.preheader, %58, %._crit_edge
-  %.038.lcssa70 = phi i32 [ 0, %._crit_edge ], [ %spec.select, %58 ], [ 0, %.preheader ]
+  %.038.lcssa70 = phi i32 [ %spec.select, %58 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
   store i32 0, ptr %35, align 8, !tbaa !33
   %68 = load ptr, ptr %0, align 8, !tbaa !210
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -7581,7 +7581,7 @@ define range(i32 -1, 1) i32 @H5Z_xform_copy(ptr noundef captures(none) %0) local
   br label %.thread
 
 .thread:                                          ; preds = %22, %10, %17, %85, %94, %14
-  %.1 = phi i32 [ -1, %94 ], [ -1, %10 ], [ 0, %14 ], [ 0, %17 ], [ 0, %85 ], [ -1, %22 ]
+  %.1 = phi i32 [ -1, %94 ], [ 0, %14 ], [ 0, %17 ], [ 0, %85 ], [ -1, %22 ], [ -1, %10 ]
   ret i32 %.1
 }
 
@@ -7707,7 +7707,7 @@ define internal fastcc noalias noundef ptr @H5Z__xform_copy_tree(ptr noundef rea
   br i1 %.not109, label %70, label %67
 
 common.ret15:                                     ; preds = %15, %27, %39, %55, %75, %95, %115, %132, %31, %70, %110, %130, %90, %43, %19, %2, %127, %107, %87, %67
-  %common.ret15.op = phi ptr [ %113, %127 ], [ %53, %67 ], [ %73, %87 ], [ %93, %107 ], [ null, %115 ], [ %93, %110 ], [ %113, %130 ], [ null, %95 ], [ null, %15 ], [ %13, %19 ], [ null, %27 ], [ %25, %31 ], [ null, %39 ], [ %37, %43 ], [ null, %55 ], [ null, %2 ], [ %53, %70 ], [ null, %75 ], [ null, %132 ], [ %73, %90 ]
+  %common.ret15.op = phi ptr [ %53, %67 ], [ %73, %87 ], [ %93, %107 ], [ %113, %127 ], [ null, %15 ], [ %13, %19 ], [ null, %27 ], [ %25, %31 ], [ null, %39 ], [ %37, %43 ], [ null, %55 ], [ %53, %70 ], [ null, %75 ], [ %73, %90 ], [ null, %95 ], [ %93, %110 ], [ null, %115 ], [ %113, %130 ], [ null, %132 ], [ null, %2 ]
   ret ptr %common.ret15.op
 
 67:                                               ; preds = %64
@@ -7881,7 +7881,7 @@ define zeroext i1 @H5Z_xform_noop(ptr noundef readonly captures(address_is_null)
   br label %19
 
 19:                                               ; preds = %16, %13, %9, %1
-  %.0 = phi i1 [ true, %1 ], [ %18, %16 ], [ false, %13 ], [ false, %9 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %9 ], [ true, %1 ], [ %18, %16 ]
   ret i1 %.0
 }
 
@@ -7960,7 +7960,7 @@ H5Z__unget_token.exit:                            ; preds = %H5Z__unget_token.ex
   br i1 %.not45, label %35, label %H5Z__unget_token.exit.backedge
 
 H5Z__unget_token.exit.backedge:                   ; preds = %31, %56
-  %.036.be = phi ptr [ %47, %56 ], [ %22, %31 ]
+  %.036.be = phi ptr [ %22, %31 ], [ %47, %56 ]
   br label %H5Z__unget_token.exit
 
 35:                                               ; preds = %31
@@ -8177,7 +8177,7 @@ H5Z__op_is_numbs.exit34:                          ; preds = %42
   %switch19.i = icmp ult i32 %.off18.i, 2
   br i1 %switch19.i, label %H5Z__op_is_numbs.exit34.thread.sink.split, label %65
 
-65:                                               ; preds = %62, %59, %56, %51
+65:                                               ; preds = %59, %56, %62, %51
   tail call fastcc void @H5Z__xform_reduce_tree(ptr noundef %50)
   %66 = load i8, ptr @H5Z_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %67 = trunc nuw i8 %66 to i1
@@ -8221,7 +8221,7 @@ H5Z__op_is_numbs.exit34:                          ; preds = %42
   %switch19.i44 = icmp ult i32 %.off18.i43, 2
   br i1 %switch19.i44, label %H5Z__op_is_numbs.exit34.thread.sink.split, label %88
 
-88:                                               ; preds = %85, %82, %79, %65, %74
+88:                                               ; preds = %82, %65, %79, %85, %74
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !44
   tail call fastcc void @H5Z__xform_reduce_tree(ptr noundef %90)
@@ -8269,7 +8269,7 @@ H5Z__op_is_numbs.exit34.thread.sink.split:        ; preds = %99, %108, %74, %85,
   tail call fastcc void @H5Z__do_op(ptr noundef %0)
   br label %H5Z__op_is_numbs.exit34.thread
 
-H5Z__op_is_numbs.exit34.thread:                   ; preds = %H5Z__op_is_numbs.exit34.thread.sink.split, %99, %88, %103, %106, %108, %42, %H5Z__op_is_numbs.exit28.thread, %9, %H5Z__op_is_numbs.exit34, %1
+H5Z__op_is_numbs.exit34.thread:                   ; preds = %H5Z__op_is_numbs.exit34.thread.sink.split, %99, %108, %103, %88, %106, %42, %H5Z__op_is_numbs.exit28.thread, %9, %H5Z__op_is_numbs.exit34, %1
   ret void
 }
 
@@ -8387,7 +8387,7 @@ H5Z__unget_token.exit:                            ; preds = %H5Z__unget_token.ex
   br i1 %.not45, label %60, label %H5Z__unget_token.exit.backedge
 
 H5Z__unget_token.exit.backedge:                   ; preds = %56, %31
-  %.038.be = phi ptr [ %22, %31 ], [ %47, %56 ]
+  %.038.be = phi ptr [ %47, %56 ], [ %22, %31 ]
   br label %H5Z__unget_token.exit
 
 60:                                               ; preds = %56
@@ -8450,8 +8450,8 @@ H5Z__unget_token.exit.backedge:                   ; preds = %56, %31
   %99 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__parse_term, i32 noundef 722, i64 noundef %97, i64 noundef %98, ptr noundef nonnull @.str.19) #12
   br label %H5Z__unget_token.exit.thread
 
-H5Z__unget_token.exit.thread:                     ; preds = %H5Z__unget_token.exit, %87, %80, %64, %71, %.loopexit, %60, %.loopexit59, %35, %96, %2
-  %.037 = phi ptr [ null, %2 ], [ %.038, %87 ], [ %.038, %80 ], [ %.038, %64 ], [ %.038, %71 ], [ null, %.loopexit ], [ null, %60 ], [ null, %.loopexit59 ], [ null, %35 ], [ null, %96 ], [ %.038, %H5Z__unget_token.exit ]
+H5Z__unget_token.exit.thread:                     ; preds = %H5Z__unget_token.exit, %87, %80, %71, %64, %.loopexit, %60, %.loopexit59, %35, %96, %2
+  %.037 = phi ptr [ null, %2 ], [ %.038, %87 ], [ %.038, %80 ], [ %.038, %71 ], [ %.038, %64 ], [ null, %.loopexit ], [ null, %60 ], [ null, %.loopexit59 ], [ null, %35 ], [ null, %96 ], [ %.038, %H5Z__unget_token.exit ]
   ret ptr %.037
 }
 
@@ -8991,7 +8991,7 @@ define internal fastcc ptr @H5Z__parse_factor(ptr noundef nonnull captures(none)
   br label %177
 
 177:                                              ; preds = %9, %31, %55, %79, %132, %166, %94, %27, %51, %75, %90, %97, %101, %110, %128, %135, %144, %162, %169, %173, %2
-  %.0 = phi ptr [ null, %173 ], [ null, %2 ], [ null, %27 ], [ null, %51 ], [ null, %75 ], [ null, %97 ], [ null, %90 ], [ null, %101 ], [ null, %110 ], [ null, %128 ], [ null, %135 ], [ null, %144 ], [ null, %162 ], [ null, %169 ], [ %21, %31 ], [ %45, %55 ], [ %69, %79 ], [ %89, %94 ], [ %122, %132 ], [ %156, %166 ], [ null, %9 ]
+  %.0 = phi ptr [ null, %173 ], [ null, %27 ], [ null, %51 ], [ null, %75 ], [ null, %97 ], [ null, %90 ], [ null, %101 ], [ null, %110 ], [ null, %128 ], [ null, %135 ], [ null, %144 ], [ null, %162 ], [ null, %169 ], [ null, %2 ], [ %21, %31 ], [ %45, %55 ], [ %69, %79 ], [ %89, %94 ], [ %122, %132 ], [ %156, %166 ], [ null, %9 ]
   ret ptr %.0
 }
 

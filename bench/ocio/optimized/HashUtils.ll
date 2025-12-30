@@ -349,7 +349,7 @@ _ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i:       ; preds = %178, %116
   br label %255
 
 255:                                              ; preds = %8, %47, %77, %78, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i, %251, %253
-  %.pn.i.i = phi { i64, i64 } [ %254, %253 ], [ %.fca.1.insert.i.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i ], [ %252, %251 ], [ %.fca.1.insert.i2.i, %8 ], [ %.fca.1.insert.i4.i, %47 ], [ %.fca.1.insert.i6.i, %78 ], [ { i64 6918025063187695999, i64 -7374073936536430376 }, %77 ]
+  %.pn.i.i = phi { i64, i64 } [ %.fca.1.insert.i.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i ], [ %252, %251 ], [ %254, %253 ], [ %.fca.1.insert.i2.i, %8 ], [ %.fca.1.insert.i4.i, %47 ], [ %.fca.1.insert.i6.i, %78 ], [ { i64 6918025063187695999, i64 -7374073936536430376 }, %77 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
   %256 = getelementptr inbounds nuw i8, ptr %4, i64 16

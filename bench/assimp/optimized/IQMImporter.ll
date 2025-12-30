@@ -243,7 +243,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %48,
   resume { ptr, i32 } %.pn14
 
 _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit24: ; preds = %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i23, %44, %10, %14, %4
-  %.010 = phi i1 [ true, %14 ], [ false, %10 ], [ true, %4 ], [ false, %44 ], [ %.111.ph, %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i23 ]
+  %.010 = phi i1 [ true, %4 ], [ true, %14 ], [ false, %10 ], [ false, %44 ], [ %.111.ph, %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i23 ]
   %54 = load ptr, ptr %5, align 8
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %56 = icmp eq ptr %54, %55
@@ -1294,12 +1294,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   br label %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i311
 
 481:                                              ; preds = %247, %314, %351, %387, %421, %465, %279, %257, %251, %249
-  %.pn275 = phi { ptr, i32 } [ %315, %314 ], [ %352, %351 ], [ %388, %387 ], [ %422, %421 ], [ %466, %465 ], [ %248, %247 ], [ %280, %279 ], [ %252, %251 ], [ %250, %249 ], [ %.pn259, %257 ]
+  %.pn275 = phi { ptr, i32 } [ %248, %247 ], [ %280, %279 ], [ %250, %249 ], [ %.pn259, %257 ], [ %252, %251 ], [ %315, %314 ], [ %352, %351 ], [ %388, %387 ], [ %422, %421 ], [ %466, %465 ]
   call void @_ZdlPvm(ptr noundef nonnull %49, i64 noundef %36) #18
   br label %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i311
 
 _ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i311: ; preds = %481, %44, %42, %61, %.thread358
-  %.pn278.pn350 = phi { ptr, i32 } [ %.pn275.ph, %.thread358 ], [ %.pn275, %481 ], [ %62, %61 ], [ %45, %44 ], [ %43, %42 ]
+  %.pn278.pn350 = phi { ptr, i32 } [ %.pn275, %481 ], [ %.pn275.ph, %.thread358 ], [ %62, %61 ], [ %45, %44 ], [ %43, %42 ]
   %482 = load ptr, ptr %16, align 8
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 8
   %484 = load ptr, ptr %483, align 8
@@ -1307,7 +1307,7 @@ _ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i311: ; preds = %481, %44
   br label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit312
 
 _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit312: ; preds = %30, %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i311, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285
-  %.pn278.pn.pn = phi { ptr, i32 } [ %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285 ], [ %31, %30 ], [ %.pn278.pn350, %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i311 ]
+  %.pn278.pn.pn = phi { ptr, i32 } [ %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285 ], [ %.pn278.pn350, %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i311 ], [ %31, %30 ]
   resume { ptr, i32 } %.pn278.pn.pn
 
 485:                                              ; preds = %77, %60, %41

@@ -1326,7 +1326,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core3URIEED2Ev.ex
   br label %_ZN4absl12lts_202407229MutexLockD2Ev.exit44
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit44:      ; preds = %95, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43, %151, %146, %140, %93
-  %.pn34.pn = phi { ptr, i32 } [ %.pn34, %151 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %.pn32, %146 ], [ %141, %140 ], [ %94, %93 ], [ %96, %95 ]
+  %.pn34.pn = phi { ptr, i32 } [ %.pn34, %151 ], [ %.pn32, %146 ], [ %141, %140 ], [ %94, %93 ], [ %96, %95 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ]
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core3URIEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %6) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn34.pn

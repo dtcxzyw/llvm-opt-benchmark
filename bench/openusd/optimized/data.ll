@@ -1044,7 +1044,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit unwind label %285
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %34, %41
-  %.0.i = phi i1 [ %42, %41 ], [ %40, %34 ]
+  %.0.i = phi i1 [ %40, %34 ], [ %42, %41 ]
   br i1 %.0.i, label %43, label %.critedge61.thread
 
 43:                                               ; preds = %30, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit
@@ -1119,7 +1119,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %34, %41
 
 88:                                               ; preds = %81
   %89 = xor i1 %84, %87
-  br i1 %89, label %.critedge.thread105.thread120, label %101
+  br i1 %89, label %.critedge59.thread110, label %101
 
 90:                                               ; preds = %81
   %91 = icmp eq ptr %83, %86
@@ -1132,15 +1132,15 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %34, %41
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 64
   %97 = load ptr, ptr %96, align 8
   %98 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69 unwind label %.thread110
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69 unwind label %.thread116
 
 99:                                               ; preds = %90
   %100 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue13_EqualityImplERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69 unwind label %.thread110
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69 unwind label %.thread116
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69: ; preds = %92, %99
-  %.0.i66 = phi i1 [ %100, %99 ], [ %98, %92 ]
-  br i1 %.0.i66, label %101, label %.critedge.thread105.thread120
+  %.0.i66 = phi i1 [ %98, %92 ], [ %100, %99 ]
+  br i1 %.0.i66, label %101, label %.critedge59.thread110
 
 101:                                              ; preds = %88, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69, %72
   %102 = load ptr, ptr %0, align 8
@@ -1158,7 +1158,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69: ; preds = %92, %9
 
 111:                                              ; preds = %106
   %112 = fcmp oeq double %105, %110
-  br i1 %112, label %113, label %.critedge.thread105
+  br i1 %112, label %113, label %.critedge59
 
 113:                                              ; preds = %111
   %114 = load ptr, ptr %0, align 8
@@ -1176,7 +1176,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69: ; preds = %92, %9
 
 123:                                              ; preds = %118
   %124 = fcmp oeq double %117, %122
-  br i1 %124, label %125, label %.critedge.thread105
+  br i1 %124, label %125, label %.critedge59
 
 125:                                              ; preds = %123
   %126 = load ptr, ptr %0, align 8
@@ -1224,7 +1224,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69: ; preds = %92, %9
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit74 unwind label %291
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit74: ; preds = %144, %151
-  %.0.i71 = phi i1 [ %152, %151 ], [ %150, %144 ]
+  %.0.i71 = phi i1 [ %150, %144 ], [ %152, %151 ]
   br i1 %.0.i71, label %153, label %.critedge
 
 153:                                              ; preds = %140, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit74
@@ -1323,9 +1323,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %177, %184
   store ptr null, ptr %192, align 8
   br label %.critedge
 
-.critedge.thread105:                              ; preds = %111, %123
-  br i1 %71, label %.critedge.thread105.thread120, label %.critedge61.thread
-
 .critedge:                                        ; preds = %140, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit74, %.critedge.thread
   %205 = phi i1 [ %178, %.critedge.thread ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit74 ], [ false, %140 ]
   %206 = load ptr, ptr %137, align 8
@@ -1359,7 +1356,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit80: ; preds = %.critedge, 
   %220 = and i64 %219, 3
   %221 = icmp eq i64 %220, 3
   %or.cond.i.i82 = or i1 %.not.i.i81, %221
-  br i1 %or.cond.i.i82, label %.critedge59, label %222
+  br i1 %or.cond.i.i82, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit83, label %222
 
 222:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit80
   %223 = and i64 %219, -8
@@ -1367,7 +1364,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit80: ; preds = %.critedge, 
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 32
   %226 = load ptr, ptr %225, align 8
   invoke void %226(ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %.critedge59 unwind label %227
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit83 unwind label %227
 
 227:                                              ; preds = %222
   %228 = landingpad { ptr, i32 }
@@ -1376,12 +1373,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit80: ; preds = %.critedge, 
   call void @__clang_call_terminate(ptr %229) #21
   unreachable
 
-.critedge59:                                      ; preds = %222, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit80
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit83: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit80, %222
   store ptr null, ptr %134, align 8
-  br i1 %71, label %.critedge.thread105.thread120, label %.critedge61.thread
+  br i1 %71, label %.critedge59.thread110, label %.critedge61.thread
 
-.critedge.thread105.thread120:                    ; preds = %88, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69, %.critedge.thread105, %.critedge59
-  %230 = phi i1 [ false, %.critedge.thread105 ], [ %205, %.critedge59 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69 ], [ false, %88 ]
+.critedge59:                                      ; preds = %111, %123
+  br i1 %71, label %.critedge59.thread110, label %.critedge61.thread
+
+.critedge59.thread110:                            ; preds = %88, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit83, %.critedge59
+  %230 = phi i1 [ %205, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit83 ], [ false, %.critedge59 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69 ], [ false, %88 ]
   %231 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %232 = load ptr, ptr %231, align 8
   %233 = ptrtoint ptr %232 to i64
@@ -1391,7 +1391,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit80: ; preds = %.critedge, 
   %or.cond.i.i85 = or i1 %.not.i.i84, %235
   br i1 %or.cond.i.i85, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit86, label %236
 
-236:                                              ; preds = %.critedge.thread105.thread120
+236:                                              ; preds = %.critedge59.thread110
   %237 = and i64 %233, -8
   %238 = inttoptr i64 %237 to ptr
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 32
@@ -1406,7 +1406,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit80: ; preds = %.critedge, 
   call void @__clang_call_terminate(ptr %243) #21
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit86: ; preds = %.critedge.thread105.thread120, %236
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit86: ; preds = %.critedge59.thread110, %236
   store ptr null, ptr %231, align 8
   %244 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %245 = load ptr, ptr %244, align 8
@@ -1436,8 +1436,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit89: ; preds = %_ZN32pxrInt
   store ptr null, ptr %244, align 8
   br label %.critedge61.thread
 
-.critedge61.thread:                               ; preds = %30, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit, %53, %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit89, %.critedge.thread105, %.critedge59
-  %257 = phi i1 [ false, %.critedge.thread105 ], [ %205, %.critedge59 ], [ %230, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit89 ], [ false, %65 ], [ false, %53 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit ], [ false, %30 ]
+.critedge61.thread:                               ; preds = %30, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit, %53, %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit89, %.critedge59, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit83
+  %257 = phi i1 [ %230, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit89 ], [ false, %.critedge59 ], [ %205, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit83 ], [ false, %65 ], [ false, %53 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit ], [ false, %30 ]
   %258 = load ptr, ptr %27, align 8
   %259 = ptrtoint ptr %258 to i64
   %.not.i.i90 = icmp eq ptr %258, null
@@ -1541,7 +1541,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit92: ; preds = %.critedge61
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
   br i1 %71, label %301, label %303
 
-.thread110:                                       ; preds = %99, %92
+.thread116:                                       ; preds = %92, %99
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %301
@@ -1551,18 +1551,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit92: ; preds = %.critedge61
           cleanup
   br i1 %71, label %301, label %303
 
-301:                                              ; preds = %.thread110, %299, %300
-  %.pn.pn.pn.pn108 = phi { ptr, i32 } [ %.pn.pn.pn, %299 ], [ %lpad.thr_comm.split-lp, %300 ], [ %lpad.thr_comm, %.thread110 ]
+301:                                              ; preds = %.thread116, %299, %300
+  %.pn.pn.pn.pn114 = phi { ptr, i32 } [ %.pn.pn.pn, %299 ], [ %lpad.thr_comm.split-lp, %300 ], [ %lpad.thr_comm, %.thread116 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
   br label %302
 
 302:                                              ; preds = %301, %287
-  %.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %288, %287 ], [ %.pn.pn.pn.pn108, %301 ]
+  %.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %288, %287 ], [ %.pn.pn.pn.pn114, %301 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %303
 
 303:                                              ; preds = %300, %299, %285, %302
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.ph, %302 ], [ %286, %285 ], [ %.pn.pn.pn, %299 ], [ %lpad.thr_comm.split-lp, %300 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.ph, %302 ], [ %286, %285 ], [ %lpad.thr_comm.split-lp, %300 ], [ %.pn.pn.pn, %299 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
   br label %304
 
@@ -3679,7 +3679,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit unwind label %285
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %34, %41
-  %.0.i = phi i1 [ %42, %41 ], [ %40, %34 ]
+  %.0.i = phi i1 [ %40, %34 ], [ %42, %41 ]
   br i1 %.0.i, label %43, label %.critedge61.thread
 
 43:                                               ; preds = %30, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit
@@ -3754,7 +3754,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %34, %41
 
 88:                                               ; preds = %81
   %89 = xor i1 %84, %87
-  br i1 %89, label %.critedge.thread105.thread120, label %101
+  br i1 %89, label %.critedge59.thread110, label %101
 
 90:                                               ; preds = %81
   %91 = icmp eq ptr %83, %86
@@ -3767,15 +3767,15 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %34, %41
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 64
   %97 = load ptr, ptr %96, align 8
   %98 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69 unwind label %.thread110
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69 unwind label %.thread116
 
 99:                                               ; preds = %90
   %100 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue13_EqualityImplERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69 unwind label %.thread110
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69 unwind label %.thread116
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69: ; preds = %92, %99
-  %.0.i66 = phi i1 [ %100, %99 ], [ %98, %92 ]
-  br i1 %.0.i66, label %101, label %.critedge.thread105.thread120
+  %.0.i66 = phi i1 [ %98, %92 ], [ %100, %99 ]
+  br i1 %.0.i66, label %101, label %.critedge59.thread110
 
 101:                                              ; preds = %88, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69, %72
   %102 = load ptr, ptr %0, align 8
@@ -3793,7 +3793,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69: ; preds = %92, %9
 
 111:                                              ; preds = %106
   %112 = fcmp oeq double %105, %110
-  br i1 %112, label %113, label %.critedge.thread105
+  br i1 %112, label %113, label %.critedge59
 
 113:                                              ; preds = %111
   %114 = load ptr, ptr %0, align 8
@@ -3811,7 +3811,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69: ; preds = %92, %9
 
 123:                                              ; preds = %118
   %124 = fcmp oeq double %117, %122
-  br i1 %124, label %125, label %.critedge.thread105
+  br i1 %124, label %125, label %.critedge59
 
 125:                                              ; preds = %123
   %126 = load ptr, ptr %0, align 8
@@ -3859,7 +3859,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69: ; preds = %92, %9
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit74 unwind label %291
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit74: ; preds = %144, %151
-  %.0.i71 = phi i1 [ %152, %151 ], [ %150, %144 ]
+  %.0.i71 = phi i1 [ %150, %144 ], [ %152, %151 ]
   br i1 %.0.i71, label %153, label %.critedge
 
 153:                                              ; preds = %140, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit74
@@ -3958,9 +3958,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %177, %184
   store ptr null, ptr %192, align 8
   br label %.critedge
 
-.critedge.thread105:                              ; preds = %111, %123
-  br i1 %71, label %.critedge.thread105.thread120, label %.critedge61.thread
-
 .critedge:                                        ; preds = %140, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit74, %.critedge.thread
   %205 = phi i1 [ %178, %.critedge.thread ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit74 ], [ false, %140 ]
   %206 = load ptr, ptr %137, align 8
@@ -3994,7 +3991,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit80: ; preds = %.critedge, 
   %220 = and i64 %219, 3
   %221 = icmp eq i64 %220, 3
   %or.cond.i.i82 = or i1 %.not.i.i81, %221
-  br i1 %or.cond.i.i82, label %.critedge59, label %222
+  br i1 %or.cond.i.i82, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit83, label %222
 
 222:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit80
   %223 = and i64 %219, -8
@@ -4002,7 +3999,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit80: ; preds = %.critedge, 
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 32
   %226 = load ptr, ptr %225, align 8
   invoke void %226(ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %.critedge59 unwind label %227
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit83 unwind label %227
 
 227:                                              ; preds = %222
   %228 = landingpad { ptr, i32 }
@@ -4011,12 +4008,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit80: ; preds = %.critedge, 
   call void @__clang_call_terminate(ptr %229) #21
   unreachable
 
-.critedge59:                                      ; preds = %222, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit80
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit83: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit80, %222
   store ptr null, ptr %134, align 8
-  br i1 %71, label %.critedge.thread105.thread120, label %.critedge61.thread
+  br i1 %71, label %.critedge59.thread110, label %.critedge61.thread
 
-.critedge.thread105.thread120:                    ; preds = %88, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69, %.critedge.thread105, %.critedge59
-  %230 = phi i1 [ false, %.critedge.thread105 ], [ %205, %.critedge59 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69 ], [ false, %88 ]
+.critedge59:                                      ; preds = %111, %123
+  br i1 %71, label %.critedge59.thread110, label %.critedge61.thread
+
+.critedge59.thread110:                            ; preds = %88, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit83, %.critedge59
+  %230 = phi i1 [ %205, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit83 ], [ false, %.critedge59 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69 ], [ false, %88 ]
   %231 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %232 = load ptr, ptr %231, align 8
   %233 = ptrtoint ptr %232 to i64
@@ -4026,7 +4026,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit80: ; preds = %.critedge, 
   %or.cond.i.i85 = or i1 %.not.i.i84, %235
   br i1 %or.cond.i.i85, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit86, label %236
 
-236:                                              ; preds = %.critedge.thread105.thread120
+236:                                              ; preds = %.critedge59.thread110
   %237 = and i64 %233, -8
   %238 = inttoptr i64 %237 to ptr
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 32
@@ -4041,7 +4041,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit80: ; preds = %.critedge, 
   call void @__clang_call_terminate(ptr %243) #21
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit86: ; preds = %.critedge.thread105.thread120, %236
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit86: ; preds = %.critedge59.thread110, %236
   store ptr null, ptr %231, align 8
   %244 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %245 = load ptr, ptr %244, align 8
@@ -4071,8 +4071,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit89: ; preds = %_ZN32pxrInt
   store ptr null, ptr %244, align 8
   br label %.critedge61.thread
 
-.critedge61.thread:                               ; preds = %30, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit, %53, %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit89, %.critedge.thread105, %.critedge59
-  %257 = phi i1 [ false, %.critedge.thread105 ], [ %205, %.critedge59 ], [ %230, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit89 ], [ false, %65 ], [ false, %53 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit ], [ false, %30 ]
+.critedge61.thread:                               ; preds = %30, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit, %53, %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit89, %.critedge59, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit83
+  %257 = phi i1 [ %230, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit89 ], [ false, %.critedge59 ], [ %205, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit83 ], [ false, %65 ], [ false, %53 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit ], [ false, %30 ]
   %258 = load ptr, ptr %27, align 8
   %259 = ptrtoint ptr %258 to i64
   %.not.i.i90 = icmp eq ptr %258, null
@@ -4176,7 +4176,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit92: ; preds = %.critedge61
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
   br i1 %71, label %301, label %303
 
-.thread110:                                       ; preds = %99, %92
+.thread116:                                       ; preds = %92, %99
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %301
@@ -4186,18 +4186,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit92: ; preds = %.critedge61
           cleanup
   br i1 %71, label %301, label %303
 
-301:                                              ; preds = %.thread110, %299, %300
-  %.pn.pn.pn.pn108 = phi { ptr, i32 } [ %.pn.pn.pn, %299 ], [ %lpad.thr_comm.split-lp, %300 ], [ %lpad.thr_comm, %.thread110 ]
+301:                                              ; preds = %.thread116, %299, %300
+  %.pn.pn.pn.pn114 = phi { ptr, i32 } [ %.pn.pn.pn, %299 ], [ %lpad.thr_comm.split-lp, %300 ], [ %lpad.thr_comm, %.thread116 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
   br label %302
 
 302:                                              ; preds = %301, %287
-  %.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %288, %287 ], [ %.pn.pn.pn.pn108, %301 ]
+  %.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %288, %287 ], [ %.pn.pn.pn.pn114, %301 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %303
 
 303:                                              ; preds = %300, %299, %285, %302
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.ph, %302 ], [ %286, %285 ], [ %.pn.pn.pn, %299 ], [ %lpad.thr_comm.split-lp, %300 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.ph, %302 ], [ %286, %285 ], [ %lpad.thr_comm.split-lp, %300 ], [ %.pn.pn.pn, %299 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
   br label %304
 
@@ -6388,7 +6388,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIfEEdPKNS_12Ts_TypedDataIT_EES6_.exit, %43, %53
-  %.0.i22 = phi float [ %52, %43 ], [ %61, %53 ], [ %41, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIfEEdPKNS_12Ts_TypedDataIT_EES6_.exit ]
+  %.0.i22 = phi float [ %61, %53 ], [ %52, %43 ], [ %41, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIfEEdPKNS_12Ts_TypedDataIT_EES6_.exit ]
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %.0.i22, ptr %62, align 4
   %63 = load i32, ptr %7, align 8
@@ -6476,7 +6476,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3Valu
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit, %108, %110
-  %.0.in.i = phi ptr [ %111, %110 ], [ %109, %108 ], [ %40, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit ]
+  %.0.in.i = phi ptr [ %109, %108 ], [ %111, %110 ], [ %40, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit ]
   %.0.i26 = load float, ptr %.0.in.i, align 4
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store float %.0.i26, ptr %112, align 4
@@ -7088,7 +7088,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIdEEdPKNS_12Ts_TypedDataIT_EES6_.exit, %43, %50
-  %.0.i22 = phi double [ %49, %43 ], [ %55, %50 ], [ %41, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIdEEdPKNS_12Ts_TypedDataIT_EES6_.exit ]
+  %.0.i22 = phi double [ %55, %50 ], [ %49, %43 ], [ %41, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIdEEdPKNS_12Ts_TypedDataIT_EES6_.exit ]
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %.0.i22, ptr %56, align 8
   %57 = load i32, ptr %7, align 8
@@ -7170,7 +7170,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3Valu
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit, %96, %98
-  %.0.in.i = phi ptr [ %99, %98 ], [ %97, %96 ], [ %40, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit ]
+  %.0.in.i = phi ptr [ %97, %96 ], [ %99, %98 ], [ %40, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit ]
   %.0.i26 = load double, ptr %.0.in.i, align 8
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store double %.0.i26, ptr %100, align 8

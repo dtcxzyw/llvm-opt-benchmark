@@ -62,7 +62,7 @@ define hidden noundef ptr @_Z13luaV_tonumberPK10lua_TValuePS_(ptr noundef readon
   br label %14
 
 14:                                               ; preds = %2, %13, %10
-  %.0 = phi ptr [ null, %13 ], [ %1, %10 ], [ %0, %2 ]
+  %.0 = phi ptr [ %1, %10 ], [ null, %13 ], [ %0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -431,7 +431,7 @@ _ZL6callTMP9lua_StatePK10lua_TValueS3_S3_S3_.exit: ; preds = %70, %86
   call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.1) #11
   unreachable
 
-.critedge:                                        ; preds = %51, %55, %60, %38, %_ZL6callTMP9lua_StatePK10lua_TValueS3_S3_S3_.exit
+.critedge:                                        ; preds = %38, %51, %55, %60, %_ZL6callTMP9lua_StatePK10lua_TValueS3_S3_S3_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -821,7 +821,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z13luaV_equalvalP9lua_StatePK10lua_T
   %.not27.i = icmp eq i32 %72, 0
   br i1 %.not27.i, label %select.unfold, label %_ZL10get_compTMP9lua_StateP8LuaTableS2_3TMS.exit
 
-select.unfold:                                    ; preds = %71, %65, %51, %48, %40, %60, %62
+select.unfold:                                    ; preds = %71, %51, %65, %40, %48, %60, %62
   %73 = load ptr, ptr %1, align 8, !tbaa !9
   %74 = load ptr, ptr %2, align 8, !tbaa !9
   %75 = icmp eq ptr %73, %74
@@ -879,7 +879,7 @@ select.unfold:                                    ; preds = %71, %65, %51, %48, 
   %.not27.i41 = icmp eq i32 %108, 0
   br i1 %.not27.i41, label %select.unfold46, label %_ZL10get_compTMP9lua_StateP8LuaTableS2_3TMS.exit
 
-select.unfold46:                                  ; preds = %107, %101, %87, %84, %76, %96, %98
+select.unfold46:                                  ; preds = %107, %87, %101, %76, %84, %96, %98
   %109 = load ptr, ptr %1, align 8, !tbaa !9
   %110 = load ptr, ptr %2, align 8, !tbaa !9
   %111 = icmp eq ptr %109, %110
@@ -892,7 +892,7 @@ select.unfold46:                                  ; preds = %107, %101, %87, %84
   br label %_Z10luai_veceqPKfS0_.exit
 
 _ZL10get_compTMP9lua_StateP8LuaTableS2_3TMS.exit: ; preds = %94, %107, %58, %71
-  %.0 = phi ptr [ %56, %71 ], [ %56, %58 ], [ %92, %94 ], [ %92, %107 ]
+  %.0 = phi ptr [ %56, %58 ], [ %56, %71 ], [ %92, %94 ], [ %92, %107 ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !36
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -949,7 +949,7 @@ _ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit: ; preds = %_ZL10get_compT
   br label %_Z10luai_veceqPKfS0_.exit
 
 _Z10luai_veceqPKfS0_.exit:                        ; preds = %20, %14, %10, %144, %.fold.split, %_ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit, %30, %34, %3, %112, %select.unfold46, %select.unfold, %26, %6
-  %.033.shrunk = phi i1 [ %115, %112 ], [ %111, %select.unfold46 ], [ %9, %6 ], [ true, %.fold.split ], [ %29, %26 ], [ true, %3 ], [ %39, %34 ], [ %75, %select.unfold ], [ false, %30 ], [ false, %_ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit ], [ %146, %144 ], [ false, %14 ], [ false, %10 ], [ %25, %20 ]
+  %.033.shrunk = phi i1 [ %115, %112 ], [ %9, %6 ], [ %29, %26 ], [ %75, %select.unfold ], [ %111, %select.unfold46 ], [ true, %3 ], [ false, %30 ], [ %39, %34 ], [ false, %_ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit ], [ %146, %144 ], [ true, %.fold.split ], [ false, %14 ], [ false, %10 ], [ %25, %20 ]
   %.033 = zext i1 %.033.shrunk to i32
   ret i32 %.033
 }
@@ -1203,7 +1203,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %.lr.ph
   br label %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit84
 
 _Z13luaV_tostringP9lua_StateP10lua_TValue.exit84: ; preds = %66, %68, %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit, %125
-  %.071 = phi i32 [ 1, %68 ], [ 1, %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit ], [ %126, %125 ], [ 1, %66 ]
+  %.071 = phi i32 [ %126, %125 ], [ 1, %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit ], [ 1, %68 ], [ 1, %66 ]
   %127 = sub nsw i32 %.0, %.071
   %128 = sub nsw i32 %.070, %.071
   %129 = icmp sgt i32 %127, 1

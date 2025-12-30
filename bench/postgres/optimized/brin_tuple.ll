@@ -215,9 +215,9 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   br i1 %117, label %61, label %.loopexit184, !llvm.loop !8
 
 .loopexit184:                                     ; preds = %111, %.lr.ph195, %56, %.preheader183
-  %.1149 = phi i32 [ %.0148197, %.preheader183 ], [ %.0148197, %.lr.ph195 ], [ %.0148197, %56 ], [ %.3151, %111 ]
-  %.2141 = phi i32 [ %.0139198, %.preheader183 ], [ %37, %.lr.ph195 ], [ %.0139198, %56 ], [ %.4, %111 ]
-  %.1130 = phi i1 [ true, %.preheader183 ], [ true, %.lr.ph195 ], [ %spec.select, %56 ], [ %spec.select, %111 ]
+  %.1149 = phi i32 [ %.0148197, %.preheader183 ], [ %.0148197, %56 ], [ %.0148197, %.lr.ph195 ], [ %.3151, %111 ]
+  %.2141 = phi i32 [ %.0139198, %.preheader183 ], [ %.0139198, %56 ], [ %37, %.lr.ph195 ], [ %.4, %111 ]
+  %.1130 = phi i1 [ true, %.preheader183 ], [ %spec.select, %56 ], [ true, %.lr.ph195 ], [ %spec.select, %111 ]
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %118 = load ptr, ptr %23, align 8
   %119 = load i32, ptr %118, align 8
@@ -980,8 +980,8 @@ brin_memtuple_initialize.exit:                    ; preds = %19, %4
   br i1 %104, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %52
-  %105 = phi ptr [ %95, %.lr.ph.split.us.i ], [ %67, %52 ], [ %101, %.lr.ph.split.i ]
-  %106 = phi i32 [ %96, %.lr.ph.split.us.i ], [ %68, %52 ], [ %102, %.lr.ph.split.i ]
+  %105 = phi ptr [ %67, %52 ], [ %95, %.lr.ph.split.us.i ], [ %101, %.lr.ph.split.i ]
+  %106 = phi i32 [ %68, %52 ], [ %96, %.lr.ph.split.us.i ], [ %102, %.lr.ph.split.i ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null

@@ -351,7 +351,7 @@ parse_msg_id.exit:                                ; preds = %3
   unreachable
 
 parse_msg_type.exit:                              ; preds = %8, %12, %10, %parse_msg_id.exit
-  %.0 = phi i32 [ 1, %12 ], [ 1, %10 ], [ 1, %parse_msg_id.exit ], [ 0, %8 ]
+  %.0 = phi i32 [ 1, %parse_msg_id.exit ], [ 1, %10 ], [ 1, %12 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -775,7 +775,7 @@ switch.edge:                                      ; preds = %fsck_msg_type.exit
   br label %fsck_msg_type.exit.thread
 
 fsck_msg_type.exit.thread:                        ; preds = %10, %switch.edge, %fsck_msg_type.exit, %21
-  %.014 = phi i32 [ 4, %switch.edge ], [ 3, %fsck_msg_type.exit ], [ %.0.i, %21 ], [ 3, %10 ]
+  %.014 = phi i32 [ 3, %fsck_msg_type.exit ], [ 4, %switch.edge ], [ %.0.i, %21 ], [ 3, %10 ]
   tail call fastcc void @prepare_msg_ids()
   %22 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %9
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -889,7 +889,7 @@ kh_get_oid_map.exit.thread:                       ; preds = %.critedge2.i
   br label %kh_get_oid_map.exit
 
 kh_get_oid_map.exit:                              ; preds = %7, %.critedge.i
-  %.1.i = phi i32 [ %spec.select.i, %.critedge.i ], [ 0, %7 ]
+  %.1.i = phi i32 [ 0, %7 ], [ %spec.select.i, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not9 = icmp ult i32 %.1.i, %8
   br i1 %.not9, label %36, label %42
@@ -903,7 +903,7 @@ kh_get_oid_map.exit:                              ; preds = %7, %.critedge.i
   br label %42
 
 42:                                               ; preds = %kh_get_oid_map.exit.thread, %kh_get_oid_map.exit, %2, %36
-  %.0 = phi ptr [ null, %2 ], [ %41, %36 ], [ null, %kh_get_oid_map.exit ], [ null, %kh_get_oid_map.exit.thread ]
+  %.0 = phi ptr [ %41, %36 ], [ null, %2 ], [ null, %kh_get_oid_map.exit ], [ null, %kh_get_oid_map.exit.thread ]
   ret ptr %.0
 }
 
@@ -1404,7 +1404,7 @@ kh_get_oid_map.exit.thread.i:                     ; preds = %.critedge2.i.i
   br label %kh_get_oid_map.exit.i
 
 kh_get_oid_map.exit.i:                            ; preds = %.critedge.i.i, %7
-  %.1.i.i = phi i32 [ %spec.select.i.i, %.critedge.i.i ], [ 0, %7 ]
+  %.1.i.i = phi i32 [ 0, %7 ], [ %spec.select.i.i, %.critedge.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not9.i = icmp ult i32 %.1.i.i, %8
   br i1 %.not9.i, label %36, label %fsck_get_object_name.exit
@@ -1418,7 +1418,7 @@ kh_get_oid_map.exit.i:                            ; preds = %.critedge.i.i, %7
   br label %fsck_get_object_name.exit
 
 fsck_get_object_name.exit:                        ; preds = %2, %kh_get_oid_map.exit.thread.i, %kh_get_oid_map.exit.i, %36
-  %.0.i = phi ptr [ null, %2 ], [ %41, %36 ], [ null, %kh_get_oid_map.exit.i ], [ null, %kh_get_oid_map.exit.thread.i ]
+  %.0.i = phi ptr [ %41, %36 ], [ null, %2 ], [ null, %kh_get_oid_map.exit.i ], [ null, %kh_get_oid_map.exit.thread.i ]
   %42 = load i32, ptr @fsck_describe_object.b, align 4, !tbaa !29
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr inbounds nuw %struct.strbuf, ptr @fsck_describe_object.bufs, i64 %43
@@ -1572,7 +1572,7 @@ kh_get_oid_map.exit.thread.i.i:                   ; preds = %.critedge2.i.i.i
   br label %kh_get_oid_map.exit.i.i
 
 kh_get_oid_map.exit.i.i:                          ; preds = %.critedge.i.i.i, %30
-  %.1.i.i.i = phi i32 [ %spec.select.i.i.i, %.critedge.i.i.i ], [ 0, %30 ]
+  %.1.i.i.i = phi i32 [ 0, %30 ], [ %spec.select.i.i.i, %.critedge.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not9.i.i = icmp ult i32 %.1.i.i.i, %31
   br i1 %.not9.i.i, label %59, label %fsck_get_object_name.exit.i
@@ -1587,7 +1587,7 @@ kh_get_oid_map.exit.i.i:                          ; preds = %.critedge.i.i.i, %3
   br label %fsck_get_object_name.exit.i
 
 fsck_get_object_name.exit.i:                      ; preds = %59, %kh_get_oid_map.exit.i.i, %kh_get_oid_map.exit.thread.i.i, %26
-  %.0.i.i = phi ptr [ null, %26 ], [ %65, %59 ], [ null, %kh_get_oid_map.exit.i.i ], [ null, %kh_get_oid_map.exit.thread.i.i ]
+  %.0.i.i = phi ptr [ %65, %59 ], [ null, %26 ], [ null, %kh_get_oid_map.exit.i.i ], [ null, %kh_get_oid_map.exit.thread.i.i ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %67 = load ptr, ptr %66, align 8, !tbaa !74
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1719,7 +1719,7 @@ fsck_get_object_name.exit.i:                      ; preds = %59, %kh_get_oid_map
   br i1 %.not42.i, label %fsck_walk_tree.exit, label %.lr.ph.split.split.i
 
 fsck_walk_tree.exit:                              ; preds = %116, %119, %87, %90, %24, %fsck_get_object_name.exit.i, %.preheader.i, %.thread.i
-  %.034.i = phi i32 [ -1, %fsck_get_object_name.exit.i ], [ -1, %24 ], [ -1, %.thread.i ], [ %.136.us.i, %90 ], [ 0, %.preheader.i ], [ %.0.us.i, %87 ], [ %.0.i, %116 ], [ %.136.i, %119 ]
+  %.034.i = phi i32 [ -1, %24 ], [ -1, %fsck_get_object_name.exit.i ], [ -1, %.thread.i ], [ 0, %.preheader.i ], [ %.0.us.i, %87 ], [ %.136.us.i, %90 ], [ %.0.i, %116 ], [ %.136.i, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %fsck_walk_commit.exit
@@ -1802,7 +1802,7 @@ kh_get_oid_map.exit.thread.i.i36:                 ; preds = %.critedge2.i.i.i35
   br label %kh_get_oid_map.exit.i.i27
 
 kh_get_oid_map.exit.i.i27:                        ; preds = %.critedge.i.i.i24, %127
-  %.1.i.i.i28 = phi i32 [ %spec.select.i.i.i26, %.critedge.i.i.i24 ], [ 0, %127 ]
+  %.1.i.i.i28 = phi i32 [ 0, %127 ], [ %spec.select.i.i.i26, %.critedge.i.i.i24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not9.i.i29 = icmp ult i32 %.1.i.i.i28, %129
   br i1 %.not9.i.i29, label %fsck_get_object_name.exit.i33, label %fsck_get_object_name.exit.thread.i
@@ -1822,8 +1822,8 @@ fsck_get_object_name.exit.i33:                    ; preds = %kh_get_oid_map.exit
   br label %fsck_get_object_name.exit.thread.i
 
 fsck_get_object_name.exit.thread.i:               ; preds = %162, %fsck_get_object_name.exit.i33, %kh_get_oid_map.exit.i.i27, %kh_get_oid_map.exit.thread.i.i36, %124
-  %164 = phi i1 [ false, %fsck_get_object_name.exit.i33 ], [ true, %162 ], [ false, %124 ], [ false, %kh_get_oid_map.exit.i.i27 ], [ false, %kh_get_oid_map.exit.thread.i.i36 ]
-  %.0.i90.i = phi ptr [ null, %fsck_get_object_name.exit.i33 ], [ %161, %162 ], [ null, %124 ], [ null, %kh_get_oid_map.exit.i.i27 ], [ null, %kh_get_oid_map.exit.thread.i.i36 ]
+  %164 = phi i1 [ true, %162 ], [ false, %fsck_get_object_name.exit.i33 ], [ false, %124 ], [ false, %kh_get_oid_map.exit.i.i27 ], [ false, %kh_get_oid_map.exit.thread.i.i36 ]
+  %.0.i90.i = phi ptr [ %161, %162 ], [ null, %fsck_get_object_name.exit.i33 ], [ null, %124 ], [ null, %kh_get_oid_map.exit.i.i27 ], [ null, %kh_get_oid_map.exit.thread.i.i36 ]
   %165 = load ptr, ptr %2, align 8, !tbaa !81
   %166 = load ptr, ptr @the_repository, align 8, !tbaa !33
   %167 = tail call ptr @repo_get_commit_tree(ptr noundef %166, ptr noundef nonnull %0) #16
@@ -1899,8 +1899,8 @@ fsck_get_object_name.exit.thread.i:               ; preds = %162, %fsck_get_obje
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %191, %199, %.critedge.i, %170
-  %.074.i = phi i32 [ 0, %170 ], [ %spec.select118.i, %199 ], [ 0, %.critedge.i ], [ 0, %191 ]
-  %.072.i = phi i32 [ 0, %170 ], [ %spec.select119.i, %199 ], [ %197, %.critedge.i ], [ 0, %191 ]
+  %.074.i = phi i32 [ 0, %170 ], [ 0, %.critedge.i ], [ %spec.select118.i, %199 ], [ 0, %191 ]
+  %.072.i = phi i32 [ 0, %170 ], [ %197, %.critedge.i ], [ %spec.select119.i, %199 ], [ 0, %191 ]
   %.not86107.i = icmp eq ptr %172, null
   br i1 %.not86107.i, label %fsck_walk_commit.exit, label %.lr.ph111.i
 
@@ -1945,7 +1945,7 @@ fsck_get_object_name.exit.thread.i:               ; preds = %162, %fsck_get_obje
   br label %213
 
 213:                                              ; preds = %212, %210
-  %.1.us.us.i = phi i32 [ %211, %210 ], [ 1, %212 ]
+  %.1.us.us.i = phi i32 [ 1, %212 ], [ %211, %210 ]
   %214 = load ptr, ptr %2, align 8, !tbaa !81
   %215 = load ptr, ptr %.071108.us.us.i, align 8, !tbaa !88
   %216 = tail call i32 %214(ptr noundef %215, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %2) #16
@@ -1979,7 +1979,7 @@ fsck_get_object_name.exit.thread.i:               ; preds = %162, %fsck_get_obje
   br label %226
 
 226:                                              ; preds = %225, %223
-  %.1.us.i = phi i32 [ %224, %223 ], [ 1, %225 ]
+  %.1.us.i = phi i32 [ 1, %225 ], [ %224, %223 ]
   %227 = load ptr, ptr %2, align 8, !tbaa !81
   %228 = load ptr, ptr %.071108.us.i, align 8, !tbaa !88
   %229 = tail call i32 %227(ptr noundef %228, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %2) #16
@@ -2083,7 +2083,7 @@ kh_get_oid_map.exit.thread.i.i57:                 ; preds = %.critedge2.i.i.i56
   br label %kh_get_oid_map.exit.i.i48
 
 kh_get_oid_map.exit.i.i48:                        ; preds = %.critedge.i.i.i45, %244
-  %.1.i.i.i49 = phi i32 [ %spec.select.i.i.i47, %.critedge.i.i.i45 ], [ 0, %244 ]
+  %.1.i.i.i49 = phi i32 [ 0, %244 ], [ %spec.select.i.i.i47, %.critedge.i.i.i45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not9.i.i50 = icmp ult i32 %.1.i.i.i49, %246
   br i1 %.not9.i.i50, label %274, label %fsck_get_object_name.exit.i51
@@ -2097,7 +2097,7 @@ kh_get_oid_map.exit.i.i48:                        ; preds = %.critedge.i.i.i45, 
   br label %fsck_get_object_name.exit.i51
 
 fsck_get_object_name.exit.i51:                    ; preds = %274, %kh_get_oid_map.exit.i.i48, %kh_get_oid_map.exit.thread.i.i57, %241
-  %.0.i.i52 = phi ptr [ null, %241 ], [ %279, %274 ], [ null, %kh_get_oid_map.exit.i.i48 ], [ null, %kh_get_oid_map.exit.thread.i.i57 ]
+  %.0.i.i52 = phi ptr [ %279, %274 ], [ null, %241 ], [ null, %kh_get_oid_map.exit.i.i48 ], [ null, %kh_get_oid_map.exit.thread.i.i57 ]
   %280 = tail call i32 @parse_tag(ptr noundef nonnull %0) #16
   %.not.i53 = icmp eq i32 %280, 0
   br i1 %.not.i53, label %281, label %fsck_walk_commit.exit
@@ -2127,7 +2127,7 @@ fsck_get_object_name.exit.i51:                    ; preds = %274, %kh_get_oid_ma
   br label %fsck_walk_commit.exit
 
 fsck_walk_commit.exit:                            ; preds = %238, %.lr.ph111.split.i, %218, %213, %231, %226, %286, %fsck_get_object_name.exit.i51, %.critedge.thread.i, %fsck_get_object_name.exit.thread.i, %121, %20, %3, %291, %fsck_walk_tree.exit
-  %.0 = phi i32 [ -1, %291 ], [ -1, %3 ], [ %.034.i, %fsck_walk_tree.exit ], [ 0, %20 ], [ %216, %213 ], [ %168, %fsck_get_object_name.exit.thread.i ], [ -1, %121 ], [ %290, %286 ], [ %168, %.critedge.thread.i ], [ %229, %226 ], [ -1, %fsck_get_object_name.exit.i51 ], [ %spec.select.us.i31, %231 ], [ %spec.select.us.us.i, %218 ], [ %236, %.lr.ph111.split.i ], [ %spec.select.i30, %238 ]
+  %.0 = phi i32 [ -1, %291 ], [ %.034.i, %fsck_walk_tree.exit ], [ -1, %3 ], [ 0, %20 ], [ -1, %121 ], [ %168, %fsck_get_object_name.exit.thread.i ], [ %168, %.critedge.thread.i ], [ %290, %286 ], [ -1, %fsck_get_object_name.exit.i51 ], [ %spec.select.us.i31, %231 ], [ %229, %226 ], [ %spec.select.us.us.i, %218 ], [ %216, %213 ], [ %spec.select.i30, %238 ], [ %236, %.lr.ph111.split.i ]
   ret i32 %.0
 }
 
@@ -2786,8 +2786,8 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.tail.i
 
 .tail.i:                                          ; preds = %sub_2.i, %sub_1.i, %sub_0225.i
-  %.not138413.i = phi i32 [ %45, %sub_2.i ], [ %45, %sub_1.i ], [ %.0122317.i, %sub_0225.i ]
-  %.not139.i = phi i32 [ %50, %sub_2.i ], [ %.0120318.i, %sub_1.i ], [ %.0120318.i, %sub_0225.i ]
+  %.not138413.i = phi i32 [ %45, %sub_1.i ], [ %45, %sub_2.i ], [ %.0122317.i, %sub_0225.i ]
+  %.not139.i = phi i32 [ %.0120318.i, %sub_1.i ], [ %50, %sub_2.i ], [ %.0120318.i, %sub_0225.i ]
   %51 = call i32 @is_hfs_dotgit(ptr noundef nonnull %29) #16
   %.not140.i = icmp eq i32 %51, 0
   br i1 %.not140.i, label %52, label %56
@@ -3142,11 +3142,11 @@ verify_ordered.exit.i:                            ; preds = %skip_prefix.exit.i.
   br label %verify_ordered.exit.thread200.i
 
 verify_ordered.exit.thread200.i:                  ; preds = %184, %verify_ordered.exit.i, %145, %144, %135, %134
-  %.sroa.17.3.i = phi i64 [ %.sroa.17.0310.i, %134 ], [ %.sroa.17.5.i, %verify_ordered.exit.i ], [ %.sroa.17.0310.i, %144 ], [ %.sroa.17.0310.i, %145 ], [ %.sroa.17.0310.i, %135 ], [ %.sroa.17.0310.i, %184 ]
-  %.sroa.10.3.i = phi i64 [ %.sroa.10.0311.i, %134 ], [ %.sroa.10.4.i, %verify_ordered.exit.i ], [ %.sroa.10.0311.i, %144 ], [ %.sroa.10.0311.i, %145 ], [ %.sroa.10.0311.i, %135 ], [ %175, %184 ]
-  %.sroa.0.3.i = phi ptr [ %.sroa.0.0312.i, %134 ], [ %.sroa.0.5.i, %verify_ordered.exit.i ], [ %.sroa.0.0312.i, %144 ], [ %.sroa.0.0312.i, %145 ], [ %.sroa.0.0312.i, %135 ], [ %.sroa.0.0312.i, %184 ]
-  %.3109.i = phi i32 [ %.0106322.i, %134 ], [ %.0106322.i, %verify_ordered.exit.i ], [ %.0106322.i, %144 ], [ 1, %145 ], [ %.0106322.i, %135 ], [ 1, %184 ]
-  %.3.i = phi i32 [ %.0104323.i, %134 ], [ %spec.select.i, %verify_ordered.exit.i ], [ 1, %144 ], [ %.0104323.i, %145 ], [ %.0104323.i, %135 ], [ %.0104323.i, %184 ]
+  %.sroa.17.3.i = phi i64 [ %.sroa.17.0310.i, %134 ], [ %.sroa.17.0310.i, %135 ], [ %.sroa.17.0310.i, %144 ], [ %.sroa.17.0310.i, %145 ], [ %.sroa.17.5.i, %verify_ordered.exit.i ], [ %.sroa.17.0310.i, %184 ]
+  %.sroa.10.3.i = phi i64 [ %.sroa.10.0311.i, %134 ], [ %.sroa.10.0311.i, %135 ], [ %.sroa.10.0311.i, %144 ], [ %.sroa.10.0311.i, %145 ], [ %.sroa.10.4.i, %verify_ordered.exit.i ], [ %175, %184 ]
+  %.sroa.0.3.i = phi ptr [ %.sroa.0.0312.i, %134 ], [ %.sroa.0.0312.i, %135 ], [ %.sroa.0.0312.i, %144 ], [ %.sroa.0.0312.i, %145 ], [ %.sroa.0.5.i, %verify_ordered.exit.i ], [ %.sroa.0.0312.i, %184 ]
+  %.3109.i = phi i32 [ %.0106322.i, %134 ], [ %.0106322.i, %135 ], [ %.0106322.i, %144 ], [ 1, %145 ], [ %.0106322.i, %verify_ordered.exit.i ], [ 1, %184 ]
+  %.3.i = phi i32 [ %.0104323.i, %134 ], [ %.0104323.i, %135 ], [ 1, %144 ], [ %.0104323.i, %145 ], [ %spec.select.i, %verify_ordered.exit.i ], [ %.0104323.i, %184 ]
   %198 = load i32, ptr %17, align 8, !tbaa !103
   %.not136.i = icmp eq i32 %198, 0
   br i1 %.not136.i, label %.loopexit229.i, label %sub_0225.i
@@ -3429,7 +3429,7 @@ skip_prefix.exit.i:                               ; preds = %260, %verify_header
   br i1 %289, label %.preheader92.i, label %.critedge.i, !llvm.loop !110
 
 .critedge.i:                                      ; preds = %288, %276, %273
-  %storemerge110.i = phi ptr [ %storemerge109.i, %276 ], [ %storemerge108.i, %273 ], [ %storemerge.i, %288 ]
+  %storemerge110.i = phi ptr [ %storemerge108.i, %273 ], [ %storemerge109.i, %276 ], [ %storemerge.i, %288 ]
   store ptr %storemerge110.i, ptr %8, align 8, !tbaa !98
   br label %290
 
@@ -3530,7 +3530,7 @@ skip_prefix.exit85.i:                             ; preds = %306, %.thread.i28
   br label %fsck_commit.exit
 
 fsck_commit.exit:                                 ; preds = %286, %298, %verify_headers.exit.i, %skip_prefix.exit.i, %271, %305, %skip_prefix.exit85.i, %312, %316, %318
-  %.0.i27 = phi i32 [ 0, %318 ], [ %265, %skip_prefix.exit.i ], [ -1, %verify_headers.exit.i ], [ %272, %271 ], [ %300, %298 ], [ %317, %316 ], [ %311, %skip_prefix.exit85.i ], [ %.4.i30, %305 ], [ %313, %312 ], [ %287, %286 ]
+  %.0.i27 = phi i32 [ %265, %skip_prefix.exit.i ], [ %311, %skip_prefix.exit85.i ], [ 0, %318 ], [ -1, %verify_headers.exit.i ], [ %272, %271 ], [ %.4.i30, %305 ], [ %313, %312 ], [ %317, %316 ], [ %300, %298 ], [ %287, %286 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3666,7 +3666,7 @@ object_on_skiplist.exit.thread:                   ; preds = %4, %object_on_skipl
   br i1 %.not56, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %46, %.preheader, %37, %.thread63, %.thread, %28, %object_on_skiplist.exit
-  %.0 = phi i32 [ %16, %.thread ], [ 0, %object_on_skiplist.exit ], [ %.046, %28 ], [ %38, %37 ], [ %45, %.thread63 ], [ %.046, %.preheader ], [ %.046, %46 ]
+  %.0 = phi i32 [ 0, %object_on_skiplist.exit ], [ %.046, %28 ], [ %16, %.thread ], [ %38, %37 ], [ %45, %.thread63 ], [ %.046, %.preheader ], [ %.046, %46 ]
   ret i32 %.0
 }
 
@@ -3844,7 +3844,7 @@ oidset_iter_next.exit:                            ; preds = %14
   br label %50
 
 50:                                               ; preds = %35, %30, %49, %38
-  %.1 = phi i32 [ %40, %38 ], [ %.2, %49 ], [ %.038, %30 ], [ %.038, %35 ]
+  %.1 = phi i32 [ %.2, %49 ], [ %40, %38 ], [ %.038, %30 ], [ %.038, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %51 = load i32, ptr %0, align 8, !tbaa !123
@@ -3852,7 +3852,7 @@ oidset_iter_next.exit:                            ; preds = %14
   br i1 %.not16.i, label %oidset_iter_next.exit.thread, label %.lr.ph.i
 
 oidset_iter_next.exit.thread:                     ; preds = %oidset_iter_next.exit, %50, %24, %6
-  %.035 = phi i32 [ %.038, %24 ], [ 0, %6 ], [ %.038, %oidset_iter_next.exit ], [ %.1, %50 ]
+  %.035 = phi i32 [ 0, %6 ], [ %.038, %24 ], [ %.038, %oidset_iter_next.exit ], [ %.1, %50 ]
   call void @oidset_clear(ptr noundef nonnull %0) #16
   call void @oidset_clear(ptr noundef %1) #16
   ret i32 %.035

@@ -308,7 +308,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %._crit_edge75, %122
   br label %_ZNSt6vectorItSaItEED2Ev.exit41
 
 _ZNSt6vectorItSaItEED2Ev.exit41:                  ; preds = %46, %127, %128
-  %.pn57 = phi { ptr, i32 } [ %126, %128 ], [ %126, %127 ], [ %47, %46 ]
+  %.pn57 = phi { ptr, i32 } [ %126, %127 ], [ %126, %128 ], [ %47, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn57
 

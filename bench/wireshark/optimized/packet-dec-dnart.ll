@@ -1331,7 +1331,7 @@ do_initialization_msg.exit.thread228:             ; preds = %535, %dnet_ntoa.exi
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %600, %599, %598, %595
-  %.str.228.sink.i = phi ptr [ @.str.227, %598 ], [ @.str.230, %600 ], [ @.str.229, %599 ], [ @.str.228, %595 ]
+  %.str.228.sink.i = phi ptr [ @.str.230, %600 ], [ @.str.229, %599 ], [ @.str.227, %598 ], [ @.str.228, %595 ]
   %601 = load ptr, ptr %5, align 8
   %602 = and i16 %596, 4095
   %603 = zext nneg i16 %602 to i32
@@ -1670,7 +1670,7 @@ do_initialization_msg.exit.thread:                ; preds = %.loopexit.i, %827, 
   br label %handle_nsp_msg.exit
 
 handle_nsp_msg.exit:                              ; preds = %568, %do_initialization_msg.exit.thread228, %do_initialization_msg.exit.thread
-  %.1 = phi i32 [ %831, %do_initialization_msg.exit.thread ], [ %554, %do_initialization_msg.exit.thread228 ], [ %566, %568 ]
+  %.1 = phi i32 [ %831, %do_initialization_msg.exit.thread ], [ %566, %568 ], [ %554, %do_initialization_msg.exit.thread228 ]
   ret i32 %.1
 }
 

@@ -1198,7 +1198,7 @@ invoke.cont.loopexit.split.loop.exit15:           ; preds = %if.end.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %for.body.i.i.i, %invoke.cont.loopexit.split.loop.exit, %invoke.cont.loopexit.split.loop.exit13, %invoke.cont.loopexit.split.loop.exit15, %sw.bb38.i.i.i, %sw.bb31.i.i.i, %sw.bb.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont.loopexit.split.loop.exit15 ], [ %incdec.ptr.i58.i.i.i.le, %invoke.cont.loopexit.split.loop.exit ], [ %incdec.ptr.i56.i.i.i.le, %invoke.cont.loopexit.split.loop.exit13 ], [ %__first.sroa.0.097.i.i.i, %for.body.i.i.i ]
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i58.i.i.i.le, %invoke.cont.loopexit.split.loop.exit ], [ %incdec.ptr.i56.i.i.i.le, %invoke.cont.loopexit.split.loop.exit13 ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont.loopexit.split.loop.exit15 ], [ %__first.sroa.0.097.i.i.i, %for.body.i.i.i ]
   %cmp.i.not = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %1
   br i1 %cmp.i.not, label %if.end, label %if.then
 
@@ -2695,7 +2695,7 @@ if.then.i.i5.i:                                   ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %cleanup.action, %ehcleanup45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90, %if.then.i.i5.i, %ehcleanup
-  %common.resume.op = phi { ptr, i32 } [ %14, %if.then.i.i5.i ], [ %.pn65, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i114 ], [ %.pn65.pn.pn206, %cleanup.action ], [ %.pn65, %ehcleanup45 ], [ %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90 ], [ %.pn, %ehcleanup ], [ %14, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %if.then.i.i5.i ], [ %.pn65.pn.pn206, %cleanup.action ], [ %.pn65, %ehcleanup45 ], [ %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90 ], [ %.pn, %ehcleanup ], [ %.pn65, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i114 ], [ %14, %lpad.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
@@ -2935,14 +2935,14 @@ ehcleanup45:                                      ; preds = %ehcleanup44
   br i1 %cleanup.isactive.0, label %cleanup.action, label %common.resume
 
 cleanup.action.sink.split:                        ; preds = %ehcleanup44.thread, %ehcleanup45.thread, %ehcleanup45.thread214
-  %.pn65.pn.pn206.ph = phi { ptr, i32 } [ %36, %ehcleanup45.thread ], [ %45, %ehcleanup45.thread214 ], [ %45, %ehcleanup44.thread ]
+  %.pn65.pn.pn206.ph = phi { ptr, i32 } [ %45, %ehcleanup45.thread214 ], [ %36, %ehcleanup45.thread ], [ %45, %ehcleanup44.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp31)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp30)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp29)
   br label %cleanup.action
 
 cleanup.action:                                   ; preds = %cleanup.action.sink.split, %ehcleanup45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i114
-  %.pn65.pn.pn206 = phi { ptr, i32 } [ %.pn65, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i114 ], [ %.pn65, %ehcleanup45 ], [ %.pn65.pn.pn206.ph, %cleanup.action.sink.split ]
+  %.pn65.pn.pn206 = phi { ptr, i32 } [ %.pn65, %ehcleanup45 ], [ %.pn65, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i114 ], [ %.pn65.pn.pn206.ph, %cleanup.action.sink.split ]
   call void @__cxa_free_exception(ptr %exception) #6
   br label %common.resume
 

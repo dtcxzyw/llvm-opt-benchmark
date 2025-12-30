@@ -287,7 +287,7 @@ _ZNK5frame14is_first_frameEv.exit.thread14:       ; preds = %86, %97, %_ZNK5fram
   br label %102
 
 102:                                              ; preds = %_ZNK5frame14is_first_frameEv.exit.thread, %97, %25, %79, %_ZNK5frame14is_first_frameEv.exit.thread14, %.critedge, %13
-  %.0 = phi i1 [ true, %13 ], [ true, %25 ], [ true, %.critedge ], [ true, %_ZNK5frame14is_first_frameEv.exit.thread14 ], [ true, %79 ], [ false, %97 ], [ false, %_ZNK5frame14is_first_frameEv.exit.thread ]
+  %.0 = phi i1 [ true, %13 ], [ true, %.critedge ], [ true, %_ZNK5frame14is_first_frameEv.exit.thread14 ], [ true, %79 ], [ true, %25 ], [ false, %97 ], [ false, %_ZNK5frame14is_first_frameEv.exit.thread ]
   ret i1 %.0
 }
 
@@ -966,10 +966,10 @@ _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit.thread: ; pr
   br label %234
 
 _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit: ; preds = %_ZN7nmethod10pc_desc_atEPh.exit.thread.i.i, %_ZN7nmethod12pc_desc_nearEPh.exit.i.i, %_ZN7nmethod12pc_desc_nearEPh.exit.thread26.i.i, %_ZL33is_decipherable_interpreted_frameP10JavaThreadP5framePP6MethodPi.exit.thread.sink.split.i
-  %.sroa.6.0 = phi i8 [ %.sroa.6.0.copyload29, %_ZL33is_decipherable_interpreted_frameP10JavaThreadP5framePP6MethodPi.exit.thread.sink.split.i ], [ %.sroa.6.0.copyload27, %_ZN7nmethod12pc_desc_nearEPh.exit.i.i ], [ %.sroa.6.0.copyload27, %_ZN7nmethod12pc_desc_nearEPh.exit.thread26.i.i ], [ %.sroa.6.0.copyload27, %_ZN7nmethod10pc_desc_atEPh.exit.thread.i.i ]
-  %.sroa.5.0 = phi i32 [ %.sroa.5.0.copyload25, %_ZL33is_decipherable_interpreted_frameP10JavaThreadP5framePP6MethodPi.exit.thread.sink.split.i ], [ %.sroa.5.0.copyload23, %_ZN7nmethod12pc_desc_nearEPh.exit.i.i ], [ %.sroa.5.0.copyload23, %_ZN7nmethod12pc_desc_nearEPh.exit.thread26.i.i ], [ %.sroa.5.0.copyload23, %_ZN7nmethod10pc_desc_atEPh.exit.thread.i.i ]
-  %.sroa.4.0 = phi ptr [ %.sroa.4.0.copyload21, %_ZL33is_decipherable_interpreted_frameP10JavaThreadP5framePP6MethodPi.exit.thread.sink.split.i ], [ %.sroa.4.0.copyload19, %_ZN7nmethod12pc_desc_nearEPh.exit.i.i ], [ %.sroa.4.0.copyload19, %_ZN7nmethod12pc_desc_nearEPh.exit.thread26.i.i ], [ %.sroa.4.0.copyload19, %_ZN7nmethod10pc_desc_atEPh.exit.thread.i.i ]
-  %.1 = phi ptr [ %.041, %_ZL33is_decipherable_interpreted_frameP10JavaThreadP5framePP6MethodPi.exit.thread.sink.split.i ], [ %101, %_ZN7nmethod12pc_desc_nearEPh.exit.i.i ], [ %101, %_ZN7nmethod12pc_desc_nearEPh.exit.thread26.i.i ], [ %101, %_ZN7nmethod10pc_desc_atEPh.exit.thread.i.i ]
+  %.sroa.6.0 = phi i8 [ %.sroa.6.0.copyload27, %_ZN7nmethod10pc_desc_atEPh.exit.thread.i.i ], [ %.sroa.6.0.copyload27, %_ZN7nmethod12pc_desc_nearEPh.exit.thread26.i.i ], [ %.sroa.6.0.copyload29, %_ZL33is_decipherable_interpreted_frameP10JavaThreadP5framePP6MethodPi.exit.thread.sink.split.i ], [ %.sroa.6.0.copyload27, %_ZN7nmethod12pc_desc_nearEPh.exit.i.i ]
+  %.sroa.5.0 = phi i32 [ %.sroa.5.0.copyload23, %_ZN7nmethod10pc_desc_atEPh.exit.thread.i.i ], [ %.sroa.5.0.copyload23, %_ZN7nmethod12pc_desc_nearEPh.exit.thread26.i.i ], [ %.sroa.5.0.copyload25, %_ZL33is_decipherable_interpreted_frameP10JavaThreadP5framePP6MethodPi.exit.thread.sink.split.i ], [ %.sroa.5.0.copyload23, %_ZN7nmethod12pc_desc_nearEPh.exit.i.i ]
+  %.sroa.4.0 = phi ptr [ %.sroa.4.0.copyload19, %_ZN7nmethod10pc_desc_atEPh.exit.thread.i.i ], [ %.sroa.4.0.copyload19, %_ZN7nmethod12pc_desc_nearEPh.exit.thread26.i.i ], [ %.sroa.4.0.copyload21, %_ZL33is_decipherable_interpreted_frameP10JavaThreadP5framePP6MethodPi.exit.thread.sink.split.i ], [ %.sroa.4.0.copyload19, %_ZN7nmethod12pc_desc_nearEPh.exit.i.i ]
+  %.1 = phi ptr [ %101, %_ZN7nmethod10pc_desc_atEPh.exit.thread.i.i ], [ %101, %_ZN7nmethod12pc_desc_nearEPh.exit.thread26.i.i ], [ %.041, %_ZL33is_decipherable_interpreted_frameP10JavaThreadP5framePP6MethodPi.exit.thread.sink.split.i ], [ %101, %_ZN7nmethod12pc_desc_nearEPh.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

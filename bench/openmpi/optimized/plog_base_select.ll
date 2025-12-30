@@ -690,7 +690,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   br i1 %311, label %pmix_pointer_array_get_item.exit, label %pmix_obj_run_destructors.exit139, !llvm.loop !73
 
 pmix_obj_run_destructors.exit139:                 ; preds = %.lr.ph.i136, %307, %295, %._crit_edge191, %pmix_obj_run_destructors.exit151, %0
-  %.0 = phi i32 [ 0, %0 ], [ 0, %pmix_obj_run_destructors.exit151 ], [ 0, %295 ], [ -46, %._crit_edge191 ], [ 0, %307 ], [ -46, %.lr.ph.i136 ]
+  %.0 = phi i32 [ 0, %0 ], [ 0, %pmix_obj_run_destructors.exit151 ], [ -46, %._crit_edge191 ], [ 0, %295 ], [ 0, %307 ], [ -46, %.lr.ph.i136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)

@@ -408,8 +408,8 @@ _hash_firstfreebit.exit:                          ; preds = %101
   br label %.thread255
 
 .thread255:                                       ; preds = %.loopexit285, %._crit_edge315
-  %.1181257 = phi i32 [ %177, %.loopexit285 ], [ 0, %._crit_edge315 ]
-  %179 = phi i32 [ %spec.select370, %.loopexit285 ], [ %153, %._crit_edge315 ]
+  %.1181257 = phi i32 [ 0, %._crit_edge315 ], [ %177, %.loopexit285 ]
+  %179 = phi i32 [ %153, %._crit_edge315 ], [ %spec.select370, %.loopexit285 ]
   %180 = load i32, ptr %54, align 4
   %181 = add i32 %179, 1
   %182 = icmp ugt i32 %180, 1
@@ -918,7 +918,7 @@ BufferGetPage.exit:                               ; preds = %14, %20
   br label %38
 
 38:                                               ; preds = %34, %36, %BufferGetPage.exit
-  %.0162 = phi i32 [ 0, %BufferGetPage.exit ], [ %37, %36 ], [ %3, %34 ]
+  %.0162 = phi i32 [ %37, %36 ], [ 0, %BufferGetPage.exit ], [ %3, %34 ]
   %.not195 = icmp eq i32 %31, -1
   br i1 %.not195, label %41, label %39
 
@@ -1242,7 +1242,7 @@ BufferGetPage.exit181:                            ; preds = %147, %153
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %207, %219, %214
-  %.0160 = phi i1 [ false, %214 ], [ %218, %219 ], [ true, %207 ], [ true, %.lr.ph ]
+  %.0160 = phi i1 [ %218, %219 ], [ false, %214 ], [ true, %207 ], [ true, %.lr.ph ]
   call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %2, i8 noundef zeroext 8) #5
   %220 = load i8, ptr %200, align 1, !range !9
   %221 = trunc nuw i8 %220 to i1
@@ -1923,13 +1923,13 @@ BufferGetPage.exit209:                            ; preds = %187, %193
   br label %.thread221
 
 .thread221:                                       ; preds = %77, %205
-  %.3238 = phi i32 [ %.4, %205 ], [ %.2306, %77 ]
-  %.3138237 = phi i32 [ %.4139, %205 ], [ %.2137305, %77 ]
-  %.2152235 = phi i64 [ %94, %205 ], [ %.1151304, %77 ]
-  %.2157234 = phi i16 [ %212, %205 ], [ %.1156303, %77 ]
-  %.2162233 = phi i16 [ %206, %205 ], [ %.1161302, %77 ]
-  %.3178232 = phi ptr [ %.4179, %205 ], [ %.2177300, %77 ]
-  %.3187231 = phi ptr [ %.4188, %205 ], [ %.2186299, %77 ]
+  %.3238 = phi i32 [ %.2306, %77 ], [ %.4, %205 ]
+  %.3138237 = phi i32 [ %.2137305, %77 ], [ %.4139, %205 ]
+  %.2152235 = phi i64 [ %.1151304, %77 ], [ %94, %205 ]
+  %.2157234 = phi i16 [ %.1156303, %77 ], [ %212, %205 ]
+  %.2162233 = phi i16 [ %.1161302, %77 ], [ %206, %205 ]
+  %.3178232 = phi ptr [ %.2177300, %77 ], [ %.4179, %205 ]
+  %.3187231 = phi ptr [ %.2186299, %77 ], [ %.4188, %205 ]
   %214 = add i16 %.0168301, 1
   %.not197 = icmp ugt i16 %214, %.0.i327
   br i1 %.not197, label %._crit_edge309, label %77, !llvm.loop !16

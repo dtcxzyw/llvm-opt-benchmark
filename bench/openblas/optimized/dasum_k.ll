@@ -231,7 +231,7 @@ define double @dasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unn
   br label %asum_compute.exit
 
 asum_compute.exit:                                ; preds = %.lr.ph.i, %.lr.ph134.i.i, %100, %.thread, %._crit_edge
-  %.024 = phi double [ %.1.lcssa, %._crit_edge ], [ 0.000000e+00, %.thread ], [ %108, %.lr.ph134.i.i ], [ %.393.i.i, %100 ], [ %116, %.lr.ph.i ]
+  %.024 = phi double [ %.1.lcssa, %._crit_edge ], [ 0.000000e+00, %.thread ], [ %.393.i.i, %100 ], [ %108, %.lr.ph134.i.i ], [ %116, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.024
 }
@@ -425,7 +425,7 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
   br i1 %115, label %.lr.ph.i, label %asum_compute.exit, !llvm.loop !15
 
 asum_compute.exit:                                ; preds = %.lr.ph.i, %.lr.ph134.i.i, %10, %97
-  %.022.i = phi double [ 0.000000e+00, %10 ], [ %105, %.lr.ph134.i.i ], [ %.393.i.i, %97 ], [ %113, %.lr.ph.i ]
+  %.022.i = phi double [ 0.000000e+00, %10 ], [ %.393.i.i, %97 ], [ %105, %.lr.ph134.i.i ], [ %113, %.lr.ph.i ]
   store double %.022.i, ptr %8, align 8, !tbaa !7
   ret i32 0
 }

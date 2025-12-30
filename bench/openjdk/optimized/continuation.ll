@@ -600,7 +600,7 @@ define hidden noundef zeroext i1 @_ZN12Continuation28is_continuation_enterSpecia
   br label %16
 
 16:                                               ; preds = %9, %12, %1, %5
-  %.0 = phi i1 [ false, %1 ], [ false, %5 ], [ false, %9 ], [ %15, %12 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %1 ], [ false, %9 ], [ %15, %12 ]
   ret i1 %.0
 }
 
@@ -885,7 +885,7 @@ _ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.exit: ; preds =
   br label %_ZNK19ContinuationWrapper8is_emptyEv.exit.thread
 
 _ZNK19ContinuationWrapper8is_emptyEv.exit.thread: ; preds = %3, %_ZNK19ContinuationWrapper8is_emptyEv.exit, %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.exit
-  %.0 = phi i1 [ true, %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.exit ], [ false, %_ZNK19ContinuationWrapper8is_emptyEv.exit ], [ false, %3 ]
+  %.0 = phi i1 [ false, %_ZNK19ContinuationWrapper8is_emptyEv.exit ], [ true, %_ZL22continuation_top_frameRK19ContinuationWrapperP11RegisterMap.exit ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -1392,7 +1392,7 @@ _ZN12Continuation18continuation_scopeEP7oopDesc.exit: ; preds = %24
   br label %31
 
 31:                                               ; preds = %24, %_ZN12Continuation29get_continuation_entry_for_spEP10JavaThreadPl.exit, %3, %5, %_ZN12Continuation18continuation_scopeEP7oopDesc.exit
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZN12Continuation29get_continuation_entry_for_spEP10JavaThreadPl.exit ], [ %30, %_ZN12Continuation18continuation_scopeEP7oopDesc.exit ], [ false, %5 ], [ false, %24 ]
+  %.0 = phi i1 [ %30, %_ZN12Continuation18continuation_scopeEP7oopDesc.exit ], [ false, %5 ], [ false, %3 ], [ false, %_ZN12Continuation29get_continuation_entry_for_spEP10JavaThreadPl.exit ], [ false, %24 ]
   ret i1 %.0
 }
 
@@ -1639,7 +1639,7 @@ define hidden noundef ptr @_ZN12Continuation30get_top_return_pc_post_barrierEP10
   br label %12
 
 12:                                               ; preds = %8, %2, %3
-  %.0 = phi ptr [ %1, %2 ], [ %spec.select, %8 ], [ %1, %3 ]
+  %.0 = phi ptr [ %1, %3 ], [ %1, %2 ], [ %spec.select, %8 ]
   ret ptr %.0
 }
 
@@ -2029,7 +2029,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
   ret ptr %.0.i.i
 }
 
@@ -2206,7 +2206,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -2396,7 +2396,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
   ret ptr %.0.i.i
 }
 

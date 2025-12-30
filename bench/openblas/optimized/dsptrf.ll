@@ -269,8 +269,8 @@ define void @dsptrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 140:                                              ; preds = %101
   br i1 %108, label %.thread584, label %147
 
-.thread584:                                       ; preds = %._crit_edge656, %57, %97, %140
-  %.1521576583587 = phi i32 [ %.1531, %._crit_edge656 ], [ %.1531, %140 ], [ %.0534661, %97 ], [ %.0534661, %57 ]
+.thread584:                                       ; preds = %._crit_edge656, %97, %57, %140
+  %.1521576583587 = phi i32 [ %.1531, %140 ], [ %.0534661, %57 ], [ %.0534661, %97 ], [ %.1531, %._crit_edge656 ]
   %141 = load double, ptr %31, align 8, !tbaa !7
   %142 = fdiv double 1.000000e+00, %141
   store double %142, ptr %8, align 8, !tbaa !7
@@ -627,9 +627,9 @@ define void @dsptrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store double %338, ptr %342, align 8, !tbaa !7
   br label %359
 
-.thread619:                                       ; preds = %.thread741, %._crit_edge682, %245, %287
-  %.3523609617624 = phi i32 [ %.1535688, %245 ], [ %.3533, %.thread741 ], [ %.1535688, %287 ], [ %.3533, %._crit_edge682 ]
-  %.3507618623 = phi i32 [ %.1525692, %245 ], [ %.1525692, %.thread741 ], [ %.1525692, %287 ], [ %.3507744, %._crit_edge682 ]
+.thread619:                                       ; preds = %.thread741, %._crit_edge682, %287, %245
+  %.3523609617624 = phi i32 [ %.1535688, %245 ], [ %.1535688, %287 ], [ %.3533, %._crit_edge682 ], [ %.3533, %.thread741 ]
+  %.3507618623 = phi i32 [ %.1525692, %245 ], [ %.1525692, %287 ], [ %.3507744, %._crit_edge682 ], [ %.1525692, %.thread741 ]
   %344 = load i32, ptr %1, align 4, !tbaa !3
   %345 = icmp slt i32 %.1535688, %344
   br i1 %345, label %346, label %425

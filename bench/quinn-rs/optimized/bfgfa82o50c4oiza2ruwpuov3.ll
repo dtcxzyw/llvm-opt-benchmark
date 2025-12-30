@@ -574,7 +574,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %97, %.noe
   unreachable
 
 103:                                              ; preds = %.body.thread, %51
-  %.pn10 = phi { ptr, i32 } [ %eh.lpad-body7, %51 ], [ %.pn11, %.body.thread ]
+  %.pn10 = phi { ptr, i32 } [ %.pn11, %.body.thread ], [ %eh.lpad-body7, %51 ]
   resume { ptr, i32 } %.pn10
 
 .body.thread:                                     ; preds = %61, %.body, %51
@@ -1908,7 +1908,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %53, %.noe
   unreachable
 
 .thread:                                          ; preds = %.thread5, %61, %.body6
-  %.pn4 = phi { ptr, i32 } [ %eh.lpad-body9, %.thread5 ], [ %36, %.body6 ], [ %eh.lpad-body9, %61 ]
+  %.pn4 = phi { ptr, i32 } [ %36, %.body6 ], [ %eh.lpad-body9, %61 ], [ %eh.lpad-body9, %.thread5 ]
   resume { ptr, i32 } %.pn4
 
 .thread5:                                         ; preds = %18, %8

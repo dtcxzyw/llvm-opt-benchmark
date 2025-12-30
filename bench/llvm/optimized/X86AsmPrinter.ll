@@ -1796,7 +1796,7 @@ sub_228:                                          ; preds = %sub_127
   br label %.tail25
 
 .tail25:                                          ; preds = %.tail20, %sub_0, %sub_228, %sub_127, %sub_026.thread43, %.tail
-  %49 = phi i32 [ 64, %.tail ], [ %spec.select, %.tail20 ], [ 8, %sub_0 ], [ 8, %sub_127 ], [ %48, %sub_228 ], [ 8, %sub_026.thread43 ]
+  %49 = phi i32 [ 64, %.tail ], [ 8, %sub_127 ], [ %48, %sub_228 ], [ 8, %sub_026.thread43 ], [ %spec.select, %.tail20 ], [ 8, %sub_0 ]
   %50 = tail call i32 @_ZN4llvm22getX86SubSuperRegisterENS_10MCRegisterEjb(i32 %28, i32 noundef %49, i1 noundef zeroext false) #17
   br label %51
 
@@ -1910,7 +1910,7 @@ define hidden void @_ZN4llvm13X86AsmPrinter20PrintLeaMemReferenceEPKNS_12Machine
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %5
-  %.0.shrunk = phi i1 [ %spec.select, %20 ], [ %18, %5 ]
+  %.0.shrunk = phi i1 [ %18, %5 ], [ %spec.select, %20 ]
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !531
   %25 = icmp ne i32 %24, 0
@@ -2280,7 +2280,7 @@ define hidden void @_ZN4llvm13X86AsmPrinter22PrintIntelMemReferenceEPKNS_12Machi
   br label %35
 
 35:                                               ; preds = %.critedge.thread, %33, %.critedge
-  %.160.shrunk = phi i1 [ %spec.select73, %33 ], [ %26, %.critedge ], [ %.059.shrunk97, %.critedge.thread ]
+  %.160.shrunk = phi i1 [ %26, %.critedge ], [ %spec.select73, %33 ], [ %.059.shrunk97, %.critedge.thread ]
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !531
   %.not67 = icmp eq i32 %37, 0
@@ -2496,7 +2496,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit88:               ; preds = %132, %134
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit85
 
 _ZN4llvm11raw_ostreamlsEPKc.exit85:               ; preds = %123, %121, %.critedge3.thread, %_ZN4llvm11raw_ostreamlsEPKc.exit88, %.critedge3
-  %.0 = phi i64 [ 0, %.critedge3.thread ], [ %137, %_ZN4llvm11raw_ostreamlsEPKc.exit88 ], [ %107, %.critedge3 ], [ %107, %121 ], [ %107, %123 ]
+  %.0 = phi i64 [ %137, %_ZN4llvm11raw_ostreamlsEPKc.exit88 ], [ %107, %.critedge3 ], [ 0, %.critedge3.thread ], [ %107, %121 ], [ %107, %123 ]
   %138 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %.0) #17
   br label %139
 
@@ -3275,7 +3275,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit30.i: ; preds = %.thre
   br i1 %84, label %160, label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 160:                                              ; preds = %159, %151, %148, %146, %142
-  %.sroa.05.026.i = phi i32 [ %143, %142 ], [ %145, %159 ], [ %158, %151 ], [ %149, %148 ], [ %147, %146 ]
+  %.sroa.05.026.i = phi i32 [ %143, %142 ], [ %145, %159 ], [ %147, %146 ], [ %149, %148 ], [ %158, %151 ]
   %161 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %162 = load ptr, ptr %161, align 8, !tbaa !710
   %163 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3294,7 +3294,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit30.i: ; preds = %.thre
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %167, %165, %159, %151, %148, %146, %142
-  %.sroa.05.025.i = phi i32 [ %143, %142 ], [ %147, %146 ], [ %145, %159 ], [ %158, %151 ], [ %149, %148 ], [ %.sroa.05.026.i, %165 ], [ %.sroa.05.026.i, %167 ]
+  %.sroa.05.025.i = phi i32 [ %143, %142 ], [ %145, %159 ], [ %147, %146 ], [ %149, %148 ], [ %158, %151 ], [ %.sroa.05.026.i, %165 ], [ %.sroa.05.026.i, %167 ]
   %169 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %.sroa.05.025.i) #17
   %.not.i.i32.i = icmp eq ptr %169, null
   br i1 %.not.i.i32.i, label %_ZN4llvm11raw_ostreamlsEc.exit76.thread, label %_ZN4llvm9StringRefC2EPKc.exit.i.i
@@ -3400,8 +3400,8 @@ _ZN4llvm11raw_ostreamlsEc.exit76:                 ; preds = %217, %219, %6, %5
   tail call void @_ZN4llvm13X86AsmPrinter12PrintOperandEPKNS_12MachineInstrEjRNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(888) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %4)
   br label %_ZN4llvm11raw_ostreamlsEc.exit76.thread
 
-_ZN4llvm11raw_ostreamlsEc.exit76.thread:          ; preds = %181, %179, %_ZN4llvm11raw_ostreamlsEc.exit.i, %144, %141, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit30.i, %.thread23.i, %80, %47, %195, %55, %59, %34, %207, %202, %63, %194, %190, %185, %49, %54, %_ZN4llvm11raw_ostreamlsEc.exit79, %25, %18, %198, %21, %182, %16, %8, %_ZN4llvm11raw_ostreamlsEc.exit76
-  %.0 = phi i1 [ true, %8 ], [ false, %_ZN4llvm11raw_ostreamlsEc.exit76 ], [ true, %.thread23.i ], [ false, %181 ], [ false, %179 ], [ false, %_ZN4llvm11raw_ostreamlsEc.exit.i ], [ true, %144 ], [ true, %141 ], [ false, %182 ], [ true, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit30.i ], [ false, %47 ], [ true, %195 ], [ false, %55 ], [ false, %59 ], [ false, %34 ], [ false, %207 ], [ false, %202 ], [ true, %63 ], [ false, %194 ], [ %193, %190 ], [ false, %185 ], [ false, %49 ], [ false, %54 ], [ false, %_ZN4llvm11raw_ostreamlsEc.exit79 ], [ false, %25 ], [ true, %18 ], [ false, %198 ], [ false, %21 ], [ true, %80 ], [ %17, %16 ]
+_ZN4llvm11raw_ostreamlsEc.exit76.thread:          ; preds = %182, %181, %179, %_ZN4llvm11raw_ostreamlsEc.exit.i, %144, %141, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit30.i, %.thread23.i, %80, %49, %47, %198, %195, %63, %54, %55, %59, %25, %34, %18, %207, %202, %194, %190, %185, %_ZN4llvm11raw_ostreamlsEc.exit79, %21, %16, %8, %_ZN4llvm11raw_ostreamlsEc.exit76
+  %.0 = phi i1 [ false, %_ZN4llvm11raw_ostreamlsEc.exit76 ], [ true, %8 ], [ true, %80 ], [ true, %.thread23.i ], [ false, %182 ], [ false, %181 ], [ false, %179 ], [ false, %_ZN4llvm11raw_ostreamlsEc.exit.i ], [ true, %144 ], [ true, %141 ], [ true, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit30.i ], [ false, %49 ], [ false, %47 ], [ false, %198 ], [ true, %195 ], [ true, %63 ], [ false, %54 ], [ false, %55 ], [ false, %59 ], [ false, %25 ], [ false, %34 ], [ true, %18 ], [ false, %207 ], [ false, %202 ], [ false, %194 ], [ %193, %190 ], [ false, %185 ], [ false, %_ZN4llvm11raw_ostreamlsEc.exit79 ], [ false, %21 ], [ %17, %16 ]
   ret i1 %.0
 }
 
@@ -3550,7 +3550,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %2, %.thread14, %76, %75, %73, %_ZN4llvm11raw_ostreamlsEc.exit, %48, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit18
-  %.0 = phi i1 [ true, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit18 ], [ false, %76 ], [ true, %48 ], [ false, %_ZN4llvm11raw_ostreamlsEc.exit ], [ false, %73 ], [ false, %75 ], [ true, %.thread14 ], [ true, %2 ]
+  %.0 = phi i1 [ true, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit18 ], [ true, %48 ], [ false, %_ZN4llvm11raw_ostreamlsEc.exit ], [ false, %73 ], [ false, %75 ], [ false, %76 ], [ true, %.thread14 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -3647,7 +3647,7 @@ _ZN4llvm13X86AsmPrinter17PrintMemReferenceEPKNS_12MachineInstrEjRNS_11raw_ostrea
   br label %42
 
 42:                                               ; preds = %24, %_ZN4llvm13X86AsmPrinter17PrintMemReferenceEPKNS_12MachineInstrEjRNS_11raw_ostreamEPKc.exit, %19, %20, %12, %11, %8, %15
-  %.0 = phi i1 [ true, %12 ], [ true, %8 ], [ false, %19 ], [ true, %11 ], [ false, %15 ], [ false, %20 ], [ false, %_ZN4llvm13X86AsmPrinter17PrintMemReferenceEPKNS_12MachineInstrEjRNS_11raw_ostreamEPKc.exit ], [ false, %24 ]
+  %.0 = phi i1 [ false, %15 ], [ true, %8 ], [ true, %11 ], [ true, %12 ], [ false, %20 ], [ false, %19 ], [ false, %_ZN4llvm13X86AsmPrinter17PrintMemReferenceEPKNS_12MachineInstrEjRNS_11raw_ostreamEPKc.exit ], [ false, %24 ]
   ret i1 %.0
 }
 
@@ -3721,8 +3721,8 @@ select.unfold:                                    ; preds = %38, %38
   br label %41
 
 41:                                               ; preds = %38, %select.unfold, %16
-  %42 = phi i64 [ 12, %select.unfold ], [ 12, %16 ], [ 16, %38 ]
-  %.sroa.050.0 = phi i8 [ 2, %select.unfold ], [ 2, %16 ], [ 3, %38 ]
+  %42 = phi i64 [ 12, %16 ], [ 12, %select.unfold ], [ 16, %38 ]
+  %.sroa.050.0 = phi i8 [ 2, %16 ], [ 2, %select.unfold ], [ 3, %38 ]
   call void @_ZNK4llvm10AsmPrinter13emitAlignmentENS_5AlignEPKNS_12GlobalObjectEj(ptr noundef nonnull align 8 dereferenceable(777) %0, i8 %.sroa.050.0, ptr noundef null, i32 noundef 0) #17
   %43 = load ptr, ptr %17, align 8, !tbaa !3
   %44 = load ptr, ptr %43, align 8, !tbaa !8
@@ -4252,7 +4252,7 @@ _ZN4llvm12InstIteratorIKNS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iter
   %.not23.i = icmp eq ptr %.sroa.012.0.i, %87
   br i1 %.not23.i, label %_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.exit, label %.lr.ph44.i
 
-.loopexit:                                        ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit41.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i35.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i35.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i35.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i35.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i35.i
+.loopexit:                                        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i35.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i35.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i35.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i35.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i35.i, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit41.i
   %167 = getelementptr inbounds nuw i8, ptr %9, i64 544
   %168 = load i32, ptr %167, align 8, !tbaa !790
   %169 = icmp eq i32 %168, 37

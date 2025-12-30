@@ -101,7 +101,7 @@ define noundef zeroext i1 @_Z10CreatePathPKwbb(ptr noundef %0, i1 noundef zeroex
   br label %.loopexit
 
 28:                                               ; preds = %21, %18
-  %.2.ph = phi i1 [ %26, %21 ], [ %.02641, %18 ]
+  %.2.ph = phi i1 [ %.02641, %18 ], [ %26, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %29 = getelementptr inbounds nuw i8, ptr %.02542, i64 4
   %.pr = load i32, ptr %29, align 4, !tbaa !7
@@ -127,7 +127,7 @@ _Z7MakeDirPKwbj.exit33:                           ; preds = %30
   br label %37
 
 37:                                               ; preds = %.loopexit, %30, %_Z7MakeDirPKwbj.exit33, %3, %8
-  %.027 = phi i1 [ false, %3 ], [ false, %8 ], [ %.02640, %.loopexit ], [ %.02640, %30 ], [ %36, %_Z7MakeDirPKwbj.exit33 ]
+  %.027 = phi i1 [ false, %8 ], [ false, %3 ], [ %.02640, %.loopexit ], [ %.02640, %30 ], [ %36, %_Z7MakeDirPKwbj.exit33 ]
   ret i1 %.027
 }
 
@@ -287,7 +287,7 @@ define noundef zeroext i1 @_Z12IsUnreadablej(i32 noundef %0) local_unnamed_addr 
   br label %switch.edge
 
 switch.edge:                                      ; preds = %1, %1, %1, %3
-  %4 = phi i1 [ true, %1 ], [ true, %1 ], [ false, %3 ], [ true, %1 ]
+  %4 = phi i1 [ true, %1 ], [ false, %3 ], [ true, %1 ], [ true, %1 ]
   ret i1 %4
 }
 

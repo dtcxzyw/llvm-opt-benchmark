@@ -1239,7 +1239,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h1b385f905
   ret void
 
 .body:                                            ; preds = %10, %7
-  %eh.lpad-body = phi { ptr, i32 } [ %8, %7 ], [ %11, %10 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %8, %7 ]
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -1326,7 +1326,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h5ed811224
   ret void
 
 .body:                                            ; preds = %10, %7
-  %eh.lpad-body = phi { ptr, i32 } [ %8, %7 ], [ %11, %10 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %8, %7 ]
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -1409,7 +1409,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h8ffdd4e81
   ret void
 
 .body:                                            ; preds = %10, %7
-  %eh.lpad-body = phi { ptr, i32 } [ %8, %7 ], [ %11, %10 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %8, %7 ]
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -1492,7 +1492,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hd6bc14c1c
   ret void
 
 .body:                                            ; preds = %10, %7
-  %eh.lpad-body = phi { ptr, i32 } [ %8, %7 ], [ %11, %10 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %8, %7 ]
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -1734,7 +1734,7 @@ define hidden void @_ZN6sparse6common18scores_memory_pool16ScoresMemoryPool11ret
   br i1 %11, label %56, label %55
 
 12:                                               ; preds = %34, %32, %.noexc, %7
-  %.0 = phi i8 [ %.3, %34 ], [ 1, %.noexc ], [ 1, %7 ], [ %.3, %32 ]
+  %.0 = phi i8 [ 1, %7 ], [ 1, %.noexc ], [ %.3, %32 ], [ %.3, %34 ]
   %13 = landingpad { ptr, i32 }
           cleanup
   br label %10

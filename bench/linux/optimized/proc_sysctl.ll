@@ -257,7 +257,7 @@ define dso_local ptr @__register_sysctl_table(ptr noundef %0, ptr noundef %1, pt
   br label %.loopexit46, !llvm.loop !6
 
 .loopexit46:                                      ; preds = %.preheader45, %.preheader45.preheader, %..loopexit46.loopexit_crit_edge, %12
-  %43 = phi i32 [ %14, %12 ], [ %14, %.preheader45.preheader ], [ %40, %..loopexit46.loopexit_crit_edge ], [ %40, %.preheader45 ]
+  %43 = phi i32 [ %14, %12 ], [ %40, %..loopexit46.loopexit_crit_edge ], [ %14, %.preheader45.preheader ], [ %40, %.preheader45 ]
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %143, label %45
 
@@ -669,8 +669,8 @@ define dso_local ptr @__register_sysctl_table(ptr noundef %0, ptr noundef %1, pt
   br i1 %299, label %.thread37, label %305
 
 .thread37:                                        ; preds = %278, %201, %.thread28, %296
-  %300 = phi ptr [ %298, %296 ], [ inttoptr (i64 -20 to ptr), %278 ], [ inttoptr (i64 -12 to ptr), %.thread28 ], [ inttoptr (i64 -20 to ptr), %201 ]
-  %301 = phi ptr [ %297, %296 ], [ %212, %278 ], [ null, %.thread28 ], [ null, %201 ]
+  %300 = phi ptr [ %298, %296 ], [ inttoptr (i64 -12 to ptr), %.thread28 ], [ inttoptr (i64 -20 to ptr), %201 ], [ inttoptr (i64 -20 to ptr), %278 ]
+  %301 = phi ptr [ %297, %296 ], [ null, %.thread28 ], [ null, %201 ], [ %212, %278 ]
   %302 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12) #22
   tail call fastcc void @sysctl_print_dir(ptr noundef %.ph)
   %303 = ptrtoint ptr %300 to i64
@@ -2030,7 +2030,7 @@ define internal fastcc noundef zeroext i1 @get_links(ptr noundef readonly captur
   br i1 %121, label %._crit_edge19, label %.thread11, !llvm.loop !26
 
 .thread11:                                        ; preds = %63, %68, %59, %57, %52, %.thread12, %._crit_edge19, %.lr.ph18, %7, %3
-  %122 = phi i1 [ true, %7 ], [ true, %3 ], [ false, %.lr.ph18 ], [ false, %52 ], [ true, %.thread12 ], [ true, %._crit_edge19 ], [ false, %57 ], [ false, %59 ], [ false, %68 ], [ false, %63 ]
+  %122 = phi i1 [ true, %7 ], [ true, %3 ], [ false, %.lr.ph18 ], [ true, %._crit_edge19 ], [ true, %.thread12 ], [ false, %52 ], [ false, %57 ], [ false, %59 ], [ false, %68 ], [ false, %63 ]
   ret i1 %122
 }
 
@@ -2201,7 +2201,7 @@ define internal ptr @proc_sys_lookup(ptr noundef readonly captures(none) %0, ptr
   br label %.sink.split
 
 .sink.split:                                      ; preds = %51, %88, %93, %97, %20, %56, %58
-  %.ph = phi ptr [ inttoptr (i64 -2 to ptr), %20 ], [ %86, %88 ], [ inttoptr (i64 -2 to ptr), %58 ], [ inttoptr (i64 -2 to ptr), %56 ], [ %86, %97 ], [ %86, %93 ], [ inttoptr (i64 -2 to ptr), %51 ]
+  %.ph = phi ptr [ inttoptr (i64 -2 to ptr), %58 ], [ inttoptr (i64 -2 to ptr), %56 ], [ inttoptr (i64 -2 to ptr), %20 ], [ %86, %97 ], [ %86, %93 ], [ %86, %88 ], [ inttoptr (i64 -2 to ptr), %51 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @sysctl_lock) #20
   br label %98
 
@@ -3147,7 +3147,7 @@ define internal fastcc i64 @proc_sys_call_handler(ptr noundef %0, ptr noundef %1
   br label %95
 
 95:                                               ; preds = %91, %85, %79, %76
-  %96 = phi i64 [ %83, %79 ], [ -14, %76 ], [ %spec.select, %91 ], [ %.pre, %85 ]
+  %96 = phi i64 [ %83, %79 ], [ -14, %76 ], [ %.pre, %85 ], [ %spec.select, %91 ]
   call void @kvfree(ptr noundef nonnull %70) #20
   br label %97
 

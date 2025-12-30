@@ -165,7 +165,7 @@ define range(i32 0, 2) i32 @Mvc_CoverIsBinaryBuffer(ptr noundef readonly capture
   br label %13
 
 13:                                               ; preds = %7, %4, %1
-  %.0 = phi i32 [ %spec.select, %7 ], [ 0, %1 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %4 ], [ %spec.select, %7 ]
   ret i32 %.0
 }
 

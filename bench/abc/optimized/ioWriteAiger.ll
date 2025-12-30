@@ -208,8 +208,8 @@ Vec_IntAlloc.exit:                                ; preds = %1, %7
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %65, %67, %57, %59
-  %.sink69 = phi ptr [ %60, %59 ], [ %58, %57 ], [ %66, %65 ], [ %68, %67 ]
-  %.sink = phi i32 [ 16, %59 ], [ 16, %57 ], [ %62, %65 ], [ %62, %67 ]
+  %.sink69 = phi ptr [ %58, %57 ], [ %60, %59 ], [ %66, %65 ], [ %68, %67 ]
+  %.sink = phi i32 [ 16, %57 ], [ 16, %59 ], [ %62, %65 ], [ %62, %67 ]
   store ptr %.sink69, ptr %12, align 8, !tbaa !31
   store i32 %.sink, ptr %4, align 8, !tbaa !30
   br label %Vec_IntPush.exit
@@ -303,8 +303,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit47.sink.split
 
 Vec_IntPush.exit47.sink.split:                    ; preds = %112, %114, %104, %106
-  %.sink71 = phi ptr [ %107, %106 ], [ %105, %104 ], [ %113, %112 ], [ %115, %114 ]
-  %.sink70 = phi i32 [ 16, %106 ], [ 16, %104 ], [ %109, %112 ], [ %109, %114 ]
+  %.sink71 = phi ptr [ %105, %104 ], [ %107, %106 ], [ %113, %112 ], [ %115, %114 ]
+  %.sink70 = phi i32 [ 16, %104 ], [ 16, %106 ], [ %109, %112 ], [ %109, %114 ]
   store ptr %.sink71, ptr %12, align 8, !tbaa !31
   store i32 %.sink70, ptr %4, align 8, !tbaa !30
   br label %Vec_IntPush.exit47
@@ -3001,9 +3001,9 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %56 = getelementptr i8, ptr %.0109, i64 108
   br label %.preheader151
 
-.preheader151:                                    ; preds = %.preheader151.lr.ph, %._crit_edge177
-  %.0180 = phi i32 [ %38, %.preheader151.lr.ph ], [ %.1.lcssa, %._crit_edge177 ]
-  %.0106179 = phi i32 [ 0, %.preheader151.lr.ph ], [ %216, %._crit_edge177 ]
+.preheader151:                                    ; preds = %.preheader151.lr.ph, %.critedge10
+  %.0180 = phi i32 [ %38, %.preheader151.lr.ph ], [ %.1.lcssa, %.critedge10 ]
+  %.0106179 = phi i32 [ 0, %.preheader151.lr.ph ], [ %216, %.critedge10 ]
   %57 = load i32, ptr %49, align 4, !tbaa !89
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %.lr.ph157, label %._crit_edge158
@@ -3235,10 +3235,10 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %fputc118 = tail call i32 @fputc(i32 32, ptr %35)
   %.0109.val145175 = load i32, ptr %55, align 8, !tbaa !126
   %196 = icmp sgt i32 %.0109.val145175, 0
-  br i1 %196, label %.critedge10, label %._crit_edge177
+  br i1 %196, label %.lr.ph177, label %.critedge10
 
-.critedge10:                                      ; preds = %.critedge8, %.critedge10
-  %.7176 = phi i32 [ %214, %.critedge10 ], [ 0, %.critedge8 ]
+.lr.ph177:                                        ; preds = %.critedge8, %.lr.ph177
+  %.7176 = phi i32 [ %214, %.lr.ph177 ], [ 0, %.critedge8 ]
   %.0109.val146 = load ptr, ptr %53, align 8, !tbaa !119
   %.0109.val147 = load i32, ptr %54, align 8, !tbaa !123
   %197 = getelementptr i8, ptr %.0109.val146, i64 8
@@ -3266,15 +3266,15 @@ define void @Io_WriteAigerCex(ptr noundef readonly captures(none) %0, ptr nounde
   %214 = add nuw nsw i32 %.7176, 1
   %.0109.val145 = load i32, ptr %55, align 8, !tbaa !126
   %215 = icmp slt i32 %214, %.0109.val145
-  br i1 %215, label %.critedge10, label %._crit_edge177, !llvm.loop !130
+  br i1 %215, label %.lr.ph177, label %.critedge10, !llvm.loop !130
 
-._crit_edge177:                                   ; preds = %.critedge10, %.critedge8
+.critedge10:                                      ; preds = %.lr.ph177, %.critedge8
   %216 = add nuw nsw i32 %.0106179, 1
   %217 = load i32, ptr %47, align 4, !tbaa !115
   %.not114.not = icmp slt i32 %.0106179, %217
   br i1 %.not114.not, label %.preheader151, label %.critedge6._crit_edge, !llvm.loop !131
 
-.critedge6._crit_edge:                            ; preds = %._crit_edge177, %.critedge6, %._crit_edge
+.critedge6._crit_edge:                            ; preds = %.critedge10, %.critedge6, %._crit_edge
   %218 = tail call i32 @fclose(ptr noundef %35)
   tail call void @Aig_ManCleanMarkA(ptr noundef nonnull %.0109) #17
   tail call void @Aig_ManStop(ptr noundef nonnull %.0109) #17

@@ -846,7 +846,7 @@ heur_mtp3_standard.exit:                          ; preds = %14, %29
   %36 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %34, ptr noundef nonnull @.str.149, ptr noundef %35)
   br label %40
 
-select.unfold:                                    ; preds = %29, %25, %16, %21
+select.unfold:                                    ; preds = %29, %16, %21, %25
   %.0.i.ph = phi i32 [ 3, %25 ], [ 2, %21 ], [ 1, %16 ], [ 4, %29 ]
   %37 = load i32, ptr @hf_mtp3_heuristic_standard, align 4
   %38 = tail call ptr @val_to_str_const(i32 noundef %.0.i.ph, ptr noundef nonnull @mtp3_standard_vals, ptr noundef nonnull @.str.150)
@@ -928,7 +928,7 @@ switch.lookup:                                    ; preds = %proto_item_set_gene
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %74, %71, %54
-  %hf_mtp3_itu_priority.sink.i = phi ptr [ %hf_mtp3_itu_priority.hf_mtp3_itu_spare.i, %71 ], [ @hf_mtp3_ansi_priority, %54 ], [ @hf_mtp3_itu_spare, %74 ]
+  %hf_mtp3_itu_priority.sink.i = phi ptr [ @hf_mtp3_itu_spare, %74 ], [ @hf_mtp3_ansi_priority, %54 ], [ %hf_mtp3_itu_priority.hf_mtp3_itu_spare.i, %71 ]
   %75 = load i32, ptr %hf_mtp3_itu_priority.sink.i, align 4
   %76 = tail call ptr @proto_tree_add_uint(ptr noundef %62, i32 noundef %75, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %65)
   br label %dissect_mtp3_sio.exit

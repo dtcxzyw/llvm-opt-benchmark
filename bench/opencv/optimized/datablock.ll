@@ -855,7 +855,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIN5zx
   ret void
 
 291:                                              ; preds = %127, %129, %75, %198, %_ZN5zxing12ErrorHandlerD2Ev.exit152, %_ZN5zxing12ErrorHandlerD2Ev.exit144, %131, %91, %_ZN5zxing8ArrayRefIcED2Ev.exit140
-  %.pn117.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %130, %129 ], [ %76, %75 ], [ %128, %127 ], [ %.pn108, %_ZN5zxing12ErrorHandlerD2Ev.exit152 ], [ %.pn, %_ZN5zxing12ErrorHandlerD2Ev.exit144 ], [ %199, %198 ], [ %lpad.phi, %91 ], [ %132, %131 ], [ %133, %_ZN5zxing8ArrayRefIcED2Ev.exit140 ]
+  %.pn117.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %128, %127 ], [ %130, %129 ], [ %.pn, %_ZN5zxing12ErrorHandlerD2Ev.exit144 ], [ %199, %198 ], [ %.pn108, %_ZN5zxing12ErrorHandlerD2Ev.exit152 ], [ %133, %_ZN5zxing8ArrayRefIcED2Ev.exit140 ], [ %132, %131 ], [ %lpad.phi, %91 ]
   call void @_ZNSt6vectorIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i.i.i157 = icmp eq ptr %38, null

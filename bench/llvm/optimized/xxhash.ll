@@ -406,7 +406,7 @@ _ZL20XXH3_len_17to128_64bPKhmS0_m.exit:           ; preds = %74, %98, %122, %146
   br label %_ZL18XXH3_len_0to16_64bPKhmS0_m.exit
 
 _ZL18XXH3_len_0to16_64bPKhmS0_m.exit:             ; preds = %48, %28, %6, %47, %179, %177, %_ZL20XXH3_len_17to128_64bPKhmS0_m.exit
-  %.0 = phi i64 [ %180, %179 ], [ %174, %_ZL20XXH3_len_17to128_64bPKhmS0_m.exit ], [ %178, %177 ], [ %25, %6 ], [ %46, %28 ], [ %71, %48 ], [ 3244421341483603138, %47 ]
+  %.0 = phi i64 [ %174, %_ZL20XXH3_len_17to128_64bPKhmS0_m.exit ], [ %178, %177 ], [ %180, %179 ], [ %25, %6 ], [ %46, %28 ], [ %71, %48 ], [ 3244421341483603138, %47 ]
   ret i64 %.0
 }
 
@@ -1230,7 +1230,7 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit106:               ; preds = %350
   br label %_ZL19XXH3_len_0to16_128bPKhmS0_m.exit
 
 _ZL19XXH3_len_0to16_128bPKhmS0_m.exit:            ; preds = %77, %46, %7, %76, %_ZL14XXH3_mergeAccsPKmPKhm.exit106, %250, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit
-  %.pn = phi { i64, i64 } [ %.fca.1.insert.i12, %_ZL14XXH3_mergeAccsPKmPKhm.exit106 ], [ %.fca.1.insert.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit ], [ %251, %250 ], [ %.fca.1.insert.i23, %7 ], [ %.fca.1.insert.i25, %46 ], [ %.fca.1.insert.i27, %77 ], [ { i64 6918025063187695999, i64 -7374073936536430376 }, %76 ]
+  %.pn = phi { i64, i64 } [ %.fca.1.insert.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit ], [ %251, %250 ], [ %.fca.1.insert.i12, %_ZL14XXH3_mergeAccsPKmPKhm.exit106 ], [ %.fca.1.insert.i23, %7 ], [ %.fca.1.insert.i25, %46 ], [ %.fca.1.insert.i27, %77 ], [ { i64 6918025063187695999, i64 -7374073936536430376 }, %76 ]
   ret { i64, i64 } %.pn
 }
 

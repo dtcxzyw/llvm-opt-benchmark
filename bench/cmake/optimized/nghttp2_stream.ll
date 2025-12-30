@@ -311,8 +311,8 @@ stream_update_dep_on_attach_item.exit:            ; preds = %12
   store ptr null, ptr %3, align 8, !tbaa !20
   br label %stream_update_dep_on_attach_item.exit.thread
 
-stream_update_dep_on_attach_item.exit.thread:     ; preds = %36, %.lr.ph.i.i, %7, %2, %stream_update_dep_on_attach_item.exit
-  %.0 = phi i32 [ 0, %2 ], [ %35, %stream_update_dep_on_attach_item.exit ], [ 0, %7 ], [ 0, %.lr.ph.i.i ], [ 0, %36 ]
+stream_update_dep_on_attach_item.exit.thread:     ; preds = %.lr.ph.i.i, %36, %7, %2, %stream_update_dep_on_attach_item.exit
+  %.0 = phi i32 [ %35, %stream_update_dep_on_attach_item.exit ], [ 0, %2 ], [ 0, %7 ], [ 0, %36 ], [ 0, %.lr.ph.i.i ]
   ret i32 %.0
 }
 
@@ -504,7 +504,7 @@ define dso_local i32 @nghttp2_stream_resume_deferred_item(ptr noundef %0, i8 nou
   br i1 %.not.i.i, label %stream_update_dep_on_attach_item.exit, label %.lr.ph.i.i, !llvm.loop !45
 
 stream_update_dep_on_attach_item.exit:            ; preds = %37, %13, %.lr.ph.i.i, %8, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %8 ], [ %36, %13 ], [ 0, %37 ], [ 0, %.lr.ph.i.i ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %8 ], [ %36, %13 ], [ 0, %.lr.ph.i.i ], [ 0, %37 ]
   ret i32 %.0
 }
 
@@ -784,7 +784,7 @@ stream_subtree_active.exit.thread:                ; preds = %stream_active.exit.
   %.not.i40 = icmp eq ptr %80, null
   br i1 %.not.i40, label %stream_obq_push.exit.thread, label %.lr.ph.i, !llvm.loop !45
 
-stream_obq_push.exit.thread:                      ; preds = %.lr.ph.i, %78, %stream_subtree_active.exit.thread, %stream_subtree_active.exit
+stream_obq_push.exit.thread:                      ; preds = %78, %.lr.ph.i, %stream_subtree_active.exit.thread, %stream_subtree_active.exit
   %81 = load ptr, ptr %8, align 8, !tbaa !49
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr %81, ptr %82, align 8, !tbaa !49
@@ -1292,8 +1292,8 @@ stream_subtree_active.exit.thread:                ; preds = %stream_active.exit.
   %.not.i55 = icmp eq ptr %92, null
   br i1 %.not.i55, label %stream_obq_move.exit, label %.lr.ph.i, !llvm.loop !45
 
-stream_obq_move.exit:                             ; preds = %28, %.lr.ph.i, %90, %66, %stream_subtree_active.exit.thread, %stream_subtree_active.exit
-  %.033 = phi i32 [ 0, %stream_subtree_active.exit.thread ], [ %89, %66 ], [ 0, %stream_subtree_active.exit ], [ 0, %.lr.ph.i ], [ 0, %90 ], [ %51, %28 ]
+stream_obq_move.exit:                             ; preds = %28, %90, %.lr.ph.i, %66, %stream_subtree_active.exit.thread, %stream_subtree_active.exit
+  %.033 = phi i32 [ 0, %stream_subtree_active.exit ], [ 0, %stream_subtree_active.exit.thread ], [ 0, %90 ], [ 0, %.lr.ph.i ], [ %89, %66 ], [ %51, %28 ]
   ret i32 %.033
 }
 
@@ -1388,8 +1388,8 @@ stream_subtree_active.exit:                       ; preds = %link_dep.exit, %str
   %.not.i18 = icmp eq ptr %48, null
   br i1 %.not.i18, label %stream_obq_push.exit, label %.lr.ph.i, !llvm.loop !45
 
-stream_obq_push.exit:                             ; preds = %.lr.ph.i, %46, %22, %stream_subtree_active.exit
-  %.0 = phi i32 [ 0, %stream_subtree_active.exit ], [ 0, %.lr.ph.i ], [ 0, %46 ], [ %45, %22 ]
+stream_obq_push.exit:                             ; preds = %46, %.lr.ph.i, %22, %stream_subtree_active.exit
+  %.0 = phi i32 [ 0, %stream_subtree_active.exit ], [ 0, %46 ], [ 0, %.lr.ph.i ], [ %45, %22 ]
   ret i32 %.0
 }
 
@@ -1604,7 +1604,7 @@ define dso_local range(i32 1, 8) i32 @nghttp2_stream_get_state(ptr noundef reado
   br label %19
 
 19:                                               ; preds = %15, %13, %._crit_edge, %10, %8, %1
-  %.0 = phi i32 [ 5, %13 ], [ 7, %1 ], [ 3, %8 ], [ 4, %10 ], [ 6, %._crit_edge ], [ %., %15 ]
+  %.0 = phi i32 [ 7, %1 ], [ 3, %8 ], [ 4, %10 ], [ 6, %._crit_edge ], [ 5, %13 ], [ %., %15 ]
   ret i32 %.0
 }
 

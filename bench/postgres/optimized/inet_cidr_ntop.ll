@@ -465,7 +465,7 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr noundef read
   br i1 %exitcond174.not.i, label %.loopexit.i13, label %.lr.ph149.split.split.i, !llvm.loop !6
 
 .loopexit.i13:                                    ; preds = %211, %160, %123, %64
-  %.097.i = phi ptr [ %66, %64 ], [ %.4.us.i, %160 ], [ %133, %123 ], [ %.4.i14, %211 ]
+  %.097.i = phi ptr [ %66, %64 ], [ %133, %123 ], [ %.4.us.i, %160 ], [ %.4.i14, %211 ]
   %213 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.097.i, ptr noundef nonnull @.str.1, i32 noundef %2) #9
   %214 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #10
   %215 = add i64 %214, 1

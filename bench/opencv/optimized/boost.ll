@@ -2085,7 +2085,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %37
   br label %61
 
 .critedge:                                        ; preds = %46, %55, %.noexc
-  %58 = phi i1 [ true, %.noexc ], [ true, %55 ], [ false, %46 ]
+  %58 = phi i1 [ true, %55 ], [ true, %.noexc ], [ false, %46 ]
   %59 = load ptr, ptr %6, align 8, !tbaa !122
   %.not.i.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %60
@@ -2513,7 +2513,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %51, %53, %55, %57
   br i1 %exitcond.not, label %.loopexit, label %65, !llvm.loop !140
 
 .loopexit:                                        ; preds = %65, %_ZNSt6vectorIdSaIdEE6resizeEm.exit, %16
-  %71 = phi ptr [ %.pre21, %16 ], [ %.pre20, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ], [ %.pre20, %65 ]
+  %71 = phi ptr [ %.pre20, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ], [ %.pre21, %16 ], [ %.pre20, %65 ]
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 256
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 264
   %74 = load ptr, ptr %73, align 8, !tbaa !121
@@ -3658,7 +3658,7 @@ _ZN2cv2ml18DTreesImplForBoost16normalizeWeightsEv.exit.thread: ; preds = %.prehe
   br i1 %exitcond254.not, label %._crit_edge212, label %296, !llvm.loop !176
 
 ._crit_edge212:                                   ; preds = %296, %_ZN2cv2ml18DTreesImplForBoost16normalizeWeightsEv.exit.thread, %.preheader
-  %303 = phi ptr [ %287, %_ZN2cv2ml18DTreesImplForBoost16normalizeWeightsEv.exit.thread ], [ %283, %.preheader ], [ %283, %296 ]
+  %303 = phi ptr [ %283, %.preheader ], [ %287, %_ZN2cv2ml18DTreesImplForBoost16normalizeWeightsEv.exit.thread ], [ %283, %296 ]
   %.not.i.i153 = icmp eq i64 %sext138, 0
   br i1 %.not.i.i153, label %_ZSt4sortIPdEvT_S1_.exit, label %304
 
@@ -3950,7 +3950,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %405, %.loopexit
   ret void
 
 406:                                              ; preds = %.loopexit178, %.loopexit.split-lp, %281, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %87, %85
-  %.pn144 = phi { ptr, i32 } [ %88, %87 ], [ %86, %85 ], [ %.pn140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %282, %281 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %lpad.loopexit, %.loopexit178 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn144 = phi { ptr, i32 } [ %88, %87 ], [ %86, %85 ], [ %282, %281 ], [ %.pn140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %lpad.loopexit, %.loopexit178 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #24
   br label %407
 
@@ -4283,7 +4283,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPdN9__gnu_cxx5__ops15_Iter_le
   br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, !llvm.loop !183
 
 _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %40, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.01317.i.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %40 ]
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.018.i.i.us, %40 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
   %43 = getelementptr inbounds nuw double, ptr %0, i64 %.013.lcssa.i.i.us
   store double %21, ptr %43, align 8, !tbaa !136
   %.not.us = icmp eq i64 %.013.us, 0
@@ -4530,7 +4530,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !139
   br label %40
 

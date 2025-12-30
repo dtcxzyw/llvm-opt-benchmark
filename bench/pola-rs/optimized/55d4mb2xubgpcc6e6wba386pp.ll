@@ -4336,7 +4336,7 @@ define hidden void @_ZN14polars_parquet7parquet5write9row_group15write_row_group
   unreachable
 
 common.resume:                                    ; preds = %74, %19, %26
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %20, %26 ], [ %lpad.thr_comm, %74 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %26 ], [ %20, %19 ], [ %lpad.thr_comm, %74 ]
   resume { ptr, i32 } %common.resume.op
 
 26:                                               ; preds = %19
@@ -4405,11 +4405,11 @@ common.resume:                                    ; preds = %74, %19, %26
 43:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZN14polars_parquet7parquet5write9row_group21ColumnOffsetsMetadata17from_column_chunk17h5d2ecbf2fdd09095E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(544) %33)
-          to label %55 unwind label %74
+          to label %56 unwind label %74
 
-44:                                               ; preds = %55
-  %45 = extractvalue { i64, i64 } %56, 0
-  %46 = extractvalue { i64, i64 } %56, 1
+44:                                               ; preds = %56
+  %45 = extractvalue { i64, i64 } %57, 0
+  %46 = extractvalue { i64, i64 } %57, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.pre = load ptr, ptr %32, align 8
   %.pre87 = load i64, ptr %34, align 8
@@ -4422,45 +4422,45 @@ common.resume:                                    ; preds = %74, %19, %26
   br i1 %48, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit.thread", label %.preheader
 
 .preheader:                                       ; preds = %44, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h585229704e3cd3d9E.exit.i"
-  %.sroa.07.0.i = phi i64 [ %52, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h585229704e3cd3d9E.exit.i" ], [ 0, %44 ]
-  %.sroa.09.0.i = phi i64 [ %53, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h585229704e3cd3d9E.exit.i" ], [ 0, %44 ]
+  %.sroa.07.0.i = phi i64 [ %53, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h585229704e3cd3d9E.exit.i" ], [ 0, %44 ]
+  %.sroa.09.0.i = phi i64 [ %54, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h585229704e3cd3d9E.exit.i" ], [ 0, %44 ]
   %49 = getelementptr inbounds nuw { { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [48 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %.pre, i64 %.sroa.09.0.i
   %50 = getelementptr i8, ptr %49, i64 32
   %.val.i = load i64, ptr %50, align 8, !range !272, !noundef !3
   %.not.i.i.i55 = icmp eq i64 %.val.i, 2
   br i1 %.not.i.i.i55, label %.invoke, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h585229704e3cd3d9E.exit.i", !prof !273
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h585229704e3cd3d9E.exit.i": ; preds = %.preheader
-  %51 = getelementptr i8, ptr %49, i64 392
-  %.val19.i = load i64, ptr %51, align 8
-  %52 = add i64 %.val19.i, %.sroa.07.0.i
-  %53 = add nuw i64 %.sroa.09.0.i, 1
-  %54 = icmp eq i64 %53, %.pre87
-  br i1 %54, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit", label %.preheader
-
-55:                                               ; preds = %43
-  %56 = invoke { i64, i64 } @_ZN14polars_parquet7parquet5write9row_group21ColumnOffsetsMetadata26calc_row_group_file_offset17h4cc402f3eef83b2bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %12)
-          to label %44 unwind label %74
-
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit": ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h585229704e3cd3d9E.exit.i", %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha90357a47b167044E.exit.i"
-  %.sroa.07.0.i56 = phi i64 [ %61, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha90357a47b167044E.exit.i" ], [ 0, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h585229704e3cd3d9E.exit.i" ]
-  %.sroa.09.0.i57 = phi i64 [ %62, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha90357a47b167044E.exit.i" ], [ 0, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h585229704e3cd3d9E.exit.i" ]
-  %57 = getelementptr inbounds nuw { { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [48 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %.pre, i64 %.sroa.09.0.i57
-  %58 = getelementptr i8, ptr %57, i64 32
-  %.val.i58 = load i64, ptr %58, align 8, !range !272, !noundef !3
-  %.not.i.i.i59 = icmp eq i64 %.val.i58, 2
-  br i1 %.not.i.i.i59, label %.invoke, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha90357a47b167044E.exit.i", !prof !273
-
 .invoke:                                          ; preds = %.preheader, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit"
-  %59 = phi ptr [ @anon.b887585fd1dc1bc1f3601a77b208116a.6, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit" ], [ @anon.b887585fd1dc1bc1f3601a77b208116a.7, %.preheader ]
-  invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) %59) #22
+  %51 = phi ptr [ @anon.b887585fd1dc1bc1f3601a77b208116a.6, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit" ], [ @anon.b887585fd1dc1bc1f3601a77b208116a.7, %.preheader ]
+  invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) %51) #22
           to label %.cont unwind label %74
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h585229704e3cd3d9E.exit.i": ; preds = %.preheader
+  %52 = getelementptr i8, ptr %49, i64 392
+  %.val19.i = load i64, ptr %52, align 8
+  %53 = add i64 %.val19.i, %.sroa.07.0.i
+  %54 = add nuw i64 %.sroa.09.0.i, 1
+  %55 = icmp eq i64 %54, %.pre87
+  br i1 %55, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit", label %.preheader
+
+56:                                               ; preds = %43
+  %57 = invoke { i64, i64 } @_ZN14polars_parquet7parquet5write9row_group21ColumnOffsetsMetadata26calc_row_group_file_offset17h4cc402f3eef83b2bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %12)
+          to label %44 unwind label %74
+
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit": ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h585229704e3cd3d9E.exit.i", %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha90357a47b167044E.exit.i"
+  %.sroa.07.0.i56 = phi i64 [ %61, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha90357a47b167044E.exit.i" ], [ 0, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h585229704e3cd3d9E.exit.i" ]
+  %.sroa.09.0.i57 = phi i64 [ %62, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha90357a47b167044E.exit.i" ], [ 0, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h585229704e3cd3d9E.exit.i" ]
+  %58 = getelementptr inbounds nuw { { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [48 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %.pre, i64 %.sroa.09.0.i57
+  %59 = getelementptr i8, ptr %58, i64 32
+  %.val.i58 = load i64, ptr %59, align 8, !range !272, !noundef !3
+  %.not.i.i.i59 = icmp eq i64 %.val.i58, 2
+  br i1 %.not.i.i.i59, label %.invoke, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha90357a47b167044E.exit.i", !prof !273
+
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha90357a47b167044E.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit"
-  %60 = getelementptr i8, ptr %57, i64 400
+  %60 = getelementptr i8, ptr %58, i64 400
   %.val19.i60 = load i64, ptr %60, align 8
   %61 = add i64 %.val19.i60, %.sroa.07.0.i56
   %62 = add nuw i64 %.sroa.09.0.i57, 1
@@ -4472,7 +4472,7 @@ common.resume:                                    ; preds = %74, %19, %26
   %..sroa.614.099 = phi i64 [ %..sroa.614.0, %44 ], [ undef, %42 ], [ %..sroa.614.0, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha90357a47b167044E.exit.i" ]
   %..sroa.012.098 = phi i64 [ %..sroa.012.0, %44 ], [ 0, %42 ], [ %..sroa.012.0, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha90357a47b167044E.exit.i" ]
   %65 = phi ptr [ %.pre, %44 ], [ %33, %42 ], [ %.pre, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha90357a47b167044E.exit.i" ]
-  %.sroa.04.0.i84 = phi i64 [ 0, %44 ], [ 0, %42 ], [ %52, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha90357a47b167044E.exit.i" ]
+  %.sroa.04.0.i84 = phi i64 [ 0, %44 ], [ 0, %42 ], [ %53, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha90357a47b167044E.exit.i" ]
   %.sroa.04.0.i61 = phi i64 [ 0, %44 ], [ 0, %42 ], [ %61, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha90357a47b167044E.exit.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -4523,7 +4523,7 @@ common.resume:                                    ; preds = %74, %19, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret void
 
-74:                                               ; preds = %.invoke, %29, %55, %43
+74:                                               ; preds = %.invoke, %56, %43, %29
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr179drop_in_place$LT$alloc..vec..Vec$LT$$LP$polars_parquet_format..parquet_format..ColumnChunk$C$alloc..vec..Vec$LT$polars_parquet..parquet..write..page..PageWriteSpec$GT$$RP$$GT$$GT$17h329cc8e4982114b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #23
@@ -4927,7 +4927,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h01c9bca7b5d8
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -4996,7 +4996,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h03c6c9a4d8e1
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -5093,7 +5093,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h058eea8c9817
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -5265,7 +5265,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h0671c52faf26
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -5334,7 +5334,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h07c46dac5e35
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -5431,7 +5431,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h07cc1479974d
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -5543,7 +5543,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h080fe17a259f
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -5796,7 +5796,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h08d57fb835fd
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -5908,7 +5908,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h098843d41f87
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -5977,7 +5977,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h09c32e5005dd
   unreachable
 
 common.resume.i:                                  ; preds = %26, %23, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %23 ], [ %27, %26 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %27, %26 ], [ %lpad.thr_comm.i.i, %23 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2e338d304eee3a5cE.exit.thread": ; preds = %10
@@ -6208,7 +6208,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h11662c31beda
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -6365,7 +6365,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h1354c800a466
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -6542,7 +6542,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h15028ef18f71
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -6639,7 +6639,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h154e51f358dd
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -6751,7 +6751,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h15e113b144f7
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -6940,7 +6940,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h17efd85a3518
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -7037,7 +7037,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h194b2ccdf269
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -7515,7 +7515,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h2221e54c9f9a
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -7612,7 +7612,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h226e577e7fdc
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -7709,7 +7709,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h2398518b4644
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -7806,7 +7806,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h2585732fcc7e
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -7963,7 +7963,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h27e0c6c8cf89
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -8060,7 +8060,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h28d8aa4b5d03
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -8157,7 +8157,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h291e3dd5605e
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -8254,7 +8254,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h2977744fc163
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -8351,7 +8351,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h297cedc92bd7
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -8448,7 +8448,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h2cbab999ec19
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -8680,7 +8680,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h2f88b13a98c1
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -8813,7 +8813,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h304c32c3d6c3
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -8910,7 +8910,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h317dcd355d16
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -9171,7 +9171,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h35747f38f4d8
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -9240,7 +9240,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h388a3395913b
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -9397,7 +9397,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h3c2c1dabaea4
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -9494,7 +9494,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h3eee796a98d8
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -9746,7 +9746,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h4496751a4808
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -9814,7 +9814,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h45a500fe2069
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %11
-  %common.resume.op.i = phi { ptr, i32 } [ %12, %11 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %12, %11 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc50362223820a10aE.exit.thread": ; preds = %10
@@ -9977,7 +9977,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h48a213b6de3f
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -10089,7 +10089,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h48e9953e0e9d
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -10158,7 +10158,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h4924e5aa192a
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -10336,7 +10336,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h4d545acf75a9
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -10433,7 +10433,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h4debf6e51fe3
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -10530,7 +10530,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h4eaf01ba1ce7
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -10751,7 +10751,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h53a3eb116c6d
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -10848,7 +10848,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h543330dd11b5
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -10945,7 +10945,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h54682dec47ae
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -11042,7 +11042,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h574cb294bb7b
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -11263,7 +11263,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h5d96606fa485
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -11375,7 +11375,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h5f1bec0a5e63
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -11444,7 +11444,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h5f835c3f68b9
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -11541,7 +11541,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h6254928bbaae
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -11653,7 +11653,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h62a8c7003205
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -11737,7 +11737,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h63472f3000e4
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -11806,7 +11806,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h65cbadc9f871
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -11903,7 +11903,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h6699743c470b
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -12064,7 +12064,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h67d124fa6a95
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -12240,7 +12240,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h6eac96897edb
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -12369,7 +12369,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h716151055706
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -12526,7 +12526,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h72ae374f637d
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -12638,7 +12638,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h7301b84689df
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -12707,7 +12707,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h75ceb9892af8
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -12819,7 +12819,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h77893b69f678
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -12888,7 +12888,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h78e29b764d36
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -13040,7 +13040,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h7999f337e62f
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -13257,7 +13257,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h7bedac0419f4
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -13354,7 +13354,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h7e1e3a378cb3
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -13511,7 +13511,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h7e85376a17f4
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -13743,7 +13743,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h83e2d57cb957
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -13827,7 +13827,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h8497d862ed78
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -14031,7 +14031,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h89f88b7413f6
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -14192,7 +14192,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h8c9c7cdac46e
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -14261,7 +14261,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h8d09fcd6c59f
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -14542,7 +14542,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h902296192e99
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -14639,7 +14639,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h912a6b282ea5
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -14751,7 +14751,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h9172fa588fe5
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -14820,7 +14820,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h91981ecf6f63
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -14917,7 +14917,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h932ba0b1f180
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -15014,7 +15014,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h95add7482627
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -15111,7 +15111,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h972203beb580
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -15208,7 +15208,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h988a917652d3
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -15305,7 +15305,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h991055b522a0
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -15466,7 +15466,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h9d622a1557ab
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -15683,7 +15683,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h9e68c51b564e
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -15840,7 +15840,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17ha01336ec4d0a
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -15952,7 +15952,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17ha1b4abae8657
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -16081,7 +16081,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17ha2127c6e7451
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -16242,7 +16242,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17ha371c1294232
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -16399,7 +16399,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17ha64898a28e39
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -16620,7 +16620,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17ha9921c47a900
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -16860,7 +16860,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hab7ecab347a1
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -16929,7 +16929,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17habb3ba2a2855
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -17161,7 +17161,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hb1caf39fb4ac
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -17230,7 +17230,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hb23c27af6b82
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -17342,7 +17342,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hb2a296993e98
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -17411,7 +17411,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hb34781655d7d
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -17508,7 +17508,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hb39588518d78
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -17604,7 +17604,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hb90e64b31298
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %11
-  %common.resume.op.i = phi { ptr, i32 } [ %12, %11 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %12, %11 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hccdf0f32dd2ef0f4E.exit.thread": ; preds = %10
@@ -17707,7 +17707,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hb9412308bb0b
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -17888,7 +17888,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hbb880e56a107
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -17957,7 +17957,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hbbc773964e93
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -18054,7 +18054,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hbc39dbc35d45
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -18151,7 +18151,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hbc8cb3192d04
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -18248,7 +18248,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hc2cbf5768ad0
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -18405,7 +18405,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hc3ae40205a34
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -18567,7 +18567,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hc4430c9e8ae3
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -18729,7 +18729,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hc50da2f8b4cd
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -19148,7 +19148,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hc85c29d9eb4c
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %11
-  %common.resume.op.i = phi { ptr, i32 } [ %12, %11 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %12, %11 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0eb10242e531ed25E.exit.thread": ; preds = %10
@@ -19266,7 +19266,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hc95dd7ef5853
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -19395,7 +19395,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hcaa93b944186
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -19552,7 +19552,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hcbf34c3eee26
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -19664,7 +19664,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hcd2b34039442
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -19733,7 +19733,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hcd4e052f5a7b
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -19830,7 +19830,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hcd69cd3a9d4a
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -20047,7 +20047,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hced851704ecd
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -20159,7 +20159,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hd05df812abac
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -20228,7 +20228,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hd0df6a125c4b
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -20468,7 +20468,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hd70bada10f49
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -20537,7 +20537,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hd78b99624fff
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -20634,7 +20634,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hd7be90e024f1
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -20791,7 +20791,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hd988ad2c0b3e
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -20967,7 +20967,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hda7008e44099
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -21100,7 +21100,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hdbba95404aa4
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -21276,7 +21276,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hddc0660c01b8
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -21345,7 +21345,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hddee1f1f32c6
   unreachable
 
 common.resume.i:                                  ; preds = %26, %23, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %23 ], [ %27, %26 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %27, %26 ], [ %lpad.thr_comm.i.i, %23 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hbf66d7e8ef2e76cdE.exit.thread": ; preds = %10
@@ -21448,7 +21448,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hddfbdf99af0d
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -21545,7 +21545,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hde38b4abbd6a
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -21766,7 +21766,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17he0bd03f965bd
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -21983,7 +21983,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17he46bc65929ed
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -22140,7 +22140,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17he580165f23d0
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -22237,7 +22237,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17he7bbba73772d
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -22409,7 +22409,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17heb24422013be
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -22547,7 +22547,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hecae19922257
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -22768,7 +22768,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17heeb5bbe14ca4
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -22940,7 +22940,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hefdb9c8f059e
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -23073,7 +23073,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hf15cdb21ff15
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -23234,7 +23234,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hf42d0489fcfb
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -23331,7 +23331,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hf5a682b0e4d9
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -23428,7 +23428,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hf624f7ffb4b6
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -23585,7 +23585,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hf9f973c0acb3
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -23697,7 +23697,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hfbfc55b68a12
   unreachable
 
 .body.thread.i:                                   ; preds = %18, %15
-  %eh.lpad-body3.i = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm.i.i, %15 ]
+  %eh.lpad-body3.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %15 ], [ %19, %18 ]
   resume { ptr, i32 } %eh.lpad-body3.i
 
 18:                                               ; preds = %3
@@ -23766,7 +23766,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hfc37ca06807d
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -23863,7 +23863,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hfd8e75077186
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -23960,7 +23960,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hfdadc30bd27a
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -24185,7 +24185,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hfeefda75770d
   unreachable
 
 common.resume.i:                                  ; preds = %25, %22, %12
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %lpad.thr_comm.i.i, %22 ], [ %26, %25 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %13, %12 ], [ %26, %25 ], [ %lpad.thr_comm.i.i, %22 ]
   resume { ptr, i32 } %common.resume.op.i
 
 17:                                               ; preds = %8
@@ -24534,7 +24534,7 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %45, %37, %14
-  %common.resume.op.i = phi { ptr, i32 } [ %38, %37 ], [ %38, %45 ], [ %.pn.i, %14 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %38, %45 ], [ %38, %37 ], [ %.pn.i, %14 ]
   resume { ptr, i32 } %common.resume.op.i
 
 46:                                               ; preds = %23, %14
@@ -24638,7 +24638,7 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %45, %37, %14
-  %common.resume.op.i = phi { ptr, i32 } [ %38, %37 ], [ %38, %45 ], [ %.pn.i, %14 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %38, %45 ], [ %38, %37 ], [ %.pn.i, %14 ]
   resume { ptr, i32 } %common.resume.op.i
 
 46:                                               ; preds = %23, %14
@@ -28672,7 +28672,7 @@ define hidden void @_ZN4core4iter6traits7collect22default_extend_tuple_b17h2c942
 12:                                               ; preds = %13
   resume { ptr, i32 } %lpad.thr_comm
 
-13:                                               ; preds = %11, %"_ZN93_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$14extend_reserve17h3b05a75c2579a5ebE.exit"
+13:                                               ; preds = %"_ZN93_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$14extend_reserve17h3b05a75c2579a5ebE.exit", %11
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr195drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$polars_parquet_format..parquet_format..ColumnChunk$C$alloc..vec..Vec$LT$polars_parquet..parquet..write..page..PageWriteSpec$GT$$RP$$GT$$GT$17h7afd7a334127d2afE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #23
@@ -33496,7 +33496,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i.i: ;
   br label %.body
 
 .body:                                            ; preds = %75, %83, %93
-  %eh.lpad-body = phi { ptr, i32 } [ %94, %93 ], [ %.pn.i.i, %75 ], [ %84, %83 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %94, %93 ], [ %84, %83 ], [ %.pn.i.i, %75 ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$tokio..runtime..context..runtime..EnterRuntimeGuard$GT$17hdc2cfc41b91b6bb4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #23
           to label %"_ZN4core3ptr277drop_in_place$LT$tokio..runtime..scheduler..multi_thread..MultiThread..block_on$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h04029434d4efd8c7E.exit" unwind label %98
 
@@ -33531,7 +33531,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i.i: ;
   resume { ptr, i32 } %.pn.pn21
 
 .thread:                                          ; preds = %96, %39
-  %.pn.pn22 = phi { ptr, i32 } [ %97, %96 ], [ %40, %39 ]
+  %.pn.pn22 = phi { ptr, i32 } [ %40, %39 ], [ %97, %96 ]
   invoke void @"_ZN4core3ptr178drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17h919b284c959c857aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
           to label %"_ZN4core3ptr277drop_in_place$LT$tokio..runtime..scheduler..multi_thread..MultiThread..block_on$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h04029434d4efd8c7E.exit" unwind label %98
 }
@@ -33858,7 +33858,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i.i: ;
   br label %.body
 
 .body:                                            ; preds = %75, %83, %93
-  %eh.lpad-body = phi { ptr, i32 } [ %94, %93 ], [ %.pn.i.i, %75 ], [ %84, %83 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %94, %93 ], [ %84, %83 ], [ %.pn.i.i, %75 ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$tokio..runtime..context..runtime..EnterRuntimeGuard$GT$17hdc2cfc41b91b6bb4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #23
           to label %"_ZN4core3ptr230drop_in_place$LT$tokio..runtime..scheduler..multi_thread..MultiThread..block_on$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h99ac2bb205cc620cE.exit" unwind label %98
 
@@ -33893,7 +33893,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i.i: ;
   resume { ptr, i32 } %.pn.pn21
 
 .thread:                                          ; preds = %96, %39
-  %.pn.pn22 = phi { ptr, i32 } [ %97, %96 ], [ %40, %39 ]
+  %.pn.pn22 = phi { ptr, i32 } [ %40, %39 ], [ %97, %96 ]
   invoke void @"_ZN4core3ptr131drop_in_place$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$17ha51eb1bd7d6db61dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
           to label %"_ZN4core3ptr230drop_in_place$LT$tokio..runtime..scheduler..multi_thread..MultiThread..block_on$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h99ac2bb205cc620cE.exit" unwind label %98
 }
@@ -34319,7 +34319,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i.i: ;
           to label %_ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.i.i.i.i.i.i unwind label %242, !noalias !3907
 
 .body.i.i.i.i.i.i:                                ; preds = %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i, %239, %.thread20.i.i.i.i.i.i.i.i.i.i.i, %224, %219, %211, %207, %205, %167, %162, %146, %144, %.body.i.i.i.i.i.i.i.i.i.i.i
-  %eh.lpad-body.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %206, %207 ], [ %.pn45.i.i.i.i.i.i.i.i.i.i, %239 ], [ %220, %219 ], [ %134, %.body.i.i.i.i.i.i.i.i.i.i.i ], [ %145, %144 ], [ %145, %146 ], [ %.pn.i.i.i.i.i.i.i.i.i.i.i, %162 ], [ %168, %167 ], [ %.pn23.i.i.i.i.i.i.i.i.i.i.i, %.thread20.i.i.i.i.i.i.i.i.i.i.i ], [ %206, %205 ], [ %225, %224 ], [ %212, %211 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit11.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp12.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn45.i.i.i.i.i.i.i.i.i.i, %239 ], [ %145, %146 ], [ %145, %144 ], [ %.pn.i.i.i.i.i.i.i.i.i.i.i, %162 ], [ %134, %.body.i.i.i.i.i.i.i.i.i.i.i ], [ %168, %167 ], [ %206, %205 ], [ %206, %207 ], [ %212, %211 ], [ %.pn23.i.i.i.i.i.i.i.i.i.i.i, %.thread20.i.i.i.i.i.i.i.i.i.i.i ], [ %220, %219 ], [ %225, %224 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit11.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp12.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i.i ]
   store ptr %104, ptr %103, align 8, !noalias !3908
   br label %.thread25.i.i.i.i
 
@@ -34827,7 +34827,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i.i22.
           to label %.backedge.i.i.i.i.i.i.i.i.i.i.backedge unwind label %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i, !noalias !3908
 
 .backedge.i.i.i.i.i.i.i.i.i.i.backedge:           ; preds = %236, %.invoke.i.i.i.i.i.i.i.i
-  %.sroa.0.1.i.i.i.i.i.i.i.i.i.i.be = phi ptr [ %235, %.invoke.i.i.i.i.i.i.i.i ], [ %237, %236 ]
+  %.sroa.0.1.i.i.i.i.i.i.i.i.i.i.be = phi ptr [ %237, %236 ], [ %235, %.invoke.i.i.i.i.i.i.i.i ]
   br label %.backedge.i.i.i.i.i.i.i.i.i.i
 
 238:                                              ; preds = %217
@@ -34964,7 +34964,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i.i22.
           to label %.thread25.i.i.i.i unwind label %92, !noalias !3899
 
 .thread25.i.i.i.i:                                ; preds = %262, %257, %242, %101, %.body.i.i.i.i.i.i, %94, %89, %76
-  %.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %263, %262 ], [ %95, %94 ], [ %90, %89 ], [ %77, %76 ], [ %eh.lpad-body.i.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i ], [ %102, %101 ], [ %243, %242 ], [ %.pn.i.i.i.i, %257 ]
+  %.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %263, %262 ], [ %95, %94 ], [ %90, %89 ], [ %77, %76 ], [ %102, %101 ], [ %243, %242 ], [ %eh.lpad-body.i.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i ], [ %.pn.i.i.i.i, %257 ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$tokio..runtime..scheduler..current_thread..CoreGuard$GT$17h8efb806489155f88E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %32) #23
           to label %.body.i unwind label %92, !noalias !3899
 
@@ -35006,7 +35006,7 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17hc8f05148b089514fE.
   br label %367
 
 .body.thread.i.i:                                 ; preds = %360, %346, %.thread14.i.i, %.body19.i.i, %273
-  %.pn.i.i = phi { ptr, i32 } [ %eh.lpad-body20.i.i, %.body19.i.i ], [ %344, %.thread14.i.i ], [ %347, %360 ], [ %347, %346 ], [ %274, %273 ]
+  %.pn.i.i = phi { ptr, i32 } [ %347, %360 ], [ %347, %346 ], [ %274, %273 ], [ %eh.lpad-body20.i.i, %.body19.i.i ], [ %344, %.thread14.i.i ]
   %269 = load i64, ptr %35, align 8, !range !272, !noalias !3885, !noundef !3
   %.not260.i.i = icmp eq i64 %269, 2
   br i1 %.not260.i.i, label %.body.i, label %361
@@ -35440,7 +35440,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i25.i.
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.i, %.loopexit.i, %361, %270, %.body.thread.i.i, %.thread25.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i.i.i, %.thread25.i.i.i.i ], [ %.pn.i.i, %.body.thread.i.i ], [ %.pn.i.i, %361 ], [ %lpad.thr_comm.i.i, %270 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i, %361 ], [ %.pn.i.i, %.body.thread.i.i ], [ %lpad.thr_comm.i.i, %270 ], [ %.pn.pn.pn.i.i.i.i, %.thread25.i.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$tokio..runtime..context..runtime..EnterRuntimeGuard$GT$17hdc2cfc41b91b6bb4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %38) #23
           to label %.body unwind label %370, !noalias !3884
 
@@ -35469,7 +35469,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i25.i.
   br label %.body
 
 .body:                                            ; preds = %368, %.body.i, %373
-  %eh.lpad-body = phi { ptr, i32 } [ %374, %373 ], [ %eh.lpad-body.i, %.body.i ], [ %369, %368 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %374, %373 ], [ %369, %368 ], [ %eh.lpad-body.i, %.body.i ]
   invoke void @"_ZN4core3ptr131drop_in_place$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$17ha51eb1bd7d6db61dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %39) #23
           to label %378 unwind label %376
 
@@ -35766,7 +35766,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i.i: ;
           to label %_ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.i.i.i.i.i.i unwind label %237, !noalias !4076
 
 .body.i.i.i.i.i.i:                                ; preds = %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i, %234, %.thread20.i.i.i.i.i.i.i.i.i.i.i, %219, %214, %206, %202, %200, %162, %157, %141, %139, %.body.i.i.i.i.i.i.i.i.i.i.i
-  %eh.lpad-body.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %201, %202 ], [ %.pn45.i.i.i.i.i.i.i.i.i.i, %234 ], [ %215, %214 ], [ %129, %.body.i.i.i.i.i.i.i.i.i.i.i ], [ %140, %139 ], [ %140, %141 ], [ %.pn.i.i.i.i.i.i.i.i.i.i.i, %157 ], [ %163, %162 ], [ %.pn23.i.i.i.i.i.i.i.i.i.i.i, %.thread20.i.i.i.i.i.i.i.i.i.i.i ], [ %201, %200 ], [ %220, %219 ], [ %207, %206 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit11.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp12.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn45.i.i.i.i.i.i.i.i.i.i, %234 ], [ %140, %141 ], [ %140, %139 ], [ %.pn.i.i.i.i.i.i.i.i.i.i.i, %157 ], [ %129, %.body.i.i.i.i.i.i.i.i.i.i.i ], [ %163, %162 ], [ %201, %200 ], [ %201, %202 ], [ %207, %206 ], [ %.pn23.i.i.i.i.i.i.i.i.i.i.i, %.thread20.i.i.i.i.i.i.i.i.i.i.i ], [ %215, %214 ], [ %220, %219 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit11.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp12.i.i.i.i.i.i.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i.i ]
   store ptr %99, ptr %98, align 8, !noalias !4077
   br label %.thread25.i.i.i.i
 
@@ -36274,7 +36274,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i.i22.
           to label %.backedge.i.i.i.i.i.i.i.i.i.i.backedge unwind label %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i, !noalias !4077
 
 .backedge.i.i.i.i.i.i.i.i.i.i.backedge:           ; preds = %231, %.invoke.i.i.i.i.i.i.i.i
-  %.sroa.0.1.i.i.i.i.i.i.i.i.i.i.be = phi ptr [ %230, %.invoke.i.i.i.i.i.i.i.i ], [ %232, %231 ]
+  %.sroa.0.1.i.i.i.i.i.i.i.i.i.i.be = phi ptr [ %232, %231 ], [ %230, %.invoke.i.i.i.i.i.i.i.i ]
   br label %.backedge.i.i.i.i.i.i.i.i.i.i
 
 233:                                              ; preds = %212
@@ -36411,7 +36411,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i.i22.
           to label %.thread25.i.i.i.i unwind label %87, !noalias !4068
 
 .thread25.i.i.i.i:                                ; preds = %257, %252, %237, %96, %.body.i.i.i.i.i.i, %89, %84, %71
-  %.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %258, %257 ], [ %90, %89 ], [ %85, %84 ], [ %72, %71 ], [ %eh.lpad-body.i.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i ], [ %97, %96 ], [ %238, %237 ], [ %.pn.i.i.i.i, %252 ]
+  %.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %258, %257 ], [ %90, %89 ], [ %85, %84 ], [ %72, %71 ], [ %97, %96 ], [ %238, %237 ], [ %eh.lpad-body.i.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i ], [ %.pn.i.i.i.i, %252 ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$tokio..runtime..scheduler..current_thread..CoreGuard$GT$17h8efb806489155f88E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %30) #23
           to label %.body.i unwind label %87, !noalias !4068
 
@@ -36453,7 +36453,7 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h06bda0e194e2cf33E.
   br label %335
 
 .body.thread.i.i:                                 ; preds = %328, %314, %.thread12.i.i, %.body19.i.i, %268
-  %.pn.i.i = phi { ptr, i32 } [ %eh.lpad-body20.i.i, %.body19.i.i ], [ %312, %.thread12.i.i ], [ %315, %328 ], [ %315, %314 ], [ %269, %268 ]
+  %.pn.i.i = phi { ptr, i32 } [ %315, %328 ], [ %315, %314 ], [ %269, %268 ], [ %eh.lpad-body20.i.i, %.body19.i.i ], [ %312, %.thread12.i.i ]
   %264 = load i64, ptr %33, align 8, !range !272, !noalias !4054, !noundef !3
   %.not248.i.i = icmp eq i64 %264, 2
   br i1 %.not248.i.i, label %.body.i, label %329
@@ -36761,7 +36761,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i.i.i:
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.i, %.loopexit.i, %329, %265, %.body.thread.i.i, %.thread25.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i.i.i, %.thread25.i.i.i.i ], [ %.pn.i.i, %.body.thread.i.i ], [ %.pn.i.i, %329 ], [ %lpad.thr_comm.i.i, %265 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i, %329 ], [ %.pn.i.i, %.body.thread.i.i ], [ %lpad.thr_comm.i.i, %265 ], [ %.pn.pn.pn.i.i.i.i, %.thread25.i.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$tokio..runtime..context..runtime..EnterRuntimeGuard$GT$17hdc2cfc41b91b6bb4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %36) #23
           to label %.body unwind label %338, !noalias !4053
 
@@ -36790,7 +36790,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i.i.i:
   br label %.body
 
 .body:                                            ; preds = %336, %.body.i, %341
-  %eh.lpad-body = phi { ptr, i32 } [ %342, %341 ], [ %eh.lpad-body.i, %.body.i ], [ %337, %336 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %342, %341 ], [ %337, %336 ], [ %eh.lpad-body.i, %.body.i ]
   invoke void @"_ZN4core3ptr178drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17h919b284c959c857aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %37) #23
           to label %346 unwind label %344
 
@@ -37046,7 +37046,7 @@ define hidden void @"_ZN68_$LT$T$u20$as$u20$polars_ops..frame..join..args..Cross
           to label %20 unwind label %52, !noalias !4171
 
 _ZN11polars_core5frame6column6Column22as_materialized_series17hf2f3d18b44b41e16E.exit.i: ; preds = %35, %32, %29
-  %.sroa.0.0.i.i = phi ptr [ %34, %32 ], [ %31, %29 ], [ %36, %35 ]
+  %.sroa.0.0.i.i = phi ptr [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4174
   invoke void @"_ZN11polars_core6series3ops8downcast45_$LT$impl$u20$polars_core..series..Series$GT$4bool17h6a44185d13fd1d87E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.i.i)
           to label %39 unwind label %37, !noalias !4171
@@ -37724,7 +37724,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i: ; pre
   store i8 %.sroa.33.0.i.i.i, ptr %13, align 1, !noalias !4187
   br label %20
 
-.thread22:                                        ; preds = %20, %16, %_ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.i
+.thread22:                                        ; preds = %_ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.i, %16, %20
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread

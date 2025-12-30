@@ -94,7 +94,7 @@ define internal range(i32 0, 2) i32 @tdes_wrap_cipher(ptr noundef %0, ptr nounde
   br label %des_ede3_wrap.exit.i
 
 des_ede3_wrap.exit.i:                             ; preds = %39, %30, %27, %25
-  %.0.i.i = phi i32 [ %26, %25 ], [ 0, %27 ], [ %50, %39 ], [ 0, %30 ]
+  %.0.i.i = phi i32 [ %26, %25 ], [ %50, %39 ], [ 0, %27 ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %tdes_wrap_cipher_internal.exit
 
@@ -182,14 +182,14 @@ select.unfold.i.i:                                ; preds = %92, %70
   br label %des_ede3_unwrap.exit.i
 
 des_ede3_unwrap.exit.i:                           ; preds = %97, %select.unfold.i.i, %55, %51
-  %.040.i.i = phi i32 [ -1, %51 ], [ %57, %55 ], [ -1, %97 ], [ %.0.i14.i, %select.unfold.i.i ]
+  %.040.i.i = phi i32 [ %57, %55 ], [ -1, %51 ], [ -1, %97 ], [ %.0.i14.i, %select.unfold.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %tdes_wrap_cipher_internal.exit
 
 tdes_wrap_cipher_internal.exit:                   ; preds = %des_ede3_wrap.exit.i, %des_ede3_unwrap.exit.i
-  %.0.i = phi i32 [ %.040.i.i, %des_ede3_unwrap.exit.i ], [ %.0.i.i, %des_ede3_wrap.exit.i ]
+  %.0.i = phi i32 [ %.0.i.i, %des_ede3_wrap.exit.i ], [ %.040.i.i, %des_ede3_unwrap.exit.i ]
   %98 = icmp slt i32 %.0.i, 1
   br i1 %98, label %tdes_wrap_cipher_internal.exit.thread, label %99
 
@@ -199,7 +199,7 @@ tdes_wrap_cipher_internal.exit:                   ; preds = %des_ede3_wrap.exit.
   br label %tdes_wrap_cipher_internal.exit.thread
 
 tdes_wrap_cipher_internal.exit.thread:            ; preds = %15, %tdes_wrap_cipher_internal.exit, %6, %99, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %6 ], [ 1, %99 ], [ 0, %tdes_wrap_cipher_internal.exit ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %14 ], [ 1, %99 ], [ 0, %6 ], [ 0, %tdes_wrap_cipher_internal.exit ], [ 0, %15 ]
   ret i32 %.0
 }
 

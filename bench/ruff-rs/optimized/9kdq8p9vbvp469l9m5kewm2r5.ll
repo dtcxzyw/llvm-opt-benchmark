@@ -906,7 +906,7 @@ _ZN4core3ops8function6FnOnce9call_once17h3ae8823258cba9eeE.exit.thread.i9.i: ; p
   br label %.body
 
 .body:                                            ; preds = %75, %69, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17hb04f79a8abcc7e98E.exit.i.i", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17hb04f79a8abcc7e98E.exit.i7.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %63, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17hb04f79a8abcc7e98E.exit.i7.i" ], [ %47, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17hb04f79a8abcc7e98E.exit.i.i" ], [ %70, %69 ], [ %76, %75 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %47, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17hb04f79a8abcc7e98E.exit.i.i" ], [ %63, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17hb04f79a8abcc7e98E.exit.i7.i" ], [ %70, %69 ], [ %76, %75 ]
   invoke void @"_ZN4core3ptr285drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$$C$clap_builder..parser..matches..arg_matches..unwrap_downcast_into$LT$bool$GT$$GT$$GT$17hab750fe6ca42dc5cE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %15) #17
           to label %common.resume unwind label %84
 
@@ -1248,7 +1248,7 @@ _ZN4core3ops8function6FnOnce9call_once17h3ae8823258cba9eeE.exit.thread.i9.i: ; p
   br label %.body
 
 .body:                                            ; preds = %75, %69, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17hb04f79a8abcc7e98E.exit.i.i", %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17hb04f79a8abcc7e98E.exit.i7.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %63, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17hb04f79a8abcc7e98E.exit.i7.i" ], [ %47, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17hb04f79a8abcc7e98E.exit.i.i" ], [ %70, %69 ], [ %76, %75 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %47, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17hb04f79a8abcc7e98E.exit.i.i" ], [ %63, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17hb04f79a8abcc7e98E.exit.i7.i" ], [ %70, %69 ], [ %76, %75 ]
   invoke void @"_ZN4core3ptr313drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$$C$clap_builder..parser..matches..arg_matches..unwrap_downcast_into$LT$ruff_python_formatter..cli..Emit$GT$$GT$$GT$17h9559b4f0de99b73cE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %15) #17
           to label %common.resume unwind label %84
 
@@ -2323,7 +2323,7 @@ _ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ed
   br i1 %or.cond, label %42, label %55
 
 42:                                               ; preds = %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.thread.i, %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.i
-  %.sroa.0.0.i13.i = phi i1 [ true, %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.i ], [ false, %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.thread.i ]
+  %.sroa.0.0.i13.i = phi i1 [ false, %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.thread.i ], [ true, %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !327
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !327
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !327
@@ -4568,8 +4568,8 @@ _ZN21ruff_python_formatter8comments9placement19handle_call_comment17hb40d354895d
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd729401d38e33a48E.exit.i"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd729401d38e33a48E.exit.i": ; preds = %.loopexit.i.i.i, %787
-  %.sroa.6.0.i.i = phi i8 [ %.sroa.7.050.i.i.i.i.i, %787 ], [ %.sroa.7.0.lcssa.i.i.i.i.i, %.loopexit.i.i.i ]
-  %.sroa.0.0.i.i102 = phi i64 [ %.sroa.020.049.i.i.i.i.i, %787 ], [ %.sroa.020.0.lcssa.i.i.i.i.i, %.loopexit.i.i.i ]
+  %.sroa.6.0.i.i = phi i8 [ %.sroa.7.0.lcssa.i.i.i.i.i, %.loopexit.i.i.i ], [ %.sroa.7.050.i.i.i.i.i, %787 ]
+  %.sroa.0.0.i.i102 = phi i64 [ %.sroa.020.0.lcssa.i.i.i.i.i, %.loopexit.i.i.i ], [ %.sroa.020.049.i.i.i.i.i, %787 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i.i.i.i), !noalias !662
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !658
   %.not2.i103 = icmp eq i8 %.sroa.6.0.i.i, 90
@@ -9153,7 +9153,7 @@ _ZN21ruff_python_formatter9statement6clause12ClauseHeader19first_keyword_range17
   br label %171
 
 171:                                              ; preds = %169, %142, %149
-  %.sroa.053.0 = phi i32 [ %spec.select59, %169 ], [ %spec.select, %142 ], [ %spec.select58, %149 ]
+  %.sroa.053.0 = phi i32 [ %spec.select, %142 ], [ %spec.select58, %149 ], [ %spec.select59, %169 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1074
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1074
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %8, i32 noundef %.sroa.053.0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !1078

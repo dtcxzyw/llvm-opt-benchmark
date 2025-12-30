@@ -2726,7 +2726,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i141:
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i.i.i.i
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i.i.i.i: ; preds = %452, %450, %.lr.ph.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i141
-  %.0.i.i.i.i.i.i.i.i144 = phi i32 [ 3, %450 ], [ %spec.select.i.i.i.i.i.i143, %452 ], [ 2, %.lr.ph.i.i.i.i.i.i.i.i ], [ 1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i141 ]
+  %.0.i.i.i.i.i.i.i.i144 = phi i32 [ 1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i141 ], [ 2, %.lr.ph.i.i.i.i.i.i.i.i ], [ 3, %450 ], [ %spec.select.i.i.i.i.i.i143, %452 ]
   %.lobit.i.i.i.i.i.i.i145 = lshr i32 %446, 31
   %454 = add nuw nsw i32 %.0.i.i.i.i.i.i.i.i144, %.lobit.i.i.i.i.i.i.i145
   %455 = zext nneg i32 %454 to i64
@@ -2852,7 +2852,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i150: ; preds
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i17.i.i.i
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i17.i.i.i: ; preds = %511, %509, %.lr.ph.i.i.i.i.i15.i.i.i, %504
-  %.0.i.i.i.i.i18.i.i.i = phi i32 [ 3, %509 ], [ %spec.select.i.i.i16.i.i.i, %511 ], [ 2, %.lr.ph.i.i.i.i.i15.i.i.i ], [ 1, %504 ]
+  %.0.i.i.i.i.i18.i.i.i = phi i32 [ 1, %504 ], [ 2, %.lr.ph.i.i.i.i.i15.i.i.i ], [ 3, %509 ], [ %spec.select.i.i.i16.i.i.i, %511 ]
   %.lobit.i.i.i.i19.i.i.i = lshr i32 %505, 31
   %513 = add nuw nsw i32 %.0.i.i.i.i.i18.i.i.i, %.lobit.i.i.i.i19.i.i.i
   %514 = zext nneg i32 %513 to i64
@@ -2974,7 +2974,7 @@ _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.e
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i33.i.i.i
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i33.i.i.i: ; preds = %567, %565, %.lr.ph.i.i.i.i.i31.i.i.i, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i152
-  %.0.i.i.i.i.i34.i.i.i = phi i32 [ 3, %565 ], [ %spec.select.i.i.i32.i.i.i, %567 ], [ 2, %.lr.ph.i.i.i.i.i31.i.i.i ], [ 1, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i152 ]
+  %.0.i.i.i.i.i34.i.i.i = phi i32 [ 1, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i152 ], [ 2, %.lr.ph.i.i.i.i.i31.i.i.i ], [ 3, %565 ], [ %spec.select.i.i.i32.i.i.i, %567 ]
   %.lobit.i.i.i.i35.i.i.i = lshr i32 %561, 31
   %569 = add nuw nsw i32 %.0.i.i.i.i.i34.i.i.i, %.lobit.i.i.i.i35.i.i.i
   %570 = zext nneg i32 %569 to i64
@@ -3113,7 +3113,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i169:
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i.i.i.i172
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i.i.i.i172: ; preds = %631, %629, %.lr.ph.i.i.i.i.i.i.i.i171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i169
-  %.0.i.i.i.i.i.i.i.i173 = phi i32 [ %..i.i.i.i.i.i, %631 ], [ 3, %629 ], [ 2, %.lr.ph.i.i.i.i.i.i.i.i171 ], [ 1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i169 ]
+  %.0.i.i.i.i.i.i.i.i173 = phi i32 [ 1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i169 ], [ 2, %.lr.ph.i.i.i.i.i.i.i.i171 ], [ 3, %629 ], [ %..i.i.i.i.i.i, %631 ]
   %633 = zext nneg i32 %.0.i.i.i.i.i.i.i.i173 to i64
   %634 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %634, ptr %17, align 8, !tbaa !13, !alias.scope !349, !noalias !335
@@ -3234,7 +3234,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i179: ; preds
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i17.i.i.i166
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i17.i.i.i166: ; preds = %686, %684, %.lr.ph.i.i.i.i.i15.i.i.i165, %680
-  %.0.i.i.i.i.i18.i.i.i167 = phi i32 [ %..i.i.i16.i.i.i, %686 ], [ 3, %684 ], [ 2, %.lr.ph.i.i.i.i.i15.i.i.i165 ], [ 1, %680 ]
+  %.0.i.i.i.i.i18.i.i.i167 = phi i32 [ 1, %680 ], [ 2, %.lr.ph.i.i.i.i.i15.i.i.i165 ], [ 3, %684 ], [ %..i.i.i16.i.i.i, %686 ]
   %688 = zext nneg i32 %.0.i.i.i.i.i18.i.i.i167 to i64
   store ptr %624, ptr %16, align 8, !tbaa !13, !alias.scope !363, !noalias !335
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %688, i8 noundef signext 45) #23
@@ -3351,7 +3351,7 @@ _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.e
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i32.i.i.i
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i32.i.i.i: ; preds = %738, %736, %.lr.ph.i.i.i.i.i30.i.i.i, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i182
-  %.0.i.i.i.i.i33.i.i.i = phi i32 [ %..i.i.i31.i.i.i, %738 ], [ 3, %736 ], [ 2, %.lr.ph.i.i.i.i.i30.i.i.i ], [ 1, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i182 ]
+  %.0.i.i.i.i.i33.i.i.i = phi i32 [ 1, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i182 ], [ 2, %.lr.ph.i.i.i.i.i30.i.i.i ], [ 3, %736 ], [ %..i.i.i31.i.i.i, %738 ]
   %740 = zext nneg i32 %.0.i.i.i.i.i33.i.i.i to i64
   store ptr %678, ptr %18, align 8, !tbaa !13, !alias.scope !378, !noalias !335
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %740, i8 noundef signext 45) #23
@@ -3505,7 +3505,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i201:
   br i1 %810, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i.i.i.i204, label %.lr.ph.i.i.i.i.i.i.i.i203, !llvm.loop !404
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i.i.i.i204: ; preds = %807, %805, %801, %797, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i201
-  %.0.i.i.i.i.i.i.i.i205 = phi i32 [ %806, %805 ], [ %798, %797 ], [ %802, %801 ], [ 1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i201 ], [ %809, %807 ]
+  %.0.i.i.i.i.i.i.i.i205 = phi i32 [ %798, %797 ], [ %802, %801 ], [ %806, %805 ], [ 1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i201 ], [ %809, %807 ]
   %.lobit.i.i.i.i.i.i.i206 = lshr i32 %.val13.val.i.i.i202, 31
   %811 = add i32 %.0.i.i.i.i.i.i.i.i205, %.lobit.i.i.i.i.i.i.i206
   %812 = zext i32 %811 to i64
@@ -3649,7 +3649,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i212: ; preds
   br i1 %878, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i18.i.i.i, label %.lr.ph.i.i.i.i.i15.i.i.i197, !llvm.loop !404
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i18.i.i.i: ; preds = %875, %873, %869, %865, %861
-  %.0.i.i.i.i.i19.i.i.i = phi i32 [ %874, %873 ], [ %866, %865 ], [ %870, %869 ], [ 1, %861 ], [ %877, %875 ]
+  %.0.i.i.i.i.i19.i.i.i = phi i32 [ %866, %865 ], [ %870, %869 ], [ %874, %873 ], [ 1, %861 ], [ %877, %875 ]
   %.lobit.i.i.i.i20.i.i.i = lshr i32 %.val12.val.i.i.i196, 31
   %879 = add i32 %.0.i.i.i.i.i19.i.i.i, %.lobit.i.i.i.i20.i.i.i
   %880 = zext i32 %879 to i64
@@ -3789,7 +3789,7 @@ _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.e
   br i1 %943, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i35.i.i.i, label %.lr.ph.i.i.i.i.i32.i.i.i, !llvm.loop !404
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i35.i.i.i: ; preds = %940, %938, %934, %930, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i214
-  %.0.i.i.i.i.i36.i.i.i = phi i32 [ %939, %938 ], [ %931, %930 ], [ %935, %934 ], [ 1, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i214 ], [ %942, %940 ]
+  %.0.i.i.i.i.i36.i.i.i = phi i32 [ %931, %930 ], [ %935, %934 ], [ %939, %938 ], [ 1, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i214 ], [ %942, %940 ]
   %.lobit.i.i.i.i37.i.i.i = lshr i32 %.val14.val.i.i.i215, 31
   %944 = add i32 %.0.i.i.i.i.i36.i.i.i, %.lobit.i.i.i.i37.i.i.i
   %945 = zext i32 %944 to i64
@@ -3946,7 +3946,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i243:
   br i1 %1016, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i.i.i.i248, label %.lr.ph.i.i.i.i.i.i.i.i245, !llvm.loop !404
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i.i.i.i248: ; preds = %1013, %1011, %1007, %1003, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i243
-  %.0.i.i.i.i.i.i.i.i249 = phi i32 [ %1012, %1011 ], [ %1004, %1003 ], [ %1008, %1007 ], [ 1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i243 ], [ %1015, %1013 ]
+  %.0.i.i.i.i.i.i.i.i249 = phi i32 [ %1004, %1003 ], [ %1008, %1007 ], [ %1012, %1011 ], [ 1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i243 ], [ %1015, %1013 ]
   %1017 = zext i32 %.0.i.i.i.i.i.i.i.i249 to i64
   %1018 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %1018, ptr %11, align 8, !tbaa !13, !alias.scope !460, !noalias !446
@@ -4088,7 +4088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i255: ; preds
   br i1 %1083, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i18.i.i.i235, label %.lr.ph.i.i.i.i.i15.i.i.i232, !llvm.loop !404
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i18.i.i.i235: ; preds = %1080, %1078, %1074, %1070, %1067
-  %.0.i.i.i.i.i19.i.i.i236 = phi i32 [ %1079, %1078 ], [ %1071, %1070 ], [ %1075, %1074 ], [ 1, %1067 ], [ %1082, %1080 ]
+  %.0.i.i.i.i.i19.i.i.i236 = phi i32 [ %1071, %1070 ], [ %1075, %1074 ], [ %1079, %1078 ], [ 1, %1067 ], [ %1082, %1080 ]
   %1084 = zext i32 %.0.i.i.i.i.i19.i.i.i236 to i64
   store ptr %999, ptr %10, align 8, !tbaa !13, !alias.scope !474, !noalias !446
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %1084, i8 noundef signext 0) #23
@@ -4225,7 +4225,7 @@ _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.e
   br i1 %1146, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i34.i.i.i, label %.lr.ph.i.i.i.i.i31.i.i.i260, !llvm.loop !404
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i34.i.i.i: ; preds = %1143, %1141, %1137, %1133, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i258
-  %.0.i.i.i.i.i35.i.i.i = phi i32 [ %1142, %1141 ], [ %1134, %1133 ], [ %1138, %1137 ], [ 1, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i258 ], [ %1145, %1143 ]
+  %.0.i.i.i.i.i35.i.i.i = phi i32 [ %1134, %1133 ], [ %1138, %1137 ], [ %1142, %1141 ], [ 1, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i258 ], [ %1145, %1143 ]
   %1147 = zext i32 %.0.i.i.i.i.i35.i.i.i to i64
   store ptr %1065, ptr %12, align 8, !tbaa !13, !alias.scope !489, !noalias !446
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %1147, i8 noundef signext 0) #23
@@ -4381,7 +4381,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i298:
   br i1 %1219, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i300, !llvm.loop !515
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i.i.i.i: ; preds = %1216, %1214, %1210, %1206, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i298
-  %.0.i.i.i.i.i.i.i.i301 = phi i32 [ %1215, %1214 ], [ %1207, %1206 ], [ %1211, %1210 ], [ 1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i298 ], [ %1218, %1216 ]
+  %.0.i.i.i.i.i.i.i.i301 = phi i32 [ %1207, %1206 ], [ %1211, %1210 ], [ %1215, %1214 ], [ 1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i298 ], [ %1218, %1216 ]
   %.lobit.i.i.i.i.i.i.i302 = lshr i64 %.val13.val.i.i.i299, 63
   %1220 = trunc nuw nsw i64 %.lobit.i.i.i.i.i.i.i302 to i32
   %1221 = add i32 %.0.i.i.i.i.i.i.i.i301, %1220
@@ -4523,7 +4523,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i308: ; preds
   br i1 %1285, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i18.i.i.i, label %.lr.ph.i.i.i.i.i15.i.i.i289, !llvm.loop !515
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i18.i.i.i: ; preds = %1282, %1280, %1276, %1272, %1268
-  %.0.i.i.i.i.i19.i.i.i290 = phi i32 [ %1281, %1280 ], [ %1273, %1272 ], [ %1277, %1276 ], [ 1, %1268 ], [ %1284, %1282 ]
+  %.0.i.i.i.i.i19.i.i.i290 = phi i32 [ %1273, %1272 ], [ %1277, %1276 ], [ %1281, %1280 ], [ 1, %1268 ], [ %1284, %1282 ]
   %.lobit.i.i.i.i20.i.i.i291 = lshr i64 %.val12.val.i.i.i288, 63
   %1286 = trunc nuw nsw i64 %.lobit.i.i.i.i20.i.i.i291 to i32
   %1287 = add i32 %.0.i.i.i.i.i19.i.i.i290, %1286
@@ -4661,7 +4661,7 @@ _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.e
   br i1 %1348, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i35.i.i.i, label %.lr.ph.i.i.i.i.i32.i.i.i313, !llvm.loop !515
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i35.i.i.i: ; preds = %1345, %1343, %1339, %1335, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i311
-  %.0.i.i.i.i.i36.i.i.i314 = phi i32 [ %1344, %1343 ], [ %1336, %1335 ], [ %1340, %1339 ], [ 1, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i311 ], [ %1347, %1345 ]
+  %.0.i.i.i.i.i36.i.i.i314 = phi i32 [ %1336, %1335 ], [ %1340, %1339 ], [ %1344, %1343 ], [ 1, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i311 ], [ %1347, %1345 ]
   %.lobit.i.i.i.i37.i.i.i315 = lshr i64 %.val14.val.i.i.i312, 63
   %1349 = trunc nuw nsw i64 %.lobit.i.i.i.i37.i.i.i315 to i32
   %1350 = add i32 %.0.i.i.i.i.i36.i.i.i314, %1349
@@ -4816,7 +4816,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i358:
   br i1 %1419, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i.i.i.i363, label %.lr.ph.i.i.i.i.i.i.i.i360, !llvm.loop !515
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i.i.i.i363: ; preds = %1416, %1414, %1410, %1406, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i358
-  %.0.i.i.i.i.i.i.i.i364 = phi i32 [ %1415, %1414 ], [ %1407, %1406 ], [ %1411, %1410 ], [ 1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i358 ], [ %1418, %1416 ]
+  %.0.i.i.i.i.i.i.i.i364 = phi i32 [ %1407, %1406 ], [ %1411, %1410 ], [ %1415, %1414 ], [ 1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i358 ], [ %1418, %1416 ]
   %1420 = zext i32 %.0.i.i.i.i.i.i.i.i364 to i64
   %1421 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1421, ptr %5, align 8, !tbaa !13, !alias.scope !572, !noalias !558
@@ -4956,7 +4956,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i370: ; preds
   br i1 %1484, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i18.i.i.i350, label %.lr.ph.i.i.i.i.i15.i.i.i347, !llvm.loop !515
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i18.i.i.i350: ; preds = %1481, %1479, %1475, %1471, %1468
-  %.0.i.i.i.i.i19.i.i.i351 = phi i32 [ %1480, %1479 ], [ %1472, %1471 ], [ %1476, %1475 ], [ 1, %1468 ], [ %1483, %1481 ]
+  %.0.i.i.i.i.i19.i.i.i351 = phi i32 [ %1472, %1471 ], [ %1476, %1475 ], [ %1480, %1479 ], [ 1, %1468 ], [ %1483, %1481 ]
   %1485 = zext i32 %.0.i.i.i.i.i19.i.i.i351 to i64
   store ptr %1402, ptr %4, align 8, !tbaa !13, !alias.scope !586, !noalias !558
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %1485, i8 noundef signext 0) #23
@@ -5091,7 +5091,7 @@ _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.e
   br i1 %1545, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i34.i.i.i, label %.lr.ph.i.i.i.i.i31.i.i.i375, !llvm.loop !515
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i34.i.i.i: ; preds = %1542, %1540, %1536, %1532, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i373
-  %.0.i.i.i.i.i35.i.i.i376 = phi i32 [ %1541, %1540 ], [ %1533, %1532 ], [ %1537, %1536 ], [ 1, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i373 ], [ %1544, %1542 ]
+  %.0.i.i.i.i.i35.i.i.i376 = phi i32 [ %1533, %1532 ], [ %1537, %1536 ], [ %1541, %1540 ], [ 1, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit.i.i.i373 ], [ %1544, %1542 ]
   %1546 = zext i32 %.0.i.i.i.i.i35.i.i.i376 to i64
   store ptr %1466, ptr %6, align 8, !tbaa !13, !alias.scope !601, !noalias !558
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %1546, i8 noundef signext 0) #23
@@ -5686,7 +5686,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !31
   br label %41
 

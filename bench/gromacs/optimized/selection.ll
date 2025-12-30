@@ -1170,7 +1170,7 @@ _ZNSt6vectorIfSaIfEE7reserveEm.exit:              ; preds = %_ZNSt6vectorIfSaIfE
   unreachable
 
 _ZNSt6vectorIfSaIfEE7reserveEm.exit.thread:       ; preds = %11, %_ZNSt6vectorIfSaIfEE7reserveEm.exit.thread33, %_ZNSt6vectorIfSaIfEE7reserveEm.exit
-  %.pre-phi32 = phi i64 [ %8, %_ZNSt6vectorIfSaIfEE7reserveEm.exit.thread33 ], [ %.pre16, %_ZNSt6vectorIfSaIfEE7reserveEm.exit ], [ %8, %11 ]
+  %.pre-phi32 = phi i64 [ %.pre16, %_ZNSt6vectorIfSaIfEE7reserveEm.exit ], [ %8, %_ZNSt6vectorIfSaIfEE7reserveEm.exit.thread33 ], [ %8, %11 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %36 = load ptr, ptr %35, align 8, !tbaa !64

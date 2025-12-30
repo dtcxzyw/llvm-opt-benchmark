@@ -510,7 +510,7 @@ define internal i32 @efivarfs_callback(ptr noundef readonly captures(none) %0, i
   br i1 %116, label %.thread5, label %120
 
 .thread5:                                         ; preds = %.loopexit, %.thread14, %115
-  %117 = phi ptr [ inttoptr (i64 -22 to ptr), %.thread14 ], [ %113, %115 ], [ inttoptr (i64 -12 to ptr), %.loopexit ]
+  %117 = phi ptr [ %113, %115 ], [ inttoptr (i64 -22 to ptr), %.thread14 ], [ inttoptr (i64 -12 to ptr), %.loopexit ]
   %118 = ptrtoint ptr %117 to i64
   %119 = trunc i64 %118 to i32
   call void @iput(ptr noundef nonnull %59) #17

@@ -1182,7 +1182,7 @@ define hidden void @"_ZN4slab13Slab$LT$T$GT$9insert_at17h419550a6aad22a3aE"(ptr 
   br label %35
 
 .thread17:                                        ; preds = %17, %22, %44
-  %.pn915 = phi { ptr, i32 } [ %18, %17 ], [ %45, %44 ], [ %18, %22 ]
+  %.pn915 = phi { ptr, i32 } [ %45, %44 ], [ %18, %22 ], [ %18, %17 ]
   resume { ptr, i32 } %.pn915
 
 44:                                               ; preds = %31
@@ -1285,7 +1285,7 @@ define hidden void @"_ZN4slab13Slab$LT$T$GT$9insert_at17hbfbb467730c7737cE"(ptr 
   br label %34
 
 .thread17:                                        ; preds = %17, %21, %43
-  %.pn915 = phi { ptr, i32 } [ %18, %17 ], [ %44, %43 ], [ %18, %21 ]
+  %.pn915 = phi { ptr, i32 } [ %44, %43 ], [ %18, %21 ], [ %18, %17 ]
   resume { ptr, i32 } %.pn915
 
 43:                                               ; preds = %29
@@ -2987,8 +2987,8 @@ define void @"_ZN92_$LT$quinn_proto..connection..spaces..Retransmits$u20$as$u20$
   br label %16
 
 .loopexit.split-lp:                               ; preds = %2, %26, %32, %40, %42, %53, %54, %62, %71
-  %.sroa.03.0.ph = phi i1 [ true, %32 ], [ true, %40 ], [ true, %42 ], [ false, %53 ], [ false, %54 ], [ true, %26 ], [ false, %62 ], [ false, %71 ], [ true, %2 ]
-  %.sroa.02.0.ph = phi i1 [ true, %32 ], [ true, %40 ], [ true, %42 ], [ true, %53 ], [ true, %54 ], [ true, %26 ], [ false, %62 ], [ false, %71 ], [ true, %2 ]
+  %.sroa.03.0.ph = phi i1 [ true, %2 ], [ true, %26 ], [ true, %32 ], [ true, %40 ], [ true, %42 ], [ false, %53 ], [ false, %54 ], [ false, %62 ], [ false, %71 ]
+  %.sroa.02.0.ph = phi i1 [ true, %2 ], [ true, %26 ], [ true, %32 ], [ true, %40 ], [ true, %42 ], [ true, %53 ], [ true, %54 ], [ false, %62 ], [ false, %71 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %16
@@ -3435,7 +3435,7 @@ define hidden noundef zeroext i1 @_ZN11quinn_proto10connection6spaces5Dedup6inse
   br label %22
 
 22:                                               ; preds = %23, %9, %20
-  %.sroa.0.0 = phi i1 [ true, %9 ], [ false, %20 ], [ %31, %23 ]
+  %.sroa.0.0 = phi i1 [ false, %20 ], [ true, %9 ], [ %31, %23 ]
   ret i1 %.sroa.0.0
 
 23:                                               ; preds = %9
@@ -3613,7 +3613,7 @@ define hidden noundef zeroext i1 @_ZN11quinn_proto10connection6spaces11PendingAc
   ]
 
 32:                                               ; preds = %_ZN11quinn_proto10connection6spaces11PendingAcks15is_out_of_order17h73386b560c52edafE.exit, %_ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.exit, %_ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.exit.thread, %8
-  %.sroa.0.0 = phi i1 [ false, %8 ], [ true, %_ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.exit.thread ], [ false, %_ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.exit ], [ false, %_ZN11quinn_proto10connection6spaces11PendingAcks15is_out_of_order17h73386b560c52edafE.exit ]
+  %.sroa.0.0 = phi i1 [ true, %_ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.exit.thread ], [ false, %8 ], [ false, %_ZN11quinn_proto10connection6spaces11PendingAcks8can_send17h8617ea97da12edccE.exit ], [ false, %_ZN11quinn_proto10connection6spaces11PendingAcks15is_out_of_order17h73386b560c52edafE.exit ]
   ret i1 %.sroa.0.0
 
 33:                                               ; preds = %12
@@ -3727,7 +3727,7 @@ _ZN11quinn_proto10connection6spaces5Dedup28smallest_missing_in_interval17hafa6d9
   br label %_ZN11quinn_proto10connection6spaces11PendingAcks15is_out_of_order17h73386b560c52edafE.exit
 
 _ZN11quinn_proto10connection6spaces11PendingAcks15is_out_of_order17h73386b560c52edafE.exit: ; preds = %12, %40, %42, %48, %57, %63, %69, %70, %76, %_ZN11quinn_proto10connection6spaces5Dedup28smallest_missing_in_interval17hafa6d9c21324f50aE.exit.i, %90
-  %.sroa.0.0.shrunk.i = phi i1 [ true, %40 ], [ %92, %90 ], [ false, %63 ], [ false, %69 ], [ false, %_ZN11quinn_proto10connection6spaces5Dedup28smallest_missing_in_interval17hafa6d9c21324f50aE.exit.i ], [ false, %12 ], [ false, %42 ], [ false, %48 ], [ %.not.i.i.i, %57 ], [ false, %70 ], [ false, %76 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %92, %90 ], [ false, %69 ], [ false, %12 ], [ true, %40 ], [ false, %63 ], [ false, %_ZN11quinn_proto10connection6spaces5Dedup28smallest_missing_in_interval17hafa6d9c21324f50aE.exit.i ], [ false, %42 ], [ false, %48 ], [ %.not.i.i.i, %57 ], [ false, %70 ], [ false, %76 ]
   %93 = or i1 %.sroa.0.0.shrunk.i, %27
   %94 = zext i1 %93 to i8
   store i8 %94, ptr %24, align 8
@@ -3866,15 +3866,15 @@ define hidden void @_ZN11quinn_proto10connection6spaces18PacketNumberFilter9chec
   %.sroa.3.0.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = icmp eq i8 %15, 0
   %17 = load i64, ptr %.sroa.3.0.i.i, align 8, !alias.scope !215, !noalias !3, !noundef !3
-  br i1 %16, label %_ZN4core3ops5range11RangeBounds8contains17h7177122a22a20527E.exit, label %18
+  br i1 %16, label %18, label %_ZN4core3ops5range11RangeBounds8contains17h7177122a22a20527E.exit
 
 18:                                               ; preds = %13
-  %19 = icmp ult i64 %11, %17
-  br i1 %19, label %20, label %_ZN4core3ops5range11RangeBounds8contains17h7177122a22a20527E.exit.thread
-
-_ZN4core3ops5range11RangeBounds8contains17h7177122a22a20527E.exit: ; preds = %13
   %.not = icmp ugt i64 %11, %17
   br i1 %.not, label %_ZN4core3ops5range11RangeBounds8contains17h7177122a22a20527E.exit.thread, label %20
+
+_ZN4core3ops5range11RangeBounds8contains17h7177122a22a20527E.exit: ; preds = %13
+  %19 = icmp ult i64 %11, %17
+  br i1 %19, label %20, label %_ZN4core3ops5range11RangeBounds8contains17h7177122a22a20527E.exit.thread
 
 20:                                               ; preds = %18, %_ZN4core3ops5range11RangeBounds8contains17h7177122a22a20527E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !216
@@ -4484,7 +4484,7 @@ define hidden void @_ZN11quinn_proto10connection7streams4recv4Recv6ingest17hebb1
 "_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hc810ea5b03ce7e38E.exit": ; preds = %189
   resume { ptr, i32 } %lpad.thr_comm
 
-189:                                              ; preds = %.invoke, %.thread216.invoke, %32, %50, %62, %.thread207, %137, %121, %85, %92, %115
+189:                                              ; preds = %.thread216.invoke, %.invoke, %121, %32, %50, %62, %.thread207, %137, %85, %92, %115
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !251)
@@ -5391,7 +5391,7 @@ define hidden void @_ZN11quinn_proto10connection7streams4recv6Chunks3new17h0154c
   unreachable
 
 common.resume:                                    ; preds = %55, %33, %63
-  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %64, %63 ], [ %56, %55 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %34, %33 ], [ %56, %55 ]
   resume { ptr, i32 } %common.resume.op
 
 37:                                               ; preds = %24
@@ -5774,7 +5774,7 @@ define hidden noundef zeroext i1 @_ZN11quinn_proto10connection7streams4recv6Chun
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %51, i64 noundef 136, i64 noundef 8) #33
   br label %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$quinn_proto..connection..streams..state..StreamRecv$GT$$GT$$GT$17hf37d9d10db411721E.exit"
 
-65:                                               ; preds = %19, %53
+65:                                               ; preds = %53, %19
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$alloc..boxed..Box$LT$quinn_proto..connection..streams..recv..Recv$GT$$GT$17h293e38cc6f96b196E"(ptr %4) #31
@@ -5811,7 +5811,7 @@ common.resume.sink.split:                         ; preds = %63, %60, %78
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %13, %80, %65
-  %common.resume.op = phi { ptr, i32 } [ %lpad.thr_comm, %65 ], [ %14, %13 ], [ %14, %80 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %80 ], [ %14, %13 ], [ %lpad.thr_comm, %65 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 78:                                               ; preds = %76
@@ -5965,9 +5965,9 @@ define hidden void @_ZN11quinn_proto10connection7streams4send4Send5write17h85608
   br label %18
 
 18:                                               ; preds = %.sink.split, %4, %23
-  %.sink56 = phi i64 [ 8, %4 ], [ 8, %23 ], [ 16, %.sink.split ]
-  %.lcssa54.sink = phi i64 [ 2, %4 ], [ 0, %23 ], [ %.lcssa54.sink.ph, %.sink.split ]
-  %.sink = phi i64 [ 1, %4 ], [ 1, %23 ], [ %.sink.ph, %.sink.split ]
+  %.sink56 = phi i64 [ 8, %23 ], [ 8, %4 ], [ 16, %.sink.split ]
+  %.lcssa54.sink = phi i64 [ 0, %23 ], [ 2, %4 ], [ %.lcssa54.sink.ph, %.sink.split ]
+  %.sink = phi i64 [ 1, %23 ], [ 1, %4 ], [ %.sink.ph, %.sink.split ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink56
   store i64 %.lcssa54.sink, ptr %19, align 8
   store i64 %.sink, ptr %0, align 8
@@ -6135,9 +6135,9 @@ define hidden void @_ZN11quinn_proto10connection7streams4send4Send5write17hfb1b2
   br label %17
 
 17:                                               ; preds = %.sink.split, %4, %22
-  %.sink21 = phi i64 [ 8, %4 ], [ 8, %22 ], [ 16, %.sink.split ]
-  %.lcssa9.sink = phi i64 [ 2, %4 ], [ 0, %22 ], [ %.lcssa9.sink.ph, %.sink.split ]
-  %.sink = phi i64 [ 1, %4 ], [ 1, %22 ], [ %.sink.ph, %.sink.split ]
+  %.sink21 = phi i64 [ 8, %22 ], [ 8, %4 ], [ 16, %.sink.split ]
+  %.lcssa9.sink = phi i64 [ 0, %22 ], [ 2, %4 ], [ %.lcssa9.sink.ph, %.sink.split ]
+  %.sink = phi i64 [ 1, %22 ], [ 1, %4 ], [ %.sink.ph, %.sink.split ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink21
   store i64 %.lcssa9.sink, ptr %18, align 8
   store i64 %.sink, ptr %0, align 8
@@ -7975,8 +7975,8 @@ define void @_ZN11quinn_proto6config12ServerConfig11with_crypto17h2904a3f0609a2e
   br i1 %34, label %18, label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$10fill_bytes17h4914de4f99dde840E.exit"
 
 "_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn_proto..crypto..ServerConfig$GT$$GT$17hbaf3f5c42b7e7f08E.exit": ; preds = %.loopexit, %.loopexit.split-lp, %47, %51, %43
-  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %44, %43 ], [ %48, %51 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.sroa.01.2 = phi i1 [ false, %47 ], [ false, %43 ], [ false, %51 ], [ true, %.loopexit ], [ true, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %48, %51 ], [ %48, %47 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.01.2 = phi i1 [ false, %43 ], [ false, %51 ], [ false, %47 ], [ true, %.loopexit ], [ true, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr50drop_in_place$LT$rand..rngs..thread..ThreadRng$GT$17hb9e0fe3e757b1471E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8) #31
           to label %13 unwind label %52
 
@@ -8058,12 +8058,12 @@ define void @_ZN11quinn_proto6config12ServerConfig11with_crypto17h2904a3f0609a2e
   unreachable
 
 "_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn_proto..crypto..ServerConfig$GT$$GT$17hbaf3f5c42b7e7f08E.exit12": ; preds = %54, %58, %13
-  %.pn613 = phi { ptr, i32 } [ %.pn614, %54 ], [ %.pn, %13 ], [ %.pn614, %58 ]
+  %.pn613 = phi { ptr, i32 } [ %.pn, %13 ], [ %.pn614, %58 ], [ %.pn614, %54 ]
   resume { ptr, i32 } %.pn613
 
 54:                                               ; preds = %._crit_edge, %.thread
-  %55 = phi ptr [ %1, %.thread ], [ %.pre, %._crit_edge ]
-  %.pn614 = phi { ptr, i32 } [ %12, %.thread ], [ %.pn, %._crit_edge ]
+  %55 = phi ptr [ %.pre, %._crit_edge ], [ %1, %.thread ]
+  %.pn614 = phi { ptr, i32 } [ %.pn, %._crit_edge ], [ %12, %.thread ]
   call void @llvm.experimental.noalias.scope.decl(metadata !516)
   call void @llvm.experimental.noalias.scope.decl(metadata !517)
   %56 = atomicrmw sub ptr %55, i64 1 release, align 8, !noalias !498
@@ -8239,7 +8239,7 @@ define void @_ZN11quinn_proto6config12ClientConfig3new17h20bc63d5ee48c738E(ptr d
           to label %20 unwind label %18
 
 .body:                                            ; preds = %37, %41, %27, %18
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %19, %18 ], [ %38, %41 ], [ %38, %37 ]
+  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %28, %27 ], [ %38, %41 ], [ %38, %37 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !528)
   call void @llvm.experimental.noalias.scope.decl(metadata !531)
   %14 = load ptr, ptr %7, align 8, !alias.scope !534, !nonnull !3, !noundef !3
@@ -8363,7 +8363,7 @@ define void @_ZN11quinn_proto6config12ClientConfig3new17h20bc63d5ee48c738E(ptr d
           to label %.noexc12 unwind label %50
 
 .noexc12:                                         ; preds = %56, %60, %55, %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn_proto..crypto..ClientConfig$GT$$GT$17h4683e1b1da732dbbE.exit"
-  %.pn.pn17 = phi { ptr, i32 } [ %.pn, %55 ], [ %.pn, %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn_proto..crypto..ClientConfig$GT$$GT$17h4683e1b1da732dbbE.exit" ], [ %57, %60 ], [ %57, %56 ]
+  %.pn.pn17 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn_proto..crypto..ClientConfig$GT$$GT$17h4683e1b1da732dbbE.exit" ], [ %.pn, %55 ], [ %57, %60 ], [ %57, %56 ]
   resume { ptr, i32 } %.pn.pn17
 
 56:                                               ; preds = %3
@@ -8637,7 +8637,7 @@ define void @_ZN11quinn_proto6config12ClientConfig22with_root_certificates17h946
   unreachable
 
 common.resume:                                    ; preds = %30, %26, %21
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %27, %26 ], [ %27, %30 ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %27, %30 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h8d25c7a1e2f275a2E.exit": ; preds = %14
@@ -9461,7 +9461,7 @@ _ZN11quinn_proto10congestion3bbr3Bbr18is_min_rtt_expired17hbc043f20403b5858E.exi
   br label %_ZN11quinn_proto10congestion3bbr3Bbr18is_min_rtt_expired17hbc043f20403b5858E.exit.i
 
 _ZN11quinn_proto10congestion3bbr3Bbr18is_min_rtt_expired17hbc043f20403b5858E.exit.i: ; preds = %290, %285, %284
-  %.sroa.0.0.i.i19 = phi i1 [ %289, %285 ], [ true, %284 ], [ %293, %290 ]
+  %.sroa.0.0.i.i19 = phi i1 [ true, %284 ], [ %293, %290 ], [ %289, %285 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !630
   %.not.i20 = xor i1 %.sroa.0.0.i.i19, true
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 781
@@ -9622,7 +9622,7 @@ _ZN11quinn_proto10congestion3bbr3Bbr29maybe_enter_or_exit_probe_rtt17hc709ed891c
   br i1 %376, label %.sink.split.i, label %378
 
 .sink.split.i:                                    ; preds = %398, %396, %368
-  %.sink.i = phi i64 [ %374, %368 ], [ %399, %398 ], [ %374, %396 ]
+  %.sink.i = phi i64 [ %399, %398 ], [ %374, %368 ], [ %374, %396 ]
   store i64 %.sink.i, ptr %377, align 16, !alias.scope !645
   br label %_ZN11quinn_proto10congestion3bbr3Bbr21calculate_pacing_rate17ha4b628b000a29b5aE.exit
 
@@ -9927,7 +9927,7 @@ define noundef i64 @"_ZN89_$LT$quinn_proto..congestion..bbr..Bbr$u20$as$u20$quin
   br label %_ZN11quinn_proto10congestion3bbr3Bbr18get_probe_rtt_cwnd17hf1c2feabeedb4d0cE.exit
 
 _ZN11quinn_proto10congestion3bbr3Bbr18get_probe_rtt_cwnd17hf1c2feabeedb4d0cE.exit: ; preds = %27, %24, %21, %31
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %24 ], [ %.sroa.0.0.sroa.speculated.i, %31 ], [ %23, %21 ], [ %30, %27 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i, %31 ], [ %23, %21 ], [ %.sroa.0.0.sroa.speculated.i.i.i, %24 ], [ %30, %27 ]
   ret i64 %.sroa.0.0
 }
 
@@ -10071,7 +10071,7 @@ define { ptr, ptr } @"_ZN89_$LT$quinn_proto..congestion..bbr..Bbr$u20$as$u20$qui
   unreachable
 
 common.resume:                                    ; preds = %160, %10, %14
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %11, %14 ], [ %161, %160 ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %14 ], [ %11, %10 ], [ %161, %160 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN72_$LT$quinn_proto..congestion..bbr..Bbr$u20$as$u20$core..clone..Clone$GT$5clone17hc078e623d0dcf726E.exit": ; preds = %15

@@ -589,7 +589,7 @@ define hidden noundef zeroext i1 @_ZN7datalog15mk_filter_rules12is_candidateEP3a
   br i1 %.not27.old.i.i.i.i, label %_ZNK7datalog7context12is_predicateEP4expr.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %47, %44
-  %.137.i.i.i.i.be = phi ptr [ %46, %44 ], [ %.old.i.i.i.i, %47 ]
+  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %47 ], [ %46, %44 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !256
 
 _ZNK7datalog7context12is_predicateEP4expr.exit:   ; preds = %28, %39
@@ -828,8 +828,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   resume { ptr, i32 } %.pn
 
 .critedge:                                        ; preds = %59, %.thread31, %_ZNK8uint_set8containsEj.exit
-  %143 = phi ptr [ %53, %_ZNK8uint_set8containsEj.exit ], [ %53, %59 ], [ %136, %.thread31 ]
-  %.not.lcssa = phi i1 [ true, %_ZNK8uint_set8containsEj.exit ], [ true, %59 ], [ false, %.thread31 ]
+  %143 = phi ptr [ %53, %59 ], [ %136, %.thread31 ], [ %53, %_ZNK8uint_set8containsEj.exit ]
+  %.not.lcssa = phi i1 [ true, %59 ], [ false, %.thread31 ], [ true, %_ZNK8uint_set8containsEj.exit ]
   %.not.i.i = icmp eq ptr %143, null
   br i1 %.not.i.i, label %_ZN6vectorIjLb0EjED2Ev.exit, label %144
 
@@ -846,12 +846,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %_ZNK7datalog7context12is_predicateEP4expr.exit, %.critedge, %144
-  %.not.lcssa72 = phi i1 [ %.not.lcssa, %144 ], [ %.not.lcssa, %.critedge ], [ false, %_ZNK7datalog7context12is_predicateEP4expr.exit ]
+  %.not.lcssa72 = phi i1 [ %.not.lcssa, %.critedge ], [ %.not.lcssa, %144 ], [ false, %_ZNK7datalog7context12is_predicateEP4expr.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK7datalog7context12is_predicateEP4expr.exit.thread
 
 _ZNK7datalog7context12is_predicateEP4expr.exit.thread: ; preds = %33, %44, %47, %.preheader.i.i.i.i, %2, %_ZN6vectorIjLb0EjED2Ev.exit
-  %.0 = phi i1 [ %.not.lcssa72, %_ZN6vectorIjLb0EjED2Ev.exit ], [ false, %2 ], [ false, %.preheader.i.i.i.i ], [ false, %44 ], [ false, %47 ], [ false, %33 ]
+  %.0 = phi i1 [ %.not.lcssa72, %_ZN6vectorIjLb0EjED2Ev.exit ], [ false, %2 ], [ false, %.preheader.i.i.i.i ], [ false, %47 ], [ false, %44 ], [ false, %33 ]
   ret i1 %.0
 }
 
@@ -1246,7 +1246,7 @@ _ZN15ref_buffer_coreI4sort19ref_manager_wrapperIS0_11ast_managerELj16EED2Ev.exit
   ret ptr %134
 
 .body:                                            ; preds = %120, %43, %122, %124, %126, %132
-  %.pn25.pn = phi { ptr, i32 } [ %123, %122 ], [ %125, %124 ], [ %.pn, %132 ], [ %127, %126 ], [ %121, %120 ], [ %44, %43 ]
+  %.pn25.pn = phi { ptr, i32 } [ %125, %124 ], [ %.pn, %132 ], [ %127, %126 ], [ %123, %122 ], [ %121, %120 ], [ %44, %43 ]
   call void @_ZN15ref_buffer_coreI4sort19ref_manager_wrapperIS0_11ast_managerELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %8) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn25.pn
@@ -1938,7 +1938,7 @@ _ZN6vectorIjLb0EjED2Ev.exit66:                    ; preds = %_ZN6bufferIP4exprLb
   br label %259
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %177, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %75
-  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %178, %177 ], [ %172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %178, %177 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6bufferIP4exprLb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %8) #18
@@ -2196,7 +2196,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; pr
   ret void
 
 345:                                              ; preds = %69, %238, %281, %309, %307
-  %.pn49.pn = phi { ptr, i32 } [ %308, %307 ], [ %310, %309 ], [ %282, %281 ], [ %70, %69 ], [ %.pn.pn.pn, %238 ]
+  %.pn49.pn = phi { ptr, i32 } [ %310, %309 ], [ %308, %307 ], [ %282, %281 ], [ %70, %69 ], [ %.pn.pn.pn, %238 ]
   call void @_ZN6vectorIbLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
@@ -3225,7 +3225,7 @@ _ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8
   br label %98
 
 66:                                               ; preds = %57, %_ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8get_hashEv.exit
-  %.1 = phi ptr [ %.05080, %57 ], [ %.04981, %_ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8get_hashEv.exit ]
+  %.1 = phi ptr [ %.04981, %_ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8get_hashEv.exit ], [ %.05080, %57 ]
   %67 = getelementptr inbounds nuw i8, ptr %.05080, i64 16
   %.not = icmp eq ptr %67, %37
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !328
@@ -3299,7 +3299,7 @@ _ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8
   br label %98
 
 96:                                               ; preds = %87, %_ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8get_hashEv.exit66
-  %.3 = phi ptr [ %.15183, %87 ], [ %.284, %_ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8get_hashEv.exit66 ]
+  %.3 = phi ptr [ %.284, %_ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8get_hashEv.exit66 ], [ %.15183, %87 ]
   %97 = getelementptr inbounds nuw i8, ptr %.15183, i64 16
   %.not53 = icmp eq ptr %97, %35
   br i1 %.not53, label %._crit_edge, label %.lr.ph85, !llvm.loop !329

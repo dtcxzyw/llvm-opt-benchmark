@@ -95,7 +95,7 @@ define ptr @i2v_GENERAL_NAMES(ptr noundef readnone captures(none) %0, ptr nounde
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %6, %._crit_edge, %13, %15, %17
-  %.0 = phi ptr [ null, %13 ], [ %18, %17 ], [ null, %15 ], [ %2, %._crit_edge ], [ %11, %6 ]
+  %.0 = phi ptr [ %18, %17 ], [ null, %15 ], [ null, %13 ], [ %2, %._crit_edge ], [ %11, %6 ]
   ret ptr %.0
 }
 
@@ -309,9 +309,9 @@ copy_issuer.exit.thread35:                        ; preds = %.lr.ph.i, %.prehead
   br label %copy_issuer.exit.thread
 
 copy_issuer.exit:                                 ; preds = %49, %46, %42, %37, %16
-  %.us-phi = phi i32 [ 346, %16 ], [ 354, %42 ], [ 346, %37 ], [ 360, %49 ], [ 354, %46 ]
-  %.us-phi43 = phi i32 [ 127, %16 ], [ 126, %42 ], [ 127, %37 ], [ 524303, %49 ], [ 126, %46 ]
-  %.us-phi44 = phi ptr [ null, %16 ], [ null, %42 ], [ null, %37 ], [ %47, %49 ], [ null, %46 ]
+  %.us-phi = phi i32 [ 346, %16 ], [ 346, %37 ], [ 354, %46 ], [ 354, %42 ], [ 360, %49 ]
+  %.us-phi43 = phi i32 [ 127, %16 ], [ 127, %37 ], [ 126, %46 ], [ 126, %42 ], [ 524303, %49 ]
+  %.us-phi44 = phi ptr [ null, %16 ], [ null, %37 ], [ null, %46 ], [ null, %42 ], [ %47, %49 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.15, i32 noundef %.us-phi, ptr noundef nonnull @__func__.copy_issuer) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef %.us-phi43, ptr noundef null) #4
@@ -327,7 +327,7 @@ copy_issuer.exit:                                 ; preds = %49, %46, %42, %37, 
   %59 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %5, ptr noundef nonnull %57) #4
   br label %copy_issuer.exit.thread
 
-copy_issuer.exit.thread:                          ; preds = %34, %39, %58, %copy_issuer.exit.thread35
+copy_issuer.exit.thread:                          ; preds = %39, %34, %58, %copy_issuer.exit.thread35
   %60 = add nuw nsw i32 %.02342, 1
   %exitcond.not = icmp eq i32 %60, %4
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !13
@@ -631,7 +631,7 @@ define ptr @i2v_GENERAL_NAME(ptr readnone captures(none) %0, ptr noundef readonl
   br label %168
 
 168:                                              ; preds = %161, %142, %147, %134, %126, %118, %116, %114, %112, %62, %66, %50, %54, %38, %42, %26, %30, %14, %18, %166, %110, %96
-  %.0 = phi ptr [ %167, %166 ], [ %97, %96 ], [ %111, %110 ], [ null, %62 ], [ null, %142 ], [ null, %14 ], [ null, %26 ], [ null, %38 ], [ null, %50 ], [ null, %112 ], [ null, %114 ], [ null, %116 ], [ null, %118 ], [ null, %126 ], [ null, %134 ], [ null, %18 ], [ null, %30 ], [ null, %42 ], [ null, %54 ], [ null, %66 ], [ null, %147 ], [ null, %161 ]
+  %.0 = phi ptr [ %167, %166 ], [ %97, %96 ], [ %111, %110 ], [ null, %18 ], [ null, %14 ], [ null, %30 ], [ null, %26 ], [ null, %42 ], [ null, %38 ], [ null, %54 ], [ null, %50 ], [ null, %66 ], [ null, %62 ], [ null, %112 ], [ null, %114 ], [ null, %116 ], [ null, %118 ], [ null, %126 ], [ null, %134 ], [ null, %147 ], [ null, %142 ], [ null, %161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -944,7 +944,7 @@ define ptr @v2i_GENERAL_NAME_ex(ptr noundef %0, ptr noundef readnone captures(no
   br label %28
 
 26:                                               ; preds = %23, %21, %19, %17, %15, %13, %11
-  %.017 = phi i32 [ 4, %21 ], [ 7, %19 ], [ 8, %17 ], [ 2, %15 ], [ 6, %13 ], [ 1, %11 ], [ 0, %23 ]
+  %.017 = phi i32 [ 1, %11 ], [ 6, %13 ], [ 2, %15 ], [ 8, %17 ], [ 7, %19 ], [ 4, %21 ], [ 0, %23 ]
   %27 = tail call ptr @a2i_GENERAL_NAME(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef %.017, ptr noundef nonnull %9, i32 noundef %4)
   br label %28
 
@@ -1118,7 +1118,7 @@ do_dirname.exit:                                  ; preds = %34
   store ptr null, ptr %43, align 8, !tbaa !28
   br label %67
 
-67:                                               ; preds = %41, %38, %65
+67:                                               ; preds = %65, %38, %41
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.15, i32 noundef 569, ptr noundef nonnull @__func__.a2i_GENERAL_NAME) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 147, ptr noundef null) #4
@@ -1169,7 +1169,7 @@ do_dirname.exit:                                  ; preds = %34
   br label %81
 
 81:                                               ; preds = %79, %80, %.critedge, %12, %7
-  %.0 = phi ptr [ null, %12 ], [ %.036, %.critedge ], [ null, %7 ], [ null, %80 ], [ null, %79 ]
+  %.0 = phi ptr [ %.036, %.critedge ], [ null, %12 ], [ null, %7 ], [ null, %80 ], [ null, %79 ]
   ret ptr %.0
 }
 
@@ -1303,10 +1303,10 @@ define internal fastcc range(i32 0, 2) i32 @copy_email(ptr noundef readonly capt
   br i1 %.not40, label %.split44.us, label %.split, !llvm.loop !43
 
 .split44.us:                                      ; preds = %47, %44, %37, %32, %29, %24
-  %.sink70 = phi i32 [ 451, %29 ], [ 451, %24 ], [ 458, %32 ], [ 458, %47 ], [ 451, %37 ], [ 451, %44 ]
-  %.sink = phi i32 [ 524301, %29 ], [ 524301, %24 ], [ 524303, %32 ], [ 524303, %47 ], [ 524301, %37 ], [ 524301, %44 ]
-  %.029 = phi ptr [ %27, %29 ], [ null, %24 ], [ null, %32 ], [ null, %47 ], [ null, %37 ], [ %40, %44 ]
-  %.2 = phi ptr [ null, %29 ], [ null, %24 ], [ %30, %32 ], [ %45, %47 ], [ null, %37 ], [ null, %44 ]
+  %.sink70 = phi i32 [ 451, %24 ], [ 451, %29 ], [ 458, %32 ], [ 451, %37 ], [ 451, %44 ], [ 458, %47 ]
+  %.sink = phi i32 [ 524301, %24 ], [ 524301, %29 ], [ 524303, %32 ], [ 524301, %37 ], [ 524301, %44 ], [ 524303, %47 ]
+  %.029 = phi ptr [ null, %24 ], [ %27, %29 ], [ null, %32 ], [ null, %37 ], [ %40, %44 ], [ null, %47 ]
+  %.2 = phi ptr [ null, %24 ], [ null, %29 ], [ %30, %32 ], [ null, %37 ], [ null, %44 ], [ %45, %47 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.15, i32 noundef %.sink70, ptr noundef nonnull @__func__.copy_email) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef %.sink, ptr noundef null) #4
@@ -1315,7 +1315,7 @@ define internal fastcc range(i32 0, 2) i32 @copy_email(ptr noundef readonly capt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split, %.split.us, %4, %.split44.us, %15
-  %.028 = phi i32 [ 1, %4 ], [ 0, %15 ], [ 0, %.split44.us ], [ 1, %.split.us ], [ 1, %.split ]
+  %.028 = phi i32 [ 0, %15 ], [ 0, %.split44.us ], [ 1, %4 ], [ 1, %.split.us ], [ 1, %.split ]
   ret i32 %.028
 }
 

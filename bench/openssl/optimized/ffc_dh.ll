@@ -155,7 +155,7 @@ define ptr @ossl_ffc_numbers_to_dh_named_group(ptr noundef %0, ptr noundef %1, p
   br i1 %exitcond.not, label %.split14.us, label %.split, !llvm.loop !17
 
 .split14.us:                                      ; preds = %27, %32, %10, %15
-  %.us-phi = phi ptr [ null, %15 ], [ %5, %10 ], [ null, %32 ], [ %17, %27 ]
+  %.us-phi = phi ptr [ %5, %10 ], [ null, %15 ], [ %17, %27 ], [ null, %32 ]
   ret ptr %.us-phi
 }
 

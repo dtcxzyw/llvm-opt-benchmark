@@ -384,7 +384,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %65 = icmp eq ptr %64, null
   br i1 %65, label %182, label %184
 
-66:                                               ; preds = %50, %47
+66:                                               ; preds = %47, %50
   %67 = load ptr, ptr %25, align 8, !nonnull !4, !align !39, !noundef !4
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8, !nonnull !4, !noundef !4
@@ -664,7 +664,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   unreachable
 
 .thread:                                          ; preds = %177, %181, %107
-  %.pn2142 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %177 ], [ %.pn, %107 ], [ %lpad.thr_comm.split-lp, %181 ]
+  %.pn2142 = phi { ptr, i32 } [ %.pn, %107 ], [ %lpad.thr_comm.split-lp, %181 ], [ %lpad.thr_comm.split-lp, %177 ]
   resume { ptr, i32 } %.pn2142
 
 177:                                              ; preds = %105
@@ -801,7 +801,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %66 = icmp eq ptr %65, null
   br i1 %66, label %172, label %174
 
-67:                                               ; preds = %51, %48
+67:                                               ; preds = %48, %51
   %68 = load ptr, ptr %26, align 8, !nonnull !4, !align !39, !noundef !4
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8, !nonnull !4, !noundef !4
@@ -1051,7 +1051,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   unreachable
 
 .thread:                                          ; preds = %167, %171, %108
-  %.pn1843 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %167 ], [ %.pn, %108 ], [ %lpad.thr_comm.split-lp, %171 ]
+  %.pn1843 = phi { ptr, i32 } [ %.pn, %108 ], [ %lpad.thr_comm.split-lp, %171 ], [ %lpad.thr_comm.split-lp, %167 ]
   resume { ptr, i32 } %.pn1843
 
 167:                                              ; preds = %106
@@ -1523,8 +1523,8 @@ define hidden { i64, ptr } @"_ZN12futures_util6stream17futures_unordered18ready_
   br label %16
 
 16:                                               ; preds = %.sink.split, %22, %19, %9
-  %.sroa.6.0 = phi ptr [ undef, %22 ], [ undef, %9 ], [ undef, %19 ], [ %.sroa.09.0, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 2, %22 ], [ 1, %9 ], [ 2, %19 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi ptr [ undef, %9 ], [ undef, %19 ], [ undef, %22 ], [ %.sroa.09.0, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 2, %19 ], [ 2, %22 ], [ 0, %.sink.split ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.6.0, 1
   ret { i64, ptr } %18
@@ -1582,8 +1582,8 @@ define hidden { i64, ptr } @"_ZN12futures_util6stream17futures_unordered18ready_
   br label %16
 
 16:                                               ; preds = %.sink.split, %22, %19, %9
-  %.sroa.6.0 = phi ptr [ undef, %22 ], [ undef, %9 ], [ undef, %19 ], [ %.sroa.09.0, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 2, %22 ], [ 1, %9 ], [ 2, %19 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi ptr [ undef, %9 ], [ undef, %19 ], [ undef, %22 ], [ %.sroa.09.0, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 1, %9 ], [ 2, %19 ], [ 2, %22 ], [ 0, %.sink.split ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.6.0, 1
   ret { i64, ptr } %18
@@ -2737,9 +2737,9 @@ common.resume:                                    ; preds = %100, %.body
   br label %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$event_listener..EventListener$GT$$GT$17h268feb4741b680b5E.exit.backedge"
 
 .body:                                            ; preds = %155, %147, %142, %135, %123, %118
-  %storemerge12 = phi ptr [ %113, %135 ], [ %113, %118 ], [ %113, %123 ], [ %133, %142 ], [ %133, %147 ], [ %133, %155 ]
-  %storemerge = phi ptr [ %114, %135 ], [ %114, %118 ], [ %114, %123 ], [ %138, %142 ], [ %138, %147 ], [ %138, %155 ]
-  %.pn = phi { ptr, i32 } [ %136, %135 ], [ %119, %118 ], [ %119, %123 ], [ %143, %142 ], [ %143, %147 ], [ %156, %155 ]
+  %storemerge12 = phi ptr [ %113, %118 ], [ %113, %123 ], [ %113, %135 ], [ %133, %142 ], [ %133, %147 ], [ %133, %155 ]
+  %storemerge = phi ptr [ %114, %118 ], [ %114, %123 ], [ %114, %135 ], [ %138, %142 ], [ %138, %147 ], [ %138, %155 ]
+  %.pn = phi { ptr, i32 } [ %119, %118 ], [ %119, %123 ], [ %136, %135 ], [ %143, %142 ], [ %143, %147 ], [ %156, %155 ]
   store ptr %storemerge12, ptr %8, align 8
   store ptr %storemerge, ptr %9, align 8
   br label %common.resume
@@ -3107,9 +3107,9 @@ common.resume:                                    ; preds = %99, %.body
   br label %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$event_listener..EventListener$GT$$GT$17h268feb4741b680b5E.exit.backedge"
 
 .body:                                            ; preds = %154, %146, %141, %134, %122, %117
-  %storemerge12 = phi ptr [ %112, %134 ], [ %112, %117 ], [ %112, %122 ], [ %132, %141 ], [ %132, %146 ], [ %132, %154 ]
-  %storemerge = phi ptr [ %113, %134 ], [ %113, %117 ], [ %113, %122 ], [ %137, %141 ], [ %137, %146 ], [ %137, %154 ]
-  %.pn = phi { ptr, i32 } [ %135, %134 ], [ %118, %117 ], [ %118, %122 ], [ %142, %141 ], [ %142, %146 ], [ %155, %154 ]
+  %storemerge12 = phi ptr [ %112, %117 ], [ %112, %122 ], [ %112, %134 ], [ %132, %141 ], [ %132, %146 ], [ %132, %154 ]
+  %storemerge = phi ptr [ %113, %117 ], [ %113, %122 ], [ %113, %134 ], [ %137, %141 ], [ %137, %146 ], [ %137, %154 ]
+  %.pn = phi { ptr, i32 } [ %118, %117 ], [ %118, %122 ], [ %135, %134 ], [ %142, %141 ], [ %142, %146 ], [ %155, %154 ]
   store ptr %storemerge12, ptr %8, align 8
   store ptr %storemerge, ptr %9, align 8
   br label %common.resume
@@ -3478,9 +3478,9 @@ common.resume:                                    ; preds = %98, %.body
   br label %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$event_listener..EventListener$GT$$GT$17h268feb4741b680b5E.exit.backedge"
 
 .body:                                            ; preds = %154, %146, %141, %134, %122, %117
-  %storemerge12 = phi ptr [ %112, %134 ], [ %112, %117 ], [ %112, %122 ], [ %132, %141 ], [ %132, %146 ], [ %132, %154 ]
-  %storemerge = phi ptr [ %113, %134 ], [ %113, %117 ], [ %113, %122 ], [ %137, %141 ], [ %137, %146 ], [ %137, %154 ]
-  %.pn = phi { ptr, i32 } [ %135, %134 ], [ %118, %117 ], [ %118, %122 ], [ %142, %141 ], [ %142, %146 ], [ %155, %154 ]
+  %storemerge12 = phi ptr [ %112, %117 ], [ %112, %122 ], [ %112, %134 ], [ %132, %141 ], [ %132, %146 ], [ %132, %154 ]
+  %storemerge = phi ptr [ %113, %117 ], [ %113, %122 ], [ %113, %134 ], [ %137, %141 ], [ %137, %146 ], [ %137, %154 ]
+  %.pn = phi { ptr, i32 } [ %118, %117 ], [ %118, %122 ], [ %135, %134 ], [ %142, %141 ], [ %142, %146 ], [ %155, %154 ]
   store ptr %storemerge12, ptr %8, align 8
   store ptr %storemerge, ptr %9, align 8
   br label %common.resume
@@ -3875,9 +3875,9 @@ common.resume:                                    ; preds = %109, %113, %.body
   br label %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$event_listener..EventListener$GT$$GT$17h268feb4741b680b5E.exit.backedge"
 
 .body:                                            ; preds = %170, %162, %157, %150, %138, %133
-  %storemerge14 = phi ptr [ %128, %150 ], [ %128, %133 ], [ %128, %138 ], [ %148, %157 ], [ %148, %162 ], [ %148, %170 ]
-  %storemerge = phi ptr [ %129, %150 ], [ %129, %133 ], [ %129, %138 ], [ %153, %157 ], [ %153, %162 ], [ %153, %170 ]
-  %.pn = phi { ptr, i32 } [ %151, %150 ], [ %134, %133 ], [ %134, %138 ], [ %158, %157 ], [ %158, %162 ], [ %171, %170 ]
+  %storemerge14 = phi ptr [ %128, %133 ], [ %128, %138 ], [ %128, %150 ], [ %148, %157 ], [ %148, %162 ], [ %148, %170 ]
+  %storemerge = phi ptr [ %129, %133 ], [ %129, %138 ], [ %129, %150 ], [ %153, %157 ], [ %153, %162 ], [ %153, %170 ]
+  %.pn = phi { ptr, i32 } [ %134, %133 ], [ %134, %138 ], [ %151, %150 ], [ %158, %157 ], [ %158, %162 ], [ %171, %170 ]
   store ptr %storemerge14, ptr %8, align 8
   store ptr %storemerge, ptr %9, align 8
   br label %common.resume
@@ -4248,9 +4248,9 @@ common.resume:                                    ; preds = %99, %.body
   br label %"_ZN4core3ptr89drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$event_listener..EventListener$GT$$GT$17h268feb4741b680b5E.exit.backedge"
 
 .body:                                            ; preds = %155, %147, %142, %135, %123, %118
-  %storemerge12 = phi ptr [ %113, %135 ], [ %113, %118 ], [ %113, %123 ], [ %133, %142 ], [ %133, %147 ], [ %133, %155 ]
-  %storemerge = phi ptr [ %114, %135 ], [ %114, %118 ], [ %114, %123 ], [ %138, %142 ], [ %138, %147 ], [ %138, %155 ]
-  %.pn = phi { ptr, i32 } [ %136, %135 ], [ %119, %118 ], [ %119, %123 ], [ %143, %142 ], [ %143, %147 ], [ %156, %155 ]
+  %storemerge12 = phi ptr [ %113, %118 ], [ %113, %123 ], [ %113, %135 ], [ %133, %142 ], [ %133, %147 ], [ %133, %155 ]
+  %storemerge = phi ptr [ %114, %118 ], [ %114, %123 ], [ %114, %135 ], [ %138, %142 ], [ %138, %147 ], [ %138, %155 ]
+  %.pn = phi { ptr, i32 } [ %119, %118 ], [ %119, %123 ], [ %136, %135 ], [ %143, %142 ], [ %143, %147 ], [ %156, %155 ]
   store ptr %storemerge12, ptr %8, align 8
   store ptr %storemerge, ptr %9, align 8
   br label %common.resume
@@ -6166,7 +6166,7 @@ default.unreachable:                              ; preds = %8
   br label %.thread
 
 80:                                               ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h866747bd0ecb09a9E.exit.i", %18
-  %.sroa.0.0.i.ph = phi i8 [ %76, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h866747bd0ecb09a9E.exit.i" ], [ %20, %18 ]
+  %.sroa.0.0.i.ph = phi i8 [ %20, %18 ], [ %76, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h866747bd0ecb09a9E.exit.i" ]
   %trunc19 = trunc i8 %.sroa.0.0.i.ph to i1
   br i1 %trunc19, label %.thread, label %.thread33
 
@@ -6250,9 +6250,9 @@ default.unreachable:                              ; preds = %8
   br i1 %trunc, label %8, label %._crit_edge
 
 .body:                                            ; preds = %132, %124, %119, %111, %99, %94
-  %storemerge20 = phi ptr [ %89, %111 ], [ %89, %94 ], [ %89, %99 ], [ %109, %119 ], [ %109, %124 ], [ %109, %132 ]
-  %storemerge = phi ptr [ %90, %111 ], [ %90, %94 ], [ %90, %99 ], [ %115, %119 ], [ %115, %124 ], [ %115, %132 ]
-  %.pn = phi { ptr, i32 } [ %112, %111 ], [ %95, %94 ], [ %95, %99 ], [ %120, %119 ], [ %120, %124 ], [ %133, %132 ]
+  %storemerge20 = phi ptr [ %89, %94 ], [ %89, %99 ], [ %89, %111 ], [ %109, %119 ], [ %109, %124 ], [ %109, %132 ]
+  %storemerge = phi ptr [ %90, %94 ], [ %90, %99 ], [ %90, %111 ], [ %115, %119 ], [ %115, %124 ], [ %115, %132 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %95, %99 ], [ %112, %111 ], [ %120, %119 ], [ %120, %124 ], [ %133, %132 ]
   store ptr %storemerge20, ptr %6, align 8
   store ptr %storemerge, ptr %7, align 8
   resume { ptr, i32 } %.pn
@@ -8467,7 +8467,7 @@ define hidden noundef zeroext i1 @"_ZN13async_channel13Send$LT$T$GT$4wait17hcad4
   unreachable
 
 common.resume:                                    ; preds = %4, %13, %18
-  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %14, %18 ], [ %5, %4 ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %18 ], [ %14, %13 ], [ %5, %4 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr56drop_in_place$LT$async_channel..Send$LT$$LP$$RP$$GT$$GT$17h73adcfac8a96ad49E.exit": ; preds = %8, %19, %23
@@ -8597,8 +8597,8 @@ define hidden noundef zeroext i1 @"_ZN13async_channel16Channel$LT$T$GT$5close17h
   %2 = load i64, ptr %0, align 128, !range !55, !noundef !4
   switch i64 %2, label %default.unreachable [
     i64 0, label %3
-    i64 1, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h027d7f9b98c401e7E.llvm.508871978467108173.exit"
-    i64 2, label %8
+    i64 1, label %8
+    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h027d7f9b98c401e7E.llvm.508871978467108173.exit"
   ]
 
 default.unreachable:                              ; preds = %1
@@ -8612,20 +8612,20 @@ default.unreachable:                              ; preds = %1
   br i1 %7, label %19, label %23
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %10 = atomicrmw or ptr %9, i64 1 seq_cst, align 8
-  %11 = trunc i64 %10 to i1
-  br i1 %11, label %23, label %19
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %10 = load i64, ptr %9, align 8, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %12 = atomicrmw or ptr %11, i64 %10 seq_cst, align 8
+  %13 = load i64, ptr %9, align 8, !noundef !4
+  %14 = and i64 %13, %12
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %19, label %23
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h027d7f9b98c401e7E.llvm.508871978467108173.exit": ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %15 = atomicrmw or ptr %14, i64 %13 seq_cst, align 8
-  %16 = load i64, ptr %12, align 8, !noundef !4
-  %17 = and i64 %16, %15
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %23
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %17 = atomicrmw or ptr %16, i64 1 seq_cst, align 8
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %23, label %19
 
 19:                                               ; preds = %8, %3, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h027d7f9b98c401e7E.llvm.508871978467108173.exit"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -8646,8 +8646,8 @@ define hidden noundef zeroext i1 @"_ZN13async_channel16Channel$LT$T$GT$5close17h
   %2 = load i64, ptr %0, align 128, !range !55, !noundef !4
   switch i64 %2, label %default.unreachable [
     i64 0, label %3
-    i64 1, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17heb890fba0baf44f2E.llvm.508871978467108173.exit"
-    i64 2, label %8
+    i64 1, label %8
+    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17heb890fba0baf44f2E.llvm.508871978467108173.exit"
   ]
 
 default.unreachable:                              ; preds = %1
@@ -8661,20 +8661,20 @@ default.unreachable:                              ; preds = %1
   br i1 %7, label %19, label %23
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %10 = atomicrmw or ptr %9, i64 1 seq_cst, align 8
-  %11 = trunc i64 %10 to i1
-  br i1 %11, label %23, label %19
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %10 = load i64, ptr %9, align 8, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %12 = atomicrmw or ptr %11, i64 %10 seq_cst, align 8
+  %13 = load i64, ptr %9, align 8, !noundef !4
+  %14 = and i64 %13, %12
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %19, label %23
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17heb890fba0baf44f2E.llvm.508871978467108173.exit": ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %15 = atomicrmw or ptr %14, i64 %13 seq_cst, align 8
-  %16 = load i64, ptr %12, align 8, !noundef !4
-  %17 = and i64 %16, %15
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %23
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %17 = atomicrmw or ptr %16, i64 1 seq_cst, align 8
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %23, label %19
 
 19:                                               ; preds = %8, %3, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17heb890fba0baf44f2E.llvm.508871978467108173.exit"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -8695,8 +8695,8 @@ define hidden noundef zeroext i1 @"_ZN13async_channel16Channel$LT$T$GT$5close17h
   %2 = load i64, ptr %0, align 128, !range !55, !noundef !4
   switch i64 %2, label %default.unreachable [
     i64 0, label %3
-    i64 1, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h8dede6a9500194f6E.llvm.508871978467108173.exit"
-    i64 2, label %8
+    i64 1, label %8
+    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h8dede6a9500194f6E.llvm.508871978467108173.exit"
   ]
 
 default.unreachable:                              ; preds = %1
@@ -8710,20 +8710,20 @@ default.unreachable:                              ; preds = %1
   br i1 %7, label %19, label %23
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %10 = atomicrmw or ptr %9, i64 1 seq_cst, align 8
-  %11 = trunc i64 %10 to i1
-  br i1 %11, label %23, label %19
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %10 = load i64, ptr %9, align 8, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %12 = atomicrmw or ptr %11, i64 %10 seq_cst, align 8
+  %13 = load i64, ptr %9, align 8, !noundef !4
+  %14 = and i64 %13, %12
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %19, label %23
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h8dede6a9500194f6E.llvm.508871978467108173.exit": ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %15 = atomicrmw or ptr %14, i64 %13 seq_cst, align 8
-  %16 = load i64, ptr %12, align 8, !noundef !4
-  %17 = and i64 %16, %15
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %23
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %17 = atomicrmw or ptr %16, i64 1 seq_cst, align 8
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %23, label %19
 
 19:                                               ; preds = %8, %3, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h8dede6a9500194f6E.llvm.508871978467108173.exit"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -8744,8 +8744,8 @@ define hidden noundef zeroext i1 @"_ZN13async_channel16Channel$LT$T$GT$5close17h
   %2 = load i64, ptr %0, align 128, !range !55, !noundef !4
   switch i64 %2, label %default.unreachable [
     i64 0, label %3
-    i64 1, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h404869d62418a3d6E.llvm.508871978467108173.exit"
-    i64 2, label %8
+    i64 1, label %8
+    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h404869d62418a3d6E.llvm.508871978467108173.exit"
   ]
 
 default.unreachable:                              ; preds = %1
@@ -8759,20 +8759,20 @@ default.unreachable:                              ; preds = %1
   br i1 %7, label %19, label %23
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %10 = atomicrmw or ptr %9, i64 1 seq_cst, align 8
-  %11 = trunc i64 %10 to i1
-  br i1 %11, label %23, label %19
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %10 = load i64, ptr %9, align 8, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %12 = atomicrmw or ptr %11, i64 %10 seq_cst, align 8
+  %13 = load i64, ptr %9, align 8, !noundef !4
+  %14 = and i64 %13, %12
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %19, label %23
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h404869d62418a3d6E.llvm.508871978467108173.exit": ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %15 = atomicrmw or ptr %14, i64 %13 seq_cst, align 8
-  %16 = load i64, ptr %12, align 8, !noundef !4
-  %17 = and i64 %16, %15
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %23
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %17 = atomicrmw or ptr %16, i64 1 seq_cst, align 8
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %23, label %19
 
 19:                                               ; preds = %8, %3, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h404869d62418a3d6E.llvm.508871978467108173.exit"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -8793,8 +8793,8 @@ define hidden noundef zeroext i1 @"_ZN13async_channel16Channel$LT$T$GT$5close17h
   %2 = load i64, ptr %0, align 128, !range !55, !noundef !4
   switch i64 %2, label %default.unreachable [
     i64 0, label %3
-    i64 1, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h70c57b4198f85756E.llvm.508871978467108173.exit"
-    i64 2, label %8
+    i64 1, label %8
+    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h70c57b4198f85756E.llvm.508871978467108173.exit"
   ]
 
 default.unreachable:                              ; preds = %1
@@ -8808,20 +8808,20 @@ default.unreachable:                              ; preds = %1
   br i1 %7, label %19, label %23
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %10 = atomicrmw or ptr %9, i64 1 seq_cst, align 8
-  %11 = trunc i64 %10 to i1
-  br i1 %11, label %23, label %19
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %10 = load i64, ptr %9, align 8, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %12 = atomicrmw or ptr %11, i64 %10 seq_cst, align 8
+  %13 = load i64, ptr %9, align 8, !noundef !4
+  %14 = and i64 %13, %12
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %19, label %23
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h70c57b4198f85756E.llvm.508871978467108173.exit": ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %15 = atomicrmw or ptr %14, i64 %13 seq_cst, align 8
-  %16 = load i64, ptr %12, align 8, !noundef !4
-  %17 = and i64 %16, %15
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %23
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %17 = atomicrmw or ptr %16, i64 1 seq_cst, align 8
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %23, label %19
 
 19:                                               ; preds = %8, %3, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h70c57b4198f85756E.llvm.508871978467108173.exit"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -8842,8 +8842,8 @@ define hidden noundef zeroext i1 @"_ZN13async_channel16Channel$LT$T$GT$5close17h
   %2 = load i64, ptr %0, align 128, !range !55, !noundef !4
   switch i64 %2, label %default.unreachable [
     i64 0, label %3
-    i64 1, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h1892e1115586ddf0E.llvm.508871978467108173.exit"
-    i64 2, label %8
+    i64 1, label %8
+    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h1892e1115586ddf0E.llvm.508871978467108173.exit"
   ]
 
 default.unreachable:                              ; preds = %1
@@ -8857,20 +8857,20 @@ default.unreachable:                              ; preds = %1
   br i1 %7, label %19, label %23
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %10 = atomicrmw or ptr %9, i64 1 seq_cst, align 8
-  %11 = trunc i64 %10 to i1
-  br i1 %11, label %23, label %19
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %10 = load i64, ptr %9, align 8, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %12 = atomicrmw or ptr %11, i64 %10 seq_cst, align 8
+  %13 = load i64, ptr %9, align 8, !noundef !4
+  %14 = and i64 %13, %12
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %19, label %23
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h1892e1115586ddf0E.llvm.508871978467108173.exit": ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %15 = atomicrmw or ptr %14, i64 %13 seq_cst, align 8
-  %16 = load i64, ptr %12, align 8, !noundef !4
-  %17 = and i64 %16, %15
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %23
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %17 = atomicrmw or ptr %16, i64 1 seq_cst, align 8
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %23, label %19
 
 19:                                               ; preds = %8, %3, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h1892e1115586ddf0E.llvm.508871978467108173.exit"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -8891,8 +8891,8 @@ define hidden noundef zeroext i1 @"_ZN13async_channel16Channel$LT$T$GT$5close17h
   %2 = load i64, ptr %0, align 128, !range !55, !noundef !4
   switch i64 %2, label %default.unreachable [
     i64 0, label %3
-    i64 1, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h81e92b251002cd47E.llvm.508871978467108173.exit"
-    i64 2, label %8
+    i64 1, label %8
+    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h81e92b251002cd47E.llvm.508871978467108173.exit"
   ]
 
 default.unreachable:                              ; preds = %1
@@ -8906,20 +8906,20 @@ default.unreachable:                              ; preds = %1
   br i1 %7, label %19, label %23
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %10 = atomicrmw or ptr %9, i64 1 seq_cst, align 8
-  %11 = trunc i64 %10 to i1
-  br i1 %11, label %23, label %19
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %10 = load i64, ptr %9, align 8, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %12 = atomicrmw or ptr %11, i64 %10 seq_cst, align 8
+  %13 = load i64, ptr %9, align 8, !noundef !4
+  %14 = and i64 %13, %12
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %19, label %23
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h81e92b251002cd47E.llvm.508871978467108173.exit": ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %15 = atomicrmw or ptr %14, i64 %13 seq_cst, align 8
-  %16 = load i64, ptr %12, align 8, !noundef !4
-  %17 = and i64 %16, %15
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %23
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %17 = atomicrmw or ptr %16, i64 1 seq_cst, align 8
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %23, label %19
 
 19:                                               ; preds = %8, %3, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h81e92b251002cd47E.llvm.508871978467108173.exit"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -8940,8 +8940,8 @@ define hidden noundef zeroext i1 @"_ZN13async_channel16Channel$LT$T$GT$5close17h
   %2 = load i64, ptr %0, align 128, !range !55, !noundef !4
   switch i64 %2, label %default.unreachable [
     i64 0, label %3
-    i64 1, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h4ceab3e8c8843bf4E.llvm.508871978467108173.exit"
-    i64 2, label %8
+    i64 1, label %8
+    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h4ceab3e8c8843bf4E.llvm.508871978467108173.exit"
   ]
 
 default.unreachable:                              ; preds = %1
@@ -8955,20 +8955,20 @@ default.unreachable:                              ; preds = %1
   br i1 %7, label %19, label %23
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %10 = atomicrmw or ptr %9, i64 1 seq_cst, align 8
-  %11 = trunc i64 %10 to i1
-  br i1 %11, label %23, label %19
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %10 = load i64, ptr %9, align 8, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %12 = atomicrmw or ptr %11, i64 %10 seq_cst, align 8
+  %13 = load i64, ptr %9, align 8, !noundef !4
+  %14 = and i64 %13, %12
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %19, label %23
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h4ceab3e8c8843bf4E.llvm.508871978467108173.exit": ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %15 = atomicrmw or ptr %14, i64 %13 seq_cst, align 8
-  %16 = load i64, ptr %12, align 8, !noundef !4
-  %17 = and i64 %16, %15
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %23
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %17 = atomicrmw or ptr %16, i64 1 seq_cst, align 8
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %23, label %19
 
 19:                                               ; preds = %8, %3, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h4ceab3e8c8843bf4E.llvm.508871978467108173.exit"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -8989,8 +8989,8 @@ define hidden noundef zeroext i1 @"_ZN13async_channel16Channel$LT$T$GT$5close17h
   %2 = load i64, ptr %0, align 128, !range !55, !noundef !4
   switch i64 %2, label %default.unreachable [
     i64 0, label %3
-    i64 1, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17hbe2d78292cd61e6aE.llvm.508871978467108173.exit"
-    i64 2, label %8
+    i64 1, label %8
+    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17hbe2d78292cd61e6aE.llvm.508871978467108173.exit"
   ]
 
 default.unreachable:                              ; preds = %1
@@ -9004,20 +9004,20 @@ default.unreachable:                              ; preds = %1
   br i1 %7, label %19, label %23
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %10 = atomicrmw or ptr %9, i64 1 seq_cst, align 8
-  %11 = trunc i64 %10 to i1
-  br i1 %11, label %23, label %19
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %10 = load i64, ptr %9, align 8, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %12 = atomicrmw or ptr %11, i64 %10 seq_cst, align 8
+  %13 = load i64, ptr %9, align 8, !noundef !4
+  %14 = and i64 %13, %12
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %19, label %23
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17hbe2d78292cd61e6aE.llvm.508871978467108173.exit": ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %15 = atomicrmw or ptr %14, i64 %13 seq_cst, align 8
-  %16 = load i64, ptr %12, align 8, !noundef !4
-  %17 = and i64 %16, %15
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %23
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %17 = atomicrmw or ptr %16, i64 1 seq_cst, align 8
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %23, label %19
 
 19:                                               ; preds = %8, %3, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17hbe2d78292cd61e6aE.llvm.508871978467108173.exit"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -9038,8 +9038,8 @@ define hidden noundef zeroext i1 @"_ZN13async_channel16Channel$LT$T$GT$5close17h
   %2 = load i64, ptr %0, align 128, !range !55, !noundef !4
   switch i64 %2, label %default.unreachable [
     i64 0, label %3
-    i64 1, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h361e8ed1f3268baaE.llvm.508871978467108173.exit"
-    i64 2, label %8
+    i64 1, label %8
+    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h361e8ed1f3268baaE.llvm.508871978467108173.exit"
   ]
 
 default.unreachable:                              ; preds = %1
@@ -9053,20 +9053,20 @@ default.unreachable:                              ; preds = %1
   br i1 %7, label %19, label %23
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %10 = atomicrmw or ptr %9, i64 1 seq_cst, align 8
-  %11 = trunc i64 %10 to i1
-  br i1 %11, label %23, label %19
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %10 = load i64, ptr %9, align 8, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %12 = atomicrmw or ptr %11, i64 %10 seq_cst, align 8
+  %13 = load i64, ptr %9, align 8, !noundef !4
+  %14 = and i64 %13, %12
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %19, label %23
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h361e8ed1f3268baaE.llvm.508871978467108173.exit": ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %15 = atomicrmw or ptr %14, i64 %13 seq_cst, align 8
-  %16 = load i64, ptr %12, align 8, !noundef !4
-  %17 = and i64 %16, %15
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %23
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %17 = atomicrmw or ptr %16, i64 1 seq_cst, align 8
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %23, label %19
 
 19:                                               ; preds = %8, %3, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17h361e8ed1f3268baaE.llvm.508871978467108173.exit"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -9087,8 +9087,8 @@ define hidden noundef zeroext i1 @"_ZN13async_channel16Channel$LT$T$GT$5close17h
   %2 = load i64, ptr %0, align 128, !range !55, !noundef !4
   switch i64 %2, label %default.unreachable [
     i64 0, label %3
-    i64 1, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17he51c7f49b9ab839bE.llvm.508871978467108173.exit"
-    i64 2, label %8
+    i64 1, label %8
+    i64 2, label %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17he51c7f49b9ab839bE.llvm.508871978467108173.exit"
   ]
 
 default.unreachable:                              ; preds = %1
@@ -9102,20 +9102,20 @@ default.unreachable:                              ; preds = %1
   br i1 %7, label %19, label %23
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %10 = atomicrmw or ptr %9, i64 1 seq_cst, align 8
-  %11 = trunc i64 %10 to i1
-  br i1 %11, label %23, label %19
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %10 = load i64, ptr %9, align 8, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %12 = atomicrmw or ptr %11, i64 %10 seq_cst, align 8
+  %13 = load i64, ptr %9, align 8, !noundef !4
+  %14 = and i64 %13, %12
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %19, label %23
 
 "_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17he51c7f49b9ab839bE.llvm.508871978467108173.exit": ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %15 = atomicrmw or ptr %14, i64 %13 seq_cst, align 8
-  %16 = load i64, ptr %12, align 8, !noundef !4
-  %17 = and i64 %16, %15
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %23
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %17 = atomicrmw or ptr %16, i64 1 seq_cst, align 8
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %23, label %19
 
 19:                                               ; preds = %8, %3, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$5close17he51c7f49b9ab839bE.llvm.508871978467108173.exit"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -9240,7 +9240,7 @@ define hidden void @_ZN13async_channel7bounded17h037fceffcfef6cd9E(ptr dead_on_u
   br i1 %exitcond.not.i, label %19, label %38
 
 common.resume:                                    ; preds = %66, %30, %34, %47, %51
-  %common.resume.op = phi { ptr, i32 } [ %31, %34 ], [ %48, %51 ], [ %48, %47 ], [ %31, %30 ], [ %67, %66 ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %48, %51 ], [ %31, %30 ], [ %31, %34 ], [ %67, %66 ]
   resume { ptr, i32 } %common.resume.op
 
 47:                                               ; preds = %43
@@ -9274,11 +9274,11 @@ common.resume:                                    ; preds = %66, %30, %34, %47, 
   br label %59
 
 59:                                               ; preds = %2, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hc19ed25e89f88d24E.exit"
-  %.sroa.614.sroa.8.0 = phi i64 [ undef, %2 ], [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hc19ed25e89f88d24E.exit" ]
-  %.sroa.614.sroa.9.0 = phi i64 [ undef, %2 ], [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hc19ed25e89f88d24E.exit" ]
-  %.sroa.614.sroa.10.0 = phi ptr [ undef, %2 ], [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hc19ed25e89f88d24E.exit" ]
-  %.sroa.614.sroa.11.0 = phi i64 [ undef, %2 ], [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hc19ed25e89f88d24E.exit" ]
-  %.sroa.011.0 = phi i64 [ 0, %2 ], [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hc19ed25e89f88d24E.exit" ]
+  %.sroa.614.sroa.8.0 = phi i64 [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hc19ed25e89f88d24E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.9.0 = phi i64 [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hc19ed25e89f88d24E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.10.0 = phi ptr [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hc19ed25e89f88d24E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.11.0 = phi i64 [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hc19ed25e89f88d24E.exit" ], [ undef, %2 ]
+  %.sroa.011.0 = phi i64 [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hc19ed25e89f88d24E.exit" ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 1, ptr %6, align 128
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -9458,7 +9458,7 @@ define hidden void @_ZN13async_channel7bounded17h13dc7d6f769a1c66E(ptr dead_on_u
   br i1 %exitcond.not.i, label %19, label %38
 
 common.resume:                                    ; preds = %66, %30, %34, %47, %51
-  %common.resume.op = phi { ptr, i32 } [ %31, %34 ], [ %48, %51 ], [ %48, %47 ], [ %31, %30 ], [ %67, %66 ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %48, %51 ], [ %31, %30 ], [ %31, %34 ], [ %67, %66 ]
   resume { ptr, i32 } %common.resume.op
 
 47:                                               ; preds = %43
@@ -9492,11 +9492,11 @@ common.resume:                                    ; preds = %66, %30, %34, %47, 
   br label %59
 
 59:                                               ; preds = %2, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf04220fa843c10f9E.exit"
-  %.sroa.614.sroa.8.0 = phi i64 [ undef, %2 ], [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf04220fa843c10f9E.exit" ]
-  %.sroa.614.sroa.9.0 = phi i64 [ undef, %2 ], [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf04220fa843c10f9E.exit" ]
-  %.sroa.614.sroa.10.0 = phi ptr [ undef, %2 ], [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf04220fa843c10f9E.exit" ]
-  %.sroa.614.sroa.11.0 = phi i64 [ undef, %2 ], [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf04220fa843c10f9E.exit" ]
-  %.sroa.011.0 = phi i64 [ 0, %2 ], [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf04220fa843c10f9E.exit" ]
+  %.sroa.614.sroa.8.0 = phi i64 [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf04220fa843c10f9E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.9.0 = phi i64 [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf04220fa843c10f9E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.10.0 = phi ptr [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf04220fa843c10f9E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.11.0 = phi i64 [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf04220fa843c10f9E.exit" ], [ undef, %2 ]
+  %.sroa.011.0 = phi i64 [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf04220fa843c10f9E.exit" ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 1, ptr %6, align 128
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -9676,7 +9676,7 @@ define hidden void @_ZN13async_channel7bounded17h1fc181c795680ae2E(ptr dead_on_u
   br i1 %exitcond.not.i, label %19, label %38
 
 common.resume:                                    ; preds = %66, %30, %34, %47, %51
-  %common.resume.op = phi { ptr, i32 } [ %31, %34 ], [ %48, %51 ], [ %48, %47 ], [ %31, %30 ], [ %67, %66 ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %48, %51 ], [ %31, %30 ], [ %31, %34 ], [ %67, %66 ]
   resume { ptr, i32 } %common.resume.op
 
 47:                                               ; preds = %43
@@ -9710,11 +9710,11 @@ common.resume:                                    ; preds = %66, %30, %34, %47, 
   br label %59
 
 59:                                               ; preds = %2, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h0064223a2136d0e6E.exit"
-  %.sroa.614.sroa.8.0 = phi i64 [ undef, %2 ], [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h0064223a2136d0e6E.exit" ]
-  %.sroa.614.sroa.9.0 = phi i64 [ undef, %2 ], [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h0064223a2136d0e6E.exit" ]
-  %.sroa.614.sroa.10.0 = phi ptr [ undef, %2 ], [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h0064223a2136d0e6E.exit" ]
-  %.sroa.614.sroa.11.0 = phi i64 [ undef, %2 ], [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h0064223a2136d0e6E.exit" ]
-  %.sroa.011.0 = phi i64 [ 0, %2 ], [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h0064223a2136d0e6E.exit" ]
+  %.sroa.614.sroa.8.0 = phi i64 [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h0064223a2136d0e6E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.9.0 = phi i64 [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h0064223a2136d0e6E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.10.0 = phi ptr [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h0064223a2136d0e6E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.11.0 = phi i64 [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h0064223a2136d0e6E.exit" ], [ undef, %2 ]
+  %.sroa.011.0 = phi i64 [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h0064223a2136d0e6E.exit" ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 1, ptr %6, align 128
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -9893,7 +9893,7 @@ define hidden void @_ZN13async_channel7bounded17h2021669a8968ac97E(ptr dead_on_u
   br i1 %exitcond.not.i, label %19, label %38
 
 common.resume:                                    ; preds = %66, %30, %34, %47, %51
-  %common.resume.op = phi { ptr, i32 } [ %31, %34 ], [ %48, %51 ], [ %48, %47 ], [ %31, %30 ], [ %67, %66 ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %48, %51 ], [ %31, %30 ], [ %31, %34 ], [ %67, %66 ]
   resume { ptr, i32 } %common.resume.op
 
 47:                                               ; preds = %43
@@ -9927,11 +9927,11 @@ common.resume:                                    ; preds = %66, %30, %34, %47, 
   br label %59
 
 59:                                               ; preds = %2, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h3763fa2ae3dd68eeE.exit"
-  %.sroa.614.sroa.8.0 = phi i64 [ undef, %2 ], [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h3763fa2ae3dd68eeE.exit" ]
-  %.sroa.614.sroa.9.0 = phi i64 [ undef, %2 ], [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h3763fa2ae3dd68eeE.exit" ]
-  %.sroa.614.sroa.10.0 = phi ptr [ undef, %2 ], [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h3763fa2ae3dd68eeE.exit" ]
-  %.sroa.614.sroa.11.0 = phi i64 [ undef, %2 ], [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h3763fa2ae3dd68eeE.exit" ]
-  %.sroa.011.0 = phi i64 [ 0, %2 ], [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h3763fa2ae3dd68eeE.exit" ]
+  %.sroa.614.sroa.8.0 = phi i64 [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h3763fa2ae3dd68eeE.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.9.0 = phi i64 [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h3763fa2ae3dd68eeE.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.10.0 = phi ptr [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h3763fa2ae3dd68eeE.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.11.0 = phi i64 [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h3763fa2ae3dd68eeE.exit" ], [ undef, %2 ]
+  %.sroa.011.0 = phi i64 [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h3763fa2ae3dd68eeE.exit" ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 1, ptr %6, align 128
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -10110,7 +10110,7 @@ define hidden void @_ZN13async_channel7bounded17h2d087f711ab7608aE(ptr dead_on_u
   br i1 %exitcond.not.i, label %19, label %38
 
 common.resume:                                    ; preds = %66, %30, %34, %47, %51
-  %common.resume.op = phi { ptr, i32 } [ %31, %34 ], [ %48, %51 ], [ %48, %47 ], [ %31, %30 ], [ %67, %66 ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %48, %51 ], [ %31, %30 ], [ %31, %34 ], [ %67, %66 ]
   resume { ptr, i32 } %common.resume.op
 
 47:                                               ; preds = %43
@@ -10144,11 +10144,11 @@ common.resume:                                    ; preds = %66, %30, %34, %47, 
   br label %59
 
 59:                                               ; preds = %2, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h754a50d2e52ac0a6E.exit"
-  %.sroa.614.sroa.8.0 = phi i64 [ undef, %2 ], [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h754a50d2e52ac0a6E.exit" ]
-  %.sroa.614.sroa.9.0 = phi i64 [ undef, %2 ], [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h754a50d2e52ac0a6E.exit" ]
-  %.sroa.614.sroa.10.0 = phi ptr [ undef, %2 ], [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h754a50d2e52ac0a6E.exit" ]
-  %.sroa.614.sroa.11.0 = phi i64 [ undef, %2 ], [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h754a50d2e52ac0a6E.exit" ]
-  %.sroa.011.0 = phi i64 [ 0, %2 ], [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h754a50d2e52ac0a6E.exit" ]
+  %.sroa.614.sroa.8.0 = phi i64 [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h754a50d2e52ac0a6E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.9.0 = phi i64 [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h754a50d2e52ac0a6E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.10.0 = phi ptr [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h754a50d2e52ac0a6E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.11.0 = phi i64 [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h754a50d2e52ac0a6E.exit" ], [ undef, %2 ]
+  %.sroa.011.0 = phi i64 [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h754a50d2e52ac0a6E.exit" ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 1, ptr %6, align 128
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -10328,7 +10328,7 @@ define hidden void @_ZN13async_channel7bounded17h3696c2319e23a1f6E(ptr dead_on_u
   br i1 %exitcond.not.i, label %19, label %38
 
 common.resume:                                    ; preds = %66, %30, %34, %47, %51
-  %common.resume.op = phi { ptr, i32 } [ %31, %34 ], [ %48, %51 ], [ %48, %47 ], [ %31, %30 ], [ %67, %66 ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %48, %51 ], [ %31, %30 ], [ %31, %34 ], [ %67, %66 ]
   resume { ptr, i32 } %common.resume.op
 
 47:                                               ; preds = %43
@@ -10362,11 +10362,11 @@ common.resume:                                    ; preds = %66, %30, %34, %47, 
   br label %59
 
 59:                                               ; preds = %2, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf3f992ef7cecc833E.exit"
-  %.sroa.614.sroa.6.0 = phi i64 [ undef, %2 ], [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf3f992ef7cecc833E.exit" ]
-  %.sroa.614.sroa.7.0 = phi i64 [ undef, %2 ], [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf3f992ef7cecc833E.exit" ]
-  %.sroa.614.sroa.8.0 = phi ptr [ undef, %2 ], [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf3f992ef7cecc833E.exit" ]
-  %.sroa.614.sroa.9.0 = phi i64 [ undef, %2 ], [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf3f992ef7cecc833E.exit" ]
-  %.sroa.011.0 = phi i64 [ 0, %2 ], [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf3f992ef7cecc833E.exit" ]
+  %.sroa.614.sroa.6.0 = phi i64 [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf3f992ef7cecc833E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.7.0 = phi i64 [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf3f992ef7cecc833E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.8.0 = phi ptr [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf3f992ef7cecc833E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.9.0 = phi i64 [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf3f992ef7cecc833E.exit" ], [ undef, %2 ]
+  %.sroa.011.0 = phi i64 [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hf3f992ef7cecc833E.exit" ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 1, ptr %6, align 128
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -10543,7 +10543,7 @@ define hidden void @_ZN13async_channel7bounded17h3839c9b4a51d9bf1E(ptr dead_on_u
   br i1 %exitcond.not.i, label %19, label %38
 
 common.resume:                                    ; preds = %66, %30, %34, %47, %51
-  %common.resume.op = phi { ptr, i32 } [ %31, %34 ], [ %48, %51 ], [ %48, %47 ], [ %31, %30 ], [ %67, %66 ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %48, %51 ], [ %31, %30 ], [ %31, %34 ], [ %67, %66 ]
   resume { ptr, i32 } %common.resume.op
 
 47:                                               ; preds = %43
@@ -10577,11 +10577,11 @@ common.resume:                                    ; preds = %66, %30, %34, %47, 
   br label %59
 
 59:                                               ; preds = %2, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h98ef928b7e7fae37E.exit"
-  %.sroa.614.sroa.6.0 = phi i64 [ undef, %2 ], [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h98ef928b7e7fae37E.exit" ]
-  %.sroa.614.sroa.7.0 = phi i64 [ undef, %2 ], [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h98ef928b7e7fae37E.exit" ]
-  %.sroa.614.sroa.8.0 = phi ptr [ undef, %2 ], [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h98ef928b7e7fae37E.exit" ]
-  %.sroa.614.sroa.9.0 = phi i64 [ undef, %2 ], [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h98ef928b7e7fae37E.exit" ]
-  %.sroa.011.0 = phi i64 [ 0, %2 ], [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h98ef928b7e7fae37E.exit" ]
+  %.sroa.614.sroa.6.0 = phi i64 [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h98ef928b7e7fae37E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.7.0 = phi i64 [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h98ef928b7e7fae37E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.8.0 = phi ptr [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h98ef928b7e7fae37E.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.9.0 = phi i64 [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h98ef928b7e7fae37E.exit" ], [ undef, %2 ]
+  %.sroa.011.0 = phi i64 [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h98ef928b7e7fae37E.exit" ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 1, ptr %6, align 128
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -10761,7 +10761,7 @@ define hidden void @_ZN13async_channel7bounded17hb86c81f0cd6ad200E(ptr dead_on_u
   br i1 %exitcond.not.i, label %19, label %38
 
 common.resume:                                    ; preds = %66, %30, %34, %47, %51
-  %common.resume.op = phi { ptr, i32 } [ %31, %34 ], [ %48, %51 ], [ %48, %47 ], [ %31, %30 ], [ %67, %66 ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %48, %51 ], [ %31, %30 ], [ %31, %34 ], [ %67, %66 ]
   resume { ptr, i32 } %common.resume.op
 
 47:                                               ; preds = %43
@@ -10795,11 +10795,11 @@ common.resume:                                    ; preds = %66, %30, %34, %47, 
   br label %59
 
 59:                                               ; preds = %2, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hd41314db6c4d753dE.exit"
-  %.sroa.614.sroa.8.0 = phi i64 [ undef, %2 ], [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hd41314db6c4d753dE.exit" ]
-  %.sroa.614.sroa.9.0 = phi i64 [ undef, %2 ], [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hd41314db6c4d753dE.exit" ]
-  %.sroa.614.sroa.10.0 = phi ptr [ undef, %2 ], [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hd41314db6c4d753dE.exit" ]
-  %.sroa.614.sroa.11.0 = phi i64 [ undef, %2 ], [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hd41314db6c4d753dE.exit" ]
-  %.sroa.011.0 = phi i64 [ 0, %2 ], [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hd41314db6c4d753dE.exit" ]
+  %.sroa.614.sroa.8.0 = phi i64 [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hd41314db6c4d753dE.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.9.0 = phi i64 [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hd41314db6c4d753dE.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.10.0 = phi ptr [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hd41314db6c4d753dE.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.11.0 = phi i64 [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hd41314db6c4d753dE.exit" ], [ undef, %2 ]
+  %.sroa.011.0 = phi i64 [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17hd41314db6c4d753dE.exit" ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 1, ptr %6, align 128
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -10978,7 +10978,7 @@ define hidden void @_ZN13async_channel7bounded17hdf15d3bf81b76d0fE(ptr dead_on_u
   br i1 %exitcond.not.i, label %19, label %38
 
 common.resume:                                    ; preds = %66, %30, %34, %47, %51
-  %common.resume.op = phi { ptr, i32 } [ %31, %34 ], [ %48, %51 ], [ %48, %47 ], [ %31, %30 ], [ %67, %66 ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %48, %51 ], [ %31, %30 ], [ %31, %34 ], [ %67, %66 ]
   resume { ptr, i32 } %common.resume.op
 
 47:                                               ; preds = %43
@@ -11012,11 +11012,11 @@ common.resume:                                    ; preds = %66, %30, %34, %47, 
   br label %59
 
 59:                                               ; preds = %2, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h4881381b7defe6efE.exit"
-  %.sroa.614.sroa.8.0 = phi i64 [ undef, %2 ], [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h4881381b7defe6efE.exit" ]
-  %.sroa.614.sroa.9.0 = phi i64 [ undef, %2 ], [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h4881381b7defe6efE.exit" ]
-  %.sroa.614.sroa.10.0 = phi ptr [ undef, %2 ], [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h4881381b7defe6efE.exit" ]
-  %.sroa.614.sroa.11.0 = phi i64 [ undef, %2 ], [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h4881381b7defe6efE.exit" ]
-  %.sroa.011.0 = phi i64 [ 0, %2 ], [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h4881381b7defe6efE.exit" ]
+  %.sroa.614.sroa.8.0 = phi i64 [ %58, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h4881381b7defe6efE.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.9.0 = phi i64 [ %.sroa.07.0.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h4881381b7defe6efE.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.10.0 = phi ptr [ %.sroa.42.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h4881381b7defe6efE.exit" ], [ undef, %2 ]
+  %.sroa.614.sroa.11.0 = phi i64 [ %.sroa.53.0.copyload.i.i, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h4881381b7defe6efE.exit" ], [ undef, %2 ]
+  %.sroa.011.0 = phi i64 [ 1, %"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3new17h4881381b7defe6efE.exit" ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 1, ptr %6, align 128
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -16221,7 +16221,7 @@ split:                                            ; preds = %68, %"_ZN71_$LT$htt
   unreachable
 
 "_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbc430fa551ec954bE.exit": ; preds = %171, %170, %.thread65, %177, %197, %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17hf53a5b5eae7fda0aE.exit.thread", %186, %183
-  %.sroa.0.3 = phi i8 [ 0, %.thread65 ], [ 2, %197 ], [ 1, %186 ], [ 1, %183 ], [ 2, %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17hf53a5b5eae7fda0aE.exit.thread" ], [ 0, %177 ], [ 2, %170 ], [ 2, %171 ]
+  %.sroa.0.3 = phi i8 [ 1, %183 ], [ 1, %186 ], [ 2, %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17hf53a5b5eae7fda0aE.exit.thread" ], [ 2, %197 ], [ 0, %177 ], [ 0, %.thread65 ], [ 2, %170 ], [ 2, %171 ]
   ret i8 %.sroa.0.3
 
 183:                                              ; preds = %139, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbe4650b05c42c923E.exit.i"
@@ -16581,7 +16581,7 @@ define hidden void @"_ZN4http7request7Builder6header28_$u7b$$u7b$closure$u7d$$u7
           to label %61 unwind label %57
 
 16:                                               ; preds = %38, %3
-  %.sroa.038.0 = phi i8 [ 0, %38 ], [ 1, %3 ]
+  %.sroa.038.0 = phi i8 [ 1, %3 ], [ 0, %38 ]
   %17 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbc430fa551ec954bE.exit59"
@@ -16908,7 +16908,7 @@ define hidden void @"_ZN4http7request7Builder6header28_$u7b$$u7b$closure$u7d$$u7
   call void @"_ZN4core3ptr41drop_in_place$LT$http..request..Parts$GT$17h8c339715c34d267fE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %2)
   br label %40
 
-41:                                               ; preds = %28, %26
+41:                                               ; preds = %26, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 5, ptr %42, align 8
@@ -18630,7 +18630,7 @@ default.unreachable:                              ; preds = %26
   br label %133
 
 "_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h32cf043baf814773E.exit17": ; preds = %143, %135, %147, %121, %.loopexit, %125
-  %.sroa.0.1 = phi i8 [ 1, %121 ], [ 1, %125 ], [ 1, %.loopexit ], [ 0, %147 ], [ 0, %135 ], [ 0, %143 ]
+  %.sroa.0.1 = phi i8 [ 1, %125 ], [ 1, %.loopexit ], [ 1, %121 ], [ 0, %147 ], [ 0, %135 ], [ 0, %143 ]
   store ptr null, ptr %3, align 8
   br label %.loopexit33
 

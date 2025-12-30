@@ -73,7 +73,7 @@ define internal fastcc noundef double @_ZN7Imf_3_412_GLOBAL__N_15denomEdd(double
   br i1 %12, label %common.ret24, label %13
 
 common.ret24:                                     ; preds = %7, %2, %13
-  %common.ret24.op = phi double [ %25, %13 ], [ %10, %7 ], [ 1.000000e+00, %2 ]
+  %common.ret24.op = phi double [ %25, %13 ], [ 1.000000e+00, %2 ], [ %10, %7 ]
   ret double %common.ret24.op
 
 13:                                               ; preds = %7

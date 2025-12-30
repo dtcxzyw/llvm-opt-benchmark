@@ -353,7 +353,7 @@ define internal i32 @dissect_kdp(ptr noundef %0, ptr noundef readonly captures(n
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %129, %125, %121, %117, %112, %109, %106, %102, %98, %94
-  %.6 = phi i32 [ %133, %129 ], [ %87, %.lr.ph ], [ %97, %94 ], [ %101, %98 ], [ %105, %102 ], [ %92, %106 ], [ %92, %109 ], [ %116, %112 ], [ %120, %117 ], [ %124, %121 ], [ %128, %125 ]
+  %.6 = phi i32 [ %133, %129 ], [ %97, %94 ], [ %101, %98 ], [ %105, %102 ], [ %92, %106 ], [ %92, %109 ], [ %116, %112 ], [ %120, %117 ], [ %124, %121 ], [ %128, %125 ], [ %87, %.lr.ph ]
   %134 = icmp slt i32 %.6, %82
   br i1 %134, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
@@ -373,9 +373,9 @@ define internal i32 @dissect_kdp(ptr noundef %0, ptr noundef readonly captures(n
   br label %.thread195
 
 .thread195:                                       ; preds = %21, %._crit_edge, %135
-  %.1161201 = phi i32 [ %.2162, %135 ], [ %.2162, %._crit_edge ], [ -1, %21 ]
-  %.1164200 = phi i32 [ %.2165, %135 ], [ %.2165, %._crit_edge ], [ -1, %21 ]
-  %.1167199 = phi i32 [ %67, %135 ], [ %67, %._crit_edge ], [ -1, %21 ]
+  %.1161201 = phi i32 [ %.2162, %._crit_edge ], [ %.2162, %135 ], [ -1, %21 ]
+  %.1164200 = phi i32 [ %.2165, %._crit_edge ], [ %.2165, %135 ], [ -1, %21 ]
+  %.1167199 = phi i32 [ %67, %._crit_edge ], [ %67, %135 ], [ -1, %21 ]
   %144 = zext i8 %27 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

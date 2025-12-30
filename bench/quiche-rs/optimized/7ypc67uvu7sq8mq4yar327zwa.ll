@@ -316,7 +316,7 @@ _ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit90: ; pre
   br label %123
 
 123:                                              ; preds = %._crit_edge, %_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit90
-  %.sroa.0.3.val = phi i64 [ %93, %._crit_edge ], [ %121, %_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit90 ]
+  %.sroa.0.3.val = phi i64 [ %121, %_ZN21intrusive_collections6rbtree11rotate_left17h1488459667eb098fE.exit90 ], [ %93, %._crit_edge ]
   %124 = inttoptr i64 %.sroa.0.3.val to ptr
   %125 = icmp ne i64 %.sroa.0.3.val, 0
   tail call void @llvm.assume(i1 %125)
@@ -1198,7 +1198,7 @@ _ZN21intrusive_collections6rbtree12rotate_right17h57c1cd0a5ca62f79E.exit319: ; p
   br label %.backedge
 
 .backedge:                                        ; preds = %.critedge196, %313, %.critedge194, %199
-  %.sroa.0101.0.be = phi ptr [ %.val229, %.critedge194 ], [ %.val255, %199 ], [ %.val251, %313 ], [ %.val224, %.critedge196 ]
+  %.sroa.0101.0.be = phi ptr [ %.val255, %199 ], [ %.val229, %.critedge194 ], [ %.val251, %313 ], [ %.val224, %.critedge196 ]
   br label %64
 
 313:                                              ; preds = %307

@@ -1035,7 +1035,7 @@ _ZN4llvm16stable_hash_nameENS_9StringRefE.exit157: ; preds = %_ZNK4llvm9StringRe
   unreachable
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %409, %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.exit", %352, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit, %199, %232, %.thread, %1, %1, %1, %1, %178, %493, %480, %467, %454, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit157, %355, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit131, %246, %_ZN4llvm5APIntD2Ev.exit, %107, %95, %_ZN4llvm11SmallVectorImLj6EED2Ev.exit
-  %.0 = phi i64 [ %65, %_ZN4llvm11SmallVectorImLj6EED2Ev.exit ], [ %106, %95 ], [ %118, %107 ], [ %157, %_ZN4llvm5APIntD2Ev.exit ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ %503, %493 ], [ 0, %.thread ], [ %245, %232 ], [ %258, %246 ], [ %305, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit131 ], [ %364, %355 ], [ 0, %199 ], [ %351, %352 ], [ %453, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit157 ], [ %466, %454 ], [ %479, %467 ], [ %492, %480 ], [ %198, %178 ], [ %351, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit ], [ %408, %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.exit" ], [ %408, %409 ]
+  %.0 = phi i64 [ %65, %_ZN4llvm11SmallVectorImLj6EED2Ev.exit ], [ %106, %95 ], [ %118, %107 ], [ %157, %_ZN4llvm5APIntD2Ev.exit ], [ %245, %232 ], [ %258, %246 ], [ %305, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit131 ], [ %364, %355 ], [ %453, %_ZN4llvm16stable_hash_nameENS_9StringRefE.exit157 ], [ %466, %454 ], [ %479, %467 ], [ %492, %480 ], [ %503, %493 ], [ %198, %178 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %.thread ], [ 0, %199 ], [ %351, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit ], [ %351, %352 ], [ %408, %"_ZN4llvm9transformINS_8ArrayRefIiEESt20back_insert_iteratorISt6vectorImSaImEEEZNS_15stableHashValueERKNS_14MachineOperandEE3$_0EET0_OT_SC_T1_.exit" ], [ %408, %409 ]
   ret i64 %.0
 }
 
@@ -1160,7 +1160,7 @@ define dso_local noundef i64 @_ZN4llvm15stableHashValueERKNS_12MachineInstrEbbb(
   br label %_ZNK4llvm12MachineInstr17getNumMemOperandsEv.exit
 
 _ZNK4llvm12MachineInstr17getNumMemOperandsEv.exit: ; preds = %4, %17, %19, %21
-  %.sroa.7.0.i.i = phi i32 [ 1, %19 ], [ 0, %4 ], [ %24, %21 ], [ 0, %17 ]
+  %.sroa.7.0.i.i = phi i32 [ 1, %19 ], [ %24, %21 ], [ 0, %4 ], [ 0, %17 ]
   %25 = add nuw nsw i32 %13, 2
   %26 = add i32 %25, %.sroa.7.0.i.i
   %27 = icmp ugt i32 %26, 16
@@ -1296,8 +1296,8 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit60: ; preds = %_ZN4llvm
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %86, %74
-  %.sink152 = phi i32 [ %87, %86 ], [ %82, %74 ], [ %.pre.i65, %.sink.split.sink.split ]
-  %.sink = phi i64 [ %85, %86 ], [ %81, %74 ], [ %.sink.ph, %.sink.split.sink.split ]
+  %.sink152 = phi i32 [ %82, %74 ], [ %87, %86 ], [ %.pre.i65, %.sink.split.sink.split ]
+  %.sink = phi i64 [ %81, %74 ], [ %85, %86 ], [ %.sink.ph, %.sink.split.sink.split ]
   %91 = load ptr, ptr %6, align 8, !tbaa !129
   %92 = zext i32 %.sink152 to i64
   %93 = getelementptr inbounds nuw i64, ptr %91, i64 %92
@@ -1599,7 +1599,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit89: ; preds = %_ZN4llvm
   br label %114
 
 .critedge56:                                      ; preds = %114, %102, %.critedge54, %_ZNK4llvm12MachineInstr11memoperandsEv.exit
-  %248 = phi i32 [ %99, %102 ], [ %99, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ], [ %99, %.critedge54 ], [ %120, %114 ]
+  %248 = phi i32 [ %99, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ], [ %99, %.critedge54 ], [ %99, %102 ], [ %120, %114 ]
   %249 = load ptr, ptr %6, align 8, !tbaa !129
   %250 = zext i32 %248 to i64
   %251 = shl nuw nsw i64 %250, 3

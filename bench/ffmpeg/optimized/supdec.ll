@@ -68,7 +68,7 @@ define internal range(i32 0, 101) i32 @sup_probe(ptr noundef readonly captures(n
   br label %.thread29
 
 .thread29:                                        ; preds = %.lr.ph, %1, %23, %.thread, %22
-  %.2 = phi i32 [ %spec.select, %23 ], [ 12, %22 ], [ %.019.lcssa, %.thread ], [ 0, %1 ], [ 0, %.lr.ph ]
+  %.2 = phi i32 [ 12, %22 ], [ %.019.lcssa, %.thread ], [ %spec.select, %23 ], [ 0, %1 ], [ 0, %.lr.ph ]
   ret i32 %.2
 }
 
@@ -156,7 +156,7 @@ define internal range(i32 -2147483648, 1) i32 @sup_read_packet(ptr noundef reado
   br label %44
 
 44:                                               ; preds = %12, %33, %43, %9
-  %.0 = phi i32 [ %11, %9 ], [ %41, %33 ], [ 0, %43 ], [ %17, %12 ]
+  %.0 = phi i32 [ %11, %9 ], [ 0, %43 ], [ %41, %33 ], [ %17, %12 ]
   ret i32 %.0
 }
 

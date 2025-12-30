@@ -191,11 +191,11 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge.us, %.lr.ph206, %68, %.preheader
-  %.1128 = phi i32 [ 0, %.lr.ph206 ], [ 0, %.preheader ], [ %67, %._crit_edge.us ], [ 0, %68 ], [ %87, %.lr.ph ]
-  %.1124 = phi i32 [ 0, %.lr.ph206 ], [ 0, %.preheader ], [ %65, %._crit_edge.us ], [ 0, %68 ], [ %85, %.lr.ph ]
-  %.1120 = phi i32 [ 0, %.lr.ph206 ], [ 0, %.preheader ], [ %63, %._crit_edge.us ], [ 0, %68 ], [ %83, %.lr.ph ]
-  %.1116 = phi i32 [ 0, %.lr.ph206 ], [ 0, %.preheader ], [ %61, %._crit_edge.us ], [ 0, %68 ], [ %81, %.lr.ph ]
-  %.1 = phi i32 [ 0, %.lr.ph206 ], [ 0, %.preheader ], [ %57, %._crit_edge.us ], [ 0, %68 ], [ %77, %.lr.ph ]
+  %.1128 = phi i32 [ 0, %.preheader ], [ 0, %68 ], [ 0, %.lr.ph206 ], [ %67, %._crit_edge.us ], [ %87, %.lr.ph ]
+  %.1124 = phi i32 [ 0, %.preheader ], [ 0, %68 ], [ 0, %.lr.ph206 ], [ %65, %._crit_edge.us ], [ %85, %.lr.ph ]
+  %.1120 = phi i32 [ 0, %.preheader ], [ 0, %68 ], [ 0, %.lr.ph206 ], [ %63, %._crit_edge.us ], [ %83, %.lr.ph ]
+  %.1116 = phi i32 [ 0, %.preheader ], [ 0, %68 ], [ 0, %.lr.ph206 ], [ %61, %._crit_edge.us ], [ %81, %.lr.ph ]
+  %.1 = phi i32 [ 0, %.preheader ], [ 0, %68 ], [ 0, %.lr.ph206 ], [ %57, %._crit_edge.us ], [ %77, %.lr.ph ]
   %88 = uitofp i32 %.1120 to double
   %89 = uitofp i32 %.1 to double
   %90 = fmul double %89, %89
@@ -317,7 +317,7 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   br label %152
 
 152:                                              ; preds = %144, %146, %102, %104
-  %.0 = phi double [ %110, %104 ], [ %103, %102 ], [ %145, %144 ], [ %151, %146 ]
+  %.0 = phi double [ %103, %102 ], [ %110, %104 ], [ %145, %144 ], [ %151, %146 ]
   ret double %.0
 }
 

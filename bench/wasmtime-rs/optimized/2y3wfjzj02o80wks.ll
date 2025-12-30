@@ -818,7 +818,7 @@ define noundef zeroext i1 @"_ZN85_$LT$cranelift_frontend..frontend..DefVariableE
   br label %34
 
 34:                                               ; preds = %25, %12
-  %.0 = phi i1 [ %33, %25 ], [ %24, %12 ]
+  %.0 = phi i1 [ %24, %12 ], [ %33, %25 ]
   ret i1 %.0
 }
 
@@ -1884,7 +1884,7 @@ define noundef zeroext i1 @_ZN18cranelift_frontend8frontend15FunctionBuilder14is
   br label %_ZN18cranelift_frontend3ssa10SSABuilder20has_any_predecessors17h39abfbfb2f3d3a8eE.exit
 
 _ZN18cranelift_frontend3ssa10SSABuilder20has_any_predecessors17h39abfbfb2f3d3a8eE.exit: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0578e519831135ebE.llvm.7615600370855926762.exit.i.i.i", %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit9", %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit", %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit6"
-  %.0 = phi i1 [ false, %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit" ], [ false, %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit6" ], [ %39, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0578e519831135ebE.llvm.7615600370855926762.exit.i.i.i" ], [ true, %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit9" ]
+  %.0 = phi i1 [ false, %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit6" ], [ false, %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit" ], [ %39, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0578e519831135ebE.llvm.7615600370855926762.exit.i.i.i" ], [ true, %"_ZN16cranelift_entity13packed_option21PackedOption$LT$T$GT$6unwrap17haf1856ccc4c2d1f9E.exit9" ]
   ret i1 %.0
 }
 
@@ -2110,10 +2110,10 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit: 
   ret void
 
 .body.thread:                                     ; preds = %77, %92
-  %eh.lpad-body15 = phi { ptr, i32 } [ %78, %77 ], [ %lpad.thr_comm, %92 ]
+  %eh.lpad-body15 = phi { ptr, i32 } [ %lpad.thr_comm, %92 ], [ %78, %77 ]
   resume { ptr, i32 } %eh.lpad-body15
 
-92:                                               ; preds = %60, %48, %47, %37, %36, %25, %24, %6
+92:                                               ; preds = %48, %37, %25, %6, %24, %36, %47, %60
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..ir..extfunc..Signature$GT$17h5228e351701fb964E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %17) #26
@@ -2643,10 +2643,10 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit14
   ret void
 
 .body.thread:                                     ; preds = %78, %99
-  %eh.lpad-body17 = phi { ptr, i32 } [ %79, %78 ], [ %lpad.thr_comm, %99 ]
+  %eh.lpad-body17 = phi { ptr, i32 } [ %lpad.thr_comm, %99 ], [ %79, %78 ]
   resume { ptr, i32 } %eh.lpad-body17
 
-99:                                               ; preds = %61, %49, %48, %38, %37, %26, %25, %6
+99:                                               ; preds = %49, %38, %26, %6, %25, %37, %48, %61
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..ir..extfunc..Signature$GT$17h5228e351701fb964E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %18) #26
@@ -3104,10 +3104,10 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit: 
   ret void
 
 .body.thread:                                     ; preds = %77, %92
-  %eh.lpad-body15 = phi { ptr, i32 } [ %78, %77 ], [ %lpad.thr_comm, %92 ]
+  %eh.lpad-body15 = phi { ptr, i32 } [ %lpad.thr_comm, %92 ], [ %78, %77 ]
   resume { ptr, i32 } %eh.lpad-body15
 
-92:                                               ; preds = %60, %48, %47, %37, %36, %25, %24, %6
+92:                                               ; preds = %48, %37, %25, %6, %24, %36, %47, %60
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..ir..extfunc..Signature$GT$17h5228e351701fb964E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %17) #26
@@ -3338,10 +3338,10 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit: 
   ret i32 %99
 
 .body.thread:                                     ; preds = %82, %100
-  %eh.lpad-body16 = phi { ptr, i32 } [ %83, %82 ], [ %lpad.thr_comm, %100 ]
+  %eh.lpad-body16 = phi { ptr, i32 } [ %lpad.thr_comm, %100 ], [ %83, %82 ]
   resume { ptr, i32 } %eh.lpad-body16
 
-100:                                              ; preds = %65, %53, %52, %42, %41, %30, %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0892ed9d0f6fa1e8E.exit", %24
+100:                                              ; preds = %53, %42, %30, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0892ed9d0f6fa1e8E.exit", %24, %29, %41, %52, %65
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..ir..extfunc..Signature$GT$17h5228e351701fb964E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %17) #26
@@ -3421,9 +3421,9 @@ define noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder25emit_smal
   br label %37
 
 37:                                               ; preds = %10, %36, %35, %34, %33, %26
-  %switch = phi i1 [ false, %36 ], [ true, %26 ], [ false, %33 ], [ false, %34 ], [ false, %35 ], [ true, %10 ]
-  %.015 = phi i8 [ 5, %36 ], [ %3, %26 ], [ 2, %33 ], [ 3, %34 ], [ 4, %35 ], [ %3, %10 ]
-  %.014 = phi i64 [ 1, %36 ], [ 0, %26 ], [ 0, %33 ], [ 1, %34 ], [ 0, %35 ], [ 1, %10 ]
+  %switch = phi i1 [ true, %26 ], [ false, %33 ], [ false, %34 ], [ false, %35 ], [ false, %36 ], [ true, %10 ]
+  %.015 = phi i8 [ %3, %26 ], [ 2, %33 ], [ 3, %34 ], [ 4, %35 ], [ 5, %36 ], [ %3, %10 ]
+  %.014 = phi i64 [ 0, %26 ], [ 0, %33 ], [ 1, %34 ], [ 0, %35 ], [ 1, %36 ], [ 1, %10 ]
   %38 = icmp eq i64 %6, 0
   br i1 %38, label %39, label %51
 

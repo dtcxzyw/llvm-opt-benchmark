@@ -985,7 +985,7 @@ define hidden ptr @_PyTokenizer_FromFile(ptr noundef %0, ptr noundef %1, ptr nou
   br label %29
 
 29:                                               ; preds = %11, %27, %4, %26, %10
-  %.0 = phi ptr [ null, %26 ], [ null, %10 ], [ null, %4 ], [ %5, %27 ], [ %5, %11 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %26 ], [ null, %4 ], [ %5, %27 ], [ %5, %11 ]
   ret ptr %.0
 }
 
@@ -1094,7 +1094,7 @@ Py_DECREF.exit:                                   ; preds = %33, %35, %38
   br label %Py_DECREF.exit114
 
 Py_DECREF.exit114:                                ; preds = %47, %44, %40, %21, %18
-  %.289 = phi ptr [ %31, %47 ], [ %17, %21 ], [ %17, %18 ], [ %31, %40 ], [ %31, %44 ]
+  %.289 = phi ptr [ %17, %21 ], [ %17, %18 ], [ %31, %40 ], [ %31, %44 ], [ %31, %47 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load i32, ptr %48, align 8, !tbaa !31
   %.not105 = icmp eq i32 %49, 0
@@ -1161,7 +1161,7 @@ Py_DECREF.exit114:                                ; preds = %47, %44, %40, %21, 
   br label %.critedge
 
 tok_concatenate_interactive_new_line.exit.thread: ; preds = %7, %78, %Py_DECREF.exit114
-  %.289122 = phi ptr [ %.289, %78 ], [ %.289, %Py_DECREF.exit114 ], [ null, %7 ]
+  %.289122 = phi ptr [ %.289, %Py_DECREF.exit114 ], [ %.289, %78 ], [ null, %7 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %83 = load ptr, ptr %82, align 8, !tbaa !18
   %.not106 = icmp eq ptr %83, null
@@ -1294,7 +1294,7 @@ tok_concatenate_interactive_new_line.exit.thread: ; preds = %7, %78, %Py_DECREF.
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread129, %80, %142, %16, %136, %134, %140, %Py_DECREF.exit, %26, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %80 ], [ 0, %16 ], [ 1, %142 ], [ 0, %134 ], [ 0, %.thread129 ], [ 0, %140 ], [ 0, %136 ], [ 0, %Py_DECREF.exit ], [ 0, %26 ]
+  %.0 = phi i32 [ 1, %5 ], [ 0, %80 ], [ 1, %142 ], [ 0, %16 ], [ 0, %136 ], [ 0, %134 ], [ 0, %140 ], [ 0, %Py_DECREF.exit ], [ 0, %26 ], [ 0, %.thread129 ]
   ret i32 %.0
 }
 
@@ -1692,8 +1692,8 @@ tok_readline_raw.exit.thread56:                   ; preds = %150, %tok_readline_
   %197 = zext i1 %196 to i32
   br label %tok_readline_raw.exit.thread
 
-tok_readline_raw.exit.thread:                     ; preds = %104, %145, %tok_readline_raw.exit.thread59, %tok_readline_recode.exit.thread, %181, %170, %193, %191, %158, %21
-  %.0 = phi i32 [ 0, %158 ], [ %197, %193 ], [ 0, %191 ], [ 0, %170 ], [ 0, %tok_readline_raw.exit.thread59 ], [ 0, %21 ], [ 0, %tok_readline_recode.exit.thread ], [ 0, %181 ], [ 0, %145 ], [ 0, %104 ]
+tok_readline_raw.exit.thread:                     ; preds = %145, %104, %tok_readline_raw.exit.thread59, %tok_readline_recode.exit.thread, %181, %170, %193, %191, %158, %21
+  %.0 = phi i32 [ 0, %158 ], [ %197, %193 ], [ 0, %191 ], [ 0, %21 ], [ 0, %170 ], [ 0, %181 ], [ 0, %tok_readline_recode.exit.thread ], [ 0, %tok_readline_raw.exit.thread59 ], [ 0, %104 ], [ 0, %145 ]
   ret i32 %.0
 }
 
@@ -1826,7 +1826,7 @@ _Py_NewRef.exit:                                  ; preds = %25, %28
   br label %fdopen_borrow.exit.thread
 
 fdopen_borrow.exit.thread:                        ; preds = %2, %fdopen_borrow.exit, %59, %35, %15
-  %.025 = phi ptr [ null, %35 ], [ null, %15 ], [ %.0, %59 ], [ null, %fdopen_borrow.exit ], [ null, %2 ]
+  %.025 = phi ptr [ null, %15 ], [ %.0, %59 ], [ null, %35 ], [ null, %fdopen_borrow.exit ], [ null, %2 ]
   ret ptr %.025
 }
 
@@ -2029,7 +2029,7 @@ _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_Funct
   br label %.critedge
 
 .critedge:                                        ; preds = %65, %62, %60, %Py_XDECREF.exit, %_PyObject_CallNoArgs.exit, %Py_DECREF.exit33, %Py_DECREF.exit35, %18, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %_PyObject_CallNoArgs.exit ], [ 0, %18 ], [ 0, %Py_DECREF.exit35 ], [ 0, %Py_DECREF.exit33 ], [ 1, %Py_XDECREF.exit ], [ 1, %60 ], [ 1, %62 ], [ 1, %65 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %18 ], [ 0, %Py_DECREF.exit35 ], [ 0, %Py_DECREF.exit33 ], [ 0, %_PyObject_CallNoArgs.exit ], [ 1, %Py_XDECREF.exit ], [ 1, %60 ], [ 1, %62 ], [ 1, %65 ]
   ret i32 %.0
 }
 

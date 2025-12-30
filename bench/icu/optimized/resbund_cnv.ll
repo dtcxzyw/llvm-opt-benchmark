@@ -80,7 +80,7 @@ define void @_ZN6icu_7714ResourceBundle18constructForLocaleERKNS_13UnicodeString
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %17, %23, %25
-  %.0.i = phi ptr [ %27, %25 ], [ %24, %23 ], [ null, %17 ]
+  %.0.i = phi ptr [ %24, %23 ], [ %27, %25 ], [ null, %17 ]
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %29 = load ptr, ptr %28, align 8, !tbaa !14
   %30 = invoke ptr @ures_openU_77(ptr noundef %.0.i, ptr noundef %29, ptr noundef nonnull %3)

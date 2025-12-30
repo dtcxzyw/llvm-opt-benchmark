@@ -133,7 +133,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN104_$LT$tracing_subscriber..regis
   br label %19
 
 19:                                               ; preds = %14, %8, %2, %18
-  %.0 = phi i64 [ 0, %2 ], [ %.2, %18 ], [ %15, %14 ], [ 0, %8 ]
+  %.0 = phi i64 [ %.2, %18 ], [ 0, %2 ], [ %15, %14 ], [ 0, %8 ]
   %20 = call { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_with17h00d0c4448e4c437dE"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %.0)
   %.fca.0.extract = extractvalue { i64, i64 } %20, 0
   %21 = icmp eq i64 %.fca.0.extract, 0
@@ -217,8 +217,8 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h5029f64cf176c679E.exit"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h5029f64cf176c679E.exit": ; preds = %2, %3, %6, %6, %8, %10, %12, %2
-  %.sroa.0.0 = phi i64 [ 1, %2 ], [ 1, %2 ], [ 1, %3 ], [ %..i.i, %12 ], [ 1, %6 ], [ 1, %6 ], [ 1, %8 ], [ 1, %10 ]
-  %.sroa.4.0 = phi ptr [ %0, %2 ], [ %0, %2 ], [ %4, %3 ], [ %4, %12 ], [ %7, %6 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ]
+  %.sroa.0.0 = phi i64 [ 1, %2 ], [ 1, %2 ], [ 1, %3 ], [ %..i.i, %12 ], [ 1, %8 ], [ 1, %10 ], [ 1, %6 ], [ 1, %6 ]
+  %.sroa.4.0 = phi ptr [ %0, %2 ], [ %0, %2 ], [ %4, %3 ], [ %4, %12 ], [ %9, %8 ], [ %11, %10 ], [ %7, %6 ], [ %7, %6 ]
   %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %15 = insertvalue { i64, ptr } %14, ptr %.sroa.4.0, 1
   ret { i64, ptr } %15
@@ -251,9 +251,9 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   %..i = zext i1 %11 to i64
   br label %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread"
 
-"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread": ; preds = %10, %4, %4, %6, %8, %2
-  %.sroa.0.0 = phi i64 [ 1, %2 ], [ %..i, %10 ], [ 1, %4 ], [ 1, %4 ], [ 1, %6 ], [ 1, %8 ]
-  %.sroa.4.0 = phi ptr [ %0, %2 ], [ %0, %10 ], [ %5, %4 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
+"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread": ; preds = %10, %6, %8, %4, %4, %2
+  %.sroa.0.0 = phi i64 [ 1, %2 ], [ %..i, %10 ], [ 1, %6 ], [ 1, %8 ], [ 1, %4 ], [ 1, %4 ]
+  %.sroa.4.0 = phi ptr [ %0, %2 ], [ %0, %10 ], [ %7, %6 ], [ %9, %8 ], [ %5, %4 ], [ %5, %4 ]
   %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %13 = insertvalue { i64, ptr } %12, ptr %.sroa.4.0, 1
   ret { i64, ptr } %13
@@ -350,7 +350,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN113_$LT$tracing_subscriber..layer..
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hd3955a7c8a371f46E.llvm.17652871756462562911.exit9.i"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hd3955a7c8a371f46E.llvm.17652871756462562911.exit9.i": ; preds = %30, %22
-  %.0.i.i.i8.i = phi i8 [ %28, %22 ], [ %32, %30 ]
+  %.0.i.i.i8.i = phi i8 [ %32, %30 ], [ %28, %22 ]
   %33 = icmp eq i8 %3, 1
   br i1 %33, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17hd7a95d54ed8b9dd2E.llvm.17652871756462562911.exit", label %34
 
@@ -364,7 +364,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN113_$LT$tracing_subscriber..layer..
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17hd7a95d54ed8b9dd2E.llvm.17652871756462562911.exit"
 
 "_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17hd7a95d54ed8b9dd2E.llvm.17652871756462562911.exit": ; preds = %9, %17, %20, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hd3955a7c8a371f46E.llvm.17652871756462562911.exit9.i", %34, %36
-  %.0.i = phi i8 [ %38, %36 ], [ 0, %20 ], [ %.0.i.i.i8.i, %34 ], [ 1, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hd3955a7c8a371f46E.llvm.17652871756462562911.exit9.i" ], [ %15, %9 ], [ %19, %17 ]
+  %.0.i = phi i8 [ 0, %20 ], [ %.0.i.i.i8.i, %34 ], [ 1, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hd3955a7c8a371f46E.llvm.17652871756462562911.exit9.i" ], [ %38, %36 ], [ %19, %17 ], [ %15, %9 ]
   ret i8 %.0.i
 }
 
@@ -385,7 +385,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN113_$LT$tracing_subscriber..layer..
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17hda6dce7da32967b1E.llvm.17652871756462562911.exit"
 
 "_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17hda6dce7da32967b1E.llvm.17652871756462562911.exit": ; preds = %2, %9
-  %.0.i = phi i8 [ %7, %2 ], [ %11, %9 ]
+  %.0.i = phi i8 [ %11, %9 ], [ %7, %2 ]
   ret i8 %.0.i
 }
 
@@ -409,7 +409,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN113_$LT$tracing_subscriber..layer..
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17h130ebf51cdcf599dE.exit"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17h130ebf51cdcf599dE.exit": ; preds = %2, %12
-  %.0.i.i = phi i8 [ %10, %2 ], [ %14, %12 ]
+  %.0.i.i = phi i8 [ %14, %12 ], [ %10, %2 ]
   ret i8 %.0.i.i
 }
 
@@ -1146,7 +1146,7 @@ define hidden void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$9init_with17h54a
   br label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread"
 
 "_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread": ; preds = %20, %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit", %8, %27
-  %.sink = phi i8 [ 0, %27 ], [ 2, %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit" ], [ 2, %8 ], [ 2, %20 ]
+  %.sink = phi i8 [ 0, %27 ], [ 2, %8 ], [ 2, %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit" ], [ 2, %20 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %.sink, ptr %33, align 8
   ret void
@@ -1223,7 +1223,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN18tracing_subscriber5layer7layered2
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hd3955a7c8a371f46E.llvm.17652871756462562911.exit9"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hd3955a7c8a371f46E.llvm.17652871756462562911.exit9": ; preds = %25, %35
-  %.0.i.i.i8 = phi i8 [ %33, %25 ], [ %37, %35 ]
+  %.0.i.i.i8 = phi i8 [ %37, %35 ], [ %33, %25 ]
   %38 = icmp eq i8 %1, 1
   br i1 %38, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hd3955a7c8a371f46E.llvm.17652871756462562911.exit", label %39
 
@@ -1237,7 +1237,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN18tracing_subscriber5layer7layered2
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hd3955a7c8a371f46E.llvm.17652871756462562911.exit"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hd3955a7c8a371f46E.llvm.17652871756462562911.exit": ; preds = %20, %10, %41, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hd3955a7c8a371f46E.llvm.17652871756462562911.exit9", %23, %39
-  %.0 = phi i8 [ %43, %41 ], [ 0, %23 ], [ %.0.i.i.i8, %39 ], [ 1, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hd3955a7c8a371f46E.llvm.17652871756462562911.exit9" ], [ %18, %10 ], [ %22, %20 ]
+  %.0 = phi i8 [ 0, %23 ], [ %.0.i.i.i8, %39 ], [ 1, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17hd3955a7c8a371f46E.llvm.17652871756462562911.exit9" ], [ %43, %41 ], [ %22, %20 ], [ %18, %10 ]
   ret i8 %.0
 }
 
@@ -1288,7 +1288,7 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 556
   %6 = load i8, ptr %5, align 4, !range !21, !noundef !6
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit42, label %8
+  br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 557
@@ -1301,7 +1301,7 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
 
 15:                                               ; preds = %16
   %.not = icmp eq i64 %2, 6
-  br i1 %.not, label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit42, label %.thread.thread
+  br i1 %.not, label %.critedge, label %.thread.thread
 
 16:                                               ; preds = %8
   br i1 %14, label %17, label %15
@@ -1310,45 +1310,45 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
   %18 = icmp eq i64 %1, 6
   %19 = icmp eq i64 %2, 6
   %or.cond46 = or i1 %18, %19
-  br i1 %or.cond46, label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit42, label %29
+  br i1 %or.cond46, label %.critedge, label %30
 
 .thread:                                          ; preds = %8
   %.not35 = icmp eq i64 %1, 6
   %or.cond36 = and i1 %.not35, %14
-  br i1 %or.cond36, label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit42, label %.thread.thread
+  br i1 %or.cond36, label %.critedge, label %.thread.thread
 
 .thread.thread:                                   ; preds = %15, %.thread
   %cond = icmp eq i64 %2, 5
   %or.cond39 = and i1 %3, %cond
-  br i1 %or.cond39, label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit42, label %.critedge
+  br i1 %or.cond39, label %.critedge, label %20
 
-_ZN4core3cmp6max_by17he7a797cd73893a01E.exit42:   ; preds = %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, %26, %.critedge, %.thread.thread, %17, %29, %.thread, %15, %4
-  %.028 = phi i64 [ 6, %17 ], [ %1, %.thread.thread ], [ %1, %4 ], [ 6, %15 ], [ 6, %.thread ], [ %2, %26 ], [ %.0.sroa.speculated.i, %29 ], [ %1, %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41 ], [ %2, %.critedge ]
+.critedge:                                        ; preds = %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, %27, %20, %.thread.thread, %17, %30, %.thread, %15, %4
+  %.028 = phi i64 [ %1, %4 ], [ 6, %15 ], [ 6, %.thread ], [ 6, %17 ], [ %.0.sroa.speculated.i, %30 ], [ %1, %.thread.thread ], [ %1, %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41 ], [ %2, %27 ], [ %2, %20 ]
   ret i64 %.028
 
-.critedge:                                        ; preds = %.thread.thread
-  %20 = icmp ne i64 %1, 6
-  %21 = icmp ne i64 %2, 6
-  %22 = xor i1 %20, true
-  %23 = and i1 %21, %22
-  br i1 %23, label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit42, label %24
+20:                                               ; preds = %.thread.thread
+  %21 = icmp ne i64 %1, 6
+  %22 = icmp ne i64 %2, 6
+  %23 = xor i1 %21, true
+  %24 = and i1 %22, %23
+  br i1 %24, label %.critedge, label %25
 
-24:                                               ; preds = %.critedge
-  %25 = xor i1 %20, %21
-  br i1 %25, label %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, label %26
+25:                                               ; preds = %20
+  %26 = xor i1 %21, %22
+  br i1 %26, label %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, label %27
 
-26:                                               ; preds = %24
-  %27 = icmp ugt i64 %2, %1
-  %28 = and i1 %21, %27
-  %or.cond.i40 = and i1 %20, %28
-  br i1 %or.cond.i40, label %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit42
+27:                                               ; preds = %25
+  %28 = icmp ugt i64 %2, %1
+  %29 = and i1 %22, %28
+  %or.cond.i40 = and i1 %21, %29
+  br i1 %or.cond.i40, label %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, label %.critedge
 
-_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41: ; preds = %26, %24
-  br label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit42
+_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41: ; preds = %27, %25
+  br label %.critedge
 
-29:                                               ; preds = %17
+30:                                               ; preds = %17
   %.0.sroa.speculated.i = tail call noundef range(i64 0, 6) i64 @llvm.umin.i64(i64 range(i64 7, 6) %2, i64 range(i64 7, 6) %1)
-  br label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit42
+  br label %.critedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -1356,7 +1356,7 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2344
   %6 = load i8, ptr %5, align 8, !range !21, !noundef !6
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit, label %8
+  br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2345
@@ -1369,7 +1369,7 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
 
 15:                                               ; preds = %16
   %.not = icmp eq i64 %2, 6
-  br i1 %.not, label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit, label %.thread.thread
+  br i1 %.not, label %.critedge, label %.thread.thread
 
 16:                                               ; preds = %8
   br i1 %14, label %17, label %15
@@ -1378,45 +1378,45 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
   %18 = icmp eq i64 %1, 6
   %19 = icmp eq i64 %2, 6
   %or.cond48 = or i1 %18, %19
-  br i1 %or.cond48, label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit, label %29
+  br i1 %or.cond48, label %.critedge, label %30
 
 .thread:                                          ; preds = %8
   %.not35 = icmp eq i64 %1, 6
   %or.cond36 = and i1 %.not35, %14
-  br i1 %or.cond36, label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit, label %.thread.thread
+  br i1 %or.cond36, label %.critedge, label %.thread.thread
 
 .thread.thread:                                   ; preds = %15, %.thread
   %cond = icmp eq i64 %2, 5
   %or.cond39 = and i1 %3, %cond
-  br i1 %or.cond39, label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit, label %.critedge
+  br i1 %or.cond39, label %.critedge, label %20
 
-_ZN4core3cmp6max_by17he7a797cd73893a01E.exit:     ; preds = %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, %26, %.critedge, %.thread.thread, %17, %29, %.thread, %15, %4
-  %.028 = phi i64 [ %2, %26 ], [ %1, %.thread.thread ], [ %1, %4 ], [ 6, %15 ], [ 6, %.thread ], [ %1, %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41 ], [ %2, %.critedge ], [ 6, %17 ], [ %.0.sroa.speculated.i, %29 ]
+.critedge:                                        ; preds = %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, %27, %20, %.thread.thread, %17, %30, %.thread, %15, %4
+  %.028 = phi i64 [ %1, %4 ], [ 6, %15 ], [ 6, %.thread ], [ 6, %17 ], [ %.0.sroa.speculated.i, %30 ], [ %1, %.thread.thread ], [ %1, %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41 ], [ %2, %27 ], [ %2, %20 ]
   ret i64 %.028
 
-.critedge:                                        ; preds = %.thread.thread
-  %20 = icmp ne i64 %1, 6
-  %21 = icmp ne i64 %2, 6
-  %22 = xor i1 %20, true
-  %23 = and i1 %21, %22
-  br i1 %23, label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit, label %24
+20:                                               ; preds = %.thread.thread
+  %21 = icmp ne i64 %1, 6
+  %22 = icmp ne i64 %2, 6
+  %23 = xor i1 %21, true
+  %24 = and i1 %22, %23
+  br i1 %24, label %.critedge, label %25
 
-24:                                               ; preds = %.critedge
-  %25 = xor i1 %20, %21
-  br i1 %25, label %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, label %26
+25:                                               ; preds = %20
+  %26 = xor i1 %21, %22
+  br i1 %26, label %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, label %27
 
-26:                                               ; preds = %24
-  %27 = icmp ugt i64 %2, %1
-  %28 = and i1 %21, %27
-  %or.cond.i40 = and i1 %20, %28
-  br i1 %or.cond.i40, label %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit
+27:                                               ; preds = %25
+  %28 = icmp ugt i64 %2, %1
+  %29 = and i1 %22, %28
+  %or.cond.i40 = and i1 %21, %29
+  br i1 %or.cond.i40, label %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, label %.critedge
 
-_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41: ; preds = %26, %24
-  br label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit
+_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41: ; preds = %27, %25
+  br label %.critedge
 
-29:                                               ; preds = %17
+30:                                               ; preds = %17
   %.0.sroa.speculated.i = tail call noundef range(i64 0, 6) i64 @llvm.umin.i64(i64 range(i64 7, 6) %2, i64 range(i64 7, 6) %1)
-  br label %_ZN4core3cmp6max_by17he7a797cd73893a01E.exit
+  br label %.critedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

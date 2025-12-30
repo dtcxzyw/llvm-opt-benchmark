@@ -1126,8 +1126,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit43.i:                ; preds = %_ZNKSt6vectorIiSaIi
   br i1 %134, label %.lr.ph80.i, label %.loopexit, !llvm.loop !87
 
 135:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit43.i, %114, %.loopexit.split-lp.i, %.loopexit.i
-  %136 = phi ptr [ %.sroa.0.2, %114 ], [ %65, %.loopexit.split-lp.i ], [ %.sroa.0.2, %_ZNSt6vectorIiSaIiEED2Ev.exit43.i ], [ %65, %.loopexit.i ]
-  %.pn.pn.i = phi { ptr, i32 } [ %115, %114 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit, %_ZNSt6vectorIiSaIiEED2Ev.exit43.i ], [ %lpad.loopexit.i, %.loopexit.i ]
+  %136 = phi ptr [ %.sroa.0.2, %_ZNSt6vectorIiSaIiEED2Ev.exit43.i ], [ %.sroa.0.2, %114 ], [ %65, %.loopexit.i ], [ %65, %.loopexit.split-lp.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %lpad.loopexit, %_ZNSt6vectorIiSaIiEED2Ev.exit43.i ], [ %115, %114 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %.not.i.i.i46.i = icmp eq ptr %136, null
   br i1 %.not.i.i.i46.i, label %.body, label %137
 
@@ -1171,7 +1171,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit43.i:                ; preds = %_ZNKSt6vectorIiSaIi
   br label %.body
 
 .body:                                            ; preds = %150, %137, %135, %149, %39, %37
-  %.pn37.pn = phi { ptr, i32 } [ %38, %37 ], [ %40, %39 ], [ %.pn35, %149 ], [ %151, %150 ], [ %.pn.pn.i, %137 ], [ %.pn.pn.i, %135 ]
+  %.pn37.pn = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ], [ %.pn35, %149 ], [ %151, %150 ], [ %.pn.pn.i, %137 ], [ %.pn.pn.i, %135 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn37.pn

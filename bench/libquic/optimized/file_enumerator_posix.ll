@@ -1456,7 +1456,7 @@ _ZSt4copyIPPN4base8FilePathES3_ET0_T_S5_S4_.exit26: ; preds = %_ZNSt11_Deque_bas
   br label %_ZSt4copyIPPN4base8FilePathES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPN4base8FilePathES3_ET0_T_S5_S4_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN4base8FilePathES3_ET0_T_S5_S4_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN4base8FilePathES3_ET0_T_S5_S4_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN4base8FilePathES3_ET0_T_S5_S4_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !53
   %57 = load ptr, ptr %.0, align 8, !tbaa !54
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24

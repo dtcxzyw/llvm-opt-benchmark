@@ -183,9 +183,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i118: ; preds = %35
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit unwind label %44
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit: ; preds = %35, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i118, %48, %42
-  %50 = phi i1 [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i118 ], [ false, %35 ], [ true, %42 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ false, %48 ]
-  %.093 = phi i64 [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i118 ], [ 2, %35 ], [ 4, %42 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 4, %48 ]
-  %.092 = phi i1 [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i118 ], [ false, %35 ], [ false, %42 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ true, %48 ]
+  %50 = phi i1 [ true, %42 ], [ false, %48 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i118 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ false, %35 ]
+  %.093 = phi i64 [ 4, %42 ], [ 4, %48 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i118 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 2, %35 ]
+  %.092 = phi i1 [ false, %42 ], [ true, %48 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i118 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ false, %35 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %51 = invoke noundef zeroext i1 @_ZN18SetPropertyCommand42HandleAndValidateSourceFileDirectoryScopesER17cmExecutionStatusbbRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESB_RS2_IP10cmMakefileSaISD_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext %50, i1 noundef zeroext %.092, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
@@ -384,7 +384,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %12
   br label %135
 
 129:                                              ; preds = %112, %120, %106
-  %.pn101 = phi { ptr, i32 } [ %107, %106 ], [ %113, %112 ], [ %121, %120 ]
+  %.pn101 = phi { ptr, i32 } [ %107, %106 ], [ %121, %120 ], [ %113, %112 ]
   %130 = load ptr, ptr %9, align 8, !tbaa !16
   %131 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %132 = icmp eq ptr %130, %131
@@ -509,7 +509,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %184
 
 175:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152, %_ZNSt14_Function_baseD2Ev.exit137, %82, %53
-  %.pn101.pn.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn101.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %83, %82 ], [ %85, %_ZNSt14_Function_baseD2Ev.exit137 ]
+  %.pn101.pn.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn101.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152 ], [ %85, %_ZNSt14_Function_baseD2Ev.exit137 ], [ %83, %82 ]
   %176 = load ptr, ptr %7, align 8, !tbaa !20
   %.not.i.i.i166 = icmp eq ptr %176, null
   br i1 %.not.i.i.i166, label %_ZNSt6vectorIP10cmMakefileSaIS1_EED2Ev.exit167, label %177

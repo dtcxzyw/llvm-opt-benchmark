@@ -554,7 +554,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %77
 
 77:                                               ; preds = %45, %53, %._crit_edge45
-  %78 = phi ptr [ %.pre48, %53 ], [ %42, %45 ], [ %.pre47, %._crit_edge45 ]
+  %78 = phi ptr [ %.pre48, %53 ], [ %.pre47, %._crit_edge45 ], [ %42, %45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 8

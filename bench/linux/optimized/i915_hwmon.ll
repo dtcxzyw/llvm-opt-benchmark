@@ -643,7 +643,7 @@ define internal zeroext range(i16 0, 437) i16 @hwm_is_visible(ptr noundef readon
   br label %51
 
 51:                                               ; preds = %39, %44, %34, %29, %23
-  %52 = phi i16 [ 0, %23 ], [ %38, %34 ], [ %33, %29 ], [ %50, %44 ], [ 0, %39 ]
+  %52 = phi i16 [ %38, %34 ], [ %33, %29 ], [ 0, %23 ], [ %50, %44 ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %85
 

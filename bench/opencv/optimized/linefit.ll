@@ -272,9 +272,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %91,
   br label %248
 
 96:                                               ; preds = %85, %84, %83, %82, %73
-  %.0102.i = phi ptr [ @_ZN2cvL11weightHuberEPfiS0_f, %85 ], [ null, %82 ], [ @_ZN2cvL10weightFairEPfiS0_f, %83 ], [ @_ZN2cvL12weightWelschEPfiS0_f, %84 ], [ null, %73 ]
-  %.not132.i = phi i1 [ true, %85 ], [ false, %82 ], [ true, %83 ], [ true, %84 ], [ false, %73 ]
-  %.0.i = phi ptr [ null, %85 ], [ @_ZN2cvL9weightL12EPfiS0_, %82 ], [ null, %83 ], [ null, %84 ], [ @_ZN2cvL8weightL1EPfiS0_, %73 ]
+  %.0102.i = phi ptr [ null, %82 ], [ @_ZN2cvL10weightFairEPfiS0_f, %83 ], [ @_ZN2cvL12weightWelschEPfiS0_f, %84 ], [ @_ZN2cvL11weightHuberEPfiS0_f, %85 ], [ null, %73 ]
+  %.not132.i = phi i1 [ false, %82 ], [ true, %83 ], [ true, %84 ], [ true, %85 ], [ false, %73 ]
+  %.0.i = phi ptr [ @_ZN2cvL9weightL12EPfiS0_, %82 ], [ null, %83 ], [ null, %84 ], [ null, %85 ], [ @_ZN2cvL8weightL1EPfiS0_, %73 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %97 = shl nuw nsw i32 %31, 1
   %98 = zext nneg i32 %97 to i64
@@ -734,9 +734,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i64: ; preds = %2
   br label %420
 
 272:                                              ; preds = %261, %260, %259, %258, %249
-  %.0122.i = phi ptr [ @_ZN2cvL11weightHuberEPfiS0_f, %261 ], [ null, %258 ], [ @_ZN2cvL10weightFairEPfiS0_f, %259 ], [ @_ZN2cvL12weightWelschEPfiS0_f, %260 ], [ null, %249 ]
-  %.not154.i = phi i1 [ true, %261 ], [ false, %258 ], [ true, %259 ], [ true, %260 ], [ false, %249 ]
-  %.0.i40 = phi ptr [ null, %261 ], [ @_ZN2cvL9weightL12EPfiS0_, %258 ], [ null, %259 ], [ null, %260 ], [ @_ZN2cvL8weightL1EPfiS0_, %249 ]
+  %.0122.i = phi ptr [ null, %258 ], [ @_ZN2cvL10weightFairEPfiS0_f, %259 ], [ @_ZN2cvL12weightWelschEPfiS0_f, %260 ], [ @_ZN2cvL11weightHuberEPfiS0_f, %261 ], [ null, %249 ]
+  %.not154.i = phi i1 [ false, %258 ], [ true, %259 ], [ true, %260 ], [ true, %261 ], [ false, %249 ]
+  %.0.i40 = phi ptr [ @_ZN2cvL9weightL12EPfiS0_, %258 ], [ null, %259 ], [ null, %260 ], [ null, %261 ], [ @_ZN2cvL8weightL1EPfiS0_, %249 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %273 = shl nsw i32 %33, 1
   %274 = sext i32 %273 to i64
@@ -1139,7 +1139,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %424, %427
   br label %.body
 
 .body:                                            ; preds = %248, %420, %41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %66, %435, %39
-  %.pn31.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %.pn31, %435 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn29, %66 ], [ %.pn134.pn.i, %248 ], [ %42, %41 ], [ %.pn156.pn.i, %420 ]
+  %.pn31.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %.pn31, %435 ], [ %.pn29, %66 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn134.pn.i, %248 ], [ %42, %41 ], [ %.pn156.pn.i, %420 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #19
   br label %436

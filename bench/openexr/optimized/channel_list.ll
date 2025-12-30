@@ -112,7 +112,7 @@ define hidden i32 @exr_attr_chlist_add(ptr noundef %0, ptr noundef captures(addr
   br label %exr_attr_chlist_add_with_length.exit
 
 exr_attr_chlist_add_with_length.exit:             ; preds = %13, %9, %.split, %.split10
-  %phi.call = phi i32 [ %19, %.split10 ], [ %16, %13 ], [ 2, %.split ], [ %12, %9 ]
+  %phi.call = phi i32 [ %19, %.split10 ], [ %16, %13 ], [ %12, %9 ], [ 2, %.split ]
   ret i32 %phi.call
 }
 
@@ -240,7 +240,7 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
   br label %.thread157
 
 .thread157:                                       ; preds = %63, %.thread157.loopexit, %51
-  %.1127162 = phi i32 [ %68, %.thread157.loopexit ], [ 0, %51 ], [ %54, %63 ]
+  %.1127162 = phi i32 [ 0, %51 ], [ %68, %.thread157.loopexit ], [ %54, %63 ]
   %69 = call i32 @exr_attr_string_create_with_length(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %2, i32 noundef %3) #6
   %.not146 = icmp eq i32 %69, 0
   br i1 %.not146, label %70, label %110
@@ -352,7 +352,7 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
   br label %110
 
 110:                                              ; preds = %.thread169, %64, %.thread157, %8, %109, %47, %40, %35, %30, %23, %14
-  %.0120 = phi i32 [ %27, %23 ], [ %33, %30 ], [ %38, %35 ], [ %43, %40 ], [ %50, %47 ], [ 2, %8 ], [ 0, %109 ], [ %91, %.thread169 ], [ %67, %64 ], [ %17, %14 ], [ %69, %.thread157 ]
+  %.0120 = phi i32 [ %27, %23 ], [ %33, %30 ], [ %38, %35 ], [ %43, %40 ], [ %50, %47 ], [ 0, %109 ], [ %67, %64 ], [ %17, %14 ], [ 2, %8 ], [ %69, %.thread157 ], [ %91, %.thread169 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0120
 }

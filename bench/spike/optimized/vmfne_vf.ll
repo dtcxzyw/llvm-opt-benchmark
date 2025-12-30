@@ -516,7 +516,7 @@ _ZTW24softfloat_exceptionFlags.exit132.thread:    ; preds = %191
   unreachable
 
 _ZTW24softfloat_exceptionFlags.exit124:           ; preds = %.thread165, %.thread192, %_ZTW24softfloat_exceptionFlags.exit132, %.thread162, %.thread190, %_ZTW24softfloat_exceptionFlags.exit126, %.thread159, %.thread188, %_ZTW24softfloat_exceptionFlags.exit
-  %.0105.in.in = phi i1 [ %177, %.thread162 ], [ %157, %.thread159 ], [ %157, %_ZTW24softfloat_exceptionFlags.exit ], [ %157, %.thread188 ], [ %177, %_ZTW24softfloat_exceptionFlags.exit126 ], [ %177, %.thread190 ], [ %195, %_ZTW24softfloat_exceptionFlags.exit132 ], [ %195, %.thread192 ], [ %195, %.thread165 ]
+  %.0105.in.in = phi i1 [ %157, %_ZTW24softfloat_exceptionFlags.exit ], [ %157, %.thread188 ], [ %157, %.thread159 ], [ %177, %_ZTW24softfloat_exceptionFlags.exit126 ], [ %177, %.thread190 ], [ %177, %.thread162 ], [ %195, %_ZTW24softfloat_exceptionFlags.exit132 ], [ %195, %.thread192 ], [ %195, %.thread165 ]
   store i8 0, ptr %134, align 1, !tbaa !156
   %214 = load i64, ptr %41, align 8, !tbaa !140
   switch i64 %214, label %221 [
@@ -635,7 +635,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
+  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !168
@@ -1121,7 +1121,7 @@ _ZTW24softfloat_exceptionFlags.exit132.thread:    ; preds = %189
   unreachable
 
 _ZTW24softfloat_exceptionFlags.exit124:           ; preds = %.thread165, %.thread192, %_ZTW24softfloat_exceptionFlags.exit132, %.thread162, %.thread190, %_ZTW24softfloat_exceptionFlags.exit126, %.thread159, %.thread188, %_ZTW24softfloat_exceptionFlags.exit
-  %.0105.in.in = phi i1 [ %175, %.thread162 ], [ %155, %.thread159 ], [ %155, %_ZTW24softfloat_exceptionFlags.exit ], [ %155, %.thread188 ], [ %175, %_ZTW24softfloat_exceptionFlags.exit126 ], [ %175, %.thread190 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit132 ], [ %193, %.thread192 ], [ %193, %.thread165 ]
+  %.0105.in.in = phi i1 [ %155, %_ZTW24softfloat_exceptionFlags.exit ], [ %155, %.thread188 ], [ %155, %.thread159 ], [ %175, %_ZTW24softfloat_exceptionFlags.exit126 ], [ %175, %.thread190 ], [ %175, %.thread162 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit132 ], [ %193, %.thread192 ], [ %193, %.thread165 ]
   store i8 0, ptr %134, align 1, !tbaa !156
   %212 = load i64, ptr %41, align 8, !tbaa !140
   switch i64 %212, label %219 [
@@ -1604,7 +1604,7 @@ _ZTW24softfloat_exceptionFlags.exit132.thread:    ; preds = %191
   unreachable
 
 _ZTW24softfloat_exceptionFlags.exit124:           ; preds = %.thread165, %.thread192, %_ZTW24softfloat_exceptionFlags.exit132, %.thread162, %.thread190, %_ZTW24softfloat_exceptionFlags.exit126, %.thread159, %.thread188, %_ZTW24softfloat_exceptionFlags.exit
-  %.0105.in.in = phi i1 [ %177, %.thread162 ], [ %157, %.thread159 ], [ %157, %_ZTW24softfloat_exceptionFlags.exit ], [ %157, %.thread188 ], [ %177, %_ZTW24softfloat_exceptionFlags.exit126 ], [ %177, %.thread190 ], [ %195, %_ZTW24softfloat_exceptionFlags.exit132 ], [ %195, %.thread192 ], [ %195, %.thread165 ]
+  %.0105.in.in = phi i1 [ %157, %_ZTW24softfloat_exceptionFlags.exit ], [ %157, %.thread188 ], [ %157, %.thread159 ], [ %177, %_ZTW24softfloat_exceptionFlags.exit126 ], [ %177, %.thread190 ], [ %177, %.thread162 ], [ %195, %_ZTW24softfloat_exceptionFlags.exit132 ], [ %195, %.thread192 ], [ %195, %.thread165 ]
   store i8 0, ptr %134, align 1, !tbaa !156
   %214 = load i64, ptr %41, align 8, !tbaa !140
   switch i64 %214, label %221 [
@@ -2085,7 +2085,7 @@ _ZTW24softfloat_exceptionFlags.exit132.thread:    ; preds = %189
   unreachable
 
 _ZTW24softfloat_exceptionFlags.exit124:           ; preds = %.thread165, %.thread192, %_ZTW24softfloat_exceptionFlags.exit132, %.thread162, %.thread190, %_ZTW24softfloat_exceptionFlags.exit126, %.thread159, %.thread188, %_ZTW24softfloat_exceptionFlags.exit
-  %.0105.in.in = phi i1 [ %175, %.thread162 ], [ %155, %.thread159 ], [ %155, %_ZTW24softfloat_exceptionFlags.exit ], [ %155, %.thread188 ], [ %175, %_ZTW24softfloat_exceptionFlags.exit126 ], [ %175, %.thread190 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit132 ], [ %193, %.thread192 ], [ %193, %.thread165 ]
+  %.0105.in.in = phi i1 [ %155, %_ZTW24softfloat_exceptionFlags.exit ], [ %155, %.thread188 ], [ %155, %.thread159 ], [ %175, %_ZTW24softfloat_exceptionFlags.exit126 ], [ %175, %.thread190 ], [ %175, %.thread162 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit132 ], [ %193, %.thread192 ], [ %193, %.thread165 ]
   store i8 0, ptr %134, align 1, !tbaa !156
   %212 = load i64, ptr %41, align 8, !tbaa !140
   switch i64 %212, label %219 [
@@ -2568,7 +2568,7 @@ _ZTW24softfloat_exceptionFlags.exit132.thread:    ; preds = %191
   unreachable
 
 _ZTW24softfloat_exceptionFlags.exit124:           ; preds = %.thread165, %.thread192, %_ZTW24softfloat_exceptionFlags.exit132, %.thread162, %.thread190, %_ZTW24softfloat_exceptionFlags.exit126, %.thread159, %.thread188, %_ZTW24softfloat_exceptionFlags.exit
-  %.0105.in.in = phi i1 [ %177, %.thread162 ], [ %157, %.thread159 ], [ %157, %_ZTW24softfloat_exceptionFlags.exit ], [ %157, %.thread188 ], [ %177, %_ZTW24softfloat_exceptionFlags.exit126 ], [ %177, %.thread190 ], [ %195, %_ZTW24softfloat_exceptionFlags.exit132 ], [ %195, %.thread192 ], [ %195, %.thread165 ]
+  %.0105.in.in = phi i1 [ %157, %_ZTW24softfloat_exceptionFlags.exit ], [ %157, %.thread188 ], [ %157, %.thread159 ], [ %177, %_ZTW24softfloat_exceptionFlags.exit126 ], [ %177, %.thread190 ], [ %177, %.thread162 ], [ %195, %_ZTW24softfloat_exceptionFlags.exit132 ], [ %195, %.thread192 ], [ %195, %.thread165 ]
   store i8 0, ptr %134, align 1, !tbaa !156
   %214 = load i64, ptr %41, align 8, !tbaa !140
   switch i64 %214, label %221 [
@@ -3049,7 +3049,7 @@ _ZTW24softfloat_exceptionFlags.exit132.thread:    ; preds = %189
   unreachable
 
 _ZTW24softfloat_exceptionFlags.exit124:           ; preds = %.thread165, %.thread192, %_ZTW24softfloat_exceptionFlags.exit132, %.thread162, %.thread190, %_ZTW24softfloat_exceptionFlags.exit126, %.thread159, %.thread188, %_ZTW24softfloat_exceptionFlags.exit
-  %.0105.in.in = phi i1 [ %175, %.thread162 ], [ %155, %.thread159 ], [ %155, %_ZTW24softfloat_exceptionFlags.exit ], [ %155, %.thread188 ], [ %175, %_ZTW24softfloat_exceptionFlags.exit126 ], [ %175, %.thread190 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit132 ], [ %193, %.thread192 ], [ %193, %.thread165 ]
+  %.0105.in.in = phi i1 [ %155, %_ZTW24softfloat_exceptionFlags.exit ], [ %155, %.thread188 ], [ %155, %.thread159 ], [ %175, %_ZTW24softfloat_exceptionFlags.exit126 ], [ %175, %.thread190 ], [ %175, %.thread162 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit132 ], [ %193, %.thread192 ], [ %193, %.thread165 ]
   store i8 0, ptr %134, align 1, !tbaa !156
   %212 = load i64, ptr %41, align 8, !tbaa !140
   switch i64 %212, label %219 [
@@ -3532,7 +3532,7 @@ _ZTW24softfloat_exceptionFlags.exit132.thread:    ; preds = %191
   unreachable
 
 _ZTW24softfloat_exceptionFlags.exit124:           ; preds = %.thread165, %.thread192, %_ZTW24softfloat_exceptionFlags.exit132, %.thread162, %.thread190, %_ZTW24softfloat_exceptionFlags.exit126, %.thread159, %.thread188, %_ZTW24softfloat_exceptionFlags.exit
-  %.0105.in.in = phi i1 [ %177, %.thread162 ], [ %157, %.thread159 ], [ %157, %_ZTW24softfloat_exceptionFlags.exit ], [ %157, %.thread188 ], [ %177, %_ZTW24softfloat_exceptionFlags.exit126 ], [ %177, %.thread190 ], [ %195, %_ZTW24softfloat_exceptionFlags.exit132 ], [ %195, %.thread192 ], [ %195, %.thread165 ]
+  %.0105.in.in = phi i1 [ %157, %_ZTW24softfloat_exceptionFlags.exit ], [ %157, %.thread188 ], [ %157, %.thread159 ], [ %177, %_ZTW24softfloat_exceptionFlags.exit126 ], [ %177, %.thread190 ], [ %177, %.thread162 ], [ %195, %_ZTW24softfloat_exceptionFlags.exit132 ], [ %195, %.thread192 ], [ %195, %.thread165 ]
   store i8 0, ptr %134, align 1, !tbaa !156
   %214 = load i64, ptr %41, align 8, !tbaa !140
   switch i64 %214, label %221 [
@@ -4013,7 +4013,7 @@ _ZTW24softfloat_exceptionFlags.exit132.thread:    ; preds = %189
   unreachable
 
 _ZTW24softfloat_exceptionFlags.exit124:           ; preds = %.thread165, %.thread192, %_ZTW24softfloat_exceptionFlags.exit132, %.thread162, %.thread190, %_ZTW24softfloat_exceptionFlags.exit126, %.thread159, %.thread188, %_ZTW24softfloat_exceptionFlags.exit
-  %.0105.in.in = phi i1 [ %175, %.thread162 ], [ %155, %.thread159 ], [ %155, %_ZTW24softfloat_exceptionFlags.exit ], [ %155, %.thread188 ], [ %175, %_ZTW24softfloat_exceptionFlags.exit126 ], [ %175, %.thread190 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit132 ], [ %193, %.thread192 ], [ %193, %.thread165 ]
+  %.0105.in.in = phi i1 [ %155, %_ZTW24softfloat_exceptionFlags.exit ], [ %155, %.thread188 ], [ %155, %.thread159 ], [ %175, %_ZTW24softfloat_exceptionFlags.exit126 ], [ %175, %.thread190 ], [ %175, %.thread162 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit132 ], [ %193, %.thread192 ], [ %193, %.thread165 ]
   store i8 0, ptr %134, align 1, !tbaa !156
   %212 = load i64, ptr %41, align 8, !tbaa !140
   switch i64 %212, label %219 [
@@ -4326,8 +4326,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -443,7 +443,7 @@ define hidden ptr @tvb_arphrdaddr_to_str(ptr noundef %0, ptr noundef %1, i32 nou
   br label %15
 
 15:                                               ; preds = %5, %13, %11
-  %.0 = phi ptr [ %14, %13 ], [ %12, %11 ], [ @.str, %5 ]
+  %.0 = phi ptr [ %12, %11 ], [ %14, %13 ], [ @.str, %5 ]
   ret ptr %.0
 }
 
@@ -814,7 +814,7 @@ define internal i32 @dissect_arp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %112
 
 112:                                              ; preds = %90, %97, %110, %106, %65, %61, %52
-  %.0344 = phi i1 [ false, %52 ], [ false, %65 ], [ false, %61 ], [ %111, %110 ], [ %.1, %90 ], [ %.1, %106 ], [ %.1, %97 ]
+  %.0344 = phi i1 [ false, %65 ], [ false, %61 ], [ false, %52 ], [ %111, %110 ], [ %.1, %106 ], [ %.1, %97 ], [ %.1, %90 ]
   %113 = load i32, ptr %10, align 4
   %114 = add i32 %113, -1
   %or.cond18 = icmp ult i32 %114, 2
@@ -859,10 +859,10 @@ thread-pre-split387:                              ; preds = %129, %125, %132
   br label %.thread
 
 .thread:                                          ; preds = %112, %thread-pre-split387, %128, %124
-  %135 = phi i32 [ %.pr388, %thread-pre-split387 ], [ %122, %124 ], [ %122, %128 ], [ %113, %112 ]
-  %.0347 = phi i1 [ %121, %thread-pre-split387 ], [ true, %124 ], [ false, %128 ], [ false, %112 ]
-  %.0346 = phi i1 [ %.0346.ph, %thread-pre-split387 ], [ false, %124 ], [ false, %128 ], [ false, %112 ]
-  %.0345 = phi i1 [ %.0345.ph, %thread-pre-split387 ], [ false, %124 ], [ false, %128 ], [ false, %112 ]
+  %135 = phi i32 [ %.pr388, %thread-pre-split387 ], [ %122, %128 ], [ %122, %124 ], [ %113, %112 ]
+  %.0347 = phi i1 [ %121, %thread-pre-split387 ], [ false, %128 ], [ true, %124 ], [ false, %112 ]
+  %.0346 = phi i1 [ %.0346.ph, %thread-pre-split387 ], [ false, %128 ], [ false, %124 ], [ false, %112 ]
+  %.0345 = phi i1 [ %.0345.ph, %thread-pre-split387 ], [ false, %128 ], [ false, %124 ], [ false, %112 ]
   %136 = load ptr, ptr %12, align 8
   switch i32 %135, label %372 [
     i32 1, label %137
@@ -974,7 +974,7 @@ thread-pre-split387:                              ; preds = %129, %125, %132
   br label %tvb_arphrdaddr_to_str.exit
 
 tvb_arphrdaddr_to_str.exit:                       ; preds = %176, %178
-  %.0.i.ph = phi ptr [ %177, %176 ], [ %179, %178 ]
+  %.0.i.ph = phi ptr [ %179, %178 ], [ %177, %176 ]
   %.pr389 = load i32, ptr %8, align 4
   %180 = load ptr, ptr %168, align 8
   %181 = icmp eq i32 %.pr389, 0
@@ -994,8 +994,8 @@ tvb_arphrdaddr_to_str.exit:                       ; preds = %176, %178
   br label %tvb_arphrdaddr_to_str.exit375
 
 tvb_arphrdaddr_to_str.exit375:                    ; preds = %167, %tvb_arphrdaddr_to_str.exit, %184, %186
-  %.0.i391 = phi ptr [ %.0.i.ph, %186 ], [ %.0.i.ph, %184 ], [ %.0.i.ph, %tvb_arphrdaddr_to_str.exit ], [ @.str, %167 ]
-  %.0.i374 = phi ptr [ %187, %186 ], [ %185, %184 ], [ @.str, %tvb_arphrdaddr_to_str.exit ], [ @.str, %167 ]
+  %.0.i391 = phi ptr [ %.0.i.ph, %184 ], [ %.0.i.ph, %186 ], [ %.0.i.ph, %tvb_arphrdaddr_to_str.exit ], [ @.str, %167 ]
+  %.0.i374 = phi ptr [ %185, %184 ], [ %187, %186 ], [ @.str, %tvb_arphrdaddr_to_str.exit ], [ @.str, %167 ]
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %136, i32 noundef 25, ptr noundef nonnull @.str.269, ptr noundef %.0.i391, ptr noundef %.0.i374)
   br label %373
 
@@ -1023,7 +1023,7 @@ tvb_arphrdaddr_to_str.exit375:                    ; preds = %167, %tvb_arphrdadd
   br label %tvb_arphrdaddr_to_str.exit379
 
 tvb_arphrdaddr_to_str.exit379:                    ; preds = %188, %197, %199
-  %.0.i378 = phi ptr [ %200, %199 ], [ %198, %197 ], [ @.str, %188 ]
+  %.0.i378 = phi ptr [ %198, %197 ], [ %200, %199 ], [ @.str, %188 ]
   %201 = load ptr, ptr %189, align 8
   %202 = load i32, ptr %9, align 4
   %203 = load i32, ptr %7, align 4
@@ -1075,7 +1075,7 @@ tvb_arphrdaddr_to_str.exit379:                    ; preds = %188, %197, %199
   br label %tvb_arpproaddr_to_str.exit
 
 tvb_arpproaddr_to_str.exit:                       ; preds = %tvb_arphrdaddr_to_str.exit379, %212, %220, %225
-  %.0.i.i = phi ptr [ %226, %225 ], [ %216, %212 ], [ %224, %220 ], [ @.str, %tvb_arphrdaddr_to_str.exit379 ]
+  %.0.i.i = phi ptr [ %216, %212 ], [ %224, %220 ], [ %226, %225 ], [ @.str, %tvb_arphrdaddr_to_str.exit379 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %136, i32 noundef 25, ptr noundef nonnull @.str.268, ptr noundef %.0.i378, ptr noundef %.0.i.i)
   br label %373
@@ -1559,7 +1559,7 @@ define internal i32 @dissect_atmarp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %atmarpnum_to_str.exit
 
 atmarpnum_to_str.exit:                            ; preds = %4, %42, %44
-  %.0.i = phi ptr [ %45, %44 ], [ %43, %42 ], [ @.str, %4 ]
+  %.0.i = phi ptr [ %43, %42 ], [ %45, %44 ], [ @.str, %4 ]
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %atmarpsubaddr_to_str.exit, label %46
 
@@ -1623,7 +1623,7 @@ atmarpsubaddr_to_str.exit:                        ; preds = %49, %46, %atmarpnum
   br label %tvb_arpproaddr_to_str.exit
 
 tvb_arpproaddr_to_str.exit:                       ; preds = %atmarpsubaddr_to_str.exit, %60, %68, %73
-  %.0.i.i = phi ptr [ %74, %73 ], [ %64, %60 ], [ %72, %68 ], [ @.str, %atmarpsubaddr_to_str.exit ]
+  %.0.i.i = phi ptr [ %64, %60 ], [ %72, %68 ], [ %74, %73 ], [ @.str, %atmarpsubaddr_to_str.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %75 = load ptr, ptr %36, align 8
   %76 = and i32 %18, 63
@@ -1644,7 +1644,7 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %atmarpsubaddr_to_st
   br label %atmarpnum_to_str.exit335
 
 atmarpnum_to_str.exit335:                         ; preds = %tvb_arpproaddr_to_str.exit, %80, %82
-  %.0.i334 = phi ptr [ %83, %82 ], [ %81, %80 ], [ @.str, %tvb_arpproaddr_to_str.exit ]
+  %.0.i334 = phi ptr [ %81, %80 ], [ %83, %82 ], [ @.str, %tvb_arpproaddr_to_str.exit ]
   %.not304 = icmp eq i8 %22, 0
   br i1 %.not304, label %atmarpsubaddr_to_str.exit337, label %84
 
@@ -1708,7 +1708,7 @@ atmarpsubaddr_to_str.exit337:                     ; preds = %87, %84, %atmarpnum
   br label %tvb_arpproaddr_to_str.exit342
 
 tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_str.exit337, %98, %106, %111
-  %.0.i.i341 = phi ptr [ %112, %111 ], [ %102, %98 ], [ %110, %106 ], [ @.str, %atmarpsubaddr_to_str.exit337 ]
+  %.0.i.i341 = phi ptr [ %102, %98 ], [ %110, %106 ], [ %112, %111 ], [ @.str, %atmarpsubaddr_to_str.exit337 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %113 = zext i16 %15 to i32
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2208,7 +2208,7 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %request_seen.exit
   br label %tvb_arpproaddr_to_str.exit183
 
 68:                                               ; preds = %48, %53
-  %.0.i.i.ph.ph = phi ptr [ %54, %53 ], [ %52, %48 ]
+  %.0.i.i.ph.ph = phi ptr [ %52, %48 ], [ %54, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %69 = load ptr, ptr %36, align 8
   %70 = call ptr @tvb_memdup(ptr noundef %69, ptr noundef %0, i32 noundef %35, i64 noundef %38)
@@ -2234,8 +2234,8 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %request_seen.exit
   br label %tvb_arpproaddr_to_str.exit183
 
 tvb_arpproaddr_to_str.exit183:                    ; preds = %tvb_arpproaddr_to_str.exit, %57, %73, %78
-  %.0.i.i202 = phi ptr [ %.0.i.i.ph.ph, %78 ], [ %61, %57 ], [ %.0.i.i.ph.ph, %73 ], [ @.str, %tvb_arpproaddr_to_str.exit ]
-  %.0.i.i182 = phi ptr [ %79, %78 ], [ %67, %57 ], [ %77, %73 ], [ @.str, %tvb_arpproaddr_to_str.exit ]
+  %.0.i.i202 = phi ptr [ %61, %57 ], [ %.0.i.i.ph.ph, %73 ], [ %.0.i.i.ph.ph, %78 ], [ @.str, %tvb_arpproaddr_to_str.exit ]
+  %.0.i.i182 = phi ptr [ %67, %57 ], [ %77, %73 ], [ %79, %78 ], [ @.str, %tvb_arpproaddr_to_str.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %80 = icmp eq i16 %11, 1
   %81 = icmp eq i16 %11, 2
@@ -2304,7 +2304,7 @@ tvb_arpproaddr_to_str.exit183:                    ; preds = %tvb_arpproaddr_to_s
   br label %tvb_arphrdaddr_to_str.exit
 
 tvb_arphrdaddr_to_str.exit:                       ; preds = %95, %102, %104
-  %.0.i = phi ptr [ %105, %104 ], [ %103, %102 ], [ @.str, %95 ]
+  %.0.i = phi ptr [ %103, %102 ], [ %105, %104 ], [ @.str, %95 ]
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %89, i32 noundef 25, ptr noundef nonnull @.str.268, ptr noundef %.0.i.i202, ptr noundef %.0.i)
   br label %144
 
@@ -2334,8 +2334,8 @@ tvb_arphrdaddr_to_str.exit:                       ; preds = %95, %102, %104
   br label %tvb_arphrdaddr_to_str.exit191
 
 tvb_arphrdaddr_to_str.exit191:                    ; preds = %106, %113, %117
-  %.0.i186205 = phi ptr [ %118, %117 ], [ %114, %113 ], [ @.str, %106 ]
-  %.0.i190 = phi ptr [ %120, %117 ], [ %116, %113 ], [ @.str, %106 ]
+  %.0.i186205 = phi ptr [ %114, %113 ], [ %118, %117 ], [ @.str, %106 ]
+  %.0.i190 = phi ptr [ %116, %113 ], [ %120, %117 ], [ @.str, %106 ]
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %89, i32 noundef 25, ptr noundef nonnull @.str.269, ptr noundef %.0.i186205, ptr noundef %.0.i190)
   br label %144
 
@@ -2361,7 +2361,7 @@ tvb_arphrdaddr_to_str.exit191:                    ; preds = %106, %113, %117
   br label %tvb_arphrdaddr_to_str.exit195
 
 tvb_arphrdaddr_to_str.exit195:                    ; preds = %121, %128, %130
-  %.0.i194 = phi ptr [ %131, %130 ], [ %129, %128 ], [ @.str, %121 ]
+  %.0.i194 = phi ptr [ %129, %128 ], [ %131, %130 ], [ @.str, %121 ]
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %89, i32 noundef 25, ptr noundef nonnull @.str.268, ptr noundef %.0.i194, ptr noundef %.0.i.i182)
   br label %144
 
@@ -2387,7 +2387,7 @@ tvb_arphrdaddr_to_str.exit195:                    ; preds = %121, %128, %130
   br label %tvb_arphrdaddr_to_str.exit199
 
 tvb_arphrdaddr_to_str.exit199:                    ; preds = %132, %139, %141
-  %.0.i198 = phi ptr [ %142, %141 ], [ %140, %139 ], [ @.str, %132 ]
+  %.0.i198 = phi ptr [ %140, %139 ], [ %142, %141 ], [ @.str, %132 ]
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %89, i32 noundef 25, ptr noundef nonnull @.str.268, ptr noundef %.0.i198, ptr noundef %.0.i.i202)
   br label %144
 
@@ -2874,7 +2874,7 @@ proto_item_set_generated.exit51:                  ; preds = %proto_item_set_gene
   br label %.thread
 
 .thread:                                          ; preds = %49, %30, %37, %proto_item_set_generated.exit51, %59
-  %121 = phi i1 [ false, %59 ], [ true, %proto_item_set_generated.exit51 ], [ false, %37 ], [ false, %30 ], [ false, %49 ]
+  %121 = phi i1 [ true, %proto_item_set_generated.exit51 ], [ false, %59 ], [ false, %37 ], [ false, %30 ], [ false, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %121
 }
@@ -2938,7 +2938,7 @@ define internal fastcc ptr @tvb_arpproaddr_to_str(ptr noundef %0, ptr noundef %1
   br label %arpproaddr_to_str.exit
 
 arpproaddr_to_str.exit:                           ; preds = %5, %14, %22, %27
-  %.0.i = phi ptr [ %28, %27 ], [ %18, %14 ], [ %26, %22 ], [ @.str, %5 ]
+  %.0.i = phi ptr [ %18, %14 ], [ %26, %22 ], [ %28, %27 ], [ @.str, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }

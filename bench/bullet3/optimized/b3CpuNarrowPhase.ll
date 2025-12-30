@@ -736,9 +736,9 @@ _ZN20b3AlignedObjectArrayI14b3Contact4DataE6resizeEiRKS0_.exit61: ; preds = %81,
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i32, ptr %105, align 4, !tbaa !106
   %cond = icmp eq i32 %106, 3
-  br i1 %cond, label %.thread64, label %.thread70
+  br i1 %cond, label %.critedge, label %.thread70
 
-.thread64:                                        ; preds = %84
+.critedge:                                        ; preds = %84
   %107 = sext i32 %98 to i64
   %108 = getelementptr inbounds %struct.b3Collidable, ptr %102, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
@@ -746,7 +746,7 @@ _ZN20b3AlignedObjectArrayI14b3Contact4DataE6resizeEiRKS0_.exit61: ; preds = %81,
   %111 = icmp eq i32 %110, 3
   br i1 %111, label %112, label %.thread70
 
-112:                                              ; preds = %.thread64
+112:                                              ; preds = %.critedge
   %113 = getelementptr inbounds nuw i8, ptr %99, i64 208
   %114 = getelementptr inbounds nuw i8, ptr %99, i64 176
   %115 = getelementptr inbounds nuw i8, ptr %99, i64 240
@@ -810,7 +810,7 @@ _Z24b3ContactConvexConvexSATiiiiiRK20b3AlignedObjectArrayI15b3RigidBodyDataERKS_
   store i32 %128, ptr %133, align 8, !tbaa !89
   br label %.thread70
 
-.thread70:                                        ; preds = %84, %_Z24b3ContactConvexConvexSATiiiiiRK20b3AlignedObjectArrayI15b3RigidBodyDataERKS_I12b3CollidableERKS_I22b3ConvexPolyhedronDataERKS_I9b3Vector3ESF_RKS_IiERKS_I9b3GpuFaceERS_I14b3Contact4DataERii.exit.thread, %_Z24b3ContactConvexConvexSATiiiiiRK20b3AlignedObjectArrayI15b3RigidBodyDataERKS_I12b3CollidableERKS_I22b3ConvexPolyhedronDataERKS_I9b3Vector3ESF_RKS_IiERKS_I9b3GpuFaceERS_I14b3Contact4DataERii.exit, %130, %.thread64
+.thread70:                                        ; preds = %84, %_Z24b3ContactConvexConvexSATiiiiiRK20b3AlignedObjectArrayI15b3RigidBodyDataERKS_I12b3CollidableERKS_I22b3ConvexPolyhedronDataERKS_I9b3Vector3ESF_RKS_IiERKS_I9b3GpuFaceERS_I14b3Contact4DataERii.exit.thread, %_Z24b3ContactConvexConvexSATiiiiiRK20b3AlignedObjectArrayI15b3RigidBodyDataERKS_I12b3CollidableERKS_I22b3ConvexPolyhedronDataERKS_I9b3Vector3ESF_RKS_IiERKS_I9b3GpuFaceERS_I14b3Contact4DataERii.exit, %130, %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %84, !llvm.loop !111
@@ -2198,7 +2198,7 @@ _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit:   ; preds = %80, %87
   br label %93
 
 93:                                               ; preds = %74, %91, %76, %57
-  %.pn28 = phi { ptr, i32 } [ %58, %57 ], [ %75, %74 ], [ %77, %76 ], [ %92, %91 ]
+  %.pn28 = phi { ptr, i32 } [ %58, %57 ], [ %75, %74 ], [ %92, %91 ], [ %77, %76 ]
   call void @_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn28
@@ -2891,7 +2891,7 @@ _Z14b3IsAlmostZeroRK9b3Vector3.exit.thread267:    ; preds = %393, %390
   br label %418
 
 418:                                              ; preds = %401, %.thread259, %.thread253, %._crit_edge303, %414
-  %.3 = phi i1 [ false, %.thread253 ], [ false, %.thread259 ], [ true, %._crit_edge303 ], [ true, %414 ], [ false, %401 ]
+  %.3 = phi i1 [ true, %._crit_edge303 ], [ true, %414 ], [ false, %401 ], [ false, %.thread253 ], [ false, %.thread259 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   invoke void @b3LeaveProfileZone()
@@ -2908,7 +2908,7 @@ _ZN13b3ProfileZoneD2Ev.exit:                      ; preds = %418
   ret i1 %.3
 
 422:                                              ; preds = %388, %185, %257
-  %.pn157.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %186, %185 ], [ %389, %388 ], [ %258, %257 ]
+  %.pn157.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %186, %185 ], [ %258, %257 ], [ %389, %388 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   invoke void @b3LeaveProfileZone()
@@ -3965,7 +3965,7 @@ define linkonce_odr dso_local noundef i32 @_Z16b3ReduceContactsPK9b3Vector3iRS0_
   br label %127
 
 127:                                              ; preds = %80, %120, %122, %124, %126, %6, %4
-  %.056 = phi i32 [ %1, %6 ], [ 0, %4 ], [ 4, %126 ], [ 4, %124 ], [ 4, %122 ], [ 4, %120 ], [ 4, %80 ]
+  %.056 = phi i32 [ 0, %4 ], [ %1, %6 ], [ 4, %126 ], [ 4, %124 ], [ 4, %122 ], [ 4, %120 ], [ 4, %80 ]
   ret i32 %.056
 }
 

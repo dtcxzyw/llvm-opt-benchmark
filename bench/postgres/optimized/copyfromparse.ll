@@ -537,7 +537,7 @@ list_length.exit58:                               ; preds = %36, %40
   br label %97
 
 97:                                               ; preds = %82, %.critedge, %94
-  %.1 = phi i1 [ false, %.critedge ], [ true, %94 ], [ false, %82 ]
+  %.1 = phi i1 [ true, %94 ], [ false, %.critedge ], [ false, %82 ]
   ret i1 %.1
 }
 
@@ -1432,14 +1432,14 @@ define internal fastcc i32 @CopyReadAttributesCSV(ptr noundef %0) unnamed_addr #
   br label %.backedge
 
 .backedge:                                        ; preds = %81, %78
-  %.4100.be = phi ptr [ %79, %78 ], [ %70, %81 ]
+  %.4100.be = phi ptr [ %70, %81 ], [ %79, %78 ]
   %.4.be = getelementptr inbounds nuw i8, ptr %.4179, i64 1
   %.not125 = icmp ult ptr %.4100.be, %34
   br i1 %.not125, label %.lr.ph180, label %.preheader._crit_edge
 
-._crit_edge:                                      ; preds = %65, %59
-  %.298.lcssa = phi ptr [ %60, %65 ], [ %.298158, %59 ]
-  %.2.lcssa = phi ptr [ %66, %65 ], [ %.2159, %59 ]
+._crit_edge:                                      ; preds = %59, %65
+  %.298.lcssa = phi ptr [ %.298158, %59 ], [ %60, %65 ]
+  %.2.lcssa = phi ptr [ %.2159, %59 ], [ %66, %65 ]
   %82 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   store i8 0, ptr %.2.lcssa, align 1
   %83 = ptrtoint ptr %.298.lcssa to i64
@@ -1839,9 +1839,9 @@ GetDecimalFromHex.exit172:                        ; preds = %111, %114
   br label %131
 
 131:                                              ; preds = %51, %78, %130, %129, %128, %127, %126, %125, %77, %54, %121, %80
-  %.2130 = phi i1 [ %.0128186, %54 ], [ %.3131, %77 ], [ %.0128186, %51 ], [ %.0128186, %78 ], [ %.0128186, %125 ], [ %.0128186, %126 ], [ %.0128186, %127 ], [ %.0128186, %128 ], [ %.0128186, %129 ], [ %.0128186, %130 ], [ %.5133, %121 ], [ %.0128186, %80 ]
-  %.0126 = phi i8 [ %56, %54 ], [ %.0125, %77 ], [ %49, %51 ], [ 120, %78 ], [ 8, %125 ], [ 12, %126 ], [ 10, %127 ], [ 13, %128 ], [ 9, %129 ], [ 11, %130 ], [ %122, %121 ], [ 120, %80 ]
-  %.3 = phi ptr [ %55, %54 ], [ %.4, %77 ], [ %48, %51 ], [ %55, %78 ], [ %55, %125 ], [ %55, %126 ], [ %55, %127 ], [ %55, %128 ], [ %55, %129 ], [ %55, %130 ], [ %.6, %121 ], [ %55, %80 ]
+  %.2130 = phi i1 [ %.0128186, %54 ], [ %.3131, %77 ], [ %.0128186, %78 ], [ %.0128186, %125 ], [ %.0128186, %126 ], [ %.0128186, %127 ], [ %.0128186, %128 ], [ %.0128186, %129 ], [ %.0128186, %130 ], [ %.0128186, %51 ], [ %.5133, %121 ], [ %.0128186, %80 ]
+  %.0126 = phi i8 [ %56, %54 ], [ %.0125, %77 ], [ 120, %78 ], [ 8, %125 ], [ 12, %126 ], [ 10, %127 ], [ 13, %128 ], [ 9, %129 ], [ 11, %130 ], [ %49, %51 ], [ %122, %121 ], [ 120, %80 ]
+  %.3 = phi ptr [ %55, %54 ], [ %.4, %77 ], [ %55, %78 ], [ %55, %125 ], [ %55, %126 ], [ %55, %127 ], [ %55, %128 ], [ %55, %129 ], [ %55, %130 ], [ %48, %51 ], [ %.6, %121 ], [ %55, %80 ]
   %132 = getelementptr inbounds nuw i8, ptr %.1188, i64 1
   store i8 %.0126, ptr %.1188, align 1
   %.not158 = icmp ult ptr %.3, %28
@@ -2530,7 +2530,7 @@ CopyReadBinaryAttribute.exit:                     ; preds = %255, %281
   br label %.critedge223
 
 .critedge223:                                     ; preds = %.lr.ph253, %.critedge221, %211, %195, %.critedge, %.critedge219
-  %.4 = phi i1 [ false, %.critedge219 ], [ false, %211 ], [ true, %.critedge ], [ false, %195 ], [ true, %.critedge221 ], [ true, %.lr.ph253 ]
+  %.4 = phi i1 [ true, %.critedge ], [ false, %.critedge219 ], [ false, %195 ], [ false, %211 ], [ true, %.critedge221 ], [ true, %.lr.ph253 ]
   ret i1 %.4
 }
 
@@ -2721,7 +2721,7 @@ define internal fastcc i32 @CopyGetData(ptr noundef captures(none) %0, ptr nound
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.loopexit125, %.preheader66, %.thread119, %3, %71, %22, %19
-  %.4 = phi i32 [ %74, %71 ], [ 0, %3 ], [ 0, %22 ], [ %20, %19 ], [ %.14916, %.thread119 ], [ 0, %.preheader66 ], [ %68, %.loopexit125 ], [ %.14916, %.lr.ph ]
+  %.4 = phi i32 [ 0, %3 ], [ 0, %22 ], [ %20, %19 ], [ %74, %71 ], [ %.14916, %.thread119 ], [ 0, %.preheader66 ], [ %68, %.loopexit125 ], [ %.14916, %.lr.ph ]
   ret i32 %.4
 }
 

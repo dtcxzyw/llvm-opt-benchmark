@@ -1257,7 +1257,7 @@ _ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i: ; preds = %442
   br label %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.thread.i
 
 _ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.thread.i: ; preds = %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i, %442, %442, %435
-  %447 = phi i32 [ 22, %442 ], [ %spec.select.i, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ 22, %435 ], [ 22, %442 ]
+  %447 = phi i32 [ 22, %435 ], [ 22, %442 ], [ 22, %442 ], [ %spec.select.i, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ]
   %448 = load ptr, ptr %242, align 8, !tbaa !243
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 680
   %450 = load ptr, ptr %449, align 8, !tbaa !479
@@ -1414,7 +1414,7 @@ _ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit157.i: ; preds = %517, %.c
   br i1 %519, label %.loopexit.sink.split.i, label %.loopexit.sink.split.sink.split.i
 
 .loopexit.sink.split.sink.split.i:                ; preds = %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit157.i, %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit155.i, %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit153.i
-  %.sink.i = phi ptr [ %513, %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit155.i ], [ %508, %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit153.i ], [ %518, %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit157.i ]
+  %.sink.i = phi ptr [ %508, %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit153.i ], [ %513, %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit155.i ], [ %518, %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit157.i ]
   call void @free(ptr noundef %.sink.i) #19
   br label %.loopexit.sink.split.i
 
@@ -1423,7 +1423,7 @@ _ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit157.i: ; preds = %517, %.c
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %502, %.loopexit.sink.split.i, %494
-  %.6.i = phi i1 [ false, %.loopexit.sink.split.i ], [ true, %494 ], [ true, %502 ]
+  %.6.i = phi i1 [ true, %494 ], [ false, %.loopexit.sink.split.i ], [ true, %502 ]
   %520 = load ptr, ptr %67, align 8, !tbaa !240
   %521 = icmp eq ptr %520, %294
   br i1 %521, label %_ZN4llvm11SmallVectorIjLj4EED2Ev.exit.i, label %522
@@ -2422,7 +2422,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread.i:        ; preds = %954, %998, %_ZN12_G
   br label %_ZN12_GLOBAL__N_111X86FastISel15X86SelectBranchEPKN4llvm11InstructionE.exit
 
 _ZN12_GLOBAL__N_111X86FastISel15X86SelectBranchEPKN4llvm11InstructionE.exit: ; preds = %847, %849, %870, %910, %switch.lookup, %959, %1000, %1003, %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i, %1056
-  %.11.i = phi i1 [ true, %1003 ], [ true, %910 ], [ true, %849 ], [ false, %870 ], [ true, %847 ], [ true, %959 ], [ false, %switch.lookup ], [ false, %1000 ], [ false, %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i ], [ true, %1056 ]
+  %.11.i = phi i1 [ true, %847 ], [ true, %849 ], [ false, %870 ], [ true, %910 ], [ false, %switch.lookup ], [ true, %959 ], [ false, %1000 ], [ true, %1003 ], [ false, %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i ], [ true, %1056 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %_ZN12_GLOBAL__N_111X86FastISel13X86SelectLoadEPKN4llvm11InstructionE.exit
 
@@ -2454,9 +2454,9 @@ _ZN12_GLOBAL__N_111X86FastISel15X86SelectBranchEPKN4llvm11InstructionE.exit: ; p
   br i1 %1107, label %switch.lookup245.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel13X86SelectLoadEPKN4llvm11InstructionE.exit
 
 switch.lookup245.sink.split:                      ; preds = %1105, %1102, %1099
-  %switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.22.sink.ph = phi ptr [ @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.21, %1102 ], [ @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.20, %1099 ], [ @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.22, %1105 ]
-  %.028.i.ph = phi ptr [ @_ZN4llvm3X8612GR32RegClassE, %1102 ], [ @_ZN4llvm3X8612GR16RegClassE, %1099 ], [ @_ZN4llvm3X8612GR64RegClassE, %1105 ]
-  %.026.i.ph = phi i32 [ 25, %1102 ], [ 13, %1099 ], [ 54, %1105 ]
+  %switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.22.sink.ph = phi ptr [ @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.20, %1099 ], [ @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.21, %1102 ], [ @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.22, %1105 ]
+  %.028.i.ph = phi ptr [ @_ZN4llvm3X8612GR16RegClassE, %1099 ], [ @_ZN4llvm3X8612GR32RegClassE, %1102 ], [ @_ZN4llvm3X8612GR64RegClassE, %1105 ]
+  %.026.i.ph = phi i32 [ 13, %1099 ], [ 25, %1102 ], [ 54, %1105 ]
   %1108 = load i8, ptr %1, align 8, !tbaa !264
   %switch.tableidx256 = add nsw i8 %1108, -54
   br label %switch.lookup245
@@ -2710,7 +2710,7 @@ _ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i93: ;
   br i1 %1250, label %switch.lookup261, label %_ZN12_GLOBAL__N_111X86FastISel13X86SelectLoadEPKN4llvm11InstructionE.exit
 
 switch.lookup261:                                 ; preds = %1245, %1244, %1243, %1242
-  %.053.i = phi i64 [ 3, %1245 ], [ 1, %1243 ], [ 2, %1244 ], [ 0, %1242 ]
+  %.053.i = phi i64 [ 1, %1243 ], [ 2, %1244 ], [ 3, %1245 ], [ 0, %1242 ]
   %1251 = load i8, ptr %1, align 8, !tbaa !264
   %1252 = sext i8 %1251 to i64
   %1253 = getelementptr i64, ptr @switch.table._ZN12_GLOBAL__N_111X86FastISel21fastSelectInstructionEPKN4llvm11InstructionE.23, i64 %1252
@@ -3204,7 +3204,7 @@ _ZNK4llvm4User10getOperandEj.exit36.i:            ; preds = %1541, %1538
   br label %1548
 
 1548:                                             ; preds = %_ZNK4llvm4User10getOperandEj.exit36.i, %_ZNK4llvm4User10getOperandEj.exit34.i
-  %.030.in.i = phi ptr [ %1547, %_ZNK4llvm4User10getOperandEj.exit36.i ], [ %1534, %_ZNK4llvm4User10getOperandEj.exit34.i ]
+  %.030.in.i = phi ptr [ %1534, %_ZNK4llvm4User10getOperandEj.exit34.i ], [ %1547, %_ZNK4llvm4User10getOperandEj.exit36.i ]
   %.030.i = load ptr, ptr %.030.in.i, align 8, !tbaa !218
   %.not32.i = icmp eq ptr %.030.i, null
   br i1 %.not32.i, label %.thread.i109, label %1549
@@ -3800,9 +3800,9 @@ _ZNK4llvm4User10getOperandEj.exit.i39.i:          ; preds = %1822, %1819
   br label %.thread150.i.i
 
 .thread150.i.i:                                   ; preds = %1877, %1872, %1870, %1869, %1868, %1867, %1866, %1865, %1864, %1863, %1862, %1861, %1859
-  %.sroa.0121.0.extract.trunc148153.i.i = phi i32 [ 6, %1869 ], [ %.4.i.i.i, %1872 ], [ 0, %1859 ], [ 1, %1861 ], [ 3, %1864 ], [ 4, %1865 ], [ 2, %1863 ], [ 5, %1867 ], [ 7, %1870 ], [ 2, %1862 ], [ 6, %1868 ], [ 5, %1866 ], [ 1, %1877 ]
-  %.1139.i.i = phi ptr [ %.0138.i.i, %1869 ], [ %.0138.i.i, %1872 ], [ %.0138.i.i, %1859 ], [ %.0138.i.i, %1861 ], [ %.0138.i.i, %1864 ], [ %.0138.i.i, %1865 ], [ %.0138.i.i, %1863 ], [ %.0138.i.i, %1867 ], [ %.0138.i.i, %1870 ], [ %1838, %1862 ], [ %1838, %1868 ], [ %1838, %1866 ], [ %1838, %1877 ]
-  %.0137.i.i = phi ptr [ %1838, %1869 ], [ %1838, %1872 ], [ %1838, %1859 ], [ %1838, %1861 ], [ %1838, %1864 ], [ %1838, %1865 ], [ %1838, %1863 ], [ %1838, %1867 ], [ %1838, %1870 ], [ %.0138.i.i, %1862 ], [ %.0138.i.i, %1868 ], [ %.0138.i.i, %1866 ], [ %.0138.i.i, %1877 ]
+  %.sroa.0121.0.extract.trunc148153.i.i = phi i32 [ %.4.i.i.i, %1872 ], [ 3, %1864 ], [ 4, %1865 ], [ 7, %1870 ], [ 0, %1859 ], [ 1, %1861 ], [ 2, %1863 ], [ 5, %1867 ], [ 6, %1869 ], [ 6, %1868 ], [ 5, %1866 ], [ 2, %1862 ], [ 1, %1877 ]
+  %.1139.i.i = phi ptr [ %.0138.i.i, %1872 ], [ %.0138.i.i, %1864 ], [ %.0138.i.i, %1865 ], [ %.0138.i.i, %1870 ], [ %.0138.i.i, %1859 ], [ %.0138.i.i, %1861 ], [ %.0138.i.i, %1863 ], [ %.0138.i.i, %1867 ], [ %.0138.i.i, %1869 ], [ %1838, %1868 ], [ %1838, %1866 ], [ %1838, %1862 ], [ %1838, %1877 ]
+  %.0137.i.i = phi ptr [ %1838, %1872 ], [ %1838, %1864 ], [ %1838, %1865 ], [ %1838, %1870 ], [ %1838, %1859 ], [ %1838, %1861 ], [ %1838, %1863 ], [ %1838, %1867 ], [ %1838, %1869 ], [ %.0138.i.i, %1868 ], [ %.0138.i.i, %1866 ], [ %.0138.i.i, %1862 ], [ %.0138.i.i, %1877 ]
   %1878 = load i32, ptr %1505, align 4
   %1879 = and i32 %1878, 1073741824
   %.not.i.i75.i.i = icmp eq i32 %1879, 0
@@ -4018,7 +4018,7 @@ _ZN12_GLOBAL__N_111X86FastISel20X86FastEmitSSESelectEN4llvm3MVTEPKNS1_11Instruct
   br label %2013
 
 2013:                                             ; preds = %2007, %2001, %1995, %1994, %1993, %1992
-  %.036.i.i = phi i32 [ %2012, %2007 ], [ 1259, %1993 ], [ 1260, %1994 ], [ %2000, %1995 ], [ %2006, %2001 ], [ 1261, %1992 ]
+  %.036.i.i = phi i32 [ 1259, %1993 ], [ 1260, %1994 ], [ %2000, %1995 ], [ %2006, %2001 ], [ %2012, %2007 ], [ 1261, %1992 ]
   %2014 = load i32, ptr %1505, align 4
   %2015 = and i32 %2014, 1073741824
   %.not.i.i.i46.i = icmp eq i32 %2015, 0
@@ -4736,13 +4736,13 @@ _ZNK4llvm4User10getOperandEj.exit163:             ; preds = %2382, %2385
   call void @_ZN4llvm8FastISel14updateValueMapEPKNS_5ValueENS_8RegisterEj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %1, i32 %2399, i32 noundef 1) #19
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK4llvm4User10getOperandEj.exit155, %2350, %2345, %2344, %2393, %_ZNK4llvm4User10getOperandEj.exit163, %2368, %2365, %2373, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit, %2360
-  %.3 = phi i1 [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit ], [ false, %2368 ], [ false, %2360 ], [ true, %2393 ], [ false, %2373 ], [ false, %_ZNK4llvm4User10getOperandEj.exit155 ], [ false, %2365 ], [ false, %_ZNK4llvm4User10getOperandEj.exit163 ], [ false, %2344 ], [ false, %2345 ], [ false, %2350 ]
+.critedge:                                        ; preds = %2344, %_ZNK4llvm4User10getOperandEj.exit155, %2350, %2345, %2393, %_ZNK4llvm4User10getOperandEj.exit163, %2368, %2365, %2373, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit, %2360
+  %.3 = phi i1 [ false, %2360 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit ], [ false, %2373 ], [ false, %2365 ], [ false, %2368 ], [ false, %_ZNK4llvm4User10getOperandEj.exit163 ], [ true, %2393 ], [ false, %2345 ], [ false, %2350 ], [ false, %_ZNK4llvm4User10getOperandEj.exit155 ], [ false, %2344 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
   br label %_ZN12_GLOBAL__N_111X86FastISel13X86SelectLoadEPKN4llvm11InstructionE.exit
 
 _ZN12_GLOBAL__N_111X86FastISel13X86SelectLoadEPKN4llvm11InstructionE.exit: ; preds = %1096, %2212, %_ZNK4llvm4User10getOperandEj.exit.i119, %2185, %2179, %2167, %_ZNK4llvm4User10getOperandEj.exit.i116, %2140, %2134, %2124, %_ZNK4llvm4User10getOperandEj.exit48.i.i, %2055, %2041, %2034, %1992, %_ZN12_GLOBAL__N_111X86FastISel20X86FastEmitSSESelectEN4llvm3MVTEPKNS1_11InstructionE.exit.i, %_ZN12_GLOBAL__N_111X86FastISel22X86FastEmitCMoveSelectEN4llvm3MVTEPKNS1_11InstructionE.exit.i, %1551, %1549, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i105, %1493, %1487, %1486, %1477, %1476, %_ZNK4llvm4User10getOperandEj.exit60.i, %_ZNK4llvm4User10getOperandEj.exit.i95, %1245, %1242, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i93, %1231, %1225, %1224, %1215, %1199, %_ZNK4llvm4User10getOperandEj.exit30.i, %_ZNK4llvm4User10getOperandEj.exit.i87, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i84, %1124, %1118, %1117, %switch.lookup245, %1105, %_ZNK4llvm3EVTneES0_.exit.i, %797, %754, %_ZNK4llvm4User10getOperandEj.exit.i68, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i, %704, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.thread.sink.split.i, %678, %616, %567, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i60, %552, %546, %545, %_ZNK4llvm4User10getOperandEj.exit.i57, %_ZN4llvm11SmallVectorIjLj4EED2Ev.exit.i, %287, %281, %280, %280, %276, %270, %261, %258, %237, %236, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i48, %206, %200, %199, %.critedge32.i, %184, %181, %156, %155, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i, %122, %116, %115, %.critedge25.i, %104, %101, %77, %2, %2316, %.critedge, %2315, %2226, %2224, %2132, %_ZN12_GLOBAL__N_111X86FastISel15X86SelectBranchEPKN4llvm11InstructionE.exit, %702
-  %.0 = phi i1 [ false, %2316 ], [ false, %2 ], [ false, %.critedge25.i ], [ false, %.critedge32.i ], [ false, %287 ], [ %703, %702 ], [ true, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.thread.sink.split.i ], [ %.11.i, %_ZN12_GLOBAL__N_111X86FastISel15X86SelectBranchEPKN4llvm11InstructionE.exit ], [ false, %704 ], [ true, %1199 ], [ true, %1476 ], [ %2133, %2132 ], [ false, %1549 ], [ false, %2134 ], [ %2225, %2224 ], [ %2227, %2226 ], [ %.1, %2315 ], [ %.3, %.critedge ], [ false, %77 ], [ false, %104 ], [ false, %101 ], [ %.5.i, %155 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i ], [ false, %115 ], [ false, %116 ], [ false, %122 ], [ false, %156 ], [ false, %184 ], [ false, %181 ], [ %.5.i46, %236 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i48 ], [ false, %199 ], [ false, %200 ], [ false, %206 ], [ false, %237 ], [ false, %258 ], [ false, %261 ], [ false, %270 ], [ false, %276 ], [ false, %281 ], [ %.6.i, %_ZN4llvm11SmallVectorIjLj4EED2Ev.exit.i ], [ false, %280 ], [ false, %280 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i60 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i57 ], [ false, %545 ], [ false, %546 ], [ false, %567 ], [ false, %552 ], [ false, %616 ], [ false, %678 ], [ false, %754 ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i68 ], [ true, %_ZNK4llvm3EVTneES0_.exit.i ], [ false, %797 ], [ false, %1096 ], [ false, %1105 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i87 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i84 ], [ false, %switch.lookup245 ], [ false, %1117 ], [ false, %1118 ], [ false, %1124 ], [ false, %_ZNK4llvm4User10getOperandEj.exit30.i ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i93 ], [ false, %1242 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i95 ], [ false, %1245 ], [ false, %1215 ], [ false, %1224 ], [ false, %1225 ], [ false, %1231 ], [ false, %_ZNK4llvm4User10getOperandEj.exit60.i ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i105 ], [ true, %_ZN12_GLOBAL__N_111X86FastISel22X86FastEmitCMoveSelectEN4llvm3MVTEPKNS1_11InstructionE.exit.i ], [ false, %2055 ], [ true, %_ZN12_GLOBAL__N_111X86FastISel20X86FastEmitSSESelectEN4llvm3MVTEPKNS1_11InstructionE.exit.i ], [ false, %1477 ], [ false, %1992 ], [ false, %_ZNK4llvm4User10getOperandEj.exit48.i.i ], [ false, %2041 ], [ false, %2034 ], [ true, %2124 ], [ false, %1486 ], [ false, %1487 ], [ false, %1493 ], [ true, %1551 ], [ %2178, %2167 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i116 ], [ false, %2140 ], [ %2223, %2212 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i119 ], [ false, %2185 ], [ false, %2179 ]
+  %.0 = phi i1 [ %703, %702 ], [ %.11.i, %_ZN12_GLOBAL__N_111X86FastISel15X86SelectBranchEPKN4llvm11InstructionE.exit ], [ %2133, %2132 ], [ %2225, %2224 ], [ %2227, %2226 ], [ %.1, %2315 ], [ %.3, %.critedge ], [ false, %2316 ], [ false, %2 ], [ false, %77 ], [ false, %101 ], [ false, %104 ], [ %.5.i, %155 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i ], [ false, %116 ], [ false, %122 ], [ false, %.critedge25.i ], [ false, %115 ], [ false, %156 ], [ false, %181 ], [ false, %184 ], [ %.5.i46, %236 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i48 ], [ false, %200 ], [ false, %206 ], [ false, %.critedge32.i ], [ false, %199 ], [ false, %237 ], [ false, %258 ], [ false, %261 ], [ %.6.i, %_ZN4llvm11SmallVectorIjLj4EED2Ev.exit.i ], [ false, %270 ], [ false, %276 ], [ false, %280 ], [ false, %280 ], [ false, %281 ], [ false, %287 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i60 ], [ false, %567 ], [ false, %616 ], [ false, %678 ], [ false, %546 ], [ false, %552 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i57 ], [ false, %545 ], [ true, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.thread.sink.split.i ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i68 ], [ true, %_ZNK4llvm3EVTneES0_.exit.i ], [ false, %797 ], [ false, %754 ], [ false, %704 ], [ false, %1096 ], [ false, %1105 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i84 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i87 ], [ false, %1118 ], [ false, %1124 ], [ false, %switch.lookup245 ], [ false, %1117 ], [ false, %_ZNK4llvm4User10getOperandEj.exit30.i ], [ true, %1199 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i93 ], [ false, %1242 ], [ false, %1245 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i95 ], [ false, %1225 ], [ false, %1231 ], [ false, %1215 ], [ false, %1224 ], [ false, %_ZNK4llvm4User10getOperandEj.exit60.i ], [ true, %1476 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.i105 ], [ true, %_ZN12_GLOBAL__N_111X86FastISel22X86FastEmitCMoveSelectEN4llvm3MVTEPKNS1_11InstructionE.exit.i ], [ true, %_ZN12_GLOBAL__N_111X86FastISel20X86FastEmitSSESelectEN4llvm3MVTEPKNS1_11InstructionE.exit.i ], [ false, %1992 ], [ false, %2041 ], [ true, %2124 ], [ false, %_ZNK4llvm4User10getOperandEj.exit48.i.i ], [ false, %2034 ], [ false, %2055 ], [ false, %1487 ], [ false, %1493 ], [ false, %1477 ], [ false, %1486 ], [ true, %1551 ], [ false, %1549 ], [ %2178, %2167 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i116 ], [ false, %2140 ], [ false, %2134 ], [ %2223, %2212 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i119 ], [ false, %2185 ], [ false, %2179 ]
   ret i1 %.0
 }
 
@@ -4803,8 +4803,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18fastLowerArg
   br label %39
 
 .thread114:                                       ; preds = %66, %73
-  %.47193118 = phi i32 [ %71, %66 ], [ %.067100, %73 ]
-  %.46694117 = phi i32 [ %.062101, %66 ], [ %74, %73 ]
+  %.47193118 = phi i32 [ %.067100, %73 ], [ %71, %66 ]
+  %.46694117 = phi i32 [ %74, %73 ], [ %.062101, %66 ]
   %38 = getelementptr inbounds nuw i8, ptr %.07299, i64 40
   %.not80 = icmp eq ptr %38, %35
   br i1 %.not80, label %.critedge82, label %39
@@ -4969,8 +4969,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18fastLowerArg
   %.not81 = icmp eq ptr %124, %78
   br i1 %.not81, label %.critedge, label %86
 
-.critedge:                                        ; preds = %53, %61, %41, %43, %45, %47, %49, %51, %39, %73, %66, %105, %.critedge82, %19, %8, %28, %15, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %8 ], [ false, %19 ], [ false, %15 ], [ true, %.critedge82 ], [ false, %28 ], [ true, %105 ], [ false, %66 ], [ false, %73 ], [ false, %39 ], [ false, %51 ], [ false, %49 ], [ false, %47 ], [ false, %45 ], [ false, %43 ], [ false, %41 ], [ false, %61 ], [ false, %53 ]
+.critedge:                                        ; preds = %53, %61, %39, %41, %43, %45, %47, %49, %51, %73, %66, %105, %.critedge82, %19, %8, %28, %15, %1
+  %.0 = phi i1 [ false, %1 ], [ false, %8 ], [ false, %15 ], [ false, %19 ], [ false, %28 ], [ true, %.critedge82 ], [ true, %105 ], [ false, %66 ], [ false, %73 ], [ false, %51 ], [ false, %49 ], [ false, %47 ], [ false, %45 ], [ false, %43 ], [ false, %41 ], [ false, %39 ], [ false, %61 ], [ false, %53 ]
   ret i1 %.0
 }
 
@@ -5474,7 +5474,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3MVTELb1EE9push_backES1_.exit: ; preds = %_
   %.not320 = icmp eq i64 %indvars.iv.next668, %152
   br i1 %.not320, label %.critedge342, label %153, !llvm.loop !749
 
-.critedge14:                                      ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.thread, %227, %222, %221, %208, %204, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit, %246, %239
+.critedge14:                                      ; preds = %221, %_ZNK4llvm5Value9hasOneUseEv.exit.thread, %227, %222, %208, %204, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit, %246, %239
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %790
 
@@ -5677,7 +5677,7 @@ _ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEj
   br label %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit369
 
 _ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit369: ; preds = %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit365, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit
-  %.3 = phi i32 [ %spec.select619, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit365 ], [ %359, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread ], [ %358, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit ]
+  %.3 = phi i32 [ %358, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit ], [ %359, %_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3MVTES2_jj.exit.thread ], [ %spec.select619, %_ZN12_GLOBAL__N_111X86FastISel17X86FastEmitExtendEN4llvm3ISD8NodeTypeENS1_3EVTEjS4_Rj.exit365 ]
   %.sroa.0.0.copyload.i370 = load i16, ptr %357, align 8, !tbaa !472
   br label %364
 
@@ -6041,7 +6041,7 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %471, %4
   %spec.select620 = select i1 %.not635, i8 7, i8 0
   br label %.thread601
 
-.thread601:                                       ; preds = %525, %517, %522
+.thread601:                                       ; preds = %525, %522, %517
   %.0296.ph = phi i8 [ 7, %517 ], [ 7, %522 ], [ %spec.select620, %525 ]
   %529 = zext nneg i8 %.0296.ph to i32
   br label %switch.edge
@@ -6442,8 +6442,8 @@ _ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread:
   br label %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread610
 
 _ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread610: ; preds = %_ZNK4llvm3EVTeqES0_.exit389, %711, %712, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit
-  %.sroa.0439.0 = phi i16 [ 14, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread ], [ 12, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit ], [ %.sroa.0.0.copyload.i381, %_ZNK4llvm3EVTeqES0_.exit389 ], [ 13, %712 ], [ %.sroa.0.0.copyload.i381, %711 ]
-  %.0299 = phi i32 [ %719, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread ], [ %695, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit ], [ %695, %_ZNK4llvm3EVTeqES0_.exit389 ], [ %695, %712 ], [ %695, %711 ]
+  %.sroa.0439.0 = phi i16 [ 14, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread ], [ 12, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit ], [ 13, %712 ], [ %.sroa.0.0.copyload.i381, %711 ], [ %.sroa.0.0.copyload.i381, %_ZNK4llvm3EVTeqES0_.exit389 ]
+  %.0299 = phi i32 [ %719, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit.thread ], [ %695, %_ZNK12_GLOBAL__N_111X86FastISel22isScalarFPTypeInSSERegEN4llvm3EVTE.exit ], [ %695, %712 ], [ %695, %711 ], [ %695, %_ZNK4llvm3EVTeqES0_.exit389 ]
   %720 = load ptr, ptr %270, align 8, !tbaa !243
   %721 = getelementptr inbounds nuw i8, ptr %720, i64 680
   %722 = load ptr, ptr %721, align 8, !tbaa !479
@@ -6602,8 +6602,8 @@ _ZNK4llvm3EVTneES0_.exit:                         ; preds = %_ZN4llvm23SmallVect
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %351, %345, %337, %337, %326, %423, %428, %430, %786
-  %.18 = phi i1 [ %.19, %786 ], [ false, %430 ], [ false, %428 ], [ false, %423 ], [ false, %326 ], [ false, %337 ], [ false, %337 ], [ false, %345 ], [ false, %351 ]
+.loopexit:                                        ; preds = %337, %337, %351, %345, %326, %423, %428, %430, %786
+  %.18 = phi i1 [ %.19, %786 ], [ false, %430 ], [ false, %428 ], [ false, %423 ], [ false, %326 ], [ false, %345 ], [ false, %351 ], [ false, %337 ], [ false, %337 ]
   call void @_ZN4llvm7CCStateD2Ev(ptr noundef nonnull align 8 dereferenceable(420) %29) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %787 = load ptr, ptr %28, align 8, !tbaa !240
@@ -6643,7 +6643,7 @@ _ZN4llvm11SmallVectorINS_3MVTELj16EED2Ev.exit:    ; preds = %_ZN4llvm11SmallVect
   br label %_ZNK4llvm8CallBase13doesNoCfCheckEv.exit.thread
 
 _ZNK4llvm8CallBase13doesNoCfCheckEv.exit.thread:  ; preds = %.critedge.i, %.critedge334, %77, %74, %67, %129, %126, %120, %119, %119, %116, %115, %.critedge, %_ZNK4llvm8CallBase9hasFnAttrENS_9StringRefE.exit355, %_ZNK4llvm8CallBase9hasFnAttrENS_9StringRefE.exit, %_ZNK4llvm8CallBase13doesNoCfCheckEv.exit, %_ZN4llvm11SmallVectorINS_3MVTELj16EED2Ev.exit
-  %.0 = phi i1 [ false, %.critedge334 ], [ false, %_ZNK4llvm8CallBase13doesNoCfCheckEv.exit ], [ false, %_ZNK4llvm8CallBase9hasFnAttrENS_9StringRefE.exit ], [ false, %_ZNK4llvm8CallBase9hasFnAttrENS_9StringRefE.exit355 ], [ false, %77 ], [ false, %.critedge ], [ false, %115 ], [ false, %116 ], [ false, %120 ], [ false, %126 ], [ %.9, %_ZN4llvm11SmallVectorINS_3MVTELj16EED2Ev.exit ], [ false, %119 ], [ false, %119 ], [ false, %129 ], [ false, %74 ], [ false, %67 ], [ false, %.critedge.i ]
+  %.0 = phi i1 [ %.9, %_ZN4llvm11SmallVectorINS_3MVTELj16EED2Ev.exit ], [ false, %_ZNK4llvm8CallBase13doesNoCfCheckEv.exit ], [ false, %_ZNK4llvm8CallBase9hasFnAttrENS_9StringRefE.exit ], [ false, %_ZNK4llvm8CallBase9hasFnAttrENS_9StringRefE.exit355 ], [ false, %.critedge ], [ false, %115 ], [ false, %116 ], [ false, %119 ], [ false, %119 ], [ false, %120 ], [ false, %126 ], [ false, %129 ], [ false, %67 ], [ false, %74 ], [ false, %77 ], [ false, %.critedge334 ], [ false, %.critedge.i ]
   ret i1 %.0
 }
 
@@ -7703,12 +7703,12 @@ _ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit265: ; 
   br label %662
 
 662:                                              ; preds = %652, %661, %660, %659, %658, %657
-  %.0215 = phi i64 [ 0, %661 ], [ 2, %657 ], [ 0, %658 ], [ 2, %659 ], [ 0, %660 ], [ 0, %652 ]
-  %or.cond.not.not = phi i1 [ false, %661 ], [ false, %657 ], [ true, %658 ], [ false, %659 ], [ false, %660 ], [ true, %652 ]
-  %663 = phi i64 [ 0, %661 ], [ 0, %657 ], [ 1, %658 ], [ 1, %659 ], [ 0, %660 ], [ 0, %652 ]
-  %664 = phi i1 [ false, %661 ], [ true, %657 ], [ true, %658 ], [ true, %659 ], [ true, %660 ], [ true, %652 ]
-  %665 = phi i1 [ true, %661 ], [ true, %657 ], [ true, %658 ], [ true, %659 ], [ false, %660 ], [ true, %652 ]
-  %.0214 = phi i32 [ 650, %661 ], [ 56, %657 ], [ 57, %658 ], [ 57, %659 ], [ 649, %660 ], [ 56, %652 ]
+  %.0215 = phi i64 [ 2, %657 ], [ 0, %658 ], [ 2, %659 ], [ 0, %660 ], [ 0, %661 ], [ 0, %652 ]
+  %or.cond.not.not = phi i1 [ false, %657 ], [ true, %658 ], [ false, %659 ], [ false, %660 ], [ false, %661 ], [ true, %652 ]
+  %663 = phi i64 [ 0, %657 ], [ 1, %658 ], [ 1, %659 ], [ 0, %660 ], [ 0, %661 ], [ 0, %652 ]
+  %664 = phi i1 [ true, %657 ], [ true, %658 ], [ true, %659 ], [ true, %660 ], [ false, %661 ], [ true, %652 ]
+  %665 = phi i1 [ true, %657 ], [ true, %658 ], [ true, %659 ], [ false, %660 ], [ true, %661 ], [ true, %652 ]
+  %.0214 = phi i32 [ 56, %657 ], [ 57, %658 ], [ 57, %659 ], [ 649, %660 ], [ 650, %661 ], [ 56, %652 ]
   %666 = tail call i32 @_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %.0403) #19
   %667 = icmp eq i32 %666, 0
   br i1 %667, label %.critedge, label %668
@@ -8212,8 +8212,8 @@ _ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit289: ; 
   tail call void @_ZN4llvm8FastISel14updateValueMapEPKNS_5ValueENS_8RegisterEj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %1, i32 %974, i32 noundef 1) #19
   br label %.critedge
 
-.critedge:                                        ; preds = %353, %255, %885, %.loopexit, %596, %545, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit284, %934, %929, %928, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit272, %836, %830, %829, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit260, %621, %615, %614, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit251, %520, %515, %514, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %172, %166, %165, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit289, %975, %973, %961, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit277, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit265, %.thread426, %.thread413, %791, %662, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit256, %530, %.thread, %._crit_edge, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit, %41, %63, %56, %139, %911, %814, %816, %497, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit247, %370, %358, %382, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit, %306, %319, %301, %326, %31, %37, %2, %484, %483, %432
-  %.0 = phi i1 [ false, %816 ], [ false, %2 ], [ false, %911 ], [ false, %31 ], [ false, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit ], [ false, %306 ], [ %.11, %432 ], [ %441, %483 ], [ true, %484 ], [ true, %._crit_edge ], [ false, %370 ], [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ false, %497 ], [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit260 ], [ false, %37 ], [ false, %63 ], [ %.6, %.thread ], [ false, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit ], [ false, %301 ], [ %339, %326 ], [ false, %319 ], [ false, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit247 ], [ false, %358 ], [ %395, %382 ], [ false, %791 ], [ false, %814 ], [ false, %41 ], [ true, %139 ], [ false, %56 ], [ true, %975 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit256 ], [ false, %928 ], [ false, %530 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit265 ], [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit284 ], [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit251 ], [ false, %934 ], [ false, %662 ], [ true, %.thread426 ], [ false, %.thread413 ], [ true, %596 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit277 ], [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit272 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit289 ], [ false, %961 ], [ false, %929 ], [ false, %973 ], [ false, %165 ], [ false, %166 ], [ false, %172 ], [ false, %514 ], [ false, %515 ], [ false, %520 ], [ false, %614 ], [ false, %615 ], [ false, %621 ], [ false, %829 ], [ false, %830 ], [ false, %836 ], [ false, %545 ], [ false, %.loopexit ], [ true, %885 ], [ false, %255 ], [ false, %353 ]
+.critedge:                                        ; preds = %353, %255, %885, %.loopexit, %596, %545, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit, %928, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit284, %934, %929, %829, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit272, %836, %830, %614, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit260, %621, %615, %514, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit251, %520, %515, %165, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %172, %166, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit289, %975, %973, %961, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit277, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit265, %.thread426, %.thread413, %791, %662, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit256, %530, %.thread, %._crit_edge, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit, %41, %63, %56, %139, %911, %814, %816, %497, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit247, %370, %358, %382, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit, %306, %319, %301, %326, %31, %37, %2, %484, %483, %432
+  %.0 = phi i1 [ %.11, %432 ], [ %441, %483 ], [ true, %484 ], [ false, %2 ], [ false, %37 ], [ false, %31 ], [ false, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit ], [ false, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit ], [ %339, %326 ], [ false, %301 ], [ false, %319 ], [ false, %306 ], [ false, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit247 ], [ %395, %382 ], [ false, %358 ], [ false, %370 ], [ false, %497 ], [ false, %814 ], [ false, %816 ], [ false, %911 ], [ false, %41 ], [ true, %139 ], [ false, %56 ], [ false, %63 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit ], [ true, %._crit_edge ], [ %.6, %.thread ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit256 ], [ false, %530 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit265 ], [ false, %662 ], [ true, %.thread426 ], [ false, %.thread413 ], [ false, %791 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit277 ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit289 ], [ false, %961 ], [ false, %973 ], [ true, %975 ], [ false, %166 ], [ false, %172 ], [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ false, %165 ], [ false, %515 ], [ false, %520 ], [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit251 ], [ false, %514 ], [ false, %615 ], [ false, %621 ], [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit260 ], [ false, %614 ], [ false, %830 ], [ false, %836 ], [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit272 ], [ false, %829 ], [ false, %929 ], [ false, %934 ], [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit284 ], [ false, %928 ], [ false, %545 ], [ true, %596 ], [ false, %.loopexit ], [ true, %885 ], [ false, %255 ], [ false, %353 ]
   ret i1 %.0
 }
 
@@ -8804,7 +8804,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_111X86FastISel10fastEmit_rEN4llvm3M
   br label %_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD_ANY_EXTEND_rEN4llvm3MVTES2_j.exit
 
 _ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD_ANY_EXTEND_rEN4llvm3MVTES2_j.exit: ; preds = %169, %163, %162, %160, %154, %153, %9, %8, %5, %237, %235, %233, %231, %229, %227, %225, %223, %221, %219, %217, %215, %213, %211, %209, %207, %205, %203, %201, %199, %197, %195, %193, %191, %189, %187, %185, %183, %181, %179, %177, %175, %173, %171, %151, %149, %147, %145, %143, %141, %139, %137, %135, %133, %131, %129, %127, %125, %123, %121, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %83, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %6
-  %.0 = phi i32 [ %238, %237 ], [ %7, %6 ], [ 0, %5 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ %120, %119 ], [ %122, %121 ], [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %138, %137 ], [ %140, %139 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ], [ %148, %147 ], [ %150, %149 ], [ %152, %151 ], [ %10, %9 ], [ %161, %160 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %198, %197 ], [ %200, %199 ], [ %202, %201 ], [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ %218, %217 ], [ %220, %219 ], [ %222, %221 ], [ %224, %223 ], [ %226, %225 ], [ %228, %227 ], [ %230, %229 ], [ %232, %231 ], [ %234, %233 ], [ %236, %235 ], [ 0, %8 ], [ 0, %153 ], [ 0, %154 ], [ 0, %162 ], [ 0, %163 ], [ %170, %169 ]
+  %.0 = phi i32 [ %7, %6 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ %120, %119 ], [ %122, %121 ], [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %138, %137 ], [ %140, %139 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ], [ %148, %147 ], [ %150, %149 ], [ %152, %151 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %198, %197 ], [ %200, %199 ], [ %202, %201 ], [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ %218, %217 ], [ %220, %219 ], [ %222, %221 ], [ %224, %223 ], [ %226, %225 ], [ %228, %227 ], [ %230, %229 ], [ %232, %231 ], [ %234, %233 ], [ %236, %235 ], [ %238, %237 ], [ 0, %5 ], [ 0, %8 ], [ %10, %9 ], [ 0, %153 ], [ %161, %160 ], [ 0, %154 ], [ 0, %162 ], [ %170, %169 ], [ 0, %163 ]
   ret i32 %.0
 }
 
@@ -9489,7 +9489,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_111X86FastISel11fastEmit_rrEN4llvm3
   br label %_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86ISD_FANDN_rrEN4llvm3MVTES2_jj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86ISD_FANDN_rrEN4llvm3MVTES2_jj.exit: ; preds = %247, %241, %240, %236, %230, %229, %207, %206, %160, %154, %153, %127, %126, %88, %87, %6, %275, %273, %271, %269, %267, %265, %263, %261, %259, %257, %255, %253, %251, %249, %238, %227, %225, %223, %221, %219, %217, %215, %213, %211, %209, %204, %202, %200, %198, %196, %194, %192, %190, %188, %186, %184, %182, %180, %178, %176, %174, %172, %170, %168, %166, %164, %162, %151, %149, %147, %145, %143, %141, %139, %137, %135, %133, %131, %129, %124, %122, %120, %118, %116, %114, %112, %110, %108, %106, %104, %102, %100, %98, %96, %94, %92, %90, %85, %83, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7
-  %.0 = phi i32 [ %276, %275 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ 0, %6 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %119, %118 ], [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ %89, %88 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %138, %137 ], [ %140, %139 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ], [ %148, %147 ], [ %150, %149 ], [ %152, %151 ], [ %128, %127 ], [ %163, %162 ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ], [ %171, %170 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %179, %178 ], [ %181, %180 ], [ %183, %182 ], [ %185, %184 ], [ %187, %186 ], [ %189, %188 ], [ %191, %190 ], [ %193, %192 ], [ %195, %194 ], [ %197, %196 ], [ %199, %198 ], [ %201, %200 ], [ %203, %202 ], [ %205, %204 ], [ %161, %160 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ %218, %217 ], [ %220, %219 ], [ %222, %221 ], [ %224, %223 ], [ %226, %225 ], [ %228, %227 ], [ %208, %207 ], [ %239, %238 ], [ %237, %236 ], [ %250, %249 ], [ %252, %251 ], [ %254, %253 ], [ %256, %255 ], [ %258, %257 ], [ %260, %259 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %274, %273 ], [ 0, %87 ], [ 0, %126 ], [ 0, %153 ], [ 0, %154 ], [ 0, %206 ], [ 0, %229 ], [ 0, %230 ], [ 0, %240 ], [ 0, %241 ], [ %248, %247 ]
+  %.0 = phi i32 [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %119, %118 ], [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %138, %137 ], [ %140, %139 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ], [ %148, %147 ], [ %150, %149 ], [ %152, %151 ], [ %163, %162 ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ], [ %171, %170 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %179, %178 ], [ %181, %180 ], [ %183, %182 ], [ %185, %184 ], [ %187, %186 ], [ %189, %188 ], [ %191, %190 ], [ %193, %192 ], [ %195, %194 ], [ %197, %196 ], [ %199, %198 ], [ %201, %200 ], [ %203, %202 ], [ %205, %204 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ %218, %217 ], [ %220, %219 ], [ %222, %221 ], [ %224, %223 ], [ %226, %225 ], [ %228, %227 ], [ %239, %238 ], [ %250, %249 ], [ %252, %251 ], [ %254, %253 ], [ %256, %255 ], [ %258, %257 ], [ %260, %259 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %274, %273 ], [ %276, %275 ], [ 0, %6 ], [ 0, %87 ], [ %89, %88 ], [ 0, %126 ], [ %128, %127 ], [ 0, %153 ], [ %161, %160 ], [ 0, %154 ], [ 0, %206 ], [ %208, %207 ], [ 0, %229 ], [ %237, %236 ], [ 0, %230 ], [ 0, %240 ], [ %248, %247 ], [ 0, %241 ]
   ret i32 %.0
 }
 
@@ -9587,7 +9587,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_111X86FastISel11fastEmit_riEN4llvm3
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ri_Predicate_i64immSExt32EN4llvm3MVTES2_jjm.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_ri_Predicate_i64immSExt32EN4llvm3MVTES2_jjm.exit: ; preds = %.sink.split.i.i.i, %.sink.split.i.i41.i, %23, %.sink.split.i.i51.i, %.sink.split.i.i57.i, %.sink.split.i.i63.i
-  %..i.i64.sink.i = phi i32 [ %..i.i64.i, %.sink.split.i.i63.i ], [ %..i.i58.i, %.sink.split.i.i57.i ], [ %..i.i52.i, %.sink.split.i.i51.i ], [ %..i.i.i, %.sink.split.i.i.i ], [ %..i.i42.i, %.sink.split.i.i41.i ], [ 1837, %23 ]
+  %..i.i64.sink.i = phi i32 [ %..i.i64.i, %.sink.split.i.i63.i ], [ %..i.i58.i, %.sink.split.i.i57.i ], [ %..i.i52.i, %.sink.split.i.i51.i ], [ %..i.i42.i, %.sink.split.i.i41.i ], [ %..i.i.i, %.sink.split.i.i.i ], [ 1837, %23 ]
   %42 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_riEjPKNS_19TargetRegisterClassEjm(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i.i64.sink.i, ptr noundef nonnull @_ZN4llvm3X8612GR64RegClassE, i32 noundef %4, i64 noundef %5) #19
   %.not.not = icmp eq i32 %42, 0
   br i1 %.not.not, label %.critedge, label %_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD_ADD_riEN4llvm3MVTES2_jm.exit
@@ -9919,7 +9919,7 @@ _ZN12_GLOBAL__N_111X86FastISel34fastEmit_ri_Predicate_i64immSExt32EN4llvm3MVTES2
   br i1 %184, label %.thread.sink.split.i23.i, label %_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD_ADD_riEN4llvm3MVTES2_jm.exit
 
 .thread.sink.split.i23.i:                         ; preds = %181, %177, %171
-  %.sink.i24.i = phi i32 [ 3804, %181 ], [ 396, %171 ], [ 3802, %177 ]
+  %.sink.i24.i = phi i32 [ 396, %171 ], [ 3804, %181 ], [ 3802, %177 ]
   %185 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_riEjPKNS_19TargetRegisterClassEjm(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink.i24.i, ptr noundef nonnull @_ZN4llvm3X8612GR32RegClassE, i32 noundef %4, i64 noundef %5) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD_ADD_riEN4llvm3MVTES2_jm.exit
 
@@ -9948,7 +9948,7 @@ _ZN12_GLOBAL__N_111X86FastISel34fastEmit_ri_Predicate_i64immSExt32EN4llvm3MVTES2
   br i1 %199, label %.thread.sink.split.i27.i, label %_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD_ADD_riEN4llvm3MVTES2_jm.exit
 
 .thread.sink.split.i27.i:                         ; preds = %196, %192, %186
-  %.sink.i28.i = phi i32 [ 3834, %196 ], [ 397, %186 ], [ 3832, %192 ]
+  %.sink.i28.i = phi i32 [ 397, %186 ], [ 3834, %196 ], [ 3832, %192 ]
   %200 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_riEjPKNS_19TargetRegisterClassEjm(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink.i28.i, ptr noundef nonnull @_ZN4llvm3X8612GR64RegClassE, i32 noundef %4, i64 noundef %5) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD_ADD_riEN4llvm3MVTES2_jm.exit
 
@@ -10044,7 +10044,7 @@ _ZN12_GLOBAL__N_111X86FastISel34fastEmit_ri_Predicate_i64immSExt32EN4llvm3MVTES2
   br i1 %248, label %.thread15.sink.split.i.i, label %_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD_ADD_riEN4llvm3MVTES2_jm.exit
 
 .thread15.sink.split.i.i:                         ; preds = %245, %241, %237, %233
-  %.sink.i23.i = phi i32 [ 3924, %245 ], [ 398, %237 ], [ %..i.i111, %233 ], [ 3922, %241 ]
+  %.sink.i23.i = phi i32 [ %..i.i111, %233 ], [ 398, %237 ], [ 3924, %245 ], [ 3922, %241 ]
   %249 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_riEjPKNS_19TargetRegisterClassEjm(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink.i23.i, ptr noundef nonnull @_ZN4llvm3X8612GR32RegClassE, i32 noundef %4, i64 noundef %5) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD_ADD_riEN4llvm3MVTES2_jm.exit
 
@@ -10086,7 +10086,7 @@ _ZN12_GLOBAL__N_111X86FastISel34fastEmit_ri_Predicate_i64immSExt32EN4llvm3MVTES2
   br i1 %271, label %.thread15.sink.split.i26.i, label %_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD_ADD_riEN4llvm3MVTES2_jm.exit
 
 .thread15.sink.split.i26.i:                       ; preds = %268, %264, %260, %256
-  %.sink.i27.i = phi i32 [ 3954, %268 ], [ 399, %260 ], [ %..i28.i, %256 ], [ 3952, %264 ]
+  %.sink.i27.i = phi i32 [ %..i28.i, %256 ], [ 399, %260 ], [ 3954, %268 ], [ 3952, %264 ]
   %272 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_riEjPKNS_19TargetRegisterClassEjm(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink.i27.i, ptr noundef nonnull @_ZN4llvm3X8612GR64RegClassE, i32 noundef %4, i64 noundef %5) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD_ADD_riEN4llvm3MVTES2_jm.exit
 
@@ -10520,7 +10520,7 @@ _ZN12_GLOBAL__N_111X86FastISel34fastEmit_ri_Predicate_i64immSExt32EN4llvm3MVTES2
   br label %_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD_ADD_riEN4llvm3MVTES2_jm.exit
 
 _ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD_ADD_riEN4llvm3MVTES2_jm.exit: ; preds = %10, %36, %30, %24, %23, %17, %11, %468, %.thread215, %466, %465, %463, %462, %461, %.sink.split.i19.i169, %454, %.sink.split.i15.i172, %447, %.sink.split.i.i175, %440, %439, %.sink.split.i19.i159, %432, %.sink.split.i15.i162, %425, %.sink.split.i.i165, %418, %417, %.thread.sink.split.i27.i146, %412, %.thread214, %.thread.sink.split.i23.i149, %401, %394, %.thread.sink.split.i19.i152, %389, %382, %.thread.sink.split.i.i155, %377, %370, %369, %.thread.sink.split.i27.i133, %364, %.thread213, %.thread.sink.split.i23.i136, %353, %346, %.thread.sink.split.i19.i139, %341, %334, %.thread.sink.split.i.i142, %329, %322, %321, %.thread.sink.split.i27.i120, %316, %.thread212, %.thread.sink.split.i23.i123, %305, %298, %.thread.sink.split.i19.i126, %293, %286, %.thread.sink.split.i.i129, %281, %274, %273, %.thread15.sink.split.i26.i, %268, %.thread211, %.thread15.sink.split.i.i, %245, %226, %.thread.sink.split.i19.i113, %221, %214, %.thread.sink.split.i.i116, %209, %202, %201, %.thread.sink.split.i27.i, %196, %.thread210, %.thread.sink.split.i23.i, %181, %170, %.thread.sink.split.i19.i, %165, %158, %.thread.sink.split.i.i, %153, %146, %145, %.sink.split.i19.i97, %138, %.sink.split.i15.i100, %131, %.sink.split.i.i103, %124, %123, %121, %120, %118, %117, %116, %.sink.split.i12.i, %109, %102, %.sink.split.i.i91, %95, %88, %87, %.sink.split.i19.i80, %80, %.sink.split.i15.i83, %73, %.sink.split.i.i86, %66, %65, %.sink.split.i19.i, %58, %.sink.split.i15.i, %51, %.sink.split.i.i, %44, %43, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ri_Predicate_i64immSExt32EN4llvm3MVTES2_jjm.exit, %.critedge
-  %.1 = phi i32 [ %42, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ri_Predicate_i64immSExt32EN4llvm3MVTES2_jjm.exit ], [ 0, %.critedge ], [ %64, %.sink.split.i19.i ], [ %86, %.sink.split.i19.i80 ], [ %115, %.sink.split.i12.i ], [ 0, %120 ], [ %144, %.sink.split.i19.i97 ], [ %200, %.thread.sink.split.i27.i ], [ %272, %.thread15.sink.split.i26.i ], [ %320, %.thread.sink.split.i27.i120 ], [ %368, %.thread.sink.split.i27.i133 ], [ %416, %.thread.sink.split.i27.i146 ], [ %438, %.sink.split.i19.i159 ], [ %460, %.sink.split.i19.i169 ], [ %57, %.sink.split.i15.i ], [ 0, %43 ], [ %50, %.sink.split.i.i ], [ 0, %44 ], [ 0, %51 ], [ 0, %58 ], [ %79, %.sink.split.i15.i83 ], [ 0, %65 ], [ %72, %.sink.split.i.i86 ], [ 0, %66 ], [ 0, %73 ], [ 0, %80 ], [ %101, %.sink.split.i.i91 ], [ 0, %87 ], [ 0, %88 ], [ 0, %95 ], [ 0, %102 ], [ 0, %109 ], [ 0, %117 ], [ 0, %116 ], [ %119, %118 ], [ %122, %121 ], [ %137, %.sink.split.i15.i100 ], [ 0, %123 ], [ %130, %.sink.split.i.i103 ], [ 0, %124 ], [ 0, %131 ], [ 0, %138 ], [ %185, %.thread.sink.split.i23.i ], [ 0, %145 ], [ %157, %.thread.sink.split.i.i ], [ %169, %.thread.sink.split.i19.i ], [ 0, %146 ], [ 0, %153 ], [ 0, %158 ], [ 0, %165 ], [ 0, %181 ], [ 0, %170 ], [ 0, %196 ], [ 0, %.thread210 ], [ %249, %.thread15.sink.split.i.i ], [ 0, %201 ], [ %213, %.thread.sink.split.i.i116 ], [ %225, %.thread.sink.split.i19.i113 ], [ 0, %202 ], [ 0, %209 ], [ 0, %214 ], [ 0, %221 ], [ 0, %226 ], [ 0, %245 ], [ 0, %.thread211 ], [ 0, %268 ], [ %309, %.thread.sink.split.i23.i123 ], [ 0, %273 ], [ %285, %.thread.sink.split.i.i129 ], [ %297, %.thread.sink.split.i19.i126 ], [ 0, %274 ], [ 0, %281 ], [ 0, %286 ], [ 0, %293 ], [ 0, %298 ], [ 0, %305 ], [ 0, %.thread212 ], [ 0, %316 ], [ %357, %.thread.sink.split.i23.i136 ], [ 0, %321 ], [ %333, %.thread.sink.split.i.i142 ], [ %345, %.thread.sink.split.i19.i139 ], [ 0, %322 ], [ 0, %329 ], [ 0, %334 ], [ 0, %341 ], [ 0, %346 ], [ 0, %353 ], [ 0, %.thread213 ], [ 0, %364 ], [ %405, %.thread.sink.split.i23.i149 ], [ 0, %369 ], [ %381, %.thread.sink.split.i.i155 ], [ %393, %.thread.sink.split.i19.i152 ], [ 0, %370 ], [ 0, %377 ], [ 0, %382 ], [ 0, %389 ], [ 0, %394 ], [ 0, %401 ], [ 0, %.thread214 ], [ 0, %412 ], [ %431, %.sink.split.i15.i162 ], [ 0, %417 ], [ %424, %.sink.split.i.i165 ], [ 0, %418 ], [ 0, %425 ], [ 0, %432 ], [ %453, %.sink.split.i15.i172 ], [ 0, %439 ], [ %446, %.sink.split.i.i175 ], [ 0, %440 ], [ 0, %447 ], [ 0, %454 ], [ 0, %465 ], [ 0, %461 ], [ 0, %462 ], [ %464, %463 ], [ %467, %466 ], [ %469, %468 ], [ 0, %.thread215 ], [ 0, %30 ], [ 0, %11 ], [ 0, %17 ], [ 0, %23 ], [ 0, %24 ], [ 0, %36 ], [ 0, %10 ]
+  %.1 = phi i32 [ %42, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ri_Predicate_i64immSExt32EN4llvm3MVTES2_jjm.exit ], [ 0, %.critedge ], [ 0, %43 ], [ 0, %44 ], [ %50, %.sink.split.i.i ], [ 0, %51 ], [ %57, %.sink.split.i15.i ], [ 0, %58 ], [ %64, %.sink.split.i19.i ], [ 0, %65 ], [ 0, %66 ], [ %72, %.sink.split.i.i86 ], [ 0, %73 ], [ %79, %.sink.split.i15.i83 ], [ 0, %80 ], [ %86, %.sink.split.i19.i80 ], [ 0, %87 ], [ 0, %88 ], [ 0, %95 ], [ %101, %.sink.split.i.i91 ], [ 0, %102 ], [ 0, %109 ], [ %115, %.sink.split.i12.i ], [ 0, %116 ], [ %119, %118 ], [ 0, %117 ], [ %122, %121 ], [ 0, %120 ], [ 0, %123 ], [ 0, %124 ], [ %130, %.sink.split.i.i103 ], [ 0, %131 ], [ %137, %.sink.split.i15.i100 ], [ 0, %138 ], [ %144, %.sink.split.i19.i97 ], [ 0, %145 ], [ 0, %146 ], [ 0, %153 ], [ %157, %.thread.sink.split.i.i ], [ 0, %158 ], [ 0, %165 ], [ %169, %.thread.sink.split.i19.i ], [ 0, %170 ], [ 0, %181 ], [ %185, %.thread.sink.split.i23.i ], [ 0, %.thread210 ], [ 0, %196 ], [ %200, %.thread.sink.split.i27.i ], [ 0, %201 ], [ 0, %202 ], [ 0, %209 ], [ %213, %.thread.sink.split.i.i116 ], [ 0, %214 ], [ 0, %221 ], [ %225, %.thread.sink.split.i19.i113 ], [ 0, %226 ], [ 0, %245 ], [ %249, %.thread15.sink.split.i.i ], [ 0, %.thread211 ], [ 0, %268 ], [ %272, %.thread15.sink.split.i26.i ], [ 0, %273 ], [ 0, %274 ], [ 0, %281 ], [ %285, %.thread.sink.split.i.i129 ], [ 0, %286 ], [ 0, %293 ], [ %297, %.thread.sink.split.i19.i126 ], [ 0, %298 ], [ 0, %305 ], [ %309, %.thread.sink.split.i23.i123 ], [ 0, %.thread212 ], [ 0, %316 ], [ %320, %.thread.sink.split.i27.i120 ], [ 0, %321 ], [ 0, %322 ], [ 0, %329 ], [ %333, %.thread.sink.split.i.i142 ], [ 0, %334 ], [ 0, %341 ], [ %345, %.thread.sink.split.i19.i139 ], [ 0, %346 ], [ 0, %353 ], [ %357, %.thread.sink.split.i23.i136 ], [ 0, %.thread213 ], [ 0, %364 ], [ %368, %.thread.sink.split.i27.i133 ], [ 0, %369 ], [ 0, %370 ], [ 0, %377 ], [ %381, %.thread.sink.split.i.i155 ], [ 0, %382 ], [ 0, %389 ], [ %393, %.thread.sink.split.i19.i152 ], [ 0, %394 ], [ 0, %401 ], [ %405, %.thread.sink.split.i23.i149 ], [ 0, %.thread214 ], [ 0, %412 ], [ %416, %.thread.sink.split.i27.i146 ], [ 0, %417 ], [ 0, %418 ], [ %424, %.sink.split.i.i165 ], [ 0, %425 ], [ %431, %.sink.split.i15.i162 ], [ 0, %432 ], [ %438, %.sink.split.i19.i159 ], [ 0, %439 ], [ 0, %440 ], [ %446, %.sink.split.i.i175 ], [ 0, %447 ], [ %453, %.sink.split.i15.i172 ], [ 0, %454 ], [ %460, %.sink.split.i19.i169 ], [ 0, %461 ], [ %464, %463 ], [ 0, %462 ], [ %467, %466 ], [ 0, %465 ], [ %469, %468 ], [ 0, %.thread215 ], [ 0, %11 ], [ 0, %17 ], [ 0, %23 ], [ 0, %24 ], [ 0, %30 ], [ 0, %36 ], [ 0, %10 ]
   ret i32 %.1
 }
 
@@ -10570,7 +10570,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_111X86FastISel10fastEmit_iEN4llvm3M
   br label %_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD_Constant_iEN4llvm3MVTES2_m.exit
 
 _ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD_Constant_iEN4llvm3MVTES2_m.exit: ; preds = %17, %16, %14, %13, %11, %10, %8, %7, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %13 ], [ 0, %6 ], [ 0, %7 ], [ 0, %10 ], [ %9, %8 ], [ %12, %11 ], [ %15, %14 ], [ %18, %17 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ %9, %8 ], [ 0, %7 ], [ %12, %11 ], [ 0, %10 ], [ %15, %14 ], [ 0, %13 ], [ %18, %17 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -10722,8 +10722,8 @@ define internal noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastMaterializeCons
   br label %78
 
 78:                                               ; preds = %76, %74, %73, %72, %70, %70
-  %.sroa.029.0.i = phi i16 [ 8, %76 ], [ 5, %70 ], [ %29, %72 ], [ %29, %73 ], [ 8, %74 ], [ 5, %70 ]
-  %.010.i = phi i32 [ %..i, %76 ], [ 2585, %70 ], [ 2529, %72 ], [ 2549, %73 ], [ 353, %74 ], [ 2585, %70 ]
+  %.sroa.029.0.i = phi i16 [ 5, %70 ], [ %29, %72 ], [ %29, %73 ], [ 8, %74 ], [ 8, %76 ], [ 5, %70 ]
+  %.010.i = phi i32 [ 2585, %70 ], [ 2529, %72 ], [ 2549, %73 ], [ 353, %74 ], [ %..i, %76 ], [ 2585, %70 ]
   %79 = load ptr, ptr %22, align 8, !tbaa !266
   %80 = load ptr, ptr %79, align 8, !tbaa !3
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 552
@@ -11187,8 +11187,8 @@ _ZN12_GLOBAL__N_111X86FastISel16X86MaterializeGVEPKN4llvm11GlobalValueENS1_3MVTE
 
 340:                                              ; preds = %_ZN12_GLOBAL__N_111X86FastISel16X86MaterializeGVEPKN4llvm11GlobalValueENS1_3MVTE.exit
   switch i16 %29, label %_ZN12_GLOBAL__N_111X86FastISel17X86MaterializeIntEPKN4llvm11ConstantIntENS1_3MVTE.exit.thread [
-    i16 12, label %347
-    i16 13, label %341
+    i16 12, label %341
+    i16 13, label %347
     i16 14, label %.thread63
   ]
 
@@ -11197,7 +11197,7 @@ _ZN12_GLOBAL__N_111X86FastISel16X86MaterializeGVEPKN4llvm11GlobalValueENS1_3MVTE
   %343 = load ptr, ptr %342, align 8, !tbaa !202
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 320
   %345 = load i32, ptr %344, align 8, !tbaa !267
-  %346 = icmp sgt i32 %345, 1
+  %346 = icmp sgt i32 %345, 0
   br i1 %346, label %_ZN12_GLOBAL__N_111X86FastISel17X86MaterializeIntEPKN4llvm11ConstantIntENS1_3MVTE.exit.thread, label %.thread63
 
 347:                                              ; preds = %340
@@ -11205,11 +11205,11 @@ _ZN12_GLOBAL__N_111X86FastISel16X86MaterializeGVEPKN4llvm11GlobalValueENS1_3MVTE
   %349 = load ptr, ptr %348, align 8, !tbaa !202
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 320
   %351 = load i32, ptr %350, align 8, !tbaa !267
-  %352 = icmp sgt i32 %351, 0
+  %352 = icmp sgt i32 %351, 1
   br i1 %352, label %_ZN12_GLOBAL__N_111X86FastISel17X86MaterializeIntEPKN4llvm11ConstantIntENS1_3MVTE.exit.thread, label %.thread63
 
 .thread63:                                        ; preds = %340, %347, %341
-  %.03167.neg = phi i64 [ -2104, %341 ], [ -2103, %347 ], [ -2105, %340 ]
+  %.03167.neg = phi i64 [ -2104, %347 ], [ -2103, %341 ], [ -2105, %340 ]
   %353 = load ptr, ptr %22, align 8, !tbaa !266
   %354 = load ptr, ptr %353, align 8, !tbaa !3
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 552
@@ -11232,7 +11232,7 @@ _ZN12_GLOBAL__N_111X86FastISel16X86MaterializeGVEPKN4llvm11GlobalValueENS1_3MVTE
   br label %_ZN12_GLOBAL__N_111X86FastISel17X86MaterializeIntEPKN4llvm11ConstantIntENS1_3MVTE.exit.thread
 
 _ZN12_GLOBAL__N_111X86FastISel17X86MaterializeIntEPKN4llvm11ConstantIntENS1_3MVTE.exit.thread: ; preds = %340, %341, %347, %240, %245, %338, %32, %41, %44, %46, %48, %78, %_ZN12_GLOBAL__N_111X86FastISel16X86MaterializeGVEPKN4llvm11GlobalValueENS1_3MVTE.exit, %.thread63, %238, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %_ZN12_GLOBAL__N_111X86FastISel16X86MaterializeGVEPKN4llvm11GlobalValueENS1_3MVTE.exit ], [ %358, %.thread63 ], [ 0, %32 ], [ %.0.i42, %238 ], [ %.1.i, %338 ], [ %42, %41 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %84, %78 ], [ 0, %245 ], [ 0, %240 ], [ 0, %347 ], [ 0, %341 ], [ 0, %340 ]
+  %.0 = phi i32 [ 0, %2 ], [ %358, %.thread63 ], [ %.0.i42, %238 ], [ 0, %_ZN12_GLOBAL__N_111X86FastISel16X86MaterializeGVEPKN4llvm11GlobalValueENS1_3MVTE.exit ], [ %42, %41 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %84, %78 ], [ 0, %32 ], [ 0, %240 ], [ 0, %245 ], [ %.1.i, %338 ], [ 0, %347 ], [ 0, %341 ], [ 0, %340 ]
   ret i32 %.0
 }
 
@@ -11476,8 +11476,8 @@ _ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit: ; pre
   %57 = tail call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %49, ptr %.sroa.02.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(32) %56, i32 %45)
   br label %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.thread
 
-_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.thread: ; preds = %2, %18, %12, %11, %40, %29, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit
-  %.0 = phi i32 [ 0, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit ], [ 0, %29 ], [ %45, %40 ], [ 0, %11 ], [ 0, %12 ], [ 0, %18 ], [ 0, %2 ]
+_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit.thread: ; preds = %11, %2, %18, %12, %40, %29, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit
+  %.0 = phi i32 [ 0, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit ], [ %45, %40 ], [ 0, %29 ], [ 0, %12 ], [ 0, %18 ], [ 0, %2 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -12149,9 +12149,9 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit228:   ; preds = %344, %351
   br i1 %374, label %.thread344, label %375
 
 375:                                              ; preds = %371, %332
-  %.2165 = phi i32 [ %372, %371 ], [ %.0163416, %332 ]
-  %.2160 = phi i32 [ %373, %371 ], [ %.0158417, %332 ]
-  %.3155 = phi i64 [ %.4156410, %371 ], [ %334, %332 ]
+  %.2165 = phi i32 [ %.0163416, %332 ], [ %372, %371 ]
+  %.2160 = phi i32 [ %.0158417, %332 ], [ %373, %371 ]
+  %.3155 = phi i64 [ %334, %332 ], [ %.4156410, %371 ]
   %376 = icmp ne i64 %278, 4
   %.not.not.i.i231 = or i1 %376, %.not183361
   br i1 %.not.not.i.i231, label %377, label %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit.i232
@@ -12302,7 +12302,7 @@ _ZNK4llvm4User10getOperandEj.exit237.thread:      ; preds = %_ZN4llvm23SmallVect
   %445 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel23handleConstantAddressesEPKN4llvm5ValueERNS1_14X86AddressModeE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %444, ptr noundef nonnull align 8 dereferenceable(36) %2)
   br i1 %445, label %.thread344, label %441
 
-.thread331:                                       ; preds = %._crit_edge422, %369, %362, %.split, %358
+.thread331:                                       ; preds = %._crit_edge422, %369, %358, %362, %.split
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK4llvm3EVTeqES0_.exit.thread274
 
@@ -12311,7 +12311,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread274:               ; preds = %75, %147, %117, %_Z
   br label %.thread337
 
 .thread344:                                       ; preds = %371, %441, %442, %.thread323
-  %.11.ph = phi i1 [ %.not368.not.not, %441 ], [ true, %.thread323 ], [ %.not368.not.not, %442 ], [ false, %371 ]
+  %.11.ph = phi i1 [ true, %.thread323 ], [ %.not368.not.not, %442 ], [ %.not368.not.not, %441 ], [ false, %371 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread337
 
@@ -12320,8 +12320,8 @@ _ZNK4llvm3EVTeqES0_.exit.thread274:               ; preds = %75, %147, %117, %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %19
 
-.thread337:                                       ; preds = %67, %247, %.thread279, %_ZNK4llvm4User10getOperandEj.exit205, %_ZNK4llvm4User10getOperandEj.exit200, %_ZNK4llvm4User10getOperandEj.exit, %_ZNK4llvm3EVTeqES0_.exit.thread274, %.thread344
-  %.2342 = phi i1 [ %.11.ph, %.thread344 ], [ %446, %_ZNK4llvm3EVTeqES0_.exit.thread274 ], [ %250, %247 ], [ true, %.thread279 ], [ %164, %_ZNK4llvm4User10getOperandEj.exit205 ], [ %133, %_ZNK4llvm4User10getOperandEj.exit200 ], [ %90, %_ZNK4llvm4User10getOperandEj.exit ], [ false, %67 ]
+.thread337:                                       ; preds = %67, %.thread279, %247, %_ZNK4llvm4User10getOperandEj.exit205, %_ZNK4llvm4User10getOperandEj.exit200, %_ZNK4llvm4User10getOperandEj.exit, %_ZNK4llvm3EVTeqES0_.exit.thread274, %.thread344
+  %.2342 = phi i1 [ %.11.ph, %.thread344 ], [ true, %.thread279 ], [ %250, %247 ], [ %164, %_ZNK4llvm4User10getOperandEj.exit205 ], [ %133, %_ZNK4llvm4User10getOperandEj.exit200 ], [ %90, %_ZNK4llvm4User10getOperandEj.exit ], [ %446, %_ZNK4llvm3EVTeqES0_.exit.thread274 ], [ false, %67 ]
   %448 = load ptr, ptr %4, align 8, !tbaa !240
   %449 = icmp eq ptr %448, %8
   br i1 %449, label %_ZN4llvm11SmallVectorIPKNS_5ValueELj32EED2Ev.exit, label %450
@@ -13141,8 +13141,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_8RegisterENS_12DenseMapInfoIS
   %155 = icmp ne i32 %154, 0
   br label %.thread
 
-.thread:                                          ; preds = %8, %131, %19, %15, %13, %50, %136, %149, %153, %146
-  %.2 = phi i1 [ false, %136 ], [ %148, %146 ], [ %155, %153 ], [ false, %149 ], [ true, %131 ], [ false, %19 ], [ false, %15 ], [ false, %13 ], [ false, %8 ], [ true, %50 ]
+.thread:                                          ; preds = %8, %50, %131, %19, %15, %13, %136, %149, %153, %146
+  %.2 = phi i1 [ %148, %146 ], [ %155, %153 ], [ false, %149 ], [ false, %136 ], [ true, %50 ], [ true, %131 ], [ false, %19 ], [ false, %15 ], [ false, %13 ], [ false, %8 ]
   ret i1 %.2
 }
 
@@ -13383,7 +13383,7 @@ define linkonce_odr hidden i16 @_ZN4llvm3MVT19getScalableVectorVTES0_j(i16 %0, i
   br label %71
 
 71:                                               ; preds = %70, %69, %68, %66, %65, %64, %63, %62, %60, %59, %58, %57, %56, %55, %53, %52, %51, %50, %49, %48, %46, %45, %44, %43, %42, %41, %39, %38, %37, %36, %35, %34, %32, %31, %30, %29, %28, %27, %25, %24, %23, %22, %21, %20, %19, %17, %15, %13, %11, %9, %7, %5, %2
-  %.sroa.0.0 = phi i16 [ %spec.select, %70 ], [ 138, %2 ], [ 139, %5 ], [ 140, %7 ], [ 141, %9 ], [ 142, %11 ], [ 143, %13 ], [ 144, %15 ], [ 145, %17 ], [ 146, %19 ], [ 147, %20 ], [ 148, %21 ], [ 149, %22 ], [ 150, %23 ], [ 151, %24 ], [ 152, %25 ], [ 153, %27 ], [ 154, %28 ], [ 155, %29 ], [ 156, %30 ], [ 157, %31 ], [ 158, %32 ], [ 159, %34 ], [ 160, %35 ], [ 161, %36 ], [ 162, %37 ], [ 163, %38 ], [ 164, %39 ], [ 165, %41 ], [ 166, %42 ], [ 167, %43 ], [ 168, %44 ], [ 169, %45 ], [ 170, %46 ], [ 171, %48 ], [ 172, %49 ], [ 173, %50 ], [ 174, %51 ], [ 175, %52 ], [ 176, %53 ], [ 177, %55 ], [ 178, %56 ], [ 179, %57 ], [ 180, %58 ], [ 181, %59 ], [ 182, %60 ], [ 183, %62 ], [ 184, %63 ], [ 185, %64 ], [ 186, %65 ], [ 187, %66 ], [ 188, %68 ], [ 189, %69 ]
+  %.sroa.0.0 = phi i16 [ 138, %2 ], [ 139, %5 ], [ 140, %7 ], [ 141, %9 ], [ 142, %11 ], [ 143, %13 ], [ 144, %15 ], [ 145, %17 ], [ 146, %19 ], [ 147, %20 ], [ 148, %21 ], [ 149, %22 ], [ 150, %23 ], [ 151, %24 ], [ 152, %25 ], [ 153, %27 ], [ 154, %28 ], [ 155, %29 ], [ 156, %30 ], [ 157, %31 ], [ 158, %32 ], [ 159, %34 ], [ 160, %35 ], [ 161, %36 ], [ 162, %37 ], [ 163, %38 ], [ 164, %39 ], [ 165, %41 ], [ 166, %42 ], [ 167, %43 ], [ 168, %44 ], [ 169, %45 ], [ 170, %46 ], [ 171, %48 ], [ 172, %49 ], [ 173, %50 ], [ 174, %51 ], [ 175, %52 ], [ 176, %53 ], [ 177, %55 ], [ 178, %56 ], [ 179, %57 ], [ 180, %58 ], [ 181, %59 ], [ 182, %60 ], [ 183, %62 ], [ 184, %63 ], [ 185, %64 ], [ 186, %65 ], [ 187, %66 ], [ 188, %68 ], [ 189, %69 ], [ %spec.select, %70 ]
   ret i16 %.sroa.0.0
 }
 
@@ -13906,7 +13906,7 @@ define linkonce_odr hidden i16 @_ZN4llvm3MVT11getVectorVTES0_j(i16 %0, i32 nound
   br label %155
 
 155:                                              ; preds = %154, %153, %152, %151, %150, %149, %148, %147, %146, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %123, %122, %121, %120, %119, %118, %117, %116, %115, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %101, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %88, %87, %86, %85, %84, %83, %82, %81, %80, %78, %76, %74, %72, %71, %69, %67, %65, %64, %63, %62, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %35, %34, %32, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %2
-  %.sroa.0.0 = phi i16 [ %spec.select, %154 ], [ 17, %2 ], [ 18, %5 ], [ 19, %7 ], [ 20, %9 ], [ 21, %11 ], [ 22, %13 ], [ 23, %15 ], [ 24, %17 ], [ 25, %19 ], [ 26, %21 ], [ 27, %23 ], [ 28, %25 ], [ 29, %27 ], [ 30, %29 ], [ 31, %31 ], [ 32, %32 ], [ 33, %34 ], [ 34, %35 ], [ 35, %37 ], [ 36, %38 ], [ 37, %39 ], [ 38, %40 ], [ 39, %41 ], [ 40, %42 ], [ 41, %43 ], [ 42, %44 ], [ 43, %45 ], [ 44, %46 ], [ 45, %47 ], [ 46, %48 ], [ 47, %50 ], [ 48, %51 ], [ 49, %52 ], [ 50, %53 ], [ 51, %54 ], [ 52, %55 ], [ 53, %56 ], [ 54, %57 ], [ 55, %58 ], [ 56, %59 ], [ 57, %60 ], [ 58, %62 ], [ 59, %63 ], [ 60, %64 ], [ 61, %65 ], [ 62, %67 ], [ 63, %69 ], [ 64, %71 ], [ 65, %72 ], [ 66, %74 ], [ 67, %76 ], [ 68, %78 ], [ 69, %80 ], [ 70, %81 ], [ 71, %82 ], [ 72, %83 ], [ 73, %84 ], [ 74, %85 ], [ 75, %86 ], [ 76, %87 ], [ 77, %88 ], [ 78, %90 ], [ 79, %91 ], [ 80, %92 ], [ 81, %93 ], [ 82, %94 ], [ 83, %95 ], [ 84, %96 ], [ 85, %97 ], [ 86, %98 ], [ 87, %99 ], [ 88, %101 ], [ 89, %103 ], [ 90, %104 ], [ 91, %105 ], [ 92, %106 ], [ 93, %107 ], [ 94, %108 ], [ 95, %109 ], [ 96, %110 ], [ 97, %111 ], [ 98, %112 ], [ 99, %113 ], [ 100, %115 ], [ 101, %116 ], [ 102, %117 ], [ 103, %118 ], [ 104, %119 ], [ 105, %120 ], [ 106, %121 ], [ 107, %122 ], [ 108, %123 ], [ 109, %125 ], [ 110, %126 ], [ 111, %127 ], [ 112, %128 ], [ 113, %129 ], [ 114, %130 ], [ 115, %131 ], [ 116, %132 ], [ 117, %133 ], [ 118, %134 ], [ 119, %135 ], [ 120, %136 ], [ 121, %137 ], [ 122, %138 ], [ 123, %139 ], [ 124, %140 ], [ 125, %141 ], [ 126, %142 ], [ 127, %143 ], [ 128, %144 ], [ 129, %146 ], [ 130, %147 ], [ 131, %148 ], [ 132, %149 ], [ 133, %150 ], [ 134, %151 ], [ 135, %152 ], [ 136, %153 ]
+  %.sroa.0.0 = phi i16 [ 17, %2 ], [ 18, %5 ], [ 19, %7 ], [ 20, %9 ], [ 21, %11 ], [ 22, %13 ], [ 23, %15 ], [ 24, %17 ], [ 25, %19 ], [ 26, %21 ], [ 27, %23 ], [ 28, %25 ], [ 29, %27 ], [ 30, %29 ], [ 31, %31 ], [ 32, %32 ], [ 33, %34 ], [ 34, %35 ], [ 35, %37 ], [ 36, %38 ], [ 37, %39 ], [ 38, %40 ], [ 39, %41 ], [ 40, %42 ], [ 41, %43 ], [ 42, %44 ], [ 43, %45 ], [ 44, %46 ], [ 45, %47 ], [ 46, %48 ], [ 47, %50 ], [ 48, %51 ], [ 49, %52 ], [ 50, %53 ], [ 51, %54 ], [ 52, %55 ], [ 53, %56 ], [ 54, %57 ], [ 55, %58 ], [ 56, %59 ], [ 57, %60 ], [ 58, %62 ], [ 59, %63 ], [ 60, %64 ], [ 61, %65 ], [ 62, %67 ], [ 63, %69 ], [ 64, %71 ], [ 65, %72 ], [ 66, %74 ], [ 67, %76 ], [ 68, %78 ], [ 69, %80 ], [ 70, %81 ], [ 71, %82 ], [ 72, %83 ], [ 73, %84 ], [ 74, %85 ], [ 75, %86 ], [ 76, %87 ], [ 77, %88 ], [ 78, %90 ], [ 79, %91 ], [ 80, %92 ], [ 81, %93 ], [ 82, %94 ], [ 83, %95 ], [ 84, %96 ], [ 85, %97 ], [ 86, %98 ], [ 87, %99 ], [ 88, %101 ], [ 89, %103 ], [ 90, %104 ], [ 91, %105 ], [ 92, %106 ], [ 93, %107 ], [ 94, %108 ], [ 95, %109 ], [ 96, %110 ], [ 97, %111 ], [ 98, %112 ], [ 99, %113 ], [ 100, %115 ], [ 101, %116 ], [ 102, %117 ], [ 103, %118 ], [ 104, %119 ], [ 105, %120 ], [ 106, %121 ], [ 107, %122 ], [ 108, %123 ], [ 109, %125 ], [ 110, %126 ], [ 111, %127 ], [ 112, %128 ], [ 113, %129 ], [ 114, %130 ], [ 115, %131 ], [ 116, %132 ], [ 117, %133 ], [ 118, %134 ], [ 119, %135 ], [ 120, %136 ], [ 121, %137 ], [ 122, %138 ], [ 123, %139 ], [ 124, %140 ], [ 125, %141 ], [ 126, %142 ], [ 127, %143 ], [ 128, %144 ], [ 129, %146 ], [ 130, %147 ], [ 131, %148 ], [ 132, %149 ], [ 133, %150 ], [ 134, %151 ], [ 135, %152 ], [ 136, %153 ], [ %spec.select, %154 ]
   ret i16 %.sroa.0.0
 }
 
@@ -14031,8 +14031,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ %.fca.0.extract, %54 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ %.fca.1.extract, %54 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -14834,7 +14834,7 @@ _ZNK4llvm3EVTneES0_.exit:                         ; preds = %60, %99, %119, %swi
   br label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread
 
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread: ; preds = %2, %_ZNK4llvm4User10getOperandEj.exit, %119, %57, %_ZNK4llvm3EVTneES0_.exit, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
-  %.0 = phi i1 [ false, %119 ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ false, %_ZNK4llvm4User10getOperandEj.exit ], [ false, %57 ], [ true, %_ZNK4llvm3EVTneES0_.exit ], [ false, %2 ]
+  %.0 = phi i1 [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ false, %_ZNK4llvm4User10getOperandEj.exit ], [ true, %_ZNK4llvm3EVTneES0_.exit ], [ false, %57 ], [ false, %119 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -14933,7 +14933,7 @@ _ZNK4llvm3EVTneES0_.exit13.thread.sink.split:     ; preds = %_ZNK4llvm3EVTeqES0_
   br label %_ZNK4llvm3EVTneES0_.exit13.thread
 
 _ZNK4llvm3EVTneES0_.exit13.thread:                ; preds = %_ZNK4llvm3EVTneES0_.exit13.thread.sink.split, %_ZNK4llvm4User10getOperandEj.exit, %_ZNK4llvm3EVTneES0_.exit, %_ZNK4llvm4User10getOperandEj.exit16, %_ZNK4llvm3EVTeqES0_.exit, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
-  %.0 = phi i1 [ false, %_ZNK4llvm3EVTeqES0_.exit ], [ false, %_ZNK4llvm4User10getOperandEj.exit ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ false, %_ZNK4llvm3EVTneES0_.exit ], [ false, %_ZNK4llvm4User10getOperandEj.exit16 ], [ true, %_ZNK4llvm3EVTneES0_.exit13.thread.sink.split ]
+  %.0 = phi i1 [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ false, %_ZNK4llvm4User10getOperandEj.exit16 ], [ false, %_ZNK4llvm3EVTeqES0_.exit ], [ false, %_ZNK4llvm3EVTneES0_.exit ], [ false, %_ZNK4llvm4User10getOperandEj.exit ], [ true, %_ZNK4llvm3EVTneES0_.exit13.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -14989,7 +14989,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %18, %12, %.
   br label %_ZNK4llvm3EVTeqES0_.exit.thread
 
 _ZNK4llvm3EVTeqES0_.exit.thread:                  ; preds = %4, %.critedge2.thread, %11, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit, %18, %12
-  %.0 = phi i1 [ false, %11 ], [ %30, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ false, %12 ], [ false, %18 ], [ false, %4 ], [ true, %.critedge2.thread ]
+  %.0 = phi i1 [ false, %12 ], [ false, %18 ], [ %30, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ false, %4 ], [ false, %11 ], [ true, %.critedge2.thread ]
   ret i1 %.0
 }
 
@@ -15064,15 +15064,15 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel15X86Fa
   br label %.thread
 
 31:                                               ; preds = %26
-  %.neg130 = select i1 %12, i64 -2692, i64 -2109
-  %.neg131 = select i1 %15, i64 -14405, i64 %.neg130
-  %.neg132 = select i1 %17, i64 -14394, i64 %.neg131
+  %.neg = select i1 %12, i64 -2692, i64 -2109
+  %.neg130 = select i1 %15, i64 -14405, i64 %.neg
+  %.neg131 = select i1 %17, i64 -14394, i64 %.neg130
   br label %.thread
 
 32:                                               ; preds = %26
-  %.neg133 = select i1 %13, i64 -2679, i64 -2112
-  %.neg134 = select i1 %15, i64 -14326, i64 %.neg133
-  %.neg135 = select i1 %17, i64 -14315, i64 %.neg134
+  %.neg132 = select i1 %13, i64 -2679, i64 -2112
+  %.neg133 = select i1 %15, i64 -14326, i64 %.neg132
+  %.neg134 = select i1 %17, i64 -14315, i64 %.neg133
   br label %.thread
 
 33:                                               ; preds = %26
@@ -15082,21 +15082,21 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel15X86Fa
   br i1 %or.cond3, label %35, label %36
 
 35:                                               ; preds = %33
-  %.neg136 = select i1 %15, i64 -14246, i64 -2652
-  %.neg137 = select i1 %20, i64 -14243, i64 %.neg136
+  %.neg135 = select i1 %15, i64 -14246, i64 -2652
+  %.neg136 = select i1 %20, i64 -14243, i64 %.neg135
   br label %.thread
 
 36:                                               ; preds = %33
   br i1 %34, label %37, label %38
 
 37:                                               ; preds = %36
-  %.neg138 = select i1 %15, i64 -13973, i64 -2597
-  %.neg139 = select i1 %20, i64 -13941, i64 %.neg138
+  %.neg137 = select i1 %15, i64 -13973, i64 -2597
+  %.neg138 = select i1 %20, i64 -13941, i64 %.neg137
   br label %.thread
 
 38:                                               ; preds = %36
-  %.neg140 = select i1 %15, i64 -14487, i64 -2721
-  %.neg141 = select i1 %20, i64 -14455, i64 %.neg140
+  %.neg139 = select i1 %15, i64 -14487, i64 -2721
+  %.neg140 = select i1 %20, i64 -14455, i64 %.neg139
   br label %.thread
 
 39:                                               ; preds = %26
@@ -15106,21 +15106,21 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel15X86Fa
   br i1 %or.cond7, label %41, label %42
 
 41:                                               ; preds = %39
-  %.neg142 = select i1 %15, i64 -14246, i64 -2652
-  %.neg143 = select i1 %20, i64 -14243, i64 %.neg142
+  %.neg141 = select i1 %15, i64 -14246, i64 -2652
+  %.neg142 = select i1 %20, i64 -14243, i64 %.neg141
   br label %.thread
 
 42:                                               ; preds = %39
   br i1 %40, label %43, label %44
 
 43:                                               ; preds = %42
-  %.neg144 = select i1 %15, i64 -13932, i64 -2593
-  %.neg145 = select i1 %20, i64 -13900, i64 %.neg144
+  %.neg143 = select i1 %15, i64 -13932, i64 -2593
+  %.neg144 = select i1 %20, i64 -13900, i64 %.neg143
   br label %.thread
 
 44:                                               ; preds = %42
-  %.neg146 = select i1 %15, i64 -14446, i64 -2717
-  %.neg147 = select i1 %20, i64 -14414, i64 %.neg146
+  %.neg145 = select i1 %15, i64 -14446, i64 -2717
+  %.neg146 = select i1 %20, i64 -14414, i64 %.neg145
   br label %.thread
 
 45:                                               ; preds = %26, %26, %26, %26
@@ -15130,21 +15130,21 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel15X86Fa
   br i1 %or.cond11, label %47, label %48
 
 47:                                               ; preds = %45
-  %.neg148 = select i1 %15, i64 -14246, i64 -2652
-  %.neg149 = select i1 %20, i64 -14243, i64 %.neg148
+  %.neg147 = select i1 %15, i64 -14246, i64 -2652
+  %.neg148 = select i1 %20, i64 -14243, i64 %.neg147
   br label %.thread
 
 48:                                               ; preds = %45
   br i1 %46, label %49, label %50
 
 49:                                               ; preds = %48
-  %.neg150 = select i1 %15, i64 -14075, i64 -2633
-  %.neg151 = select i1 %20, i64 -14039, i64 %.neg150
+  %.neg149 = select i1 %15, i64 -14075, i64 -2633
+  %.neg150 = select i1 %20, i64 -14039, i64 %.neg149
   br label %.thread
 
 50:                                               ; preds = %48
-  %.neg152 = select i1 %15, i64 -14215, i64 -2637
-  %.neg153 = select i1 %20, i64 -14146, i64 %.neg152
+  %.neg151 = select i1 %15, i64 -14215, i64 -2637
+  %.neg152 = select i1 %20, i64 -14146, i64 %.neg151
   br label %.thread
 
 51:                                               ; preds = %26
@@ -15154,7 +15154,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel15X86Fa
   br i1 %or.cond15, label %53, label %54
 
 53:                                               ; preds = %51
-  %.neg154 = select i1 %20, i64 -14244, i64 -14242
+  %.neg153 = select i1 %20, i64 -14244, i64 -14242
   br label %.thread
 
 54:                                               ; preds = %51
@@ -15166,11 +15166,11 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel15X86Fa
   br i1 %52, label %57, label %58
 
 57:                                               ; preds = %56
-  %.neg155 = select i1 %20, i64 -13952, i64 -13936
+  %.neg154 = select i1 %20, i64 -13952, i64 -13936
   br label %.thread
 
 58:                                               ; preds = %56
-  %.neg156 = select i1 %20, i64 -14466, i64 -14450
+  %.neg155 = select i1 %20, i64 -14466, i64 -14450
   br label %.thread
 
 59:                                               ; preds = %26
@@ -15180,7 +15180,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel15X86Fa
   br i1 %or.cond21, label %61, label %62
 
 61:                                               ; preds = %59
-  %.neg157 = select i1 %20, i64 -14244, i64 -14242
+  %.neg156 = select i1 %20, i64 -14244, i64 -14242
   br label %.thread
 
 62:                                               ; preds = %59
@@ -15192,11 +15192,11 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel15X86Fa
   br i1 %60, label %65, label %66
 
 65:                                               ; preds = %64
-  %.neg158 = select i1 %20, i64 -13911, i64 -13895
+  %.neg157 = select i1 %20, i64 -13911, i64 -13895
   br label %.thread
 
 66:                                               ; preds = %64
-  %.neg159 = select i1 %20, i64 -14425, i64 -14409
+  %.neg158 = select i1 %20, i64 -14425, i64 -14409
   br label %.thread
 
 67:                                               ; preds = %26, %26, %26, %26
@@ -15206,7 +15206,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel15X86Fa
   br i1 %or.cond27, label %69, label %70
 
 69:                                               ; preds = %67
-  %.neg160 = select i1 %20, i64 -14244, i64 -14242
+  %.neg159 = select i1 %20, i64 -14244, i64 -14242
   br label %.thread
 
 70:                                               ; preds = %67
@@ -15218,23 +15218,23 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel15X86Fa
   br i1 %68, label %73, label %74
 
 73:                                               ; preds = %72
-  %.neg161 = select i1 %20, i64 -14050, i64 -14071
+  %.neg160 = select i1 %20, i64 -14050, i64 -14071
   br label %.thread
 
 74:                                               ; preds = %72
-  %.neg162 = select i1 %20, i64 -14157, i64 -14211
+  %.neg161 = select i1 %20, i64 -14157, i64 -14211
   br label %.thread
 
 75:                                               ; preds = %26
   %76 = icmp ugt i32 %5, 63
-  %.neg163 = select i1 %27, i64 -14245, i64 -13963
-  %spec.select.neg = select i1 %76, i64 %.neg163, i64 -14477
+  %.neg162 = select i1 %27, i64 -14245, i64 -13963
+  %spec.select.neg = select i1 %76, i64 %.neg162, i64 -14477
   br label %.thread
 
 77:                                               ; preds = %26
   %78 = icmp ugt i32 %5, 63
-  %.neg = select i1 %27, i64 -14245, i64 -13922
-  %spec.select120.neg = select i1 %78, i64 %.neg, i64 -14436
+  %.neg163 = select i1 %27, i64 -14245, i64 -13922
+  %spec.select120.neg = select i1 %78, i64 %.neg163, i64 -14436
   br label %.thread
 
 79:                                               ; preds = %26, %26, %26, %26
@@ -15244,8 +15244,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel15X86Fa
   br label %.thread
 
 .thread:                                          ; preds = %26, %26, %79, %77, %75, %69, %73, %74, %61, %65, %66, %53, %57, %58, %47, %50, %49, %41, %44, %43, %35, %38, %37, %32, %31, %30, %29, %28
-  %.sroa.0125.0129 = phi i16 [ 132, %77 ], [ %1, %28 ], [ %1, %29 ], [ %1, %30 ], [ 12, %31 ], [ 13, %32 ], [ 111, %35 ], [ 111, %37 ], [ 111, %38 ], [ 129, %41 ], [ 129, %43 ], [ 129, %44 ], [ %1, %47 ], [ %1, %49 ], [ %1, %50 ], [ 115, %53 ], [ 115, %57 ], [ 115, %58 ], [ 131, %61 ], [ 131, %65 ], [ 131, %66 ], [ %1, %69 ], [ %1, %73 ], [ %1, %74 ], [ 5, %26 ], [ 120, %75 ], [ %1, %79 ], [ 5, %26 ]
-  %.0118.neg = phi i64 [ %spec.select120.neg, %77 ], [ -2531, %28 ], [ -2551, %29 ], [ -2568, %30 ], [ %.neg132, %31 ], [ %.neg135, %32 ], [ %.neg137, %35 ], [ %.neg139, %37 ], [ %.neg141, %38 ], [ %.neg143, %41 ], [ %.neg145, %43 ], [ %.neg147, %44 ], [ %.neg149, %47 ], [ %.neg151, %49 ], [ %.neg153, %50 ], [ %.neg154, %53 ], [ %.neg155, %57 ], [ %.neg156, %58 ], [ %.neg157, %61 ], [ %.neg158, %65 ], [ %.neg159, %66 ], [ %.neg160, %69 ], [ %.neg161, %73 ], [ %.neg162, %74 ], [ -2587, %26 ], [ %spec.select.neg, %75 ], [ %spec.select121.neg, %79 ], [ -2587, %26 ]
+  %.sroa.0125.0129 = phi i16 [ %1, %28 ], [ %1, %29 ], [ %1, %30 ], [ 12, %31 ], [ 13, %32 ], [ 111, %35 ], [ 111, %37 ], [ 111, %38 ], [ 129, %41 ], [ 129, %43 ], [ 129, %44 ], [ %1, %47 ], [ %1, %49 ], [ %1, %50 ], [ 115, %53 ], [ 115, %57 ], [ 115, %58 ], [ 131, %61 ], [ 131, %65 ], [ 131, %66 ], [ %1, %69 ], [ %1, %73 ], [ %1, %74 ], [ 120, %75 ], [ 132, %77 ], [ %1, %79 ], [ 5, %26 ], [ 5, %26 ]
+  %.0118.neg = phi i64 [ -2531, %28 ], [ -2551, %29 ], [ -2568, %30 ], [ %.neg131, %31 ], [ %.neg134, %32 ], [ %.neg136, %35 ], [ %.neg138, %37 ], [ %.neg140, %38 ], [ %.neg142, %41 ], [ %.neg144, %43 ], [ %.neg146, %44 ], [ %.neg148, %47 ], [ %.neg150, %49 ], [ %.neg152, %50 ], [ %.neg153, %53 ], [ %.neg154, %57 ], [ %.neg155, %58 ], [ %.neg156, %61 ], [ %.neg157, %65 ], [ %.neg158, %66 ], [ %.neg159, %69 ], [ %.neg160, %73 ], [ %.neg161, %74 ], [ %spec.select.neg, %75 ], [ %spec.select120.neg, %77 ], [ %spec.select121.neg, %79 ], [ -2587, %26 ], [ -2587, %26 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %82 = load ptr, ptr %81, align 8, !tbaa !266
   %83 = load ptr, ptr %82, align 8, !tbaa !3
@@ -15288,7 +15288,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel15X86Fa
   br label %109
 
 109:                                              ; preds = %26, %70, %62, %54, %108
-  %.0 = phi i1 [ false, %62 ], [ true, %108 ], [ false, %26 ], [ false, %54 ], [ false, %70 ]
+  %.0 = phi i1 [ true, %108 ], [ false, %54 ], [ false, %62 ], [ false, %70 ], [ false, %26 ]
   ret i1 %.0
 }
 
@@ -15361,9 +15361,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86Fa
   %40 = icmp ult i64 %39, -4294967296
   br i1 %40, label %81, label %.thread
 
-.thread:                                          ; preds = %19, %22, %21, %20, %38
-  %.01944.neg = phi i64 [ -2560, %38 ], [ -2579, %19 ], [ -2542, %22 ], [ -2523, %21 ], [ -2579, %20 ]
-  %.12342 = phi i1 [ true, %38 ], [ false, %19 ], [ true, %22 ], [ true, %21 ], [ true, %20 ]
+.thread:                                          ; preds = %19, %20, %22, %21, %38
+  %.01944.neg = phi i64 [ -2560, %38 ], [ -2579, %19 ], [ -2579, %20 ], [ -2542, %22 ], [ -2523, %21 ]
+  %.12342 = phi i1 [ true, %38 ], [ false, %19 ], [ true, %20 ], [ true, %22 ], [ true, %21 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !243
@@ -15784,23 +15784,23 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel16X86Fa
   br label %99
 
 96:                                               ; preds = %30
-  %.neg130 = select i1 %31, i64 -14260, i64 -13961
-  %spec.select.neg = select i1 %5, i64 %.neg130, i64 -14475
+  %.neg128 = select i1 %31, i64 -14260, i64 -13961
+  %spec.select.neg = select i1 %5, i64 %.neg128, i64 -14475
   br label %99
 
 97:                                               ; preds = %30
-  %.neg128 = select i1 %31, i64 -14255, i64 -13920
-  %spec.select84.neg = select i1 %5, i64 %.neg128, i64 -14434
+  %.neg129 = select i1 %31, i64 -14255, i64 -13920
+  %spec.select84.neg = select i1 %5, i64 %.neg129, i64 -14434
   br label %99
 
 98:                                               ; preds = %30, %30, %30, %30
-  %.neg129 = select i1 %31, i64 -14250, i64 -14059
-  %spec.select85.neg = select i1 %5, i64 %.neg129, i64 -14166
+  %.neg130 = select i1 %31, i64 -14250, i64 -14059
+  %spec.select85.neg = select i1 %5, i64 %.neg130, i64 -14166
   br label %99
 
 99:                                               ; preds = %98, %97, %96, %61, %62, %58, %59, %30, %32, %95, %94, %93, %90, %89, %88, %85, %84, %83, %80, %79, %78, %75, %74, %73, %70, %69, %68, %63, %60, %64, %56, %54, %53
-  %.081.neg = phi i64 [ -2580, %32 ], [ -2524, %53 ], [ %.neg, %54 ], [ %.neg95, %56 ], [ -2580, %30 ], [ %.neg97, %60 ], [ -2659, %59 ], [ -4713, %58 ], [ %.neg99, %63 ], [ -2658, %62 ], [ %.neg100, %64 ], [ %.neg102, %68 ], [ %.neg104, %69 ], [ %.neg106, %70 ], [ %.neg108, %73 ], [ %.neg110, %74 ], [ %.neg112, %75 ], [ %.neg114, %78 ], [ %.neg116, %79 ], [ %.neg118, %80 ], [ %.neg119, %83 ], [ %.neg120, %84 ], [ %.neg121, %85 ], [ %.neg122, %88 ], [ %.neg123, %89 ], [ %.neg124, %90 ], [ %.neg125, %93 ], [ %.neg126, %94 ], [ %.neg127, %95 ], [ %spec.select84.neg, %97 ], [ -4714, %61 ], [ %spec.select85.neg, %98 ], [ %spec.select.neg, %96 ]
-  %.1 = phi i32 [ %33, %32 ], [ %2, %53 ], [ %2, %54 ], [ %2, %56 ], [ %2, %30 ], [ %2, %60 ], [ %2, %59 ], [ %2, %58 ], [ %2, %63 ], [ %2, %62 ], [ %2, %64 ], [ %2, %68 ], [ %2, %69 ], [ %2, %70 ], [ %2, %73 ], [ %2, %74 ], [ %2, %75 ], [ %2, %78 ], [ %2, %79 ], [ %2, %80 ], [ %2, %83 ], [ %2, %84 ], [ %2, %85 ], [ %2, %88 ], [ %2, %89 ], [ %2, %90 ], [ %2, %93 ], [ %2, %94 ], [ %2, %95 ], [ %2, %97 ], [ %2, %61 ], [ %2, %98 ], [ %2, %96 ]
+  %.081.neg = phi i64 [ -2524, %53 ], [ %.neg, %54 ], [ %.neg95, %56 ], [ %.neg97, %60 ], [ %.neg99, %63 ], [ %.neg100, %64 ], [ %.neg102, %68 ], [ %.neg104, %69 ], [ %.neg106, %70 ], [ %.neg108, %73 ], [ %.neg110, %74 ], [ %.neg112, %75 ], [ %.neg114, %78 ], [ %.neg116, %79 ], [ %.neg118, %80 ], [ %.neg119, %83 ], [ %.neg120, %84 ], [ %.neg121, %85 ], [ %.neg122, %88 ], [ %.neg123, %89 ], [ %.neg124, %90 ], [ %.neg125, %93 ], [ %.neg126, %94 ], [ %.neg127, %95 ], [ -2580, %32 ], [ -2580, %30 ], [ -2659, %59 ], [ -4713, %58 ], [ -2658, %62 ], [ -4714, %61 ], [ %spec.select.neg, %96 ], [ %spec.select84.neg, %97 ], [ %spec.select85.neg, %98 ]
+  %.1 = phi i32 [ %2, %53 ], [ %2, %54 ], [ %2, %56 ], [ %2, %60 ], [ %2, %63 ], [ %2, %64 ], [ %2, %68 ], [ %2, %69 ], [ %2, %70 ], [ %2, %73 ], [ %2, %74 ], [ %2, %75 ], [ %2, %78 ], [ %2, %79 ], [ %2, %80 ], [ %2, %83 ], [ %2, %84 ], [ %2, %85 ], [ %2, %88 ], [ %2, %89 ], [ %2, %90 ], [ %2, %93 ], [ %2, %94 ], [ %2, %95 ], [ %33, %32 ], [ %2, %30 ], [ %2, %59 ], [ %2, %58 ], [ %2, %62 ], [ %2, %61 ], [ %2, %96 ], [ %2, %97 ], [ %2, %98 ]
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %101 = load ptr, ptr %100, align 8, !tbaa !234
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
@@ -16047,7 +16047,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit.i:    ; preds = %42, %35
   br i1 %46, label %select.unfold, label %.critedge33.thread
 
 select.unfold:                                    ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i, %27, %28, %29
-  %.0.i.ph.neg = phi i64 [ -1309, %27 ], [ -1291, %29 ], [ -1282, %28 ], [ -1300, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i ]
+  %.0.i.ph.neg = phi i64 [ -1291, %29 ], [ -1282, %28 ], [ -1309, %27 ], [ -1300, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !243
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 680
@@ -16186,13 +16186,13 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
   %102 = select i1 %92, i32 22346, i32 %101
   br i1 %91, label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread, label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit
 
-_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit: ; preds = %95, %99
-  %.0.i37 = phi i32 [ %102, %99 ], [ %98, %95 ]
+_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit: ; preds = %99, %95
+  %.0.i37 = phi i32 [ %98, %95 ], [ %102, %99 ]
   %103 = icmp eq i32 %.0.i37, 0
   br i1 %103, label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread24, label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread
 
-_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread: ; preds = %95, %99, %.critedge33, %.critedge33.thread, %94, %93, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit
-  %.0.i3723 = phi i32 [ %.0.i37, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit ], [ 22341, %99 ], [ 1312, %.critedge33 ], [ 1303, %.critedge33.thread ], [ 1294, %94 ], [ 1285, %93 ], [ 22355, %95 ]
+_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread: ; preds = %99, %95, %.critedge33, %.critedge33.thread, %94, %93, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit
+  %.0.i3723 = phi i32 [ %.0.i37, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit ], [ 1303, %.critedge33.thread ], [ 1294, %94 ], [ 1285, %93 ], [ 1312, %.critedge33 ], [ 22355, %95 ], [ 22341, %99 ]
   %104 = tail call i32 @_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %.014) #19
   %.not29 = icmp eq i32 %104, 0
   br i1 %.not29, label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread24, label %105
@@ -16281,7 +16281,7 @@ _ZN4llvm8DebugLocD2Ev.exit45:                     ; preds = %_ZN4llvm10MIMetadat
   br label %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread24
 
 _ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread24: ; preds = %_ZN4llvm8DebugLocD2Ev.exit45, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread, %.critedge33, %_ZN4llvm8DebugLocD2Ev.exit, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit, %5
-  %.0 = phi i1 [ false, %5 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit ], [ false, %.critedge33 ], [ false, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit ], [ false, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread ], [ true, %_ZN4llvm8DebugLocD2Ev.exit45 ]
+  %.0 = phi i1 [ false, %5 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit ], [ false, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit ], [ false, %.critedge33 ], [ false, %_ZL18X86ChooseCmpOpcodeN4llvm3EVTEPKNS_12X86SubtargetE.exit.thread ], [ true, %_ZN4llvm8DebugLocD2Ev.exit45 ]
   ret i1 %.0
 }
 
@@ -16495,8 +16495,8 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %87, %90
   store i32 %.027, ptr %1, align 4, !tbaa !527
   br label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.thread
 
-_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.thread: ; preds = %73, %.lr.ph, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %46, %40, %39, %16, %13, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %8, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit, %62, %.critedge, %_ZNK4llvm4User8operandsEv.exit, %_ZN4llvm10successorsEPKNS_11InstructionE.exit, %98, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %40 ], [ false, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ false, %16 ], [ false, %.critedge ], [ false, %62 ], [ false, %_ZNK4llvm4User8operandsEv.exit ], [ false, %_ZN4llvm10successorsEPKNS_11InstructionE.exit ], [ true, %98 ], [ false, %46 ], [ false, %8 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i ], [ false, %13 ], [ false, %39 ], [ false, %.lr.ph ], [ false, %73 ]
+_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.thread: ; preds = %73, %.lr.ph, %39, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %46, %40, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %13, %16, %8, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit, %62, %.critedge, %_ZNK4llvm4User8operandsEv.exit, %_ZN4llvm10successorsEPKNS_11InstructionE.exit, %98, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit, %4
+  %.0 = phi i1 [ false, %4 ], [ false, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit ], [ false, %_ZN12_GLOBAL__N_111X86FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTEb.exit ], [ false, %.critedge ], [ false, %62 ], [ true, %98 ], [ false, %_ZN4llvm10successorsEPKNS_11InstructionE.exit ], [ false, %_ZNK4llvm4User8operandsEv.exit ], [ false, %8 ], [ false, %16 ], [ false, %13 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i ], [ false, %40 ], [ false, %46 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ false, %39 ], [ false, %.lr.ph ], [ false, %73 ]
   ret i1 %.0
 }
 
@@ -16602,7 +16602,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeI
   br label %"_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.exit"
 
 "_ZSt6any_ofIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPS3_PKNS0_5ValueEE3$_0EbT_SH_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %9, %15, %21, %32, %39, %46, %51
-  %.sroa.9.0.i.i.i.i.i = phi i32 [ %.sroa.15.1.i.i.i.i.i, %39 ], [ %.sroa.2.0.copyload.i.i.i.i12, %51 ], [ %.sroa.15.2.i.i.i.i.i, %46 ], [ %.sroa.15.0.lcssa.i.i.i.i.i, %32 ], [ %.sroa.15.095.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %10, %9 ], [ %16, %15 ], [ %22, %21 ]
+  %.sroa.9.0.i.i.i.i.i = phi i32 [ %.sroa.2.0.copyload.i.i.i.i12, %51 ], [ %.sroa.15.0.lcssa.i.i.i.i.i, %32 ], [ %.sroa.15.1.i.i.i.i.i, %39 ], [ %.sroa.15.2.i.i.i.i.i, %46 ], [ %.sroa.15.095.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %10, %9 ], [ %16, %15 ], [ %22, %21 ]
   %52 = icmp ne i32 %.sroa.2.0.copyload.i.i.i.i12, %.sroa.9.0.i.i.i.i.i
   ret i1 %52
 }
@@ -16715,7 +16715,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeI
   br label %"_ZSt6any_ofIPKN4llvm3UseEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPKNS0_11InstructionEPKNS0_5ValueEE3$_1EbT_SG_T0_.exit"
 
 "_ZSt6any_ofIPKN4llvm3UseEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPKNS0_11InstructionEPKNS0_5ValueEE3$_1EbT_SG_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZSt6any_ofIPKN4llvm3UseEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPKNS0_11InstructionEPKNS0_5ValueEE3$_1EbT_SG_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKN4llvm3UseEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPKNS0_11InstructionEPKNS0_5ValueEE3$_1EbT_SG_T0_.exit.loopexit.split.loop.exit13", %"_ZSt6any_ofIPKN4llvm3UseEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPKNS0_11InstructionEPKNS0_5ValueEE3$_1EbT_SG_T0_.exit.loopexit.split.loop.exit15", %22, %26, %30, %32
-  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %26 ], [ %.8.val, %32 ], [ %.2.i.i.i.i.i, %30 ], [ %.029.lcssa.i.i.i.i.i, %22 ], [ %35, %"_ZSt6any_ofIPKN4llvm3UseEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPKNS0_11InstructionEPKNS0_5ValueEE3$_1EbT_SG_T0_.exit.loopexit.split.loop.exit15" ], [ %34, %"_ZSt6any_ofIPKN4llvm3UseEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPKNS0_11InstructionEPKNS0_5ValueEE3$_1EbT_SG_T0_.exit.loopexit.split.loop.exit13" ], [ %33, %"_ZSt6any_ofIPKN4llvm3UseEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPKNS0_11InstructionEPKNS0_5ValueEE3$_1EbT_SG_T0_.exit.loopexit.split.loop.exit" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.028.i.i.i.i.i = phi ptr [ %.8.val, %32 ], [ %.029.lcssa.i.i.i.i.i, %22 ], [ %.1.i.i.i.i.i, %26 ], [ %.2.i.i.i.i.i, %30 ], [ %33, %"_ZSt6any_ofIPKN4llvm3UseEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPKNS0_11InstructionEPKNS0_5ValueEE3$_1EbT_SG_T0_.exit.loopexit.split.loop.exit" ], [ %34, %"_ZSt6any_ofIPKN4llvm3UseEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPKNS0_11InstructionEPKNS0_5ValueEE3$_1EbT_SG_T0_.exit.loopexit.split.loop.exit13" ], [ %35, %"_ZSt6any_ofIPKN4llvm3UseEZN12_GLOBAL__N_111X86FastISel20foldX86XALUIntrinsicERNS0_3X868CondCodeEPKNS0_11InstructionEPKNS0_5ValueEE3$_1EbT_SG_T0_.exit.loopexit.split.loop.exit15" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %36 = icmp ne ptr %.8.val, %.028.i.i.i.i.i
   ret i1 %36
 }
@@ -17155,7 +17155,7 @@ _ZNK4llvm3EVTeqES0_.exit:                         ; preds = %_ZNK4llvm4User10get
   br label %_ZNK4llvm3EVTneES0_.exit32.thread
 
 _ZNK4llvm3EVTneES0_.exit32.thread:                ; preds = %_ZNK4llvm4User10getOperandEj.exit, %_ZNK4llvm3EVTeqES0_.exit, %59, %_ZNK4llvm4User10getOperandEj.exit34, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZNK4llvm3EVTeqES0_.exit ], [ false, %_ZNK4llvm4User10getOperandEj.exit34 ], [ true, %59 ], [ false, %_ZNK4llvm4User10getOperandEj.exit ]
+  %.0 = phi i1 [ false, %3 ], [ false, %_ZNK4llvm4User10getOperandEj.exit34 ], [ true, %59 ], [ false, %_ZNK4llvm4User10getOperandEj.exit ], [ false, %_ZNK4llvm3EVTeqES0_.exit ]
   ret i1 %.0
 }
 
@@ -17430,7 +17430,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18TryEm
   br label %34
 
 34:                                               ; preds = %33, %31, %.lr.ph.split
-  %.sroa.021.0 = phi i16 [ 7, %31 ], [ 8, %.lr.ph.split ], [ %spec.select, %33 ]
+  %.sroa.021.0 = phi i16 [ 8, %.lr.ph.split ], [ 7, %31 ], [ %spec.select, %33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel15X86FastEmitLoadEN4llvm3MVTERNS1_14X86AddressModeEPNS1_17MachineMemOperandERjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i16 %.sroa.021.0, ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 1)
   %36 = load i32, ptr %5, align 4, !tbaa !395
@@ -17533,7 +17533,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %104, %101, %75, %72, %34, %31
-  %.tr120.be.in = phi ptr [ %79, %75 ], [ %38, %34 ], [ %33, %31 ], [ %74, %72 ], [ %103, %101 ], [ %108, %104 ]
+  %.tr120.be.in = phi ptr [ %33, %31 ], [ %38, %34 ], [ %74, %72 ], [ %79, %75 ], [ %103, %101 ], [ %108, %104 ]
   %.tr120.be = load ptr, ptr %.tr120.be.in, align 8, !tbaa !218
   br label %tailrecurse
 
@@ -17751,7 +17751,7 @@ _ZNK4llvm3EVTeqES0_.exit82.thread:                ; preds = %94
   br label %.thread106
 
 .thread106:                                       ; preds = %110, %158, %151, %121, %127, %134, %132, %141, %154
-  %.0 = phi i1 [ false, %110 ], [ true, %132 ], [ false, %141 ], [ %153, %151 ], [ %160, %158 ], [ false, %154 ], [ true, %134 ], [ false, %121 ], [ false, %127 ]
+  %.0 = phi i1 [ false, %154 ], [ false, %141 ], [ true, %132 ], [ true, %134 ], [ false, %127 ], [ false, %121 ], [ %160, %158 ], [ %153, %151 ], [ false, %110 ]
   ret i1 %.0
 }
 
@@ -17845,7 +17845,7 @@ define internal fastcc noundef range(i32 0, 5) i32 @_ZL33computeBytesPoppedByCal
   br label %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread
 
 _ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread:       ; preds = %7, %19, %28, %30, %32, %17, %17, %17, %17, %3, %35
-  %.0 = phi i32 [ 4, %35 ], [ 0, %3 ], [ 0, %7 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ], [ 0, %32 ], [ 0, %30 ], [ 0, %28 ], [ 0, %19 ]
+  %.0 = phi i32 [ 4, %35 ], [ 0, %3 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ], [ 0, %32 ], [ 0, %30 ], [ 0, %28 ], [ 0, %19 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -17979,7 +17979,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0
@@ -18909,7 +18909,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel18fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit: ; preds = %203, %197, %196, %194, %190, %184, %183, %181, %177, %171, %170, %168, %162, %161, %.thread.thread.i, %.thread.i, %157, %155, %144, %.thread6.thread.i, %.thread6.i, %140, %136, %134, %123, %121, %115, %114, %112, %108, %104, %102, %91, %89, %85, %83, %77, %75, %64, %62, %56, %55, %53, %49, %45, %43, %32, %30, %26, %24, %18, %16, %5, %4
-  %.0 = phi i32 [ 0, %184 ], [ 0, %4 ], [ 0, %18 ], [ 0, %45 ], [ 0, %56 ], [ 0, %77 ], [ 0, %104 ], [ 0, %115 ], [ 0, %136 ], [ 0, %157 ], [ 0, %162 ], [ 0, %171 ], [ %25, %24 ], [ %17, %16 ], [ 0, %5 ], [ %31, %30 ], [ 0, %26 ], [ %54, %53 ], [ %44, %43 ], [ 0, %32 ], [ 0, %49 ], [ 0, %55 ], [ %63, %62 ], [ %84, %83 ], [ %76, %75 ], [ 0, %64 ], [ %90, %89 ], [ 0, %85 ], [ %113, %112 ], [ %103, %102 ], [ 0, %91 ], [ 0, %108 ], [ 0, %114 ], [ %122, %121 ], [ %141, %140 ], [ %135, %134 ], [ 0, %123 ], [ %143, %.thread6.thread.i ], [ 0, %.thread6.i ], [ %160, %.thread.thread.i ], [ %156, %155 ], [ 0, %144 ], [ 0, %.thread.i ], [ 0, %161 ], [ %169, %168 ], [ 0, %170 ], [ %182, %181 ], [ 0, %177 ], [ 0, %183 ], [ %195, %194 ], [ 0, %190 ], [ 0, %196 ], [ %204, %203 ], [ 0, %197 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ %31, %30 ], [ %25, %24 ], [ 0, %5 ], [ 0, %18 ], [ 0, %26 ], [ %44, %43 ], [ %54, %53 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ %63, %62 ], [ 0, %55 ], [ 0, %56 ], [ %76, %75 ], [ %90, %89 ], [ %84, %83 ], [ 0, %64 ], [ 0, %77 ], [ 0, %85 ], [ %103, %102 ], [ %113, %112 ], [ 0, %91 ], [ 0, %104 ], [ 0, %108 ], [ %122, %121 ], [ 0, %114 ], [ 0, %115 ], [ %135, %134 ], [ %143, %.thread6.thread.i ], [ %141, %140 ], [ 0, %123 ], [ 0, %.thread6.i ], [ 0, %136 ], [ %156, %155 ], [ %160, %.thread.thread.i ], [ 0, %144 ], [ 0, %.thread.i ], [ 0, %157 ], [ %169, %168 ], [ 0, %161 ], [ 0, %162 ], [ %182, %181 ], [ 0, %170 ], [ 0, %177 ], [ 0, %171 ], [ %195, %194 ], [ 0, %183 ], [ 0, %190 ], [ 0, %184 ], [ %204, %203 ], [ 0, %196 ], [ 0, %197 ]
   ret i32 %.0
 }
 
@@ -19122,7 +19122,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel22fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_BITCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_BITCAST_MVT_i32_rEN4llvm3MVTEj.exit: ; preds = %110, %106, %100, %98, %94, %88, %87, %85, %81, %75, %.sink.split.i.i, %70, %63, %.sink.split.i, %58, %51, %49, %45, %39, %37, %35, %31, %29, %22, %20, %18, %14, %12, %5, %4
-  %.0 = phi i32 [ 0, %75 ], [ 0, %4 ], [ 0, %14 ], [ 0, %39 ], [ %62, %.sink.split.i ], [ %19, %18 ], [ %13, %12 ], [ 0, %5 ], [ %21, %20 ], [ 0, %31 ], [ 0, %22 ], [ %30, %29 ], [ %36, %35 ], [ %38, %37 ], [ %50, %49 ], [ 0, %45 ], [ 0, %51 ], [ 0, %58 ], [ %74, %.sink.split.i.i ], [ 0, %63 ], [ 0, %70 ], [ %86, %85 ], [ 0, %81 ], [ 0, %88 ], [ 0, %87 ], [ %99, %98 ], [ 0, %94 ], [ %111, %110 ], [ 0, %106 ], [ 0, %100 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ %21, %20 ], [ %19, %18 ], [ 0, %5 ], [ 0, %14 ], [ 0, %22 ], [ %30, %29 ], [ %38, %37 ], [ %36, %35 ], [ 0, %31 ], [ %50, %49 ], [ 0, %45 ], [ 0, %39 ], [ 0, %51 ], [ 0, %58 ], [ %62, %.sink.split.i ], [ 0, %63 ], [ 0, %70 ], [ %74, %.sink.split.i.i ], [ %86, %85 ], [ 0, %81 ], [ 0, %75 ], [ 0, %87 ], [ %99, %98 ], [ 0, %94 ], [ 0, %88 ], [ %111, %110 ], [ 0, %106 ], [ 0, %100 ]
   ret i32 %.0
 }
 
@@ -19183,7 +19183,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_BRIND_MVT_i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_BRIND_MVT_i16_rEN4llvm3MVTEj.exit: ; preds = %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %15 ], [ 0, %4 ], [ 0, %6 ], [ %13, %12 ], [ 0, %5 ], [ %22, %21 ], [ 0, %14 ], [ 0, %23 ], [ %31, %30 ], [ 0, %24 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -19282,7 +19282,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_BSWAP_MVT_i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_BSWAP_MVT_i16_rEN4llvm3MVTEj.exit: ; preds = %.thread.sink.split.i14, %49, %38, %.thread.sink.split.i, %33, %22, %20, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ %37, %.thread.sink.split.i ], [ 0, %4 ], [ 0, %6 ], [ 0, %5 ], [ %21, %20 ], [ 0, %16 ], [ 0, %12 ], [ 0, %22 ], [ 0, %33 ], [ 0, %38 ], [ 0, %49 ], [ %53, %.thread.sink.split.i14 ]
+  %.0 = phi i32 [ 0, %4 ], [ %21, %20 ], [ 0, %5 ], [ 0, %16 ], [ 0, %12 ], [ 0, %6 ], [ 0, %22 ], [ 0, %33 ], [ %37, %.thread.sink.split.i ], [ 0, %38 ], [ 0, %49 ], [ %53, %.thread.sink.split.i14 ]
   ret i32 %.0
 }
 
@@ -19469,7 +19469,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD_CTLZ_MVT_i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD_CTLZ_MVT_i16_rEN4llvm3MVTEj.exit: ; preds = %100, %94, %93, %91, %87, %81, %80, %78, %74, %68, %67, %65, %59, %58, %56, %52, %46, %45, %43, %39, %33, %32, %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %81 ], [ 0, %4 ], [ 0, %6 ], [ 0, %15 ], [ 0, %24 ], [ 0, %33 ], [ 0, %46 ], [ 0, %59 ], [ 0, %68 ], [ 0, %5 ], [ %13, %12 ], [ 0, %14 ], [ %22, %21 ], [ 0, %23 ], [ %31, %30 ], [ 0, %32 ], [ %44, %43 ], [ 0, %39 ], [ 0, %45 ], [ %57, %56 ], [ 0, %52 ], [ 0, %58 ], [ %66, %65 ], [ 0, %67 ], [ %79, %78 ], [ 0, %74 ], [ 0, %80 ], [ %92, %91 ], [ 0, %87 ], [ 0, %93 ], [ %101, %100 ], [ 0, %94 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ], [ %44, %43 ], [ 0, %32 ], [ 0, %39 ], [ 0, %33 ], [ %57, %56 ], [ 0, %45 ], [ 0, %52 ], [ 0, %46 ], [ %66, %65 ], [ 0, %58 ], [ 0, %59 ], [ %79, %78 ], [ 0, %67 ], [ 0, %74 ], [ 0, %68 ], [ %92, %91 ], [ 0, %80 ], [ 0, %87 ], [ 0, %81 ], [ %101, %100 ], [ 0, %93 ], [ 0, %94 ]
   ret i32 %.0
 }
 
@@ -19782,7 +19782,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_CTPOP_MVT_i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_CTPOP_MVT_i16_rEN4llvm3MVTEj.exit: ; preds = %170, %164, %163, %161, %157, %151, %150, %148, %144, %138, %137, %135, %129, %128, %126, %122, %116, %115, %113, %109, %103, %102, %100, %94, %93, %91, %87, %81, %80, %78, %74, %68, %67, %65, %59, %58, %56, %52, %46, %45, %43, %39, %33, %32, %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %151 ], [ 0, %4 ], [ 0, %6 ], [ 0, %15 ], [ 0, %24 ], [ 0, %33 ], [ 0, %46 ], [ 0, %59 ], [ 0, %68 ], [ 0, %81 ], [ 0, %94 ], [ 0, %103 ], [ 0, %116 ], [ 0, %129 ], [ 0, %138 ], [ 0, %5 ], [ %13, %12 ], [ 0, %14 ], [ %22, %21 ], [ 0, %23 ], [ %31, %30 ], [ 0, %32 ], [ %44, %43 ], [ 0, %39 ], [ 0, %45 ], [ %57, %56 ], [ 0, %52 ], [ 0, %58 ], [ %66, %65 ], [ 0, %67 ], [ %79, %78 ], [ 0, %74 ], [ 0, %80 ], [ %92, %91 ], [ 0, %87 ], [ 0, %93 ], [ %101, %100 ], [ 0, %102 ], [ %114, %113 ], [ 0, %109 ], [ 0, %115 ], [ %127, %126 ], [ 0, %122 ], [ 0, %128 ], [ %136, %135 ], [ 0, %137 ], [ %149, %148 ], [ 0, %144 ], [ 0, %150 ], [ %162, %161 ], [ 0, %157 ], [ 0, %163 ], [ %171, %170 ], [ 0, %164 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ], [ %44, %43 ], [ 0, %32 ], [ 0, %39 ], [ 0, %33 ], [ %57, %56 ], [ 0, %45 ], [ 0, %52 ], [ 0, %46 ], [ %66, %65 ], [ 0, %58 ], [ 0, %59 ], [ %79, %78 ], [ 0, %67 ], [ 0, %74 ], [ 0, %68 ], [ %92, %91 ], [ 0, %80 ], [ 0, %87 ], [ 0, %81 ], [ %101, %100 ], [ 0, %93 ], [ 0, %94 ], [ %114, %113 ], [ 0, %102 ], [ 0, %109 ], [ 0, %103 ], [ %127, %126 ], [ 0, %115 ], [ 0, %122 ], [ 0, %116 ], [ %136, %135 ], [ 0, %128 ], [ 0, %129 ], [ %149, %148 ], [ 0, %137 ], [ 0, %144 ], [ 0, %138 ], [ %162, %161 ], [ 0, %150 ], [ 0, %157 ], [ 0, %151 ], [ %171, %170 ], [ 0, %163 ], [ 0, %164 ]
   ret i32 %.0
 }
 
@@ -19843,7 +19843,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD_CTTZ_MVT_i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD_CTTZ_MVT_i16_rEN4llvm3MVTEj.exit: ; preds = %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %15 ], [ 0, %4 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ 0, %14 ], [ %22, %21 ], [ 0, %23 ], [ %31, %30 ], [ 0, %24 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -19904,7 +19904,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD_FABS_MVT_f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD_FABS_MVT_f32_rEN4llvm3MVTEj.exit: ; preds = %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %15 ], [ 0, %4 ], [ 0, %6 ], [ %13, %12 ], [ 0, %5 ], [ %22, %21 ], [ 0, %14 ], [ 0, %23 ], [ %31, %30 ], [ 0, %24 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -19965,7 +19965,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD_FNEG_MVT_f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD_FNEG_MVT_f32_rEN4llvm3MVTEj.exit: ; preds = %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %15 ], [ 0, %4 ], [ 0, %6 ], [ %13, %12 ], [ 0, %5 ], [ %22, %21 ], [ 0, %14 ], [ 0, %23 ], [ %31, %30 ], [ 0, %24 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -20101,7 +20101,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_ISD_FP_EXTEND_MVT_f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel32fastEmit_ISD_FP_EXTEND_MVT_f32_rEN4llvm3MVTEj.exit: ; preds = %68, %62, %61, %.thread.thread.i, %.thread.i, %57, %55, %44, %42, %36, %35, %33, %27, %25, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %57 ], [ 0, %4 ], [ 0, %6 ], [ 0, %27 ], [ 0, %36 ], [ %13, %12 ], [ 0, %5 ], [ 0, %15 ], [ 0, %14 ], [ %26, %25 ], [ 0, %21 ], [ %34, %33 ], [ 0, %35 ], [ %43, %42 ], [ %60, %.thread.thread.i ], [ %56, %55 ], [ 0, %44 ], [ 0, %.thread.i ], [ 0, %61 ], [ %69, %68 ], [ 0, %62 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ 0, %14 ], [ %26, %25 ], [ 0, %21 ], [ 0, %15 ], [ %34, %33 ], [ 0, %27 ], [ %43, %42 ], [ 0, %35 ], [ 0, %36 ], [ %56, %55 ], [ %60, %.thread.thread.i ], [ 0, %44 ], [ 0, %.thread.i ], [ 0, %57 ], [ %69, %68 ], [ 0, %61 ], [ 0, %62 ]
   ret i32 %.0
 }
 
@@ -20292,7 +20292,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_FP_TO_SINT_MVT_f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_FP_TO_SINT_MVT_f16_rEN4llvm3MVTEj.exit: ; preds = %79, %75, %69, %68, %.sink.split.i5.i16, %63, %.sink.split.i.i19, %52, %45, %.sink.split.i5.i, %40, %.sink.split.i.i, %29, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ %67, %.sink.split.i5.i16 ], [ 0, %4 ], [ 0, %14 ], [ %44, %.sink.split.i5.i ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ %33, %.sink.split.i.i ], [ 0, %22 ], [ 0, %29 ], [ 0, %40 ], [ %56, %.sink.split.i.i19 ], [ 0, %45 ], [ 0, %52 ], [ 0, %63 ], [ %80, %79 ], [ 0, %68 ], [ 0, %75 ], [ 0, %69 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ 0, %22 ], [ 0, %29 ], [ %33, %.sink.split.i.i ], [ 0, %40 ], [ %44, %.sink.split.i5.i ], [ 0, %45 ], [ 0, %52 ], [ %56, %.sink.split.i.i19 ], [ 0, %63 ], [ %67, %.sink.split.i5.i16 ], [ %80, %79 ], [ 0, %68 ], [ 0, %75 ], [ 0, %69 ]
   ret i32 %.0
 }
 
@@ -20395,7 +20395,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_FP_TO_UINT_MVT_f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_FP_TO_UINT_MVT_f16_rEN4llvm3MVTEj.exit: ; preds = %54, %48, %46, %40, %39, %37, %31, %29, %23, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %31 ], [ 0, %4 ], [ 0, %14 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ 0, %23 ], [ 0, %22 ], [ %30, %29 ], [ %38, %37 ], [ 0, %40 ], [ 0, %39 ], [ %47, %46 ], [ %55, %54 ], [ 0, %48 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ 0, %22 ], [ %30, %29 ], [ 0, %23 ], [ %38, %37 ], [ 0, %31 ], [ 0, %39 ], [ %47, %46 ], [ 0, %40 ], [ %55, %54 ], [ 0, %48 ]
   ret i32 %.0
 }
 
@@ -20744,7 +20744,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FSQRT_MVT_f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FSQRT_MVT_f32_rEN4llvm3MVTEj.exit: ; preds = %186, %180, %179, %177, %173, %171, %164, %162, %160, %154, %152, %145, %143, %137, %136, %134, %130, %128, %121, %119, %117, %111, %109, %102, %100, %94, %93, %91, %85, %84, %82, %76, %75, %73, %67, %66, %64, %60, %54, %53, %51, %47, %41, %40, %38, %32, %31, %29, %27, %25, %18, %16, %14, %12, %5, %4
-  %.0 = phi i32 [ 0, %173 ], [ 0, %4 ], [ 0, %12 ], [ 0, %25 ], [ 0, %32 ], [ 0, %41 ], [ 0, %54 ], [ 0, %67 ], [ 0, %76 ], [ 0, %85 ], [ 0, %94 ], [ 0, %111 ], [ 0, %130 ], [ 0, %137 ], [ 0, %154 ], [ %15, %14 ], [ 0, %5 ], [ %17, %16 ], [ %28, %27 ], [ 0, %18 ], [ %30, %29 ], [ 0, %31 ], [ %39, %38 ], [ 0, %40 ], [ %52, %51 ], [ 0, %47 ], [ 0, %53 ], [ %65, %64 ], [ 0, %60 ], [ 0, %66 ], [ %74, %73 ], [ 0, %75 ], [ %83, %82 ], [ 0, %84 ], [ %92, %91 ], [ 0, %93 ], [ %101, %100 ], [ %118, %117 ], [ %110, %109 ], [ 0, %102 ], [ %120, %119 ], [ %135, %134 ], [ %129, %128 ], [ 0, %121 ], [ 0, %136 ], [ %144, %143 ], [ %161, %160 ], [ %153, %152 ], [ 0, %145 ], [ %163, %162 ], [ %178, %177 ], [ %172, %171 ], [ 0, %164 ], [ 0, %179 ], [ %187, %186 ], [ 0, %180 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ %15, %14 ], [ 0, %5 ], [ 0, %12 ], [ %30, %29 ], [ %28, %27 ], [ 0, %18 ], [ 0, %25 ], [ %39, %38 ], [ 0, %31 ], [ 0, %32 ], [ %52, %51 ], [ 0, %40 ], [ 0, %47 ], [ 0, %41 ], [ %65, %64 ], [ 0, %53 ], [ 0, %60 ], [ 0, %54 ], [ %74, %73 ], [ 0, %66 ], [ 0, %67 ], [ %83, %82 ], [ 0, %75 ], [ 0, %76 ], [ %92, %91 ], [ 0, %84 ], [ 0, %85 ], [ %101, %100 ], [ 0, %93 ], [ 0, %94 ], [ %110, %109 ], [ %120, %119 ], [ %118, %117 ], [ 0, %102 ], [ 0, %111 ], [ %129, %128 ], [ %135, %134 ], [ 0, %121 ], [ 0, %130 ], [ %144, %143 ], [ 0, %136 ], [ 0, %137 ], [ %153, %152 ], [ %163, %162 ], [ %161, %160 ], [ 0, %145 ], [ 0, %154 ], [ %172, %171 ], [ %178, %177 ], [ 0, %164 ], [ 0, %173 ], [ %187, %186 ], [ 0, %179 ], [ 0, %180 ]
   ret i32 %.0
 }
 
@@ -20911,7 +20911,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel21fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel29fastEmit_ISD_LLRINT_MVT_f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel29fastEmit_ISD_LLRINT_MVT_f32_rEN4llvm3MVTEj.exit: ; preds = %84, %78, %77, %75, %71, %65, %64, %62, %58, %52, %51, %49, %43, %42, %40, %36, %30, %29, %.sink.split.i25, %24, %17, %.sink.split.i, %12, %5, %4
-  %.0 = phi i32 [ 0, %65 ], [ 0, %4 ], [ %16, %.sink.split.i ], [ %28, %.sink.split.i25 ], [ 0, %30 ], [ 0, %43 ], [ 0, %52 ], [ 0, %5 ], [ 0, %12 ], [ 0, %17 ], [ 0, %24 ], [ 0, %29 ], [ %41, %40 ], [ 0, %36 ], [ 0, %42 ], [ %50, %49 ], [ 0, %51 ], [ %63, %62 ], [ 0, %58 ], [ 0, %64 ], [ %76, %75 ], [ 0, %71 ], [ 0, %77 ], [ %85, %84 ], [ 0, %78 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ 0, %12 ], [ %16, %.sink.split.i ], [ 0, %17 ], [ 0, %24 ], [ %28, %.sink.split.i25 ], [ %41, %40 ], [ 0, %29 ], [ 0, %36 ], [ 0, %30 ], [ %50, %49 ], [ 0, %42 ], [ 0, %43 ], [ %63, %62 ], [ 0, %51 ], [ 0, %58 ], [ 0, %52 ], [ %76, %75 ], [ 0, %64 ], [ 0, %71 ], [ 0, %65 ], [ %85, %84 ], [ 0, %77 ], [ 0, %78 ]
   ret i32 %.0
 }
 
@@ -21221,7 +21221,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_LRINT_MVT_f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_LRINT_MVT_f32_rEN4llvm3MVTEj.exit: ; preds = %157, %151, %149, %148, %146, %142, %136, %134, %130, %128, %121, %119, %115, %109, %108, %106, %105, %103, %97, %95, %91, %89, %82, %80, %76, %70, %68, %66, %60, %58, %51, %.sink.split.i5.i27, %46, %.sink.split.i.i30, %35, %28, %.sink.split.i5.i, %23, %.sink.split.i.i, %12, %5, %4
-  %.0 = phi i32 [ 0, %136 ], [ 0, %4 ], [ %27, %.sink.split.i5.i ], [ %50, %.sink.split.i5.i27 ], [ 0, %70 ], [ 0, %97 ], [ 0, %105 ], [ 0, %109 ], [ %16, %.sink.split.i.i ], [ 0, %5 ], [ 0, %12 ], [ 0, %23 ], [ %39, %.sink.split.i.i30 ], [ 0, %28 ], [ 0, %35 ], [ 0, %46 ], [ 0, %60 ], [ 0, %51 ], [ %59, %58 ], [ %69, %68 ], [ %67, %66 ], [ %81, %80 ], [ 0, %76 ], [ 0, %91 ], [ 0, %82 ], [ %90, %89 ], [ %96, %95 ], [ %104, %103 ], [ %107, %106 ], [ 0, %108 ], [ %120, %119 ], [ 0, %115 ], [ 0, %130 ], [ 0, %121 ], [ %129, %128 ], [ %135, %134 ], [ %147, %146 ], [ 0, %142 ], [ 0, %148 ], [ %150, %149 ], [ %158, %157 ], [ 0, %151 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ 0, %12 ], [ %16, %.sink.split.i.i ], [ 0, %23 ], [ %27, %.sink.split.i5.i ], [ 0, %28 ], [ 0, %35 ], [ %39, %.sink.split.i.i30 ], [ 0, %46 ], [ %50, %.sink.split.i5.i27 ], [ 0, %51 ], [ %59, %58 ], [ %69, %68 ], [ %67, %66 ], [ 0, %60 ], [ %81, %80 ], [ 0, %76 ], [ 0, %70 ], [ 0, %82 ], [ %90, %89 ], [ %96, %95 ], [ 0, %91 ], [ %104, %103 ], [ 0, %97 ], [ %107, %106 ], [ 0, %105 ], [ %120, %119 ], [ 0, %108 ], [ 0, %115 ], [ 0, %109 ], [ 0, %121 ], [ %129, %128 ], [ %135, %134 ], [ 0, %130 ], [ %147, %146 ], [ 0, %142 ], [ 0, %136 ], [ %150, %149 ], [ 0, %148 ], [ %158, %157 ], [ 0, %151 ]
   ret i32 %.0
 }
 
@@ -21297,7 +21297,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD_SCALAR_TO_VECTOR_MVT_i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD_SCALAR_TO_VECTOR_MVT_i32_rEN4llvm3MVTEj.exit: ; preds = %37, %35, %31, %29, %22, %20, %18, %14, %12, %5, %4
-  %.0 = phi i32 [ 0, %14 ], [ 0, %4 ], [ %19, %18 ], [ %13, %12 ], [ 0, %5 ], [ %21, %20 ], [ %36, %35 ], [ %30, %29 ], [ 0, %22 ], [ %38, %37 ], [ 0, %31 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ %21, %20 ], [ %19, %18 ], [ 0, %5 ], [ 0, %14 ], [ %30, %29 ], [ %38, %37 ], [ %36, %35 ], [ 0, %22 ], [ 0, %31 ]
   ret i32 %.0
 }
 
@@ -21772,7 +21772,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SIGN_EXTEND_MVT_i8_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SIGN_EXTEND_MVT_i8_rEN4llvm3MVTEj.exit: ; preds = %252, %246, %245, %243, %242, %240, %230, %229, %227, %221, %220, %218, %212, %210, %209, %207, %197, %196, %194, %188, %187, %185, %179, %.thread.i.thread.i, %.thread.i.i, %175, %173, %158, %156, %150, %149, %147, %141, %139, %135, %129, %128, %126, %120, %118, %114, %108, %106, %102, %96, %95, %93, %87, %85, %81, %75, %73, %69, %63, %62, %60, %56, %50, %48, %44, %38, %37, %35, %31, %25, %24, %22, %16, %15, %13, %11, %10, %8, %6, %5, %4
-  %.0 = phi i32 [ 0, %242 ], [ 0, %4 ], [ 0, %5 ], [ 0, %10 ], [ 0, %16 ], [ 0, %25 ], [ 0, %50 ], [ 0, %87 ], [ 0, %120 ], [ 0, %141 ], [ 0, %150 ], [ 0, %179 ], [ 0, %188 ], [ 0, %212 ], [ 0, %221 ], [ %9, %8 ], [ %7, %6 ], [ %14, %13 ], [ %12, %11 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ %36, %35 ], [ 0, %31 ], [ 0, %38 ], [ 0, %37 ], [ %49, %48 ], [ 0, %44 ], [ %61, %60 ], [ 0, %56 ], [ 0, %75 ], [ 0, %62 ], [ 0, %63 ], [ %74, %73 ], [ 0, %69 ], [ %86, %85 ], [ 0, %81 ], [ %94, %93 ], [ 0, %108 ], [ 0, %95 ], [ 0, %96 ], [ %107, %106 ], [ 0, %102 ], [ %119, %118 ], [ 0, %114 ], [ %127, %126 ], [ 0, %129 ], [ 0, %128 ], [ %140, %139 ], [ 0, %135 ], [ %148, %147 ], [ 0, %149 ], [ %157, %156 ], [ 0, %175 ], [ 0, %158 ], [ %178, %.thread.i.thread.i ], [ %174, %173 ], [ 0, %.thread.i.i ], [ %186, %185 ], [ 0, %187 ], [ %195, %194 ], [ 0, %209 ], [ 0, %196 ], [ %211, %210 ], [ %208, %207 ], [ 0, %197 ], [ %219, %218 ], [ 0, %220 ], [ %228, %227 ], [ %241, %240 ], [ %244, %243 ], [ 0, %229 ], [ 0, %230 ], [ 0, %245 ], [ %253, %252 ], [ 0, %246 ]
+  %.0 = phi i32 [ 0, %4 ], [ %7, %6 ], [ %9, %8 ], [ 0, %5 ], [ %12, %11 ], [ %14, %13 ], [ 0, %10 ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ %36, %35 ], [ 0, %24 ], [ 0, %31 ], [ 0, %25 ], [ 0, %37 ], [ %49, %48 ], [ 0, %44 ], [ 0, %38 ], [ %61, %60 ], [ 0, %56 ], [ 0, %50 ], [ 0, %62 ], [ %74, %73 ], [ 0, %69 ], [ 0, %63 ], [ %86, %85 ], [ 0, %81 ], [ 0, %75 ], [ %94, %93 ], [ 0, %87 ], [ 0, %95 ], [ %107, %106 ], [ 0, %102 ], [ 0, %96 ], [ %119, %118 ], [ 0, %114 ], [ 0, %108 ], [ %127, %126 ], [ 0, %120 ], [ 0, %128 ], [ %140, %139 ], [ 0, %135 ], [ 0, %129 ], [ %148, %147 ], [ 0, %141 ], [ %157, %156 ], [ 0, %149 ], [ 0, %150 ], [ 0, %158 ], [ %178, %.thread.i.thread.i ], [ %174, %173 ], [ 0, %.thread.i.i ], [ 0, %175 ], [ %186, %185 ], [ 0, %179 ], [ %195, %194 ], [ 0, %187 ], [ 0, %188 ], [ 0, %196 ], [ %211, %210 ], [ %208, %207 ], [ 0, %209 ], [ 0, %197 ], [ %219, %218 ], [ 0, %212 ], [ %228, %227 ], [ 0, %220 ], [ 0, %221 ], [ %244, %243 ], [ %241, %240 ], [ 0, %229 ], [ 0, %242 ], [ 0, %230 ], [ %253, %252 ], [ 0, %245 ], [ 0, %246 ]
   ret i32 %.0
 }
 
@@ -22114,7 +22114,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_SIGN_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_SIGN_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit: ; preds = %183, %181, %179, %173, %165, %164, %162, %161, %159, %149, %147, %145, %143, %137, %129, %127, %125, %123, %117, %109, %108, %106, %100, %98, %97, %95, %85, %83, %81, %79, %73, %65, %63, %62, %60, %50, %48, %46, %44, %38, %30, %.thread.i.thread.i, %.thread.i.i, %26, %24, %14, %5, %4
-  %.0 = phi i32 [ 0, %161 ], [ 0, %4 ], [ 0, %100 ], [ 0, %97 ], [ 0, %5 ], [ 0, %26 ], [ 0, %46 ], [ 0, %62 ], [ 0, %81 ], [ %29, %.thread.i.thread.i ], [ %15, %14 ], [ %25, %24 ], [ 0, %.thread.i.i ], [ %49, %48 ], [ %39, %38 ], [ %45, %44 ], [ 0, %30 ], [ %64, %63 ], [ %61, %60 ], [ 0, %50 ], [ %84, %83 ], [ %74, %73 ], [ %80, %79 ], [ 0, %65 ], [ %99, %98 ], [ %96, %95 ], [ 0, %85 ], [ %107, %106 ], [ 0, %145 ], [ 0, %108 ], [ 0, %125 ], [ %128, %127 ], [ %118, %117 ], [ %124, %123 ], [ 0, %109 ], [ %148, %147 ], [ %138, %137 ], [ %144, %143 ], [ 0, %129 ], [ %163, %162 ], [ %160, %159 ], [ 0, %149 ], [ %174, %173 ], [ %184, %183 ], [ 0, %164 ], [ %180, %179 ], [ 0, %165 ], [ 0, %181 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %29, %.thread.i.thread.i ], [ %25, %24 ], [ %15, %14 ], [ 0, %.thread.i.i ], [ 0, %26 ], [ %49, %48 ], [ %45, %44 ], [ %39, %38 ], [ 0, %46 ], [ 0, %30 ], [ %64, %63 ], [ %61, %60 ], [ 0, %62 ], [ 0, %50 ], [ %84, %83 ], [ %80, %79 ], [ %74, %73 ], [ 0, %81 ], [ 0, %65 ], [ %99, %98 ], [ %96, %95 ], [ 0, %97 ], [ 0, %85 ], [ %107, %106 ], [ 0, %100 ], [ 0, %108 ], [ %128, %127 ], [ %124, %123 ], [ %118, %117 ], [ 0, %125 ], [ 0, %109 ], [ %148, %147 ], [ %144, %143 ], [ %138, %137 ], [ 0, %145 ], [ 0, %129 ], [ %163, %162 ], [ %160, %159 ], [ 0, %161 ], [ 0, %149 ], [ %184, %183 ], [ %180, %179 ], [ %174, %173 ], [ 0, %164 ], [ 0, %181 ], [ 0, %165 ]
   ret i32 %.0
 }
 
@@ -22513,7 +22513,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SINT_TO_FP_MVT_i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SINT_TO_FP_MVT_i32_rEN4llvm3MVTEj.exit: ; preds = %220, %214, %212, %206, %204, %198, %197, %195, %191, %185, %183, %179, %173, %172, %170, %166, %160, %159, %157, %151, %149, %143, %142, %140, %134, %132, %128, %126, %118, %114, %108, %107, %105, %101, %99, %91, %89, %83, %81, %74, %72, %66, %65, %63, %59, %53, %52, %50, %46, %40, %39, %37, %31, %29, %23, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %185 ], [ 0, %4 ], [ 0, %14 ], [ 0, %31 ], [ 0, %40 ], [ 0, %53 ], [ 0, %66 ], [ 0, %101 ], [ 0, %134 ], [ 0, %151 ], [ 0, %160 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ 0, %23 ], [ 0, %22 ], [ %30, %29 ], [ %38, %37 ], [ 0, %39 ], [ %51, %50 ], [ 0, %46 ], [ 0, %52 ], [ %64, %63 ], [ 0, %59 ], [ 0, %65 ], [ %73, %72 ], [ 0, %83 ], [ 0, %74 ], [ %82, %81 ], [ %90, %89 ], [ %92, %91 ], [ %100, %99 ], [ %106, %105 ], [ 0, %128 ], [ 0, %107 ], [ 0, %108 ], [ %119, %118 ], [ 0, %114 ], [ %127, %126 ], [ %133, %132 ], [ %141, %140 ], [ 0, %143 ], [ 0, %142 ], [ %150, %149 ], [ %158, %157 ], [ 0, %159 ], [ %171, %170 ], [ 0, %166 ], [ 0, %173 ], [ 0, %172 ], [ %184, %183 ], [ 0, %179 ], [ %196, %195 ], [ 0, %191 ], [ 0, %206 ], [ 0, %197 ], [ 0, %198 ], [ %205, %204 ], [ %213, %212 ], [ %221, %220 ], [ 0, %214 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ 0, %22 ], [ %30, %29 ], [ 0, %23 ], [ %38, %37 ], [ 0, %31 ], [ %51, %50 ], [ 0, %39 ], [ 0, %46 ], [ 0, %40 ], [ %64, %63 ], [ 0, %52 ], [ 0, %59 ], [ 0, %53 ], [ %73, %72 ], [ 0, %65 ], [ 0, %66 ], [ 0, %74 ], [ %82, %81 ], [ %92, %91 ], [ %90, %89 ], [ 0, %83 ], [ %100, %99 ], [ %106, %105 ], [ 0, %101 ], [ 0, %107 ], [ %119, %118 ], [ 0, %114 ], [ 0, %108 ], [ %127, %126 ], [ %133, %132 ], [ 0, %128 ], [ %141, %140 ], [ 0, %134 ], [ 0, %142 ], [ %150, %149 ], [ 0, %143 ], [ %158, %157 ], [ 0, %151 ], [ %171, %170 ], [ 0, %159 ], [ 0, %166 ], [ 0, %160 ], [ 0, %172 ], [ %184, %183 ], [ 0, %179 ], [ 0, %173 ], [ %196, %195 ], [ 0, %191 ], [ 0, %185 ], [ 0, %197 ], [ %205, %204 ], [ 0, %198 ], [ %213, %212 ], [ 0, %206 ], [ %221, %220 ], [ 0, %214 ]
   ret i32 %.0
 }
 
@@ -22649,7 +22649,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD_STRICT_FP_EXTEND_MVT_f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD_STRICT_FP_EXTEND_MVT_f32_rEN4llvm3MVTEj.exit: ; preds = %68, %62, %61, %.thread.thread.i, %.thread.i, %57, %55, %44, %42, %36, %35, %33, %27, %25, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %57 ], [ 0, %4 ], [ 0, %6 ], [ 0, %27 ], [ 0, %36 ], [ %13, %12 ], [ 0, %5 ], [ 0, %15 ], [ 0, %14 ], [ %26, %25 ], [ 0, %21 ], [ %34, %33 ], [ 0, %35 ], [ %43, %42 ], [ %60, %.thread.thread.i ], [ %56, %55 ], [ 0, %44 ], [ 0, %.thread.i ], [ 0, %61 ], [ %69, %68 ], [ 0, %62 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ 0, %14 ], [ %26, %25 ], [ 0, %21 ], [ 0, %15 ], [ %34, %33 ], [ 0, %27 ], [ %43, %42 ], [ 0, %35 ], [ 0, %36 ], [ %56, %55 ], [ %60, %.thread.thread.i ], [ 0, %44 ], [ 0, %.thread.i ], [ 0, %57 ], [ %69, %68 ], [ 0, %61 ], [ 0, %62 ]
   ret i32 %.0
 }
 
@@ -22840,7 +22840,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel32fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel40fastEmit_ISD_STRICT_FP_TO_SINT_MVT_f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel40fastEmit_ISD_STRICT_FP_TO_SINT_MVT_f16_rEN4llvm3MVTEj.exit: ; preds = %79, %75, %69, %68, %.sink.split.i5.i16, %63, %.sink.split.i.i19, %52, %45, %.sink.split.i5.i, %40, %.sink.split.i.i, %29, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ %67, %.sink.split.i5.i16 ], [ 0, %4 ], [ 0, %14 ], [ %44, %.sink.split.i5.i ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ %33, %.sink.split.i.i ], [ 0, %22 ], [ 0, %29 ], [ 0, %40 ], [ %56, %.sink.split.i.i19 ], [ 0, %45 ], [ 0, %52 ], [ 0, %63 ], [ %80, %79 ], [ 0, %68 ], [ 0, %75 ], [ 0, %69 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ 0, %22 ], [ 0, %29 ], [ %33, %.sink.split.i.i ], [ 0, %40 ], [ %44, %.sink.split.i5.i ], [ 0, %45 ], [ 0, %52 ], [ %56, %.sink.split.i.i19 ], [ 0, %63 ], [ %67, %.sink.split.i5.i16 ], [ %80, %79 ], [ 0, %68 ], [ 0, %75 ], [ 0, %69 ]
   ret i32 %.0
 }
 
@@ -22943,7 +22943,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel32fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel40fastEmit_ISD_STRICT_FP_TO_UINT_MVT_f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel40fastEmit_ISD_STRICT_FP_TO_UINT_MVT_f16_rEN4llvm3MVTEj.exit: ; preds = %54, %48, %46, %40, %39, %37, %31, %29, %23, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %31 ], [ 0, %4 ], [ 0, %14 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ 0, %23 ], [ 0, %22 ], [ %30, %29 ], [ %38, %37 ], [ 0, %40 ], [ 0, %39 ], [ %47, %46 ], [ %55, %54 ], [ 0, %48 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ 0, %22 ], [ %30, %29 ], [ 0, %23 ], [ %38, %37 ], [ 0, %31 ], [ 0, %39 ], [ %47, %46 ], [ 0, %40 ], [ %55, %54 ], [ 0, %48 ]
   ret i32 %.0
 }
 
@@ -23292,7 +23292,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FSQRT_MVT_f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FSQRT_MVT_f32_rEN4llvm3MVTEj.exit: ; preds = %186, %180, %179, %177, %173, %171, %164, %162, %160, %154, %152, %145, %143, %137, %136, %134, %130, %128, %121, %119, %117, %111, %109, %102, %100, %94, %93, %91, %85, %84, %82, %76, %75, %73, %67, %66, %64, %60, %54, %53, %51, %47, %41, %40, %38, %32, %31, %29, %27, %25, %18, %16, %14, %12, %5, %4
-  %.0 = phi i32 [ 0, %173 ], [ 0, %4 ], [ 0, %12 ], [ 0, %25 ], [ 0, %32 ], [ 0, %41 ], [ 0, %54 ], [ 0, %67 ], [ 0, %76 ], [ 0, %85 ], [ 0, %94 ], [ 0, %111 ], [ 0, %130 ], [ 0, %137 ], [ 0, %154 ], [ %15, %14 ], [ 0, %5 ], [ %17, %16 ], [ %28, %27 ], [ 0, %18 ], [ %30, %29 ], [ 0, %31 ], [ %39, %38 ], [ 0, %40 ], [ %52, %51 ], [ 0, %47 ], [ 0, %53 ], [ %65, %64 ], [ 0, %60 ], [ 0, %66 ], [ %74, %73 ], [ 0, %75 ], [ %83, %82 ], [ 0, %84 ], [ %92, %91 ], [ 0, %93 ], [ %101, %100 ], [ %118, %117 ], [ %110, %109 ], [ 0, %102 ], [ %120, %119 ], [ %135, %134 ], [ %129, %128 ], [ 0, %121 ], [ 0, %136 ], [ %144, %143 ], [ %161, %160 ], [ %153, %152 ], [ 0, %145 ], [ %163, %162 ], [ %178, %177 ], [ %172, %171 ], [ 0, %164 ], [ 0, %179 ], [ %187, %186 ], [ 0, %180 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ %15, %14 ], [ 0, %5 ], [ 0, %12 ], [ %30, %29 ], [ %28, %27 ], [ 0, %18 ], [ 0, %25 ], [ %39, %38 ], [ 0, %31 ], [ 0, %32 ], [ %52, %51 ], [ 0, %40 ], [ 0, %47 ], [ 0, %41 ], [ %65, %64 ], [ 0, %53 ], [ 0, %60 ], [ 0, %54 ], [ %74, %73 ], [ 0, %66 ], [ 0, %67 ], [ %83, %82 ], [ 0, %75 ], [ 0, %76 ], [ %92, %91 ], [ 0, %84 ], [ 0, %85 ], [ %101, %100 ], [ 0, %93 ], [ 0, %94 ], [ %110, %109 ], [ %120, %119 ], [ %118, %117 ], [ 0, %102 ], [ 0, %111 ], [ %129, %128 ], [ %135, %134 ], [ 0, %121 ], [ 0, %130 ], [ %144, %143 ], [ 0, %136 ], [ 0, %137 ], [ %153, %152 ], [ %163, %162 ], [ %161, %160 ], [ 0, %145 ], [ 0, %154 ], [ %172, %171 ], [ %178, %177 ], [ 0, %164 ], [ 0, %173 ], [ %187, %186 ], [ 0, %179 ], [ 0, %180 ]
   ret i32 %.0
 }
 
@@ -23691,7 +23691,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel32fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel40fastEmit_ISD_STRICT_SINT_TO_FP_MVT_i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel40fastEmit_ISD_STRICT_SINT_TO_FP_MVT_i32_rEN4llvm3MVTEj.exit: ; preds = %220, %214, %212, %206, %204, %198, %197, %195, %191, %185, %183, %179, %173, %172, %170, %166, %160, %159, %157, %151, %149, %143, %142, %140, %134, %132, %128, %126, %118, %114, %108, %107, %105, %101, %99, %91, %89, %83, %81, %74, %72, %66, %65, %63, %59, %53, %52, %50, %46, %40, %39, %37, %31, %29, %23, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %185 ], [ 0, %4 ], [ 0, %14 ], [ 0, %31 ], [ 0, %40 ], [ 0, %53 ], [ 0, %66 ], [ 0, %101 ], [ 0, %134 ], [ 0, %151 ], [ 0, %160 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ 0, %23 ], [ 0, %22 ], [ %30, %29 ], [ %38, %37 ], [ 0, %39 ], [ %51, %50 ], [ 0, %46 ], [ 0, %52 ], [ %64, %63 ], [ 0, %59 ], [ 0, %65 ], [ %73, %72 ], [ 0, %83 ], [ 0, %74 ], [ %82, %81 ], [ %90, %89 ], [ %92, %91 ], [ %100, %99 ], [ %106, %105 ], [ 0, %128 ], [ 0, %107 ], [ 0, %108 ], [ %119, %118 ], [ 0, %114 ], [ %127, %126 ], [ %133, %132 ], [ %141, %140 ], [ 0, %143 ], [ 0, %142 ], [ %150, %149 ], [ %158, %157 ], [ 0, %159 ], [ %171, %170 ], [ 0, %166 ], [ 0, %173 ], [ 0, %172 ], [ %184, %183 ], [ 0, %179 ], [ %196, %195 ], [ 0, %191 ], [ 0, %206 ], [ 0, %197 ], [ 0, %198 ], [ %205, %204 ], [ %213, %212 ], [ %221, %220 ], [ 0, %214 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ 0, %22 ], [ %30, %29 ], [ 0, %23 ], [ %38, %37 ], [ 0, %31 ], [ %51, %50 ], [ 0, %39 ], [ 0, %46 ], [ 0, %40 ], [ %64, %63 ], [ 0, %52 ], [ 0, %59 ], [ 0, %53 ], [ %73, %72 ], [ 0, %65 ], [ 0, %66 ], [ 0, %74 ], [ %82, %81 ], [ %92, %91 ], [ %90, %89 ], [ 0, %83 ], [ %100, %99 ], [ %106, %105 ], [ 0, %101 ], [ 0, %107 ], [ %119, %118 ], [ 0, %114 ], [ 0, %108 ], [ %127, %126 ], [ %133, %132 ], [ 0, %128 ], [ %141, %140 ], [ 0, %134 ], [ 0, %142 ], [ %150, %149 ], [ 0, %143 ], [ %158, %157 ], [ 0, %151 ], [ %171, %170 ], [ 0, %159 ], [ 0, %166 ], [ 0, %160 ], [ 0, %172 ], [ %184, %183 ], [ 0, %179 ], [ 0, %173 ], [ %196, %195 ], [ 0, %191 ], [ 0, %185 ], [ 0, %197 ], [ %205, %204 ], [ 0, %198 ], [ %213, %212 ], [ 0, %206 ], [ %221, %220 ], [ 0, %214 ]
   ret i32 %.0
 }
 
@@ -23986,7 +23986,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel32fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_ISD_STRICT_UINT_TO_FP_MVT_v8i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel42fastEmit_ISD_STRICT_UINT_TO_FP_MVT_v8i16_rEN4llvm3MVTEj.exit: ; preds = %164, %158, %156, %150, %148, %142, %141, %139, %135, %129, %127, %123, %117, %116, %114, %110, %104, %103, %101, %95, %93, %87, %86, %84, %78, %76, %70, %68, %64, %58, %57, %55, %49, %47, %41, %40, %38, %32, %31, %29, %25, %19, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %129 ], [ 0, %4 ], [ 0, %6 ], [ 0, %19 ], [ 0, %32 ], [ 0, %49 ], [ 0, %78 ], [ 0, %95 ], [ 0, %104 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %18 ], [ %30, %29 ], [ 0, %25 ], [ 0, %31 ], [ %39, %38 ], [ 0, %41 ], [ 0, %40 ], [ %48, %47 ], [ %56, %55 ], [ 0, %70 ], [ 0, %57 ], [ 0, %58 ], [ %69, %68 ], [ 0, %64 ], [ %77, %76 ], [ %85, %84 ], [ 0, %87 ], [ 0, %86 ], [ %94, %93 ], [ %102, %101 ], [ 0, %103 ], [ %115, %114 ], [ 0, %110 ], [ 0, %117 ], [ 0, %116 ], [ %128, %127 ], [ 0, %123 ], [ %140, %139 ], [ 0, %135 ], [ 0, %150 ], [ 0, %141 ], [ 0, %142 ], [ %149, %148 ], [ %157, %156 ], [ %165, %164 ], [ 0, %158 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ 0, %5 ], [ 0, %12 ], [ 0, %6 ], [ %30, %29 ], [ 0, %18 ], [ 0, %25 ], [ 0, %19 ], [ %39, %38 ], [ 0, %31 ], [ 0, %32 ], [ 0, %40 ], [ %48, %47 ], [ 0, %41 ], [ %56, %55 ], [ 0, %49 ], [ 0, %57 ], [ %69, %68 ], [ 0, %64 ], [ 0, %58 ], [ %77, %76 ], [ 0, %70 ], [ %85, %84 ], [ 0, %78 ], [ 0, %86 ], [ %94, %93 ], [ 0, %87 ], [ %102, %101 ], [ 0, %95 ], [ %115, %114 ], [ 0, %103 ], [ 0, %110 ], [ 0, %104 ], [ 0, %116 ], [ %128, %127 ], [ 0, %123 ], [ 0, %117 ], [ %140, %139 ], [ 0, %135 ], [ 0, %129 ], [ 0, %141 ], [ %149, %148 ], [ 0, %142 ], [ %157, %156 ], [ 0, %150 ], [ %165, %164 ], [ 0, %158 ]
   ret i32 %.0
 }
 
@@ -24204,7 +24204,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_TRUNCATE_MVT_i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_TRUNCATE_MVT_i16_rEN4llvm3MVTEj.exit: ; preds = %112, %106, %104, %98, %97, %95, %91, %85, %84, %82, %76, %74, %68, %67, %65, %61, %55, %54, %52, %46, %45, %43, %39, %33, %32, %30, %28, %26, %25, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %85 ], [ 0, %4 ], [ 0, %6 ], [ 0, %15 ], [ 0, %25 ], [ 0, %33 ], [ 0, %46 ], [ 0, %55 ], [ 0, %76 ], [ 0, %5 ], [ %13, %12 ], [ %24, %23 ], [ 0, %14 ], [ %22, %21 ], [ %31, %30 ], [ %27, %26 ], [ %29, %28 ], [ 0, %32 ], [ %44, %43 ], [ 0, %39 ], [ 0, %45 ], [ %53, %52 ], [ 0, %54 ], [ %66, %65 ], [ 0, %61 ], [ 0, %68 ], [ 0, %67 ], [ %75, %74 ], [ %83, %82 ], [ 0, %84 ], [ %96, %95 ], [ 0, %91 ], [ 0, %98 ], [ 0, %97 ], [ %105, %104 ], [ %113, %112 ], [ 0, %106 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %24, %23 ], [ 0, %14 ], [ %22, %21 ], [ 0, %15 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ 0, %25 ], [ %44, %43 ], [ 0, %32 ], [ 0, %39 ], [ 0, %33 ], [ %53, %52 ], [ 0, %45 ], [ 0, %46 ], [ %66, %65 ], [ 0, %54 ], [ 0, %61 ], [ 0, %55 ], [ 0, %67 ], [ %75, %74 ], [ 0, %68 ], [ %83, %82 ], [ 0, %76 ], [ %96, %95 ], [ 0, %84 ], [ 0, %91 ], [ 0, %85 ], [ 0, %97 ], [ %105, %104 ], [ 0, %98 ], [ %113, %112 ], [ 0, %106 ]
   ret i32 %.0
 }
 
@@ -24499,7 +24499,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_UINT_TO_FP_MVT_v8i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_UINT_TO_FP_MVT_v8i16_rEN4llvm3MVTEj.exit: ; preds = %164, %158, %156, %150, %148, %142, %141, %139, %135, %129, %127, %123, %117, %116, %114, %110, %104, %103, %101, %95, %93, %87, %86, %84, %78, %76, %70, %68, %64, %58, %57, %55, %49, %47, %41, %40, %38, %32, %31, %29, %25, %19, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %129 ], [ 0, %4 ], [ 0, %6 ], [ 0, %19 ], [ 0, %32 ], [ 0, %49 ], [ 0, %78 ], [ 0, %95 ], [ 0, %104 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %18 ], [ %30, %29 ], [ 0, %25 ], [ 0, %31 ], [ %39, %38 ], [ 0, %41 ], [ 0, %40 ], [ %48, %47 ], [ %56, %55 ], [ 0, %70 ], [ 0, %57 ], [ 0, %58 ], [ %69, %68 ], [ 0, %64 ], [ %77, %76 ], [ %85, %84 ], [ 0, %87 ], [ 0, %86 ], [ %94, %93 ], [ %102, %101 ], [ 0, %103 ], [ %115, %114 ], [ 0, %110 ], [ 0, %117 ], [ 0, %116 ], [ %128, %127 ], [ 0, %123 ], [ %140, %139 ], [ 0, %135 ], [ 0, %150 ], [ 0, %141 ], [ 0, %142 ], [ %149, %148 ], [ %157, %156 ], [ %165, %164 ], [ 0, %158 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ 0, %5 ], [ 0, %12 ], [ 0, %6 ], [ %30, %29 ], [ 0, %18 ], [ 0, %25 ], [ 0, %19 ], [ %39, %38 ], [ 0, %31 ], [ 0, %32 ], [ 0, %40 ], [ %48, %47 ], [ 0, %41 ], [ %56, %55 ], [ 0, %49 ], [ 0, %57 ], [ %69, %68 ], [ 0, %64 ], [ 0, %58 ], [ %77, %76 ], [ 0, %70 ], [ %85, %84 ], [ 0, %78 ], [ 0, %86 ], [ %94, %93 ], [ 0, %87 ], [ %102, %101 ], [ 0, %95 ], [ %115, %114 ], [ 0, %103 ], [ 0, %110 ], [ 0, %104 ], [ 0, %116 ], [ %128, %127 ], [ 0, %123 ], [ 0, %117 ], [ %140, %139 ], [ 0, %135 ], [ 0, %129 ], [ 0, %141 ], [ %149, %148 ], [ 0, %142 ], [ %157, %156 ], [ 0, %150 ], [ %165, %164 ], [ 0, %158 ]
   ret i32 %.0
 }
 
@@ -24713,7 +24713,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_ZERO_EXTEND_MVT_i8_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_ZERO_EXTEND_MVT_i8_rEN4llvm3MVTEj.exit: ; preds = %105, %99, %98, %96, %95, %93, %83, %82, %80, %74, %73, %71, %65, %63, %62, %60, %50, %49, %47, %41, %40, %38, %32, %.thread.i.thread.i, %.thread.i.i, %28, %26, %11, %9, %8, %6, %5, %4
-  %.0 = phi i32 [ 0, %95 ], [ 0, %4 ], [ 0, %5 ], [ 0, %8 ], [ 0, %32 ], [ 0, %41 ], [ 0, %65 ], [ 0, %74 ], [ %7, %6 ], [ %10, %9 ], [ 0, %28 ], [ 0, %11 ], [ %31, %.thread.i.thread.i ], [ %27, %26 ], [ 0, %.thread.i.i ], [ %39, %38 ], [ 0, %40 ], [ %48, %47 ], [ 0, %62 ], [ 0, %49 ], [ %64, %63 ], [ %61, %60 ], [ 0, %50 ], [ %72, %71 ], [ 0, %73 ], [ %81, %80 ], [ %94, %93 ], [ %97, %96 ], [ 0, %82 ], [ 0, %83 ], [ 0, %98 ], [ %106, %105 ], [ 0, %99 ]
+  %.0 = phi i32 [ 0, %4 ], [ %7, %6 ], [ 0, %5 ], [ %10, %9 ], [ 0, %8 ], [ 0, %11 ], [ %31, %.thread.i.thread.i ], [ %27, %26 ], [ 0, %.thread.i.i ], [ 0, %28 ], [ %39, %38 ], [ 0, %32 ], [ %48, %47 ], [ 0, %40 ], [ 0, %41 ], [ 0, %49 ], [ %64, %63 ], [ %61, %60 ], [ 0, %62 ], [ 0, %50 ], [ %72, %71 ], [ 0, %65 ], [ %81, %80 ], [ 0, %73 ], [ 0, %74 ], [ %97, %96 ], [ %94, %93 ], [ 0, %82 ], [ 0, %95 ], [ 0, %83 ], [ %106, %105 ], [ 0, %98 ], [ 0, %99 ]
   ret i32 %.0
 }
 
@@ -25055,7 +25055,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_ZERO_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_ZERO_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit: ; preds = %183, %181, %179, %173, %165, %164, %162, %161, %159, %149, %147, %145, %143, %137, %129, %127, %125, %123, %117, %109, %108, %106, %100, %98, %97, %95, %85, %83, %81, %79, %73, %65, %63, %62, %60, %50, %48, %46, %44, %38, %30, %.thread.i.thread.i, %.thread.i.i, %26, %24, %14, %5, %4
-  %.0 = phi i32 [ 0, %161 ], [ 0, %4 ], [ 0, %100 ], [ 0, %97 ], [ 0, %5 ], [ 0, %26 ], [ 0, %46 ], [ 0, %62 ], [ 0, %81 ], [ %29, %.thread.i.thread.i ], [ %15, %14 ], [ %25, %24 ], [ 0, %.thread.i.i ], [ %49, %48 ], [ %39, %38 ], [ %45, %44 ], [ 0, %30 ], [ %64, %63 ], [ %61, %60 ], [ 0, %50 ], [ %84, %83 ], [ %74, %73 ], [ %80, %79 ], [ 0, %65 ], [ %99, %98 ], [ %96, %95 ], [ 0, %85 ], [ %107, %106 ], [ 0, %145 ], [ 0, %108 ], [ 0, %125 ], [ %128, %127 ], [ %118, %117 ], [ %124, %123 ], [ 0, %109 ], [ %148, %147 ], [ %138, %137 ], [ %144, %143 ], [ 0, %129 ], [ %163, %162 ], [ %160, %159 ], [ 0, %149 ], [ %174, %173 ], [ %184, %183 ], [ 0, %164 ], [ %180, %179 ], [ 0, %165 ], [ 0, %181 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %29, %.thread.i.thread.i ], [ %25, %24 ], [ %15, %14 ], [ 0, %.thread.i.i ], [ 0, %26 ], [ %49, %48 ], [ %45, %44 ], [ %39, %38 ], [ 0, %46 ], [ 0, %30 ], [ %64, %63 ], [ %61, %60 ], [ 0, %62 ], [ 0, %50 ], [ %84, %83 ], [ %80, %79 ], [ %74, %73 ], [ 0, %81 ], [ 0, %65 ], [ %99, %98 ], [ %96, %95 ], [ 0, %97 ], [ 0, %85 ], [ %107, %106 ], [ 0, %100 ], [ 0, %108 ], [ %128, %127 ], [ %124, %123 ], [ %118, %117 ], [ 0, %125 ], [ 0, %109 ], [ %148, %147 ], [ %144, %143 ], [ %138, %137 ], [ 0, %145 ], [ 0, %129 ], [ %163, %162 ], [ %160, %159 ], [ 0, %161 ], [ 0, %149 ], [ %184, %183 ], [ %180, %179 ], [ %174, %173 ], [ 0, %164 ], [ 0, %181 ], [ 0, %165 ]
   ret i32 %.0
 }
 
@@ -25132,7 +25132,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel22fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_X86ISD_CALL_MVT_i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel30fastEmit_X86ISD_CALL_MVT_i16_rEN4llvm3MVTEj.exit: ; preds = %.sink.split.i, %30, %29, %.thread.sink.split.i, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ %28, %.thread.sink.split.i ], [ 0, %4 ], [ 0, %6 ], [ %13, %12 ], [ 0, %5 ], [ 0, %15 ], [ 0, %14 ], [ 0, %29 ], [ 0, %30 ], [ %43, %.sink.split.i ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ 0, %14 ], [ 0, %15 ], [ %28, %.thread.sink.split.i ], [ 0, %29 ], [ 0, %30 ], [ %43, %.sink.split.i ]
   ret i32 %.0
 }
 
@@ -25268,7 +25268,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CONFLICT_MVT_v4i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CONFLICT_MVT_v4i32_rEN4llvm3MVTEj.exit: ; preds = %73, %67, %66, %64, %60, %54, %53, %51, %47, %41, %40, %38, %32, %31, %29, %25, %19, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %54 ], [ 0, %4 ], [ 0, %6 ], [ 0, %19 ], [ 0, %32 ], [ 0, %41 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %18 ], [ %30, %29 ], [ 0, %25 ], [ 0, %31 ], [ %39, %38 ], [ 0, %40 ], [ %52, %51 ], [ 0, %47 ], [ 0, %53 ], [ %65, %64 ], [ 0, %60 ], [ 0, %66 ], [ %74, %73 ], [ 0, %67 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ 0, %5 ], [ 0, %12 ], [ 0, %6 ], [ %30, %29 ], [ 0, %18 ], [ 0, %25 ], [ 0, %19 ], [ %39, %38 ], [ 0, %31 ], [ 0, %32 ], [ %52, %51 ], [ 0, %40 ], [ 0, %47 ], [ 0, %41 ], [ %65, %64 ], [ 0, %53 ], [ 0, %60 ], [ 0, %54 ], [ %74, %73 ], [ 0, %66 ], [ 0, %67 ]
   ret i32 %.0
 }
 
@@ -25351,7 +25351,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel30fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_CVTNEPS2BF16_MVT_v4f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_CVTNEPS2BF16_MVT_v4f32_rEN4llvm3MVTEj.exit: ; preds = %44, %38, %37, %35, %31, %25, %24, %22, %18, %16, %5, %4
-  %.0 = phi i32 [ 0, %25 ], [ 0, %4 ], [ 0, %18 ], [ 0, %5 ], [ %17, %16 ], [ %23, %22 ], [ 0, %24 ], [ %36, %35 ], [ 0, %31 ], [ 0, %37 ], [ %45, %44 ], [ 0, %38 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ %23, %22 ], [ 0, %5 ], [ 0, %18 ], [ %36, %35 ], [ 0, %24 ], [ 0, %31 ], [ 0, %25 ], [ %45, %44 ], [ 0, %37 ], [ 0, %38 ]
   ret i32 %.0
 }
 
@@ -25514,7 +25514,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTP2IBS_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTP2IBS_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %84, %78, %77, %75, %69, %68, %66, %60, %59, %57, %51, %50, %48, %42, %41, %39, %33, %32, %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %69 ], [ 0, %4 ], [ 0, %6 ], [ 0, %15 ], [ 0, %24 ], [ 0, %33 ], [ 0, %42 ], [ 0, %51 ], [ 0, %60 ], [ 0, %5 ], [ %13, %12 ], [ 0, %14 ], [ %22, %21 ], [ 0, %23 ], [ %31, %30 ], [ 0, %32 ], [ %40, %39 ], [ 0, %41 ], [ %49, %48 ], [ 0, %50 ], [ %58, %57 ], [ 0, %59 ], [ %67, %66 ], [ 0, %68 ], [ %76, %75 ], [ 0, %77 ], [ %85, %84 ], [ 0, %78 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ], [ %40, %39 ], [ 0, %32 ], [ 0, %33 ], [ %49, %48 ], [ 0, %41 ], [ 0, %42 ], [ %58, %57 ], [ 0, %50 ], [ 0, %51 ], [ %67, %66 ], [ 0, %59 ], [ 0, %60 ], [ %76, %75 ], [ 0, %68 ], [ 0, %69 ], [ %85, %84 ], [ 0, %77 ], [ 0, %78 ]
   ret i32 %.0
 }
 
@@ -25677,7 +25677,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_CVTP2IUBS_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_CVTP2IUBS_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %84, %78, %77, %75, %69, %68, %66, %60, %59, %57, %51, %50, %48, %42, %41, %39, %33, %32, %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %69 ], [ 0, %4 ], [ 0, %6 ], [ 0, %15 ], [ 0, %24 ], [ 0, %33 ], [ 0, %42 ], [ 0, %51 ], [ 0, %60 ], [ 0, %5 ], [ %13, %12 ], [ 0, %14 ], [ %22, %21 ], [ 0, %23 ], [ %31, %30 ], [ 0, %32 ], [ %40, %39 ], [ 0, %41 ], [ %49, %48 ], [ 0, %50 ], [ %58, %57 ], [ 0, %59 ], [ %67, %66 ], [ 0, %68 ], [ %76, %75 ], [ 0, %77 ], [ %85, %84 ], [ 0, %78 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ], [ %40, %39 ], [ 0, %32 ], [ 0, %33 ], [ %49, %48 ], [ 0, %41 ], [ 0, %42 ], [ %58, %57 ], [ 0, %50 ], [ 0, %51 ], [ %67, %66 ], [ 0, %59 ], [ 0, %60 ], [ %76, %75 ], [ 0, %68 ], [ 0, %69 ], [ %85, %84 ], [ 0, %77 ], [ 0, %78 ]
   ret i32 %.0
 }
 
@@ -26119,7 +26119,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTP2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTP2SI_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %252, %246, %244, %238, %237, %235, %231, %225, %223, %219, %217, %210, %208, %204, %198, %196, %194, %188, %186, %179, %177, %171, %170, %168, %162, %160, %156, %154, %147, %145, %141, %135, %133, %129, %123, %121, %119, %113, %111, %104, %102, %96, %95, %93, %87, %85, %81, %75, %74, %72, %66, %64, %60, %54, %52, %48, %42, %40, %36, %30, %28, %24, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %225 ], [ 0, %4 ], [ 0, %66 ], [ 0, %87 ], [ 0, %96 ], [ 0, %135 ], [ 0, %162 ], [ 0, %171 ], [ 0, %198 ], [ 0, %54 ], [ 0, %5 ], [ 0, %6 ], [ 0, %18 ], [ 0, %30 ], [ 0, %42 ], [ %17, %16 ], [ 0, %12 ], [ %29, %28 ], [ 0, %24 ], [ %41, %40 ], [ 0, %36 ], [ %53, %52 ], [ 0, %48 ], [ %65, %64 ], [ 0, %60 ], [ %73, %72 ], [ 0, %75 ], [ 0, %74 ], [ %86, %85 ], [ 0, %81 ], [ %94, %93 ], [ 0, %95 ], [ %103, %102 ], [ 0, %123 ], [ 0, %104 ], [ 0, %113 ], [ %112, %111 ], [ %120, %119 ], [ %122, %121 ], [ %134, %133 ], [ 0, %129 ], [ %146, %145 ], [ 0, %141 ], [ 0, %156 ], [ 0, %147 ], [ %155, %154 ], [ %161, %160 ], [ %169, %168 ], [ 0, %170 ], [ %178, %177 ], [ 0, %188 ], [ 0, %179 ], [ %187, %186 ], [ %195, %194 ], [ %197, %196 ], [ %209, %208 ], [ 0, %204 ], [ 0, %219 ], [ 0, %210 ], [ %218, %217 ], [ %224, %223 ], [ %236, %235 ], [ 0, %231 ], [ 0, %238 ], [ 0, %237 ], [ %245, %244 ], [ %253, %252 ], [ 0, %246 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %6 ], [ %29, %28 ], [ 0, %24 ], [ 0, %18 ], [ %41, %40 ], [ 0, %36 ], [ 0, %30 ], [ %53, %52 ], [ 0, %48 ], [ 0, %42 ], [ %65, %64 ], [ 0, %60 ], [ 0, %54 ], [ %73, %72 ], [ 0, %66 ], [ 0, %74 ], [ %86, %85 ], [ 0, %81 ], [ 0, %75 ], [ %94, %93 ], [ 0, %87 ], [ %103, %102 ], [ 0, %95 ], [ 0, %96 ], [ 0, %104 ], [ %112, %111 ], [ %122, %121 ], [ %120, %119 ], [ 0, %113 ], [ %134, %133 ], [ 0, %129 ], [ 0, %123 ], [ %146, %145 ], [ 0, %141 ], [ 0, %135 ], [ 0, %147 ], [ %155, %154 ], [ %161, %160 ], [ 0, %156 ], [ %169, %168 ], [ 0, %162 ], [ %178, %177 ], [ 0, %170 ], [ 0, %171 ], [ 0, %179 ], [ %187, %186 ], [ %197, %196 ], [ %195, %194 ], [ 0, %188 ], [ %209, %208 ], [ 0, %204 ], [ 0, %198 ], [ 0, %210 ], [ %218, %217 ], [ %224, %223 ], [ 0, %219 ], [ %236, %235 ], [ 0, %231 ], [ 0, %225 ], [ 0, %237 ], [ %245, %244 ], [ 0, %238 ], [ %253, %252 ], [ 0, %246 ]
   ret i32 %.0
 }
 
@@ -26502,7 +26502,7 @@ _ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_CVTP2UI_MVT_v2f64_MVT_v4i32_rEj.
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTP2UI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTP2UI_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %217, %211, %209, %203, %202, %200, %196, %190, %188, %182, %181, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_CVTP2UI_MVT_v2f64_MVT_v4i32_rEj.exit.sink.split.i, %176, %170, %164, %163, %161, %155, %154, %152, %146, %144, %138, %137, %135, %131, %125, %123, %119, %113, %111, %105, %104, %102, %96, %95, %93, %87, %85, %81, %75, %74, %72, %66, %64, %60, %54, %52, %48, %42, %40, %36, %30, %28, %24, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %190 ], [ 0, %4 ], [ 0, %66 ], [ 0, %87 ], [ 0, %96 ], [ 0, %125 ], [ 0, %146 ], [ 0, %155 ], [ %180, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_CVTP2UI_MVT_v2f64_MVT_v4i32_rEj.exit.sink.split.i ], [ 0, %54 ], [ 0, %5 ], [ 0, %6 ], [ 0, %18 ], [ 0, %30 ], [ 0, %42 ], [ %17, %16 ], [ 0, %12 ], [ %29, %28 ], [ 0, %24 ], [ %41, %40 ], [ 0, %36 ], [ %53, %52 ], [ 0, %48 ], [ %65, %64 ], [ 0, %60 ], [ %73, %72 ], [ 0, %75 ], [ 0, %74 ], [ %86, %85 ], [ 0, %81 ], [ %94, %93 ], [ 0, %95 ], [ %103, %102 ], [ 0, %113 ], [ 0, %104 ], [ 0, %105 ], [ %112, %111 ], [ %124, %123 ], [ 0, %119 ], [ %136, %135 ], [ 0, %131 ], [ 0, %138 ], [ 0, %137 ], [ %145, %144 ], [ %153, %152 ], [ 0, %154 ], [ %162, %161 ], [ 0, %164 ], [ 0, %163 ], [ 0, %176 ], [ 0, %170 ], [ 0, %182 ], [ 0, %181 ], [ %189, %188 ], [ %201, %200 ], [ 0, %196 ], [ 0, %203 ], [ 0, %202 ], [ %210, %209 ], [ %218, %217 ], [ 0, %211 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %6 ], [ %29, %28 ], [ 0, %24 ], [ 0, %18 ], [ %41, %40 ], [ 0, %36 ], [ 0, %30 ], [ %53, %52 ], [ 0, %48 ], [ 0, %42 ], [ %65, %64 ], [ 0, %60 ], [ 0, %54 ], [ %73, %72 ], [ 0, %66 ], [ 0, %74 ], [ %86, %85 ], [ 0, %81 ], [ 0, %75 ], [ %94, %93 ], [ 0, %87 ], [ %103, %102 ], [ 0, %95 ], [ 0, %96 ], [ 0, %104 ], [ %112, %111 ], [ 0, %105 ], [ %124, %123 ], [ 0, %119 ], [ 0, %113 ], [ %136, %135 ], [ 0, %131 ], [ 0, %125 ], [ 0, %137 ], [ %145, %144 ], [ 0, %138 ], [ %153, %152 ], [ 0, %146 ], [ %162, %161 ], [ 0, %154 ], [ 0, %155 ], [ 0, %163 ], [ 0, %164 ], [ 0, %176 ], [ 0, %170 ], [ %180, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_CVTP2UI_MVT_v2f64_MVT_v4i32_rEj.exit.sink.split.i ], [ 0, %181 ], [ %189, %188 ], [ 0, %182 ], [ %201, %200 ], [ 0, %196 ], [ 0, %190 ], [ 0, %202 ], [ %210, %209 ], [ 0, %203 ], [ %218, %217 ], [ 0, %211 ]
   ret i32 %.0
 }
 
@@ -26580,7 +26580,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTPH2PS_MVT_v8i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTPH2PS_MVT_v8i16_rEN4llvm3MVTEj.exit: ; preds = %41, %35, %34, %32, %28, %26, %18, %14, %12, %5, %4
-  %.0 = phi i32 [ 0, %28 ], [ 0, %4 ], [ 0, %14 ], [ 0, %5 ], [ %13, %12 ], [ %19, %18 ], [ %27, %26 ], [ %33, %32 ], [ 0, %34 ], [ %42, %41 ], [ 0, %35 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ %19, %18 ], [ 0, %14 ], [ %27, %26 ], [ %33, %32 ], [ 0, %28 ], [ %42, %41 ], [ 0, %34 ], [ 0, %35 ]
   ret i32 %.0
 }
 
@@ -26624,7 +26624,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel30fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_CVTPH2PS_SAE_MVT_v8i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_CVTPH2PS_SAE_MVT_v8i16_rEN4llvm3MVTEj.exit: ; preds = %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %14 ], [ %22, %21 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -26767,7 +26767,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTS2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTS2SI_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %.sink.split.i5.i13, %63, %.sink.split.i.i16, %52, %45, %.sink.split.i5.i, %40, %.sink.split.i.i, %29, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ %44, %.sink.split.i5.i ], [ 0, %4 ], [ 0, %14 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ %33, %.sink.split.i.i ], [ 0, %22 ], [ 0, %29 ], [ 0, %40 ], [ %56, %.sink.split.i.i16 ], [ 0, %45 ], [ 0, %52 ], [ 0, %63 ], [ %67, %.sink.split.i5.i13 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ 0, %22 ], [ 0, %29 ], [ %33, %.sink.split.i.i ], [ 0, %40 ], [ %44, %.sink.split.i5.i ], [ 0, %45 ], [ 0, %52 ], [ %56, %.sink.split.i.i16 ], [ 0, %63 ], [ %67, %.sink.split.i5.i13 ]
   ret i32 %.0
 }
 
@@ -26870,7 +26870,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTS2UI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTS2UI_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %54, %48, %46, %40, %39, %37, %31, %29, %23, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %31 ], [ 0, %4 ], [ 0, %14 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ 0, %23 ], [ 0, %22 ], [ %30, %29 ], [ %38, %37 ], [ 0, %40 ], [ 0, %39 ], [ %47, %46 ], [ %55, %54 ], [ 0, %48 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ 0, %22 ], [ %30, %29 ], [ 0, %23 ], [ %38, %37 ], [ 0, %31 ], [ 0, %39 ], [ %47, %46 ], [ 0, %40 ], [ %55, %54 ], [ 0, %48 ]
   ret i32 %.0
 }
 
@@ -26998,7 +26998,7 @@ _ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_CVTSI2P_MVT_v2i64_MVT_v8f16_rEj.
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTSI2P_MVT_v4i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTSI2P_MVT_v4i32_rEN4llvm3MVTEj.exit: ; preds = %69, %65, %59, %58, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_CVTSI2P_MVT_v2i64_MVT_v8f16_rEj.exit.sink.split.i, %53, %47, %43, %37, %36, %34, %32, %26, %24, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ %57, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_CVTSI2P_MVT_v2i64_MVT_v8f16_rEj.exit.sink.split.i ], [ 0, %4 ], [ 0, %26 ], [ 0, %6 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ %25, %24 ], [ %33, %32 ], [ %35, %34 ], [ 0, %37 ], [ 0, %36 ], [ 0, %53 ], [ 0, %43 ], [ 0, %47 ], [ 0, %58 ], [ %70, %69 ], [ 0, %65 ], [ 0, %59 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %6 ], [ %25, %24 ], [ %35, %34 ], [ %33, %32 ], [ 0, %26 ], [ 0, %36 ], [ 0, %43 ], [ 0, %37 ], [ 0, %53 ], [ 0, %47 ], [ %57, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_CVTSI2P_MVT_v2i64_MVT_v8f16_rEj.exit.sink.split.i ], [ %70, %69 ], [ 0, %58 ], [ 0, %65 ], [ 0, %59 ]
   ret i32 %.0
 }
 
@@ -27161,7 +27161,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_CVTTP2IBS_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_CVTTP2IBS_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %84, %78, %77, %75, %69, %68, %66, %60, %59, %57, %51, %50, %48, %42, %41, %39, %33, %32, %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %69 ], [ 0, %4 ], [ 0, %6 ], [ 0, %15 ], [ 0, %24 ], [ 0, %33 ], [ 0, %42 ], [ 0, %51 ], [ 0, %60 ], [ 0, %5 ], [ %13, %12 ], [ 0, %14 ], [ %22, %21 ], [ 0, %23 ], [ %31, %30 ], [ 0, %32 ], [ %40, %39 ], [ 0, %41 ], [ %49, %48 ], [ 0, %50 ], [ %58, %57 ], [ 0, %59 ], [ %67, %66 ], [ 0, %68 ], [ %76, %75 ], [ 0, %77 ], [ %85, %84 ], [ 0, %78 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ], [ %40, %39 ], [ 0, %32 ], [ 0, %33 ], [ %49, %48 ], [ 0, %41 ], [ 0, %42 ], [ %58, %57 ], [ 0, %50 ], [ 0, %51 ], [ %67, %66 ], [ 0, %59 ], [ 0, %60 ], [ %76, %75 ], [ 0, %68 ], [ 0, %69 ], [ %85, %84 ], [ 0, %77 ], [ 0, %78 ]
   ret i32 %.0
 }
 
@@ -27239,7 +27239,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_CVTTP2IBS_SAE_MVT_v16f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_CVTTP2IBS_SAE_MVT_v16f16_rEN4llvm3MVTEj.exit: ; preds = %39, %33, %32, %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %24 ], [ 0, %4 ], [ 0, %6 ], [ 0, %15 ], [ 0, %5 ], [ %13, %12 ], [ 0, %14 ], [ %22, %21 ], [ 0, %23 ], [ %31, %30 ], [ 0, %32 ], [ %40, %39 ], [ 0, %33 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ], [ %40, %39 ], [ 0, %32 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -27402,7 +27402,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel28fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_CVTTP2IUBS_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_CVTTP2IUBS_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %84, %78, %77, %75, %69, %68, %66, %60, %59, %57, %51, %50, %48, %42, %41, %39, %33, %32, %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %69 ], [ 0, %4 ], [ 0, %6 ], [ 0, %15 ], [ 0, %24 ], [ 0, %33 ], [ 0, %42 ], [ 0, %51 ], [ 0, %60 ], [ 0, %5 ], [ %13, %12 ], [ 0, %14 ], [ %22, %21 ], [ 0, %23 ], [ %31, %30 ], [ 0, %32 ], [ %40, %39 ], [ 0, %41 ], [ %49, %48 ], [ 0, %50 ], [ %58, %57 ], [ 0, %59 ], [ %67, %66 ], [ 0, %68 ], [ %76, %75 ], [ 0, %77 ], [ %85, %84 ], [ 0, %78 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ], [ %40, %39 ], [ 0, %32 ], [ 0, %33 ], [ %49, %48 ], [ 0, %41 ], [ 0, %42 ], [ %58, %57 ], [ 0, %50 ], [ 0, %51 ], [ %67, %66 ], [ 0, %59 ], [ 0, %60 ], [ %76, %75 ], [ 0, %68 ], [ 0, %69 ], [ %85, %84 ], [ 0, %77 ], [ 0, %78 ]
   ret i32 %.0
 }
 
@@ -27480,7 +27480,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel43fastEmit_X86ISD_CVTTP2IUBS_SAE_MVT_v16f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel43fastEmit_X86ISD_CVTTP2IUBS_SAE_MVT_v16f16_rEN4llvm3MVTEj.exit: ; preds = %39, %33, %32, %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %24 ], [ 0, %4 ], [ 0, %6 ], [ 0, %15 ], [ 0, %5 ], [ %13, %12 ], [ 0, %14 ], [ %22, %21 ], [ 0, %23 ], [ %31, %30 ], [ 0, %32 ], [ %40, %39 ], [ 0, %33 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ], [ %40, %39 ], [ 0, %32 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -27922,7 +27922,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTTP2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTTP2SI_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %252, %246, %244, %238, %237, %235, %231, %225, %223, %219, %217, %210, %208, %204, %198, %196, %194, %188, %186, %179, %177, %171, %170, %168, %162, %160, %156, %154, %147, %145, %141, %135, %133, %129, %123, %121, %119, %113, %111, %104, %102, %96, %95, %93, %87, %85, %81, %75, %74, %72, %66, %64, %60, %54, %52, %48, %42, %40, %36, %30, %28, %24, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %225 ], [ 0, %4 ], [ 0, %66 ], [ 0, %87 ], [ 0, %96 ], [ 0, %135 ], [ 0, %162 ], [ 0, %171 ], [ 0, %198 ], [ 0, %54 ], [ 0, %5 ], [ 0, %6 ], [ 0, %18 ], [ 0, %30 ], [ 0, %42 ], [ %17, %16 ], [ 0, %12 ], [ %29, %28 ], [ 0, %24 ], [ %41, %40 ], [ 0, %36 ], [ %53, %52 ], [ 0, %48 ], [ %65, %64 ], [ 0, %60 ], [ %73, %72 ], [ 0, %75 ], [ 0, %74 ], [ %86, %85 ], [ 0, %81 ], [ %94, %93 ], [ 0, %95 ], [ %103, %102 ], [ 0, %123 ], [ 0, %104 ], [ 0, %113 ], [ %112, %111 ], [ %120, %119 ], [ %122, %121 ], [ %134, %133 ], [ 0, %129 ], [ %146, %145 ], [ 0, %141 ], [ 0, %156 ], [ 0, %147 ], [ %155, %154 ], [ %161, %160 ], [ %169, %168 ], [ 0, %170 ], [ %178, %177 ], [ 0, %188 ], [ 0, %179 ], [ %187, %186 ], [ %195, %194 ], [ %197, %196 ], [ %209, %208 ], [ 0, %204 ], [ 0, %219 ], [ 0, %210 ], [ %218, %217 ], [ %224, %223 ], [ %236, %235 ], [ 0, %231 ], [ 0, %238 ], [ 0, %237 ], [ %245, %244 ], [ %253, %252 ], [ 0, %246 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %6 ], [ %29, %28 ], [ 0, %24 ], [ 0, %18 ], [ %41, %40 ], [ 0, %36 ], [ 0, %30 ], [ %53, %52 ], [ 0, %48 ], [ 0, %42 ], [ %65, %64 ], [ 0, %60 ], [ 0, %54 ], [ %73, %72 ], [ 0, %66 ], [ 0, %74 ], [ %86, %85 ], [ 0, %81 ], [ 0, %75 ], [ %94, %93 ], [ 0, %87 ], [ %103, %102 ], [ 0, %95 ], [ 0, %96 ], [ 0, %104 ], [ %112, %111 ], [ %122, %121 ], [ %120, %119 ], [ 0, %113 ], [ %134, %133 ], [ 0, %129 ], [ 0, %123 ], [ %146, %145 ], [ 0, %141 ], [ 0, %135 ], [ 0, %147 ], [ %155, %154 ], [ %161, %160 ], [ 0, %156 ], [ %169, %168 ], [ 0, %162 ], [ %178, %177 ], [ 0, %170 ], [ 0, %171 ], [ 0, %179 ], [ %187, %186 ], [ %197, %196 ], [ %195, %194 ], [ 0, %188 ], [ %209, %208 ], [ 0, %204 ], [ 0, %198 ], [ 0, %210 ], [ %218, %217 ], [ %224, %223 ], [ 0, %219 ], [ %236, %235 ], [ 0, %231 ], [ 0, %225 ], [ 0, %237 ], [ %245, %244 ], [ 0, %238 ], [ %253, %252 ], [ 0, %246 ]
   ret i32 %.0
 }
 
@@ -28114,7 +28114,7 @@ _ZN12_GLOBAL__N_111X86FastISel47fastEmit_X86ISD_CVTTP2SIS_MVT_v2f64_MVT_v4i32_rE
   br label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_CVTTP2SIS_MVT_v4f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_CVTTP2SIS_MVT_v4f32_rEN4llvm3MVTEj.exit: ; preds = %102, %96, %94, %88, %87, %85, %79, %77, %71, %70, %_ZN12_GLOBAL__N_111X86FastISel47fastEmit_X86ISD_CVTTP2SIS_MVT_v2f64_MVT_v4i32_rEj.exit.sink.split.i, %63, %57, %56, %54, %48, %47, %45, %39, %37, %31, %30, %28, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %79 ], [ 0, %4 ], [ 0, %22 ], [ 0, %39 ], [ 0, %48 ], [ %69, %_ZN12_GLOBAL__N_111X86FastISel47fastEmit_X86ISD_CVTTP2SIS_MVT_v2f64_MVT_v4i32_rEj.exit.sink.split.i ], [ 0, %14 ], [ 0, %5 ], [ 0, %6 ], [ %13, %12 ], [ %21, %20 ], [ %29, %28 ], [ 0, %31 ], [ 0, %30 ], [ %38, %37 ], [ %46, %45 ], [ 0, %47 ], [ %55, %54 ], [ 0, %57 ], [ 0, %56 ], [ 0, %63 ], [ 0, %71 ], [ 0, %70 ], [ %78, %77 ], [ %86, %85 ], [ 0, %88 ], [ 0, %87 ], [ %95, %94 ], [ %103, %102 ], [ 0, %96 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ %29, %28 ], [ 0, %22 ], [ 0, %30 ], [ %38, %37 ], [ 0, %31 ], [ %46, %45 ], [ 0, %39 ], [ %55, %54 ], [ 0, %47 ], [ 0, %48 ], [ 0, %56 ], [ 0, %57 ], [ 0, %63 ], [ %69, %_ZN12_GLOBAL__N_111X86FastISel47fastEmit_X86ISD_CVTTP2SIS_MVT_v2f64_MVT_v4i32_rEj.exit.sink.split.i ], [ 0, %70 ], [ %78, %77 ], [ 0, %71 ], [ %86, %85 ], [ 0, %79 ], [ 0, %87 ], [ %95, %94 ], [ 0, %88 ], [ %103, %102 ], [ 0, %96 ]
   ret i32 %.0
 }
 
@@ -28251,7 +28251,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_CVTTP2SIS_SAE_MVT_v4f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_CVTTP2SIS_SAE_MVT_v4f32_rEN4llvm3MVTEj.exit: ; preds = %72, %66, %64, %58, %57, %55, %49, %47, %41, %40, %38, %32, %31, %29, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %49 ], [ 0, %4 ], [ 0, %6 ], [ 0, %23 ], [ 0, %32 ], [ 0, %5 ], [ %13, %12 ], [ 0, %15 ], [ 0, %14 ], [ %22, %21 ], [ %30, %29 ], [ 0, %31 ], [ %39, %38 ], [ 0, %41 ], [ 0, %40 ], [ %48, %47 ], [ %56, %55 ], [ 0, %58 ], [ 0, %57 ], [ %65, %64 ], [ %73, %72 ], [ 0, %66 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ 0, %14 ], [ %22, %21 ], [ 0, %15 ], [ %30, %29 ], [ 0, %23 ], [ %39, %38 ], [ 0, %31 ], [ 0, %32 ], [ 0, %40 ], [ %48, %47 ], [ 0, %41 ], [ %56, %55 ], [ 0, %49 ], [ 0, %57 ], [ %65, %64 ], [ 0, %58 ], [ %73, %72 ], [ 0, %66 ]
   ret i32 %.0
 }
 
@@ -28480,7 +28480,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel30fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_CVTTP2SI_SAE_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_CVTTP2SI_SAE_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %123, %117, %115, %109, %108, %106, %100, %98, %92, %91, %89, %83, %82, %80, %74, %72, %66, %65, %63, %57, %56, %54, %48, %47, %45, %39, %37, %31, %30, %28, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %100 ], [ 0, %4 ], [ 0, %22 ], [ 0, %39 ], [ 0, %48 ], [ 0, %57 ], [ 0, %74 ], [ 0, %83 ], [ 0, %14 ], [ 0, %5 ], [ 0, %6 ], [ %13, %12 ], [ %21, %20 ], [ %29, %28 ], [ 0, %31 ], [ 0, %30 ], [ %38, %37 ], [ %46, %45 ], [ 0, %47 ], [ %55, %54 ], [ 0, %56 ], [ %64, %63 ], [ 0, %66 ], [ 0, %65 ], [ %73, %72 ], [ %81, %80 ], [ 0, %82 ], [ %90, %89 ], [ 0, %92 ], [ 0, %91 ], [ %99, %98 ], [ %107, %106 ], [ 0, %109 ], [ 0, %108 ], [ %116, %115 ], [ %124, %123 ], [ 0, %117 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ %29, %28 ], [ 0, %22 ], [ 0, %30 ], [ %38, %37 ], [ 0, %31 ], [ %46, %45 ], [ 0, %39 ], [ %55, %54 ], [ 0, %47 ], [ 0, %48 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ 0, %65 ], [ %73, %72 ], [ 0, %66 ], [ %81, %80 ], [ 0, %74 ], [ %90, %89 ], [ 0, %82 ], [ 0, %83 ], [ 0, %91 ], [ %99, %98 ], [ 0, %92 ], [ %107, %106 ], [ 0, %100 ], [ 0, %108 ], [ %116, %115 ], [ 0, %109 ], [ %124, %123 ], [ 0, %117 ]
   ret i32 %.0
 }
 
@@ -28863,7 +28863,7 @@ _ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_CVTTP2UI_MVT_v2f64_MVT_v4i32_rEj
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTTP2UI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTTP2UI_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %217, %211, %209, %203, %202, %200, %196, %190, %188, %182, %181, %_ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_CVTTP2UI_MVT_v2f64_MVT_v4i32_rEj.exit.sink.split.i, %176, %170, %164, %163, %161, %155, %154, %152, %146, %144, %138, %137, %135, %131, %125, %123, %119, %113, %111, %105, %104, %102, %96, %95, %93, %87, %85, %81, %75, %74, %72, %66, %64, %60, %54, %52, %48, %42, %40, %36, %30, %28, %24, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %190 ], [ 0, %4 ], [ 0, %66 ], [ 0, %87 ], [ 0, %96 ], [ 0, %125 ], [ 0, %146 ], [ 0, %155 ], [ %180, %_ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_CVTTP2UI_MVT_v2f64_MVT_v4i32_rEj.exit.sink.split.i ], [ 0, %54 ], [ 0, %5 ], [ 0, %6 ], [ 0, %18 ], [ 0, %30 ], [ 0, %42 ], [ %17, %16 ], [ 0, %12 ], [ %29, %28 ], [ 0, %24 ], [ %41, %40 ], [ 0, %36 ], [ %53, %52 ], [ 0, %48 ], [ %65, %64 ], [ 0, %60 ], [ %73, %72 ], [ 0, %75 ], [ 0, %74 ], [ %86, %85 ], [ 0, %81 ], [ %94, %93 ], [ 0, %95 ], [ %103, %102 ], [ 0, %113 ], [ 0, %104 ], [ 0, %105 ], [ %112, %111 ], [ %124, %123 ], [ 0, %119 ], [ %136, %135 ], [ 0, %131 ], [ 0, %138 ], [ 0, %137 ], [ %145, %144 ], [ %153, %152 ], [ 0, %154 ], [ %162, %161 ], [ 0, %164 ], [ 0, %163 ], [ 0, %176 ], [ 0, %170 ], [ 0, %182 ], [ 0, %181 ], [ %189, %188 ], [ %201, %200 ], [ 0, %196 ], [ 0, %203 ], [ 0, %202 ], [ %210, %209 ], [ %218, %217 ], [ 0, %211 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %6 ], [ %29, %28 ], [ 0, %24 ], [ 0, %18 ], [ %41, %40 ], [ 0, %36 ], [ 0, %30 ], [ %53, %52 ], [ 0, %48 ], [ 0, %42 ], [ %65, %64 ], [ 0, %60 ], [ 0, %54 ], [ %73, %72 ], [ 0, %66 ], [ 0, %74 ], [ %86, %85 ], [ 0, %81 ], [ 0, %75 ], [ %94, %93 ], [ 0, %87 ], [ %103, %102 ], [ 0, %95 ], [ 0, %96 ], [ 0, %104 ], [ %112, %111 ], [ 0, %105 ], [ %124, %123 ], [ 0, %119 ], [ 0, %113 ], [ %136, %135 ], [ 0, %131 ], [ 0, %125 ], [ 0, %137 ], [ %145, %144 ], [ 0, %138 ], [ %153, %152 ], [ 0, %146 ], [ %162, %161 ], [ 0, %154 ], [ 0, %155 ], [ 0, %163 ], [ 0, %164 ], [ 0, %176 ], [ 0, %170 ], [ %180, %_ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_CVTTP2UI_MVT_v2f64_MVT_v4i32_rEj.exit.sink.split.i ], [ 0, %181 ], [ %189, %188 ], [ 0, %182 ], [ %201, %200 ], [ 0, %196 ], [ 0, %190 ], [ 0, %202 ], [ %210, %209 ], [ 0, %203 ], [ %218, %217 ], [ 0, %211 ]
   ret i32 %.0
 }
 
@@ -29055,7 +29055,7 @@ _ZN12_GLOBAL__N_111X86FastISel47fastEmit_X86ISD_CVTTP2UIS_MVT_v2f64_MVT_v4i32_rE
   br label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_CVTTP2UIS_MVT_v4f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_CVTTP2UIS_MVT_v4f32_rEN4llvm3MVTEj.exit: ; preds = %102, %96, %94, %88, %87, %85, %79, %77, %71, %70, %_ZN12_GLOBAL__N_111X86FastISel47fastEmit_X86ISD_CVTTP2UIS_MVT_v2f64_MVT_v4i32_rEj.exit.sink.split.i, %63, %57, %56, %54, %48, %47, %45, %39, %37, %31, %30, %28, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %79 ], [ 0, %4 ], [ 0, %22 ], [ 0, %39 ], [ 0, %48 ], [ %69, %_ZN12_GLOBAL__N_111X86FastISel47fastEmit_X86ISD_CVTTP2UIS_MVT_v2f64_MVT_v4i32_rEj.exit.sink.split.i ], [ 0, %14 ], [ 0, %5 ], [ 0, %6 ], [ %13, %12 ], [ %21, %20 ], [ %29, %28 ], [ 0, %31 ], [ 0, %30 ], [ %38, %37 ], [ %46, %45 ], [ 0, %47 ], [ %55, %54 ], [ 0, %57 ], [ 0, %56 ], [ 0, %63 ], [ 0, %71 ], [ 0, %70 ], [ %78, %77 ], [ %86, %85 ], [ 0, %88 ], [ 0, %87 ], [ %95, %94 ], [ %103, %102 ], [ 0, %96 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ %29, %28 ], [ 0, %22 ], [ 0, %30 ], [ %38, %37 ], [ 0, %31 ], [ %46, %45 ], [ 0, %39 ], [ %55, %54 ], [ 0, %47 ], [ 0, %48 ], [ 0, %56 ], [ 0, %57 ], [ 0, %63 ], [ %69, %_ZN12_GLOBAL__N_111X86FastISel47fastEmit_X86ISD_CVTTP2UIS_MVT_v2f64_MVT_v4i32_rEj.exit.sink.split.i ], [ 0, %70 ], [ %78, %77 ], [ 0, %71 ], [ %86, %85 ], [ 0, %79 ], [ 0, %87 ], [ %95, %94 ], [ 0, %88 ], [ %103, %102 ], [ 0, %96 ]
   ret i32 %.0
 }
 
@@ -29192,7 +29192,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_CVTTP2UIS_SAE_MVT_v4f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_CVTTP2UIS_SAE_MVT_v4f32_rEN4llvm3MVTEj.exit: ; preds = %72, %66, %64, %58, %57, %55, %49, %47, %41, %40, %38, %32, %31, %29, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %49 ], [ 0, %4 ], [ 0, %6 ], [ 0, %23 ], [ 0, %32 ], [ 0, %5 ], [ %13, %12 ], [ 0, %15 ], [ 0, %14 ], [ %22, %21 ], [ %30, %29 ], [ 0, %31 ], [ %39, %38 ], [ 0, %41 ], [ 0, %40 ], [ %48, %47 ], [ %56, %55 ], [ 0, %58 ], [ 0, %57 ], [ %65, %64 ], [ %73, %72 ], [ 0, %66 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ 0, %14 ], [ %22, %21 ], [ 0, %15 ], [ %30, %29 ], [ 0, %23 ], [ %39, %38 ], [ 0, %31 ], [ 0, %32 ], [ 0, %40 ], [ %48, %47 ], [ 0, %41 ], [ %56, %55 ], [ 0, %49 ], [ 0, %57 ], [ %65, %64 ], [ 0, %58 ], [ %73, %72 ], [ 0, %66 ]
   ret i32 %.0
 }
 
@@ -29421,7 +29421,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel30fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_CVTTP2UI_SAE_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_CVTTP2UI_SAE_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %123, %117, %115, %109, %108, %106, %100, %98, %92, %91, %89, %83, %82, %80, %74, %72, %66, %65, %63, %57, %56, %54, %48, %47, %45, %39, %37, %31, %30, %28, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %100 ], [ 0, %4 ], [ 0, %22 ], [ 0, %39 ], [ 0, %48 ], [ 0, %57 ], [ 0, %74 ], [ 0, %83 ], [ 0, %14 ], [ 0, %5 ], [ 0, %6 ], [ %13, %12 ], [ %21, %20 ], [ %29, %28 ], [ 0, %31 ], [ 0, %30 ], [ %38, %37 ], [ %46, %45 ], [ 0, %47 ], [ %55, %54 ], [ 0, %56 ], [ %64, %63 ], [ 0, %66 ], [ 0, %65 ], [ %73, %72 ], [ %81, %80 ], [ 0, %82 ], [ %90, %89 ], [ 0, %92 ], [ 0, %91 ], [ %99, %98 ], [ %107, %106 ], [ 0, %109 ], [ 0, %108 ], [ %116, %115 ], [ %124, %123 ], [ 0, %117 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ %29, %28 ], [ 0, %22 ], [ 0, %30 ], [ %38, %37 ], [ 0, %31 ], [ %46, %45 ], [ 0, %39 ], [ %55, %54 ], [ 0, %47 ], [ 0, %48 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ 0, %65 ], [ %73, %72 ], [ 0, %66 ], [ %81, %80 ], [ 0, %74 ], [ %90, %89 ], [ 0, %82 ], [ 0, %83 ], [ 0, %91 ], [ %99, %98 ], [ 0, %92 ], [ %107, %106 ], [ 0, %100 ], [ 0, %108 ], [ %116, %115 ], [ 0, %109 ], [ %124, %123 ], [ 0, %117 ]
   ret i32 %.0
 }
 
@@ -29564,7 +29564,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTTS2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTTS2SI_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %.sink.split.i5.i13, %63, %.sink.split.i.i16, %52, %45, %.sink.split.i5.i, %40, %.sink.split.i.i, %29, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ %44, %.sink.split.i5.i ], [ 0, %4 ], [ 0, %14 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ %33, %.sink.split.i.i ], [ 0, %22 ], [ 0, %29 ], [ 0, %40 ], [ %56, %.sink.split.i.i16 ], [ 0, %45 ], [ 0, %52 ], [ 0, %63 ], [ %67, %.sink.split.i5.i13 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ 0, %22 ], [ 0, %29 ], [ %33, %.sink.split.i.i ], [ 0, %40 ], [ %44, %.sink.split.i5.i ], [ 0, %45 ], [ 0, %52 ], [ %56, %.sink.split.i.i16 ], [ 0, %63 ], [ %67, %.sink.split.i5.i13 ]
   ret i32 %.0
 }
 
@@ -29636,7 +29636,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_CVTTS2SIS_MVT_v4f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_CVTTS2SIS_MVT_v4f32_rEN4llvm3MVTEj.exit: ; preds = %37, %31, %29, %23, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %14 ], [ 0, %4 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ 0, %23 ], [ 0, %22 ], [ %30, %29 ], [ %38, %37 ], [ 0, %31 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ 0, %22 ], [ %30, %29 ], [ 0, %23 ], [ %38, %37 ], [ 0, %31 ]
   ret i32 %.0
 }
 
@@ -29708,7 +29708,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_CVTTS2SIS_SAE_MVT_v4f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_CVTTS2SIS_SAE_MVT_v4f32_rEN4llvm3MVTEj.exit: ; preds = %37, %31, %29, %23, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %14 ], [ 0, %4 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ 0, %23 ], [ 0, %22 ], [ %30, %29 ], [ %38, %37 ], [ 0, %31 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ 0, %22 ], [ %30, %29 ], [ 0, %23 ], [ %38, %37 ], [ 0, %31 ]
   ret i32 %.0
 }
 
@@ -29811,7 +29811,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel30fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_CVTTS2SI_SAE_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_CVTTS2SI_SAE_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %54, %48, %46, %40, %39, %37, %31, %29, %23, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %31 ], [ 0, %4 ], [ 0, %14 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ 0, %23 ], [ 0, %22 ], [ %30, %29 ], [ %38, %37 ], [ 0, %40 ], [ 0, %39 ], [ %47, %46 ], [ %55, %54 ], [ 0, %48 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ 0, %22 ], [ %30, %29 ], [ 0, %23 ], [ %38, %37 ], [ 0, %31 ], [ 0, %39 ], [ %47, %46 ], [ 0, %40 ], [ %55, %54 ], [ 0, %48 ]
   ret i32 %.0
 }
 
@@ -29914,7 +29914,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTTS2UI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTTS2UI_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %54, %48, %46, %40, %39, %37, %31, %29, %23, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %31 ], [ 0, %4 ], [ 0, %14 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ 0, %23 ], [ 0, %22 ], [ %30, %29 ], [ %38, %37 ], [ 0, %40 ], [ 0, %39 ], [ %47, %46 ], [ %55, %54 ], [ 0, %48 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ 0, %22 ], [ %30, %29 ], [ 0, %23 ], [ %38, %37 ], [ 0, %31 ], [ 0, %39 ], [ %47, %46 ], [ 0, %40 ], [ %55, %54 ], [ 0, %48 ]
   ret i32 %.0
 }
 
@@ -29986,7 +29986,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_CVTTS2UIS_MVT_v4f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_CVTTS2UIS_MVT_v4f32_rEN4llvm3MVTEj.exit: ; preds = %37, %31, %29, %23, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %14 ], [ 0, %4 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ 0, %23 ], [ 0, %22 ], [ %30, %29 ], [ %38, %37 ], [ 0, %31 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ 0, %22 ], [ %30, %29 ], [ 0, %23 ], [ %38, %37 ], [ 0, %31 ]
   ret i32 %.0
 }
 
@@ -30058,7 +30058,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_CVTTS2UIS_SAE_MVT_v4f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_CVTTS2UIS_SAE_MVT_v4f32_rEN4llvm3MVTEj.exit: ; preds = %37, %31, %29, %23, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %14 ], [ 0, %4 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ 0, %23 ], [ 0, %22 ], [ %30, %29 ], [ %38, %37 ], [ 0, %31 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ 0, %22 ], [ %30, %29 ], [ 0, %23 ], [ %38, %37 ], [ 0, %31 ]
   ret i32 %.0
 }
 
@@ -30161,7 +30161,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel30fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_CVTTS2UI_SAE_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_CVTTS2UI_SAE_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %54, %48, %46, %40, %39, %37, %31, %29, %23, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %31 ], [ 0, %4 ], [ 0, %14 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ 0, %23 ], [ 0, %22 ], [ %30, %29 ], [ %38, %37 ], [ 0, %40 ], [ 0, %39 ], [ %47, %46 ], [ %55, %54 ], [ 0, %48 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ 0, %22 ], [ %30, %29 ], [ 0, %23 ], [ %38, %37 ], [ 0, %31 ], [ 0, %39 ], [ %47, %46 ], [ 0, %40 ], [ %55, %54 ], [ 0, %48 ]
   ret i32 %.0
 }
 
@@ -30254,12 +30254,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %53, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTUI2P_MVT_v4i32_rEN4llvm3MVTEj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTUI2P_MVT_v4i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTUI2P_MVT_v4i32_rEN4llvm3MVTEj.exit.sink.split: ; preds = %50, %29, %39, %12, %16
-  %.sink = phi i32 [ 8854, %39 ], [ 8695, %16 ], [ 8722, %12 ], [ 8821, %29 ], [ 8830, %50 ]
+  %.sink = phi i32 [ 8722, %12 ], [ 8695, %16 ], [ 8821, %29 ], [ 8854, %39 ], [ 8830, %50 ]
   %54 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTUI2P_MVT_v4i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTUI2P_MVT_v4i32_rEN4llvm3MVTEj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTUI2P_MVT_v4i32_rEN4llvm3MVTEj.exit.sink.split, %50, %44, %43, %39, %33, %29, %23, %22, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %44 ], [ 0, %4 ], [ 0, %50 ], [ 0, %6 ], [ 0, %5 ], [ 0, %16 ], [ 0, %12 ], [ 0, %23 ], [ 0, %22 ], [ 0, %39 ], [ 0, %29 ], [ 0, %33 ], [ 0, %43 ], [ %54, %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTUI2P_MVT_v4i32_rEN4llvm3MVTEj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ 0, %12 ], [ 0, %6 ], [ 0, %16 ], [ 0, %22 ], [ 0, %29 ], [ 0, %23 ], [ 0, %39 ], [ 0, %33 ], [ 0, %43 ], [ 0, %50 ], [ 0, %44 ], [ %54, %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTUI2P_MVT_v4i32_rEN4llvm3MVTEj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -30317,7 +30317,7 @@ _ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.thread.i: ; preds = %_ZNK4llvm
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_DYN_ALLOCA_MVT_i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_DYN_ALLOCA_MVT_i32_rEN4llvm3MVTEj.exit: ; preds = %25, %19, %18, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.thread.i, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i, %5, %4
-  %.0 = phi i32 [ 0, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ 0, %4 ], [ %17, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.thread.i ], [ 0, %5 ], [ 0, %18 ], [ %26, %25 ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.thread.i ], [ 0, %5 ], [ 0, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ %26, %25 ], [ 0, %18 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -30345,7 +30345,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_EH_RETURN_MVT_i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_EH_RETURN_MVT_i32_rEN4llvm3MVTEj.exit: ; preds = %9, %8, %6, %5, %4
-  %.0 = phi i32 [ 0, %5 ], [ 0, %4 ], [ %7, %6 ], [ %10, %9 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %4 ], [ %7, %6 ], [ 0, %5 ], [ %10, %9 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -30571,7 +30571,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_FGETEXP_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_FGETEXP_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %119, %113, %112, %110, %104, %103, %101, %95, %94, %92, %86, %85, %83, %77, %76, %74, %68, %67, %65, %59, %58, %56, %50, %49, %47, %41, %40, %38, %32, %31, %29, %25, %19, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %104 ], [ 0, %4 ], [ 0, %6 ], [ 0, %19 ], [ 0, %32 ], [ 0, %41 ], [ 0, %50 ], [ 0, %59 ], [ 0, %68 ], [ 0, %77 ], [ 0, %86 ], [ 0, %95 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %18 ], [ %30, %29 ], [ 0, %25 ], [ 0, %31 ], [ %39, %38 ], [ 0, %40 ], [ %48, %47 ], [ 0, %49 ], [ %57, %56 ], [ 0, %58 ], [ %66, %65 ], [ 0, %67 ], [ %75, %74 ], [ 0, %76 ], [ %84, %83 ], [ 0, %85 ], [ %93, %92 ], [ 0, %94 ], [ %102, %101 ], [ 0, %103 ], [ %111, %110 ], [ 0, %112 ], [ %120, %119 ], [ 0, %113 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ 0, %5 ], [ 0, %12 ], [ 0, %6 ], [ %30, %29 ], [ 0, %18 ], [ 0, %25 ], [ 0, %19 ], [ %39, %38 ], [ 0, %31 ], [ 0, %32 ], [ %48, %47 ], [ 0, %40 ], [ 0, %41 ], [ %57, %56 ], [ 0, %49 ], [ 0, %50 ], [ %66, %65 ], [ 0, %58 ], [ 0, %59 ], [ %75, %74 ], [ 0, %67 ], [ 0, %68 ], [ %84, %83 ], [ 0, %76 ], [ 0, %77 ], [ %93, %92 ], [ 0, %85 ], [ 0, %86 ], [ %102, %101 ], [ 0, %94 ], [ 0, %95 ], [ %111, %110 ], [ 0, %103 ], [ 0, %104 ], [ %120, %119 ], [ 0, %112 ], [ 0, %113 ]
   ret i32 %.0
 }
 
@@ -30683,7 +30683,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel29fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_FGETEXP_SAE_MVT_v16f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_FGETEXP_SAE_MVT_v16f16_rEN4llvm3MVTEj.exit: ; preds = %57, %51, %50, %48, %42, %41, %39, %33, %32, %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %42 ], [ 0, %4 ], [ 0, %6 ], [ 0, %15 ], [ 0, %24 ], [ 0, %33 ], [ 0, %5 ], [ %13, %12 ], [ 0, %14 ], [ %22, %21 ], [ 0, %23 ], [ %31, %30 ], [ 0, %32 ], [ %40, %39 ], [ 0, %41 ], [ %49, %48 ], [ 0, %50 ], [ %58, %57 ], [ 0, %51 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ], [ %40, %39 ], [ 0, %32 ], [ 0, %33 ], [ %49, %48 ], [ 0, %41 ], [ 0, %42 ], [ %58, %57 ], [ 0, %50 ], [ 0, %51 ]
   ret i32 %.0
 }
 
@@ -30724,7 +30724,7 @@ _ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_FP_TO_SINT_SAT_MVT_v4f32_rEN4llv
   br label %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_FP_TO_SINT_SAT_MVT_v4f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_FP_TO_SINT_SAT_MVT_v4f32_rEN4llvm3MVTEj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_FP_TO_SINT_SAT_MVT_v4f32_rEN4llvm3MVTEj.exit.sink.split, %13, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %5 ], [ 0, %13 ], [ 0, %12 ], [ %19, %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_FP_TO_SINT_SAT_MVT_v4f32_rEN4llvm3MVTEj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ 0, %6 ], [ 0, %12 ], [ 0, %13 ], [ %19, %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_FP_TO_SINT_SAT_MVT_v4f32_rEN4llvm3MVTEj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -30765,7 +30765,7 @@ _ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_FP_TO_UINT_SAT_MVT_v4f32_rEN4llv
   br label %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_FP_TO_UINT_SAT_MVT_v4f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_FP_TO_UINT_SAT_MVT_v4f32_rEN4llvm3MVTEj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_FP_TO_UINT_SAT_MVT_v4f32_rEN4llvm3MVTEj.exit.sink.split, %13, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %5 ], [ 0, %13 ], [ 0, %12 ], [ %19, %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_FP_TO_UINT_SAT_MVT_v4f32_rEN4llvm3MVTEj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ 0, %6 ], [ 0, %12 ], [ 0, %13 ], [ %19, %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_FP_TO_UINT_SAT_MVT_v4f32_rEN4llvm3MVTEj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -30829,7 +30829,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel22fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_X86ISD_FRCP_MVT_f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel30fastEmit_X86ISD_FRCP_MVT_f32_rEN4llvm3MVTEj.exit: ; preds = %30, %24, %23, %.sink.split.i, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ %22, %.sink.split.i ], [ 0, %4 ], [ 0, %6 ], [ %13, %12 ], [ 0, %5 ], [ 0, %14 ], [ 0, %15 ], [ 0, %23 ], [ %31, %30 ], [ 0, %24 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ 0, %14 ], [ 0, %15 ], [ %22, %.sink.split.i ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -30893,7 +30893,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FRSQRT_MVT_f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FRSQRT_MVT_f32_rEN4llvm3MVTEj.exit: ; preds = %30, %24, %23, %.sink.split.i, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ %22, %.sink.split.i ], [ 0, %4 ], [ 0, %6 ], [ %13, %12 ], [ 0, %5 ], [ 0, %14 ], [ 0, %15 ], [ 0, %23 ], [ %31, %30 ], [ 0, %24 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ 0, %14 ], [ 0, %15 ], [ %22, %.sink.split.i ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -30985,7 +30985,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MOVDDUP_MVT_v2f64_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MOVDDUP_MVT_v2f64_rEN4llvm3MVTEj.exit: ; preds = %43, %37, %36, %.thread.thread.i, %.thread.i, %32, %30, %19, %.sink.split.i, %14, %6, %5, %4
-  %.0 = phi i32 [ 0, %32 ], [ 0, %4 ], [ %18, %.sink.split.i ], [ 0, %14 ], [ 0, %5 ], [ 0, %6 ], [ %35, %.thread.thread.i ], [ %31, %30 ], [ 0, %19 ], [ 0, %.thread.i ], [ 0, %36 ], [ %44, %43 ], [ 0, %37 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ 0, %14 ], [ 0, %6 ], [ %18, %.sink.split.i ], [ %31, %30 ], [ %35, %.thread.thread.i ], [ 0, %19 ], [ 0, %.thread.i ], [ 0, %32 ], [ %44, %43 ], [ 0, %36 ], [ 0, %37 ]
   ret i32 %.0
 }
 
@@ -31015,7 +31015,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MOVDQ2Q_MVT_v2i64_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MOVDQ2Q_MVT_v2i64_rEN4llvm3MVTEj.exit: ; preds = %15, %11, %5, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %16, %15 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %4 ], [ %16, %15 ], [ 0, %11 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -31180,12 +31180,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %79, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit.sink.split: ; preds = %74, %59, %44, %29, %14, %.sink.split.i, %.sink.split.i35, %.sink.split.i41, %.sink.split.i47, %.sink.split.i53
-  %.sink = phi i32 [ 14240, %59 ], [ %..i54, %.sink.split.i53 ], [ 14238, %44 ], [ %..i48, %.sink.split.i47 ], [ 14240, %29 ], [ %..i42, %.sink.split.i41 ], [ 17958, %14 ], [ %..i36, %.sink.split.i35 ], [ %..i, %.sink.split.i ], [ 14238, %74 ]
+  %.sink = phi i32 [ %..i54, %.sink.split.i53 ], [ %..i48, %.sink.split.i47 ], [ %..i42, %.sink.split.i41 ], [ %..i36, %.sink.split.i35 ], [ %..i, %.sink.split.i ], [ 17958, %14 ], [ 14240, %29 ], [ 14238, %44 ], [ 14240, %59 ], [ 14238, %74 ]
   %80 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8612GR32RegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit.sink.split, %74, %73, %66, %65, %59, %58, %51, %50, %44, %43, %36, %35, %29, %28, %21, %20, %14, %13, %6, %5, %4
-  %.0 = phi i32 [ 0, %73 ], [ 0, %4 ], [ 0, %50 ], [ 0, %14 ], [ 0, %51 ], [ 0, %29 ], [ 0, %58 ], [ 0, %44 ], [ 0, %74 ], [ 0, %59 ], [ 0, %5 ], [ 0, %6 ], [ 0, %13 ], [ 0, %65 ], [ 0, %20 ], [ 0, %21 ], [ 0, %28 ], [ 0, %66 ], [ 0, %35 ], [ 0, %36 ], [ 0, %43 ], [ %80, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ 0, %6 ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %21 ], [ 0, %28 ], [ 0, %29 ], [ 0, %35 ], [ 0, %36 ], [ 0, %43 ], [ 0, %44 ], [ 0, %50 ], [ 0, %51 ], [ 0, %58 ], [ 0, %59 ], [ 0, %65 ], [ 0, %66 ], [ 0, %73 ], [ 0, %74 ], [ %80, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -31215,7 +31215,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_MOVQ2DQ_MVT_x86mmx_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_MOVQ2DQ_MVT_x86mmx_rEN4llvm3MVTEj.exit: ; preds = %15, %11, %5, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %16, %15 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %4 ], [ %16, %15 ], [ 0, %11 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -31375,7 +31375,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_MOVSHDUP_MVT_v4i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_MOVSHDUP_MVT_v4i32_rEN4llvm3MVTEj.exit: ; preds = %77, %71, %70, %.thread.thread.i, %.thread.i, %66, %64, %53, %.thread6.thread.i, %.thread6.i, %49, %45, %43, %32, %30, %26, %20, %19, %.sink.split.i, %14, %6, %5, %4
-  %.0 = phi i32 [ 0, %66 ], [ 0, %4 ], [ %18, %.sink.split.i ], [ 0, %20 ], [ 0, %45 ], [ 0, %14 ], [ 0, %5 ], [ 0, %6 ], [ %31, %30 ], [ 0, %19 ], [ 0, %26 ], [ %50, %49 ], [ %44, %43 ], [ 0, %32 ], [ %52, %.thread6.thread.i ], [ 0, %.thread6.i ], [ %69, %.thread.thread.i ], [ %65, %64 ], [ 0, %53 ], [ 0, %.thread.i ], [ 0, %70 ], [ %78, %77 ], [ 0, %71 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ 0, %14 ], [ 0, %6 ], [ %18, %.sink.split.i ], [ %31, %30 ], [ 0, %19 ], [ 0, %26 ], [ 0, %20 ], [ %44, %43 ], [ %52, %.thread6.thread.i ], [ %50, %49 ], [ 0, %32 ], [ 0, %.thread6.i ], [ 0, %45 ], [ %65, %64 ], [ %69, %.thread.thread.i ], [ 0, %53 ], [ 0, %.thread.i ], [ 0, %66 ], [ %78, %77 ], [ 0, %70 ], [ 0, %71 ]
   ret i32 %.0
 }
 
@@ -31535,7 +31535,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_MOVSLDUP_MVT_v4i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_MOVSLDUP_MVT_v4i32_rEN4llvm3MVTEj.exit: ; preds = %77, %71, %70, %.thread.thread.i, %.thread.i, %66, %64, %53, %.thread6.thread.i, %.thread6.i, %49, %45, %43, %32, %30, %26, %20, %19, %.sink.split.i, %14, %6, %5, %4
-  %.0 = phi i32 [ 0, %66 ], [ 0, %4 ], [ %18, %.sink.split.i ], [ 0, %20 ], [ 0, %45 ], [ 0, %14 ], [ 0, %5 ], [ 0, %6 ], [ %31, %30 ], [ 0, %19 ], [ 0, %26 ], [ %50, %49 ], [ %44, %43 ], [ 0, %32 ], [ %52, %.thread6.thread.i ], [ 0, %.thread6.i ], [ %69, %.thread.thread.i ], [ %65, %64 ], [ 0, %53 ], [ 0, %.thread.i ], [ 0, %70 ], [ %78, %77 ], [ 0, %71 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ 0, %14 ], [ 0, %6 ], [ %18, %.sink.split.i ], [ %31, %30 ], [ 0, %19 ], [ 0, %26 ], [ 0, %20 ], [ %44, %43 ], [ %52, %.thread6.thread.i ], [ %50, %49 ], [ 0, %32 ], [ 0, %.thread6.i ], [ 0, %45 ], [ %65, %64 ], [ %69, %.thread.thread.i ], [ 0, %53 ], [ 0, %.thread.i ], [ 0, %66 ], [ %78, %77 ], [ 0, %70 ], [ 0, %71 ]
   ret i32 %.0
 }
 
@@ -31596,7 +31596,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_NT_BRIND_MVT_i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_NT_BRIND_MVT_i16_rEN4llvm3MVTEj.exit: ; preds = %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %15 ], [ 0, %4 ], [ 0, %6 ], [ %13, %12 ], [ 0, %5 ], [ %22, %21 ], [ 0, %14 ], [ 0, %23 ], [ %31, %30 ], [ 0, %24 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -31657,7 +31657,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_NT_CALL_MVT_i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_NT_CALL_MVT_i16_rEN4llvm3MVTEj.exit: ; preds = %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %15 ], [ 0, %4 ], [ 0, %6 ], [ %13, %12 ], [ 0, %5 ], [ %22, %21 ], [ 0, %14 ], [ 0, %23 ], [ %31, %30 ], [ 0, %24 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -31683,7 +31683,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_PHMINPOS_MVT_v8i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_PHMINPOS_MVT_v8i16_rEN4llvm3MVTEj.exit: ; preds = %.sink.split.i, %5, %4
-  %.0 = phi i32 [ 0, %4 ], [ %12, %.sink.split.i ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %12, %.sink.split.i ]
   ret i32 %.0
 }
 
@@ -31741,7 +31741,7 @@ _ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.thread.i: ; preds = %_ZNK4llvm
   br label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_PROBED_ALLOCA_MVT_i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_PROBED_ALLOCA_MVT_i32_rEN4llvm3MVTEj.exit: ; preds = %25, %19, %18, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.thread.i, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i, %5, %4
-  %.0 = phi i32 [ 0, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ 0, %4 ], [ %17, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.thread.i ], [ 0, %5 ], [ 0, %18 ], [ %26, %25 ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.thread.i ], [ 0, %5 ], [ 0, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ %26, %25 ], [ 0, %18 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -31967,7 +31967,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_RCP14_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_RCP14_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %119, %113, %112, %110, %104, %103, %101, %95, %94, %92, %86, %85, %83, %77, %76, %74, %68, %67, %65, %59, %58, %56, %50, %49, %47, %41, %40, %38, %32, %31, %29, %25, %19, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %104 ], [ 0, %4 ], [ 0, %6 ], [ 0, %19 ], [ 0, %32 ], [ 0, %41 ], [ 0, %50 ], [ 0, %59 ], [ 0, %68 ], [ 0, %77 ], [ 0, %86 ], [ 0, %95 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %18 ], [ %30, %29 ], [ 0, %25 ], [ 0, %31 ], [ %39, %38 ], [ 0, %40 ], [ %48, %47 ], [ 0, %49 ], [ %57, %56 ], [ 0, %58 ], [ %66, %65 ], [ 0, %67 ], [ %75, %74 ], [ 0, %76 ], [ %84, %83 ], [ 0, %85 ], [ %93, %92 ], [ 0, %94 ], [ %102, %101 ], [ 0, %103 ], [ %111, %110 ], [ 0, %112 ], [ %120, %119 ], [ 0, %113 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ 0, %5 ], [ 0, %12 ], [ 0, %6 ], [ %30, %29 ], [ 0, %18 ], [ 0, %25 ], [ 0, %19 ], [ %39, %38 ], [ 0, %31 ], [ 0, %32 ], [ %48, %47 ], [ 0, %40 ], [ 0, %41 ], [ %57, %56 ], [ 0, %49 ], [ 0, %50 ], [ %66, %65 ], [ 0, %58 ], [ 0, %59 ], [ %75, %74 ], [ 0, %67 ], [ 0, %68 ], [ %84, %83 ], [ 0, %76 ], [ 0, %77 ], [ %93, %92 ], [ 0, %85 ], [ 0, %86 ], [ %102, %101 ], [ 0, %94 ], [ 0, %95 ], [ %111, %110 ], [ 0, %103 ], [ 0, %104 ], [ %120, %119 ], [ 0, %112 ], [ 0, %113 ]
   ret i32 %.0
 }
 
@@ -32193,7 +32193,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_RSQRT14_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_RSQRT14_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %119, %113, %112, %110, %104, %103, %101, %95, %94, %92, %86, %85, %83, %77, %76, %74, %68, %67, %65, %59, %58, %56, %50, %49, %47, %41, %40, %38, %32, %31, %29, %25, %19, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %104 ], [ 0, %4 ], [ 0, %6 ], [ 0, %19 ], [ 0, %32 ], [ 0, %41 ], [ 0, %50 ], [ 0, %59 ], [ 0, %68 ], [ 0, %77 ], [ 0, %86 ], [ 0, %95 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %18 ], [ %30, %29 ], [ 0, %25 ], [ 0, %31 ], [ %39, %38 ], [ 0, %40 ], [ %48, %47 ], [ 0, %49 ], [ %57, %56 ], [ 0, %58 ], [ %66, %65 ], [ 0, %67 ], [ %75, %74 ], [ 0, %76 ], [ %84, %83 ], [ 0, %85 ], [ %93, %92 ], [ 0, %94 ], [ %102, %101 ], [ 0, %103 ], [ %111, %110 ], [ 0, %112 ], [ %120, %119 ], [ 0, %113 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ 0, %5 ], [ 0, %12 ], [ 0, %6 ], [ %30, %29 ], [ 0, %18 ], [ 0, %25 ], [ 0, %19 ], [ %39, %38 ], [ 0, %31 ], [ 0, %32 ], [ %48, %47 ], [ 0, %40 ], [ 0, %41 ], [ %57, %56 ], [ 0, %49 ], [ 0, %50 ], [ %66, %65 ], [ 0, %58 ], [ 0, %59 ], [ %75, %74 ], [ 0, %67 ], [ 0, %68 ], [ %84, %83 ], [ 0, %76 ], [ 0, %77 ], [ %93, %92 ], [ 0, %85 ], [ 0, %86 ], [ %102, %101 ], [ 0, %94 ], [ 0, %95 ], [ %111, %110 ], [ 0, %103 ], [ 0, %104 ], [ %120, %119 ], [ 0, %112 ], [ 0, %113 ]
   ret i32 %.0
 }
 
@@ -32251,7 +32251,7 @@ _ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.thread.i: ; preds = %_ZNK4llvm
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_SEG_ALLOCA_MVT_i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_SEG_ALLOCA_MVT_i32_rEN4llvm3MVTEj.exit: ; preds = %25, %19, %18, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.thread.i, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i, %5, %4
-  %.0 = phi i32 [ 0, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ 0, %4 ], [ %17, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.thread.i ], [ 0, %5 ], [ 0, %18 ], [ %26, %25 ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.thread.i ], [ 0, %5 ], [ 0, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i ], [ %26, %25 ], [ 0, %18 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -32329,7 +32329,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel43fastEmit_X86ISD_STRICT_CVTPH2PS_MVT_v8i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel43fastEmit_X86ISD_STRICT_CVTPH2PS_MVT_v8i16_rEN4llvm3MVTEj.exit: ; preds = %41, %35, %34, %32, %28, %26, %18, %14, %12, %5, %4
-  %.0 = phi i32 [ 0, %28 ], [ 0, %4 ], [ 0, %14 ], [ 0, %5 ], [ %13, %12 ], [ %19, %18 ], [ %27, %26 ], [ %33, %32 ], [ 0, %34 ], [ %42, %41 ], [ 0, %35 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ %19, %18 ], [ 0, %14 ], [ %27, %26 ], [ %33, %32 ], [ 0, %28 ], [ %42, %41 ], [ 0, %34 ], [ 0, %35 ]
   ret i32 %.0
 }
 
@@ -32457,7 +32457,7 @@ _ZN12_GLOBAL__N_111X86FastISel52fastEmit_X86ISD_STRICT_CVTSI2P_MVT_v2i64_MVT_v8f
   br label %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_STRICT_CVTSI2P_MVT_v4i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_STRICT_CVTSI2P_MVT_v4i32_rEN4llvm3MVTEj.exit: ; preds = %69, %65, %59, %58, %_ZN12_GLOBAL__N_111X86FastISel52fastEmit_X86ISD_STRICT_CVTSI2P_MVT_v2i64_MVT_v8f16_rEj.exit.sink.split.i, %53, %47, %43, %37, %36, %34, %32, %26, %24, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ %57, %_ZN12_GLOBAL__N_111X86FastISel52fastEmit_X86ISD_STRICT_CVTSI2P_MVT_v2i64_MVT_v8f16_rEj.exit.sink.split.i ], [ 0, %4 ], [ 0, %26 ], [ 0, %6 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ %25, %24 ], [ %33, %32 ], [ %35, %34 ], [ 0, %37 ], [ 0, %36 ], [ 0, %53 ], [ 0, %43 ], [ 0, %47 ], [ 0, %58 ], [ %70, %69 ], [ 0, %65 ], [ 0, %59 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %6 ], [ %25, %24 ], [ %35, %34 ], [ %33, %32 ], [ 0, %26 ], [ 0, %36 ], [ 0, %43 ], [ 0, %37 ], [ 0, %53 ], [ 0, %47 ], [ %57, %_ZN12_GLOBAL__N_111X86FastISel52fastEmit_X86ISD_STRICT_CVTSI2P_MVT_v2i64_MVT_v8f16_rEj.exit.sink.split.i ], [ %70, %69 ], [ 0, %58 ], [ 0, %65 ], [ 0, %59 ]
   ret i32 %.0
 }
 
@@ -32899,7 +32899,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel43fastEmit_X86ISD_STRICT_CVTTP2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel43fastEmit_X86ISD_STRICT_CVTTP2SI_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %252, %246, %244, %238, %237, %235, %231, %225, %223, %219, %217, %210, %208, %204, %198, %196, %194, %188, %186, %179, %177, %171, %170, %168, %162, %160, %156, %154, %147, %145, %141, %135, %133, %129, %123, %121, %119, %113, %111, %104, %102, %96, %95, %93, %87, %85, %81, %75, %74, %72, %66, %64, %60, %54, %52, %48, %42, %40, %36, %30, %28, %24, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %225 ], [ 0, %4 ], [ 0, %66 ], [ 0, %87 ], [ 0, %96 ], [ 0, %135 ], [ 0, %162 ], [ 0, %171 ], [ 0, %198 ], [ 0, %54 ], [ 0, %5 ], [ 0, %6 ], [ 0, %18 ], [ 0, %30 ], [ 0, %42 ], [ %17, %16 ], [ 0, %12 ], [ %29, %28 ], [ 0, %24 ], [ %41, %40 ], [ 0, %36 ], [ %53, %52 ], [ 0, %48 ], [ %65, %64 ], [ 0, %60 ], [ %73, %72 ], [ 0, %75 ], [ 0, %74 ], [ %86, %85 ], [ 0, %81 ], [ %94, %93 ], [ 0, %95 ], [ %103, %102 ], [ 0, %123 ], [ 0, %104 ], [ 0, %113 ], [ %112, %111 ], [ %120, %119 ], [ %122, %121 ], [ %134, %133 ], [ 0, %129 ], [ %146, %145 ], [ 0, %141 ], [ 0, %156 ], [ 0, %147 ], [ %155, %154 ], [ %161, %160 ], [ %169, %168 ], [ 0, %170 ], [ %178, %177 ], [ 0, %188 ], [ 0, %179 ], [ %187, %186 ], [ %195, %194 ], [ %197, %196 ], [ %209, %208 ], [ 0, %204 ], [ 0, %219 ], [ 0, %210 ], [ %218, %217 ], [ %224, %223 ], [ %236, %235 ], [ 0, %231 ], [ 0, %238 ], [ 0, %237 ], [ %245, %244 ], [ %253, %252 ], [ 0, %246 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %6 ], [ %29, %28 ], [ 0, %24 ], [ 0, %18 ], [ %41, %40 ], [ 0, %36 ], [ 0, %30 ], [ %53, %52 ], [ 0, %48 ], [ 0, %42 ], [ %65, %64 ], [ 0, %60 ], [ 0, %54 ], [ %73, %72 ], [ 0, %66 ], [ 0, %74 ], [ %86, %85 ], [ 0, %81 ], [ 0, %75 ], [ %94, %93 ], [ 0, %87 ], [ %103, %102 ], [ 0, %95 ], [ 0, %96 ], [ 0, %104 ], [ %112, %111 ], [ %122, %121 ], [ %120, %119 ], [ 0, %113 ], [ %134, %133 ], [ 0, %129 ], [ 0, %123 ], [ %146, %145 ], [ 0, %141 ], [ 0, %135 ], [ 0, %147 ], [ %155, %154 ], [ %161, %160 ], [ 0, %156 ], [ %169, %168 ], [ 0, %162 ], [ %178, %177 ], [ 0, %170 ], [ 0, %171 ], [ 0, %179 ], [ %187, %186 ], [ %197, %196 ], [ %195, %194 ], [ 0, %188 ], [ %209, %208 ], [ 0, %204 ], [ 0, %198 ], [ 0, %210 ], [ %218, %217 ], [ %224, %223 ], [ 0, %219 ], [ %236, %235 ], [ 0, %231 ], [ 0, %225 ], [ 0, %237 ], [ %245, %244 ], [ 0, %238 ], [ %253, %252 ], [ 0, %246 ]
   ret i32 %.0
 }
 
@@ -33282,7 +33282,7 @@ _ZN12_GLOBAL__N_111X86FastISel53fastEmit_X86ISD_STRICT_CVTTP2UI_MVT_v2f64_MVT_v4
   br label %_ZN12_GLOBAL__N_111X86FastISel43fastEmit_X86ISD_STRICT_CVTTP2UI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel43fastEmit_X86ISD_STRICT_CVTTP2UI_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %217, %211, %209, %203, %202, %200, %196, %190, %188, %182, %181, %_ZN12_GLOBAL__N_111X86FastISel53fastEmit_X86ISD_STRICT_CVTTP2UI_MVT_v2f64_MVT_v4i32_rEj.exit.sink.split.i, %176, %170, %164, %163, %161, %155, %154, %152, %146, %144, %138, %137, %135, %131, %125, %123, %119, %113, %111, %105, %104, %102, %96, %95, %93, %87, %85, %81, %75, %74, %72, %66, %64, %60, %54, %52, %48, %42, %40, %36, %30, %28, %24, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %190 ], [ 0, %4 ], [ 0, %66 ], [ 0, %87 ], [ 0, %96 ], [ 0, %125 ], [ 0, %146 ], [ 0, %155 ], [ %180, %_ZN12_GLOBAL__N_111X86FastISel53fastEmit_X86ISD_STRICT_CVTTP2UI_MVT_v2f64_MVT_v4i32_rEj.exit.sink.split.i ], [ 0, %54 ], [ 0, %5 ], [ 0, %6 ], [ 0, %18 ], [ 0, %30 ], [ 0, %42 ], [ %17, %16 ], [ 0, %12 ], [ %29, %28 ], [ 0, %24 ], [ %41, %40 ], [ 0, %36 ], [ %53, %52 ], [ 0, %48 ], [ %65, %64 ], [ 0, %60 ], [ %73, %72 ], [ 0, %75 ], [ 0, %74 ], [ %86, %85 ], [ 0, %81 ], [ %94, %93 ], [ 0, %95 ], [ %103, %102 ], [ 0, %113 ], [ 0, %104 ], [ 0, %105 ], [ %112, %111 ], [ %124, %123 ], [ 0, %119 ], [ %136, %135 ], [ 0, %131 ], [ 0, %138 ], [ 0, %137 ], [ %145, %144 ], [ %153, %152 ], [ 0, %154 ], [ %162, %161 ], [ 0, %164 ], [ 0, %163 ], [ 0, %176 ], [ 0, %170 ], [ 0, %182 ], [ 0, %181 ], [ %189, %188 ], [ %201, %200 ], [ 0, %196 ], [ 0, %203 ], [ 0, %202 ], [ %210, %209 ], [ %218, %217 ], [ 0, %211 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %6 ], [ %29, %28 ], [ 0, %24 ], [ 0, %18 ], [ %41, %40 ], [ 0, %36 ], [ 0, %30 ], [ %53, %52 ], [ 0, %48 ], [ 0, %42 ], [ %65, %64 ], [ 0, %60 ], [ 0, %54 ], [ %73, %72 ], [ 0, %66 ], [ 0, %74 ], [ %86, %85 ], [ 0, %81 ], [ 0, %75 ], [ %94, %93 ], [ 0, %87 ], [ %103, %102 ], [ 0, %95 ], [ 0, %96 ], [ 0, %104 ], [ %112, %111 ], [ 0, %105 ], [ %124, %123 ], [ 0, %119 ], [ 0, %113 ], [ %136, %135 ], [ 0, %131 ], [ 0, %125 ], [ 0, %137 ], [ %145, %144 ], [ 0, %138 ], [ %153, %152 ], [ 0, %146 ], [ %162, %161 ], [ 0, %154 ], [ 0, %155 ], [ 0, %163 ], [ 0, %164 ], [ 0, %176 ], [ 0, %170 ], [ %180, %_ZN12_GLOBAL__N_111X86FastISel53fastEmit_X86ISD_STRICT_CVTTP2UI_MVT_v2f64_MVT_v4i32_rEj.exit.sink.split.i ], [ 0, %181 ], [ %189, %188 ], [ 0, %182 ], [ %201, %200 ], [ 0, %196 ], [ 0, %190 ], [ 0, %202 ], [ %210, %209 ], [ 0, %203 ], [ %218, %217 ], [ 0, %211 ]
   ret i32 %.0
 }
 
@@ -33375,12 +33375,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86
   br i1 %53, label %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_STRICT_CVTUI2P_MVT_v4i32_rEN4llvm3MVTEj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_STRICT_CVTUI2P_MVT_v4i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_STRICT_CVTUI2P_MVT_v4i32_rEN4llvm3MVTEj.exit.sink.split: ; preds = %50, %29, %39, %12, %16
-  %.sink = phi i32 [ 8854, %39 ], [ 8695, %16 ], [ 8722, %12 ], [ 8821, %29 ], [ 8830, %50 ]
+  %.sink = phi i32 [ 8722, %12 ], [ 8695, %16 ], [ 8821, %29 ], [ 8854, %39 ], [ 8830, %50 ]
   %54 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_STRICT_CVTUI2P_MVT_v4i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_STRICT_CVTUI2P_MVT_v4i32_rEN4llvm3MVTEj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_STRICT_CVTUI2P_MVT_v4i32_rEN4llvm3MVTEj.exit.sink.split, %50, %44, %43, %39, %33, %29, %23, %22, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %44 ], [ 0, %4 ], [ 0, %50 ], [ 0, %6 ], [ 0, %5 ], [ 0, %16 ], [ 0, %12 ], [ 0, %23 ], [ 0, %22 ], [ 0, %39 ], [ 0, %29 ], [ 0, %33 ], [ 0, %43 ], [ %54, %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_STRICT_CVTUI2P_MVT_v4i32_rEN4llvm3MVTEj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ 0, %12 ], [ 0, %6 ], [ 0, %16 ], [ 0, %22 ], [ 0, %29 ], [ 0, %23 ], [ 0, %39 ], [ 0, %33 ], [ 0, %43 ], [ 0, %50 ], [ 0, %44 ], [ %54, %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_STRICT_CVTUI2P_MVT_v4i32_rEN4llvm3MVTEj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -33497,7 +33497,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_STRICT_VFPEXT_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_STRICT_VFPEXT_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %.thread6.thread.i, %.thread6.i, %59, %55, %53, %42, %40, %36, %30, %28, %24, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %30 ], [ 0, %4 ], [ 0, %18 ], [ 0, %5 ], [ 0, %6 ], [ %17, %16 ], [ 0, %12 ], [ %29, %28 ], [ 0, %24 ], [ %41, %40 ], [ 0, %36 ], [ %60, %59 ], [ %54, %53 ], [ 0, %42 ], [ %62, %.thread6.thread.i ], [ 0, %.thread6.i ], [ 0, %55 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %6 ], [ %29, %28 ], [ 0, %24 ], [ 0, %18 ], [ %41, %40 ], [ 0, %36 ], [ 0, %30 ], [ %54, %53 ], [ %62, %.thread6.thread.i ], [ %60, %59 ], [ 0, %42 ], [ 0, %.thread6.i ], [ 0, %55 ]
   ret i32 %.0
 }
 
@@ -33723,7 +33723,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel43fastEmit_X86ISD_STRICT_VFPROUND_MVT_v4f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel43fastEmit_X86ISD_STRICT_VFPROUND_MVT_v4f32_rEN4llvm3MVTEj.exit: ; preds = %117, %111, %109, %103, %102, %.thread.thread.i.i, %.thread.i.i, %98, %96, %84, %80, %74, %73, %.thread6.thread.i.i, %.thread6.i.i, %69, %65, %63, %51, %47, %41, %40, %38, %32, %31, %29, %25, %19, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %98 ], [ 0, %4 ], [ 0, %6 ], [ 0, %19 ], [ 0, %32 ], [ 0, %65 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %18 ], [ %30, %29 ], [ 0, %25 ], [ 0, %31 ], [ %39, %38 ], [ 0, %41 ], [ 0, %40 ], [ %52, %51 ], [ 0, %47 ], [ %64, %63 ], [ %70, %69 ], [ %72, %.thread6.thread.i.i ], [ 0, %.thread6.i.i ], [ 0, %74 ], [ 0, %73 ], [ %85, %84 ], [ 0, %80 ], [ %97, %96 ], [ %101, %.thread.thread.i.i ], [ 0, %.thread.i.i ], [ 0, %103 ], [ 0, %102 ], [ %110, %109 ], [ %118, %117 ], [ 0, %111 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ 0, %5 ], [ 0, %12 ], [ 0, %6 ], [ %30, %29 ], [ 0, %18 ], [ 0, %25 ], [ 0, %19 ], [ %39, %38 ], [ 0, %31 ], [ 0, %32 ], [ 0, %40 ], [ %52, %51 ], [ 0, %47 ], [ 0, %41 ], [ %64, %63 ], [ %72, %.thread6.thread.i.i ], [ %70, %69 ], [ 0, %.thread6.i.i ], [ 0, %65 ], [ 0, %73 ], [ %85, %84 ], [ 0, %80 ], [ 0, %74 ], [ %97, %96 ], [ %101, %.thread.thread.i.i ], [ 0, %.thread.i.i ], [ 0, %98 ], [ 0, %102 ], [ %110, %109 ], [ 0, %103 ], [ %118, %117 ], [ 0, %111 ]
   ret i32 %.0
 }
 
@@ -34471,7 +34471,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel28fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit: ; preds = %419, %413, %411, %407, %405, %397, %395, %393, %383, %382, %380, %374, %372, %368, %366, %358, %354, %352, %345, %343, %337, %335, %331, %325, %323, %319, %313, %312, %310, %304, %302, %298, %294, %292, %280, %276, %272, %270, %259, %257, %251, %.thread.thread.i8.i41, %.thread.i5.i38, %247, %245, %.thread.thread.i.i45, %.thread.i.i42, %231, %229, %218, %216, %210, %.thread.thread.i8.i, %.thread.i5.i, %206, %204, %.thread.thread.i.i, %.thread.i.i, %190, %188, %177, %175, %169, %167, %163, %159, %157, %145, %141, %137, %135, %124, %122, %116, %114, %110, %106, %104, %92, %88, %84, %82, %71, %69, %63, %61, %57, %51, %49, %45, %39, %38, %36, %30, %28, %24, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %374 ], [ 0, %4 ], [ 0, %30 ], [ 0, %63 ], [ 0, %116 ], [ 0, %169 ], [ 0, %210 ], [ 0, %251 ], [ 0, %304 ], [ 0, %337 ], [ 0, %18 ], [ 0, %5 ], [ 0, %6 ], [ %17, %16 ], [ 0, %12 ], [ %29, %28 ], [ 0, %24 ], [ %37, %36 ], [ 0, %51 ], [ 0, %38 ], [ 0, %39 ], [ %50, %49 ], [ 0, %45 ], [ %62, %61 ], [ 0, %57 ], [ %70, %69 ], [ 0, %106 ], [ 0, %71 ], [ 0, %84 ], [ %83, %82 ], [ %93, %92 ], [ 0, %88 ], [ %105, %104 ], [ %115, %114 ], [ 0, %110 ], [ %123, %122 ], [ 0, %159 ], [ 0, %124 ], [ 0, %137 ], [ %136, %135 ], [ %146, %145 ], [ 0, %141 ], [ %158, %157 ], [ %168, %167 ], [ 0, %163 ], [ %176, %175 ], [ 0, %206 ], [ 0, %177 ], [ 0, %190 ], [ %189, %188 ], [ %193, %.thread.thread.i.i ], [ 0, %.thread.i.i ], [ %205, %204 ], [ %209, %.thread.thread.i8.i ], [ 0, %.thread.i5.i ], [ %217, %216 ], [ 0, %247 ], [ 0, %218 ], [ 0, %231 ], [ %230, %229 ], [ %234, %.thread.thread.i.i45 ], [ 0, %.thread.i.i42 ], [ %246, %245 ], [ %250, %.thread.thread.i8.i41 ], [ 0, %.thread.i5.i38 ], [ %258, %257 ], [ 0, %294 ], [ 0, %259 ], [ 0, %272 ], [ %271, %270 ], [ %281, %280 ], [ 0, %276 ], [ %293, %292 ], [ %303, %302 ], [ 0, %298 ], [ %311, %310 ], [ 0, %325 ], [ 0, %312 ], [ 0, %313 ], [ %324, %323 ], [ 0, %319 ], [ %336, %335 ], [ 0, %331 ], [ %344, %343 ], [ 0, %368 ], [ 0, %345 ], [ 0, %354 ], [ %353, %352 ], [ %359, %358 ], [ %367, %366 ], [ %373, %372 ], [ %381, %380 ], [ 0, %407 ], [ 0, %382 ], [ 0, %395 ], [ %398, %397 ], [ %394, %393 ], [ 0, %383 ], [ %406, %405 ], [ %412, %411 ], [ %420, %419 ], [ 0, %413 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %6 ], [ %29, %28 ], [ 0, %24 ], [ 0, %18 ], [ %37, %36 ], [ 0, %30 ], [ 0, %38 ], [ %50, %49 ], [ 0, %45 ], [ 0, %39 ], [ %62, %61 ], [ 0, %57 ], [ 0, %51 ], [ %70, %69 ], [ 0, %63 ], [ 0, %71 ], [ %83, %82 ], [ %93, %92 ], [ 0, %84 ], [ 0, %88 ], [ %105, %104 ], [ %115, %114 ], [ 0, %106 ], [ 0, %110 ], [ %123, %122 ], [ 0, %116 ], [ 0, %124 ], [ %136, %135 ], [ %146, %145 ], [ 0, %137 ], [ 0, %141 ], [ %158, %157 ], [ %168, %167 ], [ 0, %159 ], [ 0, %163 ], [ %176, %175 ], [ 0, %169 ], [ 0, %177 ], [ %189, %188 ], [ %193, %.thread.thread.i.i ], [ 0, %.thread.i.i ], [ 0, %190 ], [ %205, %204 ], [ %209, %.thread.thread.i8.i ], [ 0, %.thread.i5.i ], [ 0, %206 ], [ %217, %216 ], [ 0, %210 ], [ 0, %218 ], [ %230, %229 ], [ %234, %.thread.thread.i.i45 ], [ 0, %.thread.i.i42 ], [ 0, %231 ], [ %246, %245 ], [ %250, %.thread.thread.i8.i41 ], [ 0, %.thread.i5.i38 ], [ 0, %247 ], [ %258, %257 ], [ 0, %251 ], [ 0, %259 ], [ %271, %270 ], [ %281, %280 ], [ 0, %272 ], [ 0, %276 ], [ %293, %292 ], [ %303, %302 ], [ 0, %294 ], [ 0, %298 ], [ %311, %310 ], [ 0, %304 ], [ 0, %312 ], [ %324, %323 ], [ 0, %319 ], [ 0, %313 ], [ %336, %335 ], [ 0, %331 ], [ 0, %325 ], [ %344, %343 ], [ 0, %337 ], [ 0, %345 ], [ %353, %352 ], [ %359, %358 ], [ 0, %354 ], [ %367, %366 ], [ %373, %372 ], [ 0, %368 ], [ %381, %380 ], [ 0, %374 ], [ 0, %382 ], [ %398, %397 ], [ %394, %393 ], [ 0, %395 ], [ 0, %383 ], [ %406, %405 ], [ %412, %411 ], [ 0, %407 ], [ %420, %419 ], [ 0, %413 ]
   ret i32 %.0
 }
 
@@ -34593,7 +34593,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel29fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_VBROADCASTM_MVT_v8i1_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_VBROADCASTM_MVT_v8i1_rEN4llvm3MVTEj.exit: ; preds = %69, %63, %61, %57, %51, %49, %45, %39, %38, %36, %30, %28, %24, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %30 ], [ 0, %4 ], [ 0, %18 ], [ 0, %5 ], [ 0, %6 ], [ %17, %16 ], [ 0, %12 ], [ %29, %28 ], [ 0, %24 ], [ %37, %36 ], [ 0, %51 ], [ 0, %38 ], [ 0, %39 ], [ %50, %49 ], [ 0, %45 ], [ %62, %61 ], [ 0, %57 ], [ %70, %69 ], [ 0, %63 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %6 ], [ %29, %28 ], [ 0, %24 ], [ 0, %18 ], [ %37, %36 ], [ 0, %30 ], [ 0, %38 ], [ %50, %49 ], [ 0, %45 ], [ 0, %39 ], [ %62, %61 ], [ 0, %57 ], [ 0, %51 ], [ %70, %69 ], [ 0, %63 ]
   ret i32 %.0
 }
 
@@ -34651,7 +34651,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel28fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_VCVTHF82PH_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_VCVTHF82PH_MVT_v16i8_rEN4llvm3MVTEj.exit: ; preds = %29, %23, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %14 ], [ 0, %4 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ 0, %22 ], [ %30, %29 ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ %30, %29 ], [ 0, %22 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -34712,7 +34712,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel28fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_VCVTPH2BF8_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_VCVTPH2BF8_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %15 ], [ 0, %4 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ 0, %14 ], [ %22, %21 ], [ 0, %23 ], [ %31, %30 ], [ 0, %24 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -34773,7 +34773,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel29fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VCVTPH2BF8S_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VCVTPH2BF8S_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %15 ], [ 0, %4 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ 0, %14 ], [ %22, %21 ], [ 0, %23 ], [ %31, %30 ], [ 0, %24 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -34834,7 +34834,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel28fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_VCVTPH2HF8_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_VCVTPH2HF8_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %15 ], [ 0, %4 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ 0, %14 ], [ %22, %21 ], [ 0, %23 ], [ %31, %30 ], [ 0, %24 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -34895,7 +34895,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel29fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VCVTPH2HF8S_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VCVTPH2HF8S_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %30, %24, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %15 ], [ 0, %4 ], [ 0, %6 ], [ 0, %5 ], [ %13, %12 ], [ 0, %14 ], [ %22, %21 ], [ 0, %23 ], [ %31, %30 ], [ 0, %24 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ 0, %23 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -35012,7 +35012,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VFPEXT_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VFPEXT_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %.thread6.thread.i, %.thread6.i, %59, %55, %53, %42, %40, %36, %30, %28, %24, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %30 ], [ 0, %4 ], [ 0, %18 ], [ 0, %5 ], [ 0, %6 ], [ %17, %16 ], [ 0, %12 ], [ %29, %28 ], [ 0, %24 ], [ %41, %40 ], [ 0, %36 ], [ %60, %59 ], [ %54, %53 ], [ 0, %42 ], [ %62, %.thread6.thread.i ], [ 0, %.thread6.i ], [ 0, %55 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %6 ], [ %29, %28 ], [ 0, %24 ], [ 0, %18 ], [ %41, %40 ], [ 0, %36 ], [ 0, %30 ], [ %54, %53 ], [ %62, %.thread6.thread.i ], [ %60, %59 ], [ 0, %42 ], [ 0, %.thread6.i ], [ 0, %55 ]
   ret i32 %.0
 }
 
@@ -35117,7 +35117,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel28fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_VFPEXT_SAE_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_VFPEXT_SAE_MVT_v8f16_rEN4llvm3MVTEj.exit: ; preds = %55, %49, %48, %46, %40, %39, %37, %31, %30, %28, %22, %20, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %40 ], [ 0, %4 ], [ 0, %22 ], [ 0, %31 ], [ 0, %14 ], [ 0, %5 ], [ 0, %6 ], [ %13, %12 ], [ %21, %20 ], [ %29, %28 ], [ 0, %30 ], [ %38, %37 ], [ 0, %39 ], [ %47, %46 ], [ 0, %48 ], [ %56, %55 ], [ 0, %49 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ %13, %12 ], [ 0, %6 ], [ %21, %20 ], [ 0, %14 ], [ %29, %28 ], [ 0, %22 ], [ %38, %37 ], [ 0, %30 ], [ 0, %31 ], [ %47, %46 ], [ 0, %39 ], [ 0, %40 ], [ %56, %55 ], [ 0, %48 ], [ 0, %49 ]
   ret i32 %.0
 }
 
@@ -35384,7 +35384,7 @@ _ZN12_GLOBAL__N_111X86FastISel48fastEmit_X86ISD_VFPROUND_MVT_v16f32_MVT_v16f16_r
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VFPROUND_MVT_v4f32_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VFPROUND_MVT_v4f32_rEN4llvm3MVTEj.exit: ; preds = %140, %134, %132, %126, %125, %.thread.thread.i.i, %.thread.i.i, %121, %119, %107, %103, %97, %96, %.thread6.thread.i.i, %.thread6.i.i, %92, %88, %86, %74, %70, %64, %63, %_ZN12_GLOBAL__N_111X86FastISel48fastEmit_X86ISD_VFPROUND_MVT_v16f32_MVT_v16f16_rEj.exit.sink.split.i, %56, %50, %49, %47, %43, %41, %29, %25, %19, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %121 ], [ 0, %4 ], [ 0, %6 ], [ 0, %43 ], [ %62, %_ZN12_GLOBAL__N_111X86FastISel48fastEmit_X86ISD_VFPROUND_MVT_v16f32_MVT_v16f16_rEj.exit.sink.split.i ], [ 0, %88 ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %19 ], [ 0, %18 ], [ %30, %29 ], [ 0, %25 ], [ %42, %41 ], [ %48, %47 ], [ 0, %50 ], [ 0, %49 ], [ 0, %56 ], [ 0, %64 ], [ 0, %63 ], [ %75, %74 ], [ 0, %70 ], [ %87, %86 ], [ %93, %92 ], [ %95, %.thread6.thread.i.i ], [ 0, %.thread6.i.i ], [ 0, %97 ], [ 0, %96 ], [ %108, %107 ], [ 0, %103 ], [ %120, %119 ], [ %124, %.thread.thread.i.i ], [ 0, %.thread.i.i ], [ 0, %126 ], [ 0, %125 ], [ %133, %132 ], [ %141, %140 ], [ 0, %134 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ 0, %5 ], [ 0, %12 ], [ 0, %6 ], [ 0, %18 ], [ %30, %29 ], [ 0, %25 ], [ 0, %19 ], [ %42, %41 ], [ %48, %47 ], [ 0, %43 ], [ 0, %49 ], [ 0, %50 ], [ 0, %56 ], [ %62, %_ZN12_GLOBAL__N_111X86FastISel48fastEmit_X86ISD_VFPROUND_MVT_v16f32_MVT_v16f16_rEj.exit.sink.split.i ], [ 0, %63 ], [ %75, %74 ], [ 0, %70 ], [ 0, %64 ], [ %87, %86 ], [ %95, %.thread6.thread.i.i ], [ %93, %92 ], [ 0, %.thread6.i.i ], [ 0, %88 ], [ 0, %96 ], [ %108, %107 ], [ 0, %103 ], [ 0, %97 ], [ %120, %119 ], [ %124, %.thread.thread.i.i ], [ 0, %.thread.i.i ], [ 0, %121 ], [ 0, %125 ], [ %133, %132 ], [ 0, %126 ], [ %141, %140 ], [ 0, %134 ]
   ret i32 %.0
 }
 
@@ -35565,12 +35565,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %106, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VTRUNC_MVT_v8i16_rEN4llvm3MVTEj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VTRUNC_MVT_v8i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VTRUNC_MVT_v8i16_rEN4llvm3MVTEj.exit.sink.split: ; preds = %101, %86, %96, %55, %65, %75, %44, %23, %33, %12
-  %.sink = phi i32 [ 18000, %96 ], [ 17980, %75 ], [ 17923, %44 ], [ 17933, %33 ], [ 18325, %12 ], [ 17918, %23 ], [ 17995, %65 ], [ 17965, %55 ], [ 17970, %86 ], [ 17975, %101 ]
+  %.sink = phi i32 [ 18325, %12 ], [ 17918, %23 ], [ 17933, %33 ], [ 17923, %44 ], [ 17965, %55 ], [ 17995, %65 ], [ 17980, %75 ], [ 17970, %86 ], [ 18000, %96 ], [ 17975, %101 ]
   %107 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VTRUNC_MVT_v8i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VTRUNC_MVT_v8i16_rEN4llvm3MVTEj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VTRUNC_MVT_v8i16_rEN4llvm3MVTEj.exit.sink.split, %101, %100, %96, %90, %86, %80, %79, %75, %69, %65, %59, %55, %49, %48, %44, %38, %37, %33, %27, %23, %17, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %96 ], [ 0, %4 ], [ 0, %6 ], [ 0, %86 ], [ 0, %38 ], [ 0, %90 ], [ 0, %5 ], [ 0, %100 ], [ 0, %12 ], [ 0, %17 ], [ 0, %16 ], [ 0, %33 ], [ 0, %23 ], [ 0, %27 ], [ 0, %37 ], [ 0, %101 ], [ 0, %44 ], [ 0, %59 ], [ 0, %48 ], [ 0, %49 ], [ 0, %69 ], [ 0, %55 ], [ 0, %75 ], [ 0, %65 ], [ 0, %80 ], [ 0, %79 ], [ %107, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VTRUNC_MVT_v8i16_rEN4llvm3MVTEj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %5 ], [ 0, %12 ], [ 0, %6 ], [ 0, %16 ], [ 0, %23 ], [ 0, %17 ], [ 0, %33 ], [ 0, %27 ], [ 0, %37 ], [ 0, %44 ], [ 0, %38 ], [ 0, %48 ], [ 0, %55 ], [ 0, %49 ], [ 0, %65 ], [ 0, %59 ], [ 0, %75 ], [ 0, %69 ], [ 0, %79 ], [ 0, %86 ], [ 0, %80 ], [ 0, %96 ], [ 0, %90 ], [ 0, %100 ], [ 0, %101 ], [ %107, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VTRUNC_MVT_v8i16_rEN4llvm3MVTEj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -35806,7 +35806,7 @@ _ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v8i32_MVT_v16i8_rEj.
   br i1 %131, label %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v2i64_MVT_v16i8_rEj.exit.sink.split.i, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_VTRUNCS_MVT_v8i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v2i64_MVT_v16i8_rEj.exit.sink.split.i: ; preds = %128, %118, %108
-  %.sink.i37 = phi i32 [ 18070, %118 ], [ 18040, %108 ], [ 18055, %128 ]
+  %.sink.i37 = phi i32 [ 18040, %108 ], [ 18070, %118 ], [ 18055, %128 ]
   %132 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink.i37, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_VTRUNCS_MVT_v8i16_rEN4llvm3MVTEj.exit
 
@@ -35860,7 +35860,7 @@ _ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v2i64_MVT_v16i8_rEj.
   br i1 %163, label %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v4i64_MVT_v16i8_rEj.exit.sink.split.i, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_VTRUNCS_MVT_v8i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v4i64_MVT_v16i8_rEj.exit.sink.split.i: ; preds = %160, %150, %140
-  %.sink.i39 = phi i32 [ 18075, %150 ], [ 18045, %140 ], [ 18060, %160 ]
+  %.sink.i39 = phi i32 [ 18045, %140 ], [ 18075, %150 ], [ 18060, %160 ]
   %164 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink.i39, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_VTRUNCS_MVT_v8i16_rEN4llvm3MVTEj.exit
 
@@ -35908,7 +35908,7 @@ _ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v4i64_MVT_v16i8_rEj.
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_VTRUNCS_MVT_v8i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_VTRUNCS_MVT_v8i16_rEN4llvm3MVTEj.exit: ; preds = %188, %182, %180, %174, %172, %166, %165, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v4i64_MVT_v16i8_rEj.exit.sink.split.i, %160, %154, %150, %144, %140, %134, %133, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v2i64_MVT_v16i8_rEj.exit.sink.split.i, %128, %122, %118, %112, %108, %102, %101, %99, %93, %91, %85, %84, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v8i32_MVT_v16i8_rEj.exit.sink.split.i, %79, %73, %69, %63, %62, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v4i32_MVT_v16i8_rEj.exit.sink.split.i, %57, %51, %47, %41, %40, %38, %32, %31, %29, %25, %19, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ %164, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v4i64_MVT_v16i8_rEj.exit.sink.split.i ], [ 0, %4 ], [ 0, %6 ], [ 0, %19 ], [ 0, %32 ], [ %61, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v4i32_MVT_v16i8_rEj.exit.sink.split.i ], [ %83, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v8i32_MVT_v16i8_rEj.exit.sink.split.i ], [ 0, %93 ], [ %132, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v2i64_MVT_v16i8_rEj.exit.sink.split.i ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %18 ], [ %30, %29 ], [ 0, %25 ], [ 0, %31 ], [ %39, %38 ], [ 0, %41 ], [ 0, %40 ], [ 0, %57 ], [ 0, %47 ], [ 0, %51 ], [ 0, %63 ], [ 0, %62 ], [ 0, %79 ], [ 0, %69 ], [ 0, %73 ], [ 0, %85 ], [ 0, %84 ], [ %92, %91 ], [ %100, %99 ], [ 0, %112 ], [ 0, %101 ], [ 0, %102 ], [ 0, %122 ], [ 0, %108 ], [ 0, %128 ], [ 0, %118 ], [ 0, %144 ], [ 0, %133 ], [ 0, %134 ], [ 0, %154 ], [ 0, %140 ], [ 0, %160 ], [ 0, %150 ], [ 0, %174 ], [ 0, %165 ], [ 0, %166 ], [ %173, %172 ], [ %181, %180 ], [ %189, %188 ], [ 0, %182 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ 0, %5 ], [ 0, %12 ], [ 0, %6 ], [ %30, %29 ], [ 0, %18 ], [ 0, %25 ], [ 0, %19 ], [ %39, %38 ], [ 0, %31 ], [ 0, %32 ], [ 0, %40 ], [ 0, %47 ], [ 0, %41 ], [ 0, %57 ], [ 0, %51 ], [ %61, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v4i32_MVT_v16i8_rEj.exit.sink.split.i ], [ 0, %62 ], [ 0, %69 ], [ 0, %63 ], [ 0, %79 ], [ 0, %73 ], [ %83, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v8i32_MVT_v16i8_rEj.exit.sink.split.i ], [ 0, %84 ], [ %92, %91 ], [ 0, %85 ], [ %100, %99 ], [ 0, %93 ], [ 0, %101 ], [ 0, %108 ], [ 0, %102 ], [ 0, %118 ], [ 0, %112 ], [ 0, %128 ], [ 0, %122 ], [ %132, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v2i64_MVT_v16i8_rEj.exit.sink.split.i ], [ 0, %133 ], [ 0, %140 ], [ 0, %134 ], [ 0, %150 ], [ 0, %144 ], [ 0, %160 ], [ 0, %154 ], [ %164, %_ZN12_GLOBAL__N_111X86FastISel45fastEmit_X86ISD_VTRUNCS_MVT_v4i64_MVT_v16i8_rEj.exit.sink.split.i ], [ 0, %165 ], [ %173, %172 ], [ 0, %166 ], [ %181, %180 ], [ 0, %174 ], [ %189, %188 ], [ 0, %182 ]
   ret i32 %.0
 }
 
@@ -36144,7 +36144,7 @@ _ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v8i32_MVT_v16i8_rEj
   br i1 %131, label %_ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v2i64_MVT_v16i8_rEj.exit.sink.split.i, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VTRUNCUS_MVT_v8i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v2i64_MVT_v16i8_rEj.exit.sink.split.i: ; preds = %128, %118, %108
-  %.sink.i37 = phi i32 [ 18292, %118 ], [ 18262, %108 ], [ 18277, %128 ]
+  %.sink.i37 = phi i32 [ 18262, %108 ], [ 18292, %118 ], [ 18277, %128 ]
   %132 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink.i37, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VTRUNCUS_MVT_v8i16_rEN4llvm3MVTEj.exit
 
@@ -36198,7 +36198,7 @@ _ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v2i64_MVT_v16i8_rEj
   br i1 %163, label %_ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v4i64_MVT_v16i8_rEj.exit.sink.split.i, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VTRUNCUS_MVT_v8i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v4i64_MVT_v16i8_rEj.exit.sink.split.i: ; preds = %160, %150, %140
-  %.sink.i39 = phi i32 [ 18297, %150 ], [ 18267, %140 ], [ 18282, %160 ]
+  %.sink.i39 = phi i32 [ 18267, %140 ], [ 18297, %150 ], [ 18282, %160 ]
   %164 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink.i39, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VTRUNCUS_MVT_v8i16_rEN4llvm3MVTEj.exit
 
@@ -36246,7 +36246,7 @@ _ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v4i64_MVT_v16i8_rEj
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VTRUNCUS_MVT_v8i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VTRUNCUS_MVT_v8i16_rEN4llvm3MVTEj.exit: ; preds = %188, %182, %180, %174, %172, %166, %165, %_ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v4i64_MVT_v16i8_rEj.exit.sink.split.i, %160, %154, %150, %144, %140, %134, %133, %_ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v2i64_MVT_v16i8_rEj.exit.sink.split.i, %128, %122, %118, %112, %108, %102, %101, %99, %93, %91, %85, %84, %_ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v8i32_MVT_v16i8_rEj.exit.sink.split.i, %79, %73, %69, %63, %62, %_ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v4i32_MVT_v16i8_rEj.exit.sink.split.i, %57, %51, %47, %41, %40, %38, %32, %31, %29, %25, %19, %18, %16, %12, %6, %5, %4
-  %.0 = phi i32 [ %164, %_ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v4i64_MVT_v16i8_rEj.exit.sink.split.i ], [ 0, %4 ], [ 0, %6 ], [ 0, %19 ], [ 0, %32 ], [ %61, %_ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v4i32_MVT_v16i8_rEj.exit.sink.split.i ], [ %83, %_ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v8i32_MVT_v16i8_rEj.exit.sink.split.i ], [ 0, %93 ], [ %132, %_ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v2i64_MVT_v16i8_rEj.exit.sink.split.i ], [ 0, %5 ], [ %17, %16 ], [ 0, %12 ], [ 0, %18 ], [ %30, %29 ], [ 0, %25 ], [ 0, %31 ], [ %39, %38 ], [ 0, %41 ], [ 0, %40 ], [ 0, %57 ], [ 0, %47 ], [ 0, %51 ], [ 0, %63 ], [ 0, %62 ], [ 0, %79 ], [ 0, %69 ], [ 0, %73 ], [ 0, %85 ], [ 0, %84 ], [ %92, %91 ], [ %100, %99 ], [ 0, %112 ], [ 0, %101 ], [ 0, %102 ], [ 0, %122 ], [ 0, %108 ], [ 0, %128 ], [ 0, %118 ], [ 0, %144 ], [ 0, %133 ], [ 0, %134 ], [ 0, %154 ], [ 0, %140 ], [ 0, %160 ], [ 0, %150 ], [ 0, %174 ], [ 0, %165 ], [ 0, %166 ], [ %173, %172 ], [ %181, %180 ], [ %189, %188 ], [ 0, %182 ]
+  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ 0, %5 ], [ 0, %12 ], [ 0, %6 ], [ %30, %29 ], [ 0, %18 ], [ 0, %25 ], [ 0, %19 ], [ %39, %38 ], [ 0, %31 ], [ 0, %32 ], [ 0, %40 ], [ 0, %47 ], [ 0, %41 ], [ 0, %57 ], [ 0, %51 ], [ %61, %_ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v4i32_MVT_v16i8_rEj.exit.sink.split.i ], [ 0, %62 ], [ 0, %69 ], [ 0, %63 ], [ 0, %79 ], [ 0, %73 ], [ %83, %_ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v8i32_MVT_v16i8_rEj.exit.sink.split.i ], [ 0, %84 ], [ %92, %91 ], [ 0, %85 ], [ %100, %99 ], [ 0, %93 ], [ 0, %101 ], [ 0, %108 ], [ 0, %102 ], [ 0, %118 ], [ 0, %112 ], [ 0, %128 ], [ 0, %122 ], [ %132, %_ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v2i64_MVT_v16i8_rEj.exit.sink.split.i ], [ 0, %133 ], [ 0, %140 ], [ 0, %134 ], [ 0, %150 ], [ 0, %144 ], [ 0, %160 ], [ 0, %154 ], [ %164, %_ZN12_GLOBAL__N_111X86FastISel46fastEmit_X86ISD_VTRUNCUS_MVT_v4i64_MVT_v16i8_rEj.exit.sink.split.i ], [ 0, %165 ], [ %173, %172 ], [ 0, %166 ], [ %181, %180 ], [ 0, %174 ], [ %189, %188 ], [ 0, %182 ]
   ret i32 %.0
 }
 
@@ -36356,7 +36356,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel28fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_VZEXT_MOVL_MVT_v8i16_rEN4llvm3MVTEj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_VZEXT_MOVL_MVT_v8i16_rEN4llvm3MVTEj.exit: ; preds = %55, %53, %49, %47, %40, %38, %36, %32, %30, %23, %21, %15, %14, %12, %6, %5, %4
-  %.0 = phi i32 [ 0, %32 ], [ 0, %4 ], [ 0, %6 ], [ 0, %15 ], [ 0, %5 ], [ %13, %12 ], [ 0, %14 ], [ %22, %21 ], [ %37, %36 ], [ %31, %30 ], [ 0, %23 ], [ %39, %38 ], [ %54, %53 ], [ %48, %47 ], [ 0, %40 ], [ %56, %55 ], [ 0, %49 ]
+  %.0 = phi i32 [ 0, %4 ], [ %13, %12 ], [ 0, %5 ], [ 0, %6 ], [ %22, %21 ], [ 0, %14 ], [ 0, %15 ], [ %31, %30 ], [ %39, %38 ], [ %37, %36 ], [ 0, %23 ], [ 0, %32 ], [ %48, %47 ], [ %56, %55 ], [ %54, %53 ], [ 0, %40 ], [ 0, %49 ]
   ret i32 %.0
 }
 
@@ -36834,7 +36834,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %244, %238, %237, %.thread.thread.i111, %.thread.i108, %233, %231, %220, %.thread9.thread.i105, %.thread9.i102, %216, %212, %210, %199, %197, %191, %190, %.thread.thread.i, %.thread.i, %186, %184, %173, %.thread9.thread.i, %.thread9.i, %169, %165, %163, %152, %150, %144, %143, %141, %137, %133, %131, %120, %118, %114, %112, %106, %104, %93, %91, %85, %84, %82, %78, %74, %72, %61, %59, %55, %53, %47, %45, %34, %.sink.split.i75, %27, %.sink.split.i71, %20, %.sink.split.i67, %13, %.sink.split.i, %6, %5
-  %.0 = phi i32 [ 0, %233 ], [ 0, %5 ], [ %12, %.sink.split.i ], [ %19, %.sink.split.i67 ], [ %26, %.sink.split.i71 ], [ %33, %.sink.split.i75 ], [ 0, %47 ], [ 0, %74 ], [ 0, %85 ], [ 0, %106 ], [ 0, %133 ], [ 0, %144 ], [ 0, %165 ], [ 0, %186 ], [ 0, %191 ], [ 0, %212 ], [ 0, %6 ], [ 0, %13 ], [ 0, %20 ], [ 0, %27 ], [ %54, %53 ], [ %46, %45 ], [ 0, %34 ], [ %60, %59 ], [ 0, %55 ], [ %83, %82 ], [ %73, %72 ], [ 0, %61 ], [ 0, %78 ], [ 0, %84 ], [ %92, %91 ], [ %113, %112 ], [ %105, %104 ], [ 0, %93 ], [ %119, %118 ], [ 0, %114 ], [ %142, %141 ], [ %132, %131 ], [ 0, %120 ], [ 0, %137 ], [ 0, %143 ], [ %151, %150 ], [ %170, %169 ], [ %164, %163 ], [ 0, %152 ], [ %172, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %189, %.thread.thread.i ], [ %185, %184 ], [ 0, %173 ], [ 0, %.thread.i ], [ 0, %190 ], [ %198, %197 ], [ %217, %216 ], [ %211, %210 ], [ 0, %199 ], [ %219, %.thread9.thread.i105 ], [ 0, %.thread9.i102 ], [ %236, %.thread.thread.i111 ], [ %232, %231 ], [ 0, %220 ], [ 0, %.thread.i108 ], [ 0, %237 ], [ %245, %244 ], [ 0, %238 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ %12, %.sink.split.i ], [ 0, %13 ], [ %19, %.sink.split.i67 ], [ 0, %20 ], [ %26, %.sink.split.i71 ], [ 0, %27 ], [ %33, %.sink.split.i75 ], [ %46, %45 ], [ %60, %59 ], [ %54, %53 ], [ 0, %34 ], [ 0, %47 ], [ 0, %55 ], [ %73, %72 ], [ %83, %82 ], [ 0, %61 ], [ 0, %74 ], [ 0, %78 ], [ %92, %91 ], [ 0, %84 ], [ 0, %85 ], [ %105, %104 ], [ %119, %118 ], [ %113, %112 ], [ 0, %93 ], [ 0, %106 ], [ 0, %114 ], [ %132, %131 ], [ %142, %141 ], [ 0, %120 ], [ 0, %133 ], [ 0, %137 ], [ %151, %150 ], [ 0, %143 ], [ 0, %144 ], [ %164, %163 ], [ %172, %.thread9.thread.i ], [ %170, %169 ], [ 0, %152 ], [ 0, %.thread9.i ], [ 0, %165 ], [ %185, %184 ], [ %189, %.thread.thread.i ], [ 0, %173 ], [ 0, %.thread.i ], [ 0, %186 ], [ %198, %197 ], [ 0, %190 ], [ 0, %191 ], [ %211, %210 ], [ %219, %.thread9.thread.i105 ], [ %217, %216 ], [ 0, %199 ], [ 0, %.thread9.i102 ], [ 0, %212 ], [ %232, %231 ], [ %236, %.thread.thread.i111 ], [ 0, %220 ], [ 0, %.thread.i108 ], [ 0, %233 ], [ %245, %244 ], [ 0, %237 ], [ 0, %238 ]
   ret i32 %.0
 }
 
@@ -37345,7 +37345,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_AND_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_AND_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %260, %254, %253, %.thread.i, %251, %249, %241, %234, %233, %.thread9.thread.i, %.thread9.i, %229, %225, %223, %212, %210, %204, %203, %201, %199, %197, %191, %184, %183, %181, %179, %177, %171, %163, %162, %160, %154, %153, %151, %149, %144, %142, %135, %133, %131, %125, %123, %116, %114, %108, %107, %105, %103, %98, %96, %89, %87, %85, %79, %77, %70, %68, %62, %61, %59, %53, %52, %50, %44, %43, %41, %35, %34, %.sink.split.i91, %27, %.sink.split.i87, %20, %.sink.split.i83, %13, %.sink.split.i, %6, %5
-  %.0 = phi i32 [ 0, %234 ], [ 0, %5 ], [ %12, %.sink.split.i ], [ %19, %.sink.split.i83 ], [ %26, %.sink.split.i87 ], [ %33, %.sink.split.i91 ], [ 0, %35 ], [ 0, %44 ], [ 0, %53 ], [ 0, %62 ], [ 0, %79 ], [ 0, %98 ], [ 0, %108 ], [ 0, %125 ], [ 0, %144 ], [ 0, %154 ], [ 0, %179 ], [ 0, %199 ], [ 0, %204 ], [ 0, %225 ], [ 0, %6 ], [ 0, %13 ], [ 0, %20 ], [ 0, %27 ], [ 0, %34 ], [ %42, %41 ], [ 0, %43 ], [ %51, %50 ], [ 0, %52 ], [ %60, %59 ], [ 0, %61 ], [ %69, %68 ], [ %86, %85 ], [ %78, %77 ], [ 0, %70 ], [ %88, %87 ], [ %104, %103 ], [ %97, %96 ], [ 0, %89 ], [ %106, %105 ], [ 0, %107 ], [ %115, %114 ], [ %132, %131 ], [ %124, %123 ], [ 0, %116 ], [ %134, %133 ], [ %150, %149 ], [ %143, %142 ], [ 0, %135 ], [ %152, %151 ], [ 0, %153 ], [ %161, %160 ], [ %172, %171 ], [ %182, %181 ], [ 0, %162 ], [ %178, %177 ], [ 0, %163 ], [ %192, %191 ], [ %202, %201 ], [ 0, %183 ], [ %198, %197 ], [ 0, %184 ], [ 0, %203 ], [ %211, %210 ], [ %230, %229 ], [ %224, %223 ], [ 0, %212 ], [ %232, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %242, %241 ], [ %250, %249 ], [ 0, %233 ], [ %252, %.thread.i ], [ 0, %251 ], [ 0, %253 ], [ %261, %260 ], [ 0, %254 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ %12, %.sink.split.i ], [ 0, %13 ], [ %19, %.sink.split.i83 ], [ 0, %20 ], [ %26, %.sink.split.i87 ], [ 0, %27 ], [ %33, %.sink.split.i91 ], [ %42, %41 ], [ 0, %34 ], [ 0, %35 ], [ %51, %50 ], [ 0, %43 ], [ 0, %44 ], [ %60, %59 ], [ 0, %52 ], [ 0, %53 ], [ %69, %68 ], [ 0, %61 ], [ 0, %62 ], [ %78, %77 ], [ %88, %87 ], [ %86, %85 ], [ 0, %70 ], [ 0, %79 ], [ %97, %96 ], [ %106, %105 ], [ %104, %103 ], [ 0, %89 ], [ 0, %98 ], [ %115, %114 ], [ 0, %107 ], [ 0, %108 ], [ %124, %123 ], [ %134, %133 ], [ %132, %131 ], [ 0, %116 ], [ 0, %125 ], [ %143, %142 ], [ %152, %151 ], [ %150, %149 ], [ 0, %135 ], [ 0, %144 ], [ %161, %160 ], [ 0, %153 ], [ 0, %154 ], [ %182, %181 ], [ %178, %177 ], [ %172, %171 ], [ 0, %162 ], [ 0, %179 ], [ 0, %163 ], [ %202, %201 ], [ %198, %197 ], [ %192, %191 ], [ 0, %183 ], [ 0, %199 ], [ 0, %184 ], [ %211, %210 ], [ 0, %203 ], [ 0, %204 ], [ %224, %223 ], [ %232, %.thread9.thread.i ], [ %230, %229 ], [ 0, %212 ], [ 0, %.thread9.i ], [ 0, %225 ], [ %250, %249 ], [ %252, %.thread.i ], [ %242, %241 ], [ 0, %233 ], [ 0, %251 ], [ 0, %234 ], [ %261, %260 ], [ 0, %253 ], [ 0, %254 ]
   ret i32 %.0
 }
 
@@ -37565,7 +37565,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %105 ], [ 0, %5 ], [ 0, %19 ], [ 0, %46 ], [ 0, %57 ], [ 0, %78 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ %85, %84 ], [ %77, %76 ], [ 0, %65 ], [ %91, %90 ], [ 0, %86 ], [ %114, %113 ], [ %104, %103 ], [ 0, %92 ], [ 0, %109 ], [ 0, %115 ], [ %123, %122 ], [ 0, %116 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ]
   ret i32 %.0
 }
 
@@ -37995,7 +37995,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FADD_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FADD_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %216, %210, %209, %.thread.thread.i102, %.thread.i99, %205, %203, %192, %.thread9.thread.i96, %.thread9.i93, %188, %184, %182, %171, %169, %163, %162, %.thread.thread.i, %.thread.i, %158, %156, %145, %.thread9.thread.i, %.thread9.i, %141, %137, %135, %124, %122, %116, %115, %113, %107, %106, %104, %98, %97, %95, %89, %88, %86, %82, %76, %75, %73, %69, %63, %62, %60, %54, %53, %51, %49, %47, %41, %34, %32, %30, %28, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %205 ], [ 0, %5 ], [ 0, %7 ], [ %31, %30 ], [ %50, %49 ], [ 0, %54 ], [ 0, %63 ], [ 0, %76 ], [ 0, %89 ], [ 0, %98 ], [ 0, %107 ], [ 0, %116 ], [ 0, %137 ], [ 0, %158 ], [ 0, %163 ], [ 0, %184 ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %33, %32 ], [ %48, %47 ], [ %42, %41 ], [ 0, %34 ], [ %52, %51 ], [ 0, %53 ], [ %61, %60 ], [ 0, %62 ], [ %74, %73 ], [ 0, %69 ], [ 0, %75 ], [ %87, %86 ], [ 0, %82 ], [ 0, %88 ], [ %96, %95 ], [ 0, %97 ], [ %105, %104 ], [ 0, %106 ], [ %114, %113 ], [ 0, %115 ], [ %123, %122 ], [ %142, %141 ], [ %136, %135 ], [ 0, %124 ], [ %144, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %161, %.thread.thread.i ], [ %157, %156 ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %162 ], [ %170, %169 ], [ %189, %188 ], [ %183, %182 ], [ 0, %171 ], [ %191, %.thread9.thread.i96 ], [ 0, %.thread9.i93 ], [ %208, %.thread.thread.i102 ], [ %204, %203 ], [ 0, %192 ], [ 0, %.thread.i99 ], [ 0, %209 ], [ %217, %216 ], [ 0, %210 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ %42, %41 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ 0, %34 ], [ %61, %60 ], [ 0, %53 ], [ 0, %54 ], [ %74, %73 ], [ 0, %62 ], [ 0, %69 ], [ 0, %63 ], [ %87, %86 ], [ 0, %75 ], [ 0, %82 ], [ 0, %76 ], [ %96, %95 ], [ 0, %88 ], [ 0, %89 ], [ %105, %104 ], [ 0, %97 ], [ 0, %98 ], [ %114, %113 ], [ 0, %106 ], [ 0, %107 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ], [ %136, %135 ], [ %144, %.thread9.thread.i ], [ %142, %141 ], [ 0, %124 ], [ 0, %.thread9.i ], [ 0, %137 ], [ %157, %156 ], [ %161, %.thread.thread.i ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %158 ], [ %170, %169 ], [ 0, %162 ], [ 0, %163 ], [ %183, %182 ], [ %191, %.thread9.thread.i96 ], [ %189, %188 ], [ 0, %171 ], [ 0, %.thread9.i93 ], [ 0, %184 ], [ %204, %203 ], [ %208, %.thread.thread.i102 ], [ 0, %192 ], [ 0, %.thread.i99 ], [ 0, %205 ], [ %217, %216 ], [ 0, %209 ], [ 0, %210 ]
   ret i32 %.0
 }
 
@@ -38425,7 +38425,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FDIV_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FDIV_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %216, %210, %209, %.thread.thread.i102, %.thread.i99, %205, %203, %192, %.thread9.thread.i96, %.thread9.i93, %188, %184, %182, %171, %169, %163, %162, %.thread.thread.i, %.thread.i, %158, %156, %145, %.thread9.thread.i, %.thread9.i, %141, %137, %135, %124, %122, %116, %115, %113, %107, %106, %104, %98, %97, %95, %89, %88, %86, %82, %76, %75, %73, %69, %63, %62, %60, %54, %53, %51, %49, %47, %41, %34, %32, %30, %28, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %205 ], [ 0, %5 ], [ 0, %7 ], [ %31, %30 ], [ %50, %49 ], [ 0, %54 ], [ 0, %63 ], [ 0, %76 ], [ 0, %89 ], [ 0, %98 ], [ 0, %107 ], [ 0, %116 ], [ 0, %137 ], [ 0, %158 ], [ 0, %163 ], [ 0, %184 ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %33, %32 ], [ %48, %47 ], [ %42, %41 ], [ 0, %34 ], [ %52, %51 ], [ 0, %53 ], [ %61, %60 ], [ 0, %62 ], [ %74, %73 ], [ 0, %69 ], [ 0, %75 ], [ %87, %86 ], [ 0, %82 ], [ 0, %88 ], [ %96, %95 ], [ 0, %97 ], [ %105, %104 ], [ 0, %106 ], [ %114, %113 ], [ 0, %115 ], [ %123, %122 ], [ %142, %141 ], [ %136, %135 ], [ 0, %124 ], [ %144, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %161, %.thread.thread.i ], [ %157, %156 ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %162 ], [ %170, %169 ], [ %189, %188 ], [ %183, %182 ], [ 0, %171 ], [ %191, %.thread9.thread.i96 ], [ 0, %.thread9.i93 ], [ %208, %.thread.thread.i102 ], [ %204, %203 ], [ 0, %192 ], [ 0, %.thread.i99 ], [ 0, %209 ], [ %217, %216 ], [ 0, %210 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ %42, %41 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ 0, %34 ], [ %61, %60 ], [ 0, %53 ], [ 0, %54 ], [ %74, %73 ], [ 0, %62 ], [ 0, %69 ], [ 0, %63 ], [ %87, %86 ], [ 0, %75 ], [ 0, %82 ], [ 0, %76 ], [ %96, %95 ], [ 0, %88 ], [ 0, %89 ], [ %105, %104 ], [ 0, %97 ], [ 0, %98 ], [ %114, %113 ], [ 0, %106 ], [ 0, %107 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ], [ %136, %135 ], [ %144, %.thread9.thread.i ], [ %142, %141 ], [ 0, %124 ], [ 0, %.thread9.i ], [ 0, %137 ], [ %157, %156 ], [ %161, %.thread.thread.i ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %158 ], [ %170, %169 ], [ 0, %162 ], [ 0, %163 ], [ %183, %182 ], [ %191, %.thread9.thread.i96 ], [ %189, %188 ], [ 0, %171 ], [ 0, %.thread9.i93 ], [ 0, %184 ], [ %204, %203 ], [ %208, %.thread.thread.i102 ], [ 0, %192 ], [ 0, %.thread.i99 ], [ 0, %205 ], [ %217, %216 ], [ 0, %209 ], [ 0, %210 ]
   ret i32 %.0
 }
 
@@ -38855,7 +38855,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FMUL_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FMUL_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %216, %210, %209, %.thread.thread.i102, %.thread.i99, %205, %203, %192, %.thread9.thread.i96, %.thread9.i93, %188, %184, %182, %171, %169, %163, %162, %.thread.thread.i, %.thread.i, %158, %156, %145, %.thread9.thread.i, %.thread9.i, %141, %137, %135, %124, %122, %116, %115, %113, %107, %106, %104, %98, %97, %95, %89, %88, %86, %82, %76, %75, %73, %69, %63, %62, %60, %54, %53, %51, %49, %47, %41, %34, %32, %30, %28, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %205 ], [ 0, %5 ], [ 0, %7 ], [ %31, %30 ], [ %50, %49 ], [ 0, %54 ], [ 0, %63 ], [ 0, %76 ], [ 0, %89 ], [ 0, %98 ], [ 0, %107 ], [ 0, %116 ], [ 0, %137 ], [ 0, %158 ], [ 0, %163 ], [ 0, %184 ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %33, %32 ], [ %48, %47 ], [ %42, %41 ], [ 0, %34 ], [ %52, %51 ], [ 0, %53 ], [ %61, %60 ], [ 0, %62 ], [ %74, %73 ], [ 0, %69 ], [ 0, %75 ], [ %87, %86 ], [ 0, %82 ], [ 0, %88 ], [ %96, %95 ], [ 0, %97 ], [ %105, %104 ], [ 0, %106 ], [ %114, %113 ], [ 0, %115 ], [ %123, %122 ], [ %142, %141 ], [ %136, %135 ], [ 0, %124 ], [ %144, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %161, %.thread.thread.i ], [ %157, %156 ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %162 ], [ %170, %169 ], [ %189, %188 ], [ %183, %182 ], [ 0, %171 ], [ %191, %.thread9.thread.i96 ], [ 0, %.thread9.i93 ], [ %208, %.thread.thread.i102 ], [ %204, %203 ], [ 0, %192 ], [ 0, %.thread.i99 ], [ 0, %209 ], [ %217, %216 ], [ 0, %210 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ %42, %41 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ 0, %34 ], [ %61, %60 ], [ 0, %53 ], [ 0, %54 ], [ %74, %73 ], [ 0, %62 ], [ 0, %69 ], [ 0, %63 ], [ %87, %86 ], [ 0, %75 ], [ 0, %82 ], [ 0, %76 ], [ %96, %95 ], [ 0, %88 ], [ 0, %89 ], [ %105, %104 ], [ 0, %97 ], [ 0, %98 ], [ %114, %113 ], [ 0, %106 ], [ 0, %107 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ], [ %136, %135 ], [ %144, %.thread9.thread.i ], [ %142, %141 ], [ 0, %124 ], [ 0, %.thread9.i ], [ 0, %137 ], [ %157, %156 ], [ %161, %.thread.thread.i ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %158 ], [ %170, %169 ], [ 0, %162 ], [ 0, %163 ], [ %183, %182 ], [ %191, %.thread9.thread.i96 ], [ %189, %188 ], [ 0, %171 ], [ 0, %.thread9.i93 ], [ 0, %184 ], [ %204, %203 ], [ %208, %.thread.thread.i102 ], [ 0, %192 ], [ 0, %.thread.i99 ], [ 0, %205 ], [ %217, %216 ], [ 0, %209 ], [ 0, %210 ]
   ret i32 %.0
 }
 
@@ -39285,7 +39285,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FSUB_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FSUB_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %216, %210, %209, %.thread.thread.i102, %.thread.i99, %205, %203, %192, %.thread9.thread.i96, %.thread9.i93, %188, %184, %182, %171, %169, %163, %162, %.thread.thread.i, %.thread.i, %158, %156, %145, %.thread9.thread.i, %.thread9.i, %141, %137, %135, %124, %122, %116, %115, %113, %107, %106, %104, %98, %97, %95, %89, %88, %86, %82, %76, %75, %73, %69, %63, %62, %60, %54, %53, %51, %49, %47, %41, %34, %32, %30, %28, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %205 ], [ 0, %5 ], [ 0, %7 ], [ %31, %30 ], [ %50, %49 ], [ 0, %54 ], [ 0, %63 ], [ 0, %76 ], [ 0, %89 ], [ 0, %98 ], [ 0, %107 ], [ 0, %116 ], [ 0, %137 ], [ 0, %158 ], [ 0, %163 ], [ 0, %184 ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %33, %32 ], [ %48, %47 ], [ %42, %41 ], [ 0, %34 ], [ %52, %51 ], [ 0, %53 ], [ %61, %60 ], [ 0, %62 ], [ %74, %73 ], [ 0, %69 ], [ 0, %75 ], [ %87, %86 ], [ 0, %82 ], [ 0, %88 ], [ %96, %95 ], [ 0, %97 ], [ %105, %104 ], [ 0, %106 ], [ %114, %113 ], [ 0, %115 ], [ %123, %122 ], [ %142, %141 ], [ %136, %135 ], [ 0, %124 ], [ %144, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %161, %.thread.thread.i ], [ %157, %156 ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %162 ], [ %170, %169 ], [ %189, %188 ], [ %183, %182 ], [ 0, %171 ], [ %191, %.thread9.thread.i96 ], [ 0, %.thread9.i93 ], [ %208, %.thread.thread.i102 ], [ %204, %203 ], [ 0, %192 ], [ 0, %.thread.i99 ], [ 0, %209 ], [ %217, %216 ], [ 0, %210 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ %42, %41 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ 0, %34 ], [ %61, %60 ], [ 0, %53 ], [ 0, %54 ], [ %74, %73 ], [ 0, %62 ], [ 0, %69 ], [ 0, %63 ], [ %87, %86 ], [ 0, %75 ], [ 0, %82 ], [ 0, %76 ], [ %96, %95 ], [ 0, %88 ], [ 0, %89 ], [ %105, %104 ], [ 0, %97 ], [ 0, %98 ], [ %114, %113 ], [ 0, %106 ], [ 0, %107 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ], [ %136, %135 ], [ %144, %.thread9.thread.i ], [ %142, %141 ], [ 0, %124 ], [ 0, %.thread9.i ], [ 0, %137 ], [ %157, %156 ], [ %161, %.thread.thread.i ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %158 ], [ %170, %169 ], [ 0, %162 ], [ 0, %163 ], [ %183, %182 ], [ %191, %.thread9.thread.i96 ], [ %189, %188 ], [ 0, %171 ], [ 0, %.thread9.i93 ], [ 0, %184 ], [ %204, %203 ], [ %208, %.thread.thread.i102 ], [ 0, %192 ], [ 0, %.thread.i99 ], [ 0, %205 ], [ %217, %216 ], [ 0, %209 ], [ 0, %210 ]
   ret i32 %.0
 }
 
@@ -39642,7 +39642,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %187, %181, %180, %178, %174, %168, %167, %165, %161, %155, %154, %152, %146, %145, %.thread.thread.i, %.thread.i, %141, %139, %128, %.thread9.thread.i, %.thread9.i, %124, %120, %118, %107, %105, %99, %98, %96, %92, %88, %86, %75, %73, %69, %67, %61, %59, %48, %.sink.split.i61, %41, %.sink.split.i57, %34, %.sink.split.i, %27, %8, %7, %5
-  %.0 = phi i32 [ 0, %168 ], [ 0, %5 ], [ 0, %7 ], [ %33, %.sink.split.i ], [ %40, %.sink.split.i57 ], [ %47, %.sink.split.i61 ], [ 0, %61 ], [ 0, %88 ], [ 0, %99 ], [ 0, %120 ], [ 0, %141 ], [ 0, %146 ], [ 0, %155 ], [ %26, %8 ], [ 0, %27 ], [ 0, %34 ], [ 0, %41 ], [ %68, %67 ], [ %60, %59 ], [ 0, %48 ], [ %74, %73 ], [ 0, %69 ], [ %97, %96 ], [ %87, %86 ], [ 0, %75 ], [ 0, %92 ], [ 0, %98 ], [ %106, %105 ], [ %125, %124 ], [ %119, %118 ], [ 0, %107 ], [ %127, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %144, %.thread.thread.i ], [ %140, %139 ], [ 0, %128 ], [ 0, %.thread.i ], [ 0, %145 ], [ %153, %152 ], [ 0, %154 ], [ %166, %165 ], [ 0, %161 ], [ 0, %167 ], [ %179, %178 ], [ 0, %174 ], [ 0, %180 ], [ %188, %187 ], [ 0, %181 ]
+  %.0 = phi i32 [ 0, %5 ], [ %26, %8 ], [ 0, %7 ], [ 0, %27 ], [ %33, %.sink.split.i ], [ 0, %34 ], [ %40, %.sink.split.i57 ], [ 0, %41 ], [ %47, %.sink.split.i61 ], [ %60, %59 ], [ %74, %73 ], [ %68, %67 ], [ 0, %48 ], [ 0, %61 ], [ 0, %69 ], [ %87, %86 ], [ %97, %96 ], [ 0, %75 ], [ 0, %88 ], [ 0, %92 ], [ %106, %105 ], [ 0, %98 ], [ 0, %99 ], [ %119, %118 ], [ %127, %.thread9.thread.i ], [ %125, %124 ], [ 0, %107 ], [ 0, %.thread9.i ], [ 0, %120 ], [ %140, %139 ], [ %144, %.thread.thread.i ], [ 0, %128 ], [ 0, %.thread.i ], [ 0, %141 ], [ %153, %152 ], [ 0, %145 ], [ 0, %146 ], [ %166, %165 ], [ 0, %154 ], [ 0, %161 ], [ 0, %155 ], [ %179, %178 ], [ 0, %167 ], [ 0, %174 ], [ 0, %168 ], [ %188, %187 ], [ 0, %180 ], [ 0, %181 ]
   ret i32 %.0
 }
 
@@ -39757,7 +39757,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel21fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %46 ], [ 0, %5 ], [ 0, %19 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ 0, %57 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -39872,7 +39872,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel21fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %46 ], [ 0, %5 ], [ 0, %19 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ 0, %57 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -40383,7 +40383,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel18fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD_OR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD_OR_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %260, %254, %253, %.thread.i, %251, %249, %241, %234, %233, %.thread9.thread.i, %.thread9.i, %229, %225, %223, %212, %210, %204, %203, %201, %199, %197, %191, %184, %183, %181, %179, %177, %171, %163, %162, %160, %154, %153, %151, %149, %144, %142, %135, %133, %131, %125, %123, %116, %114, %108, %107, %105, %103, %98, %96, %89, %87, %85, %79, %77, %70, %68, %62, %61, %59, %53, %52, %50, %44, %43, %41, %35, %34, %.sink.split.i91, %27, %.sink.split.i87, %20, %.sink.split.i83, %13, %.sink.split.i, %6, %5
-  %.0 = phi i32 [ 0, %234 ], [ 0, %5 ], [ %12, %.sink.split.i ], [ %19, %.sink.split.i83 ], [ %26, %.sink.split.i87 ], [ %33, %.sink.split.i91 ], [ 0, %35 ], [ 0, %44 ], [ 0, %53 ], [ 0, %62 ], [ 0, %79 ], [ 0, %98 ], [ 0, %108 ], [ 0, %125 ], [ 0, %144 ], [ 0, %154 ], [ 0, %179 ], [ 0, %199 ], [ 0, %204 ], [ 0, %225 ], [ 0, %6 ], [ 0, %13 ], [ 0, %20 ], [ 0, %27 ], [ 0, %34 ], [ %42, %41 ], [ 0, %43 ], [ %51, %50 ], [ 0, %52 ], [ %60, %59 ], [ 0, %61 ], [ %69, %68 ], [ %86, %85 ], [ %78, %77 ], [ 0, %70 ], [ %88, %87 ], [ %104, %103 ], [ %97, %96 ], [ 0, %89 ], [ %106, %105 ], [ 0, %107 ], [ %115, %114 ], [ %132, %131 ], [ %124, %123 ], [ 0, %116 ], [ %134, %133 ], [ %150, %149 ], [ %143, %142 ], [ 0, %135 ], [ %152, %151 ], [ 0, %153 ], [ %161, %160 ], [ %172, %171 ], [ %182, %181 ], [ 0, %162 ], [ %178, %177 ], [ 0, %163 ], [ %192, %191 ], [ %202, %201 ], [ 0, %183 ], [ %198, %197 ], [ 0, %184 ], [ 0, %203 ], [ %211, %210 ], [ %230, %229 ], [ %224, %223 ], [ 0, %212 ], [ %232, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %242, %241 ], [ %250, %249 ], [ 0, %233 ], [ %252, %.thread.i ], [ 0, %251 ], [ 0, %253 ], [ %261, %260 ], [ 0, %254 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ %12, %.sink.split.i ], [ 0, %13 ], [ %19, %.sink.split.i83 ], [ 0, %20 ], [ %26, %.sink.split.i87 ], [ 0, %27 ], [ %33, %.sink.split.i91 ], [ %42, %41 ], [ 0, %34 ], [ 0, %35 ], [ %51, %50 ], [ 0, %43 ], [ 0, %44 ], [ %60, %59 ], [ 0, %52 ], [ 0, %53 ], [ %69, %68 ], [ 0, %61 ], [ 0, %62 ], [ %78, %77 ], [ %88, %87 ], [ %86, %85 ], [ 0, %70 ], [ 0, %79 ], [ %97, %96 ], [ %106, %105 ], [ %104, %103 ], [ 0, %89 ], [ 0, %98 ], [ %115, %114 ], [ 0, %107 ], [ 0, %108 ], [ %124, %123 ], [ %134, %133 ], [ %132, %131 ], [ 0, %116 ], [ 0, %125 ], [ %143, %142 ], [ %152, %151 ], [ %150, %149 ], [ 0, %135 ], [ 0, %144 ], [ %161, %160 ], [ 0, %153 ], [ 0, %154 ], [ %182, %181 ], [ %178, %177 ], [ %172, %171 ], [ 0, %162 ], [ 0, %179 ], [ 0, %163 ], [ %202, %201 ], [ %198, %197 ], [ %192, %191 ], [ 0, %183 ], [ 0, %199 ], [ 0, %184 ], [ %211, %210 ], [ 0, %203 ], [ 0, %204 ], [ %224, %223 ], [ %232, %.thread9.thread.i ], [ %230, %229 ], [ 0, %212 ], [ 0, %.thread9.i ], [ 0, %225 ], [ %250, %249 ], [ %252, %.thread.i ], [ %242, %241 ], [ 0, %233 ], [ 0, %251 ], [ 0, %234 ], [ %261, %260 ], [ 0, %253 ], [ 0, %254 ]
   ret i32 %.0
 }
 
@@ -40655,7 +40655,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD_ROTL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD_ROTL_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %154, %148, %147, %145, %141, %135, %134, %132, %128, %126, %115, %113, %107, %106, %104, %100, %94, %93, %91, %87, %85, %74, %72, %66, %65, %63, %57, %56, %.thread.sink.split.i, %15, %8, %5
-  %.0 = phi i32 [ 0, %135 ], [ 0, %5 ], [ %55, %.thread.sink.split.i ], [ 0, %57 ], [ 0, %66 ], [ 0, %87 ], [ 0, %94 ], [ 0, %107 ], [ 0, %128 ], [ 0, %8 ], [ 0, %15 ], [ 0, %56 ], [ %64, %63 ], [ 0, %65 ], [ %73, %72 ], [ 0, %74 ], [ %86, %85 ], [ %92, %91 ], [ 0, %93 ], [ %105, %104 ], [ 0, %100 ], [ 0, %106 ], [ %114, %113 ], [ 0, %115 ], [ %127, %126 ], [ %133, %132 ], [ 0, %134 ], [ %146, %145 ], [ 0, %141 ], [ 0, %147 ], [ %155, %154 ], [ 0, %148 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %8 ], [ 0, %15 ], [ %55, %.thread.sink.split.i ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %73, %72 ], [ 0, %65 ], [ 0, %66 ], [ %86, %85 ], [ %92, %91 ], [ 0, %74 ], [ 0, %87 ], [ %105, %104 ], [ 0, %93 ], [ 0, %100 ], [ 0, %94 ], [ %114, %113 ], [ 0, %106 ], [ 0, %107 ], [ %127, %126 ], [ %133, %132 ], [ 0, %115 ], [ 0, %128 ], [ %146, %145 ], [ 0, %134 ], [ 0, %141 ], [ 0, %135 ], [ %155, %154 ], [ 0, %147 ], [ 0, %148 ]
   ret i32 %.0
 }
 
@@ -40873,7 +40873,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD_ROTR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD_ROTR_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %124, %118, %117, %115, %111, %105, %104, %102, %98, %92, %91, %89, %83, %82, %80, %76, %70, %69, %67, %63, %57, %56, %.thread.sink.split.i, %15, %8, %5
-  %.0 = phi i32 [ 0, %105 ], [ 0, %5 ], [ %55, %.thread.sink.split.i ], [ 0, %57 ], [ 0, %70 ], [ 0, %83 ], [ 0, %92 ], [ 0, %8 ], [ 0, %15 ], [ 0, %56 ], [ %68, %67 ], [ 0, %63 ], [ 0, %69 ], [ %81, %80 ], [ 0, %76 ], [ 0, %82 ], [ %90, %89 ], [ 0, %91 ], [ %103, %102 ], [ 0, %98 ], [ 0, %104 ], [ %116, %115 ], [ 0, %111 ], [ 0, %117 ], [ %125, %124 ], [ 0, %118 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %8 ], [ 0, %15 ], [ %55, %.thread.sink.split.i ], [ %68, %67 ], [ 0, %56 ], [ 0, %63 ], [ 0, %57 ], [ %81, %80 ], [ 0, %69 ], [ 0, %76 ], [ 0, %70 ], [ %90, %89 ], [ 0, %82 ], [ 0, %83 ], [ %103, %102 ], [ 0, %91 ], [ 0, %98 ], [ 0, %92 ], [ %116, %115 ], [ 0, %104 ], [ 0, %111 ], [ 0, %105 ], [ %125, %124 ], [ 0, %117 ], [ 0, %118 ]
   ret i32 %.0
 }
 
@@ -41093,7 +41093,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %105 ], [ 0, %5 ], [ 0, %19 ], [ 0, %46 ], [ 0, %57 ], [ 0, %78 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ %85, %84 ], [ %77, %76 ], [ 0, %65 ], [ %91, %90 ], [ 0, %86 ], [ %114, %113 ], [ %104, %103 ], [ 0, %92 ], [ 0, %109 ], [ 0, %115 ], [ %123, %122 ], [ 0, %116 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ]
   ret i32 %.0
 }
 
@@ -41182,7 +41182,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SHL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SHL_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %.thread.sink.split.i, %14, %5
-  %.0 = phi i32 [ 0, %5 ], [ %54, %.thread.sink.split.i ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %14 ], [ %54, %.thread.sink.split.i ]
   ret i32 %.0
 }
 
@@ -41564,7 +41564,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %204, %198, %197, %195, %191, %185, %184, %182, %178, %172, %171, %169, %163, %162, %.thread.thread.i, %.thread.i, %158, %156, %145, %.thread9.thread.i, %.thread9.i, %141, %137, %135, %124, %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %185 ], [ 0, %5 ], [ 0, %19 ], [ 0, %46 ], [ 0, %57 ], [ 0, %78 ], [ 0, %105 ], [ 0, %116 ], [ 0, %137 ], [ 0, %158 ], [ 0, %163 ], [ 0, %172 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ %85, %84 ], [ %77, %76 ], [ 0, %65 ], [ %91, %90 ], [ 0, %86 ], [ %114, %113 ], [ %104, %103 ], [ 0, %92 ], [ 0, %109 ], [ 0, %115 ], [ %123, %122 ], [ %142, %141 ], [ %136, %135 ], [ 0, %124 ], [ %144, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %161, %.thread.thread.i ], [ %157, %156 ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %162 ], [ %170, %169 ], [ 0, %171 ], [ %183, %182 ], [ 0, %178 ], [ 0, %184 ], [ %196, %195 ], [ 0, %191 ], [ 0, %197 ], [ %205, %204 ], [ 0, %198 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ], [ %136, %135 ], [ %144, %.thread9.thread.i ], [ %142, %141 ], [ 0, %124 ], [ 0, %.thread9.i ], [ 0, %137 ], [ %157, %156 ], [ %161, %.thread.thread.i ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %158 ], [ %170, %169 ], [ 0, %162 ], [ 0, %163 ], [ %183, %182 ], [ 0, %171 ], [ 0, %178 ], [ 0, %172 ], [ %196, %195 ], [ 0, %184 ], [ 0, %191 ], [ 0, %185 ], [ %205, %204 ], [ 0, %197 ], [ 0, %198 ]
   ret i32 %.0
 }
 
@@ -41946,7 +41946,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %204, %198, %197, %195, %191, %185, %184, %182, %178, %172, %171, %169, %163, %162, %.thread.thread.i, %.thread.i, %158, %156, %145, %.thread9.thread.i, %.thread9.i, %141, %137, %135, %124, %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %185 ], [ 0, %5 ], [ 0, %19 ], [ 0, %46 ], [ 0, %57 ], [ 0, %78 ], [ 0, %105 ], [ 0, %116 ], [ 0, %137 ], [ 0, %158 ], [ 0, %163 ], [ 0, %172 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ %85, %84 ], [ %77, %76 ], [ 0, %65 ], [ %91, %90 ], [ 0, %86 ], [ %114, %113 ], [ %104, %103 ], [ 0, %92 ], [ 0, %109 ], [ 0, %115 ], [ %123, %122 ], [ %142, %141 ], [ %136, %135 ], [ 0, %124 ], [ %144, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %161, %.thread.thread.i ], [ %157, %156 ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %162 ], [ %170, %169 ], [ 0, %171 ], [ %183, %182 ], [ 0, %178 ], [ 0, %184 ], [ %196, %195 ], [ 0, %191 ], [ 0, %197 ], [ %205, %204 ], [ 0, %198 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ], [ %136, %135 ], [ %144, %.thread9.thread.i ], [ %142, %141 ], [ 0, %124 ], [ 0, %.thread9.i ], [ 0, %137 ], [ %157, %156 ], [ %161, %.thread.thread.i ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %158 ], [ %170, %169 ], [ 0, %162 ], [ 0, %163 ], [ %183, %182 ], [ 0, %171 ], [ 0, %178 ], [ 0, %172 ], [ %196, %195 ], [ 0, %184 ], [ 0, %191 ], [ 0, %185 ], [ %205, %204 ], [ 0, %197 ], [ 0, %198 ]
   ret i32 %.0
 }
 
@@ -42035,7 +42035,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SRA_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SRA_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %.thread.sink.split.i, %14, %5
-  %.0 = phi i32 [ 0, %5 ], [ %54, %.thread.sink.split.i ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %14 ], [ %54, %.thread.sink.split.i ]
   ret i32 %.0
 }
 
@@ -42124,7 +42124,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SRL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SRL_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %.thread.sink.split.i, %14, %5
-  %.0 = phi i32 [ 0, %5 ], [ %54, %.thread.sink.split.i ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %14 ], [ %54, %.thread.sink.split.i ]
   ret i32 %.0
 }
 
@@ -42344,7 +42344,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %105 ], [ 0, %5 ], [ 0, %19 ], [ 0, %46 ], [ 0, %57 ], [ 0, %78 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ %85, %84 ], [ %77, %76 ], [ 0, %65 ], [ %91, %90 ], [ 0, %86 ], [ %114, %113 ], [ %104, %103 ], [ 0, %92 ], [ 0, %109 ], [ 0, %115 ], [ %123, %122 ], [ 0, %116 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ]
   ret i32 %.0
 }
 
@@ -42723,7 +42723,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FADD_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FADD_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %189, %183, %182, %.thread.thread.i84, %.thread.i81, %178, %176, %165, %.thread9.thread.i78, %.thread9.i75, %161, %157, %155, %144, %142, %136, %135, %.thread.thread.i, %.thread.i, %131, %129, %118, %.thread9.thread.i, %.thread9.i, %114, %110, %108, %97, %95, %89, %88, %86, %82, %76, %75, %73, %69, %63, %62, %60, %54, %53, %51, %49, %47, %41, %34, %32, %30, %28, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %178 ], [ 0, %5 ], [ 0, %7 ], [ %31, %30 ], [ %50, %49 ], [ 0, %54 ], [ 0, %63 ], [ 0, %76 ], [ 0, %89 ], [ 0, %110 ], [ 0, %131 ], [ 0, %136 ], [ 0, %157 ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %33, %32 ], [ %48, %47 ], [ %42, %41 ], [ 0, %34 ], [ %52, %51 ], [ 0, %53 ], [ %61, %60 ], [ 0, %62 ], [ %74, %73 ], [ 0, %69 ], [ 0, %75 ], [ %87, %86 ], [ 0, %82 ], [ 0, %88 ], [ %96, %95 ], [ %115, %114 ], [ %109, %108 ], [ 0, %97 ], [ %117, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %134, %.thread.thread.i ], [ %130, %129 ], [ 0, %118 ], [ 0, %.thread.i ], [ 0, %135 ], [ %143, %142 ], [ %162, %161 ], [ %156, %155 ], [ 0, %144 ], [ %164, %.thread9.thread.i78 ], [ 0, %.thread9.i75 ], [ %181, %.thread.thread.i84 ], [ %177, %176 ], [ 0, %165 ], [ 0, %.thread.i81 ], [ 0, %182 ], [ %190, %189 ], [ 0, %183 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ %42, %41 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ 0, %34 ], [ %61, %60 ], [ 0, %53 ], [ 0, %54 ], [ %74, %73 ], [ 0, %62 ], [ 0, %69 ], [ 0, %63 ], [ %87, %86 ], [ 0, %75 ], [ 0, %82 ], [ 0, %76 ], [ %96, %95 ], [ 0, %88 ], [ 0, %89 ], [ %109, %108 ], [ %117, %.thread9.thread.i ], [ %115, %114 ], [ 0, %97 ], [ 0, %.thread9.i ], [ 0, %110 ], [ %130, %129 ], [ %134, %.thread.thread.i ], [ 0, %118 ], [ 0, %.thread.i ], [ 0, %131 ], [ %143, %142 ], [ 0, %135 ], [ 0, %136 ], [ %156, %155 ], [ %164, %.thread9.thread.i78 ], [ %162, %161 ], [ 0, %144 ], [ 0, %.thread9.i75 ], [ 0, %157 ], [ %177, %176 ], [ %181, %.thread.thread.i84 ], [ 0, %165 ], [ 0, %.thread.i81 ], [ 0, %178 ], [ %190, %189 ], [ 0, %182 ], [ 0, %183 ]
   ret i32 %.0
 }
 
@@ -43102,7 +43102,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FDIV_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FDIV_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %189, %183, %182, %.thread.thread.i84, %.thread.i81, %178, %176, %165, %.thread9.thread.i78, %.thread9.i75, %161, %157, %155, %144, %142, %136, %135, %.thread.thread.i, %.thread.i, %131, %129, %118, %.thread9.thread.i, %.thread9.i, %114, %110, %108, %97, %95, %89, %88, %86, %82, %76, %75, %73, %69, %63, %62, %60, %54, %53, %51, %49, %47, %41, %34, %32, %30, %28, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %178 ], [ 0, %5 ], [ 0, %7 ], [ %31, %30 ], [ %50, %49 ], [ 0, %54 ], [ 0, %63 ], [ 0, %76 ], [ 0, %89 ], [ 0, %110 ], [ 0, %131 ], [ 0, %136 ], [ 0, %157 ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %33, %32 ], [ %48, %47 ], [ %42, %41 ], [ 0, %34 ], [ %52, %51 ], [ 0, %53 ], [ %61, %60 ], [ 0, %62 ], [ %74, %73 ], [ 0, %69 ], [ 0, %75 ], [ %87, %86 ], [ 0, %82 ], [ 0, %88 ], [ %96, %95 ], [ %115, %114 ], [ %109, %108 ], [ 0, %97 ], [ %117, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %134, %.thread.thread.i ], [ %130, %129 ], [ 0, %118 ], [ 0, %.thread.i ], [ 0, %135 ], [ %143, %142 ], [ %162, %161 ], [ %156, %155 ], [ 0, %144 ], [ %164, %.thread9.thread.i78 ], [ 0, %.thread9.i75 ], [ %181, %.thread.thread.i84 ], [ %177, %176 ], [ 0, %165 ], [ 0, %.thread.i81 ], [ 0, %182 ], [ %190, %189 ], [ 0, %183 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ %42, %41 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ 0, %34 ], [ %61, %60 ], [ 0, %53 ], [ 0, %54 ], [ %74, %73 ], [ 0, %62 ], [ 0, %69 ], [ 0, %63 ], [ %87, %86 ], [ 0, %75 ], [ 0, %82 ], [ 0, %76 ], [ %96, %95 ], [ 0, %88 ], [ 0, %89 ], [ %109, %108 ], [ %117, %.thread9.thread.i ], [ %115, %114 ], [ 0, %97 ], [ 0, %.thread9.i ], [ 0, %110 ], [ %130, %129 ], [ %134, %.thread.thread.i ], [ 0, %118 ], [ 0, %.thread.i ], [ 0, %131 ], [ %143, %142 ], [ 0, %135 ], [ 0, %136 ], [ %156, %155 ], [ %164, %.thread9.thread.i78 ], [ %162, %161 ], [ 0, %144 ], [ 0, %.thread9.i75 ], [ 0, %157 ], [ %177, %176 ], [ %181, %.thread.thread.i84 ], [ 0, %165 ], [ 0, %.thread.i81 ], [ 0, %178 ], [ %190, %189 ], [ 0, %182 ], [ 0, %183 ]
   ret i32 %.0
 }
 
@@ -43481,7 +43481,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FMUL_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FMUL_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %189, %183, %182, %.thread.thread.i84, %.thread.i81, %178, %176, %165, %.thread9.thread.i78, %.thread9.i75, %161, %157, %155, %144, %142, %136, %135, %.thread.thread.i, %.thread.i, %131, %129, %118, %.thread9.thread.i, %.thread9.i, %114, %110, %108, %97, %95, %89, %88, %86, %82, %76, %75, %73, %69, %63, %62, %60, %54, %53, %51, %49, %47, %41, %34, %32, %30, %28, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %178 ], [ 0, %5 ], [ 0, %7 ], [ %31, %30 ], [ %50, %49 ], [ 0, %54 ], [ 0, %63 ], [ 0, %76 ], [ 0, %89 ], [ 0, %110 ], [ 0, %131 ], [ 0, %136 ], [ 0, %157 ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %33, %32 ], [ %48, %47 ], [ %42, %41 ], [ 0, %34 ], [ %52, %51 ], [ 0, %53 ], [ %61, %60 ], [ 0, %62 ], [ %74, %73 ], [ 0, %69 ], [ 0, %75 ], [ %87, %86 ], [ 0, %82 ], [ 0, %88 ], [ %96, %95 ], [ %115, %114 ], [ %109, %108 ], [ 0, %97 ], [ %117, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %134, %.thread.thread.i ], [ %130, %129 ], [ 0, %118 ], [ 0, %.thread.i ], [ 0, %135 ], [ %143, %142 ], [ %162, %161 ], [ %156, %155 ], [ 0, %144 ], [ %164, %.thread9.thread.i78 ], [ 0, %.thread9.i75 ], [ %181, %.thread.thread.i84 ], [ %177, %176 ], [ 0, %165 ], [ 0, %.thread.i81 ], [ 0, %182 ], [ %190, %189 ], [ 0, %183 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ %42, %41 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ 0, %34 ], [ %61, %60 ], [ 0, %53 ], [ 0, %54 ], [ %74, %73 ], [ 0, %62 ], [ 0, %69 ], [ 0, %63 ], [ %87, %86 ], [ 0, %75 ], [ 0, %82 ], [ 0, %76 ], [ %96, %95 ], [ 0, %88 ], [ 0, %89 ], [ %109, %108 ], [ %117, %.thread9.thread.i ], [ %115, %114 ], [ 0, %97 ], [ 0, %.thread9.i ], [ 0, %110 ], [ %130, %129 ], [ %134, %.thread.thread.i ], [ 0, %118 ], [ 0, %.thread.i ], [ 0, %131 ], [ %143, %142 ], [ 0, %135 ], [ 0, %136 ], [ %156, %155 ], [ %164, %.thread9.thread.i78 ], [ %162, %161 ], [ 0, %144 ], [ 0, %.thread9.i75 ], [ 0, %157 ], [ %177, %176 ], [ %181, %.thread.thread.i84 ], [ 0, %165 ], [ 0, %.thread.i81 ], [ 0, %178 ], [ %190, %189 ], [ 0, %182 ], [ 0, %183 ]
   ret i32 %.0
 }
 
@@ -43860,7 +43860,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FSUB_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FSUB_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %189, %183, %182, %.thread.thread.i84, %.thread.i81, %178, %176, %165, %.thread9.thread.i78, %.thread9.i75, %161, %157, %155, %144, %142, %136, %135, %.thread.thread.i, %.thread.i, %131, %129, %118, %.thread9.thread.i, %.thread9.i, %114, %110, %108, %97, %95, %89, %88, %86, %82, %76, %75, %73, %69, %63, %62, %60, %54, %53, %51, %49, %47, %41, %34, %32, %30, %28, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %178 ], [ 0, %5 ], [ 0, %7 ], [ %31, %30 ], [ %50, %49 ], [ 0, %54 ], [ 0, %63 ], [ 0, %76 ], [ 0, %89 ], [ 0, %110 ], [ 0, %131 ], [ 0, %136 ], [ 0, %157 ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %33, %32 ], [ %48, %47 ], [ %42, %41 ], [ 0, %34 ], [ %52, %51 ], [ 0, %53 ], [ %61, %60 ], [ 0, %62 ], [ %74, %73 ], [ 0, %69 ], [ 0, %75 ], [ %87, %86 ], [ 0, %82 ], [ 0, %88 ], [ %96, %95 ], [ %115, %114 ], [ %109, %108 ], [ 0, %97 ], [ %117, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %134, %.thread.thread.i ], [ %130, %129 ], [ 0, %118 ], [ 0, %.thread.i ], [ 0, %135 ], [ %143, %142 ], [ %162, %161 ], [ %156, %155 ], [ 0, %144 ], [ %164, %.thread9.thread.i78 ], [ 0, %.thread9.i75 ], [ %181, %.thread.thread.i84 ], [ %177, %176 ], [ 0, %165 ], [ 0, %.thread.i81 ], [ 0, %182 ], [ %190, %189 ], [ 0, %183 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ %42, %41 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ 0, %34 ], [ %61, %60 ], [ 0, %53 ], [ 0, %54 ], [ %74, %73 ], [ 0, %62 ], [ 0, %69 ], [ 0, %63 ], [ %87, %86 ], [ 0, %75 ], [ 0, %82 ], [ 0, %76 ], [ %96, %95 ], [ 0, %88 ], [ 0, %89 ], [ %109, %108 ], [ %117, %.thread9.thread.i ], [ %115, %114 ], [ 0, %97 ], [ 0, %.thread9.i ], [ 0, %110 ], [ %130, %129 ], [ %134, %.thread.thread.i ], [ 0, %118 ], [ 0, %.thread.i ], [ 0, %131 ], [ %143, %142 ], [ 0, %135 ], [ 0, %136 ], [ %156, %155 ], [ %164, %.thread9.thread.i78 ], [ %162, %161 ], [ 0, %144 ], [ 0, %.thread9.i75 ], [ 0, %157 ], [ %177, %176 ], [ %181, %.thread.thread.i84 ], [ 0, %165 ], [ 0, %.thread.i81 ], [ 0, %178 ], [ %190, %189 ], [ 0, %182 ], [ 0, %183 ]
   ret i32 %.0
 }
 
@@ -44338,7 +44338,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %244, %238, %237, %.thread.thread.i111, %.thread.i108, %233, %231, %220, %.thread9.thread.i105, %.thread9.i102, %216, %212, %210, %199, %197, %191, %190, %.thread.thread.i, %.thread.i, %186, %184, %173, %.thread9.thread.i, %.thread9.i, %169, %165, %163, %152, %150, %144, %143, %141, %137, %133, %131, %120, %118, %114, %112, %106, %104, %93, %91, %85, %84, %82, %78, %74, %72, %61, %59, %55, %53, %47, %45, %34, %.sink.split.i75, %27, %.sink.split.i71, %20, %.sink.split.i67, %13, %.sink.split.i, %6, %5
-  %.0 = phi i32 [ 0, %233 ], [ 0, %5 ], [ %12, %.sink.split.i ], [ %19, %.sink.split.i67 ], [ %26, %.sink.split.i71 ], [ %33, %.sink.split.i75 ], [ 0, %47 ], [ 0, %74 ], [ 0, %85 ], [ 0, %106 ], [ 0, %133 ], [ 0, %144 ], [ 0, %165 ], [ 0, %186 ], [ 0, %191 ], [ 0, %212 ], [ 0, %6 ], [ 0, %13 ], [ 0, %20 ], [ 0, %27 ], [ %54, %53 ], [ %46, %45 ], [ 0, %34 ], [ %60, %59 ], [ 0, %55 ], [ %83, %82 ], [ %73, %72 ], [ 0, %61 ], [ 0, %78 ], [ 0, %84 ], [ %92, %91 ], [ %113, %112 ], [ %105, %104 ], [ 0, %93 ], [ %119, %118 ], [ 0, %114 ], [ %142, %141 ], [ %132, %131 ], [ 0, %120 ], [ 0, %137 ], [ 0, %143 ], [ %151, %150 ], [ %170, %169 ], [ %164, %163 ], [ 0, %152 ], [ %172, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %189, %.thread.thread.i ], [ %185, %184 ], [ 0, %173 ], [ 0, %.thread.i ], [ 0, %190 ], [ %198, %197 ], [ %217, %216 ], [ %211, %210 ], [ 0, %199 ], [ %219, %.thread9.thread.i105 ], [ 0, %.thread9.i102 ], [ %236, %.thread.thread.i111 ], [ %232, %231 ], [ 0, %220 ], [ 0, %.thread.i108 ], [ 0, %237 ], [ %245, %244 ], [ 0, %238 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ %12, %.sink.split.i ], [ 0, %13 ], [ %19, %.sink.split.i67 ], [ 0, %20 ], [ %26, %.sink.split.i71 ], [ 0, %27 ], [ %33, %.sink.split.i75 ], [ %46, %45 ], [ %60, %59 ], [ %54, %53 ], [ 0, %34 ], [ 0, %47 ], [ 0, %55 ], [ %73, %72 ], [ %83, %82 ], [ 0, %61 ], [ 0, %74 ], [ 0, %78 ], [ %92, %91 ], [ 0, %84 ], [ 0, %85 ], [ %105, %104 ], [ %119, %118 ], [ %113, %112 ], [ 0, %93 ], [ 0, %106 ], [ 0, %114 ], [ %132, %131 ], [ %142, %141 ], [ 0, %120 ], [ 0, %133 ], [ 0, %137 ], [ %151, %150 ], [ 0, %143 ], [ 0, %144 ], [ %164, %163 ], [ %172, %.thread9.thread.i ], [ %170, %169 ], [ 0, %152 ], [ 0, %.thread9.i ], [ 0, %165 ], [ %185, %184 ], [ %189, %.thread.thread.i ], [ 0, %173 ], [ 0, %.thread.i ], [ 0, %186 ], [ %198, %197 ], [ 0, %190 ], [ 0, %191 ], [ %211, %210 ], [ %219, %.thread9.thread.i105 ], [ %217, %216 ], [ 0, %199 ], [ 0, %.thread9.i102 ], [ 0, %212 ], [ %232, %231 ], [ %236, %.thread.thread.i111 ], [ 0, %220 ], [ 0, %.thread.i108 ], [ 0, %233 ], [ %245, %244 ], [ 0, %237 ], [ 0, %238 ]
   ret i32 %.0
 }
 
@@ -44558,7 +44558,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %105 ], [ 0, %5 ], [ 0, %19 ], [ 0, %46 ], [ 0, %57 ], [ 0, %78 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ %85, %84 ], [ %77, %76 ], [ 0, %65 ], [ %91, %90 ], [ 0, %86 ], [ %114, %113 ], [ %104, %103 ], [ 0, %92 ], [ 0, %109 ], [ 0, %115 ], [ %123, %122 ], [ 0, %116 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ]
   ret i32 %.0
 }
 
@@ -44940,7 +44940,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %204, %198, %197, %195, %191, %185, %184, %182, %178, %172, %171, %169, %163, %162, %.thread.thread.i, %.thread.i, %158, %156, %145, %.thread9.thread.i, %.thread9.i, %141, %137, %135, %124, %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %185 ], [ 0, %5 ], [ 0, %19 ], [ 0, %46 ], [ 0, %57 ], [ 0, %78 ], [ 0, %105 ], [ 0, %116 ], [ 0, %137 ], [ 0, %158 ], [ 0, %163 ], [ 0, %172 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ %85, %84 ], [ %77, %76 ], [ 0, %65 ], [ %91, %90 ], [ 0, %86 ], [ %114, %113 ], [ %104, %103 ], [ 0, %92 ], [ 0, %109 ], [ 0, %115 ], [ %123, %122 ], [ %142, %141 ], [ %136, %135 ], [ 0, %124 ], [ %144, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %161, %.thread.thread.i ], [ %157, %156 ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %162 ], [ %170, %169 ], [ 0, %171 ], [ %183, %182 ], [ 0, %178 ], [ 0, %184 ], [ %196, %195 ], [ 0, %191 ], [ 0, %197 ], [ %205, %204 ], [ 0, %198 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ], [ %136, %135 ], [ %144, %.thread9.thread.i ], [ %142, %141 ], [ 0, %124 ], [ 0, %.thread9.i ], [ 0, %137 ], [ %157, %156 ], [ %161, %.thread.thread.i ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %158 ], [ %170, %169 ], [ 0, %162 ], [ 0, %163 ], [ %183, %182 ], [ 0, %171 ], [ 0, %178 ], [ 0, %172 ], [ %196, %195 ], [ 0, %184 ], [ 0, %191 ], [ 0, %185 ], [ %205, %204 ], [ 0, %197 ], [ 0, %198 ]
   ret i32 %.0
 }
 
@@ -45322,7 +45322,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %204, %198, %197, %195, %191, %185, %184, %182, %178, %172, %171, %169, %163, %162, %.thread.thread.i, %.thread.i, %158, %156, %145, %.thread9.thread.i, %.thread9.i, %141, %137, %135, %124, %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %185 ], [ 0, %5 ], [ 0, %19 ], [ 0, %46 ], [ 0, %57 ], [ 0, %78 ], [ 0, %105 ], [ 0, %116 ], [ 0, %137 ], [ 0, %158 ], [ 0, %163 ], [ 0, %172 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ %85, %84 ], [ %77, %76 ], [ 0, %65 ], [ %91, %90 ], [ 0, %86 ], [ %114, %113 ], [ %104, %103 ], [ 0, %92 ], [ 0, %109 ], [ 0, %115 ], [ %123, %122 ], [ %142, %141 ], [ %136, %135 ], [ 0, %124 ], [ %144, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %161, %.thread.thread.i ], [ %157, %156 ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %162 ], [ %170, %169 ], [ 0, %171 ], [ %183, %182 ], [ 0, %178 ], [ 0, %184 ], [ %196, %195 ], [ 0, %191 ], [ 0, %197 ], [ %205, %204 ], [ 0, %198 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ], [ %136, %135 ], [ %144, %.thread9.thread.i ], [ %142, %141 ], [ 0, %124 ], [ 0, %.thread9.i ], [ 0, %137 ], [ %157, %156 ], [ %161, %.thread.thread.i ], [ 0, %145 ], [ 0, %.thread.i ], [ 0, %158 ], [ %170, %169 ], [ 0, %162 ], [ 0, %163 ], [ %183, %182 ], [ 0, %171 ], [ 0, %178 ], [ 0, %172 ], [ %196, %195 ], [ 0, %184 ], [ 0, %191 ], [ 0, %185 ], [ %205, %204 ], [ 0, %197 ], [ 0, %198 ]
   ret i32 %.0
 }
 
@@ -45542,7 +45542,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %105 ], [ 0, %5 ], [ 0, %19 ], [ 0, %46 ], [ 0, %57 ], [ 0, %78 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ %85, %84 ], [ %77, %76 ], [ 0, %65 ], [ %91, %90 ], [ 0, %86 ], [ %114, %113 ], [ %104, %103 ], [ 0, %92 ], [ 0, %109 ], [ 0, %115 ], [ %123, %122 ], [ 0, %116 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ]
   ret i32 %.0
 }
 
@@ -46053,7 +46053,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_XOR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_XOR_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %260, %254, %253, %.thread.i, %251, %249, %241, %234, %233, %.thread9.thread.i, %.thread9.i, %229, %225, %223, %212, %210, %204, %203, %201, %199, %197, %191, %184, %183, %181, %179, %177, %171, %163, %162, %160, %154, %153, %151, %149, %144, %142, %135, %133, %131, %125, %123, %116, %114, %108, %107, %105, %103, %98, %96, %89, %87, %85, %79, %77, %70, %68, %62, %61, %59, %53, %52, %50, %44, %43, %41, %35, %34, %.sink.split.i91, %27, %.sink.split.i87, %20, %.sink.split.i83, %13, %.sink.split.i, %6, %5
-  %.0 = phi i32 [ 0, %234 ], [ 0, %5 ], [ %12, %.sink.split.i ], [ %19, %.sink.split.i83 ], [ %26, %.sink.split.i87 ], [ %33, %.sink.split.i91 ], [ 0, %35 ], [ 0, %44 ], [ 0, %53 ], [ 0, %62 ], [ 0, %79 ], [ 0, %98 ], [ 0, %108 ], [ 0, %125 ], [ 0, %144 ], [ 0, %154 ], [ 0, %179 ], [ 0, %199 ], [ 0, %204 ], [ 0, %225 ], [ 0, %6 ], [ 0, %13 ], [ 0, %20 ], [ 0, %27 ], [ 0, %34 ], [ %42, %41 ], [ 0, %43 ], [ %51, %50 ], [ 0, %52 ], [ %60, %59 ], [ 0, %61 ], [ %69, %68 ], [ %86, %85 ], [ %78, %77 ], [ 0, %70 ], [ %88, %87 ], [ %104, %103 ], [ %97, %96 ], [ 0, %89 ], [ %106, %105 ], [ 0, %107 ], [ %115, %114 ], [ %132, %131 ], [ %124, %123 ], [ 0, %116 ], [ %134, %133 ], [ %150, %149 ], [ %143, %142 ], [ 0, %135 ], [ %152, %151 ], [ 0, %153 ], [ %161, %160 ], [ %172, %171 ], [ %182, %181 ], [ 0, %162 ], [ %178, %177 ], [ 0, %163 ], [ %192, %191 ], [ %202, %201 ], [ 0, %183 ], [ %198, %197 ], [ 0, %184 ], [ 0, %203 ], [ %211, %210 ], [ %230, %229 ], [ %224, %223 ], [ 0, %212 ], [ %232, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %242, %241 ], [ %250, %249 ], [ 0, %233 ], [ %252, %.thread.i ], [ 0, %251 ], [ 0, %253 ], [ %261, %260 ], [ 0, %254 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ %12, %.sink.split.i ], [ 0, %13 ], [ %19, %.sink.split.i83 ], [ 0, %20 ], [ %26, %.sink.split.i87 ], [ 0, %27 ], [ %33, %.sink.split.i91 ], [ %42, %41 ], [ 0, %34 ], [ 0, %35 ], [ %51, %50 ], [ 0, %43 ], [ 0, %44 ], [ %60, %59 ], [ 0, %52 ], [ 0, %53 ], [ %69, %68 ], [ 0, %61 ], [ 0, %62 ], [ %78, %77 ], [ %88, %87 ], [ %86, %85 ], [ 0, %70 ], [ 0, %79 ], [ %97, %96 ], [ %106, %105 ], [ %104, %103 ], [ 0, %89 ], [ 0, %98 ], [ %115, %114 ], [ 0, %107 ], [ 0, %108 ], [ %124, %123 ], [ %134, %133 ], [ %132, %131 ], [ 0, %116 ], [ 0, %125 ], [ %143, %142 ], [ %152, %151 ], [ %150, %149 ], [ 0, %135 ], [ 0, %144 ], [ %161, %160 ], [ 0, %153 ], [ 0, %154 ], [ %182, %181 ], [ %178, %177 ], [ %172, %171 ], [ 0, %162 ], [ 0, %179 ], [ 0, %163 ], [ %202, %201 ], [ %198, %197 ], [ %192, %191 ], [ 0, %183 ], [ 0, %199 ], [ 0, %184 ], [ %211, %210 ], [ 0, %203 ], [ 0, %204 ], [ %224, %223 ], [ %232, %.thread9.thread.i ], [ %230, %229 ], [ 0, %212 ], [ 0, %.thread9.i ], [ 0, %225 ], [ %250, %249 ], [ %252, %.thread.i ], [ %242, %241 ], [ 0, %233 ], [ 0, %251 ], [ 0, %234 ], [ %261, %260 ], [ 0, %253 ], [ 0, %254 ]
   ret i32 %.0
 }
 
@@ -46135,7 +46135,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_ADDSUB_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_ADDSUB_MVT_v4f32_rrEN4llvm3MVTEjj.exit: ; preds = %40, %34, %33, %.sink.split.i21, %25, %24, %22, %16, %15, %.sink.split.i, %7, %6, %5
-  %.0 = phi i32 [ %32, %.sink.split.i21 ], [ 0, %5 ], [ %14, %.sink.split.i ], [ 0, %16 ], [ 0, %6 ], [ 0, %7 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ 0, %25 ], [ 0, %33 ], [ %41, %40 ], [ 0, %34 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ %14, %.sink.split.i ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ 0, %24 ], [ 0, %25 ], [ %32, %.sink.split.i21 ], [ %41, %40 ], [ 0, %33 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -46518,7 +46518,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_ANDNP_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_ANDNP_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %196, %190, %189, %.thread.i, %187, %185, %177, %170, %169, %.thread9.thread.i, %.thread9.i, %165, %161, %159, %148, %146, %140, %139, %137, %135, %133, %127, %120, %119, %117, %115, %113, %107, %99, %98, %96, %90, %89, %87, %85, %80, %78, %71, %69, %67, %61, %59, %52, %50, %44, %43, %41, %39, %34, %32, %25, %23, %21, %15, %13, %6, %5
-  %.0 = phi i32 [ 0, %170 ], [ 0, %5 ], [ 0, %15 ], [ 0, %34 ], [ 0, %44 ], [ 0, %61 ], [ 0, %80 ], [ 0, %90 ], [ 0, %115 ], [ 0, %135 ], [ 0, %140 ], [ 0, %161 ], [ %22, %21 ], [ %14, %13 ], [ 0, %6 ], [ %24, %23 ], [ %40, %39 ], [ %33, %32 ], [ 0, %25 ], [ %42, %41 ], [ 0, %43 ], [ %51, %50 ], [ %68, %67 ], [ %60, %59 ], [ 0, %52 ], [ %70, %69 ], [ %86, %85 ], [ %79, %78 ], [ 0, %71 ], [ %88, %87 ], [ 0, %89 ], [ %97, %96 ], [ %108, %107 ], [ %118, %117 ], [ 0, %98 ], [ %114, %113 ], [ 0, %99 ], [ %128, %127 ], [ %138, %137 ], [ 0, %119 ], [ %134, %133 ], [ 0, %120 ], [ 0, %139 ], [ %147, %146 ], [ %166, %165 ], [ %160, %159 ], [ 0, %148 ], [ %168, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %178, %177 ], [ %186, %185 ], [ 0, %169 ], [ %188, %.thread.i ], [ 0, %187 ], [ 0, %189 ], [ %197, %196 ], [ 0, %190 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ %24, %23 ], [ %22, %21 ], [ 0, %6 ], [ 0, %15 ], [ %33, %32 ], [ %42, %41 ], [ %40, %39 ], [ 0, %25 ], [ 0, %34 ], [ %51, %50 ], [ 0, %43 ], [ 0, %44 ], [ %60, %59 ], [ %70, %69 ], [ %68, %67 ], [ 0, %52 ], [ 0, %61 ], [ %79, %78 ], [ %88, %87 ], [ %86, %85 ], [ 0, %71 ], [ 0, %80 ], [ %97, %96 ], [ 0, %89 ], [ 0, %90 ], [ %118, %117 ], [ %114, %113 ], [ %108, %107 ], [ 0, %98 ], [ 0, %115 ], [ 0, %99 ], [ %138, %137 ], [ %134, %133 ], [ %128, %127 ], [ 0, %119 ], [ 0, %135 ], [ 0, %120 ], [ %147, %146 ], [ 0, %139 ], [ 0, %140 ], [ %160, %159 ], [ %168, %.thread9.thread.i ], [ %166, %165 ], [ 0, %148 ], [ 0, %.thread9.i ], [ 0, %161 ], [ %186, %185 ], [ %188, %.thread.i ], [ %178, %177 ], [ 0, %169 ], [ 0, %187 ], [ 0, %170 ], [ %197, %196 ], [ 0, %189 ], [ 0, %190 ]
   ret i32 %.0
 }
 
@@ -46588,7 +46588,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_BEXTR_MVT_i32_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_BEXTR_MVT_i32_rrEN4llvm3MVTEjj.exit: ; preds = %.thread.sink.split.i11, %33, %23, %22, %.thread.sink.split.i, %17, %7, %6, %5
-  %.0 = phi i32 [ %21, %.thread.sink.split.i ], [ 0, %5 ], [ 0, %7 ], [ 0, %17 ], [ 0, %6 ], [ 0, %23 ], [ 0, %33 ], [ 0, %22 ], [ %37, %.thread.sink.split.i11 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %17 ], [ %21, %.thread.sink.split.i ], [ 0, %22 ], [ 0, %23 ], [ 0, %33 ], [ %37, %.thread.sink.split.i11 ]
   ret i32 %.0
 }
 
@@ -46625,7 +46625,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel21fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel29fastEmit_X86ISD_BT_MVT_i16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel29fastEmit_X86ISD_BT_MVT_i16_rrEN4llvm3MVTEjj.exit: ; preds = %13, %12, %10, %9, %7, %6, %5
-  %.0 = phi i32 [ 0, %9 ], [ 0, %5 ], [ 0, %6 ], [ %8, %7 ], [ %11, %10 ], [ %14, %13 ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %5 ], [ %8, %7 ], [ 0, %6 ], [ %11, %10 ], [ 0, %9 ], [ %14, %13 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -46695,7 +46695,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_BZHI_MVT_i32_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_BZHI_MVT_i32_rrEN4llvm3MVTEjj.exit: ; preds = %.thread.sink.split.i11, %33, %23, %22, %.thread.sink.split.i, %17, %7, %6, %5
-  %.0 = phi i32 [ %21, %.thread.sink.split.i ], [ 0, %5 ], [ 0, %7 ], [ 0, %17 ], [ 0, %6 ], [ 0, %23 ], [ 0, %33 ], [ 0, %22 ], [ %37, %.thread.sink.split.i11 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %17 ], [ %21, %.thread.sink.split.i ], [ 0, %22 ], [ 0, %23 ], [ 0, %33 ], [ %37, %.thread.sink.split.i11 ]
   ret i32 %.0
 }
 
@@ -46741,7 +46741,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel22fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel29fastEmit_X86ISD_CMP_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel29fastEmit_X86ISD_CMP_MVT_i8_rrEN4llvm3MVTEjj.exit: ; preds = %16, %15, %13, %12, %10, %9, %7, %6, %5
-  %.0 = phi i32 [ 0, %12 ], [ 0, %5 ], [ 0, %6 ], [ 0, %9 ], [ %8, %7 ], [ %11, %10 ], [ %14, %13 ], [ %17, %16 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %5 ], [ %8, %7 ], [ 0, %6 ], [ %11, %10 ], [ 0, %9 ], [ %14, %13 ], [ 0, %12 ], [ %17, %16 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -46851,7 +46851,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_COMI_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_COMI_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %56, %54, %50, %48, %41, %39, %37, %33, %31, %24, %22, %16, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %33 ], [ 0, %5 ], [ 0, %7 ], [ 0, %16 ], [ 0, %6 ], [ %14, %13 ], [ 0, %15 ], [ %23, %22 ], [ %38, %37 ], [ %32, %31 ], [ 0, %24 ], [ %40, %39 ], [ %55, %54 ], [ %49, %48 ], [ 0, %41 ], [ %57, %56 ], [ 0, %50 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ %32, %31 ], [ %40, %39 ], [ %38, %37 ], [ 0, %24 ], [ 0, %33 ], [ %49, %48 ], [ %57, %56 ], [ %55, %54 ], [ 0, %41 ], [ 0, %50 ]
   ret i32 %.0
 }
 
@@ -46900,12 +46900,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %26, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_COMX_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_COMX_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_COMX_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split: ; preds = %21, %14, %7
-  %.sink = phi i32 [ 5916, %14 ], [ 5913, %7 ], [ 5910, %21 ]
+  %.sink = phi i32 [ 5913, %7 ], [ 5916, %14 ], [ 5910, %21 ]
   %27 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_COMX_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_COMX_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_COMX_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, %21, %20, %14, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ 0, %20 ], [ 0, %13 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_COMX_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_COMX_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -46954,12 +46954,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %26, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FADDS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FADDS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FADDS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split: ; preds = %21, %14, %7
-  %.sink = phi i32 [ 5309, %14 ], [ 5298, %7 ], [ 5283, %21 ]
+  %.sink = phi i32 [ 5298, %7 ], [ 5309, %14 ], [ 5283, %21 ]
   %27 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FADDS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FADDS_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FADDS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, %21, %20, %14, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ 0, %20 ], [ 0, %13 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FADDS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FADDS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -47013,7 +47013,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FAND_MVT_f128_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FAND_MVT_f128_rrEN4llvm3MVTEjj.exit: ; preds = %26, %25, %23, %21, %19, %13, %6, %5
-  %.0 = phi i32 [ 0, %21 ], [ 0, %5 ], [ %20, %19 ], [ %14, %13 ], [ 0, %6 ], [ %24, %23 ], [ %27, %26 ], [ 0, %25 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ %24, %23 ], [ %20, %19 ], [ 0, %6 ], [ 0, %21 ], [ %27, %26 ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -47167,7 +47167,7 @@ _ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i27: ; preds = %_ZNK4llvm12X86
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_FCMP_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_FCMP_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i27, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i26, %66, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i22, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i21, %55, %53, %47, %40, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i, %30, %28, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i21 ], [ 0, %5 ], [ 0, %7 ], [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %39, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i ], [ %31, %30 ], [ %54, %53 ], [ %48, %47 ], [ 0, %40 ], [ %65, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i22 ], [ %56, %55 ], [ 0, %66 ], [ %79, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i27 ], [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i26 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %39, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i ], [ %48, %47 ], [ %65, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i22 ], [ %56, %55 ], [ %54, %53 ], [ 0, %40 ], [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i21 ], [ %79, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i27 ], [ 0, %66 ], [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i26 ]
   ret i32 %.0
 }
 
@@ -47216,12 +47216,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %26, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FDIVS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FDIVS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FDIVS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split: ; preds = %21, %14, %7
-  %.sink = phi i32 [ 9159, %14 ], [ 9148, %7 ], [ 9133, %21 ]
+  %.sink = phi i32 [ 9148, %7 ], [ 9159, %14 ], [ 9133, %21 ]
   %27 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FDIVS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FDIVS_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FDIVS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, %21, %20, %14, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ 0, %20 ], [ 0, %13 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FDIVS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FDIVS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -47270,12 +47270,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_X86
   br i1 %26, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_FGETEXPS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_FGETEXPS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_FGETEXPS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split: ; preds = %21, %14, %7
-  %.sink = phi i32 [ 12822, %14 ], [ 12813, %7 ], [ 12804, %21 ]
+  %.sink = phi i32 [ 12813, %7 ], [ 12822, %14 ], [ 12804, %21 ]
   %27 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_FGETEXPS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_FGETEXPS_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_FGETEXPS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, %21, %20, %14, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ 0, %20 ], [ 0, %13 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_FGETEXPS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_FGETEXPS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -47324,12 +47324,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86
   br i1 %26, label %_ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_FGETEXPS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_FGETEXPS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_FGETEXPS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split: ; preds = %21, %14, %7
-  %.sink = phi i32 [ 12823, %14 ], [ 12814, %7 ], [ 12805, %21 ]
+  %.sink = phi i32 [ 12814, %7 ], [ 12823, %14 ], [ 12805, %21 ]
   %27 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_FGETEXPS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_FGETEXPS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_FGETEXPS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, %21, %20, %14, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ 0, %20 ], [ 0, %13 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_FGETEXPS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_FGETEXPS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -47411,7 +47411,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FHADD_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FHADD_MVT_v4f32_rrEN4llvm3MVTEjj.exit: ; preds = %40, %34, %33, %.sink.split.i21, %25, %24, %22, %16, %15, %.sink.split.i, %7, %6, %5
-  %.0 = phi i32 [ %32, %.sink.split.i21 ], [ 0, %5 ], [ %14, %.sink.split.i ], [ 0, %16 ], [ 0, %6 ], [ 0, %7 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ 0, %25 ], [ 0, %33 ], [ %41, %40 ], [ 0, %34 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ %14, %.sink.split.i ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ 0, %24 ], [ 0, %25 ], [ %32, %.sink.split.i21 ], [ %41, %40 ], [ 0, %33 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -47493,7 +47493,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FHSUB_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FHSUB_MVT_v4f32_rrEN4llvm3MVTEjj.exit: ; preds = %40, %34, %33, %.sink.split.i21, %25, %24, %22, %16, %15, %.sink.split.i, %7, %6, %5
-  %.0 = phi i32 [ %32, %.sink.split.i21 ], [ 0, %5 ], [ %14, %.sink.split.i ], [ 0, %16 ], [ 0, %6 ], [ 0, %7 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ 0, %25 ], [ 0, %33 ], [ %41, %40 ], [ 0, %34 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ %14, %.sink.split.i ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ 0, %24 ], [ 0, %25 ], [ %32, %.sink.split.i21 ], [ %41, %40 ], [ 0, %33 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -47847,7 +47847,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_FMAX_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_FMAX_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %176, %170, %169, %.thread.thread.i78, %.thread.i75, %165, %163, %152, %.thread9.thread.i72, %.thread9.i69, %148, %144, %142, %131, %129, %123, %122, %.thread.thread.i, %.thread.i, %118, %116, %105, %.thread9.thread.i, %.thread9.i, %101, %97, %95, %84, %82, %76, %75, %73, %69, %63, %62, %60, %56, %50, %49, %47, %45, %41, %39, %32, %30, %28, %24, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %165 ], [ 0, %5 ], [ 0, %7 ], [ 0, %24 ], [ 0, %41 ], [ 0, %50 ], [ 0, %63 ], [ 0, %76 ], [ 0, %97 ], [ 0, %118 ], [ 0, %123 ], [ 0, %144 ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %31, %30 ], [ %46, %45 ], [ %40, %39 ], [ 0, %32 ], [ %48, %47 ], [ 0, %49 ], [ %61, %60 ], [ 0, %56 ], [ 0, %62 ], [ %74, %73 ], [ 0, %69 ], [ 0, %75 ], [ %83, %82 ], [ %102, %101 ], [ %96, %95 ], [ 0, %84 ], [ %104, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %121, %.thread.thread.i ], [ %117, %116 ], [ 0, %105 ], [ 0, %.thread.i ], [ 0, %122 ], [ %130, %129 ], [ %149, %148 ], [ %143, %142 ], [ 0, %131 ], [ %151, %.thread9.thread.i72 ], [ 0, %.thread9.i69 ], [ %168, %.thread.thread.i78 ], [ %164, %163 ], [ 0, %152 ], [ 0, %.thread.i75 ], [ 0, %169 ], [ %177, %176 ], [ 0, %170 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ 0, %24 ], [ %40, %39 ], [ %48, %47 ], [ %46, %45 ], [ 0, %32 ], [ 0, %41 ], [ %61, %60 ], [ 0, %49 ], [ 0, %56 ], [ 0, %50 ], [ %74, %73 ], [ 0, %62 ], [ 0, %69 ], [ 0, %63 ], [ %83, %82 ], [ 0, %75 ], [ 0, %76 ], [ %96, %95 ], [ %104, %.thread9.thread.i ], [ %102, %101 ], [ 0, %84 ], [ 0, %.thread9.i ], [ 0, %97 ], [ %117, %116 ], [ %121, %.thread.thread.i ], [ 0, %105 ], [ 0, %.thread.i ], [ 0, %118 ], [ %130, %129 ], [ 0, %122 ], [ 0, %123 ], [ %143, %142 ], [ %151, %.thread9.thread.i72 ], [ %149, %148 ], [ 0, %131 ], [ 0, %.thread9.i69 ], [ 0, %144 ], [ %164, %163 ], [ %168, %.thread.thread.i78 ], [ 0, %152 ], [ 0, %.thread.i75 ], [ 0, %165 ], [ %177, %176 ], [ 0, %169 ], [ 0, %170 ]
   ret i32 %.0
 }
 
@@ -48201,7 +48201,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FMAXC_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FMAXC_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %176, %170, %169, %.thread.thread.i78, %.thread.i75, %165, %163, %152, %.thread9.thread.i72, %.thread9.i69, %148, %144, %142, %131, %129, %123, %122, %.thread.thread.i, %.thread.i, %118, %116, %105, %.thread9.thread.i, %.thread9.i, %101, %97, %95, %84, %82, %76, %75, %73, %69, %63, %62, %60, %56, %50, %49, %47, %45, %41, %39, %32, %30, %28, %24, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %165 ], [ 0, %5 ], [ 0, %7 ], [ 0, %24 ], [ 0, %41 ], [ 0, %50 ], [ 0, %63 ], [ 0, %76 ], [ 0, %97 ], [ 0, %118 ], [ 0, %123 ], [ 0, %144 ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %31, %30 ], [ %46, %45 ], [ %40, %39 ], [ 0, %32 ], [ %48, %47 ], [ 0, %49 ], [ %61, %60 ], [ 0, %56 ], [ 0, %62 ], [ %74, %73 ], [ 0, %69 ], [ 0, %75 ], [ %83, %82 ], [ %102, %101 ], [ %96, %95 ], [ 0, %84 ], [ %104, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %121, %.thread.thread.i ], [ %117, %116 ], [ 0, %105 ], [ 0, %.thread.i ], [ 0, %122 ], [ %130, %129 ], [ %149, %148 ], [ %143, %142 ], [ 0, %131 ], [ %151, %.thread9.thread.i72 ], [ 0, %.thread9.i69 ], [ %168, %.thread.thread.i78 ], [ %164, %163 ], [ 0, %152 ], [ 0, %.thread.i75 ], [ 0, %169 ], [ %177, %176 ], [ 0, %170 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ 0, %24 ], [ %40, %39 ], [ %48, %47 ], [ %46, %45 ], [ 0, %32 ], [ 0, %41 ], [ %61, %60 ], [ 0, %49 ], [ 0, %56 ], [ 0, %50 ], [ %74, %73 ], [ 0, %62 ], [ 0, %69 ], [ 0, %63 ], [ %83, %82 ], [ 0, %75 ], [ 0, %76 ], [ %96, %95 ], [ %104, %.thread9.thread.i ], [ %102, %101 ], [ 0, %84 ], [ 0, %.thread9.i ], [ 0, %97 ], [ %117, %116 ], [ %121, %.thread.thread.i ], [ 0, %105 ], [ 0, %.thread.i ], [ 0, %118 ], [ %130, %129 ], [ 0, %122 ], [ 0, %123 ], [ %143, %142 ], [ %151, %.thread9.thread.i72 ], [ %149, %148 ], [ 0, %131 ], [ 0, %.thread9.i69 ], [ 0, %144 ], [ %164, %163 ], [ %168, %.thread.thread.i78 ], [ 0, %152 ], [ 0, %.thread.i75 ], [ 0, %165 ], [ %177, %176 ], [ 0, %169 ], [ 0, %170 ]
   ret i32 %.0
 }
 
@@ -48294,7 +48294,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FMAXS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FMAXS_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %47, %45, %41, %39, %32, %30, %28, %24, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %24 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %31, %30 ], [ %46, %45 ], [ %40, %39 ], [ 0, %32 ], [ %48, %47 ], [ 0, %41 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ 0, %24 ], [ %40, %39 ], [ %48, %47 ], [ %46, %45 ], [ 0, %32 ], [ 0, %41 ]
   ret i32 %.0
 }
 
@@ -48343,12 +48343,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel28fastEmit_X86
   br i1 %26, label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMAXS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMAXS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMAXS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split: ; preds = %21, %14, %7
-  %.sink = phi i32 [ 13439, %14 ], [ 13428, %7 ], [ 13413, %21 ]
+  %.sink = phi i32 [ 13428, %7 ], [ 13439, %14 ], [ 13413, %21 ]
   %27 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMAXS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMAXS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMAXS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, %21, %20, %14, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ 0, %20 ], [ 0, %13 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMAXS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMAXS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -48460,7 +48460,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMAX_SAE_MVT_v16f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMAX_SAE_MVT_v16f16_rrEN4llvm3MVTEjj.exit: ; preds = %58, %52, %51, %49, %43, %42, %40, %34, %33, %31, %25, %24, %22, %16, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %43 ], [ 0, %5 ], [ 0, %7 ], [ 0, %16 ], [ 0, %25 ], [ 0, %34 ], [ 0, %6 ], [ %14, %13 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ %32, %31 ], [ 0, %33 ], [ %41, %40 ], [ 0, %42 ], [ %50, %49 ], [ 0, %51 ], [ %59, %58 ], [ 0, %52 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ %32, %31 ], [ 0, %24 ], [ 0, %25 ], [ %41, %40 ], [ 0, %33 ], [ 0, %34 ], [ %50, %49 ], [ 0, %42 ], [ 0, %43 ], [ %59, %58 ], [ 0, %51 ], [ 0, %52 ]
   ret i32 %.0
 }
 
@@ -48814,7 +48814,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_FMIN_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_FMIN_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %176, %170, %169, %.thread.thread.i78, %.thread.i75, %165, %163, %152, %.thread9.thread.i72, %.thread9.i69, %148, %144, %142, %131, %129, %123, %122, %.thread.thread.i, %.thread.i, %118, %116, %105, %.thread9.thread.i, %.thread9.i, %101, %97, %95, %84, %82, %76, %75, %73, %69, %63, %62, %60, %56, %50, %49, %47, %45, %41, %39, %32, %30, %28, %24, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %165 ], [ 0, %5 ], [ 0, %7 ], [ 0, %24 ], [ 0, %41 ], [ 0, %50 ], [ 0, %63 ], [ 0, %76 ], [ 0, %97 ], [ 0, %118 ], [ 0, %123 ], [ 0, %144 ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %31, %30 ], [ %46, %45 ], [ %40, %39 ], [ 0, %32 ], [ %48, %47 ], [ 0, %49 ], [ %61, %60 ], [ 0, %56 ], [ 0, %62 ], [ %74, %73 ], [ 0, %69 ], [ 0, %75 ], [ %83, %82 ], [ %102, %101 ], [ %96, %95 ], [ 0, %84 ], [ %104, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %121, %.thread.thread.i ], [ %117, %116 ], [ 0, %105 ], [ 0, %.thread.i ], [ 0, %122 ], [ %130, %129 ], [ %149, %148 ], [ %143, %142 ], [ 0, %131 ], [ %151, %.thread9.thread.i72 ], [ 0, %.thread9.i69 ], [ %168, %.thread.thread.i78 ], [ %164, %163 ], [ 0, %152 ], [ 0, %.thread.i75 ], [ 0, %169 ], [ %177, %176 ], [ 0, %170 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ 0, %24 ], [ %40, %39 ], [ %48, %47 ], [ %46, %45 ], [ 0, %32 ], [ 0, %41 ], [ %61, %60 ], [ 0, %49 ], [ 0, %56 ], [ 0, %50 ], [ %74, %73 ], [ 0, %62 ], [ 0, %69 ], [ 0, %63 ], [ %83, %82 ], [ 0, %75 ], [ 0, %76 ], [ %96, %95 ], [ %104, %.thread9.thread.i ], [ %102, %101 ], [ 0, %84 ], [ 0, %.thread9.i ], [ 0, %97 ], [ %117, %116 ], [ %121, %.thread.thread.i ], [ 0, %105 ], [ 0, %.thread.i ], [ 0, %118 ], [ %130, %129 ], [ 0, %122 ], [ 0, %123 ], [ %143, %142 ], [ %151, %.thread9.thread.i72 ], [ %149, %148 ], [ 0, %131 ], [ 0, %.thread9.i69 ], [ 0, %144 ], [ %164, %163 ], [ %168, %.thread.thread.i78 ], [ 0, %152 ], [ 0, %.thread.i75 ], [ 0, %165 ], [ %177, %176 ], [ 0, %169 ], [ 0, %170 ]
   ret i32 %.0
 }
 
@@ -49168,7 +49168,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FMINC_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FMINC_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %176, %170, %169, %.thread.thread.i78, %.thread.i75, %165, %163, %152, %.thread9.thread.i72, %.thread9.i69, %148, %144, %142, %131, %129, %123, %122, %.thread.thread.i, %.thread.i, %118, %116, %105, %.thread9.thread.i, %.thread9.i, %101, %97, %95, %84, %82, %76, %75, %73, %69, %63, %62, %60, %56, %50, %49, %47, %45, %41, %39, %32, %30, %28, %24, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %165 ], [ 0, %5 ], [ 0, %7 ], [ 0, %24 ], [ 0, %41 ], [ 0, %50 ], [ 0, %63 ], [ 0, %76 ], [ 0, %97 ], [ 0, %118 ], [ 0, %123 ], [ 0, %144 ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %31, %30 ], [ %46, %45 ], [ %40, %39 ], [ 0, %32 ], [ %48, %47 ], [ 0, %49 ], [ %61, %60 ], [ 0, %56 ], [ 0, %62 ], [ %74, %73 ], [ 0, %69 ], [ 0, %75 ], [ %83, %82 ], [ %102, %101 ], [ %96, %95 ], [ 0, %84 ], [ %104, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %121, %.thread.thread.i ], [ %117, %116 ], [ 0, %105 ], [ 0, %.thread.i ], [ 0, %122 ], [ %130, %129 ], [ %149, %148 ], [ %143, %142 ], [ 0, %131 ], [ %151, %.thread9.thread.i72 ], [ 0, %.thread9.i69 ], [ %168, %.thread.thread.i78 ], [ %164, %163 ], [ 0, %152 ], [ 0, %.thread.i75 ], [ 0, %169 ], [ %177, %176 ], [ 0, %170 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ 0, %24 ], [ %40, %39 ], [ %48, %47 ], [ %46, %45 ], [ 0, %32 ], [ 0, %41 ], [ %61, %60 ], [ 0, %49 ], [ 0, %56 ], [ 0, %50 ], [ %74, %73 ], [ 0, %62 ], [ 0, %69 ], [ 0, %63 ], [ %83, %82 ], [ 0, %75 ], [ 0, %76 ], [ %96, %95 ], [ %104, %.thread9.thread.i ], [ %102, %101 ], [ 0, %84 ], [ 0, %.thread9.i ], [ 0, %97 ], [ %117, %116 ], [ %121, %.thread.thread.i ], [ 0, %105 ], [ 0, %.thread.i ], [ 0, %118 ], [ %130, %129 ], [ 0, %122 ], [ 0, %123 ], [ %143, %142 ], [ %151, %.thread9.thread.i72 ], [ %149, %148 ], [ 0, %131 ], [ 0, %.thread9.i69 ], [ 0, %144 ], [ %164, %163 ], [ %168, %.thread.thread.i78 ], [ 0, %152 ], [ 0, %.thread.i75 ], [ 0, %165 ], [ %177, %176 ], [ 0, %169 ], [ 0, %170 ]
   ret i32 %.0
 }
 
@@ -49261,7 +49261,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FMINS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FMINS_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %47, %45, %41, %39, %32, %30, %28, %24, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %24 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %31, %30 ], [ %46, %45 ], [ %40, %39 ], [ 0, %32 ], [ %48, %47 ], [ 0, %41 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ 0, %24 ], [ %40, %39 ], [ %48, %47 ], [ %46, %45 ], [ 0, %32 ], [ 0, %41 ]
   ret i32 %.0
 }
 
@@ -49310,12 +49310,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel28fastEmit_X86
   br i1 %26, label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMINS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMINS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMINS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split: ; preds = %21, %14, %7
-  %.sink = phi i32 [ 13875, %14 ], [ 13864, %7 ], [ 13849, %21 ]
+  %.sink = phi i32 [ 13864, %7 ], [ 13875, %14 ], [ 13849, %21 ]
   %27 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMINS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMINS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMINS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, %21, %20, %14, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ 0, %20 ], [ 0, %13 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMINS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMINS_SAE_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -49427,7 +49427,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMIN_SAE_MVT_v16f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_FMIN_SAE_MVT_v16f16_rrEN4llvm3MVTEjj.exit: ; preds = %58, %52, %51, %49, %43, %42, %40, %34, %33, %31, %25, %24, %22, %16, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %43 ], [ 0, %5 ], [ 0, %7 ], [ 0, %16 ], [ 0, %25 ], [ 0, %34 ], [ 0, %6 ], [ %14, %13 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ %32, %31 ], [ 0, %33 ], [ %41, %40 ], [ 0, %42 ], [ %50, %49 ], [ 0, %51 ], [ %59, %58 ], [ 0, %52 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ %32, %31 ], [ 0, %24 ], [ 0, %25 ], [ %41, %40 ], [ 0, %33 ], [ 0, %34 ], [ %50, %49 ], [ 0, %42 ], [ 0, %43 ], [ %59, %58 ], [ 0, %51 ], [ 0, %52 ]
   ret i32 %.0
 }
 
@@ -49476,12 +49476,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %26, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FMULS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FMULS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FMULS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split: ; preds = %21, %14, %7
-  %.sink = phi i32 [ 14702, %14 ], [ 14691, %7 ], [ 14676, %21 ]
+  %.sink = phi i32 [ 14691, %7 ], [ 14702, %14 ], [ 14676, %21 ]
   %27 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FMULS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FMULS_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FMULS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, %21, %20, %14, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ 0, %20 ], [ 0, %13 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FMULS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FMULS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -49535,7 +49535,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel22fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_FOR_MVT_f128_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_FOR_MVT_f128_rrEN4llvm3MVTEjj.exit: ; preds = %26, %25, %23, %21, %19, %13, %6, %5
-  %.0 = phi i32 [ 0, %21 ], [ 0, %5 ], [ %20, %19 ], [ %14, %13 ], [ 0, %6 ], [ %24, %23 ], [ %27, %26 ], [ 0, %25 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ %24, %23 ], [ %20, %19 ], [ 0, %6 ], [ 0, %21 ], [ %27, %26 ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -49584,12 +49584,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %26, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_FSQRTS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_FSQRTS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_FSQRTS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split: ; preds = %21, %14, %7
-  %.sink = phi i32 [ 22145, %14 ], [ 22134, %7 ], [ 22119, %21 ]
+  %.sink = phi i32 [ 22134, %7 ], [ 22145, %14 ], [ 22119, %21 ]
   %27 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_FSQRTS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_FSQRTS_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_FSQRTS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, %21, %20, %14, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ 0, %20 ], [ 0, %13 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_FSQRTS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_FSQRTS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -49638,12 +49638,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %26, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FSUBS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FSUBS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FSUBS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split: ; preds = %21, %14, %7
-  %.sink = phi i32 [ 22321, %14 ], [ 22310, %7 ], [ 22295, %21 ]
+  %.sink = phi i32 [ 22310, %7 ], [ 22321, %14 ], [ 22295, %21 ]
   %27 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FSUBS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FSUBS_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FSUBS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, %21, %20, %14, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ 0, %20 ], [ 0, %13 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FSUBS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FSUBS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -49697,7 +49697,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FXOR_MVT_f128_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FXOR_MVT_f128_rrEN4llvm3MVTEjj.exit: ; preds = %26, %25, %23, %21, %19, %13, %6, %5
-  %.0 = phi i32 [ 0, %21 ], [ 0, %5 ], [ %20, %19 ], [ %14, %13 ], [ 0, %6 ], [ %24, %23 ], [ %27, %26 ], [ 0, %25 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ %24, %23 ], [ %20, %19 ], [ 0, %6 ], [ 0, %21 ], [ %27, %26 ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -49804,7 +49804,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel28fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_GF2P8MULB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_GF2P8MULB_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %59, %55, %49, %48, %46, %42, %40, %30, %29, %27, %25, %23, %17, %7, %6, %5
-  %.0 = phi i32 [ 0, %42 ], [ 0, %5 ], [ 0, %7 ], [ %24, %23 ], [ %18, %17 ], [ 0, %6 ], [ %28, %27 ], [ 0, %25 ], [ %47, %46 ], [ %41, %40 ], [ 0, %29 ], [ 0, %30 ], [ 0, %48 ], [ %60, %59 ], [ 0, %55 ], [ 0, %49 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %28, %27 ], [ %24, %23 ], [ 0, %6 ], [ 0, %25 ], [ 0, %7 ], [ %41, %40 ], [ %47, %46 ], [ 0, %29 ], [ 0, %42 ], [ 0, %30 ], [ %60, %59 ], [ 0, %48 ], [ 0, %55 ], [ 0, %49 ]
   ret i32 %.0
 }
 
@@ -49886,7 +49886,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_HADD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_HADD_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %40, %34, %33, %.sink.split.i21, %25, %24, %22, %16, %15, %.sink.split.i, %7, %6, %5
-  %.0 = phi i32 [ %32, %.sink.split.i21 ], [ 0, %5 ], [ %14, %.sink.split.i ], [ 0, %16 ], [ 0, %6 ], [ 0, %7 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ 0, %25 ], [ 0, %33 ], [ %41, %40 ], [ 0, %34 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ %14, %.sink.split.i ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ 0, %24 ], [ 0, %25 ], [ %32, %.sink.split.i21 ], [ %41, %40 ], [ 0, %33 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -49968,7 +49968,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_HSUB_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_HSUB_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %40, %34, %33, %.sink.split.i21, %25, %24, %22, %16, %15, %.sink.split.i, %7, %6, %5
-  %.0 = phi i32 [ %32, %.sink.split.i21 ], [ 0, %5 ], [ %14, %.sink.split.i ], [ 0, %16 ], [ 0, %6 ], [ 0, %7 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ 0, %25 ], [ 0, %33 ], [ %41, %40 ], [ 0, %34 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ %14, %.sink.split.i ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ 0, %24 ], [ 0, %25 ], [ %32, %.sink.split.i21 ], [ %41, %40 ], [ 0, %33 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -50046,7 +50046,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_KADD_MVT_v8i1_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_KADD_MVT_v8i1_rrEN4llvm3MVTEjj.exit: ; preds = %40, %34, %33, %31, %25, %24, %22, %16, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %25 ], [ 0, %5 ], [ 0, %7 ], [ 0, %16 ], [ 0, %6 ], [ %14, %13 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ %32, %31 ], [ 0, %33 ], [ %41, %40 ], [ 0, %34 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ %32, %31 ], [ 0, %24 ], [ 0, %25 ], [ %41, %40 ], [ 0, %33 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -50124,7 +50124,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_KORTEST_MVT_v8i1_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_KORTEST_MVT_v8i1_rrEN4llvm3MVTEjj.exit: ; preds = %40, %34, %33, %31, %25, %24, %22, %16, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %25 ], [ 0, %5 ], [ 0, %7 ], [ 0, %16 ], [ 0, %6 ], [ %14, %13 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ %32, %31 ], [ 0, %33 ], [ %41, %40 ], [ 0, %34 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ %32, %31 ], [ 0, %24 ], [ 0, %25 ], [ %41, %40 ], [ 0, %33 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -50202,7 +50202,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_KTEST_MVT_v8i1_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_KTEST_MVT_v8i1_rrEN4llvm3MVTEjj.exit: ; preds = %40, %34, %33, %31, %25, %24, %22, %16, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %25 ], [ 0, %5 ], [ 0, %7 ], [ 0, %16 ], [ 0, %6 ], [ %14, %13 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ %32, %31 ], [ 0, %33 ], [ %41, %40 ], [ 0, %34 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ %32, %31 ], [ 0, %24 ], [ 0, %25 ], [ %41, %40 ], [ 0, %33 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -50242,7 +50242,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_MOVHLPS_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_MOVHLPS_MVT_v4f32_rrEN4llvm3MVTEjj.exit: ; preds = %20, %18, %14, %12, %5
-  %.0 = phi i32 [ 0, %5 ], [ %19, %18 ], [ %13, %12 ], [ 0, %14 ], [ %21, %20 ]
+  %.0 = phi i32 [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ %19, %18 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -50282,7 +50282,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_MOVLHPS_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_MOVLHPS_MVT_v4f32_rrEN4llvm3MVTEjj.exit: ; preds = %20, %18, %14, %12, %5
-  %.0 = phi i32 [ 0, %5 ], [ %19, %18 ], [ %13, %12 ], [ 0, %14 ], [ %21, %20 ]
+  %.0 = phi i32 [ 0, %5 ], [ %13, %12 ], [ %21, %20 ], [ %19, %18 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -50373,7 +50373,7 @@ _ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit8.thread.i: ; p
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVSD_MVT_v2f64_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVSD_MVT_v2f64_rrEN4llvm3MVTEjj.exit: ; preds = %44, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit8.thread.i, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit8.i, %33, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit.thread.i, %5
-  %.0 = phi i32 [ 0, %5 ], [ %34, %33 ], [ %18, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit.thread.i ], [ 0, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit8.thread.i ], [ %45, %44 ], [ 0, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit8.i ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit.thread.i ], [ %45, %44 ], [ %34, %33 ], [ 0, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit8.thread.i ], [ 0, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit8.i ]
   ret i32 %.0
 }
 
@@ -50464,7 +50464,7 @@ _ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit8.thread.i: ; p
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVSS_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVSS_MVT_v4f32_rrEN4llvm3MVTEjj.exit: ; preds = %44, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit8.thread.i, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit8.i, %33, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit.thread.i, %5
-  %.0 = phi i32 [ 0, %5 ], [ %34, %33 ], [ %18, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit.thread.i ], [ 0, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit8.thread.i ], [ %45, %44 ], [ 0, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit8.i ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit.thread.i ], [ %45, %44 ], [ %34, %33 ], [ 0, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit8.thread.i ], [ 0, %_ZNK4llvm8FastISel16shouldOptForSizeEPKNS_15MachineFunctionE.exit8.i ]
   ret i32 %.0
 }
 
@@ -50579,7 +50579,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %46 ], [ 0, %5 ], [ 0, %19 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ 0, %57 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -50652,7 +50652,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel29fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_MULTISHIFT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_MULTISHIFT_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %39, %33, %32, %30, %26, %20, %19, %17, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %20 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ %18, %17 ], [ 0, %13 ], [ 0, %19 ], [ %31, %30 ], [ 0, %26 ], [ 0, %32 ], [ %40, %39 ], [ 0, %33 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ 0, %6 ], [ 0, %13 ], [ 0, %7 ], [ %31, %30 ], [ 0, %19 ], [ 0, %26 ], [ 0, %20 ], [ %40, %39 ], [ 0, %32 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -50872,7 +50872,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %105 ], [ 0, %5 ], [ 0, %19 ], [ 0, %46 ], [ 0, %57 ], [ 0, %78 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ %85, %84 ], [ %77, %76 ], [ 0, %65 ], [ %91, %90 ], [ 0, %86 ], [ %114, %113 ], [ %104, %103 ], [ 0, %92 ], [ 0, %109 ], [ 0, %115 ], [ %123, %122 ], [ 0, %116 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ]
   ret i32 %.0
 }
 
@@ -51092,7 +51092,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %105 ], [ 0, %5 ], [ 0, %19 ], [ 0, %46 ], [ 0, %57 ], [ 0, %78 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ %85, %84 ], [ %77, %76 ], [ 0, %65 ], [ %91, %90 ], [ 0, %86 ], [ %114, %113 ], [ %104, %103 ], [ 0, %92 ], [ 0, %109 ], [ 0, %115 ], [ %123, %122 ], [ 0, %116 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ]
   ret i32 %.0
 }
 
@@ -51246,7 +51246,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPEQ_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPEQ_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %76, %70, %69, %.sink.split.i49, %61, %60, %58, %52, %51, %.sink.split.i43, %43, %42, %40, %34, %33, %.sink.split.i37, %25, %24, %22, %16, %15, %.sink.split.i, %7, %6, %5
-  %.0 = phi i32 [ %68, %.sink.split.i49 ], [ 0, %5 ], [ %14, %.sink.split.i ], [ 0, %16 ], [ %32, %.sink.split.i37 ], [ 0, %34 ], [ %50, %.sink.split.i43 ], [ 0, %52 ], [ 0, %6 ], [ 0, %7 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ 0, %25 ], [ 0, %33 ], [ %41, %40 ], [ 0, %42 ], [ 0, %43 ], [ 0, %51 ], [ %59, %58 ], [ 0, %60 ], [ 0, %61 ], [ 0, %69 ], [ %77, %76 ], [ 0, %70 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ %14, %.sink.split.i ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ 0, %24 ], [ 0, %25 ], [ %32, %.sink.split.i37 ], [ %41, %40 ], [ 0, %33 ], [ 0, %34 ], [ 0, %42 ], [ 0, %43 ], [ %50, %.sink.split.i43 ], [ %59, %58 ], [ 0, %51 ], [ 0, %52 ], [ 0, %60 ], [ 0, %61 ], [ %68, %.sink.split.i49 ], [ %77, %76 ], [ 0, %69 ], [ 0, %70 ]
   ret i32 %.0
 }
 
@@ -51400,7 +51400,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPGT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPGT_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %75, %69, %68, %.sink.split.i49, %61, %60, %58, %52, %51, %.sink.split.i43, %43, %42, %40, %34, %33, %.sink.split.i37, %25, %24, %22, %16, %15, %.sink.split.i, %7, %6, %5
-  %.0 = phi i32 [ %67, %.sink.split.i49 ], [ 0, %5 ], [ %14, %.sink.split.i ], [ 0, %16 ], [ %32, %.sink.split.i37 ], [ 0, %34 ], [ %50, %.sink.split.i43 ], [ 0, %52 ], [ 0, %6 ], [ 0, %7 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ 0, %25 ], [ 0, %33 ], [ %41, %40 ], [ 0, %42 ], [ 0, %43 ], [ 0, %51 ], [ %59, %58 ], [ 0, %60 ], [ 0, %61 ], [ 0, %68 ], [ %76, %75 ], [ 0, %69 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ %14, %.sink.split.i ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ 0, %24 ], [ 0, %25 ], [ %32, %.sink.split.i37 ], [ %41, %40 ], [ 0, %33 ], [ 0, %34 ], [ 0, %42 ], [ 0, %43 ], [ %50, %.sink.split.i43 ], [ %59, %58 ], [ 0, %51 ], [ 0, %52 ], [ 0, %60 ], [ 0, %61 ], [ %67, %.sink.split.i49 ], [ %76, %75 ], [ 0, %68 ], [ 0, %69 ]
   ret i32 %.0
 }
 
@@ -51452,7 +51452,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_PDEP_MVT_i32_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_PDEP_MVT_i32_rrEN4llvm3MVTEjj.exit: ; preds = %.sink.split.i11, %18, %17, %.sink.split.i, %7, %6, %5
-  %.0 = phi i32 [ %16, %.sink.split.i ], [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %17 ], [ 0, %18 ], [ %27, %.sink.split.i11 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ %16, %.sink.split.i ], [ 0, %17 ], [ 0, %18 ], [ %27, %.sink.split.i11 ]
   ret i32 %.0
 }
 
@@ -51504,7 +51504,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_PEXT_MVT_i32_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_PEXT_MVT_i32_rrEN4llvm3MVTEjj.exit: ; preds = %.sink.split.i11, %18, %17, %.sink.split.i, %7, %6, %5
-  %.0 = phi i32 [ %16, %.sink.split.i ], [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %17 ], [ 0, %18 ], [ %27, %.sink.split.i11 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ %16, %.sink.split.i ], [ 0, %17 ], [ 0, %18 ], [ %27, %.sink.split.i11 ]
   ret i32 %.0
 }
 
@@ -51613,7 +51613,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PMULDQ_MVT_v2i64_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PMULDQ_MVT_v2i64_rrEN4llvm3MVTEjj.exit: ; preds = %51, %45, %44, %.thread.thread.i, %.thread.i, %40, %38, %27, %.thread9.thread.i, %.thread9.i, %23, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %40 ], [ 0, %5 ], [ 0, %19 ], [ %24, %23 ], [ %18, %17 ], [ 0, %6 ], [ %26, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %43, %.thread.thread.i ], [ %39, %38 ], [ 0, %27 ], [ 0, %.thread.i ], [ 0, %44 ], [ %52, %51 ], [ 0, %45 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %26, %.thread9.thread.i ], [ %24, %23 ], [ 0, %6 ], [ 0, %.thread9.i ], [ 0, %19 ], [ %39, %38 ], [ %43, %.thread.thread.i ], [ 0, %27 ], [ 0, %.thread.i ], [ 0, %40 ], [ %52, %51 ], [ 0, %44 ], [ 0, %45 ]
   ret i32 %.0
 }
 
@@ -51722,7 +51722,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_PMULUDQ_MVT_v2i64_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_PMULUDQ_MVT_v2i64_rrEN4llvm3MVTEjj.exit: ; preds = %51, %45, %44, %.thread.thread.i, %.thread.i, %40, %38, %27, %.thread9.thread.i, %.thread9.i, %23, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %40 ], [ 0, %5 ], [ 0, %19 ], [ %24, %23 ], [ %18, %17 ], [ 0, %6 ], [ %26, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %43, %.thread.thread.i ], [ %39, %38 ], [ 0, %27 ], [ 0, %.thread.i ], [ 0, %44 ], [ %52, %51 ], [ 0, %45 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %26, %.thread9.thread.i ], [ %24, %23 ], [ 0, %6 ], [ 0, %.thread9.i ], [ 0, %19 ], [ %39, %38 ], [ %43, %.thread.thread.i ], [ 0, %27 ], [ 0, %.thread.i ], [ 0, %40 ], [ %52, %51 ], [ 0, %44 ], [ 0, %45 ]
   ret i32 %.0
 }
 
@@ -51837,7 +51837,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %46 ], [ 0, %5 ], [ 0, %19 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ 0, %57 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -51952,7 +51952,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %46 ], [ 0, %5 ], [ 0, %19 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ 0, %57 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -51998,7 +51998,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_PTEST_MVT_v2i64_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_PTEST_MVT_v2i64_rrEN4llvm3MVTEjj.exit: ; preds = %22, %16, %15, %.sink.split.i, %7, %6, %5
-  %.0 = phi i32 [ %14, %.sink.split.i ], [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %15 ], [ %23, %22 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ %14, %.sink.split.i ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -52047,12 +52047,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %26, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_RCP14S_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_RCP14S_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_RCP14S_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split: ; preds = %21, %14, %7
-  %.sink = phi i32 [ 21027, %14 ], [ 21133, %7 ], [ 21021, %21 ]
+  %.sink = phi i32 [ 21133, %7 ], [ 21027, %14 ], [ 21021, %21 ]
   %27 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_RCP14S_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_RCP14S_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_RCP14S_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, %21, %20, %14, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ 0, %20 ], [ 0, %13 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_RCP14S_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_RCP14S_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -52101,12 +52101,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_X86
   br i1 %26, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_RSQRT14S_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_RSQRT14S_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_RSQRT14S_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split: ; preds = %21, %14, %7
-  %.sink = phi i32 [ 21531, %14 ], [ 21637, %7 ], [ 21525, %21 ]
+  %.sink = phi i32 [ 21637, %7 ], [ 21531, %14 ], [ 21525, %21 ]
   %27 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_RSQRT14S_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_RSQRT14S_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_RSQRT14S_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, %21, %20, %14, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ 0, %20 ], [ 0, %13 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_RSQRT14S_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_RSQRT14S_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -52332,7 +52332,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_SCALEF_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_SCALEF_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %120, %114, %113, %111, %105, %104, %102, %96, %95, %93, %87, %86, %84, %78, %77, %75, %69, %68, %66, %60, %59, %57, %51, %50, %48, %42, %41, %39, %33, %32, %30, %26, %20, %19, %17, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %105 ], [ 0, %5 ], [ 0, %7 ], [ 0, %20 ], [ 0, %33 ], [ 0, %42 ], [ 0, %51 ], [ 0, %60 ], [ 0, %69 ], [ 0, %78 ], [ 0, %87 ], [ 0, %96 ], [ 0, %6 ], [ %18, %17 ], [ 0, %13 ], [ 0, %19 ], [ %31, %30 ], [ 0, %26 ], [ 0, %32 ], [ %40, %39 ], [ 0, %41 ], [ %49, %48 ], [ 0, %50 ], [ %58, %57 ], [ 0, %59 ], [ %67, %66 ], [ 0, %68 ], [ %76, %75 ], [ 0, %77 ], [ %85, %84 ], [ 0, %86 ], [ %94, %93 ], [ 0, %95 ], [ %103, %102 ], [ 0, %104 ], [ %112, %111 ], [ 0, %113 ], [ %121, %120 ], [ 0, %114 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ 0, %6 ], [ 0, %13 ], [ 0, %7 ], [ %31, %30 ], [ 0, %19 ], [ 0, %26 ], [ 0, %20 ], [ %40, %39 ], [ 0, %32 ], [ 0, %33 ], [ %49, %48 ], [ 0, %41 ], [ 0, %42 ], [ %58, %57 ], [ 0, %50 ], [ 0, %51 ], [ %67, %66 ], [ 0, %59 ], [ 0, %60 ], [ %76, %75 ], [ 0, %68 ], [ 0, %69 ], [ %85, %84 ], [ 0, %77 ], [ 0, %78 ], [ %94, %93 ], [ 0, %86 ], [ 0, %87 ], [ %103, %102 ], [ 0, %95 ], [ 0, %96 ], [ %112, %111 ], [ 0, %104 ], [ 0, %105 ], [ %121, %120 ], [ 0, %113 ], [ 0, %114 ]
   ret i32 %.0
 }
 
@@ -52381,12 +52381,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br i1 %26, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_SCALEFS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_SCALEFS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_SCALEFS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split: ; preds = %21, %14, %7
-  %.sink = phi i32 [ 21791, %14 ], [ 21782, %7 ], [ 21773, %21 ]
+  %.sink = phi i32 [ 21782, %7 ], [ 21791, %14 ], [ 21773, %21 ]
   %27 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_SCALEFS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_SCALEFS_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_SCALEFS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split, %21, %20, %14, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ 0, %20 ], [ 0, %13 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_SCALEFS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %21 ], [ %27, %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_SCALEFS_MVT_v8f16_rrEN4llvm3MVTEjj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -52540,7 +52540,7 @@ _ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i27: ; preds = %_ZNK4llvm12X86
   br label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_STRICT_FCMP_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_STRICT_FCMP_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i27, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i26, %66, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i22, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i21, %55, %53, %47, %40, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i, %30, %28, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i21 ], [ 0, %5 ], [ 0, %7 ], [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %39, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i ], [ %31, %30 ], [ %54, %53 ], [ %48, %47 ], [ 0, %40 ], [ %65, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i22 ], [ %56, %55 ], [ 0, %66 ], [ %79, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i27 ], [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i26 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %39, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i ], [ %48, %47 ], [ %65, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i22 ], [ %56, %55 ], [ %54, %53 ], [ 0, %40 ], [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i21 ], [ %79, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i27 ], [ 0, %66 ], [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i26 ]
   ret i32 %.0
 }
 
@@ -52694,7 +52694,7 @@ _ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i27: ; preds = %_ZNK4llvm12X86
   br label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_STRICT_FCMPS_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_STRICT_FCMPS_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i27, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i26, %66, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i22, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i21, %55, %53, %47, %40, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i, %30, %28, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i21 ], [ 0, %5 ], [ 0, %7 ], [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %39, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i ], [ %31, %30 ], [ %54, %53 ], [ %48, %47 ], [ 0, %40 ], [ %65, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i22 ], [ %56, %55 ], [ 0, %66 ], [ %79, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i27 ], [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i26 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %39, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i ], [ %48, %47 ], [ %65, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i22 ], [ %56, %55 ], [ %54, %53 ], [ 0, %40 ], [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i21 ], [ %79, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i27 ], [ 0, %66 ], [ 0, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.i26 ]
   ret i32 %.0
 }
 
@@ -53048,7 +53048,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel30fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_STRICT_FMAX_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_STRICT_FMAX_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %176, %170, %169, %.thread.thread.i78, %.thread.i75, %165, %163, %152, %.thread9.thread.i72, %.thread9.i69, %148, %144, %142, %131, %129, %123, %122, %.thread.thread.i, %.thread.i, %118, %116, %105, %.thread9.thread.i, %.thread9.i, %101, %97, %95, %84, %82, %76, %75, %73, %69, %63, %62, %60, %56, %50, %49, %47, %45, %41, %39, %32, %30, %28, %24, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %165 ], [ 0, %5 ], [ 0, %7 ], [ 0, %24 ], [ 0, %41 ], [ 0, %50 ], [ 0, %63 ], [ 0, %76 ], [ 0, %97 ], [ 0, %118 ], [ 0, %123 ], [ 0, %144 ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %31, %30 ], [ %46, %45 ], [ %40, %39 ], [ 0, %32 ], [ %48, %47 ], [ 0, %49 ], [ %61, %60 ], [ 0, %56 ], [ 0, %62 ], [ %74, %73 ], [ 0, %69 ], [ 0, %75 ], [ %83, %82 ], [ %102, %101 ], [ %96, %95 ], [ 0, %84 ], [ %104, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %121, %.thread.thread.i ], [ %117, %116 ], [ 0, %105 ], [ 0, %.thread.i ], [ 0, %122 ], [ %130, %129 ], [ %149, %148 ], [ %143, %142 ], [ 0, %131 ], [ %151, %.thread9.thread.i72 ], [ 0, %.thread9.i69 ], [ %168, %.thread.thread.i78 ], [ %164, %163 ], [ 0, %152 ], [ 0, %.thread.i75 ], [ 0, %169 ], [ %177, %176 ], [ 0, %170 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ 0, %24 ], [ %40, %39 ], [ %48, %47 ], [ %46, %45 ], [ 0, %32 ], [ 0, %41 ], [ %61, %60 ], [ 0, %49 ], [ 0, %56 ], [ 0, %50 ], [ %74, %73 ], [ 0, %62 ], [ 0, %69 ], [ 0, %63 ], [ %83, %82 ], [ 0, %75 ], [ 0, %76 ], [ %96, %95 ], [ %104, %.thread9.thread.i ], [ %102, %101 ], [ 0, %84 ], [ 0, %.thread9.i ], [ 0, %97 ], [ %117, %116 ], [ %121, %.thread.thread.i ], [ 0, %105 ], [ 0, %.thread.i ], [ 0, %118 ], [ %130, %129 ], [ 0, %122 ], [ 0, %123 ], [ %143, %142 ], [ %151, %.thread9.thread.i72 ], [ %149, %148 ], [ 0, %131 ], [ 0, %.thread9.i69 ], [ 0, %144 ], [ %164, %163 ], [ %168, %.thread.thread.i78 ], [ 0, %152 ], [ 0, %.thread.i75 ], [ 0, %165 ], [ %177, %176 ], [ 0, %169 ], [ 0, %170 ]
   ret i32 %.0
 }
 
@@ -53402,7 +53402,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel30fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_STRICT_FMIN_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_STRICT_FMIN_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %176, %170, %169, %.thread.thread.i78, %.thread.i75, %165, %163, %152, %.thread9.thread.i72, %.thread9.i69, %148, %144, %142, %131, %129, %123, %122, %.thread.thread.i, %.thread.i, %118, %116, %105, %.thread9.thread.i, %.thread9.i, %101, %97, %95, %84, %82, %76, %75, %73, %69, %63, %62, %60, %56, %50, %49, %47, %45, %41, %39, %32, %30, %28, %24, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %165 ], [ 0, %5 ], [ 0, %7 ], [ 0, %24 ], [ 0, %41 ], [ 0, %50 ], [ 0, %63 ], [ 0, %76 ], [ 0, %97 ], [ 0, %118 ], [ 0, %123 ], [ 0, %144 ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %31, %30 ], [ %46, %45 ], [ %40, %39 ], [ 0, %32 ], [ %48, %47 ], [ 0, %49 ], [ %61, %60 ], [ 0, %56 ], [ 0, %62 ], [ %74, %73 ], [ 0, %69 ], [ 0, %75 ], [ %83, %82 ], [ %102, %101 ], [ %96, %95 ], [ 0, %84 ], [ %104, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %121, %.thread.thread.i ], [ %117, %116 ], [ 0, %105 ], [ 0, %.thread.i ], [ 0, %122 ], [ %130, %129 ], [ %149, %148 ], [ %143, %142 ], [ 0, %131 ], [ %151, %.thread9.thread.i72 ], [ 0, %.thread9.i69 ], [ %168, %.thread.thread.i78 ], [ %164, %163 ], [ 0, %152 ], [ 0, %.thread.i75 ], [ 0, %169 ], [ %177, %176 ], [ 0, %170 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ 0, %24 ], [ %40, %39 ], [ %48, %47 ], [ %46, %45 ], [ 0, %32 ], [ 0, %41 ], [ %61, %60 ], [ 0, %49 ], [ 0, %56 ], [ 0, %50 ], [ %74, %73 ], [ 0, %62 ], [ 0, %69 ], [ 0, %63 ], [ %83, %82 ], [ 0, %75 ], [ 0, %76 ], [ %96, %95 ], [ %104, %.thread9.thread.i ], [ %102, %101 ], [ 0, %84 ], [ 0, %.thread9.i ], [ 0, %97 ], [ %117, %116 ], [ %121, %.thread.thread.i ], [ 0, %105 ], [ 0, %.thread.i ], [ 0, %118 ], [ %130, %129 ], [ 0, %122 ], [ 0, %123 ], [ %143, %142 ], [ %151, %.thread9.thread.i72 ], [ %149, %148 ], [ 0, %131 ], [ 0, %.thread9.i69 ], [ 0, %144 ], [ %164, %163 ], [ %168, %.thread.thread.i78 ], [ 0, %152 ], [ 0, %.thread.i75 ], [ 0, %165 ], [ %177, %176 ], [ 0, %169 ], [ 0, %170 ]
   ret i32 %.0
 }
 
@@ -53480,7 +53480,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_TESTP_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_TESTP_MVT_v4f32_rrEN4llvm3MVTEjj.exit: ; preds = %40, %34, %33, %31, %25, %24, %22, %16, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %25 ], [ 0, %5 ], [ 0, %7 ], [ 0, %16 ], [ 0, %6 ], [ %14, %13 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ %32, %31 ], [ 0, %33 ], [ %41, %40 ], [ 0, %34 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ %32, %31 ], [ 0, %24 ], [ 0, %25 ], [ %41, %40 ], [ 0, %33 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -53573,7 +53573,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_UCOMI_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_UCOMI_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %47, %45, %41, %39, %32, %30, %28, %24, %22, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %24 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ %14, %13 ], [ %29, %28 ], [ %23, %22 ], [ 0, %15 ], [ %31, %30 ], [ %46, %45 ], [ %40, %39 ], [ 0, %32 ], [ %48, %47 ], [ 0, %41 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ %31, %30 ], [ %29, %28 ], [ 0, %15 ], [ 0, %24 ], [ %40, %39 ], [ %48, %47 ], [ %46, %45 ], [ 0, %32 ], [ 0, %41 ]
   ret i32 %.0
 }
 
@@ -53685,7 +53685,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_UCOMX_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_UCOMX_MVT_f16_rrEN4llvm3MVTEjj.exit: ; preds = %58, %52, %51, %49, %43, %42, %40, %34, %33, %31, %25, %24, %22, %16, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %43 ], [ 0, %5 ], [ 0, %7 ], [ 0, %16 ], [ 0, %25 ], [ 0, %34 ], [ 0, %6 ], [ %14, %13 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ %32, %31 ], [ 0, %33 ], [ %41, %40 ], [ 0, %42 ], [ %50, %49 ], [ 0, %51 ], [ %59, %58 ], [ 0, %52 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ %32, %31 ], [ 0, %24 ], [ 0, %25 ], [ %41, %40 ], [ 0, %33 ], [ 0, %34 ], [ %50, %49 ], [ 0, %42 ], [ 0, %43 ], [ %59, %58 ], [ 0, %51 ], [ 0, %52 ]
   ret i32 %.0
 }
 
@@ -54311,7 +54311,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %316, %310, %309, %.thread.thread.i128, %.thread.i125, %305, %303, %292, %.thread9.thread.i122, %.thread9.i119, %288, %284, %282, %271, %269, %263, %262, %.thread.thread.i, %.thread.i112, %258, %256, %245, %.thread9.thread.i109, %.thread9.i106, %241, %237, %235, %224, %222, %216, %215, %.thread.i101, %213, %211, %203, %196, %195, %.thread9.thread.i97, %.thread9.i94, %191, %187, %185, %174, %172, %166, %165, %.thread.i, %163, %161, %153, %146, %145, %.thread9.thread.i, %.thread9.i, %141, %137, %135, %124, %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %305 ], [ 0, %5 ], [ 0, %19 ], [ 0, %46 ], [ 0, %57 ], [ 0, %78 ], [ 0, %105 ], [ 0, %116 ], [ 0, %137 ], [ 0, %146 ], [ 0, %166 ], [ 0, %187 ], [ 0, %196 ], [ 0, %216 ], [ 0, %237 ], [ 0, %258 ], [ 0, %263 ], [ 0, %284 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ %85, %84 ], [ %77, %76 ], [ 0, %65 ], [ %91, %90 ], [ 0, %86 ], [ %114, %113 ], [ %104, %103 ], [ 0, %92 ], [ 0, %109 ], [ 0, %115 ], [ %123, %122 ], [ %142, %141 ], [ %136, %135 ], [ 0, %124 ], [ %144, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %154, %153 ], [ %162, %161 ], [ 0, %145 ], [ %164, %.thread.i ], [ 0, %163 ], [ 0, %165 ], [ %173, %172 ], [ %192, %191 ], [ %186, %185 ], [ 0, %174 ], [ %194, %.thread9.thread.i97 ], [ 0, %.thread9.i94 ], [ %204, %203 ], [ %212, %211 ], [ 0, %195 ], [ %214, %.thread.i101 ], [ 0, %213 ], [ 0, %215 ], [ %223, %222 ], [ %242, %241 ], [ %236, %235 ], [ 0, %224 ], [ %244, %.thread9.thread.i109 ], [ 0, %.thread9.i106 ], [ %261, %.thread.thread.i ], [ %257, %256 ], [ 0, %245 ], [ 0, %.thread.i112 ], [ 0, %262 ], [ %270, %269 ], [ %289, %288 ], [ %283, %282 ], [ 0, %271 ], [ %291, %.thread9.thread.i122 ], [ 0, %.thread9.i119 ], [ %308, %.thread.thread.i128 ], [ %304, %303 ], [ 0, %292 ], [ 0, %.thread.i125 ], [ 0, %309 ], [ %317, %316 ], [ 0, %310 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ], [ %136, %135 ], [ %144, %.thread9.thread.i ], [ %142, %141 ], [ 0, %124 ], [ 0, %.thread9.i ], [ 0, %137 ], [ %162, %161 ], [ %164, %.thread.i ], [ %154, %153 ], [ 0, %145 ], [ 0, %163 ], [ 0, %146 ], [ %173, %172 ], [ 0, %165 ], [ 0, %166 ], [ %186, %185 ], [ %194, %.thread9.thread.i97 ], [ %192, %191 ], [ 0, %174 ], [ 0, %.thread9.i94 ], [ 0, %187 ], [ %212, %211 ], [ %214, %.thread.i101 ], [ %204, %203 ], [ 0, %195 ], [ 0, %213 ], [ 0, %196 ], [ %223, %222 ], [ 0, %215 ], [ 0, %216 ], [ %236, %235 ], [ %244, %.thread9.thread.i109 ], [ %242, %241 ], [ 0, %224 ], [ 0, %.thread9.i106 ], [ 0, %237 ], [ %257, %256 ], [ %261, %.thread.thread.i ], [ 0, %245 ], [ 0, %.thread.i112 ], [ 0, %258 ], [ %270, %269 ], [ 0, %262 ], [ 0, %263 ], [ %283, %282 ], [ %291, %.thread9.thread.i122 ], [ %289, %288 ], [ 0, %271 ], [ 0, %.thread9.i119 ], [ 0, %284 ], [ %304, %303 ], [ %308, %.thread.thread.i128 ], [ 0, %292 ], [ 0, %.thread.i125 ], [ 0, %305 ], [ %317, %316 ], [ 0, %309 ], [ 0, %310 ]
   ret i32 %.0
 }
 
@@ -54937,7 +54937,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %316, %310, %309, %.thread.thread.i128, %.thread.i125, %305, %303, %292, %.thread9.thread.i122, %.thread9.i119, %288, %284, %282, %271, %269, %263, %262, %.thread.thread.i, %.thread.i112, %258, %256, %245, %.thread9.thread.i109, %.thread9.i106, %241, %237, %235, %224, %222, %216, %215, %.thread.i101, %213, %211, %203, %196, %195, %.thread9.thread.i97, %.thread9.i94, %191, %187, %185, %174, %172, %166, %165, %.thread.i, %163, %161, %153, %146, %145, %.thread9.thread.i, %.thread9.i, %141, %137, %135, %124, %122, %116, %115, %113, %109, %105, %103, %92, %90, %86, %84, %78, %76, %65, %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %305 ], [ 0, %5 ], [ 0, %19 ], [ 0, %46 ], [ 0, %57 ], [ 0, %78 ], [ 0, %105 ], [ 0, %116 ], [ 0, %137 ], [ 0, %146 ], [ 0, %166 ], [ 0, %187 ], [ 0, %196 ], [ 0, %216 ], [ 0, %237 ], [ 0, %258 ], [ 0, %263 ], [ 0, %284 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ %85, %84 ], [ %77, %76 ], [ 0, %65 ], [ %91, %90 ], [ 0, %86 ], [ %114, %113 ], [ %104, %103 ], [ 0, %92 ], [ 0, %109 ], [ 0, %115 ], [ %123, %122 ], [ %142, %141 ], [ %136, %135 ], [ 0, %124 ], [ %144, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %154, %153 ], [ %162, %161 ], [ 0, %145 ], [ %164, %.thread.i ], [ 0, %163 ], [ 0, %165 ], [ %173, %172 ], [ %192, %191 ], [ %186, %185 ], [ 0, %174 ], [ %194, %.thread9.thread.i97 ], [ 0, %.thread9.i94 ], [ %204, %203 ], [ %212, %211 ], [ 0, %195 ], [ %214, %.thread.i101 ], [ 0, %213 ], [ 0, %215 ], [ %223, %222 ], [ %242, %241 ], [ %236, %235 ], [ 0, %224 ], [ %244, %.thread9.thread.i109 ], [ 0, %.thread9.i106 ], [ %261, %.thread.thread.i ], [ %257, %256 ], [ 0, %245 ], [ 0, %.thread.i112 ], [ 0, %262 ], [ %270, %269 ], [ %289, %288 ], [ %283, %282 ], [ 0, %271 ], [ %291, %.thread9.thread.i122 ], [ 0, %.thread9.i119 ], [ %308, %.thread.thread.i128 ], [ %304, %303 ], [ 0, %292 ], [ 0, %.thread.i125 ], [ 0, %309 ], [ %317, %316 ], [ 0, %310 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ], [ %77, %76 ], [ %91, %90 ], [ %85, %84 ], [ 0, %65 ], [ 0, %78 ], [ 0, %86 ], [ %104, %103 ], [ %114, %113 ], [ 0, %92 ], [ 0, %105 ], [ 0, %109 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ], [ %136, %135 ], [ %144, %.thread9.thread.i ], [ %142, %141 ], [ 0, %124 ], [ 0, %.thread9.i ], [ 0, %137 ], [ %162, %161 ], [ %164, %.thread.i ], [ %154, %153 ], [ 0, %145 ], [ 0, %163 ], [ 0, %146 ], [ %173, %172 ], [ 0, %165 ], [ 0, %166 ], [ %186, %185 ], [ %194, %.thread9.thread.i97 ], [ %192, %191 ], [ 0, %174 ], [ 0, %.thread9.i94 ], [ 0, %187 ], [ %212, %211 ], [ %214, %.thread.i101 ], [ %204, %203 ], [ 0, %195 ], [ 0, %213 ], [ 0, %196 ], [ %223, %222 ], [ 0, %215 ], [ 0, %216 ], [ %236, %235 ], [ %244, %.thread9.thread.i109 ], [ %242, %241 ], [ 0, %224 ], [ 0, %.thread9.i106 ], [ 0, %237 ], [ %257, %256 ], [ %261, %.thread.thread.i ], [ 0, %245 ], [ 0, %.thread.i112 ], [ 0, %258 ], [ %270, %269 ], [ 0, %262 ], [ 0, %263 ], [ %283, %282 ], [ %291, %.thread9.thread.i122 ], [ %289, %288 ], [ 0, %271 ], [ 0, %.thread9.i119 ], [ 0, %284 ], [ %304, %303 ], [ %308, %.thread.thread.i128 ], [ 0, %292 ], [ 0, %.thread.i125 ], [ 0, %305 ], [ %317, %316 ], [ 0, %309 ], [ 0, %310 ]
   ret i32 %.0
 }
 
@@ -54998,7 +54998,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel30fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_VCVT2PH2BF8_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_VCVT2PH2BF8_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %31, %25, %24, %22, %16, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %16 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ %14, %13 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ %32, %31 ], [ 0, %25 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ %32, %31 ], [ 0, %24 ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -55059,7 +55059,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_VCVT2PH2BF8S_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_VCVT2PH2BF8S_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %31, %25, %24, %22, %16, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %16 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ %14, %13 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ %32, %31 ], [ 0, %25 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ %32, %31 ], [ 0, %24 ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -55120,7 +55120,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel30fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_VCVT2PH2HF8_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel40fastEmit_X86ISD_VCVT2PH2HF8_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %31, %25, %24, %22, %16, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %16 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ %14, %13 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ %32, %31 ], [ 0, %25 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ %32, %31 ], [ 0, %24 ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -55181,7 +55181,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_VCVT2PH2HF8S_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_VCVT2PH2HF8S_MVT_v8f16_rrEN4llvm3MVTEjj.exit: ; preds = %31, %25, %24, %22, %16, %15, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %16 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ %14, %13 ], [ 0, %15 ], [ %23, %22 ], [ 0, %24 ], [ %32, %31 ], [ 0, %25 ]
+  %.0 = phi i32 [ 0, %5 ], [ %14, %13 ], [ 0, %6 ], [ 0, %7 ], [ %23, %22 ], [ 0, %15 ], [ 0, %16 ], [ %32, %31 ], [ 0, %24 ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -55254,7 +55254,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VFCMULC_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VFCMULC_MVT_v4f32_rrEN4llvm3MVTEjj.exit: ; preds = %39, %33, %32, %30, %26, %20, %19, %17, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %20 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ %18, %17 ], [ 0, %13 ], [ 0, %19 ], [ %31, %30 ], [ 0, %26 ], [ 0, %32 ], [ %40, %39 ], [ 0, %33 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ 0, %6 ], [ 0, %13 ], [ 0, %7 ], [ %31, %30 ], [ 0, %19 ], [ 0, %26 ], [ 0, %20 ], [ %40, %39 ], [ 0, %32 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -55327,7 +55327,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_VFMULC_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_VFMULC_MVT_v4f32_rrEN4llvm3MVTEjj.exit: ; preds = %39, %33, %32, %30, %26, %20, %19, %17, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %20 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ %18, %17 ], [ 0, %13 ], [ 0, %19 ], [ %31, %30 ], [ 0, %26 ], [ 0, %32 ], [ %40, %39 ], [ 0, %33 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ 0, %6 ], [ 0, %13 ], [ 0, %7 ], [ %31, %30 ], [ 0, %19 ], [ 0, %26 ], [ 0, %20 ], [ %40, %39 ], [ 0, %32 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -55433,7 +55433,7 @@ _ZN12_GLOBAL__N_111X86FastISel50fastEmit_X86ISD_VFPROUND2_MVT_v16f32_MVT_v32f16_
   br label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_VFPROUND2_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_VFPROUND2_MVT_v4f32_rrEN4llvm3MVTEjj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel50fastEmit_X86ISD_VFPROUND2_MVT_v16f32_MVT_v32f16_rrEjj.exit.sink.split.i, %49, %43, %42, %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_X86ISD_VFPROUND2_MVT_v8f32_MVT_v16f16_rrEjj.exit.sink.split.i, %37, %31, %25, %24, %_ZN12_GLOBAL__N_111X86FastISel48fastEmit_X86ISD_VFPROUND2_MVT_v4f32_MVT_v8f16_rrEjj.exit.sink.split.i, %19, %13, %7, %6, %5
-  %.0 = phi i32 [ %41, %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_X86ISD_VFPROUND2_MVT_v8f32_MVT_v16f16_rrEjj.exit.sink.split.i ], [ 0, %5 ], [ %23, %_ZN12_GLOBAL__N_111X86FastISel48fastEmit_X86ISD_VFPROUND2_MVT_v4f32_MVT_v8f16_rrEjj.exit.sink.split.i ], [ 0, %7 ], [ 0, %6 ], [ 0, %19 ], [ 0, %13 ], [ 0, %25 ], [ 0, %24 ], [ 0, %37 ], [ 0, %31 ], [ 0, %43 ], [ 0, %42 ], [ 0, %49 ], [ %55, %_ZN12_GLOBAL__N_111X86FastISel50fastEmit_X86ISD_VFPROUND2_MVT_v16f32_MVT_v32f16_rrEjj.exit.sink.split.i ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %19 ], [ 0, %13 ], [ %23, %_ZN12_GLOBAL__N_111X86FastISel48fastEmit_X86ISD_VFPROUND2_MVT_v4f32_MVT_v8f16_rrEjj.exit.sink.split.i ], [ 0, %24 ], [ 0, %25 ], [ 0, %37 ], [ 0, %31 ], [ %41, %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_X86ISD_VFPROUND2_MVT_v8f32_MVT_v16f16_rrEjj.exit.sink.split.i ], [ 0, %42 ], [ 0, %43 ], [ 0, %49 ], [ %55, %_ZN12_GLOBAL__N_111X86FastISel50fastEmit_X86ISD_VFPROUND2_MVT_v16f32_MVT_v32f16_rrEjj.exit.sink.split.i ]
   ret i32 %.0
 }
 
@@ -55605,7 +55605,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_VP2INTERSECT_MVT_v4i32_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_VP2INTERSECT_MVT_v4i32_rrEN4llvm3MVTEjj.exit: ; preds = %98, %94, %88, %87, %85, %81, %77, %71, %70, %68, %64, %60, %54, %53, %51, %47, %41, %40, %38, %34, %30, %24, %23, %21, %17, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %71 ], [ 0, %5 ], [ 0, %7 ], [ 0, %24 ], [ 0, %41 ], [ 0, %54 ], [ 0, %6 ], [ %22, %21 ], [ 0, %17 ], [ 0, %13 ], [ 0, %23 ], [ %39, %38 ], [ 0, %34 ], [ 0, %30 ], [ 0, %40 ], [ %52, %51 ], [ 0, %47 ], [ 0, %53 ], [ %69, %68 ], [ 0, %64 ], [ 0, %60 ], [ 0, %70 ], [ %86, %85 ], [ 0, %81 ], [ 0, %77 ], [ 0, %87 ], [ %99, %98 ], [ 0, %94 ], [ 0, %88 ]
+  %.0 = phi i32 [ 0, %5 ], [ %22, %21 ], [ 0, %6 ], [ 0, %17 ], [ 0, %13 ], [ 0, %7 ], [ %39, %38 ], [ 0, %23 ], [ 0, %34 ], [ 0, %30 ], [ 0, %24 ], [ %52, %51 ], [ 0, %40 ], [ 0, %47 ], [ 0, %41 ], [ %69, %68 ], [ 0, %53 ], [ 0, %64 ], [ 0, %60 ], [ 0, %54 ], [ %86, %85 ], [ 0, %70 ], [ 0, %81 ], [ 0, %77 ], [ 0, %71 ], [ %99, %98 ], [ 0, %87 ], [ 0, %94 ], [ 0, %88 ]
   ret i32 %.0
 }
 
@@ -55835,7 +55835,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_VPERMV_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_VPERMV_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %122, %116, %115, %113, %109, %103, %102, %100, %94, %93, %.thread.thread.i, %.thread.i, %89, %87, %76, %74, %68, %67, %65, %61, %55, %54, %52, %48, %42, %41, %39, %33, %32, %30, %26, %20, %19, %17, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %103 ], [ 0, %5 ], [ 0, %7 ], [ 0, %20 ], [ 0, %33 ], [ 0, %42 ], [ 0, %55 ], [ 0, %68 ], [ 0, %89 ], [ 0, %94 ], [ 0, %6 ], [ %18, %17 ], [ 0, %13 ], [ 0, %19 ], [ %31, %30 ], [ 0, %26 ], [ 0, %32 ], [ %40, %39 ], [ 0, %41 ], [ %53, %52 ], [ 0, %48 ], [ 0, %54 ], [ %66, %65 ], [ 0, %61 ], [ 0, %67 ], [ %75, %74 ], [ %92, %.thread.thread.i ], [ %88, %87 ], [ 0, %76 ], [ 0, %.thread.i ], [ 0, %93 ], [ %101, %100 ], [ 0, %102 ], [ %114, %113 ], [ 0, %109 ], [ 0, %115 ], [ %123, %122 ], [ 0, %116 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ 0, %6 ], [ 0, %13 ], [ 0, %7 ], [ %31, %30 ], [ 0, %19 ], [ 0, %26 ], [ 0, %20 ], [ %40, %39 ], [ 0, %32 ], [ 0, %33 ], [ %53, %52 ], [ 0, %41 ], [ 0, %48 ], [ 0, %42 ], [ %66, %65 ], [ 0, %54 ], [ 0, %61 ], [ 0, %55 ], [ %75, %74 ], [ 0, %67 ], [ 0, %68 ], [ %88, %87 ], [ %92, %.thread.thread.i ], [ 0, %76 ], [ 0, %.thread.i ], [ 0, %89 ], [ %101, %100 ], [ 0, %93 ], [ 0, %94 ], [ %114, %113 ], [ 0, %102 ], [ 0, %109 ], [ 0, %103 ], [ %123, %122 ], [ 0, %115 ], [ 0, %116 ]
   ret i32 %.0
 }
 
@@ -55950,7 +55950,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel29fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %46 ], [ 0, %5 ], [ 0, %19 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ 0, %57 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -56065,7 +56065,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %63, %57, %56, %54, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %46 ], [ 0, %5 ], [ 0, %19 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %55, %54 ], [ %45, %44 ], [ 0, %33 ], [ 0, %50 ], [ 0, %56 ], [ %64, %63 ], [ 0, %57 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %55, %54 ], [ 0, %33 ], [ 0, %46 ], [ 0, %50 ], [ %64, %63 ], [ 0, %56 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -56127,12 +56127,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %33, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VPSHA_MVT_v16i8_rrEN4llvm3MVTEjj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VPSHA_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VPSHA_MVT_v16i8_rrEN4llvm3MVTEjj.exit.sink.split: ; preds = %28, %21, %14, %7
-  %.sink = phi i32 [ 19125, %21 ], [ 19133, %14 ], [ 19121, %7 ], [ 19129, %28 ]
+  %.sink = phi i32 [ 19121, %7 ], [ 19133, %14 ], [ 19125, %21 ], [ 19129, %28 ]
   %34 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VPSHA_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VPSHA_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VPSHA_MVT_v16i8_rrEN4llvm3MVTEjj.exit.sink.split, %28, %27, %21, %20, %14, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %21 ], [ 0, %5 ], [ 0, %7 ], [ 0, %14 ], [ 0, %6 ], [ 0, %28 ], [ 0, %13 ], [ 0, %27 ], [ 0, %20 ], [ %34, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VPSHA_MVT_v16i8_rrEN4llvm3MVTEjj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %21 ], [ 0, %27 ], [ 0, %28 ], [ %34, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VPSHA_MVT_v16i8_rrEN4llvm3MVTEjj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -56194,12 +56194,12 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %33, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VPSHL_MVT_v16i8_rrEN4llvm3MVTEjj.exit.sink.split, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VPSHL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VPSHL_MVT_v16i8_rrEN4llvm3MVTEjj.exit.sink.split: ; preds = %28, %21, %14, %7
-  %.sink = phi i32 [ 19285, %21 ], [ 19293, %14 ], [ 19137, %7 ], [ 19289, %28 ]
+  %.sink = phi i32 [ 19137, %7 ], [ 19293, %14 ], [ 19285, %21 ], [ 19289, %28 ]
   %34 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %.sink, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #19
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VPSHL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VPSHL_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VPSHL_MVT_v16i8_rrEN4llvm3MVTEjj.exit.sink.split, %28, %27, %21, %20, %14, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %21 ], [ 0, %5 ], [ 0, %7 ], [ 0, %14 ], [ 0, %6 ], [ 0, %28 ], [ 0, %13 ], [ 0, %27 ], [ 0, %20 ], [ %34, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VPSHL_MVT_v16i8_rrEN4llvm3MVTEjj.exit.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %21 ], [ 0, %27 ], [ 0, %28 ], [ %34, %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VPSHL_MVT_v16i8_rrEN4llvm3MVTEjj.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -56272,7 +56272,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_VPSHUFBITQMB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_VPSHUFBITQMB_MVT_v16i8_rrEN4llvm3MVTEjj.exit: ; preds = %39, %33, %32, %30, %26, %20, %19, %17, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %20 ], [ 0, %5 ], [ 0, %7 ], [ 0, %6 ], [ %18, %17 ], [ 0, %13 ], [ 0, %19 ], [ %31, %30 ], [ 0, %26 ], [ 0, %32 ], [ %40, %39 ], [ 0, %33 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ 0, %6 ], [ 0, %13 ], [ 0, %7 ], [ %31, %30 ], [ 0, %19 ], [ 0, %26 ], [ 0, %20 ], [ %40, %39 ], [ 0, %32 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -56420,7 +56420,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %.thread9.thread.i20, %.thread9.i17, %71, %67, %65, %54, %.thread9.thread.i, %.thread9.i, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %46 ], [ 0, %5 ], [ 0, %19 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %51, %50 ], [ %45, %44 ], [ 0, %33 ], [ %53, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %72, %71 ], [ %66, %65 ], [ 0, %54 ], [ %74, %.thread9.thread.i20 ], [ 0, %.thread9.i17 ], [ 0, %67 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %53, %.thread9.thread.i ], [ %51, %50 ], [ 0, %33 ], [ 0, %.thread9.i ], [ 0, %46 ], [ %66, %65 ], [ %74, %.thread9.thread.i20 ], [ %72, %71 ], [ 0, %54 ], [ 0, %.thread9.i17 ], [ 0, %67 ]
   ret i32 %.0
 }
 
@@ -56675,7 +56675,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VSHLV_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VSHLV_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %125, %119, %118, %.thread.thread.i62, %.thread.i59, %114, %112, %101, %.thread.thread.i56, %.thread.i53, %97, %95, %84, %82, %76, %75, %.thread.thread.i48, %.thread.i45, %71, %69, %58, %.thread.thread.i, %.thread.i, %54, %52, %41, %39, %33, %32, %30, %26, %20, %19, %17, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %114 ], [ 0, %5 ], [ 0, %7 ], [ 0, %20 ], [ 0, %33 ], [ 0, %54 ], [ 0, %71 ], [ 0, %76 ], [ 0, %97 ], [ 0, %6 ], [ %18, %17 ], [ 0, %13 ], [ 0, %19 ], [ %31, %30 ], [ 0, %26 ], [ 0, %32 ], [ %40, %39 ], [ %57, %.thread.thread.i ], [ %53, %52 ], [ 0, %41 ], [ 0, %.thread.i ], [ %74, %.thread.thread.i48 ], [ %70, %69 ], [ 0, %58 ], [ 0, %.thread.i45 ], [ 0, %75 ], [ %83, %82 ], [ %100, %.thread.thread.i56 ], [ %96, %95 ], [ 0, %84 ], [ 0, %.thread.i53 ], [ %117, %.thread.thread.i62 ], [ %113, %112 ], [ 0, %101 ], [ 0, %.thread.i59 ], [ 0, %118 ], [ %126, %125 ], [ 0, %119 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ 0, %6 ], [ 0, %13 ], [ 0, %7 ], [ %31, %30 ], [ 0, %19 ], [ 0, %26 ], [ 0, %20 ], [ %40, %39 ], [ 0, %32 ], [ 0, %33 ], [ %53, %52 ], [ %57, %.thread.thread.i ], [ 0, %41 ], [ 0, %.thread.i ], [ 0, %54 ], [ %70, %69 ], [ %74, %.thread.thread.i48 ], [ 0, %58 ], [ 0, %.thread.i45 ], [ 0, %71 ], [ %83, %82 ], [ 0, %75 ], [ 0, %76 ], [ %96, %95 ], [ %100, %.thread.thread.i56 ], [ 0, %84 ], [ 0, %.thread.i53 ], [ 0, %97 ], [ %113, %112 ], [ %117, %.thread.thread.i62 ], [ 0, %101 ], [ 0, %.thread.i59 ], [ 0, %114 ], [ %126, %125 ], [ 0, %118 ], [ 0, %119 ]
   ret i32 %.0
 }
 
@@ -56801,7 +56801,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %65, %61, %55, %54, %.thread9.thread.i, %.thread9.i, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %46 ], [ 0, %5 ], [ 0, %19 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %51, %50 ], [ %45, %44 ], [ 0, %33 ], [ %53, %.thread9.thread.i ], [ 0, %.thread9.i ], [ 0, %54 ], [ %66, %65 ], [ 0, %61 ], [ 0, %55 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %53, %.thread9.thread.i ], [ %51, %50 ], [ 0, %33 ], [ 0, %.thread9.i ], [ 0, %46 ], [ %66, %65 ], [ 0, %54 ], [ 0, %61 ], [ 0, %55 ]
   ret i32 %.0
 }
 
@@ -57028,7 +57028,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VSRAV_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VSRAV_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %117, %111, %110, %108, %104, %98, %97, %95, %91, %85, %84, %82, %76, %75, %.thread.thread.i48, %.thread.i45, %71, %69, %58, %.thread.thread.i, %.thread.i, %54, %52, %41, %39, %33, %32, %30, %26, %20, %19, %17, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %98 ], [ 0, %5 ], [ 0, %7 ], [ 0, %20 ], [ 0, %33 ], [ 0, %54 ], [ 0, %71 ], [ 0, %76 ], [ 0, %85 ], [ 0, %6 ], [ %18, %17 ], [ 0, %13 ], [ 0, %19 ], [ %31, %30 ], [ 0, %26 ], [ 0, %32 ], [ %40, %39 ], [ %57, %.thread.thread.i ], [ %53, %52 ], [ 0, %41 ], [ 0, %.thread.i ], [ %74, %.thread.thread.i48 ], [ %70, %69 ], [ 0, %58 ], [ 0, %.thread.i45 ], [ 0, %75 ], [ %83, %82 ], [ 0, %84 ], [ %96, %95 ], [ 0, %91 ], [ 0, %97 ], [ %109, %108 ], [ 0, %104 ], [ 0, %110 ], [ %118, %117 ], [ 0, %111 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ 0, %6 ], [ 0, %13 ], [ 0, %7 ], [ %31, %30 ], [ 0, %19 ], [ 0, %26 ], [ 0, %20 ], [ %40, %39 ], [ 0, %32 ], [ 0, %33 ], [ %53, %52 ], [ %57, %.thread.thread.i ], [ 0, %41 ], [ 0, %.thread.i ], [ 0, %54 ], [ %70, %69 ], [ %74, %.thread.thread.i48 ], [ 0, %58 ], [ 0, %.thread.i45 ], [ 0, %71 ], [ %83, %82 ], [ 0, %75 ], [ 0, %76 ], [ %96, %95 ], [ 0, %84 ], [ 0, %91 ], [ 0, %85 ], [ %109, %108 ], [ 0, %97 ], [ 0, %104 ], [ 0, %98 ], [ %118, %117 ], [ 0, %110 ], [ 0, %111 ]
   ret i32 %.0
 }
 
@@ -57176,7 +57176,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %.thread9.thread.i20, %.thread9.i17, %71, %67, %65, %54, %.thread9.thread.i, %.thread9.i, %50, %46, %44, %33, %31, %27, %25, %19, %17, %6, %5
-  %.0 = phi i32 [ 0, %46 ], [ 0, %5 ], [ 0, %19 ], [ %26, %25 ], [ %18, %17 ], [ 0, %6 ], [ %32, %31 ], [ 0, %27 ], [ %51, %50 ], [ %45, %44 ], [ 0, %33 ], [ %53, %.thread9.thread.i ], [ 0, %.thread9.i ], [ %72, %71 ], [ %66, %65 ], [ 0, %54 ], [ %74, %.thread9.thread.i20 ], [ 0, %.thread9.i17 ], [ 0, %67 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ %32, %31 ], [ %26, %25 ], [ 0, %6 ], [ 0, %19 ], [ 0, %27 ], [ %45, %44 ], [ %53, %.thread9.thread.i ], [ %51, %50 ], [ 0, %33 ], [ 0, %.thread9.i ], [ 0, %46 ], [ %66, %65 ], [ %74, %.thread9.thread.i20 ], [ %72, %71 ], [ 0, %54 ], [ 0, %.thread9.i17 ], [ 0, %67 ]
   ret i32 %.0
 }
 
@@ -57431,7 +57431,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VSRLV_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 _ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VSRLV_MVT_v8i16_rrEN4llvm3MVTEjj.exit: ; preds = %125, %119, %118, %.thread.thread.i62, %.thread.i59, %114, %112, %101, %.thread.thread.i56, %.thread.i53, %97, %95, %84, %82, %76, %75, %.thread.thread.i48, %.thread.i45, %71, %69, %58, %.thread.thread.i, %.thread.i, %54, %52, %41, %39, %33, %32, %30, %26, %20, %19, %17, %13, %7, %6, %5
-  %.0 = phi i32 [ 0, %114 ], [ 0, %5 ], [ 0, %7 ], [ 0, %20 ], [ 0, %33 ], [ 0, %54 ], [ 0, %71 ], [ 0, %76 ], [ 0, %97 ], [ 0, %6 ], [ %18, %17 ], [ 0, %13 ], [ 0, %19 ], [ %31, %30 ], [ 0, %26 ], [ 0, %32 ], [ %40, %39 ], [ %57, %.thread.thread.i ], [ %53, %52 ], [ 0, %41 ], [ 0, %.thread.i ], [ %74, %.thread.thread.i48 ], [ %70, %69 ], [ 0, %58 ], [ 0, %.thread.i45 ], [ 0, %75 ], [ %83, %82 ], [ %100, %.thread.thread.i56 ], [ %96, %95 ], [ 0, %84 ], [ 0, %.thread.i53 ], [ %117, %.thread.thread.i62 ], [ %113, %112 ], [ 0, %101 ], [ 0, %.thread.i59 ], [ 0, %118 ], [ %126, %125 ], [ 0, %119 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ 0, %6 ], [ 0, %13 ], [ 0, %7 ], [ %31, %30 ], [ 0, %19 ], [ 0, %26 ], [ 0, %20 ], [ %40, %39 ], [ 0, %32 ], [ 0, %33 ], [ %53, %52 ], [ %57, %.thread.thread.i ], [ 0, %41 ], [ 0, %.thread.i ], [ 0, %54 ], [ %70, %69 ], [ %74, %.thread.thread.i48 ], [ 0, %58 ], [ 0, %.thread.i45 ], [ 0, %71 ], [ %83, %82 ], [ 0, %75 ], [ 0, %76 ], [ %96, %95 ], [ %100, %.thread.thread.i56 ], [ 0, %84 ], [ 0, %.thread.i53 ], [ 0, %97 ], [ %113, %112 ], [ %117, %.thread.thread.i62 ], [ 0, %101 ], [ 0, %.thread.i59 ], [ 0, %114 ], [ %126, %125 ], [ 0, %118 ], [ 0, %119 ]
   ret i32 %.0
 }
 

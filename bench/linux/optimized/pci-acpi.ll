@@ -821,7 +821,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   br i1 %467, label %.thread, label %61, !llvm.loop !17
 
 .thread:                                          ; preds = %.preheader59, %462, %.critedge32, %.loopexit57, %.critedge34, %1
-  %468 = phi i32 [ -19, %1 ], [ 0, %.loopexit57 ], [ 0, %.critedge34 ], [ -19, %462 ], [ -19, %.critedge32 ], [ -19, %.preheader59 ]
+  %468 = phi i32 [ -19, %1 ], [ 0, %.loopexit57 ], [ 0, %.critedge34 ], [ -19, %.critedge32 ], [ -19, %462 ], [ -19, %.preheader59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %468
 }
@@ -1237,7 +1237,7 @@ select.unfold:                                    ; preds = %48, %46
   br label %.thread5
 
 .thread5:                                         ; preds = %36, %42, %48, %25, %73, %68, %62, %55, %select.unfold, %20, %17, %5, %1
-  %74 = phi i1 [ false, %73 ], [ false, %5 ], [ false, %1 ], [ false, %17 ], [ true, %20 ], [ false, %48 ], [ false, %select.unfold ], [ false, %55 ], [ false, %62 ], [ true, %68 ], [ false, %25 ], [ false, %42 ], [ false, %36 ]
+  %74 = phi i1 [ false, %73 ], [ false, %5 ], [ false, %1 ], [ false, %17 ], [ true, %20 ], [ false, %select.unfold ], [ false, %55 ], [ false, %62 ], [ true, %68 ], [ false, %25 ], [ false, %48 ], [ false, %42 ], [ false, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %74
 }

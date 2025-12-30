@@ -203,9 +203,9 @@ asn1_bio_setup_ex.exit:                           ; preds = %28, %30
   br label %asn1_bio_flush_ex.exit.backedge
 
 asn1_bio_flush_ex.exit.backedge:                  ; preds = %60, %33, %asn1_bio_setup_ex.exit, %98, %84, %80, %83, %61
-  %.067.be = phi ptr [ %.067, %asn1_bio_setup_ex.exit ], [ %94, %98 ], [ %.067, %61 ], [ %.067, %80 ], [ %.067, %83 ], [ %.067, %84 ], [ %.067, %33 ], [ %.067, %60 ]
-  %.065.be = phi i32 [ %.065, %asn1_bio_setup_ex.exit ], [ %95, %98 ], [ %.065, %61 ], [ %.065, %80 ], [ %.065, %83 ], [ %.065, %84 ], [ %.065, %33 ], [ %.065, %60 ]
-  %.062.be = phi i32 [ %.062, %asn1_bio_setup_ex.exit ], [ %90, %98 ], [ %.062, %61 ], [ %.062, %80 ], [ %.062, %83 ], [ %.062, %84 ], [ %.062, %33 ], [ %.062, %60 ]
+  %.067.be = phi ptr [ %.067, %asn1_bio_setup_ex.exit ], [ %.067, %61 ], [ %.067, %80 ], [ %.067, %83 ], [ %.067, %84 ], [ %94, %98 ], [ %.067, %33 ], [ %.067, %60 ]
+  %.065.be = phi i32 [ %.065, %asn1_bio_setup_ex.exit ], [ %.065, %61 ], [ %.065, %80 ], [ %.065, %83 ], [ %.065, %84 ], [ %95, %98 ], [ %.065, %33 ], [ %.065, %60 ]
+  %.062.be = phi i32 [ %.062, %asn1_bio_setup_ex.exit ], [ %.062, %61 ], [ %.062, %80 ], [ %.062, %83 ], [ %.062, %84 ], [ %90, %98 ], [ %.062, %33 ], [ %.062, %60 ]
   br label %asn1_bio_flush_ex.exit
 
 61:                                               ; preds = %asn1_bio_flush_ex.exit
@@ -283,8 +283,8 @@ asn1_bio_flush_ex.exit.backedge:                  ; preds = %60, %33, %asn1_bio_
   br label %103
 
 asn1_bio_flush_ex.exit.thread:                    ; preds = %.preheader.i, %98, %68, %48
-  %.2 = phi i32 [ %.062, %48 ], [ %.062, %.preheader.i ], [ %.062, %68 ], [ %90, %98 ]
-  %.0 = phi i32 [ %55, %48 ], [ %42, %.preheader.i ], [ %75, %68 ], [ %87, %98 ]
+  %.2 = phi i32 [ %.062, %48 ], [ %.062, %.preheader.i ], [ %90, %98 ], [ %.062, %68 ]
+  %.0 = phi i32 [ %55, %48 ], [ %42, %.preheader.i ], [ %87, %98 ], [ %75, %68 ]
   call void @BIO_clear_retry_flags(ptr noundef nonnull %0) #11
   call void @BIO_copy_next_retry(ptr noundef nonnull %0) #11
   %101 = icmp sgt i32 %.2, 0
@@ -292,7 +292,7 @@ asn1_bio_flush_ex.exit.thread:                    ; preds = %.preheader.i, %98, 
   br label %103
 
 103:                                              ; preds = %asn1_bio_setup_ex.exit.thread, %11, %3, %7, %asn1_bio_flush_ex.exit.thread, %100
-  %.064 = phi i32 [ %102, %asn1_bio_flush_ex.exit.thread ], [ 0, %3 ], [ 0, %100 ], [ 0, %11 ], [ 0, %7 ], [ 0, %asn1_bio_setup_ex.exit.thread ]
+  %.064 = phi i32 [ 0, %100 ], [ %102, %asn1_bio_flush_ex.exit.thread ], [ 0, %7 ], [ 0, %3 ], [ 0, %11 ], [ 0, %asn1_bio_setup_ex.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.064
 }
@@ -488,7 +488,7 @@ asn1_bio_setup_ex.exit:                           ; preds = %44, %47
   br label %77
 
 77:                                               ; preds = %asn1_bio_setup_ex.exit.thread, %9, %15, %21, %27, %33, %35, %72, %38, %4, %75, %71, %68, %63
-  %.0 = phi i64 [ 0, %4 ], [ %76, %75 ], [ 0, %asn1_bio_setup_ex.exit.thread ], [ 0, %72 ], [ %64, %63 ], [ %70, %68 ], [ 0, %71 ], [ 0, %38 ], [ 1, %35 ], [ 1, %33 ], [ 1, %27 ], [ 1, %21 ], [ 1, %15 ], [ 1, %9 ]
+  %.0 = phi i64 [ %76, %75 ], [ %64, %63 ], [ %70, %68 ], [ 0, %71 ], [ 0, %4 ], [ 0, %38 ], [ 0, %72 ], [ 1, %35 ], [ 1, %33 ], [ 1, %27 ], [ 1, %21 ], [ 1, %15 ], [ 1, %9 ], [ 0, %asn1_bio_setup_ex.exit.thread ]
   ret i64 %.0
 }
 

@@ -913,7 +913,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit270: ; preds = %._crit_edge, %105,
   br i1 %.not.lcssa, label %16, label %.loopexit
 
 115:                                              ; preds = %89, %91
-  %.pn83.pn.pn.pn = phi { ptr, i32 } [ %92, %91 ], [ %90, %89 ]
+  %.pn83.pn.pn.pn = phi { ptr, i32 } [ %90, %89 ], [ %92, %91 ]
   %116 = load i64, ptr %28, align 8
   %117 = and i64 %116, 1152920405095219200
   %.not.i.i271 = icmp eq i64 %117, 1152920405095219200
@@ -2484,8 +2484,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58: ; preds = %_ZN4cvc58internal12
   br label %371
 
 371:                                              ; preds = %207, %286, %370, %203, %205
-  %.sink = phi ptr [ %6, %203 ], [ %6, %205 ], [ %5, %370 ], [ %5, %286 ], [ %5, %207 ]
-  %.pn20.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %204, %203 ], [ %206, %205 ], [ %.pn20.pn, %370 ], [ %287, %286 ], [ %208, %207 ]
+  %.sink = phi ptr [ %6, %205 ], [ %6, %203 ], [ %5, %370 ], [ %5, %286 ], [ %5, %207 ]
+  %.pn20.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %206, %205 ], [ %204, %203 ], [ %.pn20.pn, %370 ], [ %287, %286 ], [ %208, %207 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %373
@@ -3145,8 +3145,8 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateE
   tail call void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %23) #21
   br label %71
 
-66:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, %38
-  %.0.ph = phi ptr [ %22, %38 ], [ %41, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
+66:                                               ; preds = %38, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit
+  %.0.ph = phi ptr [ %41, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %22, %38 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %lpad.thr_comm, 0

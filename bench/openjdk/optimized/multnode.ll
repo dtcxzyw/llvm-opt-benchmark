@@ -291,7 +291,7 @@ _ZNK18CallStaticJavaNode16is_boxing_methodEv.exit: ; preds = %29
   br label %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread
 
 _ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.thread: ; preds = %25, %29, %8, %20, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit, %33, %5, %2
-  %.0 = phi ptr [ %6, %5 ], [ %3, %2 ], [ %45, %33 ], [ %15, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit ], [ %15, %20 ], [ %15, %8 ], [ %15, %29 ], [ %15, %25 ]
+  %.0 = phi ptr [ %3, %2 ], [ %6, %5 ], [ %45, %33 ], [ %15, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit ], [ %15, %20 ], [ %15, %8 ], [ %15, %29 ], [ %15, %25 ]
   ret ptr %.0
 }
 
@@ -374,7 +374,7 @@ _ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.i: ; preds = %38
   br label %_ZNK8ProjNode9proj_typeEPK4Type.exit
 
 _ZNK8ProjNode9proj_typeEPK4Type.exit:             ; preds = %42, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.i, %38, %34, %29, %18, %15, %8, %6
-  %.0 = phi ptr [ %7, %6 ], [ %16, %15 ], [ %13, %8 ], [ %54, %42 ], [ %25, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.i ], [ %25, %29 ], [ %25, %18 ], [ %25, %38 ], [ %25, %34 ]
+  %.0 = phi ptr [ %7, %6 ], [ %13, %8 ], [ %16, %15 ], [ %54, %42 ], [ %25, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.i ], [ %25, %29 ], [ %25, %18 ], [ %25, %38 ], [ %25, %34 ]
   ret ptr %.0
 }
 
@@ -403,7 +403,7 @@ define hidden noundef ptr @_ZNK8ProjNode8adr_typeEv(ptr noundef nonnull align 8 
   br label %18
 
 18:                                               ; preds = %1, %8, %13
-  %.0 = phi ptr [ null, %8 ], [ %17, %13 ], [ null, %1 ]
+  %.0 = phi ptr [ %17, %13 ], [ null, %8 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -536,7 +536,7 @@ _ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.i: ; preds = %42
   br label %_ZNK8ProjNode9proj_typeEPK4Type.exit
 
 _ZNK8ProjNode9proj_typeEPK4Type.exit:             ; preds = %46, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.i, %42, %38, %33, %24, %21, %9, %7
-  %.0 = phi ptr [ %8, %7 ], [ %22, %21 ], [ %19, %9 ], [ %58, %46 ], [ %31, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.i ], [ %31, %33 ], [ %31, %24 ], [ %31, %42 ], [ %31, %38 ]
+  %.0 = phi ptr [ %8, %7 ], [ %19, %9 ], [ %22, %21 ], [ %58, %46 ], [ %31, %_ZNK18CallStaticJavaNode16is_boxing_methodEv.exit.i ], [ %31, %33 ], [ %31, %24 ], [ %31, %42 ], [ %31, %38 ]
   ret ptr %.0
 }
 
@@ -709,7 +709,7 @@ _ZNK8ProjNode13other_if_projEv.exit:              ; preds = %27, %51
   br i1 %or.cond28.i, label %_ZNK8ProjNode21is_uncommon_trap_projEN14Deoptimization11DeoptReasonE.exit, label %_ZNK8ProjNode13other_if_projEv.exit, !llvm.loop !9
 
 _ZNK8ProjNode21is_uncommon_trap_projEN14Deoptimization11DeoptReasonE.exit: ; preds = %51, %_ZNK8ProjNode13other_if_projEv.exit, %50, %43, %2, %10
-  %.0 = phi ptr [ null, %2 ], [ null, %10 ], [ null, %50 ], [ %34, %43 ], [ null, %_ZNK8ProjNode13other_if_projEv.exit ], [ null, %51 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %2 ], [ null, %50 ], [ %34, %43 ], [ null, %_ZNK8ProjNode13other_if_projEv.exit ], [ null, %51 ]
   ret ptr %.0
 }
 

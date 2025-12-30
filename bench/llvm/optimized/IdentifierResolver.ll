@@ -380,7 +380,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %114, %120
   br label %_ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit44
 
 _ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit44: ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i34, %.lr.ph.i.i.i41, %126, %125, %111, %102, %123, %_ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit.thread, %_ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit37.thread, %_ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit37, %_ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit, %11
-  %.0 = phi i1 [ false, %_ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit.thread ], [ false, %11 ], [ %109, %.lr.ph.i.i.i41 ], [ true, %_ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit37 ], [ true, %_ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit ], [ false, %_ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit37.thread ], [ %124, %123 ], [ false, %125 ], [ %129, %126 ], [ %113, %111 ], [ false, %102 ], [ true, %.lr.ph.i.i.i34 ], [ true, %.lr.ph.i.i.i ]
+  %.0 = phi i1 [ false, %11 ], [ true, %_ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit ], [ true, %_ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit37 ], [ false, %_ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit37.thread ], [ false, %_ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit.thread ], [ %124, %123 ], [ %113, %111 ], [ false, %102 ], [ false, %125 ], [ %129, %126 ], [ %109, %.lr.ph.i.i.i41 ], [ true, %.lr.ph.i.i.i34 ], [ true, %.lr.ph.i.i.i ]
   ret i1 %.0
 }
 
@@ -1517,7 +1517,7 @@ _ZL19compareDeclarationsPN5clang9NamedDeclES1_.exit: ; preds = %select.unfold.pr
   call void @_ZN5clang15DeclarationName18setFETokenInfoSlowEPv(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %1) #9
   br label %_ZN5clang15DeclarationName14setFETokenInfoEPv.exit
 
-89:                                               ; preds = %48, %41, %61
+89:                                               ; preds = %41, %61, %48
   %90 = load i64, ptr %5, align 8, !tbaa !301
   %91 = and i64 %90, 7
   %92 = icmp eq i64 %91, 0
@@ -1841,7 +1841,7 @@ _ZL19compareDeclarationsPN5clang9NamedDeclES1_.exit70: ; preds = %select.unfold.
   store ptr %1, ptr %.036100, align 8, !tbaa !10
   br label %_ZN5clang15DeclarationName14setFETokenInfoEPv.exit
 
-255:                                              ; preds = %221, %215, %234
+255:                                              ; preds = %215, %234, %221
   %256 = load ptr, ptr %.036100, align 8, !tbaa !10
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i71 = load i64, ptr %257, align 8
@@ -1984,7 +1984,7 @@ _ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit76: ; pred
   br label %_ZN5clang15DeclarationName14setFETokenInfoEPv.exit
 
 _ZN5clang15DeclarationName14setFETokenInfoEPv.exit: ; preds = %212, %select.unfold.i66, %246, %73, %select.unfold.i, %_ZL19compareDeclarationsPN5clang9NamedDeclES1_.exit70, %237, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE9push_backES3_.exit.i.i.i, %_ZSt13move_backwardIPPN5clang9NamedDeclES3_ET0_T_S5_S4_.exit.i.i.i, %64, %39, %88, %85, %34, %31, %_ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit76, %_ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit52, %_ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit58
-  %.0 = phi i1 [ true, %_ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit52 ], [ false, %73 ], [ true, %_ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit76 ], [ true, %_ZL19compareDeclarationsPN5clang9NamedDeclES1_.exit70 ], [ true, %34 ], [ true, %_ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit58 ], [ true, %31 ], [ true, %85 ], [ true, %88 ], [ false, %39 ], [ false, %64 ], [ false, %select.unfold.i66 ], [ true, %_ZSt13move_backwardIPPN5clang9NamedDeclES3_ET0_T_S5_S4_.exit.i.i.i ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE9push_backES3_.exit.i.i.i ], [ false, %237 ], [ false, %select.unfold.i ], [ false, %246 ], [ false, %212 ]
+  %.0 = phi i1 [ true, %_ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit76 ], [ true, %_ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit58 ], [ true, %_ZN5clang18IdentifierResolver10IdDeclInfo7AddDeclEPNS_9NamedDeclE.exit52 ], [ true, %31 ], [ true, %34 ], [ true, %85 ], [ true, %88 ], [ false, %39 ], [ false, %64 ], [ true, %_ZSt13move_backwardIPPN5clang9NamedDeclES3_ET0_T_S5_S4_.exit.i.i.i ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE9push_backES3_.exit.i.i.i ], [ false, %237 ], [ true, %_ZL19compareDeclarationsPN5clang9NamedDeclES1_.exit70 ], [ false, %select.unfold.i ], [ false, %73 ], [ false, %246 ], [ false, %select.unfold.i66 ], [ false, %212 ]
   ret i1 %.0
 }
 

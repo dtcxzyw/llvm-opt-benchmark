@@ -845,7 +845,7 @@ unpack_digitech_message.exit.i:                   ; preds = %.lr.ph48.i.i, %.loo
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %89, %.lr.ph161.i, %131, %128, %126, %120, %102, %97, %81, %78, %75, %74, %67, %60, %unpack_digitech_message.exit.i
-  %.0145.i = phi i32 [ 0, %unpack_digitech_message.exit.i ], [ 3, %60 ], [ 3, %74 ], [ 4, %75 ], [ 3, %67 ], [ 1, %78 ], [ 1, %128 ], [ 1, %131 ], [ 2, %97 ], [ %119, %102 ], [ 2, %120 ], [ %127, %126 ], [ 2, %81 ], [ %.1160.i, %.lr.ph161.i ], [ %95, %89 ], [ %124, %.lr.ph.i ]
+  %.0145.i = phi i32 [ 0, %unpack_digitech_message.exit.i ], [ 3, %60 ], [ 3, %74 ], [ 4, %75 ], [ 1, %78 ], [ 2, %97 ], [ %119, %102 ], [ %127, %126 ], [ 1, %128 ], [ 1, %131 ], [ 3, %67 ], [ 2, %81 ], [ 2, %120 ], [ %.1160.i, %.lr.ph161.i ], [ %95, %89 ], [ %124, %.lr.ph.i ]
   %134 = icmp slt i32 %.0145.i, %59
   br i1 %134, label %135, label %dissect_digitech_procedure.exit
 

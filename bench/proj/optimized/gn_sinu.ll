@@ -273,7 +273,7 @@ define hidden noundef ptr @pj_eck6(ptr noundef %0) local_unnamed_addr #0 {
   br label %_Z33pj_projection_specific_setup_eck6P8PJconsts.exit
 
 _Z33pj_projection_specific_setup_eck6P8PJconsts.exit: ; preds = %7, %5, %17, %20
-  %.0 = phi ptr [ null, %17 ], [ %18, %20 ], [ %6, %5 ], [ %0, %7 ]
+  %.0 = phi ptr [ %18, %20 ], [ null, %17 ], [ %6, %5 ], [ %0, %7 ]
   ret ptr %.0
 }
 
@@ -367,7 +367,7 @@ define hidden noundef ptr @pj_mbtfps(ptr noundef %0) local_unnamed_addr #0 {
   br label %_Z35pj_projection_specific_setup_mbtfpsP8PJconsts.exit
 
 _Z35pj_projection_specific_setup_mbtfpsP8PJconsts.exit: ; preds = %7, %5, %17, %20
-  %.0 = phi ptr [ null, %17 ], [ %18, %20 ], [ %6, %5 ], [ %0, %7 ]
+  %.0 = phi ptr [ %18, %20 ], [ null, %17 ], [ %6, %5 ], [ %0, %7 ]
   ret ptr %.0
 }
 
@@ -666,8 +666,8 @@ define internal { double, double } @_ZL17gn_sinu_s_forward5PJ_LPP8PJconsts(doubl
   br label %44
 
 .critedge:                                        ; preds = %23, %13, %11
-  %34 = phi double [ %7, %11 ], [ %.pre, %13 ], [ %7, %23 ]
-  %.sroa.2.0 = phi double [ %1, %11 ], [ %17, %13 ], [ %30, %23 ]
+  %34 = phi double [ %.pre, %13 ], [ %7, %11 ], [ %7, %23 ]
+  %.sroa.2.0 = phi double [ %17, %13 ], [ %1, %11 ], [ %30, %23 ]
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %36 = load double, ptr %35, align 8, !tbaa !53
   %37 = fmul double %0, %36

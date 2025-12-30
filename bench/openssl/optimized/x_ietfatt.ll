@@ -202,7 +202,7 @@ define ptr @OSSL_IETF_ATTR_SYNTAX_get0_value(ptr noundef readonly captures(none)
   br label %13
 
 13:                                               ; preds = %10, %.sink.split, %3
-  %.0 = phi ptr [ null, %10 ], [ null, %3 ], [ %12, %.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ null, %10 ], [ %12, %.sink.split ]
   ret ptr %.0
 }
 
@@ -276,7 +276,7 @@ define range(i32 0, 2) i32 @OSSL_IETF_ATTR_SYNTAX_add1_value(ptr noundef capture
   br label %28
 
 28:                                               ; preds = %21, %3, %27, %26, %20, %15
-  %.0 = phi i32 [ 0, %3 ], [ 0, %27 ], [ 0, %15 ], [ 0, %20 ], [ 0, %26 ], [ 1, %21 ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %15 ], [ 0, %20 ], [ 0, %26 ], [ 0, %3 ], [ 1, %21 ]
   ret i32 %.0
 }
 
@@ -370,7 +370,7 @@ OSSL_IETF_ATTR_SYNTAX_get0_value.exit:            ; preds = %33
   %46 = call i32 @ASN1_STRING_print(ptr noundef %0, ptr noundef nonnull %35) #5
   br label %47
 
-OSSL_IETF_ATTR_SYNTAX_get0_value.exit.thread:     ; preds = %29, %33, %37, %OSSL_IETF_ATTR_SYNTAX_get0_value.exit
+OSSL_IETF_ATTR_SYNTAX_get0_value.exit.thread:     ; preds = %33, %29, %37, %OSSL_IETF_ATTR_SYNTAX_get0_value.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit37
 

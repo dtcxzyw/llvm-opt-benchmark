@@ -72,7 +72,7 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef captures(
   br label %29
 
 29:                                               ; preds = %24, %20, %15, %9, %1, %25
-  %.0 = phi i32 [ -22, %1 ], [ -12, %9 ], [ %18, %15 ], [ %28, %25 ], [ -1094995529, %20 ], [ 0, %24 ]
+  %.0 = phi i32 [ %28, %25 ], [ -22, %1 ], [ -12, %9 ], [ %18, %15 ], [ -1094995529, %20 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -410,7 +410,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br label %.loopexit6.i
 
 .loopexit6.i:                                     ; preds = %204, %140, %210, %157, %.preheader5.i
-  %.sroa.14.3 = phi i32 [ %135, %.preheader5.i ], [ %167, %157 ], [ %135, %210 ], [ %150, %140 ], [ %.sroa.14.8, %204 ]
+  %.sroa.14.3 = phi i32 [ %135, %.preheader5.i ], [ %135, %210 ], [ %167, %157 ], [ %150, %140 ], [ %.sroa.14.8, %204 ]
   %212 = getelementptr inbounds nuw i8, ptr %124, i64 2836
   %213 = load i32, ptr %212, align 4, !tbaa !59
   %214 = icmp eq i32 %213, 2
@@ -484,7 +484,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %exitcond.not.i, label %.loopexit.i, label %241, !llvm.loop !62
 
 .loopexit.i:                                      ; preds = %241, %.preheader.i, %216, %.preheader3.i
-  %.sroa.14.5 = phi i32 [ %226, %216 ], [ %238, %.preheader.i ], [ %.sroa.14.3, %.preheader3.i ], [ %251, %241 ]
+  %.sroa.14.5 = phi i32 [ %226, %216 ], [ %.sroa.14.3, %.preheader3.i ], [ %238, %.preheader.i ], [ %251, %241 ]
   %255 = getelementptr inbounds nuw i8, ptr %124, i64 2832
   %256 = load i32, ptr %255, align 16, !tbaa !55
   %.not24.i = icmp eq i32 %256, 0
@@ -889,14 +889,14 @@ apply_intensity_stereo.exit:                      ; preds = %.lr.ph.i147, %428
   br i1 %466, label %450, label %._crit_edge, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %450, %.preheader186, %.preheader187
-  %.sroa.14.2.lcssa272275277 = phi i32 [ %.sroa.14.1211, %.preheader187 ], [ %.sroa.14.14, %.preheader186 ], [ %.sroa.14.14, %450 ]
-  %467 = phi i32 [ %306, %.preheader187 ], [ %383, %.preheader186 ], [ %464, %450 ]
+  %.sroa.14.2.lcssa272275277 = phi i32 [ %.sroa.14.14, %.preheader186 ], [ %.sroa.14.1211, %.preheader187 ], [ %.sroa.14.14, %450 ]
+  %467 = phi i32 [ %383, %.preheader186 ], [ %306, %.preheader187 ], [ %464, %450 ]
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next243, 8
   br i1 %exitcond245.not, label %308, label %.preheader187, !llvm.loop !86
 
 .critedge:                                        ; preds = %42, %80, %76, %69, %62, %33, %16, %25, %14, %4, %308, %24
-  %.0108 = phi i32 [ %30, %25 ], [ -1094995529, %4 ], [ %22, %24 ], [ -1094995529, %14 ], [ %82, %80 ], [ -1094995529, %62 ], [ -1094995529, %69 ], [ -1094995529, %76 ], [ %309, %308 ], [ %44, %42 ], [ -1094995529, %16 ], [ -1094995529, %33 ]
+  %.0108 = phi i32 [ %22, %24 ], [ %309, %308 ], [ -1094995529, %4 ], [ -1094995529, %14 ], [ %30, %25 ], [ -1094995529, %16 ], [ -1094995529, %33 ], [ -1094995529, %62 ], [ -1094995529, %69 ], [ -1094995529, %76 ], [ %82, %80 ], [ %44, %42 ]
   ret i32 %.0108
 }
 
@@ -1628,7 +1628,7 @@ ceil2.exit:                                       ; preds = %299, %304
   br label %ath_init.exit.thread
 
 ath_init.exit.thread:                             ; preds = %324, %cipher_init.exit, %ceil2.exit, %.loopexit, %bytestream2_get_byte.exit173, %25, %bytestream2_get_be16.exit, %3, %.critedge
-  %.0155 = phi i32 [ -1094995529, %bytestream2_get_be16.exit ], [ -1094995529, %3 ], [ -1094995529, %25 ], [ -1094995529, %bytestream2_get_byte.exit173 ], [ -1094995529, %cipher_init.exit ], [ -1094995529, %.loopexit ], [ 0, %.critedge ], [ -1094995529, %ceil2.exit ], [ -1094995529, %324 ]
+  %.0155 = phi i32 [ 0, %.critedge ], [ -1094995529, %3 ], [ -1094995529, %bytestream2_get_be16.exit ], [ -1094995529, %25 ], [ -1094995529, %bytestream2_get_byte.exit173 ], [ -1094995529, %.loopexit ], [ -1094995529, %ceil2.exit ], [ -1094995529, %cipher_init.exit ], [ -1094995529, %324 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0155
 }

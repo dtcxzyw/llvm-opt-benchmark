@@ -476,9 +476,9 @@ _intsetGet.exit59:                                ; preds = %.lr.ph, %69
   br i1 %.not, label %._crit_edge, label %_intsetGet.exit59, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %55, %49, %42, %36, %69, %65, %.preheader
-  %.038.lcssa = phi i32 [ 0, %.preheader ], [ %.03861, %65 ], [ %.03861.us, %36 ], [ %.139, %69 ], [ %.139.us, %42 ], [ %.139.us79, %55 ], [ %.03861.us76, %49 ]
-  %.135 = phi i32 [ -1, %.preheader ], [ %58, %69 ], [ %32, %42 ], [ %58, %65 ], [ %32, %36 ], [ %44, %49 ], [ %44, %55 ]
-  %.1 = phi i64 [ -1, %.preheader ], [ %61, %69 ], [ %.0.copyload3.i.i57.us, %42 ], [ %61, %65 ], [ %.0.copyload3.i.i57.us, %36 ], [ %47, %49 ], [ %47, %55 ]
+  %.038.lcssa = phi i32 [ 0, %.preheader ], [ %.03861, %65 ], [ %.139, %69 ], [ %.03861.us, %36 ], [ %.139.us, %42 ], [ %.03861.us76, %49 ], [ %.139.us79, %55 ]
+  %.135 = phi i32 [ -1, %.preheader ], [ %58, %65 ], [ %58, %69 ], [ %32, %36 ], [ %32, %42 ], [ %44, %49 ], [ %44, %55 ]
+  %.1 = phi i64 [ -1, %.preheader ], [ %61, %65 ], [ %61, %69 ], [ %.0.copyload3.i.i57.us, %36 ], [ %.0.copyload3.i.i57.us, %42 ], [ %47, %49 ], [ %47, %55 ]
   %70 = icmp eq i64 %1, %.1
   %.not46 = icmp eq ptr %2, null
   %. = zext i1 %70 to i8
@@ -486,13 +486,13 @@ _intsetGet.exit59:                                ; preds = %.lr.ph, %69
   br i1 %.not46, label %71, label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %56, %23, %8
-  %.038.lcssa.sink = phi i32 [ %.135..038.lcssa, %._crit_edge ], [ 0, %56 ], [ %5, %23 ], [ 0, %8 ]
-  %.040.ph = phi i8 [ %., %._crit_edge ], [ 0, %56 ], [ 0, %23 ], [ 0, %8 ]
+  %.038.lcssa.sink = phi i32 [ 0, %8 ], [ %5, %23 ], [ 0, %56 ], [ %.135..038.lcssa, %._crit_edge ]
+  %.040.ph = phi i8 [ 0, %8 ], [ 0, %23 ], [ 0, %56 ], [ %., %._crit_edge ]
   store i32 %.038.lcssa.sink, ptr %2, align 4, !tbaa !5
   br label %71
 
 71:                                               ; preds = %._crit_edge, %.sink.split, %56, %23, %8
-  %.040 = phi i8 [ %., %._crit_edge ], [ 0, %8 ], [ 0, %23 ], [ 0, %56 ], [ %.040.ph, %.sink.split ]
+  %.040 = phi i8 [ 0, %8 ], [ 0, %23 ], [ 0, %56 ], [ %.040.ph, %.sink.split ], [ %., %._crit_edge ]
   ret i8 %.040
 }
 
@@ -815,7 +815,7 @@ define dso_local range(i32 0, 2) i32 @intsetValidateIntegrity(ptr noundef readon
   br label %9
 
 9:                                                ; preds = %5, %7, %8
-  %.029 = phi i64 [ 2, %8 ], [ 4, %7 ], [ 8, %5 ]
+  %.029 = phi i64 [ 4, %7 ], [ 2, %8 ], [ 8, %5 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !5
   %12 = zext i32 %11 to i64
@@ -928,7 +928,7 @@ _intsetGet.exit41:                                ; preds = %.lr.ph64
   br i1 %.not35, label %.lr.ph64, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph73, %_intsetGet.exit41.us55, %.lr.ph69, %_intsetGet.exit41.us, %.lr.ph64, %_intsetGet.exit41, %_intsetGet.exit, %.lr.ph.split.us48, %.lr.ph.split, %.lr.ph.split.us, %5, %16, %9, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 1, %16 ], [ 0, %9 ], [ 1, %_intsetGet.exit ], [ 0, %.lr.ph.split ], [ 0, %.lr.ph.split.us48 ], [ 1, %.lr.ph64 ], [ 1, %.lr.ph69 ], [ 0, %.lr.ph.split.us ], [ 0, %_intsetGet.exit41 ], [ 0, %_intsetGet.exit41.us ], [ 1, %.lr.ph73 ], [ 0, %_intsetGet.exit41.us55 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %9 ], [ 1, %16 ], [ 1, %_intsetGet.exit ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us48 ], [ 0, %.lr.ph.split ], [ 1, %.lr.ph64 ], [ 0, %_intsetGet.exit41 ], [ 1, %.lr.ph69 ], [ 0, %_intsetGet.exit41.us ], [ 1, %.lr.ph73 ], [ 0, %_intsetGet.exit41.us55 ]
   ret i32 %.0
 }
 

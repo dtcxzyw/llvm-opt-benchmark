@@ -82,7 +82,7 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef readnone captures(
   br label %.preheader37._crit_edge, !llvm.loop !4
 
 .preheader37._crit_edge:                          ; preds = %.preheader37, %._crit_edge, %.preheader37.preheader
-  %.lcssa38 = phi i32 [ 0, %.preheader37.preheader ], [ %9, %._crit_edge ], [ %9, %.preheader37 ]
+  %.lcssa38 = phi i32 [ %9, %._crit_edge ], [ 0, %.preheader37.preheader ], [ %9, %.preheader37 ]
   %15 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str, i32 noundef %.lcssa38) #8
   br label %42
 

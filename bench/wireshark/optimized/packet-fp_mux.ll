@@ -442,7 +442,7 @@ define internal noundef zeroext i1 @heur_dissect_fp_mux(ptr noundef %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %24, %.preheader, %.loopexit.sink.split, %45, %11, %16, %4
-  %.0 = phi i1 [ false, %45 ], [ true, %.loopexit.sink.split ], [ false, %4 ], [ false, %11 ], [ false, %16 ], [ false, %.preheader ], [ false, %24 ], [ false, %37 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %16 ], [ false, %11 ], [ false, %45 ], [ true, %.loopexit.sink.split ], [ false, %.preheader ], [ false, %24 ], [ false, %37 ]
   ret i1 %.0
 }
 

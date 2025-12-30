@@ -291,7 +291,7 @@ define ptr @Ssw_FramesWithClasses(ptr noundef captures(none) initializes((256, 2
   br i1 %34, label %16, label %.critedge, !llvm.loop !50
 
 .critedge:                                        ; preds = %16, %1
-  %.pre227229 = phi ptr [ %12, %1 ], [ %32, %16 ]
+  %.pre228230 = phi ptr [ %12, %1 ], [ %32, %16 ]
   %35 = load ptr, ptr %0, align 8, !tbaa !51
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 132
   %37 = load i32, ptr %36, align 4, !tbaa !52
@@ -301,39 +301,39 @@ define ptr @Ssw_FramesWithClasses(ptr noundef captures(none) initializes((256, 2
 38:                                               ; preds = %.critedge
   tail call void @srand(i32 noundef 1) #12
   %.pre = load ptr, ptr %0, align 8, !tbaa !51
-  %.pre227.pre = load ptr, ptr %4, align 8, !tbaa !42
+  %.pre228.pre = load ptr, ptr %4, align 8, !tbaa !42
   br label %39
 
 39:                                               ; preds = %38, %.critedge
-  %.pre227 = phi ptr [ %.pre227.pre, %38 ], [ %.pre227229, %.critedge ]
+  %.pre228 = phi ptr [ %.pre228.pre, %38 ], [ %.pre228230, %.critedge ]
   %40 = phi ptr [ %.pre, %38 ], [ %35, %.critedge ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %42 = load i32, ptr %41, align 4, !tbaa !54
   %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.lr.ph207, label %.preheader
+  br i1 %43, label %.lr.ph208, label %.preheader
 
-.lr.ph207:                                        ; preds = %39
+.lr.ph208:                                        ; preds = %39
   %44 = getelementptr i8, ptr %11, i64 48
   %45 = getelementptr i8, ptr %0, i64 32
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 232
   br label %51
 
-.preheader:                                       ; preds = %.critedge8._crit_edge, %39
-  %47 = phi ptr [ %.pre227, %39 ], [ %116, %.critedge8._crit_edge ]
+.preheader:                                       ; preds = %.critedge10, %39
+  %47 = phi ptr [ %.pre228, %39 ], [ %116, %.critedge10 ]
   %48 = getelementptr i8, ptr %47, i64 104
-  %.val130208 = load i32, ptr %48, align 8, !tbaa !44
-  %49 = icmp sgt i32 %.val130208, 0
-  br i1 %49, label %.lr.ph210, label %.critedge12
+  %.val130209 = load i32, ptr %48, align 8, !tbaa !44
+  %49 = icmp sgt i32 %.val130209, 0
+  br i1 %49, label %.lr.ph211, label %.critedge12
 
-.lr.ph210:                                        ; preds = %.preheader
+.lr.ph211:                                        ; preds = %.preheader
   %50 = getelementptr i8, ptr %0, i64 32
   br label %232
 
-51:                                               ; preds = %.lr.ph207, %.critedge8._crit_edge
-  %52 = phi ptr [ %.pre227, %.lr.ph207 ], [ %116, %.critedge8._crit_edge ]
-  %53 = phi ptr [ %.pre227, %.lr.ph207 ], [ %117, %.critedge8._crit_edge ]
-  %.0206 = phi i32 [ 0, %.lr.ph207 ], [ %.1.lcssa, %.critedge8._crit_edge ]
-  %.0116205 = phi i32 [ 0, %.lr.ph207 ], [ %.pre-phi, %.critedge8._crit_edge ]
+51:                                               ; preds = %.lr.ph208, %.critedge10
+  %52 = phi ptr [ %.pre228, %.lr.ph208 ], [ %116, %.critedge10 ]
+  %53 = phi ptr [ %.pre228, %.lr.ph208 ], [ %117, %.critedge10 ]
+  %.0207 = phi i32 [ 0, %.lr.ph208 ], [ %.1.lcssa, %.critedge10 ]
+  %.0116206 = phi i32 [ 0, %.lr.ph208 ], [ %.pre-phi, %.critedge10 ]
   %54 = getelementptr i8, ptr %53, i64 48
   %.val159 = load ptr, ptr %54, align 8, !tbaa !55
   %.val160 = load ptr, ptr %44, align 8, !tbaa !55
@@ -342,7 +342,7 @@ define ptr @Ssw_FramesWithClasses(ptr noundef captures(none) initializes((256, 2
   %55 = getelementptr i8, ptr %.val159, i64 36
   %.val146 = load i32, ptr %55, align 4, !tbaa !48
   %56 = mul nsw i32 %.val146, %.val144
-  %57 = add nsw i32 %56, %.0116205
+  %57 = add nsw i32 %56, %.0116206
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds ptr, ptr %.val145, i64 %58
   store ptr %.val160, ptr %59, align 8, !tbaa !49
@@ -354,7 +354,7 @@ define ptr @Ssw_FramesWithClasses(ptr noundef captures(none) initializes((256, 2
 .critedge2.preheader:                             ; preds = %81, %51
   %62 = phi ptr [ %52, %51 ], [ %92, %81 ]
   %63 = phi ptr [ %53, %51 ], [ %92, %81 ]
-  %.1.lcssa = phi i32 [ %.0206, %51 ], [ %.2, %81 ]
+  %.1.lcssa = phi i32 [ %.0207, %51 ], [ %.2, %81 ]
   %64 = getelementptr i8, ptr %63, i64 104
   %.val128194 = load i32, ptr %64, align 8, !tbaa !44
   %65 = icmp sgt i32 %.val128194, 0
@@ -363,7 +363,7 @@ define ptr @Ssw_FramesWithClasses(ptr noundef captures(none) initializes((256, 2
 .lr.ph193:                                        ; preds = %51, %81
   %indvars.iv = phi i64 [ %indvars.iv.next, %81 ], [ 0, %51 ]
   %66 = phi ptr [ %92, %81 ], [ %53, %51 ]
-  %.1192 = phi i32 [ %.2, %81 ], [ %.0206, %51 ]
+  %.1192 = phi i32 [ %.2, %81 ], [ %.0207, %51 ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 8, !tbaa !45
   %69 = getelementptr i8, ptr %68, i64 8
@@ -399,7 +399,7 @@ define ptr @Ssw_FramesWithClasses(ptr noundef captures(none) initializes((256, 2
   %87 = getelementptr i8, ptr %71, i64 36
   %.val149 = load i32, ptr %87, align 4, !tbaa !48
   %88 = mul nsw i32 %.val149, %.val147
-  %89 = add nsw i32 %88, %.0116205
+  %89 = add nsw i32 %88, %.0116206
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds ptr, ptr %.val148, i64 %90
   store ptr %72, ptr %91, align 8, !tbaa !49
@@ -436,7 +436,7 @@ define ptr @Ssw_FramesWithClasses(ptr noundef captures(none) initializes((256, 2
   %110 = load ptr, ptr %109, align 8, !tbaa !29
   %111 = getelementptr i8, ptr %102, i64 256
   %.val168 = load ptr, ptr %111, align 8, !tbaa !61
-  tail call fastcc void @Ssw_FramesConstrainNode(ptr noundef nonnull %0, ptr noundef %11, ptr %.val168, ptr noundef %110, i32 noundef %.0116205, i32 noundef 1)
+  tail call fastcc void @Ssw_FramesConstrainNode(ptr noundef nonnull %0, ptr noundef %11, ptr %.val168, ptr noundef %110, i32 noundef %.0116206, i32 noundef 1)
   %112 = add nuw nsw i32 %.2119195, 1
   %113 = load ptr, ptr %4, align 8, !tbaa !42
   %114 = getelementptr i8, ptr %113, i64 104
@@ -464,11 +464,11 @@ define ptr @Ssw_FramesWithClasses(ptr noundef captures(none) initializes((256, 2
 
 .lr.ph199:                                        ; preds = %.critedge4.preheader, %.critedge4
   %123 = phi ptr [ %175, %.critedge4 ], [ %96, %.critedge4.preheader ]
-  %indvars.iv214 = phi i64 [ %indvars.iv.next215, %.critedge4 ], [ 0, %.critedge4.preheader ]
+  %indvars.iv215 = phi i64 [ %indvars.iv.next216, %.critedge4 ], [ 0, %.critedge4.preheader ]
   %124 = phi ptr [ %177, %.critedge4 ], [ %99, %.critedge4.preheader ]
   %125 = getelementptr i8, ptr %124, i64 8
   %.val138 = load ptr, ptr %125, align 8, !tbaa !27
-  %126 = getelementptr inbounds nuw ptr, ptr %.val138, i64 %indvars.iv214
+  %126 = getelementptr inbounds nuw ptr, ptr %.val138, i64 %indvars.iv215
   %127 = load ptr, ptr %126, align 8, !tbaa !29
   %128 = icmp eq ptr %127, null
   br i1 %128, label %.critedge4, label %129
@@ -497,7 +497,7 @@ define ptr @Ssw_FramesWithClasses(ptr noundef captures(none) initializes((256, 2
   %140 = getelementptr i8, ptr %139, i64 36
   %.val7.i = load i32, ptr %140, align 4, !tbaa !48
   %141 = mul nsw i32 %.val7.i, %.val5.i
-  %142 = add nsw i32 %141, %.0116205
+  %142 = add nsw i32 %141, %.0116206
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds ptr, ptr %.val6.i, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !49
@@ -523,7 +523,7 @@ Ssw_ObjChild0Fra.exit:                            ; preds = %134, %138
   %156 = getelementptr i8, ptr %155, i64 36
   %.val7.i181 = load i32, ptr %156, align 4, !tbaa !48
   %157 = mul nsw i32 %.val7.i181, %.val5.i179
-  %158 = add nsw i32 %157, %.0116205
+  %158 = add nsw i32 %157, %.0116206
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds ptr, ptr %.val6.i180, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !49
@@ -541,39 +541,39 @@ Ssw_ObjChild1Fra.exit:                            ; preds = %Ssw_ObjChild0Fra.ex
   %168 = getelementptr i8, ptr %127, i64 36
   %.val152 = load i32, ptr %168, align 4, !tbaa !48
   %169 = mul nsw i32 %.val152, %.val150
-  %170 = add nsw i32 %169, %.0116205
+  %170 = add nsw i32 %169, %.0116206
   %171 = sext i32 %170 to i64
   %172 = getelementptr inbounds ptr, ptr %.val151, i64 %171
   store ptr %167, ptr %172, align 8, !tbaa !49
   %173 = load ptr, ptr %4, align 8, !tbaa !42
   %174 = getelementptr i8, ptr %173, i64 256
   %.val169 = load ptr, ptr %174, align 8, !tbaa !61
-  tail call fastcc void @Ssw_FramesConstrainNode(ptr noundef nonnull %0, ptr noundef %11, ptr %.val169, ptr noundef nonnull %127, i32 noundef %.0116205, i32 noundef 1)
-  %.pre226 = load ptr, ptr %4, align 8, !tbaa !42
+  tail call fastcc void @Ssw_FramesConstrainNode(ptr noundef nonnull %0, ptr noundef %11, ptr %.val169, ptr noundef nonnull %127, i32 noundef %.0116206, i32 noundef 1)
+  %.pre227 = load ptr, ptr %4, align 8, !tbaa !42
   br label %.critedge4
 
 .critedge4:                                       ; preds = %Ssw_ObjChild1Fra.exit, %129, %.lr.ph199
-  %175 = phi ptr [ %.pre226, %Ssw_ObjChild1Fra.exit ], [ %123, %129 ], [ %123, %.lr.ph199 ]
-  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
+  %175 = phi ptr [ %.pre227, %Ssw_ObjChild1Fra.exit ], [ %123, %129 ], [ %123, %.lr.ph199 ]
+  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 32
   %177 = load ptr, ptr %176, align 8, !tbaa !11
   %178 = getelementptr i8, ptr %177, i64 4
   %.val = load i32, ptr %178, align 4, !tbaa !23
   %179 = sext i32 %.val to i64
-  %180 = icmp slt i64 %indvars.iv.next215, %179
+  %180 = icmp slt i64 %indvars.iv.next216, %179
   br i1 %180, label %.lr.ph199, label %.critedge6.preheader, !llvm.loop !64
 
 .critedge8.preheader:                             ; preds = %Ssw_ObjChild0Fra.exit186, %.critedge6.preheader
   %181 = getelementptr i8, ptr %117, i64 104
   %.val129 = load i32, ptr %181, align 8, !tbaa !44
   %182 = icmp sgt i32 %.val129, 0
-  br i1 %182, label %.critedge10.lr.ph, label %.critedge8.preheader..critedge8._crit_edge_crit_edge
+  br i1 %182, label %.lr.ph205, label %.critedge8.preheader..critedge10_crit_edge
 
-.critedge8.preheader..critedge8._crit_edge_crit_edge: ; preds = %.critedge8.preheader
-  %.pre230 = add nuw nsw i32 %.0116205, 1
-  br label %.critedge8._crit_edge
+.critedge8.preheader..critedge10_crit_edge:       ; preds = %.critedge8.preheader
+  %.pre231 = add nuw nsw i32 %.0116206, 1
+  br label %.critedge10
 
-.critedge10.lr.ph:                                ; preds = %.critedge8.preheader
+.lr.ph205:                                        ; preds = %.critedge8.preheader
   %183 = getelementptr i8, ptr %117, i64 112
   %.val175 = load i32, ptr %183, align 8, !tbaa !65
   %184 = getelementptr i8, ptr %119, i64 8
@@ -584,19 +584,19 @@ Ssw_ObjChild1Fra.exit:                            ; preds = %Ssw_ObjChild0Fra.ex
   %.val177 = load i32, ptr %186, align 4, !tbaa !46
   %187 = getelementptr i8, ptr %.val176, i64 8
   %.val176.val = load ptr, ptr %187, align 8, !tbaa !27
-  %188 = add nuw nsw i32 %.0116205, 1
+  %188 = add nuw nsw i32 %.0116206, 1
   %.val162 = load i32, ptr %8, align 8, !tbaa !43
   %.val163 = load ptr, ptr %45, align 8, !tbaa !47
   %189 = sext i32 %.val177 to i64
   %190 = sext i32 %.val175 to i64
-  %wide.trip.count223 = zext nneg i32 %.val129 to i64
+  %wide.trip.count224 = zext nneg i32 %.val129 to i64
   %invariant.gep = getelementptr ptr, ptr %.val174.val, i64 %190
-  %invariant.gep239 = getelementptr ptr, ptr %.val176.val, i64 %189
-  br label %.critedge10
+  %invariant.gep240 = getelementptr ptr, ptr %.val176.val, i64 %189
+  br label %.critedge8
 
 191:                                              ; preds = %.lr.ph202, %Ssw_ObjChild0Fra.exit186
-  %indvars.iv217 = phi i64 [ 0, %.lr.ph202 ], [ %indvars.iv.next218, %Ssw_ObjChild0Fra.exit186 ]
-  %192 = getelementptr inbounds nuw ptr, ptr %.val139, i64 %indvars.iv217
+  %indvars.iv218 = phi i64 [ 0, %.lr.ph202 ], [ %indvars.iv.next219, %Ssw_ObjChild0Fra.exit186 ]
+  %192 = getelementptr inbounds nuw ptr, ptr %.val139, i64 %indvars.iv218
   %193 = load ptr, ptr %192, align 8, !tbaa !29
   %194 = getelementptr i8, ptr %193, i64 8
   %.val172 = load ptr, ptr %194, align 8, !tbaa !33
@@ -610,7 +610,7 @@ Ssw_ObjChild1Fra.exit:                            ; preds = %Ssw_ObjChild0Fra.ex
   %199 = getelementptr i8, ptr %198, i64 36
   %.val7.i185 = load i32, ptr %199, align 4, !tbaa !48
   %200 = mul nsw i32 %.val7.i185, %.val153
-  %201 = add nsw i32 %200, %.0116205
+  %201 = add nsw i32 %200, %.0116206
   %202 = sext i32 %201 to i64
   %203 = getelementptr inbounds ptr, ptr %.val154, i64 %202
   %204 = load ptr, ptr %203, align 8, !tbaa !49
@@ -625,24 +625,24 @@ Ssw_ObjChild0Fra.exit186:                         ; preds = %191, %197
   %210 = getelementptr i8, ptr %193, i64 36
   %.val155 = load i32, ptr %210, align 4, !tbaa !48
   %211 = mul nsw i32 %.val155, %.val153
-  %212 = add nsw i32 %211, %.0116205
+  %212 = add nsw i32 %211, %.0116206
   %213 = sext i32 %212 to i64
   %214 = getelementptr inbounds ptr, ptr %.val154, i64 %213
   store ptr %209, ptr %214, align 8, !tbaa !49
-  %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next218, %wide.trip.count
+  %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next219, %wide.trip.count
   br i1 %exitcond.not, label %.critedge8.preheader, label %191, !llvm.loop !66
 
-.critedge10:                                      ; preds = %.critedge10.lr.ph, %.critedge10
-  %indvars.iv220 = phi i64 [ 0, %.critedge10.lr.ph ], [ %indvars.iv.next221, %.critedge10 ]
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv220
+.critedge8:                                       ; preds = %.lr.ph205, %.critedge8
+  %indvars.iv221 = phi i64 [ 0, %.lr.ph205 ], [ %indvars.iv.next222, %.critedge8 ]
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv221
   %215 = load ptr, ptr %gep, align 8, !tbaa !29
-  %gep240 = getelementptr ptr, ptr %invariant.gep239, i64 %indvars.iv220
-  %216 = load ptr, ptr %gep240, align 8, !tbaa !29
+  %gep241 = getelementptr ptr, ptr %invariant.gep240, i64 %indvars.iv221
+  %216 = load ptr, ptr %gep241, align 8, !tbaa !29
   %217 = getelementptr i8, ptr %215, i64 36
   %.val164 = load i32, ptr %217, align 4, !tbaa !48
   %218 = mul nsw i32 %.val164, %.val162
-  %219 = add nsw i32 %218, %.0116205
+  %219 = add nsw i32 %218, %.0116206
   %220 = sext i32 %219 to i64
   %221 = getelementptr inbounds ptr, ptr %.val163, i64 %220
   %222 = load ptr, ptr %221, align 8, !tbaa !49
@@ -653,26 +653,26 @@ Ssw_ObjChild0Fra.exit186:                         ; preds = %191, %197
   %226 = sext i32 %225 to i64
   %227 = getelementptr inbounds ptr, ptr %.val163, i64 %226
   store ptr %222, ptr %227, align 8, !tbaa !49
-  %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
-  %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count223
-  br i1 %exitcond224.not, label %.critedge8._crit_edge, label %.critedge10, !llvm.loop !67
+  %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
+  %exitcond225.not = icmp eq i64 %indvars.iv.next222, %wide.trip.count224
+  br i1 %exitcond225.not, label %.critedge10, label %.critedge8, !llvm.loop !67
 
-.critedge8._crit_edge:                            ; preds = %.critedge10, %.critedge8.preheader..critedge8._crit_edge_crit_edge
-  %.pre-phi = phi i32 [ %.pre230, %.critedge8.preheader..critedge8._crit_edge_crit_edge ], [ %188, %.critedge10 ]
+.critedge10:                                      ; preds = %.critedge8, %.critedge8.preheader..critedge10_crit_edge
+  %.pre-phi = phi i32 [ %.pre231, %.critedge8.preheader..critedge10_crit_edge ], [ %188, %.critedge8 ]
   %228 = load ptr, ptr %0, align 8, !tbaa !51
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 12
   %230 = load i32, ptr %229, align 4, !tbaa !54
   %231 = icmp slt i32 %.pre-phi, %230
   br i1 %231, label %51, label %.preheader, !llvm.loop !68
 
-232:                                              ; preds = %.lr.ph210, %232
-  %233 = phi ptr [ %47, %.lr.ph210 ], [ %253, %232 ]
-  %.6209 = phi i32 [ 0, %.lr.ph210 ], [ %252, %232 ]
+232:                                              ; preds = %.lr.ph211, %232
+  %233 = phi ptr [ %47, %.lr.ph211 ], [ %253, %232 ]
+  %.6210 = phi i32 [ 0, %.lr.ph211 ], [ %252, %232 ]
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %235 = load ptr, ptr %234, align 8, !tbaa !45
   %236 = getelementptr i8, ptr %233, i64 108
   %.val134 = load i32, ptr %236, align 4, !tbaa !46
-  %237 = add nsw i32 %.val134, %.6209
+  %237 = add nsw i32 %.val134, %.6210
   %238 = getelementptr i8, ptr %235, i64 8
   %.val140 = load ptr, ptr %238, align 8, !tbaa !27
   %239 = sext i32 %237 to i64
@@ -691,7 +691,7 @@ Ssw_ObjChild0Fra.exit186:                         ; preds = %191, %197
   %249 = getelementptr inbounds ptr, ptr %.val166, i64 %248
   %250 = load ptr, ptr %249, align 8, !tbaa !49
   %251 = tail call ptr @Aig_ObjCreateCo(ptr noundef %11, ptr noundef %250) #12
-  %252 = add nuw nsw i32 %.6209, 1
+  %252 = add nuw nsw i32 %.6210, 1
   %253 = load ptr, ptr %4, align 8, !tbaa !42
   %254 = getelementptr i8, ptr %253, i64 104
   %.val130 = load i32, ptr %254, align 8, !tbaa !44
@@ -1015,7 +1015,7 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %14
   br i1 %65, label %.critedge, label %.critedge2.preheader, !llvm.loop !73
 
 .critedge4.preheader:                             ; preds = %Ssw_FramesConstrainNode.exit, %.critedge.preheader, %.critedge2.preheader
-  %66 = phi ptr [ %29, %.critedge.preheader ], [ %63, %.critedge2.preheader ], [ %140, %Ssw_FramesConstrainNode.exit ]
+  %66 = phi ptr [ %63, %.critedge2.preheader ], [ %29, %.critedge.preheader ], [ %140, %Ssw_FramesConstrainNode.exit ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = load ptr, ptr %67, align 8, !tbaa !11
   %69 = getelementptr i8, ptr %68, i64 4

@@ -33,8 +33,8 @@ define dso_local range(i16 0, 264) i16 @_ZN4llvm24convertStrToRoundingModeENS_9S
     i64 15, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8
     i64 19, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16
     i64 14, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24
-    i64 12, label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43
-    i64 16, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40
+    i64 12, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32
+    i64 16, label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %2
@@ -57,26 +57,26 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i24:          ; preds = %2
   %6 = icmp eq i32 %bcmp.i.i.i25, 0
   br i1 %6, label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread, label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread136
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i40:          ; preds = %2
-  %bcmp.i.i.i41 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) @.str.5, i64 16)
-  %bcmp.i.i.i41.fr = freeze i32 %bcmp.i.i.i41
-  %7 = icmp eq i32 %bcmp.i.i.i41.fr, 0
-  %spec.select129 = select i1 %7, i16 256, i16 263
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i32:          ; preds = %2
+  %bcmp.i.i.i33 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %0, ptr noundef nonnull dereferenceable(12) @.str.4, i64 12)
+  %bcmp.i.i.i33.fr = freeze i32 %bcmp.i.i.i33
+  %7 = icmp eq i32 %bcmp.i.i.i33.fr, 0
+  %spec.select = select i1 %7, i16 258, i16 263
   br i1 %7, label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread, label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread136
 
 _ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43: ; preds = %2
-  %bcmp.i.i.i33 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %0, ptr noundef nonnull dereferenceable(12) @.str.4, i64 12)
-  %bcmp.i.i.i33.fr = freeze i32 %bcmp.i.i.i33
-  %8 = icmp eq i32 %bcmp.i.i.i33.fr, 0
-  %spec.select = select i1 %8, i16 258, i16 263
+  %bcmp.i.i.i41 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) @.str.5, i64 16)
+  %bcmp.i.i.i41.fr = freeze i32 %bcmp.i.i.i41
+  %8 = icmp eq i32 %bcmp.i.i.i41.fr, 0
+  %spec.select129 = select i1 %8, i16 256, i16 263
   br i1 %8, label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread, label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread136
 
-_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43
-  %.sroa.16.5134 = phi i16 [ %spec.select129, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40 ], [ %spec.select, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43 ], [ 263, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ], [ 259, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 260, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ]
+_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43
+  %.sroa.16.5134 = phi i16 [ %spec.select129, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32 ], [ 259, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 260, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ], [ 263, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
   br label %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread136
 
-_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread136: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread
-  %9 = phi i16 [ %.sroa.16.5134, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread ], [ 0, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40 ], [ 0, %2 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
+_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread136: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread
+  %9 = phi i16 [ %.sroa.16.5134, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43.thread ], [ 0, %_ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiteralES3_.exit43 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32 ], [ 0, %2 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
   ret i16 %9
 }
 
@@ -134,7 +134,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i16:          ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm12StringSwitchISt8optionalINS_2fp17ExceptionBehaviorEES4_E4CaseENS_13StringLiteralES4_.exit19
 
 _ZN4llvm12StringSwitchISt8optionalINS_2fp17ExceptionBehaviorEES4_E4CaseENS_13StringLiteralES4_.exit19: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8, %.thread46, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
-  %.sroa.14.2 = phi i16 [ 0, %.thread46 ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ], [ %6, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
+  %.sroa.14.2 = phi i16 [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 0, %.thread46 ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ], [ %6, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ]
   ret i16 %.sroa.14.2
 }
 
@@ -393,8 +393,8 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit: ; preds = 
 66:                                               ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit
   br label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread
 
-_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread: ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i, %15, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %18, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %1, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi i32 [ 0, %1 ], [ 103, %3 ], [ 102, %4 ], [ 115, %5 ], [ 108, %6 ], [ 105, %7 ], [ 114, %8 ], [ 110, %9 ], [ 136, %10 ], [ 141, %11 ], [ 111, %12 ], [ 112, %13 ], [ 113, %14 ], [ 0, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit ], [ 93, %31 ], [ 94, %32 ], [ 95, %33 ], [ 96, %34 ], [ 97, %35 ], [ 98, %36 ], [ 99, %37 ], [ 100, %38 ], [ 101, %39 ], [ 106, %40 ], [ 107, %41 ], [ 119, %42 ], [ 120, %43 ], [ 121, %44 ], [ 122, %45 ], [ 117, %46 ], [ 123, %47 ], [ 118, %48 ], [ 125, %49 ], [ 127, %50 ], [ 124, %51 ], [ 126, %52 ], [ 128, %53 ], [ 129, %54 ], [ 130, %55 ], [ 116, %56 ], [ 131, %57 ], [ 132, %58 ], [ 133, %59 ], [ 134, %60 ], [ 135, %61 ], [ 137, %62 ], [ 138, %63 ], [ 139, %64 ], [ 140, %65 ], [ 109, %66 ], [ 0, %18 ], [ 0, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i ], [ 0, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i ], [ 0, %15 ]
+_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit.thread: ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %15, %18, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %1, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
+  %.0 = phi i32 [ 0, %1 ], [ 103, %3 ], [ 102, %4 ], [ 115, %5 ], [ 108, %6 ], [ 105, %7 ], [ 114, %8 ], [ 110, %9 ], [ 136, %10 ], [ 141, %11 ], [ 111, %12 ], [ 112, %13 ], [ 113, %14 ], [ 0, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_11InstructionEEEDcPT0_.exit ], [ 93, %31 ], [ 94, %32 ], [ 95, %33 ], [ 96, %34 ], [ 97, %35 ], [ 98, %36 ], [ 99, %37 ], [ 100, %38 ], [ 101, %39 ], [ 106, %40 ], [ 107, %41 ], [ 119, %42 ], [ 120, %43 ], [ 121, %44 ], [ 122, %45 ], [ 117, %46 ], [ 123, %47 ], [ 118, %48 ], [ 125, %49 ], [ 127, %50 ], [ 124, %51 ], [ 126, %52 ], [ 128, %53 ], [ 129, %54 ], [ 130, %55 ], [ 116, %56 ], [ 131, %57 ], [ 132, %58 ], [ 133, %59 ], [ 134, %60 ], [ 135, %61 ], [ 137, %62 ], [ 138, %63 ], [ 139, %64 ], [ 140, %65 ], [ 109, %66 ], [ 0, %18 ], [ 0, %15 ], [ 0, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_11InstructionEvE10isPossibleERKS4_.exit.i.i ]
   ret i32 %.0
 }
 

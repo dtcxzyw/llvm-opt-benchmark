@@ -277,7 +277,7 @@ define internal i32 @acpi_fan_probe(ptr noundef %0) #0 align 16 {
   br i1 %70, label %.sink.split, label %73
 
 71:                                               ; preds = %48, %42, %45
-  %.str.16.sink = phi ptr [ @.str.16, %42 ], [ @.str.16, %45 ], [ @.str.17, %48 ]
+  %.str.16.sink = phi ptr [ @.str.16, %45 ], [ @.str.16, %42 ], [ @.str.17, %48 ]
   %72 = getelementptr i8, ptr %11, i64 600
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %72, ptr noundef nonnull %.str.16.sink) #12
   call void @kfree(ptr noundef %43) #11
@@ -487,7 +487,7 @@ define internal i32 @acpi_fan_probe(ptr noundef %0) #0 align 16 {
   br label %161
 
 161:                                              ; preds = %.thread20, %.thread18, %71, %.thread, %160, %156, %152, %.loopexit, %17
-  %162 = phi i32 [ -12, %17 ], [ -22, %71 ], [ %.ph, %.thread20 ], [ %127, %.loopexit ], [ 0, %152 ], [ %157, %160 ], [ %157, %156 ], [ %40, %.thread ], [ %77, %.thread18 ]
+  %162 = phi i32 [ -12, %17 ], [ -22, %71 ], [ %127, %.loopexit ], [ 0, %152 ], [ %157, %160 ], [ %157, %156 ], [ %40, %.thread ], [ %77, %.thread18 ], [ %.ph, %.thread20 ]
   ret i32 %162
 }
 

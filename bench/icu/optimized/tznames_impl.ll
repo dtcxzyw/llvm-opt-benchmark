@@ -276,7 +276,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1119,7 +1119,7 @@ define void @_ZN6icu_7711TextTrieMap7putImplERKNS_13UnicodeStringEPvR10UErrorCod
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %25, %30, %32
-  %.0.i = phi ptr [ %34, %32 ], [ %31, %30 ], [ null, %25 ]
+  %.0.i = phi ptr [ %31, %30 ], [ %34, %32 ], [ null, %25 ]
   %35 = icmp slt i16 %26, 0
   %36 = ashr i16 %26, 5
   %37 = sext i16 %36 to i32
@@ -1156,7 +1156,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %25, %30, %32
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit26
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit26:    ; preds = %43, %49, %51
-  %.0.i24 = phi ptr [ %53, %51 ], [ %50, %49 ], [ null, %43 ]
+  %.0.i24 = phi ptr [ %50, %49 ], [ %53, %51 ], [ null, %43 ]
   %54 = icmp slt i16 %45, 0
   %55 = ashr i16 %45, 5
   %56 = sext i16 %55 to i32
@@ -1348,7 +1348,7 @@ define noundef ptr @_ZN6icu_7711TextTrieMap12addChildNodeEPNS_13CharacterNodeEDs
   br label %.thread
 
 .thread:                                          ; preds = %11, %.thread55, %65, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %.thread55 ], [ %49, %65 ], [ %13, %11 ]
+  %.0 = phi ptr [ null, %4 ], [ %49, %65 ], [ null, %.thread55 ], [ %13, %11 ]
   ret ptr %.0
 }
 
@@ -1421,7 +1421,7 @@ define noundef ptr @_ZNK6icu_7711TextTrieMap12getChildNodeEPNS_13CharacterNodeED
   br i1 %.not, label %.thread, label %7
 
 .thread:                                          ; preds = %15, %7, %13, %3
-  %.2 = phi ptr [ null, %3 ], [ %9, %7 ], [ null, %13 ], [ null, %15 ]
+  %.2 = phi ptr [ null, %3 ], [ null, %13 ], [ %9, %7 ], [ null, %15 ]
   ret ptr %.2
 }
 
@@ -1906,7 +1906,7 @@ define noundef ptr @_ZN6icu_7712ZNStringPool3getEPKDsR10UErrorCode(ptr noundef n
   br label %40
 
 40:                                               ; preds = %.thread35, %18, %26, %6, %3
-  %.0 = phi ptr [ %9, %6 ], [ @_ZN6icu_77L11EmptyStringE, %3 ], [ @_ZN6icu_77L11EmptyStringE, %18 ], [ %31, %26 ], [ @_ZN6icu_77L11EmptyStringE, %.thread35 ]
+  %.0 = phi ptr [ @_ZN6icu_77L11EmptyStringE, %3 ], [ %9, %6 ], [ @_ZN6icu_77L11EmptyStringE, %18 ], [ %31, %26 ], [ @_ZN6icu_77L11EmptyStringE, %.thread35 ]
   ret ptr %.0
 }
 
@@ -2863,7 +2863,7 @@ _ZN6icu_776ZNames12ZNamesLoader8getNamesEv.exit:  ; preds = %41
   br label %52
 
 51:                                               ; preds = %43, %22
-  %.2 = phi ptr [ %spec.select, %43 ], [ %28, %22 ]
+  %.2 = phi ptr [ %28, %22 ], [ %spec.select, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %53
 
@@ -2873,7 +2873,7 @@ _ZN6icu_776ZNames12ZNamesLoader8getNamesEv.exit:  ; preds = %41
   resume { ptr, i32 } %.pn
 
 53:                                               ; preds = %3, %51, %19
-  %.020 = phi ptr [ %.2, %51 ], [ null, %19 ], [ null, %3 ]
+  %.020 = phi ptr [ null, %19 ], [ %.2, %51 ], [ null, %3 ]
   ret ptr %.020
 }
 
@@ -3092,7 +3092,7 @@ _ZN6icu_776ZNames27createMetaZoneAndPutInCacheEP10UHashtablePPKDsRKNS_13UnicodeS
   br label %97
 
 97:                                               ; preds = %_ZN6icu_776ZNames27createMetaZoneAndPutInCacheEP10UHashtablePPKDsRKNS_13UnicodeStringER10UErrorCode.exit.thread, %_ZN6icu_776ZNames27createMetaZoneAndPutInCacheEP10UHashtablePPKDsRKNS_13UnicodeStringER10UErrorCode.exit, %96, %24
-  %.1 = phi ptr [ null, %24 ], [ %..0, %96 ], [ null, %_ZN6icu_776ZNames27createMetaZoneAndPutInCacheEP10UHashtablePPKDsRKNS_13UnicodeStringER10UErrorCode.exit ], [ null, %_ZN6icu_776ZNames27createMetaZoneAndPutInCacheEP10UHashtablePPKDsRKNS_13UnicodeStringER10UErrorCode.exit.thread ]
+  %.1 = phi ptr [ null, %24 ], [ null, %_ZN6icu_776ZNames27createMetaZoneAndPutInCacheEP10UHashtablePPKDsRKNS_13UnicodeStringER10UErrorCode.exit ], [ %..0, %96 ], [ null, %_ZN6icu_776ZNames27createMetaZoneAndPutInCacheEP10UHashtablePPKDsRKNS_13UnicodeStringER10UErrorCode.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %99
 
@@ -3102,7 +3102,7 @@ _ZN6icu_776ZNames27createMetaZoneAndPutInCacheEP10UHashtablePPKDsRKNS_13UnicodeS
   resume { ptr, i32 } %.pn
 
 99:                                               ; preds = %3, %97, %21
-  %.022 = phi ptr [ %.1, %97 ], [ null, %21 ], [ null, %3 ]
+  %.022 = phi ptr [ null, %21 ], [ %.1, %97 ], [ null, %3 ]
   ret ptr %.022
 }
 
@@ -3250,7 +3250,7 @@ define noundef ptr @_ZNK6icu_7717TimeZoneNamesImpl23getAvailableMetaZoneIDsER10U
   resume { ptr, i32 } %.pn.i
 
 _ZN6icu_7717TimeZoneNamesImpl24_getAvailableMetaZoneIDsER10UErrorCode.exit: ; preds = %2, %10, %11, %14, %15
-  %.0.i = phi ptr [ null, %2 ], [ %8, %11 ], [ null, %10 ], [ null, %14 ], [ %8, %15 ]
+  %.0.i = phi ptr [ null, %2 ], [ null, %10 ], [ %8, %11 ], [ null, %14 ], [ %8, %15 ]
   ret ptr %.0.i
 }
 
@@ -3297,7 +3297,7 @@ define noundef ptr @_ZN6icu_7717TimeZoneNamesImpl24_getAvailableMetaZoneIDsER10U
   resume { ptr, i32 } %.pn
 
 18:                                               ; preds = %10, %9, %14, %13, %1
-  %.0 = phi ptr [ null, %1 ], [ %7, %10 ], [ null, %9 ], [ null, %13 ], [ %7, %14 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %9 ], [ %7, %10 ], [ null, %13 ], [ %7, %14 ]
   ret ptr %.0
 }
 
@@ -3426,7 +3426,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit: ; preds = %18
   br label %_ZN6icu_7712LocalPointerINS_22MetaZoneIDsEnumerationEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit
 
 _ZN6icu_7712LocalPointerINS_22MetaZoneIDsEnumerationEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit: ; preds = %48, %45
-  %.sroa.063.2 = phi ptr [ %43, %45 ], [ null, %48 ]
+  %.sroa.063.2 = phi ptr [ null, %48 ], [ %43, %45 ]
   %52 = load ptr, ptr %3, align 8, !tbaa !71
   %53 = icmp eq ptr %52, null
   br i1 %53, label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit56, label %54
@@ -3465,7 +3465,7 @@ _ZN6icu_7712LocalPointerINS_22MetaZoneIDsEnumerationEE29adoptInsteadAndCheckErro
   store i32 7, ptr %1, align 4, !tbaa !13
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit56.thread
 
-_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit56.thread: ; preds = %39, %.critedge53, %68, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit
+_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit56.thread: ; preds = %39, %68, %.critedge53, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit
   %69 = load ptr, ptr %16, align 8, !tbaa !20
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
@@ -3501,11 +3501,11 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit56: ; preds = %_ZN6icu_7712LocalP
   br label %_ZN6icu_7712LocalPointerINS_22MetaZoneIDsEnumerationEED2Ev.exit58
 
 _ZN6icu_7712LocalPointerINS_22MetaZoneIDsEnumerationEED2Ev.exit58: ; preds = %82, %.thread69, %28, %13
-  %.pn50 = phi { ptr, i32 } [ %14, %13 ], [ %29, %28 ], [ %.pn.pn77, %82 ], [ %59, %.thread69 ]
+  %.pn50 = phi { ptr, i32 } [ %14, %13 ], [ %29, %28 ], [ %59, %.thread69 ], [ %.pn.pn77, %82 ]
   resume { ptr, i32 } %.pn50
 
 _ZN6icu_7712LocalPointerINS_22MetaZoneIDsEnumerationEED2Ev.exit: ; preds = %22, %19, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit56.thread, %76, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit56, %12, %9, %2
-  %.029 = phi ptr [ null, %2 ], [ %10, %12 ], [ null, %9 ], [ %spec.select78, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit56 ], [ %spec.select78, %76 ], [ null, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit56.thread ], [ null, %19 ], [ null, %22 ]
+  %.029 = phi ptr [ null, %2 ], [ null, %9 ], [ %10, %12 ], [ %spec.select78, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit56 ], [ %spec.select78, %76 ], [ null, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit56.thread ], [ null, %19 ], [ null, %22 ]
   ret ptr %.029
 }
 
@@ -4222,7 +4222,7 @@ _ZNK6icu_7717TimeZoneNamesImpl6doFindERNS_18ZNameSearchHandlerERKNS_13UnicodeStr
           to label %_ZNK6icu_7717TimeZoneNamesImpl6doFindERNS_18ZNameSearchHandlerERKNS_13UnicodeStringEiR10UErrorCode.exit.thread51 unwind label %34
 
 _ZNK6icu_7717TimeZoneNamesImpl6doFindERNS_18ZNameSearchHandlerERKNS_13UnicodeStringEiR10UErrorCode.exit.thread51: ; preds = %.noexc40, %.noexc, %47, %15, %69, %65, %_ZNK6icu_7717TimeZoneNamesImpl6doFindERNS_18ZNameSearchHandlerERKNS_13UnicodeStringEiR10UErrorCode.exit41, %_ZNK6icu_7717TimeZoneNamesImpl6doFindERNS_18ZNameSearchHandlerERKNS_13UnicodeStringEiR10UErrorCode.exit
-  %.028 = phi ptr [ null, %65 ], [ null, %_ZNK6icu_7717TimeZoneNamesImpl6doFindERNS_18ZNameSearchHandlerERKNS_13UnicodeStringEiR10UErrorCode.exit ], [ %44, %47 ], [ null, %_ZNK6icu_7717TimeZoneNamesImpl6doFindERNS_18ZNameSearchHandlerERKNS_13UnicodeStringEiR10UErrorCode.exit41 ], [ null, %.noexc ], [ %70, %69 ], [ %12, %15 ], [ null, %.noexc40 ]
+  %.028 = phi ptr [ null, %_ZNK6icu_7717TimeZoneNamesImpl6doFindERNS_18ZNameSearchHandlerERKNS_13UnicodeStringEiR10UErrorCode.exit ], [ null, %_ZNK6icu_7717TimeZoneNamesImpl6doFindERNS_18ZNameSearchHandlerERKNS_13UnicodeStringEiR10UErrorCode.exit41 ], [ null, %65 ], [ %70, %69 ], [ %12, %15 ], [ %44, %47 ], [ null, %.noexc ], [ null, %.noexc40 ]
   invoke void @umtx_unlock_77(ptr noundef nonnull @_ZN6icu_77L10gDataMutexE)
           to label %_ZN6icu_775MutexD2Ev.exit42 unwind label %71
 
@@ -4987,7 +4987,7 @@ _ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread: ; preds = %.split.
   ret void
 
 _ZN6icu_775MutexD2Ev.exit71:                      ; preds = %25, %_ZN6icu_775MutexD2Ev.exit73, %79
-  %.pn67.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN6icu_775MutexD2Ev.exit73 ], [ %80, %79 ], [ %26, %25 ]
+  %.pn67.pn = phi { ptr, i32 } [ %80, %79 ], [ %.pn.pn, %_ZN6icu_775MutexD2Ev.exit73 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn67.pn
 }
 
@@ -5626,9 +5626,9 @@ define noundef ptr @_ZN6icu_779TZDBNames14createInstanceEP15UResourceBundlePKc(p
   br i1 %exitcond.not, label %.thread, label %.lr.ph113, !llvm.loop !139
 
 .thread:                                          ; preds = %41, %.lr.ph113, %47, %31, %34, %.thread136
-  %.074 = phi i1 [ true, %.thread136 ], [ true, %34 ], [ true, %31 ], [ false, %.lr.ph113 ], [ false, %41 ], [ true, %47 ]
-  %.069 = phi i32 [ 0, %.thread136 ], [ %32, %34 ], [ %32, %31 ], [ %32, %47 ], [ %32, %.lr.ph113 ], [ %32, %41 ]
-  %.066 = phi ptr [ null, %.thread136 ], [ null, %34 ], [ null, %31 ], [ %37, %47 ], [ %37, %.lr.ph113 ], [ %37, %41 ]
+  %.074 = phi i1 [ true, %34 ], [ true, %31 ], [ true, %.thread136 ], [ false, %41 ], [ false, %.lr.ph113 ], [ true, %47 ]
+  %.069 = phi i32 [ %32, %34 ], [ %32, %31 ], [ 0, %.thread136 ], [ %32, %47 ], [ %32, %.lr.ph113 ], [ %32, %41 ]
+  %.066 = phi ptr [ null, %34 ], [ null, %31 ], [ null, %.thread136 ], [ %37, %47 ], [ %37, %.lr.ph113 ], [ %37, %41 ]
   call void @ures_close_77(ptr noundef %28)
   call void @ures_close_77(ptr noundef %11)
   br i1 %.074, label %60, label %55
@@ -5675,7 +5675,7 @@ define noundef ptr @_ZN6icu_779TZDBNames14createInstanceEP15UResourceBundlePKc(p
   br label %.critedge101
 
 .critedge101:                                     ; preds = %.critedge101.sink.split, %14, %60, %63, %55, %10
-  %.1 = phi ptr [ null, %10 ], [ null, %14 ], [ null, %60 ], [ null, %55 ], [ %61, %63 ], [ null, %.critedge101.sink.split ]
+  %.1 = phi ptr [ null, %10 ], [ null, %55 ], [ null, %60 ], [ %61, %63 ], [ null, %14 ], [ null, %.critedge101.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66
@@ -5718,7 +5718,7 @@ define noundef ptr @_ZNK6icu_779TZDBNames7getNameE17UTimeZoneNameType(ptr nounde
   br label %12
 
 12:                                               ; preds = %7, %9, %6, %2
-  %.03 = phi ptr [ null, %2 ], [ %11, %9 ], [ %8, %7 ], [ null, %6 ]
+  %.03 = phi ptr [ null, %2 ], [ %8, %7 ], [ %11, %9 ], [ null, %6 ]
   ret ptr %.03
 }
 
@@ -5875,9 +5875,9 @@ _ZNK6icu_7713CharacterNode8getValueEi.exit:       ; preds = %20, %23
   %spec.select78112 = select i1 %46, ptr %.0.i, ptr %.05098
   br label %select.unfold
 
-select.unfold:                                    ; preds = %._crit_edge.thread, %_ZNK6icu_7713CharacterNode8getValueEi.exit, %26, %37
-  %.156.ph = phi ptr [ %.05597, %_ZNK6icu_7713CharacterNode8getValueEi.exit ], [ %spec.select, %37 ], [ %.05597, %26 ], [ %.05597, %._crit_edge.thread ]
-  %.2.ph = phi ptr [ %.05098, %_ZNK6icu_7713CharacterNode8getValueEi.exit ], [ %spec.select77, %37 ], [ %.05098, %26 ], [ %spec.select78112, %._crit_edge.thread ]
+select.unfold:                                    ; preds = %._crit_edge.thread, %_ZNK6icu_7713CharacterNode8getValueEi.exit, %37, %26
+  %.156.ph = phi ptr [ %spec.select, %37 ], [ %.05597, %26 ], [ %.05597, %_ZNK6icu_7713CharacterNode8getValueEi.exit ], [ %.05597, %._crit_edge.thread ]
+  %.2.ph = phi ptr [ %spec.select77, %37 ], [ %.05098, %26 ], [ %.05098, %_ZNK6icu_7713CharacterNode8getValueEi.exit ], [ %spec.select78112, %._crit_edge.thread ]
   %47 = add nuw nsw i32 %.06196, 1
   %exitcond.not = icmp eq i32 %47, %17
   br i1 %exitcond.not, label %._crit_edge100, label %20, !llvm.loop !151
@@ -6237,7 +6237,7 @@ define noundef ptr @_ZNK6icu_7717TZDBTimeZoneNames23getAvailableMetaZoneIDsER10U
   resume { ptr, i32 } %.pn.i
 
 _ZN6icu_7717TimeZoneNamesImpl24_getAvailableMetaZoneIDsER10UErrorCode.exit: ; preds = %2, %10, %11, %14, %15
-  %.0.i = phi ptr [ null, %2 ], [ %8, %11 ], [ null, %10 ], [ null, %14 ], [ %8, %15 ]
+  %.0.i = phi ptr [ null, %2 ], [ null, %10 ], [ %8, %11 ], [ null, %14 ], [ %8, %15 ]
   ret ptr %.0.i
 }
 
@@ -6541,7 +6541,7 @@ _ZN6icu_77L16mergeTimeZoneKeyERKNS_13UnicodeStringEPcmR10UErrorCode.exit.thread:
   br label %95
 
 95:                                               ; preds = %27, %94, %46
-  %.1 = phi ptr [ null, %46 ], [ %.2, %94 ], [ null, %27 ]
+  %.1 = phi ptr [ %.2, %94 ], [ null, %46 ], [ null, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread
 
@@ -6967,7 +6967,7 @@ define linkonce_odr void @_ZN6icu_776ZNames12ZNamesLoader3putEPKcRNS_13ResourceV
   br label %_ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i
 
 _ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i: ; preds = %45, %39, %33
-  %.0.i.i = phi i32 [ %..i.i, %45 ], [ %38, %33 ], [ %44, %39 ]
+  %.0.i.i = phi i32 [ %38, %33 ], [ %44, %39 ], [ %..i.i, %45 ]
   %48 = icmp eq i32 %.0.i.i, -1
   br i1 %48, label %_ZN6icu_776ZNames12ZNamesLoader14setNameIfEmptyEPKcPKNS_13ResourceValueER10UErrorCode.exit, label %_ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.thread11.i
 
@@ -7028,7 +7028,7 @@ _ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.thread11.i: ; preds = 
   br label %_ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i13
 
 _ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i13: ; preds = %75, %69, %63
-  %.0.i.i14 = phi i32 [ %..i.i18, %75 ], [ %68, %63 ], [ %74, %69 ]
+  %.0.i.i14 = phi i32 [ %68, %63 ], [ %74, %69 ], [ %..i.i18, %75 ]
   %78 = icmp eq i32 %.0.i.i14, -1
   br i1 %78, label %_ZN6icu_776ZNames12ZNamesLoader14setNameIfEmptyEPKcPKNS_13ResourceValueER10UErrorCode.exit, label %_ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.thread11.i15
 
@@ -7318,7 +7318,7 @@ _ZN6icu_7717TimeZoneNamesImpl17ZoneStringsLoader10isMetaZoneEPKc.exit: ; preds =
   br label %_ZN6icu_77L18deleteZNamesLoaderEPv.exit
 
 37:                                               ; preds = %35, %29
-  %.2 = phi ptr [ @_ZN6icu_77L12DUMMY_LOADERE, %29 ], [ %33, %35 ]
+  %.2 = phi ptr [ %33, %35 ], [ @_ZN6icu_77L12DUMMY_LOADERE, %29 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %86
@@ -7428,7 +7428,7 @@ _ZN6icu_7717TimeZoneNamesImpl17ZoneStringsLoader11tzIDFromKeyEPKc.exit: ; preds 
   br label %_ZN6icu_77L18deleteZNamesLoaderEPv.exit
 
 85:                                               ; preds = %83, %77
-  %.5 = phi ptr [ @_ZN6icu_77L12DUMMY_LOADERE, %77 ], [ %81, %83 ]
+  %.5 = phi ptr [ %81, %83 ], [ @_ZN6icu_77L12DUMMY_LOADERE, %77 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %86

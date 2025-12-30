@@ -4392,7 +4392,7 @@ define internal noundef ptr @_ZL28__itt_domain_create_init_3_0PKc(ptr noundef %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %73, %74, %._crit_edge, %52
-  %.074 = phi ptr [ null, %52 ], [ null, %._crit_edge ], [ %60, %73 ], [ %60, %74 ], [ %.1106, %56 ]
+  %.074 = phi ptr [ null, %._crit_edge ], [ null, %52 ], [ %60, %74 ], [ %60, %73 ], [ %.1106, %56 ]
   br i1 %or.cond6, label %76, label %78
 
 76:                                               ; preds = %.loopexit
@@ -4400,7 +4400,7 @@ define internal noundef ptr @_ZL28__itt_domain_create_init_3_0PKc(ptr noundef %0
   br label %78
 
 78:                                               ; preds = %.loopexit, %76, %49, %50, %1, %46
-  %.0 = phi ptr [ @_ZL12dummy_domain, %49 ], [ %48, %46 ], [ null, %1 ], [ @_ZL12dummy_domain, %50 ], [ %.074, %76 ], [ %.074, %.loopexit ]
+  %.0 = phi ptr [ %48, %46 ], [ null, %1 ], [ @_ZL12dummy_domain, %50 ], [ @_ZL12dummy_domain, %49 ], [ %.074, %76 ], [ %.074, %.loopexit ]
   ret ptr %.0
 }
 
@@ -4665,7 +4665,7 @@ define internal noundef ptr @_ZL35__itt_string_handle_create_init_3_0PKc(ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %55, %71, %72, %._crit_edge, %52
-  %.073 = phi ptr [ null, %52 ], [ null, %._crit_edge ], [ %59, %71 ], [ %59, %72 ], [ %.1105, %55 ]
+  %.073 = phi ptr [ null, %._crit_edge ], [ null, %52 ], [ %59, %72 ], [ %59, %71 ], [ %.1105, %55 ]
   br i1 %or.cond6, label %74, label %76
 
 74:                                               ; preds = %.loopexit
@@ -4673,7 +4673,7 @@ define internal noundef ptr @_ZL35__itt_string_handle_create_init_3_0PKc(ptr nou
   br label %76
 
 76:                                               ; preds = %.loopexit, %74, %49, %50, %1, %46
-  %.0 = phi ptr [ null, %49 ], [ %48, %46 ], [ null, %1 ], [ null, %50 ], [ %.073, %74 ], [ %.073, %.loopexit ]
+  %.0 = phi ptr [ %48, %46 ], [ null, %1 ], [ null, %50 ], [ null, %49 ], [ %.073, %74 ], [ %.073, %.loopexit ]
   ret ptr %.0
 }
 
@@ -4958,7 +4958,7 @@ define internal noundef ptr @_ZL29__itt_counter_create_init_3_0PKcS0_(ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %79, %63, %105, %106, %._crit_edge, %54
-  %.0106 = phi ptr [ null, %54 ], [ null, %._crit_edge ], [ %83, %105 ], [ %83, %106 ], [ %.1146.us, %63 ], [ %.1146.us149, %79 ]
+  %.0106 = phi ptr [ null, %._crit_edge ], [ null, %54 ], [ %83, %106 ], [ %83, %105 ], [ %.1146.us, %63 ], [ %.1146.us149, %79 ]
   br i1 %or.cond6, label %108, label %110
 
 108:                                              ; preds = %.loopexit
@@ -4966,7 +4966,7 @@ define internal noundef ptr @_ZL29__itt_counter_create_init_3_0PKcS0_(ptr nounde
   br label %110
 
 110:                                              ; preds = %.loopexit, %108, %51, %52, %2, %48
-  %.0 = phi ptr [ null, %51 ], [ %50, %48 ], [ null, %2 ], [ null, %52 ], [ %.0106, %108 ], [ %.0106, %.loopexit ]
+  %.0 = phi ptr [ %50, %48 ], [ null, %2 ], [ null, %52 ], [ null, %51 ], [ %.0106, %108 ], [ %.0106, %.loopexit ]
   ret ptr %.0
 }
 
@@ -5251,7 +5251,7 @@ define internal noundef ptr @_ZL35__itt_counter_create_typed_init_3_0PKcS0_19__i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %80, %64, %106, %107, %._crit_edge, %55
-  %.0107 = phi ptr [ null, %55 ], [ null, %._crit_edge ], [ %84, %106 ], [ %84, %107 ], [ %.1147.us, %64 ], [ %.1147.us150, %80 ]
+  %.0107 = phi ptr [ null, %._crit_edge ], [ null, %55 ], [ %84, %107 ], [ %84, %106 ], [ %.1147.us, %64 ], [ %.1147.us150, %80 ]
   br i1 %or.cond6, label %109, label %111
 
 109:                                              ; preds = %.loopexit
@@ -5259,7 +5259,7 @@ define internal noundef ptr @_ZL35__itt_counter_create_typed_init_3_0PKcS0_19__i
   br label %111
 
 111:                                              ; preds = %.loopexit, %109, %52, %53, %3, %49
-  %.0 = phi ptr [ null, %52 ], [ %51, %49 ], [ null, %3 ], [ null, %53 ], [ %.0107, %109 ], [ %.0107, %.loopexit ]
+  %.0 = phi ptr [ %51, %49 ], [ null, %3 ], [ null, %53 ], [ null, %52 ], [ %.0107, %109 ], [ %.0107, %.loopexit ]
   ret ptr %.0
 }
 
@@ -5700,7 +5700,7 @@ define internal noundef ptr @_ZL31__itt_histogram_create_init_3_0PK13___itt_doma
   br label %.loopexit
 
 .loopexit:                                        ; preds = %63, %82, %83, %._crit_edge, %56
-  %.088 = phi ptr [ null, %56 ], [ null, %._crit_edge ], [ %67, %82 ], [ %67, %83 ], [ %.1123, %63 ]
+  %.088 = phi ptr [ null, %._crit_edge ], [ null, %56 ], [ %67, %83 ], [ %67, %82 ], [ %.1123, %63 ]
   br i1 %or.cond8, label %85, label %87
 
 85:                                               ; preds = %.loopexit
@@ -5708,7 +5708,7 @@ define internal noundef ptr @_ZL31__itt_histogram_create_init_3_0PK13___itt_doma
   br label %87
 
 87:                                               ; preds = %.loopexit, %85, %53, %54, %4, %50
-  %.0 = phi ptr [ null, %53 ], [ %52, %50 ], [ null, %4 ], [ null, %54 ], [ %.088, %85 ], [ %.088, %.loopexit ]
+  %.0 = phi ptr [ %52, %50 ], [ null, %4 ], [ null, %54 ], [ null, %53 ], [ %.088, %85 ], [ %.088, %.loopexit ]
   ret ptr %.0
 }
 
@@ -5976,7 +5976,7 @@ define internal noundef ptr @_ZL32__itt_counter_create_v3_init_3_0PK13___itt_dom
   br label %.loopexit
 
 .loopexit:                                        ; preds = %75, %73, %102, %103, %._crit_edge, %56
-  %.0106 = phi ptr [ null, %56 ], [ null, %._crit_edge ], [ %78, %102 ], [ %78, %103 ], [ %.1149, %73 ], [ %.1149, %75 ]
+  %.0106 = phi ptr [ null, %._crit_edge ], [ null, %56 ], [ %78, %103 ], [ %78, %102 ], [ %.1149, %73 ], [ %.1149, %75 ]
   br i1 %or.cond8, label %105, label %107
 
 105:                                              ; preds = %.loopexit
@@ -5984,7 +5984,7 @@ define internal noundef ptr @_ZL32__itt_counter_create_v3_init_3_0PK13___itt_dom
   br label %107
 
 107:                                              ; preds = %.loopexit, %105, %53, %54, %3, %50
-  %.0 = phi ptr [ null, %53 ], [ %52, %50 ], [ null, %3 ], [ null, %54 ], [ %.0106, %105 ], [ %.0106, %.loopexit ]
+  %.0 = phi ptr [ %52, %50 ], [ null, %3 ], [ null, %54 ], [ null, %53 ], [ %.0106, %105 ], [ %.0106, %.loopexit ]
   ret ptr %.0
 }
 
@@ -6741,7 +6741,7 @@ _ZL17__itt_get_env_varPKc.exit.i.preheader:       ; preds = %60, %53
   br i1 %.not77.i.i, label %_ZL12__itt_fsplitPKcS0_PS0_Pi.exit.i, label %.preheader.i.i, !llvm.loop !116
 
 _ZL12__itt_fsplitPKcS0_PS0_Pi.exit.i:             ; preds = %103, %98, %.loopexit.i.i
-  %indvars.iv46.i.lcssa.sink.i = phi i64 [ %indvars.iv46.i.i, %98 ], [ %94, %.loopexit.i.i ], [ %indvars.iv.next47.i.i, %103 ]
+  %indvars.iv46.i.lcssa.sink.i = phi i64 [ %94, %.loopexit.i.i ], [ %indvars.iv46.i.i, %98 ], [ %indvars.iv.next47.i.i, %103 ]
   %106 = getelementptr inbounds nuw i8, ptr %.026.i116, i64 %indvars.iv46.i.lcssa.sink.i
   %107 = call i32 @llvm.smin.i32(i32 %.255.i, i32 254)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -6809,7 +6809,7 @@ _ZL12__itt_fsplitPKcS0_PS0_Pi.exit.i:             ; preds = %103, %98, %.loopexi
   br label %131
 
 131:                                              ; preds = %124, %.preheader.i
-  %.3.i = phi i32 [ %spec.select.i, %124 ], [ %.230.i, %.preheader.i ]
+  %.3.i = phi i32 [ %.230.i, %.preheader.i ], [ %spec.select.i, %124 ]
   %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 1
   br label %.preheader.i, !llvm.loop !122
 
@@ -7131,7 +7131,7 @@ define internal fastcc noundef ptr @_ZL18__itt_get_lib_namev() unnamed_addr #0 {
   br label %_ZL17__itt_get_env_varPKc.exit
 
 _ZL17__itt_get_env_varPKc.exit:                   ; preds = %0, %8, %10
-  %.3.i = phi ptr [ %5, %10 ], [ null, %8 ], [ null, %0 ]
+  %.3.i = phi ptr [ %5, %10 ], [ null, %0 ], [ null, %8 ]
   ret ptr %.3.i
 }
 
@@ -7158,7 +7158,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL17__itt_lib_versionPv(ptr
   br label %7
 
 7:                                                ; preds = %5, %3, %1
-  %.0 = phi i32 [ 2, %3 ], [ 0, %1 ], [ %., %5 ]
+  %.0 = phi i32 [ 0, %1 ], [ 2, %3 ], [ %., %5 ]
   ret i32 %.0
 }
 
@@ -7549,7 +7549,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL28__itt_is_collector_avai
   br label %_ZL18__itt_get_lib_namev.exit
 
 _ZL18__itt_get_lib_namev.exit:                    ; preds = %37, %44, %46
-  %.3.i.i = phi i32 [ 3, %46 ], [ 2, %44 ], [ 2, %37 ]
+  %.3.i.i = phi i32 [ 3, %46 ], [ 2, %37 ], [ 2, %44 ]
   store i32 %.3.i.i, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 160), align 8, !tbaa !127
   br label %54
 

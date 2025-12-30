@@ -3567,9 +3567,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %18,
   %24 = load i32, ptr %23, align 8, !tbaa !80
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  switch i32 %24, label %29 [
+  switch i32 %24, label %31 [
     i32 0, label %27
-    i32 1, label %31
+    i32 1, label %29
   ]
 
 27:                                               ; preds = %22
@@ -3577,11 +3577,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %18,
   br i1 %28, label %44, label %._crit_edge.i.i25
 
 29:                                               ; preds = %22
-  %30 = tail call noundef zeroext i1 @_ZN4YAML5Utils18WriteTagWithPrefixERNS_15ostream_wrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull align 8 dereferenceable(57) %25, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %26)
+  %30 = tail call noundef zeroext i1 @_ZN4YAML5Utils8WriteTagERNS_15ostream_wrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(57) %25, ptr noundef nonnull align 8 dereferenceable(32) %26, i1 noundef zeroext false)
   br i1 %30, label %44, label %._crit_edge.i.i25
 
 31:                                               ; preds = %22
-  %32 = tail call noundef zeroext i1 @_ZN4YAML5Utils8WriteTagERNS_15ostream_wrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(57) %25, ptr noundef nonnull align 8 dereferenceable(32) %26, i1 noundef zeroext false)
+  %32 = tail call noundef zeroext i1 @_ZN4YAML5Utils18WriteTagWithPrefixERNS_15ostream_wrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull align 8 dereferenceable(57) %25, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %26)
   br i1 %32, label %44, label %._crit_edge.i.i25
 
 ._crit_edge.i.i25:                                ; preds = %29, %27, %31

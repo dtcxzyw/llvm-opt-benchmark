@@ -133,7 +133,7 @@ define hidden range(i32 -1, 2) i32 @capsa_open(ptr noundef %0, ptr noundef %1, p
   br label %52
 
 52:                                               ; preds = %36, %33, %30, %27, %24, %21, %12, %11, %9, %39, %18
-  %.0 = phi i32 [ %., %9 ], [ -1, %18 ], [ 1, %39 ], [ -1, %33 ], [ -1, %30 ], [ -1, %27 ], [ -1, %24 ], [ -1, %21 ], [ -1, %12 ], [ 0, %11 ], [ -1, %36 ]
+  %.0 = phi i32 [ -1, %18 ], [ 1, %39 ], [ %., %9 ], [ 0, %11 ], [ -1, %12 ], [ -1, %21 ], [ -1, %24 ], [ -1, %27 ], [ -1, %30 ], [ -1, %33 ], [ -1, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -229,7 +229,7 @@ define internal noundef zeroext i1 @capsa_read(ptr noundef readonly captures(non
   br label %50
 
 50:                                               ; preds = %44, %41, %30, %27, %23, %17, %47, %13
-  %.0 = phi i1 [ false, %13 ], [ false, %30 ], [ true, %47 ], [ false, %41 ], [ false, %27 ], [ false, %23 ], [ false, %17 ], [ false, %44 ]
+  %.0 = phi i1 [ false, %13 ], [ true, %47 ], [ false, %17 ], [ false, %23 ], [ false, %27 ], [ false, %30 ], [ false, %41 ], [ false, %44 ]
   ret i1 %.0
 }
 
@@ -260,7 +260,7 @@ define internal noundef zeroext i1 @capsa_seek_read(ptr noundef readonly capture
   br label %19
 
 19:                                               ; preds = %10, %15, %18, %5
-  %.0 = phi i1 [ false, %15 ], [ false, %5 ], [ false, %18 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %18 ], [ false, %15 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -402,7 +402,7 @@ define internal fastcc range(i32 -1, 65504) i32 @capsa_read_packet(i16 %.96.val.
   br label %69
 
 69:                                               ; preds = %51, %35, %9, %7, %49
-  %.055 = phi i32 [ -1, %9 ], [ -1, %7 ], [ -1, %49 ], [ %spec.select57, %51 ], [ -1, %35 ]
+  %.055 = phi i32 [ -1, %49 ], [ -1, %7 ], [ -1, %9 ], [ -1, %35 ], [ %spec.select57, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.055

@@ -55,7 +55,7 @@ define internal range(i32 0, 100) i32 @flic_probe(ptr noundef readonly captures(
   br label %24
 
 24:                                               ; preds = %20, %16, %13, %5, %1
-  %.0 = phi i32 [ 0, %16 ], [ 0, %1 ], [ 0, %5 ], [ 0, %13 ], [ %spec.select, %20 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ 0, %13 ], [ 0, %16 ], [ %spec.select, %20 ]
   ret i32 %.0
 }
 
@@ -235,7 +235,7 @@ define internal range(i32 -2147483648, 1) i32 @flic_read_header(ptr noundef %0) 
   br label %92
 
 92:                                               ; preds = %53, %89, %90, %84, %79, %51, %36, %10, %1, %91, %45
-  %.0 = phi i32 [ -5, %1 ], [ -12, %10 ], [ -5, %45 ], [ %82, %79 ], [ %38, %36 ], [ -12, %51 ], [ -1094995529, %91 ], [ 0, %84 ], [ 0, %90 ], [ 0, %89 ], [ 0, %53 ]
+  %.0 = phi i32 [ -5, %45 ], [ -1094995529, %91 ], [ -5, %1 ], [ -12, %10 ], [ %38, %36 ], [ -12, %51 ], [ %82, %79 ], [ 0, %84 ], [ 0, %90 ], [ 0, %89 ], [ 0, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -351,7 +351,7 @@ define internal i32 @flic_read_packet(ptr noundef readonly captures(none) %0, pt
   br i1 %.not63, label %.lr.ph, label %.critedge, !llvm.loop !65
 
 .critedge:                                        ; preds = %62, %.lr.ph, %2, %57, %49
-  %.1 = phi i32 [ %spec.select, %57 ], [ %spec.store.select, %49 ], [ 0, %2 ], [ -5, %.lr.ph ], [ 6, %62 ]
+  %.1 = phi i32 [ %spec.store.select, %49 ], [ %spec.select, %57 ], [ 0, %2 ], [ -5, %.lr.ph ], [ 6, %62 ]
   %67 = call i32 @avio_feof(ptr noundef %7) #5
   %.not67 = icmp eq i32 %67, 0
   %68 = select i1 %.not67, i32 %.1, i32 -541478725
@@ -410,7 +410,7 @@ define internal range(i32 -1, 1) i32 @flic_read_seek(ptr noundef readonly captur
   br label %34
 
 34:                                               ; preds = %19, %4, %14, %.thread
-  %.023 = phi i32 [ 0, %.thread ], [ -1, %4 ], [ -1, %14 ], [ -1, %19 ]
+  %.023 = phi i32 [ 0, %.thread ], [ -1, %14 ], [ -1, %4 ], [ -1, %19 ]
   ret i32 %.023
 }
 

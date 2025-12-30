@@ -151,7 +151,7 @@ assertTLSValue.exit:                              ; preds = %16, %22
   br label %confirmingTLSSet.exit.thread
 
 confirmingTLSSet.exit.thread:                     ; preds = %assertTLSValue.exit, %11, %45, %2
-  %.014 = phi i8 [ 0, %2 ], [ %47, %45 ], [ 0, %11 ], [ 0, %assertTLSValue.exit ]
+  %.014 = phi i8 [ 0, %2 ], [ 0, %11 ], [ %47, %45 ], [ 0, %assertTLSValue.exit ]
   ret i8 %.014
 }
 

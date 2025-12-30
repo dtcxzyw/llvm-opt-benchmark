@@ -852,7 +852,7 @@ select.unfold:                                    ; preds = %56
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23, !noalias !100
   unreachable
 
-.thread58:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hbe6ded984013275eE.exit.i.i", %58
+.thread58:                                        ; preds = %58, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hbe6ded984013275eE.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !96
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h3d4a911103a348c8E.exit"
@@ -915,7 +915,7 @@ select.unfold:                                    ; preds = %56
   %79 = invoke noundef align 8 dereferenceable(88) ptr @"_ZN93_$LT$actix_http..responses..head..BoxedResponseHead$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h6f669ee376630478E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.745.0..sroa_idx)
           to label %80 unwind label %153
 
-.thread66:                                        ; preds = %81, %80
+.thread66:                                        ; preds = %80, %81
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread53
@@ -1156,7 +1156,7 @@ select.unfold:                                    ; preds = %56
           to label %.thread53 unwind label %151
 
 .thread53:                                        ; preds = %153, %.thread66, %70, %54, %32
-  %.pn.pn56 = phi { ptr, i32 } [ %71, %70 ], [ %55, %54 ], [ %33, %32 ], [ %lpad.thr_comm, %.thread66 ], [ %lpad.thr_comm.split-lp, %153 ]
+  %.pn.pn56 = phi { ptr, i32 } [ %33, %32 ], [ %55, %54 ], [ %71, %70 ], [ %lpad.thr_comm.split-lp, %153 ], [ %lpad.thr_comm, %.thread66 ]
   invoke void @"_ZN68_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha467eeae9528831cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24)
           to label %162 unwind label %151
 

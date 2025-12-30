@@ -860,7 +860,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit374:       ; preds = %_ZNSt10filesystem7_
   br i1 %324, label %304, label %._crit_edge570, !llvm.loop !74
 
 ._crit_edge570:                                   ; preds = %304, %294, %.loopexit527
-  %.1291787 = phi i32 [ %295, %294 ], [ %.1291, %.loopexit527 ], [ %.1291, %304 ]
+  %.1291787 = phi i32 [ %.1291, %.loopexit527 ], [ %295, %294 ], [ %.1291, %304 ]
   %325 = load float, ptr %246, align 4, !tbaa !66
   %326 = load ptr, ptr %16, align 8, !tbaa !64
   %327 = load ptr, ptr %14, align 8, !tbaa !75
@@ -2192,7 +2192,7 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EED2Ev.exit: 
   br label %1028
 
 .body:                                            ; preds = %.loopexit526, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %209, %215, %220, %870, %559, %543, %532, %472, %343, %291, %186, %181
-  %.pn348 = phi { ptr, i32 } [ %.pn322, %181 ], [ %.pn346, %343 ], [ %.pn344, %543 ], [ %.pn342, %559 ], [ %.pn338.pn.pn, %870 ], [ %.pn332.pn.pn, %532 ], [ %.pn328.pn.pn, %472 ], [ %.pn326, %291 ], [ %.pn324, %186 ], [ %221, %220 ], [ %210, %209 ], [ %216, %215 ], [ %lpad.loopexit, %.loopexit526 ], [ %lpad.loopexit528, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit531, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn348 = phi { ptr, i32 } [ %.pn346, %343 ], [ %.pn344, %543 ], [ %.pn342, %559 ], [ %.pn338.pn.pn, %870 ], [ %.pn332.pn.pn, %532 ], [ %.pn328.pn.pn, %472 ], [ %.pn326, %291 ], [ %.pn324, %186 ], [ %.pn322, %181 ], [ %210, %209 ], [ %216, %215 ], [ %221, %220 ], [ %lpad.loopexit, %.loopexit526 ], [ %lpad.loopexit528, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit531, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %1017 = getelementptr inbounds nuw i8, ptr %24, i64 96
   br label %1018
 

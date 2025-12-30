@@ -221,7 +221,7 @@ bytestream2_get_be16.exit80:                      ; preds = %35
   br label %.critedge
 
 .critedge:                                        ; preds = %75, %72, %73, %74, %bytestream2_get_be16.exit80, %35, %bytestream2_init.exit, %77
-  %.not77 = phi i1 [ false, %bytestream2_get_be16.exit80 ], [ false, %bytestream2_init.exit ], [ false, %35 ], [ true, %77 ], [ true, %74 ], [ true, %73 ], [ true, %72 ], [ true, %75 ]
+  %.not77 = phi i1 [ true, %77 ], [ false, %bytestream2_init.exit ], [ false, %35 ], [ false, %bytestream2_get_be16.exit80 ], [ true, %74 ], [ true, %73 ], [ true, %72 ], [ true, %75 ]
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !34
   %85 = load ptr, ptr %84, align 8, !tbaa !41
@@ -252,7 +252,7 @@ bytestream2_get_be16.exit80:                      ; preds = %35
   br label %96
 
 96:                                               ; preds = %90, %87, %.critedge, %56, %bytestream2_get_be32.exit, %94
-  %.0 = phi i32 [ -1094995529, %.critedge ], [ %88, %87 ], [ %95, %94 ], [ %59, %56 ], [ -1094995529, %bytestream2_get_be32.exit ], [ %92, %90 ]
+  %.0 = phi i32 [ %95, %94 ], [ -1094995529, %bytestream2_get_be32.exit ], [ %59, %56 ], [ -1094995529, %.critedge ], [ %88, %87 ], [ %92, %90 ]
   ret i32 %.0
 }
 
@@ -914,7 +914,7 @@ bytestream2_get_byte.exit117:                     ; preds = %146, %147
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit150, %.loopexit.loopexit149, %.loopexit.loopexit, %bytestream2_get_byte.exit113
-  %.199 = phi i32 [ %74, %bytestream2_get_byte.exit113 ], [ %165, %.loopexit.loopexit149 ], [ %164, %.loopexit.loopexit ], [ %166, %.loopexit.loopexit150 ]
+  %.199 = phi i32 [ %74, %bytestream2_get_byte.exit113 ], [ %164, %.loopexit.loopexit ], [ %165, %.loopexit.loopexit149 ], [ %166, %.loopexit.loopexit150 ]
   %.pre174 = load ptr, ptr %18, align 8, !tbaa !40
   %.pre175 = load ptr, ptr %17, align 8, !tbaa !38
   %167 = ptrtoint ptr %.pre174 to i64
@@ -1185,8 +1185,8 @@ bytestream2_get_byte.exit92:                      ; preds = %90, %91
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %bytestream2_get_byte.exit84, %110
-  %.pre132 = phi ptr [ %.pre132134, %bytestream2_get_byte.exit84 ], [ %117, %110 ], [ %.pre132.pre, %.loopexit.loopexit ]
-  %.1 = phi i32 [ %62, %bytestream2_get_byte.exit84 ], [ %106, %110 ], [ %118, %.loopexit.loopexit ]
+  %.pre132 = phi ptr [ %117, %110 ], [ %.pre132134, %bytestream2_get_byte.exit84 ], [ %.pre132.pre, %.loopexit.loopexit ]
+  %.1 = phi i32 [ %106, %110 ], [ %62, %bytestream2_get_byte.exit84 ], [ %118, %.loopexit.loopexit ]
   %.pre131 = load ptr, ptr %14, align 8, !tbaa !40
   %119 = ptrtoint ptr %.pre131 to i64
   %120 = ptrtoint ptr %.pre132 to i64
@@ -1766,7 +1766,7 @@ bytestream2_get_byte.exit94:                      ; preds = %145, %146
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %bytestream2_get_byte.exit90, %bytestream2_get_byte.exit94, %._crit_edge
-  %.1 = phi i32 [ %61, %bytestream2_get_byte.exit90 ], [ %.3.lcssa, %._crit_edge ], [ %152, %bytestream2_get_byte.exit94 ], [ %153, %.loopexit.loopexit ]
+  %.1 = phi i32 [ %152, %bytestream2_get_byte.exit94 ], [ %.3.lcssa, %._crit_edge ], [ %61, %bytestream2_get_byte.exit90 ], [ %153, %.loopexit.loopexit ]
   %.pre143 = load ptr, ptr %14, align 8, !tbaa !40
   %.pre144 = load ptr, ptr %13, align 8, !tbaa !38
   %154 = ptrtoint ptr %.pre143 to i64
@@ -2047,7 +2047,7 @@ bytestream2_get_le32.exit83:                      ; preds = %113, %114
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %bytestream2_get_byte.exit80, %bytestream2_get_le32.exit83, %._crit_edge
-  %.1 = phi i32 [ %62, %bytestream2_get_byte.exit80 ], [ %.3.lcssa, %._crit_edge ], [ %119, %bytestream2_get_le32.exit83 ], [ %120, %.loopexit.loopexit ]
+  %.1 = phi i32 [ %119, %bytestream2_get_le32.exit83 ], [ %.3.lcssa, %._crit_edge ], [ %62, %bytestream2_get_byte.exit80 ], [ %120, %.loopexit.loopexit ]
   %.pre132 = load ptr, ptr %14, align 8, !tbaa !40
   %.pre133 = load ptr, ptr %13, align 8, !tbaa !38
   %121 = ptrtoint ptr %.pre132 to i64

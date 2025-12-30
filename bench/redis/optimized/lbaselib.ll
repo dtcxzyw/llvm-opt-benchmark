@@ -485,7 +485,7 @@ define internal i32 @luaB_print(ptr noundef %0) #0 {
   br label %14
 
 14:                                               ; preds = %.thread, %._crit_edge
-  %.2 = phi i32 [ %4, %.thread ], [ 0, %._crit_edge ]
+  %.2 = phi i32 [ 0, %._crit_edge ], [ %4, %.thread ]
   ret i32 %.2
 }
 
@@ -803,7 +803,7 @@ define internal i32 @luaB_unpack(ptr noundef %0) #0 {
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %10, %17
-  %.0 = phi i32 [ 0, %10 ], [ %18, %17 ], [ %15, %19 ], [ %15, %.lr.ph ]
+  %.0 = phi i32 [ %18, %17 ], [ 0, %10 ], [ %15, %19 ], [ %15, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -1176,7 +1176,7 @@ define internal noundef i32 @luaB_costatus(ptr noundef %0) #0 {
   br label %costatus.exit
 
 costatus.exit:                                    ; preds = %27, %26, %18, %.split7, %15, %14, %6, %.split
-  %phi.call = phi i64 [ 1, %6 ], [ %.1.i, %14 ], [ 3, %15 ], [ 0, %.split ], [ %.1.i9, %26 ], [ 3, %27 ], [ 0, %.split7 ], [ 1, %18 ]
+  %phi.call = phi i64 [ 3, %15 ], [ %.1.i, %14 ], [ 0, %.split ], [ 1, %6 ], [ 3, %27 ], [ %.1.i9, %26 ], [ 0, %.split7 ], [ 1, %18 ]
   %28 = getelementptr inbounds nuw ptr, ptr @statnames, i64 %phi.call
   %29 = load ptr, ptr %28, align 8, !tbaa !16
   call void @lua_pushstring(ptr noundef %0, ptr noundef %29) #8
@@ -1253,7 +1253,7 @@ define internal fastcc i32 @auxresume(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %costatus.exit
 
 costatus.exit:                                    ; preds = %3, %6, %14, %15
-  %.0.i = phi i32 [ %.1.i, %14 ], [ 3, %15 ], [ 0, %3 ], [ %7, %6 ]
+  %.0.i = phi i32 [ 3, %15 ], [ %.1.i, %14 ], [ 0, %3 ], [ %7, %6 ]
   %16 = call i32 @lua_checkstack(ptr noundef %1, i32 noundef %2) #8
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %19

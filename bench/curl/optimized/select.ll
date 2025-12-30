@@ -45,7 +45,7 @@ define hidden range(i32 -1, 1) i32 @Curl_wait_ms(i64 noundef %0) local_unnamed_a
   br label %15
 
 15:                                               ; preds = %14, %7, %10, %1, %5
-  %.07 = phi i32 [ -1, %5 ], [ 0, %1 ], [ %9, %7 ], [ -1, %14 ], [ 0, %10 ]
+  %.07 = phi i32 [ -1, %5 ], [ 0, %1 ], [ -1, %14 ], [ %9, %7 ], [ 0, %10 ]
   ret i32 %.07
 }
 
@@ -205,7 +205,7 @@ define hidden range(i32 -2147483648, 16) i32 @Curl_socket_check(i32 noundef %0, 
   br label %Curl_wait_ms.exit
 
 Curl_wait_ms.exit:                                ; preds = %21, %17, %14, %12, %9, %62, %61, %40
-  %.053 = phi i32 [ %spec.select68, %62 ], [ %41, %40 ], [ %.3, %61 ], [ -1, %12 ], [ 0, %9 ], [ %16, %14 ], [ -1, %21 ], [ 0, %17 ]
+  %.053 = phi i32 [ %41, %40 ], [ %.3, %61 ], [ %spec.select68, %62 ], [ -1, %12 ], [ 0, %9 ], [ -1, %21 ], [ %16, %14 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.053
 }
@@ -327,7 +327,7 @@ condstore.split:                                  ; preds = %.preheader
   br i1 %exitcond50.not, label %Curl_wait_ms.exit, label %.preheader, !llvm.loop !14
 
 Curl_wait_ms.exit:                                ; preds = %46, %20, %16, %13, %11, %.critedge, %32, %30
-  %.035 = phi i32 [ %spec.select, %32 ], [ 0, %16 ], [ %28, %30 ], [ -1, %11 ], [ 0, %.critedge ], [ %15, %13 ], [ -1, %20 ], [ %28, %46 ]
+  %.035 = phi i32 [ %28, %30 ], [ %spec.select, %32 ], [ -1, %11 ], [ 0, %.critedge ], [ -1, %20 ], [ %15, %13 ], [ 0, %16 ], [ %28, %46 ]
   ret i32 %.035
 }
 
@@ -435,7 +435,7 @@ cpfds_increase.exit.thread.i:                     ; preds = %21, %13
   br label %cpfds_add_sock.exit
 
 cpfds_add_sock.exit:                              ; preds = %8, %26
-  %.021.i = phi i32 [ 27, %8 ], [ 0, %26 ]
+  %.021.i = phi i32 [ 0, %26 ], [ 27, %8 ]
   ret i32 %.021.i
 }
 

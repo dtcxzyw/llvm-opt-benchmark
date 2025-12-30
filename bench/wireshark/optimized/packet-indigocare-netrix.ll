@@ -697,7 +697,7 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %270
 
 270:                                              ; preds = %39, %35, %25, %._crit_edge, %14
-  %.0 = phi i32 [ 1, %14 ], [ 0, %35 ], [ 0, %25 ], [ %269, %._crit_edge ], [ 0, %39 ]
+  %.0 = phi i32 [ 1, %14 ], [ %269, %._crit_edge ], [ 0, %25 ], [ 0, %35 ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

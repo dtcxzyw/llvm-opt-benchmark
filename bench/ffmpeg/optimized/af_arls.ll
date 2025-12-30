@@ -303,7 +303,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   br i1 %101, label %.preheader, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %13, %45, %114, %.preheader99, %.thread, %.loopexit97, %66, %110, %93
-  %.1 = phi i32 [ -12, %.thread ], [ 0, %110 ], [ 0, %114 ], [ 0, %93 ], [ %84, %66 ], [ 0, %.preheader99 ], [ 0, %.loopexit97 ], [ %49, %45 ], [ 0, %13 ]
+  %.1 = phi i32 [ 0, %110 ], [ 0, %93 ], [ %84, %66 ], [ 0, %.loopexit97 ], [ -12, %.thread ], [ 0, %.preheader99 ], [ 0, %114 ], [ %49, %45 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
@@ -596,13 +596,13 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef %0) #1 {
   br i1 %129, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !82
 
 .sink.split:                                      ; preds = %._crit_edge119.us, %._crit_edge126.us, %.preheader110, %.lr.ph121, %.preheader, %.lr.ph128
-  %filter_channels_double.sink = phi ptr [ @filter_channels_double, %.preheader ], [ @filter_channels_float, %.preheader110 ], [ @filter_channels_double, %.lr.ph128 ], [ @filter_channels_double, %._crit_edge126.us ], [ @filter_channels_float, %.lr.ph121 ], [ @filter_channels_float, %._crit_edge119.us ]
+  %filter_channels_double.sink = phi ptr [ @filter_channels_double, %.lr.ph128 ], [ @filter_channels_double, %.preheader ], [ @filter_channels_float, %.lr.ph121 ], [ @filter_channels_float, %.preheader110 ], [ @filter_channels_double, %._crit_edge126.us ], [ @filter_channels_float, %._crit_edge119.us ]
   %130 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store ptr %filter_channels_double.sink, ptr %130, align 8, !tbaa !44
   br label %131
 
 131:                                              ; preds = %.sink.split, %73, %._crit_edge115, %61, %63, %65, %67, %69, %71
-  %.084 = phi i32 [ -12, %61 ], [ 0, %._crit_edge115 ], [ -12, %73 ], [ -12, %71 ], [ -12, %69 ], [ -12, %67 ], [ -12, %65 ], [ -12, %63 ], [ 0, %.sink.split ]
+  %.084 = phi i32 [ -12, %73 ], [ -12, %71 ], [ -12, %69 ], [ -12, %67 ], [ -12, %65 ], [ -12, %63 ], [ -12, %61 ], [ 0, %._crit_edge115 ], [ 0, %.sink.split ]
   ret i32 %.084
 }
 

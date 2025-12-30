@@ -442,7 +442,7 @@ define hidden void @_display_module_trouble_message_callback(ptr readnone captur
   br label %18
 
 18:                                               ; preds = %11, %8, %5, %4
-  %.0 = phi ptr [ null, %4 ], [ %spec.select, %11 ], [ null, %8 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %5 ], [ null, %4 ], [ %spec.select, %11 ]
   %.not40 = icmp eq ptr %2, null
   br i1 %.not40, label %43, label %19
 
@@ -1239,7 +1239,7 @@ _preview2_request.exit.thread:                    ; preds = %182, %189, %191, %_
   br label %348
 
 348:                                              ; preds = %334, %.thread320, %339, %325, %322, %317, %316
-  %.not263 = phi i1 [ false, %316 ], [ false, %325 ], [ false, %322 ], [ false, %317 ], [ true, %339 ], [ true, %.thread320 ], [ true, %334 ]
+  %.not263 = phi i1 [ false, %325 ], [ false, %322 ], [ false, %317 ], [ false, %316 ], [ true, %339 ], [ true, %.thread320 ], [ true, %334 ]
   %349 = getelementptr inbounds nuw i8, ptr %271, i64 208
   %350 = load ptr, ptr %349, align 16, !tbaa !206
   %.not259 = icmp eq ptr %350, null
@@ -1492,7 +1492,7 @@ define internal fastcc void @_darkroom_pickers_draw(ptr noundef readonly capture
   br label %29
 
 29:                                               ; preds = %26, %15
-  %.not101 = phi i1 [ %.not92, %26 ], [ true, %15 ]
+  %.not101 = phi i1 [ true, %15 ], [ %.not92, %26 ]
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %31 = select reassoc nsz arcp contract afn i1 %24, double 5.000000e+00, double 4.000000e+00
   %invariant.op = fmul reassoc nsz arcp contract afn double %31, 2.000000e+00
@@ -1691,7 +1691,7 @@ define internal fastcc void @_darkroom_pickers_draw(ptr noundef readonly capture
   br label %139
 
 139:                                              ; preds = %135, %131
-  %140 = phi i32 [ %138, %135 ], [ 0, %131 ]
+  %140 = phi i32 [ 0, %131 ], [ %138, %135 ]
   call void @cairo_set_dash(ptr noundef %1, ptr noundef nonnull %6, i32 noundef %140, double noundef 0.000000e+00) #19
   call void @cairo_set_source_rgba(ptr noundef %1, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 8.000000e-01) #19
   call void @cairo_stroke(ptr noundef %1) #19
@@ -2118,7 +2118,7 @@ dt_dev_gui_module.exit30:                         ; preds = %37
   br label %dt_dev_gui_module.exit30.thread
 
 dt_dev_gui_module.exit30.thread:                  ; preds = %37, %45, %48, %dt_dev_gui_module.exit30
-  %52 = phi ptr [ null, %dt_dev_gui_module.exit30 ], [ %40, %45 ], [ %40, %48 ], [ null, %37 ]
+  %52 = phi ptr [ %40, %45 ], [ %40, %48 ], [ null, %dt_dev_gui_module.exit30 ], [ null, %37 ]
   %53 = getelementptr inbounds nuw i8, ptr %38, i64 2624
   tail call void @dt_dev_zoom_move(ptr noundef nonnull %53, i32 noundef 7, float noundef 0.000000e+00, i32 noundef 0, float noundef -1.000000e+00, float noundef -1.000000e+00, i32 noundef 1) #19
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 2176
@@ -3555,7 +3555,7 @@ define internal void @_display_profile_callback(ptr noundef %0, ptr noundef %1) 
   tail call void @dt_dev_reprocess_all(ptr noundef %1) #19
   br label %.critedge
 
-.critedge:                                        ; preds = %16, %14, %44, %._crit_edge
+.critedge:                                        ; preds = %14, %16, %44, %._crit_edge
   ret void
 }
 
@@ -3651,7 +3651,7 @@ define internal void @_display2_profile_callback(ptr noundef %0, ptr noundef %1)
   tail call void @dt_dev_reprocess_all(ptr noundef %1) #19
   br label %.critedge
 
-.critedge:                                        ; preds = %16, %14, %44, %._crit_edge
+.critedge:                                        ; preds = %14, %16, %44, %._crit_edge
   ret void
 }
 
@@ -3750,7 +3750,7 @@ define internal void @_softproof_profile_callback(ptr noundef %0, ptr noundef %1
   tail call void @dt_dev_reprocess_all(ptr noundef %1) #19
   br label %.critedge
 
-.critedge:                                        ; preds = %16, %14, %38, %._crit_edge
+.critedge:                                        ; preds = %14, %16, %38, %._crit_edge
   ret void
 }
 
@@ -3838,7 +3838,7 @@ define internal void @_histogram_profile_callback(ptr noundef %0, ptr noundef %1
   tail call void @dt_dev_reprocess_all(ptr noundef %1) #19
   br label %.critedge
 
-.critedge:                                        ; preds = %16, %14, %38, %._crit_edge
+.critedge:                                        ; preds = %14, %16, %38, %._crit_edge
   ret void
 }
 
@@ -6193,7 +6193,7 @@ _get_zoom_pos.exit53:                             ; preds = %69, %72
   br label %85
 
 85:                                               ; preds = %_get_zoom_pos.exit53, %83, %84, %_get_zoom_pos.exit52, %_get_zoom_pos.exit
-  %.2 = phi i32 [ %.mux, %_get_zoom_pos.exit53 ], [ %43, %_get_zoom_pos.exit ], [ %59, %_get_zoom_pos.exit52 ], [ 1, %84 ], [ 1, %83 ]
+  %.2 = phi i32 [ %43, %_get_zoom_pos.exit ], [ %59, %_get_zoom_pos.exit52 ], [ %.mux, %_get_zoom_pos.exit53 ], [ 1, %84 ], [ 1, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -6491,7 +6491,7 @@ _get_zoom_pos.exit175:                            ; preds = %113
   call void @dt_lib_colorpicker_set_point(ptr noundef %175, ptr noundef nonnull %129) #19
   br label %177
 
-.thread:                                          ; preds = %128, %153, %166, %132, %135, %142, %150
+.thread:                                          ; preds = %128, %153, %166, %132, %142, %135, %150
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %176 = getelementptr inbounds nuw i8, ptr %.0141201, i64 8
   %.0141 = load ptr, ptr %176, align 8, !tbaa !352
@@ -6655,7 +6655,7 @@ _get_zoom_pos.exit178:                            ; preds = %240, %243
   br label %254
 
 254:                                              ; preds = %.thread193, %183, %.thread190, %177, %222, %_get_zoom_pos.exit178, %.critedge, %_get_zoom_pos.exit176, %_get_zoom_pos.exit177, %218, %237, %235, %25, %_get_zoom_pos.exit, %27
-  %.0 = phi i32 [ 0, %25 ], [ 1, %27 ], [ %40, %_get_zoom_pos.exit ], [ 1, %.critedge ], [ %194, %_get_zoom_pos.exit176 ], [ %217, %_get_zoom_pos.exit177 ], [ 1, %222 ], [ %253, %_get_zoom_pos.exit178 ], [ 0, %218 ], [ 0, %235 ], [ 0, %237 ], [ 1, %177 ], [ 1, %.thread190 ], [ 1, %183 ], [ 0, %.thread193 ]
+  %.0 = phi i32 [ 1, %27 ], [ %40, %_get_zoom_pos.exit ], [ 0, %25 ], [ 1, %222 ], [ %253, %_get_zoom_pos.exit178 ], [ 1, %.critedge ], [ %194, %_get_zoom_pos.exit176 ], [ %217, %_get_zoom_pos.exit177 ], [ 0, %218 ], [ 0, %237 ], [ 0, %235 ], [ 1, %177 ], [ 1, %.thread190 ], [ 1, %183 ], [ 0, %.thread193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -7314,7 +7314,7 @@ define internal fastcc void @_dev_change_image(ptr noundef %0, i32 noundef range
   call void @dt_selection_select_single(ptr noundef %56, i32 noundef %1) #19
   br label %59
 
-.critedge:                                        ; preds = %45, %41
+.critedge:                                        ; preds = %41, %45
   %57 = load ptr, ptr %4, align 8, !tbaa !362
   %58 = call i32 @sqlite3_finalize(ptr noundef %57) #19
   br label %59
@@ -7885,7 +7885,7 @@ define internal range(i32 0, 2) i32 @_dev_load_requested_image(ptr noundef %0) #
   br label %203
 
 203:                                              ; preds = %10, %1, %200, %30, %20
-  %.0 = phi i32 [ 0, %200 ], [ 0, %1 ], [ 1, %20 ], [ 1, %30 ], [ 1, %10 ]
+  %.0 = phi i32 [ 1, %20 ], [ 1, %30 ], [ 0, %200 ], [ 0, %1 ], [ 1, %10 ]
   ret i32 %.0
 }
 
@@ -8178,7 +8178,7 @@ define internal range(i32 0, 2) i32 @_second_window_button_pressed_callback(ptr 
   br label %37
 
 37:                                               ; preds = %6, %3, %21, %9
-  %.0 = phi i32 [ 0, %3 ], [ 1, %9 ], [ 1, %21 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %9 ], [ 1, %21 ], [ 0, %3 ], [ 0, %6 ]
   ret i32 %.0
 }
 

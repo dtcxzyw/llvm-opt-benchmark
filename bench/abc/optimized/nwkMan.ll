@@ -397,7 +397,7 @@ Abc_UtilStrsav.exit:                              ; preds = %35, %37
   br label %46
 
 46:                                               ; preds = %22, %28, %30, %6, %4, %Abc_UtilStrsav.exit
-  %.0 = phi i32 [ 0, %6 ], [ 1, %Abc_UtilStrsav.exit ], [ 0, %4 ], [ 0, %30 ], [ 0, %28 ], [ 0, %22 ]
+  %.0 = phi i32 [ 1, %Abc_UtilStrsav.exit ], [ 0, %4 ], [ 0, %6 ], [ 0, %30 ], [ 0, %28 ], [ 0, %22 ]
   ret i32 %.0
 }
 

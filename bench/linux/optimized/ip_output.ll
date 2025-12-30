@@ -1045,7 +1045,7 @@ ip_fragment.exit:                                 ; preds = %138, %150, %154
   br label %.critedge
 
 .critedge:                                        ; preds = %ip_fragment.exit, %197, %191, %179, %199, %120, %111, %24, %22, %18
-  %201 = phi i32 [ %198, %197 ], [ %200, %199 ], [ %19, %18 ], [ %23, %22 ], [ %25, %24 ], [ %112, %111 ], [ -12, %120 ], [ %180, %179 ], [ -90, %191 ], [ %160, %ip_fragment.exit ]
+  %201 = phi i32 [ %200, %199 ], [ %19, %18 ], [ %23, %22 ], [ %25, %24 ], [ %112, %111 ], [ -12, %120 ], [ %180, %179 ], [ -90, %191 ], [ %198, %197 ], [ %160, %ip_fragment.exit ]
   ret i32 %201
 }
 
@@ -3405,11 +3405,11 @@ define internal fastcc i32 @__ip_append_data(ptr noundef %0, ptr noundef readonl
   br label %.critedge32.thread
 
 .critedge32.thread:                               ; preds = %180, %194, %209, %.critedge, %133, %134, %.thread37, %232, %223
-  %.shrunk = phi i1 [ false, %223 ], [ false, %232 ], [ %173, %180 ], [ %173, %194 ], [ false, %209 ], [ false, %.critedge ], [ false, %133 ], [ false, %134 ], [ %173, %.thread37 ]
-  %242 = phi i1 [ %29, %223 ], [ %240, %232 ], [ %29, %180 ], [ %29, %194 ], [ %29, %209 ], [ %29, %.critedge ], [ true, %133 ], [ %29, %134 ], [ true, %.thread37 ]
-  %243 = phi i1 [ false, %223 ], [ false, %232 ], [ false, %180 ], [ false, %194 ], [ false, %209 ], [ false, %.critedge ], [ true, %133 ], [ false, %134 ], [ true, %.thread37 ]
-  %244 = phi ptr [ null, %223 ], [ null, %232 ], [ %172, %180 ], [ %172, %194 ], [ %172, %209 ], [ null, %.critedge ], [ %110, %133 ], [ null, %134 ], [ %172, %.thread37 ]
-  %.fr121 = phi i32 [ %9, %223 ], [ %241, %232 ], [ %9, %180 ], [ %9, %194 ], [ %9, %209 ], [ %9, %.critedge ], [ %9, %133 ], [ %9, %134 ], [ %9, %.thread37 ]
+  %.shrunk = phi i1 [ false, %232 ], [ false, %223 ], [ %173, %180 ], [ %173, %194 ], [ false, %209 ], [ false, %.critedge ], [ false, %133 ], [ false, %134 ], [ %173, %.thread37 ]
+  %242 = phi i1 [ %240, %232 ], [ %29, %223 ], [ %29, %180 ], [ %29, %194 ], [ %29, %209 ], [ %29, %.critedge ], [ true, %133 ], [ %29, %134 ], [ true, %.thread37 ]
+  %243 = phi i1 [ false, %232 ], [ false, %223 ], [ false, %180 ], [ false, %194 ], [ false, %209 ], [ false, %.critedge ], [ true, %133 ], [ false, %134 ], [ true, %.thread37 ]
+  %244 = phi ptr [ null, %232 ], [ null, %223 ], [ %172, %180 ], [ %172, %194 ], [ %172, %209 ], [ null, %.critedge ], [ %110, %133 ], [ null, %134 ], [ %172, %.thread37 ]
+  %.fr121 = phi i32 [ %241, %232 ], [ %9, %223 ], [ %9, %180 ], [ %9, %194 ], [ %9, %209 ], [ %9, %.critedge ], [ %9, %133 ], [ %9, %134 ], [ %9, %.thread37 ]
   %245 = zext i1 %.shrunk to i8
   %246 = load i32, ptr %62, align 4
   %247 = add i32 %246, %7
@@ -3484,7 +3484,7 @@ define internal fastcc i32 @__ip_append_data(ptr noundef %0, ptr noundef readonl
   br i1 %296, label %.loopexit, label %297
 
 297:                                              ; preds = %.split.us.split.us
-  %298 = call i32 @llvm.smin.i32(i32 %295, i32 %289)
+  %298 = call i32 @llvm.umin.i32(i32 %295, i32 %289)
   %299 = load ptr, ptr %15, align 8
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 176
   %301 = load i64, ptr %300, align 8
@@ -3813,8 +3813,8 @@ define internal fastcc i32 @__ip_append_data(ptr noundef %0, ptr noundef readonl
   br label %.thread45.us
 
 .thread45.us:                                     ; preds = %.thread49.us, %346
-  %512 = phi i32 [ %325, %346 ], [ %511, %.thread49.us ]
-  %513 = phi i32 [ %333, %346 ], [ %480, %.thread49.us ]
+  %512 = phi i32 [ %511, %.thread49.us ], [ %325, %346 ]
+  %513 = phi i32 [ %480, %.thread49.us ], [ %333, %346 ]
   %514 = add i32 %513, %324
   %515 = sub i32 %323, %513
   %516 = icmp sgt i32 %515, 0
@@ -4200,9 +4200,9 @@ define internal fastcc i32 @__ip_append_data(ptr noundef %0, ptr noundef readonl
   br i1 %777, label %.split83.us, label %.thread45
 
 .split83.us:                                      ; preds = %774, %346, %312
-  %.us-phi84 = phi i32 [ %323, %346 ], [ %289, %312 ], [ %517, %774 ]
-  %.us-phi85 = phi i32 [ %325, %346 ], [ %263, %312 ], [ %519, %774 ]
-  %.us-phi86 = phi i32 [ %326, %346 ], [ %291, %312 ], [ %520, %774 ]
+  %.us-phi84 = phi i32 [ %289, %312 ], [ %323, %346 ], [ %517, %774 ]
+  %.us-phi85 = phi i32 [ %263, %312 ], [ %325, %346 ], [ %519, %774 ]
+  %.us-phi86 = phi i32 [ %291, %312 ], [ %326, %346 ], [ %520, %774 ]
   %778 = load i32, ptr %274, align 4
   %779 = icmp eq i32 %778, 0
   br i1 %779, label %781, label %780, !prof !10
@@ -4263,7 +4263,7 @@ define internal fastcc i32 @__ip_append_data(ptr noundef %0, ptr noundef readonl
   br i1 %805, label %.split, label %.loopexit55, !llvm.loop !47
 
 .loopexit55:                                      ; preds = %.thread45, %.thread45.us, %.thread45.us.us, %261
-  %806 = phi i32 [ %263, %261 ], [ %512, %.thread45.us ], [ %263, %.thread45.us.us ], [ %801, %.thread45 ]
+  %806 = phi i32 [ %263, %261 ], [ %263, %.thread45.us.us ], [ %512, %.thread45.us ], [ %801, %.thread45 ]
   %807 = icmp eq i32 %806, 0
   br i1 %807, label %.critedge32, label %808
 
@@ -4292,9 +4292,9 @@ define internal fastcc i32 @__ip_append_data(ptr noundef %0, ptr noundef readonl
   br label %.thread46
 
 .thread46:                                        ; preds = %794, %.critedge34.us, %396, %.critedge34.us.us, %793, %789, %.thread43, %.split90.us, %677, %595
-  %818 = phi i8 [ %526, %595 ], [ %526, %677 ], [ %262, %.split90.us ], [ %262, %789 ], [ %526, %.thread43 ], [ %262, %793 ], [ %262, %.critedge34.us.us ], [ %262, %.critedge34.us ], [ %262, %396 ], [ %262, %794 ]
-  %819 = phi i32 [ %527, %595 ], [ %527, %677 ], [ %325, %.split90.us ], [ %.us-phi85, %789 ], [ %527, %.thread43 ], [ %519, %793 ], [ %263, %.critedge34.us.us ], [ %325, %.critedge34.us ], [ %325, %396 ], [ %519, %794 ]
-  %820 = phi i32 [ %534, %595 ], [ %534, %677 ], [ %323, %.split90.us ], [ %.us-phi84, %789 ], [ %534, %.thread43 ], [ %517, %793 ], [ %289, %.critedge34.us.us ], [ %323, %.critedge34.us ], [ %323, %396 ], [ %517, %794 ]
+  %818 = phi i8 [ %526, %595 ], [ %526, %677 ], [ %262, %.split90.us ], [ %262, %789 ], [ %526, %.thread43 ], [ %262, %793 ], [ %262, %.critedge34.us.us ], [ %262, %396 ], [ %262, %.critedge34.us ], [ %262, %794 ]
+  %819 = phi i32 [ %527, %595 ], [ %527, %677 ], [ %325, %.split90.us ], [ %.us-phi85, %789 ], [ %527, %.thread43 ], [ %519, %793 ], [ %263, %.critedge34.us.us ], [ %325, %396 ], [ %325, %.critedge34.us ], [ %519, %794 ]
+  %820 = phi i32 [ %534, %595 ], [ %534, %677 ], [ %323, %.split90.us ], [ %.us-phi84, %789 ], [ %534, %.thread43 ], [ %517, %793 ], [ %289, %.critedge34.us.us ], [ %323, %396 ], [ %323, %.critedge34.us ], [ %517, %794 ]
   %821 = icmp ne i8 %818, 0
   %822 = icmp eq ptr %244, null
   br i1 %822, label %829, label %823
@@ -4354,7 +4354,7 @@ define internal fastcc i32 @__ip_append_data(ptr noundef %0, ptr noundef readonl
   br label %.critedge32
 
 .critedge32:                                      ; preds = %123, %154, %.thread, %849, %817, %813, %812, %.loopexit55, %227, %76
-  %851 = phi i32 [ -90, %76 ], [ %850, %849 ], [ 0, %817 ], [ -1, %227 ], [ 0, %.loopexit55 ], [ 0, %812 ], [ 0, %813 ], [ -105, %154 ], [ -22, %123 ], [ -105, %.thread ]
+  %851 = phi i32 [ -90, %76 ], [ %850, %849 ], [ -1, %227 ], [ 0, %.loopexit55 ], [ 0, %812 ], [ 0, %813 ], [ 0, %817 ], [ -105, %154 ], [ -105, %.thread ], [ -22, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %851
 }

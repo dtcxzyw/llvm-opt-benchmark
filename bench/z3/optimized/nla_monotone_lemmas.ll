@@ -388,7 +388,7 @@ _ZN8rationalD2Ev.exit24:                          ; preds = %.noexc.i23
 _ZltRK8rationalS1_.exit:                          ; preds = %113
   br i1 %114, label %115, label %125
 
-115:                                              ; preds = %106, %.noexc25, %_ZltRK8rationalS1_.exit
+115:                                              ; preds = %.noexc25, %106, %_ZltRK8rationalS1_.exit
   invoke void @_ZN3nla8monotone21monotonicity_lemma_ltERKNS_5monicE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(34) %1)
           to label %158 unwind label %123
 
@@ -429,7 +429,7 @@ _ZltRK8rationalS1_.exit:                          ; preds = %113
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   br label %168
 
-125:                                              ; preds = %106, %.noexc25, %_ZltRK8rationalS1_.exit
+125:                                              ; preds = %.noexc25, %106, %_ZltRK8rationalS1_.exit
   %126 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !51
   %127 = load i8, ptr %20, align 4
   %128 = and i8 %127, 1
@@ -481,11 +481,11 @@ _ZltRK8rationalS1_.exit:                          ; preds = %113
 _ZgtRK8rationalS1_.exit:                          ; preds = %155
   br i1 %156, label %157, label %158
 
-157:                                              ; preds = %148, %.noexc27, %_ZgtRK8rationalS1_.exit
+157:                                              ; preds = %.noexc27, %148, %_ZgtRK8rationalS1_.exit
   invoke void @_ZN3nla8monotone21monotonicity_lemma_gtERKNS_5monicE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(34) %1)
           to label %158 unwind label %123
 
-158:                                              ; preds = %148, %.noexc27, %_ZgtRK8rationalS1_.exit, %157, %115
+158:                                              ; preds = %.noexc27, %148, %_ZgtRK8rationalS1_.exit, %157, %115
   %159 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !51
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %159, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc.i29 unwind label %160

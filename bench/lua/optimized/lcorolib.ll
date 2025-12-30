@@ -131,7 +131,7 @@ getco.exit:                                       ; preds = %1, %4
   br label %auxstatus.exit
 
 auxstatus.exit:                                   ; preds = %getco.exit, %7, %14, %15
-  %.0.i = phi i64 [ %.1.i, %14 ], [ 1, %15 ], [ 0, %getco.exit ], [ 2, %7 ]
+  %.0.i = phi i64 [ 1, %15 ], [ %.1.i, %14 ], [ 0, %getco.exit ], [ 2, %7 ]
   %16 = getelementptr inbounds nuw ptr, ptr @statname, i64 %.0.i
   %17 = load ptr, ptr %16, align 8, !tbaa !5
   %18 = call ptr @lua_pushstring(ptr noundef %0, ptr noundef %17) #3

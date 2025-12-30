@@ -427,9 +427,9 @@ define internal fastcc ptr @make_dummy_resp() unnamed_addr #1 {
   br label %47
 
 47:                                               ; preds = %42, %32, %36, %38, %40, %0, %13, %15, %17, %22, %27
-  %.027 = phi ptr [ null, %0 ], [ %34, %42 ], [ %34, %40 ], [ %34, %38 ], [ %34, %36 ], [ %34, %32 ], [ null, %27 ], [ null, %22 ], [ null, %17 ], [ null, %15 ], [ null, %13 ]
-  %.026 = phi ptr [ null, %0 ], [ %spec.select, %42 ], [ null, %40 ], [ null, %38 ], [ null, %36 ], [ null, %32 ], [ null, %27 ], [ null, %22 ], [ null, %17 ], [ null, %15 ], [ null, %13 ]
-  %.0 = phi ptr [ %3, %0 ], [ %spec.select38, %42 ], [ %3, %40 ], [ %3, %38 ], [ %3, %36 ], [ %3, %32 ], [ %3, %27 ], [ %3, %22 ], [ %3, %17 ], [ %3, %15 ], [ %3, %13 ]
+  %.027 = phi ptr [ %34, %40 ], [ %34, %38 ], [ %34, %36 ], [ %34, %32 ], [ null, %27 ], [ null, %22 ], [ null, %17 ], [ null, %15 ], [ null, %13 ], [ null, %0 ], [ %34, %42 ]
+  %.026 = phi ptr [ null, %40 ], [ null, %38 ], [ null, %36 ], [ null, %32 ], [ null, %27 ], [ null, %22 ], [ null, %17 ], [ null, %15 ], [ null, %13 ], [ null, %0 ], [ %spec.select, %42 ]
+  %.0 = phi ptr [ %3, %40 ], [ %3, %38 ], [ %3, %36 ], [ %3, %32 ], [ %3, %27 ], [ %3, %22 ], [ %3, %17 ], [ %3, %15 ], [ %3, %13 ], [ %3, %0 ], [ %spec.select38, %42 ]
   call void @ASN1_TIME_free(ptr noundef %5) #7
   call void @ASN1_TIME_free(ptr noundef %8) #7
   call void @ASN1_BIT_STRING_free(ptr noundef %10) #7

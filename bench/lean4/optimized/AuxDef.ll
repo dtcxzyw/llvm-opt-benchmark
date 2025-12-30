@@ -813,9 +813,9 @@ l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit: ; pr
   br label %lean_dec.exit1232
 
 lean_dec.exit1232:                                ; preds = %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit, %118, %120, %121, %lean_inc.exit1183, %64, %66, %67
-  %.01044 = phi ptr [ %50, %64 ], [ %50, %lean_inc.exit1183 ], [ %50, %67 ], [ %50, %66 ], [ %80, %121 ], [ %80, %120 ], [ %80, %118 ], [ %80, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit ]
-  %.01042 = phi ptr [ %40, %64 ], [ %40, %lean_inc.exit1183 ], [ %40, %67 ], [ %40, %66 ], [ %70, %121 ], [ %70, %120 ], [ %70, %118 ], [ %70, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit ]
-  %.01040 = phi ptr [ inttoptr (i64 1 to ptr), %64 ], [ inttoptr (i64 1 to ptr), %lean_inc.exit1183 ], [ inttoptr (i64 1 to ptr), %67 ], [ inttoptr (i64 1 to ptr), %66 ], [ %111, %121 ], [ %111, %120 ], [ %111, %118 ], [ %111, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit ]
+  %.01044 = phi ptr [ %50, %67 ], [ %50, %66 ], [ %50, %64 ], [ %50, %lean_inc.exit1183 ], [ %80, %121 ], [ %80, %120 ], [ %80, %118 ], [ %80, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit ]
+  %.01042 = phi ptr [ %40, %67 ], [ %40, %66 ], [ %40, %64 ], [ %40, %lean_inc.exit1183 ], [ %70, %121 ], [ %70, %120 ], [ %70, %118 ], [ %70, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit ]
+  %.01040 = phi ptr [ inttoptr (i64 1 to ptr), %67 ], [ inttoptr (i64 1 to ptr), %66 ], [ inttoptr (i64 1 to ptr), %64 ], [ inttoptr (i64 1 to ptr), %lean_inc.exit1183 ], [ %111, %121 ], [ %111, %120 ], [ %111, %118 ], [ %111, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit ]
   %122 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__2, align 8, !tbaa !4
   %123 = tail call ptr @l_Lean_Name_append(ptr noundef %122, ptr noundef %.01042) #6
   %124 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__4, align 8, !tbaa !4
@@ -6512,7 +6512,7 @@ lean_inc.exit:                                    ; preds = %2216, %2215, %2213,
   br label %2221
 
 2221:                                             ; preds = %lean_inc.exit1091, %lean_inc.exit1094, %lean_inc.exit1084, %lean_inc.exit1087, %lean_inc.exit1146, %lean_inc.exit1143, %lean_inc.exit1153, %lean_inc.exit1150, %lean_inc.exit1117, %lean_inc.exit1114, %lean_inc.exit1124, %lean_inc.exit1121, %lean_inc.exit1055, %lean_inc.exit, %lean_inc.exit1062, %lean_inc.exit1059
-  %.12 = phi ptr [ %1661, %lean_inc.exit1084 ], [ %1167, %lean_inc.exit1114 ], [ %730, %lean_inc.exit1143 ], [ %588, %lean_inc.exit1150 ], [ %529, %lean_inc.exit1153 ], [ %671, %lean_inc.exit1146 ], [ %1025, %lean_inc.exit1121 ], [ %966, %lean_inc.exit1124 ], [ %1108, %lean_inc.exit1117 ], [ %1519, %lean_inc.exit1091 ], [ %1460, %lean_inc.exit1094 ], [ %1602, %lean_inc.exit1087 ], [ %2078, %lean_inc.exit1059 ], [ %2019, %lean_inc.exit1062 ], [ %2161, %lean_inc.exit1055 ], [ %2220, %lean_inc.exit ]
+  %.12 = phi ptr [ %529, %lean_inc.exit1153 ], [ %588, %lean_inc.exit1150 ], [ %671, %lean_inc.exit1146 ], [ %730, %lean_inc.exit1143 ], [ %966, %lean_inc.exit1124 ], [ %1025, %lean_inc.exit1121 ], [ %1108, %lean_inc.exit1117 ], [ %1167, %lean_inc.exit1114 ], [ %1460, %lean_inc.exit1094 ], [ %1519, %lean_inc.exit1091 ], [ %1602, %lean_inc.exit1087 ], [ %1661, %lean_inc.exit1084 ], [ %2019, %lean_inc.exit1062 ], [ %2078, %lean_inc.exit1059 ], [ %2161, %lean_inc.exit1055 ], [ %2220, %lean_inc.exit ]
   ret ptr %.12
 }
 
@@ -6767,7 +6767,7 @@ l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Command_elabAuxDef___spec__1__
   br label %lean_dec.exit51
 
 lean_dec.exit51:                                  ; preds = %72, %71, %69, %.thread79
-  %73 = phi ptr [ %23, %.thread79 ], [ %66, %72 ], [ %66, %69 ], [ %66, %71 ]
+  %73 = phi ptr [ %23, %.thread79 ], [ %66, %69 ], [ %66, %71 ], [ %66, %72 ]
   %74 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__17, align 8, !tbaa !4
   %75 = ptrtoint ptr %73 to i64
   %76 = and i64 %75, 1
@@ -7261,7 +7261,7 @@ l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Command_elabAuxDef___spec__1__
   br label %lean_dec.exit63
 
 lean_dec.exit63:                                  ; preds = %113, %112, %110, %.thread108
-  %114 = phi ptr [ %66, %.thread108 ], [ %107, %113 ], [ %107, %110 ], [ %107, %112 ]
+  %114 = phi ptr [ %66, %.thread108 ], [ %107, %110 ], [ %107, %112 ], [ %107, %113 ]
   %115 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___closed__1, align 8, !tbaa !4
   %116 = ptrtoint ptr %114 to i64
   %117 = and i64 %116, 1
@@ -7485,7 +7485,7 @@ lean_dec.exit57:                                  ; preds = %188, %187, %185, %1
   br label %lean_dec.exit58
 
 lean_dec.exit58:                                  ; preds = %lean_dec.exit57, %193, %195, %196, %lean_alloc_ctor.exit, %177, %179, %180, %l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Command_elabAuxDef___spec__1___rarg.exit107, %l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Command_elabAuxDef___spec__1___rarg.exit103, %l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Command_elabAuxDef___spec__1___rarg.exit
-  %.0 = phi ptr [ %43, %l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Command_elabAuxDef___spec__1___rarg.exit ], [ %173, %lean_alloc_ctor.exit ], [ %100, %l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Command_elabAuxDef___spec__1___rarg.exit103 ], [ %161, %l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Command_elabAuxDef___spec__1___rarg.exit107 ], [ %173, %180 ], [ %173, %179 ], [ %173, %177 ], [ %189, %196 ], [ %189, %195 ], [ %189, %193 ], [ %189, %lean_dec.exit57 ]
+  %.0 = phi ptr [ %43, %l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Command_elabAuxDef___spec__1___rarg.exit ], [ %100, %l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Command_elabAuxDef___spec__1___rarg.exit103 ], [ %161, %l_Lean_Elab_throwUnsupportedSyntax___at_Lean_Elab_Command_elabAuxDef___spec__1___rarg.exit107 ], [ %173, %180 ], [ %173, %179 ], [ %173, %177 ], [ %173, %lean_alloc_ctor.exit ], [ %189, %196 ], [ %189, %195 ], [ %189, %193 ], [ %189, %lean_dec.exit57 ]
   ret ptr %.0
 }
 
@@ -8832,7 +8832,7 @@ lean_dec_ref.exit:                                ; preds = %385, %384, %382, %_
   br label %392
 
 392:                                              ; preds = %.sink.split, %373, %306, %7
-  %.0 = phi ptr [ %311, %306 ], [ %376, %373 ], [ %8, %7 ], [ %.sink59, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %311, %306 ], [ %376, %373 ], [ %.sink59, %.sink.split ]
   ret ptr %.0
 }
 

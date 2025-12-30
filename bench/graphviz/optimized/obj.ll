@@ -119,7 +119,7 @@ agroot.exit:                                      ; preds = %2
   br label %agroot.exit22
 
 agroot.exit22:                                    ; preds = %17, %21, %23
-  %.0.i20.in = phi ptr [ %24, %23 ], [ %20, %17 ], [ %22, %21 ]
+  %.0.i20.in = phi ptr [ %20, %17 ], [ %22, %21 ], [ %24, %23 ]
   %.0.i20 = load ptr, ptr %.0.i20.in, align 8, !tbaa !12
   %25 = call i32 @agmapnametoid(ptr noundef %.0.i20, i32 noundef %16, ptr noundef %1, ptr noundef nonnull %3, i1 noundef zeroext true) #12
   %26 = icmp eq i32 %25, 0
@@ -151,7 +151,7 @@ default.unreachable24:                            ; preds = %14, %2
   unreachable
 
 37:                                               ; preds = %2, %2, %29, %agroot.exit22, %11, %agroot.exit, %33, %35
-  %.0 = phi i32 [ -1, %29 ], [ -1, %agroot.exit ], [ 0, %11 ], [ -1, %agroot.exit22 ], [ 0, %33 ], [ %36, %35 ], [ -1, %2 ], [ -1, %2 ]
+  %.0 = phi i32 [ 0, %33 ], [ %36, %35 ], [ -1, %agroot.exit ], [ 0, %11 ], [ -1, %agroot.exit22 ], [ -1, %29 ], [ -1, %2 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -224,7 +224,7 @@ default.unreachable8:                             ; preds = %3
   unreachable
 
 17:                                               ; preds = %1, %14, %11, %6
-  %.0 = phi ptr [ %16, %14 ], [ %10, %6 ], [ %13, %11 ], [ null, %1 ]
+  %.0 = phi ptr [ %10, %6 ], [ %13, %11 ], [ %16, %14 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -518,7 +518,7 @@ default.unreachable:                              ; preds = %19, %4
   unreachable
 
 agroot.exit:                                      ; preds = %2, %7, %12, %15
-  %.0.i = phi ptr [ %17, %15 ], [ %11, %7 ], [ %14, %12 ], [ null, %2 ]
+  %.0.i = phi ptr [ %11, %7 ], [ %14, %12 ], [ %17, %15 ], [ null, %2 ]
   %18 = icmp eq ptr %1, null
   br i1 %18, label %agroot.exit16, label %19
 
@@ -550,7 +550,7 @@ agroot.exit:                                      ; preds = %2, %7, %12, %15
   br label %agroot.exit16
 
 agroot.exit16:                                    ; preds = %agroot.exit, %22, %27, %30
-  %.0.i14 = phi ptr [ %32, %30 ], [ %26, %22 ], [ %29, %27 ], [ null, %agroot.exit ]
+  %.0.i14 = phi ptr [ %26, %22 ], [ %29, %27 ], [ %32, %30 ], [ null, %agroot.exit ]
   %.not = icmp eq ptr %.0.i, %.0.i14
   br i1 %.not, label %33, label %.loopexit
 
@@ -585,7 +585,7 @@ agroot.exit16:                                    ; preds = %agroot.exit, %22, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %.preheader, %agroot.exit16, %44, %39
-  %.011.shrunk = phi i1 [ %43, %39 ], [ %46, %44 ], [ false, %agroot.exit16 ], [ %36, %.preheader ], [ %36, %37 ]
+  %.011.shrunk = phi i1 [ %46, %44 ], [ %43, %39 ], [ false, %agroot.exit16 ], [ %36, %.preheader ], [ %36, %37 ]
   %.011 = zext i1 %.011.shrunk to i32
   ret i32 %.011
 }

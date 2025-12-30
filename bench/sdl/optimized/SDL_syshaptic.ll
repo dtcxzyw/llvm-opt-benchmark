@@ -737,7 +737,7 @@ define hidden zeroext i1 @SDL_SYS_HapticOpenFromJoystick(ptr noundef %0, ptr nou
   br label %47
 
 47:                                               ; preds = %34, %44, %32, %2, %24
-  %.0 = phi i1 [ false, %2 ], [ %31, %24 ], [ false, %32 ], [ true, %44 ], [ true, %34 ]
+  %.0 = phi i1 [ %31, %24 ], [ false, %2 ], [ false, %32 ], [ true, %44 ], [ true, %34 ]
   ret i1 %.0
 }
 
@@ -1227,7 +1227,7 @@ switch.lookup231:                                 ; preds = %.split214
   br label %235
 
 235:                                              ; preds = %12, %76, %119, %176, %215, %172, %115, %48, %8, %233
-  %.0 = phi i1 [ %234, %233 ], [ false, %172 ], [ false, %115 ], [ false, %8 ], [ false, %48 ], [ true, %215 ], [ true, %176 ], [ true, %119 ], [ true, %76 ], [ true, %12 ]
+  %.0 = phi i1 [ %234, %233 ], [ false, %8 ], [ false, %48 ], [ false, %115 ], [ false, %172 ], [ true, %215 ], [ true, %176 ], [ true, %119 ], [ true, %76 ], [ true, %12 ]
   ret i1 %.0
 }
 

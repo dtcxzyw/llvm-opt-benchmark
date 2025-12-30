@@ -415,7 +415,7 @@ hsl2rgb.exit:                                     ; preds = %99, %hue2rgb.exit38
   br label %152
 
 152:                                              ; preds = %hsl2rgb.exit, %151, %149
-  %153 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %149 ], [ %147, %151 ], [ 0.000000e+00, %hsl2rgb.exit ]
+  %153 = phi reassoc nsz arcp contract afn float [ %147, %151 ], [ 1.000000e+00, %149 ], [ 0.000000e+00, %hsl2rgb.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %156
 
@@ -447,7 +447,7 @@ hsl2rgb.exit:                                     ; preds = %99, %hue2rgb.exit38
   br label %167
 
 167:                                              ; preds = %156, %166, %164
-  %168 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %164 ], [ %162, %166 ], [ 0.000000e+00, %156 ]
+  %168 = phi reassoc nsz arcp contract afn float [ %162, %166 ], [ 1.000000e+00, %164 ], [ 0.000000e+00, %156 ]
   %169 = getelementptr inbounds nuw float, ptr %8, i64 %.094123
   store float %168, ptr %169, align 4, !tbaa !84
   %170 = add nuw nsw i64 %.094123, 1
@@ -570,7 +570,7 @@ hsl2rgb.exit112:                                  ; preds = %174, %hue2rgb.exit3
   br label %227
 
 227:                                              ; preds = %hsl2rgb.exit112, %226, %224
-  %228 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %224 ], [ %222, %226 ], [ 0.000000e+00, %hsl2rgb.exit112 ]
+  %228 = phi reassoc nsz arcp contract afn float [ %222, %226 ], [ 1.000000e+00, %224 ], [ 0.000000e+00, %hsl2rgb.exit112 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %231
 
@@ -602,7 +602,7 @@ hsl2rgb.exit112:                                  ; preds = %174, %hue2rgb.exit3
   br label %242
 
 242:                                              ; preds = %231, %241, %239
-  %243 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %239 ], [ %237, %241 ], [ 0.000000e+00, %231 ]
+  %243 = phi reassoc nsz arcp contract afn float [ %237, %241 ], [ 1.000000e+00, %239 ], [ 0.000000e+00, %231 ]
   %244 = getelementptr inbounds nuw float, ptr %10, i64 %.0120
   store float %243, ptr %244, align 4, !tbaa !84
   %245 = add nuw nsw i64 %.0120, 1
@@ -707,7 +707,7 @@ define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef rea
   br label %hue2rgb.exit.i.i
 
 hue2rgb.exit.i.i:                                 ; preds = %35, %33, %28
-  %.0.i.i.i = phi nsz float [ 1.000000e+00, %33 ], [ %38, %35 ], [ %31, %28 ]
+  %.0.i.i.i = phi nsz float [ %38, %35 ], [ 1.000000e+00, %33 ], [ %31, %28 ]
   %39 = fcmp reassoc nsz arcp contract afn olt float %29, 1.000000e+00
   br i1 %39, label %hue2rgb.exit36.i.i, label %40
 
@@ -721,7 +721,7 @@ hue2rgb.exit.i.i:                                 ; preds = %35, %33, %28
   br label %hue2rgb.exit36.i.i
 
 hue2rgb.exit36.i.i:                               ; preds = %42, %40, %hue2rgb.exit.i.i
-  %.0.i35.i.i = phi nsz float [ 1.000000e+00, %40 ], [ %44, %42 ], [ %29, %hue2rgb.exit.i.i ]
+  %.0.i35.i.i = phi nsz float [ %44, %42 ], [ 1.000000e+00, %40 ], [ %29, %hue2rgb.exit.i.i ]
   %45 = fcmp reassoc nsz arcp contract afn ogt float %29, 2.000000e+00
   %.v34.i.i = select i1 %45, float -2.000000e+00, float 4.000000e+00
   %46 = fadd reassoc nsz arcp contract afn float %.v34.i.i, %29
@@ -739,7 +739,7 @@ hue2rgb.exit36.i.i:                               ; preds = %42, %40, %hue2rgb.e
   br label %hsl2rgb.exit.i
 
 hsl2rgb.exit.i:                                   ; preds = %50, %48, %hue2rgb.exit36.i.i
-  %.0.i37.i.i = phi nsz float [ 1.000000e+00, %48 ], [ %53, %50 ], [ %46, %hue2rgb.exit36.i.i ]
+  %.0.i37.i.i = phi nsz float [ %53, %50 ], [ 1.000000e+00, %48 ], [ %46, %hue2rgb.exit36.i.i ]
   tail call void @dt_bauhaus_slider_set_stop(ptr noundef %25, float noundef 0.000000e+00, float noundef %.0.i.i.i, float noundef %.0.i35.i.i, float noundef %.0.i37.i.i) #20
   br label %update_balance_slider_colors.exit
 
@@ -767,7 +767,7 @@ update_balance_slider_colors.exit:                ; preds = %24, %hsl2rgb.exit.i
   br label %hue2rgb.exit.i.i31
 
 hue2rgb.exit.i.i31:                               ; preds = %64, %62, %update_balance_slider_colors.exit
-  %.0.i.i.i32 = phi nsz float [ 1.000000e+00, %62 ], [ %67, %64 ], [ %60, %update_balance_slider_colors.exit ]
+  %.0.i.i.i32 = phi nsz float [ %67, %64 ], [ 1.000000e+00, %62 ], [ %60, %update_balance_slider_colors.exit ]
   %68 = fcmp reassoc nsz arcp contract afn olt float %58, 1.000000e+00
   br i1 %68, label %hue2rgb.exit36.i.i33, label %69
 
@@ -781,7 +781,7 @@ hue2rgb.exit.i.i31:                               ; preds = %64, %62, %update_ba
   br label %hue2rgb.exit36.i.i33
 
 hue2rgb.exit36.i.i33:                             ; preds = %71, %69, %hue2rgb.exit.i.i31
-  %.0.i35.i.i34 = phi nsz float [ 1.000000e+00, %69 ], [ %73, %71 ], [ %58, %hue2rgb.exit.i.i31 ]
+  %.0.i35.i.i34 = phi nsz float [ %73, %71 ], [ 1.000000e+00, %69 ], [ %58, %hue2rgb.exit.i.i31 ]
   %74 = fcmp reassoc nsz arcp contract afn ogt float %58, 2.000000e+00
   %.v34.i.i35 = select i1 %74, float -2.000000e+00, float 4.000000e+00
   %75 = fadd reassoc nsz arcp contract afn float %.v34.i.i35, %58
@@ -799,7 +799,7 @@ hue2rgb.exit36.i.i33:                             ; preds = %71, %69, %hue2rgb.e
   br label %update_saturation_slider_end_color.exit
 
 update_saturation_slider_end_color.exit:          ; preds = %hue2rgb.exit36.i.i33, %77, %79
-  %.0.i37.i.i37 = phi nsz float [ 1.000000e+00, %77 ], [ %82, %79 ], [ %75, %hue2rgb.exit36.i.i33 ]
+  %.0.i37.i.i37 = phi nsz float [ %82, %79 ], [ 1.000000e+00, %77 ], [ %75, %hue2rgb.exit36.i.i33 ]
   tail call void @dt_bauhaus_slider_set_stop(ptr noundef %56, float noundef 1.000000e+00, float noundef %.0.i.i.i32, float noundef %.0.i35.i.i34, float noundef %.0.i37.i.i37) #20
   %83 = load ptr, ptr %8, align 8, !tbaa !109
   %84 = tail call ptr @g_type_check_instance_cast(ptr noundef %83, i64 noundef %54) #20
@@ -855,7 +855,7 @@ update_saturation_slider_end_color.exit:          ; preds = %hue2rgb.exit36.i.i3
   br label %hue2rgb.exit.i9.i
 
 hue2rgb.exit.i9.i:                                ; preds = %114, %112, %107
-  %.0.i.i10.i = phi nsz float [ 1.000000e+00, %112 ], [ %117, %114 ], [ %110, %107 ]
+  %.0.i.i10.i = phi nsz float [ %117, %114 ], [ 1.000000e+00, %112 ], [ %110, %107 ]
   %118 = fcmp reassoc nsz arcp contract afn olt float %108, 1.000000e+00
   br i1 %118, label %hue2rgb.exit36.i11.i, label %119
 
@@ -869,7 +869,7 @@ hue2rgb.exit.i9.i:                                ; preds = %114, %112, %107
   br label %hue2rgb.exit36.i11.i
 
 hue2rgb.exit36.i11.i:                             ; preds = %121, %119, %hue2rgb.exit.i9.i
-  %.0.i35.i12.i = phi nsz float [ 1.000000e+00, %119 ], [ %123, %121 ], [ %108, %hue2rgb.exit.i9.i ]
+  %.0.i35.i12.i = phi nsz float [ %123, %121 ], [ 1.000000e+00, %119 ], [ %108, %hue2rgb.exit.i9.i ]
   %124 = fcmp reassoc nsz arcp contract afn ogt float %108, 2.000000e+00
   %.v34.i13.i = select i1 %124, float -2.000000e+00, float 4.000000e+00
   %125 = fadd reassoc nsz arcp contract afn float %.v34.i13.i, %108
@@ -887,7 +887,7 @@ hue2rgb.exit36.i11.i:                             ; preds = %121, %119, %hue2rgb
   br label %hsl2rgb.exit15.i
 
 hsl2rgb.exit15.i:                                 ; preds = %129, %127, %hue2rgb.exit36.i11.i
-  %.0.i37.i14.i = phi nsz float [ 1.000000e+00, %127 ], [ %132, %129 ], [ %125, %hue2rgb.exit36.i11.i ]
+  %.0.i37.i14.i = phi nsz float [ %132, %129 ], [ 1.000000e+00, %127 ], [ %125, %hue2rgb.exit36.i11.i ]
   tail call void @dt_bauhaus_slider_set_stop(ptr noundef %104, float noundef 1.000000e+00, float noundef %.0.i.i10.i, float noundef %.0.i35.i12.i, float noundef %.0.i37.i14.i) #20
   br label %update_balance_slider_colors.exit38
 
@@ -915,7 +915,7 @@ update_balance_slider_colors.exit38:              ; preds = %103, %hsl2rgb.exit1
   br label %hue2rgb.exit.i.i40
 
 hue2rgb.exit.i.i40:                               ; preds = %143, %141, %update_balance_slider_colors.exit38
-  %.0.i.i.i41 = phi nsz float [ 1.000000e+00, %141 ], [ %146, %143 ], [ %139, %update_balance_slider_colors.exit38 ]
+  %.0.i.i.i41 = phi nsz float [ %146, %143 ], [ 1.000000e+00, %141 ], [ %139, %update_balance_slider_colors.exit38 ]
   %147 = fcmp reassoc nsz arcp contract afn olt float %137, 1.000000e+00
   br i1 %147, label %hue2rgb.exit36.i.i42, label %148
 
@@ -929,7 +929,7 @@ hue2rgb.exit.i.i40:                               ; preds = %143, %141, %update_
   br label %hue2rgb.exit36.i.i42
 
 hue2rgb.exit36.i.i42:                             ; preds = %150, %148, %hue2rgb.exit.i.i40
-  %.0.i35.i.i43 = phi nsz float [ 1.000000e+00, %148 ], [ %152, %150 ], [ %137, %hue2rgb.exit.i.i40 ]
+  %.0.i35.i.i43 = phi nsz float [ %152, %150 ], [ 1.000000e+00, %148 ], [ %137, %hue2rgb.exit.i.i40 ]
   %153 = fcmp reassoc nsz arcp contract afn ogt float %137, 2.000000e+00
   %.v34.i.i44 = select i1 %153, float -2.000000e+00, float 4.000000e+00
   %154 = fadd reassoc nsz arcp contract afn float %.v34.i.i44, %137
@@ -947,7 +947,7 @@ hue2rgb.exit36.i.i42:                             ; preds = %150, %148, %hue2rgb
   br label %update_saturation_slider_end_color.exit47
 
 update_saturation_slider_end_color.exit47:        ; preds = %hue2rgb.exit36.i.i42, %156, %158
-  %.0.i37.i.i46 = phi nsz float [ 1.000000e+00, %156 ], [ %161, %158 ], [ %154, %hue2rgb.exit36.i.i42 ]
+  %.0.i37.i.i46 = phi nsz float [ %161, %158 ], [ 1.000000e+00, %156 ], [ %154, %hue2rgb.exit36.i.i42 ]
   tail call void @dt_bauhaus_slider_set_stop(ptr noundef %135, float noundef 1.000000e+00, float noundef %.0.i.i.i41, float noundef %.0.i35.i.i43, float noundef %.0.i37.i.i46) #20
   %162 = load ptr, ptr %86, align 8, !tbaa !114
   %163 = tail call ptr @g_type_check_instance_cast(ptr noundef %162, i64 noundef %133) #20
@@ -1088,7 +1088,7 @@ define internal fastcc void @update_balance_slider_colors(ptr noundef %0, float 
   br label %hue2rgb.exit.i
 
 hue2rgb.exit.i:                                   ; preds = %5, %12, %10
-  %.0.i.i = phi nsz float [ 1.000000e+00, %10 ], [ %15, %12 ], [ %8, %5 ]
+  %.0.i.i = phi nsz float [ %15, %12 ], [ 1.000000e+00, %10 ], [ %8, %5 ]
   %16 = fcmp reassoc nsz arcp contract afn olt float %6, 1.000000e+00
   br i1 %16, label %hue2rgb.exit36.i, label %17
 
@@ -1102,7 +1102,7 @@ hue2rgb.exit.i:                                   ; preds = %5, %12, %10
   br label %hue2rgb.exit36.i
 
 hue2rgb.exit36.i:                                 ; preds = %hue2rgb.exit.i, %19, %17
-  %.0.i35.i = phi nsz float [ 1.000000e+00, %17 ], [ %21, %19 ], [ %6, %hue2rgb.exit.i ]
+  %.0.i35.i = phi nsz float [ %21, %19 ], [ 1.000000e+00, %17 ], [ %6, %hue2rgb.exit.i ]
   %22 = fcmp reassoc nsz arcp contract afn ogt float %6, 2.000000e+00
   %.v34.i = select i1 %22, float -2.000000e+00, float 4.000000e+00
   %23 = fadd reassoc nsz arcp contract afn float %.v34.i, %6
@@ -1120,7 +1120,7 @@ hue2rgb.exit36.i:                                 ; preds = %hue2rgb.exit.i, %19
   br label %hsl2rgb.exit
 
 hsl2rgb.exit:                                     ; preds = %hue2rgb.exit36.i, %25, %27
-  %.0.i37.i = phi nsz float [ 1.000000e+00, %25 ], [ %30, %27 ], [ %23, %hue2rgb.exit36.i ]
+  %.0.i37.i = phi nsz float [ %30, %27 ], [ 1.000000e+00, %25 ], [ %23, %hue2rgb.exit36.i ]
   tail call void @dt_bauhaus_slider_set_stop(ptr noundef %0, float noundef 0.000000e+00, float noundef %.0.i.i, float noundef %.0.i35.i, float noundef %.0.i37.i) #20
   br label %31
 
@@ -1147,7 +1147,7 @@ hsl2rgb.exit:                                     ; preds = %hue2rgb.exit36.i, %
   br label %hue2rgb.exit.i9
 
 hue2rgb.exit.i9:                                  ; preds = %33, %40, %38
-  %.0.i.i10 = phi nsz float [ 1.000000e+00, %38 ], [ %43, %40 ], [ %36, %33 ]
+  %.0.i.i10 = phi nsz float [ %43, %40 ], [ 1.000000e+00, %38 ], [ %36, %33 ]
   %44 = fcmp reassoc nsz arcp contract afn olt float %34, 1.000000e+00
   br i1 %44, label %hue2rgb.exit36.i11, label %45
 
@@ -1161,7 +1161,7 @@ hue2rgb.exit.i9:                                  ; preds = %33, %40, %38
   br label %hue2rgb.exit36.i11
 
 hue2rgb.exit36.i11:                               ; preds = %hue2rgb.exit.i9, %47, %45
-  %.0.i35.i12 = phi nsz float [ 1.000000e+00, %45 ], [ %49, %47 ], [ %34, %hue2rgb.exit.i9 ]
+  %.0.i35.i12 = phi nsz float [ %49, %47 ], [ 1.000000e+00, %45 ], [ %34, %hue2rgb.exit.i9 ]
   %50 = fcmp reassoc nsz arcp contract afn ogt float %34, 2.000000e+00
   %.v34.i13 = select i1 %50, float -2.000000e+00, float 4.000000e+00
   %51 = fadd reassoc nsz arcp contract afn float %.v34.i13, %34
@@ -1179,7 +1179,7 @@ hue2rgb.exit36.i11:                               ; preds = %hue2rgb.exit.i9, %4
   br label %hsl2rgb.exit15
 
 hsl2rgb.exit15:                                   ; preds = %hue2rgb.exit36.i11, %53, %55
-  %.0.i37.i14 = phi nsz float [ 1.000000e+00, %53 ], [ %58, %55 ], [ %51, %hue2rgb.exit36.i11 ]
+  %.0.i37.i14 = phi nsz float [ %58, %55 ], [ 1.000000e+00, %53 ], [ %51, %hue2rgb.exit36.i11 ]
   tail call void @dt_bauhaus_slider_set_stop(ptr noundef %0, float noundef 1.000000e+00, float noundef %.0.i.i10, float noundef %.0.i35.i12, float noundef %.0.i37.i14) #20
   br label %59
 
@@ -1355,7 +1355,7 @@ rgb2hsl.exit.thread:                              ; preds = %3
   br label %hue2rgb.exit.i9.i
 
 hue2rgb.exit.i9.i:                                ; preds = %103, %101, %90
-  %.0.i.i10.i = phi nsz float [ 1.000000e+00, %101 ], [ %106, %103 ], [ %99, %90 ]
+  %.0.i.i10.i = phi nsz float [ %106, %103 ], [ 1.000000e+00, %101 ], [ %99, %90 ]
   %107 = fcmp reassoc nsz arcp contract afn olt float %97, 1.000000e+00
   br i1 %107, label %hue2rgb.exit36.i11.i, label %108
 
@@ -1369,7 +1369,7 @@ hue2rgb.exit.i9.i:                                ; preds = %103, %101, %90
   br label %hue2rgb.exit36.i11.i
 
 hue2rgb.exit36.i11.i:                             ; preds = %110, %108, %hue2rgb.exit.i9.i
-  %.0.i35.i12.i = phi nsz float [ 1.000000e+00, %108 ], [ %112, %110 ], [ %97, %hue2rgb.exit.i9.i ]
+  %.0.i35.i12.i = phi nsz float [ %112, %110 ], [ 1.000000e+00, %108 ], [ %97, %hue2rgb.exit.i9.i ]
   %113 = fcmp reassoc nsz arcp contract afn ogt float %97, 2.000000e+00
   %.v34.i13.i = select i1 %113, float -2.000000e+00, float 4.000000e+00
   %114 = fadd reassoc nsz arcp contract afn float %.v34.i13.i, %97
@@ -1387,7 +1387,7 @@ hue2rgb.exit36.i11.i:                             ; preds = %110, %108, %hue2rgb
   br label %hsl2rgb.exit15.i
 
 hsl2rgb.exit15.i:                                 ; preds = %118, %116, %hue2rgb.exit36.i11.i
-  %.0.i37.i14.i = phi nsz float [ 1.000000e+00, %116 ], [ %121, %118 ], [ %114, %hue2rgb.exit36.i11.i ]
+  %.0.i37.i14.i = phi nsz float [ %121, %118 ], [ 1.000000e+00, %116 ], [ %114, %hue2rgb.exit36.i11.i ]
   tail call void @dt_bauhaus_slider_set_stop(ptr noundef %91, float noundef 1.000000e+00, float noundef %.0.i.i10.i, float noundef %.0.i35.i12.i, float noundef %.0.i37.i14.i) #20
   br label %update_balance_slider_colors.exit
 
@@ -1429,7 +1429,7 @@ hsl2rgb.exit15.i:                                 ; preds = %118, %116, %hue2rgb
   br label %hue2rgb.exit.i.i
 
 hue2rgb.exit.i.i:                                 ; preds = %144, %142, %132
-  %.0.i.i.i = phi nsz float [ 1.000000e+00, %142 ], [ %147, %144 ], [ %140, %132 ]
+  %.0.i.i.i = phi nsz float [ %147, %144 ], [ 1.000000e+00, %142 ], [ %140, %132 ]
   %148 = fcmp reassoc nsz arcp contract afn olt float %138, 1.000000e+00
   br i1 %148, label %hue2rgb.exit36.i.i, label %149
 
@@ -1443,7 +1443,7 @@ hue2rgb.exit.i.i:                                 ; preds = %144, %142, %132
   br label %hue2rgb.exit36.i.i
 
 hue2rgb.exit36.i.i:                               ; preds = %151, %149, %hue2rgb.exit.i.i
-  %.0.i35.i.i = phi nsz float [ 1.000000e+00, %149 ], [ %153, %151 ], [ %138, %hue2rgb.exit.i.i ]
+  %.0.i35.i.i = phi nsz float [ %153, %151 ], [ 1.000000e+00, %149 ], [ %138, %hue2rgb.exit.i.i ]
   %154 = fcmp reassoc nsz arcp contract afn ogt float %138, 2.000000e+00
   %.v34.i.i = select i1 %154, float -2.000000e+00, float 4.000000e+00
   %155 = fadd reassoc nsz arcp contract afn float %.v34.i.i, %138
@@ -1461,19 +1461,19 @@ hue2rgb.exit36.i.i:                               ; preds = %151, %149, %hue2rgb
   br label %hsl2rgb.exit.i
 
 hsl2rgb.exit.i:                                   ; preds = %159, %157, %hue2rgb.exit36.i.i
-  %.0.i37.i.i = phi nsz float [ 1.000000e+00, %157 ], [ %162, %159 ], [ %155, %hue2rgb.exit36.i.i ]
+  %.0.i37.i.i = phi nsz float [ %162, %159 ], [ 1.000000e+00, %157 ], [ %155, %hue2rgb.exit36.i.i ]
   tail call void @dt_bauhaus_slider_set_stop(ptr noundef %133, float noundef 0.000000e+00, float noundef %.0.i.i.i, float noundef %.0.i35.i.i, float noundef %.0.i37.i.i) #20
   br label %update_balance_slider_colors.exit
 
 update_balance_slider_colors.exit:                ; preds = %hsl2rgb.exit.i, %122, %hsl2rgb.exit15.i, %81
-  %.sink98 = phi ptr [ %91, %hsl2rgb.exit15.i ], [ %88, %81 ], [ %130, %122 ], [ %133, %hsl2rgb.exit.i ]
-  %.0.i57 = phi float [ %.0.i5661, %hsl2rgb.exit15.i ], [ -1.000000e+00, %81 ], [ -1.000000e+00, %122 ], [ %.0.i5869, %hsl2rgb.exit.i ]
-  %.047.i53 = phi float [ %.047.i5564, %hsl2rgb.exit15.i ], [ %32, %81 ], [ %32, %122 ], [ %.047.i5471, %hsl2rgb.exit.i ]
-  %.030 = phi ptr [ %95, %hsl2rgb.exit15.i ], [ %82, %81 ], [ %7, %122 ], [ %7, %hsl2rgb.exit.i ]
-  %.029 = phi ptr [ %94, %hsl2rgb.exit15.i ], [ %83, %81 ], [ %123, %122 ], [ %137, %hsl2rgb.exit.i ]
-  %.028 = phi ptr [ %93, %hsl2rgb.exit15.i ], [ %85, %81 ], [ %127, %122 ], [ %135, %hsl2rgb.exit.i ]
-  %.027 = phi ptr [ %96, %hsl2rgb.exit15.i ], [ %61, %81 ], [ %125, %122 ], [ %136, %hsl2rgb.exit.i ]
-  %.0 = phi ptr [ %92, %hsl2rgb.exit15.i ], [ %87, %81 ], [ %129, %122 ], [ %134, %hsl2rgb.exit.i ]
+  %.sink98 = phi ptr [ %88, %81 ], [ %91, %hsl2rgb.exit15.i ], [ %130, %122 ], [ %133, %hsl2rgb.exit.i ]
+  %.0.i57 = phi float [ -1.000000e+00, %81 ], [ %.0.i5661, %hsl2rgb.exit15.i ], [ -1.000000e+00, %122 ], [ %.0.i5869, %hsl2rgb.exit.i ]
+  %.047.i53 = phi float [ %32, %81 ], [ %.047.i5564, %hsl2rgb.exit15.i ], [ %32, %122 ], [ %.047.i5471, %hsl2rgb.exit.i ]
+  %.030 = phi ptr [ %82, %81 ], [ %95, %hsl2rgb.exit15.i ], [ %7, %122 ], [ %7, %hsl2rgb.exit.i ]
+  %.029 = phi ptr [ %83, %81 ], [ %94, %hsl2rgb.exit15.i ], [ %123, %122 ], [ %137, %hsl2rgb.exit.i ]
+  %.028 = phi ptr [ %85, %81 ], [ %93, %hsl2rgb.exit15.i ], [ %127, %122 ], [ %135, %hsl2rgb.exit.i ]
+  %.027 = phi ptr [ %61, %81 ], [ %96, %hsl2rgb.exit15.i ], [ %125, %122 ], [ %136, %hsl2rgb.exit.i ]
+  %.0 = phi ptr [ %87, %81 ], [ %92, %hsl2rgb.exit15.i ], [ %129, %122 ], [ %134, %hsl2rgb.exit.i ]
   %163 = tail call i64 @gtk_widget_get_type() #23
   %164 = tail call ptr @g_type_check_instance_cast(ptr noundef %.sink98, i64 noundef %163) #20
   tail call void @gtk_widget_queue_draw(ptr noundef %164) #20
@@ -1519,7 +1519,7 @@ update_balance_slider_colors.exit:                ; preds = %hsl2rgb.exit.i, %12
   br label %hue2rgb.exit.i.i34
 
 hue2rgb.exit.i.i34:                               ; preds = %185, %183, %174
-  %.0.i.i.i35 = phi nsz float [ 1.000000e+00, %183 ], [ %188, %185 ], [ %181, %174 ]
+  %.0.i.i.i35 = phi nsz float [ %188, %185 ], [ 1.000000e+00, %183 ], [ %181, %174 ]
   %189 = fcmp reassoc nsz arcp contract afn olt float %179, 1.000000e+00
   br i1 %189, label %hue2rgb.exit36.i.i36, label %190
 
@@ -1533,7 +1533,7 @@ hue2rgb.exit.i.i34:                               ; preds = %185, %183, %174
   br label %hue2rgb.exit36.i.i36
 
 hue2rgb.exit36.i.i36:                             ; preds = %192, %190, %hue2rgb.exit.i.i34
-  %.0.i35.i.i37 = phi nsz float [ 1.000000e+00, %190 ], [ %194, %192 ], [ %179, %hue2rgb.exit.i.i34 ]
+  %.0.i35.i.i37 = phi nsz float [ %194, %192 ], [ 1.000000e+00, %190 ], [ %179, %hue2rgb.exit.i.i34 ]
   %195 = fcmp reassoc nsz arcp contract afn ogt float %179, 2.000000e+00
   %.v34.i.i38 = select i1 %195, float -2.000000e+00, float 4.000000e+00
   %196 = fadd reassoc nsz arcp contract afn float %.v34.i.i38, %179
@@ -1551,7 +1551,7 @@ hue2rgb.exit36.i.i36:                             ; preds = %192, %190, %hue2rgb
   br label %update_saturation_slider_end_color.exit
 
 update_saturation_slider_end_color.exit:          ; preds = %hue2rgb.exit36.i.i36, %198, %200
-  %.0.i37.i.i40 = phi nsz float [ 1.000000e+00, %198 ], [ %203, %200 ], [ %196, %hue2rgb.exit36.i.i36 ]
+  %.0.i37.i.i40 = phi nsz float [ %203, %200 ], [ 1.000000e+00, %198 ], [ %196, %hue2rgb.exit36.i.i36 ]
   tail call void @dt_bauhaus_slider_set_stop(ptr noundef %.028, float noundef 1.000000e+00, float noundef %.0.i.i.i35, float noundef %.0.i35.i.i37, float noundef %.0.i37.i.i40) #20
   %204 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !122
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 96
@@ -1693,7 +1693,7 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
   br label %hue2rgb.exit.i.i
 
 hue2rgb.exit.i.i:                                 ; preds = %47, %45, %1
-  %.0.i.i.i = phi nsz float [ 1.000000e+00, %45 ], [ %50, %47 ], [ %43, %1 ]
+  %.0.i.i.i = phi nsz float [ %50, %47 ], [ 1.000000e+00, %45 ], [ %43, %1 ]
   %51 = fcmp reassoc nsz arcp contract afn olt float %41, 1.000000e+00
   br i1 %51, label %hue2rgb.exit36.i.i, label %52
 
@@ -1707,7 +1707,7 @@ hue2rgb.exit.i.i:                                 ; preds = %47, %45, %1
   br label %hue2rgb.exit36.i.i
 
 hue2rgb.exit36.i.i:                               ; preds = %54, %52, %hue2rgb.exit.i.i
-  %.0.i35.i.i = phi nsz float [ 1.000000e+00, %52 ], [ %56, %54 ], [ %41, %hue2rgb.exit.i.i ]
+  %.0.i35.i.i = phi nsz float [ %56, %54 ], [ 1.000000e+00, %52 ], [ %41, %hue2rgb.exit.i.i ]
   %57 = fcmp reassoc nsz arcp contract afn ogt float %41, 2.000000e+00
   %.v34.i.i = select i1 %57, float -2.000000e+00, float 4.000000e+00
   %58 = fadd reassoc nsz arcp contract afn float %.v34.i.i, %41
@@ -1725,7 +1725,7 @@ hue2rgb.exit36.i.i:                               ; preds = %54, %52, %hue2rgb.e
   br label %update_saturation_slider_end_color.exit
 
 update_saturation_slider_end_color.exit:          ; preds = %hue2rgb.exit36.i.i, %60, %62
-  %.0.i37.i.i = phi nsz float [ 1.000000e+00, %60 ], [ %65, %62 ], [ %58, %hue2rgb.exit36.i.i ]
+  %.0.i37.i.i = phi nsz float [ %65, %62 ], [ 1.000000e+00, %60 ], [ %58, %hue2rgb.exit36.i.i ]
   tail call void @dt_bauhaus_slider_set_stop(ptr noundef %39, float noundef 1.000000e+00, float noundef %.0.i.i.i, float noundef %.0.i35.i.i, float noundef %.0.i37.i.i) #20
   %66 = load ptr, ptr %17, align 8, !tbaa !114
   %67 = load float, ptr %15, align 4, !tbaa !57
@@ -1747,7 +1747,7 @@ update_saturation_slider_end_color.exit:          ; preds = %hue2rgb.exit36.i.i,
   br label %hue2rgb.exit.i.i28
 
 hue2rgb.exit.i.i28:                               ; preds = %74, %72, %update_saturation_slider_end_color.exit
-  %.0.i.i.i29 = phi nsz float [ 1.000000e+00, %72 ], [ %77, %74 ], [ %70, %update_saturation_slider_end_color.exit ]
+  %.0.i.i.i29 = phi nsz float [ %77, %74 ], [ 1.000000e+00, %72 ], [ %70, %update_saturation_slider_end_color.exit ]
   %78 = fcmp reassoc nsz arcp contract afn olt float %68, 1.000000e+00
   br i1 %78, label %hue2rgb.exit36.i.i30, label %79
 
@@ -1761,7 +1761,7 @@ hue2rgb.exit.i.i28:                               ; preds = %74, %72, %update_sa
   br label %hue2rgb.exit36.i.i30
 
 hue2rgb.exit36.i.i30:                             ; preds = %81, %79, %hue2rgb.exit.i.i28
-  %.0.i35.i.i31 = phi nsz float [ 1.000000e+00, %79 ], [ %83, %81 ], [ %68, %hue2rgb.exit.i.i28 ]
+  %.0.i35.i.i31 = phi nsz float [ %83, %81 ], [ 1.000000e+00, %79 ], [ %68, %hue2rgb.exit.i.i28 ]
   %84 = fcmp reassoc nsz arcp contract afn ogt float %68, 2.000000e+00
   %.v34.i.i32 = select i1 %84, float -2.000000e+00, float 4.000000e+00
   %85 = fadd reassoc nsz arcp contract afn float %.v34.i.i32, %68
@@ -1779,7 +1779,7 @@ hue2rgb.exit36.i.i30:                             ; preds = %81, %79, %hue2rgb.e
   br label %update_saturation_slider_end_color.exit34
 
 update_saturation_slider_end_color.exit34:        ; preds = %hue2rgb.exit36.i.i30, %87, %89
-  %.0.i37.i.i33 = phi nsz float [ 1.000000e+00, %87 ], [ %92, %89 ], [ %85, %hue2rgb.exit36.i.i30 ]
+  %.0.i37.i.i33 = phi nsz float [ %92, %89 ], [ 1.000000e+00, %87 ], [ %85, %hue2rgb.exit36.i.i30 ]
   tail call void @dt_bauhaus_slider_set_stop(ptr noundef %66, float noundef 1.000000e+00, float noundef %.0.i.i.i29, float noundef %.0.i35.i.i31, float noundef %.0.i37.i.i33) #20
   %93 = load ptr, ptr %3, align 8, !tbaa !113
   %94 = load float, ptr %5, align 4, !tbaa !53
@@ -2059,7 +2059,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %23
 
 23:                                               ; preds = %20, %2, %18, %14, %10, %6
-  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %20 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
+  %.0 = phi ptr [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %20 ]
   ret ptr %.0
 }
 
@@ -2099,7 +2099,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %13
 
 13:                                               ; preds = %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ %., %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
+  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ %., %11 ]
   ret ptr %.0
 }
 
@@ -2272,7 +2272,7 @@ rgb2hsl.exit:                                     ; preds = %7, %60, %62, %64
   br label %hue2rgb.exit.i.i
 
 hue2rgb.exit.i.i:                                 ; preds = %85, %83, %78
-  %.0.i.i.i = phi nsz float [ 1.000000e+00, %83 ], [ %88, %85 ], [ %81, %78 ]
+  %.0.i.i.i = phi nsz float [ %88, %85 ], [ 1.000000e+00, %83 ], [ %81, %78 ]
   %89 = fcmp reassoc nsz arcp contract afn olt float %79, 1.000000e+00
   br i1 %89, label %hue2rgb.exit36.i.i, label %90
 
@@ -2286,7 +2286,7 @@ hue2rgb.exit.i.i:                                 ; preds = %85, %83, %78
   br label %hue2rgb.exit36.i.i
 
 hue2rgb.exit36.i.i:                               ; preds = %92, %90, %hue2rgb.exit.i.i
-  %.0.i35.i.i = phi nsz float [ 1.000000e+00, %90 ], [ %94, %92 ], [ %79, %hue2rgb.exit.i.i ]
+  %.0.i35.i.i = phi nsz float [ %94, %92 ], [ 1.000000e+00, %90 ], [ %79, %hue2rgb.exit.i.i ]
   %95 = fcmp reassoc nsz arcp contract afn ogt float %79, 2.000000e+00
   %.v34.i.i = select i1 %95, float -2.000000e+00, float 4.000000e+00
   %96 = fadd reassoc nsz arcp contract afn float %.v34.i.i, %79
@@ -2304,7 +2304,7 @@ hue2rgb.exit36.i.i:                               ; preds = %92, %90, %hue2rgb.e
   br label %hsl2rgb.exit.i
 
 hsl2rgb.exit.i:                                   ; preds = %100, %98, %hue2rgb.exit36.i.i
-  %.0.i37.i.i = phi nsz float [ 1.000000e+00, %98 ], [ %103, %100 ], [ %96, %hue2rgb.exit36.i.i ]
+  %.0.i37.i.i = phi nsz float [ %103, %100 ], [ 1.000000e+00, %98 ], [ %96, %hue2rgb.exit36.i.i ]
   call void @dt_bauhaus_slider_set_stop(ptr noundef %77, float noundef 0.000000e+00, float noundef %.0.i.i.i, float noundef %.0.i35.i.i, float noundef %.0.i37.i.i) #20
   br label %update_balance_slider_colors.exit
 
@@ -2337,7 +2337,7 @@ hsl2rgb.exit.i:                                   ; preds = %100, %98, %hue2rgb.
   br label %hue2rgb.exit.i9.i
 
 hue2rgb.exit.i9.i:                                ; preds = %117, %115, %110
-  %.0.i.i10.i = phi nsz float [ 1.000000e+00, %115 ], [ %120, %117 ], [ %113, %110 ]
+  %.0.i.i10.i = phi nsz float [ %120, %117 ], [ 1.000000e+00, %115 ], [ %113, %110 ]
   %121 = fcmp reassoc nsz arcp contract afn olt float %111, 1.000000e+00
   br i1 %121, label %hue2rgb.exit36.i11.i, label %122
 
@@ -2351,7 +2351,7 @@ hue2rgb.exit.i9.i:                                ; preds = %117, %115, %110
   br label %hue2rgb.exit36.i11.i
 
 hue2rgb.exit36.i11.i:                             ; preds = %124, %122, %hue2rgb.exit.i9.i
-  %.0.i35.i12.i = phi nsz float [ 1.000000e+00, %122 ], [ %126, %124 ], [ %111, %hue2rgb.exit.i9.i ]
+  %.0.i35.i12.i = phi nsz float [ %126, %124 ], [ 1.000000e+00, %122 ], [ %111, %hue2rgb.exit.i9.i ]
   %127 = fcmp reassoc nsz arcp contract afn ogt float %111, 2.000000e+00
   %.v34.i13.i = select i1 %127, float -2.000000e+00, float 4.000000e+00
   %128 = fadd reassoc nsz arcp contract afn float %.v34.i13.i, %111
@@ -2369,12 +2369,12 @@ hue2rgb.exit36.i11.i:                             ; preds = %124, %122, %hue2rgb
   br label %hsl2rgb.exit15.i
 
 hsl2rgb.exit15.i:                                 ; preds = %132, %130, %hue2rgb.exit36.i11.i
-  %.0.i37.i14.i = phi nsz float [ 1.000000e+00, %130 ], [ %135, %132 ], [ %128, %hue2rgb.exit36.i11.i ]
+  %.0.i37.i14.i = phi nsz float [ %135, %132 ], [ 1.000000e+00, %130 ], [ %128, %hue2rgb.exit36.i11.i ]
   call void @dt_bauhaus_slider_set_stop(ptr noundef %109, float noundef 1.000000e+00, float noundef %.0.i.i10.i, float noundef %.0.i35.i12.i, float noundef %.0.i37.i14.i) #20
   br label %update_balance_slider_colors.exit
 
 update_balance_slider_colors.exit:                ; preds = %hsl2rgb.exit15.i, %104, %hsl2rgb.exit.i, %72
-  %.sink35 = phi ptr [ %77, %hsl2rgb.exit.i ], [ %77, %72 ], [ %109, %104 ], [ %109, %hsl2rgb.exit15.i ]
+  %.sink35 = phi ptr [ %77, %72 ], [ %77, %hsl2rgb.exit.i ], [ %109, %104 ], [ %109, %hsl2rgb.exit15.i ]
   %136 = call ptr @g_type_check_instance_cast(ptr noundef %.sink35, i64 noundef %66) #20
   call void @gtk_widget_queue_draw(ptr noundef %136) #20
   %137 = load ptr, ptr %9, align 8, !tbaa !113

@@ -1146,7 +1146,7 @@ dt_get_perf_times.exit:                           ; preds = %43, %50
   br label %.thread
 
 .thread:                                          ; preds = %94, %97, %129, %133
-  %134 = phi i1 [ true, %133 ], [ true, %129 ], [ %100, %97 ], [ true, %94 ]
+  %134 = phi i1 [ true, %129 ], [ true, %133 ], [ %100, %97 ], [ true, %94 ]
   %.not178 = icmp eq ptr %1, %18
   br i1 %.not178, label %139, label %135
 
@@ -1292,8 +1292,8 @@ dt_get_perf_times.exit:                           ; preds = %43, %50
   br label %dt_dev_get_processed_size.exit.i
 
 dt_dev_get_processed_size.exit.i:                 ; preds = %193, %190, %186, %183
-  %.118.i = phi i32 [ %182, %183 ], [ 0, %186 ], [ 0, %190 ], [ %198, %193 ]
-  %.016.i = phi i32 [ %185, %183 ], [ 0, %186 ], [ 0, %190 ], [ %203, %193 ]
+  %.118.i = phi i32 [ 0, %186 ], [ 0, %190 ], [ %198, %193 ], [ %182, %183 ]
+  %.016.i = phi i32 [ 0, %186 ], [ 0, %190 ], [ %203, %193 ], [ %185, %183 ]
   %204 = load i32, ptr %143, align 8, !tbaa !192
   %205 = sitofp i32 %204 to float
   %206 = sitofp i32 %.118.i to float
@@ -1396,8 +1396,8 @@ dt_dev_get_zoom_scale.exit:                       ; preds = %dt_dev_get_processe
   br label %268
 
 268:                                              ; preds = %236, %266, %248
-  %269 = phi i32 [ %.ph199, %248 ], [ %.ph199, %266 ], [ 0, %236 ]
-  %270 = phi i32 [ 0, %248 ], [ %267, %266 ], [ 0, %236 ]
+  %269 = phi i32 [ %.ph199, %266 ], [ %.ph199, %248 ], [ 0, %236 ]
+  %270 = phi i32 [ %267, %266 ], [ 0, %248 ], [ 0, %236 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %271 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #25
   %272 = load i64, ptr %9, align 8, !tbaa !165
@@ -1762,18 +1762,18 @@ define void @dt_dev_zoom_move(ptr noundef captures(address) %0, i32 noundef %1, 
   br label %101
 
 101:                                              ; preds = %87, %74, %90, %71
-  %.not22.i344 = phi i1 [ %.not22.i345, %87 ], [ %.not22.i345, %74 ], [ %.not22.i345, %90 ], [ false, %71 ]
-  %102 = phi i32 [ %75, %87 ], [ %75, %74 ], [ %75, %90 ], [ %60, %71 ]
-  %103 = phi ptr [ %76, %87 ], [ %76, %74 ], [ %76, %90 ], [ %61, %71 ]
-  %104 = phi i32 [ %77, %87 ], [ %77, %74 ], [ %77, %90 ], [ %62, %71 ]
-  %105 = phi ptr [ %78, %87 ], [ %78, %74 ], [ %78, %90 ], [ %63, %71 ]
-  %106 = phi float [ %79, %87 ], [ %79, %74 ], [ %79, %90 ], [ %64, %71 ]
-  %107 = phi ptr [ %80, %87 ], [ %80, %74 ], [ %80, %90 ], [ %65, %71 ]
-  %108 = phi float [ %81, %87 ], [ %81, %74 ], [ %81, %90 ], [ %66, %71 ]
-  %109 = phi float [ %82, %87 ], [ %82, %74 ], [ %82, %90 ], [ %67, %71 ]
-  %110 = phi ptr [ %83, %87 ], [ %83, %74 ], [ %83, %90 ], [ %68, %71 ]
-  %.1293 = phi i32 [ 0, %87 ], [ 0, %74 ], [ %95, %90 ], [ %70, %71 ]
-  %.0291 = phi i32 [ 0, %87 ], [ 0, %74 ], [ %100, %90 ], [ %73, %71 ]
+  %.not22.i344 = phi i1 [ %.not22.i345, %74 ], [ %.not22.i345, %87 ], [ %.not22.i345, %90 ], [ false, %71 ]
+  %102 = phi i32 [ %75, %74 ], [ %75, %87 ], [ %75, %90 ], [ %60, %71 ]
+  %103 = phi ptr [ %76, %74 ], [ %76, %87 ], [ %76, %90 ], [ %61, %71 ]
+  %104 = phi i32 [ %77, %74 ], [ %77, %87 ], [ %77, %90 ], [ %62, %71 ]
+  %105 = phi ptr [ %78, %74 ], [ %78, %87 ], [ %78, %90 ], [ %63, %71 ]
+  %106 = phi float [ %79, %74 ], [ %79, %87 ], [ %79, %90 ], [ %64, %71 ]
+  %107 = phi ptr [ %80, %74 ], [ %80, %87 ], [ %80, %90 ], [ %65, %71 ]
+  %108 = phi float [ %81, %74 ], [ %81, %87 ], [ %81, %90 ], [ %66, %71 ]
+  %109 = phi float [ %82, %74 ], [ %82, %87 ], [ %82, %90 ], [ %67, %71 ]
+  %110 = phi ptr [ %83, %74 ], [ %83, %87 ], [ %83, %90 ], [ %68, %71 ]
+  %.1293 = phi i32 [ 0, %74 ], [ 0, %87 ], [ %95, %90 ], [ %70, %71 ]
+  %.0291 = phi i32 [ 0, %74 ], [ 0, %87 ], [ %100, %90 ], [ %73, %71 ]
   %111 = sitofp i32 %.1293 to float
   %112 = fdiv reassoc nsz arcp contract afn float %108, %111
   %113 = fadd reassoc nsz arcp contract afn float %112, -5.000000e-01
@@ -1821,8 +1821,8 @@ define void @dt_dev_zoom_move(ptr noundef captures(address) %0, i32 noundef %1, 
   br label %dt_dev_get_processed_size.exit.i
 
 dt_dev_get_processed_size.exit.i:                 ; preds = %131, %128, %124, %121
-  %.118.i = phi i32 [ %120, %121 ], [ 0, %124 ], [ 0, %128 ], [ %136, %131 ]
-  %.016.i = phi i32 [ %123, %121 ], [ 0, %124 ], [ 0, %128 ], [ %141, %131 ]
+  %.118.i = phi i32 [ 0, %124 ], [ 0, %128 ], [ %136, %131 ], [ %120, %121 ]
+  %.016.i = phi i32 [ 0, %124 ], [ 0, %128 ], [ %141, %131 ], [ %123, %121 ]
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %143 = load i32, ptr %142, align 8, !tbaa !192
   %144 = sitofp i32 %143 to float
@@ -1852,7 +1852,7 @@ dt_dev_get_processed_size.exit.i:                 ; preds = %131, %128, %124, %1
   br label %dt_dev_get_zoom_scale.exit
 
 dt_dev_get_zoom_scale.exit:                       ; preds = %dt_dev_get_processed_size.exit.i, %152, %154, %156
-  %.0.i227 = phi nsz float [ %157, %156 ], [ %153, %152 ], [ %155, %154 ], [ %106, %dt_dev_get_processed_size.exit.i ]
+  %.0.i227 = phi nsz float [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %106, %dt_dev_get_processed_size.exit.i ]
   %158 = fcmp reassoc nsz arcp contract afn une float %.0.i227, 0.000000e+00
   %.1.i = select nsz i1 %158, float %.0.i227, float 1.000000e+00
   switch i32 %1, label %169 [
@@ -1940,8 +1940,8 @@ dt_dev_get_zoom_scale.exit:                       ; preds = %dt_dev_get_processe
   br label %dt_dev_get_zoom_scale.exit238
 
 dt_dev_get_zoom_scale.exit238:                    ; preds = %187, %190, %194, %197
-  %.118.i232 = phi i32 [ %186, %187 ], [ 0, %190 ], [ 0, %194 ], [ %202, %197 ]
-  %.016.i233 = phi i32 [ %189, %187 ], [ 0, %190 ], [ 0, %194 ], [ %207, %197 ]
+  %.118.i232 = phi i32 [ 0, %190 ], [ 0, %194 ], [ %202, %197 ], [ %186, %187 ]
+  %.016.i233 = phi i32 [ 0, %190 ], [ 0, %194 ], [ %207, %197 ], [ %189, %187 ]
   %208 = sitofp i32 %.118.i232 to float
   %209 = fdiv reassoc nsz arcp contract afn float %144, %208
   %210 = sitofp i32 %.016.i233 to float
@@ -2055,8 +2055,8 @@ dt_dev_get_zoom_scale.exit238:                    ; preds = %187, %190, %194, %1
   br label %dt_dev_get_processed_size.exit.i242
 
 dt_dev_get_processed_size.exit.i242:              ; preds = %256, %253, %249, %246
-  %.118.i243 = phi i32 [ %245, %246 ], [ 0, %249 ], [ 0, %253 ], [ %261, %256 ]
-  %.016.i244 = phi i32 [ %248, %246 ], [ 0, %249 ], [ 0, %253 ], [ %266, %256 ]
+  %.118.i243 = phi i32 [ 0, %249 ], [ 0, %253 ], [ %261, %256 ], [ %245, %246 ]
+  %.016.i244 = phi i32 [ 0, %249 ], [ 0, %253 ], [ %266, %256 ], [ %248, %246 ]
   switch i32 %.2, label %277 [
     i32 0, label %267
     i32 2, label %dt_dev_get_zoom_scale.exit249
@@ -2136,8 +2136,8 @@ dt_dev_get_zoom_scale.exit249:                    ; preds = %dt_dev_get_processe
   br label %dt_dev_get_zoom_scale.exit260
 
 dt_dev_get_zoom_scale.exit260:                    ; preds = %287, %290, %294, %297
-  %.118.i254 = phi i32 [ %286, %287 ], [ 0, %290 ], [ 0, %294 ], [ %302, %297 ]
-  %.016.i255 = phi i32 [ %289, %287 ], [ 0, %290 ], [ 0, %294 ], [ %307, %297 ]
+  %.118.i254 = phi i32 [ 0, %290 ], [ 0, %294 ], [ %302, %297 ], [ %286, %287 ]
+  %.016.i255 = phi i32 [ 0, %290 ], [ 0, %294 ], [ %307, %297 ], [ %289, %287 ]
   %308 = sitofp i32 %.118.i254 to float
   %309 = fdiv reassoc nsz arcp contract afn float %144, %308
   %310 = sitofp i32 %.016.i255 to float
@@ -2184,7 +2184,7 @@ dt_dev_get_zoom_scale.exit260:                    ; preds = %287, %290, %294, %2
   br label %340
 
 340:                                              ; preds = %339, %334, %329, %dt_dev_get_zoom_scale.exit260
-  %.054.i = phi nsz float [ %324, %334 ], [ %315, %dt_dev_get_zoom_scale.exit260 ], [ 2.000000e+00, %339 ], [ 1.000000e+00, %329 ]
+  %.054.i = phi nsz float [ 2.000000e+00, %339 ], [ %324, %334 ], [ %315, %dt_dev_get_zoom_scale.exit260 ], [ 1.000000e+00, %329 ]
   %341 = fmul reassoc nsz arcp contract afn float %315, 5.000000e-01
   %342 = fcmp reassoc nsz arcp contract afn olt float %341, 1.000000e+00
   %343 = select reassoc nsz arcp contract afn i1 %342, float %341, float 1.000000e+00
@@ -2222,8 +2222,8 @@ default.unreachable:                              ; preds = %340
   unreachable
 
 _calculate_new_scroll_zoom_tscale.exit:           ; preds = %344, %352, %358
-  %.056.i = phi nsz float [ %360, %358 ], [ %348, %344 ], [ %354, %352 ]
-  %.055.i = phi nsz float [ %343, %358 ], [ %351, %344 ], [ %357, %352 ]
+  %.056.i = phi nsz float [ %348, %344 ], [ %354, %352 ], [ %360, %358 ]
+  %.055.i = phi nsz float [ %351, %344 ], [ %357, %352 ], [ %343, %358 ]
   %361 = fcmp reassoc nsz arcp contract afn olt float %.054.i, %.056.i
   %362 = select reassoc nsz arcp contract afn i1 %361, float %.054.i, float %.056.i
   %363 = fcmp reassoc nsz arcp contract afn ogt float %.054.i, %.055.i
@@ -2289,11 +2289,11 @@ _calculate_new_scroll_zoom_tscale.exit:           ; preds = %344, %352, %358
   br label %399
 
 399:                                              ; preds = %282, %dt_dev_get_zoom_scale.exit249, %280, %176, %177, %385, %390, %378
-  %.1198 = phi nsz float [ %116, %282 ], [ %116, %176 ], [ %116, %378 ], [ %116, %385 ], [ %398, %390 ], [ %116, %177 ], [ %116, %280 ], [ %116, %dt_dev_get_zoom_scale.exit249 ]
-  %.1194 = phi nsz float [ %113, %282 ], [ %113, %176 ], [ %113, %378 ], [ %113, %385 ], [ %396, %390 ], [ %113, %177 ], [ %113, %280 ], [ %113, %dt_dev_get_zoom_scale.exit249 ]
-  %.0186 = phi i32 [ %3, %282 ], [ 0, %176 ], [ %.2188, %378 ], [ %3, %385 ], [ %394, %390 ], [ %179, %177 ], [ %.1187, %280 ], [ %.1187, %dt_dev_get_zoom_scale.exit249 ]
-  %.0184 = phi nsz float [ %2, %282 ], [ %2, %176 ], [ %.1185, %378 ], [ %106, %385 ], [ %106, %390 ], [ %2, %177 ], [ %281, %280 ], [ %.1.i246, %dt_dev_get_zoom_scale.exit249 ]
-  %.1 = phi i32 [ %1, %282 ], [ 2, %176 ], [ %.5, %378 ], [ 0, %385 ], [ %392, %390 ], [ 2, %177 ], [ %.2, %280 ], [ %.2, %dt_dev_get_zoom_scale.exit249 ]
+  %.1198 = phi nsz float [ %116, %378 ], [ %116, %385 ], [ %398, %390 ], [ %116, %177 ], [ %116, %176 ], [ %116, %280 ], [ %116, %dt_dev_get_zoom_scale.exit249 ], [ %116, %282 ]
+  %.1194 = phi nsz float [ %113, %378 ], [ %113, %385 ], [ %396, %390 ], [ %113, %177 ], [ %113, %176 ], [ %113, %280 ], [ %113, %dt_dev_get_zoom_scale.exit249 ], [ %113, %282 ]
+  %.0186 = phi i32 [ %.2188, %378 ], [ %3, %385 ], [ %394, %390 ], [ %179, %177 ], [ 0, %176 ], [ %.1187, %280 ], [ %.1187, %dt_dev_get_zoom_scale.exit249 ], [ %3, %282 ]
+  %.0184 = phi nsz float [ %.1185, %378 ], [ %106, %385 ], [ %106, %390 ], [ %2, %177 ], [ %2, %176 ], [ %281, %280 ], [ %.1.i246, %dt_dev_get_zoom_scale.exit249 ], [ %2, %282 ]
+  %.1 = phi i32 [ %.5, %378 ], [ 0, %385 ], [ %392, %390 ], [ 2, %177 ], [ 2, %176 ], [ %.2, %280 ], [ %.2, %dt_dev_get_zoom_scale.exit249 ], [ %1, %282 ]
   store i32 %.0186, ptr %103, align 8, !tbaa !204
   store float %.0184, ptr %107, align 4, !tbaa !194
   store i32 %.1, ptr %105, align 4, !tbaa !203
@@ -2358,8 +2358,8 @@ _calculate_new_scroll_zoom_tscale.exit:           ; preds = %344, %352, %358
   br label %dt_dev_get_processed_size.exit.i266
 
 dt_dev_get_processed_size.exit.i266:              ; preds = %423, %420, %416, %413
-  %.118.i267 = phi i32 [ %412, %413 ], [ 0, %416 ], [ 0, %420 ], [ %428, %423 ]
-  %.016.i268 = phi i32 [ %415, %413 ], [ 0, %416 ], [ 0, %420 ], [ %433, %423 ]
+  %.118.i267 = phi i32 [ 0, %416 ], [ 0, %420 ], [ %428, %423 ], [ %412, %413 ]
+  %.016.i268 = phi i32 [ 0, %416 ], [ 0, %420 ], [ %433, %423 ], [ %415, %413 ]
   %434 = load i32, ptr %142, align 8, !tbaa !192
   %435 = sitofp i32 %434 to float
   %436 = sitofp i32 %.118.i267 to float
@@ -2387,7 +2387,7 @@ dt_dev_get_processed_size.exit.i266:              ; preds = %423, %420, %416, %4
   br label %dt_dev_get_zoom_scale.exit273
 
 dt_dev_get_zoom_scale.exit273:                    ; preds = %dt_dev_get_processed_size.exit.i266, %442, %444, %446
-  %.0.i269 = phi nsz float [ %447, %446 ], [ %443, %442 ], [ %445, %444 ], [ %402, %dt_dev_get_processed_size.exit.i266 ]
+  %.0.i269 = phi nsz float [ %443, %442 ], [ %445, %444 ], [ %447, %446 ], [ %402, %dt_dev_get_processed_size.exit.i266 ]
   %448 = fcmp reassoc nsz arcp contract afn une float %.0.i269, 0.000000e+00
   %.1.i270 = select nsz i1 %448, float %.0.i269, float 1.000000e+00
   %449 = fmul reassoc nsz arcp contract afn float %.1.i270, %111
@@ -3092,8 +3092,8 @@ define float @dt_dev_get_zoom_scale_full() local_unnamed_addr #0 {
   br label %dt_dev_get_processed_size.exit.i
 
 dt_dev_get_processed_size.exit.i:                 ; preds = %28, %25, %22, %19
-  %.118.i = phi i32 [ %18, %19 ], [ 0, %22 ], [ 0, %25 ], [ %33, %28 ]
-  %.016.i = phi i32 [ %21, %19 ], [ 0, %22 ], [ 0, %25 ], [ %38, %28 ]
+  %.118.i = phi i32 [ 0, %22 ], [ 0, %25 ], [ %33, %28 ], [ %18, %19 ]
+  %.016.i = phi i32 [ 0, %22 ], [ 0, %25 ], [ %38, %28 ], [ %21, %19 ]
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 2640
   %40 = load i32, ptr %39, align 8, !tbaa !192
   %41 = sitofp i32 %40 to float
@@ -3215,8 +3215,8 @@ dt_dev_get_zoom_scale.exit.thread:                ; preds = %15
   br label %dt_dev_get_zoom_scale.exit
 
 dt_dev_get_zoom_scale.exit:                       ; preds = %27, %30, %33
-  %.118.i = phi i32 [ %38, %33 ], [ 0, %27 ], [ 0, %30 ]
-  %.016.i = phi i32 [ %43, %33 ], [ 0, %27 ], [ 0, %30 ]
+  %.118.i = phi i32 [ 0, %27 ], [ 0, %30 ], [ %38, %33 ]
+  %.016.i = phi i32 [ 0, %27 ], [ 0, %30 ], [ %43, %33 ]
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 2640
   %45 = load i32, ptr %44, align 8, !tbaa !192
   %46 = sitofp i32 %45 to float
@@ -3230,8 +3230,8 @@ dt_dev_get_zoom_scale.exit:                       ; preds = %27, %30, %33
   %52 = phi i32 [ %26, %dt_dev_get_zoom_scale.exit.thread ], [ %50, %dt_dev_get_zoom_scale.exit ]
   %53 = phi float [ %25, %dt_dev_get_zoom_scale.exit.thread ], [ %49, %dt_dev_get_zoom_scale.exit ]
   %54 = phi float [ %22, %dt_dev_get_zoom_scale.exit.thread ], [ %46, %dt_dev_get_zoom_scale.exit ]
-  %.016.i24 = phi i32 [ %19, %dt_dev_get_zoom_scale.exit.thread ], [ %.016.i, %dt_dev_get_zoom_scale.exit ]
-  %.118.i21 = phi i32 [ %17, %dt_dev_get_zoom_scale.exit.thread ], [ %.118.i, %dt_dev_get_zoom_scale.exit ]
+  %.016.i25 = phi i32 [ %19, %dt_dev_get_zoom_scale.exit.thread ], [ %.016.i, %dt_dev_get_zoom_scale.exit ]
+  %.118.i22 = phi i32 [ %17, %dt_dev_get_zoom_scale.exit.thread ], [ %.118.i, %dt_dev_get_zoom_scale.exit ]
   %55 = getelementptr inbounds nuw i8, ptr %14, i64 156
   %56 = load i32, ptr %55, align 4, !tbaa !188
   %.not23.i.i3 = icmp eq i32 %56, 0
@@ -3246,8 +3246,8 @@ dt_dev_get_zoom_scale.exit:                       ; preds = %27, %30, %33
   %61 = phi i32 [ %52, %51 ], [ %50, %dt_dev_get_zoom_scale.exit ]
   %62 = phi float [ %53, %51 ], [ %49, %dt_dev_get_zoom_scale.exit ]
   %63 = phi float [ %54, %51 ], [ %46, %dt_dev_get_zoom_scale.exit ]
-  %.016.i25 = phi i32 [ %.016.i24, %51 ], [ %.016.i, %dt_dev_get_zoom_scale.exit ]
-  %.118.i22 = phi i32 [ %.118.i21, %51 ], [ %.118.i, %dt_dev_get_zoom_scale.exit ]
+  %.016.i24 = phi i32 [ %.016.i25, %51 ], [ %.016.i, %dt_dev_get_zoom_scale.exit ]
+  %.118.i21 = phi i32 [ %.118.i22, %51 ], [ %.118.i, %dt_dev_get_zoom_scale.exit ]
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %65 = load ptr, ptr %64, align 16, !tbaa !59
   %.not24.i.i7 = icmp eq ptr %65, null
@@ -3273,13 +3273,13 @@ dt_dev_get_zoom_scale.exit:                       ; preds = %27, %30, %33
   br label %dt_dev_get_processed_size.exit.i
 
 dt_dev_get_processed_size.exit.i:                 ; preds = %69, %66, %60, %57
-  %80 = phi i32 [ %52, %57 ], [ %61, %60 ], [ %61, %66 ], [ %61, %69 ]
-  %81 = phi float [ %53, %57 ], [ %62, %60 ], [ %62, %66 ], [ %62, %69 ]
-  %82 = phi float [ %54, %57 ], [ %63, %60 ], [ %63, %66 ], [ %63, %69 ]
-  %.016.i23 = phi i32 [ %.016.i24, %57 ], [ %.016.i25, %60 ], [ %.016.i25, %66 ], [ %.016.i25, %69 ]
-  %.118.i20 = phi i32 [ %.118.i21, %57 ], [ %.118.i22, %60 ], [ %.118.i22, %66 ], [ %.118.i22, %69 ]
-  %.118.i4 = phi i32 [ %56, %57 ], [ 0, %60 ], [ 0, %66 ], [ %74, %69 ]
-  %.016.i5 = phi i32 [ %59, %57 ], [ 0, %60 ], [ 0, %66 ], [ %79, %69 ]
+  %80 = phi i32 [ %61, %60 ], [ %61, %66 ], [ %61, %69 ], [ %52, %57 ]
+  %81 = phi float [ %62, %60 ], [ %62, %66 ], [ %62, %69 ], [ %53, %57 ]
+  %82 = phi float [ %63, %60 ], [ %63, %66 ], [ %63, %69 ], [ %54, %57 ]
+  %.016.i23 = phi i32 [ %.016.i24, %60 ], [ %.016.i24, %66 ], [ %.016.i24, %69 ], [ %.016.i25, %57 ]
+  %.118.i20 = phi i32 [ %.118.i21, %60 ], [ %.118.i21, %66 ], [ %.118.i21, %69 ], [ %.118.i22, %57 ]
+  %.118.i4 = phi i32 [ 0, %60 ], [ 0, %66 ], [ %74, %69 ], [ %56, %57 ]
+  %.016.i5 = phi i32 [ 0, %60 ], [ 0, %66 ], [ %79, %69 ], [ %59, %57 ]
   %83 = sitofp i32 %.118.i4 to float
   %84 = fdiv reassoc nsz arcp contract afn float %82, %83
   %85 = sitofp i32 %.016.i5 to float
@@ -4981,8 +4981,8 @@ _dev_merge_history.exit:                          ; preds = %505, %509, %635, %6
   br i1 %.not347, label %927, label %.split.us
 
 .split.us:                                        ; preds = %912, %916, %896, %900
-  %.us-phi = phi ptr [ %891, %896 ], [ %891, %900 ], [ %907, %916 ], [ %907, %912 ]
-  %.us-phi420 = phi ptr [ %.0295418.us, %896 ], [ %.0295418.us, %900 ], [ null, %916 ], [ null, %912 ]
+  %.us-phi = phi ptr [ %891, %900 ], [ %891, %896 ], [ %907, %916 ], [ %907, %912 ]
+  %.us-phi420 = phi ptr [ %.0295418.us, %900 ], [ %.0295418.us, %896 ], [ null, %916 ], [ null, %912 ]
   store ptr %.us-phi, ptr %889, align 8, !tbaa !257
   %.not348 = icmp eq ptr %865, null
   %921 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 956
@@ -5083,9 +5083,9 @@ _dev_merge_history.exit:                          ; preds = %505, %509, %635, %6
   br label %964
 
 964:                                              ; preds = %955, %952, %950
-  %965 = phi ptr [ %951, %950 ], [ %.pre449, %955 ], [ %951, %952 ]
-  %.4290 = phi ptr [ %.0286431, %950 ], [ %spec.select, %955 ], [ %.0286431, %952 ]
-  %.4285 = phi ptr [ %.0281432, %950 ], [ %spec.select486, %955 ], [ %.0281432, %952 ]
+  %965 = phi ptr [ %951, %952 ], [ %951, %950 ], [ %.pre449, %955 ]
+  %.4290 = phi ptr [ %.0286431, %952 ], [ %.0286431, %950 ], [ %spec.select, %955 ]
+  %.4285 = phi ptr [ %.0281432, %952 ], [ %.0281432, %950 ], [ %spec.select486, %955 ]
   %966 = getelementptr inbounds nuw i8, ptr %965, i64 64
   %967 = load ptr, ptr %966, align 16, !tbaa !245
   %968 = call i32 %967() #25
@@ -5376,9 +5376,9 @@ _dev_merge_history.exit:                          ; preds = %505, %509, %635, %6
   br label %1122
 
 1122:                                             ; preds = %887, %884, %.critedge, %1117, %970, %949, %879
-  %.1287 = phi ptr [ %.0286431, %879 ], [ %.0286431, %884 ], [ %.0286431, %887 ], [ %.4290, %970 ], [ %.0286431, %949 ], [ %.4290, %1117 ], [ %.4290, %.critedge ]
-  %.1282 = phi ptr [ %.0281432, %879 ], [ %.0281432, %884 ], [ %.0281432, %887 ], [ %.4285, %970 ], [ %.0281432, %949 ], [ %.4285, %1117 ], [ %.4285, %.critedge ]
-  %.1 = phi i32 [ %.0277433, %879 ], [ %.0277433, %884 ], [ %.0277433, %887 ], [ %.0277433, %970 ], [ %.0277433, %949 ], [ %.5, %1117 ], [ %.4, %.critedge ]
+  %.1287 = phi ptr [ %.0286431, %879 ], [ %.0286431, %887 ], [ %.0286431, %884 ], [ %.4290, %970 ], [ %.0286431, %949 ], [ %.4290, %1117 ], [ %.4290, %.critedge ]
+  %.1282 = phi ptr [ %.0281432, %879 ], [ %.0281432, %887 ], [ %.0281432, %884 ], [ %.4285, %970 ], [ %.0281432, %949 ], [ %.4285, %1117 ], [ %.4285, %.critedge ]
+  %.1 = phi i32 [ %.0277433, %879 ], [ %.0277433, %887 ], [ %.0277433, %884 ], [ %.0277433, %970 ], [ %.0277433, %949 ], [ %.5, %1117 ], [ %.4, %.critedge ]
   %1123 = load ptr, ptr %8, align 8, !tbaa !250
   %1124 = call i32 @sqlite3_step(ptr noundef %1123) #25
   %1125 = icmp eq i32 %1124, 100
@@ -8322,8 +8322,8 @@ define range(i32 0, 2) i32 @dt_dev_get_zoom_bounds(ptr noundef readonly captures
   br label %41
 
 41:                                               ; preds = %27, %23, %30
-  %.1 = phi i32 [ 0, %27 ], [ 0, %23 ], [ %35, %30 ]
-  %.020 = phi i32 [ 0, %27 ], [ 0, %23 ], [ %40, %30 ]
+  %.1 = phi i32 [ 0, %23 ], [ 0, %27 ], [ %35, %30 ]
+  %.020 = phi i32 [ 0, %23 ], [ 0, %27 ], [ %40, %30 ]
   %42 = load i32, ptr %8, align 4, !tbaa !203
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %44 = load i32, ptr %43, align 8, !tbaa !204
@@ -8333,8 +8333,8 @@ define range(i32 0, 2) i32 @dt_dev_get_zoom_bounds(ptr noundef readonly captures
 46:                                               ; preds = %.thread, %41
   %47 = phi i32 [ %22, %.thread ], [ %45, %41 ]
   %48 = phi i32 [ %19, %.thread ], [ %42, %41 ]
-  %.02036 = phi i32 [ %18, %.thread ], [ %.020, %41 ]
-  %.133 = phi i32 [ %16, %.thread ], [ %.1, %41 ]
+  %.02037 = phi i32 [ %18, %.thread ], [ %.020, %41 ]
+  %.134 = phi i32 [ %16, %.thread ], [ %.1, %41 ]
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 156
   %50 = load i32, ptr %49, align 4, !tbaa !188
   %.not23.i.i = icmp eq i32 %50, 0
@@ -8348,8 +8348,8 @@ define range(i32 0, 2) i32 @dt_dev_get_zoom_bounds(ptr noundef readonly captures
 54:                                               ; preds = %46, %41
   %55 = phi i32 [ %47, %46 ], [ %45, %41 ]
   %56 = phi i32 [ %48, %46 ], [ %42, %41 ]
-  %.02037 = phi i32 [ %.02036, %46 ], [ %.020, %41 ]
-  %.134 = phi i32 [ %.133, %46 ], [ %.1, %41 ]
+  %.02036 = phi i32 [ %.02037, %46 ], [ %.020, %41 ]
+  %.133 = phi i32 [ %.134, %46 ], [ %.1, %41 ]
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !190
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 96
   %59 = load ptr, ptr %58, align 16, !tbaa !59
@@ -8376,12 +8376,12 @@ define range(i32 0, 2) i32 @dt_dev_get_zoom_bounds(ptr noundef readonly captures
   br label %dt_dev_get_processed_size.exit.i
 
 dt_dev_get_processed_size.exit.i:                 ; preds = %63, %60, %54, %51
-  %74 = phi i32 [ %47, %51 ], [ %55, %54 ], [ %55, %60 ], [ %55, %63 ]
-  %75 = phi i32 [ %48, %51 ], [ %56, %54 ], [ %56, %60 ], [ %56, %63 ]
-  %.02035 = phi i32 [ %.02036, %51 ], [ %.02037, %54 ], [ %.02037, %60 ], [ %.02037, %63 ]
-  %.132 = phi i32 [ %.133, %51 ], [ %.134, %54 ], [ %.134, %60 ], [ %.134, %63 ]
-  %.118.i = phi i32 [ %50, %51 ], [ 0, %54 ], [ 0, %60 ], [ %68, %63 ]
-  %.016.i = phi i32 [ %53, %51 ], [ 0, %54 ], [ 0, %60 ], [ %73, %63 ]
+  %74 = phi i32 [ %55, %54 ], [ %55, %60 ], [ %55, %63 ], [ %47, %51 ]
+  %75 = phi i32 [ %56, %54 ], [ %56, %60 ], [ %56, %63 ], [ %48, %51 ]
+  %.02035 = phi i32 [ %.02036, %54 ], [ %.02036, %60 ], [ %.02036, %63 ], [ %.02037, %51 ]
+  %.132 = phi i32 [ %.133, %54 ], [ %.133, %60 ], [ %.133, %63 ], [ %.134, %51 ]
+  %.118.i = phi i32 [ 0, %54 ], [ 0, %60 ], [ %68, %63 ], [ %50, %51 ]
+  %.016.i = phi i32 [ 0, %54 ], [ 0, %60 ], [ %73, %63 ], [ %53, %51 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %77 = load i32, ptr %76, align 8, !tbaa !192
   %78 = sitofp i32 %77 to float
@@ -8545,8 +8545,8 @@ dt_dev_get_processed_size.exit:                   ; preds = %6
   br label %dt_dev_get_processed_size.exit.i
 
 41:                                               ; preds = %28, %21, %25
-  %.1.ph = phi i32 [ 0, %21 ], [ %33, %28 ], [ 0, %25 ]
-  %.0.ph = phi i32 [ 0, %21 ], [ %38, %28 ], [ 0, %25 ]
+  %.1.ph = phi i32 [ %33, %28 ], [ 0, %25 ], [ 0, %21 ]
+  %.0.ph = phi i32 [ %38, %28 ], [ 0, %25 ], [ 0, %21 ]
   %42 = load i32, ptr %7, align 4, !tbaa !187
   %43 = load i32, ptr %8, align 4, !tbaa !187
   br i1 %.not22.i, label %52, label %44
@@ -8713,8 +8713,8 @@ dt_dev_get_processed_size.exit.i:                 ; preds = %dt_dev_get_processe
   br label %dt_dev_get_processed_size.exit.i21
 
 dt_dev_get_processed_size.exit.i21:               ; preds = %133, %130, %126, %123
-  %.118.i22 = phi i32 [ %122, %123 ], [ 0, %126 ], [ 0, %130 ], [ %138, %133 ]
-  %.016.i23 = phi i32 [ %125, %123 ], [ 0, %126 ], [ 0, %130 ], [ %143, %133 ]
+  %.118.i22 = phi i32 [ 0, %126 ], [ 0, %130 ], [ %138, %133 ], [ %122, %123 ]
+  %.016.i23 = phi i32 [ 0, %126 ], [ 0, %130 ], [ %143, %133 ], [ %125, %123 ]
   %144 = sitofp i32 %.118.i22 to float
   %145 = fdiv reassoc nsz arcp contract afn float %76, %144
   %146 = sitofp i32 %.016.i23 to float
@@ -8831,15 +8831,15 @@ define void @dt_dev_get_pointer_zoom_pos_from_bounds(ptr noundef readonly captur
   br label %45
 
 45:                                               ; preds = %31, %27, %34
-  %.1 = phi i32 [ 0, %31 ], [ 0, %27 ], [ %39, %34 ]
-  %.0 = phi i32 [ 0, %31 ], [ 0, %27 ], [ %44, %34 ]
+  %.1 = phi i32 [ 0, %27 ], [ 0, %31 ], [ %39, %34 ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %31 ], [ %44, %34 ]
   %46 = shl nuw i32 1, %15
   br i1 %.not22.i, label %54, label %47
 
 47:                                               ; preds = %.thread, %45
   %48 = phi i32 [ %26, %.thread ], [ %46, %45 ]
-  %.063 = phi i32 [ %25, %.thread ], [ %.0, %45 ]
-  %.160 = phi i32 [ %23, %.thread ], [ %.1, %45 ]
+  %.064 = phi i32 [ %25, %.thread ], [ %.0, %45 ]
+  %.161 = phi i32 [ %23, %.thread ], [ %.1, %45 ]
   %49 = getelementptr inbounds nuw i8, ptr %20, i64 156
   %50 = load i32, ptr %49, align 4, !tbaa !188
   %.not23.i.i = icmp eq i32 %50, 0
@@ -8852,8 +8852,8 @@ define void @dt_dev_get_pointer_zoom_pos_from_bounds(ptr noundef readonly captur
 
 54:                                               ; preds = %47, %45
   %55 = phi i32 [ %48, %47 ], [ %46, %45 ]
-  %.064 = phi i32 [ %.063, %47 ], [ %.0, %45 ]
-  %.161 = phi i32 [ %.160, %47 ], [ %.1, %45 ]
+  %.063 = phi i32 [ %.064, %47 ], [ %.0, %45 ]
+  %.160 = phi i32 [ %.161, %47 ], [ %.1, %45 ]
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !190
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 96
   %58 = load ptr, ptr %57, align 16, !tbaa !59
@@ -8880,11 +8880,11 @@ define void @dt_dev_get_pointer_zoom_pos_from_bounds(ptr noundef readonly captur
   br label %dt_dev_get_processed_size.exit.i
 
 dt_dev_get_processed_size.exit.i:                 ; preds = %62, %59, %54, %51
-  %73 = phi i32 [ %48, %51 ], [ %55, %54 ], [ %55, %59 ], [ %55, %62 ]
-  %.062 = phi i32 [ %.063, %51 ], [ %.064, %54 ], [ %.064, %59 ], [ %.064, %62 ]
-  %.159 = phi i32 [ %.160, %51 ], [ %.161, %54 ], [ %.161, %59 ], [ %.161, %62 ]
-  %.118.i = phi i32 [ %50, %51 ], [ 0, %54 ], [ 0, %59 ], [ %67, %62 ]
-  %.016.i = phi i32 [ %53, %51 ], [ 0, %54 ], [ 0, %59 ], [ %72, %62 ]
+  %73 = phi i32 [ %55, %54 ], [ %55, %59 ], [ %55, %62 ], [ %48, %51 ]
+  %.062 = phi i32 [ %.063, %54 ], [ %.063, %59 ], [ %.063, %62 ], [ %.064, %51 ]
+  %.159 = phi i32 [ %.160, %54 ], [ %.160, %59 ], [ %.160, %62 ], [ %.161, %51 ]
+  %.118.i = phi i32 [ 0, %54 ], [ 0, %59 ], [ %67, %62 ], [ %50, %51 ]
+  %.016.i = phi i32 [ 0, %54 ], [ 0, %59 ], [ %72, %62 ], [ %53, %51 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = load i32, ptr %74, align 8, !tbaa !192
   %76 = sitofp i32 %75 to float
@@ -8989,8 +8989,8 @@ dt_dev_get_processed_size.exit.i:                 ; preds = %62, %59, %54, %51
   br label %dt_dev_get_processed_size.exit.i27
 
 dt_dev_get_processed_size.exit.i27:               ; preds = %129, %126, %122, %119
-  %.118.i28 = phi i32 [ %118, %119 ], [ 0, %122 ], [ 0, %126 ], [ %134, %129 ]
-  %.016.i29 = phi i32 [ %121, %119 ], [ 0, %122 ], [ 0, %126 ], [ %139, %129 ]
+  %.118.i28 = phi i32 [ 0, %122 ], [ 0, %126 ], [ %134, %129 ], [ %118, %119 ]
+  %.016.i29 = phi i32 [ 0, %122 ], [ 0, %126 ], [ %139, %129 ], [ %121, %119 ]
   %140 = sitofp i32 %.118.i28 to float
   %141 = fdiv reassoc nsz arcp contract afn float %76, %140
   %142 = sitofp i32 %.016.i29 to float
@@ -10208,7 +10208,7 @@ define i64 @dt_dev_hash_plus(ptr noundef %0, ptr noundef readonly captures(none)
   br i1 %exitcond.not.i, label %dt_hash.exit, label %41
 
 dt_hash.exit:                                     ; preds = %41, %29, %24, %19, %13, %34, %18
-  %.1 = phi i64 [ %.03040, %29 ], [ %.03040, %34 ], [ %.03040, %24 ], [ %.03040, %13 ], [ %.03040, %19 ], [ %.03040, %18 ], [ %46, %41 ]
+  %.1 = phi i64 [ %.03040, %34 ], [ %.03040, %13 ], [ %.03040, %18 ], [ %.03040, %19 ], [ %.03040, %24 ], [ %.03040, %29 ], [ %46, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %.03238, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !229
   %50 = getelementptr inbounds nuw i8, ptr %.03139, i64 16
@@ -10298,8 +10298,8 @@ _dev_wait_hash.exit:                              ; preds = %26, %17
   tail call void (...) @dt_control_queue_redraw_center() #25
   br label %_dev_wait_hash.exit.thread
 
-_dev_wait_hash.exit.thread:                       ; preds = %19, %.lr.ph.i, %.lr.ph39.i, %12, %.preheader.split.i, %.preheader.split.us.i, %6, %_dev_wait_hash.exit, %30
-  %.0 = phi i32 [ 0, %_dev_wait_hash.exit ], [ 1, %30 ], [ 1, %6 ], [ 1, %.preheader.split.us.i ], [ 1, %.preheader.split.i ], [ 1, %.lr.ph39.i ], [ 1, %12 ], [ 1, %.lr.ph.i ], [ 1, %19 ]
+_dev_wait_hash.exit.thread:                       ; preds = %19, %.lr.ph.i, %12, %.lr.ph39.i, %.preheader.split.i, %.preheader.split.us.i, %6, %_dev_wait_hash.exit, %30
+  %.0 = phi i32 [ 1, %30 ], [ 0, %_dev_wait_hash.exit ], [ 1, %6 ], [ 1, %.preheader.split.us.i ], [ 1, %.preheader.split.i ], [ 1, %.lr.ph39.i ], [ 1, %12 ], [ 1, %.lr.ph.i ], [ 1, %19 ]
   ret i32 %.0
 }
 
@@ -10393,7 +10393,7 @@ define i64 @dt_dev_hash_distort_plus(ptr noundef %0, ptr noundef readonly captur
   br i1 %exitcond.not.i, label %dt_hash.exit, label %46
 
 dt_hash.exit:                                     ; preds = %46, %34, %29, %24, %13, %18, %39, %23
-  %.1 = phi i64 [ %.03142, %34 ], [ %.03142, %39 ], [ %.03142, %29 ], [ %.03142, %18 ], [ %.03142, %13 ], [ %.03142, %24 ], [ %.03142, %23 ], [ %51, %46 ]
+  %.1 = phi i64 [ %.03142, %39 ], [ %.03142, %18 ], [ %.03142, %13 ], [ %.03142, %23 ], [ %.03142, %24 ], [ %.03142, %29 ], [ %.03142, %34 ], [ %51, %46 ]
   %53 = getelementptr inbounds nuw i8, ptr %.03340, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !229
   %55 = getelementptr inbounds nuw i8, ptr %.03241, i64 16
@@ -10638,7 +10638,7 @@ dt_dev_equal_chroma.exit.sink.split:              ; preds = %34, %20
   br label %dt_dev_equal_chroma.exit
 
 dt_dev_equal_chroma.exit:                         ; preds = %dt_dev_equal_chroma.exit.sink.split, %34, %27, %20, %13
-  %.shrunk = phi i32 [ 0, %27 ], [ 0, %20 ], [ 0, %13 ], [ 0, %34 ], [ %47, %dt_dev_equal_chroma.exit.sink.split ]
+  %.shrunk = phi i32 [ 0, %20 ], [ 0, %13 ], [ 0, %34 ], [ 0, %27 ], [ %47, %dt_dev_equal_chroma.exit.sink.split ]
   ret i32 %.shrunk
 }
 

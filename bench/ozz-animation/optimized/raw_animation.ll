@@ -118,8 +118,8 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
   br label %.lr.ph.i20
 
 .lr.ph.i20:                                       ; preds = %.lr.ph.i20, %.lr.ph.preheader.i19
-  %.0164.i21 = phi i64 [ %39, %.lr.ph.i20 ], [ 0, %.lr.ph.preheader.i19 ]
-  %.0173.i22 = phi float [ %35, %.lr.ph.i20 ], [ -1.000000e+00, %.lr.ph.preheader.i19 ]
+  %.0164.i21 = phi i64 [ 0, %.lr.ph.preheader.i19 ], [ %39, %.lr.ph.i20 ]
+  %.0173.i22 = phi float [ -1.000000e+00, %.lr.ph.preheader.i19 ], [ %35, %.lr.ph.i20 ]
   %34 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %.val7, i64 %.0164.i21
   %35 = load float, ptr %34, align 4, !tbaa !31
   %36 = fcmp uge float %35, 0.000000e+00
@@ -133,7 +133,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
   br i1 %or.cond.not, label %.lr.ph.i20, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit, !llvm.loop !33
 
 _ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit: ; preds = %.lr.ph.i, %.lr.ph.i11, %.lr.ph.i20, %.loopexit
-  %40 = phi i1 [ %or.cond1.i24, %.lr.ph.i20 ], [ false, %.lr.ph.i11 ], [ true, %.loopexit ], [ false, %.lr.ph.i ]
+  %40 = phi i1 [ true, %.loopexit ], [ %or.cond1.i24, %.lr.ph.i20 ], [ false, %.lr.ph.i11 ], [ false, %.lr.ph.i ]
   ret i1 %40
 }
 
@@ -262,7 +262,7 @@ _ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit: ; preds = 
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !36
 
 .critedge:                                        ; preds = %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit, %.lr.ph.i.i, %.lr.ph.i11.i, %.lr.ph.i20.i, %.preheader.preheader, %5, %1
-  %.07 = phi i1 [ false, %5 ], [ false, %1 ], [ false, %.lr.ph.i20.i ], [ false, %.lr.ph.i.i ], [ true, %.preheader.preheader ], [ false, %.lr.ph.i11.i ], [ true, %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit ]
+  %.07 = phi i1 [ false, %1 ], [ false, %5 ], [ true, %.preheader.preheader ], [ false, %.lr.ph.i20.i ], [ false, %.lr.ph.i11.i ], [ false, %.lr.ph.i.i ], [ true, %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit ]
   ret i1 %.07
 }
 

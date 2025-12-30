@@ -100,7 +100,7 @@ define hidden range(i32 0, 82) i32 @FT_Stream_Open(ptr noundef captures(address_
   br label %47
 
 47:                                               ; preds = %4, %2, %45, %.thread64
-  %.0 = phi i32 [ 40, %2 ], [ 81, %45 ], [ 0, %.thread64 ], [ 1, %4 ]
+  %.0 = phi i32 [ 81, %45 ], [ 0, %.thread64 ], [ 40, %2 ], [ 1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

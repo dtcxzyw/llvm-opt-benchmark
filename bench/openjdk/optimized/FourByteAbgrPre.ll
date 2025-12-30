@@ -1525,9 +1525,9 @@ define hidden void @FourByteAbgrPreSrcMaskFill(ptr noundef %0, ptr noundef %1, i
   br label %34
 
 34:                                               ; preds = %10, %.fold.split, %19
-  %.088 = phi i32 [ 0, %10 ], [ %33, %19 ], [ %13, %.fold.split ]
-  %.087 = phi i32 [ 0, %10 ], [ %29, %19 ], [ %15, %.fold.split ]
-  %.086 = phi i32 [ 0, %10 ], [ %25, %19 ], [ %17, %.fold.split ]
+  %.088 = phi i32 [ %33, %19 ], [ 0, %10 ], [ %13, %.fold.split ]
+  %.087 = phi i32 [ %29, %19 ], [ 0, %10 ], [ %15, %.fold.split ]
+  %.086 = phi i32 [ %25, %19 ], [ 0, %10 ], [ %17, %.fold.split ]
   %35 = shl nsw i32 %4, 2
   %36 = sub nsw i32 %12, %35
   %.not98 = icmp eq ptr %1, null
@@ -2085,10 +2085,10 @@ define hidden void @FourByteAbgrPreAlphaMaskFill(ptr noundef %0, ptr noundef %1,
   br i1 %115, label %153, label %116
 
 116:                                              ; preds = %114, %98, %99
-  %.0116 = phi i32 [ %18, %98 ], [ %104, %99 ], [ 0, %114 ]
-  %.0114 = phi i32 [ %.0126, %98 ], [ %107, %99 ], [ 0, %114 ]
-  %.0112 = phi i32 [ %.0127, %98 ], [ %110, %99 ], [ 0, %114 ]
-  %.0111 = phi i32 [ %.0131, %98 ], [ %113, %99 ], [ 0, %114 ]
+  %.0116 = phi i32 [ %104, %99 ], [ %18, %98 ], [ 0, %114 ]
+  %.0114 = phi i32 [ %107, %99 ], [ %.0126, %98 ], [ 0, %114 ]
+  %.0112 = phi i32 [ %110, %99 ], [ %.0127, %98 ], [ 0, %114 ]
+  %.0111 = phi i32 [ %113, %99 ], [ %.0131, %98 ], [ 0, %114 ]
   %.not156 = icmp eq i32 %.4141, 0
   br i1 %.not156, label %145, label %117
 

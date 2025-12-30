@@ -202,7 +202,7 @@ cmsPipelineStageCount.exit:                       ; preds = %.lr.ph.i, %2
   br i1 %exitcond36.not, label %.sink.split, label %32, !llvm.loop !9
 
 .sink.split:                                      ; preds = %22, %47, %6
-  %.0.ph = phi i32 [ 1, %47 ], [ 1, %6 ], [ 0, %22 ]
+  %.0.ph = phi i32 [ 1, %6 ], [ 1, %47 ], [ 0, %22 ]
   call void @llvm.va_end.p0(ptr nonnull %3)
   br label %50
 
@@ -344,7 +344,7 @@ define hidden ptr @cmsStageAllocToneCurves(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not.i37, label %_cmsStageAllocPlaceholder.exit.thread.sink.split, label %_cmsStageAllocPlaceholder.exit.thread.sink.split.sink.split
 
 _cmsStageAllocPlaceholder.exit.thread.sink.split.sink.split: ; preds = %.split.us, %32, %17
-  %.sink = phi ptr [ %33, %32 ], [ %18, %17 ], [ %44, %.split.us ]
+  %.sink = phi ptr [ %18, %17 ], [ %33, %32 ], [ %44, %.split.us ]
   tail call void %.sink(ptr noundef nonnull %4) #18
   br label %_cmsStageAllocPlaceholder.exit.thread.sink.split
 
@@ -485,7 +485,7 @@ define internal ptr @CurveSetDup(ptr noundef readonly captures(none) %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %.preheader36, %1, %.thread
-  %.031 = phi ptr [ null, %1 ], [ null, %.thread ], [ %5, %.preheader36 ], [ %5, %15 ]
+  %.031 = phi ptr [ null, %.thread ], [ null, %1 ], [ %5, %.preheader36 ], [ %5, %15 ]
   ret ptr %.031
 }
 
@@ -694,7 +694,7 @@ cmsStageFree.exit:                                ; preds = %45, %47
   br label %_cmsStageAllocPlaceholder.exit.thread
 
 _cmsStageAllocPlaceholder.exit.thread:            ; preds = %.preheader, %15, %36, %12, %10, %8, %5, %cmsStageFree.exit
-  %.0 = phi ptr [ %16, %36 ], [ null, %5 ], [ null, %8 ], [ null, %10 ], [ null, %12 ], [ null, %cmsStageFree.exit ], [ null, %15 ], [ %16, %.preheader ]
+  %.0 = phi ptr [ null, %cmsStageFree.exit ], [ null, %5 ], [ null, %8 ], [ null, %10 ], [ null, %12 ], [ %16, %36 ], [ null, %15 ], [ %16, %.preheader ]
   ret ptr %.0
 }
 
@@ -1026,7 +1026,7 @@ cmsStageFree.exit52:                              ; preds = %63, %65
   br label %_cmsStageAllocPlaceholder.exit.thread
 
 _cmsStageAllocPlaceholder.exit.thread:            ; preds = %8, %.loopexit, %cmsStageFree.exit52, %cmsStageFree.exit50, %cmsStageFree.exit48, %cmsStageFree.exit, %7
-  %.0 = phi ptr [ null, %7 ], [ %9, %.loopexit ], [ null, %cmsStageFree.exit ], [ null, %cmsStageFree.exit48 ], [ null, %cmsStageFree.exit50 ], [ null, %cmsStageFree.exit52 ], [ null, %8 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %cmsStageFree.exit ], [ null, %cmsStageFree.exit48 ], [ null, %cmsStageFree.exit50 ], [ null, %cmsStageFree.exit52 ], [ %9, %.loopexit ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -1188,7 +1188,7 @@ define internal ptr @CLUTElemDup(ptr noundef readonly captures(none) %0) #0 {
   br label %44
 
 44:                                               ; preds = %26, %1, %.thread
-  %.0 = phi ptr [ null, %1 ], [ null, %.thread ], [ %5, %26 ]
+  %.0 = phi ptr [ null, %.thread ], [ null, %1 ], [ %5, %26 ]
   ret ptr %.0
 }
 
@@ -1442,7 +1442,7 @@ cmsStageFree.exit52:                              ; preds = %63, %65
   br label %_cmsStageAllocPlaceholder.exit.thread
 
 _cmsStageAllocPlaceholder.exit.thread:            ; preds = %8, %.loopexit, %cmsStageFree.exit52, %cmsStageFree.exit50, %cmsStageFree.exit48, %cmsStageFree.exit, %7
-  %.0 = phi ptr [ null, %7 ], [ %9, %.loopexit ], [ null, %cmsStageFree.exit ], [ null, %cmsStageFree.exit48 ], [ null, %cmsStageFree.exit50 ], [ null, %cmsStageFree.exit52 ], [ null, %8 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %cmsStageFree.exit ], [ null, %cmsStageFree.exit48 ], [ null, %cmsStageFree.exit50 ], [ null, %cmsStageFree.exit52 ], [ %9, %.loopexit ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -1504,7 +1504,7 @@ cmsStageFree.exit:                                ; preds = %12, %15
   br label %19
 
 19:                                               ; preds = %7, %17, %cmsStageFree.exit
-  %.09 = phi ptr [ null, %cmsStageFree.exit ], [ %8, %17 ], [ null, %7 ]
+  %.09 = phi ptr [ %8, %17 ], [ null, %cmsStageFree.exit ], [ null, %7 ]
   ret ptr %.09
 }
 
@@ -1798,7 +1798,7 @@ _cmsQuantizeVal.exit.us:                          ; preds = %68, %66, %54
   br i1 %exitcond135.not, label %CubeSize.exit.thread, label %.preheader69, !llvm.loop !29
 
 CubeSize.exit.thread:                             ; preds = %31, %.lr.ph.i, %..loopexit68_crit_edge.us113, %104, %.preheader69, %108, %.loopexit68.us95, %.loopexit.us93, %.loopexit68.us, %.loopexit.us, %._crit_edge.i, %12, %8, %4
-  %.0 = phi i32 [ 0, %._crit_edge.i ], [ 0, %4 ], [ 0, %8 ], [ 0, %12 ], [ 0, %.loopexit68.us ], [ 1, %108 ], [ 1, %104 ], [ 0, %.loopexit68.us95 ], [ 1, %.loopexit.us ], [ 1, %.loopexit.us93 ], [ 0, %.preheader69 ], [ 0, %..loopexit68_crit_edge.us113 ], [ 0, %.lr.ph.i ], [ 0, %31 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 0, %12 ], [ 0, %._crit_edge.i ], [ 0, %.loopexit68.us ], [ 1, %.loopexit.us ], [ 0, %.loopexit68.us95 ], [ 1, %.loopexit.us93 ], [ 0, %.preheader69 ], [ 1, %108 ], [ 0, %..loopexit68_crit_edge.us113 ], [ 1, %104 ], [ 0, %.lr.ph.i ], [ 0, %31 ]
   ret i32 %.0
 }
 
@@ -2147,7 +2147,7 @@ _cmsQuantizeVal.exit.us:                          ; preds = %68, %66, %54
   br i1 %exitcond135.not, label %CubeSize.exit.thread, label %.preheader69, !llvm.loop !34
 
 CubeSize.exit.thread:                             ; preds = %31, %.lr.ph.i, %..loopexit68_crit_edge.us113, %107, %.preheader69, %111, %.loopexit68.us95, %.loopexit.us93, %.loopexit68.us, %.loopexit.us, %._crit_edge.i, %12, %8, %4
-  %.0 = phi i32 [ 0, %._crit_edge.i ], [ 0, %4 ], [ 0, %8 ], [ 0, %12 ], [ 0, %.loopexit68.us ], [ 1, %111 ], [ 1, %107 ], [ 0, %.loopexit68.us95 ], [ 1, %.loopexit.us ], [ 1, %.loopexit.us93 ], [ 0, %.preheader69 ], [ 0, %..loopexit68_crit_edge.us113 ], [ 0, %.lr.ph.i ], [ 0, %31 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 0, %12 ], [ 0, %._crit_edge.i ], [ 0, %.loopexit68.us ], [ 1, %.loopexit.us ], [ 0, %.loopexit68.us95 ], [ 1, %.loopexit.us93 ], [ 0, %.preheader69 ], [ 1, %111 ], [ 0, %..loopexit68_crit_edge.us113 ], [ 1, %107 ], [ 0, %.lr.ph.i ], [ 0, %31 ]
   ret i32 %.0
 }
 
@@ -2252,8 +2252,8 @@ _cmsQuantizeVal.exit.us:                          ; preds = %34, %32, %19
   %spec.select = zext i1 %.not to i32
   br label %CubeSize.exit.thread
 
-CubeSize.exit.thread:                             ; preds = %.lr.ph.i, %15, %43, %._crit_edge.us, %.preheader, %._crit_edge.i, %4
-  %.0 = phi i32 [ 0, %._crit_edge.us ], [ 0, %4 ], [ %spec.select, %.preheader ], [ 0, %._crit_edge.i ], [ 1, %43 ], [ 0, %15 ], [ 0, %.lr.ph.i ]
+CubeSize.exit.thread:                             ; preds = %15, %.lr.ph.i, %43, %._crit_edge.us, %.preheader, %._crit_edge.i, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %._crit_edge.i ], [ %spec.select, %.preheader ], [ 1, %43 ], [ 0, %._crit_edge.us ], [ 0, %.lr.ph.i ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -2361,8 +2361,8 @@ _cmsQuantizeVal.exit.us:                          ; preds = %34, %32, %19
   %spec.select = zext i1 %.not to i32
   br label %CubeSize.exit.thread
 
-CubeSize.exit.thread:                             ; preds = %.lr.ph.i, %15, %46, %._crit_edge.us, %.preheader, %._crit_edge.i, %4
-  %.0 = phi i32 [ 0, %._crit_edge.us ], [ 0, %4 ], [ %spec.select, %.preheader ], [ 0, %._crit_edge.i ], [ 1, %46 ], [ 0, %15 ], [ 0, %.lr.ph.i ]
+CubeSize.exit.thread:                             ; preds = %15, %.lr.ph.i, %46, %._crit_edge.us, %.preheader, %._crit_edge.i, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %._crit_edge.i ], [ %spec.select, %.preheader ], [ 1, %46 ], [ 0, %._crit_edge.us ], [ 0, %.lr.ph.i ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -2849,7 +2849,7 @@ cmsStageFree.exit:                                ; preds = %34, %36
   br label %_cmsStageAllocPlaceholder.exit.thread
 
 _cmsStageAllocPlaceholder.exit.thread:            ; preds = %3, %38, %31, %1, %cmsStageFree.exit
-  %.0 = phi ptr [ %17, %38 ], [ null, %1 ], [ null, %cmsStageFree.exit ], [ %17, %31 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %cmsStageFree.exit ], [ null, %1 ], [ %17, %31 ], [ %17, %38 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -3449,12 +3449,12 @@ BlessLUT.exit:                                    ; preds = %.lr.ph.i55
   br label %cmsPipelineAlloc.exit.thread.sink.split
 
 cmsPipelineAlloc.exit.thread.sink.split:          ; preds = %.lr.ph.i.i, %cmsPipelineFree.exit, %BlessLUT.exit
-  %.sink = phi ptr [ %82, %cmsPipelineFree.exit ], [ %120, %BlessLUT.exit ], [ %5, %.lr.ph.i.i ]
+  %.sink = phi ptr [ %120, %BlessLUT.exit ], [ %82, %cmsPipelineFree.exit ], [ %5, %.lr.ph.i.i ]
   tail call void @_cmsFree(ptr noundef %.sink, ptr noundef nonnull %12) #18
   br label %cmsPipelineAlloc.exit.thread
 
 cmsPipelineAlloc.exit.thread:                     ; preds = %117, %cmsPipelineAlloc.exit.thread.sink.split, %cmsPipelineGetPtrToLastStage.exit.i, %103, %11, %3, %1
-  %.039 = phi ptr [ null, %3 ], [ null, %1 ], [ %12, %103 ], [ %12, %cmsPipelineGetPtrToLastStage.exit.i ], [ null, %11 ], [ null, %cmsPipelineAlloc.exit.thread.sink.split ], [ %12, %117 ]
+  %.039 = phi ptr [ null, %1 ], [ null, %3 ], [ null, %11 ], [ %12, %103 ], [ %12, %cmsPipelineGetPtrToLastStage.exit.i ], [ null, %cmsPipelineAlloc.exit.thread.sink.split ], [ %12, %117 ]
   ret ptr %.039
 }
 
@@ -3546,7 +3546,7 @@ cmsPipelineGetPtrToLastStage.exit.i:              ; preds = %thread-pre-split.i
   br i1 %.not21.i, label %BlessLUT.exit, label %.lr.ph.i, !llvm.loop !44
 
 BlessLUT.exit:                                    ; preds = %30, %.lr.ph.i, %cmsPipelineGetPtrToLastStage.exit.i, %15, %6, %3
-  %.020 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 1, %15 ], [ 1, %cmsPipelineGetPtrToLastStage.exit.i ], [ 1, %30 ], [ 0, %.lr.ph.i ]
+  %.020 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 1, %15 ], [ 1, %cmsPipelineGetPtrToLastStage.exit.i ], [ 1, %30 ], [ 0, %.lr.ph.i ]
   ret i32 %.020
 }
 
@@ -3819,7 +3819,7 @@ cmsPipelineGetPtrToLastStage.exit.i.i:            ; preds = %thread-pre-split.i.
   br i1 %.not21.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !44
 
 .loopexit:                                        ; preds = %71, %58, %cmsPipelineGetPtrToLastStage.exit.i.i
-  %74 = phi ptr [ %61, %cmsPipelineGetPtrToLastStage.exit.i.i ], [ null, %58 ], [ %61, %71 ]
+  %74 = phi ptr [ null, %58 ], [ %61, %cmsPipelineGetPtrToLastStage.exit.i.i ], [ %61, %71 ]
   %75 = getelementptr inbounds nuw i8, ptr %.031, i64 56
   %.0 = load ptr, ptr %75, align 8
   %.not = icmp eq ptr %.0, null
@@ -3870,7 +3870,7 @@ cmsPipelineGetPtrToLastStage.exit.i:              ; preds = %thread-pre-split.i
   br i1 %.not21.i, label %cmsPipelineInsertStage.exit, label %.lr.ph.i, !llvm.loop !44
 
 cmsPipelineInsertStage.exit:                      ; preds = %17, %.lr.ph.i.i, %88, %.lr.ph.i, %cmsStageFree.exit.i, %cmsPipelineGetPtrToLastStage.exit.i, %._crit_edge
-  %.012 = phi i32 [ 0, %.lr.ph.i.i ], [ 1, %88 ], [ 1, %._crit_edge ], [ 1, %cmsPipelineGetPtrToLastStage.exit.i ], [ 0, %cmsStageFree.exit.i ], [ 0, %.lr.ph.i ], [ 0, %17 ]
+  %.012 = phi i32 [ 1, %._crit_edge ], [ 1, %cmsPipelineGetPtrToLastStage.exit.i ], [ 0, %cmsStageFree.exit.i ], [ 1, %88 ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph.i.i ], [ 0, %17 ]
   ret i32 %.012
 }
 
@@ -4140,7 +4140,7 @@ EuclideanDistance.exit:                           ; preds = %48
   br i1 %exitcond69.not, label %.loopexit, label %46, !llvm.loop !56
 
 .loopexit:                                        ; preds = %124, %EuclideanDistance.exit, %._crit_edge, %93, %4, %14
-  %.041 = phi i32 [ 0, %14 ], [ 0, %4 ], [ 1, %124 ], [ 1, %EuclideanDistance.exit ], [ 1, %._crit_edge ], [ 0, %93 ]
+  %.041 = phi i32 [ 0, %4 ], [ 0, %14 ], [ 1, %124 ], [ 1, %EuclideanDistance.exit ], [ 1, %._crit_edge ], [ 0, %93 ]
   ret i32 %.041
 }
 

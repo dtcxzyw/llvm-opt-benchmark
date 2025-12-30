@@ -154,7 +154,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %_ZN7QStringC2EPKc.e
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %20, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %_ZN7QStringC2EPKc.exit, %10, %5, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %10 ], [ false, %5 ], [ %18, %_ZN7QStringC2EPKc.exit ], [ %18, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i ], [ %18, %20 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %1 ], [ true, %10 ], [ %18, %_ZN7QStringC2EPKc.exit ], [ %18, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i ], [ %18, %20 ]
   ret i1 %.0
 }
 
@@ -886,7 +886,7 @@ _ZN16FieldInformation10HeaderInfoD2Ev.exit38:     ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %107
 
-_ZNK16FieldInformation7isValidEv.exit.thread:     ; preds = %10, %2, %25, %_ZN7QStringaSEPKc.exit, %_ZNK16FieldInformation7isValidEv.exit, %_ZN16FieldInformation10HeaderInfoD2Ev.exit38
+_ZNK16FieldInformation7isValidEv.exit.thread:     ; preds = %2, %10, %25, %_ZN7QStringaSEPKc.exit, %_ZNK16FieldInformation7isValidEv.exit, %_ZN16FieldInformation10HeaderInfoD2Ev.exit38
   ret void
 
 107:                                              ; preds = %106, %65, %63
@@ -1119,7 +1119,7 @@ switch.lookup:                                    ; preds = %15
   br label %21
 
 21:                                               ; preds = %15, %switch.lookup, %11
-  %.ph = phi i1 [ %switch.masked, %switch.lookup ], [ false, %11 ], [ false, %15 ]
+  %.ph = phi i1 [ false, %11 ], [ %switch.masked, %switch.lookup ], [ false, %15 ]
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %23 = load ptr, ptr %22, align 8
   %.not.i.i.i.i = icmp eq ptr %23, null

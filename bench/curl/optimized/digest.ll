@@ -578,8 +578,8 @@ auth_digest_get_qop_values.exit:                  ; preds = %64
   call void @Curl_bufref_set(ptr noundef %5, ptr noundef nonnull %179, i64 noundef %182, ptr noundef nonnull @curl_free) #10
   br label %auth_decode_digest_md5_message.exit.thread
 
-auth_decode_digest_md5_message.exit.thread:       ; preds = %.loopexit.thread, %.loopexit.i, %6, %43, %22, %auth_digest_get_qop_values.exit, %178, %118, %85, %83, %81, %.loopexit, %.loopexit103, %181, %147, %126
-  %.071 = phi i32 [ 27, %auth_digest_get_qop_values.exit ], [ 27, %178 ], [ 61, %.loopexit103 ], [ 61, %.loopexit ], [ 0, %181 ], [ 27, %118 ], [ 27, %147 ], [ 27, %126 ], [ 27, %85 ], [ 27, %83 ], [ %82, %81 ], [ 61, %22 ], [ 61, %43 ], [ 61, %6 ], [ 61, %.loopexit.i ], [ 61, %.loopexit.thread ]
+auth_decode_digest_md5_message.exit.thread:       ; preds = %.loopexit.thread, %.loopexit.i, %43, %22, %6, %auth_digest_get_qop_values.exit, %178, %118, %85, %83, %81, %.loopexit, %.loopexit103, %181, %147, %126
+  %.071 = phi i32 [ 0, %181 ], [ 27, %147 ], [ 27, %126 ], [ 61, %.loopexit103 ], [ 27, %auth_digest_get_qop_values.exit ], [ 61, %.loopexit ], [ %82, %81 ], [ 27, %83 ], [ 27, %85 ], [ 27, %118 ], [ 27, %178 ], [ 61, %6 ], [ 61, %22 ], [ 61, %43 ], [ 61, %.loopexit.i ], [ 61, %.loopexit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -803,8 +803,8 @@ define hidden range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr nou
   br label %76
 
 76:                                               ; preds = %74, %.critedge4
-  %.466 = phi i1 [ %.365128, %74 ], [ true, %.critedge4 ]
-  %.4 = phi i1 [ %spec.select, %74 ], [ %.3129, %.critedge4 ]
+  %.466 = phi i1 [ true, %.critedge4 ], [ %.365128, %74 ]
+  %.4 = phi i1 [ %.3129, %.critedge4 ], [ %spec.select, %74 ]
   %77 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %6) #10
   %.not95 = icmp eq ptr %77, null
   br i1 %.not95, label %._crit_edge, label %.preheader, !llvm.loop !104
@@ -955,8 +955,8 @@ define hidden range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr nou
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 1
   br label %.loopexit
 
-.thread114:                                       ; preds = %113, %37, %51, %93, %58, %.thread
-  %.170.ph = phi i32 [ 27, %.thread ], [ 61, %113 ], [ 27, %37 ], [ 27, %51 ], [ 27, %93 ], [ 27, %58 ]
+.thread114:                                       ; preds = %37, %51, %58, %93, %113, %.thread
+  %.170.ph = phi i32 [ 27, %.thread ], [ 27, %37 ], [ 27, %51 ], [ 27, %58 ], [ 27, %93 ], [ 61, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %142
@@ -999,7 +999,7 @@ define hidden range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr nou
   br label %142
 
 142:                                              ; preds = %.thread114, %138, %134, %131, %141
-  %.473 = phi i32 [ %.170.ph, %.thread114 ], [ 0, %141 ], [ 61, %134 ], [ 61, %131 ], [ 61, %138 ]
+  %.473 = phi i32 [ 0, %141 ], [ 61, %131 ], [ 61, %134 ], [ 61, %138 ], [ %.170.ph, %.thread114 ]
   ret i32 %.473
 }
 
@@ -1427,7 +1427,7 @@ define internal fastcc i32 @auth_create_digest_http_message(ptr noundef %0, ptr 
   br label %154
 
 154:                                              ; preds = %.thread234, %75, %.thread, %149, %143, %126, %97, %93, %92, %.thread223, %77, %66, %61, %57, %49, %45, %40, %36, %136, %152, %113, %.thread227
-  %.2 = phi i32 [ 27, %36 ], [ 27, %45 ], [ 27, %57 ], [ 27, %77 ], [ 27, %92 ], [ 0, %152 ], [ 27, %143 ], [ 27, %126 ], [ 27, %136 ], [ 27, %97 ], [ 27, %113 ], [ 27, %.thread227 ], [ %95, %93 ], [ %81, %.thread223 ], [ 27, %66 ], [ %74, %75 ], [ %63, %61 ], [ %51, %49 ], [ %42, %40 ], [ %.1.ph, %.thread ], [ 27, %149 ], [ 27, %.thread234 ]
+  %.2 = phi i32 [ 0, %152 ], [ 27, %136 ], [ 27, %113 ], [ 27, %.thread227 ], [ %74, %75 ], [ 27, %36 ], [ %42, %40 ], [ 27, %45 ], [ %51, %49 ], [ 27, %57 ], [ %63, %61 ], [ 27, %66 ], [ 27, %77 ], [ %81, %.thread223 ], [ 27, %92 ], [ %95, %93 ], [ 27, %97 ], [ 27, %126 ], [ 27, %143 ], [ 27, %149 ], [ %.1.ph, %.thread ], [ 27, %.thread234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

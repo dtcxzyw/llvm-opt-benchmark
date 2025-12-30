@@ -247,7 +247,7 @@ define ptr @ff_frame_pool_audio_init(ptr noundef readnone captures(none) %0, i32
   br label %ff_frame_pool_uninit.exit
 
 ff_frame_pool_uninit.exit:                        ; preds = %30, %23, %5
-  %.0 = phi ptr [ %7, %23 ], [ null, %5 ], [ null, %30 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %23 ], [ null, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -598,7 +598,7 @@ define ptr @ff_frame_pool_get(ptr noundef readonly captures(none) %0) local_unna
   br label %.loopexit76
 
 .loopexit76:                                      ; preds = %135, %59, %.preheader, %1, %.loopexit
-  %.0 = phi ptr [ null, %.loopexit ], [ null, %1 ], [ %3, %59 ], [ %3, %.preheader ], [ %3, %135 ]
+  %.0 = phi ptr [ null, %.loopexit ], [ null, %1 ], [ %3, %.preheader ], [ %3, %59 ], [ %3, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }

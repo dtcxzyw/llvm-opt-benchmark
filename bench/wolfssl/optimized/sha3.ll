@@ -117,8 +117,8 @@ define internal fastcc range(i32 -173, 1) i32 @wc_Sha3Update(ptr noundef capture
   br label %._crit_edge89.i
 
 ._crit_edge89.i:                                  ; preds = %35, %._crit_edge.i, %11
-  %.058.i = phi i32 [ %26, %35 ], [ %26, %._crit_edge.i ], [ %2, %11 ]
-  %.054.i = phi ptr [ %25, %35 ], [ %25, %._crit_edge.i ], [ %1, %11 ]
+  %.058.i = phi i32 [ %26, %._crit_edge.i ], [ %26, %35 ], [ %2, %11 ]
+  %.054.i = phi ptr [ %25, %._crit_edge.i ], [ %25, %35 ], [ %1, %11 ]
   %.not6268.i = icmp ult i32 %.058.i, %.pre91.i
   br i1 %.not6268.i, label %Sha3Update.exit, label %.preheader.lr.ph.i
 
@@ -171,7 +171,7 @@ Sha3Update.exit:                                  ; preds = %._crit_edge89.i, %.
   br label %54
 
 54:                                               ; preds = %9, %4, %6, %Sha3Update.exit
-  %.0 = phi i32 [ 0, %Sha3Update.exit ], [ -173, %4 ], [ -173, %6 ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %Sha3Update.exit ], [ -173, %6 ], [ -173, %4 ], [ 0, %9 ]
   ret i32 %.0
 }
 

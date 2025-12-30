@@ -237,7 +237,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -615,7 +615,7 @@ define void @_ZN6icu_776number4impl22MutablePatternModifierC2Eb(ptr noundef nonn
   br label %.body
 
 .body:                                            ; preds = %20, %9
-  %.pn = phi { ptr, i32 } [ %10, %9 ], [ %21, %20 ]
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %10, %9 ]
   tail call void @_ZN6icu_776number4impl14SymbolProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
   tail call void @_ZN6icu_776number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
   resume { ptr, i32 } %.pn
@@ -1005,7 +1005,7 @@ _ZN6icu_776number4impl22MutablePatternModifier12insertSuffixERNS_22FormattedStri
   br label %94
 
 _ZN6icu_776number4impl26ConstantMultiFieldModifierC2ERKNS_22FormattedStringBuilderES5_bb.exit: ; preds = %80, %63, %41, %50
-  %.0 = phi ptr [ %42, %50 ], [ null, %41 ], [ null, %63 ], [ %64, %80 ]
+  %.0 = phi ptr [ null, %41 ], [ %42, %50 ], [ null, %63 ], [ %64, %80 ]
   call void @_ZN6icu_7722FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6icu_7722FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %3) #24
@@ -1013,7 +1013,7 @@ _ZN6icu_776number4impl26ConstantMultiFieldModifierC2ERKNS_22FormattedStringBuild
   ret ptr %.0
 
 94:                                               ; preds = %.body, %61, %59
-  %.pn = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ], [ %eh.lpad-body, %.body ]
+  %.pn = phi { ptr, i32 } [ %62, %61 ], [ %eh.lpad-body, %.body ], [ %60, %59 ]
   call void @_ZN6icu_7722FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   br label %95
 
@@ -1235,7 +1235,7 @@ _ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14St
   br label %common.resume
 
 83:                                               ; preds = %77, %80, %46, %49, %73, %42, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %42 ], [ %47, %49 ], [ null, %73 ], [ null, %46 ], [ null, %77 ], [ %78, %80 ]
+  %.0 = phi ptr [ null, %12 ], [ null, %42 ], [ null, %73 ], [ null, %46 ], [ %47, %49 ], [ null, %77 ], [ %78, %80 ]
   ret ptr %.0
 }
 

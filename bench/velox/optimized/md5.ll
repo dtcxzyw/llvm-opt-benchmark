@@ -1599,7 +1599,7 @@ if.else.i.i125:                                   ; preds = %while.end.i.i119
   br label %return
 
 return:                                           ; preds = %if.else.i.i125, %if.then.i18.i128, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.thread.i101, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i129, %_ZZN5folly6detail18unsafeTelescope128EPcS1_oENKUlmE_clEm.exit93, %_ZZN5folly6detail18unsafeTelescope128EPcS1_oENKUlmE_clEm.exit32
-  %p.0 = phi i64 [ %add.i31, %_ZZN5folly6detail18unsafeTelescope128EPcS1_oENKUlmE_clEm.exit32 ], [ %add.i92, %_ZZN5folly6detail18unsafeTelescope128EPcS1_oENKUlmE_clEm.exit93 ], [ 0, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i129 ], [ %retval.i7.03337.i120, %if.else.i.i125 ], [ %retval.i7.03337.i120, %if.then.i18.i128 ], [ 0, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.thread.i101 ]
+  %p.0 = phi i64 [ %add.i92, %_ZZN5folly6detail18unsafeTelescope128EPcS1_oENKUlmE_clEm.exit93 ], [ %add.i31, %_ZZN5folly6detail18unsafeTelescope128EPcS1_oENKUlmE_clEm.exit32 ], [ 0, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i129 ], [ %retval.i7.03337.i120, %if.else.i.i125 ], [ %retval.i7.03337.i120, %if.then.i18.i128 ], [ 0, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.thread.i101 ]
   ret i64 %p.0
 }
 

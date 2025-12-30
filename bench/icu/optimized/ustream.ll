@@ -65,7 +65,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_77lsERSoRKNS_13Un
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %20, %25, %27
-  %.0.i = phi ptr [ %29, %27 ], [ %26, %25 ], [ null, %20 ]
+  %.0.i = phi ptr [ %26, %25 ], [ %29, %27 ], [ null, %20 ]
   store ptr %.0.i, ptr %5, align 8, !tbaa !8
   %30 = icmp slt i16 %21, 0
   %31 = ashr i16 %21, 5

@@ -441,7 +441,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   ret void
 
 common.resume:                                    ; preds = %151, %149, %147, %165
-  %.pn60.pn.pn = phi { ptr, i32 } [ %166, %165 ], [ %152, %151 ], [ %150, %149 ], [ %148, %147 ]
+  %.pn60.pn.pn = phi { ptr, i32 } [ %166, %165 ], [ %148, %147 ], [ %150, %149 ], [ %152, %151 ]
   %174 = load ptr, ptr %17, align 8, !tbaa !16
   call void @free(ptr noundef %174) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %17)

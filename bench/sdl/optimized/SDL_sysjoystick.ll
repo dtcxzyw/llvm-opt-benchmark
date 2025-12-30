@@ -477,8 +477,8 @@ GetSteamVirtualGamepadSlot.exit.thread.i.i:       ; preds = %106, %104, %101
   br label %123
 
 123:                                              ; preds = %122, %117, %111, %GetSteamVirtualGamepadSlot.exit.thread.i.i, %94
-  %.348.i.i = phi ptr [ %.04561.i.i, %94 ], [ %.04561.i.i, %GetSteamVirtualGamepadSlot.exit.thread.i.i ], [ %.04561.i.i, %111 ], [ %.04561.i.i, %122 ], [ %116, %117 ]
-  %.3.i.i = phi i32 [ %.04362.i.i, %94 ], [ %.04362.i.i, %GetSteamVirtualGamepadSlot.exit.thread.i.i ], [ %.04362.i.i, %111 ], [ %.04362.i.i, %122 ], [ %113, %117 ]
+  %.348.i.i = phi ptr [ %.04561.i.i, %94 ], [ %.04561.i.i, %111 ], [ %.04561.i.i, %122 ], [ %116, %117 ], [ %.04561.i.i, %GetSteamVirtualGamepadSlot.exit.thread.i.i ]
+  %.3.i.i = phi i32 [ %.04362.i.i, %94 ], [ %.04362.i.i, %111 ], [ %.04362.i.i, %122 ], [ %113, %117 ], [ %.04362.i.i, %GetSteamVirtualGamepadSlot.exit.thread.i.i ]
   %124 = call i32 @close(i32 noundef %92) #18
   br label %125
 
@@ -524,7 +524,7 @@ GetSteamVirtualGamepadSlot.exit.thread.i.i:       ; preds = %106, %104, %101
   br i1 %exitcond74.not.i.i, label %LINUX_ScanSteamVirtualGamepads.exit.i, label %.lr.ph67.i.i, !llvm.loop !9
 
 LINUX_ScanSteamVirtualGamepads.exit.i:            ; preds = %.lr.ph67.i.i, %132, %.thread87.i.i
-  %.045.lcssa8085.i.i = phi ptr [ null, %.thread87.i.i ], [ %.146.i.i, %132 ], [ %.146.i.i, %.lr.ph67.i.i ]
+  %.045.lcssa8085.i.i = phi ptr [ %.146.i.i, %132 ], [ null, %.thread87.i.i ], [ %.146.i.i, %.lr.ph67.i.i ]
   call void @SDL_free_REAL(ptr noundef %.045.lcssa8085.i.i) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -618,8 +618,8 @@ LINUX_FallbackJoystickDetect.exit:                ; preds = %153, %61, %LINUX_In
   br label %164
 
 164:                                              ; preds = %162, %160
-  %.123.i = phi ptr [ %.02236.i, %160 ], [ %.02037.i, %162 ]
-  %.121.in.i = phi ptr [ %spec.select31.i, %160 ], [ %163, %162 ]
+  %.123.i = phi ptr [ %.02037.i, %162 ], [ %.02236.i, %160 ]
+  %.121.in.i = phi ptr [ %163, %162 ], [ %spec.select31.i, %160 ]
   %.020.i = load ptr, ptr %.121.in.i, align 8
   %.not.i4 = icmp eq ptr %.020.i, null
   br i1 %.not.i4, label %.preheader.i, label %.lr.ph.i3, !llvm.loop !11
@@ -677,8 +677,8 @@ RemoveSensorlistItem.exit.i:                      ; preds = %180, %178
   br label %185
 
 185:                                              ; preds = %183, %RemoveSensorlistItem.exit.i
-  %.119.i = phi ptr [ %.01840.i, %RemoveSensorlistItem.exit.i ], [ %.041.i, %183 ]
-  %.1.in.i = phi ptr [ %spec.select33.i, %RemoveSensorlistItem.exit.i ], [ %184, %183 ]
+  %.119.i = phi ptr [ %.041.i, %183 ], [ %.01840.i, %RemoveSensorlistItem.exit.i ]
+  %.1.in.i = phi ptr [ %184, %183 ], [ %spec.select33.i, %RemoveSensorlistItem.exit.i ]
   %.0.i = load ptr, ptr %.1.in.i, align 8
   %.not26.i = icmp eq ptr %.0.i, null
   br i1 %.not26.i, label %HandlePendingRemovals.exit, label %.lr.ph42.i, !llvm.loop !12
@@ -954,7 +954,7 @@ GetJoystickByDevIndex.exit.thread:                ; preds = %2, %GetJoystickByDe
   br i1 %.not22.i, label %GetSensor.exit, label %.lr.ph.i33, !llvm.loop !14
 
 GetSensor.exit:                                   ; preds = %39, %14, %16, %21, %38
-  %.018.i = phi ptr [ null, %14 ], [ null, %21 ], [ %.01730.i, %38 ], [ null, %16 ], [ null, %39 ]
+  %.018.i = phi ptr [ %.01730.i, %38 ], [ null, %14 ], [ null, %16 ], [ null, %21 ], [ null, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %41 = call fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef %0, ptr noundef nonnull %.07.i, ptr noundef %.018.i)
   %42 = load ptr, ptr %13, align 8
@@ -1038,7 +1038,7 @@ GetSensor.exit:                                   ; preds = %39, %14, %16, %21, 
   br label %83
 
 83:                                               ; preds = %76, %80, %11, %43, %GetJoystickByDevIndex.exit.thread
-  %.0 = phi i1 [ false, %11 ], [ false, %43 ], [ %10, %GetJoystickByDevIndex.exit.thread ], [ true, %80 ], [ true, %76 ]
+  %.0 = phi i1 [ false, %43 ], [ %10, %GetJoystickByDevIndex.exit.thread ], [ false, %11 ], [ true, %80 ], [ true, %76 ]
   ret i1 %.0
 }
 
@@ -1241,7 +1241,7 @@ define internal zeroext i1 @LINUX_JoystickSetSensorsEnabled(ptr noundef readonly
   br label %50
 
 50:                                               ; preds = %15, %47, %34, %23, %13
-  %.0 = phi i1 [ %14, %13 ], [ %38, %34 ], [ true, %47 ], [ %24, %23 ], [ true, %15 ]
+  %.0 = phi i1 [ %38, %34 ], [ true, %47 ], [ %24, %23 ], [ %14, %13 ], [ true, %15 ]
   ret i1 %.0
 }
 
@@ -1722,7 +1722,7 @@ HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
   br label %AxisCorrect.exit.i
 
 AxisCorrect.exit.i:                               ; preds = %274, %272, %254
-  %.0.i116.i = phi i32 [ -32768, %272 ], [ 0, %254 ], [ %..023.i.i, %274 ]
+  %.0.i116.i = phi i32 [ 0, %254 ], [ -32768, %272 ], [ %..023.i.i, %274 ]
   store i32 %.0.i116.i, ptr %236, align 4
   %275 = call i64 @SDL_EVDEV_GetEventTimestamp(ptr noundef nonnull %150) #18
   %276 = load ptr, ptr %4, align 8
@@ -2441,7 +2441,7 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
   br label %.thread270.sink.split
 
 .thread:                                          ; preds = %.thread295, %.thread293, %124
-  %.not257 = phi i1 [ false, %.thread295 ], [ true, %124 ], [ true, %.thread293 ]
+  %.not257 = phi i1 [ true, %124 ], [ true, %.thread293 ], [ false, %.thread295 ]
   %143 = getelementptr inbounds nuw i8, ptr %45, i64 3661
   %144 = load i8, ptr %143, align 1, !range !5, !noundef !6
   %145 = trunc nuw i8 %144 to i1
@@ -2915,14 +2915,14 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
   br label %409
 
 409:                                              ; preds = %405, %408, %25, %23
-  %.0250 = phi i1 [ false, %23 ], [ false, %25 ], [ true, %408 ], [ true, %405 ]
+  %.0250 = phi i1 [ false, %25 ], [ false, %23 ], [ true, %408 ], [ true, %405 ]
   tail call void @LINUX_JoystickClose(ptr noundef nonnull %16)
   tail call void @SDL_SetObjectValid(ptr noundef nonnull %16, i32 noundef 4, i1 noundef zeroext false) #18
   tail call void @SDL_free_REAL(ptr noundef nonnull %16) #18
   br label %410
 
 410:                                              ; preds = %15, %11, %409, %22, %14
-  %.0 = phi i1 [ true, %14 ], [ false, %11 ], [ %.0250, %409 ], [ false, %22 ], [ false, %15 ]
+  %.0 = phi i1 [ true, %14 ], [ %.0250, %409 ], [ false, %22 ], [ false, %11 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -3822,7 +3822,7 @@ define internal range(i32 0, 2) i32 @filter_entries(ptr noundef %0) #0 {
   br i1 %.not.i.i9.i, label %IsJoystickDeviceNode.exit, label %.preheader.i.i5.i, !llvm.loop !7
 
 IsJoystickDeviceNode.exit:                        ; preds = %.preheader.i.i5.i, %25, %.preheader.i.i.i, %15, %7, %9, %17, %19
-  %.0.i = phi i32 [ 0, %19 ], [ 0, %7 ], [ 0, %9 ], [ 1, %15 ], [ 0, %17 ], [ 0, %.preheader.i.i.i ], [ 0, %.preheader.i.i5.i ], [ 1, %25 ]
+  %.0.i = phi i32 [ 0, %7 ], [ 0, %9 ], [ 0, %17 ], [ 0, %19 ], [ 0, %.preheader.i.i.i ], [ 1, %15 ], [ 0, %.preheader.i.i5.i ], [ 1, %25 ]
   ret i32 %.0.i
 }
 
@@ -3878,8 +3878,8 @@ define internal i32 @sort_entries(ptr noundef readonly captures(none) %0, ptr no
   br i1 %brmerge, label %.thread35, label %.thread
 
 .thread:                                          ; preds = %22, %12, %6
-  %.025 = phi i32 [ %11, %6 ], [ %17, %22 ], [ %19, %12 ]
-  %.023 = phi i32 [ %8, %6 ], [ %14, %22 ], [ %18, %12 ]
+  %.025 = phi i32 [ %11, %6 ], [ %19, %12 ], [ %17, %22 ]
+  %.023 = phi i32 [ %8, %6 ], [ %18, %12 ], [ %14, %22 ]
   %23 = sub nsw i32 %.023, %.025
   br label %.thread35
 
@@ -4277,7 +4277,7 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
   br i1 %.not25.i.i, label %.thread58, label %GuessIfAxesAreDigitalHat.exit.i
 
 .thread58:                                        ; preds = %.thread321.i.thread, %.thread316.i.thread, %161, %157, %.thread311.i, %134
-  %.0180235244315.i = phi i1 [ true, %.thread311.i ], [ false, %134 ], [ %.0180235244313320.i, %157 ], [ false, %.thread321.i.thread ], [ %.0180235244314.i, %161 ], [ true, %.thread316.i.thread ]
+  %.0180235244315.i = phi i1 [ true, %.thread311.i ], [ false, %134 ], [ %.0180235244314.i, %161 ], [ %.0180235244313320.i, %157 ], [ true, %.thread316.i.thread ], [ false, %.thread321.i.thread ]
   %163 = trunc nuw nsw i64 %indvars.iv283.i to i32
   %164 = add nsw i32 %163, -16
   %165 = ashr exact i32 %164, 1
@@ -4968,7 +4968,7 @@ define internal fastcc void @PollAllValues(i64 noundef %0, ptr noundef %1) unnam
   br label %AxisCorrect.exit
 
 AxisCorrect.exit:                                 ; preds = %34, %52, %54
-  %.0.i = phi i32 [ -32768, %52 ], [ 0, %34 ], [ %..023.i, %54 ]
+  %.0.i = phi i32 [ 0, %34 ], [ -32768, %52 ], [ %..023.i, %54 ]
   store i32 %.0.i, ptr %3, align 4
   %55 = load ptr, ptr %5, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 895

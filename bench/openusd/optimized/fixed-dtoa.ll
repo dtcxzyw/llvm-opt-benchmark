@@ -396,7 +396,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9TrimZerosENS0_6VectorIcEEPiS3_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9TrimZerosENS0_6VectorIcEEPiS3_.exit: ; preds = %.lr.ph, %144, %.critedge.i, %.critedge2.i, %._crit_edge.i122
-  %172 = phi i32 [ %.pre150, %._crit_edge.i122 ], [ %.pr.i, %144 ], [ 0, %.critedge.i ], [ %.lcssa135156, %.critedge2.i ], [ %153, %.lr.ph ]
+  %172 = phi i32 [ %.pr.i, %144 ], [ 0, %.critedge.i ], [ %.lcssa135156, %.critedge2.i ], [ %.pre150, %._crit_edge.i122 ], [ %153, %.lr.ph ]
   %173 = sext i32 %172 to i64
   %174 = getelementptr inbounds i8, ptr %2, i64 %173
   store i8 0, ptr %174, align 1
@@ -636,7 +636,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
   br i1 %100, label %.lr.ph34.i82, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit90.sink.split, !llvm.loop !6
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit90.sink.split: ; preds = %42, %71, %.lr.ph34.i82
-  %.022.lcssa.i78.sink = phi i32 [ 7, %71 ], [ %.022.lcssa.i78, %.lr.ph34.i82 ], [ 7, %42 ]
+  %.022.lcssa.i78.sink = phi i32 [ %.022.lcssa.i78, %.lr.ph34.i82 ], [ 7, %71 ], [ 7, %42 ]
   %.pre.i88 = load i32, ptr %2, align 4
   %.pre41.i89 = add nsw i32 %.pre.i88, %.022.lcssa.i78.sink
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit90
@@ -779,8 +779,8 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_c
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit: ; preds = %59, %60, %61
-  %.sroa.15.1 = phi i64 [ %0, %60 ], [ %66, %61 ], [ 0, %59 ]
-  %.sroa.0.1 = phi i64 [ 0, %60 ], [ %67, %61 ], [ %0, %59 ]
+  %.sroa.15.1 = phi i64 [ %66, %61 ], [ 0, %59 ], [ %0, %60 ]
+  %.sroa.0.1 = phi i64 [ %67, %61 ], [ %0, %59 ], [ 0, %60 ]
   %68 = icmp sgt i32 %2, 0
   br i1 %68, label %.lr.ph.preheader, label %._crit_edge
 

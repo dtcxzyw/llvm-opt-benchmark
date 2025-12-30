@@ -474,8 +474,8 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   store i8 %152, ptr %150, align 1, !tbaa !10
   br label %153
 
-153:                                              ; preds = %._crit_edge.thread.sink.split.i74, %59, %65, %._crit_edge.i70, %108, %._crit_edge.i86, %._crit_edge.thread.sink.split.i90
-  %.4.ph = phi i32 [ 0, %._crit_edge.thread.sink.split.i90 ], [ 0, %._crit_edge.i86 ], [ 0, %108 ], [ 0, %._crit_edge.i70 ], [ 0, %65 ], [ 0, %._crit_edge.thread.sink.split.i74 ], [ -1, %59 ]
+153:                                              ; preds = %59, %65, %._crit_edge.i70, %._crit_edge.thread.sink.split.i74, %108, %._crit_edge.i86, %._crit_edge.thread.sink.split.i90
+  %.4.ph = phi i32 [ 0, %._crit_edge.thread.sink.split.i90 ], [ 0, %._crit_edge.i86 ], [ 0, %108 ], [ 0, %._crit_edge.thread.sink.split.i74 ], [ 0, %._crit_edge.i70 ], [ 0, %65 ], [ -1, %59 ]
   %154 = call i32 @H5WB_unwrap(ptr noundef nonnull %48) #8
   %155 = icmp slt i32 %154, 0
   br i1 %155, label %156, label %H5T__bit_set.exit
@@ -487,7 +487,7 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   br label %H5T__bit_set.exit
 
 H5T__bit_set.exit:                                ; preds = %50, %12, %._crit_edge.i, %._crit_edge.thread.sink.split.i, %4, %156, %153
-  %.054 = phi i32 [ -1, %156 ], [ %.4.ph, %153 ], [ 0, %4 ], [ 0, %._crit_edge.i ], [ 0, %._crit_edge.thread.sink.split.i ], [ -1, %50 ], [ 0, %12 ]
+  %.054 = phi i32 [ -1, %156 ], [ %.4.ph, %153 ], [ 0, %4 ], [ -1, %50 ], [ 0, %12 ], [ 0, %._crit_edge.i ], [ 0, %._crit_edge.thread.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.054
 }
@@ -944,7 +944,7 @@ define i64 @H5T__bit_find(ptr noundef readonly captures(none) %0, i64 noundef %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %121, %69, %.preheader, %24, %51, %65, %89, %107, %129, %12, %._crit_edge, %5
-  %.0 = phi i64 [ -1, %12 ], [ %25, %24 ], [ %54, %51 ], [ %68, %65 ], [ -1, %5 ], [ %92, %89 ], [ %110, %107 ], [ %132, %129 ], [ -1, %.preheader ], [ -1, %._crit_edge ], [ -1, %69 ], [ -1, %121 ]
+  %.0 = phi i64 [ -1, %12 ], [ %25, %24 ], [ %54, %51 ], [ %68, %65 ], [ %92, %89 ], [ %110, %107 ], [ %132, %129 ], [ -1, %._crit_edge ], [ -1, %5 ], [ -1, %.preheader ], [ -1, %69 ], [ -1, %121 ]
   ret i64 %.0
 }
 

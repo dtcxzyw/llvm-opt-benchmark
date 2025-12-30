@@ -79,7 +79,7 @@ bytestream2_get_byte.exit78.i:                    ; preds = %bytestream2_get_byt
   br i1 %.not64.i, label %bytestream2_get_byte.exit80.i, label %103
 
 bytestream2_get_byte.exit80.i:                    ; preds = %bytestream2_get_byte.exit78.i, %bytestream2_get_byte.exit74.thread.i
-  %31 = phi ptr [ %29, %bytestream2_get_byte.exit78.i ], [ %20, %bytestream2_get_byte.exit74.thread.i ]
+  %31 = phi ptr [ %20, %bytestream2_get_byte.exit74.thread.i ], [ %29, %bytestream2_get_byte.exit78.i ]
   %32 = ptrtoint ptr %31 to i64
   %33 = sub i64 %9, %32
   %34 = icmp slt i64 %33, 1
@@ -197,11 +197,11 @@ bytestream2_get_byte.exit88.i:                    ; preds = %95
   %.not67.i = icmp eq i8 %.fr.i, 0
   br i1 %.not67.i, label %apv_extract_header_info.exit, label %103
 
-103:                                              ; preds = %bytestream2_get_byte.exit74.i, %bytestream2_get_byte.exit74.thread.i, %bytestream2_get_byte.exit84.i, %bytestream2_get_be24.exit95.i, %bytestream2_get_byte.exit86.i, %bytestream2_get_byte.exit76.i, %bytestream2_get_byte.exit78.i, %bytestream2_get_be16.exit91.i, %bytestream2_get_byte.exit88.i, %bytestream2_get_be24.exit.i
+103:                                              ; preds = %bytestream2_get_byte.exit78.i, %bytestream2_get_byte.exit74.i, %bytestream2_get_byte.exit74.thread.i, %bytestream2_get_byte.exit84.i, %bytestream2_get_be24.exit95.i, %bytestream2_get_byte.exit86.i, %bytestream2_get_be16.exit91.i, %bytestream2_get_byte.exit88.i, %bytestream2_get_byte.exit76.i, %bytestream2_get_be24.exit.i
   br label %apv_extract_header_info.exit
 
 apv_extract_header_info.exit:                     ; preds = %103, %bytestream2_get_byte.exit88.i, %95, %bytestream2_get_be32.exit11, %bytestream2_get_be32.exit9, %bytestream2_get_be32.exit, %1
-  %.0 = phi i32 [ 0, %bytestream2_get_be32.exit11 ], [ 0, %1 ], [ 0, %bytestream2_get_be32.exit ], [ 0, %bytestream2_get_be32.exit9 ], [ 100, %bytestream2_get_byte.exit88.i ], [ 100, %95 ], [ 0, %103 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %bytestream2_get_be32.exit ], [ 0, %bytestream2_get_be32.exit9 ], [ 0, %bytestream2_get_be32.exit11 ], [ 0, %103 ], [ 100, %bytestream2_get_byte.exit88.i ], [ 100, %95 ]
   ret i32 %.0
 }
 
@@ -263,7 +263,7 @@ bytestream2_get_be32.exit25:                      ; preds = %bytestream2_get_be3
   br label %bytestream2_get_be32.exit23.thread
 
 bytestream2_get_be32.exit23.thread:               ; preds = %20, %bytestream2_get_be32.exit25, %bytestream2_get_be32.exit, %7, %1, %22
-  %.0 = phi i32 [ -1094995529, %bytestream2_get_be32.exit25 ], [ %5, %1 ], [ %9, %7 ], [ -1094995529, %bytestream2_get_be32.exit ], [ -12, %20 ], [ 0, %22 ]
+  %.0 = phi i32 [ 0, %22 ], [ %5, %1 ], [ %9, %7 ], [ -1094995529, %bytestream2_get_be32.exit ], [ -1094995529, %bytestream2_get_be32.exit25 ], [ -12, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -315,7 +315,7 @@ define internal range(i32 -2147483648, 1) i32 @apv_read_packet(ptr noundef %0, p
   br label %25
 
 25:                                               ; preds = %16, %12, %7, %24, %.thread
-  %.0 = phi i32 [ %14, %12 ], [ -1094995529, %.thread ], [ -541478725, %7 ], [ -1094995529, %24 ], [ 0, %16 ]
+  %.0 = phi i32 [ -1094995529, %.thread ], [ -1094995529, %24 ], [ -541478725, %7 ], [ %14, %12 ], [ 0, %16 ]
   ret i32 %.0
 }
 

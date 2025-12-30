@@ -1148,7 +1148,7 @@ _ZN4ncnn3Mat6addrefEv.exit191:                    ; preds = %265, %243, %_ZNSt6v
   br label %_ZN4ncnn3Mat6addrefEv.exit181
 
 _ZNSt6vectorItSaItEED2Ev.exit312:                 ; preds = %240, %.thread450, %_ZN4ncnn3MatD2Ev.exit161, %114
-  %.pn145 = phi { ptr, i32 } [ %115, %114 ], [ %.pn143, %_ZN4ncnn3MatD2Ev.exit161 ], [ %lpad.thr_comm, %.thread450 ], [ %.pn139.pn448, %240 ]
+  %.pn145 = phi { ptr, i32 } [ %115, %114 ], [ %.pn143, %_ZN4ncnn3MatD2Ev.exit161 ], [ %.pn139.pn448, %240 ], [ %lpad.thr_comm, %.thread450 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %665
 

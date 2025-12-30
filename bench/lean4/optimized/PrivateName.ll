@@ -700,7 +700,7 @@ lean_inc.exit28:                                  ; preds = %30, %29, %27, %lean
   br label %lean_dec.exit27
 
 common.ret62:                                     ; preds = %lean_dec.exit25, %116, %118, %119, %lean_obj_tag.exit, %102, %lean_dec.exit27
-  %common.ret62.op = phi ptr [ %104, %102 ], [ %39, %lean_dec.exit27 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ], [ inttoptr (i64 1 to ptr), %119 ], [ inttoptr (i64 1 to ptr), %118 ], [ inttoptr (i64 1 to ptr), %116 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit25 ]
+  %common.ret62.op = phi ptr [ %39, %lean_dec.exit27 ], [ %104, %102 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ], [ inttoptr (i64 1 to ptr), %119 ], [ inttoptr (i64 1 to ptr), %118 ], [ inttoptr (i64 1 to ptr), %116 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit25 ]
   ret ptr %common.ret62.op
 
 lean_dec.exit27:                                  ; preds = %37, %36, %34, %lean_inc.exit28

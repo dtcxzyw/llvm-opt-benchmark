@@ -111,7 +111,7 @@ err_socket:                                       ; preds = %if.end31, %if.then3
   br label %return
 
 return:                                           ; preds = %if.then26, %if.end18, %if.end12, %if.end5, %entry, %err_socket, %if.end46
-  %retval.0 = phi i32 [ 0, %if.end46 ], [ -22, %entry ], [ -12, %if.then26 ], [ %err.0, %err_socket ], [ -22, %if.end5 ], [ -22, %if.end12 ], [ -22, %if.end18 ]
+  %retval.0 = phi i32 [ %err.0, %err_socket ], [ 0, %if.end46 ], [ -22, %entry ], [ -22, %if.end5 ], [ -22, %if.end12 ], [ -22, %if.end18 ], [ -12, %if.then26 ]
   ret i32 %retval.0
 }
 
@@ -174,7 +174,7 @@ if.end8:                                          ; preds = %if.end2
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end8, %if.then6
-  %retval.0 = phi i32 [ 0, %if.end8 ], [ -22, %entry ], [ %sub, %if.then6 ], [ -22, %if.end ]
+  %retval.0 = phi i32 [ %sub, %if.then6 ], [ 0, %if.end8 ], [ -22, %entry ], [ -22, %if.end ]
   ret i32 %retval.0
 }
 
@@ -249,7 +249,7 @@ if.end11:                                         ; preds = %if.end7
   br label %return
 
 return:                                           ; preds = %if.end7, %entry, %if.end11, %if.then5
-  %retval.0 = phi i32 [ %call19, %if.end11 ], [ %sub, %if.then5 ], [ -17, %entry ], [ %call8, %if.end7 ]
+  %retval.0 = phi i32 [ %sub, %if.then5 ], [ %call19, %if.end11 ], [ -17, %entry ], [ %call8, %if.end7 ]
   ret i32 %retval.0
 }
 
@@ -375,7 +375,7 @@ if.then66:                                        ; preds = %out
   br label %return
 
 return:                                           ; preds = %out, %if.then66, %if.end5, %entry
-  %retval.0 = phi i32 [ -22, %if.end5 ], [ -22, %entry ], [ 0, %out ], [ 0, %if.then66 ]
+  %retval.0 = phi i32 [ -22, %entry ], [ -22, %if.end5 ], [ 0, %if.then66 ], [ 0, %out ]
   ret i32 %retval.0
 }
 
@@ -552,7 +552,7 @@ if.end6:                                          ; preds = %if.end2
   br label %return
 
 return:                                           ; preds = %if.end2, %if.end, %entry, %if.end6
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ %add, %if.end6 ], [ 1, %if.end2 ]
+  %retval.0 = phi i32 [ %add, %if.end6 ], [ 0, %entry ], [ 0, %if.end ], [ 1, %if.end2 ]
   ret i32 %retval.0
 }
 
@@ -575,7 +575,7 @@ if.else:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.else
-  %retval.0 = phi i32 [ 0, %entry ], [ %call, %if.else ], [ 0, %if.end ]
+  %retval.0 = phi i32 [ %call, %if.else ], [ 0, %entry ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -697,7 +697,7 @@ if.then17:                                        ; preds = %if.end11.i.i33, %if
   call void @uv__free(ptr noundef nonnull %call11) #12
   br label %return
 
-if.end18:                                         ; preds = %if.end17.i.i41, %if.then26.i.i43
+if.end18:                                         ; preds = %if.then26.i.i43, %if.end17.i.i41
   call void @llvm.lifetime.end.p0(ptr nonnull %sa.i.i24)
   call void @llvm.lifetime.end.p0(ptr nonnull %addrlen.i.i25)
   %call.i = call noundef i32 @stat64(ptr noundef nonnull readonly %call11, ptr noundef nonnull %pipe_stat) #12
@@ -742,7 +742,7 @@ cond.false:                                       ; preds = %if.end34
   br label %return
 
 return:                                           ; preds = %cond.false, %if.end34, %if.end10, %uv_pipe_getsockname.exit, %if.end, %entry, %lor.lhs.false, %if.then33, %if.then21, %if.then17
-  %retval.0 = phi i32 [ -12, %if.end10 ], [ -9, %entry ], [ -22, %if.end ], [ %call.i.i, %uv_pipe_getsockname.exit ], [ %retval.0.i.i40, %if.then17 ], [ %sub, %if.then21 ], [ 0, %if.then33 ], [ -9, %lor.lhs.false ], [ %sub41, %cond.false ], [ 0, %if.end34 ]
+  %retval.0 = phi i32 [ %retval.0.i.i40, %if.then17 ], [ %sub, %if.then21 ], [ 0, %if.then33 ], [ -9, %lor.lhs.false ], [ -9, %entry ], [ -22, %if.end ], [ %call.i.i, %uv_pipe_getsockname.exit ], [ -12, %if.end10 ], [ %sub41, %cond.false ], [ 0, %if.end34 ]
   ret i32 %retval.0
 }
 

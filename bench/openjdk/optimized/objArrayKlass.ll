@@ -451,7 +451,7 @@ define hidden noundef ptr @_ZN13ObjArrayKlass23allocate_objArray_klassEP15ClassL
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %37, %7
-  %.050 = phi ptr [ null, %7 ], [ %38, %37 ], [ %17, %25 ]
+  %.050 = phi ptr [ %38, %37 ], [ null, %7 ], [ %17, %25 ]
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 800
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
@@ -596,7 +596,7 @@ _ZN13ObjArrayKlass8allocateEP15ClassLoaderDataiP5KlassP6SymbolP10JavaThread.exit
   br label %.loopexit61
 
 .loopexit61:                                      ; preds = %28, %111, %_ZN13ObjArrayKlass8allocateEP15ClassLoaderDataiP5KlassP6SymbolP10JavaThread.exit, %13, %117
-  %.0 = phi ptr [ %88, %117 ], [ null, %13 ], [ null, %111 ], [ null, %_ZN13ObjArrayKlass8allocateEP15ClassLoaderDataiP5KlassP6SymbolP10JavaThread.exit ], [ null, %28 ]
+  %.0 = phi ptr [ %88, %117 ], [ null, %13 ], [ null, %_ZN13ObjArrayKlass8allocateEP15ClassLoaderDataiP5KlassP6SymbolP10JavaThread.exit ], [ null, %111 ], [ null, %28 ]
   ret ptr %.0
 }
 
@@ -882,7 +882,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %12, %_ZN10Hand
   br label %_ZNK14objArrayHandleclEv.exit
 
 _ZNK14objArrayHandleclEv.exit:                    ; preds = %34, %.loopexit.thread, %.loopexit, %4, %55
-  %.026 = phi ptr [ null, %55 ], [ null, %4 ], [ null, %.loopexit ], [ %59, %.loopexit.thread ], [ null, %34 ]
+  %.026 = phi ptr [ null, %55 ], [ null, %4 ], [ %59, %.loopexit.thread ], [ null, %.loopexit ], [ null, %34 ]
   ret ptr %.026
 }
 
@@ -2910,7 +2910,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383974ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
   ret ptr %.0.i.i
 }
 
@@ -3081,7 +3081,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -3269,7 +3269,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm2383942ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
   ret ptr %.0.i.i
 }
 

@@ -624,10 +624,10 @@ define dso_local i32 @WaitEventSetWait(ptr noundef readonly captures(none) %0, i
   br i1 %20, label %.thread75, label %.thread
 
 .thread:                                          ; preds = %26, %.thread73, %32, %30
-  %.251 = phi i64 [ %.15081, %30 ], [ %.15081, %32 ], [ 0, %.thread73 ], [ %.15081, %26 ]
-  %.248 = phi i32 [ 0, %30 ], [ 0, %32 ], [ 1, %.thread73 ], [ 0, %26 ]
-  %.144 = phi ptr [ %.04382, %30 ], [ %.04382, %32 ], [ %42, %.thread73 ], [ %.04382, %26 ]
-  %.1 = phi i64 [ %.083, %30 ], [ %.083, %32 ], [ 0, %.thread73 ], [ %.083, %26 ]
+  %.251 = phi i64 [ %.15081, %32 ], [ %.15081, %30 ], [ 0, %.thread73 ], [ %.15081, %26 ]
+  %.248 = phi i32 [ 0, %32 ], [ 0, %30 ], [ 1, %.thread73 ], [ 0, %26 ]
+  %.144 = phi ptr [ %.04382, %32 ], [ %.04382, %30 ], [ %42, %.thread73 ], [ %.04382, %26 ]
+  %.1 = phi i64 [ %.083, %32 ], [ %.083, %30 ], [ 0, %.thread73 ], [ %.083, %26 ]
   %45 = trunc i64 %.251 to i32
   %46 = sub i32 %3, %.248
   %47 = load i32, ptr %21, align 8
@@ -872,7 +872,7 @@ drain.exit.i:                                     ; preds = %94, %83
   br i1 %156, label %65, label %WaitEventSetWaitBlock.exit, !llvm.loop !7
 
 WaitEventSetWaitBlock.exit:                       ; preds = %.thread75.i, %52, %59, %61
-  %.054.i = phi i32 [ -1, %59 ], [ 0, %52 ], [ 0, %61 ], [ %.157.i, %.thread75.i ]
+  %.054.i = phi i32 [ 0, %52 ], [ -1, %59 ], [ 0, %61 ], [ %.157.i, %.thread75.i ]
   %157 = load ptr, ptr %17, align 8
   %.not66 = icmp eq ptr %157, null
   br i1 %.not66, label %162, label %158
@@ -915,12 +915,12 @@ WaitEventSetWaitBlock.exit:                       ; preds = %.thread75.i, %52, %
   br i1 %179, label %.thread75, label %180
 
 180:                                              ; preds = %168, %164
-  %.352 = phi i64 [ %178, %168 ], [ %.251, %164 ]
+  %.352 = phi i64 [ %.251, %164 ], [ %178, %168 ]
   %181 = icmp eq i32 %165, 0
   br i1 %181, label %26, label %.thread75
 
 .thread75:                                        ; preds = %168, %162, %.thread73, %180
-  %.147 = phi i32 [ %165, %180 ], [ 1, %.thread73 ], [ %.248, %162 ], [ 0, %168 ]
+  %.147 = phi i32 [ %165, %180 ], [ %.248, %162 ], [ 1, %.thread73 ], [ 0, %168 ]
   store volatile i32 0, ptr @waiting, align 4
   %182 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %182, align 4

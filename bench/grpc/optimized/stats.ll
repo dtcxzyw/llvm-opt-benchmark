@@ -657,8 +657,8 @@ _ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx
   br i1 %.not43.i.i.i.i.i, label %.loopexit.i, label %.lr.ph50.i.i.i.i.i, !llvm.loop !77
 
 .loopexit.i:                                      ; preds = %.lr.ph50.i.i.i.i.i, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i.i, %._crit_edge.i.i.i.i.i, %._crit_edge.i, %._crit_edge.thread.i
-  %262 = phi ptr [ null, %._crit_edge.thread.i ], [ %.pre39.i, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i.i ], [ %.pre39.i, %._crit_edge.i.i.i.i.i ], [ %.pre39.i, %._crit_edge.i ], [ %.pre39.i, %.lr.ph50.i.i.i.i.i ]
-  %.pr.i.i = phi ptr [ null, %._crit_edge.thread.i ], [ %.pre38.i, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i.i ], [ %.pre38.i, %._crit_edge.i.i.i.i.i ], [ %.pre38.i, %._crit_edge.i ], [ %.pre38.i, %.lr.ph50.i.i.i.i.i ]
+  %262 = phi ptr [ %.pre39.i, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i.i ], [ %.pre39.i, %._crit_edge.i.i.i.i.i ], [ %.pre39.i, %._crit_edge.i ], [ null, %._crit_edge.thread.i ], [ %.pre39.i, %.lr.ph50.i.i.i.i.i ]
+  %.pr.i.i = phi ptr [ %.pre38.i, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i.i ], [ %.pre38.i, %._crit_edge.i.i.i.i.i ], [ %.pre38.i, %._crit_edge.i ], [ null, %._crit_edge.thread.i ], [ %.pre38.i, %.lr.ph50.i.i.i.i.i ]
   %263 = load ptr, ptr %22, align 8, !tbaa !26, !noalias !38
   %264 = load i64, ptr %68, align 8, !tbaa !28, !noalias !38
   store i64 %264, ptr %21, align 8, !noalias !38
@@ -1215,8 +1215,8 @@ _ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx
   br i1 %.not43.i.i.i.i.i104, label %.loopexit.i105, label %.lr.ph50.i.i.i.i.i101, !llvm.loop !77
 
 .loopexit.i105:                                   ; preds = %.lr.ph50.i.i.i.i.i101, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i.i99, %._crit_edge.i.i.i.i.i92, %._crit_edge.i83, %._crit_edge.thread.i129
-  %442 = phi ptr [ null, %._crit_edge.thread.i129 ], [ %.pre39.i85, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i.i99 ], [ %.pre39.i85, %._crit_edge.i.i.i.i.i92 ], [ %.pre39.i85, %._crit_edge.i83 ], [ %.pre39.i85, %.lr.ph50.i.i.i.i.i101 ]
-  %.pr.i.i117 = phi ptr [ null, %._crit_edge.thread.i129 ], [ %.pre38.i84, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i.i99 ], [ %.pre38.i84, %._crit_edge.i.i.i.i.i92 ], [ %.pre38.i84, %._crit_edge.i83 ], [ %.pre38.i84, %.lr.ph50.i.i.i.i.i101 ]
+  %442 = phi ptr [ %.pre39.i85, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i.i99 ], [ %.pre39.i85, %._crit_edge.i.i.i.i.i92 ], [ %.pre39.i85, %._crit_edge.i83 ], [ null, %._crit_edge.thread.i129 ], [ %.pre39.i85, %.lr.ph50.i.i.i.i.i101 ]
+  %.pr.i.i117 = phi ptr [ %.pre38.i84, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i.i99 ], [ %.pre38.i84, %._crit_edge.i.i.i.i.i92 ], [ %.pre38.i84, %._crit_edge.i83 ], [ null, %._crit_edge.thread.i129 ], [ %.pre38.i84, %.lr.ph50.i.i.i.i.i101 ]
   %443 = load ptr, ptr %14, align 8, !tbaa !26, !noalias !80
   %444 = load i64, ptr %89, align 8, !tbaa !28, !noalias !80
   store i64 %444, ptr %13, align 8, !noalias !80

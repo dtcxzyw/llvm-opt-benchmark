@@ -963,7 +963,7 @@ _ZN9grpc_core7ExecCtx13InvalidateNowEv.exit:      ; preds = %_ZN9grpc_core7ExecC
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %_ZN9grpc_core7ExecCtx13InvalidateNowEv.exit, %37, %42, %45, %48
-  %.0.i.i = phi i64 [ -9223372036854775808, %37 ], [ 9223372036854775807, %_ZN9grpc_core7ExecCtx13InvalidateNowEv.exit ], [ -9223372036854775808, %45 ], [ %49, %48 ], [ 9223372036854775807, %42 ]
+  %.0.i.i = phi i64 [ 9223372036854775807, %_ZN9grpc_core7ExecCtx13InvalidateNowEv.exit ], [ -9223372036854775808, %37 ], [ %49, %48 ], [ 9223372036854775807, %42 ], [ -9223372036854775808, %45 ]
   %.not.i.i15 = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   br i1 %.not.i.i15, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %50
 
@@ -1173,7 +1173,7 @@ common.resume:                                    ; preds = %"_ZZN9grpc_core15Po
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %123
 
-.thread:                                          ; preds = %61, %69, %57, %_ZN9grpc_coremiENS_9TimestampES0_.exit, %12
+.thread:                                          ; preds = %57, %69, %61, %_ZN9grpc_coremiENS_9TimestampES0_.exit, %12
   tail call void @_ZN9grpc_core15PollingResolver20StartResolvingLockedEv(ptr noundef nonnull align 8 dereferenceable(536) %0)
   br label %123
 
@@ -2728,7 +2728,7 @@ _ZN9grpc_core20InternallyRefCountedINS_8ResolverENS_11UnrefDeleteEE5UnrefERKNS_1
   ret void
 
 "_ZZN9grpc_core15PollingResolver23OnRequestCompleteLockedENS_8Resolver6ResultEEN3$_0D2Ev.exit121": ; preds = %234, %230, %238, %159, %32
-  %.pn71 = phi { ptr, i32 } [ %239, %238 ], [ %.pn, %32 ], [ %.pn60.pn.pn.pn.pn.pn.pn.pn.pn.pn, %159 ], [ %231, %230 ], [ %231, %234 ]
+  %.pn71 = phi { ptr, i32 } [ %239, %238 ], [ %.pn60.pn.pn.pn.pn.pn.pn.pn.pn.pn, %159 ], [ %.pn, %32 ], [ %231, %230 ], [ %231, %234 ]
   resume { ptr, i32 } %.pn71
 }
 
@@ -3217,7 +3217,7 @@ define linkonce_odr i64 @_ZN9grpc_coremiENS_9TimestampES0_(i64 %0, i64 %1) local
   br label %_ZN9grpc_core11time_detail9MillisAddEll.exit
 
 _ZN9grpc_core11time_detail9MillisAddEll.exit:     ; preds = %4, %19, %16, %13, %8, %.thread, %3
-  %.sroa.04.0 = phi i64 [ %spec.select, %4 ], [ 9223372036854775807, %3 ], [ -9223372036854775808, %8 ], [ 9223372036854775807, %.thread ], [ -9223372036854775808, %16 ], [ %20, %19 ], [ 9223372036854775807, %13 ]
+  %.sroa.04.0 = phi i64 [ 9223372036854775807, %3 ], [ 9223372036854775807, %.thread ], [ -9223372036854775808, %8 ], [ %20, %19 ], [ 9223372036854775807, %13 ], [ -9223372036854775808, %16 ], [ %spec.select, %4 ]
   ret i64 %.sroa.04.0
 }
 

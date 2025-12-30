@@ -410,7 +410,7 @@ _ZN7meshoptL11hashBucketsEm.exit:                 ; preds = %11
   br i1 %exitcond61.not, label %.lr.ph.i, label %.lr.ph.split.us.split, !llvm.loop !18
 
 .lr.ph.i:                                         ; preds = %125, %50, %34, %19
-  %.031.lcssa = phi i32 [ 0, %19 ], [ %.1.us, %50 ], [ %.1.us.us, %34 ], [ %.1, %125 ]
+  %.031.lcssa = phi i32 [ 0, %19 ], [ %.1.us.us, %34 ], [ %.1.us, %50 ], [ %.1, %125 ]
   %52 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !6
   %53 = load ptr, ptr %7, align 8, !tbaa !6
   invoke void %52(ptr noundef %53)
@@ -544,7 +544,7 @@ _ZNK7meshopt18VertexStreamHasher4hashEj.exit.split.i: ; preds = %100
   br i1 %116, label %_ZN7meshoptL10hashLookupIjNS_18VertexStreamHasherEEEPT_S3_mRKT0_RKS2_S8_.exit, label %.lr.ph.i29.i
 
 _ZN7meshoptL10hashLookupIjNS_18VertexStreamHasherEEEPT_S3_mRKT0_RKS2_S8_.exit: ; preds = %_ZNK7meshopt18VertexStreamHasher4hashEj.exit.split.i, %98, %_ZNK7meshopt18VertexStreamHasher4hashEj.exit.split.preheader.i
-  %.02514.i.lcssa.pn = phi i64 [ %.02514.i51, %98 ], [ %92, %_ZNK7meshopt18VertexStreamHasher4hashEj.exit.split.preheader.i ], [ %113, %_ZNK7meshopt18VertexStreamHasher4hashEj.exit.split.i ]
+  %.02514.i.lcssa.pn = phi i64 [ %92, %_ZNK7meshopt18VertexStreamHasher4hashEj.exit.split.preheader.i ], [ %.02514.i51, %98 ], [ %113, %_ZNK7meshopt18VertexStreamHasher4hashEj.exit.split.i ]
   %spec.select.i = getelementptr inbounds nuw i32, ptr %18, i64 %.02514.i.lcssa.pn
   %117 = load i32, ptr %spec.select.i, align 4, !tbaa !10
   %118 = icmp eq i32 %117, -1
@@ -1237,7 +1237,7 @@ _ZNK7meshopt18VertexStreamHasher4hashEj.exit.split.i: ; preds = %91
   br i1 %107, label %_ZN7meshoptL10hashLookupIjNS_18VertexStreamHasherEEEPT_S3_mRKT0_RKS2_S8_.exit, label %.lr.ph.i29.i
 
 _ZN7meshoptL10hashLookupIjNS_18VertexStreamHasherEEEPT_S3_mRKT0_RKS2_S8_.exit: ; preds = %_ZNK7meshopt18VertexStreamHasher4hashEj.exit.split.i, %89, %_ZNK7meshopt18VertexStreamHasher4hashEj.exit.split.preheader.i
-  %.02514.i.lcssa.pn = phi i64 [ %.02514.i49, %89 ], [ %83, %_ZNK7meshopt18VertexStreamHasher4hashEj.exit.split.preheader.i ], [ %104, %_ZNK7meshopt18VertexStreamHasher4hashEj.exit.split.i ]
+  %.02514.i.lcssa.pn = phi i64 [ %83, %_ZNK7meshopt18VertexStreamHasher4hashEj.exit.split.preheader.i ], [ %.02514.i49, %89 ], [ %104, %_ZNK7meshopt18VertexStreamHasher4hashEj.exit.split.i ]
   %spec.select.i = getelementptr inbounds nuw i32, ptr %24, i64 %.02514.i.lcssa.pn
   %108 = load i32, ptr %spec.select.i, align 4, !tbaa !10
   %109 = icmp eq i32 %108, -1

@@ -213,8 +213,8 @@ define hidden zeroext i1 @SDL_UDEV_LoadLibrary() local_unnamed_addr #0 {
   br label %SDL_UDEV_UnloadLibrary.exit
 
 SDL_UDEV_UnloadLibrary.exit:                      ; preds = %19, %16, %10, %14, %6
-  %22 = phi ptr [ %7, %6 ], [ %.pre, %14 ], [ %12, %10 ], [ %20, %19 ], [ %.pre, %16 ]
-  %.06.shrunk = phi i1 [ true, %6 ], [ true, %14 ], [ true, %10 ], [ false, %19 ], [ false, %16 ]
+  %22 = phi ptr [ %7, %6 ], [ %.pre, %14 ], [ %12, %10 ], [ %.pre, %16 ], [ %20, %19 ]
+  %.06.shrunk = phi i1 [ true, %6 ], [ true, %14 ], [ true, %10 ], [ false, %16 ], [ false, %19 ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not11 = icmp eq ptr %24, null
@@ -603,7 +603,7 @@ define hidden noundef zeroext i1 @SDL_UDEV_GetProductInfo(ptr noundef readonly c
   br label %56
 
 56:                                               ; preds = %16, %11, %8, %5, %52
-  %.0 = phi i1 [ false, %5 ], [ true, %52 ], [ false, %11 ], [ false, %8 ], [ false, %16 ]
+  %.0 = phi i1 [ true, %52 ], [ false, %5 ], [ false, %8 ], [ false, %11 ], [ false, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -777,7 +777,7 @@ define internal fastcc i32 @device_class(ptr noundef nonnull %0) unnamed_addr #0
   br label %.thread
 
 .thread:                                          ; preds = %71, %88, %17, %19, %91, %75, %12, %6, %82, %85, %1
-  %.040 = phi i32 [ 0, %1 ], [ 0, %19 ], [ 8, %6 ], [ %.5, %75 ], [ 0, %12 ], [ %spec.select, %17 ], [ 4, %82 ], [ 1, %85 ], [ %spec.select65, %88 ], [ %92, %91 ], [ %74, %71 ]
+  %.040 = phi i32 [ 0, %1 ], [ 0, %12 ], [ %92, %91 ], [ %.5, %75 ], [ 0, %19 ], [ 8, %6 ], [ %spec.select, %17 ], [ 4, %82 ], [ 1, %85 ], [ %spec.select65, %88 ], [ %74, %71 ]
   ret i32 %.040
 }
 
@@ -1055,7 +1055,7 @@ define internal fastcc zeroext i1 @SDL_UDEV_load_syms() unnamed_addr #0 {
   br label %162
 
 162:                                              ; preds = %156, %150, %144, %138, %132, %126, %120, %114, %108, %102, %96, %90, %84, %78, %72, %66, %60, %54, %48, %42, %36, %30, %24, %18, %12, %6, %0
-  %.0 = phi i1 [ false, %150 ], [ %.not.i26, %156 ], [ false, %144 ], [ false, %138 ], [ false, %132 ], [ false, %126 ], [ false, %120 ], [ false, %114 ], [ false, %108 ], [ false, %102 ], [ false, %96 ], [ false, %90 ], [ false, %84 ], [ false, %78 ], [ false, %72 ], [ false, %66 ], [ false, %60 ], [ false, %54 ], [ false, %48 ], [ false, %42 ], [ false, %36 ], [ false, %30 ], [ false, %24 ], [ false, %18 ], [ false, %12 ], [ false, %6 ], [ false, %0 ]
+  %.0 = phi i1 [ false, %0 ], [ false, %6 ], [ false, %12 ], [ false, %18 ], [ false, %24 ], [ false, %30 ], [ false, %36 ], [ false, %42 ], [ false, %48 ], [ false, %54 ], [ false, %60 ], [ false, %66 ], [ false, %72 ], [ false, %78 ], [ false, %84 ], [ false, %90 ], [ false, %96 ], [ false, %102 ], [ false, %108 ], [ false, %114 ], [ false, %120 ], [ false, %126 ], [ false, %132 ], [ false, %138 ], [ false, %144 ], [ false, %150 ], [ %.not.i26, %156 ]
   ret i1 %.0
 }
 

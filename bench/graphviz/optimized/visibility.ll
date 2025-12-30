@@ -860,8 +860,8 @@ clear.exit.thread160:                             ; preds = %.preheader.i, %clea
   %sqrt.i = tail call double @llvm.sqrt.f64(double %275)
   br label %clear.exit.thread162
 
-clear.exit.thread162:                             ; preds = %intersect.exit131, %inBetween.exit.i129, %inBetween.exit42.i126, %158, %134, %138, %131, %155, %162, %244, %237, %213, %220, %216, %240, %inBetween.exit42.i, %inBetween.exit.i, %in_cone.exit, %clear.exit, %104, %clear.exit.thread160
-  %sqrt.i.sink = phi double [ %sqrt.i, %clear.exit.thread160 ], [ 0.000000e+00, %244 ], [ 0.000000e+00, %clear.exit ], [ 0.000000e+00, %in_cone.exit ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %inBetween.exit.i ], [ 0.000000e+00, %inBetween.exit42.i ], [ 0.000000e+00, %240 ], [ 0.000000e+00, %216 ], [ 0.000000e+00, %220 ], [ 0.000000e+00, %213 ], [ 0.000000e+00, %237 ], [ 0.000000e+00, %162 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %131 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %134 ], [ 0.000000e+00, %158 ], [ 0.000000e+00, %inBetween.exit42.i126 ], [ 0.000000e+00, %inBetween.exit.i129 ], [ 0.000000e+00, %intersect.exit131 ]
+clear.exit.thread162:                             ; preds = %intersect.exit131, %inBetween.exit.i129, %inBetween.exit42.i126, %134, %158, %131, %138, %155, %162, %244, %237, %220, %213, %240, %216, %inBetween.exit42.i, %inBetween.exit.i, %in_cone.exit, %clear.exit, %104, %clear.exit.thread160
+  %sqrt.i.sink = phi double [ %sqrt.i, %clear.exit.thread160 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %clear.exit ], [ 0.000000e+00, %in_cone.exit ], [ 0.000000e+00, %inBetween.exit.i ], [ 0.000000e+00, %inBetween.exit42.i ], [ 0.000000e+00, %216 ], [ 0.000000e+00, %240 ], [ 0.000000e+00, %213 ], [ 0.000000e+00, %220 ], [ 0.000000e+00, %237 ], [ 0.000000e+00, %244 ], [ 0.000000e+00, %162 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %131 ], [ 0.000000e+00, %158 ], [ 0.000000e+00, %134 ], [ 0.000000e+00, %inBetween.exit42.i126 ], [ 0.000000e+00, %inBetween.exit.i129 ], [ 0.000000e+00, %intersect.exit131 ]
   %276 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv
   store double %sqrt.i.sink, ptr %276, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1197,8 +1197,8 @@ clear.exit121.thread173:                          ; preds = %clear.exit121
   %sqrt.i122 = tail call double @llvm.sqrt.f64(double %489)
   br label %clear.exit121.thread175
 
-clear.exit121.thread175:                          ; preds = %intersect.exit147, %inBetween.exit.i145, %inBetween.exit42.i142, %372, %348, %352, %345, %369, %376, %458, %451, %427, %434, %430, %454, %inBetween.exit42.i134, %inBetween.exit.i137, %in_cone.exit103, %clear.exit121, %317, %clear.exit121.thread173
-  %sqrt.i122.sink = phi double [ %sqrt.i122, %clear.exit121.thread173 ], [ 0.000000e+00, %458 ], [ 0.000000e+00, %clear.exit121 ], [ 0.000000e+00, %in_cone.exit103 ], [ 0.000000e+00, %317 ], [ 0.000000e+00, %inBetween.exit.i137 ], [ 0.000000e+00, %inBetween.exit42.i134 ], [ 0.000000e+00, %454 ], [ 0.000000e+00, %430 ], [ 0.000000e+00, %434 ], [ 0.000000e+00, %427 ], [ 0.000000e+00, %451 ], [ 0.000000e+00, %376 ], [ 0.000000e+00, %369 ], [ 0.000000e+00, %345 ], [ 0.000000e+00, %352 ], [ 0.000000e+00, %348 ], [ 0.000000e+00, %372 ], [ 0.000000e+00, %inBetween.exit42.i142 ], [ 0.000000e+00, %inBetween.exit.i145 ], [ 0.000000e+00, %intersect.exit147 ]
+clear.exit121.thread175:                          ; preds = %intersect.exit147, %inBetween.exit.i145, %inBetween.exit42.i142, %348, %372, %345, %352, %369, %376, %458, %451, %434, %427, %454, %430, %inBetween.exit42.i134, %inBetween.exit.i137, %in_cone.exit103, %clear.exit121, %317, %clear.exit121.thread173
+  %sqrt.i122.sink = phi double [ %sqrt.i122, %clear.exit121.thread173 ], [ 0.000000e+00, %317 ], [ 0.000000e+00, %clear.exit121 ], [ 0.000000e+00, %in_cone.exit103 ], [ 0.000000e+00, %inBetween.exit.i137 ], [ 0.000000e+00, %inBetween.exit42.i134 ], [ 0.000000e+00, %430 ], [ 0.000000e+00, %454 ], [ 0.000000e+00, %427 ], [ 0.000000e+00, %434 ], [ 0.000000e+00, %451 ], [ 0.000000e+00, %458 ], [ 0.000000e+00, %376 ], [ 0.000000e+00, %369 ], [ 0.000000e+00, %352 ], [ 0.000000e+00, %345 ], [ 0.000000e+00, %372 ], [ 0.000000e+00, %348 ], [ 0.000000e+00, %inBetween.exit42.i142 ], [ 0.000000e+00, %inBetween.exit.i145 ], [ 0.000000e+00, %intersect.exit147 ]
   %490 = getelementptr inbounds double, ptr %20, i64 %indvars.iv196
   store double %sqrt.i122.sink, ptr %490, align 8, !tbaa !23
   %indvars.iv.next197 = add nsw i64 %indvars.iv196, 1
@@ -1269,9 +1269,9 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
   br label %.preheader76
 
 .preheader76:                                     ; preds = %32, %.preheader76.sink.split, %18
-  %.0107 = phi i32 [ %39, %.preheader76.sink.split ], [ %30, %18 ], [ %30, %32 ]
-  %.068106 = phi i32 [ %37, %.preheader76.sink.split ], [ %28, %18 ], [ %28, %32 ]
-  %.069105 = phi i32 [ 0, %.preheader76.sink.split ], [ %25, %18 ], [ %25, %32 ]
+  %.0107 = phi i32 [ %30, %18 ], [ %39, %.preheader76.sink.split ], [ %30, %32 ]
+  %.068106 = phi i32 [ %28, %18 ], [ %37, %.preheader76.sink.split ], [ %28, %32 ]
+  %.069105 = phi i32 [ %25, %18 ], [ 0, %.preheader76.sink.split ], [ %25, %32 ]
   %40 = icmp slt i32 %.069105, %.068106
   br i1 %40, label %.lr.ph81.preheader, label %.preheader
 
@@ -1351,7 +1351,7 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph81, %.loopexit.loopexit, %.preheader
-  %.072 = phi i1 [ %.072.ph, %.loopexit.loopexit ], [ true, %.preheader ], [ false, %.lr.ph81 ], [ false, %.lr.ph ]
+  %.072 = phi i1 [ true, %.preheader ], [ %.072.ph, %.loopexit.loopexit ], [ false, %.lr.ph81 ], [ false, %.lr.ph ]
   ret i1 %.072
 }
 
@@ -1467,7 +1467,7 @@ inBetween.exit42:                                 ; preds = %55
   br label %inBetween.exit.thread
 
 inBetween.exit.thread:                            ; preds = %55, %48, %30, %23, %51, %26, %inBetween.exit42, %inBetween.exit, %61
-  %.0 = phi i1 [ %85, %61 ], [ true, %inBetween.exit ], [ true, %inBetween.exit42 ], [ true, %51 ], [ true, %26 ], [ true, %30 ], [ true, %23 ], [ true, %48 ], [ true, %55 ]
+  %.0 = phi i1 [ %85, %61 ], [ true, %inBetween.exit ], [ true, %inBetween.exit42 ], [ true, %26 ], [ true, %51 ], [ true, %23 ], [ true, %30 ], [ true, %48 ], [ true, %55 ]
   ret i1 %.0
 }
 

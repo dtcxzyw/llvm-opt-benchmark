@@ -398,7 +398,7 @@ to_meta_with_crop.exit:                           ; preds = %.split.us.i
   br i1 %exitcond.not.i130, label %.loopexit8.i, label %.lr.ph.i, !llvm.loop !67
 
 .loopexit8.i:                                     ; preds = %.lr.ph.i, %123, %116, %114
-  %.1103.i = phi i32 [ %.010212.i, %114 ], [ %.010212.i, %116 ], [ %117, %123 ], [ %117, %.lr.ph.i ]
+  %.1103.i = phi i32 [ %.010212.i, %116 ], [ %.010212.i, %114 ], [ %117, %123 ], [ %117, %.lr.ph.i ]
   %.not135.i = icmp slt i32 %.1103.i, %109
   br i1 %.not135.i, label %137, label %135
 
@@ -715,7 +715,7 @@ a64_compress_colram.exit:                         ; preds = %243
   br label %.thread
 
 .thread:                                          ; preds = %96, %89, %83, %272, %to_meta_with_crop.exit, %80, %29
-  %.0 = phi i32 [ 0, %29 ], [ 0, %to_meta_with_crop.exit ], [ 0, %83 ], [ 0, %80 ], [ 0, %272 ], [ %102, %96 ], [ %94, %89 ]
+  %.0 = phi i32 [ 0, %29 ], [ 0, %80 ], [ 0, %to_meta_with_crop.exit ], [ 0, %272 ], [ 0, %83 ], [ %102, %96 ], [ %94, %89 ]
   ret i32 %.0
 }
 

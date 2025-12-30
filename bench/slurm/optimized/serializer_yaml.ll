@@ -219,7 +219,7 @@ define dso_local range(i32 -1, 9203) i32 @serialize_p_data_to_string(ptr noundef
   br i1 %.not30.i, label %.sink.split, label %37
 
 .sink.split:                                      ; preds = %29, %27, %25, %23, %19, %17, %15, %13, %4
-  %.sink = phi i32 [ 692, %27 ], [ 689, %25 ], [ 686, %23 ], [ 680, %19 ], [ 677, %17 ], [ 674, %15 ], [ 671, %13 ], [ 660, %4 ], [ 695, %29 ]
+  %.sink = phi i32 [ 660, %4 ], [ 671, %13 ], [ 674, %15 ], [ 677, %17 ], [ 680, %19 ], [ 686, %23 ], [ 689, %25 ], [ 692, %27 ], [ 695, %29 ]
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef %.sink, ptr noundef nonnull @__func__._dump_yaml, ptr noundef %32) #6
@@ -258,7 +258,7 @@ define dso_local range(i32 -1, 9203) i32 @serialize_p_data_to_string(ptr noundef
   br label %44
 
 44:                                               ; preds = %42, %34, %36
-  %.0 = phi i32 [ 9202, %34 ], [ %., %42 ], [ 9202, %36 ]
+  %.0 = phi i32 [ 9202, %36 ], [ 9202, %34 ], [ %., %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -334,7 +334,7 @@ _parse_yaml.exit:                                 ; preds = %13
   br label %23
 
 23:                                               ; preds = %.thread20, %.thread, %3, %9, %22
-  %.0 = phi i32 [ 0, %22 ], [ 22, %3 ], [ 22, %9 ], [ 9202, %.thread ], [ 9202, %.thread20 ]
+  %.0 = phi i32 [ 0, %22 ], [ 22, %9 ], [ 22, %3 ], [ 9202, %.thread ], [ 9202, %.thread20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -657,7 +657,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br label %.thread77
 
 .thread77:                                        ; preds = %100, %106, %113, %119, %74, %80, %87, %93, %10, %16, %24, %30, %36, %6, %.thread, %.thread73, %123, %97, %71, %55, %34, %14, %2, %124
-  %.0 = phi i32 [ 0, %34 ], [ -1, %2 ], [ 0, %14 ], [ %.1, %55 ], [ %.2, %71 ], [ %.lobit60, %97 ], [ %.lobit, %123 ], [ %126, %124 ], [ -1, %74 ], [ -1, %10 ], [ -1, %.thread73 ], [ -1, %.thread ], [ -1, %6 ], [ -1, %36 ], [ -1, %30 ], [ -1, %24 ], [ -1, %16 ], [ -1, %93 ], [ -1, %87 ], [ -1, %80 ], [ -1, %119 ], [ -1, %113 ], [ -1, %106 ], [ -1, %100 ]
+  %.0 = phi i32 [ %.1, %55 ], [ %.2, %71 ], [ %.lobit60, %97 ], [ %.lobit, %123 ], [ %126, %124 ], [ -1, %2 ], [ 0, %14 ], [ 0, %34 ], [ -1, %.thread73 ], [ -1, %.thread ], [ -1, %6 ], [ -1, %36 ], [ -1, %30 ], [ -1, %24 ], [ -1, %16 ], [ -1, %10 ], [ -1, %93 ], [ -1, %87 ], [ -1, %80 ], [ -1, %74 ], [ -1, %119 ], [ -1, %113 ], [ -1, %106 ], [ -1, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -752,7 +752,7 @@ define internal fastcc range(i32 -1, 1) i32 @_emit_string(ptr noundef %0, ptr no
   br i1 %.not13, label %.sink.split, label %17
 
 .sink.split:                                      ; preds = %12, %8, %6, %4
-  %.sink = phi i32 [ 434, %8 ], [ 422, %4 ], [ 425, %6 ], [ 437, %12 ]
+  %.sink = phi i32 [ 422, %4 ], [ 425, %6 ], [ 434, %8 ], [ 437, %12 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef %.sink, ptr noundef nonnull @__func__._emit_string, ptr noundef %15) #6
@@ -864,7 +864,7 @@ _yaml_event_type_string.exit:                     ; preds = %30
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.26, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._yaml_to_data, ptr noundef %2, i32 noundef %0) #6
   br label %.thread
 
-.thread:                                          ; preds = %40, %43, %46
+.thread:                                          ; preds = %43, %46, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
@@ -923,7 +923,7 @@ define internal fastcc range(i32 2, 6) i32 @_on_parse_event(i32 noundef %0, ptr 
   br label %18
 
 common.ret4:                                      ; preds = %61, %_yaml_tag_to_type.exit, %39, %_yaml_tag_to_type.exit.thread, %thread-pre-split, %thread-pre-split, %69, %68, %62, %24, %23, %9, %9, %18
-  %common.ret4.op = phi i32 [ %22, %18 ], [ 4, %9 ], [ 3, %_yaml_tag_to_type.exit.thread ], [ 3, %68 ], [ 2, %23 ], [ 4, %thread-pre-split ], [ 4, %thread-pre-split ], [ %74, %69 ], [ 5, %24 ], [ %67, %62 ], [ %41, %39 ], [ 5, %61 ], [ 3, %_yaml_tag_to_type.exit ], [ 4, %9 ]
+  %common.ret4.op = phi i32 [ %22, %18 ], [ 2, %23 ], [ 5, %24 ], [ %67, %62 ], [ 3, %68 ], [ %74, %69 ], [ 4, %thread-pre-split ], [ 4, %thread-pre-split ], [ %41, %39 ], [ 5, %61 ], [ 3, %_yaml_tag_to_type.exit ], [ 3, %_yaml_tag_to_type.exit.thread ], [ 4, %9 ], [ 4, %9 ]
   ret i32 %common.ret4.op
 
 18:                                               ; preds = %14, %17, %10
@@ -1023,7 +1023,7 @@ thread-pre-split:                                 ; preds = %5
   %.not18.i = icmp eq i32 %56, 0
   br i1 %.not18.i, label %_yaml_tag_to_type.exit, label %51
 
-_yaml_tag_to_type.exit.thread:                    ; preds = %51, %42, %44
+_yaml_tag_to_type.exit.thread:                    ; preds = %51, %44, %42
   %57 = tail call ptr @data_set_string(ptr noundef %3, ptr noundef %28) #6
   br label %common.ret4
 

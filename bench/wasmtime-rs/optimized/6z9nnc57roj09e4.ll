@@ -118,7 +118,7 @@ define hidden i32 @_ZN5alloc6string6String3pop17h42c6e03fe4eba3daE(ptr align 8 c
   br label %21
 
 21:                                               ; preds = %17, %19, %14
-  %.016.neg = phi i64 [ -2, %17 ], [ %., %19 ], [ -1, %14 ]
+  %.016.neg = phi i64 [ -1, %14 ], [ %., %19 ], [ -2, %17 ]
   %22 = add i64 %.016.neg, %15
   store i64 %22, ptr %5, align 8
   br label %23

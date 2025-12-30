@@ -422,7 +422,7 @@ define internal noundef i32 @filter_slice_nn8(ptr noundef readonly captures(none
   br label %._crit_edge91
 
 ._crit_edge91:                                    ; preds = %.preheader.lr.ph, %._crit_edge91.loopexit, %33
-  %103 = phi i32 [ %25, %33 ], [ %.pre, %._crit_edge91.loopexit ], [ %25, %.preheader.lr.ph ]
+  %103 = phi i32 [ %.pre, %._crit_edge91.loopexit ], [ %25, %33 ], [ %25, %.preheader.lr.ph ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %104 = sext i32 %103 to i64
   %105 = icmp slt i64 %indvars.iv.next97, %104
@@ -781,7 +781,7 @@ define internal noundef i32 @filter_slice_bl8(ptr noundef readonly captures(none
   br label %._crit_edge130
 
 ._crit_edge130:                                   ; preds = %.preheader.lr.ph, %._crit_edge130.loopexit, %36
-  %146 = phi i32 [ %28, %36 ], [ %.pre, %._crit_edge130.loopexit ], [ %28, %.preheader.lr.ph ]
+  %146 = phi i32 [ %.pre, %._crit_edge130.loopexit ], [ %28, %36 ], [ %28, %.preheader.lr.ph ]
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %147 = sext i32 %146 to i64
   %148 = icmp slt i64 %indvars.iv.next137, %147

@@ -246,7 +246,7 @@ define internal noundef i32 @_ZL8b_lshiftP9lua_State(ptr noundef %0) #0 {
   br label %_ZL7b_shiftP9lua_Stateji.exit
 
 _ZL7b_shiftP9lua_Stateji.exit:                    ; preds = %5, %7, %10
-  %.0.i = phi i32 [ %.1.i, %10 ], [ %9, %7 ], [ 0, %5 ]
+  %.0.i = phi i32 [ %9, %7 ], [ %.1.i, %10 ], [ 0, %5 ]
   tail call void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef %0, i32 noundef %.0.i)
   ret i32 1
 }

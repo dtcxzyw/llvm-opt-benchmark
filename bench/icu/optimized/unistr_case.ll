@@ -679,7 +679,7 @@ define signext range(i8 0, 2) i8 @uhash_compareCaselessUnicodeString_77(ptr %0, 
   br label %_ZNK6icu_7713UnicodeString13doCaseCompareEiiRKS0_iij.exit
 
 _ZNK6icu_7713UnicodeString13doCaseCompareEiiRKS0_iij.exit: ; preds = %57, %49, %.sink.split.i.i, %26, %56, %5, %2
-  %.0 = phi i8 [ 0, %5 ], [ 1, %2 ], [ %28, %26 ], [ 0, %.sink.split.i.i ], [ 1, %57 ], [ 0, %49 ], [ 0, %56 ]
+  %.0 = phi i8 [ 1, %2 ], [ 0, %5 ], [ %28, %26 ], [ 0, %.sink.split.i.i ], [ 1, %57 ], [ 0, %49 ], [ 0, %56 ]
   ret i8 %.0
 }
 

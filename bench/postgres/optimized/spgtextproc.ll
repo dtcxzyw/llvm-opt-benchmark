@@ -144,7 +144,7 @@ define dso_local noundef i64 @spg_text_choose(ptr noundef readonly captures(none
   br i1 %exitcond.not.i, label %commonPrefix.exit, label %.lr.ph.i, !llvm.loop !6
 
 commonPrefix.exit:                                ; preds = %.lr.ph.i, %73
-  %.0.lcssa.i = phi i32 [ %.014.i, %.lr.ph.i ], [ %invariant.smin.i, %73 ]
+  %.0.lcssa.i = phi i32 [ %invariant.smin.i, %73 ], [ %.014.i, %.lr.ph.i ]
   %77 = icmp eq i32 %.0.lcssa.i, %64
   br i1 %77, label %79, label %81
 
@@ -304,8 +304,8 @@ formTextDatum.exit124:                            ; preds = %127, %123
   br label %156
 
 156:                                              ; preds = %154, %.lr.ph.i125
-  %.224.i = phi i32 [ %146, %.lr.ph.i125 ], [ %.02227.i, %154 ]
-  %.221.i = phi i32 [ %.01928.i, %.lr.ph.i125 ], [ %155, %154 ]
+  %.224.i = phi i32 [ %.02227.i, %154 ], [ %146, %.lr.ph.i125 ]
+  %.221.i = phi i32 [ %155, %154 ], [ %.01928.i, %.lr.ph.i125 ]
   %157 = icmp slt i32 %.221.i, %.224.i
   br i1 %157, label %.lr.ph.i125, label %.loopexit, !llvm.loop !8
 
@@ -1133,45 +1133,45 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   %145 = tail call i32 @llvm.smin.i32(i32 %142, i32 %.0106)
   %146 = sext i32 %145 to i64
   %147 = tail call i32 @memcmp(ptr noundef nonnull %90, ptr noundef nonnull %144, i64 noundef %146) #9
-  switch i16 %.0103, label %154 [
+  switch i16 %.0103, label %153 [
     i16 1, label %148
     i16 2, label %148
-    i16 3, label %150
-    i16 4, label %152
-    i16 5, label %152
-    i16 28, label %162
+    i16 3, label %161
+    i16 4, label %150
+    i16 5, label %150
+    i16 28, label %152
   ]
 
 148:                                              ; preds = %141, %141
   %149 = icmp slt i32 %147, 1
   br i1 %149, label %.select.unfold_crit_edge, label %.thread132
 
-150:                                              ; preds = %141
-  %151 = icmp sge i32 %142, %.0106
-  %.not121 = icmp eq i32 %147, 0
-  %brmerge.not = and i1 %151, %.not121
-  br i1 %brmerge.not, label %.select.unfold_crit_edge, label %.thread132
+150:                                              ; preds = %141, %141
+  %151 = icmp sgt i32 %147, -1
+  br i1 %151, label %.select.unfold_crit_edge, label %.thread132
 
-152:                                              ; preds = %141, %141
-  %153 = icmp sgt i32 %147, -1
-  br i1 %153, label %.select.unfold_crit_edge, label %.thread132
-
-154:                                              ; preds = %141
-  %155 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  %156 = load ptr, ptr %4, align 8
-  %157 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %156, i64 %indvars.iv
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 6
-  %159 = load i16, ptr %158, align 2
-  %160 = zext i16 %159 to i32
-  %161 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %160) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 551, ptr noundef nonnull @__func__.spg_text_inner_consistent) #8
-  unreachable
-
-162:                                              ; preds = %141
+152:                                              ; preds = %141
   %.not120 = icmp eq i32 %147, 0
   br i1 %.not120, label %.select.unfold_crit_edge, label %.thread132
 
-.select.unfold_crit_edge:                         ; preds = %148, %150, %152, %162
+153:                                              ; preds = %141
+  %154 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %155 = load ptr, ptr %4, align 8
+  %156 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %155, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 6
+  %158 = load i16, ptr %157, align 2
+  %159 = zext i16 %158 to i32
+  %160 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %159) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 551, ptr noundef nonnull @__func__.spg_text_inner_consistent) #8
+  unreachable
+
+161:                                              ; preds = %141
+  %162 = icmp sge i32 %142, %.0106
+  %.not121 = icmp eq i32 %147, 0
+  %brmerge.not = and i1 %162, %.not121
+  br i1 %brmerge.not, label %.select.unfold_crit_edge, label %.thread132
+
+.select.unfold_crit_edge:                         ; preds = %152, %150, %148, %161
   %.pre = load i32, ptr %94, align 8
   br label %select.unfold
 
@@ -1210,7 +1210,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   store i32 %185, ptr %7, align 8
   br label %.thread132
 
-.thread132:                                       ; preds = %162, %152, %150, %148, %._crit_edge
+.thread132:                                       ; preds = %161, %148, %150, %152, %._crit_edge
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %186 = load i32, ptr %71, align 8
   %187 = sext i32 %186 to i64
@@ -1497,10 +1497,10 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
   %.0113 = phi i32 [ %142, %137 ], [ %148, %143 ], [ %spec.select154, %150 ]
   switch i16 %.0116, label %160 [
     i16 1, label %152
-    i16 2, label %168
-    i16 3, label %154
-    i16 4, label %156
-    i16 5, label %158
+    i16 2, label %154
+    i16 3, label %156
+    i16 4, label %158
+    i16 5, label %168
   ]
 
 152:                                              ; preds = %151
@@ -1508,15 +1508,15 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
   br i1 %153, label %.thread163, label %._crit_edge
 
 154:                                              ; preds = %151
-  %155 = icmp eq i32 %.0113, 0
+  %155 = icmp slt i32 %.0113, 1
   br i1 %155, label %.thread163, label %._crit_edge
 
 156:                                              ; preds = %151
-  %157 = icmp sgt i32 %.0113, -1
+  %157 = icmp eq i32 %.0113, 0
   br i1 %157, label %.thread163, label %._crit_edge
 
 158:                                              ; preds = %151
-  %159 = icmp sgt i32 %.0113, 0
+  %159 = icmp sgt i32 %.0113, -1
   br i1 %159, label %.thread163, label %._crit_edge
 
 160:                                              ; preds = %151
@@ -1531,18 +1531,18 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
   unreachable
 
 168:                                              ; preds = %151
-  %169 = icmp slt i32 %.0113, 1
+  %169 = icmp sgt i32 %.0113, 0
   br i1 %169, label %.thread163, label %._crit_edge
 
-.thread163:                                       ; preds = %154, %156, %158, %152, %168, %130, %129
+.thread163:                                       ; preds = %158, %156, %154, %152, %168, %130, %129
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %170 = load i32, ptr %94, align 8
   %171 = sext i32 %170 to i64
   %172 = icmp slt i64 %indvars.iv.next, %171
   br i1 %172, label %98, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.thread163, %168, %130, %152, %158, %156, %154, %93
-  %.1 = phi i64 [ 1, %93 ], [ 0, %154 ], [ 0, %156 ], [ 0, %158 ], [ 0, %152 ], [ 0, %168 ], [ 0, %130 ], [ 1, %.thread163 ]
+._crit_edge:                                      ; preds = %.thread163, %168, %130, %152, %154, %156, %158, %93
+  %.1 = phi i64 [ 1, %93 ], [ 0, %158 ], [ 0, %156 ], [ 0, %154 ], [ 0, %152 ], [ 0, %130 ], [ 0, %168 ], [ 1, %.thread163 ]
   ret i64 %.1
 }
 

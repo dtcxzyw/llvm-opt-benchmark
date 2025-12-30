@@ -221,12 +221,12 @@ tsquerysel.exit:                                  ; preds = %108, %102, %40, %36
   br label %124
 
 124:                                              ; preds = %119, %121, %123
-  %.1 = phi double [ %.0, %121 ], [ 1.000000e+00, %123 ], [ 0.000000e+00, %119 ]
+  %.1 = phi double [ 1.000000e+00, %123 ], [ %.0, %121 ], [ 0.000000e+00, %119 ]
   %125 = bitcast double %.1 to i64
   br label %126
 
 126:                                              ; preds = %30, %33, %20, %23, %1, %124
-  %.09 = phi i64 [ 4572414629676717179, %20 ], [ %125, %124 ], [ 4572414629676717179, %1 ], [ 4572414629676717179, %23 ], [ 0, %33 ], [ 0, %30 ]
+  %.09 = phi i64 [ %125, %124 ], [ 4572414629676717179, %1 ], [ 4572414629676717179, %23 ], [ 4572414629676717179, %20 ], [ 0, %33 ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -361,7 +361,7 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   br label %71
 
 71:                                               ; preds = %66, %70, %68
-  %.2105 = phi double [ %.1104, %68 ], [ 1.000000e+00, %70 ], [ 0.000000e+00, %66 ]
+  %.2105 = phi double [ 1.000000e+00, %70 ], [ %.1104, %68 ], [ 0.000000e+00, %66 ]
   %72 = fcmp olt double %65, 0.000000e+00
   br i1 %72, label %76, label %73
 
@@ -373,7 +373,7 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   br label %76
 
 76:                                               ; preds = %75, %73, %71
-  %.1113 = phi double [ %65, %73 ], [ 1.000000e+00, %75 ], [ 0.000000e+00, %71 ]
+  %.1113 = phi double [ 1.000000e+00, %75 ], [ %65, %73 ], [ 0.000000e+00, %71 ]
   %77 = fsub double 1.000000e+00, %.1113
   %78 = sitofp i32 %.1110 to double
   %79 = uitofp nneg i32 %3 to double
@@ -539,7 +539,7 @@ compare_lexeme_textfreq.exit.thread:              ; preds = %121, %.thread138, %
   unreachable
 
 170:                                              ; preds = %134, %76, %.thread147, %.thread145, %141, %145, %154
-  %.6 = phi double [ %164, %154 ], [ %144, %141 ], [ %153, %145 ], [ %., %76 ], [ %136, %134 ], [ %133, %.thread145 ], [ %92, %.thread147 ]
+  %.6 = phi double [ %144, %141 ], [ %153, %145 ], [ %164, %154 ], [ %., %76 ], [ %136, %134 ], [ %133, %.thread145 ], [ %92, %.thread147 ]
   %171 = fcmp olt double %.6, 0.000000e+00
   br i1 %171, label %.thread148, label %172
 
@@ -551,7 +551,7 @@ compare_lexeme_textfreq.exit.thread:              ; preds = %121, %.thread138, %
   br label %.thread148
 
 .thread148:                                       ; preds = %134, %.thread147, %87, %18, %174, %172, %170
-  %.4 = phi double [ 5.000000e-03, %87 ], [ %.6, %172 ], [ 1.000000e+00, %174 ], [ 0.000000e+00, %170 ], [ 2.000000e-02, %18 ], [ 5.000000e-03, %.thread147 ], [ 5.000000e-03, %134 ]
+  %.4 = phi double [ 1.000000e+00, %174 ], [ %.6, %172 ], [ 0.000000e+00, %170 ], [ 2.000000e-02, %18 ], [ 5.000000e-03, %87 ], [ 5.000000e-03, %.thread147 ], [ 5.000000e-03, %134 ]
   ret double %.4
 }
 

@@ -830,7 +830,7 @@ define range(i32 -3, 65539) i32 @JNI_OnLoad(ptr noundef %0, ptr noundef readnone
   br label %471
 
 471:                                              ; preds = %460, %137, %120, %103, %86, %69, %52, %35, %18, %2, %468, %457, %446, %435, %424, %413, %402, %391, %380, %369, %359, %349, %338, %327, %316, %305, %295, %285, %275, %265, %255, %245, %234, %224, %214, %204, %194, %184, %174, %163, %152, %134, %117, %100, %83, %66, %49, %32, %15
-  %.0 = phi i32 [ -1, %137 ], [ -1, %15 ], [ -3, %2 ], [ -1, %32 ], [ -1, %18 ], [ -1, %49 ], [ -1, %35 ], [ -1, %66 ], [ -1, %52 ], [ -1, %83 ], [ -1, %69 ], [ -1, %100 ], [ -1, %86 ], [ -1, %117 ], [ -1, %103 ], [ -1, %134 ], [ -1, %120 ], [ -1, %152 ], [ -1, %163 ], [ -1, %174 ], [ -1, %184 ], [ -1, %194 ], [ -1, %204 ], [ -1, %214 ], [ -1, %224 ], [ -1, %234 ], [ -1, %245 ], [ -1, %255 ], [ -1, %265 ], [ -1, %275 ], [ -1, %285 ], [ -1, %295 ], [ -1, %305 ], [ -1, %316 ], [ -1, %327 ], [ -1, %338 ], [ -1, %349 ], [ -1, %359 ], [ -1, %369 ], [ -1, %380 ], [ -1, %391 ], [ -1, %402 ], [ -1, %413 ], [ -1, %424 ], [ -1, %435 ], [ -1, %446 ], [ -1, %457 ], [ -1, %468 ], [ 65538, %460 ]
+  %.0 = phi i32 [ -1, %15 ], [ -1, %32 ], [ -1, %49 ], [ -1, %66 ], [ -1, %83 ], [ -1, %100 ], [ -1, %117 ], [ -1, %134 ], [ -1, %152 ], [ -1, %163 ], [ -1, %174 ], [ -1, %184 ], [ -1, %194 ], [ -1, %204 ], [ -1, %214 ], [ -1, %224 ], [ -1, %234 ], [ -1, %245 ], [ -1, %255 ], [ -1, %265 ], [ -1, %275 ], [ -1, %285 ], [ -1, %295 ], [ -1, %305 ], [ -1, %316 ], [ -1, %327 ], [ -1, %338 ], [ -1, %349 ], [ -1, %359 ], [ -1, %369 ], [ -1, %380 ], [ -1, %391 ], [ -1, %402 ], [ -1, %413 ], [ -1, %424 ], [ -1, %435 ], [ -1, %446 ], [ -1, %457 ], [ -1, %468 ], [ -3, %2 ], [ -1, %18 ], [ -1, %35 ], [ -1, %52 ], [ -1, %69 ], [ -1, %86 ], [ -1, %103 ], [ -1, %120 ], [ -1, %137 ], [ 65538, %460 ]
   ret i32 %.0
 }
 
@@ -947,7 +947,7 @@ define hidden i32 @getJavaErrorCode(i32 noundef %0) local_unnamed_addr #2 {
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %9, %4
-  %.0 = phi i32 [ %8, %4 ], [ 21, %13 ], [ 19, %9 ], [ 20, %11 ], [ %., %15 ]
+  %.0 = phi i32 [ %8, %4 ], [ 19, %9 ], [ 20, %11 ], [ 21, %13 ], [ %., %15 ]
   ret i32 %.0
 }
 
@@ -1164,8 +1164,8 @@ getJavaErrorCode.exit:                            ; preds = %.thread
   %.not52 = icmp eq i32 %37, 0
   br i1 %.not52, label %getJavaErrorCode.exit.thread63, label %getJavaErrorCode.exit.thread
 
-getJavaErrorCode.exit.thread:                     ; preds = %32, %28, %26, %30, %getJavaErrorCode.exit
-  %.0.i62 = phi i32 [ %37, %getJavaErrorCode.exit ], [ 22, %32 ], [ 20, %28 ], [ 19, %26 ], [ 21, %30 ]
+getJavaErrorCode.exit.thread:                     ; preds = %32, %30, %28, %26, %getJavaErrorCode.exit
+  %.0.i62 = phi i32 [ %37, %getJavaErrorCode.exit ], [ 22, %32 ], [ 21, %30 ], [ 20, %28 ], [ 19, %26 ]
   %.not54 = icmp eq i32 %3, 0
   br i1 %.not54, label %44, label %38
 
@@ -1444,7 +1444,7 @@ gssThrowOutOfMemoryError.exit36:                  ; preds = %40, %36, %45
   br label %gssThrowOutOfMemoryError.exit
 
 gssThrowOutOfMemoryError.exit:                    ; preds = %21, %17, %2, %45, %3, %gssThrowOutOfMemoryError.exit36
-  %.0 = phi ptr [ %14, %45 ], [ null, %2 ], [ null, %gssThrowOutOfMemoryError.exit36 ], [ null, %3 ], [ null, %17 ], [ null, %21 ]
+  %.0 = phi ptr [ null, %gssThrowOutOfMemoryError.exit36 ], [ null, %3 ], [ %14, %45 ], [ null, %2 ], [ null, %17 ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -1668,7 +1668,7 @@ define hidden ptr @getJavaOIDArray(ptr noundef %0, ptr noundef readonly captures
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %33, %.preheader, %2, %3
-  %.028 = phi ptr [ null, %2 ], [ null, %3 ], [ %10, %.preheader ], [ null, %.lr.ph ], [ null, %24 ], [ %10, %33 ]
+  %.028 = phi ptr [ null, %3 ], [ null, %2 ], [ %10, %.preheader ], [ null, %.lr.ph ], [ null, %24 ], [ %10, %33 ]
   ret ptr %.028
 }
 

@@ -632,7 +632,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   br label %.thread165
 
 .thread165:                                       ; preds = %21, %.loopexit177, %.loopexit, %6, %.thread
-  %.0146 = phi ptr [ null, %.thread ], [ null, %21 ], [ null, %6 ], [ %17, %.loopexit177 ], [ %17, %.loopexit ]
+  %.0146 = phi ptr [ null, %.thread ], [ null, %6 ], [ %17, %.loopexit177 ], [ %17, %.loopexit ], [ null, %21 ]
   ret ptr %.0146
 }
 

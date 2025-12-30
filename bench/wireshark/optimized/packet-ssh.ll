@@ -1303,7 +1303,7 @@ switch.lookup:                                    ; preds = %65
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %164, %158, %161, %157
-  %.2145 = phi i32 [ %.0143, %157 ], [ %spec.select, %164 ], [ 2, %158 ], [ 2, %161 ]
+  %.2145 = phi i32 [ %.0143, %157 ], [ 2, %158 ], [ 2, %161 ], [ %spec.select, %164 ]
   %167 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef %.0121)
   %168 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %.0121, i32 noundef -1, i8 noundef zeroext 10)
   %169 = load i8, ptr @ssh_desegment, align 1, !range !9, !noundef !10
@@ -2034,7 +2034,7 @@ proto_item_set_generated.exit142.sink.split.i.i.i: ; preds = %573, %551
   br label %proto_item_set_generated.exit142.i.i.i
 
 proto_item_set_generated.exit142.i.i.i:           ; preds = %proto_item_set_generated.exit142.sink.split.i.i.i, %573, %proto_item_set_generated.exit145.i.i.i, %551, %proto_item_set_generated.exit.i.i.i
-  %.sink.i.i.i = phi ptr [ %560, %573 ], [ %538, %proto_item_set_generated.exit.i.i.i ], [ %538, %551 ], [ %560, %proto_item_set_generated.exit145.i.i.i ], [ %.sink.ph.i.i.i, %proto_item_set_generated.exit142.sink.split.i.i.i ]
+  %.sink.i.i.i = phi ptr [ %538, %proto_item_set_generated.exit.i.i.i ], [ %538, %551 ], [ %560, %proto_item_set_generated.exit145.i.i.i ], [ %560, %573 ], [ %.sink.ph.i.i.i, %proto_item_set_generated.exit142.sink.split.i.i.i ]
   call void @g_free(ptr noundef %.sink.i.i.i)
   %579 = load ptr, ptr %116, align 8
   %.not125.i.i.i = icmp eq ptr %579, null
@@ -2127,7 +2127,7 @@ proto_item_set_generated.exit142.i.i.i:           ; preds = %proto_item_set_gene
   br i1 %626, label %.sink.split.i.i.i.i, label %ssh_set_kex_specific_dissector.exit.i.i.i
 
 .sink.split.i.i.i.i:                              ; preds = %624, %621, %618, %615, %612, %609, %606, %603, %600, %597, %594, %592, %589, %586
-  %ssh_dissect_kex_dh_gex.sink.i.i.i.i = phi ptr [ @ssh_dissect_kex_dh_gex, %586 ], [ @ssh_dissect_kex_ecdh, %592 ], [ @ssh_dissect_kex_dh, %603 ], [ @ssh_dissect_kex_dh_gex, %589 ], [ @ssh_dissect_kex_ecdh, %600 ], [ @ssh_dissect_kex_ecdh, %597 ], [ @ssh_dissect_kex_ecdh, %594 ], [ @ssh_dissect_kex_dh, %615 ], [ @ssh_dissect_kex_dh, %612 ], [ @ssh_dissect_kex_dh, %609 ], [ @ssh_dissect_kex_dh, %606 ], [ @ssh_dissect_kex_hybrid, %624 ], [ @ssh_dissect_kex_hybrid, %621 ], [ @ssh_dissect_kex_hybrid, %618 ]
+  %ssh_dissect_kex_dh_gex.sink.i.i.i.i = phi ptr [ @ssh_dissect_kex_dh_gex, %589 ], [ @ssh_dissect_kex_dh_gex, %586 ], [ @ssh_dissect_kex_ecdh, %600 ], [ @ssh_dissect_kex_ecdh, %597 ], [ @ssh_dissect_kex_ecdh, %594 ], [ @ssh_dissect_kex_ecdh, %592 ], [ @ssh_dissect_kex_dh, %615 ], [ @ssh_dissect_kex_dh, %612 ], [ @ssh_dissect_kex_dh, %609 ], [ @ssh_dissect_kex_dh, %606 ], [ @ssh_dissect_kex_dh, %603 ], [ @ssh_dissect_kex_hybrid, %624 ], [ @ssh_dissect_kex_hybrid, %621 ], [ @ssh_dissect_kex_hybrid, %618 ]
   store ptr %ssh_dissect_kex_dh_gex.sink.i.i.i.i, ptr %118, align 8
   br label %ssh_set_kex_specific_dissector.exit.i.i.i
 
@@ -2418,8 +2418,8 @@ ssh_increment_message_number.exit.i:              ; preds = %754, %748, %744, %7
   br i1 %760, label %.lr.ph.i, label %.loopexit
 
 .loopexit:                                        ; preds = %758, %229, %232, %314
-  %.1144.ph = phi i32 [ 0, %232 ], [ %.3.ph, %229 ], [ 1, %314 ], [ 2, %758 ]
-  %.1122.ph = phi i32 [ %233, %232 ], [ %.0.i.ph, %229 ], [ %315, %314 ], [ %.3.i, %758 ]
+  %.1144.ph = phi i32 [ 1, %314 ], [ 0, %232 ], [ %.3.ph, %229 ], [ 2, %758 ]
+  %.1122.ph = phi i32 [ %315, %314 ], [ %233, %232 ], [ %.0.i.ph, %229 ], [ %.3.i, %758 ]
   %.not128 = icmp sgt i32 %.1122.ph, %.0121
   br i1 %.not128, label %125, label %.thread171
 
@@ -2535,7 +2535,7 @@ sub_1:                                            ; preds = %sub_0
   br label %18
 
 18:                                               ; preds = %13, %14, %16, %11
-  %.sink = phi ptr [ %12, %11 ], [ %17, %16 ], [ null, %14 ], [ null, %13 ]
+  %.sink = phi ptr [ %17, %16 ], [ %12, %11 ], [ null, %14 ], [ null, %13 ]
   store ptr %.sink, ptr @ssh_debug_file, align 8
   %19 = icmp ne ptr %.sink, null
   %or.cond = select i1 %6, i1 %19, i1 false
@@ -2690,7 +2690,7 @@ ssh_kex_make_bignum.exit216:                      ; preds = %ssh_kex_make_bignum
   br label %50
 
 50:                                               ; preds = %.lr.ph, %44, %46
-  %51 = phi i8 [ %49, %46 ], [ %45, %44 ], [ %41, %.lr.ph ]
+  %51 = phi i8 [ %45, %44 ], [ %49, %46 ], [ %41, %.lr.ph ]
   %52 = getelementptr i8, ptr %39, i64 1
   %53 = load i8, ptr %52, align 1
   %54 = add i8 %53, -48
@@ -2714,7 +2714,7 @@ ssh_kex_make_bignum.exit216:                      ; preds = %ssh_kex_make_bignum
   br label %63
 
 63:                                               ; preds = %50, %57, %59
-  %64 = phi i8 [ %62, %59 ], [ %58, %57 ], [ %54, %50 ]
+  %64 = phi i8 [ %58, %57 ], [ %62, %59 ], [ %54, %50 ]
   %65 = icmp ne i8 %51, -1
   %66 = icmp ne i8 %64, -1
   %or.cond23.not = select i1 %65, i1 %66, i1 false
@@ -2756,7 +2756,7 @@ ssh_kex_make_bignum.exit216:                      ; preds = %ssh_kex_make_bignum
   br label %85
 
 85:                                               ; preds = %.lr.ph222, %79, %81
-  %86 = phi i8 [ %84, %81 ], [ %80, %79 ], [ %76, %.lr.ph222 ]
+  %86 = phi i8 [ %80, %79 ], [ %84, %81 ], [ %76, %.lr.ph222 ]
   %87 = getelementptr i8, ptr %74, i64 1
   %88 = load i8, ptr %87, align 1
   %89 = add i8 %88, -48
@@ -2780,7 +2780,7 @@ ssh_kex_make_bignum.exit216:                      ; preds = %ssh_kex_make_bignum
   br label %98
 
 98:                                               ; preds = %85, %92, %94
-  %99 = phi i8 [ %97, %94 ], [ %93, %92 ], [ %89, %85 ]
+  %99 = phi i8 [ %93, %92 ], [ %97, %94 ], [ %89, %85 ]
   %100 = icmp ne i8 %86, -1
   %101 = icmp ne i8 %99, -1
   %or.cond44.not = select i1 %100, i1 %101, i1 false
@@ -3019,8 +3019,8 @@ ssh_read_f.exit:                                  ; preds = %ssh_kex_make_bignum
   br label %.sink.split
 
 .sink.split:                                      ; preds = %64, %77, %31, %41
-  %.sink = phi i32 [ %39, %31 ], [ %.pre68, %41 ], [ %.pre, %77 ], [ %75, %64 ]
-  %.0.ph = phi i32 [ %37, %31 ], [ %37, %41 ], [ %73, %77 ], [ %73, %64 ]
+  %.sink = phi i32 [ %.pre68, %41 ], [ %39, %31 ], [ %.pre, %77 ], [ %75, %64 ]
+  %.0.ph = phi i32 [ %37, %41 ], [ %37, %31 ], [ %73, %77 ], [ %73, %64 ]
   store i32 %.sink, ptr %6, align 4
   br label %81
 
@@ -4106,7 +4106,7 @@ ssh_dissect_transport_generic.exit.i:             ; preds = %ssh_dissect_rfc8308
   br label %ssh_dissect_userauth_generic.exit.i
 
 ssh_dissect_userauth_generic.exit.i:              ; preds = %630, %622, %610, %607, %605, %579, %528, %520
-  %.3.i.i = phi i32 [ 6, %520 ], [ %639, %630 ], [ %551, %528 ], [ %551, %607 ], [ %580, %579 ], [ %606, %605 ], [ %629, %622 ], [ %621, %610 ]
+  %.3.i.i = phi i32 [ %639, %630 ], [ %551, %528 ], [ %551, %607 ], [ %606, %605 ], [ %580, %579 ], [ %629, %622 ], [ %621, %610 ], [ 6, %520 ]
   %640 = add i32 %.3.i.i, -5
   br label %695
 
@@ -4690,7 +4690,7 @@ ssh_decryption_set_mac_id.exit37:                 ; preds = %ssh_decryption_set_
   br i1 %91, label %.sink.split37.i, label %93
 
 .sink.split37.i:                                  ; preds = %89, %86, %83, %80, %78
-  %.sink38.i = phi i32 [ %79, %78 ], [ 16, %83 ], [ 20, %86 ], [ 20, %80 ], [ 0, %89 ]
+  %.sink38.i = phi i32 [ %79, %78 ], [ 20, %80 ], [ 16, %83 ], [ 20, %86 ], [ 0, %89 ]
   %92 = getelementptr inbounds nuw i8, ptr %28, i64 56
   store i32 %.sink38.i, ptr %92, align 8
   br label %93
@@ -4987,7 +4987,7 @@ ssh_kex_hash_type.exit:                           ; preds = %54, %56, %.critedge
   br label %ssh_kex_make_bignum.exit
 
 ssh_kex_make_bignum.exit:                         ; preds = %107, %74, %82
-  %.0167 = phi ptr [ %89, %82 ], [ %81, %74 ], [ %102, %107 ]
+  %.0167 = phi ptr [ %81, %74 ], [ %89, %82 ], [ %102, %107 ]
   %.not178 = icmp eq ptr %.0167, null
   br i1 %.not178, label %ssh_derive_symmetric_keys.exit.sink.split, label %109
 
@@ -5364,8 +5364,8 @@ switch.early.test:                                ; preds = %364
   br label %.sink.split
 
 .sink.split:                                      ; preds = %364, %switch.early.test, %switch.early.test, %367, %switch.early.test.thread
-  %.str.464.sink = phi ptr [ @.str.467, %367 ], [ @.str.464, %switch.early.test.thread ], [ @.str.464, %switch.early.test ], [ @.str.464, %switch.early.test ], [ @.str.464, %364 ]
-  %.str.466.sink = phi ptr [ @.str.468, %367 ], [ @.str.465, %switch.early.test.thread ], [ @.str.466, %switch.early.test ], [ @.str.466, %switch.early.test ], [ @.str.466, %364 ]
+  %.str.464.sink = phi ptr [ @.str.464, %switch.early.test.thread ], [ @.str.467, %367 ], [ @.str.464, %switch.early.test ], [ @.str.464, %switch.early.test ], [ @.str.464, %364 ]
+  %.str.466.sink = phi ptr [ @.str.465, %switch.early.test.thread ], [ @.str.468, %367 ], [ @.str.466, %switch.early.test ], [ @.str.466, %switch.early.test ], [ @.str.466, %364 ]
   %368 = call ptr @wmem_array_get_raw(ptr noundef %215)
   %369 = call i32 @wmem_array_get_count(ptr noundef %215)
   %370 = zext i32 %369 to i64
@@ -5489,7 +5489,7 @@ switch.early.test:                                ; preds = %364
   br label %ssh_debug_flush.exit.i
 
 ssh_debug_flush.exit.i:                           ; preds = %424, %422, %421, %420, %419, %414
-  %.063.i = phi i32 [ 64, %414 ], [ 16, %419 ], [ 24, %420 ], [ 32, %421 ], [ 0, %422 ], [ 0, %424 ]
+  %.063.i = phi i32 [ 16, %419 ], [ 24, %420 ], [ 32, %421 ], [ 64, %414 ], [ 0, %422 ], [ 0, %424 ]
   %426 = getelementptr inbounds nuw i8, ptr %416, i64 120
   %427 = load i32, ptr %426, align 8
   %428 = icmp eq i32 %427, 131073
@@ -5544,7 +5544,7 @@ ssh_kex_hash_type.exit.thread64.i.i:              ; preds = %.critedge13.i.i.i, 
   br label %ssh_kex_hash_type.exit.i.i
 
 ssh_kex_hash_type.exit.i.i:                       ; preds = %ssh_kex_hash_type.exit.thread64.i.i, %.critedge13.i.i.i, %438
-  %444 = phi i32 [ 2, %438 ], [ 8, %ssh_kex_hash_type.exit.thread64.i.i ], [ 10, %.critedge13.i.i.i ]
+  %444 = phi i32 [ 8, %ssh_kex_hash_type.exit.thread64.i.i ], [ 2, %438 ], [ 10, %.critedge13.i.i.i ]
   %445 = call i32 @gcry_md_get_algo_dlen(i32 noundef %444)
   %446 = call ptr @wmem_file_scope()
   %447 = call noalias ptr @wmem_alloc(ptr noundef %446, i64 noundef %413) #24
@@ -6234,7 +6234,7 @@ ssh_kex_make_bignum.exit:                         ; preds = %16
   br label %ssh_kex_make_bignum.exit.thread
 
 ssh_kex_make_bignum.exit.thread:                  ; preds = %26, %16, %91, %ssh_kex_make_bignum.exit, %95
-  %.0 = phi ptr [ %21, %95 ], [ null, %ssh_kex_make_bignum.exit ], [ null, %91 ], [ null, %26 ], [ null, %16 ]
+  %.0 = phi ptr [ %21, %95 ], [ null, %ssh_kex_make_bignum.exit ], [ null, %91 ], [ null, %16 ], [ null, %26 ]
   ret ptr %.0
 }
 
@@ -7059,7 +7059,7 @@ ssh_process_payload.exit.i.i:                     ; preds = %244, %242
   br label %ssh_dissect_channel_data.exit
 
 247:                                              ; preds = %234, %231
-  %.1225.i.i = phi i32 [ %spec.select.i.i, %234 ], [ 0, %231 ]
+  %.1225.i.i = phi i32 [ 0, %231 ], [ %spec.select.i.i, %234 ]
   %.not251.i.i = icmp eq ptr %221, null
   br i1 %.not251.i.i, label %proto_item_set_generated.exit275.i.i, label %248
 
@@ -7161,8 +7161,8 @@ ssh_proto_tree_add_segment_data.exit272.thread.i.i: ; preds = %292
   br label %300
 
 ssh_proto_tree_add_segment_data.exit272.i.i:      ; preds = %292, %.thread290.i.i
-  %297 = phi i32 [ %291, %.thread290.i.i ], [ %294, %292 ]
-  %298 = phi i32 [ %.1225.i.i, %.thread290.i.i ], [ %293, %292 ]
+  %297 = phi i32 [ %294, %292 ], [ %291, %.thread290.i.i ]
+  %298 = phi i32 [ %293, %292 ], [ %.1225.i.i, %.thread290.i.i ]
   %299 = icmp eq i32 %298, 1
   %spec.select456.i.i = select i1 %299, ptr @.str.560, ptr @.str.561
   br label %300
@@ -7291,10 +7291,10 @@ print_ssh_fragment_tree.exit.i.i:                 ; preds = %313, %300
   br label %.thread316.i.i
 
 .thread316.i.i:                                   ; preds = %363, %343, %338, %315, %284, %281, %275
-  %.not251289300334.ph.i.i = phi i1 [ false, %275 ], [ false, %284 ], [ false, %281 ], [ %.not251289306.i.i, %343 ], [ %.not251289306.i.i, %363 ], [ %.not251289306.i.i, %338 ], [ false, %315 ]
-  %.0210288301332.ph.i.i = phi ptr [ %221, %275 ], [ %221, %284 ], [ %221, %281 ], [ %.0210288307.i.i, %343 ], [ %.0210288307.i.i, %363 ], [ %.0210288307.i.i, %338 ], [ %221, %315 ]
-  %.2226303330.ph.i.i = phi i32 [ 0, %275 ], [ 0, %284 ], [ 0, %281 ], [ %.2226309.i.i, %343 ], [ %.2226309.i.i, %363 ], [ %.2226309.i.i, %338 ], [ %.1225.i.i, %315 ]
-  %.2220305324.ph.i.i = phi i32 [ %.0217389.i.i, %275 ], [ %.0217389.i.i, %284 ], [ %.0217389.i.i, %281 ], [ %.2220311.i.i, %343 ], [ %.2220311.i.i, %363 ], [ %.2220311.i.i, %338 ], [ %324, %315 ]
+  %.not251289300334.ph.i.i = phi i1 [ false, %275 ], [ false, %284 ], [ false, %281 ], [ %.not251289306.i.i, %338 ], [ %.not251289306.i.i, %343 ], [ %.not251289306.i.i, %363 ], [ false, %315 ]
+  %.0210288301332.ph.i.i = phi ptr [ %221, %275 ], [ %221, %284 ], [ %221, %281 ], [ %.0210288307.i.i, %338 ], [ %.0210288307.i.i, %343 ], [ %.0210288307.i.i, %363 ], [ %221, %315 ]
+  %.2226303330.ph.i.i = phi i32 [ 0, %275 ], [ 0, %284 ], [ 0, %281 ], [ %.2226309.i.i, %338 ], [ %.2226309.i.i, %343 ], [ %.2226309.i.i, %363 ], [ %.1225.i.i, %315 ]
+  %.2220305324.ph.i.i = phi i32 [ %.0217389.i.i, %275 ], [ %.0217389.i.i, %284 ], [ %.0217389.i.i, %281 ], [ %.2220311.i.i, %338 ], [ %.2220311.i.i, %343 ], [ %.2220311.i.i, %363 ], [ %324, %315 ]
   %.pr.i.i = load i32, ptr %131, align 8
   %.not257.i.i = icmp eq i32 %.pr.i.i, 0
   br i1 %.not257.i.i, label %.thread316.thread.i.i, label %370
@@ -7347,9 +7347,9 @@ print_ssh_fragment_tree.exit.i.i:                 ; preds = %313, %300
   br i1 %.1223304325350.i.i, label %394, label %389
 
 proto_item_set_generated.exit275.i.i:             ; preds = %382, %379, %375, %373, %.thread341.i.i, %370, %247
-  %.2220305323353.i.i = phi i32 [ %.0217389.i.i, %247 ], [ %.2220305323352.i.i, %375 ], [ %.2220305323352.i.i, %373 ], [ %.2220305323352.i.i, %.thread341.i.i ], [ %.2220305324.ph.i.i, %370 ], [ %.2220305323352.i.i, %379 ], [ %.2220305323352.i.i, %382 ]
-  %.1223304325351.i.i = phi i1 [ %.0222386.i.i, %247 ], [ %.1223304325350.i.i, %375 ], [ %.1223304325350.i.i, %373 ], [ %.1223304325350.i.i, %.thread341.i.i ], [ %.0222386.i.i, %370 ], [ %.1223304325350.i.i, %379 ], [ %.1223304325350.i.i, %382 ]
-  %.2226303328349.i.i = phi i32 [ %.1225.i.i, %247 ], [ %.2226303328348.i.i, %375 ], [ %.2226303328348.i.i, %373 ], [ %.2226303328348.i.i, %.thread341.i.i ], [ %.2226303330.ph.i.i, %370 ], [ %.2226303328348.i.i, %379 ], [ %.2226303328348.i.i, %382 ]
+  %.2220305323353.i.i = phi i32 [ %.2220305323352.i.i, %375 ], [ %.2220305323352.i.i, %373 ], [ %.2220305323352.i.i, %.thread341.i.i ], [ %.2220305324.ph.i.i, %370 ], [ %.2220305323352.i.i, %379 ], [ %.2220305323352.i.i, %382 ], [ %.0217389.i.i, %247 ]
+  %.1223304325351.i.i = phi i1 [ %.1223304325350.i.i, %375 ], [ %.1223304325350.i.i, %373 ], [ %.1223304325350.i.i, %.thread341.i.i ], [ %.0222386.i.i, %370 ], [ %.1223304325350.i.i, %379 ], [ %.1223304325350.i.i, %382 ], [ %.0222386.i.i, %247 ]
+  %.2226303328349.i.i = phi i32 [ %.2226303328348.i.i, %375 ], [ %.2226303328348.i.i, %373 ], [ %.2226303328348.i.i, %.thread341.i.i ], [ %.2226303330.ph.i.i, %370 ], [ %.2226303328348.i.i, %379 ], [ %.2226303328348.i.i, %382 ], [ %.1225.i.i, %247 ]
   br i1 %.1223304325351.i.i, label %394, label %389
 
 389:                                              ; preds = %proto_item_set_generated.exit275.i.i, %385, %.thread.i.i

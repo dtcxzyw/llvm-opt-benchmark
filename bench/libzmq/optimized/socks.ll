@@ -911,8 +911,8 @@ define noundef i32 @_ZN3zmq24socks_response_decoder_t5inputEi(ptr noundef nonnul
   br label %21
 
 21:                                               ; preds = %8, %20, %15, %.critedge, %6
-  %22 = phi i64 [ %4, %6 ], [ %.pre, %.critedge ], [ %4, %15 ], [ %4, %20 ], [ %4, %8 ]
-  %.025 = phi i64 [ %7, %6 ], [ 0, %.critedge ], [ %19, %15 ], [ 17, %20 ], [ 5, %8 ]
+  %22 = phi i64 [ %4, %6 ], [ %4, %15 ], [ %4, %20 ], [ %4, %8 ], [ %.pre, %.critedge ]
+  %.025 = phi i64 [ %7, %6 ], [ %19, %15 ], [ 17, %20 ], [ 5, %8 ], [ 0, %.critedge ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %22
   %24 = tail call noundef i32 @_ZN3zmq8tcp_readEiPvm(i32 noundef %1, ptr noundef nonnull %23, i64 noundef %.025)
   %25 = icmp sgt i32 %24, 0
@@ -960,7 +960,7 @@ define noundef i32 @_ZN3zmq24socks_response_decoder_t5inputEi(ptr noundef nonnul
   br label %46
 
 46:                                               ; preds = %42, %36, %31, %26, %45
-  %.0 = phi i32 [ -1, %42 ], [ -1, %26 ], [ -1, %31 ], [ %24, %45 ], [ -1, %36 ]
+  %.0 = phi i32 [ %24, %45 ], [ -1, %42 ], [ -1, %26 ], [ -1, %31 ], [ -1, %36 ]
   ret i32 %.0
 }
 
@@ -1026,9 +1026,9 @@ define void @_ZN3zmq24socks_response_decoder_t6decodeEv(ptr dead_on_unwind noali
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %9 = load i8, ptr %8, align 1, !tbaa !8
   switch i8 %9, label %.critedge.i [
-    i8 3, label %14
-    i8 1, label %_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit
-    i8 4, label %23
+    i8 3, label %16
+    i8 1, label %14
+    i8 4, label %_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit
   ]
 
 .critedge.i:                                      ; preds = %7
@@ -1038,29 +1038,29 @@ define void @_ZN3zmq24socks_response_decoder_t6decodeEv(ptr dead_on_unwind noali
   %13 = tail call i32 @fflush(ptr noundef %12)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.8)
   %.pre.i = load i64, ptr %4, align 8, !tbaa !56
-  br label %23
+  br label %_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit
 
 14:                                               ; preds = %7
-  %15 = icmp ne i64 %5, 4
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %17 = load i8, ptr %16, align 4
-  %18 = sext i8 %17 to i64
-  %19 = add nsw i64 %18, 7
-  %20 = and i64 %19, 4294967295
-  %21 = icmp eq i64 %5, %20
-  %22 = select i1 %15, i1 %21, i1 false
-  br i1 %22, label %._crit_edge.i.i, label %_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit.thread, !prof !59
+  %15 = icmp eq i64 %5, 10
+  br i1 %15, label %._crit_edge.i.i, label %_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit.thread, !prof !59
 
-23:                                               ; preds = %.critedge.i, %7
-  %24 = phi i64 [ %.pre.i, %.critedge.i ], [ %5, %7 ]
-  %25 = icmp eq i64 %24, 22
-  br i1 %25, label %._crit_edge.i.i, label %_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit.thread, !prof !59
+16:                                               ; preds = %7
+  %17 = icmp ne i64 %5, 4
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %19 = load i8, ptr %18, align 4
+  %20 = sext i8 %19 to i64
+  %21 = add nsw i64 %20, 7
+  %22 = and i64 %21, 4294967295
+  %23 = icmp eq i64 %5, %22
+  %24 = select i1 %17, i1 %23, i1 false
+  br i1 %24, label %._crit_edge.i.i, label %_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit.thread, !prof !59
 
-_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit: ; preds = %7
-  %26 = icmp eq i64 %5, 10
+_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit: ; preds = %7, %.critedge.i
+  %25 = phi i64 [ %.pre.i, %.critedge.i ], [ %5, %7 ]
+  %26 = icmp eq i64 %25, 22
   br i1 %26, label %._crit_edge.i.i, label %_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit.thread, !prof !59
 
-_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit.thread: ; preds = %2, %14, %23, %_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit
+_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit.thread: ; preds = %2, %16, %14, %_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit
   %27 = load ptr, ptr @stderr, align 8, !tbaa !20
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 339) #13
   %29 = load ptr, ptr @stderr, align 8, !tbaa !20
@@ -1068,7 +1068,7 @@ _ZNK3zmq24socks_response_decoder_t13message_readyEv.exit.thread: ; preds = %2, %
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.3)
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %14, %23, %_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit, %_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit.thread
+._crit_edge.i.i:                                  ; preds = %16, %14, %_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit, %_ZNK3zmq24socks_response_decoder_t13message_readyEv.exit.thread
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %32 = load i8, ptr %31, align 1, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

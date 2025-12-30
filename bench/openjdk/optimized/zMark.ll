@@ -1264,26 +1264,26 @@ define hidden noundef zeroext i1 @_ZN5ZMark11follow_workEb(ptr noundef nonnull a
   %.pn.i.i.us = and i64 %.pn.in.i.i.us, 15
   %.014.i.i.us = getelementptr inbounds nuw %class.ZMarkStripe, ptr %26, i64 %.pn.i.i.us
   %.not.not.not.not.i.not.i.us = icmp eq ptr %.014.i.i.us, %35
-  br i1 %.not.not.not.not.i.not.i.us, label %_ZN5ZMark9try_stealEP12ZMarkContext.exit.us, label %42
+  br i1 %.not.not.not.not.i.not.i.us, label %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.i.us, label %42
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %.pn.i.i.us
   %44 = load ptr, ptr %43, align 8
   %.not.i.i.i.us = icmp eq ptr %44, null
-  br i1 %.not.i.i.i.us, label %41, label %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.thread.i.us, !llvm.loop !8
+  br i1 %.not.i.i.i.us, label %41, label %_ZN5ZMark9try_stealEP12ZMarkContext.exit.us, !llvm.loop !8
 
-_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.thread.i.us: ; preds = %42
+_ZN5ZMark9try_stealEP12ZMarkContext.exit.us:      ; preds = %42
   %45 = getelementptr inbounds nuw ptr, ptr %40, i64 %.pn.i.i.us
   store ptr null, ptr %45, align 8
   %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %39
   store ptr %44, ptr %46, align 8
   br label %.backedge.us
 
-_ZN5ZMark9try_stealEP12ZMarkContext.exit.us:      ; preds = %41
+_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.i.us: ; preds = %41
   %47 = call noundef zeroext i1 @_ZN5ZMark16try_steal_globalEP12ZMarkContext(ptr noundef nonnull align 64 dereferenceable(2652) %0, ptr noundef nonnull readonly %5)
   br i1 %47, label %.backedge.us, label %.loopexit
 
-.backedge.us:                                     ; preds = %_ZN5ZMark9try_stealEP12ZMarkContext.exit.us, %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.thread.i.us
+.backedge.us:                                     ; preds = %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.i.us, %_ZN5ZMark9try_stealEP12ZMarkContext.exit.us
   %48 = call noundef zeroext i1 @_ZN5ZMark5drainEP12ZMarkContext(ptr noundef nonnull align 64 dereferenceable(2652) %0, ptr noundef nonnull %5)
   br i1 %48, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !9
 
@@ -1324,41 +1324,37 @@ _ZN5ZMark5leaveEv.exit:                           ; preds = %._crit_edge, %56
   %.pn.i.i = and i64 %.pn.in.i.i, 15
   %.014.i.i = getelementptr inbounds nuw %class.ZMarkStripe, ptr %26, i64 %.pn.i.i
   %.not.not.not.not.i.not.i = icmp eq ptr %.014.i.i, %60
-  br i1 %.not.not.not.not.i.not.i, label %_ZN5ZMark9try_stealEP12ZMarkContext.exit, label %67
+  br i1 %.not.not.not.not.i.not.i, label %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.i, label %67
 
 67:                                               ; preds = %66
   %68 = getelementptr inbounds nuw ptr, ptr %65, i64 %.pn.i.i
   %69 = load ptr, ptr %68, align 8
   %.not.i.i.i = icmp eq ptr %69, null
-  br i1 %.not.i.i.i, label %66, label %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.thread.i, !llvm.loop !8
+  br i1 %.not.i.i.i, label %66, label %_ZN5ZMark9try_stealEP12ZMarkContext.exit, !llvm.loop !8
 
-_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.thread.i: ; preds = %67
-  %70 = getelementptr inbounds nuw ptr, ptr %65, i64 %.pn.i.i
-  store ptr null, ptr %70, align 8
-  %71 = getelementptr inbounds nuw ptr, ptr %65, i64 %64
-  store ptr %69, ptr %71, align 8
+_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.i: ; preds = %66
+  %70 = call noundef zeroext i1 @_ZN5ZMark16try_steal_globalEP12ZMarkContext(ptr noundef nonnull align 64 dereferenceable(2652) %0, ptr noundef nonnull readonly %5)
+  br i1 %70, label %.backedge, label %73
+
+_ZN5ZMark9try_stealEP12ZMarkContext.exit:         ; preds = %67
+  %71 = getelementptr inbounds nuw ptr, ptr %65, i64 %.pn.i.i
+  store ptr null, ptr %71, align 8
+  %72 = getelementptr inbounds nuw ptr, ptr %65, i64 %64
+  store ptr %69, ptr %72, align 8
   br label %.backedge
 
-_ZN5ZMark9try_stealEP12ZMarkContext.exit:         ; preds = %66
-  %72 = call noundef zeroext i1 @_ZN5ZMark16try_steal_globalEP12ZMarkContext(ptr noundef nonnull align 64 dereferenceable(2652) %0, ptr noundef nonnull readonly %5)
-  br i1 %72, label %.backedge, label %74
+73:                                               ; preds = %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.i
+  %74 = load i32, ptr %9, align 4
+  %.not.i = icmp eq i32 %74, 0
+  br i1 %.not.i, label %75, label %_ZN5ZMark19try_proactive_flushEv.exit.thread
 
-.backedge:                                        ; preds = %_ZN5ZMark9try_stealEP12ZMarkContext.exit, %_ZN5ZMark19try_proactive_flushEv.exit.thread, %83, %_ZN5ZMark19try_proactive_flushEv.exit, %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.thread.i
-  %73 = call noundef zeroext i1 @_ZN5ZMark5drainEP12ZMarkContext(ptr noundef nonnull align 64 dereferenceable(2652) %0, ptr noundef nonnull %5)
-  br i1 %73, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
+75:                                               ; preds = %73
+  %76 = load volatile i64, ptr %28, align 8
+  %77 = icmp eq i64 %76, 10
+  br i1 %77, label %_ZN5ZMark19try_proactive_flushEv.exit.thread, label %78
 
-74:                                               ; preds = %_ZN5ZMark9try_stealEP12ZMarkContext.exit
-  %75 = load i32, ptr %9, align 4
-  %.not.i = icmp eq i32 %75, 0
-  br i1 %.not.i, label %76, label %_ZN5ZMark19try_proactive_flushEv.exit.thread
-
-76:                                               ; preds = %74
-  %77 = load volatile i64, ptr %28, align 8
-  %78 = icmp eq i64 %77, 10
-  br i1 %78, label %_ZN5ZMark19try_proactive_flushEv.exit.thread, label %79
-
-79:                                               ; preds = %76
-  %80 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %28) #15, !srcloc !10
+78:                                               ; preds = %75
+  %79 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %28) #15, !srcloc !10
   call void @_ZN20SuspendibleThreadSet5leaveEv() #15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1371,30 +1367,34 @@ _ZN5ZMark9try_stealEP12ZMarkContext.exit:         ; preds = %66
   store ptr %3, ptr %33, align 8
   call void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef nonnull %3) #15
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #15
-  %81 = load i8, ptr %31, align 8
-  %82 = trunc i8 %81 to i1
-  br i1 %82, label %_ZN5ZMark19try_proactive_flushEv.exit, label %83
+  %80 = load i8, ptr %31, align 8
+  %81 = trunc i8 %80 to i1
+  br i1 %81, label %_ZN5ZMark19try_proactive_flushEv.exit, label %82
 
-83:                                               ; preds = %79
-  %84 = call noundef zeroext i1 @_ZNK14ZMarkStripeSet8is_emptyEv(ptr noundef nonnull align 64 dereferenceable(2112) %6) #15
+82:                                               ; preds = %78
+  %83 = call noundef zeroext i1 @_ZNK14ZMarkStripeSet8is_emptyEv(ptr noundef nonnull align 64 dereferenceable(2112) %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN20SuspendibleThreadSet4joinEv() #15
-  br i1 %84, label %_ZN5ZMark19try_proactive_flushEv.exit.thread, label %.backedge
+  br i1 %83, label %_ZN5ZMark19try_proactive_flushEv.exit.thread, label %.backedge
 
-_ZN5ZMark19try_proactive_flushEv.exit:            ; preds = %79
+_ZN5ZMark19try_proactive_flushEv.exit:            ; preds = %78
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN20SuspendibleThreadSet4joinEv() #15
   br label %.backedge
 
-_ZN5ZMark19try_proactive_flushEv.exit.thread:     ; preds = %76, %74, %83
-  %85 = load i64, ptr %23, align 8
-  %86 = call noundef zeroext i1 @_ZN14ZMarkTerminate13try_terminateEP14ZMarkStripeSetm(ptr noundef nonnull align 8 dereferenceable(104) %34, ptr noundef nonnull %6, i64 noundef %85)
-  br i1 %86, label %.loopexit, label %.backedge
+_ZN5ZMark19try_proactive_flushEv.exit.thread:     ; preds = %75, %73, %82
+  %84 = load i64, ptr %23, align 8
+  %85 = call noundef zeroext i1 @_ZN14ZMarkTerminate13try_terminateEP14ZMarkStripeSetm(ptr noundef nonnull align 8 dereferenceable(104) %34, ptr noundef nonnull %6, i64 noundef %84)
+  br i1 %85, label %.loopexit, label %.backedge
 
-.loopexit:                                        ; preds = %_ZN5ZMark19try_proactive_flushEv.exit.thread, %_ZN5ZMark9try_stealEP12ZMarkContext.exit.us, %_ZN5ZMark5leaveEv.exit
-  %87 = phi i1 [ false, %_ZN5ZMark5leaveEv.exit ], [ true, %_ZN5ZMark9try_stealEP12ZMarkContext.exit.us ], [ true, %_ZN5ZMark19try_proactive_flushEv.exit.thread ]
+.backedge:                                        ; preds = %_ZN5ZMark19try_proactive_flushEv.exit.thread, %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.i, %_ZN5ZMark9try_stealEP12ZMarkContext.exit, %82, %_ZN5ZMark19try_proactive_flushEv.exit
+  %86 = call noundef zeroext i1 @_ZN5ZMark5drainEP12ZMarkContext(ptr noundef nonnull align 64 dereferenceable(2652) %0, ptr noundef nonnull %5)
+  br i1 %86, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
+
+.loopexit:                                        ; preds = %_ZN5ZMark19try_proactive_flushEv.exit.thread, %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.i.us, %_ZN5ZMark5leaveEv.exit
+  %87 = phi i1 [ false, %_ZN5ZMark5leaveEv.exit ], [ true, %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.i.us ], [ true, %_ZN5ZMark19try_proactive_flushEv.exit.thread ]
   call void @_ZN11StringDedup8RequestsD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %24) #15
   call void @_ZN10ZMarkCacheD1Ev(ptr noundef nonnull align 8 dereferenceable(24584) %20) #15
   ret i1 %87
@@ -3044,7 +3044,7 @@ _ZN5ZMark15try_steal_localEP12ZMarkContext.exit:  ; preds = %13
   br label %20
 
 20:                                               ; preds = %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.thread, %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit
-  %21 = phi i1 [ true, %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.thread ], [ %19, %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit ]
+  %21 = phi i1 [ %19, %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit ], [ true, %_ZN5ZMark15try_steal_localEP12ZMarkContext.exit.thread ]
   ret i1 %21
 }
 
@@ -7036,7 +7036,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   br label %129
 
 129:                                              ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread, %113, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, %4
-  %.0 = phi ptr [ null, %4 ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
+  %.0 = phi ptr [ null, %4 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
   ret ptr %.0
 }
 
@@ -7143,7 +7143,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -7382,7 +7382,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   br label %115
 
 115:                                              ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread, %113, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, %4
-  %.0 = phi ptr [ null, %4 ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
+  %.0 = phi ptr [ null, %4 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
   ret ptr %.0
 }
 
@@ -7480,7 +7480,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDe
   br label %_ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_42weak_load_barrier_on_phantom_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit
 
 _ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_42weak_load_barrier_on_phantom_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit: ; preds = %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %22, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, %6
-  %.0 = phi ptr [ %1, %6 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
+  %.0 = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %1, %6 ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
   ret ptr %.0
 }
 
@@ -8034,7 +8034,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDe
   br label %_ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_39weak_load_barrier_on_weak_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit
 
 _ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_39weak_load_barrier_on_weak_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit: ; preds = %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %22, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, %6
-  %.0 = phi ptr [ %1, %6 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
+  %.0 = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %1, %6 ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
   ret ptr %.0
 }
 
@@ -9779,7 +9779,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %52, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional1EEEEEbPT_mm.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %49, %33
-  %.0.i.i.i.i = phi i64 [ %51, %49 ], [ %.0917.i.i, %33 ]
+  %.0.i.i.i.i = phi i64 [ %.0917.i.i, %33 ], [ %51, %49 ]
   %.not.not.i.i = icmp ult i64 %.0.i.i.i.i, %29
   br i1 %.not.not.i.i, label %53, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional1EEEEEbPT_mm.exit
 
@@ -11508,7 +11508,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %52, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional1EEEEEbPT_mm.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %49, %33
-  %.0.i.i.i.i = phi i64 [ %51, %49 ], [ %.0917.i.i, %33 ]
+  %.0.i.i.i.i = phi i64 [ %.0917.i.i, %33 ], [ %51, %49 ]
   %.not.not.i.i = icmp ult i64 %.0.i.i.i.i, %29
   br i1 %.not.not.i.i, label %53, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional1EEEEEbPT_mm.exit
 
@@ -13637,7 +13637,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br i1 %76, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional0EEEEvP17stackChunkOopDescPT0_PlSA_.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %73, %57
-  %.0.i.i.i.i.i = phi i64 [ %75, %73 ], [ %.0917.i.i.i, %57 ]
+  %.0.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %57 ], [ %75, %73 ]
   %.not.not.i.i.i = icmp ult i64 %.0.i.i.i.i.i, %53
   br i1 %.not.not.i.i.i, label %77, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional0EEEEvP17stackChunkOopDescPT0_PlSA_.exit
 

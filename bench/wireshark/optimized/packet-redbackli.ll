@@ -178,7 +178,7 @@ redbackli_dissect_avp.exit.us:                    ; preds = %.lr.ph.split.us
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %48, %47, %46, %45, %44, %43, %42, %40
-  %hf_redbackli_seqno.sink.i = phi ptr [ @hf_redbackli_unknownavp, %48 ], [ @hf_redbackli_liid, %42 ], [ @hf_redbackli_sessid, %43 ], [ @hf_redbackli_label, %44 ], [ @hf_redbackli_eohpad, %45 ], [ @hf_redbackli_dir, %46 ], [ @hf_redbackli_acctid, %47 ], [ @hf_redbackli_seqno, %40 ]
+  %hf_redbackli_seqno.sink.i = phi ptr [ @hf_redbackli_liid, %42 ], [ @hf_redbackli_sessid, %43 ], [ @hf_redbackli_label, %44 ], [ @hf_redbackli_eohpad, %45 ], [ @hf_redbackli_dir, %46 ], [ @hf_redbackli_acctid, %47 ], [ @hf_redbackli_unknownavp, %48 ], [ @hf_redbackli_seqno, %40 ]
   %49 = load i32, ptr %hf_redbackli_seqno.sink.i, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %49, ptr noundef %0, i32 noundef %41, i32 noundef %28, i32 noundef 0)
   br label %redbackli_dissect_avp.exit
@@ -280,7 +280,7 @@ define internal noundef zeroext i1 @redbackli_dissect_heur(ptr noundef %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %11, %15, %.thread, %4, %25
-  %.026 = phi i1 [ false, %.thread ], [ true, %25 ], [ false, %4 ], [ false, %15 ], [ false, %11 ], [ false, %.preheader ]
+  %.026 = phi i1 [ true, %25 ], [ false, %4 ], [ false, %.thread ], [ false, %15 ], [ false, %11 ], [ false, %.preheader ]
   ret i1 %.026
 }
 

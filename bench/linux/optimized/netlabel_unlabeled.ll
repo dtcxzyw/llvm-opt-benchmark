@@ -385,7 +385,7 @@ define dso_local i32 @netlbl_unlhsh_add(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.thread21
 
 .thread23:                                        ; preds = %12, %93, %.thread
-  %.ph = phi i32 [ -19, %12 ], [ -12, %.thread ], [ -12, %93 ]
+  %.ph = phi i32 [ -19, %12 ], [ -12, %93 ], [ -12, %.thread ]
   tail call void @__rcu_read_unlock() #10
   br label %176
 
@@ -751,7 +751,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_unlhsh_remove(ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %38, %46, %16, %160, %121, %.loopexit26, %13
-  %161 = phi i32 [ 0, %160 ], [ %122, %121 ], [ -19, %13 ], [ -2, %.loopexit26 ], [ -22, %46 ], [ -2, %16 ], [ -2, %38 ]
+  %161 = phi i32 [ 0, %160 ], [ %122, %121 ], [ -19, %13 ], [ -2, %.loopexit26 ], [ -2, %16 ], [ -22, %46 ], [ -2, %38 ]
   call void @__rcu_read_unlock() #10
   br label %162
 
@@ -1299,9 +1299,9 @@ define internal i32 @netlbl_unlabel_staticadd(ptr readnone captures(none) %0, pt
   br i1 %70, label %._crit_edge, label %.thread
 
 ._crit_edge:                                      ; preds = %64, %68, %53, %57
-  %.pn = phi ptr [ %47, %53 ], [ %47, %57 ], [ %62, %68 ], [ %62, %64 ]
-  %.pn4 = phi ptr [ %51, %53 ], [ %51, %57 ], [ %.pre, %68 ], [ %.pre, %64 ]
-  %71 = phi i16 [ 4, %53 ], [ %55, %57 ], [ %66, %68 ], [ 16, %64 ]
+  %.pn = phi ptr [ %47, %57 ], [ %47, %53 ], [ %62, %68 ], [ %62, %64 ]
+  %.pn4 = phi ptr [ %51, %57 ], [ %51, %53 ], [ %.pre, %68 ], [ %.pre, %64 ]
+  %71 = phi i16 [ %55, %57 ], [ 4, %53 ], [ %66, %68 ], [ 16, %64 ]
   %72 = getelementptr i8, ptr %45, i64 48
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr i8, ptr %45, i64 56
@@ -1429,9 +1429,9 @@ define internal noundef range(i32 -22, 1) i32 @netlbl_unlabel_staticremove(ptr r
   br i1 %65, label %._crit_edge, label %.thread
 
 ._crit_edge:                                      ; preds = %59, %63, %48, %52
-  %.pn = phi ptr [ %42, %48 ], [ %42, %52 ], [ %57, %63 ], [ %57, %59 ]
-  %.pn3 = phi ptr [ %46, %48 ], [ %46, %52 ], [ %.pre, %63 ], [ %.pre, %59 ]
-  %66 = phi i16 [ 4, %48 ], [ %50, %52 ], [ %61, %63 ], [ 16, %59 ]
+  %.pn = phi ptr [ %42, %52 ], [ %42, %48 ], [ %57, %63 ], [ %57, %59 ]
+  %.pn3 = phi ptr [ %46, %52 ], [ %46, %48 ], [ %.pre, %63 ], [ %.pre, %59 ]
+  %66 = phi i16 [ %50, %52 ], [ 4, %48 ], [ %61, %63 ], [ 16, %59 ]
   %67 = getelementptr i8, ptr %.pn3, i64 4
   %68 = getelementptr i8, ptr %.pn, i64 4
   %69 = zext i16 %66 to i32
@@ -1776,9 +1776,9 @@ define internal i32 @netlbl_unlabel_staticadddef(ptr readnone captures(none) %0,
   br i1 %66, label %._crit_edge, label %.thread
 
 ._crit_edge:                                      ; preds = %60, %64, %49, %53
-  %.pn = phi ptr [ %43, %49 ], [ %43, %53 ], [ %58, %64 ], [ %58, %60 ]
-  %.pn4 = phi ptr [ %47, %49 ], [ %47, %53 ], [ %.pre, %64 ], [ %.pre, %60 ]
-  %67 = phi i16 [ 4, %49 ], [ %51, %53 ], [ %62, %64 ], [ 16, %60 ]
+  %.pn = phi ptr [ %43, %53 ], [ %43, %49 ], [ %58, %64 ], [ %58, %60 ]
+  %.pn4 = phi ptr [ %47, %53 ], [ %47, %49 ], [ %.pre, %64 ], [ %.pre, %60 ]
+  %67 = phi i16 [ %51, %53 ], [ 4, %49 ], [ %62, %64 ], [ 16, %60 ]
   %68 = getelementptr i8, ptr %41, i64 56
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr i8, ptr %69, i64 4
@@ -1897,9 +1897,9 @@ define internal noundef range(i32 -22, 1) i32 @netlbl_unlabel_staticremovedef(pt
   br i1 %61, label %._crit_edge, label %.thread
 
 ._crit_edge:                                      ; preds = %55, %59, %44, %48
-  %.pn = phi ptr [ %38, %44 ], [ %38, %48 ], [ %53, %59 ], [ %53, %55 ]
-  %.pn3 = phi ptr [ %42, %44 ], [ %42, %48 ], [ %.pre, %59 ], [ %.pre, %55 ]
-  %62 = phi i16 [ 4, %44 ], [ %46, %48 ], [ %57, %59 ], [ 16, %55 ]
+  %.pn = phi ptr [ %38, %48 ], [ %38, %44 ], [ %53, %59 ], [ %53, %55 ]
+  %.pn3 = phi ptr [ %42, %48 ], [ %42, %44 ], [ %.pre, %59 ], [ %.pre, %55 ]
+  %62 = phi i16 [ %46, %48 ], [ 4, %44 ], [ %57, %59 ], [ 16, %55 ]
   %63 = getelementptr i8, ptr %.pn3, i64 4
   %64 = getelementptr i8, ptr %.pn, i64 4
   %65 = zext i16 %62 to i32
@@ -2072,8 +2072,8 @@ define internal i32 @netlbl_unlabel_staticlistdef(ptr noundef %0, ptr noundef %1
   br label %.loopexit28, !llvm.loop !28
 
 .loopexit28:                                      ; preds = %39, %77, %.loopexit._crit_edge, %.loopexit23, %13, %2
-  %93 = phi i64 [ 0, %2 ], [ 0, %13 ], [ 0, %.loopexit23 ], [ %74, %77 ], [ %.pre, %.loopexit._crit_edge ], [ 0, %39 ]
-  %94 = phi i32 [ 0, %2 ], [ 0, %13 ], [ %55, %.loopexit23 ], [ %55, %77 ], [ %55, %.loopexit._crit_edge ], [ %33, %39 ]
+  %93 = phi i64 [ 0, %2 ], [ 0, %13 ], [ 0, %.loopexit23 ], [ %.pre, %.loopexit._crit_edge ], [ %74, %77 ], [ 0, %39 ]
+  %94 = phi i32 [ 0, %2 ], [ 0, %13 ], [ %55, %.loopexit23 ], [ %55, %.loopexit._crit_edge ], [ %55, %77 ], [ %33, %39 ]
   tail call void @__rcu_read_unlock() #10
   %95 = zext i32 %94 to i64
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -2347,7 +2347,7 @@ define internal fastcc i32 @netlbl_unlabel_staticlist_gen(i32 noundef range(i32 
   br label %102
 
 102:                                              ; preds = %5, %96, %.thread, %73
-  %103 = phi i32 [ 0, %73 ], [ %.ph13, %96 ], [ %.ph13, %.thread ], [ -12, %5 ]
+  %103 = phi i32 [ 0, %73 ], [ %.ph13, %.thread ], [ %.ph13, %96 ], [ -12, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %103

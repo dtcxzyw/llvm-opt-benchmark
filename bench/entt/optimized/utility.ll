@@ -1361,7 +1361,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
           to label %366 unwind label %280
 
 273:                                              ; preds = %226, %228, %213, %_ZN7testing7MessageD2Ev.exit241, %177
-  %.pn129.pn.pn.pn = phi { ptr, i32 } [ %.pn129.pn.pn, %_ZN7testing7MessageD2Ev.exit241 ], [ %214, %213 ], [ %178, %177 ], [ %227, %226 ], [ %.pn125, %228 ]
+  %.pn129.pn.pn.pn = phi { ptr, i32 } [ %.pn129.pn.pn, %_ZN7testing7MessageD2Ev.exit241 ], [ %178, %177 ], [ %214, %213 ], [ %227, %226 ], [ %.pn125, %228 ]
   %274 = load ptr, ptr %13, align 8, !tbaa !33
   %275 = icmp eq ptr %274, %174
   br i1 %275, label %_ZN7testing8internal14TrueWithStringD2Ev.exit247, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i245
@@ -1634,7 +1634,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
           to label %467 unwind label %381
 
 374:                                              ; preds = %327, %329, %314, %_ZN7testing7MessageD2Ev.exit268, %278
-  %.pn140.pn.pn.pn = phi { ptr, i32 } [ %.pn140.pn.pn, %_ZN7testing7MessageD2Ev.exit268 ], [ %315, %314 ], [ %279, %278 ], [ %328, %327 ], [ %.pn136, %329 ]
+  %.pn140.pn.pn.pn = phi { ptr, i32 } [ %.pn140.pn.pn, %_ZN7testing7MessageD2Ev.exit268 ], [ %279, %278 ], [ %315, %314 ], [ %328, %327 ], [ %.pn136, %329 ]
   %375 = load ptr, ptr %18, align 8, !tbaa !33
   %376 = icmp eq ptr %375, %270
   br i1 %376, label %_ZN7testing8internal14TrueWithStringD2Ev.exit274, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i272
@@ -1907,7 +1907,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
           to label %565 unwind label %482
 
 475:                                              ; preds = %428, %430, %415, %_ZN7testing7MessageD2Ev.exit295, %379
-  %.pn151.pn.pn.pn = phi { ptr, i32 } [ %.pn151.pn.pn, %_ZN7testing7MessageD2Ev.exit295 ], [ %416, %415 ], [ %380, %379 ], [ %429, %428 ], [ %.pn147, %430 ]
+  %.pn151.pn.pn.pn = phi { ptr, i32 } [ %.pn151.pn.pn, %_ZN7testing7MessageD2Ev.exit295 ], [ %380, %379 ], [ %416, %415 ], [ %429, %428 ], [ %.pn147, %430 ]
   %476 = load ptr, ptr %23, align 8, !tbaa !33
   %477 = icmp eq ptr %476, %371
   br i1 %477, label %_ZN7testing8internal14TrueWithStringD2Ev.exit301, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i299
@@ -2164,7 +2164,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit322: ; preds = %565, %_ZNKSt7__cxx1
   ret void
 
 571:                                              ; preds = %529, %531, %516, %_ZN7testing7MessageD2Ev.exit319, %480
-  %.pn163.pn.pn.pn = phi { ptr, i32 } [ %.pn163.pn.pn, %_ZN7testing7MessageD2Ev.exit319 ], [ %517, %516 ], [ %481, %480 ], [ %530, %529 ], [ %.pn159, %531 ]
+  %.pn163.pn.pn.pn = phi { ptr, i32 } [ %.pn163.pn.pn, %_ZN7testing7MessageD2Ev.exit319 ], [ %481, %480 ], [ %517, %516 ], [ %530, %529 ], [ %.pn159, %531 ]
   %572 = load ptr, ptr %28, align 8, !tbaa !33
   %573 = icmp eq ptr %572, %472
   br i1 %573, label %_ZN7testing8internal14TrueWithStringD2Ev.exit325, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i323
@@ -2180,7 +2180,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit325: ; preds = %571, %_ZNKSt7__cxx1
   br label %576
 
 576:                                              ; preds = %_ZN7testing8internal14TrueWithStringD2Ev.exit247, %_ZN7testing8internal14TrueWithStringD2Ev.exit274, %_ZN7testing8internal14TrueWithStringD2Ev.exit301, %_ZN7testing8internal14TrueWithStringD2Ev.exit325, %_ZN7testing7MessageD2Ev.exit221, %_ZN7testing7MessageD2Ev.exit202, %_ZN7testing7MessageD2Ev.exit189, %_ZN7testing7MessageD2Ev.exit180
-  %.pn163.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit180 ], [ %.pn120.pn, %_ZN7testing7MessageD2Ev.exit221 ], [ %.pn117.pn, %_ZN7testing7MessageD2Ev.exit202 ], [ %.pn114.pn, %_ZN7testing7MessageD2Ev.exit189 ], [ %.pn163.pn.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit325 ], [ %.pn151.pn.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit301 ], [ %.pn140.pn.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit274 ], [ %.pn129.pn.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit247 ]
+  %.pn163.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn120.pn, %_ZN7testing7MessageD2Ev.exit221 ], [ %.pn117.pn, %_ZN7testing7MessageD2Ev.exit202 ], [ %.pn114.pn, %_ZN7testing7MessageD2Ev.exit189 ], [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit180 ], [ %.pn163.pn.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit325 ], [ %.pn151.pn.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit301 ], [ %.pn140.pn.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit274 ], [ %.pn129.pn.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit247 ]
   resume { ptr, i32 } %.pn163.pn.pn.pn.pn.pn
 
 577:                                              ; preds = %531, %516, %430, %415, %329, %314, %228, %213

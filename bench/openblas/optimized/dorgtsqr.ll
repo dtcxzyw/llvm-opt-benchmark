@@ -82,8 +82,8 @@ define void @dorgtsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br i1 %or.cond3, label %49, label %.thread
 
 .thread:                                          ; preds = %42, %39, %35, %32, %29, %27, %25, %11
-  %.sink = phi i32 [ -1, %11 ], [ -2, %25 ], [ -4, %29 ], [ -8, %35 ], [ -10, %39 ], [ -6, %32 ], [ -3, %27 ], [ -10, %42 ]
-  %.neg = phi i32 [ 1, %11 ], [ 2, %25 ], [ 4, %29 ], [ 8, %35 ], [ 10, %39 ], [ 6, %32 ], [ 3, %27 ], [ 10, %42 ]
+  %.sink = phi i32 [ -1, %11 ], [ -2, %25 ], [ -3, %27 ], [ -4, %29 ], [ -6, %32 ], [ -8, %35 ], [ -10, %39 ], [ -10, %42 ]
+  %.neg = phi i32 [ 1, %11 ], [ 2, %25 ], [ 3, %27 ], [ 4, %29 ], [ 6, %32 ], [ 8, %35 ], [ 10, %39 ], [ 10, %42 ]
   store i32 %.sink, ptr %10, align 4, !tbaa !3
   store i32 %.neg, ptr %12, align 4, !tbaa !3
   %48 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %12, i32 noundef 8) #4

@@ -1945,7 +1945,7 @@ define internal void @tsc_refine_calibration_work(ptr readnone captures(none) %0
   br label %26
 
 26:                                               ; preds = %22, %.thread9.split.us
-  %27 = phi i64 [ 0, %.thread9.split.us ], [ %25, %22 ]
+  %27 = phi i64 [ %25, %22 ], [ 0, %.thread9.split.us ]
   store i64 %27, ptr @tsc_refine_calibration_work.ref_start, align 8
   %28 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !21
   %29 = extractvalue { i64, i64 } %28, 0
@@ -1986,7 +1986,7 @@ define internal void @tsc_refine_calibration_work(ptr readnone captures(none) %0
   br i1 %55, label %.split25.us, label %38
 
 .split25.us:                                      ; preds = %38, %.thread9.split, %26, %35
-  %.us-phi26 = phi i64 [ -1, %35 ], [ %32, %26 ], [ %53, %.thread9.split ], [ -1, %38 ]
+  %.us-phi26 = phi i64 [ %32, %26 ], [ -1, %35 ], [ %53, %.thread9.split ], [ -1, %38 ]
   store i64 %.us-phi26, ptr @tsc_refine_calibration_work.tsc_start, align 8
   %56 = load ptr, ptr @system_wq, align 8
   %57 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %56, ptr noundef nonnull @tsc_irqwork, i64 noundef 1000) #22
@@ -2020,7 +2020,7 @@ define internal void @tsc_refine_calibration_work(ptr readnone captures(none) %0
   br label %77
 
 77:                                               ; preds = %74, %.split.us
-  %78 = phi i32 [ 0, %.split.us ], [ %76, %74 ]
+  %78 = phi i32 [ %76, %74 ], [ 0, %.split.us ]
   %79 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !21
   %80 = extractvalue { i64, i64 } %79, 0
   %81 = extractvalue { i64, i64 } %79, 1
@@ -2292,7 +2292,7 @@ define internal fastcc i64 @pit_hpet_ptimer_calibrate_cpu() unnamed_addr #5 alig
   br label %29
 
 29:                                               ; preds = %26, %.split.us
-  %30 = phi i32 [ 0, %.split.us ], [ %28, %26 ]
+  %30 = phi i32 [ %28, %26 ], [ 0, %.split.us ]
   %31 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !21
   %32 = extractvalue { i64, i64 } %31, 0
   %33 = extractvalue { i64, i64 } %31, 1
@@ -2330,7 +2330,7 @@ define internal fastcc i64 @pit_hpet_ptimer_calibrate_cpu() unnamed_addr #5 alig
   br i1 %57, label %.split26.us, label %41
 
 .split26.us:                                      ; preds = %41, %.split, %29, %38
-  %.us-phi = phi i32 [ %30, %29 ], [ %30, %38 ], [ %50, %.split ], [ %50, %41 ]
+  %.us-phi = phi i32 [ %30, %38 ], [ %30, %29 ], [ %50, %.split ], [ %50, %41 ]
   %.us-phi27 = phi i64 [ %35, %29 ], [ -1, %38 ], [ -1, %41 ], [ %55, %.split ]
   %58 = zext i32 %.us-phi to i64
   %59 = load ptr, ptr @legacy_pic, align 8

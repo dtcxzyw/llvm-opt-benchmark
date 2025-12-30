@@ -164,7 +164,7 @@ define range(i32 -22, 1) i32 @ff_vmafmotion_init(ptr noundef writeonly captures(
   br label %41
 
 41:                                               ; preds = %8, %20, %23, %4, %33
-  %.0 = phi i32 [ -22, %4 ], [ 0, %33 ], [ -12, %23 ], [ -12, %20 ], [ -12, %8 ]
+  %.0 = phi i32 [ 0, %33 ], [ -22, %4 ], [ -12, %23 ], [ -12, %20 ], [ -12, %8 ]
   ret i32 %.0
 }
 

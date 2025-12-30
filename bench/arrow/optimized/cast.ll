@@ -3712,7 +3712,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_119EnsureInitCastTableEv.exit: ; preds = 
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %34
   br label %.loopexit, !llvm.loop !214
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %19
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader, %19, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5arrow6Status8FromArgsIJRA21_KcRKNS_8DataTypeEEEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %4, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.16, ptr noundef nonnull align 8 dereferenceable(72) %1)
   call void @_ZN5arrow6ResultISt10shared_ptrINS_7compute8internal12CastFunctionEEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %4) #26
@@ -3735,7 +3735,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %.loopexit, %40, %44
   br label %_ZN5arrow6ResultISt10shared_ptrINS_7compute8internal12CastFunctionEEEC2IRS5_vEEOT_.exit
 
 _ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit: ; preds = %31, %15, %26
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %15 ], [ %27, %26 ], [ %33, %31 ]
+  %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %15 ], [ %33, %31 ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   store ptr null, ptr %0, align 8, !tbaa !62
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4084,7 +4084,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5a
   br label %.body11
 
 .body11:                                          ; preds = %.thread, %25, %50
-  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %20, %.thread ], [ %26, %25 ]
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %26, %25 ], [ %20, %.thread ]
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #26
   br label %.body
 
@@ -4817,7 +4817,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_119EnsureInitCastTableEv.exit: ; preds = 
   br label %.critedge, !llvm.loop !214
 
 _ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit: ; preds = %30, %14, %25
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %14 ], [ %26, %25 ], [ %32, %30 ]
+  %.sroa.06.1.i.i = phi ptr [ %26, %25 ], [ %.sroa.06.0.i.i, %14 ], [ %32, %30 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !215
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 224
@@ -4841,8 +4841,8 @@ _ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4
   %or.cond = select i1 %.not, i1 true, i1 %.not20
   br i1 %or.cond, label %.critedge, label %46
 
-.critedge:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader, %46, %_ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %18, %..loopexit_crit_edge21.i.i.i.i
-  %.0 = phi i1 [ false, %18 ], [ %.not, %46 ], [ false, %..loopexit_crit_edge21.i.i.i.i ], [ false, %.preheader ], [ false, %_ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit ], [ false, %.lr.ph.i.i.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader, %46, %_ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %..loopexit_crit_edge21.i.i.i.i, %18
+  %.0 = phi i1 [ false, %18 ], [ false, %..loopexit_crit_edge21.i.i.i.i ], [ false, %_ZNSt13unordered_mapIiSt10shared_ptrIN5arrow7compute8internal12CastFunctionEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit ], [ %.not, %46 ], [ false, %.preheader ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -8909,7 +8909,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
   br label %.body
 
 .body:                                            ; preds = %154, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21, %152, %.body.i
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %153, %152 ], [ %155, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21 ], [ %155, %154 ]
+  %.pn = phi { ptr, i32 } [ %153, %152 ], [ %eh.lpad-body.i, %.body.i ], [ %155, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21 ], [ %155, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %160
 
@@ -13294,7 +13294,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit: ; preds = %_ZN5arrow6Res
   ret void
 
 .body:                                            ; preds = %183, %179, %176, %174, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i
-  %.pn11 = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i ], [ %175, %174 ], [ %177, %176 ], [ %177, %179 ], [ %177, %183 ]
+  %.pn11 = phi { ptr, i32 } [ %175, %174 ], [ %eh.lpad-body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i ], [ %177, %176 ], [ %177, %179 ], [ %177, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZNSt12__shared_ptrIN5arrow6ScalarELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -15271,7 +15271,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_7compute8internal12CastFunctionEEED2Ev.exit: 
   br label %343
 
 343:                                              ; preds = %155, %229, %74, %342, %64
-  %.pn42.pn = phi { ptr, i32 } [ %65, %64 ], [ %75, %74 ], [ %.pn36.pn, %342 ], [ %156, %155 ], [ %230, %229 ]
+  %.pn42.pn = phi { ptr, i32 } [ %.pn36.pn, %342 ], [ %65, %64 ], [ %75, %74 ], [ %230, %229 ], [ %156, %155 ]
   %344 = load ptr, ptr %10, align 8, !tbaa !62
   %.not.i.i91 = icmp eq ptr %344, null
   br i1 %.not.i.i91, label %_ZN5arrow6ResultIPKNS_7compute11CastOptionsEED2Ev.exit, label %345, !prof !65

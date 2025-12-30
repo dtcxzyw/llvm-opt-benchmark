@@ -621,7 +621,7 @@ define internal i32 @dissect_saphdb(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %20
 
 20:                                               ; preds = %14, %16, %12, %18, %10
-  %.0 = phi i32 [ %11, %10 ], [ 0, %12 ], [ %19, %18 ], [ 0, %16 ], [ 0, %14 ]
+  %.0 = phi i32 [ %11, %10 ], [ %19, %18 ], [ 0, %12 ], [ 0, %16 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -1283,7 +1283,7 @@ define internal fastcc noundef i32 @dissect_saphdb_segment(ptr noundef %0, ptr n
   br label %222
 
 222:                                              ; preds = %220, %219, %216
-  %.1.i.i.i = phi i1 [ %.06173.i.i.i, %216 ], [ %spec.select.i.i.i, %220 ], [ %.06173.i.i.i, %219 ]
+  %.1.i.i.i = phi i1 [ %.06173.i.i.i, %219 ], [ %.06173.i.i.i, %216 ], [ %spec.select.i.i.i, %220 ]
   %223 = icmp eq i32 %196, %indvars.iv.i.i.i
   %or.cond70.i.i.i = select i1 %.1.i.i.i, i1 %223, i1 false
   br i1 %or.cond70.i.i.i, label %224, label %dissect_saphdb_gss_authentication_fields.exit.i.i.i
@@ -1758,7 +1758,7 @@ opv_to_opt.exit124:                               ; preds = %59, %opv_to_opt.exi
   br label %133
 
 133:                                              ; preds = %115, %128, %131, %106, %120, %124, %116, %99, %94, %89, %84, %79, %74
-  %.1 = phi i32 [ %35, %131 ], [ %35, %128 ], [ %78, %74 ], [ %83, %79 ], [ %88, %84 ], [ %93, %89 ], [ %98, %94 ], [ %105, %99 ], [ %119, %116 ], [ %123, %120 ], [ %127, %124 ], [ %111, %115 ], [ %111, %106 ]
+  %.1 = phi i32 [ %35, %131 ], [ %35, %128 ], [ %78, %74 ], [ %83, %79 ], [ %88, %84 ], [ %93, %89 ], [ %98, %94 ], [ %105, %99 ], [ %119, %116 ], [ %123, %120 ], [ %127, %124 ], [ %111, %106 ], [ %111, %115 ]
   %134 = add nsw i16 %.0110136, -1
   %135 = icmp sgt i16 %.0110136, 1
   br i1 %135, label %12, label %.critedge, !llvm.loop !16

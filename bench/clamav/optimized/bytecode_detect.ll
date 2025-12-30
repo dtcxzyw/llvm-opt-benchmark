@@ -132,7 +132,7 @@ detect_PaX.exit.thread.i:                         ; preds = %44
   br label %.thread.i
 
 .thread.i:                                        ; preds = %51, %48, %detect_PaX.exit.thread.i
-  %53 = phi i8 [ %..i, %48 ], [ 0, %51 ], [ 0, %detect_PaX.exit.thread.i ]
+  %53 = phi i8 [ 0, %51 ], [ 0, %detect_PaX.exit.thread.i ], [ %..i, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !16
@@ -231,7 +231,7 @@ detect_SELinux.exit.i:                            ; preds = %75
   br label %detect_os_features.exit
 
 detect_os_features.exit:                          ; preds = %detect_SELinux.exit.thread.i, %detect_SELinux.exit.thread31.i, %83
-  %.3.i = phi i8 [ %53, %detect_SELinux.exit.thread31.i ], [ %84, %83 ], [ %53, %detect_SELinux.exit.thread.i ]
+  %.3.i = phi i8 [ %84, %83 ], [ %53, %detect_SELinux.exit.thread.i ], [ %53, %detect_SELinux.exit.thread31.i ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 487
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 483

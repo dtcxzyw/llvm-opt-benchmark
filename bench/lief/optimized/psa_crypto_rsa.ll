@@ -423,7 +423,7 @@ mbedtls_psa_rsa_export_key.exit:                  ; preds = %36, %51
   br label %psa_rsa_read_exponent.exit.thread
 
 psa_rsa_read_exponent.exit.thread:                ; preds = %17, %9, %mbedtls_psa_rsa_export_key.exit, %23
-  %.0 = phi i32 [ %.035.i, %mbedtls_psa_rsa_export_key.exit ], [ %24, %23 ], [ -134, %9 ], [ -134, %17 ]
+  %.0 = phi i32 [ %24, %23 ], [ %.035.i, %mbedtls_psa_rsa_export_key.exit ], [ -134, %9 ], [ -134, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -525,12 +525,12 @@ psa_rsa_decode_md_type.exit:                      ; preds = %24, %21
   br label %.thread
 
 .thread:                                          ; preds = %38, %32, %46, %44
-  %.033 = phi i32 [ %.0, %44 ], [ 0, %46 ], [ %39, %38 ], [ %33, %32 ]
+  %.033 = phi i32 [ 0, %46 ], [ %.0, %44 ], [ %39, %38 ], [ %33, %32 ]
   %48 = tail call i32 @mbedtls_to_psa_error(i32 noundef %.033) #9
   br label %psa_rsa_decode_md_type.exit.thread
 
 psa_rsa_decode_md_type.exit.thread:               ; preds = %24, %22, %18, %31, %psa_rsa_decode_md_type.exit, %9, %.thread
-  %.022 = phi i32 [ %12, %9 ], [ -135, %31 ], [ -138, %psa_rsa_decode_md_type.exit ], [ %48, %.thread ], [ -135, %24 ], [ -134, %22 ], [ -135, %18 ]
+  %.022 = phi i32 [ %12, %9 ], [ %48, %.thread ], [ -138, %psa_rsa_decode_md_type.exit ], [ -135, %31 ], [ -135, %24 ], [ -134, %22 ], [ -135, %18 ]
   %49 = load ptr, ptr %10, align 8, !tbaa !3
   tail call void @mbedtls_rsa_free(ptr noundef %49) #9
   tail call void @free(ptr noundef %49) #9
@@ -656,7 +656,7 @@ rsa_pss_expected_salt_len.exit:                   ; preds = %.rsa_pss_expected_s
   br label %psa_rsa_decode_md_type.exit.thread
 
 psa_rsa_decode_md_type.exit.thread:               ; preds = %23, %21, %17, %50, %48, %29, %psa_rsa_decode_md_type.exit, %8
-  %.0 = phi i32 [ %11, %8 ], [ -149, %48 ], [ -149, %psa_rsa_decode_md_type.exit ], [ -135, %29 ], [ %51, %50 ], [ -135, %23 ], [ -134, %21 ], [ -135, %17 ]
+  %.0 = phi i32 [ %11, %8 ], [ -149, %psa_rsa_decode_md_type.exit ], [ -135, %29 ], [ %51, %50 ], [ -149, %48 ], [ -135, %23 ], [ -134, %21 ], [ -135, %17 ]
   %52 = load ptr, ptr %9, align 8, !tbaa !3
   tail call void @mbedtls_rsa_free(ptr noundef %52) #9
   tail call void @free(ptr noundef %52) #9
@@ -732,8 +732,8 @@ psa_rsa_oaep_set_padding_mode.exit:               ; preds = %28, %32
   store i64 %41, ptr %10, align 8, !tbaa !13
   br label %.thread
 
-.thread:                                          ; preds = %25, %psa_rsa_oaep_set_padding_mode.exit, %18, %16, %40, %37
-  %.025 = phi i32 [ %38, %37 ], [ 0, %40 ], [ -135, %25 ], [ %34, %psa_rsa_oaep_set_padding_mode.exit ], [ -138, %18 ], [ %17, %16 ]
+.thread:                                          ; preds = %25, %18, %psa_rsa_oaep_set_padding_mode.exit, %16, %40, %37
+  %.025 = phi i32 [ 0, %40 ], [ %38, %37 ], [ -135, %25 ], [ -138, %18 ], [ %34, %psa_rsa_oaep_set_padding_mode.exit ], [ %17, %16 ]
   tail call void @mbedtls_rsa_free(ptr noundef %.pre) #9
   tail call void @free(ptr noundef %.pre) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -807,7 +807,7 @@ psa_rsa_oaep_set_padding_mode.exit:               ; preds = %26, %30
   br label %36
 
 36:                                               ; preds = %.sink.split, %23, %17, %psa_rsa_oaep_set_padding_mode.exit, %15
-  %.0 = phi i32 [ %16, %15 ], [ -135, %17 ], [ -135, %23 ], [ %32, %psa_rsa_oaep_set_padding_mode.exit ], [ %35, %.sink.split ]
+  %.0 = phi i32 [ %16, %15 ], [ %32, %psa_rsa_oaep_set_padding_mode.exit ], [ -135, %17 ], [ -135, %23 ], [ %35, %.sink.split ]
   tail call void @mbedtls_rsa_free(ptr noundef %.pre) #9
   tail call void @free(ptr noundef %.pre) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

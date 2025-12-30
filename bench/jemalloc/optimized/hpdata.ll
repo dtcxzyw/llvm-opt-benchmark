@@ -97,7 +97,7 @@ phn_merge_ordered.exit.i12:                       ; preds = %32, %29
   br label %phn_merge.exit16
 
 phn_merge.exit16:                                 ; preds = %phn_merge_ordered.exit20.i15, %phn_merge_ordered.exit.i12
-  %.0.i13 = phi ptr [ %12, %phn_merge_ordered.exit.i12 ], [ %7, %phn_merge_ordered.exit20.i15 ]
+  %.0.i13 = phi ptr [ %7, %phn_merge_ordered.exit20.i15 ], [ %12, %phn_merge_ordered.exit.i12 ]
   br i1 %.not.i1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %phn_merge.exit16, %58
@@ -171,7 +171,7 @@ phn_merge_ordered.exit.i6:                        ; preds = %55, %52
   br label %._crit_edge
 
 58:                                               ; preds = %phn_merge_ordered.exit.i6, %phn_merge_ordered.exit20.i9
-  %.0.i7 = phi ptr [ %36, %phn_merge_ordered.exit.i6 ], [ %.077.i21, %phn_merge_ordered.exit20.i9 ]
+  %.0.i7 = phi ptr [ %.077.i21, %phn_merge_ordered.exit20.i9 ], [ %36, %phn_merge_ordered.exit.i6 ]
   %59 = getelementptr inbounds nuw i8, ptr %.078.i20, i64 48
   store ptr %.0.i7, ptr %59, align 8, !tbaa !11
   %.not88.i = icmp eq ptr %40, null
@@ -237,7 +237,7 @@ phn_merge_ordered.exit.i:                         ; preds = %78, %74
   br label %phn_merge.exit
 
 phn_merge.exit:                                   ; preds = %phn_merge_ordered.exit20.i, %phn_merge_ordered.exit.i
-  %.0.i4 = phi ptr [ %.0.i2, %phn_merge_ordered.exit.i ], [ %.3.i, %phn_merge_ordered.exit20.i ]
+  %.0.i4 = phi ptr [ %.3.i, %phn_merge_ordered.exit20.i ], [ %.0.i2, %phn_merge_ordered.exit.i ]
   %80 = icmp eq ptr %63, null
   br i1 %80, label %phn_merge_siblings.exit, label %81
 
@@ -404,7 +404,7 @@ phn_merge_ordered.exit.i.i:                       ; preds = %49, %46
   br label %phn_merge.exit.i
 
 phn_merge.exit.i:                                 ; preds = %phn_merge_ordered.exit.i.i, %phn_merge_ordered.exit20.i.i
-  %.0.i.i = phi ptr [ %32, %phn_merge_ordered.exit.i.i ], [ %29, %phn_merge_ordered.exit20.i.i ]
+  %.0.i.i = phi ptr [ %29, %phn_merge_ordered.exit20.i.i ], [ %32, %phn_merge_ordered.exit.i.i ]
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   store ptr %37, ptr %52, align 8, !tbaa !11
@@ -510,7 +510,7 @@ phn_merge_ordered.exit.i12:                       ; preds = %32, %29
   br label %phn_merge.exit16
 
 phn_merge.exit16:                                 ; preds = %phn_merge_ordered.exit20.i15, %phn_merge_ordered.exit.i12
-  %.0.i13 = phi ptr [ %12, %phn_merge_ordered.exit.i12 ], [ %7, %phn_merge_ordered.exit20.i15 ]
+  %.0.i13 = phi ptr [ %7, %phn_merge_ordered.exit20.i15 ], [ %12, %phn_merge_ordered.exit.i12 ]
   br i1 %.not.i1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %phn_merge.exit16, %58
@@ -584,7 +584,7 @@ phn_merge_ordered.exit.i6:                        ; preds = %55, %52
   br label %._crit_edge
 
 58:                                               ; preds = %phn_merge_ordered.exit.i6, %phn_merge_ordered.exit20.i9
-  %.0.i7 = phi ptr [ %36, %phn_merge_ordered.exit.i6 ], [ %.077.i27, %phn_merge_ordered.exit20.i9 ]
+  %.0.i7 = phi ptr [ %.077.i27, %phn_merge_ordered.exit20.i9 ], [ %36, %phn_merge_ordered.exit.i6 ]
   %59 = getelementptr inbounds nuw i8, ptr %.078.i26, i64 48
   store ptr %.0.i7, ptr %59, align 8, !tbaa !11
   %.not88.i = icmp eq ptr %40, null
@@ -650,7 +650,7 @@ phn_merge_ordered.exit.i:                         ; preds = %78, %74
   br label %phn_merge.exit
 
 phn_merge.exit:                                   ; preds = %phn_merge_ordered.exit20.i, %phn_merge_ordered.exit.i
-  %.0.i4 = phi ptr [ %.0.i2, %phn_merge_ordered.exit.i ], [ %.3.i, %phn_merge_ordered.exit20.i ]
+  %.0.i4 = phi ptr [ %.3.i, %phn_merge_ordered.exit20.i ], [ %.0.i2, %phn_merge_ordered.exit.i ]
   %80 = icmp eq ptr %63, null
   br i1 %80, label %phn_merge_siblings.exit, label %81
 
@@ -752,7 +752,7 @@ phn_merge_ordered.exit.i15.i:                     ; preds = %116, %113
   br label %phn_merge.exit19.i
 
 phn_merge.exit19.i:                               ; preds = %phn_merge_ordered.exit.i15.i, %phn_merge_ordered.exit20.i18.i
-  %.0.i16.i = phi ptr [ %96, %phn_merge_ordered.exit.i15.i ], [ %93, %phn_merge_ordered.exit20.i18.i ]
+  %.0.i16.i = phi ptr [ %93, %phn_merge_ordered.exit20.i18.i ], [ %96, %phn_merge_ordered.exit.i15.i ]
   br i1 %.not.i.i17, label %._crit_edge32, label %.lr.ph31
 
 .lr.ph31:                                         ; preds = %phn_merge.exit19.i, %142
@@ -826,7 +826,7 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %139, %136
   br label %._crit_edge32
 
 142:                                              ; preds = %phn_merge_ordered.exit20.i12.i, %phn_merge_ordered.exit.i9.i
-  %.0.i10.i = phi ptr [ %120, %phn_merge_ordered.exit.i9.i ], [ %.077.i.i30, %phn_merge_ordered.exit20.i12.i ]
+  %.0.i10.i = phi ptr [ %.077.i.i30, %phn_merge_ordered.exit20.i12.i ], [ %120, %phn_merge_ordered.exit.i9.i ]
   %143 = getelementptr inbounds nuw i8, ptr %.078.i.i29, i64 48
   store ptr %.0.i10.i, ptr %143, align 8, !tbaa !11
   %.not88.i.i = icmp eq ptr %124, null
@@ -892,7 +892,7 @@ phn_merge_ordered.exit.i.i:                       ; preds = %162, %158
   br label %phn_merge.exit.i
 
 phn_merge.exit.i:                                 ; preds = %phn_merge_ordered.exit.i.i, %phn_merge_ordered.exit20.i.i
-  %.0.i7.i = phi ptr [ %.0.i.i, %phn_merge_ordered.exit.i.i ], [ %.3.i.i, %phn_merge_ordered.exit20.i.i ]
+  %.0.i7.i = phi ptr [ %.3.i.i, %phn_merge_ordered.exit20.i.i ], [ %.0.i.i, %phn_merge_ordered.exit.i.i ]
   %164 = icmp eq ptr %147, null
   br i1 %164, label %ph_merge_children.exit, label %165
 
@@ -993,7 +993,7 @@ phn_merge_ordered.exit.i14:                       ; preds = %33, %30
   br label %phn_merge.exit18
 
 phn_merge.exit18:                                 ; preds = %phn_merge_ordered.exit20.i17, %phn_merge_ordered.exit.i14
-  %.0.i15 = phi ptr [ %13, %phn_merge_ordered.exit.i14 ], [ %8, %phn_merge_ordered.exit20.i17 ]
+  %.0.i15 = phi ptr [ %8, %phn_merge_ordered.exit20.i17 ], [ %13, %phn_merge_ordered.exit.i14 ]
   br i1 %.not.i3, label %._crit_edge81, label %.lr.ph80
 
 .lr.ph80:                                         ; preds = %phn_merge.exit18, %59
@@ -1067,7 +1067,7 @@ phn_merge_ordered.exit.i8:                        ; preds = %56, %53
   br label %._crit_edge81
 
 59:                                               ; preds = %phn_merge_ordered.exit.i8, %phn_merge_ordered.exit20.i11
-  %.0.i9 = phi ptr [ %37, %phn_merge_ordered.exit.i8 ], [ %.077.i79, %phn_merge_ordered.exit20.i11 ]
+  %.0.i9 = phi ptr [ %.077.i79, %phn_merge_ordered.exit20.i11 ], [ %37, %phn_merge_ordered.exit.i8 ]
   %60 = getelementptr inbounds nuw i8, ptr %.078.i78, i64 48
   store ptr %.0.i9, ptr %60, align 8, !tbaa !11
   %.not88.i = icmp eq ptr %41, null
@@ -1133,7 +1133,7 @@ phn_merge_ordered.exit.i:                         ; preds = %79, %75
   br label %phn_merge.exit
 
 phn_merge.exit:                                   ; preds = %phn_merge_ordered.exit20.i, %phn_merge_ordered.exit.i
-  %.0.i6 = phi ptr [ %.0.i4, %phn_merge_ordered.exit.i ], [ %.3.i, %phn_merge_ordered.exit20.i ]
+  %.0.i6 = phi ptr [ %.3.i, %phn_merge_ordered.exit20.i ], [ %.0.i4, %phn_merge_ordered.exit.i ]
   %81 = icmp eq ptr %64, null
   br i1 %81, label %phn_merge_siblings.exit, label %82
 
@@ -1234,7 +1234,7 @@ phn_merge_ordered.exit.i15.i:                     ; preds = %118, %115
   br label %phn_merge.exit19.i
 
 phn_merge.exit19.i:                               ; preds = %phn_merge_ordered.exit.i15.i, %phn_merge_ordered.exit20.i18.i
-  %.0.i16.i = phi ptr [ %98, %phn_merge_ordered.exit.i15.i ], [ %93, %phn_merge_ordered.exit20.i18.i ]
+  %.0.i16.i = phi ptr [ %93, %phn_merge_ordered.exit20.i18.i ], [ %98, %phn_merge_ordered.exit.i15.i ]
   br i1 %.not.i.i19, label %._crit_edge87, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %phn_merge.exit19.i, %144
@@ -1308,7 +1308,7 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %141, %138
   br label %._crit_edge87
 
 144:                                              ; preds = %phn_merge_ordered.exit20.i12.i, %phn_merge_ordered.exit.i9.i
-  %.0.i10.i = phi ptr [ %122, %phn_merge_ordered.exit.i9.i ], [ %.077.i.i85, %phn_merge_ordered.exit20.i12.i ]
+  %.0.i10.i = phi ptr [ %.077.i.i85, %phn_merge_ordered.exit20.i12.i ], [ %122, %phn_merge_ordered.exit.i9.i ]
   %145 = getelementptr inbounds nuw i8, ptr %.078.i.i84, i64 48
   store ptr %.0.i10.i, ptr %145, align 8, !tbaa !11
   %.not88.i.i = icmp eq ptr %126, null
@@ -1374,7 +1374,7 @@ phn_merge_ordered.exit.i.i:                       ; preds = %164, %160
   br label %phn_merge.exit.i
 
 phn_merge.exit.i:                                 ; preds = %phn_merge_ordered.exit.i.i, %phn_merge_ordered.exit20.i.i
-  %.0.i7.i = phi ptr [ %.0.i.i, %phn_merge_ordered.exit.i.i ], [ %.3.i.i, %phn_merge_ordered.exit20.i.i ]
+  %.0.i7.i = phi ptr [ %.3.i.i, %phn_merge_ordered.exit20.i.i ], [ %.0.i.i, %phn_merge_ordered.exit.i.i ]
   %166 = icmp eq ptr %149, null
   br i1 %166, label %ph_merge_children.exit, label %167
 
@@ -1464,7 +1464,7 @@ phn_merge_ordered.exit.i15.i23:                   ; preds = %202, %199
   br label %phn_merge.exit19.i24
 
 phn_merge.exit19.i24:                             ; preds = %phn_merge_ordered.exit.i15.i23, %phn_merge_ordered.exit20.i18.i53
-  %.0.i16.i25 = phi ptr [ %182, %phn_merge_ordered.exit.i15.i23 ], [ %177, %phn_merge_ordered.exit20.i18.i53 ]
+  %.0.i16.i25 = phi ptr [ %177, %phn_merge_ordered.exit20.i18.i53 ], [ %182, %phn_merge_ordered.exit.i15.i23 ]
   br i1 %.not.i.i21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %phn_merge.exit19.i24, %228
@@ -1538,7 +1538,7 @@ phn_merge_ordered.exit.i9.i32:                    ; preds = %225, %222
   br label %._crit_edge
 
 228:                                              ; preds = %phn_merge_ordered.exit20.i12.i38, %phn_merge_ordered.exit.i9.i32
-  %.0.i10.i34 = phi ptr [ %206, %phn_merge_ordered.exit.i9.i32 ], [ %.077.i.i2776, %phn_merge_ordered.exit20.i12.i38 ]
+  %.0.i10.i34 = phi ptr [ %.077.i.i2776, %phn_merge_ordered.exit20.i12.i38 ], [ %206, %phn_merge_ordered.exit.i9.i32 ]
   %229 = getelementptr inbounds nuw i8, ptr %.078.i.i2675, i64 48
   store ptr %.0.i10.i34, ptr %229, align 8, !tbaa !11
   %.not88.i.i28 = icmp eq ptr %210, null
@@ -1604,7 +1604,7 @@ phn_merge_ordered.exit.i.i44:                     ; preds = %248, %244
   br label %phn_merge.exit.i45
 
 phn_merge.exit.i45:                               ; preds = %phn_merge_ordered.exit.i.i44, %phn_merge_ordered.exit20.i.i51
-  %.0.i7.i46 = phi ptr [ %.0.i.i42, %phn_merge_ordered.exit.i.i44 ], [ %.3.i.i41, %phn_merge_ordered.exit20.i.i51 ]
+  %.0.i7.i46 = phi ptr [ %.3.i.i41, %phn_merge_ordered.exit20.i.i51 ], [ %.0.i.i42, %phn_merge_ordered.exit.i.i44 ]
   %250 = icmp eq ptr %233, null
   br i1 %250, label %.loopexit, label %251
 
@@ -1631,8 +1631,8 @@ ph_merge_children.exit54:                         ; preds = %171
   %.not41.i = icmp eq ptr %175, null
   br i1 %.not41.i, label %259, label %ph_merge_children.exit54.thread67
 
-ph_merge_children.exit54.thread67:                ; preds = %256, %.loopexit, %ph_merge_children.exit54
-  %.0.i70 = phi ptr [ %175, %ph_merge_children.exit54 ], [ %.0.i49.ph, %.loopexit ], [ %.0.i49.ph, %256 ]
+ph_merge_children.exit54.thread67:                ; preds = %.loopexit, %256, %ph_merge_children.exit54
+  %.0.i70 = phi ptr [ %175, %ph_merge_children.exit54 ], [ %.0.i49.ph, %256 ], [ %.0.i49.ph, %.loopexit ]
   %258 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 40
   store ptr %173, ptr %258, align 8, !tbaa !13
   br label %259
@@ -1781,8 +1781,8 @@ fb_find_impl.exit.i:                              ; preds = %.lr.ph19.i, %._crit
   br label %fb_urange_iter.exit
 
 fb_urange_iter.exit:                              ; preds = %.lr.ph.i, %._crit_edge.i, %fb_find_impl.exit.i
-  %.296 = phi i64 [ %21, %fb_find_impl.exit.i ], [ %.094, %._crit_edge.i ], [ %.094, %.lr.ph.i ]
-  %.292 = phi i64 [ %36, %fb_find_impl.exit.i ], [ %.090, %._crit_edge.i ], [ %.090, %.lr.ph.i ]
+  %.296 = phi i64 [ %.094, %._crit_edge.i ], [ %21, %fb_find_impl.exit.i ], [ %.094, %.lr.ph.i ]
+  %.292 = phi i64 [ %.090, %._crit_edge.i ], [ %36, %fb_find_impl.exit.i ], [ %.090, %.lr.ph.i ]
   %.not = icmp ult i64 %.292, %3
   br i1 %.not, label %37, label %39
 
@@ -2023,7 +2023,7 @@ fb_set_range.exit56:                              ; preds = %._crit_edge.i48, %f
   br i1 %154, label %.lr.ph136, label %.thread108
 
 .thread108:                                       ; preds = %153, %.loopexit, %.lr.ph.i72, %.loopexit.thread, %.thread, %117
-  %.4 = phi i64 [ %spec.select40179, %.thread ], [ %.032, %117 ], [ %.292, %.loopexit.thread ], [ %.335133, %.lr.ph.i72 ], [ %.292, %.loopexit ], [ %spec.select40, %153 ]
+  %.4 = phi i64 [ %.032, %117 ], [ %.292, %.loopexit.thread ], [ %spec.select40179, %.thread ], [ %.335133, %.lr.ph.i72 ], [ %spec.select40, %153 ], [ %.292, %.loopexit ]
   store i64 %.4, ptr %115, align 8, !tbaa !31
   br label %155
 

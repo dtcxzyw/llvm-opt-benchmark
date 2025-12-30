@@ -210,7 +210,7 @@ should_output_to_server.exit:                     ; preds = %6, %8
   br label %should_output_to_client.exit
 
 should_output_to_client.exit:                     ; preds = %8, %6, %17, %should_output_to_server.exit, %1
-  %.0 = phi i1 [ true, %1 ], [ true, %6 ], [ false, %should_output_to_server.exit ], [ %21, %17 ], [ true, %8 ]
+  %.0 = phi i1 [ true, %1 ], [ %21, %17 ], [ false, %should_output_to_server.exit ], [ true, %6 ], [ true, %8 ]
   ret i1 %.0
 }
 
@@ -333,7 +333,7 @@ define dso_local noundef zeroext i1 @errstart(i32 noundef %0, ptr noundef %1) lo
   br label %should_output_to_server.exit
 
 should_output_to_server.exit:                     ; preds = %21, %23, %27, %29, %30
-  %.0.i.i = phi i1 [ true, %27 ], [ false, %30 ], [ true, %21 ], [ false, %23 ], [ true, %29 ]
+  %.0.i.i = phi i1 [ false, %30 ], [ true, %21 ], [ false, %23 ], [ true, %27 ], [ true, %29 ]
   %31 = zext i1 %.0.i.i to i8
   %32 = load i32, ptr @whereToSendOutput, align 4
   %33 = icmp eq i32 %32, 2
@@ -569,7 +569,7 @@ matches_backtrace_functions.exit:                 ; preds = %.lr.ph.i
   tail call fastcc void @set_backtrace(ptr noundef nonnull %6, i32 noundef 2)
   br label %matches_backtrace_functions.exit.thread
 
-matches_backtrace_functions.exit.thread:          ; preds = %41, %.preheader.i, %34, %31, %matches_backtrace_functions.exit, %27, %set_stack_entry_location.exit
+matches_backtrace_functions.exit.thread:          ; preds = %41, %.preheader.i, %31, %34, %matches_backtrace_functions.exit, %27, %set_stack_entry_location.exit
   %.025 = load ptr, ptr @error_context_stack, align 8
   %.not2226 = icmp eq ptr %.025, null
   br i1 %.not2226, label %._crit_edge, label %.lr.ph
@@ -5167,7 +5167,7 @@ define dso_local noundef zeroext i1 @check_log_destination(ptr noundef readonly 
   br i1 %32, label %33, label %.split
 
 33:                                               ; preds = %30, %27, %24, %.lr.ph56
-  %.sink = phi i32 [ 1, %.lr.ph56 ], [ 16, %27 ], [ 8, %24 ], [ 2, %30 ]
+  %.sink = phi i32 [ 1, %.lr.ph56 ], [ 8, %24 ], [ 16, %27 ], [ 2, %30 ]
   %34 = or i32 %.0274855, %.sink
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %15, align 4
@@ -5384,7 +5384,7 @@ define dso_local zeroext i1 @check_log_of_query(ptr noundef readonly captures(no
   %.not.i = icmp slt i32 %2, %3
   br i1 %.not.i, label %is_log_level_output.exit, label %14
 
-14:                                               ; preds = %11, %5, %13
+14:                                               ; preds = %5, %11, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %16 = load i8, ptr %15, align 2, !range !4, !noundef !5
   %17 = trunc nuw i8 %16 to i1
@@ -5422,7 +5422,7 @@ define dso_local ptr @get_backend_type_for_log() local_unnamed_addr #3 {
   br label %12
 
 12:                                               ; preds = %0, %7, %10
-  %.0 = phi ptr [ %11, %10 ], [ %9, %7 ], [ @.str.21, %0 ]
+  %.0 = phi ptr [ %9, %7 ], [ %11, %10 ], [ @.str.21, %0 ]
   ret ptr %.0
 }
 
@@ -5623,7 +5623,7 @@ process_log_prefix_padding.exit:                  ; preds = %.critedge.i, %28
   br label %get_backend_type_for_log.exit
 
 get_backend_type_for_log.exit:                    ; preds = %64, %71, %74
-  %.0.i = phi ptr [ %75, %74 ], [ %73, %71 ], [ @.str.21, %64 ]
+  %.0.i = phi ptr [ %73, %71 ], [ %75, %74 ], [ @.str.21, %64 ]
   %.not176 = icmp eq i32 %.2219, 0
   br i1 %.not176, label %77, label %76
 
@@ -6164,7 +6164,7 @@ unpack_sql_state.exit185:                         ; preds = %.preheader250
   br label %273
 
 273:                                              ; preds = %186, %187, %133, %137, %136, %105, %106, %89, %90, %76, %77, %59, %60, %166, %178, %61, %62, %91, %92, %107, %108, %115, %111, %121, %120, %138, %139, %144, %143, %158, %157, %196, %197, %195, %220, %221, %212, %210, %219, %217, %213, %231, %232, %229, %230, %234, %250, %251, %243, %247, %256, %255, %unpack_sql_state.exit185, %unpack_sql_state.exit, %272, %271, %process_log_prefix_padding.exit, %27, %23
-  %.1 = phi ptr [ %.0, %23 ], [ %25, %27 ], [ %.2, %process_log_prefix_padding.exit ], [ %.2, %272 ], [ %.2, %62 ], [ %.2, %61 ], [ %.2, %59 ], [ %.2, %76 ], [ %.2, %92 ], [ %.2, %91 ], [ %.2, %89 ], [ %.2, %108 ], [ %.2, %107 ], [ %.2, %111 ], [ %.2, %115 ], [ %.2, %120 ], [ %.2, %121 ], [ %.2, %105 ], [ %.2, %139 ], [ %.2, %138 ], [ %.2, %143 ], [ %.2, %144 ], [ %.2, %157 ], [ %.2, %158 ], [ %.2, %166 ], [ %.2, %178 ], [ %.2, %133 ], [ %.2, %195 ], [ %.2, %197 ], [ %.2, %196 ], [ %.2, %210 ], [ %.2, %212 ], [ %.2, %219 ], [ %.2, %217 ], [ %.2, %213 ], [ %.2, %221 ], [ %.2, %220 ], [ %.2, %229 ], [ %.2, %230 ], [ %.2, %232 ], [ %.2, %231 ], [ %.2, %234 ], [ %.2, %243 ], [ %.2, %247 ], [ %.2, %251 ], [ %.2, %250 ], [ %.2, %255 ], [ %.2, %256 ], [ %.2, %unpack_sql_state.exit ], [ %.2, %unpack_sql_state.exit185 ], [ %.2, %271 ], [ %.2, %60 ], [ %.2, %77 ], [ %.2, %90 ], [ %.2, %106 ], [ %.2, %136 ], [ %.2, %137 ], [ %.2, %187 ], [ %.2, %186 ]
+  %.1 = phi ptr [ %.0, %23 ], [ %25, %27 ], [ %.2, %process_log_prefix_padding.exit ], [ %.2, %62 ], [ %.2, %61 ], [ %.2, %92 ], [ %.2, %91 ], [ %.2, %108 ], [ %.2, %107 ], [ %.2, %111 ], [ %.2, %115 ], [ %.2, %120 ], [ %.2, %121 ], [ %.2, %139 ], [ %.2, %138 ], [ %.2, %143 ], [ %.2, %144 ], [ %.2, %157 ], [ %.2, %158 ], [ %.2, %166 ], [ %.2, %178 ], [ %.2, %195 ], [ %.2, %197 ], [ %.2, %196 ], [ %.2, %210 ], [ %.2, %212 ], [ %.2, %219 ], [ %.2, %217 ], [ %.2, %213 ], [ %.2, %221 ], [ %.2, %220 ], [ %.2, %229 ], [ %.2, %230 ], [ %.2, %232 ], [ %.2, %231 ], [ %.2, %234 ], [ %.2, %243 ], [ %.2, %247 ], [ %.2, %251 ], [ %.2, %250 ], [ %.2, %255 ], [ %.2, %256 ], [ %.2, %unpack_sql_state.exit ], [ %.2, %unpack_sql_state.exit185 ], [ %.2, %271 ], [ %.2, %272 ], [ %.2, %60 ], [ %.2, %59 ], [ %.2, %77 ], [ %.2, %76 ], [ %.2, %90 ], [ %.2, %89 ], [ %.2, %106 ], [ %.2, %105 ], [ %.2, %136 ], [ %.2, %137 ], [ %.2, %133 ], [ %.2, %187 ], [ %.2, %186 ]
   %274 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br label %21, !llvm.loop !77
 

@@ -261,7 +261,7 @@ nullstrcmp.exit38:                                ; preds = %35, %36
   br label %nullstrcmp.exit44
 
 nullstrcmp.exit44:                                ; preds = %35, %25, %17, %46, %45, %nullstrcmp.exit38, %nullstrcmp.exit32, %nullstrcmp.exit, %7
-  %.0 = phi i32 [ %9, %7 ], [ -1, %25 ], [ %.0.i, %nullstrcmp.exit ], [ %.0.i28, %nullstrcmp.exit32 ], [ %.0.i34, %nullstrcmp.exit38 ], [ %47, %46 ], [ -1, %17 ], [ %spec.select.i43, %45 ], [ -1, %35 ]
+  %.0 = phi i32 [ %9, %7 ], [ %.0.i, %nullstrcmp.exit ], [ %.0.i28, %nullstrcmp.exit32 ], [ %.0.i34, %nullstrcmp.exit38 ], [ %47, %46 ], [ %spec.select.i43, %45 ], [ -1, %17 ], [ -1, %25 ], [ -1, %35 ]
   ret i32 %.0
 }
 
@@ -336,7 +336,7 @@ define range(i32 0, 2) i32 @ossl_decoder_cache_flush(ptr noundef %0) local_unnam
   br label %14
 
 14:                                               ; preds = %1, %8, %7
-  %.0 = phi i32 [ 0, %7 ], [ 1, %8 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %8 ], [ 0, %7 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -524,7 +524,7 @@ ossl_decoder_ctx_setup_for_pkey.exit.thread95:    ; preds = %73
   br label %81
 
 ossl_decoder_ctx_setup_for_pkey.exit:             ; preds = %46, %53, %54, %65, %67, %69, %71, %73
-  %.not83 = phi i1 [ true, %46 ], [ false, %67 ], [ true, %71 ], [ true, %69 ], [ true, %65 ], [ true, %54 ], [ true, %53 ], [ true, %73 ]
+  %.not83 = phi i1 [ false, %67 ], [ true, %69 ], [ true, %71 ], [ true, %65 ], [ true, %54 ], [ true, %53 ], [ true, %46 ], [ true, %73 ]
   %75 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %76 = load ptr, ptr %75, align 8, !tbaa !37
   call void @OPENSSL_sk_pop_free(ptr noundef %76, ptr noundef nonnull @EVP_KEYMGMT_free) #7
@@ -777,8 +777,8 @@ ossl_decoder_ctx_setup_for_pkey.exit:             ; preds = %46, %53, %54, %65, 
   br label %decoder_clean_pkey_construct_arg.exit.i
 
 182:                                              ; preds = %170, %166, %159
-  %.sink64.i = phi i32 [ 565, %166 ], [ 554, %159 ], [ 575, %170 ]
-  %.sink.i = phi i32 [ 524294, %166 ], [ 524303, %159 ], [ 524348, %170 ]
+  %.sink64.i = phi i32 [ 554, %159 ], [ 565, %166 ], [ 575, %170 ]
+  %.sink.i = phi i32 [ 524303, %159 ], [ 524294, %166 ], [ 524348, %170 ]
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink64.i, ptr noundef nonnull @__func__.ossl_decoder_ctx_for_pkey_dup) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 60, i32 noundef %.sink.i, ptr noundef null) #7
@@ -799,7 +799,7 @@ decoder_clean_pkey_construct_arg.exit.i:          ; preds = %182, %181, %155, %1
   br label %ossl_decoder_ctx_for_pkey_dup.exit
 
 ossl_decoder_ctx_for_pkey_dup.exit:               ; preds = %125, %129, %178, %decoder_clean_pkey_construct_arg.exit.i
-  %.040.i92 = phi ptr [ null, %125 ], [ null, %129 ], [ null, %decoder_clean_pkey_construct_arg.exit.i ], [ %127, %178 ]
+  %.040.i92 = phi ptr [ null, %129 ], [ null, %decoder_clean_pkey_construct_arg.exit.i ], [ null, %125 ], [ %127, %178 ]
   %189 = load ptr, ptr %12, align 8, !tbaa !3
   %190 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %189) #7
   br label %192
@@ -1248,7 +1248,7 @@ define internal range(i32 0, 2) i32 @decoder_construct_pkey(ptr noundef %0, ptr 
   br label %81
 
 81:                                               ; preds = %44, %16, %19, %.critedge, %.thread89
-  %.1 = phi i32 [ 0, %.critedge ], [ %80, %.thread89 ], [ 0, %16 ], [ 0, %44 ], [ 0, %19 ]
+  %.1 = phi i32 [ %80, %.thread89 ], [ 0, %.critedge ], [ 0, %19 ], [ 0, %16 ], [ 0, %44 ]
   ret i32 %.1
 }
 

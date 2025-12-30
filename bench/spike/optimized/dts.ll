@@ -516,7 +516,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127: ; preds = %162, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i125
-  %.pn = phi { ptr, i32 } [ %163, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i125 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %163, %162 ]
+  %.pn = phi { ptr, i32 } [ %163, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i125 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %163, %162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.body
 
@@ -747,7 +747,7 @@ _ZN12isa_parser_tD2Ev.exit:                       ; preds = %_ZNSt3setINSt7__cxx
   ret void
 
 .body:                                            ; preds = %235, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %46, %105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127, %214, %76
-  %.pn56 = phi { ptr, i32 } [ %77, %76 ], [ %106, %105 ], [ %215, %214 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127 ], [ %47, %46 ], [ %236, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %236, %235 ]
+  %.pn56 = phi { ptr, i32 } [ %77, %76 ], [ %215, %214 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127 ], [ %106, %105 ], [ %47, %46 ], [ %236, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %236, %235 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %11) #26
   br label %276
 
@@ -1253,7 +1253,7 @@ define noundef range(i32 -2147483648, 1) i32 @_Z22fdt_get_node_addr_sizePKviPmS1
   br label %33
 
 33:                                               ; preds = %26, %._crit_edge58, %15, %12, %9, %5
-  %.035 = phi i32 [ -19, %12 ], [ %7, %5 ], [ -19, %9 ], [ -19, %15 ], [ 0, %26 ], [ 0, %._crit_edge58 ]
+  %.035 = phi i32 [ %7, %5 ], [ -19, %9 ], [ -19, %12 ], [ -19, %15 ], [ 0, %._crit_edge58 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.035
 }
@@ -1341,7 +1341,7 @@ define noundef range(i32 -2147483648, 1) i32 @_Z15fdt_parse_clintPKvPmPKc(ptr no
   br label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit
 
 _Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %18, %._crit_edge.i, %7, %10, %13, %16
-  %.035.i = phi i1 [ false, %13 ], [ false, %7 ], [ false, %10 ], [ false, %16 ], [ true, %._crit_edge.i ], [ true, %18 ]
+  %.035.i = phi i1 [ false, %7 ], [ false, %10 ], [ false, %13 ], [ false, %16 ], [ true, %._crit_edge.i ], [ true, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %25 = icmp ne ptr %1, null
   %or.cond = and i1 %25, %.035.i
@@ -1349,7 +1349,7 @@ _Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %18, %._crit_edge.i,
   br label %26
 
 26:                                               ; preds = %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, %3
-  %.0 = phi i32 [ %., %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit ], [ %5, %3 ]
+  %.0 = phi i32 [ %5, %3 ], [ %., %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit ]
   ret i32 %.0
 }
 
@@ -1401,7 +1401,7 @@ define noundef range(i32 -2147483648, 1) i32 @_Z14fdt_parse_plicPKvPmPjPKc(ptr n
   %exitcond.not.i = icmp eq i32 %25, %13
   br i1 %exitcond.not.i, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %.lr.ph.i, !llvm.loop !105
 
-_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit.thread: ; preds = %15, %9, %12, %18
+_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit.thread: ; preds = %9, %12, %15, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %31
 
@@ -1421,7 +1421,7 @@ _Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %.lr.ph.i
   br label %31
 
 31:                                               ; preds = %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit.thread, %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, %4, %29
-  %.0 = phi i32 [ %7, %4 ], [ 0, %29 ], [ -19, %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit.thread ], [ -19, %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit ]
+  %.0 = phi i32 [ 0, %29 ], [ %7, %4 ], [ -19, %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit ], [ -19, %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1472,7 +1472,7 @@ define noundef range(i32 -2147483648, 1) i32 @_Z17fdt_parse_ns16550PKvPmPjS2_S2_
   %exitcond.not.i = icmp eq i32 %27, %15
   br i1 %exitcond.not.i, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit, label %.lr.ph.i, !llvm.loop !105
 
-_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit.thread: ; preds = %17, %11, %14, %20
+_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit.thread: ; preds = %11, %14, %17, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %43
 
@@ -1536,7 +1536,7 @@ _Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %.lr.ph.i
   br label %43
 
 43:                                               ; preds = %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit.thread, %37, %42, %40, %6
-  %.0 = phi i32 [ %9, %6 ], [ -19, %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit.thread ], [ 0, %40 ], [ 0, %42 ], [ 0, %37 ]
+  %.0 = phi i32 [ %9, %6 ], [ 0, %40 ], [ 0, %42 ], [ 0, %37 ], [ -19, %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -1625,7 +1625,7 @@ _ZL14check_cpu_nodePKvi.exit.thread:              ; preds = %3, %8, %sub_0.i, %s
   br label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit
 
 _Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %30, %._crit_edge.i, %19, %22, %25, %28
-  %.035.i = phi i1 [ false, %25 ], [ false, %19 ], [ false, %22 ], [ false, %28 ], [ true, %._crit_edge.i ], [ true, %30 ]
+  %.035.i = phi i1 [ false, %19 ], [ false, %22 ], [ false, %25 ], [ false, %28 ], [ true, %._crit_edge.i ], [ true, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %37 = icmp ne ptr %2, null
   %or.cond = and i1 %37, %.035.i
@@ -1721,7 +1721,7 @@ _ZL14check_cpu_nodePKvi.exit.thread:              ; preds = %3, %8, %sub_0.i, %s
   br label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit
 
 _Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %30, %._crit_edge.i, %19, %22, %25, %28
-  %.035.i = phi i1 [ false, %25 ], [ false, %19 ], [ false, %22 ], [ false, %28 ], [ true, %._crit_edge.i ], [ true, %30 ]
+  %.035.i = phi i1 [ false, %19 ], [ false, %22 ], [ false, %25 ], [ false, %28 ], [ true, %._crit_edge.i ], [ true, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %37 = icmp ne ptr %2, null
   %or.cond = and i1 %37, %.035.i
@@ -1787,7 +1787,7 @@ _ZL14check_cpu_nodePKvi.exit.thread:              ; preds = %3, %8, %sub_0.i, %s
   br label %25
 
 25:                                               ; preds = %_ZL14check_cpu_nodePKvi.exit.thread, %19, %24
-  %.0 = phi i32 [ -22, %_ZL14check_cpu_nodePKvi.exit.thread ], [ 0, %24 ], [ -22, %19 ]
+  %.0 = phi i32 [ 0, %24 ], [ -22, %19 ], [ -22, %_ZL14check_cpu_nodePKvi.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1846,7 +1846,7 @@ _ZL14check_cpu_nodePKvi.exit.thread:              ; preds = %3, %8, %sub_0.i, %s
   br label %25
 
 25:                                               ; preds = %_ZL14check_cpu_nodePKvi.exit.thread, %19, %24
-  %.0 = phi i32 [ -22, %_ZL14check_cpu_nodePKvi.exit.thread ], [ 0, %24 ], [ -22, %19 ]
+  %.0 = phi i32 [ 0, %24 ], [ -22, %19 ], [ -22, %_ZL14check_cpu_nodePKvi.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1914,7 +1914,7 @@ _ZL14check_cpu_nodePKvi.exit.thread:              ; preds = %3, %8, %sub_0.i, %s
   br label %28
 
 28:                                               ; preds = %_ZL14check_cpu_nodePKvi.exit.thread, %24, %25, %19
-  %.011 = phi i32 [ -22, %19 ], [ -22, %_ZL14check_cpu_nodePKvi.exit.thread ], [ 0, %25 ], [ 0, %24 ]
+  %.011 = phi i32 [ -22, %19 ], [ 0, %25 ], [ 0, %24 ], [ -22, %_ZL14check_cpu_nodePKvi.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.011
 }

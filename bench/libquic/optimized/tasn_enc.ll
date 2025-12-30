@@ -51,7 +51,7 @@ define internal fastcc i32 @asn1_item_flags_i2d(ptr noundef %0, ptr noundef %1, 
   br label %19
 
 19:                                               ; preds = %14, %11, %17
-  %.0 = phi i32 [ %12, %11 ], [ %12, %17 ], [ -1, %14 ]
+  %.0 = phi i32 [ %12, %17 ], [ %12, %11 ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %20
 
@@ -311,7 +311,7 @@ define hidden i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph172, %44, %43, %16, %113, %._crit_edge, %79, %69, %54, %60, %27, %10, %115, %74, %46, %37, %24, %22, %20
-  %.0 = phi i32 [ 0, %113 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %42, %37 ], [ 0, %16 ], [ 0, %27 ], [ 0, %10 ], [ %49, %46 ], [ 0, %79 ], [ %58, %54 ], [ %75, %74 ], [ 0, %43 ], [ %97, %._crit_edge ], [ %97, %115 ], [ 0, %.lr.ph172 ], [ 0, %44 ], [ 0, %69 ], [ %58, %60 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %42, %37 ], [ %49, %46 ], [ %75, %74 ], [ %97, %115 ], [ 0, %10 ], [ 0, %27 ], [ %58, %60 ], [ %58, %54 ], [ 0, %69 ], [ 0, %79 ], [ %97, %._crit_edge ], [ 0, %113 ], [ 0, %16 ], [ 0, %43 ], [ 0, %44 ], [ 0, %.lr.ph172 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -553,7 +553,7 @@ asn1_set_seq_out.exit:                            ; preds = %.lr.ph145, %asn1_se
   br label %105
 
 105:                                              ; preds = %.thread, %asn1_set_seq_out.exit, %103, %101, %42, %25
-  %.1 = phi i32 [ %41, %42 ], [ 0, %25 ], [ %.096123127, %101 ], [ %.096123127, %103 ], [ %.096123127, %asn1_set_seq_out.exit ], [ %43, %.thread ]
+  %.1 = phi i32 [ 0, %25 ], [ %41, %42 ], [ %.096123127, %101 ], [ %.096123127, %103 ], [ %.096123127, %asn1_set_seq_out.exit ], [ %43, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %122
 
@@ -590,7 +590,7 @@ asn1_set_seq_out.exit:                            ; preds = %.lr.ph145, %asn1_se
   br label %122
 
 122:                                              ; preds = %112, %117, %114, %110, %12, %119, %105
-  %.0 = phi i32 [ %121, %119 ], [ %.1, %105 ], [ 0, %110 ], [ -1, %12 ], [ %113, %114 ], [ %113, %117 ], [ %113, %112 ]
+  %.0 = phi i32 [ %.1, %105 ], [ %121, %119 ], [ -1, %12 ], [ 0, %110 ], [ %113, %114 ], [ %113, %117 ], [ %113, %112 ]
   ret i32 %.0
 }
 
@@ -655,7 +655,7 @@ define internal fastcc i32 @asn1_i2d_ex_primitive(ptr noundef %0, ptr noundef %1
   br label %29
 
 29:                                               ; preds = %26, %26, %26, %5, %27
-  %.030 = phi i32 [ 0, %5 ], [ %28, %27 ], [ %spec.select, %26 ], [ %spec.select, %26 ], [ %spec.select, %26 ]
+  %.030 = phi i32 [ %28, %27 ], [ 0, %5 ], [ %spec.select, %26 ], [ %spec.select, %26 ], [ %spec.select, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.030
 }
@@ -863,7 +863,7 @@ define hidden i32 @asn1_ex_i2c(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %.thread74
 
 .thread74:                                        ; preds = %34, %.thread70, %77, %80, %70, %71, %52, %50, %41, %19, %58, %55, %12
-  %.0 = phi i32 [ %13, %12 ], [ -1, %52 ], [ -2, %70 ], [ -1, %19 ], [ -1, %41 ], [ -1, %50 ], [ %57, %55 ], [ %60, %58 ], [ -2, %71 ], [ %.050, %80 ], [ %.050, %77 ], [ -1, %.thread70 ], [ 0, %34 ]
+  %.0 = phi i32 [ %13, %12 ], [ %57, %55 ], [ %60, %58 ], [ -1, %19 ], [ -1, %41 ], [ -1, %50 ], [ -1, %52 ], [ -2, %71 ], [ -2, %70 ], [ %.050, %80 ], [ %.050, %77 ], [ -1, %.thread70 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

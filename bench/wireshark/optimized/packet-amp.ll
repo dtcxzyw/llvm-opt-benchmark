@@ -552,14 +552,14 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge336, %.loopexit.sink.split, %._crit_edge, %41, %51
-  %.1 = phi i32 [ %58, %51 ], [ %49, %41 ], [ %76, %._crit_edge ], [ %49, %.loopexit.sink.split ], [ %.7.lcssa, %._crit_edge336 ]
+  %.1 = phi i32 [ %49, %41 ], [ %58, %51 ], [ %76, %._crit_edge ], [ %49, %.loopexit.sink.split ], [ %.7.lcssa, %._crit_edge336 ]
   %169 = add i32 %.0299345, 1
   %170 = zext i32 %169 to i64
   %171 = icmp ugt i64 %.sroa.10128.0.copyload, %170
   br i1 %171, label %41, label %.critedge, !llvm.loop !10
 
 .critedge.sink.split:                             ; preds = %51, %.lr.ph, %107, %96
-  %.lcssa373.sink = phi i32 [ %74, %.lr.ph ], [ %97, %96 ], [ %120, %107 ], [ %58, %51 ]
+  %.lcssa373.sink = phi i32 [ %97, %96 ], [ %120, %107 ], [ %74, %.lr.ph ], [ %58, %51 ]
   %172 = call ptr @proto_tree_add_expert(ptr noundef %29, ptr noundef %1, ptr noundef nonnull @ei_amp_cbor_malformed, ptr noundef %0, i32 noundef %.lcssa373.sink, i32 noundef -1)
   br label %.critedge
 
@@ -795,7 +795,7 @@ define internal fastcc void @cbor_info(ptr dead_on_unwind noalias writable write
   br label %.sink.split
 
 .sink.split:                                      ; preds = %84, %86, %70, %76, %82, %79, %73, %72, %14, %20, %26, %23, %17, %16, %44, %64
-  %.sink = phi i64 [ -1, %70 ], [ 1, %14 ], [ %67, %64 ], [ %47, %44 ], [ 1, %16 ], [ 2, %17 ], [ 5, %23 ], [ 9, %26 ], [ 3, %20 ], [ -1, %72 ], [ -1, %73 ], [ -1, %79 ], [ -1, %82 ], [ -1, %76 ], [ %87, %86 ], [ -1, %84 ]
+  %.sink = phi i64 [ %67, %64 ], [ %47, %44 ], [ 1, %16 ], [ 2, %17 ], [ 5, %23 ], [ 9, %26 ], [ 3, %20 ], [ 1, %14 ], [ -1, %72 ], [ -1, %73 ], [ -1, %79 ], [ -1, %82 ], [ -1, %76 ], [ -1, %70 ], [ %87, %86 ], [ -1, %84 ]
   store i64 %.sink, ptr %5, align 8
   br label %88
 

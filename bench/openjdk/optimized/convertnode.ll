@@ -179,7 +179,7 @@ define hidden noundef ptr @_ZNK10Conv2BNode5ValueEP8PhaseGVN(ptr noundef nonnull
   br label %51
 
 51:                                               ; preds = %27, %18, %2, %49, %47, %37, %34, %32, %30
-  %.0 = phi ptr [ %50, %49 ], [ %16, %2 ], [ %19, %18 ], [ %48, %47 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %38, %37 ], [ %16, %27 ]
+  %.0 = phi ptr [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %38, %37 ], [ %48, %47 ], [ %50, %49 ], [ %16, %2 ], [ %19, %18 ], [ %16, %27 ]
   ret ptr %.0
 }
 
@@ -312,8 +312,8 @@ _ZN4NodenwEm.exit24:                              ; preds = %72, %74
   br label %._crit_edge.sink.split
 
 ._crit_edge.sink.split:                           ; preds = %_ZN4NodenwEm.exit24, %77, %_ZN4NodenwEm.exit, %49
-  %.0.i.i.i23.sink = phi ptr [ %.0.i.i.i, %_ZN4NodenwEm.exit ], [ %.0.i.i.i, %49 ], [ %.0.i.i.i23, %77 ], [ %.0.i.i.i23, %_ZN4NodenwEm.exit24 ]
-  %.pre-phi.ph = phi ptr [ %29, %_ZN4NodenwEm.exit ], [ %29, %49 ], [ %.pre, %77 ], [ %.pre, %_ZN4NodenwEm.exit24 ]
+  %.0.i.i.i23.sink = phi ptr [ %.0.i.i.i, %49 ], [ %.0.i.i.i, %_ZN4NodenwEm.exit ], [ %.0.i.i.i23, %77 ], [ %.0.i.i.i23, %_ZN4NodenwEm.exit24 ]
+  %.pre-phi.ph = phi ptr [ %29, %49 ], [ %29, %_ZN4NodenwEm.exit ], [ %.pre, %77 ], [ %.pre, %_ZN4NodenwEm.exit24 ]
   %83 = load ptr, ptr %1, align 8
   %84 = load ptr, ptr %83, align 8
   %85 = tail call noundef ptr %84(ptr noundef nonnull align 8 dereferenceable(2400) %1, ptr noundef %.0.i.i.i23.sink) #8
@@ -410,7 +410,7 @@ _ZN4NodenwEm.exit30:                              ; preds = %126, %128
   br label %136
 
 136:                                              ; preds = %3, %135, %_ZN4NodenwEm.exit30, %131
-  %.0 = phi ptr [ null, %_ZN4NodenwEm.exit30 ], [ %.0.i.i.i29, %131 ], [ null, %135 ], [ null, %3 ]
+  %.0 = phi ptr [ %.0.i.i.i29, %131 ], [ null, %_ZN4NodenwEm.exit30 ], [ null, %135 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1628,7 +1628,7 @@ _ZN12ConvHF2FNodeC2EP4Node.exit:                  ; preds = %617, %624, %635
   br label %641
 
 641:                                              ; preds = %593, %4, %140, %276, %457, %_ZN4NodenwEm.exit129, %_ZN12ConvHF2FNodeC2EP4Node.exit, %_ZN4NodenwEm.exit123, %_ZN11ConvD2FNodeC2EP4Node.exit, %_ZN4NodenwEm.exit117, %_ZN11ConvD2LNodeC2EP4Node.exit, %_ZN4NodenwEm.exit111, %_ZN11ConvD2INodeC2EP4Node.exit, %_ZN4NodenwEm.exit105, %_ZN12ConvF2HFNodeC2EP4Node.exit, %_ZN4NodenwEm.exit99, %_ZN11ConvF2DNodeC2EP4Node.exit, %_ZN4NodenwEm.exit93, %_ZN11ConvF2LNodeC2EP4Node.exit, %_ZN4NodenwEm.exit87, %_ZN11ConvF2INodeC2EP4Node.exit, %_ZN4NodenwEm.exit81, %_ZN11ConvL2DNodeC2EP4Node.exit, %_ZN4NodenwEm.exit75, %_ZN11ConvL2FNodeC2EP4Node.exit, %_ZN4NodenwEm.exit69, %_ZN11ConvL2INodeC2EP4NodePK7TypeInt.exit, %_ZN4NodenwEm.exit63, %_ZN11ConvI2DNodeC2EP4Node.exit, %_ZN4NodenwEm.exit57, %_ZN11ConvI2FNodeC2EP4Node.exit, %_ZN4NodenwEm.exit, %_ZN11ConvI2LNodeC2EP4NodePK8TypeLong.exit
-  %.0 = phi ptr [ null, %_ZN4NodenwEm.exit123 ], [ null, %_ZN4NodenwEm.exit ], [ null, %_ZN4NodenwEm.exit57 ], [ null, %_ZN4NodenwEm.exit129 ], [ null, %_ZN4NodenwEm.exit63 ], [ null, %_ZN4NodenwEm.exit69 ], [ null, %_ZN4NodenwEm.exit75 ], [ null, %_ZN4NodenwEm.exit81 ], [ null, %_ZN4NodenwEm.exit87 ], [ null, %_ZN4NodenwEm.exit93 ], [ null, %_ZN4NodenwEm.exit99 ], [ null, %_ZN4NodenwEm.exit105 ], [ null, %_ZN4NodenwEm.exit111 ], [ null, %_ZN4NodenwEm.exit117 ], [ %.0.i.i.i, %_ZN11ConvI2LNodeC2EP4NodePK8TypeLong.exit ], [ %.0.i.i.i56, %_ZN11ConvI2FNodeC2EP4Node.exit ], [ %.0.i.i.i62, %_ZN11ConvI2DNodeC2EP4Node.exit ], [ %.0.i.i.i68, %_ZN11ConvL2INodeC2EP4NodePK7TypeInt.exit ], [ %.0.i.i.i74, %_ZN11ConvL2FNodeC2EP4Node.exit ], [ %.0.i.i.i80, %_ZN11ConvL2DNodeC2EP4Node.exit ], [ %.0.i.i.i86, %_ZN11ConvF2INodeC2EP4Node.exit ], [ %.0.i.i.i92, %_ZN11ConvF2LNodeC2EP4Node.exit ], [ %.0.i.i.i98, %_ZN11ConvF2DNodeC2EP4Node.exit ], [ %.0.i.i.i104, %_ZN12ConvF2HFNodeC2EP4Node.exit ], [ %.0.i.i.i110, %_ZN11ConvD2INodeC2EP4Node.exit ], [ %.0.i.i.i116, %_ZN11ConvD2LNodeC2EP4Node.exit ], [ %.0.i.i.i122, %_ZN11ConvD2FNodeC2EP4Node.exit ], [ %.0.i.i.i128, %_ZN12ConvHF2FNodeC2EP4Node.exit ], [ null, %457 ], [ null, %276 ], [ null, %140 ], [ null, %4 ], [ null, %593 ]
+  %.0 = phi ptr [ %.0.i.i.i, %_ZN11ConvI2LNodeC2EP4NodePK8TypeLong.exit ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i56, %_ZN11ConvI2FNodeC2EP4Node.exit ], [ null, %_ZN4NodenwEm.exit57 ], [ %.0.i.i.i62, %_ZN11ConvI2DNodeC2EP4Node.exit ], [ null, %_ZN4NodenwEm.exit63 ], [ %.0.i.i.i68, %_ZN11ConvL2INodeC2EP4NodePK7TypeInt.exit ], [ null, %_ZN4NodenwEm.exit69 ], [ %.0.i.i.i74, %_ZN11ConvL2FNodeC2EP4Node.exit ], [ null, %_ZN4NodenwEm.exit75 ], [ %.0.i.i.i80, %_ZN11ConvL2DNodeC2EP4Node.exit ], [ null, %_ZN4NodenwEm.exit81 ], [ %.0.i.i.i86, %_ZN11ConvF2INodeC2EP4Node.exit ], [ null, %_ZN4NodenwEm.exit87 ], [ %.0.i.i.i92, %_ZN11ConvF2LNodeC2EP4Node.exit ], [ null, %_ZN4NodenwEm.exit93 ], [ %.0.i.i.i98, %_ZN11ConvF2DNodeC2EP4Node.exit ], [ null, %_ZN4NodenwEm.exit99 ], [ %.0.i.i.i104, %_ZN12ConvF2HFNodeC2EP4Node.exit ], [ null, %_ZN4NodenwEm.exit105 ], [ %.0.i.i.i110, %_ZN11ConvD2INodeC2EP4Node.exit ], [ null, %_ZN4NodenwEm.exit111 ], [ %.0.i.i.i116, %_ZN11ConvD2LNodeC2EP4Node.exit ], [ null, %_ZN4NodenwEm.exit117 ], [ %.0.i.i.i122, %_ZN11ConvD2FNodeC2EP4Node.exit ], [ null, %_ZN4NodenwEm.exit123 ], [ %.0.i.i.i128, %_ZN12ConvHF2FNodeC2EP4Node.exit ], [ null, %_ZN4NodenwEm.exit129 ], [ null, %457 ], [ null, %276 ], [ null, %140 ], [ null, %4 ], [ null, %593 ]
   ret ptr %.0
 }
 
@@ -1668,7 +1668,7 @@ define hidden noundef ptr @_ZNK11ConvD2FNode5ValueEP8PhaseGVN(ptr noundef nonnul
   br label %28
 
 28:                                               ; preds = %2, %23, %21
-  %.0 = phi ptr [ %27, %23 ], [ %22, %21 ], [ %16, %2 ]
+  %.0 = phi ptr [ %22, %21 ], [ %27, %23 ], [ %16, %2 ]
   ret ptr %.0
 }
 
@@ -1763,7 +1763,7 @@ _ZN4NodenwEm.exit:                                ; preds = %45, %47
   br label %_ZN9SqrtFNodeC2EP7CompileP4NodeS3_.exit
 
 _ZN9SqrtFNodeC2EP7CompileP4NodeS3_.exit:          ; preds = %62, %50, %3, %24, %12, %_ZN4NodenwEm.exit
-  %.0 = phi ptr [ null, %_ZN4NodenwEm.exit ], [ null, %3 ], [ null, %12 ], [ null, %24 ], [ %.0.i.i.i, %50 ], [ %.0.i.i.i, %62 ]
+  %.0 = phi ptr [ null, %_ZN4NodenwEm.exit ], [ null, %12 ], [ null, %24 ], [ null, %3 ], [ %.0.i.i.i, %50 ], [ %.0.i.i.i, %62 ]
   ret ptr %.0
 }
 
@@ -1830,7 +1830,7 @@ define hidden noundef ptr @_ZNK11ConvD2INode5ValueEP8PhaseGVN(ptr noundef nonnul
   br label %28
 
 28:                                               ; preds = %2, %23, %21
-  %.0 = phi ptr [ %27, %23 ], [ %22, %21 ], [ %16, %2 ]
+  %.0 = phi ptr [ %22, %21 ], [ %27, %23 ], [ %16, %2 ]
   ret ptr %.0
 }
 
@@ -1989,7 +1989,7 @@ define hidden noundef ptr @_ZNK11ConvD2LNode5ValueEP8PhaseGVN(ptr noundef nonnul
   br label %28
 
 28:                                               ; preds = %2, %23, %21
-  %.0 = phi ptr [ %27, %23 ], [ %22, %21 ], [ %16, %2 ]
+  %.0 = phi ptr [ %22, %21 ], [ %27, %23 ], [ %16, %2 ]
   ret ptr %.0
 }
 
@@ -2162,7 +2162,7 @@ define hidden noundef ptr @_ZNK11ConvF2DNode5ValueEP8PhaseGVN(ptr noundef nonnul
   br label %28
 
 28:                                               ; preds = %2, %23, %21
-  %.0 = phi ptr [ %27, %23 ], [ %22, %21 ], [ %16, %2 ]
+  %.0 = phi ptr [ %22, %21 ], [ %27, %23 ], [ %16, %2 ]
   ret ptr %.0
 }
 
@@ -2210,7 +2210,7 @@ define hidden noundef ptr @_ZNK12ConvF2HFNode5ValueEP8PhaseGVN(ptr noundef nonnu
   br label %32
 
 32:                                               ; preds = %2, %26, %24
-  %.0 = phi ptr [ %31, %26 ], [ %25, %24 ], [ %16, %2 ]
+  %.0 = phi ptr [ %25, %24 ], [ %31, %26 ], [ %16, %2 ]
   ret ptr %.0
 }
 
@@ -2250,7 +2250,7 @@ define hidden noundef ptr @_ZNK11ConvF2INode5ValueEP8PhaseGVN(ptr noundef nonnul
   br label %28
 
 28:                                               ; preds = %2, %23, %21
-  %.0 = phi ptr [ %27, %23 ], [ %22, %21 ], [ %16, %2 ]
+  %.0 = phi ptr [ %22, %21 ], [ %27, %23 ], [ %16, %2 ]
   ret ptr %.0
 }
 
@@ -2421,7 +2421,7 @@ define hidden noundef ptr @_ZNK11ConvF2LNode5ValueEP8PhaseGVN(ptr noundef nonnul
   br label %28
 
 28:                                               ; preds = %2, %23, %21
-  %.0 = phi ptr [ %27, %23 ], [ %22, %21 ], [ %16, %2 ]
+  %.0 = phi ptr [ %22, %21 ], [ %27, %23 ], [ %16, %2 ]
   ret ptr %.0
 }
 
@@ -2608,7 +2608,7 @@ define hidden noundef ptr @_ZNK12ConvHF2FNode5ValueEP8PhaseGVN(ptr noundef nonnu
   br label %38
 
 38:                                               ; preds = %2, %36, %32, %24
-  %.0 = phi ptr [ %37, %36 ], [ %25, %24 ], [ %35, %32 ], [ %16, %2 ]
+  %.0 = phi ptr [ %25, %24 ], [ %35, %32 ], [ %37, %36 ], [ %16, %2 ]
   ret ptr %.0
 }
 
@@ -2649,7 +2649,7 @@ define hidden noundef ptr @_ZNK11ConvI2DNode5ValueEP8PhaseGVN(ptr noundef nonnul
   br label %29
 
 29:                                               ; preds = %2, %27, %24
-  %.0 = phi ptr [ %28, %27 ], [ %26, %24 ], [ %16, %2 ]
+  %.0 = phi ptr [ %26, %24 ], [ %28, %27 ], [ %16, %2 ]
   ret ptr %.0
 }
 
@@ -2690,7 +2690,7 @@ define hidden noundef ptr @_ZNK11ConvI2FNode5ValueEP8PhaseGVN(ptr noundef nonnul
   br label %29
 
 29:                                               ; preds = %2, %27, %24
-  %.0 = phi ptr [ %28, %27 ], [ %26, %24 ], [ %16, %2 ]
+  %.0 = phi ptr [ %26, %24 ], [ %28, %27 ], [ %16, %2 ]
   ret ptr %.0
 }
 
@@ -2852,7 +2852,7 @@ define hidden noundef ptr @_ZNK11ConvI2LNode5ValueEP8PhaseGVN(ptr noundef nonnul
   br label %89
 
 89:                                               ; preds = %38, %65, %44, %18, %2, %78
-  %.0 = phi ptr [ %16, %2 ], [ %88, %78 ], [ %34, %18 ], [ %34, %44 ], [ %34, %65 ], [ %34, %38 ]
+  %.0 = phi ptr [ %88, %78 ], [ %16, %2 ], [ %34, %18 ], [ %34, %44 ], [ %34, %65 ], [ %34, %38 ]
   ret ptr %.0
 }
 
@@ -3309,13 +3309,13 @@ _ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i: ; pre
   br label %_ZL22compute_updates_rangesPK11TypeIntegerS1_S1_RS1_S2_PK4Node9BasicTypeS6_.exit
 
 _ZL22compute_updates_rangesPK11TypeIntegerS1_S1_RS1_S2_PK4Node9BasicTypeS6_.exit: ; preds = %80, %86, %90, %95, %122, %127, %133, %137, %164, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i, %171, %177, %181, %186, %212, %217, %223, %227, %253, %255
-  %.0.i = phi i1 [ true, %255 ], [ false, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i ], [ false, %217 ], [ false, %127 ], [ false, %80 ], [ false, %122 ], [ false, %164 ], [ false, %95 ], [ false, %90 ], [ false, %86 ], [ false, %137 ], [ false, %133 ], [ false, %171 ], [ false, %212 ], [ false, %253 ], [ false, %186 ], [ false, %181 ], [ false, %177 ], [ false, %227 ], [ false, %223 ]
+  %.0.i = phi i1 [ true, %255 ], [ false, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i ], [ false, %95 ], [ false, %90 ], [ false, %86 ], [ false, %80 ], [ false, %137 ], [ false, %133 ], [ false, %127 ], [ false, %122 ], [ false, %164 ], [ false, %186 ], [ false, %181 ], [ false, %177 ], [ false, %171 ], [ false, %227 ], [ false, %223 ], [ false, %217 ], [ false, %212 ], [ false, %253 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %268
 
 268:                                              ; preds = %7, %41, %43, %32, %16, %_ZL22compute_updates_rangesPK11TypeIntegerS1_S1_RS1_S2_PK4Node9BasicTypeS6_.exit
-  %.0 = phi i1 [ false, %41 ], [ false, %16 ], [ false, %32 ], [ %.0.i, %_ZL22compute_updates_rangesPK11TypeIntegerS1_S1_RS1_S2_PK4Node9BasicTypeS6_.exit ], [ false, %43 ], [ false, %7 ]
+  %.0 = phi i1 [ %.0.i, %_ZL22compute_updates_rangesPK11TypeIntegerS1_S1_RS1_S2_PK4Node9BasicTypeS6_.exit ], [ false, %16 ], [ false, %32 ], [ false, %43 ], [ false, %41 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -3441,10 +3441,10 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
   br i1 %or.cond66.i, label %78, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
 76:                                               ; preds = %67, %51
-  %.054.i = phi i32 [ %59, %67 ], [ %43, %51 ]
-  %.053.i = phi i32 [ %60, %67 ], [ %44, %51 ]
-  %.052.in.i = phi i1 [ %spec.select.i79.i, %67 ], [ %spec.select.i73.i, %51 ]
-  %.0.in.i = phi i1 [ %spec.select.i83.i, %67 ], [ %spec.select.i76.i, %51 ]
+  %.054.i = phi i32 [ %43, %51 ], [ %59, %67 ]
+  %.053.i = phi i32 [ %44, %51 ], [ %60, %67 ]
+  %.052.in.i = phi i1 [ %spec.select.i73.i, %51 ], [ %spec.select.i79.i, %67 ]
+  %.0.in.i = phi i1 [ %spec.select.i76.i, %51 ], [ %spec.select.i83.i, %67 ]
   %.0.in.not.i = xor i1 %.0.in.i, true
   %.not.i = icmp slt i32 %.053.i, %37
   %or.cond67.i = or i1 %.not.i, %.0.in.not.i
@@ -3551,10 +3551,10 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
   br i1 %or.cond66.i62, label %119, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
 117:                                              ; preds = %108, %92
-  %.054.i29 = phi i64 [ %100, %108 ], [ %84, %92 ]
-  %.053.i30 = phi i64 [ %101, %108 ], [ %85, %92 ]
-  %.052.in.i31 = phi i1 [ %spec.select.i79.i26, %108 ], [ %spec.select.i73.i64, %92 ]
-  %.0.in.i32 = phi i1 [ %spec.select.i83.i28, %108 ], [ %spec.select.i76.i66, %92 ]
+  %.054.i29 = phi i64 [ %84, %92 ], [ %100, %108 ]
+  %.053.i30 = phi i64 [ %85, %92 ], [ %101, %108 ]
+  %.052.in.i31 = phi i1 [ %spec.select.i73.i64, %92 ], [ %spec.select.i79.i26, %108 ]
+  %.0.in.i32 = phi i1 [ %spec.select.i76.i66, %92 ], [ %spec.select.i83.i28, %108 ]
   %.0.in.not.i33 = xor i1 %.0.in.i32, true
   %.not.i34 = icmp sgt i64 %26, %.053.i30
   %or.cond67.i35 = or i1 %.not.i34, %.0.in.not.i33
@@ -3575,7 +3575,7 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
   br label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
 _ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit: ; preds = %119, %118, %117, %116, %113, %78, %77, %76, %75, %72
-  %.0 = phi i1 [ true, %77 ], [ true, %76 ], [ true, %72 ], [ false, %78 ], [ true, %75 ], [ true, %117 ], [ true, %113 ], [ false, %119 ], [ true, %116 ], [ true, %118 ]
+  %.0 = phi i1 [ false, %78 ], [ true, %72 ], [ true, %75 ], [ true, %76 ], [ true, %77 ], [ false, %119 ], [ true, %113 ], [ true, %116 ], [ true, %117 ], [ true, %118 ]
   ret i1 %.0
 }
 
@@ -3728,7 +3728,7 @@ _ZN4NodenwEm.exit27:                              ; preds = %82, %84
   unreachable
 
 91:                                               ; preds = %15, %_ZN4NodenwEm.exit27, %87, %_ZN4NodenwEm.exit, %64, %25
-  %.0 = phi ptr [ null, %25 ], [ null, %_ZN4NodenwEm.exit27 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i, %64 ], [ %.0.i.i.i26, %87 ], [ null, %15 ]
+  %.0 = phi ptr [ null, %25 ], [ %.0.i.i.i, %64 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i26, %87 ], [ null, %_ZN4NodenwEm.exit27 ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -3874,7 +3874,7 @@ define hidden noundef ptr @_ZNK11ConvL2DNode5ValueEP8PhaseGVN(ptr noundef nonnul
   br label %29
 
 29:                                               ; preds = %2, %27, %24
-  %.0 = phi ptr [ %28, %27 ], [ %26, %24 ], [ %16, %2 ]
+  %.0 = phi ptr [ %26, %24 ], [ %28, %27 ], [ %16, %2 ]
   ret ptr %.0
 }
 
@@ -3915,7 +3915,7 @@ define hidden noundef ptr @_ZNK11ConvL2FNode5ValueEP8PhaseGVN(ptr noundef nonnul
   br label %29
 
 29:                                               ; preds = %2, %27, %24
-  %.0 = phi ptr [ %28, %27 ], [ %26, %24 ], [ %16, %2 ]
+  %.0 = phi ptr [ %26, %24 ], [ %28, %27 ], [ %16, %2 ]
   ret ptr %.0
 }
 
@@ -4286,7 +4286,7 @@ _ZN4NodenwEm.exit34:                              ; preds = %168, %170
   br label %175
 
 175:                                              ; preds = %11, %3, %_ZN4NodenwEm.exit34, %173, %53, %35, %31, %27
-  %.0 = phi ptr [ %0, %27 ], [ null, %_ZN4NodenwEm.exit34 ], [ null, %31 ], [ null, %35 ], [ null, %53 ], [ %.0.i.i.i33, %173 ], [ null, %3 ], [ null, %11 ]
+  %.0 = phi ptr [ %0, %27 ], [ null, %31 ], [ null, %35 ], [ null, %53 ], [ %.0.i.i.i33, %173 ], [ null, %_ZN4NodenwEm.exit34 ], [ null, %3 ], [ null, %11 ]
   ret ptr %.0
 }
 

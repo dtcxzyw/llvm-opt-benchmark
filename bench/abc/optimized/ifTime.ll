@@ -515,7 +515,7 @@ If_CutSortInputPins.exit:                         ; preds = %100, %.critedge.i
   br i1 %exitcond214.not, label %.critedge, label %184, !llvm.loop !51
 
 .critedge:                                        ; preds = %22, %16, %.lr.ph146, %123, %117, %142, %136, %170, %163, %184, %190, %.preheader132, %If_CutSortInputPins.exit, %.preheader129, %.preheader127, %.preheader125, %.preheader
-  %.1 = phi float [ %116, %.lr.ph146 ], [ %195, %190 ], [ 0xC415AF1D80000000, %If_CutSortInputPins.exit ], [ 0xC415AF1D80000000, %.preheader129 ], [ 0xC415AF1D80000000, %.preheader132 ], [ 0xC415AF1D80000000, %.preheader ], [ %.4155, %136 ], [ 0xC415AF1D80000000, %.preheader125 ], [ %.3149, %117 ], [ 0xC415AF1D80000000, %.preheader127 ], [ %.5161, %163 ], [ %.6167, %184 ], [ %183, %170 ], [ %152, %142 ], [ %129, %123 ], [ %31, %22 ], [ %.0135, %16 ]
+  %.1 = phi float [ 0xC415AF1D80000000, %.preheader ], [ 0xC415AF1D80000000, %.preheader125 ], [ 0xC415AF1D80000000, %.preheader127 ], [ 0xC415AF1D80000000, %.preheader129 ], [ 0xC415AF1D80000000, %If_CutSortInputPins.exit ], [ 0xC415AF1D80000000, %.preheader132 ], [ %.6167, %184 ], [ %195, %190 ], [ %183, %170 ], [ %.5161, %163 ], [ %152, %142 ], [ %.4155, %136 ], [ %129, %123 ], [ %.3149, %117 ], [ %116, %.lr.ph146 ], [ %31, %22 ], [ %.0135, %16 ]
   ret float %.1
 }
 
@@ -1121,7 +1121,7 @@ define float @If_ManDelayMax(ptr noundef readonly captures(none) %0, i32 noundef
   br i1 %exitcond82.not, label %.critedge, label %63, !llvm.loop !74
 
 .critedge:                                        ; preds = %57, %34, %63, %20, %46, %.preheader
-  %.240 = phi float [ %.139, %34 ], [ %.6, %63 ], [ 0xC415AF1D80000000, %.preheader ], [ 0xC415AF1D80000000, %46 ], [ 0xC415AF1D80000000, %20 ], [ %.4, %57 ]
+  %.240 = phi float [ 0xC415AF1D80000000, %.preheader ], [ 0xC415AF1D80000000, %46 ], [ 0xC415AF1D80000000, %20 ], [ %.6, %63 ], [ %.139, %34 ], [ %.4, %57 ]
   ret float %.240
 }
 
@@ -1275,10 +1275,10 @@ define void @If_ManComputeRequired(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %exitcond82.not.i, label %If_ManDelayMax.exit, label %42, !llvm.loop !74
 
 If_ManDelayMax.exit:                              ; preds = %36, %42, %21, %.thread.i
-  %.val303 = phi i32 [ %.val60.i, %42 ], [ %.val59.i, %.thread.i ], [ %.val60.i, %21 ], [ %.val59.i, %36 ]
-  %48 = phi ptr [ %24, %42 ], [ %30, %.thread.i ], [ %24, %21 ], [ %30, %36 ]
-  %49 = phi ptr [ %22, %42 ], [ %6, %.thread.i ], [ %22, %21 ], [ %6, %36 ]
-  %.240.i = phi float [ %.6.i, %42 ], [ 0xC415AF1D80000000, %.thread.i ], [ 0xC415AF1D80000000, %21 ], [ %.4.i, %36 ]
+  %.val303 = phi i32 [ %.val60.i, %21 ], [ %.val59.i, %.thread.i ], [ %.val60.i, %42 ], [ %.val59.i, %36 ]
+  %48 = phi ptr [ %24, %21 ], [ %30, %.thread.i ], [ %24, %42 ], [ %30, %36 ]
+  %49 = phi ptr [ %22, %21 ], [ %6, %.thread.i ], [ %22, %42 ], [ %6, %36 ]
+  %.240.i = phi float [ 0xC415AF1D80000000, %21 ], [ 0xC415AF1D80000000, %.thread.i ], [ %.6.i, %42 ], [ %.4.i, %36 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %.240.i, ptr %50, align 4, !tbaa !81
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 304
@@ -1685,8 +1685,8 @@ If_ManDelayMax.exit:                              ; preds = %36, %42, %21, %.thr
   br i1 %exitcond82.not.i337, label %If_ManDelayMax.exit338, label %237, !llvm.loop !74
 
 If_ManDelayMax.exit338:                           ; preds = %231, %237, %216, %.thread.i313
-  %243 = phi ptr [ %217, %237 ], [ %6, %.thread.i313 ], [ %217, %216 ], [ %6, %231 ]
-  %.240.i316 = phi float [ %.6.i335, %237 ], [ 0xC415AF1D80000000, %.thread.i313 ], [ 0xC415AF1D80000000, %216 ], [ %.4.i323, %231 ]
+  %243 = phi ptr [ %217, %216 ], [ %6, %.thread.i313 ], [ %217, %237 ], [ %6, %231 ]
+  %.240.i316 = phi float [ 0xC415AF1D80000000, %216 ], [ 0xC415AF1D80000000, %.thread.i313 ], [ %.6.i335, %237 ], [ %.4.i323, %231 ]
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %.240.i316, ptr %244, align 4, !tbaa !81
   %245 = getelementptr inbounds nuw i8, ptr %243, i64 32

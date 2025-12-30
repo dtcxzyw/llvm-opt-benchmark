@@ -654,7 +654,7 @@ _ZNK9Imath_3_24Vec3IfE10normalizedEv.exit67:      ; preds = %_ZNK9Imath_3_24Vec3
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %187, %190, %200, %202, %211, %225, %228
-  %.0.i.i.i = phi i16 [ %183, %211 ], [ %197, %190 ], [ %201, %200 ], [ %210, %202 ], [ %188, %187 ], [ %229, %228 ], [ %223, %225 ]
+  %.0.i.i.i = phi i16 [ %197, %190 ], [ %201, %200 ], [ %210, %202 ], [ %188, %187 ], [ %183, %211 ], [ %229, %228 ], [ %223, %225 ]
   %230 = fmul float %.043.lcssa, %176
   %231 = bitcast float %230 to i32
   %232 = call float @llvm.fabs.f32(float %230)
@@ -733,7 +733,7 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %187, %190, %200, %2
   br label %_ZN9Imath_3_24halfaSEf.exit71
 
 _ZN9Imath_3_24halfaSEf.exit71:                    ; preds = %240, %243, %253, %255, %264, %278, %281
-  %.0.i.i.i70 = phi i16 [ %236, %264 ], [ %250, %243 ], [ %254, %253 ], [ %263, %255 ], [ %241, %240 ], [ %282, %281 ], [ %276, %278 ]
+  %.0.i.i.i70 = phi i16 [ %250, %243 ], [ %254, %253 ], [ %263, %255 ], [ %241, %240 ], [ %236, %264 ], [ %282, %281 ], [ %276, %278 ]
   %283 = fmul float %.045.lcssa, %176
   %284 = bitcast float %283 to i32
   %285 = call float @llvm.fabs.f32(float %283)
@@ -812,7 +812,7 @@ _ZN9Imath_3_24halfaSEf.exit71:                    ; preds = %240, %243, %253, %2
   br label %_ZN9Imath_3_24halfaSEf.exit75
 
 _ZN9Imath_3_24halfaSEf.exit75:                    ; preds = %293, %296, %306, %308, %317, %331, %334
-  %.0.i.i.i74 = phi i16 [ %289, %317 ], [ %303, %296 ], [ %307, %306 ], [ %316, %308 ], [ %294, %293 ], [ %335, %334 ], [ %329, %331 ]
+  %.0.i.i.i74 = phi i16 [ %303, %296 ], [ %307, %306 ], [ %316, %308 ], [ %294, %293 ], [ %289, %317 ], [ %335, %334 ], [ %329, %331 ]
   %336 = fmul float %.048.lcssa, %176
   %337 = bitcast float %336 to i32
   %338 = call float @llvm.fabs.f32(float %336)
@@ -891,7 +891,7 @@ _ZN9Imath_3_24halfaSEf.exit75:                    ; preds = %293, %296, %306, %3
   br label %_ZN9Imath_3_24halfaSEf.exit79
 
 _ZN9Imath_3_24halfaSEf.exit79:                    ; preds = %346, %349, %359, %361, %370, %384, %387
-  %.0.i.i.i78 = phi i16 [ %342, %370 ], [ %356, %349 ], [ %360, %359 ], [ %369, %361 ], [ %347, %346 ], [ %388, %387 ], [ %382, %384 ]
+  %.0.i.i.i78 = phi i16 [ %356, %349 ], [ %360, %359 ], [ %369, %361 ], [ %347, %346 ], [ %342, %370 ], [ %388, %387 ], [ %382, %384 ]
   %.sroa.4122.0.insert.ext = zext i16 %.0.i.i.i78 to i64
   %.sroa.4122.0.insert.shift = shl nuw i64 %.sroa.4122.0.insert.ext, 48
   %.sroa.3.0.insert.ext = zext i16 %.0.i.i.i74 to i64
@@ -1133,7 +1133,7 @@ _ZN9Imath_3_25floorIfEEiT_.exit48:                ; preds = %32, %34
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %104, %107, %117, %119, %128, %142, %145
-  %.0.i.i.i = phi i16 [ %100, %128 ], [ %114, %107 ], [ %118, %117 ], [ %127, %119 ], [ %105, %104 ], [ %146, %145 ], [ %140, %142 ]
+  %.0.i.i.i = phi i16 [ %114, %107 ], [ %118, %117 ], [ %127, %119 ], [ %105, %104 ], [ %100, %128 ], [ %146, %145 ], [ %140, %142 ]
   %147 = and i64 %.sroa.470.0.extract.shift, 65535
   %148 = getelementptr inbounds nuw %union.imath_half_uif, ptr %76, i64 %147
   %149 = load float, ptr %148, align 4, !tbaa !67
@@ -1229,7 +1229,7 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %104, %107, %117, %1
   br label %_ZN9Imath_3_24halfaSEf.exit52
 
 _ZN9Imath_3_24halfaSEf.exit52:                    ; preds = %174, %177, %187, %189, %198, %212, %215
-  %.0.i.i.i51 = phi i16 [ %170, %198 ], [ %184, %177 ], [ %188, %187 ], [ %197, %189 ], [ %175, %174 ], [ %216, %215 ], [ %210, %212 ]
+  %.0.i.i.i51 = phi i16 [ %184, %177 ], [ %188, %187 ], [ %197, %189 ], [ %175, %174 ], [ %170, %198 ], [ %216, %215 ], [ %210, %212 ]
   %217 = and i64 %.sroa.571.0.extract.shift, 65535
   %218 = getelementptr inbounds nuw %union.imath_half_uif, ptr %76, i64 %217
   %219 = load float, ptr %218, align 4, !tbaa !67
@@ -1325,7 +1325,7 @@ _ZN9Imath_3_24halfaSEf.exit52:                    ; preds = %174, %177, %187, %1
   br label %_ZN9Imath_3_24halfaSEf.exit56
 
 _ZN9Imath_3_24halfaSEf.exit56:                    ; preds = %244, %247, %257, %259, %268, %282, %285
-  %.0.i.i.i55 = phi i16 [ %240, %268 ], [ %254, %247 ], [ %258, %257 ], [ %267, %259 ], [ %245, %244 ], [ %286, %285 ], [ %280, %282 ]
+  %.0.i.i.i55 = phi i16 [ %254, %247 ], [ %258, %257 ], [ %267, %259 ], [ %245, %244 ], [ %240, %268 ], [ %286, %285 ], [ %280, %282 ]
   %287 = getelementptr inbounds nuw %union.imath_half_uif, ptr %76, i64 %.sroa.672.0.extract.shift
   %288 = load float, ptr %287, align 4, !tbaa !67
   %289 = getelementptr inbounds nuw %union.imath_half_uif, ptr %76, i64 %.sroa.668.0.extract.shift
@@ -1417,7 +1417,7 @@ _ZN9Imath_3_24halfaSEf.exit56:                    ; preds = %244, %247, %257, %2
   br label %_ZN9Imath_3_24halfaSEf.exit60
 
 _ZN9Imath_3_24halfaSEf.exit60:                    ; preds = %310, %313, %323, %325, %334, %348, %351
-  %.0.i.i.i59 = phi i16 [ %306, %334 ], [ %320, %313 ], [ %324, %323 ], [ %333, %325 ], [ %311, %310 ], [ %352, %351 ], [ %346, %348 ]
+  %.0.i.i.i59 = phi i16 [ %320, %313 ], [ %324, %323 ], [ %333, %325 ], [ %311, %310 ], [ %306, %334 ], [ %352, %351 ], [ %346, %348 ]
   %.sroa.474.0.insert.ext = zext i16 %.0.i.i.i59 to i64
   %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 48
   %.sroa.3.0.insert.ext = zext i16 %.0.i.i.i55 to i64

@@ -564,7 +564,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   br label %81
 
 .critedge17:                                      ; preds = %.critedge, %12, %66, %69
-  %.0 = phi i64 [ %65, %66 ], [ %65, %69 ], [ 0, %12 ], [ 0, %.critedge ]
+  %.0 = phi i64 [ %65, %69 ], [ %65, %66 ], [ 0, %12 ], [ 0, %.critedge ]
   ret i64 %.0
 
 81:                                               ; preds = %79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24, %17
@@ -628,7 +628,7 @@ define noundef zeroext i1 @_ZNK3net14QuicSpdyStream13IsDoneReadingEv(ptr noundef
   br label %_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit
 
 _ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit: ; preds = %1, %8
-  %14 = phi i1 [ %13, %8 ], [ false, %1 ]
+  %14 = phi i1 [ false, %1 ], [ %13, %8 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = tail call noundef zeroext i1 @_ZNK3net19QuicStreamSequencer8IsClosedEv(ptr noundef nonnull align 8 dereferenceable(169) %15)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 260
@@ -655,7 +655,7 @@ _ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit: ; preds = %1, %8
   br label %_ZNK3net14QuicSpdyStream23FinishedReadingTrailersEv.exit
 
 _ZNK3net14QuicSpdyStream23FinishedReadingTrailersEv.exit: ; preds = %_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit, %20, %24, %28
-  %.0.i = phi i1 [ true, %20 ], [ false, %_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit ], [ false, %24 ], [ %31, %28 ]
+  %.0.i = phi i1 [ false, %_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit ], [ true, %20 ], [ false, %24 ], [ %31, %28 ]
   %or.cond = and i1 %14, %16
   %spec.select = select i1 %or.cond, i1 %.0.i, i1 false
   ret i1 %spec.select
@@ -681,7 +681,7 @@ define noundef zeroext i1 @_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv(pt
   br label %14
 
 14:                                               ; preds = %8, %1
-  %15 = phi i1 [ %13, %8 ], [ false, %1 ]
+  %15 = phi i1 [ false, %1 ], [ %13, %8 ]
   ret i1 %15
 }
 
@@ -713,7 +713,7 @@ define noundef zeroext i1 @_ZNK3net14QuicSpdyStream23FinishedReadingTrailersEv(p
   br label %17
 
 17:                                               ; preds = %9, %13, %5, %1
-  %.0 = phi i1 [ true, %5 ], [ false, %1 ], [ false, %9 ], [ %16, %13 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %5 ], [ false, %9 ], [ %16, %13 ]
   ret i1 %.0
 }
 
@@ -1899,7 +1899,7 @@ _ZNK3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_strin
   br label %58
 
 58:                                               ; preds = %48, %52, %44, %40, %56
-  %.1 = phi i1 [ false, %44 ], [ false, %40 ], [ %57, %56 ], [ false, %48 ], [ false, %52 ]
+  %.1 = phi i1 [ %57, %56 ], [ false, %40 ], [ false, %44 ], [ false, %52 ], [ false, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %59
 

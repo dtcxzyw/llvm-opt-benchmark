@@ -860,8 +860,8 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %88
 
 88:                                               ; preds = %84, %75
-  %.094120 = phi i8 [ 1, %75 ], [ 0, %84 ]
-  %.095118 = phi i8 [ %10, %75 ], [ %.095.ph, %84 ]
+  %.094120 = phi i8 [ 0, %84 ], [ 1, %75 ]
+  %.095118 = phi i8 [ %.095.ph, %84 ], [ %10, %75 ]
   %89 = load i32, ptr @hf_swils_opcode, align 4
   %90 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %89, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %91 = icmp ult i8 %.095118, 53
@@ -906,7 +906,7 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %110
 
 110:                                              ; preds = %4, %108, %73, %59
-  %.0 = phi i32 [ 0, %59 ], [ %109, %108 ], [ 0, %73 ], [ 0, %4 ]
+  %.0 = phi i32 [ %109, %108 ], [ 0, %73 ], [ 0, %59 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1121,7 +1121,7 @@ define internal void @dissect_swils_elp(ptr noundef %0, ptr noundef readonly cap
   br label %86
 
 86:                                               ; preds = %9, %73, %76
-  %.1148 = phi ptr [ %42, %73 ], [ %42, %76 ], [ @.str.417, %9 ]
+  %.1148 = phi ptr [ %42, %76 ], [ %42, %73 ], [ @.str.417, %9 ]
   %87 = load i32, ptr @hf_swils_elp_cls1_svcp, align 4
   %88 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef nonnull %2, i32 noundef %87, ptr noundef %0, i32 noundef 52, i32 noundef 2, ptr noundef null, ptr noundef nonnull @.str.412, ptr noundef %.1148)
   %89 = load i8, ptr %6, align 1
@@ -2203,7 +2203,7 @@ dissect_swils_ess_capability.exit.i:              ; preds = %.lr.ph.split.split.
   br i1 %174, label %.lr.ph125.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !21
 
 dissect_swils_ess_capability_obj.exit:            ; preds = %.lr.ph.split.split.us113.i, %dissect_swils_ess_capability.exit.us117.i, %.lr.ph.split.split.us104.i, %dissect_swils_ess_capability.exit.us108.i, %.lr.ph.split.split.us95.i, %dissect_swils_ess_capability.exit.us99.i, %.lr.ph.split.split.us.i, %dissect_swils_ess_capability.exit.us90.i, %.lr.ph.split.split.i, %dissect_swils_ess_capability.exit.i, %.lr.ph.split.us.i, %dissect_swils_ess_capability.exit.us.i, %.lr.ph125.i, %168, %71, %158
-  %.075.i = phi i32 [ %.17681.us107.i, %.lr.ph.split.split.us104.i ], [ 12, %158 ], [ %.17681.us89.i, %.lr.ph.split.split.us.i ], [ 4, %71 ], [ %173, %168 ], [ %81, %dissect_swils_ess_capability.exit.us99.i ], [ %.17681.us.i, %.lr.ph.split.us.i ], [ %81, %dissect_swils_ess_capability.exit.i ], [ %.2122.i, %.lr.ph125.i ], [ %81, %dissect_swils_ess_capability.exit.us.i ], [ %.17681.i, %.lr.ph.split.split.i ], [ %81, %dissect_swils_ess_capability.exit.us90.i ], [ %.17681.us98.i, %.lr.ph.split.split.us95.i ], [ %81, %dissect_swils_ess_capability.exit.us108.i ], [ %.17681.us116.i, %.lr.ph.split.split.us113.i ], [ %81, %dissect_swils_ess_capability.exit.us117.i ]
+  %.075.i = phi i32 [ 12, %158 ], [ 4, %71 ], [ %173, %168 ], [ %.2122.i, %.lr.ph125.i ], [ %81, %dissect_swils_ess_capability.exit.us.i ], [ %.17681.us.i, %.lr.ph.split.us.i ], [ %81, %dissect_swils_ess_capability.exit.i ], [ %.17681.i, %.lr.ph.split.split.i ], [ %81, %dissect_swils_ess_capability.exit.us90.i ], [ %.17681.us89.i, %.lr.ph.split.split.us.i ], [ %81, %dissect_swils_ess_capability.exit.us99.i ], [ %.17681.us98.i, %.lr.ph.split.split.us95.i ], [ %81, %dissect_swils_ess_capability.exit.us108.i ], [ %.17681.us107.i, %.lr.ph.split.split.us104.i ], [ %81, %dissect_swils_ess_capability.exit.us117.i ], [ %.17681.us116.i, %.lr.ph.split.split.us113.i ]
   %175 = add nsw i16 %.03454, -1
   %176 = sub i32 %.03355, %.075.i
   %177 = add i32 %.075.i, %.056

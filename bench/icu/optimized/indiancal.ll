@@ -300,7 +300,7 @@ define noundef i32 @_ZN6icu_7714IndianCalendar21handleGetExtendedYearER10UErrorC
   br label %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit
 
 _ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit: ; preds = %19, %15, %12, %8, %2
-  %.03 = phi i32 [ 0, %2 ], [ 1, %8 ], [ %14, %12 ], [ %21, %19 ], [ 1, %15 ]
+  %.03 = phi i32 [ 0, %2 ], [ %14, %12 ], [ 1, %8 ], [ %21, %19 ], [ 1, %15 ]
   ret i32 %.03
 }
 
@@ -405,8 +405,8 @@ _ZN6icu_77L15isGregorianLeapEi.exit41.thread48:   ; preds = %32, %_ZN6icu_77L15i
   br label %57
 
 57:                                               ; preds = %37, %42, %49
-  %.032 = phi i32 [ %55, %49 ], [ %47, %42 ], [ 0, %37 ]
-  %.031.in = phi i32 [ %56, %49 ], [ %.sext51, %42 ], [ %.033, %37 ]
+  %.032 = phi i32 [ %47, %42 ], [ %55, %49 ], [ 0, %37 ]
+  %.031.in = phi i32 [ %.sext51, %42 ], [ %56, %49 ], [ %.033, %37 ]
   %.031 = add nsw i32 %.031.in, 1
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %58, align 8, !tbaa !6
@@ -471,7 +471,7 @@ define noundef i32 @_ZNK6icu_7714IndianCalendar14getRelatedYearER10UErrorCode(pt
   br label %12
 
 12:                                               ; preds = %2, %10, %9
-  %.0 = phi i32 [ %11, %10 ], [ 0, %9 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %9 ], [ %11, %10 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

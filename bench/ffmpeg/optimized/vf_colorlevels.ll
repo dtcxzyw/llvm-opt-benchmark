@@ -389,8 +389,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %exitcond376.not, label %.loopexit, label %.preheader.us, !llvm.loop !59
 
 .loopexit:                                        ; preds = %._crit_edge.us335, %.loopexit265.thread, %.loopexit265.thread404, %.loopexit265, %.preheader.lr.ph
-  %.0224401 = phi i32 [ %.0224, %.loopexit265 ], [ 255, %.loopexit265.thread404 ], [ %.0224, %.preheader.lr.ph ], [ 255, %.loopexit265.thread ], [ %.0224, %._crit_edge.us335 ]
-  %.0227 = phi i32 [ %.mux, %.loopexit265 ], [ %spec.select, %.loopexit265.thread404 ], [ 0, %.preheader.lr.ph ], [ %spec.select447, %.loopexit265.thread ], [ %.2229..us, %._crit_edge.us335 ]
+  %.0224401 = phi i32 [ %.0224, %.loopexit265 ], [ %.0224, %.preheader.lr.ph ], [ 255, %.loopexit265.thread404 ], [ 255, %.loopexit265.thread ], [ %.0224, %._crit_edge.us335 ]
+  %.0227 = phi i32 [ %.mux, %.loopexit265 ], [ 0, %.preheader.lr.ph ], [ %spec.select, %.loopexit265.thread404 ], [ %spec.select447, %.loopexit265.thread ], [ %.2229..us, %._crit_edge.us335 ]
   %186 = sub nsw i32 %163, %158
   %187 = sitofp i32 %186 to double
   %188 = sub nsw i32 %.0227, %.0224401
@@ -521,8 +521,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %exitcond365.not, label %.loopexit270, label %.preheader268.us, !llvm.loop !68
 
 .loopexit270:                                     ; preds = %._crit_edge.us313, %.loopexit271.thread, %.loopexit271.thread414, %.loopexit271, %.preheader268.lr.ph
-  %.0243410 = phi i32 [ %.0243, %.loopexit271 ], [ 65535, %.loopexit271.thread414 ], [ %.0243, %.preheader268.lr.ph ], [ 65535, %.loopexit271.thread ], [ %.0243, %._crit_edge.us313 ]
-  %.0240 = phi i32 [ %.mux455, %.loopexit271 ], [ %spec.select450, %.loopexit271.thread414 ], [ 0, %.preheader268.lr.ph ], [ %spec.select451, %.loopexit271.thread ], [ %.2242..us, %._crit_edge.us313 ]
+  %.0243410 = phi i32 [ %.0243, %.loopexit271 ], [ %.0243, %.preheader268.lr.ph ], [ 65535, %.loopexit271.thread414 ], [ 65535, %.loopexit271.thread ], [ %.0243, %._crit_edge.us313 ]
+  %.0240 = phi i32 [ %.mux455, %.loopexit271 ], [ 0, %.preheader268.lr.ph ], [ %spec.select450, %.loopexit271.thread414 ], [ %spec.select451, %.loopexit271.thread ], [ %.2242..us, %._crit_edge.us313 ]
   %241 = sub nsw i32 %218, %213
   %242 = sitofp i32 %241 to double
   %243 = sub nsw i32 %.0240, %.0243410
@@ -649,8 +649,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %exitcond353.not, label %.loopexit276, label %.preheader274.us, !llvm.loop !73
 
 .loopexit276:                                     ; preds = %._crit_edge.us292, %.loopexit277, %.preheader274.lr.ph.thread, %.preheader274.lr.ph, %.loopexit277.thread424, %.thread422, %.loopexit277.thread
-  %.0219420 = phi float [ %.0219, %.loopexit277 ], [ 1.000000e+00, %.preheader274.lr.ph.thread ], [ %.0219, %.preheader274.lr.ph ], [ 1.000000e+00, %.loopexit277.thread424 ], [ 1.000000e+00, %.loopexit277.thread ], [ 1.000000e+00, %.thread422 ], [ %.0219, %._crit_edge.us292 ]
-  %.0217 = phi nsz float [ %.mux459, %.loopexit277 ], [ 0.000000e+00, %.preheader274.lr.ph.thread ], [ 0.000000e+00, %.preheader274.lr.ph ], [ %259, %.loopexit277.thread424 ], [ %259, %.loopexit277.thread ], [ 0.000000e+00, %.thread422 ], [ %286, %._crit_edge.us292 ]
+  %.0219420 = phi float [ %.0219, %.loopexit277 ], [ 1.000000e+00, %.loopexit277.thread ], [ 1.000000e+00, %.thread422 ], [ 1.000000e+00, %.loopexit277.thread424 ], [ %.0219, %.preheader274.lr.ph ], [ 1.000000e+00, %.preheader274.lr.ph.thread ], [ %.0219, %._crit_edge.us292 ]
+  %.0217 = phi nsz float [ %.mux459, %.loopexit277 ], [ %259, %.loopexit277.thread ], [ 0.000000e+00, %.thread422 ], [ %259, %.loopexit277.thread424 ], [ 0.000000e+00, %.preheader274.lr.ph ], [ 0.000000e+00, %.preheader274.lr.ph.thread ], [ %286, %._crit_edge.us292 ]
   %290 = fsub nsz float %265, %262
   %291 = fsub nsz float %.0217, %.0219420
   %292 = fdiv nsz float %290, %291

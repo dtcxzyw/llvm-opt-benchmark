@@ -623,12 +623,12 @@ define noundef range(i64 0, -4095) i64 @_ZN5mmu_t4walkE17mem_access_info_t(ptr n
   unreachable
 
 _Z14decode_vm_infoibmm.exit:                      ; preds = %35, %28, %2, %30, %37, %40, %43, %46
-  %51 = phi i1 [ false, %46 ], [ true, %2 ], [ false, %30 ], [ true, %28 ], [ false, %37 ], [ false, %40 ], [ false, %43 ], [ true, %35 ]
-  %.sroa.0.1 = phi i32 [ 6, %46 ], [ 0, %2 ], [ 2, %30 ], [ 0, %28 ], [ 3, %37 ], [ 4, %40 ], [ 5, %43 ], [ 0, %35 ]
-  %.sroa.16.0 = phi i32 [ 9, %46 ], [ 0, %2 ], [ 10, %30 ], [ 0, %28 ], [ 9, %37 ], [ 9, %40 ], [ 9, %43 ], [ 0, %35 ]
-  %52 = phi i1 [ false, %46 ], [ false, %2 ], [ true, %30 ], [ false, %28 ], [ false, %37 ], [ false, %40 ], [ false, %43 ], [ false, %35 ]
-  %.sroa.28.0 = phi i64 [ 8, %46 ], [ 0, %2 ], [ 4, %30 ], [ 0, %28 ], [ 8, %37 ], [ 8, %40 ], [ 8, %43 ], [ %36, %35 ]
-  %.sroa.37.0 = phi i64 [ %48, %46 ], [ 0, %2 ], [ %32, %30 ], [ 0, %28 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %36, %35 ]
+  %51 = phi i1 [ false, %30 ], [ false, %37 ], [ false, %40 ], [ false, %43 ], [ false, %46 ], [ true, %2 ], [ true, %28 ], [ true, %35 ]
+  %.sroa.0.1 = phi i32 [ 2, %30 ], [ 3, %37 ], [ 4, %40 ], [ 5, %43 ], [ 6, %46 ], [ 0, %2 ], [ 0, %28 ], [ 0, %35 ]
+  %.sroa.16.0 = phi i32 [ 10, %30 ], [ 9, %37 ], [ 9, %40 ], [ 9, %43 ], [ 9, %46 ], [ 0, %2 ], [ 0, %28 ], [ 0, %35 ]
+  %52 = phi i1 [ true, %30 ], [ false, %37 ], [ false, %40 ], [ false, %43 ], [ false, %46 ], [ false, %2 ], [ false, %28 ], [ false, %35 ]
+  %.sroa.28.0 = phi i64 [ 4, %30 ], [ 8, %37 ], [ 8, %40 ], [ 8, %43 ], [ 8, %46 ], [ 0, %2 ], [ 0, %28 ], [ %36, %35 ]
+  %.sroa.37.0 = phi i64 [ %32, %30 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ 0, %2 ], [ 0, %28 ], [ %36, %35 ]
   %53 = and i8 %11, 8
   %54 = icmp ne i8 %53, 0
   br i1 %54, label %55, label %62
@@ -986,7 +986,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %111, %113
   %240 = tail call noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %6, i64 noundef %239, i32 noundef %.0163257, i32 noundef %.0163257, i1 noundef zeroext %9, i1 noundef zeroext %13, i1 noundef zeroext false)
   br label %259
 
-.thread279:                                       ; preds = %_ZN5mmu_t8pte_loadEmmb11access_typem.exit, %142, %148, %138, %101, %225, %164, %205, %169, %163, %161, %167, %212, %216
+.thread279:                                       ; preds = %_ZN5mmu_t8pte_loadEmmb11access_typem.exit, %138, %142, %148, %101, %161, %163, %167, %164, %169, %212, %205, %216, %225
   switch i32 %.0163257, label %258 [
     i32 2, label %241
     i32 0, label %.thread279.thread
@@ -1132,7 +1132,7 @@ define noundef zeroext i1 @_ZN5mmu_t6pmp_okEmm11access_typemb(ptr noundef nonnul
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %47, %._crit_edge44, %6, %9
-  %.0 = phi i1 [ %spec.select, %47 ], [ true, %6 ], [ true, %9 ], [ false, %._crit_edge44 ], [ %.3.us, %19 ]
+  %.0 = phi i1 [ true, %9 ], [ true, %6 ], [ false, %._crit_edge44 ], [ %spec.select, %47 ], [ %.3.us, %19 ]
   ret i1 %.0
 }
 
@@ -1824,7 +1824,7 @@ _ZN5mmu_t4mmioEmmPh11access_type.exit.i:          ; preds = %32, %30, %.lr.ph.sp
   br i1 %exitcond.not.i, label %_ZN5mmu_t4mmioEmmPh11access_type.exit, label %.lr.ph.split.i, !llvm.loop !229
 
 _ZN5mmu_t4mmioEmmPh11access_type.exit:            ; preds = %32, %_ZN5mmu_t4mmioEmmPh11access_type.exit.i, %41, %.preheader.i, %17, %_ZN5mmu_t7mmio_okEm11access_type.exit.sink.split.i
-  %.027.i = phi i1 [ %26, %_ZN5mmu_t7mmio_okEm11access_type.exit.sink.split.i ], [ true, %.preheader.i ], [ false, %17 ], [ false, %_ZN5mmu_t4mmioEmmPh11access_type.exit.i ], [ false, %32 ], [ true, %41 ]
+  %.027.i = phi i1 [ false, %17 ], [ true, %.preheader.i ], [ %26, %_ZN5mmu_t7mmio_okEm11access_type.exit.sink.split.i ], [ true, %41 ], [ false, %_ZN5mmu_t4mmioEmmPh11access_type.exit.i ], [ false, %32 ]
   ret i1 %.027.i
 }
 
@@ -1938,7 +1938,7 @@ _ZN5mmu_t4mmioEmmPh11access_type.exit:            ; preds = %.lr.ph.split, %50, 
   br i1 %exitcond.not, label %_ZN5mmu_t7mmio_okEm11access_type.exit, label %.lr.ph.split, !llvm.loop !229
 
 _ZN5mmu_t7mmio_okEm11access_type.exit:            ; preds = %52, %_ZN5mmu_t4mmioEmmPh11access_type.exit, %61, %19, %23, %29, %_ZN5mmu_t7mmio_okEm11access_type.exit.sink.split, %.preheader, %36
-  %.027 = phi i1 [ true, %.preheader ], [ false, %23 ], [ false, %36 ], [ %46, %_ZN5mmu_t7mmio_okEm11access_type.exit.sink.split ], [ false, %19 ], [ true, %29 ], [ true, %61 ], [ false, %52 ], [ false, %_ZN5mmu_t4mmioEmmPh11access_type.exit ]
+  %.027 = phi i1 [ false, %36 ], [ true, %.preheader ], [ %46, %_ZN5mmu_t7mmio_okEm11access_type.exit.sink.split ], [ false, %19 ], [ false, %23 ], [ true, %29 ], [ false, %52 ], [ false, %_ZN5mmu_t4mmioEmmPh11access_type.exit ], [ true, %61 ]
   ret i1 %.027
 }
 
@@ -2018,7 +2018,7 @@ _ZN5mmu_t7mmio_okEm11access_type.exit.sink.split.i: ; preds = %34, %31, %29
   br label %_ZN5mmu_t4mmioEmmPh11access_type.exit
 
 _ZN5mmu_t4mmioEmmPh11access_type.exit:            ; preds = %17, %21, %27, %.preheader.i, %34, %_ZN5mmu_t7mmio_okEm11access_type.exit.sink.split.i
-  %.027.i = phi i1 [ true, %.preheader.i ], [ %43, %_ZN5mmu_t7mmio_okEm11access_type.exit.sink.split.i ], [ false, %34 ], [ false, %17 ], [ false, %21 ], [ true, %27 ]
+  %.027.i = phi i1 [ false, %34 ], [ true, %.preheader.i ], [ %43, %_ZN5mmu_t7mmio_okEm11access_type.exit.sink.split.i ], [ true, %27 ], [ false, %21 ], [ false, %17 ]
   ret i1 %.027.i
 }
 
@@ -2743,7 +2743,7 @@ _ZN5mmu_t10mmio_storeEmmPKh.exit:                 ; preds = %93, %95, %97
   %105 = tail call noundef zeroext i1 %104(ptr noundef nonnull align 8 dereferenceable(16) %101, i64 noundef %.0.i, i64 noundef %1, ptr noundef %2)
   br i1 %105, label %_ZN16memtracer_list_t5traceEmm11access_type.exit, label %_ZN5mmu_t10mmio_storeEmmPKh.exit.thread
 
-_ZN5mmu_t10mmio_storeEmmPKh.exit.thread:          ; preds = %85, %81, %97, %_ZN5mmu_t10mmio_storeEmmPKh.exit
+_ZN5mmu_t10mmio_storeEmmPKh.exit.thread:          ; preds = %81, %85, %97, %_ZN5mmu_t10mmio_storeEmmPKh.exit
   %106 = tail call ptr @__cxa_allocate_exception(i64 48) #28
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %108 = load i8, ptr %107, align 8, !tbaa !68, !range !69, !noundef !70
@@ -3022,12 +3022,12 @@ define noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull 
   tail call void @abort() #27, !noalias !255
   unreachable
 
-28:                                               ; preds = %22, %20, %25, %24
-  %.sink204 = phi i64 [ 72057594037923840, %25 ], [ 72057594037923840, %24 ], [ 17179865088, %20 ], [ 72057594037923840, %22 ]
-  %.sroa.0.0.ph = phi i32 [ 5, %25 ], [ 4, %24 ], [ 2, %20 ], [ 3, %22 ]
-  %.sroa.12.0.ph = phi i32 [ 9, %25 ], [ 9, %24 ], [ 10, %20 ], [ 9, %22 ]
-  %29 = phi i1 [ false, %25 ], [ false, %24 ], [ true, %20 ], [ false, %22 ]
-  %.sroa.24.0.ph = phi i64 [ 8, %25 ], [ 8, %24 ], [ 4, %20 ], [ %23, %22 ]
+28:                                               ; preds = %22, %20, %24, %25
+  %.sink204 = phi i64 [ 72057594037923840, %24 ], [ 72057594037923840, %25 ], [ 17179865088, %20 ], [ 72057594037923840, %22 ]
+  %.sroa.0.0.ph = phi i32 [ 4, %24 ], [ 5, %25 ], [ 2, %20 ], [ 3, %22 ]
+  %.sroa.12.0.ph = phi i32 [ 9, %24 ], [ 9, %25 ], [ 10, %20 ], [ 9, %22 ]
+  %29 = phi i1 [ false, %24 ], [ false, %25 ], [ true, %20 ], [ false, %22 ]
+  %.sroa.24.0.ph = phi i64 [ 8, %24 ], [ 8, %25 ], [ 4, %20 ], [ %23, %22 ]
   %30 = shl i64 %19, 12
   %31 = and i64 %30, %.sink204
   %32 = mul nuw nsw i32 %.sroa.12.0.ph, %.sroa.0.0.ph
@@ -3245,7 +3245,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %72, %74
   %152 = or disjoint i64 %150, %151
   br label %_Z14decode_vm_infoibmm.exit
 
-.thread174:                                       ; preds = %_ZN5mmu_t8pte_loadEmmb11access_typem.exit, %97, %103, %93, %.preheader, %139, %130, %116, %124, %106, %110, %123, %121, %42
+.thread174:                                       ; preds = %_ZN5mmu_t8pte_loadEmmb11access_typem.exit, %93, %97, %103, %.preheader, %110, %106, %123, %121, %116, %124, %130, %139, %42
   switch i32 %4, label %180 [
     i32 2, label %153
     i32 0, label %162
@@ -3572,7 +3572,7 @@ define noundef range(i64 0, 17) i64 @_ZNK5mmu_t9get_pmlenEbm13xlate_flags_t(ptr 
   br label %.thread30
 
 .thread30:                                        ; preds = %50, %46, %4, %7, %10
-  %.014 = phi i64 [ 0, %4 ], [ 0, %10 ], [ 0, %7 ], [ %switch.select34, %50 ], [ 0, %46 ]
+  %.014 = phi i64 [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %46 ], [ %switch.select34, %50 ]
   ret i64 %.014
 }
 
@@ -4100,7 +4100,7 @@ _ZN5mmu_t10mmio_storeEmmPKh.exit:                 ; preds = %39, %41, %44
   %52 = call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 noundef %1, i64 noundef 4, ptr noundef nonnull %7)
   br i1 %52, label %_ZN5mmu_t10mmio_storeEmmPKh.exit.thread13, label %_ZN5mmu_t10mmio_storeEmmPKh.exit.thread
 
-_ZN5mmu_t10mmio_storeEmmPKh.exit.thread:          ; preds = %31, %27, %44, %_ZN5mmu_t10mmio_storeEmmPKh.exit
+_ZN5mmu_t10mmio_storeEmmPKh.exit.thread:          ; preds = %27, %31, %44, %_ZN5mmu_t10mmio_storeEmmPKh.exit
   call void @_Z22throw_access_exceptionbm11access_type(i1 noundef zeroext %4, i64 noundef %3, i32 noundef %5)
   unreachable
 
@@ -4198,7 +4198,7 @@ _ZN5mmu_t10mmio_storeEmmPKh.exit:                 ; preds = %38, %40, %43
   %51 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(16) %47, i64 noundef %1, i64 noundef 8, ptr noundef nonnull %7)
   br i1 %51, label %_ZN5mmu_t10mmio_storeEmmPKh.exit.thread13, label %_ZN5mmu_t10mmio_storeEmmPKh.exit.thread
 
-_ZN5mmu_t10mmio_storeEmmPKh.exit.thread:          ; preds = %30, %26, %43, %_ZN5mmu_t10mmio_storeEmmPKh.exit
+_ZN5mmu_t10mmio_storeEmmPKh.exit.thread:          ; preds = %26, %30, %43, %_ZN5mmu_t10mmio_storeEmmPKh.exit
   call void @_Z22throw_access_exceptionbm11access_type(i1 noundef zeroext %4, i64 noundef %3, i32 noundef %5)
   unreachable
 

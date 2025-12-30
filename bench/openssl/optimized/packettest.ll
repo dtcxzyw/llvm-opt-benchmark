@@ -224,7 +224,7 @@ define internal range(i32 0, 2) i32 @test_PACKET_buf_init() #0 {
   br label %10
 
 10:                                               ; preds = %8, %0, %2, %4, %6
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %8 ], [ 0, %6 ], [ 0, %4 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %2 ], [ 0, %0 ], [ %spec.select, %8 ]
   ret i32 %.0
 }
 
@@ -278,7 +278,7 @@ PACKET_forward.exit10:                            ; preds = %5
   br label %10
 
 10:                                               ; preds = %8, %0, %2, %PACKET_forward.exit, %5, %PACKET_forward.exit10
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %8 ], [ 0, %PACKET_forward.exit10 ], [ 0, %5 ], [ 0, %PACKET_forward.exit ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %PACKET_forward.exit10 ], [ 0, %5 ], [ 0, %PACKET_forward.exit ], [ 0, %2 ], [ 0, %0 ], [ %spec.select, %8 ]
   ret i32 %.0
 }
 
@@ -320,7 +320,7 @@ PACKET_forward.exit15:                            ; preds = %7
   br label %12
 
 12:                                               ; preds = %10, %0, %2, %4, %PACKET_forward.exit, %7, %PACKET_forward.exit15
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %10 ], [ 0, %PACKET_forward.exit15 ], [ 0, %7 ], [ 0, %PACKET_forward.exit ], [ 0, %4 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %PACKET_forward.exit15 ], [ 0, %7 ], [ 0, %PACKET_forward.exit ], [ 0, %4 ], [ 0, %2 ], [ 0, %0 ], [ %spec.select, %10 ]
   ret i32 %.0
 }
 
@@ -376,7 +376,7 @@ PACKET_equal.exit34:                              ; preds = %PACKET_equal.exit31
   br label %19
 
 19:                                               ; preds = %PACKET_equal.exit34, %0, %PACKET_equal.exit, %PACKET_equal.exit21, %10, %PACKET_equal.exit25, %PACKET_equal.exit28, %PACKET_equal.exit31
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %PACKET_equal.exit34 ], [ 0, %PACKET_equal.exit31 ], [ 0, %PACKET_equal.exit28 ], [ 0, %PACKET_equal.exit25 ], [ 0, %10 ], [ 0, %PACKET_equal.exit21 ], [ 0, %PACKET_equal.exit ]
+  %.0 = phi i32 [ 0, %PACKET_equal.exit31 ], [ 0, %PACKET_equal.exit28 ], [ 0, %PACKET_equal.exit25 ], [ 0, %10 ], [ 0, %PACKET_equal.exit21 ], [ 0, %PACKET_equal.exit ], [ 0, %0 ], [ %spec.select, %PACKET_equal.exit34 ]
   ret i32 %.0
 }
 
@@ -422,7 +422,7 @@ PACKET_get_1.exit15:                              ; preds = %10
   br label %14
 
 14:                                               ; preds = %PACKET_get_1.exit15, %0, %PACKET_get_1.exit, %4, %PACKET_forward.exit, %PACKET_get_1.exit11, %10
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %PACKET_get_1.exit15 ], [ 0, %10 ], [ 0, %PACKET_get_1.exit11 ], [ 0, %PACKET_forward.exit ], [ 0, %4 ], [ 0, %PACKET_get_1.exit ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %PACKET_get_1.exit11 ], [ 0, %PACKET_forward.exit ], [ 0, %4 ], [ 0, %PACKET_get_1.exit ], [ 0, %0 ], [ %spec.select, %PACKET_get_1.exit15 ]
   ret i32 %.0
 }
 
@@ -468,7 +468,7 @@ PACKET_get_4.exit13:                              ; preds = %10
   br label %14
 
 14:                                               ; preds = %PACKET_get_4.exit13, %0, %PACKET_get_4.exit, %4, %PACKET_forward.exit, %PACKET_get_4.exit10, %10
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %PACKET_get_4.exit13 ], [ 0, %10 ], [ 0, %PACKET_get_4.exit10 ], [ 0, %PACKET_forward.exit ], [ 0, %4 ], [ 0, %PACKET_get_4.exit ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %PACKET_get_4.exit10 ], [ 0, %PACKET_forward.exit ], [ 0, %4 ], [ 0, %PACKET_get_4.exit ], [ 0, %0 ], [ %spec.select, %PACKET_get_4.exit13 ]
   ret i32 %.0
 }
 
@@ -522,7 +522,7 @@ PACKET_get_net_2.exit13:                          ; preds = %15
   br label %22
 
 22:                                               ; preds = %PACKET_get_net_2.exit13, %0, %PACKET_get_net_2.exit, %5, %PACKET_forward.exit, %PACKET_get_net_2.exit10, %15
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %PACKET_get_net_2.exit13 ], [ 0, %15 ], [ 0, %PACKET_get_net_2.exit10 ], [ 0, %PACKET_forward.exit ], [ 0, %5 ], [ 0, %PACKET_get_net_2.exit ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %PACKET_get_net_2.exit10 ], [ 0, %PACKET_forward.exit ], [ 0, %5 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %0 ], [ %spec.select, %PACKET_get_net_2.exit13 ]
   ret i32 %.0
 }
 
@@ -584,7 +584,7 @@ PACKET_get_net_3.exit13:                          ; preds = %20
   br label %30
 
 30:                                               ; preds = %PACKET_get_net_3.exit13, %0, %PACKET_get_net_3.exit, %6, %PACKET_forward.exit, %PACKET_get_net_3.exit10, %20
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %PACKET_get_net_3.exit13 ], [ 0, %20 ], [ 0, %PACKET_get_net_3.exit10 ], [ 0, %PACKET_forward.exit ], [ 0, %6 ], [ 0, %PACKET_get_net_3.exit ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %PACKET_get_net_3.exit10 ], [ 0, %PACKET_forward.exit ], [ 0, %6 ], [ 0, %PACKET_get_net_3.exit ], [ 0, %0 ], [ %spec.select, %PACKET_get_net_3.exit13 ]
   ret i32 %.0
 }
 
@@ -654,7 +654,7 @@ PACKET_get_net_4.exit13:                          ; preds = %25
   br label %38
 
 38:                                               ; preds = %PACKET_get_net_4.exit13, %0, %PACKET_get_net_4.exit, %7, %PACKET_forward.exit, %PACKET_get_net_4.exit10, %25
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %PACKET_get_net_4.exit13 ], [ 0, %25 ], [ 0, %PACKET_get_net_4.exit10 ], [ 0, %PACKET_forward.exit ], [ 0, %7 ], [ 0, %PACKET_get_net_4.exit ]
+  %.0 = phi i32 [ 0, %25 ], [ 0, %PACKET_get_net_4.exit10 ], [ 0, %PACKET_forward.exit ], [ 0, %7 ], [ 0, %PACKET_get_net_4.exit ], [ 0, %0 ], [ %spec.select, %PACKET_get_net_4.exit13 ]
   ret i32 %.0
 }
 
@@ -744,7 +744,7 @@ PACKET_get_sub_packet.exit23:                     ; preds = %41
   br label %44
 
 44:                                               ; preds = %PACKET_get_sub_packet.exit23, %0, %PACKET_get_sub_packet.exit, %PACKET_get_net_4.exit, %8, %20, %PACKET_forward.exit, %PACKET_get_sub_packet.exit17, %PACKET_get_net_4.exit20, %29, %41
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %PACKET_get_sub_packet.exit23 ], [ 0, %41 ], [ 0, %29 ], [ 0, %PACKET_get_net_4.exit20 ], [ 0, %PACKET_get_sub_packet.exit17 ], [ 0, %PACKET_forward.exit ], [ 0, %20 ], [ 0, %8 ], [ 0, %PACKET_get_net_4.exit ], [ 0, %PACKET_get_sub_packet.exit ]
+  %.0 = phi i32 [ 0, %41 ], [ 0, %29 ], [ 0, %PACKET_get_net_4.exit20 ], [ 0, %PACKET_get_sub_packet.exit17 ], [ 0, %PACKET_forward.exit ], [ 0, %20 ], [ 0, %8 ], [ 0, %PACKET_get_net_4.exit ], [ 0, %PACKET_get_sub_packet.exit ], [ 0, %0 ], [ %spec.select, %PACKET_get_sub_packet.exit23 ]
   ret i32 %.0
 }
 
@@ -829,7 +829,7 @@ PACKET_get_bytes.exit18:                          ; preds = %PACKET_forward.exit
   br label %33
 
 33:                                               ; preds = %31, %0, %PACKET_get_bytes.exit, %3, %6, %9, %12, %15, %PACKET_forward.exit, %PACKET_get_bytes.exit18, %19, %22, %25, %28
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %31 ], [ 0, %28 ], [ 0, %25 ], [ 0, %22 ], [ 0, %19 ], [ 0, %PACKET_get_bytes.exit18 ], [ 0, %PACKET_forward.exit ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %PACKET_get_bytes.exit ]
+  %.0 = phi i32 [ 0, %28 ], [ 0, %25 ], [ 0, %22 ], [ 0, %19 ], [ 0, %PACKET_get_bytes.exit18 ], [ 0, %PACKET_forward.exit ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %PACKET_get_bytes.exit ], [ 0, %0 ], [ %spec.select, %31 ]
   ret i32 %.0
 }
 
@@ -922,7 +922,7 @@ PACKET_copy_bytes.exit18:                         ; preds = %PACKET_forward.exit
   br label %27
 
 27:                                               ; preds = %25, %0, %PACKET_copy_bytes.exit, %4, %6, %8, %10, %12, %PACKET_forward.exit, %PACKET_copy_bytes.exit18, %17, %19, %21, %23
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %25 ], [ 0, %23 ], [ 0, %21 ], [ 0, %19 ], [ 0, %17 ], [ 0, %PACKET_copy_bytes.exit18 ], [ 0, %PACKET_forward.exit ], [ 0, %12 ], [ 0, %10 ], [ 0, %8 ], [ 0, %6 ], [ 0, %4 ], [ 0, %PACKET_copy_bytes.exit ]
+  %.0 = phi i32 [ 0, %23 ], [ 0, %21 ], [ 0, %19 ], [ 0, %17 ], [ 0, %PACKET_copy_bytes.exit18 ], [ 0, %PACKET_forward.exit ], [ 0, %12 ], [ 0, %10 ], [ 0, %8 ], [ 0, %6 ], [ 0, %4 ], [ 0, %PACKET_copy_bytes.exit ], [ 0, %0 ], [ %spec.select, %25 ]
   ret i32 %.0
 }
 
@@ -962,7 +962,7 @@ PACKET_copy_all.exit11:                           ; preds = %8
   br label %11
 
 11:                                               ; preds = %PACKET_copy_all.exit11, %0, %PACKET_copy_all.exit, %4, %6, %8
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %PACKET_copy_all.exit11 ], [ 0, %8 ], [ 0, %6 ], [ 0, %4 ], [ 0, %PACKET_copy_all.exit ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %6 ], [ 0, %4 ], [ 0, %PACKET_copy_all.exit ], [ 0, %0 ], [ %spec.select, %PACKET_copy_all.exit11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -1132,7 +1132,7 @@ define internal range(i32 0, 2) i32 @test_PACKET_contains_zero_byte() #0 {
   br label %17
 
 17:                                               ; preds = %12, %0, %5, %10
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %12 ], [ 0, %10 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
@@ -1178,7 +1178,7 @@ PACKET_get_bytes.exit13:                          ; preds = %PACKET_forward.exit
   br label %12
 
 12:                                               ; preds = %9, %0, %PACKET_forward.exit, %PACKET_get_bytes.exit, %4, %PACKET_forward.exit10, %PACKET_get_bytes.exit13
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %9 ], [ 0, %PACKET_get_bytes.exit13 ], [ 0, %PACKET_forward.exit10 ], [ 0, %4 ], [ 0, %PACKET_get_bytes.exit ], [ 0, %PACKET_forward.exit ]
+  %.0 = phi i32 [ 0, %PACKET_get_bytes.exit13 ], [ 0, %PACKET_forward.exit10 ], [ 0, %4 ], [ 0, %PACKET_get_bytes.exit ], [ 0, %PACKET_forward.exit ], [ 0, %0 ], [ %spec.select, %9 ]
   ret i32 %.0
 }
 
@@ -1248,7 +1248,7 @@ PACKET_get_length_prefixed_1.exit16:              ; preds = %17
   br label %26
 
 26:                                               ; preds = %24, %5, %7, %PACKET_get_length_prefixed_1.exit, %11, %PACKET_get_net_2.exit, %17, %PACKET_get_length_prefixed_1.exit16
-  %.0 = phi i32 [ 0, %5 ], [ %spec.select, %24 ], [ 0, %PACKET_get_length_prefixed_1.exit16 ], [ 0, %17 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %11 ], [ 0, %PACKET_get_length_prefixed_1.exit ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %PACKET_get_length_prefixed_1.exit16 ], [ 0, %17 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %11 ], [ 0, %PACKET_get_length_prefixed_1.exit ], [ 0, %7 ], [ 0, %5 ], [ %spec.select, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -1337,7 +1337,7 @@ PACKET_get_length_prefixed_2.exit15:              ; preds = %27
   br label %38
 
 38:                                               ; preds = %35, %6, %8, %PACKET_get_length_prefixed_2.exit, %20, %PACKET_get_net_2.exit, %27, %PACKET_get_length_prefixed_2.exit15
-  %.0 = phi i32 [ 0, %6 ], [ %spec.select, %35 ], [ 0, %PACKET_get_length_prefixed_2.exit15 ], [ 0, %27 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %20 ], [ 0, %PACKET_get_length_prefixed_2.exit ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %PACKET_get_length_prefixed_2.exit15 ], [ 0, %27 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %20 ], [ 0, %PACKET_get_length_prefixed_2.exit ], [ 0, %8 ], [ 0, %6 ], [ %spec.select, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -1430,7 +1430,7 @@ PACKET_get_length_prefixed_3.exit15:              ; preds = %31
   br label %42
 
 42:                                               ; preds = %39, %5, %7, %PACKET_get_length_prefixed_3.exit, %24, %PACKET_get_net_2.exit, %31, %PACKET_get_length_prefixed_3.exit15
-  %.0 = phi i32 [ 0, %5 ], [ %spec.select, %39 ], [ 0, %PACKET_get_length_prefixed_3.exit15 ], [ 0, %31 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %24 ], [ 0, %PACKET_get_length_prefixed_3.exit ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %PACKET_get_length_prefixed_3.exit15 ], [ 0, %31 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %24 ], [ 0, %PACKET_get_length_prefixed_3.exit ], [ 0, %7 ], [ 0, %5 ], [ %spec.select, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -1473,7 +1473,7 @@ PACKET_as_length_prefixed_1.exit20:               ; preds = %5
   br label %12
 
 12:                                               ; preds = %10, %0, %2, %PACKET_as_length_prefixed_1.exit, %5, %PACKET_as_length_prefixed_1.exit20, %8
-  %.05 = phi i32 [ 0, %0 ], [ %spec.select, %10 ], [ 0, %8 ], [ 0, %PACKET_as_length_prefixed_1.exit20 ], [ 0, %5 ], [ 0, %PACKET_as_length_prefixed_1.exit ], [ 0, %2 ]
+  %.05 = phi i32 [ 0, %8 ], [ 0, %PACKET_as_length_prefixed_1.exit20 ], [ 0, %5 ], [ 0, %PACKET_as_length_prefixed_1.exit ], [ 0, %2 ], [ 0, %0 ], [ %spec.select, %10 ]
   ret i32 %.05
 }
 
@@ -1546,7 +1546,7 @@ PACKET_as_length_prefixed_2.exit19:               ; preds = %18
   br label %25
 
 25:                                               ; preds = %23, %6, %8, %PACKET_as_length_prefixed_2.exit, %18, %PACKET_as_length_prefixed_2.exit19, %21
-  %.05 = phi i32 [ 0, %6 ], [ %spec.select, %23 ], [ 0, %21 ], [ 0, %PACKET_as_length_prefixed_2.exit19 ], [ 0, %18 ], [ 0, %PACKET_as_length_prefixed_2.exit ], [ 0, %8 ]
+  %.05 = phi i32 [ 0, %21 ], [ 0, %PACKET_as_length_prefixed_2.exit19 ], [ 0, %18 ], [ 0, %PACKET_as_length_prefixed_2.exit ], [ 0, %8 ], [ 0, %6 ], [ %spec.select, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.05
 }
@@ -1595,7 +1595,7 @@ PACKET_get_quic_vlint.exit:                       ; preds = %3
   br i1 %.not9, label %21, label %1
 
 21:                                               ; preds = %1, %3, %PACKET_get_quic_vlint.exit, %12, %16
-  %.06 = phi i32 [ 0, %3 ], [ 0, %16 ], [ 0, %12 ], [ 0, %PACKET_get_quic_vlint.exit ], [ 1, %1 ]
+  %.06 = phi i32 [ 0, %16 ], [ 0, %12 ], [ 0, %PACKET_get_quic_vlint.exit ], [ 0, %3 ], [ 1, %1 ]
   ret i32 %.06
 }
 
@@ -1655,10 +1655,10 @@ PACKET_buf_init.exit.thread:                      ; preds = %1
   br label %PACKET_get_quic_length_prefixed.exit
 
 PACKET_get_quic_length_prefixed.exit:             ; preds = %.thread29, %17, %21
-  %.sroa.022.2 = phi ptr [ %23, %21 ], [ %.sroa.022.12733, %.thread29 ], [ %.sroa.022.12733, %17 ]
-  %.sroa.0.1 = phi ptr [ %22, %21 ], [ %.sroa.0.052, %.thread29 ], [ %.sroa.0.052, %17 ]
-  %.sroa.5.1 = phi i64 [ %18, %21 ], [ %.sroa.5.053, %.thread29 ], [ %.sroa.5.053, %17 ]
-  %.0.i21 = phi i32 [ 1, %21 ], [ 0, %.thread29 ], [ 0, %17 ]
+  %.sroa.022.2 = phi ptr [ %.sroa.022.12733, %.thread29 ], [ %.sroa.022.12733, %17 ], [ %23, %21 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.052, %.thread29 ], [ %.sroa.0.052, %17 ], [ %22, %21 ]
+  %.sroa.5.1 = phi i64 [ %.sroa.5.053, %.thread29 ], [ %.sroa.5.053, %17 ], [ %18, %21 ]
+  %.0.i21 = phi i32 [ 0, %.thread29 ], [ 0, %17 ], [ 1, %21 ]
   %24 = zext i1 %.not to i32
   %25 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.25, i32 noundef 555, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133, i32 noundef %.0.i21, i32 noundef %24) #7
   %.not16 = icmp eq i32 %25, 0
@@ -1691,7 +1691,7 @@ PACKET_get_quic_length_prefixed.exit:             ; preds = %.thread29, %17, %21
   br i1 %exitcond.not, label %split, label %1, !llvm.loop !21
 
 split:                                            ; preds = %PACKET_buf_init.exit.thread, %35, %31, %.thread42, %27, %PACKET_get_quic_length_prefixed.exit, %PACKET_buf_init.exit
-  %.013.ph = phi i32 [ 0, %PACKET_buf_init.exit.thread ], [ 1, %35 ], [ 0, %31 ], [ 0, %PACKET_buf_init.exit ], [ 0, %27 ], [ 0, %.thread42 ], [ 0, %PACKET_get_quic_length_prefixed.exit ]
+  %.013.ph = phi i32 [ 0, %PACKET_buf_init.exit.thread ], [ 1, %35 ], [ 0, %31 ], [ 0, %.thread42 ], [ 0, %27 ], [ 0, %PACKET_get_quic_length_prefixed.exit ], [ 0, %PACKET_buf_init.exit ]
   ret i32 %.013.ph
 }
 

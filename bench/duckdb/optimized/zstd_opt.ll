@@ -248,7 +248,7 @@ _ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i:          ; preds = %117, %114
   br label %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit
 
 _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit: ; preds = %96, %103, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i
-  %.0.i13 = phi i32 [ %134, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i ], [ %111, %103 ], [ %100, %96 ]
+  %.0.i13 = phi i32 [ %111, %103 ], [ %134, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i ], [ %100, %96 ]
   store i32 %.0.i13, ptr %39, align 4, !tbaa !44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   %135 = add i32 %91, -1
@@ -576,9 +576,9 @@ _ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i24:        ; preds = %314, %310
   br label %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit28
 
 _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit28: ; preds = %277, %301, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i24
-  %330 = phi i32 [ %257, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i24 ], [ %257, %301 ], [ %278, %277 ]
-  %.0.i2185 = phi i32 [ %.0.i21.ph8992, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i24 ], [ %299, %301 ], [ %282, %277 ]
-  %.0.i26 = phi i32 [ %329, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i24 ], [ %307, %301 ], [ %285, %277 ]
+  %330 = phi i32 [ %257, %301 ], [ %257, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i24 ], [ %278, %277 ]
+  %.0.i2185 = phi i32 [ %299, %301 ], [ %.0.i21.ph8992, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i24 ], [ %282, %277 ]
+  %.0.i26 = phi i32 [ %307, %301 ], [ %329, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i24 ], [ %285, %277 ]
   %331 = sub nsw i32 %.0.i2185, %.0.i26
   %332 = add nsw i32 %330, %331
   %333 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTD_optimal_t", ptr %39, i64 %227
@@ -1380,8 +1380,8 @@ _ZN11duckdb_zstdL16ZSTD_updateStatsEPNS_10optState_tEjPKhjj.exit: ; preds = %641
   br i1 %688, label %684, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i, !llvm.loop !76
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i: ; preds = %684, %677, %676
-  %.014.i = phi ptr [ %.2439.i230, %676 ], [ %74, %677 ], [ %74, %684 ]
-  %.0.i55 = phi ptr [ %660, %676 ], [ %680, %677 ], [ %680, %684 ]
+  %.014.i = phi ptr [ %74, %677 ], [ %.2439.i230, %676 ], [ %74, %684 ]
+  %.0.i55 = phi ptr [ %680, %677 ], [ %660, %676 ], [ %680, %684 ]
   %689 = icmp ult ptr %.014.i, %659
   br i1 %689, label %.lr.ph.i57, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit
 
@@ -1497,9 +1497,9 @@ _ZN11duckdb_zstdL18ZSTD_setBasePricesEPNS_10optState_tEi.exit: ; preds = %._crit
   br label %746
 
 746:                                              ; preds = %.thread67, %_ZN11duckdb_zstdL18ZSTD_setBasePricesEPNS_10optState_tEi.exit, %522
-  %.sroa.0214.1.i = phi i32 [ %.sroa.0214.0.i237, %.thread67 ], [ %.sroa.0214.2.i146153171, %_ZN11duckdb_zstdL18ZSTD_setBasePricesEPNS_10optState_tEi.exit ], [ %.sroa.0214.2.i353, %522 ]
-  %.1438.i = phi ptr [ %.0437.i238, %.thread67 ], [ %.2439.i.lcssa, %_ZN11duckdb_zstdL18ZSTD_setBasePricesEPNS_10optState_tEi.exit ], [ %.0437.i238, %522 ]
-  %.2.i = phi ptr [ %92, %.thread67 ], [ %.3.i.lcssa, %_ZN11duckdb_zstdL18ZSTD_setBasePricesEPNS_10optState_tEi.exit ], [ %524, %522 ]
+  %.sroa.0214.1.i = phi i32 [ %.sroa.0214.2.i353, %522 ], [ %.sroa.0214.2.i146153171, %_ZN11duckdb_zstdL18ZSTD_setBasePricesEPNS_10optState_tEi.exit ], [ %.sroa.0214.0.i237, %.thread67 ]
+  %.1438.i = phi ptr [ %.0437.i238, %522 ], [ %.2439.i.lcssa, %_ZN11duckdb_zstdL18ZSTD_setBasePricesEPNS_10optState_tEi.exit ], [ %.0437.i238, %.thread67 ]
+  %.2.i = phi ptr [ %524, %522 ], [ %.3.i.lcssa, %_ZN11duckdb_zstdL18ZSTD_setBasePricesEPNS_10optState_tEi.exit ], [ %92, %.thread67 ]
   %747 = icmp ult ptr %.2.i, %15
   br i1 %747, label %80, label %_ZN11duckdb_zstdL30ZSTD_compressBlock_opt_genericEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvmiNS_15ZSTD_dictMode_eE.exit.loopexit
 
@@ -1728,7 +1728,7 @@ _ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i:          ; preds = %126, %123
   br label %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit
 
 _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit: ; preds = %98, %108, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i
-  %.0.i12 = phi i32 [ %146, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i ], [ %120, %108 ], [ %105, %98 ]
+  %.0.i12 = phi i32 [ %120, %108 ], [ %146, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i ], [ %105, %98 ]
   store i32 %.0.i12, ptr %40, align 4, !tbaa !44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %62, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   %147 = add i32 %93, -1
@@ -2087,9 +2087,9 @@ _ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i25:        ; preds = %354, %349
   br label %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit31
 
 _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit31: ; preds = %302, %336, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i25
-  %375 = phi i32 [ %278, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i25 ], [ %278, %336 ], [ %303, %302 ]
-  %.0.i21148 = phi i32 [ %.0.i21.ph152155, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i25 ], [ %334, %336 ], [ %310, %302 ]
-  %.0.i28 = phi i32 [ %374, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i25 ], [ %346, %336 ], [ %316, %302 ]
+  %375 = phi i32 [ %278, %336 ], [ %278, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i25 ], [ %303, %302 ]
+  %.0.i21148 = phi i32 [ %334, %336 ], [ %.0.i21.ph152155, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i25 ], [ %310, %302 ]
+  %.0.i28 = phi i32 [ %346, %336 ], [ %374, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i25 ], [ %316, %302 ]
   %376 = sub nsw i32 %.0.i21148, %.0.i28
   %377 = add nsw i32 %375, %376
   %378 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTD_optimal_t", ptr %40, i64 %245
@@ -2273,7 +2273,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit68: ; preds = %4
   %.neg22.i74 = add i32 %385, 4352
   %496 = shl nuw nsw i32 %493, 8
   %497 = add i32 %495, %496
-  %.neg359 = sub i32 %497, %.neg22.i74
+  %.neg = sub i32 %497, %.neg22.i74
   br label %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit75
 
 498:                                              ; preds = %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit68
@@ -2309,13 +2309,13 @@ _ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i69:        ; preds = %503, %500
   %519 = lshr i32 %518, %517
   %reass.add269.neg = sub nsw i32 %517, %512
   %reass.mul270.neg = shl nsw i32 %reass.add269.neg, 8
-  %.neg = sub i32 %519, %385
-  %.neg358 = add i32 %.neg, %reass.mul270.neg
+  %.neg358 = sub i32 %519, %385
+  %.neg359 = add i32 %.neg358, %reass.mul270.neg
   br label %_ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit75
 
 _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit75: ; preds = %488, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i69
-  %.0.i65164 = phi i32 [ %.0.i65165168, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i69 ], [ %486, %488 ]
-  %.0.i72.neg360 = phi i32 [ %.neg358, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i69 ], [ %.neg359, %488 ]
+  %.0.i65164 = phi i32 [ %486, %488 ], [ %.0.i65165168, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i69 ]
+  %.0.i72.neg360 = phi i32 [ %.neg, %488 ], [ %.neg359, %_ZN11duckdb_zstdL11ZSTD_LLcodeEj.exit.i69 ]
   %520 = add i32 %.025.i60, %377
   %521 = add i32 %520, %.0.i65164
   %522 = add i32 %521, %.0.i72.neg360
@@ -2779,8 +2779,8 @@ _ZN11duckdb_zstdL11ZSTD_MLcodeEj.exit97:          ; preds = %692, %695
   store i32 1073741824, ptr %739, align 4, !tbaa !44
   br label %.thread185
 
-.thread185:                                       ; preds = %736, %594, %.thread201
-  %.9.i191 = phi i32 [ %.8.i, %.thread201 ], [ %.13.i.lcssa, %736 ], [ %.8.i, %594 ]
+.thread185:                                       ; preds = %594, %736, %.thread201
+  %.9.i191 = phi i32 [ %.8.i, %.thread201 ], [ %.8.i, %594 ], [ %.13.i.lcssa, %736 ]
   %740 = add i32 %.5.i335, 1
   %.not491.i = icmp ugt i32 %740, %.9.i191
   br i1 %.not491.i, label %741, label %.lr.ph337, !llvm.loop !64
@@ -3191,8 +3191,8 @@ _ZN11duckdb_zstdL16ZSTD_updateStatsEPNS_10optState_tEjPKhjj.exit: ; preds = %867
   br i1 %914, label %910, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i, !llvm.loop !76
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i: ; preds = %910, %903, %902
-  %.014.i = phi ptr [ %.2439.i343, %902 ], [ %76, %903 ], [ %76, %910 ]
-  %.0.i118 = phi ptr [ %886, %902 ], [ %906, %903 ], [ %906, %910 ]
+  %.014.i = phi ptr [ %76, %903 ], [ %.2439.i343, %902 ], [ %76, %910 ]
+  %.0.i118 = phi ptr [ %906, %903 ], [ %886, %902 ], [ %906, %910 ]
   %915 = icmp ult ptr %.014.i, %885
   br i1 %915, label %.lr.ph.i120, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit
 
@@ -3320,9 +3320,9 @@ _ZN11duckdb_zstdL18ZSTD_setBasePricesEPNS_10optState_tEi.exit: ; preds = %._crit
   br label %984
 
 984:                                              ; preds = %.thread130, %_ZN11duckdb_zstdL18ZSTD_setBasePricesEPNS_10optState_tEi.exit, %748
-  %.sroa.0214.1.i = phi i32 [ %.sroa.0214.0.i350, %.thread130 ], [ %.sroa.0214.2.i218225243, %_ZN11duckdb_zstdL18ZSTD_setBasePricesEPNS_10optState_tEi.exit ], [ %.sroa.0214.2.i475, %748 ]
-  %.1438.i = phi ptr [ %.0437.i351, %.thread130 ], [ %.2439.i.lcssa, %_ZN11duckdb_zstdL18ZSTD_setBasePricesEPNS_10optState_tEi.exit ], [ %.0437.i351, %748 ]
-  %.2.i = phi ptr [ %94, %.thread130 ], [ %.3.i.lcssa, %_ZN11duckdb_zstdL18ZSTD_setBasePricesEPNS_10optState_tEi.exit ], [ %750, %748 ]
+  %.sroa.0214.1.i = phi i32 [ %.sroa.0214.2.i475, %748 ], [ %.sroa.0214.2.i218225243, %_ZN11duckdb_zstdL18ZSTD_setBasePricesEPNS_10optState_tEi.exit ], [ %.sroa.0214.0.i350, %.thread130 ]
+  %.1438.i = phi ptr [ %.0437.i351, %748 ], [ %.2439.i.lcssa, %_ZN11duckdb_zstdL18ZSTD_setBasePricesEPNS_10optState_tEi.exit ], [ %.0437.i351, %.thread130 ]
+  %.2.i = phi ptr [ %750, %748 ], [ %.3.i.lcssa, %_ZN11duckdb_zstdL18ZSTD_setBasePricesEPNS_10optState_tEi.exit ], [ %94, %.thread130 ]
   %985 = icmp ult ptr %.2.i, %16
   br i1 %985, label %82, label %_ZN11duckdb_zstdL30ZSTD_compressBlock_opt_genericEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvmiNS_15ZSTD_dictMode_eE.exit.loopexit
 
@@ -3654,7 +3654,7 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit:       ; preds = %13, %18, %23, %28, 
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %93, %.thread63.i, %125
-  %.1.i = phi i64 [ %105, %.thread63.i ], [ %128, %125 ], [ %96, %93 ]
+  %.1.i = phi i64 [ %128, %125 ], [ %96, %93 ], [ %105, %.thread63.i ]
   %129 = add i64 %.1.i, %86
   br label %137
 
@@ -3727,11 +3727,11 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %93, %.thread63.i, %
   %163 = select i1 %161, i1 %162, i1 false
   br i1 %163, label %81, label %.thread, !llvm.loop !101
 
-.thread:                                          ; preds = %159, %155, %146, %158, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit
-  %.1131 = phi ptr [ %63, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit ], [ %7, %155 ], [ %.0130162, %158 ], [ %.0130162, %146 ], [ %.3133, %159 ]
-  %.1128 = phi ptr [ %64, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit ], [ %.0127163, %155 ], [ %7, %158 ], [ %.0127163, %146 ], [ %.3, %159 ]
-  %.1122 = phi i32 [ %74, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit ], [ %.2123, %158 ], [ %.2123, %146 ], [ %.2123, %155 ], [ %.2123, %159 ]
-  %.1119 = phi i64 [ 8, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit ], [ %147, %158 ], [ %147, %146 ], [ %147, %155 ], [ %147, %159 ]
+.thread:                                          ; preds = %159, %146, %155, %158, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit
+  %.1131 = phi ptr [ %63, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit ], [ %.0130162, %158 ], [ %7, %155 ], [ %.0130162, %146 ], [ %.3133, %159 ]
+  %.1128 = phi ptr [ %64, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit ], [ %7, %158 ], [ %.0127163, %155 ], [ %.0127163, %146 ], [ %.3, %159 ]
+  %.1122 = phi i32 [ %74, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit ], [ %.2123, %158 ], [ %.2123, %155 ], [ %.2123, %146 ], [ %.2123, %159 ]
+  %.1119 = phi i64 [ 8, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit ], [ %147, %158 ], [ %147, %155 ], [ %147, %146 ], [ %147, %159 ]
   store i32 0, ptr %.1128, align 4, !tbaa !26
   store i32 0, ptr %.1131, align 4, !tbaa !26
   %164 = icmp ugt i64 %.1119, 384
@@ -3852,7 +3852,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %14, %.thread63.i, %48
-  %.1.i = phi i64 [ %26, %.thread63.i ], [ %51, %48 ], [ %17, %14 ]
+  %.1.i = phi i64 [ %51, %48 ], [ %17, %14 ], [ %26, %.thread63.i ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 %.1.i
   %.not = icmp eq ptr %52, %3
   br i1 %.not, label %53, label %97
@@ -3957,7 +3957,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %14, %.thread63.i, %
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit49
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit49:   ; preds = %58, %.thread63.i48, %92
-  %.1.i30 = phi i64 [ %70, %.thread63.i48 ], [ %95, %92 ], [ %61, %58 ]
+  %.1.i30 = phi i64 [ %95, %92 ], [ %61, %58 ], [ %70, %.thread63.i48 ]
   %96 = add i64 %.1.i30, %.1.i
   br label %97
 
@@ -5017,7 +5017,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %104, %.thread63.i, %135
-  %.1.i16 = phi i64 [ %115, %.thread63.i ], [ %137, %135 ], [ %107, %104 ]
+  %.1.i16 = phi i64 [ %137, %135 ], [ %107, %104 ], [ %115, %.thread63.i ]
   %138 = trunc i64 %.1.i16 to i32
   %139 = add i32 %138, 3
   br label %140
@@ -5199,7 +5199,7 @@ _ZN11duckdb_zstdL33ZSTD_insertAndFindFirstIndexHash3EPKNS_17ZSTD_matchState_tEPj
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit48
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit48:   ; preds = %186, %.thread63.i47, %219
-  %.1.i29 = phi i64 [ %197, %.thread63.i47 ], [ %221, %219 ], [ %189, %186 ]
+  %.1.i29 = phi i64 [ %221, %219 ], [ %189, %186 ], [ %197, %.thread63.i47 ]
   %222 = icmp ugt i64 %.1.i29, 2
   br i1 %222, label %223, label %.thread91
 
@@ -5348,7 +5348,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit48:   ; preds = %186, %.thread63.i47
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit76
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit76:   ; preds = %250, %.thread63.i75, %282
-  %.1.i57 = phi i64 [ %262, %.thread63.i75 ], [ %285, %282 ], [ %253, %250 ]
+  %.1.i57 = phi i64 [ %285, %282 ], [ %253, %250 ], [ %262, %.thread63.i75 ]
   %286 = add i64 %.1.i57, %243
   %287 = icmp ugt i64 %286, %.9441.i125
   br i1 %287, label %288, label %303
@@ -5410,11 +5410,11 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit76:   ; preds = %250, %.thread63.i75
   %317 = select i1 %315, i1 %316, i1 false
   br i1 %317, label %238, label %.thread97, !llvm.loop !129
 
-.thread97:                                        ; preds = %313, %312, %309, %288, %.thread91
-  %.10423.i = phi i32 [ %.4417.i, %.thread91 ], [ %.11.i, %312 ], [ %298, %288 ], [ %.11.i, %309 ], [ %.11.i, %313 ]
-  %.1401.i = phi i32 [ %66, %.thread91 ], [ %.2402.i, %312 ], [ %.3403.i, %288 ], [ %.2402.i, %309 ], [ %.2402.i, %313 ]
-  %.1396.i = phi ptr [ %65, %.thread91 ], [ %9, %312 ], [ %.0395.i129, %288 ], [ %.0395.i129, %309 ], [ %.3398.i, %313 ]
-  %.1392.i = phi ptr [ %64, %.thread91 ], [ %.0391.i130, %312 ], [ %.0391.i130, %288 ], [ %9, %309 ], [ %.3394.i, %313 ]
+.thread97:                                        ; preds = %313, %309, %312, %288, %.thread91
+  %.10423.i = phi i32 [ %.4417.i, %.thread91 ], [ %298, %288 ], [ %.11.i, %312 ], [ %.11.i, %309 ], [ %.11.i, %313 ]
+  %.1401.i = phi i32 [ %66, %.thread91 ], [ %.3403.i, %288 ], [ %.2402.i, %312 ], [ %.2402.i, %309 ], [ %.2402.i, %313 ]
+  %.1396.i = phi ptr [ %65, %.thread91 ], [ %.0395.i129, %288 ], [ %9, %312 ], [ %.0395.i129, %309 ], [ %.3398.i, %313 ]
+  %.1392.i = phi ptr [ %64, %.thread91 ], [ %.0391.i130, %288 ], [ %.0391.i130, %312 ], [ %9, %309 ], [ %.3394.i, %313 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !26
   store i32 0, ptr %.1392.i, align 4, !tbaa !26
   %318 = add i32 %.1401.i, -8
@@ -5671,7 +5671,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %104, %.thread63.i, %135
-  %.1.i15 = phi i64 [ %115, %.thread63.i ], [ %137, %135 ], [ %107, %104 ]
+  %.1.i15 = phi i64 [ %137, %135 ], [ %107, %104 ], [ %115, %.thread63.i ]
   %138 = trunc i64 %.1.i15 to i32
   %139 = add i32 %138, 4
   br label %140
@@ -5833,7 +5833,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %104, %.thread63.i, 
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit46
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit46:   ; preds = %170, %.thread63.i45, %202
-  %.1.i27 = phi i64 [ %182, %.thread63.i45 ], [ %205, %202 ], [ %173, %170 ]
+  %.1.i27 = phi i64 [ %205, %202 ], [ %173, %170 ], [ %182, %.thread63.i45 ]
   %206 = add i64 %.1.i27, %163
   %207 = icmp ugt i64 %206, %.9441.i86
   br i1 %207, label %208, label %223
@@ -5895,11 +5895,11 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit46:   ; preds = %170, %.thread63.i45
   %237 = select i1 %235, i1 %236, i1 false
   br i1 %237, label %158, label %.thread60, !llvm.loop !129
 
-.thread60:                                        ; preds = %233, %232, %229, %208, %.thread54
-  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread54 ], [ %.11.i, %232 ], [ %218, %208 ], [ %.11.i, %229 ], [ %.11.i, %233 ]
-  %.1401.i = phi i32 [ %66, %.thread54 ], [ %.2402.i, %232 ], [ %.3403.i, %208 ], [ %.2402.i, %229 ], [ %.2402.i, %233 ]
-  %.1396.i = phi ptr [ %65, %.thread54 ], [ %9, %232 ], [ %.0395.i90, %208 ], [ %.0395.i90, %229 ], [ %.3398.i, %233 ]
-  %.1392.i = phi ptr [ %64, %.thread54 ], [ %.0391.i91, %232 ], [ %.0391.i91, %208 ], [ %9, %229 ], [ %.3394.i, %233 ]
+.thread60:                                        ; preds = %233, %229, %232, %208, %.thread54
+  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread54 ], [ %218, %208 ], [ %.11.i, %232 ], [ %.11.i, %229 ], [ %.11.i, %233 ]
+  %.1401.i = phi i32 [ %66, %.thread54 ], [ %.3403.i, %208 ], [ %.2402.i, %232 ], [ %.2402.i, %229 ], [ %.2402.i, %233 ]
+  %.1396.i = phi ptr [ %65, %.thread54 ], [ %.0395.i90, %208 ], [ %9, %232 ], [ %.0395.i90, %229 ], [ %.3398.i, %233 ]
+  %.1392.i = phi ptr [ %64, %.thread54 ], [ %.0391.i91, %208 ], [ %.0391.i91, %232 ], [ %9, %229 ], [ %.3394.i, %233 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !26
   store i32 0, ptr %.1392.i, align 4, !tbaa !26
   %238 = add i32 %.1401.i, -8
@@ -6151,7 +6151,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %104, %.thread63.i, %135
-  %.1.i15 = phi i64 [ %115, %.thread63.i ], [ %137, %135 ], [ %107, %104 ]
+  %.1.i15 = phi i64 [ %137, %135 ], [ %107, %104 ], [ %115, %.thread63.i ]
   %138 = trunc i64 %.1.i15 to i32
   %139 = add i32 %138, 4
   br label %140
@@ -6313,7 +6313,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %104, %.thread63.i, 
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit46
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit46:   ; preds = %170, %.thread63.i45, %202
-  %.1.i27 = phi i64 [ %182, %.thread63.i45 ], [ %205, %202 ], [ %173, %170 ]
+  %.1.i27 = phi i64 [ %205, %202 ], [ %173, %170 ], [ %182, %.thread63.i45 ]
   %206 = add i64 %.1.i27, %163
   %207 = icmp ugt i64 %206, %.9441.i86
   br i1 %207, label %208, label %223
@@ -6375,11 +6375,11 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit46:   ; preds = %170, %.thread63.i45
   %237 = select i1 %235, i1 %236, i1 false
   br i1 %237, label %158, label %.thread60, !llvm.loop !129
 
-.thread60:                                        ; preds = %233, %232, %229, %208, %.thread54
-  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread54 ], [ %.11.i, %232 ], [ %218, %208 ], [ %.11.i, %229 ], [ %.11.i, %233 ]
-  %.1401.i = phi i32 [ %66, %.thread54 ], [ %.2402.i, %232 ], [ %.3403.i, %208 ], [ %.2402.i, %229 ], [ %.2402.i, %233 ]
-  %.1396.i = phi ptr [ %65, %.thread54 ], [ %9, %232 ], [ %.0395.i90, %208 ], [ %.0395.i90, %229 ], [ %.3398.i, %233 ]
-  %.1392.i = phi ptr [ %64, %.thread54 ], [ %.0391.i91, %232 ], [ %.0391.i91, %208 ], [ %9, %229 ], [ %.3394.i, %233 ]
+.thread60:                                        ; preds = %233, %229, %232, %208, %.thread54
+  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread54 ], [ %218, %208 ], [ %.11.i, %232 ], [ %.11.i, %229 ], [ %.11.i, %233 ]
+  %.1401.i = phi i32 [ %66, %.thread54 ], [ %.3403.i, %208 ], [ %.2402.i, %232 ], [ %.2402.i, %229 ], [ %.2402.i, %233 ]
+  %.1396.i = phi ptr [ %65, %.thread54 ], [ %.0395.i90, %208 ], [ %9, %232 ], [ %.0395.i90, %229 ], [ %.3398.i, %233 ]
+  %.1392.i = phi ptr [ %64, %.thread54 ], [ %.0391.i91, %208 ], [ %.0391.i91, %232 ], [ %9, %229 ], [ %.3394.i, %233 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !26
   store i32 0, ptr %.1392.i, align 4, !tbaa !26
   %238 = add i32 %.1401.i, -8
@@ -6631,7 +6631,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %104, %.thread63.i, %135
-  %.1.i15 = phi i64 [ %115, %.thread63.i ], [ %137, %135 ], [ %107, %104 ]
+  %.1.i15 = phi i64 [ %137, %135 ], [ %107, %104 ], [ %115, %.thread63.i ]
   %138 = trunc i64 %.1.i15 to i32
   %139 = add i32 %138, 4
   br label %140
@@ -6793,7 +6793,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %104, %.thread63.i, 
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit46
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit46:   ; preds = %170, %.thread63.i45, %202
-  %.1.i27 = phi i64 [ %182, %.thread63.i45 ], [ %205, %202 ], [ %173, %170 ]
+  %.1.i27 = phi i64 [ %205, %202 ], [ %173, %170 ], [ %182, %.thread63.i45 ]
   %206 = add i64 %.1.i27, %163
   %207 = icmp ugt i64 %206, %.9441.i86
   br i1 %207, label %208, label %223
@@ -6855,11 +6855,11 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit46:   ; preds = %170, %.thread63.i45
   %237 = select i1 %235, i1 %236, i1 false
   br i1 %237, label %158, label %.thread60, !llvm.loop !129
 
-.thread60:                                        ; preds = %233, %232, %229, %208, %.thread54
-  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread54 ], [ %.11.i, %232 ], [ %218, %208 ], [ %.11.i, %229 ], [ %.11.i, %233 ]
-  %.1401.i = phi i32 [ %66, %.thread54 ], [ %.2402.i, %232 ], [ %.3403.i, %208 ], [ %.2402.i, %229 ], [ %.2402.i, %233 ]
-  %.1396.i = phi ptr [ %65, %.thread54 ], [ %9, %232 ], [ %.0395.i90, %208 ], [ %.0395.i90, %229 ], [ %.3398.i, %233 ]
-  %.1392.i = phi ptr [ %64, %.thread54 ], [ %.0391.i91, %232 ], [ %.0391.i91, %208 ], [ %9, %229 ], [ %.3394.i, %233 ]
+.thread60:                                        ; preds = %233, %229, %232, %208, %.thread54
+  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread54 ], [ %218, %208 ], [ %.11.i, %232 ], [ %.11.i, %229 ], [ %.11.i, %233 ]
+  %.1401.i = phi i32 [ %66, %.thread54 ], [ %.3403.i, %208 ], [ %.2402.i, %232 ], [ %.2402.i, %229 ], [ %.2402.i, %233 ]
+  %.1396.i = phi ptr [ %65, %.thread54 ], [ %.0395.i90, %208 ], [ %9, %232 ], [ %.0395.i90, %229 ], [ %.3398.i, %233 ]
+  %.1392.i = phi ptr [ %64, %.thread54 ], [ %.0391.i91, %208 ], [ %.0391.i91, %232 ], [ %9, %229 ], [ %.3394.i, %233 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !26
   store i32 0, ptr %.1392.i, align 4, !tbaa !26
   %238 = add i32 %.1401.i, -8
@@ -7120,7 +7120,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %110, %.thread63.i, %141
-  %.1.i16 = phi i64 [ %121, %.thread63.i ], [ %143, %141 ], [ %113, %110 ]
+  %.1.i16 = phi i64 [ %143, %141 ], [ %113, %110 ], [ %121, %.thread63.i ]
   %144 = trunc i64 %.1.i16 to i32
   %145 = add i32 %144, 3
   br label %160
@@ -7335,7 +7335,7 @@ _ZN11duckdb_zstdL33ZSTD_insertAndFindFirstIndexHash3EPKNS_17ZSTD_matchState_tEPj
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit52
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit52:   ; preds = %240, %.thread63.i51, %207, %243
-  %.0399.i = phi i64 [ %245, %243 ], [ %218, %.thread63.i51 ], [ %242, %240 ], [ %210, %207 ]
+  %.0399.i = phi i64 [ %245, %243 ], [ %242, %240 ], [ %210, %207 ], [ %218, %.thread63.i51 ]
   %246 = icmp ugt i64 %.0399.i, 2
   br i1 %246, label %247, label %.thread95
 
@@ -7489,7 +7489,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit52:   ; preds = %240, %.thread63.i51
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit80
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit80:   ; preds = %276, %.thread63.i79, %308
-  %.1.i61 = phi i64 [ %288, %.thread63.i79 ], [ %311, %308 ], [ %279, %276 ]
+  %.1.i61 = phi i64 [ %311, %308 ], [ %279, %276 ], [ %288, %.thread63.i79 ]
   %312 = add i64 %.1.i61, %267
   br label %320
 
@@ -7567,11 +7567,11 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit80:   ; preds = %276, %.thread63.i79
   %351 = select i1 %349, i1 %350, i1 false
   br i1 %351, label %262, label %.thread101, !llvm.loop !129
 
-.thread101:                                       ; preds = %347, %346, %343, %322, %.thread95
-  %.10423.i = phi i32 [ %.4417.i, %.thread95 ], [ %.11.i, %346 ], [ %332, %322 ], [ %.11.i, %343 ], [ %.11.i, %347 ]
-  %.1401.i = phi i32 [ %71, %.thread95 ], [ %.2402.i, %346 ], [ %.3403.i, %322 ], [ %.2402.i, %343 ], [ %.2402.i, %347 ]
-  %.1396.i = phi ptr [ %70, %.thread95 ], [ %9, %346 ], [ %.0395.i135, %322 ], [ %.0395.i135, %343 ], [ %.3398.i, %347 ]
-  %.1392.i = phi ptr [ %69, %.thread95 ], [ %.0391.i136, %346 ], [ %.0391.i136, %322 ], [ %9, %343 ], [ %.3394.i, %347 ]
+.thread101:                                       ; preds = %347, %343, %346, %322, %.thread95
+  %.10423.i = phi i32 [ %.4417.i, %.thread95 ], [ %332, %322 ], [ %.11.i, %346 ], [ %.11.i, %343 ], [ %.11.i, %347 ]
+  %.1401.i = phi i32 [ %71, %.thread95 ], [ %.3403.i, %322 ], [ %.2402.i, %346 ], [ %.2402.i, %343 ], [ %.2402.i, %347 ]
+  %.1396.i = phi ptr [ %70, %.thread95 ], [ %.0395.i135, %322 ], [ %9, %346 ], [ %.0395.i135, %343 ], [ %.3398.i, %347 ]
+  %.1392.i = phi ptr [ %69, %.thread95 ], [ %.0391.i136, %322 ], [ %.0391.i136, %346 ], [ %9, %343 ], [ %.3394.i, %347 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !26
   store i32 0, ptr %.1392.i, align 4, !tbaa !26
   %352 = add i32 %.1401.i, -8
@@ -7834,7 +7834,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %110, %.thread63.i, %141
-  %.1.i15 = phi i64 [ %121, %.thread63.i ], [ %143, %141 ], [ %113, %110 ]
+  %.1.i15 = phi i64 [ %143, %141 ], [ %113, %110 ], [ %121, %.thread63.i ]
   %144 = trunc i64 %.1.i15 to i32
   %145 = add i32 %144, 4
   br label %160
@@ -8023,7 +8023,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %110, %.thread63.i, 
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit50
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit50:   ; preds = %192, %.thread63.i49, %224
-  %.1.i31 = phi i64 [ %204, %.thread63.i49 ], [ %227, %224 ], [ %195, %192 ]
+  %.1.i31 = phi i64 [ %227, %224 ], [ %195, %192 ], [ %204, %.thread63.i49 ]
   %228 = add i64 %.1.i31, %183
   br label %236
 
@@ -8101,11 +8101,11 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit50:   ; preds = %192, %.thread63.i49
   %267 = select i1 %265, i1 %266, i1 false
   br i1 %267, label %178, label %.thread64, !llvm.loop !129
 
-.thread64:                                        ; preds = %263, %262, %259, %238, %.thread58
-  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread58 ], [ %.11.i, %262 ], [ %248, %238 ], [ %.11.i, %259 ], [ %.11.i, %263 ]
-  %.1401.i = phi i32 [ %71, %.thread58 ], [ %.2402.i, %262 ], [ %.3403.i, %238 ], [ %.2402.i, %259 ], [ %.2402.i, %263 ]
-  %.1396.i = phi ptr [ %70, %.thread58 ], [ %9, %262 ], [ %.0395.i94, %238 ], [ %.0395.i94, %259 ], [ %.3398.i, %263 ]
-  %.1392.i = phi ptr [ %69, %.thread58 ], [ %.0391.i95, %262 ], [ %.0391.i95, %238 ], [ %9, %259 ], [ %.3394.i, %263 ]
+.thread64:                                        ; preds = %263, %259, %262, %238, %.thread58
+  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread58 ], [ %248, %238 ], [ %.11.i, %262 ], [ %.11.i, %259 ], [ %.11.i, %263 ]
+  %.1401.i = phi i32 [ %71, %.thread58 ], [ %.3403.i, %238 ], [ %.2402.i, %262 ], [ %.2402.i, %259 ], [ %.2402.i, %263 ]
+  %.1396.i = phi ptr [ %70, %.thread58 ], [ %.0395.i94, %238 ], [ %9, %262 ], [ %.0395.i94, %259 ], [ %.3398.i, %263 ]
+  %.1392.i = phi ptr [ %69, %.thread58 ], [ %.0391.i95, %238 ], [ %.0391.i95, %262 ], [ %9, %259 ], [ %.3394.i, %263 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !26
   store i32 0, ptr %.1392.i, align 4, !tbaa !26
   %268 = add i32 %.1401.i, -8
@@ -8363,7 +8363,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %110, %.thread63.i, %141
-  %.1.i15 = phi i64 [ %121, %.thread63.i ], [ %143, %141 ], [ %113, %110 ]
+  %.1.i15 = phi i64 [ %143, %141 ], [ %113, %110 ], [ %121, %.thread63.i ]
   %144 = trunc i64 %.1.i15 to i32
   %145 = add i32 %144, 4
   br label %160
@@ -8552,7 +8552,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %110, %.thread63.i, 
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit50
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit50:   ; preds = %192, %.thread63.i49, %224
-  %.1.i31 = phi i64 [ %204, %.thread63.i49 ], [ %227, %224 ], [ %195, %192 ]
+  %.1.i31 = phi i64 [ %227, %224 ], [ %195, %192 ], [ %204, %.thread63.i49 ]
   %228 = add i64 %.1.i31, %183
   br label %236
 
@@ -8630,11 +8630,11 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit50:   ; preds = %192, %.thread63.i49
   %267 = select i1 %265, i1 %266, i1 false
   br i1 %267, label %178, label %.thread64, !llvm.loop !129
 
-.thread64:                                        ; preds = %263, %262, %259, %238, %.thread58
-  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread58 ], [ %.11.i, %262 ], [ %248, %238 ], [ %.11.i, %259 ], [ %.11.i, %263 ]
-  %.1401.i = phi i32 [ %71, %.thread58 ], [ %.2402.i, %262 ], [ %.3403.i, %238 ], [ %.2402.i, %259 ], [ %.2402.i, %263 ]
-  %.1396.i = phi ptr [ %70, %.thread58 ], [ %9, %262 ], [ %.0395.i94, %238 ], [ %.0395.i94, %259 ], [ %.3398.i, %263 ]
-  %.1392.i = phi ptr [ %69, %.thread58 ], [ %.0391.i95, %262 ], [ %.0391.i95, %238 ], [ %9, %259 ], [ %.3394.i, %263 ]
+.thread64:                                        ; preds = %263, %259, %262, %238, %.thread58
+  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread58 ], [ %248, %238 ], [ %.11.i, %262 ], [ %.11.i, %259 ], [ %.11.i, %263 ]
+  %.1401.i = phi i32 [ %71, %.thread58 ], [ %.3403.i, %238 ], [ %.2402.i, %262 ], [ %.2402.i, %259 ], [ %.2402.i, %263 ]
+  %.1396.i = phi ptr [ %70, %.thread58 ], [ %.0395.i94, %238 ], [ %9, %262 ], [ %.0395.i94, %259 ], [ %.3398.i, %263 ]
+  %.1392.i = phi ptr [ %69, %.thread58 ], [ %.0391.i95, %238 ], [ %.0391.i95, %262 ], [ %9, %259 ], [ %.3394.i, %263 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !26
   store i32 0, ptr %.1392.i, align 4, !tbaa !26
   %268 = add i32 %.1401.i, -8
@@ -8892,7 +8892,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %110, %.thread63.i, %141
-  %.1.i15 = phi i64 [ %121, %.thread63.i ], [ %143, %141 ], [ %113, %110 ]
+  %.1.i15 = phi i64 [ %143, %141 ], [ %113, %110 ], [ %121, %.thread63.i ]
   %144 = trunc i64 %.1.i15 to i32
   %145 = add i32 %144, 4
   br label %160
@@ -9081,7 +9081,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %110, %.thread63.i, 
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit50
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit50:   ; preds = %192, %.thread63.i49, %224
-  %.1.i31 = phi i64 [ %204, %.thread63.i49 ], [ %227, %224 ], [ %195, %192 ]
+  %.1.i31 = phi i64 [ %227, %224 ], [ %195, %192 ], [ %204, %.thread63.i49 ]
   %228 = add i64 %.1.i31, %183
   br label %236
 
@@ -9159,11 +9159,11 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit50:   ; preds = %192, %.thread63.i49
   %267 = select i1 %265, i1 %266, i1 false
   br i1 %267, label %178, label %.thread64, !llvm.loop !129
 
-.thread64:                                        ; preds = %263, %262, %259, %238, %.thread58
-  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread58 ], [ %.11.i, %262 ], [ %248, %238 ], [ %.11.i, %259 ], [ %.11.i, %263 ]
-  %.1401.i = phi i32 [ %71, %.thread58 ], [ %.2402.i, %262 ], [ %.3403.i, %238 ], [ %.2402.i, %259 ], [ %.2402.i, %263 ]
-  %.1396.i = phi ptr [ %70, %.thread58 ], [ %9, %262 ], [ %.0395.i94, %238 ], [ %.0395.i94, %259 ], [ %.3398.i, %263 ]
-  %.1392.i = phi ptr [ %69, %.thread58 ], [ %.0391.i95, %262 ], [ %.0391.i95, %238 ], [ %9, %259 ], [ %.3394.i, %263 ]
+.thread64:                                        ; preds = %263, %259, %262, %238, %.thread58
+  %.10423.i = phi i32 [ %.0413.i.lcssa, %.thread58 ], [ %248, %238 ], [ %.11.i, %262 ], [ %.11.i, %259 ], [ %.11.i, %263 ]
+  %.1401.i = phi i32 [ %71, %.thread58 ], [ %.3403.i, %238 ], [ %.2402.i, %262 ], [ %.2402.i, %259 ], [ %.2402.i, %263 ]
+  %.1396.i = phi ptr [ %70, %.thread58 ], [ %.0395.i94, %238 ], [ %9, %262 ], [ %.0395.i94, %259 ], [ %.3398.i, %263 ]
+  %.1392.i = phi ptr [ %69, %.thread58 ], [ %.0391.i95, %238 ], [ %.0391.i95, %262 ], [ %9, %259 ], [ %.3394.i, %263 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !26
   store i32 0, ptr %.1392.i, align 4, !tbaa !26
   %268 = add i32 %.1401.i, -8
@@ -9448,7 +9448,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %132, %.thread63.i, %163
-  %.1.i17 = phi i64 [ %143, %.thread63.i ], [ %165, %163 ], [ %135, %132 ]
+  %.1.i17 = phi i64 [ %165, %163 ], [ %135, %132 ], [ %143, %.thread63.i ]
   %166 = trunc i64 %.1.i17 to i32
   %167 = add i32 %166, 3
   br label %181
@@ -9654,7 +9654,7 @@ _ZN11duckdb_zstdL33ZSTD_insertAndFindFirstIndexHash3EPKNS_17ZSTD_matchState_tEPj
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit53
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit53:   ; preds = %227, %.thread63.i52, %260
-  %.1.i34 = phi i64 [ %238, %.thread63.i52 ], [ %262, %260 ], [ %230, %227 ]
+  %.1.i34 = phi i64 [ %262, %260 ], [ %230, %227 ], [ %238, %.thread63.i52 ]
   %263 = icmp ugt i64 %.1.i34, 2
   br i1 %263, label %264, label %.thread96
 
@@ -9808,7 +9808,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit53:   ; preds = %227, %.thread63.i52
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit81
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit81:   ; preds = %291, %.thread63.i80, %323
-  %.1.i62 = phi i64 [ %303, %.thread63.i80 ], [ %326, %323 ], [ %294, %291 ]
+  %.1.i62 = phi i64 [ %326, %323 ], [ %294, %291 ], [ %303, %.thread63.i80 ]
   %327 = add i64 %.1.i62, %284
   %328 = icmp ugt i64 %327, %.9441.i155
   br i1 %328, label %329, label %344
@@ -9875,10 +9875,10 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit81:   ; preds = %291, %.thread63.i80
   %358 = select i1 %356, i1 %357, i1 false
   br i1 %358, label %279, label %.thread102, !llvm.loop !129
 
-.thread102:                                       ; preds = %354, %353, %350
-  %.0427.i.lcssa = phi i32 [ %.0427.i156, %350 ], [ %355, %354 ], [ %.0427.i156, %353 ]
-  %.1396.i = phi ptr [ %.0395.i159, %350 ], [ %.3398.i, %354 ], [ %9, %353 ]
-  %.1392.i = phi ptr [ %9, %350 ], [ %.3394.i, %354 ], [ %.0391.i160, %353 ]
+.thread102:                                       ; preds = %354, %350, %353
+  %.0427.i.lcssa = phi i32 [ %355, %354 ], [ %.0427.i156, %350 ], [ %.0427.i156, %353 ]
+  %.1396.i = phi ptr [ %.3398.i, %354 ], [ %.0395.i159, %350 ], [ %9, %353 ]
+  %.1392.i = phi ptr [ %.3394.i, %354 ], [ %9, %350 ], [ %.0391.i160, %353 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !26
   store i32 0, ptr %.1392.i, align 4, !tbaa !26
   %.not = icmp eq i32 %.0427.i.lcssa, 0
@@ -10268,7 +10268,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %132, %.thread63.i, %163
-  %.1.i16 = phi i64 [ %143, %.thread63.i ], [ %165, %163 ], [ %135, %132 ]
+  %.1.i16 = phi i64 [ %165, %163 ], [ %135, %132 ], [ %143, %.thread63.i ]
   %166 = trunc i64 %.1.i16 to i32
   %167 = add i32 %166, 4
   br label %181
@@ -10457,7 +10457,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %132, %.thread63.i, 
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit51
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit51:   ; preds = %211, %.thread63.i50, %243
-  %.1.i32 = phi i64 [ %223, %.thread63.i50 ], [ %246, %243 ], [ %214, %211 ]
+  %.1.i32 = phi i64 [ %246, %243 ], [ %214, %211 ], [ %223, %.thread63.i50 ]
   %247 = add i64 %.1.i32, %204
   %248 = icmp ugt i64 %247, %.9441.i114
   br i1 %248, label %249, label %264
@@ -10524,10 +10524,10 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit51:   ; preds = %211, %.thread63.i50
   %278 = select i1 %276, i1 %277, i1 false
   br i1 %278, label %199, label %.thread65, !llvm.loop !129
 
-.thread65:                                        ; preds = %274, %273, %270
-  %.0427.i.lcssa = phi i32 [ %.0427.i115, %270 ], [ %275, %274 ], [ %.0427.i115, %273 ]
-  %.1396.i = phi ptr [ %.0395.i118, %270 ], [ %.3398.i, %274 ], [ %9, %273 ]
-  %.1392.i = phi ptr [ %9, %270 ], [ %.3394.i, %274 ], [ %.0391.i119, %273 ]
+.thread65:                                        ; preds = %274, %270, %273
+  %.0427.i.lcssa = phi i32 [ %275, %274 ], [ %.0427.i115, %270 ], [ %.0427.i115, %273 ]
+  %.1396.i = phi ptr [ %.3398.i, %274 ], [ %.0395.i118, %270 ], [ %9, %273 ]
+  %.1392.i = phi ptr [ %.3394.i, %274 ], [ %9, %270 ], [ %.0391.i119, %273 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !26
   store i32 0, ptr %.1392.i, align 4, !tbaa !26
   %.not = icmp eq i32 %.0427.i.lcssa, 0
@@ -10912,7 +10912,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %132, %.thread63.i, %163
-  %.1.i16 = phi i64 [ %143, %.thread63.i ], [ %165, %163 ], [ %135, %132 ]
+  %.1.i16 = phi i64 [ %165, %163 ], [ %135, %132 ], [ %143, %.thread63.i ]
   %166 = trunc i64 %.1.i16 to i32
   %167 = add i32 %166, 4
   br label %181
@@ -11101,7 +11101,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %132, %.thread63.i, 
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit51
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit51:   ; preds = %211, %.thread63.i50, %243
-  %.1.i32 = phi i64 [ %223, %.thread63.i50 ], [ %246, %243 ], [ %214, %211 ]
+  %.1.i32 = phi i64 [ %246, %243 ], [ %214, %211 ], [ %223, %.thread63.i50 ]
   %247 = add i64 %.1.i32, %204
   %248 = icmp ugt i64 %247, %.9441.i114
   br i1 %248, label %249, label %264
@@ -11168,10 +11168,10 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit51:   ; preds = %211, %.thread63.i50
   %278 = select i1 %276, i1 %277, i1 false
   br i1 %278, label %199, label %.thread65, !llvm.loop !129
 
-.thread65:                                        ; preds = %274, %273, %270
-  %.0427.i.lcssa = phi i32 [ %.0427.i115, %270 ], [ %275, %274 ], [ %.0427.i115, %273 ]
-  %.1396.i = phi ptr [ %.0395.i118, %270 ], [ %.3398.i, %274 ], [ %9, %273 ]
-  %.1392.i = phi ptr [ %9, %270 ], [ %.3394.i, %274 ], [ %.0391.i119, %273 ]
+.thread65:                                        ; preds = %274, %270, %273
+  %.0427.i.lcssa = phi i32 [ %275, %274 ], [ %.0427.i115, %270 ], [ %.0427.i115, %273 ]
+  %.1396.i = phi ptr [ %.3398.i, %274 ], [ %.0395.i118, %270 ], [ %9, %273 ]
+  %.1392.i = phi ptr [ %.3394.i, %274 ], [ %9, %270 ], [ %.0391.i119, %273 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !26
   store i32 0, ptr %.1392.i, align 4, !tbaa !26
   %.not = icmp eq i32 %.0427.i.lcssa, 0
@@ -11554,7 +11554,7 @@ _ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %132, %.thread63.i, %163
-  %.1.i16 = phi i64 [ %143, %.thread63.i ], [ %165, %163 ], [ %135, %132 ]
+  %.1.i16 = phi i64 [ %165, %163 ], [ %135, %132 ], [ %143, %.thread63.i ]
   %166 = trunc i64 %.1.i16 to i32
   %167 = add i32 %166, 4
   br label %181
@@ -11743,7 +11743,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %132, %.thread63.i, 
   br label %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit51
 
 _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit51:   ; preds = %211, %.thread63.i50, %243
-  %.1.i32 = phi i64 [ %223, %.thread63.i50 ], [ %246, %243 ], [ %214, %211 ]
+  %.1.i32 = phi i64 [ %246, %243 ], [ %214, %211 ], [ %223, %.thread63.i50 ]
   %247 = add i64 %.1.i32, %204
   %248 = icmp ugt i64 %247, %.9441.i114
   br i1 %248, label %249, label %264
@@ -11810,10 +11810,10 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit51:   ; preds = %211, %.thread63.i50
   %278 = select i1 %276, i1 %277, i1 false
   br i1 %278, label %199, label %.thread65, !llvm.loop !129
 
-.thread65:                                        ; preds = %274, %273, %270
-  %.0427.i.lcssa = phi i32 [ %.0427.i115, %270 ], [ %275, %274 ], [ %.0427.i115, %273 ]
-  %.1396.i = phi ptr [ %.0395.i118, %270 ], [ %.3398.i, %274 ], [ %9, %273 ]
-  %.1392.i = phi ptr [ %9, %270 ], [ %.3394.i, %274 ], [ %.0391.i119, %273 ]
+.thread65:                                        ; preds = %274, %270, %273
+  %.0427.i.lcssa = phi i32 [ %275, %274 ], [ %.0427.i115, %270 ], [ %.0427.i115, %273 ]
+  %.1396.i = phi ptr [ %.3398.i, %274 ], [ %.0395.i118, %270 ], [ %9, %273 ]
+  %.1392.i = phi ptr [ %.3394.i, %274 ], [ %9, %270 ], [ %.0391.i119, %273 ]
   store i32 0, ptr %.1396.i, align 4, !tbaa !26
   store i32 0, ptr %.1392.i, align 4, !tbaa !26
   %.not = icmp eq i32 %.0427.i.lcssa, 0

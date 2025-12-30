@@ -445,7 +445,7 @@ if.then25:                                        ; preds = %if.end23
   br label %Loop.outer.preheader
 
 Loop.outer.preheader:                             ; preds = %if.then25, %if.end23
-  %p.1.ph.ph = phi ptr [ %add.ptr26, %if.then25 ], [ %12, %if.end23 ]
+  %p.1.ph.ph = phi ptr [ %12, %if.end23 ], [ %add.ptr26, %if.then25 ]
   br label %Loop.outer
 
 Loop.outer:                                       ; preds = %Loop.outer.backedge, %Loop.outer.preheader
@@ -555,8 +555,8 @@ if.then43:                                        ; preds = %sw.bb40, %_ZN3re24P
   br label %Loop.outer.backedge
 
 Loop.outer.backedge:                              ; preds = %if.end45, %if.then43, %_ZN3re28BitState11ShouldVisitEiPKc.exit124
-  %p.1.ph.be = phi ptr [ %add.ptr, %if.then43 ], [ %p.2, %_ZN3re28BitState11ShouldVisitEiPKc.exit124 ], [ %add.ptr, %if.end45 ]
-  %id.0.ph.be = phi i32 [ %31, %if.then43 ], [ %id.1, %_ZN3re28BitState11ShouldVisitEiPKc.exit124 ], [ %shr.i.i, %if.end45 ]
+  %p.1.ph.be = phi ptr [ %p.2, %_ZN3re28BitState11ShouldVisitEiPKc.exit124 ], [ %add.ptr, %if.then43 ], [ %add.ptr, %if.end45 ]
+  %id.0.ph.be = phi i32 [ %id.1, %_ZN3re28BitState11ShouldVisitEiPKc.exit124 ], [ %31, %if.then43 ], [ %shr.i.i, %if.end45 ]
   br label %Loop.outer
 
 if.end45:                                         ; preds = %sw.bb40, %_ZN3re24Prog4Inst6greedyEPS0_.exit
@@ -679,7 +679,7 @@ if.then100:                                       ; preds = %sw.bb97
   br label %CheckAndLoop
 
 CheckAndLoop:                                     ; preds = %sw.bb97, %if.then100, %if.end90, %if.then93, %if.end67, %if.then74, %if.end60
-  %p.2 = phi ptr [ %incdec.ptr, %if.end60 ], [ %p.1.ph, %if.end90 ], [ %p.1.ph, %if.end67 ], [ %p.1.ph, %if.then74 ], [ %p.1.ph, %if.then93 ], [ %p.1.ph, %if.then100 ], [ %p.1.ph, %sw.bb97 ]
+  %p.2 = phi ptr [ %incdec.ptr, %if.end60 ], [ %p.1.ph, %if.then74 ], [ %p.1.ph, %if.end67 ], [ %p.1.ph, %if.then93 ], [ %p.1.ph, %if.end90 ], [ %p.1.ph, %if.then100 ], [ %p.1.ph, %sw.bb97 ]
   %id.1.in = load i32, ptr %arrayidx.i.i.i76, align 4
   %id.1 = lshr i32 %id.1.in, 4
   %59 = load ptr, ptr %this, align 8
@@ -813,13 +813,13 @@ if.then157:                                       ; preds = %Next
   br label %Loop
 
 sw.epilog:                                        ; preds = %CheckAndLoop, %Loop, %Next
-  %matched.2 = phi i1 [ %matched.1, %Loop ], [ %matched.3, %Next ], [ %matched.1, %CheckAndLoop ]
+  %matched.2 = phi i1 [ %matched.3, %Next ], [ %matched.1, %Loop ], [ %matched.1, %CheckAndLoop ]
   %84 = load i32, ptr %njob_, align 8
   %cmp195 = icmp sgt i32 %84, 0
   br i1 %cmp195, label %while.body.lr.ph, label %return, !llvm.loop !4
 
 return:                                           ; preds = %sw.epilog, %if.then19, %if.end147, %if.end112, %entry, %if.end, %invoke.cont38
-  %retval.0 = phi i1 [ false, %invoke.cont38 ], [ false, %if.end ], [ true, %if.end147 ], [ false, %entry ], [ %matched.0.ph200, %if.then19 ], [ true, %if.end112 ], [ %matched.2, %sw.epilog ]
+  %retval.0 = phi i1 [ false, %invoke.cont38 ], [ false, %if.end ], [ false, %entry ], [ true, %if.end112 ], [ true, %if.end147 ], [ %matched.0.ph200, %if.then19 ], [ %matched.2, %sw.epilog ]
   ret i1 %retval.0
 }
 
@@ -1048,7 +1048,7 @@ _ZN3re24Prog11PrefixAccelEPKvm.exit:              ; preds = %if.then.i, %if.then
   br label %if.end88
 
 if.end88:                                         ; preds = %_ZN3re24Prog11PrefixAccelEPKvm.exit, %land.lhs.true79, %for.body77
-  %p.1 = phi ptr [ %p.068, %for.body77 ], [ %spec.select, %_ZN3re24Prog11PrefixAccelEPKvm.exit ], [ %p.068, %land.lhs.true79 ]
+  %p.1 = phi ptr [ %p.068, %land.lhs.true79 ], [ %p.068, %for.body77 ], [ %spec.select, %_ZN3re24Prog11PrefixAccelEPKvm.exit ]
   %31 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i33, align 8
   store ptr %p.1, ptr %31, align 8
   %32 = load ptr, ptr %this, align 8
@@ -1065,7 +1065,7 @@ if.end95:                                         ; preds = %if.end88
   br i1 %or.cond86, label %return, label %for.body77, !llvm.loop !8
 
 return:                                           ; preds = %if.end88, %if.end95, %if.end12, %if.end71, %if.end, %if.then63
-  %retval.0 = phi i1 [ false, %if.end12 ], [ false, %if.end ], [ %call70, %if.then63 ], [ false, %if.end71 ], [ %call93, %if.end95 ], [ %call93, %if.end88 ]
+  %retval.0 = phi i1 [ %call70, %if.then63 ], [ false, %if.end ], [ false, %if.end71 ], [ false, %if.end12 ], [ %call93, %if.end95 ], [ %call93, %if.end88 ]
   ret i1 %retval.0
 }
 
@@ -1117,7 +1117,7 @@ if.end21:                                         ; preds = %land.lhs.true, %if.
   br label %cleanup
 
 cleanup:                                          ; preds = %land.lhs.true, %invoke.cont, %if.end21
-  %retval.0 = phi i1 [ false, %invoke.cont ], [ true, %if.end21 ], [ false, %land.lhs.true ]
+  %retval.0 = phi i1 [ true, %if.end21 ], [ false, %invoke.cont ], [ false, %land.lhs.true ]
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %b, i64 104
   %1 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null

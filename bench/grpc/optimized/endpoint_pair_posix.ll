@@ -270,7 +270,7 @@ define { ptr, ptr } @_Z31grpc_iomgr_create_endpoint_pairPKcPK17grpc_channel_args
   br label %common.resume
 
 common.resume:                                    ; preds = %78, %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i, %61, %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50
-  %common.resume.op = phi { ptr, i32 } [ %.pn19.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50 ], [ %62, %61 ], [ %64, %63 ], [ %79, %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i ], [ %79, %78 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn19.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50 ], [ %64, %63 ], [ %62, %61 ], [ %79, %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i ], [ %79, %78 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZL14create_socketsPi.exit:                       ; preds = %56

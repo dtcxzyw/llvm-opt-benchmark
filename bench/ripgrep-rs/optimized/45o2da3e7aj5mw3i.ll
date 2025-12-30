@@ -2169,8 +2169,8 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$G
   br i1 %6, label %"_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17h8639b3bfd3a7f6b8E.exit", label %"_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17h8639b3bfd3a7f6b8E.exit.sink.split"
 
 "_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17h8639b3bfd3a7f6b8E.exit.sink.split": ; preds = %1, %3
-  %.sink = phi i64 [ 8, %1 ], [ 16, %3 ]
-  %.sink3 = phi i64 [ %2, %1 ], [ %5, %3 ]
+  %.sink = phi i64 [ 16, %3 ], [ 8, %1 ]
+  %.sink3 = phi i64 [ %5, %3 ], [ %2, %1 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink3, i64 noundef 1) #17, !noalias !4
@@ -2571,7 +2571,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$regex_syntax..ast..ClassSet$
   unreachable
 
 common.resume:                                    ; preds = %21, %22, %.body, %18
-  %common.resume.op = phi { ptr, i32 } [ %12, %.body ], [ %19, %18 ], [ %3, %22 ], [ %3, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %12, %.body ], [ %3, %22 ], [ %3, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..ClassSetBinaryOp$GT$17hc6357bc46904b5c3E.exit": ; preds = %10
@@ -4473,7 +4473,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..
   unreachable
 
 common.resume:                                    ; preds = %.body, %39, %40
-  %common.resume.op = phi { ptr, i32 } [ %31, %39 ], [ %31, %40 ], [ %14, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %31, %40 ], [ %31, %39 ], [ %14, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr54drop_in_place$LT$regex_syntax..ast..ClassBracketed$GT$17h98bc0f636b18677cE.llvm.8519985026491776260.exit": ; preds = %38, %37, %26
@@ -4588,7 +4588,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..
   br label %common.resume
 
 common.resume:                                    ; preds = %.body, %.body2, %36
-  %common.resume.op = phi { ptr, i32 } [ %28, %.body2 ], [ %28, %36 ], [ %5, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %36 ], [ %28, %.body2 ], [ %5, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 38:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8664bfe1c6f119b8E.llvm.8519985026491776260.exit.i.i"
@@ -4803,8 +4803,8 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$regex_automata..meta..error.
   br i1 %7, label %"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..error..BuildErrorKind$GT$17h3c3a32abb36cd0efE.llvm.8519985026491776260.exit", label %"_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17h8639b3bfd3a7f6b8E.exit.sink.split.i.i"
 
 "_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17h8639b3bfd3a7f6b8E.exit.sink.split.i.i": ; preds = %4, %3
-  %.sink.i.i = phi i64 [ 8, %3 ], [ 16, %4 ]
-  %.sink3.i.i = phi i64 [ %2, %3 ], [ %6, %4 ]
+  %.sink.i.i = phi i64 [ 16, %4 ], [ 8, %3 ]
+  %.sink3.i.i = phi i64 [ %6, %4 ], [ %2, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i.i
   %9 = load ptr, ptr %8, align 8, !alias.scope !2144, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %.sink3.i.i, i64 noundef 1) #17, !noalias !2144
@@ -4985,8 +4985,8 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..error.
   br i1 %7, label %"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$GT$17h955a1b2665747c77E.llvm.8519985026491776260.exit", label %"_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17h8639b3bfd3a7f6b8E.exit.sink.split.i"
 
 "_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17h8639b3bfd3a7f6b8E.exit.sink.split.i": ; preds = %3, %4
-  %.sink.i = phi i64 [ 8, %3 ], [ 16, %4 ]
-  %.sink3.i = phi i64 [ %2, %3 ], [ %6, %4 ]
+  %.sink.i = phi i64 [ 16, %4 ], [ 8, %3 ]
+  %.sink3.i = phi i64 [ %6, %4 ], [ %2, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
   %9 = load ptr, ptr %8, align 8, !alias.scope !2256, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %.sink3.i, i64 noundef 1) #17, !noalias !2256

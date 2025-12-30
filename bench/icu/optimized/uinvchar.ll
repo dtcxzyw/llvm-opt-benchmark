@@ -129,7 +129,7 @@ define signext range(i8 0, 2) i8 @uprv_isInvariantString_77(ptr noundef readonly
   br i1 %.not, label %26, label %.backedge.backedge
 
 26:                                               ; preds = %4, %8, %15, %17
-  %.013 = phi i8 [ 0, %15 ], [ 0, %17 ], [ 1, %8 ], [ 1, %4 ]
+  %.013 = phi i8 [ 0, %17 ], [ 0, %15 ], [ 1, %8 ], [ 1, %4 ]
   ret i8 %.013
 }
 
@@ -177,7 +177,7 @@ define signext range(i8 0, 2) i8 @uprv_isInvariantUString_77(ptr noundef readonl
   br i1 %.not, label %24, label %3, !llvm.loop !14
 
 24:                                               ; preds = %5, %8, %13, %15
-  %.012 = phi i8 [ 0, %13 ], [ 0, %15 ], [ 1, %8 ], [ 1, %5 ]
+  %.012 = phi i8 [ 0, %15 ], [ 0, %13 ], [ 1, %8 ], [ 1, %5 ]
   ret i8 %.012
 }
 
@@ -251,7 +251,7 @@ define range(i32 0, -2147483648) i32 @uprv_ebcdicFromAscii_77(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %.loopexit.sink.split, %.preheader, %5, %7
-  %.030 = phi i32 [ 0, %5 ], [ 0, %.preheader ], [ 0, %.loopexit.sink.split ], [ 0, %7 ], [ %2, %31 ]
+  %.030 = phi i32 [ 0, %7 ], [ 0, %5 ], [ 0, %.preheader ], [ 0, %.loopexit.sink.split ], [ %2, %31 ]
   ret i32 %.030
 }
 
@@ -331,7 +331,7 @@ define range(i32 0, -2147483648) i32 @uprv_copyAscii_77(ptr noundef %0, ptr noun
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %35, %5, %7, %30, %17
-  %.033 = phi i32 [ 0, %5 ], [ 0, %17 ], [ 0, %30 ], [ 0, %7 ], [ %2, %35 ], [ %2, %._crit_edge ], [ 0, %.preheader ]
+  %.033 = phi i32 [ 0, %17 ], [ 0, %30 ], [ 0, %7 ], [ 0, %5 ], [ %2, %35 ], [ %2, %._crit_edge ], [ 0, %.preheader ]
   ret i32 %.033
 }
 
@@ -413,7 +413,7 @@ define range(i32 0, -2147483648) i32 @uprv_asciiFromEbcdic_77(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %.loopexit.sink.split, %.preheader, %5, %7
-  %.038 = phi i32 [ 0, %5 ], [ 0, %.preheader ], [ 0, %.loopexit.sink.split ], [ 0, %7 ], [ %2, %34 ]
+  %.038 = phi i32 [ 0, %7 ], [ 0, %5 ], [ 0, %.preheader ], [ 0, %.loopexit.sink.split ], [ %2, %34 ]
   ret i32 %.038
 }
 
@@ -498,7 +498,7 @@ define range(i32 0, -2147483648) i32 @uprv_copyEbcdic_77(ptr noundef %0, ptr nou
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %38, %5, %7, %33, %17
-  %.039 = phi i32 [ 0, %5 ], [ 0, %17 ], [ 0, %33 ], [ 0, %7 ], [ %2, %38 ], [ %2, %._crit_edge ], [ 0, %.preheader ]
+  %.039 = phi i32 [ 0, %17 ], [ 0, %33 ], [ 0, %7 ], [ 0, %5 ], [ %2, %38 ], [ %2, %._crit_edge ], [ 0, %.preheader ]
   ret i32 %.039
 }
 
@@ -697,7 +697,7 @@ define i32 @uprv_compareInvEbcdic_77(ptr noundef readnone captures(none) %0, ptr
   br label %42
 
 42:                                               ; preds = %.lr.ph, %41, %32
-  %.037 = phi i32 [ -1, %41 ], [ %33, %32 ], [ 0, %.lr.ph ]
+  %.037 = phi i32 [ %33, %32 ], [ -1, %41 ], [ 0, %.lr.ph ]
   %43 = getelementptr inbounds nuw i8, ptr %.04054, i64 2
   %44 = load i16, ptr %.04054, align 2, !tbaa !6
   %45 = icmp ult i16 %44, 128

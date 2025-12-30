@@ -560,7 +560,7 @@ sw.bb12:                                          ; preds = %if.end, %if.end, %i
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %sw.bb12, %sw.bb8, %sw.bb
-  %retval.0 = phi i1 [ %cmp15, %sw.bb12 ], [ false, %entry ], [ %cmp7, %sw.bb ], [ %cmp11, %sw.bb8 ], [ true, %if.end ]
+  %retval.0 = phi i1 [ %cmp7, %sw.bb ], [ %cmp11, %sw.bb8 ], [ %cmp15, %sw.bb12 ], [ false, %entry ], [ true, %if.end ]
   ret i1 %retval.0
 }
 
@@ -2235,13 +2235,13 @@ return.sink.split:                                ; preds = %invoke.cont19, %inv
   br label %return
 
 return:                                           ; preds = %return.sink.split, %.noexc29, %.noexc
-  %ref.tmp110.sink = phi ptr [ %ref.tmp3, %.noexc29 ], [ %ref.tmp, %.noexc ], [ %ref.tmp110.sink.ph, %return.sink.split ]
+  %ref.tmp110.sink = phi ptr [ %ref.tmp, %.noexc ], [ %ref.tmp3, %.noexc29 ], [ %ref.tmp110.sink.ph, %return.sink.split ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp110.sink) #25
   ret void
 
 eh.resume:                                        ; preds = %lpad111, %lpad113, %lpad94, %ehcleanup104, %lpad77, %ehcleanup87, %lpad60, %ehcleanup70, %ehcleanup53, %lpad.i74, %lpad43, %ehcleanup36, %lpad.i48, %lpad26, %ehcleanup, %lpad.i35, %lpad11, %lpad4, %lpad.i26, %lpad, %lpad.i
-  %ref.tmp110.sink119 = phi ptr [ %ref.tmp93, %lpad94 ], [ %ref.tmp76, %lpad77 ], [ %ref.tmp59, %lpad60 ], [ %ref.tmp42, %ehcleanup53 ], [ %ref.tmp25, %ehcleanup36 ], [ %ref.tmp10, %ehcleanup ], [ %ref.tmp3, %lpad4 ], [ %ref.tmp, %lpad ], [ %ref.tmp, %lpad.i ], [ %ref.tmp3, %lpad.i26 ], [ %ref.tmp10, %lpad11 ], [ %ref.tmp10, %lpad.i35 ], [ %ref.tmp25, %lpad26 ], [ %ref.tmp25, %lpad.i48 ], [ %ref.tmp42, %lpad43 ], [ %ref.tmp42, %lpad.i74 ], [ %ref.tmp59, %ehcleanup70 ], [ %ref.tmp76, %ehcleanup87 ], [ %ref.tmp93, %ehcleanup104 ], [ %ref.tmp110, %lpad113 ], [ %ref.tmp110, %lpad111 ]
-  %.pn20 = phi { ptr, i32 } [ %23, %lpad94 ], [ %20, %lpad77 ], [ %17, %lpad60 ], [ %.pn11, %ehcleanup53 ], [ %.pn14, %ehcleanup36 ], [ %.pn17, %ehcleanup ], [ %4, %lpad4 ], [ %2, %lpad ], [ %1, %lpad.i ], [ %3, %lpad.i26 ], [ %6, %lpad11 ], [ %5, %lpad.i35 ], [ %10, %lpad26 ], [ %9, %lpad.i48 ], [ %14, %lpad43 ], [ %13, %lpad.i74 ], [ %.pn8, %ehcleanup70 ], [ %.pn5, %ehcleanup87 ], [ %.pn2, %ehcleanup104 ], [ %27, %lpad113 ], [ %26, %lpad111 ]
+  %ref.tmp110.sink119 = phi ptr [ %ref.tmp, %lpad.i ], [ %ref.tmp, %lpad ], [ %ref.tmp3, %lpad.i26 ], [ %ref.tmp3, %lpad4 ], [ %ref.tmp10, %lpad11 ], [ %ref.tmp10, %lpad.i35 ], [ %ref.tmp10, %ehcleanup ], [ %ref.tmp25, %lpad26 ], [ %ref.tmp25, %lpad.i48 ], [ %ref.tmp25, %ehcleanup36 ], [ %ref.tmp42, %lpad43 ], [ %ref.tmp42, %lpad.i74 ], [ %ref.tmp42, %ehcleanup53 ], [ %ref.tmp59, %ehcleanup70 ], [ %ref.tmp59, %lpad60 ], [ %ref.tmp76, %ehcleanup87 ], [ %ref.tmp76, %lpad77 ], [ %ref.tmp93, %ehcleanup104 ], [ %ref.tmp93, %lpad94 ], [ %ref.tmp110, %lpad113 ], [ %ref.tmp110, %lpad111 ]
+  %.pn20 = phi { ptr, i32 } [ %1, %lpad.i ], [ %2, %lpad ], [ %3, %lpad.i26 ], [ %4, %lpad4 ], [ %6, %lpad11 ], [ %5, %lpad.i35 ], [ %.pn17, %ehcleanup ], [ %10, %lpad26 ], [ %9, %lpad.i48 ], [ %.pn14, %ehcleanup36 ], [ %14, %lpad43 ], [ %13, %lpad.i74 ], [ %.pn11, %ehcleanup53 ], [ %.pn8, %ehcleanup70 ], [ %17, %lpad60 ], [ %.pn5, %ehcleanup87 ], [ %20, %lpad77 ], [ %.pn2, %ehcleanup104 ], [ %23, %lpad94 ], [ %27, %lpad113 ], [ %26, %lpad111 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp110.sink119) #25
   resume { ptr, i32 } %.pn20
 }
@@ -2352,7 +2352,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !18
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
-  %retval.0.i = phi i32 [ %add15.i, %if.then14.i ], [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
+  %retval.0.i = phi i32 [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ %add15.i, %if.then14.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
   %conv = zext i32 %retval.0.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #25
   %call.i3 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
@@ -2694,7 +2694,7 @@ if.else85:                                        ; preds = %if.else77
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else, %invoke.cont26, %if.else85, %if.then80, %if.then72, %if.then64, %if.then56, %invoke.cont49, %if.then40
-  %call31.pn = phi { i32, i64 } [ %.fca.1.insert.i.i45, %if.then80 ], [ %.fca.1.insert.i.i48, %if.else85 ], [ { i32 0, i64 undef }, %invoke.cont26 ], [ %.fca.1.insert.i.i, %if.then40 ], [ %.fca.1.insert.i.i32, %invoke.cont49 ], [ %.fca.1.insert.i.i36, %if.then56 ], [ %.fca.1.insert.i.i39, %if.then64 ], [ %.fca.1.insert.i.i42, %if.then72 ], [ { i32 1, i64 undef }, %if.else ]
+  %call31.pn = phi { i32, i64 } [ %.fca.1.insert.i.i, %if.then40 ], [ %.fca.1.insert.i.i32, %invoke.cont49 ], [ %.fca.1.insert.i.i36, %if.then56 ], [ %.fca.1.insert.i.i39, %if.then64 ], [ %.fca.1.insert.i.i42, %if.then72 ], [ %.fca.1.insert.i.i45, %if.then80 ], [ %.fca.1.insert.i.i48, %if.else85 ], [ { i32 0, i64 undef }, %invoke.cont26 ], [ { i32 1, i64 undef }, %if.else ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rest) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tag) #25
   ret { i32, i64 } %call31.pn
@@ -2876,7 +2876,7 @@ sw.bb12.i:                                        ; preds = %if.end.i, %if.end.i
   br label %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
 
 _ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit: ; preds = %entry, %if.end.i, %sw.bb.i, %sw.bb8.i, %sw.bb12.i
-  %retval.0.i = phi i1 [ %cmp15.i, %sw.bb12.i ], [ false, %entry ], [ %cmp7.i, %sw.bb.i ], [ %cmp11.i, %sw.bb8.i ], [ true, %if.end.i ]
+  %retval.0.i = phi i1 [ %cmp7.i, %sw.bb.i ], [ %cmp11.i, %sw.bb8.i ], [ %cmp15.i, %sw.bb12.i ], [ false, %entry ], [ true, %if.end.i ]
   ret i1 %retval.0.i
 }
 
@@ -3016,7 +3016,7 @@ sw.bb12.i.i:                                      ; preds = %if.end.i.i, %if.end
   br label %return
 
 return:                                           ; preds = %sw.bb12.i.i, %sw.bb8.i.i, %sw.bb.i.i, %if.end.i.i, %land.rhs, %dynamic_cast.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %dynamic_cast.end ], [ %cmp15.i.i, %sw.bb12.i.i ], [ false, %land.rhs ], [ %cmp7.i.i, %sw.bb.i.i ], [ %cmp11.i.i, %sw.bb8.i.i ], [ true, %if.end.i.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %dynamic_cast.end ], [ %cmp7.i.i, %sw.bb.i.i ], [ %cmp11.i.i, %sw.bb8.i.i ], [ %cmp15.i.i, %sw.bb12.i.i ], [ false, %land.rhs ], [ true, %if.end.i.i ]
   ret i1 %retval.0
 }
 
@@ -3312,10 +3312,10 @@ land.lhs.true5:                                   ; preds = %land.lhs.true
 if.end.i:                                         ; preds = %land.lhs.true5
   switch i32 %8, label %land.rhs [
     i32 2, label %sw.bb.i
-    i32 3, label %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
-    i32 4, label %sw.bb12.i
-    i32 5, label %sw.bb12.i
-    i32 6, label %sw.bb12.i
+    i32 3, label %sw.bb8.i
+    i32 4, label %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
+    i32 5, label %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
+    i32 6, label %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
@@ -3328,23 +3328,23 @@ sw.bb.i:                                          ; preds = %if.end.i
   %cmp7.i = icmp eq i8 %13, 0
   br i1 %cmp7.i, label %land.rhs, label %return
 
-sw.bb12.i:                                        ; preds = %if.end.i, %if.end.i, %if.end.i
-  %val_13.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %14 = load i64, ptr %val_13.i, align 8
-  %val_14.i = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %15 = load i64, ptr %val_14.i, align 8
-  %cmp15.i = icmp eq i64 %14, %15
-  br i1 %cmp15.i, label %land.rhs, label %return
-
-_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit: ; preds = %if.end.i
+sw.bb8.i:                                         ; preds = %if.end.i
   %val_9.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %16 = load double, ptr %val_9.i, align 8
+  %14 = load double, ptr %val_9.i, align 8
   %val_10.i = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %17 = load double, ptr %val_10.i, align 8
-  %cmp11.i = fcmp oeq double %16, %17
+  %15 = load double, ptr %val_10.i, align 8
+  %cmp11.i = fcmp oeq double %14, %15
   br i1 %cmp11.i, label %land.rhs, label %return
 
-land.rhs:                                         ; preds = %if.end.i, %sw.bb.i, %sw.bb12.i, %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
+_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit: ; preds = %if.end.i, %if.end.i, %if.end.i
+  %val_13.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %16 = load i64, ptr %val_13.i, align 8
+  %val_14.i = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %17 = load i64, ptr %val_14.i, align 8
+  %cmp15.i = icmp eq i64 %16, %17
+  br i1 %cmp15.i, label %land.rhs, label %return
+
+land.rhs:                                         ; preds = %if.end.i, %sw.bb8.i, %sw.bb.i, %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
   %chars_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %chars_8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %call.i5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %chars_) #25
@@ -3364,8 +3364,8 @@ if.end.i.i:                                       ; preds = %land.rhs.i
   %18 = icmp eq i32 %bcmp.i, 0
   br label %return
 
-return:                                           ; preds = %land.lhs.true5, %if.end.i.i, %land.rhs.i, %land.rhs, %sw.bb.i, %sw.bb12.i, %dynamic_cast.end, %land.lhs.true, %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit ], [ false, %land.lhs.true ], [ false, %dynamic_cast.end ], [ false, %sw.bb.i ], [ true, %land.rhs.i ], [ false, %sw.bb12.i ], [ false, %land.rhs ], [ %18, %if.end.i.i ], [ false, %land.lhs.true5 ]
+return:                                           ; preds = %land.lhs.true5, %if.end.i.i, %land.rhs.i, %land.rhs, %sw.bb8.i, %sw.bb.i, %dynamic_cast.end, %land.lhs.true, %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit ], [ false, %land.lhs.true ], [ false, %dynamic_cast.end ], [ false, %sw.bb.i ], [ false, %sw.bb8.i ], [ false, %land.rhs ], [ %18, %if.end.i.i ], [ true, %land.rhs.i ], [ false, %land.lhs.true5 ]
   ret i1 %retval.0
 }
 
@@ -3426,7 +3426,7 @@ land.lhs.true:                                    ; preds = %dynamic_cast.end
   br label %return
 
 return:                                           ; preds = %entry, %land.lhs.true, %dynamic_cast.end, %_ZNK8facebook6hermes7tracing10SynthTrace18CreateObjectRecordeqERKNS2_6RecordE.exit
-  %retval.0 = phi i1 [ false, %dynamic_cast.end ], [ false, %_ZNK8facebook6hermes7tracing10SynthTrace18CreateObjectRecordeqERKNS2_6RecordE.exit ], [ %cmp4, %land.lhs.true ], [ false, %entry ]
+  %retval.0 = phi i1 [ false, %_ZNK8facebook6hermes7tracing10SynthTrace18CreateObjectRecordeqERKNS2_6RecordE.exit ], [ false, %dynamic_cast.end ], [ %cmp4, %land.lhs.true ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -3472,10 +3472,10 @@ land.lhs.true:                                    ; preds = %dynamic_cast.end
 if.end.i:                                         ; preds = %land.lhs.true
   switch i32 %6, label %land.lhs.true5 [
     i32 2, label %sw.bb.i
-    i32 3, label %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
-    i32 4, label %sw.bb12.i
-    i32 5, label %sw.bb12.i
-    i32 6, label %sw.bb12.i
+    i32 3, label %sw.bb8.i
+    i32 4, label %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
+    i32 5, label %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
+    i32 6, label %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
@@ -3488,23 +3488,23 @@ sw.bb.i:                                          ; preds = %if.end.i
   %cmp7.i = icmp eq i8 %11, 0
   br i1 %cmp7.i, label %land.lhs.true5, label %return
 
-sw.bb12.i:                                        ; preds = %if.end.i, %if.end.i, %if.end.i
-  %val_13.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %12 = load i64, ptr %val_13.i, align 8
-  %val_14.i = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %13 = load i64, ptr %val_14.i, align 8
-  %cmp15.i = icmp eq i64 %12, %13
-  br i1 %cmp15.i, label %land.lhs.true5, label %return
-
-_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit: ; preds = %if.end.i
+sw.bb8.i:                                         ; preds = %if.end.i
   %val_9.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %14 = load double, ptr %val_9.i, align 8
+  %12 = load double, ptr %val_9.i, align 8
   %val_10.i = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %15 = load double, ptr %val_10.i, align 8
-  %cmp11.i = fcmp oeq double %14, %15
+  %13 = load double, ptr %val_10.i, align 8
+  %cmp11.i = fcmp oeq double %12, %13
   br i1 %cmp11.i, label %land.lhs.true5, label %return
 
-land.lhs.true5:                                   ; preds = %if.end.i, %sw.bb.i, %sw.bb12.i, %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
+_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit: ; preds = %if.end.i, %if.end.i, %if.end.i
+  %val_13.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %14 = load i64, ptr %val_13.i, align 8
+  %val_14.i = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %15 = load i64, ptr %val_14.i, align 8
+  %cmp15.i = icmp eq i64 %14, %15
+  br i1 %cmp15.i, label %land.lhs.true5, label %return
+
+land.lhs.true5:                                   ; preds = %if.end.i, %sw.bb8.i, %sw.bb.i, %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %value_6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %16 = load i32, ptr %value_, align 8
@@ -3547,8 +3547,8 @@ sw.bb12.i7:                                       ; preds = %if.end.i6, %if.end.
   %cmp15.i10 = icmp eq i64 %24, %25
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %sw.bb12.i7, %sw.bb8.i11, %sw.bb.i15, %if.end.i6, %land.lhs.true5, %sw.bb.i, %sw.bb12.i, %dynamic_cast.end, %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit, %entry
-  %retval.0 = phi i1 [ false, %dynamic_cast.end ], [ false, %entry ], [ false, %sw.bb.i ], [ false, %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit ], [ true, %if.end.i6 ], [ false, %sw.bb12.i ], [ %cmp15.i10, %sw.bb12.i7 ], [ false, %land.lhs.true5 ], [ %cmp7.i18, %sw.bb.i15 ], [ %cmp11.i14, %sw.bb8.i11 ], [ false, %land.lhs.true ]
+return:                                           ; preds = %land.lhs.true, %sw.bb12.i7, %sw.bb8.i11, %sw.bb.i15, %if.end.i6, %land.lhs.true5, %sw.bb8.i, %sw.bb.i, %dynamic_cast.end, %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit ], [ false, %dynamic_cast.end ], [ false, %sw.bb.i ], [ false, %sw.bb8.i ], [ %cmp7.i18, %sw.bb.i15 ], [ %cmp11.i14, %sw.bb8.i11 ], [ %cmp15.i10, %sw.bb12.i7 ], [ false, %land.lhs.true5 ], [ true, %if.end.i6 ], [ false, %land.lhs.true ]
   ret i1 %retval.0
 }
 
@@ -3627,7 +3627,7 @@ sw.bb12.i:                                        ; preds = %if.end.i, %if.end.i
   br label %return
 
 return:                                           ; preds = %sw.bb12.i, %sw.bb8.i, %sw.bb.i, %if.end.i, %land.rhs, %dynamic_cast.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %dynamic_cast.end ], [ %cmp15.i, %sw.bb12.i ], [ false, %land.rhs ], [ %cmp7.i, %sw.bb.i ], [ %cmp11.i, %sw.bb8.i ], [ true, %if.end.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %dynamic_cast.end ], [ %cmp7.i, %sw.bb.i ], [ %cmp11.i, %sw.bb8.i ], [ %cmp15.i, %sw.bb12.i ], [ false, %land.rhs ], [ true, %if.end.i ]
   ret i1 %retval.0
 }
 
@@ -3802,7 +3802,7 @@ sw.bb12.i:                                        ; preds = %if.end.i, %if.end.i
   br label %return
 
 return:                                           ; preds = %sw.bb12.i, %sw.bb8.i, %sw.bb.i, %if.end.i, %land.rhs, %dynamic_cast.end, %land.lhs.true, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %land.lhs.true ], [ false, %dynamic_cast.end ], [ %cmp15.i, %sw.bb12.i ], [ false, %land.rhs ], [ %cmp7.i, %sw.bb.i ], [ %cmp11.i, %sw.bb8.i ], [ true, %if.end.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %land.lhs.true ], [ false, %dynamic_cast.end ], [ %cmp7.i, %sw.bb.i ], [ %cmp11.i, %sw.bb8.i ], [ %cmp15.i, %sw.bb12.i ], [ false, %land.rhs ], [ true, %if.end.i ]
   ret i1 %retval.0
 }
 
@@ -3867,10 +3867,10 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 if.end.i.i.i:                                     ; preds = %for.body.i
   switch i32 %agg.tmp.sroa.0.0.copyload.i, label %for.inc.i [
     i32 2, label %sw.bb.i.i.i
-    i32 3, label %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i"
-    i32 4, label %sw.bb12.i.i.i
-    i32 5, label %sw.bb12.i.i.i
-    i32 6, label %sw.bb12.i.i.i
+    i32 3, label %sw.bb8.i.i.i
+    i32 4, label %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i"
+    i32 5, label %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i"
+    i32 6, label %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i"
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
@@ -3879,22 +3879,22 @@ sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
   %cmp7.i.i.i = icmp eq i64 %12, 0
   br i1 %cmp7.i.i.i, label %for.inc.i, label %return
 
-sw.bb12.i.i.i:                                    ; preds = %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i
-  %cmp15.i.i.i = icmp eq i64 %agg.tmp.sroa.22.0.copyload.i, %agg.tmp4.sroa.21.0.copyload.i
-  br i1 %cmp15.i.i.i, label %for.inc.i, label %return
-
-"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i": ; preds = %if.end.i.i.i
+sw.bb8.i.i.i:                                     ; preds = %if.end.i.i.i
   %cmp11.i.i.i = fcmp oeq double %9, %10
   br i1 %cmp11.i.i.i, label %for.inc.i, label %return
 
-for.inc.i:                                        ; preds = %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i", %sw.bb12.i.i.i, %sw.bb.i.i.i, %if.end.i.i.i
+"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i": ; preds = %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i
+  %cmp15.i.i.i = icmp eq i64 %agg.tmp.sroa.22.0.copyload.i, %agg.tmp4.sroa.21.0.copyload.i
+  br i1 %cmp15.i.i.i, label %for.inc.i, label %return
+
+for.inc.i:                                        ; preds = %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i", %sw.bb8.i.i.i, %sw.bb.i.i.i, %if.end.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.011.i, i64 16
   %incdec.ptr.i3.i = getelementptr inbounds nuw i8, ptr %__first2.sroa.0.012.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %7
   br i1 %cmp.i.not.i, label %return, label %for.body.i, !llvm.loop !20
 
-return:                                           ; preds = %for.inc.i, %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i", %sw.bb12.i.i.i, %sw.bb.i.i.i, %for.body.i, %land.rhs, %dynamic_cast.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %dynamic_cast.end ], [ true, %land.rhs ], [ false, %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i" ], [ true, %for.inc.i ], [ false, %sw.bb12.i.i.i ], [ false, %sw.bb.i.i.i ], [ false, %for.body.i ]
+return:                                           ; preds = %for.inc.i, %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i", %sw.bb8.i.i.i, %sw.bb.i.i.i, %for.body.i, %land.rhs, %dynamic_cast.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %dynamic_cast.end ], [ true, %land.rhs ], [ false, %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i" ], [ true, %for.inc.i ], [ false, %sw.bb.i.i.i ], [ false, %sw.bb8.i.i.i ], [ false, %for.body.i ]
   ret i1 %retval.0
 }
 
@@ -3965,7 +3965,7 @@ sw.bb12.i.i:                                      ; preds = %if.end.i.i, %if.end
   br label %return
 
 return:                                           ; preds = %sw.bb12.i.i, %sw.bb8.i.i, %sw.bb.i.i, %if.end.i.i, %dynamic_cast.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %cmp15.i.i, %sw.bb12.i.i ], [ false, %dynamic_cast.end ], [ %cmp7.i.i, %sw.bb.i.i ], [ %cmp11.i.i, %sw.bb8.i.i ], [ true, %if.end.i.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ %cmp7.i.i, %sw.bb.i.i ], [ %cmp11.i.i, %sw.bb8.i.i ], [ %cmp15.i.i, %sw.bb12.i.i ], [ false, %dynamic_cast.end ], [ true, %if.end.i.i ]
   ret i1 %retval.0
 }
 
@@ -4035,7 +4035,7 @@ sw.bb12.i.i:                                      ; preds = %if.end.i.i, %if.end
   br label %return
 
 return:                                           ; preds = %sw.bb12.i.i, %sw.bb8.i.i, %sw.bb.i.i, %if.end.i.i, %dynamic_cast.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %cmp15.i.i, %sw.bb12.i.i ], [ false, %dynamic_cast.end ], [ %cmp7.i.i, %sw.bb.i.i ], [ %cmp11.i.i, %sw.bb8.i.i ], [ true, %if.end.i.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ %cmp7.i.i, %sw.bb.i.i ], [ %cmp11.i.i, %sw.bb8.i.i ], [ %cmp15.i.i, %sw.bb12.i.i ], [ false, %dynamic_cast.end ], [ true, %if.end.i.i ]
   ret i1 %retval.0
 }
 
@@ -4168,7 +4168,7 @@ sw.bb12.i.i:                                      ; preds = %if.end.i.i, %if.end
   br label %return
 
 return:                                           ; preds = %sw.bb12.i.i, %sw.bb8.i.i, %sw.bb.i.i, %if.end.i.i, %dynamic_cast.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %cmp15.i.i, %sw.bb12.i.i ], [ false, %dynamic_cast.end ], [ %cmp7.i.i, %sw.bb.i.i ], [ %cmp11.i.i, %sw.bb8.i.i ], [ true, %if.end.i.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ %cmp7.i.i, %sw.bb.i.i ], [ %cmp11.i.i, %sw.bb8.i.i ], [ %cmp15.i.i, %sw.bb12.i.i ], [ false, %dynamic_cast.end ], [ true, %if.end.i.i ]
   ret i1 %retval.0
 }
 
@@ -4237,7 +4237,7 @@ sw.bb12.i:                                        ; preds = %if.end.i, %if.end.i
   br label %land.end
 
 land.end:                                         ; preds = %sw.bb12.i, %sw.bb8.i, %sw.bb.i, %if.end.i, %dynamic_cast.end, %entry
-  %12 = phi i1 [ false, %entry ], [ %cmp15.i, %sw.bb12.i ], [ false, %dynamic_cast.end ], [ %cmp7.i, %sw.bb.i ], [ %cmp11.i, %sw.bb8.i ], [ true, %if.end.i ]
+  %12 = phi i1 [ false, %entry ], [ %cmp7.i, %sw.bb.i ], [ %cmp11.i, %sw.bb8.i ], [ %cmp15.i, %sw.bb12.i ], [ false, %dynamic_cast.end ], [ true, %if.end.i ]
   ret i1 %12
 }
 
@@ -5197,7 +5197,7 @@ if.then4.i.i460:                                  ; preds = %sw.bb57
   br label %return
 
 return:                                           ; preds = %if.then4.i.i460, %if.then.i.i463, %if.then4.i.i445, %if.then.i.i448, %if.then4.i.i430, %if.then.i.i433, %if.then4.i.i415, %if.then.i.i418, %if.then4.i.i400, %if.then.i.i403, %if.then4.i.i385, %if.then.i.i388, %if.then4.i.i370, %if.then.i.i373, %if.then4.i.i355, %if.then.i.i358, %if.then4.i.i340, %if.then.i.i343, %if.then4.i.i325, %if.then.i.i328, %if.then4.i.i310, %if.then.i.i313, %if.then4.i.i295, %if.then.i.i298, %if.then4.i.i280, %if.then.i.i283, %if.then4.i.i265, %if.then.i.i268, %if.then4.i.i250, %if.then.i.i253, %if.then4.i.i235, %if.then.i.i238, %if.then4.i.i220, %if.then.i.i223, %if.then4.i.i205, %if.then.i.i208, %if.then4.i.i190, %if.then.i.i193, %if.then4.i.i175, %if.then.i.i178, %if.then4.i.i160, %if.then.i.i163, %if.then4.i.i145, %if.then.i.i148, %if.then4.i.i130, %if.then.i.i133, %if.then4.i.i115, %if.then.i.i118, %if.then4.i.i100, %if.then.i.i103, %if.then4.i.i85, %if.then.i.i88, %if.then4.i.i70, %if.then.i.i73, %if.then4.i.i55, %if.then.i.i58, %if.then4.i.i40, %if.then.i.i43, %if.then4.i.i, %if.then.i.i, %entry
-  %retval.0 = phi ptr [ %os, %if.then4.i.i445 ], [ %os, %entry ], [ %os, %if.then4.i.i ], [ %os, %if.then4.i.i40 ], [ %os, %if.then4.i.i55 ], [ %os, %if.then4.i.i70 ], [ %os, %if.then4.i.i85 ], [ %os, %if.then4.i.i100 ], [ %os, %if.then4.i.i115 ], [ %os, %if.then4.i.i130 ], [ %os, %if.then4.i.i145 ], [ %os, %if.then4.i.i160 ], [ %os, %if.then4.i.i175 ], [ %os, %if.then4.i.i190 ], [ %os, %if.then4.i.i205 ], [ %os, %if.then4.i.i220 ], [ %os, %if.then4.i.i235 ], [ %os, %if.then4.i.i250 ], [ %os, %if.then4.i.i265 ], [ %os, %if.then4.i.i280 ], [ %os, %if.then4.i.i295 ], [ %os, %if.then4.i.i310 ], [ %os, %if.then4.i.i325 ], [ %os, %if.then4.i.i340 ], [ %os, %if.then4.i.i355 ], [ %os, %if.then4.i.i370 ], [ %os, %if.then4.i.i385 ], [ %os, %if.then4.i.i400 ], [ %os, %if.then4.i.i415 ], [ %os, %if.then4.i.i430 ], [ %call3.i.i254, %if.then.i.i253 ], [ %call3.i.i, %if.then.i.i ], [ %call3.i.i374, %if.then.i.i373 ], [ %call3.i.i44, %if.then.i.i43 ], [ %call3.i.i269, %if.then.i.i268 ], [ %call3.i.i59, %if.then.i.i58 ], [ %call3.i.i434, %if.then.i.i433 ], [ %call3.i.i74, %if.then.i.i73 ], [ %call3.i.i284, %if.then.i.i283 ], [ %call3.i.i89, %if.then.i.i88 ], [ %call3.i.i389, %if.then.i.i388 ], [ %call3.i.i104, %if.then.i.i103 ], [ %call3.i.i299, %if.then.i.i298 ], [ %call3.i.i119, %if.then.i.i118 ], [ %call3.i.i464, %if.then.i.i463 ], [ %call3.i.i134, %if.then.i.i133 ], [ %call3.i.i314, %if.then.i.i313 ], [ %call3.i.i149, %if.then.i.i148 ], [ %call3.i.i404, %if.then.i.i403 ], [ %call3.i.i164, %if.then.i.i163 ], [ %call3.i.i329, %if.then.i.i328 ], [ %call3.i.i179, %if.then.i.i178 ], [ %call3.i.i449, %if.then.i.i448 ], [ %call3.i.i194, %if.then.i.i193 ], [ %call3.i.i344, %if.then.i.i343 ], [ %call3.i.i209, %if.then.i.i208 ], [ %call3.i.i419, %if.then.i.i418 ], [ %call3.i.i224, %if.then.i.i223 ], [ %call3.i.i359, %if.then.i.i358 ], [ %call3.i.i239, %if.then.i.i238 ], [ %os, %if.then4.i.i460 ]
+  %retval.0 = phi ptr [ %os, %entry ], [ %call3.i.i, %if.then.i.i ], [ %os, %if.then4.i.i ], [ %call3.i.i44, %if.then.i.i43 ], [ %os, %if.then4.i.i40 ], [ %call3.i.i59, %if.then.i.i58 ], [ %os, %if.then4.i.i55 ], [ %call3.i.i74, %if.then.i.i73 ], [ %os, %if.then4.i.i70 ], [ %call3.i.i89, %if.then.i.i88 ], [ %os, %if.then4.i.i85 ], [ %call3.i.i104, %if.then.i.i103 ], [ %os, %if.then4.i.i100 ], [ %call3.i.i119, %if.then.i.i118 ], [ %os, %if.then4.i.i115 ], [ %call3.i.i134, %if.then.i.i133 ], [ %os, %if.then4.i.i130 ], [ %call3.i.i149, %if.then.i.i148 ], [ %os, %if.then4.i.i145 ], [ %call3.i.i164, %if.then.i.i163 ], [ %os, %if.then4.i.i160 ], [ %call3.i.i179, %if.then.i.i178 ], [ %os, %if.then4.i.i175 ], [ %call3.i.i194, %if.then.i.i193 ], [ %os, %if.then4.i.i190 ], [ %call3.i.i209, %if.then.i.i208 ], [ %os, %if.then4.i.i205 ], [ %call3.i.i224, %if.then.i.i223 ], [ %os, %if.then4.i.i220 ], [ %call3.i.i239, %if.then.i.i238 ], [ %os, %if.then4.i.i235 ], [ %call3.i.i254, %if.then.i.i253 ], [ %os, %if.then4.i.i250 ], [ %call3.i.i269, %if.then.i.i268 ], [ %os, %if.then4.i.i265 ], [ %call3.i.i284, %if.then.i.i283 ], [ %os, %if.then4.i.i280 ], [ %call3.i.i299, %if.then.i.i298 ], [ %os, %if.then4.i.i295 ], [ %call3.i.i314, %if.then.i.i313 ], [ %os, %if.then4.i.i310 ], [ %call3.i.i329, %if.then.i.i328 ], [ %os, %if.then4.i.i325 ], [ %call3.i.i344, %if.then.i.i343 ], [ %os, %if.then4.i.i340 ], [ %call3.i.i359, %if.then.i.i358 ], [ %os, %if.then4.i.i355 ], [ %call3.i.i374, %if.then.i.i373 ], [ %os, %if.then4.i.i370 ], [ %call3.i.i389, %if.then.i.i388 ], [ %os, %if.then4.i.i385 ], [ %call3.i.i404, %if.then.i.i403 ], [ %os, %if.then4.i.i400 ], [ %call3.i.i419, %if.then.i.i418 ], [ %os, %if.then4.i.i415 ], [ %call3.i.i434, %if.then.i.i433 ], [ %os, %if.then4.i.i430 ], [ %call3.i.i449, %if.then.i.i448 ], [ %os, %if.then4.i.i445 ], [ %call3.i.i464, %if.then.i.i463 ], [ %os, %if.then4.i.i460 ]
   ret ptr %retval.0
 }
 
@@ -5349,8 +5349,8 @@ common.resume:                                    ; preds = %lpad, %lpad5, %eh.r
   resume { ptr, i32 } %common.resume.op
 
 eh.resume.i:                                      ; preds = %lpad3.i, %lpad.i18, %lpad.i, %lpad.i25
-  %ref.tmp2.sink11.i = phi ptr [ %ref.tmp.i, %lpad.i ], [ %ref.tmp.i, %lpad.i25 ], [ %ref.tmp2.i, %lpad.i18 ], [ %ref.tmp2.i, %lpad3.i ]
-  %.pn.i = phi { ptr, i32 } [ %6, %lpad.i ], [ %5, %lpad.i25 ], [ %9, %lpad.i18 ], [ %10, %lpad3.i ]
+  %ref.tmp2.sink11.i = phi ptr [ %ref.tmp.i, %lpad.i25 ], [ %ref.tmp.i, %lpad.i ], [ %ref.tmp2.i, %lpad.i18 ], [ %ref.tmp2.i, %lpad3.i ]
+  %.pn.i = phi { ptr, i32 } [ %5, %lpad.i25 ], [ %6, %lpad.i ], [ %9, %lpad.i18 ], [ %10, %lpad3.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.sink11.i) #25
   br label %common.resume
 
@@ -6161,7 +6161,7 @@ lpad15:                                           ; preds = %if.end14
   br label %ehcleanup
 
 cleanup:                                          ; preds = %if.end10, %if.end6, %if.end, %invoke.cont
-  %retval.0 = phi i32 [ 2, %if.end6 ], [ 0, %invoke.cont ], [ 1, %if.end ], [ 3, %if.end10 ]
+  %retval.0 = phi i32 [ 0, %invoke.cont ], [ 1, %if.end ], [ 2, %if.end6 ], [ 3, %if.end10 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #25
   ret i32 %retval.0
 
@@ -7236,15 +7236,15 @@ lpad203:                                          ; preds = %if.end200
   br label %ehcleanup
 
 cleanup.sink.split:                               ; preds = %land.rhs.i149, %land.rhs.i130, %land.rhs.i111, %land.rhs.i92, %land.rhs.i73, %land.rhs.i, %invoke.cont204
-  %ref.tmp33.sink = phi ptr [ %ref.tmp26, %land.rhs.i130 ], [ %ref.tmp19, %land.rhs.i111 ], [ %ref.tmp12, %land.rhs.i92 ], [ %ref.tmp5, %land.rhs.i73 ], [ %ref.tmp, %land.rhs.i ], [ %ref.tmp201, %invoke.cont204 ], [ %ref.tmp33, %land.rhs.i149 ]
-  %ref.tmp34.sink = phi ptr [ %ref.tmp27, %land.rhs.i130 ], [ %ref.tmp20, %land.rhs.i111 ], [ %ref.tmp13, %land.rhs.i92 ], [ %ref.tmp6, %land.rhs.i73 ], [ %ref.tmp1, %land.rhs.i ], [ %ref.tmp202, %invoke.cont204 ], [ %ref.tmp34, %land.rhs.i149 ]
-  %.sink.ph = phi i32 [ 4, %land.rhs.i130 ], [ 3, %land.rhs.i111 ], [ 2, %land.rhs.i92 ], [ 1, %land.rhs.i73 ], [ 0, %land.rhs.i ], [ 29, %invoke.cont204 ], [ 5, %land.rhs.i149 ]
+  %ref.tmp33.sink = phi ptr [ %ref.tmp201, %invoke.cont204 ], [ %ref.tmp, %land.rhs.i ], [ %ref.tmp5, %land.rhs.i73 ], [ %ref.tmp12, %land.rhs.i92 ], [ %ref.tmp19, %land.rhs.i111 ], [ %ref.tmp26, %land.rhs.i130 ], [ %ref.tmp33, %land.rhs.i149 ]
+  %ref.tmp34.sink = phi ptr [ %ref.tmp202, %invoke.cont204 ], [ %ref.tmp1, %land.rhs.i ], [ %ref.tmp6, %land.rhs.i73 ], [ %ref.tmp13, %land.rhs.i92 ], [ %ref.tmp20, %land.rhs.i111 ], [ %ref.tmp27, %land.rhs.i130 ], [ %ref.tmp34, %land.rhs.i149 ]
+  %.sink.ph = phi i32 [ 29, %invoke.cont204 ], [ 0, %land.rhs.i ], [ 1, %land.rhs.i73 ], [ 2, %land.rhs.i92 ], [ 3, %land.rhs.i111 ], [ 4, %land.rhs.i130 ], [ 5, %land.rhs.i149 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33.sink) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34.sink) #25
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont197, %invoke.cont190, %invoke.cont183, %invoke.cont176, %invoke.cont169, %invoke.cont162, %invoke.cont155, %invoke.cont148, %invoke.cont141, %invoke.cont134, %invoke.cont127, %invoke.cont120, %invoke.cont113, %invoke.cont106, %invoke.cont99, %invoke.cont92, %invoke.cont85, %invoke.cont78, %invoke.cont71, %invoke.cont64, %invoke.cont57, %invoke.cont50, %invoke.cont43, %if.end.i.i154, %if.end.i.i135, %if.end.i.i116, %if.end.i.i97, %if.end.i.i78, %if.end.i.i
-  %.sink = phi i32 [ 28, %invoke.cont197 ], [ 27, %invoke.cont190 ], [ 26, %invoke.cont183 ], [ 25, %invoke.cont176 ], [ 24, %invoke.cont169 ], [ 23, %invoke.cont162 ], [ 22, %invoke.cont155 ], [ 21, %invoke.cont148 ], [ 20, %invoke.cont141 ], [ 19, %invoke.cont134 ], [ 18, %invoke.cont127 ], [ 17, %invoke.cont120 ], [ 16, %invoke.cont113 ], [ 15, %invoke.cont106 ], [ 14, %invoke.cont99 ], [ 13, %invoke.cont92 ], [ 12, %invoke.cont85 ], [ 11, %invoke.cont78 ], [ 10, %invoke.cont71 ], [ 9, %invoke.cont64 ], [ 8, %invoke.cont57 ], [ 7, %invoke.cont50 ], [ 6, %invoke.cont43 ], [ 5, %if.end.i.i154 ], [ 4, %if.end.i.i135 ], [ 3, %if.end.i.i116 ], [ 2, %if.end.i.i97 ], [ 1, %if.end.i.i78 ], [ 0, %if.end.i.i ], [ %.sink.ph, %cleanup.sink.split ]
+  %.sink = phi i32 [ 0, %if.end.i.i ], [ 1, %if.end.i.i78 ], [ 2, %if.end.i.i97 ], [ 3, %if.end.i.i116 ], [ 4, %if.end.i.i135 ], [ 5, %if.end.i.i154 ], [ 6, %invoke.cont43 ], [ 7, %invoke.cont50 ], [ 8, %invoke.cont57 ], [ 9, %invoke.cont64 ], [ 10, %invoke.cont71 ], [ 11, %invoke.cont78 ], [ 12, %invoke.cont85 ], [ 13, %invoke.cont92 ], [ 14, %invoke.cont99 ], [ 15, %invoke.cont106 ], [ 16, %invoke.cont113 ], [ 17, %invoke.cont120 ], [ 18, %invoke.cont127 ], [ 19, %invoke.cont134 ], [ 20, %invoke.cont141 ], [ 21, %invoke.cont148 ], [ 22, %invoke.cont155 ], [ 23, %invoke.cont162 ], [ 24, %invoke.cont169 ], [ 25, %invoke.cont176 ], [ 26, %invoke.cont183 ], [ 27, %invoke.cont190 ], [ 28, %invoke.cont197 ], [ %.sink.ph, %cleanup.sink.split ]
   store i32 %.sink, ptr %type, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %kindstr) #25
   ret ptr %is
@@ -8593,7 +8593,7 @@ terminate.lpad.i.i30:                             ; preds = %if.then.i.i28
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i28, %lpad10.body, %if.then.i.i9, %lpad.i
-  %.pn = phi { ptr, i32 } [ %13, %lpad.i ], [ %20, %if.then.i.i28 ], [ %13, %if.then.i.i9 ], [ %20, %lpad10.body ]
+  %.pn = phi { ptr, i32 } [ %13, %if.then.i.i9 ], [ %13, %lpad.i ], [ %20, %lpad10.body ], [ %20, %if.then.i.i28 ]
   %27 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i33 = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i33, label %ehcleanup12, label %if.then.i.i.i34
@@ -8610,7 +8610,7 @@ terminate.lpad.i.i.i37:                           ; preds = %if.then.i.i.i34
   unreachable
 
 ehcleanup12:                                      ; preds = %if.then.i.i.i34, %ehcleanup, %if.then.i.i.i, %lpad.i.i
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad.i.i ], [ %.pn, %if.then.i.i.i34 ], [ %5, %if.then.i.i.i ], [ %.pn, %ehcleanup ]
+  %.pn.pn = phi { ptr, i32 } [ %5, %if.then.i.i.i ], [ %5, %lpad.i.i ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i34 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name_) #25
   resume { ptr, i32 } %.pn.pn
 }

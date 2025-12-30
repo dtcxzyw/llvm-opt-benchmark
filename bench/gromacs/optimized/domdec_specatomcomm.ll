@@ -332,7 +332,7 @@ define void @_Z16dd_move_f_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPN3g
   br i1 %.not172, label %.loopexit, label %154
 
 .loopexit:                                        ; preds = %.lr.ph190, %121, %181, %78, %116, %149
-  %.2 = phi ptr [ %182, %181 ], [ %147, %121 ], [ %.0133204, %149 ], [ %.0133204, %116 ], [ %.0133204, %78 ], [ %100, %.lr.ph190 ]
+  %.2 = phi ptr [ %.0133204, %149 ], [ %.0133204, %116 ], [ %.0133204, %78 ], [ %182, %181 ], [ %147, %121 ], [ %100, %.lr.ph190 ]
   br i1 %68, label %67, label %.loopexit177, !llvm.loop !128
 
 184:                                              ; preds = %23
@@ -451,7 +451,7 @@ define void @_Z16dd_move_f_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPN3g
   br i1 %.not168, label %.loopexit177, label %237
 
 .loopexit177:                                     ; preds = %237, %214, %.loopexit, %233, %210
-  %.1 = phi i32 [ %185, %233 ], [ %185, %210 ], [ %185, %214 ], [ %38, %.loopexit ], [ %185, %237 ]
+  %.1 = phi i32 [ %185, %210 ], [ %185, %233 ], [ %38, %.loopexit ], [ %185, %214 ], [ %185, %237 ]
   %256 = icmp sgt i64 %indvars.iv223, 1
   br i1 %256, label %23, label %._crit_edge, !llvm.loop !130
 }
@@ -632,7 +632,7 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
   br i1 %exitcond362.not, label %.split318.us, label %.split316.us.split, !llvm.loop !135
 
 .split318.us:                                     ; preds = %.loopexit276.us, %.loopexit, %.split316.us
-  %.us-phi = phi ptr [ %.3, %.loopexit ], [ %.0215321, %.split316.us ], [ %.2.lcssa.us, %.loopexit276.us ]
+  %.us-phi = phi ptr [ %.0215321, %.split316.us ], [ %.3, %.loopexit ], [ %.2.lcssa.us, %.loopexit276.us ]
   br i1 %67, label %66, label %43, !llvm.loop !137
 
 .split316:                                        ; preds = %.split316.preheader, %.loopexit
@@ -730,7 +730,7 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
   br i1 %.not274, label %.loopexit, label %.lr.ph312
 
 .loopexit:                                        ; preds = %.lr.ph302, %.lr.ph307, %.lr.ph312, %109, %116, %133
-  %.3 = phi ptr [ %131, %.lr.ph307 ], [ %154, %.lr.ph312 ], [ %.1216315, %133 ], [ %.1216315, %116 ], [ %.1216315, %109 ], [ %113, %.lr.ph302 ]
+  %.3 = phi ptr [ %.1216315, %133 ], [ %.1216315, %116 ], [ %.1216315, %109 ], [ %154, %.lr.ph312 ], [ %131, %.lr.ph307 ], [ %113, %.lr.ph302 ]
   %156 = add nuw nsw i32 %.0221314, 1
   %exitcond363.not = icmp eq i32 %156, %spec.select
   br i1 %exitcond363.not, label %.split318.us, label %.split316, !llvm.loop !138
@@ -898,7 +898,7 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
   br i1 %.not270, label %.loopexit278, label %.lr.ph
 
 .loopexit278:                                     ; preds = %.lr.ph, %.lr.ph288, %231, %212
-  %.2229 = phi ptr [ %229, %.lr.ph288 ], [ %.0227290, %212 ], [ %.0227290, %231 ], [ %237, %.lr.ph ]
+  %.2229 = phi ptr [ %.0227290, %212 ], [ %.0227290, %231 ], [ %229, %.lr.ph288 ], [ %237, %.lr.ph ]
   %239 = add nuw nsw i32 %.0226291, 1
   %exitcond.not = icmp eq i32 %239, %spec.select
   br i1 %exitcond.not, label %198, label %200, !llvm.loop !142
@@ -1156,7 +1156,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %92
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %92
-  %.0.i.i.i.i = phi ptr [ %96, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %93, %92 ]
+  %.0.i.i.i.i = phi ptr [ %93, %92 ], [ %96, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
   store ptr %.0.i.i.i.i, ptr %21, align 8, !tbaa !120
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
@@ -1483,8 +1483,8 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i:        ; preds = %241, %239
   br i1 %266, label %256, label %.loopexit, !llvm.loop !175
 
 _ZNK11gmx_ga2la_t4findEi.exit.i:                  ; preds = %261, %244
-  %267 = phi i32 [ %249, %244 ], [ %.pre.i, %261 ]
-  %.0.i.i = phi ptr [ %247, %244 ], [ %262, %261 ]
+  %267 = phi i32 [ %.pre.i, %261 ], [ %249, %244 ]
+  %.0.i.i = phi ptr [ %262, %261 ], [ %247, %244 ]
   %268 = icmp eq i32 %267, 0
   br i1 %268, label %_ZNK11gmx_ga2la_t8findHomeEi.exit, label %.loopexit
 
@@ -1678,14 +1678,14 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit284:       ; preds = %329, %_ZNSt6vectorI
   br label %.thread
 
 .thread:                                          ; preds = %277, %286, %352, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit284, %_ZNK11gmx_ga2la_t8findHomeEi.exit
-  %355 = phi ptr [ %227, %_ZNK11gmx_ga2la_t8findHomeEi.exit ], [ %227, %286 ], [ %351, %352 ], [ %351, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit284 ], [ %227, %277 ]
+  %355 = phi ptr [ %227, %286 ], [ %351, %352 ], [ %351, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit284 ], [ %227, %_ZNK11gmx_ga2la_t8findHomeEi.exit ], [ %227, %277 ]
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next439, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge383, label %226, !llvm.loop !189
 
 ._crit_edge388:                                   ; preds = %366, %_ZNSt6vectorIiSaIiEE5clearEv.exit269, %._crit_edge383
-  %356 = phi ptr [ %213, %_ZNSt6vectorIiSaIiEE5clearEv.exit269 ], [ %.pre461, %._crit_edge383 ], [ %.pre461, %366 ]
-  %357 = phi ptr [ %213, %_ZNSt6vectorIiSaIiEE5clearEv.exit269 ], [ %.pre462, %._crit_edge383 ], [ %.pre462, %366 ]
+  %356 = phi ptr [ %.pre461, %._crit_edge383 ], [ %213, %_ZNSt6vectorIiSaIiEE5clearEv.exit269 ], [ %.pre461, %366 ]
+  %357 = phi ptr [ %.pre462, %._crit_edge383 ], [ %213, %_ZNSt6vectorIiSaIiEE5clearEv.exit269 ], [ %.pre462, %366 ]
   %358 = ptrtoint ptr %357 to i64
   %359 = ptrtoint ptr %356 to i64
   %360 = sub i64 %358, %359
@@ -2035,8 +2035,8 @@ _ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE6resizeEm.exit: ; p
   br label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i
 
 _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i: ; preds = %546, %545, %.critedge.i
-  %547 = phi ptr [ %502, %546 ], [ %502, %.critedge.i ], [ %.pre.i309, %545 ]
-  %.2.lcssa53.i = phi i64 [ -1, %546 ], [ %.2.lcssa.i, %.critedge.i ], [ %537, %545 ]
+  %547 = phi ptr [ %502, %546 ], [ %.pre.i309, %545 ], [ %502, %.critedge.i ]
+  %.2.lcssa53.i = phi i64 [ -1, %546 ], [ %537, %545 ], [ %.2.lcssa.i, %.critedge.i ]
   %548 = trunc i64 %.2.lcssa53.i to i32
   %549 = getelementptr inbounds nuw %"struct.gmx::HashedMap<int>::hashEntry", ptr %547, i64 %517
   %550 = getelementptr inbounds nuw i8, ptr %549, i64 8

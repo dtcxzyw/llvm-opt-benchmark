@@ -179,8 +179,8 @@ define internal i32 @pvk2key_decode(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %63
 
 63:                                               ; preds = %.thread57, %.thread, %53
-  %.036 = phi i32 [ %62, %53 ], [ 1, %.thread57 ], [ 0, %.thread ]
-  %.035 = phi ptr [ null, %53 ], [ null, %.thread57 ], [ %16, %.thread ]
+  %.036 = phi i32 [ %62, %53 ], [ 0, %.thread ], [ 1, %.thread57 ]
+  %.035 = phi ptr [ null, %53 ], [ %16, %.thread ], [ null, %.thread57 ]
   %64 = call i32 @BIO_free(ptr noundef %.035) #6
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %66 = load ptr, ptr %65, align 8, !tbaa !11

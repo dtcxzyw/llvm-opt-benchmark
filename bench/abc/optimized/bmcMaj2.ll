@@ -3723,7 +3723,7 @@ Exa_ManFindFanin.exit.i71:                        ; preds = %725
   br label %734
 
 Exa_ManFindFanin.exit.thread.i:                   ; preds = %727, %Exa_ManFindFanin.exit.i71, %711
-  %.0.lcssa.i41.i = phi i32 [ %.1.i.i, %Exa_ManFindFanin.exit.i71 ], [ %.1.i.i, %727 ], [ -1, %711 ]
+  %.0.lcssa.i41.i = phi i32 [ %.1.i.i, %727 ], [ %.1.i.i, %Exa_ManFindFanin.exit.i71 ], [ -1, %711 ]
   %733 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %.0.lcssa.i41.i)
   br label %734
 
@@ -3909,9 +3909,9 @@ define internal fastcc void @Abc_TtReadHex(ptr noundef nonnull captures(none) %0
   br label %.sink.split
 
 .lr.ph57.preheader:                               ; preds = %21, %.lr.ph.preheader.i
-  %.0.lcssa74 = phi i32 [ %indvars, %.lr.ph.preheader.i ], [ 1, %21 ]
-  %.fr = phi i32 [ %31, %.lr.ph.preheader.i ], [ 2, %21 ]
-  %37 = phi i64 [ %36, %.lr.ph.preheader.i ], [ 8, %21 ]
+  %.0.lcssa74 = phi i32 [ 1, %21 ], [ %indvars, %.lr.ph.preheader.i ]
+  %.fr = phi i32 [ 2, %21 ], [ %31, %.lr.ph.preheader.i ]
+  %37 = phi i64 [ 8, %21 ], [ %36, %.lr.ph.preheader.i ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %0, i8 0, i64 %37, i1 false), !tbaa !58
   %38 = sext i32 %.0.lcssa74 to i64
   %wide.trip.count = zext i32 %.0.lcssa74 to i64
@@ -3986,7 +3986,7 @@ Abc_TtReadHexDigit.exit:                          ; preds = %45, %49, %51
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread83, %63, %22, %25
-  %.sink = phi i64 [ %24, %22 ], [ %27, %25 ], [ 0, %.thread83 ], [ %75, %63 ]
+  %.sink = phi i64 [ %27, %25 ], [ %24, %22 ], [ 0, %.thread83 ], [ %75, %63 ]
   store i64 %.sink, ptr %0, align 8, !tbaa !58
   br label %76
 
@@ -4726,8 +4726,8 @@ Vec_WecPush.exit99.i.i:                           ; preds = %363, %Vec_IntGrow.e
   br i1 %376, label %231, label %.loopexit101.i.i, !llvm.loop !177
 
 .loopexit101.i.i:                                 ; preds = %._crit_edge.i.i, %.loopexit.i.i, %134, %.preheader100.i.i
-  %377 = phi i32 [ %374, %.loopexit.i.i ], [ %115, %.preheader100.i.i ], [ %135, %134 ], [ %225, %._crit_edge.i.i ]
-  %378 = phi i32 [ %374, %.loopexit.i.i ], [ %115, %.preheader100.i.i ], [ %136, %134 ], [ %226, %._crit_edge.i.i ]
+  %377 = phi i32 [ %135, %134 ], [ %115, %.preheader100.i.i ], [ %374, %.loopexit.i.i ], [ %225, %._crit_edge.i.i ]
+  %378 = phi i32 [ %136, %134 ], [ %115, %.preheader100.i.i ], [ %374, %.loopexit.i.i ], [ %226, %._crit_edge.i.i ]
   %indvars.iv.next127.i.i = add nsw i64 %indvars.iv126.i.i, 1
   %379 = load i32, ptr %90, align 8, !tbaa !168
   %380 = sext i32 %379 to i64
@@ -5980,7 +5980,7 @@ Exa3_ManFindFanin.exit.i102:                      ; preds = %937
   br label %946
 
 Exa3_ManFindFanin.exit.thread.i:                  ; preds = %939, %Exa3_ManFindFanin.exit.i102, %923
-  %.0.lcssa.i43.i = phi i32 [ %.1.i.i, %Exa3_ManFindFanin.exit.i102 ], [ %.1.i.i, %939 ], [ -1, %923 ]
+  %.0.lcssa.i43.i = phi i32 [ %.1.i.i, %939 ], [ %.1.i.i, %Exa3_ManFindFanin.exit.i102 ], [ -1, %923 ]
   %945 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %.0.lcssa.i43.i)
   br label %946
 
@@ -6142,7 +6142,7 @@ Exa3_ManFindFanin.exit.i129:                      ; preds = %1015
   br label %1024
 
 Exa3_ManFindFanin.exit.thread.i116:               ; preds = %1017, %Exa3_ManFindFanin.exit.i129, %1001
-  %.0.lcssa.i64.i = phi i32 [ %.1.i.i126, %Exa3_ManFindFanin.exit.i129 ], [ %.1.i.i126, %1017 ], [ -1, %1001 ]
+  %.0.lcssa.i64.i = phi i32 [ %.1.i.i126, %1017 ], [ %.1.i.i126, %Exa3_ManFindFanin.exit.i129 ], [ -1, %1001 ]
   %1023 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %969, ptr noundef nonnull @.str.30, i32 noundef %.0.lcssa.i64.i) #19
   br label %1024
 

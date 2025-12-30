@@ -980,7 +980,7 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
   br label %.critedge56, !llvm.loop !10
 
 .critedge56:                                      ; preds = %.lr.ph72, %..critedge56_crit_edge, %.lr.ph72.preheader
-  %.lcssa = phi i32 [ 0, %.lr.ph72.preheader ], [ %510, %..critedge56_crit_edge ], [ %510, %.lr.ph72 ]
+  %.lcssa = phi i32 [ %510, %..critedge56_crit_edge ], [ 0, %.lr.ph72.preheader ], [ %510, %.lr.ph72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %522 = icmp eq i32 %.lcssa, 0

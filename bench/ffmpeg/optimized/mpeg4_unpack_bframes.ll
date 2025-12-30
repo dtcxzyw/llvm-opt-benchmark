@@ -197,9 +197,9 @@ define internal i32 @mpeg4_unpack_bframes_filter(ptr noundef %0, ptr noundef %1)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %33, %42, %39, %28, %.preheader.i, %.lr.ph40.split.split.i
-  %.166 = phi i32 [ %.065, %.lr.ph40.split.split.i ], [ %32, %28 ], [ %.065, %39 ], [ %.065, %.preheader.i ], [ %.065, %42 ], [ %.065, %33 ]
-  %.163 = phi i32 [ %.062, %.lr.ph40.split.split.i ], [ %.062, %28 ], [ %40, %39 ], [ %.062, %.preheader.i ], [ 2, %42 ], [ %.062, %33 ]
-  %.1 = phi i32 [ %.061, %.lr.ph40.split.split.i ], [ %.061, %28 ], [ %.061, %39 ], [ %.061, %.preheader.i ], [ %46, %42 ], [ %.061, %33 ]
+  %.166 = phi i32 [ %.065, %.lr.ph40.split.split.i ], [ %32, %28 ], [ %.065, %.preheader.i ], [ %.065, %42 ], [ %.065, %39 ], [ %.065, %33 ]
+  %.163 = phi i32 [ %.062, %.lr.ph40.split.split.i ], [ %.062, %28 ], [ %.062, %.preheader.i ], [ 2, %42 ], [ %40, %39 ], [ %.062, %33 ]
+  %.1 = phi i32 [ %.061, %.lr.ph40.split.split.i ], [ %.061, %28 ], [ %.061, %.preheader.i ], [ %46, %42 ], [ %.061, %39 ], [ %.061, %33 ]
   %47 = icmp ult ptr %17, %14
   br i1 %47, label %.lr.ph40.split.split.i, label %scan_buffer.exit, !llvm.loop !25
 
@@ -305,13 +305,13 @@ scan_buffer.exit:                                 ; preds = %.loopexit.i
   store i8 0, ptr %90, align 1, !tbaa !22
   br label %91
 
-.thread93:                                        ; preds = %85, %52
+.thread93:                                        ; preds = %52, %85
   %.04495 = phi i32 [ -12, %52 ], [ %86, %85 ]
   call void @av_packet_unref(ptr noundef %1) #3
   br label %91
 
 91:                                               ; preds = %83, %.thread87, %82, %69, %.thread107, %.thread96, %.thread93, %2
-  %.0 = phi i32 [ %6, %2 ], [ %.04495, %.thread93 ], [ %6, %.thread107 ], [ %86, %.thread96 ], [ %6, %69 ], [ %6, %82 ], [ %6, %.thread87 ], [ %6, %83 ]
+  %.0 = phi i32 [ %6, %2 ], [ %.04495, %.thread93 ], [ %86, %.thread96 ], [ %6, %.thread107 ], [ %6, %69 ], [ %6, %82 ], [ %6, %.thread87 ], [ %6, %83 ]
   ret i32 %.0
 }
 

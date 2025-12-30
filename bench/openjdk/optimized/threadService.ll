@@ -1063,7 +1063,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %72, %75
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %69, %86, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit, %35, %_ZN16ThreadDumpResultC2Ev.exit
-  %.sroa.032.0 = phi ptr [ null, %35 ], [ null, %_ZN16ThreadDumpResultC2Ev.exit ], [ %storemerge.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ null, %69 ], [ %storemerge.i.i, %86 ]
+  %.sroa.032.0 = phi ptr [ null, %_ZN16ThreadDumpResultC2Ev.exit ], [ null, %35 ], [ %storemerge.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ null, %69 ], [ %storemerge.i.i, %86 ]
   %89 = load ptr, ptr %24, align 8
   %.not.i.i.i.i25 = icmp eq ptr %89, null
   br i1 %.not.i.i.i.i25, label %91, label %90
@@ -1229,7 +1229,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %31, %_ZN26GrowableA
   br i1 %75, label %31, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %63, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit, %62, %2
-  %.sroa.017.0 = phi ptr [ null, %2 ], [ null, %62 ], [ %storemerge.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ %storemerge.i.i, %63 ]
+  %.sroa.017.0 = phi ptr [ null, %62 ], [ null, %2 ], [ %storemerge.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ %storemerge.i.i, %63 ]
   ret ptr %.sroa.017.0
 }
 
@@ -1332,7 +1332,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread9:           ; preds = %26, %_ZNK7oopDesc4i
   br i1 %.not.i.i7, label %_ZNK10JavaThread18is_vthread_mountedEv.exit, label %.lr.ph.i.i, !llvm.loop !15
 
 _ZNK10JavaThread18is_vthread_mountedEv.exit:      ; preds = %31, %.lr.ph.i.i, %_ZNK7oopDesc5klassEv.exit.i, %_ZNK7oopDesc4is_aEP5Klass.exit.thread9, %_ZNK7oopDesc4is_aEP5Klass.exit
-  %.0 = phi i1 [ true, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ true, %_ZNK7oopDesc5klassEv.exit.i ], [ false, %_ZNK7oopDesc4is_aEP5Klass.exit.thread9 ], [ %.not7.i.not.i.not.not, %.lr.ph.i.i ], [ %.not7.i.not.i.not.not, %31 ]
+  %.0 = phi i1 [ true, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ false, %_ZNK7oopDesc4is_aEP5Klass.exit.thread9 ], [ true, %_ZNK7oopDesc5klassEv.exit.i ], [ %.not7.i.not.i.not.not, %.lr.ph.i.i ], [ %.not7.i.not.i.not.not, %31 ]
   ret i1 %.0
 }
 
@@ -1724,7 +1724,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br i1 %181, label %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread, label %.thread
 
 .thread:                                          ; preds = %127, %133, %133, %152, %136, %125, %179
-  %.189150 = phi ptr [ %180, %179 ], [ %.087174, %152 ], [ %.087174, %133 ], [ %137, %136 ], [ %.087174, %125 ], [ %.087174, %133 ], [ %spec.select, %127 ]
+  %.189150 = phi ptr [ %180, %179 ], [ %.087174, %152 ], [ %.087174, %133 ], [ %137, %136 ], [ %.087174, %125 ], [ %spec.select, %127 ], [ %.087174, %133 ]
   %182 = tail call noundef ptr @_ZNK10JavaThread9threadObjEv(ptr noundef nonnull align 8 dereferenceable(1800) %.189150) #13
   %.not.i120 = icmp eq ptr %182, null
   br i1 %.not.i120, label %_ZNK7oopDesc4is_aEP5Klass.exit.thread9.i124, label %183
@@ -1859,12 +1859,12 @@ _ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.si
   store ptr null, ptr %240, align 8
   br label %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread
 
-_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread: ; preds = %.lr.ph.i.i.i111, %179, %237, %_ZNK7oopDesc4is_aEP5Klass.exit, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %176, %_ZNK7oopDesc4is_aEP5Klass.exit.i133, %_ZNK7oopDesc5klassEv.exit.i.i121, %.lr.ph.i.i.i127, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split, %101, %_ZNK7oopDesc5klassEv.exit.i.i105, %_ZNK7oopDesc4is_aEP5Klass.exit.i117, %219, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118
-  %.191 = phi ptr [ %.393173, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.090194, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.090194, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.090194, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.393173, %219 ], [ null, %101 ], [ %.393173, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.393173, %.lr.ph.i.i.i127 ], [ %.393173, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.393173, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.393173, %176 ], [ %.393173, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ null, %237 ], [ %.393173, %179 ], [ %.090194, %.lr.ph.i.i.i111 ]
-  %.182 = phi ptr [ %.182.ph, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.081196, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.081196, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.081196, %219 ], [ %.081196, %101 ], [ %.081196, %179 ], [ %.081196, %.lr.ph.i.i.i127 ], [ %.081196, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.081196, %176 ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.081196, %237 ], [ %.081196, %.lr.ph.i.i.i111 ]
-  %.180 = phi ptr [ %.077198, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.079197, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.079197, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.079197, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.079197, %219 ], [ %.079197, %101 ], [ %.079197, %179 ], [ %.079197, %.lr.ph.i.i.i127 ], [ %.079197, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.079197, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.079197, %176 ], [ %.079197, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.079197, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.079197, %237 ], [ %.079197, %.lr.ph.i.i.i111 ]
-  %.178 = phi ptr [ %.sink260, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.077198, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.077198, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.077198, %219 ], [ %.077198, %101 ], [ %.077198, %179 ], [ %.077198, %.lr.ph.i.i.i127 ], [ %.077198, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.077198, %176 ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.077198, %237 ], [ %.077198, %.lr.ph.i.i.i111 ]
-  %.1 = phi i32 [ %.2176, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.0200, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.0200, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.0200, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.2176, %219 ], [ %.2170, %101 ], [ %.2176, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.2176, %.lr.ph.i.i.i127 ], [ %.2176, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.2176, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.2176, %176 ], [ %.2176, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.2, %237 ], [ %.2176, %179 ], [ %.0200, %.lr.ph.i.i.i111 ]
+_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread: ; preds = %.lr.ph.i.i.i111, %179, %237, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %176, %_ZNK7oopDesc4is_aEP5Klass.exit.i133, %_ZNK7oopDesc5klassEv.exit.i.i121, %.lr.ph.i.i.i127, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split, %101, %_ZNK7oopDesc5klassEv.exit.i.i105, %_ZNK7oopDesc4is_aEP5Klass.exit.i117, %219, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118
+  %.191 = phi ptr [ %.090194, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.393173, %219 ], [ %.090194, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.090194, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ null, %101 ], [ %.393173, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.393173, %.lr.ph.i.i.i127 ], [ %.393173, %179 ], [ null, %237 ], [ %.393173, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.393173, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.393173, %176 ], [ %.393173, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.393173, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.090194, %.lr.ph.i.i.i111 ]
+  %.182 = phi ptr [ %.081196, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.081196, %219 ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.081196, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.081196, %101 ], [ %.182.ph, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.081196, %.lr.ph.i.i.i127 ], [ %.081196, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.081196, %176 ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.081196, %237 ], [ %.081196, %179 ], [ %.081196, %.lr.ph.i.i.i111 ]
+  %.180 = phi ptr [ %.079197, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.079197, %219 ], [ %.079197, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.079197, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.079197, %101 ], [ %.077198, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.079197, %.lr.ph.i.i.i127 ], [ %.079197, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.079197, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.079197, %176 ], [ %.079197, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.079197, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.079197, %237 ], [ %.079197, %179 ], [ %.079197, %.lr.ph.i.i.i111 ]
+  %.178 = phi ptr [ %.077198, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.077198, %219 ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.077198, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.077198, %101 ], [ %.sink260, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.077198, %.lr.ph.i.i.i127 ], [ %.077198, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.077198, %176 ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.077198, %237 ], [ %.077198, %179 ], [ %.077198, %.lr.ph.i.i.i111 ]
+  %.1 = phi i32 [ %.0200, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.2176, %219 ], [ %.0200, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.0200, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.2170, %101 ], [ %.2176, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.2176, %.lr.ph.i.i.i127 ], [ %.2176, %179 ], [ %.2, %237 ], [ %.2176, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.2176, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.2176, %176 ], [ %.2176, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.2176, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.0200, %.lr.ph.i.i.i111 ]
   %241 = add i32 %.sroa.5.1193, 1
   %242 = load i32, ptr %57, align 4
   %.not.i136 = icmp ult i32 %241, %242
@@ -2467,9 +2467,9 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   %.not44 = icmp eq ptr %142, null
   br i1 %.not44, label %.thread, label %.critedge.thread65
 
-.critedge.thread65:                               ; preds = %106, %112, %139, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %.critedge
-  %.070 = phi ptr [ %142, %.critedge ], [ %115, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %115, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %115, %139 ], [ %100, %112 ], [ %100, %106 ]
-  %.03669 = phi ptr [ %142, %.critedge ], [ null, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %141, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ null, %139 ], [ %113, %112 ], [ null, %106 ]
+.critedge.thread65:                               ; preds = %106, %112, %139, %_ZNK7oopDesc4is_aEP5Klass.exit, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %.critedge
+  %.070 = phi ptr [ %142, %.critedge ], [ %115, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %115, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %115, %139 ], [ %100, %112 ], [ %100, %106 ]
+  %.03669 = phi ptr [ %142, %.critedge ], [ %141, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ null, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ null, %139 ], [ %113, %112 ], [ null, %106 ]
   %143 = load ptr, ptr @_ZL23_thread_service_storage, align 8
   %144 = tail call noundef ptr @_ZN10OopStorage8allocateEv(ptr noundef nonnull align 8 dereferenceable(126) %143) #13
   %145 = icmp eq ptr %144, null
@@ -2977,7 +2977,7 @@ define hidden void @_ZN16ThreadStackTraceC2EP10JavaThreadb(ptr noundef nonnull w
   br label %24
 
 24:                                               ; preds = %12, %16, %19
-  %.sink = phi ptr [ %17, %16 ], [ %17, %19 ], [ null, %12 ]
+  %.sink = phi ptr [ %17, %19 ], [ %17, %16 ], [ null, %12 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %25, align 8
   ret void
@@ -3435,7 +3435,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %19, %24
   br i1 %28, label %_ZNK9OopHandle7resolveEv.exit._crit_edge, label %18
 
 _ZNK9OopHandle7resolveEv.exit._crit_edge:         ; preds = %18, %_ZNK9OopHandle7resolveEv.exit, %7, %_ZN14StackFrameInfo19num_locked_monitorsEv.exit
-  %.1 = phi i1 [ %.019, %_ZN14StackFrameInfo19num_locked_monitorsEv.exit ], [ %.019, %7 ], [ %.019, %18 ], [ true, %_ZNK9OopHandle7resolveEv.exit ]
+  %.1 = phi i1 [ %.019, %_ZN14StackFrameInfo19num_locked_monitorsEv.exit ], [ %.019, %7 ], [ true, %_ZNK9OopHandle7resolveEv.exit ], [ %.019, %18 ]
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count26
   br i1 %exitcond27.not, label %._crit_edge22, label %7, !llvm.loop !30
@@ -4326,7 +4326,7 @@ define hidden void @_ZN14ThreadSnapshot23dump_stack_at_safepointEibP18ObjectMoni
   br label %_ZN16ThreadStackTraceC2EP10JavaThreadb.exit
 
 _ZN16ThreadStackTraceC2EP10JavaThreadb.exit:      ; preds = %16, %20, %23
-  %.sink.i = phi ptr [ null, %20 ], [ %21, %23 ], [ null, %16 ]
+  %.sink.i = phi ptr [ %21, %23 ], [ null, %20 ], [ null, %16 ]
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %.sink.i, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -6522,7 +6522,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 
@@ -6677,7 +6677,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -6853,7 +6853,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 

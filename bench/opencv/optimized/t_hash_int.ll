@@ -103,7 +103,7 @@ define hidden noalias noundef ptr @_ZN2cv12ppf_match_3d15hashtableCreateEmPFmjE(
   br label %29
 
 29:                                               ; preds = %27, %28, %19, %24
-  %.0 = phi ptr [ null, %19 ], [ null, %24 ], [ %20, %28 ], [ %20, %27 ]
+  %.0 = phi ptr [ null, %24 ], [ null, %19 ], [ %20, %28 ], [ %20, %27 ]
   ret ptr %.0
 }
 

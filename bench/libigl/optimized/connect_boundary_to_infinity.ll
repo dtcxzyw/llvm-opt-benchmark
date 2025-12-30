@@ -388,7 +388,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i: ; 
   br label %105
 
 105:                                              ; preds = %101, %103, %99, %97
-  %.pn14 = phi { ptr, i32 } [ %104, %103 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ]
+  %.pn14 = phi { ptr, i32 } [ %104, %103 ], [ %100, %99 ], [ %98, %97 ], [ %102, %101 ]
   %106 = load ptr, ptr %16, align 8, !tbaa !55
   call void @free(ptr noundef %106) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %16)

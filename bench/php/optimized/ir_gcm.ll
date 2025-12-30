@@ -801,8 +801,8 @@ ir_gcm_find_lca.exit:                             ; preds = %.lr.ph8.i, %.prehea
   br i1 %.not.i102, label %ir_gcm_find_lca.exit106, label %.lr.ph8.i99
 
 ir_gcm_find_lca.exit106:                          ; preds = %ir_gcm_find_lca.exit, %.lr.ph8.i99, %41, %.preheader.i96, %97, %35
-  %136 = phi ptr [ %98, %.lr.ph8.i99 ], [ %19, %35 ], [ %98, %97 ], [ %98, %.preheader.i96 ], [ %19, %41 ], [ %19, %ir_gcm_find_lca.exit ]
-  %.1 = phi i32 [ %131, %.lr.ph8.i99 ], [ %.084147, %35 ], [ %.0, %97 ], [ %.020.lcssa.i94, %.preheader.i96 ], [ %.084147, %41 ], [ %.3, %ir_gcm_find_lca.exit ]
+  %136 = phi ptr [ %19, %35 ], [ %98, %97 ], [ %98, %.preheader.i96 ], [ %19, %41 ], [ %98, %.lr.ph8.i99 ], [ %19, %ir_gcm_find_lca.exit ]
+  %.1 = phi i32 [ %.084147, %35 ], [ %.0, %97 ], [ %.020.lcssa.i94, %.preheader.i96 ], [ %.084147, %41 ], [ %131, %.lr.ph8.i99 ], [ %.3, %ir_gcm_find_lca.exit ]
   %137 = add nuw nsw i32 %.080148, 1
   %138 = load ptr, ptr %10, align 8, !tbaa !34
   %139 = getelementptr inbounds %struct._ir_use_list, ptr %138, i64 %8
@@ -1186,9 +1186,9 @@ _check_successors.exit.loopexit.i:                ; preds = %341
   br label %_check_successors.exit.i
 
 _check_successors.exit.i:                         ; preds = %ir_sparse_set_in.exit.i429.i, %296, %_check_successors.exit.loopexit.i, %ir_sparse_set_in.exit418.i
-  %346 = phi i32 [ %269, %ir_sparse_set_in.exit418.i ], [ %.pre550.i, %_check_successors.exit.loopexit.i ], [ %269, %296 ], [ %269, %ir_sparse_set_in.exit.i429.i ]
-  %347 = phi ptr [ %266, %ir_sparse_set_in.exit418.i ], [ %342, %_check_successors.exit.loopexit.i ], [ %266, %296 ], [ %266, %ir_sparse_set_in.exit.i429.i ]
-  %348 = phi ptr [ %267, %ir_sparse_set_in.exit418.i ], [ %343, %_check_successors.exit.loopexit.i ], [ %267, %296 ], [ %267, %ir_sparse_set_in.exit.i429.i ]
+  %346 = phi i32 [ %.pre550.i, %_check_successors.exit.loopexit.i ], [ %269, %ir_sparse_set_in.exit418.i ], [ %269, %296 ], [ %269, %ir_sparse_set_in.exit.i429.i ]
+  %347 = phi ptr [ %342, %_check_successors.exit.loopexit.i ], [ %266, %ir_sparse_set_in.exit418.i ], [ %266, %296 ], [ %266, %ir_sparse_set_in.exit.i429.i ]
+  %348 = phi ptr [ %343, %_check_successors.exit.loopexit.i ], [ %267, %ir_sparse_set_in.exit418.i ], [ %267, %296 ], [ %267, %ir_sparse_set_in.exit.i429.i ]
   %.not.i107 = icmp eq i32 %346, 0
   br i1 %.not.i107, label %._crit_edge466.i, label %265
 
@@ -1706,7 +1706,7 @@ ir_sparse_set_in.exit420.thread._crit_edge.i:     ; preds = %ir_sparse_set_in.ex
   br i1 %618, label %.loopexit.sink.split.i, label %615
 
 .loopexit.sink.split.i:                           ; preds = %.lr.ph493.i, %._crit_edge496.i, %585
-  %indvars.iv532.lcssa.sink.i = phi i64 [ %indvars.iv532.i, %._crit_edge496.i ], [ %indvars.iv532.i, %585 ], [ %indvars.iv527.i, %.lr.ph493.i ]
+  %indvars.iv532.lcssa.sink.i = phi i64 [ %indvars.iv532.i, %585 ], [ %indvars.iv532.i, %._crit_edge496.i ], [ %indvars.iv527.i, %.lr.ph493.i ]
   %619 = getelementptr inbounds nuw i32, ptr %572, i64 %indvars.iv532.lcssa.sink.i
   store i32 %534, ptr %619, align 4, !tbaa !32
   br label %.loopexit.i
@@ -1737,8 +1737,8 @@ ir_split_partially_dead_node.exit:                ; preds = %._crit_edge506.i, %
   br label %.loopexit
 
 ir_split_partially_dead_node.exit.thread:         ; preds = %ir_sparse_set_in.exit417.thread.i, %ir_sparse_set_in.exit.thread.i, %3, %.critedge416.i, %._crit_edge
-  %.084.lcssa241 = phi i32 [ 0, %3 ], [ %.1, %ir_sparse_set_in.exit.thread.i ], [ %.1, %.critedge416.i ], [ %.1, %._crit_edge ], [ %.1, %ir_sparse_set_in.exit417.thread.i ]
-  %622 = phi ptr [ %7, %3 ], [ %136, %ir_sparse_set_in.exit.thread.i ], [ %.pre, %.critedge416.i ], [ %136, %._crit_edge ], [ %136, %ir_sparse_set_in.exit417.thread.i ]
+  %.084.lcssa241 = phi i32 [ %.1, %.critedge416.i ], [ %.1, %._crit_edge ], [ 0, %3 ], [ %.1, %ir_sparse_set_in.exit.thread.i ], [ %.1, %ir_sparse_set_in.exit417.thread.i ]
+  %622 = phi ptr [ %.pre, %.critedge416.i ], [ %136, %._crit_edge ], [ %7, %3 ], [ %136, %ir_sparse_set_in.exit.thread.i ], [ %136, %ir_sparse_set_in.exit417.thread.i ]
   %623 = getelementptr inbounds i32, ptr %622, i64 %8
   %624 = load i32, ptr %623, align 4, !tbaa !32
   %.not = icmp eq i32 %.084.lcssa241, %624
@@ -1895,7 +1895,7 @@ ir_split_partially_dead_node.exit.thread:         ; preds = %ir_sparse_set_in.ex
   br i1 %.not75.i, label %ir_gcm_select_best_block.exit, label %651
 
 ir_gcm_select_best_block.exit:                    ; preds = %699, %701, %703, %682, %684, %625, %644, %647, %671
-  %.059.i = phi i32 [ %.084.lcssa241, %644 ], [ %.084.lcssa241, %625 ], [ %.084.lcssa241, %647 ], [ %.055.i, %684 ], [ %653, %671 ], [ %653, %682 ], [ %.055.i, %699 ], [ %.3.i, %703 ], [ %.055.i, %701 ]
+  %.059.i = phi i32 [ %.084.lcssa241, %625 ], [ %.084.lcssa241, %647 ], [ %.084.lcssa241, %644 ], [ %653, %671 ], [ %.055.i, %684 ], [ %653, %682 ], [ %.3.i, %703 ], [ %.055.i, %701 ], [ %.055.i, %699 ]
   %707 = load ptr, ptr %6, align 8, !tbaa !4
   %708 = getelementptr inbounds i32, ptr %707, i64 %8
   store i32 %.059.i, ptr %708, align 4, !tbaa !32
@@ -2479,9 +2479,9 @@ ir_count_constant.exit940:                        ; preds = %252, %256
   br label %.loopexit958
 
 .loopexit958:                                     ; preds = %258, %247, %228, %262, %226, %216
-  %.1850 = phi i32 [ %.08491012, %216 ], [ %.08491012, %226 ], [ %217, %262 ], [ %.08491012, %228 ], [ %217, %247 ], [ %217, %258 ]
-  %.8835 = phi i32 [ %.78341013, %216 ], [ %.78341013, %226 ], [ %.78341013, %262 ], [ %.78341013, %228 ], [ %.78341013, %247 ], [ %.10837, %258 ]
-  %.6825 = phi i32 [ %.58241014, %216 ], [ %.58241014, %226 ], [ %263, %262 ], [ %.58241014, %228 ], [ %248, %247 ], [ %248, %258 ]
+  %.1850 = phi i32 [ %.08491012, %216 ], [ %217, %262 ], [ %.08491012, %226 ], [ %.08491012, %228 ], [ %217, %247 ], [ %217, %258 ]
+  %.8835 = phi i32 [ %.78341013, %216 ], [ %.78341013, %262 ], [ %.78341013, %226 ], [ %.78341013, %228 ], [ %.78341013, %247 ], [ %.10837, %258 ]
+  %.6825 = phi i32 [ %.58241014, %216 ], [ %263, %262 ], [ %.58241014, %226 ], [ %.58241014, %228 ], [ %248, %247 ], [ %248, %258 ]
   %264 = getelementptr inbounds nuw i8, ptr %.08521010, i64 4
   %265 = add nsw i32 %.08511011, -1
   %266 = icmp sgt i32 %.08511011, 1
@@ -2674,9 +2674,9 @@ ir_count_constant.exit943:                        ; preds = %352
   br label %._crit_edge1027
 
 ._crit_edge1027:                                  ; preds = %335, %._crit_edge1027.loopexit, %.preheader957
-  %.9.lcssa = phi i32 [ %.91037, %._crit_edge1027.loopexit ], [ %.81046, %.preheader957 ], [ %325, %335 ]
-  %.lcssa965 = phi i32 [ %358, %._crit_edge1027.loopexit ], [ 0, %.preheader957 ], [ 0, %335 ]
-  %.13.lcssa = phi i32 [ %.14, %._crit_edge1027.loopexit ], [ %.118381044, %.preheader957 ], [ %.131022, %335 ]
+  %.9.lcssa = phi i32 [ %.81046, %.preheader957 ], [ %.91037, %._crit_edge1027.loopexit ], [ %325, %335 ]
+  %.lcssa965 = phi i32 [ 0, %.preheader957 ], [ %358, %._crit_edge1027.loopexit ], [ 0, %335 ]
+  %.13.lcssa = phi i32 [ %.118381044, %.preheader957 ], [ %.14, %._crit_edge1027.loopexit ], [ %.131022, %335 ]
   %359 = sext i32 %.9.lcssa to i64
   %360 = getelementptr inbounds i32, ptr %115, i64 %359
   store i32 %.78261045, ptr %360, align 4, !tbaa !32

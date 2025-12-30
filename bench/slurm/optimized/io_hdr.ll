@@ -110,7 +110,7 @@ define dso_local range(i32 -1, 12) i32 @io_hdr_unpack(ptr noundef %0, ptr nounde
   br label %29
 
 29:                                               ; preds = %24, %7, %10, %27
-  %.0 = phi i32 [ 11, %7 ], [ -1, %27 ], [ 11, %10 ], [ 0, %24 ]
+  %.0 = phi i32 [ -1, %27 ], [ 11, %10 ], [ 11, %7 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -202,8 +202,8 @@ _full_read.exit:                                  ; preds = %28
   %spec.select = select i1 %34, i32 -1, i32 10
   br label %_full_read.exit.thread
 
-_full_read.exit.thread:                           ; preds = %.loopexit.sink.split.i, %21, %25, %_full_read.exit
-  %.0 = phi i32 [ %spec.select, %_full_read.exit ], [ %.013.ph.i, %.loopexit.sink.split.i ], [ -1, %21 ], [ 0, %25 ]
+_full_read.exit.thread:                           ; preds = %.loopexit.sink.split.i, %25, %21, %_full_read.exit
+  %.0 = phi i32 [ %spec.select, %_full_read.exit ], [ %.013.ph.i, %.loopexit.sink.split.i ], [ 0, %25 ], [ -1, %21 ]
   %35 = tail call i32 @get_log_level() #7
   %36 = icmp sgt i32 %35, 6
   br i1 %36, label %37, label %38
@@ -548,7 +548,7 @@ define dso_local range(i32 -1, 1) i32 @io_init_msg_read_from_fd(i32 noundef %0, 
   br label %.thread80
 
 .split97:                                         ; preds = %.lr.ph134, %.lr.ph119.preheader, %.lr.ph134.preheader, %.lr.ph119.preheader.preheader
-  %.us-phi98 = phi i64 [ %31, %.lr.ph119.preheader ], [ %56, %.lr.ph119.preheader.preheader ], [ %45, %.lr.ph134.preheader ], [ %53, %.lr.ph134 ]
+  %.us-phi98 = phi i64 [ %56, %.lr.ph119.preheader.preheader ], [ %45, %.lr.ph134.preheader ], [ %31, %.lr.ph119.preheader ], [ %53, %.lr.ph134 ]
   %37 = and i64 %.us-phi98, 2147483647
   %38 = getelementptr inbounds nuw i8, ptr %.049.ph138, i64 %37
   %39 = sub i64 %.050.ph136, %37
@@ -738,7 +738,7 @@ define dso_local range(i32 -1, 1) i32 @io_init_msg_read_from_fd(i32 noundef %0, 
   br label %140
 
 .split147.us:                                     ; preds = %.lr.ph185, %.lr.ph170.preheader, %.lr.ph185.preheader, %.lr.ph170.preheader.preheader
-  %.us-phi148 = phi i64 [ %97, %.lr.ph170.preheader ], [ %79, %.lr.ph170.preheader.preheader ], [ %68, %.lr.ph185.preheader ], [ %76, %.lr.ph185 ]
+  %.us-phi148 = phi i64 [ %79, %.lr.ph170.preheader.preheader ], [ %68, %.lr.ph185.preheader ], [ %97, %.lr.ph170.preheader ], [ %76, %.lr.ph185 ]
   %103 = and i64 %.us-phi148, 2147483647
   %104 = getelementptr inbounds nuw i8, ptr %.046.ph191, i64 %103
   %105 = sub i64 %.047.ph189, %103
@@ -812,7 +812,7 @@ define dso_local range(i32 -1, 1) i32 @io_init_msg_read_from_fd(i32 noundef %0, 
   br label %io_init_msg_unpack.exit.thread
 
 io_init_msg_unpack.exit.thread:                   ; preds = %123, %131, %134, %129
-  %.012.i79 = phi i32 [ -1, %134 ], [ -1, %129 ], [ -1, %131 ], [ 0, %123 ]
+  %.012.i79 = phi i32 [ -1, %131 ], [ -1, %134 ], [ -1, %129 ], [ 0, %123 ]
   %.not66 = icmp eq ptr %63, null
   br i1 %.not66, label %136, label %135
 
@@ -829,7 +829,7 @@ io_init_msg_unpack.exit.thread:                   ; preds = %123, %131, %134, %1
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.io_init_msg_read_from_fd) #7
   br label %149
 
-140:                                              ; preds = %87, %92, %.split150.us, %102
+140:                                              ; preds = %87, %92, %102, %.split150.us
   %.not64 = icmp eq ptr %63, null
   br i1 %.not64, label %.thread80, label %141
 
@@ -837,7 +837,7 @@ io_init_msg_unpack.exit.thread:                   ; preds = %123, %131, %134, %1
   tail call void @free_buf(ptr noundef nonnull %63) #7
   br label %.thread80
 
-.thread80:                                        ; preds = %21, %26, %.split100, %36, %141, %140
+.thread80:                                        ; preds = %21, %26, %36, %.split100, %141, %140
   %142 = tail call zeroext i1 @running_in_daemon() #7
   br i1 %142, label %143, label %145
 
@@ -855,7 +855,7 @@ io_init_msg_unpack.exit.thread:                   ; preds = %123, %131, %134, %1
   br label %149
 
 149:                                              ; preds = %143, %148, %145, %136, %139, %12, %17, %14
-  %.0 = phi i32 [ %.012.i79, %136 ], [ -1, %12 ], [ -1, %17 ], [ -1, %14 ], [ %.012.i79, %139 ], [ -1, %145 ], [ -1, %148 ], [ -1, %143 ]
+  %.0 = phi i32 [ -1, %14 ], [ -1, %17 ], [ -1, %12 ], [ %.012.i79, %139 ], [ %.012.i79, %136 ], [ -1, %145 ], [ -1, %148 ], [ -1, %143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

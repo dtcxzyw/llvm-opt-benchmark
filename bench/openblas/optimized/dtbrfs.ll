@@ -111,7 +111,7 @@ define void @dtbrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not571, label %68, label %.thread
 
 .thread.sink.split:                               ; preds = %61, %58, %56, %53, %50, %47, %45, %42, %37
-  %.sink = phi i32 [ -1, %37 ], [ -2, %42 ], [ -4, %47 ], [ -6, %53 ], [ -10, %58 ], [ -8, %56 ], [ -5, %50 ], [ -3, %45 ], [ -12, %61 ]
+  %.sink = phi i32 [ -1, %37 ], [ -2, %42 ], [ -3, %45 ], [ -4, %47 ], [ -5, %50 ], [ -6, %53 ], [ -8, %56 ], [ -10, %58 ], [ -12, %61 ]
   store i32 %.sink, ptr %16, align 4, !tbaa !3
   br label %.thread
 
@@ -845,7 +845,7 @@ define void @dtbrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not604712, label %.loopexit610.backedge, label %.lr.ph715.preheader
 
 .loopexit610.backedge:                            ; preds = %.lr.ph715, %389, %._crit_edge720
-  %.be = phi i32 [ %.pre872.pre, %._crit_edge720 ], [ %393, %389 ], [ %393, %.lr.ph715 ]
+  %.be = phi i32 [ %393, %389 ], [ %.pre872.pre, %._crit_edge720 ], [ %393, %.lr.ph715 ]
   br label %.loopexit610
 
 .lr.ph715.preheader:                              ; preds = %389

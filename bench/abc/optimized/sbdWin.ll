@@ -421,8 +421,8 @@ Gia_ObjIsXor.exit258.thread:                      ; preds = %129
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %251, %253, %243, %245
-  %.sink298 = phi ptr [ %246, %245 ], [ %244, %243 ], [ %252, %251 ], [ %254, %253 ]
-  %.sink = phi i32 [ 16, %245 ], [ 16, %243 ], [ %248, %251 ], [ %248, %253 ]
+  %.sink298 = phi ptr [ %244, %243 ], [ %246, %245 ], [ %252, %251 ], [ %254, %253 ]
+  %.sink = phi i32 [ 16, %243 ], [ 16, %245 ], [ %248, %251 ], [ %248, %253 ]
   store ptr %.sink298, ptr %223, align 8, !tbaa !11
   store i32 %.sink, ptr %217, align 8, !tbaa !34
   br label %Vec_IntPush.exit
@@ -784,8 +784,8 @@ Vec_IntPush.exit114:                              ; preds = %81, %Vec_IntGrow.ex
   br label %Vec_IntPush.exit121.sink.split
 
 Vec_IntPush.exit121.sink.split:                   ; preds = %119, %121, %111, %113
-  %.sink186 = phi ptr [ %114, %113 ], [ %112, %111 ], [ %120, %119 ], [ %122, %121 ]
-  %.sink185 = phi i32 [ 16, %113 ], [ 16, %111 ], [ %116, %119 ], [ %116, %121 ]
+  %.sink186 = phi ptr [ %112, %111 ], [ %114, %113 ], [ %120, %119 ], [ %122, %121 ]
+  %.sink185 = phi i32 [ 16, %111 ], [ 16, %113 ], [ %116, %119 ], [ %116, %121 ]
   store ptr %.sink186, ptr %.phi.trans.insert.i, align 8, !tbaa !11
   store i32 %.sink185, ptr %6, align 8, !tbaa !34
   br label %Vec_IntPush.exit121
@@ -902,7 +902,7 @@ Vec_IntFind.exit:                                 ; preds = %136, %Vec_IntPush.e
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge4, %22, %.loopexit.loopexit192, %.critedge4.preheader
-  %.073 = phi i64 [ %.075, %22 ], [ 1311768465173141112, %.loopexit.loopexit192 ], [ -8690466094656961759, %.critedge4.preheader ], [ -8690466094656961759, %.critedge4 ]
+  %.073 = phi i64 [ -8690466094656961759, %.critedge4.preheader ], [ 1311768465173141112, %.loopexit.loopexit192 ], [ %.075, %22 ], [ -8690466094656961759, %.critedge4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.073
 }
@@ -1848,7 +1848,7 @@ sat_solver_random_polarity.exit:                  ; preds = %.critedge.i, %.lr.p
   br label %.thread
 
 .thread:                                          ; preds = %sat_solver_random_polarity.exit, %sat_solver_random_polarity.exit.us, %.thread.loopexit94, %.thread.loopexit
-  %.1.ph = phi i32 [ -2, %.thread.loopexit94 ], [ -2, %.thread.loopexit ], [ %17, %sat_solver_random_polarity.exit.us ], [ %45, %sat_solver_random_polarity.exit ]
+  %.1.ph = phi i32 [ -2, %.thread.loopexit ], [ -2, %.thread.loopexit94 ], [ %17, %sat_solver_random_polarity.exit.us ], [ %45, %sat_solver_random_polarity.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
@@ -2003,7 +2003,7 @@ sat_solver_random_polarity.exit.us:               ; preds = %.critedge.i.us, %19
   br label %.split45.us
 
 .split45.us:                                      ; preds = %._crit_edge.us, %sat_solver_random_polarity.exit.us, %6, %.split45.us.loopexit
-  %.0 = phi i32 [ -1, %6 ], [ %60, %.split45.us.loopexit ], [ -2, %sat_solver_random_polarity.exit.us ], [ -1, %._crit_edge.us ]
+  %.0 = phi i32 [ %60, %.split45.us.loopexit ], [ -1, %6 ], [ -2, %sat_solver_random_polarity.exit.us ], [ -1, %._crit_edge.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

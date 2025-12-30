@@ -213,8 +213,8 @@ _ZNK7rocksdb14CoreLocalArrayINS_17compression_cache14ZSTDCachedDataEE21AccessEle
           to label %_ZN7rocksdb24ZSTDUncompressCachedData14CreateIfNeededEv.exit5.sink.split.i unwind label %39, !noalias !25
 
 _ZN7rocksdb24ZSTDUncompressCachedData14CreateIfNeededEv.exit5.sink.split.i: ; preds = %44, %.noexc.i, %33
-  %.sink7.i = phi ptr [ %34, %33 ], [ %37, %.noexc.i ], [ %45, %44 ]
-  %.sink.i = phi i64 [ %storemerge.i, %33 ], [ %storemerge.i, %.noexc.i ], [ -1, %44 ]
+  %.sink7.i = phi ptr [ %37, %.noexc.i ], [ %34, %33 ], [ %45, %44 ]
+  %.sink.i = phi i64 [ %storemerge.i, %.noexc.i ], [ %storemerge.i, %33 ], [ -1, %44 ]
   store ptr %.sink7.i, ptr %0, align 8, !tbaa !28, !alias.scope !25
   store i64 %.sink.i, ptr %28, align 8, !tbaa !32, !alias.scope !25
   br label %_ZN7rocksdb17compression_cache14ZSTDCachedData17GetUncompressDataEl.exit

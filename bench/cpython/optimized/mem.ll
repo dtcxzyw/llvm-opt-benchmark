@@ -885,7 +885,7 @@ default.unreachable60:                            ; preds = %63, %47, %38, %22, 
   unreachable
 
 15:                                               ; preds = %13, %11, %9
-  %.042 = phi ptr [ %14, %13 ], [ %10, %9 ], [ %12, %11 ]
+  %.042 = phi ptr [ %10, %9 ], [ %12, %11 ], [ %14, %13 ]
   %16 = icmp eq ptr %.042, null
   br i1 %16, label %76, label %17
 
@@ -921,7 +921,7 @@ default.unreachable60:                            ; preds = %63, %47, %38, %22, 
   br label %29
 
 29:                                               ; preds = %27, %25, %23
-  %.041 = phi ptr [ %28, %27 ], [ %24, %23 ], [ %26, %25 ]
+  %.041 = phi ptr [ %24, %23 ], [ %26, %25 ], [ %28, %27 ]
   %30 = icmp eq ptr %.041, null
   br i1 %30, label %76, label %31
 
@@ -992,7 +992,7 @@ default.unreachable60:                            ; preds = %63, %47, %38, %22, 
   br label %54
 
 54:                                               ; preds = %52, %50, %48
-  %.1 = phi ptr [ %53, %52 ], [ %49, %48 ], [ %51, %50 ]
+  %.1 = phi ptr [ %49, %48 ], [ %51, %50 ], [ %53, %52 ]
   %55 = icmp eq ptr %.1, null
   br i1 %55, label %76, label %56
 
@@ -1054,7 +1054,7 @@ default.unreachable60:                            ; preds = %63, %47, %38, %22, 
   br label %_Py_NewRef.exit
 
 76:                                               ; preds = %69, %67, %58, %56, %54, %44, %42, %33, %31, %29, %19, %17, %15
-  %.040 = phi ptr [ @.str.37, %67 ], [ @.str.26, %15 ], [ @.str.27, %17 ], [ @.str.28, %19 ], [ @.str.29, %29 ], [ @.str.30, %31 ], [ @.str.31, %33 ], [ @.str.32, %42 ], [ @.str.33, %44 ], [ @.str.34, %54 ], [ @.str.35, %56 ], [ @.str.36, %58 ], [ @.str.38, %69 ]
+  %.040 = phi ptr [ @.str.26, %15 ], [ @.str.27, %17 ], [ @.str.28, %19 ], [ @.str.29, %29 ], [ @.str.30, %31 ], [ @.str.31, %33 ], [ @.str.32, %42 ], [ @.str.33, %44 ], [ @.str.34, %54 ], [ @.str.35, %56 ], [ @.str.36, %58 ], [ @.str.37, %67 ], [ @.str.38, %69 ]
   %77 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !20
   call void @PyErr_SetString(ptr noundef %77, ptr noundef nonnull %.040) #4
   br label %_Py_NewRef.exit

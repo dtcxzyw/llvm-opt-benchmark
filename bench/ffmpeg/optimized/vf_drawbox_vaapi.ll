@@ -278,7 +278,7 @@ define internal i32 @drawbox_vaapi_filter_frame(ptr noundef readonly captures(no
   br label %127
 
 126:                                              ; preds = %63, %27, %25, %2, %18, %121, %77, %73, %69, %36, %32
-  %.058 = phi i32 [ -22, %2 ], [ %71, %69 ], [ %75, %73 ], [ %91, %77 ], [ %122, %121 ], [ -12, %27 ], [ -12, %25 ], [ %34, %32 ], [ %61, %36 ], [ -22, %18 ], [ -12, %63 ]
+  %.058 = phi i32 [ %71, %69 ], [ %75, %73 ], [ %91, %77 ], [ %122, %121 ], [ %34, %32 ], [ %61, %36 ], [ -22, %18 ], [ -22, %2 ], [ -12, %25 ], [ -12, %27 ], [ -12, %63 ]
   call void @av_frame_free(ptr noundef nonnull %3) #5
   call void @av_frame_free(ptr noundef nonnull %4) #5
   br label %127
@@ -581,7 +581,7 @@ define internal i32 @drawbox_vaapi_config_output(ptr noundef %0) #2 {
   br label %160
 
 160:                                              ; preds = %137, %131, %159, %142
-  %.0114 = phi i32 [ %.0113, %159 ], [ %135, %131 ], [ %158, %142 ], [ -12, %137 ]
+  %.0114 = phi i32 [ %.0113, %159 ], [ %158, %142 ], [ %135, %131 ], [ -12, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0114

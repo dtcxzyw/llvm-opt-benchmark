@@ -185,8 +185,8 @@ define void @_ZN6LibRaw10bad_pixelsEPKc(ptr noundef nonnull align 8 dereferencea
   br label %89
 
 89:                                               ; preds = %62, %.lr.ph, %64, %70
-  %.340 = phi i32 [ %87, %70 ], [ %.23970, %64 ], [ %.23970, %62 ], [ %.23970, %.lr.ph ]
-  %.3 = phi i32 [ %88, %70 ], [ %.271, %64 ], [ %.271, %62 ], [ %.271, %.lr.ph ]
+  %.340 = phi i32 [ %87, %70 ], [ %.23970, %64 ], [ %.23970, %.lr.ph ], [ %.23970, %62 ]
+  %.3 = phi i32 [ %88, %70 ], [ %.271, %64 ], [ %.271, %.lr.ph ], [ %.271, %62 ]
   %90 = add nsw i32 %.04269, 1
   %91 = load i32, ptr %6, align 4, !tbaa !77
   %92 = add nsw i32 %91, %.04182

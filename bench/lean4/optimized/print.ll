@@ -2122,7 +2122,7 @@ _ZN4lean10object_refD2Ev.exit.i.i.i:              ; preds = %43, %42, %40, %.thr
   resume { ptr, i32 } %53
 
 "_ZSt10__invoke_rIbRZN4lean12is_used_nameERKNS0_4exprERKNS0_4nameEE3$_0JS3_jEENSt9enable_ifIXntsr7is_voidIT_EE5valueESA_E4typeEOT0_DpOT1_.exit": ; preds = %3, %.thread23.i.i.i, %_ZN4lean10object_refD2Ev.exit.i.i.i, %.critedge.i.i.i, %47
-  %.0.i.i.i = phi i1 [ false, %3 ], [ false, %47 ], [ true, %.critedge.i.i.i ], [ true, %_ZN4lean10object_refD2Ev.exit.i.i.i ], [ true, %.thread23.i.i.i ]
+  %.0.i.i.i = phi i1 [ false, %47 ], [ false, %3 ], [ true, %.critedge.i.i.i ], [ true, %_ZN4lean10object_refD2Ev.exit.i.i.i ], [ true, %.thread23.i.i.i ]
   ret i1 %.0.i.i.i
 }
 
@@ -3133,7 +3133,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %_ZStlsISt11char_tra
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %36, %58, %67
-  %.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %68, %67 ], [ %37, %36 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %37, %36 ], [ %59, %58 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn

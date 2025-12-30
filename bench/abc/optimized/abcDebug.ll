@@ -280,8 +280,8 @@ Abc_NtkCountFaninsTotal.exit:                     ; preds = %.critedge2.i, %Abc_
   br i1 %108, label %75, label %Abc_NtkFindGivenFanin.exit.i, !llvm.loop !43
 
 Abc_NtkFindGivenFanin.exit.i:                     ; preds = %.critedge2.i.i, %99, %.lr.ph
-  %.019.i = phi ptr [ %79, %99 ], [ undef, %.lr.ph ], [ undef, %.critedge2.i.i ]
-  %.0.i42 = phi ptr [ %92, %99 ], [ undef, %.lr.ph ], [ undef, %.critedge2.i.i ]
+  %.019.i = phi ptr [ undef, %.lr.ph ], [ %79, %99 ], [ undef, %.critedge2.i.i ]
+  %.0.i42 = phi ptr [ undef, %.lr.ph ], [ %92, %99 ], [ undef, %.critedge2.i.i ]
   %109 = getelementptr i8, ptr %.019.i, i64 20
   %.val.i43 = load i32, ptr %109, align 4
   %110 = and i32 %.val.i43, 15

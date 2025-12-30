@@ -2836,7 +2836,7 @@ define internal fastcc zeroext i1 @flush_workqueue_prep_pwqs(ptr noundef %0, i32
   br i1 %77, label %.split6.us, label %.split.split, !llvm.loop !100
 
 .split6.us:                                       ; preds = %.split.split, %69, %52, %40
-  %.us-phi = phi i8 [ %70, %69 ], [ 0, %52 ], [ %33, %40 ], [ 0, %.split.split ]
+  %.us-phi = phi i8 [ %33, %40 ], [ 0, %52 ], [ %70, %69 ], [ 0, %.split.split ]
   %78 = icmp ne i8 %.us-phi, 0
   br label %79
 
@@ -5115,15 +5115,15 @@ thread-pre-split.thread.i.thread:                 ; preds = %116
   br label %pr_cont_work.exit
 
 thread-pre-split.thread.i:                        ; preds = %.thread20, %104, %113
-  %121 = phi ptr [ %83, %113 ], [ %.pr.pre.i21, %.thread20 ], [ %83, %104 ]
+  %121 = phi ptr [ %83, %113 ], [ %83, %104 ], [ %.pr.pre.i21, %.thread20 ]
   %122 = icmp ne ptr %121, inttoptr (i64 -1 to ptr)
   %spec.select = select i1 %122, ptr %121, ptr %79
   %spec.select87 = zext i1 %122 to i64
   br label %pr_cont_work.exit
 
 pr_cont_work.exit:                                ; preds = %thread-pre-split.thread.i, %thread-pre-split.thread.i.thread, %97, %118
-  %123 = phi ptr [ %79, %97 ], [ inttoptr (i64 -1 to ptr), %118 ], [ %spec.select, %thread-pre-split.thread.i ], [ %83, %thread-pre-split.thread.i.thread ]
-  %124 = phi i64 [ %98, %97 ], [ %119, %118 ], [ %spec.select87, %thread-pre-split.thread.i ], [ 1, %thread-pre-split.thread.i.thread ]
+  %123 = phi ptr [ %79, %97 ], [ inttoptr (i64 -1 to ptr), %118 ], [ %83, %thread-pre-split.thread.i.thread ], [ %spec.select, %thread-pre-split.thread.i ]
+  %124 = phi i64 [ %98, %97 ], [ %119, %118 ], [ 1, %thread-pre-split.thread.i.thread ], [ %spec.select87, %thread-pre-split.thread.i ]
   %125 = load ptr, ptr %81, align 8
   %126 = icmp eq ptr %125, %76
   br i1 %126, label %.loopexit26, label %.preheader25, !llvm.loop !187
@@ -12768,7 +12768,7 @@ define internal i64 @wq_nice_store(ptr noundef readonly captures(none) %0, ptr r
   br label %apply_workqueue_attrs_locked.exit
 
 apply_workqueue_attrs_locked.exit:                ; preds = %4, %57, %54, %48, %41, %32, %10
-  %58 = phi i32 [ -22, %10 ], [ 0, %57 ], [ -22, %32 ], [ -22, %41 ], [ -22, %48 ], [ %56, %54 ], [ -12, %4 ]
+  %58 = phi i32 [ -22, %32 ], [ -22, %10 ], [ -22, %41 ], [ -22, %48 ], [ %56, %54 ], [ 0, %57 ], [ -12, %4 ]
   tail call void @mutex_unlock(ptr noundef nonnull @wq_pool_mutex) #26
   tail call void @cpus_read_unlock() #26
   br i1 %9, label %60, label %59
@@ -12894,7 +12894,7 @@ define internal i64 @wq_cpumask_store(ptr noundef readonly captures(none) %0, pt
   br label %apply_workqueue_attrs_locked.exit
 
 apply_workqueue_attrs_locked.exit:                ; preds = %4, %54, %51, %45, %38, %10
-  %55 = phi i32 [ %31, %10 ], [ 0, %54 ], [ -22, %38 ], [ -22, %45 ], [ %53, %51 ], [ -12, %4 ]
+  %55 = phi i32 [ %31, %10 ], [ -22, %38 ], [ -22, %45 ], [ %53, %51 ], [ 0, %54 ], [ -12, %4 ]
   tail call void @mutex_unlock(ptr noundef nonnull @wq_pool_mutex) #26
   tail call void @cpus_read_unlock() #26
   br i1 %9, label %57, label %56
@@ -13056,7 +13056,7 @@ define internal i64 @wq_affn_scope_store(ptr noundef readonly captures(none) %0,
   br label %apply_workqueue_attrs_locked.exit
 
 apply_workqueue_attrs_locked.exit:                ; preds = %22, %63, %60, %54, %47
-  %64 = phi i32 [ 0, %63 ], [ -22, %47 ], [ -22, %54 ], [ %62, %60 ], [ -12, %22 ]
+  %64 = phi i32 [ -22, %47 ], [ -22, %54 ], [ %62, %60 ], [ 0, %63 ], [ -12, %22 ]
   tail call void @mutex_unlock(ptr noundef nonnull @wq_pool_mutex) #26
   tail call void @cpus_read_unlock() #26
   br i1 %25, label %66, label %65
@@ -13184,7 +13184,7 @@ define internal i64 @wq_affinity_strict_store(ptr noundef readonly captures(none
   br label %apply_workqueue_attrs_locked.exit
 
 apply_workqueue_attrs_locked.exit:                ; preds = %10, %54, %51, %45, %38
-  %55 = phi i32 [ 0, %54 ], [ -22, %38 ], [ -22, %45 ], [ %53, %51 ], [ -12, %10 ]
+  %55 = phi i32 [ -22, %38 ], [ -22, %45 ], [ %53, %51 ], [ 0, %54 ], [ -12, %10 ]
   call void @mutex_unlock(ptr noundef nonnull @wq_pool_mutex) #26
   call void @cpus_read_unlock() #26
   br i1 %13, label %57, label %56

@@ -74,7 +74,7 @@ define range(i32 -2147483646, -2147483648) i32 @i2a_ASN1_STRING(ptr noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.preheader, %11, %3, %.loopexit22
-  %.016 = phi i32 [ 0, %3 ], [ -1, %.loopexit22 ], [ 1, %11 ], [ 0, %.preheader ], [ %28, %27 ]
+  %.016 = phi i32 [ -1, %.loopexit22 ], [ 0, %3 ], [ 1, %11 ], [ 0, %.preheader ], [ %28, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.016
 }

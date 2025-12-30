@@ -250,7 +250,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %53
   br i1 %exitcond243.not, label %.lr.ph218, label %.lr.ph210, !llvm.loop !51
 
 .loopexit195:                                     ; preds = %._crit_edge205, %87, %pmix_obj_run_constructors.exit
-  %.0133 = phi i8 [ 0, %pmix_obj_run_constructors.exit ], [ %.2, %87 ], [ %.2, %._crit_edge205 ]
+  %.0133 = phi i8 [ %.2, %87 ], [ %.2, %._crit_edge205 ], [ 0, %pmix_obj_run_constructors.exit ]
   %.not242 = icmp eq i64 %2, 0
   br i1 %.not242, label %._crit_edge219, label %.lr.ph218
 
@@ -695,7 +695,7 @@ pmix_obj_run_destructors.exit185:                 ; preds = %.lr.ph.i182, %268
   br label %290
 
 290:                                              ; preds = %11, %7, %282, %279, %192, %pmix_obj_new_tma.exit
-  %.0 = phi i32 [ -31, %7 ], [ -32, %pmix_obj_new_tma.exit ], [ -157, %192 ], [ -157, %279 ], [ %284, %282 ], [ -157, %11 ]
+  %.0 = phi i32 [ -32, %pmix_obj_new_tma.exit ], [ -157, %192 ], [ -157, %279 ], [ %284, %282 ], [ -31, %7 ], [ -157, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

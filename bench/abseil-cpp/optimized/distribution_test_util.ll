@@ -443,7 +443,7 @@ define dso_local noundef double @_ZN4absl15random_internal14BetaIncompleteEddd(d
   br label %19
 
 19:                                               ; preds = %3, %8, %11
-  %.0 = phi double [ %0, %8 ], [ %18, %11 ], [ 0x7FF0000000000000, %3 ]
+  %.0 = phi double [ %18, %11 ], [ %0, %8 ], [ 0x7FF0000000000000, %3 ]
   ret double %.0
 }
 
@@ -563,7 +563,7 @@ define dso_local noundef double @_ZN4absl15random_internal17BetaIncompleteInvEdd
   br label %19
 
 19:                                               ; preds = %3, %8, %11
-  %.0 = phi double [ %2, %8 ], [ %18, %11 ], [ 0x7FF0000000000000, %3 ]
+  %.0 = phi double [ %18, %11 ], [ %2, %8 ], [ 0x7FF0000000000000, %3 ]
   ret double %.0
 }
 
@@ -573,7 +573,7 @@ define internal fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_121
   br i1 %5, label %6, label %10
 
 common.ret193:                                    ; preds = %82, %112, %.loopexit, %90, %94, %6
-  %common.ret193.op = phi double [ %9, %6 ], [ %.1145162, %112 ], [ 0x7FF0000000000000, %82 ], [ %91, %90 ], [ %.1145162, %94 ], [ 0x7FF0000000000000, %.loopexit ]
+  %common.ret193.op = phi double [ %9, %6 ], [ 0x7FF0000000000000, %82 ], [ %.1145162, %112 ], [ %.1145162, %94 ], [ %91, %90 ], [ 0x7FF0000000000000, %.loopexit ]
   ret double %common.ret193.op
 
 6:                                                ; preds = %4

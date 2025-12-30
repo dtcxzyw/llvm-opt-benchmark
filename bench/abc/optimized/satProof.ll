@@ -373,8 +373,8 @@ Vec_IntPush.exit47:                               ; preds = %Vec_IntPush.exit47.
   br label %Vec_IntPush.exit58.sink.split
 
 Vec_IntPush.exit58.sink.split:                    ; preds = %151, %153, %143, %145
-  %.sink83 = phi ptr [ %146, %145 ], [ %144, %143 ], [ %152, %151 ], [ %154, %153 ]
-  %.sink82 = phi i32 [ 16, %145 ], [ 16, %143 ], [ %148, %151 ], [ %148, %153 ]
+  %.sink83 = phi ptr [ %144, %143 ], [ %146, %145 ], [ %152, %151 ], [ %154, %153 ]
+  %.sink82 = phi i32 [ 16, %143 ], [ 16, %145 ], [ %148, %151 ], [ %148, %153 ]
   store ptr %.sink83, ptr %50, align 8, !tbaa !17
   store i32 %.sink82, ptr %3, align 8, !tbaa !23
   br label %Vec_IntPush.exit58
@@ -1065,8 +1065,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %140, label %120, label %.critedge2, !llvm.loop !40
 
 .critedge2:                                       ; preds = %139, %Vec_PtrPush.exit, %.lr.ph125
-  %141 = phi i32 [ %51, %.lr.ph125 ], [ %111, %Vec_PtrPush.exit ], [ %111, %139 ]
-  %142 = phi i32 [ %52, %.lr.ph125 ], [ %113, %Vec_PtrPush.exit ], [ %113, %139 ]
+  %141 = phi i32 [ %111, %Vec_PtrPush.exit ], [ %51, %.lr.ph125 ], [ %111, %139 ]
+  %142 = phi i32 [ %113, %Vec_PtrPush.exit ], [ %52, %.lr.ph125 ], [ %113, %139 ]
   %143 = add nuw nsw i32 %60, %.087124
   %144 = load ptr, ptr %29, align 8, !tbaa !3
   %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv139
@@ -1450,8 +1450,8 @@ define noalias noundef ptr @Sat_ProofCollectCore(ptr noundef readonly captures(n
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %100, %102, %92, %94
-  %.sink118 = phi ptr [ %95, %94 ], [ %93, %92 ], [ %101, %100 ], [ %103, %102 ]
-  %.sink = phi i32 [ 16, %94 ], [ 16, %92 ], [ %97, %100 ], [ %97, %102 ]
+  %.sink118 = phi ptr [ %93, %92 ], [ %95, %94 ], [ %101, %100 ], [ %103, %102 ]
+  %.sink = phi i32 [ 16, %92 ], [ 16, %94 ], [ %97, %100 ], [ %97, %102 ]
   store ptr %.sink118, ptr %46, align 8, !tbaa !17
   store i32 %.sink, ptr %43, align 8, !tbaa !23
   br label %Vec_IntPush.exit

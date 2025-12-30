@@ -866,9 +866,9 @@ gistfinishsplit.exit:                             ; preds = %215, %gistfixsplit.
   br label %.backedge
 
 .backedge:                                        ; preds = %317, %BufferGetPage.exit136, %313, %311, %gistfinishsplit.exit, %250, %351, %363, %.thread144
-  %234 = phi ptr [ %233, %gistfinishsplit.exit ], [ %42, %.thread144 ], [ %253, %250 ], [ %42, %351 ], [ %365, %363 ], [ %42, %BufferGetPage.exit136 ], [ %319, %317 ], [ %316, %313 ], [ %42, %311 ]
-  %.0112.be = phi i1 [ false, %gistfinishsplit.exit ], [ true, %.thread144 ], [ false, %250 ], [ false, %351 ], [ false, %363 ], [ true, %BufferGetPage.exit136 ], [ false, %317 ], [ false, %313 ], [ true, %311 ]
-  %.0.be = phi ptr [ %233, %gistfinishsplit.exit ], [ %.1.lcssa, %.thread144 ], [ %253, %250 ], [ %.1.lcssa, %351 ], [ %365, %363 ], [ %.1.lcssa, %BufferGetPage.exit136 ], [ %319, %317 ], [ %316, %313 ], [ %.1.lcssa, %311 ]
+  %234 = phi ptr [ %233, %gistfinishsplit.exit ], [ %42, %.thread144 ], [ %253, %250 ], [ %42, %351 ], [ %365, %363 ], [ %319, %317 ], [ %42, %BufferGetPage.exit136 ], [ %316, %313 ], [ %42, %311 ]
+  %.0112.be = phi i1 [ false, %gistfinishsplit.exit ], [ true, %.thread144 ], [ false, %250 ], [ false, %351 ], [ false, %363 ], [ false, %317 ], [ true, %BufferGetPage.exit136 ], [ false, %313 ], [ true, %311 ]
+  %.0.be = phi ptr [ %233, %gistfinishsplit.exit ], [ %.1.lcssa, %.thread144 ], [ %253, %250 ], [ %.1.lcssa, %351 ], [ %365, %363 ], [ %319, %317 ], [ %.1.lcssa, %BufferGetPage.exit136 ], [ %316, %313 ], [ %.1.lcssa, %311 ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0.be, i64 24
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !7
   br label %27
@@ -1921,7 +1921,7 @@ BufferGetPage.exit313:                            ; preds = %404, %410
   br label %437
 
 437:                                              ; preds = %BufferGetPage.exit313, %433, %435
-  %.0 = phi i64 [ %436, %435 ], [ %434, %433 ], [ 1, %BufferGetPage.exit313 ]
+  %.0 = phi i64 [ %434, %433 ], [ %436, %435 ], [ 1, %BufferGetPage.exit313 ]
   br i1 %.not293359418, label %._crit_edge373, label %.lr.ph372
 
 .lr.ph372:                                        ; preds = %437
@@ -2060,7 +2060,7 @@ BufferGetPage.exit313:                            ; preds = %404, %410
   br label %494
 
 494:                                              ; preds = %470, %490, %492
-  %.2 = phi i64 [ %493, %492 ], [ %491, %490 ], [ 1, %470 ]
+  %.2 = phi i64 [ %491, %490 ], [ %493, %492 ], [ 1, %470 ]
   %495 = lshr i64 %.2, 32
   %496 = trunc nuw i64 %495 to i32
   store i32 %496, ptr %.0.i.i, align 4

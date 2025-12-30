@@ -5211,7 +5211,7 @@ _ZNK11ast_manager5is_eqEPK4expr.exit.thread:      ; preds = %24, %34, %_ZNK11ast
   br label %39
 
 39:                                               ; preds = %_ZNK11ast_manager5is_eqEPK4expr.exit.thread, %_ZNK3app13get_family_idEv.exit, %34, %2, %3, %8
-  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %3 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.thread ], [ true, %_ZNK3app13get_family_idEv.exit ], [ true, %34 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %3 ], [ false, %2 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.thread ], [ true, %_ZNK3app13get_family_idEv.exit ], [ true, %34 ]
   ret i1 %.0
 }
 
@@ -5274,7 +5274,7 @@ _ZNK6vectorI10ptr_vectorI4exprELb1EjE8capacityEv.exit.thread.i.i: ; preds = %_ZN
   br label %_ZN6vectorI10ptr_vectorI4exprELb1EjE7reserveEj.exit
 
 _ZN6vectorI10ptr_vectorI4exprELb1EjE7reserveEj.exit: ; preds = %_ZNK6vectorI10ptr_vectorI4exprELb1EjE4sizeEv.exit.thread.i, %16, %.lr.ph.preheader.i.i
-  %23 = phi ptr [ %11, %.lr.ph.preheader.i.i ], [ %6, %_ZNK6vectorI10ptr_vectorI4exprELb1EjE4sizeEv.exit.thread.i ], [ %11, %16 ]
+  %23 = phi ptr [ %6, %_ZNK6vectorI10ptr_vectorI4exprELb1EjE4sizeEv.exit.thread.i ], [ %11, %16 ], [ %11, %.lr.ph.preheader.i.i ]
   %24 = zext i32 %3 to i64
   %25 = getelementptr inbounds nuw %class.ptr_vector, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !59
@@ -5954,7 +5954,7 @@ _Z11is_uninterpPK4expr.exit.thread98:             ; preds = %207, %169, %_Z11is_
   br i1 %292, label %.critedge, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, !llvm.loop !151
 
 .body:                                            ; preds = %177, %162, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %215, %74
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %216, %215 ], [ %178, %177 ], [ %157, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %163, %162 ]
+  %.pn = phi { ptr, i32 } [ %216, %215 ], [ %75, %74 ], [ %178, %177 ], [ %157, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %163, %162 ]
   call void @_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %293
@@ -6716,7 +6716,7 @@ _ZN13bool_rewriter11mk_and_coreEjPKP4exprR7obj_refIS0_11ast_managerE.exit.thread
   br label %_ZN13bool_rewriter11mk_and_coreEjPKP4exprR7obj_refIS0_11ast_managerE.exit
 
 _ZN13bool_rewriter11mk_and_coreEjPKP4exprR7obj_refIS0_11ast_managerE.exit: ; preds = %12, %14
-  %.0.i = phi i32 [ %15, %14 ], [ %13, %12 ]
+  %.0.i = phi i32 [ %13, %12 ], [ %15, %14 ]
   %16 = icmp eq i32 %.0.i, 5
   br i1 %16, label %17, label %33
 

@@ -956,7 +956,7 @@ rpc_roundup.exit:                                 ; preds = %15
   br label %60
 
 60:                                               ; preds = %46, %55, %48, %49, %56
-  %.0109 = phi ptr [ %54, %49 ], [ @.str.35, %55 ], [ %59, %56 ], [ @.str.34, %48 ], [ @.str.36, %46 ]
+  %.0109 = phi ptr [ %54, %49 ], [ %59, %56 ], [ @.str.34, %48 ], [ @.str.35, %55 ], [ @.str.36, %46 ]
   %61 = load i32, ptr @ett_rpc_string, align 4
   %62 = tail call ptr @proto_registrar_get_name(i32 noundef %4)
   %63 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %61, ptr noundef nonnull %11, ptr noundef nonnull @.str.37, ptr noundef %62, ptr noundef %.0109)
@@ -2758,7 +2758,7 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %13, %48, %._crit_edge
-  %.0.lcssa70 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %48 ], [ %.0.us.us, %.lr.ph.split.us.split.us ], [ %.039, %13 ], [ %.0.us, %.lr.ph.split.us.split ]
+  %.0.lcssa70 = phi i32 [ %.0.lcssa, %48 ], [ %.0.lcssa, %._crit_edge ], [ %.039, %13 ], [ %.0.us.us, %.lr.ph.split.us.split.us ], [ %.0.us, %.lr.ph.split.us.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.lcssa70
 }
@@ -3174,11 +3174,11 @@ show_rpc_fraginfo.exit:                           ; preds = %37, %show_rpc_fragm
   br label %131
 
 131:                                              ; preds = %125, %115, %129, %118, %127, %122, %110
-  %.0529 = phi i32 [ 0, %129 ], [ %121, %118 ], [ 0, %110 ], [ 0, %127 ], [ 0, %115 ], [ 0, %122 ], [ 0, %125 ]
-  %.0527 = phi i32 [ 0, %129 ], [ %119, %118 ], [ 0, %110 ], [ %99, %127 ], [ 0, %115 ], [ 0, %122 ], [ 0, %125 ]
-  %.0525 = phi i32 [ 1, %129 ], [ 3, %118 ], [ 0, %110 ], [ 5, %127 ], [ 2, %115 ], [ 0, %122 ], [ 4, %125 ]
-  %.0524 = phi i1 [ %130, %129 ], [ true, %118 ], [ true, %110 ], [ true, %127 ], [ true, %115 ], [ true, %122 ], [ true, %125 ]
-  %.1518 = phi ptr [ %.0517, %129 ], [ %.0517, %118 ], [ %.0517, %110 ], [ %128, %127 ], [ %.0517, %115 ], [ %.0517, %122 ], [ %.0517, %125 ]
+  %.0529 = phi i32 [ 0, %129 ], [ %121, %118 ], [ 0, %127 ], [ 0, %122 ], [ 0, %110 ], [ 0, %115 ], [ 0, %125 ]
+  %.0527 = phi i32 [ 0, %129 ], [ %119, %118 ], [ %99, %127 ], [ 0, %122 ], [ 0, %110 ], [ 0, %115 ], [ 0, %125 ]
+  %.0525 = phi i32 [ 1, %129 ], [ 3, %118 ], [ 5, %127 ], [ 0, %122 ], [ 0, %110 ], [ 2, %115 ], [ 4, %125 ]
+  %.0524 = phi i1 [ %130, %129 ], [ true, %118 ], [ true, %127 ], [ true, %122 ], [ true, %110 ], [ true, %115 ], [ true, %125 ]
+  %.1518 = phi ptr [ %.0517, %129 ], [ %.0517, %118 ], [ %128, %127 ], [ %.0517, %122 ], [ %.0517, %110 ], [ %.0517, %115 ], [ %.0517, %125 ]
   %132 = load i32, ptr @hf_rpc_procedure, align 4
   %133 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %36, i32 noundef %132, ptr noundef %0, i32 noundef %98, i32 noundef 4, i32 noundef %99, ptr noundef nonnull @.str.311, ptr noundef %.1518, i32 noundef %99)
   %134 = load ptr, ptr %31, align 8
@@ -3713,21 +3713,21 @@ proto_item_set_generated.exit613:                 ; preds = %357, %354, %proto_i
   br label %406
 
 406:                                              ; preds = %proto_item_set_generated.exit613, %397, %404, %386, %380, %378, %367, %proto_item_set_generated.exit
-  %.0536 = phi ptr [ %72, %proto_item_set_generated.exit ], [ %.1537, %397 ], [ %.1537, %380 ], [ %.1537, %367 ], [ %.1537, %378 ], [ %.1537, %386 ], [ %.1537, %404 ], [ %.1537, %proto_item_set_generated.exit613 ]
-  %.0534 = phi i32 [ %74, %proto_item_set_generated.exit ], [ %.1535, %397 ], [ %.1535, %380 ], [ %.1535, %367 ], [ %.1535, %378 ], [ %.1535, %386 ], [ %.1535, %404 ], [ %.1535, %proto_item_set_generated.exit613 ]
-  %.0532 = phi i32 [ %76, %proto_item_set_generated.exit ], [ %.1533, %397 ], [ %.1533, %380 ], [ %.1533, %367 ], [ %.1533, %378 ], [ %.1533, %386 ], [ %.1533, %404 ], [ %.1533, %proto_item_set_generated.exit613 ]
-  %.1530 = phi i32 [ %.0529, %proto_item_set_generated.exit ], [ %231, %397 ], [ %231, %380 ], [ %231, %367 ], [ %231, %378 ], [ %231, %386 ], [ %231, %404 ], [ %231, %proto_item_set_generated.exit613 ]
-  %.1528 = phi i32 [ %.0527, %proto_item_set_generated.exit ], [ %229, %397 ], [ %229, %380 ], [ %229, %367 ], [ %229, %378 ], [ %229, %386 ], [ %229, %404 ], [ %229, %proto_item_set_generated.exit613 ]
-  %.1526 = phi i32 [ %.0525, %proto_item_set_generated.exit ], [ %227, %397 ], [ %227, %380 ], [ %227, %367 ], [ %227, %378 ], [ %227, %386 ], [ %227, %404 ], [ %227, %proto_item_set_generated.exit613 ]
-  %.0522 = phi ptr [ %78, %proto_item_set_generated.exit ], [ %.1523, %397 ], [ %.1523, %380 ], [ %.1523, %367 ], [ %.1523, %378 ], [ %.1523, %386 ], [ %.1523, %404 ], [ %.1523, %proto_item_set_generated.exit613 ]
-  %.2519 = phi ptr [ %.1518, %proto_item_set_generated.exit ], [ %.4521, %397 ], [ %.4521, %380 ], [ %.4521, %367 ], [ %.4521, %378 ], [ %.4521, %386 ], [ %.4521, %404 ], [ %.4521, %proto_item_set_generated.exit613 ]
-  %.0516 = phi i32 [ %99, %proto_item_set_generated.exit ], [ %224, %397 ], [ %224, %380 ], [ %224, %367 ], [ %224, %378 ], [ %224, %386 ], [ %224, %404 ], [ %224, %proto_item_set_generated.exit613 ]
-  %.0511 = phi i32 [ %215, %proto_item_set_generated.exit ], [ %398, %397 ], [ %368, %380 ], [ %368, %367 ], [ %379, %378 ], [ %387, %386 ], [ %405, %404 ], [ %307, %proto_item_set_generated.exit613 ]
-  %.0510 = phi i32 [ %93, %proto_item_set_generated.exit ], [ %221, %397 ], [ %221, %380 ], [ %221, %367 ], [ %221, %378 ], [ %221, %386 ], [ %221, %404 ], [ %221, %proto_item_set_generated.exit613 ]
-  %.1508 = phi ptr [ %.0507, %proto_item_set_generated.exit ], [ %.2509, %397 ], [ %.2509, %380 ], [ %.2509, %367 ], [ %.2509, %378 ], [ %.2509, %386 ], [ %.2509, %404 ], [ %.2509, %proto_item_set_generated.exit613 ]
-  %.0506 = phi i1 [ true, %proto_item_set_generated.exit ], [ false, %397 ], [ false, %380 ], [ true, %367 ], [ false, %378 ], [ false, %386 ], [ false, %404 ], [ false, %proto_item_set_generated.exit613 ]
-  %.1503 = phi ptr [ %.0502, %proto_item_set_generated.exit ], [ %249, %397 ], [ %249, %380 ], [ %249, %367 ], [ %249, %378 ], [ %249, %386 ], [ %249, %404 ], [ %249, %proto_item_set_generated.exit613 ]
-  %.2 = phi ptr [ %.1501, %proto_item_set_generated.exit ], [ %.0500, %397 ], [ %.0500, %380 ], [ %.0500, %367 ], [ %.0500, %378 ], [ %.0500, %386 ], [ %.0500, %404 ], [ %.0500, %proto_item_set_generated.exit613 ]
+  %.0536 = phi ptr [ %72, %proto_item_set_generated.exit ], [ %.1537, %380 ], [ %.1537, %367 ], [ %.1537, %378 ], [ %.1537, %386 ], [ %.1537, %404 ], [ %.1537, %397 ], [ %.1537, %proto_item_set_generated.exit613 ]
+  %.0534 = phi i32 [ %74, %proto_item_set_generated.exit ], [ %.1535, %380 ], [ %.1535, %367 ], [ %.1535, %378 ], [ %.1535, %386 ], [ %.1535, %404 ], [ %.1535, %397 ], [ %.1535, %proto_item_set_generated.exit613 ]
+  %.0532 = phi i32 [ %76, %proto_item_set_generated.exit ], [ %.1533, %380 ], [ %.1533, %367 ], [ %.1533, %378 ], [ %.1533, %386 ], [ %.1533, %404 ], [ %.1533, %397 ], [ %.1533, %proto_item_set_generated.exit613 ]
+  %.1530 = phi i32 [ %.0529, %proto_item_set_generated.exit ], [ %231, %380 ], [ %231, %367 ], [ %231, %378 ], [ %231, %386 ], [ %231, %404 ], [ %231, %397 ], [ %231, %proto_item_set_generated.exit613 ]
+  %.1528 = phi i32 [ %.0527, %proto_item_set_generated.exit ], [ %229, %380 ], [ %229, %367 ], [ %229, %378 ], [ %229, %386 ], [ %229, %404 ], [ %229, %397 ], [ %229, %proto_item_set_generated.exit613 ]
+  %.1526 = phi i32 [ %.0525, %proto_item_set_generated.exit ], [ %227, %380 ], [ %227, %367 ], [ %227, %378 ], [ %227, %386 ], [ %227, %404 ], [ %227, %397 ], [ %227, %proto_item_set_generated.exit613 ]
+  %.0522 = phi ptr [ %78, %proto_item_set_generated.exit ], [ %.1523, %380 ], [ %.1523, %367 ], [ %.1523, %378 ], [ %.1523, %386 ], [ %.1523, %404 ], [ %.1523, %397 ], [ %.1523, %proto_item_set_generated.exit613 ]
+  %.2519 = phi ptr [ %.1518, %proto_item_set_generated.exit ], [ %.4521, %380 ], [ %.4521, %367 ], [ %.4521, %378 ], [ %.4521, %386 ], [ %.4521, %404 ], [ %.4521, %397 ], [ %.4521, %proto_item_set_generated.exit613 ]
+  %.0516 = phi i32 [ %99, %proto_item_set_generated.exit ], [ %224, %380 ], [ %224, %367 ], [ %224, %378 ], [ %224, %386 ], [ %224, %404 ], [ %224, %397 ], [ %224, %proto_item_set_generated.exit613 ]
+  %.0511 = phi i32 [ %215, %proto_item_set_generated.exit ], [ %368, %380 ], [ %368, %367 ], [ %379, %378 ], [ %387, %386 ], [ %405, %404 ], [ %398, %397 ], [ %307, %proto_item_set_generated.exit613 ]
+  %.0510 = phi i32 [ %93, %proto_item_set_generated.exit ], [ %221, %380 ], [ %221, %367 ], [ %221, %378 ], [ %221, %386 ], [ %221, %404 ], [ %221, %397 ], [ %221, %proto_item_set_generated.exit613 ]
+  %.1508 = phi ptr [ %.0507, %proto_item_set_generated.exit ], [ %.2509, %380 ], [ %.2509, %367 ], [ %.2509, %378 ], [ %.2509, %386 ], [ %.2509, %404 ], [ %.2509, %397 ], [ %.2509, %proto_item_set_generated.exit613 ]
+  %.0506 = phi i1 [ true, %proto_item_set_generated.exit ], [ false, %380 ], [ true, %367 ], [ false, %378 ], [ false, %386 ], [ false, %404 ], [ false, %397 ], [ false, %proto_item_set_generated.exit613 ]
+  %.1503 = phi ptr [ %.0502, %proto_item_set_generated.exit ], [ %249, %380 ], [ %249, %367 ], [ %249, %378 ], [ %249, %386 ], [ %249, %404 ], [ %249, %397 ], [ %249, %proto_item_set_generated.exit613 ]
+  %.2 = phi ptr [ %.1501, %proto_item_set_generated.exit ], [ %.0500, %380 ], [ %.0500, %367 ], [ %.0500, %378 ], [ %.0500, %386 ], [ %.0500, %404 ], [ %.0500, %397 ], [ %.0500, %proto_item_set_generated.exit613 ]
   %.not583 = icmp eq ptr %34, null
   br i1 %.not583, label %411, label %407
 
@@ -3883,7 +3883,7 @@ proto_item_set_generated.exit620.sink.split:      ; preds = %476, %471
   br label %proto_item_set_generated.exit620
 
 proto_item_set_generated.exit620:                 ; preds = %proto_item_set_generated.exit620.sink.split, %476, %.thread624, %471, %469, %440
-  %.0515 = phi ptr [ null, %440 ], [ %446, %476 ], [ %446, %469 ], [ %446, %471 ], [ %446, %.thread624 ], [ %446, %proto_item_set_generated.exit620.sink.split ]
+  %.0515 = phi ptr [ null, %440 ], [ %446, %469 ], [ %446, %471 ], [ %446, %.thread624 ], [ %446, %476 ], [ %446, %proto_item_set_generated.exit620.sink.split ]
   %482 = icmp eq ptr %.0536, null
   br i1 %482, label %485, label %483
 
@@ -4058,7 +4058,7 @@ proto_item_set_generated.exit620:                 ; preds = %proto_item_set_gene
   br label %554
 
 554:                                              ; preds = %541, %550, %551, %553, %545, %546, %549, %487, %28, %19, %25, %22, %9, %495, %491, %412
-  %.0 = phi i1 [ false, %25 ], [ false, %9 ], [ false, %19 ], [ true, %28 ], [ true, %487 ], [ true, %491 ], [ true, %495 ], [ true, %412 ], [ false, %22 ], [ true, %541 ], [ true, %549 ], [ true, %546 ], [ true, %545 ], [ true, %553 ], [ true, %551 ], [ true, %550 ]
+  %.0 = phi i1 [ true, %491 ], [ true, %495 ], [ true, %412 ], [ false, %9 ], [ false, %22 ], [ false, %25 ], [ false, %19 ], [ true, %28 ], [ true, %487 ], [ true, %549 ], [ true, %546 ], [ true, %545 ], [ true, %553 ], [ true, %551 ], [ true, %550 ], [ true, %541 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -4122,7 +4122,7 @@ define internal fastcc ptr @looks_like_rpc_call(ptr noundef %0, i32 noundef %1) 
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %19, %9, %23, %4, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ %13, %9 ], [ %25, %23 ], [ null, %19 ], [ null, %15 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ %25, %23 ], [ %13, %9 ], [ null, %19 ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -4715,7 +4715,7 @@ define internal fastcc noundef zeroext i1 @dissect_rpc_tcp_common(ptr noundef %0
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %78, %.loopexit.i.i, %.loopexit.thread.i.i
-  %.029.be.i.i = phi i32 [ %79, %78 ], [ %.02941.i.i, %.loopexit.i.i ], [ %35, %.loopexit.thread.i.i ]
+  %.029.be.i.i = phi i32 [ %.02941.i.i, %.loopexit.i.i ], [ %79, %78 ], [ %35, %.loopexit.thread.i.i ]
   %80 = sub i32 %22, %.029.be.i.i
   %81 = icmp sgt i32 %80, 16
   br i1 %81, label %29, label %.thread, !llvm.loop !17
@@ -4775,8 +4775,8 @@ find_and_dissect_rpc_fragment.exit:               ; preds = %88, %12
   %.not = icmp eq i32 %109, 0
   br i1 %.not, label %.thread, label %12, !llvm.loop !18
 
-.thread:                                          ; preds = %find_and_dissect_rpc_fragment.exit, %93, %107, %19, %24, %85, %find_rpc_over_tcp_reply_start.exit.i, %.backedge.i.i, %6
-  %.040 = phi i1 [ %.03851, %.backedge.i.i ], [ false, %6 ], [ %.03851, %24 ], [ %.03851, %19 ], [ true, %107 ], [ %.03851, %85 ], [ %.03851, %93 ], [ true, %find_and_dissect_rpc_fragment.exit ], [ %.03851, %find_rpc_over_tcp_reply_start.exit.i ]
+.thread:                                          ; preds = %find_and_dissect_rpc_fragment.exit, %93, %107, %24, %19, %85, %find_rpc_over_tcp_reply_start.exit.i, %.backedge.i.i, %6
+  %.040 = phi i1 [ false, %6 ], [ %.03851, %.backedge.i.i ], [ true, %find_and_dissect_rpc_fragment.exit ], [ %.03851, %93 ], [ true, %107 ], [ %.03851, %24 ], [ %.03851, %19 ], [ %.03851, %85 ], [ %.03851, %find_rpc_over_tcp_reply_start.exit.i ]
   ret i1 %.040
 }
 
@@ -5037,8 +5037,8 @@ define internal fastcc i32 @dissect_rpc_fragment(ptr noundef %0, i32 noundef %1,
   %.209 = select i1 %155, i32 %27, i32 0
   br label %.critedge
 
-.critedge:                                        ; preds = %40, %31, %34, %37, %154, %83, %67, %20, %16, %10, %13, %146, %127, %101, %53
-  %.0 = phi i32 [ 0, %10 ], [ 0, %16 ], [ %57, %53 ], [ 0, %83 ], [ %.209, %154 ], [ %27, %101 ], [ 0, %13 ], [ %27, %127 ], [ %27, %146 ], [ 0, %20 ], [ %.208, %67 ], [ 0, %37 ], [ 0, %34 ], [ 0, %31 ], [ 0, %40 ]
+.critedge:                                        ; preds = %31, %37, %40, %34, %154, %83, %67, %20, %16, %10, %13, %146, %127, %101, %53
+  %.0 = phi i32 [ %57, %53 ], [ %27, %101 ], [ %27, %127 ], [ %27, %146 ], [ 0, %13 ], [ 0, %10 ], [ 0, %16 ], [ 0, %20 ], [ %.208, %67 ], [ 0, %83 ], [ %.209, %154 ], [ 0, %34 ], [ 0, %40 ], [ 0, %37 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }

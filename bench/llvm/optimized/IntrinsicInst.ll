@@ -1119,7 +1119,7 @@ _ZNK4llvm20DbgVariableIntrinsic12location_opsEv.exit: ; preds = %43, %49
   br i1 %.not3334, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit, %.critedge.i.i, %_ZNK4llvm20DbgVariableIntrinsic12location_opsEv.exit
-  %60 = phi i32 [ 0, %.critedge.i.i ], [ 0, %_ZNK4llvm20DbgVariableIntrinsic12location_opsEv.exit ], [ %93, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit ]
+  %60 = phi i32 [ 0, %_ZNK4llvm20DbgVariableIntrinsic12location_opsEv.exit ], [ 0, %.critedge.i.i ], [ %93, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit ]
   %.idx = shl nuw nsw i64 %2, 3
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not36 = icmp eq i64 %2, 0
@@ -1922,7 +1922,7 @@ define dso_local i16 @_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv(ptr n
   br label %.thread
 
 .thread:                                          ; preds = %1, %18, %21, %24
-  %.sroa.2.0 = phi i16 [ %28, %24 ], [ 0, %18 ], [ 0, %21 ], [ 0, %1 ]
+  %.sroa.2.0 = phi i16 [ %28, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %1 ]
   ret i16 %.sroa.2.0
 }
 
@@ -1970,7 +1970,7 @@ define dso_local i16 @_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv(
   br label %.thread
 
 .thread:                                          ; preds = %1, %18, %21, %24
-  %.sroa.2.0 = phi i16 [ %28, %24 ], [ 0, %18 ], [ 0, %21 ], [ 0, %1 ]
+  %.sroa.2.0 = phi i16 [ %28, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %1 ]
   ret i16 %.sroa.2.0
 }
 
@@ -2020,7 +2020,7 @@ _ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit: ; preds = %21
   %or.cond = or i1 %.not19, %.not
   br i1 %or.cond, label %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit.thread, label %57
 
-_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit.thread: ; preds = %1, %21, %18, %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit
+_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit.thread: ; preds = %1, %18, %21, %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit
   %30 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %31 = load i32, ptr %3, align 4
   %32 = and i32 %31, 134217727
@@ -2062,11 +2062,11 @@ _ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit: ; preds = %48
   %or.cond18 = or i1 %.not20, %.not2
   br i1 %or.cond18, label %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit.thread, label %57
 
-_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit.thread: ; preds = %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit.thread, %48, %45, %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit
+_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit.thread: ; preds = %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit.thread, %45, %48, %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit
   br label %57
 
 57:                                               ; preds = %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit, %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit, %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit.thread
-  %.0 = phi i1 [ false, %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit ], [ true, %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit.thread ], [ false, %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit ]
+  %.0 = phi i1 [ true, %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit.thread ], [ false, %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit ], [ false, %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit ]
   ret i1 %.0
 }
 
@@ -2175,7 +2175,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i101:         ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm12StringSwitchINS_7CmpInst9PredicateES2_E4CaseENS_13StringLiteralES2_.exit104
 
 _ZN4llvm12StringSwitchINS_7CmpInst9PredicateES2_E4CaseENS_13StringLiteralES2_.exit104: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i5, %4, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i101, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i37, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i29, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i53, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i45, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i69, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i61, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i85, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i77, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i93
-  %.sroa.32.13 = phi i64 [ 0, %4 ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i101 ], [ 4294967300, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21 ], [ 4294967309, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i93 ], [ 4294967308, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i85 ], [ 4294967307, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i77 ], [ 4294967306, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i69 ], [ 4294967305, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i61 ], [ 4294967304, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i53 ], [ 4294967303, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i45 ], [ 4294967302, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i37 ], [ 4294967301, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i29 ], [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i5 ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
+  %.sroa.32.13 = phi i64 [ 4294967309, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i93 ], [ 4294967308, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i85 ], [ 4294967307, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i77 ], [ 4294967306, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i69 ], [ 4294967305, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i61 ], [ 4294967304, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i53 ], [ 4294967303, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i45 ], [ 4294967302, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i37 ], [ 4294967301, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i29 ], [ 4294967300, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21 ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i101 ], [ 0, %4 ], [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i5 ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
   %.not368 = icmp samesign ult i64 %.sroa.32.13, 4294967296
   %.sroa.32.16.extract.trunc = trunc i64 %.sroa.32.13 to i32
   %spec.select.i = select i1 %.not368, i32 16, i32 %.sroa.32.16.extract.trunc
@@ -2256,7 +2256,7 @@ _ZNK4llvm11VPIntrinsic12getMaskParamEv.exit:      ; preds = %1
   br label %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit.thread
 
 _ZNK4llvm11VPIntrinsic12getMaskParamEv.exit.thread: ; preds = %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit, %1
-  %.sink15 = phi ptr [ %spec.select, %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit ], [ %0, %1 ]
+  %.sink15 = phi ptr [ %0, %1 ], [ %spec.select, %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit ]
   %17 = getelementptr inbounds nuw i8, ptr %.sink15, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !87
   %19 = getelementptr i8, ptr %18, i64 8
@@ -2405,7 +2405,7 @@ define dso_local range(i64 0, 4294967300) i64 @_ZN4llvm11VPIntrinsic15getMaskPar
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.sroa.93.0 = phi i64 [ 4294967297, %3 ], [ 4294967298, %2 ], [ 4294967299, %4 ], [ 0, %1 ]
+  %.sroa.93.0 = phi i64 [ 4294967298, %2 ], [ 4294967297, %3 ], [ 4294967299, %4 ], [ 0, %1 ]
   ret i64 %.sroa.93.0
 }
 
@@ -2609,7 +2609,7 @@ define dso_local range(i64 0, 4294967302) i64 @_ZN4llvm11VPIntrinsic23getVectorL
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.sroa.95.0 = phi i64 [ 4294967298, %3 ], [ 4294967299, %2 ], [ 0, %1 ], [ 4294967300, %4 ], [ 4294967301, %5 ]
+  %.sroa.95.0 = phi i64 [ 4294967299, %2 ], [ 4294967298, %3 ], [ 4294967300, %4 ], [ 4294967301, %5 ], [ 0, %1 ]
   ret i64 %.sroa.95.0
 }
 
@@ -2690,7 +2690,7 @@ define dso_local i16 @_ZNK4llvm11VPIntrinsic19getPointerAlignmentEv(ptr noundef 
   br label %_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit
 
 _ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit: ; preds = %1, %6
-  %.sroa.3.0.i = phi i32 [ 0, %1 ], [ 1, %6 ]
+  %.sroa.3.0.i = phi i32 [ 1, %6 ], [ 0, %1 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = tail call i16 @_ZNK4llvm13AttributeList17getParamAlignmentEj(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %.sroa.3.0.i) #16
   ret i16 %8
@@ -2714,7 +2714,7 @@ define dso_local range(i64 0, 4294967298) i64 @_ZN4llvm11VPIntrinsic24getMemoryP
   br label %4
 
 4:                                                ; preds = %1, %3, %2
-  %.sroa.3.0 = phi i64 [ 4294967296, %3 ], [ 4294967297, %2 ], [ 0, %1 ]
+  %.sroa.3.0 = phi i64 [ 4294967297, %2 ], [ 4294967296, %3 ], [ 0, %1 ]
   ret i64 %.sroa.3.0
 }
 
@@ -3055,7 +3055,7 @@ define dso_local range(i64 0, 4294967354) i64 @_ZN4llvm11VPIntrinsic24getFunctio
   br label %_ZL24getFunctionalOpcodeForVPj.exit
 
 _ZL24getFunctionalOpcodeForVPj.exit:              ; preds = %1, %2, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36
-  %.sroa.36.0.i = phi i64 [ 0, %36 ], [ 4294967320, %18 ], [ 4294967324, %2 ], [ 4294967323, %3 ], [ 4294967322, %4 ], [ 4294967313, %5 ], [ 4294967325, %6 ], [ 4294967316, %7 ], [ 4294967321, %8 ], [ 4294967319, %9 ], [ 4294967311, %10 ], [ 4294967315, %11 ], [ 4294967318, %12 ], [ 4294967326, %13 ], [ 4294967353, %35 ], [ 4294967328, %34 ], [ 4294967329, %33 ], [ 4294967349, %32 ], [ 4294967350, %31 ], [ 4294967344, %30 ], [ 4294967343, %29 ], [ 4294967336, %28 ], [ 4294967335, %27 ], [ 4294967334, %26 ], [ 4294967342, %25 ], [ 4294967341, %24 ], [ 4294967340, %23 ], [ 4294967339, %22 ], [ 4294967338, %21 ], [ 4294967337, %20 ], [ 4294967308, %19 ], [ 4294967310, %14 ], [ 4294967312, %15 ], [ 4294967314, %16 ], [ 4294967317, %17 ], [ 4294967309, %1 ]
+  %.sroa.36.0.i = phi i64 [ 0, %36 ], [ 4294967324, %2 ], [ 4294967323, %3 ], [ 4294967322, %4 ], [ 4294967313, %5 ], [ 4294967325, %6 ], [ 4294967316, %7 ], [ 4294967321, %8 ], [ 4294967319, %9 ], [ 4294967311, %10 ], [ 4294967315, %11 ], [ 4294967318, %12 ], [ 4294967326, %13 ], [ 4294967353, %35 ], [ 4294967328, %34 ], [ 4294967329, %33 ], [ 4294967349, %32 ], [ 4294967350, %31 ], [ 4294967344, %30 ], [ 4294967343, %29 ], [ 4294967336, %28 ], [ 4294967335, %27 ], [ 4294967334, %26 ], [ 4294967342, %25 ], [ 4294967341, %24 ], [ 4294967340, %23 ], [ 4294967339, %22 ], [ 4294967338, %21 ], [ 4294967337, %20 ], [ 4294967308, %19 ], [ 4294967310, %14 ], [ 4294967312, %15 ], [ 4294967314, %16 ], [ 4294967317, %17 ], [ 4294967320, %18 ], [ 4294967309, %1 ]
   ret i64 %.sroa.36.0.i
 }
 
@@ -3385,7 +3385,7 @@ define dso_local noundef i32 @_ZN4llvm11VPIntrinsic15getForIntrinsicEj(i32 nound
   br label %_ZL15getForIntrinsicj.exit
 
 _ZL15getForIntrinsicj.exit:                       ; preds = %1, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57
-  %.0.i = phi i32 [ 449, %56 ], [ 0, %57 ], [ %0, %1 ], [ 468, %4 ], [ 480, %5 ], [ 479, %6 ], [ 396, %7 ], [ 401, %8 ], [ 400, %9 ], [ 405, %10 ], [ 404, %11 ], [ 406, %12 ], [ 422, %13 ], [ 423, %14 ], [ 461, %15 ], [ 476, %16 ], [ 472, %17 ], [ 482, %18 ], [ 408, %19 ], [ 470, %20 ], [ 413, %21 ], [ 415, %22 ], [ 403, %23 ], [ 437, %24 ], [ 434, %25 ], [ 436, %26 ], [ 433, %27 ], [ 402, %28 ], [ 412, %29 ], [ 458, %30 ], [ 459, %31 ], [ 460, %32 ], [ 457, %33 ], [ 439, %34 ], [ 431, %35 ], [ 429, %36 ], [ 428, %37 ], [ 473, %38 ], [ 462, %39 ], [ 430, %40 ], [ 425, %41 ], [ 442, %42 ], [ 450, %43 ], [ 443, %44 ], [ 451, %45 ], [ 456, %46 ], [ 452, %47 ], [ 453, %48 ], [ 454, %49 ], [ 455, %50 ], [ 445, %51 ], [ 447, %52 ], [ 446, %53 ], [ 448, %54 ], [ 444, %55 ], [ 469, %3 ]
+  %.0.i = phi i32 [ 0, %57 ], [ 468, %4 ], [ 480, %5 ], [ 479, %6 ], [ 396, %7 ], [ 401, %8 ], [ 400, %9 ], [ 405, %10 ], [ 404, %11 ], [ 406, %12 ], [ 422, %13 ], [ 423, %14 ], [ 461, %15 ], [ 476, %16 ], [ 472, %17 ], [ 482, %18 ], [ 408, %19 ], [ 470, %20 ], [ 413, %21 ], [ 415, %22 ], [ 403, %23 ], [ 437, %24 ], [ 434, %25 ], [ 436, %26 ], [ 433, %27 ], [ 402, %28 ], [ 412, %29 ], [ 458, %30 ], [ 459, %31 ], [ 460, %32 ], [ 457, %33 ], [ 439, %34 ], [ 431, %35 ], [ 429, %36 ], [ 428, %37 ], [ 473, %38 ], [ 462, %39 ], [ 430, %40 ], [ 425, %41 ], [ 442, %42 ], [ 450, %43 ], [ 443, %44 ], [ 451, %45 ], [ 456, %46 ], [ 452, %47 ], [ 453, %48 ], [ 454, %49 ], [ 455, %50 ], [ 445, %51 ], [ 447, %52 ], [ 446, %53 ], [ 448, %54 ], [ 444, %55 ], [ 449, %56 ], [ %0, %1 ], [ 469, %3 ]
   ret i32 %.0.i
 }
 
@@ -3417,7 +3417,7 @@ _ZNK4llvm11VPIntrinsic12getMaskParamEv.exit.i:    ; preds = %1
   br label %_ZNK4llvm11VPIntrinsic21getStaticVectorLengthEv.exit
 
 _ZNK4llvm11VPIntrinsic21getStaticVectorLengthEv.exit: ; preds = %1, %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit.i
-  %.sink15.i = phi ptr [ %spec.select.i, %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit.i ], [ %0, %1 ]
+  %.sink15.i = phi ptr [ %0, %1 ], [ %spec.select.i, %_ZNK4llvm11VPIntrinsic12getMaskParamEv.exit.i ]
   %20 = getelementptr inbounds nuw i8, ptr %.sink15.i, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !87
   %22 = getelementptr i8, ptr %21, i64 8
@@ -3907,8 +3907,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i69.i:        ; preds = %_ZN4llvmeqENS_9Stri
 36:                                               ; preds = %22, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i69.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i5.i
   br label %_ZL21getIntPredicateFromMDPKN4llvm5ValueE.exit
 
-_ZL21getIntPredicateFromMDPKN4llvm5ValueE.exit:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i5.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i69.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i29.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i53.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i45.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i61.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i37.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %19, %18, %36, %16
-  %37 = phi i32 [ %17, %16 ], [ 42, %18 ], [ 42, %19 ], [ 42, %36 ], [ 41, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i69.i ], [ 32, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 36, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i29.i ], [ 39, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i53.i ], [ 34, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i ], [ 38, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i45.i ], [ 40, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i61.i ], [ 35, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21.i ], [ 37, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i37.i ], [ 33, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i5.i ]
+_ZL21getIntPredicateFromMDPKN4llvm5ValueE.exit:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i5.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i69.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i37.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i29.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i45.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i53.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i61.i, %19, %18, %36, %16
+  %37 = phi i32 [ %17, %16 ], [ 42, %19 ], [ 42, %18 ], [ 42, %36 ], [ 32, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 34, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i ], [ 35, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21.i ], [ 37, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i37.i ], [ 36, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i29.i ], [ 38, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i45.i ], [ 39, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i53.i ], [ 40, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i61.i ], [ 41, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i69.i ], [ 33, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i5.i ]
   ret i32 %37
 }
 
@@ -3959,7 +3959,7 @@ define dso_local noundef range(i32 13, 18) i32 @_ZNK4llvm17BinaryOpIntrinsic11ge
   unreachable
 
 9:                                                ; preds = %1, %1, %1, %1, %7, %6
-  %.0 = phi i32 [ 17, %7 ], [ 15, %6 ], [ 13, %1 ], [ 13, %1 ], [ 13, %1 ], [ 13, %1 ]
+  %.0 = phi i32 [ 15, %6 ], [ 17, %7 ], [ 13, %1 ], [ 13, %1 ], [ 13, %1 ], [ 13, %1 ]
   ret i32 %.0
 }
 
@@ -4044,7 +4044,7 @@ define dso_local noundef ptr @_ZNK4llvm16GCProjectionInst13getStatepointEv(ptr n
   br label %_ZNK4llvm10BasicBlock13getTerminatorEv.exit
 
 _ZNK4llvm10BasicBlock13getTerminatorEv.exit:      ; preds = %11, %23, %16, %1, %12
-  %.0 = phi ptr [ %8, %1 ], [ %15, %12 ], [ %8, %11 ], [ null, %16 ], [ %spec.select.i, %23 ]
+  %.0 = phi ptr [ %15, %12 ], [ %8, %1 ], [ null, %16 ], [ %spec.select.i, %23 ], [ %8, %11 ]
   ret ptr %.0
 }
 
@@ -4096,7 +4096,7 @@ define dso_local noundef ptr @_ZNK4llvm14GCRelocateInst10getBasePtrEv(ptr nounde
   br label %_ZNK4llvm16GCProjectionInst13getStatepointEv.exit
 
 _ZNK4llvm16GCProjectionInst13getStatepointEv.exit: ; preds = %1, %11, %12, %16, %23
-  %.0.i = phi ptr [ %8, %1 ], [ %15, %12 ], [ %8, %11 ], [ null, %16 ], [ %spec.select.i.i, %23 ]
+  %.0.i = phi ptr [ %15, %12 ], [ %8, %1 ], [ null, %16 ], [ %spec.select.i.i, %23 ], [ %8, %11 ]
   %28 = load i8, ptr %.0.i, align 8, !tbaa !64
   %29 = and i8 %28, -2
   %spec.select.i.i.i.i.i.i.i.i = icmp eq i8 %29, 12
@@ -4263,7 +4263,7 @@ define dso_local noundef ptr @_ZNK4llvm14GCRelocateInst13getDerivedPtrEv(ptr nou
   br label %_ZNK4llvm16GCProjectionInst13getStatepointEv.exit
 
 _ZNK4llvm16GCProjectionInst13getStatepointEv.exit: ; preds = %1, %11, %12, %16, %23
-  %.0.i = phi ptr [ %8, %1 ], [ %15, %12 ], [ %8, %11 ], [ null, %16 ], [ %spec.select.i.i, %23 ]
+  %.0.i = phi ptr [ %15, %12 ], [ %8, %1 ], [ null, %16 ], [ %spec.select.i.i, %23 ], [ %8, %11 ]
   %28 = load i8, ptr %.0.i, align 8, !tbaa !64
   %29 = and i8 %28, -2
   %spec.select.i.i.i.i.i.i.i.i = icmp eq i8 %29, 12
@@ -4409,7 +4409,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0
@@ -4515,7 +4515,7 @@ _ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_5ValueEEEbPT_.exit: ; preds =
   %spec.select.i.i.i.i.i.i.i.i.not.not.i = or i1 %21, %22
   br i1 %spec.select.i.i.i.i.i.i.i.i.not.not.i, label %.thread, label %.critedge20
 
-.thread41:                                        ; preds = %9, %6, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i, %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_5ValueEEEbPT_.exit
+.thread41:                                        ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i, %6, %9, %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_5ValueEEEbPT_.exit
   br label %.critedge20
 
 .thread:                                          ; preds = %20
@@ -4556,23 +4556,23 @@ _ZNK4llvm4User10getOperandEj.exit.i:              ; preds = %36, %33
 _ZN4llvm12PatternMatch18CastOperator_matchINS0_7bind_tyINS_5ValueEEELj47EE5matchIS3_EEbPT_.exit: ; preds = %_ZNK4llvm4User10getOperandEj.exit.i
   %43 = load i8, ptr %42, align 8, !tbaa !64
   %44 = icmp ugt i8 %43, 28
-  br i1 %44, label %45, label %47
+  br i1 %44, label %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i, label %45
 
 45:                                               ; preds = %_ZN4llvm12PatternMatch18CastOperator_matchINS0_7bind_tyINS_5ValueEEELj47EE5matchIS3_EEbPT_.exit
-  %46 = icmp eq i8 %43, 63
-  br i1 %46, label %_ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit, label %.critedge20
+  %46 = icmp eq i8 %43, 5
+  br i1 %46, label %47, label %.critedge20
 
-47:                                               ; preds = %_ZN4llvm12PatternMatch18CastOperator_matchINS0_7bind_tyINS_5ValueEEELj47EE5matchIS3_EEbPT_.exit
-  %48 = icmp eq i8 %43, 5
-  br i1 %48, label %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i, label %.critedge20
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 2
+  %49 = load i16, ptr %48, align 2, !tbaa !236
+  %50 = icmp eq i16 %49, 34
+  br i1 %50, label %_ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit, label %.critedge20
 
-_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i: ; preds = %47
-  %49 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  %50 = load i16, ptr %49, align 2, !tbaa !236
-  %51 = icmp eq i16 %50, 34
+_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i: ; preds = %_ZN4llvm12PatternMatch18CastOperator_matchINS0_7bind_tyINS_5ValueEEELj47EE5matchIS3_EEbPT_.exit
+  %51 = icmp eq i8 %43, 63
   br i1 %51, label %_ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit, label %.critedge20
 
-_ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit: ; preds = %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i, %45
+_ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit: ; preds = %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i, %47
   %52 = tail call noundef ptr @_ZNK4llvm11GEPOperator20getSourceElementTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %42) #16
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i32, ptr %53, align 8
@@ -4654,8 +4654,8 @@ _ZN4llvm12PatternMatch7is_zero5matchINS_5ValueEEEbPT_.exit: ; preds = %78
 .critedge18:                                      ; preds = %.critedge, %82
   br label %.critedge20
 
-.critedge20:                                      ; preds = %.critedge18, %82, %20, %.thread, %_ZNK4llvm4User10getOperandEj.exit.i, %45, %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i, %47, %.thread41, %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_5ValueEEEbPT_.exit
-  %.013 = phi i1 [ true, %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_5ValueEEEbPT_.exit ], [ false, %47 ], [ false, %.critedge18 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i ], [ true, %82 ], [ false, %20 ], [ false, %.thread ], [ false, %45 ], [ false, %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i ], [ false, %.thread41 ]
+.critedge20:                                      ; preds = %.critedge18, %82, %20, %.thread, %_ZNK4llvm4User10getOperandEj.exit.i, %47, %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i, %45, %.thread41, %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_5ValueEEEbPT_.exit
+  %.013 = phi i1 [ true, %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_5ValueEEEbPT_.exit ], [ false, %.critedge18 ], [ true, %82 ], [ false, %20 ], [ false, %.thread ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i ], [ false, %47 ], [ false, %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i ], [ false, %45 ], [ false, %.thread41 ]
   ret i1 %.013
 }
 
@@ -4714,7 +4714,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i:          ; preds = %_ZN4llvm16dyn_cast_
   br label %_ZNK4llvm5APInteqEm.exit
 
 _ZNK4llvm5APInteqEm.exit:                         ; preds = %12, %14, %4, %25, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
-  %28 = phi i1 [ %27, %25 ], [ false, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i ], [ false, %4 ], [ false, %12 ], [ false, %14 ]
+  %28 = phi i1 [ false, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i ], [ %27, %25 ], [ false, %4 ], [ false, %14 ], [ false, %12 ]
   ret i1 %28
 }
 
@@ -4835,7 +4835,7 @@ _ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit66: ; preds = %45
   br i1 %.not54, label %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit.thread, label %.lr.ph, !llvm.loop !245
 
 _ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit.thread: ; preds = %43, %50, %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit66, %.lr.ph, %55, %39, %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit62, %31, %34, %10, %13, %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit
-  %.1 = phi i1 [ false, %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit ], [ %12, %10 ], [ %15, %13 ], [ false, %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit62 ], [ %33, %31 ], [ %36, %34 ], [ false, %39 ], [ false, %43 ], [ false, %50 ], [ false, %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit66 ], [ false, %.lr.ph ], [ %.233, %55 ]
+  %.1 = phi i1 [ false, %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit ], [ %15, %13 ], [ %12, %10 ], [ false, %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit62 ], [ %36, %34 ], [ %33, %31 ], [ false, %39 ], [ false, %43 ], [ false, %50 ], [ false, %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit66 ], [ false, %.lr.ph ], [ %.233, %55 ]
   ret i1 %.1
 }
 

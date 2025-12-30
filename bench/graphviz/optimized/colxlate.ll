@@ -1025,12 +1025,12 @@ thread-pre-split.thread:                          ; preds = %6, %thread-pre-spli
 agxbput.exit:                                     ; preds = %123, %93
   br i1 %70, label %159, label %agxbfree.exit
 
-159:                                              ; preds = %110, %116, %thread-pre-split.thread, %agxbput.exit
+159:                                              ; preds = %thread-pre-split.thread, %110, %116, %agxbput.exit
   %.val = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %.val) #18
   br label %agxbfree.exit
 
-agxbfree.exit:                                    ; preds = %110, %116, %thread-pre-split.thread, %agxbput.exit, %159
+agxbfree.exit:                                    ; preds = %thread-pre-split.thread, %110, %116, %agxbput.exit, %159
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

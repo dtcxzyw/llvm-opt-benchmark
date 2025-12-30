@@ -500,8 +500,8 @@ _ZNK7meshopt14PositionHasher4hashEj.exit.split.i.i: ; preds = %_ZNK7meshopt14Pos
   br i1 %268, label %_ZN7meshoptL11hashLookup2IjNS_14PositionHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.i, label %_ZNK7meshopt14PositionHasher5equalEjj.exit.i.i
 
 _ZN7meshoptL11hashLookup2IjNS_14PositionHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.i: ; preds = %_ZNK7meshopt14PositionHasher4hashEj.exit.split.i.i, %_ZNK7meshopt14PositionHasher5equalEjj.exit.i.i, %248, %_ZNK7meshopt14PositionHasher5equalEjj.exit.us.i.i, %_ZNK7meshopt14PositionHasher4hashEj.exit.split.us.i.i, %_ZNK7meshopt14PositionHasher4hashEj.exit.split.i.preheader.i
-  %.us-phi.i.pn.i = phi i64 [ %229, %_ZNK7meshopt14PositionHasher4hashEj.exit.split.i.preheader.i ], [ %229, %_ZNK7meshopt14PositionHasher4hashEj.exit.split.us.i.i ], [ %251, %248 ], [ %.02511.us.i54.i, %_ZNK7meshopt14PositionHasher5equalEjj.exit.us.i.i ], [ %265, %_ZNK7meshopt14PositionHasher4hashEj.exit.split.i.i ], [ %.02511.i51.i, %_ZNK7meshopt14PositionHasher5equalEjj.exit.i.i ]
-  %spec.select.i.i = getelementptr inbounds nuw i32, ptr %200, i64 %.us-phi.i.pn.i
+  %.us-phi13.i.pn.i = phi i64 [ %229, %_ZNK7meshopt14PositionHasher4hashEj.exit.split.us.i.i ], [ %229, %_ZNK7meshopt14PositionHasher4hashEj.exit.split.i.preheader.i ], [ %251, %248 ], [ %.02511.us.i54.i, %_ZNK7meshopt14PositionHasher5equalEjj.exit.us.i.i ], [ %265, %_ZNK7meshopt14PositionHasher4hashEj.exit.split.i.i ], [ %.02511.i51.i, %_ZNK7meshopt14PositionHasher5equalEjj.exit.i.i ]
+  %spec.select.i.i = getelementptr inbounds nuw i32, ptr %200, i64 %.us-phi13.i.pn.i
   %269 = load i32, ptr %spec.select.i.i, align 4, !tbaa !13
   %270 = icmp eq i32 %269, -1
   br i1 %270, label %271, label %272
@@ -2031,8 +2031,8 @@ _ZN7meshoptL10quadricAddEPNS_11QuadricGradEPKS0_m.exit48.i: ; preds = %1247
   br i1 %1270, label %.lr.ph.i414, label %_ZN7meshoptL21fillAttributeQuadricsEPNS_7QuadricEPNS_11QuadricGradEPKjmPKNS_7Vector3EPKfm.exit, !llvm.loop !65
 
 _ZN7meshoptL21fillAttributeQuadricsEPNS_7QuadricEPNS_11QuadricGradEPKjmPKNS_7Vector3EPKfm.exit: ; preds = %_ZN7meshoptL10quadricAddEPNS_11QuadricGradEPKS0_m.exit48.i, %_ZN7meshoptL16fillEdgeQuadricsEPNS_7QuadricEPKjmPKNS_7Vector3ES3_PKhS3_S3_.exit, %.thread638, %583
-  %.0300645 = phi ptr [ %.0300644.ph, %_ZN7meshoptL16fillEdgeQuadricsEPNS_7QuadricEPKjmPKNS_7Vector3ES3_PKhS3_S3_.exit ], [ %568, %.thread638 ], [ null, %583 ], [ %.0300644.ph, %_ZN7meshoptL10quadricAddEPNS_11QuadricGradEPKS0_m.exit48.i ]
-  %.0301642 = phi ptr [ %.0301641.ph, %_ZN7meshoptL16fillEdgeQuadricsEPNS_7QuadricEPKjmPKNS_7Vector3ES3_PKhS3_S3_.exit ], [ %578, %.thread638 ], [ null, %583 ], [ %.0301641.ph, %_ZN7meshoptL10quadricAddEPNS_11QuadricGradEPKS0_m.exit48.i ]
+  %.0300645 = phi ptr [ %.0300644.ph, %_ZN7meshoptL16fillEdgeQuadricsEPNS_7QuadricEPKjmPKNS_7Vector3ES3_PKhS3_S3_.exit ], [ null, %583 ], [ %568, %.thread638 ], [ %.0300644.ph, %_ZN7meshoptL10quadricAddEPNS_11QuadricGradEPKS0_m.exit48.i ]
+  %.0301642 = phi ptr [ %.0301641.ph, %_ZN7meshoptL16fillEdgeQuadricsEPNS_7QuadricEPKjmPKNS_7Vector3ES3_PKhS3_S3_.exit ], [ null, %583 ], [ %578, %.thread638 ], [ %.0301641.ph, %_ZN7meshoptL10quadricAddEPNS_11QuadricGradEPKS0_m.exit48.i ]
   %1271 = and i32 %13, 8
   %.not336 = icmp ne i32 %1271, 0
   br i1 %.not336, label %1272, label %.loopexit659
@@ -2727,7 +2727,7 @@ _ZN7meshoptL19updateEdgeAdjacencyERNS_13EdgeAdjacencyEPKjmmS3_.exit478: ; preds 
   br label %1634
 
 1634:                                             ; preds = %1631, %1628, %1623, %1616, %1608, %1594, %1579
-  %.2.i487 = phi i64 [ %.1100.i, %1579 ], [ %.1100.i, %1594 ], [ %.1100.i, %1608 ], [ %.1100.i, %1616 ], [ %.1100.i, %1623 ], [ %.4.i, %1631 ], [ %.1100.i, %1628 ]
+  %.2.i487 = phi i64 [ %.1100.i, %1579 ], [ %.4.i, %1631 ], [ %.1100.i, %1594 ], [ %.1100.i, %1608 ], [ %.1100.i, %1616 ], [ %.1100.i, %1623 ], [ %.1100.i, %1628 ]
   %indvars.iv.next.i488 = add nuw nsw i64 %indvars.iv.i480, 1
   %exitcond.not.i489 = icmp eq i64 %indvars.iv.next.i488, 3
   br i1 %exitcond.not.i489, label %1574, label %1579, !llvm.loop !79
@@ -3823,7 +3823,7 @@ _ZN7meshoptL10quadricAddEPNS_11QuadricGradEPKS0_m.exit.i514: ; preds = %2365
   br label %2452
 
 2452:                                             ; preds = %2448, %2445, %2439
-  %storemerge.i = phi i32 [ -1, %2445 ], [ %2451, %2448 ], [ %2442, %2439 ]
+  %storemerge.i = phi i32 [ %2451, %2448 ], [ -1, %2445 ], [ %2442, %2439 ]
   store i32 %storemerge.i, ptr %2437, align 4, !tbaa !13
   br label %2453
 
@@ -3860,7 +3860,7 @@ _ZN7meshoptL10quadricAddEPNS_11QuadricGradEPKS0_m.exit.i514: ; preds = %2365
   br label %2470
 
 2470:                                             ; preds = %2466, %2463, %2457
-  %storemerge.i526 = phi i32 [ -1, %2463 ], [ %2469, %2466 ], [ %2460, %2457 ]
+  %storemerge.i526 = phi i32 [ %2469, %2466 ], [ -1, %2463 ], [ %2460, %2457 ]
   store i32 %storemerge.i526, ptr %2455, align 4, !tbaa !13
   br label %2471
 
@@ -5375,9 +5375,9 @@ _ZN7meshoptL12hashBuckets2Em.exit190:             ; preds = %520
   br label %580
 
 580:                                              ; preds = %579, %576, %564
-  %.061.i = phi i32 [ %570, %576 ], [ %567, %579 ], [ %573, %564 ]
-  %.060.i = phi i32 [ %573, %576 ], [ %570, %579 ], [ %567, %564 ]
-  %.059.i = phi i32 [ %567, %576 ], [ %573, %579 ], [ %570, %564 ]
+  %.061.i = phi i32 [ %567, %579 ], [ %570, %576 ], [ %573, %564 ]
+  %.060.i = phi i32 [ %570, %579 ], [ %573, %576 ], [ %567, %564 ]
+  %.059.i = phi i32 [ %573, %579 ], [ %567, %576 ], [ %570, %564 ]
   %.idx.i = mul i64 %.088.i, 12
   %581 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
   store i32 %.059.i, ptr %581, align 4, !tbaa !13
@@ -5472,9 +5472,9 @@ _ZN7meshoptL15filterTrianglesEPjS0_mPKjmS2_S2_.exit: ; preds = %._crit_edge.loop
   %.not3.i = icmp eq i64 %543, 0
   br i1 %.not3.i, label %_ZN17meshopt_AllocatorD2Ev.exit, label %.lr.ph.i198.preheader
 
-.lr.ph.i198.preheader:                            ; preds = %178, %177, %629
-  %.0253 = phi i64 [ %.0.lcssa.i197, %629 ], [ 0, %177 ], [ 0, %178 ]
-  %630 = phi i64 [ %543, %629 ], [ 2, %177 ], [ 2, %178 ]
+.lr.ph.i198.preheader:                            ; preds = %177, %178, %629
+  %.0253 = phi i64 [ %.0.lcssa.i197, %629 ], [ 0, %178 ], [ 0, %177 ]
+  %630 = phi i64 [ %543, %629 ], [ 2, %178 ], [ 2, %177 ]
   br label %.lr.ph.i198
 
 .lr.ph.i198:                                      ; preds = %.lr.ph.i198.preheader, %635
@@ -5504,7 +5504,7 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %635, %629
   ret i64 %.0254
 
 640:                                              ; preds = %80, %530, %532, %536, %627, %534, %528, %78
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %79, %78 ], [ %81, %80 ], [ %529, %528 ], [ %531, %530 ], [ %628, %627 ], [ %533, %532 ], [ %535, %534 ], [ %537, %536 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %79, %78 ], [ %81, %80 ], [ %529, %528 ], [ %531, %530 ], [ %533, %532 ], [ %535, %534 ], [ %537, %536 ], [ %628, %627 ]
   call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn
@@ -5741,7 +5741,7 @@ _ZN7meshoptL16countVertexCellsEPjmPKjm.exit:      ; preds = %_ZN7meshoptL11hashL
   br label %138
 
 138:                                              ; preds = %135, %132
-  %.1118 = phi i32 [ %137, %135 ], [ %134, %132 ]
+  %.1118 = phi i32 [ %134, %132 ], [ %137, %135 ]
   %139 = add nuw nsw i32 %.0116167, 1
   %exitcond.not = icmp eq i32 %139, 15
   br i1 %exitcond.not, label %.critedge, label %49, !llvm.loop !113
@@ -6168,7 +6168,7 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %387
   br label %393
 
 392:                                              ; preds = %45, %378, %380, %376, %374, %47, %43
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %379, %378 ], [ %375, %374 ], [ %381, %380 ], [ %377, %376 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %375, %374 ], [ %377, %376 ], [ %381, %380 ], [ %379, %378 ]
   call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %9) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn

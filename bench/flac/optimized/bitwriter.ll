@@ -261,7 +261,7 @@ bitwriter_grow_.exit:                             ; preds = %34, %14, %8
   br label %bitwriter_grow_.exit.thread
 
 bitwriter_grow_.exit.thread:                      ; preds = %25, %18, %3, %47
-  %.0 = phi i32 [ 0, %3 ], [ 1, %47 ], [ 0, %18 ], [ 0, %25 ]
+  %.0 = phi i32 [ 1, %47 ], [ 0, %3 ], [ 0, %18 ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -510,7 +510,7 @@ bitwriter_grow_.exit:                             ; preds = %34, %10, %4
   br label %bitwriter_grow_.exit.thread
 
 bitwriter_grow_.exit.thread:                      ; preds = %24, %17, %63, %64, %37, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %37 ], [ 1, %63 ], [ 1, %64 ], [ 0, %17 ], [ 0, %24 ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %37 ], [ 1, %64 ], [ 1, %63 ], [ 0, %17 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -637,7 +637,7 @@ bitwriter_grow_.exit.i:                           ; preds = %42, %19, %13
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
 FLAC__bitwriter_write_raw_uint32_nocheck.exit:    ; preds = %72, %57, %48, %33, %26, %11, %7, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %11 ], [ 0, %33 ], [ 1, %48 ], [ 1, %72 ], [ 0, %7 ], [ 1, %57 ], [ 0, %26 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %7 ], [ 1, %11 ], [ 1, %57 ], [ 1, %72 ], [ 1, %48 ], [ 0, %26 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -759,7 +759,7 @@ bitwriter_grow_.exit:                             ; preds = %40, %17, %11
   br label %bitwriter_grow_.exit.thread
 
 bitwriter_grow_.exit.thread:                      ; preds = %31, %24, %46, %70, %55, %9, %3, %5
-  %.0 = phi i32 [ 1, %9 ], [ 0, %3 ], [ 1, %46 ], [ 1, %70 ], [ 0, %5 ], [ 1, %55 ], [ 0, %24 ], [ 0, %31 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %3 ], [ 1, %9 ], [ 1, %55 ], [ 1, %70 ], [ 1, %46 ], [ 0, %24 ], [ 0, %31 ]
   ret i32 %.0
 }
 
@@ -886,7 +886,7 @@ bitwriter_grow_.exit.i:                           ; preds = %44, %21, %15
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
 FLAC__bitwriter_write_raw_uint32_nocheck.exit:    ; preds = %3, %9, %13, %28, %35, %50, %59, %74
-  %.0.i = phi i32 [ 1, %13 ], [ 0, %3 ], [ 1, %50 ], [ 1, %74 ], [ 0, %9 ], [ 1, %59 ], [ 0, %28 ], [ 0, %35 ]
+  %.0.i = phi i32 [ 0, %9 ], [ 0, %3 ], [ 1, %13 ], [ 1, %59 ], [ 1, %74 ], [ 1, %50 ], [ 0, %28 ], [ 0, %35 ]
   ret i32 %.0.i
 }
 
@@ -1018,7 +1018,7 @@ bitwriter_grow_.exit.i:                           ; preds = %44, %22, %16
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
 FLAC__bitwriter_write_raw_uint32_nocheck.exit:    ; preds = %73, %58, %50, %35, %28, %13, %10, %5, %80
-  %.0 = phi i32 [ %82, %80 ], [ 0, %5 ], [ 0, %35 ], [ 0, %10 ], [ 1, %50 ], [ 1, %73 ], [ 0, %13 ], [ 1, %58 ], [ 0, %28 ]
+  %.0 = phi i32 [ %82, %80 ], [ 0, %5 ], [ 0, %13 ], [ 0, %10 ], [ 1, %58 ], [ 1, %73 ], [ 1, %50 ], [ 0, %28 ], [ 0, %35 ]
   ret i32 %.0
 }
 
@@ -1437,8 +1437,8 @@ bitwriter_grow_.exit.i27:                         ; preds = %222, %202, %197
   store i64 %252, ptr %256, align 8, !tbaa !16
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit31
 
-FLAC__bitwriter_write_raw_uint32_nocheck.exit31:  ; preds = %145, %152, %83, %90, %20, %5, %2, %27, %227, %235, %250, %213, %206
-  %.0 = phi i32 [ 0, %145 ], [ 0, %152 ], [ 0, %20 ], [ 1, %250 ], [ 1, %227 ], [ 1, %235 ], [ 0, %213 ], [ 0, %206 ], [ 0, %27 ], [ 0, %2 ], [ 0, %5 ], [ 0, %90 ], [ 0, %83 ]
+FLAC__bitwriter_write_raw_uint32_nocheck.exit31:  ; preds = %152, %145, %90, %83, %27, %20, %2, %5, %227, %235, %250, %206, %213
+  %.0 = phi i32 [ 1, %227 ], [ 1, %235 ], [ 1, %250 ], [ 0, %206 ], [ 0, %213 ], [ 0, %5 ], [ 0, %2 ], [ 0, %20 ], [ 0, %27 ], [ 0, %83 ], [ 0, %90 ], [ 0, %145 ], [ 0, %152 ]
   ret i32 %.0
 }
 
@@ -1613,8 +1613,8 @@ FLAC__bitwriter_write_raw_uint32_nocheck.exit:    ; preds = %97, %83, %76
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %bitwriter_grow_.exit.thread, label %43, !llvm.loop !24
 
-bitwriter_grow_.exit.thread:                      ; preds = %FLAC__bitwriter_write_raw_uint32_nocheck.exit, %61, %43, %57, %bitwriter_grow_.exit, %26, %19
-  %.011 = phi i32 [ 0, %19 ], [ 0, %26 ], [ 1, %bitwriter_grow_.exit ], [ 0, %43 ], [ 0, %61 ], [ 1, %FLAC__bitwriter_write_raw_uint32_nocheck.exit ], [ 0, %57 ]
+bitwriter_grow_.exit.thread:                      ; preds = %FLAC__bitwriter_write_raw_uint32_nocheck.exit, %43, %57, %61, %bitwriter_grow_.exit, %26, %19
+  %.011 = phi i32 [ 0, %19 ], [ 0, %26 ], [ 1, %bitwriter_grow_.exit ], [ 1, %FLAC__bitwriter_write_raw_uint32_nocheck.exit ], [ 0, %43 ], [ 0, %57 ], [ 0, %61 ]
   ret i32 %.011
 }
 
@@ -1845,8 +1845,8 @@ bitwriter_grow_.exit.i9:                          ; preds = %102, %78, %72
   store i32 %.1.lcssa.i, ptr %104, align 8, !tbaa !12
   br label %135
 
-135:                                              ; preds = %133, %132, %106
-  %136 = phi i32 [ %.1.lcssa.i, %133 ], [ 0, %132 ], [ %112, %106 ]
+135:                                              ; preds = %132, %133, %106
+  %136 = phi i32 [ 0, %132 ], [ %.1.lcssa.i, %133 ], [ %112, %106 ]
   %137 = load ptr, ptr %0, align 8, !tbaa !3
   %138 = icmp eq ptr %137, null
   br i1 %138, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit, label %139
@@ -1942,7 +1942,7 @@ bitwriter_grow_.exit.i15:                         ; preds = %162, %142, %139
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
 FLAC__bitwriter_write_raw_uint32_nocheck.exit:    ; preds = %188, %174, %167, %153, %146, %135, %92, %85, %67, %53, %45, %30, %23, %7, %4
-  %.0 = phi i32 [ 0, %92 ], [ 0, %23 ], [ 0, %30 ], [ 0, %4 ], [ 1, %45 ], [ 1, %67 ], [ 0, %7 ], [ 1, %53 ], [ 0, %85 ], [ 0, %153 ], [ 0, %146 ], [ 1, %167 ], [ 1, %188 ], [ 0, %135 ], [ 1, %174 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 1, %53 ], [ 1, %67 ], [ 1, %45 ], [ 0, %23 ], [ 0, %30 ], [ 0, %85 ], [ 0, %92 ], [ 0, %135 ], [ 1, %174 ], [ 1, %188 ], [ 1, %167 ], [ 0, %146 ], [ 0, %153 ]
   ret i32 %.0
 }
 
@@ -2330,19 +2330,19 @@ bitwriter_grow_.exit:                             ; preds = %62, %39, %29
   br label %.sink.split272
 
 .sink.split272:                                   ; preds = %212, %214, %88, %90
-  %.sink275 = phi i64 [ %83, %88 ], [ %83, %90 ], [ %207, %214 ], [ %207, %212 ]
-  %storemerge217.sink = phi i32 [ 32, %88 ], [ 0, %90 ], [ 0, %214 ], [ 32, %212 ]
-  %.sink274 = phi i32 [ %80, %88 ], [ %80, %90 ], [ %204, %214 ], [ %204, %212 ]
-  %.ph273 = phi i32 [ %69, %88 ], [ %69, %90 ], [ %131, %214 ], [ %131, %212 ]
+  %.sink275 = phi i64 [ %83, %90 ], [ %83, %88 ], [ %207, %214 ], [ %207, %212 ]
+  %storemerge217.sink = phi i32 [ 0, %90 ], [ 32, %88 ], [ 0, %214 ], [ 32, %212 ]
+  %.sink274 = phi i32 [ %80, %90 ], [ %80, %88 ], [ %204, %214 ], [ %204, %212 ]
+  %.ph273 = phi i32 [ %69, %90 ], [ %69, %88 ], [ %131, %214 ], [ %131, %212 ]
   %.10 = shl i64 %.sink275, 32
   store i32 %storemerge217.sink, ptr %9, align 8, !tbaa !12
   %223 = add nuw nsw i32 %.sink274, 32
   br label %224
 
 224:                                              ; preds = %.sink.split272, %202, %78
-  %225 = phi i32 [ %131, %202 ], [ %69, %78 ], [ %.ph273, %.sink.split272 ]
-  %.3190 = phi i64 [ %207, %202 ], [ %83, %78 ], [ %.10, %.sink.split272 ]
-  %.2184 = phi i32 [ %204, %202 ], [ %80, %78 ], [ %223, %.sink.split272 ]
+  %225 = phi i32 [ %69, %78 ], [ %131, %202 ], [ %.ph273, %.sink.split272 ]
+  %.3190 = phi i64 [ %83, %78 ], [ %207, %202 ], [ %.10, %.sink.split272 ]
+  %.2184 = phi i32 [ %80, %78 ], [ %204, %202 ], [ %223, %.sink.split272 ]
   %226 = getelementptr inbounds nuw i8, ptr %.0180239, i64 4
   %227 = add i32 %.0192235, -1
   %.not211 = icmp eq i32 %227, 0
@@ -2387,7 +2387,7 @@ bitwriter_grow_.exit.thread.sink.split:           ; preds = %231, %235
   br label %bitwriter_grow_.exit.thread
 
 bitwriter_grow_.exit.thread:                      ; preds = %120, %116, %bitwriter_grow_.exit.thread.sink.split, %52, %45, %._crit_edge241, %229
-  %.0 = phi i32 [ 1, %._crit_edge241 ], [ 0, %52 ], [ 1, %229 ], [ 0, %45 ], [ 1, %bitwriter_grow_.exit.thread.sink.split ], [ 0, %116 ], [ 0, %120 ]
+  %.0 = phi i32 [ 1, %229 ], [ 1, %._crit_edge241 ], [ 0, %45 ], [ 0, %52 ], [ 1, %bitwriter_grow_.exit.thread.sink.split ], [ 0, %116 ], [ 0, %120 ]
   ret i32 %.0
 }
 
@@ -2627,9 +2627,9 @@ bitwriter_grow_.exit.i73:                         ; preds = %111, %89, %83
   %148 = icmp eq ptr %.pr.pre, null
   br i1 %148, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit84, label %.thread
 
-.thread:                                          ; preds = %95, %125, %140, %117, %147
-  %.0.i75.ph.ph240 = phi i32 [ 0, %147 ], [ 0, %95 ], [ 1, %125 ], [ 1, %140 ], [ 1, %117 ]
-  %.pr239 = phi ptr [ %.pr.pre, %147 ], [ %81, %95 ], [ %112, %125 ], [ %112, %140 ], [ %112, %117 ]
+.thread:                                          ; preds = %95, %117, %140, %125, %147
+  %.0.i75.ph.ph240 = phi i32 [ 0, %147 ], [ 0, %95 ], [ 1, %117 ], [ 1, %140 ], [ 1, %125 ]
+  %.pr239 = phi ptr [ %.pr.pre, %147 ], [ %81, %95 ], [ %112, %117 ], [ %112, %140 ], [ %112, %125 ]
   %.in273 = and i32 %1, 63
   %149 = or disjoint i32 %.in273, 128
   %150 = load i32, ptr %84, align 8, !tbaa !11
@@ -2729,8 +2729,8 @@ bitwriter_grow_.exit.i80:                         ; preds = %175, %153, %.thread
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit84
 
 FLAC__bitwriter_write_raw_uint32_nocheck.exit84:  ; preds = %76, %80, %147, %159, %166, %181, %189, %204
-  %.0.i75136 = phi i32 [ %.0.i75.ph.ph240, %166 ], [ 0, %80 ], [ %.0.i75.ph.ph240, %181 ], [ %.0.i75.ph.ph240, %204 ], [ 0, %147 ], [ %.0.i75.ph.ph240, %189 ], [ %.0.i75.ph.ph240, %159 ], [ 0, %76 ]
-  %.0.i82 = phi i32 [ 0, %166 ], [ 0, %80 ], [ 1, %181 ], [ 1, %204 ], [ 0, %147 ], [ 1, %189 ], [ 0, %159 ], [ 0, %76 ]
+  %.0.i75136 = phi i32 [ 0, %147 ], [ %.0.i75.ph.ph240, %189 ], [ %.0.i75.ph.ph240, %204 ], [ %.0.i75.ph.ph240, %181 ], [ %.0.i75.ph.ph240, %159 ], [ %.0.i75.ph.ph240, %166 ], [ 0, %80 ], [ 0, %76 ]
+  %.0.i82 = phi i32 [ 0, %147 ], [ 1, %189 ], [ 1, %204 ], [ 1, %181 ], [ 0, %159 ], [ 0, %166 ], [ 0, %80 ], [ 0, %76 ]
   %211 = and i32 %.0.i82, %.0.i75136
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
@@ -2853,9 +2853,9 @@ bitwriter_grow_.exit.i87:                         ; preds = %249, %227, %221
   %286 = icmp eq ptr %.pr142.pre, null
   br i1 %286, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit105, label %.thread242
 
-.thread242:                                       ; preds = %233, %263, %278, %255, %285
-  %.0.i89.ph.ph246 = phi i32 [ 0, %285 ], [ 0, %233 ], [ 1, %263 ], [ 1, %278 ], [ 1, %255 ]
-  %.pr142245 = phi ptr [ %.pr142.pre, %285 ], [ %219, %233 ], [ %250, %263 ], [ %250, %278 ], [ %250, %255 ]
+.thread242:                                       ; preds = %233, %255, %278, %263, %285
+  %.0.i89.ph.ph246 = phi i32 [ 0, %285 ], [ 0, %233 ], [ 1, %255 ], [ 1, %278 ], [ 1, %263 ]
+  %.pr142245 = phi ptr [ %.pr142.pre, %285 ], [ %219, %233 ], [ %250, %255 ], [ %250, %278 ], [ %250, %263 ]
   %.in271.in = lshr i32 %1, 6
   %.in271 = and i32 %.in271.in, 63
   %287 = or disjoint i32 %.in271, 128
@@ -2955,9 +2955,9 @@ bitwriter_grow_.exit.i94:                         ; preds = %313, %291, %.thread
   store i64 %344, ptr %348, align 8, !tbaa !16
   br label %.thread248
 
-.thread248:                                       ; preds = %319, %342, %327, %297
-  %.pr148.ph = phi ptr [ %.pr142245, %297 ], [ %314, %327 ], [ %314, %342 ], [ %314, %319 ]
-  %.0.i96.ph.ph.ph = phi i32 [ 0, %297 ], [ 1, %327 ], [ 1, %342 ], [ 1, %319 ]
+.thread248:                                       ; preds = %327, %342, %319, %297
+  %.pr148.ph = phi ptr [ %.pr142245, %297 ], [ %314, %319 ], [ %314, %342 ], [ %314, %327 ]
+  %.0.i96.ph.ph.ph = phi i32 [ 0, %297 ], [ 1, %319 ], [ 1, %342 ], [ 1, %327 ]
   %349 = and i32 %.0.i96.ph.ph.ph, %.0.i89.ph.ph246
   br label %352
 
@@ -3068,8 +3068,8 @@ bitwriter_grow_.exit.i101:                        ; preds = %380, %358, %352
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit105
 
 FLAC__bitwriter_write_raw_uint32_nocheck.exit105: ; preds = %214, %218, %285, %350, %364, %371, %386, %394, %409
-  %416 = phi i32 [ %353, %371 ], [ 0, %218 ], [ %353, %386 ], [ %353, %409 ], [ 0, %350 ], [ %353, %394 ], [ %353, %364 ], [ 0, %285 ], [ 0, %214 ]
-  %.0.i103 = phi i32 [ 0, %371 ], [ 0, %218 ], [ 1, %386 ], [ 1, %409 ], [ 0, %350 ], [ 1, %394 ], [ 0, %364 ], [ 0, %285 ], [ 0, %214 ]
+  %416 = phi i32 [ 0, %350 ], [ %353, %394 ], [ %353, %409 ], [ %353, %386 ], [ %353, %364 ], [ %353, %371 ], [ 0, %285 ], [ 0, %218 ], [ 0, %214 ]
+  %.0.i103 = phi i32 [ 0, %350 ], [ 1, %394 ], [ 1, %409 ], [ 1, %386 ], [ 0, %364 ], [ 0, %371 ], [ 0, %285 ], [ 0, %218 ], [ 0, %214 ]
   %417 = and i32 %.0.i103, %416
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
@@ -3192,9 +3192,9 @@ bitwriter_grow_.exit.i108:                        ; preds = %455, %433, %427
   %492 = icmp eq ptr %.pr156.pre, null
   br i1 %492, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit133, label %.thread253
 
-.thread253:                                       ; preds = %439, %469, %484, %461, %491
-  %.0.i110.ph.ph257 = phi i32 [ 0, %491 ], [ 0, %439 ], [ 1, %469 ], [ 1, %484 ], [ 1, %461 ]
-  %.pr156256 = phi ptr [ %.pr156.pre, %491 ], [ %425, %439 ], [ %456, %469 ], [ %456, %484 ], [ %456, %461 ]
+.thread253:                                       ; preds = %439, %461, %484, %469, %491
+  %.0.i110.ph.ph257 = phi i32 [ 0, %491 ], [ 0, %439 ], [ 1, %461 ], [ 1, %484 ], [ 1, %469 ]
+  %.pr156256 = phi ptr [ %.pr156.pre, %491 ], [ %425, %439 ], [ %456, %461 ], [ %456, %484 ], [ %456, %469 ]
   %.in.in = lshr i32 %1, 12
   %.in = and i32 %.in.in, 63
   %493 = or disjoint i32 %.in, 128
@@ -3294,9 +3294,9 @@ bitwriter_grow_.exit.i115:                        ; preds = %519, %497, %.thread
   store i64 %550, ptr %554, align 8, !tbaa !16
   br label %.thread259
 
-.thread259:                                       ; preds = %525, %548, %533, %503
-  %.pr162.ph = phi ptr [ %.pr156256, %503 ], [ %520, %533 ], [ %520, %548 ], [ %520, %525 ]
-  %.0.i117.ph.ph.ph = phi i32 [ 0, %503 ], [ 1, %533 ], [ 1, %548 ], [ 1, %525 ]
+.thread259:                                       ; preds = %533, %548, %525, %503
+  %.pr162.ph = phi ptr [ %.pr156256, %503 ], [ %520, %525 ], [ %520, %548 ], [ %520, %533 ]
+  %.0.i117.ph.ph.ph = phi i32 [ 0, %503 ], [ 1, %525 ], [ 1, %548 ], [ 1, %533 ]
   %555 = and i32 %.0.i117.ph.ph.ph, %.0.i110.ph.ph257
   br label %558
 
@@ -3407,9 +3407,9 @@ bitwriter_grow_.exit.i122:                        ; preds = %586, %564, %558
   store i64 %617, ptr %621, align 8, !tbaa !16
   br label %.thread164.thread
 
-.thread164.thread:                                ; preds = %592, %615, %600, %570
-  %.pr168.ph = phi ptr [ %.pr162262, %570 ], [ %587, %600 ], [ %587, %615 ], [ %587, %592 ]
-  %.0.i124.ph.ph.ph = phi i32 [ 0, %570 ], [ 1, %600 ], [ 1, %615 ], [ 1, %592 ]
+.thread164.thread:                                ; preds = %600, %615, %592, %570
+  %.pr168.ph = phi ptr [ %.pr162262, %570 ], [ %587, %592 ], [ %587, %615 ], [ %587, %600 ]
+  %.0.i124.ph.ph.ph = phi i32 [ 0, %570 ], [ 1, %592 ], [ 1, %615 ], [ 1, %600 ]
   %622 = and i32 %559, %.0.i124.ph.ph.ph
   br label %624
 
@@ -3520,8 +3520,8 @@ bitwriter_grow_.exit.i129:                        ; preds = %652, %630, %624
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit133
 
 FLAC__bitwriter_write_raw_uint32_nocheck.exit133: ; preds = %556, %420, %491, %424, %.thread164, %636, %643, %658, %666, %681
-  %688 = phi i32 [ %625, %643 ], [ 0, %491 ], [ %625, %658 ], [ %625, %681 ], [ 0, %.thread164 ], [ %625, %666 ], [ %625, %636 ], [ 0, %424 ], [ 0, %420 ], [ 0, %556 ]
-  %.0.i131 = phi i32 [ 0, %643 ], [ 0, %491 ], [ 1, %658 ], [ 1, %681 ], [ 0, %.thread164 ], [ 1, %666 ], [ 0, %636 ], [ 0, %424 ], [ 0, %420 ], [ 0, %556 ]
+  %688 = phi i32 [ 0, %.thread164 ], [ %625, %666 ], [ %625, %681 ], [ %625, %658 ], [ %625, %636 ], [ %625, %643 ], [ 0, %424 ], [ 0, %491 ], [ 0, %420 ], [ 0, %556 ]
+  %.0.i131 = phi i32 [ 0, %.thread164 ], [ 1, %666 ], [ 1, %681 ], [ 1, %658 ], [ 0, %636 ], [ 0, %643 ], [ 0, %424 ], [ 0, %491 ], [ 0, %420 ], [ 0, %556 ]
   %689 = and i32 %.0.i131, %688
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
@@ -3585,7 +3585,7 @@ FLAC__bitwriter_write_raw_uint32_nocheck.exit133: ; preds = %556, %420, %491, %4
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
 FLAC__bitwriter_write_raw_uint32_nocheck.exit:    ; preds = %67, %52, %44, %29, %22, %7, %5, %FLAC__bitwriter_write_raw_uint32_nocheck.exit105, %692, %715, %FLAC__bitwriter_write_raw_uint32_nocheck.exit133, %FLAC__bitwriter_write_raw_uint32_nocheck.exit84, %2
-  %.069 = phi i32 [ 0, %2 ], [ %742, %715 ], [ %211, %FLAC__bitwriter_write_raw_uint32_nocheck.exit84 ], [ %417, %FLAC__bitwriter_write_raw_uint32_nocheck.exit105 ], [ %689, %FLAC__bitwriter_write_raw_uint32_nocheck.exit133 ], [ %714, %692 ], [ 0, %29 ], [ 0, %5 ], [ 1, %44 ], [ 1, %67 ], [ 0, %7 ], [ 1, %52 ], [ 0, %22 ]
+  %.069 = phi i32 [ 0, %2 ], [ %211, %FLAC__bitwriter_write_raw_uint32_nocheck.exit84 ], [ %417, %FLAC__bitwriter_write_raw_uint32_nocheck.exit105 ], [ %689, %FLAC__bitwriter_write_raw_uint32_nocheck.exit133 ], [ %714, %692 ], [ %742, %715 ], [ 0, %7 ], [ 0, %5 ], [ 1, %52 ], [ 1, %67 ], [ 1, %44 ], [ 0, %22 ], [ 0, %29 ]
   ret i32 %.069
 }
 
@@ -3824,9 +3824,9 @@ bitwriter_grow_.exit.i94:                         ; preds = %110, %88, %82
   %147 = icmp eq ptr %.pr.pre, null
   br i1 %147, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit105, label %.thread
 
-.thread:                                          ; preds = %94, %124, %139, %116, %146
-  %.0.i96.ph.ph257 = phi i32 [ 0, %146 ], [ 0, %94 ], [ 1, %124 ], [ 1, %139 ], [ 1, %116 ]
-  %.pr256 = phi ptr [ %.pr.pre, %146 ], [ %80, %94 ], [ %111, %124 ], [ %111, %139 ], [ %111, %116 ]
+.thread:                                          ; preds = %94, %116, %139, %124, %146
+  %.0.i96.ph.ph257 = phi i32 [ 0, %146 ], [ 0, %94 ], [ 1, %116 ], [ 1, %139 ], [ 1, %124 ]
+  %.pr256 = phi ptr [ %.pr.pre, %146 ], [ %80, %94 ], [ %111, %116 ], [ %111, %139 ], [ %111, %124 ]
   %.in302.in = trunc nuw i64 %1 to i32
   %.in302 = and i32 %.in302.in, 63
   %148 = or disjoint i32 %.in302, 128
@@ -3927,8 +3927,8 @@ bitwriter_grow_.exit.i101:                        ; preds = %174, %152, %.thread
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit105
 
 FLAC__bitwriter_write_raw_uint32_nocheck.exit105: ; preds = %74, %79, %146, %158, %165, %180, %188, %203
-  %.0.i96157 = phi i32 [ %.0.i96.ph.ph257, %165 ], [ 0, %79 ], [ %.0.i96.ph.ph257, %180 ], [ %.0.i96.ph.ph257, %203 ], [ 0, %146 ], [ %.0.i96.ph.ph257, %188 ], [ %.0.i96.ph.ph257, %158 ], [ 0, %74 ]
-  %.0.i103 = phi i32 [ 0, %165 ], [ 0, %79 ], [ 1, %180 ], [ 1, %203 ], [ 0, %146 ], [ 1, %188 ], [ 0, %158 ], [ 0, %74 ]
+  %.0.i96157 = phi i32 [ 0, %146 ], [ %.0.i96.ph.ph257, %188 ], [ %.0.i96.ph.ph257, %203 ], [ %.0.i96.ph.ph257, %180 ], [ %.0.i96.ph.ph257, %158 ], [ %.0.i96.ph.ph257, %165 ], [ 0, %79 ], [ 0, %74 ]
+  %.0.i103 = phi i32 [ 0, %146 ], [ 1, %188 ], [ 1, %203 ], [ 1, %180 ], [ 0, %158 ], [ 0, %165 ], [ 0, %79 ], [ 0, %74 ]
   %210 = and i32 %.0.i103, %.0.i96157
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
@@ -4052,9 +4052,9 @@ bitwriter_grow_.exit.i108:                        ; preds = %249, %227, %221
   %286 = icmp eq ptr %.pr163.pre, null
   br i1 %286, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit126, label %.thread259
 
-.thread259:                                       ; preds = %233, %263, %278, %255, %285
-  %.0.i110.ph.ph263 = phi i32 [ 0, %285 ], [ 0, %233 ], [ 1, %263 ], [ 1, %278 ], [ 1, %255 ]
-  %.pr163262 = phi ptr [ %.pr163.pre, %285 ], [ %219, %233 ], [ %250, %263 ], [ %250, %278 ], [ %250, %255 ]
+.thread259:                                       ; preds = %233, %255, %278, %263, %285
+  %.0.i110.ph.ph263 = phi i32 [ 0, %285 ], [ 0, %233 ], [ 1, %255 ], [ 1, %278 ], [ 1, %263 ]
+  %.pr163262 = phi ptr [ %.pr163.pre, %285 ], [ %219, %233 ], [ %250, %255 ], [ %250, %278 ], [ %250, %263 ]
   %287 = trunc nuw i64 %1 to i32
   %.in300.in = lshr i32 %287, 6
   %.in300 = and i32 %.in300.in, 63
@@ -4155,9 +4155,9 @@ bitwriter_grow_.exit.i115:                        ; preds = %314, %292, %.thread
   store i64 %345, ptr %349, align 8, !tbaa !16
   br label %.thread266
 
-.thread266:                                       ; preds = %320, %343, %328, %298
-  %.pr169.ph = phi ptr [ %.pr163262, %298 ], [ %315, %328 ], [ %315, %343 ], [ %315, %320 ]
-  %.0.i117.ph.ph.ph = phi i32 [ 0, %298 ], [ 1, %328 ], [ 1, %343 ], [ 1, %320 ]
+.thread266:                                       ; preds = %328, %343, %320, %298
+  %.pr169.ph = phi ptr [ %.pr163262, %298 ], [ %315, %320 ], [ %315, %343 ], [ %315, %328 ]
+  %.0.i117.ph.ph.ph = phi i32 [ 0, %298 ], [ 1, %320 ], [ 1, %343 ], [ 1, %328 ]
   %350 = and i32 %.0.i117.ph.ph.ph, %.0.i110.ph.ph263
   br label %353
 
@@ -4268,8 +4268,8 @@ bitwriter_grow_.exit.i122:                        ; preds = %381, %359, %353
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit126
 
 FLAC__bitwriter_write_raw_uint32_nocheck.exit126: ; preds = %285, %213, %218, %351, %365, %372, %387, %395, %410
-  %417 = phi i32 [ %354, %372 ], [ 0, %218 ], [ %354, %387 ], [ %354, %410 ], [ 0, %351 ], [ %354, %395 ], [ %354, %365 ], [ 0, %213 ], [ 0, %285 ]
-  %.0.i124 = phi i32 [ 0, %372 ], [ 0, %218 ], [ 1, %387 ], [ 1, %410 ], [ 0, %351 ], [ 1, %395 ], [ 0, %365 ], [ 0, %213 ], [ 0, %285 ]
+  %417 = phi i32 [ 0, %351 ], [ %354, %395 ], [ %354, %410 ], [ %354, %387 ], [ %354, %365 ], [ %354, %372 ], [ 0, %218 ], [ 0, %213 ], [ 0, %285 ]
+  %.0.i124 = phi i32 [ 0, %351 ], [ 1, %395 ], [ 1, %410 ], [ 1, %387 ], [ 0, %365 ], [ 0, %372 ], [ 0, %218 ], [ 0, %213 ], [ 0, %285 ]
   %418 = and i32 %.0.i124, %417
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
@@ -4393,9 +4393,9 @@ bitwriter_grow_.exit.i129:                        ; preds = %457, %435, %429
   %494 = icmp eq ptr %.pr178.pre, null
   br i1 %494, label %FLAC__bitwriter_write_raw_uint32_nocheck.exit154, label %.thread276
 
-.thread276:                                       ; preds = %441, %471, %486, %463, %493
-  %.0.i131.ph.ph280 = phi i32 [ 0, %493 ], [ 0, %441 ], [ 1, %471 ], [ 1, %486 ], [ 1, %463 ]
-  %.pr178279 = phi ptr [ %.pr178.pre, %493 ], [ %427, %441 ], [ %458, %471 ], [ %458, %486 ], [ %458, %463 ]
+.thread276:                                       ; preds = %441, %463, %486, %471, %493
+  %.0.i131.ph.ph280 = phi i32 [ 0, %493 ], [ 0, %441 ], [ 1, %463 ], [ 1, %486 ], [ 1, %471 ]
+  %.pr178279 = phi ptr [ %.pr178.pre, %493 ], [ %427, %441 ], [ %458, %463 ], [ %458, %486 ], [ %458, %471 ]
   %495 = trunc nuw i64 %1 to i32
   %.in.in = lshr i32 %495, 12
   %.in = and i32 %.in.in, 63
@@ -4496,9 +4496,9 @@ bitwriter_grow_.exit.i136:                        ; preds = %522, %500, %.thread
   store i64 %553, ptr %557, align 8, !tbaa !16
   br label %.thread283
 
-.thread283:                                       ; preds = %506, %536, %551, %528
-  %.ph282 = phi ptr [ %523, %528 ], [ %523, %551 ], [ %523, %536 ], [ %.pr178279, %506 ]
-  %.0.i138.ph.ph = phi i32 [ 1, %528 ], [ 1, %551 ], [ 1, %536 ], [ 0, %506 ]
+.thread283:                                       ; preds = %506, %528, %551, %536
+  %.ph282 = phi ptr [ %523, %536 ], [ %523, %551 ], [ %523, %528 ], [ %.pr178279, %506 ]
+  %.0.i138.ph.ph = phi i32 [ 1, %536 ], [ 1, %551 ], [ 1, %528 ], [ 0, %506 ]
   %558 = and i32 %.0.i138.ph.ph, %.0.i131.ph.ph280
   br label %561
 
@@ -4611,9 +4611,9 @@ bitwriter_grow_.exit.i143:                        ; preds = %592, %570, %561
   store i64 %623, ptr %627, align 8, !tbaa !16
   br label %.thread294
 
-.thread294:                                       ; preds = %598, %621, %606, %576
-  %.pr185.ph = phi ptr [ %563, %576 ], [ %593, %606 ], [ %593, %621 ], [ %593, %598 ]
-  %.0.i145.ph.ph.ph = phi i32 [ 0, %576 ], [ 1, %606 ], [ 1, %621 ], [ 1, %598 ]
+.thread294:                                       ; preds = %606, %621, %598, %576
+  %.pr185.ph = phi ptr [ %563, %576 ], [ %593, %598 ], [ %593, %621 ], [ %593, %606 ]
+  %.0.i145.ph.ph.ph = phi i32 [ 0, %576 ], [ 1, %598 ], [ 1, %621 ], [ 1, %606 ]
   %628 = and i32 %562, %.0.i145.ph.ph.ph
   br label %631
 
@@ -4724,8 +4724,8 @@ bitwriter_grow_.exit.i150:                        ; preds = %659, %637, %631
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit154
 
 FLAC__bitwriter_write_raw_uint32_nocheck.exit154: ; preds = %426, %493, %421, %559, %629, %643, %650, %665, %673, %688
-  %695 = phi i32 [ %632, %650 ], [ 0, %559 ], [ %632, %665 ], [ %632, %688 ], [ 0, %629 ], [ %632, %673 ], [ %632, %643 ], [ 0, %421 ], [ 0, %493 ], [ 0, %426 ]
-  %.0.i152 = phi i32 [ 0, %650 ], [ 0, %559 ], [ 1, %665 ], [ 1, %688 ], [ 0, %629 ], [ 1, %673 ], [ 0, %643 ], [ 0, %421 ], [ 0, %493 ], [ 0, %426 ]
+  %695 = phi i32 [ 0, %629 ], [ %632, %673 ], [ %632, %688 ], [ %632, %665 ], [ %632, %643 ], [ %632, %650 ], [ 0, %559 ], [ 0, %421 ], [ 0, %493 ], [ 0, %426 ]
+  %.0.i152 = phi i32 [ 0, %629 ], [ 1, %673 ], [ 1, %688 ], [ 1, %665 ], [ 0, %643 ], [ 0, %650 ], [ 0, %559 ], [ 0, %421 ], [ 0, %493 ], [ 0, %426 ]
   %696 = and i32 %.0.i152, %695
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
@@ -4831,7 +4831,7 @@ FLAC__bitwriter_write_raw_uint32_nocheck.exit154: ; preds = %426, %493, %421, %5
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
 FLAC__bitwriter_write_raw_uint32_nocheck.exit:    ; preds = %66, %52, %45, %30, %23, %8, %5, %FLAC__bitwriter_write_raw_uint32_nocheck.exit126, %699, %756, %726, %FLAC__bitwriter_write_raw_uint32_nocheck.exit154, %FLAC__bitwriter_write_raw_uint32_nocheck.exit105, %2
-  %.090 = phi i32 [ 0, %2 ], [ %787, %756 ], [ %210, %FLAC__bitwriter_write_raw_uint32_nocheck.exit105 ], [ %418, %FLAC__bitwriter_write_raw_uint32_nocheck.exit126 ], [ %696, %FLAC__bitwriter_write_raw_uint32_nocheck.exit154 ], [ %723, %699 ], [ %755, %726 ], [ 0, %30 ], [ 0, %5 ], [ 1, %45 ], [ 1, %66 ], [ 0, %8 ], [ 1, %52 ], [ 0, %23 ]
+  %.090 = phi i32 [ 0, %2 ], [ %210, %FLAC__bitwriter_write_raw_uint32_nocheck.exit105 ], [ %418, %FLAC__bitwriter_write_raw_uint32_nocheck.exit126 ], [ %696, %FLAC__bitwriter_write_raw_uint32_nocheck.exit154 ], [ %723, %699 ], [ %755, %726 ], [ %787, %756 ], [ 0, %8 ], [ 0, %5 ], [ 1, %52 ], [ 1, %66 ], [ 1, %45 ], [ 0, %23 ], [ 0, %30 ]
   ret i32 %.090
 }
 
@@ -4946,7 +4946,7 @@ bitwriter_grow_.exit.i.thread:                    ; preds = %5, %12, %bitwriter_
   br label %FLAC__bitwriter_write_zeroes.exit
 
 FLAC__bitwriter_write_zeroes.exit:                ; preds = %.thread5, %56, %bitwriter_grow_.exit.i.thread, %23, %16, %1
-  %.0 = phi i32 [ 1, %1 ], [ 0, %23 ], [ 1, %bitwriter_grow_.exit.i.thread ], [ 1, %56 ], [ 1, %.thread5 ], [ 0, %16 ]
+  %.0 = phi i32 [ 1, %1 ], [ 1, %bitwriter_grow_.exit.i.thread ], [ 1, %.thread5 ], [ 1, %56 ], [ 0, %16 ], [ 0, %23 ]
   ret i32 %.0
 }
 

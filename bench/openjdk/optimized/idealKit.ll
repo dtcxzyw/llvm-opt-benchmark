@@ -2370,7 +2370,7 @@ _ZN4Node7del_outEPS_.exit.i48:                    ; preds = %151, %139, %_ZN8Ide
   br label %_ZN4Node7set_reqEjPS_.exit52
 
 _ZN4Node7set_reqEjPS_.exit52:                     ; preds = %166, %_ZN4Node7del_outEPS_.exit.i48, %_ZN8IdealKit19was_promoted_to_phiEP4NodeS1_.exit
-  %.036 = phi ptr [ %50, %_ZN8IdealKit19was_promoted_to_phiEP4NodeS1_.exit ], [ %134, %166 ], [ %134, %_ZN4Node7del_outEPS_.exit.i48 ]
+  %.036 = phi ptr [ %50, %_ZN8IdealKit19was_promoted_to_phiEP4NodeS1_.exit ], [ %134, %_ZN4Node7del_outEPS_.exit.i48 ], [ %134, %166 ]
   %172 = getelementptr inbounds nuw i8, ptr %.036, i64 8
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %24
@@ -3067,7 +3067,7 @@ _ZN4Node7del_outEPS_.exit.i56:                    ; preds = %_ZN4Node7set_reqEjP
   %102 = load ptr, ptr %101, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %98, %100, %.split.us.i.i
+.loopexit:                                        ; preds = %98, %.split.us.i.i, %100
   %103 = phi ptr [ %88, %.split.us.i.i ], [ %88, %100 ], [ %76, %98 ]
   %.sroa.19.1.ph = phi ptr [ %92, %.split.us.i.i ], [ %102, %100 ], [ %92, %98 ]
   %.not52 = icmp eq ptr %103, %.sroa.19.1.ph
@@ -3289,7 +3289,7 @@ _ZN4Node7del_outEPS_.exit.i72:                    ; preds = %204, %192, %185
   br label %_ZN4Node7set_reqEjPS_.exit76
 
 _ZN4Node7set_reqEjPS_.exit76:                     ; preds = %219, %_ZN4Node7del_outEPS_.exit.i72, %180
-  %.0 = phi ptr [ %171, %180 ], [ %187, %219 ], [ %187, %_ZN4Node7del_outEPS_.exit.i72 ]
+  %.0 = phi ptr [ %171, %180 ], [ %187, %_ZN4Node7del_outEPS_.exit.i72 ], [ %187, %219 ]
   %225 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %226 = load ptr, ptr %225, align 8
   %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %.046.lcssa

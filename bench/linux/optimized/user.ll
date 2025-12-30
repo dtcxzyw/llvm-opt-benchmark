@@ -782,7 +782,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @snapshot_set_swap_area(ptr
   br label %53
 
 53:                                               ; preds = %.critedge2, %.critedge, %51, %48, %2
-  %54 = phi i32 [ %50, %48 ], [ 0, %51 ], [ -14, %.critedge2 ], [ -14, %.critedge ], [ -1, %2 ]
+  %54 = phi i32 [ %50, %48 ], [ 0, %51 ], [ -1, %2 ], [ -14, %.critedge ], [ -14, %.critedge2 ]
   ret i32 %54
 }
 

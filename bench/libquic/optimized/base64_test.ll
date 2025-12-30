@@ -199,7 +199,7 @@ _ZL10TestDecodev.exit.thread:                     ; preds = %64, %69, %74, %36, 
   br label %78
 
 78:                                               ; preds = %_ZL10TestDecodev.exit.thread, %_ZL10TestEncodev.exit, %77
-  %.0 = phi i32 [ 0, %77 ], [ 1, %_ZL10TestDecodev.exit.thread ], [ 1, %_ZL10TestEncodev.exit ]
+  %.0 = phi i32 [ 0, %77 ], [ 1, %_ZL10TestEncodev.exit ], [ 1, %_ZL10TestDecodev.exit.thread ]
   ret i32 %.0
 }
 

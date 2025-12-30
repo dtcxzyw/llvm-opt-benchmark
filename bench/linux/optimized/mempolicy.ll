@@ -794,7 +794,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_set_memp
   br i1 %91, label %41, label %.loopexit12, !llvm.loop !25
 
 .loopexit12:                                      ; preds = %90, %.loopexit10, %41, %.preheader, %65
-  %92 = phi i32 [ %67, %65 ], [ %42, %.preheader ], [ -95, %.loopexit10 ], [ %82, %90 ], [ %42, %41 ]
+  %92 = phi i32 [ %67, %65 ], [ %42, %.preheader ], [ %42, %41 ], [ %82, %90 ], [ -95, %.loopexit10 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #19
           to label %94 [label %93], !srcloc !14
 
@@ -1183,7 +1183,7 @@ select.unfold:                                    ; preds = %25, %22
   br label %181
 
 .thread49:                                        ; preds = %149, %137, %.thread33, %143, %164
-  %173 = phi ptr [ %138, %143 ], [ %80, %.thread33 ], [ %138, %164 ], [ %138, %137 ], [ %138, %149 ]
+  %173 = phi ptr [ %138, %164 ], [ %138, %143 ], [ %138, %137 ], [ %80, %.thread33 ], [ %138, %149 ]
   call fastcc void @mmap_write_unlock(ptr noundef %37)
   %174 = load volatile ptr, ptr %10, align 8
   %175 = icmp eq ptr %174, %10
@@ -1197,9 +1197,9 @@ select.unfold:                                    ; preds = %25, %22
   br label %181
 
 181:                                              ; preds = %.thread48, %176, %.thread49
-  %182 = phi ptr [ %80, %.thread48 ], [ %173, %.thread49 ], [ %173, %176 ]
-  %183 = phi i64 [ %.ph47, %.thread48 ], [ 0, %.thread49 ], [ 0, %176 ]
-  %184 = phi i64 [ %.ph46, %.thread48 ], [ %96, %.thread49 ], [ %180, %176 ]
+  %182 = phi ptr [ %173, %.thread49 ], [ %173, %176 ], [ %80, %.thread48 ]
+  %183 = phi i64 [ 0, %.thread49 ], [ 0, %176 ], [ %.ph47, %.thread48 ]
+  %184 = phi i64 [ %96, %.thread49 ], [ %180, %176 ], [ %.ph46, %.thread48 ]
   %185 = icmp eq i64 %184, 0
   %186 = and i64 %83, 1
   %187 = icmp eq i64 %186, 0
@@ -1247,7 +1247,7 @@ select.unfold:                                    ; preds = %25, %22
   br label %207
 
 207:                                              ; preds = %25, %6, %205, %30
-  %208 = phi i64 [ %206, %205 ], [ %31, %30 ], [ -22, %6 ], [ -22, %25 ]
+  %208 = phi i64 [ %31, %30 ], [ %206, %205 ], [ -22, %6 ], [ -22, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i64 %208
 }
@@ -1323,7 +1323,7 @@ select.unfold:                                    ; preds = %20, %17
   br label %30
 
 30:                                               ; preds = %20, %1, %27, %25
-  %31 = phi i64 [ %29, %27 ], [ %26, %25 ], [ -22, %1 ], [ -22, %20 ]
+  %31 = phi i64 [ %26, %25 ], [ %29, %27 ], [ -22, %1 ], [ -22, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %31
 }
@@ -1377,7 +1377,7 @@ select.unfold:                                    ; preds = %22, %19
   br label %32
 
 32:                                               ; preds = %22, %1, %29, %27
-  %33 = phi i64 [ %31, %29 ], [ %28, %27 ], [ -22, %1 ], [ -22, %22 ]
+  %33 = phi i64 [ %28, %27 ], [ %31, %29 ], [ -22, %1 ], [ -22, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %33
 }
@@ -2261,7 +2261,7 @@ define dso_local zeroext i1 @vma_policy_mof(ptr noundef %0) local_unnamed_addr #
   br label %.thread
 
 .thread:                                          ; preds = %10, %25, %21, %14
-  %27 = phi i1 [ %18, %14 ], [ %18, %25 ], [ %18, %21 ], [ false, %10 ]
+  %27 = phi i1 [ %18, %25 ], [ %18, %21 ], [ %18, %14 ], [ false, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %54
 
@@ -2459,7 +2459,7 @@ define dso_local i32 @mempolicy_slab_node() local_unnamed_addr #0 align 16 {
   unreachable
 
 .thread7:                                         ; preds = %.thread, %14, %18, %55, %46, %.thread14, %39, %11, %5, %0
-  %59 = phi i32 [ %44, %.thread14 ], [ %1, %0 ], [ %1, %5 ], [ %57, %55 ], [ %1, %46 ], [ %1, %11 ], [ 64, %39 ], [ %21, %18 ], [ 64, %14 ], [ 64, %.thread ]
+  %59 = phi i32 [ %1, %0 ], [ %1, %5 ], [ %57, %55 ], [ %1, %46 ], [ %1, %11 ], [ 64, %39 ], [ %44, %.thread14 ], [ %21, %18 ], [ 64, %14 ], [ 64, %.thread ]
   ret i32 %59
 }
 
@@ -3263,7 +3263,7 @@ define dso_local i64 @alloc_pages_bulk_array_mempolicy(i32 noundef %0, i64 nound
   br label %.thread15
 
 .thread15:                                        ; preds = %.thread, %.thread34, %68
-  %75 = phi i32 [ 64, %68 ], [ %73, %.thread34 ], [ 64, %.thread ]
+  %75 = phi i32 [ %73, %.thread34 ], [ 64, %68 ], [ 64, %.thread ]
   %76 = tail call i64 @__alloc_pages_bulk(i32 noundef %0, i32 noundef %75, ptr noundef null, i32 noundef %43, ptr noundef null, ptr noundef %51) #19
   %77 = add i32 %50, -1
   br label %98
@@ -3302,7 +3302,7 @@ define dso_local i64 @alloc_pages_bulk_array_mempolicy(i32 noundef %0, i64 nound
   br label %.thread18
 
 .thread18:                                        ; preds = %.thread17, %.thread35, %89
-  %96 = phi i32 [ 64, %89 ], [ %94, %.thread35 ], [ 64, %.thread17 ]
+  %96 = phi i32 [ %94, %.thread35 ], [ 64, %89 ], [ 64, %.thread17 ]
   %97 = tail call i64 @__alloc_pages_bulk(i32 noundef %0, i32 noundef %96, ptr noundef null, i32 noundef %42, ptr noundef null, ptr noundef %51) #19
   br label %98
 
@@ -3590,7 +3590,7 @@ define dso_local ptr @mpol_shared_policy_lookup(ptr noundef %0, i64 noundef %1) 
   br label %.thread7
 
 .thread7:                                         ; preds = %18, %.thread6, %33, %5
-  %34 = phi ptr [ null, %.thread6 ], [ null, %5 ], [ %.pre, %33 ], [ null, %18 ]
+  %34 = phi ptr [ null, %5 ], [ %.pre, %33 ], [ null, %.thread6 ], [ null, %18 ]
   tail call void @_raw_read_unlock(ptr noundef nonnull %6) #19
   br label %35
 
@@ -3844,7 +3844,7 @@ define dso_local i32 @mpol_misplaced(ptr noundef %0, ptr noundef %1, i64 noundef
   unreachable
 
 .loopexit:                                        ; preds = %115, %124, %127, %147, %136, %131, %99, %89
-  %158 = phi i32 [ %156, %147 ], [ -1, %136 ], [ %132, %131 ], [ 64, %124 ], [ %90, %89 ], [ %100, %99 ], [ %130, %127 ], [ %116, %115 ]
+  %158 = phi i32 [ %156, %147 ], [ -1, %136 ], [ %132, %131 ], [ %90, %89 ], [ %100, %99 ], [ %130, %127 ], [ 64, %124 ], [ %116, %115 ]
   %159 = load i16, ptr %75, align 2
   %160 = and i16 %159, 16
   %161 = icmp eq i16 %160, 0
@@ -4134,7 +4134,7 @@ mpol_set_nodemask.exit:                           ; preds = %51, %54
   call void @kmem_cache_free(ptr noundef %115, ptr noundef nonnull %32) #19
   br label %.thread
 
-.thread:                                          ; preds = %21, %18, %16, %14, %22, %114, %.thread16, %.thread15, %27
+.thread:                                          ; preds = %22, %21, %18, %16, %14, %114, %.thread16, %.thread15, %27
   %116 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %1, ptr nonnull elementtype(i32) %1) #19, !srcloc !13
   %117 = icmp ult i8 %116, 2
   call void @llvm.assume(i1 %117)
@@ -4302,7 +4302,7 @@ define dso_local range(i32 -12, 1) i32 @mpol_set_shared_policy(ptr noundef %0, p
   br i1 %57, label %.preheader, label %.thread24.preheader
 
 .thread24.preheader:                              ; preds = %46, %.preheader, %54, %33
-  %.ph163 = phi ptr [ %51, %.preheader ], [ null, %33 ], [ %51, %54 ], [ null, %46 ]
+  %.ph163 = phi ptr [ null, %33 ], [ %51, %54 ], [ %51, %.preheader ], [ null, %46 ]
   br label %.thread24
 
 .thread24:                                        ; preds = %.thread24.preheader, %123
@@ -4947,7 +4947,7 @@ mpol_set_nodemask.exit:                           ; preds = %58, %61
   br label %96
 
 96:                                               ; preds = %94, %90, %87, %79, %75, %.thread
-  %97 = phi i32 [ %36, %.thread ], [ 0, %94 ], [ %73, %75 ], [ %73, %79 ], [ 0, %87 ], [ 0, %90 ]
+  %97 = phi i32 [ %36, %.thread ], [ %73, %75 ], [ %73, %79 ], [ 0, %87 ], [ 0, %90 ], [ 0, %94 ]
   %98 = sext i32 %97 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %98
@@ -5281,9 +5281,9 @@ define dso_local void @mpol_to_str(ptr noundef %0, i32 noundef %1, ptr noundef r
   br label %54
 
 .thread:                                          ; preds = %3, %8, %16, %13, %13
-  %23 = phi i1 [ true, %13 ], [ %19, %16 ], [ true, %13 ], [ true, %8 ], [ true, %3 ]
-  %24 = phi i16 [ %15, %13 ], [ %15, %16 ], [ %15, %13 ], [ 0, %8 ], [ 0, %3 ]
-  %.shrunk = phi i16 [ %10, %13 ], [ %10, %16 ], [ %10, %13 ], [ 0, %8 ], [ 0, %3 ]
+  %23 = phi i1 [ %19, %16 ], [ true, %13 ], [ true, %13 ], [ true, %8 ], [ true, %3 ]
+  %24 = phi i16 [ %15, %16 ], [ %15, %13 ], [ %15, %13 ], [ 0, %8 ], [ 0, %3 ]
+  %.shrunk = phi i16 [ %10, %16 ], [ %10, %13 ], [ %10, %13 ], [ 0, %8 ], [ 0, %3 ]
   %25 = sext i32 %1 to i64
   %26 = zext nneg i16 %24 to i64
   %27 = getelementptr ptr, ptr @policy_modes, i64 %26

@@ -105,7 +105,7 @@ define dso_local zeroext i1 @preempt_p_preemptable(ptr noundef readonly captures
   br label %17
 
 17:                                               ; preds = %13, %2, %6
-  %.0 = phi i1 [ false, %2 ], [ %16, %13 ], [ false, %6 ]
+  %.0 = phi i1 [ false, %6 ], [ false, %2 ], [ %16, %13 ]
   ret i1 %.0
 }
 
@@ -153,7 +153,7 @@ define dso_local range(i32 -1, 1) i32 @preempt_p_get_data(ptr noundef readonly c
   br label %_job_preempt_mode.exit
 
 _job_preempt_mode.exit:                           ; preds = %8, %10, %13, %14, %17
-  %.0.in.in.i = phi ptr [ %11, %13 ], [ %11, %14 ], [ %11, %17 ], [ getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 796), %10 ], [ getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 796), %8 ]
+  %.0.in.in.i = phi ptr [ %11, %14 ], [ %11, %17 ], [ %11, %13 ], [ getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 796), %10 ], [ getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 796), %8 ]
   %.0.in.i = load i16, ptr %.0.in.in.i, align 2
   %.0.i = and i16 %.0.in.i, 32767
   store i16 %.0.i, ptr %2, align 2

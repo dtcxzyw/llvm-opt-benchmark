@@ -815,7 +815,7 @@ if.end21:                                         ; preds = %if.end8
   br label %return
 
 return:                                           ; preds = %entry, %if.end21, %_ZN6google8protobuf2io25CopyingInputStreamAdaptor10FreeBufferEv.exit, %if.then2
-  %retval.0 = phi i1 [ true, %if.end21 ], [ true, %if.then2 ], [ false, %_ZN6google8protobuf2io25CopyingInputStreamAdaptor10FreeBufferEv.exit ], [ false, %entry ]
+  %retval.0 = phi i1 [ true, %if.then2 ], [ false, %_ZN6google8protobuf2io25CopyingInputStreamAdaptor10FreeBufferEv.exit ], [ true, %if.end21 ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -1037,7 +1037,7 @@ if.end9:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %while.end, %if.end9, %if.then7
-  %retval.0 = phi i1 [ %cmp14, %if.end9 ], [ true, %if.then7 ], [ false, %while.end ]
+  %retval.0 = phi i1 [ true, %if.then7 ], [ %cmp14, %if.end9 ], [ false, %while.end ]
   ret i1 %retval.0
 }
 
@@ -1217,7 +1217,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i, %if.else, %if.end, %entry, %if.then6
-  %retval.0 = phi i1 [ true, %if.end ], [ false, %entry ], [ true, %if.then6 ], [ false, %if.else ], [ false, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i ]
+  %retval.0 = phi i1 [ true, %if.then6 ], [ false, %entry ], [ true, %if.end ], [ false, %if.else ], [ false, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i ]
   ret i1 %retval.0
 }
 
@@ -1289,7 +1289,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit
 
 _ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit: ; preds = %entry, %if.end.i, %if.then6.i, %if.else.i, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i
-  %retval.0.i = phi i1 [ true, %if.end.i ], [ false, %entry ], [ true, %if.then6.i ], [ false, %if.else.i ], [ false, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i ]
+  %retval.0.i = phi i1 [ true, %if.then6.i ], [ false, %entry ], [ true, %if.end.i ], [ false, %if.else.i ], [ false, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i ]
   ret i1 %retval.0.i
 }
 
@@ -1653,7 +1653,7 @@ if.end18:                                         ; preds = %if.end12
   br i1 %call10, label %if.end12, label %return, !llvm.loop !6
 
 return:                                           ; preds = %if.end18, %while.body7.preheader, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i, %if.else.i.i, %if.then, %lor.lhs.false, %if.then14, %while.end
-  %retval.0 = phi i1 [ true, %while.end ], [ false, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i ], [ true, %if.then14 ], [ false, %lor.lhs.false ], [ false, %if.then ], [ false, %if.else.i.i ], [ false, %while.body7.preheader ], [ false, %if.end18 ]
+  %retval.0 = phi i1 [ true, %while.end ], [ true, %if.then14 ], [ false, %lor.lhs.false ], [ false, %if.then ], [ false, %if.else.i.i ], [ false, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i ], [ false, %while.body7.preheader ], [ false, %if.end18 ]
   ret i1 %retval.0
 }
 
@@ -2598,7 +2598,7 @@ _ZN6google8protobuf2io15CordInputStream13LoadChunkDataEv.exit.i25: ; preds = %_Z
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf2io15CordInputStream13LoadChunkDataEv.exit.i25, %if.end11, %_ZN6google8protobuf2io15CordInputStream13LoadChunkDataEv.exit.i, %if.then9, %if.then
-  %retval.0 = phi i1 [ true, %if.then ], [ true, %_ZN6google8protobuf2io15CordInputStream13LoadChunkDataEv.exit.i ], [ true, %if.then9 ], [ false, %if.end11 ], [ false, %_ZN6google8protobuf2io15CordInputStream13LoadChunkDataEv.exit.i25 ]
+  %retval.0 = phi i1 [ true, %if.then ], [ true, %if.then9 ], [ true, %_ZN6google8protobuf2io15CordInputStream13LoadChunkDataEv.exit.i ], [ false, %if.end11 ], [ false, %_ZN6google8protobuf2io15CordInputStream13LoadChunkDataEv.exit.i25 ]
   ret i1 %retval.0
 }
 
@@ -3237,7 +3237,7 @@ if.else.i56:                                      ; preds = %if.else25
   br label %if.end31
 
 if.end31:                                         ; preds = %if.else.i56, %if.then.i51, %if.else.i47, %if.then.i45
-  %storemerge = phi i32 [ 2, %if.else.i47 ], [ 2, %if.then.i45 ], [ 1, %if.then.i51 ], [ 1, %if.else.i56 ]
+  %storemerge = phi i32 [ 2, %if.then.i45 ], [ 2, %if.else.i47 ], [ 1, %if.then.i51 ], [ 1, %if.else.i56 ]
   store i32 %storemerge, ptr %state_, align 8
   ret i1 true
 }

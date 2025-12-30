@@ -1326,10 +1326,10 @@ put_bits.exit.i324:                               ; preds = %388, %382, %377
   br label %bit_copy.exit327
 
 bit_copy.exit327:                                 ; preds = %dv_decode_ac.exit311, %._crit_edge.i314, %417, %404, %._crit_edge
-  %.sroa.29.1.idx = phi i64 [ %.sroa.29.0.idx519, %._crit_edge ], [ %.sroa.29.3.idx, %417 ], [ %.sroa.29.2.idx, %._crit_edge.i314 ], [ %.sroa.29.2.idx, %404 ], [ %.sroa.29.0.idx519, %dv_decode_ac.exit311 ]
-  %.sroa.15396.1 = phi i32 [ %.sroa.15396.0520, %._crit_edge ], [ %418, %417 ], [ %.sroa.15396.2, %._crit_edge.i314 ], [ %407, %404 ], [ %.sroa.15396.0520, %dv_decode_ac.exit311 ]
-  %.sroa.0390.1 = phi i32 [ %.sroa.0390.0521, %._crit_edge ], [ %402, %417 ], [ %.sroa.0390.2, %._crit_edge.i314 ], [ %406, %404 ], [ %.sroa.0390.0521, %dv_decode_ac.exit311 ]
-  %.6 = phi i32 [ %.4.lcssa, %._crit_edge ], [ %.7.lcssa, %417 ], [ %.7.lcssa, %._crit_edge.i314 ], [ %.7.lcssa, %404 ], [ %.7513, %dv_decode_ac.exit311 ]
+  %.sroa.29.1.idx = phi i64 [ %.sroa.29.0.idx519, %._crit_edge ], [ %.sroa.29.2.idx, %._crit_edge.i314 ], [ %.sroa.29.2.idx, %404 ], [ %.sroa.29.3.idx, %417 ], [ %.sroa.29.0.idx519, %dv_decode_ac.exit311 ]
+  %.sroa.15396.1 = phi i32 [ %.sroa.15396.0520, %._crit_edge ], [ %.sroa.15396.2, %._crit_edge.i314 ], [ %407, %404 ], [ %418, %417 ], [ %.sroa.15396.0520, %dv_decode_ac.exit311 ]
+  %.sroa.0390.1 = phi i32 [ %.sroa.0390.0521, %._crit_edge ], [ %.sroa.0390.2, %._crit_edge.i314 ], [ %406, %404 ], [ %402, %417 ], [ %.sroa.0390.0521, %dv_decode_ac.exit311 ]
+  %.6 = phi i32 [ %.4.lcssa, %._crit_edge ], [ %.7.lcssa, %._crit_edge.i314 ], [ %.7.lcssa, %404 ], [ %.7.lcssa, %417 ], [ %.7513, %dv_decode_ac.exit311 ]
   %indvars.iv.next599 = add nuw nsw i64 %indvars.iv598, 1
   %419 = load ptr, ptr %11, align 8, !tbaa !42
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 60

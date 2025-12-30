@@ -1837,7 +1837,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   unreachable
 
 .body.i.i.i.i:                                    ; preds = %94, %.body.i.i.i.i.i.i.i, %62, %59
-  %eh.lpad-body.i.i.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i.i.i, %94 ], [ %60, %59 ], [ %60, %62 ], [ %eh.lpad-body.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i.i.i = phi { ptr, i32 } [ %60, %62 ], [ %60, %59 ], [ %eh.lpad-body.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i.i.i, %94 ]
   call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef 64) #20, !noalias !91
   br label %.body10.i.i.i
 
@@ -2893,7 +2893,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   unreachable
 
 .body.i.i.i:                                      ; preds = %57, %.body.i.i.i.i, %22, %19
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %57 ], [ %20, %19 ], [ %20, %22 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %20, %22 ], [ %20, %19 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %eh.lpad-body.i.i.i.i, %57 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 64) #20
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 

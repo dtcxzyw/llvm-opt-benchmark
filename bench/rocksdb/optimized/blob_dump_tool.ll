@@ -1272,7 +1272,7 @@ _ZN7rocksdb6StatusC2EOS0_.exit68:                 ; preds = %304, %306, %387, %3
   br label %_ZN7rocksdb6StatusC2EOS0_.exit53
 
 388:                                              ; preds = %368, %343, %320
-  %.pn24.pn = phi { ptr, i32 } [ %369, %368 ], [ %321, %320 ], [ %344, %343 ]
+  %.pn24.pn = phi { ptr, i32 } [ %369, %368 ], [ %344, %343 ], [ %321, %320 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -1295,7 +1295,7 @@ _ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exi
   br label %_ZN7rocksdb6StatusC2EOS0_.exit43
 
 393:                                              ; preds = %318, %388, %223, %221, %204, %203
-  %.pn27 = phi { ptr, i32 } [ %224, %223 ], [ %.pn24.pn, %388 ], [ %319, %318 ], [ %.pn, %203 ], [ %205, %204 ], [ %222, %221 ]
+  %.pn27 = phi { ptr, i32 } [ %224, %223 ], [ %.pn24.pn, %388 ], [ %319, %318 ], [ %205, %204 ], [ %222, %221 ], [ %.pn, %203 ]
   %394 = load ptr, ptr %14, align 8, !tbaa !81
   %.not.i86 = icmp eq ptr %394, null
   br i1 %.not.i86, label %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit88, label %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i87
@@ -3488,7 +3488,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %33
   br label %339
 
 339:                                              ; preds = %113, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131, %67
-  %.pn69.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %114, %113 ], [ %.pn69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131 ]
+  %.pn69.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %.pn69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131 ], [ %114, %113 ]
   call void @_ZN7rocksdb13BlobLogRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %15) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3514,7 +3514,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i134: ; preds = %_ZNKSt14
   br i1 %.not.i1.i135, label %.critedge.sink.split, label %.critedge.sink.split.sink.split
 
 .critedge.sink.split.sink.split:                  ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i134, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i125, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i
-  %.sink = phi ptr [ %333, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i125 ], [ %296, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i ], [ %345, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i134 ]
+  %.sink = phi ptr [ %296, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i ], [ %333, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i125 ], [ %345, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i134 ]
   call void @_ZdaPv(ptr noundef nonnull %.sink) #21
   br label %.critedge.sink.split
 
@@ -3914,7 +3914,7 @@ define linkonce_odr void @_ZN7rocksdb7blob_db12BlobDumpTool9GetStringImEENSt7__c
   br i1 %31, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !208
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %28, %26, %22, %18, %15
-  %.0.i.i = phi i32 [ %27, %26 ], [ %19, %18 ], [ %23, %22 ], [ 1, %15 ], [ %30, %28 ]
+  %.0.i.i = phi i32 [ %19, %18 ], [ %23, %22 ], [ %27, %26 ], [ 1, %15 ], [ %30, %28 ]
   %32 = zext i32 %.0.i.i to i64
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %33, ptr %8, align 8, !tbaa !105, !alias.scope !205
@@ -4098,7 +4098,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   br i1 %114, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i26, label %.lr.ph.i.i23, !llvm.loop !208
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i26:  ; preds = %111, %109, %105, %101, %95
-  %.0.i.i27 = phi i32 [ %110, %109 ], [ %102, %101 ], [ %106, %105 ], [ 1, %95 ], [ %113, %111 ]
+  %.0.i.i27 = phi i32 [ %102, %101 ], [ %106, %105 ], [ %110, %109 ], [ 1, %95 ], [ %113, %111 ]
   %115 = zext i32 %.0.i.i27 to i64
   %116 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %116, ptr %9, align 8, !tbaa !105, !alias.scope !216
@@ -5361,7 +5361,7 @@ define linkonce_odr void @_ZN7rocksdb25FSRandomAccessFileWrapper9ReadAsyncERNS_1
   unreachable
 
 common.resume:                                    ; preds = %44, %41, %23, %26
-  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %26 ], [ %42, %41 ], [ %42, %44 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %26 ], [ %24, %23 ], [ %42, %41 ], [ %42, %44 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvRN7rocksdb13FSReadRequestEPvEEC2ERKS5_.exit: ; preds = %9, %19

@@ -773,7 +773,7 @@ define dso_local i32 @GetSafeSnapshotBlockingPids(i32 noundef %0, ptr noundef wr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %.lr.ph46, %.loopexit.loopexit.split.loop.exit62, %3, %21, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %3 ], [ 0, %21 ], [ %smax, %.lr.ph46 ], [ %34, %.loopexit.loopexit.split.loop.exit62 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %21 ], [ 0, %3 ], [ %34, %.loopexit.loopexit.split.loop.exit62 ], [ %smax, %.lr.ph46 ], [ 0, %14 ]
   %35 = load ptr, ptr @MainLWLockArray, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 3584
   tail call void @LWLockRelease(ptr noundef nonnull %36) #11
@@ -889,7 +889,7 @@ define dso_local ptr @GetSerializableTransactionSnapshot(ptr noundef %0) local_u
   br i1 %62, label %GetSafeSnapshot.exit, label %.lr.ph9.i
 
 GetSafeSnapshot.exit:                             ; preds = %59, %9, %53
-  %.0 = phi ptr [ %14, %9 ], [ %17, %53 ], [ %60, %59 ]
+  %.0 = phi ptr [ %17, %53 ], [ %14, %9 ], [ %60, %59 ]
   ret ptr %.0
 }
 
@@ -1685,7 +1685,7 @@ SerializationNeededForRead.exit:                  ; preds = %13
   call fastcc void @PredicateLockAcquire(ptr noundef %3)
   br label %SerializationNeededForRead.exit.thread
 
-SerializationNeededForRead.exit.thread:           ; preds = %13, %6, %12, %2, %SerializationNeededForRead.exit, %21
+SerializationNeededForRead.exit.thread:           ; preds = %13, %6, %2, %12, %SerializationNeededForRead.exit, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1870,7 +1870,7 @@ CoarserLockCovers.exit.thread:                    ; preds = %27
   br label %MaxPredicateChildLocks.exit
 
 MaxPredicateChildLocks.exit:                      ; preds = %66, %69, %72, %77
-  %.0.i17 = phi i32 [ %70, %69 ], [ %78, %77 ], [ %76, %72 ], [ 0, %66 ]
+  %.0.i17 = phi i32 [ %78, %77 ], [ %76, %72 ], [ %70, %69 ], [ 0, %66 ]
   %79 = icmp sgt i32 %67, %.0.i17
   br i1 %79, label %80, label %46, !llvm.loop !18
 
@@ -2098,7 +2098,7 @@ SerializationNeededForRead.exit:                  ; preds = %14
   call fastcc void @PredicateLockAcquire(ptr noundef %4)
   br label %SerializationNeededForRead.exit.thread
 
-SerializationNeededForRead.exit.thread:           ; preds = %14, %7, %13, %3, %SerializationNeededForRead.exit, %22
+SerializationNeededForRead.exit.thread:           ; preds = %14, %7, %3, %13, %SerializationNeededForRead.exit, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -2199,7 +2199,7 @@ PredicateLockExists.exit.thread:                  ; preds = %29, %PredicateLockE
   call fastcc void @PredicateLockAcquire(ptr noundef %5)
   br label %SerializationNeededForRead.exit.thread
 
-SerializationNeededForRead.exit.thread:           ; preds = %15, %8, %14, %4, %PredicateLockExists.exit, %27, %SerializationNeededForRead.exit, %PredicateLockExists.exit.thread
+SerializationNeededForRead.exit.thread:           ; preds = %15, %8, %4, %14, %PredicateLockExists.exit, %27, %SerializationNeededForRead.exit, %PredicateLockExists.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -2459,8 +2459,8 @@ dlist_push_tail.exit75.i:                         ; preds = %116, %dlist_push_ta
   br label %129
 
 129:                                              ; preds = %._crit_edge.i, %59, %53, %49
-  %.160.i = phi i32 [ %.05984.i, %53 ], [ %.05984.i, %49 ], [ %.261.i, %._crit_edge.i ], [ %.05984.i, %59 ]
-  %.1.i = phi ptr [ %.085.i, %53 ], [ %.085.i, %49 ], [ %.2.i, %._crit_edge.i ], [ %.085.i, %59 ]
+  %.160.i = phi i32 [ %.261.i, %._crit_edge.i ], [ %.05984.i, %49 ], [ %.05984.i, %53 ], [ %.05984.i, %59 ]
+  %.1.i = phi ptr [ %.2.i, %._crit_edge.i ], [ %.085.i, %49 ], [ %.085.i, %53 ], [ %.085.i, %59 ]
   %130 = call ptr @hash_seq_search(ptr noundef nonnull %4) #11
   %.not67.i = icmp eq ptr %130, null
   br i1 %.not67.i, label %._crit_edge88.i, label %49
@@ -2850,12 +2850,12 @@ DeleteLockTarget.exit:                            ; preds = %dlist_push_tail.exi
   br label %RemoveTargetIfNoLongerUsed.exit
 
 RemoveTargetIfNoLongerUsed.exit:                  ; preds = %._crit_edge.i, %132, %168, %164, %._crit_edge, %50
-  %171 = phi i1 [ true, %168 ], [ false, %50 ], [ true, %._crit_edge ], [ true, %164 ], [ false, %132 ], [ false, %._crit_edge.i ]
+  %171 = phi i1 [ false, %50 ], [ true, %._crit_edge ], [ true, %164 ], [ true, %168 ], [ false, %132 ], [ false, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %172
 
 172:                                              ; preds = %RemoveTargetIfNoLongerUsed.exit, %47
-  %.3 = phi i1 [ true, %47 ], [ %171, %RemoveTargetIfNoLongerUsed.exit ]
+  %.3 = phi i1 [ %171, %RemoveTargetIfNoLongerUsed.exit ], [ true, %47 ]
   br i1 %36, label %.sink.split, label %173
 
 173:                                              ; preds = %172
@@ -4423,8 +4423,8 @@ SerializationNeededForRead.exit:                  ; preds = %12
   tail call void @errfinish(ptr noundef nonnull @.str.10, i32 noundef 3993, ptr noundef nonnull @__func__.CheckForSerializableConflictOutNeeded) #11
   unreachable
 
-SerializationNeededForRead.exit.thread:           ; preds = %12, %5, %11, %2, %20, %SerializationNeededForRead.exit
-  %.0.i4 = phi i1 [ false, %SerializationNeededForRead.exit ], [ true, %20 ], [ false, %2 ], [ false, %11 ], [ false, %5 ], [ false, %12 ]
+SerializationNeededForRead.exit.thread:           ; preds = %12, %5, %2, %11, %20, %SerializationNeededForRead.exit
+  %.0.i4 = phi i1 [ true, %20 ], [ false, %SerializationNeededForRead.exit ], [ false, %11 ], [ false, %2 ], [ false, %5 ], [ false, %12 ]
   ret i1 %.0.i4
 }
 
@@ -4724,7 +4724,7 @@ SerialGetMinConflictCommitSeqNo.exit.thread:      ; preds = %50, %52, %39, %Seri
   call void @LWLockRelease(ptr noundef nonnull %166) #11
   br label %SerializationNeededForRead.exit.thread
 
-SerializationNeededForRead.exit.thread:           ; preds = %14, %7, %13, %3, %30, %SerializationNeededForRead.exit, %164, %161, %155, %150, %125, %118, %SerialGetMinConflictCommitSeqNo.exit.thread
+SerializationNeededForRead.exit.thread:           ; preds = %14, %7, %3, %13, %30, %SerializationNeededForRead.exit, %164, %161, %155, %150, %125, %118, %SerialGetMinConflictCommitSeqNo.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -4833,7 +4833,7 @@ define internal fastcc zeroext i1 @XidIsConcurrent(i32 noundef %0) unnamed_addr 
   br label %pg_lfind32.exit
 
 pg_lfind32.exit:                                  ; preds = %.preheader.i, %.lr.ph.i.i, %41, %20, %6, %1
-  %.0 = phi i1 [ true, %6 ], [ false, %1 ], [ %23, %.lr.ph.i.i ], [ %59, %41 ], [ false, %20 ], [ true, %.preheader.i ]
+  %.0 = phi i1 [ false, %1 ], [ true, %6 ], [ %59, %41 ], [ false, %20 ], [ %23, %.lr.ph.i.i ], [ true, %.preheader.i ]
   ret i1 %.0
 }
 
@@ -4884,7 +4884,7 @@ define internal fastcc noundef zeroext i1 @RWConflictExists(ptr noundef readonly
   br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %2, %6, %10, %16
-  %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %16 ], [ false, %10 ], [ %.not18, %24 ], [ %.not18, %.lr.ph ]
+  %.0 = phi i1 [ false, %16 ], [ false, %10 ], [ false, %6 ], [ false, %2 ], [ %.not18, %24 ], [ %.not18, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -5116,7 +5116,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   br label %OnConflict_CheckForSerializationFailure.exit
 
 OnConflict_CheckForSerializationFailure.exit:     ; preds = %85, %.critedge.i, %56, %62, %110
-  %112 = phi i32 [ %111, %110 ], [ %.fr.i, %.critedge.i ], [ %.fr.i, %56 ], [ %.fr.i, %62 ], [ %.fr.i, %85 ]
+  %112 = phi i32 [ %.fr.i, %.critedge.i ], [ %.fr.i, %56 ], [ %.fr.i, %62 ], [ %111, %110 ], [ %.fr.i, %85 ]
   %113 = load ptr, ptr @OldCommittedSxact, align 8
   %114 = icmp eq ptr %0, %113
   br i1 %114, label %115, label %117
@@ -5449,7 +5449,7 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
   %.not17.i = icmp eq ptr %71, %56
   br i1 %.not17.i, label %.loopexit71, label %.lr.ph.i, !llvm.loop !39
 
-.loopexit71:                                      ; preds = %69, %47, %51, %61, %55
+.loopexit71:                                      ; preds = %69, %61, %55, %51, %47
   %72 = load ptr, ptr @MainLWLockArray, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 3584
   tail call void @LWLockRelease(ptr noundef nonnull %73) #11
@@ -5524,7 +5524,7 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
   %.not17.i66 = icmp eq ptr %112, %97
   br i1 %.not17.i66, label %.loopexit, label %.lr.ph.i63, !llvm.loop !39
 
-.loopexit:                                        ; preds = %110, %88, %92, %102, %96
+.loopexit:                                        ; preds = %110, %102, %96, %92, %88
   tail call fastcc void @FlagRWConflict(ptr noundef %25, ptr noundef %90)
   br label %RWConflictExists.exit67
 
@@ -5538,7 +5538,7 @@ RWConflictExists.exit67:                          ; preds = %.lr.ph.i63, %.loope
   br label %RWConflictExists.exit
 
 RWConflictExists.exit:                            ; preds = %.lr.ph.i, %34, %40, %RWConflictExists.exit67, %28, %30, %33
-  %.1 = phi ptr [ %.04376, %28 ], [ %23, %33 ], [ %.04376, %30 ], [ %.04376, %34 ], [ %.04376, %40 ], [ %.04376, %RWConflictExists.exit67 ], [ %.04376, %.lr.ph.i ]
+  %.1 = phi ptr [ %.04376, %28 ], [ %23, %33 ], [ %.04376, %30 ], [ %.04376, %34 ], [ %.04376, %RWConflictExists.exit67 ], [ %.04376, %40 ], [ %.04376, %.lr.ph.i ]
   %.not49 = icmp eq ptr %.sroa.8.077, %18
   br i1 %.not49, label %._crit_edge, label %22, !llvm.loop !42
 
@@ -5782,13 +5782,13 @@ SerializationNeededForWrite.exit:                 ; preds = %8
   %.not17.i = icmp eq ptr %69, %54
   br i1 %.not17.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !39
 
-.loopexit:                                        ; preds = %67, %45, %49, %59, %53
+.loopexit:                                        ; preds = %67, %59, %53, %49, %45
   call fastcc void @FlagRWConflict(ptr noundef %44, ptr noundef %42)
   %.pre = load ptr, ptr @MySerializableXact, align 8
   br label %RWConflictExists.exit
 
 RWConflictExists.exit:                            ; preds = %.lr.ph.i, %.loopexit, %.lr.ph
-  %70 = phi ptr [ %42, %.lr.ph ], [ %.pre, %.loopexit ], [ %42, %.lr.ph.i ]
+  %70 = phi ptr [ %.pre, %.loopexit ], [ %42, %.lr.ph ], [ %42, %.lr.ph.i ]
   %.not30 = icmp eq ptr %.sroa.8.043, %39
   br i1 %.not30, label %.loopexit37, label %.lr.ph, !llvm.loop !45
 

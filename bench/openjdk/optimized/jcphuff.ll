@@ -362,7 +362,7 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr noundef rea
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %34, %51, %._crit_edge
-  %.056.lcssa75 = phi i32 [ %48, %._crit_edge ], [ %48, %51 ], [ 0, %34 ]
+  %.056.lcssa75 = phi i32 [ %48, %51 ], [ %48, %._crit_edge ], [ 0, %34 ]
   %56 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %57 = load i32, ptr %56, align 4
   %58 = load i32, ptr %31, align 8
@@ -2001,9 +2001,9 @@ emit_buffered_bits.exit110:                       ; preds = %emit_bits.exit174, 
   br label %._crit_edge205
 
 ._crit_edge205:                                   ; preds = %._crit_edge.thread, %._crit_edge205.loopexit
-  %587 = phi ptr [ %31, %._crit_edge.thread ], [ %46, %._crit_edge205.loopexit ]
-  %.083.lcssa = phi i32 [ 0, %._crit_edge.thread ], [ %.184, %._crit_edge205.loopexit ]
-  %.080.lcssa = phi i1 [ false, %._crit_edge.thread ], [ %586, %._crit_edge205.loopexit ]
+  %587 = phi ptr [ %46, %._crit_edge205.loopexit ], [ %31, %._crit_edge.thread ]
+  %.083.lcssa = phi i32 [ %.184, %._crit_edge205.loopexit ], [ 0, %._crit_edge.thread ]
+  %.080.lcssa = phi i1 [ %586, %._crit_edge205.loopexit ], [ false, %._crit_edge.thread ]
   %588 = icmp ne i32 %.083.lcssa, 0
   %or.cond = select i1 %.080.lcssa, i1 true, i1 %588
   br i1 %or.cond, label %589, label %598

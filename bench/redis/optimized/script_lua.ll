@@ -395,7 +395,7 @@ define dso_local void @freeLuaRedisArgv(ptr noundef %0, i32 noundef %1, i32 noun
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %22, %26, %30, %34
-  %.0.i = phi i64 [ %36, %34 ], [ %33, %30 ], [ %25, %22 ], [ %29, %26 ]
+  %.0.i = phi i64 [ %25, %22 ], [ %29, %26 ], [ %33, %30 ], [ %36, %34 ]
   %37 = icmp ult i64 %.0.i, 65
   br i1 %37, label %sdslen.exit.thread, label %64
 
@@ -452,7 +452,7 @@ sdslen.exit.thread:                               ; preds = %16, %sdslen.exit
   br label %sdsalloc.exit
 
 sdsalloc.exit:                                    ; preds = %41, %45, %48, %52, %56, %60
-  %.0.i24 = phi i64 [ %62, %60 ], [ %47, %45 ], [ %51, %48 ], [ %55, %52 ], [ %59, %56 ], [ 0, %41 ]
+  %.0.i24 = phi i64 [ %47, %45 ], [ %51, %48 ], [ %55, %52 ], [ %59, %56 ], [ %62, %60 ], [ 0, %41 ]
   %63 = getelementptr inbounds nuw i64, ptr @lua_args_cached_objects_len, i64 %indvars.iv
   store i64 %.0.i24, ptr %63, align 8, !tbaa !20
   br label %65
@@ -527,7 +527,7 @@ define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %0) unnam
   br label %24
 
 24:                                               ; preds = %1, %21, %17, %13, %9, %6
-  %.0 = phi i64 [ %23, %21 ], [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ 0, %1 ]
+  %.0 = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -894,7 +894,7 @@ define internal i32 @luaLogCommand(ptr noundef %0) #0 {
   br label %34
 
 34:                                               ; preds = %20, %._crit_edge, %17, %11, %5
-  %.0 = phi i32 [ %7, %5 ], [ %19, %17 ], [ %13, %11 ], [ 0, %._crit_edge ], [ 0, %20 ]
+  %.0 = phi i32 [ %7, %5 ], [ %19, %17 ], [ 0, %._crit_edge ], [ %13, %11 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -1561,7 +1561,7 @@ luaSaveOnRegistry.exit:
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %44, %40, %36, %32, %29, %.lr.ph.i
-  %.0.i.i = phi i64 [ %46, %44 ], [ %31, %29 ], [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ 0, %.lr.ph.i ]
+  %.0.i.i = phi i64 [ %31, %29 ], [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ %46, %44 ], [ 0, %.lr.ph.i ]
   tail call void @lua_pushlstring(ptr noundef %1, ptr noundef nonnull %24, i64 noundef %.0.i.i) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %47 = trunc nuw nsw i64 %indvars.iv.next.i to i32
@@ -1639,7 +1639,7 @@ luaCreateArray.exit:                              ; preds = %sdslen.exit.i, %18
   br label %sdslen.exit.i62
 
 sdslen.exit.i62:                                  ; preds = %78, %74, %70, %66, %63, %.lr.ph.i60
-  %.0.i.i63 = phi i64 [ %80, %78 ], [ %65, %63 ], [ %69, %66 ], [ %73, %70 ], [ %77, %74 ], [ 0, %.lr.ph.i60 ]
+  %.0.i.i63 = phi i64 [ %65, %63 ], [ %69, %66 ], [ %73, %70 ], [ %77, %74 ], [ %80, %78 ], [ 0, %.lr.ph.i60 ]
   tail call void @lua_pushlstring(ptr noundef %1, ptr noundef nonnull %58, i64 noundef %.0.i.i63) #11
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i61, 1
   %81 = trunc nuw nsw i64 %indvars.iv.next.i64 to i32
@@ -1991,7 +1991,7 @@ luaErrorInformationDiscard.exit:                  ; preds = %43, %46
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %50, %58, %61, %65, %69, %73
-  %.0.i = phi i64 [ %75, %73 ], [ %60, %58 ], [ %64, %61 ], [ %68, %65 ], [ %72, %69 ], [ 0, %50 ]
+  %.0.i = phi i64 [ %60, %58 ], [ %64, %61 ], [ %68, %65 ], [ %72, %69 ], [ %75, %73 ], [ 0, %50 ]
   tail call void @addReplyStatusLength(ptr noundef %0, ptr noundef nonnull %52, i64 noundef %.0.i) #11
   tail call void @sdsfree(ptr noundef nonnull %52) #11
   tail call void @lua_settop(ptr noundef %2, i32 noundef -3) #11
@@ -2493,7 +2493,7 @@ define internal fastcc i32 @luaRedisGenericCommand(ptr noundef %0, i32 noundef r
   br label %111
 
 111:                                              ; preds = %102, %16, %15, %109, %24
-  %.0 = phi i32 [ 1, %15 ], [ 1, %24 ], [ %110, %109 ], [ %17, %16 ], [ 1, %102 ]
+  %.0 = phi i32 [ 1, %24 ], [ %110, %109 ], [ %17, %16 ], [ 1, %15 ], [ 1, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

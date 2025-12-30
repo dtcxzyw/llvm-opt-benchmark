@@ -65,7 +65,7 @@ define ptr @BIO_new_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %11, %12, %18, %16
-  %.013 = phi ptr [ %14, %18 ], [ null, %16 ], [ null, %12 ], [ null, %11 ]
+  %.013 = phi ptr [ null, %16 ], [ %14, %18 ], [ null, %12 ], [ null, %11 ]
   ret ptr %.013
 }
 
@@ -179,7 +179,7 @@ define internal noundef i32 @file_read(ptr noundef readonly captures(none) %0, p
   br label %21
 
 21:                                               ; preds = %8, %15, %18, %3
-  %.0 = phi i32 [ -1, %18 ], [ 0, %3 ], [ 0, %15 ], [ %13, %8 ]
+  %.0 = phi i32 [ -1, %18 ], [ 0, %15 ], [ %13, %8 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -355,7 +355,7 @@ file_free.exit57:                                 ; preds = %28, %37
   br label %74
 
 49:                                               ; preds = %45, %43, %41
-  %.str.7.sink = phi ptr [ %.str.6..str.5, %41 ], [ %.str.8.mux, %45 ], [ @.str.7, %43 ]
+  %.str.7.sink = phi ptr [ %.str.6..str.5, %41 ], [ @.str.7, %43 ], [ %.str.8.mux, %45 ]
   %50 = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %5, ptr noundef nonnull %.str.7.sink, i64 noundef 4) #10
   %51 = call ptr @openssl_fopen(ptr noundef %3, ptr noundef nonnull %5) #10
   %52 = icmp eq ptr %51, null
@@ -419,7 +419,7 @@ file_free.exit57:                                 ; preds = %28, %37
   br label %74
 
 74:                                               ; preds = %4, %67, %70, %58, %59, %14, %11, %8, %73, %64, %60, %56, %53, %48, %file_free.exit
-  %.0 = phi i64 [ 0, %73 ], [ 1, %64 ], [ %10, %8 ], [ 1, %67 ], [ %13, %11 ], [ 0, %70 ], [ %15, %14 ], [ 1, %file_free.exit ], [ 0, %53 ], [ 1, %56 ], [ 0, %48 ], [ 1, %59 ], [ 1, %58 ], [ %63, %60 ], [ 1, %4 ]
+  %.0 = phi i64 [ 0, %73 ], [ %10, %8 ], [ %13, %11 ], [ %15, %14 ], [ 1, %file_free.exit ], [ 0, %53 ], [ 1, %56 ], [ 0, %48 ], [ 1, %59 ], [ 1, %58 ], [ %63, %60 ], [ 1, %64 ], [ 0, %70 ], [ 1, %67 ], [ 1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }

@@ -463,7 +463,7 @@ define internal noundef i32 @get_priority(ptr noundef %0, ptr noundef %1, ptr no
   br label %17
 
 17:                                               ; preds = %6, %16, %15, %14, %13, %12, %11
-  %.0 = phi i32 [ 0, %16 ], [ 7, %15 ], [ 2, %11 ], [ 3, %12 ], [ 5, %13 ], [ 6, %14 ], [ 4, %6 ]
+  %.0 = phi i32 [ 0, %16 ], [ 2, %11 ], [ 3, %12 ], [ 5, %13 ], [ 6, %14 ], [ 7, %15 ], [ 4, %6 ]
   %18 = ptrtoint ptr %9 to i64
   %19 = ptrtoint ptr %0 to i64
   %20 = sub i64 %18, %19

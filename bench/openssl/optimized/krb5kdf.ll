@@ -31,7 +31,7 @@ define internal noalias ptr @krb5kdf_new(ptr noundef %0) #0 {
   br label %7
 
 7:                                                ; preds = %3, %1, %6
-  %.0 = phi ptr [ null, %1 ], [ %4, %6 ], [ null, %3 ]
+  %.0 = phi ptr [ %4, %6 ], [ null, %1 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -515,13 +515,13 @@ fixup_des3_key.exit.thread.i:                     ; preds = %fixup_des3_key.exit
   br label %cipher_init.exit.thread.i
 
 cipher_init.exit.thread.i:                        ; preds = %fixup_des3_key.exit.thread.i, %fixup_des3_key.exit.i, %._crit_edge.i, %.thread.i, %59, %55, %cipher_init.exit.i, %47, %42
-  %.066.i = phi i32 [ 0, %55 ], [ 0, %59 ], [ 0, %.thread.i ], [ 0, %cipher_init.exit.i ], [ 0, %fixup_des3_key.exit.thread.i ], [ 1, %fixup_des3_key.exit.i ], [ 1, %._crit_edge.i ], [ 0, %42 ], [ 0, %47 ]
+  %.066.i = phi i32 [ 0, %55 ], [ 0, %59 ], [ 0, %fixup_des3_key.exit.thread.i ], [ 0, %cipher_init.exit.i ], [ 1, %fixup_des3_key.exit.i ], [ 1, %._crit_edge.i ], [ 0, %.thread.i ], [ 0, %42 ], [ 0, %47 ]
   call void @EVP_CIPHER_CTX_free(ptr noundef nonnull %40) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 64) #7
   br label %KRB5KDF.exit
 
 KRB5KDF.exit:                                     ; preds = %38, %39, %cipher_init.exit.thread.i
-  %.072.i = phi i32 [ 0, %38 ], [ %.066.i, %cipher_init.exit.thread.i ], [ 0, %39 ]
+  %.072.i = phi i32 [ %.066.i, %cipher_init.exit.thread.i ], [ 0, %38 ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %165
 
@@ -589,7 +589,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %20, %12, %7, %ossl_param_is_empty.exit, %26
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 1, %26 ], [ 0, %12 ], [ 0, %7 ], [ 0, %20 ], [ 1, %2 ]
+  %.0 = phi i32 [ 1, %26 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %7 ], [ 0, %12 ], [ 0, %20 ], [ 1, %2 ]
   ret i32 %.0
 }
 

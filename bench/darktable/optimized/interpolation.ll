@@ -632,7 +632,7 @@ define ptr @dt_interpolation_new(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond61.not, label %.thread, label %16
 
 .thread:                                          ; preds = %.lr.ph.split, %.lr.ph41.split, %20, %16
-  %.3 = phi ptr [ %17, %16 ], [ %5, %.lr.ph41.split ], [ %spec.select, %20 ], [ %12, %.lr.ph.split ]
+  %.3 = phi ptr [ %17, %16 ], [ %spec.select, %20 ], [ %5, %.lr.ph41.split ], [ %12, %.lr.ph.split ]
   ret ptr %.3
 }
 
@@ -1505,9 +1505,9 @@ dt_get_perf_times.exit105.i:                      ; preds = %97, %94
   br i1 %exitcond193.not.i, label %._crit_edge121.us.us.i, label %.lr.ph.us.us.us.i
 
 .loopexit.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph151.i, %dt_get_perf_times.exit105.i, %..loopexit_crit_edge.i, %82
-  %178 = phi ptr [ null, %82 ], [ %.pre206.i, %..loopexit_crit_edge.i ], [ %.pre207.i, %dt_get_perf_times.exit105.i ], [ %.pre207.i, %.lr.ph151.i ], [ %.pre207.i, %._crit_edge.us.i ]
-  %.sroa.0.0.i = phi nsz double [ 0.000000e+00, %82 ], [ 0.000000e+00, %..loopexit_crit_edge.i ], [ %.sroa.0.1.i, %dt_get_perf_times.exit105.i ], [ %.sroa.0.1.i, %.lr.ph151.i ], [ %.sroa.0.1.i, %._crit_edge.us.i ]
-  %.sroa.5.0.i = phi nsz double [ 0.000000e+00, %82 ], [ 0.000000e+00, %..loopexit_crit_edge.i ], [ %.sroa.5.1.i, %dt_get_perf_times.exit105.i ], [ %.sroa.5.1.i, %.lr.ph151.i ], [ %.sroa.5.1.i, %._crit_edge.us.i ]
+  %178 = phi ptr [ %.pre206.i, %..loopexit_crit_edge.i ], [ null, %82 ], [ %.pre207.i, %dt_get_perf_times.exit105.i ], [ %.pre207.i, %.lr.ph151.i ], [ %.pre207.i, %._crit_edge.us.i ]
+  %.sroa.0.0.i = phi nsz double [ 0.000000e+00, %..loopexit_crit_edge.i ], [ 0.000000e+00, %82 ], [ %.sroa.0.1.i, %dt_get_perf_times.exit105.i ], [ %.sroa.0.1.i, %.lr.ph151.i ], [ %.sroa.0.1.i, %._crit_edge.us.i ]
+  %.sroa.5.0.i = phi nsz double [ 0.000000e+00, %..loopexit_crit_edge.i ], [ 0.000000e+00, %82 ], [ %.sroa.5.1.i, %dt_get_perf_times.exit105.i ], [ %.sroa.5.1.i, %.lr.ph151.i ], [ %.sroa.5.1.i, %._crit_edge.us.i ]
   %179 = load ptr, ptr %13, align 8, !tbaa !27
   call void @free(ptr noundef %179) #12
   call void @free(ptr noundef %178) #12

@@ -178,7 +178,7 @@ define void @_ZN19pyo3_macros_backend6module15PyModuleOptions10from_attrs17h2ba6
   br label %.body
 
 .body:                                            ; preds = %.thread.i24, %85, %.thread.i19, %72, %.thread.i, %57, %35
-  %eh.lpad-body = phi { ptr, i32 } [ %73, %72 ], [ %58, %57 ], [ %36, %35 ], [ %56, %.thread.i ], [ %71, %.thread.i19 ], [ %84, %.thread.i24 ], [ %86, %85 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %36, %35 ], [ %56, %.thread.i ], [ %58, %57 ], [ %71, %.thread.i19 ], [ %73, %72 ], [ %84, %.thread.i24 ], [ %86, %85 ]
   invoke void @"_ZN4core3ptr107drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$pyo3_macros_backend..module..PyModulePyO3Option$GT$$GT$17h97c5f6023b338494E"(ptr nonnull align 8 %14) #10
           to label %20 unwind label %98
 
@@ -765,7 +765,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   unreachable
 
 201:                                              ; preds = %.loopexit191, %.loopexit.split-lp192, %832, %689, %678, %246
-  %.pn138 = phi { ptr, i32 } [ %833, %832 ], [ %.pn135.pn, %246 ], [ %690, %689 ], [ %.pn, %678 ], [ %lpad.loopexit193, %.loopexit191 ], [ %lpad.loopexit.split-lp194, %.loopexit.split-lp192 ]
+  %.pn138 = phi { ptr, i32 } [ %.pn135.pn, %246 ], [ %690, %689 ], [ %.pn, %678 ], [ %833, %832 ], [ %lpad.loopexit193, %.loopexit191 ], [ %lpad.loopexit.split-lp194, %.loopexit.split-lp192 ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h9aa821bb60b0e557E"(ptr nonnull align 8 %127) #10
           to label %438 unwind label %199
 
@@ -937,7 +937,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
           to label %275 unwind label %.loopexit182
 
 274:                                              ; preds = %.loopexit182, %.loopexit.split-lp183, %.loopexit.split-lp, %367, %297, %282
-  %.pn133 = phi { ptr, i32 } [ %.pn123, %282 ], [ %.pn131, %.loopexit.split-lp ], [ %368, %367 ], [ %.pn129, %297 ], [ %lpad.loopexit184, %.loopexit182 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp183 ]
+  %.pn133 = phi { ptr, i32 } [ %.pn131, %.loopexit.split-lp ], [ %368, %367 ], [ %.pn129, %297 ], [ %.pn123, %282 ], [ %lpad.loopexit184, %.loopexit182 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp183 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %76) #10
           to label %256 unwind label %199
 
@@ -1416,7 +1416,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
           to label %394 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %469, %430
-  %.pn131 = phi { ptr, i32 } [ %470, %469 ], [ %431, %430 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit179, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp180, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn131 = phi { ptr, i32 } [ %431, %430 ], [ %470, %469 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit179, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp180, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %55) #10
           to label %274 unwind label %199
 
@@ -1991,7 +1991,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit: ; 
   br label %.sink.split
 
 .invoke:                                          ; preds = %618, %783, %745
-  %622 = phi ptr [ %547, %783 ], [ %531, %745 ], [ %484, %618 ]
+  %622 = phi ptr [ %531, %745 ], [ %547, %783 ], [ %484, %618 ]
   %623 = load ptr, ptr %217, align 8
   %624 = load i64, ptr %218, align 8
   invoke fastcc void @_ZN19pyo3_macros_backend6module20set_module_attribute17h1712c215356080f0E(ptr nonnull align 8 %622, ptr align 1 %623, i64 %624)
@@ -3561,7 +3561,7 @@ split:                                            ; preds = %168, %158, %._crit_
           to label %132 unwind label %247, !noalias !13
 
 .thread.i:                                        ; preds = %110, %.thread49.i, %107
-  %.pn4248.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread49.i ], [ %.pn40.i, %107 ], [ %111, %110 ]
+  %.pn4248.i = phi { ptr, i32 } [ %.pn40.i, %107 ], [ %lpad.thr_comm.i, %.thread49.i ], [ %111, %110 ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$syn..stmt..Stmt$GT$$GT$17h299169f71cf82063E"(ptr nonnull align 8 %35) #10
           to label %253 unwind label %247, !noalias !13
 
@@ -3578,7 +3578,7 @@ split:                                            ; preds = %168, %158, %._crit_
           to label %568 unwind label %312
 
 258:                                              ; preds = %149, %104, %555, %262
-  %.sroa.022.0 = phi i1 [ false, %555 ], [ true, %262 ], [ true, %149 ], [ true, %104 ]
+  %.sroa.022.0 = phi i1 [ false, %555 ], [ true, %262 ], [ true, %104 ], [ true, %149 ]
   %259 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4715,7 +4715,7 @@ split:                                            ; preds = %168, %158, %._crit_
           to label %.body unwind label %312
 
 567:                                              ; preds = %.thread111, %273
-  %.pn81110 = phi { ptr, i32 } [ %270, %.thread111 ], [ %.pn79, %273 ]
+  %.pn81110 = phi { ptr, i32 } [ %.pn79, %273 ], [ %270, %.thread111 ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$syn..stmt..Stmt$GT$$GT$17h299169f71cf82063E"(ptr nonnull align 8 %93) #10
           to label %566 unwind label %312
 
@@ -4797,7 +4797,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend6module21module_initializat
           to label %50 unwind label %48
 
 .body:                                            ; preds = %67, %55, %48, %227, %71
-  %.pn17 = phi { ptr, i32 } [ %68, %67 ], [ %.pn14.pn, %71 ], [ %228, %227 ], [ %49, %48 ], [ %56, %55 ]
+  %.pn17 = phi { ptr, i32 } [ %.pn14.pn, %71 ], [ %228, %227 ], [ %68, %67 ], [ %49, %48 ], [ %56, %55 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %41) #10
           to label %229 unwind label %225
 

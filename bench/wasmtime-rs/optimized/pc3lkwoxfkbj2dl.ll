@@ -115,21 +115,21 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   %12 = alloca { ptr, i64, {} }, align 8
   %13 = freeze i64 %1
   %14 = icmp ult i64 %13, 21
-  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink.sroa.gep100 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink.sroa.gep101 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink.sroa.gep100 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink.sroa.gep101 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sink.sroa.gep102 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink.sroa.gep104 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink.sroa.gep105 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink.sroa.gep106 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink.sroa.gep104 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink.sroa.gep105 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink.sroa.gep106 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sink.sroa.gep107 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink.sroa.gep109 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink.sroa.gep110 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink.sroa.gep111 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink.sroa.gep109 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink.sroa.gep110 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink.sroa.gep111 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sink.sroa.gep112 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink.sroa.gep114 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sink.sroa.gep115 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sink.sroa.gep116 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink.sroa.gep114 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink.sroa.gep115 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink.sroa.gep116 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sink.sroa.gep117 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %14, label %28, label %15
 
@@ -531,12 +531,12 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   br i1 %.not.i47, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17haf08635e70901d8bE.exit", label %.invoke
 
 .invoke:                                          ; preds = %159, %156, %93, %90
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %156 ], [ %.sink.sroa.gep100, %90 ], [ %.sink.sroa.gep101, %93 ], [ %.sink.sroa.gep102, %159 ]
-  %.sink.sroa.phi103 = phi ptr [ %.sink.sroa.gep104, %156 ], [ %.sink.sroa.gep105, %90 ], [ %.sink.sroa.gep106, %93 ], [ %.sink.sroa.gep107, %159 ]
-  %.sink.sroa.phi108 = phi ptr [ %.sink.sroa.gep109, %156 ], [ %.sink.sroa.gep110, %90 ], [ %.sink.sroa.gep111, %93 ], [ %.sink.sroa.gep112, %159 ]
-  %.sink.sroa.phi113 = phi ptr [ %.sink.sroa.gep114, %156 ], [ %.sink.sroa.gep115, %90 ], [ %.sink.sroa.gep116, %93 ], [ %.sink.sroa.gep117, %159 ]
-  %.sink = phi ptr [ %7, %156 ], [ %10, %90 ], [ %9, %93 ], [ %6, %159 ]
-  %165 = phi ptr [ @anon.799167e198c8f28f48796f1a9c152206.13, %156 ], [ @anon.799167e198c8f28f48796f1a9c152206.10, %90 ], [ @anon.799167e198c8f28f48796f1a9c152206.11, %93 ], [ @anon.799167e198c8f28f48796f1a9c152206.18, %159 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %90 ], [ %.sink.sroa.gep100, %93 ], [ %.sink.sroa.gep101, %156 ], [ %.sink.sroa.gep102, %159 ]
+  %.sink.sroa.phi103 = phi ptr [ %.sink.sroa.gep104, %90 ], [ %.sink.sroa.gep105, %93 ], [ %.sink.sroa.gep106, %156 ], [ %.sink.sroa.gep107, %159 ]
+  %.sink.sroa.phi108 = phi ptr [ %.sink.sroa.gep109, %90 ], [ %.sink.sroa.gep110, %93 ], [ %.sink.sroa.gep111, %156 ], [ %.sink.sroa.gep112, %159 ]
+  %.sink.sroa.phi113 = phi ptr [ %.sink.sroa.gep114, %90 ], [ %.sink.sroa.gep115, %93 ], [ %.sink.sroa.gep116, %156 ], [ %.sink.sroa.gep117, %159 ]
+  %.sink = phi ptr [ %10, %90 ], [ %9, %93 ], [ %7, %156 ], [ %6, %159 ]
+  %165 = phi ptr [ @anon.799167e198c8f28f48796f1a9c152206.10, %90 ], [ @anon.799167e198c8f28f48796f1a9c152206.11, %93 ], [ @anon.799167e198c8f28f48796f1a9c152206.13, %156 ], [ @anon.799167e198c8f28f48796f1a9c152206.18, %159 ]
   store ptr @anon.799167e198c8f28f48796f1a9c152206.1, ptr %.sink, align 8
   store i64 1, ptr %.sink.sroa.phi, align 8
   store ptr null, ptr %.sink.sroa.phi103, align 8
@@ -756,8 +756,8 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17hee4e9ef47a3cf12cE(ptr ali
   br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %.lr.ph34, %19, %.preheader28, %.preheader, %3
-  %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ true, %.lr.ph34 ], [ false, %.preheader28 ], [ true, %19 ], [ false, %13 ], [ false, %.lr.ph ]
-  %.sroa.0.0 = phi i64 [ %1, %3 ], [ 2, %.preheader ], [ %.033, %.lr.ph34 ], [ 2, %.preheader28 ], [ %1, %19 ], [ %.130, %.lr.ph ], [ %1, %13 ]
+  %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ false, %.preheader28 ], [ true, %19 ], [ true, %.lr.ph34 ], [ false, %13 ], [ false, %.lr.ph ]
+  %.sroa.0.0 = phi i64 [ %1, %3 ], [ 2, %.preheader ], [ 2, %.preheader28 ], [ %.033, %.lr.ph34 ], [ %1, %19 ], [ %.130, %.lr.ph ], [ %1, %13 ]
   %21 = insertvalue { i64, i1 } poison, i64 %.sroa.0.0, 0
   %22 = insertvalue { i64, i1 } %21, i1 %.sroa.4.0, 1
   ret { i64, i1 } %22
@@ -1674,8 +1674,8 @@ define { i64, i1 } @_ZN4core5slice4sort12choose_pivot17h27c318ad51ec58d0E(ptr al
   br label %83
 
 .thread173:                                       ; preds = %3, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hf56199e6e61b64dcE.exit29", %8
-  %.093172 = phi i64 [ %.396, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hf56199e6e61b64dcE.exit29" ], [ %.1, %8 ], [ %5, %3 ]
-  %.0161171 = phi i64 [ %.3164, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hf56199e6e61b64dcE.exit29" ], [ 1, %8 ], [ 0, %3 ]
+  %.093172 = phi i64 [ %.1, %8 ], [ %.396, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hf56199e6e61b64dcE.exit29" ], [ %5, %3 ]
+  %.0161171 = phi i64 [ 1, %8 ], [ %.3164, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hf56199e6e61b64dcE.exit29" ], [ 0, %3 ]
   %82 = icmp eq i64 %.0161171, 0
   br label %83
 
@@ -1828,8 +1828,8 @@ define { i64, i1 } @_ZN4core5slice4sort12choose_pivot17h4c6ae112a7dbf2c3E(ptr al
   br label %83
 
 .thread173:                                       ; preds = %3, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h8280b795bd966837E.exit29", %8
-  %.093172 = phi i64 [ %.396, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h8280b795bd966837E.exit29" ], [ %.1, %8 ], [ %5, %3 ]
-  %.0161171 = phi i64 [ %.3164, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h8280b795bd966837E.exit29" ], [ 1, %8 ], [ 0, %3 ]
+  %.093172 = phi i64 [ %.1, %8 ], [ %.396, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h8280b795bd966837E.exit29" ], [ %5, %3 ]
+  %.0161171 = phi i64 [ 1, %8 ], [ %.3164, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h8280b795bd966837E.exit29" ], [ 0, %3 ]
   %82 = icmp eq i64 %.0161171, 0
   br label %83
 
@@ -1982,8 +1982,8 @@ define { i64, i1 } @_ZN4core5slice4sort12choose_pivot17h8a76eebdfbf4a6c3E(ptr al
   br label %83
 
 .thread173:                                       ; preds = %3, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hbed8d0dfe85d8410E.exit29", %8
-  %.093172 = phi i64 [ %.396, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hbed8d0dfe85d8410E.exit29" ], [ %.1, %8 ], [ %5, %3 ]
-  %.0161171 = phi i64 [ %.3164, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hbed8d0dfe85d8410E.exit29" ], [ 1, %8 ], [ 0, %3 ]
+  %.093172 = phi i64 [ %.1, %8 ], [ %.396, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hbed8d0dfe85d8410E.exit29" ], [ %5, %3 ]
+  %.0161171 = phi i64 [ 1, %8 ], [ %.3164, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hbed8d0dfe85d8410E.exit29" ], [ 0, %3 ]
   %82 = icmp eq i64 %.0161171, 0
   br label %83
 
@@ -2136,8 +2136,8 @@ define { i64, i1 } @_ZN4core5slice4sort12choose_pivot17h8c01800e084ed486E(ptr al
   br label %83
 
 .thread173:                                       ; preds = %3, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hcd715ae596ea37beE.exit29", %8
-  %.093172 = phi i64 [ %.396, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hcd715ae596ea37beE.exit29" ], [ %.1, %8 ], [ %5, %3 ]
-  %.0161171 = phi i64 [ %.3164, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hcd715ae596ea37beE.exit29" ], [ 1, %8 ], [ 0, %3 ]
+  %.093172 = phi i64 [ %.1, %8 ], [ %.396, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hcd715ae596ea37beE.exit29" ], [ %5, %3 ]
+  %.0161171 = phi i64 [ 1, %8 ], [ %.3164, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hcd715ae596ea37beE.exit29" ], [ 0, %3 ]
   %82 = icmp eq i64 %.0161171, 0
   br label %83
 
@@ -2290,8 +2290,8 @@ define { i64, i1 } @_ZN4core5slice4sort12choose_pivot17hcb9066415bfbd13eE(ptr al
   br label %83
 
 .thread173:                                       ; preds = %3, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2a2ecac312fd73abE.exit29", %8
-  %.093172 = phi i64 [ %.396, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2a2ecac312fd73abE.exit29" ], [ %.1, %8 ], [ %5, %3 ]
-  %.0161171 = phi i64 [ %.3164, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2a2ecac312fd73abE.exit29" ], [ 1, %8 ], [ 0, %3 ]
+  %.093172 = phi i64 [ %.1, %8 ], [ %.396, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2a2ecac312fd73abE.exit29" ], [ %5, %3 ]
+  %.0161171 = phi i64 [ 1, %8 ], [ %.3164, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2a2ecac312fd73abE.exit29" ], [ 0, %3 ]
   %82 = icmp eq i64 %.0161171, 0
   br label %83
 
@@ -3726,8 +3726,8 @@ define range(i64 0, 177372539170284151) i64 @_ZN4core5slice4sort19partition_in_b
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %17, %22, %10
-  %.1149 = phi i64 [ %.0148, %10 ], [ %.0158.mux, %17 ], [ %24, %22 ]
-  %.1137 = phi i64 [ %.0136, %10 ], [ %.0136.mux, %17 ], [ %23, %22 ]
+  %.1149 = phi i64 [ %24, %22 ], [ %.0148, %10 ], [ %.0158.mux, %17 ]
+  %.1137 = phi i64 [ %23, %22 ], [ %.0136, %10 ], [ %.0136.mux, %17 ]
   %16 = icmp eq ptr %.0138, %.0141
   br i1 %16, label %.preheader182, label %.loopexit183
 
@@ -3908,7 +3908,7 @@ define range(i64 0, 177372539170284151) i64 @_ZN4core5slice4sort19partition_in_b
   br i1 %94, label %.preheader180, label %.loopexit226
 
 .loopexit226:                                     ; preds = %.preheader180, %.preheader, %86
-  %spec.select.lcssa.sink = phi ptr [ %102, %.preheader ], [ %spec.select, %86 ], [ %93, %.preheader180 ]
+  %spec.select.lcssa.sink = phi ptr [ %spec.select, %86 ], [ %102, %.preheader ], [ %93, %.preheader180 ]
   %95 = ptrtoint ptr %spec.select.lcssa.sink to i64
   %96 = ptrtoint ptr %0 to i64
   %97 = sub i64 %95, %96
@@ -3963,8 +3963,8 @@ define range(i64 0, -9223372036854775808) i64 @_ZN4core5slice4sort19partition_in
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %16, %21, %9
-  %.1151 = phi i64 [ %.0150, %9 ], [ %.0160.mux, %16 ], [ %23, %21 ]
-  %.1139 = phi i64 [ %.0138, %9 ], [ %.0138.mux, %16 ], [ %22, %21 ]
+  %.1151 = phi i64 [ %23, %21 ], [ %.0150, %9 ], [ %.0160.mux, %16 ]
+  %.1139 = phi i64 [ %22, %21 ], [ %.0138, %9 ], [ %.0138.mux, %16 ]
   %15 = icmp eq ptr %.0140, %.0143
   br i1 %15, label %.preheader184, label %.loopexit185
 
@@ -4135,7 +4135,7 @@ define range(i64 0, -9223372036854775808) i64 @_ZN4core5slice4sort19partition_in
   br i1 %92, label %.preheader182, label %.loopexit219
 
 .loopexit219:                                     ; preds = %.preheader182, %.preheader, %83
-  %spec.select.lcssa.sink = phi ptr [ %100, %.preheader ], [ %spec.select, %83 ], [ %91, %.preheader182 ]
+  %spec.select.lcssa.sink = phi ptr [ %spec.select, %83 ], [ %100, %.preheader ], [ %91, %.preheader182 ]
   %93 = ptrtoint ptr %spec.select.lcssa.sink to i64
   %94 = ptrtoint ptr %0 to i64
   %95 = sub i64 %93, %94
@@ -4182,8 +4182,8 @@ define range(i64 0, 2305843009213693952) i64 @_ZN4core5slice4sort19partition_in_
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %16, %21, %9
-  %.1151 = phi i64 [ %.0150, %9 ], [ %.0160.mux, %16 ], [ %23, %21 ]
-  %.1139 = phi i64 [ %.0138, %9 ], [ %.0138.mux, %16 ], [ %22, %21 ]
+  %.1151 = phi i64 [ %23, %21 ], [ %.0150, %9 ], [ %.0160.mux, %16 ]
+  %.1139 = phi i64 [ %22, %21 ], [ %.0138, %9 ], [ %.0138.mux, %16 ]
   %15 = icmp eq ptr %.0140, %.0143
   br i1 %15, label %.preheader184, label %.loopexit185
 
@@ -4354,7 +4354,7 @@ define range(i64 0, 2305843009213693952) i64 @_ZN4core5slice4sort19partition_in_
   br i1 %92, label %.preheader182, label %.loopexit219
 
 .loopexit219:                                     ; preds = %.preheader182, %.preheader, %83
-  %spec.select.lcssa.sink = phi ptr [ %100, %.preheader ], [ %spec.select, %83 ], [ %91, %.preheader182 ]
+  %spec.select.lcssa.sink = phi ptr [ %spec.select, %83 ], [ %100, %.preheader ], [ %91, %.preheader182 ]
   %93 = ptrtoint ptr %spec.select.lcssa.sink to i64
   %94 = ptrtoint ptr %0 to i64
   %95 = sub i64 %93, %94
@@ -4401,8 +4401,8 @@ define range(i64 0, 2305843009213693952) i64 @_ZN4core5slice4sort19partition_in_
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %16, %21, %9
-  %.1151 = phi i64 [ %.0150, %9 ], [ %.0160.mux, %16 ], [ %23, %21 ]
-  %.1139 = phi i64 [ %.0138, %9 ], [ %.0138.mux, %16 ], [ %22, %21 ]
+  %.1151 = phi i64 [ %23, %21 ], [ %.0150, %9 ], [ %.0160.mux, %16 ]
+  %.1139 = phi i64 [ %22, %21 ], [ %.0138, %9 ], [ %.0138.mux, %16 ]
   %15 = icmp eq ptr %.0140, %.0143
   br i1 %15, label %.preheader184, label %.loopexit185
 
@@ -4573,7 +4573,7 @@ define range(i64 0, 2305843009213693952) i64 @_ZN4core5slice4sort19partition_in_
   br i1 %92, label %.preheader182, label %.loopexit219
 
 .loopexit219:                                     ; preds = %.preheader182, %.preheader, %83
-  %spec.select.lcssa.sink = phi ptr [ %100, %.preheader ], [ %spec.select, %83 ], [ %91, %.preheader182 ]
+  %spec.select.lcssa.sink = phi ptr [ %spec.select, %83 ], [ %100, %.preheader ], [ %91, %.preheader182 ]
   %93 = ptrtoint ptr %spec.select.lcssa.sink to i64
   %94 = ptrtoint ptr %0 to i64
   %95 = sub i64 %93, %94
@@ -4623,8 +4623,8 @@ define range(i64 0, 768614336404564651) i64 @_ZN4core5slice4sort19partition_in_b
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %17, %22, %10
-  %.1149 = phi i64 [ %.0148, %10 ], [ %.0158.mux, %17 ], [ %24, %22 ]
-  %.1137 = phi i64 [ %.0136, %10 ], [ %.0136.mux, %17 ], [ %23, %22 ]
+  %.1149 = phi i64 [ %24, %22 ], [ %.0148, %10 ], [ %.0158.mux, %17 ]
+  %.1137 = phi i64 [ %23, %22 ], [ %.0136, %10 ], [ %.0136.mux, %17 ]
   %16 = icmp eq ptr %.0138, %.0141
   br i1 %16, label %.preheader182, label %.loopexit183
 
@@ -4796,7 +4796,7 @@ define range(i64 0, 768614336404564651) i64 @_ZN4core5slice4sort19partition_in_b
   br i1 %91, label %.preheader180, label %.loopexit217
 
 .loopexit217:                                     ; preds = %.preheader180, %.preheader, %83
-  %spec.select.lcssa.sink = phi ptr [ %99, %.preheader ], [ %spec.select, %83 ], [ %90, %.preheader180 ]
+  %spec.select.lcssa.sink = phi ptr [ %spec.select, %83 ], [ %99, %.preheader ], [ %90, %.preheader180 ]
   %92 = ptrtoint ptr %spec.select.lcssa.sink to i64
   %93 = ptrtoint ptr %0 to i64
   %94 = sub i64 %92, %93
@@ -7032,8 +7032,8 @@ define void @_ZN4core5slice4sort7recurse17h11a7e02e6eafe0f9E(ptr align 8 %0, i64
   br i1 %53, label %.split.us, label %56
 
 .outer._crit_edge:                                ; preds = %.outer, %88, %48, %5
-  %.sroa.0.0.lcssa = phi ptr [ %50, %48 ], [ %0, %5 ], [ %90, %88 ], [ %.sroa.0.1, %.outer ]
-  %.lcssa = phi i64 [ %49, %48 ], [ %9, %5 ], [ %89, %88 ], [ %.sroa.14.1, %.outer ]
+  %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %50, %48 ], [ %90, %88 ], [ %.sroa.0.1, %.outer ]
+  %.lcssa = phi i64 [ %9, %5 ], [ %49, %48 ], [ %89, %88 ], [ %.sroa.14.1, %.outer ]
   %54 = icmp samesign ugt i64 %.lcssa, 1
   br i1 %54, label %.preheader.i, label %.loopexit
 
@@ -7068,10 +7068,10 @@ define void @_ZN4core5slice4sort7recurse17h11a7e02e6eafe0f9E(ptr align 8 %0, i64
   br i1 %66, label %.loopexit, label %63
 
 .split76.us:                                      ; preds = %82, %42, %23, %29
-  %.us-phi77 = phi i32 [ %.138.us, %23 ], [ %.138.us, %29 ], [ %.037.ph137, %42 ], [ %58, %82 ]
-  %.us-phi78 = phi i64 [ %26, %23 ], [ %26, %29 ], [ %35, %42 ], [ %60, %82 ]
-  %.us-phi79 = phi ptr [ %.sroa.0.0.ph140, %23 ], [ %.sroa.0.0.ph140, %29 ], [ %.sroa.0.070.us81, %42 ], [ %.sroa.0.070, %82 ]
-  %.us-phi80 = phi i64 [ %17, %23 ], [ %17, %29 ], [ %32, %42 ], [ %52, %82 ]
+  %.us-phi77 = phi i32 [ %.138.us, %29 ], [ %.138.us, %23 ], [ %.037.ph137, %42 ], [ %58, %82 ]
+  %.us-phi78 = phi i64 [ %26, %29 ], [ %26, %23 ], [ %35, %42 ], [ %60, %82 ]
+  %.us-phi79 = phi ptr [ %.sroa.0.0.ph140, %29 ], [ %.sroa.0.0.ph140, %23 ], [ %.sroa.0.070.us81, %42 ], [ %.sroa.0.070, %82 ]
+  %.us-phi80 = phi i64 [ %17, %29 ], [ %17, %23 ], [ %32, %42 ], [ %52, %82 ]
   %67 = call { i64, i1 } @_ZN4core5slice4sort9partition17h5936a4f7800a0de7E(ptr nonnull align 8 %.us-phi79, i64 %.us-phi80, i64 %.us-phi78, ptr align 8 %2)
   %68 = extractvalue { i64, i1 } %67, 0
   %69 = extractvalue { i64, i1 } %67, 1
@@ -7309,8 +7309,8 @@ define void @_ZN4core5slice4sort7recurse17h2270c20e8418a8e1E(ptr align 8 %0, i64
   br i1 %67, label %.split.us, label %70
 
 .outer._crit_edge:                                ; preds = %.outer, %102, %43, %62, %5
-  %.sroa.0.0.lcssa = phi ptr [ %45, %43 ], [ %0, %5 ], [ %64, %62 ], [ %104, %102 ], [ %.sroa.0.1, %.outer ]
-  %.lcssa = phi i64 [ %44, %43 ], [ %9, %5 ], [ %63, %62 ], [ %103, %102 ], [ %.sroa.14.1, %.outer ]
+  %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %64, %62 ], [ %45, %43 ], [ %104, %102 ], [ %.sroa.0.1, %.outer ]
+  %.lcssa = phi i64 [ %9, %5 ], [ %63, %62 ], [ %44, %43 ], [ %103, %102 ], [ %.sroa.14.1, %.outer ]
   %68 = icmp samesign ugt i64 %.lcssa, 1
   br i1 %68, label %.preheader.i, label %.loopexit
 
@@ -7345,10 +7345,10 @@ define void @_ZN4core5slice4sort7recurse17h2270c20e8418a8e1E(ptr align 8 %0, i64
   br i1 %80, label %.loopexit, label %77
 
 .split76.us:                                      ; preds = %96, %37, %56, %.thread, %24, %29
-  %.us-phi77 = phi i32 [ %.037.ph148, %24 ], [ %.037.ph148, %29 ], [ %21, %.thread ], [ %.037.ph148, %56 ], [ %.037.ph148, %37 ], [ %72, %96 ]
-  %.us-phi78 = phi i64 [ %26, %24 ], [ %26, %29 ], [ %23, %.thread ], [ %50, %56 ], [ %35, %37 ], [ %74, %96 ]
-  %.us-phi79 = phi ptr [ %.sroa.0.0.ph152, %24 ], [ %.sroa.0.0.ph152, %29 ], [ %.sroa.0.0.ph152, %.thread ], [ %.sroa.0.070.us81, %56 ], [ %.sroa.0.070.us81.us135, %37 ], [ %.sroa.0.070, %96 ]
-  %.us-phi80 = phi i64 [ %17, %24 ], [ %17, %29 ], [ %17, %.thread ], [ %47, %56 ], [ %32, %37 ], [ %66, %96 ]
+  %.us-phi77 = phi i32 [ %.037.ph148, %29 ], [ %.037.ph148, %24 ], [ %21, %.thread ], [ %.037.ph148, %56 ], [ %.037.ph148, %37 ], [ %72, %96 ]
+  %.us-phi78 = phi i64 [ %26, %29 ], [ %26, %24 ], [ %23, %.thread ], [ %50, %56 ], [ %35, %37 ], [ %74, %96 ]
+  %.us-phi79 = phi ptr [ %.sroa.0.0.ph152, %29 ], [ %.sroa.0.0.ph152, %24 ], [ %.sroa.0.0.ph152, %.thread ], [ %.sroa.0.070.us81, %56 ], [ %.sroa.0.070.us81.us135, %37 ], [ %.sroa.0.070, %96 ]
+  %.us-phi80 = phi i64 [ %17, %29 ], [ %17, %24 ], [ %17, %.thread ], [ %47, %56 ], [ %32, %37 ], [ %66, %96 ]
   %81 = call { i64, i1 } @_ZN4core5slice4sort9partition17hd418672efd849399E(ptr nonnull align 8 %.us-phi79, i64 %.us-phi80, i64 %.us-phi78, ptr align 8 %2)
   %82 = extractvalue { i64, i1 } %81, 0
   %83 = extractvalue { i64, i1 } %81, 1
@@ -7586,8 +7586,8 @@ define void @_ZN4core5slice4sort7recurse17h2c2823d3d79b27a9E(ptr align 2 %0, i64
   br i1 %67, label %.split.us, label %70
 
 .outer._crit_edge:                                ; preds = %.outer, %102, %43, %62, %5
-  %.sroa.0.0.lcssa = phi ptr [ %45, %43 ], [ %0, %5 ], [ %64, %62 ], [ %104, %102 ], [ %.sroa.0.1, %.outer ]
-  %.lcssa = phi i64 [ %44, %43 ], [ %9, %5 ], [ %63, %62 ], [ %103, %102 ], [ %.sroa.14.1, %.outer ]
+  %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %64, %62 ], [ %45, %43 ], [ %104, %102 ], [ %.sroa.0.1, %.outer ]
+  %.lcssa = phi i64 [ %9, %5 ], [ %63, %62 ], [ %44, %43 ], [ %103, %102 ], [ %.sroa.14.1, %.outer ]
   %68 = icmp samesign ugt i64 %.lcssa, 1
   br i1 %68, label %.preheader.i, label %.loopexit
 
@@ -7622,10 +7622,10 @@ define void @_ZN4core5slice4sort7recurse17h2c2823d3d79b27a9E(ptr align 2 %0, i64
   br i1 %80, label %.loopexit, label %77
 
 .split76.us:                                      ; preds = %96, %37, %56, %.thread, %24, %29
-  %.us-phi77 = phi i32 [ %.037.ph148, %24 ], [ %.037.ph148, %29 ], [ %21, %.thread ], [ %.037.ph148, %56 ], [ %.037.ph148, %37 ], [ %72, %96 ]
-  %.us-phi78 = phi i64 [ %26, %24 ], [ %26, %29 ], [ %23, %.thread ], [ %50, %56 ], [ %35, %37 ], [ %74, %96 ]
-  %.us-phi79 = phi ptr [ %.sroa.0.0.ph152, %24 ], [ %.sroa.0.0.ph152, %29 ], [ %.sroa.0.0.ph152, %.thread ], [ %.sroa.0.070.us81, %56 ], [ %.sroa.0.070.us81.us135, %37 ], [ %.sroa.0.070, %96 ]
-  %.us-phi80 = phi i64 [ %17, %24 ], [ %17, %29 ], [ %17, %.thread ], [ %47, %56 ], [ %32, %37 ], [ %66, %96 ]
+  %.us-phi77 = phi i32 [ %.037.ph148, %29 ], [ %.037.ph148, %24 ], [ %21, %.thread ], [ %.037.ph148, %56 ], [ %.037.ph148, %37 ], [ %72, %96 ]
+  %.us-phi78 = phi i64 [ %26, %29 ], [ %26, %24 ], [ %23, %.thread ], [ %50, %56 ], [ %35, %37 ], [ %74, %96 ]
+  %.us-phi79 = phi ptr [ %.sroa.0.0.ph152, %29 ], [ %.sroa.0.0.ph152, %24 ], [ %.sroa.0.0.ph152, %.thread ], [ %.sroa.0.070.us81, %56 ], [ %.sroa.0.070.us81.us135, %37 ], [ %.sroa.0.070, %96 ]
+  %.us-phi80 = phi i64 [ %17, %29 ], [ %17, %24 ], [ %17, %.thread ], [ %47, %56 ], [ %32, %37 ], [ %66, %96 ]
   %81 = call { i64, i1 } @_ZN4core5slice4sort9partition17h4d1e7e3ff1f0a5f6E(ptr nonnull align 2 %.us-phi79, i64 %.us-phi80, i64 %.us-phi78, ptr align 1 %2)
   %82 = extractvalue { i64, i1 } %81, 0
   %83 = extractvalue { i64, i1 } %81, 1
@@ -7834,8 +7834,8 @@ define void @_ZN4core5slice4sort7recurse17h6fa5497bbe91df66E(ptr align 8 %0, i64
   br i1 %53, label %.split.us, label %56
 
 .outer._crit_edge:                                ; preds = %.outer, %88, %48, %5
-  %.sroa.0.0.lcssa = phi ptr [ %50, %48 ], [ %0, %5 ], [ %90, %88 ], [ %.sroa.0.1, %.outer ]
-  %.lcssa = phi i64 [ %49, %48 ], [ %9, %5 ], [ %89, %88 ], [ %.sroa.14.1, %.outer ]
+  %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %50, %48 ], [ %90, %88 ], [ %.sroa.0.1, %.outer ]
+  %.lcssa = phi i64 [ %9, %5 ], [ %49, %48 ], [ %89, %88 ], [ %.sroa.14.1, %.outer ]
   %54 = icmp samesign ugt i64 %.lcssa, 1
   br i1 %54, label %.preheader.i, label %.loopexit
 
@@ -7870,10 +7870,10 @@ define void @_ZN4core5slice4sort7recurse17h6fa5497bbe91df66E(ptr align 8 %0, i64
   br i1 %66, label %.loopexit, label %63
 
 .split76.us:                                      ; preds = %82, %42, %23, %29
-  %.us-phi77 = phi i32 [ %.138.us, %23 ], [ %.138.us, %29 ], [ %.037.ph137, %42 ], [ %58, %82 ]
-  %.us-phi78 = phi i64 [ %26, %23 ], [ %26, %29 ], [ %35, %42 ], [ %60, %82 ]
-  %.us-phi79 = phi ptr [ %.sroa.0.0.ph140, %23 ], [ %.sroa.0.0.ph140, %29 ], [ %.sroa.0.070.us81, %42 ], [ %.sroa.0.070, %82 ]
-  %.us-phi80 = phi i64 [ %17, %23 ], [ %17, %29 ], [ %32, %42 ], [ %52, %82 ]
+  %.us-phi77 = phi i32 [ %.138.us, %29 ], [ %.138.us, %23 ], [ %.037.ph137, %42 ], [ %58, %82 ]
+  %.us-phi78 = phi i64 [ %26, %29 ], [ %26, %23 ], [ %35, %42 ], [ %60, %82 ]
+  %.us-phi79 = phi ptr [ %.sroa.0.0.ph140, %29 ], [ %.sroa.0.0.ph140, %23 ], [ %.sroa.0.070.us81, %42 ], [ %.sroa.0.070, %82 ]
+  %.us-phi80 = phi i64 [ %17, %29 ], [ %17, %23 ], [ %32, %42 ], [ %52, %82 ]
   %67 = call { i64, i1 } @_ZN4core5slice4sort9partition17h9345c2e653d3312aE(ptr nonnull align 8 %.us-phi79, i64 %.us-phi80, i64 %.us-phi78, ptr align 8 %2)
   %68 = extractvalue { i64, i1 } %67, 0
   %69 = extractvalue { i64, i1 } %67, 1
@@ -8111,8 +8111,8 @@ define void @_ZN4core5slice4sort7recurse17hfa74fa4166aee7c4E(ptr align 8 %0, i64
   br i1 %67, label %.split.us, label %70
 
 .outer._crit_edge:                                ; preds = %.outer, %102, %43, %62, %5
-  %.sroa.0.0.lcssa = phi ptr [ %45, %43 ], [ %0, %5 ], [ %64, %62 ], [ %104, %102 ], [ %.sroa.0.1, %.outer ]
-  %.lcssa = phi i64 [ %44, %43 ], [ %9, %5 ], [ %63, %62 ], [ %103, %102 ], [ %.sroa.14.1, %.outer ]
+  %.sroa.0.0.lcssa = phi ptr [ %0, %5 ], [ %64, %62 ], [ %45, %43 ], [ %104, %102 ], [ %.sroa.0.1, %.outer ]
+  %.lcssa = phi i64 [ %9, %5 ], [ %63, %62 ], [ %44, %43 ], [ %103, %102 ], [ %.sroa.14.1, %.outer ]
   %68 = icmp samesign ugt i64 %.lcssa, 1
   br i1 %68, label %.preheader.i, label %.loopexit
 
@@ -8147,10 +8147,10 @@ define void @_ZN4core5slice4sort7recurse17hfa74fa4166aee7c4E(ptr align 8 %0, i64
   br i1 %80, label %.loopexit, label %77
 
 .split76.us:                                      ; preds = %96, %37, %56, %.thread, %24, %29
-  %.us-phi77 = phi i32 [ %.037.ph148, %24 ], [ %.037.ph148, %29 ], [ %21, %.thread ], [ %.037.ph148, %56 ], [ %.037.ph148, %37 ], [ %72, %96 ]
-  %.us-phi78 = phi i64 [ %26, %24 ], [ %26, %29 ], [ %23, %.thread ], [ %50, %56 ], [ %35, %37 ], [ %74, %96 ]
-  %.us-phi79 = phi ptr [ %.sroa.0.0.ph152, %24 ], [ %.sroa.0.0.ph152, %29 ], [ %.sroa.0.0.ph152, %.thread ], [ %.sroa.0.070.us81, %56 ], [ %.sroa.0.070.us81.us135, %37 ], [ %.sroa.0.070, %96 ]
-  %.us-phi80 = phi i64 [ %17, %24 ], [ %17, %29 ], [ %17, %.thread ], [ %47, %56 ], [ %32, %37 ], [ %66, %96 ]
+  %.us-phi77 = phi i32 [ %.037.ph148, %29 ], [ %.037.ph148, %24 ], [ %21, %.thread ], [ %.037.ph148, %56 ], [ %.037.ph148, %37 ], [ %72, %96 ]
+  %.us-phi78 = phi i64 [ %26, %29 ], [ %26, %24 ], [ %23, %.thread ], [ %50, %56 ], [ %35, %37 ], [ %74, %96 ]
+  %.us-phi79 = phi ptr [ %.sroa.0.0.ph152, %29 ], [ %.sroa.0.0.ph152, %24 ], [ %.sroa.0.0.ph152, %.thread ], [ %.sroa.0.070.us81, %56 ], [ %.sroa.0.070.us81.us135, %37 ], [ %.sroa.0.070, %96 ]
+  %.us-phi80 = phi i64 [ %17, %29 ], [ %17, %24 ], [ %17, %.thread ], [ %47, %56 ], [ %32, %37 ], [ %66, %96 ]
   %81 = call { i64, i1 } @_ZN4core5slice4sort9partition17hf9b92da7bee2a7f4E(ptr nonnull align 8 %.us-phi79, i64 %.us-phi80, i64 %.us-phi78, ptr align 8 %2)
   %82 = extractvalue { i64, i1 } %81, 0
   %83 = extractvalue { i64, i1 } %81, 1

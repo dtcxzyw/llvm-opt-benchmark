@@ -77,7 +77,7 @@ define internal range(i32 0, 2) i32 @new_dir(ptr noundef writeonly captures(none
   br label %17
 
 17:                                               ; preds = %1, %16, %14
-  %.0 = phi i32 [ 1, %14 ], [ 0, %16 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %16 ], [ 1, %14 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -136,7 +136,7 @@ define internal range(i32 0, 2) i32 @dir_ctrl(ptr noundef readonly captures(none
   br label %21
 
 21:                                               ; preds = %15, %17, %18, %5
-  %.0 = phi i32 [ 0, %5 ], [ %20, %18 ], [ 0, %17 ], [ 1, %15 ]
+  %.0 = phi i32 [ %20, %18 ], [ 0, %5 ], [ 0, %17 ], [ 1, %15 ]
   ret i32 %.0
 }
 
@@ -361,8 +361,8 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   br i1 %114, label %.split.split, label %.thread
 
 .thread:                                          ; preds = %.split.split, %.lr.ph188, %.split.us, %.lr.ph191, %.split.split.us, %.split.us.preheader, %.split.split.us.preheader
-  %.1164 = phi ptr [ %.1.ph, %.split.split.us.preheader ], [ null, %.split.us.preheader ], [ null, %.lr.ph188 ], [ %.1.ph, %.lr.ph191 ], [ %.1.ph, %.split.split.us ], [ null, %.split.us ], [ null, %.split.split ]
-  %.us-phi = phi i32 [ %.1101.ph, %.split.split.us.preheader ], [ 0, %.split.us.preheader ], [ %.2102.us187, %.lr.ph188 ], [ %100, %.split.split.us ], [ %.2102.us142190, %.lr.ph191 ], [ %80, %.split.us ], [ %spec.select, %.split.split ]
+  %.1164 = phi ptr [ %.1.ph, %.split.split.us.preheader ], [ null, %.split.us.preheader ], [ %.1.ph, %.split.split.us ], [ %.1.ph, %.lr.ph191 ], [ null, %.split.us ], [ null, %.lr.ph188 ], [ null, %.split.split ]
+  %.us-phi = phi i32 [ %.1101.ph, %.split.split.us.preheader ], [ 0, %.split.us.preheader ], [ %.2102.us142190, %.lr.ph191 ], [ %100, %.split.split.us ], [ %.2102.us187, %.lr.ph188 ], [ %80, %.split.us ], [ %spec.select, %.split.split ]
   %116 = icmp sgt i32 %.us-phi, 0
   br i1 %116, label %117, label %.thread129
 
@@ -468,8 +468,8 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   call void @ERR_clear_error() #8
   br label %.thread133
 
-.thread133:                                       ; preds = %131, %117, %52, %146, %166, %153, %47
-  %.293.ph = phi i32 [ 0, %47 ], [ 0, %146 ], [ 1, %166 ], [ 0, %153 ], [ 0, %52 ], [ 0, %117 ], [ 0, %131 ]
+.thread133:                                       ; preds = %52, %117, %131, %146, %166, %153, %47
+  %.293.ph = phi i32 [ 0, %47 ], [ 0, %153 ], [ 1, %166 ], [ 0, %146 ], [ 0, %131 ], [ 0, %117 ], [ 0, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit
 
@@ -484,8 +484,8 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   br i1 %175, label %38, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.thread129, %.preheader, %.thread133, %23, %22, %17
-  %.099 = phi ptr [ null, %22 ], [ %20, %23 ], [ %20, %.thread133 ], [ null, %17 ], [ %20, %.preheader ], [ %20, %.thread129 ]
-  %.091 = phi i32 [ 0, %22 ], [ 0, %23 ], [ %.293.ph, %.thread133 ], [ 0, %17 ], [ 0, %.preheader ], [ 0, %.thread129 ]
+  %.099 = phi ptr [ null, %22 ], [ %20, %23 ], [ null, %17 ], [ %20, %.thread133 ], [ %20, %.preheader ], [ %20, %.thread129 ]
+  %.091 = phi i32 [ 0, %22 ], [ 0, %23 ], [ 0, %17 ], [ %.293.ph, %.thread133 ], [ 0, %.preheader ], [ 0, %.thread129 ]
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %177 = load ptr, ptr %176, align 8, !tbaa !34
   %178 = call i32 @X509_STORE_lock(ptr noundef %177) #8
@@ -517,7 +517,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   br label %192
 
 192:                                              ; preds = %6, %191
-  %.0 = phi i32 [ 0, %6 ], [ %.091, %191 ]
+  %.0 = phi i32 [ %.091, %191 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -709,8 +709,8 @@ thread-pre-split:                                 ; preds = %64
   %.not51 = icmp eq i8 %65, 0
   br i1 %.not51, label %.thread, label %thread-pre-split, !llvm.loop !47
 
-.thread:                                          ; preds = %44, %64, %61, %56, %43, %9
-  %.042 = phi i32 [ 0, %9 ], [ 0, %61 ], [ 0, %43 ], [ 0, %56 ], [ 0, %44 ], [ 1, %64 ]
+.thread:                                          ; preds = %44, %64, %43, %61, %56, %9
+  %.042 = phi i32 [ 0, %9 ], [ 0, %56 ], [ 0, %61 ], [ 0, %43 ], [ 0, %44 ], [ 1, %64 ]
   ret i32 %.042
 }
 

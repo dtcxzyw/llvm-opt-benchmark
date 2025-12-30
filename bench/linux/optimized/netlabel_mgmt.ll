@@ -574,7 +574,7 @@ netlbl_mgmt_protocols_cb.exit11.thread:           ; preds = %.thread15, %netlbl_
   br label %netlbl_mgmt_protocols_cb.exit.thread
 
 netlbl_mgmt_protocols_cb.exit.thread:             ; preds = %2, %.thread, %9, %netlbl_mgmt_protocols_cb.exit11.thread, %netlbl_mgmt_protocols_cb.exit11, %netlbl_mgmt_protocols_cb.exit11.thread17, %netlbl_mgmt_protocols_cb.exit9, %netlbl_mgmt_protocols_cb.exit
-  %109 = phi i64 [ 0, %netlbl_mgmt_protocols_cb.exit ], [ 1, %netlbl_mgmt_protocols_cb.exit9 ], [ %7, %2 ], [ 0, %9 ], [ 3, %netlbl_mgmt_protocols_cb.exit11.thread17 ], [ 2, %netlbl_mgmt_protocols_cb.exit11.thread ], [ 3, %netlbl_mgmt_protocols_cb.exit11 ], [ 1, %.thread ]
+  %109 = phi i64 [ 0, %netlbl_mgmt_protocols_cb.exit ], [ 1, %netlbl_mgmt_protocols_cb.exit9 ], [ 2, %netlbl_mgmt_protocols_cb.exit11.thread ], [ 3, %netlbl_mgmt_protocols_cb.exit11 ], [ 3, %netlbl_mgmt_protocols_cb.exit11.thread17 ], [ 0, %9 ], [ 1, %.thread ], [ %7, %2 ]
   %110 = and i64 %109, 4294967295
   store i64 %110, ptr %6, align 8
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -952,22 +952,22 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr noundef readonly captures
   br i1 %191, label %205, label %.thread21
 
 .thread21:                                        ; preds = %183, %126, %187
-  %192 = phi ptr [ %110, %126 ], [ %188, %187 ], [ %153, %183 ]
-  %193 = phi i32 [ %127, %126 ], [ %190, %187 ], [ %184, %183 ]
-  %194 = phi ptr [ %92, %126 ], [ %189, %187 ], [ %135, %183 ]
+  %192 = phi ptr [ %188, %187 ], [ %110, %126 ], [ %153, %183 ]
+  %193 = phi i32 [ %190, %187 ], [ %127, %126 ], [ %184, %183 ]
+  %194 = phi ptr [ %189, %187 ], [ %92, %126 ], [ %135, %183 ]
   tail call void @kfree(ptr noundef %192) #10
   br label %.thread19
 
 .thread19:                                        ; preds = %151, %146, %137, %108, %103, %94, %.thread21
-  %195 = phi i32 [ -22, %94 ], [ %193, %.thread21 ], [ -12, %108 ], [ -22, %103 ], [ -12, %151 ], [ -22, %146 ], [ -22, %137 ]
-  %196 = phi ptr [ %92, %94 ], [ %194, %.thread21 ], [ %92, %108 ], [ %92, %103 ], [ %135, %151 ], [ %135, %146 ], [ %135, %137 ]
+  %195 = phi i32 [ %193, %.thread21 ], [ -12, %108 ], [ -22, %103 ], [ -22, %94 ], [ -12, %151 ], [ -22, %146 ], [ -22, %137 ]
+  %196 = phi ptr [ %194, %.thread21 ], [ %92, %108 ], [ %92, %103 ], [ %92, %94 ], [ %135, %151 ], [ %135, %146 ], [ %135, %137 ]
   tail call void @kfree(ptr noundef %196) #10
   br label %197
 
 197:                                              ; preds = %133, %90, %.thread19, %75, %68
-  %198 = phi ptr [ null, %68 ], [ %77, %75 ], [ %84, %90 ], [ %84, %.thread19 ], [ %84, %133 ]
-  %199 = phi ptr [ %70, %68 ], [ null, %75 ], [ %85, %90 ], [ %85, %.thread19 ], [ %85, %133 ]
-  %200 = phi i32 [ -22, %68 ], [ -22, %75 ], [ -12, %90 ], [ %195, %.thread19 ], [ -12, %133 ]
+  %198 = phi ptr [ null, %68 ], [ %77, %75 ], [ %84, %.thread19 ], [ %84, %90 ], [ %84, %133 ]
+  %199 = phi ptr [ %70, %68 ], [ null, %75 ], [ %85, %.thread19 ], [ %85, %90 ], [ %85, %133 ]
+  %200 = phi i32 [ -22, %68 ], [ -22, %75 ], [ %195, %.thread19 ], [ -12, %90 ], [ -12, %133 ]
   tail call void @cipso_v4_doi_putdef(ptr noundef %199) #10
   tail call void @calipso_doi_putdef(ptr noundef %198) #10
   br label %201
@@ -984,7 +984,7 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr noundef readonly captures
   br label %205
 
 205:                                              ; preds = %.thread, %187, %2
-  %206 = phi i32 [ %204, %.thread ], [ 0, %187 ], [ -12, %2 ]
+  %206 = phi i32 [ %204, %.thread ], [ -12, %2 ], [ 0, %187 ]
   ret i32 %206
 }
 
@@ -1101,7 +1101,7 @@ define internal i32 @netlbl_mgmt_listall_cb(ptr noundef readonly captures(none) 
   br label %.thread
 
 .thread:                                          ; preds = %2, %41, %32, %17
-  %47 = phi i32 [ 0, %17 ], [ %15, %41 ], [ %15, %32 ], [ -12, %2 ]
+  %47 = phi i32 [ 0, %17 ], [ %15, %32 ], [ %15, %41 ], [ -12, %2 ]
   ret i32 %47
 }
 
@@ -1444,7 +1444,7 @@ define internal fastcc i32 @netlbl_mgmt_listentry(ptr noundef %0, ptr noundef re
   br label %.thread
 
 .thread:                                          ; preds = %83, %75, %70, %65, %.preheader50, %148, %140, %136, %132, %.preheader41, %197, %194, %189, %186, %184, %.loopexit43, %31, %28, %23, %17
-  %202 = phi i32 [ %21, %17 ], [ %26, %23 ], [ -12, %31 ], [ %187, %186 ], [ %195, %194 ], [ 0, %28 ], [ %201, %197 ], [ %193, %189 ], [ %185, %184 ], [ 0, %.loopexit43 ], [ %152, %148 ], [ -12, %.preheader41 ], [ %134, %132 ], [ %138, %136 ], [ %143, %140 ], [ %68, %65 ], [ %73, %70 ], [ %78, %75 ], [ %87, %83 ], [ -12, %.preheader50 ]
+  %202 = phi i32 [ %21, %17 ], [ %26, %23 ], [ -12, %31 ], [ %187, %186 ], [ %195, %194 ], [ 0, %28 ], [ %201, %197 ], [ %193, %189 ], [ %185, %184 ], [ 0, %.loopexit43 ], [ -12, %.preheader41 ], [ %134, %132 ], [ %138, %136 ], [ %143, %140 ], [ %152, %148 ], [ -12, %.preheader50 ], [ %68, %65 ], [ %73, %70 ], [ %78, %75 ], [ %87, %83 ]
   ret i32 %202
 }
 

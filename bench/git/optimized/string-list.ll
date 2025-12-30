@@ -67,8 +67,8 @@ define dso_local ptr @string_list_insert(ptr noundef captures(none) %0, ptr noun
   br i1 %.not30.i.i, label %get_entry_index.exit.i, label %19
 
 19:                                               ; preds = %18, %.lr.ph.i.i
-  %.227.i.i = phi i32 [ %.02535.i.i, %18 ], [ %11, %.lr.ph.i.i ]
-  %.224.i.i = phi i32 [ %11, %18 ], [ %.02236.i.i, %.lr.ph.i.i ]
+  %.227.i.i = phi i32 [ %11, %.lr.ph.i.i ], [ %.02535.i.i, %18 ]
+  %.224.i.i = phi i32 [ %.02236.i.i, %.lr.ph.i.i ], [ %11, %18 ]
   %20 = add nsw i32 %.224.i.i, 1
   %21 = icmp slt i32 %20, %.227.i.i
   br i1 %21, label %.lr.ph.i.i, label %.loopexit.loopexit.i, !llvm.loop !17
@@ -199,8 +199,8 @@ define dso_local void @string_list_remove(ptr noundef captures(none) %0, ptr nou
   br i1 %.not30.i, label %get_entry_index.exit, label %20
 
 20:                                               ; preds = %19, %.lr.ph.i
-  %.227.i = phi i32 [ %.02535.i, %19 ], [ %12, %.lr.ph.i ]
-  %.224.i = phi i32 [ %12, %19 ], [ %.02236.i, %.lr.ph.i ]
+  %.227.i = phi i32 [ %12, %.lr.ph.i ], [ %.02535.i, %19 ]
+  %.224.i = phi i32 [ %.02236.i, %.lr.ph.i ], [ %12, %19 ]
   %21 = add nsw i32 %.224.i, 1
   %22 = icmp slt i32 %21, %.227.i
   br i1 %22, label %.lr.ph.i, label %move_array.exit, !llvm.loop !17
@@ -293,8 +293,8 @@ define dso_local range(i32 0, 2) i32 @string_list_has_string(ptr noundef readonl
   br i1 %.not30.i, label %get_entry_index.exit, label %19
 
 19:                                               ; preds = %18, %.lr.ph.i
-  %.227.i = phi i32 [ %.02535.i, %18 ], [ %11, %.lr.ph.i ]
-  %.224.i = phi i32 [ %11, %18 ], [ %.02236.i, %.lr.ph.i ]
+  %.227.i = phi i32 [ %11, %.lr.ph.i ], [ %.02535.i, %18 ]
+  %.224.i = phi i32 [ %.02236.i, %.lr.ph.i ], [ %11, %18 ]
   %20 = add nsw i32 %.224.i, 1
   %21 = icmp slt i32 %20, %.227.i
   br i1 %21, label %.lr.ph.i, label %get_entry_index.exit, !llvm.loop !17
@@ -335,8 +335,8 @@ define dso_local i32 @string_list_find_insert_index(ptr noundef readonly capture
   br i1 %.not30.i, label %get_entry_index.exit, label %20
 
 20:                                               ; preds = %19, %.lr.ph.i
-  %.227.i = phi i32 [ %.02535.i, %19 ], [ %12, %.lr.ph.i ]
-  %.224.i = phi i32 [ %12, %19 ], [ %.02236.i, %.lr.ph.i ]
+  %.227.i = phi i32 [ %12, %.lr.ph.i ], [ %.02535.i, %19 ]
+  %.224.i = phi i32 [ %.02236.i, %.lr.ph.i ], [ %12, %19 ]
   %21 = add nsw i32 %.224.i, 1
   %22 = icmp slt i32 %21, %.227.i
   br i1 %22, label %.lr.ph.i, label %.loopexit, !llvm.loop !17
@@ -383,8 +383,8 @@ define dso_local ptr @string_list_lookup(ptr noundef readonly captures(none) %0,
   br i1 %.not30.i, label %get_entry_index.exit, label %19
 
 19:                                               ; preds = %18, %.lr.ph.i
-  %.227.i = phi i32 [ %.02535.i, %18 ], [ %11, %.lr.ph.i ]
-  %.224.i = phi i32 [ %11, %18 ], [ %.02236.i, %.lr.ph.i ]
+  %.227.i = phi i32 [ %11, %.lr.ph.i ], [ %.02535.i, %18 ]
+  %.224.i = phi i32 [ %.02236.i, %.lr.ph.i ], [ %11, %18 ]
   %20 = add nsw i32 %.224.i, 1
   %21 = icmp slt i32 %20, %.227.i
   br i1 %21, label %.lr.ph.i, label %get_entry_index.exit.thread, !llvm.loop !17
@@ -1370,8 +1370,8 @@ string_list_append_nodup.exit:                    ; preds = %._crit_edge.i, %st_
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 .split.us:                                        ; preds = %.lr.ph.split, %string_list_append_nodup.exit.us, %.lr.ph.split.us
-  %.us-phi = phi ptr [ %35, %string_list_append_nodup.exit.us ], [ %1, %.lr.ph.split.us ], [ %.02040, %.lr.ph.split ]
-  %.us-phi42 = phi i32 [ %36, %string_list_append_nodup.exit.us ], [ 1, %.lr.ph.split.us ], [ %61, %.lr.ph.split ]
+  %.us-phi = phi ptr [ %1, %.lr.ph.split.us ], [ %35, %string_list_append_nodup.exit.us ], [ %.02040, %.lr.ph.split ]
+  %.us-phi42 = phi i32 [ 1, %.lr.ph.split.us ], [ %36, %string_list_append_nodup.exit.us ], [ %61, %.lr.ph.split ]
   %86 = load i8, ptr %5, align 8
   %87 = and i8 %86, 1
   %.not.i25 = icmp eq i8 %87, 0
@@ -1654,8 +1654,8 @@ string_list_append.exit32:                        ; preds = %._crit_edge.i.i25, 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 .split.us:                                        ; preds = %.lr.ph.split, %string_list_append.exit32.us, %.lr.ph.split.us
-  %.us-phi = phi ptr [ %37, %string_list_append.exit32.us ], [ %1, %.lr.ph.split.us ], [ %.01948, %.lr.ph.split ]
-  %.us-phi50 = phi i32 [ %38, %string_list_append.exit32.us ], [ 1, %.lr.ph.split.us ], [ %63, %.lr.ph.split ]
+  %.us-phi = phi ptr [ %1, %.lr.ph.split.us ], [ %37, %string_list_append.exit32.us ], [ %.01948, %.lr.ph.split ]
+  %.us-phi50 = phi i32 [ 1, %.lr.ph.split.us ], [ %38, %string_list_append.exit32.us ], [ %63, %.lr.ph.split ]
   %90 = load i8, ptr %5, align 8
   %91 = and i8 %90, 1
   %.not.i33 = icmp eq i8 %91, 0

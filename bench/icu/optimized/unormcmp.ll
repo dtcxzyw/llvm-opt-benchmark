@@ -129,7 +129,7 @@ define range(i32 -65535, 65536) i32 @unorm_compare_77(ptr noundef %0, i32 nounde
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %51, %56, %58
-  %.0.i = phi ptr [ %60, %58 ], [ %57, %56 ], [ null, %51 ]
+  %.0.i = phi ptr [ %57, %56 ], [ %60, %58 ], [ null, %51 ]
   %61 = icmp slt i16 %52, 0
   %62 = ashr i16 %52, 5
   %63 = sext i16 %62 to i32
@@ -181,7 +181,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %51, %56, %58
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit96
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit96:    ; preds = %74, %79, %81
-  %.0.i94 = phi ptr [ %83, %81 ], [ %80, %79 ], [ null, %74 ]
+  %.0.i94 = phi ptr [ %80, %79 ], [ %83, %81 ], [ null, %74 ]
   %84 = icmp slt i16 %75, 0
   %85 = ashr i16 %75, 5
   %86 = sext i16 %85 to i32
@@ -226,7 +226,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit96:    ; preds = %74, %79, %81
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit100
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit100:   ; preds = %94, %99, %101
-  %.0.i98 = phi ptr [ %103, %101 ], [ %100, %99 ], [ null, %94 ]
+  %.0.i98 = phi ptr [ %100, %99 ], [ %103, %101 ], [ null, %94 ]
   %104 = icmp slt i16 %95, 0
   %105 = ashr i16 %95, 5
   %106 = sext i16 %105 to i32
@@ -266,7 +266,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit100:   ; preds = %94, %99, %101
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit104
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
-  %.0.i102 = phi ptr [ %122, %120 ], [ %119, %118 ], [ null, %113 ]
+  %.0.i102 = phi ptr [ %119, %118 ], [ %122, %120 ], [ null, %113 ]
   %123 = icmp slt i16 %114, 0
   %124 = ashr i16 %114, 5
   %125 = sext i16 %124 to i32
@@ -276,10 +276,10 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
   br label %129
 
 129:                                              ; preds = %112, %90, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104, %26
-  %.069 = phi ptr [ %2, %26 ], [ %.0.i102, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104 ], [ %.271, %90 ], [ %2, %112 ]
-  %.065 = phi i32 [ %3, %26 ], [ %128, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104 ], [ %.267, %90 ], [ %3, %112 ]
-  %.060 = phi i32 [ %1, %26 ], [ %.464, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104 ], [ %.262, %90 ], [ %.464, %112 ]
-  %.049 = phi ptr [ %0, %26 ], [ %.4, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104 ], [ %.251, %90 ], [ %.4, %112 ]
+  %.069 = phi ptr [ %2, %26 ], [ %.271, %90 ], [ %2, %112 ], [ %.0.i102, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104 ]
+  %.065 = phi i32 [ %3, %26 ], [ %.267, %90 ], [ %3, %112 ], [ %128, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104 ]
+  %.060 = phi i32 [ %1, %26 ], [ %.262, %90 ], [ %.464, %112 ], [ %.464, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104 ]
+  %.049 = phi ptr [ %0, %26 ], [ %.251, %90 ], [ %.4, %112 ], [ %.4, %_ZNK6icu_7713UnicodeString9getBufferEv.exit104 ]
   %130 = load i32, ptr %5, align 4, !tbaa !3
   %131 = icmp sgt i32 %130, 0
   br i1 %131, label %.critedge, label %132
@@ -426,11 +426,11 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
   br label %.preheader261.split.i, !llvm.loop !24
 
 .loopexit262.i:                                   ; preds = %156, %173, %.split.us.i, %.backedge.i
-  %.1200.i = phi ptr [ %.0199.i, %.backedge.i ], [ %177, %.split.us.i ], [ %.2201.i, %173 ], [ %.2201.us.i, %156 ]
-  %.1195.i = phi ptr [ %.0194.i, %.backedge.i ], [ %.us-phi289.i, %.split.us.i ], [ %.2196.i, %173 ], [ %.2196.us.i, %156 ]
-  %.2189.i = phi ptr [ %.1188.i, %.backedge.i ], [ %.us-phi290.i, %.split.us.i ], [ %.3190.i, %173 ], [ %.3190.us.i, %156 ]
-  %.1179.i = phi i32 [ %.0178.i, %.backedge.i ], [ %.us-phi291.i, %.split.us.i ], [ 0, %173 ], [ 0, %156 ]
-  %.1169.i = phi i32 [ %.0168.i, %.backedge.i ], [ %176, %.split.us.i ], [ -1, %173 ], [ -1, %156 ]
+  %.1200.i = phi ptr [ %177, %.split.us.i ], [ %.0199.i, %.backedge.i ], [ %.2201.i, %173 ], [ %.2201.us.i, %156 ]
+  %.1195.i = phi ptr [ %.us-phi289.i, %.split.us.i ], [ %.0194.i, %.backedge.i ], [ %.2196.i, %173 ], [ %.2196.us.i, %156 ]
+  %.2189.i = phi ptr [ %.us-phi290.i, %.split.us.i ], [ %.1188.i, %.backedge.i ], [ %.3190.i, %173 ], [ %.3190.us.i, %156 ]
+  %.1179.i = phi i32 [ %.us-phi291.i, %.split.us.i ], [ %.0178.i, %.backedge.i ], [ 0, %173 ], [ 0, %156 ]
+  %.1169.i = phi i32 [ %176, %.split.us.i ], [ %.0168.i, %.backedge.i ], [ -1, %173 ], [ -1, %156 ]
   %187 = icmp slt i32 %.0166.i, 0
   br i1 %187, label %.preheader260.i, label %.loopexit.i
 
@@ -480,11 +480,11 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
   br label %.preheader260.i, !llvm.loop !26
 
 .loopexit.i:                                      ; preds = %193, %196, %.loopexit262.i
-  %.1206.i = phi ptr [ %.0205.i, %.loopexit262.i ], [ %198, %196 ], [ %.2207.i, %193 ]
-  %.1192.i = phi ptr [ %.0191.i, %.loopexit262.i ], [ %.2193.i, %196 ], [ %.2193.i, %193 ]
-  %.2185.i = phi ptr [ %.1184.i, %.loopexit262.i ], [ %.3186.i, %196 ], [ %.3186.i, %193 ]
-  %.1174.i = phi i32 [ %.0173.i, %.loopexit262.i ], [ %.2175.i, %196 ], [ 0, %193 ]
-  %.1167.i = phi i32 [ %.0166.i, %.loopexit262.i ], [ %197, %196 ], [ -1, %193 ]
+  %.1206.i = phi ptr [ %198, %196 ], [ %.0205.i, %.loopexit262.i ], [ %.2207.i, %193 ]
+  %.1192.i = phi ptr [ %.2193.i, %196 ], [ %.0191.i, %.loopexit262.i ], [ %.2193.i, %193 ]
+  %.2185.i = phi ptr [ %.3186.i, %196 ], [ %.1184.i, %.loopexit262.i ], [ %.3186.i, %193 ]
+  %.1174.i = phi i32 [ %.2175.i, %196 ], [ %.0173.i, %.loopexit262.i ], [ 0, %193 ]
+  %.1167.i = phi i32 [ %197, %196 ], [ %.0166.i, %.loopexit262.i ], [ -1, %193 ]
   %208 = icmp eq i32 %.1169.i, %.1167.i
   %209 = icmp slt i32 %.1169.i, 0
   br i1 %208, label %210, label %211
@@ -876,16 +876,16 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
   br label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %392, %365, %338, %301, %210
-  %.0205.i.be = phi ptr [ %372, %392 ], [ %.3208.i, %301 ], [ %14, %338 ], [ %.5210.i, %365 ], [ %.1206.i, %210 ]
-  %.0199.i.be = phi ptr [ %.6.i, %392 ], [ %13, %301 ], [ %.4203.i, %338 ], [ %345, %365 ], [ %.1200.i, %210 ]
-  %.0194.i.be = phi ptr [ %.1195.i, %392 ], [ %13, %301 ], [ %.1195.i, %338 ], [ %345, %365 ], [ %.1195.i, %210 ]
-  %.0191.i.be = phi ptr [ %372, %392 ], [ %.1192.i, %301 ], [ %14, %338 ], [ %.1192.i, %365 ], [ %.1192.i, %210 ]
-  %.1188.i.be = phi ptr [ %.2189.i, %392 ], [ %304, %301 ], [ %.2189.i, %338 ], [ %368, %365 ], [ %.2189.i, %210 ]
-  %.1184.i.be = phi ptr [ %395, %392 ], [ %.2185.i, %301 ], [ %341, %338 ], [ %.2185.i, %365 ], [ %.2185.i, %210 ]
-  %.0178.i.be = phi i32 [ %.1179.i, %392 ], [ 1, %301 ], [ %.1179.i, %338 ], [ %.4182.i, %365 ], [ %.1179.i, %210 ]
-  %.0173.i.be = phi i32 [ %.4177.i, %392 ], [ %.1174.i, %301 ], [ 1, %338 ], [ %.1174.i, %365 ], [ %.1174.i, %210 ]
-  %.0168.i.be = phi i32 [ %.3171.i, %392 ], [ -1, %301 ], [ %.2170.i, %338 ], [ -1, %365 ], [ -1, %210 ]
-  %.0166.i.be = phi i32 [ -1, %392 ], [ %.2.i, %301 ], [ -1, %338 ], [ %.3.i, %365 ], [ -1, %210 ]
+  %.0205.i.be = phi ptr [ %.3208.i, %301 ], [ %14, %338 ], [ %.5210.i, %365 ], [ %372, %392 ], [ %.1206.i, %210 ]
+  %.0199.i.be = phi ptr [ %13, %301 ], [ %.4203.i, %338 ], [ %345, %365 ], [ %.6.i, %392 ], [ %.1200.i, %210 ]
+  %.0194.i.be = phi ptr [ %13, %301 ], [ %.1195.i, %338 ], [ %345, %365 ], [ %.1195.i, %392 ], [ %.1195.i, %210 ]
+  %.0191.i.be = phi ptr [ %.1192.i, %301 ], [ %14, %338 ], [ %.1192.i, %365 ], [ %372, %392 ], [ %.1192.i, %210 ]
+  %.1188.i.be = phi ptr [ %304, %301 ], [ %.2189.i, %338 ], [ %368, %365 ], [ %.2189.i, %392 ], [ %.2189.i, %210 ]
+  %.1184.i.be = phi ptr [ %.2185.i, %301 ], [ %341, %338 ], [ %.2185.i, %365 ], [ %395, %392 ], [ %.2185.i, %210 ]
+  %.0178.i.be = phi i32 [ 1, %301 ], [ %.1179.i, %338 ], [ %.4182.i, %365 ], [ %.1179.i, %392 ], [ %.1179.i, %210 ]
+  %.0173.i.be = phi i32 [ %.1174.i, %301 ], [ 1, %338 ], [ %.1174.i, %365 ], [ %.4177.i, %392 ], [ %.1174.i, %210 ]
+  %.0168.i.be = phi i32 [ -1, %301 ], [ %.2170.i, %338 ], [ -1, %365 ], [ %.3171.i, %392 ], [ -1, %210 ]
+  %.0166.i.be = phi i32 [ %.2.i, %301 ], [ -1, %338 ], [ %.3.i, %365 ], [ -1, %392 ], [ -1, %210 ]
   br label %.backedge.i, !llvm.loop !30
 
 396:                                              ; preds = %.noexc112, %369
@@ -989,7 +989,7 @@ _ZL18unorm_cmpEquivFoldPKDsiS0_ijP10UErrorCode.exit: ; preds = %210, %211, %212,
   br label %436
 
 .critedge:                                        ; preds = %_ZL18unorm_cmpEquivFoldPKDsiS0_ijP10UErrorCode.exit, %39, %129
-  %.2 = phi i32 [ 0, %129 ], [ %.0198.i, %_ZL18unorm_cmpEquivFoldPKDsiS0_ijP10UErrorCode.exit ], [ 0, %39 ]
+  %.2 = phi i32 [ %.0198.i, %_ZL18unorm_cmpEquivFoldPKDsiS0_ijP10UErrorCode.exit ], [ 0, %129 ], [ 0, %39 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %16) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %15) #4
@@ -997,7 +997,7 @@ _ZL18unorm_cmpEquivFoldPKDsiS0_ijP10UErrorCode.exit: ; preds = %210, %211, %212,
   br label %437
 
 436:                                              ; preds = %.loopexit, %.loopexit.split-lp, %35, %69, %67
-  %.pn89 = phi { ptr, i32 } [ %68, %67 ], [ %36, %35 ], [ %70, %69 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn89 = phi { ptr, i32 } [ %36, %35 ], [ %70, %69 ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %16) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %15) #4
@@ -1005,7 +1005,7 @@ _ZL18unorm_cmpEquivFoldPKDsiS0_ijP10UErrorCode.exit: ; preds = %210, %211, %212,
   resume { ptr, i32 } %.pn89
 
 437:                                              ; preds = %6, %.critedge, %25
-  %.0 = phi i32 [ %.2, %.critedge ], [ 0, %25 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %25 ], [ %.2, %.critedge ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -1094,7 +1094,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL10_normalizePKN6icu
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %36, %41, %43
-  %.0.i = phi ptr [ %45, %43 ], [ %42, %41 ], [ null, %36 ]
+  %.0.i = phi ptr [ %42, %41 ], [ %45, %43 ], [ null, %36 ]
   store ptr %.0.i, ptr %9, align 8, !tbaa !31
   %46 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 noundef signext 0, ptr noundef nonnull %9, i32 noundef %16)
           to label %47 unwind label %60
@@ -1146,7 +1146,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %36, %41, %43
   br label %66
 
 66:                                               ; preds = %17, %53, %65
-  %.017 = phi i8 [ 1, %53 ], [ 0, %65 ], [ 0, %17 ]
+  %.017 = phi i8 [ 0, %65 ], [ 1, %53 ], [ 0, %17 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i8 %.017

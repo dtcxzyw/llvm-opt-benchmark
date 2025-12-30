@@ -251,8 +251,8 @@ define hidden void @_ZN9relocInfo10initializeEP11CodeSectionP10Relocation(ptr no
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %19, %.split.i
-  %phi.call.sink.i = phi i16 [ %spec.select.i, %19 ], [ %18, %.split.i ]
-  %.0.ph.i = phi ptr [ %spec.select13.i, %19 ], [ %8, %.split.i ]
+  %phi.call.sink.i = phi i16 [ %18, %.split.i ], [ %spec.select.i, %19 ]
+  %.0.ph.i = phi ptr [ %8, %.split.i ], [ %spec.select13.i, %19 ]
   store i16 %phi.call.sink.i, ptr %0, align 2
   br label %_ZN9relocInfo13finish_prefixEPs.exit
 
@@ -298,8 +298,8 @@ define hidden noundef ptr @_ZN9relocInfo13finish_prefixEPs(ptr noundef nonnull a
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %.split
-  %phi.call.sink = phi i16 [ %spec.select, %12 ], [ %11, %.split ]
-  %.0.ph = phi ptr [ %spec.select13, %12 ], [ %1, %.split ]
+  %phi.call.sink = phi i16 [ %11, %.split ], [ %spec.select, %12 ]
+  %.0.ph = phi ptr [ %1, %.split ], [ %spec.select13, %12 ]
   store i16 %phi.call.sink, ptr %0, align 2
   br label %16
 
@@ -662,8 +662,8 @@ _ZN13RelocIterator19advance_over_prefixEv.exit.i: ; preds = %49, %43
   br i1 %or.cond, label %.preheader.split, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader.split, %51, %28, %.preheader.split.us
-  %57 = phi ptr [ %12, %28 ], [ %12, %.preheader.split.us ], [ %35, %51 ], [ %35, %.preheader.split ]
-  %58 = phi ptr [ %11, %28 ], [ %11, %.preheader.split.us ], [ %34, %51 ], [ %34, %.preheader.split ]
+  %57 = phi ptr [ %12, %.preheader.split.us ], [ %12, %28 ], [ %35, %51 ], [ %35, %.preheader.split ]
+  %58 = phi ptr [ %11, %.preheader.split.us ], [ %11, %28 ], [ %34, %51 ], [ %34, %.preheader.split ]
   store ptr %57, ptr %4, align 8
   store ptr %58, ptr %5, align 8
   store i16 -1, ptr %8, align 8
@@ -991,8 +991,8 @@ _ZN9relocInfo12jint_data_atEiPsi.exit.i.i.i:      ; preds = %76
   br label %_ZN10Relocation13unpack_2_intsERiS0_.exit.i.i
 
 _ZN10Relocation13unpack_2_intsERiS0_.exit.i.i:    ; preds = %106, %_ZN9relocInfo12jint_data_atEiPsi.exit.i.i.i, %92, %_ZN9relocInfo13short_data_atEiPsi.exit.i.i.i
-  %.0.i.i = phi i32 [ %91, %_ZN9relocInfo13short_data_atEiPsi.exit.i.i.i ], [ %91, %92 ], [ %102, %106 ], [ %102, %_ZN9relocInfo12jint_data_atEiPsi.exit.i.i.i ]
-  %storemerge.i.i.i = phi i32 [ 0, %_ZN9relocInfo13short_data_atEiPsi.exit.i.i.i ], [ %95, %92 ], [ %111, %106 ], [ %105, %_ZN9relocInfo12jint_data_atEiPsi.exit.i.i.i ]
+  %.0.i.i = phi i32 [ %91, %_ZN9relocInfo13short_data_atEiPsi.exit.i.i.i ], [ %91, %92 ], [ %102, %_ZN9relocInfo12jint_data_atEiPsi.exit.i.i.i ], [ %102, %106 ]
+  %storemerge.i.i.i = phi i32 [ 0, %_ZN9relocInfo13short_data_atEiPsi.exit.i.i.i ], [ %95, %92 ], [ %105, %_ZN9relocInfo12jint_data_atEiPsi.exit.i.i.i ], [ %111, %106 ]
   store i32 %storemerge.i.i.i, ptr %82, align 8
   %112 = icmp eq i32 %.0.i.i, 0
   br i1 %112, label %_ZN13RelocIterator18virtual_call_relocEv.exit, label %113
@@ -2568,8 +2568,8 @@ _ZN9relocInfo12jint_data_atEiPsi.exit.i:          ; preds = %1
   br label %_ZN10Relocation13unpack_2_intsERiS0_.exit
 
 _ZN10Relocation13unpack_2_intsERiS0_.exit:        ; preds = %_ZN9relocInfo13short_data_atEiPsi.exit.i, %14, %_ZN9relocInfo12jint_data_atEiPsi.exit.i, %28
-  %.0 = phi i32 [ %13, %_ZN9relocInfo13short_data_atEiPsi.exit.i ], [ %13, %14 ], [ %24, %28 ], [ %24, %_ZN9relocInfo12jint_data_atEiPsi.exit.i ]
-  %storemerge.i = phi i32 [ 0, %_ZN9relocInfo13short_data_atEiPsi.exit.i ], [ %17, %14 ], [ %33, %28 ], [ %27, %_ZN9relocInfo12jint_data_atEiPsi.exit.i ]
+  %.0 = phi i32 [ %13, %_ZN9relocInfo13short_data_atEiPsi.exit.i ], [ %13, %14 ], [ %24, %_ZN9relocInfo12jint_data_atEiPsi.exit.i ], [ %24, %28 ]
+  %storemerge.i = phi i32 [ 0, %_ZN9relocInfo13short_data_atEiPsi.exit.i ], [ %17, %14 ], [ %27, %_ZN9relocInfo12jint_data_atEiPsi.exit.i ], [ %33, %28 ]
   store i32 %storemerge.i, ptr %2, align 8
   %34 = icmp eq i32 %.0, 0
   br i1 %34, label %41, label %35
@@ -3093,7 +3093,7 @@ _ZN10Relocation12new_addr_forEPhPK10CodeBufferPS1_.exit.i: ; preds = %.lr.ph.i.i
   br label %_ZN10Relocation17normalize_addressERPhPK11CodeSectionb.exit
 
 _ZN10Relocation17normalize_addressERPhPK11CodeSectionb.exit: ; preds = %8, %_ZN10Relocation12new_addr_forEPhPK10CodeBufferPS1_.exit.i
-  %.pr = phi ptr [ %32, %_ZN10Relocation12new_addr_forEPhPK10CodeBufferPS1_.exit.i ], [ %6, %8 ]
+  %.pr = phi ptr [ %6, %8 ], [ %32, %_ZN10Relocation12new_addr_forEPhPK10CodeBufferPS1_.exit.i ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, -1
@@ -3222,14 +3222,14 @@ _ZN10Relocation17normalize_addressERPhPK11CodeSectionb.exit.thread: ; preds = %2
   br label %_ZN10Relocation13pack_1_int_toEPsi.exit.sink.split
 
 _ZN10Relocation13pack_1_int_toEPsi.exit.sink.split: ; preds = %97, %99, %68, %70
-  %.sink.in.i.i36.sink = phi i32 [ %71, %70 ], [ %.neg3.i.i, %68 ], [ %93, %97 ], [ %100, %99 ]
-  %.0.ph = phi ptr [ %74, %70 ], [ %69, %68 ], [ %98, %97 ], [ %103, %99 ]
+  %.sink.in.i.i36.sink = phi i32 [ %.neg3.i.i, %68 ], [ %71, %70 ], [ %93, %97 ], [ %100, %99 ]
+  %.0.ph = phi ptr [ %69, %68 ], [ %74, %70 ], [ %98, %97 ], [ %103, %99 ]
   %.sink.i.i38 = trunc i32 %.sink.in.i.i36.sink to i16
   store i16 %.sink.i.i38, ptr %4, align 2
   br label %_ZN10Relocation13pack_1_int_toEPsi.exit
 
 _ZN10Relocation13pack_1_int_toEPsi.exit:          ; preds = %_ZN10Relocation13pack_1_int_toEPsi.exit.sink.split, %_ZN10Relocation17normalize_addressERPhPK11CodeSectionb.exit.thread, %39, %89, %62
-  %.0 = phi ptr [ %4, %89 ], [ %4, %39 ], [ %4, %62 ], [ %4, %_ZN10Relocation17normalize_addressERPhPK11CodeSectionb.exit.thread ], [ %.0.ph, %_ZN10Relocation13pack_1_int_toEPsi.exit.sink.split ]
+  %.0 = phi ptr [ %4, %62 ], [ %4, %89 ], [ %4, %39 ], [ %4, %_ZN10Relocation17normalize_addressERPhPK11CodeSectionb.exit.thread ], [ %.0.ph, %_ZN10Relocation13pack_1_int_toEPsi.exit.sink.split ]
   store ptr %.0, ptr %3, align 8
   ret void
 }
@@ -4740,7 +4740,7 @@ _ZN13RelocIterator21trampoline_stub_relocEv.exit._crit_edge: ; preds = %_ZN13Rel
   br i1 %140, label %_ZN13RelocIterator4nextEv.exit, label %75, !llvm.loop !74
 
 _ZN13RelocIterator4nextEv.exit:                   ; preds = %136, %91, %_ZN13RelocIterator10set_limitsEPhS0_.exit, %2, %134
-  %.0 = phi ptr [ null, %2 ], [ %135, %134 ], [ null, %_ZN13RelocIterator10set_limitsEPhS0_.exit ], [ null, %91 ], [ null, %136 ]
+  %.0 = phi ptr [ %135, %134 ], [ null, %2 ], [ null, %_ZN13RelocIterator10set_limitsEPhS0_.exit ], [ null, %91 ], [ null, %136 ]
   ret ptr %.0
 }
 

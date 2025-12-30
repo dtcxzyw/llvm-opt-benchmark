@@ -571,16 +571,16 @@ define internal i32 @lag_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit299
 
 .loopexit:                                        ; preds = %155, %333, %285
-  %.0255 = phi i32 [ %347, %333 ], [ %297, %285 ], [ %105, %155 ]
+  %.0255 = phi i32 [ %297, %285 ], [ %347, %333 ], [ %105, %155 ]
   %350 = icmp slt i32 %.0255, 0
   br i1 %350, label %.loopexit299, label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %96, %49, %.preheader295, %._crit_edge, %.preheader, %.preheader293, %.loopexit
+.loopexit.thread:                                 ; preds = %96, %49, %.preheader295, %.preheader293, %.preheader, %._crit_edge, %.loopexit
   store i32 1, ptr %2, align 4, !tbaa !39
   br label %.loopexit299
 
 .loopexit299:                                     ; preds = %197, %.thread349, %.loopexit, %317, %305, %298, %271, %259, %252, %165, %100, %18, %.loopexit.thread, %348, %304, %258, %188
-  %.0 = phi i32 [ -1163346256, %348 ], [ %315, %305 ], [ %331, %317 ], [ %10, %.loopexit.thread ], [ %23, %18 ], [ %105, %100 ], [ -1094995529, %188 ], [ %166, %165 ], [ %.0255, %.loopexit ], [ -1094995529, %258 ], [ %254, %252 ], [ %269, %259 ], [ %283, %271 ], [ -1094995529, %304 ], [ %300, %298 ], [ %26, %.thread349 ], [ %210, %197 ]
+  %.0 = phi i32 [ -1163346256, %348 ], [ %10, %.loopexit.thread ], [ -1094995529, %188 ], [ -1094995529, %258 ], [ -1094995529, %304 ], [ %23, %18 ], [ %105, %100 ], [ %166, %165 ], [ %254, %252 ], [ %269, %259 ], [ %283, %271 ], [ %300, %298 ], [ %315, %305 ], [ %331, %317 ], [ %.0255, %.loopexit ], [ %26, %.thread349 ], [ %210, %197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1101,7 +1101,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @lag_decode_arith_plane(ptr
   br i1 %exitcond183.not.i, label %lag_read_prob_header.exit, label %315, !llvm.loop !65
 
 .critedge.sink.split.i:                           ; preds = %114, %104, %298, %268, %184, %103
-  %.str.10.sink.i = phi ptr [ @.str.9, %184 ], [ @.str.10, %268 ], [ @.str.6, %103 ], [ @.str.11, %298 ], [ @.str.7, %104 ], [ @.str.8, %114 ]
+  %.str.10.sink.i = phi ptr [ @.str.6, %103 ], [ @.str.9, %184 ], [ @.str.10, %268 ], [ @.str.11, %298 ], [ @.str.8, %114 ], [ @.str.7, %104 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %14, i32 noundef 16, ptr noundef nonnull %.str.10.sink.i) #7
   br label %lag_read_prob_header.exit.thread
 
@@ -1802,7 +1802,7 @@ lag_decode_zero_run_line.exit:                    ; preds = %528, %569
   br label %mid_pred.exit.i.i
 
 mid_pred.exit.i.i:                                ; preds = %659, %657, %656, %654
-  %.0.i.i.i152 = phi i32 [ %..i.i.i, %656 ], [ %649, %657 ], [ %649, %654 ], [ %.20.i.i.i, %659 ]
+  %.0.i.i.i152 = phi i32 [ %649, %654 ], [ %649, %657 ], [ %..i.i.i, %656 ], [ %.20.i.i.i, %659 ]
   %660 = getelementptr inbounds nuw i8, ptr %.0108289, i64 %indvars.iv.i.i151
   %661 = load i8, ptr %660, align 1, !tbaa !34
   %662 = trunc nuw i32 %.0.i.i.i152 to i8
@@ -1913,7 +1913,7 @@ lag_pred_line.exit:                               ; preds = %mid_pred.exit.i.i, 
   br label %mid_pred.exit.i
 
 mid_pred.exit.i:                                  ; preds = %711, %709, %708, %706
-  %.0.i.i160 = phi i32 [ %..i.i, %708 ], [ %701, %709 ], [ %701, %706 ], [ %712, %711 ]
+  %.0.i.i160 = phi i32 [ %701, %706 ], [ %701, %709 ], [ %..i.i, %708 ], [ %712, %711 ]
   %713 = getelementptr inbounds nuw i8, ptr %.1109292, i64 %indvars.iv68.i
   %714 = load i8, ptr %713, align 1, !tbaa !34
   %715 = zext i8 %714 to i32
@@ -1947,7 +1947,7 @@ lag_pred_line_yuy2.exit:                          ; preds = %mid_pred.exit.i, %6
   br i1 %exitcond358.not, label %lag_read_prob_header.exit.thread, label %666, !llvm.loop !86
 
 lag_read_prob_header.exit.thread:                 ; preds = %594, %lag_decode_zero_run_line.exit, %553, %533, %338, %lag_pred_line.exit, %lag_pred_line_yuy2.exit, %.preheader176, %.preheader166, %.preheader, %522, %.critedge.sink.split.i, %._crit_edge.i, %.loopexit.i, %187, %579, %29, %21, %7, %598
-  %.0 = phi i32 [ -1094995529, %598 ], [ -1094995529, %7 ], [ -1094995529, %21 ], [ -1094995529, %29 ], [ -1094995529, %.critedge.sink.split.i ], [ -1094995529, %338 ], [ 0, %lag_pred_line.exit ], [ 0, %.preheader ], [ -1094995529, %579 ], [ 0, %lag_pred_line_yuy2.exit ], [ -1094995529, %533 ], [ -1094995529, %187 ], [ -1094995529, %.loopexit.i ], [ -1094995529, %._crit_edge.i ], [ -1094995529, %522 ], [ 0, %.preheader166 ], [ 0, %.preheader176 ], [ %574, %lag_decode_zero_run_line.exit ], [ -1094995529, %553 ], [ 0, %594 ]
+  %.0 = phi i32 [ -1094995529, %598 ], [ -1094995529, %7 ], [ -1094995529, %21 ], [ -1094995529, %29 ], [ -1094995529, %579 ], [ -1094995529, %187 ], [ -1094995529, %.loopexit.i ], [ -1094995529, %._crit_edge.i ], [ -1094995529, %.critedge.sink.split.i ], [ -1094995529, %522 ], [ 0, %.preheader ], [ 0, %.preheader166 ], [ 0, %.preheader176 ], [ 0, %lag_pred_line_yuy2.exit ], [ 0, %lag_pred_line.exit ], [ -1094995529, %338 ], [ -1094995529, %533 ], [ -1094995529, %553 ], [ %574, %lag_decode_zero_run_line.exit ], [ 0, %594 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0

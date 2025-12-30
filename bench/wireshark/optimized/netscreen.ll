@@ -100,7 +100,7 @@ define hidden range(i32 -1, 2) i32 @netscreen_open(ptr noundef captures(none) %0
   br label %36
 
 36:                                               ; preds = %.loopexit, %24, %28
-  %.0 = phi i32 [ -1, %24 ], [ 1, %28 ], [ %23, %.loopexit ]
+  %.0 = phi i32 [ 1, %28 ], [ -1, %24 ], [ %23, %.loopexit ]
   ret i32 %.0
 }
 
@@ -181,7 +181,7 @@ netscreen_seek_next_packet.exit:                  ; preds = %18, %20
   br label %36
 
 36:                                               ; preds = %netscreen_seek_next_packet.exit.thread, %25, %netscreen_seek_next_packet.exit, %35
-  %.0 = phi i1 [ false, %netscreen_seek_next_packet.exit ], [ true, %35 ], [ false, %25 ], [ false, %netscreen_seek_next_packet.exit.thread ]
+  %.0 = phi i1 [ true, %35 ], [ false, %netscreen_seek_next_packet.exit ], [ false, %25 ], [ false, %netscreen_seek_next_packet.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -215,7 +215,7 @@ define internal noundef zeroext i1 @netscreen_seek_read(ptr noundef readonly cap
   br label %21
 
 21:                                               ; preds = %5, %19, %16
-  %.0 = phi i1 [ %20, %19 ], [ false, %16 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %16 ], [ %20, %19 ], [ false, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -384,7 +384,7 @@ define internal fastcc noundef zeroext i1 @parse_netscreen_packet(ptr noundef %0
   ]
 
 68:                                               ; preds = %65, %61, %55
-  %.0.i = phi i8 [ %66, %65 ], [ %62, %61 ], [ %58, %55 ]
+  %.0.i = phi i8 [ %62, %61 ], [ %66, %65 ], [ %58, %55 ]
   %69 = shl nuw i8 %.0.i, 4
   %70 = getelementptr i8, ptr %.07892.i, i64 2
   %71 = load i8, ptr %56, align 1
@@ -445,7 +445,7 @@ define internal fastcc noundef zeroext i1 @parse_netscreen_packet(ptr noundef %0
   br label %parse_single_hex_dump_line.exit
 
 parse_single_hex_dump_line.exit:                  ; preds = %80, %85, %86, %67, %.loopexit.i
-  %.077.i = phi i32 [ -1, %67 ], [ %spec.select.i, %.loopexit.i ], [ -1, %86 ], [ -1, %80 ], [ -3, %85 ]
+  %.077.i = phi i32 [ -1, %67 ], [ %spec.select.i, %.loopexit.i ], [ -1, %80 ], [ -3, %85 ], [ -1, %86 ]
   %91 = icmp eq i32 %.095, 0
   %92 = icmp slt i32 %.077.i, 6
   %or.cond = and i1 %91, %92

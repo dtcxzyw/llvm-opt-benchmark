@@ -3414,7 +3414,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_03pvt13array_to_specIsEEv
   br i1 %or.cond, label %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit.thread, label %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit.thread30
 
 _ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit.thread30: ; preds = %22, %14
-  %.0.i33 = phi ptr [ %26, %22 ], [ %17, %14 ]
+  %.0.i33 = phi ptr [ %17, %14 ], [ %26, %22 ]
   %.idx = shl nuw nsw i64 %5, 4
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not2434 = icmp eq i64 %5, 0
@@ -3554,7 +3554,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_03pvt13array_to_specItEEv
   br i1 %or.cond, label %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit.thread, label %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit.thread30
 
 _ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit.thread30: ; preds = %22, %14
-  %.0.i33 = phi ptr [ %26, %22 ], [ %17, %14 ]
+  %.0.i33 = phi ptr [ %17, %14 ], [ %26, %22 ]
   %.idx = shl nuw nsw i64 %5, 4
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not2434 = icmp eq i64 %5, 0

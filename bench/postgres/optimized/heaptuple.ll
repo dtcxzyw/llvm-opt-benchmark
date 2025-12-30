@@ -670,8 +670,8 @@ store_att_byval.exit:                             ; preds = %45, %47, %49, %51
   br label %142
 
 142:                                              ; preds = %84, %72, %106, %._crit_edge, %93, %130, %124, %store_att_byval.exit
-  %.077 = phi ptr [ %38, %store_att_byval.exit ], [ %139, %130 ], [ %8, %124 ], [ %82, %72 ], [ %8, %84 ], [ %8, %93 ], [ %8, %106 ], [ %122, %._crit_edge ]
-  %.0 = phi i64 [ %56, %store_att_byval.exit ], [ %140, %130 ], [ %129, %124 ], [ %83, %72 ], [ %90, %84 ], [ %95, %93 ], [ %108, %106 ], [ %123, %._crit_edge ]
+  %.077 = phi ptr [ %38, %store_att_byval.exit ], [ %8, %124 ], [ %139, %130 ], [ %82, %72 ], [ %8, %84 ], [ %8, %93 ], [ %8, %106 ], [ %122, %._crit_edge ]
+  %.0 = phi i64 [ %56, %store_att_byval.exit ], [ %129, %124 ], [ %140, %130 ], [ %83, %72 ], [ %90, %84 ], [ %95, %93 ], [ %108, %106 ], [ %123, %._crit_edge ]
   %143 = getelementptr inbounds nuw i8, ptr %.077, i64 %.0
   store ptr %143, ptr %3, align 8
   br label %144
@@ -742,7 +742,7 @@ define dso_local zeroext i1 @heap_attisnull(ptr noundef readonly captures(none) 
   unreachable
 
 39:                                               ; preds = %35, %21, %12, %24, %18
-  %.0 = phi i1 [ false, %21 ], [ true, %18 ], [ false, %12 ], [ %.not.i13, %24 ], [ false, %35 ]
+  %.0 = phi i1 [ true, %18 ], [ %.not.i13, %24 ], [ false, %12 ], [ false, %21 ], [ false, %35 ]
   ret i1 %.0
 }
 
@@ -1072,8 +1072,8 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
   br label %169
 
 169:                                              ; preds = %.thread173, %153, %.thread172, %123, %150, %161
-  %.5139 = phi i32 [ %139, %.thread173 ], [ %.3137, %150 ], [ %124, %123 ], [ %168, %161 ], [ %160, %153 ], [ %.3137, %.thread172 ]
-  %.2 = phi i1 [ false, %.thread173 ], [ true, %150 ], [ true, %123 ], [ true, %161 ], [ false, %153 ], [ false, %.thread172 ]
+  %.5139 = phi i32 [ %.3137, %150 ], [ %168, %161 ], [ %124, %123 ], [ %160, %153 ], [ %.3137, %.thread172 ], [ %139, %.thread173 ]
+  %.2 = phi i1 [ true, %150 ], [ true, %161 ], [ true, %123 ], [ false, %153 ], [ false, %.thread172 ], [ false, %.thread173 ]
   %170 = icmp eq i32 %.0121, %7
   br i1 %170, label %.loopexit.loopexit, label %171
 
@@ -1221,7 +1221,7 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
   br label %fetch_att.exit158
 
 fetch_att.exit158:                                ; preds = %47, %50, %53, %56, %61, %246, %241, %238, %235, %232
-  %.1 = phi i64 [ %247, %246 ], [ %49, %47 ], [ %234, %232 ], [ %237, %235 ], [ %240, %238 ], [ %242, %241 ], [ %62, %61 ], [ %57, %56 ], [ %55, %53 ], [ %52, %50 ]
+  %.1 = phi i64 [ %234, %232 ], [ %237, %235 ], [ %240, %238 ], [ %242, %241 ], [ %247, %246 ], [ %62, %61 ], [ %57, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ]
   ret i64 %.1
 }
 
@@ -2207,9 +2207,9 @@ define dso_local void @heap_deform_tuple(ptr noundef readonly captures(none) %0,
   br label %._crit_edge113
 
 ._crit_edge113:                                   ; preds = %41, %71, %63, %60, %59, %79
-  %87 = phi i16 [ -1, %63 ], [ -1, %59 ], [ %46, %71 ], [ %.pre, %79 ], [ -1, %60 ], [ %.pre, %41 ]
-  %.289 = phi i32 [ %70, %63 ], [ %.087101, %59 ], [ %78, %71 ], [ %86, %79 ], [ %.087101, %60 ], [ %42, %41 ]
-  %.2 = phi i1 [ true, %63 ], [ false, %59 ], [ true, %71 ], [ false, %79 ], [ true, %60 ], [ false, %41 ]
+  %87 = phi i16 [ -1, %59 ], [ %46, %71 ], [ %.pre, %79 ], [ -1, %60 ], [ -1, %63 ], [ %.pre, %41 ]
+  %.289 = phi i32 [ %.087101, %59 ], [ %78, %71 ], [ %86, %79 ], [ %.087101, %60 ], [ %70, %63 ], [ %42, %41 ]
+  %.2 = phi i1 [ false, %59 ], [ true, %71 ], [ false, %79 ], [ true, %60 ], [ true, %63 ], [ false, %41 ]
   %88 = zext i32 %.289 to i64
   %89 = getelementptr inbounds nuw i8, ptr %19, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %25, i64 6

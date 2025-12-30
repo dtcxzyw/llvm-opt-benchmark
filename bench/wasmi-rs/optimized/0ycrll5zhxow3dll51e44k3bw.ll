@@ -50,7 +50,7 @@ define hidden noundef ptr @_ZN11wasmprinter5print5Print9write_fmt17h5c15c7f2cac5
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h046514621905ec8aE.exit"
 
 "_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h046514621905ec8aE.exit": ; preds = %8, %12, %10
-  %.sroa.0.0 = phi ptr [ null, %12 ], [ null, %10 ], [ %9, %8 ]
+  %.sroa.0.0 = phi ptr [ null, %10 ], [ null, %12 ], [ %9, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.0
 

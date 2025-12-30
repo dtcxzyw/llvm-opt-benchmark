@@ -661,8 +661,8 @@ dissect_stt.exit:                                 ; preds = %198, %203
   store i8 %103, ptr %56, align 8
   br label %ws_ip_protocol.exit.thread
 
-ws_ip_protocol.exit.thread:                       ; preds = %4, %11, %18, %ws_ip_protocol.exit, %15, %dissect_stt.exit
-  %.0 = phi i1 [ true, %dissect_stt.exit ], [ false, %ws_ip_protocol.exit ], [ false, %15 ], [ false, %18 ], [ false, %11 ], [ false, %4 ]
+ws_ip_protocol.exit.thread:                       ; preds = %11, %4, %18, %ws_ip_protocol.exit, %15, %dissect_stt.exit
+  %.0 = phi i1 [ true, %dissect_stt.exit ], [ false, %15 ], [ false, %ws_ip_protocol.exit ], [ false, %18 ], [ false, %4 ], [ false, %11 ]
   ret i1 %.0
 }
 

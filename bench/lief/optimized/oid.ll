@@ -1115,7 +1115,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @mbedtls_oid_get_numeric_s
   br label %.thread
 
 .thread:                                          ; preds = %36, %34, %12, %10, %._crit_edge, %5, %3, %._crit_edge.thread
-  %.051 = phi i32 [ -96, %._crit_edge ], [ -100, %3 ], [ -96, %5 ], [ %44, %._crit_edge.thread ], [ -104, %12 ], [ -104, %10 ], [ -11, %34 ], [ -11, %36 ]
+  %.051 = phi i32 [ %44, %._crit_edge.thread ], [ -100, %3 ], [ -96, %5 ], [ -96, %._crit_edge ], [ -104, %10 ], [ -104, %12 ], [ -11, %34 ], [ -11, %36 ]
   ret i32 %.051
 }
 
@@ -1332,7 +1332,7 @@ oid_parse_number.exit86.thread:                   ; preds = %70, %.lr.ph.i82
   br label %96
 
 oid_parse_number.exit.thread:                     ; preds = %28, %.lr.ph177, %.lr.ph185, %.lr.ph.i82.preheader, %77, %82, %.lr.ph193, %.lr.ph.i75.preheader, %.lr.ph.i.preheader, %84, %56, %51, %oid_parse_number.exit79.thread118, %31, %oid_parse_number.exit.thread107, %60
-  %.052 = phi i32 [ -106, %84 ], [ -104, %oid_parse_number.exit79.thread118 ], [ -104, %oid_parse_number.exit.thread107 ], [ -104, %.lr.ph185 ], [ -104, %.lr.ph193 ], [ -104, %51 ], [ %62, %60 ], [ -104, %.lr.ph.i75.preheader ], [ -104, %.lr.ph.i.preheader ], [ -104, %56 ], [ -104, %77 ], [ -104, %31 ], [ -104, %.lr.ph.i82.preheader ], [ %83, %82 ], [ -104, %.lr.ph177 ], [ -104, %28 ]
+  %.052 = phi i32 [ %62, %60 ], [ -104, %oid_parse_number.exit.thread107 ], [ -104, %31 ], [ -104, %oid_parse_number.exit79.thread118 ], [ -104, %51 ], [ -104, %56 ], [ -106, %84 ], [ -104, %.lr.ph.i.preheader ], [ -104, %.lr.ph.i75.preheader ], [ -104, %.lr.ph193 ], [ -104, %.lr.ph.i82.preheader ], [ -104, %77 ], [ %83, %82 ], [ -104, %.lr.ph185 ], [ -104, %.lr.ph177 ], [ -104, %28 ]
   %94 = load ptr, ptr %15, align 8, !tbaa !13
   tail call void @free(ptr noundef %94) #13
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8

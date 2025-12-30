@@ -419,7 +419,7 @@ Py_DECREF.exit67:                                 ; preds = %108, %111, %114
   br label %115
 
 115:                                              ; preds = %5, %13, %Py_DECREF.exit, %37, %45, %53, %61, %69, %77, %89, %97, %101, %105, %Py_DECREF.exit67, %93, %Py_DECREF.exit65, %73, %65, %57, %49, %41, %Py_DECREF.exit63, %17, %9, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %5 ], [ -1, %9 ], [ -1, %13 ], [ -1, %17 ], [ -1, %Py_DECREF.exit ], [ -1, %Py_DECREF.exit63 ], [ -1, %37 ], [ -1, %41 ], [ -1, %45 ], [ -1, %49 ], [ -1, %53 ], [ -1, %57 ], [ -1, %61 ], [ -1, %65 ], [ -1, %69 ], [ -1, %73 ], [ -1, %77 ], [ -1, %Py_DECREF.exit65 ], [ -1, %89 ], [ -1, %93 ], [ -1, %101 ], [ -1, %97 ], [ %.lobit, %Py_DECREF.exit67 ], [ -1, %105 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %5 ], [ -1, %9 ], [ -1, %13 ], [ -1, %17 ], [ -1, %Py_DECREF.exit ], [ -1, %Py_DECREF.exit63 ], [ -1, %37 ], [ -1, %41 ], [ -1, %45 ], [ -1, %49 ], [ -1, %53 ], [ -1, %57 ], [ -1, %61 ], [ -1, %65 ], [ -1, %69 ], [ -1, %73 ], [ -1, %77 ], [ -1, %Py_DECREF.exit65 ], [ -1, %89 ], [ -1, %93 ], [ -1, %97 ], [ -1, %101 ], [ %.lobit, %Py_DECREF.exit67 ], [ -1, %105 ]
   ret i32 %.0
 }
 
@@ -866,7 +866,7 @@ Py_XDECREF.exit34:                                ; preds = %Py_XDECREF.exit31, 
   br label %Py_XDECREF.exit37
 
 Py_XDECREF.exit37:                                ; preds = %2, %Py_XDECREF.exit34, %50, %52, %55
-  %.049556367 = phi ptr [ %.0.ph, %55 ], [ %.0.ph, %Py_XDECREF.exit34 ], [ %.0.ph, %50 ], [ %.0.ph, %52 ], [ null, %2 ]
+  %.049556367 = phi ptr [ %.0.ph, %Py_XDECREF.exit34 ], [ %.0.ph, %50 ], [ %.0.ph, %52 ], [ %.0.ph, %55 ], [ null, %2 ]
   ret ptr %.049556367
 }
 
@@ -1181,7 +1181,7 @@ Py_XDECREF.exit89:                                ; preds = %Py_XDECREF.exit86, 
   br label %Py_XDECREF.exit92
 
 Py_XDECREF.exit92:                                ; preds = %2, %Py_XDECREF.exit89, %113, %115, %118
-  %.036118136158172188200211219225230 = phi ptr [ %.036.ph, %118 ], [ %.036.ph, %Py_XDECREF.exit89 ], [ %.036.ph, %113 ], [ %.036.ph, %115 ], [ null, %2 ]
+  %.036118136158172188200211219225230 = phi ptr [ %.036.ph, %Py_XDECREF.exit89 ], [ %.036.ph, %113 ], [ %.036.ph, %115 ], [ %.036.ph, %118 ], [ null, %2 ]
   ret ptr %.036118136158172188200211219225230
 }
 
@@ -2034,7 +2034,7 @@ Py_DECREF.exit:                                   ; preds = %24, %27, %30
   br label %36
 
 36:                                               ; preds = %15, %19, %Py_DECREF.exit24, %34, %32, %21, %3
-  %.0 = phi i32 [ -1, %3 ], [ %16, %15 ], [ 0, %19 ], [ -1, %Py_DECREF.exit24 ], [ -1, %21 ], [ 0, %34 ], [ -1, %32 ]
+  %.0 = phi i32 [ -1, %3 ], [ 0, %19 ], [ %16, %15 ], [ -1, %Py_DECREF.exit24 ], [ -1, %21 ], [ 0, %34 ], [ -1, %32 ]
   ret i32 %.0
 }
 
@@ -2454,7 +2454,7 @@ _Py_NewRef.exit:                                  ; preds = %25, %30
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %_Py_NewRef.exit, %.preheader, %PyTuple_GET_SIZE.exit, %34, %36, %39
-  %.01829 = phi ptr [ null, %36 ], [ null, %39 ], [ null, %34 ], [ null, %PyTuple_GET_SIZE.exit ], [ %16, %.preheader ], [ %16, %_Py_NewRef.exit ]
+  %.01829 = phi ptr [ null, %34 ], [ null, %36 ], [ null, %39 ], [ null, %PyTuple_GET_SIZE.exit ], [ %16, %.preheader ], [ %16, %_Py_NewRef.exit ]
   ret ptr %.01829
 }
 

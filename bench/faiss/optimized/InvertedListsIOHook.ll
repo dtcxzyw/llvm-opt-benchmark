@@ -876,7 +876,7 @@ _ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE17_M_realloc_insertIJS2_EEEvN
   br label %63
 
 63:                                               ; preds = %61, %59, %57, %55
-  %.pn6.pn.i.i = phi { ptr, i32 } [ %58, %57 ], [ %56, %55 ], [ %60, %59 ], [ %62, %61 ]
+  %.pn6.pn.i.i = phi { ptr, i32 } [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ]
   %64 = load ptr, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, align 8, !tbaa !20
   %.not.i.i.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EED2Ev.exit.i.i, label %65

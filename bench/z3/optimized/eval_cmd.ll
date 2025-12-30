@@ -1090,7 +1090,7 @@ _ZN13scoped_rlimitD2Ev.exit66:                    ; preds = %_ZN11cmd_context12s
   br label %237
 
 237:                                              ; preds = %37, %236, %27, %19, %12
-  %.merged = phi { ptr, i32 } [ %20, %19 ], [ %13, %12 ], [ %28, %27 ], [ %.merged44, %236 ], [ %38, %37 ]
+  %.merged = phi { ptr, i32 } [ %13, %12 ], [ %28, %27 ], [ %20, %19 ], [ %.merged44, %236 ], [ %38, %37 ]
   call void @_ZN3refI5modelED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.merged

@@ -398,7 +398,7 @@ define dso_local range(i64 -9223372036854775000, -9223372036854775808) i64 @_ZNK
   br label %_ZNK4absl24synchronization_internal13KernelTimeout12MakeAbsNanosEv.exit
 
 _ZNK4absl24synchronization_internal13KernelTimeout12MakeAbsNanosEv.exit: ; preds = %6, %13
-  %.0.i = phi i64 [ %spec.store.select.i, %13 ], [ %.08.i, %6 ]
+  %.0.i = phi i64 [ %.08.i, %6 ], [ %spec.store.select.i, %13 ]
   %.0.i.fr = freeze i64 %.0.i
   %14 = srem i64 %.0.i.fr, 1000
   %15 = sub nsw i64 %.0.i.fr, %14
@@ -434,7 +434,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @_ZNK4absl24synchronizat
   br label %_ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv.exit
 
 _ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv.exit: ; preds = %10, %7, %1
-  %.sroa.0.0 = phi i64 [ 9223372036854775807, %1 ], [ %.sroa.speculated.i, %10 ], [ %.sroa.speculated7.i, %7 ]
+  %.sroa.0.0 = phi i64 [ 9223372036854775807, %1 ], [ %.sroa.speculated7.i, %7 ], [ %.sroa.speculated.i, %10 ]
   ret i64 %.sroa.0.0
 }
 

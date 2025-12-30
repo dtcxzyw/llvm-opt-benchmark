@@ -650,7 +650,7 @@ _ZNK3ue25depthcvjEv.exit97:                       ; preds = %._crit_edge129
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit124, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %232, %175, %263, %96, %69, %47, %20, %18
-  %.pn46 = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ], [ %48, %47 ], [ %264, %263 ], [ %70, %69 ], [ %97, %96 ], [ %176, %175 ], [ %233, %232 ], [ %lpad.loopexit, %.loopexit124 ], [ %lpad.loopexit125, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp126, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn46 = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ], [ %48, %47 ], [ %70, %69 ], [ %97, %96 ], [ %264, %263 ], [ %176, %175 ], [ %233, %232 ], [ %lpad.loopexit, %.loopexit124 ], [ %lpad.loopexit125, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp126, %.loopexit.split-lp.loopexit.split-lp ]
   %267 = load ptr, ptr %13, align 8
   %.not.i.i.i98 = icmp eq ptr %267, null
   br i1 %.not.i.i.i98, label %_ZNSt6vectorImSaImEED2Ev.exit, label %268
@@ -836,7 +836,7 @@ _ZN3ue2L15streamStateSizeE10RepeatTypeRKNS_5depthES3_j.exit: ; preds = %_ZNSt6ve
   br label %64
 
 64:                                               ; preds = %34, %17, %_ZNK3ue25depthcvjEv.exit, %60, %_ZN3ue2L10packedSizeE10RepeatTypeRKNS_5depthES3_j.exit38, %16
-  %.032 = phi i32 [ 1, %16 ], [ %.1, %60 ], [ 7, %_ZNK3ue25depthcvjEv.exit ], [ %33, %_ZN3ue2L10packedSizeE10RepeatTypeRKNS_5depthES3_j.exit38 ], [ 2, %17 ], [ 6, %34 ]
+  %.032 = phi i32 [ 1, %16 ], [ %33, %_ZN3ue2L10packedSizeE10RepeatTypeRKNS_5depthES3_j.exit38 ], [ %.1, %60 ], [ 7, %_ZNK3ue25depthcvjEv.exit ], [ 2, %17 ], [ 6, %34 ]
   ret i32 %.032
 }
 
@@ -1406,7 +1406,7 @@ _ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS
   br i1 %120, label %.lr.ph.split.i, label %_ZN3ue2L13minDistAfterAERKSt6vectorINS_9CharReachESaIS1_EES5_.exit, !llvm.loop !20
 
 _ZN3ue2L13minDistAfterAERKSt6vectorINS_9CharReachESaIS1_EES5_.exit: ; preds = %117, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit53.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.i, %74, %67, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.us.i, %.lr.ph.split.us.i, %27
-  %.3.i = phi i32 [ %.03218.us.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.us.i ], [ %38, %27 ], [ %38, %67 ], [ %.03218.us.i, %.lr.ph.split.us.i ], [ %.03218.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.i ], [ %38, %74 ], [ %38, %117 ], [ %.03218.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit53.i ]
+  %.3.i = phi i32 [ %38, %27 ], [ %38, %67 ], [ %.03218.us.i, %.lr.ph.split.us.i ], [ %.03218.us.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.us.i ], [ %38, %117 ], [ %38, %74 ], [ %.03218.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit53.i ], [ %.03218.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.i ]
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.3.i, i32 %.133)
   %121 = zext i32 %.3.i to i64
   %122 = getelementptr inbounds nuw i64, ptr %.pre44, i64 %.034
@@ -1490,7 +1490,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %40
 

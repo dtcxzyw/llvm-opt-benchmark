@@ -619,7 +619,7 @@ lpad6:                                            ; preds = %_ZN8facebook3jsi6Ob
   br label %ehcleanup11
 
 lpad8.body:                                       ; preds = %lpad.i.i.i, %lpad.i.i5.i
-  %eh.lpad-body = phi { ptr, i32 } [ %14, %lpad.i.i5.i ], [ %12, %lpad.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i ], [ %14, %lpad.i.i5.i ]
   %34 = load ptr, ptr %ref.tmp5, align 8
   %tobool.not.i.i25 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i25, label %ehcleanup11, label %if.then.i.i26
@@ -657,7 +657,7 @@ terminate.lpad.i.i.i33:                           ; preds = %if.then.i.i.i31
   unreachable
 
 eh.resume:                                        ; preds = %if.then.i.i.i31, %ehcleanup11, %if.then.i.i21, %ehcleanup
-  %.pn2.pn = phi { ptr, i32 } [ %.pn, %if.then.i.i21 ], [ %.pn, %ehcleanup ], [ %.pn2, %ehcleanup11 ], [ %.pn2, %if.then.i.i.i31 ]
+  %.pn2.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i21 ], [ %.pn2, %ehcleanup11 ], [ %.pn2, %if.then.i.i.i31 ]
   resume { ptr, i32 } %.pn2.pn
 }
 
@@ -1277,7 +1277,7 @@ terminate.lpad.i.i28:                             ; preds = %if.then.i.i26
   unreachable
 
 return.sink.split:                                ; preds = %if.then33, %if.then27, %if.then21, %if.then15, %if.then8, %if.then2, %if.then
-  %ref.tmp34.sink = phi ptr [ %ref.tmp28, %if.then27 ], [ %ref.tmp22, %if.then21 ], [ %ref.tmp16, %if.then15 ], [ %ref.tmp10, %if.then8 ], [ %ref.tmp3, %if.then2 ], [ %ref.tmp, %if.then ], [ %ref.tmp34, %if.then33 ]
+  %ref.tmp34.sink = phi ptr [ %ref.tmp, %if.then ], [ %ref.tmp3, %if.then2 ], [ %ref.tmp10, %if.then8 ], [ %ref.tmp16, %if.then15 ], [ %ref.tmp22, %if.then21 ], [ %ref.tmp28, %if.then27 ], [ %ref.tmp34, %if.then33 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34.sink) #25
   br label %return
 
@@ -1291,7 +1291,7 @@ eh.resume.sink.split:                             ; preds = %lpad, %lpad4, %lpad
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %if.then.i.i26, %cleanup.action47, %ehcleanup
-  %.pn12 = phi { ptr, i32 } [ %.pn32, %if.then.i.i26 ], [ %18, %ehcleanup ], [ %.pn32, %cleanup.action47 ], [ %.pn12.ph, %eh.resume.sink.split ]
+  %.pn12 = phi { ptr, i32 } [ %18, %ehcleanup ], [ %.pn32, %cleanup.action47 ], [ %.pn32, %if.then.i.i26 ], [ %.pn12.ph, %eh.resume.sink.split ]
   resume { ptr, i32 } %.pn12
 }
 
@@ -1385,7 +1385,7 @@ ehcleanup14:                                      ; preds = %lpad6, %ehcleanup
   br i1 %cleanup.isactive.3, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %lpad.i, %ehcleanup14.thread23, %ehcleanup14
-  %.pn.pn.pn.pn22 = phi { ptr, i32 } [ %4, %ehcleanup14.thread23 ], [ %.pn.pn, %ehcleanup14 ], [ %3, %lpad.i ]
+  %.pn.pn.pn.pn22 = phi { ptr, i32 } [ %.pn.pn, %ehcleanup14 ], [ %4, %ehcleanup14.thread23 ], [ %3, %lpad.i ]
   call void @__cxa_free_exception(ptr %exception) #25
   br label %eh.resume
 
@@ -1497,7 +1497,7 @@ ehcleanup14:                                      ; preds = %lpad6, %ehcleanup
   br i1 %cleanup.isactive.3, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %lpad.i, %ehcleanup14.thread20, %ehcleanup14
-  %.pn.pn.pn.pn19 = phi { ptr, i32 } [ %4, %ehcleanup14.thread20 ], [ %.pn.pn, %ehcleanup14 ], [ %3, %lpad.i ]
+  %.pn.pn.pn.pn19 = phi { ptr, i32 } [ %.pn.pn, %ehcleanup14 ], [ %4, %ehcleanup14.thread20 ], [ %3, %lpad.i ]
   call void @__cxa_free_exception(ptr %exception) #25
   br label %eh.resume
 
@@ -1606,7 +1606,7 @@ ehcleanup14:                                      ; preds = %lpad6, %ehcleanup
   br i1 %cleanup.isactive.3, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %lpad.i, %ehcleanup14.thread23, %ehcleanup14
-  %.pn.pn.pn.pn22 = phi { ptr, i32 } [ %4, %ehcleanup14.thread23 ], [ %.pn.pn, %ehcleanup14 ], [ %3, %lpad.i ]
+  %.pn.pn.pn.pn22 = phi { ptr, i32 } [ %.pn.pn, %ehcleanup14 ], [ %4, %ehcleanup14.thread23 ], [ %3, %lpad.i ]
   call void @__cxa_free_exception(ptr %exception) #25
   br label %eh.resume
 
@@ -1718,7 +1718,7 @@ ehcleanup14:                                      ; preds = %lpad6, %ehcleanup
   br i1 %cleanup.isactive.3, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %lpad.i, %ehcleanup14.thread20, %ehcleanup14
-  %.pn.pn.pn.pn19 = phi { ptr, i32 } [ %4, %ehcleanup14.thread20 ], [ %.pn.pn, %ehcleanup14 ], [ %3, %lpad.i ]
+  %.pn.pn.pn.pn19 = phi { ptr, i32 } [ %.pn.pn, %ehcleanup14 ], [ %4, %ehcleanup14.thread20 ], [ %3, %lpad.i ]
   call void @__cxa_free_exception(ptr %exception) #25
   br label %eh.resume
 
@@ -1985,7 +1985,7 @@ sw.epilog:                                        ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %if.end, %entry, %sw.epilog, %sw.bb27, %sw.bb21, %sw.bb15, %sw.bb12, %sw.bb8, %sw.bb3
-  %retval.0 = phi i1 [ %call32, %sw.bb27 ], [ false, %sw.epilog ], [ false, %entry ], [ %cmp7, %sw.bb3 ], [ %cmp11, %sw.bb8 ], [ %call, %sw.bb12 ], [ %call20, %sw.bb15 ], [ %call26, %sw.bb21 ], [ true, %if.end ], [ true, %if.end ]
+  %retval.0 = phi i1 [ false, %sw.epilog ], [ %cmp7, %sw.bb3 ], [ %cmp11, %sw.bb8 ], [ %call, %sw.bb12 ], [ %call20, %sw.bb15 ], [ %call26, %sw.bb21 ], [ %call32, %sw.bb27 ], [ false, %entry ], [ true, %if.end ], [ true, %if.end ]
   ret i1 %retval.0
 }
 
@@ -2959,7 +2959,7 @@ lpad3:                                            ; preds = %_ZN8facebook3jsi6Ob
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad3, %lpad.i.i.i
-  %.pn = phi { ptr, i32 } [ %6, %lpad.i.i.i ], [ %17, %lpad3 ]
+  %.pn = phi { ptr, i32 } [ %17, %lpad3 ], [ %6, %lpad.i.i.i ]
   %18 = load ptr, ptr %toString, align 8
   %tobool.not.i.i.i12 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i12, label %eh.resume, label %if.then.i.i.i13
@@ -2978,7 +2978,7 @@ terminate.lpad.i.i.i15:                           ; preds = %if.then.i.i.i13
   unreachable
 
 eh.resume:                                        ; preds = %if.then.i.i.i13, %ehcleanup, %if.then.i.i8, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %12, %if.then.i.i8 ], [ %12, %lpad ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i13 ]
+  %.pn.pn = phi { ptr, i32 } [ %12, %lpad ], [ %12, %if.then.i.i8 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i13 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -3562,7 +3562,7 @@ if.end45:                                         ; preds = %if.end, %invoke.con
   br label %if.end66
 
 ehcleanup:                                        ; preds = %if.then.i.i56, %lpad30, %lpad40, %lpad21, %lpad12
-  %.pn = phi { ptr, i32 } [ %30, %lpad21 ], [ %29, %lpad12 ], [ %43, %lpad40 ], [ %38, %lpad30 ], [ %38, %if.then.i.i56 ]
+  %.pn = phi { ptr, i32 } [ %29, %lpad12 ], [ %43, %lpad40 ], [ %30, %lpad21 ], [ %38, %lpad30 ], [ %38, %if.then.i.i56 ]
   call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %message) #25
   br label %catch.dispatch
 
@@ -3824,7 +3824,7 @@ if.end110:                                        ; preds = %if.end85, %invoke.c
   br label %if.end140
 
 ehcleanup111:                                     ; preds = %if.then.i.i109, %lpad92, %lpad104, %lpad81, %lpad72
-  %.pn25 = phi { ptr, i32 } [ %65, %lpad81 ], [ %64, %lpad72 ], [ %78, %lpad104 ], [ %73, %lpad92 ], [ %73, %if.then.i.i109 ]
+  %.pn25 = phi { ptr, i32 } [ %64, %lpad72 ], [ %78, %lpad104 ], [ %65, %lpad81 ], [ %73, %lpad92 ], [ %73, %if.then.i.i109 ]
   call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %stack) #25
   br label %catch.dispatch112
 
@@ -4104,12 +4104,12 @@ if.end188:                                        ; preds = %if.then.i.i165, %in
   br label %if.end218
 
 ehcleanup189:                                     ; preds = %if.then.i.i170, %lpad174, %lpad183, %lpad167
-  %.pn31 = phi { ptr, i32 } [ %122, %lpad183 ], [ %116, %lpad167 ], [ %117, %lpad174 ], [ %117, %if.then.i.i170 ]
+  %.pn31 = phi { ptr, i32 } [ %116, %lpad167 ], [ %122, %lpad183 ], [ %117, %lpad174 ], [ %117, %if.then.i.i170 ]
   call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %message163) #25
   br label %catch.dispatch191
 
 catch.dispatch191:                                ; preds = %if.then.i.i149, %lpad157, %ehcleanup189, %lpad148
-  %.pn33 = phi { ptr, i32 } [ %.pn31, %ehcleanup189 ], [ %102, %lpad148 ], [ %103, %lpad157 ], [ %103, %if.then.i.i149 ]
+  %.pn33 = phi { ptr, i32 } [ %102, %lpad148 ], [ %.pn31, %ehcleanup189 ], [ %103, %lpad157 ], [ %103, %if.then.i.i149 ]
   %ehselector.slot.10 = extractvalue { ptr, i32 } %.pn33, 1
   %123 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook3jsi12JSIExceptionE) #25
   %matches193 = icmp eq i32 %ehselector.slot.10, %123
@@ -4564,7 +4564,7 @@ lpad43:                                           ; preds = %_ZN8facebook3jsi6St
   br label %ehcleanup47
 
 ehcleanup45:                                      ; preds = %if.then.i.i35, %lpad39, %lpad35, %ehcleanup31
-  %.pn13.pn = phi { ptr, i32 } [ %.pn9.pn.pn, %ehcleanup31 ], [ %25, %lpad35 ], [ %26, %lpad39 ], [ %26, %if.then.i.i35 ]
+  %.pn13.pn = phi { ptr, i32 } [ %25, %lpad35 ], [ %.pn9.pn.pn, %ehcleanup31 ], [ %26, %lpad39 ], [ %26, %if.then.i.i35 ]
   invoke void @__cxa_end_catch()
           to label %ehcleanup47 unwind label %terminate.lpad
 
@@ -5017,7 +5017,7 @@ terminate.lpad.i.i.i59:                           ; preds = %if.then.i.i.i57
   unreachable
 
 ehcleanup60:                                      ; preds = %if.then.i.i.i57, %lpad57.body, %ehcleanup50, %cleanup.action53, %lpad29
-  %.pn19 = phi { ptr, i32 } [ %.pn15.pn, %ehcleanup50 ], [ %33, %lpad29 ], [ %.pn15.pn.pn71, %cleanup.action53 ], [ %eh.lpad-body46, %lpad57.body ], [ %eh.lpad-body46, %if.then.i.i.i57 ]
+  %.pn19 = phi { ptr, i32 } [ %33, %lpad29 ], [ %.pn15.pn.pn71, %cleanup.action53 ], [ %.pn15.pn, %ehcleanup50 ], [ %eh.lpad-body46, %lpad57.body ], [ %eh.lpad-body46, %if.then.i.i.i57 ]
   %54 = load ptr, ptr %o, align 8
   %tobool.not.i.i61 = icmp eq ptr %54, null
   br i1 %tobool.not.i.i61, label %ehcleanup61, label %if.then.i.i62
@@ -5036,7 +5036,7 @@ terminate.lpad.i.i64:                             ; preds = %if.then.i.i62
   unreachable
 
 ehcleanup61:                                      ; preds = %if.then.i.i62, %ehcleanup60, %ehcleanup25, %cleanup.action, %lpad27
-  %.pn19.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup25 ], [ %32, %lpad27 ], [ %.pn.pn.pn.pn.pn.pn68, %cleanup.action ], [ %.pn19, %ehcleanup60 ], [ %.pn19, %if.then.i.i62 ]
+  %.pn19.pn = phi { ptr, i32 } [ %32, %lpad27 ], [ %.pn.pn.pn.pn.pn.pn68, %cleanup.action ], [ %.pn.pn.pn.pn.pn, %ehcleanup25 ], [ %.pn19, %ehcleanup60 ], [ %.pn19, %if.then.i.i62 ]
   call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %v) #25
   br label %eh.resume
 
@@ -5261,7 +5261,7 @@ lpad14:                                           ; preds = %invoke.cont13
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i37, %lpad10, %if.then.i.i32, %lpad5, %lpad14, %lpad3
-  %.pn = phi { ptr, i32 } [ %29, %lpad14 ], [ %18, %lpad3 ], [ %19, %if.then.i.i32 ], [ %19, %lpad5 ], [ %24, %lpad10 ], [ %24, %if.then.i.i37 ]
+  %.pn = phi { ptr, i32 } [ %29, %lpad14 ], [ %18, %lpad3 ], [ %19, %lpad5 ], [ %19, %if.then.i.i32 ], [ %24, %lpad10 ], [ %24, %if.then.i.i37 ]
   %30 = load ptr, ptr %e, align 8
   %tobool.not.i.i41 = icmp eq ptr %30, null
   br i1 %tobool.not.i.i41, label %catch.dispatch, label %if.then.i.i42
@@ -5468,7 +5468,7 @@ _ZN8facebook3jsi6StringD2Ev.exit:                 ; preds = %invoke.cont, %if.th
   ret void
 
 lpad.body:                                        ; preds = %lpad.i.i.i, %lpad.i
-  %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad.i ], [ %3, %lpad.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad.i.i.i ], [ %5, %lpad.i ]
   %10 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i5 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i5, label %_ZN8facebook3jsi6StringD2Ev.exit9, label %if.then.i.i6

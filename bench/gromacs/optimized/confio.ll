@@ -873,7 +873,7 @@ define void @_ZN13ChainIdFiller4fillEP7t_atomsii(ptr noundef nonnull align 4 cap
   br label %19
 
 19:                                               ; preds = %4, %7, %14, %16, %17, %15
-  %.013 = phi i8 [ %13, %17 ], [ 90, %14 ], [ 122, %15 ], [ 57, %16 ], [ 32, %7 ], [ 32, %4 ]
+  %.013 = phi i8 [ 90, %14 ], [ 122, %15 ], [ 57, %16 ], [ %13, %17 ], [ 32, %7 ], [ 32, %4 ]
   %20 = icmp slt i32 %2, %3
   %.pre = load i32, ptr %0, align 4, !tbaa !51
   br i1 %20, label %.lr.ph, label %._crit_edge
@@ -1081,9 +1081,9 @@ _ZNK3gmx17RangePartitioning5blockEi.exit13.i:     ; preds = %57
   br label %70
 
 70:                                               ; preds = %68, %67, %66, %65, %_ZNK3gmx17RangePartitioning5blockEi.exit13.i
-  %.sroa.5.1.i = phi i8 [ 97, %65 ], [ %69, %68 ], [ %.sroa.5.010.i, %_ZNK3gmx17RangePartitioning5blockEi.exit13.i ], [ 48, %66 ], [ %.sroa.5.010.i, %67 ]
-  %.sroa.11.1.i = phi i1 [ false, %65 ], [ false, %68 ], [ %.sroa.11.0.mux.i, %_ZNK3gmx17RangePartitioning5blockEi.exit13.i ], [ false, %66 ], [ true, %67 ]
-  %.013.i.i = phi i8 [ %.sroa.5.010.i, %65 ], [ %.sroa.5.010.i, %68 ], [ 32, %_ZNK3gmx17RangePartitioning5blockEi.exit13.i ], [ %.sroa.5.010.i, %66 ], [ %.sroa.5.010.i, %67 ]
+  %.sroa.5.1.i = phi i8 [ %69, %68 ], [ 48, %66 ], [ %.sroa.5.010.i, %67 ], [ %.sroa.5.010.i, %_ZNK3gmx17RangePartitioning5blockEi.exit13.i ], [ 97, %65 ]
+  %.sroa.11.1.i = phi i1 [ false, %68 ], [ false, %66 ], [ true, %67 ], [ %.sroa.11.0.mux.i, %_ZNK3gmx17RangePartitioning5blockEi.exit13.i ], [ false, %65 ]
+  %.013.i.i = phi i8 [ %.sroa.5.010.i, %68 ], [ %.sroa.5.010.i, %66 ], [ %.sroa.5.010.i, %67 ], [ 32, %_ZNK3gmx17RangePartitioning5blockEi.exit13.i ], [ %.sroa.5.010.i, %65 ]
   %71 = icmp slt i32 %59, %61
   br i1 %71, label %.lr.ph.i14.i, label %_ZN13ChainIdFiller4fillEP7t_atomsii.exit.i
 
@@ -1887,9 +1887,9 @@ define noundef zeroext i1 @_Z13read_tps_confRKNSt10filesystem7__cxx114pathEP10t_
   br label %45
 
 45:                                               ; preds = %43, %42, %41, %40, %32
-  %.sroa.11.1.i = phi i1 [ false, %40 ], [ false, %43 ], [ %.sroa.11.0.mux.i, %32 ], [ false, %41 ], [ true, %42 ]
-  %.sroa.5.1.i = phi i8 [ 97, %40 ], [ %44, %43 ], [ %.sroa.5.015.i, %32 ], [ 48, %41 ], [ %.sroa.5.015.i, %42 ]
-  %.013.i.i = phi i8 [ %.sroa.5.015.i, %40 ], [ %.sroa.5.015.i, %43 ], [ 32, %32 ], [ %.sroa.5.015.i, %41 ], [ %.sroa.5.015.i, %42 ]
+  %.sroa.11.1.i = phi i1 [ false, %43 ], [ false, %41 ], [ true, %42 ], [ %.sroa.11.0.mux.i, %32 ], [ false, %40 ]
+  %.sroa.5.1.i = phi i8 [ %44, %43 ], [ 48, %41 ], [ %.sroa.5.015.i, %42 ], [ %.sroa.5.015.i, %32 ], [ 97, %40 ]
+  %.013.i.i = phi i8 [ %.sroa.5.015.i, %43 ], [ %.sroa.5.015.i, %41 ], [ %.sroa.5.015.i, %42 ], [ 32, %32 ], [ %.sroa.5.015.i, %40 ]
   %46 = icmp slt i32 %34, %37
   br i1 %46, label %.lr.ph.i8.i, label %_ZN13ChainIdFiller4fillEP7t_atomsii.exit.i
 

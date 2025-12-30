@@ -2385,7 +2385,7 @@ sub_0:                                            ; preds = %224, %221
   br label %243
 
 243:                                              ; preds = %.tail212, %.tail216, %.tail, %.tail208, %.tail216.thread
-  %.str.334.sink = phi ptr [ @.str.331, %.tail ], [ @.str.335, %.tail216.thread ], [ @.str.331, %.tail208 ], [ @.str.334, %.tail216 ], [ @.str.334, %.tail212 ]
+  %.str.334.sink = phi ptr [ @.str.335, %.tail216.thread ], [ @.str.331, %.tail208 ], [ @.str.331, %.tail ], [ @.str.334, %.tail216 ], [ @.str.334, %.tail212 ]
   %244 = load i32, ptr @hf_conf_svc_class, align 4
   %245 = call ptr @proto_tree_add_string(ptr noundef %39, i32 noundef %244, ptr noundef %0, i32 noundef %227, i32 noundef 1, ptr noundef nonnull %.str.334.sink)
   %246 = add i32 %193, 13

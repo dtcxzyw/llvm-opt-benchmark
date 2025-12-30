@@ -2165,7 +2165,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %81, %79, %77, %75, 
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit.thread: ; preds = %.lr.ph, %26, %.lr.ph62, %1, %85, %.critedge42._crit_edge
-  %.0 = phi i1 [ false, %.critedge42._crit_edge ], [ %89, %85 ], [ false, %1 ], [ false, %26 ], [ false, %.lr.ph62 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %.critedge42._crit_edge ], [ %89, %85 ], [ false, %1 ], [ false, %.lr.ph62 ], [ false, %26 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -2591,7 +2591,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !79
   br label %41
 

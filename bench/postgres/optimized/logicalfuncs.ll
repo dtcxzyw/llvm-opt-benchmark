@@ -456,8 +456,8 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %.pre108.pre = load i64, ptr %.phi.trans.insert107.phi.trans.insert, align 8
   br label %.thread
 
-.thread:                                          ; preds = %208, %204, %184, %.thread.loopexit
-  %.pre108 = phi i64 [ %187, %184 ], [ %.pre108.pre, %.thread.loopexit ], [ %207, %204 ], [ %207, %208 ]
+.thread:                                          ; preds = %204, %208, %184, %.thread.loopexit
+  %.pre108 = phi i64 [ %.pre108.pre, %.thread.loopexit ], [ %187, %184 ], [ %207, %208 ], [ %207, %204 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
@@ -469,7 +469,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br i1 %216, label %.lr.ph89.split.split, label %.loopexit
 
 .loopexit:                                        ; preds = %213, %191, %173, %157, %133, %.thread
-  %217 = phi i64 [ %192, %191 ], [ %176, %173 ], [ %160, %157 ], [ %.pre108, %.thread ], [ %144, %133 ], [ %214, %213 ]
+  %217 = phi i64 [ %144, %133 ], [ %.pre108, %.thread ], [ %160, %157 ], [ %176, %173 ], [ %192, %191 ], [ %214, %213 ]
   store ptr %12, ptr @CurrentResourceOwner, align 8
   %218 = icmp ne i64 %217, 0
   %or.cond = and i1 %1, %218

@@ -98,7 +98,7 @@ define noundef nonnull ptr @l_Lake_JobAction_toCtorIdx(i8 noundef zeroext %0) lo
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -146,7 +146,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Lake_JobAction_toCtorIdx.exit
 
 l_Lake_JobAction_toCtorIdx.exit:                  ; preds = %lean_dec.exit, %13, %14, %15
-  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -379,7 +379,7 @@ lean_nat_le.exit45:                               ; preds = %17
   br label %21
 
 21:                                               ; preds = %lean_nat_le.exit45, %18, %lean_nat_le.exit42, %14, %lean_nat_le.exit39, %10, %lean_nat_le.exit, %6, %20, %16, %12, %8
-  %l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__24.sink = phi ptr [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__18, %lean_nat_le.exit42 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__26, %20 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__12, %lean_nat_le.exit39 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__20, %16 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__5, %lean_nat_le.exit ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__14, %12 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__8, %8 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__5, %6 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__12, %10 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__18, %14 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__24, %18 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__24, %lean_nat_le.exit45 ]
+  %l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__24.sink = phi ptr [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__26, %20 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__20, %16 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__14, %12 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__8, %8 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__5, %6 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__5, %lean_nat_le.exit ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__12, %10 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__12, %lean_nat_le.exit39 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__18, %14 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__18, %lean_nat_le.exit42 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__24, %18 ], [ @l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__24, %lean_nat_le.exit45 ]
   %22 = load ptr, ptr %l___private_Lake_Build_Job_Basic_0__Lake_reprJobAction____x40_Lake_Build_Job_Basic___hyg_21____closed__24.sink, align 8, !tbaa !10
   %23 = tail call ptr @l_Repr_addAppParen(ptr noundef %22, ptr noundef %1) #8
   ret ptr %23
@@ -579,7 +579,7 @@ define zeroext range(i8 0, 2) i8 @l_Lake_instDecidableEqJobAction(i8 noundef zer
   br label %l_Lake_JobAction_toCtorIdx.exit
 
 l_Lake_JobAction_toCtorIdx.exit:                  ; preds = %2, %3, %4, %5
-  %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %8 [
     i8 0, label %lean_dec.exit
     i8 1, label %6
@@ -596,7 +596,7 @@ l_Lake_JobAction_toCtorIdx.exit:                  ; preds = %2, %3, %4, %5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %8, %7, %6, %l_Lake_JobAction_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 1 to ptr), %l_Lake_JobAction_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %l_Lake_JobAction_toCtorIdx.exit ]
   %9 = icmp eq ptr %.0.i9, %.0.i10
   %10 = zext i1 %9 to i8
   ret i8 %10
@@ -672,7 +672,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l_Lake_JobAction_toCtorIdx.exit.i
 
 l_Lake_JobAction_toCtorIdx.exit.i:                ; preds = %27, %26, %25, %lean_dec.exit
-  %.0.i9.i = phi ptr [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   switch i8 %16, label %30 [
     i8 0, label %l_Lake_instDecidableEqJobAction.exit
     i8 1, label %28
@@ -689,7 +689,7 @@ l_Lake_JobAction_toCtorIdx.exit.i:                ; preds = %27, %26, %25, %lean
   br label %l_Lake_instDecidableEqJobAction.exit
 
 l_Lake_instDecidableEqJobAction.exit:             ; preds = %l_Lake_JobAction_toCtorIdx.exit.i, %28, %29, %30
-  %.0.i10.i = phi ptr [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 1 to ptr), %l_Lake_JobAction_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %l_Lake_JobAction_toCtorIdx.exit.i ]
   %31 = icmp eq ptr %.0.i9.i, %.0.i10.i
   %32 = select i1 %31, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %32
@@ -728,7 +728,7 @@ define zeroext range(i8 0, 3) i8 @l___private_Lake_Build_Job_Basic_0__Lake_ordJo
   br label %lean_dec.exit25
 
 lean_dec.exit25:                                  ; preds = %7, %3, %6, %5
-  %.1 = phi i8 [ %switch.select41, %6 ], [ %switch.select37, %5 ], [ %spec.select, %3 ], [ %spec.select42, %7 ]
+  %.1 = phi i8 [ %spec.select, %3 ], [ %switch.select37, %5 ], [ %switch.select41, %6 ], [ %spec.select42, %7 ]
   ret i8 %.1
 }
 
@@ -817,7 +817,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l___private_Lake_Build_Job_Basic_0__Lake_ordJobAction____x40_Lake_Build_Job_Basic___hyg_268_.exit
 
 l___private_Lake_Build_Job_Basic_0__Lake_ordJobAction____x40_Lake_Build_Job_Basic___hyg_268_.exit: ; preds = %25, %27, %28, %29
-  %.1.i = phi i64 [ %switch.select41.i, %28 ], [ %switch.select37.i, %27 ], [ %spec.select.i, %25 ], [ %spec.select42.i, %29 ]
+  %.1.i = phi i64 [ %spec.select.i, %25 ], [ %switch.select37.i, %27 ], [ %switch.select41.i, %28 ], [ %spec.select42.i, %29 ]
   %31 = shl nuw nsw i64 %.1.i, 1
   %32 = and i64 %31, 510
   %33 = or disjoint i64 %32, 1
@@ -1102,7 +1102,7 @@ define ptr @l_Lake_JobAction_verb(i8 noundef zeroext %0, i8 noundef zeroext %1) 
   br label %8
 
 8:                                                ; preds = %7, %6, %5, %4
-  %.0.in = phi ptr [ %l_Lake_JobAction_verb___closed__7.l_Lake_JobAction_verb___closed__8, %7 ], [ %l_Lake_JobAction_verb___closed__3.l_Lake_JobAction_verb___closed__4, %5 ], [ %l_Lake_JobAction_verb___closed__1.l_Lake_JobAction_verb___closed__2, %4 ], [ %l_Lake_JobAction_verb___closed__5.l_Lake_JobAction_verb___closed__6, %6 ]
+  %.0.in = phi ptr [ %l_Lake_JobAction_verb___closed__1.l_Lake_JobAction_verb___closed__2, %4 ], [ %l_Lake_JobAction_verb___closed__3.l_Lake_JobAction_verb___closed__4, %5 ], [ %l_Lake_JobAction_verb___closed__5.l_Lake_JobAction_verb___closed__6, %6 ], [ %l_Lake_JobAction_verb___closed__7.l_Lake_JobAction_verb___closed__8, %7 ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !10
   ret ptr %.0
 }
@@ -1184,7 +1184,7 @@ lean_dec.exit:                                    ; preds = %22, %21, %19, %lean
   br label %l_Lake_JobAction_verb.exit
 
 l_Lake_JobAction_verb.exit:                       ; preds = %25, %26, %27, %28
-  %.0.in.i = phi ptr [ %l_Lake_JobAction_verb___closed__7.l_Lake_JobAction_verb___closed__8.i, %28 ], [ %l_Lake_JobAction_verb___closed__3.l_Lake_JobAction_verb___closed__4.i, %26 ], [ %l_Lake_JobAction_verb___closed__1.l_Lake_JobAction_verb___closed__2.i, %25 ], [ %l_Lake_JobAction_verb___closed__5.l_Lake_JobAction_verb___closed__6.i, %27 ]
+  %.0.in.i = phi ptr [ %l_Lake_JobAction_verb___closed__1.l_Lake_JobAction_verb___closed__2.i, %25 ], [ %l_Lake_JobAction_verb___closed__3.l_Lake_JobAction_verb___closed__4.i, %26 ], [ %l_Lake_JobAction_verb___closed__5.l_Lake_JobAction_verb___closed__6.i, %27 ], [ %l_Lake_JobAction_verb___closed__7.l_Lake_JobAction_verb___closed__8.i, %28 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !10
   ret ptr %.0.i
 }
@@ -2172,7 +2172,7 @@ lean_alloc_ctor.exit231:                          ; preds = %170
   br label %lean_dec.exit151
 
 lean_dec.exit151:                                 ; preds = %194, %198, %207, %209, %210
-  %.0.i143328 = phi ptr [ %204, %209 ], [ %204, %210 ], [ %204, %207 ], [ %199, %198 ], [ %197, %194 ]
+  %.0.i143328 = phi ptr [ %204, %207 ], [ %204, %209 ], [ %204, %210 ], [ %199, %198 ], [ %197, %194 ]
   %.val199 = load i32, ptr %184, align 4, !tbaa !4
   %211 = icmp eq i32 %.val199, 1
   %212 = getelementptr inbounds nuw i8, ptr %184, i64 8
@@ -2446,7 +2446,7 @@ lean_inc.exit159:                                 ; preds = %286, %285, %283, %l
   br label %lean_dec.exit145
 
 lean_dec.exit145:                                 ; preds = %301, %305, %314, %316, %317
-  %.0.i265 = phi ptr [ %311, %317 ], [ %311, %314 ], [ %311, %316 ], [ %306, %305 ], [ %304, %301 ]
+  %.0.i265 = phi ptr [ %311, %314 ], [ %311, %316 ], [ %311, %317 ], [ %306, %305 ], [ %304, %301 ]
   %318 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %319 = load ptr, ptr %318, align 8, !tbaa !10
   %320 = ptrtoint ptr %319 to i64
@@ -2652,7 +2652,7 @@ lean_alloc_ctor.exit263:                          ; preds = %384
   br label %394
 
 394:                                              ; preds = %lean_alloc_ctor.exit263, %lean_alloc_ctor.exit240, %lean_dec.exit150, %lean_alloc_ctor.exit231, %lean_alloc_ctor.exit, %lean_dec.exit157
-  %.2 = phi ptr [ %1, %lean_dec.exit157 ], [ %174, %lean_alloc_ctor.exit231 ], [ %1, %lean_alloc_ctor.exit ], [ %388, %lean_alloc_ctor.exit263 ], [ %1, %lean_alloc_ctor.exit240 ], [ %1, %lean_dec.exit150 ]
+  %.2 = phi ptr [ %174, %lean_alloc_ctor.exit231 ], [ %1, %lean_alloc_ctor.exit ], [ %1, %lean_dec.exit157 ], [ %388, %lean_alloc_ctor.exit263 ], [ %1, %lean_alloc_ctor.exit240 ], [ %1, %lean_dec.exit150 ]
   ret ptr %.2
 }
 
@@ -4017,7 +4017,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   br label %lean_dec.exit41
 
 lean_dec.exit41:                                  ; preds = %lean_dec.exit42, %70, %72, %73, %lean_dec.exit38, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %116, %lean_alloc_ctor.exit ], [ %1, %lean_dec.exit38 ], [ %1, %73 ], [ %1, %72 ], [ %1, %70 ], [ %1, %lean_dec.exit42 ]
+  %.0 = phi ptr [ %1, %lean_dec.exit38 ], [ %116, %lean_alloc_ctor.exit ], [ %1, %73 ], [ %1, %72 ], [ %1, %70 ], [ %1, %lean_dec.exit42 ]
   ret ptr %.0
 }
 

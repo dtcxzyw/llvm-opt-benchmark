@@ -93,7 +93,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %19
   br label %34
 
 34:                                               ; preds = %thread-pre-split, %25, %32, %22, %.critedge52
-  %.137 = phi ptr [ null, %22 ], [ null, %.critedge52 ], [ %.255, %32 ], [ %.255, %25 ], [ %.2, %thread-pre-split ]
+  %.137 = phi ptr [ null, %.critedge52 ], [ null, %22 ], [ %.255, %32 ], [ %.255, %25 ], [ %.2, %thread-pre-split ]
   ret ptr %.137
 }
 

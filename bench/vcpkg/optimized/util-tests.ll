@@ -509,7 +509,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %93, %97
   br label %.loopexit190
 
 .loopexit190:                                     ; preds = %128, %.loopexit190.loopexit.split.loop.exit, %.loopexit190.loopexit.split.loop.exit244, %.loopexit190.loopexit.split.loop.exit246, %148, %._crit_edge._crit_edge.i.i.i.i92, %._crit_edge._crit_edge57.i.i.i.i85, %._crit_edge.i.i.i.i82
-  %.sroa.032.0.lcssa.i91 = phi ptr [ %121, %._crit_edge.i.i.i.i82 ], [ %.sroa.032.1.i.i.i.i94, %._crit_edge._crit_edge.i.i.i.i92 ], [ %spec.select.i.i.i.i88, %._crit_edge._crit_edge57.i.i.i.i85 ], [ %.sroa.032.0.lcssa.i.i.i.i84, %148 ], [ %161, %.loopexit190.loopexit.split.loop.exit246 ], [ %159, %.loopexit190.loopexit.split.loop.exit ], [ %160, %.loopexit190.loopexit.split.loop.exit244 ], [ %.sroa.032.051.i.i.i.i98, %128 ]
+  %.sroa.032.0.lcssa.i91 = phi ptr [ %121, %._crit_edge.i.i.i.i82 ], [ %.sroa.032.0.lcssa.i.i.i.i84, %148 ], [ %.sroa.032.1.i.i.i.i94, %._crit_edge._crit_edge.i.i.i.i92 ], [ %spec.select.i.i.i.i88, %._crit_edge._crit_edge57.i.i.i.i85 ], [ %159, %.loopexit190.loopexit.split.loop.exit ], [ %160, %.loopexit190.loopexit.split.loop.exit244 ], [ %161, %.loopexit190.loopexit.split.loop.exit246 ], [ %.sroa.032.051.i.i.i.i98, %128 ]
   store ptr %.sroa.032.0.lcssa.i91, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %120, ptr %24, align 8
@@ -743,7 +743,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit61:           ; preds = %188, %192
   br label %.loopexit189
 
 .loopexit189:                                     ; preds = %215, %.loopexit189.loopexit.split.loop.exit, %.loopexit189.loopexit.split.loop.exit252, %.loopexit189.loopexit.split.loop.exit254, %235, %._crit_edge._crit_edge.i.i.i.i116, %._crit_edge._crit_edge57.i.i.i.i109, %._crit_edge.i.i.i.i106
-  %.sroa.032.0.lcssa.i115 = phi ptr [ %208, %._crit_edge.i.i.i.i106 ], [ %.sroa.032.1.i.i.i.i118, %._crit_edge._crit_edge.i.i.i.i116 ], [ %spec.select.i.i.i.i112, %._crit_edge._crit_edge57.i.i.i.i109 ], [ %.sroa.032.0.lcssa.i.i.i.i108, %235 ], [ %248, %.loopexit189.loopexit.split.loop.exit254 ], [ %246, %.loopexit189.loopexit.split.loop.exit ], [ %247, %.loopexit189.loopexit.split.loop.exit252 ], [ %.sroa.032.051.i.i.i.i122, %215 ]
+  %.sroa.032.0.lcssa.i115 = phi ptr [ %208, %._crit_edge.i.i.i.i106 ], [ %.sroa.032.0.lcssa.i.i.i.i108, %235 ], [ %.sroa.032.1.i.i.i.i118, %._crit_edge._crit_edge.i.i.i.i116 ], [ %spec.select.i.i.i.i112, %._crit_edge._crit_edge57.i.i.i.i109 ], [ %246, %.loopexit189.loopexit.split.loop.exit ], [ %247, %.loopexit189.loopexit.split.loop.exit252 ], [ %248, %.loopexit189.loopexit.split.loop.exit254 ], [ %.sroa.032.051.i.i.i.i122, %215 ]
   store ptr %.sroa.032.0.lcssa.i115, ptr %30, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %249 = getelementptr inbounds nuw i8, ptr %207, i64 4
@@ -972,7 +972,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit64:           ; preds = %274, %278
   br label %.loopexit
 
 .loopexit:                                        ; preds = %301, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit260, %.loopexit.loopexit.split.loop.exit262, %321, %._crit_edge._crit_edge.i.i.i.i140, %._crit_edge._crit_edge57.i.i.i.i133, %._crit_edge.i.i.i.i130
-  %.sroa.032.0.lcssa.i139 = phi ptr [ %294, %._crit_edge.i.i.i.i130 ], [ %.sroa.032.1.i.i.i.i142, %._crit_edge._crit_edge.i.i.i.i140 ], [ %spec.select.i.i.i.i136, %._crit_edge._crit_edge57.i.i.i.i133 ], [ %.sroa.032.0.lcssa.i.i.i.i132, %321 ], [ %334, %.loopexit.loopexit.split.loop.exit262 ], [ %332, %.loopexit.loopexit.split.loop.exit ], [ %333, %.loopexit.loopexit.split.loop.exit260 ], [ %.sroa.032.051.i.i.i.i146, %301 ]
+  %.sroa.032.0.lcssa.i139 = phi ptr [ %294, %._crit_edge.i.i.i.i130 ], [ %.sroa.032.0.lcssa.i.i.i.i132, %321 ], [ %.sroa.032.1.i.i.i.i142, %._crit_edge._crit_edge.i.i.i.i140 ], [ %spec.select.i.i.i.i136, %._crit_edge._crit_edge57.i.i.i.i133 ], [ %332, %.loopexit.loopexit.split.loop.exit ], [ %333, %.loopexit.loopexit.split.loop.exit260 ], [ %334, %.loopexit.loopexit.split.loop.exit262 ], [ %.sroa.032.051.i.i.i.i146, %301 ]
   store ptr %.sroa.032.0.lcssa.i139, ptr %37, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store ptr %294, ptr %38, align 8
@@ -2100,7 +2100,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %105, %109
   br label %.loopexit195
 
 .loopexit195:                                     ; preds = %142, %153, %159, %165, %._crit_edge.i.i.i.i96, %174, %._crit_edge._crit_edge.i.i.i.i102, %._crit_edge._crit_edge47.i.i.i.i98
-  %.sink.i.i.i.i101 = phi i64 [ %spec.select.i.i.i100, %._crit_edge._crit_edge47.i.i.i.i98 ], [ %183, %._crit_edge._crit_edge.i.i.i.i102 ], [ %171, %174 ], [ %135, %._crit_edge.i.i.i.i96 ], [ %.cast18.i.i.i.i109, %165 ], [ %.cast17.i.i.i.i110, %159 ], [ %.cast.i.i.i.i111, %153 ], [ %144, %142 ]
+  %.sink.i.i.i.i101 = phi i64 [ %.cast18.i.i.i.i109, %165 ], [ %.cast17.i.i.i.i110, %159 ], [ %.cast.i.i.i.i111, %153 ], [ %171, %174 ], [ %183, %._crit_edge._crit_edge.i.i.i.i102 ], [ %135, %._crit_edge.i.i.i.i96 ], [ %spec.select.i.i.i100, %._crit_edge._crit_edge47.i.i.i.i98 ], [ %144, %142 ]
   %196 = inttoptr i64 %.sink.i.i.i.i101 to ptr
   %197 = icmp eq ptr %133, %196
   %198 = getelementptr inbounds i8, ptr %196, i64 -4
@@ -2356,7 +2356,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit63:           ; preds = %226, %230
   br label %.loopexit194
 
 .loopexit194:                                     ; preds = %255, %266, %272, %278, %._crit_edge.i.i.i.i113, %287, %._crit_edge._crit_edge.i.i.i.i119, %._crit_edge._crit_edge47.i.i.i.i115
-  %.sink.i.i.i.i118 = phi i64 [ %spec.select.i.i.i117, %._crit_edge._crit_edge47.i.i.i.i115 ], [ %296, %._crit_edge._crit_edge.i.i.i.i119 ], [ %284, %287 ], [ %248, %._crit_edge.i.i.i.i113 ], [ %.cast18.i.i.i.i126, %278 ], [ %.cast17.i.i.i.i127, %272 ], [ %.cast.i.i.i.i128, %266 ], [ %257, %255 ]
+  %.sink.i.i.i.i118 = phi i64 [ %.cast18.i.i.i.i126, %278 ], [ %.cast17.i.i.i.i127, %272 ], [ %.cast.i.i.i.i128, %266 ], [ %284, %287 ], [ %296, %._crit_edge._crit_edge.i.i.i.i119 ], [ %248, %._crit_edge.i.i.i.i113 ], [ %spec.select.i.i.i117, %._crit_edge._crit_edge47.i.i.i.i115 ], [ %257, %255 ]
   %309 = inttoptr i64 %.sink.i.i.i.i118 to ptr
   %310 = icmp eq ptr %246, %309
   %311 = getelementptr inbounds i8, ptr %309, i64 -4
@@ -2606,7 +2606,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit68:           ; preds = %337, %341
   br label %.loopexit
 
 .loopexit:                                        ; preds = %366, %377, %383, %389, %._crit_edge.i.i.i.i130, %398, %._crit_edge._crit_edge.i.i.i.i136, %._crit_edge._crit_edge47.i.i.i.i132
-  %.sink.i.i.i.i135 = phi i64 [ %spec.select.i.i.i134, %._crit_edge._crit_edge47.i.i.i.i132 ], [ %407, %._crit_edge._crit_edge.i.i.i.i136 ], [ %395, %398 ], [ %359, %._crit_edge.i.i.i.i130 ], [ %.cast18.i.i.i.i143, %389 ], [ %.cast17.i.i.i.i144, %383 ], [ %.cast.i.i.i.i145, %377 ], [ %368, %366 ]
+  %.sink.i.i.i.i135 = phi i64 [ %.cast18.i.i.i.i143, %389 ], [ %.cast17.i.i.i.i144, %383 ], [ %.cast.i.i.i.i145, %377 ], [ %395, %398 ], [ %407, %._crit_edge._crit_edge.i.i.i.i136 ], [ %359, %._crit_edge.i.i.i.i130 ], [ %spec.select.i.i.i134, %._crit_edge._crit_edge47.i.i.i.i132 ], [ %368, %366 ]
   %420 = inttoptr i64 %.sink.i.i.i.i135 to ptr
   %421 = icmp eq ptr %357, %420
   %422 = getelementptr inbounds i8, ptr %420, i64 -4
@@ -3994,7 +3994,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit184:                 ; preds = %229, %226, %224
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit148
 
 _ZNSt6vectorIiSaIiEED2Ev.exit148:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit184, %_ZNSt6vectorIiSaIiEED2Ev.exit180, %_ZNSt6vectorIiSaIiEED2Ev.exit176, %_ZNSt6vectorIiSaIiEED2Ev.exit172, %_ZNSt6vectorIiSaIiEED2Ev.exit168, %_ZNSt6vectorIiSaIiEED2Ev.exit164, %_ZNSt6vectorIiSaIiEED2Ev.exit160, %_ZNSt6vectorIiSaIiEED2Ev.exit156, %_ZNSt6vectorIiSaIiEED2Ev.exit152, %137, %140
-  %.pn69.pn.pn = phi { ptr, i32 } [ %.pn54, %_ZNSt6vectorIiSaIiEED2Ev.exit164 ], [ %.pn69, %_ZNSt6vectorIiSaIiEED2Ev.exit184 ], [ %.pn66, %_ZNSt6vectorIiSaIiEED2Ev.exit180 ], [ %.pn63, %_ZNSt6vectorIiSaIiEED2Ev.exit176 ], [ %.pn60, %_ZNSt6vectorIiSaIiEED2Ev.exit172 ], [ %.pn57, %_ZNSt6vectorIiSaIiEED2Ev.exit168 ], [ %147, %_ZNSt6vectorIiSaIiEED2Ev.exit152 ], [ %156, %_ZNSt6vectorIiSaIiEED2Ev.exit156 ], [ %138, %137 ], [ %138, %140 ], [ %.pn51, %_ZNSt6vectorIiSaIiEED2Ev.exit160 ]
+  %.pn69.pn.pn = phi { ptr, i32 } [ %138, %140 ], [ %138, %137 ], [ %147, %_ZNSt6vectorIiSaIiEED2Ev.exit152 ], [ %156, %_ZNSt6vectorIiSaIiEED2Ev.exit156 ], [ %.pn51, %_ZNSt6vectorIiSaIiEED2Ev.exit160 ], [ %.pn54, %_ZNSt6vectorIiSaIiEED2Ev.exit164 ], [ %.pn57, %_ZNSt6vectorIiSaIiEED2Ev.exit168 ], [ %.pn60, %_ZNSt6vectorIiSaIiEED2Ev.exit172 ], [ %.pn63, %_ZNSt6vectorIiSaIiEED2Ev.exit176 ], [ %.pn66, %_ZNSt6vectorIiSaIiEED2Ev.exit180 ], [ %.pn69, %_ZNSt6vectorIiSaIiEED2Ev.exit184 ]
   resume { ptr, i32 } %.pn69.pn.pn
 }
 
@@ -6144,7 +6144,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit: ; preds = %12, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.loopexit.split.loop.exit73, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.loopexit.split.loop.exit75, %32, %38, %44
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.1.i.i.i, %38 ], [ %spec.select.i.i.i, %44 ], [ %.sroa.032.0.lcssa.i.i.i, %32 ], [ %49, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.loopexit.split.loop.exit73 ], [ %48, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.loopexit.split.loop.exit75 ], [ %.sroa.032.051.i.i.i, %12 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %32 ], [ %.sroa.032.1.i.i.i, %38 ], [ %spec.select.i.i.i, %44 ], [ %48, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.loopexit.split.loop.exit ], [ %49, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.loopexit.split.loop.exit73 ], [ %50, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.loopexit.split.loop.exit75 ], [ %.sroa.032.051.i.i.i, %12 ]
   %51 = icmp ne i64 %3, 0
   %52 = icmp ne ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %1
   %or.cond50 = select i1 %51, i1 %52, i1 false
@@ -6258,7 +6258,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit31
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit31: ; preds = %61, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit31.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit31.loopexit.split.loop.exit81, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit31.loopexit.split.loop.exit83, %81, %._crit_edge._crit_edge.i.i.i18, %._crit_edge._crit_edge57.i.i.i13
-  %.sroa.08.0.in.sroa.speculated.i.i.i17 = phi ptr [ %.sroa.032.1.i.i.i20, %._crit_edge._crit_edge.i.i.i18 ], [ %spec.select.i.i.i16, %._crit_edge._crit_edge57.i.i.i13 ], [ %.sroa.032.0.lcssa.i.i.i12, %81 ], [ %93, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit31.loopexit.split.loop.exit81 ], [ %92, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit31.loopexit.split.loop.exit ], [ %94, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit31.loopexit.split.loop.exit83 ], [ %.sroa.032.051.i.i.i24, %61 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i17 = phi ptr [ %.sroa.032.0.lcssa.i.i.i12, %81 ], [ %.sroa.032.1.i.i.i20, %._crit_edge._crit_edge.i.i.i18 ], [ %spec.select.i.i.i16, %._crit_edge._crit_edge57.i.i.i13 ], [ %92, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit31.loopexit.split.loop.exit ], [ %93, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit31.loopexit.split.loop.exit81 ], [ %94, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit31.loopexit.split.loop.exit83 ], [ %.sroa.032.051.i.i.i24, %61 ]
   %95 = add nuw i64 %.052, 1
   %96 = icmp ult i64 %95, %3
   %97 = icmp ne ptr %.sroa.08.0.in.sroa.speculated.i.i.i17, %1
@@ -6744,7 +6744,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg4Util8find_nthISt16reverse_iterator
   br label %_ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEiET_S9_S9_RKT0_.exit
 
 _ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEiET_S9_S9_RKT0_.exit: ; preds = %16, %27, %33, %39, %._crit_edge.i.i.i, %48, %57, %68
-  %.sink.i.i.i = phi i64 [ %spec.select.i.i, %68 ], [ %60, %57 ], [ %45, %48 ], [ %7, %._crit_edge.i.i.i ], [ %.cast18.i.i.i, %39 ], [ %.cast17.i.i.i, %33 ], [ %.cast.i.i.i, %27 ], [ %18, %16 ]
+  %.sink.i.i.i = phi i64 [ %.cast18.i.i.i, %39 ], [ %.cast17.i.i.i, %33 ], [ %.cast.i.i.i, %27 ], [ %45, %48 ], [ %60, %57 ], [ %7, %._crit_edge.i.i.i ], [ %spec.select.i.i, %68 ], [ %18, %16 ]
   store i64 %.sink.i.i.i, ptr %1, align 8
   %.not65 = icmp eq i64 %4, 0
   br i1 %.not65, label %.critedge, label %.lr.ph
@@ -6891,7 +6891,7 @@ _ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiE
   br label %_ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEiET_S9_S9_RKT0_.exit20
 
 _ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEiET_S9_S9_RKT0_.exit20: ; preds = %87, %98, %104, %110, %._crit_edge.i.i.i4, %119, %128, %139
-  %.sink.i.i.i9 = phi i64 [ %spec.select.i.i8, %139 ], [ %131, %128 ], [ %116, %119 ], [ %79, %._crit_edge.i.i.i4 ], [ %.cast18.i.i.i17, %110 ], [ %.cast17.i.i.i18, %104 ], [ %.cast.i.i.i19, %98 ], [ %89, %87 ]
+  %.sink.i.i.i9 = phi i64 [ %.cast18.i.i.i17, %110 ], [ %.cast17.i.i.i18, %104 ], [ %.cast.i.i.i19, %98 ], [ %116, %119 ], [ %131, %128 ], [ %79, %._crit_edge.i.i.i4 ], [ %spec.select.i.i8, %139 ], [ %89, %87 ]
   store i64 %.sink.i.i.i9, ptr %1, align 8
   %146 = add nuw i64 %.063, 1
   %exitcond.not = icmp eq i64 %146, %4

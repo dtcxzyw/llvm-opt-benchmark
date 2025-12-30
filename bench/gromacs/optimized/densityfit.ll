@@ -426,7 +426,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_s
   br label %.body
 
 _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit.sink.split: ; preds = %65, %37, %_ZSt11make_uniqueIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductEJRNS0_12basic_mdspanIKfNS0_7extentsIJLln1ELln1ELln1EEEENS0_12layout_rightENS0_14accessor_basicIS4_EEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %.sink90 = phi ptr [ %38, %37 ], [ %11, %_ZSt11make_uniqueIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductEJRNS0_12basic_mdspanIKfNS0_7extentsIJLln1ELln1ELln1EEEENS0_12layout_rightENS0_14accessor_basicIS4_EEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %66, %65 ]
+  %.sink90 = phi ptr [ %11, %_ZSt11make_uniqueIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductEJRNS0_12basic_mdspanIKfNS0_7extentsIJLln1ELln1ELln1EEEENS0_12layout_rightENS0_14accessor_basicIS4_EEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %38, %37 ], [ %66, %65 ]
   %81 = load ptr, ptr %.sink90, align 8, !tbaa !21
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
@@ -437,7 +437,7 @@ _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default
   ret void
 
 .body:                                            ; preds = %.body.i44, %.body.i, %9, %78, %80
-  %.pn.pn.pn.ph = phi { ptr, i32 } [ %57, %.body.i44 ], [ %10, %9 ], [ %29, %.body.i ], [ %79, %78 ], [ %.pn.pn68, %80 ]
+  %.pn.pn.pn.ph = phi { ptr, i32 } [ %57, %.body.i44 ], [ %29, %.body.i ], [ %10, %9 ], [ %79, %78 ], [ %.pn.pn68, %80 ]
   %.pr = load ptr, ptr %0, align 8, !tbaa !13
   %.not.i59 = icmp eq ptr %.pr, null
   br i1 %.not.i59, label %_ZNSt10unique_ptrIN3gmx28DensitySimilarityMeasureImplESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3gmx28DensitySimilarityMeasureImplEEclEPS1_.exit.i
@@ -450,7 +450,7 @@ _ZNKSt14default_deleteIN3gmx28DensitySimilarityMeasureImplEEclEPS1_.exit.i: ; pr
   br label %_ZNSt10unique_ptrIN3gmx28DensitySimilarityMeasureImplESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx28DensitySimilarityMeasureImplESt14default_deleteIS1_EED2Ev.exit: ; preds = %12, %40, %68, %.body, %_ZNKSt14default_deleteIN3gmx28DensitySimilarityMeasureImplEEclEPS1_.exit.i
-  %.pn.pn.pn75 = phi { ptr, i32 } [ %.pn.pn.pn.ph, %_ZNKSt14default_deleteIN3gmx28DensitySimilarityMeasureImplEEclEPS1_.exit.i ], [ %.pn.pn.pn.ph, %.body ], [ %41, %40 ], [ %13, %12 ], [ %69, %68 ]
+  %.pn.pn.pn75 = phi { ptr, i32 } [ %.pn.pn.pn.ph, %.body ], [ %.pn.pn.pn.ph, %_ZNKSt14default_deleteIN3gmx28DensitySimilarityMeasureImplEEclEPS1_.exit.i ], [ %69, %68 ], [ %41, %40 ], [ %13, %12 ]
   store ptr null, ptr %0, align 8, !tbaa !13
   resume { ptr, i32 } %.pn.pn.pn75
 
@@ -1252,7 +1252,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !82
   br label %41
 

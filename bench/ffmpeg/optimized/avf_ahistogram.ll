@@ -1167,7 +1167,7 @@ filter_frame.exit:                                ; preds = %58, %96, %633, %636
   br label %649
 
 649:                                              ; preds = %644, %15, %.critedge34, %.critedge, %648, %641, %filter_frame.exit
-  %.125 = phi i32 [ 0, %15 ], [ %.0.i, %filter_frame.exit ], [ 0, %641 ], [ 0, %648 ], [ %18, %.critedge ], [ 0, %644 ], [ -1497649742, %.critedge34 ]
+  %.125 = phi i32 [ %.0.i, %filter_frame.exit ], [ 0, %641 ], [ 0, %648 ], [ 0, %644 ], [ 0, %15 ], [ %18, %.critedge ], [ -1497649742, %.critedge34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.125
 }
@@ -1304,7 +1304,7 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   br label %34
 
 34:                                               ; preds = %30, %26, %33, %29
-  %get_log_bin_abs.sink = phi ptr [ @get_lin_bin_abs, %26 ], [ @get_log_bin_sign, %33 ], [ @get_lin_bin_sign, %29 ], [ @get_log_bin_abs, %30 ]
+  %get_log_bin_abs.sink = phi ptr [ @get_log_bin_sign, %33 ], [ @get_lin_bin_sign, %29 ], [ @get_lin_bin_abs, %26 ], [ @get_log_bin_abs, %30 ]
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 920
   store ptr %get_log_bin_abs.sink, ptr %35, align 8, !tbaa !74
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 76
@@ -1325,7 +1325,7 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   br label %45
 
 45:                                               ; preds = %39, %1, %30, %26, %44
-  %.0 = phi i32 [ -558323010, %30 ], [ -558323010, %26 ], [ 0, %44 ], [ -558323010, %1 ], [ -12, %39 ]
+  %.0 = phi i32 [ 0, %44 ], [ -558323010, %26 ], [ -558323010, %30 ], [ -558323010, %1 ], [ -12, %39 ]
   ret i32 %.0
 }
 

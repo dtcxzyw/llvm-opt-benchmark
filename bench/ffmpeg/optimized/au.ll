@@ -76,7 +76,7 @@ define internal range(i32 0, 101) i32 @au_probe(ptr noundef readonly captures(no
   br label %29
 
 29:                                               ; preds = %25, %1, %5, %9, %13, %17, %21
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %25 ], [ 0, %21 ], [ 0, %17 ], [ 0, %13 ], [ 0, %9 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %21 ], [ 0, %17 ], [ 0, %13 ], [ 0, %9 ], [ 0, %5 ], [ 0, %1 ], [ %spec.select, %25 ]
   ret i32 %.0
 }
 
@@ -217,7 +217,7 @@ default.unreachable:                              ; preds = %24
   unreachable
 
 50:                                               ; preds = %49, %.loopexit.i, %32, %31, %27, %24
-  %.1.i = phi i32 [ %.02433.i, %24 ], [ 1, %31 ], [ 0, %32 ], [ %48, %.loopexit.i ], [ 1, %49 ], [ 2, %27 ]
+  %.1.i = phi i32 [ 1, %31 ], [ 0, %32 ], [ %48, %.loopexit.i ], [ 1, %49 ], [ %.02433.i, %24 ], [ 2, %27 ]
   %51 = icmp sgt i32 %.in.i, 1
   br i1 %51, label %21, label %au_read_annotation.exit, !llvm.loop !31
 
@@ -274,8 +274,8 @@ au_read_annotation.exit:                          ; preds = %21, %50
   br label %111
 
 72:                                               ; preds = %60, %70, %65
-  %.077 = phi i32 [ 0, %70 ], [ %69, %65 ], [ 0, %60 ]
-  %.076 = phi i32 [ %58, %70 ], [ %69, %65 ], [ 2, %60 ]
+  %.077 = phi i32 [ %69, %65 ], [ 0, %70 ], [ 0, %60 ]
+  %.076 = phi i32 [ %69, %65 ], [ %58, %70 ], [ 2, %60 ]
   %73 = icmp eq i32 %15, 0
   br i1 %73, label %77, label %74
 
@@ -354,7 +354,7 @@ au_read_annotation.exit:                          ; preds = %21, %50
   br label %111
 
 111:                                              ; preds = %au_read_annotation.exit.thread, %80, %au_read_annotation.exit, %1, %109, %79, %77, %71, %56, %11
-  %.0 = phi i32 [ -1163346256, %71 ], [ -1094995529, %11 ], [ -1094995529, %1 ], [ -1163346256, %56 ], [ -1094995529, %77 ], [ -1094995529, %79 ], [ 0, %109 ], [ %.022.ph.i, %au_read_annotation.exit ], [ -12, %80 ], [ %29, %au_read_annotation.exit.thread ]
+  %.0 = phi i32 [ -1094995529, %11 ], [ -1163346256, %56 ], [ -1094995529, %77 ], [ -1094995529, %79 ], [ 0, %109 ], [ -1163346256, %71 ], [ -1094995529, %1 ], [ %.022.ph.i, %au_read_annotation.exit ], [ -12, %80 ], [ %29, %au_read_annotation.exit.thread ]
   ret i32 %.0
 }
 

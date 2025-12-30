@@ -137,13 +137,13 @@ define range(i32 0, 2) i32 @WebPPlaneDistortion(ptr noundef %0, i64 noundef %1, 
   br label %GetLogSSIM.exit
 
 GetLogSSIM.exit:                                  ; preds = %69, %63, %59, %50
-  %.in = phi double [ 9.900000e+01, %50 ], [ %62, %59 ], [ %75, %69 ], [ 9.900000e+01, %63 ]
+  %.in = phi double [ %62, %59 ], [ 9.900000e+01, %50 ], [ %75, %69 ], [ 9.900000e+01, %63 ]
   %76 = fptrunc double %.in to float
   store float %76, ptr %9, align 4, !tbaa !10
   br label %.critedge
 
 .critedge:                                        ; preds = %26, %10, %17, %21, %GetLogSSIM.exit
-  %.0 = phi i32 [ 0, %26 ], [ 1, %GetLogSSIM.exit ], [ 0, %21 ], [ 0, %17 ], [ 0, %10 ]
+  %.0 = phi i32 [ 1, %GetLogSSIM.exit ], [ 0, %21 ], [ 0, %17 ], [ 0, %10 ], [ 0, %26 ]
   ret i32 %.0
 }
 
@@ -592,7 +592,7 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
   br label %GetLogSSIM.exit
 
 GetLogSSIM.exit:                                  ; preds = %82, %79, %75, %70
-  %.in = phi double [ 9.900000e+01, %70 ], [ %78, %75 ], [ %87, %82 ], [ 9.900000e+01, %79 ]
+  %.in = phi double [ %78, %75 ], [ 9.900000e+01, %70 ], [ %87, %82 ], [ 9.900000e+01, %79 ]
   %88 = fptrunc double %.in to float
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store float %88, ptr %89, align 4, !tbaa !10
@@ -605,7 +605,7 @@ GetLogSSIM.exit:                                  ; preds = %82, %79, %75, %70
   br label %91
 
 91:                                               ; preds = %22, %24, %4, %10, %15, %90
-  %.0 = phi i32 [ 0, %4 ], [ 0, %22 ], [ %.043, %90 ], [ 0, %15 ], [ 0, %10 ], [ 0, %24 ]
+  %.0 = phi i32 [ %.043, %90 ], [ 0, %15 ], [ 0, %10 ], [ 0, %4 ], [ 0, %24 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

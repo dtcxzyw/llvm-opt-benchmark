@@ -479,7 +479,7 @@ define i32 @hkdf_expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
   br i1 %55, label %22, label %20, !llvm.loop !12
 
 56:                                               ; preds = %16, %7, %11, %20
-  %.0 = phi i32 [ 45, %7 ], [ 0, %20 ], [ 45, %11 ], [ %17, %16 ]
+  %.0 = phi i32 [ 0, %20 ], [ 45, %11 ], [ 45, %7 ], [ %17, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0

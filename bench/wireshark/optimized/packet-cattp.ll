@@ -250,7 +250,7 @@ define internal i32 @dissect_cattp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %53
 
 53:                                               ; preds = %51, %50, %4
-  %.0117 = phi ptr [ %spec.select, %51 ], [ @.str.77, %4 ], [ @.str.78, %50 ]
+  %.0117 = phi ptr [ @.str.77, %4 ], [ @.str.78, %50 ], [ %spec.select, %51 ]
   %54 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.80, ptr noundef nonnull %.0117, i32 noundef %49, i32 noundef %43, i32 noundef %39, i32 noundef %47)
   %55 = load i8, ptr @cattp_check_checksum, align 1, !range !6, !noundef !7
@@ -379,7 +379,7 @@ define internal i32 @dissect_cattp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_cattp_synpdu.exit
 
 dissect_cattp_synpdu.exit:                        ; preds = %117, %106, %102, %70, %124, %122
-  %.0118 = phi i32 [ 18, %122 ], [ 23, %70 ], [ 19, %124 ], [ %103, %102 ], [ 18, %106 ], [ %120, %117 ]
+  %.0118 = phi i32 [ 19, %124 ], [ 18, %122 ], [ %103, %102 ], [ 23, %70 ], [ 18, %106 ], [ %120, %117 ]
   %.not124 = icmp eq i16 %33, 0
   br i1 %.not124, label %135, label %131
 
@@ -448,8 +448,8 @@ define internal noundef zeroext i1 @dissect_cattp_heur(ptr noundef %0, ptr nound
   %27 = tail call i32 @dissect_cattp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %.thread
 
-.thread:                                          ; preds = %26, %7, %14, %4, %17
-  %.1 = phi i1 [ false, %4 ], [ false, %17 ], [ true, %26 ], [ false, %7 ], [ false, %14 ]
+.thread:                                          ; preds = %14, %7, %26, %4, %17
+  %.1 = phi i1 [ false, %17 ], [ false, %4 ], [ false, %14 ], [ false, %7 ], [ true, %26 ]
   ret i1 %.1
 }
 

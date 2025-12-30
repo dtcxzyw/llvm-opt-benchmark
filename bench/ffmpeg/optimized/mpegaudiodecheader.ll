@@ -125,7 +125,7 @@ define range(i32 -1, 2) i32 @avpriv_mpegaudio_decode_header(ptr noundef writeonl
   br label %76
 
 76:                                               ; preds = %11, %2, %75
-  %.0 = phi i32 [ -1, %2 ], [ 0, %75 ], [ 1, %11 ]
+  %.0 = phi i32 [ 0, %75 ], [ -1, %2 ], [ 1, %11 ]
   ret i32 %.0
 }
 
@@ -170,7 +170,7 @@ define i32 @ff_mpa_decode_header(i32 noundef %0, ptr noundef writeonly captures(
   br label %20
 
 20:                                               ; preds = %17, %13, %12
-  %.sink = phi i32 [ %., %17 ], [ 384, %12 ], [ 1152, %13 ]
+  %.sink = phi i32 [ 1152, %13 ], [ 384, %12 ], [ %., %17 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %22 = load i32, ptr %21, align 4, !tbaa !14

@@ -250,7 +250,7 @@ define noundef zeroext i1 @_ZN5arrow4util16IsFixedWidthLikeERKNS_9ArraySpanEbb(p
   br label %"_ZN5arrow4util16IsFixedWidthLikeIZNS0_16IsFixedWidthLikeERKNS_9ArraySpanEbbE3$_0EEbS4_bT_.exit"
 
 "_ZN5arrow4util16IsFixedWidthLikeIZNS0_16IsFixedWidthLikeERKNS_9ArraySpanEbbE3$_0EEbS4_bT_.exit": ; preds = %.lr.ph.i, %20, %.lr.ph11.i, %10, %3, %.preheader.split.us.i, %.preheader.split.i, %16, %"_ZZN5arrow4util16IsFixedWidthLikeERKNS_9ArraySpanEbbENK3$_0clERKNS_8DataTypeE.exit.i", %.split.us.i, %25
-  %.015.i = phi i1 [ true, %16 ], [ false, %3 ], [ %spec.select.i21.i, %25 ], [ true, %.split.us.i ], [ %switch.selectcmp.not.i, %"_ZZN5arrow4util16IsFixedWidthLikeERKNS_9ArraySpanEbbENK3$_0clERKNS_8DataTypeE.exit.i" ], [ false, %.preheader.split.i ], [ false, %.preheader.split.us.i ], [ false, %.lr.ph11.i ], [ false, %10 ], [ false, %20 ], [ false, %.lr.ph.i ]
+  %.015.i = phi i1 [ true, %16 ], [ %spec.select.i21.i, %25 ], [ true, %.split.us.i ], [ false, %3 ], [ %switch.selectcmp.not.i, %"_ZZN5arrow4util16IsFixedWidthLikeERKNS_9ArraySpanEbbENK3$_0clERKNS_8DataTypeE.exit.i" ], [ false, %.preheader.split.i ], [ false, %.preheader.split.us.i ], [ false, %10 ], [ false, %.lr.ph11.i ], [ false, %20 ], [ false, %.lr.ph.i ]
   ret i1 %.015.i
 }
 
@@ -365,7 +365,7 @@ _ZN5arrow14is_fixed_widthENS_4Type4typeE.exit.i:  ; preds = %16, %16, %16, %16, 
   br label %_ZN5arrow4utilL25FixedWidthInBytesFallbackERKNS_17FixedSizeListTypeE.exit
 
 _ZN5arrow4utilL25FixedWidthInBytesFallbackERKNS_17FixedSizeListTypeE.exit: ; preds = %16, %1, %_ZN5arrow14is_fixed_widthENS_4Type4typeE.exit.i, %10, %4
-  %.0 = phi i64 [ -1, %4 ], [ -1, %1 ], [ %12, %10 ], [ %29, %_ZN5arrow14is_fixed_widthENS_4Type4typeE.exit.i ], [ -1, %16 ]
+  %.0 = phi i64 [ %12, %10 ], [ -1, %4 ], [ %29, %_ZN5arrow14is_fixed_widthENS_4Type4typeE.exit.i ], [ -1, %1 ], [ -1, %16 ]
   ret i64 %.0
 }
 
@@ -476,7 +476,7 @@ _ZN5arrow14is_fixed_widthENS_4Type4typeE.exit.i:  ; preds = %13
   br label %_ZN5arrow4utilL24FixedWidthInBitsFallbackERKNS_17FixedSizeListTypeE.exit
 
 _ZN5arrow4utilL24FixedWidthInBitsFallbackERKNS_17FixedSizeListTypeE.exit: ; preds = %13, %1, %20, %4
-  %.0 = phi i64 [ %9, %4 ], [ -1, %1 ], [ %26, %20 ], [ -1, %13 ]
+  %.0 = phi i64 [ %9, %4 ], [ %26, %20 ], [ -1, %1 ], [ -1, %13 ]
   ret i64 %.0
 }
 

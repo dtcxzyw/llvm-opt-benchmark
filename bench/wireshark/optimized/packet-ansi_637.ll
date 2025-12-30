@@ -817,7 +817,7 @@ define internal i32 @dissect_ansi_637_tele(ptr noundef %0, ptr noundef %1, ptr n
   br label %33
 
 33:                                               ; preds = %31, %10
-  %.037 = phi ptr [ %.str.337..str.338, %31 ], [ %13, %10 ]
+  %.037 = phi ptr [ %13, %10 ], [ %.str.337..str.338, %31 ]
   %34 = icmp eq i32 %12, 65535
   br i1 %34, label %35, label %.thread
 
@@ -827,7 +827,7 @@ define internal i32 @dissect_ansi_637_tele(ptr noundef %0, ptr noundef %1, ptr n
   br label %41
 
 .thread:                                          ; preds = %22, %21, %20, %19, %18, %17, %16, %15, %23, %25, %27, %29, %33
-  %.03741 = phi ptr [ %.037, %33 ], [ @.str.333, %22 ], [ @.str.332, %21 ], [ @.str.331, %20 ], [ @.str.330, %19 ], [ @.str.329, %18 ], [ @.str.328, %17 ], [ @.str.327, %16 ], [ @.str.336, %29 ], [ @.str.334, %27 ], [ @.str.335, %25 ], [ @.str.334, %23 ], [ @.str.326, %15 ]
+  %.03741 = phi ptr [ %.037, %33 ], [ @.str.336, %29 ], [ @.str.334, %27 ], [ @.str.335, %25 ], [ @.str.334, %23 ], [ @.str.326, %15 ], [ @.str.333, %22 ], [ @.str.332, %21 ], [ @.str.331, %20 ], [ @.str.330, %19 ], [ @.str.329, %18 ], [ @.str.328, %17 ], [ @.str.327, %16 ]
   %38 = load i32, ptr @proto_ansi_637_tele, align 4
   %39 = load i32, ptr %11, align 4
   %40 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %38, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.340, ptr noundef nonnull @.str.324, ptr noundef nonnull %.03741, i32 noundef %39)
@@ -894,7 +894,7 @@ define internal i32 @dissect_ansi_637_tele(ptr noundef %0, ptr noundef %1, ptr n
   br label %dissect_ansi_637_tele_param.exit.i
 
 dissect_ansi_637_tele_param.exit.i:               ; preds = %73, %71, %49
-  %.1.i = phi i32 [ %64, %71 ], [ %63, %49 ], [ %64, %73 ]
+  %.1.i = phi i32 [ %63, %49 ], [ %64, %73 ], [ %64, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i = icmp eq i32 %45, %.1.i
@@ -1024,7 +1024,7 @@ define internal i32 @dissect_ansi_637_trans(ptr noundef %0, ptr noundef %1, ptr 
   br label %dissect_ansi_637_trans_param.exit
 
 dissect_ansi_637_trans_param.exit:                ; preds = %38, %59, %61, %65
-  %.1 = phi i32 [ %53, %59 ], [ %52, %38 ], [ %53, %61 ], [ %53, %65 ]
+  %.1 = phi i32 [ %52, %38 ], [ %53, %61 ], [ %53, %65 ], [ %53, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not27 = icmp eq i32 %32, %.1
@@ -1377,8 +1377,8 @@ switch.lookup:                                    ; preds = %.lr.ph
   br label %._crit_edge247
 
 ._crit_edge247:                                   ; preds = %87, %88, %126, %93, %49
-  %.1230 = phi i32 [ %.0229242, %49 ], [ %.0229242, %126 ], [ %.0229242, %93 ], [ %48, %88 ], [ %48, %87 ]
-  %.1 = phi i32 [ %51, %49 ], [ %165, %126 ], [ %125, %93 ], [ %.pre, %88 ], [ %.pre, %87 ]
+  %.1230 = phi i32 [ %.0229242, %49 ], [ %.0229242, %93 ], [ %.0229242, %126 ], [ %48, %88 ], [ %48, %87 ]
+  %.1 = phi i32 [ %51, %49 ], [ %125, %93 ], [ %165, %126 ], [ %.pre, %88 ], [ %.pre, %87 ]
   %166 = sub i32 %22, %.1
   %167 = icmp ugt i32 %166, 2
   br i1 %167, label %.lr.ph, label %._crit_edge, !llvm.loop !14
@@ -1486,12 +1486,12 @@ define internal void @tele_param_user_data(ptr noundef %0, ptr noundef %1, ptr n
   br label %26
 
 26:                                               ; preds = %16, %16, %16, %16, %16, %16, %25, %24, %23
-  %cond1.not = phi i1 [ false, %23 ], [ true, %24 ], [ true, %25 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ]
-  %cond = phi i1 [ false, %23 ], [ false, %24 ], [ true, %25 ], [ false, %16 ], [ false, %16 ], [ false, %16 ], [ false, %16 ], [ false, %16 ], [ false, %16 ]
-  %.081 = phi i32 [ 2, %23 ], [ 4, %24 ], [ 1, %25 ], [ 0, %16 ], [ 0, %16 ], [ 0, %16 ], [ 0, %16 ], [ 0, %16 ], [ 0, %16 ]
-  %.not = phi i1 [ false, %23 ], [ true, %24 ], [ false, %25 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ]
-  %27 = phi i1 [ false, %23 ], [ true, %24 ], [ false, %25 ], [ false, %16 ], [ false, %16 ], [ false, %16 ], [ false, %16 ], [ false, %16 ], [ false, %16 ]
-  %.080 = phi i32 [ 7, %23 ], [ 16, %24 ], [ 7, %25 ], [ 8, %16 ], [ 8, %16 ], [ 8, %16 ], [ 8, %16 ], [ 8, %16 ], [ 8, %16 ]
+  %cond1.not = phi i1 [ false, %23 ], [ true, %25 ], [ true, %24 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ]
+  %cond = phi i1 [ false, %23 ], [ true, %25 ], [ false, %24 ], [ false, %16 ], [ false, %16 ], [ false, %16 ], [ false, %16 ], [ false, %16 ], [ false, %16 ]
+  %.081 = phi i32 [ 2, %23 ], [ 1, %25 ], [ 4, %24 ], [ 0, %16 ], [ 0, %16 ], [ 0, %16 ], [ 0, %16 ], [ 0, %16 ], [ 0, %16 ]
+  %.not = phi i1 [ false, %23 ], [ false, %25 ], [ true, %24 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ]
+  %27 = phi i1 [ false, %23 ], [ false, %25 ], [ true, %24 ], [ false, %16 ], [ false, %16 ], [ false, %16 ], [ false, %16 ], [ false, %16 ], [ false, %16 ]
+  %.080 = phi i32 [ 7, %23 ], [ 7, %25 ], [ 16, %24 ], [ 8, %16 ], [ 8, %16 ], [ 8, %16 ], [ 8, %16 ], [ 8, %16 ], [ 8, %16 ]
   %28 = load i32, ptr @hf_ansi_637_tele_user_data_encoding, align 4
   %29 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef %18, ptr noundef nonnull @.str.342, ptr noundef %22, i32 noundef %21)
   %.tr = trunc i32 %3 to i16
@@ -1601,7 +1601,7 @@ define internal void @tele_param_user_data(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread99
 
 .thread99:                                        ; preds = %80, %.thread99condstore.split, %.thread, %77, %72
-  %.2 = phi i8 [ 3, %77 ], [ 3, %.thread ], [ 3, %72 ], [ %.2.ph, %.thread99condstore.split ], [ %.2.ph, %80 ]
+  %.2 = phi i8 [ 3, %72 ], [ 3, %77 ], [ 3, %.thread ], [ %.2.ph, %.thread99condstore.split ], [ %.2.ph, %80 ]
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %85 = load i16, ptr %84, align 2
   %.not92 = icmp eq i16 %85, 0
@@ -2084,8 +2084,8 @@ define internal void @tele_param_cb_num(ptr noundef %0, ptr noundef %1, ptr noun
   br label %92
 
 92:                                               ; preds = %84, %.thread
-  %.091108 = phi i32 [ %89, %84 ], [ %4, %.thread ]
-  %93 = phi i32 [ %spec.select, %84 ], [ %46, %.thread ]
+  %.091108 = phi i32 [ %4, %.thread ], [ %89, %84 ]
+  %93 = phi i32 [ %46, %.thread ], [ %spec.select, %84 ]
   %94 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %93, ptr noundef %0, i32 noundef %.091108, i32 noundef 1, i32 noundef 0)
   br label %95
 
@@ -2165,8 +2165,8 @@ define internal void @tele_param_mult_enc_user_data(ptr noundef %0, ptr noundef 
   br label %23
 
 23:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %22, %21, %20
-  %.062 = phi i32 [ 7, %20 ], [ 16, %21 ], [ 7, %22 ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ]
-  %24 = phi i1 [ false, %20 ], [ false, %21 ], [ true, %22 ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ]
+  %.062 = phi i32 [ 7, %20 ], [ 7, %22 ], [ 16, %21 ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ]
+  %24 = phi i1 [ false, %20 ], [ true, %22 ], [ false, %21 ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ]
   %25 = add i32 %.05875, 5
   %26 = load i32, ptr @hf_ansi_637_tele_mult_enc_user_data_num_fields, align 4
   %27 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 8, ptr noundef nonnull %8, i32 noundef 0)
@@ -2322,8 +2322,8 @@ define internal void @tele_param_srvc_cat_prog_data(ptr noundef %0, ptr noundef 
   br label %21
 
 21:                                               ; preds = %13, %13, %13, %13, %13, %13, %20, %19, %18
-  %.086 = phi i32 [ 7, %18 ], [ 16, %19 ], [ 7, %20 ], [ 8, %13 ], [ 8, %13 ], [ 8, %13 ], [ 8, %13 ], [ 8, %13 ], [ 8, %13 ]
-  %cond = phi i1 [ false, %18 ], [ false, %19 ], [ true, %20 ], [ false, %13 ], [ false, %13 ], [ false, %13 ], [ false, %13 ], [ false, %13 ], [ false, %13 ]
+  %.086 = phi i32 [ 7, %18 ], [ 7, %20 ], [ 16, %19 ], [ 8, %13 ], [ 8, %13 ], [ 8, %13 ], [ 8, %13 ], [ 8, %13 ], [ 8, %13 ]
+  %cond = phi i1 [ false, %18 ], [ true, %20 ], [ false, %19 ], [ false, %13 ], [ false, %13 ], [ false, %13 ], [ false, %13 ], [ false, %13 ], [ false, %13 ]
   %22 = shl i32 %3, 3
   %23 = add i32 %22, 65531
   %24 = and i32 %23, 65531
@@ -2588,7 +2588,7 @@ switch.lookup:                                    ; preds = %18
   br label %35
 
 35:                                               ; preds = %18, %switch.lookup, %9, %24, %20, %25, %26, %27, %28, %29, %30, %31, %32, %33, %21, %22, %23
-  %.0 = phi ptr [ @.str.248, %30 ], [ @.str.241, %24 ], [ @.str.43, %9 ], [ @.str.243, %32 ], [ @.str.249, %31 ], [ @.str.43, %23 ], [ %switch.load, %switch.lookup ], [ @.str.242, %21 ], [ @.str.243, %22 ], [ @.str.43, %33 ], [ @.str.241, %20 ], [ @.str.242, %25 ], [ @.str.244, %26 ], [ @.str.245, %27 ], [ @.str.246, %28 ], [ @.str.247, %29 ], [ @.str.43, %18 ]
+  %.0 = phi ptr [ @.str.43, %23 ], [ @.str.242, %21 ], [ @.str.243, %22 ], [ @.str.43, %33 ], [ @.str.242, %25 ], [ @.str.244, %26 ], [ @.str.245, %27 ], [ @.str.246, %28 ], [ @.str.247, %29 ], [ @.str.248, %30 ], [ @.str.249, %31 ], [ @.str.243, %32 ], [ @.str.241, %20 ], [ @.str.241, %24 ], [ @.str.43, %9 ], [ %switch.load, %switch.lookup ], [ @.str.43, %18 ]
   %36 = load i32, ptr @hf_ansi_637_tele_msg_status_code, align 4
   %37 = zext nneg i8 %16 to i32
   %38 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef %15, ptr noundef nonnull @.str.342, ptr noundef nonnull %.0, i32 noundef %37)
@@ -2986,7 +2986,7 @@ define internal void @trans_param_tele_id(ptr noundef %0, ptr noundef %1, ptr no
   br label %33
 
 33:                                               ; preds = %31, %29, %27, %25, %23, %15, %16, %17, %18, %19, %20, %21, %22, %10
-  %.0 = phi ptr [ @.str.326, %15 ], [ @.str.334, %23 ], [ @.str.335, %25 ], [ @.str.334, %27 ], [ %.str.337..str.338, %31 ], [ @.str.336, %29 ], [ %13, %10 ], [ @.str.327, %16 ], [ @.str.328, %17 ], [ @.str.329, %18 ], [ @.str.330, %19 ], [ @.str.331, %20 ], [ @.str.332, %21 ], [ @.str.333, %22 ]
+  %.0 = phi ptr [ @.str.327, %16 ], [ @.str.328, %17 ], [ @.str.329, %18 ], [ @.str.330, %19 ], [ @.str.331, %20 ], [ @.str.332, %21 ], [ @.str.333, %22 ], [ %13, %10 ], [ @.str.326, %15 ], [ @.str.334, %23 ], [ @.str.335, %25 ], [ @.str.334, %27 ], [ @.str.336, %29 ], [ %.str.337..str.338, %31 ]
   %34 = load i32, ptr @hf_ansi_637_trans_tele_id, align 4
   %35 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef %12, ptr noundef nonnull @.str.342, ptr noundef nonnull %.0, i32 noundef %12)
   %36 = sext i32 %6 to i64
@@ -3234,8 +3234,8 @@ define internal void @trans_param_address(ptr noundef %0, ptr noundef %1, ptr no
   br label %148
 
 148:                                              ; preds = %._crit_edge, %.thread
-  %.0133 = phi i32 [ %145, %._crit_edge ], [ %4, %.thread ]
-  %149 = phi i32 [ %spec.select, %._crit_edge ], [ %100, %.thread ]
+  %.0133 = phi i32 [ %4, %.thread ], [ %145, %._crit_edge ]
+  %149 = phi i32 [ %100, %.thread ], [ %spec.select, %._crit_edge ]
   %150 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %149, ptr noundef %0, i32 noundef %.0133, i32 noundef 1, i32 noundef 0)
   br label %151
 
@@ -3487,7 +3487,7 @@ define internal void @trans_param_cause_codes(ptr noundef %0, ptr readnone captu
   br label %64
 
 64:                                               ; preds = %62, %60, %58, %56, %54, %19, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23
-  %.0 = phi ptr [ @.str.430, %19 ], [ @.str.461, %54 ], [ @.str.462, %56 ], [ @.str.463, %58 ], [ %.str.465..str.466, %62 ], [ @.str.464, %60 ], [ @.str.460, %53 ], [ @.str.431, %23 ], [ @.str.432, %24 ], [ @.str.433, %25 ], [ @.str.434, %26 ], [ @.str.435, %27 ], [ @.str.436, %28 ], [ @.str.437, %29 ], [ @.str.438, %30 ], [ @.str.439, %31 ], [ @.str.440, %32 ], [ @.str.441, %33 ], [ @.str.442, %34 ], [ @.str.443, %35 ], [ @.str.444, %36 ], [ @.str.445, %37 ], [ @.str.446, %38 ], [ @.str.447, %39 ], [ @.str.448, %40 ], [ @.str.449, %41 ], [ @.str.450, %42 ], [ @.str.451, %43 ], [ @.str.452, %44 ], [ @.str.453, %45 ], [ @.str.43, %46 ], [ @.str.454, %47 ], [ @.str.455, %48 ], [ @.str.456, %49 ], [ @.str.457, %50 ], [ @.str.458, %51 ], [ @.str.459, %52 ]
+  %.0 = phi ptr [ @.str.431, %23 ], [ @.str.432, %24 ], [ @.str.433, %25 ], [ @.str.434, %26 ], [ @.str.435, %27 ], [ @.str.436, %28 ], [ @.str.437, %29 ], [ @.str.438, %30 ], [ @.str.439, %31 ], [ @.str.440, %32 ], [ @.str.441, %33 ], [ @.str.442, %34 ], [ @.str.443, %35 ], [ @.str.444, %36 ], [ @.str.445, %37 ], [ @.str.446, %38 ], [ @.str.447, %39 ], [ @.str.448, %40 ], [ @.str.449, %41 ], [ @.str.450, %42 ], [ @.str.451, %43 ], [ @.str.452, %44 ], [ @.str.453, %45 ], [ @.str.43, %46 ], [ @.str.454, %47 ], [ @.str.455, %48 ], [ @.str.456, %49 ], [ @.str.457, %50 ], [ @.str.458, %51 ], [ @.str.459, %52 ], [ @.str.460, %53 ], [ @.str.430, %19 ], [ @.str.461, %54 ], [ @.str.462, %56 ], [ @.str.463, %58 ], [ @.str.464, %60 ], [ %.str.465..str.466, %62 ]
   %65 = load i32, ptr @hf_ansi_637_trans_cause_codes_code, align 4
   %66 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef %22, ptr noundef nonnull @.str.342, ptr noundef nonnull %.0, i32 noundef %22)
   br label %67

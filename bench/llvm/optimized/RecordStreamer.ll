@@ -1408,7 +1408,7 @@ switch.lookup175:                                 ; preds = %207
   br label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
 
 _ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit:   ; preds = %switch.lookup175, %207, %205, %200, %.thread116
-  %.3 = phi i32 [ %.047111, %.thread116 ], [ 9, %200 ], [ 17, %205 ], [ %switch.load177, %switch.lookup175 ], [ 0, %207 ]
+  %.3 = phi i32 [ %.047111, %.thread116 ], [ 9, %200 ], [ 17, %205 ], [ 0, %207 ], [ %switch.load177, %switch.lookup175 ]
   br i1 %spec.select112.in, label %.thread113, label %210
 
 210:                                              ; preds = %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit

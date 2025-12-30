@@ -225,7 +225,7 @@ define internal i32 @dissect_nns(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %99
 
 99:                                               ; preds = %50, %37, %93, %90, %4, %72, %46
-  %.074 = phi i32 [ 0, %46 ], [ 0, %72 ], [ 0, %4 ], [ %.1, %93 ], [ %.1, %90 ], [ %54, %50 ], [ 4, %37 ]
+  %.074 = phi i32 [ 0, %72 ], [ 0, %46 ], [ 0, %4 ], [ %.1, %93 ], [ %.1, %90 ], [ %54, %50 ], [ 4, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.074

@@ -418,7 +418,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %
   br label %156
 
 156:                                              ; preds = %153, %36, %151, %145, %141, %128, %112, %47, %43, %39
-  %.0 = phi i32 [ %., %153 ], [ -1, %36 ], [ -1, %151 ], [ -1, %145 ], [ -1, %141 ], [ -1, %128 ], [ -1, %112 ], [ -1, %47 ], [ -1, %43 ], [ -1, %39 ]
+  %.0 = phi i32 [ -1, %151 ], [ -1, %145 ], [ -1, %141 ], [ -1, %128 ], [ -1, %112 ], [ -1, %47 ], [ -1, %43 ], [ -1, %39 ], [ -1, %36 ], [ %., %153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)

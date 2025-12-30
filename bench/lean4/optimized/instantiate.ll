@@ -2675,7 +2675,7 @@ _ZN4lean3nat9of_size_tEm.exit.i.i.i:              ; preds = %60, %56
           to label %77 unwind label %105, !noalias !76
 
 77:                                               ; preds = %.critedge.i.i.i.i.i.i, %71, %67
-  %.1.i.i.i.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %67 ], [ %75, %71 ], [ %76, %.critedge.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %75, %71 ], [ inttoptr (i64 1 to ptr), %67 ], [ %76, %.critedge.i.i.i.i.i.i ]
   store ptr %.1.i.i.i.i.i.i, ptr %8, align 8, !tbaa !3, !alias.scope !98, !noalias !76
   invoke void @_ZN4lean7mk_bvarERKNS_3natE(ptr dead_on_unwind nonnull writable sret(%"class.lean::expr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZN4lean10object_refD2Ev.exit33.i.i.i unwind label %107, !noalias !76
@@ -3043,7 +3043,7 @@ _ZN4lean3nat9of_size_tEm.exit.i.i.i:              ; preds = %61, %57
           to label %78 unwind label %106, !noalias !119
 
 78:                                               ; preds = %.critedge.i.i.i.i.i.i, %72, %68
-  %.1.i.i.i.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %68 ], [ %76, %72 ], [ %77, %.critedge.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %76, %72 ], [ inttoptr (i64 1 to ptr), %68 ], [ %77, %.critedge.i.i.i.i.i.i ]
   store ptr %.1.i.i.i.i.i.i, ptr %8, align 8, !tbaa !3, !alias.scope !137, !noalias !119
   invoke void @_ZN4lean7mk_bvarERKNS_3natE(ptr dead_on_unwind nonnull writable sret(%"class.lean::expr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZN4lean10object_refD2Ev.exit33.i.i.i unwind label %108, !noalias !119
@@ -3661,8 +3661,8 @@ _ZN4lean10object_refD2Ev.exit.i.i.i:              ; preds = %45, %._ZN4lean10obj
           to label %71 unwind label %100, !noalias !199
 
 71:                                               ; preds = %.critedge.i.i.i.i.i.i, %61, %55
-  %72 = phi ptr [ %59, %55 ], [ %59, %61 ], [ %69, %.critedge.i.i.i.i.i.i ]
-  %.1.i.i.i.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %55 ], [ %65, %61 ], [ %70, %.critedge.i.i.i.i.i.i ]
+  %72 = phi ptr [ %59, %61 ], [ %59, %55 ], [ %69, %.critedge.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i = phi ptr [ %65, %61 ], [ inttoptr (i64 1 to ptr), %55 ], [ %70, %.critedge.i.i.i.i.i.i ]
   store ptr %.1.i.i.i.i.i.i, ptr %7, align 8, !tbaa !3, !alias.scope !210, !noalias !199
   invoke void @_ZN4lean7mk_bvarERKNS_3natE(ptr dead_on_unwind nonnull writable sret(%"class.lean::expr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZN4lean10object_refD2Ev.exit33.i.i.i unwind label %102, !noalias !199
@@ -4270,7 +4270,7 @@ _ZN4lean6bufferIP11lean_objectLm16EED2Ev.exit.i.i.i.i: ; preds = %167, %_ZN4lean
   br label %"_ZN4lean9map_reuseINS_5levelEZZNS_19instantiate_lparamsERKNS_4exprERKNS_8list_refINS_4nameEEERKNS5_IS1_EEENK3$_0clES4_EUlRKS1_E_EENS5_IT_EERKSI_OT0_.exit.i.i.i"
 
 170:                                              ; preds = %155, %128, %126
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %127, %126 ], [ %.pn.pn.pn.pn.pn.i.i.i.i, %155 ], [ %129, %128 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %127, %126 ], [ %129, %128 ], [ %.pn.pn.pn.pn.pn.i.i.i.i, %155 ]
   %171 = load ptr, ptr %6, align 8, !tbaa !242, !noalias !241
   %.not.i.i.i73.i.i.i.i = icmp eq ptr %171, %37
   br i1 %.not.i.i.i73.i.i.i.i, label %_ZN4lean6bufferIP11lean_objectLm16EED2Ev.exit74.i.i.i.i, label %172

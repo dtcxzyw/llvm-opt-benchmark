@@ -213,7 +213,7 @@ define dso_local i32 @cn_netlink_send_mult(ptr noundef %0, i16 noundef zeroext %
   br label %76
 
 76:                                               ; preds = %.critedge, %70, %68, %.thread, %37, %33
-  %77 = phi i32 [ %69, %68 ], [ %74, %70 ], [ -90, %.thread ], [ -19, %.critedge ], [ -3, %33 ], [ -12, %37 ]
+  %77 = phi i32 [ %69, %68 ], [ %74, %70 ], [ -90, %.thread ], [ -3, %33 ], [ -12, %37 ], [ -19, %.critedge ]
   ret i32 %77
 }
 

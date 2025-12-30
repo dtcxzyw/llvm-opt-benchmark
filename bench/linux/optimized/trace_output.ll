@@ -352,7 +352,7 @@ define dso_local ptr @trace_print_flags_seq(ptr noundef %0, ptr noundef %1, i64 
   br label %.thread
 
 .thread:                                          ; preds = %62, %67, %63
-  %68 = phi i64 [ %.us-phi, %63 ], [ %.us-phi, %67 ], [ %2, %62 ]
+  %68 = phi i64 [ %.us-phi, %67 ], [ %.us-phi, %63 ], [ %2, %62 ]
   tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef %68) #12
   br label %69
 
@@ -1387,7 +1387,7 @@ define dso_local i32 @register_trace_event(ptr noundef %0) #0 align 16 {
   br label %.loopexit4
 
 .loopexit4:                                       ; preds = %28, %63, %19, %13, %8, %3
-  %66 = phi i32 [ 0, %3 ], [ 0, %8 ], [ 0, %19 ], [ 0, %13 ], [ %65, %63 ], [ 0, %28 ]
+  %66 = phi i32 [ 0, %3 ], [ 0, %8 ], [ 0, %19 ], [ %65, %63 ], [ 0, %13 ], [ 0, %28 ]
   tail call void @up_write(ptr noundef nonnull @trace_event_sem) #12
   ret i32 %66
 }
@@ -1519,7 +1519,7 @@ define dso_local i32 @print_event_fields(ptr noundef %0, ptr noundef %1) local_u
   br label %23
 
 23:                                               ; preds = %.thread, %21
-  %24 = phi ptr [ %9, %.thread ], [ %22, %21 ]
+  %24 = phi ptr [ %22, %21 ], [ %9, %.thread ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -2548,7 +2548,7 @@ define internal i32 @trace_user_stack_print(ptr noundef %0, i32 noundef %1, ptr 
   tail call void @mmput(ptr noundef nonnull %28) #12
   br label %.critedge
 
-.critedge:                                        ; preds = %.split.us, %56, %48, %45, %.split7.us
+.critedge:                                        ; preds = %56, %48, %45, %.split.us, %.split7.us
   %110 = tail call i32 @trace_handle_return(ptr noundef nonnull %5) #12
   ret i32 %110
 }

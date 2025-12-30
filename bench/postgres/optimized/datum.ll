@@ -267,7 +267,7 @@ define dso_local zeroext i1 @datumIsEqual(i64 noundef %0, i64 noundef %1, i1 nou
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %5, %10
-  %.1 = phi i1 [ %13, %10 ], [ false, %7 ], [ %6, %5 ]
+  %.1 = phi i1 [ %6, %5 ], [ %13, %10 ], [ false, %7 ]
   ret i1 %.1
 }
 
@@ -357,7 +357,7 @@ define dso_local zeroext i1 @datum_image_eq(i64 noundef %0, i64 noundef %1, i1 n
   unreachable
 
 .critedge:                                        ; preds = %34, %5, %9, %15, %33, %32, %39
-  %.1 = phi i1 [ %41, %39 ], [ false, %34 ], [ %6, %5 ], [ %13, %9 ], [ false, %15 ], [ %30, %33 ], [ %30, %32 ]
+  %.1 = phi i1 [ %6, %5 ], [ %13, %9 ], [ false, %15 ], [ %30, %33 ], [ %30, %32 ], [ %41, %39 ], [ false, %34 ]
   ret i1 %.1
 }
 
@@ -472,7 +472,7 @@ define dso_local i64 @datumEstimateSpace(i64 noundef %0, i1 noundef zeroext %1, 
   br label %23
 
 23:                                               ; preds = %4, %20, %16
-  %.0 = phi i64 [ %.mux, %4 ], [ %22, %20 ], [ %19, %16 ]
+  %.0 = phi i64 [ %.mux, %4 ], [ %19, %16 ], [ %22, %20 ]
   ret i64 %.0
 }
 

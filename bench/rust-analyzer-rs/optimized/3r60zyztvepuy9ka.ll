@@ -1231,8 +1231,8 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make10block_expr17ha75901efbf0
   br i1 %or.cond3, label %121, label %102
 
 22:                                               ; preds = %89, %86, %3
-  %.019 = phi i8 [ %.4, %89 ], [ 1, %3 ], [ %.4, %86 ]
-  %.0 = phi i1 [ false, %89 ], [ true, %3 ], [ false, %86 ]
+  %.019 = phi i8 [ 1, %3 ], [ %.4, %86 ], [ %.4, %89 ]
+  %.0 = phi i1 [ true, %3 ], [ false, %86 ], [ false, %89 ]
   %23 = landingpad { ptr, i32 }
           cleanup
   br label %19
@@ -1244,7 +1244,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make10block_expr17ha75901efbf0
           to label %19 unwind label %60
 
 24:                                               ; preds = %62, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i49", %.noexc46, %37
-  %.221 = phi i8 [ %.4, %62 ], [ %.4, %37 ], [ %.4, %.noexc46 ], [ 0, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i49" ]
+  %.221 = phi i8 [ %.4, %37 ], [ %.4, %.noexc46 ], [ 0, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i49" ], [ %.4, %62 ]
   %25 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h87ac9ab3623e59cdE.exit"
@@ -2337,7 +2337,7 @@ define hidden { i64, ptr } @_ZN6syntax3ast4make13ast_from_text17h0362acb76cb25f0
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit20", %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TupleType$GT$17h91cfe2a1553e957aE.exit.sink.split.i", %19, %23, %17
-  %.pn7.pn = phi { ptr, i32 } [ %.pn7, %19 ], [ %18, %17 ], [ %.pn7, %23 ], [ %.pn, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TupleType$GT$17h91cfe2a1553e957aE.exit.sink.split.i" ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit20" ]
+  %.pn7.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn7, %23 ], [ %.pn7, %19 ], [ %.pn, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TupleType$GT$17h91cfe2a1553e957aE.exit.sink.split.i" ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit20" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %156
 
@@ -2534,7 +2534,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.3712155024907033177.ex
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit22" unwind label %96
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit20": ; preds = %103, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TupleType$GT$17h91cfe2a1553e957aE.exit.sink.split.i27", %.body, %87, %96
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %97, %96 ], [ %eh.lpad-body, %87 ], [ %104, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TupleType$GT$17h91cfe2a1553e957aE.exit.sink.split.i27" ], [ %104, %103 ]
+  %.pn = phi { ptr, i32 } [ %97, %96 ], [ %eh.lpad-body, %87 ], [ %eh.lpad-body, %.body ], [ %104, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TupleType$GT$17h91cfe2a1553e957aE.exit.sink.split.i27" ], [ %104, %103 ]
   %.val14 = load ptr, ptr %43, align 8, !nonnull !22, !noundef !22
   %92 = getelementptr inbounds nuw i8, ptr %.val14, i64 48
   %93 = load i32, ptr %92, align 4, !noalias !22, !noundef !22
@@ -2756,7 +2756,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h0a268034
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -2949,7 +2949,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hf812a9aa201eb396E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !693)
   call void @llvm.experimental.noalias.scope.decl(metadata !696)
   call void @llvm.experimental.noalias.scope.decl(metadata !699)
@@ -3160,7 +3160,7 @@ define internal fastcc noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -3353,7 +3353,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hbea25973f00f90f1E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !821)
   call void @llvm.experimental.noalias.scope.decl(metadata !824)
   call void @llvm.experimental.noalias.scope.decl(metadata !827)
@@ -3564,7 +3564,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h1217f42b
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -3757,7 +3757,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hbb37bf18905bb161E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !949)
   call void @llvm.experimental.noalias.scope.decl(metadata !952)
   call void @llvm.experimental.noalias.scope.decl(metadata !955)
@@ -3968,7 +3968,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h15e7adc6
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -4161,7 +4161,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h277a6a4c646c0af4E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1077)
   call void @llvm.experimental.noalias.scope.decl(metadata !1080)
   call void @llvm.experimental.noalias.scope.decl(metadata !1083)
@@ -4372,7 +4372,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h1a229cb1
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -4565,7 +4565,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h5a0e5ef9e5de2757E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1205)
   call void @llvm.experimental.noalias.scope.decl(metadata !1208)
   call void @llvm.experimental.noalias.scope.decl(metadata !1211)
@@ -4776,7 +4776,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h1acc5876
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -4969,7 +4969,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h475c1746eb335ee7E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1333)
   call void @llvm.experimental.noalias.scope.decl(metadata !1336)
   call void @llvm.experimental.noalias.scope.decl(metadata !1339)
@@ -5180,7 +5180,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h1c3a3ea3
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -5373,7 +5373,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h9444eec3bf6c3accE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1461)
   call void @llvm.experimental.noalias.scope.decl(metadata !1464)
   call void @llvm.experimental.noalias.scope.decl(metadata !1467)
@@ -5584,7 +5584,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h1c6a0cff
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -5777,7 +5777,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h50f8cf741dda6d50E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1589)
   call void @llvm.experimental.noalias.scope.decl(metadata !1592)
   call void @llvm.experimental.noalias.scope.decl(metadata !1595)
@@ -5988,7 +5988,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h1cfddc88
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -6181,7 +6181,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hef34e4f7138879fbE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1717)
   call void @llvm.experimental.noalias.scope.decl(metadata !1720)
   call void @llvm.experimental.noalias.scope.decl(metadata !1723)
@@ -6392,7 +6392,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h21205b37
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -6585,7 +6585,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h755c0b64f19f0712E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1845)
   call void @llvm.experimental.noalias.scope.decl(metadata !1848)
   call void @llvm.experimental.noalias.scope.decl(metadata !1851)
@@ -6796,7 +6796,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h22374da2
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -6989,7 +6989,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h67c150d4abbc09a0E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1973)
   call void @llvm.experimental.noalias.scope.decl(metadata !1976)
   call void @llvm.experimental.noalias.scope.decl(metadata !1979)
@@ -7200,7 +7200,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h2501e7e5
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -7393,7 +7393,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h74082a236c85db8aE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2101)
   call void @llvm.experimental.noalias.scope.decl(metadata !2104)
   call void @llvm.experimental.noalias.scope.decl(metadata !2107)
@@ -7604,7 +7604,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h26292310
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -7797,7 +7797,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hef57b036b75ddb9aE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2229)
   call void @llvm.experimental.noalias.scope.decl(metadata !2232)
   call void @llvm.experimental.noalias.scope.decl(metadata !2235)
@@ -8008,7 +8008,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h3226bf14
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -8201,7 +8201,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hf2feab7e4fa62d42E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2357)
   call void @llvm.experimental.noalias.scope.decl(metadata !2360)
   call void @llvm.experimental.noalias.scope.decl(metadata !2363)
@@ -8412,7 +8412,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h379bfdf4
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -8605,7 +8605,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hcd6d57f804781629E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2485)
   call void @llvm.experimental.noalias.scope.decl(metadata !2488)
   call void @llvm.experimental.noalias.scope.decl(metadata !2491)
@@ -8816,7 +8816,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h37bd2c57
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -9009,7 +9009,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hbf5540d3356528ecE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2613)
   call void @llvm.experimental.noalias.scope.decl(metadata !2616)
   call void @llvm.experimental.noalias.scope.decl(metadata !2619)
@@ -9220,7 +9220,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h3f205e83
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -9413,7 +9413,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h5729d7aae63f4d15E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2741)
   call void @llvm.experimental.noalias.scope.decl(metadata !2744)
   call void @llvm.experimental.noalias.scope.decl(metadata !2747)
@@ -9624,7 +9624,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h4c45c12e
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -9817,7 +9817,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h74fa6ba582c42085E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2869)
   call void @llvm.experimental.noalias.scope.decl(metadata !2872)
   call void @llvm.experimental.noalias.scope.decl(metadata !2875)
@@ -10028,7 +10028,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h4f384dd1
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -10221,7 +10221,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17ha230cc5128d57feaE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2997)
   call void @llvm.experimental.noalias.scope.decl(metadata !3000)
   call void @llvm.experimental.noalias.scope.decl(metadata !3003)
@@ -10432,7 +10432,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h5c60fa3a
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -10625,7 +10625,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h87d38412169322ceE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3125)
   call void @llvm.experimental.noalias.scope.decl(metadata !3128)
   call void @llvm.experimental.noalias.scope.decl(metadata !3131)
@@ -10836,7 +10836,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h5d5153e9
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -11029,7 +11029,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17he539e72e06e518e6E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3253)
   call void @llvm.experimental.noalias.scope.decl(metadata !3256)
   call void @llvm.experimental.noalias.scope.decl(metadata !3259)
@@ -11240,7 +11240,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h6480cc35
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -11433,7 +11433,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h0281b0d8b83f3e42E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3381)
   call void @llvm.experimental.noalias.scope.decl(metadata !3384)
   call void @llvm.experimental.noalias.scope.decl(metadata !3387)
@@ -11644,7 +11644,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h6f40b783
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -11837,7 +11837,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17he673da2f429b94b7E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3509)
   call void @llvm.experimental.noalias.scope.decl(metadata !3512)
   call void @llvm.experimental.noalias.scope.decl(metadata !3515)
@@ -12048,7 +12048,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h7289df94
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -12241,7 +12241,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h9169014cc1ae9384E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3637)
   call void @llvm.experimental.noalias.scope.decl(metadata !3640)
   call void @llvm.experimental.noalias.scope.decl(metadata !3643)
@@ -12452,7 +12452,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h744d1b22
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -12645,7 +12645,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h2ff55f7a8ec82e48E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3765)
   call void @llvm.experimental.noalias.scope.decl(metadata !3768)
   call void @llvm.experimental.noalias.scope.decl(metadata !3771)
@@ -12856,7 +12856,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h745ea988
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -13049,7 +13049,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h18fc26e009b98c06E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3893)
   call void @llvm.experimental.noalias.scope.decl(metadata !3896)
   call void @llvm.experimental.noalias.scope.decl(metadata !3899)
@@ -13260,7 +13260,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h83ac21a0
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -13453,7 +13453,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hc21fbafa49d11031E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4021)
   call void @llvm.experimental.noalias.scope.decl(metadata !4024)
   call void @llvm.experimental.noalias.scope.decl(metadata !4027)
@@ -13664,7 +13664,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h84c896ad
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -13857,7 +13857,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h3aed56b2a1af268fE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4149)
   call void @llvm.experimental.noalias.scope.decl(metadata !4152)
   call void @llvm.experimental.noalias.scope.decl(metadata !4155)
@@ -14068,7 +14068,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h86480c14
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -14261,7 +14261,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h70b2b27ccc78e792E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4277)
   call void @llvm.experimental.noalias.scope.decl(metadata !4280)
   call void @llvm.experimental.noalias.scope.decl(metadata !4283)
@@ -14472,7 +14472,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h8828671f
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -14665,7 +14665,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h713e845237df2535E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4405)
   call void @llvm.experimental.noalias.scope.decl(metadata !4408)
   call void @llvm.experimental.noalias.scope.decl(metadata !4411)
@@ -14876,7 +14876,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h8e968ef8
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -15069,7 +15069,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h638418e3754d75bcE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4533)
   call void @llvm.experimental.noalias.scope.decl(metadata !4536)
   call void @llvm.experimental.noalias.scope.decl(metadata !4539)
@@ -15280,7 +15280,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h91feab29
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -15473,7 +15473,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h59b390e800c7921dE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4661)
   call void @llvm.experimental.noalias.scope.decl(metadata !4664)
   call void @llvm.experimental.noalias.scope.decl(metadata !4667)
@@ -15684,7 +15684,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h9377cb04
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -15877,7 +15877,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hc9304a89b2d6f76aE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4789)
   call void @llvm.experimental.noalias.scope.decl(metadata !4792)
   call void @llvm.experimental.noalias.scope.decl(metadata !4795)
@@ -16088,7 +16088,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h93aca753
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -16281,7 +16281,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hecf05767962cc2afE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4917)
   call void @llvm.experimental.noalias.scope.decl(metadata !4920)
   call void @llvm.experimental.noalias.scope.decl(metadata !4923)
@@ -16492,7 +16492,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h947141a6
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -16685,7 +16685,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h8104ef1bfee82dafE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5045)
   call void @llvm.experimental.noalias.scope.decl(metadata !5048)
   call void @llvm.experimental.noalias.scope.decl(metadata !5051)
@@ -16896,7 +16896,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h95b22b88
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -17089,7 +17089,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h41389248f6745b2dE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5173)
   call void @llvm.experimental.noalias.scope.decl(metadata !5176)
   call void @llvm.experimental.noalias.scope.decl(metadata !5179)
@@ -17300,7 +17300,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h9b13f011
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -17493,7 +17493,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h2c20884a86de1fd0E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5301)
   call void @llvm.experimental.noalias.scope.decl(metadata !5304)
   call void @llvm.experimental.noalias.scope.decl(metadata !5307)
@@ -17704,7 +17704,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17h9c84a7e7
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -17897,7 +17897,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h5042c2cca99928b3E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5429)
   call void @llvm.experimental.noalias.scope.decl(metadata !5432)
   call void @llvm.experimental.noalias.scope.decl(metadata !5435)
@@ -18108,7 +18108,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17ha0dd1843
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -18301,7 +18301,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h901bfef4b94c15b7E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5557)
   call void @llvm.experimental.noalias.scope.decl(metadata !5560)
   call void @llvm.experimental.noalias.scope.decl(metadata !5563)
@@ -18512,7 +18512,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17ha5da6596
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -18705,7 +18705,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h78a5af792c3ef11aE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5685)
   call void @llvm.experimental.noalias.scope.decl(metadata !5688)
   call void @llvm.experimental.noalias.scope.decl(metadata !5691)
@@ -18916,7 +18916,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17hac159012
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -19109,7 +19109,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hf63d9f9e8f932083E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5813)
   call void @llvm.experimental.noalias.scope.decl(metadata !5816)
   call void @llvm.experimental.noalias.scope.decl(metadata !5819)
@@ -19320,7 +19320,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17hb5cb1d6d
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -19513,7 +19513,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h83479212a6657057E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5941)
   call void @llvm.experimental.noalias.scope.decl(metadata !5944)
   call void @llvm.experimental.noalias.scope.decl(metadata !5947)
@@ -19724,7 +19724,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17hb64965f0
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -19917,7 +19917,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h491d41577a75594eE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6069)
   call void @llvm.experimental.noalias.scope.decl(metadata !6072)
   call void @llvm.experimental.noalias.scope.decl(metadata !6075)
@@ -20128,7 +20128,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17hb73757d1
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -20321,7 +20321,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h6d6d85424cda3be6E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6197)
   call void @llvm.experimental.noalias.scope.decl(metadata !6200)
   call void @llvm.experimental.noalias.scope.decl(metadata !6203)
@@ -20532,7 +20532,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17hba3a0588
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -20725,7 +20725,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h8ff74dfb93839afeE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6325)
   call void @llvm.experimental.noalias.scope.decl(metadata !6328)
   call void @llvm.experimental.noalias.scope.decl(metadata !6331)
@@ -20936,7 +20936,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17hbcc44183
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -21129,7 +21129,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h1767af77b1cf811bE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6453)
   call void @llvm.experimental.noalias.scope.decl(metadata !6456)
   call void @llvm.experimental.noalias.scope.decl(metadata !6459)
@@ -21341,7 +21341,7 @@ define hidden { i64, ptr } @_ZN6syntax3ast4make13ast_from_text17hc75e161ddd15112
           to label %27 unwind label %18
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit20", %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i", %20, %24, %18
-  %.pn7.pn = phi { ptr, i32 } [ %.pn7, %20 ], [ %19, %18 ], [ %.pn7, %24 ], [ %.pn, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i" ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit20" ]
+  %.pn7.pn = phi { ptr, i32 } [ %19, %18 ], [ %.pn7, %24 ], [ %.pn7, %20 ], [ %.pn, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i" ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit20" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #14
           to label %common.resume unwind label %164
 
@@ -21538,7 +21538,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.3712155024907033177.ex
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit22" unwind label %97
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit20": ; preds = %108, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i28", %.body, %88, %97
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %98, %97 ], [ %eh.lpad-body, %88 ], [ %109, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i28" ], [ %109, %108 ]
+  %.pn = phi { ptr, i32 } [ %98, %97 ], [ %eh.lpad-body, %88 ], [ %eh.lpad-body, %.body ], [ %109, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h9d683dd9cb63267aE.exit.sink.split.i28" ], [ %109, %108 ]
   %.val14 = load ptr, ptr %44, align 8, !nonnull !22, !noundef !22
   %93 = getelementptr inbounds nuw i8, ptr %.val14, i64 48
   %94 = load i32, ptr %93, align 4, !noalias !22, !noundef !22
@@ -21778,7 +21778,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17hca50a41b
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -21971,7 +21971,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h0bdd13d6e4edfc14E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6675)
   call void @llvm.experimental.noalias.scope.decl(metadata !6678)
   call void @llvm.experimental.noalias.scope.decl(metadata !6681)
@@ -22182,7 +22182,7 @@ define hidden { i64, ptr } @_ZN6syntax3ast4make13ast_from_text17hcaffb3a612d831b
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit20", %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WildcardPat$GT$17h7e458b86bb6b9fb2E.exit.sink.split.i", %19, %23, %17
-  %.pn7.pn = phi { ptr, i32 } [ %.pn7, %19 ], [ %18, %17 ], [ %.pn7, %23 ], [ %.pn, %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WildcardPat$GT$17h7e458b86bb6b9fb2E.exit.sink.split.i" ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit20" ]
+  %.pn7.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn7, %23 ], [ %.pn7, %19 ], [ %.pn, %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WildcardPat$GT$17h7e458b86bb6b9fb2E.exit.sink.split.i" ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit20" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %156
 
@@ -22379,7 +22379,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.3712155024907033177.ex
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit22" unwind label %96
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit20": ; preds = %103, %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WildcardPat$GT$17h7e458b86bb6b9fb2E.exit.sink.split.i27", %.body, %87, %96
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %97, %96 ], [ %eh.lpad-body, %87 ], [ %104, %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WildcardPat$GT$17h7e458b86bb6b9fb2E.exit.sink.split.i27" ], [ %104, %103 ]
+  %.pn = phi { ptr, i32 } [ %97, %96 ], [ %eh.lpad-body, %87 ], [ %eh.lpad-body, %.body ], [ %104, %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..WildcardPat$GT$17h7e458b86bb6b9fb2E.exit.sink.split.i27" ], [ %104, %103 ]
   %.val14 = load ptr, ptr %43, align 8, !nonnull !22, !noundef !22
   %92 = getelementptr inbounds nuw i8, ptr %.val14, i64 48
   %93 = load i32, ptr %92, align 4, !noalias !22, !noundef !22
@@ -22601,7 +22601,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17hcdad7144
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -22794,7 +22794,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h0c7f6591f675fbc0E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6896)
   call void @llvm.experimental.noalias.scope.decl(metadata !6899)
   call void @llvm.experimental.noalias.scope.decl(metadata !6902)
@@ -23005,7 +23005,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17hce25bad2
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -23198,7 +23198,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17haf1b63b1a36a3c2fE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7024)
   call void @llvm.experimental.noalias.scope.decl(metadata !7027)
   call void @llvm.experimental.noalias.scope.decl(metadata !7030)
@@ -23409,7 +23409,7 @@ define internal fastcc noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17
           to label %25 unwind label %16
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %92, %18, %22, %16
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %18 ], [ %17, %16 ], [ %.pn6, %22 ], [ %.pn, %92 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %17, %16 ], [ %.pn6, %22 ], [ %.pn6, %18 ], [ %.pn, %92 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #14
           to label %common.resume unwind label %150
 
@@ -23602,7 +23602,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hf14769324aed6dfeE.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %93
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %96, %102, %.body, %82, %93
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %94, %93 ], [ %eh.lpad-body, %82 ], [ %97, %102 ], [ %97, %96 ]
+  %.pn = phi { ptr, i32 } [ %94, %93 ], [ %eh.lpad-body, %82 ], [ %eh.lpad-body, %.body ], [ %97, %102 ], [ %97, %96 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7152)
   call void @llvm.experimental.noalias.scope.decl(metadata !7155)
   call void @llvm.experimental.noalias.scope.decl(metadata !7158)
@@ -23813,7 +23813,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17hd8c6e7cd
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -24006,7 +24006,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h53e9ec35eaf999e4E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7280)
   call void @llvm.experimental.noalias.scope.decl(metadata !7283)
   call void @llvm.experimental.noalias.scope.decl(metadata !7286)
@@ -24217,7 +24217,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17hef37d836
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -24410,7 +24410,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h74cb3074fe99a9e0E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7408)
   call void @llvm.experimental.noalias.scope.decl(metadata !7411)
   call void @llvm.experimental.noalias.scope.decl(metadata !7414)
@@ -24621,7 +24621,7 @@ define internal fastcc noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17
           to label %25 unwind label %16
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %92, %18, %22, %16
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %18 ], [ %17, %16 ], [ %.pn6, %22 ], [ %.pn, %92 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %17, %16 ], [ %.pn6, %22 ], [ %.pn6, %18 ], [ %.pn, %92 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #14
           to label %common.resume unwind label %150
 
@@ -24814,7 +24814,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h9001217196b8a627E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %93
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %96, %102, %.body, %82, %93
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %94, %93 ], [ %eh.lpad-body, %82 ], [ %97, %102 ], [ %97, %96 ]
+  %.pn = phi { ptr, i32 } [ %94, %93 ], [ %eh.lpad-body, %82 ], [ %eh.lpad-body, %.body ], [ %97, %102 ], [ %97, %96 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7536)
   call void @llvm.experimental.noalias.scope.decl(metadata !7539)
   call void @llvm.experimental.noalias.scope.decl(metadata !7542)
@@ -25025,7 +25025,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17hf4043d9b
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -25218,7 +25218,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hddded8a4dbdfa980E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7664)
   call void @llvm.experimental.noalias.scope.decl(metadata !7667)
   call void @llvm.experimental.noalias.scope.decl(metadata !7670)
@@ -25429,7 +25429,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17hf7d543df
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -25622,7 +25622,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h3902201eca5911d5E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7792)
   call void @llvm.experimental.noalias.scope.decl(metadata !7795)
   call void @llvm.experimental.noalias.scope.decl(metadata !7798)
@@ -25833,7 +25833,7 @@ define hidden noundef nonnull ptr @_ZN6syntax3ast4make13ast_from_text17hf810c213
           to label %26 unwind label %17
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14", %93, %19, %23, %17
-  %.pn6.pn = phi { ptr, i32 } [ %.pn6, %19 ], [ %18, %17 ], [ %.pn6, %23 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
+  %.pn6.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn6, %23 ], [ %.pn6, %19 ], [ %.pn, %93 ], [ %.pn, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14" ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$17h4caff8ebfe248edfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #14
           to label %common.resume unwind label %151
 
@@ -26026,7 +26026,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h69eb4614945e6748E.exit: ; pred
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit16" unwind label %94
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17h29b924becb4f8471E.exit14": ; preds = %97, %103, %.body, %83, %94
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %98, %103 ], [ %98, %97 ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ], [ %98, %103 ], [ %98, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7920)
   call void @llvm.experimental.noalias.scope.decl(metadata !7923)
   call void @llvm.experimental.noalias.scope.decl(metadata !7926)

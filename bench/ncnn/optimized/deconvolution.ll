@@ -1349,7 +1349,7 @@ _ZNK4ncnn3Mat5emptyEv.exit169.thread:             ; preds = %210, %_ZNK4ncnn3Mat
   br label %_ZNK4ncnn3Mat5emptyEv.exit168.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit168.thread:             ; preds = %191, %_ZNK4ncnn3Mat5emptyEv.exit169.thread, %_ZNK4ncnn3Mat5emptyEv.exit169, %_ZNK4ncnn3Mat5emptyEv.exit168
-  %.4 = phi i32 [ 0, %_ZNK4ncnn3Mat5emptyEv.exit169 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit168 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit169.thread ], [ -100, %191 ]
+  %.4 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit168 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit169.thread ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit169 ], [ -100, %191 ]
   %220 = load ptr, ptr %119, align 8, !tbaa !7
   %.not.i145 = icmp eq ptr %220, null
   br i1 %.not.i145, label %_ZN4ncnn3MatD2Ev.exit, label %221
@@ -1855,7 +1855,7 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %75, %90, %91, %86, 
   br label %_ZN4ncnn3MataSERKS0_.exit.invoke
 
 _ZN4ncnn3MataSERKS0_.exit.invoke:                 ; preds = %73, %_ZN4ncnn3Mat7releaseEv.exit.i, %4, %64
-  %.sink67 = phi i64 [ 16, %4 ], [ 16, %64 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %73 ]
+  %.sink67 = phi i64 [ 16, %64 ], [ 16, %4 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %73 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %113 = load i32, ptr %112, align 8, !tbaa !18
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink67
@@ -1921,7 +1921,7 @@ _ZNK4ncnn3Mat5emptyEv.exit51.thread:              ; preds = %139, %_ZNK4ncnn3Mat
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %116, %_ZNK4ncnn3Mat5emptyEv.exit51.thread, %_ZNK4ncnn3Mat5emptyEv.exit51, %_ZNK4ncnn3Mat5emptyEv.exit
-  %.0 = phi i32 [ 0, %_ZNK4ncnn3Mat5emptyEv.exit51 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit51.thread ], [ -100, %116 ]
+  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit51.thread ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit51 ], [ -100, %116 ]
   %149 = load ptr, ptr %42, align 8, !tbaa !7
   %.not.i42 = icmp eq ptr %149, null
   br i1 %.not.i42, label %_ZN4ncnn3MatD2Ev.exit, label %150
@@ -2115,8 +2115,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc32
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc32, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.9.0 = phi ptr [ %30, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %30, %.noexc32 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.033.0 = phi ptr [ %29, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %29, %.noexc32 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.9.0 = phi ptr [ %30, %.noexc32 ], [ %30, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.033.0 = phi ptr [ %29, %.noexc32 ], [ %29, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %.sroa.033.0, ptr %19, align 8, !tbaa !72
   %34 = mul nsw i32 %22, %9
@@ -2650,7 +2650,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZL13activation_ssf
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %161, %157, %145, %138, %137, %132, %127, %125, %122, %151
-  %.1 = phi nsz float [ %124, %122 ], [ %126, %125 ], [ %131, %127 ], [ %134, %137 ], [ %.0117, %132 ], [ %144, %138 ], [ %150, %145 ], [ %164, %161 ], [ %124, %157 ], [ 0.000000e+00, %151 ]
+  %.1 = phi nsz float [ %124, %122 ], [ %126, %125 ], [ %131, %127 ], [ %134, %137 ], [ %.0117, %132 ], [ %144, %138 ], [ %150, %145 ], [ %124, %157 ], [ %164, %161 ], [ 0.000000e+00, %151 ]
   store float %.1, ptr %123, align 4, !tbaa !63
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170

@@ -270,7 +270,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %_ZNK4llvm9StringRef
   br label %96
 
 96:                                               ; preds = %95, %94, %91
-  %.sroa.4.0.i.ph.i.i.i = phi i32 [ 0, %91 ], [ 1, %94 ], [ 2, %95 ]
+  %.sroa.4.0.i.ph.i.i.i = phi i32 [ 0, %91 ], [ 2, %95 ], [ 1, %94 ]
   %97 = load i8, ptr %89, align 1, !tbaa !14, !noalias !28
   %98 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 3
   br label %_ZL16translateLocCharc.exit21.sink.split.i.i.i
@@ -322,10 +322,10 @@ _ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERjRc.exit.i.i: ; preds
   br label %_ZL20parseReplacementItemN4llvm9StringRefE.exit.i
 
 _ZN4llvm9StringRef13consume_frontES0_.exit.thread.i.i: ; preds = %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERjRc.exit.i.i, %88, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.thread.i
-  %109 = phi i64 [ %.pre.i56.i, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERjRc.exit.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.thread.i ], [ %86, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 0, %88 ]
-  %.043.i.i = phi i32 [ %.144.i.i, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERjRc.exit.i.i ], [ 2, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.thread.i ], [ 2, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 2, %88 ]
-  %.040.i.i = phi i32 [ %107, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERjRc.exit.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.thread.i ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 0, %88 ]
-  %.0.i.i = phi i8 [ %.1.i.i, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERjRc.exit.i.i ], [ 32, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.thread.i ], [ 32, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 32, %88 ]
+  %109 = phi i64 [ %.pre.i56.i, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERjRc.exit.i.i ], [ %86, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.thread.i ], [ 0, %88 ]
+  %.043.i.i = phi i32 [ %.144.i.i, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERjRc.exit.i.i ], [ 2, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 2, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.thread.i ], [ 2, %88 ]
+  %.040.i.i = phi i32 [ %107, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERjRc.exit.i.i ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 0, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.thread.i ], [ 0, %88 ]
+  %.0.i.i = phi i8 [ %.1.i.i, %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERjRc.exit.i.i ], [ 32, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i ], [ 32, %_ZNK4llvm9StringRef13find_first_ofEcm.exit37.thread.i ], [ 32, %88 ]
   %110 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr nonnull @.str.2, i64 6, i64 noundef 0) #9, !noalias !28
   %.sroa.speculated.i9.i.i = call i64 @llvm.umin.i64(i64 %110, i64 %109)
   %111 = load i64, ptr %21, align 8, !tbaa !29, !noalias !25

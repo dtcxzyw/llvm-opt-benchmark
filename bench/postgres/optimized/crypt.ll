@@ -72,7 +72,7 @@ define dso_local ptr @get_role_password(ptr noundef %0, ptr noundef writeonly ca
   br label %27
 
 27:                                               ; preds = %.sink.split, %14, %21
-  %.0 = phi ptr [ %16, %14 ], [ %16, %21 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ %16, %21 ], [ %16, %14 ], [ null, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -260,7 +260,7 @@ select.unfold:                                    ; preds = %.tail.thread.i, %26
   unreachable
 
 46:                                               ; preds = %41, %33, %select.unfold
-  %.0 = phi ptr [ %31, %select.unfold ], [ %42, %41 ], [ %34, %33 ]
+  %.0 = phi ptr [ %31, %select.unfold ], [ %34, %33 ], [ %42, %41 ]
   %.not12 = icmp eq ptr %.0, null
   br i1 %.not12, label %.thread, label %47
 
@@ -278,7 +278,7 @@ select.unfold:                                    ; preds = %.tail.thread.i, %26
   unreachable
 
 .thread:                                          ; preds = %32, %47, %46
-  %.025 = phi ptr [ null, %46 ], [ %.0, %47 ], [ null, %32 ]
+  %.025 = phi ptr [ %.0, %47 ], [ null, %46 ], [ null, %32 ]
   %55 = load i8, ptr @md5_password_warnings, align 1, !range !4, !noundef !5
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %78
@@ -572,7 +572,7 @@ sub_1.i:                                          ; preds = %4
   br label %43
 
 43:                                               ; preds = %.sink.split, %36, %27
-  %.0 = phi i32 [ 0, %36 ], [ 0, %27 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %36 ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0

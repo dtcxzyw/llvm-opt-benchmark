@@ -134,13 +134,13 @@ switch.lookup:                                    ; preds = %.split
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %27, %19, %18, %17, %16, %14, %12, %10, %8, %5, %20, %21, %28, %29
-  %H5T_COMPLEX_IEEE_F16LE_g.sink = phi ptr [ %switch.load, %switch.lookup ], [ @H5T_COMPLEX_IEEE_F64LE_g, %29 ], [ @H5T_COMPLEX_IEEE_F32LE_g, %28 ], [ @H5T_IEEE_F16LE_g, %19 ], [ @H5T_STD_I32LE_g, %10 ], [ @H5T_STD_U8LE_g, %14 ], [ @H5T_COMPLEX_IEEE_F16LE_g, %27 ], [ @H5T_STD_U64LE_g, %18 ], [ @H5T_IEEE_F64LE_g, %21 ], [ @H5T_IEEE_F32LE_g, %20 ], [ @H5T_STD_I8LE_g, %5 ], [ @H5T_STD_I16LE_g, %8 ], [ @H5T_STD_I64LE_g, %12 ], [ @H5T_STD_U16LE_g, %16 ], [ @H5T_STD_U32LE_g, %17 ]
+  %H5T_COMPLEX_IEEE_F16LE_g.sink = phi ptr [ @H5T_COMPLEX_IEEE_F64LE_g, %29 ], [ @H5T_COMPLEX_IEEE_F32LE_g, %28 ], [ @H5T_IEEE_F64LE_g, %21 ], [ @H5T_IEEE_F32LE_g, %20 ], [ @H5T_STD_I8LE_g, %5 ], [ @H5T_STD_I16LE_g, %8 ], [ @H5T_STD_I32LE_g, %10 ], [ @H5T_STD_I64LE_g, %12 ], [ @H5T_STD_U8LE_g, %14 ], [ @H5T_STD_U16LE_g, %16 ], [ @H5T_STD_U32LE_g, %17 ], [ @H5T_STD_U64LE_g, %18 ], [ @H5T_IEEE_F16LE_g, %19 ], [ @H5T_COMPLEX_IEEE_F16LE_g, %27 ], [ %switch.load, %switch.lookup ]
   %30 = load i64, ptr %H5T_COMPLEX_IEEE_F16LE_g.sink, align 8, !tbaa !3
   %31 = tail call i64 @H5Tcopy(i64 noundef %30) #4
   br label %32
 
 32:                                               ; preds = %.split, %.sink.split, %22, %27, %19, %1, %18
-  %.0 = phi i64 [ -1, %1 ], [ -1, %.split ], [ -1, %22 ], [ -1, %19 ], [ -1, %18 ], [ -1, %27 ], [ %31, %.sink.split ]
+  %.0 = phi i64 [ -1, %1 ], [ -1, %18 ], [ -1, %19 ], [ -1, %.split ], [ -1, %27 ], [ -1, %22 ], [ %31, %.sink.split ]
   ret i64 %.0
 }
 
@@ -244,13 +244,13 @@ switch.lookup:                                    ; preds = %.split
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %27, %19, %18, %17, %16, %14, %12, %10, %8, %5, %20, %21, %28, %29
-  %H5T_COMPLEX_IEEE_F16BE_g.sink = phi ptr [ %switch.load, %switch.lookup ], [ @H5T_COMPLEX_IEEE_F64BE_g, %29 ], [ @H5T_COMPLEX_IEEE_F32BE_g, %28 ], [ @H5T_IEEE_F16BE_g, %19 ], [ @H5T_STD_I32BE_g, %10 ], [ @H5T_STD_U8BE_g, %14 ], [ @H5T_COMPLEX_IEEE_F16BE_g, %27 ], [ @H5T_STD_U64BE_g, %18 ], [ @H5T_IEEE_F64BE_g, %21 ], [ @H5T_IEEE_F32BE_g, %20 ], [ @H5T_STD_I8BE_g, %5 ], [ @H5T_STD_I16BE_g, %8 ], [ @H5T_STD_I64BE_g, %12 ], [ @H5T_STD_U16BE_g, %16 ], [ @H5T_STD_U32BE_g, %17 ]
+  %H5T_COMPLEX_IEEE_F16BE_g.sink = phi ptr [ @H5T_COMPLEX_IEEE_F64BE_g, %29 ], [ @H5T_COMPLEX_IEEE_F32BE_g, %28 ], [ @H5T_IEEE_F64BE_g, %21 ], [ @H5T_IEEE_F32BE_g, %20 ], [ @H5T_STD_I8BE_g, %5 ], [ @H5T_STD_I16BE_g, %8 ], [ @H5T_STD_I32BE_g, %10 ], [ @H5T_STD_I64BE_g, %12 ], [ @H5T_STD_U8BE_g, %14 ], [ @H5T_STD_U16BE_g, %16 ], [ @H5T_STD_U32BE_g, %17 ], [ @H5T_STD_U64BE_g, %18 ], [ @H5T_IEEE_F16BE_g, %19 ], [ @H5T_COMPLEX_IEEE_F16BE_g, %27 ], [ %switch.load, %switch.lookup ]
   %30 = load i64, ptr %H5T_COMPLEX_IEEE_F16BE_g.sink, align 8, !tbaa !3
   %31 = tail call i64 @H5Tcopy(i64 noundef %30) #4
   br label %32
 
 32:                                               ; preds = %.split, %.sink.split, %22, %27, %19, %1, %18
-  %.0 = phi i64 [ -1, %1 ], [ -1, %.split ], [ -1, %22 ], [ -1, %19 ], [ -1, %18 ], [ -1, %27 ], [ %31, %.sink.split ]
+  %.0 = phi i64 [ -1, %1 ], [ -1, %18 ], [ -1, %19 ], [ -1, %.split ], [ -1, %27 ], [ -1, %22 ], [ %31, %.sink.split ]
   ret i64 %.0
 }
 

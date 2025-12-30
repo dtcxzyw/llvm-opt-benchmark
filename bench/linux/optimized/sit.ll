@@ -842,7 +842,7 @@ define internal i32 @ipip6_tunnel_init(ptr noundef %0) #4 align 16 {
   br label %38
 
 38:                                               ; preds = %.critedge, %34, %32, %30
-  %39 = phi i32 [ %28, %30 ], [ -12, %.critedge ], [ 0, %32 ], [ 0, %34 ]
+  %39 = phi i32 [ %28, %30 ], [ 0, %32 ], [ 0, %34 ], [ -12, %.critedge ]
   ret i32 %39
 }
 
@@ -1625,7 +1625,7 @@ define internal noundef i32 @sit_tunnel_xmit(ptr noundef %0, ptr noundef %1) #4 
   br label %.thread37
 
 .thread37:                                        ; preds = %127, %.thread38, %79, %74, %418, %414, %409, %404, %391, %268, %235, %213, %208, %.thread44, %.thread35
-  %419 = phi ptr [ %0, %.thread35 ], [ %0, %208 ], [ %0, %213 ], [ %0, %235 ], [ %355, %391 ], [ %0, %268 ], [ %0, %.thread44 ], [ %0, %404 ], [ %0, %409 ], [ %0, %414 ], [ %0, %418 ], [ %0, %79 ], [ %0, %127 ], [ %0, %74 ], [ %0, %.thread38 ]
+  %419 = phi ptr [ %0, %.thread35 ], [ %0, %208 ], [ %0, %213 ], [ %0, %235 ], [ %355, %391 ], [ %0, %268 ], [ %0, %.thread44 ], [ %0, %404 ], [ %0, %409 ], [ %0, %414 ], [ %0, %418 ], [ %0, %74 ], [ %0, %79 ], [ %0, %.thread38 ], [ %0, %127 ]
   call void @kfree_skb_reason(ptr noundef %419, i32 noundef 2) #18
   %420 = getelementptr inbounds nuw i8, ptr %1, i64 600
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %420, ptr nonnull elementtype(i64) %420) #18, !srcloc !24
@@ -1948,7 +1948,7 @@ define internal i32 @ipip6_tunnel_siocdevprivate(ptr noundef %0, ptr noundef %1,
   br label %169
 
 169:                                              ; preds = %159, %155, %154, %150, %149, %128, %126
-  %170 = phi i32 [ -105, %155 ], [ %127, %126 ], [ -22, %128 ], [ 0, %150 ], [ 0, %159 ], [ -17, %149 ], [ -6, %154 ]
+  %170 = phi i32 [ %127, %126 ], [ -22, %128 ], [ 0, %150 ], [ 0, %159 ], [ -17, %149 ], [ -6, %154 ], [ -105, %155 ]
   %171 = load volatile i64, ptr @jiffies, align 64
   %172 = getelementptr i8, ptr %0, i64 2384
   store i64 %171, ptr %172, align 8
@@ -2503,7 +2503,7 @@ define internal range(i32 -105, 1) i32 @ipip6_tunnel_ctl(ptr noundef %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %341, %294, %178, %181, %185, %171, %78, %81, %85, %72, %359, %344, %277, %276, %271, %270, %259, %257, %.loopexit17, %.loopexit, %3
-  %361 = phi i32 [ 0, %.loopexit ], [ -22, %3 ], [ -1, %344 ], [ %170, %.loopexit17 ], [ 0, %276 ], [ -1, %72 ], [ -2, %257 ], [ -17, %259 ], [ -22, %271 ], [ -22, %270 ], [ 0, %359 ], [ -1, %277 ], [ -1, %171 ], [ -22, %78 ], [ -22, %81 ], [ -22, %85 ], [ -22, %178 ], [ -22, %181 ], [ -22, %185 ], [ -2, %294 ], [ -2, %341 ]
+  %361 = phi i32 [ 0, %.loopexit ], [ -22, %3 ], [ %170, %.loopexit17 ], [ 0, %276 ], [ -2, %257 ], [ -17, %259 ], [ -22, %271 ], [ -22, %270 ], [ 0, %359 ], [ -1, %277 ], [ -1, %344 ], [ -22, %78 ], [ -22, %81 ], [ -22, %85 ], [ -1, %72 ], [ -22, %178 ], [ -22, %181 ], [ -22, %185 ], [ -1, %171 ], [ -2, %294 ], [ -2, %341 ]
   ret i32 %361
 }
 
@@ -4192,7 +4192,7 @@ define internal fastcc ptr @ipip6_tunnel_lookup(ptr noundef %0, ptr noundef read
   br i1 %75, label %.loopexit14, label %.preheader12.split, !llvm.loop !60
 
 .loopexit14:                                      ; preds = %73, %47, %19
-  %76 = phi i32 [ 0, %47 ], [ 0, %19 ], [ %26, %73 ]
+  %76 = phi i32 [ 0, %19 ], [ 0, %47 ], [ %26, %73 ]
   %77 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %78 = zext nneg i32 %8 to i64
   %79 = getelementptr ptr, ptr %77, i64 %78
@@ -4269,7 +4269,7 @@ define internal fastcc ptr @ipip6_tunnel_lookup(ptr noundef %0, ptr noundef read
   br i1 %124, label %.loopexit11, label %.preheader9.split, !llvm.loop !61
 
 .loopexit11:                                      ; preds = %122, %100, %.loopexit14
-  %125 = phi i32 [ %76, %100 ], [ %76, %.loopexit14 ], [ %87, %122 ]
+  %125 = phi i32 [ %76, %.loopexit14 ], [ %76, %100 ], [ %87, %122 ]
   %126 = getelementptr inbounds nuw i8, ptr %17, i64 256
   %127 = zext nneg i32 %11 to i64
   %128 = getelementptr ptr, ptr %126, i64 %127
@@ -4364,7 +4364,7 @@ define internal fastcc ptr @ipip6_tunnel_lookup(ptr noundef %0, ptr noundef read
   br label %.loopexit
 
 .loopexit:                                        ; preds = %66, %40, %115, %93, %164, %142, %184, %177
-  %185 = phi ptr [ null, %184 ], [ %175, %177 ], [ %103, %115 ], [ %138, %142 ], [ %89, %93 ], [ %32, %40 ], [ %152, %164 ], [ %50, %66 ]
+  %185 = phi ptr [ null, %184 ], [ %175, %177 ], [ %138, %142 ], [ %152, %164 ], [ %89, %93 ], [ %103, %115 ], [ %32, %40 ], [ %50, %66 ]
   ret ptr %185
 }
 
@@ -4446,7 +4446,7 @@ define internal i32 @ipip_rcv(ptr noundef %0) #4 align 16 {
   %34 = load i8, ptr %33, align 1
   %35 = and i8 %34, 1
   %.not11 = icmp eq i8 %35, 0
-  br i1 %.not11, label %71, label %36
+  br i1 %.not11, label %76, label %36
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -4493,40 +4493,40 @@ define internal i32 @ipip_rcv(ptr noundef %0) #4 align 16 {
   %68 = load i32, ptr %67, align 4
   %69 = and i32 %68, 2
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %102, label %84
+  br i1 %70, label %102, label %71
 
-71:                                               ; preds = %29
-  %72 = getelementptr inbounds nuw i8, ptr %32, i64 2816
+71:                                               ; preds = %66
+  %72 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %73 = load i32, ptr %72, align 4
-  %.not12 = icmp eq i32 %73, 0
-  br i1 %.not12, label %74, label %.thread8
+  %74 = and i32 %73, 1
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %102, label %.critedge5
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw i8, ptr %32, i64 2968
-  %76 = load i8, ptr %75, align 1
-  %77 = icmp eq i8 %76, 2
-  br i1 %77, label %.critedge5, label %.thread8
+76:                                               ; preds = %29
+  %77 = getelementptr inbounds nuw i8, ptr %32, i64 2816
+  %78 = load i32, ptr %77, align 4
+  %.not12 = icmp eq i32 %78, 0
+  br i1 %.not12, label %79, label %.thread8
 
-.thread8:                                         ; preds = %36, %45, %49, %52, %58, %74, %71
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %79 = load i16, ptr %78, align 4
-  %80 = and i16 %79, 256
-  %81 = icmp eq i16 %80, 0
-  br i1 %81, label %82, label %.critedge5
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds nuw i8, ptr %32, i64 2968
+  %81 = load i8, ptr %80, align 1
+  %82 = icmp eq i8 %81, 2
+  br i1 %82, label %.critedge5, label %.thread8
 
-82:                                               ; preds = %.thread8
-  %83 = tail call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 0, ptr noundef %0, i16 noundef zeroext 2) #18
-  %.not = icmp eq i32 %83, 0
+.thread8:                                         ; preds = %36, %45, %49, %52, %58, %79, %76
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %84 = load i16, ptr %83, align 4
+  %85 = and i16 %84, 256
+  %86 = icmp eq i16 %85, 0
+  br i1 %86, label %87, label %.critedge5
+
+87:                                               ; preds = %.thread8
+  %88 = tail call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 0, ptr noundef %0, i16 noundef zeroext 2) #18
+  %.not = icmp eq i32 %88, 0
   br i1 %.not, label %102, label %.critedge5
 
-84:                                               ; preds = %66
-  %85 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  %86 = load i32, ptr %85, align 4
-  %87 = and i32 %86, 1
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %102, label %.critedge5
-
-.critedge5:                                       ; preds = %82, %.thread8, %74, %84
+.critedge5:                                       ; preds = %71, %.thread8, %79, %87
   %89 = tail call i32 @__iptunnel_pull_header(ptr noundef %0, i32 noundef 0, i16 noundef zeroext 8, i1 noundef zeroext false, i1 noundef zeroext false) #18
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %.critedge, label %102
@@ -4546,7 +4546,7 @@ define internal i32 @ipip_rcv(ptr noundef %0) #4 align 16 {
   %101 = tail call i32 @ip_tunnel_rcv(ptr noundef nonnull %24, ptr noundef %0, ptr noundef nonnull @ipip_tpi, ptr noundef null, i1 noundef zeroext %100) #18
   br label %103
 
-102:                                              ; preds = %26, %84, %.critedge5, %66, %82
+102:                                              ; preds = %26, %87, %.critedge5, %66, %71
   tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #18
   br label %103
 

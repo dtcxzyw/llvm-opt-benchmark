@@ -5202,17 +5202,17 @@ add_string_field.exit158:                         ; preds = %113, %119, %121
   br i1 %.not, label %178, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %127, %124, %160
-  %hf_c15ch_nitnxlate_gateway.sink = phi ptr [ @hf_c15ch_nitnxlate_gateway, %124 ], [ @hf_c15ch_nitnxlate_port_vt15, %160 ], [ @hf_c15ch_nitnxlate_idt_rdt, %127 ]
-  %.sink179 = phi i32 [ 31, %124 ], [ 39, %160 ], [ 31, %127 ]
-  %hf_c15ch_nitnxlate_line.sink.ph = phi ptr [ @hf_c15ch_nitnxlate_line, %124 ], [ @hf_c15ch_nitnxlate_channel, %160 ], [ @hf_c15ch_nitnxlate_line, %127 ]
-  %.sink178.ph = phi i32 [ 35, %124 ], [ 43, %160 ], [ 35, %127 ]
+  %hf_c15ch_nitnxlate_gateway.sink = phi ptr [ @hf_c15ch_nitnxlate_port_vt15, %160 ], [ @hf_c15ch_nitnxlate_gateway, %124 ], [ @hf_c15ch_nitnxlate_idt_rdt, %127 ]
+  %.sink179 = phi i32 [ 39, %160 ], [ 31, %124 ], [ 31, %127 ]
+  %hf_c15ch_nitnxlate_line.sink.ph = phi ptr [ @hf_c15ch_nitnxlate_channel, %160 ], [ @hf_c15ch_nitnxlate_line, %124 ], [ @hf_c15ch_nitnxlate_line, %127 ]
+  %.sink178.ph = phi i32 [ 43, %160 ], [ 35, %124 ], [ 35, %127 ]
   %174 = load i32, ptr %hf_c15ch_nitnxlate_gateway.sink, align 4
   %175 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %174, ptr noundef %0, i32 noundef %.sink179, i32 noundef 4, i32 noundef 0)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %165, %148, %133, %130
-  %hf_c15ch_nitnxlate_line.sink = phi ptr [ @hf_c15ch_nitnxlate_ptrk, %133 ], [ @hf_c15ch_nitnxlate_line, %130 ], [ @hf_c15ch_nitnxlate_key, %165 ], [ @hf_c15ch_nitnxlate_key, %148 ], [ %hf_c15ch_nitnxlate_line.sink.ph, %.sink.split.sink.split ]
-  %.sink178 = phi i32 [ 31, %133 ], [ 31, %130 ], [ 47, %165 ], [ 47, %148 ], [ %.sink178.ph, %.sink.split.sink.split ]
+  %hf_c15ch_nitnxlate_line.sink = phi ptr [ @hf_c15ch_nitnxlate_line, %130 ], [ @hf_c15ch_nitnxlate_ptrk, %133 ], [ @hf_c15ch_nitnxlate_key, %148 ], [ @hf_c15ch_nitnxlate_key, %165 ], [ %hf_c15ch_nitnxlate_line.sink.ph, %.sink.split.sink.split ]
+  %.sink178 = phi i32 [ 31, %130 ], [ 31, %133 ], [ 47, %148 ], [ 47, %165 ], [ %.sink178.ph, %.sink.split.sink.split ]
   %176 = load i32, ptr %hf_c15ch_nitnxlate_line.sink, align 4
   %177 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %176, ptr noundef %0, i32 noundef %.sink178, i32 noundef 4, i32 noundef 0)
   br label %178

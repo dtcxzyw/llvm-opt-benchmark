@@ -433,7 +433,7 @@ define void @_ZN9uu_factor6uu_app17hdd376832ee190822E(ptr noalias noundef writeo
   ret void
 
 .body:                                            ; preds = %115, %82, %50, %41, %126, %124, %123, %120
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body55.ph, %120 ], [ %83, %82 ], [ %eh.lpad-body39.ph, %123 ], [ %51, %50 ], [ %125, %124 ], [ %42, %41 ], [ %127, %126 ], [ %116, %115 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body55.ph, %120 ], [ %eh.lpad-body39.ph, %123 ], [ %125, %124 ], [ %127, %126 ], [ %42, %41 ], [ %51, %50 ], [ %83, %82 ], [ %116, %115 ]
   resume { ptr, i32 } %.pn
 
 120:                                              ; preds = %87, %92

@@ -1305,7 +1305,7 @@ if.end.i:                                         ; preds = %if.then12.i, %while
   br i1 %cmp.not.i704, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5eraseERKS2_.exit, label %while.body8.i, !llvm.loop !51
 
 _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5eraseERKS2_.exit: ; preds = %while.body.i, %if.end.i, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit, %while.cond6.preheader.i
-  %147 = phi i64 [ %145, %if.end.i ], [ %dec35.i, %while.cond6.preheader.i ], [ %136, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit ], [ %dec.i, %while.body.i ]
+  %147 = phi i64 [ %136, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE7find_asINS1_19SetWidgetComparableENS1_7SWCHashENS4_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit ], [ %dec35.i, %while.cond6.preheader.i ], [ %145, %if.end.i ], [ %dec.i, %while.body.i ]
   %cmp256 = icmp eq i64 %136, %147
   %call257 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp256, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 363, ptr noundef nonnull @.str.38)
   %148 = load i64, ptr %mnElementCount.i.i153, align 8
@@ -1359,7 +1359,7 @@ if.end.i723:                                      ; preds = %if.then12.i727, %wh
   br i1 %cmp.not.i725, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5eraseERKS2_.exit732, label %while.body8.i719, !llvm.loop !51
 
 _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5eraseERKS2_.exit732: ; preds = %while.body.i729, %if.end.i723, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5eraseERKS2_.exit, %while.cond6.preheader.i717
-  %159 = phi i64 [ %157, %if.end.i723 ], [ %dec35.i714, %while.cond6.preheader.i717 ], [ %148, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5eraseERKS2_.exit ], [ %dec.i730, %while.body.i729 ]
+  %159 = phi i64 [ %148, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5eraseERKS2_.exit ], [ %dec35.i714, %while.cond6.preheader.i717 ], [ %157, %if.end.i723 ], [ %dec.i730, %while.body.i729 ]
   %sub.i726 = sub i64 %148, %159
   %cmp260 = icmp eq i64 %sub.i726, 1
   %call261 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp260, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 366, ptr noundef nonnull @.str.39)
@@ -3405,7 +3405,7 @@ if.end.i1977:                                     ; preds = %if.then12.i1981, %w
   br i1 %cmp.not.i1979, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5eraseERKi.exit, label %while.body8.i1975, !llvm.loop !147
 
 _ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5eraseERKi.exit: ; preds = %while.body.i1983, %if.end.i1977, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit, %while.cond6.preheader.i1973
-  %417 = phi i64 [ %415, %if.end.i1977 ], [ %dec35.i1970, %while.cond6.preheader.i1973 ], [ %406, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit ], [ %dec.i1984, %while.body.i1983 ]
+  %417 = phi i64 [ %406, %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE7find_asIfNS3_IfEENS5_IvEEEENS_28intrusive_hashtable_iteratorIS2_Lb1EEERKT_T0_T1_.exit ], [ %dec35.i1970, %while.cond6.preheader.i1973 ], [ %415, %if.end.i1977 ], [ %dec.i1984, %while.body.i1983 ]
   %cmp695 = icmp eq i64 %406, %417
   %call696 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp695, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 643, ptr noundef nonnull @.str.38)
   %418 = load i64, ptr %mnElementCount.i.i1258, align 8
@@ -3459,7 +3459,7 @@ if.end.i2002:                                     ; preds = %if.then12.i2006, %w
   br i1 %cmp.not.i2004, label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5eraseERKi.exit2011, label %while.body8.i1998, !llvm.loop !147
 
 _ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5eraseERKi.exit2011: ; preds = %while.body.i2008, %if.end.i2002, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5eraseERKi.exit, %while.cond6.preheader.i1996
-  %429 = phi i64 [ %427, %if.end.i2002 ], [ %dec35.i1993, %while.cond6.preheader.i1996 ], [ %418, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5eraseERKi.exit ], [ %dec.i2009, %while.body.i2008 ]
+  %429 = phi i64 [ %418, %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE5eraseERKi.exit ], [ %dec35.i1993, %while.cond6.preheader.i1996 ], [ %427, %if.end.i2002 ], [ %dec.i2009, %while.body.i2008 ]
   %sub.i2005 = sub i64 %418, %429
   %cmp699 = icmp eq i64 %sub.i2005, 1
   %call700 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp699, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 646, ptr noundef nonnull @.str.39)
@@ -4303,7 +4303,7 @@ if.end.i2616:                                     ; preds = %while.body8.i2613, 
   br i1 %cmp.not.i2618, label %while.cond.i.i.i2712.preheader, label %while.body8.i2613, !llvm.loop !232
 
 while.cond.i.i.i2712.preheader:                   ; preds = %while.body.i2622, %if.end.i2616, %while.cond6.preheader.i2612
-  %528 = phi i64 [ %527, %if.end.i2616 ], [ %hs.sroa.10.3, %while.cond6.preheader.i2612 ], [ %dec.i2623, %while.body.i2622 ]
+  %528 = phi i64 [ %hs.sroa.10.3, %while.cond6.preheader.i2612 ], [ %527, %if.end.i2616 ], [ %dec.i2623, %while.body.i2622 ]
   %sub.i2619 = sub i64 %hs.sroa.10.2, %528
   %cmp809 = icmp eq i64 %sub.i2619, 1
   %call810 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp809, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 728, ptr noundef nonnull @.str.87)

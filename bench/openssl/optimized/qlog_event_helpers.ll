@@ -189,8 +189,8 @@ define void @ossl_qlog_event_connectivity_connection_state_updated(ptr noundef %
 11:                                               ; preds = %7
   br label %12
 
-12:                                               ; preds = %7, %10, %11, %9, %8
-  %.0.i.ph = phi ptr [ @.str.33, %10 ], [ @.str.29, %8 ], [ %.str.31..str.30.i, %9 ], [ @.str.34, %11 ], [ @.str.32, %7 ]
+12:                                               ; preds = %7, %11, %10, %8, %9
+  %.0.i.ph = phi ptr [ %.str.31..str.30.i, %9 ], [ @.str.29, %8 ], [ @.str.33, %10 ], [ @.str.34, %11 ], [ @.str.32, %7 ]
   tail call void @ossl_qlog_str(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %.0.i.ph) #3
   br label %map_state_to_qlog.exit
 

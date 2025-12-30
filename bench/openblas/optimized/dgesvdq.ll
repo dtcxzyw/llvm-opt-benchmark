@@ -595,12 +595,12 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %or.cond27, label %.thread1898, label %.thread1906.sink.split
 
 .thread1906.sink.split:                           ; preds = %320, %313, %137, %133, %128, %125, %123, %120, %118, %116, %114, %111, %105
-  %.sink2644 = phi i32 [ -17, %137 ], [ -1, %105 ], [ -3, %114 ], [ -5, %118 ], [ -6, %120 ], [ -9, %125 ], [ -14, %133 ], [ -12, %128 ], [ -7, %123 ], [ -21, %320 ], [ -4, %116 ], [ -2, %111 ], [ -19, %313 ]
+  %.sink2644 = phi i32 [ -1, %105 ], [ -2, %111 ], [ -3, %114 ], [ -4, %116 ], [ -5, %118 ], [ -6, %120 ], [ -7, %123 ], [ -9, %125 ], [ -12, %128 ], [ -14, %133 ], [ -17, %137 ], [ -19, %313 ], [ -21, %320 ]
   store i32 %.sink2644, ptr %21, align 4, !tbaa !3
   br label %.thread1906
 
 .thread1906:                                      ; preds = %.thread1906.sink.split, %140, %.thread
-  %323 = phi i32 [ %.pr, %140 ], [ %.pr1894.pr, %.thread ], [ %.sink2644, %.thread1906.sink.split ]
+  %323 = phi i32 [ %.pr1894.pr, %.thread ], [ %.pr, %140 ], [ %.sink2644, %.thread1906.sink.split ]
   %324 = sub nsw i32 0, %323
   store i32 %324, ptr %23, align 4, !tbaa !3
   %325 = call i32 @xerbla_(ptr noundef nonnull @.str.15, ptr noundef nonnull %23, i32 noundef 7) #6
@@ -1100,7 +1100,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %542
 
 542:                                              ; preds = %.loopexit1952, %.loopexit1951, %._crit_edge1991, %515
-  %.01638 = phi double [ undef, %515 ], [ %541, %._crit_edge1991 ], [ undef, %.loopexit1951 ], [ undef, %.loopexit1952 ]
+  %.01638 = phi double [ %541, %._crit_edge1991 ], [ undef, %515 ], [ undef, %.loopexit1951 ], [ undef, %.loopexit1952 ]
   br i1 %54, label %.sink.split2651, label %543
 
 543:                                              ; preds = %542

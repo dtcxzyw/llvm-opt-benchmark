@@ -136,7 +136,7 @@ define ptr @ossl_d2i_PrivateKey_legacy(i32 noundef %0, ptr noundef captures(addr
   br label %64
 
 .thread:                                          ; preds = %50, %48, %43, %54, %23
-  %.1 = phi ptr [ %.036, %23 ], [ %.036, %54 ], [ %46, %50 ], [ %.036, %48 ], [ %.036, %43 ]
+  %.1 = phi ptr [ %.036, %54 ], [ %.036, %23 ], [ %46, %50 ], [ %.036, %48 ], [ %.036, %43 ]
   br i1 %9, label %63, label %61
 
 61:                                               ; preds = %.thread
@@ -149,7 +149,7 @@ define ptr @ossl_d2i_PrivateKey_legacy(i32 noundef %0, ptr noundef captures(addr
   br label %64
 
 64:                                               ; preds = %61, %63, %58, %60, %16
-  %.0 = phi ptr [ null, %16 ], [ %.3, %58 ], [ %.3, %60 ], [ null, %63 ], [ null, %61 ]
+  %.0 = phi ptr [ null, %16 ], [ %.3, %60 ], [ %.3, %58 ], [ null, %63 ], [ null, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
@@ -265,7 +265,7 @@ define internal fastcc ptr @d2i_PrivateKey_decoder(i32 noundef %0, ptr noundef %
   br label %31
 
 31:                                               ; preds = %28, %26, %24
-  %.2 = phi ptr [ %.047, %24 ], [ %spec.select, %28 ], [ null, %26 ]
+  %.2 = phi ptr [ null, %26 ], [ %.047, %24 ], [ %spec.select, %28 ]
   call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef nonnull %18) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %32
@@ -329,7 +329,7 @@ define internal fastcc ptr @d2i_PrivateKey_decoder(i32 noundef %0, ptr noundef %
   br label %51
 
 51:                                               ; preds = %46, %47, %48, %49, %.critedge, %13
-  %.043 = phi ptr [ null, %.critedge ], [ null, %13 ], [ null, %48 ], [ null, %49 ], [ %.pre, %47 ], [ %.pre, %46 ]
+  %.043 = phi ptr [ null, %13 ], [ null, %.critedge ], [ null, %49 ], [ null, %48 ], [ %.pre, %47 ], [ %.pre, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -409,7 +409,7 @@ define ptr @d2i_AutoPrivateKey_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br label %d2i_AutoPrivateKey_legacy.exit
 
 31:                                               ; preds = %18, %15, %9
-  %.026.i = phi i32 [ 408, %15 ], [ 116, %9 ], [ 6, %18 ]
+  %.026.i = phi i32 [ 116, %9 ], [ 408, %15 ], [ 6, %18 ]
   call void @OPENSSL_sk_pop_free(ptr noundef %11, ptr noundef nonnull @ASN1_TYPE_free) #3
   %32 = call ptr @ossl_d2i_PrivateKey_legacy(i32 noundef %.026.i, ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %d2i_AutoPrivateKey_legacy.exit

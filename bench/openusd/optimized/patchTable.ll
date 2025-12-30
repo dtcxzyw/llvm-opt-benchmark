@@ -949,7 +949,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %168
   ret void
 
 293:                                              ; preds = %.loopexit105, %.loopexit.split-lp, %283, %277, %243, %238, %228, %223
-  %.pn = phi { ptr, i32 } [ %278, %277 ], [ %229, %228 ], [ %284, %283 ], [ %239, %238 ], [ %244, %243 ], [ %224, %223 ], [ %lpad.loopexit, %.loopexit105 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %278, %277 ], [ %284, %283 ], [ %239, %238 ], [ %244, %243 ], [ %224, %223 ], [ %229, %228 ], [ %lpad.loopexit, %.loopexit105 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %294 = load ptr, ptr %160, align 8
   %.not.i.i.i = icmp eq ptr %294, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %295
@@ -2827,7 +2827,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -4048,7 +4048,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetNumLocalPointsFa
   br label %29
 
 29:                                               ; preds = %19, %2, %4, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %2 ], [ %28, %19 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %4 ], [ 0, %2 ], [ %28, %19 ]
   ret i32 %.0
 }
 
@@ -4571,7 +4571,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.sink.
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
 _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.sink.split, %18, %14
-  %23 = phi i32 [ -1, %18 ], [ -1, %14 ], [ %switch.load14, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.sink.split ]
+  %23 = phi i32 [ -1, %14 ], [ -1, %18 ], [ %switch.load14, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.sink.split ]
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %26 = load i32, ptr %25, align 4
@@ -4624,7 +4624,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split: 
   br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit
 
 _ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit: ; preds = %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split, %20, %16
-  %25 = phi i32 [ -1, %20 ], [ -1, %16 ], [ %switch.load7, %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split ]
+  %25 = phi i32 [ -1, %16 ], [ -1, %20 ], [ %switch.load7, %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split ]
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %28 = load i32, ptr %27, align 4
@@ -4682,7 +4682,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split: 
   br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit
 
 _ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit: ; preds = %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split, %26, %22
-  %31 = phi i32 [ -1, %26 ], [ -1, %22 ], [ %switch.load8, %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split ]
+  %31 = phi i32 [ -1, %22 ], [ -1, %26 ], [ %switch.load8, %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %34 = load i32, ptr %33, align 4

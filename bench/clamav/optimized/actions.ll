@@ -113,7 +113,7 @@ isdir.exit.thread:                                ; preds = %21, %23
   br label %.thread
 
 .thread:                                          ; preds = %isdir.exit.thread, %19, %39, %35, %30
-  %.1 = phi i32 [ 0, %39 ], [ 0, %30 ], [ 0, %35 ], [ 1, %isdir.exit.thread ], [ 0, %19 ]
+  %.1 = phi i32 [ 0, %30 ], [ 0, %35 ], [ 0, %39 ], [ 1, %isdir.exit.thread ], [ 0, %19 ]
   ret i32 %.1
 }
 
@@ -456,7 +456,7 @@ define internal fastcc range(i32 -1, 1) i32 @traverse_unlink(ptr noundef nonnull
   br label %21
 
 21:                                               ; preds = %12, %16, %10, %5
-  %.0 = phi i32 [ -1, %16 ], [ -1, %5 ], [ -1, %10 ], [ 0, %12 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %10 ], [ -1, %16 ], [ 0, %12 ]
   %22 = load ptr, ptr %3, align 8, !tbaa !14
   %.not14 = icmp eq ptr %22, null
   br i1 %.not14, label %24, label %23
@@ -586,7 +586,7 @@ define internal fastcc range(i32 -1, 1) i32 @traverse_to(ptr noundef nonnull rea
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %38, %37, %10, %15
-  %.0344753 = phi i32 [ -1, %10 ], [ -1, %15 ], [ 0, %37 ], [ -1, %38 ]
+  %.0344753 = phi i32 [ -1, %15 ], [ -1, %10 ], [ -1, %38 ], [ 0, %37 ]
   call void @free(ptr noundef nonnull %4) #11
   br label %40
 

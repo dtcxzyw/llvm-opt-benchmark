@@ -662,8 +662,8 @@ define internal { double, double } @_ZL15ortho_e_inverse5PJ_XYP8PJconsts(double 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %108, %187, %74, %95, %92, %29, %46, %63
-  %.sroa.0123.1 = phi double [ %96, %95 ], [ 0x7FF0000000000000, %63 ], [ %51, %46 ], [ 0x7FF0000000000000, %29 ], [ 0.000000e+00, %74 ], [ %94, %92 ], [ 0x7FF0000000000000, %108 ], [ %182, %187 ], [ %182, %.critedge ]
-  %.sroa.17.2 = phi double [ %82, %95 ], [ 0x7FF0000000000000, %63 ], [ %.sroa.17.1, %46 ], [ 0x7FF0000000000000, %29 ], [ %76, %74 ], [ %82, %92 ], [ 0x7FF0000000000000, %108 ], [ %.sroa.17.7, %187 ], [ %.sroa.17.7, %.critedge ]
+  %.sroa.0123.1 = phi double [ 0x7FF0000000000000, %63 ], [ 0x7FF0000000000000, %29 ], [ %51, %46 ], [ 0.000000e+00, %74 ], [ %94, %92 ], [ %96, %95 ], [ 0x7FF0000000000000, %108 ], [ %182, %187 ], [ %182, %.critedge ]
+  %.sroa.17.2 = phi double [ 0x7FF0000000000000, %63 ], [ 0x7FF0000000000000, %29 ], [ %.sroa.17.1, %46 ], [ %76, %74 ], [ %82, %92 ], [ %82, %95 ], [ 0x7FF0000000000000, %108 ], [ %.sroa.17.7, %187 ], [ %.sroa.17.7, %.critedge ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0123.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.17.2, 1
   ret { double, double } %.fca.1.insert

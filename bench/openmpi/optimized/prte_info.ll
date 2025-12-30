@@ -437,7 +437,7 @@ pmix_obj_run_destructors.exit101:                 ; preds = %.lr.ph.i98, %.threa
   br label %145
 
 145:                                              ; preds = %71, %74, %pmix_obj_run_destructors.exit, %35, %33, %16, %13, %11, %9, %pmix_obj_run_destructors.exit101, %64, %30
-  %.0 = phi i32 [ 0, %pmix_obj_run_destructors.exit101 ], [ %10, %11 ], [ 1, %30 ], [ %14, %16 ], [ 1, %35 ], [ %50, %64 ], [ 0, %pmix_obj_run_destructors.exit ], [ %10, %9 ], [ %14, %13 ], [ 1, %33 ], [ -1, %74 ], [ -1, %71 ]
+  %.0 = phi i32 [ 1, %30 ], [ %50, %64 ], [ 0, %pmix_obj_run_destructors.exit101 ], [ %10, %9 ], [ %10, %11 ], [ %14, %13 ], [ %14, %16 ], [ 1, %33 ], [ 1, %35 ], [ 0, %pmix_obj_run_destructors.exit ], [ -1, %74 ], [ -1, %71 ]
   ret i32 %.0
 }
 

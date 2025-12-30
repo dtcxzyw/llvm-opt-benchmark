@@ -535,7 +535,7 @@ _ZNSt12__shared_ptrIN2cv8tracking10TrackerKCFELN9__gnu_cxx12_Lock_policyE2EED2Ev
   br label %191
 
 184:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60, %153, %151, %136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50
-  %.pn36 = phi { ptr, i32 } [ %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50 ], [ %156, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60 ], [ %154, %153 ], [ %152, %151 ], [ %137, %136 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn36 = phi { ptr, i32 } [ %156, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60 ], [ %154, %153 ], [ %152, %151 ], [ %137, %136 ], [ %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %9) #16
   br label %185
 
@@ -969,7 +969,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %111
   br label %153
 
 153:                                              ; preds = %137, %139, %141, %143, %152, %135, %134
-  %.pn77.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %134 ], [ %136, %135 ], [ %.pn77.pn, %152 ], [ %144, %143 ], [ %142, %141 ], [ %140, %139 ], [ %138, %137 ]
+  %.pn77.pn.pn.pn = phi { ptr, i32 } [ %136, %135 ], [ %.pn.pn, %134 ], [ %.pn77.pn, %152 ], [ %144, %143 ], [ %142, %141 ], [ %140, %139 ], [ %138, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

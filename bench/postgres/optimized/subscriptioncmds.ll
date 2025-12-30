@@ -504,21 +504,21 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 173:                                              ; preds = %56, %161, %157, %147, %137, %127, %117, %108, %99, %89, %79, %69, %61, %46, %36, %27
-  %.sroa.45.3 = phi ptr [ %.sroa.45.1633, %27 ], [ %.sroa.45.1633, %36 ], [ %.sroa.45.1633, %46 ], [ %.sroa.45.1633, %161 ], [ %.sroa.45.1633, %61 ], [ %.sroa.45.1633, %69 ], [ %81, %79 ], [ %.sroa.45.1633, %89 ], [ %.sroa.45.1633, %99 ], [ %.sroa.45.1633, %108 ], [ %.sroa.45.1633, %117 ], [ %.sroa.45.1633, %127 ], [ %.sroa.45.1633, %137 ], [ %.sroa.45.1633, %147 ], [ %.sroa.45.1633, %157 ], [ %.sroa.45.1633, %56 ]
-  %.sroa.49.sroa.0.2 = phi i1 [ %29, %27 ], [ %.sroa.49.sroa.0.0634, %36 ], [ %.sroa.49.sroa.0.0634, %46 ], [ %.sroa.49.sroa.0.0634, %161 ], [ %.sroa.49.sroa.0.0634, %61 ], [ %.sroa.49.sroa.0.0634, %69 ], [ %.sroa.49.sroa.0.0634, %79 ], [ %.sroa.49.sroa.0.0634, %89 ], [ %.sroa.49.sroa.0.0634, %99 ], [ %.sroa.49.sroa.0.0634, %108 ], [ %.sroa.49.sroa.0.0634, %117 ], [ %.sroa.49.sroa.0.0634, %127 ], [ %.sroa.49.sroa.0.0634, %137 ], [ %.sroa.49.sroa.0.0634, %147 ], [ %.sroa.49.sroa.0.0634, %157 ], [ %.sroa.49.sroa.0.0634, %56 ]
-  %.sroa.49.sroa.8.3 = phi i8 [ %.sroa.49.sroa.8.0635, %27 ], [ %39, %36 ], [ %.sroa.49.sroa.8.0635, %46 ], [ %.sroa.49.sroa.8.0635, %161 ], [ %.sroa.49.sroa.8.0635, %61 ], [ %.sroa.49.sroa.8.0635, %69 ], [ %.sroa.49.sroa.8.0635, %79 ], [ %.sroa.49.sroa.8.0635, %89 ], [ %.sroa.49.sroa.8.0635, %99 ], [ %.sroa.49.sroa.8.0635, %108 ], [ %.sroa.49.sroa.8.0635, %117 ], [ %.sroa.49.sroa.8.0635, %127 ], [ %.sroa.49.sroa.8.0635, %137 ], [ %.sroa.49.sroa.8.0635, %147 ], [ %.sroa.49.sroa.8.0635, %157 ], [ %.sroa.49.sroa.8.0635, %56 ]
-  %.sroa.49.sroa.14.3 = phi i8 [ %.sroa.49.sroa.14.0636, %27 ], [ %.sroa.49.sroa.14.0636, %36 ], [ %49, %46 ], [ %.sroa.49.sroa.14.0636, %161 ], [ %.sroa.49.sroa.14.0636, %61 ], [ %.sroa.49.sroa.14.0636, %69 ], [ %.sroa.49.sroa.14.0636, %79 ], [ %.sroa.49.sroa.14.0636, %89 ], [ %.sroa.49.sroa.14.0636, %99 ], [ %.sroa.49.sroa.14.0636, %108 ], [ %.sroa.49.sroa.14.0636, %117 ], [ %.sroa.49.sroa.14.0636, %127 ], [ %.sroa.49.sroa.14.0636, %137 ], [ %.sroa.49.sroa.14.0636, %147 ], [ %.sroa.49.sroa.14.0636, %157 ], [ %.sroa.49.sroa.14.0636, %56 ]
-  %.sroa.49.sroa.20.3 = phi i8 [ %.sroa.49.sroa.20.0637, %27 ], [ %.sroa.49.sroa.20.0637, %36 ], [ %.sroa.49.sroa.20.0637, %46 ], [ %.sroa.49.sroa.20.0637, %161 ], [ %.sroa.49.sroa.20.0637, %61 ], [ %72, %69 ], [ %.sroa.49.sroa.20.0637, %79 ], [ %.sroa.49.sroa.20.0637, %89 ], [ %.sroa.49.sroa.20.0637, %99 ], [ %.sroa.49.sroa.20.0637, %108 ], [ %.sroa.49.sroa.20.0637, %117 ], [ %.sroa.49.sroa.20.0637, %127 ], [ %.sroa.49.sroa.20.0637, %137 ], [ %.sroa.49.sroa.20.0637, %147 ], [ %.sroa.49.sroa.20.0637, %157 ], [ %.sroa.49.sroa.20.0637, %56 ]
-  %.sroa.37112.3 = phi ptr [ %.sroa.37112.1638, %27 ], [ %.sroa.37112.1638, %36 ], [ %.sroa.37112.1638, %46 ], [ %.sroa.37112.1638, %161 ], [ %58, %61 ], [ %.sroa.37112.1638, %69 ], [ %.sroa.37112.1638, %79 ], [ %.sroa.37112.1638, %89 ], [ %.sroa.37112.1638, %99 ], [ %.sroa.37112.1638, %108 ], [ %.sroa.37112.1638, %117 ], [ %.sroa.37112.1638, %127 ], [ %.sroa.37112.1638, %137 ], [ %.sroa.37112.1638, %147 ], [ %.sroa.37112.1638, %157 ], [ null, %56 ]
-  %.sroa.71143.2 = phi i8 [ %.sroa.71143.0639, %27 ], [ %.sroa.71143.0639, %36 ], [ %.sroa.71143.0639, %46 ], [ %.sroa.71143.0639, %161 ], [ %.sroa.71143.0639, %61 ], [ %.sroa.71143.0639, %69 ], [ %.sroa.71143.0639, %79 ], [ %92, %89 ], [ %.sroa.71143.0639, %99 ], [ %.sroa.71143.0639, %108 ], [ %.sroa.71143.0639, %117 ], [ %.sroa.71143.0639, %127 ], [ %.sroa.71143.0639, %137 ], [ %.sroa.71143.0639, %147 ], [ %.sroa.71143.0639, %157 ], [ %.sroa.71143.0639, %56 ]
-  %.sroa.73.2 = phi i8 [ %.sroa.73.0640, %27 ], [ %.sroa.73.0640, %36 ], [ %.sroa.73.0640, %46 ], [ %.sroa.73.0640, %161 ], [ %.sroa.73.0640, %61 ], [ %.sroa.73.0640, %69 ], [ %.sroa.73.0640, %79 ], [ %.sroa.73.0640, %89 ], [ %101, %99 ], [ %.sroa.73.0640, %108 ], [ %.sroa.73.0640, %117 ], [ %.sroa.73.0640, %127 ], [ %.sroa.73.0640, %137 ], [ %.sroa.73.0640, %147 ], [ %.sroa.73.0640, %157 ], [ %.sroa.73.0640, %56 ]
-  %.sroa.76.2 = phi i1 [ %.sroa.76.0641, %27 ], [ %.sroa.76.0641, %36 ], [ %.sroa.76.0641, %46 ], [ %.sroa.76.0641, %161 ], [ %.sroa.76.0641, %61 ], [ %.sroa.76.0641, %69 ], [ %.sroa.76.0641, %79 ], [ %.sroa.76.0641, %89 ], [ %.sroa.76.0641, %99 ], [ %110, %108 ], [ %.sroa.76.0641, %117 ], [ %.sroa.76.0641, %127 ], [ %.sroa.76.0641, %137 ], [ %.sroa.76.0641, %147 ], [ %.sroa.76.0641, %157 ], [ %.sroa.76.0641, %56 ]
-  %.sroa.79.2 = phi i8 [ %.sroa.79.0642, %27 ], [ %.sroa.79.0642, %36 ], [ %.sroa.79.0642, %46 ], [ %.sroa.79.0642, %161 ], [ %.sroa.79.0642, %61 ], [ %.sroa.79.0642, %69 ], [ %.sroa.79.0642, %79 ], [ %.sroa.79.0642, %89 ], [ %.sroa.79.0642, %99 ], [ %.sroa.79.0642, %108 ], [ %120, %117 ], [ %.sroa.79.0642, %127 ], [ %.sroa.79.0642, %137 ], [ %.sroa.79.0642, %147 ], [ %.sroa.79.0642, %157 ], [ %.sroa.79.0642, %56 ]
-  %.sroa.82.2 = phi i8 [ %.sroa.82.0643, %27 ], [ %.sroa.82.0643, %36 ], [ %.sroa.82.0643, %46 ], [ %.sroa.82.0643, %161 ], [ %.sroa.82.0643, %61 ], [ %.sroa.82.0643, %69 ], [ %.sroa.82.0643, %79 ], [ %.sroa.82.0643, %89 ], [ %.sroa.82.0643, %99 ], [ %.sroa.82.0643, %108 ], [ %.sroa.82.0643, %117 ], [ %130, %127 ], [ %.sroa.82.0643, %137 ], [ %.sroa.82.0643, %147 ], [ %.sroa.82.0643, %157 ], [ %.sroa.82.0643, %56 ]
-  %.sroa.88.2 = phi i8 [ %.sroa.88.0644, %27 ], [ %.sroa.88.0644, %36 ], [ %.sroa.88.0644, %46 ], [ %.sroa.88.0644, %161 ], [ %.sroa.88.0644, %61 ], [ %.sroa.88.0644, %69 ], [ %.sroa.88.0644, %79 ], [ %.sroa.88.0644, %89 ], [ %.sroa.88.0644, %99 ], [ %.sroa.88.0644, %108 ], [ %.sroa.88.0644, %117 ], [ %.sroa.88.0644, %127 ], [ %140, %137 ], [ %.sroa.88.0644, %147 ], [ %.sroa.88.0644, %157 ], [ %.sroa.88.0644, %56 ]
-  %.sroa.90.2 = phi i8 [ %.sroa.90.0645, %27 ], [ %.sroa.90.0645, %36 ], [ %.sroa.90.0645, %46 ], [ %.sroa.90.0645, %161 ], [ %.sroa.90.0645, %61 ], [ %.sroa.90.0645, %69 ], [ %.sroa.90.0645, %79 ], [ %.sroa.90.0645, %89 ], [ %.sroa.90.0645, %99 ], [ %.sroa.90.0645, %108 ], [ %.sroa.90.0645, %117 ], [ %.sroa.90.0645, %127 ], [ %.sroa.90.0645, %137 ], [ %150, %147 ], [ %.sroa.90.0645, %157 ], [ %.sroa.90.0645, %56 ]
-  %.sroa.0.2 = phi i32 [ %28, %27 ], [ %37, %36 ], [ %47, %46 ], [ %158, %161 ], [ %57, %61 ], [ %70, %69 ], [ %80, %79 ], [ %90, %89 ], [ %100, %99 ], [ %109, %108 ], [ %118, %117 ], [ %128, %127 ], [ %138, %137 ], [ %148, %147 ], [ %158, %157 ], [ %57, %56 ]
-  %.sroa.94149.2 = phi ptr [ %.sroa.94149.0647, %27 ], [ %.sroa.94149.0647, %36 ], [ %.sroa.94149.0647, %46 ], [ %159, %161 ], [ %.sroa.94149.0647, %61 ], [ %.sroa.94149.0647, %69 ], [ %.sroa.94149.0647, %79 ], [ %.sroa.94149.0647, %89 ], [ %.sroa.94149.0647, %99 ], [ %.sroa.94149.0647, %108 ], [ %.sroa.94149.0647, %117 ], [ %.sroa.94149.0647, %127 ], [ %.sroa.94149.0647, %137 ], [ %.sroa.94149.0647, %147 ], [ %159, %157 ], [ %.sroa.94149.0647, %56 ]
+  %.sroa.45.3 = phi ptr [ %.sroa.45.1633, %27 ], [ %.sroa.45.1633, %36 ], [ %.sroa.45.1633, %46 ], [ %.sroa.45.1633, %61 ], [ %.sroa.45.1633, %69 ], [ %81, %79 ], [ %.sroa.45.1633, %89 ], [ %.sroa.45.1633, %99 ], [ %.sroa.45.1633, %108 ], [ %.sroa.45.1633, %117 ], [ %.sroa.45.1633, %127 ], [ %.sroa.45.1633, %137 ], [ %.sroa.45.1633, %147 ], [ %.sroa.45.1633, %157 ], [ %.sroa.45.1633, %161 ], [ %.sroa.45.1633, %56 ]
+  %.sroa.49.sroa.0.2 = phi i1 [ %29, %27 ], [ %.sroa.49.sroa.0.0634, %36 ], [ %.sroa.49.sroa.0.0634, %46 ], [ %.sroa.49.sroa.0.0634, %61 ], [ %.sroa.49.sroa.0.0634, %69 ], [ %.sroa.49.sroa.0.0634, %79 ], [ %.sroa.49.sroa.0.0634, %89 ], [ %.sroa.49.sroa.0.0634, %99 ], [ %.sroa.49.sroa.0.0634, %108 ], [ %.sroa.49.sroa.0.0634, %117 ], [ %.sroa.49.sroa.0.0634, %127 ], [ %.sroa.49.sroa.0.0634, %137 ], [ %.sroa.49.sroa.0.0634, %147 ], [ %.sroa.49.sroa.0.0634, %157 ], [ %.sroa.49.sroa.0.0634, %161 ], [ %.sroa.49.sroa.0.0634, %56 ]
+  %.sroa.49.sroa.8.3 = phi i8 [ %.sroa.49.sroa.8.0635, %27 ], [ %39, %36 ], [ %.sroa.49.sroa.8.0635, %46 ], [ %.sroa.49.sroa.8.0635, %61 ], [ %.sroa.49.sroa.8.0635, %69 ], [ %.sroa.49.sroa.8.0635, %79 ], [ %.sroa.49.sroa.8.0635, %89 ], [ %.sroa.49.sroa.8.0635, %99 ], [ %.sroa.49.sroa.8.0635, %108 ], [ %.sroa.49.sroa.8.0635, %117 ], [ %.sroa.49.sroa.8.0635, %127 ], [ %.sroa.49.sroa.8.0635, %137 ], [ %.sroa.49.sroa.8.0635, %147 ], [ %.sroa.49.sroa.8.0635, %157 ], [ %.sroa.49.sroa.8.0635, %161 ], [ %.sroa.49.sroa.8.0635, %56 ]
+  %.sroa.49.sroa.14.3 = phi i8 [ %.sroa.49.sroa.14.0636, %27 ], [ %.sroa.49.sroa.14.0636, %36 ], [ %49, %46 ], [ %.sroa.49.sroa.14.0636, %61 ], [ %.sroa.49.sroa.14.0636, %69 ], [ %.sroa.49.sroa.14.0636, %79 ], [ %.sroa.49.sroa.14.0636, %89 ], [ %.sroa.49.sroa.14.0636, %99 ], [ %.sroa.49.sroa.14.0636, %108 ], [ %.sroa.49.sroa.14.0636, %117 ], [ %.sroa.49.sroa.14.0636, %127 ], [ %.sroa.49.sroa.14.0636, %137 ], [ %.sroa.49.sroa.14.0636, %147 ], [ %.sroa.49.sroa.14.0636, %157 ], [ %.sroa.49.sroa.14.0636, %161 ], [ %.sroa.49.sroa.14.0636, %56 ]
+  %.sroa.49.sroa.20.3 = phi i8 [ %.sroa.49.sroa.20.0637, %27 ], [ %.sroa.49.sroa.20.0637, %36 ], [ %.sroa.49.sroa.20.0637, %46 ], [ %.sroa.49.sroa.20.0637, %61 ], [ %72, %69 ], [ %.sroa.49.sroa.20.0637, %79 ], [ %.sroa.49.sroa.20.0637, %89 ], [ %.sroa.49.sroa.20.0637, %99 ], [ %.sroa.49.sroa.20.0637, %108 ], [ %.sroa.49.sroa.20.0637, %117 ], [ %.sroa.49.sroa.20.0637, %127 ], [ %.sroa.49.sroa.20.0637, %137 ], [ %.sroa.49.sroa.20.0637, %147 ], [ %.sroa.49.sroa.20.0637, %157 ], [ %.sroa.49.sroa.20.0637, %161 ], [ %.sroa.49.sroa.20.0637, %56 ]
+  %.sroa.37112.3 = phi ptr [ %.sroa.37112.1638, %27 ], [ %.sroa.37112.1638, %36 ], [ %.sroa.37112.1638, %46 ], [ %58, %61 ], [ %.sroa.37112.1638, %69 ], [ %.sroa.37112.1638, %79 ], [ %.sroa.37112.1638, %89 ], [ %.sroa.37112.1638, %99 ], [ %.sroa.37112.1638, %108 ], [ %.sroa.37112.1638, %117 ], [ %.sroa.37112.1638, %127 ], [ %.sroa.37112.1638, %137 ], [ %.sroa.37112.1638, %147 ], [ %.sroa.37112.1638, %157 ], [ %.sroa.37112.1638, %161 ], [ null, %56 ]
+  %.sroa.71143.2 = phi i8 [ %.sroa.71143.0639, %27 ], [ %.sroa.71143.0639, %36 ], [ %.sroa.71143.0639, %46 ], [ %.sroa.71143.0639, %61 ], [ %.sroa.71143.0639, %69 ], [ %.sroa.71143.0639, %79 ], [ %92, %89 ], [ %.sroa.71143.0639, %99 ], [ %.sroa.71143.0639, %108 ], [ %.sroa.71143.0639, %117 ], [ %.sroa.71143.0639, %127 ], [ %.sroa.71143.0639, %137 ], [ %.sroa.71143.0639, %147 ], [ %.sroa.71143.0639, %157 ], [ %.sroa.71143.0639, %161 ], [ %.sroa.71143.0639, %56 ]
+  %.sroa.73.2 = phi i8 [ %.sroa.73.0640, %27 ], [ %.sroa.73.0640, %36 ], [ %.sroa.73.0640, %46 ], [ %.sroa.73.0640, %61 ], [ %.sroa.73.0640, %69 ], [ %.sroa.73.0640, %79 ], [ %.sroa.73.0640, %89 ], [ %101, %99 ], [ %.sroa.73.0640, %108 ], [ %.sroa.73.0640, %117 ], [ %.sroa.73.0640, %127 ], [ %.sroa.73.0640, %137 ], [ %.sroa.73.0640, %147 ], [ %.sroa.73.0640, %157 ], [ %.sroa.73.0640, %161 ], [ %.sroa.73.0640, %56 ]
+  %.sroa.76.2 = phi i1 [ %.sroa.76.0641, %27 ], [ %.sroa.76.0641, %36 ], [ %.sroa.76.0641, %46 ], [ %.sroa.76.0641, %61 ], [ %.sroa.76.0641, %69 ], [ %.sroa.76.0641, %79 ], [ %.sroa.76.0641, %89 ], [ %.sroa.76.0641, %99 ], [ %110, %108 ], [ %.sroa.76.0641, %117 ], [ %.sroa.76.0641, %127 ], [ %.sroa.76.0641, %137 ], [ %.sroa.76.0641, %147 ], [ %.sroa.76.0641, %157 ], [ %.sroa.76.0641, %161 ], [ %.sroa.76.0641, %56 ]
+  %.sroa.79.2 = phi i8 [ %.sroa.79.0642, %27 ], [ %.sroa.79.0642, %36 ], [ %.sroa.79.0642, %46 ], [ %.sroa.79.0642, %61 ], [ %.sroa.79.0642, %69 ], [ %.sroa.79.0642, %79 ], [ %.sroa.79.0642, %89 ], [ %.sroa.79.0642, %99 ], [ %.sroa.79.0642, %108 ], [ %120, %117 ], [ %.sroa.79.0642, %127 ], [ %.sroa.79.0642, %137 ], [ %.sroa.79.0642, %147 ], [ %.sroa.79.0642, %157 ], [ %.sroa.79.0642, %161 ], [ %.sroa.79.0642, %56 ]
+  %.sroa.82.2 = phi i8 [ %.sroa.82.0643, %27 ], [ %.sroa.82.0643, %36 ], [ %.sroa.82.0643, %46 ], [ %.sroa.82.0643, %61 ], [ %.sroa.82.0643, %69 ], [ %.sroa.82.0643, %79 ], [ %.sroa.82.0643, %89 ], [ %.sroa.82.0643, %99 ], [ %.sroa.82.0643, %108 ], [ %.sroa.82.0643, %117 ], [ %130, %127 ], [ %.sroa.82.0643, %137 ], [ %.sroa.82.0643, %147 ], [ %.sroa.82.0643, %157 ], [ %.sroa.82.0643, %161 ], [ %.sroa.82.0643, %56 ]
+  %.sroa.88.2 = phi i8 [ %.sroa.88.0644, %27 ], [ %.sroa.88.0644, %36 ], [ %.sroa.88.0644, %46 ], [ %.sroa.88.0644, %61 ], [ %.sroa.88.0644, %69 ], [ %.sroa.88.0644, %79 ], [ %.sroa.88.0644, %89 ], [ %.sroa.88.0644, %99 ], [ %.sroa.88.0644, %108 ], [ %.sroa.88.0644, %117 ], [ %.sroa.88.0644, %127 ], [ %140, %137 ], [ %.sroa.88.0644, %147 ], [ %.sroa.88.0644, %157 ], [ %.sroa.88.0644, %161 ], [ %.sroa.88.0644, %56 ]
+  %.sroa.90.2 = phi i8 [ %.sroa.90.0645, %27 ], [ %.sroa.90.0645, %36 ], [ %.sroa.90.0645, %46 ], [ %.sroa.90.0645, %61 ], [ %.sroa.90.0645, %69 ], [ %.sroa.90.0645, %79 ], [ %.sroa.90.0645, %89 ], [ %.sroa.90.0645, %99 ], [ %.sroa.90.0645, %108 ], [ %.sroa.90.0645, %117 ], [ %.sroa.90.0645, %127 ], [ %.sroa.90.0645, %137 ], [ %150, %147 ], [ %.sroa.90.0645, %157 ], [ %.sroa.90.0645, %161 ], [ %.sroa.90.0645, %56 ]
+  %.sroa.0.2 = phi i32 [ %28, %27 ], [ %37, %36 ], [ %47, %46 ], [ %57, %61 ], [ %70, %69 ], [ %80, %79 ], [ %90, %89 ], [ %100, %99 ], [ %109, %108 ], [ %118, %117 ], [ %128, %127 ], [ %138, %137 ], [ %148, %147 ], [ %158, %157 ], [ %158, %161 ], [ %57, %56 ]
+  %.sroa.94149.2 = phi ptr [ %.sroa.94149.0647, %27 ], [ %.sroa.94149.0647, %36 ], [ %.sroa.94149.0647, %46 ], [ %.sroa.94149.0647, %61 ], [ %.sroa.94149.0647, %69 ], [ %.sroa.94149.0647, %79 ], [ %.sroa.94149.0647, %89 ], [ %.sroa.94149.0647, %99 ], [ %.sroa.94149.0647, %108 ], [ %.sroa.94149.0647, %117 ], [ %.sroa.94149.0647, %127 ], [ %.sroa.94149.0647, %137 ], [ %.sroa.94149.0647, %147 ], [ %159, %157 ], [ %159, %161 ], [ %.sroa.94149.0647, %56 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i648, 1
   %174 = load i32, ptr %13, align 4
   %175 = sext i32 %174 to i64
@@ -2421,7 +2421,7 @@ parse_subscription_options.specialized.5.exit.thread: ; preds = %206, %245, %par
   unreachable
 
 parse_subscription_options.specialized.3.exit:    ; preds = %356, %.lr.ph.i153, %.critedge.i158, %387
-  %412 = phi i8 [ %378, %.critedge.i158 ], [ %378, %387 ], [ 1, %356 ], [ 1, %.lr.ph.i153 ]
+  %412 = phi i8 [ %378, %.critedge.i158 ], [ %378, %387 ], [ 1, %.lr.ph.i153 ], [ 1, %356 ]
   %413 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %414 = load ptr, ptr %413, align 8
   %415 = icmp eq ptr %414, null
@@ -2662,7 +2662,7 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   unreachable
 
 542:                                              ; preds = %535, %.thread59.i
-  %.4.i = phi ptr [ %533, %.thread59.i ], [ %537, %535 ]
+  %.4.i = phi ptr [ %537, %535 ], [ %533, %.thread59.i ]
   %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i261, 1
   %543 = load i32, ptr %508, align 4
   %544 = sext i32 %543 to i64
@@ -3087,9 +3087,9 @@ parse_subscription_options.specialized.4.exit.thread: ; preds = %.lr.ph.i184, %6
   call fastcc void @AlterSubscription_refresh(ptr noundef nonnull %35, i1 noundef zeroext %764, ptr noundef null)
   br label %770
 
-765:                                              ; preds = %.thread326, %parse_subscription_options.specialized.4.exit.thread, %347, %439, %493, %publicationListToArray.exit, %421, %350, %425, %593, %publicationListToArray.exit168
-  %.1129.ph = phi i1 [ false, %publicationListToArray.exit168 ], [ false, %593 ], [ false, %425 ], [ %.0128, %350 ], [ false, %421 ], [ false, %publicationListToArray.exit ], [ false, %493 ], [ false, %439 ], [ %.0128, %347 ], [ false, %parse_subscription_options.specialized.4.exit.thread ], [ false, %.thread326 ]
-  %.1.ph = phi i1 [ false, %publicationListToArray.exit168 ], [ false, %593 ], [ false, %425 ], [ %.not146, %350 ], [ false, %421 ], [ false, %publicationListToArray.exit ], [ false, %493 ], [ false, %439 ], [ %.not146, %347 ], [ false, %parse_subscription_options.specialized.4.exit.thread ], [ false, %.thread326 ]
+765:                                              ; preds = %.thread326, %439, %493, %publicationListToArray.exit, %parse_subscription_options.specialized.4.exit.thread, %350, %347, %425, %421, %593, %publicationListToArray.exit168
+  %.1129.ph = phi i1 [ false, %publicationListToArray.exit168 ], [ false, %593 ], [ false, %421 ], [ false, %425 ], [ %.0128, %347 ], [ %.0128, %350 ], [ false, %parse_subscription_options.specialized.4.exit.thread ], [ false, %publicationListToArray.exit ], [ false, %493 ], [ false, %439 ], [ false, %.thread326 ]
+  %.1.ph = phi i1 [ false, %publicationListToArray.exit168 ], [ false, %593 ], [ false, %421 ], [ false, %425 ], [ %.not146, %347 ], [ %.not146, %350 ], [ false, %parse_subscription_options.specialized.4.exit.thread ], [ false, %publicationListToArray.exit ], [ false, %493 ], [ false, %439 ], [ false, %.thread326 ]
   %766 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %767 = load ptr, ptr %766, align 8
   %768 = call ptr @heap_modify_tuple(ptr noundef nonnull %17, ptr noundef %767, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
@@ -3632,7 +3632,7 @@ bsearch.exit141:                                  ; preds = %134, %166
   unreachable
 
 ._crit_edge:                                      ; preds = %174, %list_length.exit130, %.preheader
-  %.099.lcssa189 = phi ptr [ null, %list_length.exit130 ], [ %.1100, %.preheader ], [ %.1100, %174 ]
+  %.099.lcssa189 = phi ptr [ %.1100, %.preheader ], [ null, %list_length.exit130 ], [ %.1100, %174 ]
   store ptr %35, ptr @PG_exception_stack, align 8
   store ptr %36, ptr @error_context_stack, align 8
   %179 = load ptr, ptr @WalReceiverFunctions, align 8
@@ -3780,8 +3780,8 @@ define dso_local void @DropSubscription(ptr noundef readonly captures(none) %0, 
   br label %.thread
 
 .thread:                                          ; preds = %54, %64, %67
-  %.not104124 = phi i1 [ false, %67 ], [ true, %64 ], [ true, %54 ]
-  %.0123 = phi ptr [ %66, %67 ], [ null, %64 ], [ null, %54 ]
+  %.not104124 = phi i1 [ true, %64 ], [ false, %67 ], [ true, %54 ]
+  %.0123 = phi ptr [ null, %64 ], [ %66, %67 ], [ null, %54 ]
   store i32 6100, ptr %4, align 4
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %37, ptr %68, align 4
@@ -4394,8 +4394,8 @@ define dso_local signext range(i8 102, 117) i8 @defGetStreamingMode(ptr noundef 
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2504, ptr noundef nonnull @__func__.defGetStreamingMode) #9
   unreachable
 
-.thread:                                          ; preds = %20, %14, %10, %17, %23, %6, %1, %9
-  %.011 = phi i8 [ 116, %1 ], [ 116, %9 ], [ 112, %23 ], [ 102, %6 ], [ 116, %20 ], [ 102, %14 ], [ 102, %10 ], [ 116, %17 ]
+.thread:                                          ; preds = %17, %20, %10, %14, %23, %6, %1, %9
+  %.011 = phi i8 [ 116, %9 ], [ 112, %23 ], [ 116, %1 ], [ 102, %6 ], [ 116, %17 ], [ 116, %20 ], [ 102, %10 ], [ 102, %14 ]
   ret i8 %.011
 }
 

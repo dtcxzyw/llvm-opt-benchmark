@@ -4559,9 +4559,9 @@ define internal fastcc i32 @dissect_reply_afp_map_id(ptr noundef %0, ptr noundef
   br i1 %18, label %select.unfold, label %22
 
 select.unfold:                                    ; preds = %14, %2, %7
-  %.034.ph = phi i32 [ %4, %2 ], [ %13, %7 ], [ %15, %14 ]
-  %.033.ph = phi i32 [ 1, %2 ], [ 2, %7 ], [ 2, %14 ]
-  %.0.ph = phi i32 [ 0, %2 ], [ 8, %7 ], [ 0, %14 ]
+  %.034.ph = phi i32 [ %13, %7 ], [ %4, %2 ], [ %15, %14 ]
+  %.033.ph = phi i32 [ 2, %7 ], [ 1, %2 ], [ 2, %14 ]
+  %.0.ph = phi i32 [ 8, %7 ], [ 0, %2 ], [ 0, %14 ]
   %19 = load i32, ptr @hf_afp_map_name, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %19, ptr noundef %0, i32 noundef %.0.ph, i32 noundef %.033.ph, i32 noundef 0)
   %21 = or disjoint i32 %.033.ph, %.0.ph
@@ -4746,7 +4746,7 @@ define internal fastcc noundef i32 @dissect_reply_afp_list_ext_attrs(ptr noundef
   br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %11, %2
-  %.028 = phi i32 [ 6, %11 ], [ 6, %2 ], [ 6, %15 ], [ %22, %.lr.ph ]
+  %.028 = phi i32 [ 6, %2 ], [ 6, %11 ], [ 6, %15 ], [ %22, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.028
 }
@@ -5010,7 +5010,7 @@ define internal fastcc range(i32 4, 131610) i32 @decode_uam_parameters(ptr nound
   br label %32
 
 32:                                               ; preds = %30, %14, %26
-  %.030 = phi i32 [ %17, %14 ], [ %4, %30 ], [ %29, %26 ]
+  %.030 = phi i32 [ %4, %30 ], [ %29, %26 ], [ %17, %14 ]
   ret i32 %.030
 }
 

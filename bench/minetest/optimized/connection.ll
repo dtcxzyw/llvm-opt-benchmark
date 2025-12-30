@@ -6589,7 +6589,7 @@ if.then.i.i5.i:                                   ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i120, %lpad.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144, %if.then.i.i5.i122, %if.then.i.i5.i
-  %common.resume.op = phi { ptr, i32 } [ %22, %if.then.i.i5.i ], [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144 ], [ %36, %if.then.i.i5.i122 ], [ %22, %lpad.i ], [ %41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150 ], [ %36, %lpad.i120 ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %if.then.i.i5.i ], [ %36, %if.then.i.i5.i122 ], [ %41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150 ], [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144 ], [ %22, %lpad.i ], [ %36, %lpad.i120 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
@@ -7142,10 +7142,10 @@ invoke.cont.2:                                    ; preds = %invoke.cont.i34
   ret void
 
 arraydestroy.body.preheader.body:                 ; preds = %lpad.i31, %lpad2.i36, %lpad.i9, %lpad2.i14
-  %outgoing_reliables_sent.i26.sink = phi ptr [ %outgoing_reliables_sent.i4, %lpad.i9 ], [ %outgoing_reliables_sent.i4, %lpad2.i14 ], [ %outgoing_reliables_sent.i26, %lpad2.i36 ], [ %outgoing_reliables_sent.i26, %lpad.i31 ]
-  %arrayctor.cur.ptr.ptr.2.sink = phi ptr [ %arrayctor.cur.ptr.ptr.1, %lpad.i9 ], [ %arrayctor.cur.ptr.ptr.1, %lpad2.i14 ], [ %arrayctor.cur.ptr.ptr.2, %lpad2.i36 ], [ %arrayctor.cur.ptr.ptr.2, %lpad.i31 ]
-  %arrayctor.cur.idx.lcssa.ph.lpad-body = phi i64 [ 664, %lpad.i9 ], [ 664, %lpad2.i14 ], [ 1176, %lpad2.i36 ], [ 1176, %lpad.i31 ]
-  %eh.lpad-body21 = phi { ptr, i32 } [ %5, %lpad.i9 ], [ %6, %lpad2.i14 ], [ %9, %lpad2.i36 ], [ %8, %lpad.i31 ]
+  %outgoing_reliables_sent.i26.sink = phi ptr [ %outgoing_reliables_sent.i4, %lpad2.i14 ], [ %outgoing_reliables_sent.i4, %lpad.i9 ], [ %outgoing_reliables_sent.i26, %lpad2.i36 ], [ %outgoing_reliables_sent.i26, %lpad.i31 ]
+  %arrayctor.cur.ptr.ptr.2.sink = phi ptr [ %arrayctor.cur.ptr.ptr.1, %lpad2.i14 ], [ %arrayctor.cur.ptr.ptr.1, %lpad.i9 ], [ %arrayctor.cur.ptr.ptr.2, %lpad2.i36 ], [ %arrayctor.cur.ptr.ptr.2, %lpad.i31 ]
+  %arrayctor.cur.idx.lcssa.ph.lpad-body = phi i64 [ 664, %lpad2.i14 ], [ 664, %lpad.i9 ], [ 1176, %lpad2.i36 ], [ 1176, %lpad.i31 ]
+  %eh.lpad-body21 = phi { ptr, i32 } [ %6, %lpad2.i14 ], [ %5, %lpad.i9 ], [ %9, %lpad2.i36 ], [ %8, %lpad.i31 ]
   call void @_ZN3con20ReliablePacketBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %outgoing_reliables_sent.i26.sink) #32
   call void @_ZN3con20ReliablePacketBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %arrayctor.cur.ptr.ptr.2.sink) #32
   br label %arraydestroy.body
@@ -12443,7 +12443,7 @@ invoke.cont9:                                     ; preds = %cond.true
   unreachable
 
 cond.end.invoke:                                  ; preds = %if.end, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %_ZNSt8_Rb_treeItSt4pairIKtPN3con4PeerEESt10_Select1stIS5_ESt4lessItESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %invoke.cont
-  %6 = phi ptr [ null, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ], [ null, %invoke.cont ], [ null, %_ZNSt8_Rb_treeItSt4pairIKtPN3con4PeerEESt10_Select1stIS5_ESt4lessItESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ %4, %if.end ]
+  %6 = phi ptr [ null, %invoke.cont ], [ null, %_ZNSt8_Rb_treeItSt4pairIKtPN3con4PeerEESt10_Select1stIS5_ESt4lessItESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ null, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ], [ %4, %if.end ]
   store ptr null, ptr %agg.result, align 8, !tbaa !207
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3con10PeerHelperaSEPNS_4PeerE(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %6)
           to label %_ZNSt11unique_lockISt5mutexED2Ev.exit28 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit
@@ -12788,7 +12788,7 @@ invoke.cont23.loopexit.split.loop.exit27:         ; preds = %if.end.i.i.i
   br label %invoke.cont23
 
 invoke.cont23:                                    ; preds = %for.body.i.i.i, %invoke.cont23.loopexit.split.loop.exit, %invoke.cont23.loopexit.split.loop.exit25, %invoke.cont23.loopexit.split.loop.exit27, %sw.bb38.i.i.i, %sw.bb31.i.i.i, %sw.bb.i.i.i, %for.end.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %5, %for.end.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont23.loopexit.split.loop.exit27 ], [ %incdec.ptr.i58.i.i.i.le, %invoke.cont23.loopexit.split.loop.exit ], [ %incdec.ptr.i56.i.i.i.le, %invoke.cont23.loopexit.split.loop.exit25 ], [ %__first.sroa.0.097.i.i.i, %for.body.i.i.i ]
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %5, %for.end.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i58.i.i.i.le, %invoke.cont23.loopexit.split.loop.exit ], [ %incdec.ptr.i56.i.i.i.le, %invoke.cont23.loopexit.split.loop.exit25 ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont23.loopexit.split.loop.exit27 ], [ %__first.sroa.0.097.i.i.i, %for.body.i.i.i ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %add.ptr.i.i50 = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i.i

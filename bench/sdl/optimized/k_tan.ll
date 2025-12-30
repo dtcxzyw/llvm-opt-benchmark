@@ -107,7 +107,7 @@ define hidden double @__kernel_tan(double noundef %0, double noundef %1, i32 nou
   br label %75
 
 75:                                               ; preds = %62, %14, %17, %64, %49
-  %.1 = phi double [ %74, %64 ], [ %61, %49 ], [ %20, %17 ], [ %16, %14 ], [ %48, %62 ]
+  %.1 = phi double [ %61, %49 ], [ %74, %64 ], [ %16, %14 ], [ %20, %17 ], [ %48, %62 ]
   ret double %.1
 }
 

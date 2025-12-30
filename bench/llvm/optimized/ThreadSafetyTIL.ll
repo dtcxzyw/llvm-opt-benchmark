@@ -579,7 +579,7 @@ define dso_local noundef ptr @_ZN5clang12threadSafety3til22simplifyToCanonicalVa
   %.018.be = phi ptr [ %21, %18 ], [ %8, %6 ]
   br label %.backedge
 
-.thread:                                          ; preds = %.backedge, %15, %3, %6
+.thread:                                          ; preds = %.backedge, %15, %6, %3
   ret ptr %.018
 }
 
@@ -638,7 +638,7 @@ define dso_local void @_ZN5clang12threadSafety3til21simplifyIncompleteArgEPNS1_3
   %22 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
   br label %.backedge71.sink.split
 
-_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit: ; preds = %18, %.backedge71, %6, %9
+_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit: ; preds = %18, %.backedge71, %9, %6
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i64, ptr %23, align 8, !tbaa !29
   %25 = and i64 %24, 4294967294
@@ -709,7 +709,7 @@ _ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit: ; preds =
   %.018.i17.be = phi ptr [ %49, %46 ], [ %36, %34 ]
   br label %.backedge
 
-_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit33: ; preds = %.backedge, %43, %31, %34
+_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit33: ; preds = %.backedge, %43, %34, %31
   %50 = icmp ne ptr %.018.i17, %0
   %.not.not = icmp ne ptr %.018.i17, %.018.i
   %switch = and i1 %50, %.not.not
@@ -973,7 +973,7 @@ define dso_local void @_ZN5clang12threadSafety3til10BasicBlock16computeDominator
   br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !68
 
 .loopexit:                                        ; preds = %32, %.preheader, %17, %12
-  %.119 = phi ptr [ %13, %17 ], [ %.01828, %12 ], [ %.01828, %.preheader ], [ %.3, %32 ]
+  %.119 = phi ptr [ %.01828, %12 ], [ %13, %17 ], [ %.01828, %.preheader ], [ %.3, %32 ]
   %33 = getelementptr inbounds nuw i8, ptr %.02027, i64 8
   %.not = icmp eq ptr %33, %6
   br i1 %.not, label %._crit_edge, label %12
@@ -1057,7 +1057,7 @@ define dso_local void @_ZN5clang12threadSafety3til10BasicBlock20computePostDomin
   br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !71
 
 .loopexit:                                        ; preds = %33, %.preheader, %18, %13
-  %.119 = phi ptr [ %14, %18 ], [ %.01829, %13 ], [ %.01829, %.preheader ], [ %.3, %33 ]
+  %.119 = phi ptr [ %.01829, %13 ], [ %14, %18 ], [ %.01829, %.preheader ], [ %.3, %33 ]
   %34 = getelementptr inbounds nuw i8, ptr %.02028, i64 8
   %.not = icmp eq ptr %34, %7
   br i1 %.not, label %._crit_edge, label %13
@@ -1340,7 +1340,7 @@ _ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i: ; preds = %.lr
   br i1 %.not22.i, label %.loopexit.i, label %.lr.ph.i41, !llvm.loop !68
 
 .loopexit.i:                                      ; preds = %92, %.preheader.i, %77, %72
-  %.119.i = phi ptr [ %73, %77 ], [ %.01828.i, %72 ], [ %.01828.i, %.preheader.i ], [ %.3.i, %92 ]
+  %.119.i = phi ptr [ %.01828.i, %72 ], [ %73, %77 ], [ %.01828.i, %.preheader.i ], [ %.3.i, %92 ]
   %93 = getelementptr inbounds nuw i8, ptr %.02027.i, i64 8
   %.not.i40 = icmp eq ptr %93, %68
   br i1 %.not.i40, label %_ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit, label %72
@@ -1427,7 +1427,7 @@ _ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit: ; preds = %.lo
   br i1 %.not22.i51, label %.loopexit.i43, label %.lr.ph.i48, !llvm.loop !71
 
 .loopexit.i43:                                    ; preds = %128, %.preheader.i47, %113, %108
-  %.119.i44 = phi ptr [ %109, %113 ], [ %.01829.i, %108 ], [ %.01829.i, %.preheader.i47 ], [ %.3.i49, %128 ]
+  %.119.i44 = phi ptr [ %.01829.i, %108 ], [ %109, %113 ], [ %.01829.i, %.preheader.i47 ], [ %.3.i49, %128 ]
   %129 = getelementptr inbounds nuw i8, ptr %.02028.i, i64 8
   %.not.i45 = icmp eq ptr %129, %104
   br i1 %.not.i45, label %_ZN5clang12threadSafety3til10BasicBlock20computePostDominatorEv.exit, label %108

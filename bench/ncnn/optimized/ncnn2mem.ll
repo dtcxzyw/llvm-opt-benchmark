@@ -1693,7 +1693,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %585
 
 585:                                              ; preds = %583, %472, %466, %390
-  %.pn168.pn.pn.i = phi { ptr, i32 } [ %391, %390 ], [ %584, %583 ], [ %.pn168.i, %466 ], [ %473, %472 ]
+  %.pn168.pn.pn.i = phi { ptr, i32 } [ %584, %583 ], [ %391, %390 ], [ %.pn168.i, %466 ], [ %473, %472 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %586
 

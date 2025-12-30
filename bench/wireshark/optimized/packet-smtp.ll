@@ -903,8 +903,8 @@ append_pdu.exit282.us:                            ; preds = %317
   br label %328
 
 328:                                              ; preds = %append_pdu.exit282.us, %append_pdu.exit284.us, %275, %265, %line_is_smtp_command.exit.thread308.us, %262, %261, %append_pdu.exit287.us, %233, %231, %229, %227, %225, %223, %222, %221, %188, %179, %177, %175
-  %.1252305.us = phi i1 [ true, %append_pdu.exit282.us ], [ %.2253.us, %append_pdu.exit287.us ], [ false, %265 ], [ %.2253.us, %262 ], [ false, %275 ], [ %.2253.us, %233 ], [ %.2253.us, %231 ], [ %.2253.us, %229 ], [ %.2253.us, %227 ], [ %.2253.us, %225 ], [ %.2253.us, %223 ], [ %.2253.us, %222 ], [ %.2253.us, %221 ], [ %.2253.us, %179 ], [ %.2253.us, %line_is_smtp_command.exit.thread308.us ], [ %.2253.us, %177 ], [ %.2253.us, %175 ], [ %.2253.us, %188 ], [ false, %append_pdu.exit284.us ], [ %.2253.us, %261 ]
-  %.2.us = phi ptr [ %322, %append_pdu.exit282.us ], [ %253, %append_pdu.exit287.us ], [ %.1317.us, %265 ], [ %.1317.us, %262 ], [ %.1317.us, %275 ], [ %.1317.us, %233 ], [ %.1317.us, %231 ], [ %.1317.us, %229 ], [ %.1317.us, %227 ], [ %.1317.us, %225 ], [ %.1317.us, %223 ], [ %.1317.us, %222 ], [ %.1317.us, %221 ], [ %.1317.us, %179 ], [ %.1317.us, %line_is_smtp_command.exit.thread308.us ], [ %.1317.us, %177 ], [ %.1317.us, %175 ], [ %.1317.us, %188 ], [ %295, %append_pdu.exit284.us ], [ %.1317.us, %261 ]
+  %.1252305.us = phi i1 [ true, %append_pdu.exit282.us ], [ false, %265 ], [ %.2253.us, %262 ], [ %.2253.us, %233 ], [ %.2253.us, %231 ], [ %.2253.us, %229 ], [ %.2253.us, %227 ], [ %.2253.us, %225 ], [ %.2253.us, %223 ], [ %.2253.us, %222 ], [ %.2253.us, %221 ], [ %.2253.us, %179 ], [ %.2253.us, %line_is_smtp_command.exit.thread308.us ], [ %.2253.us, %177 ], [ %.2253.us, %175 ], [ %.2253.us, %188 ], [ false, %append_pdu.exit284.us ], [ false, %275 ], [ %.2253.us, %261 ], [ %.2253.us, %append_pdu.exit287.us ]
+  %.2.us = phi ptr [ %322, %append_pdu.exit282.us ], [ %.1317.us, %265 ], [ %.1317.us, %262 ], [ %.1317.us, %233 ], [ %.1317.us, %231 ], [ %.1317.us, %229 ], [ %.1317.us, %227 ], [ %.1317.us, %225 ], [ %.1317.us, %223 ], [ %.1317.us, %222 ], [ %.1317.us, %221 ], [ %.1317.us, %179 ], [ %.1317.us, %line_is_smtp_command.exit.thread308.us ], [ %.1317.us, %177 ], [ %.1317.us, %175 ], [ %.1317.us, %188 ], [ %295, %append_pdu.exit284.us ], [ %.1317.us, %275 ], [ %.1317.us, %261 ], [ %253, %append_pdu.exit287.us ]
   %329 = load i32, ptr %11, align 4
   %330 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %329)
   br i1 %330, label %.lr.ph318.split.us, label %.loopexit309, !llvm.loop !11
@@ -1572,8 +1572,8 @@ proto_item_set_hidden.exit.i:                     ; preds = %437, %434, %428
   br label %dissect_ntlm_auth.exit.i
 
 dissect_ntlm_auth.exit.i:                         ; preds = %684, %681, %678, %561, %552, %549, %543, %535, %497, %468
-  %.2302.i = phi ptr [ %.1301329.i, %468 ], [ %.1301329.i, %497 ], [ %.1301329.i, %535 ], [ %.1301329.i, %678 ], [ %.1301329.i, %552 ], [ %.1301329.i, %561 ], [ %.1301329.i, %681 ], [ %687, %684 ], [ %.1301329.i, %543 ], [ %.1301329.i, %549 ]
-  %.2.i = phi ptr [ %.1.i, %468 ], [ %.3.i, %497 ], [ %537, %535 ], [ %.5.i, %678 ], [ %523, %552 ], [ %.0331.i, %561 ], [ %.5.i, %681 ], [ %.5.i, %684 ], [ %523, %543 ], [ %523, %549 ]
+  %.2302.i = phi ptr [ %.1301329.i, %468 ], [ %.1301329.i, %497 ], [ %.1301329.i, %535 ], [ %.1301329.i, %552 ], [ %.1301329.i, %561 ], [ %.1301329.i, %681 ], [ %687, %684 ], [ %.1301329.i, %678 ], [ %.1301329.i, %543 ], [ %.1301329.i, %549 ]
+  %.2.i = phi ptr [ %.1.i, %468 ], [ %.3.i, %497 ], [ %537, %535 ], [ %523, %552 ], [ %.0331.i, %561 ], [ %.5.i, %681 ], [ %.5.i, %684 ], [ %.5.i, %678 ], [ %523, %543 ], [ %523, %549 ]
   %688 = load i32, ptr %9, align 4
   %689 = call zeroext i1 @tvb_offset_exists(ptr noundef %382, i32 noundef %688)
   br i1 %689, label %428, label %.loopexit.i, !llvm.loop !13
@@ -1634,7 +1634,7 @@ dissect_smtp_data.exit320.i:                      ; preds = %.lr.ph.i318.i, %.pr
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %dissect_smtp_data.exit320.i, %703, %699
-  %.sink.i = phi i8 [ 0, %703 ], [ 0, %dissect_smtp_data.exit320.i ], [ 1, %699 ]
+  %.sink.i = phi i8 [ 0, %dissect_smtp_data.exit320.i ], [ 0, %703 ], [ 1, %699 ]
   store i8 %.sink.i, ptr %371, align 8
   br label %dissect_smtp_request.exit
 
@@ -1756,8 +1756,8 @@ proto_item_set_hidden.exit.i291:                  ; preds = %724, %721, %718
   br label %776
 
 776:                                              ; preds = %774, %772
-  %.3138.i = phi i32 [ %..i302, %772 ], [ %spec.store.select10.i, %774 ]
-  %.3134.i = phi i32 [ %..0131.i, %772 ], [ %.0131161.i, %774 ]
+  %.3138.i = phi i32 [ %spec.store.select10.i, %774 ], [ %..i302, %772 ]
+  %.3134.i = phi i32 [ %.0131161.i, %774 ], [ %..0131.i, %772 ]
   %777 = load i32, ptr %.0259, align 8
   %778 = icmp eq i32 %777, 3
   br i1 %778, label %779, label %786
@@ -1922,8 +1922,8 @@ dissect_ntlm_auth.exit.i301:                      ; preds = %845, %842, %833
   br i1 %852, label %dissect_ntlm_auth.exit.thread.i, label %865
 
 dissect_ntlm_auth.exit.thread.i:                  ; preds = %dissect_ntlm_auth.exit.i301, %824, %817, %.dissect_ntlm_auth.exit.thread_crit_edge.i
-  %.pre-phi164.i = phi i32 [ %.pre163.i, %.dissect_ntlm_auth.exit.thread_crit_edge.i ], [ %820, %824 ], [ %820, %817 ], [ %820, %dissect_ntlm_auth.exit.i301 ]
-  %.pre-phi.i299 = phi i32 [ %.pre.i298, %.dissect_ntlm_auth.exit.thread_crit_edge.i ], [ %819, %824 ], [ %819, %817 ], [ %819, %dissect_ntlm_auth.exit.i301 ]
+  %.pre-phi164.i = phi i32 [ %.pre163.i, %.dissect_ntlm_auth.exit.thread_crit_edge.i ], [ %820, %817 ], [ %820, %824 ], [ %820, %dissect_ntlm_auth.exit.i301 ]
+  %.pre-phi.i299 = phi i32 [ %.pre.i298, %.dissect_ntlm_auth.exit.thread_crit_edge.i ], [ %819, %817 ], [ %819, %824 ], [ %819, %dissect_ntlm_auth.exit.i301 ]
   %853 = load i32, ptr @hf_smtp_rsp_parameter, align 4
   %854 = call ptr @proto_tree_add_item(ptr noundef %.3143.i, i32 noundef %853, ptr noundef %0, i32 noundef %.pre-phi.i299, i32 noundef %.pre-phi164.i, i32 noundef 0)
   %855 = load ptr, ptr %350, align 8

@@ -133,7 +133,7 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
   br label %49
 
 49:                                               ; preds = %45, %39, %47
-  %.069 = phi i64 [ %spec.select155, %39 ], [ %spec.select, %47 ], [ %spec.select156, %45 ]
+  %.069 = phi i64 [ %spec.select, %47 ], [ %spec.select156, %45 ], [ %spec.select155, %39 ]
   %50 = load ptr, ptr %23, align 8, !tbaa !59
   %51 = call ptr @cli_gentemp(ptr noundef %50) #15
   %.not105 = icmp eq ptr %51, null
@@ -193,8 +193,8 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
   call void @free(ptr noundef nonnull %51) #15
   br label %.thread126.thread
 
-.thread126.thread:                                ; preds = %49, %.thread115, %26, %37, %19, %.thread140
-  %.078132144 = phi i32 [ %.280.ph, %.thread140 ], [ 0, %19 ], [ %32, %26 ], [ 0, %.thread115 ], [ 20, %49 ], [ 0, %37 ]
+.thread126.thread:                                ; preds = %49, %37, %.thread115, %26, %19, %.thread140
+  %.078132144 = phi i32 [ %.280.ph, %.thread140 ], [ 0, %19 ], [ 20, %49 ], [ 0, %37 ], [ 0, %.thread115 ], [ %32, %26 ]
   %74 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !65
   call void %75(ptr noundef nonnull %9, ptr noundef nonnull %17) #15
@@ -206,7 +206,7 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
   br label %77
 
 77:                                               ; preds = %.thread126.thread148, %76
-  %.078132145 = phi i32 [ 7, %.thread126.thread148 ], [ %.078132144154, %76 ]
+  %.078132145 = phi i32 [ %.078132144154, %76 ], [ 7, %.thread126.thread148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.078132145
@@ -331,7 +331,7 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
   br label %41
 
 41:                                               ; preds = %37, %31, %39
-  %.064 = phi i64 [ %spec.select151, %31 ], [ %spec.select, %39 ], [ %spec.select152, %37 ]
+  %.064 = phi i64 [ %spec.select, %39 ], [ %spec.select152, %37 ], [ %spec.select151, %31 ]
   %42 = load ptr, ptr %16, align 8, !tbaa !59
   %43 = call ptr @cli_gentemp(ptr noundef %42) #15
   %.not101 = icmp eq ptr %43, null
@@ -391,8 +391,8 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
   call void @free(ptr noundef nonnull %43) #15
   br label %.thread122.thread
 
-.thread122.thread:                                ; preds = %41, %.thread111, %19, %29, %12, %.thread136
-  %.073128140 = phi i32 [ %.275.ph, %.thread136 ], [ 0, %12 ], [ %24, %19 ], [ 0, %.thread111 ], [ 20, %41 ], [ 0, %29 ]
+.thread122.thread:                                ; preds = %41, %29, %.thread111, %19, %12, %.thread136
+  %.073128140 = phi i32 [ %.275.ph, %.thread136 ], [ 0, %12 ], [ 20, %41 ], [ 0, %29 ], [ 0, %.thread111 ], [ %24, %19 ]
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !75
   call void %67(ptr noundef nonnull %8, ptr noundef nonnull %11) #15
@@ -404,7 +404,7 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
   br label %69
 
 69:                                               ; preds = %.thread122.thread144, %68
-  %.073128141 = phi i32 [ 7, %.thread122.thread144 ], [ %.073128140150, %68 ]
+  %.073128141 = phi i32 [ %.073128140150, %68 ], [ 7, %.thread122.thread144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.073128141
@@ -464,7 +464,7 @@ define internal noalias noundef ptr @mspack_fmap_open(ptr noundef readonly captu
   br label %26
 
 18:                                               ; preds = %7, %16, %15
-  %.024 = phi ptr [ @.str.4, %16 ], [ @.str.3, %15 ], [ @.str.2, %7 ]
+  %.024 = phi ptr [ @.str.3, %15 ], [ @.str.4, %16 ], [ @.str.2, %7 ]
   store i32 2, ptr %calloc, align 8, !tbaa !76
   %19 = tail call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull %.024)
   %20 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
@@ -580,7 +580,7 @@ define internal i32 @mspack_fmap_read(ptr noundef captures(address_is_null) %0, 
   br label %48
 
 fmap_readn.exit:                                  ; preds = %31, %11
-  %.0.i = phi i64 [ 0, %11 ], [ %spec.select.i, %31 ]
+  %.0.i = phi i64 [ %spec.select.i, %31 ], [ 0, %11 ]
   %33 = trunc nuw nsw i64 %.0.i to i32
   %34 = icmp samesign ugt i32 %2, %33
   br i1 %34, label %35, label %36
@@ -662,7 +662,7 @@ define internal range(i32 -1, -2147483648) i32 @mspack_fmap_write(ptr noundef ca
   br label %24
 
 24:                                               ; preds = %15, %12, %11, %23, %10, %6
-  %.0 = phi i32 [ -1, %10 ], [ -1, %23 ], [ %2, %12 ], [ 0, %11 ], [ -1, %6 ], [ %2, %15 ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %23 ], [ -1, %6 ], [ 0, %11 ], [ %2, %12 ], [ %2, %15 ]
   ret i32 %.0
 }
 
@@ -706,7 +706,7 @@ define internal noundef i32 @mspack_fmap_seek(ptr noundef captures(address_is_nu
   br label %37
 
 20:                                               ; preds = %8, %13, %9
-  %.0 = phi i64 [ %18, %13 ], [ %12, %9 ], [ %1, %8 ]
+  %.0 = phi i64 [ %12, %9 ], [ %18, %13 ], [ %1, %8 ]
   %21 = icmp slt i64 %.0, 0
   br i1 %21, label %28, label %22
 
@@ -742,7 +742,7 @@ define internal noundef i32 @mspack_fmap_seek(ptr noundef captures(address_is_nu
   br label %37
 
 37:                                               ; preds = %19, %28, %29, %33, %32, %4
-  %.018 = phi i32 [ -1, %4 ], [ -1, %32 ], [ %36, %33 ], [ -1, %19 ], [ -1, %28 ], [ 0, %29 ]
+  %.018 = phi i32 [ -1, %32 ], [ %36, %33 ], [ -1, %4 ], [ -1, %19 ], [ -1, %28 ], [ 0, %29 ]
   ret i32 %.018
 }
 

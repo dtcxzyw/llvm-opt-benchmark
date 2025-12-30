@@ -273,7 +273,7 @@ undo_zip_impl.exit:                               ; preds = %.lr.ph48.i.i.i, %15
   br label %55
 
 55:                                               ; preds = %11, %8, %10, %undo_zip_impl.exit
-  %.026 = phi i32 [ %.014.i, %undo_zip_impl.exit ], [ 0, %8 ], [ 0, %10 ], [ %14, %11 ]
+  %.026 = phi i32 [ %.014.i, %undo_zip_impl.exit ], [ 0, %10 ], [ 0, %8 ], [ %14, %11 ]
   ret i32 %.026
 }
 

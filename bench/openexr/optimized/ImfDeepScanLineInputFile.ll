@@ -1621,7 +1621,7 @@ _ZNSt6atomicIPN7Imf_3_412_GLOBAL__N_115ScanLineProcessEE21compare_exchange_weakE
   br label %187
 
 187:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body65, %138
-  %.pn49 = phi { ptr, i32 } [ %eh.lpad-body66, %.body65 ], [ %139, %138 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn49 = phi { ptr, i32 } [ %139, %138 ], [ %eh.lpad-body66, %.body65 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN13IlmThread_3_49TaskGroupD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #28
   br label %188
 
@@ -2415,9 +2415,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39: ; preds = %43
           to label %.invoke unwind label %73
 
 .invoke:                                          ; preds = %177, %165, %90, %83, %68
-  %70 = phi ptr [ %166, %165 ], [ %69, %68 ], [ %84, %83 ], [ %91, %90 ], [ %178, %177 ]
-  %71 = phi ptr [ @_ZTIN7Iex_3_45IoExcE, %165 ], [ @_ZTIN7Iex_3_48InputExcE, %68 ], [ @_ZTIN7Iex_3_46ArgExcE, %83 ], [ @_ZTIN7Iex_3_45IoExcE, %90 ], [ @_ZTIN7Iex_3_45IoExcE, %177 ]
-  %72 = phi ptr [ @_ZN7Iex_3_45IoExcD1Ev, %165 ], [ @_ZN7Iex_3_48InputExcD1Ev, %68 ], [ @_ZN7Iex_3_46ArgExcD1Ev, %83 ], [ @_ZN7Iex_3_45IoExcD1Ev, %90 ], [ @_ZN7Iex_3_45IoExcD1Ev, %177 ]
+  %70 = phi ptr [ %69, %68 ], [ %84, %83 ], [ %91, %90 ], [ %166, %165 ], [ %178, %177 ]
+  %71 = phi ptr [ @_ZTIN7Iex_3_48InputExcE, %68 ], [ @_ZTIN7Iex_3_46ArgExcE, %83 ], [ @_ZTIN7Iex_3_45IoExcE, %90 ], [ @_ZTIN7Iex_3_45IoExcE, %165 ], [ @_ZTIN7Iex_3_45IoExcE, %177 ]
+  %72 = phi ptr [ @_ZN7Iex_3_48InputExcD1Ev, %68 ], [ @_ZN7Iex_3_46ArgExcD1Ev, %83 ], [ @_ZN7Iex_3_45IoExcD1Ev, %90 ], [ @_ZN7Iex_3_45IoExcD1Ev, %165 ], [ @_ZN7Iex_3_45IoExcD1Ev, %177 ]
   invoke void @__cxa_throw(ptr nonnull %70, ptr nonnull %71, ptr nonnull %72) #29
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -4136,7 +4136,7 @@ _ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4
           to label %60 unwind label %73
 
 60:                                               ; preds = %58, %56, %53, %48, %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43
-  %.sink12.i.i36 = phi ptr [ %40, %58 ], [ %40, %48 ], [ %40, %53 ], [ %40, %56 ], [ %59, %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43 ]
+  %.sink12.i.i36 = phi ptr [ %40, %48 ], [ %40, %53 ], [ %40, %56 ], [ %40, %58 ], [ %59, %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43 ]
   %61 = getelementptr inbounds nuw i8, ptr %.050, i64 32
   %62 = getelementptr inbounds nuw i8, ptr %.sink12.i.i36, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %62, ptr noundef nonnull align 8 dereferenceable(312) %61, i64 312, i1 false)
@@ -4488,7 +4488,7 @@ define internal fastcc void @_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess8run_fill
   br label %_ZN9Imath_3_24halfC2Ef.exit
 
 _ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %80, %83, %93, %95, %104, %118, %121
-  %.0.i.i = phi i16 [ %76, %104 ], [ %90, %83 ], [ %94, %93 ], [ %103, %95 ], [ %81, %80 ], [ %122, %121 ], [ %116, %118 ]
+  %.0.i.i = phi i16 [ %90, %83 ], [ %94, %93 ], [ %103, %95 ], [ %81, %80 ], [ %76, %104 ], [ %122, %121 ], [ %116, %118 ]
   %123 = icmp sgt i32 %57, 0
   br i1 %123, label %.lr.ph10.preheader, label %.loopexit
 

@@ -225,7 +225,7 @@ jent_apt_init.exit:                               ; preds = %15, %19
   br i1 %.not6.i, label %.outer.i, label %jent_gen_entropy.exit, !llvm.loop !5
 
 jent_gen_entropy.exit:                            ; preds = %31, %3, %10
-  %.0 = phi ptr [ null, %3 ], [ null, %10 ], [ %4, %31 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %3 ], [ %4, %31 ]
   ret ptr %.0
 }
 

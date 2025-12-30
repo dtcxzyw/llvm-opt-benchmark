@@ -74,7 +74,7 @@ define dso_local noundef ptr @ExecInitJunkFilter(ptr noundef %0, ptr noundef %1)
   br i1 %34, label %.lr.ph40, label %.critedge
 
 .critedge:                                        ; preds = %31, %10, %.lr.ph, %7
-  %.027 = phi ptr [ null, %7 ], [ %13, %10 ], [ %13, %.lr.ph ], [ %13, %31 ]
+  %.027 = phi ptr [ null, %7 ], [ %13, %.lr.ph ], [ %13, %10 ], [ %13, %31 ]
   %35 = tail call noundef ptr @palloc0(i64 noundef 40) #4
   store i32 384, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -241,7 +241,7 @@ define dso_local signext i16 @ExecFindJunkAttribute(ptr noundef readonly capture
   br label %ExecFindJunkAttributeInTlist.exit
 
 ExecFindJunkAttributeInTlist.exit:                ; preds = %22, %2, %.lr.ph.i, %.split.i
-  %25 = phi i16 [ %24, %.split.i ], [ 0, %2 ], [ 0, %.lr.ph.i ], [ 0, %22 ]
+  %25 = phi i16 [ %24, %.split.i ], [ 0, %.lr.ph.i ], [ 0, %2 ], [ 0, %22 ]
   ret i16 %25
 }
 
@@ -293,7 +293,7 @@ define dso_local signext i16 @ExecFindJunkAttributeInTlist(ptr noundef readonly 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %2, %.lr.ph, %.split
-  %23 = phi i16 [ %22, %.split ], [ 0, %2 ], [ 0, %.lr.ph ], [ 0, %20 ]
+  %23 = phi i16 [ %22, %.split ], [ 0, %.lr.ph ], [ 0, %2 ], [ 0, %20 ]
   ret i16 %23
 }
 

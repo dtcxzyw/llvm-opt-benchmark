@@ -519,7 +519,7 @@ dbd_conn_check_and_reopen.exit:                   ; preds = %3
   br label %48
 
 48:                                               ; preds = %15, %dbd_conn_check_and_reopen.exit, %12, %19, %29, %47
-  %.1 = phi i32 [ -1, %dbd_conn_check_and_reopen.exit ], [ %18, %19 ], [ -1, %29 ], [ %.0, %47 ], [ -1, %12 ], [ -1, %15 ]
+  %.1 = phi i32 [ %18, %19 ], [ -1, %29 ], [ %.0, %47 ], [ -1, %12 ], [ -1, %dbd_conn_check_and_reopen.exit ], [ -1, %15 ]
   %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %50 = and i64 %49, 67108864
   %.not37 = icmp eq i64 %50, 0

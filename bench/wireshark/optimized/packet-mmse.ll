@@ -731,7 +731,7 @@ get_text_string.exit510:                          ; preds = %116, %121
   br label %get_long_integer.exit
 
 get_long_integer.exit:                            ; preds = %129, %133, %136, %139, %141
-  %.0.i = phi i32 [ %142, %141 ], [ %135, %133 ], [ %138, %136 ], [ %140, %139 ], [ 0, %129 ]
+  %.0.i = phi i32 [ %135, %133 ], [ %138, %136 ], [ %140, %139 ], [ %142, %141 ], [ 0, %129 ]
   %143 = load i32, ptr %15, align 4
   %144 = add i32 %143, 1
   store i32 %144, ptr %15, align 4
@@ -810,7 +810,7 @@ get_value_length.exit:                            ; preds = %161, %163
   br label %get_long_integer.exit513
 
 get_long_integer.exit513:                         ; preds = %get_value_length.exit, %175, %178, %181, %183
-  %.0.i512 = phi i32 [ %184, %183 ], [ %177, %175 ], [ %180, %178 ], [ %182, %181 ], [ 0, %get_value_length.exit ]
+  %.0.i512 = phi i32 [ %177, %175 ], [ %180, %178 ], [ %182, %181 ], [ %184, %183 ], [ 0, %get_value_length.exit ]
   %185 = zext i32 %.0.i512 to i64
   store i64 %185, ptr %18, align 8
   store i32 0, ptr %41, align 8
@@ -884,7 +884,7 @@ get_value_length.exit516:                         ; preds = %199, %201
   br label %get_long_integer.exit518
 
 get_long_integer.exit518:                         ; preds = %get_value_length.exit516, %213, %216, %219, %221
-  %.0.i517 = phi i32 [ %222, %221 ], [ %215, %213 ], [ %218, %216 ], [ %220, %219 ], [ 0, %get_value_length.exit516 ]
+  %.0.i517 = phi i32 [ %215, %213 ], [ %218, %216 ], [ %220, %219 ], [ %222, %221 ], [ 0, %get_value_length.exit516 ]
   %223 = zext i32 %.0.i517 to i64
   store i64 %223, ptr %19, align 8
   store i32 0, ptr %40, align 8
@@ -1058,7 +1058,7 @@ get_text_string.exit527:                          ; preds = %294, %299
   br label %get_long_integer.exit529
 
 get_long_integer.exit529:                         ; preds = %306, %310, %313, %316, %318
-  %.0.i528 = phi i32 [ %319, %318 ], [ %312, %310 ], [ %315, %313 ], [ %317, %316 ], [ 0, %306 ]
+  %.0.i528 = phi i32 [ %312, %310 ], [ %315, %313 ], [ %317, %316 ], [ %319, %318 ], [ 0, %306 ]
   %320 = load i32, ptr %15, align 4
   %321 = add i32 %320, 1
   store i32 %321, ptr %15, align 4
@@ -1312,7 +1312,7 @@ get_value_length.exit532:                         ; preds = %454, %456
   br label %get_long_integer.exit534
 
 get_long_integer.exit534:                         ; preds = %get_value_length.exit532, %468, %471, %474, %476
-  %.0.i533 = phi i32 [ %477, %476 ], [ %470, %468 ], [ %473, %471 ], [ %475, %474 ], [ 0, %get_value_length.exit532 ]
+  %.0.i533 = phi i32 [ %470, %468 ], [ %473, %471 ], [ %475, %474 ], [ %477, %476 ], [ 0, %get_value_length.exit532 ]
   %478 = zext i32 %.0.i533 to i64
   store i64 %478, ptr %22, align 8
   store i32 0, ptr %38, align 8
@@ -1391,7 +1391,7 @@ get_text_string.exit537:                          ; preds = %492, %497
   br label %get_long_integer.exit539
 
 get_long_integer.exit539:                         ; preds = %504, %508, %511, %514, %516
-  %.0.i538 = phi i32 [ %517, %516 ], [ %510, %508 ], [ %513, %511 ], [ %515, %514 ], [ 0, %504 ]
+  %.0.i538 = phi i32 [ %510, %508 ], [ %513, %511 ], [ %515, %514 ], [ %517, %516 ], [ 0, %504 ]
   %518 = load i32, ptr %15, align 4
   %519 = add i32 %518, 1
   store i32 %519, ptr %15, align 4
@@ -1462,7 +1462,7 @@ get_value_length.exit542:                         ; preds = %529, %531
   br label %553
 
 553:                                              ; preds = %551, %549, %546, %543, %542
-  %.019.i = phi i32 [ %552, %551 ], [ %545, %543 ], [ %548, %546 ], [ %550, %549 ], [ 0, %542 ]
+  %.019.i = phi i32 [ %545, %543 ], [ %548, %546 ], [ %550, %549 ], [ %552, %551 ], [ 0, %542 ]
   %554 = add nuw nsw i32 %539, 1
   br label %get_integer_value.exit
 
@@ -1558,7 +1558,7 @@ get_value_length.exit547:                         ; preds = %585, %587
   br label %609
 
 609:                                              ; preds = %607, %605, %602, %599, %598
-  %.019.i551 = phi i32 [ %608, %607 ], [ %601, %599 ], [ %604, %602 ], [ %606, %605 ], [ 0, %598 ]
+  %.019.i551 = phi i32 [ %601, %599 ], [ %604, %602 ], [ %606, %605 ], [ %608, %607 ], [ 0, %598 ]
   %610 = add nuw nsw i32 %595, 1
   br label %get_integer_value.exit552
 
@@ -1597,7 +1597,7 @@ get_integer_value.exit552:                        ; preds = %596, %609
   br label %get_long_integer.exit554
 
 get_long_integer.exit554:                         ; preds = %get_integer_value.exit552, %617, %620, %623, %625
-  %.0.i553 = phi i32 [ %626, %625 ], [ %619, %617 ], [ %622, %620 ], [ %624, %623 ], [ 0, %get_integer_value.exit552 ]
+  %.0.i553 = phi i32 [ %619, %617 ], [ %622, %620 ], [ %624, %623 ], [ %626, %625 ], [ 0, %get_integer_value.exit552 ]
   %627 = add nuw nsw i32 %616, 1
   %628 = zext i32 %.0.i553 to i64
   store i64 %628, ptr %23, align 8
@@ -1917,7 +1917,7 @@ get_value_length.exit:                            ; preds = %13, %15
   br label %47
 
 47:                                               ; preds = %45, %43, %40, %37, %36
-  %.019.i = phi i32 [ %46, %45 ], [ %39, %37 ], [ %42, %40 ], [ %44, %43 ], [ 0, %36 ]
+  %.019.i = phi i32 [ %39, %37 ], [ %42, %40 ], [ %44, %43 ], [ %46, %45 ], [ 0, %36 ]
   %48 = add nuw nsw i32 %33, 1
   %.pre = add i32 %48, %1
   br label %get_integer_value.exit

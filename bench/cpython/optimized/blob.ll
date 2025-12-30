@@ -290,8 +290,8 @@ check_blob.exit:                                  ; preds = %8
   %19 = sext i32 %18 to i64
   br label %check_blob.exit.thread
 
-check_blob.exit.thread:                           ; preds = %5, %1, %12, %check_blob.exit
-  %.0 = phi i64 [ %19, %check_blob.exit ], [ -1, %12 ], [ -1, %1 ], [ -1, %5 ]
+check_blob.exit.thread:                           ; preds = %1, %5, %12, %check_blob.exit
+  %.0 = phi i64 [ %19, %check_blob.exit ], [ -1, %12 ], [ -1, %5 ], [ -1, %1 ]
   ret i64 %.0
 }
 
@@ -469,7 +469,7 @@ read_single.exit.i:                               ; preds = %47, %43
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !45
 
 subscript_slice.exit:                             ; preds = %53, %64, %67, %73, %._crit_edge.i, %80, %83
-  %.018.i = phi ptr [ %74, %83 ], [ %66, %64 ], [ null, %67 ], [ null, %73 ], [ %74, %._crit_edge.i ], [ %74, %80 ], [ null, %53 ]
+  %.018.i = phi ptr [ %66, %64 ], [ null, %67 ], [ null, %73 ], [ %74, %._crit_edge.i ], [ %74, %80 ], [ %74, %83 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -480,8 +480,8 @@ subscript_slice.exit:                             ; preds = %53, %64, %67, %73, 
   tail call void @PyErr_SetString(ptr noundef %91, ptr noundef nonnull @.str.18) #5
   br label %subscript_index.exit
 
-subscript_index.exit:                             ; preds = %10, %2, %17, %read_single.exit.i, %37, %28, %90, %subscript_slice.exit
-  %.0 = phi ptr [ null, %37 ], [ %.018.i, %subscript_slice.exit ], [ null, %90 ], [ %.0.i7.i, %read_single.exit.i ], [ null, %28 ], [ null, %17 ], [ null, %2 ], [ null, %10 ]
+subscript_index.exit:                             ; preds = %2, %10, %17, %read_single.exit.i, %37, %28, %90, %subscript_slice.exit
+  %.0 = phi ptr [ %.018.i, %subscript_slice.exit ], [ null, %90 ], [ %.0.i7.i, %read_single.exit.i ], [ null, %28 ], [ null, %37 ], [ null, %17 ], [ null, %10 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -804,7 +804,7 @@ inner_write.exit33.i:                             ; preds = %147, %141, %139
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !52
 
 inner_write.exit.i14:                             ; preds = %155, %152, %inner_write.exit33.i, %124, %120, %114, %112, %99
-  %.020.i = phi i32 [ -1, %99 ], [ -1, %124 ], [ 0, %114 ], [ -1, %112 ], [ -1, %120 ], [ %.0.i32.i, %inner_write.exit33.i ], [ %.0.i32.i, %152 ], [ %.0.i32.i, %155 ]
+  %.020.i = phi i32 [ -1, %99 ], [ -1, %124 ], [ -1, %112 ], [ -1, %120 ], [ 0, %114 ], [ %.0.i32.i, %inner_write.exit33.i ], [ %.0.i32.i, %152 ], [ %.0.i32.i, %155 ]
   call void @PyBuffer_Release(ptr noundef nonnull %7) #5
   br label %163
 
@@ -825,8 +825,8 @@ get_slice_info.exit.thread.i:                     ; preds = %163, %86, %83
   tail call void @PyErr_SetString(ptr noundef %165, ptr noundef nonnull @.str.18) #5
   br label %ass_subscript_index.exit
 
-ass_subscript_index.exit:                         ; preds = %12, %3, %19, %get_slice_info.exit.thread.i, %81, %inner_write.exit.i, %.thread.i, %52, %43, %34, %28, %164
-  %.0 = phi i32 [ %.1.i, %get_slice_info.exit.thread.i ], [ -1, %52 ], [ -1, %164 ], [ -1, %28 ], [ -1, %34 ], [ %.0.i23.i, %inner_write.exit.i ], [ -1, %.thread.i ], [ -1, %43 ], [ -1, %81 ], [ -1, %19 ], [ -1, %3 ], [ -1, %12 ]
+ass_subscript_index.exit:                         ; preds = %3, %12, %19, %get_slice_info.exit.thread.i, %81, %inner_write.exit.i, %.thread.i, %52, %43, %34, %28, %164
+  %.0 = phi i32 [ -1, %164 ], [ -1, %28 ], [ -1, %34 ], [ -1, %.thread.i ], [ %.0.i23.i, %inner_write.exit.i ], [ -1, %43 ], [ -1, %52 ], [ -1, %81 ], [ %.1.i, %get_slice_info.exit.thread.i ], [ -1, %19 ], [ -1, %12 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -862,7 +862,7 @@ define internal noundef ptr @blob_close(ptr noundef captures(none) %0, ptr readn
   br label %blob_close_impl.exit
 
 blob_close_impl.exit:                             ; preds = %2, %6, %9, %12
-  %.0.i = phi ptr [ null, %2 ], [ null, %6 ], [ @_Py_NoneStruct, %9 ], [ @_Py_NoneStruct, %12 ]
+  %.0.i = phi ptr [ null, %6 ], [ null, %2 ], [ @_Py_NoneStruct, %9 ], [ @_Py_NoneStruct, %12 ]
   ret ptr %.0.i
 }
 
@@ -906,7 +906,7 @@ check_blob.exit.i:                                ; preds = %9
   br label %blob_enter_impl.exit
 
 blob_enter_impl.exit:                             ; preds = %2, %6, %13, %check_blob.exit.i, %21
-  %.0.i = phi ptr [ %0, %21 ], [ %0, %check_blob.exit.i ], [ null, %13 ], [ null, %2 ], [ null, %6 ]
+  %.0.i = phi ptr [ %0, %check_blob.exit.i ], [ %0, %21 ], [ null, %13 ], [ null, %6 ], [ null, %2 ]
   ret ptr %.0.i
 }
 
@@ -956,7 +956,7 @@ check_blob.exit.i:                                ; preds = %13
   br label %blob_exit_impl.exit
 
 blob_exit_impl.exit:                              ; preds = %check_blob.exit.i, %17, %10, %6, %4
-  %.0 = phi ptr [ null, %4 ], [ @_Py_FalseStruct, %check_blob.exit.i ], [ null, %10 ], [ null, %17 ], [ null, %6 ]
+  %.0 = phi ptr [ null, %4 ], [ @_Py_FalseStruct, %check_blob.exit.i ], [ null, %17 ], [ null, %10 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -1043,7 +1043,7 @@ check_blob.exit.i:                                ; preds = %21
   br label %blob_read_impl.exit
 
 blob_read_impl.exit:                              ; preds = %45, %40, %38, %25, %18, %14, %12, %4
-  %.09 = phi ptr [ null, %4 ], [ null, %12 ], [ null, %40 ], [ %39, %38 ], [ %43, %45 ], [ null, %25 ], [ null, %14 ], [ null, %18 ]
+  %.09 = phi ptr [ null, %12 ], [ null, %4 ], [ %39, %38 ], [ %43, %45 ], [ null, %40 ], [ null, %25 ], [ null, %18 ], [ null, %14 ]
   ret ptr %.09
 }
 
@@ -1170,7 +1170,7 @@ check_blob.exit.i:                                ; preds = %29
   br label %blob_seek_impl.exit
 
 blob_seek_impl.exit:                              ; preds = %61, %59, %57, %52, %33, %26, %22, %20, %11, %5
-  %.012 = phi ptr [ null, %11 ], [ null, %5 ], [ null, %20 ], [ null, %61 ], [ null, %52 ], [ null, %57 ], [ @_Py_NoneStruct, %59 ], [ null, %33 ], [ null, %22 ], [ null, %26 ]
+  %.012 = phi ptr [ null, %11 ], [ null, %20 ], [ null, %5 ], [ null, %52 ], [ null, %57 ], [ @_Py_NoneStruct, %59 ], [ null, %61 ], [ null, %33 ], [ null, %26 ], [ null, %22 ]
   ret ptr %.012
 }
 
@@ -1211,7 +1211,7 @@ check_blob.exit.i:                                ; preds = %9
   br label %blob_tell_impl.exit
 
 blob_tell_impl.exit:                              ; preds = %2, %6, %13, %check_blob.exit.i
-  %.0.i = phi ptr [ %22, %check_blob.exit.i ], [ null, %13 ], [ null, %2 ], [ null, %6 ]
+  %.0.i = phi ptr [ %22, %check_blob.exit.i ], [ null, %13 ], [ null, %6 ], [ null, %2 ]
   ret ptr %.0.i
 }
 
@@ -1297,7 +1297,7 @@ inner_write.exit.i:                               ; preds = %34
   br label %blob_write_impl.exit
 
 blob_write_impl.exit:                             ; preds = %inner_write.exit.i, %39, %32, %16, %9, %5, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %9 ], [ @_Py_NoneStruct, %inner_write.exit.i ], [ null, %16 ], [ null, %5 ], [ null, %32 ], [ null, %39 ]
+  %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %inner_write.exit.i ], [ null, %16 ], [ null, %9 ], [ null, %5 ], [ null, %32 ], [ null, %39 ]
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !54
   %.not3 = icmp eq ptr %48, null

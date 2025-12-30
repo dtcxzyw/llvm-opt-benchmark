@@ -65,11 +65,11 @@ define noundef range(i32 -2147483648, 256) i32 @main(i32 noundef %0, ptr noundef
   %.inv.i = icmp sgt i32 %30, -1
   br i1 %.inv.i, label %33, label %_ZL10fork_xtermPi.exit.thread14
 
-_ZL10fork_xtermPi.exit.thread14:                  ; preds = %21, %29, %25
+_ZL10fork_xtermPi.exit.thread14:                  ; preds = %25, %21, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL10fork_xtermPi.exit.thread
 
-_ZL10fork_xtermPi.exit.thread:                    ; preds = %13, %19, %8, %2, %_ZL10fork_xtermPi.exit.thread14
+_ZL10fork_xtermPi.exit.thread:                    ; preds = %13, %8, %19, %2, %_ZL10fork_xtermPi.exit.thread14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %31 = load ptr, ptr @stderr, align 8, !tbaa !8
   %32 = call i64 @fwrite(ptr nonnull @.str, i64 21, i64 1, ptr %31) #9
@@ -101,7 +101,7 @@ _ZL10fork_xtermPi.exit.thread:                    ; preds = %13, %19, %8, %2, %_
   %46 = call i32 @execvp(ptr noundef nonnull @.str.2, ptr noundef %1) #8
   br label %47
 
-47:                                               ; preds = %39, %33, %45, %42
+47:                                               ; preds = %45, %33, %42, %39
   %48 = load ptr, ptr @stderr, align 8, !tbaa !8
   %49 = call i64 @fwrite(ptr nonnull @.str.1, i64 21, i64 1, ptr %48) #9
   br label %63

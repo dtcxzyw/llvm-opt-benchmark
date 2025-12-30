@@ -147,7 +147,7 @@ au_decompress.exit:                               ; preds = %36, %24
   br label %72
 
 72:                                               ; preds = %21, %4, %au_decompress.exit, %20
-  %.0 = phi i32 [ %71, %au_decompress.exit ], [ -1094995529, %20 ], [ -1163346256, %4 ], [ %22, %21 ]
+  %.0 = phi i32 [ -1094995529, %20 ], [ %71, %au_decompress.exit ], [ -1163346256, %4 ], [ %22, %21 ]
   ret i32 %.0
 }
 

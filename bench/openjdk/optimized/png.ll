@@ -160,7 +160,7 @@ define hidden i32 @png_sig_cmp(ptr noundef readonly captures(none) %0, i64 nound
   br label %16
 
 16:                                               ; preds = %7, %5, %9
-  %.010 = phi i32 [ -1, %5 ], [ %15, %9 ], [ -1, %7 ]
+  %.010 = phi i32 [ %15, %9 ], [ -1, %5 ], [ -1, %7 ]
   ret i32 %.010
 }
 
@@ -1208,7 +1208,7 @@ define hidden range(i32 0, 256) i32 @png_handle_as_unknown(ptr noalias noundef r
   br i1 %23, label %15, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %22, %2, %5, %18
-  %.0 = phi i32 [ 0, %2 ], [ %21, %18 ], [ 0, %5 ], [ 0, %22 ]
+  %.0 = phi i32 [ %21, %18 ], [ 0, %5 ], [ 0, %2 ], [ 0, %22 ]
   ret i32 %.0
 }
 
@@ -1265,7 +1265,7 @@ define hidden range(i32 0, 256) i32 @png_chunk_unknown_handling(ptr noalias noun
   br i1 %33, label %25, label %png_handle_as_unknown.exit, !llvm.loop !15
 
 png_handle_as_unknown.exit:                       ; preds = %32, %2, %15, %28
-  %.0.i = phi i32 [ 0, %2 ], [ %31, %28 ], [ 0, %15 ], [ 0, %32 ]
+  %.0.i = phi i32 [ %31, %28 ], [ 0, %15 ], [ 0, %2 ], [ 0, %32 ]
   ret i32 %.0.i
 }
 
@@ -1615,7 +1615,7 @@ define hidden range(i32 0, 3) i32 @png_colorspace_set_chromaticities(ptr noalias
   unreachable
 
 png_colorspace_set_xy_and_XYZ.exit:               ; preds = %21, %19, %17, %7, %28
-  %.0 = phi i32 [ 0, %28 ], [ 2, %21 ], [ 0, %17 ], [ 0, %7 ], [ 1, %19 ]
+  %.0 = phi i32 [ 0, %28 ], [ 0, %17 ], [ 2, %21 ], [ 0, %7 ], [ 1, %19 ]
   ret i32 %.0
 }
 
@@ -2224,11 +2224,11 @@ png_colorspace_endpoints_match.exit:              ; preds = %364
   %or.cond70.not.i.not = or i1 %376, %378
   br i1 %or.cond70.not.i.not, label %png_colorspace_endpoints_match.exit.thread, label %png_XYZ_from_xy.exit.thread
 
-png_colorspace_endpoints_match.exit.thread:       ; preds = %325, %333, %340, %348, %356, %364, %317, %png_colorspace_endpoints_match.exit
+png_colorspace_endpoints_match.exit.thread:       ; preds = %317, %325, %333, %340, %348, %356, %364, %png_colorspace_endpoints_match.exit
   br label %png_XYZ_from_xy.exit.thread
 
-png_XYZ_from_xy.exit.thread:                      ; preds = %286, %142, %103, %png_muldiv.exit121.i, %128, %256, %240, %226, %211, %195, %181, %139, %154, %99, %116, %88, %303, %74, %59, %43, %png_muldiv.exit140.i, %32, %29, %23, %20, %14, %11, %5, %2, %271, %png_colorspace_endpoints_match.exit.thread, %png_colorspace_endpoints_match.exit, %315
-  %.0 = phi i32 [ 1, %315 ], [ 0, %png_colorspace_endpoints_match.exit ], [ 1, %png_colorspace_endpoints_match.exit.thread ], [ 1, %286 ], [ 1, %142 ], [ 1, %103 ], [ 1, %png_muldiv.exit121.i ], [ 2, %128 ], [ 1, %256 ], [ 1, %240 ], [ 1, %226 ], [ 1, %211 ], [ 1, %195 ], [ 1, %181 ], [ 1, %139 ], [ 1, %154 ], [ 1, %99 ], [ 2, %116 ], [ 2, %88 ], [ 1, %303 ], [ 2, %74 ], [ 2, %59 ], [ 2, %43 ], [ 1, %png_muldiv.exit140.i ], [ 1, %32 ], [ 1, %29 ], [ 1, %23 ], [ 1, %20 ], [ 1, %14 ], [ 1, %11 ], [ 1, %5 ], [ 1, %2 ], [ 1, %271 ]
+png_XYZ_from_xy.exit.thread:                      ; preds = %286, %271, %256, %240, %226, %211, %195, %181, %139, %142, %99, %103, %303, %128, %116, %88, %74, %59, %43, %154, %png_muldiv.exit140.i, %png_muldiv.exit121.i, %32, %29, %23, %20, %14, %11, %5, %2, %png_colorspace_endpoints_match.exit.thread, %png_colorspace_endpoints_match.exit, %315
+  %.0 = phi i32 [ 1, %315 ], [ 1, %png_colorspace_endpoints_match.exit.thread ], [ 0, %png_colorspace_endpoints_match.exit ], [ 1, %286 ], [ 1, %271 ], [ 1, %256 ], [ 1, %240 ], [ 1, %226 ], [ 1, %211 ], [ 1, %195 ], [ 1, %181 ], [ 1, %139 ], [ 1, %142 ], [ 1, %99 ], [ 1, %103 ], [ 1, %303 ], [ 2, %128 ], [ 2, %116 ], [ 2, %88 ], [ 2, %74 ], [ 2, %59 ], [ 2, %43 ], [ 1, %154 ], [ 1, %png_muldiv.exit140.i ], [ 1, %png_muldiv.exit121.i ], [ 1, %32 ], [ 1, %29 ], [ 1, %23 ], [ 1, %20 ], [ 1, %14 ], [ 1, %11 ], [ 1, %5 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -2515,7 +2515,7 @@ png_XYZ_normalize.exit.i:                         ; preds = %png_muldiv.exit101.
   %.not11.i = icmp eq i32 %167, 0
   br i1 %.not11.i, label %png_colorspace_check_XYZ.exit, label %png_colorspace_check_XYZ.exit.thread
 
-png_colorspace_check_XYZ.exit.thread:             ; preds = %png_XYZ_normalize.exit.i, %11, %4, %143, %44, %156, %65, %78, %91, %104, %117, %130, %38, %34, %30, %26, %22, %19, %15, %52, %48
+png_colorspace_check_XYZ.exit.thread:             ; preds = %png_XYZ_normalize.exit.i, %38, %34, %30, %26, %22, %19, %15, %11, %4, %44, %52, %65, %78, %91, %104, %117, %130, %143, %156, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %286
 
@@ -2642,7 +2642,7 @@ png_colorspace_endpoints_match.exit21:            ; preds = %228
   %or.cond70.not.i18.not = select i1 %242, i1 true, i1 %244
   br i1 %or.cond70.not.i18.not, label %png_colorspace_endpoints_match.exit21.thread, label %246
 
-png_colorspace_endpoints_match.exit21.thread:     ; preds = %185, %194, %201, %210, %219, %228, %175, %png_colorspace_endpoints_match.exit21
+png_colorspace_endpoints_match.exit21.thread:     ; preds = %175, %185, %194, %201, %210, %219, %228, %png_colorspace_endpoints_match.exit21
   %245 = or disjoint i16 %171, -32768
   store i16 %245, ptr %170, align 2, !alias.scope !45, !noalias !48
   tail call void @png_benign_error(ptr noundef %0, ptr noundef nonnull @.str.70) #31, !noalias !45
@@ -2703,7 +2703,7 @@ png_colorspace_endpoints_match.exit21.thread:     ; preds = %185, %194, %201, %2
   %or.cond68.i = icmp ult i32 %275, -2001
   br i1 %or.cond68.i, label %png_colorspace_endpoints_match.exit.thread, label %png_colorspace_endpoints_match.exit
 
-png_colorspace_endpoints_match.exit.thread:       ; preds = %248, %272, %268, %264, %260, %257, %253
+png_colorspace_endpoints_match.exit.thread:       ; preds = %272, %268, %264, %260, %257, %253, %248
   %276 = and i16 %171, 32701
   %277 = or disjoint i16 %276, 2
   br label %284
@@ -2721,7 +2721,7 @@ png_colorspace_endpoints_match.exit:              ; preds = %272
   br label %284
 
 284:                                              ; preds = %png_colorspace_endpoints_match.exit, %png_colorspace_endpoints_match.exit.thread
-  %285 = phi i16 [ %spec.select, %png_colorspace_endpoints_match.exit ], [ %277, %png_colorspace_endpoints_match.exit.thread ]
+  %285 = phi i16 [ %277, %png_colorspace_endpoints_match.exit.thread ], [ %spec.select, %png_colorspace_endpoints_match.exit ]
   store i16 %285, ptr %170, align 2, !alias.scope !45, !noalias !48
   br label %png_colorspace_set_xy_and_XYZ.exit
 
@@ -2742,7 +2742,7 @@ png_colorspace_endpoints_match.exit:              ; preds = %272
   unreachable
 
 png_colorspace_set_xy_and_XYZ.exit:               ; preds = %284, %246, %png_colorspace_endpoints_match.exit21.thread, %169, %286
-  %.0 = phi i32 [ 0, %286 ], [ 2, %284 ], [ 0, %png_colorspace_endpoints_match.exit21.thread ], [ 0, %169 ], [ 1, %246 ]
+  %.0 = phi i32 [ 0, %286 ], [ 0, %png_colorspace_endpoints_match.exit21.thread ], [ 2, %284 ], [ 0, %169 ], [ 1, %246 ]
   ret i32 %.0
 }
 
@@ -2850,7 +2850,7 @@ png_colorspace_check_gamma.exit:                  ; preds = %27, %40, %png_muldi
   br label %49
 
 49:                                               ; preds = %3, %png_colorspace_check_gamma.exit, %20, %15, %7
-  %.0 = phi i32 [ 1, %png_colorspace_check_gamma.exit ], [ 0, %7 ], [ 0, %15 ], [ 0, %20 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %15 ], [ 0, %20 ], [ 1, %png_colorspace_check_gamma.exit ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -3085,7 +3085,7 @@ define internal fastcc range(i32 0, 2) i32 @png_colorspace_endpoints_match(ptr n
   br label %73
 
 73:                                               ; preds = %64, %3, %12, %21, %28, %37, %46, %55
-  %.0 = phi i32 [ 0, %3 ], [ %spec.select, %64 ], [ 0, %55 ], [ 0, %46 ], [ 0, %37 ], [ 0, %28 ], [ 0, %21 ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %55 ], [ 0, %46 ], [ 0, %37 ], [ 0, %28 ], [ 0, %21 ], [ 0, %12 ], [ 0, %3 ], [ %spec.select, %64 ]
   ret i32 %.0
 }
 
@@ -3359,7 +3359,7 @@ define hidden range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, 
   br label %182
 
 182:                                              ; preds = %161, %161, %180, %157, %156, %135, %134, %131, %104, %79, %57, %31, %24
-  %.0 = phi i32 [ 0, %24 ], [ 0, %31 ], [ 0, %57 ], [ 0, %79 ], [ 0, %104 ], [ 0, %135 ], [ 0, %131 ], [ 0, %180 ], [ 0, %134 ], [ 0, %156 ], [ 0, %157 ], [ 1, %161 ], [ 1, %161 ]
+  %.0 = phi i32 [ 0, %24 ], [ 0, %31 ], [ 0, %57 ], [ 0, %79 ], [ 0, %104 ], [ 0, %135 ], [ 0, %131 ], [ 0, %180 ], [ 0, %156 ], [ 0, %157 ], [ 0, %134 ], [ 1, %161 ], [ 1, %161 ]
   ret i32 %.0
 }
 
@@ -3746,7 +3746,7 @@ icc_check_length.exit:                            ; preds = %9
   br label %16
 
 16:                                               ; preds = %icc_check_length.exit.thread, %icc_check_length.exit, %13, %6, %15
-  %.0 = phi i32 [ 0, %6 ], [ 1, %15 ], [ 0, %13 ], [ 0, %icc_check_length.exit ], [ 0, %icc_check_length.exit.thread ]
+  %.0 = phi i32 [ 1, %15 ], [ 0, %6 ], [ 0, %13 ], [ 0, %icc_check_length.exit ], [ 0, %icc_check_length.exit.thread ]
   ret i32 %.0
 }
 
@@ -3799,7 +3799,7 @@ define hidden void @png_colorspace_set_rgb_coefficients(ptr noalias noundef %0) 
   br label %png_muldiv.exit
 
 png_muldiv.exit:                                  ; preds = %20, %31
-  %.184 = phi i32 [ 0, %20 ], [ %32, %31 ]
+  %.184 = phi i32 [ %32, %31 ], [ 0, %20 ]
   %33 = icmp ult i32 %.184, 32769
   %34 = icmp sgt i32 %13, -1
   %or.cond7 = and i1 %34, %33
@@ -3826,7 +3826,7 @@ png_muldiv.exit:                                  ; preds = %20, %31
   br label %png_muldiv.exit55
 
 png_muldiv.exit55:                                ; preds = %35, %46
-  %.182 = phi i32 [ 0, %35 ], [ %47, %46 ]
+  %.182 = phi i32 [ %47, %46 ], [ 0, %35 ]
   %48 = icmp ult i32 %.182, 32769
   %49 = icmp sgt i32 %15, -1
   %or.cond13 = and i1 %49, %48
@@ -3852,7 +3852,7 @@ png_muldiv.exit55:                                ; preds = %35, %46
   br i1 %or.cond109, label %png_muldiv.exit61.thread, label %png_muldiv.exit.thread
 
 png_muldiv.exit61.thread:                         ; preds = %52, %50
-  %.1107 = phi i32 [ %61, %52 ], [ 0, %50 ]
+  %.1107 = phi i32 [ 0, %50 ], [ %61, %52 ]
   %63 = add nuw nsw i32 %.182, %.184
   %64 = add nuw nsw i32 %63, %.1107
   %65 = icmp samesign ult i32 %64, 32770
@@ -4179,7 +4179,7 @@ define hidden range(i32 0, 2) i32 @png_check_fp_number(ptr noundef readonly capt
   br label %15
 
 15:                                               ; preds = %.lr.ph, %14, %13, %12, %11, %10
-  %.0 = phi i32 [ 32, %14 ], [ 132, %10 ], [ 16, %11 ], [ 8, %12 ], [ 264, %13 ], [ 4, %.lr.ph ]
+  %.0 = phi i32 [ 132, %10 ], [ 16, %11 ], [ 8, %12 ], [ 264, %13 ], [ 32, %14 ], [ 4, %.lr.ph ]
   %16 = and i32 %.03641, 3
   %17 = and i32 %.0, 60
   %18 = or disjoint i32 %17, %16
@@ -4395,7 +4395,7 @@ define hidden void @png_ascii_from_fp(ptr noalias noundef %0, ptr noundef captur
   br label %png_pow10.exit
 
 png_pow10.exit:                                   ; preds = %31, %36, %37
-  %.018.i = phi double [ 1.000000e+00, %31 ], [ %38, %37 ], [ %.2.i, %36 ]
+  %.018.i = phi double [ %38, %37 ], [ %.2.i, %36 ], [ 1.000000e+00, %31 ]
   %39 = fcmp olt double %.018.i, 0x10000000000000
   %40 = fcmp olt double %.018.i, %.0128
   %41 = or i1 %39, %40
@@ -4969,7 +4969,7 @@ define hidden void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef wri
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph66, %.preheader, %._crit_edge54, %._crit_edge.thread
-  %.4 = phi ptr [ %39, %._crit_edge.thread ], [ %.1.lcssa, %._crit_edge54 ], [ %.2.lcssa, %.preheader ], [ %38, %.lr.ph66 ]
+  %.4 = phi ptr [ %.1.lcssa, %._crit_edge54 ], [ %39, %._crit_edge.thread ], [ %.2.lcssa, %.preheader ], [ %38, %.lr.ph66 ]
   store i8 0, ptr %.4, align 1
   ret void
 
@@ -6243,7 +6243,7 @@ png_muldiv.exit89:                                ; preds = %140, %153
   br label %png_muldiv.exit.thread
 
 png_muldiv.exit.thread:                           ; preds = %121, %129, %110, %78, %95, %67, %38, %52, %27, %2, %12, %png_muldiv.exit89, %144
-  %.0 = phi i32 [ 1, %110 ], [ 1, %144 ], [ 1, %2 ], [ 1, %27 ], [ 1, %38 ], [ 1, %67 ], [ 1, %78 ], [ 0, %png_muldiv.exit89 ], [ 1, %12 ], [ 1, %52 ], [ 1, %95 ], [ 1, %129 ], [ 1, %121 ]
+  %.0 = phi i32 [ 0, %png_muldiv.exit89 ], [ 1, %144 ], [ 1, %12 ], [ 1, %2 ], [ 1, %27 ], [ 1, %52 ], [ 1, %38 ], [ 1, %67 ], [ 1, %95 ], [ 1, %78 ], [ 1, %110 ], [ 1, %129 ], [ 1, %121 ]
   ret i32 %.0
 }
 

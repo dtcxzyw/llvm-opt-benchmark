@@ -244,7 +244,7 @@ define dso_local i32 @tcp_sigpool_alloc_ahash(ptr noundef %0, i64 noundef %1) #0
   br i1 %101, label %102, label %.preheader, !llvm.loop !18
 
 102:                                              ; preds = %99, %.preheader
-  %103 = phi i32 [ %94, %.preheader ], [ %60, %99 ]
+  %103 = phi i32 [ %60, %99 ], [ %94, %.preheader ]
   %104 = icmp ugt i32 %103, 169
   br i1 %104, label %.thread24, label %.thread28
 
@@ -323,7 +323,7 @@ define dso_local i32 @tcp_sigpool_alloc_ahash(ptr noundef %0, i64 noundef %1) #0
   br label %.thread24
 
 .thread24:                                        ; preds = %.thread28, %7, %.thread22, %143, %140, %136, %102, %90, %88
-  %145 = phi i32 [ -12, %.thread22 ], [ %137, %136 ], [ %105, %143 ], [ %105, %140 ], [ %62, %90 ], [ %62, %88 ], [ -28, %102 ], [ -12, %7 ], [ -12, %.thread28 ]
+  %145 = phi i32 [ %137, %136 ], [ %105, %143 ], [ %105, %140 ], [ %62, %90 ], [ %62, %88 ], [ -28, %102 ], [ -12, %.thread22 ], [ -12, %7 ], [ -12, %.thread28 ]
   tail call void @mutex_unlock(ptr noundef nonnull @cpool_mutex) #8
   ret i32 %145
 }
@@ -690,7 +690,7 @@ define dso_local noundef range(i32 0, 2) i32 @tcp_sigpool_hash_skb_data(ptr noun
   br i1 %96, label %90, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %76, %94, %90, %23
-  %97 = phi i32 [ 1, %23 ], [ 1, %94 ], [ 0, %90 ], [ 1, %76 ]
+  %97 = phi i32 [ 1, %23 ], [ 0, %90 ], [ 1, %94 ], [ 1, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %97
 }

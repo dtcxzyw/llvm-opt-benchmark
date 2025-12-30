@@ -59,7 +59,7 @@ define ptr @ossl_rand_pool_new(i32 noundef %0, i32 noundef %1, i64 noundef %2, i
   br label %25
 
 25:                                               ; preds = %4, %24, %20
-  %.0 = phi ptr [ %5, %20 ], [ null, %24 ], [ null, %4 ]
+  %.0 = phi ptr [ null, %24 ], [ %5, %20 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -352,7 +352,7 @@ define internal fastcc range(i32 0, 2) i32 @rand_pool_grow(ptr noundef captures(
   br label %.thread
 
 .thread:                                          ; preds = %29, %17, %2, %38
-  %.1 = phi i32 [ 1, %2 ], [ 1, %38 ], [ 0, %17 ], [ 0, %29 ]
+  %.1 = phi i32 [ 1, %38 ], [ 1, %2 ], [ 0, %17 ], [ 0, %29 ]
   ret i32 %.1
 }
 
@@ -482,7 +482,7 @@ define ptr @ossl_rand_pool_add_begin(ptr noundef captures(none) %0, i64 noundef 
   br label %22
 
 22:                                               ; preds = %16, %2, %18, %15, %11
-  %.0 = phi ptr [ null, %2 ], [ null, %11 ], [ null, %15 ], [ %21, %18 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %15 ], [ %21, %18 ], [ null, %2 ], [ null, %16 ]
   ret ptr %.0
 }
 

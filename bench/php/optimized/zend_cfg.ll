@@ -172,10 +172,10 @@ define internal fastcc void @zend_mark_reachable_blocks(ptr noundef %0, ptr noun
   %.not167 = icmp sgt i32 %46, -1
   br i1 %.not167, label %.loopexit190.thread, label %.loopexit189
 
-.loopexit190.thread:                              ; preds = %33, %30, %.loopexit190
-  %.pn = phi i64 [ %.pre-phi222, %.loopexit190 ], [ %26, %30 ], [ %26, %33 ]
-  %49 = phi i32 [ %48, %.loopexit190 ], [ %22, %30 ], [ %22, %33 ]
-  %50 = phi i32 [ %47, %.loopexit190 ], [ %25, %30 ], [ %25, %33 ]
+.loopexit190.thread:                              ; preds = %30, %33, %.loopexit190
+  %.pn = phi i64 [ %.pre-phi222, %.loopexit190 ], [ %26, %33 ], [ %26, %30 ]
+  %49 = phi i32 [ %48, %.loopexit190 ], [ %22, %33 ], [ %22, %30 ]
+  %50 = phi i32 [ %47, %.loopexit190 ], [ %25, %33 ], [ %25, %30 ]
   %51 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %52 = load i32, ptr %51, align 4, !tbaa !37
   %.not168 = icmp eq i32 %52, 0
@@ -370,21 +370,21 @@ define internal fastcc void @zend_mark_reachable_blocks(ptr noundef %0, ptr noun
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 28
   %157 = load i8, ptr %156, align 4, !tbaa !43
   switch i8 %157, label %zend_optimizer_is_loop_var_free.exit.thread [
-    i8 127, label %158
-    i8 70, label %zend_optimizer_is_loop_var_free.exit
+    i8 127, label %zend_optimizer_is_loop_var_free.exit
+    i8 70, label %158
   ]
 
 158:                                              ; preds = %.lr.ph203
   %159 = getelementptr inbounds nuw i8, ptr %155, i64 20
   %160 = load i32, ptr %159, align 4, !tbaa !45
-  %.not.i.not = icmp eq i32 %160, 1
-  br i1 %.not.i.not, label %zend_optimizer_is_loop_var_free.exit.thread, label %164
+  %161 = icmp eq i32 %160, 2
+  br i1 %161, label %164, label %zend_optimizer_is_loop_var_free.exit.thread
 
 zend_optimizer_is_loop_var_free.exit:             ; preds = %.lr.ph203
-  %161 = getelementptr inbounds nuw i8, ptr %155, i64 20
-  %162 = load i32, ptr %161, align 4, !tbaa !45
-  %163 = icmp eq i32 %162, 2
-  br i1 %163, label %164, label %zend_optimizer_is_loop_var_free.exit.thread
+  %162 = getelementptr inbounds nuw i8, ptr %155, i64 20
+  %163 = load i32, ptr %162, align 4, !tbaa !45
+  %.not.i.not = icmp eq i32 %163, 1
+  br i1 %.not.i.not, label %zend_optimizer_is_loop_var_free.exit.thread, label %164
 
 164:                                              ; preds = %158, %zend_optimizer_is_loop_var_free.exit
   %165 = tail call ptr @zend_optimizer_get_loop_var_def(ptr noundef nonnull %0, ptr noundef nonnull %155) #9
@@ -572,8 +572,8 @@ zend_arena_alloc.exit520:                         ; preds = %23, %25
     i8 101, label %307
     i8 102, label %309
     i8 103, label %309
-    i8 127, label %311
-    i8 70, label %zend_optimizer_is_loop_var_free.exit
+    i8 127, label %zend_optimizer_is_loop_var_free.exit
+    i8 70, label %311
   ]
 
 51:                                               ; preds = %45, %45
@@ -1029,14 +1029,14 @@ zend_arena_alloc.exit520:                         ; preds = %23, %25
 311:                                              ; preds = %45
   %312 = getelementptr inbounds nuw i8, ptr %48, i64 20
   %313 = load i32, ptr %312, align 4, !tbaa !45
-  %.not.i521.not = icmp eq i32 %313, 1
-  br i1 %.not.i521.not, label %zend_hash_find_ptr.exit.thread, label %317
+  %314 = icmp eq i32 %313, 2
+  br i1 %314, label %317, label %zend_hash_find_ptr.exit.thread
 
 zend_optimizer_is_loop_var_free.exit:             ; preds = %45
-  %314 = getelementptr inbounds nuw i8, ptr %48, i64 20
-  %315 = load i32, ptr %314, align 4, !tbaa !45
-  %316 = icmp eq i32 %315, 2
-  br i1 %316, label %317, label %zend_hash_find_ptr.exit.thread
+  %315 = getelementptr inbounds nuw i8, ptr %48, i64 20
+  %316 = load i32, ptr %315, align 4, !tbaa !45
+  %.not.i521.not = icmp eq i32 %316, 1
+  br i1 %.not.i521.not, label %zend_hash_find_ptr.exit.thread, label %317
 
 317:                                              ; preds = %311, %zend_optimizer_is_loop_var_free.exit
   %318 = getelementptr inbounds i8, ptr %48, i64 -4
@@ -1062,8 +1062,8 @@ zend_optimizer_is_loop_var_free.exit:             ; preds = %45
   br label %zend_hash_find_ptr.exit.thread
 
 zend_hash_find_ptr.exit.thread:                   ; preds = %45, %112, %311, %302, %zend_optimizer_is_loop_var_free.exit, %320, %323, %298, %300, %152, %166, %143, %147, %122, %118, %88, %90, %81, %82, %67, %70, %74, %58, %62, %51, %52, %309, %307, %305, %._crit_edge, %221, %206, %200, %171, %128, %96
-  %.2406 = phi i32 [ %.1405557, %45 ], [ %spec.select478, %52 ], [ %.1405557, %51 ], [ %spec.select479, %62 ], [ %.1405557, %58 ], [ %spec.select480, %74 ], [ %.1405557, %70 ], [ %.1405557, %67 ], [ %spec.select481, %82 ], [ %.1405557, %81 ], [ %spec.select482, %90 ], [ %.1405557, %88 ], [ %.1405557, %96 ], [ %.1405557, %122 ], [ %.1405557, %118 ], [ %.1405557, %311 ], [ %.9, %128 ], [ %spec.select485, %147 ], [ %.1405557, %143 ], [ %spec.select487, %166 ], [ %spec.select486, %152 ], [ %.14, %171 ], [ %spec.select490, %200 ], [ %.19, %206 ], [ %.21, %221 ], [ %.26, %._crit_edge ], [ %.1405557, %298 ], [ %.1405557, %302 ], [ %.1405557, %zend_optimizer_is_loop_var_free.exit ], [ %.1405557, %300 ], [ %.1405557, %305 ], [ %.1405557, %307 ], [ %.1405557, %309 ], [ %spec.select496, %323 ], [ %.1405557, %320 ], [ %.1405557, %112 ]
-  %.1 = phi i32 [ %.0396559, %45 ], [ %.0396559, %52 ], [ %.0396559, %51 ], [ %.0396559, %62 ], [ %.0396559, %58 ], [ %.0396559, %74 ], [ %.0396559, %70 ], [ %.0396559, %67 ], [ %.2, %82 ], [ %.2, %81 ], [ %89, %90 ], [ %89, %88 ], [ %97, %96 ], [ %127, %122 ], [ %.0396559, %118 ], [ %.0396559, %311 ], [ %.0396559, %128 ], [ %.0396559, %147 ], [ %.0396559, %143 ], [ %.0396559, %166 ], [ %.0396559, %152 ], [ %.0396559, %171 ], [ %.0396559, %200 ], [ %.0396559, %206 ], [ %.0396559, %221 ], [ %.0396559, %._crit_edge ], [ %299, %298 ], [ %spec.select495, %302 ], [ %.0396559, %zend_optimizer_is_loop_var_free.exit ], [ %.0396559, %300 ], [ %306, %305 ], [ %308, %307 ], [ %310, %309 ], [ %328, %323 ], [ %.0396559, %320 ], [ %.0396559, %112 ]
+  %.2406 = phi i32 [ %.1405557, %45 ], [ %spec.select478, %52 ], [ %.1405557, %51 ], [ %spec.select479, %62 ], [ %.1405557, %58 ], [ %spec.select480, %74 ], [ %.1405557, %70 ], [ %.1405557, %67 ], [ %spec.select481, %82 ], [ %.1405557, %81 ], [ %spec.select482, %90 ], [ %.1405557, %88 ], [ %.1405557, %96 ], [ %.1405557, %122 ], [ %.1405557, %118 ], [ %.9, %128 ], [ %spec.select485, %147 ], [ %.1405557, %143 ], [ %spec.select487, %166 ], [ %spec.select486, %152 ], [ %.14, %171 ], [ %spec.select490, %200 ], [ %.19, %206 ], [ %.21, %221 ], [ %.26, %._crit_edge ], [ %.1405557, %298 ], [ %.1405557, %300 ], [ %.1405557, %305 ], [ %.1405557, %307 ], [ %.1405557, %309 ], [ %spec.select496, %323 ], [ %.1405557, %320 ], [ %.1405557, %zend_optimizer_is_loop_var_free.exit ], [ %.1405557, %302 ], [ %.1405557, %311 ], [ %.1405557, %112 ]
+  %.1 = phi i32 [ %.0396559, %45 ], [ %.0396559, %52 ], [ %.0396559, %51 ], [ %.0396559, %62 ], [ %.0396559, %58 ], [ %.0396559, %74 ], [ %.0396559, %70 ], [ %.0396559, %67 ], [ %.2, %82 ], [ %.2, %81 ], [ %89, %90 ], [ %89, %88 ], [ %97, %96 ], [ %127, %122 ], [ %.0396559, %118 ], [ %.0396559, %128 ], [ %.0396559, %147 ], [ %.0396559, %143 ], [ %.0396559, %166 ], [ %.0396559, %152 ], [ %.0396559, %171 ], [ %.0396559, %200 ], [ %.0396559, %206 ], [ %.0396559, %221 ], [ %.0396559, %._crit_edge ], [ %299, %298 ], [ %.0396559, %300 ], [ %306, %305 ], [ %308, %307 ], [ %310, %309 ], [ %328, %323 ], [ %.0396559, %320 ], [ %.0396559, %zend_optimizer_is_loop_var_free.exit ], [ %spec.select495, %302 ], [ %.0396559, %311 ], [ %.0396559, %112 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %329 = load i32, ptr %7, align 8, !tbaa !46
   %330 = zext i32 %329 to i64
@@ -2703,8 +2703,8 @@ dominates.exit:                                   ; preds = %.lr.ph.i, %149
   br label %zend_worklist_push.exit193
 
 zend_worklist_push.exit193:                       ; preds = %181, %171, %204, %199, %194, %143
-  %.sroa.19.7 = phi i32 [ %.sroa.19.6277, %143 ], [ %.sroa.19.6277, %194 ], [ %.sroa.19.6277, %204 ], [ %.sroa.19.6277, %199 ], [ %191, %181 ], [ %.sroa.19.6277, %171 ]
-  %.2173 = phi i32 [ %.1172278, %143 ], [ %.1172278, %194 ], [ %208, %204 ], [ %.1172278, %199 ], [ %169, %181 ], [ %169, %171 ]
+  %.sroa.19.7 = phi i32 [ %.sroa.19.6277, %143 ], [ %.sroa.19.6277, %204 ], [ %.sroa.19.6277, %199 ], [ %.sroa.19.6277, %194 ], [ %191, %181 ], [ %.sroa.19.6277, %171 ]
+  %.2173 = phi i32 [ %.1172278, %143 ], [ %208, %204 ], [ %.1172278, %199 ], [ %.1172278, %194 ], [ %169, %181 ], [ %169, %171 ]
   %209 = add nuw nsw i32 %.3279, 1
   %210 = icmp slt i32 %209, %133
   br i1 %210, label %143, label %.preheader

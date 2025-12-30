@@ -208,7 +208,7 @@ define range(i32 -1163346256, 2) i32 @ff_jpegls_decode_lse(ptr noundef captures(
   br label %131
 
 131:                                              ; preds = %124, %121, %128
-  %.092 = phi i32 [ 255, %121 ], [ %130, %128 ], [ %123, %124 ]
+  %.092 = phi i32 [ %130, %128 ], [ 255, %121 ], [ %123, %124 ]
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %133 = load ptr, ptr %132, align 8, !tbaa !33
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 524
@@ -362,7 +362,7 @@ define range(i32 -1163346256, 2) i32 @ff_jpegls_decode_lse(ptr noundef captures(
   br label %206
 
 206:                                              ; preds = %30, %91, %149, %153, %._crit_edge119, %.thread, %142, %94, %28, %203, %200, %140, %118
-  %.0 = phi i32 [ -1094995529, %203 ], [ -38, %200 ], [ -1094995529, %142 ], [ -1094995529, %28 ], [ -1163346256, %118 ], [ -1163346256, %140 ], [ -1094995529, %94 ], [ %., %.thread ], [ 0, %._crit_edge119 ], [ 0, %153 ], [ 0, %149 ], [ 0, %91 ], [ 0, %30 ]
+  %.0 = phi i32 [ -1094995529, %203 ], [ -1163346256, %118 ], [ -1163346256, %140 ], [ -38, %200 ], [ -1094995529, %28 ], [ -1094995529, %94 ], [ -1094995529, %142 ], [ %., %.thread ], [ 0, %._crit_edge119 ], [ 0, %153 ], [ 0, %149 ], [ 0, %91 ], [ 0, %30 ]
   ret i32 %.0
 }
 
@@ -698,7 +698,7 @@ align_get_bits.exit340:                           ; preds = %173
   br i1 %192, label %.preheader368, label %.thread350, !llvm.loop !87
 
 .thread350:                                       ; preds = %184, %161, %144
-  %.1270371 = phi i32 [ %.1270375, %161 ], [ 0, %144 ], [ %190, %184 ]
+  %.1270371 = phi i32 [ 0, %144 ], [ %.1270375, %161 ], [ %190, %184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit367
 
@@ -1014,7 +1014,7 @@ align_get_bits.exit340:                           ; preds = %173
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us403, %.loopexit.sink.split, %.preheader356.lr.ph, %349, %329, %91, %83, %53, %18, %42, %46, %50, %.loopexit366
-  %.0295 = phi i32 [ -1163346256, %.loopexit.sink.split ], [ -1094995529, %18 ], [ -1094995529, %53 ], [ -1094995529, %83 ], [ -1094995529, %91 ], [ 0, %.loopexit366 ], [ 0, %._crit_edge.us403 ], [ -1094995529, %50 ], [ -1094995529, %46 ], [ -1094995529, %42 ], [ 0, %329 ], [ 0, %349 ], [ 0, %.preheader356.lr.ph ], [ 0, %._crit_edge.us ]
+  %.0295 = phi i32 [ 0, %.loopexit366 ], [ -1094995529, %50 ], [ -1094995529, %46 ], [ -1094995529, %42 ], [ -1094995529, %18 ], [ -1094995529, %53 ], [ -1094995529, %83 ], [ -1094995529, %91 ], [ 0, %329 ], [ 0, %349 ], [ 0, %.preheader356.lr.ph ], [ -1163346256, %.loopexit.sink.split ], [ 0, %._crit_edge.us403 ], [ 0, %._crit_edge.us ]
   tail call void @av_free(ptr noundef nonnull %17) #9
   br label %366
 
@@ -1104,9 +1104,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
   br label %52
 
 52:                                               ; preds = %.thread316, %42
-  %53 = phi i32 [ %41, %.thread316 ], [ %48, %42 ]
-  %54 = phi i32 [ %41, %.thread316 ], [ %45, %42 ]
-  %55 = phi i32 [ %4, %.thread316 ], [ %51, %42 ]
+  %53 = phi i32 [ %48, %42 ], [ %41, %.thread316 ]
+  %54 = phi i32 [ %45, %42 ], [ %41, %.thread316 ]
+  %55 = phi i32 [ %51, %42 ], [ %4, %.thread316 ]
   %.not253 = icmp slt i32 %.0233346, %15
   br i1 %.not253, label %79, label %67
 
@@ -1165,11 +1165,11 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
   br label %93
 
 93:                                               ; preds = %79, %.thread300, %67, %.thread299
-  %94 = phi i32 [ %74, %.thread299 ], [ %55, %67 ], [ %55, %79 ], [ %87, %.thread300 ]
-  %95 = phi i1 [ false, %.thread299 ], [ true, %67 ], [ true, %79 ], [ false, %.thread300 ]
-  %96 = phi i32 [ %73, %.thread299 ], [ %54, %67 ], [ %54, %79 ], [ %86, %.thread300 ]
-  %97 = phi i32 [ %72, %.thread299 ], [ %53, %67 ], [ %53, %79 ], [ %85, %.thread300 ]
-  %98 = phi i32 [ %78, %.thread299 ], [ %71, %67 ], [ %84, %79 ], [ %92, %.thread300 ]
+  %94 = phi i32 [ %55, %67 ], [ %74, %.thread299 ], [ %55, %79 ], [ %87, %.thread300 ]
+  %95 = phi i1 [ true, %67 ], [ false, %.thread299 ], [ true, %79 ], [ false, %.thread300 ]
+  %96 = phi i32 [ %54, %67 ], [ %73, %.thread299 ], [ %54, %79 ], [ %86, %.thread300 ]
+  %97 = phi i32 [ %53, %67 ], [ %72, %.thread299 ], [ %53, %79 ], [ %85, %.thread300 ]
+  %98 = phi i32 [ %71, %67 ], [ %78, %.thread299 ], [ %84, %79 ], [ %92, %.thread300 ]
   %99 = sub nsw i32 %98, %97
   %100 = sub nsw i32 %97, %94
   %101 = sub nsw i32 %94, %96
@@ -1592,7 +1592,7 @@ ls_get_code_runterm.exit:                         ; preds = %211, %241, %ff_jpeg
   br label %ff_jpegls_quantize.exit
 
 ff_jpegls_quantize.exit:                          ; preds = %274, %278, %281, %284, %287, %290, %291, %294, %297
-  %.0.i275 = phi i32 [ 2, %294 ], [ 0, %274 ], [ -4, %278 ], [ -3, %281 ], [ %..i276, %287 ], [ -2, %284 ], [ %.22.i, %297 ], [ 0, %290 ], [ 1, %291 ]
+  %.0.i275 = phi i32 [ 0, %274 ], [ -4, %278 ], [ -3, %281 ], [ -2, %284 ], [ %..i276, %287 ], [ 0, %290 ], [ 1, %291 ], [ 2, %294 ], [ %.22.i, %297 ]
   %300 = mul nsw i32 %.0.i275, 81
   %301 = icmp eq i32 %97, %94
   br i1 %301, label %ff_jpegls_quantize.exit284, label %302
@@ -1646,7 +1646,7 @@ ff_jpegls_quantize.exit:                          ; preds = %274, %278, %281, %2
   br label %ff_jpegls_quantize.exit284
 
 ff_jpegls_quantize.exit284:                       ; preds = %ff_jpegls_quantize.exit, %304, %307, %310, %313, %316, %317, %320, %323
-  %.0.i278 = phi i32 [ 2, %320 ], [ 0, %ff_jpegls_quantize.exit ], [ -4, %304 ], [ -3, %307 ], [ %..i283, %313 ], [ -2, %310 ], [ %.22.i279, %323 ], [ 0, %316 ], [ 1, %317 ]
+  %.0.i278 = phi i32 [ 0, %ff_jpegls_quantize.exit ], [ -4, %304 ], [ -3, %307 ], [ -2, %310 ], [ %..i283, %313 ], [ 0, %316 ], [ 1, %317 ], [ 2, %320 ], [ %.22.i279, %323 ]
   %326 = mul nsw i32 %.0.i278, 9
   %327 = add nsw i32 %326, %300
   %328 = icmp eq i32 %94, %96
@@ -1701,7 +1701,7 @@ ff_jpegls_quantize.exit284:                       ; preds = %ff_jpegls_quantize.
   br label %ff_jpegls_quantize.exit292
 
 ff_jpegls_quantize.exit292:                       ; preds = %ff_jpegls_quantize.exit284, %331, %334, %337, %340, %343, %344, %347, %350
-  %.0.i286 = phi i32 [ 2, %347 ], [ 0, %ff_jpegls_quantize.exit284 ], [ -4, %331 ], [ -3, %334 ], [ %..i291, %340 ], [ -2, %337 ], [ %.22.i287, %350 ], [ 0, %343 ], [ 1, %344 ]
+  %.0.i286 = phi i32 [ 0, %ff_jpegls_quantize.exit284 ], [ -4, %331 ], [ -3, %334 ], [ -2, %337 ], [ %..i291, %340 ], [ 0, %343 ], [ 1, %344 ], [ 2, %347 ], [ %.22.i287, %350 ]
   %353 = add nsw i32 %327, %.0.i286
   %354 = sub i32 %96, %94
   %355 = add i32 %354, %97
@@ -1725,7 +1725,7 @@ ff_jpegls_quantize.exit292:                       ; preds = %ff_jpegls_quantize.
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %357, %359, %360, %362
-  %.0.i293 = phi i32 [ %..i294, %359 ], [ %355, %360 ], [ %355, %357 ], [ %.20.i, %362 ]
+  %.0.i293 = phi i32 [ %355, %357 ], [ %355, %360 ], [ %..i294, %359 ], [ %.20.i, %362 ]
   %363 = icmp sgt i32 %353, -1
   br i1 %363, label %374, label %364
 
@@ -1836,7 +1836,7 @@ mid_pred.exit:                                    ; preds = %357, %359, %360, %3
   br i1 %417, label %33, label %.thread311, !llvm.loop !103
 
 .thread311:                                       ; preds = %415, %33, %._crit_edge, %149, %9, %181
-  %.6 = phi i32 [ -1094995529, %181 ], [ 0, %9 ], [ 0, %._crit_edge ], [ 0, %149 ], [ -1094995529, %33 ], [ 0, %415 ]
+  %.6 = phi i32 [ -1094995529, %181 ], [ 0, %9 ], [ 0, %149 ], [ 0, %._crit_edge ], [ 0, %415 ], [ -1094995529, %33 ]
   ret i32 %.6
 }
 
@@ -1984,7 +1984,7 @@ ff_jpegls_downscale_state.exit.i:                 ; preds = %57, %44
   br label %ff_jpegls_update_state_regular.exit
 
 ff_jpegls_update_state_regular.exit:              ; preds = %37, %40, %65, %72, %74, %76, %82
-  %.0.i = phi i32 [ -65536, %37 ], [ -65536, %40 ], [ %48, %74 ], [ %48, %82 ], [ %48, %76 ], [ %48, %65 ], [ %48, %72 ]
+  %.0.i = phi i32 [ -65536, %40 ], [ -65536, %37 ], [ %48, %74 ], [ %48, %82 ], [ %48, %76 ], [ %48, %65 ], [ %48, %72 ]
   ret i32 %.0.i
 }
 
@@ -2160,8 +2160,8 @@ define internal fastcc i32 @get_ur_golomb_jpegls(ptr noundef captures(none) %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %107, %109, %104, %34
-  %storemerge123 = phi i32 [ %., %34 ], [ %69, %107 ], [ %.2, %104 ], [ %113, %109 ], [ %.0110130, %45 ]
-  %.0106 = phi i32 [ %38, %34 ], [ -1, %107 ], [ %106, %104 ], [ %114, %109 ], [ -1, %45 ]
+  %storemerge123 = phi i32 [ %., %34 ], [ %.2, %104 ], [ %113, %109 ], [ %69, %107 ], [ %.0110130, %45 ]
+  %.0106 = phi i32 [ %38, %34 ], [ %106, %104 ], [ %114, %109 ], [ -1, %107 ], [ -1, %45 ]
   store i32 %storemerge123, ptr %5, align 8, !tbaa !4
   ret i32 %.0106
 }

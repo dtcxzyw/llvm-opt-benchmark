@@ -240,7 +240,7 @@ sub_0:                                            ; preds = %13
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %77, %84, %86
-  %.0.i = phi ptr [ %88, %86 ], [ %85, %84 ], [ null, %77 ]
+  %.0.i = phi ptr [ %85, %84 ], [ %88, %86 ], [ null, %77 ]
   %89 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %90 = load i16, ptr %89, align 8, !tbaa !10
   %91 = and i16 %90, 17
@@ -262,7 +262,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %77, %84, %86
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit301
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit301:   ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit, %94, %96
-  %.0.i299 = phi ptr [ %98, %96 ], [ %95, %94 ], [ null, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
+  %.0.i299 = phi ptr [ %95, %94 ], [ %98, %96 ], [ null, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
   %99 = invoke i32 (ptr, ptr, ...) @u_wmsg(ptr noundef %78, ptr noundef nonnull @.str.3, ptr noundef %.0.i, ptr noundef %.0.i299)
           to label %100 unwind label %107
 
@@ -533,8 +533,8 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit301:   ; preds = %_ZNK6icu_7713Unicod
   br label %192
 
 192:                                              ; preds = %151, %187, %188
-  %.3212 = phi ptr [ null, %187 ], [ null, %188 ], [ %.1210, %151 ]
-  %.1174 = phi i8 [ 1, %187 ], [ 1, %188 ], [ 0, %151 ]
+  %.3212 = phi ptr [ null, %188 ], [ null, %187 ], [ %.1210, %151 ]
+  %.1174 = phi i8 [ 1, %188 ], [ 1, %187 ], [ 0, %151 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %36) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %35) #21
@@ -1185,8 +1185,8 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %_ZNK6icu_7713Unicod
   br label %_ZL13getChunkLimitRKN6icu_7713UnicodeStringES2_.exit
 
 _ZL13getChunkLimitRKN6icu_7713UnicodeStringES2_.exit: ; preds = %.backedge.i, %.loopexit50.i, %456, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i, %433
-  %468 = phi i16 [ %434, %433 ], [ %436, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i ], [ %436, %456 ], [ %436, %.loopexit50.i ], [ %436, %.backedge.i ]
-  %.0.i308 = phi i32 [ %..i, %433 ], [ -1, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i ], [ -1, %456 ], [ %467, %.loopexit50.i ], [ -1, %.backedge.i ]
+  %468 = phi i16 [ %434, %433 ], [ %436, %.loopexit50.i ], [ %436, %456 ], [ %436, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i ], [ %436, %.backedge.i ]
+  %.0.i308 = phi i32 [ %..i, %433 ], [ %467, %.loopexit50.i ], [ -1, %456 ], [ -1, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i ], [ -1, %.backedge.i ]
   %469 = icmp slt i32 %.0.i308, 0
   %or.cond6 = select i1 %469, i1 %299, i1 false
   %or.cond8 = and i1 %326, %or.cond6
@@ -1211,7 +1211,7 @@ _ZL13getChunkLimitRKN6icu_7713UnicodeStringES2_.exit: ; preds = %.backedge.i, %.
   br label %.body
 
 .body:                                            ; preds = %.loopexit388, %.loopexit.split-lp389, %429, %431
-  %eh.lpad-body = phi { ptr, i32 } [ %430, %429 ], [ %432, %431 ], [ %lpad.loopexit390, %.loopexit388 ], [ %lpad.loopexit.split-lp391, %.loopexit.split-lp389 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %432, %431 ], [ %430, %429 ], [ %lpad.loopexit390, %.loopexit388 ], [ %lpad.loopexit.split-lp391, %.loopexit.split-lp389 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %51) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %.loopexit.split-lp382
@@ -1786,10 +1786,10 @@ _ZN6icu_7713UnicodeString6appendEDs.exit351:      ; preds = %674
   br i1 %299, label %.loopexit386, label %273, !llvm.loop !43
 
 .loopexit386:                                     ; preds = %733, %731, %.thread373, %225, %257, %210, %242, %290, %192
-  %.5214 = phi ptr [ %.0209, %731 ], [ %.0209, %210 ], [ %.0209, %225 ], [ %.0209, %242 ], [ %.0209, %257 ], [ %.0209, %290 ], [ %.0209, %.thread373 ], [ %.3212, %192 ], [ %.0209, %733 ]
-  %.1164 = phi ptr [ %228, %731 ], [ null, %210 ], [ null, %225 ], [ %228, %242 ], [ %228, %257 ], [ %228, %290 ], [ %228, %.thread373 ], [ null, %192 ], [ %228, %733 ]
-  %.1158 = phi ptr [ %196, %731 ], [ %196, %210 ], [ %196, %225 ], [ %196, %242 ], [ %196, %257 ], [ %196, %290 ], [ %196, %.thread373 ], [ null, %192 ], [ %196, %733 ]
-  %.0150 = phi i8 [ 0, %731 ], [ 0, %210 ], [ 0, %225 ], [ 0, %242 ], [ 0, %257 ], [ 0, %290 ], [ 0, %.thread373 ], [ 0, %192 ], [ 1, %733 ]
+  %.5214 = phi ptr [ %.0209, %210 ], [ %.0209, %225 ], [ %.0209, %242 ], [ %.0209, %257 ], [ %.0209, %290 ], [ %.3212, %192 ], [ %.0209, %.thread373 ], [ %.0209, %731 ], [ %.0209, %733 ]
+  %.1164 = phi ptr [ null, %210 ], [ null, %225 ], [ %228, %242 ], [ %228, %257 ], [ %228, %290 ], [ null, %192 ], [ %228, %.thread373 ], [ %228, %731 ], [ %228, %733 ]
+  %.1158 = phi ptr [ %196, %210 ], [ %196, %225 ], [ %196, %242 ], [ %196, %257 ], [ %196, %290 ], [ null, %192 ], [ %196, %.thread373 ], [ %196, %731 ], [ %196, %733 ]
+  %.0150 = phi i8 [ 0, %210 ], [ 0, %225 ], [ 0, %242 ], [ 0, %257 ], [ 0, %290 ], [ 0, %192 ], [ 0, %.thread373 ], [ 0, %731 ], [ 1, %733 ]
   invoke void @ucnv_close_77(ptr noundef %.1158)
           to label %734 unwind label %.loopexit.split-lp382.loopexit.split-lp
 
@@ -1816,7 +1816,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit351:      ; preds = %674
   br label %744
 
 744:                                              ; preds = %741, %742, %100
-  %.0 = phi i8 [ 0, %100 ], [ %.0150, %741 ], [ %.0150, %742 ]
+  %.0 = phi i8 [ 0, %100 ], [ %.0150, %742 ], [ %.0150, %741 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %31) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %30) #21
@@ -1829,7 +1829,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit351:      ; preds = %674
   ret i8 %.0
 
 .loopexit.split-lp382:                            ; preds = %.loopexit381, %.loopexit.split-lp382.loopexit.split-lp, %.loopexit.split-lp382.loopexit, %730, %706, %.body, %392, %295, %247, %215, %194, %111
-  %.pn288.pn.pn.pn = phi { ptr, i32 } [ %.pn288.pn.pn, %111 ], [ %.pn241.pn.pn, %194 ], [ %.pn285, %215 ], [ %.pn283, %247 ], [ %.pn281, %295 ], [ %.pn276, %730 ], [ %.pn271.pn.pn, %706 ], [ %eh.lpad-body, %.body ], [ %.pn256.pn.pn, %392 ], [ %lpad.loopexit383, %.loopexit381 ], [ %lpad.loopexit398, %.loopexit.split-lp382.loopexit ], [ %lpad.loopexit.split-lp399, %.loopexit.split-lp382.loopexit.split-lp ]
+  %.pn288.pn.pn.pn = phi { ptr, i32 } [ %.pn288.pn.pn, %111 ], [ %.pn285, %215 ], [ %.pn283, %247 ], [ %.pn281, %295 ], [ %.pn276, %730 ], [ %.pn271.pn.pn, %706 ], [ %eh.lpad-body, %.body ], [ %.pn256.pn.pn, %392 ], [ %.pn241.pn.pn, %194 ], [ %lpad.loopexit383, %.loopexit381 ], [ %lpad.loopexit398, %.loopexit.split-lp382.loopexit ], [ %lpad.loopexit.split-lp399, %.loopexit.split-lp382.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %31) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %30) #21
@@ -2250,7 +2250,7 @@ sub_2:                                            ; preds = %sub_1
   br label %391
 
 .invoke:                                          ; preds = %387, %372, %293, %253, %222, %.tail493, %.tail498, %209, %189, %148, %147, %141, %137, %102, %82, %68, %51
-  %55 = phi i32 [ 1, %372 ], [ 1, %51 ], [ 1, %68 ], [ 1, %82 ], [ 1, %102 ], [ 1, %137 ], [ 1, %141 ], [ 1, %147 ], [ 1, %148 ], [ 1, %189 ], [ 0, %.tail493 ], [ 1, %222 ], [ 1, %253 ], [ 1, %293 ], [ 1, %387 ], [ 0, %209 ], [ 0, %.tail498 ]
+  %55 = phi i32 [ 1, %51 ], [ 1, %68 ], [ 1, %82 ], [ 1, %102 ], [ 1, %137 ], [ 1, %141 ], [ 1, %147 ], [ 1, %148 ], [ 1, %189 ], [ 0, %209 ], [ 0, %.tail498 ], [ 0, %.tail493 ], [ 1, %222 ], [ 1, %253 ], [ 1, %293 ], [ 1, %372 ], [ 1, %387 ]
   invoke fastcc void @_ZL5usagePKci(ptr noundef nonnull %.0230, i32 noundef %55)
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -2605,7 +2605,7 @@ sub_2496:                                         ; preds = %sub_1495
   br label %.tail493
 
 .tail493:                                         ; preds = %sub_1495, %sub_2496
-  %198 = phi i32 [ %197, %sub_2496 ], [ %193, %sub_1495 ]
+  %198 = phi i32 [ %193, %sub_1495 ], [ %197, %sub_2496 ]
   %199 = icmp eq i32 %198, 0
   br i1 %199, label %.invoke, label %sub_1500
 
@@ -2625,7 +2625,7 @@ sub_2501:                                         ; preds = %sub_1500
   br label %.tail498
 
 .tail498:                                         ; preds = %sub_0494, %sub_1500, %sub_2501
-  %208 = phi i32 [ %207, %sub_2501 ], [ %203, %sub_1500 ], [ %38, %sub_0494 ]
+  %208 = phi i32 [ %203, %sub_1500 ], [ %207, %sub_2501 ], [ %38, %sub_0494 ]
   %.not314 = icmp eq i32 %208, 0
   br i1 %.not314, label %.invoke, label %209
 
@@ -3090,23 +3090,23 @@ sub_2531:                                         ; preds = %sub_1530
   br label %391
 
 391:                                              ; preds = %317, %277, %246, %.thread, %.tail518, %346, %.tail513, %335, %.tail508, %.tail503, %189, %174, %142, %137, %88, %86, %53, %84, %376, %385, %390, %381, %104, %70
-  %.1264 = phi ptr [ %.02631067, %53 ], [ %.02631067, %335 ], [ %71, %70 ], [ %.02631067, %.tail503 ], [ %.02631067, %84 ], [ %.02631067, %277 ], [ %.02631067, %104 ], [ %.02631067, %189 ], [ %.02631067, %88 ], [ %.02631067, %137 ], [ %.02631067, %.thread ], [ %.02631067, %246 ], [ %.02631067, %142 ], [ %.02631067, %174 ], [ %.02631067, %86 ], [ %.02631067, %381 ], [ %.02631067, %385 ], [ %.02631067, %.tail518 ], [ %.02631067, %390 ], [ %.02631067, %346 ], [ %.02631067, %376 ], [ %.02631067, %.tail513 ], [ %.02631067, %.tail508 ], [ %.02631067, %317 ]
-  %.1262 = phi ptr [ %.02611068, %53 ], [ %.02611068, %335 ], [ %.02611068, %70 ], [ %.02611068, %.tail503 ], [ %85, %84 ], [ %.02611068, %277 ], [ %.02611068, %104 ], [ %.02611068, %189 ], [ %.02611068, %88 ], [ %.02611068, %137 ], [ %.02611068, %.thread ], [ %.02611068, %246 ], [ %.02611068, %142 ], [ %.02611068, %174 ], [ %.02611068, %86 ], [ %.02611068, %381 ], [ %.02611068, %385 ], [ %.02611068, %.tail518 ], [ %.02611068, %390 ], [ %.02611068, %346 ], [ %.02611068, %376 ], [ %.02611068, %.tail513 ], [ %.02611068, %.tail508 ], [ %.02611068, %317 ]
-  %.1260 = phi ptr [ %.02591069, %53 ], [ %.02591069, %335 ], [ %.02591069, %70 ], [ %.02591069, %.tail503 ], [ %.02591069, %84 ], [ %.02591069, %277 ], [ %.02591069, %104 ], [ %.02591069, %189 ], [ %.02591069, %88 ], [ %.02591069, %137 ], [ %.02591069, %.thread ], [ %.02591069, %246 ], [ %.02591069, %142 ], [ %.02591069, %174 ], [ %.02591069, %86 ], [ %.02591069, %381 ], [ %.02591069, %385 ], [ %.02591069, %.tail518 ], [ %.02591069, %390 ], [ %.02591069, %346 ], [ %377, %376 ], [ %.02591069, %.tail513 ], [ %.02591069, %.tail508 ], [ %.02591069, %317 ]
-  %.1258 = phi i8 [ %.02571070, %53 ], [ %.02571070, %335 ], [ %.02571070, %70 ], [ %.02571070, %.tail503 ], [ %.02571070, %84 ], [ %.02571070, %277 ], [ %.02571070, %104 ], [ %.02571070, %189 ], [ 0, %88 ], [ %.02571070, %137 ], [ %.02571070, %.thread ], [ %.02571070, %246 ], [ %.02571070, %142 ], [ %.02571070, %174 ], [ 1, %86 ], [ %.02571070, %381 ], [ %.02571070, %385 ], [ %.02571070, %.tail518 ], [ %.02571070, %390 ], [ %.02571070, %346 ], [ %.02571070, %376 ], [ %.02571070, %.tail513 ], [ %.02571070, %.tail508 ], [ %.02571070, %317 ]
-  %.3256 = phi ptr [ %.02531071, %53 ], [ %.02531071, %335 ], [ %.02531071, %70 ], [ @UCNV_FROM_U_CALLBACK_SKIP_77, %.tail503 ], [ %.02531071, %84 ], [ %.02531071, %277 ], [ %.02531071, %104 ], [ %.02531071, %189 ], [ %.02531071, %88 ], [ %.02531071, %137 ], [ %.02531071, %.thread ], [ %248, %246 ], [ %.02531071, %142 ], [ %.02531071, %174 ], [ %.02531071, %86 ], [ %.02531071, %381 ], [ %.02531071, %385 ], [ %.02531071, %.tail518 ], [ %.02531071, %390 ], [ %.02531071, %346 ], [ %.02531071, %376 ], [ %.02531071, %.tail513 ], [ %.02531071, %.tail508 ], [ %319, %317 ]
-  %.3252 = phi ptr [ %.02491072, %53 ], [ %.02491072, %335 ], [ %.02491072, %70 ], [ %.02491072, %.tail503 ], [ %.02491072, %84 ], [ %.02491072, %277 ], [ %.02491072, %104 ], [ %.02491072, %189 ], [ %.02491072, %88 ], [ %.02491072, %137 ], [ %.02491072, %.thread ], [ %250, %246 ], [ %.02491072, %142 ], [ %.02491072, %174 ], [ %.02491072, %86 ], [ %.02491072, %381 ], [ %.02491072, %385 ], [ %.02491072, %.tail518 ], [ %.02491072, %390 ], [ %.02491072, %346 ], [ %.02491072, %376 ], [ %.02491072, %.tail513 ], [ %.02491072, %.tail508 ], [ %321, %317 ]
-  %.3248 = phi ptr [ %.02451073, %53 ], [ %.02451073, %335 ], [ %.02451073, %70 ], [ %.02451073, %.tail503 ], [ %.02451073, %84 ], [ %279, %277 ], [ %.02451073, %104 ], [ %.02451073, %189 ], [ %.02451073, %88 ], [ %.02451073, %137 ], [ %.02451073, %.thread ], [ %.02451073, %246 ], [ %.02451073, %142 ], [ %.02451073, %174 ], [ %.02451073, %86 ], [ %.02451073, %381 ], [ %.02451073, %385 ], [ %.02451073, %.tail518 ], [ %.02451073, %390 ], [ %.02451073, %346 ], [ %.02451073, %376 ], [ %.02451073, %.tail513 ], [ @UCNV_TO_U_CALLBACK_SKIP_77, %.tail508 ], [ %323, %317 ]
-  %.3244 = phi ptr [ %.02411074, %53 ], [ %.02411074, %335 ], [ %.02411074, %70 ], [ %.02411074, %.tail503 ], [ %.02411074, %84 ], [ %281, %277 ], [ %.02411074, %104 ], [ %.02411074, %189 ], [ %.02411074, %88 ], [ %.02411074, %137 ], [ %.02411074, %.thread ], [ %.02411074, %246 ], [ %.02411074, %142 ], [ %.02411074, %174 ], [ %.02411074, %86 ], [ %.02411074, %381 ], [ %.02411074, %385 ], [ %.02411074, %.tail518 ], [ %.02411074, %390 ], [ %.02411074, %346 ], [ %.02411074, %376 ], [ %.02411074, %.tail513 ], [ %.02411074, %.tail508 ], [ %325, %317 ]
-  %.1239 = phi ptr [ %52, %53 ], [ %.02381075, %335 ], [ %69, %70 ], [ %.02381075, %.tail503 ], [ %83, %84 ], [ %254, %277 ], [ %103, %104 ], [ %.02381075, %189 ], [ %.02381075, %88 ], [ %.02381075, %137 ], [ %149, %.thread ], [ %223, %246 ], [ %.02381075, %142 ], [ %.02381075, %174 ], [ %.02381075, %86 ], [ %.02381075, %381 ], [ %.02381075, %385 ], [ %.02381075, %.tail518 ], [ %.02381075, %390 ], [ %.02381075, %346 ], [ %373, %376 ], [ %.02381075, %.tail513 ], [ %.02381075, %.tail508 ], [ %294, %317 ]
-  %.1236 = phi ptr [ %54, %53 ], [ %.02351076, %335 ], [ %.02351076, %70 ], [ %.02351076, %.tail503 ], [ %.02351076, %84 ], [ %.02351076, %277 ], [ %.02351076, %104 ], [ %.02351076, %189 ], [ %.02351076, %88 ], [ %.02351076, %137 ], [ %.02351076, %.thread ], [ %.02351076, %246 ], [ %.02351076, %142 ], [ %.02351076, %174 ], [ %.02351076, %86 ], [ %.02351076, %381 ], [ %.02351076, %385 ], [ %.02351076, %.tail518 ], [ %.02351076, %390 ], [ %.02351076, %346 ], [ %.02351076, %376 ], [ %.02351076, %.tail513 ], [ %.02351076, %.tail508 ], [ %.02351076, %317 ]
-  %.1234.idx = phi i64 [ %.0233.idx1077, %53 ], [ %.0233.idx1077, %335 ], [ %.0233.idx1077, %70 ], [ %.0233.idx1077, %.tail503 ], [ %.0233.idx1077, %84 ], [ %.0233.idx1077, %277 ], [ %.0233.idx1077, %104 ], [ %.0233.idx1077, %189 ], [ %.0233.idx1077, %88 ], [ %.0233.idx1077, %137 ], [ %.0233.idx1077, %.thread ], [ %.0233.idx1077, %246 ], [ %.0233.idx1077, %142 ], [ %.0233.idx1077, %174 ], [ %.0233.idx1077, %86 ], [ %.0233.idx1077, %381 ], [ %.0233.idx1077, %385 ], [ %.0233.idx1077, %.tail518 ], [ %.0233.add, %390 ], [ %.0233.idx1077, %346 ], [ %.0233.idx1077, %376 ], [ %.0233.idx1077, %.tail513 ], [ %.0233.idx1077, %.tail508 ], [ %.0233.idx1077, %317 ]
-  %.1232 = phi i64 [ %.02311078, %53 ], [ %.02311078, %335 ], [ %.02311078, %70 ], [ %.02311078, %.tail503 ], [ %.02311078, %84 ], [ %.02311078, %277 ], [ %108, %104 ], [ %.02311078, %189 ], [ %.02311078, %88 ], [ %.02311078, %137 ], [ %.02311078, %.thread ], [ %.02311078, %246 ], [ %.02311078, %142 ], [ %.02311078, %174 ], [ %.02311078, %86 ], [ %.02311078, %381 ], [ %.02311078, %385 ], [ %.02311078, %.tail518 ], [ %.02311078, %390 ], [ %.02311078, %346 ], [ %.02311078, %376 ], [ %.02311078, %.tail513 ], [ %.02311078, %.tail508 ], [ %.02311078, %317 ]
-  %.1229 = phi i8 [ %.02281079, %53 ], [ %.02281079, %335 ], [ %.02281079, %70 ], [ %.02281079, %.tail503 ], [ %.02281079, %84 ], [ %.02281079, %277 ], [ %.02281079, %104 ], [ 0, %189 ], [ %.02281079, %88 ], [ 1, %137 ], [ %.02281079, %.thread ], [ %.02281079, %246 ], [ %.02281079, %142 ], [ %.02281079, %174 ], [ %.02281079, %86 ], [ %.02281079, %381 ], [ %.02281079, %385 ], [ %.02281079, %.tail518 ], [ %.02281079, %390 ], [ %.02281079, %346 ], [ %.02281079, %376 ], [ %.02281079, %.tail513 ], [ %.02281079, %.tail508 ], [ %.02281079, %317 ]
-  %.1227 = phi i8 [ %.02261080, %53 ], [ %.02261080, %335 ], [ %.02261080, %70 ], [ %.02261080, %.tail503 ], [ %.02261080, %84 ], [ %.02261080, %277 ], [ %.02261080, %104 ], [ %.02261080, %189 ], [ %.02261080, %88 ], [ %.02261080, %137 ], [ %.02261080, %.thread ], [ %.02261080, %246 ], [ %.02261080, %142 ], [ 1, %174 ], [ %.02261080, %86 ], [ %.02261080, %381 ], [ %.02261080, %385 ], [ %.02261080, %.tail518 ], [ %.02261080, %390 ], [ %.02261080, %346 ], [ %.02261080, %376 ], [ %.02261080, %.tail513 ], [ %.02261080, %.tail508 ], [ %.02261080, %317 ]
-  %.1225 = phi i8 [ %.02241081, %53 ], [ %.02241081, %335 ], [ %.02241081, %70 ], [ %.02241081, %.tail503 ], [ %.02241081, %84 ], [ %.02241081, %277 ], [ %.02241081, %104 ], [ 1, %189 ], [ %.02241081, %88 ], [ 0, %137 ], [ 0, %.thread ], [ %.02241081, %246 ], [ 0, %142 ], [ %.02241081, %174 ], [ %.02241081, %86 ], [ %.02241081, %381 ], [ %.02241081, %385 ], [ %.02241081, %.tail518 ], [ %.02241081, %390 ], [ %.02241081, %346 ], [ %.02241081, %376 ], [ %.02241081, %.tail513 ], [ %.02241081, %.tail508 ], [ %.02241081, %317 ]
-  %.1223 = phi ptr [ %.02221082, %53 ], [ %.02221082, %335 ], [ %.02221082, %70 ], [ %.02221082, %.tail503 ], [ %.02221082, %84 ], [ %.02221082, %277 ], [ %.02221082, %104 ], [ %.02221082, %189 ], [ %.02221082, %88 ], [ %.02221082, %137 ], [ %152, %.thread ], [ %.02221082, %246 ], [ %143, %142 ], [ %.02221082, %174 ], [ %.02221082, %86 ], [ %.02221082, %381 ], [ %.02221082, %385 ], [ %.02221082, %.tail518 ], [ %.02221082, %390 ], [ %.02221082, %346 ], [ %.02221082, %376 ], [ %.02221082, %.tail513 ], [ %.02221082, %.tail508 ], [ %.02221082, %317 ]
-  %.1221 = phi i8 [ %.02201083, %53 ], [ 0, %335 ], [ %.02201083, %70 ], [ %.02201083, %.tail503 ], [ %.02201083, %84 ], [ %.02201083, %277 ], [ %.02201083, %104 ], [ %.02201083, %189 ], [ %.02201083, %88 ], [ %.02201083, %137 ], [ %.02201083, %.thread ], [ %.02201083, %246 ], [ %.02201083, %142 ], [ %.02201083, %174 ], [ %.02201083, %86 ], [ %.02201083, %381 ], [ %.02201083, %385 ], [ 1, %.tail518 ], [ %.02201083, %390 ], [ 1, %346 ], [ %.02201083, %376 ], [ 0, %.tail513 ], [ %.02201083, %.tail508 ], [ %.02201083, %317 ]
+  %.1264 = phi ptr [ %.02631067, %53 ], [ %71, %70 ], [ %.02631067, %84 ], [ %.02631067, %104 ], [ %.02631067, %381 ], [ %.02631067, %385 ], [ %.02631067, %390 ], [ %.02631067, %376 ], [ %.02631067, %317 ], [ %.02631067, %277 ], [ %.02631067, %246 ], [ %.02631067, %86 ], [ %.02631067, %88 ], [ %.02631067, %137 ], [ %.02631067, %142 ], [ %.02631067, %174 ], [ %.02631067, %189 ], [ %.02631067, %.tail503 ], [ %.02631067, %.tail508 ], [ %.02631067, %335 ], [ %.02631067, %.tail513 ], [ %.02631067, %346 ], [ %.02631067, %.tail518 ], [ %.02631067, %.thread ]
+  %.1262 = phi ptr [ %.02611068, %53 ], [ %.02611068, %70 ], [ %85, %84 ], [ %.02611068, %104 ], [ %.02611068, %381 ], [ %.02611068, %385 ], [ %.02611068, %390 ], [ %.02611068, %376 ], [ %.02611068, %317 ], [ %.02611068, %277 ], [ %.02611068, %246 ], [ %.02611068, %86 ], [ %.02611068, %88 ], [ %.02611068, %137 ], [ %.02611068, %142 ], [ %.02611068, %174 ], [ %.02611068, %189 ], [ %.02611068, %.tail503 ], [ %.02611068, %.tail508 ], [ %.02611068, %335 ], [ %.02611068, %.tail513 ], [ %.02611068, %346 ], [ %.02611068, %.tail518 ], [ %.02611068, %.thread ]
+  %.1260 = phi ptr [ %.02591069, %53 ], [ %.02591069, %70 ], [ %.02591069, %84 ], [ %.02591069, %104 ], [ %.02591069, %381 ], [ %.02591069, %385 ], [ %.02591069, %390 ], [ %377, %376 ], [ %.02591069, %317 ], [ %.02591069, %277 ], [ %.02591069, %246 ], [ %.02591069, %86 ], [ %.02591069, %88 ], [ %.02591069, %137 ], [ %.02591069, %142 ], [ %.02591069, %174 ], [ %.02591069, %189 ], [ %.02591069, %.tail503 ], [ %.02591069, %.tail508 ], [ %.02591069, %335 ], [ %.02591069, %.tail513 ], [ %.02591069, %346 ], [ %.02591069, %.tail518 ], [ %.02591069, %.thread ]
+  %.1258 = phi i8 [ %.02571070, %53 ], [ %.02571070, %70 ], [ %.02571070, %84 ], [ %.02571070, %104 ], [ %.02571070, %381 ], [ %.02571070, %385 ], [ %.02571070, %390 ], [ %.02571070, %376 ], [ %.02571070, %317 ], [ %.02571070, %277 ], [ %.02571070, %246 ], [ 1, %86 ], [ 0, %88 ], [ %.02571070, %137 ], [ %.02571070, %142 ], [ %.02571070, %174 ], [ %.02571070, %189 ], [ %.02571070, %.tail503 ], [ %.02571070, %.tail508 ], [ %.02571070, %335 ], [ %.02571070, %.tail513 ], [ %.02571070, %346 ], [ %.02571070, %.tail518 ], [ %.02571070, %.thread ]
+  %.3256 = phi ptr [ %.02531071, %53 ], [ %.02531071, %70 ], [ %.02531071, %84 ], [ %.02531071, %104 ], [ %.02531071, %381 ], [ %.02531071, %385 ], [ %.02531071, %390 ], [ %.02531071, %376 ], [ %319, %317 ], [ %.02531071, %277 ], [ %248, %246 ], [ %.02531071, %86 ], [ %.02531071, %88 ], [ %.02531071, %137 ], [ %.02531071, %142 ], [ %.02531071, %174 ], [ %.02531071, %189 ], [ @UCNV_FROM_U_CALLBACK_SKIP_77, %.tail503 ], [ %.02531071, %.tail508 ], [ %.02531071, %335 ], [ %.02531071, %.tail513 ], [ %.02531071, %346 ], [ %.02531071, %.tail518 ], [ %.02531071, %.thread ]
+  %.3252 = phi ptr [ %.02491072, %53 ], [ %.02491072, %70 ], [ %.02491072, %84 ], [ %.02491072, %104 ], [ %.02491072, %381 ], [ %.02491072, %385 ], [ %.02491072, %390 ], [ %.02491072, %376 ], [ %321, %317 ], [ %.02491072, %277 ], [ %250, %246 ], [ %.02491072, %86 ], [ %.02491072, %88 ], [ %.02491072, %137 ], [ %.02491072, %142 ], [ %.02491072, %174 ], [ %.02491072, %189 ], [ %.02491072, %.tail503 ], [ %.02491072, %.tail508 ], [ %.02491072, %335 ], [ %.02491072, %.tail513 ], [ %.02491072, %346 ], [ %.02491072, %.tail518 ], [ %.02491072, %.thread ]
+  %.3248 = phi ptr [ %.02451073, %53 ], [ %.02451073, %70 ], [ %.02451073, %84 ], [ %.02451073, %104 ], [ %.02451073, %381 ], [ %.02451073, %385 ], [ %.02451073, %390 ], [ %.02451073, %376 ], [ %323, %317 ], [ %279, %277 ], [ %.02451073, %246 ], [ %.02451073, %86 ], [ %.02451073, %88 ], [ %.02451073, %137 ], [ %.02451073, %142 ], [ %.02451073, %174 ], [ %.02451073, %189 ], [ %.02451073, %.tail503 ], [ @UCNV_TO_U_CALLBACK_SKIP_77, %.tail508 ], [ %.02451073, %335 ], [ %.02451073, %.tail513 ], [ %.02451073, %346 ], [ %.02451073, %.tail518 ], [ %.02451073, %.thread ]
+  %.3244 = phi ptr [ %.02411074, %53 ], [ %.02411074, %70 ], [ %.02411074, %84 ], [ %.02411074, %104 ], [ %.02411074, %381 ], [ %.02411074, %385 ], [ %.02411074, %390 ], [ %.02411074, %376 ], [ %325, %317 ], [ %281, %277 ], [ %.02411074, %246 ], [ %.02411074, %86 ], [ %.02411074, %88 ], [ %.02411074, %137 ], [ %.02411074, %142 ], [ %.02411074, %174 ], [ %.02411074, %189 ], [ %.02411074, %.tail503 ], [ %.02411074, %.tail508 ], [ %.02411074, %335 ], [ %.02411074, %.tail513 ], [ %.02411074, %346 ], [ %.02411074, %.tail518 ], [ %.02411074, %.thread ]
+  %.1239 = phi ptr [ %52, %53 ], [ %69, %70 ], [ %83, %84 ], [ %103, %104 ], [ %.02381075, %381 ], [ %.02381075, %385 ], [ %.02381075, %390 ], [ %373, %376 ], [ %294, %317 ], [ %254, %277 ], [ %223, %246 ], [ %.02381075, %86 ], [ %.02381075, %88 ], [ %.02381075, %137 ], [ %.02381075, %142 ], [ %.02381075, %174 ], [ %.02381075, %189 ], [ %.02381075, %.tail503 ], [ %.02381075, %.tail508 ], [ %.02381075, %335 ], [ %.02381075, %.tail513 ], [ %.02381075, %346 ], [ %.02381075, %.tail518 ], [ %149, %.thread ]
+  %.1236 = phi ptr [ %54, %53 ], [ %.02351076, %70 ], [ %.02351076, %84 ], [ %.02351076, %104 ], [ %.02351076, %381 ], [ %.02351076, %385 ], [ %.02351076, %390 ], [ %.02351076, %376 ], [ %.02351076, %317 ], [ %.02351076, %277 ], [ %.02351076, %246 ], [ %.02351076, %86 ], [ %.02351076, %88 ], [ %.02351076, %137 ], [ %.02351076, %142 ], [ %.02351076, %174 ], [ %.02351076, %189 ], [ %.02351076, %.tail503 ], [ %.02351076, %.tail508 ], [ %.02351076, %335 ], [ %.02351076, %.tail513 ], [ %.02351076, %346 ], [ %.02351076, %.tail518 ], [ %.02351076, %.thread ]
+  %.1234.idx = phi i64 [ %.0233.idx1077, %53 ], [ %.0233.idx1077, %70 ], [ %.0233.idx1077, %84 ], [ %.0233.idx1077, %104 ], [ %.0233.idx1077, %381 ], [ %.0233.idx1077, %385 ], [ %.0233.add, %390 ], [ %.0233.idx1077, %376 ], [ %.0233.idx1077, %317 ], [ %.0233.idx1077, %277 ], [ %.0233.idx1077, %246 ], [ %.0233.idx1077, %86 ], [ %.0233.idx1077, %88 ], [ %.0233.idx1077, %137 ], [ %.0233.idx1077, %142 ], [ %.0233.idx1077, %174 ], [ %.0233.idx1077, %189 ], [ %.0233.idx1077, %.tail503 ], [ %.0233.idx1077, %.tail508 ], [ %.0233.idx1077, %335 ], [ %.0233.idx1077, %.tail513 ], [ %.0233.idx1077, %346 ], [ %.0233.idx1077, %.tail518 ], [ %.0233.idx1077, %.thread ]
+  %.1232 = phi i64 [ %.02311078, %53 ], [ %.02311078, %70 ], [ %.02311078, %84 ], [ %108, %104 ], [ %.02311078, %381 ], [ %.02311078, %385 ], [ %.02311078, %390 ], [ %.02311078, %376 ], [ %.02311078, %317 ], [ %.02311078, %277 ], [ %.02311078, %246 ], [ %.02311078, %86 ], [ %.02311078, %88 ], [ %.02311078, %137 ], [ %.02311078, %142 ], [ %.02311078, %174 ], [ %.02311078, %189 ], [ %.02311078, %.tail503 ], [ %.02311078, %.tail508 ], [ %.02311078, %335 ], [ %.02311078, %.tail513 ], [ %.02311078, %346 ], [ %.02311078, %.tail518 ], [ %.02311078, %.thread ]
+  %.1229 = phi i8 [ %.02281079, %53 ], [ %.02281079, %70 ], [ %.02281079, %84 ], [ %.02281079, %104 ], [ %.02281079, %381 ], [ %.02281079, %385 ], [ %.02281079, %390 ], [ %.02281079, %376 ], [ %.02281079, %317 ], [ %.02281079, %277 ], [ %.02281079, %246 ], [ %.02281079, %86 ], [ %.02281079, %88 ], [ 1, %137 ], [ %.02281079, %142 ], [ %.02281079, %174 ], [ 0, %189 ], [ %.02281079, %.tail503 ], [ %.02281079, %.tail508 ], [ %.02281079, %335 ], [ %.02281079, %.tail513 ], [ %.02281079, %346 ], [ %.02281079, %.tail518 ], [ %.02281079, %.thread ]
+  %.1227 = phi i8 [ %.02261080, %53 ], [ %.02261080, %70 ], [ %.02261080, %84 ], [ %.02261080, %104 ], [ %.02261080, %381 ], [ %.02261080, %385 ], [ %.02261080, %390 ], [ %.02261080, %376 ], [ %.02261080, %317 ], [ %.02261080, %277 ], [ %.02261080, %246 ], [ %.02261080, %86 ], [ %.02261080, %88 ], [ %.02261080, %137 ], [ %.02261080, %142 ], [ 1, %174 ], [ %.02261080, %189 ], [ %.02261080, %.tail503 ], [ %.02261080, %.tail508 ], [ %.02261080, %335 ], [ %.02261080, %.tail513 ], [ %.02261080, %346 ], [ %.02261080, %.tail518 ], [ %.02261080, %.thread ]
+  %.1225 = phi i8 [ %.02241081, %53 ], [ %.02241081, %70 ], [ %.02241081, %84 ], [ %.02241081, %104 ], [ %.02241081, %381 ], [ %.02241081, %385 ], [ %.02241081, %390 ], [ %.02241081, %376 ], [ %.02241081, %317 ], [ %.02241081, %277 ], [ %.02241081, %246 ], [ %.02241081, %86 ], [ %.02241081, %88 ], [ 0, %137 ], [ 0, %142 ], [ %.02241081, %174 ], [ 1, %189 ], [ %.02241081, %.tail503 ], [ %.02241081, %.tail508 ], [ %.02241081, %335 ], [ %.02241081, %.tail513 ], [ %.02241081, %346 ], [ %.02241081, %.tail518 ], [ 0, %.thread ]
+  %.1223 = phi ptr [ %.02221082, %53 ], [ %.02221082, %70 ], [ %.02221082, %84 ], [ %.02221082, %104 ], [ %.02221082, %381 ], [ %.02221082, %385 ], [ %.02221082, %390 ], [ %.02221082, %376 ], [ %.02221082, %317 ], [ %.02221082, %277 ], [ %.02221082, %246 ], [ %.02221082, %86 ], [ %.02221082, %88 ], [ %.02221082, %137 ], [ %143, %142 ], [ %.02221082, %174 ], [ %.02221082, %189 ], [ %.02221082, %.tail503 ], [ %.02221082, %.tail508 ], [ %.02221082, %335 ], [ %.02221082, %.tail513 ], [ %.02221082, %346 ], [ %.02221082, %.tail518 ], [ %152, %.thread ]
+  %.1221 = phi i8 [ %.02201083, %53 ], [ %.02201083, %70 ], [ %.02201083, %84 ], [ %.02201083, %104 ], [ %.02201083, %381 ], [ %.02201083, %385 ], [ %.02201083, %390 ], [ %.02201083, %376 ], [ %.02201083, %317 ], [ %.02201083, %277 ], [ %.02201083, %246 ], [ %.02201083, %86 ], [ %.02201083, %88 ], [ %.02201083, %137 ], [ %.02201083, %142 ], [ %.02201083, %174 ], [ %.02201083, %189 ], [ %.02201083, %.tail503 ], [ %.02201083, %.tail508 ], [ 0, %335 ], [ 0, %.tail513 ], [ 1, %346 ], [ 1, %.tail518 ], [ %.02201083, %.thread ]
   %392 = getelementptr inbounds nuw i8, ptr %.1239, i64 8
   %.0233.ptr.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.1234.idx
   %.not291 = icmp eq ptr %392, %20
@@ -3770,7 +3770,7 @@ sub_0542:                                         ; preds = %.tail537.thread
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %584, %591, %593
-  %.0.i414 = phi ptr [ %595, %593 ], [ %592, %591 ], [ null, %584 ]
+  %.0.i414 = phi ptr [ %592, %591 ], [ %595, %593 ], [ null, %584 ]
   %596 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %597 = load i16, ptr %596, align 8, !tbaa !10
   %598 = and i16 %597, 17
@@ -3792,7 +3792,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %584, %591, %593
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit418
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit418:   ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit, %601, %603
-  %.0.i416 = phi ptr [ %605, %603 ], [ %602, %601 ], [ null, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
+  %.0.i416 = phi ptr [ %602, %601 ], [ %605, %603 ], [ null, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
   %606 = invoke i32 (ptr, ptr, ...) @u_wmsg(ptr noundef %585, ptr noundef nonnull @.str.59, ptr noundef %.0.i414, ptr noundef %.0.i416)
           to label %607 unwind label %612
 
@@ -3899,7 +3899,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit418:   ; preds = %_ZNK6icu_7713Unicod
           to label %642 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 642:                                              ; preds = %531, %.thread451, %.thread444, %.thread435, %.thread426, %172, %_ZL20printTransliteratorsa.exit, %641, %607, %359, %119
-  %.1 = phi i32 [ 3, %119 ], [ 2, %172 ], [ 0, %359 ], [ 4, %.thread444 ], [ 4, %.thread435 ], [ 4, %.thread426 ], [ %.0196, %641 ], [ 0, %_ZL20printTransliteratorsa.exit ], [ 1, %607 ], [ 0, %531 ], [ 2, %.thread451 ]
+  %.1 = phi i32 [ 3, %119 ], [ 2, %172 ], [ 0, %359 ], [ 1, %607 ], [ 0, %_ZL20printTransliteratorsa.exit ], [ %.0196, %641 ], [ 4, %.thread426 ], [ 4, %.thread435 ], [ 4, %.thread444 ], [ 0, %531 ], [ 2, %.thread451 ]
   %643 = load ptr, ptr %10, align 8, !tbaa !28
   %644 = icmp eq ptr %643, null
   br i1 %644, label %646, label %645
@@ -3924,7 +3924,7 @@ _ZN11ConvertFileD2Ev.exit:                        ; preds = %646, %650
   ret i32 %.1
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %530, %302, %316, %262, %276, %231, %245, %615, %173, %124
-  %.pn359 = phi { ptr, i32 } [ %303, %302 ], [ %.pn354, %124 ], [ %.pn348.pn, %173 ], [ %263, %262 ], [ %232, %231 ], [ %.pn.pn, %615 ], [ %.pn320, %245 ], [ %.pn326, %276 ], [ %.pn333, %316 ], [ %.pn.i, %530 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit545, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit548, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit550, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit553, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit556, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit561, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit564, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit569, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit571, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit577, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit580, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit583, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn359 = phi { ptr, i32 } [ %.pn354, %124 ], [ %.pn348.pn, %173 ], [ %.pn.pn, %615 ], [ %.pn320, %245 ], [ %232, %231 ], [ %.pn326, %276 ], [ %263, %262 ], [ %.pn333, %316 ], [ %303, %302 ], [ %.pn.i, %530 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit545, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit548, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit550, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit553, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit556, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit561, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit564, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit569, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit571, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit577, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit580, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit583, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN11ConvertFileD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %10) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3995,7 +3995,7 @@ define internal fastcc void @_ZL5usagePKci(ptr noundef %0, i32 noundef range(i32
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %18, %24, %26
-  %.0.i = phi ptr [ %28, %26 ], [ %25, %24 ], [ null, %18 ]
+  %.0.i = phi ptr [ %25, %24 ], [ %28, %26 ], [ null, %18 ]
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = load i16, ptr %29, align 8, !tbaa !10
   %31 = and i16 %30, 17
@@ -4017,7 +4017,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %18, %24, %26
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit27
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit27:    ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit, %34, %36
-  %.0.i25 = phi ptr [ %38, %36 ], [ %35, %34 ], [ null, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
+  %.0.i25 = phi ptr [ %35, %34 ], [ %38, %36 ], [ null, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
   %39 = invoke i32 (ptr, ptr, ...) @u_wmsg(ptr noundef %9, ptr noundef nonnull @.str.69, ptr noundef %.0.i, ptr noundef %.0.i25)
           to label %40 unwind label %46
 

@@ -36,7 +36,7 @@ define dso_local ptr @u_wmsg_setPath(ptr noundef %0, ptr noundef %1) local_unnam
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %8, %2, %7
-  %.07 = phi ptr [ null, %2 ], [ null, %7 ], [ %9, %12 ], [ null, %8 ]
+  %.07 = phi ptr [ null, %7 ], [ null, %2 ], [ %9, %12 ], [ null, %8 ]
   ret ptr %.07
 }
 
@@ -166,7 +166,7 @@ uprint.exit10:                                    ; preds = %51, %43
   br label %60
 
 60:                                               ; preds = %uprint.exit10, %15, %2, %uprint.exit
-  %.0 = phi i32 [ -1, %15 ], [ -1, %2 ], [ -1, %uprint.exit ], [ %., %uprint.exit10 ]
+  %.0 = phi i32 [ -1, %uprint.exit ], [ -1, %2 ], [ -1, %15 ], [ %., %uprint.exit10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

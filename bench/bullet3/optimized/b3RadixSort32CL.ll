@@ -811,8 +811,8 @@ _ZNK20b3AlignedObjectArrayI10b3SortDataE4copyEiiPS0_.exit15.i.i: ; preds = %.noe
   br label %._crit_edge64
 
 ._crit_edge64:                                    ; preds = %.preheader, %._crit_edge64.loopexit, %.loopexit
-  %53 = phi i1 [ true, %.loopexit ], [ %52, %._crit_edge64.loopexit ], [ true, %.preheader ]
-  %54 = phi ptr [ %18, %.loopexit ], [ %.pre, %._crit_edge64.loopexit ], [ null, %.preheader ]
+  %53 = phi i1 [ %52, %._crit_edge64.loopexit ], [ true, %.loopexit ], [ true, %.preheader ]
+  %54 = phi ptr [ %.pre, %._crit_edge64.loopexit ], [ %18, %.loopexit ], [ null, %.preheader ]
   %.not.i.i.i45 = icmp ne ptr %54, null
   %or.cond.i.i46 = select i1 %.not.i.i.i45, i1 %53, i1 false
   br i1 %or.cond.i.i46, label %55, label %_ZN20b3AlignedObjectArrayI10b3SortDataED2Ev.exit

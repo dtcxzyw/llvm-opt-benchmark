@@ -692,7 +692,7 @@ define dso_local void @acpi_device_hotplug(ptr noundef %0, i32 noundef %1) local
   br label %177
 
 177:                                              ; preds = %144, %.critedge, %176, %172, %171, %167, %161
-  %178 = phi i32 [ -5, %167 ], [ %145, %144 ], [ -16, %.critedge ], [ -19, %161 ], [ 0, %172 ], [ 0, %176 ], [ 0, %171 ]
+  %178 = phi i32 [ -5, %167 ], [ %145, %144 ], [ -19, %161 ], [ 0, %172 ], [ 0, %176 ], [ 0, %171 ], [ -16, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %189
 
@@ -719,7 +719,7 @@ define dso_local void @acpi_device_hotplug(ptr noundef %0, i32 noundef %1) local
   br label %189
 
 189:                                              ; preds = %187, %177, %52, %47, %31, %25
-  %190 = phi i32 [ %26, %25 ], [ %188, %187 ], [ %178, %177 ], [ %53, %52 ], [ %32, %31 ], [ %45, %47 ]
+  %190 = phi i32 [ %26, %25 ], [ %188, %187 ], [ %178, %177 ], [ %32, %31 ], [ %45, %47 ], [ %53, %52 ]
   switch i32 %190, label %.thread26 [
     i32 0, label %.thread27
     i32 -1, label %191
@@ -1071,7 +1071,7 @@ define dso_local i32 @acpi_device_add(ptr noundef %0) local_unnamed_addr #0 alig
   br label %108
 
 103:                                              ; preds = %30, %87, %58, %51, %.thread
-  %104 = phi i32 [ -12, %.thread ], [ %85, %87 ], [ %56, %58 ], [ -12, %51 ], [ %32, %30 ]
+  %104 = phi i32 [ %85, %87 ], [ %56, %58 ], [ -12, %51 ], [ -12, %.thread ], [ %32, %30 ]
   call void @mutex_unlock(ptr noundef nonnull @acpi_device_lock) #19
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %106 = load ptr, ptr %105, align 8
@@ -2418,8 +2418,8 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
   br label %414
 
 414:                                              ; preds = %406, %411, %400
-  %415 = phi i32 [ %402, %400 ], [ %412, %411 ], [ %410, %406 ]
-  %416 = phi i32 [ %405, %400 ], [ %413, %411 ], [ 1, %406 ]
+  %415 = phi i32 [ %412, %411 ], [ %402, %400 ], [ %410, %406 ]
+  %416 = phi i32 [ %413, %411 ], [ %405, %400 ], [ 1, %406 ]
   %417 = shl i32 %416, 10
   %418 = and i32 %417, 1024
   %419 = and i32 %415, -1025
@@ -2956,7 +2956,7 @@ define internal fastcc noundef range(i32 0, 16391) i32 @acpi_bus_check_add(ptr n
   br i1 %96, label %.loopexit7, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.loopexit7, %82, %.preheader, %72
-  %97 = phi ptr [ null, %72 ], [ %78, %.preheader ], [ null, %.loopexit7 ], [ %78, %82 ]
+  %97 = phi ptr [ null, %72 ], [ %78, %.preheader ], [ %78, %82 ], [ null, %.loopexit7 ]
   %98 = icmp eq ptr %97, null
   br i1 %98, label %68, label %99
 
@@ -4627,7 +4627,7 @@ define internal range(i32 0, 16) i32 @acpi_bus_offline(ptr noundef %0, i32 %1, p
   br i1 %67, label %.thread, label %.lr.ph.split, !llvm.loop !35
 
 .thread:                                          ; preds = %65, %44, %..thread_crit_edge.split, %23
-  %68 = phi i32 [ 0, %23 ], [ 1, %..thread_crit_edge.split ], [ 0, %44 ], [ 0, %65 ]
+  %68 = phi i32 [ 1, %..thread_crit_edge.split ], [ 0, %23 ], [ 0, %44 ], [ 0, %65 ]
   call void @mutex_unlock(ptr noundef nonnull %24) #19
   br label %69
 

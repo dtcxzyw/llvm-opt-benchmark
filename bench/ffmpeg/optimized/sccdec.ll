@@ -318,7 +318,7 @@ select.unfold:                                    ; preds = %28, %30, %116
   br label %120
 
 120:                                              ; preds = %.thread115, %1, %119
-  %.0 = phi i32 [ -12, %.thread115 ], [ 0, %119 ], [ -12, %1 ]
+  %.0 = phi i32 [ 0, %119 ], [ -12, %1 ], [ -12, %.thread115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

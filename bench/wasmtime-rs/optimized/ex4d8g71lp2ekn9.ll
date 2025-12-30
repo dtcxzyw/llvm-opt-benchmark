@@ -656,7 +656,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
           to label %202 unwind label %106
 
 216:                                              ; preds = %.invoke, %387, %386, %378, %234, %233, %225, %224, %223, %209
-  %.4 = phi i1 [ false, %.invoke ], [ true, %387 ], [ true, %386 ], [ true, %378 ], [ true, %224 ], [ true, %209 ], [ true, %234 ], [ true, %233 ], [ true, %225 ], [ true, %223 ]
+  %.4 = phi i1 [ true, %387 ], [ true, %386 ], [ true, %378 ], [ true, %224 ], [ true, %234 ], [ true, %233 ], [ true, %225 ], [ true, %223 ], [ true, %209 ], [ false, %.invoke ]
   %217 = landingpad { ptr, i32 }
           cleanup
   br label %215
@@ -948,7 +948,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
           to label %300 unwind label %.loopexit.split-lp121
 
 299:                                              ; preds = %.loopexit120, %.loopexit.split-lp121, %371, %304
-  %.pn76 = phi { ptr, i32 } [ %lpad.phi129, %304 ], [ %372, %371 ], [ %lpad.loopexit122, %.loopexit120 ], [ %lpad.loopexit.split-lp123, %.loopexit.split-lp121 ]
+  %.pn76 = phi { ptr, i32 } [ %372, %371 ], [ %lpad.phi129, %304 ], [ %lpad.loopexit122, %.loopexit120 ], [ %lpad.loopexit.split-lp123, %.loopexit.split-lp121 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %13) #7
           to label %277 unwind label %106
 
@@ -1457,7 +1457,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
           to label %437 unwind label %.loopexit.split-lp
 
 436:                                              ; preds = %.loopexit, %.loopexit.split-lp, %507, %441
-  %.pn89 = phi { ptr, i32 } [ %lpad.phi119, %441 ], [ %508, %507 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn89 = phi { ptr, i32 } [ %508, %507 ], [ %lpad.phi119, %441 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %37) #7
           to label %414 unwind label %106
 
@@ -1759,7 +1759,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
           to label %511 unwind label %.loopexit115
 
 .thread:                                          ; preds = %150, %163, %.thread112, %153
-  %.pn98110 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread112 ], [ %.pn96, %153 ], [ %151, %150 ], [ %.pn67, %163 ]
+  %.pn98110 = phi { ptr, i32 } [ %.pn96, %153 ], [ %lpad.thr_comm, %.thread112 ], [ %151, %150 ], [ %.pn67, %163 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17h7fed6d1486afc955E"(ptr nonnull align 8 %64) #7
           to label %126 unwind label %106
 
@@ -1987,7 +1987,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
           to label %.thread39 unwind label %48
 
 .thread39:                                        ; preds = %.thread, %53, %12
-  %.pn1843 = phi { ptr, i32 } [ %.pn18, %12 ], [ %.pn18, %53 ], [ %.pn1623, %.thread ]
+  %.pn1843 = phi { ptr, i32 } [ %.pn18, %53 ], [ %.pn18, %12 ], [ %.pn1623, %.thread ]
   resume { ptr, i32 } %.pn1843
 
 53:                                               ; preds = %12
@@ -2654,7 +2654,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
           to label %349 unwind label %.loopexit249
 
 348:                                              ; preds = %.loopexit249, %.loopexit.split-lp250, %591, %413, %375
-  %.pn221 = phi { ptr, i32 } [ %.pn197, %591 ], [ %.pn219, %413 ], [ %.pn202, %375 ], [ %lpad.loopexit251, %.loopexit249 ], [ %lpad.loopexit.split-lp252, %.loopexit.split-lp250 ]
+  %.pn221 = phi { ptr, i32 } [ %.pn219, %413 ], [ %.pn202, %375 ], [ %.pn197, %591 ], [ %lpad.loopexit251, %.loopexit249 ], [ %lpad.loopexit.split-lp252, %.loopexit.split-lp250 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9ebc9b7807f19d85E"(ptr nonnull align 8 %169) #7
           to label %276 unwind label %274
 
@@ -3440,7 +3440,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
           to label %592 unwind label %.loopexit.split-lp255
 
 591:                                              ; preds = %.loopexit254, %.loopexit.split-lp255, %617, %611, %594
-  %.pn197 = phi { ptr, i32 } [ %595, %594 ], [ %618, %617 ], [ %612, %611 ], [ %lpad.loopexit256, %.loopexit254 ], [ %lpad.loopexit.split-lp257, %.loopexit.split-lp255 ]
+  %.pn197 = phi { ptr, i32 } [ %618, %617 ], [ %612, %611 ], [ %595, %594 ], [ %lpad.loopexit256, %.loopexit254 ], [ %lpad.loopexit.split-lp257, %.loopexit.split-lp255 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %167) #7
           to label %348 unwind label %274
 

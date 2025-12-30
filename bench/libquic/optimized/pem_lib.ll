@@ -60,7 +60,7 @@ define hidden void @PEM_proc_type(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %6
 
 6:                                                ; preds = %2, %3, %5, %4
-  %.0 = phi ptr [ @.str.3, %5 ], [ @.str.1, %3 ], [ @.str.2, %4 ], [ @.str, %2 ]
+  %.0 = phi ptr [ @.str.1, %3 ], [ @.str.2, %4 ], [ @.str.3, %5 ], [ @.str, %2 ]
   %7 = tail call i64 @BUF_strlcat(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef 1024) #12
   %8 = tail call i64 @BUF_strlcat(ptr noundef %0, ptr noundef nonnull %.0, i64 noundef 1024) #12
   %9 = tail call i64 @BUF_strlcat(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 1024) #12
@@ -299,7 +299,7 @@ check_pem.exit.thread22:                          ; preds = %50, %48, %check_pem
   %.not = icmp eq i32 %55, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-check_pem.exit.thread:                            ; preds = %50, %22, %24, %26, %28, %.lr.ph, %32, %36, %40, %43, %46, %check_pem.exit
+check_pem.exit.thread:                            ; preds = %50, %46, %43, %40, %36, %32, %22, %24, %26, %28, %.lr.ph, %check_pem.exit
   %56 = load ptr, ptr %10, align 8, !tbaa !11
   %57 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %56, ptr noundef nonnull %8)
   %.not17 = icmp eq i32 %57, 0
@@ -323,9 +323,9 @@ check_pem.exit.thread:                            ; preds = %50, %22, %24, %26, 
   call void @free(ptr noundef %56) #12
   br label %66
 
-.thread:                                          ; preds = %61, %58, %check_pem.exit.thread
-  %.027 = phi i32 [ 0, %check_pem.exit.thread ], [ 1, %61 ], [ 0, %58 ]
-  %63 = phi i1 [ false, %check_pem.exit.thread ], [ true, %61 ], [ false, %58 ]
+.thread:                                          ; preds = %61, %check_pem.exit.thread, %58
+  %.027 = phi i32 [ 1, %61 ], [ 0, %check_pem.exit.thread ], [ 0, %58 ]
+  %63 = phi i1 [ true, %61 ], [ false, %check_pem.exit.thread ], [ false, %58 ]
   call void @free(ptr noundef nonnull %18) #12
   call void @free(ptr noundef %56) #12
   br i1 %63, label %66, label %64
@@ -336,7 +336,7 @@ check_pem.exit.thread:                            ; preds = %50, %22, %24, %26, 
   br label %66
 
 66:                                               ; preds = %.thread29, %.thread, %64, %._crit_edge, %17
-  %.014 = phi i32 [ 0, %._crit_edge ], [ 0, %17 ], [ %.027, %64 ], [ %.027, %.thread ], [ 1, %.thread29 ]
+  %.014 = phi i32 [ 0, %17 ], [ 0, %._crit_edge ], [ %.027, %64 ], [ %.027, %.thread ], [ 1, %.thread29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -854,7 +854,7 @@ define hidden range(i32 0, 2) i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %0, ptr n
   br label %45
 
 45:                                               ; preds = %41, %13, %10, %2, %5, %5, %40, %28, %24, %19, %9
-  %.0 = phi i32 [ %44, %41 ], [ 0, %9 ], [ 1, %2 ], [ 0, %10 ], [ 0, %19 ], [ 0, %24 ], [ 0, %28 ], [ 0, %40 ], [ 0, %13 ], [ 1, %5 ], [ 1, %5 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %19 ], [ 0, %24 ], [ 0, %28 ], [ 0, %40 ], [ 1, %5 ], [ 1, %5 ], [ 1, %2 ], [ 0, %10 ], [ 0, %13 ], [ %44, %41 ]
   ret i32 %.0
 }
 
@@ -940,7 +940,7 @@ define hidden range(i32 0, 2) i32 @PEM_do_header(ptr noundef %0, ptr noundef %1,
   br label %44
 
 44:                                               ; preds = %18, %5, %39, %38, %17
-  %.0 = phi i32 [ 1, %5 ], [ 0, %17 ], [ 1, %39 ], [ 0, %38 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %17 ], [ 1, %39 ], [ 0, %38 ], [ 1, %5 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1309,8 +1309,8 @@ define hidden i32 @PEM_write_bio(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   call void @free(ptr noundef nonnull %24) #12
   br label %.thread
 
-.thread:                                          ; preds = %23, %48, %46, %50, %21, %19, %13, %11, %5, %.loopexit
-  %.069 = phi i32 [ 7, %.loopexit ], [ 65, %23 ], [ 7, %48 ], [ 7, %46 ], [ 7, %50 ], [ 7, %21 ], [ 7, %19 ], [ 7, %13 ], [ 7, %11 ], [ 7, %5 ]
+.thread:                                          ; preds = %23, %50, %48, %46, %21, %19, %13, %11, %5, %.loopexit
+  %.069 = phi i32 [ 7, %.loopexit ], [ 65, %23 ], [ 7, %50 ], [ 7, %48 ], [ 7, %46 ], [ 7, %21 ], [ 7, %19 ], [ 7, %13 ], [ 7, %11 ], [ 7, %5 ]
   call void @ERR_put_error(i32 noundef 9, i32 noundef 0, i32 noundef %.069, ptr noundef nonnull @.str.8, i32 noundef 575) #12
   br label %55
 

@@ -81,7 +81,7 @@ lean_obj_tag.exit.thread:                         ; preds = %lean_dec.exit
   br label %lean_dec.exit7
 
 lean_dec.exit7:                                   ; preds = %lean_obj_tag.exit, %21, %23, %24, %lean_obj_tag.exit.thread
-  %.0 = phi i8 [ 0, %lean_obj_tag.exit.thread ], [ %spec.select, %lean_obj_tag.exit ], [ 1, %24 ], [ 1, %23 ], [ 1, %21 ]
+  %.0 = phi i8 [ 0, %lean_obj_tag.exit.thread ], [ 1, %24 ], [ 1, %23 ], [ 1, %21 ], [ %spec.select, %lean_obj_tag.exit ]
   ret i8 %.0
 }
 
@@ -151,7 +151,7 @@ lean_obj_tag.exit.thread.i:                       ; preds = %lean_dec.exit.i
   br label %lean_is_marked_borrowed.exit
 
 lean_is_marked_borrowed.exit:                     ; preds = %lean_obj_tag.exit.i, %lean_obj_tag.exit.thread.i, %21, %23, %24
-  %.0.i = phi i64 [ 1, %lean_obj_tag.exit.thread.i ], [ %16, %lean_obj_tag.exit.i ], [ 3, %24 ], [ 3, %23 ], [ 3, %21 ]
+  %.0.i = phi i64 [ 1, %lean_obj_tag.exit.thread.i ], [ 3, %24 ], [ 3, %23 ], [ 3, %21 ], [ %16, %lean_obj_tag.exit.i ]
   %25 = inttoptr i64 %.0.i to ptr
   ret ptr %25
 }

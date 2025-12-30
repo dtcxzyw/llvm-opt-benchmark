@@ -199,8 +199,8 @@ default.unreachable:                              ; preds = %50
   unreachable
 
 .loopexit399:                                     ; preds = %51, %.thread, %73, %38
-  %75 = phi i1 [ true, %38 ], [ false, %.thread ], [ false, %73 ], [ true, %51 ]
-  %.1286 = phi i32 [ %.0285.ph459, %38 ], [ %72, %.thread ], [ %74, %73 ], [ %.0285.ph459, %51 ]
+  %75 = phi i1 [ true, %38 ], [ false, %73 ], [ false, %.thread ], [ true, %51 ]
+  %.1286 = phi i32 [ %.0285.ph459, %38 ], [ %74, %73 ], [ %72, %.thread ], [ %.0285.ph459, %51 ]
   %76 = call noalias ptr @_emalloc_40() #12
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
@@ -240,20 +240,20 @@ default.unreachable:                              ; preds = %50
   br label %.outer
 
 .outer:                                           ; preds = %48, %92, %90
-  %.2287 = phi i32 [ %.1286, %92 ], [ %.1286, %90 ], [ %.0285.ph459, %48 ]
-  %.1282 = phi ptr [ %.0281.ph460, %92 ], [ %76, %90 ], [ %.0281.ph460, %48 ]
-  %.1280 = phi ptr [ %76, %92 ], [ %76, %90 ], [ %.0279.ph462, %48 ]
-  %.1266 = phi i32 [ %.2267, %92 ], [ %.2267, %90 ], [ %.0265.ph465, %48 ]
-  %.1246 = phi i32 [ %.2247, %92 ], [ %.2247, %90 ], [ %.0245.ph467, %48 ]
+  %.2287 = phi i32 [ %.1286, %90 ], [ %.1286, %92 ], [ %.0285.ph459, %48 ]
+  %.1282 = phi ptr [ %76, %90 ], [ %.0281.ph460, %92 ], [ %.0281.ph460, %48 ]
+  %.1280 = phi ptr [ %76, %90 ], [ %76, %92 ], [ %.0279.ph462, %48 ]
+  %.1266 = phi i32 [ %.2267, %90 ], [ %.2267, %92 ], [ %.0265.ph465, %48 ]
+  %.1246 = phi i32 [ %.2247, %90 ], [ %.2247, %92 ], [ %.0245.ph467, %48 ]
   %94 = call i32 %spec.select(ptr noundef nonnull %7) #12
   %.not306438447 = icmp eq i32 %94, 6
   br i1 %.not306438447, label %.outer400._crit_edge, label %.lr.ph.lr.ph
 
 .outer400._crit_edge:                             ; preds = %.outer, %.outer400.backedge, %.backedge
-  %.0285.ph.lcssa437 = phi i32 [ %.0285.ph459, %.outer400.backedge ], [ %.0285.ph459, %.backedge ], [ %.2287, %.outer ]
-  %.0281.ph.lcssa436 = phi ptr [ %.0281.ph460, %.outer400.backedge ], [ %.0281.ph460, %.backedge ], [ %.1282, %.outer ]
-  %.0265.ph.lcssa435 = phi i32 [ %.0265.ph465, %.outer400.backedge ], [ %.0265.ph465, %.backedge ], [ %.1266, %.outer ]
-  %.0245.ph.lcssa434 = phi i32 [ %.0245.ph467, %.outer400.backedge ], [ %.0245.ph467, %.backedge ], [ %.1246, %.outer ]
+  %.0285.ph.lcssa437 = phi i32 [ %.0285.ph459, %.backedge ], [ %.0285.ph459, %.outer400.backedge ], [ %.2287, %.outer ]
+  %.0281.ph.lcssa436 = phi ptr [ %.0281.ph460, %.backedge ], [ %.0281.ph460, %.outer400.backedge ], [ %.1282, %.outer ]
+  %.0265.ph.lcssa435 = phi i32 [ %.0265.ph465, %.backedge ], [ %.0265.ph465, %.outer400.backedge ], [ %.1266, %.outer ]
+  %.0245.ph.lcssa434 = phi i32 [ %.0245.ph467, %.backedge ], [ %.0245.ph467, %.outer400.backedge ], [ %.1246, %.outer ]
   %95 = icmp eq i32 %.0285.ph.lcssa437, 3
   br i1 %95, label %96, label %.outer400._crit_edge.thread
 
@@ -355,8 +355,8 @@ default.unreachable:                              ; preds = %50
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader, %132, %130
-  %135 = phi i16 [ %101, %132 ], [ %101, %130 ], [ %101, %.preheader ], [ %.pre, %.critedge.loopexit ]
-  %.4289 = phi i32 [ %spec.select336, %132 ], [ %.0285.ph.lcssa437583, %130 ], [ %.0285.ph.lcssa437583, %.preheader ], [ %.0285.ph.lcssa437583, %.critedge.loopexit ]
+  %135 = phi i16 [ %101, %130 ], [ %101, %132 ], [ %101, %.preheader ], [ %.pre, %.critedge.loopexit ]
+  %.4289 = phi i32 [ %.0285.ph.lcssa437583, %130 ], [ %spec.select336, %132 ], [ %.0285.ph.lcssa437583, %.preheader ], [ %.0285.ph.lcssa437583, %.critedge.loopexit ]
   %.4289.fr = freeze i32 %.4289
   %136 = and i16 %135, 12
   %137 = icmp eq i16 %136, 0
@@ -658,7 +658,7 @@ zend_string_copy.exit355:                         ; preds = %270, %275
   br i1 %.not578, label %.loopexit394, label %.lr.ph494.split
 
 .loopexit394:                                     ; preds = %zend_string_init.exit362, %zend_string_release.exit, %283, %.lr.ph494.split.us.split, %128, %138, %346, %426
-  %.0268 = phi i64 [ %139, %.lr.ph494.split.us.split ], [ %129, %128 ], [ %420, %426 ], [ %139, %138 ], [ %.2270, %283 ], [ %.4272, %zend_string_release.exit ], [ %340, %346 ], [ %447, %zend_string_init.exit362 ]
+  %.0268 = phi i64 [ %129, %128 ], [ %139, %138 ], [ %340, %346 ], [ %420, %426 ], [ %139, %.lr.ph494.split.us.split ], [ %.2270, %283 ], [ %.4272, %zend_string_release.exit ], [ %447, %zend_string_init.exit362 ]
   %286 = and i64 %.0268, -8
   %287 = add i64 %286, 32
   %288 = call noalias ptr @_emalloc(i64 noundef %287) #15
@@ -1000,8 +1000,8 @@ zend_string_init.exit362:                         ; preds = %.lr.ph480, %zend_st
   br i1 %.not315, label %.loopexit394, label %zend_string_init.exit362
 
 .thread371:                                       ; preds = %204, %209, %zend_string_release_ex.exit349, %328, %158, %.loopexit397, %96
-  %.0281.ph.lcssa436585 = phi ptr [ %.0281.ph.lcssa436, %96 ], [ %.0281.ph.lcssa436584, %.loopexit397 ], [ %.0281.ph.lcssa436584, %158 ], [ %.0281.ph.lcssa436584, %204 ], [ %.0281.ph.lcssa436584, %328 ], [ %.0281.ph.lcssa436584, %zend_string_release_ex.exit349 ], [ %.0281.ph.lcssa436584, %209 ]
-  %.0253 = phi i32 [ -1, %96 ], [ -1, %.loopexit397 ], [ -1, %158 ], [ -1, %204 ], [ 1, %328 ], [ -1, %zend_string_release_ex.exit349 ], [ -1, %209 ]
+  %.0281.ph.lcssa436585 = phi ptr [ %.0281.ph.lcssa436, %96 ], [ %.0281.ph.lcssa436584, %.loopexit397 ], [ %.0281.ph.lcssa436584, %158 ], [ %.0281.ph.lcssa436584, %328 ], [ %.0281.ph.lcssa436584, %zend_string_release_ex.exit349 ], [ %.0281.ph.lcssa436584, %209 ], [ %.0281.ph.lcssa436584, %204 ]
+  %.0253 = phi i32 [ -1, %96 ], [ -1, %.loopexit397 ], [ -1, %158 ], [ 1, %328 ], [ -1, %zend_string_release_ex.exit349 ], [ -1, %209 ], [ -1, %204 ]
   %.not330497 = icmp eq ptr %.0281.ph.lcssa436585, null
   br i1 %.not330497, label %.loopexit, label %.lr.ph499.preheader
 
@@ -1429,8 +1429,8 @@ define internal range(i32 1, 7) i32 @default_scanner(ptr noundef captures(none) 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.preheader231, %75, %72, %.preheader229, %.lr.ph, %69, %.backedge, %.preheader226, %62, %.preheader224, %59, %57, %51, %49, %47, %41, %16, %16, %16, %16, %16, %16, %16, %.preheader, %.loopexit, %36, %.preheader228, %80, %38, %.thread
-  %.lcssa350.sink = phi ptr [ %39, %38 ], [ %48, %49 ], [ %37, %36 ], [ %21, %.thread ], [ %58, %59 ], [ %77, %.preheader226 ], [ %61, %62 ], [ %67, %.lr.ph ], [ %15, %16 ], [ %14, %.loopexit ], [ %71, %72 ], [ %81, %80 ], [ %32, %.preheader228 ], [ %66, %.backedge ], [ %15, %.preheader ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %43, %41 ], [ %48, %47 ], [ %58, %57 ], [ %53, %51 ], [ %61, %.preheader224 ], [ %scevgep, %69 ], [ %71, %.preheader229 ], [ %74, %75 ], [ %74, %.preheader231 ]
-  %.0160.ph = phi i32 [ 3, %38 ], [ 1, %49 ], [ 6, %36 ], [ 1, %.thread ], [ 1, %59 ], [ 6, %.preheader226 ], [ 1, %62 ], [ 2, %.lr.ph ], [ 1, %16 ], [ 1, %.loopexit ], [ 6, %.preheader229 ], [ 1, %80 ], [ 6, %.preheader228 ], [ 6, %.backedge ], [ 1, %16 ], [ 1, %16 ], [ 1, %16 ], [ 1, %16 ], [ 1, %16 ], [ 1, %16 ], [ 6, %.preheader ], [ 6, %41 ], [ 6, %47 ], [ 6, %57 ], [ 6, %51 ], [ 6, %.preheader224 ], [ 6, %69 ], [ 1, %72 ], [ 1, %75 ], [ 6, %.preheader231 ]
+  %.lcssa350.sink = phi ptr [ %21, %.thread ], [ %39, %38 ], [ %14, %.loopexit ], [ %81, %80 ], [ %32, %.preheader228 ], [ %37, %36 ], [ %15, %.preheader ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %43, %41 ], [ %48, %47 ], [ %48, %49 ], [ %53, %51 ], [ %58, %57 ], [ %58, %59 ], [ %61, %.preheader224 ], [ %61, %62 ], [ %77, %.preheader226 ], [ %66, %.backedge ], [ %scevgep, %69 ], [ %67, %.lr.ph ], [ %71, %.preheader229 ], [ %71, %72 ], [ %74, %75 ], [ %74, %.preheader231 ]
+  %.0160.ph = phi i32 [ 1, %.thread ], [ 3, %38 ], [ 1, %.loopexit ], [ 1, %80 ], [ 6, %.preheader228 ], [ 6, %36 ], [ 1, %16 ], [ 1, %16 ], [ 1, %16 ], [ 1, %16 ], [ 1, %16 ], [ 1, %16 ], [ 1, %16 ], [ 6, %.preheader ], [ 6, %41 ], [ 6, %47 ], [ 1, %49 ], [ 6, %51 ], [ 6, %57 ], [ 1, %59 ], [ 1, %62 ], [ 6, %.preheader224 ], [ 6, %.preheader226 ], [ 6, %.backedge ], [ 6, %69 ], [ 2, %.lr.ph ], [ 1, %72 ], [ 6, %.preheader229 ], [ 6, %.preheader231 ], [ 1, %75 ]
   store ptr %.lcssa350.sink, ptr %2, align 8, !tbaa !31
   br label %82
 

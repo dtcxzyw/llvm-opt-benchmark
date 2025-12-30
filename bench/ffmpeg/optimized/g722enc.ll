@@ -459,9 +459,9 @@ encode_low.exit.i:                                ; preds = %120, %.critedge.i.i
   br i1 %.not308.i, label %.thread.i, label %181
 
 .thread.i:                                        ; preds = %189, %181, %169, %161, %135, %132
-  %193 = phi ptr [ %133, %135 ], [ %133, %132 ], [ %133, %161 ], [ %170, %169 ], [ %170, %181 ], [ %170, %189 ]
-  %.sroa.0.3.i = phi i32 [ %.sroa.0.2253.i, %135 ], [ %.sroa.0.2253.i, %132 ], [ %.sroa.0.2253.i, %161 ], [ %.sroa.0.4.i, %169 ], [ %.sroa.0.4.i, %181 ], [ %.sroa.0.4.i, %189 ]
-  %.sroa.099.3.i = phi i32 [ %.sroa.099.2254.i, %135 ], [ %.sroa.099.2254.i, %132 ], [ %.sroa.099.2254.i, %161 ], [ %.sroa.099.4.i, %169 ], [ %.sroa.099.4.i, %181 ], [ %.sroa.099.4.i, %189 ]
+  %193 = phi ptr [ %133, %132 ], [ %133, %135 ], [ %133, %161 ], [ %170, %169 ], [ %170, %181 ], [ %170, %189 ]
+  %.sroa.0.3.i = phi i32 [ %.sroa.0.2253.i, %132 ], [ %.sroa.0.2253.i, %135 ], [ %.sroa.0.2253.i, %161 ], [ %.sroa.0.4.i, %169 ], [ %.sroa.0.4.i, %181 ], [ %.sroa.0.4.i, %189 ]
+  %.sroa.099.3.i = phi i32 [ %.sroa.099.2254.i, %132 ], [ %.sroa.099.2254.i, %135 ], [ %.sroa.099.2254.i, %161 ], [ %.sroa.099.4.i, %169 ], [ %.sroa.099.4.i, %181 ], [ %.sroa.099.4.i, %189 ]
   %194 = add nsw i32 %.0208255.i, 4
   %195 = icmp sle i32 %194, %128
   %196 = icmp slt i32 %.0208255.i, 60
@@ -477,7 +477,7 @@ encode_low.exit.i:                                ; preds = %120, %.critedge.i.i
   br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph262.i, !llvm.loop !69
 
 .critedge.i:                                      ; preds = %._crit_edge.i, %.lr.ph262.i
-  %.sroa.099.1.lcssa.i = phi i32 [ %.sroa.099.2.lcssa.i, %._crit_edge.i ], [ %.sroa.099.1260.i, %.lr.ph262.i ]
+  %.sroa.099.1.lcssa.i = phi i32 [ %.sroa.099.1260.i, %.lr.ph262.i ], [ %.sroa.099.2.lcssa.i, %._crit_edge.i ]
   br label %.lr.ph278.i
 
 .lr.ph278.i:                                      ; preds = %261, %.critedge.i

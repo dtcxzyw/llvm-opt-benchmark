@@ -1180,8 +1180,8 @@ _ZL9match_strPKcS0_.exit215.us359:                ; preds = %sub_1.i214.us, %sub
   br label %_ZL9match_strPKcS0_.exit.thread
 
 _ZL9match_strPKcS0_.exit.thread:                  ; preds = %113, %102, %184, %190, %192, %196, %.split.us, %97
-  %.2181 = phi i32 [ %.0179370, %97 ], [ %197, %196 ], [ %.0179370, %192 ], [ %.0179370, %190 ], [ %.0179370, %184 ], [ %.0179370, %.split.us ], [ %.0179370, %102 ], [ %.0179370, %113 ]
-  %.3 = phi i32 [ %.1372, %97 ], [ %178, %196 ], [ %.1372, %192 ], [ %.1372, %190 ], [ %.1372, %184 ], [ %.1372, %.split.us ], [ %.1372, %102 ], [ %.1372, %113 ]
+  %.2181 = phi i32 [ %.0179370, %97 ], [ %197, %196 ], [ %.0179370, %192 ], [ %.0179370, %190 ], [ %.0179370, %.split.us ], [ %.0179370, %184 ], [ %.0179370, %102 ], [ %.0179370, %113 ]
+  %.3 = phi i32 [ %.1372, %97 ], [ %178, %196 ], [ %.1372, %192 ], [ %.1372, %190 ], [ %.1372, %.split.us ], [ %.1372, %184 ], [ %.1372, %102 ], [ %.1372, %113 ]
   %indvars.iv.next458 = add nuw nsw i64 %indvars.iv457, 1
   %exitcond461.not = icmp eq i64 %indvars.iv.next458, %wide.trip.count460
   br i1 %exitcond461.not, label %._crit_edge374, label %97, !llvm.loop !75
@@ -1415,7 +1415,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit234
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit234: ; preds = %272, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i232
-  %.pn = phi { ptr, i32 } [ %273, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i232 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %273, %272 ]
+  %.pn = phi { ptr, i32 } [ %273, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i232 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %273, %272 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %316
 

@@ -230,7 +230,7 @@ define dso_local noundef range(i32 -1, 1) i32 @pcmcia_read_cis_mem(ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %34, %.loopexit, %.thread.sink.split, %14, %43
-  %93 = phi i32 [ 0, %14 ], [ -1, %.thread.sink.split ], [ 0, %.loopexit ], [ 0, %43 ], [ 0, %34 ]
+  %93 = phi i32 [ 0, %43 ], [ 0, %14 ], [ -1, %.thread.sink.split ], [ 0, %.loopexit ], [ 0, %34 ]
   ret i32 %93
 }
 
@@ -467,7 +467,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_write_cis_mem(ptr noundef
   br i1 %86, label %.loopexit5, label %54, !llvm.loop !14
 
 .loopexit5:                                       ; preds = %34, %.loopexit, %54, %41, %14, %11
-  %87 = phi i32 [ -22, %11 ], [ 0, %41 ], [ 0, %14 ], [ 0, %.loopexit ], [ -22, %54 ], [ 0, %34 ]
+  %87 = phi i32 [ -22, %11 ], [ 0, %41 ], [ 0, %14 ], [ -22, %54 ], [ 0, %.loopexit ], [ 0, %34 ]
   ret i32 %87
 }
 
@@ -2742,7 +2742,7 @@ default.unreachable293:                           ; preds = %645
   br label %.thread67
 
 .thread67:                                        ; preds = %928, %922, %919, %880, %900, %.preheader96, %.preheader93, %747, %718, %707, %791, %.preheader85, %218, %176, %128, %74, %71, %68, %.loopexit, %35, %22, %17, %59, %678, %675, %633, %624, %558, %544, %507, %477, %448, %442, %.thread75, %.loopexit100, %946, %933, %931, %913, %907, %852, %850, %.loopexit87, %778, %773, %661, %651, %640, %.loopexit99, %530, %431, %422, %416, %403, %371, %352, %298, %284, %282, %275, %273, %265, %263, %261, %234, %232, %189, %.loopexit82, %139, %122, %113, %109, %107, %92, %90, %8, %8, %2
-  %947 = phi i32 [ -22, %2 ], [ -22, %946 ], [ 0, %850 ], [ 0, %261 ], [ 0, %8 ], [ 0, %8 ], [ 0, %92 ], [ -22, %90 ], [ 0, %109 ], [ -22, %107 ], [ -22, %113 ], [ 0, %122 ], [ -22, %139 ], [ 0, %.loopexit82 ], [ -22, %448 ], [ 0, %232 ], [ %236, %234 ], [ -22, %189 ], [ 0, %265 ], [ -22, %263 ], [ 0, %275 ], [ -22, %273 ], [ -22, %282 ], [ 0, %284 ], [ 0, %352 ], [ -22, %298 ], [ 0, %.loopexit87 ], [ -22, %371 ], [ -22, %403 ], [ -22, %416 ], [ -22, %422 ], [ -22, %431 ], [ -22, %530 ], [ -22, %.loopexit99 ], [ -22, %640 ], [ -22, %651 ], [ -22, %661 ], [ -22, %773 ], [ -22, %778 ], [ -22, %852 ], [ -22, %633 ], [ -22, %907 ], [ -22, %913 ], [ 0, %933 ], [ -22, %931 ], [ -22, %35 ], [ -22, %880 ], [ -22, %624 ], [ -22, %675 ], [ -22, %678 ], [ -22, %544 ], [ -22, %558 ], [ -22, %176 ], [ 0, %.preheader85 ], [ -22, %218 ], [ -22, %747 ], [ -22, %791 ], [ -22, %.preheader96 ], [ -22, %59 ], [ -22, %477 ], [ 0, %128 ], [ -22, %.preheader93 ], [ -22, %507 ], [ -22, %900 ], [ 0, %.thread75 ], [ -22, %.loopexit100 ], [ -22, %442 ], [ 0, %17 ], [ 0, %68 ], [ 0, %74 ], [ -22, %71 ], [ -22, %.loopexit ], [ -22, %22 ], [ -22, %707 ], [ -22, %718 ], [ 0, %922 ], [ -22, %928 ], [ 0, %919 ]
+  %947 = phi i32 [ -22, %2 ], [ -22, %946 ], [ 0, %850 ], [ 0, %261 ], [ 0, %8 ], [ 0, %8 ], [ 0, %92 ], [ -22, %90 ], [ 0, %109 ], [ -22, %107 ], [ -22, %113 ], [ 0, %122 ], [ -22, %139 ], [ 0, %.loopexit82 ], [ 0, %232 ], [ %236, %234 ], [ -22, %189 ], [ 0, %265 ], [ -22, %263 ], [ 0, %275 ], [ -22, %273 ], [ -22, %282 ], [ 0, %284 ], [ 0, %352 ], [ -22, %298 ], [ 0, %.loopexit87 ], [ -22, %371 ], [ -22, %403 ], [ -22, %416 ], [ -22, %422 ], [ -22, %431 ], [ -22, %530 ], [ -22, %.loopexit99 ], [ -22, %640 ], [ -22, %651 ], [ -22, %661 ], [ -22, %773 ], [ -22, %778 ], [ -22, %852 ], [ -22, %907 ], [ -22, %913 ], [ 0, %933 ], [ -22, %931 ], [ 0, %.thread75 ], [ -22, %.loopexit100 ], [ -22, %442 ], [ -22, %448 ], [ -22, %477 ], [ -22, %507 ], [ -22, %544 ], [ -22, %558 ], [ -22, %624 ], [ -22, %633 ], [ -22, %675 ], [ -22, %678 ], [ -22, %59 ], [ 0, %17 ], [ 0, %68 ], [ 0, %74 ], [ -22, %71 ], [ -22, %.loopexit ], [ -22, %22 ], [ -22, %35 ], [ 0, %128 ], [ -22, %176 ], [ -22, %218 ], [ 0, %.preheader85 ], [ -22, %791 ], [ -22, %707 ], [ -22, %718 ], [ -22, %747 ], [ -22, %.preheader93 ], [ -22, %.preheader96 ], [ -22, %900 ], [ -22, %880 ], [ 0, %919 ], [ 0, %922 ], [ -22, %928 ]
   ret i32 %947
 }
 
@@ -2875,7 +2875,7 @@ pccard_get_first_tuple.exit:                      ; preds = %36
   br i1 %brmerge, label %.preheader16.preheader, label %.thread15
 
 .preheader16.preheader:                           ; preds = %65, %62, %58
-  %68 = phi i1 [ %67, %65 ], [ true, %58 ], [ true, %62 ]
+  %68 = phi i1 [ true, %58 ], [ true, %62 ], [ %67, %65 ]
   br label %.preheader16
 
 .preheader16:                                     ; preds = %.preheader16.preheader, %73
@@ -2913,8 +2913,8 @@ pccard_get_first_tuple.exit:                      ; preds = %36
   br i1 %91, label %94, label %.thread15
 
 .thread15:                                        ; preds = %73, %65, %pccard_get_first_tuple.exit, %36, %88, %84
-  %.ph13 = phi i1 [ false, %pccard_get_first_tuple.exit ], [ false, %36 ], [ false, %65 ], [ %59, %84 ], [ %59, %88 ], [ %59, %73 ]
-  %.ph14 = phi i1 [ false, %pccard_get_first_tuple.exit ], [ false, %36 ], [ false, %65 ], [ %68, %84 ], [ %68, %88 ], [ %68, %73 ]
+  %.ph13 = phi i1 [ false, %pccard_get_first_tuple.exit ], [ false, %36 ], [ %59, %88 ], [ %59, %84 ], [ false, %65 ], [ %59, %73 ]
+  %.ph14 = phi i1 [ false, %pccard_get_first_tuple.exit ], [ false, %36 ], [ %68, %88 ], [ %68, %84 ], [ false, %65 ], [ %68, %73 ]
   %92 = and i1 %.ph13, %.ph14
   %93 = select i1 %92, i32 -14, i32 -5
   br label %95
@@ -3147,7 +3147,7 @@ pccard_get_first_tuple.exit:                      ; preds = %40
   br i1 %110, label %58, label %.critedge, !llvm.loop !48
 
 .critedge:                                        ; preds = %58, %108, %.loopexit, %66, %40, %36, %pccard_get_first_tuple.exit
-  %111 = phi i64 [ 0, %pccard_get_first_tuple.exit ], [ 0, %40 ], [ 0, %36 ], [ %59, %58 ], [ %104, %.loopexit ], [ %59, %66 ], [ %104, %108 ]
+  %111 = phi i64 [ 0, %pccard_get_first_tuple.exit ], [ 0, %36 ], [ 0, %40 ], [ %59, %58 ], [ %104, %.loopexit ], [ %59, %66 ], [ %104, %108 ]
   call void @kfree(ptr noundef nonnull %34) #13
   br label %112
 
@@ -3338,7 +3338,7 @@ define internal fastcc ptr @parse_power(ptr noundef readonly captures(address, r
   br i1 %71, label %.loopexit, label %11, !llvm.loop !50
 
 .loopexit:                                        ; preds = %68, %18, %55, %.preheader, %3
-  %72 = phi ptr [ null, %3 ], [ null, %55 ], [ null, %.preheader ], [ %69, %68 ], [ null, %18 ]
+  %72 = phi ptr [ null, %3 ], [ null, %.preheader ], [ null, %55 ], [ %69, %68 ], [ null, %18 ]
   ret ptr %72
 }
 

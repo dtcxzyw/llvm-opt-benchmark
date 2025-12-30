@@ -767,8 +767,8 @@ draw_background.exit:                             ; preds = %34
   br label %.lr.ph146._crit_edge
 
 .lr.ph146._crit_edge:                             ; preds = %.lr.ph146, %343, %334
-  %352 = phi float [ %342, %334 ], [ %351, %343 ], [ %.pre174, %.lr.ph146 ]
-  %353 = phi float [ %340, %334 ], [ %349, %343 ], [ %.pre, %.lr.ph146 ]
+  %352 = phi float [ %351, %343 ], [ %342, %334 ], [ %.pre174, %.lr.ph146 ]
+  %353 = phi float [ %349, %343 ], [ %340, %334 ], [ %.pre, %.lr.ph146 ]
   %354 = fmul nsz float %353, %266
   %355 = fptosi float %354 to i32
   %356 = call nsz float @llvm.fmuladd.f32(float %268, float %352, float %267)

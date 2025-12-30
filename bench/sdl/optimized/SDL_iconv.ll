@@ -58,7 +58,7 @@ define hidden i64 @SDL_iconv_REAL(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %16
 
 16:                                               ; preds = %13, %14, %15, %10, %7, %5
-  %.0 = phi i64 [ -1, %5 ], [ -1, %15 ], [ -2, %10 ], [ -3, %13 ], [ -4, %14 ], [ %8, %7 ]
+  %.0 = phi i64 [ -1, %5 ], [ -1, %15 ], [ -3, %13 ], [ -4, %14 ], [ -2, %10 ], [ %8, %7 ]
   ret i64 %.0
 }
 
@@ -192,9 +192,9 @@ SDL_iconv_REAL.exit.thread:                       ; preds = %.lr.ph, %26
   br i1 %46, label %SDL_iconv_close_REAL.exit55.loopexit, label %47
 
 47:                                               ; preds = %44, %34
-  %48 = phi i64 [ %45, %44 ], [ %.pre75, %34 ]
-  %.238 = phi ptr [ %.03670, %44 ], [ %32, %34 ]
-  %.135 = phi i64 [ %.03471, %44 ], [ %30, %34 ]
+  %48 = phi i64 [ %.pre75, %34 ], [ %45, %44 ]
+  %.238 = phi ptr [ %32, %34 ], [ %.03670, %44 ]
+  %.135 = phi i64 [ %30, %34 ], [ %.03471, %44 ]
   %.not49 = icmp eq i64 %48, 0
   br i1 %.not49, label %SDL_iconv_close_REAL.exit55.loopexit, label %.lr.ph
 
@@ -211,7 +211,7 @@ SDL_iconv_close_REAL.exit55:                      ; preds = %SDL_iconv_close_REA
   br label %51
 
 51:                                               ; preds = %.thread64, %16, %SDL_iconv_close_REAL.exit55, %SDL_iconv_close_REAL.exit
-  %.0 = phi ptr [ null, %SDL_iconv_close_REAL.exit ], [ null, %.thread64 ], [ %.036.lcssa, %SDL_iconv_close_REAL.exit55 ], [ null, %16 ]
+  %.0 = phi ptr [ %.036.lcssa, %SDL_iconv_close_REAL.exit55 ], [ null, %SDL_iconv_close_REAL.exit ], [ null, %16 ], [ null, %.thread64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0

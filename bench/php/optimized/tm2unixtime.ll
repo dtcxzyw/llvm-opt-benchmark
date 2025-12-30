@@ -795,10 +795,10 @@ do_range_limit_days.exit.loopexit:                ; preds = %do_range_limit_days
   br label %do_range_limit_days.exit
 
 do_range_limit_days.exit:                         ; preds = %do_range_limit_days.exit.loopexit, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge, %.lr.ph59.preheader.i
-  %195 = phi i64 [ 0, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge ], [ %166, %.lr.ph59.preheader.i ], [ %.ph, %do_range_limit_days.exit.loopexit ]
-  %.lcssa7089 = phi i64 [ 0, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge ], [ %166, %.lr.ph59.preheader.i ], [ %.lcssa7089.ph, %do_range_limit_days.exit.loopexit ]
-  %.lcssa6879 = phi i64 [ %177, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge ], [ %177, %.lr.ph59.preheader.i ], [ %.lcssa6879.ph, %do_range_limit_days.exit.loopexit ]
-  %.1.lcssa.i = phi i1 [ false, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge ], [ false, %.lr.ph59.preheader.i ], [ %194, %do_range_limit_days.exit.loopexit ]
+  %195 = phi i64 [ %166, %.lr.ph59.preheader.i ], [ 0, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge ], [ %.ph, %do_range_limit_days.exit.loopexit ]
+  %.lcssa7089 = phi i64 [ %166, %.lr.ph59.preheader.i ], [ 0, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge ], [ %.lcssa7089.ph, %do_range_limit_days.exit.loopexit ]
+  %.lcssa6879 = phi i64 [ %177, %.lr.ph59.preheader.i ], [ %177, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge ], [ %.lcssa6879.ph, %do_range_limit_days.exit.loopexit ]
+  %.1.lcssa.i = phi i1 [ false, %.lr.ph59.preheader.i ], [ false, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge ], [ %194, %do_range_limit_days.exit.loopexit ]
   br i1 %.1.lcssa.i, label %do_range_limit_days.exit.thread, label %122
 
 do_range_limit_days.exit.thread:                  ; preds = %.lr.ph.i.preheader, %do_range_limit_days.exit
@@ -1211,7 +1211,7 @@ do_adjust_relative.exit:                          ; preds = %131, %133, %135
   br label %do_adjust_special_weekday.exit.i
 
 do_adjust_special_weekday.exit.i:                 ; preds = %184, %182, %178, %176, %175, %170, %168, %164, %162, %161
-  %188 = phi i64 [ %156, %175 ], [ %156, %161 ], [ %179, %178 ], [ %177, %176 ], [ %169, %168 ], [ %spec.select33.i.i, %184 ], [ %183, %182 ], [ %165, %164 ], [ %163, %162 ], [ %spec.select.i.i, %170 ]
+  %188 = phi i64 [ %156, %175 ], [ %156, %161 ], [ %179, %178 ], [ %177, %176 ], [ %183, %182 ], [ %165, %164 ], [ %163, %162 ], [ %169, %168 ], [ %spec.select.i.i, %170 ], [ %spec.select33.i.i, %184 ]
   %189 = add i64 %188, %157
   store i64 %189, ptr %150, align 8, !tbaa !20
   br label %do_adjust_special.exit
@@ -1442,7 +1442,7 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
   br label %314
 
 314:                                              ; preds = %306, %304
-  %..043.i = phi i32 [ %313, %306 ], [ %.043.i, %304 ]
+  %..043.i = phi i32 [ %.043.i, %304 ], [ %313, %306 ]
   %.047.in.i = sub i32 0, %..043.i
   %.047.i = sext i32 %.047.in.i to i64
   %315 = add i64 %.pre70.i, %.047.i

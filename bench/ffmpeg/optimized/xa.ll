@@ -44,7 +44,7 @@ define internal range(i32 0, 51) i32 @xa_probe(ptr noundef readonly captures(non
   br label %22
 
 22:                                               ; preds = %9, %5, %1
-  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %., %9 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ %., %9 ]
   ret i32 %.0
 }
 

@@ -182,7 +182,7 @@ define i64 @H5FD__alloc_real(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr
   br label %76
 
 76:                                               ; preds = %66, %75, %74, %63, %59, %55
-  %.062 = phi i64 [ 0, %55 ], [ 0, %59 ], [ 0, %63 ], [ %69, %75 ], [ %69, %74 ], [ 0, %66 ]
+  %.062 = phi i64 [ 0, %55 ], [ 0, %63 ], [ 0, %59 ], [ %69, %75 ], [ %69, %74 ], [ 0, %66 ]
   %77 = load ptr, ptr %17, align 8, !tbaa !12
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 160
   %79 = load ptr, ptr %78, align 8, !tbaa !25
@@ -253,7 +253,7 @@ define i64 @H5FD__alloc_real(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr
   br label %112
 
 112:                                              ; preds = %.thread89, %.thread85, %.thread, %5, %108, %104, %97, %38
-  %.057 = phi i64 [ -1, %38 ], [ %111, %108 ], [ -1, %97 ], [ -1, %.thread89 ], [ -1, %104 ], [ -1, %.thread85 ], [ -1, %.thread ], [ -1, %5 ]
+  %.057 = phi i64 [ -1, %38 ], [ %111, %108 ], [ -1, %97 ], [ -1, %104 ], [ -1, %5 ], [ -1, %.thread ], [ -1, %.thread85 ], [ -1, %.thread89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.057
 }
@@ -363,7 +363,7 @@ define internal fastcc i64 @H5FD__extend(ptr noundef %0, i32 noundef %1, i64 nou
   br label %59
 
 59:                                               ; preds = %.thread42, %.thread, %3, %55, %36, %53
-  %.029 = phi i64 [ -1, %36 ], [ -1, %55 ], [ -1, %3 ], [ %20, %53 ], [ -1, %.thread ], [ -1, %.thread42 ]
+  %.029 = phi i64 [ -1, %36 ], [ -1, %55 ], [ %20, %53 ], [ -1, %3 ], [ -1, %.thread ], [ -1, %.thread42 ]
   ret i64 %.029
 }
 
@@ -598,7 +598,7 @@ define range(i32 -1, -2147483648) i32 @H5FD__free_real(ptr noundef %0, i32 nound
   br label %98
 
 98:                                               ; preds = %.thread79, %.thread73, %.thread, %4, %61, %57, %32, %15, %55, %92, %77, %94
-  %.051 = phi i32 [ -1, %32 ], [ -1, %57 ], [ 0, %4 ], [ %49, %55 ], [ -1, %15 ], [ 0, %61 ], [ -1, %94 ], [ 0, %77 ], [ %86, %92 ], [ -1, %.thread ], [ -1, %.thread73 ], [ -1, %.thread79 ]
+  %.051 = phi i32 [ -1, %32 ], [ -1, %57 ], [ %49, %55 ], [ 0, %61 ], [ -1, %15 ], [ 0, %4 ], [ -1, %94 ], [ %86, %92 ], [ 0, %77 ], [ -1, %.thread ], [ -1, %.thread73 ], [ -1, %.thread79 ]
   ret i32 %.051
 }
 
@@ -770,7 +770,7 @@ define range(i32 -1, 2) i32 @H5FD_try_extend(ptr noundef %0, i32 noundef %1, ptr
   br label %60
 
 60:                                               ; preds = %.thread, %19, %41, %56, %49, %37, %15, %53
-  %.021 = phi i32 [ -1, %15 ], [ -1, %49 ], [ -1, %56 ], [ -1, %.thread ], [ 0, %19 ], [ 0, %41 ], [ -1, %37 ], [ 1, %53 ]
+  %.021 = phi i32 [ -1, %15 ], [ -1, %49 ], [ -1, %56 ], [ 0, %41 ], [ -1, %37 ], [ 0, %19 ], [ 1, %53 ], [ -1, %.thread ]
   ret i32 %.021
 }
 

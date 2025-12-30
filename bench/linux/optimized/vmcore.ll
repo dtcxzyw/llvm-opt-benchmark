@@ -243,7 +243,7 @@ define dso_local i64 @read_from_oldmem(ptr noundef %0, i64 noundef %1, ptr nound
   br label %59
 
 59:                                               ; preds = %.loopexit, %.thread
-  %60 = phi i64 [ %57, %.thread ], [ %58, %.loopexit ]
+  %60 = phi i64 [ %58, %.loopexit ], [ %57, %.thread ]
   %61 = icmp slt i64 %60, %45
   br i1 %61, label %.split7.us, label %64
 
@@ -1915,8 +1915,8 @@ define internal range(i32 -22, 1) i32 @mmap_vmcore(ptr readnone captures(none) %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %133, %150, %.preheader29
-  %153 = phi i64 [ %124, %.preheader29 ], [ %152, %150 ], [ %124, %133 ]
-  %154 = phi i64 [ %122, %.preheader29 ], [ %151, %150 ], [ %122, %133 ]
+  %153 = phi i64 [ %152, %150 ], [ %124, %.preheader29 ], [ %124, %133 ]
+  %154 = phi i64 [ %151, %150 ], [ %122, %.preheader29 ], [ %122, %133 ]
   %155 = add nuw nsw i64 %123, 1
   %156 = icmp samesign ult i64 %155, %120
   br i1 %156, label %.preheader29, label %157, !llvm.loop !33

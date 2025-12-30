@@ -164,7 +164,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -668,7 +668,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %48
   resume { ptr, i32 } %63
 
 .thread.sink.split:                               ; preds = %55, %32, %29, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
-  %.3.ph = phi ptr [ null, %32 ], [ null, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ null, %29 ], [ %61, %55 ]
+  %.3.ph = phi ptr [ null, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ null, %29 ], [ null, %32 ], [ %61, %55 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread

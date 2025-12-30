@@ -625,7 +625,7 @@ _ZN8tinyxml27StrPair3SetEPcS1_i.exit:             ; preds = %.critedge, %24, %28
   br label %31
 
 31:                                               ; preds = %10, %2, %3, %_ZN8tinyxml27StrPair3SetEPcS1_i.exit
-  %.0 = phi ptr [ %.013.lcssa, %_ZN8tinyxml27StrPair3SetEPcS1_i.exit ], [ null, %2 ], [ null, %3 ], [ null, %10 ]
+  %.0 = phi ptr [ %.013.lcssa, %_ZN8tinyxml27StrPair3SetEPcS1_i.exit ], [ null, %3 ], [ null, %2 ], [ null, %10 ]
   ret ptr %.0
 }
 
@@ -652,7 +652,7 @@ _ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.us.i.i: ; preds = %1, %9
   br i1 %12, label %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit, label %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.us.i.i, !llvm.loop !17
 
 _ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit:   ; preds = %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.us.i.i, %9, %1
-  %.0.lcssa.i.i = phi ptr [ %3, %1 ], [ %.08.us.i.i, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.us.i.i ], [ %10, %9 ]
+  %.0.lcssa.i.i = phi ptr [ %3, %1 ], [ %10, %9 ], [ %.08.us.i.i, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.us.i.i ]
   store ptr %.0.lcssa.i.i, ptr %2, align 8, !tbaa !10
   %13 = load i8, ptr %.0.lcssa.i.i, align 1, !tbaa !12
   %.not = icmp eq i8 %13, 0
@@ -902,7 +902,7 @@ _ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.us.i.i.i: ; preds = %74, %82
   br i1 %85, label %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit.i, label %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.us.i.i.i, !llvm.loop !17
 
 _ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit.i: ; preds = %82, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.us.i.i.i, %74
-  %.0.lcssa.i.i.i = phi ptr [ %76, %74 ], [ %83, %82 ], [ %.08.us.i.i.i, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.us.i.i.i ]
+  %.0.lcssa.i.i.i = phi ptr [ %76, %74 ], [ %.08.us.i.i.i, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.us.i.i.i ], [ %83, %82 ]
   store ptr %.0.lcssa.i.i.i, ptr %75, align 8, !tbaa !10
   %86 = load i8, ptr %.0.lcssa.i.i.i, align 1, !tbaa !12
   %.not.i = icmp eq i8 %86, 0
@@ -1187,8 +1187,8 @@ _ZN8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit: ; preds = %69, %90
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 1
   br label %.critedge
 
-.critedge:                                        ; preds = %30, %.lr.ph110, %3, %8, %_ZN8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit, %11, %14, %41
-  %.5 = phi ptr [ null, %41 ], [ %97, %_ZN8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit ], [ %5, %3 ], [ null, %11 ], [ null, %14 ], [ null, %.lr.ph110 ], [ %5, %8 ], [ null, %30 ]
+.critedge:                                        ; preds = %30, %.lr.ph110, %3, %8, %_ZN8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit, %14, %11, %41
+  %.5 = phi ptr [ %97, %_ZN8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit ], [ null, %14 ], [ null, %11 ], [ null, %41 ], [ %5, %8 ], [ %5, %3 ], [ null, %.lr.ph110 ], [ null, %30 ]
   ret ptr %.5
 }
 
@@ -1482,7 +1482,7 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit:       ; preds = %_ZN8tinyxml27XMLUti
   br label %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread
 
 _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread: ; preds = %7, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit, %2, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i
-  %15 = phi ptr [ @.str.3, %2 ], [ %spec.select, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit ], [ @.str.3, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i ], [ @.str.3, %7 ]
+  %15 = phi ptr [ @.str.3, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i ], [ @.str.3, %2 ], [ %spec.select, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit ], [ @.str.3, %7 ]
   %16 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %1) #31
   %17 = icmp eq i32 %16, 1
   ret i1 %17
@@ -1591,7 +1591,7 @@ _ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit23: ; preds = %.critedge.preheader
   br i1 %38, label %.loopexit.sink.split, label %.critedge
 
 .loopexit.sink.split:                             ; preds = %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit, %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit23, %.critedge.preheader, %24
-  %.sink = phi i8 [ 0, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit23 ], [ %27, %24 ], [ 0, %.critedge.preheader ], [ 1, %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit ], [ 1, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit ]
+  %.sink = phi i8 [ %27, %24 ], [ 0, %.critedge.preheader ], [ 0, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit23 ], [ 1, %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit ], [ 1, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit ]
   store i8 %.sink, ptr %1, align 1, !tbaa !30
   br label %.loopexit
 
@@ -1683,7 +1683,7 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread: ; preds = %9, %2, %_ZN8tinyxm
   br label %26
 
 26:                                               ; preds = %.thread, %.thread10, %24, %20
-  %.18 = phi i1 [ true, %24 ], [ true, %20 ], [ false, %.thread10 ], [ false, %.thread ]
+  %.18 = phi i1 [ true, %20 ], [ true, %24 ], [ false, %.thread10 ], [ false, %.thread ]
   ret i1 %.18
 }
 
@@ -1724,7 +1724,7 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit:       ; preds = %_ZN8tinyxml27XMLUti
   br label %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread
 
 _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread: ; preds = %8, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit, %2, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i
-  %16 = phi ptr [ @.str.8, %2 ], [ %spec.select, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit ], [ @.str.8, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i ], [ @.str.8, %8 ]
+  %16 = phi ptr [ @.str.8, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i ], [ @.str.8, %2 ], [ %spec.select, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit ], [ @.str.8, %8 ]
   %17 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef nonnull %3) #31
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %19, label %21
@@ -3541,7 +3541,7 @@ _ZNK8tinyxml27XMLNode19InsertChildPreambleEPS0_.exit: ; preds = %_ZN8tinyxml27XM
   br label %120
 
 120:                                              ; preds = %.sink.split, %11, %8, %3
-  %.0 = phi ptr [ %2, %11 ], [ null, %3 ], [ null, %8 ], [ %2, %.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ null, %8 ], [ %2, %11 ], [ %2, %.sink.split ]
   ret ptr %.0
 }
 
@@ -3611,7 +3611,7 @@ _ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i: ; preds = %_ZNK8tinyxml210XMLE
   br i1 %.not, label %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.thread.i, label %.lr.ph.split, !llvm.loop !83
 
 _ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.thread.i: ; preds = %28, %_ZNK8tinyxml210XMLElement4NameEv.exit.i, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i, %10, %.lr.ph.split.us, %2
-  %30 = phi ptr [ %8, %.lr.ph.split.us ], [ null, %2 ], [ null, %10 ], [ null, %28 ], [ %15, %_ZNK8tinyxml210XMLElement4NameEv.exit.i ], [ %15, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i ]
+  %30 = phi ptr [ null, %2 ], [ %8, %.lr.ph.split.us ], [ null, %10 ], [ %15, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i ], [ %15, %_ZNK8tinyxml210XMLElement4NameEv.exit.i ], [ null, %28 ]
   ret ptr %30
 }
 
@@ -3656,7 +3656,7 @@ _ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.thread: ; preds = %_ZNK8tinyxml21
   br label %21
 
 21:                                               ; preds = %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.thread, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit, %8, %2
-  %.0 = phi ptr [ %6, %8 ], [ null, %2 ], [ %6, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.thread ], [ null, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit ]
+  %.0 = phi ptr [ null, %2 ], [ %6, %8 ], [ %6, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.thread ], [ null, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit ]
   ret ptr %.0
 }
 
@@ -3726,7 +3726,7 @@ _ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i: ; preds = %_ZNK8tinyxml210XMLE
   br i1 %.not, label %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.thread.i, label %.lr.ph.split, !llvm.loop !84
 
 _ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.thread.i: ; preds = %28, %_ZNK8tinyxml210XMLElement4NameEv.exit.i, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i, %10, %.lr.ph.split.us, %2
-  %30 = phi ptr [ %8, %.lr.ph.split.us ], [ null, %2 ], [ null, %10 ], [ null, %28 ], [ %15, %_ZNK8tinyxml210XMLElement4NameEv.exit.i ], [ %15, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i ]
+  %30 = phi ptr [ null, %2 ], [ %8, %.lr.ph.split.us ], [ null, %10 ], [ %15, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i ], [ %15, %_ZNK8tinyxml210XMLElement4NameEv.exit.i ], [ null, %28 ]
   ret ptr %30
 }
 
@@ -3796,7 +3796,7 @@ _ZNK8tinyxml27XMLNode17ToElementWithNameEPKc.exit: ; preds = %.lr.ph.split, %_ZN
   br i1 %.not, label %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.thread.i, label %.lr.ph.split, !llvm.loop !85
 
 _ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.thread.i: ; preds = %_ZNK8tinyxml27XMLNode17ToElementWithNameEPKc.exit, %_ZNK8tinyxml210XMLElement4NameEv.exit.i, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i, %_ZNK8tinyxml27XMLNode17ToElementWithNameEPKc.exit.us, %.lr.ph.split.us, %2
-  %25 = phi ptr [ %7, %.lr.ph.split.us ], [ null, %2 ], [ null, %_ZNK8tinyxml27XMLNode17ToElementWithNameEPKc.exit.us ], [ null, %_ZNK8tinyxml27XMLNode17ToElementWithNameEPKc.exit ], [ %12, %_ZNK8tinyxml210XMLElement4NameEv.exit.i ], [ %12, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i ]
+  %25 = phi ptr [ null, %2 ], [ %7, %.lr.ph.split.us ], [ null, %_ZNK8tinyxml27XMLNode17ToElementWithNameEPKc.exit.us ], [ %12, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i ], [ %12, %_ZNK8tinyxml210XMLElement4NameEv.exit.i ], [ null, %_ZNK8tinyxml27XMLNode17ToElementWithNameEPKc.exit ]
   ret ptr %25
 }
 
@@ -3866,7 +3866,7 @@ _ZNK8tinyxml27XMLNode17ToElementWithNameEPKc.exit: ; preds = %.lr.ph.split, %_ZN
   br i1 %.not, label %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.thread.i, label %.lr.ph.split, !llvm.loop !86
 
 _ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.thread.i: ; preds = %_ZNK8tinyxml27XMLNode17ToElementWithNameEPKc.exit, %_ZNK8tinyxml210XMLElement4NameEv.exit.i, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i, %_ZNK8tinyxml27XMLNode17ToElementWithNameEPKc.exit.us, %.lr.ph.split.us, %2
-  %25 = phi ptr [ %7, %.lr.ph.split.us ], [ null, %2 ], [ null, %_ZNK8tinyxml27XMLNode17ToElementWithNameEPKc.exit.us ], [ null, %_ZNK8tinyxml27XMLNode17ToElementWithNameEPKc.exit ], [ %12, %_ZNK8tinyxml210XMLElement4NameEv.exit.i ], [ %12, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i ]
+  %25 = phi ptr [ null, %2 ], [ %7, %.lr.ph.split.us ], [ null, %_ZNK8tinyxml27XMLNode17ToElementWithNameEPKc.exit.us ], [ %12, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i ], [ %12, %_ZNK8tinyxml210XMLElement4NameEv.exit.i ], [ null, %_ZNK8tinyxml27XMLNode17ToElementWithNameEPKc.exit ]
   ret ptr %25
 }
 
@@ -4586,7 +4586,7 @@ _ZNK8tinyxml27XMLNode19InsertChildPreambleEPS0_.exit.i: ; preds = %_ZN8tinyxml21
   br i1 %.not53, label %.critedge, label %.lr.ph347
 
 328:                                              ; preds = %.loopexit156, %.loopexit.split-lp157, %.loopexit151, %.loopexit.split-lp152, %.loopexit146, %.loopexit.split-lp147, %.loopexit, %.loopexit.split-lp, %105
-  %.pn.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp154, %.loopexit.split-lp152 ], [ %106, %105 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp149, %.loopexit.split-lp147 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit148, %.loopexit146 ], [ %lpad.loopexit153, %.loopexit151 ], [ %lpad.loopexit158, %.loopexit156 ], [ %lpad.loopexit.split-lp159, %.loopexit.split-lp157 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %106, %105 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit148, %.loopexit146 ], [ %lpad.loopexit.split-lp149, %.loopexit.split-lp147 ], [ %lpad.loopexit153, %.loopexit151 ], [ %lpad.loopexit.split-lp154, %.loopexit.split-lp152 ], [ %lpad.loopexit158, %.loopexit156 ], [ %lpad.loopexit.split-lp159, %.loopexit.split-lp157 ]
   call void @_ZN8tinyxml27StrPairD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %329
@@ -4599,8 +4599,8 @@ _ZNK8tinyxml27XMLNode19InsertChildPreambleEPS0_.exit.i: ; preds = %_ZN8tinyxml21
   store i32 %331, ptr %9, align 4, !tbaa !87
   resume { ptr, i32 } %.pn.pn.pn.pn
 
-.critedge.sink.split.sink.split:                  ; preds = %77, %_ZN8tinyxml27XMLNode10DeleteNodeEPS0_.exit, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i73, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i100, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i83
-  %.030.ph.ph = phi ptr [ %37, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i83 ], [ null, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i100 ], [ null, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i73 ], [ null, %_ZN8tinyxml27XMLNode10DeleteNodeEPS0_.exit ], [ null, %77 ]
+.critedge.sink.split.sink.split:                  ; preds = %_ZN8tinyxml27XMLNode10DeleteNodeEPS0_.exit, %77, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i73, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i100, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i83
+  %.030.ph.ph = phi ptr [ %37, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i83 ], [ null, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i100 ], [ null, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i73 ], [ null, %77 ], [ null, %_ZN8tinyxml27XMLNode10DeleteNodeEPS0_.exit ]
   call void @_ZN8tinyxml27StrPairD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge.sink.split
@@ -4889,7 +4889,7 @@ _ZN8tinyxml27StrPair9ParseTextEPcPKciPi.exit27:   ; preds = %50, %53, %57
   br label %70
 
 70:                                               ; preds = %_ZN8tinyxml27StrPair9ParseTextEPcPKciPi.exit, %_ZN8tinyxml27StrPair9ParseTextEPcPKciPi.exit27, %.critedge, %_ZN8tinyxml27StrPair9ParseTextEPcPKciPi.exit.thread
-  %.015 = phi ptr [ null, %_ZN8tinyxml27StrPair9ParseTextEPcPKciPi.exit.thread ], [ %32, %_ZN8tinyxml27StrPair9ParseTextEPcPKciPi.exit ], [ %spec.select37, %_ZN8tinyxml27StrPair9ParseTextEPcPKciPi.exit27 ], [ null, %.critedge ]
+  %.015 = phi ptr [ null, %_ZN8tinyxml27StrPair9ParseTextEPcPKciPi.exit.thread ], [ %32, %_ZN8tinyxml27StrPair9ParseTextEPcPKciPi.exit ], [ null, %.critedge ], [ %spec.select37, %_ZN8tinyxml27StrPair9ParseTextEPcPKciPi.exit27 ]
   ret ptr %.015
 }
 
@@ -6022,8 +6022,8 @@ _ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i.i26:  ; preds = %_ZN8tinyxml27XMLUti
   br i1 %51, label %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit33, label %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i.i26, !llvm.loop !17
 
 _ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit33: ; preds = %48, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i.i26, %36, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.us.i.i30, %29
-  %52 = phi i8 [ %38, %36 ], [ %31, %29 ], [ %33, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.us.i.i30 ], [ %40, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i.i26 ], [ %50, %48 ]
-  %.0.lcssa.i.i29 = phi ptr [ %37, %36 ], [ %30, %29 ], [ %.08.us.i.i31, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.us.i.i30 ], [ %.08.i.i27, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i.i26 ], [ %49, %48 ]
+  %52 = phi i8 [ %31, %29 ], [ %38, %36 ], [ %33, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.us.i.i30 ], [ %50, %48 ], [ %40, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i.i26 ]
+  %.0.lcssa.i.i29 = phi ptr [ %30, %29 ], [ %37, %36 ], [ %.08.us.i.i31, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.us.i.i30 ], [ %49, %48 ], [ %.08.i.i27, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i.i26 ]
   switch i8 %52, label %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit.thread [
     i8 34, label %53
     i8 39, label %53
@@ -6100,7 +6100,7 @@ _ZN8tinyxml27StrPair9ParseTextEPcPKciPi.exit:     ; preds = %81, %53, %_ZN8tinyx
   br label %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit.thread
 
 _ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit.thread: ; preds = %25, %13, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit33, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit, %4, %8, %_ZN8tinyxml27StrPair9ParseTextEPcPKciPi.exit
-  %.0 = phi ptr [ null, %4 ], [ null, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit ], [ %.0.i, %_ZN8tinyxml27StrPair9ParseTextEPcPKciPi.exit ], [ null, %8 ], [ null, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit33 ], [ null, %13 ], [ null, %25 ]
+  %.0 = phi ptr [ %.0.i, %_ZN8tinyxml27StrPair9ParseTextEPcPKciPi.exit ], [ null, %8 ], [ null, %4 ], [ null, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit ], [ null, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit33 ], [ null, %13 ], [ null, %25 ]
   ret ptr %.0
 }
 
@@ -6237,7 +6237,7 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i:     ; preds = %_ZN8tinyxml27XMLUti
   br label %_ZN8tinyxml27XMLUtil10ToUnsignedEPKcPj.exit
 
 _ZN8tinyxml27XMLUtil10ToUnsignedEPKcPj.exit:      ; preds = %9, %2, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i
-  %17 = phi ptr [ @.str.3, %2 ], [ %spec.select.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i ], [ @.str.3, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i ], [ @.str.3, %9 ]
+  %17 = phi ptr [ @.str.3, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i ], [ @.str.3, %2 ], [ %spec.select.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i ], [ @.str.3, %9 ]
   %18 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %4, ptr noundef nonnull %17, ptr noundef %1) #31
   %19 = icmp eq i32 %18, 1
   %. = select i1 %19, i32 0, i32 2
@@ -6313,8 +6313,8 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i: ; preds = %11, %_ZN8tinyxml
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit
 
-_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit:          ; preds = %22, %26, %.thread10.i, %.thread.i
-  %28 = phi i32 [ 2, %.thread10.i ], [ 2, %.thread.i ], [ 0, %26 ], [ 0, %22 ]
+_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit:          ; preds = %26, %22, %.thread10.i, %.thread.i
+  %28 = phi i32 [ 2, %.thread.i ], [ 2, %.thread10.i ], [ 0, %22 ], [ 0, %26 ]
   ret i32 %28
 }
 
@@ -6357,7 +6357,7 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i:     ; preds = %_ZN8tinyxml27XMLUti
   br label %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i
 
 _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i: ; preds = %10, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i, %2
-  %18 = phi ptr [ @.str.8, %2 ], [ %spec.select.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i ], [ @.str.8, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i ], [ @.str.8, %10 ]
+  %18 = phi ptr [ @.str.8, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i ], [ @.str.8, %2 ], [ %spec.select.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i ], [ @.str.8, %10 ]
   %19 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %5, ptr noundef nonnull %18, ptr noundef nonnull %3) #31
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %21, label %_ZN8tinyxml27XMLUtil12ToUnsigned64EPKcPm.exit
@@ -6968,7 +6968,7 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i: ; preds = %19, %_ZN8tinyx
   br label %_ZNK8tinyxml212XMLAttribute13QueryIntValueEPi.exit
 
 _ZNK8tinyxml212XMLAttribute13QueryIntValueEPi.exit: ; preds = %11, %3, %34, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i, %.thread.i.i
-  %.0 = phi i32 [ 2, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i ], [ 0, %34 ], [ 2, %.thread.i.i ], [ 1, %3 ], [ 1, %11 ]
+  %.0 = phi i32 [ 0, %34 ], [ 2, %.thread.i.i ], [ 2, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i ], [ 1, %3 ], [ 1, %11 ]
   ret i32 %.0
 }
 
@@ -7043,7 +7043,7 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i:   ; preds = %_ZN8tinyxml27XMLUti
   br label %_ZNK8tinyxml212XMLAttribute18QueryUnsignedValueEPj.exit
 
 _ZNK8tinyxml212XMLAttribute18QueryUnsignedValueEPj.exit: ; preds = %18, %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i
-  %26 = phi ptr [ @.str.3, %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit ], [ %spec.select.i.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i ], [ @.str.3, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i.i ], [ @.str.3, %18 ]
+  %26 = phi ptr [ @.str.3, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i.i ], [ @.str.3, %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit ], [ %spec.select.i.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i ], [ @.str.3, %18 ]
   %27 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %13, ptr noundef nonnull %26, ptr noundef %2) #31
   %28 = icmp eq i32 %27, 1
   %..i = select i1 %28, i32 0, i32 2
@@ -7146,7 +7146,7 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i: ; preds = %20, %_ZN8tinyx
   br label %_ZNK8tinyxml210XMLElement19QueryInt64AttributeEPKcPl.exit
 
 _ZNK8tinyxml210XMLElement19QueryInt64AttributeEPKcPl.exit: ; preds = %12, %35, %.thread10.i.i, %31, %.thread.i.i, %3
-  %.0 = phi i64 [ %2, %3 ], [ %2, %.thread.i.i ], [ %36, %35 ], [ %2, %.thread10.i.i ], [ %32, %31 ], [ %2, %12 ]
+  %.0 = phi i64 [ %2, %3 ], [ %36, %35 ], [ %2, %.thread10.i.i ], [ %32, %31 ], [ %2, %.thread.i.i ], [ %2, %12 ]
   ret i64 %.0
 }
 
@@ -7224,7 +7224,7 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i:   ; preds = %_ZN8tinyxml27XMLUti
   br label %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i
 
 _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i: ; preds = %19, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i.i, %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit
-  %27 = phi ptr [ @.str.8, %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit ], [ %spec.select.i.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i ], [ @.str.8, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i.i ], [ @.str.8, %19 ]
+  %27 = phi ptr [ @.str.8, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i.i ], [ @.str.8, %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit ], [ %spec.select.i.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i ], [ @.str.8, %19 ]
   %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %14, ptr noundef nonnull %27, ptr noundef nonnull %4) #31
   %29 = icmp eq i32 %28, 1
   br i1 %29, label %30, label %_ZNK8tinyxml212XMLAttribute20QueryUnsigned64ValueEPm.exit
@@ -7282,7 +7282,7 @@ _ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.i: ; preds = %_ZN8tinyxml27XML
   br label %_ZNK8tinyxml210XMLElement18QueryBoolAttributeEPKcPb.exit
 
 _ZNK8tinyxml210XMLElement18QueryBoolAttributeEPKcPb.exit: ; preds = %12, %3, %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.i
-  %18 = phi i1 [ %17, %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.i ], [ %2, %3 ], [ %2, %12 ]
+  %18 = phi i1 [ %2, %3 ], [ %17, %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.i ], [ %2, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %18
 }
@@ -7323,7 +7323,7 @@ _ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.i: ; preds = %_ZN8tinyxml27XML
   br label %_ZNK8tinyxml210XMLElement20QueryDoubleAttributeEPKcPd.exit
 
 _ZNK8tinyxml210XMLElement20QueryDoubleAttributeEPKcPd.exit: ; preds = %11, %3, %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.i
-  %16 = phi double [ %.pre, %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.i ], [ %2, %3 ], [ %2, %11 ]
+  %16 = phi double [ %2, %3 ], [ %.pre, %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.i ], [ %2, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %16
 }
@@ -7364,7 +7364,7 @@ _ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.i: ; preds = %_ZN8tinyxml27XML
   br label %_ZNK8tinyxml210XMLElement19QueryFloatAttributeEPKcPf.exit
 
 _ZNK8tinyxml210XMLElement19QueryFloatAttributeEPKcPf.exit: ; preds = %11, %3, %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.i
-  %16 = phi float [ %.pre, %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.i ], [ %2, %3 ], [ %2, %11 ]
+  %16 = phi float [ %2, %3 ], [ %.pre, %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.i ], [ %2, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret float %16
 }
@@ -7413,7 +7413,7 @@ define noundef ptr @_ZNK8tinyxml210XMLElement7GetTextEv(ptr noundef nonnull read
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %1, %19, %14, %9
-  %.08 = phi ptr [ null, %9 ], [ null, %14 ], [ %21, %19 ], [ null, %1 ], [ null, %7 ]
+  %.08 = phi ptr [ null, %9 ], [ %21, %19 ], [ null, %14 ], [ null, %1 ], [ null, %7 ]
   ret ptr %.08
 }
 
@@ -7762,7 +7762,7 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i: ; preds = %24, %_ZN8tinyxml
   br label %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit
 
 _ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit:            ; preds = %39, %.thread.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i, %2, %6
-  %.1 = phi i32 [ 17, %2 ], [ 17, %6 ], [ 0, %39 ], [ 16, %.thread.i ], [ 16, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i ]
+  %.1 = phi i32 [ 17, %6 ], [ 17, %2 ], [ 0, %39 ], [ 16, %.thread.i ], [ 16, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i ]
   ret i32 %.1
 }
 
@@ -7829,7 +7829,7 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i:     ; preds = %_ZN8tinyxml27XMLUti
   br label %_ZN8tinyxml27XMLUtil10ToUnsignedEPKcPj.exit
 
 _ZN8tinyxml27XMLUtil10ToUnsignedEPKcPj.exit:      ; preds = %23, %_ZNK8tinyxml27XMLNode5ValueEv.exit, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i
-  %31 = phi ptr [ @.str.3, %_ZNK8tinyxml27XMLNode5ValueEv.exit ], [ %spec.select.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i ], [ @.str.3, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i ], [ @.str.3, %23 ]
+  %31 = phi ptr [ @.str.3, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i ], [ @.str.3, %_ZNK8tinyxml27XMLNode5ValueEv.exit ], [ %spec.select.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i ], [ @.str.3, %23 ]
   %32 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %.0.i, ptr noundef nonnull %31, ptr noundef %1) #31
   %33 = icmp eq i32 %32, 1
   %. = select i1 %33, i32 0, i32 16
@@ -7936,8 +7936,8 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i: ; preds = %25, %_ZN8tinyxml
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit
 
-_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit:          ; preds = %.thread.i, %.thread10.i, %40, %36, %2, %7
-  %.1 = phi i32 [ 17, %2 ], [ 17, %7 ], [ 16, %.thread10.i ], [ 16, %.thread.i ], [ 0, %40 ], [ 0, %36 ]
+_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit:          ; preds = %.thread.i, %.thread10.i, %36, %40, %2, %7
+  %.1 = phi i32 [ 17, %7 ], [ 17, %2 ], [ 16, %.thread.i ], [ 16, %.thread10.i ], [ 0, %36 ], [ 0, %40 ]
   ret i32 %.1
 }
 
@@ -8007,7 +8007,7 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i:     ; preds = %_ZN8tinyxml27XMLUti
   br label %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i
 
 _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i: ; preds = %24, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i, %_ZNK8tinyxml27XMLNode5ValueEv.exit
-  %32 = phi ptr [ @.str.8, %_ZNK8tinyxml27XMLNode5ValueEv.exit ], [ %spec.select.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i ], [ @.str.8, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i ], [ @.str.8, %24 ]
+  %32 = phi ptr [ @.str.8, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i ], [ @.str.8, %_ZNK8tinyxml27XMLNode5ValueEv.exit ], [ %spec.select.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i ], [ @.str.8, %24 ]
   %33 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %.0.i, ptr noundef nonnull %32, ptr noundef nonnull %3) #31
   %34 = icmp eq i32 %33, 1
   br i1 %34, label %35, label %_ZN8tinyxml27XMLUtil12ToUnsigned64EPKcPm.exit
@@ -8226,7 +8226,7 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i:   ; preds = %_ZN8tinyxml27XMLUti
   br label %_ZN8tinyxml27XMLUtil10ToUnsignedEPKcPj.exit.i
 
 _ZN8tinyxml27XMLUtil10ToUnsignedEPKcPj.exit.i:    ; preds = %24, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i.i, %_ZNK8tinyxml27XMLNode5ValueEv.exit.i
-  %32 = phi ptr [ @.str.3, %_ZNK8tinyxml27XMLNode5ValueEv.exit.i ], [ %spec.select.i.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i ], [ @.str.3, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i.i ], [ @.str.3, %24 ]
+  %32 = phi ptr [ @.str.3, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i.i ], [ @.str.3, %_ZNK8tinyxml27XMLNode5ValueEv.exit.i ], [ %spec.select.i.i, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i ], [ @.str.3, %24 ]
   %33 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %.0.i.i, ptr noundef nonnull %32, ptr noundef nonnull %3) #31
   %.pre = load i32, ptr %3, align 4, !tbaa !13
   br label %_ZNK8tinyxml210XMLElement17QueryUnsignedTextEPj.exit
@@ -8680,7 +8680,7 @@ _ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit:     ; preds = %39
   ]
 
 _ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread: ; preds = %24, %12, %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit, %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit, %6, %39
-  %.0.lcssa.i.i464852 = phi ptr [ %.0.lcssa.i.i.ph, %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit ], [ %13, %12 ], [ %.0.lcssa.i.i.ph, %39 ], [ %.02772, %6 ], [ %.0.lcssa.i.i.ph, %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit ], [ %25, %24 ]
+  %.0.lcssa.i.i464852 = phi ptr [ %.0.lcssa.i.i.ph, %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit ], [ %.0.lcssa.i.i.ph, %39 ], [ %.02772, %6 ], [ %.0.lcssa.i.i.ph, %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit ], [ %13, %12 ], [ %25, %24 ]
   %42 = load ptr, ptr %4, align 8, !tbaa !71
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 392
   %44 = tail call noundef ptr @_ZN8tinyxml28MemPoolTILi80EE5AllocEv(ptr noundef nonnull align 8 dereferenceable(128) %43)
@@ -8811,7 +8811,7 @@ _ZNK8tinyxml210XMLElement9AttributeEPKcS2_.exit.thread: ; preds = %70, %63, %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %92, %_ZNK8tinyxml210XMLElement4NameEv.exit42, %.loopexit57, %98, %_ZNK8tinyxml210XMLElement4NameEv.exit
-  %.1 = phi ptr [ null, %_ZNK8tinyxml210XMLElement4NameEv.exit42 ], [ null, %_ZNK8tinyxml210XMLElement4NameEv.exit ], [ %100, %98 ], [ null, %.loopexit57 ], [ %93, %92 ], [ null, %3 ]
+  %.1 = phi ptr [ %100, %98 ], [ null, %.loopexit57 ], [ null, %_ZNK8tinyxml210XMLElement4NameEv.exit ], [ null, %_ZNK8tinyxml210XMLElement4NameEv.exit42 ], [ %93, %92 ], [ null, %3 ]
   ret ptr %.1
 }
 
@@ -9772,7 +9772,7 @@ _ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit:   ; preds = %_ZN8tinyxml27XMLUti
   br label %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit.thread
 
 _ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit.thread: ; preds = %22, %10, %4, %27, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit
-  %.016 = phi ptr [ %29, %27 ], [ %.0.lcssa.i.i.ph, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit ], [ %11, %10 ], [ %1, %4 ], [ %23, %22 ]
+  %.016 = phi ptr [ %29, %27 ], [ %.0.lcssa.i.i.ph, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPcPi.exit ], [ %1, %4 ], [ %11, %10 ], [ %23, %22 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = tail call noundef ptr @_ZN8tinyxml27StrPair9ParseNameEPc(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull %.016)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9965,7 +9965,7 @@ _ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit22.thread: ; preds = %.lr.ph, %_ZN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit22, %2, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit, %._crit_edge
-  %.1 = phi i1 [ %not.or.cond, %._crit_edge ], [ false, %2 ], [ false, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit ], [ false, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit22 ]
+  %.1 = phi i1 [ %not.or.cond, %._crit_edge ], [ false, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit ], [ false, %2 ], [ false, %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit22 ]
   ret i1 %.1
 }
 
@@ -10839,7 +10839,7 @@ _ZN8tinyxml27XMLNode11DeleteChildEPS0_.exit:      ; preds = %39, %26, %31, %44
   br label %_ZN8tinyxml27XMLNode10DeleteNodeEPS0_.exit
 
 _ZN8tinyxml27XMLNode10DeleteNodeEPS0_.exit:       ; preds = %69, %74, %61, %51, %_ZN8tinyxml27XMLNode11DeleteChildEPS0_.exit
-  %.sink21.in = phi ptr [ %50, %_ZN8tinyxml27XMLNode11DeleteChildEPS0_.exit ], [ %52, %74 ], [ %52, %51 ], [ %52, %61 ], [ %52, %69 ]
+  %.sink21.in = phi ptr [ %50, %_ZN8tinyxml27XMLNode11DeleteChildEPS0_.exit ], [ %52, %51 ], [ %52, %61 ], [ %52, %74 ], [ %52, %69 ]
   %.sink21 = load ptr, ptr %.sink21.in, align 8, !tbaa !65
   %80 = load ptr, ptr %1, align 8, !tbaa !63
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 120

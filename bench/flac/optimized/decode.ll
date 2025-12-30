@@ -928,7 +928,7 @@ switch.lookup77:                                  ; preds = %373
   call fastcc void @print_error_with_state(ptr noundef nonnull %8, ptr noundef nonnull %378)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %326, %print_error_with_state.exit, %319, %377, %347, %277, %306, %297, %._crit_edge, %234, %246
+.loopexit:                                        ; preds = %326, %377, %347, %306, %297, %print_error_with_state.exit, %277, %319, %._crit_edge, %234, %246
   %379 = load ptr, ptr %83, align 8, !tbaa !70
   %.not.i19 = icmp eq ptr %379, null
   br i1 %.not.i19, label %383, label %380
@@ -1130,12 +1130,12 @@ fixup_iff_headers.exit.i:                         ; preds = %429
   br label %DecoderSession_finish_ok.exit
 
 DecoderSession_finish_ok.exit:                    ; preds = %DecoderSession_destroy.exit.i, %415, %fixup_iff_headers.exit.thread.i, %fixup_iff_headers.exit.i, %442, %468, %.critedge.i30
-  %.036.shrunk.i = phi i1 [ true, %fixup_iff_headers.exit.thread.i ], [ true, %.critedge.i30 ], [ true, %fixup_iff_headers.exit.i ], [ %.not41.i, %468 ], [ %.not41.i, %442 ], [ %.not41.i, %415 ], [ %.not41.i, %DecoderSession_destroy.exit.i ]
+  %.036.shrunk.i = phi i1 [ true, %fixup_iff_headers.exit.i ], [ true, %.critedge.i30 ], [ true, %fixup_iff_headers.exit.thread.i ], [ %.not41.i, %468 ], [ %.not41.i, %442 ], [ %.not41.i, %415 ], [ %.not41.i, %DecoderSession_destroy.exit.i ]
   %.036.i = zext i1 %.036.shrunk.i to i32
   br label %DecoderSession_finish_error.exit
 
 DecoderSession_finish_error.exit:                 ; preds = %104, %96, %390, %387, %228, %225, %DecoderSession_finish_ok.exit
-  %.0 = phi i32 [ %.036.i, %DecoderSession_finish_ok.exit ], [ 1, %228 ], [ 1, %390 ], [ 1, %225 ], [ 1, %387 ], [ 1, %96 ], [ 1, %104 ]
+  %.0 = phi i32 [ %.036.i, %DecoderSession_finish_ok.exit ], [ 1, %225 ], [ 1, %228 ], [ 1, %387 ], [ 1, %390 ], [ 1, %96 ], [ 1, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -1228,7 +1228,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   br label %24
 
 24:                                               ; preds = %4, %4, %4, %20
-  %25 = phi i1 [ false, %4 ], [ false, %4 ], [ %23, %20 ], [ false, %4 ]
+  %25 = phi i1 [ %23, %20 ], [ false, %4 ], [ false, %4 ], [ false, %4 ]
   switch i32 %16, label %29 [
     i32 3, label %26
     i32 5, label %.thread506
@@ -1250,8 +1250,8 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   br label %.thread506
 
 .thread506:                                       ; preds = %17, %.thread506.fold.split, %4, %24, %26, %29
-  %32 = phi i1 [ true, %4 ], [ %25, %24 ], [ %25, %26 ], [ %25, %29 ], [ true, %17 ], [ false, %.thread506.fold.split ]
-  %33 = phi i32 [ 0, %4 ], [ 0, %24 ], [ %28, %26 ], [ %31, %29 ], [ 0, %17 ], [ 0, %.thread506.fold.split ]
+  %32 = phi i1 [ %25, %26 ], [ %25, %29 ], [ %25, %24 ], [ true, %4 ], [ true, %17 ], [ false, %.thread506.fold.split ]
+  %33 = phi i32 [ %28, %26 ], [ %31, %29 ], [ 0, %24 ], [ 0, %4 ], [ 0, %17 ], [ 0, %.thread506.fold.split ]
   %34 = load i32, ptr %1, align 8, !tbaa !90
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 1304
   %36 = load i32, ptr %35, align 8, !tbaa !76
@@ -1908,7 +1908,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   br i1 %exitcond791.not, label %.loopexit514, label %.preheader519, !llvm.loop !119
 
 .loopexit514:                                     ; preds = %322, %.preheader522, %._crit_edge611, %287, %.preheader515, %._crit_edge622
-  %.6426 = phi i32 [ %301, %287 ], [ %.0414, %.preheader515 ], [ %.10430.lcssa, %._crit_edge611 ], [ %.5425.lcssa, %._crit_edge622 ], [ %.0414, %.preheader522 ], [ %334, %322 ]
+  %.6426 = phi i32 [ %.5425.lcssa, %._crit_edge622 ], [ %.0414, %.preheader515 ], [ %301, %287 ], [ %.10430.lcssa, %._crit_edge611 ], [ %.0414, %.preheader522 ], [ %334, %322 ]
   %351 = shl i32 %.6426, 1
   br i1 %32, label %352, label %.loopexit
 
@@ -1934,7 +1934,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   br i1 %359, label %.lr.ph628, label %.loopexit, !llvm.loop !120
 
 .loopexit:                                        ; preds = %.lr.ph628, %.loopexit514, %352
-  %.pre-phi = phi i32 [ %351, %.loopexit514 ], [ 0, %352 ], [ %351, %.lr.ph628 ]
+  %.pre-phi = phi i32 [ 0, %352 ], [ %351, %.loopexit514 ], [ %351, %.lr.ph628 ]
   %360 = zext i32 %.pre-phi to i64
   br label %481
 
@@ -2176,7 +2176,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   br i1 %exitcond727.not, label %.loopexit537, label %.preheader535.us, !llvm.loop !131
 
 .loopexit537:                                     ; preds = %._crit_edge.us571, %._crit_edge.us579, %.preheader536, %.preheader539
-  %.18 = phi i32 [ 0, %.preheader536 ], [ 0, %.preheader539 ], [ %445, %._crit_edge.us579 ], [ %435, %._crit_edge.us571 ]
+  %.18 = phi i32 [ 0, %.preheader539 ], [ 0, %.preheader536 ], [ %445, %._crit_edge.us579 ], [ %435, %._crit_edge.us571 ]
   %446 = zext i32 %.18 to i64
   br label %481
 
@@ -2249,7 +2249,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   br i1 %exitcond702.not, label %.loopexit544, label %.preheader542.us, !llvm.loop !135
 
 .loopexit544:                                     ; preds = %._crit_edge.us557, %._crit_edge.us562, %.preheader543, %.preheader546
-  %.23 = phi i32 [ 0, %.preheader543 ], [ 0, %.preheader546 ], [ %463, %._crit_edge.us562 ], [ %455, %._crit_edge.us557 ]
+  %.23 = phi i32 [ 0, %.preheader546 ], [ 0, %.preheader543 ], [ %463, %._crit_edge.us562 ], [ %455, %._crit_edge.us557 ]
   %464 = shl i32 %.23, 2
   br i1 %32, label %465, label %.loopexit541
 
@@ -2283,7 +2283,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   br i1 %478, label %.lr.ph, label %.loopexit541, !llvm.loop !136
 
 .loopexit541:                                     ; preds = %.lr.ph, %.loopexit544, %465
-  %.pre-phi837 = phi i32 [ %464, %.loopexit544 ], [ 0, %465 ], [ %464, %.lr.ph ]
+  %.pre-phi837 = phi i32 [ 0, %465 ], [ %464, %.loopexit544 ], [ %464, %.lr.ph ]
   %479 = zext i32 %.pre-phi837 to i64
   br label %481
 
@@ -2292,7 +2292,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   br label %.thread508
 
 481:                                              ; preds = %237, %278, %.loopexit527, %.loopexit541, %.loopexit537, %.loopexit, %267
-  %.0447 = phi i64 [ %446, %.loopexit537 ], [ %479, %.loopexit541 ], [ %252, %237 ], [ %269, %267 ], [ %280, %278 ], [ %360, %.loopexit ], [ %425, %.loopexit527 ]
+  %.0447 = phi i64 [ %252, %237 ], [ %269, %267 ], [ %280, %278 ], [ %360, %.loopexit ], [ %425, %.loopexit527 ], [ %446, %.loopexit537 ], [ %479, %.loopexit541 ]
   %.not497 = icmp eq i64 %.0447, 0
   br i1 %.not497, label %.thread508, label %482
 
@@ -2323,7 +2323,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   br label %.thread508
 
 .thread508:                                       ; preds = %186, %222, %218, %142, %481, %482, %87, %70, %41, %.thread506, %494, %480, %184, %125, %110, %62, %54
-  %.0413 = phi i32 [ 1, %62 ], [ 1, %54 ], [ 1, %494 ], [ 1, %87 ], [ 1, %480 ], [ 1, %184 ], [ 1, %142 ], [ 1, %125 ], [ 1, %110 ], [ 1, %70 ], [ 1, %41 ], [ 1, %.thread506 ], [ 0, %482 ], [ 0, %481 ], [ 0, %218 ], [ 0, %222 ], [ 0, %186 ]
+  %.0413 = phi i32 [ 1, %54 ], [ 1, %494 ], [ 1, %480 ], [ 1, %184 ], [ 1, %142 ], [ 1, %125 ], [ 1, %110 ], [ 1, %62 ], [ 1, %.thread506 ], [ 1, %41 ], [ 1, %70 ], [ 1, %87 ], [ 0, %482 ], [ 0, %481 ], [ 0, %218 ], [ 0, %222 ], [ 0, %186 ]
   ret i32 %.0413
 }
 
@@ -2796,7 +2796,7 @@ define internal void @metadata_callback(ptr readnone captures(none) %0, ptr noun
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
-.critedge:                                        ; preds = %3, %149, %184, %78, %32, %44, %56, %92, %99, %138, %144, %11, %120, %17, %257, %266, %263, %260, %179, %.thread175._crit_edge, %.critedge174, %174, %156
+.critedge:                                        ; preds = %3, %149, %184, %32, %44, %56, %92, %99, %138, %144, %120, %78, %17, %11, %257, %266, %263, %260, %179, %.thread175._crit_edge, %.critedge174, %174, %156
   ret void
 }
 
@@ -3176,7 +3176,7 @@ define internal fastcc range(i32 0, 2) i32 @write_iff_headers(ptr noundef captur
   br label %52
 
 52:                                               ; preds = %45, %42, %39, %48, %36
-  %53 = phi i1 [ true, %36 ], [ false, %39 ], [ true, %45 ], [ true, %42 ], [ %51, %48 ]
+  %53 = phi i1 [ true, %36 ], [ false, %39 ], [ %51, %48 ], [ true, %42 ], [ true, %45 ]
   %54 = zext i1 %53 to i32
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 1356
   %56 = load i32, ptr %55, align 4, !tbaa !77
@@ -3325,7 +3325,7 @@ define internal fastcc range(i32 0, 2) i32 @write_iff_headers(ptr noundef captur
   br label %140
 
 140:                                              ; preds = %110, %125, %137
-  %.0200 = phi i64 [ %139, %137 ], [ %117, %110 ], [ %128, %125 ]
+  %.0200 = phi i64 [ %117, %110 ], [ %128, %125 ], [ %139, %137 ]
   %141 = add i32 %28, -4
   %or.cond9 = icmp ult i32 %141, -2
   %142 = icmp ugt i64 %.0200, 4294967283
@@ -3709,7 +3709,7 @@ define internal fastcc range(i32 0, 2) i32 @write_iff_headers(ptr noundef captur
   br label %309
 
 309:                                              ; preds = %._crit_edge, %.thread261
-  %310 = phi i32 [ %spec.select, %._crit_edge ], [ %..i262, %.thread261 ]
+  %310 = phi i32 [ %..i262, %.thread261 ], [ %spec.select, %._crit_edge ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 1360
   %311 = load i32, ptr %.in, align 8, !tbaa !62
   %312 = load i32, ptr %55, align 4, !tbaa !77
@@ -3869,7 +3869,7 @@ define internal fastcc range(i32 0, 2) i32 @write_iff_headers(ptr noundef captur
   br label %write_sane_extended.exit.i
 
 write_sane_extended.exit.i:                       ; preds = %386, %359
-  %.0.shrunk.i.in.i = phi i64 [ %387, %386 ], [ %360, %359 ]
+  %.0.shrunk.i.in.i = phi i64 [ %360, %359 ], [ %387, %386 ]
   %.0.shrunk.i.not.i = icmp eq i64 %.0.shrunk.i.in.i, 4
   br i1 %.0.shrunk.i.not.i, label %388, label %write_aiff_form_comm_chunk.exit.thread
 
@@ -3977,8 +3977,8 @@ write_aiff_form_comm_chunk.exit:                  ; preds = %397, %395, %388
 default.unreachable:                              ; preds = %148
   unreachable
 
-write_aiff_form_comm_chunk.exit.thread:           ; preds = %.lr.ph.i, %354, %357, %373, %315, %328, %334, %346, %391, %365, %393, %write_sane_extended.exit.i, %309, %259, %431, %429, %427, %423, %.loopexit286, %281, %279, %265, %263, %256, %254, %250, %248, %217, %214, %212, %209, %207, %180, %178, %176, %174, %172, %170, %168, %166, %164, %162, %160, %157, %155, %152, %150, %77, %418, %302, %244, %203, %143
-  %.0196 = phi i32 [ 0, %263 ], [ 0, %143 ], [ 0, %168 ], [ 0, %77 ], [ 0, %152 ], [ 0, %354 ], [ 0, %203 ], [ 0, %180 ], [ 0, %244 ], [ 0, %217 ], [ 0, %429 ], [ 0, %248 ], [ 0, %250 ], [ 0, %254 ], [ 0, %214 ], [ 0, %207 ], [ 0, %209 ], [ 0, %212 ], [ 0, %178 ], [ 0, %176 ], [ 0, %174 ], [ 0, %172 ], [ 0, %170 ], [ 0, %150 ], [ 0, %155 ], [ 0, %160 ], [ 0, %157 ], [ 0, %162 ], [ 0, %166 ], [ 0, %164 ], [ 0, %256 ], [ 0, %265 ], [ 0, %302 ], [ 0, %418 ], [ 1, %259 ], [ 0, %427 ], [ 0, %423 ], [ 0, %.loopexit286 ], [ 0, %281 ], [ 0, %279 ], [ 1, %431 ], [ 0, %309 ], [ 0, %write_sane_extended.exit.i ], [ 0, %393 ], [ 0, %365 ], [ 0, %391 ], [ 0, %346 ], [ 0, %334 ], [ 0, %328 ], [ 0, %315 ], [ 0, %373 ], [ 0, %357 ], [ 0, %.lr.ph.i ]
+write_aiff_form_comm_chunk.exit.thread:           ; preds = %.lr.ph.i, %373, %365, %357, %354, %393, %391, %write_sane_extended.exit.i, %346, %334, %328, %315, %309, %259, %431, %429, %427, %423, %.loopexit286, %281, %279, %265, %263, %256, %254, %250, %248, %217, %214, %212, %209, %207, %180, %178, %176, %174, %172, %170, %168, %166, %164, %162, %160, %157, %155, %152, %150, %77, %418, %302, %244, %203, %143
+  %.0196 = phi i32 [ 0, %143 ], [ 0, %203 ], [ 0, %244 ], [ 0, %302 ], [ 0, %418 ], [ 0, %77 ], [ 0, %150 ], [ 0, %152 ], [ 0, %155 ], [ 0, %157 ], [ 0, %160 ], [ 0, %162 ], [ 0, %164 ], [ 0, %166 ], [ 0, %168 ], [ 0, %170 ], [ 0, %172 ], [ 0, %174 ], [ 0, %176 ], [ 0, %178 ], [ 0, %180 ], [ 0, %207 ], [ 0, %209 ], [ 0, %212 ], [ 0, %214 ], [ 0, %217 ], [ 0, %248 ], [ 0, %250 ], [ 0, %254 ], [ 0, %256 ], [ 0, %263 ], [ 0, %265 ], [ 0, %279 ], [ 0, %281 ], [ 0, %.loopexit286 ], [ 0, %423 ], [ 0, %427 ], [ 0, %429 ], [ 1, %431 ], [ 1, %259 ], [ 0, %309 ], [ 0, %315 ], [ 0, %328 ], [ 0, %334 ], [ 0, %346 ], [ 0, %write_sane_extended.exit.i ], [ 0, %391 ], [ 0, %393 ], [ 0, %354 ], [ 0, %357 ], [ 0, %365 ], [ 0, %373 ], [ 0, %.lr.ph.i ]
   ret i32 %.0196
 }
 
@@ -4051,7 +4051,7 @@ define internal fastcc i32 @verify_streaminfo(ptr noundef nonnull readonly captu
   br i1 %.not3239, label %.thread40.sink.split, label %.thread40
 
 .thread40.sink.split:                             ; preds = %29, %.thread, %11
-  %.str.109.sink = phi ptr [ @.str.108, %11 ], [ %spec.select, %29 ], [ @.str.109, %.thread ]
+  %.str.109.sink = phi ptr [ @.str.108, %11 ], [ @.str.109, %.thread ], [ %spec.select, %29 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %35 = load ptr, ptr %34, align 8, !tbaa !54
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1368
@@ -4209,7 +4209,7 @@ define internal fastcc range(i32 0, 2) i32 @write_riff_wave_fmt_chunk_body(ptr n
   br label %48
 
 48:                                               ; preds = %45, %43, %40, %38, %33, %29, %23, %21, %18, %6, %47
-  %.0 = phi i32 [ 0, %43 ], [ 1, %47 ], [ 0, %40 ], [ 0, %38 ], [ 0, %33 ], [ 0, %29 ], [ 0, %23 ], [ 0, %21 ], [ 0, %18 ], [ 0, %6 ], [ 0, %45 ]
+  %.0 = phi i32 [ 1, %47 ], [ 0, %6 ], [ 0, %18 ], [ 0, %21 ], [ 0, %23 ], [ 0, %29 ], [ 0, %33 ], [ 0, %38 ], [ 0, %40 ], [ 0, %43 ], [ 0, %45 ]
   ret i32 %.0
 }
 

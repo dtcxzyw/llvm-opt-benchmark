@@ -572,7 +572,7 @@ define internal noundef i32 @cas_slice16(ptr noundef readonly captures(none) %0,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph369, %.preheader, %153
-  %161 = phi i32 [ %.pre, %153 ], [ %26, %.lr.ph369 ], [ %26, %.preheader ], [ %26, %._crit_edge.us ]
+  %161 = phi i32 [ %26, %.preheader ], [ %.pre, %153 ], [ %26, %.lr.ph369 ], [ %26, %._crit_edge.us ]
   %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
   %162 = sext i32 %161 to i64
   %163 = icmp slt i64 %indvars.iv.next379, %162

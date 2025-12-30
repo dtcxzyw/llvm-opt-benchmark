@@ -1410,7 +1410,7 @@ _ZN6bufferIP3appLb0ELj16EED2Ev.exit:              ; preds = %123, %126
   ret ptr %.0
 
 130:                                              ; preds = %74, %99, %121, %119, %21
-  %.pn.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %75, %74 ], [ %100, %99 ], [ %122, %121 ], [ %120, %119 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %100, %99 ], [ %75, %74 ], [ %122, %121 ], [ %120, %119 ]
   call void @_ZN6bufferIP3appLb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn
@@ -2197,10 +2197,10 @@ _ZNK6vectorI9parameterLb1EjE4sizeEv.exit22.invoke.sink.split: ; preds = %_ZN11as
   br label %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit22.invoke
 
 _ZNK6vectorI9parameterLb1EjE4sizeEv.exit22.invoke: ; preds = %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit22.invoke.sink.split, %43, %_ZN11ast_manager5mk_orEjPKP4expr.exit
-  %60 = phi i32 [ %45, %43 ], [ %53, %_ZN11ast_manager5mk_orEjPKP4expr.exit ], [ %.ph, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit22.invoke.sink.split ]
-  %61 = phi ptr [ %46, %43 ], [ %54, %_ZN11ast_manager5mk_orEjPKP4expr.exit ], [ %.ph35, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit22.invoke.sink.split ]
-  %62 = phi i32 [ 0, %43 ], [ 0, %_ZN11ast_manager5mk_orEjPKP4expr.exit ], [ %59, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit22.invoke.sink.split ]
-  %63 = phi ptr [ %48, %43 ], [ %56, %_ZN11ast_manager5mk_orEjPKP4expr.exit ], [ %.sink38, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit22.invoke.sink.split ]
+  %60 = phi i32 [ %53, %_ZN11ast_manager5mk_orEjPKP4expr.exit ], [ %45, %43 ], [ %.ph, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit22.invoke.sink.split ]
+  %61 = phi ptr [ %54, %_ZN11ast_manager5mk_orEjPKP4expr.exit ], [ %46, %43 ], [ %.ph35, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit22.invoke.sink.split ]
+  %62 = phi i32 [ 0, %_ZN11ast_manager5mk_orEjPKP4expr.exit ], [ 0, %43 ], [ %59, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit22.invoke.sink.split ]
+  %63 = phi ptr [ %56, %_ZN11ast_manager5mk_orEjPKP4expr.exit ], [ %48, %43 ], [ %.sink38, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit22.invoke.sink.split ]
   %64 = invoke noundef ptr @_ZN11ast_manager11mk_th_lemmaEiP4exprjPKP3appjPK9parameter(ptr noundef nonnull align 8 dereferenceable(976) %8, i32 noundef %60, ptr noundef %61, i32 noundef 0, ptr noundef null, i32 noundef %62, ptr noundef %63)
           to label %65 unwind label %50
 
@@ -2438,7 +2438,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i14:          ; preds = %70
   br label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
 
 _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %89, %82, %80, %69, %62, %60, %44, %37, %35, %23, %16, %14
-  %.sink = phi ptr [ %10, %23 ], [ %56, %69 ], [ %31, %44 ], [ %10, %14 ], [ %10, %16 ], [ %31, %35 ], [ %31, %37 ], [ %56, %60 ], [ %56, %62 ], [ %76, %80 ], [ %76, %82 ], [ %76, %89 ]
+  %.sink = phi ptr [ %10, %14 ], [ %10, %16 ], [ %10, %23 ], [ %31, %35 ], [ %31, %37 ], [ %31, %44 ], [ %56, %60 ], [ %56, %62 ], [ %56, %69 ], [ %76, %80 ], [ %76, %82 ], [ %76, %89 ]
   store ptr %.sink, ptr %2, align 8, !tbaa !211
   ret void
 }
@@ -4164,10 +4164,10 @@ _ZNK6vectorI9parameterLb1EjE4sizeEv.exit24.invoke.sink.split: ; preds = %_ZN11as
   br label %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit24.invoke
 
 _ZNK6vectorI9parameterLb1EjE4sizeEv.exit24.invoke: ; preds = %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit24.invoke.sink.split, %50, %_ZN11ast_manager5mk_orEjPKP4expr.exit
-  %67 = phi i32 [ %52, %50 ], [ %60, %_ZN11ast_manager5mk_orEjPKP4expr.exit ], [ %.ph, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit24.invoke.sink.split ]
-  %68 = phi ptr [ %53, %50 ], [ %61, %_ZN11ast_manager5mk_orEjPKP4expr.exit ], [ %.ph38, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit24.invoke.sink.split ]
-  %69 = phi i32 [ 0, %50 ], [ 0, %_ZN11ast_manager5mk_orEjPKP4expr.exit ], [ %66, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit24.invoke.sink.split ]
-  %70 = phi ptr [ %55, %50 ], [ %63, %_ZN11ast_manager5mk_orEjPKP4expr.exit ], [ %.sink41, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit24.invoke.sink.split ]
+  %67 = phi i32 [ %60, %_ZN11ast_manager5mk_orEjPKP4expr.exit ], [ %52, %50 ], [ %.ph, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit24.invoke.sink.split ]
+  %68 = phi ptr [ %61, %_ZN11ast_manager5mk_orEjPKP4expr.exit ], [ %53, %50 ], [ %.ph38, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit24.invoke.sink.split ]
+  %69 = phi i32 [ 0, %_ZN11ast_manager5mk_orEjPKP4expr.exit ], [ 0, %50 ], [ %66, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit24.invoke.sink.split ]
+  %70 = phi ptr [ %63, %_ZN11ast_manager5mk_orEjPKP4expr.exit ], [ %55, %50 ], [ %.sink41, %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit24.invoke.sink.split ]
   %71 = invoke noundef ptr @_ZN11ast_manager11mk_th_lemmaEiP4exprjPKP3appjPK9parameter(ptr noundef nonnull align 8 dereferenceable(976) %5, i32 noundef %67, ptr noundef %68, i32 noundef 0, ptr noundef null, i32 noundef %69, ptr noundef %70)
           to label %72 unwind label %57
 
@@ -5854,7 +5854,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.thread: ; preds
   ret void
 
 172:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %71, %167, %43
-  %.pn48.pn = phi { ptr, i32 } [ %44, %43 ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %72, %71 ], [ %66, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56.thread ], [ %168, %167 ], [ %162, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.thread ]
+  %.pn48.pn = phi { ptr, i32 } [ %44, %43 ], [ %72, %71 ], [ %168, %167 ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %66, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56.thread ], [ %162, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.thread ]
   resume { ptr, i32 } %.pn48.pn
 
 173:                                              ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit58, %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit53, %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit

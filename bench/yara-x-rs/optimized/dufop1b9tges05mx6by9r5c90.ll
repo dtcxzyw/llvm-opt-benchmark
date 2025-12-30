@@ -2615,8 +2615,8 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$yara_x_parser..ast.
           to label %"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$yara_x_parser..ast..RegexpPattern$GT$$GT$17h816c4ff5eadce6f8E.exit" unwind label %3
 
 common.resume:                                    ; preds = %17, %24, %10, %14, %3
-  %.sink = phi i64 [ 96, %10 ], [ 96, %3 ], [ 96, %14 ], [ 72, %24 ], [ 72, %17 ]
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %4, %3 ], [ %15, %14 ], [ %25, %24 ], [ %18, %17 ]
+  %.sink = phi i64 [ 96, %3 ], [ 96, %14 ], [ 96, %10 ], [ 72, %24 ], [ 72, %17 ]
+  %common.resume.op = phi { ptr, i32 } [ %4, %3 ], [ %15, %14 ], [ %11, %10 ], [ %25, %24 ], [ %18, %17 ]
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef %.sink, i64 noundef 8) #14
   resume { ptr, i32 } %common.resume.op
 
@@ -2684,7 +2684,7 @@ common.resume:                                    ; preds = %17, %24, %10, %14, 
   br label %common.resume
 
 "_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$yara_x_parser..ast..RegexpPattern$GT$$GT$17h816c4ff5eadce6f8E.exit": ; preds = %20, %"_ZN4core3ptr54drop_in_place$LT$yara_x_parser..ast..LiteralString$GT$17h94a54184eb475f6eE.exit.i.i", %2
-  %.sink1 = phi i64 [ 96, %"_ZN4core3ptr54drop_in_place$LT$yara_x_parser..ast..LiteralString$GT$17h94a54184eb475f6eE.exit.i.i" ], [ 96, %2 ], [ 72, %20 ]
+  %.sink1 = phi i64 [ 96, %2 ], [ 96, %"_ZN4core3ptr54drop_in_place$LT$yara_x_parser..ast..LiteralString$GT$17h94a54184eb475f6eE.exit.i.i" ], [ 72, %20 ]
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef %.sink1, i64 noundef 8) #14
   ret void
 }

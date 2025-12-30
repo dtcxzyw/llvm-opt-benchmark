@@ -188,7 +188,7 @@ _ZN12_GLOBAL__N_17DirNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
           to label %54 unwind label %47
 
 54:                                               ; preds = %46, %49, %43, %39
-  %.1 = phi i1 [ true, %43 ], [ false, %39 ], [ false, %46 ], [ %53, %49 ]
+  %.1 = phi i1 [ false, %39 ], [ true, %43 ], [ false, %46 ], [ %53, %49 ]
   %55 = load ptr, ptr %5, align 8, !tbaa !24
   %56 = icmp eq ptr %55, %31
   br i1 %56, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -646,7 +646,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %_ZN
   br label %147
 
 147:                                              ; preds = %138, %31, %31, %142, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54
-  %.021 = phi i64 [ %146, %142 ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ 0, %31 ], [ 0, %31 ], [ 1, %138 ]
+  %.021 = phi i64 [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ %146, %142 ], [ 0, %31 ], [ 0, %31 ], [ 1, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN12ScopedMetricD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -878,7 +878,7 @@ define dso_local noundef zeroext i1 @_ZN17RealDiskInterface7MakeDirERKNSt7__cxx1
   br label %12
 
 12:                                               ; preds = %2, %5, %9
-  %.0 = phi i1 [ true, %5 ], [ false, %9 ], [ true, %2 ]
+  %.0 = phi i1 [ false, %9 ], [ true, %5 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -914,7 +914,7 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZN17RealDiskInterface10RemoveFil
   br label %12
 
 12:                                               ; preds = %2, %6, %9
-  %.0 = phi i32 [ 1, %6 ], [ -1, %9 ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %9 ], [ 1, %6 ], [ 0, %2 ]
   ret i32 %.0
 }
 

@@ -432,8 +432,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
   unreachable
 
 .body:                                            ; preds = %140, %137, %110, %113, %86
-  %.sroa.0.2 = phi ptr [ %92, %110 ], [ %.sroa.0.0, %86 ], [ %92, %113 ], [ %92, %137 ], [ %92, %140 ]
-  %.pn = phi { ptr, i32 } [ %111, %110 ], [ %87, %86 ], [ %111, %113 ], [ %138, %137 ], [ %138, %140 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %86 ], [ %92, %113 ], [ %92, %110 ], [ %92, %137 ], [ %92, %140 ]
+  %.pn = phi { ptr, i32 } [ %87, %86 ], [ %111, %113 ], [ %111, %110 ], [ %138, %137 ], [ %138, %140 ]
   %.not.i35 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i35, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit37, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i36
 
@@ -445,7 +445,7 @@ _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i36: ; preds = %.body
   br label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit37
 
 _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit37: ; preds = %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i36, %.body, %78, %69, %60, %51, %49
-  %.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %79, %78 ], [ %50, %49 ], [ %70, %69 ], [ %61, %60 ], [ %.pn, %.body ], [ %.pn, %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i36 ]
+  %.pn.pn = phi { ptr, i32 } [ %79, %78 ], [ %50, %49 ], [ %70, %69 ], [ %61, %60 ], [ %52, %51 ], [ %.pn, %.body ], [ %.pn, %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i36 ]
   call void @_ZN10open_spiel8GameTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(146) %11) #18
   br label %148
 
@@ -1011,7 +1011,7 @@ _ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit.us: ; preds = %77, %75
   br label %85
 
 85:                                               ; preds = %82, %84
-  %.2188.us = phi double [ %.0186222.us.mux, %82 ], [ %74, %84 ]
+  %.2188.us = phi double [ %74, %84 ], [ %.0186222.us.mux, %82 ]
   %86 = fcmp olt double %.0183224.us, %.2188.us
   %.sroa.speculated169.us = select i1 %86, double %.2188.us, double %.0183224.us
   %87 = fcmp oge double %.sroa.speculated169.us, %3
@@ -1205,7 +1205,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
   unreachable
 
 .body101:                                         ; preds = %152, %149, %131, %128
-  %.pn82 = phi { ptr, i32 } [ %129, %128 ], [ %150, %152 ], [ %129, %131 ], [ %150, %149 ]
+  %.pn82 = phi { ptr, i32 } [ %129, %131 ], [ %129, %128 ], [ %150, %149 ], [ %150, %152 ]
   %157 = load ptr, ptr %13, align 8
   %.not.i110 = icmp eq ptr %157, null
   br i1 %.not.i110, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit112, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i111
@@ -1226,7 +1226,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit112: ; pr
   br label %162
 
 162:                                              ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit, %161
-  %.2188 = phi double [ %.0186222.mux, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit ], [ %136, %161 ]
+  %.2188 = phi double [ %136, %161 ], [ %.0186222.mux, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit ]
   %163 = fcmp olt double %.0183224, %.2188
   %.sroa.speculated169 = select i1 %163, double %.2188, double %.0183224
   %164 = fcmp oge double %.sroa.speculated169, %3
@@ -1256,7 +1256,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit112: ; pr
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 .body:                                            ; preds = %.split233, %.split233.us, %106, %.split240.us, %100, %.split236.us, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit112
-  %.pn84 = phi { ptr, i32 } [ %.pn82, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit112 ], [ %116, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i ], [ %90, %.split236.us ], [ %90, %100 ], [ %92, %106 ], [ %92, %.split240.us ], [ %105, %.split233 ], [ %89, %.split233.us ]
+  %.pn84 = phi { ptr, i32 } [ %.pn82, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit112 ], [ %90, %100 ], [ %90, %.split236.us ], [ %116, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i ], [ %92, %.split240.us ], [ %92, %106 ], [ %105, %.split233 ], [ %89, %.split233.us ]
   %173 = load ptr, ptr %11, align 8
   %.not.i.i.i113 = icmp eq ptr %173, null
   br i1 %.not.i.i.i113, label %_ZNSt6vectorIlSaIlEED2Ev.exit114, label %174
@@ -1348,7 +1348,7 @@ _ZNSt8functionIFdRKN10open_spiel5StateEEED2Ev.exit123.us: ; preds = %205, %203
   br label %213
 
 213:                                              ; preds = %210, %212
-  %.2.us = phi double [ %.0184204.us.mux, %210 ], [ %202, %212 ]
+  %.2.us = phi double [ %202, %212 ], [ %.0184204.us.mux, %210 ]
   %214 = fcmp olt double %.2.us, %.0185203.us
   %.sroa.speculated.us = select i1 %214, double %.2.us, double %.0185203.us
   %215 = fcmp oge double %2, %.sroa.speculated.us
@@ -1542,7 +1542,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit145: ; pr
   unreachable
 
 .body137:                                         ; preds = %280, %277, %259, %256
-  %.pn78 = phi { ptr, i32 } [ %257, %256 ], [ %278, %280 ], [ %257, %259 ], [ %278, %277 ]
+  %.pn78 = phi { ptr, i32 } [ %257, %259 ], [ %257, %256 ], [ %278, %277 ], [ %278, %280 ]
   %285 = load ptr, ptr %17, align 8
   %.not.i149 = icmp eq ptr %285, null
   br i1 %.not.i149, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit151, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i150
@@ -1563,7 +1563,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit151: ; pr
   br label %290
 
 290:                                              ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit145, %289
-  %.2 = phi double [ %.0184204.mux, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit145 ], [ %264, %289 ]
+  %.2 = phi double [ %264, %289 ], [ %.0184204.mux, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit145 ]
   %291 = fcmp olt double %.2, %.0185203
   %.sroa.speculated = select i1 %291, double %.2, double %.0185203
   %292 = fcmp oge double %2, %.sroa.speculated
@@ -1593,7 +1593,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit151: ; pr
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 .body118:                                         ; preds = %.split, %.split.us, %234, %.split214.us, %228, %.split210.us, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i129, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit151
-  %.pn80 = phi { ptr, i32 } [ %.pn78, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit151 ], [ %244, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i129 ], [ %218, %.split210.us ], [ %218, %228 ], [ %220, %234 ], [ %220, %.split214.us ], [ %233, %.split ], [ %217, %.split.us ]
+  %.pn80 = phi { ptr, i32 } [ %.pn78, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit151 ], [ %218, %228 ], [ %218, %.split210.us ], [ %244, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i129 ], [ %220, %.split214.us ], [ %220, %234 ], [ %233, %.split ], [ %217, %.split.us ]
   %301 = load ptr, ptr %15, align 8
   %.not.i.i.i155 = icmp eq ptr %301, null
   br i1 %.not.i.i.i155, label %_ZNSt6vectorIlSaIlEED2Ev.exit114, label %302
@@ -1608,11 +1608,11 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit151: ; pr
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit114
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %295, %._crit_edge, %167, %._crit_edge227, %_ZNKSt8functionIFdRKN10open_spiel5StateEEEclES3_.exit, %23
-  %.057 = phi double [ %27, %23 ], [ %43, %_ZNKSt8functionIFdRKN10open_spiel5StateEEEclES3_.exit ], [ %.1187, %167 ], [ %.1187, %._crit_edge227 ], [ %.1, %._crit_edge ], [ %.1, %295 ]
+  %.057 = phi double [ %27, %23 ], [ %43, %_ZNKSt8functionIFdRKN10open_spiel5StateEEEclES3_.exit ], [ %.1187, %._crit_edge227 ], [ %.1187, %167 ], [ %.1, %._crit_edge ], [ %.1, %295 ]
   ret double %.057
 
 _ZNSt6vectorIlSaIlEED2Ev.exit114:                 ; preds = %302, %.body118, %174, %.body, %40
-  %.pn84.pn = phi { ptr, i32 } [ %.pn, %40 ], [ %.pn84, %174 ], [ %.pn84, %.body ], [ %.pn80, %.body118 ], [ %.pn80, %302 ]
+  %.pn84.pn = phi { ptr, i32 } [ %.pn, %40 ], [ %.pn84, %.body ], [ %.pn84, %174 ], [ %.pn80, %.body118 ], [ %.pn80, %302 ]
   resume { ptr, i32 } %.pn84.pn
 }
 
@@ -2012,8 +2012,8 @@ _ZN10open_spiel8GameTypeD2Ev.exit:                ; preds = %_ZNSt10unique_ptrIN
   unreachable
 
 .body:                                            ; preds = %164, %161, %134, %137, %100
-  %.sroa.0.2 = phi ptr [ %106, %164 ], [ %106, %134 ], [ %.sroa.0.0, %100 ], [ %106, %137 ], [ %106, %161 ]
-  %.pn = phi { ptr, i32 } [ %162, %164 ], [ %135, %134 ], [ %101, %100 ], [ %135, %137 ], [ %162, %161 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %100 ], [ %106, %137 ], [ %106, %134 ], [ %106, %161 ], [ %106, %164 ]
+  %.pn = phi { ptr, i32 } [ %101, %100 ], [ %135, %137 ], [ %135, %134 ], [ %162, %161 ], [ %162, %164 ]
   %.not.i32 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i32, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit34, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i33
 
@@ -2027,7 +2027,7 @@ _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i33: ; preds = %.body.t
   br label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit34
 
 _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit34: ; preds = %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i33, %.body, %92, %83, %74, %65, %56, %54
-  %.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %93, %92 ], [ %55, %54 ], [ %84, %83 ], [ %75, %74 ], [ %66, %65 ], [ %.pn, %.body ], [ %.pn46, %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i33 ]
+  %.pn.pn = phi { ptr, i32 } [ %93, %92 ], [ %55, %54 ], [ %84, %83 ], [ %75, %74 ], [ %66, %65 ], [ %57, %56 ], [ %.pn, %.body ], [ %.pn46, %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i33 ]
   call void @_ZN10open_spiel8GameTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(146) %10) #18
   br label %172
 
@@ -2457,7 +2457,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
   unreachable
 
 .body87:                                          ; preds = %119, %116, %93, %90
-  %.pn80 = phi { ptr, i32 } [ %91, %90 ], [ %117, %119 ], [ %91, %93 ], [ %117, %116 ]
+  %.pn80 = phi { ptr, i32 } [ %91, %93 ], [ %91, %90 ], [ %117, %116 ], [ %117, %119 ]
   %124 = load ptr, ptr %9, align 8
   %.not.i94 = icmp eq ptr %124, null
   br i1 %.not.i94, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit96, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i95
@@ -2677,7 +2677,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit121: ; pr
   br i1 %.not168, label %._crit_edge201.loopexit, label %156
 
 .body110:                                         ; preds = %201, %198, %181, %178
-  %.pn76 = phi { ptr, i32 } [ %179, %178 ], [ %199, %201 ], [ %179, %181 ], [ %199, %198 ]
+  %.pn76 = phi { ptr, i32 } [ %179, %181 ], [ %179, %178 ], [ %199, %198 ], [ %199, %201 ]
   %212 = load ptr, ptr %12, align 8
   %.not.i122 = icmp eq ptr %212, null
   br i1 %.not.i122, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit124, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i123
@@ -2890,7 +2890,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit150: ; pr
   br i1 %.not167, label %._crit_edge.loopexit, label %239
 
 .body139:                                         ; preds = %284, %281, %264, %261
-  %.pn73 = phi { ptr, i32 } [ %262, %261 ], [ %282, %284 ], [ %262, %264 ], [ %282, %281 ]
+  %.pn73 = phi { ptr, i32 } [ %262, %264 ], [ %262, %261 ], [ %282, %281 ], [ %282, %284 ]
   %295 = load ptr, ptr %15, align 8
   %.not.i151 = icmp eq ptr %295, null
   br i1 %.not.i151, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit153, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i152
@@ -2922,11 +2922,11 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit153: ; pr
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit98
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %233, %._crit_edge, %150, %._crit_edge201, %62, %._crit_edge208, %_ZNKSt8functionIFdRKN10open_spiel5StateEEEclES3_.exit, %21
-  %.0 = phi double [ %25, %21 ], [ %41, %_ZNKSt8functionIFdRKN10open_spiel5StateEEEclES3_.exit ], [ %.063.lcssa, %150 ], [ %.062.lcssa, %62 ], [ %.062.lcssa, %._crit_edge208 ], [ %.063.lcssa, %._crit_edge201 ], [ %.060.lcssa, %._crit_edge ], [ %.060.lcssa, %233 ]
+  %.0 = phi double [ %25, %21 ], [ %41, %_ZNKSt8functionIFdRKN10open_spiel5StateEEEclES3_.exit ], [ %.062.lcssa, %._crit_edge208 ], [ %.062.lcssa, %62 ], [ %.063.lcssa, %._crit_edge201 ], [ %.063.lcssa, %150 ], [ %.060.lcssa, %._crit_edge ], [ %.060.lcssa, %233 ]
   ret double %.0
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit98:      ; preds = %300, %.body133, %217, %.body104, %129, %.body, %38
-  %.pn80.pn.pn = phi { ptr, i32 } [ %.pn, %38 ], [ %.pn80.pn, %129 ], [ %.pn76.pn, %217 ], [ %.pn80.pn, %.body ], [ %.pn76.pn, %.body104 ], [ %.pn73.pn, %.body133 ], [ %.pn73.pn, %300 ]
+  %.pn80.pn.pn = phi { ptr, i32 } [ %.pn, %38 ], [ %.pn80.pn, %.body ], [ %.pn80.pn, %129 ], [ %.pn76.pn, %.body104 ], [ %.pn76.pn, %217 ], [ %.pn73.pn, %.body133 ], [ %.pn73.pn, %300 ]
   resume { ptr, i32 } %.pn80.pn.pn
 }
 

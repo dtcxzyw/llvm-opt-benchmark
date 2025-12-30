@@ -98,8 +98,8 @@ define void @dgelsx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %55, label %.thread, label %57
 
 .thread:                                          ; preds = %52, %49, %46, %43, %12
-  %.sink = phi i32 [ -1, %12 ], [ -2, %43 ], [ -5, %49 ], [ -3, %46 ], [ -7, %52 ]
-  %.neg = phi i32 [ 1, %12 ], [ 2, %43 ], [ 5, %49 ], [ 3, %46 ], [ 7, %52 ]
+  %.sink = phi i32 [ -1, %12 ], [ -2, %43 ], [ -3, %46 ], [ -5, %49 ], [ -7, %52 ]
+  %.neg = phi i32 [ 1, %12 ], [ 2, %43 ], [ 3, %46 ], [ 5, %49 ], [ 7, %52 ]
   store i32 %.sink, ptr %11, align 4, !tbaa !3
   store i32 %.neg, ptr %13, align 4, !tbaa !3
   %56 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %13, i32 noundef 6) #4

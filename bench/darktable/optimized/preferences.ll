@@ -8601,7 +8601,7 @@ define internal fastcc void @set_widget_label_default(ptr noundef %0, ptr nounde
   %15 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %14) #13
   %16 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %15) #13
   %17 = icmp eq i32 %16, %13
-  br i1 %17, label %72, label %75
+  br i1 %17, label %73, label %76
 
 18:                                               ; preds = %10
   %19 = tail call i64 @dt_bh_get_type() #13
@@ -8617,104 +8617,104 @@ define internal fastcc void @set_widget_label_default(ptr noundef %0, ptr nounde
 DT_IS_BAUHAUS_WIDGET.exit:                        ; preds = %18, %21
   %24 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull readonly %0, i64 noundef %19) #15
   %.not74 = icmp eq i32 %24, 0
-  br i1 %.not74, label %25, label %DT_IS_BAUHAUS_WIDGET.exit.thread98
-
-25:                                               ; preds = %DT_IS_BAUHAUS_WIDGET.exit
-  %26 = tail call i64 @gtk_spin_button_get_type() #14
-  br i1 %.not10.i, label %30, label %27
-
-27:                                               ; preds = %25
-  %28 = load i64, ptr %20, align 8, !tbaa !86
-  %29 = icmp eq i64 %28, %26
-  br i1 %29, label %.critedge86, label %30
-
-30:                                               ; preds = %27, %25
-  %31 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %0, i64 noundef %26) #15
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %40, label %.critedge86
-
-.critedge86:                                      ; preds = %27, %30
-  %33 = tail call ptr @dt_confgen_get(ptr noundef %1, i32 noundef 0) #13
-  %34 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %33) #13
-  %35 = fptrunc reassoc nsz arcp contract afn double %34 to float
-  %36 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %26) #13
-  %37 = tail call reassoc nsz arcp contract afn double @gtk_spin_button_get_value(ptr noundef %36) #13
-  %38 = fptrunc reassoc nsz arcp contract afn double %37 to float
-  %39 = fcmp reassoc nsz arcp contract afn oeq float %38, %35
-  br i1 %39, label %72, label %75
-
-40:                                               ; preds = %30
-  %41 = tail call i64 @gtk_entry_get_type() #14
-  br i1 %.not10.i, label %45, label %42
-
-42:                                               ; preds = %40
-  %43 = load i64, ptr %20, align 8, !tbaa !86
-  %44 = icmp eq i64 %43, %41
-  br i1 %44, label %.critedge90, label %45
-
-45:                                               ; preds = %42, %40
-  %46 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %0, i64 noundef %41) #15
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %54, label %.critedge90
-
-.critedge90:                                      ; preds = %42, %45
-  %48 = tail call ptr @dt_confgen_get(ptr noundef %1, i32 noundef 0) #13
-  %49 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %41) #13
-  %50 = tail call ptr @gtk_entry_get_text(ptr noundef %49) #13
-  %51 = tail call i32 @g_strcmp0(ptr noundef %50, ptr noundef %48) #13
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %72, label %75
-
-.critedge88.thread:                               ; preds = %3
-  %53 = tail call i64 @dt_bh_get_type() #13
-  br label %.critedge92
-
-54:                                               ; preds = %45
-  %55 = tail call i64 @gtk_file_chooser_get_type() #14
-  br i1 %.not10.i, label %59, label %56
-
-56:                                               ; preds = %54
-  %57 = load i64, ptr %20, align 8, !tbaa !86
-  %58 = icmp eq i64 %57, %55
-  br i1 %58, label %.critedge94, label %59
-
-59:                                               ; preds = %56, %54
-  %60 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %0, i64 noundef %55) #15
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %.critedge92, label %.critedge94
-
-.critedge94:                                      ; preds = %56, %59
-  %62 = tail call ptr @dt_confgen_get(ptr noundef %1, i32 noundef 0) #13
-  %63 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %55) #13
-  %64 = tail call ptr @gtk_file_chooser_get_filename(ptr noundef %63) #13
-  %65 = tail call i32 @g_strcmp0(ptr noundef %64, ptr noundef %62) #13
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %72, label %75
+  br i1 %.not74, label %30, label %DT_IS_BAUHAUS_WIDGET.exit.thread98
 
 DT_IS_BAUHAUS_WIDGET.exit.thread98:               ; preds = %21, %DT_IS_BAUHAUS_WIDGET.exit
-  %67 = tail call i32 @dt_bauhaus_combobox_get_default(ptr noundef nonnull %0) #13
-  %68 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef nonnull %0) #13
-  %69 = ptrtoint ptr %68 to i64
-  %70 = trunc i64 %69 to i32
-  %71 = icmp eq i32 %67, %70
-  br i1 %71, label %72, label %75
+  %25 = tail call i32 @dt_bauhaus_combobox_get_default(ptr noundef nonnull %0) #13
+  %26 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef nonnull %0) #13
+  %27 = ptrtoint ptr %26 to i64
+  %28 = trunc i64 %27 to i32
+  %29 = icmp eq i32 %25, %28
+  br i1 %29, label %73, label %76
 
-72:                                               ; preds = %.critedge86, %.critedge90, %.critedge94, %.critedge82, %DT_IS_BAUHAUS_WIDGET.exit.thread98
-  %73 = tail call i64 @gtk_label_get_type() #14
-  %74 = tail call ptr @g_type_check_instance_cast(ptr noundef %2, i64 noundef %73) #13
-  tail call void @gtk_label_set_text(ptr noundef %74, ptr noundef nonnull @.str.2) #13
+30:                                               ; preds = %DT_IS_BAUHAUS_WIDGET.exit
+  %31 = tail call i64 @gtk_spin_button_get_type() #14
+  br i1 %.not10.i, label %35, label %32
+
+32:                                               ; preds = %30
+  %33 = load i64, ptr %20, align 8, !tbaa !86
+  %34 = icmp eq i64 %33, %31
+  br i1 %34, label %.critedge86, label %35
+
+35:                                               ; preds = %32, %30
+  %36 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %0, i64 noundef %31) #15
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %45, label %.critedge86
+
+.critedge86:                                      ; preds = %32, %35
+  %38 = tail call ptr @dt_confgen_get(ptr noundef %1, i32 noundef 0) #13
+  %39 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %38) #13
+  %40 = fptrunc reassoc nsz arcp contract afn double %39 to float
+  %41 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %31) #13
+  %42 = tail call reassoc nsz arcp contract afn double @gtk_spin_button_get_value(ptr noundef %41) #13
+  %43 = fptrunc reassoc nsz arcp contract afn double %42 to float
+  %44 = fcmp reassoc nsz arcp contract afn oeq float %43, %40
+  br i1 %44, label %73, label %76
+
+45:                                               ; preds = %35
+  %46 = tail call i64 @gtk_entry_get_type() #14
+  br i1 %.not10.i, label %50, label %47
+
+47:                                               ; preds = %45
+  %48 = load i64, ptr %20, align 8, !tbaa !86
+  %49 = icmp eq i64 %48, %46
+  br i1 %49, label %.critedge90, label %50
+
+50:                                               ; preds = %47, %45
+  %51 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %0, i64 noundef %46) #15
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %59, label %.critedge90
+
+.critedge90:                                      ; preds = %47, %50
+  %53 = tail call ptr @dt_confgen_get(ptr noundef %1, i32 noundef 0) #13
+  %54 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %46) #13
+  %55 = tail call ptr @gtk_entry_get_text(ptr noundef %54) #13
+  %56 = tail call i32 @g_strcmp0(ptr noundef %55, ptr noundef %53) #13
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %73, label %76
+
+.critedge88.thread:                               ; preds = %3
+  %58 = tail call i64 @dt_bh_get_type() #13
+  br label %.critedge92
+
+59:                                               ; preds = %50
+  %60 = tail call i64 @gtk_file_chooser_get_type() #14
+  br i1 %.not10.i, label %64, label %61
+
+61:                                               ; preds = %59
+  %62 = load i64, ptr %20, align 8, !tbaa !86
+  %63 = icmp eq i64 %62, %60
+  br i1 %63, label %67, label %64
+
+64:                                               ; preds = %61, %59
+  %65 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %0, i64 noundef %60) #15
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %.critedge92, label %67
+
+67:                                               ; preds = %64, %61
+  %68 = tail call ptr @dt_confgen_get(ptr noundef %1, i32 noundef 0) #13
+  %69 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %60) #13
+  %70 = tail call ptr @gtk_file_chooser_get_filename(ptr noundef %69) #13
+  %71 = tail call i32 @g_strcmp0(ptr noundef %70, ptr noundef %68) #13
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %76
+
+73:                                               ; preds = %.critedge90, %.critedge86, %DT_IS_BAUHAUS_WIDGET.exit.thread98, %.critedge82, %67
+  %74 = tail call i64 @gtk_label_get_type() #14
+  %75 = tail call ptr @g_type_check_instance_cast(ptr noundef %2, i64 noundef %74) #13
+  tail call void @gtk_label_set_text(ptr noundef %75, ptr noundef nonnull @.str.2) #13
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %2, ptr noundef null) #13
   br label %.critedge92
 
-75:                                               ; preds = %.critedge86, %.critedge90, %.critedge94, %.critedge82, %DT_IS_BAUHAUS_WIDGET.exit.thread98
-  %76 = tail call i64 @gtk_label_get_type() #14
-  %77 = tail call ptr @g_type_check_instance_cast(ptr noundef %2, i64 noundef %76) #13
-  tail call void @gtk_label_set_text(ptr noundef %77, ptr noundef nonnull @.str.3) #13
-  %78 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5) #13
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %2, ptr noundef %78) #13
+76:                                               ; preds = %.critedge90, %.critedge86, %DT_IS_BAUHAUS_WIDGET.exit.thread98, %.critedge82, %67
+  %77 = tail call i64 @gtk_label_get_type() #14
+  %78 = tail call ptr @g_type_check_instance_cast(ptr noundef %2, i64 noundef %77) #13
+  tail call void @gtk_label_set_text(ptr noundef %78, ptr noundef nonnull @.str.3) #13
+  %79 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5) #13
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %2, ptr noundef %79) #13
   br label %.critedge92
 
-.critedge92:                                      ; preds = %.critedge88.thread, %72, %75, %59
+.critedge92:                                      ; preds = %.critedge88.thread, %73, %76, %64
   ret void
 }
 
@@ -15631,7 +15631,7 @@ define internal range(i32 0, 2) i32 @tree_key_press_presets(ptr noundef %0, ptr 
   br label %39
 
 39:                                               ; preds = %16, %19, %21, %3, %36
-  %.0 = phi i32 [ 0, %19 ], [ 0, %3 ], [ 1, %36 ], [ 0, %21 ], [ 0, %16 ]
+  %.0 = phi i32 [ 1, %36 ], [ 0, %3 ], [ 0, %21 ], [ 0, %19 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -16073,8 +16073,8 @@ define internal fastcc void @_update_preset_line(ptr noundef %0, ptr noundef %1,
   br label %.critedge3
 
 .critedge3:                                       ; preds = %.critedge3.loopexit, %60
-  %.089.lcssa155 = phi i32 [ %.089.lcssa, %.critedge3.loopexit ], [ 0, %60 ]
-  %.087.lcssa = phi i32 [ %72, %.critedge3.loopexit ], [ 0, %60 ]
+  %.089.lcssa155 = phi i32 [ 0, %60 ], [ %.089.lcssa, %.critedge3.loopexit ]
+  %.087.lcssa = phi i32 [ 0, %60 ], [ %72, %.critedge3.loopexit ]
   %73 = icmp eq i32 %.089.lcssa155, 0
   %74 = add nsw i32 %61, -1
   %75 = icmp eq i32 %.087.lcssa, %74
@@ -16145,8 +16145,8 @@ define internal fastcc void @_update_preset_line(ptr noundef %0, ptr noundef %1,
   br label %.critedge7
 
 .critedge7:                                       ; preds = %.critedge7.loopexit, %85
-  %.190.lcssa162 = phi i32 [ %.190.lcssa, %.critedge7.loopexit ], [ 0, %85 ]
-  %.188.lcssa = phi i32 [ %97, %.critedge7.loopexit ], [ 0, %85 ]
+  %.190.lcssa162 = phi i32 [ 0, %85 ], [ %.190.lcssa, %.critedge7.loopexit ]
+  %.188.lcssa = phi i32 [ 0, %85 ], [ %97, %.critedge7.loopexit ]
   %98 = icmp eq i32 %.190.lcssa162, 0
   %99 = add nsw i32 %86, -1
   %100 = icmp eq i32 %.188.lcssa, %99

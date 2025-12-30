@@ -868,8 +868,8 @@ gv_calloc.exit550:                                ; preds = %300
   br label %._crit_edge698
 
 ._crit_edge698:                                   ; preds = %.preheader583.thread, %._crit_edge698.loopexit
-  %.1474.lcssa = phi double [ 0.000000e+00, %.preheader583.thread ], [ %345, %._crit_edge698.loopexit ]
-  %.4.lcssa = phi i32 [ %.4693945, %.preheader583.thread ], [ %335, %._crit_edge698.loopexit ]
+  %.1474.lcssa = phi double [ %345, %._crit_edge698.loopexit ], [ 0.000000e+00, %.preheader583.thread ]
+  %.4.lcssa = phi i32 [ %335, %._crit_edge698.loopexit ], [ %.4693945, %.preheader583.thread ]
   %336 = getelementptr inbounds nuw double, ptr %238, i64 %indvars.iv877
   %337 = load double, ptr %336, align 8, !tbaa !20
   %338 = fsub double %337, %.1474.lcssa
@@ -1075,15 +1075,15 @@ gv_calloc.exit550:                                ; preds = %300
   br label %.thread576
 
 .thread576:                                       ; preds = %100, %.loopexit599, %49, %97, %407
-  %.1441575580 = phi i32 [ -1, %100 ], [ %.1441, %407 ], [ -1, %97 ], [ -1, %49 ], [ -1, %.loopexit599 ]
+  %.1441575580 = phi i32 [ %.1441, %407 ], [ -1, %97 ], [ -1, %49 ], [ -1, %.loopexit599 ], [ -1, %100 ]
   %409 = load ptr, ptr %10, align 8, !tbaa !3
   call void @free(ptr noundef %409) #11
   %410 = load ptr, ptr %11, align 8, !tbaa !3
   call void @free(ptr noundef %410) #11
   br label %.thread557
 
-.thread557:                                       ; preds = %54, %32, %.thread576, %109, %105, %.thread
-  %.0436 = phi i32 [ %28, %.thread ], [ 0, %105 ], [ 0, %109 ], [ %.1441575580, %.thread576 ], [ %56, %54 ], [ -1, %32 ]
+.thread557:                                       ; preds = %32, %54, %.thread576, %109, %105, %.thread
+  %.0436 = phi i32 [ 0, %105 ], [ 0, %109 ], [ %.1441575580, %.thread576 ], [ %28, %.thread ], [ -1, %32 ], [ %56, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

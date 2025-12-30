@@ -57,7 +57,7 @@ define noalias ptr @ossl_qrx_new(ptr noundef readonly captures(none) %0) local_u
   br label %28
 
 28:                                               ; preds = %9, %1, %5, %.preheader
-  %.022 = phi ptr [ %10, %.preheader ], [ null, %1 ], [ null, %5 ], [ null, %9 ]
+  %.022 = phi ptr [ %10, %.preheader ], [ null, %5 ], [ null, %1 ], [ null, %9 ]
   ret ptr %.022
 }
 
@@ -699,7 +699,7 @@ ossl_list_rxe_insert_tail.exit.i.i.i.i.i:         ; preds = %75, %71
   br label %qrx_ensure_free_rxe.exit.i.i.i.i
 
 qrx_ensure_free_rxe.exit.i.i.i.i:                 ; preds = %ossl_list_rxe_insert_tail.exit.i.i.i.i.i, %56
-  %.0.i.i.i.i.i = phi ptr [ %.val8.i.i.i.i.i, %56 ], [ %61, %ossl_list_rxe_insert_tail.exit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %61, %ossl_list_rxe_insert_tail.exit.i.i.i.i.i ], [ %.val8.i.i.i.i.i, %56 ]
   %.val117.i.i.i.i = load i64, ptr %47, align 8, !tbaa !13
   %78 = shl nuw i64 1, %.026.i.i.i
   %79 = and i64 %.val117.i.i.i.i, %78
@@ -897,8 +897,8 @@ qrx_validate_hdr_early.exit.thread.i.i.i.i:       ; preds = %qrx_validate_hdr_ea
   br label %qrx_determine_enc_level.exit.i.i.i.i
 
 qrx_determine_enc_level.exit.i.i.i.i:             ; preds = %164, %163, %162, %qrx_validate_hdr_early.exit.thread.i.i.i.i
-  %165 = phi i1 [ false, %164 ], [ true, %163 ], [ false, %162 ], [ false, %qrx_validate_hdr_early.exit.thread.i.i.i.i ]
-  %.0.i125.i.i.i.i = phi i32 [ 0, %164 ], [ 3, %163 ], [ 1, %162 ], [ 2, %qrx_validate_hdr_early.exit.thread.i.i.i.i ]
+  %165 = phi i1 [ false, %164 ], [ false, %162 ], [ true, %163 ], [ false, %qrx_validate_hdr_early.exit.thread.i.i.i.i ]
+  %.0.i125.i.i.i.i = phi i32 [ 0, %164 ], [ 1, %162 ], [ 3, %163 ], [ 2, %qrx_validate_hdr_early.exit.thread.i.i.i.i ]
   %166 = call i32 @ossl_qrl_enc_level_set_have_el(ptr noundef nonnull %20, i32 noundef %.0.i125.i.i.i.i) #11
   switch i32 %166, label %qrx_relocate_buffer.exit.i.i.i.i [
     i32 1, label %167
@@ -945,8 +945,8 @@ qrx_relocate_buffer.exit.thread192.i.i.i.i:       ; preds = %182, %174
   br label %185
 
 185:                                              ; preds = %qrx_relocate_buffer.exit.thread192.i.i.i.i, %170
-  %.0175.i.i.i.i = phi ptr [ %.1176.ph.i.i.i.i, %qrx_relocate_buffer.exit.thread192.i.i.i.i ], [ %.0.i.i.i.i.i, %170 ]
-  %.0174.i.i.i.i = phi i64 [ %178, %qrx_relocate_buffer.exit.thread192.i.i.i.i ], [ 0, %170 ]
+  %.0175.i.i.i.i = phi ptr [ %.0.i.i.i.i.i, %170 ], [ %.1176.ph.i.i.i.i, %qrx_relocate_buffer.exit.thread192.i.i.i.i ]
+  %.0174.i.i.i.i = phi i64 [ 0, %170 ], [ %178, %qrx_relocate_buffer.exit.thread192.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !67
   %186 = call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %20, i32 noundef %.0.i125.i.i.i.i, i32 noundef 1) #11
   %.not102.not.i.i.i.i = icmp eq i32 %82, 0
@@ -1110,8 +1110,8 @@ qrx_get_cipher_ctx_idx.exit.i.i:                  ; preds = %255
   br i1 %.not57.i.i, label %qrx_get_cipher_ctx_idx.exit.thread.i.i, label %qrx_decrypt_pkt_body.exit.thread.i
 
 qrx_get_cipher_ctx_idx.exit.thread.i.i:           ; preds = %272, %qrx_get_cipher_ctx_idx.exit.i.i, %261, %.thread.i.i.i, %255, %254
-  %.018.i = phi i64 [ %271, %272 ], [ -1, %255 ], [ %271, %qrx_get_cipher_ctx_idx.exit.i.i ], [ 0, %254 ], [ %259, %.thread.i.i.i ], [ %266, %261 ]
-  %.0.i67.i.i = phi i64 [ %242, %272 ], [ %242, %255 ], [ %242, %qrx_get_cipher_ctx_idx.exit.i.i ], [ 0, %254 ], [ %260, %.thread.i.i.i ], [ %242, %261 ]
+  %.018.i = phi i64 [ %271, %qrx_get_cipher_ctx_idx.exit.i.i ], [ %271, %272 ], [ 0, %254 ], [ %259, %.thread.i.i.i ], [ %266, %261 ], [ -1, %255 ]
+  %.0.i67.i.i = phi i64 [ %242, %qrx_get_cipher_ctx_idx.exit.i.i ], [ %242, %272 ], [ 0, %254 ], [ %260, %.thread.i.i.i ], [ %242, %261 ], [ %242, %255 ]
   %274 = getelementptr inbounds nuw i8, ptr %243, i64 48
   %275 = getelementptr inbounds nuw ptr, ptr %274, i64 %.0.i67.i.i
   %276 = load ptr, ptr %275, align 8, !tbaa !101
@@ -1805,7 +1805,7 @@ define range(i32 0, 2) i32 @ossl_qrx_key_update_timeout(ptr noundef %0, i32 noun
   br label %19
 
 19:                                               ; preds = %16, %10, %2, %18
-  %.0 = phi i32 [ 0, %2 ], [ 1, %18 ], [ 0, %10 ], [ 0, %16 ]
+  %.0 = phi i32 [ 1, %18 ], [ 0, %2 ], [ 0, %10 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -2148,7 +2148,7 @@ ossl_list_rxe_insert_head.exit31.i:               ; preds = %ossl_list_rxe_inser
   br label %qrx_resize_rxe.exit
 
 qrx_resize_rxe.exit:                              ; preds = %ossl_list_rxe_insert_head.exit31.i, %ossl_list_rxe_insert_after.exit.i, %ossl_list_rxe_insert_head.exit.i, %ossl_list_rxe_remove.exit.i, %6, %3
-  %.0 = phi ptr [ %1, %3 ], [ null, %ossl_list_rxe_insert_head.exit.i ], [ null, %6 ], [ null, %ossl_list_rxe_remove.exit.i ], [ %34, %ossl_list_rxe_insert_head.exit31.i ], [ null, %ossl_list_rxe_insert_after.exit.i ]
+  %.0 = phi ptr [ %1, %3 ], [ %34, %ossl_list_rxe_insert_head.exit31.i ], [ null, %6 ], [ null, %ossl_list_rxe_remove.exit.i ], [ null, %ossl_list_rxe_insert_after.exit.i ], [ null, %ossl_list_rxe_insert_head.exit.i ]
   ret ptr %.0
 }
 

@@ -255,7 +255,7 @@ define internal range(i32 -1, 2) i32 @H5MF__sect_simple_can_shrink(ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %69, %64, %51, %46, %54, %68, %2, %25, %15, %27
-  %.036 = phi i32 [ -1, %15 ], [ 1, %25 ], [ -1, %2 ], [ 0, %27 ], [ -1, %46 ], [ 0, %54 ], [ 0, %68 ], [ 1, %51 ], [ 1, %69 ], [ -1, %64 ]
+  %.036 = phi i32 [ -1, %15 ], [ 1, %25 ], [ -1, %2 ], [ 0, %27 ], [ 0, %68 ], [ 0, %54 ], [ 1, %51 ], [ -1, %46 ], [ 1, %69 ], [ -1, %64 ]
   ret i32 %.036
 }
 
@@ -333,7 +333,7 @@ H5MF__sect_free.exit:                             ; preds = %41, %48
   br label %51
 
 51:                                               ; preds = %23, %35, %H5MF__sect_free.exit, %39, %2
-  %.0 = phi i32 [ -1, %23 ], [ 0, %2 ], [ 0, %H5MF__sect_free.exit ], [ 0, %39 ], [ -1, %35 ]
+  %.0 = phi i32 [ -1, %23 ], [ 0, %H5MF__sect_free.exit ], [ 0, %39 ], [ -1, %35 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -501,7 +501,7 @@ H5MF__sect_free.exit:                             ; preds = %37, %44
   br label %58
 
 58:                                               ; preds = %10, %23, %50, %53, %H5MF__sect_free.exit, %3
-  %.0 = phi i32 [ 0, %H5MF__sect_free.exit ], [ -1, %23 ], [ 0, %53 ], [ 0, %50 ], [ 0, %3 ], [ 0, %10 ]
+  %.0 = phi i32 [ -1, %23 ], [ 0, %53 ], [ 0, %50 ], [ 0, %H5MF__sect_free.exit ], [ 0, %3 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -545,7 +545,7 @@ define internal range(i32 0, 2) i32 @H5MF__sect_small_can_merge(ptr noundef read
   br label %.thread
 
 .thread:                                          ; preds = %10, %18, %15, %3
-  %.0.shrunk = phi i32 [ 0, %3 ], [ %30, %18 ], [ 0, %15 ], [ 0, %10 ]
+  %.0.shrunk = phi i32 [ 0, %15 ], [ 0, %3 ], [ %30, %18 ], [ 0, %10 ]
   ret i32 %.0.shrunk
 }
 
@@ -759,7 +759,7 @@ define internal range(i32 -1, 2) i32 @H5MF__sect_large_can_shrink(ptr noundef re
   br label %36
 
 36:                                               ; preds = %18, %34, %28, %22, %2
-  %.0 = phi i32 [ -1, %18 ], [ 1, %34 ], [ 0, %28 ], [ 0, %2 ], [ 0, %22 ]
+  %.0 = phi i32 [ -1, %18 ], [ 1, %34 ], [ 0, %28 ], [ 0, %22 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -847,7 +847,7 @@ H5MF__sect_free.exit:                             ; preds = %42, %49
   br label %52
 
 52:                                               ; preds = %34, %H5MF__sect_free.exit, %39, %2
-  %.022 = phi i32 [ -1, %34 ], [ 0, %39 ], [ 0, %2 ], [ 0, %H5MF__sect_free.exit ]
+  %.022 = phi i32 [ -1, %34 ], [ 0, %39 ], [ 0, %H5MF__sect_free.exit ], [ 0, %2 ]
   ret i32 %.022
 }
 

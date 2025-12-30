@@ -972,7 +972,7 @@ define dso_local void @_Z23mergeOverlappingSamplesffffRfS_(float noundef %0, flo
   br label %43
 
 43:                                               ; preds = %19, %20, %16
-  %.sink = phi float [ %18, %16 ], [ %42, %20 ], [ %.mux, %19 ]
+  %.sink = phi float [ %42, %20 ], [ %18, %16 ], [ %.mux, %19 ]
   store float %.sink, ptr %5, align 4, !tbaa !57
   ret void
 }
@@ -2115,7 +2115,7 @@ _ZN7Imf_3_418DeepTiledInputFileD2Ev.exit:         ; preds = %_ZNSt12__shared_ptr
   br i1 %exitcond112.not, label %._crit_edge96, label %208, !llvm.loop !112
 
 227:                                              ; preds = %138, %156, %140, %136, %134, %132, %130
-  %.pn.pn.pn = phi { ptr, i32 } [ %131, %130 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %139, %138 ], [ %157, %156 ], [ %141, %140 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %139, %138 ], [ %157, %156 ], [ %141, %140 ]
   call void @_ZN7Imf_3_415DeepFrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %8) #36
   br label %.body
 
@@ -4962,7 +4962,7 @@ _ZN7Imf_3_415DeepFrameBufferD2Ev.exit:            ; preds = %._crit_edge82
   br i1 %exitcond96.not, label %._crit_edge79, label %150, !llvm.loop !165
 
 169:                                              ; preds = %.split, %.split.us, %142, %132, %130, %128, %126
-  %.pn.pn = phi { ptr, i32 } [ %127, %126 ], [ %133, %132 ], [ %131, %130 ], [ %129, %128 ], [ %143, %142 ], [ %145, %.split ], [ %101, %.split.us ]
+  %.pn.pn = phi { ptr, i32 } [ %133, %132 ], [ %131, %130 ], [ %129, %128 ], [ %127, %126 ], [ %143, %142 ], [ %145, %.split ], [ %101, %.split.us ]
   call void @_ZN7Imf_3_415DeepFrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %12) #36
   br label %.body
 
@@ -5373,7 +5373,7 @@ _ZN7Imf_3_47Array2DIPfED2Ev.exit:                 ; preds = %._crit_edge104
   br i1 %exitcond.not, label %._crit_edge, label %144, !llvm.loop !176
 
 155:                                              ; preds = %125, %132, %123, %121, %119, %117
-  %.pn.pn = phi { ptr, i32 } [ %118, %117 ], [ %124, %123 ], [ %122, %121 ], [ %120, %119 ], [ %133, %132 ], [ %126, %125 ]
+  %.pn.pn = phi { ptr, i32 } [ %124, %123 ], [ %122, %121 ], [ %120, %119 ], [ %118, %117 ], [ %133, %132 ], [ %126, %125 ]
   call void @_ZN7Imf_3_415DeepFrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %12) #36
   br label %.body
 
@@ -5410,7 +5410,7 @@ _ZN7Imf_3_47Array2DIPN9Imath_3_24halfEED2Ev.exit62: ; preds = %42
   br label %_ZN7Imf_3_47Array2DIPfED2Ev.exit63
 
 _ZN7Imf_3_47Array2DIPfED2Ev.exit63:               ; preds = %160, %_ZN7Imf_3_47Array2DIPN9Imath_3_24halfEED2Ev.exit62, %112, %110, %108, %106
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %109, %108 ], [ %113, %112 ], [ %107, %106 ], [ %111, %110 ], [ %159, %_ZN7Imf_3_47Array2DIPN9Imath_3_24halfEED2Ev.exit62 ], [ %.pn.pn.pn.pn.pn.pn.pn.ph, %160 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %113, %112 ], [ %107, %106 ], [ %111, %110 ], [ %109, %108 ], [ %159, %_ZN7Imf_3_47Array2DIPN9Imath_3_24halfEED2Ev.exit62 ], [ %.pn.pn.pn.pn.pn.pn.pn.ph, %160 ]
   call void @_ZN7Imf_3_46HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %6) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn
@@ -6195,7 +6195,7 @@ _ZN7Imf_3_49InputFileD2Ev.exit:                   ; preds = %_ZNSt12__shared_ptr
   br label %74
 
 74:                                               ; preds = %15, %17, %70, %72, %13
-  %.pn10.pn = phi { ptr, i32 } [ %14, %13 ], [ %71, %70 ], [ %73, %72 ], [ %18, %17 ], [ %16, %15 ]
+  %.pn10.pn = phi { ptr, i32 } [ %14, %13 ], [ %73, %72 ], [ %71, %70 ], [ %18, %17 ], [ %16, %15 ]
   call void @_ZN7Imf_3_49InputFileD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn10.pn
@@ -6627,7 +6627,7 @@ define dso_local noundef zeroext i1 @_Z19isThisAnOpenExrFilePKc(ptr noundef %0) 
   br label %25
 
 25:                                               ; preds = %21, %5
-  %26 = phi i1 [ %24, %21 ], [ false, %5 ]
+  %26 = phi i1 [ false, %5 ], [ %24, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %2) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

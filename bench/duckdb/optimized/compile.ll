@@ -1815,12 +1815,12 @@ define hidden noundef i32 @_ZN10duckdb_re28Compiler20CachedRuneByteSuffixEhhbi(p
   br label %.loopexit, !llvm.loop !84
 
 _ZNSt13unordered_mapImiSt4hashImESt8equal_toImESaISt4pairIKmiEEE4findERS5_.exit: ; preds = %38, %22, %33
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %22 ], [ %34, %33 ], [ %40, %38 ]
+  %.sroa.06.1.i.i = phi ptr [ %34, %33 ], [ %.sroa.06.0.i.i, %22 ], [ %40, %38 ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %46 = load i32, ptr %45, align 8, !tbaa !85
   br label %71
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %21, %..loopexit_crit_edge21.i.i.i.i, %26
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %21, %26, %..loopexit_crit_edge21.i.i.i.i
   %47 = tail call noundef i32 @_ZN10duckdb_re28Compiler22UncachedRuneByteSuffixEhhbi(ptr noundef nonnull align 8 dereferenceable(228) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %49 = load i64, ptr %48, align 8, !tbaa !28
@@ -1875,7 +1875,7 @@ _ZNSt10_HashtableImSt4pairIKmiESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   resume { ptr, i32 } %70
 
 _ZNSt13unordered_mapImiSt4hashImESt8equal_toImESaISt4pairIKmiEEEixERS5_.exit: ; preds = %59, %54, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %69, %.loopexit.i.i ], [ %55, %54 ], [ %61, %59 ]
+  %.pn.i.i = phi ptr [ %55, %54 ], [ %69, %.loopexit.i.i ], [ %61, %59 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i32 %47, ptr %.1.i.i, align 4, !tbaa !62
   br label %71
@@ -1970,7 +1970,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re28Compiler22IsCachedRuneByteSuff
   br label %_ZNSt13unordered_mapImiSt4hashImESt8equal_toImESaISt4pairIKmiEEE4findERS5_.exit, !llvm.loop !84
 
 _ZNSt13unordered_mapImiSt4hashImESt8equal_toImESaISt4pairIKmiEEE4findERS5_.exit: ; preds = %48, %.lr.ph.i.i.i.i, %30, %31, %35, %43, %..loopexit_crit_edge21.i.i.i.i
-  %.sroa.06.1.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %30 ], [ %44, %43 ], [ null, %35 ], [ %.sroa.06.0.i.i, %31 ], [ %50, %48 ], [ null, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ null, %35 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %44, %43 ], [ null, %30 ], [ %.sroa.06.0.i.i, %31 ], [ %50, %48 ], [ null, %.lr.ph.i.i.i.i ]
   %55 = icmp ne ptr %.sroa.06.1.i.i, null
   ret i1 %55
 }
@@ -2013,7 +2013,7 @@ define hidden void @_ZN10duckdb_re28Compiler9AddSuffixEi(ptr noundef nonnull ali
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %16, %6, %14
-  %storemerge.sink = phi i32 [ %1, %6 ], [ %15, %14 ], [ %17, %19 ], [ 0, %16 ]
+  %storemerge.sink = phi i32 [ %15, %14 ], [ %1, %6 ], [ %17, %19 ], [ 0, %16 ]
   store i32 %storemerge.sink, ptr %7, align 8, !tbaa !79
   br label %25
 
@@ -2074,8 +2074,8 @@ define hidden noundef i32 @_ZN10duckdb_re28Compiler18AddSuffixRecursiveEii(ptr n
   br label %29
 
 29:                                               ; preds = %._crit_edge, %23, %26
-  %30 = phi ptr [ %20, %26 ], [ %20, %23 ], [ %.pre, %._crit_edge ]
-  %.050 = phi i32 [ %28, %26 ], [ %25, %23 ], [ %1, %._crit_edge ]
+  %30 = phi ptr [ %20, %23 ], [ %20, %26 ], [ %.pre, %._crit_edge ]
+  %.050 = phi i32 [ %25, %23 ], [ %28, %26 ], [ %1, %._crit_edge ]
   %31 = sext i32 %.050 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %33 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %30, i64 %31
@@ -2204,9 +2204,9 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit: ; preds = %75, %58, %70
   store i32 %112, ptr %105, align 4, !tbaa !73
   br label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread
 
-_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %57, %62, %..loopexit_crit_edge21.i.i.i.i.i, %84, %106, %108
-  %.054 = phi i32 [ %1, %106 ], [ %82, %84 ], [ %1, %108 ], [ %1, %..loopexit_crit_edge21.i.i.i.i.i ], [ %1, %57 ], [ %1, %62 ], [ %1, %.lr.ph.i.i.i.i.i ]
-  %.151 = phi i32 [ %82, %106 ], [ %82, %84 ], [ %82, %108 ], [ %.050, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.050, %57 ], [ %.050, %62 ], [ %.050, %.lr.ph.i.i.i.i.i ]
+_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %57, %..loopexit_crit_edge21.i.i.i.i.i, %62, %84, %106, %108
+  %.054 = phi i32 [ %1, %106 ], [ %1, %108 ], [ %82, %84 ], [ %1, %62 ], [ %1, %..loopexit_crit_edge21.i.i.i.i.i ], [ %1, %57 ], [ %1, %.lr.ph.i.i.i.i.i ]
+  %.151 = phi i32 [ %82, %106 ], [ %82, %108 ], [ %82, %84 ], [ %.050, %62 ], [ %.050, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.050, %57 ], [ %.050, %.lr.ph.i.i.i.i.i ]
   %113 = sext i32 %2 to i64
   %114 = load ptr, ptr %32, align 8, !tbaa !55
   %115 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %114, i64 %113
@@ -2287,7 +2287,7 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread: ; preds = %.lr.p
 ..loopexit_crit_edge21.i.i.i.i.i67:               ; preds = %159
   br label %.loopexit, !llvm.loop !84
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i63, %138, %..loopexit_crit_edge21.i.i.i.i.i67, %143
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i63, %138, %143, %..loopexit_crit_edge21.i.i.i.i.i67
   store i32 0, ptr %115, align 4, !tbaa !73
   store i32 0, ptr %118, align 4, !tbaa !75
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -2298,7 +2298,7 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit.thread: ; preds = %.lr.p
   br label %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72
 
 _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72: ; preds = %156, %139, %151, %.loopexit
-  %166 = phi ptr [ %114, %139 ], [ %.pre86, %.loopexit ], [ %114, %151 ], [ %114, %156 ]
+  %166 = phi ptr [ %114, %151 ], [ %.pre86, %.loopexit ], [ %114, %139 ], [ %114, %156 ]
   %167 = sext i32 %.151 to i64
   %168 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %166, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !73
@@ -2318,7 +2318,7 @@ _ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72: ; preds = %156, %139,
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72, %173, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit, %10, %7
-  %.1 = phi i32 [ 0, %7 ], [ %8, %10 ], [ 0, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72 ], [ 0, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit ], [ %.054, %173 ]
+  %.1 = phi i32 [ %8, %10 ], [ 0, %7 ], [ %.054, %173 ], [ 0, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit72 ], [ 0, %_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi.exit ]
   ret i32 %.1
 }
 
@@ -2619,7 +2619,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZStlsISt11char_tra
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %133
 
-.thread:                                          ; preds = %116, %_ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit45.thread, %_ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit37.thread, %.split93.us, %_ZN10LogMessageD2Ev.exit, %_ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit.thread, %77
+.thread:                                          ; preds = %_ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit45.thread, %116, %_ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit37.thread, %.split93.us, %_ZN10LogMessageD2Ev.exit, %_ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit.thread, %77
   %.0..0..0..fca.0.load = load i64, ptr %8, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.0..0..0..fca.0.load, 0
   %.8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2765,7 +2765,7 @@ define hidden void @_ZN10duckdb_re28Compiler12AddRuneRangeEiib(ptr noundef nonnu
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %30, %27, %25, %18
-  %storemerge.sink.i.i = phi i32 [ %14, %18 ], [ %26, %25 ], [ %28, %30 ], [ 0, %27 ]
+  %storemerge.sink.i.i = phi i32 [ %26, %25 ], [ %14, %18 ], [ %28, %30 ], [ 0, %27 ]
   store i32 %storemerge.sink.i.i, ptr %19, align 8, !tbaa !79
   br label %_ZN10duckdb_re28Compiler18AddRuneRangeLatin1Eiib.exit
 
@@ -2867,7 +2867,7 @@ tailrecurse.backedge:                             ; preds = %22, %58, %63
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %46, %43, %41, %33
-  %storemerge.sink.i = phi i32 [ %29, %33 ], [ %42, %41 ], [ %44, %46 ], [ 0, %43 ]
+  %storemerge.sink.i = phi i32 [ %42, %41 ], [ %29, %33 ], [ %44, %46 ], [ 0, %43 ]
   store i32 %storemerge.sink.i, ptr %34, align 8, !tbaa !79
   br label %_ZN10duckdb_re28Compiler9AddSuffixEi.exit
 
@@ -3014,7 +3014,7 @@ tailrecurse.backedge:                             ; preds = %22, %58, %63
   br i1 %108, label %.lr.ph121, label %.loopexit, !llvm.loop !104
 
 .loopexit:                                        ; preds = %107, %89, %90, %.preheader
-  %.2 = phi i32 [ %.1, %89 ], [ 0, %.preheader ], [ 0, %90 ], [ %.4, %107 ]
+  %.2 = phi i32 [ 0, %.preheader ], [ 0, %90 ], [ %.1, %89 ], [ %.4, %107 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %110 = load i8, ptr %109, align 8, !tbaa !49, !range !56, !noundef !57
   %111 = trunc nuw i8 %110 to i1
@@ -3051,7 +3051,7 @@ tailrecurse.backedge:                             ; preds = %22, %58, %63
   br label %.sink.split.i87
 
 .sink.split.i87:                                  ; preds = %125, %122, %120, %112
-  %storemerge.sink.i88 = phi i32 [ %.2, %112 ], [ %121, %120 ], [ %123, %125 ], [ 0, %122 ]
+  %storemerge.sink.i88 = phi i32 [ %121, %120 ], [ %.2, %112 ], [ %123, %125 ], [ 0, %122 ]
   store i32 %storemerge.sink.i88, ptr %113, align 8, !tbaa !79
   br label %_ZN10duckdb_re28Compiler9AddSuffixEi.exit89
 
@@ -3112,7 +3112,7 @@ define hidden void @_ZN10duckdb_re28Compiler18AddRuneRangeLatin1Eiib(ptr noundef
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %27, %24, %22, %14
-  %storemerge.sink.i = phi i32 [ %10, %14 ], [ %23, %22 ], [ %25, %27 ], [ 0, %24 ]
+  %storemerge.sink.i = phi i32 [ %23, %22 ], [ %10, %14 ], [ %25, %27 ], [ 0, %24 ]
   store i32 %storemerge.sink.i, ptr %15, align 8, !tbaa !79
   br label %_ZN10duckdb_re28Compiler9AddSuffixEi.exit
 
@@ -3166,7 +3166,7 @@ define hidden void @_ZN10duckdb_re28Compiler13Add_80_10ffffEv(ptr noundef nonnul
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %24, %21, %19, %11
-  %storemerge.sink.i = phi i32 [ %8, %11 ], [ %20, %19 ], [ %22, %24 ], [ 0, %21 ]
+  %storemerge.sink.i = phi i32 [ %20, %19 ], [ %8, %11 ], [ %22, %24 ], [ 0, %21 ]
   store i32 %storemerge.sink.i, ptr %12, align 8, !tbaa !79
   br label %_ZN10duckdb_re28Compiler9AddSuffixEi.exit
 
@@ -3209,7 +3209,7 @@ _ZN10duckdb_re28Compiler9AddSuffixEi.exit:        ; preds = %6, %.sink.split.i
   br label %.sink.split.i17
 
 .sink.split.i17:                                  ; preds = %48, %45, %43, %35
-  %storemerge.sink.i18 = phi i32 [ %32, %35 ], [ %44, %43 ], [ %46, %48 ], [ 0, %45 ]
+  %storemerge.sink.i18 = phi i32 [ %44, %43 ], [ %32, %35 ], [ %46, %48 ], [ 0, %45 ]
   store i32 %storemerge.sink.i18, ptr %36, align 8, !tbaa !79
   br label %_ZN10duckdb_re28Compiler9AddSuffixEi.exit19
 
@@ -3253,7 +3253,7 @@ _ZN10duckdb_re28Compiler9AddSuffixEi.exit19:      ; preds = %_ZN10duckdb_re28Com
   br label %.sink.split.i20
 
 .sink.split.i20:                                  ; preds = %73, %70, %68, %60
-  %storemerge.sink.i21 = phi i32 [ %57, %60 ], [ %69, %68 ], [ %71, %73 ], [ 0, %70 ]
+  %storemerge.sink.i21 = phi i32 [ %69, %68 ], [ %57, %60 ], [ %71, %73 ], [ 0, %70 ]
   store i32 %storemerge.sink.i21, ptr %61, align 8, !tbaa !79
   br label %_ZN10duckdb_re28Compiler9AddSuffixEi.exit22
 
@@ -3295,7 +3295,7 @@ _ZN10duckdb_re28Compiler9AddSuffixEi.exit19:      ; preds = %_ZN10duckdb_re28Com
   br label %.sink.split.i23
 
 .sink.split.i23:                                  ; preds = %97, %94, %92, %84
-  %storemerge.sink.i24 = phi i32 [ %81, %84 ], [ %93, %92 ], [ %95, %97 ], [ 0, %94 ]
+  %storemerge.sink.i24 = phi i32 [ %93, %92 ], [ %81, %84 ], [ %95, %97 ], [ 0, %94 ]
   store i32 %storemerge.sink.i24, ptr %85, align 8, !tbaa !79
   br label %_ZN10duckdb_re28Compiler9AddSuffixEi.exit25
 
@@ -3337,7 +3337,7 @@ _ZN10duckdb_re28Compiler9AddSuffixEi.exit25:      ; preds = %79, %.sink.split.i2
   br label %.sink.split.i26
 
 .sink.split.i26:                                  ; preds = %120, %117, %115, %107
-  %storemerge.sink.i27 = phi i32 [ %104, %107 ], [ %116, %115 ], [ %118, %120 ], [ 0, %117 ]
+  %storemerge.sink.i27 = phi i32 [ %116, %115 ], [ %104, %107 ], [ %118, %120 ], [ 0, %117 ]
   store i32 %storemerge.sink.i27, ptr %108, align 8, !tbaa !79
   br label %_ZN10duckdb_re28Compiler9AddSuffixEi.exit28
 
@@ -3379,7 +3379,7 @@ _ZN10duckdb_re28Compiler9AddSuffixEi.exit28:      ; preds = %_ZN10duckdb_re28Com
   br label %.sink.split.i29
 
 .sink.split.i29:                                  ; preds = %143, %140, %138, %130
-  %storemerge.sink.i30 = phi i32 [ %127, %130 ], [ %139, %138 ], [ %141, %143 ], [ 0, %140 ]
+  %storemerge.sink.i30 = phi i32 [ %139, %138 ], [ %127, %130 ], [ %141, %143 ], [ 0, %140 ]
   store i32 %storemerge.sink.i30, ptr %131, align 8, !tbaa !79
   br label %_ZN10duckdb_re28Compiler9AddSuffixEi.exit22
 
@@ -4354,8 +4354,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %156
   br label %189
 
 189:                                              ; preds = %186, %.thread, %182
-  %190 = phi i32 [ %183, %186 ], [ %180, %.thread ], [ %183, %182 ]
-  %.0206.shrunk = phi i1 [ %spec.select, %186 ], [ false, %.thread ], [ false, %182 ]
+  %190 = phi i32 [ %183, %182 ], [ %180, %.thread ], [ %183, %186 ]
+  %.0206.shrunk = phi i1 [ false, %182 ], [ false, %.thread ], [ %spec.select, %186 ]
   tail call void @_ZN10duckdb_re28Compiler12AddRuneRangeEiib(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef %.pr.pre, i32 noundef %190, i1 noundef zeroext %.0206.shrunk)
   %.pre619 = load ptr, ptr %164, align 8, !tbaa !120
   %.pre620 = load i32, ptr %165, align 8, !tbaa !119
@@ -4768,7 +4768,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %286, %_ZNKSt7__cxx1
   br label %301
 
 .loopexit:                                        ; preds = %125, %75, %70, %110, %73, %68, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %._crit_edge, %_ZN10duckdb_re28Compiler5MatchEi.exit, %65, %_ZN10LogMessageD2Ev.exit, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit376, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit358, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit340, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit322, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit304, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit, %202, %201, %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit, %_ZN10duckdb_re28Compiler10BeginRangeEv.exit, %108, %96, %90, %84, %78, %_ZN10duckdb_re28Compiler3NopEv.exit, %40, %37
-  %.0..0..fca.0.load = phi i64 [ %.fca.0.extract111, %75 ], [ %.fca.0.extract125, %70 ], [ %.0..0..0..0..0..fca.0.load.i, %37 ], [ %.0..0..0..0..0..fca.0.load.i260, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %.sroa.0.0.copyload.i265, %._crit_edge ], [ %.0..0..sroa.0143.0.copyload, %_ZN10duckdb_re28Compiler5MatchEi.exit ], [ %.fca.0.extract139, %65 ], [ %.0..0..0..0..0..fca.0.load.i380, %_ZN10LogMessageD2Ev.exit ], [ %.0..0..fca.0.load.i364, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit376 ], [ %.0..0..fca.0.load.i346, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit358 ], [ %.0..0..fca.0.load.i328, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit340 ], [ %.0..0..fca.0.load.i310, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit322 ], [ %.0..0..fca.0.load.i292, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit304 ], [ %.0..0..fca.0.load.i275, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit ], [ %.fca.0.extract25, %202 ], [ %.0..0..0..fca.0.load.pre, %201 ], [ %.0..0..fca.0.load.i246, %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit ], [ %.sroa.0.0.copyload.i, %_ZN10duckdb_re28Compiler10BeginRangeEv.exit ], [ %.fca.0.extract85, %108 ], [ %.fca.0.extract89, %96 ], [ %.fca.0.extract93, %90 ], [ %.fca.0.extract99, %84 ], [ %.fca.0.extract105, %78 ], [ %.0..0..fca.0.load.i219, %_ZN10duckdb_re28Compiler3NopEv.exit ], [ %.0..0..0..0..0..fca.0.load.i212, %40 ], [ %.0..0..promoted505, %68 ], [ %.0..0..promoted498, %73 ], [ %.0..0..promoted, %110 ], [ %.fca.0.extract75493, %125 ]
+  %.0..0..fca.0.load = phi i64 [ %.0..0..0..0..0..fca.0.load.i260, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ %.sroa.0.0.copyload.i265, %._crit_edge ], [ %.0..0..sroa.0143.0.copyload, %_ZN10duckdb_re28Compiler5MatchEi.exit ], [ %.fca.0.extract139, %65 ], [ %.0..0..0..0..0..fca.0.load.i380, %_ZN10LogMessageD2Ev.exit ], [ %.0..0..fca.0.load.i364, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit376 ], [ %.0..0..fca.0.load.i346, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit358 ], [ %.0..0..fca.0.load.i328, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit340 ], [ %.0..0..fca.0.load.i310, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit322 ], [ %.0..0..fca.0.load.i292, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit304 ], [ %.0..0..fca.0.load.i275, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit ], [ %.fca.0.extract25, %202 ], [ %.0..0..0..fca.0.load.pre, %201 ], [ %.0..0..fca.0.load.i246, %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit ], [ %.sroa.0.0.copyload.i, %_ZN10duckdb_re28Compiler10BeginRangeEv.exit ], [ %.fca.0.extract85, %108 ], [ %.fca.0.extract89, %96 ], [ %.fca.0.extract93, %90 ], [ %.fca.0.extract99, %84 ], [ %.fca.0.extract105, %78 ], [ %.0..0..fca.0.load.i219, %_ZN10duckdb_re28Compiler3NopEv.exit ], [ %.0..0..0..0..0..fca.0.load.i212, %40 ], [ %.0..0..0..0..0..fca.0.load.i, %37 ], [ %.0..0..promoted505, %68 ], [ %.0..0..promoted498, %73 ], [ %.0..0..promoted, %110 ], [ %.fca.0.extract125, %70 ], [ %.fca.0.extract111, %75 ], [ %.fca.0.extract75493, %125 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.0..0..fca.0.load, 0
   %.8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.8..8..8..fca.1.load = load i64, ptr %.8..8..8..fca.1.gep.sroa_idx, align 8
@@ -4811,7 +4811,7 @@ define hidden void @_ZN10duckdb_re28Compiler5SetupENS_6Regexp10ParseFlagsElNS_3R
   br label %17
 
 17:                                               ; preds = %11, %8, %13
-  %.sink = phi i32 [ 100000, %8 ], [ %16, %13 ], [ 0, %11 ]
+  %.sink = phi i32 [ %16, %13 ], [ 100000, %8 ], [ 0, %11 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %.sink, ptr %18, align 4, !tbaa !53
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -4859,7 +4859,7 @@ define hidden noundef ptr @_ZN10duckdb_re28Compiler7CompileEPNS_6RegexpEbl(ptr n
   br label %25
 
 25:                                               ; preds = %21, %19, %16
-  %.sink.i = phi i32 [ 100000, %16 ], [ %24, %21 ], [ 0, %19 ]
+  %.sink.i = phi i32 [ %24, %21 ], [ 100000, %16 ], [ 0, %19 ]
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 140
   store i32 %.sink.i, ptr %26, align 4, !tbaa !53
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 224
@@ -5422,7 +5422,7 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit38: ; preds = %33, %31
   br label %73
 
 73:                                               ; preds = %67, %7, %47, %9, %2, %68, %60, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit
-  %.032 = phi i1 [ true, %68 ], [ false, %2 ], [ true, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit ], [ true, %60 ], [ false, %9 ], [ false, %47 ], [ false, %7 ], [ false, %67 ]
+  %.032 = phi i1 [ true, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit ], [ true, %60 ], [ true, %68 ], [ false, %2 ], [ false, %9 ], [ false, %47 ], [ false, %7 ], [ false, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.032
 }
@@ -5579,7 +5579,7 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit40: ; preds = %52, %37
   br label %81
 
 81:                                               ; preds = %75, %7, %55, %9, %2, %76, %68, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit
-  %.034 = phi i1 [ true, %76 ], [ false, %2 ], [ true, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit ], [ true, %68 ], [ false, %9 ], [ false, %55 ], [ false, %7 ], [ false, %75 ]
+  %.034 = phi i1 [ true, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit ], [ true, %68 ], [ true, %76 ], [ false, %2 ], [ false, %9 ], [ false, %55 ], [ false, %7 ], [ false, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.034
 }
@@ -5852,7 +5852,7 @@ define hidden noundef ptr @_ZN10duckdb_re28Compiler10CompileSetEPNS_6RegexpENS_3
   br label %24
 
 24:                                               ; preds = %20, %18, %15
-  %.sink.i = phi i32 [ 100000, %15 ], [ %23, %20 ], [ 0, %18 ]
+  %.sink.i = phi i32 [ %23, %20 ], [ 100000, %15 ], [ 0, %18 ]
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 140
   store i32 %.sink.i, ptr %25, align 4, !tbaa !53
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 224
@@ -6121,7 +6121,7 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit.i:    ; preds = %.noexc52, %81
   ret ptr %.0
 
 113:                                              ; preds = %30, %100, %109, %91, %42
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %31, %30 ], [ %43, %42 ], [ %92, %91 ], [ %110, %109 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %92, %91 ], [ %43, %42 ], [ %110, %109 ], [ %101, %100 ]
   call void @_ZN10duckdb_re28CompilerD2Ev(ptr noundef nonnull align 8 dereferenceable(228) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn.pn
@@ -7364,7 +7364,7 @@ _ZSt4copyIPPN10duckdb_re29WalkStateINS0_4FragEEES5_ET0_T_S7_S6_.exit26: ; preds 
   br label %_ZSt4copyIPPN10duckdb_re29WalkStateINS0_4FragEEES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPPN10duckdb_re29WalkStateINS0_4FragEEES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN10duckdb_re29WalkStateINS0_4FragEEES5_ET0_T_S7_S6_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN10duckdb_re29WalkStateINS0_4FragEEES5_ET0_T_S7_S6_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN10duckdb_re29WalkStateINS0_4FragEEES5_ET0_T_S7_S6_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !169
   %57 = load ptr, ptr %.0, align 8, !tbaa !69
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24

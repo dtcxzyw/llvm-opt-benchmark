@@ -82,8 +82,8 @@ define internal range(i32 0, 2) i32 @test_hexstr_sep_to_from(i32 noundef %0) #0 
   br label %23
 
 23:                                               ; preds = %21, %1, %10, %17
-  %.012 = phi ptr [ null, %1 ], [ %19, %21 ], [ %19, %17 ], [ null, %10 ]
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %21 ], [ 0, %17 ], [ 0, %10 ]
+  %.012 = phi ptr [ %19, %17 ], [ null, %10 ], [ null, %1 ], [ %19, %21 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %10 ], [ 0, %1 ], [ %spec.select, %21 ]
   call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str.3, i32 noundef 78) #4
   call void @CRYPTO_free(ptr noundef %.012, ptr noundef nonnull @.str.3, i32 noundef 79) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

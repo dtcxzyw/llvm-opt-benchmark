@@ -835,12 +835,12 @@ _ZN7mitsuba6Thread6threadEv.exit66:               ; preds = %72, %75
   br label %common.resume
 
 .sink.split:                                      ; preds = %86, %60, %38
-  %.sink74 = phi ptr [ %4, %60 ], [ %5, %38 ], [ %3, %86 ]
+  %.sink74 = phi ptr [ %5, %38 ], [ %4, %60 ], [ %3, %86 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink74) #3
   br label %89
 
 89:                                               ; preds = %.sink.split, %63, %82, %_ZN7mitsuba6Thread6threadEv.exit66, %56, %_ZN7mitsuba6Thread6threadEv.exit64, %34, %_ZN7mitsuba6Thread6threadEv.exit, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit66 ], [ false, %82 ], [ true, %63 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit ], [ false, %34 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit64 ], [ false, %56 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %2 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit ], [ false, %34 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit64 ], [ false, %56 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit66 ], [ false, %82 ], [ true, %63 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -4265,7 +4265,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -4340,7 +4340,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
   ret ptr %.069
 }
 
@@ -4890,7 +4890,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 
@@ -6183,8 +6183,8 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit23.i: ; pred
   br label %common.resume
 
 common.resume:                                    ; preds = %112, %133, %74, %95, %36, %57
-  %.sink = phi ptr [ %58, %74 ], [ %20, %36 ], [ %20, %57 ], [ %58, %95 ], [ %96, %133 ], [ %96, %112 ]
-  %common.resume.op = phi { ptr, i32 } [ %75, %74 ], [ %37, %36 ], [ %.pn.pn.pn.i, %57 ], [ %.pn.pn.pn.i3, %95 ], [ %.pn.pn.pn.i28, %133 ], [ %113, %112 ]
+  %.sink = phi ptr [ %20, %57 ], [ %20, %36 ], [ %58, %95 ], [ %58, %74 ], [ %96, %133 ], [ %96, %112 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.i, %57 ], [ %37, %36 ], [ %.pn.pn.pn.i3, %95 ], [ %75, %74 ], [ %.pn.pn.pn.i28, %133 ], [ %113, %112 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #33
   resume { ptr, i32 } %common.resume.op
 

@@ -612,7 +612,7 @@ _ZN8rationalD2Ev.exit62:                          ; preds = %.noexc.i61
           to label %225 unwind label %259
 
 225:                                              ; preds = %.noexc65, %216, %223
-  %.0.i.i.i.i = phi i1 [ %222, %.noexc65 ], [ %219, %216 ], [ %224, %223 ]
+  %.0.i.i.i.i = phi i1 [ %219, %216 ], [ %222, %.noexc65 ], [ %224, %223 ]
   %226 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !26
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %226, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %.noexc.i67 unwind label %227
@@ -810,9 +810,9 @@ _ZN6bufferIcLb0ELj16EE6expandEv.exit.i87:         ; preds = %.noexc92, %._crit_e
   br label %295
 
 284:                                              ; preds = %._crit_edge.i89, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i87, %._crit_edge.i, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i
-  %.sink314 = phi i32 [ %.pre2.i, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i ], [ %236, %._crit_edge.i ], [ %269, %._crit_edge.i89 ], [ %.pre2.i88, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i87 ]
-  %.sink312 = phi ptr [ %241, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i ], [ %.pre.i, %._crit_edge.i ], [ %.pre.i90, %._crit_edge.i89 ], [ %274, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i87 ]
-  %.sink = phi i8 [ %235, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i ], [ %235, %._crit_edge.i ], [ %268, %._crit_edge.i89 ], [ %268, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i87 ]
+  %.sink314 = phi i32 [ %236, %._crit_edge.i ], [ %.pre2.i, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i ], [ %269, %._crit_edge.i89 ], [ %.pre2.i88, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i87 ]
+  %.sink312 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %241, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i ], [ %.pre.i90, %._crit_edge.i89 ], [ %274, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i87 ]
+  %.sink = phi i8 [ %235, %._crit_edge.i ], [ %235, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i ], [ %268, %._crit_edge.i89 ], [ %268, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i87 ]
   %285 = zext i32 %.sink314 to i64
   %286 = getelementptr inbounds nuw i8, ptr %.sink312, i64 %285
   store i8 %.sink, ptr %286, align 1, !tbaa !33
@@ -1314,9 +1314,9 @@ _ZN6bufferIcLb0ELj16EE6expandEv.exit.i169:        ; preds = %.noexc174, %._crit_
   br label %473
 
 462:                                              ; preds = %._crit_edge.i171, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169, %._crit_edge.i152, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i150
-  %.sink319 = phi i32 [ %.pre2.i151, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i150 ], [ %426, %._crit_edge.i152 ], [ %426, %._crit_edge.i171 ], [ %.pre2.i170, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
-  %.sink317 = phi ptr [ %432, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i150 ], [ %.pre.i153, %._crit_edge.i152 ], [ %.pre.i172, %._crit_edge.i171 ], [ %452, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
-  %.sink315 = phi i8 [ 48, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i150 ], [ 48, %._crit_edge.i152 ], [ 49, %._crit_edge.i171 ], [ 49, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
+  %.sink319 = phi i32 [ %426, %._crit_edge.i152 ], [ %.pre2.i151, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i150 ], [ %426, %._crit_edge.i171 ], [ %.pre2.i170, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
+  %.sink317 = phi ptr [ %.pre.i153, %._crit_edge.i152 ], [ %432, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i150 ], [ %.pre.i172, %._crit_edge.i171 ], [ %452, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
+  %.sink315 = phi i8 [ 48, %._crit_edge.i152 ], [ 48, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i150 ], [ 49, %._crit_edge.i171 ], [ 49, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i169 ]
   %463 = zext i32 %.sink319 to i64
   %464 = getelementptr inbounds nuw i8, ptr %.sink317, i64 %463
   store i8 %.sink315, ptr %464, align 1, !tbaa !33
@@ -1431,7 +1431,7 @@ _ZN6bufferIcLb0ELj16EE6expandEv.exit.i190:        ; preds = %.noexc195, %._crit_
   br label %551
 
 .loopexit:                                        ; preds = %488, %310, %.preheader232, %.preheader
-  %498 = phi i32 [ %316, %310 ], [ %.pre273, %.preheader ], [ %.pre272, %.preheader232 ], [ %494, %488 ]
+  %498 = phi i32 [ %.pre272, %.preheader232 ], [ %.pre273, %.preheader ], [ %316, %310 ], [ %494, %488 ]
   %499 = icmp ugt i32 %498, 1
   br i1 %499, label %.lr.ph.i.i197.preheader, label %_ZSt7reverseIPcEvT_S1_.exit
 
@@ -1875,7 +1875,7 @@ _ZN6vectorISt4pairIPK15sexpr_compositejELb1EjED2Ev.exit: ; preds = %70
   ret void
 
 76:                                               ; preds = %.loopexit, %.loopexit.split-lp, %56, %40, %28
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %41, %40 ], [ %57, %56 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %57, %56 ], [ %41, %40 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6vectorISt4pairIPK15sexpr_compositejELb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn

@@ -421,9 +421,9 @@ split:                                            ; preds = %19, %.critedge.back
   br i1 %135, label %.thread, label %.preheader, !llvm.loop !15
 
 .thread:                                          ; preds = %.critedge26.backedge, %134, %104, %.critedge28.backedge, %42, %74
-  %136 = phi i64 [ %26, %74 ], [ %105, %.critedge28.backedge ], [ %26, %42 ], [ %105, %134 ], [ %105, %104 ], [ %26, %.critedge26.backedge ]
-  %137 = phi i64 [ 1, %74 ], [ %106, %.critedge28.backedge ], [ 1, %42 ], [ %106, %134 ], [ %106, %104 ], [ 1, %.critedge26.backedge ]
-  %138 = phi i32 [ %46, %74 ], [ %107, %.critedge28.backedge ], [ %46, %42 ], [ %107, %134 ], [ %107, %104 ], [ %46, %.critedge26.backedge ]
+  %136 = phi i64 [ %26, %74 ], [ %26, %42 ], [ %105, %.critedge28.backedge ], [ %105, %104 ], [ %105, %134 ], [ %26, %.critedge26.backedge ]
+  %137 = phi i64 [ 1, %74 ], [ 1, %42 ], [ %106, %.critedge28.backedge ], [ %106, %104 ], [ %106, %134 ], [ 1, %.critedge26.backedge ]
+  %138 = phi i32 [ %46, %74 ], [ %46, %42 ], [ %107, %.critedge28.backedge ], [ %107, %104 ], [ %107, %134 ], [ %46, %.critedge26.backedge ]
   tail call fastcc void @sparse_init_nid(i32 noundef %138, i64 noundef %136, i64 noundef -1, i64 noundef %137) #10
   tail call void @vmemmap_populate_print_last() #10
   ret void

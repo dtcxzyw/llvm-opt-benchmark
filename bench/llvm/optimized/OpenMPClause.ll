@@ -2275,7 +2275,7 @@ _ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.
   br label %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit
 
 _ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit26, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit28, %36, %41, %46, %49
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %41 ], [ %14, %49 ], [ %.2.i.i.i.i, %46 ], [ %.029.lcssa.i.i.i.i, %36 ], [ %52, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit28 ], [ %50, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %51, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit26 ], [ %.02940.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.028.i.i.i.i = phi ptr [ %14, %49 ], [ %.029.lcssa.i.i.i.i, %36 ], [ %.1.i.i.i.i, %41 ], [ %.2.i.i.i.i, %46 ], [ %50, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %51, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit26 ], [ %52, %_ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit.loopexit.split.loop.exit28 ], [ %.02940.i.i.i.i, %.lr.ph.i.i.i.i ]
   store ptr %11, ptr %0, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.410.0..sroa_idx, align 8
@@ -2607,7 +2607,7 @@ define dso_local noundef ptr @_ZN5clang20OMPClauseWithPreInit3getEPKNS_9OMPClaus
   br label %46
 
 46:                                               ; preds = %1, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %4
-  %.0 = phi ptr [ %45, %44 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ null, %1 ]
+  %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -2644,7 +2644,7 @@ define dso_local noundef ptr @_ZN5clang23OMPClauseWithPostUpdate3getEPNS_9OMPCla
   br label %_ZN5clang23OMPClauseWithPostUpdate3getEPKNS_9OMPClauseE.exit
 
 _ZN5clang23OMPClauseWithPostUpdate3getEPKNS_9OMPClauseE.exit: ; preds = %1, %4, %6, %8, %10, %12
-  %.0.i = phi ptr [ %13, %12 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ null, %1 ]
+  %.0.i = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ null, %1 ]
   ret ptr %.0.i
 }
 
@@ -2681,7 +2681,7 @@ define dso_local noundef ptr @_ZN5clang23OMPClauseWithPostUpdate3getEPKNS_9OMPCl
   br label %14
 
 14:                                               ; preds = %1, %12, %10, %8, %6, %4
-  %.0 = phi ptr [ %13, %12 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ null, %1 ]
+  %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -3037,8 +3037,8 @@ define dso_local noundef ptr @_ZN5clang15OMPUpdateClause11CreateEmptyERKNS_10AST
   br label %_ZnwmRKN5clang10ASTContextEm.exit
 
 _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %37, %34, %21, %18
-  %.0.i.i.i.sink13 = phi ptr [ %22, %21 ], [ %20, %18 ], [ %36, %34 ], [ %38, %37 ]
-  %.sink = phi i8 [ 0, %21 ], [ 0, %18 ], [ 1, %34 ], [ 1, %37 ]
+  %.0.i.i.i.sink13 = phi ptr [ %20, %18 ], [ %22, %21 ], [ %36, %34 ], [ %38, %37 ]
+  %.sink = phi i8 [ 0, %18 ], [ 0, %21 ], [ 1, %34 ], [ 1, %37 ]
   store i32 0, ptr %.0.i.i.i.sink13, align 4, !tbaa !301
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.sink13, i64 4
   store i32 0, ptr %39, align 4, !tbaa !301
@@ -6653,8 +6653,8 @@ define dso_local noundef i32 @_ZN5clang27OMPClauseMappableExprCommon32getUniqueD
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
 
 _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %2, %._crit_edge, %11
-  %12 = phi i32 [ %43, %11 ], [ %43, %._crit_edge ], [ 0, %2 ]
-  %13 = phi i32 [ %.pre19, %11 ], [ %.pre19, %._crit_edge ], [ 0, %2 ]
+  %12 = phi i32 [ %43, %._crit_edge ], [ %43, %11 ], [ 0, %2 ]
+  %13 = phi i32 [ %.pre19, %._crit_edge ], [ %.pre19, %11 ], [ 0, %2 ]
   %14 = sub i32 %12, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %14
@@ -16210,7 +16210,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit61:               ; preds = %154, %152, %.crited
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit65
 
 _ZN4llvm11raw_ostreamlsEPKc.exit65:               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %167, %165
-  %.sink85 = phi i8 [ 32, %167 ], [ 32, %165 ], [ 40, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
+  %.sink85 = phi i8 [ 32, %165 ], [ 32, %167 ], [ 40, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
   tail call void @_ZN5clang16OMPClausePrinter18VisitOMPClauseListINS_17OMPAllocateClauseEEEvPT_c(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1, i8 noundef signext %.sink85)
   %170 = load ptr, ptr %0, align 8, !tbaa !470
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
@@ -16720,7 +16720,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit15
 
 _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %59, %57, %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %62 = phi i8 [ 32, %59 ], [ 40, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ 32, %57 ]
+  %62 = phi i8 [ 32, %59 ], [ 32, %57 ], [ 40, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
   tail call void @_ZN5clang16OMPClausePrinter18VisitOMPClauseListINS_20OMPLastprivateClauseEEEvPT_c(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1, i8 noundef signext %62)
   %63 = load ptr, ptr %0, align 8, !tbaa !470
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
@@ -18801,8 +18801,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit21:               ; preds = %40, %38, %_ZN4llvm1
   br label %46
 
 46:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit21, %.fold.split, %45
-  %.015 = phi i32 [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit21 ], [ 2, %45 ], [ %44, %.fold.split ]
-  %.0.not = phi i1 [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit21 ], [ false, %45 ], [ true, %.fold.split ]
+  %.015 = phi i32 [ 2, %45 ], [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit21 ], [ %44, %.fold.split ]
+  %.0.not = phi i1 [ false, %45 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit21 ], [ true, %.fold.split ]
   %47 = load ptr, ptr %0, align 8, !tbaa !470
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load i32, ptr %48, align 4, !tbaa !3
@@ -19618,7 +19618,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36:               ; preds = %119, %117, %59, %_Z
   br i1 %60, label %59, label %49, !llvm.loop !585
 
 _ZN4llvm11raw_ostreamlsEc.exit30:                 ; preds = %28, %57, %55
-  %.sink = phi i8 [ 32, %57 ], [ 32, %55 ], [ 40, %28 ]
+  %.sink = phi i8 [ 32, %55 ], [ 32, %57 ], [ 40, %28 ]
   tail call void @_ZN5clang16OMPClausePrinter18VisitOMPClauseListINS_11OMPToClauseEEEvPT_c(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1, i8 noundef signext %.sink)
   %122 = load ptr, ptr %0, align 8, !tbaa !470
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
@@ -19879,7 +19879,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36:               ; preds = %119, %117, %59, %_Z
   br i1 %60, label %59, label %49, !llvm.loop !587
 
 _ZN4llvm11raw_ostreamlsEc.exit30:                 ; preds = %28, %57, %55
-  %.sink = phi i8 [ 32, %57 ], [ 32, %55 ], [ 40, %28 ]
+  %.sink = phi i8 [ 32, %55 ], [ 32, %57 ], [ 40, %28 ]
   tail call void @_ZN5clang16OMPClausePrinter18VisitOMPClauseListINS_13OMPFromClauseEEEvPT_c(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1, i8 noundef signext %.sink)
   %122 = load ptr, ptr %0, align 8, !tbaa !470
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
@@ -22365,8 +22365,8 @@ _ZN4llvm3omp16VariantMatchInfo8addTraitENS0_8TraitSetENS0_13TraitPropertyENS_9St
   br label %_ZN4llvm3omp16VariantMatchInfo8addTraitENS0_8TraitSetENS0_13TraitPropertyENS_9StringRefEPNS_5APIntE.exit56.sink.split
 
 _ZN4llvm3omp16VariantMatchInfo8addTraitENS0_8TraitSetENS0_13TraitPropertyENS_9StringRefEPNS_5APIntE.exit56.sink.split: ; preds = %_ZN4llvm3omp16VariantMatchInfo8addTraitENS0_8TraitSetENS0_13TraitPropertyENS_9StringRefEPNS_5APIntE.exit56.sink.split.sink.split, %72, %63
-  %.sink158 = phi i32 [ %73, %72 ], [ %64, %63 ], [ %.pre.i6.i59, %_ZN4llvm3omp16VariantMatchInfo8addTraitENS0_8TraitSetENS0_13TraitPropertyENS_9StringRefEPNS_5APIntE.exit56.sink.split.sink.split ]
-  %.sink = phi i32 [ 47, %72 ], [ %55, %63 ], [ %.sink.ph, %_ZN4llvm3omp16VariantMatchInfo8addTraitENS0_8TraitSetENS0_13TraitPropertyENS_9StringRefEPNS_5APIntE.exit56.sink.split.sink.split ]
+  %.sink158 = phi i32 [ %64, %63 ], [ %73, %72 ], [ %.pre.i6.i59, %_ZN4llvm3omp16VariantMatchInfo8addTraitENS0_8TraitSetENS0_13TraitPropertyENS_9StringRefEPNS_5APIntE.exit56.sink.split.sink.split ]
+  %.sink = phi i32 [ %55, %63 ], [ 47, %72 ], [ %.sink.ph, %_ZN4llvm3omp16VariantMatchInfo8addTraitENS0_8TraitSetENS0_13TraitPropertyENS_9StringRefEPNS_5APIntE.exit56.sink.split.sink.split ]
   %77 = load ptr, ptr %17, align 8, !tbaa !377
   %78 = zext i32 %.sink158 to i64
   %79 = getelementptr inbounds nuw i32, ptr %77, i64 %78

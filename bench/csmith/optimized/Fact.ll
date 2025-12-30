@@ -1333,7 +1333,7 @@ _Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit:  ; preds = %.lr.ph.i
   br i1 %46, label %_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread, label %16
 
 _Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread: ; preds = %16, %_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit, %.lr.ph, %36, %.preheader, %2
-  %.1 = phi i1 [ false, %2 ], [ true, %.preheader ], [ false, %36 ], [ false, %_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit ], [ true, %16 ], [ false, %.lr.ph ]
+  %.1 = phi i1 [ false, %2 ], [ true, %.preheader ], [ false, %36 ], [ true, %16 ], [ false, %_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit ], [ false, %.lr.ph ]
   ret i1 %.1
 }
 
@@ -1416,7 +1416,7 @@ _Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit: ; preds = %.lr.ph.i
   br i1 %52, label %16, label %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread
 
 _Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread: ; preds = %16, %.critedge, %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit, %.lr.ph, %36, %.preheader, %2
-  %.3 = phi i1 [ false, %36 ], [ false, %2 ], [ true, %.preheader ], [ false, %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit ], [ true, %16 ], [ false, %.critedge ], [ false, %.lr.ph ]
+  %.3 = phi i1 [ false, %2 ], [ true, %.preheader ], [ false, %36 ], [ true, %16 ], [ false, %.critedge ], [ false, %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit ], [ false, %.lr.ph ]
   ret i1 %.3
 }
 

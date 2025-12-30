@@ -1849,7 +1849,7 @@ _ZL13traversetableP12global_StateP8LuaTable.exit: ; preds = %_ZL11removeentryP7L
   br i1 %230, label %215, label %_ZL15traverseclosureP12global_StateP7Closure.exit, !llvm.loop !115
 
 _ZL15traverseclosureP12global_StateP7Closure.exit: ; preds = %200, %227, %.preheader.i, %211
-  %231 = phi i8 [ %228, %227 ], [ 0, %211 ], [ 0, %.preheader.i ], [ %201, %200 ]
+  %231 = phi i8 [ 0, %.preheader.i ], [ 0, %211 ], [ %228, %227 ], [ %201, %200 ]
   %232 = load i8, ptr %183, align 1, !tbaa !112
   %.not = icmp eq i8 %232, 0
   %233 = zext i8 %231 to i64
@@ -2207,7 +2207,7 @@ _ZL13traverseprotoP12global_StateP5Proto.exit:    ; preds = %407, %.preheader.i6
   br label %432
 
 432:                                              ; preds = %1, %235, %237, %_ZL13traverseprotoP12global_StateP5Proto.exit, %_ZL11shrinkstackP9lua_State.exit, %_ZL13traversetableP12global_StateP8LuaTable.exit
-  %.0 = phi i64 [ %238, %237 ], [ %172, %_ZL13traversetableP12global_StateP8LuaTable.exit ], [ %431, %_ZL13traverseprotoP12global_StateP5Proto.exit ], [ %324, %_ZL11shrinkstackP9lua_State.exit ], [ %236, %235 ], [ 0, %1 ]
+  %.0 = phi i64 [ %172, %_ZL13traversetableP12global_StateP8LuaTable.exit ], [ %324, %_ZL11shrinkstackP9lua_State.exit ], [ %431, %_ZL13traverseprotoP12global_StateP5Proto.exit ], [ %236, %235 ], [ %238, %237 ], [ 0, %1 ]
   ret i64 %.0
 }
 

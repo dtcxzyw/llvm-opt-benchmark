@@ -383,7 +383,7 @@ Abc_NtkFraigSweepUsingExdc.exit:                  ; preds = %104, %65, %64, %.cr
   br label %.critedge2.i
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %184, %.outer.us.i, %175, %.critedge.i
-  %.0.ph.lcssa.i = phi i32 [ %.1.lcssa.us.i, %.outer.us.i ], [ 0, %.critedge.i ], [ %.0.ph83.i, %184 ], [ %.0.ph83.us.i, %175 ], [ %.1.lcssa.i, %.outer.i ]
+  %.0.ph.lcssa.i = phi i32 [ 0, %.critedge.i ], [ %.0.ph83.us.i, %175 ], [ %.1.lcssa.us.i, %.outer.us.i ], [ %.0.ph83.i, %184 ], [ %.1.lcssa.i, %.outer.i ]
   call void @stmm_free_gen(ptr noundef %162) #12
   %177 = or i32 %4, %3
   %or.cond.not.i = icmp eq i32 %177, 0
@@ -541,7 +541,7 @@ Abc_NtkFraigEquiv.exit:                           ; preds = %.outer._crit_edge.i
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %235, %233, %.lr.ph14.i.i
-  %.167.i.i = phi ptr [ %.113.i.i, %.lr.ph14.i.i ], [ %spec.select.i.i, %235 ], [ %.06612.i.i, %233 ]
+  %.167.i.i = phi ptr [ %.113.i.i, %.lr.ph14.i.i ], [ %.06612.i.i, %233 ], [ %spec.select.i.i, %235 ]
   %243 = getelementptr inbounds nuw i8, ptr %.113.i.i, i64 8
   %244 = load ptr, ptr %243, align 8, !tbaa !31
   %.not78.i.i = icmp eq ptr %244, null
@@ -590,7 +590,7 @@ Abc_NtkFraigEquiv.exit:                           ; preds = %.outer._crit_edge.i
   br label %.critedge88.i.i
 
 .critedge88.i.i:                                  ; preds = %254, %252, %.lr.ph22.i.i
-  %.369.i.i = phi ptr [ %.321.i.i, %.lr.ph22.i.i ], [ %spec.select1.i.i, %254 ], [ %.26820.i.i, %252 ]
+  %.369.i.i = phi ptr [ %.321.i.i, %.lr.ph22.i.i ], [ %.26820.i.i, %252 ], [ %spec.select1.i.i, %254 ]
   %262 = getelementptr inbounds nuw i8, ptr %.321.i.i, i64 8
   %263 = load ptr, ptr %262, align 8, !tbaa !31
   %.not80.i.i = icmp eq ptr %263, null
@@ -1092,9 +1092,9 @@ Vec_PtrPush.exit108:                              ; preds = %Vec_PtrPush.exit108
   br label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %Vec_PtrPush.exit108, %133, %.lr.ph116, %81
-  %134 = phi i32 [ %71, %81 ], [ %71, %.lr.ph116 ], [ %116, %133 ], [ %128, %Vec_PtrPush.exit108 ]
-  %135 = phi i32 [ %72, %81 ], [ %72, %.lr.ph116 ], [ %117, %133 ], [ %128, %Vec_PtrPush.exit108 ]
-  %136 = phi i32 [ %75, %81 ], [ %75, %.lr.ph116 ], [ %118, %133 ], [ %130, %Vec_PtrPush.exit108 ]
+  %134 = phi i32 [ %71, %.lr.ph116 ], [ %71, %81 ], [ %116, %133 ], [ %128, %Vec_PtrPush.exit108 ]
+  %135 = phi i32 [ %72, %.lr.ph116 ], [ %72, %81 ], [ %117, %133 ], [ %128, %Vec_PtrPush.exit108 ]
+  %136 = phi i32 [ %75, %.lr.ph116 ], [ %75, %81 ], [ %118, %133 ], [ %130, %Vec_PtrPush.exit108 ]
   %137 = icmp sgt i32 %136, 0
   br i1 %137, label %.lr.ph116, label %.critedge._crit_edge, !llvm.loop !76
 
@@ -2004,7 +2004,7 @@ tailrecurse:                                      ; preds = %15, %14
   br i1 %.not17, label %common.ret, label %27
 
 common.ret:                                       ; preds = %tailrecurse._crit_edge, %6, %8, %25, %.lr.ph, %27
-  %common.ret.op = phi i32 [ %switch.select41, %27 ], [ -1, %tailrecurse._crit_edge ], [ %., %8 ], [ 0, %6 ], [ -1, %25 ], [ -1, %.lr.ph ]
+  %common.ret.op = phi i32 [ %switch.select41, %27 ], [ -1, %tailrecurse._crit_edge ], [ 0, %6 ], [ %., %8 ], [ -1, %25 ], [ -1, %.lr.ph ]
   ret i32 %common.ret.op
 
 27:                                               ; preds = %25
@@ -2170,8 +2170,8 @@ default.unreachable62:                            ; preds = %12
   br label %63
 
 63:                                               ; preds = %24, %12, %50, %.lr.ph
-  %.127 = phi ptr [ %.02655, %12 ], [ %.02655, %.lr.ph ], [ %.02655, %50 ], [ %9, %24 ]
-  %.1 = phi i32 [ %.02557, %12 ], [ %.02557, %.lr.ph ], [ %62, %50 ], [ %.02557, %24 ]
+  %.127 = phi ptr [ %.02655, %12 ], [ %.02655, %50 ], [ %.02655, %.lr.ph ], [ %9, %24 ]
+  %.1 = phi i32 [ %.02557, %12 ], [ %62, %50 ], [ %.02557, %.lr.ph ], [ %.02557, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = load ptr, ptr %2, align 8, !tbaa !91
   %65 = getelementptr i8, ptr %64, i64 4
@@ -2581,8 +2581,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %Abc_NtkSetTravId_rec.exit
 
 Abc_NtkSetTravId_rec.exit:                        ; preds = %Abc_NodeSetTravIdCurrent.exit.i, %Abc_NodeIsTravIdCurrent.exit, %Vec_PtrPush.exit
-  %180 = phi i32 [ %175, %Vec_PtrPush.exit ], [ %23, %Abc_NodeIsTravIdCurrent.exit ], [ %23, %Abc_NodeSetTravIdCurrent.exit.i ]
-  %181 = phi i32 [ %177, %Vec_PtrPush.exit ], [ %24, %Abc_NodeIsTravIdCurrent.exit ], [ %24, %Abc_NodeSetTravIdCurrent.exit.i ]
+  %180 = phi i32 [ %23, %Abc_NodeIsTravIdCurrent.exit ], [ %175, %Vec_PtrPush.exit ], [ %23, %Abc_NodeSetTravIdCurrent.exit.i ]
+  %181 = phi i32 [ %24, %Abc_NodeIsTravIdCurrent.exit ], [ %177, %Vec_PtrPush.exit ], [ %24, %Abc_NodeSetTravIdCurrent.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val47 = load i32, ptr %19, align 4, !tbaa !42
   %182 = sext i32 %.val47 to i64
@@ -2590,8 +2590,8 @@ Abc_NtkSetTravId_rec.exit:                        ; preds = %Abc_NodeSetTravIdCu
   br i1 %183, label %22, label %.critedge2, !llvm.loop !94
 
 .critedge2:                                       ; preds = %Abc_NtkSetTravId_rec.exit, %.preheader, %.lr.ph79, %17
-  %184 = phi i32 [ %10, %17 ], [ %10, %.preheader ], [ %10, %.lr.ph79 ], [ %180, %Abc_NtkSetTravId_rec.exit ]
-  %185 = phi i32 [ %11, %17 ], [ %11, %.preheader ], [ %11, %.lr.ph79 ], [ %181, %Abc_NtkSetTravId_rec.exit ]
+  %184 = phi i32 [ %10, %.preheader ], [ %10, %.lr.ph79 ], [ %10, %17 ], [ %180, %Abc_NtkSetTravId_rec.exit ]
+  %185 = phi i32 [ %11, %.preheader ], [ %11, %.lr.ph79 ], [ %11, %17 ], [ %181, %Abc_NtkSetTravId_rec.exit ]
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %186 = load ptr, ptr %6, align 8, !tbaa !25
   %187 = getelementptr i8, ptr %186, i64 4

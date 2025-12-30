@@ -227,9 +227,9 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   %.sink237.sroa.phi247 = phi ptr [ %.sink237.sroa.gep248, %59 ], [ %.sink237.sroa.gep249, %64 ]
   %.sink237 = phi ptr [ %7, %59 ], [ %6, %64 ]
   %.2.ph = phi i64 [ %.0131.ph, %59 ], [ %71, %64 ]
-  %.sroa.0.0.copyload = load i64, ptr %.sink237, align 1
-  %.sroa.10.0.copyload = load i64, ptr %.sink237.sroa.phi, align 1
-  %.sroa.13.0.copyload = load i32, ptr %.sink237.sroa.phi247, align 1
+  %.sroa.0.0.copyload173 = load i64, ptr %.sink237, align 1
+  %.sroa.10.0.copyload177 = load i64, ptr %.sink237.sroa.phi, align 1
+  %.sroa.13.0.copyload183 = load i32, ptr %.sink237.sroa.phi247, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6) #18, !noalias !76
   br label %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
 
@@ -238,11 +238,11 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
 _ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread225, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread
-  %.sroa.13.0.copyload.sink = phi i32 [ %.sroa.13.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread225 ], [ %.sroa.13.0.copyload185, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.13.0.copyload183.sink = phi i32 [ %.sroa.13.0.copyload183, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread225 ], [ %.sroa.13.0.copyload185, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
   %.3222 = phi i64 [ %.2.ph, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread225 ], [ %.0131133, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.10.1220 = phi i64 [ %.sroa.10.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread225 ], [ %.sroa.10.0.copyload179, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.0.sroa.10.1219.in = phi i64 [ %.sroa.0.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread225 ], [ %.sroa.0.0.copyload174, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.fr164232 = freeze i32 %.sroa.13.0.copyload.sink
+  %.sroa.10.1220 = phi i64 [ %.sroa.10.0.copyload177, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread225 ], [ %.sroa.10.0.copyload179, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.0.sroa.10.1219.in = phi i64 [ %.sroa.0.0.copyload173, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread225 ], [ %.sroa.0.0.copyload174, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.fr164232 = freeze i32 %.sroa.13.0.copyload183.sink
   call void @llvm.lifetime.start.p0(ptr nonnull %5) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   br label %74
@@ -410,7 +410,7 @@ _ZN4evmcneERKNS_7addressES2_.exit:                ; preds = %_ZN6evmone12check_m
   br label %157
 
 157:                                              ; preds = %_ZN4evmcneERKNS_7addressES2_.exit, %_ZN4evmcneERKNS_7addressES2_.exit.thread
-  %158 = phi i32 [ %spec.select163, %_ZN4evmcneERKNS_7addressES2_.exit ], [ %153, %_ZN4evmcneERKNS_7addressES2_.exit.thread ]
+  %158 = phi i32 [ %153, %_ZN4evmcneERKNS_7addressES2_.exit.thread ], [ %spec.select163, %_ZN4evmcneERKNS_7addressES2_.exit ]
   store i32 %158, ptr %147, align 4, !tbaa !85
   %159 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %160 = load i32, ptr %159, align 8, !tbaa !89
@@ -485,7 +485,7 @@ _ZN4evmcneERKNS_7addressES2_.exit:                ; preds = %_ZN6evmone12check_m
   br label %196
 
 196:                                              ; preds = %188, %.critedge52
-  %.0 = phi i64 [ %spec.select, %188 ], [ 0, %.critedge52 ]
+  %.0 = phi i64 [ 0, %.critedge52 ], [ %spec.select, %188 ]
   %197 = sub nsw i64 %.7150, %.0
   %198 = icmp slt i64 %197, 0
   br i1 %198, label %284, label %_ZN4intxltERKNS_4uintILj256EEES3_.exit
@@ -648,14 +648,14 @@ _ZN4evmc6ResultD2Ev.exit:                         ; preds = %272, %283
   br label %284
 
 284:                                              ; preds = %_ZN4intxltERKNS_4uintILj256EEES3_.exit69, %.thread152, %216, %186, %212, %196, %_ZN4evmc6ResultD2Ev.exit
-  %.sroa.039.4 = phi i32 [ 3, %212 ], [ 3, %196 ], [ 11, %186 ], [ 0, %.thread152 ], [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 0, %216 ], [ 0, %_ZN4intxltERKNS_4uintILj256EEES3_.exit69 ]
-  %.sroa.1140.4 = phi i64 [ %197, %212 ], [ %197, %196 ], [ %.7150, %186 ], [ %222, %.thread152 ], [ %276, %_ZN4evmc6ResultD2Ev.exit ], [ %197, %216 ], [ %222, %_ZN4intxltERKNS_4uintILj256EEES3_.exit69 ]
+  %.sroa.039.4 = phi i32 [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 3, %196 ], [ 3, %212 ], [ 11, %186 ], [ 0, %216 ], [ 0, %.thread152 ], [ 0, %_ZN4intxltERKNS_4uintILj256EEES3_.exit69 ]
+  %.sroa.1140.4 = phi i64 [ %276, %_ZN4evmc6ResultD2Ev.exit ], [ %197, %196 ], [ %197, %212 ], [ %.7150, %186 ], [ %197, %216 ], [ %222, %.thread152 ], [ %222, %_ZN4intxltERKNS_4uintILj256EEES3_.exit69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12) #18
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %284, %73, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit64, %84, %93, %96, %117, %126, %129, %54
-  %.sroa.039.0 = phi i32 [ 3, %54 ], [ 3, %73 ], [ %.sroa.039.4, %284 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit64 ], [ 3, %96 ], [ 3, %84 ], [ 3, %93 ], [ 3, %129 ], [ 3, %117 ], [ 3, %126 ]
-  %.sroa.1140.0 = phi i64 [ %55, %54 ], [ %71, %73 ], [ %.sroa.1140.4, %284 ], [ %.4, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.6, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit64 ], [ %.3222, %96 ], [ %.3222, %84 ], [ %.3222, %93 ], [ %.5143, %129 ], [ %.5143, %117 ], [ %.5143, %126 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %284, %73, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit64, %93, %84, %96, %126, %117, %129, %54
+  %.sroa.039.0 = phi i32 [ 3, %54 ], [ 3, %73 ], [ %.sroa.039.4, %284 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit64 ], [ 3, %93 ], [ 3, %84 ], [ 3, %96 ], [ 3, %126 ], [ 3, %117 ], [ 3, %129 ]
+  %.sroa.1140.0 = phi i64 [ %55, %54 ], [ %71, %73 ], [ %.sroa.1140.4, %284 ], [ %.4, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.6, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit64 ], [ %.3222, %93 ], [ %.3222, %84 ], [ %.3222, %96 ], [ %.5143, %126 ], [ %.5143, %117 ], [ %.5143, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %10) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %8) #18
@@ -817,9 +817,9 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   %.sink188.sroa.phi197 = phi ptr [ %.sink188.sroa.gep198, %48 ], [ %.sink188.sroa.gep199, %53 ]
   %.sink188 = phi ptr [ %7, %48 ], [ %6, %53 ]
   %.1.ph = phi i64 [ %.0.ph, %48 ], [ %60, %53 ]
-  %.sroa.0.0.copyload = load i64, ptr %.sink188, align 1
-  %.sroa.10.0.copyload = load i64, ptr %.sink188.sroa.phi, align 1
-  %.sroa.13.0.copyload = load i32, ptr %.sink188.sroa.phi197, align 1
+  %.sroa.0.0.copyload127 = load i64, ptr %.sink188, align 1
+  %.sroa.10.0.copyload131 = load i64, ptr %.sink188.sroa.phi, align 1
+  %.sroa.13.0.copyload137 = load i32, ptr %.sink188.sroa.phi197, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6) #18, !noalias !127
   br label %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
 
@@ -828,11 +828,11 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
 _ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread177, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread
-  %.sroa.13.0.copyload.sink = phi i32 [ %.sroa.13.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread177 ], [ %.sroa.13.0.copyload139, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.13.0.copyload137.sink = phi i32 [ %.sroa.13.0.copyload137, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread177 ], [ %.sroa.13.0.copyload139, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
   %.2175 = phi i64 [ %.1.ph, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread177 ], [ %.0101, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.10.1173 = phi i64 [ %.sroa.10.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread177 ], [ %.sroa.10.0.copyload133, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.0.sroa.10.1172.in = phi i64 [ %.sroa.0.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread177 ], [ %.sroa.0.0.copyload128, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.fr122184 = freeze i32 %.sroa.13.0.copyload.sink
+  %.sroa.10.1173 = phi i64 [ %.sroa.10.0.copyload131, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread177 ], [ %.sroa.10.0.copyload133, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.0.sroa.10.1172.in = phi i64 [ %.sroa.0.0.copyload127, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread177 ], [ %.sroa.0.0.copyload128, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.fr122184 = freeze i32 %.sroa.13.0.copyload137.sink
   call void @llvm.lifetime.start.p0(ptr nonnull %5) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   br label %63
@@ -1113,14 +1113,14 @@ _ZN4evmc6ResultD2Ev.exit:                         ; preds = %197, %208
   br label %209
 
 209:                                              ; preds = %174, %172, %157, %_ZN4evmc6ResultD2Ev.exit
-  %.sroa.027.4 = phi i32 [ 3, %157 ], [ 3, %172 ], [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 0, %174 ]
-  %.sroa.928.4 = phi i64 [ %.6118, %157 ], [ %.6118, %172 ], [ %201, %_ZN4evmc6ResultD2Ev.exit ], [ %.6118, %174 ]
+  %.sroa.027.4 = phi i32 [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 3, %157 ], [ 3, %172 ], [ 0, %174 ]
+  %.sroa.928.4 = phi i64 [ %201, %_ZN4evmc6ResultD2Ev.exit ], [ %.6118, %157 ], [ %.6118, %172 ], [ %.6118, %174 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10) #18
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %209, %62, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit47, %73, %82, %85, %106, %115, %118, %43
-  %.sroa.027.0 = phi i32 [ 3, %43 ], [ 3, %62 ], [ %.sroa.027.4, %209 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit47 ], [ 3, %85 ], [ 3, %73 ], [ 3, %82 ], [ 3, %118 ], [ 3, %106 ], [ 3, %115 ]
-  %.sroa.928.0 = phi i64 [ %44, %43 ], [ %60, %62 ], [ %.sroa.928.4, %209 ], [ %.3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.5, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit47 ], [ %.2175, %85 ], [ %.2175, %73 ], [ %.2175, %82 ], [ %.4111, %118 ], [ %.4111, %106 ], [ %.4111, %115 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %209, %62, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit47, %82, %73, %85, %115, %106, %118, %43
+  %.sroa.027.0 = phi i32 [ 3, %43 ], [ 3, %62 ], [ %.sroa.027.4, %209 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit47 ], [ 3, %82 ], [ 3, %73 ], [ 3, %85 ], [ 3, %115 ], [ 3, %106 ], [ 3, %118 ]
+  %.sroa.928.0 = phi i64 [ %44, %43 ], [ %60, %62 ], [ %.sroa.928.4, %209 ], [ %.3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.5, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit47 ], [ %.2175, %82 ], [ %.2175, %73 ], [ %.2175, %85 ], [ %.4111, %115 ], [ %.4111, %106 ], [ %.4111, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %8) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %7) #18
@@ -1269,9 +1269,9 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   %.sink187.sroa.phi194 = phi ptr [ %.sink187.sroa.gep195, %48 ], [ %.sink187.sroa.gep196, %53 ]
   %.sink187 = phi ptr [ %7, %48 ], [ %6, %53 ]
   %.1.ph = phi i64 [ %.0.ph, %48 ], [ %60, %53 ]
-  %.sroa.0.0.copyload = load i64, ptr %.sink187, align 1
-  %.sroa.10.0.copyload = load i64, ptr %.sink187.sroa.phi, align 1
-  %.sroa.13.0.copyload = load i32, ptr %.sink187.sroa.phi194, align 1
+  %.sroa.0.0.copyload125 = load i64, ptr %.sink187, align 1
+  %.sroa.10.0.copyload129 = load i64, ptr %.sink187.sroa.phi, align 1
+  %.sroa.13.0.copyload135 = load i32, ptr %.sink187.sroa.phi194, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6) #18, !noalias !141
   br label %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
 
@@ -1280,11 +1280,11 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
 _ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread176, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread
-  %.sroa.13.0.copyload.sink = phi i32 [ %.sroa.13.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread176 ], [ %.sroa.13.0.copyload137, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.13.0.copyload135.sink = phi i32 [ %.sroa.13.0.copyload135, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread176 ], [ %.sroa.13.0.copyload137, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
   %.2173 = phi i64 [ %.1.ph, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread176 ], [ %.098, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.10.1171 = phi i64 [ %.sroa.10.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread176 ], [ %.sroa.10.0.copyload131, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.0.sroa.10.1170.in = phi i64 [ %.sroa.0.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread176 ], [ %.sroa.0.0.copyload126, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.fr119183 = freeze i32 %.sroa.13.0.copyload.sink
+  %.sroa.10.1171 = phi i64 [ %.sroa.10.0.copyload129, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread176 ], [ %.sroa.10.0.copyload131, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.0.sroa.10.1170.in = phi i64 [ %.sroa.0.0.copyload125, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread176 ], [ %.sroa.0.0.copyload126, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.fr119183 = freeze i32 %.sroa.13.0.copyload135.sink
   call void @llvm.lifetime.start.p0(ptr nonnull %5) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   br label %63
@@ -1454,7 +1454,7 @@ _ZN4evmcneERKNS_7addressES2_.exit:                ; preds = %_ZN6evmone12check_m
   br label %147
 
 147:                                              ; preds = %_ZN4evmcneERKNS_7addressES2_.exit, %_ZN4evmcneERKNS_7addressES2_.exit.thread
-  %148 = phi i32 [ %spec.select, %_ZN4evmcneERKNS_7addressES2_.exit ], [ %143, %_ZN4evmcneERKNS_7addressES2_.exit.thread ]
+  %148 = phi i32 [ %143, %_ZN4evmcneERKNS_7addressES2_.exit.thread ], [ %spec.select, %_ZN4evmcneERKNS_7addressES2_.exit ]
   store i32 %148, ptr %137, align 4, !tbaa !85
   %149 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %150 = load i32, ptr %149, align 8, !tbaa !89
@@ -1583,14 +1583,14 @@ _ZN4evmc6ResultD2Ev.exit:                         ; preds = %205, %216
   br label %217
 
 217:                                              ; preds = %182, %180, %165, %_ZN4evmc6ResultD2Ev.exit
-  %.sroa.031.4 = phi i32 [ 3, %165 ], [ 3, %180 ], [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 0, %182 ]
-  %.sroa.932.4 = phi i64 [ %.6115, %165 ], [ %.6115, %180 ], [ %209, %_ZN4evmc6ResultD2Ev.exit ], [ %.6115, %182 ]
+  %.sroa.031.4 = phi i32 [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 3, %165 ], [ 3, %180 ], [ 0, %182 ]
+  %.sroa.932.4 = phi i64 [ %209, %_ZN4evmc6ResultD2Ev.exit ], [ %.6115, %165 ], [ %.6115, %180 ], [ %.6115, %182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10) #18
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %217, %62, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit51, %73, %82, %85, %106, %115, %118, %43
-  %.sroa.031.0 = phi i32 [ 3, %43 ], [ 3, %62 ], [ %.sroa.031.4, %217 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit51 ], [ 3, %85 ], [ 3, %73 ], [ 3, %82 ], [ 3, %118 ], [ 3, %106 ], [ 3, %115 ]
-  %.sroa.932.0 = phi i64 [ %44, %43 ], [ %60, %62 ], [ %.sroa.932.4, %217 ], [ %.3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.5, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit51 ], [ %.2173, %85 ], [ %.2173, %73 ], [ %.2173, %82 ], [ %.4108, %118 ], [ %.4108, %106 ], [ %.4108, %115 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %217, %62, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit51, %82, %73, %85, %115, %106, %118, %43
+  %.sroa.031.0 = phi i32 [ 3, %43 ], [ 3, %62 ], [ %.sroa.031.4, %217 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit51 ], [ 3, %82 ], [ 3, %73 ], [ 3, %85 ], [ 3, %115 ], [ 3, %106 ], [ 3, %118 ]
+  %.sroa.932.0 = phi i64 [ %44, %43 ], [ %60, %62 ], [ %.sroa.932.4, %217 ], [ %.3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.5, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit51 ], [ %.2173, %82 ], [ %.2173, %73 ], [ %.2173, %85 ], [ %.4108, %115 ], [ %.4108, %106 ], [ %.4108, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %8) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %7) #18
@@ -1757,9 +1757,9 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   %.sink222.sroa.phi231 = phi ptr [ %.sink222.sroa.gep232, %59 ], [ %.sink222.sroa.gep233, %64 ]
   %.sink222 = phi ptr [ %7, %59 ], [ %6, %64 ]
   %.2.ph = phi i64 [ %.0.ph, %59 ], [ %71, %64 ]
-  %.sroa.0.0.copyload = load i64, ptr %.sink222, align 1
-  %.sroa.10.0.copyload = load i64, ptr %.sink222.sroa.phi, align 1
-  %.sroa.13.0.copyload = load i32, ptr %.sink222.sroa.phi231, align 1
+  %.sroa.0.0.copyload159 = load i64, ptr %.sink222, align 1
+  %.sroa.10.0.copyload163 = load i64, ptr %.sink222.sroa.phi, align 1
+  %.sroa.13.0.copyload169 = load i32, ptr %.sink222.sroa.phi231, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6) #18, !noalias !155
   br label %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
 
@@ -1768,11 +1768,11 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
 _ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread210, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread
-  %.sroa.13.0.copyload.sink = phi i32 [ %.sroa.13.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread210 ], [ %.sroa.13.0.copyload171, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.13.0.copyload169.sink = phi i32 [ %.sroa.13.0.copyload169, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread210 ], [ %.sroa.13.0.copyload171, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
   %.3207 = phi i64 [ %.2.ph, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread210 ], [ %.0122, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.10.1205 = phi i64 [ %.sroa.10.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread210 ], [ %.sroa.10.0.copyload165, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.0.sroa.10.1204.in = phi i64 [ %.sroa.0.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread210 ], [ %.sroa.0.0.copyload160, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.fr150217 = freeze i32 %.sroa.13.0.copyload.sink
+  %.sroa.10.1205 = phi i64 [ %.sroa.10.0.copyload163, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread210 ], [ %.sroa.10.0.copyload165, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.0.sroa.10.1204.in = phi i64 [ %.sroa.0.0.copyload159, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread210 ], [ %.sroa.0.0.copyload160, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.fr150217 = freeze i32 %.sroa.13.0.copyload169.sink
   call void @llvm.lifetime.start.p0(ptr nonnull %5) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   br label %74
@@ -1942,7 +1942,7 @@ _ZN4evmcneERKNS_7addressES2_.exit:                ; preds = %_ZN6evmone12check_m
   br label %158
 
 158:                                              ; preds = %_ZN4evmcneERKNS_7addressES2_.exit, %_ZN4evmcneERKNS_7addressES2_.exit.thread
-  %159 = phi i32 [ %spec.select, %_ZN4evmcneERKNS_7addressES2_.exit ], [ %154, %_ZN4evmcneERKNS_7addressES2_.exit.thread ]
+  %159 = phi i32 [ %154, %_ZN4evmcneERKNS_7addressES2_.exit.thread ], [ %spec.select, %_ZN4evmcneERKNS_7addressES2_.exit ]
   store i32 %159, ptr %148, align 4, !tbaa !85
   %160 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %161 = load i32, ptr %160, align 8, !tbaa !89
@@ -2148,14 +2148,14 @@ _ZN4evmc6ResultD2Ev.exit:                         ; preds = %254, %265
   br label %266
 
 266:                                              ; preds = %_ZN4intxltERKNS_4uintILj256EEES3_.exit60, %.thread141, %205, %201, %185, %_ZN4evmc6ResultD2Ev.exit
-  %.sroa.034.4 = phi i32 [ 3, %185 ], [ 3, %201 ], [ 0, %.thread141 ], [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 0, %205 ], [ 0, %_ZN4intxltERKNS_4uintILj256EEES3_.exit60 ]
-  %.sroa.1035.4 = phi i64 [ %186, %185 ], [ %186, %201 ], [ %208, %.thread141 ], [ %258, %_ZN4evmc6ResultD2Ev.exit ], [ %186, %205 ], [ %208, %_ZN4intxltERKNS_4uintILj256EEES3_.exit60 ]
+  %.sroa.034.4 = phi i32 [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 3, %185 ], [ 3, %201 ], [ 0, %205 ], [ 0, %.thread141 ], [ 0, %_ZN4intxltERKNS_4uintILj256EEES3_.exit60 ]
+  %.sroa.1035.4 = phi i64 [ %258, %_ZN4evmc6ResultD2Ev.exit ], [ %186, %185 ], [ %186, %201 ], [ %186, %205 ], [ %208, %.thread141 ], [ %208, %_ZN4intxltERKNS_4uintILj256EEES3_.exit60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12) #18
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %266, %73, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit55, %84, %93, %96, %117, %126, %129, %54
-  %.sroa.034.0 = phi i32 [ 3, %54 ], [ 3, %73 ], [ %.sroa.034.4, %266 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit55 ], [ 3, %96 ], [ 3, %84 ], [ 3, %93 ], [ 3, %129 ], [ 3, %117 ], [ 3, %126 ]
-  %.sroa.1035.0 = phi i64 [ %55, %54 ], [ %71, %73 ], [ %.sroa.1035.4, %266 ], [ %.4, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.6, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit55 ], [ %.3207, %96 ], [ %.3207, %84 ], [ %.3207, %93 ], [ %.5132, %129 ], [ %.5132, %117 ], [ %.5132, %126 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %266, %73, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit55, %93, %84, %96, %126, %117, %129, %54
+  %.sroa.034.0 = phi i32 [ 3, %54 ], [ 3, %73 ], [ %.sroa.034.4, %266 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit55 ], [ 3, %93 ], [ 3, %84 ], [ 3, %96 ], [ 3, %126 ], [ 3, %117 ], [ 3, %129 ]
+  %.sroa.1035.0 = phi i64 [ %55, %54 ], [ %71, %73 ], [ %.sroa.1035.4, %266 ], [ %.4, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.6, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit55 ], [ %.3207, %93 ], [ %.3207, %84 ], [ %.3207, %96 ], [ %.5132, %126 ], [ %.5132, %117 ], [ %.5132, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %10) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %8) #18
@@ -2323,9 +2323,9 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   %.sink174.sroa.phi181 = phi ptr [ %.sink174.sroa.gep182, %62 ], [ %.sink174.sroa.gep183, %66 ]
   %.sink174 = phi ptr [ %9, %62 ], [ %5, %66 ]
   %.1.ph = phi i64 [ %.093, %62 ], [ %73, %66 ]
-  %.sroa.0.0.copyload = load i64, ptr %.sink174, align 1
-  %.sroa.9.0.copyload115 = load i64, ptr %.sink174.sroa.phi, align 1
-  %.sroa.12.0.copyload = load i32, ptr %.sink174.sroa.phi181, align 1
+  %.sroa.0.0.copyload111 = load i64, ptr %.sink174, align 1
+  %.sroa.9.0.copyload117 = load i64, ptr %.sink174.sroa.phi, align 1
+  %.sroa.12.0.copyload123 = load i32, ptr %.sink174.sroa.phi181, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5) #18, !noalias !174
   br label %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
 
@@ -2334,11 +2334,11 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
 _ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread163, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread
-  %.sroa.12.0.copyload.sink = phi i32 [ %.sroa.12.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread163 ], [ %.sroa.12.0.copyload125, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.12.0.copyload123.sink = phi i32 [ %.sroa.12.0.copyload123, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread163 ], [ %.sroa.12.0.copyload125, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
   %.2160 = phi i64 [ %.1.ph, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread163 ], [ %.093, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.9.1158 = phi i64 [ %.sroa.9.0.copyload115, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread163 ], [ %.sroa.9.0.copyload119, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.0.sroa.9.1157.in = phi i64 [ %.sroa.0.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread163 ], [ %.sroa.0.0.copyload112, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.fr105170 = freeze i32 %.sroa.12.0.copyload.sink
+  %.sroa.9.1158 = phi i64 [ %.sroa.9.0.copyload117, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread163 ], [ %.sroa.9.0.copyload119, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.0.sroa.9.1157.in = phi i64 [ %.sroa.0.0.copyload111, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread163 ], [ %.sroa.0.0.copyload112, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.fr105170 = freeze i32 %.sroa.12.0.copyload123.sink
   call void @llvm.lifetime.start.p0(ptr nonnull %4) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %76
@@ -2440,7 +2440,7 @@ _ZN4evmcneERKNS_7addressES2_.exit:                ; preds = %_ZN6evmone12check_m
   br label %125
 
 125:                                              ; preds = %_ZN4evmcneERKNS_7addressES2_.exit, %_ZN4evmcneERKNS_7addressES2_.exit.thread
-  %126 = phi i32 [ %spec.select104, %_ZN4evmcneERKNS_7addressES2_.exit ], [ %121, %_ZN4evmcneERKNS_7addressES2_.exit.thread ]
+  %126 = phi i32 [ %121, %_ZN4evmcneERKNS_7addressES2_.exit.thread ], [ %spec.select104, %_ZN4evmcneERKNS_7addressES2_.exit ]
   store i32 %126, ptr %115, align 4, !tbaa !85
   %127 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %128 = load i32, ptr %127, align 8, !tbaa !89
@@ -2506,7 +2506,7 @@ _ZN4evmcneERKNS_7addressES2_.exit:                ; preds = %_ZN6evmone12check_m
   br label %.critedge42
 
 .critedge42:                                      ; preds = %155, %152
-  %.0.neg = phi i64 [ 0, %152 ], [ %spec.select.neg, %155 ]
+  %.0.neg = phi i64 [ %spec.select.neg, %155 ], [ 0, %152 ]
   %160 = add i64 %.0.neg, %.4102
   %161 = icmp slt i64 %160, 0
   br i1 %161, label %224, label %162
@@ -2648,14 +2648,14 @@ _ZN4evmc6ResultD2Ev.exit:                         ; preds = %212, %223
   br label %224
 
 224:                                              ; preds = %153, %.critedge42, %_ZN4evmc6ResultD2Ev.exit, %196
-  %.sroa.032.5 = phi i32 [ 3, %.critedge42 ], [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 0, %196 ], [ 11, %153 ]
-  %.sroa.933.5 = phi i64 [ %160, %.critedge42 ], [ %216, %_ZN4evmc6ResultD2Ev.exit ], [ %160, %196 ], [ %.4102, %153 ]
+  %.sroa.032.5 = phi i32 [ 0, %196 ], [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 3, %.critedge42 ], [ 11, %153 ]
+  %.sroa.933.5 = phi i64 [ %160, %196 ], [ %216, %_ZN4evmc6ResultD2Ev.exit ], [ %160, %.critedge42 ], [ %.4102, %153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10) #18
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %224, %75, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %86, %95, %98, %55
-  %.sroa.032.1 = phi i32 [ 3, %55 ], [ 3, %75 ], [ %.sroa.032.5, %224 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %86 ], [ 3, %95 ], [ 3, %98 ]
-  %.sroa.933.1 = phi i64 [ %56, %55 ], [ %73, %75 ], [ %.sroa.933.5, %224 ], [ %.3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.2160, %86 ], [ %.2160, %95 ], [ %.2160, %98 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %224, %75, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %95, %86, %98, %55
+  %.sroa.032.1 = phi i32 [ 3, %55 ], [ 3, %75 ], [ %.sroa.032.5, %224 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %95 ], [ 3, %86 ], [ 3, %98 ]
+  %.sroa.933.1 = phi i64 [ %56, %55 ], [ %73, %75 ], [ %.sroa.933.5, %224 ], [ %.3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.2160, %95 ], [ %.2160, %86 ], [ %.2160, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9) #18
   br label %225
 
@@ -2800,9 +2800,9 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   %.sink145.sroa.phi153 = phi ptr [ %.sink145.sroa.gep154, %49 ], [ %.sink145.sroa.gep155, %53 ]
   %.sink145 = phi ptr [ %7, %49 ], [ %5, %53 ]
   %.1.ph = phi i64 [ %.0, %49 ], [ %60, %53 ]
-  %.sroa.0.0.copyload = load i64, ptr %.sink145, align 1
-  %.sroa.9.0.copyload89 = load i64, ptr %.sink145.sroa.phi, align 1
-  %.sroa.12.0.copyload = load i32, ptr %.sink145.sroa.phi153, align 1
+  %.sroa.0.0.copyload85 = load i64, ptr %.sink145, align 1
+  %.sroa.9.0.copyload91 = load i64, ptr %.sink145.sroa.phi, align 1
+  %.sroa.12.0.copyload97 = load i32, ptr %.sink145.sroa.phi153, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5) #18, !noalias !193
   br label %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
 
@@ -2811,11 +2811,11 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
 _ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread135, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread
-  %.sroa.12.0.copyload.sink = phi i32 [ %.sroa.12.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread135 ], [ %.sroa.12.0.copyload99, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.12.0.copyload97.sink = phi i32 [ %.sroa.12.0.copyload97, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread135 ], [ %.sroa.12.0.copyload99, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
   %.2133 = phi i64 [ %.1.ph, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread135 ], [ %.0, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.9.1131 = phi i64 [ %.sroa.9.0.copyload89, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread135 ], [ %.sroa.9.0.copyload93, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.0.sroa.9.1130.in = phi i64 [ %.sroa.0.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread135 ], [ %.sroa.0.0.copyload86, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.fr82142 = freeze i32 %.sroa.12.0.copyload.sink
+  %.sroa.9.1131 = phi i64 [ %.sroa.9.0.copyload91, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread135 ], [ %.sroa.9.0.copyload93, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.0.sroa.9.1130.in = phi i64 [ %.sroa.0.0.copyload85, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread135 ], [ %.sroa.0.0.copyload86, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.fr82142 = freeze i32 %.sroa.12.0.copyload97.sink
   call void @llvm.lifetime.start.p0(ptr nonnull %4) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %63
@@ -3013,14 +3013,14 @@ _ZN4evmc6ResultD2Ev.exit:                         ; preds = %146, %157
   br label %158
 
 158:                                              ; preds = %123, %_ZN4evmc6ResultD2Ev.exit, %.critedge
-  %.sroa.020.5 = phi i32 [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 0, %.critedge ], [ 3, %123 ]
-  %.sroa.821.5 = phi i64 [ %150, %_ZN4evmc6ResultD2Ev.exit ], [ %.480, %.critedge ], [ %.480, %123 ]
+  %.sroa.020.5 = phi i32 [ 0, %.critedge ], [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 3, %123 ]
+  %.sroa.821.5 = phi i64 [ %.480, %.critedge ], [ %150, %_ZN4evmc6ResultD2Ev.exit ], [ %.480, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8) #18
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %158, %62, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %73, %82, %85, %42
-  %.sroa.020.1 = phi i32 [ 3, %42 ], [ 3, %62 ], [ %.sroa.020.5, %158 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %73 ], [ 3, %82 ], [ 3, %85 ]
-  %.sroa.821.1 = phi i64 [ %43, %42 ], [ %60, %62 ], [ %.sroa.821.5, %158 ], [ %.3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.2133, %73 ], [ %.2133, %82 ], [ %.2133, %85 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %158, %62, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %82, %73, %85, %42
+  %.sroa.020.1 = phi i32 [ 3, %42 ], [ 3, %62 ], [ %.sroa.020.5, %158 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %82 ], [ 3, %73 ], [ 3, %85 ]
+  %.sroa.821.1 = phi i64 [ %43, %42 ], [ %60, %62 ], [ %.sroa.821.5, %158 ], [ %.3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.2133, %82 ], [ %.2133, %73 ], [ %.2133, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7) #18
   br label %159
 
@@ -3166,9 +3166,9 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   %.sink160.sroa.phi166 = phi ptr [ %.sink160.sroa.gep167, %51 ], [ %.sink160.sroa.gep168, %55 ]
   %.sink160 = phi ptr [ %7, %51 ], [ %5, %55 ]
   %.1.ph = phi i64 [ %.0, %51 ], [ %62, %55 ]
-  %.sroa.0.0.copyload = load i64, ptr %.sink160, align 1
-  %.sroa.9.0.copyload103 = load i64, ptr %.sink160.sroa.phi, align 1
-  %.sroa.12.0.copyload = load i32, ptr %.sink160.sroa.phi166, align 1
+  %.sroa.0.0.copyload99 = load i64, ptr %.sink160, align 1
+  %.sroa.9.0.copyload105 = load i64, ptr %.sink160.sroa.phi, align 1
+  %.sroa.12.0.copyload111 = load i32, ptr %.sink160.sroa.phi166, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5) #18, !noalias !202
   br label %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
 
@@ -3177,11 +3177,11 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
 _ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread150, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread
-  %.sroa.12.0.copyload.sink = phi i32 [ %.sroa.12.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread150 ], [ %.sroa.12.0.copyload113, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.12.0.copyload111.sink = phi i32 [ %.sroa.12.0.copyload111, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread150 ], [ %.sroa.12.0.copyload113, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
   %.2147 = phi i64 [ %.1.ph, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread150 ], [ %.0, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.9.1145 = phi i64 [ %.sroa.9.0.copyload103, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread150 ], [ %.sroa.9.0.copyload107, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.0.sroa.9.1144.in = phi i64 [ %.sroa.0.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread150 ], [ %.sroa.0.0.copyload100, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.fr96157 = freeze i32 %.sroa.12.0.copyload.sink
+  %.sroa.9.1145 = phi i64 [ %.sroa.9.0.copyload105, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread150 ], [ %.sroa.9.0.copyload107, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.0.sroa.9.1144.in = phi i64 [ %.sroa.0.0.copyload99, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread150 ], [ %.sroa.0.0.copyload100, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.fr96157 = freeze i32 %.sroa.12.0.copyload111.sink
   call void @llvm.lifetime.start.p0(ptr nonnull %4) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %65
@@ -3285,7 +3285,7 @@ _ZN4evmcneERKNS_7addressES2_.exit:                ; preds = %_ZN6evmone12check_m
   br label %115
 
 115:                                              ; preds = %_ZN4evmcneERKNS_7addressES2_.exit, %_ZN4evmcneERKNS_7addressES2_.exit.thread
-  %116 = phi i32 [ %spec.select, %_ZN4evmcneERKNS_7addressES2_.exit ], [ %111, %_ZN4evmcneERKNS_7addressES2_.exit.thread ]
+  %116 = phi i32 [ %111, %_ZN4evmcneERKNS_7addressES2_.exit.thread ], [ %spec.select, %_ZN4evmcneERKNS_7addressES2_.exit ]
   store i32 %116, ptr %105, align 4, !tbaa !85
   %117 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %118 = load i32, ptr %117, align 8, !tbaa !89
@@ -3417,14 +3417,14 @@ _ZN4evmc6ResultD2Ev.exit:                         ; preds = %164, %175
   br label %176
 
 176:                                              ; preds = %148, %133, %_ZN4evmc6ResultD2Ev.exit, %.critedge
-  %.sroa.028.5 = phi i32 [ 0, %148 ], [ 0, %.critedge ], [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 3, %133 ]
-  %.sroa.929.5 = phi i64 [ %.491, %148 ], [ %.491, %.critedge ], [ %168, %_ZN4evmc6ResultD2Ev.exit ], [ %.491, %133 ]
+  %.sroa.028.5 = phi i32 [ 0, %.critedge ], [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 0, %148 ], [ 3, %133 ]
+  %.sroa.929.5 = phi i64 [ %.491, %.critedge ], [ %168, %_ZN4evmc6ResultD2Ev.exit ], [ %.491, %148 ], [ %.491, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8) #18
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %176, %64, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %75, %84, %87, %44
-  %.sroa.028.1 = phi i32 [ 3, %44 ], [ 3, %64 ], [ %.sroa.028.5, %176 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %75 ], [ 3, %84 ], [ 3, %87 ]
-  %.sroa.929.1 = phi i64 [ %45, %44 ], [ %62, %64 ], [ %.sroa.929.5, %176 ], [ %.3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.2147, %75 ], [ %.2147, %84 ], [ %.2147, %87 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %176, %64, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %84, %75, %87, %44
+  %.sroa.028.1 = phi i32 [ 3, %44 ], [ 3, %64 ], [ %.sroa.028.5, %176 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %84 ], [ 3, %75 ], [ 3, %87 ]
+  %.sroa.929.1 = phi i64 [ %45, %44 ], [ %62, %64 ], [ %.sroa.929.5, %176 ], [ %.3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.2147, %84 ], [ %.2147, %75 ], [ %.2147, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7) #18
   br label %177
 
@@ -3787,9 +3787,9 @@ _ZN4evmc6ResultD2Ev.exit:                         ; preds = %176, %179
   call void @llvm.lifetime.end.p0(ptr nonnull %9) #18
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %45, %42, %33, %_ZN4intxltERKNS_4uintILj256EEES3_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %67, %62, %180
-  %.sroa.0.1 = phi i32 [ 0, %67 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %180 ], [ 3, %62 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80 ], [ 0, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ 3, %33 ], [ 3, %42 ], [ 3, %45 ]
-  %.sroa.9.1 = phi i64 [ %65, %67 ], [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.sroa.9.4, %180 ], [ %65, %62 ], [ %.183, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80 ], [ %65, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ %1, %33 ], [ %1, %42 ], [ %1, %45 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %45, %33, %42, %_ZN4intxltERKNS_4uintILj256EEES3_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %67, %62, %180
+  %.sroa.0.1 = phi i32 [ 0, %180 ], [ 3, %62 ], [ 0, %67 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80 ], [ 0, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ 3, %42 ], [ 3, %33 ], [ 3, %45 ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.4, %180 ], [ %65, %62 ], [ %65, %67 ], [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.183, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread80 ], [ %65, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ %1, %42 ], [ %1, %33 ], [ %1, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5) #18
   br label %181
@@ -4164,9 +4164,9 @@ _ZN4evmc6ResultD2Ev.exit:                         ; preds = %181, %184
   call void @llvm.lifetime.end.p0(ptr nonnull %9) #18
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %46, %43, %34, %_ZN4intxltERKNS_4uintILj256EEES3_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread77, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %68, %63, %185
-  %.sroa.0.1 = phi i32 [ 0, %68 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %185 ], [ 3, %63 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread77 ], [ 0, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ 3, %34 ], [ 3, %43 ], [ 3, %46 ]
-  %.sroa.9.1 = phi i64 [ %66, %68 ], [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.sroa.9.4, %185 ], [ %66, %63 ], [ %.180, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread77 ], [ %66, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ %1, %34 ], [ %1, %43 ], [ %1, %46 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %46, %34, %43, %_ZN4intxltERKNS_4uintILj256EEES3_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread77, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %68, %63, %185
+  %.sroa.0.1 = phi i32 [ 0, %185 ], [ 3, %63 ], [ 0, %68 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread77 ], [ 0, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ 3, %43 ], [ 3, %34 ], [ 3, %46 ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.4, %185 ], [ %66, %63 ], [ %66, %68 ], [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.180, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread77 ], [ %66, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ %1, %43 ], [ %1, %34 ], [ %1, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5) #18
   br label %186
@@ -4549,9 +4549,9 @@ _ZN4evmc6ResultD2Ev.exit:                         ; preds = %192, %195
   call void @llvm.lifetime.end.p0(ptr nonnull %10) #18
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %47, %44, %35, %_ZN4intxltERKNS_4uintILj256EEES3_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread78, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN4evmc6ResultD2Ev.exit
-  %.sroa.022.1 = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread78 ], [ 0, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ 3, %35 ], [ 3, %44 ], [ 3, %47 ]
-  %.sroa.6.1 = phi i64 [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %173, %_ZN4evmc6ResultD2Ev.exit ], [ %.181, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread78 ], [ %.181, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ %1, %35 ], [ %1, %44 ], [ %1, %47 ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %47, %35, %44, %_ZN4intxltERKNS_4uintILj256EEES3_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread78, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN4evmc6ResultD2Ev.exit
+  %.sroa.022.1 = phi i32 [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread78 ], [ 0, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ 3, %44 ], [ 3, %35 ], [ 3, %47 ]
+  %.sroa.6.1 = phi i64 [ %173, %_ZN4evmc6ResultD2Ev.exit ], [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.181, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread78 ], [ %.181, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ %1, %44 ], [ %1, %35 ], [ %1, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6) #18
   br label %196
@@ -4951,9 +4951,9 @@ _ZN4evmc6ResultD2Ev.exit:                         ; preds = %198, %201
   call void @llvm.lifetime.end.p0(ptr nonnull %11) #18
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %._crit_edge, %120, %60, %57, %48, %_ZN4evmc6ResultD2Ev.exit, %129, %_ZN4intxltERKNS_4uintILj256EEES3_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread89, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
-  %.sroa.024.1 = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ 0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread89 ], [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 3, %60 ], [ 0, %129 ], [ 3, %48 ], [ 3, %57 ], [ 0, %120 ], [ 0, %._crit_edge ]
-  %.sroa.8.1 = phi i64 [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.192, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ %.192, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread89 ], [ %179, %_ZN4evmc6ResultD2Ev.exit ], [ %1, %60 ], [ %.192, %129 ], [ %1, %48 ], [ %1, %57 ], [ %.192, %120 ], [ %.192, %._crit_edge ]
+_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %._crit_edge, %120, %60, %48, %57, %_ZN4evmc6ResultD2Ev.exit, %129, %_ZN4intxltERKNS_4uintILj256EEES3_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread89, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
+  %.sroa.024.1 = phi i32 [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread89 ], [ 0, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ 0, %129 ], [ 0, %_ZN4evmc6ResultD2Ev.exit ], [ 3, %57 ], [ 3, %48 ], [ 3, %60 ], [ 0, %120 ], [ 0, %._crit_edge ]
+  %.sroa.8.1 = phi i64 [ %.0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.192, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread89 ], [ %.192, %_ZN4intxltERKNS_4uintILj256EEES3_.exit ], [ %.192, %129 ], [ %179, %_ZN4evmc6ResultD2Ev.exit ], [ %1, %57 ], [ %1, %48 ], [ %1, %60 ], [ %.192, %120 ], [ %.192, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6) #18

@@ -183,8 +183,8 @@ _ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit: ; preds = %61
   store i64 %80, ptr %6, align 8, !tbaa !13
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %49, %34, %38, %61, %19, %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit, %27, %25, %79
-  %.1 = phi i1 [ false, %25 ], [ false, %27 ], [ true, %79 ], [ false, %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit ], [ false, %19 ], [ false, %61 ], [ false, %38 ], [ false, %34 ], [ false, %49 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %38, %61, %49, %34, %19, %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit, %27, %25, %79
+  %.1 = phi i1 [ true, %79 ], [ false, %25 ], [ false, %27 ], [ false, %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit ], [ false, %19 ], [ false, %34 ], [ false, %49 ], [ false, %61 ], [ false, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 

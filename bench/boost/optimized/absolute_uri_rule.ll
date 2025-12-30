@@ -229,7 +229,7 @@ _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5erro
   br label %49
 
 49:                                               ; preds = %48, %.thread74, %47
-  %50 = phi ptr [ inttoptr (i64 208 to ptr), %48 ], [ %.sroa.gep2175, %.thread74 ], [ %.sroa.gep2178, %47 ]
+  %50 = phi ptr [ %.sroa.gep2175, %.thread74 ], [ %.sroa.gep2178, %47 ], [ inttoptr (i64 208 to ptr), %48 ]
   %51 = load i64, ptr %50, align 8, !tbaa !52
   call void @_ZN5boost4urls6detail8url_impl10apply_pathENS0_15pct_string_viewEm(ptr noundef nonnull align 8 dereferenceable(171) %8, ptr noundef nonnull byval(%"class.boost::urls::pct_string_view") align 8 %12, i64 noundef %51) #6
   %.pre66 = load i32, ptr %35, align 8, !tbaa !37

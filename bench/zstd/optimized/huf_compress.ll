@@ -136,8 +136,8 @@ define range(i64 -119, 128) i64 @HUF_writeCTable_wksp(ptr noundef %0, i64 nounde
   %69 = icmp ult i64 %68, -119
   br i1 %69, label %HUF_compressWeights.exit, label %HUF_compressWeights.exit.thread
 
-HUF_compressWeights.exit.thread:                  ; preds = %35, %67, %62, %57, %50
-  %.0.i59.ph = phi i64 [ %55, %50 ], [ %59, %57 ], [ %65, %62 ], [ %68, %67 ], [ -1, %35 ]
+HUF_compressWeights.exit.thread:                  ; preds = %62, %57, %50, %35, %67
+  %.0.i59.ph = phi i64 [ %68, %67 ], [ -1, %35 ], [ %55, %50 ], [ %59, %57 ], [ %65, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread70
 
@@ -203,8 +203,8 @@ HUF_compressWeights.exit:                         ; preds = %67
   %103 = icmp samesign ult i64 %indvars.iv.next87, %39
   br i1 %103, label %.lr.ph78, label %.thread70, !llvm.loop !13
 
-.thread70:                                        ; preds = %.lr.ph78, %90, %HUF_compressWeights.exit.thread, %79, %HUF_compressWeights.exit, %84, %82, %._crit_edge, %15, %7
-  %.0 = phi i64 [ %71, %HUF_compressWeights.exit ], [ -1, %7 ], [ -46, %15 ], [ -70, %._crit_edge ], [ -1, %82 ], [ -70, %84 ], [ %.0.i59.ph, %HUF_compressWeights.exit.thread ], [ %81, %79 ], [ %88, %90 ], [ %88, %.lr.ph78 ]
+.thread70:                                        ; preds = %.lr.ph78, %90, %HUF_compressWeights.exit.thread, %HUF_compressWeights.exit, %79, %84, %82, %._crit_edge, %15, %7
+  %.0 = phi i64 [ -1, %7 ], [ -46, %15 ], [ -70, %._crit_edge ], [ -1, %82 ], [ -70, %84 ], [ %.0.i59.ph, %HUF_compressWeights.exit.thread ], [ %71, %HUF_compressWeights.exit ], [ %81, %79 ], [ %88, %90 ], [ %88, %.lr.ph78 ]
   ret i64 %.0
 }
 
@@ -853,7 +853,7 @@ select.unfold.i:                                  ; preds = %203, %.lr.ph122.i
   br i1 %213, label %.lr.ph129.i.preheader, label %.critedge.i
 
 .lr.ph129.i.preheader:                            ; preds = %select.unfold.i, %.thread.i, %.lr.ph134.i
-  %indvars.iv163.i.ph = phi i64 [ %indvars.iv160.i, %.thread.i ], [ 1, %.lr.ph134.i ], [ 1, %select.unfold.i ]
+  %indvars.iv163.i.ph = phi i64 [ 1, %.lr.ph134.i ], [ %indvars.iv160.i, %.thread.i ], [ 1, %select.unfold.i ]
   br label %.lr.ph129.i
 
 .lr.ph129.i:                                      ; preds = %.lr.ph129.i.preheader, %217
@@ -2601,9 +2601,9 @@ HUF_flushBits.exit66.i:                           ; preds = %109
   br i1 %873, label %.preheader583.i, label %HUF_compress1X_usingCTable_internal_body_loop.exit.i, !llvm.loop !56
 
 HUF_compress1X_usingCTable_internal_body_loop.exit.i: ; preds = %729, %607, %485, %364, %244, %849, %HUF_flushBits.exit66.i, %810, %689, %567, %445, %325, %204, %HUF_flushBits.exit68.i
-  %.sroa.264.0.i = phi i64 [ %871, %849 ], [ %267, %244 ], [ %386, %364 ], [ %508, %485 ], [ %630, %607 ], [ %143, %HUF_flushBits.exit66.i ], [ %.sroa.264.3.i, %HUF_flushBits.exit68.i ], [ %.sroa.264.9.i, %810 ], [ %.sroa.264.15.i, %204 ], [ %.sroa.264.21.i, %325 ], [ %.sroa.264.27.i, %445 ], [ %.sroa.264.33.i, %567 ], [ %.sroa.264.39.i, %689 ], [ %752, %729 ]
-  %.sroa.458.0.i = phi ptr [ %872, %849 ], [ %268, %244 ], [ %387, %364 ], [ %509, %485 ], [ %631, %607 ], [ %spec.select580.i, %HUF_flushBits.exit66.i ], [ %.sroa.458.2.i, %HUF_flushBits.exit68.i ], [ %.sroa.458.5.i, %810 ], [ %.sroa.458.8.i, %204 ], [ %.sroa.458.11.i, %325 ], [ %.sroa.458.14.i, %445 ], [ %.sroa.458.17.i, %567 ], [ %.sroa.458.20.i, %689 ], [ %753, %729 ]
-  %.sroa.0.0.i = phi i64 [ %865, %849 ], [ %261, %244 ], [ %380, %364 ], [ %502, %485 ], [ %624, %607 ], [ %137, %HUF_flushBits.exit66.i ], [ %.sroa.0.3.i, %HUF_flushBits.exit68.i ], [ %.sroa.0.9.i, %810 ], [ %.sroa.0.15.i, %204 ], [ %.sroa.0.21.i, %325 ], [ %.sroa.0.27.i, %445 ], [ %.sroa.0.33.i, %567 ], [ %.sroa.0.39.i, %689 ], [ %746, %729 ]
+  %.sroa.264.0.i = phi i64 [ %.sroa.264.3.i, %HUF_flushBits.exit68.i ], [ %.sroa.264.9.i, %810 ], [ %.sroa.264.15.i, %204 ], [ %.sroa.264.21.i, %325 ], [ %.sroa.264.27.i, %445 ], [ %.sroa.264.33.i, %567 ], [ %.sroa.264.39.i, %689 ], [ %143, %HUF_flushBits.exit66.i ], [ %871, %849 ], [ %267, %244 ], [ %386, %364 ], [ %508, %485 ], [ %630, %607 ], [ %752, %729 ]
+  %.sroa.458.0.i = phi ptr [ %.sroa.458.2.i, %HUF_flushBits.exit68.i ], [ %.sroa.458.5.i, %810 ], [ %.sroa.458.8.i, %204 ], [ %.sroa.458.11.i, %325 ], [ %.sroa.458.14.i, %445 ], [ %.sroa.458.17.i, %567 ], [ %.sroa.458.20.i, %689 ], [ %spec.select580.i, %HUF_flushBits.exit66.i ], [ %872, %849 ], [ %268, %244 ], [ %387, %364 ], [ %509, %485 ], [ %631, %607 ], [ %753, %729 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.3.i, %HUF_flushBits.exit68.i ], [ %.sroa.0.9.i, %810 ], [ %.sroa.0.15.i, %204 ], [ %.sroa.0.21.i, %325 ], [ %.sroa.0.27.i, %445 ], [ %.sroa.0.33.i, %567 ], [ %.sroa.0.39.i, %689 ], [ %137, %HUF_flushBits.exit66.i ], [ %865, %849 ], [ %261, %244 ], [ %380, %364 ], [ %502, %485 ], [ %624, %607 ], [ %746, %729 ]
   %874 = lshr i64 %.sroa.0.0.i, 1
   %875 = or disjoint i64 %874, -9223372036854775808
   %876 = add nuw nsw i64 %.sroa.264.0.i, -9223372036854775807
@@ -2721,7 +2721,7 @@ define internal fastcc i64 @HUF_compress4X_usingCTable_internal(ptr noundef %0, 
   br label %.thread
 
 .thread:                                          ; preds = %46, %37, %35, %27, %25, %19, %17, %11, %6, %48
-  %.0 = phi i64 [ %15, %11 ], [ 0, %6 ], [ %52, %48 ], [ %33, %27 ], [ %23, %19 ], [ 0, %17 ], [ 0, %25 ], [ 0, %35 ], [ 0, %46 ], [ %44, %37 ]
+  %.0 = phi i64 [ %52, %48 ], [ 0, %6 ], [ 0, %17 ], [ %15, %11 ], [ 0, %25 ], [ %23, %19 ], [ 0, %35 ], [ %33, %27 ], [ 0, %46 ], [ %44, %37 ]
   ret i64 %.0
 }
 
@@ -3164,8 +3164,8 @@ HUF_estimateCompressedSize.exit194.thread:        ; preds = %90, %HUF_estimateCo
   %121 = call fastcc i64 @HUF_compressCTable_internal(ptr noundef %0, ptr noundef %118, ptr noundef nonnull %20, ptr noundef %2, i64 noundef %3, i32 noundef %6, ptr noundef nonnull %77, i32 noundef %11)
   br label %.thread
 
-.thread:                                          ; preds = %.thread209, %.thread206, %82, %HUF_estimateCompressedSize.exit194.thread, %60, %54, %27, %25, %23, %22, %12, %45, %.thread198, %62, %120, %.thread235, %39
-  %.0 = phi i64 [ -66, %12 ], [ -46, %27 ], [ -72, %23 ], [ -44, %25 ], [ %40, %39 ], [ %75, %.thread235 ], [ %121, %120 ], [ %56, %54 ], [ %80, %.thread198 ], [ 0, %62 ], [ 0, %45 ], [ 0, %22 ], [ 1, %60 ], [ 0, %.thread209 ], [ 0, %.thread206 ], [ %85, %82 ], [ %115, %HUF_estimateCompressedSize.exit194.thread ]
+.thread:                                          ; preds = %.thread209, %.thread206, %82, %HUF_estimateCompressedSize.exit194.thread, %54, %60, %27, %25, %23, %22, %12, %45, %.thread198, %62, %120, %.thread235, %39
+  %.0 = phi i64 [ %40, %39 ], [ %75, %.thread235 ], [ %121, %120 ], [ %80, %.thread198 ], [ 0, %62 ], [ 0, %45 ], [ -66, %12 ], [ 0, %22 ], [ -72, %23 ], [ -44, %25 ], [ -46, %27 ], [ %56, %54 ], [ 1, %60 ], [ 0, %.thread209 ], [ 0, %.thread206 ], [ %85, %82 ], [ %115, %HUF_estimateCompressedSize.exit194.thread ]
   ret i64 %.0
 }
 
@@ -4728,9 +4728,9 @@ HUF_flushBits.exit66:                             ; preds = %104
   br i1 %868, label %.preheader583, label %HUF_compress1X_usingCTable_internal_body_loop.exit, !llvm.loop !56
 
 HUF_compress1X_usingCTable_internal_body_loop.exit: ; preds = %724, %602, %480, %359, %239, %844, %HUF_flushBits.exit66, %684, %562, %440, %320, %199, %805, %HUF_flushBits.exit68
-  %.sroa.264.0 = phi i64 [ %866, %844 ], [ %262, %239 ], [ %381, %359 ], [ %503, %480 ], [ %625, %602 ], [ %138, %HUF_flushBits.exit66 ], [ %.sroa.264.3, %HUF_flushBits.exit68 ], [ %.sroa.264.9, %805 ], [ %.sroa.264.15, %199 ], [ %.sroa.264.21, %320 ], [ %.sroa.264.27, %440 ], [ %.sroa.264.33, %562 ], [ %.sroa.264.39, %684 ], [ %747, %724 ]
-  %.sroa.458.0 = phi ptr [ %867, %844 ], [ %263, %239 ], [ %382, %359 ], [ %504, %480 ], [ %626, %602 ], [ %spec.select580, %HUF_flushBits.exit66 ], [ %.sroa.458.2, %HUF_flushBits.exit68 ], [ %.sroa.458.5, %805 ], [ %.sroa.458.8, %199 ], [ %.sroa.458.11, %320 ], [ %.sroa.458.14, %440 ], [ %.sroa.458.17, %562 ], [ %.sroa.458.20, %684 ], [ %748, %724 ]
-  %.sroa.0.0 = phi i64 [ %860, %844 ], [ %256, %239 ], [ %375, %359 ], [ %497, %480 ], [ %619, %602 ], [ %132, %HUF_flushBits.exit66 ], [ %.sroa.0.3, %HUF_flushBits.exit68 ], [ %.sroa.0.9, %805 ], [ %.sroa.0.15, %199 ], [ %.sroa.0.21, %320 ], [ %.sroa.0.27, %440 ], [ %.sroa.0.33, %562 ], [ %.sroa.0.39, %684 ], [ %741, %724 ]
+  %.sroa.264.0 = phi i64 [ %.sroa.264.3, %HUF_flushBits.exit68 ], [ %.sroa.264.9, %805 ], [ %.sroa.264.15, %199 ], [ %.sroa.264.21, %320 ], [ %.sroa.264.27, %440 ], [ %.sroa.264.33, %562 ], [ %.sroa.264.39, %684 ], [ %138, %HUF_flushBits.exit66 ], [ %866, %844 ], [ %262, %239 ], [ %381, %359 ], [ %503, %480 ], [ %625, %602 ], [ %747, %724 ]
+  %.sroa.458.0 = phi ptr [ %.sroa.458.2, %HUF_flushBits.exit68 ], [ %.sroa.458.5, %805 ], [ %.sroa.458.8, %199 ], [ %.sroa.458.11, %320 ], [ %.sroa.458.14, %440 ], [ %.sroa.458.17, %562 ], [ %.sroa.458.20, %684 ], [ %spec.select580, %HUF_flushBits.exit66 ], [ %867, %844 ], [ %263, %239 ], [ %382, %359 ], [ %504, %480 ], [ %626, %602 ], [ %748, %724 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.3, %HUF_flushBits.exit68 ], [ %.sroa.0.9, %805 ], [ %.sroa.0.15, %199 ], [ %.sroa.0.21, %320 ], [ %.sroa.0.27, %440 ], [ %.sroa.0.33, %562 ], [ %.sroa.0.39, %684 ], [ %132, %HUF_flushBits.exit66 ], [ %860, %844 ], [ %256, %239 ], [ %375, %359 ], [ %497, %480 ], [ %619, %602 ], [ %741, %724 ]
   %869 = lshr i64 %.sroa.0.0, 1
   %870 = or disjoint i64 %869, -9223372036854775808
   %871 = add nuw nsw i64 %.sroa.264.0, -9223372036854775807
@@ -4799,7 +4799,7 @@ define internal fastcc i64 @HUF_compressCTable_internal(ptr noundef %0, ptr noun
   br label %28
 
 28:                                               ; preds = %22, %20, %17
-  %.0 = phi i64 [ 0, %20 ], [ %18, %17 ], [ %., %22 ]
+  %.0 = phi i64 [ %18, %17 ], [ 0, %20 ], [ %., %22 ]
   ret i64 %.0
 }
 

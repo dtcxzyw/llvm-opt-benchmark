@@ -121,7 +121,7 @@ define range(i32 -22, 1) i32 @av_hash_alloc(ptr noundef writeonly captures(none)
   br label %.thread
 
 .thread:                                          ; preds = %7, %8, %28, %27
-  %.023 = phi i32 [ -12, %8 ], [ 0, %28 ], [ -12, %27 ], [ -22, %7 ]
+  %.023 = phi i32 [ 0, %28 ], [ -12, %27 ], [ -12, %8 ], [ -22, %7 ]
   ret i32 %.023
 }
 

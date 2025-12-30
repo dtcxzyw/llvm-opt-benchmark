@@ -125,7 +125,7 @@ ossl_pw_clear_passphrase_data.exit:               ; preds = %8, %11
   br label %30
 
 30:                                               ; preds = %24, %28, %7
-  %.0 = phi i32 [ 0, %7 ], [ 1, %28 ], [ 0, %24 ]
+  %.0 = phi i32 [ 1, %28 ], [ 0, %7 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -603,7 +603,7 @@ do_ui_passphrase.exit:                            ; preds = %51, %55, %92
   br label %122
 
 122:                                              ; preds = %.thread115, %44, %93, %94, %114, %.critedge.thread, %34, %21
-  %.0 = phi i32 [ 1, %21 ], [ 0, %.critedge.thread ], [ 0, %.thread115 ], [ 0, %44 ], [ 0, %34 ], [ %.078, %114 ], [ %.078, %94 ], [ 0, %93 ]
+  %.0 = phi i32 [ 1, %21 ], [ 0, %34 ], [ 0, %.critedge.thread ], [ 0, %44 ], [ %.078, %114 ], [ %.078, %94 ], [ 0, %93 ], [ 0, %.thread115 ]
   ret i32 %.0
 }
 

@@ -141,7 +141,7 @@ _ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit: ; preds = %28
   br label %_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit
 
 _ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit: ; preds = %15, %_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit, %35, %32, %37
-  %.0 = phi i64 [ -66, %35 ], [ %38, %37 ], [ -1, %32 ], [ 0, %15 ], [ %31, %_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit ]
+  %.0 = phi i64 [ %38, %37 ], [ -1, %32 ], [ -66, %35 ], [ 0, %15 ], [ %31, %_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit ]
   ret i64 %.0
 }
 
@@ -441,7 +441,7 @@ _ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i: ; preds = %34
   br label %_ZN11duckdb_zstd19HIST_countFast_wkspEPjS0_PKvmPvm.exit
 
 _ZN11duckdb_zstd19HIST_countFast_wkspEPjS0_PKvmPvm.exit: ; preds = %38, %_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i, %21, %9, %6, %14
-  %.0 = phi i64 [ -66, %9 ], [ -1, %6 ], [ %15, %14 ], [ 0, %21 ], [ %39, %38 ], [ %37, %_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i ]
+  %.0 = phi i64 [ %15, %14 ], [ -1, %6 ], [ -66, %9 ], [ %39, %38 ], [ 0, %21 ], [ %37, %_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i ]
   ret i64 %.0
 }
 
@@ -510,7 +510,7 @@ _ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i: ; preds = %27
   br label %_ZN11duckdb_zstd19HIST_countFast_wkspEPjS0_PKvmPvm.exit
 
 _ZN11duckdb_zstd19HIST_countFast_wkspEPjS0_PKvmPvm.exit: ; preds = %14, %_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i, %31
-  %.0.i = phi i64 [ %30, %_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i ], [ %32, %31 ], [ 0, %14 ]
+  %.0.i = phi i64 [ %32, %31 ], [ 0, %14 ], [ %30, %_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0.i
 }
@@ -586,7 +586,7 @@ _ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i.i: ; preds = %28
   br label %_ZN11duckdb_zstd15HIST_count_wkspEPjS0_PKvmPvm.exit
 
 _ZN11duckdb_zstd15HIST_count_wkspEPjS0_PKvmPvm.exit: ; preds = %8, %15, %_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i.i, %32
-  %.0.i = phi i64 [ %31, %_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i.i ], [ %33, %32 ], [ %9, %8 ], [ 0, %15 ]
+  %.0.i = phi i64 [ %9, %8 ], [ %33, %32 ], [ 0, %15 ], [ %31, %_ZN11duckdb_zstd17HIST_count_simpleEPjS0_PKvm.exit.loopexit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0.i
 }

@@ -635,11 +635,11 @@ stripsnug.exit.pluscount.exit_crit_edge:          ; preds = %seterr.exit13.i, %s
   br label %214
 
 214:                                              ; preds = %212, %.loopexit.i104, %198, %192, %192, %192
-  %.3.i = phi ptr [ %193, %192 ], [ %193, %198 ], [ %193, %192 ], [ %193, %192 ], [ %.147.i, %212 ], [ %.147.i, %.loopexit.i104 ]
-  %.245.i = phi ptr [ %.043.i, %192 ], [ %.043.i, %198 ], [ %.043.i, %192 ], [ %.043.i, %192 ], [ %.040.i, %212 ], [ %.043.i, %.loopexit.i104 ]
-  %.242.i = phi ptr [ %.040.i, %192 ], [ %spec.select.i, %198 ], [ %.040.i, %192 ], [ %.040.i, %192 ], [ %.040.i, %212 ], [ %.040.i, %.loopexit.i104 ]
-  %.139.i = phi i64 [ %.038.i, %192 ], [ %200, %198 ], [ %.038.i, %192 ], [ %.038.i, %192 ], [ 0, %212 ], [ 0, %.loopexit.i104 ]
-  %.2.i = phi i64 [ %194, %192 ], [ %194, %198 ], [ %194, %192 ], [ %194, %192 ], [ %.037.i, %212 ], [ %.037.i, %.loopexit.i104 ]
+  %.3.i = phi ptr [ %193, %198 ], [ %193, %192 ], [ %193, %192 ], [ %193, %192 ], [ %.147.i, %212 ], [ %.147.i, %.loopexit.i104 ]
+  %.245.i = phi ptr [ %.043.i, %198 ], [ %.043.i, %192 ], [ %.043.i, %192 ], [ %.043.i, %192 ], [ %.040.i, %212 ], [ %.043.i, %.loopexit.i104 ]
+  %.242.i = phi ptr [ %spec.select.i, %198 ], [ %.040.i, %192 ], [ %.040.i, %192 ], [ %.040.i, %192 ], [ %.040.i, %212 ], [ %.040.i, %.loopexit.i104 ]
+  %.139.i = phi i64 [ %200, %198 ], [ %.038.i, %192 ], [ %.038.i, %192 ], [ %.038.i, %192 ], [ 0, %212 ], [ 0, %.loopexit.i104 ]
+  %.2.i = phi i64 [ %194, %198 ], [ %194, %192 ], [ %194, %192 ], [ %194, %192 ], [ %.037.i, %212 ], [ %.037.i, %.loopexit.i104 ]
   %215 = and i64 %.2.i, 4160749568
   %.not54.i = icmp eq i64 %215, 134217728
   br i1 %.not54.i, label %216, label %192, !llvm.loop !48
@@ -734,10 +734,10 @@ findmust.exit:                                    ; preds = %findmust.exit.prehe
   br label %pluscount.exit
 
 pluscount.exit:                                   ; preds = %stripsnug.exit.pluscount.exit_crit_edge, %242, %243
-  %.not.i103162 = phi i1 [ false, %stripsnug.exit.pluscount.exit_crit_edge ], [ true, %243 ], [ true, %242 ]
-  %.val90160 = phi i32 [ 1, %stripsnug.exit.pluscount.exit_crit_edge ], [ %.val90.pre, %243 ], [ %.val90.pre, %242 ]
-  %245 = phi i32 [ %.pre134, %stripsnug.exit.pluscount.exit_crit_edge ], [ %244, %243 ], [ %.pre135, %242 ]
-  %.015.i = phi i64 [ 0, %stripsnug.exit.pluscount.exit_crit_edge ], [ %.2.i109, %243 ], [ %.2.i109, %242 ]
+  %.not.i103162 = phi i1 [ true, %243 ], [ true, %242 ], [ false, %stripsnug.exit.pluscount.exit_crit_edge ]
+  %.val90160 = phi i32 [ %.val90.pre, %243 ], [ %.val90.pre, %242 ], [ 1, %stripsnug.exit.pluscount.exit_crit_edge ]
+  %245 = phi i32 [ %244, %243 ], [ %.pre135, %242 ], [ %.pre134, %stripsnug.exit.pluscount.exit_crit_edge ]
+  %.015.i = phi i64 [ %.2.i109, %243 ], [ %.2.i109, %242 ], [ 0, %stripsnug.exit.pluscount.exit_crit_edge ]
   %246 = getelementptr inbounds nuw i8, ptr %22, i64 128
   store i64 %.015.i, ptr %246, align 8, !tbaa !52
   store i32 53829, ptr %22, align 8, !tbaa !53
@@ -773,7 +773,7 @@ pluscount.exit:                                   ; preds = %stripsnug.exit.plus
   br label %255
 
 255:                                              ; preds = %253, %254, %21, %11, %3, %33
-  %.081 = phi i32 [ 12, %21 ], [ 16, %3 ], [ 16, %11 ], [ 12, %33 ], [ %.pre136, %254 ], [ 0, %253 ]
+  %.081 = phi i32 [ 12, %33 ], [ 16, %3 ], [ 16, %11 ], [ 12, %21 ], [ %.pre136, %254 ], [ 0, %253 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.081
 }
@@ -1641,7 +1641,7 @@ seterr.exit132:                                   ; preds = %351, %354
   br label %doemit.exit159
 
 doemit.exit159:                                   ; preds = %enlarge.exit.i156, %206, %355, %338, %doemit.exit139, %seterr.exit151, %230, %205, %seterr.exit160, %seterr.exit161, %doemit.exit168, %doemit.exit175, %seterr.exit176, %seterr.exit177, %118
-  %.not186.i = phi i1 [ true, %355 ], [ true, %118 ], [ true, %seterr.exit177 ], [ true, %seterr.exit176 ], [ false, %doemit.exit175 ], [ true, %doemit.exit168 ], [ true, %seterr.exit161 ], [ true, %seterr.exit160 ], [ true, %205 ], [ true, %338 ], [ true, %230 ], [ true, %seterr.exit151 ], [ true, %doemit.exit139 ], [ true, %206 ], [ true, %enlarge.exit.i156 ]
+  %.not186.i = phi i1 [ true, %355 ], [ true, %118 ], [ true, %seterr.exit177 ], [ true, %seterr.exit176 ], [ false, %doemit.exit175 ], [ true, %doemit.exit168 ], [ true, %seterr.exit161 ], [ true, %seterr.exit160 ], [ true, %205 ], [ true, %230 ], [ true, %seterr.exit151 ], [ true, %doemit.exit139 ], [ true, %338 ], [ true, %206 ], [ true, %enlarge.exit.i156 ]
   %356 = load ptr, ptr %4, align 8, !tbaa !18
   %357 = load ptr, ptr %0, align 8, !tbaa !17
   %358 = ptrtoint ptr %356 to i64
@@ -2050,8 +2050,8 @@ doemit.exit100.thread:                            ; preds = %504, %514
   store i64 2281701376, ptr %530, align 8, !tbaa !34
   br label %538
 
-doemit.exit100.thread301:                         ; preds = %seterr.exit12.i.i98, %seterr.exit.i.i99
-  %.ph300 = phi ptr [ %505, %seterr.exit.i.i99 ], [ %.pre219, %seterr.exit12.i.i98 ]
+doemit.exit100.thread301:                         ; preds = %seterr.exit.i.i99, %seterr.exit12.i.i98
+  %.ph300 = phi ptr [ %.pre219, %seterr.exit12.i.i98 ], [ %505, %seterr.exit.i.i99 ]
   %531 = load i64, ptr %3, align 8, !tbaa !33
   %532 = add nsw i64 %531, 1
   store i64 %532, ptr %3, align 8, !tbaa !33
@@ -3813,7 +3813,7 @@ seterr.exit41:                                    ; preds = %487, %490
   br label %491
 
 491:                                              ; preds = %seterr.exit41, %p_count.exit, %455, %450, %447, %p_count.exit56
-  %.0117.i = phi i32 [ %.013.lcssa.ph.i, %p_count.exit ], [ %.013.lcssa.ph.i, %seterr.exit41 ], [ 256, %450 ], [ 256, %455 ], [ %.013.lcssa24.i47, %p_count.exit56 ], [ %.013.lcssa24.i47, %447 ]
+  %.0117.i = phi i32 [ %.013.lcssa.ph.i, %p_count.exit ], [ %.013.lcssa.ph.i, %seterr.exit41 ], [ 256, %455 ], [ 256, %450 ], [ %.013.lcssa24.i47, %p_count.exit56 ], [ %.013.lcssa24.i47, %447 ]
   tail call fastcc void @repeat(ptr noundef nonnull %0, i64 noundef %76, i32 noundef %.013.lcssa24.i47, i32 noundef %.0117.i)
   %492 = load ptr, ptr %6, align 8, !tbaa !18
   %493 = load ptr, ptr %0, align 8, !tbaa !17
@@ -4656,7 +4656,7 @@ seterr.exit83.i:                                  ; preds = %218, %215
   br label %.critedge.i.i, !llvm.loop !73
 
 .critedge.i.i:                                    ; preds = %233, %..critedge.i.loopexit_crit_edge104.i, %.lr.ph.i.i, %219
-  %.lcssa.i.i = phi i64 [ %223, %219 ], [ %223, %.lr.ph.i.i ], [ %222, %..critedge.i.loopexit_crit_edge104.i ], [ %241, %233 ]
+  %.lcssa.i.i = phi i64 [ %223, %219 ], [ %222, %..critedge.i.loopexit_crit_edge104.i ], [ %223, %.lr.ph.i.i ], [ %241, %233 ]
   %244 = sub i64 %.lcssa.i.i, %223
   br label %245
 
@@ -5121,7 +5121,7 @@ seterr.exit91.i:                                  ; preds = %432, %429
   br label %p_b_term.exit
 
 .lr.ph108.i:                                      ; preds = %457, %443, %440, %.thread93.i
-  %.in124.i = phi i8 [ %433, %.thread93.i ], [ %433, %443 ], [ %433, %440 ], [ %.076.i, %457 ]
+  %.in124.i = phi i8 [ %433, %443 ], [ %433, %440 ], [ %433, %.thread93.i ], [ %.076.i, %457 ]
   %462 = sext i8 %.in124.i to i32
   %463 = sext i8 %433 to i32
   br label %464
@@ -5175,8 +5175,8 @@ p_b_term.exit:                                    ; preds = %p_b_term.exit.loope
   br label %.critedge
 
 .critedge:                                        ; preds = %p_b_term.exit, %184, %.thread290, %482
-  %491 = phi ptr [ %.pre231, %482 ], [ %177, %.thread290 ], [ %476, %p_b_term.exit ], [ %187, %184 ]
-  %492 = phi ptr [ %.pre230, %482 ], [ %176, %.thread290 ], [ %477, %p_b_term.exit ], [ %188, %184 ]
+  %491 = phi ptr [ %177, %.thread290 ], [ %.pre231, %482 ], [ %476, %p_b_term.exit ], [ %187, %184 ]
+  %492 = phi ptr [ %176, %.thread290 ], [ %.pre230, %482 ], [ %477, %p_b_term.exit ], [ %188, %184 ]
   %493 = ptrtoint ptr %492 to i64
   %494 = ptrtoint ptr %491 to i64
   %495 = sub i64 %493, %494
@@ -5795,8 +5795,8 @@ nch.exit.thread.thread:                           ; preds = %nch.exit
   br label %freezeset.exit
 
 freezeset.exit:                                   ; preds = %774, %785, %nch.exit.thread.thread, %nch.exit.thread, %._crit_edge.i.i161, %802
-  %806 = phi ptr [ %.pre.i162, %802 ], [ %.pre.i162, %._crit_edge.i.i161 ], [ %.val, %nch.exit.thread.thread ], [ %.val, %nch.exit.thread ], [ %.val, %785 ], [ %.val, %774 ]
-  %.0.i158 = phi ptr [ %.us-phi.i, %802 ], [ %.us-phi.i, %._crit_edge.i.i161 ], [ %144, %nch.exit.thread.thread ], [ %144, %nch.exit.thread ], [ %144, %785 ], [ %144, %774 ]
+  %806 = phi ptr [ %.pre.i162, %._crit_edge.i.i161 ], [ %.pre.i162, %802 ], [ %.val, %nch.exit.thread ], [ %.val, %nch.exit.thread.thread ], [ %.val, %785 ], [ %.val, %774 ]
+  %.0.i158 = phi ptr [ %.us-phi.i, %._crit_edge.i.i161 ], [ %.us-phi.i, %802 ], [ %144, %nch.exit.thread ], [ %144, %nch.exit.thread.thread ], [ %144, %785 ], [ %144, %774 ]
   %807 = getelementptr inbounds nuw i8, ptr %806, i64 24
   %808 = load ptr, ptr %807, align 8, !tbaa !67
   %809 = ptrtoint ptr %.0.i158 to i64
@@ -6248,8 +6248,8 @@ doemit.exit86.thread:                             ; preds = %60, %70
   store i64 2281701376, ptr %86, align 8, !tbaa !34
   br label %94
 
-doemit.exit86.thread294:                          ; preds = %seterr.exit12.i.i84, %seterr.exit.i.i85
-  %.ph = phi ptr [ %61, %seterr.exit.i.i85 ], [ %.pre247, %seterr.exit12.i.i84 ]
+doemit.exit86.thread294:                          ; preds = %seterr.exit.i.i85, %seterr.exit12.i.i84
+  %.ph = phi ptr [ %.pre247, %seterr.exit12.i.i84 ], [ %61, %seterr.exit.i.i85 ]
   %87 = load i64, ptr %5, align 8, !tbaa !33
   %88 = add nsw i64 %87, 1
   store i64 %88, ptr %5, align 8, !tbaa !33
@@ -6535,7 +6535,7 @@ seterr.exit12.i.i118:                             ; preds = %203, %200
   store i64 %193, ptr %8, align 8, !tbaa !12
   br label %doemit.exit120.sink.split
 
-doemit.exit120.sink.split:                        ; preds = %181, %190, %seterr.exit.i.i119, %seterr.exit12.i.i118, %204, %seterr.exit.i.i110, %seterr.exit12.i.i109
+doemit.exit120.sink.split:                        ; preds = %181, %190, %seterr.exit.i.i119, %seterr.exit12.i.i118, %204, %seterr.exit12.i.i109, %seterr.exit.i.i110
   %.ph300.sink = phi ptr [ %.pre238, %seterr.exit12.i.i109 ], [ %148, %seterr.exit.i.i110 ], [ %198, %204 ], [ %.pre241, %seterr.exit12.i.i118 ], [ %182, %seterr.exit.i.i119 ], [ %182, %190 ], [ %182, %181 ]
   %.sink = phi i64 [ 2281701376, %seterr.exit12.i.i109 ], [ 2281701376, %seterr.exit.i.i110 ], [ 2415919106, %204 ], [ 2415919106, %seterr.exit12.i.i118 ], [ 2415919106, %seterr.exit.i.i119 ], [ 2415919106, %190 ], [ 2415919106, %181 ]
   %205 = load i64, ptr %5, align 8, !tbaa !33

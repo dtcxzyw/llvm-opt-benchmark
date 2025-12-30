@@ -617,7 +617,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   br label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i
 
 _ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i: ; preds = %44, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %46, %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker12isNonNullPtrERKN5clang4ento9CallEventE.exit.i, %33, %29, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
-  %.sroa.07.1.i = phi ptr [ %11, %46 ], [ %11, %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker12isNonNullPtrERKN5clang4ento9CallEventE.exit.i ], [ %11, %33 ], [ %56, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ], [ %11, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i ], [ %11, %29 ], [ %11, %44 ]
+  %.sroa.07.1.i = phi ptr [ %11, %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker12isNonNullPtrERKN5clang4ento9CallEventE.exit.i ], [ %56, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ], [ %11, %46 ], [ %11, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i ], [ %11, %29 ], [ %11, %33 ], [ %11, %44 ]
   %.not.i.i10.i = icmp eq ptr %.sroa.07.1.i, null
   br i1 %.not.i.i10.i, label %57, label %.thread.i.i
 

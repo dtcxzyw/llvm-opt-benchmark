@@ -1653,7 +1653,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32
   ret void
 
 .body:                                            ; preds = %53, %169, %43, %293, %229, %111, %362, %272, %208, %146, %87
-  %.pn = phi { ptr, i32 } [ %363, %362 ], [ %88, %87 ], [ %273, %272 ], [ %209, %208 ], [ %147, %146 ], [ %54, %53 ], [ %112, %111 ], [ %170, %169 ], [ %230, %229 ], [ %44, %43 ], [ %294, %293 ]
+  %.pn = phi { ptr, i32 } [ %363, %362 ], [ %273, %272 ], [ %209, %208 ], [ %147, %146 ], [ %88, %87 ], [ %54, %53 ], [ %112, %111 ], [ %170, %169 ], [ %230, %229 ], [ %44, %43 ], [ %294, %293 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #18
   br label %387
 

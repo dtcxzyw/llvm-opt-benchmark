@@ -443,7 +443,7 @@ define hidden noalias noundef ptr @_ZN2TH14THDiskFile_newERKNSt7__cxx1112basic_s
   store i32 1, ptr %4, align 4, !tbaa !19
   br label %34
 
-24:                                               ; preds = %13, %19, %16, %3
+24:                                               ; preds = %3, %13, %19, %16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %7)
@@ -1111,7 +1111,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %29,
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph
-  %.1.lcssa = phi i64 [ %.169, %.lr.ph ], [ %2, %53 ]
+  %.1.lcssa = phi i64 [ %2, %53 ], [ %.169, %.lr.ph ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load i32, ptr %55, align 8, !tbaa !26
   %.not81 = icmp eq i32 %56, 0
@@ -1131,7 +1131,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %29,
   br label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
 
 _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %.preheader.us.i, %.preheader, %._crit_edge, %57, %57, %60, %38
-  %.0 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %39, %38 ], [ %.1.lcssa, %60 ], [ %.1.lcssa, %57 ], [ %.1.lcssa, %57 ], [ 0, %.preheader ], [ %39, %.preheader.us.i ]
+  %.0 = phi i64 [ %39, %38 ], [ %.1.lcssa, %60 ], [ %.1.lcssa, %57 ], [ %.1.lcssa, %57 ], [ %.1.lcssa, %._crit_edge ], [ 0, %.preheader ], [ %39, %.preheader.us.i ]
   %.not58 = icmp eq i64 %.0, %2
   br i1 %.not58, label %74, label %63
 
@@ -1323,7 +1323,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %29,
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %57, %.lr.ph
-  %.1.lcssa = phi i64 [ %.169, %.lr.ph ], [ %2, %57 ]
+  %.1.lcssa = phi i64 [ %2, %57 ], [ %.169, %.lr.ph ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = load i32, ptr %59, align 8, !tbaa !26
   %.not82 = icmp eq i32 %60, 0
@@ -1343,7 +1343,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %29,
   br label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
 
 _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %._crit_edge.us.i, %.preheader, %._crit_edge, %61, %61, %64, %38
-  %.0 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %39, %38 ], [ %.1.lcssa, %64 ], [ %.1.lcssa, %61 ], [ %.1.lcssa, %61 ], [ 0, %.preheader ], [ %39, %._crit_edge.us.i ]
+  %.0 = phi i64 [ %39, %38 ], [ %.1.lcssa, %64 ], [ %.1.lcssa, %61 ], [ %.1.lcssa, %61 ], [ %.1.lcssa, %._crit_edge ], [ 0, %.preheader ], [ %39, %._crit_edge.us.i ]
   %.not58 = icmp eq i64 %.0, %2
   br i1 %.not58, label %78, label %67
 
@@ -1701,7 +1701,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %84
   br label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
 
 _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %.lr.ph, %._crit_edge.us.i, %._crit_edge.us.i131, %.preheader, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit121, %.loopexit, %120, %120, %123, %._crit_edge, %43
-  %.0 = phi i64 [ %.1143, %.loopexit ], [ %44, %43 ], [ %90, %._crit_edge ], [ %59, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit121 ], [ %90, %._crit_edge.us.i131 ], [ %.1143, %123 ], [ %.1143, %120 ], [ %.1143, %120 ], [ 0, %.preheader ], [ %44, %._crit_edge.us.i ], [ %59, %.lr.ph ]
+  %.0 = phi i64 [ %44, %43 ], [ %90, %._crit_edge ], [ %.1143, %123 ], [ %.1143, %120 ], [ %.1143, %120 ], [ %.1143, %.loopexit ], [ %59, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit121 ], [ 0, %.preheader ], [ %90, %._crit_edge.us.i131 ], [ %44, %._crit_edge.us.i ], [ %59, %.lr.ph ]
   %.not106 = icmp eq i64 %.0, %2
   br i1 %.not106, label %137, label %126
 
@@ -1893,7 +1893,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %29,
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %57, %.lr.ph
-  %.1.lcssa = phi i64 [ %.169, %.lr.ph ], [ %2, %57 ]
+  %.1.lcssa = phi i64 [ %2, %57 ], [ %.169, %.lr.ph ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = load i32, ptr %59, align 8, !tbaa !26
   %.not82 = icmp eq i32 %60, 0
@@ -1913,7 +1913,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %29,
   br label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
 
 _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %._crit_edge.us.i, %.preheader, %._crit_edge, %61, %61, %64, %38
-  %.0 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %39, %38 ], [ %.1.lcssa, %64 ], [ %.1.lcssa, %61 ], [ %.1.lcssa, %61 ], [ 0, %.preheader ], [ %39, %._crit_edge.us.i ]
+  %.0 = phi i64 [ %39, %38 ], [ %.1.lcssa, %64 ], [ %.1.lcssa, %61 ], [ %.1.lcssa, %61 ], [ %.1.lcssa, %._crit_edge ], [ 0, %.preheader ], [ %39, %._crit_edge.us.i ]
   %.not58 = icmp eq i64 %.0, %2
   br i1 %.not58, label %78, label %67
 
@@ -2105,7 +2105,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %29,
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %57, %.lr.ph
-  %.1.lcssa = phi i64 [ %.169, %.lr.ph ], [ %2, %57 ]
+  %.1.lcssa = phi i64 [ %2, %57 ], [ %.169, %.lr.ph ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = load i32, ptr %59, align 8, !tbaa !26
   %.not82 = icmp eq i32 %60, 0
@@ -2125,7 +2125,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %29,
   br label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
 
 _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %._crit_edge.us.i, %.preheader, %._crit_edge, %61, %61, %64, %38
-  %.0 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %39, %38 ], [ %.1.lcssa, %64 ], [ %.1.lcssa, %61 ], [ %.1.lcssa, %61 ], [ 0, %.preheader ], [ %39, %._crit_edge.us.i ]
+  %.0 = phi i64 [ %39, %38 ], [ %.1.lcssa, %64 ], [ %.1.lcssa, %61 ], [ %.1.lcssa, %61 ], [ %.1.lcssa, %._crit_edge ], [ 0, %.preheader ], [ %39, %._crit_edge.us.i ]
   %.not58 = icmp eq i64 %.0, %2
   br i1 %.not58, label %78, label %67
 
@@ -2583,13 +2583,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %13
   br label %154
 
 154:                                              ; preds = %130, %132, %90, %88, %152
-  %.sink = phi ptr [ %.188, %88 ], [ null, %132 ], [ %.177, %152 ], [ null, %90 ], [ %.177, %130 ]
-  %.1 = phi i64 [ %86, %88 ], [ 0, %132 ], [ %153, %152 ], [ %86, %90 ], [ %.073, %130 ]
+  %.sink = phi ptr [ %.177, %152 ], [ null, %90 ], [ %.188, %88 ], [ null, %132 ], [ %.177, %130 ]
+  %.1 = phi i64 [ %153, %152 ], [ %86, %90 ], [ %86, %88 ], [ 0, %132 ], [ %.073, %130 ]
   store ptr %.sink, ptr %2, align 8, !tbaa !41
   ret i64 %.1
 
 155:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn109.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ], [ %.pn102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117 ], [ %.pn99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114 ], [ %65, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120 ], [ %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123 ], [ %107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ %120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132 ], [ %139, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135 ]
+  %.pn109.pn = phi { ptr, i32 } [ %.pn102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117 ], [ %.pn99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %65, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120 ], [ %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123 ], [ %97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ], [ %107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ %120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132 ], [ %139, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135 ]
   resume { ptr, i32 } %.pn109.pn
 }
 

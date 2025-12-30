@@ -703,7 +703,7 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache4seekEi.exit: ; preds = %27, %31, 
   store i32 %.sink.i, ptr %7, align 8, !tbaa !75
   br label %52
 
-50:                                               ; preds = %10, %18
+50:                                               ; preds = %18, %10
   %51 = tail call noundef signext i8 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache12populateNearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %.not6 = icmp eq i8 %51, 0
   br i1 %.not6, label %84, label %52
@@ -843,7 +843,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   br label %43
 
 43:                                               ; preds = %.sink.split, %2, %10
-  %.019 = phi i8 [ 0, %2 ], [ 0, %10 ], [ 1, %.sink.split ]
+  %.019 = phi i8 [ 0, %10 ], [ 0, %2 ], [ 1, %.sink.split ]
   ret i8 %.019
 }
 
@@ -1285,7 +1285,7 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache4seekEi.exit: ; preds = %27, %31, 
   store i32 %.sink.i, ptr %7, align 8, !tbaa !75
   br label %52
 
-50:                                               ; preds = %10, %18
+50:                                               ; preds = %18, %10
   %51 = tail call noundef signext i8 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache12populateNearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %.not8 = icmp eq i8 %51, 0
   br i1 %.not8, label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit, label %._crit_edge
@@ -1758,9 +1758,9 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePosit
   br i1 %exitcond.not, label %.loopexit, label %125, !llvm.loop !88
 
 .loopexit.sink.split:                             ; preds = %106, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit29, %51, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit
-  %.sink83 = phi i32 [ %47, %51 ], [ %47, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ], [ %102, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit29 ], [ %102, %106 ]
-  %.242.sink80 = phi i32 [ %.141, %51 ], [ %.141, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ], [ %.242, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit29 ], [ %.242, %106 ]
-  %.2.sink = phi i32 [ %.1, %51 ], [ %.1, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ], [ %.2, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit29 ], [ %.2, %106 ]
+  %.sink83 = phi i32 [ %47, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ], [ %47, %51 ], [ %102, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit29 ], [ %102, %106 ]
+  %.242.sink80 = phi i32 [ %.141, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ], [ %.141, %51 ], [ %.242, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit29 ], [ %.242, %106 ]
+  %.2.sink = phi i32 [ %.1, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ], [ %.1, %51 ], [ %.2, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit29 ], [ %.2, %106 ]
   %149 = zext nneg i32 %.sink83 to i64
   %150 = getelementptr inbounds nuw i32, ptr %2, i64 %149
   store i32 %.242.sink80, ptr %150, align 4, !tbaa !17
@@ -1775,7 +1775,7 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePosit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN6icu_7722RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePositionValuesE.exit32, %129, %125, %.loopexit.sink.split, %54
-  %.08 = phi i8 [ 1, %.loopexit.sink.split ], [ 0, %54 ], [ 1, %125 ], [ 1, %129 ], [ 1, %_ZN6icu_7722RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePositionValuesE.exit32 ]
+  %.08 = phi i8 [ 0, %54 ], [ 1, %.loopexit.sink.split ], [ 1, %125 ], [ 1, %129 ], [ 1, %_ZN6icu_7722RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePositionValuesE.exit32 ]
   ret i8 %.08
 }
 
@@ -2324,8 +2324,8 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i100: ; preds = 
   br label %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit105
 
 _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit105: ; preds = %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit, %._crit_edge.thread246, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i100, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i101, %._crit_edge, %.critedge
-  %.3138 = phi i32 [ %.5140, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i100 ], [ %.5140, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i101 ], [ %.5140, %.critedge ], [ %.4139186, %._crit_edge ], [ %.7, %._crit_edge.thread246 ], [ %.7, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ]
-  %.1 = phi i32 [ %.3, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i100 ], [ %.3, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i101 ], [ %.3, %.critedge ], [ %.2134187, %._crit_edge ], [ %.5, %._crit_edge.thread246 ], [ %.5, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ]
+  %.3138 = phi i32 [ %.5140, %.critedge ], [ %.4139186, %._crit_edge ], [ %.5140, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i101 ], [ %.5140, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i100 ], [ %.7, %._crit_edge.thread246 ], [ %.7, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ]
+  %.1 = phi i32 [ %.3, %.critedge ], [ %.2134187, %._crit_edge ], [ %.3, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i101 ], [ %.3, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i100 ], [ %.5, %._crit_edge.thread246 ], [ %.5, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ]
   %246 = icmp slt i32 %.3138, %11
   br i1 %246, label %141, label %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit105.thread, !llvm.loop !91
 

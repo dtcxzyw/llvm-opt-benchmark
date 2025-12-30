@@ -538,7 +538,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.12123109310310187846.exit
   br label %.body.thread.i.i.i.i.i.i
 
 .body.thread.i.i.i.i.i.i:                         ; preds = %168, %.body.thread.sink.split.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i
-  %eh.lpad-body14.i.i.i.i.i.i = phi { ptr, i32 } [ %127, %.body.i.i.i.i.i.i.i ], [ %lpad.thr_comm.split-lp.i.i.i.i.i.i, %168 ], [ %lpad.phi.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i ], [ %eh.lpad-body14.ph.i.i.i.i.i.i, %.body.thread.sink.split.i.i.i.i.i.i ]
+  %eh.lpad-body14.i.i.i.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i.i.i.i.i, %168 ], [ %lpad.phi.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i ], [ %127, %.body.i.i.i.i.i.i.i ], [ %eh.lpad-body14.ph.i.i.i.i.i.i, %.body.thread.sink.split.i.i.i.i.i.i ]
   resume { ptr, i32 } %eh.lpad-body14.i.i.i.i.i.i
 
 168:                                              ; preds = %"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3get17h45a8f73cb06165cbE.exit.i.i.i.i.i.i"

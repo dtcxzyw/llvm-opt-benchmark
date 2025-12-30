@@ -736,10 +736,10 @@ jxl_u32.exit.i.i:                                 ; preds = %get_bits_long.exit.
   br i1 %.not98.i, label %.thread490.i.i, label %.thread485._crit_edge.i.i
 
 .thread485._crit_edge.i.i:                        ; preds = %.thread485.i.i, %.thread493.i.i, %413
-  %414 = phi ptr [ %336, %.thread493.i.i ], [ %355, %413 ], [ %.pre665.i.i, %.thread485.i.i ]
-  %415 = phi i32 [ %341, %.thread493.i.i ], [ %356, %413 ], [ %.pre664.i.i, %.thread485.i.i ]
-  %416 = phi i32 [ %spec.select.i362.i.i, %.thread493.i.i ], [ %411, %413 ], [ %.pre663.i.i, %.thread485.i.i ]
-  %.1244489.i.i = phi i32 [ 1, %.thread493.i.i ], [ %.0.i.i92.i, %413 ], [ 1, %.thread485.i.i ]
+  %414 = phi ptr [ %355, %413 ], [ %336, %.thread493.i.i ], [ %.pre665.i.i, %.thread485.i.i ]
+  %415 = phi i32 [ %356, %413 ], [ %341, %.thread493.i.i ], [ %.pre664.i.i, %.thread485.i.i ]
+  %416 = phi i32 [ %411, %413 ], [ %spec.select.i362.i.i, %.thread493.i.i ], [ %.pre663.i.i, %.thread485.i.i ]
+  %.1244489.i.i = phi i32 [ %.0.i.i92.i, %413 ], [ 1, %.thread493.i.i ], [ 1, %.thread485.i.i ]
   %417 = lshr i32 %416, 3
   %418 = zext nneg i32 %417 to i64
   %419 = getelementptr inbounds nuw i8, ptr %414, i64 %418
@@ -1009,7 +1009,7 @@ jxl_u32.exit310.i.i:                              ; preds = %jxl_u32.exit310.sin
   br i1 %exitcond.not.i.i, label %.loopexit615.i.i, label %.lr.ph.i.i, !llvm.loop !75
 
 .loopexit615.i.i:                                 ; preds = %jxl_u32.exit310.i.i, %jxl_u32.exit307.i.i, %jxl_u32.exit304.i.i
-  %565 = phi i32 [ %482, %jxl_u32.exit304.i.i ], [ %538, %jxl_u32.exit307.i.i ], [ %563, %jxl_u32.exit310.i.i ]
+  %565 = phi i32 [ %538, %jxl_u32.exit307.i.i ], [ %482, %jxl_u32.exit304.i.i ], [ %563, %jxl_u32.exit310.i.i ]
   %566 = icmp eq i32 %319, 1
   br i1 %566, label %.thread501.i.i, label %.thread497.i.i
 
@@ -1387,12 +1387,12 @@ jxl_u32.exit322.i.i:                              ; preds = %get_bits_long.exit3
   br label %792
 
 792:                                              ; preds = %jxl_u32.exit322.i.i, %.thread497.i.i, %.thread501.i.i
-  %.promoted624.i.i = phi i32 [ %spec.select.i374.i.i, %.thread497.i.i ], [ %.val357668.i.i, %jxl_u32.exit322.i.i ], [ %575, %.thread501.i.i ]
-  %.1226506.i.i = phi i32 [ 0, %.thread497.i.i ], [ 0, %jxl_u32.exit322.i.i ], [ %577, %.thread501.i.i ]
-  %.1221499505.i.i = phi i32 [ %.1221500.i.i, %.thread497.i.i ], [ %.1221500.i.i, %jxl_u32.exit322.i.i ], [ %.0.i303.i.i, %.thread501.i.i ]
-  %.1250.i.i = phi i32 [ %300, %.thread497.i.i ], [ %.0.i318.i.i, %jxl_u32.exit322.i.i ], [ %300, %.thread501.i.i ]
-  %.1248.i.i = phi i32 [ %301, %.thread497.i.i ], [ %.0.i321.i.i, %jxl_u32.exit322.i.i ], [ %301, %.thread501.i.i ]
-  %.0238.i.i = phi i1 [ true, %.thread497.i.i ], [ %spec.select232.i, %jxl_u32.exit322.i.i ], [ true, %.thread501.i.i ]
+  %.promoted624.i.i = phi i32 [ %spec.select.i374.i.i, %.thread497.i.i ], [ %575, %.thread501.i.i ], [ %.val357668.i.i, %jxl_u32.exit322.i.i ]
+  %.1226506.i.i = phi i32 [ 0, %.thread497.i.i ], [ %577, %.thread501.i.i ], [ 0, %jxl_u32.exit322.i.i ]
+  %.1221499505.i.i = phi i32 [ %.1221500.i.i, %.thread497.i.i ], [ %.0.i303.i.i, %.thread501.i.i ], [ %.1221500.i.i, %jxl_u32.exit322.i.i ]
+  %.1250.i.i = phi i32 [ %300, %.thread497.i.i ], [ %300, %.thread501.i.i ], [ %.0.i318.i.i, %jxl_u32.exit322.i.i ]
+  %.1248.i.i = phi i32 [ %301, %.thread497.i.i ], [ %301, %.thread501.i.i ], [ %.0.i321.i.i, %jxl_u32.exit322.i.i ]
+  %.0238.i.i = phi i1 [ true, %.thread497.i.i ], [ true, %.thread501.i.i ], [ %spec.select232.i, %jxl_u32.exit322.i.i ]
   %.val358.i.i = load i32, ptr %182, align 4, !tbaa !62
   %793 = icmp slt i32 %.val358.i.i, %.promoted624.i.i
   br i1 %793, label %try_parse.exit.thread, label %794
@@ -2146,13 +2146,13 @@ jxl_u32.exit334.i.i:                              ; preds = %get_bits_long.exit4
   br label %.thread559.i.i
 
 .thread559.i.i:                                   ; preds = %1195, %1180, %297
-  %1202 = phi i32 [ %spec.select.i.i.i, %297 ], [ %1201, %1195 ], [ %.val26.i419.i.i, %1180 ]
-  %.0220571.i.i = phi i32 [ 1, %297 ], [ %.1221499505.i.i, %1195 ], [ %.1221499505.i.i, %1180 ]
-  %.0223570.i.i = phi i32 [ 1, %297 ], [ %.1224.i.i, %1195 ], [ %.1224.i.i, %1180 ]
-  %.0225569.i.i = phi i32 [ 0, %297 ], [ %.1226506.i.i, %1195 ], [ %.1226506.i.i, %1180 ]
-  %.0243568.i.i = phi i32 [ 1, %297 ], [ %.1244487.i.i, %1195 ], [ %.1244487.i.i, %1180 ]
-  %.0247567.i.i = phi i32 [ %301, %297 ], [ %.1248.i.i, %1195 ], [ %.1248.i.i, %1180 ]
-  %.0249566.i.i = phi i32 [ %300, %297 ], [ %.1250.i.i, %1195 ], [ %.1250.i.i, %1180 ]
+  %1202 = phi i32 [ %.val26.i419.i.i, %1180 ], [ %1201, %1195 ], [ %spec.select.i.i.i, %297 ]
+  %.0220571.i.i = phi i32 [ %.1221499505.i.i, %1180 ], [ %.1221499505.i.i, %1195 ], [ 1, %297 ]
+  %.0223570.i.i = phi i32 [ %.1224.i.i, %1180 ], [ %.1224.i.i, %1195 ], [ 1, %297 ]
+  %.0225569.i.i = phi i32 [ %.1226506.i.i, %1180 ], [ %.1226506.i.i, %1195 ], [ 0, %297 ]
+  %.0243568.i.i = phi i32 [ %.1244487.i.i, %1180 ], [ %.1244487.i.i, %1195 ], [ 1, %297 ]
+  %.0247567.i.i = phi i32 [ %.1248.i.i, %1180 ], [ %.1248.i.i, %1195 ], [ %301, %297 ]
+  %.0249566.i.i = phi i32 [ %.1250.i.i, %1180 ], [ %.1250.i.i, %1195 ], [ %300, %297 ]
   %1203 = add i32 %.0249566.i.i, -1
   %1204 = udiv i32 %1203, %.0243568.i.i
   %1205 = lshr i32 %1204, %.0225569.i.i
@@ -2602,7 +2602,7 @@ jxl_u32.exit337.i.i:                              ; preds = %get_bits_long.exit4
   store i32 %1429, ptr %188, align 8, !tbaa !65
   br label %297
 
-try_parse.exit.thread:                            ; preds = %1422, %jxl_u32.exit.i.i, %792, %jxl_u32.exit334.i.i, %1076, %.thread574.i.i, %1138, %1102, %1120, %1153, %1165, %1167, %.thread579.i.i, %1189, %1191, %888, %1163, %1187, %jxl_u32.exit337.i.i, %75, %54, %178, %208, %.thread603.i.i, %66, %82, %197
+try_parse.exit.thread:                            ; preds = %1422, %jxl_u32.exit.i.i, %792, %jxl_u32.exit334.i.i, %1076, %.thread574.i.i, %1102, %1120, %1138, %1165, %1153, %1167, %1189, %.thread579.i.i, %1191, %888, %1163, %1187, %jxl_u32.exit337.i.i, %75, %54, %208, %178, %.thread603.i.i, %66, %82, %197
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %.thread72
 
@@ -2725,9 +2725,9 @@ bytestream2_get_be32.exit.i:                      ; preds = %1466
   br label %bytestream2_get_be64.exit.i
 
 bytestream2_get_be64.exit.i:                      ; preds = %1483, %bytestream2_get_be32.exit.i
-  %.sroa.0.2.i = phi ptr [ %1484, %1483 ], [ %1474, %bytestream2_get_be32.exit.i ]
-  %.019.i = phi i64 [ %1486, %1483 ], [ %1471, %bytestream2_get_be32.exit.i ]
-  %.0.i65 = phi i64 [ 16, %1483 ], [ 8, %bytestream2_get_be32.exit.i ]
+  %.sroa.0.2.i = phi ptr [ %1474, %bytestream2_get_be32.exit.i ], [ %1484, %1483 ]
+  %.019.i = phi i64 [ %1471, %bytestream2_get_be32.exit.i ], [ %1486, %1483 ]
+  %.0.i65 = phi i64 [ 8, %bytestream2_get_be32.exit.i ], [ 16, %1483 ]
   %.not26.i = icmp ule i64 %.019.i, %.0.i65
   %1487 = sub nsw i64 2147483647, %1454
   %1488 = icmp ugt i64 %.019.i, %1487
@@ -2749,7 +2749,7 @@ bytestream2_get_be64.exit.i:                      ; preds = %1483, %bytestream2_
   %1499 = icmp slt i32 %1498, 1
   br i1 %1499, label %.thread72, label %1453
 
-1500:                                             ; preds = %1466, %bytestream2_get_be64.exit.i, %1481
+1500:                                             ; preds = %bytestream2_get_be64.exit.i, %1481, %1466
   store i64 -1, ptr %1436, align 8, !tbaa !26
   br label %.thread72
 
@@ -2770,7 +2770,7 @@ skip_boxes.exit:                                  ; preds = %bytestream2_peek_le
   br label %.thread72
 
 .thread72:                                        ; preds = %1489, %bytestream2_peek_le64.exit.thread.i, %1476, %.thread.thread158, %1439, %try_parse.exit, %try_parse.exit.thread, %.thread.thread, %.thread.thread.thread, %1500, %42
-  %.054 = phi i32 [ -100, %1500 ], [ -100, %try_parse.exit ], [ %1506, %.thread.thread.thread ], [ -100, %.thread.thread ], [ -100, %42 ], [ -100, %try_parse.exit.thread ], [ -100, %1439 ], [ -100, %.thread.thread158 ], [ -100, %1476 ], [ -100, %bytestream2_peek_le64.exit.thread.i ], [ -100, %1489 ]
+  %.054 = phi i32 [ -100, %1500 ], [ %1506, %.thread.thread.thread ], [ -100, %.thread.thread ], [ -100, %42 ], [ -100, %try_parse.exit.thread ], [ -100, %try_parse.exit ], [ -100, %1439 ], [ -100, %.thread.thread158 ], [ -100, %1476 ], [ -100, %bytestream2_peek_le64.exit.thread.i ], [ -100, %1489 ]
   %1507 = load i32, ptr %36, align 4, !tbaa !9
   %1508 = icmp sgt i32 %.054, %1507
   %spec.store.select = select i1 %1508, i32 -100, i32 %.054
@@ -2926,7 +2926,7 @@ entropy_decoder_init.exit.thread:                 ; preds = %.lr.ph.i.i.i, %13, 
   br label %54
 
 54:                                               ; preds = %52, %49, %47, %45, %39, %36
-  %.052.i = phi i32 [ 6, %49 ], [ 1, %36 ], [ %46, %45 ], [ 2, %39 ], [ 5, %47 ], [ %..i, %52 ]
+  %.052.i = phi i32 [ %46, %45 ], [ 1, %36 ], [ 2, %39 ], [ 5, %47 ], [ 6, %49 ], [ %..i, %52 ]
   %55 = and i32 %.0355, 223
   %56 = add nsw i32 %55, -65
   %or.cond57.i = icmp ult i32 %56, 26
@@ -2950,7 +2950,7 @@ entropy_decoder_init.exit.thread:                 ; preds = %.lr.ph.i.i.i, %13, 
   br label %65
 
 65:                                               ; preds = %63, %61, %57, %54
-  %.0.i = phi i32 [ 16, %61 ], [ 0, %54 ], [ 8, %57 ], [ %.58.i, %63 ]
+  %.0.i = phi i32 [ 0, %54 ], [ 8, %57 ], [ 16, %61 ], [ %.58.i, %63 ]
   %66 = add nuw nsw i32 %.0.i, %.052.i
   br label %icc_context.exit
 
@@ -3012,7 +3012,7 @@ icc_context.exit:                                 ; preds = %.lr.ph, %65
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %entropy_decoder_init.exit.thread, %31
-  %.037 = phi i32 [ %11, %entropy_decoder_init.exit.thread ], [ -1397118274, %31 ], [ %92, %.thread.loopexit ]
+  %.037 = phi i32 [ -1397118274, %31 ], [ %11, %entropy_decoder_init.exit.thread ], [ %92, %.thread.loopexit ]
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @av_freep(ptr noundef nonnull %93) #11
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 84
@@ -3189,7 +3189,7 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 .loopexit:                                        ; preds = %68, %40, %1, %86, %28, %16
-  %.0 = phi i64 [ 0, %1 ], [ %27, %16 ], [ %39, %28 ], [ %92, %86 ], [ %50, %40 ], [ %74, %68 ]
+  %.0 = phi i64 [ %27, %16 ], [ %39, %28 ], [ %92, %86 ], [ 0, %1 ], [ %50, %40 ], [ %74, %68 ]
   ret i64 %.0
 }
 
@@ -3764,7 +3764,7 @@ dist_bundle_close.exit:                           ; preds = %.lr.ph.i471, %._cri
   br label %read_dist_clustering.exit.thread
 
 .loopexit247:                                     ; preds = %get_bitsz.exit.i, %get_bitsz.exit.i.us, %.thread212
-  %303 = phi i32 [ %200, %get_bitsz.exit.i.us ], [ %.pre, %.thread212 ], [ %218, %get_bitsz.exit.i ]
+  %303 = phi i32 [ %.pre, %.thread212 ], [ %200, %get_bitsz.exit.i.us ], [ %218, %get_bitsz.exit.i ]
   %304 = icmp sgt i32 %303, 0
   br i1 %304, label %.lr.ph273, label %.loopexit247.._crit_edge274_crit_edge
 
@@ -4248,7 +4248,7 @@ default.unreachable.i.i:                          ; preds = %505
   unreachable
 
 read_simple_vlc_prefix.exit.i:                    ; preds = %534, %506
-  %.0.i.i = phi i32 [ %537, %534 ], [ 0, %506 ]
+  %.0.i.i = phi i32 [ 0, %506 ], [ %537, %534 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %read_vlc_prefix.exit
@@ -4597,13 +4597,13 @@ read_simple_vlc_prefix.exit.i:                    ; preds = %534, %506
   br i1 %723, label %.lr.ph239.i, label %._crit_edge240.i, !llvm.loop !131
 
 .loopexit.i:                                      ; preds = %540, %629, %610, %._crit_edge240.i, %.thread205.i, %599, %585, %.loopexit209.i
-  %.1152.i = phi i32 [ -1094995529, %.thread205.i ], [ %587, %585 ], [ -12, %599 ], [ %711, %._crit_edge240.i ], [ -1397118274, %629 ], [ -1094995529, %.loopexit209.i ], [ -1094995529, %610 ], [ -1094995529, %540 ]
+  %.1152.i = phi i32 [ %587, %585 ], [ %711, %._crit_edge240.i ], [ -1094995529, %.loopexit209.i ], [ -12, %599 ], [ -1094995529, %.thread205.i ], [ -1397118274, %629 ], [ -1094995529, %610 ], [ -1094995529, %540 ]
   call void @av_freep(ptr noundef nonnull %16) #11
   call void @ff_vlc_free(ptr noundef nonnull %17) #11
   br label %read_vlc_prefix.exit
 
 read_vlc_prefix.exit:                             ; preds = %read_simple_vlc_prefix.exit.i, %.loopexit.i
-  %.0.i159 = phi i32 [ %.1152.i, %.loopexit.i ], [ %.0.i.i, %read_simple_vlc_prefix.exit.i ]
+  %.0.i159 = phi i32 [ %.0.i.i, %read_simple_vlc_prefix.exit.i ], [ %.1152.i, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -5333,7 +5333,7 @@ get_bitsz.exit.i179:                              ; preds = %.thread208.i, %1118
   %exitcond250.not.i = icmp eq i64 %indvars.iv.next247.i, %wide.trip.count249.i
   br i1 %exitcond250.not.i, label %._crit_edge233.i, label %1090, !llvm.loop !138
 
-populate_distribution.exit.thread:                ; preds = %887, %._crit_edge.i175, %jxl_u8.exit174.i, %jxl_u8.exit184.i, %1081, %get_bitsz.exit168.i, %jxl_u8.exit189.i
+populate_distribution.exit.thread:                ; preds = %887, %jxl_u8.exit184.i, %get_bitsz.exit168.i, %jxl_u8.exit189.i, %1081, %._crit_edge.i175, %jxl_u8.exit174.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %read_dist_clustering.exit.thread
@@ -5548,8 +5548,8 @@ select.unfold228:                                 ; preds = %933, %887, %._crit_
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %1235, %1234
-  %.498.i = phi i32 [ %1213, %1235 ], [ %.39717.i, %1234 ]
-  %.3.i182 = phi i32 [ %spec.select, %1235 ], [ %1217, %1234 ]
+  %.498.i = phi i32 [ %.39717.i, %1234 ], [ %1213, %1235 ]
+  %.3.i182 = phi i32 [ %1217, %1234 ], [ %spec.select, %1235 ]
   %.not.i183 = icmp eq i32 %.3.i182, 0
   br i1 %.not.i183, label %.preheader1.i, label %1211, !llvm.loop !143
 
@@ -5594,8 +5594,8 @@ select.unfold.i:                                  ; preds = %1235, %1234
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %read_dist_clustering.exit.thread
 
-read_dist_clustering.exit.thread:                 ; preds = %.lr.ph278, %366, %get_bitsz.exit, %725, %read_vlc_prefix.exit, %438, %select.unfold228, %.loopexit, %.preheader236, %populate_distribution.exit.thread, %.preheader241, %.preheader, %1251, %._crit_edge274, %302, %.thread, %323, %read_dist_clustering.exit, %160, %jxl_u32.exit137, %41
-  %.0105 = phi i32 [ %154, %jxl_u32.exit137 ], [ -1397118274, %read_dist_clustering.exit ], [ -1094995529, %41 ], [ -12, %160 ], [ -12, %323 ], [ -1094995529, %populate_distribution.exit.thread ], [ 0, %.preheader ], [ 0, %438 ], [ -1094995529, %1251 ], [ 0, %.preheader241 ], [ -1094995529, %._crit_edge274 ], [ -12, %.thread ], [ %.1.i155, %302 ], [ 0, %.preheader236 ], [ 0, %.loopexit ], [ -1094995529, %get_bitsz.exit ], [ -1397118274, %select.unfold228 ], [ -1397118274, %725 ], [ %.0.i159, %read_vlc_prefix.exit ], [ %364, %.lr.ph278 ], [ -1397118274, %366 ]
+read_dist_clustering.exit.thread:                 ; preds = %.lr.ph278, %366, %get_bitsz.exit, %725, %read_vlc_prefix.exit, %438, %select.unfold228, %.loopexit, %.preheader236, %populate_distribution.exit.thread, %.preheader241, %.preheader, %1251, %._crit_edge274, %.thread, %302, %323, %read_dist_clustering.exit, %160, %jxl_u32.exit137, %41
+  %.0105 = phi i32 [ -1094995529, %1251 ], [ -1094995529, %41 ], [ %154, %jxl_u32.exit137 ], [ -12, %160 ], [ -1397118274, %read_dist_clustering.exit ], [ -12, %323 ], [ -12, %.thread ], [ %.1.i155, %302 ], [ -1094995529, %._crit_edge274 ], [ 0, %.preheader ], [ 0, %.preheader241 ], [ -1094995529, %populate_distribution.exit.thread ], [ 0, %.preheader236 ], [ 0, %.loopexit ], [ -1397118274, %select.unfold228 ], [ 0, %438 ], [ %.0.i159, %read_vlc_prefix.exit ], [ -1397118274, %725 ], [ -1094995529, %get_bitsz.exit ], [ -1397118274, %366 ], [ %364, %.lr.ph278 ]
   ret i32 %.0105
 }
 
@@ -6070,7 +6070,7 @@ read_prefix_symbol.exit:                          ; preds = %53, %50, %read_ans_
   br label %216
 
 216:                                              ; preds = %204, %206, %201, %194, %167, %176, %191, %31, %28, %9
-  %.0 = phi i32 [ 0, %9 ], [ %202, %201 ], [ -22, %28 ], [ -1094995529, %31 ], [ %192, %191 ], [ -1094995529, %167 ], [ %179, %176 ], [ %200, %194 ], [ 0, %206 ], [ 0, %204 ]
+  %.0 = phi i32 [ 0, %9 ], [ -22, %28 ], [ -1094995529, %31 ], [ %200, %194 ], [ -1094995529, %167 ], [ %179, %176 ], [ %192, %191 ], [ %202, %201 ], [ 0, %206 ], [ 0, %204 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

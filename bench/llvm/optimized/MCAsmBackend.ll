@@ -638,7 +638,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNK4llvm8MCSymbol7
   br label %_ZN4llvmeqENS_9StringRefES0_.exit13
 
 _ZN4llvmeqENS_9StringRefES0_.exit13:              ; preds = %3, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK4llvm8MCSymbol7getNameEv.exit, %14, %2
-  %.0 = phi i1 [ true, %2 ], [ %13, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZNK4llvm8MCSymbol7getNameEv.exit ], [ %15, %14 ], [ false, %3 ]
+  %.0 = phi i1 [ true, %2 ], [ %15, %14 ], [ false, %_ZNK4llvm8MCSymbol7getNameEv.exit ], [ %13, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %3 ]
   ret i1 %.0
 }
 

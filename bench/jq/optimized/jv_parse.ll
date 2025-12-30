@@ -208,10 +208,10 @@ define dso_local void @jv_parser_set_buf(ptr noundef captures(none) %0, ptr noun
   %13 = getelementptr inbounds nuw i8, ptr @UTF8_BOM, i64 %11
   %14 = load i8, ptr %13, align 1, !tbaa !15
   %15 = icmp eq i8 %12, %14
-  %16 = icmp eq i32 %8, 0
-  %. = select i1 %16, i32 3, i32 255
-  %17 = add nuw nsw i32 %8, 1
-  %.sink = select i1 %15, i32 %17, i32 %.
+  %16 = add nuw nsw i32 %8, 1
+  %17 = icmp eq i32 %8, 0
+  %. = select i1 %17, i32 3, i32 255
+  %.sink = select i1 %15, i32 %16, i32 %.
   %18 = sext i1 %15 to i32
   %.117 = add nsw i32 %.01619, %18
   %.1.idx = zext i1 %15 to i64
@@ -363,7 +363,7 @@ define dso_local { i64, ptr } @jv_parser_next(ptr noundef %0) local_unnamed_addr
   br label %.backedge
 
 .backedge:                                        ; preds = %352, %351, %327, %324, %322, %199, %196, %194, %70, %74, %.thread
-  %.0119.be = phi ptr [ null, %70 ], [ null, %.thread ], [ null, %74 ], [ null, %352 ], [ null, %327 ], [ null, %322 ], [ null, %324 ], [ null, %351 ], [ %.088155.i, %194 ], [ %.088155.i, %199 ], [ %.088155.i, %196 ]
+  %.0119.be = phi ptr [ null, %.thread ], [ null, %74 ], [ null, %70 ], [ null, %322 ], [ null, %351 ], [ null, %352 ], [ %.088155.i, %194 ], [ %.088155.i, %199 ], [ %.088155.i, %196 ], [ null, %327 ], [ null, %324 ]
   %.not127 = icmp eq ptr %.0119.be, null
   br i1 %.not127, label %54, label %.critedge, !llvm.loop !30
 
@@ -853,8 +853,8 @@ unhex4.exit.i:                                    ; preds = %273
   br label %283
 
 283:                                              ; preds = %.thread.i.i, %251
-  %.071.i.i = phi i64 [ %282, %.thread.i.i ], [ %252, %251 ]
-  %.265.i.i = phi ptr [ %255, %.thread.i.i ], [ %235, %251 ]
+  %.071.i.i = phi i64 [ %252, %251 ], [ %282, %.thread.i.i ]
+  %.265.i.i = phi ptr [ %235, %251 ], [ %255, %.thread.i.i ]
   %284 = icmp samesign ugt i64 %.071.i.i, 1114111
   %285 = trunc i64 %.071.i.i to i32
   %286 = select i1 %284, i32 65533, i32 %285
@@ -873,8 +873,8 @@ unhex4.exit.i:                                    ; preds = %273
   br label %293
 
 293:                                              ; preds = %291, %283, %232, %230, %228, %226, %224, %222
-  %.169.i.i = phi ptr [ %292, %291 ], [ %223, %222 ], [ %225, %224 ], [ %227, %226 ], [ %229, %228 ], [ %231, %230 ], [ %233, %232 ], [ %289, %283 ]
-  %.164.i.i = phi ptr [ %215, %291 ], [ %220, %222 ], [ %220, %224 ], [ %220, %226 ], [ %220, %228 ], [ %220, %230 ], [ %220, %232 ], [ %.265.i.i, %283 ]
+  %.169.i.i = phi ptr [ %223, %222 ], [ %225, %224 ], [ %227, %226 ], [ %229, %228 ], [ %231, %230 ], [ %233, %232 ], [ %289, %283 ], [ %292, %291 ]
+  %.164.i.i = phi ptr [ %220, %222 ], [ %220, %224 ], [ %220, %226 ], [ %220, %228 ], [ %220, %230 ], [ %220, %232 ], [ %.265.i.i, %283 ], [ %215, %291 ]
   %294 = icmp ult ptr %.164.i.i, %213
   br i1 %294, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !39
 
@@ -1010,8 +1010,8 @@ tokenadd.exit134.i:                               ; preds = %336, %._crit_edge.i
   store i32 1, ptr %42, align 8, !tbaa !17
   br label %.backedge
 
-.critedge:                                        ; preds = %189, %classify.exit.thread.i, %.backedge, %unhex4.exit.i, %257, %259, %219, %unhex4.exit.i.i, %234, %218, %290, %254, %243, %271, %312, %316, %parse_is_top_num.exit.i, %seq_check_truncation.exit.thread138.i, %stream_is_top_num.exit.i, %stream_is_top_num.exit.thread.i
-  %.0119.be180 = phi ptr [ @.str.42, %unhex4.exit.i ], [ @.str.37, %312 ], [ @.str.12, %parse_is_top_num.exit.i ], [ @.str.37, %316 ], [ %125, %seq_check_truncation.exit.thread138.i ], [ @.str.41, %243 ], [ @.str.42, %271 ], [ @.str.13, %stream_is_top_num.exit.thread.i ], [ @.str.12, %stream_is_top_num.exit.i ], [ @.str.42, %254 ], [ @.str.44, %290 ], [ @.str.39, %218 ], [ @.str.40, %234 ], [ @.str.41, %unhex4.exit.i.i ], [ @.str.43, %219 ], [ @.str.42, %259 ], [ @.str.42, %257 ], [ %150, %classify.exit.thread.i ], [ %190, %189 ], [ %.0119.be, %.backedge ]
+.critedge:                                        ; preds = %classify.exit.thread.i, %189, %.backedge, %unhex4.exit.i, %290, %219, %254, %257, %259, %unhex4.exit.i.i, %234, %218, %243, %271, %312, %316, %stream_is_top_num.exit.i, %parse_is_top_num.exit.i, %seq_check_truncation.exit.thread138.i, %stream_is_top_num.exit.thread.i
+  %.0119.be180 = phi ptr [ @.str.37, %312 ], [ @.str.37, %316 ], [ @.str.12, %stream_is_top_num.exit.i ], [ @.str.12, %parse_is_top_num.exit.i ], [ %125, %seq_check_truncation.exit.thread138.i ], [ @.str.13, %stream_is_top_num.exit.thread.i ], [ @.str.42, %271 ], [ @.str.41, %243 ], [ @.str.39, %218 ], [ @.str.40, %234 ], [ @.str.41, %unhex4.exit.i.i ], [ @.str.42, %259 ], [ @.str.42, %257 ], [ @.str.42, %254 ], [ @.str.43, %219 ], [ @.str.44, %290 ], [ @.str.42, %unhex4.exit.i ], [ %190, %189 ], [ %150, %classify.exit.thread.i ], [ %.0119.be, %.backedge ]
   %353 = icmp eq ptr %.0119.be180, @.str.1
   br i1 %353, label %.critedge.thread, label %356
 
@@ -1208,7 +1208,7 @@ tokenadd.exit134.i:                               ; preds = %336, %._crit_edge.i
   br label %449
 
 449:                                              ; preds = %366, %372, %.critedge.thread, %362, %376, %382, %386, %392, %403, %442, %446, %36
-  %.merged = phi { i64, ptr } [ %38, %36 ], [ %355, %.critedge.thread ], [ %365, %362 ], [ %445, %442 ], [ %377, %376 ], [ %385, %382 ], [ %389, %386 ], [ %395, %392 ], [ %406, %403 ], [ %448, %446 ], [ %369, %372 ], [ %369, %366 ]
+  %.merged = phi { i64, ptr } [ %38, %36 ], [ %355, %.critedge.thread ], [ %365, %362 ], [ %377, %376 ], [ %385, %382 ], [ %389, %386 ], [ %395, %392 ], [ %406, %403 ], [ %448, %446 ], [ %445, %442 ], [ %369, %372 ], [ %369, %366 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %450
 
@@ -1484,9 +1484,9 @@ define internal fastcc noundef ptr @check_literal(ptr noundef captures(none) %0)
   br label %19
 
 19:                                               ; preds = %9, %11, %17
-  %.pn = phi { i64, ptr } [ %18, %17 ], [ %10, %9 ], [ %12, %11 ]
-  %.039 = phi i32 [ 4, %17 ], [ 4, %9 ], [ 5, %11 ]
-  %.038 = phi ptr [ @.str.48, %17 ], [ @.str.45, %9 ], [ @.str.46, %11 ]
+  %.pn = phi { i64, ptr } [ %10, %9 ], [ %12, %11 ], [ %18, %17 ]
+  %.039 = phi i32 [ 4, %9 ], [ 5, %11 ], [ 4, %17 ]
+  %.038 = phi ptr [ @.str.45, %9 ], [ @.str.46, %11 ], [ @.str.48, %17 ]
   %.sroa.6.0 = extractvalue { i64, ptr } %.pn, 1
   %.sroa.021.0 = extractvalue { i64, ptr } %.pn, 0
   %20 = load i32, ptr %2, align 8, !tbaa !33
@@ -1627,7 +1627,7 @@ value.exit:                                       ; preds = %.sink.split.i, %45
   br label %value.exit.thread
 
 value.exit.thread:                                ; preds = %23, %76, %71, %.critedge, %46, %41, %80, %5, %19, %1
-  %.0 = phi ptr [ null, %1 ], [ @.str.47, %5 ], [ null, %80 ], [ @.str.37, %46 ], [ @.str.49, %19 ], [ @.str.50, %.critedge ], [ @.str.37, %76 ], [ @.str.37, %41 ], [ @.str.37, %71 ], [ @.str.49, %23 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %80 ], [ @.str.47, %5 ], [ @.str.49, %19 ], [ @.str.37, %41 ], [ @.str.37, %46 ], [ @.str.50, %.critedge ], [ @.str.37, %71 ], [ @.str.37, %76 ], [ @.str.49, %23 ]
   ret ptr %.0
 }
 
@@ -1665,17 +1665,17 @@ define dso_local { i64, ptr } @jv_parse_sized_custom_flags(ptr noundef %0, i32 n
   %13 = getelementptr inbounds nuw i8, ptr @UTF8_BOM, i64 %11
   %14 = load i8, ptr %13, align 1, !tbaa !15
   %15 = icmp eq i8 %12, %14
-  %16 = icmp eq i32 %8, 0
-  %..i = select i1 %16, i32 3, i32 255
-  %17 = add nuw nsw i32 %8, 1
-  %.sink.i = select i1 %15, i32 %17, i32 %..i
+  %16 = add nuw nsw i32 %8, 1
+  %17 = icmp eq i32 %8, 0
+  %..i = select i1 %17, i32 3, i32 255
+  %.sink.i = select i1 %15, i32 %16, i32 %..i
   %18 = sext i1 %15 to i32
   %.117.i = add nsw i32 %.01619.i, %18
-  %.1.i.idx = zext i1 %15 to i64
-  %.1.i = getelementptr inbounds nuw i8, ptr %.020.i, i64 %.1.i.idx
+  %.1.idx.i = zext i1 %15 to i64
+  %.1.i = getelementptr inbounds nuw i8, ptr %.020.i, i64 %.1.idx.i
   store i32 %.sink.i, ptr %5, align 8, !tbaa !25
-  %.not52 = icmp eq i32 %.117.i, 0
-  br i1 %.not52, label %jv_parser_set_buf.exit, label %7, !llvm.loop !26
+  %.not49 = icmp eq i32 %.117.i, 0
+  br i1 %.not49, label %jv_parser_set_buf.exit, label %7, !llvm.loop !26
 
 jv_parser_set_buf.exit:                           ; preds = %7, %10, %3
   %.016.lcssa.i = phi i32 [ %1, %3 ], [ %.01619.i, %7 ], [ 0, %10 ]
@@ -1691,8 +1691,8 @@ jv_parser_set_buf.exit:                           ; preds = %7, %10, %3
   %23 = extractvalue { i64, ptr } %22, 0
   %24 = extractvalue { i64, ptr } %22, 1
   %25 = call i32 @jv_get_kind(i64 %23, ptr %24) #9
-  %.not49 = icmp eq i32 %25, 0
-  br i1 %.not49, label %45, label %26
+  %.not50 = icmp eq i32 %25, 0
+  br i1 %.not50, label %45, label %26
 
 26:                                               ; preds = %jv_parser_set_buf.exit
   %27 = call { i64, ptr } @jv_parser_next(ptr noundef nonnull %4)
@@ -1748,8 +1748,8 @@ jv_parser_set_buf.exit:                           ; preds = %7, %10, %3
   br label %57
 
 57:                                               ; preds = %31, %44, %43, %50, %45
-  %.sroa.028.1 = phi i64 [ %55, %50 ], [ %23, %45 ], [ %36, %31 ], [ %28, %43 ], [ %23, %44 ]
-  %.sroa.14.1 = phi ptr [ %56, %50 ], [ %24, %45 ], [ %37, %31 ], [ %29, %43 ], [ %24, %44 ]
+  %.sroa.028.1 = phi i64 [ %23, %45 ], [ %55, %50 ], [ %36, %31 ], [ %28, %43 ], [ %23, %44 ]
+  %.sroa.14.1 = phi ptr [ %24, %45 ], [ %56, %50 ], [ %37, %31 ], [ %29, %43 ], [ %24, %44 ]
   call fastcc void @parser_reset(ptr noundef nonnull %4)
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %59 = load i64, ptr %58, align 8
@@ -1770,8 +1770,8 @@ jv_parser_set_buf.exit:                           ; preds = %7, %10, %3
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 128
   call void @jvp_dtoa_context_free(ptr noundef nonnull %70) #9
   %71 = call i32 @jv_get_kind(i64 %.sroa.028.1, ptr %.sroa.14.1) #9
-  %.not50 = icmp eq i32 %71, 0
-  br i1 %.not50, label %72, label %88
+  %.not51 = icmp eq i32 %71, 0
+  br i1 %.not51, label %72, label %88
 
 72:                                               ; preds = %57
   %73 = call { i64, ptr } @jv_copy(i64 %.sroa.028.1, ptr %.sroa.14.1) #9
@@ -2544,7 +2544,7 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   br label %441
 
 441:                                              ; preds = %384, %2, %27, %60, %113, %212, %326, %325, %440, %439, %356, %335, %331, %327, %226, %222, %218, %129, %126, %111, %107, %97, %103, %45, %41, %12, %9, %3, %388, %387, %386, %211, %96, %44
-  %.0 = phi ptr [ @.str.33, %384 ], [ @.str.35, %388 ], [ @.str.15, %3 ], [ @.str.16, %9 ], [ @.str.17, %12 ], [ @.str.18, %44 ], [ @.str.15, %41 ], [ @.str.20, %96 ], [ @.str.19, %45 ], [ @.str.21, %97 ], [ @.str.22, %107 ], [ @.str.23, %111 ], [ @.str.24, %126 ], [ @.str.26, %211 ], [ @.str.25, %129 ], [ @.str.27, %218 ], [ @.str.28, %222 ], [ @.str.29, %226 ], [ @.str.30, %327 ], [ @.str.31, %331 ], [ @.str.32, %335 ], [ @.str.26, %356 ], [ @.str.34, %386 ], [ @.str.32, %387 ], [ @.str.21, %103 ], [ null, %439 ], [ null, %440 ], [ null, %325 ], [ null, %326 ], [ null, %212 ], [ null, %113 ], [ null, %60 ], [ null, %27 ], [ null, %2 ]
+  %.0 = phi ptr [ @.str.18, %44 ], [ @.str.20, %96 ], [ @.str.26, %211 ], [ @.str.34, %386 ], [ @.str.32, %387 ], [ @.str.35, %388 ], [ @.str.15, %3 ], [ @.str.16, %9 ], [ @.str.17, %12 ], [ @.str.15, %41 ], [ @.str.19, %45 ], [ @.str.21, %103 ], [ @.str.21, %97 ], [ @.str.22, %107 ], [ @.str.23, %111 ], [ @.str.24, %126 ], [ @.str.25, %129 ], [ @.str.27, %218 ], [ @.str.28, %222 ], [ @.str.29, %226 ], [ @.str.30, %327 ], [ @.str.31, %331 ], [ @.str.32, %335 ], [ @.str.26, %356 ], [ @.str.33, %384 ], [ null, %439 ], [ null, %440 ], [ null, %325 ], [ null, %326 ], [ null, %212 ], [ null, %113 ], [ null, %60 ], [ null, %27 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -2977,7 +2977,7 @@ push.exit116:                                     ; preds = %._crit_edge.i111, %
   br label %276
 
 276:                                              ; preds = %2, %push.exit, %push.exit116, %89, %201, %267, %136, %124, %254, %253, %229, %209, %196, %159, %163, %133, %101, %95, %85, %71, %75, %65, %38, %34, %7, %3
-  %.0 = phi ptr [ @.str.34, %254 ], [ @.str.35, %253 ], [ @.str.36, %3 ], [ @.str.37, %7 ], [ @.str.36, %34 ], [ @.str.21, %65 ], [ @.str.20, %71 ], [ @.str.37, %38 ], [ @.str.24, %95 ], [ @.str.25, %101 ], [ @.str.22, %85 ], [ @.str.26, %133 ], [ @.str.38, %159 ], [ @.str.28, %196 ], [ @.str.35, %209 ], [ @.str.26, %229 ], [ @.str.20, %75 ], [ @.str.38, %163 ], [ null, %124 ], [ null, %136 ], [ null, %267 ], [ null, %201 ], [ null, %89 ], [ null, %push.exit116 ], [ null, %push.exit ], [ null, %2 ]
+  %.0 = phi ptr [ @.str.36, %3 ], [ @.str.37, %7 ], [ @.str.36, %34 ], [ @.str.37, %38 ], [ @.str.21, %65 ], [ @.str.20, %75 ], [ @.str.20, %71 ], [ @.str.22, %85 ], [ @.str.24, %95 ], [ @.str.25, %101 ], [ @.str.26, %133 ], [ @.str.38, %163 ], [ @.str.38, %159 ], [ @.str.28, %196 ], [ @.str.35, %209 ], [ @.str.26, %229 ], [ @.str.35, %253 ], [ @.str.34, %254 ], [ null, %124 ], [ null, %136 ], [ null, %267 ], [ null, %201 ], [ null, %89 ], [ null, %push.exit116 ], [ null, %push.exit ], [ null, %2 ]
   ret ptr %.0
 }
 

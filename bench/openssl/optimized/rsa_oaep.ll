@@ -270,7 +270,7 @@ define range(i32 -1, 1) i32 @PKCS1_MGF1(ptr noundef %0, i64 noundef %1, ptr noun
   br i1 %42, label %18, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %29, %27, %18, %33, %40, %36, %.thread, %.preheader, %10, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %10 ], [ 0, %.preheader ], [ 0, %.thread ], [ -1, %36 ], [ -1, %27 ], [ -1, %29 ], [ -1, %33 ], [ -1, %18 ], [ 0, %40 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %10 ], [ 0, %.preheader ], [ -1, %36 ], [ 0, %.thread ], [ -1, %29 ], [ -1, %27 ], [ -1, %18 ], [ -1, %33 ], [ 0, %40 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 64) #5
   call void @EVP_MD_CTX_free(ptr noundef %8) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -575,9 +575,9 @@ define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef captures(none) %0, i32
   br label %._crit_edge228
 
 ._crit_edge228:                                   ; preds = %28, %._crit_edge185, %._crit_edge182, %._crit_edge, %34, %._crit_edge206
-  %.0148 = phi i32 [ %89, %._crit_edge206 ], [ -1, %._crit_edge185 ], [ -1, %._crit_edge182 ], [ -1, %._crit_edge ], [ -1, %34 ], [ -1, %28 ]
-  %.0144 = phi i32 [ %93, %._crit_edge206 ], [ %.neg.i.i165, %._crit_edge185 ], [ %.neg.i.i165, %._crit_edge182 ], [ %.neg.i.i165, %._crit_edge ], [ 0, %34 ], [ 0, %28 ]
-  %.0140 = phi ptr [ %45, %._crit_edge206 ], [ %45, %._crit_edge185 ], [ %45, %._crit_edge182 ], [ %45, %._crit_edge ], [ null, %34 ], [ null, %28 ]
+  %.0148 = phi i32 [ -1, %._crit_edge185 ], [ -1, %._crit_edge182 ], [ -1, %._crit_edge ], [ -1, %34 ], [ %89, %._crit_edge206 ], [ -1, %28 ]
+  %.0144 = phi i32 [ %.neg.i.i165, %._crit_edge185 ], [ %.neg.i.i165, %._crit_edge182 ], [ %.neg.i.i165, %._crit_edge ], [ 0, %34 ], [ %93, %._crit_edge206 ], [ 0, %28 ]
+  %.0140 = phi ptr [ %45, %._crit_edge185 ], [ %45, %._crit_edge182 ], [ %45, %._crit_edge ], [ null, %34 ], [ %45, %._crit_edge206 ], [ null, %28 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef 64) #5
   call void @CRYPTO_clear_free(ptr noundef %32, i64 noundef %31, ptr noundef nonnull @.str, i32 noundef 337) #5
   call void @CRYPTO_clear_free(ptr noundef %.0140, i64 noundef %.pre229, ptr noundef nonnull @.str, i32 noundef 338) #5
@@ -589,7 +589,7 @@ define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef captures(none) %0, i32
   br label %156
 
 156:                                              ; preds = %15, %._crit_edge228, %27
-  %.0 = phi i32 [ %155, %._crit_edge228 ], [ -1, %27 ], [ -1, %15 ]
+  %.0 = phi i32 [ -1, %27 ], [ %155, %._crit_edge228 ], [ -1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0

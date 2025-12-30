@@ -227,9 +227,9 @@ define void @SetResources(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 
   br label %35
 
 35:                                               ; preds = %.thread, %25, %29
-  %.013 = phi i32 [ %33, %29 ], [ 0, %25 ], [ %20, %.thread ]
-  %.012 = phi i1 [ %34, %29 ], [ true, %25 ], [ false, %.thread ]
-  %.0 = phi i32 [ %20, %29 ], [ %.sroa.speculated, %25 ], [ %20, %.thread ]
+  %.013 = phi i32 [ 0, %25 ], [ %33, %29 ], [ %20, %.thread ]
+  %.012 = phi i1 [ true, %25 ], [ %34, %29 ], [ false, %.thread ]
+  %.0 = phi i32 [ %.sroa.speculated, %25 ], [ %20, %29 ], [ %20, %.thread ]
   %36 = call noundef i32 @_ZN6System14RegisterParamsEii(ptr noundef nonnull align 8 dereferenceable(200) @sysdep, i32 noundef %.0, i32 noundef %.sroa.speculated32)
   call void @_ZN9Scheduler15RegisterThreadsEi(ptr noundef nonnull align 8 dereferenceable(43416) @scheduler, i32 noundef %.0)
   call void @_ZN6Memory6ResizeEj8TTmemoryii(ptr noundef nonnull align 8 dereferenceable(56) @memory, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
@@ -656,7 +656,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEj(ptr dead_on_unwind noalias w
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !17
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
-  %.0.i = phi i32 [ %15, %14 ], [ %7, %6 ], [ %11, %10 ], [ 1, %2 ], [ %18, %16 ]
+  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
   %20 = zext i32 %.0.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
   %21 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)

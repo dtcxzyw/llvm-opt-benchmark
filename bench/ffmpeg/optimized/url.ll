@@ -249,7 +249,7 @@ find_delim.exit75.thread:                         ; preds = %35
   br i1 %exitcond.not.i74, label %find_delim.exit75, label %.lr.ph.i71, !llvm.loop !19
 
 find_delim.exit75:                                ; preds = %.lr.ph.i71, %45
-  %.0.lcssa.i68 = phi ptr [ %.06.i72, %.lr.ph.i71 ], [ %scevgep.i70, %45 ]
+  %.0.lcssa.i68 = phi ptr [ %scevgep.i70, %45 ], [ %.06.i72, %.lr.ph.i71 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %36, ptr %47, align 8, !tbaa !22
   %48 = icmp ult ptr %36, %.0.lcssa.i68
@@ -423,7 +423,7 @@ find_delim.exit107:                               ; preds = %.lr.ph.i103, %94, %
   br i1 %exitcond.not.i114, label %find_delim.exit115, label %.lr.ph.i111, !llvm.loop !19
 
 find_delim.exit115:                               ; preds = %.lr.ph.i111, %.lr.ph.i111, %103, %find_delim.exit107
-  %.4 = phi ptr [ %.0.lcssa.i100, %find_delim.exit107 ], [ %.06.i112, %.lr.ph.i111 ], [ %scevgep.i110, %103 ], [ %.06.i112, %.lr.ph.i111 ]
+  %.4 = phi ptr [ %.0.lcssa.i100, %find_delim.exit107 ], [ %.06.i112, %.lr.ph.i111 ], [ %.06.i112, %.lr.ph.i111 ], [ %scevgep.i110, %103 ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.4, ptr %105, align 8, !tbaa !28
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -552,8 +552,8 @@ is_fq_dos_path.exit157.thread:                    ; preds = %is_fq_dos_path.exit
   br label %is_fq_dos_path.exit157.thread166
 
 is_fq_dos_path.exit157.thread166:                 ; preds = %is_fq_dos_path.exit157, %is_fq_dos_path.exit157, %43, %43, %is_fq_dos_path.exit157.thread, %31, %9
-  %.099 = phi ptr [ @.str.14, %9 ], [ @.str.14, %31 ], [ @.str.17, %is_fq_dos_path.exit157.thread ], [ @.str.17, %is_fq_dos_path.exit157 ], [ @.str.17, %43 ], [ @.str.17, %43 ], [ @.str.17, %is_fq_dos_path.exit157 ]
-  %.077 = phi ptr [ %spec.store.select, %9 ], [ %spec.store.select, %31 ], [ %spec.store.select, %is_fq_dos_path.exit157.thread ], [ @.str.15, %is_fq_dos_path.exit157 ], [ @.str.15, %43 ], [ @.str.15, %43 ], [ @.str.15, %is_fq_dos_path.exit157 ]
+  %.099 = phi ptr [ @.str.14, %31 ], [ @.str.14, %9 ], [ @.str.17, %is_fq_dos_path.exit157 ], [ @.str.17, %is_fq_dos_path.exit157.thread ], [ @.str.17, %43 ], [ @.str.17, %43 ], [ @.str.17, %is_fq_dos_path.exit157 ]
+  %.077 = phi ptr [ %spec.store.select, %31 ], [ %spec.store.select, %9 ], [ @.str.15, %is_fq_dos_path.exit157 ], [ %spec.store.select, %is_fq_dos_path.exit157.thread ], [ @.str.15, %43 ], [ @.str.15, %43 ], [ @.str.15, %is_fq_dos_path.exit157 ]
   %49 = call i32 @ff_url_decompose(ptr noundef nonnull %6, ptr noundef nonnull %.077, ptr noundef null)
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %170, label %51
@@ -767,14 +767,14 @@ is_fq_dos_path.exit157.thread166:                 ; preds = %is_fq_dos_path.exit
   %spec.select234 = select i1 %173, ptr @.str.19, ptr %172
   br label %.thread198.thread
 
-.thread198.thread:                                ; preds = %.thread198, %128, %150, %143, %97, %54, %158
-  %.087201232 = phi i32 [ %.087201.fr, %.thread198 ], [ -12, %128 ], [ -12, %158 ], [ -12, %54 ], [ -12, %97 ], [ -12, %143 ], [ -12, %150 ]
-  %174 = phi ptr [ %spec.select234, %.thread198 ], [ @.str.19, %128 ], [ @.str.19, %158 ], [ @.str.19, %54 ], [ @.str.19, %97 ], [ @.str.19, %143 ], [ @.str.19, %150 ]
+.thread198.thread:                                ; preds = %.thread198, %128, %54, %97, %143, %150, %158
+  %.087201232 = phi i32 [ -12, %158 ], [ -12, %150 ], [ -12, %143 ], [ -12, %97 ], [ -12, %54 ], [ -12, %128 ], [ %.087201.fr, %.thread198 ]
+  %174 = phi ptr [ @.str.19, %158 ], [ @.str.19, %150 ], [ @.str.19, %143 ], [ @.str.19, %97 ], [ @.str.19, %54 ], [ @.str.19, %128 ], [ %spec.select234, %.thread198 ]
   %175 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %10, ptr noundef nonnull @.str.18, ptr noundef nonnull %174) #12
   br label %176
 
 176:                                              ; preds = %5, %.thread198.thread, %168
-  %.0 = phi i32 [ %.087201232, %.thread198.thread ], [ -12, %5 ], [ 0, %168 ]
+  %.0 = phi i32 [ %.087201232, %.thread198.thread ], [ 0, %168 ], [ -12, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -835,7 +835,7 @@ define internal fastcc range(i32 -12, 1) i32 @append_path(ptr noundef %0, ptr no
   br i1 %exitcond.not.i, label %find_delim.exit, label %.lr.ph.i, !llvm.loop !19
 
 find_delim.exit:                                  ; preds = %.lr.ph.i, %.lr.ph.i, %19
-  %.0.lcssa.i = phi ptr [ %.06.i, %.lr.ph.i ], [ %scevgep.i, %19 ], [ %.06.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi ptr [ %scevgep.i, %19 ], [ %.06.i, %.lr.ph.i ], [ %.06.i, %.lr.ph.i ]
   %21 = icmp ult ptr %.0.lcssa.i, %4
   br i1 %21, label %22, label %26
 

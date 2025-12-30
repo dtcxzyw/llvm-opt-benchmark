@@ -759,7 +759,7 @@ define noundef range(i32 -1, 2) i32 @_ZN9grpc_core8internal37grpc_gcp_rpc_protoc
   br label %17
 
 17:                                               ; preds = %.thread, %15, %2, %8, %.thread16
-  %.0 = phi i32 [ 0, %.thread16 ], [ 1, %2 ], [ 1, %8 ], [ -1, %15 ], [ -1, %.thread ]
+  %.0 = phi i32 [ 0, %.thread16 ], [ 1, %8 ], [ 1, %2 ], [ -1, %15 ], [ -1, %.thread ]
   ret i32 %.0
 }
 
@@ -809,7 +809,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit: ; pr
   br label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit
 
 _ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit: ; preds = %16, %14, %10
-  %22 = phi ptr [ %1, %10 ], [ %spec.select, %16 ], [ %0, %14 ]
+  %22 = phi ptr [ %1, %10 ], [ %0, %14 ], [ %spec.select, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i32, ptr %23, align 4, !tbaa !32
@@ -863,7 +863,7 @@ _ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcP
   br label %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32.thread
 
 _ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32.thread: ; preds = %42, %.thread.i29, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32, %49, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit
-  %.0 = phi i1 [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit ], [ true, %49 ], [ true, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32 ], [ false, %42 ], [ false, %.thread.i29 ]
+  %.0 = phi i1 [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi61EEERS2_RAT__Kc.exit ], [ true, %49 ], [ true, %_ZN9grpc_core8internal37grpc_gcp_rpc_protocol_version_compareEPK37_grpc_gcp_RpcProtocolVersions_VersionS3_.exit32 ], [ false, %.thread.i29 ], [ false, %42 ]
   ret i1 %.0
 }
 

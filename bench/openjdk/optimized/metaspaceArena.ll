@@ -424,7 +424,7 @@ define hidden noundef zeroext i1 @_ZN9metaspace14MetaspaceArena29attempt_enlarge
   br label %48
 
 48:                                               ; preds = %31, %20, %13, %8, %2, %45
-  %.0 = phi i1 [ false, %13 ], [ false, %31 ], [ false, %2 ], [ false, %8 ], [ false, %20 ], [ %47, %45 ]
+  %.0 = phi i1 [ %47, %45 ], [ false, %2 ], [ false, %8 ], [ false, %13 ], [ false, %20 ], [ false, %31 ]
   ret i1 %.0
 }
 
@@ -611,7 +611,7 @@ _ZN9metaspace14MetaspaceArena29attempt_enlarge_current_chunkEm.exit: ; preds = %
   %75 = icmp eq ptr %74, null
   br i1 %75, label %.thread44, label %.thread53
 
-.thread44:                                        ; preds = %27, %17, %15, %38, %20, %66, %68, %_ZN9metaspace14MetaspaceArena29attempt_enlarge_current_chunkEm.exit, %2, %72
+.thread44:                                        ; preds = %38, %27, %20, %17, %15, %68, %66, %_ZN9metaspace14MetaspaceArena29attempt_enlarge_current_chunkEm.exit, %2, %72
   %76 = icmp ult i64 %1, 2097153
   br i1 %76, label %_ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit, label %77
 

@@ -420,8 +420,8 @@ define internal i32 @hds_write_header(ptr noundef %0) #0 {
   %211 = tail call fastcc i32 @write_manifest(ptr noundef nonnull %0, i32 noundef 0)
   br label %.thread
 
-.thread:                                          ; preds = %83, %71, %75, %._crit_edge145, %129, %62, %40, %17, %15, %._crit_edge149, %11
-  %.0103 = phi i32 [ %14, %11 ], [ -12, %17 ], [ -22, %40 ], [ %211, %._crit_edge149 ], [ -1481985528, %15 ], [ %172, %._crit_edge145 ], [ -22, %62 ], [ %134, %129 ], [ -12, %75 ], [ -12, %71 ], [ -12, %83 ]
+.thread:                                          ; preds = %83, %75, %71, %._crit_edge145, %129, %40, %62, %17, %15, %._crit_edge149, %11
+  %.0103 = phi i32 [ %14, %11 ], [ %211, %._crit_edge149 ], [ -1481985528, %15 ], [ -12, %17 ], [ -22, %40 ], [ -22, %62 ], [ %134, %129 ], [ %172, %._crit_edge145 ], [ -12, %71 ], [ -12, %75 ], [ -12, %83 ]
   ret i32 %.0103
 }
 
@@ -855,8 +855,8 @@ define internal i32 @hds_write(ptr noundef captures(none) %0, ptr noundef %1, i3
   %spec.select = select i1 %.not48.i, i32 -1094995529, i32 %2
   br label %parse_header.exit
 
-parse_header.exit:                                ; preds = %57, %43, %40, %21, %55, %._crit_edge.i, %12, %10, %6, %7
-  %.1 = phi i32 [ %2, %6 ], [ %spec.select, %._crit_edge.i ], [ %2, %7 ], [ -1094995529, %10 ], [ -1094995529, %12 ], [ -1094995529, %55 ], [ -1094995529, %21 ], [ -1094995529, %40 ], [ -12, %43 ], [ -12, %57 ]
+parse_header.exit:                                ; preds = %57, %55, %43, %40, %21, %._crit_edge.i, %12, %10, %6, %7
+  %.1 = phi i32 [ %2, %7 ], [ %2, %6 ], [ -1094995529, %12 ], [ -1094995529, %10 ], [ %spec.select, %._crit_edge.i ], [ -1094995529, %21 ], [ -1094995529, %40 ], [ -12, %43 ], [ -1094995529, %55 ], [ -12, %57 ]
   ret i32 %.1
 }
 
@@ -1222,7 +1222,7 @@ define internal fastcc i32 @write_manifest(ptr noundef %0, i32 noundef range(i32
   br label %94
 
 94:                                               ; preds = %.thread, %._crit_edge, %36
-  %.0 = phi i32 [ %34, %36 ], [ -12, %.thread ], [ %93, %._crit_edge ]
+  %.0 = phi i32 [ %34, %36 ], [ %93, %._crit_edge ], [ -12, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1499,7 +1499,7 @@ init_file.exit.thread:                            ; preds = %92, %76
   br label %init_file.exit
 
 init_file.exit:                                   ; preds = %71, %10, %4, %143
-  %.053 = phi i32 [ 0, %4 ], [ %144, %143 ], [ %39, %10 ], [ %74, %71 ]
+  %.053 = phi i32 [ %144, %143 ], [ 0, %4 ], [ %39, %10 ], [ %74, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.053
 }

@@ -196,7 +196,7 @@ define hidden i32 @Curl_input_ntlm(ptr noundef %0, i1 noundef zeroext %1, ptr no
   br label %73
 
 73:                                               ; preds = %25, %3, %72, %59, %60, %67, %71, %.critedge77, %56
-  %.1 = phi i32 [ 9, %59 ], [ 0, %3 ], [ 9, %56 ], [ %.15181, %.critedge77 ], [ 9, %71 ], [ 9, %67 ], [ 9, %60 ], [ 0, %25 ], [ 0, %72 ]
+  %.1 = phi i32 [ 9, %56 ], [ %.15181, %.critedge77 ], [ 9, %71 ], [ 9, %67 ], [ 9, %60 ], [ 9, %59 ], [ 0, %25 ], [ 0, %72 ], [ 0, %3 ]
   ret i32 %.1
 }
 
@@ -360,7 +360,7 @@ define hidden i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) local
   br label %62
 
 62:                                               ; preds = %27, %44, %36, %38, %53, %40, %21, %23, %56
-  %.0 = phi i32 [ %22, %21 ], [ %26, %23 ], [ 27, %44 ], [ 0, %38 ], [ 0, %56 ], [ %37, %36 ], [ %43, %40 ], [ 0, %53 ], [ %spec.select84, %27 ]
+  %.0 = phi i32 [ %22, %21 ], [ %26, %23 ], [ 0, %56 ], [ %37, %36 ], [ %43, %40 ], [ 0, %53 ], [ 0, %38 ], [ %spec.select84, %27 ], [ 27, %44 ]
   call void @Curl_bufref_free(ptr noundef nonnull %5) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

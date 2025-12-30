@@ -146,7 +146,7 @@ is_qcelp_13k_guid.exit.thread:                    ; preds = %16, %is_qcelp_13k_g
   br label %100
 
 68:                                               ; preds = %20, %19, %is_qcelp_13k_guid.exit.thread, %is_qcelp_13k_guid.exit
-  %.sink = phi i32 [ 86040, %is_qcelp_13k_guid.exit ], [ 86088, %19 ], [ 86087, %is_qcelp_13k_guid.exit.thread ], [ 86093, %20 ]
+  %.sink = phi i32 [ 86040, %is_qcelp_13k_guid.exit ], [ 86087, %is_qcelp_13k_guid.exit.thread ], [ 86088, %19 ], [ 86093, %20 ]
   %69 = load ptr, ptr %11, align 8, !tbaa !28
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store i32 %.sink, ptr %70, align 4, !tbaa !40
@@ -203,7 +203,7 @@ is_qcelp_13k_guid.exit.thread:                    ; preds = %16, %is_qcelp_13k_g
   br label %100
 
 100:                                              ; preds = %8, %1, %._crit_edge, %21
-  %.0 = phi i32 [ -12, %1 ], [ 0, %._crit_edge ], [ -1094995529, %21 ], [ %14, %8 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -1094995529, %21 ], [ -12, %1 ], [ %14, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -343,7 +343,7 @@ define internal i32 @qcp_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %.not, label %10, label %.thread, !llvm.loop !50
 
 .thread:                                          ; preds = %.backedge, %2, %30, %35
-  %.2 = phi i32 [ %31, %30 ], [ %31, %35 ], [ -541478725, %2 ], [ -541478725, %.backedge ]
+  %.2 = phi i32 [ %31, %35 ], [ %31, %30 ], [ -541478725, %2 ], [ -541478725, %.backedge ]
   ret i32 %.2
 }
 

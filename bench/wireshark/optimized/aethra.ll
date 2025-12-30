@@ -101,7 +101,7 @@ define hidden range(i32 -1, 2) i32 @aethra_open(ptr noundef %0, ptr noundef %1, 
   br label %49
 
 49:                                               ; preds = %11, %10, %8, %15
-  %.0 = phi i32 [ %., %8 ], [ 1, %15 ], [ 0, %10 ], [ -1, %11 ]
+  %.0 = phi i32 [ 1, %15 ], [ %., %8 ], [ 0, %10 ], [ -1, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -287,7 +287,7 @@ define internal zeroext i1 @aethra_seek_read(ptr noundef readonly captures(none)
   br label %54
 
 54:                                               ; preds = %29, %25, %28, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %25 ], [ %53, %29 ], [ false, %28 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %28 ], [ false, %25 ], [ %53, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }

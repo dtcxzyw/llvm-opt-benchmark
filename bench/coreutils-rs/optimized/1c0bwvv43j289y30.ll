@@ -782,7 +782,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit: ; 
   br label %.body.i
 
 .body.i:                                          ; preds = %.body.i.i384.i, %.body.i.i374.i, %.body.i.i363.i, %.body.i.i353.i, %.body.i.i335.i, %.body.i.i325.i, %.body.i.i308.i, %.body.i.i298.i, %.body.i.i.i, %141
-  %eh.lpad-body.i = phi { ptr, i32 } [ %387, %.body.i.i374.i ], [ %156, %.body.i.i.i ], [ %213, %.body.i.i298.i ], [ %238, %.body.i.i308.i ], [ %274, %.body.i.i325.i ], [ %297, %.body.i.i335.i ], [ %334, %.body.i.i353.i ], [ %361, %.body.i.i363.i ], [ %142, %141 ], [ %414, %.body.i.i384.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %142, %141 ], [ %156, %.body.i.i.i ], [ %213, %.body.i.i298.i ], [ %238, %.body.i.i308.i ], [ %274, %.body.i.i325.i ], [ %297, %.body.i.i335.i ], [ %334, %.body.i.i353.i ], [ %361, %.body.i.i363.i ], [ %387, %.body.i.i374.i ], [ %414, %.body.i.i384.i ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h39fbb8178fee3953E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %69) #11
           to label %common.resume unwind label %432
 
@@ -889,11 +889,11 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit: ; 
   br label %173
 
 173:                                              ; preds = %421, %368, %245, %162, %427, %303, %280, %168
-  %.sroa.62.0 = phi i64 [ %132, %427 ], [ %132, %168 ], [ %221, %245 ], [ undef, %162 ], [ undef, %303 ], [ undef, %280 ], [ %342, %368 ], [ %395, %421 ]
-  %.sroa.45.0 = phi i64 [ %431, %427 ], [ %172, %168 ], [ %247, %245 ], [ %164, %162 ], [ %305, %303 ], [ %282, %280 ], [ %370, %368 ], [ %423, %421 ]
-  %.sroa.24.0 = phi i64 [ %428, %427 ], [ %169, %168 ], [ 1, %245 ], [ 0, %162 ], [ 2, %303 ], [ 4, %280 ], [ 5, %368 ], [ 3, %421 ]
-  %174 = phi i1 [ false, %427 ], [ false, %168 ], [ true, %245 ], [ true, %162 ], [ true, %303 ], [ true, %280 ], [ true, %368 ], [ true, %421 ]
-  %.sroa.0148.0 = phi i64 [ 0, %427 ], [ 0, %168 ], [ 2, %245 ], [ 2, %162 ], [ 2, %303 ], [ 2, %280 ], [ 2, %368 ], [ 2, %421 ]
+  %.sroa.62.0 = phi i64 [ %132, %427 ], [ %132, %168 ], [ undef, %303 ], [ undef, %280 ], [ undef, %162 ], [ %221, %245 ], [ %342, %368 ], [ %395, %421 ]
+  %.sroa.45.0 = phi i64 [ %431, %427 ], [ %172, %168 ], [ %305, %303 ], [ %282, %280 ], [ %164, %162 ], [ %247, %245 ], [ %370, %368 ], [ %423, %421 ]
+  %.sroa.24.0 = phi i64 [ %428, %427 ], [ %169, %168 ], [ 2, %303 ], [ 4, %280 ], [ 0, %162 ], [ 1, %245 ], [ 5, %368 ], [ 3, %421 ]
+  %174 = phi i1 [ false, %427 ], [ false, %168 ], [ true, %303 ], [ true, %280 ], [ true, %162 ], [ true, %245 ], [ true, %368 ], [ true, %421 ]
+  %.sroa.0148.0 = phi i64 [ 0, %427 ], [ 0, %168 ], [ 2, %303 ], [ 2, %280 ], [ 2, %162 ], [ 2, %245 ], [ 2, %368 ], [ 2, %421 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !142
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfa074f7fb60b9d3cE.llvm.1206798258238166277"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %52, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %69)
   %175 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -1810,7 +1810,7 @@ _ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit.thread: ; preds 
   unreachable
 
 common.resume:                                    ; preds = %602, %586, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %587, %586 ], [ %eh.lpad-body.i, %.body.i ], [ %603, %602 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %587, %586 ], [ %603, %602 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN8uu_split8strategy10NumberType4from17h658fae3627710d21E.exit: ; preds = %173, %177, %181

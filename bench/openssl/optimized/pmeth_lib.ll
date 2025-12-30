@@ -389,11 +389,11 @@ evp_pkey_meth_find_added_by_application.exit:     ; preds = %63, %.sink.split.i
   br label %72
 
 72:                                               ; preds = %evp_pkey_meth_find_added_by_application.exit, %EVP_PKEY_meth_find.exit, %.thread
-  %73 = phi i1 [ true, %.thread ], [ false, %evp_pkey_meth_find_added_by_application.exit ], [ false, %EVP_PKEY_meth_find.exit ]
-  %.0106148 = phi i32 [ -1, %.thread ], [ %.0106154, %evp_pkey_meth_find_added_by_application.exit ], [ %.0106154, %EVP_PKEY_meth_find.exit ]
-  %.2113 = phi ptr [ %.0111147, %.thread ], [ %.4236240244, %evp_pkey_meth_find_added_by_application.exit ], [ %.4235, %EVP_PKEY_meth_find.exit ]
-  %.0104 = phi ptr [ null, %.thread ], [ %.1.i, %evp_pkey_meth_find_added_by_application.exit ], [ %.0.i, %EVP_PKEY_meth_find.exit ]
-  %.0103 = phi i1 [ true, %.thread ], [ %71, %evp_pkey_meth_find_added_by_application.exit ], [ true, %EVP_PKEY_meth_find.exit ]
+  %73 = phi i1 [ true, %.thread ], [ false, %EVP_PKEY_meth_find.exit ], [ false, %evp_pkey_meth_find_added_by_application.exit ]
+  %.0106148 = phi i32 [ -1, %.thread ], [ %.0106154, %EVP_PKEY_meth_find.exit ], [ %.0106154, %evp_pkey_meth_find_added_by_application.exit ]
+  %.2113 = phi ptr [ %.0111147, %.thread ], [ %.4235, %EVP_PKEY_meth_find.exit ], [ %.4236240244, %evp_pkey_meth_find_added_by_application.exit ]
+  %.0104 = phi ptr [ null, %.thread ], [ %.0.i, %EVP_PKEY_meth_find.exit ], [ %.1.i, %evp_pkey_meth_find_added_by_application.exit ]
+  %.0103 = phi i1 [ true, %.thread ], [ true, %EVP_PKEY_meth_find.exit ], [ %71, %evp_pkey_meth_find_added_by_application.exit ]
   %74 = icmp ne ptr %.2113, null
   %or.cond5 = select i1 %.0103, i1 %74, i1 false
   br i1 %or.cond5, label %75, label %93
@@ -443,8 +443,8 @@ evp_pkey_meth_find_added_by_application.exit:     ; preds = %63, %.sink.split.i
   %90 = icmp eq i32 %.0106148, %88
   br i1 %90, label %.thread195, label %92, !prof !39
 
-.thread195:                                       ; preds = %89, %87
-  %.3.ph = phi i32 [ %.0106148, %89 ], [ %.0106.mux, %87 ]
+.thread195:                                       ; preds = %87, %89
+  %.3.ph = phi i32 [ %.0106.mux, %87 ], [ %.0106148, %89 ]
   %91 = icmp eq ptr %.0104, null
   br label %96
 
@@ -456,10 +456,10 @@ evp_pkey_meth_find_added_by_application.exit:     ; preds = %63, %.sink.split.i
   br label %131
 
 93:                                               ; preds = %.thread178, %72
-  %.0104188 = phi ptr [ %45, %.thread178 ], [ %.0104, %72 ]
-  %.0108187 = phi ptr [ %.2110177, %.thread178 ], [ null, %72 ]
-  %.2113186 = phi ptr [ %.4158164176, %.thread178 ], [ %.2113, %72 ]
-  %.1107 = phi i32 [ %.0106154, %.thread178 ], [ %.0106148, %72 ]
+  %.0104188 = phi ptr [ %.0104, %72 ], [ %45, %.thread178 ]
+  %.0108187 = phi ptr [ null, %72 ], [ %.2110177, %.thread178 ]
+  %.2113186 = phi ptr [ %.2113, %72 ], [ %.4158164176, %.thread178 ]
+  %.1107 = phi i32 [ %.0106148, %72 ], [ %.0106154, %.thread178 ]
   %94 = icmp eq ptr %.0104188, null
   br i1 %94, label %95, label %96
 
@@ -563,7 +563,7 @@ evp_pkey_meth_find_added_by_application.exit:     ; preds = %63, %.sink.split.i
   br label %131
 
 131:                                              ; preds = %92, %.thread189, %123, %124, %127, %85, %130, %112, %106, %41, %25
-  %.0 = phi ptr [ null, %25 ], [ null, %41 ], [ null, %106 ], [ null, %112 ], [ null, %130 ], [ null, %85 ], [ null, %92 ], [ %.0105, %127 ], [ %.0105, %124 ], [ %.0105, %123 ], [ null, %.thread189 ]
+  %.0 = phi ptr [ null, %25 ], [ null, %106 ], [ null, %112 ], [ null, %130 ], [ null, %92 ], [ null, %41 ], [ null, %85 ], [ %.0105, %127 ], [ %.0105, %124 ], [ %.0105, %123 ], [ null, %.thread189 ]
   ret ptr %.0
 }
 
@@ -1215,22 +1215,26 @@ define ptr @EVP_PKEY_CTX_dup(ptr noundef %0) local_unnamed_addr #0 {
   %161 = load ptr, ptr %27, align 8, !tbaa !40
   %162 = call ptr @evp_pkey_export_to_provider(ptr noundef %159, ptr noundef %160, ptr noundef nonnull %2, ptr noundef %161) #10
   %163 = icmp eq ptr %162, null
-  br i1 %163, label %.critedge, label %164
+  br i1 %163, label %170, label %164
 
 164:                                              ; preds = %156
   %165 = load ptr, ptr %2, align 8, !tbaa !70
   %166 = call i32 @EVP_KEYMGMT_up_ref(ptr noundef %165) #10
   %.not156 = icmp eq i32 %166, 0
-  br i1 %.not156, label %.critedge, label %167
+  br i1 %.not156, label %170, label %.critedge
 
-167:                                              ; preds = %164
-  %168 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %169 = load ptr, ptr %168, align 8, !tbaa !43
-  call void @EVP_KEYMGMT_free(ptr noundef %169) #10
-  %170 = load ptr, ptr %2, align 8, !tbaa !70
-  store ptr %170, ptr %168, align 8, !tbaa !43
+.critedge:                                        ; preds = %164
+  %167 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %168 = load ptr, ptr %167, align 8, !tbaa !43
+  call void @EVP_KEYMGMT_free(ptr noundef %168) #10
+  %169 = load ptr, ptr %2, align 8, !tbaa !70
+  store ptr %169, ptr %167, align 8, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %178
+
+170:                                              ; preds = %164, %156
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br label %176
 
 171:                                              ; preds = %148
   %172 = getelementptr inbounds nuw i8, ptr %149, i64 16
@@ -1239,18 +1243,14 @@ define ptr @EVP_PKEY_CTX_dup(ptr noundef %0) local_unnamed_addr #0 {
   %175 = icmp sgt i32 %174, 0
   br i1 %175, label %178, label %176
 
-.critedge:                                        ; preds = %164, %156
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %176
-
-176:                                              ; preds = %.critedge, %153, %171, %136, %122, %116, %97, %91, %72, %66, %47, %41, %29, %133, %108, %83, %58
+176:                                              ; preds = %170, %153, %171, %136, %122, %116, %97, %91, %72, %66, %47, %41, %29, %133, %108, %83, %58
   %177 = getelementptr inbounds nuw i8, ptr %9, i64 120
   store ptr null, ptr %177, align 8, !tbaa !46
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %9)
   br label %178
 
-178:                                              ; preds = %171, %167, %130, %105, %80, %55, %8, %176, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %176 ], [ null, %8 ], [ %9, %167 ], [ %9, %130 ], [ %9, %55 ], [ %9, %80 ], [ %9, %105 ], [ %9, %171 ]
+178:                                              ; preds = %171, %.critedge, %130, %105, %80, %55, %8, %176, %7
+  %.0 = phi ptr [ null, %176 ], [ null, %7 ], [ null, %8 ], [ %9, %55 ], [ %9, %80 ], [ %9, %105 ], [ %9, %130 ], [ %9, %.critedge ], [ %9, %171 ]
   ret ptr %.0
 }
 
@@ -1610,7 +1610,7 @@ evp_pkey_ctx_state.exit:                          ; preds = %25, %27, %2
   br label %89
 
 89:                                               ; preds = %81, %78, %76, %evp_pkey_ctx_state.exit, %84, %72, %60, %48, %36
-  %.0 = phi i32 [ %88, %evp_pkey_ctx_state.exit ], [ %39, %36 ], [ %51, %48 ], [ %63, %60 ], [ %75, %72 ], [ %87, %84 ], [ 0, %76 ], [ 0, %78 ], [ 0, %81 ]
+  %.0 = phi i32 [ %39, %36 ], [ %51, %48 ], [ %63, %60 ], [ %75, %72 ], [ %87, %84 ], [ %88, %evp_pkey_ctx_state.exit ], [ 0, %76 ], [ 0, %78 ], [ 0, %81 ]
   ret i32 %.0
 }
 
@@ -1797,7 +1797,7 @@ evp_pkey_ctx_state.exit:                          ; preds = %25, %27, %2
   br label %89
 
 89:                                               ; preds = %81, %78, %76, %evp_pkey_ctx_state.exit, %84, %72, %60, %48, %36
-  %.0 = phi i32 [ %88, %evp_pkey_ctx_state.exit ], [ %39, %36 ], [ %51, %48 ], [ %63, %60 ], [ %75, %72 ], [ %87, %84 ], [ 0, %76 ], [ 0, %78 ], [ 0, %81 ]
+  %.0 = phi i32 [ %39, %36 ], [ %51, %48 ], [ %63, %60 ], [ %75, %72 ], [ %87, %84 ], [ %88, %evp_pkey_ctx_state.exit ], [ 0, %76 ], [ 0, %78 ], [ 0, %81 ]
   ret i32 %.0
 }
 
@@ -2148,7 +2148,7 @@ define i32 @evp_pkey_ctx_set_params_strict(ptr noundef %0, ptr noundef %1) local
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %.thread
-  %.014 = phi i32 [ 0, %2 ], [ %18, %.thread ], [ -2, %.lr.ph ]
+  %.014 = phi i32 [ %18, %.thread ], [ 0, %2 ], [ -2, %.lr.ph ]
   ret i32 %.014
 }
 
@@ -2191,7 +2191,7 @@ define i32 @evp_pkey_ctx_get_params_strict(ptr noundef %0, ptr noundef %1) local
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %.thread
-  %.014 = phi i32 [ 0, %2 ], [ %18, %.thread ], [ -2, %.lr.ph ]
+  %.014 = phi i32 [ %18, %.thread ], [ 0, %2 ], [ -2, %.lr.ph ]
   ret i32 %.014
 }
 
@@ -2256,7 +2256,7 @@ EVP_PKEY_CTX_ctrl.exit:                           ; preds = %11
   br label %27
 
 27:                                               ; preds = %21, %18, %26, %EVP_PKEY_CTX_ctrl.exit, %10
-  %.0 = phi i32 [ -2, %10 ], [ %17, %EVP_PKEY_CTX_ctrl.exit ], [ 0, %18 ], [ 1, %26 ], [ 0, %21 ]
+  %.0 = phi i32 [ -2, %10 ], [ %17, %EVP_PKEY_CTX_ctrl.exit ], [ 1, %26 ], [ 0, %18 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -2390,7 +2390,7 @@ define internal fastcc i32 @evp_pkey_ctx_set_md(ptr noundef %0, ptr noundef %1, 
   br label %EVP_PKEY_CTX_ctrl.exit
 
 EVP_PKEY_CTX_ctrl.exit:                           ; preds = %27, %24, %21, %33, %13
-  %.015 = phi i32 [ -2, %13 ], [ %35, %33 ], [ %17, %21 ], [ %28, %27 ], [ 1, %24 ]
+  %.015 = phi i32 [ -2, %13 ], [ %35, %33 ], [ %28, %27 ], [ 1, %24 ], [ %17, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.015
 }
@@ -2486,7 +2486,7 @@ define internal fastcc i32 @evp_pkey_ctx_set1_octet_string(ptr noundef %0, i32 n
   br label %EVP_PKEY_CTX_ctrl.exit
 
 EVP_PKEY_CTX_ctrl.exit:                           ; preds = %30, %27, %24, %35, %34, %15
-  %.0 = phi i32 [ -2, %15 ], [ %38, %35 ], [ 0, %34 ], [ %20, %24 ], [ %31, %30 ], [ 1, %27 ]
+  %.0 = phi i32 [ -2, %15 ], [ 0, %34 ], [ %38, %35 ], [ %31, %30 ], [ 1, %27 ], [ %20, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -2645,7 +2645,7 @@ EVP_PKEY_CTX_ctrl.exit.i:                         ; preds = %13
   br label %evp_pkey_ctx_add1_octet_string.exit
 
 evp_pkey_ctx_add1_octet_string.exit:              ; preds = %12, %EVP_PKEY_CTX_ctrl.exit.i, %19, %20, %28, %30, %33, %37, %41, %51
-  %.041.i = phi i32 [ -2, %12 ], [ %16, %EVP_PKEY_CTX_ctrl.exit.i ], [ 0, %19 ], [ 1, %20 ], [ %29, %28 ], [ 0, %30 ], [ 0, %33 ], [ 0, %37 ], [ %.0.i, %51 ], [ 0, %41 ]
+  %.041.i = phi i32 [ -2, %12 ], [ %16, %EVP_PKEY_CTX_ctrl.exit.i ], [ 0, %19 ], [ %29, %28 ], [ %.0.i, %51 ], [ 1, %20 ], [ 0, %30 ], [ 0, %33 ], [ 0, %37 ], [ 0, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.041.i
 }
@@ -2797,7 +2797,7 @@ define internal fastcc i32 @evp_pkey_ctx_set_uint64(ptr noundef %0, ptr noundef 
   br label %EVP_PKEY_CTX_ctrl.exit
 
 EVP_PKEY_CTX_ctrl.exit:                           ; preds = %24, %27, %30
-  %.0.i = phi i32 [ %20, %24 ], [ %31, %30 ], [ 1, %27 ]
+  %.0.i = phi i32 [ %31, %30 ], [ 1, %27 ], [ %20, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
@@ -3102,7 +3102,7 @@ evp_pkey_ctx_state.exit:                          ; preds = %38, %40, %15
   br label %84
 
 84:                                               ; preds = %76, %72, %79, %66, %60, %55, %51, %47, %decode_cmd.exit.thread
-  %.0 = phi i32 [ -1, %66 ], [ -2, %decode_cmd.exit.thread ], [ 0, %72 ], [ 1, %79 ], [ -2, %47 ], [ -1, %51 ], [ -2, %55 ], [ -1, %60 ], [ 0, %76 ]
+  %.0 = phi i32 [ -1, %66 ], [ 1, %79 ], [ -2, %47 ], [ -1, %51 ], [ -2, %55 ], [ -1, %60 ], [ -2, %decode_cmd.exit.thread ], [ 0, %72 ], [ 0, %76 ]
   ret i32 %.0
 }
 
@@ -3246,7 +3246,7 @@ evp_pkey_ctx_state.exit.thread:                   ; preds = %21, %evp_pkey_ctx_s
   br label %61
 
 61:                                               ; preds = %60, %57, %55, %53, %48, %20, %17
-  %.025 = phi i32 [ -1, %17 ], [ -1, %55 ], [ %49, %48 ], [ -2, %53 ], [ -1, %20 ], [ %58, %57 ], [ -2, %60 ]
+  %.025 = phi i32 [ -1, %17 ], [ %49, %48 ], [ -2, %53 ], [ -1, %20 ], [ -1, %55 ], [ -2, %60 ], [ %58, %57 ]
   ret i32 %.025
 }
 
@@ -3415,7 +3415,7 @@ evp_pkey_ctx_state.exit:                          ; preds = %29, %31, %6
   br label %EVP_PKEY_CTX_md.exit
 
 EVP_PKEY_CTX_md.exit:                             ; preds = %53, %52, %55, %43, %34, %5
-  %.016 = phi i32 [ -2, %5 ], [ -2, %43 ], [ %35, %34 ], [ %56, %55 ], [ 0, %52 ], [ %54, %53 ]
+  %.016 = phi i32 [ -2, %5 ], [ %35, %34 ], [ -2, %43 ], [ %56, %55 ], [ 0, %52 ], [ %54, %53 ]
   ret i32 %.016
 }
 
@@ -3544,7 +3544,7 @@ define ptr @EVP_PKEY_CTX_get0_provider(ptr noundef readonly captures(none) %0) l
   br label %37
 
 37:                                               ; preds = %4, %18, %30, %32, %25, %11, %35, %28, %21, %14, %7
-  %.0 = phi ptr [ %8, %7 ], [ %36, %35 ], [ %15, %14 ], [ %22, %21 ], [ %29, %28 ], [ null, %11 ], [ null, %25 ], [ null, %32 ], [ null, %30 ], [ null, %18 ], [ null, %4 ]
+  %.0 = phi ptr [ %8, %7 ], [ %15, %14 ], [ %22, %21 ], [ %29, %28 ], [ %36, %35 ], [ null, %11 ], [ null, %25 ], [ null, %32 ], [ null, %30 ], [ null, %18 ], [ null, %4 ]
   ret ptr %.0
 }
 

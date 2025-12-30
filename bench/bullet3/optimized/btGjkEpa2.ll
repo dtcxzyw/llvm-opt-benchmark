@@ -1218,7 +1218,7 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit112: ; preds = %22
   br label %_ZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_PfRj.exit
 
 _ZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_PfRj.exit: ; preds = %392, %388, %382, %413, %403, %351
-  %.459 = phi float [ %.055, %351 ], [ %425, %413 ], [ %412, %403 ], [ %402, %392 ], [ %385, %382 ], [ %391, %388 ]
+  %.459 = phi float [ %.055, %351 ], [ %412, %403 ], [ %425, %413 ], [ %385, %382 ], [ %391, %388 ], [ %402, %392 ]
   %426 = fcmp ult float %.459, 0.000000e+00
   br i1 %426, label %.thread141, label %427
 
@@ -1342,8 +1342,8 @@ _ZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_PfRj.exit: ; preds = %392, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.thread141, %.thread
-  %.pre-phi = phi i64 [ %.pre162.pre-phi, %.thread ], [ %480, %.thread141 ], [ %174, %._crit_edge ]
-  %494 = phi i32 [ %493, %.thread ], [ %492, %.thread141 ], [ %spec.select, %._crit_edge ]
+  %.pre-phi = phi i64 [ %480, %.thread141 ], [ %.pre162.pre-phi, %.thread ], [ %174, %._crit_edge ]
+  %494 = phi i32 [ %492, %.thread141 ], [ %493, %.thread ], [ %spec.select, %._crit_edge ]
   %495 = getelementptr inbounds nuw %"struct.gjkepa2_impl::GJK::sSimplex", ptr %37, i64 %.pre-phi
   %496 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr %495, ptr %496, align 8, !tbaa !20
@@ -2137,14 +2137,14 @@ _ZN12gjkepa2_impl3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit101: ; preds = %_ZN12g
   br i1 %exitcond.not, label %.loopexit269, label %160, !llvm.loop !76
 
 .loopexit269:                                     ; preds = %.loopexit, %238, %.thread
-  %.sroa.0227.0294 = phi float [ %.sroa.0227.0300, %.thread ], [ %.sroa.0227.0300, %238 ], [ %.sroa.0227.0.copyload228, %.loopexit ]
-  %.sroa.6230.0291 = phi float [ %.sroa.6230.0301, %.thread ], [ %.sroa.6230.0301, %238 ], [ %.sroa.6230.0.copyload231, %.loopexit ]
-  %.sroa.7.0288 = phi float [ %.sroa.7.0302, %.thread ], [ %.sroa.7.0302, %238 ], [ %.sroa.7.0.copyload233, %.loopexit ]
-  %.sroa.8.0285 = phi float [ %.sroa.8.0303, %.thread ], [ %.sroa.8.0303, %238 ], [ %.sroa.8.0.copyload235, %.loopexit ]
-  %.sroa.8237.0282 = phi float [ %.sroa.8237.0304, %.thread ], [ %.sroa.8237.0304, %238 ], [ %.sroa.8237.0.copyload238, %.loopexit ]
-  %.sroa.10241.0279 = phi ptr [ %.sroa.10241.0305, %.thread ], [ %.sroa.10241.0305, %238 ], [ %.sroa.10241.0.copyload242, %.loopexit ]
-  %.sroa.13.0276 = phi ptr [ %.sroa.13.0306, %.thread ], [ %.sroa.13.0306, %238 ], [ %.sroa.13.0.copyload245, %.loopexit ]
-  %.sroa.16.0273 = phi ptr [ %.sroa.16.0307, %.thread ], [ %.sroa.16.0307, %238 ], [ %.sroa.16.0.copyload248, %.loopexit ]
+  %.sroa.0227.0294 = phi float [ %.sroa.0227.0300, %238 ], [ %.sroa.0227.0300, %.thread ], [ %.sroa.0227.0.copyload228, %.loopexit ]
+  %.sroa.6230.0291 = phi float [ %.sroa.6230.0301, %238 ], [ %.sroa.6230.0301, %.thread ], [ %.sroa.6230.0.copyload231, %.loopexit ]
+  %.sroa.7.0288 = phi float [ %.sroa.7.0302, %238 ], [ %.sroa.7.0302, %.thread ], [ %.sroa.7.0.copyload233, %.loopexit ]
+  %.sroa.8.0285 = phi float [ %.sroa.8.0303, %238 ], [ %.sroa.8.0303, %.thread ], [ %.sroa.8.0.copyload235, %.loopexit ]
+  %.sroa.8237.0282 = phi float [ %.sroa.8237.0304, %238 ], [ %.sroa.8237.0304, %.thread ], [ %.sroa.8237.0.copyload238, %.loopexit ]
+  %.sroa.10241.0279 = phi ptr [ %.sroa.10241.0305, %238 ], [ %.sroa.10241.0305, %.thread ], [ %.sroa.10241.0.copyload242, %.loopexit ]
+  %.sroa.13.0276 = phi ptr [ %.sroa.13.0306, %238 ], [ %.sroa.13.0306, %.thread ], [ %.sroa.13.0.copyload245, %.loopexit ]
+  %.sroa.16.0273 = phi ptr [ %.sroa.16.0307, %238 ], [ %.sroa.16.0307, %.thread ], [ %.sroa.16.0.copyload248, %.loopexit ]
   %239 = fmul float %.sroa.0227.0294, %.sroa.8237.0282
   %240 = fmul float %.sroa.6230.0291, %.sroa.8237.0282
   %241 = fmul float %.sroa.7.0288, %.sroa.8237.0282
@@ -2794,7 +2794,7 @@ _ZNK12gjkepa2_impl13MinkowskiDiff8Support1ERK9btVector3.exit.i: ; preds = %113, 
   ret float %.0
 
 302:                                              ; preds = %175, %173, %266, %64, %297
-  %.pn57.pn.pn.pn = phi { ptr, i32 } [ %267, %266 ], [ %65, %64 ], [ %174, %173 ], [ %298, %297 ], [ %176, %175 ]
+  %.pn57.pn.pn.pn = phi { ptr, i32 } [ %298, %297 ], [ %65, %64 ], [ %176, %175 ], [ %174, %173 ], [ %267, %266 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #11
@@ -4387,7 +4387,7 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit151: ; preds = %46
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.thread, label %311, !llvm.loop !90
 
-544:                                              ; preds = %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit151, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit124
+544:                                              ; preds = %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit124, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit151
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %879
 
@@ -5242,7 +5242,7 @@ _ZN12gjkepa2_impl3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit: ; preds = %_ZN12gjke
   br label %.critedge
 
 .critedge:                                        ; preds = %60, %73, %32, %6, %_ZN12gjkepa2_impl3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit, %56
-  %.4 = phi i1 [ true, %_ZN12gjkepa2_impl3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit ], [ true, %56 ], [ false, %6 ], [ false, %32 ], [ false, %73 ], [ false, %60 ]
+  %.4 = phi i1 [ true, %56 ], [ true, %_ZN12gjkepa2_impl3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit ], [ false, %6 ], [ false, %32 ], [ false, %73 ], [ false, %60 ]
   ret i1 %.4
 }
 

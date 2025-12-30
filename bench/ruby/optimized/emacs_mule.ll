@@ -197,7 +197,7 @@ define internal range(i32 -400, 5) i32 @code_to_mbclen(i32 noundef %0, ptr readn
   br label %10
 
 10:                                               ; preds = %8, %6, %4, %2
-  %.0 = phi i32 [ %., %8 ], [ 3, %6 ], [ 1, %2 ], [ 4, %4 ]
+  %.0 = phi i32 [ 1, %2 ], [ 4, %4 ], [ 3, %6 ], [ %., %8 ]
   ret i32 %.0
 }
 
@@ -353,7 +353,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @mbc_case_fold(i32 %0, p
   br i1 %58, label %.lr.ph.preheader, label %._crit_edge
 
 mbc_enc_len.exit:                                 ; preds = %50, %37, %24
-  %.sink = phi i32 [ 1, %37 ], [ 0, %24 ], [ 2, %50 ]
+  %.sink = phi i32 [ 0, %24 ], [ 1, %37 ], [ 2, %50 ]
   %59 = getelementptr inbounds nuw i32, ptr @EncLen_EmacsMule, i64 %17
   %60 = load i32, ptr %59, align 4, !tbaa !9
   %61 = sub nsw i32 %.sink, %60
@@ -361,7 +361,7 @@ mbc_enc_len.exit:                                 ; preds = %50, %37, %24
   br i1 %62, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %52, %48, %35, %22, %mbc_enc_len.exit
-  %.0.i35 = phi i32 [ %61, %mbc_enc_len.exit ], [ 3, %48 ], [ 2, %35 ], [ 1, %22 ], [ 4, %52 ]
+  %.0.i35 = phi i32 [ %61, %mbc_enc_len.exit ], [ 1, %22 ], [ 2, %35 ], [ 3, %48 ], [ 4, %52 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

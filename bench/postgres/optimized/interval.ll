@@ -200,7 +200,7 @@ define i32 @DecodeInterval(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %88
 
 88:                                               ; preds = %54, %86, %82
-  %.3161 = phi double [ 0.000000e+00, %54 ], [ %87, %86 ], [ %77, %82 ]
+  %.3161 = phi double [ %87, %86 ], [ %77, %82 ], [ 0.000000e+00, %54 ]
   switch i32 %.2170, label %.thread [
     i32 30, label %89
     i32 29, label %98
@@ -542,9 +542,9 @@ AdjustFractDays.exit204:                          ; preds = %.thread215, %205, %
   br label %298
 
 298:                                              ; preds = %._crit_edge229, %292, %294, %296, %89, %98, %AdjustFractSeconds.exit, %AdjustFractSeconds.exit202, %AdjustFractSeconds.exit203, %AdjustFractDays.exit, %AdjustFractDays.exit204, %231, %243, %257, %271, %120, %119, %45
-  %299 = phi i32 [ 7182, %296 ], [ 32, %45 ], [ 16384, %89 ], [ 8192, %98 ], [ 4096, %119 ], [ 28672, %120 ], [ 2048, %AdjustFractSeconds.exit ], [ 1024, %AdjustFractSeconds.exit202 ], [ %176, %AdjustFractSeconds.exit203 ], [ %204, %AdjustFractDays.exit ], [ 2, %AdjustFractDays.exit204 ], [ %242, %231 ], [ %256, %243 ], [ %270, %257 ], [ %284, %271 ], [ 0, %292 ], [ 0, %294 ], [ %.pre, %._crit_edge229 ]
-  %.1169 = phi i32 [ 0, %296 ], [ 21, %45 ], [ 30, %89 ], [ 29, %98 ], [ 18, %119 ], [ 18, %120 ], [ 19, %AdjustFractSeconds.exit ], [ 21, %AdjustFractSeconds.exit202 ], [ 21, %AdjustFractSeconds.exit203 ], [ 22, %AdjustFractDays.exit ], [ 23, %AdjustFractDays.exit204 ], [ 25, %231 ], [ 26, %243 ], [ 27, %257 ], [ 28, %271 ], [ %293, %292 ], [ %295, %294 ], [ 21, %._crit_edge229 ]
-  %.1164 = phi i1 [ %.0163226, %296 ], [ %.0163226, %45 ], [ %.0163226, %89 ], [ %.0163226, %98 ], [ %.0163226, %119 ], [ %.0163226, %120 ], [ %.0163226, %AdjustFractSeconds.exit ], [ %.0163226, %AdjustFractSeconds.exit202 ], [ %.0163226, %AdjustFractSeconds.exit203 ], [ %.0163226, %AdjustFractDays.exit ], [ %.0163226, %AdjustFractDays.exit204 ], [ %.0163226, %231 ], [ %.0163226, %243 ], [ %.0163226, %257 ], [ %.0163226, %271 ], [ %.0163226, %292 ], [ true, %294 ], [ %.0163226, %._crit_edge229 ]
+  %299 = phi i32 [ 32, %45 ], [ 16384, %89 ], [ 8192, %98 ], [ 4096, %119 ], [ 28672, %120 ], [ 2048, %AdjustFractSeconds.exit ], [ 1024, %AdjustFractSeconds.exit202 ], [ %176, %AdjustFractSeconds.exit203 ], [ %204, %AdjustFractDays.exit ], [ 2, %AdjustFractDays.exit204 ], [ %242, %231 ], [ %256, %243 ], [ %270, %257 ], [ %284, %271 ], [ 0, %292 ], [ 0, %294 ], [ 7182, %296 ], [ %.pre, %._crit_edge229 ]
+  %.1169 = phi i32 [ 21, %45 ], [ 30, %89 ], [ 29, %98 ], [ 18, %119 ], [ 18, %120 ], [ 19, %AdjustFractSeconds.exit ], [ 21, %AdjustFractSeconds.exit202 ], [ 21, %AdjustFractSeconds.exit203 ], [ 22, %AdjustFractDays.exit ], [ 23, %AdjustFractDays.exit204 ], [ 25, %231 ], [ 26, %243 ], [ 27, %257 ], [ 28, %271 ], [ %293, %292 ], [ %295, %294 ], [ 0, %296 ], [ 21, %._crit_edge229 ]
+  %.1164 = phi i1 [ %.0163226, %45 ], [ %.0163226, %89 ], [ %.0163226, %98 ], [ %.0163226, %119 ], [ %.0163226, %120 ], [ %.0163226, %AdjustFractSeconds.exit ], [ %.0163226, %AdjustFractSeconds.exit202 ], [ %.0163226, %AdjustFractSeconds.exit203 ], [ %.0163226, %AdjustFractDays.exit ], [ %.0163226, %AdjustFractDays.exit204 ], [ %.0163226, %231 ], [ %.0163226, %243 ], [ %.0163226, %257 ], [ %.0163226, %271 ], [ %.0163226, %292 ], [ true, %294 ], [ %.0163226, %296 ], [ %.0163226, %._crit_edge229 ]
   %300 = and i32 %299, %.0174223
   %.not201 = icmp eq i32 %300, 0
   br i1 %.not201, label %301, label %.thread
@@ -613,7 +613,7 @@ AdjustFractDays.exit204:                          ; preds = %.thread215, %205, %
   br label %.thread
 
 .thread:                                          ; preds = %63, %57, %298, %17, %291, %88, %54, %75, %80, %46, %20, %6, %314, %315, %._crit_edge
-  %.1 = phi i32 [ 0, %314 ], [ -1, %._crit_edge ], [ 0, %315 ], [ -1, %6 ], [ -1, %63 ], [ -1, %80 ], [ -1, %298 ], [ -1, %88 ], [ -1, %75 ], [ -2, %46 ], [ -1, %54 ], [ %23, %20 ], [ -1, %17 ], [ -1, %291 ], [ -2, %57 ]
+  %.1 = phi i32 [ -1, %._crit_edge ], [ 0, %315 ], [ 0, %314 ], [ -1, %6 ], [ -2, %57 ], [ -1, %63 ], [ -1, %298 ], [ -1, %17 ], [ -1, %291 ], [ -1, %88 ], [ -1, %54 ], [ -1, %75 ], [ -1, %80 ], [ -2, %46 ], [ %23, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2068,9 +2068,9 @@ AdjustFractSeconds.exit128.i:                     ; preds = %388, %382
   br label %DecodeISO8601Interval.exit
 
 AdjustFractDays.exit.i:                           ; preds = %297, %293, %280, %276, %263, %259, %AdjustFractSeconds.exit111.i, %228, %193, %AdjustFractSeconds.exit101.i, %146, %142, %129, %122, %117, %104, %96, %92, %83, %40
-  %422 = phi ptr [ %41, %40 ], [ %72, %297 ], [ %72, %142 ], [ %72, %259 ], [ %72, %276 ], [ %72, %293 ], [ %72, %122 ], [ %72, %146 ], [ %72, %263 ], [ %72, %193 ], [ %72, %280 ], [ %72, %83 ], [ %72, %129 ], [ %213, %228 ], [ %72, %104 ], [ %72, %AdjustFractSeconds.exit101.i ], [ %72, %92 ], [ %72, %96 ], [ %72, %117 ], [ %256, %AdjustFractSeconds.exit111.i ]
-  %.181.i = phi i8 [ 0, %40 ], [ 1, %297 ], [ 1, %142 ], [ 1, %259 ], [ 1, %276 ], [ 1, %293 ], [ 1, %122 ], [ 1, %146 ], [ 1, %263 ], [ 0, %193 ], [ 1, %280 ], [ 1, %83 ], [ 1, %129 ], [ 0, %228 ], [ 1, %104 ], [ 0, %AdjustFractSeconds.exit101.i ], [ 1, %92 ], [ 1, %96 ], [ 1, %117 ], [ 0, %AdjustFractSeconds.exit111.i ]
-  %.178.i = phi i1 [ false, %40 ], [ false, %297 ], [ true, %142 ], [ false, %259 ], [ false, %276 ], [ false, %293 ], [ true, %122 ], [ true, %146 ], [ false, %263 ], [ false, %193 ], [ false, %280 ], [ true, %83 ], [ true, %129 ], [ false, %228 ], [ true, %104 ], [ false, %AdjustFractSeconds.exit101.i ], [ true, %92 ], [ true, %96 ], [ true, %117 ], [ false, %AdjustFractSeconds.exit111.i ]
+  %422 = phi ptr [ %41, %40 ], [ %72, %AdjustFractSeconds.exit101.i ], [ %72, %83 ], [ %72, %92 ], [ %72, %96 ], [ %72, %104 ], [ %72, %117 ], [ %72, %122 ], [ %72, %129 ], [ %72, %142 ], [ %72, %146 ], [ %72, %259 ], [ %72, %263 ], [ %72, %276 ], [ %72, %280 ], [ %72, %293 ], [ %72, %297 ], [ %72, %193 ], [ %213, %228 ], [ %256, %AdjustFractSeconds.exit111.i ]
+  %.181.i = phi i8 [ 0, %40 ], [ 0, %AdjustFractSeconds.exit101.i ], [ 1, %83 ], [ 1, %92 ], [ 1, %96 ], [ 1, %104 ], [ 1, %117 ], [ 1, %122 ], [ 1, %129 ], [ 1, %142 ], [ 1, %146 ], [ 1, %259 ], [ 1, %263 ], [ 1, %276 ], [ 1, %280 ], [ 1, %293 ], [ 1, %297 ], [ 0, %193 ], [ 0, %228 ], [ 0, %AdjustFractSeconds.exit111.i ]
+  %.178.i = phi i1 [ false, %40 ], [ false, %AdjustFractSeconds.exit101.i ], [ true, %83 ], [ true, %92 ], [ true, %96 ], [ true, %104 ], [ true, %117 ], [ true, %122 ], [ true, %129 ], [ true, %142 ], [ true, %146 ], [ false, %259 ], [ false, %263 ], [ false, %276 ], [ false, %280 ], [ false, %293 ], [ false, %297 ], [ false, %193 ], [ false, %228 ], [ false, %AdjustFractSeconds.exit111.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %423 = load i8, ptr %422, align 1
@@ -2086,12 +2086,12 @@ DecodeISO8601Interval.exit:                       ; preds = %405, %411
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not54, label %428, label %426
 
-.sink.split.sink.split:                           ; preds = %211, %215, %217, %51, %56, %58, %258, %192, %42, %234, %74, %202, %._crit_edge.i, %AdjustFractSeconds.exit111.i, %228, %AdjustFractSeconds.exit128.i, %369, %402, %371, %365, %.loopexit140.i, %.loopexit140.loopexit.i, %356
+.sink.split.sink.split:                           ; preds = %215, %211, %217, %202, %56, %51, %58, %42, %192, %234, %74, %258, %._crit_edge.i, %AdjustFractSeconds.exit111.i, %228, %AdjustFractSeconds.exit128.i, %.loopexit140.loopexit.i, %369, %365, %371, %356, %.loopexit140.i, %402
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %32, %29
+.sink.split:                                      ; preds = %.sink.split.sink.split, %29, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %426
 
@@ -2100,7 +2100,7 @@ DecodeISO8601Interval.exit:                       ; preds = %405, %411
   store i32 330, ptr %427, align 4
   br label %467
 
-.sink.split177.sink.split:                        ; preds = %AdjustFractSeconds.exit111.i, %AdjustFractSeconds.exit101.i, %228, %193, %AdjustFractSeconds.exit128.i, %315, %327, %AdjustFractSeconds.exit118.i
+.sink.split177.sink.split:                        ; preds = %AdjustFractSeconds.exit101.i, %193, %228, %AdjustFractSeconds.exit111.i, %AdjustFractSeconds.exit118.i, %AdjustFractSeconds.exit128.i, %315, %327
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.sink.split177
@@ -2321,7 +2321,7 @@ define internal fastcc range(i32 -2, 1) i32 @ParseISO8601Number(ptr noundef %0, 
   br label %35
 
 35:                                               ; preds = %4, %21, %14, %19, %32
-  %.0 = phi i32 [ -1, %4 ], [ -1, %14 ], [ 0, %32 ], [ -1, %19 ], [ -2, %21 ]
+  %.0 = phi i32 [ 0, %32 ], [ -1, %19 ], [ -1, %14 ], [ -2, %21 ], [ -1, %4 ]
   ret i32 %.0
 }
 

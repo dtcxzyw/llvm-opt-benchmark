@@ -392,13 +392,13 @@ define internal fastcc void @_ZN4ncnnL9layernormEPfPKfS2_fii(ptr noundef %0, ptr
   br label %.thread525
 
 .thread525:                                       ; preds = %42, %53, %.thread, %43, %68
-  %92 = phi i1 [ true, %68 ], [ false, %42 ], [ false, %43 ], [ false, %.thread ], [ false, %53 ]
-  %93 = phi i1 [ false, %68 ], [ false, %42 ], [ true, %43 ], [ false, %.thread ], [ false, %53 ]
-  %94 = phi i1 [ false, %68 ], [ false, %42 ], [ false, %43 ], [ false, %.thread ], [ true, %53 ]
-  %.2508 = phi nsz <4 x float> [ %89, %68 ], [ %.0506.lcssa, %42 ], [ %.0506.lcssa, %43 ], [ %.0506.lcssa, %.thread ], [ %65, %53 ]
-  %.3502 = phi nsz <8 x float> [ %90, %68 ], [ %.0499.lcssa, %42 ], [ %51, %43 ], [ %.0499.lcssa, %.thread ], [ %66, %53 ]
-  %.1369 = phi nsz float [ %87, %68 ], [ %.0368.lcssa, %42 ], [ %.0368.lcssa, %43 ], [ %.0368.lcssa, %.thread ], [ %.0368.lcssa, %53 ]
-  %.4363 = phi nsz <16 x float> [ %91, %68 ], [ %.0359.lcssa, %42 ], [ %52, %43 ], [ %41, %.thread ], [ %67, %53 ]
+  %92 = phi i1 [ true, %68 ], [ false, %43 ], [ false, %.thread ], [ false, %53 ], [ false, %42 ]
+  %93 = phi i1 [ false, %68 ], [ true, %43 ], [ false, %.thread ], [ false, %53 ], [ false, %42 ]
+  %94 = phi i1 [ false, %68 ], [ false, %43 ], [ false, %.thread ], [ true, %53 ], [ false, %42 ]
+  %.2508 = phi nsz <4 x float> [ %89, %68 ], [ %.0506.lcssa, %43 ], [ %.0506.lcssa, %.thread ], [ %65, %53 ], [ %.0506.lcssa, %42 ]
+  %.3502 = phi nsz <8 x float> [ %90, %68 ], [ %51, %43 ], [ %.0499.lcssa, %.thread ], [ %66, %53 ], [ %.0499.lcssa, %42 ]
+  %.1369 = phi nsz float [ %87, %68 ], [ %.0368.lcssa, %43 ], [ %.0368.lcssa, %.thread ], [ %.0368.lcssa, %53 ], [ %.0368.lcssa, %42 ]
+  %.4363 = phi nsz <16 x float> [ %91, %68 ], [ %52, %43 ], [ %41, %.thread ], [ %67, %53 ], [ %.0359.lcssa, %42 ]
   br i1 %8, label %.lr.ph579, label %.preheader548
 
 .preheader548.loopexit:                           ; preds = %.lr.ph579

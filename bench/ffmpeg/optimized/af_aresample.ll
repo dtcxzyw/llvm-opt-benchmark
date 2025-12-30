@@ -398,8 +398,8 @@ filter_frame.exit:                                ; preds = %58, %68, %115, %116
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
-.thread:                                          ; preds = %23, %filter_frame.exit
-  %.2.ph = phi i32 [ %.0.i, %filter_frame.exit ], [ %24, %23 ]
+.thread:                                          ; preds = %filter_frame.exit, %23
+  %.2.ph = phi i32 [ %24, %23 ], [ %.0.i, %filter_frame.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %161
 
@@ -509,7 +509,7 @@ request_frame.exit:                               ; preds = %136, %148, %159, %1
   br label %161
 
 161:                                              ; preds = %.thread, %18, %request_frame.exit
-  %.1 = phi i32 [ %.1.i, %request_frame.exit ], [ %.2.ph, %.thread ], [ 0, %18 ]
+  %.1 = phi i32 [ %.1.i, %request_frame.exit ], [ 0, %18 ], [ %.2.ph, %.thread ]
   ret i32 %.1
 }
 

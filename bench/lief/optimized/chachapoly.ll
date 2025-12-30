@@ -206,7 +206,7 @@ chachapoly_pad_aad.exit:                          ; preds = %10
   br label %38
 
 38:                                               ; preds = %4, %35, %32, %29, %27, %chachapoly_pad_aad.exit, %37
-  %.0 = phi i32 [ %34, %32 ], [ -84, %4 ], [ %19, %chachapoly_pad_aad.exit ], [ %28, %27 ], [ 0, %37 ], [ %31, %29 ], [ %36, %35 ]
+  %.0 = phi i32 [ 0, %37 ], [ -84, %4 ], [ %19, %chachapoly_pad_aad.exit ], [ %28, %27 ], [ %31, %29 ], [ %34, %32 ], [ %36, %35 ]
   ret i32 %.0
 }
 
@@ -289,7 +289,7 @@ chachapoly_pad_ciphertext.exit:                   ; preds = %18
   br label %38
 
 38:                                               ; preds = %28, %chachapoly_pad_ciphertext.exit, %2, %chachapoly_pad_aad.exit, %36
-  %.0 = phi i32 [ %17, %chachapoly_pad_aad.exit ], [ -84, %2 ], [ %27, %chachapoly_pad_ciphertext.exit ], [ %37, %36 ], [ %35, %28 ]
+  %.0 = phi i32 [ %37, %36 ], [ -84, %2 ], [ %17, %chachapoly_pad_aad.exit ], [ %27, %chachapoly_pad_ciphertext.exit ], [ %35, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -359,7 +359,7 @@ mbedtls_chachapoly_update_aad.exit:               ; preds = %18
   br label %mbedtls_chachapoly_update_aad.exit.thread
 
 mbedtls_chachapoly_update_aad.exit.thread:        ; preds = %18, %mbedtls_chachapoly_starts.exit.thread, %26, %mbedtls_chachapoly_update_aad.exit, %28
-  %.0 = phi i32 [ %.0.i.ph, %mbedtls_chachapoly_starts.exit.thread ], [ %25, %mbedtls_chachapoly_update_aad.exit ], [ %27, %26 ], [ %29, %28 ], [ -84, %18 ]
+  %.0 = phi i32 [ %25, %mbedtls_chachapoly_update_aad.exit ], [ %27, %26 ], [ %29, %28 ], [ %.0.i.ph, %mbedtls_chachapoly_starts.exit.thread ], [ -84, %18 ]
   ret i32 %.0
 }
 
@@ -381,7 +381,7 @@ define hidden i32 @mbedtls_chachapoly_auth_decrypt(ptr noundef %0, i64 noundef %
   br label %14
 
 14:                                               ; preds = %11, %8, %13
-  %.0 = phi i32 [ %10, %8 ], [ -86, %13 ], [ 0, %11 ]
+  %.0 = phi i32 [ -86, %13 ], [ %10, %8 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -478,7 +478,7 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chachapoly_self_test(i32 noundef %0)
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %14, %12, %9, %.split.us, %28, %.split51.us, %.split48.us, %.split44.us, %.split41.us
-  %.024 = phi i32 [ -1, %9 ], [ -1, %.split.us ], [ 0, %.thread ], [ -1, %12 ], [ -1, %.split41.us ], [ -1, %.split44.us ], [ -1, %.split48.us ], [ -1, %.split51.us ], [ 0, %28 ], [ -1, %14 ]
+  %.024 = phi i32 [ -1, %.split41.us ], [ -1, %.split44.us ], [ -1, %.split48.us ], [ -1, %.split51.us ], [ 0, %28 ], [ -1, %.split.us ], [ -1, %9 ], [ -1, %12 ], [ -1, %14 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

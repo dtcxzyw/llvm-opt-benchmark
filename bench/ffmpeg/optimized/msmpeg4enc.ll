@@ -447,7 +447,7 @@ define void @ff_msmpeg4_handle_slices(ptr noundef %0) local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %8, %13, %17
-  %.sink = phi i32 [ 1, %13 ], [ 1, %17 ], [ 0, %8 ], [ 0, %5 ]
+  %.sink = phi i32 [ 1, %17 ], [ 1, %13 ], [ 0, %8 ], [ 0, %5 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4140
   store i32 %.sink, ptr %18, align 4, !tbaa !81
   br label %19
@@ -1318,8 +1318,8 @@ put_bits.exit179:                                 ; preds = %443, %451, %433
   br label %.sink.split
 
 .sink.split:                                      ; preds = %484, %502, %494, %463, %481, %473
-  %.sink313.sink = phi i32 [ 26, %473 ], [ -6, %463 ], [ 26, %481 ], [ -8, %484 ], [ 24, %502 ], [ 24, %494 ]
-  %.026.i.i181.sink = phi i32 [ 3, %473 ], [ %465, %463 ], [ 3, %481 ], [ %486, %484 ], [ 3, %502 ], [ 3, %494 ]
+  %.sink313.sink = phi i32 [ -6, %463 ], [ 26, %481 ], [ 26, %473 ], [ -8, %484 ], [ 24, %502 ], [ 24, %494 ]
+  %.026.i.i181.sink = phi i32 [ %465, %463 ], [ 3, %481 ], [ 3, %473 ], [ %486, %484 ], [ 3, %502 ], [ 3, %494 ]
   %503 = add nsw i32 %452, %.sink313.sink
   store i32 %.026.i.i181.sink, ptr %242, align 8, !tbaa !4
   store i32 %503, ptr %244, align 4, !tbaa !11
@@ -2715,7 +2715,7 @@ define internal void @msmpeg4_encode_mb(ptr noundef %0, ptr noundef readonly cap
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %23, %19, %14, %11
-  %.sink.i = phi i32 [ 1, %19 ], [ 1, %23 ], [ 0, %14 ], [ 0, %11 ]
+  %.sink.i = phi i32 [ 1, %23 ], [ 1, %19 ], [ 0, %14 ], [ 0, %11 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4140
   store i32 %.sink.i, ptr %24, align 4, !tbaa !81
   br label %ff_msmpeg4_handle_slices.exit
@@ -3976,9 +3976,9 @@ get_rl_index.exit50.i:                            ; preds = %.thread55.i
   br i1 %57, label %get_rl_index.exit50.thread.i, label %89
 
 get_rl_index.exit50.thread.i:                     ; preds = %get_rl_index.exit.i, %get_rl_index.exit50.i, %.thread55.i, %.thread60.i
-  %58 = phi ptr [ %54, %.thread60.i ], [ %28, %.thread55.i ], [ %28, %get_rl_index.exit50.i ], [ %28, %get_rl_index.exit.i ]
-  %59 = phi ptr [ %48, %.thread60.i ], [ %41, %.thread55.i ], [ %41, %get_rl_index.exit50.i ], [ %35, %get_rl_index.exit.i ]
-  %60 = phi i8 [ %52, %.thread60.i ], [ %45, %.thread55.i ], [ %45, %get_rl_index.exit50.i ], [ %39, %get_rl_index.exit.i ]
+  %58 = phi ptr [ %28, %get_rl_index.exit50.i ], [ %28, %.thread55.i ], [ %54, %.thread60.i ], [ %28, %get_rl_index.exit.i ]
+  %59 = phi ptr [ %41, %get_rl_index.exit50.i ], [ %41, %.thread55.i ], [ %48, %.thread60.i ], [ %35, %get_rl_index.exit.i ]
+  %60 = phi i8 [ %45, %get_rl_index.exit50.i ], [ %45, %.thread55.i ], [ %52, %.thread60.i ], [ %39, %get_rl_index.exit.i ]
   %61 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !92
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 %indvars.iv29

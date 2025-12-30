@@ -430,7 +430,7 @@ define hidden void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17hf19370f1
   unreachable
 
 common.resume:                                    ; preds = %56, %45, %34, %25, %14
-  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %15, %14 ], [ %26, %25 ], [ %35, %34 ], [ %57, %56 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %26, %25 ], [ %35, %34 ], [ %46, %45 ], [ %57, %56 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr39drop_in_place$LT$syn..ty..TypeGroup$GT$17hafdac13c3113038aE.exit": ; preds = %11
@@ -5921,7 +5921,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h
   ret void
 
 23:                                               ; preds = %17, %24
-  %.pn8 = phi { ptr, i32 } [ %18, %17 ], [ %25, %24 ]
+  %.pn8 = phi { ptr, i32 } [ %25, %24 ], [ %18, %17 ]
   resume { ptr, i32 } %.pn8
 
 24:                                               ; preds = %7
@@ -5997,7 +5997,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h
   ret void
 
 23:                                               ; preds = %17, %24
-  %.pn8 = phi { ptr, i32 } [ %18, %17 ], [ %25, %24 ]
+  %.pn8 = phi { ptr, i32 } [ %25, %24 ], [ %18, %17 ]
   resume { ptr, i32 } %.pn8
 
 24:                                               ; preds = %7
@@ -6073,7 +6073,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h
   ret void
 
 23:                                               ; preds = %17, %24
-  %.pn7 = phi { ptr, i32 } [ %18, %17 ], [ %25, %24 ]
+  %.pn7 = phi { ptr, i32 } [ %25, %24 ], [ %18, %17 ]
   resume { ptr, i32 } %.pn7
 
 24:                                               ; preds = %7
@@ -6149,7 +6149,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h
   ret void
 
 23:                                               ; preds = %17, %24
-  %.pn8 = phi { ptr, i32 } [ %18, %17 ], [ %25, %24 ]
+  %.pn8 = phi { ptr, i32 } [ %25, %24 ], [ %18, %17 ]
   resume { ptr, i32 } %.pn8
 
 24:                                               ; preds = %7
@@ -6225,7 +6225,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h
   ret void
 
 23:                                               ; preds = %17, %24
-  %.pn8 = phi { ptr, i32 } [ %18, %17 ], [ %25, %24 ]
+  %.pn8 = phi { ptr, i32 } [ %25, %24 ], [ %18, %17 ]
   resume { ptr, i32 } %.pn8
 
 24:                                               ; preds = %7
@@ -6301,7 +6301,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h
   ret void
 
 23:                                               ; preds = %17, %24
-  %.pn8 = phi { ptr, i32 } [ %18, %17 ], [ %25, %24 ]
+  %.pn8 = phi { ptr, i32 } [ %25, %24 ], [ %18, %17 ]
   resume { ptr, i32 } %.pn8
 
 24:                                               ; preds = %7
@@ -6377,7 +6377,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h
   ret void
 
 23:                                               ; preds = %17, %24
-  %.pn8 = phi { ptr, i32 } [ %18, %17 ], [ %25, %24 ]
+  %.pn8 = phi { ptr, i32 } [ %25, %24 ], [ %18, %17 ]
   resume { ptr, i32 } %.pn8
 
 24:                                               ; preds = %7
@@ -6458,7 +6458,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h
   ret void
 
 "_ZN4core3ptr44drop_in_place$LT$syn..lifetime..Lifetime$GT$17h9a88ba1eb4caa03fE.exit8": ; preds = %21, %17, %26, %30
-  %.pn11 = phi { ptr, i32 } [ %18, %21 ], [ %27, %26 ], [ %27, %30 ], [ %18, %17 ]
+  %.pn11 = phi { ptr, i32 } [ %27, %30 ], [ %27, %26 ], [ %18, %17 ], [ %18, %21 ]
   resume { ptr, i32 } %.pn11
 
 26:                                               ; preds = %7
@@ -6539,7 +6539,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h
   ret void
 
 23:                                               ; preds = %17, %24
-  %.pn8 = phi { ptr, i32 } [ %18, %17 ], [ %25, %24 ]
+  %.pn8 = phi { ptr, i32 } [ %25, %24 ], [ %18, %17 ]
   resume { ptr, i32 } %.pn8
 
 24:                                               ; preds = %7
@@ -7648,7 +7648,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %55
   unreachable
 
 common.resume:                                    ; preds = %.body, %87, %93
-  %common.resume.op = phi { ptr, i32 } [ %88, %87 ], [ %94, %93 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %94, %93 ], [ %88, %87 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr64drop_in_place$LT$alloc..boxed..Box$LT$syn..data..Variant$GT$$GT$17hd6f47979fd257d42E.llvm.8351105841907204142.exit.i.i": ; preds = %92
@@ -8257,7 +8257,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %55
   unreachable
 
 common.resume:                                    ; preds = %.body, %87, %93
-  %common.resume.op = phi { ptr, i32 } [ %88, %87 ], [ %94, %93 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %94, %93 ], [ %88, %87 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr62drop_in_place$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$17hf57936b74d44e390E.llvm.8351105841907204142.exit.i.i": ; preds = %92
@@ -9481,7 +9481,7 @@ define hidden void @"_ZN138_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$
 8:                                                ; preds = %9
   resume { ptr, i32 } %lpad.thr_comm
 
-9:                                                ; preds = %5, %.noexc
+9:                                                ; preds = %.noexc, %5
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr99drop_in_place$LT$syn..punctuated..IntoPairs$LT$syn..path..PathSegment$C$syn..token..PathSep$GT$$GT$17ha5f80d92f4d4376eE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %1) #29
@@ -9551,7 +9551,7 @@ define hidden void @_ZN3syn10punctuated9do_extend17hf2c66732dabb437fE.llvm.14145
   br i1 %22, label %"_ZN98_$LT$syn..punctuated..IntoPairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h021a9bdff8e1ff22E.exit", label %.thread
 
 .thread58:                                        ; preds = %.body, %.body.thread, %66, %.thread61
-  %.pn.pn = phi { ptr, i32 } [ %.pn84, %66 ], [ %36, %.body.thread ], [ %.pn5765, %.thread61 ], [ %.pn, %.body ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn84, %66 ], [ %.pn5765, %.thread61 ], [ %36, %.body.thread ], [ %.pn, %.body ]
   invoke void @"_ZN4core3ptr99drop_in_place$LT$syn..punctuated..IntoPairs$LT$syn..path..PathSegment$C$syn..token..PathSep$GT$$GT$17ha5f80d92f4d4376eE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %7) #29
           to label %69 unwind label %67
 

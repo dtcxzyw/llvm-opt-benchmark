@@ -451,7 +451,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %56,
   br label %142
 
 .loopexit80:                                      ; preds = %134, %113, %117
-  %.348.shrunk = phi i1 [ %114, %113 ], [ false, %117 ], [ %133, %134 ]
+  %.348.shrunk = phi i1 [ false, %117 ], [ %114, %113 ], [ %133, %134 ]
   %138 = add i64 %.044, 1
   %139 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %11)
           to label %99 unwind label %140, !llvm.loop !59
@@ -470,7 +470,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %56,
   br label %149
 
 .loopexit:                                        ; preds = %91, %72, %74, %102
-  %.146 = phi i1 [ %73, %72 ], [ %.247, %102 ], [ false, %74 ], [ %90, %91 ]
+  %.146 = phi i1 [ %.247, %102 ], [ false, %74 ], [ %73, %72 ], [ %90, %91 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %143 = getelementptr inbounds nuw i8, ptr %3, i64 8

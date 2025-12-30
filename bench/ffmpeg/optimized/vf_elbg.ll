@@ -119,7 +119,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %19
 
 19:                                               ; preds = %15, %10, %8
-  %.08 = phi i32 [ %9, %8 ], [ %spec.select, %15 ], [ %13, %10 ]
+  %.08 = phi i32 [ %9, %8 ], [ %13, %10 ], [ %spec.select, %15 ]
   ret i32 %.08
 }
 
@@ -571,7 +571,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   br label %37
 
 37:                                               ; preds = %26, %20, %1, %33
-  %.0 = phi i32 [ 0, %33 ], [ -12, %20 ], [ -12, %1 ], [ -12, %26 ]
+  %.0 = phi i32 [ 0, %33 ], [ -12, %1 ], [ -12, %20 ], [ -12, %26 ]
   ret i32 %.0
 }
 

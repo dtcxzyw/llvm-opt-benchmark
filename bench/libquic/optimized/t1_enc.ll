@@ -486,7 +486,7 @@ define hidden i32 @SSL_export_keying_material(ptr noundef %0, ptr noundef %1, i6
   br label %48
 
 48:                                               ; preds = %19, %37, %25, %8, %13
-  %.0 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %19 ], [ 0, %25 ], [ %47, %37 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %8 ], [ 0, %19 ], [ 0, %25 ], [ %47, %37 ]
   ret i32 %.0
 }
 
@@ -554,7 +554,7 @@ define internal range(i32 0, 13) i32 @tls1_final_finish_mac(ptr noundef %0, i32 
   br label %21
 
 21:                                               ; preds = %7, %3
-  %.0 = phi i32 [ %., %7 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %3 ], [ %., %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -777,14 +777,14 @@ define internal fastcc range(i32 0, 2) i32 @tls1_P_hash(ptr noundef captures(non
   %.not43 = icmp eq i32 %65, 0
   br i1 %.not43, label %.sink.split, label %.lr.ph62
 
-.sink.split:                                      ; preds = %._crit_edge, %64, %45, %43, %41, %39, %37, %.lr.ph62, %62, %.preheader
-  %.032.ph = phi i32 [ 0, %.preheader ], [ 0, %62 ], [ 0, %.lr.ph62 ], [ 0, %37 ], [ 0, %39 ], [ 0, %41 ], [ 0, %43 ], [ 0, %45 ], [ 0, %64 ], [ 1, %._crit_edge ]
+.sink.split:                                      ; preds = %._crit_edge, %45, %43, %41, %39, %37, %.lr.ph62, %64, %62, %.preheader
+  %.032.ph = phi i32 [ 0, %.preheader ], [ 0, %62 ], [ 0, %64 ], [ 0, %.lr.ph62 ], [ 0, %37 ], [ 0, %39 ], [ 0, %41 ], [ 0, %43 ], [ 0, %45 ], [ 1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %66
 
 66:                                               ; preds = %.sink.split, %11, %21, %23, %25, %27, %29
-  %.032 = phi i32 [ 0, %21 ], [ 0, %11 ], [ 0, %29 ], [ 0, %27 ], [ 0, %25 ], [ 0, %23 ], [ %.032.ph, %.sink.split ]
+  %.032 = phi i32 [ 0, %29 ], [ 0, %27 ], [ 0, %25 ], [ 0, %23 ], [ 0, %21 ], [ 0, %11 ], [ %.032.ph, %.sink.split ]
   call void @HMAC_CTX_cleanup(ptr noundef nonnull %12) #8
   call void @HMAC_CTX_cleanup(ptr noundef nonnull %13) #8
   call void @HMAC_CTX_cleanup(ptr noundef nonnull %14) #8

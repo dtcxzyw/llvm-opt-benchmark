@@ -310,7 +310,7 @@ define noundef i64 @CRYPTO_nistcts128_decrypt_block(ptr noundef %0, ptr noundef 
   br label %42
 
 42:                                               ; preds = %6, %._crit_edge, %12
-  %.0 = phi i64 [ %41, %._crit_edge ], [ %2, %12 ], [ 0, %6 ]
+  %.0 = phi i64 [ %2, %12 ], [ %41, %._crit_edge ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
@@ -396,7 +396,7 @@ define range(i64 16, 1) i64 @CRYPTO_nistcts128_decrypt(ptr noundef %0, ptr nound
   br label %22
 
 22:                                               ; preds = %6, %19, %12
-  %.0 = phi i64 [ %2, %19 ], [ %2, %12 ], [ 0, %6 ]
+  %.0 = phi i64 [ %2, %12 ], [ %2, %19 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }

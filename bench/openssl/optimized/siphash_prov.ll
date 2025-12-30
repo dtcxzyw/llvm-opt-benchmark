@@ -48,7 +48,7 @@ define internal noalias ptr @siphash_dup(ptr noundef readonly captures(none) %0)
   br label %7
 
 7:                                                ; preds = %3, %1, %6
-  %.0 = phi ptr [ null, %1 ], [ %4, %6 ], [ null, %3 ]
+  %.0 = phi ptr [ %4, %6 ], [ null, %1 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -103,7 +103,7 @@ define internal i32 @siphash_init(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br label %siphash_setkey.exit
 
 siphash_setkey.exit:                              ; preds = %19, %14, %13, %4, %6, %10
-  %.0 = phi i32 [ 1, %10 ], [ 0, %4 ], [ 0, %6 ], [ 0, %13 ], [ %18, %19 ], [ 0, %14 ]
+  %.0 = phi i32 [ 1, %10 ], [ 0, %6 ], [ 0, %4 ], [ 0, %13 ], [ %18, %19 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -191,7 +191,7 @@ define internal range(i32 0, 2) i32 @siphash_get_ctx_params(ptr noundef %0, ptr 
   br label %19
 
 19:                                               ; preds = %15, %10, %4, %18
-  %.0 = phi i32 [ 1, %18 ], [ 0, %10 ], [ 0, %4 ], [ 0, %15 ]
+  %.0 = phi i32 [ 1, %18 ], [ 0, %4 ], [ 0, %10 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -297,7 +297,7 @@ siphash_setkey.exit:                              ; preds = %36
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %36, %33, %2, %28, %siphash_setkey.exit, %30, %25, %20, %8, %10, %14, %ossl_param_is_empty.exit
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %25 ], [ 1, %28 ], [ 0, %20 ], [ 0, %8 ], [ 0, %14 ], [ 0, %10 ], [ 1, %2 ], [ 0, %30 ], [ 1, %siphash_setkey.exit ], [ 0, %33 ], [ 0, %36 ]
+  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %14 ], [ 0, %10 ], [ 0, %8 ], [ 0, %20 ], [ 0, %25 ], [ 0, %30 ], [ 1, %siphash_setkey.exit ], [ 1, %28 ], [ 1, %2 ], [ 0, %33 ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

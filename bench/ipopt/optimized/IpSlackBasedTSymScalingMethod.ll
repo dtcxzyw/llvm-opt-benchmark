@@ -910,7 +910,7 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit158:     ; preds = %401, %396, %_ZN5Ipo
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit148
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit148: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit146.thread, %335, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit158, %405, %410
-  %.pn48.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn48.pn.pn.pn.pn.pn.pn, %410 ], [ %.pn48.pn.pn.pn.pn.pn.pn, %405 ], [ %.pn48.pn.pn.pn.pn.pn.pn, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit158 ], [ %322, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit146.thread ], [ %322, %335 ]
+  %.pn48.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %322, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit146.thread ], [ %322, %335 ], [ %.pn48.pn.pn.pn.pn.pn.pn, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit158 ], [ %.pn48.pn.pn.pn.pn.pn.pn, %405 ], [ %.pn48.pn.pn.pn.pn.pn.pn, %410 ]
   resume { ptr, i32 } %.pn48.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 

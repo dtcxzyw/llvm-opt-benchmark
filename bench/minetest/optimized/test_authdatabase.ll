@@ -415,7 +415,7 @@ if.then.i.i5.i:                                   ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i160, %lpad.i, %lpad70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255, %lpad37, %lpad24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243, %lpad, %if.then.i.i5.i162, %if.then.i.i5.i
-  %common.resume.op = phi { ptr, i32 } [ %23, %if.then.i.i5.i ], [ %103, %lpad ], [ %73, %if.then.i.i5.i162 ], [ %23, %lpad.i ], [ %114, %lpad70 ], [ %.pn89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255 ], [ %109, %lpad37 ], [ %108, %lpad24 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243 ], [ %73, %lpad.i160 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %if.then.i.i5.i ], [ %73, %if.then.i.i5.i162 ], [ %114, %lpad70 ], [ %.pn89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255 ], [ %109, %lpad37 ], [ %108, %lpad24 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243 ], [ %103, %lpad ], [ %23, %lpad.i ], [ %73, %lpad.i160 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
@@ -3228,7 +3228,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   ret void
 
 ehcleanup:                                        ; preds = %lpad.i.i, %lpad.loopexit.split-lp, %lpad.loopexit, %if.then.i.i.i.i
-  %.pn = phi { ptr, i32 } [ %6, %if.then.i.i.i.i ], [ %lpad.loopexit.split-lp25, %lpad.loopexit.split-lp ], [ %lpad.loopexit24, %lpad.loopexit ], [ %6, %lpad.i.i ]
+  %.pn = phi { ptr, i32 } [ %6, %if.then.i.i.i.i ], [ %lpad.loopexit24, %lpad.loopexit ], [ %lpad.loopexit.split-lp25, %lpad.loopexit.split-lp ], [ %6, %lpad.i.i ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %oss)
   resume { ptr, i32 } %.pn

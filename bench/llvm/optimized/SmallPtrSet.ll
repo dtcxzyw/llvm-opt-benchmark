@@ -425,8 +425,8 @@ define dso_local void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr noundef non
   unreachable
 
 _ZN4llvm11safe_mallocEm.exit:                     ; preds = %3, %15, %8
-  %20 = phi i32 [ 0, %15 ], [ %.pre, %8 ], [ %.pre, %3 ]
-  %storemerge = phi ptr [ %16, %15 ], [ %11, %8 ], [ %1, %3 ]
+  %20 = phi i32 [ %.pre, %8 ], [ 0, %15 ], [ %.pre, %3 ]
+  %storemerge = phi ptr [ %11, %8 ], [ %16, %15 ], [ %1, %3 ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %20, ptr %21, align 8, !tbaa !12
@@ -679,8 +679,8 @@ define dso_local void @_ZN4llvm19SmallPtrSetImplBase8copyFromEPPKvRKS0_(ptr noun
   unreachable
 
 .sink.split:                                      ; preds = %21, %28, %.thread13, %40, %.thread10, %10
-  %storemerge.sink = phi ptr [ %1, %.thread10 ], [ %1, %10 ], [ %29, %28 ], [ %24, %21 ], [ %36, %.thread13 ], [ %41, %40 ]
-  %.sink = phi i8 [ 1, %.thread10 ], [ 1, %10 ], [ 0, %28 ], [ 0, %21 ], [ 0, %.thread13 ], [ 0, %40 ]
+  %storemerge.sink = phi ptr [ %1, %10 ], [ %1, %.thread10 ], [ %24, %21 ], [ %29, %28 ], [ %36, %.thread13 ], [ %41, %40 ]
+  %.sink = phi i8 [ 1, %10 ], [ 1, %.thread10 ], [ 0, %21 ], [ 0, %28 ], [ 0, %.thread13 ], [ 0, %40 ]
   store ptr %storemerge.sink, ptr %0, align 8, !tbaa !3
   store i8 %.sink, ptr %4, align 4, !tbaa !20
   br label %45

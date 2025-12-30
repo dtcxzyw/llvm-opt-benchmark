@@ -322,8 +322,8 @@ _ZL10in_stringsPciPPKc.exit145.thread:            ; preds = %52, %_ZL10in_string
   br i1 %exitcond.not.i149, label %.loopexit.i, label %114, !llvm.loop !48
 
 .loopexit.i:                                      ; preds = %140, %104, %105, %.preheader.i
-  %indvars.iv.next27.pre-phi.i = phi i64 [ %73, %104 ], [ %109, %105 ], [ %73, %.preheader.i ], [ %109, %140 ]
-  %.3.i = phi i32 [ %.2.i, %104 ], [ %.04911.i, %105 ], [ %.04911.i, %.preheader.i ], [ %.5.i, %140 ]
+  %indvars.iv.next27.pre-phi.i = phi i64 [ %73, %.preheader.i ], [ %109, %105 ], [ %73, %104 ], [ %109, %140 ]
+  %.3.i = phi i32 [ %.04911.i, %.preheader.i ], [ %.04911.i, %105 ], [ %.2.i, %104 ], [ %.5.i, %140 ]
   %indvars.iv.next.i147 = add nuw nsw i64 %indvars.iv.i146, 1
   %141 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv.i146
   store i32 %.3.i, ptr %141, align 4, !tbaa !43
@@ -438,11 +438,11 @@ sub_1:                                            ; preds = %sub_0
   br label %198
 
 198:                                              ; preds = %195, %192, %.tail.thread, %.tail, %177
-  %.1127 = phi i32 [ %.0126184, %195 ], [ %.0126184, %177 ], [ %.0126184, %.tail ], [ %.0126184, %.tail.thread ], [ %176, %192 ]
-  %.1125 = phi i32 [ %spec.select, %195 ], [ %.0124185, %177 ], [ %.0124185, %.tail ], [ %.0124185, %.tail.thread ], [ %.0124185, %192 ]
-  %.1123 = phi i32 [ %.0122186, %195 ], [ %.0122186, %177 ], [ %176, %.tail ], [ %.0122186, %.tail.thread ], [ %.0122186, %192 ]
-  %.1121 = phi i32 [ %.0120187, %195 ], [ %176, %177 ], [ %.0120187, %.tail ], [ %.0120187, %.tail.thread ], [ %.0120187, %192 ]
-  %.1119 = phi i32 [ %.0118188, %195 ], [ %.0118188, %177 ], [ %.0118188, %.tail ], [ %176, %.tail.thread ], [ %.0118188, %192 ]
+  %.1127 = phi i32 [ %.0126184, %177 ], [ %.0126184, %.tail ], [ %.0126184, %.tail.thread ], [ %176, %192 ], [ %.0126184, %195 ]
+  %.1125 = phi i32 [ %.0124185, %177 ], [ %.0124185, %.tail ], [ %.0124185, %.tail.thread ], [ %.0124185, %192 ], [ %spec.select, %195 ]
+  %.1123 = phi i32 [ %.0122186, %177 ], [ %176, %.tail ], [ %.0122186, %.tail.thread ], [ %.0122186, %192 ], [ %.0122186, %195 ]
+  %.1121 = phi i32 [ %176, %177 ], [ %.0120187, %.tail ], [ %.0120187, %.tail.thread ], [ %.0120187, %192 ], [ %.0120187, %195 ]
+  %.1119 = phi i32 [ %.0118188, %177 ], [ %.0118188, %.tail ], [ %176, %.tail.thread ], [ %.0118188, %192 ], [ %.0118188, %195 ]
   %indvars.iv.next219 = add nsw i64 %indvars.iv218, 1
   %exitcond221.not = icmp eq i64 %indvars.iv.next219, %30
   br i1 %exitcond221.not, label %.critedge2, label %.lr.ph190, !llvm.loop !51

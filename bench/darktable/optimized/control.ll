@@ -162,7 +162,7 @@ define internal float @_action_process_modifiers(ptr readnone captures(none) %0,
   br label %17
 
 17:                                               ; preds = %.sink.split, %10, %14, %4
-  %18 = phi i32 [ %.pre, %14 ], [ %.pre, %10 ], [ %.pre, %4 ], [ %.sink, %.sink.split ]
+  %18 = phi i32 [ %.pre, %10 ], [ %.pre, %14 ], [ %.pre, %4 ], [ %.sink, %.sink.split ]
   %19 = tail call i32 (...) @dt_key_modifier_state() #13
   %20 = or i32 %19, %18
   %21 = and i32 %20, %.0
@@ -2171,7 +2171,7 @@ thread-pre-split:                                 ; preds = %91, %102
   br label %132
 
 132:                                              ; preds = %118, %127, %_control_log_ack_all.exit, %87, %120, %116, %_control_log_ack_all.exit55, %129
-  %.0 = phi i32 [ 1, %_control_log_ack_all.exit ], [ 1, %129 ], [ 0, %127 ], [ 1, %_control_log_ack_all.exit55 ], [ 1, %116 ], [ 1, %87 ], [ 1, %120 ], [ 1, %118 ]
+  %.0 = phi i32 [ 1, %129 ], [ 1, %_control_log_ack_all.exit55 ], [ 1, %116 ], [ 1, %120 ], [ 1, %87 ], [ 1, %_control_log_ack_all.exit ], [ 0, %127 ], [ 1, %118 ]
   ret i32 %.0
 }
 

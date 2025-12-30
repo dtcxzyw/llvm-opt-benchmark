@@ -434,7 +434,7 @@ _ZL26validate_recording_optionsP10JavaThread.exit: ; preds = %_ZN26GrowableArray
   br label %103
 
 103:                                              ; preds = %_ZL26validate_recording_optionsP10JavaThread.exit, %_ZL21is_cds_dump_requestedv.exit, %96, %.loopexit, %37, %31, %99
-  %.0 = phi i1 [ true, %_ZL21is_cds_dump_requestedv.exit ], [ true, %96 ], [ false, %99 ], [ false, %.loopexit ], [ false, %_ZL26validate_recording_optionsP10JavaThread.exit ], [ false, %37 ], [ false, %31 ]
+  %.0 = phi i1 [ false, %99 ], [ true, %_ZL21is_cds_dump_requestedv.exit ], [ false, %31 ], [ false, %37 ], [ false, %_ZL26validate_recording_optionsP10JavaThread.exit ], [ false, %.loopexit ], [ true, %96 ]
   ret i1 %.0
 }
 
@@ -588,7 +588,7 @@ _ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i: ; preds = %51
   br label %_ZL30launch_command_line_recordingsP10JavaThread.exit
 
 _ZL30launch_command_line_recordingsP10JavaThread.exit: ; preds = %6, %.loopexit.i, %52
-  %.059.i = phi i1 [ %53, %52 ], [ %.not5.i.i, %.loopexit.i ], [ true, %6 ]
+  %.059.i = phi i1 [ %.not5.i.i, %.loopexit.i ], [ %53, %52 ], [ true, %6 ]
   tail call void @_ZN12JfrOptionSet38release_start_flight_recording_optionsEv() #12
   br label %54
 
@@ -757,7 +757,7 @@ _ZN11JfrRecorder29initialize_checkpoint_managerEv.exit: ; preds = %27, %_ZN11Jfr
   br label %_ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread
 
 _ZN11JfrRecorder23create_chunk_repositoryEv.exit.thread: ; preds = %30, %_ZN11JfrRecorder25create_checkpoint_managerEv.exit.i, %22, %19, %44, %42, %40, %38, %36, %_ZN11JfrRecorder29initialize_checkpoint_managerEv.exit, %_ZN11JfrRecorder14create_storageEv.exit, %_ZN11JfrRecorder23create_chunk_repositoryEv.exit, %_ZN11JfrRecorder18create_jvmti_agentEv.exit.thread, %_ZN11JfrRecorder18create_jvmti_agentEv.exit, %0
-  %.0 = phi i1 [ false, %42 ], [ %45, %44 ], [ false, %40 ], [ false, %38 ], [ false, %36 ], [ false, %_ZN11JfrRecorder29initialize_checkpoint_managerEv.exit ], [ false, %_ZN11JfrRecorder14create_storageEv.exit ], [ false, %_ZN11JfrRecorder23create_chunk_repositoryEv.exit ], [ false, %_ZN11JfrRecorder18create_jvmti_agentEv.exit.thread ], [ false, %_ZN11JfrRecorder18create_jvmti_agentEv.exit ], [ false, %0 ], [ false, %22 ], [ false, %19 ], [ false, %_ZN11JfrRecorder25create_checkpoint_managerEv.exit.i ], [ false, %30 ]
+  %.0 = phi i1 [ false, %0 ], [ false, %_ZN11JfrRecorder18create_jvmti_agentEv.exit ], [ false, %_ZN11JfrRecorder18create_jvmti_agentEv.exit.thread ], [ false, %_ZN11JfrRecorder23create_chunk_repositoryEv.exit ], [ false, %_ZN11JfrRecorder14create_storageEv.exit ], [ false, %_ZN11JfrRecorder29initialize_checkpoint_managerEv.exit ], [ false, %36 ], [ false, %38 ], [ false, %40 ], [ false, %42 ], [ %45, %44 ], [ false, %19 ], [ false, %22 ], [ false, %_ZN11JfrRecorder25create_checkpoint_managerEv.exit.i ], [ false, %30 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #12
   %46 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %46, null

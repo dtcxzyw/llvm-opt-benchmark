@@ -133,12 +133,12 @@ define internal i32 @microdvd_init(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %8, %27, %30, %33, %34
-  %.238 = phi i32 [ %.13751, %8 ], [ %.13751, %34 ], [ %.13751, %27 ], [ %32, %30 ], [ %.13751, %33 ], [ %.13751, %26 ]
-  %.235 = phi i32 [ %.13452, %8 ], [ %.13452, %34 ], [ %29, %27 ], [ %.13452, %30 ], [ %.13452, %33 ], [ %.13452, %26 ]
-  %.432 = phi i32 [ %.12953, %8 ], [ %.12953, %34 ], [ %.12953, %27 ], [ %.12953, %30 ], [ %.12953, %33 ], [ %.331, %26 ]
-  %.427 = phi i32 [ %.12454, %8 ], [ %.12454, %34 ], [ %.12454, %27 ], [ %.12454, %30 ], [ %.12454, %33 ], [ %.326, %26 ]
-  %.4 = phi i32 [ %.12155, %8 ], [ %.12155, %34 ], [ %.12155, %27 ], [ %.12155, %30 ], [ %.12155, %33 ], [ %.3, %26 ]
-  %.2 = phi i32 [ %.156, %8 ], [ %.156, %34 ], [ %.156, %27 ], [ %.156, %30 ], [ 8, %33 ], [ %.156, %26 ]
+  %.238 = phi i32 [ %.13751, %8 ], [ %.13751, %27 ], [ %32, %30 ], [ %.13751, %33 ], [ %.13751, %34 ], [ %.13751, %26 ]
+  %.235 = phi i32 [ %.13452, %8 ], [ %29, %27 ], [ %.13452, %30 ], [ %.13452, %33 ], [ %.13452, %34 ], [ %.13452, %26 ]
+  %.432 = phi i32 [ %.12953, %8 ], [ %.12953, %27 ], [ %.12953, %30 ], [ %.12953, %33 ], [ %.12953, %34 ], [ %.331, %26 ]
+  %.427 = phi i32 [ %.12454, %8 ], [ %.12454, %27 ], [ %.12454, %30 ], [ %.12454, %33 ], [ %.12454, %34 ], [ %.326, %26 ]
+  %.4 = phi i32 [ %.12155, %8 ], [ %.12155, %27 ], [ %.12155, %30 ], [ %.12155, %33 ], [ %.12155, %34 ], [ %.3, %26 ]
+  %.2 = phi i32 [ %.156, %8 ], [ %.156, %27 ], [ %.156, %30 ], [ 8, %33 ], [ %.156, %34 ], [ %.156, %26 ]
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 8
   br i1 %exitcond61.not, label %.loopexit45, label %8, !llvm.loop !35
@@ -401,7 +401,7 @@ microdvd_close_no_persistent_tags.exit:           ; preds = %84
   br label %102
 
 102:                                              ; preds = %4, %89, %96
-  %.0 = phi i32 [ %93, %89 ], [ %101, %96 ], [ %10, %4 ]
+  %.0 = phi i32 [ %101, %96 ], [ %93, %89 ], [ %10, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -614,14 +614,14 @@ check_for_italic_slash_marker.exit:               ; preds = %2, %microdvd_set_ta
   %.not28 = icmp eq i8 %96, 125
   br i1 %.not28, label %.thread55, label %check_for_italic_slash_marker.exit42
 
-.thread55:                                        ; preds = %22, %90, %81, %63, %44, %59, %76
-  %97 = phi ptr [ %95, %90 ], [ %61, %59 ], [ %78, %76 ], [ %66, %63 ], [ %48, %44 ], [ %82, %81 ], [ %23, %22 ]
-  %.sroa.0.267 = phi i8 [ 111, %90 ], [ 102, %59 ], [ 104, %76 ], [ 115, %63 ], [ 99, %44 ], [ 112, %81 ], [ %13, %22 ]
-  %.sroa.27.266 = phi i32 [ 0, %90 ], [ %56, %59 ], [ %73, %76 ], [ 0, %63 ], [ 0, %44 ], [ 0, %81 ], [ 0, %22 ]
-  %.sroa.25.265 = phi ptr [ null, %90 ], [ %18, %59 ], [ %18, %76 ], [ null, %63 ], [ null, %44 ], [ null, %81 ], [ null, %22 ]
-  %.sroa.24.264 = phi i32 [ %94, %90 ], [ 0, %59 ], [ 0, %76 ], [ 0, %63 ], [ 0, %44 ], [ 0, %81 ], [ 0, %22 ]
-  %.sroa.18.463 = phi i32 [ %91, %90 ], [ 0, %59 ], [ 0, %76 ], [ %65, %63 ], [ %47, %44 ], [ %84, %81 ], [ %.sroa.18.2, %22 ]
-  %.sroa.1243.662 = phi i32 [ 1, %90 ], [ %.sroa.1243.4, %59 ], [ 0, %76 ], [ %.sroa.1243.5, %63 ], [ %.sroa.1243.3, %44 ], [ 1, %81 ], [ %.sroa.1243.2, %22 ]
+.thread55:                                        ; preds = %22, %90, %81, %63, %44, %76, %59
+  %97 = phi ptr [ %78, %76 ], [ %61, %59 ], [ %48, %44 ], [ %66, %63 ], [ %82, %81 ], [ %95, %90 ], [ %23, %22 ]
+  %.sroa.0.267 = phi i8 [ 104, %76 ], [ 102, %59 ], [ 99, %44 ], [ 115, %63 ], [ 112, %81 ], [ 111, %90 ], [ %13, %22 ]
+  %.sroa.27.266 = phi i32 [ %73, %76 ], [ %56, %59 ], [ 0, %44 ], [ 0, %63 ], [ 0, %81 ], [ 0, %90 ], [ 0, %22 ]
+  %.sroa.25.265 = phi ptr [ %18, %76 ], [ %18, %59 ], [ null, %44 ], [ null, %63 ], [ null, %81 ], [ null, %90 ], [ null, %22 ]
+  %.sroa.24.264 = phi i32 [ 0, %76 ], [ 0, %59 ], [ 0, %44 ], [ 0, %63 ], [ 0, %81 ], [ %94, %90 ], [ 0, %22 ]
+  %.sroa.18.463 = phi i32 [ 0, %76 ], [ 0, %59 ], [ %47, %44 ], [ %65, %63 ], [ %84, %81 ], [ %91, %90 ], [ %.sroa.18.2, %22 ]
+  %.sroa.1243.662 = phi i32 [ 0, %76 ], [ %.sroa.1243.4, %59 ], [ %.sroa.1243.3, %44 ], [ %.sroa.1243.5, %63 ], [ 1, %81 ], [ 1, %90 ], [ %.sroa.1243.2, %22 ]
   %98 = sext i8 %.sroa.0.267 to i32
   %memchr.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.6, i32 %98, i64 9)
   %.not.i.i = icmp eq ptr %memchr.i, null
@@ -652,7 +652,7 @@ check_for_italic_slash_marker.exit:               ; preds = %2, %microdvd_set_ta
   store i32 0, ptr %.sroa.11.0..sroa_idx, align 4
   br label %107
 
-.thread69:                                        ; preds = %.lr.ph, %14
+.thread69:                                        ; preds = %14, %.lr.ph
   %.pre96 = load i8, ptr %11, align 1, !tbaa !30
   br label %.loopexit
 
@@ -664,8 +664,8 @@ check_for_italic_slash_marker.exit:               ; preds = %2, %microdvd_set_ta
   br i1 %110, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %107, %check_for_italic_slash_marker.exit, %.thread69
-  %111 = phi i8 [ %.pre96, %.thread69 ], [ %9, %check_for_italic_slash_marker.exit ], [ %109, %107 ]
-  %112 = phi ptr [ %11, %.thread69 ], [ %.0.i, %check_for_italic_slash_marker.exit ], [ %108, %107 ]
+  %111 = phi i8 [ %9, %check_for_italic_slash_marker.exit ], [ %.pre96, %.thread69 ], [ %109, %107 ]
+  %112 = phi ptr [ %.0.i, %check_for_italic_slash_marker.exit ], [ %11, %.thread69 ], [ %108, %107 ]
   %113 = icmp eq i8 %111, 47
   br i1 %113, label %microdvd_set_tag.exit.i39, label %check_for_italic_slash_marker.exit42
 
@@ -680,7 +680,7 @@ microdvd_set_tag.exit.i39:                        ; preds = %.loopexit
   br label %check_for_italic_slash_marker.exit42
 
 check_for_italic_slash_marker.exit42:             ; preds = %86, %90, %81, %79, %68, %63, %51, %44, %17, %26, %22, %microdvd_set_tag.exit.i39, %.loopexit
-  %.2 = phi ptr [ %112, %.loopexit ], [ %116, %microdvd_set_tag.exit.i39 ], [ %11, %26 ], [ %11, %22 ], [ %11, %17 ], [ %11, %44 ], [ %11, %51 ], [ %11, %63 ], [ %11, %68 ], [ %11, %79 ], [ %11, %81 ], [ %11, %90 ], [ %11, %86 ]
+  %.2 = phi ptr [ %116, %microdvd_set_tag.exit.i39 ], [ %112, %.loopexit ], [ %11, %22 ], [ %11, %26 ], [ %11, %17 ], [ %11, %44 ], [ %11, %51 ], [ %11, %63 ], [ %11, %68 ], [ %11, %79 ], [ %11, %81 ], [ %11, %90 ], [ %11, %86 ]
   ret ptr %.2
 }
 

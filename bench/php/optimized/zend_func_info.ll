@@ -659,7 +659,7 @@ define dso_local i32 @zend_get_func_info(ptr noundef %0, ptr noundef %1, ptr nou
   br label %zend_get_internal_func_info.exit
 
 zend_get_internal_func_info.exit:                 ; preds = %21, %23
-  %.015.i = phi i32 [ %22, %21 ], [ %spec.select.i, %23 ]
+  %.015.i = phi i32 [ %spec.select.i, %23 ], [ %22, %21 ]
   %.not37 = icmp eq i32 %.015.i, 0
   br i1 %.not37, label %zend_get_internal_func_info.exit.thread, label %.critedge
 
@@ -722,7 +722,7 @@ zend_get_internal_func_info.exit.thread:          ; preds = %15, %12, %9, %zend_
   br label %.critedge
 
 .critedge:                                        ; preds = %zend_get_internal_func_info.exit, %.thread, %58, %43, %zend_get_internal_func_info.exit.thread
-  %.1 = phi i32 [ %32, %zend_get_internal_func_info.exit.thread ], [ %.015.i, %zend_get_internal_func_info.exit ], [ %45, %43 ], [ %59, %58 ], [ %54, %.thread ]
+  %.1 = phi i32 [ %45, %43 ], [ %59, %58 ], [ %54, %.thread ], [ %32, %zend_get_internal_func_info.exit.thread ], [ %.015.i, %zend_get_internal_func_info.exit ]
   ret i32 %.1
 }
 
@@ -992,8 +992,8 @@ define internal range(i32 1073741952, 1612824705) i32 @zend_range_info(ptr nound
   br label %_ssa_op1_info.exit
 
 _ssa_op1_info.exit:                               ; preds = %59, %53, %66, %72, %69, %64, %57
-  %76 = phi ptr [ %23, %64 ], [ %23, %53 ], [ %.pre, %57 ], [ %23, %66 ], [ %23, %72 ], [ %23, %69 ], [ %23, %59 ]
-  %.0.i = phi i32 [ %spec.select.i78, %64 ], [ -521143298, %53 ], [ %58, %57 ], [ -486539265, %66 ], [ %75, %72 ], [ -486539265, %69 ], [ %61, %59 ]
+  %76 = phi ptr [ %.pre, %57 ], [ %23, %53 ], [ %23, %64 ], [ %23, %72 ], [ %23, %69 ], [ %23, %66 ], [ %23, %59 ]
+  %.0.i = phi i32 [ %58, %57 ], [ -521143298, %53 ], [ %spec.select.i78, %64 ], [ %75, %72 ], [ -486539265, %69 ], [ -486539265, %66 ], [ %61, %59 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %78 = load ptr, ptr %77, align 8, !tbaa !53
   %.not50 = icmp eq ptr %76, null
@@ -1083,7 +1083,7 @@ _ssa_op1_info.exit:                               ; preds = %59, %53, %66, %72, 
   br label %_ssa_op1_info.exit66
 
 _ssa_op1_info.exit66:                             ; preds = %114, %108, %121, %127, %124, %119, %112
-  %.0.i64 = phi i32 [ %spec.select.i74, %119 ], [ -521143298, %108 ], [ %113, %112 ], [ -486539265, %121 ], [ %130, %127 ], [ -486539265, %124 ], [ %116, %114 ]
+  %.0.i64 = phi i32 [ %113, %112 ], [ -521143298, %108 ], [ %spec.select.i74, %119 ], [ %130, %127 ], [ -486539265, %124 ], [ -486539265, %121 ], [ %116, %114 ]
   %131 = load i32, ptr %7, align 8, !tbaa !50
   %132 = icmp eq i32 %131, 3
   br i1 %132, label %133, label %191
@@ -1179,7 +1179,7 @@ _ssa_op1_info.exit66:                             ; preds = %114, %108, %121, %1
   br label %_ssa_op1_info.exit70
 
 _ssa_op1_info.exit70:                             ; preds = %172, %166, %179, %185, %182, %177, %170
-  %.0.i68 = phi i32 [ %spec.select.i, %177 ], [ -521143298, %166 ], [ %171, %170 ], [ -486539265, %179 ], [ %188, %185 ], [ -486539265, %182 ], [ %174, %172 ]
+  %.0.i68 = phi i32 [ %171, %170 ], [ -521143298, %166 ], [ %spec.select.i, %177 ], [ %188, %185 ], [ -486539265, %182 ], [ -486539265, %179 ], [ %174, %172 ]
   %189 = and i32 %.0.i68, 96
   %190 = icmp ne i32 %189, 0
   br label %191

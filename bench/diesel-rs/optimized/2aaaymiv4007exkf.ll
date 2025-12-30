@@ -425,7 +425,7 @@ define internal void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diese
   ret void
 
 111:                                              ; preds = %102, %70, %62, %109, %28, %20, %41, %49, %83, %91
-  %eh.lpad-body = phi { ptr, i32 } [ %103, %102 ], [ %84, %83 ], [ %84, %91 ], [ %63, %62 ], [ %63, %70 ], [ %42, %41 ], [ %42, %49 ], [ %110, %109 ], [ %21, %28 ], [ %21, %20 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %103, %102 ], [ %84, %91 ], [ %84, %83 ], [ %63, %70 ], [ %63, %62 ], [ %42, %49 ], [ %42, %41 ], [ %110, %109 ], [ %21, %28 ], [ %21, %20 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef 32, i64 noundef 8) #11
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -642,7 +642,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   unreachable
 
 common.resume:                                    ; preds = %.thread257, %.thread294, %42
-  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %.pn298, %.thread294 ], [ %.pn89260, %.thread257 ]
+  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %.pn89260, %.thread257 ], [ %.pn298, %.thread294 ]
   resume { ptr, i32 } %common.resume.op
 
 50:                                               ; preds = %13, %44
@@ -686,7 +686,7 @@ common.resume:                                    ; preds = %.thread257, %.threa
   store i64 %.sroa.7.i.sroa.8.0.copyload, ptr %.sroa.3185.0..sroa_idx, align 8
   br label %157
 
-.thread262:                                       ; preds = %97, %65, %50, %94
+.thread262:                                       ; preds = %50, %65, %94, %97
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread257
@@ -921,7 +921,7 @@ common.resume:                                    ; preds = %.thread257, %.threa
   store i64 -9223372036854775798, ptr %0, align 8
   br label %157
 
-.thread303:                                       ; preds = %144, %115, %141
+.thread303:                                       ; preds = %115, %141, %144
   %lpad.thr_comm301 = landingpad { ptr, i32 }
           cleanup
   br label %.thread294

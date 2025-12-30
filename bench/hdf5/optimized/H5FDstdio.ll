@@ -117,7 +117,7 @@ sub_0.i:                                          ; preds = %12
   br label %H5FD__stdio_init.exit
 
 H5FD__stdio_init.exit:                            ; preds = %10, %12, %.tail.i, %.critedge.i
-  %.sink.i = phi i32 [ 1, %10 ], [ -1, %.critedge.i ], [ 0, %.tail.i ], [ 0, %12 ]
+  %.sink.i = phi i32 [ -1, %.critedge.i ], [ 1, %10 ], [ 0, %.tail.i ], [ 0, %12 ]
   store i32 %.sink.i, ptr @ignore_disabled_file_locks_s, align 4, !tbaa !3
   store i1 true, ptr @H5FD_stdio_init_s, align 1
   br label %18
@@ -833,7 +833,7 @@ define internal range(i32 -1, 2) i32 @H5FD_stdio_cmp(ptr noundef readonly captur
   br label %19
 
 19:                                               ; preds = %17, %11, %9, %2
-  %.0 = phi i32 [ -1, %11 ], [ -1, %2 ], [ 1, %9 ], [ %., %17 ]
+  %.0 = phi i32 [ -1, %2 ], [ 1, %9 ], [ -1, %11 ], [ %., %17 ]
   ret i32 %.0
 }
 
@@ -1203,7 +1203,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr noundef captures(none)
   br label %174
 
 174:                                              ; preds = %.thread, %72, %.loopexit, %116, %77, %69, %35
-  %.0 = phi i32 [ -1, %35 ], [ -1, %69 ], [ 0, %.loopexit ], [ 0, %77 ], [ -1, %116 ], [ -1, %.thread ], [ 0, %72 ]
+  %.0 = phi i32 [ -1, %35 ], [ -1, %69 ], [ 0, %77 ], [ -1, %116 ], [ 0, %.loopexit ], [ 0, %72 ], [ -1, %.thread ]
   ret i32 %.0
 }
 
@@ -1467,7 +1467,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr noundef captures(none
   br label %152
 
 152:                                              ; preds = %.thread, %._crit_edge.split.us, %151, %110, %68, %35
-  %.0 = phi i32 [ -1, %35 ], [ -1, %68 ], [ -1, %110 ], [ -1, %.thread ], [ 0, %151 ], [ 0, %._crit_edge.split.us ]
+  %.0 = phi i32 [ -1, %35 ], [ -1, %68 ], [ -1, %110 ], [ 0, %151 ], [ 0, %._crit_edge.split.us ], [ -1, %.thread ]
   ret i32 %.0
 }
 
@@ -1984,7 +1984,7 @@ sub_0.i:                                          ; preds = %8
   br label %H5FD__stdio_init.exit
 
 H5FD__stdio_init.exit:                            ; preds = %6, %8, %.tail.i, %.critedge.i
-  %.sink.i = phi i32 [ 1, %6 ], [ -1, %.critedge.i ], [ 0, %.tail.i ], [ 0, %8 ]
+  %.sink.i = phi i32 [ -1, %.critedge.i ], [ 1, %6 ], [ 0, %.tail.i ], [ 0, %8 ]
   store i32 %.sink.i, ptr @ignore_disabled_file_locks_s, align 4, !tbaa !3
   store i1 true, ptr @H5FD_stdio_init_s, align 1
   br label %14

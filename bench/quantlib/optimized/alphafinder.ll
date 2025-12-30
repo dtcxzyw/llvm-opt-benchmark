@@ -778,8 +778,8 @@ if.then3.us.i:                                    ; preds = %if.else.us.i
   br label %if.end4.us.i
 
 if.end4.us.i:                                     ; preds = %if.then3.us.i, %if.else.us.i, %do.body.us.i
-  %high.addr.1.us.i = phi double [ %high.addr.0.us.i, %if.else.us.i ], [ %x.0.us.i, %if.then3.us.i ], [ %high.addr.0.us.i, %do.body.us.i ]
-  %low.addr.1.us.i = phi double [ %low.addr.0.us.i, %if.else.us.i ], [ %low.addr.0.us.i, %if.then3.us.i ], [ %x.0.us.i, %do.body.us.i ]
+  %high.addr.1.us.i = phi double [ %x.0.us.i, %if.then3.us.i ], [ %high.addr.0.us.i, %if.else.us.i ], [ %high.addr.0.us.i, %do.body.us.i ]
+  %low.addr.1.us.i = phi double [ %low.addr.0.us.i, %if.then3.us.i ], [ %low.addr.0.us.i, %if.else.us.i ], [ %x.0.us.i, %do.body.us.i ]
   %add5.us.i = fadd double %high.addr.1.us.i, %low.addr.1.us.i
   %mul6.us.i = fmul double %add5.us.i, 5.000000e-01
   %call16.us.i = tail call noundef double @_ZN8QuantLib11AlphaFinder19valueAtTurningPointEd(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %mul6.us.i)
@@ -812,8 +812,8 @@ if.then3.us.i104:                                 ; preds = %if.else.us.i94
   br label %if.end4.us.i96
 
 if.end4.us.i96:                                   ; preds = %if.then3.us.i104, %if.else.us.i94, %do.body.us.i88
-  %high.addr.1.us.i97 = phi double [ %high.addr.0.us.i89, %if.else.us.i94 ], [ %x.0.us.i91, %if.then3.us.i104 ], [ %high.addr.0.us.i89, %do.body.us.i88 ]
-  %low.addr.1.us.i98 = phi double [ %low.addr.0.us.i90, %if.else.us.i94 ], [ %low.addr.0.us.i90, %if.then3.us.i104 ], [ %x.0.us.i91, %do.body.us.i88 ]
+  %high.addr.1.us.i97 = phi double [ %x.0.us.i91, %if.then3.us.i104 ], [ %high.addr.0.us.i89, %if.else.us.i94 ], [ %high.addr.0.us.i89, %do.body.us.i88 ]
+  %low.addr.1.us.i98 = phi double [ %low.addr.0.us.i90, %if.then3.us.i104 ], [ %low.addr.0.us.i90, %if.else.us.i94 ], [ %x.0.us.i91, %do.body.us.i88 ]
   %add5.us.i99 = fadd double %high.addr.1.us.i97, %low.addr.1.us.i98
   %mul6.us.i100 = fmul double %add5.us.i99, 5.000000e-01
   %call.i = tail call noundef double @_ZN8QuantLib11AlphaFinder19valueAtTurningPointEd(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %mul6.us.i100)
@@ -1207,8 +1207,8 @@ do.body.i114:                                     ; preds = %do.body.i114, %if.e
   br i1 %cmp.i125, label %do.body.i114, label %if.end88, !llvm.loop !45
 
 if.end88:                                         ; preds = %do.body.i114, %do.body.i98, %do.body.i85, %if.end41
-  %alpha2.0 = phi double [ %mul3.i91, %do.body.i85 ], [ %alphaMax, %if.end41 ], [ %mul3.i106, %do.body.i98 ], [ %20, %do.body.i114 ]
-  %alpha1.1 = phi double [ %alpha1.0, %do.body.i85 ], [ %alpha1.0, %if.end41 ], [ %19, %do.body.i98 ], [ %mul3.i122, %do.body.i114 ]
+  %alpha2.0 = phi double [ %alphaMax, %if.end41 ], [ %mul3.i91, %do.body.i85 ], [ %mul3.i106, %do.body.i98 ], [ %20, %do.body.i114 ]
+  %alpha1.1 = phi double [ %alpha1.0, %if.end41 ], [ %alpha1.0, %do.body.i85 ], [ %19, %do.body.i98 ], [ %mul3.i122, %do.body.i114 ]
   %call.i127 = tail call noundef double @_ZN8QuantLib11AlphaFinder18homogeneityfailureEd(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %alpha1.1)
   %call12.i = tail call noundef double @_ZN8QuantLib11AlphaFinder18homogeneityfailureEd(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %alpha2.0)
   %mul16.i = fmul double %alpha2.0, 0x3FE3C6EF372FE950
@@ -1294,7 +1294,7 @@ if.end130.i:                                      ; preds = %cleanup125.i, %clea
   br i1 %cmp.i129, label %while.body.i, label %_ZN8QuantLib12_GLOBAL__N_18MinimizeINS_11AlphaFinderEEEddddRT_MS3_FddEMS3_FbdERb.exit, !llvm.loop !48
 
 _ZN8QuantLib12_GLOBAL__N_18MinimizeINS_11AlphaFinderEEEddddRT_MS3_FddEMS3_FbdERb.exit: ; preds = %if.end130.i, %if.end88, %memptr.end63.i, %if.else.i131, %memptr.end113.i, %if.else116.i
-  %retval.2.i = phi double [ %x.0142.i, %memptr.end113.i ], [ %x.0142.i, %memptr.end63.i ], [ %low.addr.0.high.addr.0.i, %if.else.i131 ], [ %low.addr.0.high.addr.0113.i, %if.else116.i ], [ %23, %if.end88 ], [ %x.3.i, %if.end130.i ]
+  %retval.2.i = phi double [ %low.addr.0.high.addr.0.i, %if.else.i131 ], [ %x.0142.i, %memptr.end63.i ], [ %low.addr.0.high.addr.0113.i, %if.else116.i ], [ %x.0142.i, %memptr.end113.i ], [ %23, %if.end88 ], [ %x.3.i, %if.end130.i ]
   store double %retval.2.i, ptr %alpha, align 8, !tbaa !24
   %26 = load ptr, ptr %this, align 8, !tbaa !3
   %cmp.not.i.i = icmp eq ptr %26, null
@@ -1421,7 +1421,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
-  %__first.addr.0.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %incdec.ptr.i.i.i, %if.then.i.i.i ]
+  %__first.addr.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ]
   store ptr %__first.addr.0.i.i.i, ptr %_M_finish.i, align 8, !tbaa !41
   br label %if.end44
 

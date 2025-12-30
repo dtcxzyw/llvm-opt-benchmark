@@ -1178,7 +1178,7 @@ _ZN9VNVisitor7iterateEP7AstNode.exit:             ; preds = %.lr.ph
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %51, %47, %33, %31
-  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %34, %33 ], [ %48, %47 ], [ %48, %51 ]
+  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ], [ %48, %47 ], [ %48, %51 ]
   tail call void @_ZN20AstUserAllocatorBaseI11AstVarScope9OrderUserLi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %9) #23
   br label %.body
 
@@ -1578,7 +1578,7 @@ define linkonce_odr dso_local void @_ZN17OrderGraphBuilder5visitEP9AstActive(ptr
   unreachable
 
 .loopexit:                                        ; preds = %68, %51, %63
-  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %51 ], [ %64, %63 ], [ %70, %68 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %64, %63 ], [ %.sroa.06.0.i.i.i, %51 ], [ %70, %68 ]
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   br label %77
 
@@ -5770,7 +5770,7 @@ _ZSt6fill_nIPPK7AstNodemS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPPK7AstNodemS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPK7AstNodemS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPK7AstNodemS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPK7AstNodemS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPK7AstNodemS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !261
   br label %41
 
@@ -6385,7 +6385,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK13V3GraphVertex7sortCmpEPKS_(ptr 
   br label %18
 
 18:                                               ; preds = %16, %10, %8, %2
-  %.0 = phi i32 [ -1, %10 ], [ -1, %2 ], [ 1, %8 ], [ %., %16 ]
+  %.0 = phi i32 [ -1, %2 ], [ 1, %8 ], [ -1, %10 ], [ %., %16 ]
   ret i32 %.0
 }
 
@@ -7129,7 +7129,7 @@ _ZSt4copyIPP9OrderUserS2_ET0_T_S4_S3_.exit26:     ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPP9OrderUserS2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPP9OrderUserS2_ET0_T_S4_S3_.exit:       ; preds = %32, %31, %28, %27, %_ZSt4copyIPP9OrderUserS2_ET0_T_S4_S3_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPP9OrderUserS2_ET0_T_S4_S3_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPP9OrderUserS2_ET0_T_S4_S3_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !144
   %58 = load ptr, ptr %.0, align 8, !tbaa !62
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24

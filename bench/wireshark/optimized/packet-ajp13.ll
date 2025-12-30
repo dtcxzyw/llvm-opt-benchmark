@@ -823,7 +823,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   br label %298
 
 298:                                              ; preds = %281, %275, %250
-  %.3.i = phi i32 [ %291, %281 ], [ %268, %250 ], [ %280, %275 ]
+  %.3.i = phi i32 [ %268, %250 ], [ %280, %275 ], [ %291, %281 ]
   %299 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3.i)
   %300 = icmp sgt i32 %299, 0
   br i1 %300, label %.lr.ph228.i, label %display_req_body.exit

@@ -581,8 +581,8 @@ default.unreachable:                              ; preds = %9
 24:                                               ; preds = %22
   br label %canopen_detect_msg_type.exit.thread143
 
-canopen_detect_msg_type.exit.thread:              ; preds = %22, %20, %19, %18, %9, %21, %23
-  %.0.i142 = phi i32 [ 0, %22 ], [ 0, %23 ], [ 6, %20 ], [ 5, %19 ], [ 3, %18 ], [ 1, %9 ], [ 7, %21 ]
+canopen_detect_msg_type.exit.thread:              ; preds = %22, %9, %21, %20, %19, %18, %23
+  %.0.i142 = phi i32 [ 1, %9 ], [ 7, %21 ], [ 6, %20 ], [ 5, %19 ], [ 3, %18 ], [ 0, %23 ], [ 0, %22 ]
   %25 = icmp eq i32 %13, 0
   br i1 %25, label %canopen_detect_msg_type.exit.thread.thread, label %canopen_detect_msg_type.exit.thread.thread148
 
@@ -834,23 +834,23 @@ proto_item_set_generated.exit135:                 ; preds = %proto_item_set_gene
   br i1 %154, label %sdo_cmd_fields_ccs.exit.sink.split.i, label %sdo_cmd_fields_ccs.exit.i
 
 sdo_cmd_fields_ccs.exit.sink.split.i:             ; preds = %153, %150, %146, %139, %138, %137, %135
-  %.sink.i = phi i8 [ %141, %150 ], [ %131, %137 ], [ %131, %135 ], [ %131, %139 ], [ %131, %138 ], [ 0, %146 ], [ 1, %153 ]
-  %_sdo_cmd_fields_ccs.sink.i = phi ptr [ @_sdo_cmd_fields_ccs5, %150 ], [ @_sdo_cmd_fields_ccs, %137 ], [ @_sdo_cmd_fields_ccs, %135 ], [ @_sdo_cmd_fields_ccs, %139 ], [ @_sdo_cmd_fields_ccs, %138 ], [ @_sdo_cmd_fields_ccs6, %146 ], [ @_sdo_cmd_fields_ccs6, %153 ]
-  %.077115.ph.i = phi i8 [ %141, %150 ], [ 0, %137 ], [ %131, %135 ], [ 0, %139 ], [ 0, %138 ], [ 0, %146 ], [ 1, %153 ]
-  %.078113.ph.i = phi i8 [ %spec.select.i, %150 ], [ 0, %137 ], [ %131, %135 ], [ 0, %139 ], [ 0, %138 ], [ 0, %146 ], [ 0, %153 ]
-  %.081111.ph.i = phi i8 [ %spec.select.i, %150 ], [ 1, %137 ], [ %131, %135 ], [ 0, %139 ], [ 1, %138 ], [ 1, %146 ], [ 0, %153 ]
-  %.084109.ph.i = phi i8 [ 0, %150 ], [ 4, %137 ], [ 7, %135 ], [ 0, %139 ], [ 0, %138 ], [ 4, %146 ], [ 2, %153 ]
+  %.sink.i = phi i8 [ %131, %135 ], [ %131, %139 ], [ %131, %138 ], [ %131, %137 ], [ %141, %150 ], [ 0, %146 ], [ 1, %153 ]
+  %_sdo_cmd_fields_ccs.sink.i = phi ptr [ @_sdo_cmd_fields_ccs, %135 ], [ @_sdo_cmd_fields_ccs, %139 ], [ @_sdo_cmd_fields_ccs, %138 ], [ @_sdo_cmd_fields_ccs, %137 ], [ @_sdo_cmd_fields_ccs5, %150 ], [ @_sdo_cmd_fields_ccs6, %146 ], [ @_sdo_cmd_fields_ccs6, %153 ]
+  %.077115.ph.i = phi i8 [ %131, %135 ], [ 0, %139 ], [ 0, %138 ], [ 0, %137 ], [ %141, %150 ], [ 0, %146 ], [ 1, %153 ]
+  %.078113.ph.i = phi i8 [ %131, %135 ], [ 0, %139 ], [ 0, %138 ], [ 0, %137 ], [ %spec.select.i, %150 ], [ 0, %146 ], [ 0, %153 ]
+  %.081111.ph.i = phi i8 [ %131, %135 ], [ 0, %139 ], [ 1, %138 ], [ 1, %137 ], [ %spec.select.i, %150 ], [ 1, %146 ], [ 0, %153 ]
+  %.084109.ph.i = phi i8 [ 7, %135 ], [ 0, %139 ], [ 0, %138 ], [ 4, %137 ], [ 0, %150 ], [ 4, %146 ], [ 2, %153 ]
   %155 = zext nneg i8 %.sink.i to i64
   %156 = getelementptr ptr, ptr %_sdo_cmd_fields_ccs.sink.i, i64 %155
   %157 = load ptr, ptr %156, align 8
   br label %sdo_cmd_fields_ccs.exit.i
 
 sdo_cmd_fields_ccs.exit.i:                        ; preds = %sdo_cmd_fields_ccs.exit.sink.split.i, %153, %150
-  %.077115.i = phi i8 [ %141, %150 ], [ %144, %153 ], [ %.077115.ph.i, %sdo_cmd_fields_ccs.exit.sink.split.i ]
-  %.078113.i = phi i8 [ %spec.select.i, %150 ], [ 0, %153 ], [ %.078113.ph.i, %sdo_cmd_fields_ccs.exit.sink.split.i ]
-  %.081111.i = phi i8 [ %spec.select.i, %150 ], [ 0, %153 ], [ %.081111.ph.i, %sdo_cmd_fields_ccs.exit.sink.split.i ]
-  %.084109.i = phi i8 [ 0, %150 ], [ 2, %153 ], [ %.084109.ph.i, %sdo_cmd_fields_ccs.exit.sink.split.i ]
-  %.0.i.i = phi ptr [ null, %150 ], [ null, %153 ], [ %157, %sdo_cmd_fields_ccs.exit.sink.split.i ]
+  %.077115.i = phi i8 [ %144, %153 ], [ %141, %150 ], [ %.077115.ph.i, %sdo_cmd_fields_ccs.exit.sink.split.i ]
+  %.078113.i = phi i8 [ 0, %153 ], [ %spec.select.i, %150 ], [ %.078113.ph.i, %sdo_cmd_fields_ccs.exit.sink.split.i ]
+  %.081111.i = phi i8 [ 0, %153 ], [ %spec.select.i, %150 ], [ %.081111.ph.i, %sdo_cmd_fields_ccs.exit.sink.split.i ]
+  %.084109.i = phi i8 [ 2, %153 ], [ 0, %150 ], [ %.084109.ph.i, %sdo_cmd_fields_ccs.exit.sink.split.i ]
+  %.0.i.i = phi ptr [ null, %153 ], [ null, %150 ], [ %157, %sdo_cmd_fields_ccs.exit.sink.split.i ]
   %158 = icmp eq i8 %.078113.i, 0
   br label %sdo_cmd_fields_scs.exit.i
 
@@ -989,7 +989,7 @@ sdo_cmd_fields_scs.exit.thread.i:                 ; preds = %sdo_cmd_fields_scs.
   br label %214
 
 214:                                              ; preds = %210, %206, %202
-  %.188.i = phi i32 [ %213, %210 ], [ %.087.i, %206 ], [ %.087.i, %202 ]
+  %.188.i = phi i32 [ %213, %210 ], [ %.087.i, %202 ], [ %.087.i, %206 ]
   br i1 %.280.i, label %219, label %215
 
 215:                                              ; preds = %214
@@ -1221,8 +1221,8 @@ sdo_cmd_fields_scs.exit.thread.i:                 ; preds = %sdo_cmd_fields_scs.
   br label %340
 
 340:                                              ; preds = %334, %324, %319, %314, %309, %308, %308, %308, %278, %272, %263, %257, %254, %251, %248, %245, %238, %237, %237, %237, %237, %237, %237, %237
-  %.0149.i = phi i32 [ 6, %238 ], [ 3, %245 ], [ 3, %248 ], [ 3, %251 ], [ 3, %254 ], [ 6, %257 ], [ 5, %263 ], [ 5, %272 ], [ 7, %308 ], [ 3, %278 ], [ 7, %237 ], [ 7, %308 ], [ 7, %237 ], [ 5, %309 ], [ 5, %314 ], [ 5, %319 ], [ 3, %324 ], [ 6, %334 ], [ 7, %308 ], [ 7, %237 ], [ 7, %237 ], [ 7, %237 ], [ 7, %237 ], [ 7, %237 ]
-  %.0.i138 = phi i32 [ 2, %238 ], [ 5, %245 ], [ 5, %248 ], [ 5, %251 ], [ 5, %254 ], [ 2, %257 ], [ 3, %263 ], [ 3, %272 ], [ 1, %308 ], [ 5, %278 ], [ 1, %237 ], [ 1, %308 ], [ 1, %237 ], [ 3, %309 ], [ 3, %314 ], [ 3, %319 ], [ 5, %324 ], [ 2, %334 ], [ 1, %308 ], [ 1, %237 ], [ 1, %237 ], [ 1, %237 ], [ 1, %237 ], [ 1, %237 ]
+  %.0149.i = phi i32 [ 6, %238 ], [ 3, %245 ], [ 3, %248 ], [ 3, %251 ], [ 3, %254 ], [ 6, %257 ], [ 5, %263 ], [ 5, %272 ], [ 3, %278 ], [ 5, %309 ], [ 5, %314 ], [ 5, %319 ], [ 3, %324 ], [ 6, %334 ], [ 7, %237 ], [ 7, %237 ], [ 7, %237 ], [ 7, %237 ], [ 7, %237 ], [ 7, %237 ], [ 7, %237 ], [ 7, %308 ], [ 7, %308 ], [ 7, %308 ]
+  %.0.i138 = phi i32 [ 2, %238 ], [ 5, %245 ], [ 5, %248 ], [ 5, %251 ], [ 5, %254 ], [ 2, %257 ], [ 3, %263 ], [ 3, %272 ], [ 5, %278 ], [ 3, %309 ], [ 3, %314 ], [ 3, %319 ], [ 5, %324 ], [ 2, %334 ], [ 1, %237 ], [ 1, %237 ], [ 1, %237 ], [ 1, %237 ], [ 1, %237 ], [ 1, %237 ], [ 1, %237 ], [ 1, %308 ], [ 1, %308 ], [ 1, %308 ]
   %341 = load i32, ptr @hf_canopen_reserved, align 4
   %342 = tail call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %341, ptr noundef %0, i32 noundef %.0.i138, i32 noundef %.0149.i, i32 noundef 0)
   br label %dissect_sdo.exit

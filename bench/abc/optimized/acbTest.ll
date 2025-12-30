@@ -525,7 +525,7 @@ Abc_TtCountOnesVecMask.exit180._crit_edge:        ; preds = %59, %Abc_TtCountOne
   br label %273
 
 273:                                              ; preds = %266, %.lr.ph202.split
-  %.sink235 = phi i32 [ %.236, %266 ], [ 120, %.lr.ph202.split ]
+  %.sink235 = phi i32 [ 120, %.lr.ph202.split ], [ %.236, %266 ]
   %putchar119 = tail call i32 @putchar(i32 %.sink235)
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %.val122 = load ptr, ptr %53, align 8, !tbaa !39
@@ -2166,8 +2166,8 @@ define void @Acb_NtkPrintCecStats(ptr noundef readonly captures(none) %0) local_
   br label %13
 
 13:                                               ; preds = %5, %5, %5, %10, %8
-  %.118 = phi i32 [ %.01729, %10 ], [ %9, %8 ], [ %.01729, %5 ], [ %.01729, %5 ], [ %.01729, %5 ]
-  %.1 = phi i32 [ %spec.select, %10 ], [ %.030, %8 ], [ %.030, %5 ], [ %.030, %5 ], [ %.030, %5 ]
+  %.118 = phi i32 [ %9, %8 ], [ %.01729, %5 ], [ %.01729, %10 ], [ %.01729, %5 ], [ %.01729, %5 ]
+  %.1 = phi i32 [ %.030, %8 ], [ %.030, %5 ], [ %spec.select, %10 ], [ %.030, %5 ], [ %.030, %5 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !107
@@ -2216,7 +2216,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %2
   br label %Vec_IntStartFull.exit
 
 Vec_IntStartFull.exit:                            ; preds = %2, %Vec_IntAlloc.exit.i, %10
-  %13 = phi ptr [ %9, %10 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %2 ]
+  %13 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %9, %10 ], [ null, %2 ]
   %14 = getelementptr i8, ptr %1, i64 28
   %.val41 = load i32, ptr %14, align 4, !tbaa !32
   %15 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20

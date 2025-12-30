@@ -685,7 +685,7 @@ define dso_local noundef zeroext i1 @__i915_sched_node_add_dependency(ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %4, %.thread1, %22, %13
-  %41 = phi i1 [ false, %.thread1 ], [ true, %22 ], [ false, %13 ], [ false, %4 ]
+  %41 = phi i1 [ true, %22 ], [ false, %13 ], [ false, %.thread1 ], [ false, %4 ]
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @schedule_lock) #10
   ret i1 %41
 }

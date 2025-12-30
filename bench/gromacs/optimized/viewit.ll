@@ -116,7 +116,7 @@ _ZL8can_viewi.exit.thread:                        ; preds = %26
   br label %45
 
 34:                                               ; preds = %21, %28, %_ZL8can_viewi.exit, %19
-  %.0 = phi ptr [ %20, %19 ], [ %.str.8..str.7, %21 ], [ %31, %28 ], [ %27, %_ZL8can_viewi.exit ]
+  %.0 = phi ptr [ %20, %19 ], [ %27, %_ZL8can_viewi.exit ], [ %31, %28 ], [ %.str.8..str.7, %21 ]
   %char0 = load i8, ptr %.0, align 1
   %.not24 = icmp eq i8 %char0, 0
   br i1 %.not24, label %45, label %35

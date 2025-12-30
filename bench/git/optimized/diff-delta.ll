@@ -243,7 +243,7 @@ define dso_local noundef ptr @create_delta_index(ptr noundef %0, i64 noundef %1)
   br label %101
 
 101:                                              ; preds = %.sink.split, %15, %2
-  %.0 = phi ptr [ null, %15 ], [ null, %2 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ null, %2 ], [ null, %15 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 
@@ -508,9 +508,9 @@ define dso_local noalias ptr @create_delta(ptr noundef readonly captures(none) %
   %118 = icmp ugt i64 %114, 4095
   br i1 %118, label %.thread315, label %119
 
-119:                                              ; preds = %116, %95, %.critedge
-  %.4256.ph = phi i64 [ %.2254373, %.critedge ], [ %.2254373, %95 ], [ %114, %116 ]
-  %.4237.ph = phi i64 [ %.2235374, %.critedge ], [ %.2235374, %95 ], [ %117, %116 ]
+119:                                              ; preds = %95, %.critedge, %116
+  %.4256.ph = phi i64 [ %114, %116 ], [ %.2254373, %.critedge ], [ %.2254373, %95 ]
+  %.4237.ph = phi i64 [ %117, %116 ], [ %.2235374, %.critedge ], [ %.2235374, %95 ]
   %120 = getelementptr inbounds nuw i8, ptr %.0213375, i64 16
   %121 = icmp ult ptr %120, %91
   br i1 %121, label %95, label %._crit_edge378, !llvm.loop !40
@@ -733,12 +733,12 @@ define dso_local noalias ptr @create_delta(ptr noundef readonly captures(none) %
   br i1 %exitcond.not, label %.loopexit, label %.preheader330, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.preheader330, %212, %123, %131
-  %.6258 = phi i64 [ 0, %123 ], [ 0, %131 ], [ %164, %212 ], [ %spec.store.select, %.preheader330 ]
-  %.3248 = phi i32 [ %129, %123 ], [ 0, %131 ], [ 0, %212 ], [ 0, %.preheader330 ]
-  %.6239 = phi i64 [ %.2235.lcssa, %123 ], [ %.2235.lcssa, %131 ], [ %214, %212 ], [ %214, %.preheader330 ]
-  %.2229 = phi ptr [ %125, %123 ], [ %125, %131 ], [ %213, %212 ], [ %213, %.preheader330 ]
-  %.6226 = phi i64 [ %127, %123 ], [ %127, %131 ], [ %.15, %212 ], [ %.15, %.preheader330 ]
-  %.3206 = phi i32 [ %82, %123 ], [ %82, %131 ], [ %.2205321, %212 ], [ %226, %.preheader330 ]
+  %.6258 = phi i64 [ 0, %131 ], [ 0, %123 ], [ %164, %212 ], [ %spec.store.select, %.preheader330 ]
+  %.3248 = phi i32 [ 0, %131 ], [ %129, %123 ], [ 0, %212 ], [ 0, %.preheader330 ]
+  %.6239 = phi i64 [ %.2235.lcssa, %131 ], [ %.2235.lcssa, %123 ], [ %214, %212 ], [ %214, %.preheader330 ]
+  %.2229 = phi ptr [ %125, %131 ], [ %125, %123 ], [ %213, %212 ], [ %213, %.preheader330 ]
+  %.6226 = phi i64 [ %127, %131 ], [ %127, %123 ], [ %.15, %212 ], [ %.15, %.preheader330 ]
+  %.3206 = phi i32 [ %82, %131 ], [ %82, %123 ], [ %.2205321, %212 ], [ %226, %.preheader330 ]
   %227 = add i64 %.1263386, -34
   %.not297 = icmp ult i64 %.6226, %227
   br i1 %.not297, label %.thread325, label %228
@@ -768,7 +768,7 @@ define dso_local noalias ptr @create_delta(ptr noundef readonly captures(none) %
   br i1 %234, label %65, label %._crit_edge396, !llvm.loop !43
 
 ._crit_edge396:                                   ; preds = %.thread325, %228
-  %.0216.lcssa = phi ptr [ %.0216393, %228 ], [ %.2218, %.thread325 ]
+  %.0216.lcssa = phi ptr [ %.2218, %.thread325 ], [ %.0216393, %228 ]
   %.not300 = icmp eq i32 %.3248, 0
   br i1 %.not300, label %240, label %._crit_edge396.thread
 
@@ -792,7 +792,7 @@ define dso_local noalias ptr @create_delta(ptr noundef readonly captures(none) %
   br i1 %or.cond307.not, label %243, label %242
 
 242:                                              ; preds = %240
-  tail call void @free(ptr noundef %.0216.lcssa447) #12
+  tail call void @free(ptr noundef nonnull %.0216.lcssa447) #12
   br label %244
 
 243:                                              ; preds = %240
@@ -800,7 +800,7 @@ define dso_local noalias ptr @create_delta(ptr noundef readonly captures(none) %
   br label %244
 
 244:                                              ; preds = %.thread322, %9, %5, %243, %242
-  %.0 = phi ptr [ null, %.thread322 ], [ null, %242 ], [ %.0216.lcssa447, %243 ], [ null, %5 ], [ null, %9 ]
+  %.0 = phi ptr [ null, %242 ], [ %.0216.lcssa447, %243 ], [ null, %5 ], [ null, %9 ], [ null, %.thread322 ]
   ret ptr %.0
 }
 

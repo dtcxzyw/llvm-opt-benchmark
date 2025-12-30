@@ -557,7 +557,7 @@ setup_idp.exit:                                   ; preds = %57, %.thread.i
   store i32 %123, ptr %103, align 4, !tbaa !64
   br label %.thread
 
-.thread:                                          ; preds = %104, %98, %121, %120, %120, %120
+.thread:                                          ; preds = %104, %98, %120, %120, %120, %121
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %124 = load ptr, ptr %6, align 8, !tbaa !6
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 40

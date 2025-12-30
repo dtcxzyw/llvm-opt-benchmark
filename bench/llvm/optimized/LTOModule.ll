@@ -3671,7 +3671,7 @@ _ZN4llvm8dyn_castINS_12GlobalObjectEKNS_11GlobalValueEEEDcPT0_.exit.thread: ; pr
   br label %21
 
 21:                                               ; preds = %16, %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_11GlobalValueEEEDcPT0_.exit.thread, %20
-  %.sink = phi i32 [ 160, %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_11GlobalValueEEEDcPT0_.exit.thread ], [ 192, %20 ], [ 128, %16 ]
+  %.sink = phi i32 [ 192, %20 ], [ 160, %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_11GlobalValueEEEDcPT0_.exit.thread ], [ 128, %16 ]
   %22 = or i32 %14, %.sink
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %24 = load i32, ptr %23, align 8
@@ -3700,8 +3700,8 @@ _ZN4llvm8dyn_castINS_12GlobalObjectEKNS_11GlobalValueEEEDcPT0_.exit.thread: ; pr
   br label %34
 
 34:                                               ; preds = %32, %26
-  %.pre-phi = phi i32 [ %.pre, %26 ], [ %29, %32 ]
-  %.2 = phi i32 [ %27, %26 ], [ %33, %32 ]
+  %.pre-phi = phi i32 [ %29, %32 ], [ %.pre, %26 ]
+  %.2 = phi i32 [ %33, %32 ], [ %27, %26 ]
   %35 = add nsw i32 %.pre-phi, -7
   %spec.select.i.i33 = icmp ult i32 %35, 2
   br i1 %spec.select.i.i33, label %36, label %38
@@ -4882,7 +4882,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread42:       ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not, label %.critedge24, label %.lr.ph
 
 .critedge24:                                      ; preds = %.critedge, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread42, %1
-  %22 = phi i1 [ false, %1 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread42 ], [ false, %.critedge ]
+  %22 = phi i1 [ false, %1 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread42 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %.critedge ]
   ret i1 %22
 }
 

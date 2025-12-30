@@ -516,7 +516,7 @@ define hidden noundef i32 @_ZN5zxing15HybridBinarizer10initBlocksEv(ptr noundef 
   br label %.preheader100.us
 
 .loopexit99.us.thread:                            ; preds = %.loopexit99.us, %.loopexit.us, %.preheader98.us
-  %.4.us150 = phi i32 [ %81, %.loopexit.us ], [ %86, %.preheader98.us ], [ %86, %.loopexit99.us ]
+  %.4.us150 = phi i32 [ %86, %.preheader98.us ], [ %81, %.loopexit.us ], [ %86, %.loopexit99.us ]
   %32 = add nuw nsw i64 %indvars.iv133, %20
   %33 = load ptr, ptr %14, align 8, !tbaa !20
   %34 = getelementptr i8, ptr %33, i64 16

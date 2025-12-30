@@ -134,7 +134,7 @@ define internal i32 @init(ptr noundef %0) #0 {
   br label %42
 
 42:                                               ; preds = %37, %24, %19, %15, %40, %33
-  %.028 = phi i32 [ -22, %33 ], [ %17, %15 ], [ %25, %24 ], [ %.1, %40 ], [ %22, %19 ], [ %39, %37 ]
+  %.028 = phi i32 [ %.1, %40 ], [ -22, %33 ], [ %17, %15 ], [ %22, %19 ], [ %25, %24 ], [ %39, %37 ]
   ret i32 %.028
 }
 
@@ -386,7 +386,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br label %85
 
 85:                                               ; preds = %37, %1, %._crit_edge67, %36, %19
-  %.052 = phi i32 [ 0, %19 ], [ %84, %._crit_edge67 ], [ -1497649742, %1 ], [ 0, %36 ], [ -12, %37 ]
+  %.052 = phi i32 [ 0, %19 ], [ %84, %._crit_edge67 ], [ 0, %36 ], [ -1497649742, %1 ], [ -12, %37 ]
   ret i32 %.052
 }
 
@@ -438,7 +438,7 @@ define internal range(i32 -2147483648, 1) i32 @aeval_query_formats(ptr noundef %
   br label %31
 
 31:                                               ; preds = %29, %23, %16, %3
-  %.0 = phi i32 [ %21, %16 ], [ %., %29 ], [ %27, %23 ], [ %11, %3 ]
+  %.0 = phi i32 [ %11, %3 ], [ %21, %16 ], [ %27, %23 ], [ %., %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -629,7 +629,7 @@ define internal fastcc i32 @parse_channel_expressions(ptr noundef %0, i32 nounde
   br label %.loopexit81
 
 .loopexit81:                                      ; preds = %40, %.lr.ph90, %54, %.preheader, %.loopexit, %63, %65, %13
-  %.0 = phi i32 [ %.2, %63 ], [ %52, %.preheader ], [ %.2, %.loopexit ], [ -22, %13 ], [ -22, %65 ], [ %60, %54 ], [ %46, %40 ], [ %38, %.lr.ph90 ]
+  %.0 = phi i32 [ -22, %65 ], [ %.2, %63 ], [ %.2, %.loopexit ], [ -22, %13 ], [ %60, %54 ], [ %52, %.preheader ], [ %46, %40 ], [ %38, %.lr.ph90 ]
   call void @av_free(ptr noundef nonnull %8) #11
   br label %66
 
@@ -902,7 +902,7 @@ define internal range(i32 -2147483648, 1) i32 @aeval_config_output(ptr noundef r
   br label %40
 
 40:                                               ; preds = %20, %15, %10
-  %.0 = phi i32 [ %., %20 ], [ %13, %10 ], [ %18, %15 ]
+  %.0 = phi i32 [ %13, %10 ], [ %18, %15 ], [ %., %20 ]
   ret i32 %.0
 }
 

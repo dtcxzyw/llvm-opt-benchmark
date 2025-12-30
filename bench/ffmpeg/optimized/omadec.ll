@@ -416,7 +416,7 @@ decrypt_init.exit:                                ; preds = %.critedge112.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %163
 
-162:                                              ; preds = %56, %80, %91, %.critedge.i, %152, %.critedge112.i
+162:                                              ; preds = %56, %80, %91, %152, %.critedge.i, %.critedge112.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @ff_id3v2_free_extra_meta(ptr noundef nonnull %6) #10
   br label %279
@@ -653,7 +653,7 @@ decrypt_init.exit:                                ; preds = %.critedge112.i
   br label %279
 
 279:                                              ; preds = %197, %163, %276, %274, %239, %228, %195, %162, %30, %19, %13
-  %.0 = phi i32 [ %11, %13 ], [ -1, %19 ], [ -1094995529, %30 ], [ -1, %162 ], [ -38, %274 ], [ -12, %163 ], [ 0, %276 ], [ -1094995529, %195 ], [ -1094995529, %239 ], [ -1094995529, %228 ], [ %208, %197 ]
+  %.0 = phi i32 [ %11, %13 ], [ -1, %19 ], [ -1094995529, %30 ], [ -1, %162 ], [ -38, %274 ], [ 0, %276 ], [ -1094995529, %195 ], [ -1094995529, %239 ], [ -1094995529, %228 ], [ -12, %163 ], [ %208, %197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -740,7 +740,7 @@ define internal i32 @oma_read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %
   br label %41
 
 41:                                               ; preds = %4, %31, %15, %38
-  %.019 = phi i32 [ 0, %31 ], [ %40, %38 ], [ %16, %15 ], [ -1, %4 ]
+  %.019 = phi i32 [ %40, %38 ], [ -1, %4 ], [ %16, %15 ], [ 0, %31 ]
   ret i32 %.019
 }
 
@@ -952,7 +952,7 @@ define internal range(i32 1, 0) i32 @aal_read_packet(ptr noundef readonly captur
   br label %51
 
 51:                                               ; preds = %47, %49, %32, %30, %8, %2, %11
-  %.0 = phi i32 [ %24, %30 ], [ -541478725, %2 ], [ -1094995529, %11 ], [ -541478725, %8 ], [ -541478725, %32 ], [ %24, %49 ], [ %24, %47 ]
+  %.0 = phi i32 [ -1094995529, %11 ], [ -541478725, %2 ], [ -541478725, %8 ], [ %24, %30 ], [ -541478725, %32 ], [ %24, %49 ], [ %24, %47 ]
   ret i32 %.0
 }
 
@@ -1095,7 +1095,7 @@ define internal fastcc range(i32 -12, 1) i32 @rprobe(ptr %.24.val, ptr noundef %
   br label %48
 
 48:                                               ; preds = %21, %3, %6, %23
-  %.0 = phi i32 [ -1, %3 ], [ %47, %23 ], [ -1, %6 ], [ -12, %21 ]
+  %.0 = phi i32 [ %47, %23 ], [ -1, %6 ], [ -1, %3 ], [ -12, %21 ]
   ret i32 %.0
 }
 
@@ -1208,7 +1208,7 @@ kset.exit:                                        ; preds = %51, %54
   br label %59
 
 59:                                               ; preds = %.sink.split, %44, %30, %15, %4, %9
-  %.0 = phi i32 [ -1, %30 ], [ -1, %4 ], [ -1, %15 ], [ -1, %9 ], [ -12, %44 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %4 ], [ -1, %15 ], [ -1, %30 ], [ -12, %44 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

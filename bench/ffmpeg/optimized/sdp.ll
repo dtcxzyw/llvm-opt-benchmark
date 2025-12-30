@@ -267,7 +267,7 @@ extradata2psets_av1.exit.thread.i:                ; preds = %53, %47
   br label %78
 
 78:                                               ; preds = %74, %71, %68, %67
-  %.0230.i = phi i32 [ 1, %67 ], [ %spec.select.i, %74 ], [ 1, %71 ], [ 1, %68 ]
+  %.0230.i = phi i32 [ 1, %71 ], [ 1, %68 ], [ 1, %67 ], [ %spec.select.i, %74 ]
   %79 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %80 = load i32, ptr %79, align 8, !tbaa !25
   %.not271.i = icmp eq i32 %80, 0
@@ -441,7 +441,7 @@ extradata2psets.exit.i:                           ; preds = %142, %._crit_edge.i
   br label %507
 
 150:                                              ; preds = %.thread.i.i, %95, %89, %85
-  %.0.i278.ph.i = phi i32 [ %90, %89 ], [ -12, %95 ], [ -1094995529, %.thread.i.i ], [ -1094995529, %85 ]
+  %.0.i278.ph.i = phi i32 [ -1094995529, %.thread.i.i ], [ %90, %89 ], [ -12, %95 ], [ -1094995529, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %sdp_write_media_attributes.exit
@@ -566,8 +566,8 @@ extradata2psets.exit.i:                           ; preds = %142, %._crit_edge.i
   br label %.thread132.i.i
 
 204:                                              ; preds = %.thread112.i.i, %186
-  %205 = phi ptr [ %201, %.thread112.i.i ], [ %188, %186 ]
-  %.077.i.i = phi i32 [ %200, %.thread112.i.i ], [ %185, %186 ]
+  %205 = phi ptr [ %188, %186 ], [ %201, %.thread112.i.i ]
+  %.077.i.i = phi i32 [ %185, %186 ], [ %200, %.thread112.i.i ]
   %206 = icmp slt i32 %.077.i.i, 23
   br i1 %206, label %.thread132.i.i, label %207
 
@@ -749,13 +749,13 @@ extradata2psets.exit.i:                           ; preds = %142, %._crit_edge.i
   br i1 %exitcond181.not.i.i, label %292, label %248, !llvm.loop !58
 
 .thread132.i.i:                                   ; preds = %213, %233, %.lr.ph.i.i, %284, %245, %241, %207, %204, %202
-  %288 = phi i32 [ -12, %245 ], [ %197, %202 ], [ -1094995529, %204 ], [ -1094995529, %284 ], [ -1094995529, %241 ], [ -1094995529, %207 ], [ -1094995529, %233 ], [ -1094995529, %.lr.ph.i.i ], [ -1094995529, %213 ]
+  %288 = phi i32 [ -12, %245 ], [ %197, %202 ], [ -1094995529, %204 ], [ -1094995529, %284 ], [ -1094995529, %241 ], [ -1094995529, %207 ], [ -1094995529, %.lr.ph.i.i ], [ -1094995529, %233 ], [ -1094995529, %213 ]
   %289 = load ptr, ptr %11, align 8, !tbaa !23
   call void @av_free(ptr noundef %289) #10
   br label %extradata2psets_hevc.exit.thread.i
 
 extradata2psets_hevc.exit.thread.i:               ; preds = %.thread132.i.i, %.thread.i281.i
-  %.2.i.ph.i = phi i32 [ %288, %.thread132.i.i ], [ %191, %.thread.i281.i ]
+  %.2.i.ph.i = phi i32 [ %191, %.thread.i281.i ], [ %288, %.thread132.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -874,7 +874,7 @@ extradata2config.exit.i:                          ; preds = %302
   br label %latm_context2profilelevel.exit.i
 
 latm_context2profilelevel.exit.i:                 ; preds = %343, %341, %339, %337
-  %.0.i284.i = phi i32 [ 41, %341 ], [ %spec.select9.i.i, %343 ], [ %spec.select.i285.i, %337 ], [ 43, %339 ]
+  %.0.i284.i = phi i32 [ %spec.select.i285.i, %337 ], [ 41, %341 ], [ %spec.select9.i.i, %343 ], [ 43, %339 ]
   %345 = load ptr, ptr %17, align 8, !tbaa !23
   %346 = tail call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef %0, i64 noundef %25, ptr noundef nonnull @.str.34, i32 noundef %20, i32 noundef %333, i32 noundef %335, i32 noundef %20, i32 noundef %.0.i284.i, ptr noundef %345) #10
   br label %507
@@ -1011,7 +1011,7 @@ latm_context2profilelevel.exit.i:                 ; preds = %343, %341, %339, %3
   br label %sdp_write_media_attributes.exit
 
 424:                                              ; preds = %422, %421, %418
-  %.0228.i = phi ptr [ @.str.47, %422 ], [ @.str.46, %421 ], [ @.str.45, %418 ]
+  %.0228.i = phi ptr [ @.str.46, %421 ], [ @.str.47, %422 ], [ @.str.45, %418 ]
   %425 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %426 = load i32, ptr %425, align 8, !tbaa !25
   %.not252.i = icmp eq i32 %426, 0
@@ -1063,8 +1063,8 @@ latm_context2profilelevel.exit.i:                 ; preds = %343, %341, %339, %3
   br label %sdp_write_media_attributes.exit
 
 444:                                              ; preds = %443, %442, %441, %440, %437
-  %.0227.i = phi ptr [ @.str.52, %443 ], [ @.str.46, %440 ], [ @.str.45, %441 ], [ @.str.51, %442 ], [ @.str.46, %437 ]
-  %.0.i = phi i32 [ 8, %443 ], [ 10, %440 ], [ 8, %441 ], [ 8, %442 ], [ 8, %437 ]
+  %.0227.i = phi ptr [ @.str.46, %440 ], [ @.str.45, %441 ], [ @.str.51, %442 ], [ @.str.52, %443 ], [ @.str.46, %437 ]
+  %.0.i = phi i32 [ 10, %440 ], [ 8, %441 ], [ 8, %442 ], [ 8, %443 ], [ 8, %437 ]
   %445 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %446 = load i32, ptr %445, align 8, !tbaa !52
   %447 = getelementptr inbounds nuw i8, ptr %.val, i64 76
@@ -1168,7 +1168,7 @@ latm_context2profilelevel.exit.i:                 ; preds = %343, %341, %339, %3
   br label %sdp_write_media_attributes.exit
 
 sdp_write_media_attributes.exit:                  ; preds = %extradata2psets_av1.exit.thread.i, %150, %extradata2psets_hevc.exit.thread.i, %301, %307, %328, %350, %353, %.thread10.i, %408, %423, %.thread12.i, %427, %.critedge.i, %507
-  %.0234.i = phi i32 [ 0, %507 ], [ -38, %.critedge.i ], [ %.0.i278.ph.i, %150 ], [ %.0.i.ph.i, %extradata2psets_av1.exit.thread.i ], [ %.2.i.ph.i, %extradata2psets_hevc.exit.thread.i ], [ -1094995529, %.thread10.i ], [ %329, %328 ], [ -38, %353 ], [ %351, %350 ], [ -1094995529, %301 ], [ %409, %408 ], [ -12, %307 ], [ -1094995529, %.thread12.i ], [ %428, %427 ], [ -38, %423 ]
+  %.0234.i = phi i32 [ 0, %507 ], [ %.0.i278.ph.i, %150 ], [ -38, %353 ], [ %329, %328 ], [ %351, %350 ], [ %409, %408 ], [ -38, %.critedge.i ], [ %.0.i.ph.i, %extradata2psets_av1.exit.thread.i ], [ %.2.i.ph.i, %extradata2psets_hevc.exit.thread.i ], [ -1094995529, %.thread10.i ], [ -12, %307 ], [ -1094995529, %301 ], [ -1094995529, %.thread12.i ], [ %428, %427 ], [ -38, %423 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret i32 %.0234.i
 }
@@ -1505,7 +1505,7 @@ define internal fastcc i32 @resolve_destination(ptr noundef nonnull %0, ptr noun
   br label %28
 
 28:                                               ; preds = %7, %2, %22
-  %.0 = phi i32 [ 0, %2 ], [ %26, %22 ], [ 0, %7 ]
+  %.0 = phi i32 [ %26, %22 ], [ 0, %2 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

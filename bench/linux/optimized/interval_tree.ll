@@ -244,10 +244,10 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   br i1 %103, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %99, %94, %63, %52
-  %.pre-phi = phi i64 [ %.pre, %52 ], [ %69, %63 ], [ %69, %94 ], [ %69, %99 ]
-  %104 = phi ptr [ %10, %52 ], [ %59, %63 ], [ %59, %94 ], [ %59, %99 ]
-  %105 = phi ptr [ %10, %52 ], [ %58, %63 ], [ %58, %94 ], [ %58, %99 ]
-  %106 = phi ptr [ %54, %52 ], [ %65, %63 ], [ %65, %94 ], [ %65, %99 ]
+  %.pre-phi = phi i64 [ %69, %63 ], [ %.pre, %52 ], [ %69, %94 ], [ %69, %99 ]
+  %104 = phi ptr [ %59, %63 ], [ %10, %52 ], [ %59, %94 ], [ %59, %99 ]
+  %105 = phi ptr [ %58, %63 ], [ %10, %52 ], [ %58, %94 ], [ %58, %99 ]
+  %106 = phi ptr [ %65, %63 ], [ %54, %52 ], [ %65, %94 ], [ %65, %99 ]
   %107 = load ptr, ptr %11, align 8
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store volatile ptr %107, ptr %108, align 8
@@ -412,7 +412,7 @@ define dso_local ptr @interval_tree_iter_first(ptr noundef readonly captures(non
   br i1 %39, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %36, %20
-  %.be = phi ptr [ %34, %36 ], [ %18, %20 ]
+  %.be = phi ptr [ %18, %20 ], [ %34, %36 ]
   br label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %36, %32, %28, %24, %10, %6, %3
@@ -479,7 +479,7 @@ define dso_local ptr @interval_tree_iter_next(ptr noundef readonly captures(addr
   br i1 %37, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %34, %18
-  %.be = phi ptr [ %32, %34 ], [ %16, %18 ]
+  %.be = phi ptr [ %16, %18 ], [ %32, %34 ]
   br label %.preheader, !llvm.loop !9
 
 .thread:                                          ; preds = %.thread.preheader, %42
@@ -509,7 +509,7 @@ define dso_local ptr @interval_tree_iter_next(ptr noundef readonly captures(addr
   br i1 %54, label %6, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %51, %47, %.thread, %22, %26, %30, %34
-  %55 = phi ptr [ null, %.thread ], [ null, %22 ], [ null, %34 ], [ null, %30 ], [ %14, %26 ], [ null, %47 ], [ %43, %51 ]
+  %55 = phi ptr [ null, %22 ], [ null, %34 ], [ null, %30 ], [ %14, %26 ], [ null, %.thread ], [ %43, %51 ], [ null, %47 ]
   ret ptr %55
 }
 

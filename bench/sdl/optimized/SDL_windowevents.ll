@@ -541,7 +541,7 @@ define hidden zeroext i1 @SDL_SendWindowEvent(ptr noundef %0, i32 noundef %1, i3
   br label %215
 
 215:                                              ; preds = %157, %151, %145, %137, %139, %131, %125, %119, %113, %107, %100, %93, %87, %50, %18, %12, %6, %4, %214, %80
-  %.0135 = phi i1 [ false, %4 ], [ %.0134, %214 ], [ false, %6 ], [ false, %12 ], [ false, %18 ], [ false, %80 ], [ false, %50 ], [ false, %87 ], [ false, %93 ], [ false, %100 ], [ false, %107 ], [ false, %113 ], [ false, %119 ], [ false, %125 ], [ false, %131 ], [ false, %137 ], [ false, %145 ], [ false, %151 ], [ false, %139 ], [ false, %157 ]
+  %.0135 = phi i1 [ %.0134, %214 ], [ false, %80 ], [ false, %4 ], [ false, %6 ], [ false, %12 ], [ false, %18 ], [ false, %50 ], [ false, %87 ], [ false, %93 ], [ false, %100 ], [ false, %107 ], [ false, %113 ], [ false, %119 ], [ false, %125 ], [ false, %131 ], [ false, %139 ], [ false, %137 ], [ false, %145 ], [ false, %151 ], [ false, %157 ]
   ret i1 %.0135
 }
 

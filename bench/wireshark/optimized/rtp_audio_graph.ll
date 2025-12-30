@@ -265,7 +265,7 @@ _ZN16QCPDataSelectionD2Ev.exit.invoke.sink.split: ; preds = %_ZN17QArrayDataPoin
   br label %_ZN16QCPDataSelectionD2Ev.exit.invoke
 
 _ZN16QCPDataSelectionD2Ev.exit.invoke:            ; preds = %_ZN16QCPDataSelectionD2Ev.exit.invoke.sink.split, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i, %.critedge17, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i19, %.critedge
-  %15 = phi double [ 5.000000e-01, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i ], [ 1.000000e+00, %.critedge ], [ 1.000000e+00, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i19 ], [ 5.000000e-01, %.critedge17 ], [ %.ph, %_ZN16QCPDataSelectionD2Ev.exit.invoke.sink.split ]
+  %15 = phi double [ 1.000000e+00, %.critedge ], [ 1.000000e+00, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i19 ], [ 5.000000e-01, %.critedge17 ], [ 5.000000e-01, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i ], [ %.ph, %_ZN16QCPDataSelectionD2Ev.exit.invoke.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = load ptr, ptr %6, align 8
@@ -321,7 +321,7 @@ _ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i27: ; preds = %_ZN16QCP
   br label %_ZN16QCPDataSelectionD2Ev.exit29
 
 _ZN16QCPDataSelectionD2Ev.exit29:                 ; preds = %26, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i23, %24, %19, %29, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i27, %_ZN16QCPDataSelectionD2Ev.exit25
-  %.pn32 = phi { ptr, i32 } [ %22, %29 ], [ %22, %_ZN16QCPDataSelectionD2Ev.exit25 ], [ %22, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i27 ], [ %22, %26 ], [ %22, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i23 ], [ %22, %24 ], [ %20, %19 ]
+  %.pn32 = phi { ptr, i32 } [ %22, %_ZN16QCPDataSelectionD2Ev.exit25 ], [ %22, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i27 ], [ %22, %29 ], [ %22, %26 ], [ %22, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i23 ], [ %22, %24 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
@@ -476,7 +476,7 @@ _ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i29: ; preds = %_ZN16QCP
   br label %_ZN16QCPDataSelectionD2Ev.exit31
 
 _ZN16QCPDataSelectionD2Ev.exit31:                 ; preds = %34, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i25, %32, %27, %37, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i29, %_ZN16QCPDataSelectionD2Ev.exit27
-  %.pn34 = phi { ptr, i32 } [ %30, %37 ], [ %30, %_ZN16QCPDataSelectionD2Ev.exit27 ], [ %30, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i29 ], [ %30, %34 ], [ %30, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i25 ], [ %30, %32 ], [ %28, %27 ]
+  %.pn34 = phi { ptr, i32 } [ %30, %_ZN16QCPDataSelectionD2Ev.exit27 ], [ %30, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i29 ], [ %30, %37 ], [ %30, %34 ], [ %30, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i25 ], [ %30, %32 ], [ %28, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %48
 

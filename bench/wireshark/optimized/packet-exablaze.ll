@@ -171,7 +171,7 @@ define internal zeroext i1 @dissect_exablaze_heur(ptr noundef %0, ptr noundef re
   br label %dissect_exablaze.exit
 
 dissect_exablaze.exit:                            ; preds = %33, %4, %55
-  %.0.i = phi i1 [ false, %4 ], [ %72, %55 ], [ false, %33 ]
+  %.0.i = phi i1 [ %72, %55 ], [ false, %4 ], [ false, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.i
 }

@@ -201,7 +201,7 @@ define i32 @nghttp2_submit_shutdown_notice(ptr noundef %0) local_unnamed_addr #0
   br label %9
 
 9:                                                ; preds = %4, %1, %7
-  %.0 = phi i32 [ -519, %1 ], [ %8, %7 ], [ 0, %4 ]
+  %.0 = phi i32 [ %8, %7 ], [ -519, %1 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -271,7 +271,7 @@ define i32 @nghttp2_submit_push_promise(ptr noundef %0, i8 noundef zeroext %1, i
   br label %32
 
 32:                                               ; preds = %.sink.split, %26, %19, %15, %12, %6, %10
-  %.0 = phi i32 [ -501, %6 ], [ -505, %12 ], [ -509, %15 ], [ -501, %10 ], [ %27, %26 ], [ -901, %19 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ -501, %10 ], [ -501, %6 ], [ -505, %12 ], [ -509, %15 ], [ -901, %19 ], [ %27, %26 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -356,7 +356,7 @@ define i32 @nghttp2_submit_window_update(ptr noundef %0, i8 noundef zeroext %1, 
   br label %39
 
 39:                                               ; preds = %.thread, %21, %16, %14, %9, %4, %36
-  %.021 = phi i32 [ %13, %9 ], [ 0, %4 ], [ %38, %36 ], [ %20, %16 ], [ 0, %14 ], [ 0, %21 ], [ 0, %.thread ]
+  %.021 = phi i32 [ %38, %36 ], [ 0, %4 ], [ %13, %9 ], [ 0, %14 ], [ %20, %16 ], [ 0, %21 ], [ 0, %.thread ]
   ret i32 %.021
 }
 
@@ -455,7 +455,7 @@ define i32 @nghttp2_session_set_local_window_size(ptr noundef %0, i8 noundef zer
   br label %52
 
 52:                                               ; preds = %43, %32, %29, %20, %9, %4, %50, %48, %41, %27, %25, %18
-  %.0 = phi i32 [ %51, %50 ], [ -501, %4 ], [ %19, %18 ], [ 0, %9 ], [ %26, %25 ], [ %28, %27 ], [ %21, %20 ], [ 0, %29 ], [ %42, %41 ], [ 0, %32 ], [ %49, %48 ], [ %44, %43 ]
+  %.0 = phi i32 [ %19, %18 ], [ %26, %25 ], [ %28, %27 ], [ %42, %41 ], [ %49, %48 ], [ %51, %50 ], [ -501, %4 ], [ 0, %9 ], [ %21, %20 ], [ 0, %29 ], [ 0, %32 ], [ %44, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -546,7 +546,7 @@ define i32 @nghttp2_submit_altsvc(ptr noundef %0, i8 noundef zeroext %1, i32 nou
   br label %41
 
 41:                                               ; preds = %.thread, %35, %20, %19, %18, %11, %7, %34, %40
-  %.0 = phi i32 [ -519, %7 ], [ -501, %11 ], [ -501, %19 ], [ -901, %34 ], [ %39, %40 ], [ -901, %20 ], [ -501, %18 ], [ 0, %35 ], [ -901, %.thread ]
+  %.0 = phi i32 [ -901, %34 ], [ %39, %40 ], [ -519, %7 ], [ -501, %11 ], [ -501, %18 ], [ -501, %19 ], [ -901, %20 ], [ 0, %35 ], [ -901, %.thread ]
   ret i32 %.0
 }
 
@@ -657,7 +657,7 @@ define i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %1, ptr nou
   br label %52
 
 52:                                               ; preds = %46, %18, %14, %4, %45, %51
-  %.062 = phi i32 [ -519, %4 ], [ -501, %14 ], [ -901, %45 ], [ %50, %51 ], [ -901, %18 ], [ 0, %46 ]
+  %.062 = phi i32 [ -901, %45 ], [ %50, %51 ], [ -519, %4 ], [ -501, %14 ], [ -901, %18 ], [ 0, %46 ]
   ret i32 %.062
 }
 
@@ -732,7 +732,7 @@ define i32 @nghttp2_submit_priority_update(ptr noundef %0, i8 noundef zeroext %1
   br label %34
 
 34:                                               ; preds = %28, %18, %13, %9, %5, %27, %33
-  %.0 = phi i32 [ -901, %18 ], [ -519, %5 ], [ 0, %9 ], [ -501, %13 ], [ -901, %27 ], [ %32, %33 ], [ 0, %28 ]
+  %.0 = phi i32 [ -901, %27 ], [ %32, %33 ], [ -519, %5 ], [ 0, %9 ], [ -501, %13 ], [ -901, %18 ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -845,7 +845,7 @@ set_response_flags.exit.i:                        ; preds = %18, %14
   br label %submit_response_shared.exit
 
 submit_response_shared.exit:                      ; preds = %5, %9, %set_response_flags.exit.i
-  %.0.i = phi i32 [ -501, %5 ], [ %19, %set_response_flags.exit.i ], [ -505, %9 ]
+  %.0.i = phi i32 [ %19, %set_response_flags.exit.i ], [ -501, %5 ], [ -505, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
@@ -883,7 +883,7 @@ set_response_flags.exit.i:                        ; preds = %18, %14
   br label %submit_response_shared.exit
 
 submit_response_shared.exit:                      ; preds = %5, %9, %set_response_flags.exit.i
-  %.0.i = phi i32 [ -501, %5 ], [ %19, %set_response_flags.exit.i ], [ -505, %9 ]
+  %.0.i = phi i32 [ %19, %set_response_flags.exit.i ], [ -501, %5 ], [ -505, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
@@ -919,7 +919,7 @@ define hidden i32 @nghttp2_submit_data_shared(ptr noundef %0, i8 noundef zeroext
   br label %17
 
 17:                                               ; preds = %11, %8, %4, %16
-  %.0 = phi i32 [ -901, %8 ], [ -501, %4 ], [ %15, %16 ], [ 0, %11 ]
+  %.0 = phi i32 [ %15, %16 ], [ -501, %4 ], [ -901, %8 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -972,7 +972,7 @@ define i32 @nghttp2_submit_data(ptr noundef %0, i8 noundef zeroext %1, i32 nound
   br label %nghttp2_submit_data_shared.exit
 
 nghttp2_submit_data_shared.exit:                  ; preds = %7, %12, %15, %20
-  %.0.i = phi i32 [ -901, %12 ], [ -501, %7 ], [ %19, %20 ], [ 0, %15 ]
+  %.0.i = phi i32 [ %19, %20 ], [ -501, %7 ], [ -901, %12 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
@@ -1019,7 +1019,7 @@ define i32 @nghttp2_submit_data2(ptr noundef %0, i8 noundef zeroext %1, i32 noun
   br label %nghttp2_submit_data_shared.exit
 
 nghttp2_submit_data_shared.exit:                  ; preds = %7, %12, %15, %20
-  %.0.i = phi i32 [ -901, %12 ], [ -501, %7 ], [ %19, %20 ], [ 0, %15 ]
+  %.0.i = phi i32 [ %19, %20 ], [ -501, %7 ], [ -901, %12 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
@@ -1040,7 +1040,7 @@ define i64 @nghttp2_pack_settings_payload(ptr noundef %0, i64 noundef %1, ptr no
   br label %nghttp2_pack_settings_payload2.exit
 
 nghttp2_pack_settings_payload2.exit:              ; preds = %4, %6, %9
-  %.0.i = phi i64 [ -501, %4 ], [ %10, %9 ], [ -525, %6 ]
+  %.0.i = phi i64 [ %10, %9 ], [ -501, %4 ], [ -525, %6 ]
   ret i64 %.0.i
 }
 
@@ -1060,7 +1060,7 @@ define i64 @nghttp2_pack_settings_payload2(ptr noundef %0, i64 noundef %1, ptr n
   br label %11
 
 11:                                               ; preds = %6, %4, %9
-  %.0 = phi i64 [ -501, %4 ], [ %10, %9 ], [ -525, %6 ]
+  %.0 = phi i64 [ %10, %9 ], [ -501, %4 ], [ -525, %6 ]
   ret i64 %.0
 }
 
@@ -1104,7 +1104,7 @@ define i32 @nghttp2_submit_extension(ptr noundef %0, i8 noundef zeroext %1, i8 n
   br label %20
 
 20:                                               ; preds = %17, %14, %11, %5, %19
-  %.0 = phi i32 [ -501, %5 ], [ -519, %11 ], [ %18, %19 ], [ -901, %14 ], [ 0, %17 ]
+  %.0 = phi i32 [ %18, %19 ], [ -501, %5 ], [ -519, %11 ], [ -901, %14 ], [ 0, %17 ]
   ret i32 %.0
 }
 

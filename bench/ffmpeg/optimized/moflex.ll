@@ -602,7 +602,7 @@ pop.exit.i171:                                    ; preds = %186, %183
   br i1 %exitcond.not.i174, label %pop_int.exit176, label %pop_int.exit165, !llvm.loop !40
 
 pop_int.exit176:                                  ; preds = %pop_int.exit165, %pop.exit.i171, %194
-  %spec.select.i170 = phi i32 [ %195, %194 ], [ -1094995529, %pop.exit.i171 ], [ -541478725, %pop_int.exit165 ]
+  %spec.select.i170 = phi i32 [ -541478725, %pop_int.exit165 ], [ -1094995529, %pop.exit.i171 ], [ %195, %194 ]
   %197 = add nsw i32 %spec.select.i170, 1
   %198 = load i32, ptr %4, align 8, !tbaa !35
   %199 = icmp ugt i32 %197, %198
@@ -666,7 +666,7 @@ pop_int.exit176:                                  ; preds = %pop_int.exit165, %p
   br i1 %cond, label %.backedge, label %.thread
 
 .backedge:                                        ; preds = %233, %213, %207
-  %.3251 = phi i32 [ %.2211, %213 ], [ %.mux116, %233 ], [ %.2211, %207 ]
+  %.3251 = phi i32 [ %.mux116, %233 ], [ %.2211, %207 ], [ %.2211, %213 ]
   %234 = tail call i64 @avio_seek(ptr noundef %6, i64 noundef 0, i32 noundef 1) #5
   %235 = load i64, ptr %10, align 8, !tbaa !33
   %236 = load i32, ptr %4, align 8, !tbaa !35
@@ -707,8 +707,8 @@ pop_int.exit176:                                  ; preds = %pop_int.exit165, %p
   store i32 %255, ptr %253, align 8, !tbaa !63
   br label %.thread
 
-.thread:                                          ; preds = %17, %243, %251, %233, %pop.exit146, %90, %76, %36, %pop_int.exit176, %74, %pop_int.exit, %51, %pop_length.exit, %pop.exit.i119, %104, %153, %.thread.sink.split, %2, %228
-  %.1 = phi i32 [ %.mux116, %233 ], [ %211, %.thread.sink.split ], [ -541478725, %153 ], [ -1094995529, %pop.exit.i119 ], [ -541478725, %2 ], [ -541478725, %51 ], [ -541478725, %104 ], [ %211, %228 ], [ -541478725, %pop_length.exit ], [ -541478725, %36 ], [ %71, %pop_int.exit ], [ -1094995529, %74 ], [ -541478725, %pop.exit146 ], [ -541478725, %76 ], [ -1094995529, %pop_int.exit176 ], [ -541478725, %90 ], [ -1094995529, %243 ], [ %19, %17 ], [ -541478725, %251 ]
+.thread:                                          ; preds = %17, %243, %251, %233, %pop.exit146, %90, %76, %36, %pop_int.exit176, %74, %pop_int.exit, %51, %pop.exit.i119, %pop_length.exit, %104, %153, %.thread.sink.split, %2, %228
+  %.1 = phi i32 [ %211, %228 ], [ -541478725, %2 ], [ %211, %.thread.sink.split ], [ -541478725, %153 ], [ -541478725, %104 ], [ -541478725, %pop_length.exit ], [ -1094995529, %pop.exit.i119 ], [ -541478725, %51 ], [ -541478725, %pop.exit146 ], [ -541478725, %90 ], [ -541478725, %76 ], [ -541478725, %36 ], [ %71, %pop_int.exit ], [ -1094995529, %74 ], [ -1094995529, %pop_int.exit176 ], [ %.mux116, %233 ], [ %19, %17 ], [ -1094995529, %243 ], [ -541478725, %251 ]
   ret i32 %.1
 }
 
@@ -987,8 +987,8 @@ switch.lookup:                                    ; preds = %70
   %.not77 = icmp eq i32 %113, 0
   br i1 %.not77, label %19, label %.thread, !llvm.loop !71
 
-.thread:                                          ; preds = %112, %100, %98, %11, %67, %74, %91, %66, %7, %9
-  %.0 = phi i32 [ -541478725, %7 ], [ 1, %9 ], [ -1163346256, %74 ], [ -1163346256, %91 ], [ 0, %66 ], [ 0, %67 ], [ 0, %11 ], [ 0, %112 ], [ -12, %100 ], [ -12, %98 ]
+.thread:                                          ; preds = %112, %98, %100, %11, %66, %67, %91, %74, %7, %9
+  %.0 = phi i32 [ 1, %9 ], [ -541478725, %7 ], [ 0, %66 ], [ 0, %67 ], [ -1163346256, %91 ], [ -1163346256, %74 ], [ 0, %11 ], [ 0, %112 ], [ -12, %98 ], [ -12, %100 ]
   ret i32 %.0
 }
 

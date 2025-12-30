@@ -184,9 +184,9 @@ define internal i64 @x86_code(ptr noundef captures(none) %0, i32 noundef %1, i1 
   br label %78
 
 78:                                               ; preds = %76, %.split110, %19
-  %.299 = phi i32 [ %.198111, %19 ], [ %23, %.split110 ], [ %23, %76 ]
-  %.195 = phi i64 [ %20, %19 ], [ %75, %.split110 ], [ %77, %76 ]
-  %.193 = phi i32 [ %.092113, %19 ], [ 0, %.split110 ], [ %spec.select106, %76 ]
+  %.299 = phi i32 [ %.198111, %19 ], [ %23, %76 ], [ %23, %.split110 ]
+  %.195 = phi i64 [ %20, %19 ], [ %77, %76 ], [ %75, %.split110 ]
+  %.193 = phi i32 [ %.092113, %19 ], [ %spec.select106, %76 ], [ 0, %.split110 ]
   %.not = icmp ugt i64 %.195, %14
   br i1 %.not, label %79, label %15
 

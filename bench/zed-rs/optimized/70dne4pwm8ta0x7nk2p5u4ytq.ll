@@ -281,8 +281,8 @@ default.unreachable54:                            ; preds = %1
   br label %38
 
 38:                                               ; preds = %33, %.noexc14.i
-  %.sroa.4.0.i.i.ph.i = phi ptr [ undef, %.noexc14.i ], [ %..i.i.i, %33 ]
-  %.sroa.0.0.i.i.ph.i = phi i64 [ 2, %.noexc14.i ], [ %34, %33 ]
+  %.sroa.4.0.i.i.ph.i = phi ptr [ %..i.i.i, %33 ], [ undef, %.noexc14.i ]
+  %.sroa.0.0.i.i.ph.i = phi i64 [ %34, %33 ], [ 2, %.noexc14.i ]
   call void @"_ZN4core3ptr149drop_in_place$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$alloc..sync..Arc$LT$language..Language$GT$$C$anyhow..Error$GT$$GT$$GT$17h66ea950098d6c1ddE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12)
   %39 = icmp eq i64 %.sroa.0.0.i.i.ph.i, 2
   br i1 %39, label %40, label %"_ZN4core3ptr114drop_in_place$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb73c097d0abe323aE.exit20"
@@ -341,7 +341,7 @@ common.ret.sink.split.i21:                        ; preds = %"_ZN4core3ptr72drop
   unreachable
 
 "_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h379bbf6cd3184207E.exit31": ; preds = %.body.i, %common.ret.sink.split.i, %.body
-  %.pn.pn = phi { ptr, i32 } [ %44, %common.ret.sink.split.i ], [ %30, %.body.i ], [ %44, %.body ]
+  %.pn.pn = phi { ptr, i32 } [ %44, %.body ], [ %44, %common.ret.sink.split.i ], [ %30, %.body.i ]
   resume { ptr, i32 } %.pn.pn
 }
 

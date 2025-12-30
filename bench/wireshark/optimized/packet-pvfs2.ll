@@ -875,7 +875,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   br label %80
 
 80:                                               ; preds = %47, %79
-  %.0 = phi ptr [ %58, %79 ], [ %53, %47 ]
+  %.0 = phi ptr [ %53, %47 ], [ %58, %79 ]
   %.not69 = icmp eq ptr %.0, null
   br i1 %.not69, label %.thread, label %81
 
@@ -1700,10 +1700,10 @@ dissect_pvfs2_error.exit.i:                       ; preds = %514, %509
   ]
 
 .critedge.thread.i.i:                             ; preds = %.lr.ph.i82.i, %.lr.ph.i82.i, %587, %587, %.critedge.i.i, %576
-  %.2107143.i.i = phi i32 [ %582, %.critedge.i.i ], [ %582, %587 ], [ %582, %587 ], [ %.0105167.i.i, %576 ], [ %.2107153.i.i, %.lr.ph.i82.i ], [ %.2107153.i.i, %.lr.ph.i82.i ]
-  %.1103139.i.i = phi ptr [ %580, %.critedge.i.i ], [ %580, %587 ], [ %580, %587 ], [ %.0102168.i.i, %576 ], [ %.1103154.i.i, %.lr.ph.i82.i ], [ %.1103154.i.i, %.lr.ph.i82.i ]
-  %.096137.i.i = phi ptr [ %581, %.critedge.i.i ], [ %581, %587 ], [ %581, %587 ], [ %4, %576 ], [ %.096155.i.i, %.lr.ph.i82.i ], [ %.096155.i.i, %.lr.ph.i82.i ]
-  %.094135.i.i = phi i32 [ %583, %.critedge.i.i ], [ 256, %587 ], [ 256, %587 ], [ 0, %576 ], [ %.094156.i.i, %.lr.ph.i82.i ], [ %.094156.i.i, %.lr.ph.i82.i ]
+  %.2107143.i.i = phi i32 [ %582, %587 ], [ %582, %587 ], [ %582, %.critedge.i.i ], [ %.0105167.i.i, %576 ], [ %.2107153.i.i, %.lr.ph.i82.i ], [ %.2107153.i.i, %.lr.ph.i82.i ]
+  %.1103139.i.i = phi ptr [ %580, %587 ], [ %580, %587 ], [ %580, %.critedge.i.i ], [ %.0102168.i.i, %576 ], [ %.1103154.i.i, %.lr.ph.i82.i ], [ %.1103154.i.i, %.lr.ph.i82.i ]
+  %.096137.i.i = phi ptr [ %581, %587 ], [ %581, %587 ], [ %581, %.critedge.i.i ], [ %4, %576 ], [ %.096155.i.i, %.lr.ph.i82.i ], [ %.096155.i.i, %.lr.ph.i82.i ]
+  %.094135.i.i = phi i32 [ 256, %587 ], [ 256, %587 ], [ %583, %.critedge.i.i ], [ 0, %576 ], [ %.094156.i.i, %.lr.ph.i82.i ], [ %.094156.i.i, %.lr.ph.i82.i ]
   %589 = icmp eq i32 %.2107143.i.i, %spec.select.i.i
   br i1 %589, label %.thread128.i.i, label %590
 
@@ -1785,12 +1785,12 @@ dissect_pvfs2_error.exit.i:                       ; preds = %514, %509
   br label %625
 
 .thread128.i.i:                                   ; preds = %607, %.critedge.thread.i.i, %587
-  %.2107141.i.i = phi i32 [ %spec.select.i.i, %.critedge.thread.i.i ], [ %582, %587 ], [ %.2107143.i.i, %607 ]
+  %.2107141.i.i = phi i32 [ %582, %587 ], [ %spec.select.i.i, %.critedge.thread.i.i ], [ %.2107143.i.i, %607 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit.i.i
 
 625:                                              ; preds = %621, %619, %616, %613
-  %.3.i.i = phi ptr [ %618, %616 ], [ %spec.select125.i.i, %619 ], [ %spec.select125126.i.i, %621 ], [ null, %613 ]
+  %.3.i.i = phi ptr [ %618, %616 ], [ %spec.select125126.i.i, %621 ], [ %spec.select125.i.i, %619 ], [ null, %613 ]
   %626 = add i32 %.099169.i.i, 1
   %627 = add i32 %626, %.094135.i.i
   %628 = getelementptr i8, ptr %.1103139.i.i, i64 1
@@ -2193,9 +2193,9 @@ define internal fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %1, 
   %22 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %21)
   %23 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %21)
   %24 = icmp uge i32 %22, %20
-  %25 = icmp ult i32 %23, %20
-  %.147.i = select i1 %25, i64 3, i64 1
-  %26 = icmp eq i32 %20, 0
+  %25 = icmp eq i32 %20, 0
+  %26 = icmp ult i32 %23, %20
+  %.147.i = select i1 %26, i64 3, i64 1
   %.0125.i = select i1 %24, i32 %20, i32 %23
   %.0124.i = select i1 %24, i64 0, i64 %.147.i
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 408
@@ -2209,7 +2209,7 @@ define internal fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %1, 
   %32 = phi ptr [ %13, %.thread.i ], [ %27, %16 ]
   %.012416.i = phi i64 [ %..i, %.thread.i ], [ %.0124.i, %16 ]
   %.012514.i = phi i32 [ 0, %.thread.i ], [ %.0125.i, %16 ]
-  %.012712.i = phi i1 [ true, %.thread.i ], [ %26, %16 ]
+  %.012712.i = phi i1 [ true, %.thread.i ], [ %25, %16 ]
   %.not1449.i = phi i1 [ false, %.thread.i ], [ %24, %16 ]
   %.01307.i = phi i32 [ %9, %.thread.i ], [ %8, %16 ]
   %33 = zext i32 %8 to i64
@@ -2240,7 +2240,7 @@ define internal fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %1, 
   %49 = phi ptr [ %31, %36 ], [ %31, %45 ], [ %29, %16 ]
   %.012417.i = phi i64 [ %.012416.i, %36 ], [ %.012416.i, %45 ], [ %.0124.i, %16 ]
   %.012515.i = phi i32 [ %.012514.i, %36 ], [ %.012514.i, %45 ], [ %.0125.i, %16 ]
-  %.012713.i = phi i1 [ %.012712.i, %36 ], [ %.012712.i, %45 ], [ %26, %16 ]
+  %.012713.i = phi i1 [ %.012712.i, %36 ], [ %.012712.i, %45 ], [ %25, %16 ]
   %.not14410.i = phi i1 [ %.not1449.i, %36 ], [ %.not1449.i, %45 ], [ %24, %16 ]
   %.01308.i = phi i32 [ %.01307.i, %36 ], [ %.01307.i, %45 ], [ 0, %16 ]
   %.0122.i = phi ptr [ %42, %36 ], [ %47, %45 ], [ @.str.415, %16 ]
@@ -2497,7 +2497,7 @@ dissect_pvfs2_attrmask.exit:                      ; preds = %72
   br label %dissect_pvfs_meta_attr_dfiles.exit
 
 dissect_pvfs_meta_attr_dfiles.exit:               ; preds = %.lr.ph.i, %.lr.ph.i64, %90, %80, %106, %114, %112, %99
-  %.0 = phi i32 [ %78, %112 ], [ %95, %.lr.ph.i64 ], [ %103, %99 ], [ %111, %106 ], [ %118, %114 ], [ %85, %80 ], [ %94, %90 ], [ %86, %.lr.ph.i ]
+  %.0 = phi i32 [ %103, %99 ], [ %111, %106 ], [ %118, %114 ], [ %78, %112 ], [ %85, %80 ], [ %94, %90 ], [ %95, %.lr.ph.i64 ], [ %86, %.lr.ph.i ]
   ret i32 %.0
 }
 

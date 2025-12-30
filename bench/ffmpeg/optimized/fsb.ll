@@ -33,7 +33,7 @@ define internal range(i32 0, 101) i32 @fsb_probe(ptr noundef readonly captures(n
   br label %11
 
 11:                                               ; preds = %8, %1, %4
-  %.0 = phi i32 [ 0, %1 ], [ %., %8 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %1 ], [ %., %8 ]
   ret i32 %.0
 }
 
@@ -272,14 +272,14 @@ define internal range(i32 -2147483648, 1) i32 @fsb_read_header(ptr noundef %0) #
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %107, %._crit_edge.loopexit, %40, %46, %35, %98
-  %.lcssa.sink = phi i32 [ %43, %40 ], [ 2048, %98 ], [ %37, %35 ], [ %48, %46 ], [ 0, %107 ], [ %121, %._crit_edge.loopexit ]
-  %.0104.in.ph = phi i32 [ %20, %40 ], [ %76, %98 ], [ %20, %35 ], [ %20, %46 ], [ %76, %107 ], [ %76, %._crit_edge.loopexit ]
+  %.lcssa.sink = phi i32 [ 2048, %98 ], [ %37, %35 ], [ %48, %46 ], [ %43, %40 ], [ 0, %107 ], [ %121, %._crit_edge.loopexit ]
+  %.0104.in.ph = phi i32 [ %76, %98 ], [ %20, %35 ], [ %20, %46 ], [ %20, %40 ], [ %76, %107 ], [ %76, %._crit_edge.loopexit ]
   %122 = getelementptr inbounds nuw i8, ptr %14, i64 156
   store i32 %.lcssa.sink, ptr %122, align 4, !tbaa !43
   br label %.loopexit
 
 .loopexit:                                        ; preds = %64, %.loopexit.sink.split, %60, %92
-  %.0104.in = phi i32 [ %20, %60 ], [ %76, %92 ], [ %.0104.in.ph, %.loopexit.sink.split ], [ %20, %64 ]
+  %.0104.in = phi i32 [ %76, %92 ], [ %20, %60 ], [ %.0104.in.ph, %.loopexit.sink.split ], [ %20, %64 ]
   %.0104 = zext i32 %.0104.in to i64
   %123 = tail call i64 @avio_seek(ptr noundef %3, i64 noundef 0, i32 noundef 1) #5
   %124 = sub nsw i64 %.0104, %123
@@ -290,7 +290,7 @@ define internal range(i32 -2147483648, 1) i32 @fsb_read_header(ptr noundef %0) #
   br label %128
 
 128:                                              ; preds = %103, %101, %95, %88, %83, %56, %51, %29, %19, %10, %.loopexit, %82, %74, %8
-  %.0 = phi i32 [ -1163346256, %8 ], [ -12, %10 ], [ 0, %.loopexit ], [ -1094995529, %29 ], [ -1094995529, %51 ], [ -1163346256, %74 ], [ -1094995529, %19 ], [ -1163346256, %82 ], [ %58, %56 ], [ -1094995529, %88 ], [ %96, %95 ], [ -1094995529, %101 ], [ -1094995529, %83 ], [ %105, %103 ]
+  %.0 = phi i32 [ -1163346256, %8 ], [ 0, %.loopexit ], [ -1163346256, %74 ], [ -1163346256, %82 ], [ -12, %10 ], [ -1094995529, %19 ], [ -1094995529, %29 ], [ -1094995529, %51 ], [ %58, %56 ], [ -1094995529, %83 ], [ -1094995529, %88 ], [ %96, %95 ], [ -1094995529, %101 ], [ %105, %103 ]
   ret i32 %.0
 }
 
@@ -411,7 +411,7 @@ define internal i32 @fsb_read_packet(ptr noundef readonly captures(none) %0, ptr
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %2, %69
-  %.037 = phi i32 [ %24, %21 ], [ %.1, %69 ], [ -541478725, %2 ]
+  %.037 = phi i32 [ %.1, %69 ], [ -541478725, %2 ], [ %24, %21 ]
   ret i32 %.037
 }
 

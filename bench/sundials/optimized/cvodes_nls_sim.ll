@@ -420,7 +420,7 @@ define internal range(i32 -41, 16) i32 @cvNlsResidualSensSim(ptr noundef readonl
   br label %83
 
 83:                                               ; preds = %70, %69, %56, %34, %33, %8, %7
-  %.0 = phi i32 [ -21, %7 ], [ 15, %69 ], [ -8, %8 ], [ 10, %33 ], [ -28, %34 ], [ -41, %56 ], [ %., %70 ]
+  %.0 = phi i32 [ -21, %7 ], [ -8, %8 ], [ 10, %33 ], [ -28, %34 ], [ -41, %56 ], [ 15, %69 ], [ %., %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -531,7 +531,7 @@ define internal range(i32 -41, 16) i32 @cvNlsFPFunctionSensSim(ptr noundef reado
   br i1 %74, label %63, label %.loopexit
 
 .loopexit:                                        ; preds = %63, %.preheader, %59, %30, %29, %6, %5
-  %.0 = phi i32 [ -21, %5 ], [ 15, %59 ], [ -8, %6 ], [ 10, %29 ], [ -41, %30 ], [ 0, %.preheader ], [ 0, %63 ]
+  %.0 = phi i32 [ -21, %5 ], [ -8, %6 ], [ 10, %29 ], [ -41, %30 ], [ 15, %59 ], [ 0, %.preheader ], [ 0, %63 ]
   ret i32 %.0
 }
 
@@ -640,7 +640,7 @@ define internal range(i32 -21, 903) i32 @cvNlsConvTestSensSim(ptr noundef %0, pt
   br label %65
 
 65:                                               ; preds = %61, %10, %.thread49, %58, %9
-  %.0 = phi i32 [ -21, %9 ], [ 901, %.thread49 ], [ 0, %58 ], [ -21, %10 ], [ 902, %61 ]
+  %.0 = phi i32 [ -21, %9 ], [ 0, %58 ], [ 901, %.thread49 ], [ -21, %10 ], [ 902, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -881,7 +881,7 @@ define internal range(i32 -21, 903) i32 @cvNlsLSolveSensSim(ptr noundef readonly
   br i1 %.not29, label %28, label %.loopexit
 
 .loopexit:                                        ; preds = %32, %43, %28, %20, %19, %5, %4
-  %.0 = phi i32 [ -21, %4 ], [ 902, %19 ], [ -7, %5 ], [ 0, %20 ], [ 902, %43 ], [ -7, %32 ], [ 0, %28 ]
+  %.0 = phi i32 [ -21, %4 ], [ -7, %5 ], [ 902, %19 ], [ 0, %20 ], [ -7, %32 ], [ 902, %43 ], [ 0, %28 ]
   ret i32 %.0
 }
 

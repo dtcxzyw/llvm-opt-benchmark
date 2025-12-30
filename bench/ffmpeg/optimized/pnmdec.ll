@@ -171,13 +171,13 @@ define internal i32 @pnm_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %83
 
 83:                                               ; preds = %73, %68, %60, %55, %46, %41, %78, %64, %51
-  %.0526 = phi i32 [ %82, %78 ], [ %67, %64 ], [ %44, %41 ], [ %76, %73 ], [ %54, %51 ], [ %49, %46 ], [ %62, %60 ], [ %58, %55 ], [ %71, %68 ]
-  %.not546 = phi i1 [ true, %78 ], [ true, %64 ], [ %45, %41 ], [ %77, %73 ], [ true, %51 ], [ %50, %46 ], [ %not., %60 ], [ %not.601, %55 ], [ %72, %68 ]
-  %84 = phi i1 [ false, %78 ], [ false, %64 ], [ false, %41 ], [ false, %73 ], [ false, %51 ], [ false, %46 ], [ %63, %60 ], [ %59, %55 ], [ false, %68 ]
-  %.not545 = phi i1 [ false, %78 ], [ true, %64 ], [ true, %41 ], [ true, %73 ], [ true, %51 ], [ true, %46 ], [ true, %60 ], [ true, %55 ], [ true, %68 ]
-  %.0518 = phi i32 [ 1, %78 ], [ 2, %64 ], [ 4, %41 ], [ 2, %73 ], [ 4, %51 ], [ 3, %46 ], [ 1, %60 ], [ 3, %55 ], [ 1, %68 ]
-  %.not547 = phi i1 [ false, %78 ], [ false, %64 ], [ true, %41 ], [ true, %73 ], [ false, %51 ], [ true, %46 ], [ false, %60 ], [ false, %55 ], [ true, %68 ]
-  %.0517 = phi i32 [ 1, %78 ], [ 8, %64 ], [ 16, %41 ], [ 16, %73 ], [ 8, %51 ], [ 16, %46 ], [ 8, %60 ], [ 8, %55 ], [ 16, %68 ]
+  %.0526 = phi i32 [ %54, %51 ], [ %67, %64 ], [ %82, %78 ], [ %44, %41 ], [ %49, %46 ], [ %58, %55 ], [ %62, %60 ], [ %71, %68 ], [ %76, %73 ]
+  %.not546 = phi i1 [ true, %51 ], [ true, %64 ], [ true, %78 ], [ %45, %41 ], [ %50, %46 ], [ %not.601, %55 ], [ %not., %60 ], [ %72, %68 ], [ %77, %73 ]
+  %84 = phi i1 [ false, %51 ], [ false, %64 ], [ false, %78 ], [ false, %41 ], [ false, %46 ], [ %59, %55 ], [ %63, %60 ], [ false, %68 ], [ false, %73 ]
+  %.not545 = phi i1 [ true, %51 ], [ true, %64 ], [ false, %78 ], [ true, %41 ], [ true, %46 ], [ true, %55 ], [ true, %60 ], [ true, %68 ], [ true, %73 ]
+  %.0518 = phi i32 [ 4, %51 ], [ 2, %64 ], [ 1, %78 ], [ 4, %41 ], [ 3, %46 ], [ 3, %55 ], [ 1, %60 ], [ 1, %68 ], [ 2, %73 ]
+  %.not547 = phi i1 [ false, %51 ], [ false, %64 ], [ false, %78 ], [ true, %41 ], [ true, %46 ], [ false, %55 ], [ false, %60 ], [ true, %68 ], [ true, %73 ]
+  %.0517 = phi i32 [ 8, %51 ], [ 8, %64 ], [ 1, %78 ], [ 16, %41 ], [ 16, %46 ], [ 8, %55 ], [ 8, %60 ], [ 16, %68 ], [ 16, %73 ]
   %85 = load ptr, ptr %1, align 8, !tbaa !41
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %87 = load i32, ptr %86, align 8, !tbaa !42
@@ -583,8 +583,8 @@ samplecpy.exit:                                   ; preds = %.lr.ph764, %.lr.ph7
   br i1 %exitcond.not.i574, label %samplecpy.exit575, label %.lr.ph.i571, !llvm.loop !53
 
 samplecpy.exit575:                                ; preds = %.lr.ph.i571, %.preheader.i568, %277
-  %283 = phi i32 [ %.pre887, %277 ], [ %273, %.preheader.i568 ], [ %273, %.lr.ph.i571 ]
-  %284 = phi ptr [ %.pre, %277 ], [ %274, %.preheader.i568 ], [ %274, %.lr.ph.i571 ]
+  %283 = phi i32 [ %273, %.preheader.i568 ], [ %.pre887, %277 ], [ %273, %.lr.ph.i571 ]
+  %284 = phi ptr [ %274, %.preheader.i568 ], [ %.pre, %277 ], [ %274, %.lr.ph.i571 ]
   %285 = getelementptr inbounds i8, ptr %284, i64 %270
   store ptr %285, ptr %10, align 8, !tbaa !30
   %286 = getelementptr inbounds i8, ptr %.3522729, i64 %271
@@ -680,7 +680,7 @@ samplecpy.exit583:                                ; preds = %302
   br i1 %exitcond.not.i590, label %samplecpy.exit591, label %.lr.ph.i587, !llvm.loop !53
 
 samplecpy.exit591:                                ; preds = %.lr.ph.i587, %.preheader.i584.thread, %.preheader.i584, %316
-  %322 = phi ptr [ %.pre890, %316 ], [ %306, %.preheader.i584.thread ], [ %313, %.preheader.i584 ], [ %315, %.lr.ph.i587 ]
+  %322 = phi ptr [ %306, %.preheader.i584.thread ], [ %313, %.preheader.i584 ], [ %.pre890, %316 ], [ %315, %.lr.ph.i587 ]
   %323 = getelementptr inbounds i8, ptr %322, i64 %298
   store ptr %323, ptr %10, align 8, !tbaa !30
   %324 = load i32, ptr %300, align 4, !tbaa !42
@@ -1565,7 +1565,7 @@ samplecpy.exit591:                                ; preds = %.lr.ph.i587, %.preh
   br label %.critedge563
 
 .critedge563:                                     ; preds = %.critedge, %153, %331, %248, %774, %731, %515, %428, %83, %26, %23, %4, %.loopexit, %21
-  %.0493 = phi i32 [ -1094995529, %515 ], [ %22, %21 ], [ %15, %4 ], [ %24, %23 ], [ -22, %26 ], [ -1094995529, %83 ], [ %865, %.loopexit ], [ -1094995529, %774 ], [ -1094995529, %331 ], [ -1094995529, %428 ], [ -1094995529, %248 ], [ -1094995529, %731 ], [ -1094995529, %153 ], [ -1094995529, %.critedge ]
+  %.0493 = phi i32 [ %22, %21 ], [ %865, %.loopexit ], [ %15, %4 ], [ %24, %23 ], [ -22, %26 ], [ -1094995529, %83 ], [ -1094995529, %428 ], [ -1094995529, %515 ], [ -1094995529, %731 ], [ -1094995529, %774 ], [ -1094995529, %248 ], [ -1094995529, %331 ], [ -1094995529, %153 ], [ -1094995529, %.critedge ]
   ret i32 %.0493
 }
 

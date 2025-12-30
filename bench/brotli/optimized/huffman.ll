@@ -750,7 +750,7 @@ define hidden range(i32 1, -2147483647) i32 @BrotliBuildSimpleHuffmanTable(ptr n
   br label %77
 
 77:                                               ; preds = %29, %31, %14, %16, %60, %42, %6, %4
-  %.0 = phi i32 [ 1, %4 ], [ 1, %6 ], [ 8, %60 ], [ 2, %14 ], [ 4, %42 ], [ 2, %16 ], [ 4, %31 ], [ 4, %29 ]
+  %.0 = phi i32 [ 1, %4 ], [ 1, %6 ], [ 4, %42 ], [ 8, %60 ], [ 2, %16 ], [ 2, %14 ], [ 4, %31 ], [ 4, %29 ]
   %.not177 = icmp eq i32 %.0, %5
   br i1 %.not177, label %._crit_edge, label %.lr.ph179
 

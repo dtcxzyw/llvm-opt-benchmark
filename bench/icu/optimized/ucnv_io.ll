@@ -96,7 +96,7 @@ define noundef ptr @ucnv_io_stripASCIIForCompare_77(ptr noundef returned writeon
   br i1 %.not28, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .outer._crit_edge:                                ; preds = %.critedge, %.backedge, %2
-  %.018.ph.lcssa = phi ptr [ %.018.ph32, %.backedge ], [ %0, %2 ], [ %25, %.critedge ]
+  %.018.ph.lcssa = phi ptr [ %0, %2 ], [ %.018.ph32, %.backedge ], [ %25, %.critedge ]
   store i8 0, ptr %.018.ph.lcssa, align 1, !tbaa !3
   ret ptr %0
 }
@@ -173,7 +173,7 @@ define noundef ptr @ucnv_io_stripEBCDICForCompare_77(ptr noundef returned writeo
   br i1 %.not29, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !8
 
 .outer._crit_edge:                                ; preds = %.critedge, %.backedge, %2
-  %.018.ph.lcssa = phi ptr [ %.018.ph33, %.backedge ], [ %0, %2 ], [ %27, %.critedge ]
+  %.018.ph.lcssa = phi ptr [ %0, %2 ], [ %.018.ph33, %.backedge ], [ %27, %.critedge ]
   store i8 0, ptr %.018.ph.lcssa, align 1, !tbaa !3
   ret ptr %0
 }
@@ -243,9 +243,9 @@ define range(i32 -255, 256) i32 @ucnv_compareNames_77(ptr noundef readonly captu
   br label %.critedge
 
 .critedge:                                        ; preds = %.backedge50, %14, %18, %15, %10, %.critedge.loopexit, %3
-  %26 = phi ptr [ %8, %10 ], [ %4, %3 ], [ %25, %.backedge50 ], [ %8, %14 ], [ %8, %18 ], [ %8, %15 ], [ %8, %.critedge.loopexit ]
-  %.035 = phi i8 [ %13, %10 ], [ 0, %3 ], [ 0, %.backedge50 ], [ %7, %14 ], [ %7, %18 ], [ %7, %15 ], [ %7, %.critedge.loopexit ]
-  %.233 = phi i8 [ 0, %10 ], [ %.031, %3 ], [ 0, %.backedge50 ], [ 1, %14 ], [ 0, %18 ], [ 0, %15 ], [ 1, %.critedge.loopexit ]
+  %26 = phi ptr [ %4, %3 ], [ %8, %10 ], [ %25, %.backedge50 ], [ %8, %14 ], [ %8, %18 ], [ %8, %15 ], [ %8, %.critedge.loopexit ]
+  %.035 = phi i8 [ 0, %3 ], [ %13, %10 ], [ 0, %.backedge50 ], [ %7, %14 ], [ %7, %18 ], [ %7, %15 ], [ %7, %.critedge.loopexit ]
+  %.233 = phi i8 [ %.031, %3 ], [ 0, %10 ], [ 0, %.backedge50 ], [ 1, %14 ], [ 0, %18 ], [ 0, %15 ], [ 1, %.critedge.loopexit ]
   %27 = getelementptr inbounds nuw i8, ptr %.037, i64 1
   %28 = load i8, ptr %.037, align 1, !tbaa !3
   %.not4576 = icmp eq i8 %28, 0
@@ -302,9 +302,9 @@ define range(i32 -255, 256) i32 @ucnv_compareNames_77(ptr noundef readonly captu
   br label %.critedge49
 
 .critedge49:                                      ; preds = %.backedge, %37, %41, %38, %33, %.critedge49.loopexit, %.critedge
-  %49 = phi ptr [ %31, %33 ], [ %27, %.critedge ], [ %48, %.backedge ], [ %31, %37 ], [ %31, %41 ], [ %31, %38 ], [ %31, %.critedge49.loopexit ]
-  %.034 = phi i8 [ %36, %33 ], [ 0, %.critedge ], [ 0, %.backedge ], [ %30, %37 ], [ %30, %41 ], [ %30, %38 ], [ %30, %.critedge49.loopexit ]
-  %.2 = phi i8 [ 0, %33 ], [ %.0, %.critedge ], [ 0, %.backedge ], [ 1, %37 ], [ 0, %41 ], [ 0, %38 ], [ 1, %.critedge49.loopexit ]
+  %49 = phi ptr [ %27, %.critedge ], [ %31, %33 ], [ %48, %.backedge ], [ %31, %37 ], [ %31, %41 ], [ %31, %38 ], [ %31, %.critedge49.loopexit ]
+  %.034 = phi i8 [ 0, %.critedge ], [ %36, %33 ], [ 0, %.backedge ], [ %30, %37 ], [ %30, %41 ], [ %30, %38 ], [ %30, %.critedge49.loopexit ]
+  %.2 = phi i8 [ %.0, %.critedge ], [ 0, %33 ], [ 0, %.backedge ], [ 1, %37 ], [ 0, %41 ], [ 0, %38 ], [ 1, %.critedge49.loopexit ]
   %50 = or i8 %.034, %.035
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %56, label %52
@@ -384,7 +384,7 @@ _ZL7isAliasPKcP10UErrorCode.exit:                 ; preds = %17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %9, %6, %_ZL7isAliasPKcP10UErrorCode.exit, %15, %.thread, %_ZL7isAliasPKcP10UErrorCode.exit.thread
-  %.2 = phi ptr [ %29, %.thread ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit.thread ], [ null, %15 ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit ], [ null, %6 ], [ null, %9 ], [ null, %4 ]
+  %.2 = phi ptr [ null, %_ZL7isAliasPKcP10UErrorCode.exit.thread ], [ %29, %.thread ], [ null, %15 ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit ], [ null, %6 ], [ null, %9 ], [ null, %4 ]
   ret ptr %.2
 }
 
@@ -517,7 +517,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL13haveAliasDataP10U
   br label %74
 
 74:                                               ; preds = %66, %.thread.i
-  %75 = phi ptr [ %spec.select.i, %66 ], [ %65, %.thread.i ]
+  %75 = phi ptr [ %65, %.thread.i ], [ %spec.select.i, %66 ]
   store ptr %75, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 64), align 8, !tbaa !43
   br label %_ZL13initAliasDataR10UErrorCode.exit
 
@@ -739,7 +739,7 @@ define internal fastcc noundef range(i32 -1, 4096) i32 @_ZL13findConverterPKcPaP
   br i1 %86, label %.loopexit, label %.split, !llvm.loop !48
 
 .loopexit:                                        ; preds = %83, %54, %79, %15
-  %.0 = phi i32 [ -1, %15 ], [ %82, %79 ], [ -1, %54 ], [ -1, %83 ]
+  %.0 = phi i32 [ %82, %79 ], [ -1, %15 ], [ -1, %54 ], [ -1, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -798,7 +798,7 @@ _ZL7isAliasPKcP10UErrorCode.exit:                 ; preds = %5
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZL7isAliasPKcP10UErrorCode.exit.thread, %19, %15, %3, %_ZL7isAliasPKcP10UErrorCode.exit, %8, %20
-  %.3 = phi ptr [ %13, %20 ], [ null, %3 ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit ], [ null, %8 ], [ null, %15 ], [ null, %19 ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit.thread ]
+  %.3 = phi ptr [ null, %_ZL7isAliasPKcP10UErrorCode.exit ], [ null, %3 ], [ %13, %20 ], [ null, %8 ], [ null, %15 ], [ null, %19 ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit.thread ]
   ret ptr %.3
 }
 
@@ -960,7 +960,7 @@ _ZL13isAliasInListPKcj.exit.thread:               ; preds = %65, %72, %_ZL13isAl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZL13isAliasInListPKcj.exit.thread, %.loopexit.split.loop.exit49, %.preheader, %23, %27, %44, %37
-  %.0 = phi i32 [ 0, %44 ], [ -1, %23 ], [ %38, %37 ], [ -1, %27 ], [ %77, %.loopexit.split.loop.exit49 ], [ 0, %.preheader ], [ 0, %_ZL13isAliasInListPKcj.exit.thread ]
+  %.0 = phi i32 [ %38, %37 ], [ 0, %44 ], [ -1, %27 ], [ -1, %23 ], [ %77, %.loopexit.split.loop.exit49 ], [ 0, %.preheader ], [ 0, %_ZL13isAliasInListPKcj.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1097,7 +1097,7 @@ _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %4
   br label %_ZL20ucnv_io_countAliasesPKcP10UErrorCode.exit
 
 _ZL20ucnv_io_countAliasesPKcP10UErrorCode.exit:   ; preds = %2, %_ZL7isAliasPKcP10UErrorCode.exit.thread.i, %_ZL7isAliasPKcP10UErrorCode.exit.i, %7, %11, %20
-  %.3.i = phi i16 [ %24, %20 ], [ 0, %2 ], [ 0, %_ZL7isAliasPKcP10UErrorCode.exit.thread.i ], [ 0, %_ZL7isAliasPKcP10UErrorCode.exit.i ], [ 0, %7 ], [ 0, %11 ]
+  %.3.i = phi i16 [ %24, %20 ], [ 0, %_ZL7isAliasPKcP10UErrorCode.exit.thread.i ], [ 0, %_ZL7isAliasPKcP10UErrorCode.exit.i ], [ 0, %2 ], [ 0, %7 ], [ 0, %11 ]
   ret i16 %.3.i
 }
 
@@ -1161,7 +1161,7 @@ _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %5
   br label %_ZL16ucnv_io_getAliasPKctP10UErrorCode.exit
 
 _ZL16ucnv_io_getAliasPKctP10UErrorCode.exit:      ; preds = %3, %_ZL7isAliasPKcP10UErrorCode.exit.thread.i, %_ZL7isAliasPKcP10UErrorCode.exit.i, %8, %12, %.thread35.i, %26
-  %.5.i = phi ptr [ %33, %26 ], [ null, %3 ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit.thread.i ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit.i ], [ null, %8 ], [ null, %.thread35.i ], [ null, %12 ]
+  %.5.i = phi ptr [ %33, %26 ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit.thread.i ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit.i ], [ null, %3 ], [ null, %8 ], [ null, %.thread35.i ], [ null, %12 ]
   ret ptr %.5.i
 }
 
@@ -1430,7 +1430,7 @@ _ZL13isAliasInListPKcj.exit49.thread.i:           ; preds = %81, %68, %65
   %84 = sub i32 %83, %37
   br label %_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit
 
-_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit.thread: ; preds = %_ZL13isAliasInListPKcj.exit49.thread.i, %59, %28, %_ZL13isAliasInListPKcj.exit.thread.i, %32
+_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit.thread: ; preds = %_ZL13isAliasInListPKcj.exit49.thread.i, %_ZL13isAliasInListPKcj.exit.thread.i, %32, %28, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
@@ -1451,7 +1451,7 @@ _ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit: ; preds = %52, %82
   br label %.thread
 
 .thread:                                          ; preds = %_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit.thread, %_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit, %3, %_ZL7isAliasPKcP10UErrorCode.exit, %_ZL7isAliasPKcP10UErrorCode.exit.thread, %87
-  %.1 = phi ptr [ %93, %87 ], [ null, %3 ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit.thread ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit ], [ null, %_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit ], [ null, %_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit.thread ]
+  %.1 = phi ptr [ %93, %87 ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit.thread ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit ], [ null, %3 ], [ null, %_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit ], [ null, %_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit.thread ]
   ret ptr %.1
 }
 
@@ -1488,7 +1488,7 @@ define noundef ptr @ucnv_openAllNames_77(ptr noundef %0) local_unnamed_addr #2 {
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %10, %1, %11
-  %.1 = phi ptr [ null, %1 ], [ %4, %11 ], [ null, %10 ], [ null, %6 ]
+  %.1 = phi ptr [ %4, %11 ], [ null, %1 ], [ null, %10 ], [ null, %6 ]
   ret ptr %.1
 }
 
@@ -1552,7 +1552,7 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %34, label %47, label %._crit_edge247
 
 ._crit_edge247:                                   ; preds = %16, %31, %27, %23
-  %35 = phi i8 [ %21, %16 ], [ 118, %31 ], [ 118, %27 ], [ 118, %23 ]
+  %35 = phi i8 [ 118, %31 ], [ 118, %27 ], [ 118, %23 ], [ %21, %16 ]
   %36 = zext i8 %18 to i32
   %37 = zext i8 %35 to i32
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -1920,8 +1920,8 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %241 = add nsw i32 %.pre-phi253, %11
   br label %.critedge
 
-.critedge:                                        ; preds = %85, %108, %141, %220, %5, %13, %240, %62, %52, %._crit_edge247
-  %.0 = phi i32 [ 0, %._crit_edge247 ], [ 0, %52 ], [ 0, %62 ], [ %241, %240 ], [ 0, %5 ], [ 0, %13 ], [ 0, %220 ], [ 0, %141 ], [ 0, %108 ], [ 0, %85 ]
+.critedge:                                        ; preds = %85, %108, %220, %141, %5, %13, %240, %62, %52, %._crit_edge247
+  %.0 = phi i32 [ 0, %52 ], [ 0, %62 ], [ %241, %240 ], [ 0, %._crit_edge247 ], [ 0, %13 ], [ 0, %5 ], [ 0, %141 ], [ 0, %220 ], [ 0, %108 ], [ 0, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

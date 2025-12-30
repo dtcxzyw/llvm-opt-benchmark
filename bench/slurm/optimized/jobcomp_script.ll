@@ -491,8 +491,8 @@ _redirect_stdio.exit.i.i:                         ; preds = %_redirect_stdio.exi
   br label %91
 
 91:                                               ; preds = %88, %86, %82, %77
-  %.052.i.i.i = phi i32 [ 0, %77 ], [ %90, %88 ], [ 0, %86 ], [ 0, %82 ]
-  %.0.i8.i.i = phi i32 [ 0, %77 ], [ 0, %88 ], [ 0, %86 ], [ %83, %82 ]
+  %.052.i.i.i = phi i32 [ %90, %88 ], [ 0, %86 ], [ 0, %77 ], [ 0, %82 ]
+  %.0.i8.i.i = phi i32 [ 0, %88 ], [ 0, %86 ], [ 0, %77 ], [ %83, %82 ]
   call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef %.052.i.i.i, i32 noundef %.0.i8.i.i)
   %92 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %93 = load i32, ptr %92, align 4
@@ -516,8 +516,8 @@ _redirect_stdio.exit.i.i:                         ; preds = %_redirect_stdio.exi
   br label %103
 
 103:                                              ; preds = %100, %98, %94, %91
-  %.153.i.i.i = phi i32 [ 0, %91 ], [ %102, %100 ], [ 0, %98 ], [ 0, %94 ]
-  %.1.i.i.i = phi i32 [ 0, %91 ], [ 0, %100 ], [ 0, %98 ], [ %95, %94 ]
+  %.153.i.i.i = phi i32 [ %102, %100 ], [ 0, %98 ], [ 0, %91 ], [ 0, %94 ]
+  %.1.i.i.i = phi i32 [ 0, %100 ], [ 0, %98 ], [ 0, %91 ], [ %95, %94 ]
   call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32, i32 noundef %.153.i.i.i, i32 noundef %.1.i.i.i)
   %104 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %105 = load i32, ptr %104, align 4
@@ -1508,7 +1508,7 @@ _check_script_permissions.exit.thread:            ; preds = %13
   br label %17
 
 _check_script_permissions.exit:                   ; preds = %6, %9, %13
-  %.str.79.sink.i = phi ptr [ @.str.78, %9 ], [ @.str.77, %6 ], [ @.str.79, %13 ]
+  %.str.79.sink.i = phi ptr [ @.str.77, %6 ], [ @.str.78, %9 ], [ @.str.79, %13 ]
   %16 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull %.str.79.sink.i, ptr noundef nonnull %2) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %.not = icmp eq i32 %16, 0

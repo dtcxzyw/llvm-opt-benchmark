@@ -311,7 +311,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %8
   br label %30
 
 30:                                               ; preds = %.critedge.critedge, %21, %27
-  %.0 = phi ptr [ %4, %21 ], [ %4, %27 ], [ %19, %.critedge.critedge ]
+  %.0 = phi ptr [ %4, %27 ], [ %4, %21 ], [ %19, %.critedge.critedge ]
   %31 = load ptr, ptr %3, align 8, !tbaa !19
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8, !tbaa !15
@@ -1343,7 +1343,7 @@ select.unfold:                                    ; preds = %49, %.lr.ph72
   br i1 %.not48.i, label %zend_array_is_list.exit, label %.lr.ph72
 
 zend_array_is_list.exit:                          ; preds = %31, %33, %49, %46, %select.unfold, %23, %36, %19, %.critedge
-  %54 = phi i32 [ 3, %.critedge ], [ 3, %19 ], [ 3, %36 ], [ 3, %23 ], [ 3, %select.unfold ], [ 2, %46 ], [ 2, %49 ], [ 3, %33 ], [ 2, %31 ]
+  %54 = phi i32 [ 3, %.critedge ], [ 3, %19 ], [ 3, %36 ], [ 3, %23 ], [ 2, %49 ], [ 2, %46 ], [ 3, %select.unfold ], [ 2, %31 ], [ 3, %33 ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %54, ptr %55, align 8, !tbaa !4
   br label %56

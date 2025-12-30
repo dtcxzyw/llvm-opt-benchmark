@@ -147,7 +147,7 @@ get_ifaddrs.exit:                                 ; preds = %1
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %12, %15, %16, %17, %18, %20
-  %.0.in.i = phi ptr [ %14, %12 ], [ @rb_cNilClass, %16 ], [ @rb_cTrueClass, %17 ], [ @rb_cFalseClass, %15 ], [ @rb_cInteger, %18 ], [ %spec.select.i, %20 ]
+  %.0.in.i = phi ptr [ @rb_cNilClass, %16 ], [ @rb_cTrueClass, %17 ], [ %14, %12 ], [ @rb_cFalseClass, %15 ], [ @rb_cInteger, %18 ], [ %spec.select.i, %20 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !6
   %23 = tail call i64 @rb_class_name(i64 noundef %.0.i) #7
   %24 = tail call i64 @rb_str_append(i64 noundef %7, i64 noundef %23) #7

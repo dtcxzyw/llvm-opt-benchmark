@@ -69,7 +69,7 @@ define ptr @ff_av1_guess_level(i64 noundef %0, i32 noundef %1, i32 noundef %2, i
   %44 = icmp ugt i32 %5, %43
   br i1 %44, label %.thread, label %45
 
-.thread:                                          ; preds = %37, %32, %30, %22, %18, %13, %26, %41
+.thread:                                          ; preds = %37, %32, %30, %26, %22, %18, %13, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 14
   br i1 %exitcond, label %45, label %13, !llvm.loop !17

@@ -165,10 +165,10 @@ define internal fastcc range(i32 0, 3) i32 @ini_parse() unnamed_addr #0 {
   br label %16
 
 14:                                               ; preds = %531, %78
-  %.1261 = phi ptr [ %.2262, %78 ], [ %510, %531 ]
-  %.1248 = phi ptr [ %79, %78 ], [ %511, %531 ]
-  %.1234 = phi i32 [ %74, %78 ], [ %532, %531 ]
-  %.1 = phi i32 [ -2, %78 ], [ %.8, %531 ]
+  %.1261 = phi ptr [ %510, %531 ], [ %.2262, %78 ]
+  %.1248 = phi ptr [ %511, %531 ], [ %79, %78 ]
+  %.1234 = phi i32 [ %532, %531 ], [ %74, %78 ]
+  %.1 = phi i32 [ %.8, %531 ], [ -2, %78 ]
   %15 = getelementptr inbounds nuw i8, ptr %.1261, i64 1
   br label %16
 
@@ -1447,8 +1447,8 @@ zend_string_release.exit:                         ; preds = %410, %409, %zend_st
   br i1 %550, label %.thread386, label %.loopexit449
 
 .loopexit449:                                     ; preds = %55, %548, %.thread405
-  %.1377 = phi ptr [ %546, %548 ], [ %9, %.thread405 ], [ %9, %55 ]
-  %.7 = phi i32 [ %.4, %548 ], [ %.4, %.thread405 ], [ 257, %55 ]
+  %.1377 = phi ptr [ %9, %.thread405 ], [ %546, %548 ], [ %9, %55 ]
+  %.7 = phi i32 [ %.4, %.thread405 ], [ %.4, %548 ], [ 257, %55 ]
   %551 = icmp eq ptr %.2262, %.1270
   br i1 %551, label %.loopexit, label %.lr.ph
 
@@ -1479,10 +1479,10 @@ zend_string_release.exit:                         ; preds = %410, %409, %zend_st
 
 .loopexit:                                        ; preds = %37, %.thread393, %.lr.ph, %.loopexit449, %.thread386
   %.4379 = phi ptr [ %.0376, %.thread386 ], [ %.1377, %.loopexit449 ], [ %.1377, %.lr.ph ], [ %9, %.thread393 ], [ %9, %37 ]
-  %.6275 = phi ptr [ %.5274, %.thread386 ], [ %.1270, %.loopexit449 ], [ %.1270, %.lr.ph ], [ %.1270, %.thread393 ], [ %30, %37 ]
-  %.7267 = phi ptr [ %.5265, %.thread386 ], [ %.2262, %.loopexit449 ], [ %557, %.lr.ph ], [ %.2262, %.thread393 ], [ %38, %37 ]
-  %.7254 = phi ptr [ %.5252, %.thread386 ], [ %.2249, %.loopexit449 ], [ %556, %.lr.ph ], [ %.2249, %.thread393 ], [ %40, %37 ]
-  %.0245 = phi i32 [ 2, %.thread386 ], [ 1, %.loopexit449 ], [ 1, %.lr.ph ], [ 0, %.thread393 ], [ 1, %37 ]
+  %.6275 = phi ptr [ %.5274, %.thread386 ], [ %.1270, %.loopexit449 ], [ %.1270, %.lr.ph ], [ %30, %37 ], [ %.1270, %.thread393 ]
+  %.7267 = phi ptr [ %.5265, %.thread386 ], [ %.2262, %.loopexit449 ], [ %557, %.lr.ph ], [ %38, %37 ], [ %.2262, %.thread393 ]
+  %.7254 = phi ptr [ %.5252, %.thread386 ], [ %.2249, %.loopexit449 ], [ %556, %.lr.ph ], [ %40, %37 ], [ %.2249, %.thread393 ]
+  %.0245 = phi i32 [ 2, %.thread386 ], [ 1, %.loopexit449 ], [ 1, %.lr.ph ], [ 1, %37 ], [ 0, %.thread393 ]
   %.9 = phi i32 [ %.3, %.thread386 ], [ %.7, %.loopexit449 ], [ %.7, %.lr.ph ], [ %.0225, %.thread393 ], [ %.0225, %37 ]
   %.not300 = icmp eq i32 %.9, -2
   br i1 %.not300, label %568, label %561
@@ -1938,7 +1938,7 @@ get_int_val.exit27:                               ; preds = %47, %46, %36, %33, 
   br label %60
 
 60:                                               ; preds = %get_int_val.exit27, %58, %56, %54, %52, %50
-  %.0 = phi i32 [ %59, %58 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ 0, %get_int_val.exit27 ]
+  %.0 = phi i32 [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ 0, %get_int_val.exit27 ]
   %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !41
   %.not23 = icmp eq i32 %61, 2
   br i1 %.not23, label %80, label %62
@@ -2272,8 +2272,8 @@ yy_syntax_error_arguments.exit:                   ; preds = %.critedge.i.i
   br label %yy_syntax_error_arguments.exit.thread6
 
 yy_syntax_error_arguments.exit.thread6:           ; preds = %24, %.critedge.thread.i.i, %1, %yy_syntax_error_arguments.exit, %35, %34, %33, %32
-  %.1.i5 = phi i32 [ 4, %34 ], [ 5, %35 ], [ 1, %.critedge.thread.i.i ], [ 2, %32 ], [ 3, %33 ], [ %31, %yy_syntax_error_arguments.exit ], [ 0, %1 ], [ 1, %24 ]
-  %.046 = phi ptr [ @.str.11, %34 ], [ @.str.12, %35 ], [ @.str.8, %.critedge.thread.i.i ], [ @.str.9, %32 ], [ @.str.10, %33 ], [ @.str, %yy_syntax_error_arguments.exit ], [ @.str, %1 ], [ @.str.8, %24 ]
+  %.1.i5 = phi i32 [ 5, %35 ], [ 2, %32 ], [ 3, %33 ], [ 4, %34 ], [ %31, %yy_syntax_error_arguments.exit ], [ 0, %1 ], [ 1, %.critedge.thread.i.i ], [ 1, %24 ]
+  %.046 = phi ptr [ @.str.12, %35 ], [ @.str.9, %32 ], [ @.str.10, %33 ], [ @.str.11, %34 ], [ @.str, %yy_syntax_error_arguments.exit ], [ @.str, %1 ], [ @.str.8, %.critedge.thread.i.i ], [ @.str.8, %24 ]
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.046) #19
   %37 = shl nsw i32 %.1.i5, 1
   %38 = sext i32 %37 to i64
@@ -2418,15 +2418,15 @@ yytnamerr.exit:                                   ; preds = %.preheader.split.us
   br label %yytnamerr.exit68
 
 yytnamerr.exit68:                                 ; preds = %62, %.preheader, %.thread.thread.i, %.split.us.thread.i
-  %.sink30 = phi i64 [ %.020.i, %.split.us.thread.i ], [ %89, %.thread.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
-  %.sink = phi i64 [ 2, %.split.us.thread.i ], [ 2, %.thread.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
-  %.1 = phi i32 [ %68, %.split.us.thread.i ], [ %68, %.thread.thread.i ], [ %.0, %.preheader ], [ %.0, %62 ]
+  %.sink30 = phi i64 [ %89, %.thread.thread.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
+  %.sink = phi i64 [ 2, %.thread.thread.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
+  %.1 = phi i32 [ %68, %.thread.thread.i ], [ %68, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %62 ]
   %90 = getelementptr inbounds i8, ptr %.039, i64 %.sink30
   %91 = getelementptr inbounds nuw i8, ptr %.147, i64 %.sink
   br label %.preheader
 
 yy_syntax_error_arguments.exit.thread8:           ; preds = %yytnamerr.exit, %.preheader, %.critedge.i.i, %59, %yy_syntax_error_arguments.exit
-  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ -2, %yy_syntax_error_arguments.exit ], [ 0, %.preheader ], [ -1, %59 ], [ -2, %yytnamerr.exit ]
+  %.041 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %59 ], [ %.2.i.i, %.critedge.i.i ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.041
 }

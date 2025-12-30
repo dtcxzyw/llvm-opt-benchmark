@@ -831,7 +831,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %9, %26, %30, %Abc_Z
   br label %Abc_ZddUniqueCreate.exit
 
 Abc_ZddUniqueCreate.exit:                         ; preds = %83, %101, %47, %122, %126
-  %.0 = phi i32 [ %139, %126 ], [ %125, %122 ], [ %50, %47 ], [ %119, %101 ], [ %73, %83 ]
+  %.0 = phi i32 [ %125, %122 ], [ %139, %126 ], [ %50, %47 ], [ %119, %101 ], [ %73, %83 ]
   %140 = load ptr, ptr %10, align 8, !tbaa !31
   %141 = load i32, ptr %16, align 4, !tbaa !30
   %142 = and i32 %141, %15
@@ -1735,7 +1735,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   br label %Abc_ZddUniqueCreate.exit
 
 Abc_ZddUniqueCreate.exit:                         ; preds = %80, %Abc_ZddCacheLookup.exit.thread, %98, %46
-  %.0 = phi i32 [ %45, %Abc_ZddCacheLookup.exit.thread ], [ %45, %46 ], [ %116, %98 ], [ %70, %80 ]
+  %.0 = phi i32 [ %45, %46 ], [ %116, %98 ], [ %45, %Abc_ZddCacheLookup.exit.thread ], [ %70, %80 ]
   %117 = load ptr, ptr %13, align 8, !tbaa !31
   %118 = load i32, ptr %19, align 4, !tbaa !30
   %119 = and i32 %118, %18
@@ -2148,7 +2148,7 @@ define i32 @Abc_ZddCountNodesArray(ptr noundef readonly captures(none) %0, ptr n
   br i1 %18, label %.critedge, label %.critedge2, !llvm.loop !51
 
 .critedge2:                                       ; preds = %.critedge, %2, %.critedge.preheader
-  %.0.lcssa34 = phi i32 [ 0, %2 ], [ %12, %.critedge.preheader ], [ %12, %.critedge ]
+  %.0.lcssa34 = phi i32 [ %12, %.critedge.preheader ], [ 0, %2 ], [ %12, %.critedge ]
   ret i32 %.0.lcssa34
 }
 
@@ -3095,7 +3095,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %6, %23, %27, %Abc_Z
   br label %Abc_ZddUniqueCreate.exit
 
 Abc_ZddUniqueCreate.exit:                         ; preds = %72, %90, %169, %171, %112
-  %.077 = phi i32 [ %173, %171 ], [ %118, %112 ], [ %170, %169 ], [ %109, %90 ], [ %62, %72 ]
+  %.077 = phi i32 [ %118, %112 ], [ %170, %169 ], [ %173, %171 ], [ %109, %90 ], [ %62, %72 ]
   %174 = load ptr, ptr %7, align 8, !tbaa !31
   %175 = load i32, ptr %13, align 4, !tbaa !30
   %176 = and i32 %175, %12
@@ -3115,7 +3115,7 @@ Abc_ZddUniqueCreate.exit:                         ; preds = %72, %90, %169, %171
   br label %185
 
 185:                                              ; preds = %Abc_ZddCacheLookup.exit, %3, %Abc_ZddUniqueCreate.exit, %4
-  %.0 = phi i32 [ %.077, %Abc_ZddUniqueCreate.exit ], [ %5, %4 ], [ %1, %3 ], [ %32, %Abc_ZddCacheLookup.exit ]
+  %.0 = phi i32 [ %5, %4 ], [ %.077, %Abc_ZddUniqueCreate.exit ], [ %1, %3 ], [ %32, %Abc_ZddCacheLookup.exit ]
   ret i32 %.0
 }
 
@@ -3177,7 +3177,7 @@ Abc_ZddCacheLookup.exit:                          ; preds = %28
   br i1 %34, label %common.ret31, label %Abc_ZddCacheLookup.exit.thread
 
 common.ret31:                                     ; preds = %Abc_ZddCacheLookup.exit, %5, %3, %6, %4, %Abc_ZddCacheLookup.exit.thread
-  %common.ret31.op = phi i32 [ %47, %Abc_ZddCacheLookup.exit.thread ], [ %2, %5 ], [ %33, %Abc_ZddCacheLookup.exit ], [ %2, %4 ], [ %1, %3 ], [ %1, %6 ]
+  %common.ret31.op = phi i32 [ %47, %Abc_ZddCacheLookup.exit.thread ], [ %2, %4 ], [ %1, %6 ], [ %1, %3 ], [ %2, %5 ], [ %33, %Abc_ZddCacheLookup.exit ]
   ret i32 %common.ret31.op
 
 Abc_ZddCacheLookup.exit.thread:                   ; preds = %7, %24, %28, %Abc_ZddCacheLookup.exit
@@ -3925,8 +3925,8 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %27
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %72, %74, %64, %66
-  %.sink106 = phi ptr [ %67, %66 ], [ %65, %64 ], [ %73, %72 ], [ %75, %74 ]
-  %.sink = phi i32 [ 16, %66 ], [ 16, %64 ], [ %69, %72 ], [ %69, %74 ]
+  %.sink106 = phi ptr [ %65, %64 ], [ %67, %66 ], [ %73, %72 ], [ %75, %74 ]
+  %.sink = phi i32 [ 16, %64 ], [ 16, %66 ], [ %69, %72 ], [ %69, %74 ]
   store ptr %.sink106, ptr %32, align 8, !tbaa !49
   store i32 %.sink, ptr %24, align 8, !tbaa !84
   br label %Vec_IntPush.exit
@@ -3950,8 +3950,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %82, label %.lr.ph73, label %.critedge2, !llvm.loop !85
 
 .critedge2:                                       ; preds = %.lr.ph73, %79
-  %83 = phi ptr [ %36, %.lr.ph73 ], [ %.pre.i91, %79 ]
-  %84 = phi i32 [ %35, %.lr.ph73 ], [ %80, %79 ]
+  %83 = phi ptr [ %.pre.i91, %79 ], [ %36, %.lr.ph73 ]
+  %84 = phi i32 [ %80, %79 ], [ %35, %.lr.ph73 ]
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %.lr.ph77, label %.critedge4
 

@@ -1098,8 +1098,8 @@ common.ret:                                       ; preds = %530, %1172, %1273, 
   call void @llvm.lifetime.end.p0(ptr nonnull %397)
   br label %536
 
-533:                                              ; preds = %531, %441, %448, %468
-  %.pn469.pn.ph = phi { ptr, i32 } [ %.pn466.pn, %531 ], [ %442, %441 ], [ %.pn458.pn.pn.pn, %468 ], [ %449, %448 ]
+533:                                              ; preds = %531, %448, %441, %468
+  %.pn469.pn.ph = phi { ptr, i32 } [ %.pn458.pn.pn.pn, %468 ], [ %442, %441 ], [ %449, %448 ], [ %.pn466.pn, %531 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %397) #17
           to label %532 unwind label %534
 
@@ -1110,7 +1110,7 @@ common.ret:                                       ; preds = %530, %1172, %1273, 
   unreachable
 
 536:                                              ; preds = %3110, %2378, %2368, %3009, %2395, %2387, %2908, %2412, %2404, %1275, %1044, %1034, %1174, %1061, %1053, %532, %418, %408, %2459, %2432, %2439, %2517, %3890, %2518, %1074, %432
-  %.pn860.pn.pn = phi { ptr, i32 } [ %.pn860.pn, %2517 ], [ %.pn560.pn.pn, %1074 ], [ %409, %408 ], [ %2433, %2432 ], [ %2440, %2439 ], [ %.pn852.pn.pn.pn, %2459 ], [ %2388, %2387 ], [ %1054, %1053 ], [ %.pn492.pn.pn, %432 ], [ %.pn840.pn.pn.pn.pn, %3890 ], [ %2519, %2518 ], [ %1035, %1034 ], [ %2405, %2404 ], [ %.pn469.pn2404, %532 ], [ %419, %418 ], [ %.pn534.pn2422, %1174 ], [ %1062, %1061 ], [ %.pn513.pn2430, %1275 ], [ %1045, %1044 ], [ %.pn623.pn2478, %2908 ], [ %2413, %2412 ], [ %.pn602.pn2486, %3009 ], [ %2396, %2395 ], [ %.pn581.pn2494, %3110 ], [ %2379, %2378 ], [ %2369, %2368 ]
+  %.pn860.pn.pn = phi { ptr, i32 } [ %.pn860.pn, %2517 ], [ %.pn840.pn.pn.pn.pn, %3890 ], [ %2519, %2518 ], [ %.pn560.pn.pn, %1074 ], [ %.pn492.pn.pn, %432 ], [ %2440, %2439 ], [ %2433, %2432 ], [ %.pn852.pn.pn.pn, %2459 ], [ %.pn469.pn2404, %532 ], [ %419, %418 ], [ %409, %408 ], [ %.pn534.pn2422, %1174 ], [ %1062, %1061 ], [ %1054, %1053 ], [ %.pn513.pn2430, %1275 ], [ %1045, %1044 ], [ %1035, %1034 ], [ %.pn623.pn2478, %2908 ], [ %2413, %2412 ], [ %2405, %2404 ], [ %.pn602.pn2486, %3009 ], [ %2396, %2395 ], [ %2388, %2387 ], [ %.pn581.pn2494, %3110 ], [ %2379, %2378 ], [ %2369, %2368 ]
   store i8 2, ptr %399, align 1
   resume { ptr, i32 } %.pn860.pn.pn
 
@@ -1355,7 +1355,7 @@ common.ret:                                       ; preds = %530, %1172, %1273, 
   br i1 %628, label %select.unfold.i, label %674
 
 629:                                              ; preds = %1006, %843, %842, %825, %720, %700, %693, %683, %672, %670, %585, %565, %558
-  %.pn172.pn.pn.i = phi { ptr, i32 } [ %.pn172.pn.i, %1006 ], [ %826, %825 ], [ %673, %672 ], [ %.pn131.pn.pn.pn.pn.pn.i, %842 ], [ %671, %670 ], [ %.pn110.pn.i, %843 ], [ %694, %693 ], [ %559, %558 ], [ %701, %700 ], [ %.pn102.pn.pn.pn.i, %585 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.i, %720 ], [ %566, %565 ], [ %684, %683 ]
+  %.pn172.pn.pn.i = phi { ptr, i32 } [ %.pn172.pn.i, %1006 ], [ %826, %825 ], [ %.pn131.pn.pn.pn.pn.pn.i, %842 ], [ %684, %683 ], [ %673, %672 ], [ %671, %670 ], [ %.pn110.pn.i, %843 ], [ %566, %565 ], [ %559, %558 ], [ %.pn102.pn.pn.pn.i, %585 ], [ %701, %700 ], [ %694, %693 ], [ %.pn119.pn.pn.pn.pn.pn.pn.pn.i, %720 ]
   store i8 2, ptr %541, align 8, !noalias !67
   br label %.body
 
@@ -1541,7 +1541,7 @@ select.unfold.i:                                  ; preds = %626, %.noexc213.i
   br label %629
 
 685:                                              ; preds = %680, %.noexc234.i
-  %.0.i.i232.i = phi ptr [ %..i.i231.i, %680 ], [ null, %.noexc234.i ]
+  %.0.i.i232.i = phi ptr [ null, %.noexc234.i ], [ %..i.i231.i, %680 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %104), !noalias !121
   store ptr %.0.i.i232.i, ptr %677, align 8, !noalias !67
   %686 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8, !noalias !67
@@ -2083,7 +2083,7 @@ select.unfold.i:                                  ; preds = %626, %.noexc213.i
   br label %847
 
 .body.i:                                          ; preds = %874, %868, %849, %834
-  %.pn170.i = phi { ptr, i32 } [ %835, %834 ], [ %850, %849 ], [ %875, %874 ], [ %869, %868 ]
+  %.pn170.i = phi { ptr, i32 } [ %850, %849 ], [ %835, %834 ], [ %875, %874 ], [ %869, %868 ]
   %838 = getelementptr inbounds nuw i8, ptr %0, i64 88
   invoke void @"_ZN4core3ptr85drop_in_place$LT$aws_smithy_runtime_api..client..endpoint..SharedEndpointResolver$GT$17h74bfca10ad739a8bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %838) #17
           to label %839 unwind label %1011, !noalias !71
@@ -2611,7 +2611,7 @@ select.unfold.i:                                  ; preds = %626, %.noexc213.i
   br label %1010
 
 1010:                                             ; preds = %1009, %996, %988, %920, %900, %893, %883
-  %.pn168.ph.i = phi { ptr, i32 } [ %894, %893 ], [ %989, %988 ], [ %.pn153.pn.pn.pn.i, %920 ], [ %.pn163.pn.i, %1009 ], [ %884, %883 ], [ %901, %900 ], [ %997, %996 ]
+  %.pn168.ph.i = phi { ptr, i32 } [ %.pn153.pn.pn.pn.i, %920 ], [ %894, %893 ], [ %901, %900 ], [ %989, %988 ], [ %884, %883 ], [ %.pn163.pn.i, %1009 ], [ %997, %996 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$aws_smithy_types..endpoint..Endpoint$GT$17ha0b52c245e64ca8dE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %122) #17
           to label %1006 unwind label %1011, !noalias !71
 
@@ -3069,8 +3069,8 @@ select.unfold.i:                                  ; preds = %626, %.noexc213.i
   call void @llvm.lifetime.end.p0(ptr nonnull %357)
   br label %536
 
-1175:                                             ; preds = %1173, %1083, %1090, %1110
-  %.pn534.pn.ph = phi { ptr, i32 } [ %.pn531.pn, %1173 ], [ %1084, %1083 ], [ %.pn523.pn.pn.pn, %1110 ], [ %1091, %1090 ]
+1175:                                             ; preds = %1173, %1090, %1083, %1110
+  %.pn534.pn.ph = phi { ptr, i32 } [ %.pn523.pn.pn.pn, %1110 ], [ %1084, %1083 ], [ %1091, %1090 ], [ %.pn531.pn, %1173 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %357) #17
           to label %1174 unwind label %534
 
@@ -3376,8 +3376,8 @@ select.unfold.i:                                  ; preds = %626, %.noexc213.i
   call void @llvm.lifetime.end.p0(ptr nonnull %370)
   br label %536
 
-1276:                                             ; preds = %1274, %1184, %1191, %1211
-  %.pn513.pn.ph = phi { ptr, i32 } [ %.pn510.pn, %1274 ], [ %1185, %1184 ], [ %.pn502.pn.pn.pn, %1211 ], [ %1192, %1191 ]
+1276:                                             ; preds = %1274, %1191, %1184, %1211
+  %.pn513.pn.ph = phi { ptr, i32 } [ %.pn502.pn.pn.pn, %1211 ], [ %1185, %1184 ], [ %1192, %1191 ], [ %.pn510.pn, %1274 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %370) #17
           to label %1275 unwind label %534
 
@@ -3685,13 +3685,13 @@ select.unfold.i:                                  ; preds = %626, %.noexc213.i
   call void @llvm.lifetime.end.p0(ptr nonnull %383)
   br label %432
 
-1379:                                             ; preds = %1377, %1286, %1293, %1313
-  %.pn492.pn.ph = phi { ptr, i32 } [ %.pn489.pn, %1377 ], [ %1287, %1286 ], [ %.pn481.pn.pn.pn, %1313 ], [ %1294, %1293 ]
+1379:                                             ; preds = %1377, %1293, %1286, %1313
+  %.pn492.pn.ph = phi { ptr, i32 } [ %.pn481.pn.pn.pn, %1313 ], [ %1287, %1286 ], [ %1294, %1293 ], [ %.pn489.pn, %1377 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h87be7e4f3e423c9fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %383) #17
           to label %1378 unwind label %534
 
 .body:                                            ; preds = %1023, %629
-  %.pn473 = phi { ptr, i32 } [ %.pn172.pn.pn.i, %629 ], [ %1024, %1023 ]
+  %.pn473 = phi { ptr, i32 } [ %1024, %1023 ], [ %.pn172.pn.pn.i, %629 ]
   invoke fastcc void @"_ZN4core3ptr123drop_in_place$LT$aws_smithy_runtime..client..orchestrator..endpoints..orchestrate_endpoint..$u7b$$u7b$closure$u7d$$u7d$$GT$17h881ec7495707eee9E"(ptr noundef nonnull align 8 %540) #17
           to label %432 unwind label %534
 
@@ -4142,7 +4142,7 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
           to label %1561 unwind label %1559, !noalias !458
 
 1525:                                             ; preds = %2041, %1647, %1625, %1573, %1559, %1473, %1453, %1446, %1436, %1434
-  %.pn464.i = phi { ptr, i32 } [ %1626, %1625 ], [ %1435, %1434 ], [ %.pn310.pn.pn.pn.pn.pn.pn.pn.i, %1473 ], [ %1574, %1573 ], [ %1560, %1559 ], [ %.pn322.pn.pn.pn.pn.pn.i, %2041 ], [ %1437, %1436 ], [ %.pn458.pn.i, %1647 ], [ %1447, %1446 ], [ %1454, %1453 ]
+  %.pn464.i = phi { ptr, i32 } [ %1626, %1625 ], [ %1574, %1573 ], [ %1560, %1559 ], [ %.pn322.pn.pn.pn.pn.pn.i, %2041 ], [ %1437, %1436 ], [ %1435, %1434 ], [ %.pn458.pn.i, %1647 ], [ %1454, %1453 ], [ %1447, %1446 ], [ %.pn310.pn.pn.pn.pn.pn.pn.pn.i, %1473 ]
   %1526 = getelementptr inbounds nuw i8, ptr %0, i64 448
   invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17he8bc2ecb4d9e091eE"(ptr noalias noundef align 8 dereferenceable(24) %1526) #17
           to label %1639 unwind label %1997, !noalias !458
@@ -4954,7 +4954,7 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
           to label %1818 unwind label %1816, !noalias !458
 
 1763:                                             ; preds = %2003, %1709, %1691, %1684, %1674
-  %.pn367.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn367.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %2003 ], [ %.pn351.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %1709 ], [ %1675, %1674 ], [ %1685, %1684 ], [ %1692, %1691 ]
+  %.pn367.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn367.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %2003 ], [ %1675, %1674 ], [ %1692, %1691 ], [ %1685, %1684 ], [ %.pn351.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %1709 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$17h93082e0de44dafd4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1587) #17
           to label %2004 unwind label %1997, !noalias !458
 
@@ -5460,7 +5460,7 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
           to label %1932 unwind label %1930, !noalias !458
 
 .body.i1194:                                      ; preds = %.body822.i, %1946, %1942, %1936, %1857, %1837, %1830
-  %.pn445.pn.pn.i = phi { ptr, i32 } [ %.pn445.pn.i, %.body822.i ], [ %.pn395.pn.pn.pn.i, %1936 ], [ %1838, %1837 ], [ %1943, %1942 ], [ %1831, %1830 ], [ %.pn385.pn.pn.pn.pn.pn.i, %1857 ], [ %1947, %1946 ]
+  %.pn445.pn.pn.i = phi { ptr, i32 } [ %.pn445.pn.i, %.body822.i ], [ %.pn395.pn.pn.pn.i, %1936 ], [ %1947, %1946 ], [ %1838, %1837 ], [ %1831, %1830 ], [ %.pn385.pn.pn.pn.pn.pn.i, %1857 ], [ %1943, %1942 ]
   %1903 = getelementptr inbounds nuw i8, ptr %0, i64 336
   invoke void @"_ZN4core3ptr82drop_in_place$LT$aws_smithy_runtime_api..client..identity..SharedIdentityCache$GT$17h93082e0de44dafd4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1903) #17
           to label %1953 unwind label %1997, !noalias !458
@@ -5746,7 +5746,7 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
   br label %1974
 
 1978:                                             ; preds = %2345, %2004, %.loopexit.split-lp1322.i, %.loopexit1321.i
-  %.pn453.i = phi { ptr, i32 } [ %.pn449.pn.pn.i, %2004 ], [ %.pn449.pn.pn.i, %2345 ], [ %lpad.loopexit1323.i, %.loopexit1321.i ], [ %lpad.loopexit.split-lp1324.i, %.loopexit.split-lp1322.i ]
+  %.pn453.i = phi { ptr, i32 } [ %.pn449.pn.pn.i, %2345 ], [ %.pn449.pn.pn.i, %2004 ], [ %lpad.loopexit1323.i, %.loopexit1321.i ], [ %lpad.loopexit.split-lp1324.i, %.loopexit.split-lp1322.i ]
   %1979 = getelementptr inbounds nuw i8, ptr %0, i64 553
   store i8 0, ptr %1979, align 1, !noalias !451
   br label %2027
@@ -5778,7 +5778,7 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
           to label %.backedge.i unwind label %.loopexit1326.i, !noalias !458
 
 1984:                                             ; preds = %2030, %2017, %.loopexit.split-lp1327.i, %.loopexit1326.i
-  %.pn458.i = phi { ptr, i32 } [ %2031, %2030 ], [ %.pn453.pn.pn.i, %2017 ], [ %lpad.loopexit1328.i, %.loopexit1326.i ], [ %lpad.loopexit.split-lp1329.i, %.loopexit.split-lp1327.i ]
+  %.pn458.i = phi { ptr, i32 } [ %.pn453.pn.pn.i, %2017 ], [ %2031, %2030 ], [ %lpad.loopexit1328.i, %.loopexit1326.i ], [ %lpad.loopexit.split-lp1329.i, %.loopexit.split-lp1327.i ]
   %1985 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %1986 = load ptr, ptr %1985, align 8, !noalias !451, !noundef !5
   %.not460.i = icmp eq ptr %1986, null
@@ -6292,7 +6292,7 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
   br label %2102
 
 2145:                                             ; preds = %2307, %2305, %2286, %2271, %2207, %2187, %2180, %2102, %2082, %2075
-  %.pn442.pn.i = phi { ptr, i32 } [ %2188, %2187 ], [ %2272, %2271 ], [ %.pn420.pn.pn.pn.i, %2307 ], [ %.pn439.pn.i, %2305 ], [ %2083, %2082 ], [ %.pn431.pn.pn.pn.i, %2207 ], [ %2181, %2180 ], [ %2076, %2075 ], [ %2287, %2286 ], [ %.pn410.pn.pn.pn.pn.pn.i, %2102 ]
+  %.pn442.pn.i = phi { ptr, i32 } [ %2272, %2271 ], [ %.pn439.pn.i, %2305 ], [ %.pn420.pn.pn.pn.i, %2307 ], [ %2287, %2286 ], [ %2083, %2082 ], [ %2076, %2075 ], [ %.pn410.pn.pn.pn.pn.pn.i, %2102 ], [ %2188, %2187 ], [ %2181, %2180 ], [ %.pn431.pn.pn.pn.i, %2207 ]
   invoke void @"_ZN4core3ptr71drop_in_place$LT$aws_smithy_runtime_api..client..identity..Identity$GT$17h448aa9f61e2b6144E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %39) #17
           to label %.body822.i unwind label %1997, !noalias !458
 
@@ -6916,8 +6916,8 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
   br label %.body1218
 
 2359:                                             ; preds = %2047, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17he8bc2ecb4d9e091eE.exit831.i", %1646, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17he8bc2ecb4d9e091eE.exit.i"
-  %.sroa.81851.0.ph = phi ptr [ %.sroa.7288.2.i, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17he8bc2ecb4d9e091eE.exit831.i" ], [ %.sroa.7288.2.i, %2047 ], [ @anon.bc03be4b81514a0f564db6163b49c01c.54.llvm.17484987761838435091, %1646 ], [ @anon.bc03be4b81514a0f564db6163b49c01c.54.llvm.17484987761838435091, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17he8bc2ecb4d9e091eE.exit.i" ]
-  %.sroa.61850.0.ph = phi ptr [ %.sroa.0287.2.i, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17he8bc2ecb4d9e091eE.exit831.i" ], [ %.sroa.0287.2.i, %2047 ], [ %.fca.0.extract.i.i.i.i, %1646 ], [ %.fca.0.extract.i.i.i.i, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17he8bc2ecb4d9e091eE.exit.i" ]
+  %.sroa.81851.0.ph = phi ptr [ %.sroa.7288.2.i, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17he8bc2ecb4d9e091eE.exit831.i" ], [ %.sroa.7288.2.i, %2047 ], [ @anon.bc03be4b81514a0f564db6163b49c01c.54.llvm.17484987761838435091, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17he8bc2ecb4d9e091eE.exit.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.54.llvm.17484987761838435091, %1646 ]
+  %.sroa.61850.0.ph = phi ptr [ %.sroa.0287.2.i, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17he8bc2ecb4d9e091eE.exit831.i" ], [ %.sroa.0287.2.i, %2047 ], [ %.fca.0.extract.i.i.i.i, %"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$aws_smithy_runtime_api..client..auth..AuthSchemeId$u5d$$GT$$GT$17he8bc2ecb4d9e091eE.exit.i" ], [ %.fca.0.extract.i.i.i.i, %1646 ]
   store i8 1, ptr %1382, align 4, !noalias !451
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.51098.i)
@@ -8185,8 +8185,8 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %267)
   br label %2806
 
-2805:                                             ; preds = %2803, %2711, %2718, %2738
-  %.pn665.pn.ph = phi { ptr, i32 } [ %.pn662.pn, %2803 ], [ %2712, %2711 ], [ %.pn654.pn.pn.pn, %2738 ], [ %2719, %2718 ]
+2805:                                             ; preds = %2803, %2718, %2711, %2738
+  %.pn665.pn.ph = phi { ptr, i32 } [ %.pn654.pn.pn.pn, %2738 ], [ %2712, %2711 ], [ %2719, %2718 ], [ %.pn662.pn, %2803 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h87be7e4f3e423c9fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %267) #17
           to label %2804 unwind label %534
 
@@ -8207,8 +8207,8 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %281)
   br label %.thread2458
 
-.thread2458:                                      ; preds = %2562, %2542, %2535, %2808, %2806, %2608
-  %.pn673.pn.pn2461 = phi { ptr, i32 } [ %.pn673.pn, %2608 ], [ %2536, %2535 ], [ %.pn665.pn.pn, %2806 ], [ %.pn633.pn.pn.pn.pn.pn, %2562 ], [ %2543, %2542 ], [ %.pn643.pn.pn.pn, %2808 ]
+.thread2458:                                      ; preds = %2562, %2535, %2542, %2808, %2806, %2608
+  %.pn673.pn.pn2461 = phi { ptr, i32 } [ %.pn673.pn, %2608 ], [ %.pn633.pn.pn.pn.pn.pn, %2562 ], [ %2536, %2535 ], [ %2543, %2542 ], [ %.pn643.pn.pn.pn, %2808 ], [ %.pn665.pn.pn, %2806 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..request..Request$GT$17h0e0c0440f1aa1f23E"(ptr noalias noundef nonnull align 8 dereferenceable(344) %2522) #17
           to label %3890 unwind label %534
 
@@ -8514,8 +8514,8 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %304)
   br label %536
 
-2909:                                             ; preds = %2907, %2817, %2824, %2844
-  %.pn623.pn.ph = phi { ptr, i32 } [ %.pn620.pn, %2907 ], [ %2818, %2817 ], [ %.pn612.pn.pn.pn, %2844 ], [ %2825, %2824 ]
+2909:                                             ; preds = %2907, %2824, %2817, %2844
+  %.pn623.pn.ph = phi { ptr, i32 } [ %.pn612.pn.pn.pn, %2844 ], [ %2818, %2817 ], [ %2825, %2824 ], [ %.pn620.pn, %2907 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %304) #17
           to label %2908 unwind label %534
 
@@ -8821,8 +8821,8 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %317)
   br label %536
 
-3010:                                             ; preds = %3008, %2918, %2925, %2945
-  %.pn602.pn.ph = phi { ptr, i32 } [ %.pn599.pn, %3008 ], [ %2919, %2918 ], [ %.pn591.pn.pn.pn, %2945 ], [ %2926, %2925 ]
+3010:                                             ; preds = %3008, %2925, %2918, %2945
+  %.pn602.pn.ph = phi { ptr, i32 } [ %.pn591.pn.pn.pn, %2945 ], [ %2919, %2918 ], [ %2926, %2925 ], [ %.pn599.pn, %3008 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %317) #17
           to label %3009 unwind label %534
 
@@ -9128,8 +9128,8 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %330)
   br label %536
 
-3111:                                             ; preds = %3109, %3019, %3026, %3046
-  %.pn581.pn.ph = phi { ptr, i32 } [ %.pn578.pn, %3109 ], [ %3020, %3019 ], [ %.pn570.pn.pn.pn, %3046 ], [ %3027, %3026 ]
+3111:                                             ; preds = %3109, %3026, %3019, %3046
+  %.pn581.pn.ph = phi { ptr, i32 } [ %.pn570.pn.pn.pn, %3046 ], [ %3020, %3019 ], [ %3027, %3026 ], [ %.pn578.pn, %3109 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %330) #17
           to label %3110 unwind label %534
 
@@ -9437,13 +9437,13 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %343)
   br label %1074
 
-3214:                                             ; preds = %3212, %3121, %3128, %3148
-  %.pn560.pn.ph = phi { ptr, i32 } [ %.pn557.pn, %3212 ], [ %3122, %3121 ], [ %.pn549.pn.pn.pn, %3148 ], [ %3129, %3128 ]
+3214:                                             ; preds = %3212, %3128, %3121, %3148
+  %.pn560.pn.ph = phi { ptr, i32 } [ %.pn549.pn.pn.pn, %3148 ], [ %3122, %3121 ], [ %3129, %3128 ], [ %.pn557.pn, %3212 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h87be7e4f3e423c9fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %343) #17
           to label %3213 unwind label %534
 
 .body1218:                                        ; preds = %2357, %1413
-  %.pn540 = phi { ptr, i32 } [ %.pn468.i, %1413 ], [ %2358, %2357 ]
+  %.pn540 = phi { ptr, i32 } [ %2358, %2357 ], [ %.pn468.i, %1413 ]
   invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$aws_smithy_runtime..client..orchestrator..auth..orchestrate_auth..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd5f16e1bc8bc55c2E"(ptr noundef nonnull align 8 %1381) #17
           to label %1074 unwind label %534
 
@@ -9832,7 +9832,7 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
   br label %3342
 
 3342:                                             ; preds = %3784, %3388, %3379, %3683, %3405, %3397, %3582, %3422, %3414, %3291, %3264, %3271, %3787, %4127, %3430, %3374, %.body1487
-  %.pn816.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn816.pn.pn.pn.pn, %4127 ], [ %3431, %3430 ], [ %3265, %3264 ], [ %3415, %3414 ], [ %3398, %3397 ], [ %3375, %3374 ], [ %3341, %.body1487 ], [ %.pn699.pn.pn.pn, %3787 ], [ %3272, %3271 ], [ %.pn689.pn.pn.pn.pn.pn, %3291 ], [ %.pn763.pn2522, %3582 ], [ %3423, %3422 ], [ %.pn742.pn2530, %3683 ], [ %3406, %3405 ], [ %.pn721.pn2538, %3784 ], [ %3389, %3388 ], [ %3380, %3379 ]
+  %.pn816.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn816.pn.pn.pn.pn, %4127 ], [ %3431, %3430 ], [ %3375, %3374 ], [ %3341, %.body1487 ], [ %.pn699.pn.pn.pn, %3787 ], [ %3272, %3271 ], [ %3265, %3264 ], [ %.pn689.pn.pn.pn.pn.pn, %3291 ], [ %.pn763.pn2522, %3582 ], [ %3423, %3422 ], [ %3415, %3414 ], [ %.pn742.pn2530, %3683 ], [ %3406, %3405 ], [ %3398, %3397 ], [ %.pn721.pn2538, %3784 ], [ %3389, %3388 ], [ %3380, %3379 ]
   %3343 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3344 = load i8, ptr %3343, align 8, !range !789, !noundef !5
   %3345 = trunc nuw i8 %3344 to i1
@@ -10196,13 +10196,13 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
   br label %.body1638
 
 3480:                                             ; preds = %3451, %3454, %3468, %3444
-  %.pn774.ph = phi { ptr, i32 } [ %3469, %3468 ], [ %3452, %3451 ], [ %3461, %3454 ], [ %3445, %3444 ]
+  %.pn774.ph = phi { ptr, i32 } [ %3445, %3444 ], [ %3452, %3451 ], [ %3461, %3454 ], [ %3469, %3468 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %179)
   invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3d9982dac1b35be6E"(ptr noundef nonnull align 8 %180) #17
           to label %3479 unwind label %534
 
 .body1638:                                        ; preds = %3905, %3900, %3894, %3479
-  %.pn780 = phi { ptr, i32 } [ %.pn774.ph, %3479 ], [ %3895, %3894 ], [ %3906, %3905 ], [ %3901, %3900 ]
+  %.pn780 = phi { ptr, i32 } [ %3895, %3894 ], [ %.pn774.ph, %3479 ], [ %3906, %3905 ], [ %3901, %3900 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %182)
   br label %4127
 
@@ -10513,8 +10513,8 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %195)
   br label %3342
 
-3583:                                             ; preds = %3581, %3489, %3496, %3516
-  %.pn763.pn.ph = phi { ptr, i32 } [ %.pn760.pn, %3581 ], [ %3490, %3489 ], [ %.pn752.pn.pn.pn, %3516 ], [ %3497, %3496 ]
+3583:                                             ; preds = %3581, %3496, %3489, %3516
+  %.pn763.pn.ph = phi { ptr, i32 } [ %.pn752.pn.pn.pn, %3516 ], [ %3490, %3489 ], [ %3497, %3496 ], [ %.pn760.pn, %3581 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %195) #17
           to label %3582 unwind label %534
 
@@ -10820,8 +10820,8 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %208)
   br label %3342
 
-3684:                                             ; preds = %3682, %3592, %3599, %3619
-  %.pn742.pn.ph = phi { ptr, i32 } [ %.pn739.pn, %3682 ], [ %3593, %3592 ], [ %.pn731.pn.pn.pn, %3619 ], [ %3600, %3599 ]
+3684:                                             ; preds = %3682, %3599, %3592, %3619
+  %.pn742.pn.ph = phi { ptr, i32 } [ %.pn731.pn.pn.pn, %3619 ], [ %3593, %3592 ], [ %3600, %3599 ], [ %.pn739.pn, %3682 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %208) #17
           to label %3683 unwind label %534
 
@@ -11127,8 +11127,8 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %221)
   br label %3342
 
-3785:                                             ; preds = %3783, %3693, %3700, %3720
-  %.pn721.pn.ph = phi { ptr, i32 } [ %.pn718.pn, %3783 ], [ %3694, %3693 ], [ %.pn710.pn.pn.pn, %3720 ], [ %3701, %3700 ]
+3785:                                             ; preds = %3783, %3700, %3693, %3720
+  %.pn721.pn.ph = phi { ptr, i32 } [ %.pn710.pn.pn.pn, %3720 ], [ %3694, %3693 ], [ %3701, %3700 ], [ %.pn718.pn, %3783 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %221) #17
           to label %3784 unwind label %534
 
@@ -11441,13 +11441,13 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %249)
   br label %3890
 
-3889:                                             ; preds = %3887, %3796, %3803, %3823
-  %.pn840.pn.ph = phi { ptr, i32 } [ %.pn837.pn, %3887 ], [ %3797, %3796 ], [ %.pn829.pn.pn.pn, %3823 ], [ %3804, %3803 ]
+3889:                                             ; preds = %3887, %3803, %3796, %3823
+  %.pn840.pn.ph = phi { ptr, i32 } [ %.pn829.pn.pn.pn, %3823 ], [ %3797, %3796 ], [ %3804, %3803 ], [ %.pn837.pn, %3887 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h87be7e4f3e423c9fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %249) #17
           to label %3888 unwind label %534
 
 3890:                                             ; preds = %2525, %2608, %2801, %.thread2458, %3888, %3253, %3244, %4129, %3342
-  %.pn840.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn816.pn.pn.pn.pn.pn, %3342 ], [ %.pn816.pn.pn.pn.pn.pn, %4129 ], [ %2526, %2525 ], [ %.pn673.pn.pn2461, %.thread2458 ], [ %.pn673.pn, %2608 ], [ %2802, %2801 ], [ %.pn840.pn2546, %3888 ], [ %3254, %3253 ], [ %.pn681, %3244 ]
+  %.pn840.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn816.pn.pn.pn.pn.pn, %4129 ], [ %.pn816.pn.pn.pn.pn.pn, %3342 ], [ %.pn673.pn.pn2461, %.thread2458 ], [ %.pn673.pn, %2608 ], [ %2802, %2801 ], [ %2526, %2525 ], [ %.pn840.pn2546, %3888 ], [ %3254, %3253 ], [ %.pn681, %3244 ]
   %3891 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %3891, align 8
   br label %536
@@ -12132,8 +12132,8 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
   call void @llvm.lifetime.end.p0(ptr nonnull %162)
   br label %4127
 
-4125:                                             ; preds = %4123, %4033, %4040, %4060
-  %.pn816.pn.ph = phi { ptr, i32 } [ %.pn813.pn, %4123 ], [ %4034, %4033 ], [ %.pn805.pn.pn.pn, %4060 ], [ %4041, %4040 ]
+4125:                                             ; preds = %4123, %4040, %4033, %4060
+  %.pn816.pn.ph = phi { ptr, i32 } [ %.pn805.pn.pn.pn, %4060 ], [ %4034, %4033 ], [ %4041, %4040 ], [ %.pn813.pn, %4123 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %162) #17
           to label %4124 unwind label %534
 
@@ -12144,12 +12144,12 @@ select.unfold1207.i:                              ; preds = %1431, %.noexc529.i
   br label %4128
 
 4127:                                             ; preds = %4124, %4017, %4008, %.body1658, %4003, %4128, %.body1638
-  %.pn816.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn816.pn.pn.pn.ph, %4128 ], [ %.pn780, %.body1638 ], [ %3983, %.body1658 ], [ %4004, %4003 ], [ %.pn816.pn2561, %4124 ], [ %4018, %4017 ], [ %4009, %4008 ]
+  %.pn816.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn816.pn.pn.pn.ph, %4128 ], [ %.pn780, %.body1638 ], [ %4004, %4003 ], [ %3983, %.body1658 ], [ %.pn816.pn2561, %4124 ], [ %4018, %4017 ], [ %4009, %4008 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %183)
   br label %3342
 
-4128:                                             ; preds = %4126, %3915, %3922, %3942
-  %.pn816.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn796.pn, %4126 ], [ %3916, %3915 ], [ %.pn788.pn.pn.pn, %3942 ], [ %3923, %3922 ]
+4128:                                             ; preds = %4126, %3922, %3915, %3942
+  %.pn816.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn788.pn.pn.pn, %3942 ], [ %3916, %3915 ], [ %3923, %3922 ], [ %.pn796.pn, %4126 ]
   invoke fastcc void @"_ZN4core3ptr244drop_in_place$LT$core..result..Result$LT$aws_smithy_runtime_api..client..interceptors..context..Output$C$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$$GT$17h4a98b1ffef6359c4E"(ptr noalias noundef align 8 dereferenceable(112) %183) #17
           to label %4127 unwind label %534
 
@@ -13479,14 +13479,14 @@ default.unreachable76:                            ; preds = %300, %216, %86, %3
   br label %180
 
 .body.i:                                          ; preds = %183, %187, %174, %170, %166
-  %.pn57.pn.i = phi { ptr, i32 } [ %175, %174 ], [ %171, %170 ], [ %167, %166 ], [ %188, %187 ], [ %184, %183 ]
+  %.pn57.pn.i = phi { ptr, i32 } [ %167, %166 ], [ %175, %174 ], [ %171, %170 ], [ %188, %187 ], [ %184, %183 ]
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 1161
   %156 = load i8, ptr %155, align 1, !range !789, !noalias !1757, !noundef !5
   %157 = trunc nuw i8 %156 to i1
   br i1 %157, label %196, label %192
 
 158:                                              ; preds = %197, %192, %190, %136, %120, %117, %110
-  %.pn60.i = phi { ptr, i32 } [ %191, %190 ], [ %.pn57.pn.i, %197 ], [ %.pn57.pn.i, %192 ], [ %137, %136 ], [ %111, %110 ], [ %127, %120 ], [ %118, %117 ]
+  %.pn60.i = phi { ptr, i32 } [ %191, %190 ], [ %.pn57.pn.i, %197 ], [ %.pn57.pn.i, %192 ], [ %137, %136 ], [ %127, %120 ], [ %118, %117 ], [ %111, %110 ]
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 1160
   store i8 0, ptr %159, align 8, !noalias !1757
   store i8 2, ptr %88, align 2, !noalias !1757
@@ -13652,7 +13652,7 @@ common.ret:                                       ; preds = %627, %617, %201
   br label %212
 
 .body:                                            ; preds = %198, %158
-  %.pn38 = phi { ptr, i32 } [ %.pn60.i, %158 ], [ %199, %198 ]
+  %.pn38 = phi { ptr, i32 } [ %199, %198 ], [ %.pn60.i, %158 ]
   invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_op..$u7b$$u7b$closure$u7d$$u7d$$GT$17h72474e71755f5728E"(ptr noundef nonnull align 8 %87) #17
           to label %78 unwind label %210
 
@@ -13663,7 +13663,7 @@ common.ret:                                       ; preds = %627, %617, %201
   unreachable
 
 212:                                              ; preds = %628, %.body62, %78, %209
-  %.pn48 = phi { ptr, i32 } [ %636, %.body62 ], [ %629, %628 ], [ %.pn40, %78 ], [ %.pn46, %209 ]
+  %.pn48 = phi { ptr, i32 } [ %636, %.body62 ], [ %629, %628 ], [ %.pn46, %209 ], [ %.pn40, %78 ]
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 1089
   %214 = load i8, ptr %213, align 1, !range !789, !noundef !5
   %215 = trunc nuw i8 %214 to i1
@@ -13832,7 +13832,7 @@ common.ret:                                       ; preds = %627, %617, %201
   br label %301
 
 .body65.i:                                        ; preds = %286, %290, %294, %607, %603
-  %.pn56.pn.i = phi { ptr, i32 } [ %608, %607 ], [ %.pn117.pn.i.i, %603 ], [ %291, %290 ], [ %287, %286 ], [ %295, %294 ]
+  %.pn56.pn.i = phi { ptr, i32 } [ %608, %607 ], [ %.pn117.pn.i.i, %603 ], [ %287, %286 ], [ %295, %294 ], [ %291, %290 ]
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 1161
   store i8 0, ptr %274, align 1, !noalias !1781
   %275 = getelementptr inbounds nuw i8, ptr %1, i64 1160
@@ -13841,7 +13841,7 @@ common.ret:                                       ; preds = %627, %617, %201
   br i1 %277, label %613, label %278
 
 278:                                              ; preds = %613, %611, %.body65.i, %262, %246, %243, %236
-  %.pn59.i = phi { ptr, i32 } [ %612, %611 ], [ %.pn56.pn.i, %613 ], [ %.pn56.pn.i, %.body65.i ], [ %263, %262 ], [ %237, %236 ], [ %253, %246 ], [ %244, %243 ]
+  %.pn59.i = phi { ptr, i32 } [ %612, %611 ], [ %.pn56.pn.i, %613 ], [ %.pn56.pn.i, %.body65.i ], [ %263, %262 ], [ %253, %246 ], [ %244, %243 ], [ %237, %236 ]
   %279 = getelementptr inbounds nuw i8, ptr %1, i64 1160
   store i8 0, ptr %279, align 8, !noalias !1781
   store i8 2, ptr %218, align 2, !noalias !1781
@@ -14402,7 +14402,7 @@ common.ret:                                       ; preds = %627, %617, %201
   br label %454
 
 451:                                              ; preds = %449, %356, %336, %329
-  %.pn87.pn.ph.i.i = phi { ptr, i32 } [ %.pn82.pn.pn.pn.i.i, %449 ], [ %330, %329 ], [ %.pn72.pn.pn.pn.pn.pn.i.i, %356 ], [ %337, %336 ]
+  %.pn87.pn.ph.i.i = phi { ptr, i32 } [ %.pn72.pn.pn.pn.pn.pn.i.i, %356 ], [ %330, %329 ], [ %337, %336 ], [ %.pn82.pn.pn.pn.i.i, %449 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %41) #17
           to label %450 unwind label %452, !noalias !1781
 
@@ -14413,7 +14413,7 @@ common.ret:                                       ; preds = %627, %617, %201
   unreachable
 
 454:                                              ; preds = %450, %316, %306
-  %.pn90.i.i = phi { ptr, i32 } [ %307, %306 ], [ %.pn87.pn113.i.i, %450 ], [ %317, %316 ]
+  %.pn90.i.i = phi { ptr, i32 } [ %.pn87.pn113.i.i, %450 ], [ %317, %316 ], [ %307, %306 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !1781
   br label %603
 
@@ -14896,12 +14896,12 @@ common.ret:                                       ; preds = %627, %617, %201
   br label %602
 
 601:                                              ; preds = %599, %506, %486, %479
-  %.pn114.pn.ph.i.i = phi { ptr, i32 } [ %.pn109.pn.pn.pn.i.i, %599 ], [ %480, %479 ], [ %.pn99.pn.pn.pn.pn.pn.i.i, %506 ], [ %487, %486 ]
+  %.pn114.pn.ph.i.i = phi { ptr, i32 } [ %.pn99.pn.pn.pn.pn.pn.i.i, %506 ], [ %480, %479 ], [ %487, %486 ], [ %.pn109.pn.pn.pn.i.i, %599 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %24) #17
           to label %600 unwind label %452, !noalias !1781
 
 602:                                              ; preds = %600, %466, %458
-  %.pn117.i.i = phi { ptr, i32 } [ %459, %458 ], [ %.pn114.pn127.i.i, %600 ], [ %467, %466 ]
+  %.pn117.i.i = phi { ptr, i32 } [ %.pn114.pn127.i.i, %600 ], [ %467, %466 ], [ %459, %458 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !1781
   br label %603
 
@@ -15047,7 +15047,7 @@ common.ret:                                       ; preds = %627, %617, %201
   br label %627
 
 .body57:                                          ; preds = %614, %278
-  %.pn44 = phi { ptr, i32 } [ %.pn59.i, %278 ], [ %615, %614 ]
+  %.pn44 = phi { ptr, i32 } [ %615, %614 ], [ %.pn59.i, %278 ]
   invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$aws_smithy_runtime..client..orchestrator..finally_op..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf5f81e25b393a8efE"(ptr noundef nonnull align 8 %217) #17
           to label %209 unwind label %210
 
@@ -15877,7 +15877,7 @@ default.unreachable3180:                          ; preds = %953, %931, %917, %2
   br label %381
 
 .body:                                            ; preds = %397, %357, %403, %367, %364
-  %.pn599 = phi { ptr, i32 } [ %398, %397 ], [ %404, %403 ], [ %358, %357 ], [ %374, %367 ], [ %365, %364 ]
+  %.pn599 = phi { ptr, i32 } [ %404, %403 ], [ %374, %367 ], [ %365, %364 ], [ %358, %357 ], [ %398, %397 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %273)
   br label %457
 
@@ -16479,7 +16479,7 @@ _ZN4core3mem4swap17hef4e5343614c92c5E.exit:       ; preds = %583
   br label %917
 
 .body1424:                                        ; preds = %1059, %1051, %.body1419, %2013, %592
-  %.pn646 = phi { ptr, i32 } [ %.pn620, %592 ], [ %.pn643.pn2950, %2013 ], [ %.pn624, %.body1419 ], [ %1052, %1051 ], [ %1060, %1059 ]
+  %.pn646 = phi { ptr, i32 } [ %.pn643.pn2950, %2013 ], [ %.pn624, %.body1419 ], [ %.pn620, %592 ], [ %1052, %1051 ], [ %1060, %1059 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %243)
   br label %1910
 
@@ -16810,8 +16810,8 @@ _ZN4core3mem4swap17hef4e5343614c92c5E.exit:       ; preds = %583
   br label %common.ret
 
 common.ret:                                       ; preds = %2793, %2022, %707, %810, %911, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17h65d18ab79dc7a1adE.exit2011", %1802, %1903, %2010, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17h65d18ab79dc7a1adE.exit", %2055, %1050
-  %.sink = phi i8 [ 4, %2022 ], [ 6, %2055 ], [ 1, %707 ], [ 3, %1050 ], [ 1, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17h65d18ab79dc7a1adE.exit" ], [ 1, %2010 ], [ 1, %1903 ], [ 1, %1802 ], [ 1, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17h65d18ab79dc7a1adE.exit2011" ], [ 1, %911 ], [ 1, %810 ], [ 5, %2793 ]
-  %common.ret.op = phi i1 [ true, %2022 ], [ true, %2055 ], [ false, %707 ], [ true, %1050 ], [ false, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17h65d18ab79dc7a1adE.exit" ], [ false, %2010 ], [ false, %1903 ], [ false, %1802 ], [ false, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17h65d18ab79dc7a1adE.exit2011" ], [ false, %911 ], [ false, %810 ], [ true, %2793 ]
+  %.sink = phi i8 [ 6, %2055 ], [ 3, %1050 ], [ 1, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17h65d18ab79dc7a1adE.exit" ], [ 1, %2010 ], [ 1, %1903 ], [ 1, %1802 ], [ 1, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17h65d18ab79dc7a1adE.exit2011" ], [ 1, %911 ], [ 1, %810 ], [ 1, %707 ], [ 4, %2022 ], [ 5, %2793 ]
+  %common.ret.op = phi i1 [ true, %2055 ], [ true, %1050 ], [ false, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17h65d18ab79dc7a1adE.exit" ], [ false, %2010 ], [ false, %1903 ], [ false, %1802 ], [ false, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17h65d18ab79dc7a1adE.exit2011" ], [ false, %911 ], [ false, %810 ], [ false, %707 ], [ true, %2022 ], [ true, %2793 ]
   store i8 %.sink, ptr %301, align 1
   ret i1 %common.ret.op
 
@@ -16826,8 +16826,8 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
   call void @llvm.lifetime.end.p0(ptr nonnull %266)
   br label %711
 
-710:                                              ; preds = %708, %613, %620, %640
-  %.pn1024.pn.ph = phi { ptr, i32 } [ %.pn1021.pn, %708 ], [ %614, %613 ], [ %.pn1013.pn.pn.pn, %640 ], [ %621, %620 ]
+710:                                              ; preds = %708, %620, %613, %640
+  %.pn1024.pn.ph = phi { ptr, i32 } [ %.pn1013.pn.pn.pn, %640 ], [ %614, %613 ], [ %621, %620 ], [ %.pn1021.pn, %708 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h87be7e4f3e423c9fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %266) #17
           to label %709 unwind label %401
 
@@ -16837,7 +16837,7 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
           to label %427 unwind label %401
 
 712:                                              ; preds = %1905, %1116, %1107, %1804, %1133, %1125, %913, %322, %312, %812, %339, %331, %510, %483, %490, %467, %570, %601, %1703, %1101, %457, %347
-  %.pn1032.pn = phi { ptr, i32 } [ %.pn1032, %457 ], [ %.pn1003.pn, %1703 ], [ %313, %312 ], [ %1126, %1125 ], [ %1102, %1101 ], [ %332, %331 ], [ %348, %347 ], [ %491, %490 ], [ %.pn653.pn.pn.pn, %570 ], [ %.pn617.pn, %601 ], [ %.pn609.pn.pn.pn, %510 ], [ %468, %467 ], [ %484, %483 ], [ %.pn588.pn2855, %812 ], [ %340, %339 ], [ %.pn567.pn2863, %913 ], [ %323, %322 ], [ %.pn697.pn2929, %1804 ], [ %1134, %1133 ], [ %.pn676.pn2937, %1905 ], [ %1117, %1116 ], [ %1108, %1107 ]
+  %.pn1032.pn = phi { ptr, i32 } [ %.pn1032, %457 ], [ %.pn1003.pn, %1703 ], [ %1102, %1101 ], [ %348, %347 ], [ %.pn653.pn.pn.pn, %570 ], [ %.pn617.pn, %601 ], [ %468, %467 ], [ %491, %490 ], [ %484, %483 ], [ %.pn609.pn.pn.pn, %510 ], [ %.pn588.pn2855, %812 ], [ %340, %339 ], [ %332, %331 ], [ %.pn567.pn2863, %913 ], [ %323, %322 ], [ %313, %312 ], [ %.pn697.pn2929, %1804 ], [ %1134, %1133 ], [ %1126, %1125 ], [ %.pn676.pn2937, %1905 ], [ %1117, %1116 ], [ %1108, %1107 ]
   store i8 2, ptr %301, align 1
   resume { ptr, i32 } %.pn1032.pn
 
@@ -17143,8 +17143,8 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
   call void @llvm.lifetime.end.p0(ptr nonnull %286)
   br label %712
 
-813:                                              ; preds = %811, %721, %728, %748
-  %.pn588.pn.ph = phi { ptr, i32 } [ %.pn585.pn, %811 ], [ %722, %721 ], [ %.pn577.pn.pn.pn, %748 ], [ %729, %728 ]
+813:                                              ; preds = %811, %728, %721, %748
+  %.pn588.pn.ph = phi { ptr, i32 } [ %.pn577.pn.pn.pn, %748 ], [ %722, %721 ], [ %729, %728 ], [ %.pn585.pn, %811 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %286) #17
           to label %812 unwind label %401
 
@@ -17450,8 +17450,8 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
   call void @llvm.lifetime.end.p0(ptr nonnull %299)
   br label %712
 
-914:                                              ; preds = %912, %822, %829, %849
-  %.pn567.pn.ph = phi { ptr, i32 } [ %.pn564.pn, %912 ], [ %823, %822 ], [ %.pn556.pn.pn.pn, %849 ], [ %830, %829 ]
+914:                                              ; preds = %912, %829, %822, %849
+  %.pn567.pn.ph = phi { ptr, i32 } [ %.pn556.pn.pn.pn, %849 ], [ %823, %822 ], [ %830, %829 ], [ %.pn564.pn, %912 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %299) #17
           to label %913 unwind label %401
 
@@ -17643,7 +17643,7 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
   br label %.body53.i.i
 
 .body53.i.i:                                      ; preds = %1006, %.loopexit.split-lp.i.i, %.loopexit.i.i, %970, %966
-  %.pn42.pn.i.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ], [ %1007, %1006 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %967, %966 ], [ %971, %970 ]
+  %.pn42.pn.i.i = phi { ptr, i32 } [ %1007, %1006 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ], [ %971, %970 ], [ %967, %966 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %972 = getelementptr inbounds nuw i8, ptr %0, i64 488
   invoke void @"_ZN4core3ptr52drop_in_place$LT$aws_smithy_types..body..SdkBody$GT$17hde9627320f226c92E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %972) #17
@@ -17900,7 +17900,7 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
   br label %1049
 
 .body.i:                                          ; preds = %1034, %1031
-  %.pn11.i = phi { ptr, i32 } [ %.pn48.i.i, %1031 ], [ %1035, %1034 ]
+  %.pn11.i = phi { ptr, i32 } [ %1035, %1034 ], [ %.pn48.i.i, %1031 ]
   invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$aws_smithy_types..byte_stream..Inner..collect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ce5f5d3ec98d5e2E"(ptr noundef nonnull align 8 %932) #17
           to label %927 unwind label %1045, !noalias !2225
 
@@ -18444,7 +18444,7 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
           to label %2043 unwind label %2041
 
 .body1770:                                        ; preds = %3182, %2355, %2039, %1701, %1697, %1366, %1269, %1371, %1206, %1179, %1186, %1268, %2046, %2041, %1597, %.body1676, %1156
-  %.pn1003 = phi { ptr, i32 } [ %1698, %1697 ], [ %.pn997.pn.pn.pn.pn, %2046 ], [ %2042, %2041 ], [ %.pn809.pn, %1268 ], [ %.pn723.pn.ph, %1701 ], [ %2356, %2355 ], [ %1180, %1179 ], [ %.pn791.pn.ph, %1371 ], [ %1367, %1366 ], [ %1157, %1156 ], [ %2040, %2039 ], [ %3183, %3182 ], [ %.pn801.pn.pn.pn, %1206 ], [ %.pn770, %.body1676 ], [ %.pn743.pn.pn, %1597 ], [ %1270, %1269 ], [ %1187, %1186 ]
+  %.pn1003 = phi { ptr, i32 } [ %.pn997.pn.pn.pn.pn, %2046 ], [ %2042, %2041 ], [ %.pn809.pn, %1268 ], [ %.pn770, %.body1676 ], [ %.pn743.pn.pn, %1597 ], [ %1157, %1156 ], [ %1187, %1186 ], [ %1180, %1179 ], [ %.pn801.pn.pn.pn, %1206 ], [ %.pn791.pn.ph, %1371 ], [ %1367, %1366 ], [ %1270, %1269 ], [ %.pn723.pn.ph, %1701 ], [ %1698, %1697 ], [ %2040, %2039 ], [ %2356, %2355 ], [ %3183, %3182 ]
   %1245 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1246 = load i64, ptr %1245, align 8, !range !202, !noundef !5
   %.not1005 = icmp eq i64 %1246, 0
@@ -18836,8 +18836,8 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
   call void @llvm.lifetime.end.p0(ptr nonnull %186)
   br label %1371
 
-1371:                                             ; preds = %1370, %1278, %1285, %1305
-  %.pn791.pn.ph = phi { ptr, i32 } [ %.pn786.pn, %1370 ], [ %1279, %1278 ], [ %.pn778.pn.pn.pn, %1305 ], [ %1286, %1285 ]
+1371:                                             ; preds = %1370, %1285, %1278, %1305
+  %.pn791.pn.ph = phi { ptr, i32 } [ %.pn778.pn.pn.pn, %1305 ], [ %1279, %1278 ], [ %1286, %1285 ], [ %.pn786.pn, %1370 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E"(ptr %1163, ptr nonnull @anon.f9b583159730a5a8946e561fc02c84c0.1) #17
           to label %.body1770 unwind label %401
 
@@ -19073,7 +19073,7 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
           to label %1490 unwind label %1488
 
 .body1676:                                        ; preds = %2032, %2028, %1423, %1396, %1403, %1495, %2020, %1488
-  %.pn770 = phi { ptr, i32 } [ %1404, %1403 ], [ %2021, %2020 ], [ %.pn755.pn.pn.pn, %1423 ], [ %1489, %1488 ], [ %.pn765.pn, %1495 ], [ %2033, %2032 ], [ %2029, %2028 ], [ %1397, %1396 ]
+  %.pn770 = phi { ptr, i32 } [ %2021, %2020 ], [ %1489, %1488 ], [ %.pn765.pn, %1495 ], [ %1404, %1403 ], [ %1397, %1396 ], [ %.pn755.pn.pn.pn, %1423 ], [ %2033, %2032 ], [ %2029, %2028 ]
   %1465 = getelementptr inbounds nuw i8, ptr %0, i64 96
   invoke void @"_ZN4core3ptr66drop_in_place$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$17h2c41812b7bed9528E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1465) #17
           to label %.body1770 unwind label %401
@@ -19477,8 +19477,8 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
   call void @llvm.lifetime.end.p0(ptr nonnull %164)
   br label %1597
 
-1596:                                             ; preds = %1594, %1504, %1511, %1531
-  %.pn743.pn.ph = phi { ptr, i32 } [ %.pn740.pn, %1594 ], [ %1505, %1504 ], [ %.pn732.pn.pn.pn, %1531 ], [ %1512, %1511 ]
+1596:                                             ; preds = %1594, %1511, %1504, %1531
+  %.pn743.pn.ph = phi { ptr, i32 } [ %.pn732.pn.pn.pn, %1531 ], [ %1505, %1504 ], [ %1512, %1511 ], [ %.pn740.pn, %1594 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h87be7e4f3e423c9fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %164) #17
           to label %1595 unwind label %401
 
@@ -19784,8 +19784,8 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
   call void @llvm.lifetime.end.p0(ptr nonnull %175)
   br label %1701
 
-1701:                                             ; preds = %1700, %1610, %1617, %1637
-  %.pn723.pn.ph = phi { ptr, i32 } [ %.pn718.pn, %1700 ], [ %1611, %1610 ], [ %.pn710.pn.pn.pn, %1637 ], [ %1618, %1617 ]
+1701:                                             ; preds = %1700, %1617, %1610, %1637
+  %.pn723.pn.ph = phi { ptr, i32 } [ %.pn710.pn.pn.pn, %1637 ], [ %1611, %1610 ], [ %1618, %1617 ], [ %.pn718.pn, %1700 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E"(ptr nonnull %1600, ptr nonnull %1602) #17
           to label %.body1770 unwind label %401
 
@@ -20102,8 +20102,8 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
   call void @llvm.lifetime.end.p0(ptr nonnull %210)
   br label %712
 
-1805:                                             ; preds = %1803, %1713, %1720, %1740
-  %.pn697.pn.ph = phi { ptr, i32 } [ %.pn694.pn, %1803 ], [ %1714, %1713 ], [ %.pn686.pn.pn.pn, %1740 ], [ %1721, %1720 ]
+1805:                                             ; preds = %1803, %1720, %1713, %1740
+  %.pn697.pn.ph = phi { ptr, i32 } [ %.pn686.pn.pn.pn, %1740 ], [ %1714, %1713 ], [ %1721, %1720 ], [ %.pn694.pn, %1803 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %210) #17
           to label %1804 unwind label %401
 
@@ -20409,8 +20409,8 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
   call void @llvm.lifetime.end.p0(ptr nonnull %223)
   br label %712
 
-1906:                                             ; preds = %1904, %1814, %1821, %1841
-  %.pn676.pn.ph = phi { ptr, i32 } [ %.pn673.pn, %1904 ], [ %1815, %1814 ], [ %.pn665.pn.pn.pn, %1841 ], [ %1822, %1821 ]
+1906:                                             ; preds = %1904, %1821, %1814, %1841
+  %.pn676.pn.ph = phi { ptr, i32 } [ %.pn665.pn.pn.pn, %1841 ], [ %1815, %1814 ], [ %1822, %1821 ], [ %.pn673.pn, %1904 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %223) #17
           to label %1905 unwind label %401
 
@@ -20743,13 +20743,13 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
   call void @llvm.lifetime.end.p0(ptr nonnull %238)
   br label %.body1424
 
-2014:                                             ; preds = %2012, %1920, %1927, %1947
-  %.pn643.pn.ph = phi { ptr, i32 } [ %.pn640.pn, %2012 ], [ %1921, %1920 ], [ %.pn632.pn.pn.pn, %1947 ], [ %1928, %1927 ]
+2014:                                             ; preds = %2012, %1927, %1920, %1947
+  %.pn643.pn.ph = phi { ptr, i32 } [ %.pn632.pn.pn.pn, %1947 ], [ %1921, %1920 ], [ %1928, %1927 ], [ %.pn640.pn, %2012 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h87be7e4f3e423c9fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %238) #17
           to label %2013 unwind label %401
 
 .body1419:                                        ; preds = %1047, %927
-  %.pn624 = phi { ptr, i32 } [ %.pn14.i, %927 ], [ %1048, %1047 ]
+  %.pn624 = phi { ptr, i32 } [ %1048, %1047 ], [ %.pn14.i, %927 ]
   invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$aws_smithy_types..byte_stream..ByteStream..collect..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfea986cbdd72694dE"(ptr noundef nonnull align 8 %918) #17
           to label %.body1424 unwind label %401
 
@@ -20837,7 +20837,7 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
   br label %2413
 
 2046:                                             ; preds = %2579, %2552, %2559, %2452, %2425, %2432, %2537, %2638, %.body1904, %2959, %2639, %2649, %2644, %2961
-  %.pn997.pn.pn.pn.pn = phi { ptr, i32 } [ %2553, %2552 ], [ %.pn997.pn, %2638 ], [ %.pn979.pn.pn, %2959 ], [ %.pn860, %.body1904 ], [ %2650, %2649 ], [ %2645, %2644 ], [ %2640, %2639 ], [ %.pn830.pn, %2961 ], [ %.pn989.pn.pn.pn, %2579 ], [ %2433, %2432 ], [ %2426, %2425 ], [ %.pn820.pn.pn.pn, %2452 ], [ %2560, %2559 ], [ %2538, %2537 ]
+  %.pn997.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn979.pn.pn, %2959 ], [ %.pn860, %.body1904 ], [ %2650, %2649 ], [ %2645, %2644 ], [ %2640, %2639 ], [ %.pn830.pn, %2961 ], [ %.pn997.pn, %2638 ], [ %2538, %2537 ], [ %2433, %2432 ], [ %2426, %2425 ], [ %.pn820.pn.pn.pn, %2452 ], [ %2560, %2559 ], [ %2553, %2552 ], [ %.pn989.pn.pn.pn, %2579 ]
   invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$$LP$core..time..Duration$C$aws_smithy_async..rt..sleep..Sleep$RP$$GT$$GT$17h65d18ab79dc7a1adE"(ptr noalias noundef align 8 dereferenceable(32) %0) #17
           to label %.body1770 unwind label %401
 
@@ -20871,7 +20871,7 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
   br label %common.ret
 
 .body1683:                                        ; preds = %2069, %2064, %2049, %2954, %2056
-  %.pn883 = phi { ptr, i32 } [ %2955, %2954 ], [ %2057, %2056 ], [ %2050, %2049 ], [ %2070, %2069 ], [ %2065, %2064 ]
+  %.pn883 = phi { ptr, i32 } [ %2057, %2056 ], [ %2050, %2049 ], [ %2955, %2954 ], [ %2070, %2069 ], [ %2065, %2064 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %2342
 
@@ -21392,13 +21392,13 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %2342
 
-2210:                                             ; preds = %2209, %2087, %2094, %2114
-  %.pn907.pn.ph = phi { ptr, i32 } [ %.pn902.pn.pn.pn, %2209 ], [ %2088, %2087 ], [ %.pn892.pn.pn.pn.pn.pn, %2114 ], [ %2095, %2094 ]
+2210:                                             ; preds = %2209, %2094, %2087, %2114
+  %.pn907.pn.ph = phi { ptr, i32 } [ %.pn892.pn.pn.pn.pn.pn, %2114 ], [ %2088, %2087 ], [ %2095, %2094 ], [ %.pn902.pn.pn.pn, %2209 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h87be7e4f3e423c9fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %89) #17
           to label %.thread2982 unwind label %401
 
 2211:                                             ; preds = %2279, %2252, %2259, %2359, %.body1775, %2235
-  %.pn975.pn.pn = phi { ptr, i32 } [ %.pn975.pn, %2359 ], [ %.pn933, %2235 ], [ %.pn959, %.body1775 ], [ %2253, %2252 ], [ %2260, %2259 ], [ %.pn967.pn.pn.pn, %2279 ]
+  %.pn975.pn.pn = phi { ptr, i32 } [ %.pn975.pn, %2359 ], [ %.pn959, %.body1775 ], [ %.pn933, %2235 ], [ %2260, %2259 ], [ %2253, %2252 ], [ %.pn967.pn.pn.pn, %2279 ]
   %2212 = load i16, ptr %95, align 8, !range !1098, !noundef !5
   %2213 = icmp ne i16 %2212, 11
   %or.cond7 = and i1 %2059, %2213
@@ -22902,7 +22902,7 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
   br label %2703
 
 .body1899:                                        ; preds = %2803, %2799, %2703, %2676, %2683, %2805, %2791
-  %.pn857 = phi { ptr, i32 } [ %2684, %2683 ], [ %2792, %2791 ], [ %.pn842.pn.pn.pn, %2703 ], [ %.pn852.pn, %2805 ], [ %2804, %2803 ], [ %2800, %2799 ], [ %2677, %2676 ]
+  %.pn857 = phi { ptr, i32 } [ %2792, %2791 ], [ %.pn852.pn, %2805 ], [ %2684, %2683 ], [ %2677, %2676 ], [ %.pn842.pn.pn.pn, %2703 ], [ %2804, %2803 ], [ %2800, %2799 ]
   %2741 = getelementptr inbounds nuw i8, ptr %0, i64 90
   %2742 = load i8, ptr %2741, align 2, !range !789, !noundef !5
   %2743 = trunc nuw i8 %2742 to i1
@@ -23118,7 +23118,7 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
           to label %2806 unwind label %401
 
 .body1904:                                        ; preds = %2829, %2825, %2806
-  %.pn860 = phi { ptr, i32 } [ %2826, %2825 ], [ %.pn857, %2806 ], [ %2830, %2829 ]
+  %.pn860 = phi { ptr, i32 } [ %.pn857, %2806 ], [ %2830, %2829 ], [ %2826, %2825 ]
   %2808 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i8 0, ptr %2808, align 8
   br label %2046
@@ -23390,7 +23390,7 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
           to label %2956 unwind label %2954
 
 2914:                                             ; preds = %2869, %2842, %2849, %2958, %2342
-  %.pn979.pn = phi { ptr, i32 } [ %.pn979, %2342 ], [ %.pn876.pn, %2958 ], [ %2850, %2849 ], [ %.pn868.pn.pn.pn, %2869 ], [ %2843, %2842 ]
+  %.pn979.pn = phi { ptr, i32 } [ %.pn979, %2342 ], [ %.pn876.pn, %2958 ], [ %2850, %2849 ], [ %2843, %2842 ], [ %.pn868.pn.pn.pn, %2869 ]
   %2915 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %2916 = load i8, ptr %2915, align 1, !range !789, !noundef !5
   %2917 = trunc nuw i8 %2916 to i1
@@ -23871,8 +23871,8 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %.body1775
 
-3066:                                             ; preds = %3064, %2971, %2978, %2998
-  %.pn953.pn.ph = phi { ptr, i32 } [ %.pn950.pn, %3064 ], [ %2972, %2971 ], [ %.pn942.pn.pn.pn, %2998 ], [ %2979, %2978 ]
+3066:                                             ; preds = %3064, %2978, %2971, %2998
+  %.pn953.pn.ph = phi { ptr, i32 } [ %.pn942.pn.pn.pn, %2998 ], [ %2972, %2971 ], [ %2979, %2978 ], [ %.pn950.pn, %3064 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h87be7e4f3e423c9fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %48) #17
           to label %3065 unwind label %401
 
@@ -24238,8 +24238,8 @@ common.ret:                                       ; preds = %2793, %2022, %707, 
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %3190
 
-3189:                                             ; preds = %3187, %3078, %3085, %3105
-  %.pn929.pn.ph = phi { ptr, i32 } [ %.pn926.pn, %3187 ], [ %3079, %3078 ], [ %.pn918.pn.pn.pn, %3105 ], [ %3086, %3085 ]
+3189:                                             ; preds = %3187, %3085, %3078, %3105
+  %.pn929.pn.ph = phi { ptr, i32 } [ %.pn918.pn.pn.pn, %3105 ], [ %3079, %3078 ], [ %3086, %3085 ], [ %.pn926.pn, %3187 ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h87be7e4f3e423c9fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %71) #17
           to label %3188 unwind label %401
 
@@ -24910,7 +24910,7 @@ default.unreachable149:                           ; preds = %422, %338, %208, %3
           to label %202 unwind label %200
 
 157:                                              ; preds = %107, %80, %87, %205, %335, %204
-  %.pn62.pn = phi { ptr, i32 } [ %.pn62, %335 ], [ %.pn58, %204 ], [ %.pn51.pn, %205 ], [ %88, %87 ], [ %.pn41.pn.pn.pn, %107 ], [ %81, %80 ]
+  %.pn62.pn = phi { ptr, i32 } [ %.pn62, %335 ], [ %.pn58, %204 ], [ %.pn51.pn, %205 ], [ %88, %87 ], [ %81, %80 ], [ %.pn41.pn.pn.pn, %107 ]
   store i8 2, ptr %68, align 8
   resume { ptr, i32 } %.pn62.pn
 
@@ -25260,14 +25260,14 @@ default.unreachable149:                           ; preds = %422, %338, %208, %3
   br label %301
 
 .body.i:                                          ; preds = %304, %308, %295, %291, %287
-  %.pn57.pn.i = phi { ptr, i32 } [ %296, %295 ], [ %292, %291 ], [ %288, %287 ], [ %309, %308 ], [ %305, %304 ]
+  %.pn57.pn.i = phi { ptr, i32 } [ %288, %287 ], [ %296, %295 ], [ %292, %291 ], [ %309, %308 ], [ %305, %304 ]
   %276 = getelementptr inbounds nuw i8, ptr %1, i64 113
   %277 = load i8, ptr %276, align 1, !range !789, !noalias !3318, !noundef !5
   %278 = trunc nuw i8 %277 to i1
   br i1 %278, label %317, label %313
 
 279:                                              ; preds = %318, %313, %311, %258, %242, %239, %232
-  %.pn60.i = phi { ptr, i32 } [ %312, %311 ], [ %.pn57.pn.i, %318 ], [ %.pn57.pn.i, %313 ], [ %259, %258 ], [ %233, %232 ], [ %249, %242 ], [ %240, %239 ]
+  %.pn60.i = phi { ptr, i32 } [ %312, %311 ], [ %.pn57.pn.i, %318 ], [ %.pn57.pn.i, %313 ], [ %259, %258 ], [ %249, %242 ], [ %240, %239 ], [ %233, %232 ]
   %280 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i8 0, ptr %280, align 8, !noalias !3318
   store i8 2, ptr %210, align 2, !noalias !3318
@@ -25442,7 +25442,7 @@ common.ret:                                       ; preds = %742, %739, %322
   br label %157
 
 .body:                                            ; preds = %319, %279
-  %.pn56 = phi { ptr, i32 } [ %.pn60.i, %279 ], [ %320, %319 ]
+  %.pn56 = phi { ptr, i32 } [ %320, %319 ], [ %.pn60.i, %279 ]
   invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$aws_smithy_runtime..client..orchestrator..try_attempt..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7bc9db5393d35afdE"(ptr noundef nonnull align 8 %209) #17
           to label %204 unwind label %336
 
@@ -25615,7 +25615,7 @@ common.ret:                                       ; preds = %742, %739, %322
   br label %423
 
 .body65.i:                                        ; preds = %408, %412, %416, %729, %725
-  %.pn56.pn.i = phi { ptr, i32 } [ %730, %729 ], [ %.pn117.pn.i.i, %725 ], [ %413, %412 ], [ %409, %408 ], [ %417, %416 ]
+  %.pn56.pn.i = phi { ptr, i32 } [ %730, %729 ], [ %.pn117.pn.i.i, %725 ], [ %409, %408 ], [ %417, %416 ], [ %413, %412 ]
   %396 = getelementptr inbounds nuw i8, ptr %1, i64 113
   store i8 0, ptr %396, align 1, !noalias !3342
   %397 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -25624,7 +25624,7 @@ common.ret:                                       ; preds = %742, %739, %322
   br i1 %399, label %735, label %400
 
 400:                                              ; preds = %735, %733, %.body65.i, %384, %368, %365, %358
-  %.pn59.i = phi { ptr, i32 } [ %734, %733 ], [ %.pn56.pn.i, %735 ], [ %.pn56.pn.i, %.body65.i ], [ %385, %384 ], [ %359, %358 ], [ %375, %368 ], [ %366, %365 ]
+  %.pn59.i = phi { ptr, i32 } [ %734, %733 ], [ %.pn56.pn.i, %735 ], [ %.pn56.pn.i, %.body65.i ], [ %385, %384 ], [ %375, %368 ], [ %366, %365 ], [ %359, %358 ]
   %401 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i8 0, ptr %401, align 8, !noalias !3342
   store i8 2, ptr %340, align 2, !noalias !3342
@@ -26185,7 +26185,7 @@ common.ret:                                       ; preds = %742, %739, %322
   br label %576
 
 573:                                              ; preds = %571, %478, %458, %451
-  %.pn87.pn.ph.i.i = phi { ptr, i32 } [ %.pn82.pn.pn.pn.i.i, %571 ], [ %452, %451 ], [ %.pn72.pn.pn.pn.pn.pn.i.i, %478 ], [ %459, %458 ]
+  %.pn87.pn.ph.i.i = phi { ptr, i32 } [ %.pn72.pn.pn.pn.pn.pn.i.i, %478 ], [ %452, %451 ], [ %459, %458 ], [ %.pn82.pn.pn.pn.i.i, %571 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %40) #17
           to label %572 unwind label %574, !noalias !3342
 
@@ -26196,7 +26196,7 @@ common.ret:                                       ; preds = %742, %739, %322
   unreachable
 
 576:                                              ; preds = %572, %438, %428
-  %.pn90.i.i = phi { ptr, i32 } [ %429, %428 ], [ %.pn87.pn113.i.i, %572 ], [ %439, %438 ]
+  %.pn90.i.i = phi { ptr, i32 } [ %.pn87.pn113.i.i, %572 ], [ %439, %438 ], [ %429, %428 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !3342
   br label %725
 
@@ -26679,12 +26679,12 @@ common.ret:                                       ; preds = %742, %739, %322
   br label %724
 
 723:                                              ; preds = %721, %628, %608, %601
-  %.pn114.pn.ph.i.i = phi { ptr, i32 } [ %.pn109.pn.pn.pn.i.i, %721 ], [ %602, %601 ], [ %.pn99.pn.pn.pn.pn.pn.i.i, %628 ], [ %609, %608 ]
+  %.pn114.pn.ph.i.i = phi { ptr, i32 } [ %.pn99.pn.pn.pn.pn.pn.i.i, %628 ], [ %602, %601 ], [ %609, %608 ], [ %.pn109.pn.pn.pn.i.i, %721 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..error..InterceptorError$GT$17hd9d11319f4c4adc2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %23) #17
           to label %722 unwind label %574, !noalias !3342
 
 724:                                              ; preds = %722, %588, %580
-  %.pn117.i.i = phi { ptr, i32 } [ %581, %580 ], [ %.pn114.pn127.i.i, %722 ], [ %589, %588 ]
+  %.pn117.i.i = phi { ptr, i32 } [ %.pn114.pn127.i.i, %722 ], [ %589, %588 ], [ %581, %580 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !3342
   br label %725
 
@@ -26753,7 +26753,7 @@ common.ret:                                       ; preds = %742, %739, %322
   br label %common.ret
 
 .body100:                                         ; preds = %736, %400
-  %.pn60 = phi { ptr, i32 } [ %.pn59.i, %400 ], [ %737, %736 ]
+  %.pn60 = phi { ptr, i32 } [ %737, %736 ], [ %.pn59.i, %400 ]
   invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$aws_smithy_runtime..client..orchestrator..finally_attempt..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4df24ec44afe6e7fE"(ptr noundef nonnull align 8 %339) #17
           to label %335 unwind label %336
 }
@@ -27494,7 +27494,7 @@ common.ret:                                       ; preds = %1, %20
   br i1 %15, label %21, label %20
 
 .body:                                            ; preds = %10, %6
-  %.pn = phi { ptr, i32 } [ %7, %6 ], [ %11, %10 ]
+  %.pn = phi { ptr, i32 } [ %11, %10 ], [ %7, %6 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 65
   store i8 0, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -27708,7 +27708,7 @@ common.ret:                                       ; preds = %1, %20
   br i1 %15, label %21, label %20
 
 .body:                                            ; preds = %10, %6
-  %.pn = phi { ptr, i32 } [ %7, %6 ], [ %11, %10 ]
+  %.pn = phi { ptr, i32 } [ %11, %10 ], [ %7, %6 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 65
   store i8 0, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -28383,7 +28383,7 @@ common.ret:                                       ; preds = %31, %"_ZN4core3ptr6
   br label %common.ret
 
 .body9:                                           ; preds = %72, %62, %66, %42, %.body
-  %.pn2 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn, %66 ], [ %43, %42 ], [ %73, %72 ], [ %63, %62 ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %66 ], [ %43, %42 ], [ %eh.lpad-body, %.body ], [ %73, %72 ], [ %63, %62 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 91
   store i8 0, ptr %75, align 1
   br label %33
@@ -28531,7 +28531,7 @@ common.ret:                                       ; preds = %6, %4, %"_ZN4core3p
   unreachable
 
 .body:                                            ; preds = %48, %21, %33, %42
-  %.pn4 = phi { ptr, i32 } [ %.pn, %33 ], [ %43, %42 ], [ %49, %48 ], [ %22, %21 ]
+  %.pn4 = phi { ptr, i32 } [ %43, %42 ], [ %.pn, %33 ], [ %49, %48 ], [ %22, %21 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %47, align 8
   resume { ptr, i32 } %.pn4
@@ -28632,7 +28632,7 @@ define hidden void @"_ZN4core3ptr188drop_in_place$LT$aws_smithy_runtime_api..cli
   unreachable
 
 common.resume:                                    ; preds = %.body.i, %.body.i.i, %27, %17, %7
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr192drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h43c1dff3a6e5acf3E.exit": ; preds = %5

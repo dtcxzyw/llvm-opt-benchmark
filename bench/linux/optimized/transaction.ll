@@ -296,7 +296,7 @@ define dso_local ptr @jbd2__journal_start(ptr noundef %0, i32 noundef %1, i32 no
   br label %.thread
 
 .thread:                                          ; preds = %24, %.thread11, %98, %94, %81, %64, %60, %20, %7
-  %101 = phi ptr [ %11, %20 ], [ %63, %60 ], [ inttoptr (i64 -12 to ptr), %.thread11 ], [ inttoptr (i64 -30 to ptr), %7 ], [ %32, %98 ], [ %32, %64 ], [ %32, %81 ], [ %32, %94 ], [ inttoptr (i64 -12 to ptr), %24 ]
+  %101 = phi ptr [ %11, %20 ], [ %63, %60 ], [ inttoptr (i64 -30 to ptr), %7 ], [ %32, %64 ], [ %32, %81 ], [ %32, %94 ], [ %32, %98 ], [ inttoptr (i64 -12 to ptr), %.thread11 ], [ inttoptr (i64 -12 to ptr), %24 ]
   ret ptr %101
 }
 
@@ -3952,7 +3952,7 @@ define dso_local range(i32 -16, 1) i32 @jbd2_journal_invalidate_folio(ptr nounde
   br label %.loopexit
 
 select.unfold:                                    ; preds = %106, %142, %125
-  %.ph = phi i32 [ %145, %142 ], [ 0, %125 ], [ 0, %106 ]
+  %.ph = phi i32 [ 0, %125 ], [ %145, %142 ], [ 0, %106 ]
   tail call void @unlock_buffer(ptr noundef %52) #11
   br label %147
 

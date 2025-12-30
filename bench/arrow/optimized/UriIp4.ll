@@ -72,7 +72,7 @@ define range(i32 0, 2) i32 @uriParseIpFourAddressA(ptr noundef %0, ptr noundef c
   br label %31
 
 31:                                               ; preds = %25, %18, %23, %12, %16, %7, %10, %3, %29
-  %.0 = phi i32 [ 0, %29 ], [ 1, %3 ], [ 1, %7 ], [ 1, %12 ], [ 1, %18 ], [ 1, %10 ], [ 1, %16 ], [ 1, %23 ], [ 1, %25 ]
+  %.0 = phi i32 [ 0, %29 ], [ 1, %3 ], [ 1, %10 ], [ 1, %7 ], [ 1, %16 ], [ 1, %12 ], [ 1, %23 ], [ 1, %18 ], [ 1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -182,8 +182,8 @@ define internal fastcc ptr @uriParseDecOctetA(ptr noundef nonnull %0, ptr nounde
   br label %uriParseDecOctetThreeA.exit.sink.split.i
 
 uriParseDecOctetThreeA.exit.sink.split.i:         ; preds = %31, %29, %25
-  %.off.i22.sink.i = phi i8 [ %.off.i.i24, %25 ], [ %32, %31 ], [ %.off.i22.i, %29 ]
-  %.sink.i = phi i64 [ 2, %25 ], [ 1, %31 ], [ 2, %29 ]
+  %.off.i22.sink.i = phi i8 [ %32, %31 ], [ %.off.i.i24, %25 ], [ %.off.i22.i, %29 ]
+  %.sink.i = phi i64 [ 1, %31 ], [ 2, %25 ], [ 2, %29 ]
   tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %.off.i22.sink.i) #4
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 %.sink.i
   br label %uriParseDecOctetOneA.exit
@@ -207,7 +207,7 @@ uriParseDecOctetThreeA.exit.sink.split.i:         ; preds = %31, %29, %25
   br label %uriParseDecOctetOneA.exit
 
 uriParseDecOctetOneA.exit:                        ; preds = %39, %37, %34, %uriParseDecOctetThreeA.exit.sink.split.i, %29, %27, %25, %22, %20, %18, %16, %14, %12, %10, %8, %4, %3, %6
-  %.0 = phi ptr [ %33, %uriParseDecOctetThreeA.exit.sink.split.i ], [ null, %3 ], [ %7, %6 ], [ null, %4 ], [ %13, %14 ], [ %9, %10 ], [ %2, %8 ], [ %17, %16 ], [ %2, %12 ], [ %28, %29 ], [ %2, %18 ], [ %19, %20 ], [ %24, %25 ], [ %2, %27 ], [ %2, %22 ], [ %40, %39 ], [ %2, %34 ], [ %36, %37 ]
+  %.0 = phi ptr [ %7, %6 ], [ null, %3 ], [ null, %4 ], [ %2, %8 ], [ %9, %10 ], [ %17, %16 ], [ %2, %12 ], [ %13, %14 ], [ %2, %18 ], [ %19, %20 ], [ %2, %22 ], [ %24, %25 ], [ %2, %27 ], [ %28, %29 ], [ %33, %uriParseDecOctetThreeA.exit.sink.split.i ], [ %40, %39 ], [ %2, %34 ], [ %36, %37 ]
   ret ptr %.0
 }
 
@@ -280,7 +280,7 @@ define range(i32 0, 2) i32 @uriParseIpFourAddressW(ptr noundef %0, ptr noundef c
   br label %31
 
 31:                                               ; preds = %25, %18, %23, %12, %16, %7, %10, %3, %29
-  %.0 = phi i32 [ 0, %29 ], [ 1, %3 ], [ 1, %7 ], [ 1, %12 ], [ 1, %18 ], [ 1, %10 ], [ 1, %16 ], [ 1, %23 ], [ 1, %25 ]
+  %.0 = phi i32 [ 0, %29 ], [ 1, %3 ], [ 1, %10 ], [ 1, %7 ], [ 1, %16 ], [ 1, %12 ], [ 1, %23 ], [ 1, %18 ], [ 1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -421,7 +421,7 @@ uriParseDecOctetThreeW.exit.sink.split.i:         ; preds = %34, %30, %24, %24, 
   br label %uriParseDecOctetOneW.exit
 
 uriParseDecOctetOneW.exit:                        ; preds = %45, %43, %39, %uriParseDecOctetThreeW.exit.sink.split.i, %34, %32, %30, %26, %24, %22, %18, %16, %12, %10, %8, %4, %3, %6
-  %.0 = phi ptr [ %38, %uriParseDecOctetThreeW.exit.sink.split.i ], [ null, %3 ], [ %7, %6 ], [ null, %4 ], [ %15, %16 ], [ %9, %10 ], [ %2, %8 ], [ %21, %18 ], [ %2, %12 ], [ %33, %34 ], [ %2, %22 ], [ %23, %24 ], [ %29, %30 ], [ %2, %32 ], [ %2, %26 ], [ %48, %45 ], [ %2, %39 ], [ %42, %43 ]
+  %.0 = phi ptr [ %7, %6 ], [ null, %3 ], [ null, %4 ], [ %2, %8 ], [ %9, %10 ], [ %21, %18 ], [ %2, %12 ], [ %15, %16 ], [ %2, %22 ], [ %23, %24 ], [ %2, %26 ], [ %29, %30 ], [ %2, %32 ], [ %33, %34 ], [ %38, %uriParseDecOctetThreeW.exit.sink.split.i ], [ %48, %45 ], [ %2, %39 ], [ %42, %43 ]
   ret ptr %.0
 }
 

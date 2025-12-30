@@ -210,8 +210,8 @@ _ZN5ZXing5Aztec13EncodingStateD2Ev.exit34:        ; preds = %2
   %98 = icmp eq i32 %87, 32
   br i1 %98, label %select.unfold, label %277
 
-select.unfold:                                    ; preds = %95, %93, %91, %97
-  %.027 = phi i32 [ 3, %93 ], [ 2, %91 ], [ 5, %97 ], [ 4, %95 ]
+select.unfold:                                    ; preds = %97, %95, %93, %91
+  %.027 = phi i32 [ 2, %91 ], [ 3, %93 ], [ 4, %95 ], [ 5, %97 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !32
   store ptr %17, ptr %32, align 8, !tbaa !3, !noalias !32
@@ -659,7 +659,7 @@ _ZN5ZXing5Aztec13EncodingStateD2Ev.exit63.i.i:    ; preds = %265, %263
   %.pre204 = add nsw i32 %.025202, 2
   br label %452
 
-277:                                              ; preds = %97, %91, %93, %95, %86
+277:                                              ; preds = %91, %93, %95, %97, %86
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !40
   store ptr %9, ptr %49, align 8, !tbaa !3, !noalias !40
@@ -1213,7 +1213,7 @@ _ZN5ZXing5Aztec13EncodingStateD2Ev.exit59:        ; preds = %505, %.body54, %500
   br label %511
 
 511:                                              ; preds = %.body.i, %.body.i38, %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit59, %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit34
-  %.pn30.pn = phi { ptr, i32 } [ %76, %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit34 ], [ %.pn, %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit59 ], [ %.pn.i, %.body.i ], [ %.pn.i39, %.body.i38 ]
+  %.pn30.pn = phi { ptr, i32 } [ %.pn, %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit59 ], [ %76, %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit34 ], [ %.pn.i, %.body.i ], [ %.pn.i39, %.body.i38 ]
   call void @_ZNSt7__cxx1110_List_baseIN5ZXing5Aztec13EncodingStateESaIS3_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   resume { ptr, i32 } %.pn30.pn
@@ -2034,7 +2034,7 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXing5AztecL21IsBetterThanOrEqual
   br label %_ZN5ZXing5AztecL24CalculateBinaryShiftCostERKNS0_13EncodingStateE.exit
 
 _ZN5ZXing5AztecL24CalculateBinaryShiftCostERKNS0_13EncodingStateE.exit: ; preds = %21, %23, %25
-  %.0.i = phi i32 [ 20, %23 ], [ 21, %21 ], [ %..i, %25 ]
+  %.0.i = phi i32 [ 21, %21 ], [ 20, %23 ], [ %..i, %25 ]
   %27 = icmp sgt i32 %17, 62
   br i1 %27, label %_ZN5ZXing5AztecL24CalculateBinaryShiftCostERKNS0_13EncodingStateE.exit18, label %28
 
@@ -2048,7 +2048,7 @@ _ZN5ZXing5AztecL24CalculateBinaryShiftCostERKNS0_13EncodingStateE.exit: ; preds 
   br label %_ZN5ZXing5AztecL24CalculateBinaryShiftCostERKNS0_13EncodingStateE.exit18
 
 _ZN5ZXing5AztecL24CalculateBinaryShiftCostERKNS0_13EncodingStateE.exit18: ; preds = %_ZN5ZXing5AztecL24CalculateBinaryShiftCostERKNS0_13EncodingStateE.exit, %28, %30
-  %.0.i17.neg = phi i32 [ -20, %28 ], [ -21, %_ZN5ZXing5AztecL24CalculateBinaryShiftCostERKNS0_13EncodingStateE.exit ], [ %..i16.neg, %30 ]
+  %.0.i17.neg = phi i32 [ -21, %_ZN5ZXing5AztecL24CalculateBinaryShiftCostERKNS0_13EncodingStateE.exit ], [ -20, %28 ], [ %..i16.neg, %30 ]
   %32 = add i32 %.0.i, %15
   %33 = add i32 %32, %.0.i17.neg
   br label %38

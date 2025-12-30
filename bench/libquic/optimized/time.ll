@@ -692,7 +692,7 @@ define noundef zeroext i1 @_ZNK4base4Time8Exploded14HasValidValuesEv(ptr noundef
   br label %27
 
 27:                                               ; preds = %23, %9, %1
-  %28 = phi i1 [ false, %9 ], [ %26, %23 ], [ false, %1 ]
+  %28 = phi i1 [ false, %9 ], [ false, %1 ], [ %26, %23 ]
   ret i1 %28
 }
 

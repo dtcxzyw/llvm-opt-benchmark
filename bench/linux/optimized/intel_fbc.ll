@@ -1294,7 +1294,7 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   br i1 %203, label %.thread12, label %.loopexit
 
 .thread12.sink.split:                             ; preds = %192, %30, %32, %34, %38, %42, %53, %62, %97, %107, %119, %124, %128, %133, %142, %144, %147, %149, %158, %164, %166, %170, %177, %.thread8
-  %.sink = phi ptr [ %spec.select, %192 ], [ @.str.7, %30 ], [ @.str.8, %32 ], [ @.str.9, %34 ], [ @.str.10, %38 ], [ @.str.11, %42 ], [ @.str.12, %53 ], [ @.str.13, %62 ], [ @.str.15, %97 ], [ @.str.16, %124 ], [ @.str.16, %107 ], [ @.str.16, %119 ], [ @.str.16, %128 ], [ @.str.16, %133 ], [ @.str.17, %142 ], [ @.str.17, %144 ], [ @.str.18, %147 ], [ @.str.19, %149 ], [ @.str.20, %158 ], [ @.str.21, %164 ], [ @.str.22, %166 ], [ @.str.23, %170 ], [ @.str.24, %177 ], [ null, %.thread8 ]
+  %.sink = phi ptr [ @.str.7, %30 ], [ @.str.8, %32 ], [ @.str.9, %34 ], [ @.str.10, %38 ], [ @.str.11, %42 ], [ @.str.12, %53 ], [ @.str.13, %62 ], [ @.str.15, %97 ], [ @.str.16, %124 ], [ @.str.16, %107 ], [ @.str.16, %119 ], [ @.str.16, %128 ], [ @.str.16, %133 ], [ @.str.17, %142 ], [ @.str.17, %144 ], [ @.str.18, %147 ], [ @.str.19, %149 ], [ @.str.20, %158 ], [ @.str.21, %164 ], [ @.str.22, %166 ], [ @.str.23, %170 ], [ @.str.24, %177 ], [ null, %.thread8 ], [ %spec.select, %192 ]
   %204 = getelementptr inbounds nuw i8, ptr %22, i64 456
   store ptr %.sink, ptr %204, align 8
   br label %.thread12
@@ -1897,7 +1897,7 @@ define dso_local void @intel_fbc_update(ptr noundef readonly captures(none) %0, 
   br label %.thread17
 
 .thread17:                                        ; preds = %250, %286, %279, %277
-  %288 = phi i32 [ %264, %277 ], [ %264, %286 ], [ %264, %279 ], [ %177, %250 ]
+  %288 = phi i32 [ %264, %286 ], [ %264, %279 ], [ %264, %277 ], [ %177, %250 ]
   %289 = trunc nuw nsw i32 %288 to i8
   %290 = getelementptr inbounds nuw i8, ptr %58, i64 396
   store i8 %289, ptr %290, align 4

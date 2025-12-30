@@ -951,7 +951,7 @@ define internal fastcc i64 @do_msgsnd(i32 noundef %0, i64 noundef %1, ptr nounde
   br i1 %93, label %94, label %.thread23
 
 .thread23:                                        ; preds = %90, %52, %55, %58, %73, %74, %77, %86
-  %.ph = phi i32 [ -514, %86 ], [ -13, %52 ], [ -43, %55 ], [ -43, %77 ], [ -43, %74 ], [ -11, %73 ], [ %59, %58 ], [ -514, %90 ]
+  %.ph = phi i32 [ -43, %77 ], [ -43, %74 ], [ -11, %73 ], [ %59, %58 ], [ -43, %55 ], [ -13, %52 ], [ -514, %86 ], [ -514, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit24
 
@@ -1452,8 +1452,8 @@ define internal fastcc i64 @do_msgrcv(i32 noundef %0, ptr noundef %1, i64 nounde
   br label %97
 
 97:                                               ; preds = %95, %88, %.preheader29.split.us.split.preheader
-  %98 = phi i64 [ %82, %.preheader29.split.us.split.preheader ], [ %96, %95 ], [ %82, %88 ]
-  %99 = phi ptr [ %84, %.preheader29.split.us.split.preheader ], [ %83, %95 ], [ %84, %88 ]
+  %98 = phi i64 [ %96, %95 ], [ %82, %88 ], [ %82, %.preheader29.split.us.split.preheader ]
+  %99 = phi ptr [ %83, %95 ], [ %84, %88 ], [ %84, %.preheader29.split.us.split.preheader ]
   %100 = load ptr, ptr %83, align 8
   %101 = icmp eq ptr %100, %46
   br i1 %101, label %.split.us, label %.preheader29.split.us.split.preheader, !llvm.loop !24
@@ -1678,8 +1678,8 @@ define internal fastcc i64 @do_msgrcv(i32 noundef %0, ptr noundef %1, i64 nounde
   %208 = icmp eq i32 %207, 0
   br i1 %208, label %75, label %.critedge.thread27
 
-.loopexit:                                        ; preds = %193, %75, %.thread, %203, %196, %184, %.preheader, %121, %151
-  %.ph24 = phi ptr [ %119, %184 ], [ %119, %151 ], [ inttoptr (i64 -7 to ptr), %121 ], [ %119, %.preheader ], [ inttoptr (i64 -43 to ptr), %75 ], [ inttoptr (i64 -42 to ptr), %.thread ], [ inttoptr (i64 -514 to ptr), %203 ], [ %194, %193 ], [ inttoptr (i64 -514 to ptr), %196 ]
+.loopexit:                                        ; preds = %193, %75, %.thread, %203, %196, %.preheader, %184, %121, %151
+  %.ph24 = phi ptr [ %119, %151 ], [ inttoptr (i64 -7 to ptr), %121 ], [ %119, %184 ], [ %119, %.preheader ], [ %194, %193 ], [ inttoptr (i64 -43 to ptr), %75 ], [ inttoptr (i64 -42 to ptr), %.thread ], [ inttoptr (i64 -514 to ptr), %203 ], [ inttoptr (i64 -514 to ptr), %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_raw_spin_unlock(ptr noundef %42) #11
   call void @wake_up_q(ptr noundef nonnull %7) #11
@@ -2314,7 +2314,7 @@ define internal fastcc i32 @msgctl_down(ptr noundef %0, i32 noundef %1, i32 noun
   br label %35
 
 35:                                               ; preds = %.thread, %34, %17, %14, %11
-  %36 = phi i32 [ %13, %11 ], [ %15, %14 ], [ %.ph, %.thread ], [ %27, %34 ], [ -22, %17 ]
+  %36 = phi i32 [ %13, %11 ], [ %15, %14 ], [ %27, %34 ], [ -22, %17 ], [ %.ph, %.thread ]
   call void @__rcu_read_unlock() #11
   br label %37
 

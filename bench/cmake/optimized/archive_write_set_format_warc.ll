@@ -266,7 +266,7 @@ define internal i64 @_warc_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
   br label %14
 
 14:                                               ; preds = %9, %3
-  %.1 = phi i64 [ %spec.select18, %9 ], [ %2, %3 ]
+  %.1 = phi i64 [ %2, %3 ], [ %spec.select18, %9 ]
   ret i64 %.1
 }
 

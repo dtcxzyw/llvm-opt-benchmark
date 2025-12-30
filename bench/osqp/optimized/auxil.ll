@@ -1554,7 +1554,7 @@ compute_duality_gap_tol.exit:                     ; preds = %135, %157, %160
   br label %224
 
 224:                                              ; preds = %207, %222, %205, %189, %187, %23
-  %.0 = phi i64 [ 1, %23 ], [ 0, %207 ], [ 1, %205 ], [ 1, %222 ], [ 1, %189 ], [ 1, %187 ]
+  %.0 = phi i64 [ 1, %23 ], [ 1, %205 ], [ 1, %222 ], [ 0, %207 ], [ 1, %189 ], [ 1, %187 ]
   ret i64 %.0
 }
 
@@ -1713,7 +1713,7 @@ define range(i64 0, 2) i64 @validate_data(ptr noundef readonly captures(address_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %81, %.loopexit.sink.split, %.preheader
-  %.044 = phi i64 [ 1, %.loopexit.sink.split ], [ 0, %.preheader ], [ 0, %81 ]
+  %.044 = phi i64 [ 0, %.preheader ], [ 1, %.loopexit.sink.split ], [ 0, %81 ]
   ret i64 %.044
 }
 

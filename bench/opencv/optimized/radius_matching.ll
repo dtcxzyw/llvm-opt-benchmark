@@ -613,7 +613,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %186, %.loopexit234, %.loopexit.split-lp235, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i116
-  %.pn60 = phi { ptr, i32 } [ %187, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i116 ], [ %lpad.loopexit.split-lp237, %.loopexit.split-lp235 ], [ %lpad.loopexit236, %.loopexit234 ], [ %187, %186 ]
+  %.pn60 = phi { ptr, i32 } [ %187, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i116 ], [ %lpad.loopexit236, %.loopexit234 ], [ %lpad.loopexit.split-lp237, %.loopexit.split-lp235 ], [ %187, %186 ]
   %190 = load ptr, ptr %16, align 8, !tbaa !4
   %191 = icmp eq ptr %190, %47
   br i1 %191, label %.body95, label %.body95.sink.split
@@ -1481,7 +1481,7 @@ _ZNSolsEPFRSoS_E.exit184:                         ; preds = %.noexc224
   br label %495
 
 495:                                              ; preds = %.loopexit, %.loopexit.split-lp, %430, %428
-  %.pn50 = phi { ptr, i32 } [ %429, %428 ], [ %431, %430 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn50 = phi { ptr, i32 } [ %431, %430 ], [ %429, %428 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIS_IN2cv6DMatchESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %496
@@ -1497,7 +1497,7 @@ _ZNSolsEPFRSoS_E.exit184:                         ; preds = %.noexc224
   br label %498
 
 498:                                              ; preds = %259, %263, %497, %422
-  %.pn54.pn.pn = phi { ptr, i32 } [ %423, %422 ], [ %.pn50.pn.pn, %497 ], [ %.pn54, %259 ], [ %264, %263 ]
+  %.pn54.pn.pn = phi { ptr, i32 } [ %.pn50.pn.pn, %497 ], [ %423, %422 ], [ %.pn54, %259 ], [ %264, %263 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %499

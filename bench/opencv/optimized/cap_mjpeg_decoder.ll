@@ -334,7 +334,7 @@ define hidden noundef double @_ZNK2cv17MotionJpegCapture11getPropertyEi(ptr noun
   br label %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit
 
 _ZNK2cv17MotionJpegCapture11getFramePosEv.exit:   ; preds = %3, %15, %41
-  %.0.i = phi i64 [ %67, %41 ], [ %40, %15 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %40, %15 ], [ %67, %41 ], [ 0, %3 ]
   %68 = uitofp i64 %.0.i to double
   br label %267
 
@@ -414,7 +414,7 @@ _ZNK2cv17MotionJpegCapture11getFramePosEv.exit:   ; preds = %3, %15, %41
   br label %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit5
 
 _ZNK2cv17MotionJpegCapture11getFramePosEv.exit5:  ; preds = %69, %81, %107
-  %.0.i3 = phi i64 [ %133, %107 ], [ %106, %81 ], [ 0, %69 ]
+  %.0.i3 = phi i64 [ %106, %81 ], [ %133, %107 ], [ 0, %69 ]
   %134 = uitofp i64 %.0.i3 to double
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %136 = load double, ptr %135, align 8, !tbaa !64
@@ -595,7 +595,7 @@ _ZNK2cv17MotionJpegCapture11getFramePosEv.exit9:  ; preds = %._ZNK2cv17MotionJpe
   br label %267
 
 267:                                              ; preds = %2, %236, %235, %232, %228, %224, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit9, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit5, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit
-  %.0 = phi double [ %266, %236 ], [ %68, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit ], [ %138, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit5 ], [ %223, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit9 ], [ %227, %224 ], [ %231, %228 ], [ %234, %232 ], [ 0x41D1D41293400000, %235 ], [ 0.000000e+00, %2 ]
+  %.0 = phi double [ %68, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit ], [ %138, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit5 ], [ %223, %_ZNK2cv17MotionJpegCapture11getFramePosEv.exit9 ], [ %227, %224 ], [ %231, %228 ], [ %234, %232 ], [ 0x41D1D41293400000, %235 ], [ %266, %236 ], [ 0.000000e+00, %2 ]
   ret double %.0
 }
 
@@ -752,7 +752,7 @@ define hidden noundef zeroext i1 @_ZN2cv17MotionJpegCapture13retrieveFrameEiRKNS
   br label %40
 
 40:                                               ; preds = %36, %38
-  %.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %39, %38 ]
+  %.pn.pn = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %48
@@ -1069,7 +1069,7 @@ _ZN2cvL7makePtrINS_16AVIReadContainerEJEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %.
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %19, %16
-  %21 = phi ptr [ %.pr.pre.i.i.i.i, %19 ], [ %13, %16 ]
+  %21 = phi ptr [ %13, %16 ], [ %.pr.pre.i.i.i.i, %19 ]
   %.not8.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %22
 
@@ -1268,7 +1268,7 @@ _ZN2cvL7makePtrINS_16AVIReadContainerEJEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %2
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %26, %23
-  %28 = phi ptr [ %.pr.pre.i.i.i.i, %26 ], [ %20, %23 ]
+  %28 = phi ptr [ %20, %23 ], [ %.pr.pre.i.i.i.i, %26 ]
   %.not8.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %29
 

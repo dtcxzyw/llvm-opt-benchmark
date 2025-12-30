@@ -2325,7 +2325,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i617, %1445
   ]
 
 .backedge.sink.split1725.backedge:                ; preds = %yy_try_NUL_trans.exit, %yy_try_NUL_trans.exit, %119
-  %.1586.ph.be = phi ptr [ %1395, %yy_try_NUL_trans.exit ], [ %.1586, %119 ], [ %1395, %yy_try_NUL_trans.exit ]
+  %.1586.ph.be = phi ptr [ %.1586, %119 ], [ %1395, %yy_try_NUL_trans.exit ], [ %1395, %yy_try_NUL_trans.exit ]
   br label %.backedge.sink.split1725
 
 1465:                                             ; preds = %yy_try_NUL_trans.exit
@@ -2335,9 +2335,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i617, %1445
   br label %.loopexit659.backedge
 
 .loopexit659.backedge:                            ; preds = %._crit_edge.i635, %1465, %1665
-  %.0585.be = phi ptr [ %1395, %1465 ], [ %1663, %1665 ], [ %1663, %._crit_edge.i635 ]
-  %.0579.be = phi ptr [ %1467, %1465 ], [ %1671, %1665 ], [ %1671, %._crit_edge.i635 ]
-  %.0572.be = phi i32 [ %1466, %1465 ], [ %1672, %1665 ], [ %1713, %._crit_edge.i635 ]
+  %.0585.be = phi ptr [ %1663, %1665 ], [ %1395, %1465 ], [ %1663, %._crit_edge.i635 ]
+  %.0579.be = phi ptr [ %1671, %1665 ], [ %1467, %1465 ], [ %1671, %._crit_edge.i635 ]
+  %.0572.be = phi i32 [ %1672, %1665 ], [ %1466, %1465 ], [ %1713, %._crit_edge.i635 ]
   br label %.loopexit659
 
 1468:                                             ; preds = %1380
@@ -2920,7 +2920,7 @@ yy_get_previous_state.exit638:                    ; preds = %yy_get_next_buffer.
   unreachable
 
 .loopexit:                                        ; preds = %118, %118, %847, %1345, %1350, %1303, %1308, %1184, %1185, %1141, %1142, %1321, %1310, %1275, %1263, %1251, %1250, %1248, %1223, %1211, %1199, %1187, %1156, %1144, %1114, %1103, %1092, %1034, %1011, %972, %940, %910, %797, %774, %739, %728, %717, %706, %695, %680, %669, %658, %647, %636, %625, %614, %603, %592, %581, %570, %559, %548, %537, %526, %515, %504, %493, %482, %471, %460, %449, %438, %427, %416, %405, %394, %383, %372, %361, %350, %339, %328, %317, %306, %295, %284, %273, %262, %251, %240, %229, %218, %207, %196, %185, %174, %163, %152, %141, %130
-  %.2 = phi i32 [ 23, %130 ], [ 24, %141 ], [ 44, %152 ], [ 38, %163 ], [ 43, %174 ], [ 39, %185 ], [ 37, %196 ], [ 36, %207 ], [ 41, %218 ], [ 42, %229 ], [ 6, %240 ], [ 6, %251 ], [ 6, %262 ], [ 7, %273 ], [ 7, %284 ], [ 7, %295 ], [ 5, %306 ], [ 5, %317 ], [ 8, %328 ], [ 8, %339 ], [ 11, %350 ], [ 11, %361 ], [ 12, %372 ], [ 12, %383 ], [ 9, %394 ], [ 9, %405 ], [ 10, %416 ], [ 10, %427 ], [ 13, %438 ], [ 14, %449 ], [ 14, %460 ], [ 4, %471 ], [ 4, %482 ], [ 3, %493 ], [ 3, %504 ], [ 1, %515 ], [ 1, %526 ], [ 2, %537 ], [ 2, %548 ], [ 40, %559 ], [ 16, %570 ], [ 17, %581 ], [ 18, %592 ], [ 19, %603 ], [ 20, %614 ], [ 15, %625 ], [ 15, %636 ], [ 15, %647 ], [ 32, %658 ], [ 35, %669 ], [ -1, %680 ], [ 33, %695 ], [ 45, %706 ], [ 44, %717 ], [ 34, %728 ], [ -1, %739 ], [ -1, %774 ], [ 25, %797 ], [ -1, %847 ], [ -1, %910 ], [ -1, %940 ], [ -1, %972 ], [ -1, %1011 ], [ %1053, %1034 ], [ 27, %1092 ], [ 27, %1103 ], [ 27, %1114 ], [ -1, %1345 ], [ %1155, %1144 ], [ %1167, %1156 ], [ %1143, %1142 ], [ %1198, %1187 ], [ %1210, %1199 ], [ %1222, %1211 ], [ 27, %1223 ], [ 27, %1248 ], [ 27, %1250 ], [ 27, %1251 ], [ 27, %1263 ], [ 30, %1275 ], [ %1186, %1185 ], [ 31, %1310 ], [ 27, %1321 ], [ 29, %1308 ], [ 29, %1141 ], [ 29, %1184 ], [ -1, %1303 ], [ -1, %1350 ], [ 0, %118 ], [ 0, %118 ]
+  %.2 = phi i32 [ 23, %130 ], [ 24, %141 ], [ 44, %152 ], [ 38, %163 ], [ 43, %174 ], [ 39, %185 ], [ 37, %196 ], [ 36, %207 ], [ 41, %218 ], [ 42, %229 ], [ 6, %240 ], [ 6, %251 ], [ 6, %262 ], [ 7, %273 ], [ 7, %284 ], [ 7, %295 ], [ 5, %306 ], [ 5, %317 ], [ 8, %328 ], [ 8, %339 ], [ 11, %350 ], [ 11, %361 ], [ 12, %372 ], [ 12, %383 ], [ 9, %394 ], [ 9, %405 ], [ 10, %416 ], [ 10, %427 ], [ 13, %438 ], [ 14, %449 ], [ 14, %460 ], [ 4, %471 ], [ 4, %482 ], [ 3, %493 ], [ 3, %504 ], [ 1, %515 ], [ 1, %526 ], [ 2, %537 ], [ 2, %548 ], [ 40, %559 ], [ 16, %570 ], [ 17, %581 ], [ 18, %592 ], [ 19, %603 ], [ 20, %614 ], [ 15, %625 ], [ 15, %636 ], [ 15, %647 ], [ 32, %658 ], [ 35, %669 ], [ -1, %680 ], [ 33, %695 ], [ 45, %706 ], [ 44, %717 ], [ 34, %728 ], [ -1, %739 ], [ -1, %774 ], [ 25, %797 ], [ -1, %847 ], [ -1, %910 ], [ -1, %940 ], [ -1, %972 ], [ -1, %1011 ], [ %1053, %1034 ], [ 27, %1092 ], [ 27, %1103 ], [ 27, %1114 ], [ %1155, %1144 ], [ %1167, %1156 ], [ %1198, %1187 ], [ %1210, %1199 ], [ %1222, %1211 ], [ 27, %1223 ], [ 27, %1248 ], [ 27, %1250 ], [ 27, %1251 ], [ 27, %1263 ], [ 30, %1275 ], [ 31, %1310 ], [ 27, %1321 ], [ 29, %1141 ], [ %1143, %1142 ], [ 29, %1184 ], [ %1186, %1185 ], [ -1, %1303 ], [ 29, %1308 ], [ -1, %1350 ], [ -1, %1345 ], [ 0, %118 ], [ 0, %118 ]
   ret i32 %.2
 }
 
@@ -3235,7 +3235,7 @@ define internal fastcc noundef zeroext i1 @append_universal_character_name(ptr n
   %or.cond43.i = select i1 %or.cond42.i, i1 true, i1 %34
   br i1 %or.cond43.i, label %.loopexit, label %39
 
-.loopexit:                                        ; preds = %13, %3, %6, %.critedge.i, %28, %24
+.loopexit:                                        ; preds = %13, %3, %6, %24, %.critedge.i, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = load i64, ptr %35, align 8
@@ -3451,7 +3451,7 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
   br label %171
 
 56:                                               ; preds = %49, %45, %39
-  %.0.in.i = phi i8 [ %50, %49 ], [ %46, %45 ], [ %42, %39 ]
+  %.0.in.i = phi i8 [ %46, %45 ], [ %50, %49 ], [ %42, %39 ]
   %.0.i = zext nneg i8 %.0.in.i to i64
   %57 = getelementptr i8, ptr %5, i64 4
   %58 = load i8, ptr %57, align 1
@@ -3493,7 +3493,7 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
   br label %171
 
 75:                                               ; preds = %68, %64, %59
-  %.pn.in.i = phi i8 [ %69, %68 ], [ %65, %64 ], [ %61, %59 ]
+  %.pn.in.i = phi i8 [ %65, %64 ], [ %69, %68 ], [ %61, %59 ]
   %.pn.i = zext nneg i8 %.pn.in.i to i64
   %.1.i = or i64 %60, %.pn.i
   %76 = getelementptr i8, ptr %5, i64 5
@@ -3672,8 +3672,8 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
   br label %171
 
 164:                                              ; preds = %151, %.thread.i, %108, %75, %37, %35, %33, %31, %29, %27, %25, %23, %21
-  %.1100.ph.i = phi ptr [ %94, %108 ], [ %76, %75 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %152, %151 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %150, %.thread.i ]
-  %.3.ph.i = phi i64 [ %91, %108 ], [ %.1.i, %75 ], [ 34, %37 ], [ 92, %35 ], [ 39, %33 ], [ 11, %31 ], [ 9, %29 ], [ 13, %27 ], [ %153, %151 ], [ 12, %25 ], [ 8, %23 ], [ 7, %21 ], [ %.2144.i, %.thread.i ]
+  %.1100.ph.i = phi ptr [ %152, %151 ], [ %94, %108 ], [ %76, %75 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %150, %.thread.i ]
+  %.3.ph.i = phi i64 [ %153, %151 ], [ %91, %108 ], [ %.1.i, %75 ], [ 34, %37 ], [ 92, %35 ], [ 39, %33 ], [ 11, %31 ], [ 9, %29 ], [ 13, %27 ], [ 12, %25 ], [ 8, %23 ], [ 7, %21 ], [ %.2144.i, %.thread.i ]
   %.pr.i = load i8, ptr %.1100.ph.i, align 1
   %.not126.i = icmp eq i8 %.pr.i, 39
   br i1 %.not126.i, label %.thread145.i, label %.thread151.i
@@ -3882,7 +3882,7 @@ define internal fastcc range(i32 -1, 29) i32 @set_lval_float(ptr noundef %0, ptr
   call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %29, i64 %31, ptr noundef nonnull @.str.34, ptr noundef %1, ptr noundef %28)
   br label %parse_double.exit.thread
 
-parse_double.exit.thread:                         ; preds = %11, %24, %26, %25
+parse_double.exit.thread:                         ; preds = %11, %26, %25, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %40
 
@@ -4358,7 +4358,7 @@ define hidden void @df_yypush_buffer_state(ptr noundef %0, ptr noundef captures(
   br label %.thread
 
 .thread:                                          ; preds = %4, %12, %33, %.thread31
-  %35 = phi ptr [ %.pr34, %.thread31 ], [ null, %12 ], [ %.pr34, %33 ], [ null, %4 ]
+  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37
@@ -4567,7 +4567,7 @@ define hidden noundef ptr @df_yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr
   br label %53
 
 53:                                               ; preds = %16, %35, %34
-  %54 = phi ptr [ %28, %34 ], [ %.pre.i, %35 ], [ null, %16 ]
+  %54 = phi ptr [ %.pre.i, %35 ], [ %28, %34 ], [ null, %16 ]
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %56 = load i64, ptr %55, align 8
   %57 = getelementptr ptr, ptr %54, i64 %56
@@ -4599,7 +4599,7 @@ define hidden noundef ptr @df_yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr
   br label %df_yy_switch_to_buffer.exit
 
 df_yy_switch_to_buffer.exit:                      ; preds = %53, %.thread.i, %3, %5, %9
-  %.0 = phi ptr [ null, %3 ], [ null, %9 ], [ null, %5 ], [ %14, %.thread.i ], [ %14, %53 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %5 ], [ null, %3 ], [ %14, %.thread.i ], [ %14, %53 ]
   ret ptr %.0
 }
 
@@ -5029,7 +5029,7 @@ df_yy_delete_buffer.exit.i:                       ; preds = %32, %.critedge.i.i
   br label %df_yypop_buffer_state.exit
 
 df_yypop_buffer_state.exit:                       ; preds = %26, %44, %47
-  %56 = phi ptr [ %43, %44 ], [ %25, %26 ], [ %43, %47 ]
+  %56 = phi ptr [ %25, %26 ], [ %43, %44 ], [ %43, %47 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8

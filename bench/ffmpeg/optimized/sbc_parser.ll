@@ -184,7 +184,7 @@ define internal fastcc range(i32 -2, 1034) i32 @sbc_parse_header(ptr noundef wri
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %6, %8, %12, %4
-  %.0 = phi i32 [ -2, %12 ], [ -2, %8 ], [ -1, %4 ], [ -2, %6 ], [ %.0.ph, %.thread.sink.split ]
+  %.0 = phi i32 [ -1, %4 ], [ -2, %12 ], [ -2, %8 ], [ -2, %6 ], [ %.0.ph, %.thread.sink.split ]
   ret i32 %.0
 }
 

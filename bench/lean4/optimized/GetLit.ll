@@ -242,7 +242,7 @@ lean_nat_eq.exit.thread:                          ; preds = %8
   br label %lean_dec.exit22
 
 lean_dec.exit22:                                  ; preds = %14, %12, %23, %22, %20
-  %.1.i28 = phi ptr [ %17, %23 ], [ %17, %20 ], [ %17, %22 ], [ inttoptr (i64 1 to ptr), %12 ], [ %16, %14 ]
+  %.1.i28 = phi ptr [ %17, %20 ], [ %17, %22 ], [ %17, %23 ], [ inttoptr (i64 1 to ptr), %12 ], [ %16, %14 ]
   %24 = ptrtoint ptr %.1.i28 to i64
   %25 = lshr i64 %24, 1
   %26 = getelementptr inbounds nuw ptr, ptr %7, i64 %25

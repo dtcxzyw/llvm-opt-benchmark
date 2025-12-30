@@ -400,7 +400,7 @@ cast_is_allowed.exit.thread129:                   ; preds = %130, %cast_is_allow
   br label %cast_is_allowed.exit.thread
 
 cast_is_allowed.exit.thread:                      ; preds = %.thread.i, %142, %cast_is_allowed.exit, %.loopexit, %33, %29, %cast_is_allowed.exit.thread129, %66, %30
-  %.0101 = phi i1 [ true, %33 ], [ false, %30 ], [ false, %29 ], [ true, %66 ], [ true, %cast_is_allowed.exit.thread129 ], [ false, %.loopexit ], [ false, %cast_is_allowed.exit ], [ false, %142 ], [ false, %.thread.i ]
+  %.0101 = phi i1 [ false, %30 ], [ true, %66 ], [ true, %cast_is_allowed.exit.thread129 ], [ false, %29 ], [ true, %33 ], [ false, %.loopexit ], [ false, %cast_is_allowed.exit ], [ false, %142 ], [ false, %.thread.i ]
   ret i1 %.0101
 }
 
@@ -588,7 +588,7 @@ define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %cast_is_allowed.exit
 
 cast_is_allowed.exit:                             ; preds = %.loopexit, %.thread.i, %63, %68
-  %.0.i = phi i1 [ true, %.loopexit ], [ %69, %68 ], [ false, %63 ], [ false, %.thread.i ]
+  %.0.i = phi i1 [ %69, %68 ], [ true, %.loopexit ], [ false, %63 ], [ false, %.thread.i ]
   ret i1 %.0.i
 }
 
@@ -818,7 +818,7 @@ type_flatten.exit85:                              ; preds = %20
   br label %89
 
 89:                                               ; preds = %.sink.split, %82, %80, %36, %35
-  %storemerge = phi ptr [ %2, %35 ], [ %81, %82 ], [ %2, %36 ], [ %81, %80 ], [ %88, %.sink.split ]
+  %storemerge = phi ptr [ %2, %36 ], [ %2, %35 ], [ %81, %82 ], [ %81, %80 ], [ %88, %.sink.split ]
   store ptr %storemerge, ptr %1, align 8
   ret void
 }
@@ -1129,7 +1129,7 @@ define dso_local ptr @type_infer_len_from_actual_type(ptr noundef %0, ptr nounde
   br label %6
 
 thread-pre-split:                                 ; preds = %6, %8
-  %.sink = phi i64 [ 8, %6 ], [ 56, %8 ]
+  %.sink = phi i64 [ 56, %8 ], [ 8, %6 ]
   %5 = getelementptr inbounds nuw i8, ptr %.093, i64 %.sink
   %.093.ph = load ptr, ptr %5, align 8
   %.pr = load i32, ptr %.093.ph, align 8
@@ -1197,7 +1197,7 @@ thread-pre-split:                                 ; preds = %6, %8
   br i1 %.not109, label %.loopexit, label %.preheader123
 
 thread-pre-split120:                              ; preds = %.preheader123, %30
-  %.sink137 = phi i64 [ 8, %.preheader123 ], [ 56, %30 ]
+  %.sink137 = phi i64 [ 56, %30 ], [ 8, %.preheader123 ]
   %28 = getelementptr inbounds nuw i8, ptr %.in, i64 %.sink137
   %.096.ph = load ptr, ptr %28, align 8
   br label %.preheader123
@@ -1367,12 +1367,12 @@ type_flatten.exit117:                             ; preds = %.preheader122
   unreachable
 
 .critedge.sink.split:                             ; preds = %92, %85, %80, %61, %42, %35
-  %.sink138 = phi ptr [ %84, %85 ], [ %79, %80 ], [ %60, %61 ], [ %41, %42 ], [ %34, %35 ], [ %91, %92 ]
+  %.sink138 = phi ptr [ %34, %35 ], [ %41, %42 ], [ %60, %61 ], [ %79, %80 ], [ %84, %85 ], [ %91, %92 ]
   %96 = tail call ptr @type_get_optional(ptr noundef nonnull %.sink138) #10
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %.critedge.sink.split, %92, %88, %85, %83, %80, %type_flatten.exit117, %61, %type_flatten.exit, %42, %38, %35, %33
-  %.092 = phi ptr [ %91, %88 ], [ %34, %33 ], [ %41, %38 ], [ %60, %type_flatten.exit ], [ %79, %type_flatten.exit117 ], [ %84, %83 ], [ %79, %80 ], [ %34, %35 ], [ %91, %92 ], [ %41, %42 ], [ %84, %85 ], [ %60, %61 ], [ %96, %.critedge.sink.split ], [ %0, %6 ]
+  %.092 = phi ptr [ %34, %35 ], [ %34, %33 ], [ %41, %42 ], [ %41, %38 ], [ %60, %61 ], [ %60, %type_flatten.exit ], [ %79, %80 ], [ %79, %type_flatten.exit117 ], [ %84, %85 ], [ %84, %83 ], [ %91, %92 ], [ %91, %88 ], [ %96, %.critedge.sink.split ], [ %0, %6 ]
   ret ptr %.092
 }
 
@@ -1491,7 +1491,7 @@ define dso_local range(i32 1, 31) i32 @cast_to_bool_kind(ptr noundef readonly ca
   br label %20
 
 20:                                               ; preds = %2, %.loopexit4, %.loopexit3, %.loopexit2, %.loopexit1, %.loopexit, %18, %16
-  %.0 = phi i32 [ 13, %18 ], [ 4, %.loopexit ], [ 14, %.loopexit1 ], [ 30, %.loopexit2 ], [ 20, %.loopexit3 ], [ 16, %.loopexit4 ], [ 1, %16 ], [ 27, %2 ]
+  %.0 = phi i32 [ 1, %16 ], [ 13, %18 ], [ 4, %.loopexit ], [ 14, %.loopexit1 ], [ 30, %.loopexit2 ], [ 20, %.loopexit3 ], [ 16, %.loopexit4 ], [ 27, %2 ]
   ret i32 %.0
 }
 
@@ -1617,7 +1617,7 @@ define dso_local ptr @cast_numeric_arithmetic_promotion(ptr noundef readonly cap
   unreachable
 
 23:                                               ; preds = %13, %6, %2, %1, %20
-  %.0 = phi ptr [ %21, %20 ], [ %0, %2 ], [ null, %1 ], [ %spec.select10, %13 ], [ %spec.select, %6 ]
+  %.0 = phi ptr [ %21, %20 ], [ null, %1 ], [ %0, %2 ], [ %spec.select, %6 ], [ %spec.select10, %13 ]
   ret ptr %.0
 }
 
@@ -1789,7 +1789,7 @@ type_flatten.exit:                                ; preds = %5
   br label %cast_is_allowed.exit
 
 cast_is_allowed.exit:                             ; preds = %49, %54, %60
-  %.0.i66 = phi i1 [ false, %49 ], [ %61, %60 ], [ false, %54 ]
+  %.0.i66 = phi i1 [ %61, %60 ], [ false, %54 ], [ false, %49 ]
   %brmerge = or i1 %2, %.0.i66
   br i1 %brmerge, label %cast_is_allowed.exit.thread, label %62
 
@@ -1850,13 +1850,13 @@ cast_is_allowed.exit:                             ; preds = %49, %54, %60
   br label %cast_is_allowed.exit76
 
 cast_is_allowed.exit76:                           ; preds = %83, %88, %82, %94
-  %.0.i74 = phi i1 [ true, %82 ], [ %95, %94 ], [ false, %88 ], [ false, %83 ]
+  %.0.i74 = phi i1 [ %95, %94 ], [ true, %82 ], [ false, %88 ], [ false, %83 ]
   %or.cond = and i1 %1, %.0.i74
   %brmerge61 = or i1 %2, %or.cond
   br i1 %brmerge61, label %cast_is_allowed.exit.thread, label %cast_is_allowed.exit.thread.sink.split
 
 cast_is_allowed.exit.thread.sink.split:           ; preds = %cast_is_allowed.exit76, %62, %69, %74, %63, %80
-  %.0.i74.sink = phi i1 [ false, %69 ], [ false, %62 ], [ true, %63 ], [ %81, %80 ], [ false, %74 ], [ %.0.i74, %cast_is_allowed.exit76 ]
+  %.0.i74.sink = phi i1 [ false, %62 ], [ %81, %80 ], [ true, %63 ], [ false, %74 ], [ false, %69 ], [ %.0.i74, %cast_is_allowed.exit76 ]
   %.val64 = load ptr, ptr %36, align 8
   %96 = getelementptr i8, ptr %0, i64 24
   %.val65 = load ptr, ptr %96, align 8
@@ -1864,7 +1864,7 @@ cast_is_allowed.exit.thread.sink.split:           ; preds = %cast_is_allowed.exi
   br label %cast_is_allowed.exit.thread
 
 cast_is_allowed.exit.thread:                      ; preds = %cast_is_allowed.exit.thread.sink.split, %48, %cast_is_allowed.exit76, %cast_is_allowed.exit
-  %.058 = phi i1 [ %or.cond, %cast_is_allowed.exit76 ], [ %.0.i66, %cast_is_allowed.exit ], [ true, %48 ], [ false, %cast_is_allowed.exit.thread.sink.split ]
+  %.058 = phi i1 [ %.0.i66, %cast_is_allowed.exit ], [ %or.cond, %cast_is_allowed.exit76 ], [ true, %48 ], [ false, %cast_is_allowed.exit.thread.sink.split ]
   ret i1 %.058
 }
 
@@ -1988,7 +1988,7 @@ define internal zeroext i1 @rule_widen_narrow(ptr noundef readonly captures(none
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %70, %64
-  %.0.i.in.be = phi ptr [ %71, %70 ], [ %69, %64 ]
+  %.0.i.in.be = phi ptr [ %69, %64 ], [ %71, %70 ]
   br label %.preheader
 
 72:                                               ; preds = %.preheader
@@ -2010,7 +2010,7 @@ type_flatten.exit:                                ; preds = %.preheader
   br label %82
 
 82:                                               ; preds = %58, %22, %56, %42, %53, %3, %type_flatten.exit, %46, %26
-  %.046 = phi i1 [ false, %53 ], [ true, %3 ], [ %25, %22 ], [ false, %26 ], [ %.not, %58 ], [ false, %46 ], [ false, %42 ], [ true, %56 ], [ false, %type_flatten.exit ]
+  %.046 = phi i1 [ false, %26 ], [ false, %46 ], [ false, %type_flatten.exit ], [ true, %3 ], [ %25, %22 ], [ false, %53 ], [ false, %42 ], [ true, %56 ], [ %.not, %58 ]
   ret i1 %.046
 }
 
@@ -2035,7 +2035,7 @@ define internal zeroext i1 @rule_int_to_float(ptr noundef readonly captures(none
   br label %14
 
 14:                                               ; preds = %4, %3, %8
-  %.0 = phi i1 [ false, %8 ], [ %7, %4 ], [ true, %3 ]
+  %.0 = phi i1 [ false, %8 ], [ true, %3 ], [ %7, %4 ]
   ret i1 %.0
 }
 
@@ -2180,7 +2180,7 @@ report_cast_error.exit35:                         ; preds = %66, %69, %72
   br label %77
 
 77:                                               ; preds = %55, %33, %report_cast_error.exit35, %51, %report_cast_error.exit, %11, %52, %40
-  %.025 = phi i1 [ %1, %55 ], [ false, %report_cast_error.exit ], [ false, %40 ], [ false, %51 ], [ %39, %33 ], [ false, %52 ], [ false, %report_cast_error.exit35 ], [ false, %11 ]
+  %.025 = phi i1 [ false, %40 ], [ false, %52 ], [ false, %11 ], [ false, %report_cast_error.exit ], [ %39, %33 ], [ false, %51 ], [ false, %report_cast_error.exit35 ], [ %1, %55 ]
   ret i1 %.025
 }
 
@@ -2350,7 +2350,7 @@ report_cast_error.exit:                           ; preds = %18, %21, %24
   br label %64
 
 64:                                               ; preds = %55, %59, %50, %51, %29, %report_cast_error.exit, %6
-  %.023 = phi i1 [ true, %29 ], [ false, %50 ], [ %.not25, %55 ], [ false, %report_cast_error.exit ], [ false, %6 ], [ false, %51 ], [ false, %59 ]
+  %.023 = phi i1 [ false, %6 ], [ false, %report_cast_error.exit ], [ true, %29 ], [ false, %51 ], [ false, %50 ], [ false, %59 ], [ %.not25, %55 ]
   ret i1 %.023
 }
 
@@ -2397,7 +2397,7 @@ define internal zeroext i1 @rule_ptr_to_int(ptr noundef readonly captures(none) 
   br label %29
 
 29:                                               ; preds = %14, %11, %10, %15
-  %.016 = phi i1 [ false, %11 ], [ false, %15 ], [ %9, %14 ], [ false, %10 ]
+  %.016 = phi i1 [ false, %15 ], [ false, %10 ], [ false, %11 ], [ %9, %14 ]
   ret i1 %.016
 }
 
@@ -2474,7 +2474,7 @@ report_cast_error.exit:                           ; preds = %23, %26, %29
   unreachable
 
 35:                                               ; preds = %report_cast_error.exit, %11, %4, %3, %10
-  %.011 = phi i1 [ true, %4 ], [ true, %3 ], [ false, %10 ], [ false, %11 ], [ false, %report_cast_error.exit ]
+  %.011 = phi i1 [ false, %10 ], [ true, %3 ], [ true, %4 ], [ false, %11 ], [ false, %report_cast_error.exit ]
   ret i1 %.011
 }
 
@@ -2566,7 +2566,7 @@ define internal noundef zeroext i1 @rule_ptr_to_interface(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %.lr.ph, %.critedge, %3, %37
-  %.032 = phi i1 [ false, %37 ], [ false, %.critedge ], [ true, %3 ], [ %32, %.lr.ph ], [ %32, %33 ]
+  %.032 = phi i1 [ false, %37 ], [ true, %3 ], [ false, %.critedge ], [ %32, %.lr.ph ], [ %32, %33 ]
   ret i1 %.032
 }
 
@@ -2777,7 +2777,7 @@ report_cast_error.exit:                           ; preds = %8, %13, %16
   br label %cast_is_allowed.exit
 
 cast_is_allowed.exit:                             ; preds = %91, %81, %.thread.i, %.loopexit, %report_cast_error.exit, %7
-  %.060 = phi i1 [ false, %report_cast_error.exit ], [ false, %7 ], [ true, %.loopexit ], [ %92, %91 ], [ false, %81 ], [ false, %.thread.i ]
+  %.060 = phi i1 [ false, %7 ], [ false, %report_cast_error.exit ], [ %92, %91 ], [ true, %.loopexit ], [ false, %81 ], [ false, %.thread.i ]
   ret i1 %.060
 }
 
@@ -2859,7 +2859,7 @@ switch.lookup:                                    ; preds = %29
   br label %.critedge22
 
 .critedge22:                                      ; preds = %22, %.critedge, %switch.lookup, %14, %3, %27
-  %.020 = phi i1 [ false, %27 ], [ true, %3 ], [ true, %14 ], [ %26, %22 ], [ false, %switch.lookup ], [ false, %.critedge ]
+  %.020 = phi i1 [ false, %27 ], [ true, %3 ], [ %26, %22 ], [ true, %14 ], [ false, %switch.lookup ], [ false, %.critedge ]
   ret i1 %.020
 }
 
@@ -3134,7 +3134,7 @@ report_cast_error.exit78:                         ; preds = %130, %133, %136
   br label %141
 
 141:                                              ; preds = %60, %118, %62, %49, %type_flatten.exit72, %report_cast_error.exit78, %110, %report_cast_error.exit75, %82, %report_cast_error.exit
-  %.059 = phi i1 [ false, %report_cast_error.exit75 ], [ true, %type_flatten.exit72 ], [ true, %49 ], [ false, %report_cast_error.exit78 ], [ false, %82 ], [ false, %report_cast_error.exit ], [ false, %62 ], [ false, %110 ], [ %61, %60 ], [ true, %118 ]
+  %.059 = phi i1 [ false, %82 ], [ false, %report_cast_error.exit ], [ false, %110 ], [ false, %report_cast_error.exit75 ], [ false, %report_cast_error.exit78 ], [ true, %type_flatten.exit72 ], [ %61, %60 ], [ true, %49 ], [ false, %62 ], [ true, %118 ]
   ret i1 %.059
 }
 
@@ -3198,7 +3198,7 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   br label %.critedge2
 
 .critedge2:                                       ; preds = %27, %22, %31
-  %.0 = phi i32 [ %6, %27 ], [ %spec.select, %31 ], [ %6, %22 ]
+  %.0 = phi i32 [ %spec.select, %31 ], [ %6, %22 ], [ %6, %27 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
@@ -3317,8 +3317,8 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   br label %.loopexit
 
 .loopexit:                                        ; preds = %73, %73, %52, %52, %.loopexit.sink.split, %56, %69, %69, %.critedge2, %48, %48
-  %.076.sink = phi i32 [ 20, %69 ], [ 20, %69 ], [ 19, %.critedge2 ], [ 20, %48 ], [ 20, %48 ], [ %79, %.loopexit.sink.split ], [ 21, %52 ], [ 19, %56 ], [ 21, %52 ], [ 21, %73 ], [ 21, %73 ]
-  %80 = phi ptr [ %61, %69 ], [ %61, %69 ], [ %40, %.critedge2 ], [ %40, %48 ], [ %40, %48 ], [ %.ph, %.loopexit.sink.split ], [ %40, %52 ], [ %61, %56 ], [ %40, %52 ], [ %61, %73 ], [ %61, %73 ]
+  %.076.sink = phi i32 [ 19, %.critedge2 ], [ 20, %48 ], [ 20, %48 ], [ 19, %56 ], [ 20, %69 ], [ 20, %69 ], [ %79, %.loopexit.sink.split ], [ 21, %52 ], [ 21, %52 ], [ 21, %73 ], [ 21, %73 ]
+  %80 = phi ptr [ %40, %.critedge2 ], [ %40, %48 ], [ %40, %48 ], [ %61, %56 ], [ %61, %69 ], [ %61, %69 ], [ %.ph, %.loopexit.sink.split ], [ %40, %52 ], [ %40, %52 ], [ %61, %73 ], [ %61, %73 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.076.sink, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -3364,7 +3364,7 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   br label %cast_is_allowed.exit
 
 cast_is_allowed.exit:                             ; preds = %106, %97, %.thread.i, %.loopexit, %14, %8, %15, %9
-  %.074 = phi i1 [ false, %14 ], [ false, %9 ], [ false, %8 ], [ false, %15 ], [ true, %.loopexit ], [ %107, %106 ], [ false, %97 ], [ false, %.thread.i ]
+  %.074 = phi i1 [ false, %9 ], [ false, %15 ], [ false, %8 ], [ false, %14 ], [ %107, %106 ], [ true, %.loopexit ], [ false, %97 ], [ false, %.thread.i ]
   ret i1 %.074
 }
 
@@ -3673,7 +3673,7 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   br label %cast_is_allowed.exit
 
 cast_is_allowed.exit:                             ; preds = %136, %127, %.thread.i108, %.loopexit112, %73, %65, %.thread.i, %.loopexit, %84, %78, %85, %79
-  %.087 = phi i1 [ false, %84 ], [ false, %.thread.i ], [ false, %79 ], [ false, %78 ], [ false, %85 ], [ true, %.loopexit ], [ %74, %73 ], [ false, %65 ], [ true, %.loopexit112 ], [ %137, %136 ], [ false, %127 ], [ false, %.thread.i108 ]
+  %.087 = phi i1 [ false, %79 ], [ false, %85 ], [ false, %78 ], [ false, %84 ], [ %74, %73 ], [ true, %.loopexit ], [ false, %65 ], [ false, %.thread.i ], [ %137, %136 ], [ true, %.loopexit112 ], [ false, %127 ], [ false, %.thread.i108 ]
   ret i1 %.087
 }
 
@@ -3776,7 +3776,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br label %43
 
 .thread:                                          ; preds = %43, %43, %27, %39, %39
-  %.066.ph = phi i32 [ 20, %39 ], [ 19, %27 ], [ 20, %39 ], [ 21, %43 ], [ 21, %43 ]
+  %.066.ph = phi i32 [ 20, %39 ], [ 20, %39 ], [ 19, %27 ], [ 21, %43 ], [ 21, %43 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %.066.ph, ptr %47, align 4
   br label %57
@@ -3894,7 +3894,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br label %cast_is_allowed.exit
 
 cast_is_allowed.exit:                             ; preds = %97, %87, %.thread.i, %.loopexit, %48, %report_cast_error.exit, %12
-  %.062 = phi i1 [ true, %48 ], [ false, %report_cast_error.exit ], [ false, %12 ], [ true, %.loopexit ], [ %98, %97 ], [ false, %87 ], [ false, %.thread.i ]
+  %.062 = phi i1 [ false, %12 ], [ false, %report_cast_error.exit ], [ true, %48 ], [ %98, %97 ], [ true, %.loopexit ], [ false, %87 ], [ false, %.thread.i ]
   ret i1 %.062
 }
 
@@ -4048,7 +4048,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br label %cast_is_allowed.exit
 
 cast_is_allowed.exit:                             ; preds = %74, %64, %.thread.i, %.loopexit, %report_cast_error.exit, %12
-  %.039 = phi i1 [ false, %report_cast_error.exit ], [ false, %12 ], [ true, %.loopexit ], [ %75, %74 ], [ false, %64 ], [ false, %.thread.i ]
+  %.039 = phi i1 [ false, %12 ], [ false, %report_cast_error.exit ], [ %75, %74 ], [ true, %.loopexit ], [ false, %64 ], [ false, %.thread.i ]
   ret i1 %.039
 }
 
@@ -4162,7 +4162,7 @@ define internal zeroext i1 @rule_vecarr_to_infer(ptr noundef %0, i1 noundef zero
   br label %cast_is_allowed.exit
 
 cast_is_allowed.exit:                             ; preds = %.loopexit, %.thread.i, %43, %53
-  %.0.i = phi i1 [ true, %.loopexit ], [ %54, %53 ], [ false, %43 ], [ false, %.thread.i ]
+  %.0.i = phi i1 [ %54, %53 ], [ true, %.loopexit ], [ false, %43 ], [ false, %.thread.i ]
   ret i1 %.0.i
 }
 
@@ -4291,7 +4291,7 @@ report_cast_error.exit40:                         ; preds = %57, %60, %63
   br label %68
 
 68:                                               ; preds = %45, %report_cast_error.exit40, %report_cast_error.exit, %30, %3
-  %.030 = phi i1 [ false, %3 ], [ false, %report_cast_error.exit40 ], [ false, %report_cast_error.exit ], [ false, %30 ], [ %1, %45 ]
+  %.030 = phi i1 [ false, %3 ], [ false, %30 ], [ false, %report_cast_error.exit ], [ false, %report_cast_error.exit40 ], [ %1, %45 ]
   ret i1 %.030
 }
 
@@ -4397,7 +4397,7 @@ report_cast_error.exit27:                         ; preds = %44, %47, %50
   br label %55
 
 55:                                               ; preds = %32, %report_cast_error.exit27, %report_cast_error.exit, %17, %3
-  %.021 = phi i1 [ false, %3 ], [ false, %report_cast_error.exit27 ], [ false, %report_cast_error.exit ], [ false, %17 ], [ %1, %32 ]
+  %.021 = phi i1 [ false, %3 ], [ false, %17 ], [ false, %report_cast_error.exit ], [ false, %report_cast_error.exit27 ], [ %1, %32 ]
   ret i1 %.021
 }
 
@@ -4567,7 +4567,7 @@ type_flatten.exit:                                ; preds = %17
   br label %cast_is_allowed.exit
 
 cast_is_allowed.exit:                             ; preds = %75, %65, %.thread.i, %.loopexit, %12
-  %.040 = phi i1 [ false, %12 ], [ true, %.loopexit ], [ %76, %75 ], [ false, %65 ], [ false, %.thread.i ]
+  %.040 = phi i1 [ false, %12 ], [ %76, %75 ], [ true, %.loopexit ], [ false, %65 ], [ false, %.thread.i ]
   ret i1 %.040
 }
 
@@ -4853,7 +4853,7 @@ report_cast_error.exit82:                         ; preds = %63, %68, %71
   br label %cast_is_allowed.exit
 
 cast_is_allowed.exit:                             ; preds = %121, %111, %.thread.i, %.loopexit, %report_cast_error.exit82, %.thread86, %report_cast_error.exit, %12
-  %.064 = phi i1 [ false, %report_cast_error.exit82 ], [ false, %report_cast_error.exit ], [ false, %12 ], [ false, %.thread86 ], [ true, %.loopexit ], [ %122, %121 ], [ false, %111 ], [ false, %.thread.i ]
+  %.064 = phi i1 [ false, %12 ], [ false, %report_cast_error.exit ], [ false, %.thread86 ], [ false, %report_cast_error.exit82 ], [ %122, %121 ], [ true, %.loopexit ], [ false, %111 ], [ false, %.thread.i ]
   ret i1 %.064
 }
 
@@ -4912,7 +4912,7 @@ define internal zeroext i1 @rule_arr_to_arr(ptr noundef readonly captures(none) 
   br label %18
 
 18:                                               ; preds = %10, %16, %11
-  %.0 = phi i1 [ %17, %16 ], [ false, %11 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %11 ], [ %17, %16 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -5049,7 +5049,7 @@ define internal noundef zeroext i1 @rule_interface_to_interface(ptr noundef read
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %4, %3, %33
-  %.024 = phi i1 [ true, %3 ], [ false, %4 ], [ false, %._crit_edge ], [ false, %33 ], [ true, %.lr.ph ]
+  %.024 = phi i1 [ false, %33 ], [ true, %3 ], [ false, %4 ], [ false, %._crit_edge ], [ true, %.lr.ph ]
   ret i1 %.024
 }
 
@@ -5172,7 +5172,7 @@ type_flatten.exit32:                              ; preds = %type_flatten.exit, 
   br i1 %2, label %common.ret51, label %53
 
 common.ret51:                                     ; preds = %49, %52, %47, %type_flatten.exit32, %50, %53
-  %common.ret51.op = phi i1 [ false, %53 ], [ false, %52 ], [ false, %50 ], [ true, %type_flatten.exit32 ], [ true, %47 ], [ %1, %49 ]
+  %common.ret51.op = phi i1 [ false, %53 ], [ false, %50 ], [ true, %type_flatten.exit32 ], [ true, %47 ], [ %1, %49 ], [ false, %52 ]
   ret i1 %common.ret51.op
 
 53:                                               ; preds = %49, %52
@@ -5280,7 +5280,7 @@ define internal noundef zeroext i1 @rule_ulist_to_vecarr(ptr noundef readonly ca
   br i1 %or.cond.not, label %.lr.ph, label %.thread, !llvm.loop !11
 
 .thread:                                          ; preds = %.lr.ph, %3, %16, %8, %17
-  %.032 = phi i1 [ true, %8 ], [ false, %17 ], [ false, %16 ], [ true, %3 ], [ %31, %.lr.ph ]
+  %.032 = phi i1 [ false, %17 ], [ true, %8 ], [ false, %16 ], [ true, %3 ], [ %31, %.lr.ph ]
   ret i1 %.032
 }
 
@@ -5372,7 +5372,7 @@ define internal noundef zeroext i1 @rule_ulist_to_struct(ptr noundef readonly ca
   br i1 %or.cond.not, label %.lr.ph, label %.thread, !llvm.loop !12
 
 .thread:                                          ; preds = %.lr.ph, %38, %3, %.critedge.thread, %35, %.critedge, %8, %31
-  %.046 = phi i1 [ true, %8 ], [ false, %31 ], [ false, %35 ], [ false, %.critedge.thread ], [ false, %.critedge ], [ true, %3 ], [ true, %38 ], [ %47, %.lr.ph ]
+  %.046 = phi i1 [ false, %31 ], [ true, %8 ], [ false, %.critedge ], [ false, %35 ], [ false, %.critedge.thread ], [ true, %3 ], [ true, %38 ], [ %47, %.lr.ph ]
   ret i1 %.046
 }
 
@@ -5420,7 +5420,7 @@ define internal noundef zeroext i1 @rule_ulist_to_inferred(ptr noundef readonly 
   br i1 %or.cond.not, label %20, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %20, %.critedge, %12
-  %.027 = phi i1 [ false, %.critedge ], [ false, %12 ], [ %24, %20 ]
+  %.027 = phi i1 [ false, %12 ], [ false, %.critedge ], [ %24, %20 ]
   ret i1 %.027
 }
 
@@ -7090,7 +7090,7 @@ type_flatten.exit27:                              ; preds = %19, %type_flatten.e
   br label %type_flatten.exit27.backedge
 
 type_flatten.exit27.backedge:                     ; preds = %41, %35
-  %.0.i28.in.be = phi ptr [ %42, %41 ], [ %40, %35 ]
+  %.0.i28.in.be = phi ptr [ %40, %35 ], [ %42, %41 ]
   br label %type_flatten.exit27
 
 43:                                               ; preds = %type_flatten.exit27
@@ -7293,7 +7293,7 @@ define internal void @cast_vec_to_vec(ptr noundef %0, ptr noundef captures(none)
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %17, %11
-  %.0.i.in.be = phi ptr [ %18, %17 ], [ %16, %11 ]
+  %.0.i.in.be = phi ptr [ %16, %11 ], [ %18, %17 ]
   br label %.preheader
 
 19:                                               ; preds = %.preheader
@@ -7938,7 +7938,7 @@ type_flatten.exit25:                              ; preds = %21
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %45, %39
-  %.0.i26.in.be = phi ptr [ %46, %45 ], [ %44, %39 ]
+  %.0.i26.in.be = phi ptr [ %44, %39 ], [ %46, %45 ]
   br label %.preheader
 
 47:                                               ; preds = %.preheader
@@ -8313,7 +8313,7 @@ type_flatten.exit:                                ; preds = %32
   br label %53
 
 53:                                               ; preds = %type_flatten.exit, %49, %51, %48
-  %.0 = phi i64 [ %31, %type_flatten.exit ], [ %52, %51 ], [ %31, %48 ], [ %50, %49 ]
+  %.0 = phi i64 [ %50, %49 ], [ %52, %51 ], [ %31, %type_flatten.exit ], [ %31, %48 ]
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %.0, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -8943,7 +8943,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %44, %41, %38, %16, %22, %61, %74, %119, %122, %125, %132
-  %.053.be = phi ptr [ %21, %16 ], [ %26, %22 ], [ %134, %132 ], [ %66, %61 ], [ %79, %74 ], [ %121, %119 ], [ %124, %122 ], [ %127, %125 ], [ %48, %44 ], [ null, %41 ], [ null, %38 ]
+  %.053.be = phi ptr [ %21, %16 ], [ %26, %22 ], [ %66, %61 ], [ %79, %74 ], [ %121, %119 ], [ %124, %122 ], [ %127, %125 ], [ %134, %132 ], [ %48, %44 ], [ null, %41 ], [ null, %38 ]
   br label %.backedge
 
 49:                                               ; preds = %.backedge
@@ -9137,7 +9137,7 @@ type_flatten.exit69:                              ; preds = %.preheader114
   br label %.loopexit72
 
 .loopexit72:                                      ; preds = %70, %55, %10, %.loopexit, %type_flatten.exit69, %type_flatten.exit, %32
-  %.052 = phi ptr [ %.053.65, %.loopexit ], [ %.053.64, %type_flatten.exit ], [ %..053, %type_flatten.exit69 ], [ %.053., %32 ], [ %60, %55 ], [ null, %70 ], [ %15, %10 ]
+  %.052 = phi ptr [ %.053., %32 ], [ %.053.64, %type_flatten.exit ], [ %..053, %type_flatten.exit69 ], [ %.053.65, %.loopexit ], [ null, %70 ], [ %60, %55 ], [ %15, %10 ]
   ret ptr %.052
 }
 

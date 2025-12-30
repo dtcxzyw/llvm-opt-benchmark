@@ -708,7 +708,7 @@ H5O__copy_expand_ref_object2.exit.thread41:       ; preds = %194
   br label %352
 
 352:                                              ; preds = %348, %345, %341
-  %.199.i = phi i32 [ -1, %348 ], [ 0, %345 ], [ -1, %341 ]
+  %.199.i = phi i32 [ -1, %341 ], [ -1, %348 ], [ 0, %345 ]
   %353 = call i32 @H5S_close(ptr noundef nonnull %332) #8
   %354 = icmp slt i32 %353, 0
   br i1 %354, label %355, label %.thread151.i
@@ -720,10 +720,10 @@ H5O__copy_expand_ref_object2.exit.thread41:       ; preds = %194
   br label %.thread151.i
 
 .thread151.i:                                     ; preds = %355, %352, %334, %327, %322, %267, %256, %249, %237, %230, %222, %213
-  %.6165.i = phi i32 [ -1, %355 ], [ -1, %267 ], [ %.199.i, %352 ], [ -1, %213 ], [ -1, %222 ], [ -1, %230 ], [ -1, %237 ], [ -1, %249 ], [ -1, %256 ], [ -1, %322 ], [ -1, %327 ], [ -1, %334 ]
-  %.0103147161.i = phi i64 [ %262, %355 ], [ %262, %267 ], [ %262, %352 ], [ -1, %213 ], [ -1, %222 ], [ -1, %230 ], [ -1, %237 ], [ -1, %249 ], [ -1, %256 ], [ %262, %322 ], [ %262, %327 ], [ %262, %334 ]
-  %.0102148159.i = phi ptr [ %247, %355 ], [ %247, %267 ], [ %247, %352 ], [ null, %213 ], [ null, %222 ], [ null, %230 ], [ null, %237 ], [ null, %249 ], [ %247, %256 ], [ %247, %322 ], [ %247, %327 ], [ %247, %334 ]
-  %.0101149157.i = phi ptr [ %325, %355 ], [ null, %267 ], [ %325, %352 ], [ null, %213 ], [ null, %222 ], [ null, %230 ], [ null, %237 ], [ null, %249 ], [ null, %256 ], [ null, %322 ], [ null, %327 ], [ %325, %334 ]
+  %.6165.i = phi i32 [ %.199.i, %352 ], [ -1, %355 ], [ -1, %213 ], [ -1, %222 ], [ -1, %230 ], [ -1, %237 ], [ -1, %249 ], [ -1, %256 ], [ -1, %267 ], [ -1, %322 ], [ -1, %327 ], [ -1, %334 ]
+  %.0103147161.i = phi i64 [ %262, %352 ], [ %262, %355 ], [ -1, %213 ], [ -1, %222 ], [ -1, %230 ], [ -1, %237 ], [ -1, %249 ], [ -1, %256 ], [ %262, %267 ], [ %262, %322 ], [ %262, %327 ], [ %262, %334 ]
+  %.0102148159.i = phi ptr [ %247, %352 ], [ %247, %355 ], [ null, %213 ], [ null, %222 ], [ null, %230 ], [ null, %237 ], [ null, %249 ], [ %247, %256 ], [ %247, %267 ], [ %247, %322 ], [ %247, %327 ], [ %247, %334 ]
+  %.0101149157.i = phi ptr [ %325, %352 ], [ %325, %355 ], [ null, %213 ], [ null, %222 ], [ null, %230 ], [ null, %237 ], [ null, %249 ], [ null, %256 ], [ null, %267 ], [ null, %322 ], [ null, %327 ], [ %325, %334 ]
   %359 = call i32 @H5T_close(ptr noundef nonnull %205) #8
   %360 = icmp slt i32 %359, 0
   br i1 %360, label %361, label %365
@@ -807,7 +807,7 @@ H5O__copy_expand_ref_object2.exit:                ; preds = %379, %380
   br label %396
 
 396:                                              ; preds = %H5O__copy_expand_ref_object2.exit.thread41, %H5O__copy_expand_ref_region1.exit.thread, %H5O__copy_expand_ref_object1.exit.thread, %32, %45, %54, %130, %190, %388, %392, %H5O__copy_expand_ref_object2.exit, %36
-  %.0 = phi i32 [ -1, %32 ], [ -1, %45 ], [ -1, %54 ], [ -1, %392 ], [ -1, %130 ], [ 0, %H5O__copy_expand_ref_object1.exit.thread ], [ -1, %190 ], [ 0, %H5O__copy_expand_ref_region1.exit.thread ], [ -1, %388 ], [ 0, %H5O__copy_expand_ref_object2.exit ], [ 0, %36 ], [ 0, %H5O__copy_expand_ref_object2.exit.thread41 ]
+  %.0 = phi i32 [ -1, %32 ], [ -1, %45 ], [ -1, %54 ], [ -1, %392 ], [ -1, %130 ], [ -1, %190 ], [ -1, %388 ], [ 0, %H5O__copy_expand_ref_object2.exit ], [ 0, %36 ], [ 0, %H5O__copy_expand_ref_object1.exit.thread ], [ 0, %H5O__copy_expand_ref_region1.exit.thread ], [ 0, %H5O__copy_expand_ref_object2.exit.thread41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -912,7 +912,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5O__copy_obj_by_ref(ptr 
   br label %45
 
 45:                                               ; preds = %4, %22, %18, %44
-  %.015 = phi i32 [ -1, %18 ], [ 0, %4 ], [ %.1, %44 ], [ %16, %22 ]
+  %.015 = phi i32 [ -1, %18 ], [ %.1, %44 ], [ %16, %22 ], [ 0, %4 ]
   ret i32 %.015
 }
 

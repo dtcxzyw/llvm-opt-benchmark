@@ -198,13 +198,13 @@ skip_prefix.exit.i.i.i:                           ; preds = %50
   br label %77
 
 77:                                               ; preds = %75, %72, %45
-  %.1.i.i.i = phi i32 [ %.0828.i.i.i, %45 ], [ %56, %72 ], [ %.0828.i.i.i, %75 ]
+  %.1.i.i.i = phi i32 [ %.0828.i.i.i, %45 ], [ %.0828.i.i.i, %75 ], [ %56, %72 ]
   %78 = call i32 @strbuf_getline(ptr noundef nonnull %3, ptr noundef nonnull %41) #14
   %.not11.i.i.i = icmp eq i32 %78, -1
   br i1 %.not11.i.i.i, label %.loopexit.i, label %45
 
 .loopexit.i:                                      ; preds = %77, %skip_prefix.exit.i.i.i, %skip_prefix.exit.i.i.i, %find_pack_by_name.exit.i.i.i.i, %55, %59, %.preheader.i.i.i
-  %79 = phi i1 [ false, %59 ], [ true, %.preheader.i.i.i ], [ false, %skip_prefix.exit.i.i.i ], [ true, %77 ], [ false, %skip_prefix.exit.i.i.i ], [ false, %find_pack_by_name.exit.i.i.i.i ], [ false, %55 ]
+  %79 = phi i1 [ true, %.preheader.i.i.i ], [ false, %59 ], [ false, %55 ], [ false, %find_pack_by_name.exit.i.i.i.i ], [ false, %skip_prefix.exit.i.i.i ], [ false, %skip_prefix.exit.i.i.i ], [ true, %77 ]
   call void @strbuf_release(ptr noundef nonnull %3) #14
   %80 = call i32 @fclose(ptr noundef nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -225,7 +225,7 @@ skip_prefix.exit.i.i.i:                           ; preds = %50
   br i1 %86, label %.lr.ph42.split.preheader.i.i, label %._crit_edge43.i.i
 
 .lr.ph42.split.preheader.i.i:                     ; preds = %.thread.i.i, %.thread.i, %.loopexit.i
-  %87 = phi i32 [ %81, %.loopexit.i ], [ %85, %.thread.i.i ], [ %83, %.thread.i ]
+  %87 = phi i32 [ %85, %.thread.i.i ], [ %83, %.thread.i ], [ %81, %.loopexit.i ]
   %88 = load ptr, ptr @info, align 8
   %wide.trip.count.i.i = zext nneg i32 %87 to i64
   br label %.lr.ph42.split.i.i
@@ -241,7 +241,7 @@ skip_prefix.exit.i.i.i:                           ; preds = %50
   br i1 %exitcond.not.i.i, label %._crit_edge43.i.i, label %.lr.ph42.split.i.i, !llvm.loop !29
 
 ._crit_edge43.i.i:                                ; preds = %.lr.ph42.split.i.i, %.thread.i.i, %.thread.i, %.loopexit.i
-  %92 = phi i32 [ %85, %.thread.i.i ], [ %83, %.thread.i ], [ %81, %.loopexit.i ], [ %87, %.lr.ph42.split.i.i ]
+  %92 = phi i32 [ %85, %.thread.i.i ], [ %81, %.loopexit.i ], [ %83, %.thread.i ], [ %87, %.lr.ph42.split.i.i ]
   %93 = icmp ugt i32 %92, 1
   br i1 %93, label %94, label %sane_qsort.exit.i.i
 
@@ -413,8 +413,8 @@ define internal fastcc i32 @update_info_file(ptr noundef %0, ptr noundef %1, ptr
   %46 = call i32 @delete_tempfile(ptr noundef nonnull %5) #14
   br label %52
 
-47:                                               ; preds = %21, %4, %35, %16
-  %.018.ph = phi i32 [ -1, %16 ], [ -1, %35 ], [ -1, %4 ], [ %22, %21 ]
+47:                                               ; preds = %21, %35, %16, %4
+  %.018.ph = phi i32 [ -1, %4 ], [ -1, %16 ], [ -1, %35 ], [ %22, %21 ]
   %48 = call i32 (ptr, ...) @error_errno(ptr noundef nonnull @.str.5, ptr noundef %1) #14
   %49 = load ptr, ptr %5, align 8, !tbaa !37
   %.not32 = icmp eq ptr %49, null
@@ -425,7 +425,7 @@ define internal fastcc i32 @update_info_file(ptr noundef %0, ptr noundef %1, ptr
   br label %52
 
 52:                                               ; preds = %43, %38, %45, %47, %50
-  %.01844 = phi i32 [ %.018.ph, %47 ], [ %.018.ph, %50 ], [ 0, %45 ], [ 0, %38 ], [ 0, %43 ]
+  %.01844 = phi i32 [ %.018.ph, %47 ], [ %.018.ph, %50 ], [ 0, %38 ], [ 0, %43 ], [ 0, %45 ]
   call void @free(ptr noundef %8) #14
   %53 = load ptr, ptr %10, align 8, !tbaa !40
   %.not33 = icmp eq ptr %53, null
@@ -526,7 +526,7 @@ define internal range(i32 -1, 1) i32 @add_info_ref(ptr noundef %0, ptr readnone 
   br label %25
 
 25:                                               ; preds = %19, %8, %5, %24
-  %.0 = phi i32 [ -1, %5 ], [ -1, %8 ], [ 0, %24 ], [ -1, %19 ]
+  %.0 = phi i32 [ 0, %24 ], [ -1, %5 ], [ -1, %8 ], [ -1, %19 ]
   ret i32 %.0
 }
 
@@ -718,7 +718,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @compare_info(ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %11, %18, %14, %13
-  %.0 = phi i32 [ %spec.select, %11 ], [ 0, %14 ], [ %., %18 ], [ 1, %13 ]
+  %.0 = phi i32 [ 1, %13 ], [ 0, %14 ], [ %., %18 ], [ %spec.select, %11 ]
   ret i32 %.0
 }
 

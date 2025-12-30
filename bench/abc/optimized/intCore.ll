@@ -1323,8 +1323,8 @@ Vec_PtrPush.exit374:                              ; preds = %.Vec_PtrGrow.exit11
   br label %654
 
 654:                                              ; preds = %651, %554, %652, %Abc_Clock.exit367, %Vec_PtrPush.exit374, %Abc_Clock.exit361
-  %.0241 = phi i32 [ %574, %Abc_Clock.exit361 ], [ %615, %Vec_PtrPush.exit374 ], [ %615, %Abc_Clock.exit367 ], [ 0, %554 ], [ %653, %652 ], [ 0, %651 ]
-  %.3 = phi i64 [ %583, %Abc_Clock.exit361 ], [ %614, %Vec_PtrPush.exit374 ], [ %614, %Abc_Clock.exit367 ], [ %.1238, %554 ], [ %.1238, %652 ], [ %.1238, %651 ]
+  %.0241 = phi i32 [ %574, %Abc_Clock.exit361 ], [ %615, %Vec_PtrPush.exit374 ], [ %615, %Abc_Clock.exit367 ], [ %653, %652 ], [ 0, %554 ], [ 0, %651 ]
+  %.3 = phi i64 [ %583, %Abc_Clock.exit361 ], [ %614, %Vec_PtrPush.exit374 ], [ %614, %Abc_Clock.exit367 ], [ %.1238, %652 ], [ %.1238, %554 ], [ %.1238, %651 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %655 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #15
   %656 = icmp slt i32 %655, 0

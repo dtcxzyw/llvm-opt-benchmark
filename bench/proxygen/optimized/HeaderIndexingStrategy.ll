@@ -179,7 +179,7 @@ sw.epilog:                                        ; preds = %if.then17.i.i, %whi
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit, %entry, %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit, %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit, %_ZNK5folly5RangeIPKcE4findES2_.exit, %sw.epilog
-  %retval.0 = phi i1 [ true, %sw.epilog ], [ false, %_ZNK5folly5RangeIPKcE4findES2_.exit ], [ false, %if.end.i.i ], [ false, %entry ], [ false, %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit ], [ false, %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit ], [ false, %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit ]
+  %retval.0 = phi i1 [ true, %sw.epilog ], [ false, %_ZNK5folly5RangeIPKcE4findES2_.exit ], [ false, %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit ], [ false, %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit ], [ false, %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit ], [ false, %entry ], [ false, %if.end.i.i ]
   ret i1 %retval.0
 }
 

@@ -1142,7 +1142,7 @@ define internal range(i32 0, 2) i32 @hashtable_compare_traceback(ptr noundef rea
   br i1 %.not25, label %14, label %.critedge
 
 .critedge:                                        ; preds = %15, %14, %22, %.preheader, %7, %2
-  %.0 = phi i32 [ 0, %7 ], [ 0, %2 ], [ 1, %.preheader ], [ 0, %15 ], [ 1, %14 ], [ 0, %22 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %7 ], [ 1, %.preheader ], [ 0, %15 ], [ 1, %14 ], [ 0, %22 ]
   ret i32 %.0
 }
 
@@ -1576,7 +1576,7 @@ tracemalloc_get_traceback_unlocked.exit:          ; preds = %12
   %34 = icmp samesign ult i64 %indvars.iv.next, %33
   br i1 %34, label %23, label %._crit_edge, !llvm.loop !218
 
-tracemalloc_get_traceback_unlocked.exit.thread:   ; preds = %10, %12, %tracemalloc_get_traceback_unlocked.exit, %._crit_edge, %8
+tracemalloc_get_traceback_unlocked.exit.thread:   ; preds = %12, %10, %tracemalloc_get_traceback_unlocked.exit, %._crit_edge, %8
   %35 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10288), i8 1, i8 0 seq_cst seq_cst, align 1
   %36 = extractvalue { i8, i1 } %35, 1
   br i1 %36, label %_PyMutex_Unlock.exit, label %37
@@ -1729,7 +1729,7 @@ tracemalloc_get_traces_table.exit:                ; preds = %9, %11
   br label %51
 
 51:                                               ; preds = %43, %26, %17, %.critedge, %50, %35, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %17 ], [ -1, %26 ], [ -1, %35 ], [ %42, %43 ], [ 0, %50 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %26 ], [ -1, %17 ], [ %42, %43 ], [ -1, %35 ], [ 0, %50 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -2045,7 +2045,7 @@ Py_DECREF.exit39:                                 ; preds = %55, %56, %59
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %63, %61, %45, %42, %.loopexit, %8, %5, %.critedge, %10, %Py_DECREF.exit39
-  %.0 = phi ptr [ %14, %.critedge ], [ %4, %8 ], [ null, %Py_DECREF.exit39 ], [ null, %10 ], [ null, %45 ], [ %4, %5 ], [ null, %.loopexit ], [ null, %42 ], [ %14, %61 ], [ %14, %63 ]
+  %.0 = phi ptr [ null, %Py_DECREF.exit39 ], [ null, %10 ], [ %14, %.critedge ], [ %4, %5 ], [ %4, %8 ], [ null, %.loopexit ], [ null, %42 ], [ null, %45 ], [ %14, %61 ], [ %14, %63 ]
   ret ptr %.0
 }
 
@@ -2422,8 +2422,8 @@ Py_DECREF.exit:                                   ; preds = %58, %64, %67
   %.lobit = lshr i32 %62, 31
   br label %trace_to_pyobject.exit.thread
 
-trace_to_pyobject.exit.thread:                    ; preds = %57, %54, %52, %40, %38, %28, %26, %17, %15, %43, %31, %20, %4, %Py_DECREF.exit
-  %.0 = phi i32 [ %.lobit, %Py_DECREF.exit ], [ 1, %4 ], [ 1, %20 ], [ 1, %31 ], [ 1, %43 ], [ 1, %15 ], [ 1, %17 ], [ 1, %26 ], [ 1, %28 ], [ 1, %38 ], [ 1, %40 ], [ 1, %52 ], [ 1, %54 ], [ 1, %57 ]
+trace_to_pyobject.exit.thread:                    ; preds = %57, %54, %52, %43, %40, %38, %31, %28, %26, %20, %17, %15, %4, %Py_DECREF.exit
+  %.0 = phi i32 [ %.lobit, %Py_DECREF.exit ], [ 1, %4 ], [ 1, %15 ], [ 1, %17 ], [ 1, %20 ], [ 1, %26 ], [ 1, %28 ], [ 1, %31 ], [ 1, %38 ], [ 1, %40 ], [ 1, %43 ], [ 1, %52 ], [ 1, %54 ], [ 1, %57 ]
   ret i32 %.0
 }
 
@@ -3112,8 +3112,8 @@ traceback_hash.exit:                              ; preds = %.lr.ph.i25
   tail call void %128(ptr noundef %129, ptr noundef nonnull %121) #14
   br label %.critedge
 
-.critedge:                                        ; preds = %_PyFrame_IsIncomplete.exit.thread.i.i.i, %0, %114, %127, %111, %123, %traceback_get_frames.exit
-  %.0 = phi ptr [ %121, %123 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10352), %traceback_get_frames.exit ], [ %113, %111 ], [ null, %127 ], [ null, %114 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10352), %0 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10352), %_PyFrame_IsIncomplete.exit.thread.i.i.i ]
+.critedge:                                        ; preds = %_PyFrame_IsIncomplete.exit.thread.i.i.i, %0, %127, %114, %111, %123, %traceback_get_frames.exit
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10352), %traceback_get_frames.exit ], [ %113, %111 ], [ %121, %123 ], [ null, %114 ], [ null, %127 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10352), %0 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10352), %_PyFrame_IsIncomplete.exit.thread.i.i.i ]
   ret ptr %.0
 }
 
@@ -3155,7 +3155,7 @@ define internal range(i32 -1, 1) i32 @tracemalloc_copy_trace(ptr readnone captur
   br label %15
 
 15:                                               ; preds = %9, %4, %12
-  %.0 = phi i32 [ -1, %4 ], [ -1, %12 ], [ 0, %9 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %4 ], [ 0, %9 ]
   ret i32 %.0
 }
 

@@ -443,7 +443,7 @@ define internal noalias noundef ptr @preload_thread(ptr noundef %0) #0 {
   br label %mark_fsmonitor_valid.exit
 
 mark_fsmonitor_valid.exit:                        ; preds = %85, %79, %75, %72, %66, %64, %60, %57, %49, %29, %23
-  %.148 = phi i32 [ %.2, %60 ], [ %.047, %23 ], [ %.047, %29 ], [ %.2, %64 ], [ %.2, %57 ], [ %.2, %49 ], [ %.2, %66 ], [ %.2, %72 ], [ %.2, %75 ], [ %.2, %79 ], [ %.2, %85 ]
+  %.148 = phi i32 [ %.047, %23 ], [ %.047, %29 ], [ %.2, %49 ], [ %.2, %57 ], [ %.2, %60 ], [ %.2, %64 ], [ %.2, %66 ], [ %.2, %72 ], [ %.2, %75 ], [ %.2, %79 ], [ %.2, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %86 = add nsw i32 %.1, -1
   %87 = icmp sgt i32 %.1, 1

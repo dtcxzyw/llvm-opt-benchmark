@@ -639,7 +639,7 @@ define hidden void @_ZN4gpui8elements4text10StyledText15with_highlights17h3bc4e3
           to label %191 unwind label %188
 
 .thread:                                          ; preds = %103, %82, %80
-  %.pn11.ph = phi { ptr, i32 } [ %.pn, %82 ], [ %81, %80 ], [ %104, %103 ]
+  %.pn11.ph = phi { ptr, i32 } [ %81, %80 ], [ %.pn, %82 ], [ %104, %103 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$gpui..text_system..TextRun$GT$$GT$17ha6d0ba265c25c05cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #13
           to label %190 unwind label %188
 

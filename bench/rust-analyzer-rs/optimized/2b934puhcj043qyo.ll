@@ -319,7 +319,7 @@ define hidden void @"_ZN85_$LT$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$u2
   br label %39
 
 39:                                               ; preds = %._crit_edge.i.i, %32, %._crit_edge.i.i.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hb74a04a9b966bc3fE.exit.i"
-  %40 = phi i64 [ %22, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hb74a04a9b966bc3fE.exit.i" ], [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %.pre.i.i, %._crit_edge.i.i ], [ %9, %32 ]
+  %40 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %22, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hb74a04a9b966bc3fE.exit.i" ], [ %.pre.i.i, %._crit_edge.i.i ], [ %9, %32 ]
   %41 = icmp ugt i64 %6, %40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %42, align 8, !alias.scope !53, !noalias !58
@@ -616,8 +616,8 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br i1 %72, label %122, label %121, !prof !36
 
 73:                                               ; preds = %63, %59
-  %74 = phi i8 [ %61, %59 ], [ %.pre.i, %63 ]
-  %.sroa.410.0.ph.i = phi i64 [ %.sroa.6.1.i.i.i, %59 ], [ %69, %63 ]
+  %74 = phi i8 [ %.pre.i, %63 ], [ %61, %59 ]
+  %.sroa.410.0.ph.i = phi i64 [ %69, %63 ], [ %.sroa.6.1.i.i.i, %59 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %76 = load i64, ptr %75, align 8, !alias.scope !109, !noalias !112, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !150)
@@ -692,7 +692,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17h26158b80cbf5b543E.llvm.9817217397473310483.exit.i"
 
 "_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17h26158b80cbf5b543E.llvm.9817217397473310483.exit.i": ; preds = %._crit_edge.i.i.i13, %._crit_edge.i.i.i.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hb74a04a9b966bc3fE.exit.i.i"
-  %110 = phi i64 [ %.pre.i12, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hb74a04a9b966bc3fE.exit.i.i" ], [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.pre.i.i.i, %._crit_edge.i.i.i13 ]
+  %110 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.pre.i12, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hb74a04a9b966bc3fE.exit.i.i" ], [ %.pre.i.i.i, %._crit_edge.i.i.i13 ]
   %.pre4.i = load i64, ptr %6, align 8, !alias.scope !167, !noalias !170
   br label %111
 

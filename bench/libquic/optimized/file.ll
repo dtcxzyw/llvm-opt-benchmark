@@ -51,7 +51,7 @@ define hidden ptr @BIO_new_file(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %18
 
 18:                                               ; preds = %9, %10, %16, %14
-  %.0 = phi ptr [ %12, %16 ], [ null, %14 ], [ null, %10 ], [ null, %9 ]
+  %.0 = phi ptr [ null, %14 ], [ %12, %16 ], [ null, %10 ], [ null, %9 ]
   ret ptr %.0
 }
 
@@ -363,7 +363,7 @@ file_free.exit47:                                 ; preds = %28, %36
   br label %68
 
 48:                                               ; preds = %44, %42, %40
-  %.str.8.sink = phi ptr [ %.str.7..str.6, %40 ], [ %.str.9.mux, %44 ], [ @.str.8, %42 ]
+  %.str.8.sink = phi ptr [ %.str.7..str.6, %40 ], [ @.str.8, %42 ], [ %.str.9.mux, %44 ]
   %49 = call i64 @BUF_strlcpy(ptr noundef nonnull %5, ptr noundef nonnull %.str.8.sink, i64 noundef 4) #9
   %50 = call noalias ptr @fopen64(ptr noundef %3, ptr noundef nonnull %5)
   %51 = icmp eq ptr %50, null
@@ -408,7 +408,7 @@ file_free.exit47:                                 ; preds = %28, %36
   br label %68
 
 68:                                               ; preds = %4, %55, %56, %64, %61, %57, %53, %52, %47, %file_free.exit, %15, %12, %9
-  %.035 = phi i64 [ %67, %64 ], [ %11, %9 ], [ %14, %12 ], [ %16, %15 ], [ 1, %file_free.exit ], [ 0, %52 ], [ 1, %53 ], [ 0, %47 ], [ 1, %56 ], [ 1, %55 ], [ %60, %57 ], [ 1, %61 ], [ 0, %4 ]
+  %.035 = phi i64 [ %11, %9 ], [ %14, %12 ], [ %16, %15 ], [ 1, %file_free.exit ], [ 0, %52 ], [ 1, %53 ], [ 0, %47 ], [ 1, %56 ], [ 1, %55 ], [ %60, %57 ], [ 1, %61 ], [ %67, %64 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.035
 }
@@ -451,7 +451,7 @@ define internal range(i32 0, 2) i32 @file_free(ptr noundef captures(address_is_n
   br label %15
 
 15:                                               ; preds = %3, %1, %14
-  %.0 = phi i32 [ 0, %1 ], [ 1, %14 ], [ 1, %3 ]
+  %.0 = phi i32 [ 1, %14 ], [ 0, %1 ], [ 1, %3 ]
   ret i32 %.0
 }
 

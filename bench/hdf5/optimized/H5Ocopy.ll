@@ -514,7 +514,7 @@ H5O__copy_obj.exit:                               ; preds = %50, %173
   br label %.thread27
 
 .thread27:                                        ; preds = %.thread38, %.thread, %43, %34, %27, %194, %197, %6
-  %.0 = phi i32 [ -1, %197 ], [ %.230, %194 ], [ -1, %.thread38 ], [ 0, %6 ], [ -1, %.thread ], [ -1, %27 ], [ -1, %34 ], [ -1, %43 ]
+  %.0 = phi i32 [ -1, %197 ], [ %.230, %194 ], [ 0, %6 ], [ -1, %27 ], [ -1, %34 ], [ -1, %43 ], [ -1, %.thread ], [ -1, %.thread38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -648,7 +648,7 @@ define range(i32 -1, 2) i32 @H5O_copy_header_map(ptr noundef %0, ptr noundef %1,
   br label %73
 
 .thread31:                                        ; preds = %.thread, %46, %59
-  %.1.ph = phi i32 [ 1, %.thread ], [ 0, %59 ], [ 1, %46 ]
+  %.1.ph = phi i32 [ 0, %59 ], [ 1, %46 ], [ 1, %.thread ]
   %67 = call i32 @H5O_link(ptr noundef %1, i32 noundef 1) #7
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %69, label %73
@@ -1111,7 +1111,7 @@ H5O__copy_search_comm_dt.exit.thread:             ; preds = %83
   br label %.thread115.i
 
 250:                                              ; preds = %245, %209, %190, %180
-  %.6.i = phi i32 [ 0, %180 ], [ 1, %190 ], [ 0, %209 ], [ 0, %245 ]
+  %.6.i = phi i32 [ 0, %180 ], [ 1, %190 ], [ 0, %245 ], [ 0, %209 ]
   %251 = load i8, ptr %181, align 8, !tbaa !76, !range !7, !noundef !8
   %252 = trunc nuw i8 %251 to i1
   br i1 %252, label %253, label %.thread115.i
@@ -1129,7 +1129,7 @@ H5O__copy_search_comm_dt.exit.thread:             ; preds = %83
   br label %.thread115.i
 
 .thread115.i:                                     ; preds = %256, %253, %250, %246, %241, %230, %220, %210, %.thread101.i, %.thread97.i, %105, %92
-  %.169117.i = phi i32 [ -1, %92 ], [ -1, %105 ], [ %.6.i, %253 ], [ 1, %256 ], [ -1, %.thread97.i ], [ %.6.i, %250 ], [ -1, %210 ], [ -1, %241 ], [ -1, %.thread101.i ], [ -1, %220 ], [ -1, %230 ], [ -1, %246 ]
+  %.169117.i = phi i32 [ -1, %105 ], [ %.6.i, %253 ], [ 1, %256 ], [ -1, %92 ], [ %.6.i, %250 ], [ -1, %.thread97.i ], [ -1, %210 ], [ -1, %241 ], [ -1, %220 ], [ -1, %230 ], [ -1, %246 ], [ -1, %.thread101.i ]
   %259 = load ptr, ptr %84, align 8, !tbaa !62
   %.not88.i = icmp eq ptr %259, null
   br i1 %.not88.i, label %H5O__copy_search_comm_dt.exit, label %260
@@ -1959,10 +1959,10 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread115.i, %260
   br i1 %698, label %707, label %.thread599
 
 .thread599:                                       ; preds = %692, %.thread598..thread599_crit_edge
-  %.0465.lcssa857 = phi i64 [ %.0465.lcssa, %692 ], [ %.0465.lcssa854, %.thread598..thread599_crit_edge ]
-  %.pre781845852 = phi i8 [ %.pre781845, %692 ], [ 0, %.thread598..thread599_crit_edge ]
-  %699 = phi i64 [ %693, %692 ], [ %689, %.thread598..thread599_crit_edge ]
-  %700 = phi i1 [ true, %692 ], [ %691, %.thread598..thread599_crit_edge ]
+  %.0465.lcssa857 = phi i64 [ %.0465.lcssa854, %.thread598..thread599_crit_edge ], [ %.0465.lcssa, %692 ]
+  %.pre781845852 = phi i8 [ 0, %.thread598..thread599_crit_edge ], [ %.pre781845, %692 ]
+  %699 = phi i64 [ %689, %.thread598..thread599_crit_edge ], [ %693, %692 ]
+  %700 = phi i1 [ %691, %.thread598..thread599_crit_edge ], [ true, %692 ]
   %.mux = select i1 %700, i64 %699, i64 8
   br i1 %700, label %707, label %701
 
@@ -2405,19 +2405,19 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread115.i, %260
   br label %936
 
 936:                                              ; preds = %414, %488, %510, %730, %739, %839, %846, %868, %919, %934, %933, %476, %.thread592, %824, %900, %.thread619
-  %.0487 = phi i1 [ false, %839 ], [ false, %846 ], [ false, %868 ], [ false, %900 ], [ false, %919 ], [ true, %934 ], [ false, %.thread619 ], [ true, %933 ], [ false, %824 ], [ false, %414 ], [ false, %488 ], [ false, %476 ], [ false, %510 ], [ false, %.thread592 ], [ false, %730 ], [ false, %739 ]
-  %.0458 = phi ptr [ %306, %839 ], [ %306, %846 ], [ %306, %868 ], [ %306, %900 ], [ %306, %919 ], [ null, %934 ], [ %306, %.thread619 ], [ null, %933 ], [ %306, %824 ], [ %306, %414 ], [ %306, %488 ], [ %306, %476 ], [ %306, %510 ], [ %306, %.thread592 ], [ %306, %730 ], [ %306, %739 ]
-  %.1452 = phi i32 [ -1, %839 ], [ -1, %846 ], [ -1, %868 ], [ -1, %900 ], [ -1, %919 ], [ 0, %934 ], [ -1, %.thread619 ], [ 0, %933 ], [ -1, %824 ], [ -1, %414 ], [ -1, %488 ], [ -1, %476 ], [ -1, %510 ], [ -1, %.thread592 ], [ -1, %730 ], [ -1, %739 ]
-  %.0444 = phi ptr [ null, %839 ], [ null, %846 ], [ %869, %868 ], [ %844, %900 ], [ %844, %919 ], [ %844, %934 ], [ %844, %.thread619 ], [ %844, %933 ], [ null, %824 ], [ null, %414 ], [ null, %488 ], [ null, %476 ], [ null, %510 ], [ null, %.thread592 ], [ null, %730 ], [ null, %739 ]
+  %.0487 = phi i1 [ false, %414 ], [ false, %488 ], [ false, %476 ], [ false, %510 ], [ false, %730 ], [ false, %739 ], [ false, %839 ], [ false, %846 ], [ false, %868 ], [ false, %900 ], [ false, %919 ], [ true, %934 ], [ true, %933 ], [ false, %824 ], [ false, %.thread592 ], [ false, %.thread619 ]
+  %.0458 = phi ptr [ %306, %414 ], [ %306, %488 ], [ %306, %476 ], [ %306, %510 ], [ %306, %730 ], [ %306, %739 ], [ %306, %839 ], [ %306, %846 ], [ %306, %868 ], [ %306, %900 ], [ %306, %919 ], [ null, %934 ], [ null, %933 ], [ %306, %824 ], [ %306, %.thread592 ], [ %306, %.thread619 ]
+  %.1452 = phi i32 [ -1, %414 ], [ -1, %488 ], [ -1, %476 ], [ -1, %510 ], [ -1, %730 ], [ -1, %739 ], [ -1, %839 ], [ -1, %846 ], [ -1, %868 ], [ -1, %900 ], [ -1, %919 ], [ 0, %934 ], [ 0, %933 ], [ -1, %824 ], [ -1, %.thread592 ], [ -1, %.thread619 ]
+  %.0444 = phi ptr [ null, %414 ], [ null, %488 ], [ null, %476 ], [ null, %510 ], [ null, %730 ], [ null, %739 ], [ null, %839 ], [ null, %846 ], [ %869, %868 ], [ %844, %900 ], [ %844, %919 ], [ %844, %934 ], [ %844, %933 ], [ null, %824 ], [ null, %.thread592 ], [ %844, %.thread619 ]
   call void @free(ptr noundef nonnull %calloc) #7
   br label %.thread626.thread
 
 .thread626.thread:                                ; preds = %936, %301, %308, %.thread578, %54, %323, %374, %385, %394
-  %.0487635662 = phi i1 [ false, %54 ], [ false, %394 ], [ false, %385 ], [ false, %374 ], [ false, %323 ], [ false, %301 ], [ %.0487, %936 ], [ false, %.thread578 ], [ false, %308 ]
-  %.0467636659 = phi ptr [ null, %54 ], [ %.1468, %394 ], [ %.1468, %385 ], [ %.1468, %374 ], [ %.1468, %323 ], [ %.1468, %301 ], [ %.1468, %936 ], [ %.1468, %.thread578 ], [ %.1468, %308 ]
-  %.0458637656 = phi ptr [ null, %54 ], [ %306, %394 ], [ %306, %385 ], [ %306, %374 ], [ %306, %323 ], [ null, %301 ], [ %.0458, %936 ], [ null, %.thread578 ], [ null, %308 ]
-  %.1452638654 = phi i32 [ -1, %54 ], [ -1, %394 ], [ -1, %385 ], [ -1, %374 ], [ -1, %323 ], [ -1, %301 ], [ %.1452, %936 ], [ %.3454.ph, %.thread578 ], [ -1, %308 ]
-  %.0444640651 = phi ptr [ null, %54 ], [ null, %394 ], [ null, %385 ], [ null, %374 ], [ null, %323 ], [ null, %301 ], [ %.0444, %936 ], [ %.2.ph, %.thread578 ], [ null, %308 ]
+  %.0487635662 = phi i1 [ false, %394 ], [ false, %385 ], [ false, %374 ], [ false, %323 ], [ false, %54 ], [ %.0487, %936 ], [ false, %.thread578 ], [ false, %308 ], [ false, %301 ]
+  %.0467636659 = phi ptr [ %.1468, %394 ], [ %.1468, %385 ], [ %.1468, %374 ], [ %.1468, %323 ], [ null, %54 ], [ %.1468, %936 ], [ %.1468, %.thread578 ], [ %.1468, %308 ], [ %.1468, %301 ]
+  %.0458637656 = phi ptr [ %306, %394 ], [ %306, %385 ], [ %306, %374 ], [ %306, %323 ], [ null, %54 ], [ %.0458, %936 ], [ null, %.thread578 ], [ null, %308 ], [ null, %301 ]
+  %.1452638654 = phi i32 [ -1, %394 ], [ -1, %385 ], [ -1, %374 ], [ -1, %323 ], [ -1, %54 ], [ %.1452, %936 ], [ %.3454.ph, %.thread578 ], [ -1, %308 ], [ -1, %301 ]
+  %.0444640651 = phi ptr [ null, %394 ], [ null, %385 ], [ null, %374 ], [ null, %323 ], [ null, %54 ], [ %.0444, %936 ], [ %.2.ph, %.thread578 ], [ null, %308 ], [ null, %301 ]
   %937 = call i32 @H5O_unprotect(ptr noundef nonnull %0, ptr noundef nonnull %42, i32 noundef 0) #7
   %938 = icmp slt i32 %937, 0
   br i1 %938, label %.thread641, label %942
@@ -2475,8 +2475,8 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread115.i, %260
   call void %965(ptr noundef nonnull %.0467636659) #7
   br label %.thread687
 
-.thread687:                                       ; preds = %33, %44, %942, %963, %966, %960, %5
-  %.0451 = phi i32 [ -1, %966 ], [ -1, %963 ], [ -1, %960 ], [ 0, %942 ], [ 0, %5 ], [ -1, %44 ], [ -1, %33 ]
+.thread687:                                       ; preds = %44, %33, %942, %963, %966, %960, %5
+  %.0451 = phi i32 [ -1, %966 ], [ -1, %963 ], [ -1, %960 ], [ 0, %942 ], [ 0, %5 ], [ -1, %33 ], [ -1, %44 ]
   %967 = load i64, ptr %13, align 8, !tbaa !10
   call void @H5AC_tag(i64 noundef %967, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -2671,7 +2671,7 @@ define internal i32 @H5O__copy_comm_dt_cmp(ptr noundef readonly captures(none) %
   br label %22
 
 22:                                               ; preds = %16, %14, %18, %2
-  %.0 = phi i32 [ 0, %2 ], [ -1, %14 ], [ %21, %18 ], [ 1, %16 ]
+  %.0 = phi i32 [ %21, %18 ], [ 0, %2 ], [ -1, %14 ], [ 1, %16 ]
   ret i32 %.0
 }
 
@@ -2836,9 +2836,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__copy_search_comm_dt_check(ptr 
   br label %.thread.thread
 
 96:                                               ; preds = %85, %17, %46, %72, %70, %33
-  %.155 = phi ptr [ %20, %33 ], [ null, %17 ], [ %57, %72 ], [ %20, %46 ], [ %57, %70 ], [ %57, %85 ]
-  %.153 = phi ptr [ null, %33 ], [ null, %17 ], [ null, %72 ], [ %40, %46 ], [ null, %70 ], [ %79, %85 ]
-  %.151 = phi i1 [ false, %33 ], [ false, %17 ], [ false, %72 ], [ true, %46 ], [ false, %70 ], [ true, %85 ]
+  %.155 = phi ptr [ %20, %33 ], [ %57, %72 ], [ %57, %70 ], [ %20, %46 ], [ null, %17 ], [ %57, %85 ]
+  %.153 = phi ptr [ null, %33 ], [ null, %72 ], [ null, %70 ], [ %40, %46 ], [ null, %17 ], [ %79, %85 ]
+  %.151 = phi i1 [ false, %33 ], [ false, %72 ], [ false, %70 ], [ true, %46 ], [ false, %17 ], [ true, %85 ]
   store i32 2, ptr %3, align 8, !tbaa !152
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @H5O__copy_search_comm_dt_attr_cb, ptr %97, align 8, !tbaa !126
@@ -2863,7 +2863,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__copy_search_comm_dt_check(ptr 
   br i1 %.151, label %.thread95, label %.thread
 
 .thread:                                          ; preds = %105, %109
-  %.179 = phi i32 [ -1, %105 ], [ 0, %109 ]
+  %.179 = phi i32 [ 0, %109 ], [ -1, %105 ]
   %.not70 = icmp eq ptr %.155, null
   br i1 %.not70, label %115, label %.thread.thread
 
@@ -2894,8 +2894,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__copy_search_comm_dt_check(ptr 
   %117 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_haddr_t_reg_free_list, ptr noundef nonnull %.0527887) #7
   br label %.thread95
 
-.thread95:                                        ; preds = %59, %13, %22, %105, %109, %116, %115, %2
-  %.0 = phi i32 [ 0, %109 ], [ %.17985, %116 ], [ %.17985, %115 ], [ 0, %2 ], [ -1, %105 ], [ -1, %22 ], [ -1, %13 ], [ -1, %59 ]
+.thread95:                                        ; preds = %59, %22, %13, %105, %109, %116, %115, %2
+  %.0 = phi i32 [ 0, %109 ], [ %.17985, %116 ], [ %.17985, %115 ], [ 0, %2 ], [ -1, %105 ], [ -1, %13 ], [ -1, %22 ], [ -1, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -3091,7 +3091,7 @@ define internal range(i32 -1, 1) i32 @H5O__copy_search_comm_dt_attr_cb(ptr nound
   br label %.thread59
 
 .thread59:                                        ; preds = %12, %21, %16, %46, %63, %61, %2
-  %.0 = phi i32 [ 0, %2 ], [ %.1.ph.ph, %63 ], [ %.1.ph.ph, %61 ], [ 0, %46 ], [ -1, %12 ], [ -1, %21 ], [ 0, %16 ]
+  %.0 = phi i32 [ %.1.ph.ph, %63 ], [ %.1.ph.ph, %61 ], [ 0, %2 ], [ 0, %46 ], [ -1, %12 ], [ -1, %21 ], [ 0, %16 ]
   ret i32 %.0
 }
 

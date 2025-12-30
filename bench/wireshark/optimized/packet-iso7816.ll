@@ -424,7 +424,7 @@ define internal i32 @dissect_iso7816(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %proto_item_set_generated.exit.i
 
 proto_item_set_generated.exit.i:                  ; preds = %56, %55, %51, %48, %45, %42, %38, %34
-  %.084.i = phi ptr [ null, %55 ], [ %37, %42 ], [ %37, %38 ], [ null, %34 ], [ %58, %56 ], [ %37, %45 ], [ %37, %48 ], [ %37, %51 ]
+  %.084.i = phi ptr [ %37, %42 ], [ %37, %38 ], [ null, %34 ], [ %58, %56 ], [ null, %55 ], [ %37, %45 ], [ %37, %48 ], [ %37, %51 ]
   %65 = load i32, ptr @hf_iso7816_cla, align 4
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %65, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %67 = load i32, ptr @ett_iso7816_class, align 4
@@ -599,7 +599,7 @@ dissect_iso7816_class.exit.i:                     ; preds = %71
   br label %155
 
 155:                                              ; preds = %152, %148, %142, %125
-  %.0.i105.i = phi ptr [ %127, %125 ], [ %150, %148 ], [ %154, %152 ], [ %144, %142 ]
+  %.0.i105.i = phi ptr [ %127, %125 ], [ %144, %142 ], [ %150, %148 ], [ %154, %152 ]
   %.not.i.i.i = icmp eq ptr %.0.i105.i, null
   br i1 %.not.i.i.i, label %dissect_iso7816_params.exit.i, label %156
 
@@ -780,7 +780,7 @@ proto_item_set_generated.exit.i41:                ; preds = %222, %219, %211
   br label %dissect_iso7816_cmd_apdu.exit
 
 dissect_iso7816_cmd_apdu.exit:                    ; preds = %242, %239, %182, %179, %168, %165, %84, %81, %77, %select.unfold.i, %4, %196, %9
-  %.028 = phi i32 [ 0, %4 ], [ 0, %9 ], [ %197, %196 ], [ 4, %168 ], [ 1, %84 ], [ -1, %select.unfold.i ], [ %82, %81 ], [ -1, %77 ], [ 5, %165 ], [ %185, %182 ], [ %.2.i, %179 ], [ %248, %242 ], [ %.0.i38, %239 ]
+  %.028 = phi i32 [ 0, %4 ], [ %197, %196 ], [ 0, %9 ], [ 1, %84 ], [ %82, %81 ], [ -1, %77 ], [ -1, %select.unfold.i ], [ 5, %165 ], [ %185, %182 ], [ %.2.i, %179 ], [ 4, %168 ], [ %248, %242 ], [ %.0.i38, %239 ]
   ret i32 %.028
 }
 
@@ -918,7 +918,7 @@ switch.lookup:                                    ; preds = %76
   br label %79
 
 79:                                               ; preds = %switch.lookup, %72, %65
-  %.0.i.ph.i = phi i32 [ %switch.load, %switch.lookup ], [ 372, %65 ], [ %75, %72 ]
+  %.0.i.ph.i = phi i32 [ 372, %65 ], [ %75, %72 ], [ %switch.load, %switch.lookup ]
   %80 = load i32, ptr @hf_iso7816_atr_ta1_fi, align 4
   %81 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %64, i32 noundef %80, ptr noundef %0, i32 noundef %57, i32 noundef 1, i32 noundef %.0.i.ph.i, ptr noundef nonnull @.str.191, i32 noundef %.0.i.ph.i, i32 noundef %68)
   br label %FI_to_Fi.exit.i
@@ -946,7 +946,7 @@ DI_to_Di.exit.thread.fold.split.i:                ; preds = %89
   br label %DI_to_Di.exit.thread.i
 
 DI_to_Di.exit.thread.i:                           ; preds = %DI_to_Di.exit.thread.fold.split.i, %89, %85
-  %.0.i316.i = phi i32 [ 12, %89 ], [ %88, %85 ], [ 20, %DI_to_Di.exit.thread.fold.split.i ]
+  %.0.i316.i = phi i32 [ %88, %85 ], [ 12, %89 ], [ 20, %DI_to_Di.exit.thread.fold.split.i ]
   %90 = load i32, ptr @hf_iso7816_atr_ta1_di, align 4
   %91 = zext nneg i8 %83 to i32
   %92 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %64, i32 noundef %90, ptr noundef %0, i32 noundef %57, i32 noundef 1, i32 noundef %.0.i316.i, ptr noundef nonnull @.str.192, i32 noundef %.0.i316.i, i32 noundef %91)

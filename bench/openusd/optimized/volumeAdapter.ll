@@ -1579,7 +1579,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   unreachable
 
 235:                                              ; preds = %.invoke, %.critedge, %.thread
-  %.sroa.0.1 = phi i64 [ %80, %.invoke ], [ 0, %.thread ], [ 0, %.critedge ]
+  %.sroa.0.1 = phi i64 [ 0, %.critedge ], [ 0, %.thread ], [ %80, %.invoke ]
   %236 = landingpad { ptr, i32 }
           cleanup
   br label %282
@@ -1602,7 +1602,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   br label %282
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit33: ; preds = %.thread, %231, %218, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
-  %.sroa.0.2 = phi i64 [ %80, %231 ], [ %80, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ %80, %218 ], [ 0, %.thread ]
+  %.sroa.0.2 = phi i64 [ %80, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ], [ %80, %218 ], [ %80, %231 ], [ 0, %.thread ]
   %242 = load ptr, ptr %26, align 8
   %.not.i.i.i34 = icmp eq ptr %242, null
   br i1 %.not.i.i.i34, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEED2Ev.exit, label %243

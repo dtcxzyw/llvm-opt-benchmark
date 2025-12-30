@@ -299,7 +299,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit98:  ; preds = %46
           to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit104 unwind label %74
 
 .body:                                            ; preds = %147, %123, %99, %74, %83
-  %.pn = phi { ptr, i32 } [ %84, %83 ], [ %124, %123 ], [ %100, %99 ], [ %75, %74 ], [ %148, %147 ]
+  %.pn = phi { ptr, i32 } [ %84, %83 ], [ %75, %74 ], [ %100, %99 ], [ %124, %123 ], [ %148, %147 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h9239ef85e225ffc1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %38) #14
           to label %48 unwind label %171
 
@@ -606,7 +606,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit104: ; preds = %64
   unreachable
 
 160:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h47988cf3e15602eaE.exit.i.i.i.i", %104, %103
-  %.08.i.i.i = phi ptr [ %spec.select.i.i.i, %103 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h47988cf3e15602eaE.exit.i.i.i.i" ], [ null, %104 ]
+  %.08.i.i.i = phi ptr [ null, %104 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h47988cf3e15602eaE.exit.i.i.i.i" ], [ %spec.select.i.i.i, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !115
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -637,7 +637,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit104: ; preds = %64
   ret ptr %.0
 
 169:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h47988cf3e15602eaE.exit.i.i.i.i111", %128, %127
-  %.08.i.i.i112 = phi ptr [ %spec.select.i.i.i113, %127 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h47988cf3e15602eaE.exit.i.i.i.i111" ], [ null, %128 ]
+  %.08.i.i.i112 = phi ptr [ null, %128 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h47988cf3e15602eaE.exit.i.i.i.i111" ], [ %spec.select.i.i.i113, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !137
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -645,7 +645,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit104: ; preds = %64
   br label %161
 
 170:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h47988cf3e15602eaE.exit.i.i.i.i121", %152, %151
-  %.08.i.i.i122 = phi ptr [ %spec.select.i.i.i123, %151 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h47988cf3e15602eaE.exit.i.i.i.i121" ], [ null, %152 ]
+  %.08.i.i.i122 = phi ptr [ null, %152 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h47988cf3e15602eaE.exit.i.i.i.i121" ], [ %spec.select.i.i.i123, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !159
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)

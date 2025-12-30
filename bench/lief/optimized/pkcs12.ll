@@ -163,8 +163,8 @@ pkcs12_pbe_derive_key_iv.exit.thread49:           ; preds = %80
   %86 = call i32 @mbedtls_pkcs12_derivation(ptr noundef nonnull %16, i64 noundef range(i64 0, 29) %46, ptr noundef nonnull %14, i64 noundef %74, ptr noundef %83, i64 noundef %84, i32 noundef %3, i32 noundef 2, i32 noundef %85)
   br label %pkcs12_pbe_derive_key_iv.exit
 
-pkcs12_pbe_derive_key_iv.exit.thread:             ; preds = %43, %._crit_edge.i, %48, %64
-  %.022.i.ph = phi i32 [ -7910, %64 ], [ -7906, %48 ], [ %79, %._crit_edge.i ], [ -8064, %43 ]
+pkcs12_pbe_derive_key_iv.exit.thread:             ; preds = %43, %._crit_edge.i, %64, %48
+  %.022.i.ph = phi i32 [ -7906, %48 ], [ -7910, %64 ], [ %79, %._crit_edge.i ], [ -8064, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -212,7 +212,7 @@ pkcs12_pbe_derive_key_iv.exit:                    ; preds = %pkcs12_parse_pbe_pa
   br label %100
 
 100:                                              ; preds = %pkcs12_pbe_derive_key_iv.exit.thread, %pkcs12_pbe_derive_key_iv.exit, %34, %24, %21, %11, %99
-  %.0 = phi i32 [ %.022.i, %pkcs12_pbe_derive_key_iv.exit ], [ -8064, %11 ], [ -7936, %21 ], [ -108, %24 ], [ -108, %34 ], [ %.037, %99 ], [ %.022.i.ph, %pkcs12_pbe_derive_key_iv.exit.thread ]
+  %.0 = phi i32 [ %.037, %99 ], [ -8064, %11 ], [ -7936, %21 ], [ -108, %24 ], [ -108, %34 ], [ %.022.i, %pkcs12_pbe_derive_key_iv.exit ], [ %.022.i.ph, %pkcs12_pbe_derive_key_iv.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)

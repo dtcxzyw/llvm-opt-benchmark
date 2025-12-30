@@ -169,7 +169,7 @@ _ZNK5folly9IPAddress4asV6Ev.exit:                 ; preds = %12
   br label %16
 
 16:                                               ; preds = %1, %_ZNK5folly9IPAddress4asV4Ev.exit.i.i, %_ZNK5folly9IPAddress9isPrivateEv.exit, %_ZNK5folly9IPAddress4asV6Ev.exit, %12
-  %.0 = phi i1 [ %15, %_ZNK5folly9IPAddress4asV6Ev.exit ], [ true, %_ZNK5folly9IPAddress4asV4Ev.exit.i.i ], [ true, %_ZNK5folly9IPAddress9isPrivateEv.exit ], [ false, %12 ], [ %4, %1 ]
+  %.0 = phi i1 [ true, %_ZNK5folly9IPAddress9isPrivateEv.exit ], [ false, %12 ], [ %15, %_ZNK5folly9IPAddress4asV6Ev.exit ], [ true, %_ZNK5folly9IPAddress4asV4Ev.exit.i.i ], [ %4, %1 ]
   ret i1 %.0
 }
 
@@ -273,7 +273,7 @@ _ZNK5folly9IPAddress4asV6Ev.exit.i.i:             ; preds = %8
   unreachable
 
 _ZNK5folly9IPAddress10isLoopbackEv.exit:          ; preds = %1, %_ZNK5folly9IPAddress4asV6Ev.exit.i.i, %_ZNK5folly9IPAddress4asV4Ev.exit.i.i
-  %.0 = phi i1 [ %10, %_ZNK5folly9IPAddress4asV6Ev.exit.i.i ], [ %9, %_ZNK5folly9IPAddress4asV4Ev.exit.i.i ], [ %4, %1 ]
+  %.0 = phi i1 [ %9, %_ZNK5folly9IPAddress4asV4Ev.exit.i.i ], [ %10, %_ZNK5folly9IPAddress4asV6Ev.exit.i.i ], [ %4, %1 ]
   ret i1 %.0
 }
 
@@ -620,9 +620,9 @@ define void @_ZN5folly13SocketAddress18setFromLocalIpPortEPKc(ptr noundef nonnul
   br label %_ZN12_GLOBAL__N_111HostAndPortC2EPKcb.exit
 
 _ZN12_GLOBAL__N_111HostAndPortC2EPKcb.exit:       ; preds = %2, %9, %17, %21
-  %.sroa.7.0 = phi ptr [ %14, %9 ], [ %14, %21 ], [ %14, %17 ], [ %1, %2 ]
-  %.sroa.10.0 = phi ptr [ %6, %9 ], [ %6, %21 ], [ %6, %17 ], [ null, %2 ]
-  %.sroa.09.0 = phi ptr [ %6, %9 ], [ %22, %21 ], [ %6, %17 ], [ null, %2 ]
+  %.sroa.7.0 = phi ptr [ %14, %21 ], [ %14, %17 ], [ %14, %9 ], [ %1, %2 ]
+  %.sroa.10.0 = phi ptr [ %6, %21 ], [ %6, %17 ], [ %6, %9 ], [ null, %2 ]
+  %.sroa.09.0 = phi ptr [ %22, %21 ], [ %6, %17 ], [ %6, %9 ], [ null, %2 ]
   %23 = invoke noundef ptr @_ZN5folly13SocketAddress11getAddrInfoEPKcS2_i(ptr nonnull align 8 poison, ptr noundef %.sroa.09.0, ptr noundef nonnull %.sroa.7.0, i32 noundef 36)
           to label %24 unwind label %35
 
@@ -903,7 +903,7 @@ define noundef ptr @_ZN5folly13SocketAddress17getFamilyNameFromEPK8sockaddrPKc(p
   br label %8
 
 8:                                                ; preds = %2, %7, %6, %5, %4
-  %.0 = phi ptr [ %1, %7 ], [ @.str.6, %6 ], [ @.str.4, %4 ], [ @.str.5, %5 ], [ @.str.3, %2 ]
+  %.0 = phi ptr [ %1, %7 ], [ @.str.4, %4 ], [ @.str.5, %5 ], [ @.str.6, %6 ], [ @.str.3, %2 ]
   ret ptr %.0
 }
 
@@ -1962,7 +1962,7 @@ _ZNK5folly13SocketAddress12isIPv4MappedEv.exit:   ; preds = %1
   br label %_ZNK5folly13SocketAddress12isIPv4MappedEv.exit.thread
 
 _ZNK5folly13SocketAddress12isIPv4MappedEv.exit.thread: ; preds = %1, %_ZNK5folly13SocketAddress12isIPv4MappedEv.exit, %10
-  %13 = phi i1 [ true, %10 ], [ false, %_ZNK5folly13SocketAddress12isIPv4MappedEv.exit ], [ false, %1 ]
+  %13 = phi i1 [ false, %_ZNK5folly13SocketAddress12isIPv4MappedEv.exit ], [ true, %10 ], [ false, %1 ]
   ret i1 %13
 }
 
@@ -2711,7 +2711,7 @@ define noundef zeroext i1 @_ZNK5folly13SocketAddresseqERKS0_(ptr noundef nonnull
   unreachable
 
 43:                                               ; preds = %15, %20, %2, %7, %40, %32, %24
-  %.0 = phi i1 [ %41, %40 ], [ false, %2 ], [ false, %15 ], [ %30, %24 ], [ %39, %32 ], [ false, %7 ], [ false, %20 ]
+  %.0 = phi i1 [ %30, %24 ], [ %39, %32 ], [ %41, %40 ], [ false, %7 ], [ false, %2 ], [ false, %20 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -3835,7 +3835,7 @@ define noundef zeroext i1 @_ZNK5folly13SocketAddressltERKS0_(ptr noundef nonnull
   resume { ptr, i32 } %53
 
 54:                                               ; preds = %18, %23, %31, %29, %47, %45, %15
-  %.0 = phi i1 [ %16, %15 ], [ %48, %47 ], [ %46, %45 ], [ false, %18 ], [ %38, %31 ], [ %30, %29 ], [ true, %23 ]
+  %.0 = phi i1 [ %16, %15 ], [ %46, %45 ], [ %48, %47 ], [ false, %18 ], [ %30, %29 ], [ %38, %31 ], [ true, %23 ]
   ret i1 %.0
 }
 

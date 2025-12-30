@@ -1975,7 +1975,7 @@ dump_flush.exit.i15.i:                            ; preds = %64
   unreachable
 
 buffer_ensure_capa.exit17.i:                      ; preds = %dump_flush.exit.i15.i, %70, %68, %64, %58
-  %80 = phi i64 [ %75, %dump_flush.exit.i15.i ], [ %59, %58 ], [ 0, %64 ], [ 0, %68 ], [ 0, %70 ]
+  %80 = phi i64 [ %59, %58 ], [ %75, %dump_flush.exit.i15.i ], [ 0, %64 ], [ 0, %68 ], [ 0, %70 ]
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 %80
   store i8 %17, ptr %81, align 1, !tbaa !34
   %82 = add nsw i64 %80, 1

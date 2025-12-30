@@ -305,7 +305,7 @@ cluster_is_permitted_for_relation.exit.i:         ; preds = %106
   br label %cluster_is_permitted_for_relation.exit.thread.i
 
 cluster_is_permitted_for_relation.exit.thread.i:  ; preds = %cluster_is_permitted_for_relation.exit.i, %112, %110, %.lr.ph29.i
-  %.1.i = phi ptr [ %.0182327.i, %.lr.ph29.i ], [ %118, %cluster_is_permitted_for_relation.exit.i ], [ %.0182327.i, %110 ], [ %.0182327.i, %112 ]
+  %.1.i = phi ptr [ %118, %cluster_is_permitted_for_relation.exit.i ], [ %.0182327.i, %.lr.ph29.i ], [ %.0182327.i, %110 ], [ %.0182327.i, %112 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %119 = load i32, ptr %97, align 4
   %120 = sext i32 %119 to i64
@@ -808,7 +808,7 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   br label %177
 
 177:                                              ; preds = %.sink.split.i.i, %.thread116.i.i, %166, %.critedge.i.i
-  %.0115.i.i = phi i1 [ false, %.thread116.i.i ], [ false, %.critedge.i.i ], [ true, %166 ], [ %.0115.ph.i.i, %.sink.split.i.i ]
+  %.0115.i.i = phi i1 [ false, %.thread116.i.i ], [ true, %166 ], [ false, %.critedge.i.i ], [ %.0115.ph.i.i, %.sink.split.i.i ]
   %178 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %179 = load i32, ptr %178, align 4
   %180 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1227,7 +1227,7 @@ define dso_local i32 @make_new_heap(i32 noundef %0, i32 noundef %1, i32 noundef 
   br label %40
 
 40:                                               ; preds = %28, %36
-  %41 = phi i1 [ false, %28 ], [ %39, %36 ]
+  %41 = phi i1 [ %39, %36 ], [ false, %28 ]
   %42 = call i32 @heap_create_with_catalog(ptr noundef nonnull %6, i32 noundef %.0, i32 noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %33, i32 noundef %2, ptr noundef %10, ptr noundef null, i8 noundef signext 114, i8 noundef signext %3, i1 noundef zeroext false, i1 noundef zeroext %41, i32 noundef 0, i64 noundef %spec.store.select, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %0, ptr noundef null) #7
   call void @ReleaseSysCache(ptr noundef nonnull %12) #7
   call void @CommandCounterIncrement() #7

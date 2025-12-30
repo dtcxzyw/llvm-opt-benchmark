@@ -4226,7 +4226,7 @@ _ZL18isAArch64BareMetalRKN4llvm6TripleE.exit:     ; preds = %11
   %15 = icmp eq i32 %bcmp.i.i, 0
   br i1 %15, label %_ZL14isPPCBareMetalRKN4llvm6TripleE.exit, label %_ZL18isAArch64BareMetalRKN4llvm6TripleE.exit.thread
 
-_ZL18isAArch64BareMetalRKN4llvm6TripleE.exit.thread: ; preds = %6, %3, %11, %_ZL18isAArch64BareMetalRKN4llvm6TripleE.exit
+_ZL18isAArch64BareMetalRKN4llvm6TripleE.exit.thread: ; preds = %3, %11, %6, %_ZL18isAArch64BareMetalRKN4llvm6TripleE.exit
   %16 = load i32, ptr %4, align 8, !tbaa !274
   %17 = add i32 %16, -27
   %spec.select.i.i = icmp ult i32 %17, 2
@@ -4268,7 +4268,7 @@ _ZL16isRISCVBareMetalRKN4llvm6TripleE.exit.thread: ; preds = %22, %_ZL18isAArch6
   br label %_ZL14isPPCBareMetalRKN4llvm6TripleE.exit
 
 _ZL14isPPCBareMetalRKN4llvm6TripleE.exit:         ; preds = %31, %_ZL16isRISCVBareMetalRKN4llvm6TripleE.exit.thread, %_ZL16isRISCVBareMetalRKN4llvm6TripleE.exit, %_ZL18isAArch64BareMetalRKN4llvm6TripleE.exit, %1
-  %35 = phi i1 [ true, %_ZL16isRISCVBareMetalRKN4llvm6TripleE.exit ], [ true, %_ZL18isAArch64BareMetalRKN4llvm6TripleE.exit ], [ true, %1 ], [ %34, %31 ], [ false, %_ZL16isRISCVBareMetalRKN4llvm6TripleE.exit.thread ]
+  %35 = phi i1 [ true, %_ZL16isRISCVBareMetalRKN4llvm6TripleE.exit ], [ true, %_ZL18isAArch64BareMetalRKN4llvm6TripleE.exit ], [ true, %1 ], [ false, %_ZL16isRISCVBareMetalRKN4llvm6TripleE.exit.thread ], [ %34, %31 ]
   ret i1 %35
 }
 
@@ -6596,8 +6596,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList13MakeArgStringERKN
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ 0, %9 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ null, %9 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -7338,7 +7338,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit97: ; preds = %250,
   br label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN5clang6driver9InputInfoELj4EEEZNKS3_5tools9baremetal6Linker12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKS4_S7_RKNS_3opt7ArgListEPKcE3$_0EEDaOT_T0_.exit"
 
 "_ZN4llvm7find_ifIRKNS_11SmallVectorIN5clang6driver9InputInfoELj4EEEZNKS3_5tools9baremetal6Linker12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKS4_S7_RKNS_3opt7ArgListEPKcE3$_0EEDaOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %287, %292, %297, %300, %.loopexit.split.loop.exit34.i.i.i.i, %.loopexit.split.loop.exit36.i.i.i.i, %.loopexit.split.loop.exit38.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %292 ], [ %268, %300 ], [ %.2.i.i.i.i, %297 ], [ %.029.lcssa.i.i.i.i, %287 ], [ %302, %.loopexit.split.loop.exit36.i.i.i.i ], [ %301, %.loopexit.split.loop.exit34.i.i.i.i ], [ %303, %.loopexit.split.loop.exit38.i.i.i.i ], [ %.02943.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.028.i.i.i.i = phi ptr [ %268, %300 ], [ %.029.lcssa.i.i.i.i, %287 ], [ %.1.i.i.i.i, %292 ], [ %.2.i.i.i.i, %297 ], [ %301, %.loopexit.split.loop.exit34.i.i.i.i ], [ %302, %.loopexit.split.loop.exit36.i.i.i.i ], [ %303, %.loopexit.split.loop.exit38.i.i.i.i ], [ %.02943.i.i.i.i, %.lr.ph.i.i.i.i ]
   %304 = getelementptr inbounds nuw %"class.clang::driver::InputInfo", ptr %.val, i64 %267
   %305 = icmp eq ptr %.028.i.i.i.i, %304
   %spec.select = select i1 %305, ptr %.val, ptr %.028.i.i.i.i

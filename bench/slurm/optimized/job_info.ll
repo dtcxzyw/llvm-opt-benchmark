@@ -1766,7 +1766,7 @@ _layout_step_record.exit:                         ; preds = %._crit_edge183, %74
   br label %759
 
 759:                                              ; preds = %._crit_edge, %.loopexit
-  %.1109 = phi i32 [ %.0108, %._crit_edge ], [ %.2, %.loopexit ]
+  %.1109 = phi i32 [ %.2, %.loopexit ], [ %.0108, %._crit_edge ]
   call void @post_setup_popup_grid_list(ptr noundef %1) #18
   %.not132 = icmp eq i32 %.1109, 0
   br i1 %.not132, label %760, label %776
@@ -2135,7 +2135,7 @@ define dso_local void @specific_info_job(ptr noundef %0) local_unnamed_addr #0 {
   br label %116, !llvm.loop !20
 
 _convert_char_to_job_and_step.exit:               ; preds = %116, %123, %119, %108
-  %127 = phi i32 [ %109, %108 ], [ %.pre, %123 ], [ %115, %119 ], [ %115, %116 ]
+  %127 = phi i32 [ %.pre, %123 ], [ %115, %119 ], [ %109, %108 ], [ %115, %116 ]
   %128 = getelementptr inbounds nuw i8, ptr %104, i64 412
   %129 = load i32, ptr %128, align 4
   %.not158 = icmp eq i32 %129, %127
@@ -3554,7 +3554,7 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 302:                                              ; preds = %6, %184, %185, %179, %180, %159, %160, %154, %155, %289, %294, %297, %280, %272, %275, %262, %253, %249, %116, %118, %9, %10, %286, %283, %266, %227, %224, %222, %219, %216, %213, %210, %207, %204, %201, %198, %195, %192, %189, %186, %172, %165, %148, %145, %142, %139, %136, %133, %131, %101, %87, %74, %60, %57, %51, %44, %28, %.thread228, %.thread, %12
-  %.0190 = phi ptr [ @.str.215, %184 ], [ @.str.33, %10 ], [ @.str.33, %9 ], [ @.str.187, %12 ], [ @.str.189, %.thread ], [ @.str.190, %.thread228 ], [ @.str.191, %28 ], [ @.str.192, %44 ], [ @.str.193, %51 ], [ @.str.194, %57 ], [ @.str.195, %60 ], [ @.str.196, %74 ], [ @.str.197, %87 ], [ @.str.198, %101 ], [ @.str.201, %118 ], [ @.str.202, %116 ], [ @.str.203, %131 ], [ @.str.204, %133 ], [ @.str.205, %136 ], [ @.str.206, %139 ], [ @.str.207, %142 ], [ @.str.208, %145 ], [ @.str.209, %148 ], [ @.str.238, %289 ], [ @.str.210, %154 ], [ @.str.212, %165 ], [ @.str.213, %172 ], [ @.str.211, %159 ], [ @.str.214, %179 ], [ @.str.216, %186 ], [ @.str.217, %189 ], [ @.str.218, %192 ], [ @.str.219, %195 ], [ @.str.220, %198 ], [ @.str.221, %201 ], [ @.str.222, %204 ], [ @.str.223, %207 ], [ @.str.224, %210 ], [ @.str.225, %213 ], [ @.str.226, %216 ], [ @.str.227, %219 ], [ @.str.228, %222 ], [ @.str.229, %224 ], [ @.str.230, %227 ], [ @.str.231, %253 ], [ @.str.231, %249 ], [ @.str.231, %262 ], [ @.str.233, %266 ], [ @.str.234, %275 ], [ @.str.234, %272 ], [ @.str.235, %280 ], [ @.str.236, %283 ], [ @.str.237, %286 ], [ @.str.238, %297 ], [ @.str.238, %294 ], [ @.str.210, %155 ], [ @.str.211, %160 ], [ @.str.214, %180 ], [ @.str.215, %185 ], [ @.str.239, %6 ]
+  %.0190 = phi ptr [ @.str.33, %10 ], [ @.str.33, %9 ], [ @.str.187, %12 ], [ @.str.189, %.thread ], [ @.str.190, %.thread228 ], [ @.str.191, %28 ], [ @.str.192, %44 ], [ @.str.193, %51 ], [ @.str.194, %57 ], [ @.str.195, %60 ], [ @.str.196, %74 ], [ @.str.197, %87 ], [ @.str.198, %101 ], [ @.str.201, %118 ], [ @.str.202, %116 ], [ @.str.203, %131 ], [ @.str.204, %133 ], [ @.str.205, %136 ], [ @.str.206, %139 ], [ @.str.207, %142 ], [ @.str.208, %145 ], [ @.str.209, %148 ], [ @.str.212, %165 ], [ @.str.213, %172 ], [ @.str.216, %186 ], [ @.str.217, %189 ], [ @.str.218, %192 ], [ @.str.219, %195 ], [ @.str.220, %198 ], [ @.str.221, %201 ], [ @.str.222, %204 ], [ @.str.223, %207 ], [ @.str.224, %210 ], [ @.str.225, %213 ], [ @.str.226, %216 ], [ @.str.227, %219 ], [ @.str.228, %222 ], [ @.str.229, %224 ], [ @.str.230, %227 ], [ @.str.231, %253 ], [ @.str.231, %249 ], [ @.str.231, %262 ], [ @.str.233, %266 ], [ @.str.234, %275 ], [ @.str.234, %272 ], [ @.str.235, %280 ], [ @.str.236, %283 ], [ @.str.237, %286 ], [ @.str.238, %297 ], [ @.str.238, %294 ], [ @.str.238, %289 ], [ @.str.210, %155 ], [ @.str.210, %154 ], [ @.str.211, %160 ], [ @.str.211, %159 ], [ @.str.214, %180 ], [ @.str.214, %179 ], [ @.str.215, %185 ], [ @.str.215, %184 ], [ @.str.239, %6 ]
   %303 = tail call i32 @xstrcmp(ptr noundef nonnull %.0190, ptr noundef nonnull @.str.239) #18
   %.not224 = icmp eq i32 %303, 0
   br i1 %.not224, label %304, label %.sink.split
@@ -3937,10 +3937,10 @@ _edit_jobs.exit:                                  ; preds = %_edit_each_job.exit
   br label %._crit_edge.sink.split
 
 ._crit_edge.sink.split:                           ; preds = %187, %188, %175, %176, %148, %158
-  %.sink = phi ptr [ %14, %158 ], [ %14, %175 ], [ @.str.66, %148 ], [ %14, %176 ], [ %14, %188 ], [ %14, %187 ]
-  %.pre-phi.ph = phi i64 [ %159, %158 ], [ %168, %175 ], [ %149, %148 ], [ %168, %176 ], [ %179, %188 ], [ %179, %187 ]
-  %.052.ph = phi i32 [ 5, %158 ], [ 3, %175 ], [ 1, %148 ], [ 3, %176 ], [ 6, %188 ], [ 6, %187 ]
-  %.050.ph = phi ptr [ null, %158 ], [ null, %175 ], [ %155, %148 ], [ null, %176 ], [ null, %188 ], [ null, %187 ]
+  %.sink = phi ptr [ %14, %158 ], [ @.str.66, %148 ], [ %14, %176 ], [ %14, %175 ], [ %14, %188 ], [ %14, %187 ]
+  %.pre-phi.ph = phi i64 [ %159, %158 ], [ %149, %148 ], [ %168, %176 ], [ %168, %175 ], [ %179, %188 ], [ %179, %187 ]
+  %.052.ph = phi i32 [ 5, %158 ], [ 1, %148 ], [ 3, %176 ], [ 3, %175 ], [ 6, %188 ], [ 6, %187 ]
+  %.050.ph = phi ptr [ null, %158 ], [ %155, %148 ], [ null, %176 ], [ null, %175 ], [ null, %188 ], [ null, %187 ]
   %189 = call ptr @gtk_label_new(ptr noundef nonnull %.sink) #18
   br label %._crit_edge
 
@@ -4288,7 +4288,7 @@ _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292,
   br i1 %or.cond3.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %321, %304, %_cancel_job_id.exit.us.i, %.lr.ph.split.i, %.thread.i
-  %.lcssa13.i = phi i1 [ %245, %.thread.i ], [ %308, %304 ], [ %329, %.lr.ph.split.i ], [ %296, %_cancel_job_id.exit.us.i ], [ %325, %321 ]
+  %.lcssa13.i = phi i1 [ %245, %.thread.i ], [ %329, %.lr.ph.split.i ], [ %296, %_cancel_job_id.exit.us.i ], [ %308, %304 ], [ %325, %321 ]
   %330 = load i8, ptr @global_edit_error, align 1, !range !18, !noundef !19
   %331 = trunc nuw i8 %330 to i1
   %or.cond.i = select i1 %331, i1 true, i1 %.lcssa13.i
@@ -4920,9 +4920,9 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
   br label %74
 
 74:                                               ; preds = %67, %62
-  %75 = phi ptr [ %.pre, %67 ], [ %65, %62 ]
-  %.0112 = phi i1 [ %or.cond148.not, %67 ], [ false, %62 ]
-  %.0111 = phi ptr [ %53, %67 ], [ %.1114, %62 ]
+  %75 = phi ptr [ %65, %62 ], [ %.pre, %67 ]
+  %.0112 = phi i1 [ false, %62 ], [ %or.cond148.not, %67 ]
+  %.0111 = phi ptr [ %.1114, %62 ], [ %53, %67 ]
   %76 = call i32 @hostlist_push_host(ptr noundef %75, ptr noundef nonnull %4) #18
   %77 = getelementptr inbounds nuw i8, ptr %28, i64 432
   %78 = load i32, ptr %77, align 8
@@ -5038,9 +5038,9 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
   br label %135
 
 135:                                              ; preds = %128, %123
-  %136 = phi ptr [ %.pre185, %128 ], [ %126, %123 ]
-  %.2 = phi i1 [ %or.cond152.not, %128 ], [ false, %123 ]
-  %.0 = phi ptr [ %122, %128 ], [ %.1114, %123 ]
+  %136 = phi ptr [ %126, %123 ], [ %.pre185, %128 ]
+  %.2 = phi i1 [ false, %123 ], [ %or.cond152.not, %128 ]
+  %.0 = phi ptr [ %.1114, %123 ], [ %122, %128 ]
   %137 = call i32 @hostlist_push_host(ptr noundef %136, ptr noundef nonnull %5) #18
   %138 = getelementptr inbounds nuw i8, ptr %28, i64 432
   %139 = load i32, ptr %138, align 8
@@ -5463,7 +5463,7 @@ define dso_local void @popup_all_job(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %_id_from_stepstr.exit
 
 _id_from_stepstr.exit:                            ; preds = %14, %21, %23, %25, %27
-  %.0.i = phi i32 [ -4, %25 ], [ %..i, %27 ], [ -5, %23 ], [ -3, %21 ], [ %18, %14 ]
+  %.0.i = phi i32 [ %18, %14 ], [ -3, %21 ], [ -5, %23 ], [ -4, %25 ], [ %..i, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 %.0.i, ptr %8, align 4
   %29 = load ptr, ptr %11, align 8
@@ -6131,7 +6131,7 @@ define internal fastcc ptr @_read_file(ptr noundef readonly captures(none) %0) u
   br label %38
 
 38:                                               ; preds = %1, %.loopexit, %8
-  %.0 = phi ptr [ %37, %.loopexit ], [ null, %8 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %8 ], [ %37, %.loopexit ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
@@ -8064,7 +8064,7 @@ define internal void @_set_active_combo_job(ptr noundef %0, ptr noundef %1, ptr 
   br label %27
 
 27:                                               ; preds = %24, %22, %19, %16, %13, %10, %8, %7
-  %.1 = phi i32 [ 0, %7 ], [ 3, %16 ], [ %., %19 ], [ 2, %13 ], [ 1, %10 ], [ 0, %8 ], [ %.16, %24 ], [ 0, %22 ]
+  %.1 = phi i32 [ 0, %7 ], [ 0, %8 ], [ 1, %10 ], [ 2, %13 ], [ 3, %16 ], [ %., %19 ], [ 0, %22 ], [ %.16, %24 ]
   %28 = load ptr, ptr %5, align 8
   call void @g_free(ptr noundef %28) #18
   br label %.thread

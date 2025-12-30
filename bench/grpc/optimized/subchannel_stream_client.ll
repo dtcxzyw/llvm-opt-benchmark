@@ -563,7 +563,7 @@ _ZN9grpc_core22SubchannelStreamClient9StartCallEv.exit: ; preds = %112
   ret void
 
 .body:                                            ; preds = %116, %101, %110, %99
-  %.pn20 = phi { ptr, i32 } [ %100, %99 ], [ %.pn17.pn, %110 ], [ %102, %101 ], [ %117, %116 ]
+  %.pn20 = phi { ptr, i32 } [ %.pn17.pn, %110 ], [ %100, %99 ], [ %102, %101 ], [ %117, %116 ]
   call void @_ZNSt10unique_ptrIN9grpc_core22SubchannelStreamClient9CallStateENS0_16OrphanableDeleteEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %70) #31
   %121 = load ptr, ptr %68, align 8, !tbaa !78
   %.not.i28 = icmp eq ptr %121, null
@@ -1528,7 +1528,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi44EEERS2_RAT__Kc.exit: ; pr
   ret void
 
 _ZN9grpc_core13RefCountedPtrINS_22SubchannelStreamClientEED2Ev.exit18: ; preds = %69, %65, %.body.thread, %77
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %77 ], [ %31, %.body.thread ], [ %66, %69 ], [ %66, %65 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %77 ], [ %31, %.body.thread ], [ %66, %65 ], [ %66, %69 ]
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -2355,7 +2355,7 @@ _ZN9grpc_core14SubchannelCall4ArgsD2Ev.exit54:    ; preds = %_ZN9grpc_core5Slice
   br label %.body
 
 .body:                                            ; preds = %249, %280, %111, %317, %315, %314, %183, %181, %179, %133, %109
-  %.pn29 = phi { ptr, i32 } [ %110, %109 ], [ %.pn23.pn.pn.pn.pn, %133 ], [ %318, %317 ], [ %316, %315 ], [ %.pn21, %314 ], [ %184, %183 ], [ %182, %181 ], [ %180, %179 ], [ %250, %249 ], [ %112, %111 ], [ %281, %280 ]
+  %.pn29 = phi { ptr, i32 } [ %.pn23.pn.pn.pn.pn, %133 ], [ %318, %317 ], [ %316, %315 ], [ %.pn21, %314 ], [ %184, %183 ], [ %182, %181 ], [ %180, %179 ], [ %110, %109 ], [ %250, %249 ], [ %112, %111 ], [ %281, %280 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN9grpc_core14SubchannelCall4ArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #31
@@ -2588,7 +2588,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi28EEERS2_RAT__Kc.exit: ; pr
   br label %"_ZZN9grpc_core22SubchannelStreamClient21StartRetryTimerLockedEvEN3$_0D2Ev.exit20"
 
 "_ZZN9grpc_core22SubchannelStreamClient21StartRetryTimerLockedEvEN3$_0D2Ev.exit20": ; preds = %76, %54, %44, %39
-  %.pn13.pn = phi { ptr, i32 } [ %.pn, %39 ], [ %.pn11, %44 ], [ %.pn9, %54 ], [ %77, %76 ]
+  %.pn13.pn = phi { ptr, i32 } [ %.pn11, %44 ], [ %.pn9, %54 ], [ %.pn, %39 ], [ %77, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn13.pn
 }
@@ -4142,7 +4142,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit8:       ; preds = %106
   ret void
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %97, %51, %29
-  %.pn5 = phi { ptr, i32 } [ %30, %29 ], [ %.pn, %51 ], [ %98, %97 ]
+  %.pn5 = phi { ptr, i32 } [ %.pn, %51 ], [ %30, %29 ], [ %98, %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn5

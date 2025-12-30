@@ -243,8 +243,8 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   br label %.thread
 
 84:                                               ; preds = %73, %76, %77, %78, %79, %80
-  %.sink210 = phi i32 [ 1, %80 ], [ 1, %76 ], [ -1, %77 ], [ 1, %78 ], [ -1, %79 ], [ -1, %73 ]
-  %.sink = phi i32 [ 2, %80 ], [ 0, %76 ], [ 1, %77 ], [ 1, %78 ], [ 2, %79 ], [ 0, %73 ]
+  %.sink210 = phi i32 [ 1, %76 ], [ -1, %77 ], [ 1, %78 ], [ -1, %79 ], [ 1, %80 ], [ -1, %73 ]
+  %.sink = phi i32 [ 0, %76 ], [ 1, %77 ], [ 1, %78 ], [ 2, %79 ], [ 2, %80 ], [ 0, %73 ]
   %85 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv186
   store i32 %.sink210, ptr %85, align 4, !tbaa !42
   %86 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv186
@@ -344,10 +344,10 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   br i1 %126, label %.sink.split, label %129
 
 .sink.split:                                      ; preds = %.thread156, %120, %107, %99
-  %.sink215 = phi i64 [ 136, %99 ], [ 136, %120 ], [ 120, %107 ], [ 104, %.thread156 ]
-  %_ZL22pj_axisswap_forward_3d6PJ_LPZP8PJconsts.sink = phi ptr [ @_ZL22pj_axisswap_forward_4dR8PJ_COORDP8PJconsts, %99 ], [ @_ZL10swap_xy_4dR8PJ_COORDP8PJconsts, %120 ], [ @_ZL22pj_axisswap_forward_3d6PJ_LPZP8PJconsts, %107 ], [ @_ZL22pj_axisswap_forward_2d5PJ_LPP8PJconsts, %.thread156 ]
-  %.sink213 = phi i64 [ 144, %99 ], [ 144, %120 ], [ 128, %107 ], [ 112, %.thread156 ]
-  %_ZL22pj_axisswap_reverse_3d6PJ_XYZP8PJconsts.sink = phi ptr [ @_ZL22pj_axisswap_reverse_4dR8PJ_COORDP8PJconsts, %99 ], [ @_ZL10swap_xy_4dR8PJ_COORDP8PJconsts, %120 ], [ @_ZL22pj_axisswap_reverse_3d6PJ_XYZP8PJconsts, %107 ], [ @_ZL22pj_axisswap_reverse_2d5PJ_XYP8PJconsts, %.thread156 ]
+  %.sink215 = phi i64 [ 136, %99 ], [ 120, %107 ], [ 136, %120 ], [ 104, %.thread156 ]
+  %_ZL22pj_axisswap_forward_3d6PJ_LPZP8PJconsts.sink = phi ptr [ @_ZL22pj_axisswap_forward_4dR8PJ_COORDP8PJconsts, %99 ], [ @_ZL22pj_axisswap_forward_3d6PJ_LPZP8PJconsts, %107 ], [ @_ZL10swap_xy_4dR8PJ_COORDP8PJconsts, %120 ], [ @_ZL22pj_axisswap_forward_2d5PJ_LPP8PJconsts, %.thread156 ]
+  %.sink213 = phi i64 [ 144, %99 ], [ 128, %107 ], [ 144, %120 ], [ 112, %.thread156 ]
+  %_ZL22pj_axisswap_reverse_3d6PJ_XYZP8PJconsts.sink = phi ptr [ @_ZL22pj_axisswap_reverse_4dR8PJ_COORDP8PJconsts, %99 ], [ @_ZL22pj_axisswap_reverse_3d6PJ_XYZP8PJconsts, %107 ], [ @_ZL10swap_xy_4dR8PJ_COORDP8PJconsts, %120 ], [ @_ZL22pj_axisswap_reverse_2d5PJ_XYP8PJconsts, %.thread156 ]
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink215
   store ptr %_ZL22pj_axisswap_forward_3d6PJ_LPZP8PJconsts.sink, ptr %127, align 8, !tbaa !53
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink213

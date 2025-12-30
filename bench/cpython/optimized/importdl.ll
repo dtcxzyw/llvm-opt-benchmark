@@ -1188,7 +1188,7 @@ get_encoded_name.exit:                            ; preds = %52
   tail call void @_Py_Dealloc(ptr noundef nonnull %.026.i) #6
   br label %get_encoded_name.exit.thread17
 
-get_encoded_name.exit.thread:                     ; preds = %61, %Py_DECREF.exit.i, %63, %21, %_Py_NewRef.exit, %26, %get_encoded_name.exit.thread19
+get_encoded_name.exit.thread:                     ; preds = %63, %61, %Py_DECREF.exit.i, %26, %21, %_Py_NewRef.exit, %get_encoded_name.exit.thread19
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %66, align 8, !tbaa !27
   call void @_Py_ext_module_loader_info_clear(ptr noundef nonnull %5)
@@ -1409,7 +1409,7 @@ Py_DECREF.exit17.sink.split:                      ; preds = %21, %10
   br label %Py_DECREF.exit17
 
 Py_DECREF.exit17:                                 ; preds = %Py_DECREF.exit17.sink.split, %21, %Py_DECREF.exit15, %10, %8, %2
-  %.0 = phi i32 [ -1, %2 ], [ %14, %21 ], [ -1, %8 ], [ -1, %10 ], [ %14, %Py_DECREF.exit15 ], [ %.0.ph, %Py_DECREF.exit17.sink.split ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %8 ], [ -1, %10 ], [ %14, %Py_DECREF.exit15 ], [ %14, %21 ], [ %.0.ph, %Py_DECREF.exit17.sink.split ]
   ret i32 %.0
 }
 
@@ -1460,7 +1460,7 @@ define hidden void @_Py_ext_module_loader_result_apply_error(ptr noundef capture
   br label %20
 
 13:                                               ; preds = %2, %9, %8, %7, %6, %5
-  %.0 = phi ptr [ @.str.11, %9 ], [ @.str.10, %8 ], [ @.str.7, %5 ], [ @.str.8, %6 ], [ @.str.9, %7 ], [ @.str.6, %2 ]
+  %.0 = phi ptr [ @.str.7, %5 ], [ @.str.8, %6 ], [ @.str.9, %7 ], [ @.str.10, %8 ], [ @.str.11, %9 ], [ @.str.6, %2 ]
   %.not = icmp eq ptr %.sroa.43.0.copyload, null
   br i1 %.not, label %17, label %14
 

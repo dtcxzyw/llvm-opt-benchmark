@@ -665,7 +665,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br label %"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit"
 
 "_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722.exit": ; preds = %2, %10, %11, %17, %23, %28, %29, %30, %34, %40, %46, %50, %56, %60, %66, %70, %76
-  %.sroa.0.0.i = phi i1 [ false, %2 ], [ %26, %23 ], [ false, %11 ], [ true, %10 ], [ false, %17 ], [ %69, %66 ], [ false, %56 ], [ false, %40 ], [ %79, %76 ], [ false, %60 ], [ false, %28 ], [ false, %70 ], [ false, %50 ], [ false, %34 ], [ %49, %46 ], [ false, %30 ], [ false, %29 ]
+  %.sroa.0.0.i = phi i1 [ %26, %23 ], [ %69, %66 ], [ %79, %76 ], [ false, %2 ], [ true, %10 ], [ false, %11 ], [ false, %17 ], [ %49, %46 ], [ false, %29 ], [ false, %34 ], [ false, %30 ], [ false, %40 ], [ false, %50 ], [ false, %56 ], [ false, %60 ], [ false, %70 ], [ false, %28 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -754,7 +754,7 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u
   ]
 
 11:                                               ; preds = %29, %71, %61, %57, %51, %41, %47, %30, %35, %31, %18, %12, %10, %2, %77, %67, %24
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ %27, %24 ], [ false, %12 ], [ true, %10 ], [ false, %18 ], [ %70, %67 ], [ false, %57 ], [ false, %41 ], [ %80, %77 ], [ false, %61 ], [ false, %29 ], [ false, %71 ], [ false, %51 ], [ false, %35 ], [ %50, %47 ], [ false, %31 ], [ false, %30 ]
+  %.sroa.0.0 = phi i1 [ %27, %24 ], [ %70, %67 ], [ %80, %77 ], [ false, %2 ], [ true, %10 ], [ false, %12 ], [ false, %18 ], [ %50, %47 ], [ false, %30 ], [ false, %35 ], [ false, %31 ], [ false, %41 ], [ false, %51 ], [ false, %57 ], [ false, %61 ], [ false, %71 ], [ false, %29 ]
   ret i1 %.sroa.0.0
 
 12:                                               ; preds = %10

@@ -198,7 +198,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc15
   resume { ptr, i32 } %50
 
 .thread:                                          ; preds = %2, %8, %_ZNSolsEPFRSoS_E.exit, %11
-  %51 = phi i1 [ true, %11 ], [ false, %_ZNSolsEPFRSoS_E.exit ], [ true, %8 ], [ true, %2 ]
+  %51 = phi i1 [ false, %_ZNSolsEPFRSoS_E.exit ], [ true, %11 ], [ true, %8 ], [ true, %2 ]
   ret i1 %51
 }
 
@@ -215,7 +215,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z20InitializeEndiannessv() local_
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %9, label %8
 
-8:                                                ; preds = %5, %0
+8:                                                ; preds = %0, %5
   br label %9
 
 9:                                                ; preds = %5, %8
@@ -415,7 +415,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc15
   resume { ptr, i32 } %50
 
 .thread:                                          ; preds = %2, %8, %_ZNSolsEPFRSoS_E.exit, %11
-  %51 = phi i1 [ true, %11 ], [ false, %_ZNSolsEPFRSoS_E.exit ], [ true, %8 ], [ true, %2 ]
+  %51 = phi i1 [ false, %_ZNSolsEPFRSoS_E.exit ], [ true, %11 ], [ true, %8 ], [ true, %2 ]
   ret i1 %51
 }
 
@@ -440,7 +440,7 @@ define dso_local void @_Z18InitializeLogLevelv() local_unnamed_addr #3 personali
   br label %12
 
 12:                                               ; preds = %9, %6, %0
-  %.0 = phi i32 [ %spec.select, %9 ], [ 0, %0 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %0 ], [ 1, %6 ], [ %spec.select, %9 ]
   %13 = tail call noundef i32 @_ZN3ozz3log8SetLevelENS0_5LevelE(i32 noundef %.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @_ZN3ozz3log4LogVC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %1)

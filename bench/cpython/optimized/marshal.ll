@@ -1133,8 +1133,8 @@ w_reserve.exit:                                   ; preds = %9
   br label %w_reserve.exit.thread
 
 w_reserve.exit.thread:                            ; preds = %42, %w_reserve.exit
-  %46 = phi ptr [ %.pre.pre, %42 ], [ %37, %w_reserve.exit ]
-  %47 = phi ptr [ %.pr.pre, %42 ], [ %36, %w_reserve.exit ]
+  %46 = phi ptr [ %37, %w_reserve.exit ], [ %.pre.pre, %42 ]
+  %47 = phi ptr [ %36, %w_reserve.exit ], [ %.pr.pre, %42 ]
   %.not20 = icmp eq ptr %47, %46
   br i1 %.not20, label %w_reserve.exit.thread.thread, label %84
 
@@ -1215,8 +1215,8 @@ w_reserve.exit31:                                 ; preds = %49
   br label %w_reserve.exit31.thread
 
 w_reserve.exit31.thread:                          ; preds = %w_reserve.exit.thread.thread, %68, %84, %w_reserve.exit31
-  %89 = phi ptr [ null, %w_reserve.exit.thread.thread ], [ %79, %w_reserve.exit31 ], [ %.pre68.pre, %84 ], [ %50, %68 ]
-  %90 = phi ptr [ %47, %w_reserve.exit.thread.thread ], [ %78, %w_reserve.exit31 ], [ %.pr64.pre, %84 ], [ %51, %68 ]
+  %89 = phi ptr [ %79, %w_reserve.exit31 ], [ %.pre68.pre, %84 ], [ %50, %68 ], [ null, %w_reserve.exit.thread.thread ]
+  %90 = phi ptr [ %78, %w_reserve.exit31 ], [ %.pr64.pre, %84 ], [ %51, %68 ], [ %47, %w_reserve.exit.thread.thread ]
   %.not22 = icmp eq ptr %90, %89
   br i1 %.not22, label %91, label %127
 
@@ -1295,8 +1295,8 @@ w_reserve.exit37:                                 ; preds = %93
   br label %w_reserve.exit37.thread
 
 w_reserve.exit37.thread:                          ; preds = %91, %110, %127, %w_reserve.exit37
-  %132 = phi ptr [ null, %91 ], [ %122, %w_reserve.exit37 ], [ %.pre70.pre, %127 ], [ %89, %110 ]
-  %133 = phi ptr [ %90, %91 ], [ %121, %w_reserve.exit37 ], [ %.pr65.pre, %127 ], [ %90, %110 ]
+  %132 = phi ptr [ %122, %w_reserve.exit37 ], [ %.pre70.pre, %127 ], [ %89, %110 ], [ null, %91 ]
+  %133 = phi ptr [ %121, %w_reserve.exit37 ], [ %.pr65.pre, %127 ], [ %90, %110 ], [ %90, %91 ]
   %.not24 = icmp eq ptr %133, %132
   br i1 %.not24, label %134, label %170
 
@@ -1959,7 +1959,7 @@ _Py_NewRef.exit.i:                                ; preds = %259, %256
   store i32 1, ptr %270, align 8, !tbaa !24
   br label %w_ref.exit
 
-271:                                              ; preds = %184, %194, %188, %196, %_Py_NewRef.exit.i
+271:                                              ; preds = %188, %184, %196, %194, %_Py_NewRef.exit.i
   %.0.ph = phi i8 [ -128, %_Py_NewRef.exit.i ], [ 0, %194 ], [ 0, %196 ], [ 0, %188 ], [ 0, %184 ]
   tail call fastcc void @w_complex_object(ptr noundef nonnull %0, i8 noundef signext %.0.ph, ptr noundef %1)
   br label %w_ref.exit
@@ -2536,7 +2536,7 @@ Py_XDECREF.exit:                                  ; preds = %Py_XDECREF.exitthre
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %45, %32, %29, %26, %56, %58, %60, %62, %7, %3, %37
-  %.0 = phi ptr [ null, %37 ], [ null, %3 ], [ null, %56 ], [ null, %7 ], [ null, %32 ], [ null, %62 ], [ null, %60 ], [ null, %58 ], [ null, %26 ], [ null, %29 ], [ %47, %45 ]
+  %.0 = phi ptr [ null, %37 ], [ null, %3 ], [ null, %7 ], [ null, %62 ], [ null, %60 ], [ null, %58 ], [ null, %56 ], [ null, %26 ], [ null, %29 ], [ null, %32 ], [ %47, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -2620,7 +2620,7 @@ define internal fastcc range(i32 0, 2) i32 @w_reserve(ptr noundef nonnull %0, i6
   br label %45
 
 45:                                               ; preds = %2, %39, %38, %33, %13
-  %.034 = phi i32 [ 1, %39 ], [ %22, %13 ], [ 0, %33 ], [ 0, %38 ], [ 0, %2 ]
+  %.034 = phi i32 [ %22, %13 ], [ 0, %33 ], [ 0, %38 ], [ 1, %39 ], [ 0, %2 ]
   ret i32 %.034
 }
 
@@ -4492,8 +4492,8 @@ w_reserve.exit.thread20.i.us.i:                   ; preds = %135
   br label %w_reserve.exit.thread.i.us.i
 
 w_reserve.exit.thread.i.us.i:                     ; preds = %143, %w_reserve.exit.i.us.i
-  %147 = phi ptr [ %.pre.pre.i.us.i, %143 ], [ %121, %w_reserve.exit.i.us.i ]
-  %148 = phi ptr [ %.pr.pre.i.us.i, %143 ], [ %120, %w_reserve.exit.i.us.i ]
+  %147 = phi ptr [ %121, %w_reserve.exit.i.us.i ], [ %.pre.pre.i.us.i, %143 ]
+  %148 = phi ptr [ %120, %w_reserve.exit.i.us.i ], [ %.pr.pre.i.us.i, %143 ]
   %.not10.i.us.i = icmp eq ptr %148, %147
   br i1 %.not10.i.us.i, label %w_reserve.exit.thread.thread.i.us.i, label %170
 
@@ -4715,8 +4715,8 @@ w_reserve.exit.thread20.i.us.i73:                 ; preds = %228
   br label %w_reserve.exit.thread.i.us.i49
 
 w_reserve.exit.thread.i.us.i49:                   ; preds = %236, %w_reserve.exit.i.us.i69
-  %240 = phi ptr [ %.pre.pre.i.us.i48, %236 ], [ %214, %w_reserve.exit.i.us.i69 ]
-  %241 = phi ptr [ %.pr.pre.i.us.i47, %236 ], [ %213, %w_reserve.exit.i.us.i69 ]
+  %240 = phi ptr [ %214, %w_reserve.exit.i.us.i69 ], [ %.pre.pre.i.us.i48, %236 ]
+  %241 = phi ptr [ %213, %w_reserve.exit.i.us.i69 ], [ %.pr.pre.i.us.i47, %236 ]
   %.not10.i.us.i50 = icmp eq ptr %241, %240
   br i1 %.not10.i.us.i50, label %w_reserve.exit.thread.thread.i.us.i55, label %263
 
@@ -5062,8 +5062,8 @@ w_reserve.exit:                                   ; preds = %9
   br label %w_reserve.exit.thread
 
 w_reserve.exit.thread:                            ; preds = %42, %w_reserve.exit
-  %46 = phi ptr [ %.pre.pre, %42 ], [ %37, %w_reserve.exit ]
-  %47 = phi ptr [ %.pr.pre, %42 ], [ %36, %w_reserve.exit ]
+  %46 = phi ptr [ %37, %w_reserve.exit ], [ %.pre.pre, %42 ]
+  %47 = phi ptr [ %36, %w_reserve.exit ], [ %.pr.pre, %42 ]
   %.not10 = icmp eq ptr %47, %46
   br i1 %.not10, label %w_reserve.exit.thread.thread, label %84
 
@@ -5249,7 +5249,7 @@ w_reserve.exit:                                   ; preds = %46
   store ptr %57, ptr %5, align 8, !tbaa !15
   br label %w_reserve.exit.thread
 
-w_reserve.exit.thread:                            ; preds = %44, %49, %19, %16, %54, %3, %4
+w_reserve.exit.thread:                            ; preds = %49, %44, %19, %16, %54, %3, %4
   ret void
 }
 
@@ -5410,12 +5410,12 @@ Py_DECREF.exit:                                   ; preds = %59, %56, %52, %49
   %71 = load ptr, ptr %18, align 8, !tbaa !46
   br label %72
 
-.critedge:                                        ; preds = %43, %46
+.critedge:                                        ; preds = %46, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %72
 
 72:                                               ; preds = %.thread, %61, %68, %65, %.critedge, %13, %15, %70, %24
-  %.1 = phi ptr [ null, %.thread ], [ null, %24 ], [ %5, %15 ], [ %71, %70 ], [ null, %.critedge ], [ null, %13 ], [ null, %65 ], [ null, %68 ], [ null, %61 ]
+  %.1 = phi ptr [ null, %24 ], [ %71, %70 ], [ null, %13 ], [ %5, %15 ], [ null, %.critedge ], [ null, %65 ], [ null, %68 ], [ null, %61 ], [ null, %.thread ]
   ret ptr %.1
 }
 
@@ -6758,14 +6758,14 @@ Py_DECREF.exit438:                                ; preds = %Py_DECREF.exit, %.p
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %Py_DECREF.exit438, %423, %366, %367, %170, %168, %491, %430, %428, %379, %380, %552, %549, %528, %128, %125, %123, %43, %39, %209, %r_long.exit478.thread, %212, %219, %229, %227, %175, %178, %189, %187, %115, %113, %117, %131, %129, %100, %105, %109, %107, %86, %91, %95, %93, %77, %81, %79, %68, %72, %70, %537, %539, %Py_DECREF.exit440, %363, %r_long.exit481.thread, %358, %304, %278, %270, %272, %245, %237, %239, %231, %r_long.exit.thread, %151, %61, %63, %57, %59, %53, %55, %51, %568, %567, %547, %Py_DECREF.exit442, %Py_DECREF.exit450, %Py_DECREF.exit452, %47, %46, %45, %38, %35
-  %.0314 = phi ptr [ null, %568 ], [ null, %35 ], [ @_Py_NoneStruct, %38 ], [ %230, %229 ], [ @_Py_EllipsisObject, %45 ], [ @_Py_FalseStruct, %46 ], [ @_Py_TrueStruct, %47 ], [ null, %51 ], [ %56, %55 ], [ %54, %53 ], [ %60, %59 ], [ %58, %57 ], [ %64, %63 ], [ %62, %61 ], [ %.15, %567 ], [ %71, %70 ], [ %80, %79 ], [ %94, %93 ], [ %108, %107 ], [ null, %r_long.exit.thread ], [ null, %151 ], [ %118, %129 ], [ null, %491 ], [ %188, %187 ], [ null, %231 ], [ null, %245 ], [ %267, %Py_DECREF.exit452 ], [ null, %237 ], [ null, %239 ], [ null, %270 ], [ null, %272 ], [ null, %278 ], [ %299, %Py_DECREF.exit450 ], [ null, %304 ], [ %340, %Py_DECREF.exit442 ], [ null, %r_long.exit481.thread ], [ null, %358 ], [ null, %363 ], [ null, %170 ], [ null, %Py_DECREF.exit440 ], [ %364, %366 ], [ %228, %227 ], [ %545, %552 ], [ null, %537 ], [ null, %539 ], [ null, %547 ], [ null, %379 ], [ null, %68 ], [ %73, %72 ], [ null, %77 ], [ %82, %81 ], [ null, %91 ], [ null, %86 ], [ %96, %95 ], [ null, %105 ], [ null, %100 ], [ %110, %109 ], [ null, %117 ], [ null, %113 ], [ %40, %43 ], [ null, %115 ], [ %132, %131 ], [ null, %178 ], [ null, %175 ], [ %190, %189 ], [ null, %219 ], [ null, %r_long.exit478.thread ], [ null, %212 ], [ null, %209 ], [ %40, %39 ], [ null, %123 ], [ null, %125 ], [ null, %128 ], [ %529, %528 ], [ %545, %549 ], [ null, %380 ], [ null, %428 ], [ null, %430 ], [ null, %168 ], [ %368, %367 ], [ %.pre513, %423 ], [ %.pre513, %Py_DECREF.exit438 ]
+  %.0314 = phi ptr [ null, %568 ], [ null, %35 ], [ @_Py_NoneStruct, %38 ], [ @_Py_EllipsisObject, %45 ], [ @_Py_FalseStruct, %46 ], [ @_Py_TrueStruct, %47 ], [ null, %51 ], [ %56, %55 ], [ %54, %53 ], [ %60, %59 ], [ %58, %57 ], [ %64, %63 ], [ %62, %61 ], [ null, %r_long.exit.thread ], [ null, %151 ], [ null, %231 ], [ null, %245 ], [ %267, %Py_DECREF.exit452 ], [ null, %237 ], [ null, %239 ], [ null, %270 ], [ null, %272 ], [ null, %278 ], [ %299, %Py_DECREF.exit450 ], [ null, %304 ], [ %340, %Py_DECREF.exit442 ], [ null, %r_long.exit481.thread ], [ null, %358 ], [ null, %363 ], [ null, %Py_DECREF.exit440 ], [ null, %537 ], [ null, %539 ], [ null, %547 ], [ %.15, %567 ], [ null, %68 ], [ %73, %72 ], [ %71, %70 ], [ null, %77 ], [ %82, %81 ], [ %80, %79 ], [ null, %86 ], [ null, %91 ], [ %96, %95 ], [ %94, %93 ], [ null, %100 ], [ null, %105 ], [ %110, %109 ], [ %108, %107 ], [ null, %115 ], [ null, %113 ], [ null, %117 ], [ %132, %131 ], [ %118, %129 ], [ null, %175 ], [ null, %178 ], [ %190, %189 ], [ %188, %187 ], [ null, %209 ], [ null, %r_long.exit478.thread ], [ null, %212 ], [ null, %219 ], [ %230, %229 ], [ %228, %227 ], [ %40, %39 ], [ %40, %43 ], [ null, %123 ], [ null, %125 ], [ null, %128 ], [ %529, %528 ], [ %545, %549 ], [ %545, %552 ], [ null, %380 ], [ null, %379 ], [ null, %428 ], [ null, %430 ], [ null, %491 ], [ null, %168 ], [ null, %170 ], [ %368, %367 ], [ %364, %366 ], [ %.pre513, %423 ], [ %.pre513, %Py_DECREF.exit438 ]
   %570 = load i32, ptr %29, align 8, !tbaa !50
   %571 = add i32 %570, -1
   store i32 %571, ptr %29, align 8, !tbaa !50
   br label %572
 
 572:                                              ; preds = %r_byte.exit, %24, %_Py_NewRef.exit, %33
-  %.0 = phi ptr [ %.0314, %_Py_NewRef.exit ], [ null, %33 ], [ null, %24 ], [ null, %r_byte.exit ]
+  %.0 = phi ptr [ null, %33 ], [ %.0314, %_Py_NewRef.exit ], [ null, %24 ], [ null, %r_byte.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -7114,9 +7114,9 @@ r_short.exit56.i43:                               ; preds = %92
   br i1 %.not.i48, label %.sink.split, label %109
 
 .sink.split:                                      ; preds = %97, %64, %.thread72.i47, %.thread72.i
-  %.str.30.sink = phi ptr [ @.str.30, %.thread72.i47 ], [ @.str.29, %64 ], [ @.str.30, %.thread72.i ], [ @.str.29, %97 ]
+  %.str.29.sink = phi ptr [ @.str.30, %.thread72.i ], [ @.str.30, %.thread72.i47 ], [ @.str.29, %64 ], [ @.str.29, %97 ]
   %108 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !29
-  call void @PyErr_SetString(ptr noundef %108, ptr noundef nonnull %.str.30.sink) #12
+  call void @PyErr_SetString(ptr noundef %108, ptr noundef nonnull %.str.29.sink) #12
   br label %109
 
 109:                                              ; preds = %.sink.split, %.thread72.i, %.thread72.i47
@@ -7133,7 +7133,7 @@ _w_digits32.exit:                                 ; preds = %.critedge._crit_edg
   br label %112
 
 112:                                              ; preds = %r_long.exit.thread, %111, %22
-  %.029 = phi ptr [ %.1, %111 ], [ null, %22 ], [ null, %r_long.exit.thread ]
+  %.029 = phi ptr [ null, %22 ], [ %.1, %111 ], [ null, %r_long.exit.thread ]
   ret ptr %.029
 }
 
@@ -7302,7 +7302,7 @@ define internal fastcc range(i64 -9223372036854775808, 2147483646) i64 @r_ref_re
   br label %13
 
 13:                                               ; preds = %2, %8, %10
-  %.1 = phi i64 [ %., %10 ], [ -1, %8 ], [ 0, %2 ]
+  %.1 = phi i64 [ -1, %8 ], [ %., %10 ], [ 0, %2 ]
   ret i64 %.1
 }
 
@@ -7477,7 +7477,7 @@ define internal ptr @marshal_dump(ptr readnone captures(none) %0, ptr noundef %1
   br label %marshal_dump_impl.exit
 
 marshal_dump_impl.exit:                           ; preds = %48, %45, %41, %38, %33, %30, %17
-  %.032 = phi ptr [ null, %33 ], [ null, %17 ], [ null, %30 ], [ null, %38 ], [ %43, %41 ], [ %43, %45 ], [ %43, %48 ]
+  %.032 = phi ptr [ null, %33 ], [ null, %30 ], [ null, %17 ], [ null, %38 ], [ %43, %41 ], [ %43, %45 ], [ %43, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.032
 }

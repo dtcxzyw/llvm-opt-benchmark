@@ -576,8 +576,8 @@ define linkonce_odr void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedO
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 _ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit: ; preds = %55, %59, %61, %65, %69, %73, %75, %76, %78
-  %.025.i.i = phi i32 [ %.0.i, %75 ], [ %66, %65 ], [ %70, %69 ], [ %.pre.i.i, %73 ], [ 0, %78 ], [ 0, %76 ], [ %.pre.i.i, %61 ], [ %.pre.i.i, %59 ], [ %.pre.i.i, %55 ]
-  %.0.i.i = phi i32 [ %.013.i, %75 ], [ 0, %65 ], [ %.pre.i.i, %69 ], [ %74, %73 ], [ %79, %78 ], [ %.013.i, %76 ], [ %.pre.i.i, %61 ], [ %.pre.i.i, %59 ], [ %.pre.i.i, %55 ]
+  %.025.i.i = phi i32 [ %66, %65 ], [ %70, %69 ], [ %.pre.i.i, %73 ], [ 0, %78 ], [ 0, %76 ], [ %.0.i, %75 ], [ %.pre.i.i, %59 ], [ %.pre.i.i, %61 ], [ %.pre.i.i, %55 ]
+  %.0.i.i = phi i32 [ 0, %65 ], [ %.pre.i.i, %69 ], [ %74, %73 ], [ %79, %78 ], [ %.013.i, %76 ], [ %.013.i, %75 ], [ %.pre.i.i, %59 ], [ %.pre.i.i, %61 ], [ %.pre.i.i, %55 ]
   store i32 %.0.i.i, ptr %2, align 4, !tbaa !61
   store i32 %.025.i.i, ptr %3, align 4, !tbaa !61
   ret void

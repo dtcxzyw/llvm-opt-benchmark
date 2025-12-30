@@ -753,7 +753,7 @@ _ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8
   br i1 %.not.i.i.i, label %_ZN16SortedLinkedListI27VirtualMemoryAllocationSiteXadL_Z23compare_allocation_siteRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, !llvm.loop !14
 
 _ZN16SortedLinkedListI27VirtualMemoryAllocationSiteXadL_Z23compare_allocation_siteRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit: ; preds = %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i, %47, %.critedge.i, %51
-  %54 = phi i1 [ false, %51 ], [ true, %47 ], [ true, %.critedge.i ], [ false, %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i ]
+  %54 = phi i1 [ false, %51 ], [ true, %.critedge.i ], [ true, %47 ], [ false, %_ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS0_E.exit.i.i.i ]
   ret i1 %54
 }
 
@@ -4101,7 +4101,7 @@ _Z19compare_malloc_sizeRK10MallocSiteS1_.exit:    ; preds = %5
   br i1 %.not, label %_Z19compare_malloc_sizeRK10MallocSiteS1_.exit.thread, label %5, !llvm.loop !50
 
 _Z19compare_malloc_sizeRK10MallocSiteS1_.exit.thread: ; preds = %_Z19compare_malloc_sizeRK10MallocSiteS1_.exit, %12, %5, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %12 ], [ %.0814, %5 ], [ null, %_Z19compare_malloc_sizeRK10MallocSiteS1_.exit ]
+  %.0 = phi ptr [ null, %2 ], [ %.0814, %5 ], [ null, %12 ], [ null, %_Z19compare_malloc_sizeRK10MallocSiteS1_.exit ]
   ret ptr %.0
 }
 

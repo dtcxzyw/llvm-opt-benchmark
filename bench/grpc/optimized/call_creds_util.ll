@@ -230,7 +230,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i48: ; preds = %_ZNKSt17basic_strin
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread: ; preds = %.preheader, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i48, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit47, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %32
-  %.sroa.060.0 = phi i64 [ %45, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %45, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit47 ], [ %spec.select, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i48 ], [ %45, %32 ], [ 0, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit ], [ %45, %.preheader ]
+  %.sroa.060.0 = phi i64 [ %45, %32 ], [ %45, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit ], [ %45, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit47 ], [ %spec.select, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i48 ], [ %45, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.0.0.copyload.i, ptr %5, align 8, !tbaa !26
   %.sroa.2.0..sroa_idx.i55 = getelementptr inbounds nuw i8, ptr %5, i64 8

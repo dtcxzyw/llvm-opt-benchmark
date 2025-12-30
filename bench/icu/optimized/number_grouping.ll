@@ -234,7 +234,7 @@ define noundef zeroext i1 @_ZNK6icu_776number4impl7Grouper15groupAtPositionEiRKN
   br label %25
 
 25:                                               ; preds = %3, %5, %9, %15
-  %.0 = phi i1 [ %24, %15 ], [ false, %3 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %9 ], [ false, %5 ], [ %24, %15 ]
   ret i1 %.0
 }
 

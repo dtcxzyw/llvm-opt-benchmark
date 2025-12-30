@@ -199,7 +199,7 @@ define hidden range(i32 0, 2) i32 @_cmsSetInterpolationRoutine(ptr noundef %0, p
   br label %DefaultInterpolatorsFactory.exit
 
 DefaultInterpolatorsFactory.exit:                 ; preds = %.thread, %25, %28, %29, %30, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45
-  %.sroa.0.0.i = phi ptr [ null, %.thread ], [ %Eval7Inputs.Eval7InputsFloat.i, %37 ], [ %LinLerp1D.LinLerp1Dfloat.i, %28 ], [ %Eval10Inputs.Eval10InputsFloat.i, %40 ], [ %Eval1Input.Eval1InputFloat.i, %29 ], [ %Eval15Inputs.Eval15InputsFloat.i, %45 ], [ %BilinearInterp16.BilinearInterpFloat.i, %30 ], [ %Eval8Inputs.Eval8InputsFloat.i, %38 ], [ %TrilinearInterp16.TrilinearInterpFloat.i, %32 ], [ %Eval14Inputs.Eval14InputsFloat.i, %44 ], [ %TetrahedralInterp16.TetrahedralInterpFloat.i, %33 ], [ %Eval11Inputs.Eval11InputsFloat.i, %41 ], [ %Eval4Inputs.Eval4InputsFloat.i, %34 ], [ %Eval13Inputs.Eval13InputsFloat.i, %43 ], [ %Eval5Inputs.Eval5InputsFloat.i, %35 ], [ %Eval9Inputs.Eval9InputsFloat.i, %39 ], [ %Eval6Inputs.Eval6InputsFloat.i, %36 ], [ %Eval12Inputs.Eval12InputsFloat.i, %42 ], [ null, %25 ]
+  %.sroa.0.0.i = phi ptr [ null, %.thread ], [ %LinLerp1D.LinLerp1Dfloat.i, %28 ], [ %Eval1Input.Eval1InputFloat.i, %29 ], [ %BilinearInterp16.BilinearInterpFloat.i, %30 ], [ %TrilinearInterp16.TrilinearInterpFloat.i, %32 ], [ %TetrahedralInterp16.TetrahedralInterpFloat.i, %33 ], [ %Eval4Inputs.Eval4InputsFloat.i, %34 ], [ %Eval5Inputs.Eval5InputsFloat.i, %35 ], [ %Eval6Inputs.Eval6InputsFloat.i, %36 ], [ %Eval7Inputs.Eval7InputsFloat.i, %37 ], [ %Eval8Inputs.Eval8InputsFloat.i, %38 ], [ %Eval9Inputs.Eval9InputsFloat.i, %39 ], [ %Eval10Inputs.Eval10InputsFloat.i, %40 ], [ %Eval11Inputs.Eval11InputsFloat.i, %41 ], [ %Eval12Inputs.Eval12InputsFloat.i, %42 ], [ %Eval13Inputs.Eval13InputsFloat.i, %43 ], [ %Eval14Inputs.Eval14InputsFloat.i, %44 ], [ %Eval15Inputs.Eval15InputsFloat.i, %45 ], [ null, %25 ]
   store ptr %.sroa.0.0.i, ptr %4, align 8
   %46 = icmp ne ptr %.sroa.0.0.i, null
   %47 = zext i1 %46 to i32
@@ -2122,9 +2122,9 @@ define internal void @Eval4Inputs(ptr noundef readonly captures(none) %0, ptr no
   br label %159
 
 159:                                              ; preds = %140, %139, %120, %100
-  %.0447.us.us.us = phi i32 [ 0, %139 ], [ %151, %140 ], [ %131, %120 ], [ %111, %100 ]
-  %.0445.us.us.us = phi i32 [ 0, %139 ], [ %157, %140 ], [ %137, %120 ], [ %112, %100 ]
-  %.0443.us.us.us = phi i32 [ 0, %139 ], [ %158, %140 ], [ %138, %120 ], [ %118, %100 ]
+  %.0447.us.us.us = phi i32 [ %111, %100 ], [ %131, %120 ], [ %151, %140 ], [ 0, %139 ]
+  %.0445.us.us.us = phi i32 [ %112, %100 ], [ %137, %120 ], [ %157, %140 ], [ 0, %139 ]
+  %.0443.us.us.us = phi i32 [ %118, %100 ], [ %138, %120 ], [ %158, %140 ], [ 0, %139 ]
   %160 = mul nsw i32 %.0447.us.us.us, %46
   %161 = mul nsw i32 %.0445.us.us.us, %47
   %162 = add nsw i32 %161, %160

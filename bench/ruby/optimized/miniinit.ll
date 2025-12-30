@@ -435,7 +435,7 @@ sub_1144:                                         ; preds = %sub_0143
   %133 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code17, i64 noundef 424) #8
   br label %.thread132
 
-134:                                              ; preds = %.critedge109.thread179, %122
+134:                                              ; preds = %122, %.critedge109.thread179
   br i1 %120, label %135, label %.thread202
 
 135:                                              ; preds = %134
@@ -462,7 +462,7 @@ sub_1144:                                         ; preds = %sub_0143
   %146 = tail call i64 @rb_utf8_str_new_static(ptr noundef nonnull @prelude_code19, i64 noundef 17905) #8
   br label %.thread132
 
-.thread202:                                       ; preds = %135, %134, %128, %141
+.thread202:                                       ; preds = %134, %135, %128, %141
   %147 = icmp eq i64 %4, 9
   br i1 %147, label %148, label %.thread132
 

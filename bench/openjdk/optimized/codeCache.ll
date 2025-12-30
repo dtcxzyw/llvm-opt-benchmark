@@ -340,30 +340,30 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i:       ; preds = %37
   %46 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   %47 = icmp eq i32 %46, 1
   %48 = or i1 %spec.select.i.i.i, %47
-  br i1 %48, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i, label %_ZN14CompilerConfig15is_c1_profilingEv.exit.i
+  br i1 %48, label %_ZN14CompilerConfig15is_c1_profilingEv.exit.i, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i
 
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
-  %49 = icmp eq i64 %40, 1
-  %50 = select i1 %44, i1 %49, i1 false
-  %51 = xor i1 %44, true
-  %52 = or i1 %50, %51
-  %53 = or i1 %47, %52
-  br i1 %53, label %56, label %_ZN9CodeCache14heap_availableE12CodeBlobType.exit
+_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
+  %49 = icmp ne i32 %46, 2
+  %50 = and i1 %49, %44
+  br i1 %50, label %_ZN9CodeCache14heap_availableE12CodeBlobType.exit, label %56
 
 _ZN14CompilerConfig15is_c1_profilingEv.exit.i:    ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
-  %54 = icmp ne i32 %46, 2
-  %55 = and i1 %54, %44
-  br i1 %55, label %_ZN9CodeCache14heap_availableE12CodeBlobType.exit, label %56
+  %51 = icmp eq i64 %40, 1
+  %52 = select i1 %44, i1 %51, i1 false
+  %53 = xor i1 %44, true
+  %54 = or i1 %52, %53
+  %55 = or i1 %47, %54
+  br i1 %55, label %56, label %_ZN9CodeCache14heap_availableE12CodeBlobType.exit
 
-56:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i, %_ZN14CompilerConfig15is_c1_profilingEv.exit.i, %0, %37
+56:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i, %_ZN14CompilerConfig15is_c1_profilingEv.exit.i, %0, %37
   %57 = add i64 %23, %21
   br label %_ZN9CodeCache14heap_availableE12CodeBlobType.exit
 
-_ZN9CodeCache14heap_availableE12CodeBlobType.exit: ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i, %56
-  %.sroa.18.0.shrunk = phi i1 [ true, %56 ], [ %22, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i ], [ %22, %_ZN14CompilerConfig15is_c1_profilingEv.exit.i ]
-  %.sroa.0122.0 = phi i64 [ 0, %56 ], [ %21, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i ], [ %21, %_ZN14CompilerConfig15is_c1_profilingEv.exit.i ]
-  %.sroa.24.0 = phi i1 [ false, %56 ], [ true, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i ], [ true, %_ZN14CompilerConfig15is_c1_profilingEv.exit.i ]
-  %.sroa.0.0 = phi i64 [ %57, %56 ], [ %23, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i ], [ %23, %_ZN14CompilerConfig15is_c1_profilingEv.exit.i ]
+_ZN9CodeCache14heap_availableE12CodeBlobType.exit: ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i, %56
+  %.sroa.18.0.shrunk = phi i1 [ true, %56 ], [ %22, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i ], [ %22, %_ZN14CompilerConfig15is_c1_profilingEv.exit.i ]
+  %.sroa.0122.0 = phi i64 [ 0, %56 ], [ %21, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i ], [ %21, %_ZN14CompilerConfig15is_c1_profilingEv.exit.i ]
+  %.sroa.24.0 = phi i1 [ false, %56 ], [ true, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i ], [ true, %_ZN14CompilerConfig15is_c1_profilingEv.exit.i ]
+  %.sroa.0.0 = phi i64 [ %57, %56 ], [ %23, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i ], [ %23, %_ZN14CompilerConfig15is_c1_profilingEv.exit.i ]
   %58 = load i32, ptr @_ZN17CompilationPolicy9_c1_countE, align 4
   %59 = tail call noundef i32 @_ZN8Compiler16code_buffer_sizeEv() #21
   %60 = mul i32 %59, %58
@@ -645,8 +645,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %162
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread160, %_Z24byte_size_in_proper_unitImET_S0_.exit, %168
-  %.0.i95159 = phi i64 [ %166, %.thread160 ], [ %167, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %168 ]
-  %.0.i96 = phi ptr [ @.str.83, %.thread160 ], [ @.str.82, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.84..str.85.i, %168 ]
+  %.0.i95159 = phi i64 [ %167, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %168 ], [ %166, %.thread160 ]
+  %.0.i96 = phi ptr [ @.str.82, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.84..str.85.i, %168 ], [ @.str.83, %.thread160 ]
   %171 = icmp ugt i64 %27, 107374182399
   br i1 %171, label %_Z24byte_size_in_proper_unitImET_S0_.exit99, label %172
 
@@ -670,8 +670,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit99:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit102
 
 _Z25proper_unit_for_byte_sizem.exit102:           ; preds = %.thread165, %_Z24byte_size_in_proper_unitImET_S0_.exit99, %176
-  %.0.i98164 = phi i64 [ %174, %.thread165 ], [ %175, %_Z24byte_size_in_proper_unitImET_S0_.exit99 ], [ %spec.select.i97, %176 ]
-  %.0.i101 = phi ptr [ @.str.83, %.thread165 ], [ @.str.82, %_Z24byte_size_in_proper_unitImET_S0_.exit99 ], [ %.str.84..str.85.i100, %176 ]
+  %.0.i98164 = phi i64 [ %175, %_Z24byte_size_in_proper_unitImET_S0_.exit99 ], [ %spec.select.i97, %176 ], [ %174, %.thread165 ]
+  %.0.i101 = phi ptr [ @.str.82, %_Z24byte_size_in_proper_unitImET_S0_.exit99 ], [ %.str.84..str.85.i100, %176 ], [ @.str.83, %.thread165 ]
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE19ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.20, i64 noundef %.0.i95159, ptr noundef nonnull %.0.i96, i64 noundef %.0.i98164, ptr noundef nonnull %.0.i101)
   br label %179
 
@@ -800,26 +800,26 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %6
   %17 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   %18 = icmp eq i32 %17, 1
   %19 = or i1 %spec.select.i.i, %18
-  br i1 %19, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i, label %_ZN14CompilerConfig15is_c1_profilingEv.exit
+  br i1 %19, label %_ZN14CompilerConfig15is_c1_profilingEv.exit, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i
 
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
-  %20 = icmp eq i64 %9, 1
-  %21 = select i1 %15, i1 %20, i1 false
-  %22 = xor i1 %15, true
-  %23 = or i1 %21, %22
-  %24 = or i1 %18, %23
-  br i1 %24, label %29, label %27
+_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
+  %20 = icmp ne i32 %17, 2
+  %21 = and i1 %20, %15
+  br i1 %21, label %27, label %29
 
 _ZN14CompilerConfig15is_c1_profilingEv.exit:      ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
-  %25 = icmp ne i32 %17, 2
-  %26 = and i1 %25, %15
-  br i1 %26, label %27, label %29
+  %22 = icmp eq i64 %9, 1
+  %23 = select i1 %15, i1 %22, i1 false
+  %24 = xor i1 %15, true
+  %25 = or i1 %23, %24
+  %26 = or i1 %18, %25
+  br i1 %26, label %29, label %27
 
-27:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i, %_ZN14CompilerConfig15is_c1_profilingEv.exit
+27:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i, %_ZN14CompilerConfig15is_c1_profilingEv.exit
   %28 = icmp slt i32 %0, 3
   br label %32
 
-29:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i, %_ZN14CompilerConfig15is_c1_profilingEv.exit
+29:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i, %_ZN14CompilerConfig15is_c1_profilingEv.exit
   %30 = and i32 %0, -3
   %31 = icmp eq i32 %30, 0
   br label %32
@@ -925,57 +925,57 @@ define hidden void @_ZN9CodeCache8add_heapE13ReservedSpacePKc12CodeBlobType(ptr 
   %5 = alloca %class.FormatBuffer, align 8
   %6 = load i8, ptr @SegmentedCodeCache, align 1
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %10, label %8
+  br i1 %7, label %8, label %_ZN9CodeCache14heap_availableE12CodeBlobType.exit
 
 8:                                                ; preds = %3
-  %9 = icmp eq i32 %2, 3
-  br i1 %9, label %35, label %69
+  %9 = load i32, ptr @_ZN9Arguments5_modeE, align 4
+  %10 = icmp eq i32 %9, 0
+  %11 = load i64, ptr @TieredStopAtLevel, align 8
+  %12 = icmp eq i64 %11, 0
+  %13 = select i1 %10, i1 true, i1 %12
+  br i1 %13, label %14, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
 
-10:                                               ; preds = %3
-  %11 = load i32, ptr @_ZN9Arguments5_modeE, align 4
-  %12 = icmp eq i32 %11, 0
-  %13 = load i64, ptr @TieredStopAtLevel, align 8
-  %14 = icmp eq i64 %13, 0
-  %15 = select i1 %12, i1 true, i1 %14
-  br i1 %15, label %16, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
+14:                                               ; preds = %8
+  %15 = icmp eq i32 %2, 2
+  br i1 %15, label %35, label %69
 
-16:                                               ; preds = %10
-  %17 = icmp eq i32 %2, 2
-  br i1 %17, label %35, label %69
+_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i:       ; preds = %8
+  %16 = load i8, ptr @TieredCompilation, align 1
+  %17 = trunc i8 %16 to i1
+  %18 = icmp ult i64 %11, 4
+  %spec.select.i.i.i = select i1 %17, i1 %18, i1 false
+  %19 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %20 = icmp eq i32 %19, 1
+  %21 = or i1 %spec.select.i.i.i, %20
+  br i1 %21, label %_ZN14CompilerConfig15is_c1_profilingEv.exit.i, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i
 
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i:       ; preds = %10
-  %18 = load i8, ptr @TieredCompilation, align 1
-  %19 = trunc i8 %18 to i1
-  %20 = icmp ult i64 %13, 4
-  %spec.select.i.i.i = select i1 %19, i1 %20, i1 false
-  %21 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %22 = icmp eq i32 %21, 1
-  %23 = or i1 %spec.select.i.i.i, %22
-  br i1 %23, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i, label %_ZN14CompilerConfig15is_c1_profilingEv.exit.i
-
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
-  %24 = icmp eq i64 %13, 1
-  %25 = select i1 %19, i1 %24, i1 false
-  %26 = xor i1 %19, true
-  %27 = or i1 %25, %26
-  %28 = or i1 %22, %27
-  br i1 %28, label %31, label %_ZN9CodeCache14heap_availableE12CodeBlobType.exit
+_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
+  %22 = icmp ne i32 %19, 2
+  %23 = and i1 %22, %17
+  br i1 %23, label %29, label %31
 
 _ZN14CompilerConfig15is_c1_profilingEv.exit.i:    ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
-  %29 = icmp ne i32 %21, 2
-  %30 = and i1 %29, %19
-  br i1 %30, label %_ZN9CodeCache14heap_availableE12CodeBlobType.exit, label %31
+  %24 = icmp eq i64 %11, 1
+  %25 = select i1 %17, i1 %24, i1 false
+  %26 = xor i1 %17, true
+  %27 = or i1 %25, %26
+  %28 = or i1 %20, %27
+  br i1 %28, label %31, label %29
 
-31:                                               ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i
+29:                                               ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i
+  %30 = icmp slt i32 %2, 3
+  br i1 %30, label %35, label %69
+
+31:                                               ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i
   %32 = and i32 %2, -3
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %35, label %69
 
-_ZN9CodeCache14heap_availableE12CodeBlobType.exit: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i, %_ZN14CompilerConfig15is_c1_profilingEv.exit.i
-  %34 = icmp slt i32 %2, 3
+_ZN9CodeCache14heap_availableE12CodeBlobType.exit: ; preds = %3
+  %34 = icmp eq i32 %2, 3
   br i1 %34, label %35, label %69
 
-35:                                               ; preds = %31, %8, %16, %_ZN9CodeCache14heap_availableE12CodeBlobType.exit
+35:                                               ; preds = %31, %29, %14, %_ZN9CodeCache14heap_availableE12CodeBlobType.exit
   %36 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 336, i8 noundef zeroext 4, i32 noundef 0) #21
   tail call void @_ZN8CodeHeapC1EPKc12CodeBlobType(ptr noundef nonnull align 8 dereferenceable(336) %36, ptr noundef %1, i32 noundef %2) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1032,7 +1032,7 @@ _ZN9CodeCache8add_heapEP8CodeHeap.exit:           ; preds = %47, %49
   call void @_ZN13MemoryService25add_code_heap_memory_poolEP8CodeHeapPKc(ptr noundef nonnull %36, ptr noundef %1) #21
   br label %69
 
-69:                                               ; preds = %31, %8, %16, %_ZN9CodeCache14heap_availableE12CodeBlobType.exit, %68
+69:                                               ; preds = %31, %29, %14, %_ZN9CodeCache14heap_availableE12CodeBlobType.exit, %68
   ret void
 }
 
@@ -1381,57 +1381,57 @@ define hidden noundef ptr @_ZN9CodeCache10first_blobEP8CodeHeap(ptr noundef nonn
 define hidden noundef ptr @_ZN9CodeCache10first_blobE12CodeBlobType(i32 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = load i8, ptr @SegmentedCodeCache, align 1
   %3 = trunc i8 %2 to i1
-  br i1 %3, label %6, label %4
+  br i1 %3, label %4, label %_ZN9CodeCache14heap_availableE12CodeBlobType.exit
 
 4:                                                ; preds = %1
-  %5 = icmp eq i32 %0, 3
-  br i1 %5, label %31, label %47
+  %5 = load i32, ptr @_ZN9Arguments5_modeE, align 4
+  %6 = icmp eq i32 %5, 0
+  %7 = load i64, ptr @TieredStopAtLevel, align 8
+  %8 = icmp eq i64 %7, 0
+  %9 = select i1 %6, i1 true, i1 %8
+  br i1 %9, label %10, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
 
-6:                                                ; preds = %1
-  %7 = load i32, ptr @_ZN9Arguments5_modeE, align 4
-  %8 = icmp eq i32 %7, 0
-  %9 = load i64, ptr @TieredStopAtLevel, align 8
-  %10 = icmp eq i64 %9, 0
-  %11 = select i1 %8, i1 true, i1 %10
-  br i1 %11, label %12, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
+10:                                               ; preds = %4
+  %11 = icmp eq i32 %0, 2
+  br i1 %11, label %31, label %47
 
-12:                                               ; preds = %6
-  %13 = icmp eq i32 %0, 2
-  br i1 %13, label %31, label %47
+_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i:       ; preds = %4
+  %12 = load i8, ptr @TieredCompilation, align 1
+  %13 = trunc i8 %12 to i1
+  %14 = icmp ult i64 %7, 4
+  %spec.select.i.i.i = select i1 %13, i1 %14, i1 false
+  %15 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %16 = icmp eq i32 %15, 1
+  %17 = or i1 %spec.select.i.i.i, %16
+  br i1 %17, label %_ZN14CompilerConfig15is_c1_profilingEv.exit.i, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i
 
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i:       ; preds = %6
-  %14 = load i8, ptr @TieredCompilation, align 1
-  %15 = trunc i8 %14 to i1
-  %16 = icmp ult i64 %9, 4
-  %spec.select.i.i.i = select i1 %15, i1 %16, i1 false
-  %17 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %18 = icmp eq i32 %17, 1
-  %19 = or i1 %spec.select.i.i.i, %18
-  br i1 %19, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i, label %_ZN14CompilerConfig15is_c1_profilingEv.exit.i
-
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
-  %20 = icmp eq i64 %9, 1
-  %21 = select i1 %15, i1 %20, i1 false
-  %22 = xor i1 %15, true
-  %23 = or i1 %21, %22
-  %24 = or i1 %18, %23
-  br i1 %24, label %27, label %_ZN9CodeCache14heap_availableE12CodeBlobType.exit
+_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
+  %18 = icmp ne i32 %15, 2
+  %19 = and i1 %18, %13
+  br i1 %19, label %25, label %27
 
 _ZN14CompilerConfig15is_c1_profilingEv.exit.i:    ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
-  %25 = icmp ne i32 %17, 2
-  %26 = and i1 %25, %15
-  br i1 %26, label %_ZN9CodeCache14heap_availableE12CodeBlobType.exit, label %27
+  %20 = icmp eq i64 %7, 1
+  %21 = select i1 %13, i1 %20, i1 false
+  %22 = xor i1 %13, true
+  %23 = or i1 %21, %22
+  %24 = or i1 %16, %23
+  br i1 %24, label %27, label %25
 
-27:                                               ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i
+25:                                               ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i
+  %26 = icmp slt i32 %0, 3
+  br i1 %26, label %31, label %47
+
+27:                                               ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i
   %28 = and i32 %0, -3
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %31, label %47
 
-_ZN9CodeCache14heap_availableE12CodeBlobType.exit: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i, %_ZN14CompilerConfig15is_c1_profilingEv.exit.i
-  %30 = icmp slt i32 %0, 3
+_ZN9CodeCache14heap_availableE12CodeBlobType.exit: ; preds = %1
+  %30 = icmp eq i32 %0, 3
   br i1 %30, label %31, label %47
 
-31:                                               ; preds = %27, %4, %12, %_ZN9CodeCache14heap_availableE12CodeBlobType.exit
+31:                                               ; preds = %27, %25, %10, %_ZN9CodeCache14heap_availableE12CodeBlobType.exit
   %32 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %33 = load i32, ptr %32, align 4
   %.not8.i = icmp eq i32 %33, 0
@@ -1465,8 +1465,8 @@ _ZN9CodeCache13get_code_heapE12CodeBlobType.exit: ; preds = %37, %38, %31
   %46 = tail call noundef ptr @_ZNK8CodeHeap9next_usedEP9HeapBlock(ptr noundef nonnull align 8 dereferenceable(336) %.0.i2, ptr noundef %45) #21
   br label %47
 
-47:                                               ; preds = %27, %4, %12, %_ZN9CodeCache14heap_availableE12CodeBlobType.exit, %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit
-  %.0 = phi ptr [ %46, %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit ], [ null, %_ZN9CodeCache14heap_availableE12CodeBlobType.exit ], [ null, %12 ], [ null, %4 ], [ null, %27 ]
+47:                                               ; preds = %27, %25, %10, %_ZN9CodeCache14heap_availableE12CodeBlobType.exit, %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit
+  %.0 = phi ptr [ %46, %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit ], [ null, %_ZN9CodeCache14heap_availableE12CodeBlobType.exit ], [ null, %10 ], [ null, %25 ], [ null, %27 ]
   ret ptr %.0
 }
 
@@ -1551,7 +1551,7 @@ _ZN9CodeCache13get_code_heapE12CodeBlobType.exit: ; preds = %.lr.ph70, %.lr.ph.i
   br label %34
 
 34:                                               ; preds = %30, %32, %31
-  %.0 = phi i32 [ %spec.store.select, %32 ], [ 1, %31 ], [ 0, %30 ]
+  %.0 = phi i32 [ 1, %31 ], [ %spec.store.select, %32 ], [ 0, %30 ]
   %.not32 = icmp eq i32 %.0, %.tr3949
   %.not33 = icmp eq i32 %.0, %spec.select
   %or.cond = or i1 %.not32, %.not33
@@ -1573,29 +1573,29 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i:       ; preds = %35
   %44 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   %45 = icmp eq i32 %44, 1
   %46 = or i1 %spec.select.i.i.i, %45
-  br i1 %46, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i, label %_ZN14CompilerConfig15is_c1_profilingEv.exit.i
+  br i1 %46, label %_ZN14CompilerConfig15is_c1_profilingEv.exit.i, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i
 
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
-  %47 = icmp eq i64 %38, 1
-  %48 = select i1 %42, i1 %47, i1 false
-  %49 = xor i1 %42, true
-  %50 = or i1 %48, %49
-  %51 = or i1 %45, %50
-  %.old = icmp ne i32 %.0, 0
-  %or.cond44.not = and i1 %.old, %51
-  br i1 %or.cond44.not, label %.thread, label %.lr.ph.i.backedge
-
-_ZN14CompilerConfig15is_c1_profilingEv.exit.i:    ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
-  %52 = icmp ne i32 %44, 2
-  %53 = and i1 %52, %42
-  %54 = icmp eq i32 %.0, 0
-  %or.cond42 = or i1 %54, %53
+_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
+  %47 = icmp ne i32 %44, 2
+  %48 = and i1 %47, %42
+  %49 = icmp eq i32 %.0, 0
+  %or.cond42 = or i1 %49, %48
   br i1 %or.cond42, label %.lr.ph.i.backedge, label %.thread
 
-.lr.ph.i.backedge:                                ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i
+.lr.ph.i.backedge:                                ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i, %_ZN14CompilerConfig15is_c1_profilingEv.exit.i
   br label %.lr.ph.i
 
-.thread:                                          ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i, %_ZN14CompilerConfig15is_c1_profilingEv.exit.i, %35, %30, %34, %26
+_ZN14CompilerConfig15is_c1_profilingEv.exit.i:    ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
+  %50 = icmp eq i64 %38, 1
+  %51 = select i1 %42, i1 %50, i1 false
+  %52 = xor i1 %42, true
+  %53 = or i1 %51, %52
+  %54 = or i1 %45, %53
+  %.old = icmp ne i32 %.0, 0
+  %or.cond44.not = and i1 %.old, %54
+  br i1 %or.cond44.not, label %.thread, label %.lr.ph.i.backedge
+
+.thread:                                          ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i, %35, %30, %34, %26
   br i1 %2, label %_ZN13MutexUnlockerD2Ev.exit, label %.loopexit
 
 _ZN13MutexUnlockerD2Ev.exit:                      ; preds = %.thread
@@ -1612,7 +1612,7 @@ _ZN13MutexUnlockerD2Ev.exit:                      ; preds = %.thread
   br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit, %56, %4, %.thread, %_ZN13MutexUnlockerD2Ev.exit
-  %.026 = phi ptr [ null, %4 ], [ null, %.thread ], [ null, %_ZN13MutexUnlockerD2Ev.exit ], [ %57, %56 ], [ %23, %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit ]
+  %.026 = phi ptr [ null, %_ZN13MutexUnlockerD2Ev.exit ], [ null, %.thread ], [ null, %4 ], [ %57, %56 ], [ %23, %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit ]
   ret ptr %.026
 }
 
@@ -2677,7 +2677,7 @@ _ZN9CodeCache12max_capacityEv.exit:               ; preds = %19, %2, %_ZN9CodeCa
   br label %.sink.split
 
 .sink.split:                                      ; preds = %63, %61, %41, %39
-  %.sink52 = phi i32 [ 15, %41 ], [ 15, %39 ], [ 14, %61 ], [ 14, %63 ]
+  %.sink52 = phi i32 [ 15, %39 ], [ 15, %41 ], [ 14, %61 ], [ 14, %63 ]
   %68 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 192
@@ -5192,57 +5192,57 @@ _ZN9CodeCache13get_code_heapE12CodeBlobType.exit: ; preds = %12, %13, %2
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %4, i64 noundef 0) #21
   %39 = load i8, ptr @SegmentedCodeCache, align 1
   %40 = trunc i8 %39 to i1
-  br i1 %40, label %43, label %41
+  br i1 %40, label %41, label %_ZN9CodeCache14heap_availableE12CodeBlobType.exit.i
 
 41:                                               ; preds = %26
-  %42 = icmp eq i32 %0, 3
-  br i1 %42, label %.lr.ph.i.i, label %_ZN9CodeCache18get_code_heap_nameE12CodeBlobType.exit
+  %42 = load i32, ptr @_ZN9Arguments5_modeE, align 4
+  %43 = icmp eq i32 %42, 0
+  %44 = load i64, ptr @TieredStopAtLevel, align 8
+  %45 = icmp eq i64 %44, 0
+  %46 = select i1 %43, i1 true, i1 %45
+  br i1 %46, label %47, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
 
-43:                                               ; preds = %26
-  %44 = load i32, ptr @_ZN9Arguments5_modeE, align 4
-  %45 = icmp eq i32 %44, 0
-  %46 = load i64, ptr @TieredStopAtLevel, align 8
-  %47 = icmp eq i64 %46, 0
-  %48 = select i1 %45, i1 true, i1 %47
-  br i1 %48, label %49, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
+47:                                               ; preds = %41
+  %48 = icmp eq i32 %0, 2
+  br i1 %48, label %.lr.ph.i.i, label %_ZN9CodeCache18get_code_heap_nameE12CodeBlobType.exit
 
-49:                                               ; preds = %43
-  %50 = icmp eq i32 %0, 2
-  br i1 %50, label %.lr.ph.i.i, label %_ZN9CodeCache18get_code_heap_nameE12CodeBlobType.exit
+_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i:     ; preds = %41
+  %49 = load i8, ptr @TieredCompilation, align 1
+  %50 = trunc i8 %49 to i1
+  %51 = icmp ult i64 %44, 4
+  %spec.select.i.i.i.i = select i1 %50, i1 %51, i1 false
+  %52 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %53 = icmp eq i32 %52, 1
+  %54 = or i1 %spec.select.i.i.i.i, %53
+  br i1 %54, label %_ZN14CompilerConfig15is_c1_profilingEv.exit.i.i, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i.i
 
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i:     ; preds = %43
-  %51 = load i8, ptr @TieredCompilation, align 1
-  %52 = trunc i8 %51 to i1
-  %53 = icmp ult i64 %46, 4
-  %spec.select.i.i.i.i = select i1 %52, i1 %53, i1 false
-  %54 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %55 = icmp eq i32 %54, 1
-  %56 = or i1 %spec.select.i.i.i.i, %55
-  br i1 %56, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i.i, label %_ZN14CompilerConfig15is_c1_profilingEv.exit.i.i
-
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
-  %57 = icmp eq i64 %46, 1
-  %58 = select i1 %52, i1 %57, i1 false
-  %59 = xor i1 %52, true
-  %60 = or i1 %58, %59
-  %61 = or i1 %55, %60
-  br i1 %61, label %64, label %_ZN9CodeCache14heap_availableE12CodeBlobType.exit.i
+_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
+  %55 = icmp ne i32 %52, 2
+  %56 = and i1 %55, %50
+  br i1 %56, label %62, label %64
 
 _ZN14CompilerConfig15is_c1_profilingEv.exit.i.i:  ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
-  %62 = icmp ne i32 %54, 2
-  %63 = and i1 %62, %52
-  br i1 %63, label %_ZN9CodeCache14heap_availableE12CodeBlobType.exit.i, label %64
+  %57 = icmp eq i64 %44, 1
+  %58 = select i1 %50, i1 %57, i1 false
+  %59 = xor i1 %50, true
+  %60 = or i1 %58, %59
+  %61 = or i1 %53, %60
+  br i1 %61, label %64, label %62
 
-64:                                               ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit.i.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i.i
+62:                                               ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit.i.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i.i
+  %63 = icmp slt i32 %0, 3
+  br i1 %63, label %.lr.ph.i.i, label %_ZN9CodeCache18get_code_heap_nameE12CodeBlobType.exit
+
+64:                                               ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit.i.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i.i.i
   %65 = and i32 %0, -3
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %.lr.ph.i.i, label %_ZN9CodeCache18get_code_heap_nameE12CodeBlobType.exit
 
-_ZN9CodeCache14heap_availableE12CodeBlobType.exit.i: ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit.i.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i3.thread.i.i.i
-  %67 = icmp slt i32 %0, 3
+_ZN9CodeCache14heap_availableE12CodeBlobType.exit.i: ; preds = %26
+  %67 = icmp eq i32 %0, 3
   br i1 %67, label %.lr.ph.i.i, label %_ZN9CodeCache18get_code_heap_nameE12CodeBlobType.exit
 
-.lr.ph.i.i:                                       ; preds = %_ZN9CodeCache14heap_availableE12CodeBlobType.exit.i, %64, %49, %41
+.lr.ph.i.i:                                       ; preds = %_ZN9CodeCache14heap_availableE12CodeBlobType.exit.i, %64, %62, %47
   %68 = load ptr, ptr @_ZN9CodeCache6_heapsE, align 8
   %69 = load i32, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -5276,8 +5276,8 @@ _ZN9CodeCache13get_code_heapE12CodeBlobType.exit.i: ; preds = %.lr.ph.i26, %.lr.
   %85 = load ptr, ptr %84, align 8
   br label %_ZN9CodeCache18get_code_heap_nameE12CodeBlobType.exit
 
-_ZN9CodeCache18get_code_heap_nameE12CodeBlobType.exit: ; preds = %41, %49, %64, %_ZN9CodeCache14heap_availableE12CodeBlobType.exit.i, %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit.i
-  %86 = phi ptr [ %85, %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit.i ], [ @.str.87, %_ZN9CodeCache14heap_availableE12CodeBlobType.exit.i ], [ @.str.87, %49 ], [ @.str.87, %41 ], [ @.str.87, %64 ]
+_ZN9CodeCache18get_code_heap_nameE12CodeBlobType.exit: ; preds = %47, %62, %64, %_ZN9CodeCache14heap_availableE12CodeBlobType.exit.i, %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit.i
+  %86 = phi ptr [ %85, %_ZN9CodeCache13get_code_heapE12CodeBlobType.exit.i ], [ @.str.87, %_ZN9CodeCache14heap_availableE12CodeBlobType.exit.i ], [ @.str.87, %47 ], [ @.str.87, %62 ], [ @.str.87, %64 ]
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.47, ptr noundef %86) #21
   %87 = icmp ult i32 %0, 3
   br i1 %87, label %switch.lookup, label %88
@@ -7294,7 +7294,7 @@ _ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i: ; preds = %62
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i: ; preds = %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i, %61
-  %.pn.i.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i ], [ 1, %61 ]
+  %.pn.i.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i ], [ 1, %61 ]
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.pn.i.i.i
   store ptr %66, ptr %35, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_.exit
@@ -7696,7 +7696,7 @@ _ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i: ; preds = %93
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i: ; preds = %87, %85, %78, %71, %64, %57, %50, %43, %38, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i
-  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
   %98 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.pn.i.i
   store ptr %98, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvPKT_m.exit
@@ -7903,7 +7903,7 @@ _ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i: ; preds = %93
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIlEEPhPKT_mSE_.exit.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIlEEPhPKT_mSE_.exit.i: ; preds = %87, %85, %78, %71, %64, %57, %50, %43, %38, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i
-  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
   %98 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.pn.i.i
   store ptr %98, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIlEEvPKT_m.exit
@@ -8006,7 +8006,7 @@ _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i: ; preds = %38
   br label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit: ; preds = %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i, %41, %30, %28, %37, %38, %25
-  %.0 = phi i64 [ %23, %38 ], [ %23, %25 ], [ 0, %37 ], [ %23, %30 ], [ %23, %28 ], [ %23, %41 ], [ %23, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i ]
+  %.0 = phi i64 [ %23, %25 ], [ 0, %37 ], [ %23, %38 ], [ %23, %28 ], [ %23, %30 ], [ %23, %41 ], [ %23, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i14 = icmp eq ptr %48, null
@@ -8322,7 +8322,7 @@ _ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i
-  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ], [ 5, %59 ]
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEvPKT_m.exit
@@ -8463,7 +8463,7 @@ _ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i: ; preds = %62
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i: ; preds = %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i, %61
-  %.pn.i.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i ], [ 1, %61 ]
+  %.pn.i.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i ], [ 1, %61 ]
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.pn.i.i.i
   store ptr %66, ptr %35, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_.exit
@@ -8655,7 +8655,7 @@ _ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i
-  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ], [ 5, %59 ]
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEvPKT_m.exit

@@ -143,7 +143,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   br i1 %62, label %36, label %.loopexit
 
 .loopexit:                                        ; preds = %43, %55, %28, %52, %27, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %27 ], [ 0, %52 ], [ 1, %28 ], [ 0, %43 ], [ 1, %55 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %52 ], [ 0, %27 ], [ 1, %28 ], [ 0, %43 ], [ 1, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

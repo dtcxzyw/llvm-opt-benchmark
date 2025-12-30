@@ -1199,7 +1199,7 @@ if.then.i.i5.i:                                   ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i124, %lpad.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit268, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244, %if.then.i.i5.i126, %if.then.i.i5.i
-  %common.resume.op = phi { ptr, i32 } [ %9, %if.then.i.i5.i ], [ %.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244 ], [ %48, %if.then.i.i5.i126 ], [ %9, %lpad.i ], [ %.pn46.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit268 ], [ %48, %lpad.i124 ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %if.then.i.i5.i ], [ %48, %if.then.i.i5.i126 ], [ %.pn46.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit268 ], [ %.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244 ], [ %9, %lpad.i ], [ %48, %lpad.i124 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
@@ -3499,7 +3499,7 @@ if.then.i.i5.i:                                   ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i193, %lpad.i, %ehcleanup, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181, %ehcleanup64, %if.then.i.i5.i195, %if.then.i.i5.i
-  %common.resume.op = phi { ptr, i32 } [ %13, %lpad.i ], [ %13, %if.then.i.i5.i ], [ %54, %ehcleanup ], [ %72, %if.then.i.i5.i195 ], [ %.merged, %ehcleanup64 ], [ %.pn70.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181 ], [ %72, %lpad.i193 ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %if.then.i.i5.i ], [ %72, %if.then.i.i5.i195 ], [ %.merged, %ehcleanup64 ], [ %.pn70.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181 ], [ %54, %ehcleanup ], [ %13, %lpad.i ], [ %72, %lpad.i193 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i

@@ -1899,7 +1899,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %38, %
   br label %58
 
 58:                                               ; preds = %54, %56
-  %.pn15.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %57, %56 ]
+  %.pn15.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %55, %54 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #14
   br label %59
 

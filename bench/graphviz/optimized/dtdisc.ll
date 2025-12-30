@@ -118,7 +118,7 @@ define ptr @dtdisc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not49, label %.loopexit, label %39, !llvm.loop !32
 
 .loopexit:                                        ; preds = %59, %.loopexit50, %6, %5
-  %.0 = phi ptr [ %4, %6 ], [ %1, %5 ], [ %4, %.loopexit50 ], [ %4, %59 ]
+  %.0 = phi ptr [ %1, %5 ], [ %4, %6 ], [ %4, %.loopexit50 ], [ %4, %59 ]
   ret ptr %.0
 }
 

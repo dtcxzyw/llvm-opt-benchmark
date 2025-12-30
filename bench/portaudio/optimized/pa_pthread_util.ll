@@ -29,7 +29,7 @@ define i32 @PaPthreadUtil_NegotiateCondAttrClock(ptr noundef %0) local_unnamed_a
   br label %15
 
 15:                                               ; preds = %11, %8, %5, %1
-  %.0 = phi i32 [ 0, %8 ], [ 7, %1 ], [ 1, %5 ], [ %spec.select, %11 ]
+  %.0 = phi i32 [ 7, %1 ], [ 1, %5 ], [ 0, %8 ], [ %spec.select, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

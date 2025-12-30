@@ -89,7 +89,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %.not647, label %50, label %.thread
 
 .thread.sink.split:                               ; preds = %43, %39, %36, %33, %31
-  %.sink = phi i32 [ -1, %31 ], [ -2, %33 ], [ -6, %39 ], [ -4, %36 ], [ -10, %43 ]
+  %.sink = phi i32 [ -1, %31 ], [ -2, %33 ], [ -4, %36 ], [ -6, %39 ], [ -10, %43 ]
   store i32 %.sink, ptr %10, align 4, !tbaa !3
   br label %.thread
 

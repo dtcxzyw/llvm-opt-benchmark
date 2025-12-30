@@ -261,7 +261,7 @@ define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zero
   br i1 %30, label %.loopexit.sink.split, label %26
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %.lr.ph43, %.lr.ph45, %.lr.ph47
-  %.lcssa79.sink = phi ptr [ %27, %.lr.ph43 ], [ %10, %.lr.ph45 ], [ %15, %.lr.ph47 ], [ %22, %.lr.ph ]
+  %.lcssa79.sink = phi ptr [ %15, %.lr.ph47 ], [ %10, %.lr.ph45 ], [ %27, %.lr.ph43 ], [ %22, %.lr.ph ]
   %31 = load i32, ptr %.lcssa79.sink, align 4
   br label %.loopexit
 
@@ -656,7 +656,7 @@ define dso_local void @RelationMapUpdateMap(i32 noundef %0, i32 noundef %1, i1 n
   br label %22
 
 22:                                               ; preds = %21, %20, %7
-  %.0 = phi ptr [ %shared_map.local_map, %7 ], [ %pending_shared_updates.pending_local_updates, %21 ], [ %active_shared_updates.active_local_updates, %20 ]
+  %.0 = phi ptr [ %shared_map.local_map, %7 ], [ %active_shared_updates.active_local_updates, %20 ], [ %pending_shared_updates.pending_local_updates, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, 0

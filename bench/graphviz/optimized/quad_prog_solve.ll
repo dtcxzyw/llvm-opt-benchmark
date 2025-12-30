@@ -1085,8 +1085,8 @@ ints_append.exit.us:                              ; preds = %224, %218, %209
   br label %503
 
 503:                                              ; preds = %496, %499, %.lr.ph
-  %.1367 = phi i32 [ %.0366587, %.lr.ph ], [ %497, %499 ], [ %18, %496 ]
-  %.1365 = phi i32 [ %.0364588, %.lr.ph ], [ %502, %499 ], [ %11, %496 ]
+  %.1367 = phi i32 [ %497, %499 ], [ %.0366587, %.lr.ph ], [ %18, %496 ]
+  %.1365 = phi i32 [ %502, %499 ], [ %.0364588, %.lr.ph ], [ %11, %496 ]
   %504 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %505 = load i32, ptr %504, align 4, !tbaa !25
   %506 = sext i32 %505 to i64

@@ -1417,8 +1417,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit19: ; preds = %70, %76
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit19, %.thread, %60, %63, %81
-  %_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere23GetSchemaAttributeNamesEbE8allNames.sink = phi ptr [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere23GetSchemaAttributeNamesEbE8allNames, %81 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere23GetSchemaAttributeNamesEbE10localNames, %.thread ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere23GetSchemaAttributeNamesEbE10localNames, %63 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere23GetSchemaAttributeNamesEbE10localNames, %60 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit19 ]
-  %.pn10 = phi { ptr, i32 } [ %82, %81 ], [ %10, %.thread ], [ %61, %63 ], [ %61, %60 ], [ %68, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit19 ]
+  %_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere23GetSchemaAttributeNamesEbE8allNames.sink = phi ptr [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere23GetSchemaAttributeNamesEbE8allNames, %81 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere23GetSchemaAttributeNamesEbE10localNames, %63 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere23GetSchemaAttributeNamesEbE10localNames, %60 ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere23GetSchemaAttributeNamesEbE10localNames, %.thread ], [ @_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere23GetSchemaAttributeNamesEbE10localNames, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit19 ]
+  %.pn10 = phi { ptr, i32 } [ %82, %81 ], [ %61, %63 ], [ %61, %60 ], [ %10, %.thread ], [ %68, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit19 ]
   call void @__cxa_guard_abort(ptr nonnull %_ZGVZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere23GetSchemaAttributeNamesEbE8allNames.sink) #15
   resume { ptr, i32 } %.pn10
 }
@@ -2880,7 +2880,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere13ComputeExtentEdPNS_7VtArra
   br label %97
 
 97:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere13ComputeExtentEdPNS_7VtArrayINS_7GfVec3fEEE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere13ComputeExtentEdRKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit, %23
-  %.0 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere13ComputeExtentEdRKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEE.exit ], [ false, %23 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere13ComputeExtentEdPNS_7VtArrayINS_7GfVec3fEEE.exit ]
+  %.0 = phi i1 [ false, %23 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere13ComputeExtentEdRKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEE.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere13ComputeExtentEdPNS_7VtArrayINS_7GfVec3fEEE.exit ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphereD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
   ret i1 %.0
 

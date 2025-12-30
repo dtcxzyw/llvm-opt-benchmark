@@ -2395,7 +2395,7 @@ define internal i32 @event_trigger_parse(ptr noundef %0, ptr noundef %1, ptr nou
   br label %event_trigger_free.exit
 
 event_trigger_free.exit:                          ; preds = %28, %89, %79, %78, %97, %46
-  %98 = phi i32 [ 0, %46 ], [ %91, %97 ], [ 0, %89 ], [ 0, %78 ], [ 0, %79 ], [ -12, %28 ]
+  %98 = phi i32 [ 0, %46 ], [ %91, %97 ], [ 0, %78 ], [ 0, %79 ], [ 0, %89 ], [ -12, %28 ]
   ret i32 %98
 }
 

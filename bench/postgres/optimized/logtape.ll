@@ -1249,8 +1249,8 @@ ltsReadBlock.exit:                                ; preds = %38
   br label %.thread
 
 .thread:                                          ; preds = %31, %62, %24
-  %.sink = phi i32 [ %26, %24 ], [ %64, %62 ], [ 0, %31 ]
-  %.0 = phi i64 [ %1, %24 ], [ %1, %62 ], [ %.03653, %31 ]
+  %.sink = phi i32 [ %64, %62 ], [ %26, %24 ], [ 0, %31 ]
+  %.0 = phi i64 [ %1, %62 ], [ %1, %24 ], [ %.03653, %31 ]
   store i32 %.sink, ptr %18, align 8
   ret i64 %.0
 }

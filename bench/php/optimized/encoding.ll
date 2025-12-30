@@ -345,7 +345,7 @@ looks_ucs32.exit:                                 ; preds = %131, %101
   store ptr @.str.13, ptr %5, align 8, !tbaa !14
   br label %239
 
-.loopexit:                                        ; preds = %164, %.lr.ph.split.i, %.lr.ph.split.us.i, %128, %72, %75, %85, %81, %97, %93, %89, %77
+.loopexit:                                        ; preds = %.lr.ph.split.i, %164, %.lr.ph.split.us.i, %128, %72, %97, %93, %89, %85, %81, %77, %75
   %171 = call fastcc i32 @looks_ucs16(ptr noundef %11, i64 noundef %spec.select, ptr noundef %73, ptr noundef nonnull %spec.store.select1)
   switch i32 %171, label %173 [
     i32 0, label %174
@@ -611,8 +611,8 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr noundef readonly capture
   br i1 %40, label %41, label %.thread
 
 41:                                               ; preds = %38, %35, %32, %29, %26
-  %.sink = phi i32 [ 31, %26 ], [ 7, %32 ], [ 3, %35 ], [ 15, %29 ], [ 1, %38 ]
-  %.071 = phi i32 [ 1, %26 ], [ 3, %32 ], [ 4, %35 ], [ 2, %29 ], [ 5, %38 ]
+  %.sink = phi i32 [ 31, %26 ], [ 15, %29 ], [ 7, %32 ], [ 3, %35 ], [ 1, %38 ]
+  %.071 = phi i32 [ 1, %26 ], [ 2, %29 ], [ 3, %32 ], [ 4, %35 ], [ 5, %38 ]
   %42 = and i32 %.sink, %9
   %.080 = zext nneg i32 %42 to i64
   %43 = getelementptr inbounds nuw i8, ptr %24, i64 1
@@ -679,9 +679,9 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr noundef readonly capture
   br label %.thread98
 
 .thread98:                                        ; preds = %.thread98.sink.split, %69, %11
-  %.379 = phi i32 [ 1, %69 ], [ %.076119, %11 ], [ %.379.ph, %.thread98.sink.split ]
-  %.275 = phi i32 [ %.073120, %69 ], [ %spec.select, %11 ], [ %.275.ph, %.thread98.sink.split ]
-  %.370 = phi i64 [ %47, %69 ], [ %.067121, %11 ], [ %.370.ph, %.thread98.sink.split ]
+  %.379 = phi i32 [ %.076119, %11 ], [ 1, %69 ], [ %.379.ph, %.thread98.sink.split ]
+  %.275 = phi i32 [ %spec.select, %11 ], [ %.073120, %69 ], [ %.275.ph, %.thread98.sink.split ]
+  %.370 = phi i64 [ %.067121, %11 ], [ %47, %69 ], [ %.370.ph, %.thread98.sink.split ]
   %73 = add i64 %.370, 1
   %74 = icmp ult i64 %73, %1
   br i1 %74, label %.lr.ph, label %.loopexit
@@ -697,7 +697,7 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr noundef readonly capture
   %spec.select167 = select i1 %.not91, i32 %., i32 0
   br label %.thread
 
-.thread:                                          ; preds = %38, %18, %15, %57, %._crit_edge, %54, %.loopexit, %6
+.thread:                                          ; preds = %38, %18, %15, %._crit_edge, %54, %57, %.loopexit, %6
   %.1 = phi i32 [ 1, %6 ], [ %spec.select167, %.loopexit ], [ -1, %57 ], [ -1, %54 ], [ -1, %._crit_edge ], [ -1, %15 ], [ -1, %18 ], [ -1, %38 ]
   ret i32 %.1
 }
@@ -867,7 +867,7 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly cap
   br i1 %84, label %.lr.ph.split, label %.critedge
 
 .critedge:                                        ; preds = %80, %._crit_edge, %73, %64, %.lr.ph.split, %47, %._crit_edge76, %40, %31, %.lr.ph.split.us, %.thread, %16, %6, %8, %12, %4
-  %.051 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 0, %6 ], [ 0, %12 ], [ 1, %16 ], [ 2, %.thread ], [ 1, %47 ], [ 0, %._crit_edge76 ], [ 0, %40 ], [ 0, %31 ], [ 0, %.lr.ph.split.us ], [ 0, %73 ], [ 0, %._crit_edge ], [ 0, %64 ], [ 2, %80 ], [ 0, %.lr.ph.split ]
+  %.051 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %8 ], [ 0, %6 ], [ 1, %16 ], [ 2, %.thread ], [ 1, %47 ], [ 0, %._crit_edge76 ], [ 0, %40 ], [ 0, %31 ], [ 0, %.lr.ph.split.us ], [ 2, %80 ], [ 0, %._crit_edge ], [ 0, %73 ], [ 0, %64 ], [ 0, %.lr.ph.split ]
   ret i32 %.051
 }
 

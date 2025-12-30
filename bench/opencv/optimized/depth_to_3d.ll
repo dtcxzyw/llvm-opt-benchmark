@@ -1391,7 +1391,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %250
 
 250:                                              ; preds = %246, %248
-  %.pn65.pn = phi { ptr, i32 } [ %247, %246 ], [ %249, %248 ]
+  %.pn65.pn = phi { ptr, i32 } [ %249, %248 ], [ %247, %246 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %266
@@ -1897,7 +1897,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %153
           to label %160 unwind label %141
 
 160:                                              ; preds = %158, %143, %139
-  %.0.i = phi i64 [ %144, %143 ], [ %140, %139 ], [ %159, %158 ]
+  %.0.i = phi i64 [ %140, %139 ], [ %144, %143 ], [ %159, %158 ]
   %161 = icmp eq i64 %.0.i, 0
   br i1 %161, label %175, label %162
 

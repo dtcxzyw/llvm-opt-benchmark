@@ -375,9 +375,9 @@ _lcm.exit.i:                                      ; preds = %.lr.ph.i.i.i, %117
   br label %230
 
 230:                                              ; preds = %225, %214, %208
-  %231 = phi i32 [ %210, %208 ], [ %.pre.i, %225 ], [ %210, %214 ]
-  %.2423.i = phi i32 [ %.0421.i, %208 ], [ %222, %225 ], [ %222, %214 ]
-  %.2420.i = phi i32 [ %.0418.i, %208 ], [ %222, %225 ], [ %222, %214 ]
+  %231 = phi i32 [ %.pre.i, %225 ], [ %210, %214 ], [ %210, %208 ]
+  %.2423.i = phi i32 [ %222, %225 ], [ %222, %214 ], [ %.0421.i, %208 ]
+  %.2420.i = phi i32 [ %222, %225 ], [ %222, %214 ], [ %.0418.i, %208 ]
   %232 = add nsw i32 %231, %162
   %233 = srem i32 %231, %162
   %234 = sub i32 %232, %233
@@ -422,7 +422,7 @@ _lcm.exit.i:                                      ; preds = %.lr.ph.i.i.i, %117
   br label %262
 
 262:                                              ; preds = %253, %251, %244, %242
-  %.0424.i = phi i32 [ 1, %242 ], [ %250, %244 ], [ %261, %253 ], [ 1, %251 ]
+  %.0424.i = phi i32 [ %250, %244 ], [ 1, %242 ], [ %261, %253 ], [ 1, %251 ]
   %263 = load i32, ptr %63, align 4, !tbaa !41
   %264 = load i32, ptr %68, align 4, !tbaa !41
   %265 = icmp sgt i32 %263, %264
@@ -460,7 +460,7 @@ _lcm.exit.i:                                      ; preds = %.lr.ph.i.i.i, %117
   br label %286
 
 286:                                              ; preds = %277, %275, %268, %266
-  %.0425.i = phi i32 [ 1, %266 ], [ %274, %268 ], [ %285, %277 ], [ 1, %275 ]
+  %.0425.i = phi i32 [ %274, %268 ], [ 1, %266 ], [ %285, %277 ], [ 1, %275 ]
   %287 = mul nsw i32 %.0425.i, %.0424.i
   %288 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3376), align 8, !tbaa !99
   %289 = icmp eq i32 %288, 3
@@ -2124,8 +2124,8 @@ _print_roi.exit523.i:                             ; preds = %1207, %_print_roi.e
   br i1 %exitcond591.not.i, label %1347, label %416
 
 .thread534.sink.split.i:                          ; preds = %1275, %1260, %1133
-  %.str.19.sink.i = phi ptr [ @.str.18, %1260 ], [ @.str.12, %1133 ], [ @.str.19, %1275 ]
-  %.6.ph.ph.i = phi ptr [ null, %1260 ], [ null, %1133 ], [ %1258, %1275 ]
+  %.str.19.sink.i = phi ptr [ @.str.12, %1133 ], [ @.str.18, %1260 ], [ @.str.19, %1275 ]
+  %.6.ph.ph.i = phi ptr [ null, %1133 ], [ null, %1260 ], [ %1258, %1275 ]
   %1342 = load ptr, ptr %46, align 8, !tbaa !28
   %1343 = getelementptr inbounds nuw i8, ptr %1342, i64 620
   %1344 = load i32, ptr %1343, align 4, !tbaa !83
@@ -2147,14 +2147,14 @@ _print_roi.exit523.i:                             ; preds = %1207, %_print_roi.e
   br i1 %exitcond593.not.i, label %.preheader.i, label %.preheader567.i
 
 1348:                                             ; preds = %.thread534.i, %295, %292
-  %.1.i = phi ptr [ %.6.ph.i, %.thread534.i ], [ null, %295 ], [ null, %292 ]
+  %.1.i = phi ptr [ null, %295 ], [ null, %292 ], [ %.6.ph.i, %.thread534.i ]
   %1349 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 5) #13
   %1350 = getelementptr inbounds nuw i8, ptr %0, i64 456
   call void (ptr, ...) @dt_control_log(ptr noundef %1349, ptr noundef nonnull %1350) #13
   br label %1351
 
 1351:                                             ; preds = %1348, %110, %107
-  %.0406.i = phi ptr [ %.1.i, %1348 ], [ null, %110 ], [ null, %107 ]
+  %.0406.i = phi ptr [ null, %110 ], [ null, %107 ], [ %.1.i, %1348 ]
   call void @free(ptr noundef %.0406.i) #13
   %1352 = load ptr, ptr %46, align 8, !tbaa !28
   %1353 = getelementptr inbounds nuw i8, ptr %1352, i64 600
@@ -2395,8 +2395,8 @@ _default_process_tiling_roi.exit:                 ; preds = %.preheader.i, %1362
   br label %1501
 
 1501:                                             ; preds = %1500, %1491, %1485
-  %.2317.i = phi i32 [ %.0315.i, %1485 ], [ %1497, %1500 ], [ %1497, %1491 ]
-  %.2.i = phi i32 [ %.0312.i, %1485 ], [ %1497, %1500 ], [ %1497, %1491 ]
+  %.2317.i = phi i32 [ %1497, %1500 ], [ %1497, %1491 ], [ %.0315.i, %1485 ]
+  %.2.i = phi i32 [ %1497, %1500 ], [ %1497, %1491 ], [ %.0312.i, %1485 ]
   %.2317.fr.i = freeze i32 %.2317.i
   %.2.fr.i = freeze i32 %.2.i
   %1502 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -2838,14 +2838,14 @@ _lcm.exit.i24:                                    ; preds = %.lr.ph.i.i.i20, %15
   br label %_default_process_tiling_ptp.exit
 
 1744:                                             ; preds = %1602, %1599, %1587, %1584, %1563, %1562
-  %.1309.i = phi ptr [ %1582, %1599 ], [ null, %1563 ], [ null, %1562 ], [ %1582, %1602 ], [ null, %1587 ], [ null, %1584 ]
+  %.1309.i = phi ptr [ null, %1563 ], [ null, %1562 ], [ null, %1587 ], [ null, %1584 ], [ %1582, %1602 ], [ %1582, %1599 ]
   %1745 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 5) #13
   %1746 = getelementptr inbounds nuw i8, ptr %0, i64 456
   call void (ptr, ...) @dt_control_log(ptr noundef %1745, ptr noundef nonnull %1746) #13
   br label %1747
 
 1747:                                             ; preds = %1744, %1413, %1410
-  %.0308.i = phi ptr [ %.1309.i, %1744 ], [ null, %1413 ], [ null, %1410 ]
+  %.0308.i = phi ptr [ null, %1413 ], [ null, %1410 ], [ %.1309.i, %1744 ]
   call void @free(ptr noundef %.0308.i) #13
   %1748 = load ptr, ptr %1368, align 8, !tbaa !28
   %1749 = getelementptr inbounds nuw i8, ptr %1748, i64 600
@@ -3121,7 +3121,7 @@ _lcm.exit:                                        ; preds = %.lr.ph.i.i, %43
   br label %192
 
 192:                                              ; preds = %183, %181, %172, %170
-  %.0128 = phi i32 [ 1, %170 ], [ %180, %172 ], [ %191, %183 ], [ 1, %181 ]
+  %.0128 = phi i32 [ %180, %172 ], [ 1, %170 ], [ %191, %183 ], [ 1, %181 ]
   br i1 %97, label %193, label %204
 
 193:                                              ; preds = %192
@@ -3155,7 +3155,7 @@ _lcm.exit:                                        ; preds = %.lr.ph.i.i, %43
   br label %215
 
 215:                                              ; preds = %206, %204, %195, %193
-  %.0 = phi i32 [ 1, %193 ], [ %203, %195 ], [ %214, %206 ], [ 1, %204 ]
+  %.0 = phi i32 [ %203, %195 ], [ 1, %193 ], [ %214, %206 ], [ 1, %204 ]
   %216 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !49
   %217 = and i32 %216, 8388608
   %.not153 = icmp eq i32 %217, 0

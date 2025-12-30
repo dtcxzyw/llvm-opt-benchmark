@@ -110,9 +110,9 @@ define dso_local noundef zeroext i1 @fixup_umip_exception(ptr noundef %0) local_
   br label %.thread
 
 .thread:                                          ; preds = %32, %.thread.fold.split, %26, %30, %31
-  %36 = phi i64 [ -65536, %32 ], [ -65536, %31 ], [ -131072, %26 ], [ -65536, %30 ], [ -65536, %.thread.fold.split ]
-  %37 = phi i1 [ false, %32 ], [ false, %31 ], [ true, %26 ], [ true, %30 ], [ false, %.thread.fold.split ]
-  %38 = phi i32 [ 3, %32 ], [ 2, %31 ], [ %29, %26 ], [ %29, %30 ], [ 4, %.thread.fold.split ]
+  %36 = phi i64 [ -131072, %26 ], [ -65536, %30 ], [ -65536, %31 ], [ -65536, %32 ], [ -65536, %.thread.fold.split ]
+  %37 = phi i1 [ true, %26 ], [ true, %30 ], [ false, %31 ], [ false, %32 ], [ false, %.thread.fold.split ]
+  %38 = phi i32 [ %29, %26 ], [ %29, %30 ], [ 2, %31 ], [ 3, %32 ], [ 4, %.thread.fold.split ]
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr ptr, ptr @umip_insns, i64 %39
   %41 = load ptr, ptr %40, align 8
@@ -195,8 +195,8 @@ default.unreachable:                              ; preds = %54
   br label %.critedge
 
 79:                                               ; preds = %49, %69
-  %80 = phi i32 [ %70, %69 ], [ %46, %49 ]
-  %81 = phi i32 [ %76, %69 ], [ %53, %49 ]
+  %80 = phi i32 [ %46, %49 ], [ %70, %69 ]
+  %81 = phi i32 [ %53, %49 ], [ %76, %69 ]
   %82 = and i32 %80, 192
   %83 = icmp eq i32 %82, 192
   br i1 %83, label %84, label %93
@@ -249,8 +249,8 @@ default.unreachable:                              ; preds = %54
   store i64 %110, ptr %108, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %32, %26, %13, %23, %78, %104, %103, %93, %84, %11, %8, %1
-  %111 = phi i1 [ true, %104 ], [ true, %103 ], [ false, %1 ], [ false, %8 ], [ false, %11 ], [ false, %32 ], [ false, %93 ], [ false, %84 ], [ false, %78 ], [ false, %23 ], [ false, %13 ], [ false, %26 ]
+.critedge:                                        ; preds = %32, %26, %23, %13, %78, %104, %103, %93, %84, %11, %8, %1
+  %111 = phi i1 [ true, %104 ], [ true, %103 ], [ false, %1 ], [ false, %8 ], [ false, %11 ], [ false, %84 ], [ false, %93 ], [ false, %78 ], [ false, %13 ], [ false, %23 ], [ false, %26 ], [ false, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

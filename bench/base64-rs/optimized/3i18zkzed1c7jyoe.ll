@@ -836,8 +836,8 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   br label %201
 
 201:                                              ; preds = %.loopexit.i, %181, %177, %173
-  %.sroa.8228.1.ph.i = phi i8 [ %154, %181 ], [ %168, %173 ], [ %161, %177 ], [ %147, %.loopexit.i ]
-  %.sroa.13230.1.ph.i = phi i64 [ %184, %181 ], [ %176, %173 ], [ %180, %177 ], [ %200, %.loopexit.i ]
+  %.sroa.8228.1.ph.i = phi i8 [ %168, %173 ], [ %161, %177 ], [ %154, %181 ], [ %147, %.loopexit.i ]
+  %.sroa.13230.1.ph.i = phi i64 [ %176, %173 ], [ %180, %177 ], [ %184, %181 ], [ %200, %.loopexit.i ]
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %202, align 8, !alias.scope !53, !noalias !77
   %.sroa.4268.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -953,8 +953,8 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   br label %285
 
 285:                                              ; preds = %.loopexit385.i, %134, %131, %128, %125, %122, %119, %116
-  %.sroa.21200.1.ph.i = phi i64 [ %136, %134 ], [ %118, %116 ], [ %121, %119 ], [ %124, %122 ], [ %127, %125 ], [ %130, %128 ], [ %133, %131 ], [ %284, %.loopexit385.i ]
-  %.sroa.12.1.ph.i = phi i8 [ %69, %134 ], [ %111, %116 ], [ %104, %119 ], [ %97, %122 ], [ %90, %125 ], [ %83, %128 ], [ %76, %131 ], [ %62, %.loopexit385.i ]
+  %.sroa.21200.1.ph.i = phi i64 [ %118, %116 ], [ %121, %119 ], [ %124, %122 ], [ %127, %125 ], [ %130, %128 ], [ %133, %131 ], [ %136, %134 ], [ %284, %.loopexit385.i ]
+  %.sroa.12.1.ph.i = phi i8 [ %111, %116 ], [ %104, %119 ], [ %97, %122 ], [ %90, %125 ], [ %83, %128 ], [ %76, %131 ], [ %69, %134 ], [ %62, %.loopexit385.i ]
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %286, align 8, !alias.scope !53, !noalias !77
   %.sroa.4236.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -1066,8 +1066,8 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   br i1 %367, label %.loopexit387.i, label %371
 
 .loopexit386.i:                                   ; preds = %277, %270, %263, %256, %249, %242, %235, %203
-  %.sink2541.i = phi i64 [ 9, %235 ], [ 10, %242 ], [ 11, %249 ], [ 12, %256 ], [ 13, %263 ], [ 14, %270 ], [ 15, %277 ], [ 8, %203 ]
-  %.sroa.12202.1.ph.i = phi i8 [ %237, %235 ], [ %244, %242 ], [ %251, %249 ], [ %258, %256 ], [ %265, %263 ], [ %272, %270 ], [ %279, %277 ], [ %230, %203 ]
+  %.sink2541.i = phi i64 [ 15, %277 ], [ 14, %270 ], [ 13, %263 ], [ 12, %256 ], [ 11, %249 ], [ 10, %242 ], [ 9, %235 ], [ 8, %203 ]
+  %.sroa.12202.1.ph.i = phi i8 [ %279, %277 ], [ %272, %270 ], [ %265, %263 ], [ %258, %256 ], [ %251, %249 ], [ %244, %242 ], [ %237, %235 ], [ %230, %203 ]
   %368 = shl i64 %.sroa.13.01126.i, 5
   %369 = or disjoint i64 %.sink2541.i, %368
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1181,8 +1181,8 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   br i1 %451, label %.loopexit388.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f0ffdebb931e974E.exit.i"
 
 .loopexit387.i:                                   ; preds = %361, %354, %347, %340, %333, %326, %319, %287
-  %.sink2542.i = phi i64 [ 17, %319 ], [ 18, %326 ], [ 19, %333 ], [ 20, %340 ], [ 21, %347 ], [ 22, %354 ], [ 23, %361 ], [ 16, %287 ]
-  %.sroa.12206.1.ph.i = phi i8 [ %321, %319 ], [ %328, %326 ], [ %335, %333 ], [ %342, %340 ], [ %349, %347 ], [ %356, %354 ], [ %363, %361 ], [ %314, %287 ]
+  %.sink2542.i = phi i64 [ 23, %361 ], [ 22, %354 ], [ 21, %347 ], [ 20, %340 ], [ 19, %333 ], [ 18, %326 ], [ 17, %319 ], [ 16, %287 ]
+  %.sroa.12206.1.ph.i = phi i8 [ %363, %361 ], [ %356, %354 ], [ %349, %347 ], [ %342, %340 ], [ %335, %333 ], [ %328, %326 ], [ %321, %319 ], [ %314, %287 ]
   %452 = shl i64 %.sroa.13.01126.i, 5
   %453 = or disjoint i64 %.sink2542.i, %452
   %454 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1225,8 +1225,8 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   br i1 %479, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f0ffdebb931e974E.exit._crit_edge.i", label %.lr.ph.preheader.i
 
 .loopexit388.i:                                   ; preds = %445, %438, %431, %424, %417, %410, %403, %371
-  %.sink2543.i = phi i64 [ 25, %403 ], [ 26, %410 ], [ 27, %417 ], [ 28, %424 ], [ 29, %431 ], [ 30, %438 ], [ 31, %445 ], [ 24, %371 ]
-  %.sroa.12210.1.ph.i = phi i8 [ %405, %403 ], [ %412, %410 ], [ %419, %417 ], [ %426, %424 ], [ %433, %431 ], [ %440, %438 ], [ %447, %445 ], [ %398, %371 ]
+  %.sink2543.i = phi i64 [ 31, %445 ], [ 30, %438 ], [ 29, %431 ], [ 28, %424 ], [ 27, %417 ], [ 26, %410 ], [ 25, %403 ], [ 24, %371 ]
+  %.sroa.12210.1.ph.i = phi i8 [ %447, %445 ], [ %440, %438 ], [ %433, %431 ], [ %426, %424 ], [ %419, %417 ], [ %412, %410 ], [ %405, %403 ], [ %398, %371 ]
   %480 = shl i64 %.sroa.13.01126.i, 5
   %481 = or disjoint i64 %.sink2543.i, %480
   %482 = getelementptr inbounds nuw i8, ptr %0, i64 8

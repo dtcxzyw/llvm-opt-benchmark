@@ -118,7 +118,7 @@ define dso_local range(i32 -1, 1) i32 @get_octopus_merge_bases(ptr noundef reado
   br i1 %.not36, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %._crit_edge, %5, %.thread42, %2
-  %.032 = phi i32 [ -1, %.thread42 ], [ 0, %2 ], [ 0, %5 ], [ 0, %._crit_edge ]
+  %.032 = phi i32 [ 0, %2 ], [ -1, %.thread42 ], [ 0, %5 ], [ 0, %._crit_edge ]
   ret i32 %.032
 }
 
@@ -363,7 +363,7 @@ merge_bases_many.exit:                            ; preds = %.lr.ph49.i, %48, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %merge_bases_many.exit.thread, %59, %60, %._crit_edge60, %72
-  %.0 = phi i32 [ 0, %59 ], [ -1, %merge_bases_many.exit.thread ], [ -1, %72 ], [ 0, %._crit_edge60 ], [ 0, %60 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ -1, %72 ], [ 0, %._crit_edge60 ], [ 0, %60 ], [ 0, %59 ], [ -1, %merge_bases_many.exit.thread ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -602,7 +602,7 @@ define dso_local range(i32 -1, 2) i32 @repo_in_merge_bases_many(ptr noundef %0, 
   br label %26
 
 26:                                               ; preds = %23, %21
-  %.031 = phi i32 [ %.lobit, %23 ], [ -1, %21 ]
+  %.031 = phi i32 [ -1, %21 ], [ %.lobit, %23 ]
   call void @clear_commit_marks(ptr noundef %1, i32 noundef 983040) #13
   %27 = sext i32 %2 to i64
   call void @clear_commit_marks_many(i64 noundef %27, ptr noundef %3, i32 noundef 983040) #13
@@ -808,7 +808,7 @@ queue_has_nonstale.exit.thread:                   ; preds = %.loopexit, %39, %26
   br label %.thread71
 
 .thread71:                                        ; preds = %_.exit, %65, %queue_has_nonstale.exit.thread, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %queue_has_nonstale.exit.thread ], [ 0, %65 ], [ -1, %_.exit ]
+  %.0 = phi i32 [ 0, %queue_has_nonstale.exit.thread ], [ 0, %15 ], [ 0, %65 ], [ -1, %_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -1615,7 +1615,7 @@ define dso_local range(i32 0, 2) i32 @ref_newer(ptr noundef %0, ptr noundef %1) 
   br i1 %.not18.not.i, label %.preheader.i, label %repo_is_descendant_of.exit
 
 repo_is_descendant_of.exit.thread:                ; preds = %.preheader.i, %29, %23
-  %.012.i.ph = phi i32 [ %32, %29 ], [ 1, %23 ], [ 0, %.preheader.i ]
+  %.012.i.ph = phi i32 [ 1, %23 ], [ %32, %29 ], [ 0, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %42
 
@@ -1636,7 +1636,7 @@ repo_is_descendant_of.exit:                       ; preds = %34
   br label %44
 
 44:                                               ; preds = %19, %12, %16, %2, %9, %42
-  %.0 = phi i32 [ %.012.i20, %42 ], [ 0, %2 ], [ 0, %12 ], [ 0, %9 ], [ 0, %16 ], [ 0, %19 ]
+  %.0 = phi i32 [ %.012.i20, %42 ], [ 0, %9 ], [ 0, %2 ], [ 0, %16 ], [ 0, %12 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -2037,8 +2037,8 @@ st_mult.exit:
   %42 = add i64 %.072110, 1
   br label %43
 
-43:                                               ; preds = %41, %27, %13, %17
-  %.173.ph = phi i64 [ %.072110, %17 ], [ %.072110, %13 ], [ %.072110, %27 ], [ %42, %41 ]
+43:                                               ; preds = %27, %41, %17, %13
+  %.173.ph = phi i64 [ %.072110, %13 ], [ %.072110, %17 ], [ %42, %41 ], [ %.072110, %27 ]
   %44 = add nuw nsw i64 %.075109, 1
   %45 = load i32, ptr %0, align 8, !tbaa !82
   %46 = zext i32 %45 to i64
@@ -2194,7 +2194,7 @@ sane_qsort.exit:                                  ; preds = %._crit_edge
   br i1 %.not83, label %.loopexit, label %51
 
 .loopexit:                                        ; preds = %37, %33, %51, %._crit_edge119, %st_mult.exit, %sane_qsort.exit
-  %.072108 = phi i64 [ 0, %sane_qsort.exit ], [ 0, %st_mult.exit ], [ %.072.lcssa148154, %51 ], [ %.072.lcssa148154, %._crit_edge119 ], [ %.072110, %33 ], [ %.072110, %37 ]
+  %.072108 = phi i64 [ 0, %sane_qsort.exit ], [ 0, %st_mult.exit ], [ %.072.lcssa148154, %._crit_edge119 ], [ %.072.lcssa148154, %51 ], [ %.072110, %33 ], [ %.072110, %37 ]
   %.2 = phi i32 [ 1, %sane_qsort.exit ], [ 1, %st_mult.exit ], [ 1, %51 ], [ 0, %._crit_edge119 ], [ 0, %33 ], [ 0, %37 ]
   %115 = or i32 %2, 524288
   call void @clear_commit_marks_many(i64 noundef %.072108, ptr noundef %9, i32 noundef %115) #13
@@ -2266,7 +2266,7 @@ define internal range(i32 -1, 2) i32 @compare_commits_by_gen(ptr noundef readonl
   br label %18
 
 18:                                               ; preds = %16, %10, %8, %2
-  %.0 = phi i32 [ -1, %10 ], [ -1, %2 ], [ 1, %8 ], [ %., %16 ]
+  %.0 = phi i32 [ -1, %2 ], [ 1, %8 ], [ -1, %10 ], [ %., %16 ]
   ret i32 %.0
 }
 
@@ -3103,8 +3103,8 @@ sane_qsort.exit:                                  ; preds = %12, %14
   br label %73
 
 73:                                               ; preds = %.critedge.thread103, %44, %47
-  %.488 = phi i64 [ %72, %.critedge.thread103 ], [ %.185127, %47 ], [ %.185127, %44 ]
-  %.4 = phi i64 [ %59, %.critedge.thread103 ], [ %.1128, %47 ], [ %.1128, %44 ]
+  %.488 = phi i64 [ %.185127, %47 ], [ %.185127, %44 ], [ %72, %.critedge.thread103 ]
+  %.4 = phi i64 [ %.1128, %47 ], [ %.1128, %44 ], [ %59, %.critedge.thread103 ]
   %74 = add i64 %.075129, 1
   %exitcond146.not = icmp eq i64 %74, %3
   br i1 %exitcond146.not, label %._crit_edge, label %.lr.ph, !llvm.loop !127
@@ -3717,8 +3717,8 @@ best_branch_base_at.exit174:                      ; preds = %234, %239
   br label %246
 
 246:                                              ; preds = %192, %best_branch_base_at.exit164, %133, %best_branch_base_at.exit174, %best_branch_base_at.exit154
-  %.176 = phi ptr [ %.075191, %192 ], [ %.075191, %133 ], [ %138, %best_branch_base_at.exit174 ], [ %.075191, %best_branch_base_at.exit154 ], [ %.075191, %best_branch_base_at.exit164 ]
-  %.5 = phi i32 [ %.4192, %192 ], [ %.4192, %133 ], [ %.6, %best_branch_base_at.exit174 ], [ %.4192, %best_branch_base_at.exit154 ], [ %.4192, %best_branch_base_at.exit164 ]
+  %.176 = phi ptr [ %138, %best_branch_base_at.exit174 ], [ %.075191, %best_branch_base_at.exit154 ], [ %.075191, %133 ], [ %.075191, %best_branch_base_at.exit164 ], [ %.075191, %192 ]
+  %.5 = phi i32 [ %.6, %best_branch_base_at.exit174 ], [ %.4192, %best_branch_base_at.exit154 ], [ %.4192, %133 ], [ %.4192, %best_branch_base_at.exit164 ], [ %.4192, %192 ]
   %247 = load i64, ptr %47, align 8, !tbaa !136
   %.not93 = icmp eq i64 %247, 0
   br i1 %.not93, label %.thread182, label %.lr.ph
@@ -3755,7 +3755,7 @@ clear_best_branch_base.exit:                      ; preds = %.lr.ph.i, %.thread1
   br label %258
 
 258:                                              ; preds = %4, %clear_best_branch_base.exit
-  %.0 = phi i32 [ -1, %4 ], [ %257, %clear_best_branch_base.exit ]
+  %.0 = phi i32 [ %257, %clear_best_branch_base.exit ], [ -1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -3892,7 +3892,7 @@ in_commit_list.exit:                              ; preds = %47
   br label %55
 
 55:                                               ; preds = %.loopexit, %contains_cache_at.exit, %in_commit_list.exit
-  %.0 = phi i32 [ %44, %contains_cache_at.exit ], [ 2, %in_commit_list.exit ], [ %., %.loopexit ]
+  %.0 = phi i32 [ 2, %in_commit_list.exit ], [ %44, %contains_cache_at.exit ], [ %., %.loopexit ]
   ret i32 %.0
 }
 

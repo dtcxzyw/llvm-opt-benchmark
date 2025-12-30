@@ -493,9 +493,9 @@ define internal fastcc void @_ZN8protobuf18coded_input_stream16CodedInputStream2
   store ptr %48, ptr %49, align 8
   br label %78
 
-.loopexit:                                        ; preds = %23, %46, %34, %41
-  %.sroa.17.0.ph.ph = phi i64 [ 2, %41 ], [ 5, %34 ], [ 1, %46 ], [ %24, %23 ]
-  %.sroa.10.0.ph.ph.in = phi i64 [ %.sroa.10.8.insert.ext38, %41 ], [ %.sroa.10.8.insert.ext34, %34 ], [ %.sroa.10.8.insert.ext42, %46 ], [ %30, %23 ]
+.loopexit:                                        ; preds = %23, %41, %46, %34
+  %.sroa.17.0.ph.ph = phi i64 [ 5, %34 ], [ 1, %46 ], [ 2, %41 ], [ %24, %23 ]
+  %.sroa.10.0.ph.ph.in = phi i64 [ %.sroa.10.8.insert.ext34, %34 ], [ %.sroa.10.8.insert.ext42, %46 ], [ %.sroa.10.8.insert.ext38, %41 ], [ %30, %23 ]
   %.not = icmp ugt i64 %.sroa.17.0.ph.ph, %11
   br i1 %.not, label %79, label %80, !prof !20
 
@@ -1152,7 +1152,7 @@ define hidden void @_ZN17yara_x_proto_json4yara13ModuleOptions33generated_messag
   br label %.body
 
 .body:                                            ; preds = %97, %80, %63, %46, %37
-  %eh.lpad-body = phi { ptr, i32 } [ %81, %80 ], [ %47, %46 ], [ %64, %63 ], [ %38, %37 ], [ %98, %97 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %38, %37 ], [ %47, %46 ], [ %64, %63 ], [ %81, %80 ], [ %98, %97 ]
   invoke void @"_ZN4core3ptr109drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..oneof..generated..GeneratedOneofDescriptorData$GT$$GT$17h6539a704cb742cbaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #22
           to label %28 unwind label %110
 
@@ -1621,7 +1621,7 @@ define noundef align 8 ptr @"_ZN85_$LT$yara_x_proto_json..yara..ModuleOptions$u2
   br label %50
 
 .loopexit:                                        ; preds = %25, %18, %._crit_edge, %43, %54, %61, %68
-  %.sroa.0.1 = phi ptr [ %38, %61 ], [ %17, %._crit_edge ], [ %42, %68 ], [ %30, %43 ], [ %34, %54 ], [ %26, %25 ], [ null, %18 ]
+  %.sroa.0.1 = phi ptr [ %17, %._crit_edge ], [ %30, %43 ], [ %34, %54 ], [ %38, %61 ], [ %42, %68 ], [ %26, %25 ], [ null, %18 ]
   ret ptr %.sroa.0.1
 }
 
@@ -1754,7 +1754,7 @@ define noundef align 8 ptr @"_ZN85_$LT$yara_x_proto_json..yara..ModuleOptions$u2
   br i1 %.not44, label %38, label %32
 
 31:                                               ; preds = %38, %32, %22, %13, %4
-  %.sroa.0.0 = phi ptr [ %40, %38 ], [ %9, %4 ], [ %18, %13 ], [ %27, %22 ], [ %37, %32 ]
+  %.sroa.0.0 = phi ptr [ %9, %4 ], [ %18, %13 ], [ %27, %22 ], [ %37, %32 ], [ %40, %38 ]
   ret ptr %.sroa.0.0
 
 32:                                               ; preds = %28
@@ -2452,7 +2452,7 @@ define hidden void @_ZN17yara_x_proto_json4yara12FieldOptions33generated_message
   br label %.body
 
 .body:                                            ; preds = %129, %112, %95, %78, %65, %48, %39
-  %eh.lpad-body = phi { ptr, i32 } [ %113, %112 ], [ %49, %48 ], [ %66, %65 ], [ %79, %78 ], [ %96, %95 ], [ %40, %39 ], [ %130, %129 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %40, %39 ], [ %49, %48 ], [ %66, %65 ], [ %79, %78 ], [ %96, %95 ], [ %113, %112 ], [ %130, %129 ]
   invoke void @"_ZN4core3ptr109drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..oneof..generated..GeneratedOneofDescriptorData$GT$$GT$17h6539a704cb742cbaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #22
           to label %30 unwind label %142
 
@@ -2960,7 +2960,7 @@ define noundef align 8 ptr @"_ZN84_$LT$yara_x_proto_json..yara..FieldOptions$u20
   br i1 %70, label %._crit_edge, label %30
 
 common.resume:                                    ; preds = %82, %66, %94, %100
-  %common.resume.op = phi { ptr, i32 } [ %101, %100 ], [ %67, %66 ], [ %95, %94 ], [ %83, %82 ]
+  %common.resume.op = phi { ptr, i32 } [ %67, %66 ], [ %95, %94 ], [ %101, %100 ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op
 
 71:                                               ; preds = %41
@@ -3064,7 +3064,7 @@ common.resume:                                    ; preds = %82, %66, %94, %100
   br label %68
 
 .loopexit:                                        ; preds = %35, %57, %53, %48, %30, %._crit_edge, %61, %71, %76
-  %.sroa.0.1 = phi ptr [ %73, %71 ], [ %29, %._crit_edge ], [ %47, %76 ], [ %40, %61 ], [ %36, %35 ], [ %51, %48 ], [ %56, %53 ], [ %60, %57 ], [ null, %30 ]
+  %.sroa.0.1 = phi ptr [ %29, %._crit_edge ], [ %40, %61 ], [ %73, %71 ], [ %47, %76 ], [ %36, %35 ], [ %60, %57 ], [ %56, %53 ], [ %51, %48 ], [ null, %30 ]
   ret ptr %.sroa.0.1
 }
 
@@ -3185,7 +3185,7 @@ define noundef align 8 ptr @"_ZN84_$LT$yara_x_proto_json..yara..FieldOptions$u20
   br i1 %.not55, label %17, label %14
 
 .loopexit:                                        ; preds = %25, %51, %45, %36, %30, %14, %5
-  %.sroa.0.0 = phi ptr [ %50, %45 ], [ %10, %5 ], [ %53, %51 ], [ %16, %14 ], [ %32, %30 ], [ %41, %36 ], [ %26, %25 ]
+  %.sroa.0.0 = phi ptr [ %10, %5 ], [ %16, %14 ], [ %32, %30 ], [ %41, %36 ], [ %50, %45 ], [ %53, %51 ], [ %26, %25 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %11
@@ -3351,7 +3351,7 @@ define void @"_ZN84_$LT$yara_x_proto_json..yara..FieldOptions$u20$as$u20$protobu
           to label %18 unwind label %25
 
 common.resume:                                    ; preds = %18, %6, %32, %38
-  %common.resume.op = phi { ptr, i32 } [ %7, %6 ], [ %39, %38 ], [ %33, %32 ], [ %21, %18 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %33, %32 ], [ %7, %6 ], [ %21, %18 ]
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %22
@@ -3793,7 +3793,7 @@ define hidden void @_ZN17yara_x_proto_json4yara8AclEntry33generated_message_desc
   br label %.body
 
 .body:                                            ; preds = %89, %76, %63, %46, %37
-  %eh.lpad-body = phi { ptr, i32 } [ %77, %76 ], [ %47, %46 ], [ %64, %63 ], [ %38, %37 ], [ %90, %89 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %38, %37 ], [ %47, %46 ], [ %64, %63 ], [ %77, %76 ], [ %90, %89 ]
   invoke void @"_ZN4core3ptr109drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..oneof..generated..GeneratedOneofDescriptorData$GT$$GT$17h6539a704cb742cbaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #22
           to label %28 unwind label %102
 
@@ -4146,7 +4146,7 @@ define noundef align 8 ptr @"_ZN80_$LT$yara_x_proto_json..yara..AclEntry$u20$as$
   br i1 %58, label %._crit_edge, label %24
 
 common.resume:                                    ; preds = %85, %72, %54, %64
-  %common.resume.op = phi { ptr, i32 } [ %73, %72 ], [ %65, %64 ], [ %55, %54 ], [ %86, %85 ]
+  %common.resume.op = phi { ptr, i32 } [ %55, %54 ], [ %65, %64 ], [ %73, %72 ], [ %86, %85 ]
   resume { ptr, i32 } %common.resume.op
 
 59:                                               ; preds = %37
@@ -4257,7 +4257,7 @@ common.resume:                                    ; preds = %85, %72, %54, %64
   br label %56
 
 .loopexit:                                        ; preds = %31, %24, %._crit_edge, %49, %59, %66, %79
-  %.sroa.0.1 = phi ptr [ %44, %66 ], [ %23, %._crit_edge ], [ %48, %79 ], [ %36, %49 ], [ %40, %59 ], [ %32, %31 ], [ null, %24 ]
+  %.sroa.0.1 = phi ptr [ %23, %._crit_edge ], [ %36, %49 ], [ %40, %59 ], [ %44, %66 ], [ %48, %79 ], [ %32, %31 ], [ null, %24 ]
   ret ptr %.sroa.0.1
 }
 
@@ -4378,7 +4378,7 @@ define noundef align 8 ptr @"_ZN80_$LT$yara_x_proto_json..yara..AclEntry$u20$as$
   br i1 %.not44, label %20, label %14
 
 .loopexit:                                        ; preds = %28, %42, %48, %14, %5
-  %.sroa.0.0 = phi ptr [ %47, %42 ], [ %10, %5 ], [ %19, %14 ], [ %50, %48 ], [ %33, %28 ]
+  %.sroa.0.0 = phi ptr [ %10, %5 ], [ %19, %14 ], [ %50, %48 ], [ %47, %42 ], [ %33, %28 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %11
@@ -4545,7 +4545,7 @@ define void @"_ZN80_$LT$yara_x_proto_json..yara..AclEntry$u20$as$u20$protobuf..m
           to label %23 unwind label %30
 
 common.resume:                                    ; preds = %23, %41, %6, %12
-  %common.resume.op = phi { ptr, i32 } [ %7, %6 ], [ %44, %41 ], [ %13, %12 ], [ %26, %23 ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %7, %6 ], [ %44, %41 ], [ %26, %23 ]
   resume { ptr, i32 } %common.resume.op
 
 30:                                               ; preds = %27
@@ -4990,7 +4990,7 @@ define noundef align 8 ptr @"_ZN86_$LT$yara_x_proto_json..yara..MessageOptions$u
   br i1 %33, label %._crit_edge, label %12
 
 .loopexit:                                        ; preds = %22, %12, %._crit_edge, %24
-  %.sroa.0.1 = phi ptr [ %21, %24 ], [ %11, %._crit_edge ], [ %23, %22 ], [ null, %12 ]
+  %.sroa.0.1 = phi ptr [ %11, %._crit_edge ], [ %21, %24 ], [ %23, %22 ], [ null, %12 ]
   ret ptr %.sroa.0.1
 }
 
@@ -5371,7 +5371,7 @@ define hidden void @_ZN17yara_x_proto_json4yara11EnumOptions33generated_message_
   br label %.body
 
 .body:                                            ; preds = %46, %34
-  %eh.lpad-body = phi { ptr, i32 } [ %47, %46 ], [ %35, %34 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %47, %46 ]
   invoke void @"_ZN4core3ptr109drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..oneof..generated..GeneratedOneofDescriptorData$GT$$GT$17h6539a704cb742cbaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #22
           to label %25 unwind label %59
 
@@ -5588,7 +5588,7 @@ define noundef align 8 ptr @"_ZN83_$LT$yara_x_proto_json..yara..EnumOptions$u20$
   br label %36
 
 .loopexit:                                        ; preds = %20, %15, %._crit_edge, %29, %39
-  %.sroa.0.1 = phi ptr [ %25, %29 ], [ %14, %._crit_edge ], [ %41, %39 ], [ %21, %20 ], [ null, %15 ]
+  %.sroa.0.1 = phi ptr [ %14, %._crit_edge ], [ %25, %29 ], [ %41, %39 ], [ %21, %20 ], [ null, %15 ]
   ret ptr %.sroa.0.1
 }
 
@@ -5920,7 +5920,7 @@ define hidden void @_ZN17yara_x_proto_json4yara16EnumValueOptions33generated_mes
   br label %.body
 
 .body:                                            ; preds = %47, %35
-  %eh.lpad-body = phi { ptr, i32 } [ %48, %47 ], [ %36, %35 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %36, %35 ], [ %48, %47 ]
   invoke void @"_ZN4core3ptr109drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..oneof..generated..GeneratedOneofDescriptorData$GT$$GT$17h6539a704cb742cbaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #22
           to label %25 unwind label %73
 
@@ -6139,7 +6139,7 @@ define noundef align 8 ptr @"_ZN88_$LT$yara_x_proto_json..yara..EnumValueOptions
   br label %30
 
 .loopexit:                                        ; preds = %18, %20, %13, %._crit_edge, %33
-  %.sroa.0.1 = phi ptr [ %34, %33 ], [ %12, %._crit_edge ], [ %19, %18 ], [ %23, %20 ], [ null, %13 ]
+  %.sroa.0.1 = phi ptr [ %12, %._crit_edge ], [ %34, %33 ], [ %19, %18 ], [ %23, %20 ], [ null, %13 ]
   ret ptr %.sroa.0.1
 }
 
@@ -6204,7 +6204,7 @@ define noundef align 8 ptr @"_ZN88_$LT$yara_x_proto_json..yara..EnumValueOptions
   br i1 %.not16, label %4, label %15
 
 15:                                               ; preds = %7, %11, %4
-  %.sroa.0.0 = phi ptr [ %14, %11 ], [ %10, %7 ], [ %6, %4 ]
+  %.sroa.0.0 = phi ptr [ %6, %4 ], [ %14, %11 ], [ %10, %7 ]
   ret ptr %.sroa.0.0
 }
 

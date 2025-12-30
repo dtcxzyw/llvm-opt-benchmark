@@ -485,7 +485,7 @@ if.then:                                          ; preds = %land.rhs
   br label %tailrecurse
 
 if.end:                                           ; preds = %land.rhs, %_ZN8facebook5velox13DecodedVector5resetEi.exit, %_ZN8facebook5velox13DecodedVector5resetEi.exit.us58, %land.rhs.us61, %lor.lhs.false.us, %lor.lhs.false.us.us
-  %.us-phi = phi ptr [ %vector.tr.us.us, %lor.lhs.false.us.us ], [ %vector.tr.us, %lor.lhs.false.us ], [ %vector.tr.us46, %_ZN8facebook5velox13DecodedVector5resetEi.exit.us58 ], [ %vector.tr.us46, %land.rhs.us61 ], [ %vector.tr, %_ZN8facebook5velox13DecodedVector5resetEi.exit ], [ %vector.tr, %land.rhs ]
+  %.us-phi = phi ptr [ %vector.tr.us.us, %lor.lhs.false.us.us ], [ %vector.tr.us, %lor.lhs.false.us ], [ %vector.tr.us46, %land.rhs.us61 ], [ %vector.tr.us46, %_ZN8facebook5velox13DecodedVector5resetEi.exit.us58 ], [ %vector.tr, %_ZN8facebook5velox13DecodedVector5resetEi.exit ], [ %vector.tr, %land.rhs ]
   %encoding_.i.i.le = getelementptr inbounds nuw i8, ptr %.us-phi, i64 28
   %40 = load i32, ptr %encoding_.i.i.le, align 4
   switch i32 %40, label %sw.default [
@@ -1002,7 +1002,7 @@ if.end27:                                         ; preds = %if.then22, %if.end1
   ]
 
 sw.bb:                                            ; preds = %lor.lhs.false.us, %if.end27.us, %if.end27.us, %if.end27.us, %if.end27.us, %if.end27.us, %if.end27.us, %if.end27.us, %if.end27, %if.end27, %if.end27, %if.end27, %if.end27, %if.end27, %if.end27, %lor.lhs.false
-  %.us-phi = phi ptr [ %values.1, %if.end27 ], [ %values.1, %if.end27 ], [ %values.1, %if.end27 ], [ %values.1, %if.end27 ], [ %values.1, %if.end27 ], [ %values.1, %if.end27 ], [ %values.1, %if.end27 ], [ %values.024, %lor.lhs.false ], [ %values.0.us, %lor.lhs.false.us ], [ %values.1.us, %if.end27.us ], [ %values.1.us, %if.end27.us ], [ %values.1.us, %if.end27.us ], [ %values.1.us, %if.end27.us ], [ %values.1.us, %if.end27.us ], [ %values.1.us, %if.end27.us ], [ %values.1.us, %if.end27.us ]
+  %.us-phi = phi ptr [ %values.1, %if.end27 ], [ %values.1, %if.end27 ], [ %values.1, %if.end27 ], [ %values.1, %if.end27 ], [ %values.1, %if.end27 ], [ %values.1, %if.end27 ], [ %values.1, %if.end27 ], [ %values.024, %lor.lhs.false ], [ %values.1.us, %if.end27.us ], [ %values.1.us, %if.end27.us ], [ %values.1.us, %if.end27.us ], [ %values.1.us, %if.end27.us ], [ %values.1.us, %if.end27.us ], [ %values.1.us, %if.end27.us ], [ %values.1.us, %if.end27.us ], [ %values.0.us, %lor.lhs.false.us ]
   %encoding_.i.i = getelementptr inbounds nuw i8, ptr %.us-phi, i64 28
   %25 = load i32, ptr %encoding_.i.i, align 4
   %baseVector_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1173,7 +1173,7 @@ if.then3:                                         ; preds = %if.then
   unreachable
 
 if.end4:                                          ; preds = %if.then.i.i.i.i28, %if.end.i22, %if.then.i.i.i.i, %if.end.i
-  %rows.sink = phi ptr [ null, %if.then.i.i.i.i ], [ null, %if.end.i ], [ %rows, %if.end.i22 ], [ %rows, %if.then.i.i.i.i28 ]
+  %rows.sink = phi ptr [ null, %if.end.i ], [ null, %if.then.i.i.i.i ], [ %rows, %if.end.i22 ], [ %rows, %if.then.i.i.i.i28 ]
   %baseVector_.i26 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %constantIndex_.i27 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 0, ptr %constantIndex_.i27, align 8
@@ -1555,7 +1555,7 @@ if.then26.i.i.i.i.i:                              ; preds = %for.end.i.i.i.i.i
   br label %land.end.i.i.i
 
 land.end.i.i.i:                                   ; preds = %for.body.i.i.i.i.i, %if.then26.i.i.i.i.i, %for.end.i.i.i.i.i, %land.rhs.i.i.i, %land.lhs.true.i.i.i, %if.end.i.i.i
-  %frombool.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i ], [ 256, %if.end.i.i.i ], [ 257, %land.rhs.i.i.i ], [ 257, %for.end.i.i.i.i.i ], [ %45, %if.then26.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i ]
+  %frombool.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i ], [ 256, %if.end.i.i.i ], [ 257, %land.rhs.i.i.i ], [ %45, %if.then26.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i ]
   store i16 %frombool.i.i.i, ptr %allSelected_.i.i.i, align 4
   %46 = trunc i16 %frombool.i.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
@@ -2443,7 +2443,7 @@ if.end51:                                         ; preds = %if.end21
   unreachable
 
 return:                                           ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit34, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit.loopexit, %_ZNSt6vectorIiSaIiEE6resizeEm.exit, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.loopexit, %_ZN8facebook5velox13DecodedVector18consecutiveIndicesEv.exit43, %_ZN8facebook5velox13DecodedVector11zeroIndicesEv.exit9
-  %.sink = phi ptr [ %14, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ %37, %_ZN8facebook5velox13DecodedVector18consecutiveIndicesEv.exit43 ], [ %19, %_ZN8facebook5velox13DecodedVector11zeroIndicesEv.exit9 ], [ %.pre49, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.loopexit ], [ %.pre45, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit.loopexit ], [ %32, %_ZNSt6vectorIiSaIiEE6resizeEm.exit34 ]
+  %.sink = phi ptr [ %37, %_ZN8facebook5velox13DecodedVector18consecutiveIndicesEv.exit43 ], [ %19, %_ZN8facebook5velox13DecodedVector11zeroIndicesEv.exit9 ], [ %.pre49, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.loopexit ], [ %14, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ %.pre45, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit.loopexit ], [ %32, %_ZNSt6vectorIiSaIiEE6resizeEm.exit34 ]
   %indices_45 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %.sink, ptr %indices_45, align 8
   ret void
@@ -2695,7 +2695,7 @@ if.then26.i.i.i.i.i:                              ; preds = %for.end.i.i.i.i.i
   br label %land.end.i.i.i
 
 land.end.i.i.i:                                   ; preds = %for.body.i.i.i.i.i, %if.then26.i.i.i.i.i, %for.end.i.i.i.i.i, %land.rhs.i.i.i, %land.lhs.true.i.i.i, %if.end.i.i.i
-  %frombool.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i ], [ 256, %if.end.i.i.i ], [ 257, %land.rhs.i.i.i ], [ 257, %for.end.i.i.i.i.i ], [ %27, %if.then26.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i ]
+  %frombool.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i ], [ 256, %if.end.i.i.i ], [ 257, %land.rhs.i.i.i ], [ %27, %if.then26.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i ]
   store i16 %frombool.i.i.i, ptr %allSelected_.i.i.i, align 4
   %28 = trunc i16 %frombool.i.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
@@ -2763,7 +2763,7 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true2.i.i.
   br label %"_ZZNK8facebook5velox13DecodedVector11applyToRowsIZNS1_12setFlatNullsERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEE3$_0EEvS8_OT_ENKUliE_clEi.exit.i.i"
 
 "_ZZNK8facebook5velox13DecodedVector11applyToRowsIZNS1_12setFlatNullsERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEE3$_0EEvS8_OT_ENKUliE_clEi.exit.i.i": ; preds = %if.then.i.i.i.i, %land.lhs.true2.i.i.i.i, %for.body.i.i
-  %40 = phi i32 [ %32, %for.body.i.i ], [ %.pre.i.i, %if.then.i.i.i.i ], [ %32, %land.lhs.true2.i.i.i.i ]
+  %40 = phi i32 [ %32, %for.body.i.i ], [ %32, %land.lhs.true2.i.i.i.i ], [ %.pre.i.i, %if.then.i.i.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %41 = sext i32 %40 to i64
   %cmp.i.i15 = icmp slt i64 %indvars.iv.next.i.i, %41
@@ -3187,7 +3187,7 @@ if.then.i6.i:                                     ; preds = %land.lhs.true2.i.i
   br label %"_ZZN8facebook5velox13DecodedVector12setFlatNullsERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEENK3$_0clEi.exit.i"
 
 "_ZZN8facebook5velox13DecodedVector12setFlatNullsERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEENK3$_0clEi.exit.i": ; preds = %if.then.i6.i, %land.lhs.true2.i.i, %for.body.i
-  %98 = phi i32 [ %90, %for.body.i ], [ %.pre.i, %if.then.i6.i ], [ %90, %land.lhs.true2.i.i ]
+  %98 = phi i32 [ %90, %for.body.i ], [ %90, %land.lhs.true2.i.i ], [ %.pre.i, %if.then.i6.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %99 = sext i32 %98 to i64
   %cmp.i16 = icmp slt i64 %indvars.iv.next.i, %99
@@ -3408,7 +3408,7 @@ if.then26.i.i.i.i.i:                              ; preds = %for.end.i.i.i.i.i
   br label %land.end.i.i.i
 
 land.end.i.i.i:                                   ; preds = %for.body.i.i.i.i.i, %if.then26.i.i.i.i.i, %for.end.i.i.i.i.i, %land.rhs.i.i.i, %land.lhs.true.i.i.i, %if.end.i.i.i
-  %frombool.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i ], [ 256, %if.end.i.i.i ], [ 257, %land.rhs.i.i.i ], [ 257, %for.end.i.i.i.i.i ], [ %27, %if.then26.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i ]
+  %frombool.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i ], [ 256, %if.end.i.i.i ], [ 257, %land.rhs.i.i.i ], [ %27, %if.then26.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i ]
   store i16 %frombool.i.i.i, ptr %allSelected_.i.i.i, align 4
   %28 = trunc i16 %frombool.i.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
@@ -4722,8 +4722,8 @@ if.end47.sink.split:                              ; preds = %for.end, %_ZNSt6vec
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end47.sink.split, %for.end, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
-  %.sink = phi ptr [ %24, %for.end ], [ %10, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit ], [ %.sink.ph, %if.end47.sink.split ]
-  %26 = phi i8 [ %25, %for.end ], [ %9, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit ], [ 1, %if.end47.sink.split ]
+  %.sink = phi ptr [ %10, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit ], [ %24, %for.end ], [ %.sink.ph, %if.end47.sink.split ]
+  %26 = phi i8 [ %9, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit ], [ %25, %for.end ], [ 1, %if.end47.sink.split ]
   store ptr %.sink, ptr %allNulls_, align 8
   %tobool.i.i47 = trunc i8 %26 to i1
   br i1 %tobool.i.i47, label %return, label %if.end.i48
@@ -5191,7 +5191,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
-  %__first.addr.0.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %incdec.ptr.i.i.i, %if.then.i.i.i ]
+  %__first.addr.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ]
   store ptr %__first.addr.0.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end44
 
@@ -5290,7 +5290,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
-  %__first.addr.0.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %incdec.ptr.i.i.i, %if.then.i.i.i ]
+  %__first.addr.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ]
   store ptr %__first.addr.0.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end44
 

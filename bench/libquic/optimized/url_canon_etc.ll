@@ -439,7 +439,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i57.i: ; preds = %85, %77
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit51.i
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit51.i:    ; preds = %select.unfold.i.i44.i, %select.unfold.i.i54.i, %.thread.thread.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i57.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i47.i
-  %.1.i = phi i1 [ false, %.thread.thread.i ], [ %.02976.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i47.i ], [ false, %select.unfold.i.i54.i ], [ false, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i57.i ], [ %.02976.i, %select.unfold.i.i44.i ]
+  %.1.i = phi i1 [ false, %.thread.thread.i ], [ %.02976.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i47.i ], [ false, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i57.i ], [ false, %select.unfold.i.i54.i ], [ %.02976.i, %select.unfold.i.i44.i ]
   %96 = load i32, ptr %6, align 4, !tbaa !8
   %97 = add nsw i32 %96, 1
   store i32 %97, ptr %6, align 4, !tbaa !8
@@ -677,7 +677,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i57.i: ; preds = %86, %78
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit51.i
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit51.i:    ; preds = %select.unfold.i.i44.i, %select.unfold.i.i54.i, %.thread.thread.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i57.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i47.i
-  %.1.i = phi i1 [ false, %.thread.thread.i ], [ %.02976.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i47.i ], [ false, %select.unfold.i.i54.i ], [ false, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i57.i ], [ %.02976.i, %select.unfold.i.i44.i ]
+  %.1.i = phi i1 [ false, %.thread.thread.i ], [ %.02976.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i47.i ], [ false, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i57.i ], [ false, %select.unfold.i.i54.i ], [ %.02976.i, %select.unfold.i.i44.i ]
   %97 = load i32, ptr %6, align 4, !tbaa !8
   %98 = add nsw i32 %97, 1
   store i32 %98, ptr %6, align 4, !tbaa !8

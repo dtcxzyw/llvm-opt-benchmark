@@ -219,7 +219,7 @@ define noundef ptr @Map_LibraryReadGateTree(ptr noundef readonly captures(none) 
   br label %95
 
 95:                                               ; preds = %91, %93, %71, %54, %50, %45, %22
-  %.0 = phi ptr [ null, %22 ], [ null, %71 ], [ null, %54 ], [ null, %45 ], [ null, %50 ], [ %7, %93 ], [ %7, %91 ]
+  %.0 = phi ptr [ null, %22 ], [ null, %71 ], [ null, %45 ], [ null, %50 ], [ null, %54 ], [ %7, %93 ], [ %7, %91 ]
   ret ptr %.0
 }
 
@@ -460,7 +460,7 @@ define range(i32 0, 2) i32 @Map_LibraryReadFileTreeStr(ptr noundef %0, ptr nound
   br i1 %27, label %14, label %Vec_StrGets.exit.thread, !llvm.loop !36
 
 Vec_StrGets.exit:                                 ; preds = %16, %23
-  %.2 = phi i32 [ %21, %16 ], [ %24, %23 ]
+  %.2 = phi i32 [ %24, %23 ], [ %21, %16 ]
   %.ptr381 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i.add
   store i8 0, ptr %.ptr381, align 1, !tbaa !21
   br label %28
@@ -551,7 +551,7 @@ Vec_StrGets.exit:                                 ; preds = %16, %23
   br i1 %64, label %51, label %Vec_StrGets.exit.thread, !llvm.loop !36
 
 Vec_StrGets.exit137:                              ; preds = %60, %53
-  %.3 = phi i32 [ %58, %53 ], [ %61, %60 ]
+  %.3 = phi i32 [ %61, %60 ], [ %58, %53 ]
   %.ptr341376 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i135.add
   store i8 0, ptr %.ptr341376, align 1, !tbaa !21
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -613,7 +613,7 @@ Vec_StrGets.exit137:                              ; preds = %60, %53
   br i1 %91, label %78, label %Vec_StrGets.exit.thread, !llvm.loop !36
 
 Vec_StrGets.exit145:                              ; preds = %87, %80
-  %.4 = phi i32 [ %85, %80 ], [ %88, %87 ]
+  %.4 = phi i32 [ %88, %87 ], [ %85, %80 ]
   %.ptr342371 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i143.add
   store i8 0, ptr %.ptr342371, align 1, !tbaa !21
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -675,7 +675,7 @@ Vec_StrGets.exit145:                              ; preds = %87, %80
   br i1 %118, label %105, label %Vec_StrGets.exit.thread, !llvm.loop !36
 
 Vec_StrGets.exit153:                              ; preds = %114, %107
-  %.5 = phi i32 [ %112, %107 ], [ %115, %114 ]
+  %.5 = phi i32 [ %115, %114 ], [ %112, %107 ]
   %.ptr343366 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i151.add
   store i8 0, ptr %.ptr343366, align 1, !tbaa !21
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -816,7 +816,7 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.loopexit, %.outer._crit_edge.loopexit269, %._crit_edge248
-  %.0108.ph.lcssa207 = phi i32 [ %183, %.outer._crit_edge.loopexit269 ], [ %.lcssa, %._crit_edge248 ], [ %173, %.loopexit ]
+  %.0108.ph.lcssa207 = phi i32 [ %.lcssa, %._crit_edge248 ], [ %183, %.outer._crit_edge.loopexit269 ], [ %173, %.loopexit ]
   store i8 0, ptr %5, align 16, !tbaa !21
   br label %.loopexit194
 
@@ -854,7 +854,7 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
   br i1 %197, label %184, label %.loopexit194, !llvm.loop !36
 
 Vec_StrGets.exit161:                              ; preds = %186, %193
-  %.6 = phi i32 [ %191, %186 ], [ %194, %193 ]
+  %.6 = phi i32 [ %194, %193 ], [ %191, %186 ]
   %.ptr344353 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i159.add
   store i8 0, ptr %.ptr344353, align 1, !tbaa !21
   br label %198
@@ -912,7 +912,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %209, %213
   br i1 %219, label %.outer._crit_edge.loopexit269, label %.preheader.i156.lr.ph, !llvm.loop !49
 
 .loopexit194:                                     ; preds = %.preheader.i156, %184, %195, %.outer._crit_edge
-  %.0108.ph208 = phi i32 [ %173, %184 ], [ %.0108.ph.lcssa207, %.outer._crit_edge ], [ %173, %195 ], [ %173, %.preheader.i156 ]
+  %.0108.ph208 = phi i32 [ %.0108.ph.lcssa207, %.outer._crit_edge ], [ %173, %195 ], [ %173, %184 ], [ %173, %.preheader.i156 ]
   call void @Extra_ProgressBarStop(ptr noundef %164) #17
   %220 = load i32, ptr %119, align 4, !tbaa !25
   %.not126 = icmp eq i32 %.0108.ph208, %220
@@ -963,7 +963,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %209, %213
   br label %Vec_StrGets.exit.thread
 
 Vec_StrGets.exit.thread:                          ; preds = %.preheader.i, %31, %14, %25, %51, %62, %78, %89, %105, %116, %98, %71, %44, %4, %238, %205, %123, %96, %69, %42
-  %.0110 = phi i32 [ 1, %238 ], [ 0, %42 ], [ 0, %44 ], [ 0, %69 ], [ 0, %98 ], [ 0, %96 ], [ 0, %71 ], [ 0, %123 ], [ 0, %205 ], [ 0, %14 ], [ 0, %51 ], [ 0, %78 ], [ 0, %4 ], [ 0, %105 ], [ 0, %116 ], [ 0, %89 ], [ 0, %62 ], [ 0, %25 ], [ 0, %31 ], [ 0, %.preheader.i ]
+  %.0110 = phi i32 [ 0, %42 ], [ 0, %69 ], [ 0, %96 ], [ 0, %123 ], [ 0, %205 ], [ 1, %238 ], [ 0, %4 ], [ 0, %44 ], [ 0, %71 ], [ 0, %98 ], [ 0, %116 ], [ 0, %105 ], [ 0, %89 ], [ 0, %78 ], [ 0, %62 ], [ 0, %51 ], [ 0, %25 ], [ 0, %14 ], [ 0, %31 ], [ 0, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0110
 }

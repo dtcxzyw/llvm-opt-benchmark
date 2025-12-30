@@ -2637,13 +2637,13 @@ switch.early.test.i:                              ; preds = %50
   br i1 %61, label %63, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %58, %switch.early.test.i, %switch.early.test.i, %50
-  %.sink.i = phi i8 [ %51, %50 ], [ %51, %switch.early.test.i ], [ %51, %switch.early.test.i ], [ 95, %58 ]
+  %.sink.i = phi i8 [ %51, %switch.early.test.i ], [ %51, %switch.early.test.i ], [ %51, %50 ], [ 95, %58 ]
   %62 = getelementptr i8, ptr %.02833.i, i64 1
   store i8 %.sink.i, ptr %.02833.i, align 1
   br label %63
 
 63:                                               ; preds = %.sink.split.i, %58, %56, %switch.early.test.i
-  %.1.i = phi ptr [ %.02833.i, %switch.early.test.i ], [ %47, %56 ], [ %.02833.i, %58 ], [ %62, %.sink.split.i ]
+  %.1.i = phi ptr [ %47, %56 ], [ %.02833.i, %58 ], [ %.02833.i, %switch.early.test.i ], [ %62, %.sink.split.i ]
   %64 = getelementptr i8, ptr %.034.i, i64 1
   %65 = load i8, ptr %64, align 1
   %.not.i = icmp eq i8 %65, 0
@@ -2751,13 +2751,13 @@ switch.early.test.i188:                           ; preds = %95
   br i1 %106, label %108, label %.sink.split.i183
 
 .sink.split.i183:                                 ; preds = %103, %switch.early.test.i188, %switch.early.test.i188, %95
-  %.sink.i184 = phi i8 [ %96, %95 ], [ %96, %switch.early.test.i188 ], [ %96, %switch.early.test.i188 ], [ 95, %103 ]
+  %.sink.i184 = phi i8 [ %96, %switch.early.test.i188 ], [ %96, %switch.early.test.i188 ], [ %96, %95 ], [ 95, %103 ]
   %107 = getelementptr i8, ptr %.02833.i180, i64 1
   store i8 %.sink.i184, ptr %.02833.i180, align 1
   br label %108
 
 108:                                              ; preds = %.sink.split.i183, %103, %101, %switch.early.test.i188
-  %.1.i185 = phi ptr [ %.02833.i180, %switch.early.test.i188 ], [ %92, %101 ], [ %.02833.i180, %103 ], [ %107, %.sink.split.i183 ]
+  %.1.i185 = phi ptr [ %92, %101 ], [ %.02833.i180, %103 ], [ %.02833.i180, %switch.early.test.i188 ], [ %107, %.sink.split.i183 ]
   %109 = getelementptr i8, ptr %.034.i179, i64 1
   %110 = load i8, ptr %109, align 1
   %.not.i186 = icmp eq i8 %110, 0
@@ -3189,13 +3189,13 @@ switch.early.test.i201:                           ; preds = %277
   br i1 %288, label %290, label %.sink.split.i196
 
 .sink.split.i196:                                 ; preds = %285, %switch.early.test.i201, %switch.early.test.i201, %277
-  %.sink.i197 = phi i8 [ %278, %277 ], [ %278, %switch.early.test.i201 ], [ %278, %switch.early.test.i201 ], [ 95, %285 ]
+  %.sink.i197 = phi i8 [ %278, %switch.early.test.i201 ], [ %278, %switch.early.test.i201 ], [ %278, %277 ], [ 95, %285 ]
   %289 = getelementptr i8, ptr %.02833.i193, i64 1
   store i8 %.sink.i197, ptr %.02833.i193, align 1
   br label %290
 
 290:                                              ; preds = %.sink.split.i196, %285, %283, %switch.early.test.i201
-  %.1.i198 = phi ptr [ %.02833.i193, %switch.early.test.i201 ], [ %274, %283 ], [ %.02833.i193, %285 ], [ %289, %.sink.split.i196 ]
+  %.1.i198 = phi ptr [ %274, %283 ], [ %.02833.i193, %285 ], [ %.02833.i193, %switch.early.test.i201 ], [ %289, %.sink.split.i196 ]
   %291 = getelementptr i8, ptr %.034.i192, i64 1
   %292 = load i8, ptr %291, align 1
   %.not.i199 = icmp eq i8 %292, 0
@@ -3273,13 +3273,13 @@ switch.early.test.i214:                           ; preds = %310
   br i1 %321, label %323, label %.sink.split.i209
 
 .sink.split.i209:                                 ; preds = %318, %switch.early.test.i214, %switch.early.test.i214, %310
-  %.sink.i210 = phi i8 [ %311, %310 ], [ %311, %switch.early.test.i214 ], [ %311, %switch.early.test.i214 ], [ 95, %318 ]
+  %.sink.i210 = phi i8 [ %311, %switch.early.test.i214 ], [ %311, %switch.early.test.i214 ], [ %311, %310 ], [ 95, %318 ]
   %322 = getelementptr i8, ptr %.02833.i206, i64 1
   store i8 %.sink.i210, ptr %.02833.i206, align 1
   br label %323
 
 323:                                              ; preds = %.sink.split.i209, %318, %316, %switch.early.test.i214
-  %.1.i211 = phi ptr [ %.02833.i206, %switch.early.test.i214 ], [ %307, %316 ], [ %.02833.i206, %318 ], [ %322, %.sink.split.i209 ]
+  %.1.i211 = phi ptr [ %307, %316 ], [ %.02833.i206, %318 ], [ %.02833.i206, %switch.early.test.i214 ], [ %322, %.sink.split.i209 ]
   %324 = getelementptr i8, ptr %.034.i205, i64 1
   %325 = load i8, ptr %324, align 1
   %.not.i212 = icmp eq i8 %325, 0
@@ -3357,13 +3357,13 @@ switch.early.test.i227:                           ; preds = %343
   br i1 %354, label %356, label %.sink.split.i222
 
 .sink.split.i222:                                 ; preds = %351, %switch.early.test.i227, %switch.early.test.i227, %343
-  %.sink.i223 = phi i8 [ %344, %343 ], [ %344, %switch.early.test.i227 ], [ %344, %switch.early.test.i227 ], [ 95, %351 ]
+  %.sink.i223 = phi i8 [ %344, %switch.early.test.i227 ], [ %344, %switch.early.test.i227 ], [ %344, %343 ], [ 95, %351 ]
   %355 = getelementptr i8, ptr %.02833.i219, i64 1
   store i8 %.sink.i223, ptr %.02833.i219, align 1
   br label %356
 
 356:                                              ; preds = %.sink.split.i222, %351, %349, %switch.early.test.i227
-  %.1.i224 = phi ptr [ %.02833.i219, %switch.early.test.i227 ], [ %340, %349 ], [ %.02833.i219, %351 ], [ %355, %.sink.split.i222 ]
+  %.1.i224 = phi ptr [ %340, %349 ], [ %.02833.i219, %351 ], [ %.02833.i219, %switch.early.test.i227 ], [ %355, %.sink.split.i222 ]
   %357 = getelementptr i8, ptr %.034.i218, i64 1
   %358 = load i8, ptr %357, align 1
   %.not.i225 = icmp eq i8 %358, 0
@@ -3632,13 +3632,13 @@ switch.early.test.i240:                           ; preds = %462
   br i1 %473, label %475, label %.sink.split.i235
 
 .sink.split.i235:                                 ; preds = %470, %switch.early.test.i240, %switch.early.test.i240, %462
-  %.sink.i236 = phi i8 [ %463, %462 ], [ %463, %switch.early.test.i240 ], [ %463, %switch.early.test.i240 ], [ 95, %470 ]
+  %.sink.i236 = phi i8 [ %463, %switch.early.test.i240 ], [ %463, %switch.early.test.i240 ], [ %463, %462 ], [ 95, %470 ]
   %474 = getelementptr i8, ptr %.02833.i232, i64 1
   store i8 %.sink.i236, ptr %.02833.i232, align 1
   br label %475
 
 475:                                              ; preds = %.sink.split.i235, %470, %468, %switch.early.test.i240
-  %.1.i237 = phi ptr [ %.02833.i232, %switch.early.test.i240 ], [ %459, %468 ], [ %.02833.i232, %470 ], [ %474, %.sink.split.i235 ]
+  %.1.i237 = phi ptr [ %459, %468 ], [ %.02833.i232, %470 ], [ %.02833.i232, %switch.early.test.i240 ], [ %474, %.sink.split.i235 ]
   %476 = getelementptr i8, ptr %.034.i231, i64 1
   %477 = load i8, ptr %476, align 1
   %.not.i238 = icmp eq i8 %477, 0
@@ -3716,13 +3716,13 @@ switch.early.test.i253:                           ; preds = %495
   br i1 %506, label %508, label %.sink.split.i248
 
 .sink.split.i248:                                 ; preds = %503, %switch.early.test.i253, %switch.early.test.i253, %495
-  %.sink.i249 = phi i8 [ %496, %495 ], [ %496, %switch.early.test.i253 ], [ %496, %switch.early.test.i253 ], [ 95, %503 ]
+  %.sink.i249 = phi i8 [ %496, %switch.early.test.i253 ], [ %496, %switch.early.test.i253 ], [ %496, %495 ], [ 95, %503 ]
   %507 = getelementptr i8, ptr %.02833.i245, i64 1
   store i8 %.sink.i249, ptr %.02833.i245, align 1
   br label %508
 
 508:                                              ; preds = %.sink.split.i248, %503, %501, %switch.early.test.i253
-  %.1.i250 = phi ptr [ %.02833.i245, %switch.early.test.i253 ], [ %492, %501 ], [ %.02833.i245, %503 ], [ %507, %.sink.split.i248 ]
+  %.1.i250 = phi ptr [ %492, %501 ], [ %.02833.i245, %503 ], [ %.02833.i245, %switch.early.test.i253 ], [ %507, %.sink.split.i248 ]
   %509 = getelementptr i8, ptr %.034.i244, i64 1
   %510 = load i8, ptr %509, align 1
   %.not.i251 = icmp eq i8 %510, 0
@@ -3862,13 +3862,13 @@ switch.early.test.i266:                           ; preds = %558
   br i1 %569, label %571, label %.sink.split.i261
 
 .sink.split.i261:                                 ; preds = %566, %switch.early.test.i266, %switch.early.test.i266, %558
-  %.sink.i262 = phi i8 [ %559, %558 ], [ %559, %switch.early.test.i266 ], [ %559, %switch.early.test.i266 ], [ 95, %566 ]
+  %.sink.i262 = phi i8 [ %559, %switch.early.test.i266 ], [ %559, %switch.early.test.i266 ], [ %559, %558 ], [ 95, %566 ]
   %570 = getelementptr i8, ptr %.02833.i258, i64 1
   store i8 %.sink.i262, ptr %.02833.i258, align 1
   br label %571
 
 571:                                              ; preds = %.sink.split.i261, %566, %564, %switch.early.test.i266
-  %.1.i263 = phi ptr [ %.02833.i258, %switch.early.test.i266 ], [ %555, %564 ], [ %.02833.i258, %566 ], [ %570, %.sink.split.i261 ]
+  %.1.i263 = phi ptr [ %555, %564 ], [ %.02833.i258, %566 ], [ %.02833.i258, %switch.early.test.i266 ], [ %570, %.sink.split.i261 ]
   %572 = getelementptr i8, ptr %.034.i257, i64 1
   %573 = load i8, ptr %572, align 1
   %.not.i264 = icmp eq i8 %573, 0
@@ -3981,13 +3981,13 @@ switch.early.test.i279:                           ; preds = %609
   br i1 %620, label %622, label %.sink.split.i274
 
 .sink.split.i274:                                 ; preds = %617, %switch.early.test.i279, %switch.early.test.i279, %609
-  %.sink.i275 = phi i8 [ %610, %609 ], [ %610, %switch.early.test.i279 ], [ %610, %switch.early.test.i279 ], [ 95, %617 ]
+  %.sink.i275 = phi i8 [ %610, %switch.early.test.i279 ], [ %610, %switch.early.test.i279 ], [ %610, %609 ], [ 95, %617 ]
   %621 = getelementptr i8, ptr %.02833.i271, i64 1
   store i8 %.sink.i275, ptr %.02833.i271, align 1
   br label %622
 
 622:                                              ; preds = %.sink.split.i274, %617, %615, %switch.early.test.i279
-  %.1.i276 = phi ptr [ %.02833.i271, %switch.early.test.i279 ], [ %606, %615 ], [ %.02833.i271, %617 ], [ %621, %.sink.split.i274 ]
+  %.1.i276 = phi ptr [ %606, %615 ], [ %.02833.i271, %617 ], [ %.02833.i271, %switch.early.test.i279 ], [ %621, %.sink.split.i274 ]
   %623 = getelementptr i8, ptr %.034.i270, i64 1
   %624 = load i8, ptr %623, align 1
   %.not.i277 = icmp eq i8 %624, 0
@@ -4067,13 +4067,13 @@ switch.early.test.i292:                           ; preds = %643
   br i1 %654, label %656, label %.sink.split.i287
 
 .sink.split.i287:                                 ; preds = %651, %switch.early.test.i292, %switch.early.test.i292, %643
-  %.sink.i288 = phi i8 [ %644, %643 ], [ %644, %switch.early.test.i292 ], [ %644, %switch.early.test.i292 ], [ 95, %651 ]
+  %.sink.i288 = phi i8 [ %644, %switch.early.test.i292 ], [ %644, %switch.early.test.i292 ], [ %644, %643 ], [ 95, %651 ]
   %655 = getelementptr i8, ptr %.02833.i284, i64 1
   store i8 %.sink.i288, ptr %.02833.i284, align 1
   br label %656
 
 656:                                              ; preds = %.sink.split.i287, %651, %649, %switch.early.test.i292
-  %.1.i289 = phi ptr [ %.02833.i284, %switch.early.test.i292 ], [ %640, %649 ], [ %.02833.i284, %651 ], [ %655, %.sink.split.i287 ]
+  %.1.i289 = phi ptr [ %640, %649 ], [ %.02833.i284, %651 ], [ %.02833.i284, %switch.early.test.i292 ], [ %655, %.sink.split.i287 ]
   %657 = getelementptr i8, ptr %.034.i283, i64 1
   %658 = load i8, ptr %657, align 1
   %.not.i290 = icmp eq i8 %658, 0
@@ -4186,13 +4186,13 @@ switch.early.test.i305:                           ; preds = %694
   br i1 %705, label %707, label %.sink.split.i300
 
 .sink.split.i300:                                 ; preds = %702, %switch.early.test.i305, %switch.early.test.i305, %694
-  %.sink.i301 = phi i8 [ %695, %694 ], [ %695, %switch.early.test.i305 ], [ %695, %switch.early.test.i305 ], [ 95, %702 ]
+  %.sink.i301 = phi i8 [ %695, %switch.early.test.i305 ], [ %695, %switch.early.test.i305 ], [ %695, %694 ], [ 95, %702 ]
   %706 = getelementptr i8, ptr %.02833.i297, i64 1
   store i8 %.sink.i301, ptr %.02833.i297, align 1
   br label %707
 
 707:                                              ; preds = %.sink.split.i300, %702, %700, %switch.early.test.i305
-  %.1.i302 = phi ptr [ %.02833.i297, %switch.early.test.i305 ], [ %691, %700 ], [ %.02833.i297, %702 ], [ %706, %.sink.split.i300 ]
+  %.1.i302 = phi ptr [ %691, %700 ], [ %.02833.i297, %702 ], [ %.02833.i297, %switch.early.test.i305 ], [ %706, %.sink.split.i300 ]
   %708 = getelementptr i8, ptr %.034.i296, i64 1
   %709 = load i8, ptr %708, align 1
   %.not.i303 = icmp eq i8 %709, 0
@@ -4270,13 +4270,13 @@ switch.early.test.i318:                           ; preds = %727
   br i1 %738, label %740, label %.sink.split.i313
 
 .sink.split.i313:                                 ; preds = %735, %switch.early.test.i318, %switch.early.test.i318, %727
-  %.sink.i314 = phi i8 [ %728, %727 ], [ %728, %switch.early.test.i318 ], [ %728, %switch.early.test.i318 ], [ 95, %735 ]
+  %.sink.i314 = phi i8 [ %728, %switch.early.test.i318 ], [ %728, %switch.early.test.i318 ], [ %728, %727 ], [ 95, %735 ]
   %739 = getelementptr i8, ptr %.02833.i310, i64 1
   store i8 %.sink.i314, ptr %.02833.i310, align 1
   br label %740
 
 740:                                              ; preds = %.sink.split.i313, %735, %733, %switch.early.test.i318
-  %.1.i315 = phi ptr [ %.02833.i310, %switch.early.test.i318 ], [ %724, %733 ], [ %.02833.i310, %735 ], [ %739, %.sink.split.i313 ]
+  %.1.i315 = phi ptr [ %724, %733 ], [ %.02833.i310, %735 ], [ %.02833.i310, %switch.early.test.i318 ], [ %739, %.sink.split.i313 ]
   %741 = getelementptr i8, ptr %.034.i309, i64 1
   %742 = load i8, ptr %741, align 1
   %.not.i316 = icmp eq i8 %742, 0
@@ -4354,13 +4354,13 @@ switch.early.test.i331:                           ; preds = %760
   br i1 %771, label %773, label %.sink.split.i326
 
 .sink.split.i326:                                 ; preds = %768, %switch.early.test.i331, %switch.early.test.i331, %760
-  %.sink.i327 = phi i8 [ %761, %760 ], [ %761, %switch.early.test.i331 ], [ %761, %switch.early.test.i331 ], [ 95, %768 ]
+  %.sink.i327 = phi i8 [ %761, %switch.early.test.i331 ], [ %761, %switch.early.test.i331 ], [ %761, %760 ], [ 95, %768 ]
   %772 = getelementptr i8, ptr %.02833.i323, i64 1
   store i8 %.sink.i327, ptr %.02833.i323, align 1
   br label %773
 
 773:                                              ; preds = %.sink.split.i326, %768, %766, %switch.early.test.i331
-  %.1.i328 = phi ptr [ %.02833.i323, %switch.early.test.i331 ], [ %757, %766 ], [ %.02833.i323, %768 ], [ %772, %.sink.split.i326 ]
+  %.1.i328 = phi ptr [ %757, %766 ], [ %.02833.i323, %768 ], [ %.02833.i323, %switch.early.test.i331 ], [ %772, %.sink.split.i326 ]
   %774 = getelementptr i8, ptr %.034.i322, i64 1
   %775 = load i8, ptr %774, align 1
   %.not.i329 = icmp eq i8 %775, 0
@@ -4438,13 +4438,13 @@ switch.early.test.i344:                           ; preds = %793
   br i1 %804, label %806, label %.sink.split.i339
 
 .sink.split.i339:                                 ; preds = %801, %switch.early.test.i344, %switch.early.test.i344, %793
-  %.sink.i340 = phi i8 [ %794, %793 ], [ %794, %switch.early.test.i344 ], [ %794, %switch.early.test.i344 ], [ 95, %801 ]
+  %.sink.i340 = phi i8 [ %794, %switch.early.test.i344 ], [ %794, %switch.early.test.i344 ], [ %794, %793 ], [ 95, %801 ]
   %805 = getelementptr i8, ptr %.02833.i336, i64 1
   store i8 %.sink.i340, ptr %.02833.i336, align 1
   br label %806
 
 806:                                              ; preds = %.sink.split.i339, %801, %799, %switch.early.test.i344
-  %.1.i341 = phi ptr [ %.02833.i336, %switch.early.test.i344 ], [ %790, %799 ], [ %.02833.i336, %801 ], [ %805, %.sink.split.i339 ]
+  %.1.i341 = phi ptr [ %790, %799 ], [ %.02833.i336, %801 ], [ %.02833.i336, %switch.early.test.i344 ], [ %805, %.sink.split.i339 ]
   %807 = getelementptr i8, ptr %.034.i335, i64 1
   %808 = load i8, ptr %807, align 1
   %.not.i342 = icmp eq i8 %808, 0
@@ -4555,13 +4555,13 @@ switch.early.test.i357:                           ; preds = %843
   br i1 %854, label %856, label %.sink.split.i352
 
 .sink.split.i352:                                 ; preds = %851, %switch.early.test.i357, %switch.early.test.i357, %843
-  %.sink.i353 = phi i8 [ %844, %843 ], [ %844, %switch.early.test.i357 ], [ %844, %switch.early.test.i357 ], [ 95, %851 ]
+  %.sink.i353 = phi i8 [ %844, %switch.early.test.i357 ], [ %844, %switch.early.test.i357 ], [ %844, %843 ], [ 95, %851 ]
   %855 = getelementptr i8, ptr %.02833.i349, i64 1
   store i8 %.sink.i353, ptr %.02833.i349, align 1
   br label %856
 
 856:                                              ; preds = %.sink.split.i352, %851, %849, %switch.early.test.i357
-  %.1.i354 = phi ptr [ %.02833.i349, %switch.early.test.i357 ], [ %840, %849 ], [ %.02833.i349, %851 ], [ %855, %.sink.split.i352 ]
+  %.1.i354 = phi ptr [ %840, %849 ], [ %.02833.i349, %851 ], [ %.02833.i349, %switch.early.test.i357 ], [ %855, %.sink.split.i352 ]
   %857 = getelementptr i8, ptr %.034.i348, i64 1
   %858 = load i8, ptr %857, align 1
   %.not.i355 = icmp eq i8 %858, 0
@@ -4641,13 +4641,13 @@ switch.early.test.i370:                           ; preds = %877
   br i1 %888, label %890, label %.sink.split.i365
 
 .sink.split.i365:                                 ; preds = %885, %switch.early.test.i370, %switch.early.test.i370, %877
-  %.sink.i366 = phi i8 [ %878, %877 ], [ %878, %switch.early.test.i370 ], [ %878, %switch.early.test.i370 ], [ 95, %885 ]
+  %.sink.i366 = phi i8 [ %878, %switch.early.test.i370 ], [ %878, %switch.early.test.i370 ], [ %878, %877 ], [ 95, %885 ]
   %889 = getelementptr i8, ptr %.02833.i362, i64 1
   store i8 %.sink.i366, ptr %.02833.i362, align 1
   br label %890
 
 890:                                              ; preds = %.sink.split.i365, %885, %883, %switch.early.test.i370
-  %.1.i367 = phi ptr [ %.02833.i362, %switch.early.test.i370 ], [ %874, %883 ], [ %.02833.i362, %885 ], [ %889, %.sink.split.i365 ]
+  %.1.i367 = phi ptr [ %874, %883 ], [ %.02833.i362, %885 ], [ %.02833.i362, %switch.early.test.i370 ], [ %889, %.sink.split.i365 ]
   %891 = getelementptr i8, ptr %.034.i361, i64 1
   %892 = load i8, ptr %891, align 1
   %.not.i368 = icmp eq i8 %892, 0

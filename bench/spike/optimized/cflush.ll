@@ -542,7 +542,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit61.thread:  ; preds = %2
   br label %66
 
 58:                                               ; preds = %_ZNKSt6vectorIP13disasm_insn_tSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, %8
-  %.020 = phi i1 [ false, %_ZNKSt6vectorIP13disasm_insn_tSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ true, %8 ]
+  %.020 = phi i1 [ true, %8 ], [ false, %_ZNKSt6vectorIP13disasm_insn_tSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %59 = landingpad { ptr, i32 }
           cleanup
   %60 = load ptr, ptr %3, align 8, !tbaa !25
@@ -579,7 +579,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit63.thread:  ; preds = %23
   br label %78
 
 70:                                               ; preds = %_ZNKSt6vectorIP13disasm_insn_tSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i35, %25
-  %.011 = phi i1 [ false, %_ZNKSt6vectorIP13disasm_insn_tSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i35 ], [ true, %25 ]
+  %.011 = phi i1 [ true, %25 ], [ false, %_ZNKSt6vectorIP13disasm_insn_tSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i35 ]
   %71 = landingpad { ptr, i32 }
           cleanup
   %72 = load ptr, ptr %4, align 8, !tbaa !25
@@ -616,7 +616,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit65.thread:  ; preds = %41
   br label %90
 
 82:                                               ; preds = %_ZNKSt6vectorIP13disasm_insn_tSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i49, %43
-  %.0 = phi i1 [ false, %_ZNKSt6vectorIP13disasm_insn_tSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i49 ], [ true, %43 ]
+  %.0 = phi i1 [ true, %43 ], [ false, %_ZNKSt6vectorIP13disasm_insn_tSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i49 ]
   %83 = landingpad { ptr, i32 }
           cleanup
   %84 = load ptr, ptr %5, align 8, !tbaa !25
@@ -641,10 +641,10 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit65:         ; preds = %82
   call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef 64) #23
   br label %91
 
-91:                                               ; preds = %85, %79, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit65, %90, %67, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit63, %78, %73
-  %.ph = phi ptr [ %15, %73 ], [ %15, %78 ], [ %15, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit63 ], [ %15, %67 ], [ %33, %90 ], [ %33, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit65 ], [ %33, %79 ], [ %33, %85 ]
-  %.pr.ph = phi ptr [ %14, %73 ], [ %14, %78 ], [ %14, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit63 ], [ %14, %67 ], [ %29, %90 ], [ %29, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit65 ], [ %29, %79 ], [ %29, %85 ]
-  %.pn27.pn.pn.ph.ph = phi { ptr, i32 } [ %71, %73 ], [ %.pn2482, %78 ], [ %71, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit63 ], [ %68, %67 ], [ %.pn2785, %90 ], [ %83, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit65 ], [ %80, %79 ], [ %83, %85 ]
+91:                                               ; preds = %85, %79, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit65, %90, %73, %67, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit63, %78
+  %.ph = phi ptr [ %15, %78 ], [ %15, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit63 ], [ %15, %67 ], [ %15, %73 ], [ %33, %90 ], [ %33, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit65 ], [ %33, %79 ], [ %33, %85 ]
+  %.pr.ph = phi ptr [ %14, %78 ], [ %14, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit63 ], [ %14, %67 ], [ %14, %73 ], [ %29, %90 ], [ %29, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit65 ], [ %29, %79 ], [ %29, %85 ]
+  %.pn27.pn.pn.ph.ph = phi { ptr, i32 } [ %.pn2482, %78 ], [ %71, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit63 ], [ %68, %67 ], [ %71, %73 ], [ %.pn2785, %90 ], [ %83, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit65 ], [ %80, %79 ], [ %83, %85 ]
   %92 = ptrtoint ptr %.ph to i64
   %93 = ptrtoint ptr %.pr.ph to i64
   %94 = sub i64 %92, %93
@@ -652,7 +652,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit65:         ; preds = %82
   br label %_ZNSt6vectorIP13disasm_insn_tSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP13disasm_insn_tSaIS1_EED2Ev.exit:   ; preds = %61, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit61, %66, %91
-  %.pn27.pn.pn104 = phi { ptr, i32 } [ %.pn79, %66 ], [ %.pn27.pn.pn.ph.ph, %91 ], [ %59, %61 ], [ %59, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit61 ]
+  %.pn27.pn.pn104 = phi { ptr, i32 } [ %.pn27.pn.pn.ph.ph, %91 ], [ %59, %61 ], [ %59, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit61 ], [ %.pn79, %66 ]
   resume { ptr, i32 } %.pn27.pn.pn104
 }
 

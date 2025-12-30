@@ -557,7 +557,7 @@ define range(i32 -1, 1) i32 @H5G__dense_insert(ptr noundef %0, ptr noundef reado
   br label %.thread94
 
 .thread94:                                        ; preds = %29, %36, %45, %119, %120, %123
-  %.499 = phi i32 [ -1, %123 ], [ %.3, %119 ], [ %.3, %120 ], [ -1, %45 ], [ -1, %36 ], [ -1, %29 ]
+  %.499 = phi i32 [ %.3, %119 ], [ %.3, %120 ], [ -1, %123 ], [ -1, %45 ], [ -1, %36 ], [ -1, %29 ]
   %127 = call i32 @H5WB_unwrap(ptr noundef nonnull %20) #9
   %128 = icmp slt i32 %127, 0
   br i1 %128, label %129, label %133
@@ -867,8 +867,8 @@ define range(i32 -1, 1) i32 @H5G__dense_lookup_by_idx(ptr noundef %0, ptr nounde
   %89 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__dense_lookup_by_idx, i32 noundef 688, i64 noundef %87, i64 noundef %88, ptr noundef nonnull @.str.27) #9
   br label %.thread67
 
-.thread67:                                        ; preds = %67, %57, %51, %61, %71, %86, %83, %82
-  %.4 = phi i32 [ -1, %86 ], [ %.3, %83 ], [ %.3, %82 ], [ -1, %71 ], [ -1, %67 ], [ -1, %57 ], [ -1, %51 ], [ 0, %61 ]
+.thread67:                                        ; preds = %61, %67, %57, %51, %71, %86, %83, %82
+  %.4 = phi i32 [ -1, %86 ], [ %.3, %83 ], [ %.3, %82 ], [ -1, %71 ], [ 0, %61 ], [ -1, %67 ], [ -1, %57 ], [ -1, %51 ]
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !70
   %.not53 = icmp eq ptr %91, null
@@ -999,7 +999,7 @@ define noundef range(i32 -1, 1) i32 @H5G__dense_build_table(ptr noundef %0, ptr 
   br label %43
 
 43:                                               ; preds = %5, %41, %40
-  %.017 = phi i32 [ 0, %5 ], [ %.1, %40 ], [ 0, %41 ]
+  %.017 = phi i32 [ %.1, %40 ], [ 0, %41 ], [ 0, %5 ]
   ret i32 %.017
 }
 
@@ -1157,8 +1157,8 @@ define i32 @H5G__dense_iterate(ptr noundef %0, ptr noundef readonly captures(non
   %88 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__dense_iterate, i32 noundef 975, i64 noundef %86, i64 noundef %87, ptr noundef nonnull @.str.27) #9
   br label %.thread72
 
-.thread72:                                        ; preds = %66, %59, %63, %70, %85, %82, %81
-  %.4 = phi i32 [ -1, %85 ], [ %.3, %82 ], [ %.3, %81 ], [ -1, %70 ], [ %64, %66 ], [ -1, %59 ], [ %64, %63 ]
+.thread72:                                        ; preds = %63, %66, %59, %70, %85, %82, %81
+  %.4 = phi i32 [ -1, %85 ], [ %.3, %82 ], [ %.3, %81 ], [ -1, %70 ], [ %64, %63 ], [ %64, %66 ], [ -1, %59 ]
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !70
   %.not55 = icmp eq ptr %90, null
@@ -1462,8 +1462,8 @@ define range(i32 -1, 1) i32 @H5G__dense_get_name_by_idx(ptr noundef %0, ptr noun
   %99 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__dense_get_name_by_idx, i32 noundef 1164, i64 noundef %97, i64 noundef %98, ptr noundef nonnull @.str.27) #9
   br label %.thread85
 
-.thread85:                                        ; preds = %74, %78, %63, %57, %67, %81, %96, %93, %92
-  %.4 = phi i32 [ -1, %96 ], [ %.3, %93 ], [ %.3, %92 ], [ -1, %81 ], [ 0, %74 ], [ 0, %78 ], [ -1, %63 ], [ -1, %57 ], [ 0, %67 ]
+.thread85:                                        ; preds = %67, %74, %78, %63, %57, %81, %96, %93, %92
+  %.4 = phi i32 [ -1, %96 ], [ %.3, %93 ], [ %.3, %92 ], [ -1, %81 ], [ 0, %67 ], [ 0, %74 ], [ 0, %78 ], [ -1, %63 ], [ -1, %57 ]
   %100 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !70
   %.not71 = icmp eq ptr %101, null
@@ -1860,8 +1860,8 @@ define range(i32 -1, 1) i32 @H5G__dense_remove_by_idx(ptr noundef %0, ptr nounde
   %94 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__dense_remove_by_idx, i32 noundef 1560, i64 noundef %92, i64 noundef %93, ptr noundef nonnull @.str.27) #9
   br label %.thread73
 
-.thread73:                                        ; preds = %72, %60, %54, %64, %76, %91, %88, %87
-  %.4 = phi i32 [ -1, %91 ], [ %.3, %88 ], [ %.3, %87 ], [ -1, %76 ], [ -1, %72 ], [ -1, %60 ], [ -1, %54 ], [ 0, %64 ]
+.thread73:                                        ; preds = %64, %72, %60, %54, %76, %91, %88, %87
+  %.4 = phi i32 [ -1, %91 ], [ %.3, %88 ], [ %.3, %87 ], [ -1, %76 ], [ 0, %64 ], [ -1, %72 ], [ -1, %60 ], [ -1, %54 ]
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !70
   %.not59 = icmp eq ptr %96, null
@@ -2033,8 +2033,8 @@ define internal range(i32 -1, 1) i32 @H5G__dense_remove_by_idx_bt2_cb(ptr nounde
   br label %92
 
 92:                                               ; preds = %.thread, %82, %88, %78, %69
-  %.135 = phi i32 [ -1, %.thread ], [ -1, %69 ], [ -1, %78 ], [ -1, %88 ], [ 0, %82 ]
-  %.033 = phi ptr [ %48, %.thread ], [ %.1, %69 ], [ %.1, %78 ], [ %.1, %88 ], [ %.1, %82 ]
+  %.135 = phi i32 [ -1, %69 ], [ -1, %78 ], [ -1, %88 ], [ 0, %82 ], [ -1, %.thread ]
+  %.033 = phi ptr [ %.1, %69 ], [ %.1, %78 ], [ %.1, %88 ], [ %.1, %82 ], [ %48, %.thread ]
   %.not38 = icmp eq ptr %.033, null
   br i1 %.not38, label %100, label %93
 
@@ -2188,7 +2188,7 @@ define range(i32 -1, 1) i32 @H5G__dense_delete(ptr noundef %0, ptr noundef captu
   br label %81
 
 81:                                               ; preds = %.thread, %3, %80, %76, %66, %52
-  %.027 = phi i32 [ -1, %66 ], [ -1, %76 ], [ 0, %80 ], [ -1, %.thread ], [ -1, %52 ], [ 0, %3 ]
+  %.027 = phi i32 [ -1, %66 ], [ -1, %76 ], [ 0, %80 ], [ -1, %52 ], [ 0, %3 ], [ -1, %.thread ]
   ret i32 %.027
 }
 
@@ -2429,8 +2429,8 @@ define internal range(i32 -1, 1) i32 @H5G__dense_remove_fh_cb(ptr noundef %0, i6
   br label %59
 
 59:                                               ; preds = %.thread, %51, %55, %47
-  %.028 = phi ptr [ %20, %.thread ], [ %.129, %47 ], [ %.129, %55 ], [ %.129, %51 ]
-  %.1 = phi i32 [ -1, %.thread ], [ -1, %47 ], [ -1, %55 ], [ 0, %51 ]
+  %.028 = phi ptr [ %.129, %47 ], [ %.129, %55 ], [ %.129, %51 ], [ %20, %.thread ]
+  %.1 = phi i32 [ -1, %47 ], [ -1, %55 ], [ 0, %51 ], [ -1, %.thread ]
   %.not34 = icmp eq ptr %.028, null
   br i1 %.not34, label %71, label %60
 

@@ -1327,7 +1327,7 @@ skip_prefix.exit.i:                               ; preds = %89, %skip_prefix.ex
   br label %skip_prefix.exit19.i
 
 skip_prefix.exit19.i:                             ; preds = %83, %89, %skip_prefix.exit.i, %94
-  %.sink33.i = phi ptr [ %97, %94 ], [ %scevgep28.i, %skip_prefix.exit.i ], [ %82, %89 ], [ %scevgep.i, %83 ]
+  %.sink33.i = phi ptr [ %97, %94 ], [ %82, %89 ], [ %scevgep28.i, %skip_prefix.exit.i ], [ %scevgep.i, %83 ]
   %98 = call ptr @xstrdup(ptr noundef %.sink33.i) #20
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %98, ptr %99, align 8, !tbaa !177
@@ -1408,7 +1408,7 @@ wt_status_get_detached_from.exit:                 ; preds = %62, %108
   br label %wt_status_check_sparse_checkout.exit
 
 wt_status_check_sparse_checkout.exit:             ; preds = %112, %114, %120, %131
-  %.sink.i = phi i32 [ %134, %131 ], [ -1, %112 ], [ -1, %114 ], [ -2, %120 ]
+  %.sink.i = phi i32 [ %134, %131 ], [ -1, %114 ], [ -1, %112 ], [ -2, %120 ]
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %.sink.i, ptr %135, align 4, !tbaa !181
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1494,7 +1494,7 @@ define dso_local i64 @wt_status_locate_end(ptr noundef %0, i64 noundef %1) local
   br label %16
 
 16:                                               ; preds = %2, %9, %12
-  %.0 = phi i64 [ %1, %9 ], [ %spec.select, %12 ], [ 0, %2 ]
+  %.0 = phi i64 [ %spec.select, %12 ], [ %1, %9 ], [ 0, %2 ]
   call void @strbuf_release(ptr noundef nonnull %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
@@ -1987,7 +1987,7 @@ skip_prefix.exit.i.i:                             ; preds = %81, %.preheader.i.i
   br label %88
 
 88:                                               ; preds = %skip_prefix.exit.i.i, %78, %75
-  %.0.i.i = phi ptr [ %spec.select.i.i, %78 ], [ %.1.i.i, %skip_prefix.exit.i.i ], [ %77, %75 ]
+  %.0.i.i = phi ptr [ %77, %75 ], [ %.1.i.i, %skip_prefix.exit.i.i ], [ %spec.select.i.i, %78 ]
   %89 = tail call ptr @branch_get(ptr noundef %.0.i.i) #20
   store ptr null, ptr %22, align 8, !tbaa !22
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 812
@@ -2698,9 +2698,9 @@ _.exit122.i:                                      ; preds = %_.exit122.sink.spli
   br i1 %439, label %.preheader.i18, label %_.exit128.i, !llvm.loop !176
 
 _.exit128.i:                                      ; preds = %435, %.preheader.i18, %433, %431, %429, %428, %426, %425, %_.exit122.i
-  %.0291.i = phi ptr [ %420, %429 ], [ %420, %426 ], [ @.str.29, %433 ], [ %417, %_.exit122.i ], [ %420, %425 ], [ %420, %428 ], [ @.str.29, %431 ], [ %400, %435 ], [ %scevgep.i, %.preheader.i18 ]
-  %.081.i = phi ptr [ %.0.i119.i, %429 ], [ %.0.i119.i, %426 ], [ %.0.i119.i, %433 ], [ %.0.i119.i, %_.exit122.i ], [ %.0.i119.i, %425 ], [ %.0.i119.i, %428 ], [ %.0.i119.i, %431 ], [ %.0.i116.i, %.preheader.i18 ], [ %.0.i116.i, %435 ]
-  %.1.i = phi ptr [ %430, %429 ], [ %427, %426 ], [ %434, %433 ], [ %.0.i, %_.exit122.i ], [ @.str.96, %425 ], [ @.str.97, %428 ], [ @.str.98, %431 ], [ %.0.i117.i, %.preheader.i18 ], [ %.0.i117.i, %435 ]
+  %.0291.i = phi ptr [ %417, %_.exit122.i ], [ %420, %425 ], [ %420, %426 ], [ %420, %428 ], [ %420, %429 ], [ @.str.29, %431 ], [ @.str.29, %433 ], [ %400, %435 ], [ %scevgep.i, %.preheader.i18 ]
+  %.081.i = phi ptr [ %.0.i119.i, %_.exit122.i ], [ %.0.i119.i, %425 ], [ %.0.i119.i, %426 ], [ %.0.i119.i, %428 ], [ %.0.i119.i, %429 ], [ %.0.i119.i, %431 ], [ %.0.i119.i, %433 ], [ %.0.i116.i, %.preheader.i18 ], [ %.0.i116.i, %435 ]
+  %.1.i = phi ptr [ %.0.i, %_.exit122.i ], [ @.str.96, %425 ], [ %427, %426 ], [ @.str.97, %428 ], [ %430, %429 ], [ @.str.98, %431 ], [ %434, %433 ], [ %.0.i117.i, %.preheader.i18 ], [ %.0.i117.i, %435 ]
   %440 = load i32, ptr %384, align 8, !tbaa !31
   %441 = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef %440) #20
   %.not.i136.i = icmp eq i32 %441, 0
@@ -3445,12 +3445,12 @@ _.exit91.i.i.i:                                   ; preds = %718, %716
   br i1 %.not4.i92.i.i.i, label %show_rebase_in_progress.exit.i.sink.split.i, label %show_rebase_in_progress.exit.i.sink.split.sink.split.i
 
 show_rebase_in_progress.exit.i.sink.split.sink.split.i: ; preds = %_.exit91.i.i.i, %696, %643, %_.exit57.i.i.i
-  %.str.162.sink.i = phi ptr [ @.str.158, %696 ], [ @.str.155, %643 ], [ @.str.154, %_.exit57.i.i.i ], [ @.str.162, %_.exit91.i.i.i ]
+  %.str.162.sink.i = phi ptr [ @.str.154, %_.exit57.i.i.i ], [ @.str.155, %643 ], [ @.str.158, %696 ], [ @.str.162, %_.exit91.i.i.i ]
   %721 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.162.sink.i, i32 noundef 5) #20
   br label %show_rebase_in_progress.exit.i.sink.split.i
 
 show_rebase_in_progress.exit.i.sink.split.i:      ; preds = %show_rebase_in_progress.exit.i.sink.split.sink.split.i, %_.exit91.i.i.i, %696, %643, %_.exit57.i.i.i
-  %.0.i93.i.i.sink.i = phi ptr [ @.str.158, %696 ], [ @.str.155, %643 ], [ @.str.154, %_.exit57.i.i.i ], [ @.str.162, %_.exit91.i.i.i ], [ %721, %show_rebase_in_progress.exit.i.sink.split.sink.split.i ]
+  %.0.i93.i.i.sink.i = phi ptr [ @.str.154, %_.exit57.i.i.i ], [ @.str.155, %643 ], [ @.str.158, %696 ], [ @.str.162, %_.exit91.i.i.i ], [ %721, %show_rebase_in_progress.exit.i.sink.split.sink.split.i ]
   call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i139.i, ptr noundef %.0.i93.i.i.sink.i)
   br label %show_rebase_in_progress.exit.i.i
 
@@ -3626,7 +3626,7 @@ _.exit148.sink.split.i:                           ; preds = %772
   br label %_.exit148.i
 
 _.exit148.i:                                      ; preds = %_.exit148.sink.split.i, %772
-  %781 = phi ptr [ %.str.100..str.99.i, %772 ], [ %780, %_.exit148.sink.split.i ]
+  %781 = phi ptr [ %780, %_.exit148.sink.split.i ], [ %.str.100..str.99.i, %772 ]
   call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef nonnull %0, ptr noundef nonnull %.0.i145.i, ptr noundef %781)
   %782 = load i32, ptr %384, align 8, !tbaa !31
   %783 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %782) #20
@@ -3947,12 +3947,12 @@ _.exit53.i.i.i:                                   ; preds = %879, %877
   br i1 %.not4.i63.i.i.i, label %.sink.split.i.i182.i, label %.sink.split.sink.split.i.i181.i
 
 .sink.split.sink.split.i.i181.i:                  ; preds = %884, %882
-  %.str.210.sink.i.i.i = phi ptr [ %.str.210..str.211.i.i.i, %884 ], [ %.str.209..str.210.i.i.i, %882 ]
+  %.str.210.sink.i.i.i = phi ptr [ %.str.209..str.210.i.i.i, %882 ], [ %.str.210..str.211.i.i.i, %884 ]
   %887 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.210.sink.i.i.i, i32 noundef 5) #20
   br label %.sink.split.i.i182.i
 
 .sink.split.i.i182.i:                             ; preds = %.sink.split.sink.split.i.i181.i, %884, %882
-  %.0.i58.sink.i.i.i = phi ptr [ %.str.209..str.210.i.i.i, %882 ], [ %887, %.sink.split.sink.split.i.i181.i ], [ %.str.210..str.211.i.i.i, %884 ]
+  %.0.i58.sink.i.i.i = phi ptr [ %887, %.sink.split.sink.split.i.i181.i ], [ %.str.209..str.210.i.i.i, %882 ], [ %.str.210..str.211.i.i.i, %884 ]
   call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i.i177.i, ptr noundef %.0.i58.sink.i.i.i)
   br label %wt_longstatus_print_unmerged_header.exit.i.i
 
@@ -4006,13 +4006,13 @@ default.unreachable.i.i.i:                        ; preds = %.lr.ph.i.i.i174.i
   unreachable
 
 wt_status_unmerged_status_string.exit25.i.i.i:    ; preds = %899, %898, %897, %896, %895, %894, %893
-  %.str.219.sink.i17.i.i.i = phi ptr [ @.str.218, %898 ], [ @.str.217, %897 ], [ @.str.216, %896 ], [ @.str.215, %895 ], [ @.str.214, %894 ], [ @.str.213, %893 ], [ @.str.219, %899 ]
+  %.str.219.sink.i17.i.i.i = phi ptr [ @.str.213, %893 ], [ @.str.214, %894 ], [ @.str.215, %895 ], [ @.str.216, %896 ], [ @.str.217, %897 ], [ @.str.218, %898 ], [ @.str.219, %899 ]
   %900 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.219.sink.i17.i.i.i, i32 noundef 5) #20
   %.not14.i.i.i.i = icmp eq ptr %900, null
   br i1 %.not14.i.i.i.i, label %902, label %wt_status_unmerged_status_string.exit25.thread.i.i.i
 
 wt_status_unmerged_status_string.exit25.thread.i.i.i: ; preds = %wt_status_unmerged_status_string.exit25.i.i.i, %899, %898, %897, %896, %895, %894, %893
-  %.0.i1828.i.i.i = phi ptr [ %900, %wt_status_unmerged_status_string.exit25.i.i.i ], [ @.str.219, %899 ], [ @.str.217, %897 ], [ @.str.216, %896 ], [ @.str.215, %895 ], [ @.str.214, %894 ], [ @.str.213, %893 ], [ @.str.218, %898 ]
+  %.0.i1828.i.i.i = phi ptr [ %900, %wt_status_unmerged_status_string.exit25.i.i.i ], [ @.str.219, %899 ], [ @.str.218, %898 ], [ @.str.217, %897 ], [ @.str.216, %896 ], [ @.str.215, %895 ], [ @.str.214, %894 ], [ @.str.213, %893 ]
   %901 = call i32 @utf8_strwidth(ptr noundef nonnull %.0.i1828.i.i.i) #20
   br label %902
 
@@ -4095,7 +4095,7 @@ maxwidth.exit.i.i.i:                              ; preds = %902
   unreachable
 
 _.exit.sink.split.i.i.i.i:                        ; preds = %929, %927, %925, %923, %921, %919, %917
-  %.str.219.sink.i.i.i.i = phi ptr [ @.str.218, %927 ], [ @.str.217, %925 ], [ @.str.216, %923 ], [ @.str.215, %921 ], [ @.str.214, %919 ], [ @.str.213, %917 ], [ @.str.219, %929 ]
+  %.str.219.sink.i.i.i.i = phi ptr [ @.str.213, %917 ], [ @.str.214, %919 ], [ @.str.215, %921 ], [ @.str.216, %923 ], [ @.str.217, %925 ], [ @.str.218, %927 ], [ @.str.219, %929 ]
   %932 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.219.sink.i.i.i.i, i32 noundef 5) #20
   br label %.thread.i172.i
 
@@ -4105,7 +4105,7 @@ _.exit.sink.split.i.i.i.i:                        ; preds = %929, %927, %925, %9
   br i1 %934, label %833, label %._crit_edge.i185.i, !llvm.loop !231
 
 .thread.i172.i:                                   ; preds = %_.exit.sink.split.i.i.i.i, %929, %927, %925, %923, %921, %919, %917
-  %.0.i14.i.i.i = phi ptr [ @.str.218, %927 ], [ @.str.213, %917 ], [ @.str.214, %919 ], [ @.str.215, %921 ], [ @.str.216, %923 ], [ @.str.217, %925 ], [ @.str.219, %929 ], [ %932, %_.exit.sink.split.i.i.i.i ]
+  %.0.i14.i.i.i = phi ptr [ @.str.213, %917 ], [ @.str.214, %919 ], [ @.str.215, %921 ], [ @.str.216, %923 ], [ @.str.217, %925 ], [ @.str.218, %927 ], [ @.str.219, %929 ], [ %932, %_.exit.sink.split.i.i.i.i ]
   %.not.i.i17.i.i = icmp eq i32 %889, 0
   %.0.i.i18.i.i = select i1 %.not.i.i17.i.i, ptr @.str.29, ptr %831
   %935 = load i32, ptr @wt_longstatus_print_unmerged_data.label_width, align 4, !tbaa !128
@@ -4209,7 +4209,7 @@ _.exit18.sink.split.i.i.i:                        ; preds = %961
   br label %_.exit18.i.i199.i
 
 _.exit18.i.i199.i:                                ; preds = %_.exit18.sink.split.i.i.i, %961
-  %.0.i20.sink.i.i.i = phi ptr [ %.str.221..str.222.i.i.i, %961 ], [ %963, %_.exit18.sink.split.i.i.i ]
+  %.0.i20.sink.i.i.i = phi ptr [ %963, %_.exit18.sink.split.i.i.i ], [ %.str.221..str.222.i.i.i, %961 ]
   call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i.i194.i, ptr noundef %.0.i20.sink.i.i.i)
   %964 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !128
   %.not4.i22.i.i200.i = icmp eq i32 %964, 0
@@ -4370,7 +4370,7 @@ _.exit227.sink.split.i:                           ; preds = %1012
   br label %_.exit227.i
 
 _.exit227.i:                                      ; preds = %_.exit227.sink.split.i, %1012
-  %.0.i229.sink.i = phi ptr [ %.str.106..str.107.i, %1012 ], [ %1015, %_.exit227.sink.split.i ]
+  %.0.i229.sink.i = phi ptr [ %1015, %_.exit227.sink.split.i ], [ %.str.106..str.107.i, %1012 ]
   %1016 = load i32, ptr %.phi.trans.insert.i.i, align 8, !tbaa !163
   %1017 = uitofp i32 %1016 to double
   %1018 = fdiv double %1017, 1.000000e+03
@@ -5232,7 +5232,7 @@ wt_shortstatus_print_tracking.exit:               ; preds = %9, %149
   br label %181
 
 181:                                              ; preds = %.lr.ph62, %180, %179, %178, %177, %176, %175, %174
-  %.0.i38 = phi ptr [ @.str.48, %.lr.ph62 ], [ @.str.62, %174 ], [ @.str.63, %175 ], [ @.str.64, %176 ], [ @.str.65, %177 ], [ @.str.66, %178 ], [ @.str.67, %179 ], [ @.str.68, %180 ]
+  %.0.i38 = phi ptr [ @.str.62, %174 ], [ @.str.63, %175 ], [ @.str.64, %176 ], [ @.str.65, %177 ], [ @.str.66, %178 ], [ @.str.67, %179 ], [ @.str.68, %180 ], [ @.str.48, %.lr.ph62 ]
   %182 = load ptr, ptr %159, align 8, !tbaa !23
   %183 = load i32, ptr %160, align 8, !tbaa !31
   %184 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %183) #20
@@ -6363,7 +6363,7 @@ strbuf_setlen.exit19:                             ; preds = %32, %33
   br label %skip_prefix.exit
 
 skip_prefix.exit:                                 ; preds = %9, %strbuf_setlen.exit, %strbuf_setlen.exit19, %14
-  %.0 = phi i32 [ 0, %14 ], [ 1, %strbuf_setlen.exit ], [ 1, %strbuf_setlen.exit19 ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %14 ], [ 1, %strbuf_setlen.exit19 ], [ 1, %strbuf_setlen.exit ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -6517,7 +6517,7 @@ _.exit.sink.split:                                ; preds = %32
   br label %_.exit
 
 _.exit:                                           ; preds = %32, %_.exit.sink.split
-  %.0.i13.sink15 = phi ptr [ %.str.234..str.233, %32 ], [ %34, %_.exit.sink.split ]
+  %.0.i13.sink15 = phi ptr [ %34, %_.exit.sink.split ], [ %.str.234..str.233, %32 ]
   %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i13.sink15) #21
   call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull %.0.i13.sink15, i64 noundef %35) #20
   call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull @.str.235, i64 noundef 2) #20
@@ -6977,12 +6977,12 @@ has_unmerged.exit:                                ; preds = %23
   br i1 %.not4.i32, label %_.exit29, label %_.exit29.sink.split
 
 _.exit29.sink.split:                              ; preds = %.loopexit, %has_unmerged.exit
-  %.str.172.sink = phi ptr [ %.str.171..str.172, %.loopexit ], [ @.str.170, %has_unmerged.exit ]
+  %.str.172.sink = phi ptr [ @.str.170, %has_unmerged.exit ], [ %.str.171..str.172, %.loopexit ]
   %31 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.172.sink, i32 noundef 5) #20
   br label %_.exit29
 
 _.exit29:                                         ; preds = %.loopexit, %_.exit29.sink.split, %has_unmerged.exit
-  %.0.i33.sink = phi ptr [ @.str.170, %has_unmerged.exit ], [ %.str.171..str.172, %.loopexit ], [ %31, %_.exit29.sink.split ]
+  %.0.i33.sink = phi ptr [ @.str.170, %has_unmerged.exit ], [ %31, %_.exit29.sink.split ], [ %.str.171..str.172, %.loopexit ]
   tail call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i33.sink)
   %32 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !128
   %.not4.i38 = icmp eq i32 %32, 0
@@ -7101,12 +7101,12 @@ has_unmerged.exit:                                ; preds = %23
   br i1 %.not4.i32, label %_.exit29, label %_.exit29.sink.split
 
 _.exit29.sink.split:                              ; preds = %.loopexit, %has_unmerged.exit
-  %.str.179.sink = phi ptr [ %.str.178..str.179, %.loopexit ], [ @.str.177, %has_unmerged.exit ]
+  %.str.179.sink = phi ptr [ @.str.177, %has_unmerged.exit ], [ %.str.178..str.179, %.loopexit ]
   %31 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.179.sink, i32 noundef 5) #20
   br label %_.exit29
 
 _.exit29:                                         ; preds = %.loopexit, %_.exit29.sink.split, %has_unmerged.exit
-  %.0.i33.sink = phi ptr [ @.str.177, %has_unmerged.exit ], [ %.str.178..str.179, %.loopexit ], [ %31, %_.exit29.sink.split ]
+  %.0.i33.sink = phi ptr [ @.str.177, %has_unmerged.exit ], [ %31, %_.exit29.sink.split ], [ %.str.178..str.179, %.loopexit ]
   tail call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i33.sink)
   %32 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !128
   %.not4.i38 = icmp eq i32 %32, 0
@@ -7707,12 +7707,12 @@ define internal fastcc ptr @wt_status_diff_status_string(i32 noundef %0) unnamed
   br i1 %.not4.i19, label %_.exit, label %_.exit.sink.split
 
 _.exit.sink.split:                                ; preds = %16, %14, %12, %10, %8, %6, %4, %2
-  %.str.207.sink = phi ptr [ @.str.206, %14 ], [ @.str.205, %12 ], [ @.str.204, %10 ], [ @.str.203, %8 ], [ @.str.202, %6 ], [ @.str.201, %4 ], [ @.str.200, %2 ], [ @.str.207, %16 ]
+  %.str.207.sink = phi ptr [ @.str.200, %2 ], [ @.str.201, %4 ], [ @.str.202, %6 ], [ @.str.203, %8 ], [ @.str.204, %10 ], [ @.str.205, %12 ], [ @.str.206, %14 ], [ @.str.207, %16 ]
   %18 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.207.sink, i32 noundef 5) #20
   br label %_.exit
 
 _.exit:                                           ; preds = %_.exit.sink.split, %16, %14, %12, %10, %8, %6, %4, %2, %1
-  %.0 = phi ptr [ @.str.206, %14 ], [ null, %1 ], [ @.str.200, %2 ], [ @.str.201, %4 ], [ @.str.202, %6 ], [ @.str.203, %8 ], [ @.str.204, %10 ], [ @.str.205, %12 ], [ @.str.207, %16 ], [ %18, %_.exit.sink.split ]
+  %.0 = phi ptr [ null, %1 ], [ @.str.200, %2 ], [ @.str.201, %4 ], [ @.str.202, %6 ], [ @.str.203, %8 ], [ @.str.204, %10 ], [ @.str.205, %12 ], [ @.str.206, %14 ], [ @.str.207, %16 ], [ %18, %_.exit.sink.split ]
   ret ptr %.0
 }
 

@@ -192,7 +192,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_print_to_bio(ptr noundef %0, ptr noundef 
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %92, %94, %.lr.ph.split.us, %13, %3
-  %.1 = phi i32 [ 0, %3 ], [ 1, %13 ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split ], [ 0, %92 ], [ 1, %94 ]
+  %.1 = phi i32 [ 0, %3 ], [ 1, %13 ], [ 0, %.lr.ph.split.us ], [ 1, %94 ], [ 0, %92 ], [ 0, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -245,8 +245,8 @@ sub_1.i:                                          ; preds = %11
   br label %.tail.thread.i
 
 .tail.thread.i:                                   ; preds = %.tail.i, %sub_1.i, %11
-  %spec.select61.i = phi i1 [ true, %sub_1.i ], [ %17, %.tail.i ], [ true, %11 ]
-  %18 = phi i64 [ 0, %sub_1.i ], [ %spec.select74.i, %.tail.i ], [ 0, %11 ]
+  %spec.select61.i = phi i1 [ true, %11 ], [ true, %sub_1.i ], [ %17, %.tail.i ]
+  %18 = phi i64 [ 0, %11 ], [ 0, %sub_1.i ], [ %spec.select74.i, %.tail.i ]
   %spec.select.i = getelementptr inbounds nuw i8, ptr %2, i64 %18
   %19 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull %spec.select.i) #7
   %.not.i = icmp eq ptr %5, null
@@ -398,7 +398,7 @@ thread-pre-split.i:                               ; preds = %41
   br label %prepare_from_text.exit.thread
 
 prepare_from_text.exit:                           ; preds = %.thread.i, %70, %51, %25, %64, %73
-  %.026 = phi i64 [ %4, %73 ], [ 0, %25 ], [ %63, %64 ], [ %77, %.thread.i ], [ %61, %51 ], [ %72, %70 ]
+  %.026 = phi i64 [ 0, %25 ], [ %61, %51 ], [ %72, %70 ], [ %77, %.thread.i ], [ %63, %64 ], [ %4, %73 ]
   %79 = call i64 @llvm.umax.i64(i64 %.026, i64 1)
   %80 = call noalias ptr @CRYPTO_zalloc(i64 noundef %79, ptr noundef nonnull @.str.7, i32 noundef 325) #7
   %81 = icmp eq ptr %80, null
@@ -462,7 +462,7 @@ prepare_from_text.exit:                           ; preds = %.thread.i, %70, %51
   br label %construct_from_text.exit
 
 construct_from_text.exit:                         ; preds = %.preheader.i, %82, %84, %86, %91, %97, %101, %103
-  %.035.i = phi i64 [ %.026, %84 ], [ 0, %82 ], [ %.026, %91 ], [ %.026, %86 ], [ %99, %97 ], [ %.026, %101 ], [ %.026, %103 ], [ %.026, %.preheader.i ]
+  %.035.i = phi i64 [ %.026, %84 ], [ %.026, %91 ], [ %.026, %86 ], [ %99, %97 ], [ %.026, %101 ], [ %.026, %103 ], [ 0, %82 ], [ %.026, %.preheader.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %19, i64 16, i1 false), !tbaa.struct !24
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %80, ptr %104, align 8, !tbaa !18
@@ -480,13 +480,13 @@ construct_from_text.exit:                         ; preds = %.preheader.i, %82, 
   call void @CRYPTO_free(ptr noundef nonnull %80, ptr noundef nonnull @.str.7, i32 noundef 332) #7
   br label %111
 
-prepare_from_text.exit.thread:                    ; preds = %35, %69, %33, %67, %43, %23, %49, %78, %prepare_from_text.exit
+prepare_from_text.exit.thread:                    ; preds = %49, %33, %35, %23, %78, %69, %67, %43, %prepare_from_text.exit
   %110 = load ptr, ptr %8, align 8, !tbaa !15
   call void @BN_free(ptr noundef %110) #7
   br label %111
 
 111:                                              ; preds = %construct_from_text.exit, %108, %6, %prepare_from_text.exit.thread
-  %.0 = phi i32 [ 0, %6 ], [ 0, %prepare_from_text.exit.thread ], [ 0, %108 ], [ 1, %construct_from_text.exit ]
+  %.0 = phi i32 [ 0, %prepare_from_text.exit.thread ], [ 0, %6 ], [ 0, %108 ], [ 1, %construct_from_text.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

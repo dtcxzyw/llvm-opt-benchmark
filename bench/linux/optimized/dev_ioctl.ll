@@ -264,7 +264,7 @@ define dso_local i32 @dev_set_hwtstamp_phylib(ptr noundef %0, ptr noundef initia
   br label %.thread8.thread
 
 .thread8.thread:                                  ; preds = %21, %30, %.thread8, %47, %51, %57
-  %63 = phi i1 [ true, %.thread8 ], [ %62, %57 ], [ false, %51 ], [ false, %47 ], [ true, %30 ], [ true, %21 ]
+  %63 = phi i1 [ true, %.thread8 ], [ false, %51 ], [ false, %47 ], [ %62, %57 ], [ true, %30 ], [ true, %21 ]
   %64 = load ptr, ptr %7, align 8
   %65 = call i32 @rtnl_is_locked() #11
   %66 = icmp ne i32 %65, 0
@@ -421,7 +421,7 @@ define dso_local i32 @generic_hwtstamp_get_lower(ptr noundef %0, ptr noundef %1)
   br label %dev_get_hwtstamp_phylib.exit
 
 dev_get_hwtstamp_phylib.exit:                     ; preds = %38, %35, %32, %.thread, %2
-  %63 = phi i32 [ -19, %2 ], [ %62, %.thread ], [ %39, %38 ], [ %37, %35 ], [ -95, %32 ]
+  %63 = phi i32 [ %62, %.thread ], [ -19, %2 ], [ %39, %38 ], [ %37, %35 ], [ -95, %32 ]
   ret i32 %63
 }
 

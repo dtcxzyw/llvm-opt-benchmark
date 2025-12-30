@@ -666,7 +666,7 @@ define internal range(i32 0, 2) i32 @fcstat_packet(ptr noundef readonly captures
   br label %23
 
 23:                                               ; preds = %9, %12, %5, %15
-  %.0 = phi i32 [ 0, %5 ], [ 1, %15 ], [ 0, %12 ], [ 0, %9 ]
+  %.0 = phi i32 [ 1, %15 ], [ 0, %5 ], [ 0, %12 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -982,7 +982,7 @@ define internal fastcc void @dissect_fc_helper(ptr noundef %0, ptr noundef %1, p
   br label %fc_get_ftype.exit
 
 fc_get_ftype.exit:                                ; preds = %124, %135, %136, %138, %139, %140, %141, %142, %143, %145, %147, %148, %150, %151
-  %.0.i = phi i8 [ 0, %151 ], [ 0, %142 ], [ %..i, %136 ], [ 10, %150 ], [ 9, %124 ], [ 3, %138 ], [ 7, %139 ], [ 12, %140 ], [ 13, %141 ], [ 2, %135 ], [ %.13.i, %145 ], [ %.15.i, %148 ], [ %.14.i, %147 ], [ 5, %143 ]
+  %.0.i = phi i8 [ 0, %151 ], [ 0, %142 ], [ 3, %138 ], [ 7, %139 ], [ 12, %140 ], [ 13, %141 ], [ 10, %150 ], [ %..i, %136 ], [ 2, %135 ], [ 5, %143 ], [ %.13.i, %145 ], [ %.14.i, %147 ], [ 9, %124 ], [ %.15.i, %148 ]
   %152 = load ptr, ptr %11, align 8
   %153 = zext nneg i8 %.0.i to i32
   %154 = tail call ptr @val_to_str(i32 noundef %153, ptr noundef nonnull @fc_ftype_vals, ptr noundef nonnull @.str.241)
@@ -1548,7 +1548,7 @@ proto_item_set_hidden.exit509:                    ; preds = %469, %472, %475
   br label %proto_item_set_hidden.exit503
 
 proto_item_set_hidden.exit503:                    ; preds = %453, %450, %444, %431, %proto_item_set_hidden.exit509
-  %.0 = phi ptr [ %479, %proto_item_set_hidden.exit509 ], [ %432, %431 ], [ %447, %444 ], [ %447, %450 ], [ %447, %453 ]
+  %.0 = phi ptr [ %432, %431 ], [ %479, %proto_item_set_hidden.exit509 ], [ %447, %444 ], [ %447, %450 ], [ %447, %453 ]
   switch i8 %.0.i, label %480 [
     i8 4, label %492
     i8 10, label %dissect_fc_ba_acc.exit

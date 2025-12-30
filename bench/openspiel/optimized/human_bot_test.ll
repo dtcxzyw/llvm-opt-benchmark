@@ -549,7 +549,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br label %.body32.i
 
 .body32.i:                                        ; preds = %190, %153, %.body43.thread.i
-  %.pn12.i = phi { ptr, i32 } [ %191, %190 ], [ %152, %.body43.thread.i ], [ %147, %153 ]
+  %.pn12.i = phi { ptr, i32 } [ %191, %190 ], [ %147, %153 ], [ %152, %.body43.thread.i ]
   br label %192
 
 192:                                              ; preds = %192, %.body32.i
@@ -682,7 +682,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN10open_spiel12_GLOBAL__N_115EmptyActionTestEv.exit
 
 .loopexit.i:                                      ; preds = %192, %204, %198, %196, %.loopexit.loopexit48.i, %.thread.i
-  %.pn14.i = phi { ptr, i32 } [ %199, %198 ], [ %197, %196 ], [ %205, %204 ], [ %189, %.loopexit.loopexit48.i ], [ %132, %.thread.i ], [ %.pn12.i, %192 ]
+  %.pn14.i = phi { ptr, i32 } [ %199, %198 ], [ %197, %196 ], [ %205, %204 ], [ %132, %.thread.i ], [ %189, %.loopexit.loopexit48.i ], [ %.pn12.i, %192 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %91) #17
   br label %247
 
@@ -714,7 +714,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit41.i: ; p
   br label %common.resume
 
 common.resume:                                    ; preds = %.body.i122, %921, %.body.i77, %766, %.body.i46, %627, %.body.i24, %506, %.body.i1, %395, %.body.i, %253
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i78, %.body.i77 ], [ %.pn.i, %.body.i ], [ %.pn.i2, %.body.i1 ], [ %.pn.i25, %.body.i24 ], [ %.pn.i47, %.body.i46 ], [ %.pn14.pn.pn.pn.i, %253 ], [ %.pn16.pn.i, %395 ], [ %.pn13.pn.pn.i, %506 ], [ %.pn12.pn.pn.i, %627 ], [ %.pn15.pn.pn.pn.i, %766 ], [ %.pn14.pn.pn.pn.i128, %921 ], [ %.pn.i123, %.body.i122 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn14.pn.pn.pn.i, %253 ], [ %.pn.i, %.body.i ], [ %.pn16.pn.i, %395 ], [ %.pn.i2, %.body.i1 ], [ %.pn13.pn.pn.i, %506 ], [ %.pn.i25, %.body.i24 ], [ %.pn12.pn.pn.i, %627 ], [ %.pn.i47, %.body.i46 ], [ %.pn15.pn.pn.pn.i, %766 ], [ %.pn.i78, %.body.i77 ], [ %.pn14.pn.pn.pn.i128, %921 ], [ %.pn.i123, %.body.i122 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10open_spiel12_GLOBAL__N_115EmptyActionTestEv.exit: ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i, %229, %242, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -997,12 +997,12 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   br label %.body27.i
 
 .body27.i:                                        ; preds = %339, %324, %.body37.thread.i
-  %.pn13.i = phi { ptr, i32 } [ %340, %339 ], [ %323, %.body37.thread.i ], [ %318, %324 ]
+  %.pn13.i = phi { ptr, i32 } [ %340, %339 ], [ %318, %324 ], [ %323, %.body37.thread.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #17
   br label %.body24.i6
 
 .body24.i6:                                       ; preds = %.body27.i, %337, %.body188
-  %.pn13.pn.i = phi { ptr, i32 } [ %302, %.body188 ], [ %338, %337 ], [ %.pn13.i, %.body27.i ]
+  %.pn13.pn.i = phi { ptr, i32 } [ %338, %337 ], [ %302, %.body188 ], [ %.pn13.i, %.body27.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %78) #17
   br label %390
 
@@ -1386,7 +1386,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   br label %.body25.i
 
 .body25.i:                                        ; preds = %454, %439, %.body35.thread.i
-  %.pn11.i = phi { ptr, i32 } [ %455, %454 ], [ %438, %.body35.thread.i ], [ %433, %439 ]
+  %.pn11.i = phi { ptr, i32 } [ %455, %454 ], [ %433, %439 ], [ %438, %.body35.thread.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #17
   br label %.loopexit.i30
 
@@ -1771,7 +1771,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br label %.body24.i58
 
 .body24.i58:                                      ; preds = %569, %551, %.body35.thread.i57
-  %.pn10.i = phi { ptr, i32 } [ %570, %569 ], [ %550, %.body35.thread.i57 ], [ %545, %551 ]
+  %.pn10.i = phi { ptr, i32 } [ %570, %569 ], [ %545, %551 ], [ %550, %.body35.thread.i57 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #17
   br label %.loopexit.i55
 
@@ -2264,7 +2264,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body33.i
 
 .body33.i:                                        ; preds = %709, %676, %.body43.thread.i91
-  %.pn13.i92 = phi { ptr, i32 } [ %710, %709 ], [ %675, %.body43.thread.i91 ], [ %670, %676 ]
+  %.pn13.i92 = phi { ptr, i32 } [ %710, %709 ], [ %670, %676 ], [ %675, %.body43.thread.i91 ]
   br label %711
 
 711:                                              ; preds = %711, %.body33.i
@@ -2375,7 +2375,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN10open_spiel12_GLOBAL__N_123IllegalStringActionTestEv.exit
 
 .loopexit.i89:                                    ; preds = %711, %717, %715, %.loopexit.loopexit48.i90, %.thread.i88
-  %.pn15.i = phi { ptr, i32 } [ %718, %717 ], [ %716, %715 ], [ %708, %.loopexit.loopexit48.i90 ], [ %655, %.thread.i88 ], [ %.pn13.i92, %711 ]
+  %.pn15.i = phi { ptr, i32 } [ %718, %717 ], [ %716, %715 ], [ %655, %.thread.i88 ], [ %708, %.loopexit.loopexit48.i90 ], [ %.pn13.i92, %711 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #17
   br label %760
 
@@ -2781,7 +2781,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br label %.body32.i149
 
 .body32.i149:                                     ; preds = %858, %821, %.body43.thread.i148
-  %.pn12.i150 = phi { ptr, i32 } [ %859, %858 ], [ %820, %.body43.thread.i148 ], [ %815, %821 ]
+  %.pn12.i150 = phi { ptr, i32 } [ %859, %858 ], [ %815, %821 ], [ %820, %.body43.thread.i148 ]
   br label %860
 
 860:                                              ; preds = %860, %.body32.i149
@@ -2914,7 +2914,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN10open_spiel12_GLOBAL__N_120IllegalIntActionTestEv.exit
 
 .loopexit.i145:                                   ; preds = %860, %872, %866, %864, %.loopexit.loopexit48.i147, %.thread.i144
-  %.pn14.i146 = phi { ptr, i32 } [ %867, %866 ], [ %865, %864 ], [ %873, %872 ], [ %857, %.loopexit.loopexit48.i147 ], [ %800, %.thread.i144 ], [ %.pn12.i150, %860 ]
+  %.pn14.i146 = phi { ptr, i32 } [ %867, %866 ], [ %865, %864 ], [ %873, %872 ], [ %800, %.thread.i144 ], [ %857, %.loopexit.loopexit48.i147 ], [ %.pn12.i150, %860 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #17
   br label %915
 

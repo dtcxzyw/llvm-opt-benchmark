@@ -696,8 +696,8 @@ _ZNK6icu_7712UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit: ; preds = %_
   %.not17 = icmp eq i32 %63, 0
   br i1 %.not17, label %.thread30, label %.thread
 
-.thread:                                          ; preds = %39, %_ZNK6icu_7712UnifiedCache12_nextElementEv.exit.thread, %_ZNK6icu_7712UnifiedCache12_isEvictableEPK12UHashElement.exit, %_ZNK6icu_7712UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit
-  %.129 = phi i32 [ %.036, %39 ], [ %63, %_ZNK6icu_7712UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit ], [ %.036, %_ZNK6icu_7712UnifiedCache12_isEvictableEPK12UHashElement.exit ], [ %.036, %_ZNK6icu_7712UnifiedCache12_nextElementEv.exit.thread ]
+.thread:                                          ; preds = %39, %_ZNK6icu_7712UnifiedCache12_nextElementEv.exit.thread, %_ZNK6icu_7712UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit, %_ZNK6icu_7712UnifiedCache12_isEvictableEPK12UHashElement.exit
+  %.129 = phi i32 [ %63, %_ZNK6icu_7712UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit ], [ %.036, %_ZNK6icu_7712UnifiedCache12_isEvictableEPK12UHashElement.exit ], [ %.036, %_ZNK6icu_7712UnifiedCache12_nextElementEv.exit.thread ], [ %.036, %39 ]
   %64 = add nuw nsw i32 %.01435, 1
   %exitcond.not = icmp eq i32 %64, 10
   br i1 %exitcond.not, label %.thread30, label %20, !llvm.loop !47
@@ -1655,7 +1655,7 @@ _ZNK6icu_7712UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i: ; preds = 
   br label %_ZNK6icu_7712UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode.exit
 
 _ZNK6icu_7712UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode.exit: ; preds = %106, %.noexc17, %87, %.critedge15, %75, %71, %_ZNK6icu_7712UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i
-  %.0 = phi i8 [ 1, %75 ], [ 1, %_ZNK6icu_7712UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i ], [ 1, %71 ], [ 0, %.critedge15 ], [ 0, %87 ], [ 0, %.noexc17 ], [ 0, %106 ]
+  %.0 = phi i8 [ 1, %_ZNK6icu_7712UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i ], [ 1, %71 ], [ 1, %75 ], [ 0, %.critedge15 ], [ 0, %87 ], [ 0, %.noexc17 ], [ 0, %106 ]
   %109 = load i8, ptr %7, align 8, !tbaa !52, !range !54, !noundef !55
   %110 = trunc nuw i8 %109 to i1
   br i1 %110, label %111, label %_ZNSt11unique_lockISt5mutexED2Ev.exit19

@@ -1227,7 +1227,7 @@ _ZN7Imf_3_415DeepFrameBufferD2Ev.exit:            ; preds = %._crit_edge82
   br i1 %exitcond96.not, label %._crit_edge79, label %166, !llvm.loop !80
 
 185:                                              ; preds = %.split, %.split.us, %158, %136, %134, %132, %130
-  %.pn.pn = phi { ptr, i32 } [ %131, %130 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %159, %158 ], [ %161, %.split ], [ %101, %.split.us ]
+  %.pn.pn = phi { ptr, i32 } [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %159, %158 ], [ %161, %.split ], [ %101, %.split.us ]
   call void @_ZN7Imf_3_415DeepFrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %12) #19
   br label %.body
 
@@ -1449,7 +1449,7 @@ _ZN7Imf_3_47Array2DIPfED2Ev.exit:                 ; preds = %_ZN7Imf_3_47Array2D
   br label %_ZN7Imf_3_47Array2DIPfED2Ev.exit25
 
 _ZN7Imf_3_47Array2DIPfED2Ev.exit25:               ; preds = %59, %61
-  %.pn.pn39 = phi { ptr, i32 } [ %.pn3644, %61 ], [ %51, %59 ]
+  %.pn.pn39 = phi { ptr, i32 } [ %51, %59 ], [ %.pn3644, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %.pn.pn39

@@ -1647,7 +1647,7 @@ _ZN3std4sync6poison4once4Once9call_once17hbc20ca15f55b63c7E.exit: ; preds = %_ZN
           to label %209 unwind label %142, !noalias !330
 
 common.resume:                                    ; preds = %73, %69, %162, %158, %142
-  %common.resume.op = phi { ptr, i32 } [ %143, %142 ], [ %.pn146, %69 ], [ %.pn146, %73 ], [ %.pn, %162 ], [ %.pn, %158 ]
+  %common.resume.op = phi { ptr, i32 } [ %143, %142 ], [ %.pn146, %73 ], [ %.pn146, %69 ], [ %.pn, %162 ], [ %.pn, %158 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %137
@@ -2424,7 +2424,7 @@ _ZN3std4sync6poison4once4Once9call_once17hbc20ca15f55b63c7E.exit: ; preds = %_ZN
           to label %209 unwind label %142, !noalias !533
 
 common.resume:                                    ; preds = %73, %69, %162, %158, %142
-  %common.resume.op = phi { ptr, i32 } [ %143, %142 ], [ %.pn146, %69 ], [ %.pn146, %73 ], [ %.pn, %162 ], [ %.pn, %158 ]
+  %common.resume.op = phi { ptr, i32 } [ %143, %142 ], [ %.pn146, %73 ], [ %.pn146, %69 ], [ %.pn, %162 ], [ %.pn, %158 ]
   resume { ptr, i32 } %common.resume.op
 
 142:                                              ; preds = %137

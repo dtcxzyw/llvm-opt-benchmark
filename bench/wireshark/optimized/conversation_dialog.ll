@@ -908,7 +908,7 @@ _ZN7QStringD2Ev.exit177:                          ; preds = %235, %_ZN17QArrayDa
   br label %_ZN7QStringD2Ev.exit145
 
 _ZN7QStringD2Ev.exit145:                          ; preds = %187, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i151, %183, %181, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i147, %177, %175, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i143, %171, %_ZN7QStringD2Ev.exit177, %_ZN7QStringD2Ev.exit173, %_ZN7QStringD2Ev.exit169, %_ZN7QStringD2Ev.exit165, %_ZN7QStringD2Ev.exit161, %_ZN7QStringD2Ev.exit157, %169
-  %.pn55 = phi { ptr, i32 } [ %170, %169 ], [ %.pn53, %_ZN7QStringD2Ev.exit177 ], [ %.pn51, %_ZN7QStringD2Ev.exit173 ], [ %.pn49, %_ZN7QStringD2Ev.exit169 ], [ %.pn47, %_ZN7QStringD2Ev.exit165 ], [ %.pn45, %_ZN7QStringD2Ev.exit161 ], [ %.pn, %_ZN7QStringD2Ev.exit157 ], [ %178, %181 ], [ %172, %175 ], [ %172, %171 ], [ %172, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i143 ], [ %178, %177 ], [ %178, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i147 ], [ %184, %183 ], [ %184, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i151 ], [ %184, %187 ]
+  %.pn55 = phi { ptr, i32 } [ %170, %169 ], [ %.pn53, %_ZN7QStringD2Ev.exit177 ], [ %.pn51, %_ZN7QStringD2Ev.exit173 ], [ %.pn49, %_ZN7QStringD2Ev.exit169 ], [ %.pn47, %_ZN7QStringD2Ev.exit165 ], [ %.pn45, %_ZN7QStringD2Ev.exit161 ], [ %.pn, %_ZN7QStringD2Ev.exit157 ], [ %172, %171 ], [ %172, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i143 ], [ %172, %175 ], [ %178, %177 ], [ %178, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i147 ], [ %178, %181 ], [ %184, %183 ], [ %184, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i151 ], [ %184, %187 ]
   call void @_ZN18TrafficTableDialogD2Ev(ptr noundef align 8 dereferenceable_or_null(160) %0) #21
   resume { ptr, i32 } %.pn55
 }
@@ -1251,7 +1251,7 @@ _ZN7TabDataD2Ev.exit45:                           ; preds = %54, %_ZN17QArrayDat
   br label %77
 
 76:                                               ; preds = %66, %73, %_ZN7TabDataD2Ev.exit45, %23
-  %.pn39.pn = phi { ptr, i32 } [ %24, %23 ], [ %.pn.pn, %_ZN7TabDataD2Ev.exit45 ], [ %74, %73 ], [ %.pn37, %66 ]
+  %.pn39.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7TabDataD2Ev.exit45 ], [ %24, %23 ], [ %74, %73 ], [ %.pn37, %66 ]
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %3) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn39.pn

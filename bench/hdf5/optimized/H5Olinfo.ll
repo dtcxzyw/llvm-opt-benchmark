@@ -250,7 +250,7 @@ define internal ptr @H5O__linfo_decode(ptr noundef %0, ptr readnone captures(non
   br label %.thread
 
 .thread:                                          ; preds = %39, %32, %25, %117, %119, %121, %6
-  %.061 = phi ptr [ null, %121 ], [ null, %25 ], [ null, %6 ], [ %37, %117 ], [ %37, %119 ], [ null, %39 ], [ null, %32 ]
+  %.061 = phi ptr [ null, %121 ], [ null, %6 ], [ %37, %117 ], [ %37, %119 ], [ null, %39 ], [ null, %32 ], [ null, %25 ]
   ret ptr %.061
 }
 
@@ -521,7 +521,7 @@ define internal ptr @H5O__linfo_copy_file(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %18, %32, %40, %37, %44, %7
-  %.0 = phi ptr [ null, %44 ], [ null, %18 ], [ null, %7 ], [ %16, %32 ], [ %16, %40 ], [ %16, %37 ]
+  %.0 = phi ptr [ null, %44 ], [ null, %7 ], [ %16, %32 ], [ %16, %40 ], [ %16, %37 ], [ null, %18 ]
   %49 = load i64, ptr %8, align 8, !tbaa !10
   call void @H5AC_tag(i64 noundef %49, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -583,7 +583,7 @@ define internal range(i32 -1, 1) i32 @H5O__linfo_post_copy_file(ptr noundef %0, 
   br label %36
 
 36:                                               ; preds = %6, %21, %18, %35
-  %.015 = phi i32 [ 0, %6 ], [ 0, %18 ], [ %.1, %35 ], [ 0, %21 ]
+  %.015 = phi i32 [ %.1, %35 ], [ 0, %21 ], [ 0, %6 ], [ 0, %18 ]
   ret i32 %.015
 }
 

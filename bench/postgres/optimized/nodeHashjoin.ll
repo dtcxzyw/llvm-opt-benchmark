@@ -589,7 +589,7 @@ ExecHashJoinOuterGetTuple.exit:                   ; preds = %179, %.thread.i
   %.not163.i = icmp eq i16 %184, 0
   br i1 %.not163.i, label %188, label %ExecHashJoinOuterGetTuple.exit.thread
 
-ExecHashJoinOuterGetTuple.exit.thread:            ; preds = %144, %.lr.ph.i, %118, %152, %ExecHashJoinGetSavedTuple.exit.i, %179, %ExecHashJoinGetSavedTuple.exit.thread.i, %148, %ExecHashJoinOuterGetTuple.exit
+ExecHashJoinOuterGetTuple.exit.thread:            ; preds = %144, %.lr.ph.i, %118, %179, %152, %148, %ExecHashJoinGetSavedTuple.exit.i, %ExecHashJoinGetSavedTuple.exit.thread.i, %ExecHashJoinOuterGetTuple.exit
   %185 = load ptr, ptr %31, align 8
   %.not167.i = icmp eq ptr %185, null
   br i1 %.not167.i, label %187, label %186
@@ -793,7 +793,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   br i1 %.not166.i, label %.backedge.backedge, label %281
 
 .backedge.backedge:                               ; preds = %279, %281, %285, %287, %291, %294, %328, %330, %370, %372, %471, %187, %213, %217, %221, %240, %245, %336
-  %.0141.i.be = phi ptr [ %.2143.i, %217 ], [ %.1142.i, %187 ], [ %.1142.i, %213 ], [ %.2143.i, %221 ], [ %.2143.i, %240 ], [ %.2143.i, %245 ], [ %.0141.i, %336 ], [ %.2143.i, %281 ], [ %.2143.i, %279 ], [ %.2143.i, %287 ], [ %.2143.i, %285 ], [ %.0141.i, %291 ], [ %.0141.i, %330 ], [ %.0141.i, %328 ], [ %.0141.i, %294 ], [ %.0141.i, %372 ], [ %.0141.i, %370 ], [ %.0141.i, %471 ]
+  %.0141.i.be = phi ptr [ %.1142.i, %187 ], [ %.1142.i, %213 ], [ %.2143.i, %221 ], [ %.2143.i, %240 ], [ %.2143.i, %245 ], [ %.2143.i, %217 ], [ %.0141.i, %336 ], [ %.2143.i, %281 ], [ %.2143.i, %279 ], [ %.2143.i, %287 ], [ %.2143.i, %285 ], [ %.0141.i, %291 ], [ %.0141.i, %330 ], [ %.0141.i, %328 ], [ %.0141.i, %294 ], [ %.0141.i, %372 ], [ %.0141.i, %370 ], [ %.0141.i, %471 ]
   br label %.backedge
 
 281:                                              ; preds = %279
@@ -1178,7 +1178,7 @@ ExecHashJoinGetSavedTuple.exit.i6:                ; preds = %443
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1260, ptr noundef nonnull @__func__.ExecHashJoinNewBatch) #5
   unreachable
 
-471:                                              ; preds = %465, %461
+471:                                              ; preds = %461, %465
   store i32 2, ptr %29, align 8
   br label %.backedge.backedge
 
@@ -1190,7 +1190,7 @@ ExecHashJoinGetSavedTuple.exit.i6:                ; preds = %443
   unreachable
 
 ExecHashJoinImpl.exit:                            ; preds = %399, %97, %425, %88, %253, %302, %344
-  %.1.i = phi ptr [ %351, %344 ], [ %260, %253 ], [ null, %425 ], [ null, %88 ], [ %309, %302 ], [ null, %97 ], [ null, %399 ]
+  %.1.i = phi ptr [ %260, %253 ], [ null, %88 ], [ %309, %302 ], [ %351, %344 ], [ null, %425 ], [ null, %97 ], [ null, %399 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret ptr %.1.i
 }
@@ -2106,7 +2106,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %231, %241
   br i1 %.not166.i, label %.backedge.backedge, label %319
 
 .backedge.backedge:                               ; preds = %317, %319, %323, %325, %329, %332, %366, %368, %408, %410, %.loopexit, %220, %221, %222, %.critedge.i, %251, %255, %259, %278, %283, %374
-  %.0141.i.be = phi ptr [ %67, %.critedge.i ], [ %.0141.i, %374 ], [ %.0141.i, %251 ], [ %.0141.i, %259 ], [ %.0141.i, %278 ], [ %.0141.i, %283 ], [ %.0141.i, %220 ], [ %.0141.i, %255 ], [ %.0141.i, %222 ], [ %.0141.i, %221 ], [ %.0141.i, %.loopexit ], [ %.0141.i, %410 ], [ %.0141.i, %408 ], [ %.0141.i, %368 ], [ %.0141.i, %366 ], [ %.0141.i, %332 ], [ %.0141.i, %329 ], [ %.0141.i, %325 ], [ %.0141.i, %323 ], [ %.0141.i, %319 ], [ %.0141.i, %317 ]
+  %.0141.i.be = phi ptr [ %.0141.i, %251 ], [ %.0141.i, %259 ], [ %.0141.i, %278 ], [ %.0141.i, %283 ], [ %.0141.i, %255 ], [ %.0141.i, %374 ], [ %67, %.critedge.i ], [ %.0141.i, %222 ], [ %.0141.i, %221 ], [ %.0141.i, %220 ], [ %.0141.i, %.loopexit ], [ %.0141.i, %410 ], [ %.0141.i, %408 ], [ %.0141.i, %368 ], [ %.0141.i, %366 ], [ %.0141.i, %332 ], [ %.0141.i, %329 ], [ %.0141.i, %325 ], [ %.0141.i, %323 ], [ %.0141.i, %319 ], [ %.0141.i, %317 ]
   br label %.backedge
 
 319:                                              ; preds = %317
@@ -2417,7 +2417,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %231, %241
   unreachable
 
 ExecHashJoinImpl.exit:                            ; preds = %148, %473, %.lr.ph, %74, %291, %340, %382
-  %.1.i = phi ptr [ null, %74 ], [ %298, %291 ], [ %389, %382 ], [ null, %473 ], [ %347, %340 ], [ null, %.lr.ph ], [ null, %148 ]
+  %.1.i = phi ptr [ %298, %291 ], [ %347, %340 ], [ %389, %382 ], [ null, %74 ], [ null, %.lr.ph ], [ null, %473 ], [ null, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret ptr %.1.i

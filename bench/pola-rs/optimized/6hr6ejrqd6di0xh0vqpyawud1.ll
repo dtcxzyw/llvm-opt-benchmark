@@ -2153,7 +2153,7 @@ define internal void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17
   unreachable
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2e6dd3aa2f225641E.exit": ; preds = %436, %440, %394, %398, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17ha10f49cecfb1f040E.exit57", %376, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17ha10f49cecfb1f040E.exit50", %355, %242, %246, %225, %229, %208, %212, %468, %463, %458, %453, %448, %421, %416, %411, %406, %336, %331, %326, %322, %317, %311, %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$sqlparser..ast..ObjectName$GT$$GT$17h4df5ccf11c4ff7f6E.exit", %275, %264, %254, %197, %186, %176, %171, %166, %161, %156, %151, %144
-  %.pn32 = phi { ptr, i32 } [ %145, %144 ], [ %152, %151 ], [ %157, %156 ], [ %162, %161 ], [ %167, %166 ], [ %172, %171 ], [ %177, %176 ], [ %.pn30, %186 ], [ %.pn28, %197 ], [ %469, %468 ], [ %.pn26, %208 ], [ %.pn24, %225 ], [ %255, %254 ], [ %.pn20, %264 ], [ %.pn18, %275 ], [ %.pn16, %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$sqlparser..ast..ObjectName$GT$$GT$17h4df5ccf11c4ff7f6E.exit" ], [ %.pn12, %311 ], [ %318, %317 ], [ %323, %322 ], [ %327, %326 ], [ %332, %331 ], [ %337, %336 ], [ %.pn22, %242 ], [ %.pn10, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17ha10f49cecfb1f040E.exit50" ], [ %.pn8, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17ha10f49cecfb1f040E.exit57" ], [ %407, %406 ], [ %412, %411 ], [ %417, %416 ], [ %422, %421 ], [ %.pn6, %394 ], [ %449, %448 ], [ %454, %453 ], [ %459, %458 ], [ %464, %463 ], [ %.pn26, %212 ], [ %.pn24, %229 ], [ %.pn22, %246 ], [ %.pn10, %355 ], [ %.pn8, %376 ], [ %.pn6, %398 ], [ %.pn2, %440 ], [ %.pn2, %436 ]
+  %.pn32 = phi { ptr, i32 } [ %145, %144 ], [ %152, %151 ], [ %157, %156 ], [ %162, %161 ], [ %167, %166 ], [ %172, %171 ], [ %177, %176 ], [ %.pn30, %186 ], [ %.pn28, %197 ], [ %255, %254 ], [ %.pn20, %264 ], [ %.pn18, %275 ], [ %.pn16, %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$sqlparser..ast..ObjectName$GT$$GT$17h4df5ccf11c4ff7f6E.exit" ], [ %.pn12, %311 ], [ %318, %317 ], [ %323, %322 ], [ %327, %326 ], [ %332, %331 ], [ %337, %336 ], [ %407, %406 ], [ %412, %411 ], [ %417, %416 ], [ %422, %421 ], [ %449, %448 ], [ %454, %453 ], [ %459, %458 ], [ %464, %463 ], [ %469, %468 ], [ %.pn26, %212 ], [ %.pn26, %208 ], [ %.pn24, %229 ], [ %.pn24, %225 ], [ %.pn22, %246 ], [ %.pn22, %242 ], [ %.pn10, %355 ], [ %.pn10, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17ha10f49cecfb1f040E.exit50" ], [ %.pn8, %376 ], [ %.pn8, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..Expr$GT$$GT$$GT$17ha10f49cecfb1f040E.exit57" ], [ %.pn6, %398 ], [ %.pn6, %394 ], [ %.pn2, %440 ], [ %.pn2, %436 ]
   resume { ptr, i32 } %.pn32
 
 151:                                              ; preds = %15
@@ -3628,7 +3628,7 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..Sta
   unreachable
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Ident$GT$$GT$17h4d7f554c175e7147E.exit161": ; preds = %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17h5e21e981e230caacE.exit331", %1118, %1087, %1092, %1075, %1079, %1038, %1043, %1021, %1025, %962, %967, %928, %932, %908, %912, %889, %894, %877, %881, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2e6dd3aa2f225641E.exit269", %769, %744, %749, %733, %738, %722, %727, %701, %705, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Ident$GT$$GT$17h4d7f554c175e7147E.exit251", %689, %659, %664, %601, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sqlparser..ast..HiveSetLocation$GT$$GT$17h9566bcc796c01c24E.exit", %594, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17h3237942898ce060bE.exit230", %567, %505, %509, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2e6dd3aa2f225641E.exit200", %428, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17h3237942898ce060bE.exit", %381, %339, %343, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17h5e21e981e230caacE.exit157", %239, %1000, %1054, %1033, %984, %956, %945, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..MacroArg$GT$$GT$$GT$17hc84720c3599e682dE.exit", %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..ddl..ProcedureParam$GT$$GT$$GT$17h5c387858fcd4b99eE.exit", %819, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17h3237942898ce060bE.exit280", %717, %713, %670, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Ident$GT$$GT$17h4d7f554c175e7147E.exit244", %639, %633, %623, %617, %531, %440, %270, %246, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17h5e21e981e230caacE.exit"
-  %.pn142.pn = phi { ptr, i32 } [ %1088, %1087 ], [ %.pn138, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17h5e21e981e230caacE.exit" ], [ %.pn2, %1075 ], [ %247, %246 ], [ %.pn134, %270 ], [ %.pn136, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17h5e21e981e230caacE.exit157" ], [ %.pn128, %339 ], [ %.pn112, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17h3237942898ce060bE.exit" ], [ %.pn96, %440 ], [ %.pn106, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2e6dd3aa2f225641E.exit200" ], [ %.pn78, %531 ], [ %.pn94, %505 ], [ %.pn74, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17h3237942898ce060bE.exit230" ], [ %.pn68, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sqlparser..ast..HiveSetLocation$GT$$GT$17h9566bcc796c01c24E.exit" ], [ %.pn64, %617 ], [ %624, %623 ], [ %.pn60, %633 ], [ %640, %639 ], [ %.pn58, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Ident$GT$$GT$17h4d7f554c175e7147E.exit244" ], [ %602, %601 ], [ %671, %670 ], [ %660, %659 ], [ %.pn56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Ident$GT$$GT$17h4d7f554c175e7147E.exit251" ], [ %714, %713 ], [ %718, %717 ], [ %.pn54, %701 ], [ %723, %722 ], [ %734, %733 ], [ %745, %744 ], [ %.pn50, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17h3237942898ce060bE.exit280" ], [ %820, %819 ], [ %.pn40, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..ddl..ProcedureParam$GT$$GT$$GT$17h5c387858fcd4b99eE.exit" ], [ %.pn38, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..MacroArg$GT$$GT$$GT$17hc84720c3599e682dE.exit" ], [ %.pn52, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2e6dd3aa2f225641E.exit269" ], [ %.pn36, %877 ], [ %890, %889 ], [ %.pn28, %908 ], [ %.pn20, %945 ], [ %.pn18, %956 ], [ %.pn24, %928 ], [ %.pn16, %984 ], [ %.pn12, %1000 ], [ %963, %962 ], [ %1034, %1033 ], [ %.pn8, %1021 ], [ %.pn4, %1054 ], [ %1039, %1038 ], [ %.pn136, %239 ], [ %.pn128, %343 ], [ %.pn112, %381 ], [ %.pn106, %428 ], [ %.pn94, %509 ], [ %.pn74, %567 ], [ %.pn68, %594 ], [ %660, %664 ], [ %.pn56, %689 ], [ %.pn54, %705 ], [ %723, %727 ], [ %734, %738 ], [ %745, %749 ], [ %.pn52, %769 ], [ %.pn36, %881 ], [ %890, %894 ], [ %.pn28, %912 ], [ %.pn24, %932 ], [ %963, %967 ], [ %.pn8, %1025 ], [ %1039, %1043 ], [ %.pn2, %1079 ], [ %1088, %1092 ], [ %.pn142, %1118 ], [ %.pn142, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17h5e21e981e230caacE.exit331" ]
+  %.pn142.pn = phi { ptr, i32 } [ %.pn138, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17h5e21e981e230caacE.exit" ], [ %247, %246 ], [ %.pn134, %270 ], [ %.pn96, %440 ], [ %.pn78, %531 ], [ %.pn64, %617 ], [ %624, %623 ], [ %.pn60, %633 ], [ %640, %639 ], [ %.pn58, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Ident$GT$$GT$17h4d7f554c175e7147E.exit244" ], [ %671, %670 ], [ %714, %713 ], [ %718, %717 ], [ %.pn50, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17h3237942898ce060bE.exit280" ], [ %820, %819 ], [ %.pn40, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..ddl..ProcedureParam$GT$$GT$$GT$17h5c387858fcd4b99eE.exit" ], [ %.pn38, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..MacroArg$GT$$GT$$GT$17hc84720c3599e682dE.exit" ], [ %.pn20, %945 ], [ %.pn18, %956 ], [ %.pn16, %984 ], [ %.pn12, %1000 ], [ %1034, %1033 ], [ %.pn4, %1054 ], [ %.pn136, %239 ], [ %.pn136, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17h5e21e981e230caacE.exit157" ], [ %.pn128, %343 ], [ %.pn128, %339 ], [ %.pn112, %381 ], [ %.pn112, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17h3237942898ce060bE.exit" ], [ %.pn106, %428 ], [ %.pn106, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2e6dd3aa2f225641E.exit200" ], [ %.pn94, %509 ], [ %.pn94, %505 ], [ %.pn74, %567 ], [ %.pn74, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17h3237942898ce060bE.exit230" ], [ %.pn68, %594 ], [ %.pn68, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sqlparser..ast..HiveSetLocation$GT$$GT$17h9566bcc796c01c24E.exit" ], [ %602, %601 ], [ %660, %664 ], [ %660, %659 ], [ %.pn56, %689 ], [ %.pn56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Ident$GT$$GT$17h4d7f554c175e7147E.exit251" ], [ %.pn54, %705 ], [ %.pn54, %701 ], [ %723, %727 ], [ %723, %722 ], [ %734, %738 ], [ %734, %733 ], [ %745, %749 ], [ %745, %744 ], [ %.pn52, %769 ], [ %.pn52, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2e6dd3aa2f225641E.exit269" ], [ %.pn36, %881 ], [ %.pn36, %877 ], [ %890, %894 ], [ %890, %889 ], [ %.pn28, %912 ], [ %.pn28, %908 ], [ %.pn24, %932 ], [ %.pn24, %928 ], [ %963, %967 ], [ %963, %962 ], [ %.pn8, %1025 ], [ %.pn8, %1021 ], [ %1039, %1043 ], [ %1039, %1038 ], [ %.pn2, %1079 ], [ %.pn2, %1075 ], [ %1088, %1092 ], [ %1088, %1087 ], [ %.pn142, %1118 ], [ %.pn142, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17h5e21e981e230caacE.exit331" ]
   resume { ptr, i32 } %.pn142.pn
 
 225:                                              ; preds = %11
@@ -6198,7 +6198,7 @@ define internal void @"_ZN4core3ptr51drop_in_place$LT$sqlparser..ast..FetchDirec
   ]
 
 "_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h75d2ca15c358d3eaE.exit.sink.split": ; preds = %13, %9, %3, %5, %7
-  %.sink = phi ptr [ %10, %9 ], [ %4, %3 ], [ %8, %7 ], [ %6, %5 ], [ %14, %13 ]
+  %.sink = phi ptr [ %8, %7 ], [ %6, %5 ], [ %4, %3 ], [ %10, %9 ], [ %14, %13 ]
   tail call void @"_ZN4core3ptr49drop_in_place$LT$sqlparser..ast..value..Value$GT$17h16782b1638f625f8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %.sink)
   br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h75d2ca15c358d3eaE.exit"
 
@@ -6578,7 +6578,7 @@ define internal void @"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..Tab
   unreachable
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$sqlparser..ast..JsonPath$GT$$GT$17h7f2151a6bbd087c8E.exit": ; preds = %311, %315, %263, %267, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17h3237942898ce060bE.exit", %242, %.body51, %201, %189, %193, %162, %166, %139, %143, %123, %127, %107, %112, %.body49, %101, %87, %91
-  %.pn46.pn = phi { ptr, i32 } [ %.pn4, %263 ], [ %.pn12, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17h3237942898ce060bE.exit" ], [ %.pn34, %87 ], [ %14, %.body49 ], [ %108, %107 ], [ %.pn24, %123 ], [ %.pn22, %139 ], [ %.pn20, %162 ], [ %.pn16, %189 ], [ %34, %.body51 ], [ %.pn34, %91 ], [ %14, %101 ], [ %108, %112 ], [ %.pn24, %127 ], [ %.pn22, %143 ], [ %.pn20, %166 ], [ %.pn16, %193 ], [ %34, %201 ], [ %.pn12, %242 ], [ %.pn4, %267 ], [ %.pn46, %315 ], [ %.pn46, %311 ]
+  %.pn46.pn = phi { ptr, i32 } [ %.pn34, %91 ], [ %.pn34, %87 ], [ %14, %101 ], [ %14, %.body49 ], [ %108, %112 ], [ %108, %107 ], [ %.pn24, %127 ], [ %.pn24, %123 ], [ %.pn22, %143 ], [ %.pn22, %139 ], [ %.pn20, %166 ], [ %.pn20, %162 ], [ %.pn16, %193 ], [ %.pn16, %189 ], [ %34, %201 ], [ %34, %.body51 ], [ %.pn12, %242 ], [ %.pn12, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17h3237942898ce060bE.exit" ], [ %.pn4, %267 ], [ %.pn4, %263 ], [ %.pn46, %315 ], [ %.pn46, %311 ]
   resume { ptr, i32 } %.pn46.pn
 
 101:                                              ; preds = %.body49
@@ -7269,7 +7269,7 @@ common.resume.sink.split:                         ; preds = %46, %51, %63
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %53, %.body
-  %common.resume.op = phi { ptr, i32 } [ %29, %.body ], [ %54, %53 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %29, %.body ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 46:                                               ; preds = %43
@@ -7503,7 +7503,7 @@ define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$sqlparser..ast..dcl
   unreachable
 
 "_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$sqlparser..ast..ObjectName$GT$$GT$17h4df5ccf11c4ff7f6E.exit": ; preds = %43, %48, %"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..dcl..SetConfigValue$GT$17h386e36d75ff3d0d4E.exit", %34
-  %.pn2 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..dcl..SetConfigValue$GT$17h386e36d75ff3d0d4E.exit" ], [ %.pn, %34 ], [ %44, %48 ], [ %44, %43 ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %34 ], [ %.pn, %"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..dcl..SetConfigValue$GT$17h386e36d75ff3d0d4E.exit" ], [ %44, %48 ], [ %44, %43 ]
   resume { ptr, i32 } %.pn2
 
 43:                                               ; preds = %11
@@ -7947,7 +7947,7 @@ define internal void @"_ZN4core3ptr71drop_in_place$LT$alloc..boxed..Box$LT$polar
   br i1 %20, label %"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hb9a2aa46b5fe1fcfE.exit", label %.invoke
 
 .invoke:                                          ; preds = %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$std..io..error..Error$GT$$GT$17heb3398616c756787E.exit", %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %27
-  %21 = phi ptr [ %4, %1 ], [ %28, %27 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %18, %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$std..io..error..Error$GT$$GT$17heb3398616c756787E.exit" ]
+  %21 = phi ptr [ %28, %27 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %18, %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$std..io..error..Error$GT$$GT$17heb3398616c756787E.exit" ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$polars_error..ErrString$GT$17ha7faf7771ac02c02E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21)
           to label %"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hb9a2aa46b5fe1fcfE.exit" unwind label %29
 
@@ -10139,7 +10139,7 @@ define internal fastcc noundef zeroext i1 @"_ZN61_$LT$sqlparser..ast..Expr$u20$a
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit.split.loop.exit1177, %.critedge.loopexit.split.loop.exit1179, %722, %720, %730, %724, %721, %206, %680, %686, %188, %"_ZN77_$LT$sqlparser..ast..value..DateTimeField$u20$as$u20$core..cmp..PartialEq$GT$2eq17h922aabeb6a3f1a98E.exit", %"_ZN77_$LT$sqlparser..ast..value..DateTimeField$u20$as$u20$core..cmp..PartialEq$GT$2eq17h922aabeb6a3f1a98E.exit.thread", %151, %131, %125, %"_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit565", %89, %"_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit", %83, %386, %392, %59, %53, %tailrecurse.backedge, %.lr.ph, %170, %172, %405, %541, %157, %398, %534, %668, %602, %488, %464, %434, %2, %666, %641, %631, %576, %566, %773, %324, %764, %310, %292, %286, %250, %232, %228, %222, %212, %674, %665, %656, %200, %654, %664, %643, %640, %630, %194, %629, %639, %182, %176, %143, %594, %600, %588, %582, %575, %565, %552, %137, %564, %574, %119, %518, %522, %113, %500, %506, %107, %476, %482, %101, %446, %452, %458, %95, %416, %422, %428, %77, %374, %71, %362, %65, %350, %32, %26, %775, %758, %754, %748, %742, %714, %708, %704, %698, %619, %615, %608, %528, %512, %494, %470, %440, %380, %368, %356, %346, %340, %336, %330, %320, %316, %304, %298, %280, %274, %268, %262, %256, %240, %238, %218, %20, %16
-  %.sroa.0.0 = phi i1 [ %19, %16 ], [ %25, %20 ], [ %345, %340 ], [ false, %458 ], [ %349, %346 ], [ false, %26 ], [ false, %666 ], [ false, %452 ], [ false, %641 ], [ false, %631 ], [ false, %576 ], [ false, %566 ], [ false, %764 ], [ false, %446 ], [ false, %482 ], [ false, %32 ], [ %679, %674 ], [ false, %476 ], [ %361, %356 ], [ false, %506 ], [ %373, %368 ], [ false, %65 ], [ %385, %380 ], [ false, %71 ], [ false, %500 ], [ false, %77 ], [ false, %522 ], [ false, %518 ], [ %445, %440 ], [ false, %95 ], [ false, %640 ], [ false, %194 ], [ %475, %470 ], [ false, %101 ], [ %.mux, %434 ], [ %.mux554, %668 ], [ %499, %494 ], [ false, %107 ], [ %.mux548, %464 ], [ false, %630 ], [ %517, %512 ], [ false, %428 ], [ %533, %528 ], [ false, %113 ], [ false, %654 ], [ false, %119 ], [ false, %200 ], [ %593, %588 ], [ false, %582 ], [ %609, %608 ], [ false, %143 ], [ %.mux550, %488 ], [ false, %574 ], [ false, %656 ], [ false, %422 ], [ false, %665 ], [ false, %575 ], [ %618, %615 ], [ false, %565 ], [ %622, %619 ], [ false, %176 ], [ %.mux552, %602 ], [ false, %182 ], [ false, %552 ], [ false, %639 ], [ false, %664 ], [ false, %137 ], [ false, %374 ], [ false, %416 ], [ %703, %698 ], [ false, %564 ], [ false, %600 ], [ %221, %218 ], [ %707, %704 ], [ false, %212 ], [ %713, %708 ], [ false, %222 ], [ %719, %714 ], [ false, %228 ], [ %239, %238 ], [ %243, %240 ], [ false, %232 ], [ %747, %742 ], [ false, %594 ], [ %261, %256 ], [ %267, %262 ], [ %273, %268 ], [ %279, %274 ], [ %285, %280 ], [ %753, %748 ], [ false, %250 ], [ %757, %754 ], [ false, %286 ], [ %303, %298 ], [ %309, %304 ], [ %763, %758 ], [ false, %292 ], [ %319, %316 ], [ %323, %320 ], [ %774, %773 ], [ false, %324 ], [ %776, %775 ], [ false, %310 ], [ false, %2 ], [ %335, %330 ], [ false, %629 ], [ %648, %643 ], [ %339, %336 ], [ false, %350 ], [ false, %362 ], [ false, %170 ], [ false, %405 ], [ true, %.lr.ph ], [ false, %tailrecurse.backedge ], [ false, %172 ], [ false, %720 ], [ false, %730 ], [ %.mux946.le, %.critedge.loopexit.split.loop.exit1177 ], [ false, %724 ], [ false, %721 ], [ false, %206 ], [ false, %680 ], [ false, %686 ], [ false, %188 ], [ false, %"_ZN77_$LT$sqlparser..ast..value..DateTimeField$u20$as$u20$core..cmp..PartialEq$GT$2eq17h922aabeb6a3f1a98E.exit" ], [ false, %"_ZN77_$LT$sqlparser..ast..value..DateTimeField$u20$as$u20$core..cmp..PartialEq$GT$2eq17h922aabeb6a3f1a98E.exit.thread" ], [ false, %151 ], [ false, %131 ], [ false, %125 ], [ false, %"_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit565" ], [ false, %89 ], [ false, %"_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit" ], [ false, %83 ], [ false, %386 ], [ false, %392 ], [ false, %53 ], [ false, %722 ], [ %.mux948.le, %.critedge.loopexit.split.loop.exit1179 ], [ false, %541 ], [ false, %157 ], [ false, %59 ], [ false, %398 ], [ false, %534 ]
+  %.sroa.0.0 = phi i1 [ %19, %16 ], [ %25, %20 ], [ %345, %340 ], [ %349, %346 ], [ %361, %356 ], [ %373, %368 ], [ %385, %380 ], [ %445, %440 ], [ %475, %470 ], [ %499, %494 ], [ %517, %512 ], [ %533, %528 ], [ %609, %608 ], [ %618, %615 ], [ %622, %619 ], [ %703, %698 ], [ %221, %218 ], [ %707, %704 ], [ %713, %708 ], [ %719, %714 ], [ %239, %238 ], [ %243, %240 ], [ %747, %742 ], [ %261, %256 ], [ %267, %262 ], [ %273, %268 ], [ %279, %274 ], [ %285, %280 ], [ %753, %748 ], [ %757, %754 ], [ %303, %298 ], [ %309, %304 ], [ %763, %758 ], [ %319, %316 ], [ %323, %320 ], [ %776, %775 ], [ %335, %330 ], [ %339, %336 ], [ false, %26 ], [ false, %32 ], [ false, %350 ], [ false, %65 ], [ false, %362 ], [ false, %71 ], [ false, %374 ], [ false, %77 ], [ false, %428 ], [ false, %422 ], [ false, %416 ], [ false, %95 ], [ false, %458 ], [ false, %452 ], [ false, %446 ], [ false, %101 ], [ false, %482 ], [ false, %476 ], [ false, %107 ], [ false, %506 ], [ false, %500 ], [ false, %113 ], [ false, %522 ], [ false, %518 ], [ false, %119 ], [ %593, %588 ], [ false, %582 ], [ false, %575 ], [ false, %565 ], [ false, %552 ], [ false, %137 ], [ false, %564 ], [ false, %574 ], [ false, %600 ], [ false, %594 ], [ false, %143 ], [ false, %176 ], [ false, %182 ], [ %648, %643 ], [ false, %640 ], [ false, %630 ], [ false, %194 ], [ false, %629 ], [ false, %639 ], [ %679, %674 ], [ false, %665 ], [ false, %656 ], [ false, %200 ], [ false, %654 ], [ false, %664 ], [ false, %212 ], [ false, %222 ], [ false, %228 ], [ false, %232 ], [ false, %250 ], [ false, %286 ], [ false, %292 ], [ false, %310 ], [ false, %764 ], [ false, %324 ], [ %774, %773 ], [ false, %566 ], [ false, %576 ], [ false, %631 ], [ false, %641 ], [ false, %666 ], [ false, %2 ], [ %.mux, %434 ], [ %.mux548, %464 ], [ %.mux550, %488 ], [ %.mux552, %602 ], [ %.mux554, %668 ], [ %.mux946.le, %.critedge.loopexit.split.loop.exit1177 ], [ %.mux948.le, %.critedge.loopexit.split.loop.exit1179 ], [ false, %722 ], [ false, %720 ], [ false, %730 ], [ false, %724 ], [ false, %721 ], [ false, %206 ], [ false, %680 ], [ false, %686 ], [ false, %188 ], [ false, %"_ZN77_$LT$sqlparser..ast..value..DateTimeField$u20$as$u20$core..cmp..PartialEq$GT$2eq17h922aabeb6a3f1a98E.exit" ], [ false, %"_ZN77_$LT$sqlparser..ast..value..DateTimeField$u20$as$u20$core..cmp..PartialEq$GT$2eq17h922aabeb6a3f1a98E.exit.thread" ], [ false, %151 ], [ false, %131 ], [ false, %125 ], [ false, %"_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit565" ], [ false, %89 ], [ false, %"_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit" ], [ false, %83 ], [ false, %386 ], [ false, %392 ], [ false, %59 ], [ false, %53 ], [ false, %tailrecurse.backedge ], [ true, %.lr.ph ], [ false, %170 ], [ false, %172 ], [ false, %405 ], [ false, %541 ], [ false, %157 ], [ false, %398 ], [ false, %534 ]
   ret i1 %.sroa.0.0
 
 15:                                               ; preds = %.lr.ph
@@ -10180,7 +10180,7 @@ define internal fastcc noundef zeroext i1 @"_ZN61_$LT$sqlparser..ast..Expr$u20$a
   br i1 %37, label %346, label %.critedge
 
 tailrecurse.backedge.sink.split:                  ; preds = %540, %404, %541, %405, %.lr.ph, %188, %"_ZN77_$LT$sqlparser..ast..value..DateTimeField$u20$as$u20$core..cmp..PartialEq$GT$2eq17h922aabeb6a3f1a98E.exit.thread", %151, %131, %"_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit565", %"_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit", %392, %59, %53, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %.sink546 = phi i64 [ 16, %188 ], [ 80, %"_ZN77_$LT$sqlparser..ast..value..DateTimeField$u20$as$u20$core..cmp..PartialEq$GT$2eq17h922aabeb6a3f1a98E.exit.thread" ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 16, %53 ], [ 16, %59 ], [ 24, %392 ], [ 48, %"_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit" ], [ 48, %"_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit565" ], [ 8, %131 ], [ 16, %151 ], [ 8, %.lr.ph ], [ 48, %541 ], [ 48, %405 ], [ 48, %404 ], [ 48, %540 ]
+  %.sink546 = phi i64 [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 16, %53 ], [ 16, %59 ], [ 24, %392 ], [ 48, %"_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit" ], [ 48, %"_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit565" ], [ 8, %131 ], [ 16, %151 ], [ 80, %"_ZN77_$LT$sqlparser..ast..value..DateTimeField$u20$as$u20$core..cmp..PartialEq$GT$2eq17h922aabeb6a3f1a98E.exit.thread" ], [ 16, %188 ], [ 8, %.lr.ph ], [ 48, %405 ], [ 48, %541 ], [ 48, %404 ], [ 48, %540 ]
   %38 = getelementptr inbounds nuw i8, ptr %.tr282, i64 %.sink546
   %39 = load ptr, ptr %38, align 8, !nonnull !4, !noundef !4
   %40 = getelementptr inbounds nuw i8, ptr %.tr146283, i64 %.sink546
@@ -10188,8 +10188,8 @@ tailrecurse.backedge.sink.split:                  ; preds = %540, %404, %541, %4
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %736, %692, %tailrecurse.backedge.sink.split
-  %.tr.be = phi ptr [ %694, %692 ], [ %738, %736 ], [ %39, %tailrecurse.backedge.sink.split ]
-  %.tr146.be = phi ptr [ %696, %692 ], [ %740, %736 ], [ %41, %tailrecurse.backedge.sink.split ]
+  %.tr.be = phi ptr [ %39, %tailrecurse.backedge.sink.split ], [ %694, %692 ], [ %738, %736 ]
+  %.tr146.be = phi ptr [ %41, %tailrecurse.backedge.sink.split ], [ %696, %692 ], [ %740, %736 ]
   %42 = load i64, ptr %.tr.be, align 8, !range !65, !noundef !4
   %43 = add nsw i64 %42, -6
   %44 = icmp ult i64 %43, 64
@@ -10746,32 +10746,32 @@ tailrecurse.backedge:                             ; preds = %736, %692, %tailrec
 
 404:                                              ; preds = %398
   switch i64 %401, label %tailrecurse.backedge.sink.split [
-    i64 21, label %"_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit"
-    i64 48, label %405
+    i64 21, label %405
+    i64 48, label %"_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit"
   ]
 
 405:                                              ; preds = %404
   %406 = getelementptr inbounds nuw i8, ptr %.tr282, i64 24
-  %.val5.i = load ptr, ptr %406, align 8, !alias.scope !818, !noalias !821, !nonnull !4, !noundef !4
+  %.val.i = load ptr, ptr %406, align 8, !alias.scope !818, !noalias !821, !nonnull !4, !noundef !4
   %407 = getelementptr inbounds nuw i8, ptr %.tr282, i64 32
-  %.val6.i = load i64, ptr %407, align 8, !alias.scope !818, !noalias !821, !noundef !4
+  %.val2.i = load i64, ptr %407, align 8, !alias.scope !818, !noalias !821, !noundef !4
   %408 = getelementptr inbounds nuw i8, ptr %.tr146283, i64 24
-  %.val7.i = load ptr, ptr %408, align 8, !alias.scope !821, !noalias !818, !nonnull !4, !noundef !4
+  %.val3.i = load ptr, ptr %408, align 8, !alias.scope !821, !noalias !818, !nonnull !4, !noundef !4
   %409 = getelementptr inbounds nuw i8, ptr %.tr146283, i64 32
-  %.val8.i = load i64, ptr %409, align 8, !alias.scope !821, !noalias !818, !noundef !4
-  %410 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h62a128c122dae3aaE"(ptr noalias noundef nonnull readonly align 8 %.val5.i, i64 noundef %.val6.i, ptr noalias noundef nonnull readonly align 8 %.val7.i, i64 noundef %.val8.i), !noalias !823
+  %.val4.i = load i64, ptr %409, align 8, !alias.scope !821, !noalias !818, !noundef !4
+  %410 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b0529a84bb5a419E"(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val2.i, ptr noalias noundef nonnull readonly align 1 %.val3.i, i64 noundef %.val4.i), !noalias !823
   br i1 %410, label %tailrecurse.backedge.sink.split, label %.critedge
 
 "_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit": ; preds = %404
   %411 = getelementptr inbounds nuw i8, ptr %.tr282, i64 24
-  %.val.i = load ptr, ptr %411, align 8, !alias.scope !818, !noalias !821, !nonnull !4, !noundef !4
+  %.val5.i = load ptr, ptr %411, align 8, !alias.scope !818, !noalias !821, !nonnull !4, !noundef !4
   %412 = getelementptr inbounds nuw i8, ptr %.tr282, i64 32
-  %.val2.i = load i64, ptr %412, align 8, !alias.scope !818, !noalias !821, !noundef !4
+  %.val6.i = load i64, ptr %412, align 8, !alias.scope !818, !noalias !821, !noundef !4
   %413 = getelementptr inbounds nuw i8, ptr %.tr146283, i64 24
-  %.val3.i = load ptr, ptr %413, align 8, !alias.scope !821, !noalias !818, !nonnull !4, !noundef !4
+  %.val7.i = load ptr, ptr %413, align 8, !alias.scope !821, !noalias !818, !nonnull !4, !noundef !4
   %414 = getelementptr inbounds nuw i8, ptr %.tr146283, i64 32
-  %.val4.i = load i64, ptr %414, align 8, !alias.scope !821, !noalias !818, !noundef !4
-  %415 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b0529a84bb5a419E"(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val2.i, ptr noalias noundef nonnull readonly align 1 %.val3.i, i64 noundef %.val4.i), !noalias !823
+  %.val8.i = load i64, ptr %414, align 8, !alias.scope !821, !noalias !818, !noundef !4
+  %415 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h62a128c122dae3aaE"(ptr noalias noundef nonnull readonly align 8 %.val5.i, i64 noundef %.val6.i, ptr noalias noundef nonnull readonly align 8 %.val7.i, i64 noundef %.val8.i), !noalias !823
   br i1 %415, label %tailrecurse.backedge.sink.split, label %.critedge
 
 416:                                              ; preds = %95
@@ -10965,32 +10965,32 @@ tailrecurse.backedge:                             ; preds = %736, %692, %tailrec
 
 540:                                              ; preds = %534
   switch i64 %537, label %tailrecurse.backedge.sink.split [
-    i64 21, label %"_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit565"
-    i64 48, label %541
+    i64 21, label %541
+    i64 48, label %"_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit565"
   ]
 
 541:                                              ; preds = %540
   %542 = getelementptr inbounds nuw i8, ptr %.tr282, i64 24
-  %.val5.i557 = load ptr, ptr %542, align 8, !alias.scope !824, !noalias !827, !nonnull !4, !noundef !4
+  %.val.i561 = load ptr, ptr %542, align 8, !alias.scope !824, !noalias !827, !nonnull !4, !noundef !4
   %543 = getelementptr inbounds nuw i8, ptr %.tr282, i64 32
-  %.val6.i558 = load i64, ptr %543, align 8, !alias.scope !824, !noalias !827, !noundef !4
+  %.val2.i562 = load i64, ptr %543, align 8, !alias.scope !824, !noalias !827, !noundef !4
   %544 = getelementptr inbounds nuw i8, ptr %.tr146283, i64 24
-  %.val7.i559 = load ptr, ptr %544, align 8, !alias.scope !827, !noalias !824, !nonnull !4, !noundef !4
+  %.val3.i563 = load ptr, ptr %544, align 8, !alias.scope !827, !noalias !824, !nonnull !4, !noundef !4
   %545 = getelementptr inbounds nuw i8, ptr %.tr146283, i64 32
-  %.val8.i560 = load i64, ptr %545, align 8, !alias.scope !827, !noalias !824, !noundef !4
-  %546 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h62a128c122dae3aaE"(ptr noalias noundef nonnull readonly align 8 %.val5.i557, i64 noundef %.val6.i558, ptr noalias noundef nonnull readonly align 8 %.val7.i559, i64 noundef %.val8.i560), !noalias !829
+  %.val4.i564 = load i64, ptr %545, align 8, !alias.scope !827, !noalias !824, !noundef !4
+  %546 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b0529a84bb5a419E"(ptr noalias noundef nonnull readonly align 1 %.val.i561, i64 noundef %.val2.i562, ptr noalias noundef nonnull readonly align 1 %.val3.i563, i64 noundef %.val4.i564), !noalias !829
   br i1 %546, label %tailrecurse.backedge.sink.split, label %.critedge
 
 "_ZN81_$LT$sqlparser..ast..operator..BinaryOperator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0cda1e867ea91066E.exit565": ; preds = %540
   %547 = getelementptr inbounds nuw i8, ptr %.tr282, i64 24
-  %.val.i561 = load ptr, ptr %547, align 8, !alias.scope !824, !noalias !827, !nonnull !4, !noundef !4
+  %.val5.i557 = load ptr, ptr %547, align 8, !alias.scope !824, !noalias !827, !nonnull !4, !noundef !4
   %548 = getelementptr inbounds nuw i8, ptr %.tr282, i64 32
-  %.val2.i562 = load i64, ptr %548, align 8, !alias.scope !824, !noalias !827, !noundef !4
+  %.val6.i558 = load i64, ptr %548, align 8, !alias.scope !824, !noalias !827, !noundef !4
   %549 = getelementptr inbounds nuw i8, ptr %.tr146283, i64 24
-  %.val3.i563 = load ptr, ptr %549, align 8, !alias.scope !827, !noalias !824, !nonnull !4, !noundef !4
+  %.val7.i559 = load ptr, ptr %549, align 8, !alias.scope !827, !noalias !824, !nonnull !4, !noundef !4
   %550 = getelementptr inbounds nuw i8, ptr %.tr146283, i64 32
-  %.val4.i564 = load i64, ptr %550, align 8, !alias.scope !827, !noalias !824, !noundef !4
-  %551 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b0529a84bb5a419E"(ptr noalias noundef nonnull readonly align 1 %.val.i561, i64 noundef %.val2.i562, ptr noalias noundef nonnull readonly align 1 %.val3.i563, i64 noundef %.val4.i564), !noalias !829
+  %.val8.i560 = load i64, ptr %550, align 8, !alias.scope !827, !noalias !824, !noundef !4
+  %551 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h62a128c122dae3aaE"(ptr noalias noundef nonnull readonly align 8 %.val5.i557, i64 noundef %.val6.i558, ptr noalias noundef nonnull readonly align 8 %.val7.i559, i64 noundef %.val8.i560), !noalias !829
   br i1 %551, label %tailrecurse.backedge.sink.split, label %.critedge
 
 552:                                              ; preds = %137
@@ -11712,7 +11712,7 @@ define internal fastcc noundef zeroext i1 @"_ZN65_$LT$sqlparser..ast..Function$u
   %53 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h34ecb80e6d867af1E"(ptr noalias noundef nonnull readonly align 8 %.val6.i, i64 noundef %.val7.i, ptr noalias noundef nonnull readonly align 8 %.val8.i, i64 noundef %.val9.i), !noalias !845
   br i1 %53, label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20", label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
 
-"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20": ; preds = %27, %24, %25, %29, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit"
+"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20": ; preds = %25, %27, %24, %29, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit"
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 256
   tail call void @llvm.experimental.noalias.scope.decl(metadata !846)
@@ -11817,7 +11817,7 @@ define internal fastcc noundef zeroext i1 @"_ZN65_$LT$sqlparser..ast..Function$u
   br label %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread"
 
 "_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread": ; preds = %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20", %41, %40, %43, %14, %98, %82, %68, %29, %2, %81, %90, %97, %8, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit", %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17", %80, %89, %96, %100
-  %.sroa.0.0 = phi i1 [ %105, %100 ], [ false, %96 ], [ false, %89 ], [ false, %80 ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17" ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit" ], [ false, %8 ], [ false, %97 ], [ false, %90 ], [ false, %81 ], [ false, %2 ], [ false, %98 ], [ false, %29 ], [ false, %41 ], [ false, %68 ], [ false, %82 ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20" ], [ false, %14 ], [ false, %43 ], [ false, %40 ]
+  %.sroa.0.0 = phi i1 [ %105, %100 ], [ false, %96 ], [ false, %89 ], [ false, %80 ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit17" ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit" ], [ false, %8 ], [ false, %97 ], [ false, %90 ], [ false, %81 ], [ false, %2 ], [ false, %29 ], [ false, %68 ], [ false, %82 ], [ false, %98 ], [ false, %14 ], [ false, %43 ], [ false, %40 ], [ false, %41 ], [ false, %"_ZN74_$LT$sqlparser..ast..FunctionArguments$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2301cff72e522990E.exit.thread20" ]
   ret i1 %.sroa.0.0
 }
 
@@ -11991,7 +11991,7 @@ define internal fastcc noundef zeroext i1 @"_ZN65_$LT$sqlparser..ast..Interval$u
   br i1 %56, label %60, label %61
 
 "_ZN77_$LT$sqlparser..ast..value..DateTimeField$u20$as$u20$core..cmp..PartialEq$GT$2eq17h922aabeb6a3f1a98E.exit.thread8": ; preds = %16, %51, %37, %27, %25, %"_ZN77_$LT$sqlparser..ast..value..DateTimeField$u20$as$u20$core..cmp..PartialEq$GT$2eq17h922aabeb6a3f1a98E.exit", %60, %2, %15, %36, %50, %14, %35, %49, %61, %63
-  %.sroa.0.0 = phi i1 [ %68, %63 ], [ false, %2 ], [ %62, %61 ], [ false, %49 ], [ false, %35 ], [ false, %14 ], [ false, %50 ], [ false, %36 ], [ false, %15 ], [ false, %60 ], [ false, %"_ZN77_$LT$sqlparser..ast..value..DateTimeField$u20$as$u20$core..cmp..PartialEq$GT$2eq17h922aabeb6a3f1a98E.exit" ], [ false, %51 ], [ false, %25 ], [ false, %27 ], [ false, %37 ], [ false, %16 ]
+  %.sroa.0.0 = phi i1 [ %68, %63 ], [ %62, %61 ], [ false, %49 ], [ false, %35 ], [ false, %14 ], [ false, %50 ], [ false, %36 ], [ false, %15 ], [ false, %2 ], [ false, %60 ], [ false, %"_ZN77_$LT$sqlparser..ast..value..DateTimeField$u20$as$u20$core..cmp..PartialEq$GT$2eq17h922aabeb6a3f1a98E.exit" ], [ false, %25 ], [ false, %27 ], [ false, %37 ], [ false, %51 ], [ false, %16 ]
   ret i1 %.sroa.0.0
 
 60:                                               ; preds = %53
@@ -12024,7 +12024,7 @@ define internal fastcc noundef zeroext i1 @"_ZN65_$LT$sqlparser..ast..OnInsert$u
   br i1 %4, label %9, label %39
 
 "_ZN67_$LT$sqlparser..ast..OnConflict$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcff14debcba97521E.exit": ; preds = %35, %13, %12, %11, %"_ZN71_$LT$sqlparser..ast..ConflictTarget$u20$as$u20$core..cmp..PartialEq$GT$2eq17h75bb90f5232f5391E.exit", %29, %37, %20, %28, %2, %39
-  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ %44, %39 ], [ %.mux, %35 ], [ false, %11 ], [ false, %12 ], [ false, %"_ZN71_$LT$sqlparser..ast..ConflictTarget$u20$as$u20$core..cmp..PartialEq$GT$2eq17h75bb90f5232f5391E.exit" ], [ true, %28 ], [ false, %20 ], [ %38, %37 ], [ false, %29 ], [ false, %13 ]
+  %.sroa.0.0.shrunk = phi i1 [ %44, %39 ], [ false, %2 ], [ false, %11 ], [ false, %12 ], [ false, %"_ZN71_$LT$sqlparser..ast..ConflictTarget$u20$as$u20$core..cmp..PartialEq$GT$2eq17h75bb90f5232f5391E.exit" ], [ false, %20 ], [ true, %28 ], [ %38, %37 ], [ false, %29 ], [ false, %13 ], [ %.mux, %35 ]
   ret i1 %.sroa.0.0.shrunk
 
 9:                                                ; preds = %8
@@ -12144,7 +12144,7 @@ define internal fastcc noundef zeroext i1 @"_ZN65_$LT$sqlparser..ast..dcl..Use$u
   br label %12
 
 12:                                               ; preds = %.sink.split, %23, %13, %6, %2
-  %.sroa.0.0.shrunk = phi i1 [ false, %13 ], [ false, %2 ], [ true, %6 ], [ true, %23 ], [ %11, %.sink.split ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ true, %6 ], [ false, %13 ], [ true, %23 ], [ %11, %.sink.split ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable30:                            ; preds = %6
@@ -13698,7 +13698,7 @@ define internal fastcc noundef zeroext i1 @"_ZN66_$LT$sqlparser..ast..Statement$
   ]
 
 .critedge:                                        ; preds = %tailrecurse, %.lr.ph, %1959, %15, %2365, %2315, %2290, %2192, %2138, %2060, %1871, %1827, %1811, %1662, %1564, %1520, %1413, %1245, %1233, %1187, %1117, %1101, %1036, %805, %757, %643, %465, %313, %117, %2, %552, %2359, %2301, %2300, %2296, %2282, %2272, %2228, %2184, %2114, %1917, %1896, %1852, %1757, %1717, %1658, %1626, %1558, %1496, %1468, %1289, %1267, %1151, %1099, %909, %803, %755, %741, %696, %686, %611, %601, %"_ZN65_$LT$sqlparser..ast..Password$u20$as$u20$core..cmp..PartialEq$GT$2eq17h682666b7aa79e1d8E.exit", %441, %374, %364, %354, %295, %281, %267, %255, %83, %33, %1693, %1450, %1065, %1013, %992, %385, %142, %2371, %2358, %2345, %2339, %2333, %2327, %2357, %2311, %2284, %2281, %2271, %2258, %2270, %2280, %2242, %2248, %2230, %2227, %2214, %2226, %2204, %2198, %2186, %2183, %2170, %2164, %2158, %2182, %2146, %2144, %2112, %2132, %2126, %2120, %2113, %2080, %2088, %2092, %2094, %2066, %2058, %2045, %2039, %2033, %2027, %2021, %2056, %2015, %2009, %2007, %1995, %2006, %1989, %1985, %1987, %1935, %1941, %1947, %1925, %1919, %1879, %1916, %1903, %1901, %1891, %1915, %1877, %1835, %1865, %1859, %1857, %1847, %1823, %1765, %1773, %1779, %1785, %1791, %1793, %1799, %1805, %1763, %1756, %1743, %1737, %1729, %1755, %1723, %1716, %1703, %1697, %1715, %1670, %1676, %1682, %1668, %1660, %1657, %1644, %1638, %1632, %1625, %1612, %1606, %1600, %1594, %1588, %1580, %1624, %1656, %1570, %1557, %1544, %1538, %1556, %1528, %1514, %1502, %1495, %1482, %1476, %1494, %1470, %1467, %1454, %1466, %1452, %1443, %1431, %1425, %1442, %1397, %1405, %1363, %1371, %1377, %1383, %1389, %1347, %1355, %1331, %1339, %1315, %1323, %1303, %1297, %1287, %1291, %1288, %1275, %1265, %1269, %1266, %1227, %1217, %1195, %1203, %1209, %1181, %1169, %1163, %1157, %1150, %1141, %1129, %1140, %1149, %1109, %1113, %1107, %1098, %1085, %1079, %1075, %1097, %1044, %1050, %1054, %1042, %1034, %1032, %1017, %1030, %996, %1002, %975, %981, %933, %939, %945, %951, %957, %963, %917, %925, %911, %908, %899, %893, %885, %907, %871, %875, %857, %863, %849, %825, %831, %837, %813, %811, %796, %783, %777, %771, %765, %797, %795, %763, %754, %740, %731, %722, %710, %706, %721, %729, %739, %753, %700, %698, %695, %685, %672, %670, %655, %668, %684, %694, %649, %637, %631, %625, %619, %613, %610, %600, %591, %582, %573, %564, %551, %542, %533, %524, %511, %505, %522, %531, %540, %550, %562, %571, %580, %589, %599, %609, %479, %487, %493, %471, %459, %453, %447, %440, %427, %425, %419, %413, %407, %401, %393, %439, %387, %373, %363, %353, %340, %336, %352, %362, %372, %333, %325, %319, %307, %301, %294, %280, %266, %257, %254, %241, %233, %253, %265, %279, %293, %201, %207, %213, %215, %221, %191, %189, %176, %170, %164, %187, %125, %131, %123, %115, %107, %95, %89, %82, %69, %81, %106, %114, %63, %57, %51, %45, %39, %32, %19, %31, %2321, %2252, %2210, %2152, %2100, %1953, %1929, %1833, %1817, %1695, %1532, %1526, %1419, %1411, %1395, %1361, %1345, %1329, %1309, %1251, %1239, %1223, %1211, %1193, %1123, %1067, %1015, %994, %969, %931, %879, %869, %853, %843, %819, %495, %334, %227, %144, %2307, %2303, %2236, %2076, %2072, %1576, %1508, %1421, %1253, %1175, %1069, %501, %477, %389, %197, %160, %156, %152, %146
-  %.sroa.0.0 = phi i1 [ false, %1151 ], [ false, %1267 ], [ false, %31 ], [ %1764, %1763 ], [ false, %125 ], [ %145, %144 ], [ %.mux1601, %2365 ], [ %151, %146 ], [ %155, %152 ], [ %159, %156 ], [ %163, %160 ], [ %.mux1599, %2315 ], [ %200, %197 ], [ %232, %227 ], [ false, %187 ], [ false, %201 ], [ %335, %334 ], [ false, %325 ], [ %1728, %1723 ], [ true, %333 ], [ %392, %389 ], [ false, %2327 ], [ %478, %477 ], [ %500, %495 ], [ false, %1716 ], [ %504, %501 ], [ false, %479 ], [ false, %1703 ], [ false, %694 ], [ false, %2 ], [ %824, %819 ], [ %1924, %1919 ], [ %848, %843 ], [ false, %813 ], [ %856, %853 ], [ false, %825 ], [ %870, %869 ], [ false, %849 ], [ %884, %879 ], [ false, %857 ], [ false, %871 ], [ %932, %931 ], [ false, %907 ], [ %974, %969 ], [ false, %917 ], [ %386, %385 ], [ false, %975 ], [ %995, %994 ], [ false, %933 ], [ false, %2333 ], [ false, %996 ], [ %1016, %1015 ], [ %993, %992 ], [ false, %2339 ], [ %1014, %1013 ], [ false, %1044 ], [ %1068, %1067 ], [ false, %1857 ], [ %1074, %1069 ], [ false, %2345 ], [ %1128, %1123 ], [ false, %1109 ], [ %.mux1567, %1101 ], [ false, %1859 ], [ false, %1865 ], [ %1180, %1175 ], [ %1194, %1193 ], [ false, %1181 ], [ %.mux1569, %1117 ], [ false, %1149 ], [ %1216, %1211 ], [ false, %1835 ], [ %1226, %1223 ], [ false, %1195 ], [ %1244, %1239 ], [ false, %1227 ], [ %.mux1571, %1187 ], [ false, %1217 ], [ %1252, %1251 ], [ %.mux1587, %1827 ], [ %.mux1573, %1233 ], [ %1258, %1253 ], [ false, %1847 ], [ false, %1266 ], [ %1314, %1309 ], [ false, %1288 ], [ %1330, %1329 ], [ false, %1303 ], [ %1346, %1345 ], [ false, %1315 ], [ %1362, %1361 ], [ false, %1331 ], [ %1396, %1395 ], [ false, %1347 ], [ %1412, %1411 ], [ false, %1363 ], [ %1420, %1419 ], [ false, %1397 ], [ %.mux1575, %1245 ], [ %1424, %1421 ], [ %1878, %1877 ], [ false, %2358 ], [ false, %1466 ], [ %1513, %1508 ], [ %1527, %1526 ], [ false, %1514 ], [ %.mux1577, %1413 ], [ false, %1494 ], [ %1537, %1532 ], [ false, %1773 ], [ false, %1528 ], [ %1579, %1576 ], [ false, %1779 ], [ %1451, %1450 ], [ false, %1670 ], [ %1696, %1695 ], [ false, %1785 ], [ %1694, %1693 ], [ false, %1715 ], [ %1822, %1817 ], [ false, %1765 ], [ %.mux1583, %1662 ], [ false, %1755 ], [ %1834, %1833 ], [ false, %1823 ], [ %.mux1585, %1811 ], [ false, %1791 ], [ false, %1793 ], [ false, %1799 ], [ %1934, %1929 ], [ false, %1915 ], [ %1958, %1953 ], [ false, %1925 ], [ false, %1496 ], [ false, %1935 ], [ false, %1289 ], [ false, %1987 ], [ false, %2006 ], [ %2075, %2072 ], [ %2079, %2076 ], [ %2105, %2100 ], [ false, %1805 ], [ false, %2080 ], [ %2157, %2152 ], [ false, %1729 ], [ false, %2146 ], [ %2213, %2210 ], [ false, %1737 ], [ false, %2204 ], [ %2241, %2236 ], [ %2257, %2252 ], [ false, %2226 ], [ false, %2242 ], [ %2306, %2303 ], [ %2310, %2307 ], [ %2326, %2321 ], [ false, %2311 ], [ %.mux1597, %2290 ], [ false, %1743 ], [ false, %1756 ], [ false, %1879 ], [ false, %1757 ], [ false, %1099 ], [ false, %1852 ], [ false, %909 ], [ false, %803 ], [ false, %755 ], [ false, %741 ], [ false, %1896 ], [ false, %1917 ], [ false, %696 ], [ false, %686 ], [ false, %1658 ], [ false, %611 ], [ false, %601 ], [ false, %1626 ], [ false, %1558 ], [ false, %2114 ], [ false, %1717 ], [ false, %2184 ], [ false, %2359 ], [ false, %"_ZN65_$LT$sqlparser..ast..Password$u20$as$u20$core..cmp..PartialEq$GT$2eq17h682666b7aa79e1d8E.exit" ], [ false, %2228 ], [ false, %2272 ], [ %2302, %2301 ], [ false, %441 ], [ false, %374 ], [ false, %364 ], [ false, %354 ], [ false, %295 ], [ false, %281 ], [ false, %267 ], [ false, %255 ], [ false, %2296 ], [ true, %2300 ], [ false, %552 ], [ false, %83 ], [ false, %33 ], [ false, %2357 ], [ %2372, %2371 ], [ false, %2270 ], [ false, %2258 ], [ false, %2271 ], [ false, %2281 ], [ false, %2284 ], [ %.mux1595, %2192 ], [ false, %2280 ], [ false, %2282 ], [ false, %2248 ], [ false, %2214 ], [ false, %2227 ], [ %2235, %2230 ], [ false, %2158 ], [ false, %2164 ], [ false, %2170 ], [ false, %2183 ], [ false, %2186 ], [ %.mux1593, %2138 ], [ false, %2182 ], [ %2203, %2198 ], [ false, %2120 ], [ false, %2126 ], [ false, %2132 ], [ false, %2112 ], [ %.mux1591, %2060 ], [ false, %2113 ], [ %2145, %2144 ], [ false, %2088 ], [ false, %2092 ], [ false, %2094 ], [ false, %2021 ], [ false, %2027 ], [ false, %2033 ], [ false, %2039 ], [ false, %2045 ], [ false, %2058 ], [ %.mux1589, %1871 ], [ false, %2056 ], [ %2071, %2066 ], [ false, %1995 ], [ false, %2007 ], [ false, %2009 ], [ %2020, %2015 ], [ false, %1985 ], [ %1994, %1989 ], [ false, %1468 ], [ false, %1941 ], [ false, %1947 ], [ false, %1891 ], [ false, %1901 ], [ false, %1903 ], [ false, %1916 ], [ %68, %63 ], [ false, %57 ], [ false, %51 ], [ false, %45 ], [ false, %39 ], [ false, %32 ], [ false, %19 ], [ %124, %123 ], [ false, %114 ], [ false, %1697 ], [ false, %115 ], [ false, %107 ], [ false, %95 ], [ false, %89 ], [ false, %82 ], [ false, %69 ], [ false, %81 ], [ false, %106 ], [ false, %131 ], [ %196, %191 ], [ false, %189 ], [ false, %176 ], [ false, %170 ], [ false, %164 ], [ false, %221 ], [ false, %215 ], [ false, %213 ], [ false, %207 ], [ %324, %319 ], [ false, %293 ], [ %.mux, %117 ], [ false, %307 ], [ false, %301 ], [ false, %294 ], [ false, %280 ], [ false, %266 ], [ false, %257 ], [ false, %254 ], [ false, %241 ], [ false, %233 ], [ false, %253 ], [ false, %265 ], [ false, %279 ], [ %143, %142 ], [ false, %372 ], [ %388, %387 ], [ false, %373 ], [ false, %363 ], [ false, %353 ], [ false, %340 ], [ false, %336 ], [ false, %352 ], [ false, %362 ], [ %476, %471 ], [ false, %439 ], [ %.mux1555, %313 ], [ false, %459 ], [ false, %453 ], [ false, %447 ], [ false, %440 ], [ false, %427 ], [ false, %425 ], [ false, %419 ], [ false, %413 ], [ false, %407 ], [ false, %401 ], [ false, %393 ], [ false, %493 ], [ false, %487 ], [ %654, %649 ], [ false, %609 ], [ %.mux1557, %465 ], [ false, %637 ], [ false, %631 ], [ false, %625 ], [ false, %619 ], [ false, %613 ], [ false, %610 ], [ false, %600 ], [ false, %591 ], [ false, %582 ], [ false, %573 ], [ false, %564 ], [ false, %551 ], [ false, %542 ], [ false, %533 ], [ false, %524 ], [ false, %511 ], [ false, %505 ], [ false, %522 ], [ false, %531 ], [ false, %540 ], [ false, %550 ], [ false, %562 ], [ false, %571 ], [ false, %580 ], [ false, %589 ], [ false, %599 ], [ %705, %700 ], [ false, %698 ], [ false, %695 ], [ false, %685 ], [ false, %672 ], [ false, %670 ], [ false, %655 ], [ false, %668 ], [ false, %684 ], [ %764, %763 ], [ false, %753 ], [ %.mux1559, %643 ], [ false, %754 ], [ false, %740 ], [ false, %731 ], [ false, %722 ], [ false, %710 ], [ false, %706 ], [ false, %721 ], [ false, %729 ], [ false, %739 ], [ %812, %811 ], [ false, %795 ], [ %.mux1561, %757 ], [ false, %796 ], [ false, %783 ], [ false, %777 ], [ false, %771 ], [ false, %765 ], [ false, %797 ], [ false, %837 ], [ false, %831 ], [ false, %863 ], [ false, %875 ], [ %916, %911 ], [ false, %908 ], [ false, %899 ], [ false, %893 ], [ false, %885 ], [ false, %925 ], [ false, %963 ], [ false, %957 ], [ false, %951 ], [ false, %945 ], [ false, %939 ], [ false, %981 ], [ false, %1002 ], [ %1043, %1042 ], [ false, %1030 ], [ %.mux1563, %805 ], [ false, %1034 ], [ false, %1032 ], [ false, %1017 ], [ false, %1054 ], [ false, %1050 ], [ %1108, %1107 ], [ false, %1097 ], [ %.mux1565, %1036 ], [ false, %1098 ], [ false, %1085 ], [ false, %1079 ], [ false, %1075 ], [ false, %1113 ], [ %1174, %1169 ], [ false, %1163 ], [ false, %1157 ], [ false, %1150 ], [ false, %1141 ], [ false, %1129 ], [ false, %1140 ], [ false, %1209 ], [ false, %1203 ], [ %1280, %1275 ], [ false, %1265 ], [ false, %1269 ], [ %1302, %1297 ], [ false, %1287 ], [ false, %1291 ], [ false, %1323 ], [ false, %1339 ], [ false, %1355 ], [ false, %1389 ], [ false, %1383 ], [ false, %1377 ], [ false, %1371 ], [ false, %1405 ], [ %1066, %1065 ], [ false, %1442 ], [ %1453, %1452 ], [ false, %1443 ], [ false, %1431 ], [ false, %1425 ], [ %1475, %1470 ], [ false, %1467 ], [ false, %1454 ], [ %1507, %1502 ], [ false, %1495 ], [ false, %1482 ], [ false, %1476 ], [ %1575, %1570 ], [ false, %1556 ], [ %.mux1579, %1520 ], [ false, %1557 ], [ false, %1544 ], [ false, %1538 ], [ %1669, %1668 ], [ false, %1656 ], [ %.mux1581, %1564 ], [ false, %1660 ], [ false, %1657 ], [ false, %1644 ], [ false, %1638 ], [ false, %1632 ], [ false, %1625 ], [ false, %1612 ], [ false, %1606 ], [ false, %1600 ], [ false, %1594 ], [ false, %1588 ], [ false, %1580 ], [ false, %1624 ], [ false, %1682 ], [ false, %1676 ], [ false, %tailrecurse ], [ false, %1959 ], [ true, %.lr.ph ], [ false, %15 ]
+  %.sroa.0.0 = phi i1 [ %145, %144 ], [ %151, %146 ], [ %155, %152 ], [ %159, %156 ], [ %163, %160 ], [ %200, %197 ], [ %232, %227 ], [ %335, %334 ], [ %392, %389 ], [ %478, %477 ], [ %500, %495 ], [ %504, %501 ], [ %824, %819 ], [ %848, %843 ], [ %856, %853 ], [ %870, %869 ], [ %884, %879 ], [ %932, %931 ], [ %974, %969 ], [ %995, %994 ], [ %1016, %1015 ], [ %1068, %1067 ], [ %1074, %1069 ], [ %1128, %1123 ], [ %1180, %1175 ], [ %1194, %1193 ], [ %1216, %1211 ], [ %1226, %1223 ], [ %1244, %1239 ], [ %1252, %1251 ], [ %1258, %1253 ], [ %1314, %1309 ], [ %1330, %1329 ], [ %1346, %1345 ], [ %1362, %1361 ], [ %1396, %1395 ], [ %1412, %1411 ], [ %1420, %1419 ], [ %1424, %1421 ], [ %1513, %1508 ], [ %1527, %1526 ], [ %1537, %1532 ], [ %1579, %1576 ], [ %1696, %1695 ], [ %1822, %1817 ], [ %1834, %1833 ], [ %1934, %1929 ], [ %1958, %1953 ], [ %2075, %2072 ], [ %2079, %2076 ], [ %2105, %2100 ], [ %2157, %2152 ], [ %2213, %2210 ], [ %2241, %2236 ], [ %2257, %2252 ], [ %2306, %2303 ], [ %2310, %2307 ], [ %2326, %2321 ], [ %68, %63 ], [ false, %57 ], [ false, %51 ], [ false, %45 ], [ false, %39 ], [ false, %32 ], [ false, %19 ], [ false, %31 ], [ %124, %123 ], [ false, %115 ], [ false, %107 ], [ false, %95 ], [ false, %89 ], [ false, %82 ], [ false, %69 ], [ false, %81 ], [ false, %106 ], [ false, %114 ], [ false, %131 ], [ false, %125 ], [ %196, %191 ], [ false, %189 ], [ false, %176 ], [ false, %170 ], [ false, %164 ], [ false, %187 ], [ false, %221 ], [ false, %215 ], [ false, %213 ], [ false, %207 ], [ false, %201 ], [ %324, %319 ], [ false, %307 ], [ false, %301 ], [ false, %294 ], [ false, %280 ], [ false, %266 ], [ false, %257 ], [ false, %254 ], [ false, %241 ], [ false, %233 ], [ false, %253 ], [ false, %265 ], [ false, %279 ], [ false, %293 ], [ false, %325 ], [ true, %333 ], [ %388, %387 ], [ false, %373 ], [ false, %363 ], [ false, %353 ], [ false, %340 ], [ false, %336 ], [ false, %352 ], [ false, %362 ], [ false, %372 ], [ %476, %471 ], [ false, %459 ], [ false, %453 ], [ false, %447 ], [ false, %440 ], [ false, %427 ], [ false, %425 ], [ false, %419 ], [ false, %413 ], [ false, %407 ], [ false, %401 ], [ false, %393 ], [ false, %439 ], [ false, %493 ], [ false, %487 ], [ false, %479 ], [ %654, %649 ], [ false, %637 ], [ false, %631 ], [ false, %625 ], [ false, %619 ], [ false, %613 ], [ false, %610 ], [ false, %600 ], [ false, %591 ], [ false, %582 ], [ false, %573 ], [ false, %564 ], [ false, %551 ], [ false, %542 ], [ false, %533 ], [ false, %524 ], [ false, %511 ], [ false, %505 ], [ false, %522 ], [ false, %531 ], [ false, %540 ], [ false, %550 ], [ false, %562 ], [ false, %571 ], [ false, %580 ], [ false, %589 ], [ false, %599 ], [ false, %609 ], [ %705, %700 ], [ false, %698 ], [ false, %695 ], [ false, %685 ], [ false, %672 ], [ false, %670 ], [ false, %655 ], [ false, %668 ], [ false, %684 ], [ false, %694 ], [ %764, %763 ], [ false, %754 ], [ false, %740 ], [ false, %731 ], [ false, %722 ], [ false, %710 ], [ false, %706 ], [ false, %721 ], [ false, %729 ], [ false, %739 ], [ false, %753 ], [ %812, %811 ], [ false, %796 ], [ false, %783 ], [ false, %777 ], [ false, %771 ], [ false, %765 ], [ false, %797 ], [ false, %795 ], [ false, %813 ], [ false, %837 ], [ false, %831 ], [ false, %825 ], [ false, %849 ], [ false, %863 ], [ false, %857 ], [ false, %875 ], [ false, %871 ], [ %916, %911 ], [ false, %908 ], [ false, %899 ], [ false, %893 ], [ false, %885 ], [ false, %907 ], [ false, %925 ], [ false, %917 ], [ false, %963 ], [ false, %957 ], [ false, %951 ], [ false, %945 ], [ false, %939 ], [ false, %933 ], [ false, %981 ], [ false, %975 ], [ false, %1002 ], [ false, %996 ], [ %1043, %1042 ], [ false, %1034 ], [ false, %1032 ], [ false, %1017 ], [ false, %1030 ], [ false, %1054 ], [ false, %1050 ], [ false, %1044 ], [ %1108, %1107 ], [ false, %1098 ], [ false, %1085 ], [ false, %1079 ], [ false, %1075 ], [ false, %1097 ], [ false, %1113 ], [ false, %1109 ], [ %1174, %1169 ], [ false, %1163 ], [ false, %1157 ], [ false, %1150 ], [ false, %1141 ], [ false, %1129 ], [ false, %1140 ], [ false, %1149 ], [ false, %1181 ], [ false, %1209 ], [ false, %1203 ], [ false, %1195 ], [ false, %1217 ], [ false, %1227 ], [ %1280, %1275 ], [ false, %1265 ], [ false, %1269 ], [ false, %1266 ], [ %1302, %1297 ], [ false, %1287 ], [ false, %1291 ], [ false, %1288 ], [ false, %1303 ], [ false, %1323 ], [ false, %1315 ], [ false, %1339 ], [ false, %1331 ], [ false, %1355 ], [ false, %1347 ], [ false, %1389 ], [ false, %1383 ], [ false, %1377 ], [ false, %1371 ], [ false, %1363 ], [ false, %1405 ], [ false, %1397 ], [ %1453, %1452 ], [ false, %1443 ], [ false, %1431 ], [ false, %1425 ], [ false, %1442 ], [ %1475, %1470 ], [ false, %1467 ], [ false, %1454 ], [ false, %1466 ], [ %1507, %1502 ], [ false, %1495 ], [ false, %1482 ], [ false, %1476 ], [ false, %1494 ], [ false, %1514 ], [ false, %1528 ], [ %1575, %1570 ], [ false, %1557 ], [ false, %1544 ], [ false, %1538 ], [ false, %1556 ], [ %1669, %1668 ], [ false, %1660 ], [ false, %1657 ], [ false, %1644 ], [ false, %1638 ], [ false, %1632 ], [ false, %1625 ], [ false, %1612 ], [ false, %1606 ], [ false, %1600 ], [ false, %1594 ], [ false, %1588 ], [ false, %1580 ], [ false, %1624 ], [ false, %1656 ], [ false, %1682 ], [ false, %1676 ], [ false, %1670 ], [ %1728, %1723 ], [ false, %1716 ], [ false, %1703 ], [ false, %1697 ], [ false, %1715 ], [ %1764, %1763 ], [ false, %1756 ], [ false, %1743 ], [ false, %1737 ], [ false, %1729 ], [ false, %1755 ], [ false, %1805 ], [ false, %1799 ], [ false, %1793 ], [ false, %1791 ], [ false, %1785 ], [ false, %1779 ], [ false, %1773 ], [ false, %1765 ], [ false, %1823 ], [ %1878, %1877 ], [ false, %1835 ], [ false, %1865 ], [ false, %1859 ], [ false, %1857 ], [ false, %1847 ], [ %1924, %1919 ], [ false, %1879 ], [ false, %1916 ], [ false, %1903 ], [ false, %1901 ], [ false, %1891 ], [ false, %1915 ], [ false, %1925 ], [ false, %1947 ], [ false, %1941 ], [ false, %1935 ], [ %1994, %1989 ], [ false, %1985 ], [ false, %1987 ], [ %2020, %2015 ], [ false, %2009 ], [ false, %2007 ], [ false, %1995 ], [ false, %2006 ], [ %2071, %2066 ], [ false, %2058 ], [ false, %2045 ], [ false, %2039 ], [ false, %2033 ], [ false, %2027 ], [ false, %2021 ], [ false, %2056 ], [ false, %2094 ], [ false, %2092 ], [ false, %2088 ], [ false, %2080 ], [ %2145, %2144 ], [ false, %2112 ], [ false, %2132 ], [ false, %2126 ], [ false, %2120 ], [ false, %2113 ], [ false, %2146 ], [ %2203, %2198 ], [ false, %2186 ], [ false, %2183 ], [ false, %2170 ], [ false, %2164 ], [ false, %2158 ], [ false, %2182 ], [ false, %2204 ], [ %2235, %2230 ], [ false, %2227 ], [ false, %2214 ], [ false, %2226 ], [ false, %2248 ], [ false, %2242 ], [ false, %2284 ], [ false, %2281 ], [ false, %2271 ], [ false, %2258 ], [ false, %2270 ], [ false, %2280 ], [ false, %2311 ], [ %2372, %2371 ], [ false, %2358 ], [ false, %2345 ], [ false, %2339 ], [ false, %2333 ], [ false, %2327 ], [ false, %2357 ], [ %143, %142 ], [ %386, %385 ], [ %993, %992 ], [ %1014, %1013 ], [ %1066, %1065 ], [ %1451, %1450 ], [ %1694, %1693 ], [ false, %33 ], [ false, %83 ], [ false, %255 ], [ false, %267 ], [ false, %281 ], [ false, %295 ], [ false, %354 ], [ false, %364 ], [ false, %374 ], [ false, %441 ], [ false, %"_ZN65_$LT$sqlparser..ast..Password$u20$as$u20$core..cmp..PartialEq$GT$2eq17h682666b7aa79e1d8E.exit" ], [ false, %601 ], [ false, %611 ], [ false, %686 ], [ false, %696 ], [ false, %741 ], [ false, %755 ], [ false, %803 ], [ false, %909 ], [ false, %1099 ], [ false, %1151 ], [ false, %1267 ], [ false, %1289 ], [ false, %1468 ], [ false, %1496 ], [ false, %1558 ], [ false, %1626 ], [ false, %1658 ], [ false, %1717 ], [ false, %1757 ], [ false, %1852 ], [ false, %1896 ], [ false, %1917 ], [ false, %2114 ], [ false, %2184 ], [ false, %2228 ], [ false, %2272 ], [ false, %2282 ], [ %2302, %2301 ], [ false, %2296 ], [ true, %2300 ], [ false, %2359 ], [ false, %552 ], [ false, %2 ], [ %.mux, %117 ], [ %.mux1555, %313 ], [ %.mux1557, %465 ], [ %.mux1559, %643 ], [ %.mux1561, %757 ], [ %.mux1563, %805 ], [ %.mux1565, %1036 ], [ %.mux1567, %1101 ], [ %.mux1569, %1117 ], [ %.mux1571, %1187 ], [ %.mux1573, %1233 ], [ %.mux1575, %1245 ], [ %.mux1577, %1413 ], [ %.mux1579, %1520 ], [ %.mux1581, %1564 ], [ %.mux1583, %1662 ], [ %.mux1585, %1811 ], [ %.mux1587, %1827 ], [ %.mux1589, %1871 ], [ %.mux1591, %2060 ], [ %.mux1593, %2138 ], [ %.mux1595, %2192 ], [ %.mux1597, %2290 ], [ %.mux1599, %2315 ], [ %.mux1601, %2365 ], [ false, %tailrecurse ], [ true, %.lr.ph ], [ false, %1959 ], [ false, %15 ]
   ret i1 %.sroa.0.0
 
 15:                                               ; preds = %.lr.ph
@@ -17754,7 +17754,7 @@ define internal fastcc noundef zeroext i1 @"_ZN66_$LT$sqlparser..ast..Subscript$
   br i1 %4, label %10, label %12
 
 9:                                                ; preds = %30, %28, %18, %36, %26, %16, %27, %17, %2, %12
-  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ %15, %12 ], [ %37, %36 ], [ false, %17 ], [ false, %28 ], [ false, %26 ], [ false, %16 ], [ false, %27 ], [ %.mux, %30 ], [ false, %18 ]
+  %.sroa.0.0.shrunk = phi i1 [ %15, %12 ], [ false, %2 ], [ %37, %36 ], [ false, %26 ], [ false, %16 ], [ false, %27 ], [ false, %17 ], [ false, %18 ], [ false, %28 ], [ %.mux, %30 ]
   ret i1 %.sroa.0.0.shrunk
 
 10:                                               ; preds = %8
@@ -20241,7 +20241,7 @@ define internal fastcc noundef zeroext i1 @"_ZN67_$LT$sqlparser..ast..CastFormat
   br i1 %4, label %10, label %12
 
 9:                                                ; preds = %10, %2, %16, %12
-  %.sroa.0.0.shrunk = phi i1 [ %19, %16 ], [ false, %2 ], [ %15, %12 ], [ false, %10 ]
+  %.sroa.0.0.shrunk = phi i1 [ %19, %16 ], [ %15, %12 ], [ false, %2 ], [ false, %10 ]
   ret i1 %.sroa.0.0.shrunk
 
 10:                                               ; preds = %8
@@ -20283,7 +20283,7 @@ define internal fastcc noundef zeroext i1 @"_ZN67_$LT$sqlparser..ast..CommentDef
   br label %12
 
 12:                                               ; preds = %6, %2
-  %.sroa.0.0.shrunk = phi i1 [ %11, %6 ], [ false, %2 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ %11, %6 ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -20592,7 +20592,7 @@ define internal fastcc noundef zeroext i1 @"_ZN67_$LT$sqlparser..ast..HiveFormat
   br i1 %brmerge, label %"_ZN70_$LT$sqlparser..ast..HiveRowFormat$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbd62ee4fa26d5accE.exit.thread", label %64
 
 "_ZN70_$LT$sqlparser..ast..HiveRowFormat$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbd62ee4fa26d5accE.exit.thread": ; preds = %58, %52, %41, %8, %46, %"_ZN69_$LT$sqlparser..ast..HiveIOFormat$u20$as$u20$core..cmp..PartialEq$GT$2eq17h99289e6eb6e57776E.exit", %27, %16, %"_ZN70_$LT$sqlparser..ast..HiveRowFormat$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbd62ee4fa26d5accE.exit", %7, %26, %40, %6, %25, %39, %64
-  %.sroa.0.0.shrunk = phi i1 [ %69, %64 ], [ false, %7 ], [ false, %52 ], [ false, %39 ], [ false, %25 ], [ false, %6 ], [ false, %40 ], [ false, %26 ], [ %.mux, %58 ], [ false, %"_ZN70_$LT$sqlparser..ast..HiveRowFormat$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbd62ee4fa26d5accE.exit" ], [ false, %46 ], [ false, %16 ], [ false, %27 ], [ false, %"_ZN69_$LT$sqlparser..ast..HiveIOFormat$u20$as$u20$core..cmp..PartialEq$GT$2eq17h99289e6eb6e57776E.exit" ], [ false, %8 ], [ false, %41 ]
+  %.sroa.0.0.shrunk = phi i1 [ %69, %64 ], [ false, %39 ], [ false, %25 ], [ false, %6 ], [ false, %40 ], [ false, %26 ], [ false, %7 ], [ false, %"_ZN70_$LT$sqlparser..ast..HiveRowFormat$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbd62ee4fa26d5accE.exit" ], [ false, %16 ], [ false, %27 ], [ false, %"_ZN69_$LT$sqlparser..ast..HiveIOFormat$u20$as$u20$core..cmp..PartialEq$GT$2eq17h99289e6eb6e57776E.exit" ], [ false, %46 ], [ false, %8 ], [ false, %41 ], [ false, %52 ], [ %.mux, %58 ]
   ret i1 %.sroa.0.0.shrunk
 
 64:                                               ; preds = %58
@@ -20685,7 +20685,7 @@ define internal fastcc noundef zeroext i1 @"_ZN67_$LT$sqlparser..ast..WindowType
   br i1 %4, label %9, label %13
 
 "_ZN67_$LT$sqlparser..ast..WindowSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h49df86358ff68eddE.exit": ; preds = %36, %38, %30, %24, %21, %20, %22, %2, %9
-  %.sroa.0.0.shrunk = phi i1 [ %12, %9 ], [ false, %2 ], [ %39, %38 ], [ false, %21 ], [ false, %22 ], [ false, %30 ], [ false, %24 ], [ false, %20 ], [ %.mux, %36 ]
+  %.sroa.0.0.shrunk = phi i1 [ %12, %9 ], [ false, %2 ], [ %39, %38 ], [ false, %30 ], [ false, %24 ], [ false, %20 ], [ false, %21 ], [ false, %22 ], [ %.mux, %36 ]
   ret i1 %.sroa.0.0.shrunk
 
 9:                                                ; preds = %8
@@ -20781,7 +20781,7 @@ define internal fastcc noundef zeroext i1 @"_ZN67_$LT$sqlparser..ast..query..Top
   br i1 %brmerge, label %"_ZN75_$LT$sqlparser..ast..query..TopQuantity$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7d24eae45aecff72E.exit", label %18
 
 "_ZN75_$LT$sqlparser..ast..query..TopQuantity$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7d24eae45aecff72E.exit": ; preds = %14, %29, %23, %18, %2, %8
-  %.sroa.0.0.shrunk = phi i1 [ %.mux, %14 ], [ false, %2 ], [ false, %18 ], [ false, %8 ], [ %28, %23 ], [ %31, %29 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %8 ], [ false, %2 ], [ %28, %23 ], [ %31, %29 ], [ false, %18 ], [ %.mux, %14 ]
   ret i1 %.sroa.0.0.shrunk
 
 18:                                               ; preds = %14
@@ -20919,19 +20919,19 @@ default.unreachable:                              ; preds = %39, %12
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !933, !noalias !930, !align !5, !noundef !4
   %28 = icmp eq ptr %27, null
-  br i1 %.not.i, label %30, label %29
+  br i1 %.not.i, label %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit", label %29
 
 29:                                               ; preds = %23
-  br i1 %28, label %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit8", label %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit"
+  br i1 %28, label %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit8", label %30
 
-30:                                               ; preds = %23
-  br i1 %28, label %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit.thread", label %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit8"
-
-"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit": ; preds = %29
+30:                                               ; preds = %29
   %31 = tail call fastcc noundef zeroext i1 @"_ZN61_$LT$sqlparser..ast..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35bb663b0d0eef03E"(ptr noalias noundef readonly align 8 dereferenceable(328) %25, ptr noalias noundef readonly align 8 dereferenceable(328) %27), !noalias !935
   br i1 %31, label %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit.thread", label %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit8"
 
-"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit.thread": ; preds = %12, %20, %30, %21, %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit"
+"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit": ; preds = %23
+  br i1 %28, label %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit.thread", label %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit8"
+
+"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit.thread": ; preds = %12, %30, %20, %21, %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit"
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i64, ptr %32, align 8, !range !191, !noundef !4
   %.not = icmp eq i64 %33, 3
@@ -20942,8 +20942,8 @@ default.unreachable:                              ; preds = %39, %12
   %.mux = and i1 %.not, %36
   br i1 %brmerge, label %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit8", label %37
 
-"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit8": ; preds = %48, %40, %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit.thread", %19, %8, %29, %54, %46, %39, %37, %20, %30, %21, %2, %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit"
-  %.sroa.0.0.shrunk = phi i1 [ false, %20 ], [ false, %2 ], [ false, %29 ], [ false, %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit" ], [ %.mux26, %48 ], [ false, %19 ], [ false, %21 ], [ false, %30 ], [ %47, %46 ], [ true, %39 ], [ %.mux, %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit.thread" ], [ false, %37 ], [ %55, %54 ], [ false, %8 ], [ %.mux24, %40 ]
+"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit8": ; preds = %48, %40, %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit.thread", %29, %19, %8, %54, %46, %39, %37, %30, %20, %21, %2, %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit"
+  %.sroa.0.0.shrunk = phi i1 [ false, %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit" ], [ false, %2 ], [ false, %21 ], [ false, %20 ], [ false, %30 ], [ %47, %46 ], [ %55, %54 ], [ false, %37 ], [ true, %39 ], [ false, %8 ], [ false, %19 ], [ false, %29 ], [ %.mux, %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit.thread" ], [ %.mux24, %40 ], [ %.mux26, %48 ]
   ret i1 %.sroa.0.0.shrunk
 
 37:                                               ; preds = %"_ZN73_$LT$sqlparser..ast..WindowFrameBound$u20$as$u20$core..cmp..PartialEq$GT$2eq17h612e0ab5f2616c6eE.exit.thread"
@@ -21120,7 +21120,7 @@ define internal fastcc noundef zeroext i1 @"_ZN68_$LT$sqlparser..ast..dml..Delet
   br i1 %brmerge, label %"_ZN66_$LT$sqlparser..ast..FromTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbd8a45be80f0e86eE.exit.thread", label %67
 
 "_ZN66_$LT$sqlparser..ast..FromTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbd8a45be80f0e86eE.exit.thread": ; preds = %61, %8, %49, %39, %25, %24, %38, %48, %2, %"_ZN66_$LT$sqlparser..ast..FromTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbd8a45be80f0e86eE.exit", %23, %37, %47, %55, %67
-  %.sroa.0.0.shrunk = phi i1 [ %68, %67 ], [ false, %24 ], [ false, %8 ], [ false, %55 ], [ false, %47 ], [ false, %37 ], [ false, %23 ], [ false, %"_ZN66_$LT$sqlparser..ast..FromTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbd8a45be80f0e86eE.exit" ], [ false, %2 ], [ false, %48 ], [ false, %38 ], [ %.mux, %61 ], [ false, %49 ], [ false, %25 ], [ false, %39 ]
+  %.sroa.0.0.shrunk = phi i1 [ %68, %67 ], [ false, %55 ], [ false, %47 ], [ false, %37 ], [ false, %23 ], [ false, %"_ZN66_$LT$sqlparser..ast..FromTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbd8a45be80f0e86eE.exit" ], [ false, %2 ], [ false, %48 ], [ false, %38 ], [ false, %24 ], [ false, %25 ], [ false, %39 ], [ false, %49 ], [ false, %8 ], [ %.mux, %61 ]
   ret i1 %.sroa.0.0.shrunk
 
 67:                                               ; preds = %61
@@ -21358,7 +21358,7 @@ define internal fastcc noundef zeroext i1 @"_ZN68_$LT$sqlparser..ast..dml..Inser
   br i1 %brmerge, label %130, label %131
 
 130:                                              ; preds = %124, %103, %93, %69, %59, %37, %9, %23, %36, %58, %68, %92, %102, %122, %7, %11, %17, %35, %39, %45, %57, %67, %75, %81, %91, %101, %109, %120, %131
-  %.sroa.0.0.shrunk = phi i1 [ %132, %131 ], [ false, %9 ], [ false, %93 ], [ false, %120 ], [ false, %109 ], [ false, %101 ], [ false, %91 ], [ false, %81 ], [ false, %75 ], [ false, %67 ], [ false, %57 ], [ false, %45 ], [ false, %39 ], [ false, %35 ], [ false, %17 ], [ false, %11 ], [ false, %7 ], [ false, %122 ], [ false, %102 ], [ false, %92 ], [ false, %68 ], [ false, %58 ], [ false, %36 ], [ false, %23 ], [ %.mux, %124 ], [ false, %103 ], [ false, %37 ], [ false, %59 ], [ false, %69 ]
+  %.sroa.0.0.shrunk = phi i1 [ %132, %131 ], [ false, %120 ], [ false, %109 ], [ false, %101 ], [ false, %91 ], [ false, %81 ], [ false, %75 ], [ false, %67 ], [ false, %57 ], [ false, %45 ], [ false, %39 ], [ false, %35 ], [ false, %17 ], [ false, %11 ], [ false, %7 ], [ false, %122 ], [ false, %102 ], [ false, %92 ], [ false, %68 ], [ false, %58 ], [ false, %36 ], [ false, %23 ], [ false, %9 ], [ false, %37 ], [ false, %59 ], [ false, %69 ], [ false, %93 ], [ false, %103 ], [ %.mux, %124 ]
   ret i1 %.sroa.0.0.shrunk
 
 131:                                              ; preds = %124
@@ -21393,7 +21393,7 @@ define internal fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..GrantObjec
   br label %12
 
 12:                                               ; preds = %6, %2
-  %.sroa.0.0.shrunk = phi i1 [ %11, %6 ], [ false, %2 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ %11, %6 ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -21438,7 +21438,7 @@ define internal fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..query..Fet
   br i1 %brmerge, label %18, label %19
 
 18:                                               ; preds = %14, %2, %8, %19
-  %.sroa.0.0.shrunk = phi i1 [ %20, %19 ], [ false, %2 ], [ %.mux, %14 ], [ false, %8 ]
+  %.sroa.0.0.shrunk = phi i1 [ %20, %19 ], [ false, %8 ], [ false, %2 ], [ %.mux, %14 ]
   ret i1 %.sroa.0.0.shrunk
 
 19:                                               ; preds = %14
@@ -21556,7 +21556,7 @@ define internal fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..query..Que
   br i1 %54, label %55, label %"_ZN68_$LT$sqlparser..ast..query..With$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d13a73ae21455c1E.exit.thread"
 
 "_ZN71_$LT$sqlparser..ast..query..OrderBy$u20$as$u20$core..cmp..PartialEq$GT$2eq17h853cf90530388decE.exit": ; preds = %41, %47
-  %.sroa.0.0.shrunk.i = phi i1 [ %.mux.i, %41 ], [ %.mux.i.i.i, %47 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %.mux.i.i.i, %47 ], [ %.mux.i, %41 ]
   br i1 %.sroa.0.0.shrunk.i, label %55, label %"_ZN68_$LT$sqlparser..ast..query..With$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d13a73ae21455c1E.exit.thread"
 
 55:                                               ; preds = %49, %"_ZN71_$LT$sqlparser..ast..query..OrderBy$u20$as$u20$core..cmp..PartialEq$GT$2eq17h853cf90530388decE.exit", %34
@@ -21704,7 +21704,7 @@ define internal fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..query..Que
   br i1 %brmerge, label %"_ZN68_$LT$sqlparser..ast..query..With$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d13a73ae21455c1E.exit.thread", label %130
 
 "_ZN68_$LT$sqlparser..ast..query..With$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d13a73ae21455c1E.exit.thread": ; preds = %124, %35, %10, %118, %108, %94, %79, %63, %49, %"_ZN71_$LT$sqlparser..ast..query..OrderBy$u20$as$u20$core..cmp..PartialEq$GT$2eq17h853cf90530388decE.exit", %"_ZN68_$LT$sqlparser..ast..query..With$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d13a73ae21455c1E.exit", %134, %130, %9, %21, %34, %62, %78, %93, %107, %117, %8, %33, %61, %65, %77, %92, %96, %106, %116, %135
-  %.sroa.0.0.shrunk = phi i1 [ false, %130 ], [ %136, %135 ], [ %.mux, %124 ], [ false, %9 ], [ false, %35 ], [ false, %116 ], [ false, %106 ], [ false, %96 ], [ false, %92 ], [ false, %77 ], [ false, %65 ], [ false, %61 ], [ false, %33 ], [ false, %8 ], [ false, %117 ], [ false, %107 ], [ false, %93 ], [ false, %78 ], [ false, %62 ], [ false, %34 ], [ false, %21 ], [ true, %134 ], [ false, %"_ZN68_$LT$sqlparser..ast..query..With$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d13a73ae21455c1E.exit" ], [ false, %118 ], [ false, %"_ZN71_$LT$sqlparser..ast..query..OrderBy$u20$as$u20$core..cmp..PartialEq$GT$2eq17h853cf90530388decE.exit" ], [ false, %10 ], [ false, %49 ], [ false, %63 ], [ false, %79 ], [ false, %94 ], [ false, %108 ]
+  %.sroa.0.0.shrunk = phi i1 [ %136, %135 ], [ false, %116 ], [ false, %106 ], [ false, %96 ], [ false, %92 ], [ false, %77 ], [ false, %65 ], [ false, %61 ], [ false, %33 ], [ false, %8 ], [ false, %117 ], [ false, %107 ], [ false, %93 ], [ false, %78 ], [ false, %62 ], [ false, %34 ], [ false, %21 ], [ false, %9 ], [ false, %130 ], [ true, %134 ], [ false, %"_ZN68_$LT$sqlparser..ast..query..With$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d13a73ae21455c1E.exit" ], [ false, %"_ZN71_$LT$sqlparser..ast..query..OrderBy$u20$as$u20$core..cmp..PartialEq$GT$2eq17h853cf90530388decE.exit" ], [ false, %49 ], [ false, %63 ], [ false, %79 ], [ false, %94 ], [ false, %108 ], [ false, %118 ], [ false, %10 ], [ false, %35 ], [ %.mux, %124 ]
   ret i1 %.sroa.0.0.shrunk
 
 130:                                              ; preds = %124
@@ -21765,7 +21765,7 @@ define internal fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..value..Val
   ]
 
 15:                                               ; preds = %17, %14, %2, %23, %133, %127, %121, %115, %109, %103, %97, %91, %85, %79, %73, %67, %61, %55, %49, %43, %37, %35, %29
-  %.sroa.0.0.shrunk = phi i1 [ %28, %23 ], [ true, %14 ], [ false, %2 ], [ %34, %29 ], [ %36, %35 ], [ %42, %37 ], [ %48, %43 ], [ %54, %49 ], [ %60, %55 ], [ %66, %61 ], [ %72, %67 ], [ %78, %73 ], [ %84, %79 ], [ %90, %85 ], [ %96, %91 ], [ %102, %97 ], [ %108, %103 ], [ %114, %109 ], [ %120, %115 ], [ %126, %121 ], [ %132, %127 ], [ %138, %133 ], [ false, %17 ]
+  %.sroa.0.0.shrunk = phi i1 [ %28, %23 ], [ %34, %29 ], [ %36, %35 ], [ %42, %37 ], [ %48, %43 ], [ %54, %49 ], [ %60, %55 ], [ %66, %61 ], [ %72, %67 ], [ %78, %73 ], [ %84, %79 ], [ %90, %85 ], [ %96, %91 ], [ %102, %97 ], [ %108, %103 ], [ %114, %109 ], [ %120, %115 ], [ %126, %121 ], [ %132, %127 ], [ %138, %133 ], [ false, %2 ], [ true, %14 ], [ false, %17 ]
   ret i1 %.sroa.0.0.shrunk
 
 16:                                               ; preds = %14
@@ -22021,7 +22021,7 @@ define internal fastcc noundef zeroext i1 @"_ZN70_$LT$sqlparser..ast..CeilFloorK
   br i1 %4, label %9, label %13
 
 "_ZN77_$LT$sqlparser..ast..value..DateTimeField$u20$as$u20$core..cmp..PartialEq$GT$2eq17h922aabeb6a3f1a98E.exit": ; preds = %25, %23, %17, %16, %13, %2, %9
-  %.sroa.0.0.shrunk = phi i1 [ %12, %9 ], [ false, %2 ], [ false, %13 ], [ %24, %23 ], [ true, %16 ], [ %.mux.i, %17 ], [ %28, %25 ]
+  %.sroa.0.0.shrunk = phi i1 [ %12, %9 ], [ false, %2 ], [ %24, %23 ], [ %28, %25 ], [ false, %13 ], [ true, %16 ], [ %.mux.i, %17 ]
   ret i1 %.sroa.0.0.shrunk
 
 9:                                                ; preds = %8
@@ -22164,7 +22164,7 @@ define internal fastcc noundef zeroext i1 @"_ZN71_$LT$sqlparser..ast..FetchDirec
   ]
 
 7:                                                ; preds = %28, %20, %6, %2, %34, %26, %16, %12, %8
-  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %27, %26 ], [ true, %6 ], [ %.mux, %20 ], [ %35, %34 ], [ %.mux6, %28 ]
+  %.sroa.0.0.shrunk = phi i1 [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %27, %26 ], [ %35, %34 ], [ false, %2 ], [ true, %6 ], [ %.mux, %20 ], [ %.mux6, %28 ]
   ret i1 %.sroa.0.0.shrunk
 
 8:                                                ; preds = %6
@@ -22366,7 +22366,7 @@ define internal fastcc noundef zeroext i1 @"_ZN71_$LT$sqlparser..ast..query..Set
   ]
 
 "_ZN70_$LT$sqlparser..ast..query..Select$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5d50059ac71e30e8E.exit": ; preds = %tailrecurse, %241, %235, %181, %167, %2, %229, %223, %217, %216, %215, %193, %187, %173, %165, %164, %153, %150, %149, %137, %134, %133, %121, %115, %109, %105, %102, %101, %92, %91, %81, %75, %63, %57, %51, %50, %49, %37, %31, %28, %27, %18, %17, %19, %29, %69, %93, %103, %135, %151, %203, %199, %175
-  %.sroa.0.0.shrunk = phi i1 [ %198, %193 ], [ %180, %175 ], [ false, %215 ], [ %234, %229 ], [ %.mux.i, %223 ], [ %202, %199 ], [ %206, %203 ], [ false, %187 ], [ false, %216 ], [ false, %217 ], [ %174, %173 ], [ false, %18 ], [ false, %2 ], [ false, %164 ], [ false, %153 ], [ false, %149 ], [ false, %137 ], [ false, %133 ], [ false, %121 ], [ false, %115 ], [ false, %109 ], [ false, %105 ], [ false, %101 ], [ false, %91 ], [ false, %81 ], [ false, %75 ], [ false, %63 ], [ false, %57 ], [ false, %51 ], [ false, %49 ], [ false, %37 ], [ false, %31 ], [ false, %27 ], [ false, %17 ], [ false, %165 ], [ false, %150 ], [ false, %134 ], [ false, %102 ], [ false, %92 ], [ false, %50 ], [ false, %28 ], [ %.mux, %167 ], [ false, %19 ], [ false, %29 ], [ false, %69 ], [ false, %93 ], [ false, %103 ], [ false, %135 ], [ false, %151 ], [ false, %181 ], [ false, %235 ], [ false, %241 ], [ false, %tailrecurse ]
+  %.sroa.0.0.shrunk = phi i1 [ %180, %175 ], [ %202, %199 ], [ %206, %203 ], [ %174, %173 ], [ false, %164 ], [ false, %153 ], [ false, %149 ], [ false, %137 ], [ false, %133 ], [ false, %121 ], [ false, %115 ], [ false, %109 ], [ false, %105 ], [ false, %101 ], [ false, %91 ], [ false, %81 ], [ false, %75 ], [ false, %63 ], [ false, %57 ], [ false, %51 ], [ false, %49 ], [ false, %37 ], [ false, %31 ], [ false, %27 ], [ false, %17 ], [ false, %165 ], [ false, %150 ], [ false, %134 ], [ false, %102 ], [ false, %92 ], [ false, %50 ], [ false, %28 ], [ false, %18 ], [ false, %19 ], [ false, %29 ], [ false, %69 ], [ false, %93 ], [ false, %103 ], [ false, %135 ], [ false, %151 ], [ %198, %193 ], [ false, %187 ], [ %234, %229 ], [ false, %215 ], [ false, %216 ], [ false, %217 ], [ %.mux.i, %223 ], [ false, %2 ], [ %.mux, %167 ], [ false, %181 ], [ false, %235 ], [ false, %241 ], [ false, %tailrecurse ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable57:                            ; preds = %.lr.ph
@@ -24156,7 +24156,7 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$sqlparser..ast..dml..Creat
   br i1 %brmerge, label %81, label %82
 
 81:                                               ; preds = %77, %30, %10, %9, %16, %29, %69, %8, %28, %32, %38, %44, %50, %56, %67, %71, %82
-  %.sroa.0.0.shrunk = phi i1 [ %83, %82 ], [ false, %9 ], [ false, %30 ], [ false, %71 ], [ false, %67 ], [ false, %56 ], [ false, %50 ], [ false, %44 ], [ false, %38 ], [ false, %32 ], [ false, %28 ], [ false, %8 ], [ false, %69 ], [ false, %29 ], [ false, %16 ], [ %.mux, %77 ], [ false, %10 ]
+  %.sroa.0.0.shrunk = phi i1 [ %83, %82 ], [ false, %71 ], [ false, %67 ], [ false, %56 ], [ false, %50 ], [ false, %44 ], [ false, %38 ], [ false, %32 ], [ false, %28 ], [ false, %8 ], [ false, %69 ], [ false, %29 ], [ false, %16 ], [ false, %9 ], [ false, %10 ], [ false, %30 ], [ %.mux, %77 ]
   ret i1 %.sroa.0.0.shrunk
 
 82:                                               ; preds = %77
@@ -24907,7 +24907,7 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$sqlparser..ast..dml..Creat
   br i1 %brmerge, label %416, label %417
 
 416:                                              ; preds = %410, %404, %384, %370, %356, %341, %298, %288, %278, %268, %258, %248, %238, %215, %201, %187, %176, %166, %152, %138, %122, %108, %77, %27, %47, %76, %98, %107, %121, %137, %151, %165, %175, %186, %200, %214, %228, %237, %247, %257, %267, %277, %287, %297, %323, %332, %340, %355, %369, %383, %397, %2, %8, %14, %25, %29, %35, %41, %53, %59, %65, %75, %79, %85, %96, %106, %120, %124, %136, %150, %164, %174, %185, %199, %213, %226, %236, %246, %256, %266, %276, %286, %296, %304, %310, %321, %330, %339, %354, %368, %382, %396, %398, %417
-  %.sroa.0.0.shrunk = phi i1 [ %422, %417 ], [ false, %27 ], [ false, %341 ], [ false, %398 ], [ false, %396 ], [ false, %382 ], [ false, %368 ], [ false, %354 ], [ false, %339 ], [ false, %330 ], [ false, %321 ], [ false, %310 ], [ false, %304 ], [ false, %296 ], [ false, %286 ], [ false, %276 ], [ false, %266 ], [ false, %256 ], [ false, %246 ], [ false, %236 ], [ false, %226 ], [ false, %213 ], [ false, %199 ], [ false, %185 ], [ false, %174 ], [ false, %164 ], [ false, %150 ], [ false, %136 ], [ false, %124 ], [ false, %120 ], [ false, %106 ], [ false, %96 ], [ false, %85 ], [ false, %79 ], [ false, %75 ], [ false, %65 ], [ false, %59 ], [ false, %53 ], [ false, %41 ], [ false, %35 ], [ false, %29 ], [ false, %25 ], [ false, %14 ], [ false, %8 ], [ false, %2 ], [ false, %397 ], [ false, %383 ], [ false, %369 ], [ false, %355 ], [ false, %340 ], [ false, %332 ], [ false, %323 ], [ false, %297 ], [ false, %287 ], [ false, %277 ], [ false, %267 ], [ false, %257 ], [ false, %247 ], [ false, %237 ], [ false, %228 ], [ false, %214 ], [ false, %200 ], [ false, %186 ], [ false, %175 ], [ false, %165 ], [ false, %151 ], [ false, %137 ], [ false, %121 ], [ false, %107 ], [ false, %98 ], [ false, %76 ], [ false, %47 ], [ %.mux, %410 ], [ false, %404 ], [ false, %77 ], [ false, %384 ], [ false, %108 ], [ false, %122 ], [ false, %138 ], [ false, %152 ], [ false, %166 ], [ false, %176 ], [ false, %187 ], [ false, %201 ], [ false, %215 ], [ false, %370 ], [ false, %238 ], [ false, %248 ], [ false, %258 ], [ false, %268 ], [ false, %278 ], [ false, %288 ], [ false, %298 ], [ false, %356 ]
+  %.sroa.0.0.shrunk = phi i1 [ %422, %417 ], [ false, %398 ], [ false, %396 ], [ false, %382 ], [ false, %368 ], [ false, %354 ], [ false, %339 ], [ false, %330 ], [ false, %321 ], [ false, %310 ], [ false, %304 ], [ false, %296 ], [ false, %286 ], [ false, %276 ], [ false, %266 ], [ false, %256 ], [ false, %246 ], [ false, %236 ], [ false, %226 ], [ false, %213 ], [ false, %199 ], [ false, %185 ], [ false, %174 ], [ false, %164 ], [ false, %150 ], [ false, %136 ], [ false, %124 ], [ false, %120 ], [ false, %106 ], [ false, %96 ], [ false, %85 ], [ false, %79 ], [ false, %75 ], [ false, %65 ], [ false, %59 ], [ false, %53 ], [ false, %41 ], [ false, %35 ], [ false, %29 ], [ false, %25 ], [ false, %14 ], [ false, %8 ], [ false, %2 ], [ false, %397 ], [ false, %383 ], [ false, %369 ], [ false, %355 ], [ false, %340 ], [ false, %332 ], [ false, %323 ], [ false, %297 ], [ false, %287 ], [ false, %277 ], [ false, %267 ], [ false, %257 ], [ false, %247 ], [ false, %237 ], [ false, %228 ], [ false, %214 ], [ false, %200 ], [ false, %186 ], [ false, %175 ], [ false, %165 ], [ false, %151 ], [ false, %137 ], [ false, %121 ], [ false, %107 ], [ false, %98 ], [ false, %76 ], [ false, %47 ], [ false, %27 ], [ false, %77 ], [ false, %108 ], [ false, %122 ], [ false, %138 ], [ false, %152 ], [ false, %166 ], [ false, %176 ], [ false, %187 ], [ false, %201 ], [ false, %215 ], [ false, %238 ], [ false, %248 ], [ false, %258 ], [ false, %268 ], [ false, %278 ], [ false, %288 ], [ false, %298 ], [ false, %341 ], [ false, %356 ], [ false, %370 ], [ false, %384 ], [ false, %404 ], [ %.mux, %410 ]
   ret i1 %.sroa.0.0.shrunk
 
 417:                                              ; preds = %410
@@ -24963,7 +24963,7 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$sqlparser..ast..query..For
   ]
 
 "_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread15": ; preds = %47, %86, %.sink.split.i, %29, %92, %84, %85, %72, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread", %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit", %41, %27, %35, %28, %15, %11, %13, %10, %2
-  %.sroa.0.0 = phi i1 [ true, %11 ], [ false, %2 ], [ false, %15 ], [ true, %10 ], [ true, %13 ], [ %46, %41 ], [ false, %27 ], [ false, %35 ], [ false, %28 ], [ %97, %92 ], [ false, %84 ], [ false, %85 ], [ false, %72 ], [ false, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread" ], [ false, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit" ], [ false, %29 ], [ false, %86 ], [ false, %.sink.split.i ], [ false, %47 ]
+  %.sroa.0.0 = phi i1 [ false, %2 ], [ true, %10 ], [ true, %13 ], [ true, %11 ], [ %46, %41 ], [ false, %27 ], [ false, %35 ], [ false, %28 ], [ false, %15 ], [ %97, %92 ], [ false, %84 ], [ false, %85 ], [ false, %72 ], [ false, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread" ], [ false, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit" ], [ false, %29 ], [ false, %.sink.split.i ], [ false, %86 ], [ false, %47 ]
   ret i1 %.sroa.0.0
 
 11:                                               ; preds = %10
@@ -25072,7 +25072,7 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$sqlparser..ast..query..For
   br i1 %brmerge12.i, label %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit", label %.sink.split.i
 
 "_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit": ; preds = %55, %61
-  %.sroa.0.0.shrunk.i = phi i1 [ %.mux13.i, %61 ], [ %.mux.i, %55 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %.mux.i, %55 ], [ %.mux13.i, %61 ]
   br i1 %.sroa.0.0.shrunk.i, label %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread", label %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread15"
 
 "_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit.thread": ; preds = %49, %.sink.split.i, %"_ZN70_$LT$sqlparser..ast..query..ForXml$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6b6d23a60f88f590E.exit"
@@ -25407,7 +25407,7 @@ define internal fastcc noundef zeroext i1 @"_ZN75_$LT$sqlparser..ast..CreateTabl
   br label %13
 
 13:                                               ; preds = %6, %.sink.split, %2
-  %.sroa.0.0.shrunk = phi i1 [ true, %6 ], [ false, %2 ], [ %12, %.sink.split ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ true, %6 ], [ %12, %.sink.split ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -25455,7 +25455,7 @@ define internal fastcc noundef zeroext i1 @"_ZN75_$LT$sqlparser..ast..query..Gro
   br label %14
 
 14:                                               ; preds = %.sink.split, %15, %2
-  %.sroa.0.0.shrunk = phi i1 [ false, %15 ], [ false, %2 ], [ %13, %.sink.split ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ false, %15 ], [ %13, %.sink.split ]
   ret i1 %.sroa.0.0.shrunk
 
 15:                                               ; preds = %8
@@ -25501,7 +25501,7 @@ define internal fastcc noundef zeroext i1 @"_ZN75_$LT$sqlparser..ast..query..Tab
   ]
 
 .critedge:                                        ; preds = %368, %305, %285, %253, %245, %221, %171, %151, %143, %125, %46, %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit", %347, %283, %237, %203, %181, %111, %99, %89, %374, %362, %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit.thread", %355, %338, %325, %319, %313, %73, %353, %345, %339, %337, %65, %293, %297, %299, %291, %282, %273, %267, %261, %57, %281, %"_ZN78_$LT$sqlparser..ast..query..TableWithJoins$u20$as$u20$core..cmp..PartialEq$GT$2eq17h437db91afa078898E.exit", %251, %235, %239, %236, %42, %38, %211, %215, %205, %201, %179, %202, %189, %183, %180, %26, %159, %165, %22, %16, %137, %131, %109, %97, %87, %119, %113, %110, %101, %98, %88, %10, %2, %311, %259, %227, %177, %157, %149
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ %150, %149 ], [ false, %16 ], [ %.mux, %125 ], [ %.mux147, %368 ], [ %158, %157 ], [ false, %22 ], [ %.mux131, %143 ], [ false, %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit" ], [ %178, %177 ], [ false, %26 ], [ %.mux133, %151 ], [ false, %283 ], [ false, %237 ], [ %228, %227 ], [ false, %38 ], [ %.mux135, %171 ], [ false, %180 ], [ false, %203 ], [ %260, %259 ], [ false, %"_ZN78_$LT$sqlparser..ast..query..TableWithJoins$u20$as$u20$core..cmp..PartialEq$GT$2eq17h437db91afa078898E.exit" ], [ %.mux139, %245 ], [ false, %181 ], [ false, %111 ], [ %312, %311 ], [ false, %65 ], [ %.mux143, %285 ], [ false, %99 ], [ false, %89 ], [ %136, %131 ], [ false, %10 ], [ false, %347 ], [ false, %109 ], [ false, %97 ], [ false, %87 ], [ false, %119 ], [ false, %113 ], [ false, %110 ], [ false, %101 ], [ false, %98 ], [ false, %88 ], [ false, %137 ], [ false, %165 ], [ false, %159 ], [ %210, %205 ], [ false, %201 ], [ false, %179 ], [ false, %202 ], [ false, %189 ], [ false, %183 ], [ false, %215 ], [ false, %211 ], [ %252, %251 ], [ false, %42 ], [ %.mux137, %221 ], [ false, %235 ], [ false, %239 ], [ false, %236 ], [ %292, %291 ], [ false, %281 ], [ %.mux141, %253 ], [ false, %282 ], [ false, %273 ], [ false, %267 ], [ false, %261 ], [ false, %57 ], [ false, %299 ], [ false, %297 ], [ false, %293 ], [ %375, %374 ], [ false, %337 ], [ %.mux145, %305 ], [ false, %362 ], [ false, %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit.thread" ], [ false, %355 ], [ false, %338 ], [ false, %325 ], [ false, %319 ], [ false, %313 ], [ false, %73 ], [ false, %353 ], [ false, %345 ], [ false, %339 ], [ false, %46 ]
+  %.sroa.0.0 = phi i1 [ %150, %149 ], [ %158, %157 ], [ %178, %177 ], [ %228, %227 ], [ %260, %259 ], [ %312, %311 ], [ false, %2 ], [ %136, %131 ], [ false, %109 ], [ false, %97 ], [ false, %87 ], [ false, %119 ], [ false, %113 ], [ false, %110 ], [ false, %101 ], [ false, %98 ], [ false, %88 ], [ false, %10 ], [ false, %137 ], [ false, %16 ], [ false, %22 ], [ false, %165 ], [ false, %159 ], [ false, %26 ], [ %210, %205 ], [ false, %201 ], [ false, %179 ], [ false, %202 ], [ false, %189 ], [ false, %183 ], [ false, %180 ], [ false, %215 ], [ false, %211 ], [ false, %38 ], [ %252, %251 ], [ false, %235 ], [ false, %239 ], [ false, %236 ], [ false, %42 ], [ false, %"_ZN78_$LT$sqlparser..ast..query..TableWithJoins$u20$as$u20$core..cmp..PartialEq$GT$2eq17h437db91afa078898E.exit" ], [ %292, %291 ], [ false, %282 ], [ false, %273 ], [ false, %267 ], [ false, %261 ], [ false, %57 ], [ false, %281 ], [ false, %299 ], [ false, %297 ], [ false, %293 ], [ false, %65 ], [ %375, %374 ], [ false, %362 ], [ false, %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit.thread" ], [ false, %355 ], [ false, %338 ], [ false, %325 ], [ false, %319 ], [ false, %313 ], [ false, %73 ], [ false, %353 ], [ false, %345 ], [ false, %339 ], [ false, %337 ], [ false, %89 ], [ false, %99 ], [ false, %111 ], [ false, %181 ], [ false, %203 ], [ false, %237 ], [ false, %283 ], [ false, %347 ], [ false, %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit" ], [ false, %46 ], [ %.mux, %125 ], [ %.mux131, %143 ], [ %.mux133, %151 ], [ %.mux135, %171 ], [ %.mux137, %221 ], [ %.mux139, %245 ], [ %.mux141, %253 ], [ %.mux143, %285 ], [ %.mux145, %305 ], [ %.mux147, %368 ]
   ret i1 %.sroa.0.0
 
 9:                                                ; preds = %8
@@ -26224,7 +26224,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$sqlparser..ast..CreateFunc
   br label %12
 
 12:                                               ; preds = %6, %2
-  %.sroa.0.0.shrunk = phi i1 [ %11, %6 ], [ false, %2 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ %11, %6 ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -26379,7 +26379,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$sqlparser..ast..data_type.
   ]
 
 .critedge:                                        ; preds = %742, %680, %891, %873, %861, %834, %816, %804, %786, %761, %748, %740, %741, %723, %711, %699, %686, %678, %679, %659, %641, %623, %605, %587, %569, %551, %533, %515, %497, %479, %461, %443, %425, %407, %389, %371, %353, %335, %292, %274, %256, %238, %220, %202, %184, %157, %130, %103, %76, %49, %22, %14, %2, %897, %875, %877, %840, %822, %806, %809, %788, %791, %763, %766, %724, %726, %701, %704, %661, %664, %643, %646, %625, %628, %607, %610, %589, %592, %571, %574, %553, %556, %535, %538, %517, %520, %499, %502, %481, %484, %463, %466, %445, %448, %427, %430, %409, %412, %391, %394, %373, %376, %355, %358, %337, %340, %294, %297, %276, %279, %258, %261, %240, %243, %222, %225, %204, %207, %186, %189, %158, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit78", %131, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit73", %104, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit68", %77, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit63", %50, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit58", %23, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit", %918, %911, %904, %884, %854, %847, %829, %773, %324, %319, %314, %309, %304
-  %.sroa.0.0 = phi i8 [ 0, %2 ], [ %42, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit" ], [ 1, %14 ], [ %24, %23 ], [ %69, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit58" ], [ 0, %22 ], [ %51, %50 ], [ %96, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit63" ], [ 0, %49 ], [ %78, %77 ], [ %123, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit68" ], [ 0, %76 ], [ %105, %104 ], [ %150, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit73" ], [ 0, %103 ], [ %132, %131 ], [ %177, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit78" ], [ 0, %130 ], [ %159, %158 ], [ %195, %189 ], [ 0, %157 ], [ %188, %186 ], [ %213, %207 ], [ 0, %184 ], [ %206, %204 ], [ %231, %225 ], [ 0, %202 ], [ %224, %222 ], [ %249, %243 ], [ 0, %220 ], [ %242, %240 ], [ %267, %261 ], [ 0, %238 ], [ %260, %258 ], [ %285, %279 ], [ 0, %256 ], [ %278, %276 ], [ %303, %297 ], [ 0, %274 ], [ %296, %294 ], [ %308, %304 ], [ %313, %309 ], [ %318, %314 ], [ %323, %319 ], [ %328, %324 ], [ %346, %340 ], [ 0, %292 ], [ %339, %337 ], [ %364, %358 ], [ 0, %335 ], [ %357, %355 ], [ %382, %376 ], [ 0, %353 ], [ %375, %373 ], [ %400, %394 ], [ 0, %371 ], [ %393, %391 ], [ %418, %412 ], [ 0, %389 ], [ %411, %409 ], [ %436, %430 ], [ 0, %407 ], [ %429, %427 ], [ %454, %448 ], [ 0, %425 ], [ %447, %445 ], [ %472, %466 ], [ 0, %443 ], [ %465, %463 ], [ %490, %484 ], [ 0, %461 ], [ %483, %481 ], [ %508, %502 ], [ 0, %479 ], [ %501, %499 ], [ %526, %520 ], [ 0, %497 ], [ %519, %517 ], [ %544, %538 ], [ 0, %515 ], [ %537, %535 ], [ %562, %556 ], [ 0, %533 ], [ %555, %553 ], [ %580, %574 ], [ 0, %551 ], [ %573, %571 ], [ %598, %592 ], [ 0, %569 ], [ %591, %589 ], [ %616, %610 ], [ 0, %587 ], [ %609, %607 ], [ %634, %628 ], [ 0, %605 ], [ %627, %625 ], [ %652, %646 ], [ 0, %623 ], [ %645, %643 ], [ %670, %664 ], [ 0, %641 ], [ %663, %661 ], [ 0, %659 ], [ %710, %704 ], [ 0, %679 ], [ %703, %701 ], [ %732, %726 ], [ 0, %711 ], [ %725, %724 ], [ 0, %699 ], [ 0, %723 ], [ %772, %766 ], [ 0, %741 ], [ %765, %763 ], [ %779, %773 ], [ %797, %791 ], [ 0, %761 ], [ %790, %788 ], [ %815, %809 ], [ 0, %786 ], [ %808, %806 ], [ %828, %822 ], [ 0, %804 ], [ %833, %829 ], [ %846, %840 ], [ 0, %816 ], [ %853, %847 ], [ %860, %854 ], [ %883, %877 ], [ 0, %861 ], [ %876, %875 ], [ 0, %834 ], [ %890, %884 ], [ %903, %897 ], [ 0, %873 ], [ %910, %904 ], [ %917, %911 ], [ %924, %918 ], [ 0, %742 ], [ 0, %680 ], [ 0, %891 ], [ 0, %740 ], [ %754, %748 ], [ 0, %678 ], [ %692, %686 ]
+  %.sroa.0.0 = phi i8 [ %42, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit" ], [ %24, %23 ], [ %69, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit58" ], [ %51, %50 ], [ %96, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit63" ], [ %78, %77 ], [ %123, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit68" ], [ %105, %104 ], [ %150, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit73" ], [ %132, %131 ], [ %177, %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit78" ], [ %159, %158 ], [ %195, %189 ], [ %188, %186 ], [ %213, %207 ], [ %206, %204 ], [ %231, %225 ], [ %224, %222 ], [ %249, %243 ], [ %242, %240 ], [ %267, %261 ], [ %260, %258 ], [ %285, %279 ], [ %278, %276 ], [ %303, %297 ], [ %296, %294 ], [ %308, %304 ], [ %313, %309 ], [ %318, %314 ], [ %323, %319 ], [ %328, %324 ], [ %346, %340 ], [ %339, %337 ], [ %364, %358 ], [ %357, %355 ], [ %382, %376 ], [ %375, %373 ], [ %400, %394 ], [ %393, %391 ], [ %418, %412 ], [ %411, %409 ], [ %436, %430 ], [ %429, %427 ], [ %454, %448 ], [ %447, %445 ], [ %472, %466 ], [ %465, %463 ], [ %490, %484 ], [ %483, %481 ], [ %508, %502 ], [ %501, %499 ], [ %526, %520 ], [ %519, %517 ], [ %544, %538 ], [ %537, %535 ], [ %562, %556 ], [ %555, %553 ], [ %580, %574 ], [ %573, %571 ], [ %598, %592 ], [ %591, %589 ], [ %616, %610 ], [ %609, %607 ], [ %634, %628 ], [ %627, %625 ], [ %652, %646 ], [ %645, %643 ], [ %670, %664 ], [ %663, %661 ], [ %710, %704 ], [ %703, %701 ], [ %732, %726 ], [ %725, %724 ], [ %772, %766 ], [ %765, %763 ], [ %779, %773 ], [ %797, %791 ], [ %790, %788 ], [ %815, %809 ], [ %808, %806 ], [ %828, %822 ], [ %833, %829 ], [ %846, %840 ], [ %853, %847 ], [ %860, %854 ], [ %883, %877 ], [ %876, %875 ], [ %890, %884 ], [ %903, %897 ], [ %910, %904 ], [ %917, %911 ], [ %924, %918 ], [ 0, %2 ], [ 1, %14 ], [ 0, %22 ], [ 0, %49 ], [ 0, %76 ], [ 0, %103 ], [ 0, %130 ], [ 0, %157 ], [ 0, %184 ], [ 0, %202 ], [ 0, %220 ], [ 0, %238 ], [ 0, %256 ], [ 0, %274 ], [ 0, %292 ], [ 0, %335 ], [ 0, %353 ], [ 0, %371 ], [ 0, %389 ], [ 0, %407 ], [ 0, %425 ], [ 0, %443 ], [ 0, %461 ], [ 0, %479 ], [ 0, %497 ], [ 0, %515 ], [ 0, %533 ], [ 0, %551 ], [ 0, %569 ], [ 0, %587 ], [ 0, %605 ], [ 0, %623 ], [ 0, %641 ], [ 0, %659 ], [ %692, %686 ], [ 0, %678 ], [ 0, %679 ], [ 0, %699 ], [ 0, %711 ], [ 0, %723 ], [ %754, %748 ], [ 0, %740 ], [ 0, %741 ], [ 0, %761 ], [ 0, %786 ], [ 0, %804 ], [ 0, %816 ], [ 0, %834 ], [ 0, %861 ], [ 0, %873 ], [ 0, %891 ], [ 0, %680 ], [ 0, %742 ]
   %15 = trunc nuw i8 %.sroa.0.0 to i1
   ret i1 %15
 
@@ -26434,7 +26434,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$sqlparser..ast..data_type.
   br label %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit"
 
 "_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit": ; preds = %25, %27, %28, %39, %40
-  %.sroa.0.0.i = phi i1 [ false, %25 ], [ %.not2.i, %39 ], [ false, %28 ], [ %41, %40 ], [ true, %27 ]
+  %.sroa.0.0.i = phi i1 [ %41, %40 ], [ false, %25 ], [ true, %27 ], [ false, %28 ], [ %.not2.i, %39 ]
   %42 = zext i1 %.sroa.0.0.i to i8
   br label %.critedge
 
@@ -26489,7 +26489,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$sqlparser..ast..data_type.
   br label %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit58"
 
 "_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit58": ; preds = %52, %54, %55, %66, %67
-  %.sroa.0.0.i54 = phi i1 [ false, %52 ], [ %.not2.i57, %66 ], [ false, %55 ], [ %68, %67 ], [ true, %54 ]
+  %.sroa.0.0.i54 = phi i1 [ %68, %67 ], [ false, %52 ], [ true, %54 ], [ false, %55 ], [ %.not2.i57, %66 ]
   %69 = zext i1 %.sroa.0.0.i54 to i8
   br label %.critedge
 
@@ -26544,7 +26544,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$sqlparser..ast..data_type.
   br label %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit63"
 
 "_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit63": ; preds = %79, %81, %82, %93, %94
-  %.sroa.0.0.i59 = phi i1 [ false, %79 ], [ %.not2.i62, %93 ], [ false, %82 ], [ %95, %94 ], [ true, %81 ]
+  %.sroa.0.0.i59 = phi i1 [ %95, %94 ], [ false, %79 ], [ true, %81 ], [ false, %82 ], [ %.not2.i62, %93 ]
   %96 = zext i1 %.sroa.0.0.i59 to i8
   br label %.critedge
 
@@ -26599,7 +26599,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$sqlparser..ast..data_type.
   br label %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit68"
 
 "_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit68": ; preds = %106, %108, %109, %120, %121
-  %.sroa.0.0.i64 = phi i1 [ false, %106 ], [ %.not2.i67, %120 ], [ false, %109 ], [ %122, %121 ], [ true, %108 ]
+  %.sroa.0.0.i64 = phi i1 [ %122, %121 ], [ false, %106 ], [ true, %108 ], [ false, %109 ], [ %.not2.i67, %120 ]
   %123 = zext i1 %.sroa.0.0.i64 to i8
   br label %.critedge
 
@@ -26654,7 +26654,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$sqlparser..ast..data_type.
   br label %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit73"
 
 "_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit73": ; preds = %133, %135, %136, %147, %148
-  %.sroa.0.0.i69 = phi i1 [ false, %133 ], [ %.not2.i72, %147 ], [ false, %136 ], [ %149, %148 ], [ true, %135 ]
+  %.sroa.0.0.i69 = phi i1 [ %149, %148 ], [ false, %133 ], [ true, %135 ], [ false, %136 ], [ %.not2.i72, %147 ]
   %150 = zext i1 %.sroa.0.0.i69 to i8
   br label %.critedge
 
@@ -26709,7 +26709,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$sqlparser..ast..data_type.
   br label %"_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit78"
 
 "_ZN83_$LT$sqlparser..ast..data_type..CharacterLength$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84c493ca171a74a8E.exit78": ; preds = %160, %162, %163, %174, %175
-  %.sroa.0.0.i74 = phi i1 [ false, %160 ], [ %.not2.i77, %174 ], [ false, %163 ], [ %176, %175 ], [ true, %162 ]
+  %.sroa.0.0.i74 = phi i1 [ %176, %175 ], [ false, %160 ], [ true, %162 ], [ false, %163 ], [ %.not2.i77, %174 ]
   %177 = zext i1 %.sroa.0.0.i74 to i8
   br label %.critedge
 
@@ -28060,7 +28060,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$sqlparser..ast..ddl..Creat
   br i1 %brmerge, label %"_ZN75_$LT$sqlparser..ast..CreateFunctionBody$u20$as$u20$core..cmp..PartialEq$GT$2eq17h586485efa55cda80E.exit.thread", label %134
 
 "_ZN75_$LT$sqlparser..ast..CreateFunctionBody$u20$as$u20$core..cmp..PartialEq$GT$2eq17h586485efa55cda80E.exit.thread": ; preds = %128, %122, %104, %94, %"_ZN75_$LT$sqlparser..ast..CreateFunctionBody$u20$as$u20$core..cmp..PartialEq$GT$2eq17h586485efa55cda80E.exit", %48, %34, %20, %33, %47, %55, %66, %75, %84, %93, %103, %112, %121, %2, %8, %14, %32, %46, %53, %64, %73, %82, %92, %102, %111, %120, %134
-  %.sroa.0.0.shrunk = phi i1 [ %139, %134 ], [ false, %20 ], [ false, %104 ], [ false, %120 ], [ false, %111 ], [ false, %102 ], [ false, %92 ], [ false, %82 ], [ false, %73 ], [ false, %64 ], [ false, %53 ], [ false, %46 ], [ false, %32 ], [ false, %14 ], [ false, %8 ], [ false, %2 ], [ false, %121 ], [ false, %112 ], [ false, %103 ], [ false, %93 ], [ false, %84 ], [ false, %75 ], [ false, %66 ], [ false, %55 ], [ false, %47 ], [ false, %33 ], [ %.mux, %128 ], [ false, %34 ], [ false, %48 ], [ false, %"_ZN75_$LT$sqlparser..ast..CreateFunctionBody$u20$as$u20$core..cmp..PartialEq$GT$2eq17h586485efa55cda80E.exit" ], [ false, %122 ], [ false, %94 ]
+  %.sroa.0.0.shrunk = phi i1 [ %139, %134 ], [ false, %120 ], [ false, %111 ], [ false, %102 ], [ false, %92 ], [ false, %82 ], [ false, %73 ], [ false, %64 ], [ false, %53 ], [ false, %46 ], [ false, %32 ], [ false, %14 ], [ false, %8 ], [ false, %2 ], [ false, %121 ], [ false, %112 ], [ false, %103 ], [ false, %93 ], [ false, %84 ], [ false, %75 ], [ false, %66 ], [ false, %55 ], [ false, %47 ], [ false, %33 ], [ false, %20 ], [ false, %34 ], [ false, %48 ], [ false, %"_ZN75_$LT$sqlparser..ast..CreateFunctionBody$u20$as$u20$core..cmp..PartialEq$GT$2eq17h586485efa55cda80E.exit" ], [ false, %94 ], [ false, %104 ], [ false, %122 ], [ %.mux, %128 ]
   ret i1 %.sroa.0.0.shrunk
 
 134:                                              ; preds = %128
@@ -28308,8 +28308,8 @@ define internal fastcc noundef zeroext i1 @"_ZN77_$LT$sqlparser..ast..ShowStatem
   %.mux = and i1 %.not12, %66
   br i1 %brmerge, label %"_ZN72_$LT$sqlparser..ast..ShowStatementIn$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcc38e3bf0d636afaE.exit.thread", label %67
 
-"_ZN72_$LT$sqlparser..ast..ShowStatementIn$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcc38e3bf0d636afaE.exit.thread": ; preds = %63, %23, %21, %10, %61, %51, %41, %27, %"_ZN72_$LT$sqlparser..ast..ShowStatementIn$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcc38e3bf0d636afaE.exit", %9, %40, %50, %60, %8, %39, %49, %59, %67
-  %.sroa.0.0.shrunk = phi i1 [ %68, %67 ], [ false, %9 ], [ false, %23 ], [ false, %59 ], [ false, %49 ], [ false, %39 ], [ false, %8 ], [ false, %60 ], [ false, %50 ], [ false, %40 ], [ %.mux, %63 ], [ false, %"_ZN72_$LT$sqlparser..ast..ShowStatementIn$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcc38e3bf0d636afaE.exit" ], [ false, %61 ], [ false, %27 ], [ false, %41 ], [ false, %51 ], [ false, %10 ], [ false, %21 ]
+"_ZN72_$LT$sqlparser..ast..ShowStatementIn$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcc38e3bf0d636afaE.exit.thread": ; preds = %63, %10, %23, %21, %61, %51, %41, %27, %"_ZN72_$LT$sqlparser..ast..ShowStatementIn$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcc38e3bf0d636afaE.exit", %9, %40, %50, %60, %8, %39, %49, %59, %67
+  %.sroa.0.0.shrunk = phi i1 [ %68, %67 ], [ false, %59 ], [ false, %49 ], [ false, %39 ], [ false, %8 ], [ false, %60 ], [ false, %50 ], [ false, %40 ], [ false, %9 ], [ false, %"_ZN72_$LT$sqlparser..ast..ShowStatementIn$u20$as$u20$core..cmp..PartialEq$GT$2eq17hcc38e3bf0d636afaE.exit" ], [ false, %27 ], [ false, %41 ], [ false, %51 ], [ false, %61 ], [ false, %21 ], [ false, %23 ], [ false, %10 ], [ %.mux, %63 ]
   ret i1 %.sroa.0.0.shrunk
 
 67:                                               ; preds = %63
@@ -28611,7 +28611,7 @@ define internal fastcc noundef zeroext i1 @"_ZN77_$LT$sqlparser..ast..value..Dat
   ]
 
 7:                                                ; preds = %8, %6, %2, %14, %16
-  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ %15, %14 ], [ true, %6 ], [ %.mux, %8 ], [ %19, %16 ]
+  %.sroa.0.0.shrunk = phi i1 [ %15, %14 ], [ %19, %16 ], [ false, %2 ], [ true, %6 ], [ %.mux, %8 ]
   ret i1 %.sroa.0.0.shrunk
 
 8:                                                ; preds = %6
@@ -28661,7 +28661,7 @@ define internal fastcc noundef zeroext i1 @"_ZN78_$LT$sqlparser..ast..HiveDistri
   ]
 
 15:                                               ; preds = %23, %29, %14, %2, %35, %17
-  %.sroa.0.0.shrunk = phi i1 [ %22, %17 ], [ false, %2 ], [ %40, %35 ], [ true, %14 ], [ false, %23 ], [ false, %29 ]
+  %.sroa.0.0.shrunk = phi i1 [ %22, %17 ], [ %40, %35 ], [ false, %2 ], [ true, %14 ], [ false, %29 ], [ false, %23 ]
   ret i1 %.sroa.0.0.shrunk
 
 16:                                               ; preds = %14
@@ -29117,8 +29117,8 @@ default.unreachable:                              ; preds = %32
   br label %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7ed0857ba096c890E.exit"
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7ed0857ba096c890E.exit": ; preds = %32, %.noexc4, %.noexc3, %.noexc2, %.noexc
-  %.sroa.516.sroa.0.1 = phi ptr [ %78, %.noexc4 ], [ %39, %.noexc ], [ %57, %.noexc2 ], [ %73, %.noexc3 ], [ %.sroa.516.sroa.0.042, %32 ]
-  %.sroa.516.sroa.4.1 = phi i64 [ %79, %.noexc4 ], [ %40, %.noexc ], [ %58, %.noexc2 ], [ %74, %.noexc3 ], [ %.sroa.516.sroa.4.044, %32 ]
+  %.sroa.516.sroa.0.1 = phi ptr [ %39, %.noexc ], [ %57, %.noexc2 ], [ %73, %.noexc3 ], [ %78, %.noexc4 ], [ %.sroa.516.sroa.0.042, %32 ]
+  %.sroa.516.sroa.4.1 = phi i64 [ %40, %.noexc ], [ %58, %.noexc2 ], [ %74, %.noexc3 ], [ %79, %.noexc4 ], [ %.sroa.516.sroa.4.044, %32 ]
   %80 = getelementptr inbounds nuw { [3 x i64] }, ptr %19, i64 %.sroa.7.041
   store i64 %35, ptr %80, align 8, !noalias !1138
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -29190,7 +29190,7 @@ define internal fastcc noundef zeroext i1 @"_ZN80_$LT$sqlparser..ast..dcl..Alter
   ]
 
 "_ZN76_$LT$sqlparser..ast..dcl..SetConfigValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbf6455c3fc8defbaE.exit.thread27": ; preds = %75, %"_ZN76_$LT$sqlparser..ast..dcl..SetConfigValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbf6455c3fc8defbaE.exit.thread", %48, %69, %40, %34, %"_ZN76_$LT$sqlparser..ast..dcl..SetConfigValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbf6455c3fc8defbaE.exit", %2, %81, %62, %28, %24, %20, %16
-  %.sroa.0.0.shrunk = phi i1 [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %33, %28 ], [ %67, %62 ], [ false, %34 ], [ false, %48 ], [ false, %2 ], [ %86, %81 ], [ false, %69 ], [ %.mux, %"_ZN76_$LT$sqlparser..ast..dcl..SetConfigValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbf6455c3fc8defbaE.exit.thread" ], [ %.mux30, %75 ], [ false, %"_ZN76_$LT$sqlparser..ast..dcl..SetConfigValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbf6455c3fc8defbaE.exit" ], [ false, %40 ]
+  %.sroa.0.0.shrunk = phi i1 [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %33, %28 ], [ %67, %62 ], [ %86, %81 ], [ false, %2 ], [ false, %"_ZN76_$LT$sqlparser..ast..dcl..SetConfigValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbf6455c3fc8defbaE.exit" ], [ false, %34 ], [ false, %40 ], [ false, %69 ], [ false, %48 ], [ %.mux, %"_ZN76_$LT$sqlparser..ast..dcl..SetConfigValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbf6455c3fc8defbaE.exit.thread" ], [ %.mux30, %75 ]
   ret i1 %.sroa.0.0.shrunk
 
 15:                                               ; preds = %14
@@ -29423,7 +29423,7 @@ define internal fastcc noundef zeroext i1 @"_ZN81_$LT$sqlparser..ast..operator..
   ]
 
 7:                                                ; preds = %6, %2, %14, %8
-  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ %13, %8 ], [ %19, %14 ], [ true, %6 ]
+  %.sroa.0.0.shrunk = phi i1 [ %13, %8 ], [ %19, %14 ], [ false, %2 ], [ true, %6 ]
   ret i1 %.sroa.0.0.shrunk
 
 8:                                                ; preds = %6
@@ -29652,7 +29652,7 @@ define internal fastcc noundef zeroext i1 @"_ZN82_$LT$sqlparser..ast..ddl..Alter
   br i1 %4, label %10, label %16
 
 9:                                                ; preds = %34, %32, %22, %40, %30, %20, %31, %21, %2, %16
-  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ %19, %16 ], [ %41, %40 ], [ false, %21 ], [ false, %32 ], [ false, %30 ], [ false, %20 ], [ false, %31 ], [ %.mux, %34 ], [ false, %22 ]
+  %.sroa.0.0.shrunk = phi i1 [ %19, %16 ], [ false, %2 ], [ %41, %40 ], [ false, %30 ], [ false, %20 ], [ false, %31 ], [ false, %21 ], [ false, %22 ], [ false, %32 ], [ %.mux, %34 ]
   ret i1 %.sroa.0.0.shrunk
 
 10:                                               ; preds = %8
@@ -29782,7 +29782,7 @@ define internal fastcc noundef zeroext i1 @"_ZN83_$LT$sqlparser..ast..WrappedCol
   br label %12
 
 12:                                               ; preds = %6, %2
-  %.sroa.0.0.shrunk = phi i1 [ %11, %6 ], [ false, %2 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ %11, %6 ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -29801,7 +29801,7 @@ define internal fastcc noundef zeroext i1 @"_ZN83_$LT$sqlparser..ast..data_type.
   ]
 
 7:                                                ; preds = %14, %6, %2, %20, %8
-  %.sroa.0.0.shrunk = phi i1 [ %13, %8 ], [ false, %2 ], [ %25, %20 ], [ true, %6 ], [ false, %14 ]
+  %.sroa.0.0.shrunk = phi i1 [ %13, %8 ], [ %25, %20 ], [ false, %2 ], [ true, %6 ], [ false, %14 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable2:                             ; preds = %6
@@ -29846,7 +29846,7 @@ define internal fastcc noundef zeroext i1 @"_ZN84_$LT$sqlparser..ast..ShowStatem
   br i1 %7, label %10, label %44
 
 "_ZN76_$LT$sqlparser..ast..ShowStatementFilter$u20$as$u20$core..cmp..PartialEq$GT$2eq17hebd6aefd29d4a210E.exit": ; preds = %72, %70, %64, %58, %44, %38, %36, %30, %24, %10, %2
-  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ false, %10 ], [ %29, %24 ], [ %35, %30 ], [ %37, %36 ], [ %43, %38 ], [ %63, %58 ], [ %69, %64 ], [ %71, %70 ], [ %77, %72 ], [ false, %44 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ %29, %24 ], [ %35, %30 ], [ %37, %36 ], [ %43, %38 ], [ false, %10 ], [ %63, %58 ], [ %69, %64 ], [ %71, %70 ], [ %77, %72 ], [ false, %44 ]
   ret i1 %.sroa.0.0.shrunk
 
 10:                                               ; preds = %6
@@ -30014,7 +30014,7 @@ define internal fastcc noundef zeroext i1 @"_ZN84_$LT$sqlparser..ast..data_type.
   ]
 
 15:                                               ; preds = %32, %23, %14, %2, %33, %35, %41, %17
-  %.sroa.0.0 = phi i1 [ %22, %17 ], [ false, %2 ], [ %40, %35 ], [ false, %23 ], [ %34, %33 ], [ true, %14 ], [ %46, %41 ], [ false, %32 ]
+  %.sroa.0.0 = phi i1 [ %22, %17 ], [ %40, %35 ], [ %34, %33 ], [ %46, %41 ], [ false, %2 ], [ true, %14 ], [ false, %23 ], [ false, %32 ]
   ret i1 %.sroa.0.0
 
 16:                                               ; preds = %14
@@ -30155,7 +30155,7 @@ define internal fastcc noundef zeroext i1 @"_ZN85_$LT$sqlparser..ast..query..Mat
   ]
 
 "_ZN84_$LT$sqlparser..ast..query..RepetitionQuantifier$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ff8fefbb15636b3E.exit": ; preds = %tailrecurse, %2, %101, %95, %89, %83, %77, %76, %70, %56, %66, %19, %62, %7, %68, %64, %50, %37, %31
-  %.sroa.0.0.shrunk = phi i1 [ %65, %64 ], [ false, %7 ], [ true, %76 ], [ %69, %68 ], [ false, %19 ], [ true, %62 ], [ %36, %31 ], [ %42, %37 ], [ false, %95 ], [ %55, %50 ], [ false, %56 ], [ true, %66 ], [ false, %70 ], [ %82, %77 ], [ %88, %83 ], [ %94, %89 ], [ %106, %101 ], [ false, %2 ], [ false, %tailrecurse ]
+  %.sroa.0.0.shrunk = phi i1 [ %65, %64 ], [ %69, %68 ], [ %36, %31 ], [ %42, %37 ], [ %55, %50 ], [ false, %7 ], [ true, %62 ], [ false, %19 ], [ true, %66 ], [ false, %56 ], [ %82, %77 ], [ %88, %83 ], [ %94, %89 ], [ %106, %101 ], [ false, %70 ], [ true, %76 ], [ false, %95 ], [ false, %2 ], [ false, %tailrecurse ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable64:                            ; preds = %.lr.ph
@@ -30369,7 +30369,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$sqlparser..ast..ddl..Const
   br i1 %.not6, label %25, label %23
 
 22:                                               ; preds = %23, %7, %15, %5, %14, %25
-  %.sroa.0.0.shrunk = phi i1 [ %24, %23 ], [ false, %7 ], [ %26, %25 ], [ false, %14 ], [ false, %5 ], [ false, %15 ]
+  %.sroa.0.0.shrunk = phi i1 [ %26, %25 ], [ false, %14 ], [ false, %5 ], [ false, %15 ], [ false, %7 ], [ %24, %23 ]
   ret i1 %.sroa.0.0.shrunk
 
 23:                                               ; preds = %17

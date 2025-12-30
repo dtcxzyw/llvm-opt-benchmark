@@ -1173,8 +1173,8 @@ protocol_is_alljoyn_message.exit:                 ; preds = %116
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %157, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.272, i32 noundef %156, i32 noundef %.sroa.73.1)
   br label %protocol_is_ardp.exit.thread
 
-protocol_is_ardp.exit.thread:                     ; preds = %9, %12, %151, %154, %ardp_parse_header.exit, %ardp_parse_header.exit.thread, %127, %7
-  %.0 = phi i32 [ %8, %7 ], [ %.sroa.0.0, %151 ], [ %.sroa.0.0, %ardp_parse_header.exit ], [ %128, %127 ], [ 0, %9 ], [ 2, %ardp_parse_header.exit.thread ], [ %.sroa.0.0, %154 ], [ 0, %12 ]
+protocol_is_ardp.exit.thread:                     ; preds = %12, %9, %151, %154, %ardp_parse_header.exit, %ardp_parse_header.exit.thread, %127, %7
+  %.0 = phi i32 [ %8, %7 ], [ %128, %127 ], [ 2, %ardp_parse_header.exit.thread ], [ %.sroa.0.0, %ardp_parse_header.exit ], [ %.sroa.0.0, %154 ], [ %.sroa.0.0, %151 ], [ 0, %9 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -1271,7 +1271,7 @@ find_sasl_command.exit.thread:                    ; preds = %11, %find_sasl_comm
   br label %27
 
 27:                                               ; preds = %22, %find_sasl_command.exit.thread, %find_sasl_command.exit, %8, %3
-  %.0 = phi i1 [ true, %8 ], [ true, %find_sasl_command.exit ], [ false, %find_sasl_command.exit.thread ], [ %26, %22 ], [ false, %3 ]
+  %.0 = phi i1 [ false, %3 ], [ true, %8 ], [ true, %find_sasl_command.exit ], [ false, %find_sasl_command.exit.thread ], [ %26, %22 ]
   ret i1 %.0
 }
 
@@ -1383,7 +1383,7 @@ find_sasl_command.exit.i:                         ; preds = %.preheader
   br label %handle_message_sasl.exit
 
 handle_message_sasl.exit:                         ; preds = %32, %find_sasl_command.exit.i, %43, %46, %48, %49, %51
-  %.1.i = phi i32 [ 0, %46 ], [ %.0.i, %find_sasl_command.exit.i ], [ 0, %43 ], [ %40, %48 ], [ %.0.i, %49 ], [ %42, %51 ], [ %.0.i, %32 ]
+  %.1.i = phi i32 [ %.0.i, %find_sasl_command.exit.i ], [ %40, %48 ], [ 0, %43 ], [ %42, %51 ], [ %.0.i, %49 ], [ 0, %46 ], [ %.0.i, %32 ]
   %.not39 = icmp slt i32 %.1.i, %10
   br i1 %.not39, label %58, label %handle_message_sasl.exit._crit_edge
 
@@ -2616,7 +2616,7 @@ add_padding_item.exit466:                         ; preds = %append_struct_signa
   br label %.thread
 
 .thread:                                          ; preds = %86, %87, %.thread474, %.thread470, %488, %420, %add_padding_item.exit465, %.critedge, %346, %add_padding_item.exit462, %add_padding_item.exit459, %228, %add_padding_item.exit457, %add_padding_item.exit456, %add_padding_item.exit455, %154, %add_padding_item.exit454, %add_padding_item.exit453, %20
-  %.0426 = phi i32 [ %489, %488 ], [ %24, %20 ], [ %.8.lcssa, %.thread474 ], [ %109, %add_padding_item.exit453 ], [ %127, %add_padding_item.exit454 ], [ %155, %154 ], [ %173, %add_padding_item.exit455 ], [ %191, %add_padding_item.exit456 ], [ %209, %add_padding_item.exit457 ], [ %234, %228 ], [ %252, %add_padding_item.exit459 ], [ %292, %.thread470 ], [ %315, %add_padding_item.exit462 ], [ %347, %346 ], [ %.6.lcssa, %.critedge ], [ %419, %add_padding_item.exit465 ], [ %423, %420 ], [ %.2428, %87 ], [ %.2428, %86 ]
+  %.0426 = phi i32 [ %489, %488 ], [ %24, %20 ], [ %109, %add_padding_item.exit453 ], [ %127, %add_padding_item.exit454 ], [ %155, %154 ], [ %173, %add_padding_item.exit455 ], [ %191, %add_padding_item.exit456 ], [ %209, %add_padding_item.exit457 ], [ %234, %228 ], [ %252, %add_padding_item.exit459 ], [ %315, %add_padding_item.exit462 ], [ %347, %346 ], [ %.6.lcssa, %.critedge ], [ %419, %add_padding_item.exit465 ], [ %423, %420 ], [ %292, %.thread470 ], [ %.8.lcssa, %.thread474 ], [ %.2428, %87 ], [ %.2428, %86 ]
   %490 = load ptr, ptr %9, align 8
   %.not449 = icmp eq ptr %490, null
   br i1 %.not449, label %500, label %491
@@ -2657,7 +2657,7 @@ add_padding_item.exit466:                         ; preds = %append_struct_signa
   br label %510
 
 510:                                              ; preds = %483, %293, %32, %63, %503, %507, %505, %222, %134
-  %.1 = phi i32 [ %487, %483 ], [ %.0426, %505 ], [ %138, %134 ], [ %227, %222 ], [ %297, %293 ], [ %504, %503 ], [ %509, %507 ], [ %35, %32 ], [ %67, %63 ]
+  %.1 = phi i32 [ %138, %134 ], [ %227, %222 ], [ %297, %293 ], [ %487, %483 ], [ %504, %503 ], [ %509, %507 ], [ %.0426, %505 ], [ %35, %32 ], [ %67, %63 ]
   ret i32 %.1
 }
 
@@ -2784,8 +2784,8 @@ define internal fastcc void @advance_to_end_of_signature(ptr noundef %0, ptr nou
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !21
 
 thread-pre-split.backedgethread-pre-split:        ; preds = %.split.us, %20, %21
-  %.not25.be.ph = phi i1 [ false, %20 ], [ false, %21 ], [ true, %.split.us ]
-  %.0.ph.be.ph = phi i8 [ 41, %20 ], [ 125, %21 ], [ 0, %.split.us ]
+  %.not25.be.ph = phi i1 [ false, %21 ], [ false, %20 ], [ true, %.split.us ]
+  %.0.ph.be.ph = phi i8 [ 125, %21 ], [ 41, %20 ], [ 0, %.split.us ]
   tail call fastcc void @advance_to_end_of_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.pr.pr = load i8, ptr %2, align 1
   br label %thread-pre-split.backedge

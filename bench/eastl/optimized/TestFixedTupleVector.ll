@@ -3442,7 +3442,7 @@ if.then589:                                       ; preds = %invoke.cont585
           to label %if.end591 unwind label %lpad504
 
 ehcleanup498:                                     ; preds = %lpad240.loopexit, %lpad240.loopexit.split-lp, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit1097, %_ZN10TestObjectD2Ev.exit987, %_ZN10TestObjectD2Ev.exit979, %_ZN10TestObjectD2Ev.exit971, %_ZN10TestObjectD2Ev.exit888
-  %.pn500 = phi { ptr, i32 } [ %266, %_ZN10TestObjectD2Ev.exit888 ], [ %322, %_ZN10TestObjectD2Ev.exit979 ], [ %327, %_ZN10TestObjectD2Ev.exit987 ], [ %.pn498, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit1097 ], [ %317, %_ZN10TestObjectD2Ev.exit971 ], [ %lpad.loopexit15214, %lpad240.loopexit ], [ %lpad.loopexit.split-lp15215, %lpad240.loopexit.split-lp ]
+  %.pn500 = phi { ptr, i32 } [ %266, %_ZN10TestObjectD2Ev.exit888 ], [ %327, %_ZN10TestObjectD2Ev.exit987 ], [ %.pn498, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit1097 ], [ %322, %_ZN10TestObjectD2Ev.exit979 ], [ %317, %_ZN10TestObjectD2Ev.exit971 ], [ %lpad.loopexit15214, %lpad240.loopexit ], [ %lpad.loopexit.split-lp15215, %lpad240.loopexit.split-lp ]
   call void @_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %testVec) #11
   br label %eh.resume
 
@@ -7027,9 +7027,9 @@ if.then1878:                                      ; preds = %invoke.cont1874
           to label %if.end1880 unwind label %lpad1800
 
 _ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit4405:   ; preds = %_ZN10TestObjectD2Ev.exit4163, %_ZN10TestObjectD2Ev.exit3981, %_ZN10TestObjectD2Ev.exit3803, %_ZN10TestObjectD2Ev.exit3758, %_ZN10TestObjectD2Ev.exit3713, %_ZN10TestObjectD2Ev.exit3668, %lpad1308, %_ZN10TestObjectD2Ev.exit4205
-  %1149 = phi i64 [ %inc3.i4204, %_ZN10TestObjectD2Ev.exit4205 ], [ %.pre15661, %lpad1308 ], [ %inc3.i417015039, %_ZN10TestObjectD2Ev.exit4163 ], [ %inc3.i381015033, %_ZN10TestObjectD2Ev.exit3803 ], [ %inc3.i372015027, %_ZN10TestObjectD2Ev.exit3713 ], [ %inc3.i398815036, %_ZN10TestObjectD2Ev.exit3981 ], [ %inc3.i367515024, %_ZN10TestObjectD2Ev.exit3668 ], [ %inc3.i376515030, %_ZN10TestObjectD2Ev.exit3758 ]
-  %1150 = phi i64 [ %dec.i4203, %_ZN10TestObjectD2Ev.exit4205 ], [ %.pre15660, %lpad1308 ], [ %dec.i416915038, %_ZN10TestObjectD2Ev.exit4163 ], [ %dec.i380915032, %_ZN10TestObjectD2Ev.exit3803 ], [ %dec.i371915026, %_ZN10TestObjectD2Ev.exit3713 ], [ %dec.i398715035, %_ZN10TestObjectD2Ev.exit3981 ], [ %dec.i367415023, %_ZN10TestObjectD2Ev.exit3668 ], [ %dec.i376415029, %_ZN10TestObjectD2Ev.exit3758 ]
-  %.pn485 = phi { ptr, i32 } [ %1078, %_ZN10TestObjectD2Ev.exit4205 ], [ %1014, %lpad1308 ], [ %1065, %_ZN10TestObjectD2Ev.exit4163 ], [ %1021, %_ZN10TestObjectD2Ev.exit3803 ], [ %1017, %_ZN10TestObjectD2Ev.exit3713 ], [ %1043, %_ZN10TestObjectD2Ev.exit3981 ], [ %1015, %_ZN10TestObjectD2Ev.exit3668 ], [ %1019, %_ZN10TestObjectD2Ev.exit3758 ]
+  %1149 = phi i64 [ %inc3.i4204, %_ZN10TestObjectD2Ev.exit4205 ], [ %.pre15661, %lpad1308 ], [ %inc3.i367515024, %_ZN10TestObjectD2Ev.exit3668 ], [ %inc3.i372015027, %_ZN10TestObjectD2Ev.exit3713 ], [ %inc3.i376515030, %_ZN10TestObjectD2Ev.exit3758 ], [ %inc3.i381015033, %_ZN10TestObjectD2Ev.exit3803 ], [ %inc3.i398815036, %_ZN10TestObjectD2Ev.exit3981 ], [ %inc3.i417015039, %_ZN10TestObjectD2Ev.exit4163 ]
+  %1150 = phi i64 [ %dec.i4203, %_ZN10TestObjectD2Ev.exit4205 ], [ %.pre15660, %lpad1308 ], [ %dec.i367415023, %_ZN10TestObjectD2Ev.exit3668 ], [ %dec.i371915026, %_ZN10TestObjectD2Ev.exit3713 ], [ %dec.i376415029, %_ZN10TestObjectD2Ev.exit3758 ], [ %dec.i380915032, %_ZN10TestObjectD2Ev.exit3803 ], [ %dec.i398715035, %_ZN10TestObjectD2Ev.exit3981 ], [ %dec.i416915038, %_ZN10TestObjectD2Ev.exit4163 ]
+  %.pn485 = phi { ptr, i32 } [ %1078, %_ZN10TestObjectD2Ev.exit4205 ], [ %1014, %lpad1308 ], [ %1015, %_ZN10TestObjectD2Ev.exit3668 ], [ %1017, %_ZN10TestObjectD2Ev.exit3713 ], [ %1019, %_ZN10TestObjectD2Ev.exit3758 ], [ %1021, %_ZN10TestObjectD2Ev.exit3803 ], [ %1043, %_ZN10TestObjectD2Ev.exit3981 ], [ %1065, %_ZN10TestObjectD2Ev.exit4163 ]
   %dec.i.i.i.i4403 = add nsw i64 %1150, -1
   store i64 %dec.i.i.i.i4403, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i.i.i.i4404 = add nsw i64 %1149, 1
@@ -11065,7 +11065,7 @@ _ZN10TestObjectD2Ev.exit6832:                     ; preds = %if.then.i.i.i6821, 
   br i1 %exitcond15551.not, label %invoke.cont3022, label %for.body3008, !llvm.loop !403
 
 ehcleanup3001:                                    ; preds = %_ZN10TestObjectD2Ev.exit6720, %_ZN10TestObjectD2Ev.exit6449, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6576, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6742, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6591, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6479, %lpad2813
-  %.pn461.pn = phi { ptr, i32 } [ %1849, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6479 ], [ %1848, %lpad2813 ], [ %1879, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6591 ], [ %1911, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6742 ], [ %1909, %_ZN10TestObjectD2Ev.exit6720 ], [ %1846, %_ZN10TestObjectD2Ev.exit6449 ], [ %1877, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6576 ]
+  %.pn461.pn = phi { ptr, i32 } [ %1849, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6479 ], [ %1848, %lpad2813 ], [ %1879, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6591 ], [ %1911, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6742 ], [ %1909, %_ZN10TestObjectD2Ev.exit6720 ], [ %1877, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6576 ], [ %1846, %_ZN10TestObjectD2Ev.exit6449 ]
   call void @_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %testVec2753) #11
   br label %eh.resume
 
@@ -14467,7 +14467,7 @@ for.inc3980:                                      ; preds = %_ZN10TestObjectD2Ev
   br i1 %exitcond15569.not, label %for.end3982, label %for.body3945, !llvm.loop !566
 
 ehcleanup3924:                                    ; preds = %lpad3879.loopexit, %lpad3879.loopexit.split-lp, %_ZN10TestObjectD2Ev.exit9177, %_ZN10TestObjectD2Ev.exit9264
-  %.pn420 = phi { ptr, i32 } [ %2559, %_ZN10TestObjectD2Ev.exit9177 ], [ %2561, %_ZN10TestObjectD2Ev.exit9264 ], [ %lpad.loopexit15181, %lpad3879.loopexit ], [ %lpad.loopexit.split-lp15182, %lpad3879.loopexit.split-lp ]
+  %.pn420 = phi { ptr, i32 } [ %2561, %_ZN10TestObjectD2Ev.exit9264 ], [ %2559, %_ZN10TestObjectD2Ev.exit9177 ], [ %lpad.loopexit15181, %lpad3879.loopexit ], [ %lpad.loopexit.split-lp15182, %lpad3879.loopexit.split-lp ]
   call void @_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ctorFromAssignment3761) #11
   br label %ehcleanup4666
 
@@ -15508,7 +15508,7 @@ for.inc.i.i:                                      ; preds = %_ZN5eastleqIJRKbRK1
   br i1 %cmp.not.i.i.i9782, label %invoke.cont4148, label %for.body.i.i, !llvm.loop !588
 
 invoke.cont4148:                                  ; preds = %for.inc.i.i, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i, %for.body.i.i, %land.rhs.i9776, %invoke.cont4147
-  %2825 = phi i1 [ false, %invoke.cont4147 ], [ true, %land.rhs.i9776 ], [ false, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i ], [ false, %for.body.i.i ], [ false, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i ], [ true, %for.inc.i.i ]
+  %2825 = phi i1 [ false, %invoke.cont4147 ], [ true, %land.rhs.i9776 ], [ false, %for.body.i.i ], [ false, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i ], [ true, %for.inc.i.i ], [ false, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i ]
   %call4151 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %2825, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1138, ptr noundef nonnull @.str.131)
           to label %invoke.cont4150 unwind label %lpad4144
 
@@ -19298,7 +19298,7 @@ invoke.cont5054:                                  ; preds = %invoke.cont5043, %i
   br i1 %cmp.not.i11535.not, label %for.end5060, label %invoke.cont5054
 
 ehcleanup4659:                                    ; preds = %lpad4499.loopexit, %lpad4499.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad4499.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad4499.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad4499.loopexit.split-lp.loopexit, %_ZN10TestObjectD2Ev.exit10747, %_ZN10TestObjectD2Ev.exit10721, %_ZN10TestObjectD2Ev.exit10695, %_ZN10TestObjectD2Ev.exit10652
-  %.pn393 = phi { ptr, i32 } [ %3229, %_ZN10TestObjectD2Ev.exit10652 ], [ %3286, %_ZN10TestObjectD2Ev.exit10747 ], [ %3254, %_ZN10TestObjectD2Ev.exit10695 ], [ %3269, %_ZN10TestObjectD2Ev.exit10721 ], [ %lpad.loopexit15141, %lpad4499.loopexit ], [ %lpad.loopexit15144, %lpad4499.loopexit.split-lp.loopexit ], [ %lpad.loopexit15147, %lpad4499.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit15150, %lpad4499.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp15151, %lpad4499.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn393 = phi { ptr, i32 } [ %3229, %_ZN10TestObjectD2Ev.exit10652 ], [ %3254, %_ZN10TestObjectD2Ev.exit10695 ], [ %3269, %_ZN10TestObjectD2Ev.exit10721 ], [ %3286, %_ZN10TestObjectD2Ev.exit10747 ], [ %lpad.loopexit15141, %lpad4499.loopexit ], [ %lpad.loopexit15144, %lpad4499.loopexit.split-lp.loopexit ], [ %lpad.loopexit15147, %lpad4499.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit15150, %lpad4499.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp15151, %lpad4499.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5eastl18fixed_tuple_vectorILm2ELb1EJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ctorFromMove4483) #11
   br label %ehcleanup4660
 
@@ -19308,7 +19308,7 @@ ehcleanup4660:                                    ; preds = %lpad.i10608, %ehcle
   br label %ehcleanup4666
 
 ehcleanup4666:                                    ; preds = %lpad.i8606, %lpad.i9412, %lpad.i9877, %lpad3660, %lpad.i9328, %ehcleanup4660, %ehcleanup4463, %ehcleanup4334, %ehcleanup4261, %lpad.i9990, %ehcleanup4209, %lpad4144, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit9920, %ehcleanup4081, %lpad.i9502, %ehcleanup4030, %ehcleanup3983, %ehcleanup3924, %ehcleanup3760, %ehcleanup3709
-  %.pn424.pn = phi { ptr, i32 } [ %.pn424, %ehcleanup3709 ], [ %.pn422, %ehcleanup3760 ], [ %.pn420, %ehcleanup3924 ], [ %.pn418, %ehcleanup3983 ], [ %.pn416, %ehcleanup4030 ], [ %.pn414, %ehcleanup4081 ], [ %.pn411.pn, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit9920 ], [ %.pn409, %ehcleanup4209 ], [ %.pn407, %ehcleanup4261 ], [ %.pn405, %ehcleanup4334 ], [ %.pn401, %ehcleanup4463 ], [ %.pn395, %ehcleanup4660 ], [ %2697, %lpad.i9502 ], [ %2938, %lpad.i9990 ], [ %2900, %lpad4144 ], [ %2875, %lpad.i9877 ], [ %2427, %lpad.i8606 ], [ %2593, %lpad.i9328 ], [ %2645, %lpad.i9412 ], [ %2451, %lpad3660 ]
+  %.pn424.pn = phi { ptr, i32 } [ %.pn424, %ehcleanup3709 ], [ %.pn422, %ehcleanup3760 ], [ %.pn420, %ehcleanup3924 ], [ %.pn418, %ehcleanup3983 ], [ %.pn416, %ehcleanup4030 ], [ %.pn414, %ehcleanup4081 ], [ %.pn411.pn, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit9920 ], [ %.pn409, %ehcleanup4209 ], [ %.pn407, %ehcleanup4261 ], [ %.pn405, %ehcleanup4334 ], [ %.pn401, %ehcleanup4463 ], [ %.pn395, %ehcleanup4660 ], [ %2938, %lpad.i9990 ], [ %2900, %lpad4144 ], [ %2697, %lpad.i9502 ], [ %2427, %lpad.i8606 ], [ %2593, %lpad.i9328 ], [ %2645, %lpad.i9412 ], [ %2451, %lpad3660 ], [ %2875, %lpad.i9877 ]
   call void @_ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %srcVec3544) #11
   br label %eh.resume
 
@@ -21101,7 +21101,7 @@ _ZN10TestObjectD2Ev.exit12508:                    ; preds = %if.then.i.i.i12497,
   br i1 %exitcond15624.not, label %for.end5440, label %for.body5414, !llvm.loop !761
 
 ehcleanup5405:                                    ; preds = %lpad5265.loopexit, %lpad5265.loopexit.split-lp, %_ZN5eastl5tupleIJi12MoveOnlyType10TestObjectEED2Ev.exit12261, %_ZN10TestObjectD2Ev.exit12254, %_ZN10TestObjectD2Ev.exit12246, %_ZN10TestObjectD2Ev.exit12238, %_ZN10TestObjectD2Ev.exit12230, %_ZN10TestObjectD2Ev.exit12222
-  %.pn388 = phi { ptr, i32 } [ %3818, %_ZN10TestObjectD2Ev.exit12222 ], [ %3835, %_ZN5eastl5tupleIJi12MoveOnlyType10TestObjectEED2Ev.exit12261 ], [ %3830, %_ZN10TestObjectD2Ev.exit12254 ], [ %3827, %_ZN10TestObjectD2Ev.exit12246 ], [ %3824, %_ZN10TestObjectD2Ev.exit12238 ], [ %3821, %_ZN10TestObjectD2Ev.exit12230 ], [ %lpad.loopexit15138, %lpad5265.loopexit ], [ %lpad.loopexit.split-lp15139, %lpad5265.loopexit.split-lp ]
+  %.pn388 = phi { ptr, i32 } [ %3835, %_ZN5eastl5tupleIJi12MoveOnlyType10TestObjectEED2Ev.exit12261 ], [ %3830, %_ZN10TestObjectD2Ev.exit12254 ], [ %3827, %_ZN10TestObjectD2Ev.exit12246 ], [ %3824, %_ZN10TestObjectD2Ev.exit12238 ], [ %3821, %_ZN10TestObjectD2Ev.exit12230 ], [ %3818, %_ZN10TestObjectD2Ev.exit12222 ], [ %lpad.loopexit15138, %lpad5265.loopexit ], [ %lpad.loopexit.split-lp15139, %lpad5265.loopexit.split-lp ]
   call void @_ZN5eastl18fixed_tuple_vectorILm2ELb1EJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %v2) #11
   call void @_ZN5eastl18fixed_tuple_vectorILm2ELb1EJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %v1) #11
   br label %eh.resume
@@ -21183,7 +21183,7 @@ for.inc.i.i12548:                                 ; preds = %_ZN5eastleqIJRKbRK1
   br i1 %cmp.not.i.i.i12550, label %invoke.cont5441, label %for.body.i.i12535, !llvm.loop !588
 
 invoke.cont5441:                                  ; preds = %for.inc.i.i12548, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12546, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12542, %for.body.i.i12535, %land.rhs.i12528, %for.end5440
-  %3962 = phi i1 [ false, %for.end5440 ], [ true, %land.rhs.i12528 ], [ false, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12546 ], [ false, %for.body.i.i12535 ], [ false, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12542 ], [ true, %for.inc.i.i12548 ]
+  %3962 = phi i1 [ false, %for.end5440 ], [ true, %land.rhs.i12528 ], [ false, %for.body.i.i12535 ], [ false, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12542 ], [ true, %for.inc.i.i12548 ], [ false, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12546 ]
   %call5444 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %3962, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1535, ptr noundef nonnull @.str.202)
           to label %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i14397 unwind label %lpad5420
 
@@ -21643,7 +21643,7 @@ for.inc.i.i12697:                                 ; preds = %_ZN5eastleqIJRKbRK1
   br i1 %cmp.not.i.i.i12699, label %invoke.cont5486, label %for.body.i.i12684, !llvm.loop !588
 
 invoke.cont5486:                                  ; preds = %for.inc.i.i12697, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12695, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12691, %for.body.i.i12684, %lor.rhs.i, %for.end5485
-  %4058 = phi i1 [ true, %for.end5485 ], [ false, %lor.rhs.i ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12695 ], [ true, %for.body.i.i12684 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12691 ], [ false, %for.inc.i.i12697 ]
+  %4058 = phi i1 [ true, %for.end5485 ], [ false, %lor.rhs.i ], [ true, %for.body.i.i12684 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12691 ], [ false, %for.inc.i.i12697 ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12695 ]
   %call5489 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %4058, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1547, ptr noundef nonnull @.str.203)
           to label %invoke.cont5488 unwind label %lpad5464
 
@@ -21697,7 +21697,7 @@ for.inc.i.i12723:                                 ; preds = %_ZN5eastleqIJRKbRK1
   br i1 %cmp.not.i.i.i12725, label %invoke.cont5490, label %for.body.i.i12710, !llvm.loop !588
 
 invoke.cont5490:                                  ; preds = %for.inc.i.i12723, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12721, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12717, %for.body.i.i12710, %lor.rhs.i12703, %invoke.cont5488
-  %4075 = phi i1 [ true, %invoke.cont5488 ], [ false, %lor.rhs.i12703 ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12721 ], [ true, %for.body.i.i12710 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12717 ], [ false, %for.inc.i.i12723 ]
+  %4075 = phi i1 [ true, %invoke.cont5488 ], [ false, %lor.rhs.i12703 ], [ true, %for.body.i.i12710 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12717 ], [ false, %for.inc.i.i12723 ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12721 ]
   %call5493 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %4075, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1548, ptr noundef nonnull @.str.204)
           to label %invoke.cont5492 unwind label %lpad5464
 
@@ -21751,7 +21751,7 @@ for.inc.i.i12750:                                 ; preds = %_ZN5eastleqIJRKbRK1
   br i1 %cmp.not.i.i.i12752, label %invoke.cont5494, label %for.body.i.i12737, !llvm.loop !588
 
 invoke.cont5494:                                  ; preds = %for.inc.i.i12750, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12748, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12744, %for.body.i.i12737, %lor.rhs.i12730, %invoke.cont5492
-  %4092 = phi i1 [ true, %invoke.cont5492 ], [ false, %lor.rhs.i12730 ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12748 ], [ true, %for.body.i.i12737 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12744 ], [ false, %for.inc.i.i12750 ]
+  %4092 = phi i1 [ true, %invoke.cont5492 ], [ false, %lor.rhs.i12730 ], [ true, %for.body.i.i12737 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12744 ], [ false, %for.inc.i.i12750 ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12748 ]
   %call5497 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %4092, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1549, ptr noundef nonnull @.str.205)
           to label %invoke.cont5496 unwind label %lpad5464
 
@@ -22696,7 +22696,7 @@ ehcleanup5587:                                    ; preds = %lpad5532.loopexit, 
   br label %eh.resume
 
 eh.resume:                                        ; preds = %_ZN10TestObjectD2Ev.exit8656, %delete.notnull.i.i.i.i11567, %lpad4747, %delete.notnull.i.i.i.i11560, %ehcleanup4743, %delete.notnull.i.i.i.i879, %lpad218, %delete.notnull.i.i.i.i872, %ehcleanup, %ehcleanup5587, %ehcleanup5521, %ehcleanup5405, %ehcleanup5262, %ehcleanup4666, %ehcleanup3541, %ehcleanup3271, %ehcleanup3001, %ehcleanup2752, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6065, %ehcleanup2496, %ehcleanup2371, %ehcleanup2156, %ehcleanup1974, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit4405, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit3638, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit2776, %_ZN10TestObjectD2Ev.exit2170, %_ZN10TestObjectD2Ev.exit1710, %ehcleanup498
-  %.pn500.pn = phi { ptr, i32 } [ %.pn500, %ehcleanup498 ], [ %.pn496, %_ZN10TestObjectD2Ev.exit1710 ], [ %.pn494, %_ZN10TestObjectD2Ev.exit2170 ], [ %.pn491, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit2776 ], [ %.pn488, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit3638 ], [ %.pn485, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit4405 ], [ %.pn483, %ehcleanup1974 ], [ %.pn481, %ehcleanup2156 ], [ %.pn479, %ehcleanup2371 ], [ %.pn473.pn, %ehcleanup2496 ], [ %lpad.phi15201, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6065 ], [ %.pn464, %ehcleanup2752 ], [ %.pn461.pn, %ehcleanup3001 ], [ %.pn455, %ehcleanup3271 ], [ %.pn440, %ehcleanup3541 ], [ %.pn424.pn, %ehcleanup4666 ], [ %.pn375, %delete.notnull.i.i.i.i11560 ], [ %.pn391, %ehcleanup5262 ], [ %.pn388, %ehcleanup5405 ], [ %.pn385, %ehcleanup5521 ], [ %.pn379, %ehcleanup5587 ], [ %263, %delete.notnull.i.i.i.i879 ], [ %2401, %_ZN10TestObjectD2Ev.exit8656 ], [ %3579, %delete.notnull.i.i.i.i11567 ], [ %.pn, %delete.notnull.i.i.i.i872 ], [ %.pn, %ehcleanup ], [ %263, %lpad218 ], [ %.pn375, %ehcleanup4743 ], [ %3579, %lpad4747 ]
+  %.pn500.pn = phi { ptr, i32 } [ %.pn500, %ehcleanup498 ], [ %.pn496, %_ZN10TestObjectD2Ev.exit1710 ], [ %.pn494, %_ZN10TestObjectD2Ev.exit2170 ], [ %.pn491, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit2776 ], [ %.pn488, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit3638 ], [ %.pn485, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit4405 ], [ %.pn483, %ehcleanup1974 ], [ %.pn481, %ehcleanup2156 ], [ %.pn479, %ehcleanup2371 ], [ %.pn473.pn, %ehcleanup2496 ], [ %lpad.phi15201, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6065 ], [ %.pn464, %ehcleanup2752 ], [ %.pn461.pn, %ehcleanup3001 ], [ %.pn455, %ehcleanup3271 ], [ %.pn440, %ehcleanup3541 ], [ %.pn424.pn, %ehcleanup4666 ], [ %.pn391, %ehcleanup5262 ], [ %.pn388, %ehcleanup5405 ], [ %.pn385, %ehcleanup5521 ], [ %.pn379, %ehcleanup5587 ], [ %2401, %_ZN10TestObjectD2Ev.exit8656 ], [ %.pn, %ehcleanup ], [ %.pn, %delete.notnull.i.i.i.i872 ], [ %263, %lpad218 ], [ %263, %delete.notnull.i.i.i.i879 ], [ %.pn375, %ehcleanup4743 ], [ %.pn375, %delete.notnull.i.i.i.i11560 ], [ %3579, %lpad4747 ], [ %3579, %delete.notnull.i.i.i.i11567 ]
   resume { ptr, i32 } %.pn500.pn
 }
 
@@ -25439,7 +25439,7 @@ if.then570:                                       ; preds = %invoke.cont566
           to label %if.end572 unwind label %lpad499
 
 ehcleanup493:                                     ; preds = %lpad240.loopexit, %lpad240.loopexit.split-lp, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit1097, %_ZN10TestObjectD2Ev.exit987, %_ZN10TestObjectD2Ev.exit979, %_ZN10TestObjectD2Ev.exit971, %_ZN10TestObjectD2Ev.exit888
-  %.pn500 = phi { ptr, i32 } [ %249, %_ZN10TestObjectD2Ev.exit888 ], [ %305, %_ZN10TestObjectD2Ev.exit979 ], [ %310, %_ZN10TestObjectD2Ev.exit987 ], [ %.pn498, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit1097 ], [ %300, %_ZN10TestObjectD2Ev.exit971 ], [ %lpad.loopexit15214, %lpad240.loopexit ], [ %lpad.loopexit.split-lp15215, %lpad240.loopexit.split-lp ]
+  %.pn500 = phi { ptr, i32 } [ %249, %_ZN10TestObjectD2Ev.exit888 ], [ %310, %_ZN10TestObjectD2Ev.exit987 ], [ %.pn498, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit1097 ], [ %305, %_ZN10TestObjectD2Ev.exit979 ], [ %300, %_ZN10TestObjectD2Ev.exit971 ], [ %lpad.loopexit15214, %lpad240.loopexit ], [ %lpad.loopexit.split-lp15215, %lpad240.loopexit.split-lp ]
   call void @_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %testVec) #11
   br label %eh.resume
 
@@ -28910,9 +28910,9 @@ if.then1830:                                      ; preds = %invoke.cont1826
           to label %if.end1832 unwind label %lpad1752
 
 _ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit4405:   ; preds = %_ZN10TestObjectD2Ev.exit4163, %_ZN10TestObjectD2Ev.exit3981, %_ZN10TestObjectD2Ev.exit3803, %_ZN10TestObjectD2Ev.exit3758, %_ZN10TestObjectD2Ev.exit3713, %_ZN10TestObjectD2Ev.exit3668, %lpad1261, %_ZN10TestObjectD2Ev.exit4205
-  %1090 = phi i64 [ %inc3.i4204, %_ZN10TestObjectD2Ev.exit4205 ], [ %.pre15654, %lpad1261 ], [ %inc3.i417015039, %_ZN10TestObjectD2Ev.exit4163 ], [ %inc3.i381015033, %_ZN10TestObjectD2Ev.exit3803 ], [ %inc3.i372015027, %_ZN10TestObjectD2Ev.exit3713 ], [ %inc3.i398815036, %_ZN10TestObjectD2Ev.exit3981 ], [ %inc3.i367515024, %_ZN10TestObjectD2Ev.exit3668 ], [ %inc3.i376515030, %_ZN10TestObjectD2Ev.exit3758 ]
-  %1091 = phi i64 [ %dec.i4203, %_ZN10TestObjectD2Ev.exit4205 ], [ %.pre15653, %lpad1261 ], [ %dec.i416915038, %_ZN10TestObjectD2Ev.exit4163 ], [ %dec.i380915032, %_ZN10TestObjectD2Ev.exit3803 ], [ %dec.i371915026, %_ZN10TestObjectD2Ev.exit3713 ], [ %dec.i398715035, %_ZN10TestObjectD2Ev.exit3981 ], [ %dec.i367415023, %_ZN10TestObjectD2Ev.exit3668 ], [ %dec.i376415029, %_ZN10TestObjectD2Ev.exit3758 ]
-  %.pn485 = phi { ptr, i32 } [ %1023, %_ZN10TestObjectD2Ev.exit4205 ], [ %958, %lpad1261 ], [ %1010, %_ZN10TestObjectD2Ev.exit4163 ], [ %965, %_ZN10TestObjectD2Ev.exit3803 ], [ %961, %_ZN10TestObjectD2Ev.exit3713 ], [ %987, %_ZN10TestObjectD2Ev.exit3981 ], [ %959, %_ZN10TestObjectD2Ev.exit3668 ], [ %963, %_ZN10TestObjectD2Ev.exit3758 ]
+  %1090 = phi i64 [ %inc3.i4204, %_ZN10TestObjectD2Ev.exit4205 ], [ %.pre15654, %lpad1261 ], [ %inc3.i367515024, %_ZN10TestObjectD2Ev.exit3668 ], [ %inc3.i372015027, %_ZN10TestObjectD2Ev.exit3713 ], [ %inc3.i376515030, %_ZN10TestObjectD2Ev.exit3758 ], [ %inc3.i381015033, %_ZN10TestObjectD2Ev.exit3803 ], [ %inc3.i398815036, %_ZN10TestObjectD2Ev.exit3981 ], [ %inc3.i417015039, %_ZN10TestObjectD2Ev.exit4163 ]
+  %1091 = phi i64 [ %dec.i4203, %_ZN10TestObjectD2Ev.exit4205 ], [ %.pre15653, %lpad1261 ], [ %dec.i367415023, %_ZN10TestObjectD2Ev.exit3668 ], [ %dec.i371915026, %_ZN10TestObjectD2Ev.exit3713 ], [ %dec.i376415029, %_ZN10TestObjectD2Ev.exit3758 ], [ %dec.i380915032, %_ZN10TestObjectD2Ev.exit3803 ], [ %dec.i398715035, %_ZN10TestObjectD2Ev.exit3981 ], [ %dec.i416915038, %_ZN10TestObjectD2Ev.exit4163 ]
+  %.pn485 = phi { ptr, i32 } [ %1023, %_ZN10TestObjectD2Ev.exit4205 ], [ %958, %lpad1261 ], [ %959, %_ZN10TestObjectD2Ev.exit3668 ], [ %961, %_ZN10TestObjectD2Ev.exit3713 ], [ %963, %_ZN10TestObjectD2Ev.exit3758 ], [ %965, %_ZN10TestObjectD2Ev.exit3803 ], [ %987, %_ZN10TestObjectD2Ev.exit3981 ], [ %1010, %_ZN10TestObjectD2Ev.exit4163 ]
   %dec.i.i.i.i4403 = add nsw i64 %1091, -1
   store i64 %dec.i.i.i.i4403, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i.i.i.i4404 = add nsw i64 %1090, 1
@@ -32937,7 +32937,7 @@ _ZN10TestObjectD2Ev.exit6832:                     ; preds = %if.then.i.i.i6821, 
   br i1 %exitcond15551.not, label %invoke.cont2972, label %for.body2958, !llvm.loop !1252
 
 ehcleanup2951:                                    ; preds = %_ZN10TestObjectD2Ev.exit6720, %_ZN10TestObjectD2Ev.exit6449, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6576, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6742, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6591, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6479, %lpad2763
-  %.pn461.pn = phi { ptr, i32 } [ %1781, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6479 ], [ %1780, %lpad2763 ], [ %1811, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6591 ], [ %1843, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6742 ], [ %1841, %_ZN10TestObjectD2Ev.exit6720 ], [ %1778, %_ZN10TestObjectD2Ev.exit6449 ], [ %1809, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6576 ]
+  %.pn461.pn = phi { ptr, i32 } [ %1781, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6479 ], [ %1780, %lpad2763 ], [ %1811, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6591 ], [ %1843, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6742 ], [ %1841, %_ZN10TestObjectD2Ev.exit6720 ], [ %1809, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6576 ], [ %1778, %_ZN10TestObjectD2Ev.exit6449 ]
   call void @_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %testVec2703) #11
   br label %eh.resume
 
@@ -36232,7 +36232,7 @@ for.inc3920:                                      ; preds = %_ZN10TestObjectD2Ev
   br i1 %exitcond15569.not, label %for.end3922, label %for.body3886, !llvm.loop !1409
 
 ehcleanup3865:                                    ; preds = %lpad3821.loopexit, %lpad3821.loopexit.split-lp, %_ZN10TestObjectD2Ev.exit9177, %_ZN10TestObjectD2Ev.exit9264
-  %.pn420 = phi { ptr, i32 } [ %2484, %_ZN10TestObjectD2Ev.exit9177 ], [ %2486, %_ZN10TestObjectD2Ev.exit9264 ], [ %lpad.loopexit15181, %lpad3821.loopexit ], [ %lpad.loopexit.split-lp15182, %lpad3821.loopexit.split-lp ]
+  %.pn420 = phi { ptr, i32 } [ %2486, %_ZN10TestObjectD2Ev.exit9264 ], [ %2484, %_ZN10TestObjectD2Ev.exit9177 ], [ %lpad.loopexit15181, %lpad3821.loopexit ], [ %lpad.loopexit.split-lp15182, %lpad3821.loopexit.split-lp ]
   call void @_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %ctorFromAssignment3703) #11
   br label %ehcleanup4585
 
@@ -37156,7 +37156,7 @@ for.inc.i.i:                                      ; preds = %_ZN5eastleqIJRKbRK1
   br i1 %cmp.not.i.i.i9782, label %invoke.cont4085, label %for.body.i.i, !llvm.loop !588
 
 invoke.cont4085:                                  ; preds = %for.inc.i.i, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i, %for.body.i.i, %land.rhs.i9776, %invoke.cont4084
-  %2720 = phi i1 [ false, %invoke.cont4084 ], [ true, %land.rhs.i9776 ], [ false, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i ], [ false, %for.body.i.i ], [ false, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i ], [ true, %for.inc.i.i ]
+  %2720 = phi i1 [ false, %invoke.cont4084 ], [ true, %land.rhs.i9776 ], [ false, %for.body.i.i ], [ false, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i ], [ true, %for.inc.i.i ], [ false, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i ]
   %call4088 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %2720, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1138, ptr noundef nonnull @.str.131)
           to label %invoke.cont4087 unwind label %lpad4081
 
@@ -40862,7 +40862,7 @@ invoke.cont4947:                                  ; preds = %invoke.cont4937, %i
   br i1 %cmp.not.i11535.not, label %for.end4952, label %invoke.cont4947
 
 ehcleanup4580:                                    ; preds = %lpad4428.loopexit, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad4428.loopexit.split-lp.loopexit, %_ZN10TestObjectD2Ev.exit10747, %_ZN10TestObjectD2Ev.exit10721, %_ZN10TestObjectD2Ev.exit10695, %_ZN10TestObjectD2Ev.exit10652
-  %.pn393 = phi { ptr, i32 } [ %3106, %_ZN10TestObjectD2Ev.exit10652 ], [ %3163, %_ZN10TestObjectD2Ev.exit10747 ], [ %3131, %_ZN10TestObjectD2Ev.exit10695 ], [ %3146, %_ZN10TestObjectD2Ev.exit10721 ], [ %lpad.loopexit15141, %lpad4428.loopexit ], [ %lpad.loopexit15144, %lpad4428.loopexit.split-lp.loopexit ], [ %lpad.loopexit15147, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit15150, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp15151, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn393 = phi { ptr, i32 } [ %3106, %_ZN10TestObjectD2Ev.exit10652 ], [ %3131, %_ZN10TestObjectD2Ev.exit10695 ], [ %3146, %_ZN10TestObjectD2Ev.exit10721 ], [ %3163, %_ZN10TestObjectD2Ev.exit10747 ], [ %lpad.loopexit15141, %lpad4428.loopexit ], [ %lpad.loopexit15144, %lpad4428.loopexit.split-lp.loopexit ], [ %lpad.loopexit15147, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit15150, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp15151, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5eastl18fixed_tuple_vectorILm16ELb1EJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(584) %ctorFromMove4412) #11
   br label %ehcleanup4581
 
@@ -40872,7 +40872,7 @@ ehcleanup4581:                                    ; preds = %ehcleanup4580, %_ZN
   br label %ehcleanup4585
 
 ehcleanup4585:                                    ; preds = %lpad.i8606, %lpad.i9877, %lpad3604, %ehcleanup4581, %ehcleanup4392, %ehcleanup4267, %ehcleanup4196, %ehcleanup4145, %lpad4081, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit9920, %ehcleanup4019, %ehcleanup3969, %ehcleanup3923, %ehcleanup3865, %ehcleanup3702, %ehcleanup3652
-  %.pn424.pn = phi { ptr, i32 } [ %.pn424, %ehcleanup3652 ], [ %.pn422, %ehcleanup3702 ], [ %.pn420, %ehcleanup3865 ], [ %.pn418, %ehcleanup3923 ], [ %.pn416, %ehcleanup3969 ], [ %.pn414, %ehcleanup4019 ], [ %.pn411, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit9920 ], [ %.pn409, %ehcleanup4145 ], [ %.pn407, %ehcleanup4196 ], [ %.pn405, %ehcleanup4267 ], [ %.pn401, %ehcleanup4392 ], [ %.pn395, %ehcleanup4581 ], [ %2376, %lpad3604 ], [ %2353, %lpad.i8606 ], [ %2793, %lpad4081 ], [ %2770, %lpad.i9877 ]
+  %.pn424.pn = phi { ptr, i32 } [ %.pn424, %ehcleanup3652 ], [ %.pn422, %ehcleanup3702 ], [ %.pn420, %ehcleanup3865 ], [ %.pn418, %ehcleanup3923 ], [ %.pn416, %ehcleanup3969 ], [ %.pn414, %ehcleanup4019 ], [ %.pn411, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit9920 ], [ %.pn409, %ehcleanup4145 ], [ %.pn407, %ehcleanup4196 ], [ %.pn405, %ehcleanup4267 ], [ %.pn401, %ehcleanup4392 ], [ %.pn395, %ehcleanup4581 ], [ %2793, %lpad4081 ], [ %2353, %lpad.i8606 ], [ %2376, %lpad3604 ], [ %2770, %lpad.i9877 ]
   call void @_ZN5eastl18fixed_tuple_vectorILm16ELb1EJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %srcVec3488) #11
   br label %eh.resume
 
@@ -42614,7 +42614,7 @@ _ZN10TestObjectD2Ev.exit12508:                    ; preds = %if.then.i.i.i12497,
   br i1 %exitcond15624.not, label %for.end5331, label %for.body5305, !llvm.loop !1595
 
 ehcleanup5296:                                    ; preds = %lpad5156.loopexit, %lpad5156.loopexit.split-lp, %_ZN5eastl5tupleIJi12MoveOnlyType10TestObjectEED2Ev.exit12261, %_ZN10TestObjectD2Ev.exit12254, %_ZN10TestObjectD2Ev.exit12246, %_ZN10TestObjectD2Ev.exit12238, %_ZN10TestObjectD2Ev.exit12230
-  %.pn388 = phi { ptr, i32 } [ %lpad.loopexit.split-lp15139, %lpad5156.loopexit.split-lp ], [ %3701, %_ZN5eastl5tupleIJi12MoveOnlyType10TestObjectEED2Ev.exit12261 ], [ %3696, %_ZN10TestObjectD2Ev.exit12254 ], [ %3693, %_ZN10TestObjectD2Ev.exit12246 ], [ %3690, %_ZN10TestObjectD2Ev.exit12238 ], [ %3687, %_ZN10TestObjectD2Ev.exit12230 ], [ %lpad.loopexit15138, %lpad5156.loopexit ]
+  %.pn388 = phi { ptr, i32 } [ %3701, %_ZN5eastl5tupleIJi12MoveOnlyType10TestObjectEED2Ev.exit12261 ], [ %3696, %_ZN10TestObjectD2Ev.exit12254 ], [ %3693, %_ZN10TestObjectD2Ev.exit12246 ], [ %3690, %_ZN10TestObjectD2Ev.exit12238 ], [ %3687, %_ZN10TestObjectD2Ev.exit12230 ], [ %lpad.loopexit15138, %lpad5156.loopexit ], [ %lpad.loopexit.split-lp15139, %lpad5156.loopexit.split-lp ]
   call void @_ZN5eastl18fixed_tuple_vectorILm16ELb1EJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(584) %v2) #11
   call void @_ZN5eastl18fixed_tuple_vectorILm16ELb1EJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(584) %v1) #11
   br label %eh.resume
@@ -42696,7 +42696,7 @@ for.inc.i.i12548:                                 ; preds = %_ZN5eastleqIJRKbRK1
   br i1 %cmp.not.i.i.i12550, label %invoke.cont5332, label %for.body.i.i12535, !llvm.loop !588
 
 invoke.cont5332:                                  ; preds = %for.inc.i.i12548, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12546, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12542, %for.body.i.i12535, %land.rhs.i12528, %for.end5331
-  %3828 = phi i1 [ false, %for.end5331 ], [ true, %land.rhs.i12528 ], [ false, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12546 ], [ false, %for.body.i.i12535 ], [ false, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12542 ], [ true, %for.inc.i.i12548 ]
+  %3828 = phi i1 [ false, %for.end5331 ], [ true, %land.rhs.i12528 ], [ false, %for.body.i.i12535 ], [ false, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12542 ], [ true, %for.inc.i.i12548 ], [ false, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12546 ]
   %call5335 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %3828, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1535, ptr noundef nonnull @.str.202)
           to label %for.body.i.preheader.i14380 unwind label %lpad5311
 
@@ -43045,7 +43045,7 @@ for.inc.i.i12697:                                 ; preds = %_ZN5eastleqIJRKbRK1
   br i1 %cmp.not.i.i.i12699, label %invoke.cont5377, label %for.body.i.i12684, !llvm.loop !588
 
 invoke.cont5377:                                  ; preds = %for.inc.i.i12697, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12695, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12691, %for.body.i.i12684, %lor.rhs.i, %for.end5376
-  %3903 = phi i1 [ true, %for.end5376 ], [ false, %lor.rhs.i ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12695 ], [ true, %for.body.i.i12684 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12691 ], [ false, %for.inc.i.i12697 ]
+  %3903 = phi i1 [ true, %for.end5376 ], [ false, %lor.rhs.i ], [ true, %for.body.i.i12684 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12691 ], [ false, %for.inc.i.i12697 ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12695 ]
   %call5380 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %3903, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1547, ptr noundef nonnull @.str.203)
           to label %invoke.cont5379 unwind label %lpad5355
 
@@ -43099,7 +43099,7 @@ for.inc.i.i12723:                                 ; preds = %_ZN5eastleqIJRKbRK1
   br i1 %cmp.not.i.i.i12725, label %invoke.cont5381, label %for.body.i.i12710, !llvm.loop !588
 
 invoke.cont5381:                                  ; preds = %for.inc.i.i12723, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12721, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12717, %for.body.i.i12710, %lor.rhs.i12703, %invoke.cont5379
-  %3920 = phi i1 [ true, %invoke.cont5379 ], [ false, %lor.rhs.i12703 ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12721 ], [ true, %for.body.i.i12710 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12717 ], [ false, %for.inc.i.i12723 ]
+  %3920 = phi i1 [ true, %invoke.cont5379 ], [ false, %lor.rhs.i12703 ], [ true, %for.body.i.i12710 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12717 ], [ false, %for.inc.i.i12723 ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12721 ]
   %call5384 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %3920, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1548, ptr noundef nonnull @.str.204)
           to label %invoke.cont5383 unwind label %lpad5355
 
@@ -43153,7 +43153,7 @@ for.inc.i.i12750:                                 ; preds = %_ZN5eastleqIJRKbRK1
   br i1 %cmp.not.i.i.i12752, label %invoke.cont5385, label %for.body.i.i12737, !llvm.loop !588
 
 invoke.cont5385:                                  ; preds = %for.inc.i.i12750, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12748, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12744, %for.body.i.i12737, %lor.rhs.i12730, %invoke.cont5383
-  %3937 = phi i1 [ true, %invoke.cont5383 ], [ false, %lor.rhs.i12730 ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12748 ], [ true, %for.body.i.i12737 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12744 ], [ false, %for.inc.i.i12750 ]
+  %3937 = phi i1 [ true, %invoke.cont5383 ], [ false, %lor.rhs.i12730 ], [ true, %for.body.i.i12737 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12744 ], [ false, %for.inc.i.i12750 ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12748 ]
   %call5388 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %3937, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1549, ptr noundef nonnull @.str.205)
           to label %invoke.cont5387 unwind label %lpad5355
 
@@ -44090,7 +44090,7 @@ ehcleanup5478:                                    ; preds = %lpad5423.loopexit, 
   br label %eh.resume
 
 eh.resume:                                        ; preds = %delete.notnull.i.i.i.i11567, %lpad4666, %delete.notnull.i.i.i.i11560, %ehcleanup4662, %delete.notnull.i.i.i.i879, %lpad218, %delete.notnull.i.i.i.i872, %ehcleanup, %ehcleanup5478, %ehcleanup5412, %ehcleanup5296, %ehcleanup5153, %ehcleanup4585, %ehcleanup3485, %ehcleanup3218, %ehcleanup2951, %ehcleanup2702, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6065, %ehcleanup2446, %ehcleanup2321, %ehcleanup2106, %ehcleanup1925, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit4405, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit3638, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit2776, %_ZN10TestObjectD2Ev.exit2170, %_ZN10TestObjectD2Ev.exit1710, %ehcleanup493
-  %.pn500.pn = phi { ptr, i32 } [ %.pn500, %ehcleanup493 ], [ %.pn496, %_ZN10TestObjectD2Ev.exit1710 ], [ %.pn494, %_ZN10TestObjectD2Ev.exit2170 ], [ %.pn491, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit2776 ], [ %.pn488, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit3638 ], [ %.pn485, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit4405 ], [ %.pn483, %ehcleanup1925 ], [ %.pn481, %ehcleanup2106 ], [ %.pn479, %ehcleanup2321 ], [ %.pn473.pn, %ehcleanup2446 ], [ %lpad.phi15201, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6065 ], [ %.pn464, %ehcleanup2702 ], [ %.pn461.pn, %ehcleanup2951 ], [ %.pn455, %ehcleanup3218 ], [ %.pn440, %ehcleanup3485 ], [ %.pn424.pn, %ehcleanup4585 ], [ %.pn375, %delete.notnull.i.i.i.i11560 ], [ %.pn391, %ehcleanup5153 ], [ %.pn388, %ehcleanup5296 ], [ %.pn385, %ehcleanup5412 ], [ %.pn379, %ehcleanup5478 ], [ %246, %delete.notnull.i.i.i.i879 ], [ %3456, %lpad4666 ], [ %3456, %delete.notnull.i.i.i.i11567 ], [ %.pn, %delete.notnull.i.i.i.i872 ], [ %.pn, %ehcleanup ], [ %246, %lpad218 ], [ %.pn375, %ehcleanup4662 ]
+  %.pn500.pn = phi { ptr, i32 } [ %.pn500, %ehcleanup493 ], [ %.pn496, %_ZN10TestObjectD2Ev.exit1710 ], [ %.pn494, %_ZN10TestObjectD2Ev.exit2170 ], [ %.pn491, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit2776 ], [ %.pn488, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit3638 ], [ %.pn485, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit4405 ], [ %.pn483, %ehcleanup1925 ], [ %.pn481, %ehcleanup2106 ], [ %.pn479, %ehcleanup2321 ], [ %.pn473.pn, %ehcleanup2446 ], [ %lpad.phi15201, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6065 ], [ %.pn464, %ehcleanup2702 ], [ %.pn461.pn, %ehcleanup2951 ], [ %.pn455, %ehcleanup3218 ], [ %.pn440, %ehcleanup3485 ], [ %.pn424.pn, %ehcleanup4585 ], [ %.pn391, %ehcleanup5153 ], [ %.pn388, %ehcleanup5296 ], [ %.pn385, %ehcleanup5412 ], [ %.pn379, %ehcleanup5478 ], [ %.pn, %ehcleanup ], [ %.pn, %delete.notnull.i.i.i.i872 ], [ %246, %lpad218 ], [ %246, %delete.notnull.i.i.i.i879 ], [ %.pn375, %ehcleanup4662 ], [ %.pn375, %delete.notnull.i.i.i.i11560 ], [ %3456, %lpad4666 ], [ %3456, %delete.notnull.i.i.i.i11567 ]
   resume { ptr, i32 } %.pn500.pn
 }
 
@@ -46513,7 +46513,7 @@ if.end572.thread:                                 ; preds = %if.then570
   br label %lor.rhs575
 
 ehcleanup493:                                     ; preds = %lpad240.loopexit, %lpad240.loopexit.split-lp, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit1257, %_ZN10TestObjectD2Ev.exit1139
-  %.pn500 = phi { ptr, i32 } [ %.pn498, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit1257 ], [ %245, %_ZN10TestObjectD2Ev.exit1139 ], [ %lpad.loopexit14110, %lpad240.loopexit ], [ %lpad.loopexit.split-lp14111, %lpad240.loopexit.split-lp ]
+  %.pn500 = phi { ptr, i32 } [ %245, %_ZN10TestObjectD2Ev.exit1139 ], [ %.pn498, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit1257 ], [ %lpad.loopexit14110, %lpad240.loopexit ], [ %lpad.loopexit.split-lp14111, %lpad240.loopexit.split-lp ]
   call void @_ZN5eastl18fixed_tuple_vectorILm64ELb0EJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(1912) %testVec) #11
   br label %eh.resume
 
@@ -50148,9 +50148,9 @@ if.end1832.thread:                                ; preds = %if.then1830
   br label %lor.rhs1835
 
 _ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit4587:   ; preds = %_ZN10TestObjectD2Ev.exit4355, %_ZN10TestObjectD2Ev.exit4170, %_ZN10TestObjectD2Ev.exit3989, %_ZN10TestObjectD2Ev.exit3944, %_ZN10TestObjectD2Ev.exit3899, %_ZN10TestObjectD2Ev.exit3854, %lpad1261, %_ZN10TestObjectD2Ev.exit4397
-  %1038 = phi i64 [ %inc3.i4396, %_ZN10TestObjectD2Ev.exit4397 ], [ %.pre14552, %lpad1261 ], [ %inc3.i436213932, %_ZN10TestObjectD2Ev.exit4355 ], [ %inc3.i399613922, %_ZN10TestObjectD2Ev.exit3989 ], [ %inc3.i390613916, %_ZN10TestObjectD2Ev.exit3899 ], [ %inc3.i417713927, %_ZN10TestObjectD2Ev.exit4170 ], [ %inc3.i386113913, %_ZN10TestObjectD2Ev.exit3854 ], [ %inc3.i395113919, %_ZN10TestObjectD2Ev.exit3944 ]
-  %1039 = phi i64 [ %dec.i4395, %_ZN10TestObjectD2Ev.exit4397 ], [ %.pre14551, %lpad1261 ], [ %dec.i436113931, %_ZN10TestObjectD2Ev.exit4355 ], [ %dec.i399513921, %_ZN10TestObjectD2Ev.exit3989 ], [ %dec.i390513915, %_ZN10TestObjectD2Ev.exit3899 ], [ %dec.i417613926, %_ZN10TestObjectD2Ev.exit4170 ], [ %dec.i386013912, %_ZN10TestObjectD2Ev.exit3854 ], [ %dec.i395013918, %_ZN10TestObjectD2Ev.exit3944 ]
-  %.pn485 = phi { ptr, i32 } [ %970, %_ZN10TestObjectD2Ev.exit4397 ], [ %902, %lpad1261 ], [ %957, %_ZN10TestObjectD2Ev.exit4355 ], [ %909, %_ZN10TestObjectD2Ev.exit3989 ], [ %905, %_ZN10TestObjectD2Ev.exit3899 ], [ %933, %_ZN10TestObjectD2Ev.exit4170 ], [ %903, %_ZN10TestObjectD2Ev.exit3854 ], [ %907, %_ZN10TestObjectD2Ev.exit3944 ]
+  %1038 = phi i64 [ %inc3.i4396, %_ZN10TestObjectD2Ev.exit4397 ], [ %.pre14552, %lpad1261 ], [ %inc3.i386113913, %_ZN10TestObjectD2Ev.exit3854 ], [ %inc3.i390613916, %_ZN10TestObjectD2Ev.exit3899 ], [ %inc3.i395113919, %_ZN10TestObjectD2Ev.exit3944 ], [ %inc3.i399613922, %_ZN10TestObjectD2Ev.exit3989 ], [ %inc3.i417713927, %_ZN10TestObjectD2Ev.exit4170 ], [ %inc3.i436213932, %_ZN10TestObjectD2Ev.exit4355 ]
+  %1039 = phi i64 [ %dec.i4395, %_ZN10TestObjectD2Ev.exit4397 ], [ %.pre14551, %lpad1261 ], [ %dec.i386013912, %_ZN10TestObjectD2Ev.exit3854 ], [ %dec.i390513915, %_ZN10TestObjectD2Ev.exit3899 ], [ %dec.i395013918, %_ZN10TestObjectD2Ev.exit3944 ], [ %dec.i399513921, %_ZN10TestObjectD2Ev.exit3989 ], [ %dec.i417613926, %_ZN10TestObjectD2Ev.exit4170 ], [ %dec.i436113931, %_ZN10TestObjectD2Ev.exit4355 ]
+  %.pn485 = phi { ptr, i32 } [ %970, %_ZN10TestObjectD2Ev.exit4397 ], [ %902, %lpad1261 ], [ %903, %_ZN10TestObjectD2Ev.exit3854 ], [ %905, %_ZN10TestObjectD2Ev.exit3899 ], [ %907, %_ZN10TestObjectD2Ev.exit3944 ], [ %909, %_ZN10TestObjectD2Ev.exit3989 ], [ %933, %_ZN10TestObjectD2Ev.exit4170 ], [ %957, %_ZN10TestObjectD2Ev.exit4355 ]
   %dec.i.i.i.i4585 = add nsw i64 %1039, -1
   store i64 %dec.i.i.i.i4585, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i.i.i.i4586 = add nsw i64 %1038, 1
@@ -54174,7 +54174,7 @@ _ZN10TestObjectD2Ev.exit6972:                     ; preds = %for.body2958
   br i1 %exitcond14457.not, label %invoke.cont2972, label %for.body2958, !llvm.loop !2167
 
 ehcleanup2951:                                    ; preds = %_ZN10TestObjectD2Ev.exit6867, %_ZN10TestObjectD2Ev.exit6598, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6724, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6889, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6739, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6628, %lpad2763
-  %.pn461.pn = phi { ptr, i32 } [ %1726, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6628 ], [ %1725, %lpad2763 ], [ %1756, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6739 ], [ %1788, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6889 ], [ %1786, %_ZN10TestObjectD2Ev.exit6867 ], [ %1723, %_ZN10TestObjectD2Ev.exit6598 ], [ %1754, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6724 ]
+  %.pn461.pn = phi { ptr, i32 } [ %1726, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6628 ], [ %1725, %lpad2763 ], [ %1756, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6739 ], [ %1788, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6889 ], [ %1786, %_ZN10TestObjectD2Ev.exit6867 ], [ %1754, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6724 ], [ %1723, %_ZN10TestObjectD2Ev.exit6598 ]
   call void @_ZN5eastl18fixed_tuple_vectorILm64ELb0EJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(1912) %testVec2703) #11
   br label %eh.resume
 
@@ -57326,7 +57326,7 @@ for.inc3920:                                      ; preds = %_ZN10TestObjectD2Ev
   br i1 %exitcond14475.not, label %for.end3922, label %for.body3886, !llvm.loop !2324
 
 ehcleanup3865:                                    ; preds = %lpad3821.loopexit, %lpad3821.loopexit.split-lp, %_ZN10TestObjectD2Ev.exit9294, %_ZN10TestObjectD2Ev.exit9381
-  %.pn420 = phi { ptr, i32 } [ %2404, %_ZN10TestObjectD2Ev.exit9294 ], [ %2406, %_ZN10TestObjectD2Ev.exit9381 ], [ %lpad.loopexit14077, %lpad3821.loopexit ], [ %lpad.loopexit.split-lp14078, %lpad3821.loopexit.split-lp ]
+  %.pn420 = phi { ptr, i32 } [ %2406, %_ZN10TestObjectD2Ev.exit9381 ], [ %2404, %_ZN10TestObjectD2Ev.exit9294 ], [ %lpad.loopexit14077, %lpad3821.loopexit ], [ %lpad.loopexit.split-lp14078, %lpad3821.loopexit.split-lp ]
   call void @_ZN5eastl18fixed_tuple_vectorILm64ELb0EJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(1912) %ctorFromAssignment3703) #11
   br label %ehcleanup4585
 
@@ -58208,7 +58208,7 @@ for.inc.i.i:                                      ; preds = %_ZN5eastleqIJRKbRK1
   br i1 %cmp.not.i.i.i9919, label %invoke.cont4085, label %for.body.i.i9914, !llvm.loop !588
 
 invoke.cont4085:                                  ; preds = %for.inc.i.i, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i, %for.body.i.i9914, %land.rhs.i9911, %invoke.cont4084
-  %2629 = phi i1 [ false, %invoke.cont4084 ], [ true, %land.rhs.i9911 ], [ false, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i ], [ false, %for.body.i.i9914 ], [ false, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i ], [ true, %for.inc.i.i ]
+  %2629 = phi i1 [ false, %invoke.cont4084 ], [ true, %land.rhs.i9911 ], [ false, %for.body.i.i9914 ], [ false, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i ], [ true, %for.inc.i.i ], [ false, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i ]
   %call4088 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %2629, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1138, ptr noundef nonnull @.str.131)
           to label %invoke.cont4087 unwind label %lpad4081
 
@@ -59274,7 +59274,7 @@ ehcleanup4266:                                    ; preds = %lpad4219.loopexit, 
   br label %ehcleanup4267
 
 ehcleanup4267:                                    ; preds = %ehcleanup4266, %lpad4204
-  %.pn405 = phi { ptr, i32 } [ %2774, %lpad4204 ], [ %.pn403, %ehcleanup4266 ]
+  %.pn405 = phi { ptr, i32 } [ %.pn403, %ehcleanup4266 ], [ %2774, %lpad4204 ]
   call void @_ZN5eastl18fixed_tuple_vectorILm64ELb0EJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(2104) %srcMoveVec) #11
   br label %ehcleanup4585
 
@@ -59817,7 +59817,7 @@ ehcleanup4391:                                    ; preds = %lpad4292.loopexit, 
   br label %ehcleanup4392
 
 ehcleanup4392:                                    ; preds = %ehcleanup4391, %lpad4276
-  %.pn401 = phi { ptr, i32 } [ %2839, %lpad4276 ], [ %.pn399, %ehcleanup4391 ]
+  %.pn401 = phi { ptr, i32 } [ %.pn399, %ehcleanup4391 ], [ %2839, %lpad4276 ]
   call void @_ZN5eastl18fixed_tuple_vectorILm64ELb0EJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(2104) %srcMoveVec4268) #11
   br label %ehcleanup4585
 
@@ -60372,7 +60372,7 @@ land.rhs.i10953:                                  ; preds = %_ZN5eastl16TupleVec
   br label %_ZN10TestObject7IsClearEv.exit10955
 
 _ZN10TestObject7IsClearEv.exit10955:              ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE5clearEv.exit10949, %land.rhs.i10953
-  %3068 = phi i1 [ %cmp2.i10954, %land.rhs.i10953 ], [ false, %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE5clearEv.exit10949 ]
+  %3068 = phi i1 [ false, %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE5clearEv.exit10949 ], [ %cmp2.i10954, %land.rhs.i10953 ]
   %call4584 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %3068, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1267, ptr noundef nonnull @.str.53)
           to label %invoke.cont4583 unwind label %lpad3604
 
@@ -61144,7 +61144,7 @@ invoke.cont4947:                                  ; preds = %_ZNK5eastl16TupleVe
   br i1 %cmp.not.i11741.not, label %for.end4952, label %invoke.cont4947
 
 ehcleanup4580:                                    ; preds = %lpad4428.loopexit, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad4428.loopexit.split-lp.loopexit, %_ZN10TestObjectD2Ev.exit10877, %_ZN10TestObjectD2Ev.exit10851, %_ZN10TestObjectD2Ev.exit10825, %_ZN10TestObjectD2Ev.exit10782
-  %.pn393 = phi { ptr, i32 } [ %2983, %_ZN10TestObjectD2Ev.exit10782 ], [ %3040, %_ZN10TestObjectD2Ev.exit10877 ], [ %3008, %_ZN10TestObjectD2Ev.exit10825 ], [ %3023, %_ZN10TestObjectD2Ev.exit10851 ], [ %lpad.loopexit14037, %lpad4428.loopexit ], [ %lpad.loopexit14040, %lpad4428.loopexit.split-lp.loopexit ], [ %lpad.loopexit14043, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit14046, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp14047, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn393 = phi { ptr, i32 } [ %2983, %_ZN10TestObjectD2Ev.exit10782 ], [ %3008, %_ZN10TestObjectD2Ev.exit10825 ], [ %3023, %_ZN10TestObjectD2Ev.exit10851 ], [ %3040, %_ZN10TestObjectD2Ev.exit10877 ], [ %lpad.loopexit14037, %lpad4428.loopexit ], [ %lpad.loopexit14040, %lpad4428.loopexit.split-lp.loopexit ], [ %lpad.loopexit14043, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit14046, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp14047, %lpad4428.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5eastl18fixed_tuple_vectorILm64ELb0EJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(2104) %ctorFromMove4412) #11
   call void @_ZN5eastl18fixed_tuple_vectorILm64ELb0EJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(2104) %srcMoveVec4393) #11
   br label %ehcleanup4585
@@ -62754,7 +62754,7 @@ _ZN10TestObjectD2Ev.exit12667:                    ; preds = %_ZN10TestObjectD2Ev
   br i1 %exitcond14530.not, label %for.end5331, label %for.body5305, !llvm.loop !2491
 
 ehcleanup5296:                                    ; preds = %lpad5156.loopexit, %lpad5156.loopexit.split-lp, %_ZN5eastl5tupleIJi12MoveOnlyType10TestObjectEED2Ev.exit12455, %_ZN10TestObjectD2Ev.exit12448
-  %.pn388 = phi { ptr, i32 } [ %3475, %_ZN10TestObjectD2Ev.exit12448 ], [ %3480, %_ZN5eastl5tupleIJi12MoveOnlyType10TestObjectEED2Ev.exit12455 ], [ %lpad.loopexit14034, %lpad5156.loopexit ], [ %lpad.loopexit.split-lp14035, %lpad5156.loopexit.split-lp ]
+  %.pn388 = phi { ptr, i32 } [ %3480, %_ZN5eastl5tupleIJi12MoveOnlyType10TestObjectEED2Ev.exit12455 ], [ %3475, %_ZN10TestObjectD2Ev.exit12448 ], [ %lpad.loopexit14034, %lpad5156.loopexit ], [ %lpad.loopexit.split-lp14035, %lpad5156.loopexit.split-lp ]
   call void @_ZN5eastl18fixed_tuple_vectorILm64ELb0EJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(2104) %v2) #11
   call void @_ZN5eastl18fixed_tuple_vectorILm64ELb0EJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(2104) %v1) #11
   br label %eh.resume
@@ -62814,7 +62814,7 @@ for.inc.i.i12707:                                 ; preds = %_ZN5eastleqIJRKbRK1
   br i1 %cmp.not.i.i.i12709, label %invoke.cont5332, label %for.body.i.i12694, !llvm.loop !588
 
 invoke.cont5332:                                  ; preds = %for.inc.i.i12707, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12705, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12701, %for.body.i.i12694, %land.rhs.i12687, %for.end5331
-  %3581 = phi i1 [ false, %for.end5331 ], [ true, %land.rhs.i12687 ], [ false, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12705 ], [ false, %for.body.i.i12694 ], [ false, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12701 ], [ true, %for.inc.i.i12707 ]
+  %3581 = phi i1 [ false, %for.end5331 ], [ true, %land.rhs.i12687 ], [ false, %for.body.i.i12694 ], [ false, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12701 ], [ true, %for.inc.i.i12707 ], [ false, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12705 ]
   %call5335 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %3581, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1535, ptr noundef nonnull @.str.202)
           to label %invoke.cont5334 unwind label %lpad5311
 
@@ -63136,7 +63136,7 @@ for.inc.i.i12888:                                 ; preds = %_ZN5eastleqIJRKbRK1
   br i1 %cmp.not.i.i.i12890, label %invoke.cont5377, label %for.body.i.i12875, !llvm.loop !588
 
 invoke.cont5377:                                  ; preds = %for.inc.i.i12888, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12886, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12882, %for.body.i.i12875, %lor.rhs.i, %for.end5376
-  %3648 = phi i1 [ true, %for.end5376 ], [ false, %lor.rhs.i ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12886 ], [ true, %for.body.i.i12875 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12882 ], [ false, %for.inc.i.i12888 ]
+  %3648 = phi i1 [ true, %for.end5376 ], [ false, %lor.rhs.i ], [ true, %for.body.i.i12875 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12882 ], [ false, %for.inc.i.i12888 ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12886 ]
   %call5380 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %3648, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1547, ptr noundef nonnull @.str.203)
           to label %invoke.cont5379 unwind label %lpad5355
 
@@ -63190,7 +63190,7 @@ for.inc.i.i12914:                                 ; preds = %_ZN5eastleqIJRKbRK1
   br i1 %cmp.not.i.i.i12916, label %invoke.cont5381, label %for.body.i.i12901, !llvm.loop !588
 
 invoke.cont5381:                                  ; preds = %for.inc.i.i12914, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12912, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12908, %for.body.i.i12901, %lor.rhs.i12894, %invoke.cont5379
-  %3665 = phi i1 [ true, %invoke.cont5379 ], [ false, %lor.rhs.i12894 ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12912 ], [ true, %for.body.i.i12901 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12908 ], [ false, %for.inc.i.i12914 ]
+  %3665 = phi i1 [ true, %invoke.cont5379 ], [ false, %lor.rhs.i12894 ], [ true, %for.body.i.i12901 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12908 ], [ false, %for.inc.i.i12914 ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12912 ]
   %call5384 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %3665, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1548, ptr noundef nonnull @.str.204)
           to label %invoke.cont5383 unwind label %lpad5355
 
@@ -63244,7 +63244,7 @@ for.inc.i.i12941:                                 ; preds = %_ZN5eastleqIJRKbRK1
   br i1 %cmp.not.i.i.i12943, label %invoke.cont5385, label %for.body.i.i12928, !llvm.loop !588
 
 invoke.cont5385:                                  ; preds = %for.inc.i.i12941, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12939, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12935, %for.body.i.i12928, %lor.rhs.i12921, %invoke.cont5383
-  %3682 = phi i1 [ true, %invoke.cont5383 ], [ false, %lor.rhs.i12921 ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12939 ], [ true, %for.body.i.i12928 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12935 ], [ false, %for.inc.i.i12941 ]
+  %3682 = phi i1 [ true, %invoke.cont5383 ], [ false, %lor.rhs.i12921 ], [ true, %for.body.i.i12928 ], [ true, %_ZN5eastl8Internal10TupleEqualILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.i.i12935 ], [ false, %for.inc.i.i12941 ], [ true, %_ZN5eastleqIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.i.i12939 ]
   %call5388 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %3682, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1549, ptr noundef nonnull @.str.205)
           to label %invoke.cont5387 unwind label %lpad5355
 
@@ -64096,7 +64096,7 @@ _ZN10TestObject7IsClearEv.exit13273:              ; preds = %_ZN5eastl18fixed_tu
   ret i32 %3816
 
 eh.resume:                                        ; preds = %lpad5423, %ehcleanup5412, %ehcleanup5296, %ehcleanup5153, %ehcleanup4585, %ehcleanup3484, %ehcleanup3217, %ehcleanup2951, %lpad2589, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6231, %ehcleanup2446, %ehcleanup2320, %ehcleanup2106, %ehcleanup1925, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit4587, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit3824, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit2960, %_ZN10TestObjectD2Ev.exit2352, %_ZN10TestObjectD2Ev.exit1889, %ehcleanup493
-  %.pn500.pn = phi { ptr, i32 } [ %.pn500, %ehcleanup493 ], [ %.pn496, %_ZN10TestObjectD2Ev.exit1889 ], [ %.pn494, %_ZN10TestObjectD2Ev.exit2352 ], [ %.pn491, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit2960 ], [ %.pn488, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit3824 ], [ %.pn485, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit4587 ], [ %.pn483, %ehcleanup1925 ], [ %.pn481, %ehcleanup2106 ], [ %.pn476.pn, %ehcleanup2320 ], [ %.pn473.pn, %ehcleanup2446 ], [ %lpad.phi14097, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6231 ], [ %lpad.phi14088, %lpad2589 ], [ %.pn461.pn, %ehcleanup2951 ], [ %.pn452.pn, %ehcleanup3217 ], [ %.pn437.pn, %ehcleanup3484 ], [ %.pn424.pn, %ehcleanup4585 ], [ %lpad.phi, %lpad5423 ], [ %.pn391, %ehcleanup5153 ], [ %.pn388, %ehcleanup5296 ], [ %.pn385, %ehcleanup5412 ]
+  %.pn500.pn = phi { ptr, i32 } [ %.pn500, %ehcleanup493 ], [ %.pn496, %_ZN10TestObjectD2Ev.exit1889 ], [ %.pn494, %_ZN10TestObjectD2Ev.exit2352 ], [ %.pn491, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit2960 ], [ %.pn488, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit3824 ], [ %.pn485, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit4587 ], [ %.pn483, %ehcleanup1925 ], [ %.pn481, %ehcleanup2106 ], [ %.pn476.pn, %ehcleanup2320 ], [ %.pn473.pn, %ehcleanup2446 ], [ %lpad.phi14097, %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit6231 ], [ %lpad.phi14088, %lpad2589 ], [ %.pn461.pn, %ehcleanup2951 ], [ %.pn452.pn, %ehcleanup3217 ], [ %.pn437.pn, %ehcleanup3484 ], [ %.pn424.pn, %ehcleanup4585 ], [ %.pn391, %ehcleanup5153 ], [ %.pn388, %ehcleanup5296 ], [ %.pn385, %ehcleanup5412 ], [ %lpad.phi, %lpad5423 ]
   resume { ptr, i32 } %.pn500.pn
 }
 
@@ -70632,7 +70632,7 @@ land.rhs12:                                       ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %lor.rhs.i.i.i.us, %land.rhs.us, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us, %lor.rhs.i.i.i.us.us, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us.us, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us.us, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us.us, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us.us, %for.inc.us.us, %lor.rhs.i.i.i, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26, %for.body, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit, %lor.rhs.i.i.i.us92, %for.body.us84, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us94, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us98, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us102, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us106, %land.rhs.lr.ph.split.us.split.us, %for.end, %land.rhs12
-  %retval.0 = phi i1 [ false, %for.end ], [ %78, %land.rhs12 ], [ true, %for.inc.us.us ], [ false, %lor.rhs.i.i.i ], [ false, %lor.rhs.i.i.i.us92 ], [ true, %land.rhs.lr.ph.split.us.split.us ], [ true, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us98 ], [ false, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us106 ], [ true, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us94 ], [ true, %for.body.us84 ], [ false, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us102 ], [ false, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36 ], [ true, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i ], [ true, %for.body ], [ false, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26 ], [ true, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit ], [ false, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us.us ], [ true, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us.us ], [ true, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us.us ], [ false, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us.us ], [ false, %lor.rhs.i.i.i.us.us ], [ false, %lor.rhs.i.i.i.us ], [ false, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us ], [ true, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us ], [ true, %land.rhs.us ], [ false, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us ], [ true, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us ]
+  %retval.0 = phi i1 [ false, %for.end ], [ %78, %land.rhs12 ], [ true, %land.rhs.lr.ph.split.us.split.us ], [ false, %lor.rhs.i.i.i.us92 ], [ true, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us98 ], [ false, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us106 ], [ true, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us94 ], [ true, %for.body.us84 ], [ false, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us102 ], [ false, %lor.rhs.i.i.i ], [ true, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit ], [ false, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36 ], [ true, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i ], [ true, %for.body ], [ false, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26 ], [ false, %lor.rhs.i.i.i.us.us ], [ false, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us.us ], [ false, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us.us ], [ true, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us.us ], [ true, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us.us ], [ true, %for.inc.us.us ], [ false, %lor.rhs.i.i.i.us ], [ true, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us ], [ false, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us ], [ true, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us ], [ true, %land.rhs.us ], [ false, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us ]
   ret i1 %retval.0
 }
 

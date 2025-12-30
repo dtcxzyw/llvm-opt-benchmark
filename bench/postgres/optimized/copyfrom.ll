@@ -615,9 +615,9 @@ CopyMultiInsertInfoSetupBuffer.exit.i:            ; preds = %179, %174
 CopyMultiInsertInfoInit.exit:                     ; preds = %CopyMultiInsertInfoSetupBuffer.exit.i, %163
   br i1 %.not348, label %192, label %CopyMultiInsertInfoInit.exit.thread
 
-CopyMultiInsertInfoInit.exit.thread:              ; preds = %CopyMultiInsertInfoInit.exit, %141, %156, %152, %147, %137, %160
-  %186 = phi i1 [ true, %141 ], [ false, %CopyMultiInsertInfoInit.exit ], [ true, %160 ], [ true, %137 ], [ true, %147 ], [ true, %152 ], [ true, %156 ]
-  %.0298382 = phi i32 [ 0, %141 ], [ 2, %CopyMultiInsertInfoInit.exit ], [ 0, %160 ], [ 0, %137 ], [ 0, %147 ], [ 0, %152 ], [ 0, %156 ]
+CopyMultiInsertInfoInit.exit.thread:              ; preds = %CopyMultiInsertInfoInit.exit, %160, %156, %152, %147, %137, %141
+  %186 = phi i1 [ false, %CopyMultiInsertInfoInit.exit ], [ true, %141 ], [ true, %137 ], [ true, %147 ], [ true, %152 ], [ true, %156 ], [ true, %160 ]
+  %.0298382 = phi i32 [ 2, %CopyMultiInsertInfoInit.exit ], [ 0, %141 ], [ 0, %137 ], [ 0, %147 ], [ 0, %152 ], [ 0, %156 ], [ 0, %160 ]
   %187 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds nuw i8, ptr %6, i64 200
@@ -916,7 +916,7 @@ CopyMultiInsertInfoSetupBuffer.exit:              ; preds = %329, %334
   br label %343
 
 343:                                              ; preds = %.thread388, %342, %.thread387, %CopyMultiInsertInfoSetupBuffer.exit
-  %344 = phi i8 [ 0, %.thread388 ], [ 1, %CopyMultiInsertInfoSetupBuffer.exit ], [ 0, %342 ], [ 1, %.thread387 ]
+  %344 = phi i8 [ 0, %.thread388 ], [ 0, %342 ], [ 1, %.thread387 ], [ 1, %CopyMultiInsertInfoSetupBuffer.exit ]
   br i1 %.not360, label %346, label %345
 
 345:                                              ; preds = %343
@@ -995,7 +995,7 @@ CopyMultiInsertInfoNextFreeSlot.exit378:          ; preds = %362, %371
   br label %385
 
 385:                                              ; preds = %376, %380, %355, %356
-  %.2282 = phi ptr [ %.0280, %355 ], [ %361, %356 ], [ %379, %376 ], [ %375, %380 ]
+  %.2282 = phi ptr [ %361, %356 ], [ %.0280, %355 ], [ %379, %376 ], [ %375, %380 ]
   %386 = getelementptr inbounds nuw i8, ptr %303, i64 8
   %387 = load ptr, ptr %386, align 8
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 72
@@ -1134,12 +1134,12 @@ CopyMultiInsertInfoNextFreeSlot.exit378:          ; preds = %362, %371
   br i1 %459, label %.backedge, label %460
 
 .backedge:                                        ; preds = %455, %393, %477, %431, %452, %273, %277, %299
-  %.0296.be = phi i64 [ %.0296, %455 ], [ %.0296, %431 ], [ %.0296, %273 ], [ %.0296, %393 ], [ %300, %299 ], [ %.0296, %277 ], [ %.0296, %452 ], [ %.0296, %477 ]
-  %.0292.be = phi i8 [ %.2294, %455 ], [ %.2294, %431 ], [ %.0292, %273 ], [ 1, %393 ], [ %.0292, %299 ], [ %.0292, %277 ], [ %.2294, %452 ], [ %.2294, %477 ]
-  %.0288.be = phi i8 [ 0, %455 ], [ 0, %431 ], [ %.0288, %273 ], [ %.2290, %393 ], [ %.0288, %299 ], [ %.0288, %277 ], [ 0, %452 ], [ %.2290, %477 ]
-  %.0284.be = phi i8 [ 0, %455 ], [ %.2286, %431 ], [ %.0284, %273 ], [ %.2286, %393 ], [ %.0284, %299 ], [ %.0284, %277 ], [ %.2286, %452 ], [ %.2286, %477 ]
-  %.0273.be = phi ptr [ %.2275, %455 ], [ %.2275, %431 ], [ %.0273, %273 ], [ %.2275, %393 ], [ %.0273, %299 ], [ %.0273, %277 ], [ %.2275, %452 ], [ %.2275, %477 ]
-  %.0272.be = phi ptr [ %.2, %455 ], [ %.2, %431 ], [ %.0272, %273 ], [ %.2, %393 ], [ %.0272, %299 ], [ %.0272, %277 ], [ %.2, %452 ], [ %.2, %477 ]
+  %.0296.be = phi i64 [ %300, %299 ], [ %.0296, %277 ], [ %.0296, %273 ], [ %.0296, %452 ], [ %.0296, %431 ], [ %.0296, %477 ], [ %.0296, %393 ], [ %.0296, %455 ]
+  %.0292.be = phi i8 [ %.0292, %299 ], [ %.0292, %277 ], [ %.0292, %273 ], [ %.2294, %452 ], [ %.2294, %431 ], [ %.2294, %477 ], [ 1, %393 ], [ %.2294, %455 ]
+  %.0288.be = phi i8 [ %.0288, %299 ], [ %.0288, %277 ], [ %.0288, %273 ], [ 0, %452 ], [ 0, %431 ], [ %.2290, %477 ], [ %.2290, %393 ], [ 0, %455 ]
+  %.0284.be = phi i8 [ %.0284, %299 ], [ %.0284, %277 ], [ %.0284, %273 ], [ %.2286, %452 ], [ %.2286, %431 ], [ %.2286, %477 ], [ %.2286, %393 ], [ 0, %455 ]
+  %.0273.be = phi ptr [ %.0273, %299 ], [ %.0273, %277 ], [ %.0273, %273 ], [ %.2275, %452 ], [ %.2275, %431 ], [ %.2275, %477 ], [ %.2275, %393 ], [ %.2275, %455 ]
+  %.0272.be = phi ptr [ %.0272, %299 ], [ %.0272, %277 ], [ %.0272, %273 ], [ %.2, %452 ], [ %.2, %431 ], [ %.2, %477 ], [ %.2, %393 ], [ %.2, %455 ]
   br label %227
 
 460:                                              ; preds = %455

@@ -266,7 +266,7 @@ define dso_local ptr @open_auth_file(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %33
 
 33:                                               ; preds = %28, %30, %11, %12, %27
-  %.0 = phi ptr [ null, %11 ], [ null, %27 ], [ null, %12 ], [ %15, %30 ], [ %15, %28 ]
+  %.0 = phi ptr [ null, %27 ], [ null, %12 ], [ null, %11 ], [ %15, %30 ], [ %15, %28 ]
   ret ptr %.0
 }
 
@@ -517,7 +517,7 @@ pg_isblank.exit46.i:                              ; preds = %.critedge.i119, %.c
   br label %.critedge.i119, !llvm.loop !7
 
 .critedge2.i:                                     ; preds = %79, %pg_isblank.exit46.i, %.critedge.i119, %.preheader.i.preheader
-  %.0133 = phi i1 [ false, %.preheader.i.preheader ], [ false, %pg_isblank.exit46.i ], [ false, %.critedge.i119 ], [ true, %79 ]
+  %.0133 = phi i1 [ false, %.preheader.i.preheader ], [ true, %79 ], [ false, %pg_isblank.exit46.i ], [ false, %.critedge.i119 ]
   %92 = phi ptr [ %scevgep238, %.preheader.i.preheader ], [ %.2130, %.critedge.i119 ], [ %.2130, %pg_isblank.exit46.i ], [ %.2130, %79 ]
   %93 = getelementptr inbounds i8, ptr %92, i64 -1
   %94 = load i32, ptr %26, align 8
@@ -695,7 +695,7 @@ tokenize_expand_file.exit:                        ; preds = %.critedge.i, %149, 
   br i1 %or.cond149, label %64, label %next_field_expand.exit, !llvm.loop !8
 
 next_field_expand.exit:                           ; preds = %.critedge2.i, %163
-  %.1.i = phi ptr [ %.0.i, %.critedge2.i ], [ %.2.i, %163 ]
+  %.1.i = phi ptr [ %.2.i, %163 ], [ %.0.i, %.critedge2.i ]
   %166 = load ptr, ptr %7, align 8
   call void @pfree(ptr noundef %166) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -919,7 +919,7 @@ tokenize_include_file.exit114:                    ; preds = %tokenize_include_fi
   %.not100 = icmp eq ptr %260, null
   br i1 %.not100, label %.thread138, label %list_length.exit.thread
 
-.thread141:                                       ; preds = %206, %239
+.thread141:                                       ; preds = %239, %206
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %list_length.exit.thread
@@ -1904,8 +1904,8 @@ list_head.exit:                                   ; preds = %2, %24
   br label %.critedge
 
 .critedge788:                                     ; preds = %463, %448, %445, %442, %433, %430, %421
-  %.sink = phi i32 [ 5, %445 ], [ 2, %421 ], [ 14, %430 ], [ 6, %448 ], [ 4, %433 ], [ 0, %442 ], [ 13, %463 ]
-  %.not1530 = phi i1 [ true, %445 ], [ true, %421 ], [ false, %430 ], [ true, %448 ], [ true, %433 ], [ true, %442 ], [ true, %463 ]
+  %.sink = phi i32 [ 2, %421 ], [ 14, %430 ], [ 4, %433 ], [ 0, %442 ], [ 5, %445 ], [ 6, %448 ], [ 13, %463 ]
+  %.not1530 = phi i1 [ true, %421 ], [ false, %430 ], [ true, %433 ], [ true, %442 ], [ true, %445 ], [ true, %448 ], [ true, %463 ]
   %488 = getelementptr inbounds nuw i8, ptr %16, i64 328
   store i32 %.sink, ptr %488, align 8
   %489 = load i32, ptr %186, align 8
@@ -3755,7 +3755,7 @@ list_length.exit866:                              ; preds = %list_length.exit864
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph1077, %.lr.ph1082, %.tail741.thread.i, %658, %624, %626, %list_length.exit852, %1199, %.critedge791._crit_edge, %list_length.exit836.thread, %1223, %1221, %list_length.exit858, %.critedge736.i, %.critedge734.i, %.critedge732.i, %.critedge728.i, %1161, %984, %965, %946, %930, %914, %898, %882, %866, %850, %834, %818, %804, %791, %775, %748, %729, %710, %691, %675, %643, %622, %604, %588, %570, %1368, %364, %369, %272, %276, %list_length.exit866, %list_length.exit850, %list_length.exit834, %1258, %1245, %1233, %1220, %1209, %1179, %502, %485, %474, %420, %406, %391, %346, %333, %310, %291, %216, %202, %159, %119, %102, %40
-  %.0 = phi ptr [ null, %40 ], [ null, %216 ], [ null, %291 ], [ null, %310 ], [ null, %420 ], [ null, %485 ], [ %16, %1199 ], [ null, %502 ], [ %16, %1223 ], [ %16, %list_length.exit836.thread ], [ null, %1179 ], [ null, %1209 ], [ null, %1233 ], [ null, %1245 ], [ null, %1258 ], [ null, %102 ], [ null, %119 ], [ null, %364 ], [ null, %list_length.exit866 ], [ null, %list_length.exit850 ], [ null, %list_length.exit834 ], [ null, %1220 ], [ null, %474 ], [ null, %406 ], [ null, %346 ], [ null, %391 ], [ null, %272 ], [ null, %333 ], [ %16, %.critedge791._crit_edge ], [ null, %202 ], [ %16, %1221 ], [ null, %159 ], [ null, %276 ], [ null, %369 ], [ %16, %1368 ], [ null, %570 ], [ null, %588 ], [ null, %604 ], [ null, %622 ], [ null, %.lr.ph1082 ], [ null, %643 ], [ null, %624 ], [ null, %675 ], [ null, %691 ], [ null, %710 ], [ null, %729 ], [ null, %748 ], [ null, %775 ], [ null, %791 ], [ null, %804 ], [ null, %818 ], [ null, %834 ], [ null, %850 ], [ null, %866 ], [ null, %882 ], [ null, %898 ], [ null, %914 ], [ null, %930 ], [ null, %946 ], [ null, %965 ], [ null, %984 ], [ null, %1161 ], [ null, %.critedge728.i ], [ null, %.critedge732.i ], [ null, %.critedge734.i ], [ null, %.critedge736.i ], [ null, %.tail741.thread.i ], [ %16, %list_length.exit852 ], [ %16, %list_length.exit858 ], [ null, %626 ], [ null, %658 ], [ null, %.lr.ph1077 ]
+  %.0 = phi ptr [ null, %40 ], [ null, %216 ], [ null, %291 ], [ null, %310 ], [ null, %420 ], [ null, %485 ], [ null, %502 ], [ null, %1179 ], [ null, %1209 ], [ null, %1233 ], [ null, %1245 ], [ null, %1258 ], [ null, %list_length.exit866 ], [ null, %list_length.exit850 ], [ null, %list_length.exit834 ], [ null, %1220 ], [ null, %474 ], [ null, %406 ], [ null, %346 ], [ null, %391 ], [ null, %333 ], [ null, %202 ], [ null, %159 ], [ null, %119 ], [ null, %102 ], [ null, %276 ], [ null, %272 ], [ null, %369 ], [ null, %364 ], [ %16, %1368 ], [ null, %570 ], [ null, %588 ], [ null, %604 ], [ null, %622 ], [ null, %643 ], [ null, %675 ], [ null, %691 ], [ null, %710 ], [ null, %729 ], [ null, %748 ], [ null, %775 ], [ null, %791 ], [ null, %804 ], [ null, %818 ], [ null, %834 ], [ null, %850 ], [ null, %866 ], [ null, %882 ], [ null, %898 ], [ null, %914 ], [ null, %930 ], [ null, %946 ], [ null, %965 ], [ null, %984 ], [ null, %1161 ], [ null, %.critedge728.i ], [ null, %.critedge732.i ], [ null, %.critedge734.i ], [ null, %.critedge736.i ], [ %16, %list_length.exit858 ], [ %16, %1221 ], [ %16, %1223 ], [ %16, %list_length.exit836.thread ], [ %16, %.critedge791._crit_edge ], [ %16, %1199 ], [ %16, %list_length.exit852 ], [ null, %626 ], [ null, %624 ], [ null, %658 ], [ null, %.tail741.thread.i ], [ null, %.lr.ph1082 ], [ null, %.lr.ph1077 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
@@ -3956,7 +3956,7 @@ define dso_local noundef zeroext i1 @load_hba() local_unnamed_addr #1 {
   br label %46
 
 46:                                               ; preds = %0, %45, %41
-  %.0 = phi i1 [ false, %41 ], [ true, %45 ], [ false, %0 ]
+  %.0 = phi i1 [ true, %45 ], [ false, %41 ], [ false, %0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.0
 }
@@ -4175,7 +4175,7 @@ list_head.exit:                                   ; preds = %2, %9
   br label %122
 
 122:                                              ; preds = %119, %104, %102, %88, %60, %46, %25
-  %.0 = phi ptr [ null, %25 ], [ null, %60 ], [ null, %102 ], [ null, %46 ], [ %., %119 ], [ null, %104 ], [ null, %88 ]
+  %.0 = phi ptr [ null, %25 ], [ null, %60 ], [ null, %102 ], [ null, %88 ], [ null, %46 ], [ null, %104 ], [ %., %119 ]
   ret ptr %.0
 }
 
@@ -4454,7 +4454,7 @@ check_ident_usermap.exit:                         ; preds = %.lr.ph57, %free_aut
   br label %155
 
 155:                                              ; preds = %18, %20, %15, %12, %153
-  %.0 = phi i32 [ %154, %153 ], [ 0, %15 ], [ 0, %12 ], [ -1, %20 ], [ -1, %18 ]
+  %.0 = phi i32 [ %154, %153 ], [ 0, %12 ], [ 0, %15 ], [ -1, %20 ], [ -1, %18 ]
   ret i32 %.0
 }
 
@@ -4547,7 +4547,7 @@ define dso_local noundef zeroext i1 @load_ident() local_unnamed_addr #1 {
   br label %36
 
 36:                                               ; preds = %0, %35, %31
-  %.0 = phi i1 [ false, %31 ], [ true, %35 ], [ false, %0 ]
+  %.0 = phi i1 [ true, %35 ], [ false, %31 ], [ false, %0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.0
 }
@@ -5190,7 +5190,7 @@ define internal void @check_network_callback(ptr noundef %0, ptr noundef %1, ptr
   br label %check_ip.exit
 
 check_ip.exit:                                    ; preds = %31, %29, %22, %20
-  %storemerge.in = phi i8 [ 1, %20 ], [ 0, %22 ], [ 0, %31 ], [ 1, %29 ]
+  %storemerge.in = phi i8 [ 0, %22 ], [ 1, %20 ], [ 0, %31 ], [ 1, %29 ]
   store i8 %storemerge.in, ptr %5, align 8
   br label %32
 

@@ -275,7 +275,7 @@ pkcs7_get_digest_algorithm_set.exit.thread.i:     ; preds = %pkcs7_get_digest_al
   br label %109
 
 109:                                              ; preds = %106, %100, %96, %92, %90, %82, %79, %77
-  %.1.i = phi i32 [ %104, %100 ], [ %78, %77 ], [ %91, %90 ], [ -21632, %82 ], [ -21632, %79 ], [ %spec.select.i, %92 ], [ %98, %96 ], [ %..i, %106 ]
+  %.1.i = phi i32 [ %91, %90 ], [ %78, %77 ], [ -21632, %82 ], [ -21632, %79 ], [ %98, %96 ], [ %104, %100 ], [ %..i, %106 ], [ %spec.select.i, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %pkcs7_get_signed_data.exit
 
@@ -288,7 +288,7 @@ pkcs7_get_signed_data.exit.thread:                ; preds = %pkcs7_get_digest_al
   br label %.thread66
 
 pkcs7_get_signed_data.exit:                       ; preds = %56, %62, %pkcs7_get_digest_algorithm_set.exit.i, %109
-  %.0.i = phi i32 [ %57, %56 ], [ %.0.i.i, %pkcs7_get_digest_algorithm_set.exit.i ], [ %.1.i, %109 ], [ %spec.select.i.i, %62 ]
+  %.0.i = phi i32 [ %57, %56 ], [ %.1.i, %109 ], [ %spec.select.i.i, %62 ], [ %.0.i.i, %pkcs7_get_digest_algorithm_set.exit.i ]
   %.0.i.fr = freeze i32 %.0.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -298,12 +298,12 @@ pkcs7_get_signed_data.exit:                       ; preds = %56, %62, %pkcs7_get
   br i1 %.not58, label %.thread69, label %110
 
 110:                                              ; preds = %pkcs7_get_signed_data.exit, %29, %43, %21
-  %.0 = phi i32 [ %45, %43 ], [ %22, %21 ], [ %.0.i.fr, %pkcs7_get_signed_data.exit ], [ %30, %29 ]
+  %.0 = phi i32 [ %22, %21 ], [ %45, %43 ], [ %30, %29 ], [ %.0.i.fr, %pkcs7_get_signed_data.exit ]
   %111 = icmp slt i32 %.0, 0
   br i1 %111, label %.thread66, label %.thread69
 
-.thread66:                                        ; preds = %pkcs7_get_signed_data.exit.thread, %38, %39, %40, %41, %13, %42, %23, %46, %37, %110
-  %.068 = phi i32 [ %.0, %110 ], [ %.0.i.ph, %pkcs7_get_signed_data.exit.thread ], [ -21376, %38 ], [ -21376, %39 ], [ -21376, %40 ], [ -21376, %41 ], [ -22400, %13 ], [ -22272, %42 ], [ -21350, %23 ], [ -22272, %46 ], [ -21376, %37 ]
+.thread66:                                        ; preds = %pkcs7_get_signed_data.exit.thread, %23, %46, %37, %38, %39, %40, %41, %13, %42, %110
+  %.068 = phi i32 [ %.0, %110 ], [ %.0.i.ph, %pkcs7_get_signed_data.exit.thread ], [ -21350, %23 ], [ -22272, %46 ], [ -21376, %37 ], [ -21376, %38 ], [ -21376, %39 ], [ -21376, %40 ], [ -21376, %41 ], [ -22400, %13 ], [ -22272, %42 ]
   call void @mbedtls_pkcs7_free(ptr noundef nonnull %0)
   br label %.thread69
 
@@ -515,12 +515,12 @@ define internal fastcc i32 @mbedtls_pkcs7_data_or_hash_verify(ptr noundef %0, pt
   br i1 %.not46, label %.sink.split, label %39, !llvm.loop !51
 
 .sink.split:                                      ; preds = %49, %39, %34, %31
-  %.032.ph = phi i32 [ -22528, %34 ], [ -22528, %31 ], [ %47, %39 ], [ %47, %49 ]
+  %.032.ph = phi i32 [ -22528, %31 ], [ -22528, %34 ], [ %47, %39 ], [ %47, %49 ]
   call void @free(ptr noundef %28) #10
   br label %52
 
 52:                                               ; preds = %.sink.split, %25, %21, %18, %12, %15, %5
-  %.032 = phi i32 [ -22656, %15 ], [ -21888, %5 ], [ -22656, %12 ], [ %20, %18 ], [ -22528, %21 ], [ -22400, %25 ], [ %.032.ph, %.sink.split ]
+  %.032 = phi i32 [ -21888, %5 ], [ -22656, %15 ], [ -22656, %12 ], [ %20, %18 ], [ -22528, %21 ], [ -22400, %25 ], [ %.032.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.032
@@ -646,7 +646,7 @@ define internal fastcc range(i32 -2147483648, 2147462400) i32 @pkcs7_get_certifi
   br label %25
 
 25:                                               ; preds = %20, %16, %3, %24, %14, %7
-  %.0 = phi i32 [ 1, %24 ], [ %8, %7 ], [ %15, %14 ], [ 0, %3 ], [ -21376, %16 ], [ -21888, %20 ]
+  %.0 = phi i32 [ %8, %7 ], [ %15, %14 ], [ 1, %24 ], [ 0, %3 ], [ -21376, %16 ], [ -21888, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -755,7 +755,7 @@ pkcs7_free_signer_info.exit61:                    ; preds = %.lr.ph.i58, %.lr.ph
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %.preheader, %._crit_edge, %12, %9, %7
-  %.037 = phi i32 [ %8, %7 ], [ %15, %12 ], [ 0, %9 ], [ %.043.ph, %._crit_edge ], [ 1, %.preheader ], [ %23, %21 ]
+  %.037 = phi i32 [ %8, %7 ], [ 0, %9 ], [ %15, %12 ], [ %.043.ph, %._crit_edge ], [ 1, %.preheader ], [ %23, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.037
 }
@@ -880,8 +880,8 @@ define internal fastcc range(i32 -2147483648, 2147461504) i32 @pkcs7_get_signer_
   %.not83.not = icmp eq ptr %61, %10
   br i1 %.not83.not, label %67, label %.thread
 
-.thread:                                          ; preds = %54, %38, %44, %49, %41, %57, %36, %27, %21, %7, %15, %13, %4, %60
-  %.05693 = phi i32 [ 0, %60 ], [ 0, %44 ], [ 0, %49 ], [ 0, %41 ], [ 0, %57 ], [ 0, %54 ], [ 0, %36 ], [ 0, %38 ], [ 0, %27 ], [ 0, %21 ], [ %20, %15 ], [ %14, %13 ], [ 0, %7 ], [ %6, %4 ]
+.thread:                                          ; preds = %54, %38, %41, %44, %49, %36, %57, %27, %21, %7, %15, %13, %4, %60
+  %.05693 = phi i32 [ 0, %60 ], [ 0, %41 ], [ 0, %44 ], [ 0, %49 ], [ 0, %36 ], [ 0, %57 ], [ 0, %54 ], [ 0, %38 ], [ 0, %27 ], [ 0, %21 ], [ %20, %15 ], [ %14, %13 ], [ 0, %7 ], [ %6, %4 ]
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %63 = load ptr, ptr %62, align 8, !tbaa !39
   %.not8.i88 = icmp eq ptr %63, null

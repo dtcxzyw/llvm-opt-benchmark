@@ -1025,7 +1025,7 @@ begin_replication_step.exit.i:                    ; preds = %81, %79
   br label %170
 
 170:                                              ; preds = %163, %158, %152, %149, %139
-  %.1.i.i = phi i32 [ %.04147.i.i, %152 ], [ %.04147.i.i, %139 ], [ %.04147.i.i, %149 ], [ %169, %163 ], [ %.04147.i.i, %158 ]
+  %.1.i.i = phi i32 [ %.04147.i.i, %149 ], [ %.04147.i.i, %139 ], [ %.04147.i.i, %152 ], [ %169, %163 ], [ %.04147.i.i, %158 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.preheader.i.i, label %139, !llvm.loop !7
@@ -3688,8 +3688,8 @@ define dso_local void @set_stream_options(ptr noundef writeonly captures(none) i
   br label %33
 
 33:                                               ; preds = %.thread, %26, %32
-  %.str.17.sink = phi ptr [ @.str.16, %26 ], [ null, %32 ], [ @.str.17, %.thread ]
-  %.sink = phi i8 [ 1, %26 ], [ 0, %32 ], [ 0, %.thread ]
+  %.str.17.sink = phi ptr [ null, %32 ], [ @.str.16, %26 ], [ @.str.17, %.thread ]
+  %.sink = phi i8 [ 0, %32 ], [ 1, %26 ], [ 0, %.thread ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.str.17.sink, ptr %34, align 8
   %35 = load ptr, ptr @MyLogicalRepWorker, align 8
@@ -3881,10 +3881,10 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br label %.preheader.i
 
 .loopexit.i:                                      ; preds = %35, %41, %39, %26
-  %.053.i = phi i1 [ true, %39 ], [ false, %26 ], [ true, %41 ], [ false, %35 ]
-  %.146.i = phi i1 [ %.247.i, %39 ], [ %.045.i, %26 ], [ %.247.i, %41 ], [ %.247.i, %35 ]
-  %.143.i = phi i64 [ %.244.i, %39 ], [ %.042.i, %26 ], [ %.244.i, %41 ], [ %.244.i, %35 ]
-  %.1.i = phi i64 [ %.2.i, %39 ], [ %.0.i, %26 ], [ %.2.i, %41 ], [ %.2.i, %35 ]
+  %.053.i = phi i1 [ false, %26 ], [ true, %41 ], [ true, %39 ], [ false, %35 ]
+  %.146.i = phi i1 [ %.045.i, %26 ], [ %.247.i, %41 ], [ %.247.i, %39 ], [ %.247.i, %35 ]
+  %.143.i = phi i64 [ %.042.i, %26 ], [ %.244.i, %41 ], [ %.244.i, %39 ], [ %.244.i, %35 ]
+  %.1.i = phi i64 [ %.0.i, %26 ], [ %.2.i, %41 ], [ %.2.i, %39 ], [ %.2.i, %35 ]
   call fastcc void @send_feedback(i64 noundef %.1.i, i1 noundef zeroext false, i1 noundef zeroext false)
   %81 = load i8, ptr @in_remote_transaction, align 1, !range !4, !noundef !5
   %82 = trunc nuw i8 %81 to i1
@@ -3990,7 +3990,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br label %129
 
 129:                                              ; preds = %127, %125, %104
-  %.348.i = phi i1 [ %.550.i, %125 ], [ %.146.i, %104 ], [ %.550.i, %127 ]
+  %.348.i = phi i1 [ %.146.i, %104 ], [ %.550.i, %127 ], [ %.550.i, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %23
@@ -5120,7 +5120,7 @@ default.unreachable33:                            ; preds = %24
   unreachable
 
 106:                                              ; preds = %get_transaction_apply_action.exit, %102, %88, %83, %subxact_info_add.exit
-  %.0 = phi i1 [ false, %102 ], [ true, %subxact_info_add.exit ], [ %86, %83 ], [ %101, %88 ], [ false, %get_transaction_apply_action.exit ]
+  %.0 = phi i1 [ true, %subxact_info_add.exit ], [ %86, %83 ], [ %101, %88 ], [ false, %102 ], [ false, %get_transaction_apply_action.exit ]
   ret i1 %.0
 }
 
@@ -5195,7 +5195,7 @@ define internal fastcc zeroext i1 @should_apply_changes_for_rel(ptr noundef read
   unreachable
 
 34:                                               ; preds = %1, %26, %.fold.split, %23, %21, %4
-  %.0 = phi i1 [ false, %.fold.split ], [ %9, %4 ], [ %22, %21 ], [ true, %23 ], [ %30, %26 ], [ false, %1 ]
+  %.0 = phi i1 [ %9, %4 ], [ %22, %21 ], [ true, %23 ], [ %30, %26 ], [ false, %.fold.split ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -6450,8 +6450,8 @@ get_flush_position.exit:                          ; preds = %7, %select.unfold._
   br label %25
 
 25:                                               ; preds = %get_flush_position.exit, %get_flush_position.exit.thread
-  %.033 = phi i64 [ %spec.select40, %get_flush_position.exit ], [ %.235.lcssa, %get_flush_position.exit.thread ]
-  %.0 = phi i64 [ %spec.select40, %get_flush_position.exit ], [ %17, %get_flush_position.exit.thread ]
+  %.033 = phi i64 [ %.235.lcssa, %get_flush_position.exit.thread ], [ %spec.select40, %get_flush_position.exit ]
+  %.0 = phi i64 [ %17, %get_flush_position.exit.thread ], [ %spec.select40, %get_flush_position.exit ]
   %26 = load i64, ptr @send_feedback.last_writepos, align 8
   %spec.select42 = tail call i64 @llvm.umax.i64(i64 %.0, i64 %26)
   %27 = load i64, ptr @send_feedback.last_flushpos, align 8
@@ -6777,8 +6777,8 @@ define internal fastcc void @run_apply_worker() unnamed_addr #0 {
   br label %set_stream_options.exit
 
 set_stream_options.exit:                          ; preds = %75, %.thread.i, %81
-  %.str.17.sink.i = phi ptr [ @.str.16, %75 ], [ null, %81 ], [ @.str.17, %.thread.i ]
-  %.sink.i = phi i8 [ 1, %75 ], [ 0, %81 ], [ 0, %.thread.i ]
+  %.str.17.sink.i = phi ptr [ null, %81 ], [ @.str.16, %75 ], [ @.str.17, %.thread.i ]
+  %.sink.i = phi i8 [ 0, %81 ], [ 1, %75 ], [ 0, %.thread.i ]
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %.str.17.sink.i, ptr %82, align 8
   %83 = load ptr, ptr @MyLogicalRepWorker, align 8

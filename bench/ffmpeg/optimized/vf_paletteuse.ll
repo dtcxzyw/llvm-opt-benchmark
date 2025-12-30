@@ -197,7 +197,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr readnone captur
   br label %18
 
 18:                                               ; preds = %14, %3, %8
-  %.04 = phi i32 [ %spec.select, %14 ], [ %6, %3 ], [ %12, %8 ]
+  %.04 = phi i32 [ %6, %3 ], [ %12, %8 ], [ %spec.select, %14 ]
   ret i32 %.04
 }
 
@@ -735,7 +735,7 @@ load_palette.exit:                                ; preds = %125, %load_colormap
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.thread.loopexit207.i.i, %.critedge3.i.i
-  %.1173.i.i = phi i32 [ %229, %.thread.loopexit207.i.i ], [ 0, %.critedge3.i.i ]
+  %.1173.i.i = phi i32 [ 0, %.critedge3.i.i ], [ %229, %.thread.loopexit207.i.i ]
   %230 = icmp sgt i32 %155, %.1173.i.i
   br i1 %230, label %.preheader166.lr.ph.i.i, label %.thread162.i.i
 
@@ -785,8 +785,8 @@ load_palette.exit:                                ; preds = %125, %load_colormap
   br label %.thread162.i.i
 
 .thread162.i.i:                                   ; preds = %._crit_edge.i.i, %._crit_edge190.i.i, %.thread162.loopexit205.i.i, %.preheader166.lr.ph.i.i, %.thread.i.i, %.preheader168.lr.ph.i.i
-  %.1173254.i.i = phi i32 [ %.1173.i.i, %.preheader166.lr.ph.i.i ], [ %.1173.i.i, %.thread.i.i ], [ %.1173.i.i, %.thread162.loopexit205.i.i ], [ %.1173.i.i, %._crit_edge190.i.i ], [ %155, %.preheader168.lr.ph.i.i ], [ %155, %._crit_edge.i.i ]
-  %.0137171.i.i = phi i32 [ %.1173.i.i, %.preheader166.lr.ph.i.i ], [ %155, %.thread.i.i ], [ %244, %.thread162.loopexit205.i.i ], [ %.1173.i.i, %._crit_edge190.i.i ], [ %155, %.preheader168.lr.ph.i.i ], [ %155, %._crit_edge.i.i ]
+  %.1173254.i.i = phi i32 [ %.1173.i.i, %.thread.i.i ], [ %.1173.i.i, %.thread162.loopexit205.i.i ], [ %.1173.i.i, %.preheader166.lr.ph.i.i ], [ %155, %.preheader168.lr.ph.i.i ], [ %.1173.i.i, %._crit_edge190.i.i ], [ %155, %._crit_edge.i.i ]
+  %.0137171.i.i = phi i32 [ %155, %.thread.i.i ], [ %244, %.thread162.loopexit205.i.i ], [ %.1173.i.i, %.preheader166.lr.ph.i.i ], [ %155, %.preheader168.lr.ph.i.i ], [ %.1173.i.i, %._crit_edge190.i.i ], [ %155, %._crit_edge.i.i ]
   %reass.sub204.i.i = sub i32 %.0137171.i.i, %.1173254.i.i
   %245 = add i32 %reass.sub204.i.i, 1
   %.not151.i.i = icmp eq i32 %.1173254.i.i, 0
@@ -880,7 +880,7 @@ set_processing_window.exit.i:                     ; preds = %266, %258, %.loopex
   br i1 %286, label %apply_palette.exit.thread.sink.split, label %287
 
 apply_palette.exit.thread.sink.split:             ; preds = %282, %set_processing_window.exit.i, %275, %279
-  %.0.i.ph.ph = phi i32 [ %280, %279 ], [ %273, %set_processing_window.exit.i ], [ %277, %275 ], [ %285, %282 ]
+  %.0.i.ph.ph = phi i32 [ %273, %set_processing_window.exit.i ], [ %277, %275 ], [ %280, %279 ], [ %285, %282 ]
   call void @av_frame_free(ptr noundef nonnull %2) #13
   br label %apply_palette.exit.thread
 
@@ -904,7 +904,7 @@ apply_palette.exit.thread:                        ; preds = %apply_palette.exit.
   br label %295
 
 295:                                              ; preds = %apply_palette.exit.thread, %1, %287, %24
-  %.0 = phi i32 [ -558323010, %24 ], [ %17, %1 ], [ %294, %287 ], [ %.0.i.ph, %apply_palette.exit.thread ]
+  %.0 = phi i32 [ %294, %287 ], [ -558323010, %24 ], [ %17, %1 ], [ %.0.i.ph, %apply_palette.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -1385,7 +1385,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_next_color(ptr noundef nonnul
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %65, %139, %143
-  %.1192233 = phi i32 [ %140, %143 ], [ %140, %139 ], [ %66, %65 ], [ %.1192233.ph, %.thread.loopexit ]
+  %.1192233 = phi i32 [ %140, %139 ], [ %140, %143 ], [ %66, %65 ], [ %.1192233.ph, %.thread.loopexit ]
   %.not214 = icmp eq i32 %.1192233, 0
   br i1 %.not214, label %144, label %65, !llvm.loop !105
 
@@ -1666,7 +1666,7 @@ define internal range(i32 -12, 1) i32 @set_frame_none(ptr noundef %0, ptr nounde
   br label %69
 
 69:                                               ; preds = %.thread.us, %51, %43
-  %.0.i8.ph.us = phi i32 [ %44, %43 ], [ %60, %51 ], [ %68, %.thread.us ]
+  %.0.i8.ph.us = phi i32 [ %68, %.thread.us ], [ %44, %43 ], [ %60, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %70 = trunc i32 %.0.i8.ph.us to i8
   %71 = getelementptr inbounds i8, ptr %.0475.i33.us, i64 %indvars.iv38
@@ -1855,7 +1855,7 @@ define internal range(i32 -12, 1) i32 @set_frame_bayer(ptr noundef %0, ptr nound
   br label %98
 
 98:                                               ; preds = %.thread.us, %80, %72
-  %.0.i16.ph.us = phi i32 [ %73, %72 ], [ %89, %80 ], [ %97, %.thread.us ]
+  %.0.i16.ph.us = phi i32 [ %97, %.thread.us ], [ %73, %72 ], [ %89, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %99 = trunc i32 %.0.i16.ph.us to i8
   %100 = getelementptr inbounds i8, ptr %.0475.i41.us, i64 %indvars.iv46
@@ -2013,7 +2013,7 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   br label %75
 
 75:                                               ; preds = %.thread.us, %57, %49
-  %.0.i.i.ph.us = phi i32 [ %50, %49 ], [ %66, %57 ], [ %74, %.thread.us ]
+  %.0.i.i.ph.us = phi i32 [ %74, %.thread.us ], [ %50, %49 ], [ %66, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %76 = load i32, ptr %20, align 8, !tbaa !62
   %77 = icmp eq i32 %.0.i.i.ph.us, %76
@@ -2338,7 +2338,7 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   br label %76
 
 76:                                               ; preds = %.thread.us, %58, %50
-  %.0.i.i.ph.us = phi i32 [ %51, %50 ], [ %67, %58 ], [ %75, %.thread.us ]
+  %.0.i.i.ph.us = phi i32 [ %75, %.thread.us ], [ %51, %50 ], [ %67, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %77 = load i32, ptr %20, align 8, !tbaa !62
   %78 = icmp eq i32 %.0.i.i.ph.us, %77
@@ -2717,7 +2717,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   br label %82
 
 82:                                               ; preds = %.thread.us, %64, %56
-  %.0.i.i.ph.us = phi i32 [ %57, %56 ], [ %73, %64 ], [ %81, %.thread.us ]
+  %.0.i.i.ph.us = phi i32 [ %81, %.thread.us ], [ %57, %56 ], [ %73, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %83 = load i32, ptr %20, align 8, !tbaa !62
   %84 = icmp eq i32 %.0.i.i.ph.us, %83
@@ -3220,7 +3220,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   br label %75
 
 75:                                               ; preds = %.thread.us, %57, %49
-  %.0.i.i.ph.us = phi i32 [ %50, %49 ], [ %66, %57 ], [ %74, %.thread.us ]
+  %.0.i.i.ph.us = phi i32 [ %74, %.thread.us ], [ %50, %49 ], [ %66, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %76 = load i32, ptr %20, align 8, !tbaa !62
   %77 = icmp eq i32 %.0.i.i.ph.us, %76
@@ -3554,7 +3554,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   br label %86
 
 86:                                               ; preds = %.thread.us, %68, %60
-  %.0.i.i.ph.us = phi i32 [ %61, %60 ], [ %77, %68 ], [ %85, %.thread.us ]
+  %.0.i.i.ph.us = phi i32 [ %85, %.thread.us ], [ %61, %60 ], [ %77, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %87 = load i32, ptr %21, align 8, !tbaa !62
   %88 = icmp eq i32 %.0.i.i.ph.us, %87
@@ -4200,7 +4200,7 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   br label %82
 
 82:                                               ; preds = %.thread.us, %64, %56
-  %.0.i.i.ph.us = phi i32 [ %57, %56 ], [ %73, %64 ], [ %81, %.thread.us ]
+  %.0.i.i.ph.us = phi i32 [ %81, %.thread.us ], [ %57, %56 ], [ %73, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %83 = load i32, ptr %20, align 8, !tbaa !62
   %84 = icmp eq i32 %.0.i.i.ph.us, %83
@@ -4704,7 +4704,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   br label %83
 
 83:                                               ; preds = %.thread.us, %65, %57
-  %.0.i.i.ph.us = phi i32 [ %58, %57 ], [ %74, %65 ], [ %82, %.thread.us ]
+  %.0.i.i.ph.us = phi i32 [ %82, %.thread.us ], [ %58, %57 ], [ %74, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %84 = load i32, ptr %21, align 8, !tbaa !62
   %85 = icmp eq i32 %.0.i.i.ph.us, %84
@@ -5052,7 +5052,7 @@ tailrecurse:                                      ; preds = %66, %5
   br label %diff.exit
 
 diff.exit:                                        ; preds = %tailrecurse, %18, %19
-  %.0.i = phi i64 [ 0, %tailrecurse ], [ %40, %19 ], [ 2147483646, %18 ]
+  %.0.i = phi i64 [ %40, %19 ], [ 0, %tailrecurse ], [ 2147483646, %18 ]
   %41 = load i64, ptr %6, align 8, !tbaa !123
   %42 = icmp sgt i64 %41, %.0.i
   br i1 %42, label %43, label %44

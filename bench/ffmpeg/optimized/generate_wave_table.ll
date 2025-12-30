@@ -117,7 +117,7 @@ define void @ff_generate_wave_table(i32 noundef %0, i32 noundef %1, ptr noundef 
   unreachable
 
 55:                                               ; preds = %.lr.ph.split.split, %48, %50, %52
-  %.042 = phi nsz double [ %53, %52 ], [ %45, %.lr.ph.split.split ], [ %49, %48 ], [ %51, %50 ]
+  %.042 = phi nsz double [ %45, %.lr.ph.split.split ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ]
   %56 = tail call nsz double @llvm.fmuladd.f64(double %.042, double %13, double %4)
   switch i32 %1, label %62 [
     i32 3, label %57

@@ -1573,7 +1573,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %.not.i.i50, label %.lr.ph.i.i47, label %.thread.i.i41, !llvm.loop !109
 
 _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImN9grpc_core19Chttp2PingCallbacks12InflightPingEEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmS6_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeImS6_EEE_clESN_.exit51: ; preds = %51, %.thread.i.i41
-  %.sroa.011.0.i.i45 = phi i64 [ %76, %.thread.i.i41 ], [ %66, %51 ]
+  %.sroa.011.0.i.i45 = phi i64 [ %66, %51 ], [ %76, %.thread.i.i41 ]
   %84 = trunc i128 %58 to i8
   %85 = and i8 %84, 127
   %86 = getelementptr inbounds nuw i8, ptr %60, i64 %.sroa.011.0.i.i45

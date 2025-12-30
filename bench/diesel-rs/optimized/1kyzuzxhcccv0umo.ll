@@ -325,7 +325,7 @@ _ZN5quote9to_tokens8ToTokens17into_token_stream17h729327d87b957d01E.exit: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-26:                                               ; preds = %15, %14
+26:                                               ; preds = %14, %15
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$proc_macro2..imp..TokenStream$GT$17h6f75cf75d6fe1f04E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
@@ -1611,7 +1611,7 @@ define hidden void @"_ZN13dsl_auto_type9auto_type25expression_type_inference12Ty
   unreachable
 
 common.resume:                                    ; preds = %.body.thread, %31, %47
-  %common.resume.op = phi { ptr, i32 } [ %43, %47 ], [ %32, %31 ], [ %eh.lpad-body6, %.body.thread ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %43, %47 ], [ %eh.lpad-body6, %.body.thread ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5quote9to_tokens8ToTokens17into_token_stream17hedcf30861685e5f1E.exit.i: ; preds = %29

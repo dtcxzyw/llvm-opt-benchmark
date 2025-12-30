@@ -316,7 +316,7 @@ select.unfold.i.i.i.i:                            ; preds = %.noexc, %44
   br i1 %81, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !28
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %78, %76, %72, %68, %62
-  %.0.i.i = phi i32 [ %77, %76 ], [ %69, %68 ], [ %73, %72 ], [ 1, %62 ], [ %80, %78 ]
+  %.0.i.i = phi i32 [ %69, %68 ], [ %73, %72 ], [ %77, %76 ], [ 1, %62 ], [ %80, %78 ]
   %.lobit.i = lshr i32 %64, 31
   %82 = add i32 %.0.i.i, %.lobit.i
   %83 = zext i32 %82 to i64
@@ -1123,12 +1123,12 @@ _ZNKSt14default_deleteIN5faiss11IndexHNSWPQEEclEPS1_.exit.i134: ; preds = %393, 
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit137
 
 _ZNSt6vectorIfSaIfEED2Ev.exit137:                 ; preds = %249, %_ZNSt10unique_ptrIN5faiss11IndexHNSWPQESt14default_deleteIS1_EED2Ev.exit132, %_ZNKSt14default_deleteIN5faiss11IndexHNSWPQEEclEPS1_.exit.i134, %243, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit90
-  %.pn56 = phi { ptr, i32 } [ %.pn49.pn.pn.pn.pn171, %_ZNKSt14default_deleteIN5faiss11IndexHNSWPQEEclEPS1_.exit.i134 ], [ %244, %243 ], [ %245, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit90 ], [ %250, %249 ], [ %397, %_ZNSt10unique_ptrIN5faiss11IndexHNSWPQESt14default_deleteIS1_EED2Ev.exit132 ]
+  %.pn56 = phi { ptr, i32 } [ %245, %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit90 ], [ %244, %243 ], [ %250, %249 ], [ %397, %_ZNSt10unique_ptrIN5faiss11IndexHNSWPQESt14default_deleteIS1_EED2Ev.exit132 ], [ %.pn49.pn.pn.pn.pn171, %_ZNKSt14default_deleteIN5faiss11IndexHNSWPQEEclEPS1_.exit.i134 ]
   call void @_ZdlPvm(ptr noundef nonnull %177, i64 noundef 32768) #25
   br label %401
 
 401:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit137, %202
-  %.pn56.pn.pn.pn = phi { ptr, i32 } [ %203, %202 ], [ %.pn56, %_ZNSt6vectorIfSaIfEED2Ev.exit137 ]
+  %.pn56.pn.pn.pn = phi { ptr, i32 } [ %.pn56, %_ZNSt6vectorIfSaIfEED2Ev.exit137 ], [ %203, %202 ]
   call void @_ZN12TempfilenameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80
 

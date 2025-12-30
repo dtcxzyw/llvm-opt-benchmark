@@ -393,7 +393,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_fini() local_unnamed_a
   br label %57
 
 57:                                               ; preds = %47, %50, %45, %.lr.ph
-  %.1 = phi i32 [ %.02855, %.lr.ph ], [ %.02855, %45 ], [ -1, %50 ], [ -1, %47 ]
+  %.1 = phi i32 [ %.02855, %45 ], [ %.02855, %.lr.ph ], [ -1, %50 ], [ -1, %47 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr @g_context_num, align 4
   %59 = sext i32 %58 to i64
@@ -638,7 +638,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_unpack(ptr noundef cap
   br label %54
 
 54:                                               ; preds = %52, %53, %29, %48, %32
-  %.036 = phi i32 [ 0, %29 ], [ 0, %32 ], [ 0, %48 ], [ -1, %53 ], [ -1, %52 ]
+  %.036 = phi i32 [ 0, %32 ], [ 0, %48 ], [ 0, %29 ], [ -1, %53 ], [ -1, %52 ]
   ret i32 %.036
 }
 
@@ -848,7 +848,7 @@ define dso_local i32 @acct_gather_energy_g_get_sum(i32 noundef %0, ptr noundef %
   br label %70
 
 70:                                               ; preds = %49, %._crit_edge43, %36, %44, %32
-  %.1 = phi i32 [ %43, %36 ], [ 0, %44 ], [ 0, %._crit_edge43 ], [ 0, %49 ], [ %.02640, %32 ]
+  %.1 = phi i32 [ %43, %36 ], [ 0, %44 ], [ 0, %._crit_edge43 ], [ %.02640, %32 ], [ 0, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %71 = load i32, ptr @g_context_num, align 4
   %72 = sext i32 %71 to i64
@@ -870,7 +870,7 @@ define dso_local i32 @acct_gather_energy_g_get_sum(i32 noundef %0, ptr noundef %
   br label %78
 
 78:                                               ; preds = %12, %2, %76
-  %.0 = phi i32 [ 0, %2 ], [ %.026.lcssa, %76 ], [ %16, %12 ]
+  %.0 = phi i32 [ %.026.lcssa, %76 ], [ 0, %2 ], [ %16, %12 ]
   ret i32 %.0
 }
 

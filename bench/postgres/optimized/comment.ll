@@ -128,9 +128,9 @@ define dso_local { i64, i32 } @CommentObject(ptr noundef readonly captures(none)
   br label %54
 
 54:                                               ; preds = %14, %12, %51, %53
-  %.sroa.8.0 = phi i32 [ %.fca.1.extract, %51 ], [ %.fca.1.extract, %53 ], [ %.sroa.8.0.copyload, %12 ], [ %.sroa.8.0.copyload, %14 ]
-  %.sroa.020.sroa.0.0 = phi i64 [ %.fca.0.extract, %51 ], [ %.fca.0.extract, %53 ], [ %.sroa.020.0.copyload, %12 ], [ %.sroa.020.0.copyload, %14 ]
-  %.sroa.020.sroa.6.0 = phi i64 [ %.sroa.020.sroa.6.0.extract.shift, %51 ], [ %.sroa.020.sroa.6.0.extract.shift, %53 ], [ %.sroa.020.sroa.6.0.extract.shift34, %12 ], [ %.sroa.020.sroa.6.0.extract.shift34, %14 ]
+  %.sroa.8.0 = phi i32 [ %.fca.1.extract, %53 ], [ %.fca.1.extract, %51 ], [ %.sroa.8.0.copyload, %12 ], [ %.sroa.8.0.copyload, %14 ]
+  %.sroa.020.sroa.0.0 = phi i64 [ %.fca.0.extract, %53 ], [ %.fca.0.extract, %51 ], [ %.sroa.020.0.copyload, %12 ], [ %.sroa.020.0.copyload, %14 ]
+  %.sroa.020.sroa.6.0 = phi i64 [ %.sroa.020.sroa.6.0.extract.shift, %53 ], [ %.sroa.020.sroa.6.0.extract.shift, %51 ], [ %.sroa.020.sroa.6.0.extract.shift34, %12 ], [ %.sroa.020.sroa.6.0.extract.shift34, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.sroa.020.sroa.6.0.insert.shift = shl nuw i64 %.sroa.020.sroa.6.0, 32
   %.sroa.020.sroa.0.0.insert.ext = and i64 %.sroa.020.sroa.0.0, 4294967295

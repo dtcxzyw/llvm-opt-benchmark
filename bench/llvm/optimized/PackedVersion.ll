@@ -119,7 +119,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm5MachO13PackedVersion7parse32ENS_9S
   br i1 %.not.not, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %26, %.lr.ph, %29, %19, %16, %13
-  %.2 = phi i1 [ false, %16 ], [ false, %13 ], [ true, %19 ], [ false, %.lr.ph ], [ false, %26 ], [ true, %29 ]
+  %.2 = phi i1 [ false, %13 ], [ false, %16 ], [ true, %19 ], [ false, %26 ], [ false, %.lr.ph ], [ true, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
@@ -271,7 +271,7 @@ define dso_local range(i16 0, 258) i16 @_ZN4llvm5MachO13PackedVersion7parse64ENS
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %._crit_edge.thread, %33, %37, %16, %13
-  %.sroa.011.2 = phi i16 [ 0, %16 ], [ 0, %13 ], [ %.sroa.2.0.insert.shift.i32, %33 ], [ %.sroa.2.0.insert.shift.i36, %37 ], [ %29, %._crit_edge.thread ], [ %spec.select, %._crit_edge ]
+  %.sroa.011.2 = phi i16 [ 0, %13 ], [ 0, %16 ], [ %.sroa.2.0.insert.shift.i36, %37 ], [ %.sroa.2.0.insert.shift.i32, %33 ], [ %29, %._crit_edge.thread ], [ %spec.select, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %55
 

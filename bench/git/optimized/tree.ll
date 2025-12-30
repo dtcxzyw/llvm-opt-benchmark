@@ -73,7 +73,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %14
   br label %17
 
 17:                                               ; preds = %6, %tailrecurse._crit_edge, %15
-  %.1 = phi ptr [ null, %tailrecurse._crit_edge ], [ %5, %6 ], [ %16, %15 ]
+  %.1 = phi ptr [ %16, %15 ], [ %5, %6 ], [ null, %tailrecurse._crit_edge ]
   ret ptr %.1
 }
 

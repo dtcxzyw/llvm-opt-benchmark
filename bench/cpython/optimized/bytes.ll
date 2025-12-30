@@ -202,7 +202,7 @@ define internal ptr @bytes_asstring(ptr readnone captures(none) %0, ptr noundef 
   br label %17
 
 17:                                               ; preds = %10, %2, %14
-  %.0 = phi ptr [ null, %2 ], [ %16, %14 ], [ null, %10 ]
+  %.0 = phi ptr [ %16, %14 ], [ null, %2 ], [ null, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
@@ -256,7 +256,7 @@ define internal ptr @bytes_asstringandsize(ptr readnone captures(none) %0, ptr n
   br label %26
 
 26:                                               ; preds = %12, %2, %22, %19
-  %.0 = phi ptr [ null, %2 ], [ %21, %19 ], [ %25, %22 ], [ null, %12 ]
+  %.0 = phi ptr [ %21, %19 ], [ %25, %22 ], [ null, %2 ], [ null, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -303,7 +303,7 @@ define internal ptr @bytes_asstringandsize_null(ptr readnone captures(none) %0, 
   br label %21
 
 21:                                               ; preds = %15, %11, %2, %18
-  %.0 = phi ptr [ null, %2 ], [ null, %11 ], [ %20, %18 ], [ @_Py_NoneStruct, %15 ]
+  %.0 = phi ptr [ %20, %18 ], [ null, %2 ], [ null, %11 ], [ @_Py_NoneStruct, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -434,7 +434,7 @@ Py_XINCREF.exit:                                  ; preds = %33, %30, %29, %23
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %38, %Py_XINCREF.exit, %23, %2
-  %.0 = phi ptr [ null, %2 ], [ %spec.select, %38 ], [ null, %23 ], [ %36, %Py_XINCREF.exit ]
+  %.0 = phi ptr [ null, %2 ], [ null, %23 ], [ %36, %Py_XINCREF.exit ], [ %spec.select, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -549,7 +549,7 @@ Py_XINCREF.exit8:                                 ; preds = %Py_XINCREF.exit, %3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %44, %Py_XINCREF.exit8, %23, %2
-  %.0 = phi ptr [ null, %2 ], [ %spec.select, %44 ], [ null, %23 ], [ %42, %Py_XINCREF.exit8 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %23 ], [ %42, %Py_XINCREF.exit8 ], [ %spec.select, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

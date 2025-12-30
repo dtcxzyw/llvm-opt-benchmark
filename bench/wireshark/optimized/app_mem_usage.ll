@@ -182,7 +182,7 @@ define internal fastcc noundef zeroext i1 @linux_get_memory(ptr noundef writeonl
   br label %37
 
 37:                                               ; preds = %32, %33, %24, %.thread, %16, %10
-  %.0 = phi i1 [ false, %24 ], [ false, %10 ], [ false, %16 ], [ false, %.thread ], [ true, %33 ], [ true, %32 ]
+  %.0 = phi i1 [ false, %10 ], [ false, %16 ], [ false, %.thread ], [ false, %24 ], [ true, %33 ], [ true, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

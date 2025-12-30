@@ -147,8 +147,8 @@ Vec_IntAlloc.exit:                                ; preds = %5, %10
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %45, %47, %37, %39
-  %.sink347 = phi ptr [ %40, %39 ], [ %38, %37 ], [ %46, %45 ], [ %48, %47 ]
-  %.sink = phi i32 [ 16, %39 ], [ 16, %37 ], [ %42, %45 ], [ %42, %47 ]
+  %.sink347 = phi ptr [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %48, %47 ]
+  %.sink = phi i32 [ 16, %37 ], [ 16, %39 ], [ %42, %45 ], [ %42, %47 ]
   store ptr %.sink347, ptr %15, align 8, !tbaa !21
   store i32 %.sink, ptr %7, align 8, !tbaa !20
   br label %Vec_IntPush.exit
@@ -1772,7 +1772,7 @@ define internal fastcc i32 @Gia_ManTestOnePair_rec(ptr noundef %0, ptr noundef %
   br i1 %narrow.i.not, label %common.ret37, label %19
 
 common.ret37:                                     ; preds = %4, %11, %19
-  %common.ret37.op = phi i32 [ %12, %19 ], [ %9, %4 ], [ %12, %11 ]
+  %common.ret37.op = phi i32 [ %12, %19 ], [ %12, %11 ], [ %9, %4 ]
   ret i32 %common.ret37.op
 
 19:                                               ; preds = %11

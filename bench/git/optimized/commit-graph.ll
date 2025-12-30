@@ -273,7 +273,7 @@ commit_graph_data_slab_peek.exit:                 ; preds = %6
   br label %commit_graph_data_slab_peek.exit.thread
 
 commit_graph_data_slab_peek.exit.thread:          ; preds = %6, %1, %commit_graph_data_slab_peek.exit
-  %13 = phi i32 [ %12, %commit_graph_data_slab_peek.exit ], [ -1, %6 ], [ -1, %1 ]
+  %13 = phi i32 [ %12, %commit_graph_data_slab_peek.exit ], [ -1, %1 ], [ -1, %6 ]
   ret i32 %13
 }
 
@@ -347,7 +347,7 @@ define dso_local range(i32 0, 2) i32 @open_commit_graph(ptr noundef %0, ptr noun
   br label %11
 
 11:                                               ; preds = %6, %3, %8
-  %.0 = phi i32 [ 0, %3 ], [ 0, %8 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %3 ], [ 1, %6 ]
   ret i32 %.0
 }
 
@@ -735,12 +735,12 @@ oidread.exit:                                     ; preds = %158, %.split.loop.e
   br label %167
 
 .sink.split.sink.split:                           ; preds = %100, %96, %92
-  %.str.12.sink = phi ptr [ @.str.11, %96 ], [ @.str.10, %92 ], [ @.str.12, %100 ]
+  %.str.12.sink = phi ptr [ @.str.10, %92 ], [ @.str.11, %96 ], [ @.str.12, %100 ]
   %162 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.12.sink, i32 noundef 5) #24
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %100, %96, %92
-  %.0.i99.sink = phi ptr [ @.str.11, %96 ], [ @.str.10, %92 ], [ @.str.12, %100 ], [ %162, %.sink.split.sink.split ]
+  %.0.i99.sink = phi ptr [ @.str.10, %92 ], [ @.str.11, %96 ], [ @.str.12, %100 ], [ %162, %.sink.split.sink.split ]
   %163 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i99.sink) #24
   br label %164
 
@@ -753,7 +753,7 @@ oidread.exit:                                     ; preds = %158, %.split.loop.e
   br label %167
 
 167:                                              ; preds = %4, %3, %164, %oidread.exit, %_.exit91, %_.exit88, %_.exit85, %_.exit
-  %.0 = phi ptr [ null, %3 ], [ null, %_.exit ], [ null, %_.exit85 ], [ null, %_.exit88 ], [ null, %_.exit91 ], [ null, %164 ], [ %60, %oidread.exit ], [ null, %4 ]
+  %.0 = phi ptr [ null, %_.exit ], [ null, %_.exit85 ], [ null, %_.exit88 ], [ null, %_.exit91 ], [ null, %164 ], [ %60, %oidread.exit ], [ null, %3 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -1124,7 +1124,7 @@ _.exit:                                           ; preds = %26, %28
   br label %31
 
 31:                                               ; preds = %11, %24, %_.exit, %3, %8
-  %.0 = phi i32 [ 0, %24 ], [ 0, %8 ], [ 0, %3 ], [ 0, %_.exit ], [ 1, %11 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %3 ], [ 0, %_.exit ], [ 0, %24 ], [ 1, %11 ]
   ret i32 %.0
 }
 
@@ -1401,7 +1401,7 @@ _.exit47.i:                                       ; preds = %97, %95
   %.not.i54 = icmp eq ptr %106, null
   br i1 %.not.i54, label %.thread, label %.lr.ph.i53, !llvm.loop !117
 
-free_commit_graph.exit:                           ; preds = %open_commit_graph.exit.i, %.lr.ph, %45
+free_commit_graph.exit:                           ; preds = %open_commit_graph.exit.i, %45, %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @free(ptr noundef %40) #24
   %.037 = load ptr, ptr %.037125, align 8, !tbaa !110
@@ -1429,8 +1429,8 @@ _.exit58:                                         ; preds = %.thread, %118
   %122 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %122, label %24, label %.lr.ph.i59.preheader, !llvm.loop !119
 
-.thread87:                                        ; preds = %24, %_.exit, %_.exit58
-  %.not50 = phi i32 [ 1, %_.exit ], [ 1, %_.exit58 ], [ 0, %24 ]
+.thread87:                                        ; preds = %24, %_.exit58, %_.exit
+  %.not50 = phi i32 [ 1, %_.exit58 ], [ 1, %_.exit ], [ 0, %24 ]
   %.not16.i = icmp eq ptr %.0130, null
   br i1 %.not16.i, label %validate_mixed_bloom_settings.exit, label %.lr.ph.i59.preheader
 
@@ -1527,8 +1527,8 @@ _.exit.i65:                                       ; preds = %152, %149
   br i1 %.not.i67, label %validate_mixed_bloom_settings.exit, label %.lr.ph.i63, !llvm.loop !122
 
 validate_mixed_bloom_settings.exit:               ; preds = %156, %4, %.thread87
-  %.not50173 = phi i32 [ 0, %4 ], [ %.not50, %.thread87 ], [ %.not50179, %156 ]
-  %.0110172 = phi ptr [ null, %4 ], [ null, %.thread87 ], [ %.0110178, %156 ]
+  %.not50173 = phi i32 [ %.not50, %.thread87 ], [ 0, %4 ], [ %.not50179, %156 ]
+  %.0110172 = phi ptr [ null, %.thread87 ], [ null, %4 ], [ %.0110178, %156 ]
   call void @free(ptr noundef %19) #24
   %159 = call i32 @fclose(ptr noundef %7)
   call void @strbuf_release(ptr noundef nonnull %6) #24
@@ -1625,7 +1625,7 @@ load_commit_graph_v1.exit:                        ; preds = %open_commit_graph.e
   tail call void @free(ptr noundef %9) #24
   br label %25
 
-19:                                               ; preds = %open_commit_graph.exit.i.i, %2, %14
+19:                                               ; preds = %open_commit_graph.exit.i.i, %14, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   tail call void @free(ptr noundef %9) #24
   %.val = load ptr, ptr %7, align 8, !tbaa !64
@@ -1775,7 +1775,7 @@ prepare_commit_graph_one.exit:                    ; preds = %24, %prepare_commit
   br i1 %.not23, label %.loopexit, label %prepare_commit_graph_one.exit, !llvm.loop !127
 
 .loopexit:                                        ; preds = %prepare_commit_graph_one.exit, %24, %22, %19, %1, %3, %12
-  %.016.shrunk = phi i1 [ false, %1 ], [ %15, %12 ], [ false, %22 ], [ false, %19 ], [ false, %3 ], [ %28, %24 ], [ %33, %prepare_commit_graph_one.exit ]
+  %.016.shrunk = phi i1 [ %15, %12 ], [ false, %3 ], [ false, %1 ], [ false, %19 ], [ false, %22 ], [ %28, %24 ], [ %33, %prepare_commit_graph_one.exit ]
   %.016 = zext i1 %.016.shrunk to i32
   ret i32 %.016
 }
@@ -2072,7 +2072,7 @@ search_commit_pos_in_graph.exit.thread:           ; preds = %23, %10
   br label %44
 
 44:                                               ; preds = %search_commit_pos_in_graph.exit.thread, %39, %36, %34, %32, %8
-  %.0 = phi ptr [ null, %34 ], [ %35, %36 ], [ %., %39 ], [ null, %32 ], [ null, %search_commit_pos_in_graph.exit.thread ], [ null, %8 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %32 ], [ null, %34 ], [ %35, %36 ], [ %., %39 ], [ null, %search_commit_pos_in_graph.exit.thread ]
   ret ptr %.0
 }
 
@@ -2237,7 +2237,7 @@ _.exit:                                           ; preds = %86, %88
   br i1 %.not50, label %82, label %.loopexit, !llvm.loop !137
 
 .loopexit:                                        ; preds = %94, %50, %st_mult.exit, %_.exit, %76
-  %.0 = phi i32 [ 1, %76 ], [ 1, %st_mult.exit ], [ 0, %_.exit ], [ 1, %50 ], [ 1, %94 ]
+  %.0 = phi i32 [ 0, %_.exit ], [ 1, %76 ], [ 1, %st_mult.exit ], [ 1, %50 ], [ 1, %94 ]
   ret i32 %.0
 }
 
@@ -2339,7 +2339,7 @@ find_commit_pos_in_graph.exit.thread.i:           ; preds = %find_commit_pos_in_
   br label %parse_commit_in_graph_one.exit
 
 parse_commit_in_graph_one.exit:                   ; preds = %find_commit_pos_in_graph.exit.thread.i, %find_commit_pos_in_graph.exit.thread12.i, %9, %7
-  %.0 = phi i32 [ 0, %7 ], [ 1, %9 ], [ %44, %find_commit_pos_in_graph.exit.thread.i ], [ 0, %find_commit_pos_in_graph.exit.thread12.i ]
+  %.0 = phi i32 [ 0, %7 ], [ %44, %find_commit_pos_in_graph.exit.thread.i ], [ 1, %9 ], [ 0, %find_commit_pos_in_graph.exit.thread12.i ]
   ret i32 %.0
 }
 
@@ -2784,7 +2784,7 @@ commit_graph_position.exit:                       ; preds = %12
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %commit_graph_position.exit.thread, label %commit_graph_position.exit.i
 
-commit_graph_position.exit.thread:                ; preds = %7, %12, %commit_graph_position.exit
+commit_graph_position.exit.thread:                ; preds = %12, %7, %commit_graph_position.exit
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.48, i32 noundef 1123, ptr noundef nonnull @.str.53) #25
   unreachable
 
@@ -4997,7 +4997,7 @@ _.exit191.i:                                      ; preds = %881, %879
   br label %write_commit_graph_file.exit
 
 write_commit_graph_file.exit:                     ; preds = %_.exit.i231, %_.exit153.i, %_.exit156.i, %_.exit185.i, %_.exit188.i, %_.exit191.i, %884
-  %.0.i233 = phi i32 [ -1, %_.exit.i231 ], [ 0, %884 ], [ -1, %_.exit156.i ], [ -1, %_.exit153.i ], [ -1, %_.exit188.i ], [ -1, %_.exit185.i ], [ -1, %_.exit191.i ]
+  %.0.i233 = phi i32 [ -1, %_.exit.i231 ], [ 0, %884 ], [ -1, %_.exit153.i ], [ -1, %_.exit156.i ], [ -1, %_.exit188.i ], [ -1, %_.exit185.i ], [ -1, %_.exit191.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -5204,7 +5204,7 @@ expire_commit_graphs.exit:                        ; preds = %910, %._crit_edge.i
   br label %968
 
 968:                                              ; preds = %561, %fill_oids_from_packs.exit, %expire_commit_graphs.exit, %_.exit218
-  %.1134 = phi i32 [ -1, %fill_oids_from_packs.exit ], [ 0, %561 ], [ -1, %_.exit218 ], [ %.0.i233, %expire_commit_graphs.exit ]
+  %.1134 = phi i32 [ -1, %fill_oids_from_packs.exit ], [ -1, %_.exit218 ], [ %.0.i233, %expire_commit_graphs.exit ], [ 0, %561 ]
   %969 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %970 = load ptr, ptr %969, align 8, !tbaa !230
   call void @free(ptr noundef %970) #24
@@ -5366,7 +5366,7 @@ hashmap_get_size.exit:                            ; preds = %5
   br label %27
 
 27:                                               ; preds = %25, %19, %22, %hashmap_get_size.exit, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %hashmap_get_size.exit ], [ %., %25 ], [ 0, %19 ], [ 0, %22 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %hashmap_get_size.exit ], [ 0, %22 ], [ 0, %19 ], [ %., %25 ]
   ret i32 %.0
 }
 
@@ -5527,8 +5527,8 @@ st_mult.exit:                                     ; preds = %.preheader.split
   br i1 %.old6.not, label %.loopexit, label %.preheader.split
 
 .loopexit:                                        ; preds = %56, %.critedge3, %st_mult.exit, %st_mult.exit.us, %.critedge3.us, %34, %.thread
-  %61 = phi i32 [ %16, %.thread ], [ %38, %34 ], [ %22, %st_mult.exit.us ], [ %22, %.critedge3.us ], [ %39, %st_mult.exit ], [ %60, %56 ], [ %39, %.critedge3 ]
-  %.0117 = phi ptr [ %13, %.thread ], [ null, %34 ], [ %.1.us, %st_mult.exit.us ], [ %.1.us, %.critedge3.us ], [ %.1, %st_mult.exit ], [ null, %56 ], [ %.1, %.critedge3 ]
+  %61 = phi i32 [ %16, %.thread ], [ %22, %st_mult.exit.us ], [ %22, %.critedge3.us ], [ %38, %34 ], [ %60, %56 ], [ %39, %.critedge3 ], [ %39, %st_mult.exit ]
+  %.0117 = phi ptr [ %13, %.thread ], [ %.1.us, %st_mult.exit.us ], [ %.1.us, %.critedge3.us ], [ null, %34 ], [ null, %56 ], [ %.1, %.critedge3 ], [ %.1, %st_mult.exit ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %.0117, ptr %62, align 8, !tbaa !236
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -7279,7 +7279,7 @@ commit_graph_data_slab_peek.exit.i.i:             ; preds = %340
   br label %commit_graph_generation_from_graph.exit.i
 
 commit_graph_generation_from_graph.exit.i:        ; preds = %348, %commit_graph_data_slab_peek.exit.i.i, %340, %334
-  %.0.i186.i = phi i64 [ %350, %348 ], [ 9223372036854775807, %commit_graph_data_slab_peek.exit.i.i ], [ 9223372036854775807, %340 ], [ 9223372036854775807, %334 ]
+  %.0.i186.i = phi i64 [ %350, %348 ], [ 9223372036854775807, %commit_graph_data_slab_peek.exit.i.i ], [ 9223372036854775807, %334 ], [ 9223372036854775807, %340 ]
   %spec.select.i = call i64 @llvm.umax.i64(i64 %.0.i186.i, i64 %.0237.i)
   %351 = getelementptr inbounds nuw i8, ptr %.091239.i, i64 8
   %352 = getelementptr inbounds nuw i8, ptr %.090238.i, i64 8
@@ -7382,8 +7382,8 @@ commit_graph_data_slab_peek.exit.i200.i:          ; preds = %.thread299.i
   br label %commit_graph_generation.exit.i
 
 commit_graph_generation.exit.i:                   ; preds = %.thread, %commit_graph_data_slab_peek.exit.i200.i, %.thread309.i
-  %or.cond311.i = phi i1 [ %or.cond.i, %commit_graph_data_slab_peek.exit.i200.i ], [ %or.cond310.i, %.thread309.i ], [ %or.cond.i34, %.thread ]
-  %.0.i197.i = phi i64 [ %spec.select319.i, %commit_graph_data_slab_peek.exit.i200.i ], [ 9223372036854775807, %.thread309.i ], [ 9223372036854775807, %.thread ]
+  %or.cond311.i = phi i1 [ %or.cond310.i, %.thread309.i ], [ %or.cond.i, %commit_graph_data_slab_peek.exit.i200.i ], [ %or.cond.i34, %.thread ]
+  %.0.i197.i = phi i64 [ 9223372036854775807, %.thread309.i ], [ %spec.select319.i, %commit_graph_data_slab_peek.exit.i200.i ], [ 9223372036854775807, %.thread ]
   %384 = add i64 %.0223.i, 1
   %385 = select i1 %or.cond311.i, i64 1073741823, i64 %384
   %386 = icmp ult i64 %.0.i197.i, %385
@@ -7430,8 +7430,8 @@ _.exit206.i:                                      ; preds = %399, %397
   br label %.thread303.i
 
 .thread303.i:                                     ; preds = %.thread299.i.thread, %_.exit206.i, %392, %.thread299.thread.i, %.thread299.i, %commit_graph_generation_from_graph.exit195.i, %_.exit154.i
-  %.1102.i = phi ptr [ %.0101245.i, %_.exit154.i ], [ %214, %.thread299.i ], [ %214, %_.exit206.i ], [ %214, %392 ], [ %214, %.thread299.thread.i ], [ %.0101245.i, %commit_graph_generation_from_graph.exit195.i ], [ %214, %.thread299.i.thread ]
-  %.199.i = phi ptr [ %.098246.i, %_.exit154.i ], [ %.098246.i, %.thread299.i ], [ null, %_.exit206.i ], [ null, %392 ], [ %.098246.i, %.thread299.thread.i ], [ %214, %commit_graph_generation_from_graph.exit195.i ], [ %.098246.i, %.thread299.i.thread ]
+  %.1102.i = phi ptr [ %.0101245.i, %_.exit154.i ], [ %214, %.thread299.i ], [ %214, %_.exit206.i ], [ %214, %392 ], [ %.0101245.i, %commit_graph_generation_from_graph.exit195.i ], [ %214, %.thread299.thread.i ], [ %214, %.thread299.i.thread ]
+  %.199.i = phi ptr [ %.098246.i, %_.exit154.i ], [ %.098246.i, %.thread299.i ], [ null, %_.exit206.i ], [ null, %392 ], [ %214, %commit_graph_generation_from_graph.exit195.i ], [ %.098246.i, %.thread299.thread.i ], [ %.098246.i, %.thread299.i.thread ]
   %indvars.iv.next268.i = add nuw nsw i64 %indvars.iv267.i, 1
   %404 = load i32, ptr %42, align 4, !tbaa !97
   %405 = zext i32 %404 to i64
@@ -8256,7 +8256,7 @@ define internal range(i32 -1, 2) i32 @commit_gen_cmp(ptr noundef readonly captur
   br label %24
 
 24:                                               ; preds = %22, %16, %14, %2
-  %.0 = phi i32 [ -1, %16 ], [ -1, %2 ], [ 1, %14 ], [ %., %22 ]
+  %.0 = phi i32 [ -1, %2 ], [ 1, %14 ], [ -1, %16 ], [ %., %22 ]
   ret i32 %.0
 }
 
@@ -8530,7 +8530,7 @@ find_commit_pos_in_graph.exit:                    ; preds = %.lr.ph.i.i
   br label %find_commit_pos_in_graph.exit.thread
 
 find_commit_pos_in_graph.exit.thread:             ; preds = %commit_graph_position.exit.i, %84, %find_commit_pos_in_graph.exit, %51
-  %.1 = phi i32 [ %53, %51 ], [ %83, %find_commit_pos_in_graph.exit ], [ %49, %84 ], [ %67, %commit_graph_position.exit.i ]
+  %.1 = phi i32 [ %53, %51 ], [ %49, %84 ], [ %83, %find_commit_pos_in_graph.exit ], [ %67, %commit_graph_position.exit.i ]
   %85 = icmp slt i32 %.1, 0
   br i1 %85, label %find_commit_pos_in_graph.exit.thread..thread_crit_edge, label %92
 
@@ -8657,7 +8657,7 @@ find_commit_pos_in_graph.exit98:                  ; preds = %.lr.ph.i.i86
   br label %find_commit_pos_in_graph.exit98.thread
 
 find_commit_pos_in_graph.exit98.thread:           ; preds = %commit_graph_position.exit.i96, %141, %find_commit_pos_in_graph.exit98, %108
-  %.4 = phi i32 [ %110, %108 ], [ %140, %find_commit_pos_in_graph.exit98 ], [ %106, %141 ], [ %124, %commit_graph_position.exit.i96 ]
+  %.4 = phi i32 [ %110, %108 ], [ %106, %141 ], [ %140, %find_commit_pos_in_graph.exit98 ], [ %124, %commit_graph_position.exit.i96 ]
   %142 = icmp slt i32 %.4, 0
   br i1 %142, label %find_commit_pos_in_graph.exit98.thread..thread143_crit_edge, label %hashwrite_be32.exit100
 
@@ -9049,7 +9049,7 @@ find_commit_pos_in_graph.exit:                    ; preds = %.lr.ph.i.i
   br label %find_commit_pos_in_graph.exit.thread
 
 find_commit_pos_in_graph.exit.thread:             ; preds = %commit_graph_position.exit.i, %66, %find_commit_pos_in_graph.exit, %33
-  %.0 = phi i32 [ %35, %33 ], [ %65, %find_commit_pos_in_graph.exit ], [ %31, %66 ], [ %49, %commit_graph_position.exit.i ]
+  %.0 = phi i32 [ %35, %33 ], [ %31, %66 ], [ %65, %find_commit_pos_in_graph.exit ], [ %49, %commit_graph_position.exit.i ]
   %67 = icmp slt i32 %.0, 0
   br i1 %67, label %find_commit_pos_in_graph.exit.thread..thread_crit_edge, label %hashwrite_be32.exit
 

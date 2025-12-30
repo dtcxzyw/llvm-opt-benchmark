@@ -73,7 +73,7 @@ define i32 @ossl_rand_uniform_uint32(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not32, label %19, label %.loopexit, !prof !8
 
 .loopexit:                                        ; preds = %19, %35, %10, %3, %33, %24, %9, %5
-  %.026 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 0, %3 ], [ 0, %24 ], [ %34, %33 ], [ %16, %10 ], [ %16, %35 ], [ %16, %19 ]
+  %.026 = phi i32 [ 0, %9 ], [ 0, %24 ], [ %34, %33 ], [ 0, %5 ], [ 0, %3 ], [ %16, %10 ], [ %16, %35 ], [ %16, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.026
 }
@@ -159,7 +159,7 @@ define i32 @ossl_rand_range_uint32(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not32.i, label %24, label %ossl_rand_uniform_uint32.exit, !prof !8
 
 ossl_rand_uniform_uint32.exit:                    ; preds = %24, %40, %8, %10, %14, %15, %29, %38
-  %.026.i = phi i32 [ 0, %10 ], [ 0, %14 ], [ 0, %8 ], [ 0, %29 ], [ %39, %38 ], [ %21, %15 ], [ %21, %40 ], [ %21, %24 ]
+  %.026.i = phi i32 [ 0, %14 ], [ 0, %29 ], [ %39, %38 ], [ 0, %10 ], [ 0, %8 ], [ %21, %15 ], [ %21, %40 ], [ %21, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %41 = add i32 %.026.i, %1
   br label %42

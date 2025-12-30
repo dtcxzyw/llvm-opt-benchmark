@@ -2550,7 +2550,7 @@ b2GetBit.exit199.thread.i:                        ; preds = %b2GetBit.exit199.i,
   br i1 %exitcond243.not.i, label %._crit_edge.i, label %199, !llvm.loop !299
 
 275:                                              ; preds = %._crit_edge.i, %b2GetBit.exit199.i, %163, %.lr.ph228.i
-  %.1.i = phi i32 [ %161, %.lr.ph228.i ], [ %161, %163 ], [ %161, %b2GetBit.exit199.i ], [ %.pre.i, %._crit_edge.i ]
+  %.1.i = phi i32 [ %161, %163 ], [ %161, %.lr.ph228.i ], [ %161, %b2GetBit.exit199.i ], [ %.pre.i, %._crit_edge.i ]
   %.not181.i = icmp eq i32 %.1.i, -1
   br i1 %.not181.i, label %.loopexit.i, label %.lr.ph228.i
 
@@ -2704,7 +2704,7 @@ b2DrawWithBounds.exit:                            ; preds = %._crit_edge233.i, %
   br label %344
 
 344:                                              ; preds = %343, %341, %338, %335, %331, %328, %325, %322, %313, %342
-  %.0217 = phi i32 [ 10025880, %341 ], [ %318, %313 ], [ 16711680, %322 ], [ 7372944, %325 ], [ 16113331, %328 ], [ 4251856, %331 ], [ 16776960, %335 ], [ 16416882, %338 ], [ 4286945, %342 ], [ %., %343 ]
+  %.0217 = phi i32 [ 4286945, %342 ], [ %318, %313 ], [ 16711680, %322 ], [ 7372944, %325 ], [ 16113331, %328 ], [ 4251856, %331 ], [ 16776960, %335 ], [ 16416882, %338 ], [ 10025880, %341 ], [ %., %343 ]
   %345 = getelementptr inbounds nuw i8, ptr %316, i64 20
   %346 = load i32, ptr %345, align 4, !tbaa !315
   switch i32 %346, label %b2DrawShape.exit [
@@ -3759,7 +3759,7 @@ define zeroext i1 @b2Body_IsValid(i64 %0) local_unnamed_addr #10 {
   br label %27
 
 27:                                               ; preds = %3, %10, %23, %14, %1
-  %.0 = phi i1 [ false, %1 ], [ %.not16, %23 ], [ false, %3 ], [ false, %10 ], [ false, %14 ]
+  %.0 = phi i1 [ false, %1 ], [ false, %3 ], [ false, %10 ], [ false, %14 ], [ %.not16, %23 ]
   ret i1 %.0
 }
 
@@ -3809,7 +3809,7 @@ define zeroext i1 @b2Shape_IsValid(i64 %0) local_unnamed_addr #10 {
   br label %27
 
 27:                                               ; preds = %3, %22, %15, %9, %12, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %3 ], [ false, %9 ], [ false, %12 ], [ %26, %22 ], [ false, %15 ]
+  %.0 = phi i1 [ false, %1 ], [ false, %3 ], [ false, %12 ], [ false, %9 ], [ %26, %22 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -3859,7 +3859,7 @@ define zeroext i1 @b2Chain_IsValid(i64 %0) local_unnamed_addr #10 {
   br label %27
 
 27:                                               ; preds = %3, %22, %15, %9, %12, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %3 ], [ false, %9 ], [ false, %12 ], [ %26, %22 ], [ false, %15 ]
+  %.0 = phi i1 [ false, %1 ], [ false, %3 ], [ false, %12 ], [ false, %9 ], [ %26, %22 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -3910,7 +3910,7 @@ define zeroext i1 @b2Joint_IsValid(i64 %0) local_unnamed_addr #10 {
   br label %28
 
 28:                                               ; preds = %3, %23, %15, %9, %12, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %3 ], [ false, %9 ], [ false, %12 ], [ %27, %23 ], [ false, %15 ]
+  %.0 = phi i1 [ false, %1 ], [ false, %3 ], [ false, %12 ], [ false, %9 ], [ %27, %23 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -6432,7 +6432,7 @@ define internal noundef zeroext i1 @DrawQueryCallback(i32 %0, i32 noundef %1, pt
   br label %63
 
 63:                                               ; preds = %62, %60, %56, %52, %47, %44, %40, %36, %25, %61
-  %.0 = phi i32 [ 10025880, %60 ], [ %31, %25 ], [ 16711680, %36 ], [ 7372944, %40 ], [ 16113331, %44 ], [ 4251856, %47 ], [ 16776960, %52 ], [ 16416882, %56 ], [ 4286945, %61 ], [ %., %62 ]
+  %.0 = phi i32 [ 4286945, %61 ], [ %31, %25 ], [ 16711680, %36 ], [ 7372944, %40 ], [ 16113331, %44 ], [ 4251856, %47 ], [ 16776960, %52 ], [ 16416882, %56 ], [ 10025880, %60 ], [ %., %62 ]
   %64 = load <2 x float>, ptr %29, align 4
   %65 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %66 = load <2 x float>, ptr %65, align 4

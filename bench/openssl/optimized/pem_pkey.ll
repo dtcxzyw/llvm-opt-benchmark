@@ -335,7 +335,7 @@ pem_read_bio_key_decoder.exit:                    ; preds = %37, %51, %65, %71, 
   br label %145
 
 145:                                              ; preds = %142, %136, %.thread.i, %104
-  %.166.i = phi ptr [ %101, %104 ], [ %144, %142 ], [ %139, %136 ], [ %.267.ph.i, %.thread.i ]
+  %.166.i = phi ptr [ %144, %142 ], [ %101, %104 ], [ %139, %136 ], [ %.267.ph.i, %.thread.i ]
   %146 = icmp eq ptr %.166.i, null
   br i1 %146, label %.thread4.i, label %pem_read_bio_key_legacy.exit
 
@@ -492,13 +492,13 @@ define i32 @PEM_write_bio_PrivateKey_ex(ptr noundef %0, ptr noundef %1, ptr noun
   %.046 = phi i32 [ %20, %18 ], [ %4, %14 ], [ %4, %17 ]
   %.045 = phi ptr [ %6, %18 ], [ %3, %14 ], [ null, %17 ]
   %.not55 = icmp eq ptr %2, null
-  br i1 %.not55, label %.critedge65, label %22
+  br i1 %.not55, label %.critedge, label %22
 
 22:                                               ; preds = %21
   %23 = tail call ptr @EVP_CIPHER_get0_name(ptr noundef nonnull %2) #6
   %24 = tail call i32 @OSSL_ENCODER_CTX_set_cipher(ptr noundef %10, ptr noundef %23, ptr noundef null) #6
   %.not56 = icmp eq i32 %24, 0
-  br i1 %.not56, label %.critedge, label %25
+  br i1 %.not56, label %.critedge65, label %25
 
 25:                                               ; preds = %22
   %.not57 = icmp eq ptr %.045, null
@@ -508,22 +508,22 @@ define i32 @PEM_write_bio_PrivateKey_ex(ptr noundef %0, ptr noundef %1, ptr noun
   %27 = sext i32 %.046 to i64
   %28 = tail call i32 @OSSL_ENCODER_CTX_set_passphrase(ptr noundef %10, ptr noundef nonnull %.045, i64 noundef %27) #6
   %.not58 = icmp eq i32 %28, 0
-  br i1 %.not58, label %.critedge, label %29
+  br i1 %.not58, label %.critedge65, label %29
 
 29:                                               ; preds = %26, %25
   %.not59 = icmp eq ptr %.047, null
-  br i1 %.not59, label %.critedge65, label %30
+  br i1 %.not59, label %.critedge, label %30
 
 30:                                               ; preds = %29
   %31 = tail call i32 @OSSL_ENCODER_CTX_set_pem_password_cb(ptr noundef %10, ptr noundef nonnull %.047, ptr noundef %6) #6
   %.not60 = icmp eq i32 %31, 0
-  br i1 %.not60, label %.critedge, label %.critedge65
+  br i1 %.not60, label %.critedge65, label %.critedge
 
-.critedge:                                        ; preds = %26, %22, %30
+.critedge65:                                      ; preds = %22, %26, %30
   tail call void @OSSL_ENCODER_CTX_free(ptr noundef %10) #6
   br label %.split
 
-.critedge65:                                      ; preds = %29, %21, %30
+.critedge:                                        ; preds = %29, %21, %30
   %32 = tail call i32 @OSSL_ENCODER_to_bio(ptr noundef %10, ptr noundef %0) #6
   tail call void @OSSL_ENCODER_CTX_free(ptr noundef %10) #6
   br label %.split
@@ -548,8 +548,8 @@ define i32 @PEM_write_bio_PrivateKey_ex(ptr noundef %0, ptr noundef %1, ptr noun
   %42 = tail call i32 @PEM_write_bio_PKCS8PrivateKey(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #6
   br label %.split
 
-.split:                                           ; preds = %13, %.split48, %41, %.critedge65, %.critedge
-  %.0 = phi i32 [ %42, %41 ], [ 0, %.critedge ], [ %32, %.critedge65 ], [ %40, %.split48 ], [ 0, %13 ]
+.split:                                           ; preds = %13, %.split48, %41, %.critedge, %.critedge65
+  %.0 = phi i32 [ %42, %41 ], [ %32, %.critedge ], [ 0, %.critedge65 ], [ %40, %.split48 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -612,7 +612,7 @@ define i32 @PEM_write_bio_PrivateKey_traditional(ptr noundef %0, ptr noundef %1,
   br label %23
 
 23:                                               ; preds = %20, %17, %14
-  %.016 = phi ptr [ %1, %14 ], [ %spec.select, %20 ], [ %1, %17 ]
+  %.016 = phi ptr [ %1, %17 ], [ %1, %14 ], [ %spec.select, %20 ]
   %24 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !18
   %26 = icmp eq ptr %25, null
@@ -638,7 +638,7 @@ define i32 @PEM_write_bio_PrivateKey_traditional(ptr noundef %0, ptr noundef %1,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %31, %32
-  %.0.ph = phi i32 [ 0, %31 ], [ %36, %32 ]
+  %.0.ph = phi i32 [ %36, %32 ], [ 0, %31 ]
   %37 = load ptr, ptr %9, align 8, !tbaa !3
   call void @EVP_PKEY_free(ptr noundef %37) #6
   br label %38

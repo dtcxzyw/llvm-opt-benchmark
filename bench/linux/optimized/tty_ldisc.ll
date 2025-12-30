@@ -389,7 +389,7 @@ define dso_local i32 @tty_set_ldisc(ptr noundef %0, i32 noundef %1) #0 align 16 
   br label %.thread8
 
 .thread8:                                         ; preds = %53, %58, %63, %61
-  %65 = phi i32 [ %59, %61 ], [ %59, %63 ], [ 0, %58 ], [ 0, %53 ]
+  %65 = phi i32 [ %59, %63 ], [ %59, %61 ], [ 0, %58 ], [ 0, %53 ]
   %66 = load ptr, ptr %18, align 8
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -1052,7 +1052,7 @@ define dso_local i32 @tty_ldisc_setup(ptr noundef %0, ptr noundef %1) local_unna
   br label %.thread10
 
 .thread10:                                        ; preds = %30, %35, %18, %51, %45, %20
-  %52 = phi i32 [ %16, %18 ], [ %36, %51 ], [ 0, %20 ], [ %36, %45 ], [ 0, %35 ], [ 0, %30 ]
+  %52 = phi i32 [ %16, %18 ], [ 0, %20 ], [ %36, %45 ], [ %36, %51 ], [ 0, %35 ], [ 0, %30 ]
   ret i32 %52
 }
 

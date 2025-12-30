@@ -1424,7 +1424,7 @@ define hidden void @av1_predict_intra_block(ptr noundef readonly captures(none) 
   br label %scale_chroma_bsize.exit
 
 scale_chroma_bsize.exit:                          ; preds = %159, %157, %155, %153, %150, %149, %143
-  %.0190 = phi i8 [ %146, %143 ], [ %146, %149 ], [ %spec.select43.i, %153 ], [ %spec.select42.i, %150 ], [ %.mux41.i, %159 ], [ %spec.select45.i, %157 ], [ %.mux38.i, %155 ]
+  %.0190 = phi i8 [ %146, %143 ], [ %146, %149 ], [ %spec.select42.i, %150 ], [ %spec.select43.i, %153 ], [ %.mux38.i, %155 ], [ %spec.select45.i, %157 ], [ %.mux41.i, %159 ]
   %or.cond.i = and i1 %101, %133
   br i1 %or.cond.i, label %161, label %has_top_right.exit
 
@@ -1513,7 +1513,7 @@ scale_chroma_bsize.exit:                          ; preds = %159, %157, %155, %1
   br label %has_top_right.exit
 
 has_top_right.exit:                               ; preds = %172, %scale_chroma_bsize.exit, %._crit_edge.i, %180, %182, %184, %203, %206
-  %.0.i204 = phi i1 [ true, %scale_chroma_bsize.exit ], [ %179, %._crit_edge.i ], [ %181, %180 ], [ false, %172 ], [ false, %182 ], [ false, %184 ], [ %219, %206 ], [ true, %203 ]
+  %.0.i204 = phi i1 [ %179, %._crit_edge.i ], [ %181, %180 ], [ %219, %206 ], [ true, %scale_chroma_bsize.exit ], [ false, %182 ], [ false, %184 ], [ true, %203 ], [ false, %172 ]
   br i1 %or.cond.i205, label %220, label %has_bottom_left.exit
 
 220:                                              ; preds = %has_top_right.exit
@@ -1612,7 +1612,7 @@ has_top_right.exit:                               ; preds = %172, %scale_chroma_
   br label %has_bottom_left.exit
 
 has_bottom_left.exit:                             ; preds = %has_top_right.exit, %225, %230, %239, %240, %267, %273, %276
-  %.0.i206 = phi i1 [ %238, %230 ], [ true, %has_top_right.exit ], [ true, %239 ], [ %272, %267 ], [ false, %240 ], [ %289, %276 ], [ true, %273 ], [ true, %225 ]
+  %.0.i206 = phi i1 [ %238, %230 ], [ %272, %267 ], [ %289, %276 ], [ true, %has_top_right.exit ], [ true, %239 ], [ false, %240 ], [ true, %273 ], [ true, %225 ]
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 25245
   %291 = load i8, ptr %290, align 1
   %.not196.not = icmp eq i8 %291, 0
@@ -1681,10 +1681,10 @@ has_bottom_left.exit:                             ; preds = %has_top_right.exit,
   br label %341
 
 341:                                              ; preds = %339, %333, %303
-  %.0257.i = phi i32 [ 0, %303 ], [ %337, %339 ], [ %337, %333 ]
-  %.0255.i = phi i32 [ %318, %303 ], [ 1, %339 ], [ 1, %333 ]
-  %.0253.i = phi i32 [ %317, %303 ], [ %..i214, %339 ], [ 1, %333 ]
-  %.0251.i = phi i32 [ %316, %303 ], [ 1, %339 ], [ 0, %333 ]
+  %.0257.i = phi i32 [ 0, %303 ], [ %337, %333 ], [ %337, %339 ]
+  %.0255.i = phi i32 [ %318, %303 ], [ 1, %333 ], [ 1, %339 ]
+  %.0253.i = phi i32 [ %317, %303 ], [ 1, %333 ], [ %..i214, %339 ]
+  %.0251.i = phi i32 [ %316, %303 ], [ 0, %333 ], [ 1, %339 ]
   %.1254.i = select i1 %.not.i213, i32 %.0253.i, i32 1
   %.1252.i = select i1 %.not.i213, i32 %.0251.i, i32 1
   %342 = or i32 %.1254.i, %300
@@ -1717,7 +1717,7 @@ has_bottom_left.exit:                             ; preds = %has_top_right.exit,
   br label %.lr.ph312.i
 
 .lr.ph312.i:                                      ; preds = %352, %350, %347, %345
-  %.0258.i = phi i32 [ %329, %345 ], [ %349, %347 ], [ %354, %352 ], [ %331, %350 ]
+  %.0258.i = phi i32 [ %349, %347 ], [ %329, %345 ], [ %354, %352 ], [ %331, %350 ]
   %355 = sext i32 %29 to i64
   %356 = sext i32 %12 to i64
   %smax.i = call i32 @llvm.smax.i32(i32 %31, i32 1)
@@ -2159,7 +2159,7 @@ is_inter_block.exit.i.i.i:                        ; preds = %586
   br label %is_smooth.exit.i.i
 
 is_smooth.exit.i.i:                               ; preds = %592, %is_inter_block.exit.i.i.i, %586, %581
-  %597 = phi i32 [ 0, %581 ], [ 0, %586 ], [ %596, %592 ], [ 0, %is_inter_block.exit.i.i.i ]
+  %597 = phi i32 [ 0, %581 ], [ %596, %592 ], [ 0, %is_inter_block.exit.i.i.i ], [ 0, %586 ]
   %.not24.i.i = icmp eq ptr %585, null
   br i1 %.not24.i.i, label %get_filt_type.exit.i, label %598
 
@@ -2184,8 +2184,8 @@ is_inter_block.exit.i35.i.i:                      ; preds = %598
   br label %get_filt_type.exit.i
 
 get_filt_type.exit.i:                             ; preds = %604, %is_inter_block.exit.i35.i.i, %598, %is_smooth.exit.i.i, %577, %575
-  %.018.i.i = phi i1 [ false, %575 ], [ %narrow18.i27.i.i, %577 ], [ false, %is_smooth.exit.i.i ], [ false, %598 ], [ %narrow.i36.i.i, %604 ], [ false, %is_inter_block.exit.i35.i.i ]
-  %.0.i.i217 = phi i32 [ %576, %575 ], [ %576, %577 ], [ %597, %is_smooth.exit.i.i ], [ %597, %598 ], [ %597, %604 ], [ %597, %is_inter_block.exit.i35.i.i ]
+  %.018.i.i = phi i1 [ %narrow18.i27.i.i, %577 ], [ false, %575 ], [ false, %is_smooth.exit.i.i ], [ %narrow.i36.i.i, %604 ], [ false, %is_inter_block.exit.i35.i.i ], [ false, %598 ]
+  %.0.i.i217 = phi i32 [ %576, %577 ], [ %576, %575 ], [ %597, %is_smooth.exit.i.i ], [ %597, %604 ], [ %597, %is_inter_block.exit.i35.i.i ], [ %597, %598 ]
   %608 = icmp ne i32 %.0.i.i217, 0
   %609 = select i1 %608, i1 true, i1 %.018.i.i
   %610 = zext i1 %609 to i32
@@ -2278,7 +2278,7 @@ av1_use_intra_edge_upsample.exit.i:               ; preds = %647
   br label %av1_use_intra_edge_upsample.exit.thread.i
 
 av1_use_intra_edge_upsample.exit.thread.i:        ; preds = %654, %av1_use_intra_edge_upsample.exit.i, %647
-  %.0.i285295.i = phi i32 [ %653, %av1_use_intra_edge_upsample.exit.i ], [ 1, %654 ], [ 0, %647 ]
+  %.0.i285295.i = phi i32 [ 1, %654 ], [ %653, %av1_use_intra_edge_upsample.exit.i ], [ 0, %647 ]
   %658 = add nsw i32 %.0257.i, -180
   %659 = call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483558) %658, i1 true)
   %660 = icmp eq i32 %658, 0
@@ -2665,10 +2665,10 @@ build_intra_predictors_high.exit:                 ; preds = %.loopexit.us.i.i.i,
   br label %855
 
 855:                                              ; preds = %853, %847, %830
-  %.0243.i = phi i32 [ 0, %830 ], [ %851, %853 ], [ %851, %847 ]
-  %.0241.i = phi i32 [ %843, %830 ], [ 1, %853 ], [ 1, %847 ]
-  %.0239.i = phi i32 [ %842, %830 ], [ %..i220, %853 ], [ 1, %847 ]
-  %.0237.i = phi i32 [ %841, %830 ], [ 1, %853 ], [ 0, %847 ]
+  %.0243.i = phi i32 [ 0, %830 ], [ %851, %847 ], [ %851, %853 ]
+  %.0241.i = phi i32 [ %843, %830 ], [ 1, %847 ], [ 1, %853 ]
+  %.0239.i = phi i32 [ %842, %830 ], [ 1, %847 ], [ %..i220, %853 ]
+  %.0237.i = phi i32 [ %841, %830 ], [ 0, %847 ], [ 1, %853 ]
   %.1240.i = select i1 %.not.i219, i32 %.0239.i, i32 1
   %.1238.i = select i1 %.not.i219, i32 %.0237.i, i32 1
   %856 = or i32 %.1240.i, %300
@@ -2699,7 +2699,7 @@ build_intra_predictors_high.exit:                 ; preds = %.loopexit.us.i.i.i,
   br label %.lr.ph312.i333
 
 .lr.ph312.i333:                                   ; preds = %865, %863, %861, %859
-  %.0244.i = phi i8 [ -127, %859 ], [ %862, %861 ], [ %866, %865 ], [ 127, %863 ]
+  %.0244.i = phi i8 [ %862, %861 ], [ -127, %859 ], [ %866, %865 ], [ 127, %863 ]
   %867 = sext i32 %29 to i64
   %868 = sext i32 %12 to i64
   %smax.i334 = tail call i32 @llvm.smax.i32(i32 %31, i32 1)
@@ -2968,7 +2968,7 @@ is_inter_block.exit.i.i.i310:                     ; preds = %988
   br label %is_smooth.exit.i.i285
 
 is_smooth.exit.i.i285:                            ; preds = %994, %is_inter_block.exit.i.i.i310, %988, %983
-  %999 = phi i32 [ 0, %983 ], [ 0, %988 ], [ %998, %994 ], [ 0, %is_inter_block.exit.i.i.i310 ]
+  %999 = phi i32 [ 0, %983 ], [ %998, %994 ], [ 0, %is_inter_block.exit.i.i.i310 ], [ 0, %988 ]
   %.not24.i.i286 = icmp eq ptr %987, null
   br i1 %.not24.i.i286, label %get_filt_type.exit.i289, label %1000
 
@@ -2993,8 +2993,8 @@ is_inter_block.exit.i35.i.i308:                   ; preds = %1000
   br label %get_filt_type.exit.i289
 
 get_filt_type.exit.i289:                          ; preds = %1006, %is_inter_block.exit.i35.i.i308, %1000, %is_smooth.exit.i.i285, %979, %977
-  %.018.i.i290 = phi i1 [ false, %977 ], [ %narrow18.i27.i.i316, %979 ], [ false, %is_smooth.exit.i.i285 ], [ false, %1000 ], [ %narrow.i36.i.i309, %1006 ], [ false, %is_inter_block.exit.i35.i.i308 ]
-  %.0.i.i291 = phi i32 [ %978, %977 ], [ %978, %979 ], [ %999, %is_smooth.exit.i.i285 ], [ %999, %1000 ], [ %999, %1006 ], [ %999, %is_inter_block.exit.i35.i.i308 ]
+  %.018.i.i290 = phi i1 [ %narrow18.i27.i.i316, %979 ], [ false, %977 ], [ false, %is_smooth.exit.i.i285 ], [ %narrow.i36.i.i309, %1006 ], [ false, %is_inter_block.exit.i35.i.i308 ], [ false, %1000 ]
+  %.0.i.i291 = phi i32 [ %978, %979 ], [ %978, %977 ], [ %999, %is_smooth.exit.i.i285 ], [ %999, %1006 ], [ %999, %is_inter_block.exit.i35.i.i308 ], [ %999, %1000 ]
   %1010 = icmp ne i32 %.0.i.i291, 0
   %1011 = select i1 %1010, i1 true, i1 %.018.i.i290
   %1012 = zext i1 %1011 to i32
@@ -3155,7 +3155,7 @@ av1_upsample_intra_edge_c.exit.i:                 ; preds = %.lr.ph32.i.i, %._cr
   br label %av1_use_intra_edge_upsample.exit.thread.i297
 
 av1_use_intra_edge_upsample.exit.thread.i297:     ; preds = %av1_upsample_intra_edge_c.exit.i, %av1_use_intra_edge_upsample.exit.i293, %1049
-  %.0.i269289.i = phi i32 [ %1055, %av1_use_intra_edge_upsample.exit.i293 ], [ 1, %av1_upsample_intra_edge_c.exit.i ], [ 0, %1049 ]
+  %.0.i269289.i = phi i32 [ 1, %av1_upsample_intra_edge_c.exit.i ], [ %1055, %av1_use_intra_edge_upsample.exit.i293 ], [ 0, %1049 ]
   %1101 = add nsw i32 %.0243.i, -180
   %1102 = tail call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483558) %1101, i1 true)
   %1103 = icmp eq i32 %1101, 0
@@ -4192,7 +4192,7 @@ define internal fastcc range(i32 0, 4) i32 @intra_edge_filter_strength(i32 nound
   br label %46
 
 46:                                               ; preds = %28, %22, %38, %33, %45, %43, %31, %18, %14, %10
-  %.4 = phi i32 [ %spec.select34, %18 ], [ %spec.select41, %45 ], [ %spec.select, %10 ], [ %spec.select43, %38 ], [ %spec.select33, %14 ], [ %spec.select40, %43 ], [ %spec.select42, %33 ], [ %spec.select37, %31 ], [ %spec.select44, %22 ], [ %spec.select45, %28 ]
+  %.4 = phi i32 [ %spec.select, %10 ], [ %spec.select33, %14 ], [ %spec.select34, %18 ], [ %spec.select37, %31 ], [ %spec.select40, %43 ], [ %spec.select41, %45 ], [ %spec.select42, %33 ], [ %spec.select43, %38 ], [ %spec.select44, %22 ], [ %spec.select45, %28 ]
   ret i32 %.4
 }
 

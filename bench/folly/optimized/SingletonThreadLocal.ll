@@ -416,7 +416,7 @@ _ZNKSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4
   br i1 %100, label %_ZNSt13unordered_mapIPN5folly6detail25SingletonThreadLocalState10LocalCacheEmSt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_mEEE4findERSA_.exit, label %.lr.ph.i.i.i.i10, !llvm.loop !57
 
 _ZNSt13unordered_mapIPN5folly6detail25SingletonThreadLocalState10LocalCacheEmSt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_mEEE4findERSA_.exit: ; preds = %.lr.ph.i.i.i.i10, %.preheader, %84
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %.preheader ], [ %91, %84 ], [ %95, %.lr.ph.i.i.i.i10 ]
+  %.sroa.06.1.i.i = phi ptr [ %91, %84 ], [ %.sroa.06.0.i.i, %.preheader ], [ %95, %.lr.ph.i.i.i.i10 ]
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %102 = load i64, ptr %101, align 8, !tbaa !58
   %103 = add i64 %102, -1
@@ -1034,7 +1034,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheESt4pair
   br label %.body
 
 .loopexit:                                        ; preds = %55, %.noexc, %50
-  %.pn.i.i = phi ptr [ %66, %.noexc ], [ %51, %50 ], [ %57, %55 ]
+  %.pn.i.i = phi ptr [ %51, %50 ], [ %66, %.noexc ], [ %57, %55 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   %.fca.1.extract = extractvalue { ptr, i8 } %41, 1
   %68 = and i8 %.fca.1.extract, 1
@@ -1145,8 +1145,8 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheES4_SaIS
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS4_EEPNS6_10_Hash_nodeIS4_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

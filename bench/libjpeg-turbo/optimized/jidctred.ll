@@ -75,7 +75,7 @@ define void @jpeg_idct_4x4(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %.sink.split
 
 ._crit_edge:                                      ; preds = %15, %34, %30, %26, %22
-  %47 = phi i16 [ %20, %15 ], [ 0, %34 ], [ 0, %30 ], [ 0, %26 ], [ 0, %22 ]
+  %47 = phi i16 [ 0, %34 ], [ 0, %30 ], [ 0, %26 ], [ 0, %22 ], [ %20, %15 ]
   %48 = load i16, ptr %.0126130, align 2, !tbaa !32
   %49 = sext i16 %48 to i64
   %50 = load i16, ptr %.0125131, align 2, !tbaa !32
@@ -230,7 +230,7 @@ define void @jpeg_idct_4x4(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %231
 
 ._crit_edge137:                                   ; preds = %134, %156, %152, %148, %144
-  %170 = phi i32 [ %142, %134 ], [ 0, %156 ], [ 0, %152 ], [ 0, %148 ], [ 0, %144 ]
+  %170 = phi i32 [ 0, %156 ], [ 0, %152 ], [ 0, %148 ], [ 0, %144 ], [ %142, %134 ]
   %171 = load i32, ptr %.1124134, align 4, !tbaa !33
   %172 = sext i32 %171 to i64
   %173 = shl nsw i64 %172, 14
@@ -370,7 +370,7 @@ define void @jpeg_idct_2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %.sink.split
 
 ._crit_edge:                                      ; preds = %16, %27, %23
-  %38 = phi i16 [ %21, %16 ], [ 0, %27 ], [ 0, %23 ]
+  %38 = phi i16 [ 0, %27 ], [ 0, %23 ], [ %21, %16 ]
   %39 = load i16, ptr %.07784, align 2, !tbaa !32
   %40 = sext i16 %39 to i64
   %41 = load i16, ptr %.07883, align 2, !tbaa !32
@@ -472,7 +472,7 @@ define void @jpeg_idct_2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %147
 
 ._crit_edge89:                                    ; preds = %90, %105, %101
-  %117 = phi i32 [ %99, %90 ], [ 0, %105 ], [ 0, %101 ]
+  %117 = phi i32 [ 0, %105 ], [ 0, %101 ], [ %99, %90 ]
   %118 = load i32, ptr %.18086, align 4, !tbaa !33
   %119 = sext i32 %118 to i64
   %120 = shl nsw i64 %119, 15

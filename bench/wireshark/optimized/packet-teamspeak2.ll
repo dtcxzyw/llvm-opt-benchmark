@@ -1037,7 +1037,7 @@ define internal fastcc zeroext i1 @ts2_standard_find_fragments(ptr noundef %0, p
   br label %29
 
 29:                                               ; preds = %24, %20, %23
-  %.1 = phi i1 [ true, %20 ], [ %.not28, %24 ], [ true, %23 ]
+  %.1 = phi i1 [ true, %23 ], [ true, %20 ], [ %.not28, %24 ]
   %30 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 12)
   store i32 %30, ptr %1, align 4
   br label %32
@@ -1047,7 +1047,7 @@ define internal fastcc zeroext i1 @ts2_standard_find_fragments(ptr noundef %0, p
   br label %32
 
 32:                                               ; preds = %11, %29, %31
-  %.0 = phi i1 [ %.not29, %11 ], [ false, %31 ], [ %.1, %29 ]
+  %.0 = phi i1 [ %.1, %29 ], [ false, %31 ], [ %.not29, %11 ]
   ret i1 %.0
 }
 

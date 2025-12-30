@@ -721,7 +721,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   br label %278
 
 278:                                              ; preds = %.thread39, %273, %18, %.critedge37, %.loopexit, %.critedge, %277, %270
-  %.127 = phi i32 [ 0, %18 ], [ %21, %.critedge ], [ 0, %270 ], [ 0, %277 ], [ %266, %.loopexit ], [ 0, %273 ], [ -1497649742, %.critedge37 ], [ -12, %.thread39 ]
+  %.127 = phi i32 [ 0, %270 ], [ 0, %277 ], [ 0, %273 ], [ 0, %18 ], [ %21, %.critedge ], [ %266, %.loopexit ], [ -1497649742, %.critedge37 ], [ -12, %.thread39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.127
 }
@@ -1025,7 +1025,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   br i1 %167, label %.lr.ph150, label %._crit_edge151, !llvm.loop !106
 
 .loopexit:                                        ; preds = %.lr.ph141, %87, %143, %._crit_edge151, %128, %._crit_edge146, %._crit_edge142, %55, %51, %47, %._crit_edge, %115, %27
-  %.0 = phi i32 [ %19, %27 ], [ -12, %55 ], [ -22, %115 ], [ -12, %._crit_edge146 ], [ %141, %128 ], [ -12, %._crit_edge142 ], [ 0, %143 ], [ -12, %51 ], [ -12, %47 ], [ -12, %._crit_edge ], [ 0, %._crit_edge151 ], [ -12, %87 ], [ -12, %.lr.ph141 ]
+  %.0 = phi i32 [ %19, %27 ], [ -22, %115 ], [ -12, %._crit_edge ], [ -12, %47 ], [ -12, %51 ], [ -12, %55 ], [ -12, %._crit_edge142 ], [ -12, %._crit_edge146 ], [ %141, %128 ], [ 0, %._crit_edge151 ], [ 0, %143 ], [ -12, %87 ], [ -12, %.lr.ph141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -1742,7 +1742,7 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   br label %383
 
 383:                                              ; preds = %373, %357, %376, %365, %349
-  %.sink561 = phi float [ %361, %357 ], [ %382, %376 ], [ %353, %349 ], [ %372, %365 ], [ 0.000000e+00, %373 ]
+  %.sink561 = phi float [ %361, %357 ], [ %382, %376 ], [ %372, %365 ], [ %353, %349 ], [ 0.000000e+00, %373 ]
   %384 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv463
   store float %.sink561, ptr %384, align 4, !tbaa !64
   %indvars.iv.next464 = add nuw nsw i64 %indvars.iv463, 1
@@ -1844,7 +1844,7 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   unreachable
 
 ._crit_edge451:                                   ; preds = %427, %406, %404, %383, %339, %._crit_edge401, %277, %252, %249, %221, %213, %200, %183, %166, %121, %111, %98, %89, %79, %70, %.lr.ph450, %420, %.preheader382, %.preheader381, %.preheader380, %.preheader379, %279, %.preheader378, %.preheader377, %.preheader376, %.preheader375, %.preheader374, %.preheader373, %.preheader372, %.preheader371, %.preheader370, %.preheader369, %.preheader368, %.preheader367, %.preheader366, %.preheader365, %.preheader
-  %.sink565 = phi float [ 7.500000e-01, %.preheader382 ], [ 7.500000e-01, %.preheader381 ], [ 7.500000e-01, %.preheader380 ], [ 7.500000e-01, %.preheader379 ], [ 5.000000e-01, %279 ], [ 0x3FD51EB860000000, %.preheader378 ], [ 7.500000e-01, %.preheader377 ], [ 7.500000e-01, %.preheader376 ], [ 0x3FE5374BC0000000, %.preheader375 ], [ 7.500000e-01, %.preheader374 ], [ 5.000000e-01, %.preheader373 ], [ 0x3FE526E980000000, %.preheader372 ], [ 0x3FE526E980000000, %.preheader371 ], [ 0x3FEAE978E0000000, %.preheader370 ], [ 0x3FD2C08320000000, %.preheader369 ], [ 0x3FE526E980000000, %.preheader368 ], [ 5.000000e-01, %.preheader367 ], [ 5.000000e-01, %.preheader366 ], [ 5.000000e-01, %.preheader365 ], [ 0.000000e+00, %.preheader ], [ 7.500000e-01, %420 ], [ 7.500000e-01, %383 ], [ 7.500000e-01, %404 ], [ 7.500000e-01, %406 ], [ 0.000000e+00, %.lr.ph450 ], [ 5.000000e-01, %70 ], [ 5.000000e-01, %79 ], [ 5.000000e-01, %89 ], [ 0x3FE526E980000000, %98 ], [ 0x3FD2C08320000000, %111 ], [ 0x3FEAE978E0000000, %121 ], [ 0x3FE526E980000000, %166 ], [ 0x3FE526E980000000, %183 ], [ 5.000000e-01, %200 ], [ 7.500000e-01, %213 ], [ 0x3FE5374BC0000000, %221 ], [ 7.500000e-01, %249 ], [ 7.500000e-01, %252 ], [ 0x3FD51EB860000000, %277 ], [ 5.000000e-01, %._crit_edge401 ], [ 7.500000e-01, %339 ], [ 7.500000e-01, %427 ]
+  %.sink565 = phi float [ 0.000000e+00, %.preheader ], [ 5.000000e-01, %.preheader365 ], [ 5.000000e-01, %.preheader366 ], [ 5.000000e-01, %.preheader367 ], [ 0x3FE526E980000000, %.preheader368 ], [ 0x3FD2C08320000000, %.preheader369 ], [ 0x3FEAE978E0000000, %.preheader370 ], [ 0x3FE526E980000000, %.preheader371 ], [ 0x3FE526E980000000, %.preheader372 ], [ 5.000000e-01, %.preheader373 ], [ 7.500000e-01, %.preheader374 ], [ 0x3FE5374BC0000000, %.preheader375 ], [ 7.500000e-01, %.preheader376 ], [ 7.500000e-01, %.preheader377 ], [ 0x3FD51EB860000000, %.preheader378 ], [ 5.000000e-01, %279 ], [ 7.500000e-01, %.preheader379 ], [ 7.500000e-01, %.preheader380 ], [ 7.500000e-01, %.preheader381 ], [ 7.500000e-01, %.preheader382 ], [ 7.500000e-01, %420 ], [ 0.000000e+00, %.lr.ph450 ], [ 5.000000e-01, %70 ], [ 5.000000e-01, %79 ], [ 5.000000e-01, %89 ], [ 0x3FE526E980000000, %98 ], [ 0x3FD2C08320000000, %111 ], [ 0x3FEAE978E0000000, %121 ], [ 0x3FE526E980000000, %166 ], [ 0x3FE526E980000000, %183 ], [ 5.000000e-01, %200 ], [ 7.500000e-01, %213 ], [ 0x3FE5374BC0000000, %221 ], [ 7.500000e-01, %249 ], [ 7.500000e-01, %252 ], [ 0x3FD51EB860000000, %277 ], [ 5.000000e-01, %._crit_edge401 ], [ 7.500000e-01, %339 ], [ 7.500000e-01, %383 ], [ 7.500000e-01, %404 ], [ 7.500000e-01, %406 ], [ 7.500000e-01, %427 ]
   store float %.sink565, ptr %3, align 4, !tbaa !64
   ret void
 }
@@ -2020,8 +2020,8 @@ get_bsize.exit.thread170:                         ; preds = %8
   br label %get_sx.exit
 
 get_sx.exit:                                      ; preds = %8, %get_bsize.exit.thread, %get_bsize.exit.thread167, %get_bsize.exit.thread170
-  %.0.i152166 = phi float [ %67, %get_bsize.exit.thread170 ], [ %27, %get_bsize.exit.thread ], [ %46, %get_bsize.exit.thread167 ], [ 1.000000e+00, %8 ]
-  %.0.i153 = phi i32 [ %68, %get_bsize.exit.thread170 ], [ %30, %get_bsize.exit.thread ], [ %53, %get_bsize.exit.thread167 ], [ 0, %8 ]
+  %.0.i152166 = phi float [ %27, %get_bsize.exit.thread ], [ %46, %get_bsize.exit.thread167 ], [ %67, %get_bsize.exit.thread170 ], [ 1.000000e+00, %8 ]
+  %.0.i153 = phi i32 [ %30, %get_bsize.exit.thread ], [ %53, %get_bsize.exit.thread167 ], [ %68, %get_bsize.exit.thread170 ], [ 0, %8 ]
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %70 = load i32, ptr %69, align 4, !tbaa !79
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 32

@@ -527,7 +527,7 @@ ps_call_handler.exit:                             ; preds = %12, %14, %18
   br label %22
 
 22:                                               ; preds = %ps_call_handler.exit, %21, %19
-  %.sink = phi i64 [ %20, %19 ], [ -1, %21 ], [ 1, %ps_call_handler.exit ]
+  %.sink = phi i64 [ -1, %21 ], [ %20, %19 ], [ 1, %ps_call_handler.exit ]
   store i64 %.sink, ptr %2, align 8, !tbaa !62
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -902,7 +902,7 @@ define internal fastcc range(i32 -1, 1) i32 @verify_bool_return_type_userland_ca
   br label %18
 
 18:                                               ; preds = %1, %1, %.fold.split, %14, %16, %10, %12, %6, %8
-  %.0 = phi i32 [ 0, %10 ], [ -1, %1 ], [ -1, %14 ], [ -1, %1 ], [ -1, %6 ], [ -1, %8 ], [ 0, %12 ], [ -1, %16 ], [ 0, %.fold.split ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %8 ], [ -1, %6 ], [ 0, %12 ], [ 0, %10 ], [ -1, %16 ], [ -1, %14 ], [ 0, %.fold.split ], [ -1, %1 ]
   ret i32 %.0
 }
 

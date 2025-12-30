@@ -1680,8 +1680,8 @@ _ZN2cv10AutoBufferIjLm264EEC2Em.exit307:          ; preds = %.noexc306, %._crit_
   br label %.critedge, !llvm.loop !104
 
 .critedge:                                        ; preds = %.lr.ph351, %..critedge_crit_edge, %.lr.ph351.preheader
-  %.0267.lcssa.ph = phi i32 [ %191, %.lr.ph351.preheader ], [ %.0266349435, %..critedge_crit_edge ], [ %.0266349435, %.lr.ph351 ]
-  %.0265.lcssa.ph = phi i32 [ 0, %.lr.ph351.preheader ], [ %209, %..critedge_crit_edge ], [ %209, %.lr.ph351 ]
+  %.0267.lcssa.ph = phi i32 [ %.0266349435, %..critedge_crit_edge ], [ %191, %.lr.ph351.preheader ], [ %.0266349435, %.lr.ph351 ]
+  %.0265.lcssa.ph = phi i32 [ %209, %..critedge_crit_edge ], [ 0, %.lr.ph351.preheader ], [ %209, %.lr.ph351 ]
   %216 = getelementptr inbounds nuw i8, ptr %150, i64 %192
   %217 = load i8, ptr %216, align 1, !tbaa !99, !range !102, !noundef !103
   %218 = trunc nuw i8 %217 to i1
@@ -1697,7 +1697,7 @@ _ZN2cv10AutoBufferIjLm264EEC2Em.exit307:          ; preds = %.noexc306, %._crit_
   br label %224
 
 224:                                              ; preds = %220, %.critedge, %200, %196, %.lr.ph359
-  %.1262 = phi i32 [ %.0261358, %196 ], [ %.0261358, %.lr.ph359 ], [ %.0261358, %200 ], [ %221, %220 ], [ %.0261358, %.critedge ]
+  %.1262 = phi i32 [ %.0261358, %196 ], [ %.0261358, %200 ], [ %.0261358, %.lr.ph359 ], [ %221, %220 ], [ %.0261358, %.critedge ]
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %exitcond381.not = icmp eq i64 %indvars.iv.next378, %85
   br i1 %exitcond381.not, label %.preheader, label %.lr.ph359, !llvm.loop !105
@@ -1863,7 +1863,7 @@ _ZN2cv10AutoBufferIjLm264EED2Ev.exit315:          ; preds = %_ZN2cv10AutoBufferI
   br label %308
 
 308:                                              ; preds = %301, %299, %292, %290, %303, %294
-  %.0260 = phi double [ %307, %303 ], [ 0.000000e+00, %290 ], [ %298, %294 ], [ 1.000000e-04, %292 ], [ 0.000000e+00, %299 ], [ -1.000000e-04, %301 ]
+  %.0260 = phi double [ %298, %294 ], [ %307, %303 ], [ 0.000000e+00, %290 ], [ 1.000000e-04, %292 ], [ 0.000000e+00, %299 ], [ -1.000000e-04, %301 ]
   %309 = fcmp ogt double %285, 0.000000e+00
   br i1 %309, label %310, label %319
 
@@ -1898,7 +1898,7 @@ _ZN2cv10AutoBufferIjLm264EED2Ev.exit315:          ; preds = %_ZN2cv10AutoBufferI
   br label %328
 
 328:                                              ; preds = %321, %319, %312, %310, %323, %314
-  %.0259 = phi double [ %327, %323 ], [ 0.000000e+00, %310 ], [ %318, %314 ], [ 1.000000e-04, %312 ], [ 0.000000e+00, %319 ], [ -1.000000e-04, %321 ]
+  %.0259 = phi double [ %318, %314 ], [ %327, %323 ], [ 0.000000e+00, %310 ], [ 1.000000e-04, %312 ], [ 0.000000e+00, %319 ], [ -1.000000e-04, %321 ]
   %329 = fcmp ogt double %288, 0.000000e+00
   br i1 %329, label %330, label %339
 
@@ -1933,7 +1933,7 @@ _ZN2cv10AutoBufferIjLm264EED2Ev.exit315:          ; preds = %_ZN2cv10AutoBufferI
   br label %348
 
 348:                                              ; preds = %341, %339, %332, %330, %343, %334
-  %.0258 = phi double [ %347, %343 ], [ 0.000000e+00, %330 ], [ %338, %334 ], [ 1.000000e-04, %332 ], [ 0.000000e+00, %339 ], [ -1.000000e-04, %341 ]
+  %.0258 = phi double [ %338, %334 ], [ %347, %343 ], [ 0.000000e+00, %330 ], [ 1.000000e-04, %332 ], [ 0.000000e+00, %339 ], [ -1.000000e-04, %341 ]
   %349 = fadd double %.0260, %.0258
   %350 = fmul double %.0258, %.0258
   %351 = call double @llvm.fmuladd.f64(double %.0260, double %.0260, double %350)
@@ -2017,7 +2017,7 @@ _ZN2cv10AutoBufferIjLm264EED2Ev.exit315:          ; preds = %_ZN2cv10AutoBufferI
   br label %409
 
 409:                                              ; preds = %403, %399
-  %.0253 = phi float [ %., %399 ], [ %408, %403 ]
+  %.0253 = phi float [ %408, %403 ], [ %., %399 ]
   %410 = fptrunc double %.sroa.speculated to float
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %411 = fptrunc double %266 to float
@@ -3765,7 +3765,7 @@ _ZN2cvplIiLi2EEENS_3VecIT_XT0_EEERKS3_S5_.exit.critedge: ; preds = %.lr.ph, %.cr
   br label %.critedge
 
 .critedge:                                        ; preds = %198, %124, %_ZN2cvplIiLi2EEENS_3VecIT_XT0_EEERKS3_S5_.exit.critedge, %138, %202, %192, %131, %128
-  %.1124 = phi i32 [ %.0123179, %138 ], [ %.0123179, %131 ], [ %.0123179, %128 ], [ %137, %192 ], [ %.0123179, %198 ], [ %.0123179, %202 ], [ %.0123179, %_ZN2cvplIiLi2EEENS_3VecIT_XT0_EEERKS3_S5_.exit.critedge ], [ %.0123179, %124 ]
+  %.1124 = phi i32 [ %.0123179, %131 ], [ %.0123179, %128 ], [ %137, %192 ], [ %.0123179, %202 ], [ %.0123179, %138 ], [ %.0123179, %_ZN2cvplIiLi2EEENS_3VecIT_XT0_EEERKS3_S5_.exit.critedge ], [ %.0123179, %124 ], [ %.0123179, %198 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit, label %_ZN2cvplIiLi2EEENS_3VecIT_XT0_EEERKS3_S5_.exit.critedge, !llvm.loop !149

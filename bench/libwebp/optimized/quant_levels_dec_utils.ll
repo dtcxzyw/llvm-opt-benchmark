@@ -164,7 +164,7 @@ CountLevels.exit.i:                               ; preds = %65
   br label %84
 
 84:                                               ; preds = %80, %78, %76
-  %85 = phi i32 [ 0, %78 ], [ %83, %80 ], [ %77, %76 ]
+  %85 = phi i32 [ %83, %80 ], [ 0, %78 ], [ %77, %76 ]
   %86 = lshr i32 %85, 2
   %87 = trunc i32 %86 to i16
   %88 = getelementptr inbounds nuw i16, ptr %69, i64 %indvars.iv.i52.i
@@ -371,7 +371,7 @@ ApplyFilter.exit.loopexit:                        ; preds = %187
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %12, %.loopexit, %8, %5
-  %.025 = phi i32 [ 1, %12 ], [ 0, %5 ], [ 0, %8 ], [ 1, %.loopexit ], [ 0, %21 ]
+  %.025 = phi i32 [ 0, %5 ], [ 0, %8 ], [ 1, %.loopexit ], [ 1, %12 ], [ 0, %21 ]
   ret i32 %.025
 }
 

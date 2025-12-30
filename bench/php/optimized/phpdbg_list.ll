@@ -780,7 +780,7 @@ zend_hash_add_ptr.exit:                           ; preds = %zend_hash_add_ptr.e
   br label %62
 
 62:                                               ; preds = %13, %14, %zend_hash_add_ptr.exit, %23
-  %.0 = phi ptr [ %21, %zend_hash_add_ptr.exit ], [ null, %23 ], [ null, %14 ], [ null, %13 ]
+  %.0 = phi ptr [ null, %23 ], [ %21, %zend_hash_add_ptr.exit ], [ null, %14 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0

@@ -3325,7 +3325,7 @@ return.loopexit.split.loop.exit:                  ; preds = %_ZNK3irr3gui14CGUIT
   br label %return
 
 return:                                           ; preds = %for.inc, %if.end33.i, %for.inc62, %return.loopexit.split.loop.exit, %_ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit, %for.end, %if.end5, %if.end, %lor.lhs.false, %entry
-  %retval.4 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end5 ], [ 0, %for.end ], [ %i.0127, %_ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit ], [ %46, %return.loopexit.split.loop.exit ], [ %i.0127, %if.end33.i ], [ 1, %for.inc62 ], [ 0, %for.inc ]
+  %retval.4 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end5 ], [ 0, %for.end ], [ %i.0127, %_ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit ], [ %46, %return.loopexit.split.loop.exit ], [ 1, %for.inc62 ], [ %i.0127, %if.end33.i ], [ 0, %for.inc ]
   ret i32 %retval.4
 }
 
@@ -5047,7 +5047,7 @@ for.inc:                                          ; preds = %if.end42
   br i1 %.not, label %cleanup58, label %for.body, !llvm.loop !133
 
 cleanup58:                                        ; preds = %for.inc, %if.end42, %for.inc.us, %if.end42.us, %if.end18, %land.lhs.true.i, %if.end
-  %retval.4 = phi i32 [ -1, %land.lhs.true.i ], [ -1, %if.end ], [ -1, %if.end18 ], [ %i.0111.us, %if.end42.us ], [ -1, %for.inc.us ], [ -1, %for.inc ], [ %i.0111, %if.end42 ]
+  %retval.4 = phi i32 [ -1, %land.lhs.true.i ], [ -1, %if.end ], [ -1, %if.end18 ], [ -1, %for.inc.us ], [ %i.0111.us, %if.end42.us ], [ -1, %for.inc ], [ %i.0111, %if.end42 ]
   ret i32 %retval.4
 }
 
@@ -6106,7 +6106,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp.i.not, label %cleanup16, label %for.body
 
 cleanup16:                                        ; preds = %if.end, %for.body, %for.inc.us, %if.end.us, %for.body.us, %entry
-  %spec.select = phi ptr [ null, %entry ], [ %0, %for.body.us ], [ %call10.us, %if.end.us ], [ null, %for.inc.us ], [ %3, %for.body ], [ null, %if.end ]
+  %spec.select = phi ptr [ null, %entry ], [ %call10.us, %if.end.us ], [ null, %for.inc.us ], [ %0, %for.body.us ], [ null, %if.end ], [ %3, %for.body ]
   ret ptr %spec.select
 }
 

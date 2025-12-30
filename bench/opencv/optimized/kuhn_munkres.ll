@@ -1061,9 +1061,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit92:                  ; preds = %204, %_ZNSt6vectorI
   br i1 %213, label %.lr.ph18.split.preheader.i, label %_ZN2cv6detail8tracking11KuhnMunkres21CheckIfOptimumIsFoundEv.exit.thread
 
 .loopexit:                                        ; preds = %._crit_edge.us.i, %85, %.thread
-  %.pre = phi i32 [ %.pre.pre, %.thread ], [ %.pre154, %85 ], [ %.pre154, %._crit_edge.us.i ]
-  %214 = phi i64 [ %115, %.thread ], [ %52, %85 ], [ %52, %._crit_edge.us.i ]
-  %215 = phi ptr [ %113, %.thread ], [ %53, %85 ], [ %53, %._crit_edge.us.i ]
+  %.pre = phi i32 [ %.pre154, %85 ], [ %.pre.pre, %.thread ], [ %.pre154, %._crit_edge.us.i ]
+  %214 = phi i64 [ %52, %85 ], [ %115, %.thread ], [ %52, %._crit_edge.us.i ]
+  %215 = phi ptr [ %53, %85 ], [ %113, %.thread ], [ %53, %._crit_edge.us.i ]
   br label %.preheader126, !llvm.loop !81
 
 _ZN2cv6detail8tracking11KuhnMunkres21CheckIfOptimumIsFoundEv.exit.thread: ; preds = %_ZN2cv6detail8tracking11KuhnMunkres21CheckIfOptimumIsFoundEv.exit, %.critedge, %1

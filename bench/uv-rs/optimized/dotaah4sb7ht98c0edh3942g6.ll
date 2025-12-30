@@ -793,7 +793,7 @@ define internal void @"_ZN4core3ptr50drop_in_place$LT$uv_distribution..error..Er
   unreachable
 
 common.resume:                                    ; preds = %957, %962, %967, %1011, %1025, %1038, %952, %906, %921, %912, %917, %930, %943, %934, %939, %989, %980, %985, %845, %660, %687, %701, %706, %713, %735, %756, %764, %768, %782, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h3b0e4fc01ea2f559E.exit17.i", %796, %800, %804, %808, %426, %441, %447, %449, %462, %467, %472, %309, %189, %128, %207
-  %common.resume.op = phi { ptr, i32 } [ %846, %845 ], [ %129, %128 ], [ %208, %207 ], [ %190, %189 ], [ %310, %309 ], [ %473, %472 ], [ %809, %808 ], [ %448, %447 ], [ %427, %426 ], [ %442, %441 ], [ %450, %449 ], [ %463, %462 ], [ %468, %467 ], [ %765, %764 ], [ %707, %706 ], [ %714, %713 ], [ %661, %660 ], [ %.pn.i.i, %687 ], [ %702, %701 ], [ %736, %735 ], [ %769, %768 ], [ %.pn.i9.i, %756 ], [ %805, %804 ], [ %783, %782 ], [ %.pn.i, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h3b0e4fc01ea2f559E.exit17.i" ], [ %801, %800 ], [ %797, %796 ], [ %1039, %1038 ], [ %907, %906 ], [ %913, %917 ], [ %931, %930 ], [ %953, %952 ], [ %958, %957 ], [ %963, %962 ], [ %968, %967 ], [ %935, %939 ], [ %.pn, %1011 ], [ %1026, %1025 ], [ %913, %921 ], [ %913, %912 ], [ %935, %943 ], [ %935, %934 ], [ %981, %989 ], [ %981, %980 ], [ %981, %985 ]
+  %common.resume.op = phi { ptr, i32 } [ %208, %207 ], [ %129, %128 ], [ %190, %189 ], [ %310, %309 ], [ %448, %447 ], [ %427, %426 ], [ %442, %441 ], [ %450, %449 ], [ %463, %462 ], [ %468, %467 ], [ %473, %472 ], [ %714, %713 ], [ %661, %660 ], [ %.pn.i.i, %687 ], [ %702, %701 ], [ %707, %706 ], [ %736, %735 ], [ %769, %768 ], [ %.pn.i9.i, %756 ], [ %765, %764 ], [ %783, %782 ], [ %.pn.i, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h3b0e4fc01ea2f559E.exit17.i" ], [ %797, %796 ], [ %801, %800 ], [ %805, %804 ], [ %809, %808 ], [ %846, %845 ], [ %953, %952 ], [ %958, %957 ], [ %963, %962 ], [ %968, %967 ], [ %.pn, %1011 ], [ %1026, %1025 ], [ %1039, %1038 ], [ %907, %906 ], [ %913, %921 ], [ %913, %912 ], [ %913, %917 ], [ %931, %930 ], [ %935, %943 ], [ %935, %934 ], [ %935, %939 ], [ %981, %989 ], [ %981, %980 ], [ %981, %985 ]
   resume { ptr, i32 } %common.resume.op
 
 143:                                              ; preds = %1
@@ -4127,7 +4127,7 @@ define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$uv_distribution_typ
   br label %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h7b63d87dceca244cE.exit"
 
 common.resume:                                    ; preds = %161, %170, %93, %108, %114, %175, %166, %119, %48
-  %common.resume.op = phi { ptr, i32 } [ %49, %48 ], [ %176, %175 ], [ %120, %119 ], [ %167, %166 ], [ %109, %108 ], [ %115, %114 ], [ %94, %93 ], [ %171, %170 ], [ %162, %161 ]
+  %common.resume.op = phi { ptr, i32 } [ %49, %48 ], [ %120, %119 ], [ %167, %166 ], [ %176, %175 ], [ %115, %114 ], [ %94, %93 ], [ %109, %108 ], [ %171, %170 ], [ %162, %161 ]
   resume { ptr, i32 } %common.resume.op
 
 48:                                               ; preds = %46, %41, %39
@@ -5905,7 +5905,7 @@ define void @_ZN15uv_requirements5Error9from_dist17h4af15987d9dac652E(ptr dead_o
           to label %31 unwind label %29
 
 _ZN21uv_distribution_types10dist_error13DistErrorKind9from_dist17h164c00fdbf5cae24E.exit: ; preds = %.noexc2, %11, %9, %.noexc
-  %.sroa.0.0.i = phi i8 [ 3, %.noexc ], [ %..i, %9 ], [ 2, %11 ], [ %.1.i, %.noexc2 ]
+  %.sroa.0.0.i = phi i8 [ 3, %.noexc ], [ %..i, %9 ], [ %.1.i, %.noexc2 ], [ 2, %11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 160, i1 false)
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !2035
@@ -6705,7 +6705,7 @@ define void @_ZN15uv_requirements13required_dist17h49785dba53a6104aE(ptr dead_on
           to label %361 unwind label %358
 
 "_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h3b0e4fc01ea2f559E.exit": ; preds = %486, %464, %.body, %361
-  %.pn113.pn.pn = phi { ptr, i32 } [ %487, %486 ], [ %465, %464 ], [ %.pn113.pn.ph, %361 ], [ %.pn.pn, %.body ]
+  %.pn113.pn.pn = phi { ptr, i32 } [ %.pn113.pn.ph, %361 ], [ %.pn.pn, %.body ], [ %465, %464 ], [ %487, %486 ]
   resume { ptr, i32 } %.pn113.pn.pn
 
 361:                                              ; preds = %360, %291
@@ -6714,7 +6714,7 @@ define void @_ZN15uv_requirements13required_dist17h49785dba53a6104aE(ptr dead_on
           to label %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h3b0e4fc01ea2f559E.exit" unwind label %358
 
 .body:                                            ; preds = %371, %153, %362, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17h804367870c524991E.exit"
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17h804367870c524991E.exit" ], [ %154, %153 ], [ %363, %362 ], [ %372, %371 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17h804367870c524991E.exit" ], [ %363, %362 ], [ %154, %153 ], [ %372, %371 ]
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.4810286183617026763"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20)
           to label %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h3b0e4fc01ea2f559E.exit" unwind label %358
 
@@ -7079,8 +7079,8 @@ define { ptr, ptr } @"_ZN61_$LT$uv_requirements..Error$u20$as$u20$core..error..E
   br label %21
 
 21:                                               ; preds = %1, %16, %15, %10, %5
-  %.sroa.6.0 = phi ptr [ %20, %16 ], [ %9, %5 ], [ %14, %10 ], [ undef, %15 ], [ @anon.2a694cc915ec3106339f18b39b5e9305.149, %1 ]
-  %.sroa.0.0 = phi ptr [ %19, %16 ], [ %8, %5 ], [ %13, %10 ], [ null, %15 ], [ %0, %1 ]
+  %.sroa.6.0 = phi ptr [ %9, %5 ], [ %14, %10 ], [ undef, %15 ], [ %20, %16 ], [ @anon.2a694cc915ec3106339f18b39b5e9305.149, %1 ]
+  %.sroa.0.0 = phi ptr [ %8, %5 ], [ %13, %10 ], [ null, %15 ], [ %19, %16 ], [ %0, %1 ]
   %22 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %23 = insertvalue { ptr, ptr } %22, ptr %.sroa.6.0, 1
   ret { ptr, ptr } %23

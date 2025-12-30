@@ -68,7 +68,7 @@ define void @lv_draw_sw_transform(ptr noundef %0, ptr noundef readonly captures(
   br label %52
 
 52:                                               ; preds = %46, %48
-  %.0172 = phi i32 [ %51, %48 ], [ %47, %46 ]
+  %.0172 = phi i32 [ %47, %46 ], [ %51, %48 ]
   switch i32 %7, label %57 [
     i32 20, label %53
     i32 18, label %53

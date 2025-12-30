@@ -277,13 +277,13 @@ define void @_ZN3gmx15LegacySimulator3runEv(ptr noundef nonnull align 8 derefere
   ret void
 
 .sink.split79:                                    ; preds = %47, %.sink.split78, %37, %.sink.split
-  %.sink = phi ptr [ %30, %37 ], [ %30, %.sink.split ], [ %40, %.sink.split78 ], [ %40, %47 ]
-  %.pn37.pn.pn.ph = phi { ptr, i32 } [ %38, %37 ], [ %.pn.pn67.ph, %.sink.split ], [ %.pn37.pn74.ph, %.sink.split78 ], [ %48, %47 ]
+  %.sink = phi ptr [ %30, %.sink.split ], [ %30, %37 ], [ %40, %.sink.split78 ], [ %40, %47 ]
+  %.pn37.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn67.ph, %.sink.split ], [ %38, %37 ], [ %.pn37.pn74.ph, %.sink.split78 ], [ %48, %47 ]
   call void @__cxa_free_exception(ptr %.sink) #17
   br label %50
 
 50:                                               ; preds = %.sink.split79, %47, %37
-  %.pn37.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %48, %47 ], [ %.pn37.pn.pn.ph, %.sink.split79 ]
+  %.pn37.pn.pn = phi { ptr, i32 } [ %48, %47 ], [ %38, %37 ], [ %.pn37.pn.pn.ph, %.sink.split79 ]
   resume { ptr, i32 } %.pn37.pn.pn
 
 51:                                               ; preds = %44, %34

@@ -1605,7 +1605,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit:           ; preds = %_ZNSt6vectorIfSaIfE
   br label %234
 
 234:                                              ; preds = %.loopexit104, %.loopexit.split-lp105, %232, %231
-  %.pn37 = phi { ptr, i32 } [ %.pn29.pn.pn.pn.pn.pn.pn, %231 ], [ %233, %232 ], [ %lpad.loopexit106, %.loopexit104 ], [ %lpad.loopexit.split-lp107, %.loopexit.split-lp105 ]
+  %.pn37 = phi { ptr, i32 } [ %233, %232 ], [ %.pn29.pn.pn.pn.pn.pn.pn, %231 ], [ %lpad.loopexit106, %.loopexit104 ], [ %lpad.loopexit.split-lp107, %.loopexit.split-lp105 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #22
   br label %235
 

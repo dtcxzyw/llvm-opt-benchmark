@@ -380,8 +380,8 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
   br i1 %.not96, label %.invoke, label %75
 
 .invoke:                                          ; preds = %70, %207, %172, %162, %216, %180, %84
-  %73 = phi ptr [ %209, %207 ], [ %85, %84 ], [ %217, %216 ], [ %164, %162 ], [ %181, %180 ], [ %173, %172 ], [ %72, %70 ]
-  %74 = phi ptr [ @.str.7, %207 ], [ @.str.2, %84 ], [ @.str.8, %216 ], [ @.str.4, %162 ], [ @.str.6, %180 ], [ @.str.5, %172 ], [ @.str.1, %70 ]
+  %73 = phi ptr [ %85, %84 ], [ %181, %180 ], [ %217, %216 ], [ %164, %162 ], [ %173, %172 ], [ %209, %207 ], [ %72, %70 ]
+  %74 = phi ptr [ @.str.2, %84 ], [ @.str.6, %180 ], [ @.str.8, %216 ], [ @.str.4, %162 ], [ @.str.5, %172 ], [ @.str.7, %207 ], [ @.str.1, %70 ]
   invoke void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %73, i32 noundef 3, ptr noundef nonnull %74)
           to label %.loopexit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1305,7 +1305,7 @@ _ZZ10drawDetailP11duDebugDrawP11dtTileCacheiiiEN21TileCacheBuildContextD2Ev.exit
           to label %114 unwind label %.split
 
 114:                                              ; preds = %105, %107, %101, %92, %89, %84, %78, %75, %68
-  %115 = phi i1 [ false, %78 ], [ true, %68 ], [ false, %92 ], [ true, %75 ], [ true, %84 ], [ true, %89 ], [ true, %101 ], [ %106, %105 ], [ false, %107 ]
+  %115 = phi i1 [ true, %68 ], [ true, %75 ], [ false, %78 ], [ true, %84 ], [ true, %89 ], [ false, %92 ], [ true, %101 ], [ %106, %105 ], [ false, %107 ]
   %116 = load ptr, ptr %14, align 8
   %117 = load ptr, ptr %7, align 8
   invoke void @_Z20dtFreeTileCacheLayerP16dtTileCacheAllocP16dtTileCacheLayer(ptr noundef %116, ptr noundef %117)
@@ -1692,7 +1692,7 @@ switch.lookup:                                    ; preds = %20
   br label %24
 
 24:                                               ; preds = %switch.lookup, %20
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %20 ]
+  %.0 = phi i32 [ 0, %20 ], [ %switch.load, %switch.lookup ]
   %25 = load float, ptr %3, align 4
   %26 = load float, ptr %9, align 4
   %27 = load float, ptr %10, align 4
@@ -2167,8 +2167,8 @@ define dso_local void @_ZN20Sample_TempObstacles7saveAllEPKc(ptr noundef nonnull
   br label %27
 
 27:                                               ; preds = %23, %.lr.ph.split
-  %28 = phi i32 [ %spec.select, %23 ], [ %19, %.lr.ph.split ]
-  %29 = phi i32 [ %spec.select41, %23 ], [ %18, %.lr.ph.split ]
+  %28 = phi i32 [ %19, %.lr.ph.split ], [ %spec.select, %23 ]
+  %29 = phi i32 [ %18, %.lr.ph.split ], [ %spec.select41, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
@@ -3830,7 +3830,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15LinearAllocator5allocEm(ptr noun
   br label %14
 
 14:                                               ; preds = %5, %2, %12
-  %.0 = phi ptr [ null, %2 ], [ %13, %12 ], [ null, %5 ]
+  %.0 = phi ptr [ %13, %12 ], [ null, %2 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -3870,7 +3870,7 @@ define linkonce_odr dso_local void @_ZN11MeshProcess7processEP21dtNavMeshCreateP
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread, %.lr.ph, %.lr.ph, %.lr.ph, %10, %11
-  %.sink = phi i16 [ 2, %10 ], [ 5, %11 ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.thread ]
+  %.sink = phi i16 [ 5, %11 ], [ 2, %10 ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.lr.ph ], [ 1, %.thread ]
   %12 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
   store i16 %.sink, ptr %12, align 2
   br label %13

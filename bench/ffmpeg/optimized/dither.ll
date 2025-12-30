@@ -383,7 +383,7 @@ define range(i32 -22, 1) i32 @swri_dither_init(ptr noundef %0, i32 noundef %1, i
   br label %102
 
 102:                                              ; preds = %._crit_edge, %98, %101, %3, %42
-  %.069 = phi i32 [ -22, %3 ], [ 0, %42 ], [ 0, %101 ], [ 0, %98 ], [ 0, %._crit_edge ]
+  %.069 = phi i32 [ 0, %42 ], [ -22, %3 ], [ 0, %101 ], [ 0, %98 ], [ 0, %._crit_edge ]
   ret i32 %.069
 }
 

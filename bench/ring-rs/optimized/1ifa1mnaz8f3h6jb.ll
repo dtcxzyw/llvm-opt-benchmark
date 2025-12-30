@@ -457,8 +457,8 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint16private_exponent15Priva
   br label %14
 
 14:                                               ; preds = %12, %13, %3
-  %.sroa.4.0 = phi i64 [ undef, %13 ], [ undef, %3 ], [ %.fca.1.extract, %12 ]
-  %.sroa.0.1 = phi ptr [ null, %13 ], [ null, %3 ], [ %.fca.0.extract, %12 ]
+  %.sroa.4.0 = phi i64 [ undef, %3 ], [ undef, %13 ], [ %.fca.1.extract, %12 ]
+  %.sroa.0.1 = phi ptr [ null, %3 ], [ null, %13 ], [ %.fca.0.extract, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %15 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %16 = insertvalue { ptr, i64 } %15, i64 %.sroa.4.0, 1
@@ -506,8 +506,8 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint16private_exponent15Priva
   br label %14
 
 14:                                               ; preds = %12, %13, %3
-  %.sroa.4.0 = phi i64 [ undef, %13 ], [ undef, %3 ], [ %.fca.1.extract, %12 ]
-  %.sroa.0.1 = phi ptr [ null, %13 ], [ null, %3 ], [ %.fca.0.extract, %12 ]
+  %.sroa.4.0 = phi i64 [ undef, %3 ], [ undef, %13 ], [ %.fca.1.extract, %12 ]
+  %.sroa.0.1 = phi ptr [ null, %3 ], [ null, %13 ], [ %.fca.0.extract, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %15 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %16 = insertvalue { ptr, i64 } %15, i64 %.sroa.4.0, 1
@@ -1020,8 +1020,8 @@ define void @_ZN4ring4aead7aes_gcm12aes_gcm_seal17h973d2aed269bad6eE(ptr noalias
   br label %_ZN4ring4aead3gcm7Context6is_avx17hae37613b32f14cdeE.exit.thread
 
 _ZN4ring4aead3gcm7Context6is_avx17hae37613b32f14cdeE.exit.thread: ; preds = %45, %34, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit"
-  %.sroa.6.0 = phi i64 [ %55, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit" ], [ %6, %45 ], [ %6, %34 ]
-  %.sroa.0.0 = phi ptr [ %56, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit" ], [ %5, %45 ], [ %5, %34 ]
+  %.sroa.6.0 = phi i64 [ %55, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit" ], [ %6, %34 ], [ %6, %45 ]
+  %.sroa.0.0 = phi ptr [ %56, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.exit" ], [ %5, %34 ], [ %5, %45 ]
   %57 = and i64 %.sroa.6.0, -16
   %58 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %57
   %59 = and i64 %.sroa.6.0, 15

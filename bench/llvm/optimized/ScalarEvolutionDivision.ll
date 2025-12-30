@@ -1008,9 +1008,9 @@ define dso_local void @_ZN4llvm12SCEVDivision12visitMulExprEPKNS_11SCEVMulExprE(
   br label %.thread51
 
 .thread51:                                        ; preds = %.thread51.sink.split, %54, %48
-  %.sink74 = phi i32 [ %55, %54 ], [ %49, %48 ], [ %.pre.i42, %.thread51.sink.split ]
-  %.sink72 = phi ptr [ %52, %54 ], [ %22, %48 ], [ %.sink72.ph, %.thread51.sink.split ]
-  %.3.ph = phi i8 [ 1, %54 ], [ 0, %48 ], [ %.3.ph.ph, %.thread51.sink.split ]
+  %.sink74 = phi i32 [ %49, %48 ], [ %55, %54 ], [ %.pre.i42, %.thread51.sink.split ]
+  %.sink72 = phi ptr [ %22, %48 ], [ %52, %54 ], [ %.sink72.ph, %.thread51.sink.split ]
+  %.3.ph = phi i8 [ 0, %48 ], [ 1, %54 ], [ %.3.ph.ph, %.thread51.sink.split ]
   %59 = load ptr, ptr %3, align 8, !tbaa !39
   %60 = zext i32 %.sink74 to i64
   %61 = getelementptr inbounds nuw ptr, ptr %59, i64 %60
@@ -2333,7 +2333,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEPKNS_4SCEVENS_12DenseMapInfoIS4_
   unreachable
 
 _ZN4llvm18SCEVRewriteVisitorINS_21SCEVParameterRewriterEE17visitPtrToIntExprEPKNS_16SCEVPtrToIntExprE.exit: ; preds = %.critedge.i, %320, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEPKNS_4SCEVENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit.i, %2, %370, %226, %_ZN4llvm18SCEVRewriteVisitorINS_21SCEVParameterRewriterEE5visitEPKNS_4SCEVE.exit70, %174, %_ZN4llvm18SCEVRewriteVisitorINS_21SCEVParameterRewriterEE5visitEPKNS_4SCEVE.exit58, %122, %_ZN4llvm18SCEVRewriteVisitorINS_21SCEVParameterRewriterEE5visitEPKNS_4SCEVE.exit46, %70, %_ZN4llvm18SCEVRewriteVisitorINS_21SCEVParameterRewriterEE5visitEPKNS_4SCEVE.exit, %2, %2, %334, %332, %330, %328, %326, %324, %233, %231
-  %.0 = phi ptr [ %372, %370 ], [ %1, %2 ], [ %1, %2 ], [ %1, %_ZN4llvm18SCEVRewriteVisitorINS_21SCEVParameterRewriterEE5visitEPKNS_4SCEVE.exit ], [ %1, %_ZN4llvm18SCEVRewriteVisitorINS_21SCEVParameterRewriterEE5visitEPKNS_4SCEVE.exit46 ], [ %1, %_ZN4llvm18SCEVRewriteVisitorINS_21SCEVParameterRewriterEE5visitEPKNS_4SCEVE.exit58 ], [ %232, %231 ], [ %234, %233 ], [ %1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEPKNS_4SCEVENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit.i ], [ %325, %324 ], [ %327, %326 ], [ %329, %328 ], [ %331, %330 ], [ %333, %332 ], [ %335, %334 ], [ %1, %_ZN4llvm18SCEVRewriteVisitorINS_21SCEVParameterRewriterEE5visitEPKNS_4SCEVE.exit70 ], [ %74, %70 ], [ %126, %122 ], [ %178, %174 ], [ %230, %226 ], [ %1, %2 ], [ %323, %.critedge.i ], [ %1, %320 ]
+  %.0 = phi ptr [ %232, %231 ], [ %234, %233 ], [ %325, %324 ], [ %327, %326 ], [ %329, %328 ], [ %331, %330 ], [ %333, %332 ], [ %335, %334 ], [ %1, %2 ], [ %1, %2 ], [ %74, %70 ], [ %1, %_ZN4llvm18SCEVRewriteVisitorINS_21SCEVParameterRewriterEE5visitEPKNS_4SCEVE.exit ], [ %126, %122 ], [ %1, %_ZN4llvm18SCEVRewriteVisitorINS_21SCEVParameterRewriterEE5visitEPKNS_4SCEVE.exit46 ], [ %178, %174 ], [ %1, %_ZN4llvm18SCEVRewriteVisitorINS_21SCEVParameterRewriterEE5visitEPKNS_4SCEVE.exit58 ], [ %230, %226 ], [ %1, %_ZN4llvm18SCEVRewriteVisitorINS_21SCEVParameterRewriterEE5visitEPKNS_4SCEVE.exit70 ], [ %372, %370 ], [ %1, %2 ], [ %1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEPKNS_4SCEVENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit.i ], [ %323, %.critedge.i ], [ %1, %320 ]
   ret ptr %.0
 }
 
@@ -2642,7 +2642,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit: ; preds =
   br label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit:  ; preds = %2, %.critedge, %85
-  %86 = phi ptr [ %83, %85 ], [ %83, %.critedge ], [ %1, %2 ]
+  %86 = phi ptr [ %83, %.critedge ], [ %83, %85 ], [ %1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %86
 }
@@ -2810,7 +2810,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit: ; preds =
   br label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit:  ; preds = %2, %.critedge, %85
-  %86 = phi ptr [ %83, %85 ], [ %83, %.critedge ], [ %1, %2 ]
+  %86 = phi ptr [ %83, %.critedge ], [ %83, %85 ], [ %1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %86
 }
@@ -2984,7 +2984,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit: ; preds =
   br label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit:  ; preds = %2, %.critedge, %91
-  %92 = phi ptr [ %89, %91 ], [ %89, %.critedge ], [ %1, %2 ]
+  %92 = phi ptr [ %89, %.critedge ], [ %89, %91 ], [ %1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %92
 }
@@ -3152,7 +3152,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit: ; preds =
   br label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit:  ; preds = %2, %.critedge, %85
-  %86 = phi ptr [ %83, %85 ], [ %83, %.critedge ], [ %1, %2 ]
+  %86 = phi ptr [ %83, %.critedge ], [ %83, %85 ], [ %1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %86
 }
@@ -3320,7 +3320,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit: ; preds =
   br label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit:  ; preds = %2, %.critedge, %85
-  %86 = phi ptr [ %83, %85 ], [ %83, %.critedge ], [ %1, %2 ]
+  %86 = phi ptr [ %83, %.critedge ], [ %83, %85 ], [ %1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %86
 }
@@ -3488,7 +3488,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit: ; preds =
   br label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit:  ; preds = %2, %.critedge, %85
-  %86 = phi ptr [ %83, %85 ], [ %83, %.critedge ], [ %1, %2 ]
+  %86 = phi ptr [ %83, %.critedge ], [ %83, %85 ], [ %1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %86
 }
@@ -3656,7 +3656,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit: ; preds =
   br label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit:  ; preds = %2, %.critedge, %85
-  %86 = phi ptr [ %83, %85 ], [ %83, %.critedge ], [ %1, %2 ]
+  %86 = phi ptr [ %83, %.critedge ], [ %83, %85 ], [ %1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %86
 }
@@ -3824,7 +3824,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit: ; preds =
   br label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit:  ; preds = %2, %.critedge, %85
-  %86 = phi ptr [ %83, %85 ], [ %83, %.critedge ], [ %1, %2 ]
+  %86 = phi ptr [ %83, %.critedge ], [ %83, %85 ], [ %1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %86
 }
@@ -3972,7 +3972,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPKNS_4SCEVES3_Lj4ENS_12
   br label %34
 
 34:                                               ; preds = %27, %27, %29
-  %.1 = phi ptr [ %.02738, %27 ], [ %.02738, %27 ], [ %33, %29 ]
+  %.1 = phi ptr [ %.02738, %27 ], [ %33, %29 ], [ %.02738, %27 ]
   %.028.add = add nuw nsw i64 %.028.idx37, 16
   %.not31 = icmp eq i64 %.028.add, 64
   br i1 %.not31, label %25, label %27, !llvm.loop !123

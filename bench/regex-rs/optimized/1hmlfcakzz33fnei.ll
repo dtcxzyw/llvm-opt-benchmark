@@ -370,7 +370,7 @@ define hidden void @_ZN5regex5error5Error21from_meta_build_error17h10d0766a295b3
   br label %.body
 
 .body:                                            ; preds = %40, %27, %9
-  %eh.lpad-body = phi { ptr, i32 } [ %28, %27 ], [ %10, %9 ], [ %41, %40 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %10, %9 ], [ %28, %27 ], [ %41, %40 ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..error..BuildErrorKind$GT$17h928c0d9add7aa9afE.llvm.13084666244534616040"(ptr noalias noundef nonnull align 8 dereferenceable(136) %1)
           to label %"_ZN4core3ptr60drop_in_place$LT$regex_automata..meta..error..BuildError$GT$17h03c9c90584f60c35E.exit" unwind label %48
 

@@ -300,8 +300,8 @@ Abc_TtClear.exit:                                 ; preds = %48, %.lr.ph.prehead
   br label %Vec_IntGrow.exit.i.i
 
 Vec_IntGrow.exit.i.i:                             ; preds = %77, %75, %85, %83, %79, %71
-  %.val81116 = phi ptr [ %.val81118, %71 ], [ %.val81118, %79 ], [ %78, %77 ], [ %76, %75 ], [ %84, %83 ], [ %86, %85 ]
-  %87 = phi i32 [ %45, %71 ], [ %45, %79 ], [ %69, %77 ], [ %69, %75 ], [ %70, %83 ], [ %70, %85 ]
+  %.val81116 = phi ptr [ %.val81118, %79 ], [ %.val81118, %71 ], [ %76, %75 ], [ %78, %77 ], [ %84, %83 ], [ %86, %85 ]
+  %87 = phi i32 [ %45, %79 ], [ %45, %71 ], [ %69, %75 ], [ %69, %77 ], [ %70, %83 ], [ %70, %85 ]
   %88 = zext nneg i32 %.val to i64
   %89 = shl nuw nsw i64 %88, 2
   %scevgep.i.i = getelementptr i8, ptr %.val81116, i64 %89

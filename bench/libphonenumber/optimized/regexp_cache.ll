@@ -1018,7 +1018,7 @@ _ZN5boost11unique_lockINS_5mutexEED2Ev.exit:      ; preds = %90, %85
   ret ptr %.09
 
 93:                                               ; preds = %71, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEED2Ev.exit21, %25
-  %.pn.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %72, %71 ], [ %.pn, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEED2Ev.exit21 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %.pn, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEED2Ev.exit21 ], [ %72, %71 ]
   %94 = load i8, ptr %9, align 8, !tbaa !61, !range !63, !noundef !64
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %96, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22

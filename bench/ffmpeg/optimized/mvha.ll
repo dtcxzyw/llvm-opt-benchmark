@@ -321,8 +321,8 @@ bits_read_nz_be.exit232:                          ; preds = %bits_read_bit_be.ex
   br label %154
 
 154:                                              ; preds = %149, %148
-  %155 = phi i32 [ %93, %148 ], [ %.pre, %149 ]
-  %.1186 = phi i32 [ %.0185263, %148 ], [ %153, %149 ]
+  %155 = phi i32 [ %.pre, %149 ], [ %93, %148 ]
+  %.1186 = phi i32 [ %153, %149 ], [ %.0185263, %148 ]
   %156 = add i8 %.0188262, 1
   %.not204 = icmp slt i32 %.1186, %155
   br i1 %.not204, label %92, label %.critedge212, !llvm.loop !59
@@ -510,8 +510,8 @@ bits_peek_be.exit._crit_edge.i.us:                ; preds = %bits_peek_be.exit.i
   br label %bits_priv_set_idx_be.exit.i.us
 
 bits_priv_set_idx_be.exit.i.us:                   ; preds = %246, %243, %236
-  %256 = phi i32 [ %240, %243 ], [ %255, %246 ], [ %240, %236 ]
-  %257 = phi i64 [ %238, %243 ], [ %253, %246 ], [ %238, %236 ]
+  %256 = phi i32 [ %255, %246 ], [ %240, %243 ], [ %240, %236 ]
+  %257 = phi i64 [ %253, %246 ], [ %238, %243 ], [ %238, %236 ]
   %258 = add nsw i32 %234, 64
   %259 = zext nneg i32 %258 to i64
   %260 = lshr i64 %257, %259
@@ -559,8 +559,8 @@ bits_priv_set_idx_be.exit.i.us:                   ; preds = %246, %243, %236
   br label %bits_priv_set_idx_be.exit30.i.us
 
 bits_priv_set_idx_be.exit30.i.us:                 ; preds = %280, %277, %271
-  %290 = phi i32 [ %274, %277 ], [ %289, %280 ], [ %274, %271 ]
-  %.val.i.i.i26.i.us = phi i64 [ %273, %277 ], [ %287, %280 ], [ %273, %271 ]
+  %290 = phi i32 [ %289, %280 ], [ %274, %277 ], [ %274, %271 ]
+  %.val.i.i.i26.i.us = phi i64 [ %287, %280 ], [ %273, %277 ], [ %273, %271 ]
   %291 = add nsw i32 %267, 64
   %292 = zext nneg i32 %291 to i64
   %293 = lshr i64 %.val.i.i.i26.i.us, %292
@@ -625,7 +625,7 @@ bits_read_vlc_be.exit.us:                         ; preds = %bits_priv_set_idx_b
   br i1 %exitcond292.not, label %.thread239, label %.preheader258.split, !llvm.loop !64
 
 .thread239:                                       ; preds = %._crit_edge, %.critedge, %.preheader258, %28
-  %328 = phi i32 [ %39, %28 ], [ %66, %.critedge ], [ %178, %.preheader258 ], [ %327, %._crit_edge ]
+  %328 = phi i32 [ %39, %28 ], [ %178, %.preheader258 ], [ %66, %.critedge ], [ %327, %._crit_edge ]
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %330 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -696,8 +696,8 @@ bits_read_vlc_be.exit.us:                         ; preds = %bits_priv_set_idx_b
   %exitcond300.not = icmp eq i64 %indvars.iv.next298, 3
   br i1 %exitcond300.not, label %334, label %336, !llvm.loop !68
 
-.thread:                                          ; preds = %92, %.lr.ph269.split, %.lr.ph269.split.us, %bits_read_vlc_be.exit.us, %67, %68, %169, %.critedge212, %173, %25, %24, %18, %12, %4, %334
-  %.0166 = phi i32 [ -1094995529, %12 ], [ -1094995529, %4 ], [ %335, %334 ], [ -542398533, %67 ], [ -1094995529, %68 ], [ -1094995529, %18 ], [ -542398533, %24 ], [ %26, %25 ], [ -1094995529, %.lr.ph269.split.us ], [ %171, %169 ], [ -1094995529, %.critedge212 ], [ %174, %173 ], [ -1094995529, %.lr.ph269.split ], [ -1094995529, %bits_read_vlc_be.exit.us ], [ -1094995529, %92 ]
+.thread:                                          ; preds = %92, %.lr.ph269.split, %.lr.ph269.split.us, %bits_read_vlc_be.exit.us, %67, %68, %173, %169, %.critedge212, %25, %24, %18, %12, %4, %334
+  %.0166 = phi i32 [ %335, %334 ], [ -542398533, %67 ], [ -1094995529, %4 ], [ -1094995529, %12 ], [ -1094995529, %18 ], [ %26, %25 ], [ -542398533, %24 ], [ %174, %173 ], [ %171, %169 ], [ -1094995529, %.critedge212 ], [ -1094995529, %68 ], [ -1094995529, %bits_read_vlc_be.exit.us ], [ -1094995529, %.lr.ph269.split.us ], [ -1094995529, %.lr.ph269.split ], [ -1094995529, %92 ]
   ret i32 %.0166
 }
 
@@ -824,8 +824,8 @@ define internal fastcc i32 @build_vlc(ptr noundef %0, ptr noundef %1) unnamed_ad
   br label %49
 
 49:                                               ; preds = %43, %37, %33
-  %.170 = phi i32 [ %.067..071, %43 ], [ %.069, %33 ], [ %.069, %37 ]
-  %.168 = phi i32 [ %.071..067, %43 ], [ %.067, %33 ], [ %.067, %37 ]
+  %.170 = phi i32 [ %.069, %37 ], [ %.069, %33 ], [ %.067..071, %43 ]
+  %.168 = phi i32 [ %.067, %37 ], [ %.067, %33 ], [ %.071..067, %43 ]
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %.not79 = icmp eq i64 %indvars.iv.next95, %32
   br i1 %.not79, label %50, label %33, !llvm.loop !77
@@ -884,7 +884,7 @@ define internal fastcc i32 @build_vlc(ptr noundef %0, ptr noundef %1) unnamed_ad
   br label %77
 
 77:                                               ; preds = %.thread, %73
-  %.3 = phi i32 [ -1094995529, %.thread ], [ %76, %73 ]
+  %.3 = phi i32 [ %76, %73 ], [ -1094995529, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

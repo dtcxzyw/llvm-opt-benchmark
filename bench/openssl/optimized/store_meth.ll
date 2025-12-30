@@ -137,8 +137,8 @@ define internal fastcc ptr @inner_loader_fetch(ptr noundef nonnull %0, ptr nound
   br i1 %.not59, label %.thread, label %43
 
 .thread:                                          ; preds = %15, %20, %17
-  %22 = phi i1 [ true, %17 ], [ false, %20 ], [ true, %15 ]
-  %23 = phi i32 [ 0, %17 ], [ %18, %20 ], [ 0, %15 ]
+  %22 = phi i1 [ false, %20 ], [ true, %17 ], [ true, %15 ]
+  %23 = phi i32 [ %18, %20 ], [ 0, %17 ], [ 0, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) @__const.inner_loader_fetch.mcm, i64 56, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -430,7 +430,7 @@ define i32 @OSSL_STORE_LOADER_names_do_all(ptr noundef readonly captures(address
   br label %14
 
 14:                                               ; preds = %5, %3, %8
-  %.0 = phi i32 [ 0, %3 ], [ %13, %8 ], [ 1, %5 ]
+  %.0 = phi i32 [ %13, %8 ], [ 0, %3 ], [ 1, %5 ]
   ret i32 %.0
 }
 
@@ -571,7 +571,7 @@ define internal i32 @put_loader_in_store(ptr noundef %0, ptr noundef %1, ptr nou
   br label %21
 
 21:                                               ; preds = %15, %6, %10, %19
-  %.0 = phi i32 [ %20, %19 ], [ 0, %6 ], [ 0, %10 ], [ 0, %15 ]
+  %.0 = phi i32 [ %20, %19 ], [ 0, %10 ], [ 0, %6 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -811,7 +811,7 @@ OSSL_STORE_LOADER_free.exit.i:                    ; preds = %110, %CRYPTO_DOWN_R
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 44, i32 noundef 116, ptr noundef null) #6
   br label %111
 
-111:                                              ; preds = %3, %new_loader.exit.thread.i, %OSSL_STORE_LOADER_free.exit.i
+111:                                              ; preds = %3, %OSSL_STORE_LOADER_free.exit.i, %new_loader.exit.thread.i
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %113 = load i8, ptr %112, align 8
   %114 = or i8 %113, 1

@@ -80,8 +80,8 @@ get_unit_factor.exit:                             ; preds = %25
   store i32 22, ptr %11, align 4, !tbaa !7
   br label %40
 
-select.unfold:                                    ; preds = %25, %23, %21, %19
-  %.0.i.ph = phi i64 [ 1048576, %23 ], [ 1, %19 ], [ 1024, %21 ], [ 1073741824, %25 ]
+select.unfold:                                    ; preds = %25, %19, %21, %23
+  %.0.i.ph = phi i64 [ 1048576, %23 ], [ 1024, %21 ], [ 1, %19 ], [ 1073741824, %25 ]
   %27 = icmp slt i64 %12, 0
   br i1 %27, label %28, label %33
 
@@ -112,7 +112,7 @@ select.unfold:                                    ; preds = %25, %23, %21, %19
   br label %40
 
 40:                                               ; preds = %10, %.thread, %38, %get_unit_factor.exit, %18
-  %.0 = phi i32 [ 0, %get_unit_factor.exit ], [ 0, %18 ], [ 0, %38 ], [ 1, %.thread ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %38 ], [ 1, %.thread ], [ 0, %get_unit_factor.exit ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %43
 
@@ -225,7 +225,7 @@ define dso_local range(i32 0, 2) i32 @git_parse_ulong(ptr noundef %0, ptr nounde
   br i1 %.not6.i.i, label %select.unfold.i, label %git_parse_unsigned.exit.thread6.sink.split
 
 select.unfold.i:                                  ; preds = %22, %20, %18, %16
-  %.0.i.ph.i = phi i64 [ 1048576, %20 ], [ 1, %16 ], [ 1024, %18 ], [ 1073741824, %22 ]
+  %.0.i.ph.i = phi i64 [ 1048576, %20 ], [ 1024, %18 ], [ 1, %16 ], [ 1073741824, %22 ]
   %mul.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.0.i.ph.i, i64 %10)
   %mul.ov.i = extractvalue { i64, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %git_parse_unsigned.exit.thread6.sink.split, label %25
@@ -236,7 +236,7 @@ git_parse_unsigned.exit.thread:                   ; preds = %2, %4
   br label %27
 
 git_parse_unsigned.exit.thread6.sink.split:       ; preds = %select.unfold.i, %22, %13, %6
-  %.sink = phi i32 [ 22, %22 ], [ 22, %13 ], [ 22, %6 ], [ 34, %select.unfold.i ]
+  %.sink = phi i32 [ 22, %6 ], [ 22, %13 ], [ 22, %22 ], [ 34, %select.unfold.i ]
   store i32 %.sink, ptr %8, align 4, !tbaa !7
   br label %git_parse_unsigned.exit.thread6
 
@@ -251,7 +251,7 @@ git_parse_unsigned.exit.thread6:                  ; preds = %git_parse_unsigned.
   br label %27
 
 27:                                               ; preds = %git_parse_unsigned.exit.thread6, %git_parse_unsigned.exit.thread, %25
-  %.0 = phi i32 [ 1, %25 ], [ 0, %git_parse_unsigned.exit.thread6 ], [ 0, %git_parse_unsigned.exit.thread ]
+  %.0 = phi i32 [ 1, %25 ], [ 0, %git_parse_unsigned.exit.thread ], [ 0, %git_parse_unsigned.exit.thread6 ]
   ret i32 %.0
 }
 
@@ -332,14 +332,14 @@ get_unit_factor.exit:                             ; preds = %23
   store i32 22, ptr %9, align 4, !tbaa !7
   br label %26
 
-select.unfold:                                    ; preds = %23, %21, %19, %17
-  %.0.i.ph = phi double [ 0x4130000000000000, %21 ], [ 1.000000e+00, %17 ], [ 1.024000e+03, %19 ], [ 0x41D0000000000000, %23 ]
+select.unfold:                                    ; preds = %23, %17, %19, %21
+  %.0.i.ph = phi double [ 0x4130000000000000, %21 ], [ 1.024000e+03, %19 ], [ 1.000000e+00, %17 ], [ 0x41D0000000000000, %23 ]
   %25 = fmul double %10, %.0.i.ph
   store double %25, ptr %1, align 8, !tbaa !14
   br label %26
 
 26:                                               ; preds = %8, %select.unfold, %get_unit_factor.exit, %16, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %16 ], [ 1, %select.unfold ], [ 0, %get_unit_factor.exit ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %16 ], [ 1, %select.unfold ], [ 0, %get_unit_factor.exit ], [ 0, %6 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -389,7 +389,7 @@ define dso_local range(i32 -1, 2) i32 @git_parse_maybe_bool_text(ptr noundef rea
   br label %16
 
 16:                                               ; preds = %14, %10, %12, %4, %6, %8, %2, %1
-  %.0 = phi i32 [ 0, %10 ], [ 1, %4 ], [ 0, %2 ], [ 1, %1 ], [ 1, %8 ], [ 1, %6 ], [ %spec.select, %14 ], [ 0, %12 ]
+  %.0 = phi i32 [ 1, %1 ], [ 0, %2 ], [ 1, %8 ], [ 1, %6 ], [ 1, %4 ], [ 0, %12 ], [ 0, %10 ], [ %spec.select, %14 ]
   ret i32 %.0
 }
 
@@ -422,7 +422,7 @@ git_parse_int.exit.thread:                        ; preds = %5
   br label %12
 
 12:                                               ; preds = %git_parse_int.exit.thread, %1, %7
-  %.0 = phi i32 [ %3, %1 ], [ %11, %7 ], [ -1, %git_parse_int.exit.thread ]
+  %.0 = phi i32 [ %11, %7 ], [ %3, %1 ], [ -1, %git_parse_int.exit.thread ]
   ret i32 %.0
 }
 
@@ -458,8 +458,8 @@ define dso_local i32 @git_env_bool(ptr noundef %0, i32 noundef %1) local_unnamed
   tail call void (ptr, ...) @die(ptr noundef %16, ptr noundef nonnull %4, ptr noundef %0) #14
   unreachable
 
-git_parse_maybe_bool.exit.thread:                 ; preds = %10, %5, %2
-  %.0 = phi i32 [ %1, %2 ], [ %14, %10 ], [ %6, %5 ]
+git_parse_maybe_bool.exit.thread:                 ; preds = %5, %10, %2
+  %.0 = phi i32 [ %1, %2 ], [ %6, %5 ], [ %14, %10 ]
   ret i32 %.0
 }
 

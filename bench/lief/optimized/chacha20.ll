@@ -620,7 +620,7 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %36, %32, %33
-  %.018 = phi i32 [ -1, %32 ], [ -1, %33 ], [ 0, %36 ], [ 0, %35 ]
+  %.018 = phi i32 [ -1, %33 ], [ -1, %32 ], [ 0, %36 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.018
 }

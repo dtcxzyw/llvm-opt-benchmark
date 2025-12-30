@@ -321,7 +321,7 @@ define internal noundef i32 @do_hsvkey_slice(ptr noundef readonly captures(none)
   br label %do_hsvkey_pixel.exit
 
 do_hsvkey_pixel.exit:                             ; preds = %105, %125, %127
-  %.0.i = phi i32 [ 0, %105 ], [ %134, %127 ], [ %84, %125 ]
+  %.0.i = phi i32 [ %134, %127 ], [ 0, %105 ], [ %84, %125 ]
   %135 = trunc i32 %.0.i to i8
   %136 = load ptr, ptr %49, align 8, !tbaa !65
   %137 = load i32, ptr %50, align 4, !tbaa !66
@@ -504,7 +504,7 @@ define internal noundef i32 @do_hsvkey16_slice(ptr noundef readonly captures(non
   br label %do_hsvkey_pixel.exit.us
 
 do_hsvkey_pixel.exit.us:                          ; preds = %112, %132
-  %.0.i.us = phi i32 [ %.mux, %112 ], [ %139, %132 ]
+  %.0.i.us = phi i32 [ %139, %132 ], [ %.mux, %112 ]
   %140 = trunc i32 %.0.i.us to i16
   %141 = getelementptr inbounds nuw i16, ptr %74, i64 %indvars.iv
   store i16 %140, ptr %141, align 2, !tbaa !71
@@ -683,7 +683,7 @@ define internal noundef i32 @do_hsvhold_slice(ptr noundef readonly captures(none
   br label %do_hsvkey_pixel.exit.us
 
 do_hsvkey_pixel.exit.us:                          ; preds = %127, %125
-  %.0.i.us = phi i32 [ %84, %125 ], [ %134, %127 ]
+  %.0.i.us = phi i32 [ %134, %127 ], [ %84, %125 ]
   %135 = icmp sgt i32 %.0.i.us, 0
   br i1 %135, label %136, label %do_hsvkey_pixel.exit.thread.us
 
@@ -889,7 +889,7 @@ define internal noundef i32 @do_hsvhold16_slice(ptr noundef readonly captures(no
   br label %do_hsvkey_pixel.exit.us
 
 do_hsvkey_pixel.exit.us:                          ; preds = %130, %129
-  %.0.i.us = phi i32 [ %65, %129 ], [ %137, %130 ]
+  %.0.i.us = phi i32 [ %137, %130 ], [ %65, %129 ]
   %138 = icmp sgt i32 %.0.i.us, 0
   br i1 %138, label %139, label %do_hsvkey_pixel.exit.thread.us
 

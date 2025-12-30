@@ -207,7 +207,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1363,7 +1363,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
   br i1 %.not146.i, label %.sink.split179.i, label %408
 
 .sink.split179.i:                                 ; preds = %.noexc130, %.noexc125, %.noexc124, %347, %340, %.noexc121, %275
-  %.sink180.i = phi i32 [ 13, %340 ], [ 7, %.noexc121 ], [ 13, %.noexc124 ], [ 13, %347 ], [ 13, %275 ], [ 13, %.noexc125 ], [ 13, %.noexc130 ]
+  %.sink180.i = phi i32 [ 13, %340 ], [ 13, %347 ], [ 13, %275 ], [ 7, %.noexc121 ], [ 13, %.noexc125 ], [ 13, %.noexc124 ], [ 13, %.noexc130 ]
   store i32 %.sink180.i, ptr %12, align 4, !tbaa !14
   br label %408
 
@@ -1628,7 +1628,7 @@ _ZL18writeConverterDataP8ConvDataPKcS2_P10UErrorCode.exit: ; preds = %488, %486,
           to label %523 unwind label %.loopexit.split-lp
 
 .thread144:                                       ; preds = %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit106, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108, %167, %507
-  %.3.ph = phi i32 [ 15, %167 ], [ 15, %507 ], [ %156, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit106 ], [ %180, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108 ]
+  %.3.ph = phi i32 [ 15, %507 ], [ 15, %167 ], [ %156, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit106 ], [ %180, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %527
 
@@ -1640,7 +1640,7 @@ _ZL18writeConverterDataP8ConvDataPKcS2_P10UErrorCode.exit: ; preds = %488, %486,
   br i1 %.not86, label %._crit_edge, label %110, !llvm.loop !76
 
 525:                                              ; preds = %.loopexit, %.loopexit.split-lp, %137, %149, %434, %135
-  %.pn.pn.pn = phi { ptr, i32 } [ %136, %135 ], [ %138, %137 ], [ %150, %149 ], [ %435, %434 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %136, %135 ], [ %150, %149 ], [ %138, %137 ], [ %435, %434 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11) #19
   br label %528
@@ -1650,7 +1650,7 @@ _ZL18writeConverterDataP8ConvDataPKcS2_P10UErrorCode.exit: ; preds = %488, %486,
   br label %527
 
 527:                                              ; preds = %.thread144, %._crit_edge
-  %.7 = phi i32 [ %.3.ph, %.thread144 ], [ %526, %._crit_edge ]
+  %.7 = phi i32 [ %526, %._crit_edge ], [ %.3.ph, %.thread144 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %529
@@ -2245,7 +2245,7 @@ _ZL10readHeaderP8ConvDataP11_FileStreamP10UErrorCode.exit: ; preds = %167, %172,
   br label %222
 
 222:                                              ; preds = %_ZL10readHeaderP8ConvDataP11_FileStreamP10UErrorCode.exit.thread, %213, %219, %186, %_ZL10readHeaderP8ConvDataP11_FileStreamP10UErrorCode.exit, %3, %17
-  %.039 = phi i8 [ 0, %186 ], [ 0, %17 ], [ 0, %3 ], [ 0, %_ZL10readHeaderP8ConvDataP11_FileStreamP10UErrorCode.exit ], [ %.0, %219 ], [ %.0, %213 ], [ 0, %_ZL10readHeaderP8ConvDataP11_FileStreamP10UErrorCode.exit.thread ]
+  %.039 = phi i8 [ 0, %17 ], [ 0, %3 ], [ 0, %_ZL10readHeaderP8ConvDataP11_FileStreamP10UErrorCode.exit ], [ 0, %186 ], [ %.0, %219 ], [ %.0, %213 ], [ 0, %_ZL10readHeaderP8ConvDataP11_FileStreamP10UErrorCode.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i8 %.039
 }

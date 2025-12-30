@@ -2456,7 +2456,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit94.i:                ; preds = %798, %.loopexit.spl
   br label %.body76.i
 
 .body76.i:                                        ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit94.i, %744, %683, %.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit.i.i, %585
-  %.pn50.pn.pn.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp10.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ], [ %586, %585 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit9.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %.pn50.i, %_ZNSt6vectorIlSaIlEED2Ev.exit94.i ], [ %745, %744 ], [ %684, %683 ]
+  %.pn50.pn.pn.i = phi { ptr, i32 } [ %586, %585 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit9.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp10.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ], [ %.pn50.i, %_ZNSt6vectorIlSaIlEED2Ev.exit94.i ], [ %745, %744 ], [ %684, %683 ]
   call void @_ZNSt6vectorIS_IN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #19
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #19
   br label %.body
@@ -2994,7 +2994,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_S_relocateEP
   br label %.body76.i223
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1_.exit.i.i225: ; preds = %.noexc13.i.i, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i.i.i297, %913, %912
-  %.2.i.i = phi i64 [ %.116.i.i, %912 ], [ %914, %913 ], [ %914, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i.i.i297 ], [ %914, %.noexc13.i.i ]
+  %.2.i.i = phi i64 [ %914, %913 ], [ %.116.i.i, %912 ], [ %914, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i.i.i297 ], [ %914, %.noexc13.i.i ]
   %984 = getelementptr inbounds nuw i8, ptr %.sroa.01.015.i.i, i64 8
   %.not8.i.i226 = icmp eq ptr %984, %910
   br i1 %.not8.i.i226, label %._crit_edge.i.i227, label %.lr.ph.i.i220
@@ -3461,7 +3461,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit94.i253:             ; preds = %1124, %.loopexit.sp
   br label %.body76.i223
 
 .body76.i223:                                     ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit94.i253, %1070, %1009, %.loopexit.split-lp.loopexit.split-lp.i.i309, %.loopexit.split-lp.loopexit.i.i313, %.loopexit.i.i221, %907
-  %.pn50.pn.pn.i224 = phi { ptr, i32 } [ %lpad.loopexit.split-lp10.i.i310, %.loopexit.split-lp.loopexit.split-lp.i.i309 ], [ %908, %907 ], [ %lpad.loopexit.i.i222, %.loopexit.i.i221 ], [ %lpad.loopexit9.i.i314, %.loopexit.split-lp.loopexit.i.i313 ], [ %.pn50.i251, %_ZNSt6vectorIlSaIlEED2Ev.exit94.i253 ], [ %1071, %1070 ], [ %1010, %1009 ]
+  %.pn50.pn.pn.i224 = phi { ptr, i32 } [ %908, %907 ], [ %lpad.loopexit.i.i222, %.loopexit.i.i221 ], [ %lpad.loopexit9.i.i314, %.loopexit.split-lp.loopexit.i.i313 ], [ %lpad.loopexit.split-lp10.i.i310, %.loopexit.split-lp.loopexit.split-lp.i.i309 ], [ %.pn50.i251, %_ZNSt6vectorIlSaIlEED2Ev.exit94.i253 ], [ %1071, %1070 ], [ %1010, %1009 ]
   call void @_ZNSt6vectorIS_IN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #19
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #19
   br label %.body
@@ -4347,7 +4347,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7
   ret i32 0
 
 .body:                                            ; preds = %.preheader.i, %.preheader.i74, %.preheader119.i, %.preheader119.i174, %.body67.i, %.body.i, %.body.thread.i, %.body76.i, %.body.i115, %.body.thread.i110, %.body.thread.i162, %.body.i169, %.body76.i223, %1310, %.body.thread.i65, %.body.i70, %.body59.i, %.body380, %.body366, %.body353, %.body348, %.body343, %.body338, %.body333, %.body328, %.body323, %.body319
-  %.pn55.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn, %.body380 ], [ %.pn50.pn.pn.pn, %.body366 ], [ %.pn45.pn.pn.pn, %.body353 ], [ %.pn, %.body319 ], [ %.pn43, %.body348 ], [ %.pn41, %.body343 ], [ %.pn39, %.body338 ], [ %.pn37, %.body333 ], [ %.pn35, %.body328 ], [ %.pn33, %.body323 ], [ %.pn.pn.pn.pn.pn.pn.pn.i71, %.preheader.i74 ], [ %.pn44.pn.pn.i, %.body67.i ], [ %.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %.body.thread.i ], [ %.pn.pn.pn.pn.pn.pn.pn.i116, %.preheader119.i ], [ %.pn38.i, %.body59.i ], [ %.pn.pn.pn.pn.pn.pn.pn.i71, %.body.i70 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.ph.i66, %.body.thread.i65 ], [ %.pn.pn.pn.pn.pn.pn.pn.i170, %.preheader119.i174 ], [ %.pn50.pn.pn.i, %.body76.i ], [ %.pn.pn.pn.pn.pn.pn.pn.i116, %.body.i115 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.ph.i111, %.body.thread.i110 ], [ %1311, %1310 ], [ %.pn50.pn.pn.i224, %.body76.i223 ], [ %.pn.pn.pn.pn.pn.pn.pn.i170, %.body.i169 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.ph.i163, %.body.thread.i162 ], [ %.pn.pn.pn.pn.pn.pn.pn.i, %.preheader.i ]
+  %.pn55.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn.pn, %.body380 ], [ %.pn50.pn.pn.pn, %.body366 ], [ %.pn45.pn.pn.pn, %.body353 ], [ %.pn43, %.body348 ], [ %.pn41, %.body343 ], [ %.pn39, %.body338 ], [ %.pn37, %.body333 ], [ %.pn35, %.body328 ], [ %.pn33, %.body323 ], [ %.pn, %.body319 ], [ %.pn44.pn.pn.i, %.body67.i ], [ %.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.ph.i, %.body.thread.i ], [ %.pn38.i, %.body59.i ], [ %.pn.pn.pn.pn.pn.pn.pn.i71, %.body.i70 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.ph.i66, %.body.thread.i65 ], [ %.pn50.pn.pn.i, %.body76.i ], [ %.pn.pn.pn.pn.pn.pn.pn.i116, %.body.i115 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.ph.i111, %.body.thread.i110 ], [ %1311, %1310 ], [ %.pn50.pn.pn.i224, %.body76.i223 ], [ %.pn.pn.pn.pn.pn.pn.pn.i170, %.body.i169 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.ph.i163, %.body.thread.i162 ], [ %.pn.pn.pn.pn.pn.pn.pn.i170, %.preheader119.i174 ], [ %.pn.pn.pn.pn.pn.pn.pn.i116, %.preheader119.i ], [ %.pn.pn.pn.pn.pn.pn.pn.i71, %.preheader.i74 ], [ %.pn.pn.pn.pn.pn.pn.pn.i, %.preheader.i ]
   call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %86) #19
   resume { ptr, i32 } %.pn55.pn.pn.pn.pn
 }
@@ -4500,7 +4500,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1
   br label %common.resume
 
 common.resume:                                    ; preds = %146, %88, %137, %20, %79
-  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %80, %79 ], [ %.pn.pn, %146 ], [ %138, %137 ], [ %89, %88 ]
+  %common.resume.op = phi { ptr, i32 } [ %80, %79 ], [ %21, %20 ], [ %.pn.pn, %146 ], [ %138, %137 ], [ %89, %88 ]
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #19
   resume { ptr, i32 } %common.resume.op
 
@@ -5084,7 +5084,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %72, %59, %_
   br i1 %.not.i, label %"_ZZL17SubtreeRenameTestRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaIS7_EERKN32pxrInternal_v0_24__pxrReserved__7SdfPathESE_ENK3$_1clEv.exit", label %29
 
 common.resume:                                    ; preds = %154, %88, %136, %22, %76, %78
-  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %79, %78 ], [ %77, %76 ], [ %.pn.pn.pn.pn.pn, %154 ], [ %137, %136 ], [ %89, %88 ]
+  %common.resume.op = phi { ptr, i32 } [ %79, %78 ], [ %77, %76 ], [ %23, %22 ], [ %.pn.pn.pn.pn.pn, %154 ], [ %137, %136 ], [ %89, %88 ]
   call void @_ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #19
   resume { ptr, i32 } %common.resume.op
 

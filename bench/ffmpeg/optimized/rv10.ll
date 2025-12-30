@@ -108,9 +108,9 @@ define range(i32 -32768, 32768) i32 @ff_rv_decode_dc(ptr noundef captures(none) 
   br label %get_vlc2.exit
 
 get_vlc2.exit:                                    ; preds = %19, %28
-  %.064.i = phi i32 [ %6, %19 ], [ %30, %28 ]
-  %.062.i = phi i32 [ %23, %19 ], [ %44, %28 ]
-  %.0.i = phi i32 [ %26, %19 ], [ %47, %28 ]
+  %.064.i = phi i32 [ %30, %28 ], [ %6, %19 ]
+  %.062.i = phi i32 [ %44, %28 ], [ %23, %19 ]
+  %.0.i = phi i32 [ %47, %28 ], [ %26, %19 ]
   %48 = add i32 %.0.i, %.064.i
   %49 = tail call i32 @llvm.umin.i32(i32 %8, i32 %48)
   store i32 %49, ptr %5, align 8, !tbaa !4
@@ -150,9 +150,9 @@ get_vlc2.exit:                                    ; preds = %19, %28
   br label %get_vlc2.exit11
 
 get_vlc2.exit11:                                  ; preds = %50, %59
-  %.064.i8 = phi i32 [ %6, %50 ], [ %61, %59 ]
-  %.062.i9 = phi i32 [ %54, %50 ], [ %75, %59 ]
-  %.0.i10 = phi i32 [ %57, %50 ], [ %78, %59 ]
+  %.064.i8 = phi i32 [ %61, %59 ], [ %6, %50 ]
+  %.062.i9 = phi i32 [ %75, %59 ], [ %54, %50 ]
+  %.0.i10 = phi i32 [ %78, %59 ], [ %57, %50 ]
   %79 = add i32 %.0.i10, %.064.i8
   %80 = tail call i32 @llvm.umin.i32(i32 %8, i32 %79)
   store i32 %80, ptr %5, align 8, !tbaa !4
@@ -272,7 +272,7 @@ define internal range(i32 -2147483648, 1) i32 @rv10_decode_init(ptr noundef %0) 
   br label %57
 
 57:                                               ; preds = %15, %8, %55, %48, %7
-  %.0 = phi i32 [ -1094995529, %7 ], [ 0, %55 ], [ %13, %8 ], [ -1163346256, %48 ], [ %16, %15 ]
+  %.0 = phi i32 [ -1094995529, %7 ], [ -1163346256, %48 ], [ 0, %55 ], [ %13, %8 ], [ %16, %15 ]
   ret i32 %.0
 }
 
@@ -1505,8 +1505,8 @@ rv10_decode_packet.exit.loopexit:                 ; preds = %643, %641
   %695 = load i32, ptr %5, align 8, !tbaa !71
   br label %.thread
 
-.thread:                                          ; preds = %.thread.i, %501, %48, %45, %25, %rv10_decode_picture_header.exit.thread.thread198.i, %rv10_decode_picture_header.exit.thread.thread.i, %.thread189.i, %rv10_decode_picture_header.exit.thread.i, %498, %._crit_edge212.i, %520, %681, %673, %4, %694, %18
-  %.092 = phi i32 [ %676, %673 ], [ -1094995529, %18 ], [ %683, %681 ], [ 0, %4 ], [ %695, %694 ], [ -1094995529, %.thread189.i ], [ -1094995529, %520 ], [ -1094995529, %rv10_decode_picture_header.exit.thread.i ], [ -1094995529, %498 ], [ -1094995529, %rv10_decode_picture_header.exit.thread.thread198.i ], [ -1094995529, %._crit_edge212.i ], [ -1094995529, %rv10_decode_picture_header.exit.thread.thread.i ], [ %513, %.thread.i ], [ -1094995529, %45 ], [ -1094995529, %48 ], [ -1094995529, %501 ], [ -1094995529, %25 ]
+.thread:                                          ; preds = %.thread.i, %501, %45, %48, %25, %rv10_decode_picture_header.exit.thread.thread198.i, %.thread189.i, %rv10_decode_picture_header.exit.thread.i, %rv10_decode_picture_header.exit.thread.thread.i, %520, %498, %._crit_edge212.i, %681, %673, %4, %694, %18
+  %.092 = phi i32 [ -1094995529, %18 ], [ %695, %694 ], [ 0, %4 ], [ %676, %673 ], [ %683, %681 ], [ -1094995529, %rv10_decode_picture_header.exit.thread.thread198.i ], [ -1094995529, %.thread189.i ], [ -1094995529, %rv10_decode_picture_header.exit.thread.i ], [ -1094995529, %rv10_decode_picture_header.exit.thread.thread.i ], [ -1094995529, %520 ], [ -1094995529, %498 ], [ -1094995529, %._crit_edge212.i ], [ -1094995529, %501 ], [ %513, %.thread.i ], [ -1094995529, %25 ], [ -1094995529, %48 ], [ -1094995529, %45 ]
   ret i32 %.092
 }
 

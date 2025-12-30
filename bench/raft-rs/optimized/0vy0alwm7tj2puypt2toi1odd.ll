@@ -364,11 +364,11 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
   unreachable
 
 common.resume.i:                                  ; preds = %62, %.body4.i.i, %53
-  %common.resume.op.i = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body.i.i, %.body4.i.i ], [ %63, %62 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body4.i.i ], [ %54, %53 ], [ %63, %62 ]
   resume { ptr, i32 } %common.resume.op.i
 
 .body4.i.i:                                       ; preds = %42, %29, %20, %17
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %30, %29 ], [ %21, %20 ], [ %18, %17 ], [ %43, %42 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %18, %17 ], [ %21, %20 ], [ %30, %29 ], [ %43, %42 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..acc..FieldAccessor$GT$$GT$17ha00ac1bbe79c261fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #20
           to label %common.resume.i unwind label %55, !noalias !9
 
@@ -536,11 +536,11 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
   unreachable
 
 common.resume.i:                                  ; preds = %48, %.body4.i.i, %39
-  %common.resume.op.i = phi { ptr, i32 } [ %40, %39 ], [ %eh.lpad-body.i.i, %.body4.i.i ], [ %49, %48 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body4.i.i ], [ %40, %39 ], [ %49, %48 ]
   resume { ptr, i32 } %common.resume.op.i
 
 .body4.i.i:                                       ; preds = %28, %19, %16
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %20, %19 ], [ %17, %16 ], [ %29, %28 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %17, %16 ], [ %20, %19 ], [ %29, %28 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..acc..FieldAccessor$GT$$GT$17ha00ac1bbe79c261fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #20
           to label %common.resume.i unwind label %41, !noalias !44
 
@@ -1192,11 +1192,11 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
   unreachable
 
 common.resume.i:                                  ; preds = %252, %.body4.i.i, %243
-  %common.resume.op.i = phi { ptr, i32 } [ %244, %243 ], [ %eh.lpad-body.i.i, %.body4.i.i ], [ %253, %252 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body4.i.i ], [ %244, %243 ], [ %253, %252 ]
   resume { ptr, i32 } %common.resume.op.i
 
 .body4.i.i:                                       ; preds = %232, %219, %206, %193, %180, %167, %154, %141, %128, %115, %102, %89, %76, %63, %50, %37, %30
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %220, %219 ], [ %38, %37 ], [ %51, %50 ], [ %64, %63 ], [ %77, %76 ], [ %90, %89 ], [ %103, %102 ], [ %116, %115 ], [ %129, %128 ], [ %142, %141 ], [ %155, %154 ], [ %168, %167 ], [ %181, %180 ], [ %194, %193 ], [ %207, %206 ], [ %31, %30 ], [ %233, %232 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %31, %30 ], [ %38, %37 ], [ %51, %50 ], [ %64, %63 ], [ %77, %76 ], [ %90, %89 ], [ %103, %102 ], [ %116, %115 ], [ %129, %128 ], [ %142, %141 ], [ %155, %154 ], [ %168, %167 ], [ %181, %180 ], [ %194, %193 ], [ %207, %206 ], [ %220, %219 ], [ %233, %232 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..acc..FieldAccessor$GT$$GT$17ha00ac1bbe79c261fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #20
           to label %common.resume.i unwind label %245, !noalias !70
 
@@ -1293,7 +1293,7 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
   unreachable
 
 common.resume.i:                                  ; preds = %26, %17, %13
-  %common.resume.op.i = phi { ptr, i32 } [ %14, %13 ], [ %14, %17 ], [ %27, %26 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %14, %17 ], [ %14, %13 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN10raft_proto6protos7eraftpb21file_descriptor_proto28_$u7b$$u7b$closure$u7d$$u7d$17hcfffc61a4166f8a8E.exit.i": ; preds = %8
@@ -1532,11 +1532,11 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
   unreachable
 
 common.resume.i:                                  ; preds = %48, %.body4.i.i, %39
-  %common.resume.op.i = phi { ptr, i32 } [ %40, %39 ], [ %eh.lpad-body.i.i, %.body4.i.i ], [ %49, %48 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body4.i.i ], [ %40, %39 ], [ %49, %48 ]
   resume { ptr, i32 } %common.resume.op.i
 
 .body4.i.i:                                       ; preds = %28, %19, %16
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %20, %19 ], [ %17, %16 ], [ %29, %28 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %17, %16 ], [ %20, %19 ], [ %29, %28 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..acc..FieldAccessor$GT$$GT$17ha00ac1bbe79c261fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #20
           to label %common.resume.i unwind label %41, !noalias !227
 
@@ -1926,11 +1926,11 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
   unreachable
 
 common.resume.i:                                  ; preds = %62, %.body4.i.i, %53
-  %common.resume.op.i = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body.i.i, %.body4.i.i ], [ %63, %62 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body4.i.i ], [ %54, %53 ], [ %63, %62 ]
   resume { ptr, i32 } %common.resume.op.i
 
 .body4.i.i:                                       ; preds = %42, %29, %20, %17
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %30, %29 ], [ %21, %20 ], [ %18, %17 ], [ %43, %42 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %18, %17 ], [ %21, %20 ], [ %30, %29 ], [ %43, %42 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..acc..FieldAccessor$GT$$GT$17ha00ac1bbe79c261fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #20
           to label %common.resume.i unwind label %55, !noalias !287
 
@@ -2438,11 +2438,11 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
   unreachable
 
 common.resume.i:                                  ; preds = %76, %.body4.i.i, %67
-  %common.resume.op.i = phi { ptr, i32 } [ %68, %67 ], [ %eh.lpad-body.i.i, %.body4.i.i ], [ %77, %76 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body4.i.i ], [ %68, %67 ], [ %77, %76 ]
   resume { ptr, i32 } %common.resume.op.i
 
 .body4.i.i:                                       ; preds = %56, %43, %30, %21, %18
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %44, %43 ], [ %22, %21 ], [ %31, %30 ], [ %19, %18 ], [ %57, %56 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %19, %18 ], [ %22, %21 ], [ %31, %30 ], [ %44, %43 ], [ %57, %56 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..acc..FieldAccessor$GT$$GT$17ha00ac1bbe79c261fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #20
           to label %common.resume.i unwind label %69, !noalias !366
 
@@ -2700,11 +2700,11 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
   unreachable
 
 common.resume.i:                                  ; preds = %62, %.body4.i.i, %53
-  %common.resume.op.i = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body.i.i, %.body4.i.i ], [ %63, %62 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body4.i.i ], [ %54, %53 ], [ %63, %62 ]
   resume { ptr, i32 } %common.resume.op.i
 
 .body4.i.i:                                       ; preds = %42, %29, %20, %17
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %30, %29 ], [ %21, %20 ], [ %18, %17 ], [ %43, %42 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %18, %17 ], [ %21, %20 ], [ %30, %29 ], [ %43, %42 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..acc..FieldAccessor$GT$$GT$17ha00ac1bbe79c261fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #20
           to label %common.resume.i unwind label %55, !noalias !417
 
@@ -2982,11 +2982,11 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
   unreachable
 
 common.resume.i:                                  ; preds = %98, %.body4.i.i, %89
-  %common.resume.op.i = phi { ptr, i32 } [ %90, %89 ], [ %eh.lpad-body.i.i, %.body4.i.i ], [ %99, %98 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body4.i.i ], [ %90, %89 ], [ %99, %98 ]
   resume { ptr, i32 } %common.resume.op.i
 
 .body4.i.i:                                       ; preds = %78, %65, %52, %39, %26, %19
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %66, %65 ], [ %27, %26 ], [ %40, %39 ], [ %53, %52 ], [ %20, %19 ], [ %79, %78 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %20, %19 ], [ %27, %26 ], [ %40, %39 ], [ %53, %52 ], [ %66, %65 ], [ %79, %78 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..acc..FieldAccessor$GT$$GT$17ha00ac1bbe79c261fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #20
           to label %common.resume.i unwind label %91, !noalias !450
 
@@ -3414,11 +3414,11 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
   unreachable
 
 common.resume.i:                                  ; preds = %112, %.body4.i.i, %103
-  %common.resume.op.i = phi { ptr, i32 } [ %104, %103 ], [ %eh.lpad-body.i.i, %.body4.i.i ], [ %113, %112 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body4.i.i ], [ %104, %103 ], [ %113, %112 ]
   resume { ptr, i32 } %common.resume.op.i
 
 .body4.i.i:                                       ; preds = %92, %79, %66, %53, %40, %27, %20
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %80, %79 ], [ %28, %27 ], [ %41, %40 ], [ %54, %53 ], [ %67, %66 ], [ %21, %20 ], [ %93, %92 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %21, %20 ], [ %28, %27 ], [ %41, %40 ], [ %54, %53 ], [ %67, %66 ], [ %80, %79 ], [ %93, %92 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$protobuf..reflect..acc..FieldAccessor$GT$$GT$17ha00ac1bbe79c261fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #20
           to label %common.resume.i unwind label %105, !noalias !519
 
@@ -4928,7 +4928,7 @@ define noundef range(i8 0, 3) i8 @"_ZN10raft_proto10confchange59_$LT$impl$u20$ra
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %9, %4
-  %.sroa.0.0 = phi i8 [ %., %9 ], [ 2, %4 ]
+  %.sroa.0.0 = phi i8 [ 2, %4 ], [ %., %9 ]
   ret i8 %.sroa.0.0
 
 9:                                                ; preds = %4, %1

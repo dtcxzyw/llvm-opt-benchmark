@@ -42,7 +42,7 @@ define range(i32 0, 2) i32 @ASN1_digest(ptr noundef readonly captures(none) %0, 
   br label %19
 
 19:                                               ; preds = %10, %18, %17, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %17 ], [ 1, %18 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %9 ], [ 1, %18 ], [ 0, %17 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

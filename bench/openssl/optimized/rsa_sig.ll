@@ -229,7 +229,7 @@ rsa_signverify_message_update.exit:               ; preds = %27
   br label %rsa_signverify_message_update.exit.thread
 
 rsa_signverify_message_update.exit.thread:        ; preds = %23, %29, %rsa_signverify_message_update.exit, %32, %6, %34, %21, %14
-  %.0 = phi i32 [ 0, %14 ], [ %22, %21 ], [ 0, %6 ], [ %35, %34 ], [ 0, %rsa_signverify_message_update.exit ], [ %33, %32 ], [ 0, %29 ], [ 0, %23 ]
+  %.0 = phi i32 [ %22, %21 ], [ %35, %34 ], [ 0, %14 ], [ 0, %6 ], [ 0, %rsa_signverify_message_update.exit ], [ %33, %32 ], [ 0, %29 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -305,7 +305,7 @@ rsa_signverify_message_update.exit:               ; preds = %24
   br label %rsa_signverify_message_update.exit.thread
 
 rsa_signverify_message_update.exit.thread:        ; preds = %20, %27, %18, %rsa_signverify_message_update.exit, %30, %5, %32, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %5 ], [ %33, %32 ], [ 0, %rsa_signverify_message_update.exit ], [ 0, %18 ], [ %31, %30 ], [ 0, %27 ], [ 0, %20 ]
+  %.0 = phi i32 [ %33, %32 ], [ 0, %13 ], [ 0, %5 ], [ 0, %rsa_signverify_message_update.exit ], [ 0, %18 ], [ %31, %30 ], [ 0, %27 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -478,13 +478,13 @@ setup_tbuf.exit.thread:                           ; preds = %22, %setup_tbuf.exi
   br label %82
 
 80:                                               ; preds = %.thread, %71, %59, %54
-  %.1 = phi i32 [ %38, %59 ], [ %38, %54 ], [ %68, %.thread ], [ %77, %71 ]
+  %.1 = phi i32 [ %38, %59 ], [ %38, %54 ], [ %77, %71 ], [ %68, %.thread ]
   %81 = sext i32 %.1 to i64
   store i64 %81, ptr %2, align 8, !tbaa !21
   br label %82
 
 82:                                               ; preds = %69, %setup_tbuf.exit, %6, %80, %79, %70, %58, %51, %47, %36, %11
-  %.047 = phi i32 [ 1, %11 ], [ 0, %70 ], [ 0, %36 ], [ 0, %47 ], [ 0, %51 ], [ 0, %58 ], [ 1, %80 ], [ 0, %6 ], [ 0, %69 ], [ 0, %79 ], [ 0, %setup_tbuf.exit ]
+  %.047 = phi i32 [ 1, %11 ], [ 0, %70 ], [ 0, %36 ], [ 0, %47 ], [ 0, %51 ], [ 0, %58 ], [ 1, %80 ], [ 0, %69 ], [ 0, %79 ], [ 0, %6 ], [ 0, %setup_tbuf.exit ]
   ret i32 %.047
 }
 
@@ -539,7 +539,7 @@ define internal i32 @rsa_digest_sign_update(ptr noundef captures(address_is_null
   br label %rsa_signverify_message_update.exit
 
 rsa_signverify_message_update.exit:               ; preds = %16, %15, %9, %5, %3
-  %.0 = phi i32 [ 0, %5 ], [ 0, %3 ], [ 0, %15 ], [ %18, %16 ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ %18, %16 ], [ 0, %15 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -618,7 +618,7 @@ define internal i32 @rsa_digest_verify_update(ptr noundef captures(address_is_nu
   br label %rsa_signverify_message_update.exit
 
 rsa_signverify_message_update.exit:               ; preds = %16, %15, %9, %5, %3
-  %.0 = phi i32 [ 0, %5 ], [ 0, %3 ], [ 0, %15 ], [ %18, %16 ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ %18, %16 ], [ 0, %15 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -812,7 +812,7 @@ define internal ptr @rsa_dupctx(ptr noundef readonly captures(none) %0) #0 {
   br label %46
 
 46:                                               ; preds = %39, %42, %3, %1, %45
-  %.0 = phi ptr [ null, %1 ], [ null, %45 ], [ null, %3 ], [ %4, %42 ], [ %4, %39 ]
+  %.0 = phi ptr [ null, %45 ], [ null, %1 ], [ null, %3 ], [ %4, %42 ], [ %4, %39 ]
   ret ptr %.0
 }
 
@@ -1190,7 +1190,7 @@ switch.lookup:                                    ; preds = %135
   br label %.critedge86
 
 .critedge86:                                      ; preds = %switch.lookup, %139, %131, %123, %118, %99, %113, %104, %96, %2, %.critedge88
-  %.0 = phi i32 [ 0, %96 ], [ 0, %113 ], [ 1, %.critedge88 ], [ 0, %123 ], [ 0, %131 ], [ 0, %118 ], [ 0, %99 ], [ 0, %2 ], [ 0, %104 ], [ 0, %139 ], [ 0, %switch.lookup ]
+  %.0 = phi i32 [ 1, %.critedge88 ], [ 0, %96 ], [ 0, %2 ], [ 0, %104 ], [ 0, %113 ], [ 0, %99 ], [ 0, %118 ], [ 0, %123 ], [ 0, %131 ], [ 0, %139 ], [ 0, %switch.lookup ]
   ret i32 %.0
 }
 
@@ -1230,16 +1230,16 @@ define internal range(i32 0, 2) i32 @rsa_set_ctx_params(ptr noundef %0, ptr noun
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !31
   %13 = icmp eq ptr %0, null
-  br i1 %13, label %.critedge107, label %14
+  br i1 %13, label %.critedge108, label %14
 
 14:                                               ; preds = %2
   %15 = icmp eq ptr %1, null
-  br i1 %15, label %.critedge107, label %ossl_param_is_empty.exit
+  br i1 %15, label %.critedge108, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %14
   %16 = load ptr, ptr %1, align 8, !tbaa !47
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %.critedge107, label %17
+  br i1 %.not, label %.critedge108, label %17
 
 17:                                               ; preds = %ossl_param_is_empty.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1257,7 +1257,7 @@ ossl_param_is_empty.exit:                         ; preds = %14
   store ptr %5, ptr %6, align 8, !tbaa !31
   %25 = call i32 @OSSL_PARAM_get_utf8_string(ptr noundef nonnull %22, ptr noundef nonnull %6, i64 noundef 50) #11
   %.not85 = icmp eq i32 %25, 0
-  br i1 %.not85, label %.critedge107, label %26
+  br i1 %.not85, label %.critedge108, label %26
 
 26:                                               ; preds = %23
   %.not86 = icmp eq ptr %24, null
@@ -1267,17 +1267,17 @@ ossl_param_is_empty.exit:                         ; preds = %14
   store ptr %7, ptr %8, align 8, !tbaa !31
   %28 = call i32 @OSSL_PARAM_get_utf8_string(ptr noundef nonnull %24, ptr noundef nonnull %8, i64 noundef 256) #11
   %.not87 = icmp eq i32 %28, 0
-  br i1 %.not87, label %.critedge107, label %.critedge
+  br i1 %.not87, label %.critedge108, label %.critedge
 
 .critedge:                                        ; preds = %26, %27, %17
   %29 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.26) #11
   %.not88 = icmp eq ptr %29, null
-  br i1 %.not88, label %.critedge108, label %30
+  br i1 %.not88, label %.critedge107, label %30
 
 30:                                               ; preds = %.critedge
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !37
-  switch i32 %32, label %.critedge107 [
+  switch i32 %32, label %.critedge108 [
     i32 1, label %33
     i32 4, label %35
   ]
@@ -1285,13 +1285,13 @@ ossl_param_is_empty.exit:                         ; preds = %14
 33:                                               ; preds = %30
   %34 = call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %29, ptr noundef nonnull %3) #11
   %.not91 = icmp eq i32 %34, 0
-  br i1 %.not91, label %.critedge107, label %thread-pre-split
+  br i1 %.not91, label %.critedge108, label %thread-pre-split
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !44
   %.not90 = icmp eq ptr %37, null
-  br i1 %.not90, label %.critedge107, label %.preheader
+  br i1 %.not90, label %.critedge108, label %.preheader
 
 38:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1331,7 +1331,7 @@ thread-pre-split:                                 ; preds = %38, %33
   %50 = load i32, ptr %49, align 8, !tbaa !18
   %51 = and i32 %50, 49200
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %61, label %.critedge108
+  br i1 %52, label %61, label %.critedge107
 
 53:                                               ; preds = %46
   br label %55
@@ -1340,32 +1340,32 @@ thread-pre-split:                                 ; preds = %38, %33
   br label %55
 
 55:                                               ; preds = %46, %54, %53
-  %.167 = phi ptr [ @.str.48, %54 ], [ @.str.47, %53 ], [ @.str.46, %46 ]
+  %.167 = phi ptr [ @.str.47, %53 ], [ @.str.48, %54 ], [ @.str.46, %46 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !20
   %58 = call i32 @RSA_test_flags(ptr noundef %57, i32 noundef 61440) #11
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %.critedge108, label %61
+  br i1 %59, label %.critedge107, label %61
 
 60:                                               ; preds = %46
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1657, ptr noundef nonnull @__func__.rsa_set_ctx_params) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 165, ptr noundef null) #11
-  br label %.critedge107
+  br label %.critedge108
 
 61:                                               ; preds = %46, %55, %48
   %.066.ph = phi ptr [ @.str.45, %48 ], [ %.167, %55 ], [ @.str.44, %46 ]
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1659, ptr noundef nonnull @__func__.rsa_set_ctx_params) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 165, ptr noundef nonnull %.066.ph) #11
-  br label %.critedge107
+  br label %.critedge108
 
-.critedge108:                                     ; preds = %48, %55, %.critedge
+.critedge107:                                     ; preds = %55, %48, %.critedge
   %62 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.29) #11
   %.not92 = icmp eq ptr %62, null
   br i1 %.not92, label %117, label %63
 
-63:                                               ; preds = %.critedge108
+63:                                               ; preds = %.critedge107
   %64 = load i32, ptr %3, align 4, !tbaa !33
   %.not93 = icmp eq i32 %64, 6
   br i1 %.not93, label %66, label %65
@@ -1374,12 +1374,12 @@ thread-pre-split:                                 ; preds = %38, %33
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1669, ptr noundef nonnull @__func__.rsa_set_ctx_params) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 136, ptr noundef nonnull @.str.49) #11
-  br label %.critedge107
+  br label %.critedge108
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %68 = load i32, ptr %67, align 8, !tbaa !37
-  switch i32 %68, label %.critedge107 [
+  switch i32 %68, label %.critedge108 [
     i32 1, label %69
     i32 4, label %71
   ]
@@ -1387,29 +1387,29 @@ thread-pre-split:                                 ; preds = %38, %33
 69:                                               ; preds = %66
   %70 = call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %62, ptr noundef nonnull %4) #11
   %.not94 = icmp eq i32 %70, 0
-  br i1 %.not94, label %.critedge107, label %thread-pre-split114
+  br i1 %.not94, label %.critedge108, label %thread-pre-split115
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %73 = load ptr, ptr %72, align 8, !tbaa !44
   %74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(7) @.str.27) #12
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %.thread117.sink.split, label %76
+  br i1 %75, label %.thread118.sink.split, label %76
 
 76:                                               ; preds = %71
   %77 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(4) @.str.30) #12
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %.thread117.sink.split, label %79
+  br i1 %78, label %.thread118.sink.split, label %79
 
 79:                                               ; preds = %76
   %80 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(5) @.str.31) #12
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %.thread117.sink.split, label %82
+  br i1 %81, label %.thread118.sink.split, label %82
 
 82:                                               ; preds = %79
   %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(15) @.str.32) #12
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %.thread117.sink.split, label %85
+  br i1 %84, label %.thread118.sink.split, label %85
 
 85:                                               ; preds = %82
   %86 = call i64 @strtol(ptr noundef nonnull captures(none) %73, ptr noundef null, i32 noundef 10) #11
@@ -1417,34 +1417,34 @@ thread-pre-split:                                 ; preds = %38, %33
   store i32 %87, ptr %4, align 4, !tbaa !33
   br label %88
 
-thread-pre-split114:                              ; preds = %69
-  %.pr115 = load i32, ptr %4, align 4, !tbaa !33
+thread-pre-split115:                              ; preds = %69
+  %.pr116 = load i32, ptr %4, align 4, !tbaa !33
   br label %88
 
-88:                                               ; preds = %thread-pre-split114, %85
-  %89 = phi i32 [ %.pr115, %thread-pre-split114 ], [ %87, %85 ]
+88:                                               ; preds = %thread-pre-split115, %85
+  %89 = phi i32 [ %.pr116, %thread-pre-split115 ], [ %87, %85 ]
   %90 = icmp slt i32 %89, -4
-  br i1 %90, label %91, label %.thread117
+  br i1 %90, label %91, label %.thread118
 
 91:                                               ; preds = %88
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1702, ptr noundef nonnull @__func__.rsa_set_ctx_params) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 112, ptr noundef null) #11
-  br label %.critedge107
+  br label %.critedge108
 
-.thread117.sink.split:                            ; preds = %82, %79, %76, %71
-  %.sink = phi i32 [ -1, %71 ], [ -2, %79 ], [ -3, %76 ], [ -4, %82 ]
+.thread118.sink.split:                            ; preds = %82, %79, %76, %71
+  %.sink = phi i32 [ -1, %71 ], [ -3, %76 ], [ -2, %79 ], [ -4, %82 ]
   store i32 %.sink, ptr %4, align 4, !tbaa !33
-  br label %.thread117
+  br label %.thread118
 
-.thread117:                                       ; preds = %.thread117.sink.split, %88
-  %92 = phi i32 [ %89, %88 ], [ %.sink, %.thread117.sink.split ]
+.thread118:                                       ; preds = %.thread118.sink.split, %88
+  %92 = phi i32 [ %89, %88 ], [ %.sink, %.thread118.sink.split ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %94 = load i32, ptr %93, align 4, !tbaa !17
   %.not95 = icmp eq i32 %94, -1
   br i1 %.not95, label %117, label %95
 
-95:                                               ; preds = %.thread117
+95:                                               ; preds = %.thread118
   switch i32 %92, label %111 [
     i32 -2, label %96
     i32 -4, label %96
@@ -1462,7 +1462,7 @@ thread-pre-split114:                              ; preds = %69
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1712, ptr noundef nonnull @__func__.rsa_set_ctx_params) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 112, ptr noundef nonnull @.str.50) #11
-  br label %.critedge107
+  br label %.critedge108
 
 102:                                              ; preds = %95
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1478,7 +1478,7 @@ thread-pre-split114:                              ; preds = %69
   %109 = load ptr, ptr %103, align 8, !tbaa !22
   %110 = call i32 @EVP_MD_get_size(ptr noundef %109) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 172, ptr noundef nonnull @.str.51, i32 noundef %108, i32 noundef %110) #11
-  br label %.critedge107
+  br label %.critedge108
 
 111:                                              ; preds = %95
   %112 = icmp sgt i32 %92, -1
@@ -1492,9 +1492,9 @@ thread-pre-split114:                              ; preds = %69
   %115 = load i32, ptr %93, align 4, !tbaa !17
   %116 = load i32, ptr %4, align 4, !tbaa !33
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 172, ptr noundef nonnull @.str.52, i32 noundef %115, i32 noundef %116) #11
-  br label %.critedge107
+  br label %.critedge108
 
-117:                                              ; preds = %.thread117, %111, %102, %96, %.critedge108
+117:                                              ; preds = %.thread118, %111, %102, %96, %.critedge107
   %118 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.28) #11
   %.not96 = icmp eq ptr %118, null
   br i1 %.not96, label %._crit_edge, label %119
@@ -1508,7 +1508,7 @@ thread-pre-split114:                              ; preds = %69
   store ptr %9, ptr %10, align 8, !tbaa !31
   %121 = call i32 @OSSL_PARAM_get_utf8_string(ptr noundef nonnull %118, ptr noundef nonnull %10, i64 noundef 50) #11
   %.not97 = icmp eq i32 %121, 0
-  br i1 %.not97, label %.critedge107, label %122
+  br i1 %.not97, label %.critedge108, label %122
 
 122:                                              ; preds = %119
   %.not98 = icmp eq ptr %120, null
@@ -1518,7 +1518,7 @@ thread-pre-split114:                              ; preds = %69
   store ptr %11, ptr %12, align 8, !tbaa !31
   %124 = call i32 @OSSL_PARAM_get_utf8_string(ptr noundef nonnull %120, ptr noundef nonnull %12, i64 noundef 256) #11
   %.not99 = icmp eq i32 %124, 0
-  br i1 %.not99, label %.critedge107, label %125
+  br i1 %.not99, label %.critedge108, label %125
 
 125:                                              ; preds = %123, %122
   %126 = load i32, ptr %3, align 4, !tbaa !33
@@ -1529,7 +1529,7 @@ thread-pre-split114:                              ; preds = %69
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1759, ptr noundef nonnull @__func__.rsa_set_ctx_params) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 167, ptr noundef null) #11
-  br label %.critedge107
+  br label %.critedge108
 
 128:                                              ; preds = %._crit_edge, %125
   %129 = phi i32 [ %.pre, %._crit_edge ], [ 6, %125 ]
@@ -1560,14 +1560,14 @@ thread-pre-split114:                              ; preds = %69
   %142 = load ptr, ptr %12, align 8, !tbaa !31
   %143 = call fastcc i32 @rsa_setup_mgf1_md(ptr noundef %0, ptr noundef %140, ptr noundef %142)
   %.not102 = icmp eq i32 %143, 0
-  br i1 %.not102, label %.critedge107, label %._crit_edge122
+  br i1 %.not102, label %.critedge108, label %._crit_edge123
 
-._crit_edge122:                                   ; preds = %141
-  %.pre123 = load ptr, ptr %6, align 8, !tbaa !31
+._crit_edge123:                                   ; preds = %141
+  %.pre124 = load ptr, ptr %6, align 8, !tbaa !31
   br label %144
 
-144:                                              ; preds = %._crit_edge122, %138
-  %145 = phi ptr [ %.pre123, %._crit_edge122 ], [ %139, %138 ]
+144:                                              ; preds = %._crit_edge123, %138
+  %145 = phi ptr [ %.pre124, %._crit_edge123 ], [ %139, %138 ]
   %.not103 = icmp eq ptr %145, null
   br i1 %.not103, label %149, label %146
 
@@ -1575,20 +1575,20 @@ thread-pre-split114:                              ; preds = %69
   %147 = load ptr, ptr %8, align 8, !tbaa !31
   %148 = call fastcc i32 @rsa_setup_md(ptr noundef nonnull %0, ptr noundef nonnull %145, ptr noundef %147)
   %.not105 = icmp eq i32 %148, 0
-  br i1 %.not105, label %.critedge107, label %153
+  br i1 %.not105, label %.critedge108, label %153
 
 149:                                              ; preds = %144
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %151 = load i32, ptr %150, align 8, !tbaa !26
   %152 = call fastcc i32 @rsa_check_padding(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %151)
   %.not104 = icmp eq i32 %152, 0
-  br i1 %.not104, label %.critedge107, label %153
+  br i1 %.not104, label %.critedge108, label %153
 
 153:                                              ; preds = %149, %146
-  br label %.critedge107
+  br label %.critedge108
 
-.critedge107:                                     ; preds = %14, %127, %123, %119, %149, %146, %141, %66, %69, %33, %30, %61, %60, %35, %23, %27, %ossl_param_is_empty.exit, %2, %153, %114, %107, %101, %91, %65
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %2 ], [ 0, %65 ], [ 0, %69 ], [ 0, %91 ], [ 0, %114 ], [ 1, %153 ], [ 0, %141 ], [ 0, %146 ], [ 0, %66 ], [ 0, %149 ], [ 0, %101 ], [ 0, %107 ], [ 0, %127 ], [ 0, %23 ], [ 0, %27 ], [ 0, %35 ], [ 0, %60 ], [ 0, %61 ], [ 0, %30 ], [ 0, %33 ], [ 0, %119 ], [ 0, %123 ], [ 1, %14 ]
+.critedge108:                                     ; preds = %14, %127, %119, %123, %33, %30, %61, %60, %35, %149, %146, %141, %66, %69, %23, %27, %ossl_param_is_empty.exit, %2, %153, %114, %107, %101, %91, %65
+  %.0 = phi i32 [ 0, %65 ], [ 0, %91 ], [ 0, %114 ], [ 1, %153 ], [ 0, %101 ], [ 0, %107 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %27 ], [ 0, %23 ], [ 0, %69 ], [ 0, %66 ], [ 0, %141 ], [ 0, %146 ], [ 0, %149 ], [ 0, %35 ], [ 0, %60 ], [ 0, %61 ], [ 0, %30 ], [ 0, %33 ], [ 0, %123 ], [ 0, %119 ], [ 0, %127 ], [ 1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1729,7 +1729,7 @@ define internal i32 @rsa_signverify_message_update(ptr noundef captures(address_
   br label %17
 
 17:                                               ; preds = %3, %5, %14, %13
-  %.0 = phi i32 [ 0, %13 ], [ %16, %14 ], [ 0, %5 ], [ 0, %3 ]
+  %.0 = phi i32 [ %16, %14 ], [ 0, %13 ], [ 0, %5 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1807,7 +1807,7 @@ rsa_get_md_size.exit.i:                           ; preds = %25, %.split
   br label %rsa_sign_directly.exit
 
 rsa_sign_directly.exit:                           ; preds = %28, %rsa_get_md_size.exit.i, %.split15, %29, %10, %4, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %4 ], [ 0, %29 ], [ 0, %10 ], [ %35, %.split15 ], [ 1, %28 ], [ 0, %rsa_get_md_size.exit.i ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %4 ], [ 0, %10 ], [ 0, %29 ], [ %35, %.split15 ], [ 1, %28 ], [ 0, %rsa_get_md_size.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1876,7 +1876,7 @@ define internal range(i32 0, 2) i32 @rsa_verify_message_final(ptr noundef captur
   br label %28
 
 28:                                               ; preds = %16, %7, %1, %18, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %1 ], [ %27, %18 ], [ 0, %7 ], [ 0, %16 ]
+  %.0 = phi i32 [ %27, %18 ], [ 0, %15 ], [ 0, %1 ], [ 0, %7 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -1932,7 +1932,7 @@ ossl_param_is_empty.exit:                         ; preds = %4
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %4, %13, %ossl_param_is_empty.exit, %2, %18
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %2 ], [ 1, %18 ], [ 0, %13 ], [ 1, %4 ]
+  %.0 = phi i32 [ 1, %18 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %13 ], [ 1, %4 ]
   ret i32 %.0
 }
 
@@ -2483,7 +2483,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_signverify_init(ptr noundef %0, 
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge66, %62, %66, %69, %61, %56, %51, %48, %21, %16, %5, %71, %15
-  %.0 = phi i32 [ 0, %5 ], [ 0, %15 ], [ 0, %71 ], [ 0, %62 ], [ %., %.critedge66 ], [ 0, %21 ], [ 0, %16 ], [ 0, %48 ], [ 0, %51 ], [ 0, %56 ], [ 0, %61 ], [ 0, %69 ], [ 0, %66 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %71 ], [ 0, %5 ], [ 0, %16 ], [ 0, %21 ], [ 0, %48 ], [ 0, %51 ], [ 0, %56 ], [ 0, %61 ], [ 0, %69 ], [ 0, %66 ], [ 0, %62 ], [ %., %.critedge66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -2589,7 +2589,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_setup_mgf1_md(ptr noundef nonnul
   tail call void @EVP_MD_free(ptr noundef nonnull %10) #11
   br label %43
 
-31:                                               ; preds = %19, %25, %16, %22
+31:                                               ; preds = %16, %22, %25, %19
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %33 = tail call i64 @OPENSSL_strlcpy(ptr noundef nonnull %32, ptr noundef nonnull %1, i64 noundef 50) #11
   %34 = icmp ugt i64 %33, 49
@@ -2705,7 +2705,7 @@ rsa_check_padding.exit:                           ; preds = %25, %31, %22
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink.i, ptr noundef null) #11
   br label %67
 
-35:                                               ; preds = %28, %25, %22, %31
+35:                                               ; preds = %22, %28, %25, %31
   %36 = icmp ugt i64 %10, 49
   br i1 %36, label %37, label %38
 
@@ -2779,12 +2779,12 @@ rsa_check_padding.exit:                           ; preds = %25, %31, %22
   %66 = tail call i64 @OPENSSL_strlcpy(ptr noundef nonnull %65, ptr noundef nonnull %1, i64 noundef 50) #11
   br label %68
 
-67:                                               ; preds = %14, %18, %21, %37, %rsa_check_padding.exit, %47, %51
+67:                                               ; preds = %14, %18, %21, %37, %47, %rsa_check_padding.exit, %51
   tail call void @EVP_MD_free(ptr noundef %12) #11
   br label %68
 
 68:                                               ; preds = %48, %59, %8, %67
-  %.1 = phi i32 [ 1, %8 ], [ 0, %67 ], [ 1, %59 ], [ 1, %48 ]
+  %.1 = phi i32 [ 0, %67 ], [ 1, %8 ], [ 1, %59 ], [ 1, %48 ]
   ret i32 %.1
 }
 
@@ -2884,15 +2884,15 @@ define internal fastcc range(i32 0, 2) i32 @rsa_check_padding(ptr noundef readon
   br i1 %.not17, label %.sink.split, label %26
 
 .sink.split:                                      ; preds = %17, %22, %10, %7
-  %.sink20 = phi i32 [ 189, %10 ], [ 183, %7 ], [ 198, %22 ], [ 198, %17 ]
-  %.sink = phi i32 [ 170, %10 ], [ 168, %7 ], [ 174, %22 ], [ 174, %17 ]
+  %.sink20 = phi i32 [ 183, %7 ], [ 189, %10 ], [ 198, %22 ], [ 198, %17 ]
+  %.sink = phi i32 [ 168, %7 ], [ 170, %10 ], [ 174, %22 ], [ 174, %17 ]
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink20, ptr noundef nonnull @__func__.rsa_check_padding) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #11
   br label %26
 
 26:                                               ; preds = %.sink.split, %7, %10, %21, %22, %13, %4
-  %.0 = phi i32 [ 1, %21 ], [ 1, %10 ], [ 1, %7 ], [ 1, %4 ], [ 1, %13 ], [ 1, %22 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %4 ], [ 1, %13 ], [ 1, %22 ], [ 1, %21 ], [ 1, %10 ], [ 1, %7 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -2938,7 +2938,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_sign_directly(ptr noundef nonnul
   br label %rsa_get_md_size.exit
 
 rsa_get_md_size.exit:                             ; preds = %6, %15
-  %.0.i = phi i64 [ %spec.select.i, %15 ], [ 0, %6 ]
+  %.0.i = phi i64 [ 0, %6 ], [ %spec.select.i, %15 ]
   %17 = tail call i32 @ossl_prov_is_running() #11
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %132, label %18
@@ -3188,7 +3188,7 @@ thread-pre-split:                                 ; preds = %84
   br label %127
 
 127:                                              ; preds = %.thread, %40, %114, %121, %56
-  %.183 = phi i32 [ %41, %40 ], [ %68, %56 ], [ %76, %.thread ], [ %119, %114 ], [ %126, %121 ]
+  %.183 = phi i32 [ %41, %40 ], [ %68, %56 ], [ %119, %114 ], [ %126, %121 ], [ %76, %.thread ]
   %128 = icmp slt i32 %.183, 1
   br i1 %128, label %129, label %130
 
@@ -3212,7 +3212,7 @@ thread-pre-split:                                 ; preds = %84
   br label %132
 
 132:                                              ; preds = %77, %.critedge107, %.critedge, %rsa_get_md_size.exit, %130, %129, %120, %55, %50, %26, %23, %20
-  %.079 = phi i32 [ 1, %20 ], [ 0, %23 ], [ 0, %26 ], [ 0, %129 ], [ 1, %130 ], [ 0, %.critedge107 ], [ 0, %120 ], [ 0, %50 ], [ 0, %55 ], [ 0, %77 ], [ 0, %.critedge ], [ 0, %rsa_get_md_size.exit ]
+  %.079 = phi i32 [ 1, %20 ], [ 0, %23 ], [ 0, %26 ], [ 0, %129 ], [ 1, %130 ], [ 0, %120 ], [ 0, %50 ], [ 0, %55 ], [ 0, %77 ], [ 0, %rsa_get_md_size.exit ], [ 0, %.critedge ], [ 0, %.critedge107 ]
   ret i32 %.079
 }
 
@@ -3313,7 +3313,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_verify_set_sig(ptr noundef nonnu
   br label %rsa_sigalg_set_ctx_params.exit
 
 rsa_sigalg_set_ctx_params.exit:                   ; preds = %3, %14, %19
-  %.0.i = phi i32 [ 1, %3 ], [ 0, %14 ], [ 1, %19 ]
+  %.0.i = phi i32 [ 1, %19 ], [ 1, %3 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
@@ -3511,7 +3511,7 @@ setup_tbuf.exit66.thread:                         ; preds = %64, %setup_tbuf.exi
   br label %.critedge
 
 .critedge:                                        ; preds = %85, %80, %setup_tbuf.exit66, %83, %setup_tbuf.exit.thread, %setup_tbuf.exit, %15, %5, %63, %62, %23
-  %.0 = phi i32 [ 0, %63 ], [ 0, %5 ], [ 0, %23 ], [ 0, %setup_tbuf.exit ], [ 0, %setup_tbuf.exit.thread ], [ 0, %80 ], [ 1, %15 ], [ %.1, %62 ], [ 0, %83 ], [ %spec.select, %85 ], [ 0, %setup_tbuf.exit66 ]
+  %.0 = phi i32 [ 0, %63 ], [ 0, %23 ], [ %.1, %62 ], [ 0, %5 ], [ 1, %15 ], [ 0, %setup_tbuf.exit ], [ 0, %setup_tbuf.exit.thread ], [ 0, %83 ], [ 0, %setup_tbuf.exit66 ], [ 0, %80 ], [ %spec.select, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -3591,7 +3591,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_digest_signverify_init(ptr nound
   br label %35
 
 35:                                               ; preds = %28, %14, %5, %33
-  %.0 = phi i32 [ 0, %33 ], [ 0, %14 ], [ 0, %5 ], [ 1, %28 ]
+  %.0 = phi i32 [ 0, %33 ], [ 0, %5 ], [ 0, %14 ], [ 1, %28 ]
   ret i32 %.0
 }
 
@@ -3725,7 +3725,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_sigalg_signverify_init(ptr nound
   br label %34
 
 34:                                               ; preds = %27, %14, %7, %5, %32, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %32 ], [ 0, %14 ], [ 0, %7 ], [ 0, %5 ], [ 1, %27 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %32 ], [ 0, %5 ], [ 0, %7 ], [ 0, %14 ], [ 1, %27 ]
   ret i32 %.0
 }
 

@@ -395,14 +395,14 @@ get_hex.exit39.thread:                            ; preds = %29, %get_hex.exit39
   br i1 %44, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !7
 
 .outer._crit_edge:                                ; preds = %.outer, %8, %4
-  %.034.ph.lcssa50 = phi ptr [ %.034.ph53, %8 ], [ %2, %4 ], [ %43, %.outer ]
+  %.034.ph.lcssa50 = phi ptr [ %2, %4 ], [ %.034.ph53, %8 ], [ %43, %.outer ]
   %45 = ptrtoint ptr %.034.ph.lcssa50 to i64
   %46 = ptrtoint ptr %2 to i64
   %47 = sub i64 %45, %46
   br label %48
 
 48:                                               ; preds = %get_hex.exit39.thread, %36, %24, %26, %get_hex.exit.thread, %18, %.outer._crit_edge
-  %.0 = phi i64 [ 0, %get_hex.exit.thread ], [ 0, %24 ], [ %47, %.outer._crit_edge ], [ 0, %18 ], [ 0, %26 ], [ 0, %36 ], [ 0, %get_hex.exit39.thread ]
+  %.0 = phi i64 [ %47, %.outer._crit_edge ], [ 0, %18 ], [ 0, %get_hex.exit.thread ], [ 0, %26 ], [ 0, %24 ], [ 0, %36 ], [ 0, %get_hex.exit39.thread ]
   ret i64 %.0
 }
 
@@ -677,10 +677,10 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
   br label %.outer
 
 .outer:                                           ; preds = %40, %.thread81, %44, %.thread71, %49, %35
-  %.270 = phi i32 [ %.0.ph100, %35 ], [ 0, %49 ], [ 2, %.thread81 ], [ 1, %.thread71 ], [ %.0.ph100, %44 ], [ 1, %40 ]
-  %.160 = phi ptr [ %.059.ph96, %35 ], [ %51, %49 ], [ %18, %.thread81 ], [ %.059.ph96, %.thread71 ], [ %48, %44 ], [ %43, %40 ]
-  %.155 = phi i32 [ %37, %35 ], [ 0, %49 ], [ 0, %.thread81 ], [ %11, %.thread71 ], [ 0, %44 ], [ 0, %40 ]
-  %.153 = phi i32 [ %38, %35 ], [ 0, %49 ], [ 0, %.thread81 ], [ 3, %.thread71 ], [ 0, %44 ], [ 0, %40 ]
+  %.270 = phi i32 [ %.0.ph100, %35 ], [ 0, %49 ], [ 1, %.thread71 ], [ %.0.ph100, %44 ], [ 2, %.thread81 ], [ 1, %40 ]
+  %.160 = phi ptr [ %.059.ph96, %35 ], [ %51, %49 ], [ %.059.ph96, %.thread71 ], [ %48, %44 ], [ %18, %.thread81 ], [ %43, %40 ]
+  %.155 = phi i32 [ %37, %35 ], [ 0, %49 ], [ %11, %.thread71 ], [ 0, %44 ], [ 0, %.thread81 ], [ 0, %40 ]
+  %.153 = phi i32 [ %38, %35 ], [ 0, %49 ], [ 3, %.thread71 ], [ 0, %44 ], [ 0, %.thread81 ], [ 0, %40 ]
   %52 = icmp ult ptr %6, %4
   br i1 %52, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !9
 

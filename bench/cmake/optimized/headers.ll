@@ -168,7 +168,7 @@ define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr nound
   br label %.critedge
 
 .critedge:                                        ; preds = %62, %20, %44, %40, %._crit_edge, %16, %13, %6, %.loopexit
-  %.067 = phi i32 [ 6, %6 ], [ 3, %13 ], [ 2, %._crit_edge ], [ 0, %.loopexit ], [ 1, %40 ], [ 4, %16 ], [ 2, %44 ], [ 2, %20 ], [ 2, %62 ]
+  %.067 = phi i32 [ 0, %.loopexit ], [ 6, %6 ], [ 3, %13 ], [ 4, %16 ], [ 2, %._crit_edge ], [ 1, %40 ], [ 2, %44 ], [ 2, %20 ], [ 2, %62 ]
   ret i32 %.067
 }
 
@@ -276,7 +276,7 @@ define dso_local noundef ptr @curl_easy_nextheader(ptr noundef %0, i32 noundef %
   br label %51
 
 51:                                               ; preds = %45, %41, %35
-  %.142 = phi i64 [ %.04168, %35 ], [ %spec.select61, %45 ], [ %.04168, %41 ]
+  %.142 = phi i64 [ %.04168, %41 ], [ %.04168, %35 ], [ %spec.select61, %45 ]
   %52 = icmp eq ptr %.04367, %.2
   %53 = add i64 %.142, -1
   %spec.select62 = select i1 %52, i64 %53, i64 %.04069
@@ -310,7 +310,7 @@ define dso_local noundef ptr @curl_easy_nextheader(ptr noundef %0, i32 noundef %
   br label %.thread
 
 .thread:                                          ; preds = %28, %18, %10, %4, %._crit_edge
-  %.0 = phi ptr [ null, %4 ], [ %55, %._crit_edge ], [ null, %10 ], [ null, %18 ], [ null, %28 ]
+  %.0 = phi ptr [ %55, %._crit_edge ], [ null, %4 ], [ null, %10 ], [ null, %18 ], [ null, %28 ]
   ret ptr %.0
 }
 
@@ -411,8 +411,8 @@ define dso_local range(i32 0, 44) i32 @Curl_headers_push(ptr noundef %0, ptr nou
   br i1 %37, label %.lr.ph64.i, label %.critedge4.i, !llvm.loop !99
 
 .critedge4.i:                                     ; preds = %.critedge2.i, %.critedge6.i, %33, %.lr.ph64.i, %.critedge.i, %16
-  %.1.lcssa.i = phi i64 [ 1, %.critedge.i ], [ %.162.i, %33 ], [ 0, %16 ], [ 1, %.critedge6.i ], [ %.162.i, %.lr.ph64.i ], [ 0, %.critedge2.i ]
-  %.051.lcssa.i = phi ptr [ %1, %.critedge.i ], [ %.05163.i, %33 ], [ %1, %16 ], [ %30, %.critedge6.i ], [ %.05163.i, %.lr.ph64.i ], [ %1, %.critedge2.i ]
+  %.1.lcssa.i = phi i64 [ 1, %.critedge.i ], [ 0, %16 ], [ 1, %.critedge6.i ], [ %.162.i, %.lr.ph64.i ], [ %.162.i, %33 ], [ 0, %.critedge2.i ]
+  %.051.lcssa.i = phi ptr [ %1, %.critedge.i ], [ %1, %16 ], [ %30, %.critedge6.i ], [ %.05163.i, %.lr.ph64.i ], [ %.05163.i, %33 ], [ %1, %.critedge2.i ]
   tail call void @Curl_node_remove(ptr noundef nonnull %15) #5
   %38 = add i64 %19, 58
   %39 = add i64 %38, %23
@@ -534,7 +534,7 @@ define dso_local range(i32 0, 44) i32 @Curl_headers_push(ptr noundef %0, ptr nou
   %74 = icmp ugt ptr %.0.i66, %.2.i
   br i1 %74, label %.lr.ph.i65, label %.loopexit, !llvm.loop !104
 
-.loopexit:                                        ; preds = %.critedge8.i, %72, %.critedge2.i63
+.loopexit:                                        ; preds = %72, %.critedge8.i, %.critedge2.i63
   %75 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store ptr %57, ptr %75, align 8, !tbaa !77
   %76 = getelementptr inbounds nuw i8, ptr %55, i64 40
@@ -557,7 +557,7 @@ namevalue.exit:                                   ; preds = %64, %60
   br label %.critedge61
 
 .critedge61:                                      ; preds = %.critedge2, %.preheader, %42, %.critedge4.i, %.loopexit, %namevalue.exit, %.critedge, %7, %3, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %42 ], [ 27, %.critedge ], [ 27, %.critedge4.i ], [ 8, %7 ], [ 0, %3 ], [ 0, %.loopexit ], [ 43, %namevalue.exit ], [ 8, %.preheader ], [ 8, %.critedge2 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %3 ], [ 8, %7 ], [ 27, %.critedge ], [ 43, %namevalue.exit ], [ 0, %.loopexit ], [ 0, %42 ], [ 27, %.critedge4.i ], [ 8, %.preheader ], [ 8, %.critedge2 ]
   ret i32 %.0
 }
 
@@ -609,7 +609,7 @@ define dso_local i32 @Curl_headers_init(ptr noundef %0) local_unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %1, %5, %15, %13, %11, %18
-  %.0 = phi i32 [ %14, %13 ], [ 0, %11 ], [ %17, %18 ], [ 0, %15 ], [ 0, %5 ], [ 0, %1 ]
+  %.0 = phi i32 [ %17, %18 ], [ 0, %11 ], [ %14, %13 ], [ 0, %15 ], [ 0, %5 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

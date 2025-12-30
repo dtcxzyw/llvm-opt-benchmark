@@ -292,7 +292,7 @@ pa_launch_parallel_worker.exit.thread31:          ; preds = %28, %pa_launch_para
   store ptr %.1.i34, ptr %108, align 8
   br label %pa_can_start.exit.thread
 
-pa_can_start.exit.thread:                         ; preds = %1, %9, %14, %pa_launch_parallel_worker.exit.thread35, %pa_launch_parallel_worker.exit.thread, %pa_can_start.exit, %99
+pa_can_start.exit.thread:                         ; preds = %14, %9, %1, %pa_launch_parallel_worker.exit.thread35, %pa_launch_parallel_worker.exit.thread, %pa_can_start.exit, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -346,7 +346,7 @@ define dso_local ptr @pa_find_worker(i32 noundef %0) local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %8, %6, %4, %1, %12
-  %.0 = phi ptr [ null, %4 ], [ %14, %12 ], [ %7, %6 ], [ null, %1 ], [ null, %8 ]
+  %.0 = phi ptr [ %14, %12 ], [ null, %1 ], [ null, %4 ], [ %7, %6 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

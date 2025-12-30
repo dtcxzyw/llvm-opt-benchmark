@@ -120,7 +120,7 @@ define internal ptr @epoll_init(ptr noundef %0) #0 {
   br label %39
 
 39:                                               ; preds = %34, %37, %7, %10, %21, %15
-  %.0 = phi ptr [ null, %15 ], [ null, %21 ], [ null, %7 ], [ null, %10 ], [ %14, %37 ], [ %14, %34 ]
+  %.0 = phi ptr [ null, %21 ], [ null, %15 ], [ null, %10 ], [ null, %7 ], [ %14, %37 ], [ %14, %34 ]
   ret ptr %.0
 }
 
@@ -670,7 +670,7 @@ switch.lookup5:                                   ; preds = %105, %70, %88, %71
   br label %136
 
 136:                                              ; preds = %108, %110, %100, %102, %83, %85, %46, %switch.lookup, %2, %switch.lookup5, %97, %80
-  %.0 = phi i32 [ 0, %2 ], [ -1, %switch.lookup5 ], [ -1, %80 ], [ 0, %46 ], [ -1, %97 ], [ 0, %83 ], [ 0, %100 ], [ 0, %switch.lookup ], [ 0, %85 ], [ 0, %102 ], [ 0, %110 ], [ 0, %108 ]
+  %.0 = phi i32 [ -1, %switch.lookup5 ], [ -1, %80 ], [ -1, %97 ], [ 0, %2 ], [ 0, %switch.lookup ], [ 0, %46 ], [ 0, %85 ], [ 0, %83 ], [ 0, %102 ], [ 0, %100 ], [ 0, %110 ], [ 0, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

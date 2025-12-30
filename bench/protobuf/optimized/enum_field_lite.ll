@@ -1818,7 +1818,7 @@ if.then:                                          ; preds = %entry
           to label %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad18, %lpad34, %lpad.i84, %if.then.i.i.i3.i86, %lpad.i45, %if.then.i.i.i3.i47, %lpad.i16, %if.then.i.i.i3.i, %lpad.i64, %lpad.i25, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %48, %lpad.i84 ], [ %23, %lpad.i25 ], [ %12, %lpad.i16 ], [ %38, %lpad.i64 ], [ %33, %lpad.i45 ], [ %12, %if.then.i.i.i3.i ], [ %33, %if.then.i.i.i3.i47 ], [ %48, %if.then.i.i.i3.i86 ], [ %50, %lpad34 ], [ %35, %lpad18 ], [ %14, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %23, %lpad.i25 ], [ %38, %lpad.i64 ], [ %12, %if.then.i.i.i3.i ], [ %12, %lpad.i16 ], [ %33, %if.then.i.i.i3.i47 ], [ %33, %lpad.i45 ], [ %48, %if.then.i.i.i3.i86 ], [ %48, %lpad.i84 ], [ %50, %lpad34 ], [ %35, %lpad18 ], [ %14, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then
@@ -2257,7 +2257,7 @@ if.then12:                                        ; preds = %if.end6
           to label %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad33, %lpad49, %lpad67, %lpad76, %lpad84, %lpad.i101, %if.then.i.i.i3.i103, %lpad.i62, %if.then.i.i.i3.i64, %lpad.i33, %if.then.i.i.i3.i, %lpad.i165, %lpad.i150, %lpad.i131, %lpad.i81, %lpad.i42, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i ], [ %51, %lpad.i101 ], [ %26, %lpad.i42 ], [ %15, %lpad.i33 ], [ %41, %lpad.i81 ], [ %36, %lpad.i62 ], [ %61, %lpad.i131 ], [ %67, %lpad.i150 ], [ %71, %lpad.i165 ], [ %15, %if.then.i.i.i3.i ], [ %36, %if.then.i.i.i3.i64 ], [ %51, %if.then.i.i.i3.i103 ], [ %74, %lpad84 ], [ %73, %lpad76 ], [ %64, %lpad67 ], [ %63, %lpad49 ], [ %38, %lpad33 ], [ %17, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i ], [ %26, %lpad.i42 ], [ %41, %lpad.i81 ], [ %61, %lpad.i131 ], [ %67, %lpad.i150 ], [ %71, %lpad.i165 ], [ %15, %if.then.i.i.i3.i ], [ %15, %lpad.i33 ], [ %36, %if.then.i.i.i3.i64 ], [ %36, %lpad.i62 ], [ %51, %if.then.i.i.i3.i103 ], [ %51, %lpad.i101 ], [ %74, %lpad84 ], [ %73, %lpad76 ], [ %64, %lpad67 ], [ %63, %lpad49 ], [ %38, %lpad33 ], [ %17, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then12
@@ -2728,7 +2728,7 @@ if.then:                                          ; preds = %entry
           to label %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad18, %lpad33, %lpad48, %lpad63, %lpad78, %lpad.i209, %if.then.i.i.i3.i211, %lpad.i171, %if.then.i.i.i3.i173, %lpad.i133, %if.then.i.i.i3.i135, %lpad.i92, %if.then.i.i.i3.i94, %lpad.i54, %if.then.i.i.i3.i56, %lpad.i25, %if.then.i.i.i3.i, %lpad.i188, %lpad.i150, %lpad.i113, %lpad.i71, %lpad.i34, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %91, %lpad.i209 ], [ %23, %lpad.i34 ], [ %12, %lpad.i25 ], [ %37, %lpad.i71 ], [ %33, %lpad.i54 ], [ %53, %lpad.i113 ], [ %47, %lpad.i92 ], [ %67, %lpad.i150 ], [ %63, %lpad.i133 ], [ %81, %lpad.i188 ], [ %77, %lpad.i171 ], [ %12, %if.then.i.i.i3.i ], [ %33, %if.then.i.i.i3.i56 ], [ %47, %if.then.i.i.i3.i94 ], [ %63, %if.then.i.i.i3.i135 ], [ %77, %if.then.i.i.i3.i173 ], [ %91, %if.then.i.i.i3.i211 ], [ %95, %lpad78 ], [ %94, %lpad63 ], [ %93, %lpad48 ], [ %50, %lpad33 ], [ %49, %lpad18 ], [ %14, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %23, %lpad.i34 ], [ %37, %lpad.i71 ], [ %53, %lpad.i113 ], [ %67, %lpad.i150 ], [ %81, %lpad.i188 ], [ %12, %if.then.i.i.i3.i ], [ %12, %lpad.i25 ], [ %33, %if.then.i.i.i3.i56 ], [ %33, %lpad.i54 ], [ %47, %if.then.i.i.i3.i94 ], [ %47, %lpad.i92 ], [ %63, %if.then.i.i.i3.i135 ], [ %63, %lpad.i133 ], [ %77, %if.then.i.i.i3.i173 ], [ %77, %lpad.i171 ], [ %91, %if.then.i.i.i3.i211 ], [ %91, %lpad.i209 ], [ %95, %lpad78 ], [ %94, %lpad63 ], [ %93, %lpad48 ], [ %50, %lpad33 ], [ %49, %lpad18 ], [ %14, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then
@@ -3738,7 +3738,7 @@ entry:
           to label %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad16, %lpad31, %lpad49, %lpad58, %lpad66, %lpad.i91, %if.then.i.i.i3.i93, %lpad.i50, %if.then.i.i.i3.i52, %lpad.i23, %if.then.i.i.i3.i, %lpad.i155, %lpad.i140, %lpad.i121, %lpad.i71, %lpad.i30, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %48, %lpad.i91 ], [ %22, %lpad.i30 ], [ %12, %lpad.i23 ], [ %38, %lpad.i71 ], [ %32, %lpad.i50 ], [ %58, %lpad.i121 ], [ %64, %lpad.i140 ], [ %68, %lpad.i155 ], [ %12, %if.then.i.i.i3.i ], [ %32, %if.then.i.i.i3.i52 ], [ %48, %if.then.i.i.i3.i93 ], [ %71, %lpad66 ], [ %70, %lpad58 ], [ %61, %lpad49 ], [ %60, %lpad31 ], [ %35, %lpad16 ], [ %34, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %22, %lpad.i30 ], [ %38, %lpad.i71 ], [ %58, %lpad.i121 ], [ %64, %lpad.i140 ], [ %68, %lpad.i155 ], [ %12, %if.then.i.i.i3.i ], [ %12, %lpad.i23 ], [ %32, %if.then.i.i.i3.i52 ], [ %32, %lpad.i50 ], [ %48, %if.then.i.i.i3.i93 ], [ %48, %lpad.i91 ], [ %71, %lpad66 ], [ %70, %lpad58 ], [ %61, %lpad49 ], [ %60, %lpad31 ], [ %35, %lpad16 ], [ %34, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -4266,7 +4266,7 @@ entry:
           to label %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad15, %lpad30, %lpad44, %lpad59, %lpad74, %lpad.i209, %if.then.i.i.i3.i211, %lpad.i171, %if.then.i.i.i3.i173, %lpad.i133, %if.then.i.i.i3.i135, %lpad.i90, %if.then.i.i.i3.i92, %lpad.i52, %if.then.i.i.i3.i54, %lpad.i25, %if.then.i.i.i3.i, %lpad.i188, %lpad.i150, %lpad.i113, %lpad.i69, %lpad.i32, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %91, %lpad.i209 ], [ %22, %lpad.i32 ], [ %12, %lpad.i25 ], [ %36, %lpad.i69 ], [ %32, %lpad.i52 ], [ %53, %lpad.i113 ], [ %46, %lpad.i90 ], [ %67, %lpad.i150 ], [ %63, %lpad.i133 ], [ %81, %lpad.i188 ], [ %77, %lpad.i171 ], [ %12, %if.then.i.i.i3.i ], [ %32, %if.then.i.i.i3.i54 ], [ %46, %if.then.i.i.i3.i92 ], [ %63, %if.then.i.i.i3.i135 ], [ %77, %if.then.i.i.i3.i173 ], [ %91, %if.then.i.i.i3.i211 ], [ %95, %lpad74 ], [ %94, %lpad59 ], [ %93, %lpad44 ], [ %50, %lpad30 ], [ %49, %lpad15 ], [ %48, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %22, %lpad.i32 ], [ %36, %lpad.i69 ], [ %53, %lpad.i113 ], [ %67, %lpad.i150 ], [ %81, %lpad.i188 ], [ %12, %if.then.i.i.i3.i ], [ %12, %lpad.i25 ], [ %32, %if.then.i.i.i3.i54 ], [ %32, %lpad.i52 ], [ %46, %if.then.i.i.i3.i92 ], [ %46, %lpad.i90 ], [ %63, %if.then.i.i.i3.i135 ], [ %63, %lpad.i133 ], [ %77, %if.then.i.i.i3.i173 ], [ %77, %lpad.i171 ], [ %91, %if.then.i.i.i3.i211 ], [ %91, %lpad.i209 ], [ %95, %lpad74 ], [ %94, %lpad59 ], [ %93, %lpad44 ], [ %50, %lpad30 ], [ %49, %lpad15 ], [ %48, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -4977,7 +4977,7 @@ entry:
           to label %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad13, %lpad28, %lpad45, %lpad60, %lpad.i160, %if.then.i.i.i3.i162, %lpad.i123, %if.then.i.i.i3.i125, %lpad.i85, %if.then.i.i.i3.i87, %lpad.i48, %if.then.i.i.i3.i50, %lpad.i22, %if.then.i.i.i3.i, %lpad.i140, %lpad.i103, %lpad.i65, %lpad.i28, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %74, %lpad.i160 ], [ %16, %lpad.i28 ], [ %12, %lpad.i22 ], [ %30, %lpad.i65 ], [ %26, %lpad.i48 ], [ %50, %lpad.i103 ], [ %40, %lpad.i85 ], [ %64, %lpad.i140 ], [ %60, %lpad.i123 ], [ %12, %if.then.i.i.i3.i ], [ %26, %if.then.i.i.i3.i50 ], [ %40, %if.then.i.i.i3.i87 ], [ %60, %if.then.i.i.i3.i125 ], [ %74, %if.then.i.i.i3.i162 ], [ %80, %lpad60 ], [ %79, %lpad45 ], [ %78, %lpad28 ], [ %77, %lpad13 ], [ %76, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %16, %lpad.i28 ], [ %30, %lpad.i65 ], [ %50, %lpad.i103 ], [ %64, %lpad.i140 ], [ %12, %if.then.i.i.i3.i ], [ %12, %lpad.i22 ], [ %26, %if.then.i.i.i3.i50 ], [ %26, %lpad.i48 ], [ %40, %if.then.i.i.i3.i87 ], [ %40, %lpad.i85 ], [ %60, %if.then.i.i.i3.i125 ], [ %60, %lpad.i123 ], [ %74, %if.then.i.i.i3.i162 ], [ %74, %lpad.i160 ], [ %80, %lpad60 ], [ %79, %lpad45 ], [ %78, %lpad28 ], [ %77, %lpad13 ], [ %76, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -5477,7 +5477,7 @@ entry:
           to label %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad16, %lpad31, %lpad48, %lpad63, %lpad92, %lpad100, %lpad108, %lpad116, %lpad127, %lpad135, %lpad143, %lpad.i180, %if.then.i.i.i3.i182, %lpad.i143, %if.then.i.i.i3.i145, %lpad.i105, %if.then.i.i.i3.i107, %lpad.i68, %if.then.i.i.i3.i70, %lpad.i42, %if.then.i.i.i3.i, %lpad.i314, %lpad.i299, %lpad.i284, %lpad.i256, %lpad.i241, %lpad.i226, %lpad.i211, %lpad.i160, %lpad.i123, %lpad.i85, %lpad.i48, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %74, %lpad.i180 ], [ %16, %lpad.i48 ], [ %12, %lpad.i42 ], [ %30, %lpad.i85 ], [ %26, %lpad.i68 ], [ %50, %lpad.i123 ], [ %40, %lpad.i105 ], [ %64, %lpad.i160 ], [ %60, %lpad.i143 ], [ %87, %lpad.i211 ], [ %91, %lpad.i226 ], [ %95, %lpad.i241 ], [ %99, %lpad.i256 ], [ %109, %lpad.i284 ], [ %113, %lpad.i299 ], [ %117, %lpad.i314 ], [ %12, %if.then.i.i.i3.i ], [ %26, %if.then.i.i.i3.i70 ], [ %40, %if.then.i.i.i3.i107 ], [ %60, %if.then.i.i.i3.i145 ], [ %74, %if.then.i.i.i3.i182 ], [ %125, %lpad143 ], [ %124, %lpad135 ], [ %123, %lpad127 ], [ %122, %lpad116 ], [ %121, %lpad108 ], [ %120, %lpad100 ], [ %119, %lpad92 ], [ %80, %lpad63 ], [ %79, %lpad48 ], [ %78, %lpad31 ], [ %77, %lpad16 ], [ %76, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %16, %lpad.i48 ], [ %30, %lpad.i85 ], [ %50, %lpad.i123 ], [ %64, %lpad.i160 ], [ %87, %lpad.i211 ], [ %91, %lpad.i226 ], [ %95, %lpad.i241 ], [ %99, %lpad.i256 ], [ %109, %lpad.i284 ], [ %113, %lpad.i299 ], [ %117, %lpad.i314 ], [ %12, %if.then.i.i.i3.i ], [ %12, %lpad.i42 ], [ %26, %if.then.i.i.i3.i70 ], [ %26, %lpad.i68 ], [ %40, %if.then.i.i.i3.i107 ], [ %40, %lpad.i105 ], [ %60, %if.then.i.i.i3.i145 ], [ %60, %lpad.i143 ], [ %74, %if.then.i.i.i3.i182 ], [ %74, %lpad.i180 ], [ %125, %lpad143 ], [ %124, %lpad135 ], [ %123, %lpad127 ], [ %122, %lpad116 ], [ %121, %lpad108 ], [ %120, %lpad100 ], [ %119, %lpad92 ], [ %80, %lpad63 ], [ %79, %lpad48 ], [ %78, %lpad31 ], [ %77, %lpad16 ], [ %76, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -6354,7 +6354,7 @@ entry:
           to label %_ZN6google8protobuf8compiler4java7OptionsC2ERKS3_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad13, %lpad28, %lpad43, %lpad57, %lpad72, %lpad87, %lpad104, %lpad119, %lpad134, %lpad149, %lpad164, %lpad.i447, %if.then.i.i.i3.i449, %lpad.i409, %if.then.i.i.i3.i411, %lpad.i371, %if.then.i.i.i3.i373, %lpad.i333, %if.then.i.i.i3.i335, %lpad.i296, %if.then.i.i.i3.i298, %lpad.i258, %if.then.i.i.i3.i260, %lpad.i220, %if.then.i.i.i3.i222, %lpad.i182, %if.then.i.i.i3.i184, %lpad.i144, %if.then.i.i.i3.i146, %lpad.i106, %if.then.i.i.i3.i108, %lpad.i69, %if.then.i.i.i3.i71, %lpad.i43, %if.then.i.i.i3.i, %lpad.i426, %lpad.i388, %lpad.i350, %lpad.i313, %lpad.i276, %lpad.i237, %lpad.i199, %lpad.i161, %lpad.i123, %lpad.i86, %lpad.i49, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %172, %lpad.i447 ], [ %16, %lpad.i49 ], [ %12, %lpad.i43 ], [ %30, %lpad.i86 ], [ %26, %lpad.i69 ], [ %44, %lpad.i123 ], [ %40, %lpad.i106 ], [ %58, %lpad.i161 ], [ %54, %lpad.i144 ], [ %72, %lpad.i199 ], [ %68, %lpad.i182 ], [ %86, %lpad.i237 ], [ %82, %lpad.i220 ], [ %106, %lpad.i276 ], [ %96, %lpad.i258 ], [ %120, %lpad.i313 ], [ %116, %lpad.i296 ], [ %134, %lpad.i350 ], [ %130, %lpad.i333 ], [ %148, %lpad.i388 ], [ %144, %lpad.i371 ], [ %162, %lpad.i426 ], [ %158, %lpad.i409 ], [ %12, %if.then.i.i.i3.i ], [ %26, %if.then.i.i.i3.i71 ], [ %40, %if.then.i.i.i3.i108 ], [ %54, %if.then.i.i.i3.i146 ], [ %68, %if.then.i.i.i3.i184 ], [ %82, %if.then.i.i.i3.i222 ], [ %96, %if.then.i.i.i3.i260 ], [ %116, %if.then.i.i.i3.i298 ], [ %130, %if.then.i.i.i3.i335 ], [ %144, %if.then.i.i.i3.i373 ], [ %158, %if.then.i.i.i3.i411 ], [ %172, %if.then.i.i.i3.i449 ], [ %185, %lpad164 ], [ %184, %lpad149 ], [ %183, %lpad134 ], [ %182, %lpad119 ], [ %181, %lpad104 ], [ %180, %lpad87 ], [ %179, %lpad72 ], [ %178, %lpad57 ], [ %177, %lpad43 ], [ %176, %lpad28 ], [ %175, %lpad13 ], [ %174, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %16, %lpad.i49 ], [ %30, %lpad.i86 ], [ %44, %lpad.i123 ], [ %58, %lpad.i161 ], [ %72, %lpad.i199 ], [ %86, %lpad.i237 ], [ %106, %lpad.i276 ], [ %120, %lpad.i313 ], [ %134, %lpad.i350 ], [ %148, %lpad.i388 ], [ %162, %lpad.i426 ], [ %12, %if.then.i.i.i3.i ], [ %12, %lpad.i43 ], [ %26, %if.then.i.i.i3.i71 ], [ %26, %lpad.i69 ], [ %40, %if.then.i.i.i3.i108 ], [ %40, %lpad.i106 ], [ %54, %if.then.i.i.i3.i146 ], [ %54, %lpad.i144 ], [ %68, %if.then.i.i.i3.i184 ], [ %68, %lpad.i182 ], [ %82, %if.then.i.i.i3.i222 ], [ %82, %lpad.i220 ], [ %96, %if.then.i.i.i3.i260 ], [ %96, %lpad.i258 ], [ %116, %if.then.i.i.i3.i298 ], [ %116, %lpad.i296 ], [ %130, %if.then.i.i.i3.i335 ], [ %130, %lpad.i333 ], [ %144, %if.then.i.i.i3.i373 ], [ %144, %lpad.i371 ], [ %158, %if.then.i.i.i3.i411 ], [ %158, %lpad.i409 ], [ %172, %if.then.i.i.i3.i449 ], [ %172, %lpad.i447 ], [ %185, %lpad164 ], [ %184, %lpad149 ], [ %183, %lpad134 ], [ %182, %lpad119 ], [ %181, %lpad104 ], [ %180, %lpad87 ], [ %179, %lpad72 ], [ %178, %lpad57 ], [ %177, %lpad43 ], [ %176, %lpad28 ], [ %175, %lpad13 ], [ %174, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -7945,8 +7945,8 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br label %if.end16
 
 if.end16:                                         ; preds = %land.lhs.true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE28rehash_and_grow_if_necessaryEv.exit, %land.rhs
-  %7 = phi ptr [ %1, %land.lhs.true ], [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ]
-  %target.sroa.0.0 = phi i64 [ %0, %land.lhs.true ], [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ]
+  %7 = phi ptr [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ], [ %1, %land.lhs.true ]
+  %target.sroa.0.0 = phi i64 [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ], [ %0, %land.lhs.true ]
   %compressed_tuple_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load i64, ptr %compressed_tuple_.i, align 8
   %add = add i64 %8, 1

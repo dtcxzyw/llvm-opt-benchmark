@@ -286,7 +286,7 @@ define internal fastcc range(i32 0, 3) i32 @unborn_config(ptr noundef %0) unname
   unreachable
 
 14:                                               ; preds = %9, %7, %4, %1
-  %.0 = phi i32 [ 2, %1 ], [ 1, %7 ], [ 2, %4 ], [ 0, %9 ]
+  %.0 = phi i32 [ 2, %1 ], [ 2, %4 ], [ 1, %7 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

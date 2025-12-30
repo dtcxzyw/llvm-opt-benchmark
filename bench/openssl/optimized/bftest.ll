@@ -351,7 +351,7 @@ print_test_data.exit:                             ; preds = %.lr.ph84.i, %._crit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1, %121, %print_test_data.exit
-  %.0 = phi i32 [ 1, %121 ], [ 1, %print_test_data.exit ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %print_test_data.exit ], [ 1, %121 ], [ 0, %1 ]
   ret i32 %.0
 }
 

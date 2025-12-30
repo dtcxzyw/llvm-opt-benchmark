@@ -588,7 +588,7 @@ _ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit27: ; preds = %134, %136
   br i1 %147, label %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.thread, label %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30, !llvm.loop !9
 
 _ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.thread: ; preds = %144, %139, %31
-  %.us-phi61 = phi i32 [ %35, %31 ], [ %143, %139 ], [ 0, %144 ]
+  %.us-phi61 = phi i32 [ %35, %31 ], [ 0, %144 ], [ %143, %139 ]
   %148 = zext i32 %.us-phi61 to i64
   tail call void @_ZN14TaskTerminator18prepare_for_returnEP6Threadm(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %9, i64 noundef %148)
   %149 = load volatile i32, ptr %11, align 8

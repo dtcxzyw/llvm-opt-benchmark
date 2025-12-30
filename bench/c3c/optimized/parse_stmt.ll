@@ -244,7 +244,7 @@ parse_case_stmts.exit.thread:                     ; preds = %47, %parse_case_stm
   br i1 %.not.i, label %parse_default_stmt.exit, label %parse_default_stmt.exit.thread
 
 parse_default_stmt.exit.thread:                   ; preds = %switch.early.test, %switch.early.test, %parse_case_stmts.exit, %parse_case_stmts.exit.thread, %extend_span_with_token.exit
-  %.0.i5962 = phi ptr [ null, %parse_case_stmts.exit ], [ %.0.i5985, %parse_case_stmts.exit.thread ], [ null, %switch.early.test ], [ null, %extend_span_with_token.exit ], [ null, %switch.early.test ]
+  %.0.i5962 = phi ptr [ %.0.i5985, %parse_case_stmts.exit.thread ], [ null, %parse_case_stmts.exit ], [ null, %switch.early.test ], [ null, %extend_span_with_token.exit ], [ null, %switch.early.test ]
   %73 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %74 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %.0.i5962, ptr %74, align 8
@@ -268,7 +268,7 @@ parse_default_stmt.exit:                          ; preds = %parse_case_stmts.ex
   br label %.loopexit
 
 .critedge:                                        ; preds = %76, %parse_default_stmt.exit, %21, %18
-  %.044 = phi ptr [ %19, %21 ], [ null, %18 ], [ null, %parse_default_stmt.exit ], [ %.0.i64, %76 ]
+  %.044 = phi ptr [ null, %18 ], [ %19, %21 ], [ null, %parse_default_stmt.exit ], [ %.0.i64, %76 ]
   %80 = load ptr, ptr %1, align 8
   %.not.i55 = icmp eq ptr %80, null
   br i1 %.not.i55, label %81, label %84
@@ -328,7 +328,7 @@ parse_default_stmt.exit:                          ; preds = %parse_case_stmts.ex
   br i1 %112, label %.loopexit, label %15, !llvm.loop !9
 
 .loopexit:                                        ; preds = %21, %76, %104, %.critedge54, %8, %79
-  %.043 = phi i1 [ false, %8 ], [ false, %79 ], [ true, %.critedge54 ], [ false, %76 ], [ false, %21 ], [ true, %104 ]
+  %.043 = phi i1 [ false, %79 ], [ false, %8 ], [ true, %.critedge54 ], [ false, %21 ], [ false, %76 ], [ true, %104 ]
   ret i1 %.043
 }
 
@@ -549,7 +549,7 @@ parse_case_stmts.exit.thread61:                   ; preds = %parse_case_stmts.ex
   br label %92
 
 .critedge4:                                       ; preds = %64, %extend_span_with_token.exit, %switch.early.test.i, %switch.early.test.i, %parse_case_stmts.exit, %parse_case_stmts.exit.thread61
-  %.0.i60 = phi ptr [ %.0.i, %parse_case_stmts.exit.thread61 ], [ null, %parse_case_stmts.exit ], [ null, %switch.early.test.i ], [ null, %switch.early.test.i ], [ null, %extend_span_with_token.exit ], [ %66, %64 ]
+  %.0.i60 = phi ptr [ null, %parse_case_stmts.exit ], [ %.0.i, %parse_case_stmts.exit.thread61 ], [ null, %switch.early.test.i ], [ null, %switch.early.test.i ], [ null, %extend_span_with_token.exit ], [ %66, %64 ]
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %.0.i60, ptr %91, align 8
   br label %92
@@ -645,7 +645,7 @@ define dso_local ptr @parse_ct_assert_stmt(ptr noundef %0) local_unnamed_addr #0
   br label %consume_eos.exit
 
 consume_eos.exit:                                 ; preds = %34, %32, %27, %13
-  %.0 = phi ptr [ %14, %13 ], [ %28, %27 ], [ %37, %34 ], [ %4, %32 ]
+  %.0 = phi ptr [ %28, %27 ], [ %14, %13 ], [ %37, %34 ], [ %4, %32 ]
   ret ptr %.0
 }
 
@@ -1298,7 +1298,7 @@ extend_span_with_token.exit.i:                    ; preds = %127, %126
   unreachable
 
 parse_decl_or_expr_stmt.exit:                     ; preds = %141, %138, %120, %58, %.thread41.i, %52, %41, %37, %33, %13, %172, %168, %163, %156, %151, %146, %144, %142, %107, %105, %103, %101, %99, %97, %95, %91, %89, %87, %85, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %4
-  %.0 = phi ptr [ %5, %4 ], [ %175, %172 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %84, %81 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %94, %91 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %14, %13 ], [ %143, %142 ], [ %145, %144 ], [ %150, %146 ], [ %155, %151 ], [ %162, %156 ], [ %166, %163 ], [ %171, %168 ], [ %28, %41 ], [ %40, %37 ], [ %34, %33 ], [ %54, %52 ], [ %42, %58 ], [ %57, %.thread41.i ], [ %112, %141 ], [ %140, %138 ], [ %121, %120 ]
+  %.0 = phi ptr [ %5, %4 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %84, %81 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %94, %91 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %143, %142 ], [ %145, %144 ], [ %150, %146 ], [ %155, %151 ], [ %162, %156 ], [ %166, %163 ], [ %171, %168 ], [ %175, %172 ], [ %28, %41 ], [ %40, %37 ], [ %34, %33 ], [ %54, %52 ], [ %42, %58 ], [ %57, %.thread41.i ], [ %14, %13 ], [ %112, %141 ], [ %140, %138 ], [ %121, %120 ]
   ret ptr %.0
 }
 
@@ -1673,7 +1673,7 @@ extend_span_with_token.exit:                      ; preds = %25, %26
   br i1 %exitcond.not, label %.loopexit, label %94, !llvm.loop !11
 
 .loopexit:                                        ; preds = %94, %89, %90, %73, %63, %59, %52, %40, %37, %15
-  %.077 = phi ptr [ %8, %40 ], [ %39, %37 ], [ %16, %15 ], [ %54, %73 ], [ %53, %52 ], [ %66, %63 ], [ %60, %59 ], [ %54, %90 ], [ %54, %89 ], [ %54, %94 ]
+  %.077 = phi ptr [ %8, %40 ], [ %39, %37 ], [ %16, %15 ], [ %54, %73 ], [ %66, %63 ], [ %60, %59 ], [ %53, %52 ], [ %54, %90 ], [ %54, %89 ], [ %54, %94 ]
   ret ptr %.077
 }
 
@@ -1970,7 +1970,7 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
   br label %120
 
 120:                                              ; preds = %106, %.critedge6, %115, %95, %75, %61, %52, %41, %29
-  %.084 = phi ptr [ %30, %29 ], [ %116, %115 ], [ %76, %75 ], [ %96, %95 ], [ %64, %61 ], [ %53, %52 ], [ %44, %41 ], [ %5, %.critedge6 ], [ %5, %106 ]
+  %.084 = phi ptr [ %116, %115 ], [ %76, %75 ], [ %96, %95 ], [ %64, %61 ], [ %53, %52 ], [ %44, %41 ], [ %30, %29 ], [ %5, %.critedge6 ], [ %5, %106 ]
   ret ptr %.084
 }
 
@@ -2463,7 +2463,7 @@ parse_optional_label.exit.thread48:               ; preds = %9, %parse_optional_
   br label %64
 
 64:                                               ; preds = %60, %56, %49, %28
-  %.037 = phi ptr [ %29, %28 ], [ %spec.select, %60 ], [ %59, %56 ], [ %50, %49 ]
+  %.037 = phi ptr [ %59, %56 ], [ %50, %49 ], [ %29, %28 ], [ %spec.select, %60 ]
   ret ptr %.037
 }
 
@@ -2663,7 +2663,7 @@ parse_optional_label.exit.thread90:               ; preds = %13, %parse_optional
   br label %102
 
 102:                                              ; preds = %54, %101, %97, %91, %85, %74, %68, %47, %32
-  %.070 = phi ptr [ %33, %32 ], [ %100, %97 ], [ %94, %91 ], [ %86, %85 ], [ %77, %74 ], [ %71, %68 ], [ %48, %47 ], [ %4, %101 ], [ %4, %54 ]
+  %.070 = phi ptr [ %100, %97 ], [ %94, %91 ], [ %86, %85 ], [ %77, %74 ], [ %71, %68 ], [ %48, %47 ], [ %33, %32 ], [ %4, %101 ], [ %4, %54 ]
   ret ptr %.070
 }
 
@@ -3468,7 +3468,7 @@ parse_optional_label_target.exit:                 ; preds = %11
   br label %45
 
 45:                                               ; preds = %1, %44, %40, %32
-  %.0 = phi ptr [ %33, %32 ], [ %4, %44 ], [ %43, %40 ], [ %4, %1 ]
+  %.0 = phi ptr [ %4, %44 ], [ %43, %40 ], [ %33, %32 ], [ %4, %1 ]
   ret ptr %.0
 }
 
@@ -4245,7 +4245,7 @@ parse_case_stmts.exit:                            ; preds = %71, %71, %71, %71, 
   br i1 %.not.i61, label %parse_default_stmt.exit, label %parse_default_stmt.exit.thread
 
 parse_default_stmt.exit.thread:                   ; preds = %extend_span_with_token.exit, %extend_span_with_token.exit, %extend_span_with_token.exit, %extend_span_with_token.exit, %parse_case_stmts.exit, %86
-  %.0.i6770 = phi ptr [ null, %parse_case_stmts.exit ], [ %.0.i67, %86 ], [ null, %extend_span_with_token.exit ], [ null, %extend_span_with_token.exit ], [ null, %extend_span_with_token.exit ], [ null, %extend_span_with_token.exit ]
+  %.0.i6770 = phi ptr [ %.0.i67, %86 ], [ null, %parse_case_stmts.exit ], [ null, %extend_span_with_token.exit ], [ null, %extend_span_with_token.exit ], [ null, %extend_span_with_token.exit ], [ null, %extend_span_with_token.exit ]
   %89 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %90 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr %.0.i6770, ptr %90, align 8
@@ -4275,7 +4275,7 @@ parse_default_stmt.exit:                          ; preds = %86, %47
   br label %131
 
 .critedge2:                                       ; preds = %92, %parse_default_stmt.exit, %42, %39
-  %.051 = phi ptr [ %40, %42 ], [ null, %39 ], [ null, %parse_default_stmt.exit ], [ %.0.i72, %92 ]
+  %.051 = phi ptr [ null, %39 ], [ %40, %42 ], [ null, %parse_default_stmt.exit ], [ %.0.i72, %92 ]
   %.not.i63 = icmp eq ptr %.05076, null
   br i1 %.not.i63, label %100, label %103
 
@@ -4516,7 +4516,7 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
   br i1 %93, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.critedge2, %.critedge83, %88, %66, %59, %49, %45, %29, %9
-  %.072 = phi ptr [ %89, %88 ], [ %12, %9 ], [ %69, %66 ], [ %60, %59 ], [ %50, %49 ], [ %46, %45 ], [ %30, %29 ], [ %4, %.critedge83 ], [ %4, %.critedge2 ]
+  %.072 = phi ptr [ %89, %88 ], [ %69, %66 ], [ %60, %59 ], [ %50, %49 ], [ %46, %45 ], [ %30, %29 ], [ %12, %9 ], [ %4, %.critedge83 ], [ %4, %.critedge2 ]
   ret ptr %.072
 }
 
@@ -4729,7 +4729,7 @@ define internal fastcc ptr @parse_ct_for_stmt(ptr noundef %0) unnamed_addr #0 {
   br i1 %95, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.critedge6, %.critedge109, %90, %68, %62, %47, %40, %29, %23, %9
-  %.088 = phi ptr [ %91, %90 ], [ %12, %9 ], [ %71, %68 ], [ %63, %62 ], [ %50, %47 ], [ %41, %40 ], [ %32, %29 ], [ %24, %23 ], [ %4, %.critedge109 ], [ %4, %.critedge6 ]
+  %.088 = phi ptr [ %91, %90 ], [ %71, %68 ], [ %63, %62 ], [ %50, %47 ], [ %41, %40 ], [ %32, %29 ], [ %24, %23 ], [ %12, %9 ], [ %4, %.critedge109 ], [ %4, %.critedge6 ]
   ret ptr %.088
 }
 
@@ -4912,7 +4912,7 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   br label %consume_eos.exit
 
 consume_eos.exit:                                 ; preds = %82, %80, %78, %43, %31, %17, %7
-  %.047 = phi ptr [ %44, %43 ], [ %8, %7 ], [ %79, %78 ], [ %32, %31 ], [ %18, %17 ], [ %85, %82 ], [ %4, %80 ]
+  %.047 = phi ptr [ %44, %43 ], [ %79, %78 ], [ %32, %31 ], [ %18, %17 ], [ %8, %7 ], [ %85, %82 ], [ %4, %80 ]
   ret ptr %.047
 }
 
@@ -5068,7 +5068,7 @@ extend_span_with_token.exit:                      ; preds = %60, %61
   br label %78
 
 78:                                               ; preds = %extend_span_with_token.exit, %77, %74, %47, %34
-  %.0 = phi ptr [ %48, %47 ], [ %76, %74 ], [ %35, %34 ], [ %6, %77 ], [ %6, %extend_span_with_token.exit ]
+  %.0 = phi ptr [ %76, %74 ], [ %35, %34 ], [ %48, %47 ], [ %6, %77 ], [ %6, %extend_span_with_token.exit ]
   ret ptr %.0
 }
 
@@ -5361,7 +5361,7 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph169, !llvm.loop !19
 
 .loopexit:                                        ; preds = %145, %76, %137, %._crit_edge
-  %.0112.lcssa195 = phi ptr [ %79, %76 ], [ %133, %._crit_edge ], [ %133, %137 ], [ %133, %145 ]
+  %.0112.lcssa195 = phi ptr [ %133, %137 ], [ %133, %._crit_edge ], [ %79, %76 ], [ %133, %145 ]
   store ptr %.0112.lcssa195, ptr %14, align 8
   store i8 16, ptr %6, align 4
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -5396,7 +5396,7 @@ extend_span_with_token.exit150:                   ; preds = %149, %150
   br label %159
 
 159:                                              ; preds = %.critedge, %extend_span_with_token.exit150, %103, %93, %89, %extend_span_with_token.exit, %38, %33, %12
-  %.0110 = phi ptr [ %13, %12 ], [ %36, %33 ], [ %47, %38 ], [ %3, %extend_span_with_token.exit ], [ %96, %93 ], [ %112, %103 ], [ %90, %89 ], [ %3, %extend_span_with_token.exit150 ], [ %3, %.critedge ]
+  %.0110 = phi ptr [ %36, %33 ], [ %47, %38 ], [ %3, %extend_span_with_token.exit ], [ %96, %93 ], [ %112, %103 ], [ %90, %89 ], [ %3, %extend_span_with_token.exit150 ], [ %13, %12 ], [ %3, %.critedge ]
   ret ptr %.0110
 }
 
@@ -5480,7 +5480,7 @@ extend_span_with_token.exit:                      ; preds = %14, %15
   br label %24
 
 24:                                               ; preds = %2, %2, %extend_span_with_token.exit
-  %.026 = phi ptr [ null, %2 ], [ null, %2 ], [ %6, %extend_span_with_token.exit ]
+  %.026 = phi ptr [ null, %2 ], [ %6, %extend_span_with_token.exit ], [ null, %2 ]
   %25 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 1) #7
   br i1 %25, label %26, label %30
 
@@ -5792,7 +5792,7 @@ define internal fastcc ptr @parse_asm_expr(ptr noundef %0) unnamed_addr #0 {
   tail call void @advance(ptr noundef nonnull %0) #7
   br label %parse_asm_addr.exit
 
-122:                                              ; preds = %47, %55, %14, %66, %98, %106, %112, %114, %79, %77, %90, %87, %60, %119
+122:                                              ; preds = %47, %106, %112, %14, %55, %60, %66, %77, %79, %87, %90, %98, %114, %119
   %123 = load ptr, ptr @poisoned_expr, align 8
   br label %223
 
@@ -5998,7 +5998,7 @@ extend_span_with_token.exit69:                    ; preds = %210, %211
   br label %223
 
 223:                                              ; preds = %156, %220, %extend_span_with_token.exit69, %203, %197, %.critedge, %180, %165, %148, %145, %138, %extend_span_with_token.exit, %122
-  %.0 = phi ptr [ %222, %220 ], [ %4, %extend_span_with_token.exit ], [ %123, %122 ], [ %4, %138 ], [ %147, %145 ], [ %4, %148 ], [ %198, %197 ], [ %167, %165 ], [ %4, %.critedge ], [ %181, %180 ], [ %4, %extend_span_with_token.exit69 ], [ %204, %203 ], [ %4, %156 ]
+  %.0 = phi ptr [ %222, %220 ], [ %4, %extend_span_with_token.exit ], [ %123, %122 ], [ %4, %138 ], [ %147, %145 ], [ %4, %148 ], [ %167, %165 ], [ %4, %.critedge ], [ %181, %180 ], [ %4, %extend_span_with_token.exit69 ], [ %204, %203 ], [ %198, %197 ], [ %4, %156 ]
   ret ptr %.0
 }
 

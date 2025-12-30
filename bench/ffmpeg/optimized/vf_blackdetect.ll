@@ -409,7 +409,7 @@ define internal noundef i32 @black_counter(ptr noundef readonly captures(none) %
   br i1 %exitcond76.not, label %.loopexit, label %.preheader54.us, !llvm.loop !76
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us68, %.preheader54.lr.ph, %.preheader.lr.ph, %43, %27
-  %.2 = phi i32 [ 0, %.preheader54.lr.ph ], [ 0, %27 ], [ %40, %._crit_edge.us68 ], [ 0, %43 ], [ 0, %.preheader.lr.ph ], [ %57, %._crit_edge.us ]
+  %.2 = phi i32 [ 0, %27 ], [ 0, %43 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader54.lr.ph ], [ %40, %._crit_edge.us68 ], [ %57, %._crit_edge.us ]
   %60 = sext i32 %2 to i64
   %61 = getelementptr inbounds i32, ptr %10, i64 %60
   store i32 %.2, ptr %61, align 4, !tbaa !55

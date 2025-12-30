@@ -634,16 +634,16 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   br label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3b87c5b13964a55E.exit"
 
 74:                                               ; preds = %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i
-  %.sroa.083.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ]
-  %.sroa.086.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ]
-  %.sroa.089.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ]
-  %.sroa.092.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ]
-  %.sroa.095.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ]
-  %.sroa.098.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ]
-  %.sroa.0101.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ]
-  %.sroa.0104.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ]
-  %.sroa.0107.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ]
-  %.sroa.0110.0 = phi i1 [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ]
+  %.sroa.083.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ]
+  %.sroa.086.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ]
+  %.sroa.089.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ]
+  %.sroa.092.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ]
+  %.sroa.095.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ]
+  %.sroa.098.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ]
+  %.sroa.0101.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ]
+  %.sroa.0104.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ]
+  %.sroa.0107.0 = phi i1 [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ]
+  %.sroa.0110.0 = phi i1 [ false, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i344 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i373 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i402 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i431 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i460 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i489 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i518 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i547 ], [ true, %_ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576 ]
   %75 = landingpad { ptr, i32 }
           cleanup
   br label %.body315
@@ -670,17 +670,17 @@ default.unreachable844:                           ; preds = %"_ZN99_$LT$core..ar
   unreachable
 
 .body315:                                         ; preds = %446, %425, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561", %413, %392, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532", %380, %359, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503", %346, %325, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474", %312, %291, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445", %278, %257, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416", %244, %223, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387", %211, %190, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358", %177, %156, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329", %143, %122, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i", %74, %81
-  %.sroa.083.1 = phi i1 [ true, %81 ], [ false, %425 ], [ true, %122 ], [ true, %143 ], [ true, %156 ], [ true, %177 ], [ true, %190 ], [ true, %211 ], [ true, %223 ], [ true, %244 ], [ true, %257 ], [ true, %278 ], [ true, %291 ], [ true, %312 ], [ true, %325 ], [ true, %346 ], [ true, %359 ], [ true, %380 ], [ true, %392 ], [ true, %413 ], [ %.sroa.083.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ false, %446 ]
-  %.sroa.086.1 = phi i1 [ true, %81 ], [ true, %425 ], [ true, %122 ], [ true, %143 ], [ true, %156 ], [ true, %177 ], [ true, %190 ], [ true, %211 ], [ true, %223 ], [ true, %244 ], [ true, %257 ], [ true, %278 ], [ true, %291 ], [ true, %312 ], [ true, %325 ], [ true, %346 ], [ true, %359 ], [ true, %380 ], [ false, %392 ], [ false, %413 ], [ %.sroa.086.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %446 ]
-  %.sroa.089.1 = phi i1 [ true, %81 ], [ true, %425 ], [ true, %122 ], [ true, %143 ], [ true, %156 ], [ true, %177 ], [ true, %190 ], [ true, %211 ], [ true, %223 ], [ true, %244 ], [ true, %257 ], [ true, %278 ], [ true, %291 ], [ true, %312 ], [ true, %325 ], [ true, %346 ], [ false, %359 ], [ false, %380 ], [ true, %392 ], [ true, %413 ], [ %.sroa.089.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %446 ]
-  %.sroa.092.1 = phi i1 [ true, %81 ], [ true, %425 ], [ true, %122 ], [ true, %143 ], [ true, %156 ], [ true, %177 ], [ true, %190 ], [ true, %211 ], [ true, %223 ], [ true, %244 ], [ true, %257 ], [ true, %278 ], [ true, %291 ], [ true, %312 ], [ false, %325 ], [ false, %346 ], [ true, %359 ], [ true, %380 ], [ true, %392 ], [ true, %413 ], [ %.sroa.092.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %446 ]
-  %.sroa.095.1 = phi i1 [ true, %81 ], [ true, %425 ], [ true, %122 ], [ true, %143 ], [ true, %156 ], [ true, %177 ], [ true, %190 ], [ true, %211 ], [ true, %223 ], [ true, %244 ], [ true, %257 ], [ true, %278 ], [ false, %291 ], [ false, %312 ], [ true, %325 ], [ true, %346 ], [ true, %359 ], [ true, %380 ], [ true, %392 ], [ true, %413 ], [ %.sroa.095.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %446 ]
-  %.sroa.098.1 = phi i1 [ true, %81 ], [ true, %425 ], [ true, %122 ], [ true, %143 ], [ true, %156 ], [ true, %177 ], [ true, %190 ], [ true, %211 ], [ true, %223 ], [ true, %244 ], [ false, %257 ], [ false, %278 ], [ true, %291 ], [ true, %312 ], [ true, %325 ], [ true, %346 ], [ true, %359 ], [ true, %380 ], [ true, %392 ], [ true, %413 ], [ %.sroa.098.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %446 ]
-  %.sroa.0101.1 = phi i1 [ true, %81 ], [ true, %425 ], [ true, %122 ], [ true, %143 ], [ true, %156 ], [ true, %177 ], [ true, %190 ], [ true, %211 ], [ false, %223 ], [ false, %244 ], [ true, %257 ], [ true, %278 ], [ true, %291 ], [ true, %312 ], [ true, %325 ], [ true, %346 ], [ true, %359 ], [ true, %380 ], [ true, %392 ], [ true, %413 ], [ %.sroa.0101.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %446 ]
-  %.sroa.0104.1 = phi i1 [ true, %81 ], [ true, %425 ], [ true, %122 ], [ true, %143 ], [ true, %156 ], [ true, %177 ], [ false, %190 ], [ false, %211 ], [ true, %223 ], [ true, %244 ], [ true, %257 ], [ true, %278 ], [ true, %291 ], [ true, %312 ], [ true, %325 ], [ true, %346 ], [ true, %359 ], [ true, %380 ], [ true, %392 ], [ true, %413 ], [ %.sroa.0104.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %446 ]
-  %.sroa.0107.1 = phi i1 [ true, %81 ], [ true, %425 ], [ true, %122 ], [ true, %143 ], [ false, %156 ], [ false, %177 ], [ true, %190 ], [ true, %211 ], [ true, %223 ], [ true, %244 ], [ true, %257 ], [ true, %278 ], [ true, %291 ], [ true, %312 ], [ true, %325 ], [ true, %346 ], [ true, %359 ], [ true, %380 ], [ true, %392 ], [ true, %413 ], [ %.sroa.0107.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %446 ]
-  %.sroa.0110.1 = phi i1 [ true, %81 ], [ true, %425 ], [ false, %122 ], [ false, %143 ], [ true, %156 ], [ true, %177 ], [ true, %190 ], [ true, %211 ], [ true, %223 ], [ true, %244 ], [ true, %257 ], [ true, %278 ], [ true, %291 ], [ true, %312 ], [ true, %325 ], [ true, %346 ], [ true, %359 ], [ true, %380 ], [ true, %392 ], [ true, %413 ], [ %.sroa.0110.0, %74 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %446 ]
-  %.pn = phi { ptr, i32 } [ %82, %81 ], [ %426, %425 ], [ %123, %122 ], [ %144, %143 ], [ %157, %156 ], [ %178, %177 ], [ %191, %190 ], [ %212, %211 ], [ %224, %223 ], [ %245, %244 ], [ %258, %257 ], [ %279, %278 ], [ %292, %291 ], [ %313, %312 ], [ %326, %325 ], [ %347, %346 ], [ %360, %359 ], [ %381, %380 ], [ %393, %392 ], [ %414, %413 ], [ %75, %74 ], [ %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ %157, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ %191, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ %224, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ %258, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ %292, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ %326, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ %360, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ %393, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ %426, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ %447, %446 ]
+  %.sroa.083.1 = phi i1 [ true, %81 ], [ %.sroa.083.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %122 ], [ true, %143 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %156 ], [ true, %177 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %190 ], [ true, %211 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %223 ], [ true, %244 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %257 ], [ true, %278 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %291 ], [ true, %312 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %325 ], [ true, %346 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %359 ], [ true, %380 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %392 ], [ true, %413 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ false, %425 ], [ false, %446 ]
+  %.sroa.086.1 = phi i1 [ true, %81 ], [ %.sroa.086.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %122 ], [ true, %143 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %156 ], [ true, %177 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %190 ], [ true, %211 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %223 ], [ true, %244 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %257 ], [ true, %278 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %291 ], [ true, %312 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %325 ], [ true, %346 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %359 ], [ true, %380 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ false, %392 ], [ false, %413 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %425 ], [ true, %446 ]
+  %.sroa.089.1 = phi i1 [ true, %81 ], [ %.sroa.089.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %122 ], [ true, %143 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %156 ], [ true, %177 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %190 ], [ true, %211 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %223 ], [ true, %244 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %257 ], [ true, %278 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %291 ], [ true, %312 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %325 ], [ true, %346 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ false, %359 ], [ false, %380 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %392 ], [ true, %413 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %425 ], [ true, %446 ]
+  %.sroa.092.1 = phi i1 [ true, %81 ], [ %.sroa.092.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %122 ], [ true, %143 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %156 ], [ true, %177 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %190 ], [ true, %211 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %223 ], [ true, %244 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %257 ], [ true, %278 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %291 ], [ true, %312 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ false, %325 ], [ false, %346 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %359 ], [ true, %380 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %392 ], [ true, %413 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %425 ], [ true, %446 ]
+  %.sroa.095.1 = phi i1 [ true, %81 ], [ %.sroa.095.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %122 ], [ true, %143 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %156 ], [ true, %177 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %190 ], [ true, %211 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %223 ], [ true, %244 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %257 ], [ true, %278 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ false, %291 ], [ false, %312 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %325 ], [ true, %346 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %359 ], [ true, %380 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %392 ], [ true, %413 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %425 ], [ true, %446 ]
+  %.sroa.098.1 = phi i1 [ true, %81 ], [ %.sroa.098.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %122 ], [ true, %143 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %156 ], [ true, %177 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %190 ], [ true, %211 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %223 ], [ true, %244 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ false, %257 ], [ false, %278 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %291 ], [ true, %312 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %325 ], [ true, %346 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %359 ], [ true, %380 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %392 ], [ true, %413 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %425 ], [ true, %446 ]
+  %.sroa.0101.1 = phi i1 [ true, %81 ], [ %.sroa.0101.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %122 ], [ true, %143 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %156 ], [ true, %177 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %190 ], [ true, %211 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ false, %223 ], [ false, %244 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %257 ], [ true, %278 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %291 ], [ true, %312 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %325 ], [ true, %346 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %359 ], [ true, %380 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %392 ], [ true, %413 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %425 ], [ true, %446 ]
+  %.sroa.0104.1 = phi i1 [ true, %81 ], [ %.sroa.0104.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %122 ], [ true, %143 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %156 ], [ true, %177 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ false, %190 ], [ false, %211 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %223 ], [ true, %244 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %257 ], [ true, %278 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %291 ], [ true, %312 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %325 ], [ true, %346 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %359 ], [ true, %380 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %392 ], [ true, %413 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %425 ], [ true, %446 ]
+  %.sroa.0107.1 = phi i1 [ true, %81 ], [ %.sroa.0107.0, %74 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ true, %122 ], [ true, %143 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ false, %156 ], [ false, %177 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %190 ], [ true, %211 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %223 ], [ true, %244 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %257 ], [ true, %278 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %291 ], [ true, %312 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %325 ], [ true, %346 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %359 ], [ true, %380 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %392 ], [ true, %413 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %425 ], [ true, %446 ]
+  %.sroa.0110.1 = phi i1 [ true, %81 ], [ %.sroa.0110.0, %74 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ false, %122 ], [ false, %143 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ true, %156 ], [ true, %177 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ true, %190 ], [ true, %211 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ true, %223 ], [ true, %244 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ true, %257 ], [ true, %278 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ true, %291 ], [ true, %312 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ true, %325 ], [ true, %346 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ true, %359 ], [ true, %380 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ true, %392 ], [ true, %413 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ true, %425 ], [ true, %446 ]
+  %.pn = phi { ptr, i32 } [ %82, %81 ], [ %75, %74 ], [ %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ %123, %122 ], [ %144, %143 ], [ %157, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i329" ], [ %157, %156 ], [ %178, %177 ], [ %191, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i358" ], [ %191, %190 ], [ %212, %211 ], [ %224, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i387" ], [ %224, %223 ], [ %245, %244 ], [ %258, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i416" ], [ %258, %257 ], [ %279, %278 ], [ %292, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i445" ], [ %292, %291 ], [ %313, %312 ], [ %326, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i474" ], [ %326, %325 ], [ %347, %346 ], [ %360, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i503" ], [ %360, %359 ], [ %381, %380 ], [ %393, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i532" ], [ %393, %392 ], [ %414, %413 ], [ %426, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i561" ], [ %426, %425 ], [ %447, %446 ]
   %.val = load ptr, ptr %1, align 8, !noundef !3
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val174 = load ptr, ptr %80, align 8
@@ -1759,7 +1759,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body591
 
 .body591:                                         ; preds = %478, %470, %.body
-  %.pn118 = phi { ptr, i32 } [ %103, %.body ], [ %471, %470 ], [ %471, %478 ]
+  %.pn118 = phi { ptr, i32 } [ %103, %.body ], [ %471, %478 ], [ %471, %470 ]
   %479 = load ptr, ptr %68, align 8, !noundef !3
   %480 = icmp ne ptr %479, null
   %or.cond21 = and i1 %480, %.sroa.0110.3
@@ -1819,7 +1819,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body594
 
 .body594:                                         ; preds = %505, %497, %1017, %.body591
-  %.pn120 = phi { ptr, i32 } [ %.pn118, %.body591 ], [ %.pn118, %1017 ], [ %498, %497 ], [ %498, %505 ]
+  %.pn120 = phi { ptr, i32 } [ %.pn118, %1017 ], [ %.pn118, %.body591 ], [ %498, %505 ], [ %498, %497 ]
   %506 = load ptr, ptr %64, align 8, !noundef !3
   %507 = icmp ne ptr %506, null
   %or.cond23 = and i1 %507, %.sroa.0107.3
@@ -1873,7 +1873,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body597
 
 .body597:                                         ; preds = %530, %522, %1019, %.body594
-  %.pn122 = phi { ptr, i32 } [ %.pn120, %.body594 ], [ %.pn120, %1019 ], [ %523, %522 ], [ %523, %530 ]
+  %.pn122 = phi { ptr, i32 } [ %.pn120, %1019 ], [ %.pn120, %.body594 ], [ %523, %530 ], [ %523, %522 ]
   %531 = load ptr, ptr %60, align 8, !noundef !3
   %532 = icmp ne ptr %531, null
   %or.cond25 = and i1 %532, %.sroa.0104.3
@@ -1927,7 +1927,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body600
 
 .body600:                                         ; preds = %555, %547, %1021, %.body597
-  %.pn124 = phi { ptr, i32 } [ %.pn122, %.body597 ], [ %.pn122, %1021 ], [ %548, %547 ], [ %548, %555 ]
+  %.pn124 = phi { ptr, i32 } [ %.pn122, %1021 ], [ %.pn122, %.body597 ], [ %548, %555 ], [ %548, %547 ]
   %556 = load ptr, ptr %56, align 8, !noundef !3
   %557 = icmp ne ptr %556, null
   %or.cond27 = and i1 %557, %.sroa.0101.3
@@ -1981,7 +1981,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body603
 
 .body603:                                         ; preds = %580, %572, %1023, %.body600
-  %.pn126 = phi { ptr, i32 } [ %.pn124, %.body600 ], [ %.pn124, %1023 ], [ %573, %572 ], [ %573, %580 ]
+  %.pn126 = phi { ptr, i32 } [ %.pn124, %1023 ], [ %.pn124, %.body600 ], [ %573, %580 ], [ %573, %572 ]
   %581 = load ptr, ptr %53, align 8, !noundef !3
   %582 = icmp ne ptr %581, null
   %or.cond29 = and i1 %582, %.sroa.098.3
@@ -2035,7 +2035,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body606
 
 .body606:                                         ; preds = %605, %597, %1025, %.body603
-  %.pn128 = phi { ptr, i32 } [ %.pn126, %.body603 ], [ %.pn126, %1025 ], [ %598, %597 ], [ %598, %605 ]
+  %.pn128 = phi { ptr, i32 } [ %.pn126, %1025 ], [ %.pn126, %.body603 ], [ %598, %605 ], [ %598, %597 ]
   %606 = load ptr, ptr %50, align 8, !noundef !3
   %607 = icmp ne ptr %606, null
   %or.cond31 = and i1 %607, %.sroa.095.3
@@ -2089,7 +2089,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body609
 
 .body609:                                         ; preds = %630, %622, %1027, %.body606
-  %.pn130 = phi { ptr, i32 } [ %.pn128, %.body606 ], [ %.pn128, %1027 ], [ %623, %622 ], [ %623, %630 ]
+  %.pn130 = phi { ptr, i32 } [ %.pn128, %1027 ], [ %.pn128, %.body606 ], [ %623, %630 ], [ %623, %622 ]
   %631 = load ptr, ptr %47, align 8, !noundef !3
   %632 = icmp ne ptr %631, null
   %or.cond33 = and i1 %632, %.sroa.092.3
@@ -2143,7 +2143,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body612
 
 .body612:                                         ; preds = %655, %647, %1029, %.body609
-  %.pn132 = phi { ptr, i32 } [ %.pn130, %.body609 ], [ %.pn130, %1029 ], [ %648, %647 ], [ %648, %655 ]
+  %.pn132 = phi { ptr, i32 } [ %.pn130, %1029 ], [ %.pn130, %.body609 ], [ %648, %655 ], [ %648, %647 ]
   %656 = load ptr, ptr %44, align 8, !noundef !3
   %657 = icmp ne ptr %656, null
   %or.cond35 = and i1 %657, %.sroa.089.3
@@ -2197,7 +2197,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body615
 
 .body615:                                         ; preds = %680, %672, %1031, %.body612
-  %.pn134 = phi { ptr, i32 } [ %.pn132, %.body612 ], [ %.pn132, %1031 ], [ %673, %672 ], [ %673, %680 ]
+  %.pn134 = phi { ptr, i32 } [ %.pn132, %1031 ], [ %.pn132, %.body612 ], [ %673, %680 ], [ %673, %672 ]
   %681 = load ptr, ptr %41, align 8, !noundef !3
   %682 = icmp ne ptr %681, null
   %or.cond37 = and i1 %682, %.sroa.086.3
@@ -2251,7 +2251,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body618
 
 .body618:                                         ; preds = %705, %697, %1033, %.body615
-  %.pn136 = phi { ptr, i32 } [ %.pn134, %.body615 ], [ %.pn134, %1033 ], [ %698, %697 ], [ %698, %705 ]
+  %.pn136 = phi { ptr, i32 } [ %.pn134, %1033 ], [ %.pn134, %.body615 ], [ %698, %705 ], [ %698, %697 ]
   %706 = load ptr, ptr %71, align 8, !noundef !3
   %707 = icmp ne ptr %706, null
   %or.cond39 = and i1 %707, %.sroa.083.3
@@ -2348,7 +2348,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body624
 
 .body624:                                         ; preds = %752, %744, %1035, %.body618
-  %.pn138 = phi { ptr, i32 } [ %.pn136, %.body618 ], [ %.pn136, %1035 ], [ %745, %744 ], [ %745, %752 ]
+  %.pn138 = phi { ptr, i32 } [ %.pn136, %1035 ], [ %.pn136, %.body618 ], [ %745, %752 ], [ %745, %744 ]
   %753 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %.val239 = load ptr, ptr %753, align 8, !noundef !3
   %754 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -2357,7 +2357,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
           to label %.body621 unwind label %1015
 
 .body621:                                         ; preds = %731, %723, %.body624
-  %.pn140 = phi { ptr, i32 } [ %.pn138, %.body624 ], [ %724, %723 ], [ %724, %731 ]
+  %.pn140 = phi { ptr, i32 } [ %.pn138, %.body624 ], [ %724, %731 ], [ %724, %723 ]
   %755 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %.val249 = load ptr, ptr %755, align 8, !noundef !3
   %756 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -2415,7 +2415,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body627
 
 .body627:                                         ; preds = %780, %772, %.body621
-  %.pn142 = phi { ptr, i32 } [ %.pn140, %.body621 ], [ %773, %772 ], [ %773, %780 ]
+  %.pn142 = phi { ptr, i32 } [ %.pn140, %.body621 ], [ %773, %780 ], [ %773, %772 ]
   %781 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %.val255 = load ptr, ptr %781, align 8, !noundef !3
   %782 = getelementptr inbounds nuw i8, ptr %1, i64 232
@@ -2473,7 +2473,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body630
 
 .body630:                                         ; preds = %806, %798, %.body627
-  %.pn144 = phi { ptr, i32 } [ %.pn142, %.body627 ], [ %799, %798 ], [ %799, %806 ]
+  %.pn144 = phi { ptr, i32 } [ %.pn142, %.body627 ], [ %799, %806 ], [ %799, %798 ]
   %807 = getelementptr inbounds nuw i8, ptr %1, i64 240
   invoke void @"_ZN4core3ptr263drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$str$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17h777b14ce77a744ceE.llvm.354153908270460661"(ptr noalias noundef nonnull align 8 dereferenceable(16) %807) #23
           to label %.body633 unwind label %1015
@@ -2528,7 +2528,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body633
 
 .body633:                                         ; preds = %832, %824, %.body630
-  %.pn146 = phi { ptr, i32 } [ %.pn144, %.body630 ], [ %825, %824 ], [ %825, %832 ]
+  %.pn146 = phi { ptr, i32 } [ %.pn144, %.body630 ], [ %825, %832 ], [ %825, %824 ]
   %833 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %.val261 = load ptr, ptr %833, align 8, !noundef !3
   %834 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -2586,7 +2586,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body636
 
 .body636:                                         ; preds = %858, %850, %.body633
-  %.pn148 = phi { ptr, i32 } [ %.pn146, %.body633 ], [ %851, %850 ], [ %851, %858 ]
+  %.pn148 = phi { ptr, i32 } [ %.pn146, %.body633 ], [ %851, %858 ], [ %851, %850 ]
   %859 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %.val267 = load ptr, ptr %859, align 8, !noundef !3
   %860 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -2644,7 +2644,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body639
 
 .body639:                                         ; preds = %884, %876, %.body636
-  %.pn150 = phi { ptr, i32 } [ %.pn148, %.body636 ], [ %877, %876 ], [ %877, %884 ]
+  %.pn150 = phi { ptr, i32 } [ %.pn148, %.body636 ], [ %877, %884 ], [ %877, %876 ]
   %885 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %.val273 = load ptr, ptr %885, align 8, !noundef !3
   %886 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -2702,7 +2702,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body642
 
 .body642:                                         ; preds = %910, %902, %.body639
-  %.pn152 = phi { ptr, i32 } [ %.pn150, %.body639 ], [ %903, %902 ], [ %903, %910 ]
+  %.pn152 = phi { ptr, i32 } [ %.pn150, %.body639 ], [ %903, %910 ], [ %903, %902 ]
   %911 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %.val279 = load ptr, ptr %911, align 8, !noundef !3
   %912 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -2760,7 +2760,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body645
 
 .body645:                                         ; preds = %936, %928, %.body642
-  %.pn154 = phi { ptr, i32 } [ %.pn152, %.body642 ], [ %929, %928 ], [ %929, %936 ]
+  %.pn154 = phi { ptr, i32 } [ %.pn152, %.body642 ], [ %929, %936 ], [ %929, %928 ]
   %937 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.val285 = load ptr, ptr %937, align 8, !noundef !3
   %938 = getelementptr inbounds nuw i8, ptr %1, i64 328
@@ -2818,7 +2818,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body648
 
 .body648:                                         ; preds = %962, %954, %.body645
-  %.pn156 = phi { ptr, i32 } [ %.pn154, %.body645 ], [ %955, %954 ], [ %955, %962 ]
+  %.pn156 = phi { ptr, i32 } [ %.pn154, %.body645 ], [ %955, %962 ], [ %955, %954 ]
   %963 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %.val291 = load ptr, ptr %963, align 8, !noundef !3
   %964 = getelementptr inbounds nuw i8, ptr %1, i64 344
@@ -2876,7 +2876,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %.body651
 
 .body651:                                         ; preds = %988, %980, %.body648
-  %.pn158 = phi { ptr, i32 } [ %.pn156, %.body648 ], [ %981, %980 ], [ %981, %988 ]
+  %.pn158 = phi { ptr, i32 } [ %.pn156, %.body648 ], [ %981, %988 ], [ %981, %980 ]
   %989 = getelementptr inbounds nuw i8, ptr %1, i64 352
   invoke void @"_ZN4core3ptr280drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$serde_untagged..map..Map$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17hd3d1f8bf65fc79abE.llvm.354153908270460661"(ptr noalias noundef nonnull align 8 dereferenceable(16) %989) #23
           to label %common.resume unwind label %1015
@@ -2931,7 +2931,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i576: ; preds = %445
   br label %common.resume
 
 common.resume:                                    ; preds = %.body651, %1119, %1006, %1014
-  %common.resume.op = phi { ptr, i32 } [ %1007, %1006 ], [ %1007, %1014 ], [ %.pn158, %.body651 ], [ %.pn, %1119 ]
+  %common.resume.op = phi { ptr, i32 } [ %1007, %1014 ], [ %1007, %1006 ], [ %.pn158, %.body651 ], [ %.pn, %1119 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr280drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$serde_untagged..map..Map$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17hd3d1f8bf65fc79abE.llvm.354153908270460661.exit": ; preds = %"_ZN4core3ptr280drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$serde_untagged..seq..Seq$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17h522fe7d4ce648219E.exit", %998, %1005
@@ -4816,7 +4816,7 @@ default.unreachable:                              ; preds = %48
   unreachable
 
 common.resume.i.i:                                ; preds = %179, %167, %138
-  %common.resume.op.i.i = phi { ptr, i32 } [ %168, %167 ], [ %139, %138 ], [ %.pn146.i.i, %179 ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %139, %138 ], [ %168, %167 ], [ %.pn146.i.i, %179 ]
   resume { ptr, i32 } %common.resume.op.i.i
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i169.i.i", %119
@@ -4824,14 +4824,14 @@ common.resume.i.i:                                ; preds = %179, %167, %138
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %57, %55, %53, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i", %113, %110, %96, %77, %51
-  %.sroa.14.1.i = phi ptr [ @anon.c8777b812d6b35c09a8e6156f259107b.43, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.14.8.copyload.i, %113 ], [ %.sroa.6187.i.sroa.0.0.copyload.i, %77 ], [ %52, %51 ], [ %.sroa.6194.i.sroa.0.0.copyload.i, %96 ], [ %111, %110 ], [ @anon.c8777b812d6b35c09a8e6156f259107b.42, %53 ], [ @anon.c8777b812d6b35c09a8e6156f259107b.43, %55 ], [ @anon.c8777b812d6b35c09a8e6156f259107b.44, %57 ]
-  %.sroa.42.1.i = phi i32 [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.42.8.copyload.i, %113 ], [ %.sroa.42.32.copyload13.i, %77 ], [ %.sroa.42.9.copyload.i, %51 ], [ %.sroa.42.32.copyload.i, %96 ], [ %.sroa.42.12.copyload.i, %110 ], [ undef, %53 ], [ undef, %55 ], [ undef, %57 ]
-  %.sroa.40.1.i = phi i16 [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.40.8.copyload.i, %113 ], [ %.sroa.40.32.copyload12.i, %77 ], [ %.sroa.40.9.copyload.i, %51 ], [ %.sroa.40.32.copyload.i, %96 ], [ %.sroa.40.12.copyload.i, %110 ], [ undef, %53 ], [ undef, %55 ], [ undef, %57 ]
-  %.sroa.38.1.i = phi i16 [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.38.8.copyload.i, %113 ], [ %.sroa.38.32.copyload11.i, %77 ], [ %.sroa.38.9.copyload.i, %51 ], [ %.sroa.38.32.copyload.i, %96 ], [ %.sroa.38.12.copyload.i, %110 ], [ undef, %53 ], [ undef, %55 ], [ undef, %57 ]
-  %.sroa.33.1.i = phi i64 [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.33.8.copyload.i, %113 ], [ %.sroa.6187.i.sroa.9.0.copyload.i, %77 ], [ %.sroa.33.9.copyload.i, %51 ], [ %.sroa.6194.i.sroa.9.0.copyload.i, %96 ], [ %.sroa.33.12.copyload.i, %110 ], [ undef, %53 ], [ undef, %55 ], [ undef, %57 ]
-  %.sroa.28.1.i = phi i64 [ 4, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.28.8.copyload.i, %113 ], [ %.sroa.6187.i.sroa.7.0.copyload.i, %77 ], [ %.sroa.28.9.copyload.i, %51 ], [ %.sroa.6194.i.sroa.7.0.copyload.i, %96 ], [ %.sroa.28.12.copyload.i, %110 ], [ 6, %53 ], [ 4, %55 ], [ 4, %57 ]
-  %.sroa.01.1.i = phi i64 [ 6, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %61, %113 ], [ %66, %77 ], [ %39, %51 ], [ %84, %96 ], [ %103, %110 ], [ 7, %53 ], [ 7, %55 ], [ 7, %57 ]
-  %.sroa.075.5.i.i = phi i8 [ %.sroa.075.6.i.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ 1, %113 ], [ 1, %77 ], [ 1, %51 ], [ 1, %96 ], [ 1, %110 ], [ 1, %53 ], [ 1, %55 ], [ 1, %57 ]
+  %.sroa.14.1.i = phi ptr [ @anon.c8777b812d6b35c09a8e6156f259107b.43, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.14.8.copyload.i, %113 ], [ %.sroa.6187.i.sroa.0.0.copyload.i, %77 ], [ %.sroa.6194.i.sroa.0.0.copyload.i, %96 ], [ %111, %110 ], [ %52, %51 ], [ @anon.c8777b812d6b35c09a8e6156f259107b.42, %53 ], [ @anon.c8777b812d6b35c09a8e6156f259107b.43, %55 ], [ @anon.c8777b812d6b35c09a8e6156f259107b.44, %57 ]
+  %.sroa.42.1.i = phi i32 [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.42.8.copyload.i, %113 ], [ %.sroa.42.32.copyload13.i, %77 ], [ %.sroa.42.32.copyload.i, %96 ], [ %.sroa.42.12.copyload.i, %110 ], [ %.sroa.42.9.copyload.i, %51 ], [ undef, %53 ], [ undef, %55 ], [ undef, %57 ]
+  %.sroa.40.1.i = phi i16 [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.40.8.copyload.i, %113 ], [ %.sroa.40.32.copyload12.i, %77 ], [ %.sroa.40.32.copyload.i, %96 ], [ %.sroa.40.12.copyload.i, %110 ], [ %.sroa.40.9.copyload.i, %51 ], [ undef, %53 ], [ undef, %55 ], [ undef, %57 ]
+  %.sroa.38.1.i = phi i16 [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.38.8.copyload.i, %113 ], [ %.sroa.38.32.copyload11.i, %77 ], [ %.sroa.38.32.copyload.i, %96 ], [ %.sroa.38.12.copyload.i, %110 ], [ %.sroa.38.9.copyload.i, %51 ], [ undef, %53 ], [ undef, %55 ], [ undef, %57 ]
+  %.sroa.33.1.i = phi i64 [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.33.8.copyload.i, %113 ], [ %.sroa.6187.i.sroa.9.0.copyload.i, %77 ], [ %.sroa.6194.i.sroa.9.0.copyload.i, %96 ], [ %.sroa.33.12.copyload.i, %110 ], [ %.sroa.33.9.copyload.i, %51 ], [ undef, %53 ], [ undef, %55 ], [ undef, %57 ]
+  %.sroa.28.1.i = phi i64 [ 4, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %.sroa.28.8.copyload.i, %113 ], [ %.sroa.6187.i.sroa.7.0.copyload.i, %77 ], [ %.sroa.6194.i.sroa.7.0.copyload.i, %96 ], [ %.sroa.28.12.copyload.i, %110 ], [ %.sroa.28.9.copyload.i, %51 ], [ 6, %53 ], [ 4, %55 ], [ 4, %57 ]
+  %.sroa.01.1.i = phi i64 [ 6, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ %61, %113 ], [ %66, %77 ], [ %84, %96 ], [ %103, %110 ], [ %39, %51 ], [ 7, %53 ], [ 7, %55 ], [ 7, %57 ]
+  %.sroa.075.5.i.i = phi i8 [ %.sroa.075.6.i.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E.exit172.i.i" ], [ 1, %113 ], [ 1, %77 ], [ 1, %96 ], [ 1, %110 ], [ 1, %51 ], [ 1, %53 ], [ 1, %55 ], [ 1, %57 ]
   %142 = load i64, ptr %21, align 8, !range !392, !noalias !377, !noundef !3
   %.not143.i.i = icmp eq i64 %142, -9223372036854775808
   br i1 %.not143.i.i, label %145, label %149
@@ -9731,7 +9731,7 @@ define hidden void @"_ZN87_$LT$serde_untagged..UntaggedEnumVisitor$LT$Value$GT$$
   br label %.body
 
 .body:                                            ; preds = %44, %35, %17, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ %36, %35 ], [ %45, %44 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ %18, %17 ], [ %36, %35 ], [ %45, %44 ]
   %.val55 = load ptr, ptr %1, align 8, !noundef !3
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val56 = load ptr, ptr %37, align 8
@@ -9979,7 +9979,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br i1 %.not251, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..fmt..Display$GT$$GT$$GT$17h44b9ba9f3d16f542E.exit", label %98
 
 .body184:                                         ; preds = %71, %63, %118, %110, %666, %.body179
-  %.pn = phi { ptr, i32 } [ %111, %110 ], [ %135, %666 ], [ %135, %.body179 ], [ %64, %71 ], [ %111, %118 ], [ %64, %63 ]
+  %.pn = phi { ptr, i32 } [ %135, %666 ], [ %135, %.body179 ], [ %111, %118 ], [ %111, %110 ], [ %64, %63 ], [ %64, %71 ]
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val119 = load ptr, ptr %144, align 8, !noundef !3
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -9988,7 +9988,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
           to label %.body182 unwind label %668
 
 .body182:                                         ; preds = %97, %89, %.body184
-  %.pn10 = phi { ptr, i32 } [ %.pn, %.body184 ], [ %90, %89 ], [ %90, %97 ]
+  %.pn10 = phi { ptr, i32 } [ %.pn, %.body184 ], [ %90, %97 ], [ %90, %89 ]
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.val127 = load ptr, ptr %146, align 8, !noundef !3
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -10046,7 +10046,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body192
 
 .body192:                                         ; preds = %171, %163, %.body182
-  %.pn12 = phi { ptr, i32 } [ %.pn10, %.body182 ], [ %164, %163 ], [ %164, %171 ]
+  %.pn12 = phi { ptr, i32 } [ %.pn10, %.body182 ], [ %164, %171 ], [ %164, %163 ]
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.val133 = load ptr, ptr %172, align 8, !noundef !3
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -10104,7 +10104,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body195
 
 .body195:                                         ; preds = %197, %189, %.body192
-  %.pn14 = phi { ptr, i32 } [ %.pn12, %.body192 ], [ %190, %189 ], [ %190, %197 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn12, %.body192 ], [ %190, %197 ], [ %190, %189 ]
   %198 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.val139 = load ptr, ptr %198, align 8, !noundef !3
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -10162,7 +10162,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body198
 
 .body198:                                         ; preds = %223, %215, %.body195
-  %.pn16 = phi { ptr, i32 } [ %.pn14, %.body195 ], [ %216, %215 ], [ %216, %223 ]
+  %.pn16 = phi { ptr, i32 } [ %.pn14, %.body195 ], [ %216, %223 ], [ %216, %215 ]
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.val145 = load ptr, ptr %224, align 8, !noundef !3
   %225 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -10220,7 +10220,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body201
 
 .body201:                                         ; preds = %249, %241, %.body198
-  %.pn18 = phi { ptr, i32 } [ %.pn16, %.body198 ], [ %242, %241 ], [ %242, %249 ]
+  %.pn18 = phi { ptr, i32 } [ %.pn16, %.body198 ], [ %242, %249 ], [ %242, %241 ]
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %.val151 = load ptr, ptr %250, align 8, !noundef !3
   %251 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -10278,7 +10278,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body204
 
 .body204:                                         ; preds = %275, %267, %.body201
-  %.pn20 = phi { ptr, i32 } [ %.pn18, %.body201 ], [ %268, %267 ], [ %268, %275 ]
+  %.pn20 = phi { ptr, i32 } [ %.pn18, %.body201 ], [ %268, %275 ], [ %268, %267 ]
   %276 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %.val157 = load ptr, ptr %276, align 8, !noundef !3
   %277 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -10336,7 +10336,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body207
 
 .body207:                                         ; preds = %301, %293, %.body204
-  %.pn22 = phi { ptr, i32 } [ %.pn20, %.body204 ], [ %294, %293 ], [ %294, %301 ]
+  %.pn22 = phi { ptr, i32 } [ %.pn20, %.body204 ], [ %294, %301 ], [ %294, %293 ]
   %302 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %.val163 = load ptr, ptr %302, align 8, !noundef !3
   %303 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -10394,7 +10394,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body210
 
 .body210:                                         ; preds = %327, %319, %.body207
-  %.pn24 = phi { ptr, i32 } [ %.pn22, %.body207 ], [ %320, %319 ], [ %320, %327 ]
+  %.pn24 = phi { ptr, i32 } [ %.pn22, %.body207 ], [ %320, %327 ], [ %320, %319 ]
   %328 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %.val169 = load ptr, ptr %328, align 8, !noundef !3
   %329 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -10452,7 +10452,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body213
 
 .body213:                                         ; preds = %353, %345, %.body210
-  %.pn26 = phi { ptr, i32 } [ %.pn24, %.body210 ], [ %346, %345 ], [ %346, %353 ]
+  %.pn26 = phi { ptr, i32 } [ %.pn24, %.body210 ], [ %346, %353 ], [ %346, %345 ]
   %354 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %.val175 = load ptr, ptr %354, align 8, !noundef !3
   %355 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -10510,7 +10510,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body216
 
 .body216:                                         ; preds = %379, %371, %.body213
-  %.pn28 = phi { ptr, i32 } [ %.pn26, %.body213 ], [ %372, %371 ], [ %372, %379 ]
+  %.pn28 = phi { ptr, i32 } [ %.pn26, %.body213 ], [ %372, %379 ], [ %372, %371 ]
   %380 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %.val67 = load ptr, ptr %380, align 8, !noundef !3
   %381 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -10568,7 +10568,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body219
 
 .body219:                                         ; preds = %405, %397, %.body216
-  %.pn30 = phi { ptr, i32 } [ %.pn28, %.body216 ], [ %398, %397 ], [ %398, %405 ]
+  %.pn30 = phi { ptr, i32 } [ %.pn28, %.body216 ], [ %398, %405 ], [ %398, %397 ]
   %406 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %.val73 = load ptr, ptr %406, align 8, !noundef !3
   %407 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -10626,7 +10626,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body222
 
 .body222:                                         ; preds = %431, %423, %.body219
-  %.pn32 = phi { ptr, i32 } [ %.pn30, %.body219 ], [ %424, %423 ], [ %424, %431 ]
+  %.pn32 = phi { ptr, i32 } [ %.pn30, %.body219 ], [ %424, %431 ], [ %424, %423 ]
   %432 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %.val79 = load ptr, ptr %432, align 8, !noundef !3
   %433 = getelementptr inbounds nuw i8, ptr %1, i64 232
@@ -10684,7 +10684,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body225
 
 .body225:                                         ; preds = %457, %449, %.body222
-  %.pn34 = phi { ptr, i32 } [ %.pn32, %.body222 ], [ %450, %449 ], [ %450, %457 ]
+  %.pn34 = phi { ptr, i32 } [ %.pn32, %.body222 ], [ %450, %457 ], [ %450, %449 ]
   %458 = getelementptr inbounds nuw i8, ptr %1, i64 240
   invoke void @"_ZN4core3ptr263drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$str$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17h777b14ce77a744ceE.llvm.354153908270460661"(ptr noalias noundef nonnull align 8 dereferenceable(16) %458) #23
           to label %.body228 unwind label %668
@@ -10739,7 +10739,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body228
 
 .body228:                                         ; preds = %483, %475, %.body225
-  %.pn36 = phi { ptr, i32 } [ %.pn34, %.body225 ], [ %476, %475 ], [ %476, %483 ]
+  %.pn36 = phi { ptr, i32 } [ %.pn34, %.body225 ], [ %476, %483 ], [ %476, %475 ]
   %484 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %.val85 = load ptr, ptr %484, align 8, !noundef !3
   %485 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -10797,7 +10797,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body231
 
 .body231:                                         ; preds = %509, %501, %.body228
-  %.pn38 = phi { ptr, i32 } [ %.pn36, %.body228 ], [ %502, %501 ], [ %502, %509 ]
+  %.pn38 = phi { ptr, i32 } [ %.pn36, %.body228 ], [ %502, %509 ], [ %502, %501 ]
   %510 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %.val91 = load ptr, ptr %510, align 8, !noundef !3
   %511 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -10855,7 +10855,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body234
 
 .body234:                                         ; preds = %535, %527, %.body231
-  %.pn40 = phi { ptr, i32 } [ %.pn38, %.body231 ], [ %528, %527 ], [ %528, %535 ]
+  %.pn40 = phi { ptr, i32 } [ %.pn38, %.body231 ], [ %528, %535 ], [ %528, %527 ]
   %536 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %.val97 = load ptr, ptr %536, align 8, !noundef !3
   %537 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -10913,7 +10913,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body237
 
 .body237:                                         ; preds = %561, %553, %.body234
-  %.pn42 = phi { ptr, i32 } [ %.pn40, %.body234 ], [ %554, %553 ], [ %554, %561 ]
+  %.pn42 = phi { ptr, i32 } [ %.pn40, %.body234 ], [ %554, %561 ], [ %554, %553 ]
   %562 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %.val103 = load ptr, ptr %562, align 8, !noundef !3
   %563 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -10971,7 +10971,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body240
 
 .body240:                                         ; preds = %587, %579, %.body237
-  %.pn44 = phi { ptr, i32 } [ %.pn42, %.body237 ], [ %580, %579 ], [ %580, %587 ]
+  %.pn44 = phi { ptr, i32 } [ %.pn42, %.body237 ], [ %580, %587 ], [ %580, %579 ]
   %588 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.val109 = load ptr, ptr %588, align 8, !noundef !3
   %589 = getelementptr inbounds nuw i8, ptr %1, i64 328
@@ -11029,7 +11029,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body243
 
 .body243:                                         ; preds = %613, %605, %.body240
-  %.pn46 = phi { ptr, i32 } [ %.pn44, %.body240 ], [ %606, %605 ], [ %606, %613 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn44, %.body240 ], [ %606, %613 ], [ %606, %605 ]
   %614 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %.val115 = load ptr, ptr %614, align 8, !noundef !3
   %615 = getelementptr inbounds nuw i8, ptr %1, i64 344
@@ -11087,7 +11087,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %.body246
 
 .body246:                                         ; preds = %639, %631, %.body243
-  %.pn48 = phi { ptr, i32 } [ %.pn46, %.body243 ], [ %632, %631 ], [ %632, %639 ]
+  %.pn48 = phi { ptr, i32 } [ %.pn46, %.body243 ], [ %632, %639 ], [ %632, %631 ]
   %640 = getelementptr inbounds nuw i8, ptr %1, i64 352
   invoke void @"_ZN4core3ptr280drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$serde_untagged..map..Map$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17hd3d1f8bf65fc79abE.llvm.354153908270460661"(ptr noalias noundef nonnull align 8 dereferenceable(16) %640) #23
           to label %common.resume unwind label %668
@@ -11142,7 +11142,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %43
   br label %common.resume
 
 common.resume:                                    ; preds = %.body246, %734, %657, %665
-  %common.resume.op = phi { ptr, i32 } [ %658, %657 ], [ %658, %665 ], [ %.pn48, %.body246 ], [ %eh.lpad-body, %734 ]
+  %common.resume.op = phi { ptr, i32 } [ %658, %665 ], [ %658, %657 ], [ %.pn48, %.body246 ], [ %eh.lpad-body, %734 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr280drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$serde_untagged..map..Map$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17hd3d1f8bf65fc79abE.llvm.354153908270460661.exit": ; preds = %"_ZN4core3ptr280drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$serde_untagged..seq..Seq$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17h522fe7d4ce648219E.exit", %649, %656
@@ -11408,7 +11408,7 @@ _ZN5serde2de7Visitor9visit_f6417hb852a9423fbd6d00E.exit: ; preds = %32
   br label %.body
 
 .body:                                            ; preds = %43, %34, %17, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ %35, %34 ], [ %44, %43 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ %18, %17 ], [ %35, %34 ], [ %44, %43 ]
   %.val52 = load ptr, ptr %1, align 8, !noundef !3
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val53 = load ptr, ptr %36, align 8
@@ -11566,7 +11566,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body179
 
 .body179:                                         ; preds = %98, %90, %.body176
-  %.pn = phi { ptr, i32 } [ %65, %.body176 ], [ %91, %90 ], [ %91, %98 ]
+  %.pn = phi { ptr, i32 } [ %65, %.body176 ], [ %91, %98 ], [ %91, %90 ]
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val118 = load ptr, ptr %99, align 8, !noundef !3
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -11624,7 +11624,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body182
 
 .body182:                                         ; preds = %124, %116, %.body179
-  %.pn10 = phi { ptr, i32 } [ %.pn, %.body179 ], [ %117, %116 ], [ %117, %124 ]
+  %.pn10 = phi { ptr, i32 } [ %.pn, %.body179 ], [ %117, %124 ], [ %117, %116 ]
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.val124 = load ptr, ptr %125, align 8, !noundef !3
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -11682,7 +11682,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body185
 
 .body185:                                         ; preds = %150, %142, %.body182
-  %.pn12 = phi { ptr, i32 } [ %.pn10, %.body182 ], [ %143, %142 ], [ %143, %150 ]
+  %.pn12 = phi { ptr, i32 } [ %.pn10, %.body182 ], [ %143, %150 ], [ %143, %142 ]
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.val130 = load ptr, ptr %151, align 8, !noundef !3
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -11740,7 +11740,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body188
 
 .body188:                                         ; preds = %176, %168, %.body185
-  %.pn14 = phi { ptr, i32 } [ %.pn12, %.body185 ], [ %169, %168 ], [ %169, %176 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn12, %.body185 ], [ %169, %176 ], [ %169, %168 ]
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.val136 = load ptr, ptr %177, align 8, !noundef !3
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -11798,7 +11798,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body191
 
 .body191:                                         ; preds = %202, %194, %.body188
-  %.pn16 = phi { ptr, i32 } [ %.pn14, %.body188 ], [ %195, %194 ], [ %195, %202 ]
+  %.pn16 = phi { ptr, i32 } [ %.pn14, %.body188 ], [ %195, %202 ], [ %195, %194 ]
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.val142 = load ptr, ptr %203, align 8, !noundef !3
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -11856,7 +11856,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body194
 
 .body194:                                         ; preds = %228, %220, %.body191
-  %.pn18 = phi { ptr, i32 } [ %.pn16, %.body191 ], [ %221, %220 ], [ %221, %228 ]
+  %.pn18 = phi { ptr, i32 } [ %.pn16, %.body191 ], [ %221, %228 ], [ %221, %220 ]
   %229 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %.val148 = load ptr, ptr %229, align 8, !noundef !3
   %230 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -11914,7 +11914,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body197
 
 .body197:                                         ; preds = %254, %246, %.body194
-  %.pn20 = phi { ptr, i32 } [ %.pn18, %.body194 ], [ %247, %246 ], [ %247, %254 ]
+  %.pn20 = phi { ptr, i32 } [ %.pn18, %.body194 ], [ %247, %254 ], [ %247, %246 ]
   %255 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %.val154 = load ptr, ptr %255, align 8, !noundef !3
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -11972,7 +11972,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body200
 
 .body200:                                         ; preds = %280, %272, %.body197
-  %.pn22 = phi { ptr, i32 } [ %.pn20, %.body197 ], [ %273, %272 ], [ %273, %280 ]
+  %.pn22 = phi { ptr, i32 } [ %.pn20, %.body197 ], [ %273, %280 ], [ %273, %272 ]
   %281 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %.val160 = load ptr, ptr %281, align 8, !noundef !3
   %282 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -12030,7 +12030,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body203
 
 .body203:                                         ; preds = %306, %298, %.body200
-  %.pn24 = phi { ptr, i32 } [ %.pn22, %.body200 ], [ %299, %298 ], [ %299, %306 ]
+  %.pn24 = phi { ptr, i32 } [ %.pn22, %.body200 ], [ %299, %306 ], [ %299, %298 ]
   %307 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %.val166 = load ptr, ptr %307, align 8, !noundef !3
   %308 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -12088,7 +12088,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body206
 
 .body206:                                         ; preds = %332, %324, %.body203
-  %.pn26 = phi { ptr, i32 } [ %.pn24, %.body203 ], [ %325, %324 ], [ %325, %332 ]
+  %.pn26 = phi { ptr, i32 } [ %.pn24, %.body203 ], [ %325, %332 ], [ %325, %324 ]
   %333 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %.val172 = load ptr, ptr %333, align 8, !noundef !3
   %334 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -12146,7 +12146,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body209
 
 .body209:                                         ; preds = %358, %350, %.body206
-  %.pn28 = phi { ptr, i32 } [ %.pn26, %.body206 ], [ %351, %350 ], [ %351, %358 ]
+  %.pn28 = phi { ptr, i32 } [ %.pn26, %.body206 ], [ %351, %358 ], [ %351, %350 ]
   %359 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %.val64 = load ptr, ptr %359, align 8, !noundef !3
   %360 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -12204,7 +12204,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body212
 
 .body212:                                         ; preds = %384, %376, %.body209
-  %.pn30 = phi { ptr, i32 } [ %.pn28, %.body209 ], [ %377, %376 ], [ %377, %384 ]
+  %.pn30 = phi { ptr, i32 } [ %.pn28, %.body209 ], [ %377, %384 ], [ %377, %376 ]
   %385 = load ptr, ptr %9, align 8, !noundef !3
   %386 = icmp ne ptr %385, null
   %or.cond3 = and i1 %11, %386
@@ -12307,7 +12307,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body217
 
 .body217:                                         ; preds = %433, %425, %646, %.body212
-  %.pn32 = phi { ptr, i32 } [ %.pn30, %.body212 ], [ %.pn30, %646 ], [ %426, %425 ], [ %426, %433 ]
+  %.pn32 = phi { ptr, i32 } [ %.pn30, %646 ], [ %.pn30, %.body212 ], [ %426, %433 ], [ %426, %425 ]
   %434 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %.val74 = load ptr, ptr %434, align 8, !noundef !3
   %435 = getelementptr inbounds nuw i8, ptr %1, i64 232
@@ -12316,7 +12316,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
           to label %.body215 unwind label %644
 
 .body215:                                         ; preds = %412, %404, %.body217
-  %.pn34 = phi { ptr, i32 } [ %.pn32, %.body217 ], [ %405, %404 ], [ %405, %412 ]
+  %.pn34 = phi { ptr, i32 } [ %.pn32, %.body217 ], [ %405, %412 ], [ %405, %404 ]
   %436 = getelementptr inbounds nuw i8, ptr %1, i64 240
   invoke void @"_ZN4core3ptr263drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$str$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17h777b14ce77a744ceE.llvm.354153908270460661"(ptr noalias noundef nonnull align 8 dereferenceable(16) %436) #23
           to label %.body220 unwind label %644
@@ -12371,7 +12371,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body220
 
 .body220:                                         ; preds = %461, %453, %.body215
-  %.pn36 = phi { ptr, i32 } [ %.pn34, %.body215 ], [ %454, %453 ], [ %454, %461 ]
+  %.pn36 = phi { ptr, i32 } [ %.pn34, %.body215 ], [ %454, %461 ], [ %454, %453 ]
   %462 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %.val82 = load ptr, ptr %462, align 8, !noundef !3
   %463 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -12429,7 +12429,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body223
 
 .body223:                                         ; preds = %487, %479, %.body220
-  %.pn38 = phi { ptr, i32 } [ %.pn36, %.body220 ], [ %480, %479 ], [ %480, %487 ]
+  %.pn38 = phi { ptr, i32 } [ %.pn36, %.body220 ], [ %480, %487 ], [ %480, %479 ]
   %488 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %.val88 = load ptr, ptr %488, align 8, !noundef !3
   %489 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -12487,7 +12487,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body226
 
 .body226:                                         ; preds = %513, %505, %.body223
-  %.pn40 = phi { ptr, i32 } [ %.pn38, %.body223 ], [ %506, %505 ], [ %506, %513 ]
+  %.pn40 = phi { ptr, i32 } [ %.pn38, %.body223 ], [ %506, %513 ], [ %506, %505 ]
   %514 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %.val94 = load ptr, ptr %514, align 8, !noundef !3
   %515 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -12545,7 +12545,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body229
 
 .body229:                                         ; preds = %539, %531, %.body226
-  %.pn42 = phi { ptr, i32 } [ %.pn40, %.body226 ], [ %532, %531 ], [ %532, %539 ]
+  %.pn42 = phi { ptr, i32 } [ %.pn40, %.body226 ], [ %532, %539 ], [ %532, %531 ]
   %540 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %.val100 = load ptr, ptr %540, align 8, !noundef !3
   %541 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -12603,7 +12603,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body232
 
 .body232:                                         ; preds = %565, %557, %.body229
-  %.pn44 = phi { ptr, i32 } [ %.pn42, %.body229 ], [ %558, %557 ], [ %558, %565 ]
+  %.pn44 = phi { ptr, i32 } [ %.pn42, %.body229 ], [ %558, %565 ], [ %558, %557 ]
   %566 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.val106 = load ptr, ptr %566, align 8, !noundef !3
   %567 = getelementptr inbounds nuw i8, ptr %1, i64 328
@@ -12661,7 +12661,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body235
 
 .body235:                                         ; preds = %591, %583, %.body232
-  %.pn46 = phi { ptr, i32 } [ %.pn44, %.body232 ], [ %584, %583 ], [ %584, %591 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn44, %.body232 ], [ %584, %591 ], [ %584, %583 ]
   %592 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %.val112 = load ptr, ptr %592, align 8, !noundef !3
   %593 = getelementptr inbounds nuw i8, ptr %1, i64 344
@@ -12719,7 +12719,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %.body238
 
 .body238:                                         ; preds = %617, %609, %.body235
-  %.pn48 = phi { ptr, i32 } [ %.pn46, %.body235 ], [ %610, %609 ], [ %610, %617 ]
+  %.pn48 = phi { ptr, i32 } [ %.pn46, %.body235 ], [ %610, %617 ], [ %610, %609 ]
   %618 = getelementptr inbounds nuw i8, ptr %1, i64 352
   invoke void @"_ZN4core3ptr280drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$serde_untagged..map..Map$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17hd3d1f8bf65fc79abE.llvm.354153908270460661"(ptr noalias noundef nonnull align 8 dereferenceable(16) %618) #23
           to label %common.resume unwind label %644
@@ -12774,7 +12774,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %42
   br label %common.resume
 
 common.resume:                                    ; preds = %.body238, %712, %635, %643
-  %common.resume.op = phi { ptr, i32 } [ %636, %635 ], [ %636, %643 ], [ %.pn48, %.body238 ], [ %eh.lpad-body, %712 ]
+  %common.resume.op = phi { ptr, i32 } [ %636, %643 ], [ %636, %635 ], [ %.pn48, %.body238 ], [ %eh.lpad-body, %712 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr280drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$serde_untagged..map..Map$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17hd3d1f8bf65fc79abE.llvm.354153908270460661.exit": ; preds = %"_ZN4core3ptr280drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$serde_untagged..seq..Seq$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17h522fe7d4ce648219E.exit", %627, %634
@@ -13121,7 +13121,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %57
 
 .body179:                                         ; preds = %27, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i", %54, %48, %.body
-  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %20, %.body ], [ %55, %54 ], [ %28, %27 ], [ %28, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ]
+  %.pn = phi { ptr, i32 } [ %20, %.body ], [ %55, %54 ], [ %49, %48 ], [ %28, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ %28, %27 ]
   %.val55 = load ptr, ptr %1, align 8, !noundef !3
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val56 = load ptr, ptr %53, align 8
@@ -13255,7 +13255,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body185
 
 .body185:                                         ; preds = %108, %100, %.body182
-  %.pn11 = phi { ptr, i32 } [ %73, %.body182 ], [ %101, %100 ], [ %101, %108 ]
+  %.pn11 = phi { ptr, i32 } [ %73, %.body182 ], [ %101, %108 ], [ %101, %100 ]
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val121 = load ptr, ptr %109, align 8, !noundef !3
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -13313,7 +13313,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body188
 
 .body188:                                         ; preds = %134, %126, %.body185
-  %.pn13 = phi { ptr, i32 } [ %.pn11, %.body185 ], [ %127, %126 ], [ %127, %134 ]
+  %.pn13 = phi { ptr, i32 } [ %.pn11, %.body185 ], [ %127, %134 ], [ %127, %126 ]
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.val127 = load ptr, ptr %135, align 8, !noundef !3
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -13371,7 +13371,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body191
 
 .body191:                                         ; preds = %160, %152, %.body188
-  %.pn15 = phi { ptr, i32 } [ %.pn13, %.body188 ], [ %153, %152 ], [ %153, %160 ]
+  %.pn15 = phi { ptr, i32 } [ %.pn13, %.body188 ], [ %153, %160 ], [ %153, %152 ]
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.val133 = load ptr, ptr %161, align 8, !noundef !3
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -13429,7 +13429,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body194
 
 .body194:                                         ; preds = %186, %178, %.body191
-  %.pn17 = phi { ptr, i32 } [ %.pn15, %.body191 ], [ %179, %178 ], [ %179, %186 ]
+  %.pn17 = phi { ptr, i32 } [ %.pn15, %.body191 ], [ %179, %186 ], [ %179, %178 ]
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.val139 = load ptr, ptr %187, align 8, !noundef !3
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -13487,7 +13487,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body197
 
 .body197:                                         ; preds = %212, %204, %.body194
-  %.pn19 = phi { ptr, i32 } [ %.pn17, %.body194 ], [ %205, %204 ], [ %205, %212 ]
+  %.pn19 = phi { ptr, i32 } [ %.pn17, %.body194 ], [ %205, %212 ], [ %205, %204 ]
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.val145 = load ptr, ptr %213, align 8, !noundef !3
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -13545,7 +13545,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body200
 
 .body200:                                         ; preds = %238, %230, %.body197
-  %.pn21 = phi { ptr, i32 } [ %.pn19, %.body197 ], [ %231, %230 ], [ %231, %238 ]
+  %.pn21 = phi { ptr, i32 } [ %.pn19, %.body197 ], [ %231, %238 ], [ %231, %230 ]
   %239 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %.val151 = load ptr, ptr %239, align 8, !noundef !3
   %240 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -13603,7 +13603,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body203
 
 .body203:                                         ; preds = %264, %256, %.body200
-  %.pn23 = phi { ptr, i32 } [ %.pn21, %.body200 ], [ %257, %256 ], [ %257, %264 ]
+  %.pn23 = phi { ptr, i32 } [ %.pn21, %.body200 ], [ %257, %264 ], [ %257, %256 ]
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %.val157 = load ptr, ptr %265, align 8, !noundef !3
   %266 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -13661,7 +13661,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body206
 
 .body206:                                         ; preds = %290, %282, %.body203
-  %.pn25 = phi { ptr, i32 } [ %.pn23, %.body203 ], [ %283, %282 ], [ %283, %290 ]
+  %.pn25 = phi { ptr, i32 } [ %.pn23, %.body203 ], [ %283, %290 ], [ %283, %282 ]
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %.val163 = load ptr, ptr %291, align 8, !noundef !3
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -13719,7 +13719,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body209
 
 .body209:                                         ; preds = %316, %308, %.body206
-  %.pn27 = phi { ptr, i32 } [ %.pn25, %.body206 ], [ %309, %308 ], [ %309, %316 ]
+  %.pn27 = phi { ptr, i32 } [ %.pn25, %.body206 ], [ %309, %316 ], [ %309, %308 ]
   %317 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %.val169 = load ptr, ptr %317, align 8, !noundef !3
   %318 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -13777,7 +13777,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body212
 
 .body212:                                         ; preds = %342, %334, %.body209
-  %.pn29 = phi { ptr, i32 } [ %.pn27, %.body209 ], [ %335, %334 ], [ %335, %342 ]
+  %.pn29 = phi { ptr, i32 } [ %.pn27, %.body209 ], [ %335, %342 ], [ %335, %334 ]
   %343 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %.val175 = load ptr, ptr %343, align 8, !noundef !3
   %344 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -13835,7 +13835,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body215
 
 .body215:                                         ; preds = %368, %360, %.body212
-  %.pn31 = phi { ptr, i32 } [ %.pn29, %.body212 ], [ %361, %360 ], [ %361, %368 ]
+  %.pn31 = phi { ptr, i32 } [ %.pn29, %.body212 ], [ %361, %368 ], [ %361, %360 ]
   %369 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %.val67 = load ptr, ptr %369, align 8, !noundef !3
   %370 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -13893,7 +13893,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body218
 
 .body218:                                         ; preds = %394, %386, %.body215
-  %.pn33 = phi { ptr, i32 } [ %.pn31, %.body215 ], [ %387, %386 ], [ %387, %394 ]
+  %.pn33 = phi { ptr, i32 } [ %.pn31, %.body215 ], [ %387, %394 ], [ %387, %386 ]
   %395 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %.val73 = load ptr, ptr %395, align 8, !noundef !3
   %396 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -13951,7 +13951,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body221
 
 .body221:                                         ; preds = %420, %412, %.body218
-  %.pn35 = phi { ptr, i32 } [ %.pn33, %.body218 ], [ %413, %412 ], [ %413, %420 ]
+  %.pn35 = phi { ptr, i32 } [ %.pn33, %.body218 ], [ %413, %420 ], [ %413, %412 ]
   %421 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %.val79 = load ptr, ptr %421, align 8, !noundef !3
   %422 = getelementptr inbounds nuw i8, ptr %1, i64 232
@@ -14009,7 +14009,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body224
 
 .body224:                                         ; preds = %446, %438, %.body221
-  %.pn37 = phi { ptr, i32 } [ %.pn35, %.body221 ], [ %439, %438 ], [ %439, %446 ]
+  %.pn37 = phi { ptr, i32 } [ %.pn35, %.body221 ], [ %439, %446 ], [ %439, %438 ]
   %447 = getelementptr inbounds nuw i8, ptr %1, i64 240
   invoke void @"_ZN4core3ptr263drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$str$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17h777b14ce77a744ceE.llvm.354153908270460661"(ptr noalias noundef nonnull align 8 dereferenceable(16) %447) #23
           to label %.body227 unwind label %81
@@ -14064,7 +14064,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body227
 
 .body227:                                         ; preds = %472, %464, %.body224
-  %.pn39 = phi { ptr, i32 } [ %.pn37, %.body224 ], [ %465, %464 ], [ %465, %472 ]
+  %.pn39 = phi { ptr, i32 } [ %.pn37, %.body224 ], [ %465, %472 ], [ %465, %464 ]
   %473 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %.val85 = load ptr, ptr %473, align 8, !noundef !3
   %474 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -14122,7 +14122,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body230
 
 .body230:                                         ; preds = %498, %490, %.body227
-  %.pn41 = phi { ptr, i32 } [ %.pn39, %.body227 ], [ %491, %490 ], [ %491, %498 ]
+  %.pn41 = phi { ptr, i32 } [ %.pn39, %.body227 ], [ %491, %498 ], [ %491, %490 ]
   %499 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %.val91 = load ptr, ptr %499, align 8, !noundef !3
   %500 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -14180,7 +14180,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body233
 
 .body233:                                         ; preds = %524, %516, %.body230
-  %.pn43 = phi { ptr, i32 } [ %.pn41, %.body230 ], [ %517, %516 ], [ %517, %524 ]
+  %.pn43 = phi { ptr, i32 } [ %.pn41, %.body230 ], [ %517, %524 ], [ %517, %516 ]
   %525 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %.val97 = load ptr, ptr %525, align 8, !noundef !3
   %526 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -14238,7 +14238,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body236
 
 .body236:                                         ; preds = %550, %542, %.body233
-  %.pn45 = phi { ptr, i32 } [ %.pn43, %.body233 ], [ %543, %542 ], [ %543, %550 ]
+  %.pn45 = phi { ptr, i32 } [ %.pn43, %.body233 ], [ %543, %550 ], [ %543, %542 ]
   %551 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %.val103 = load ptr, ptr %551, align 8, !noundef !3
   %552 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -14296,7 +14296,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body239
 
 .body239:                                         ; preds = %576, %568, %.body236
-  %.pn47 = phi { ptr, i32 } [ %.pn45, %.body236 ], [ %569, %568 ], [ %569, %576 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn45, %.body236 ], [ %569, %576 ], [ %569, %568 ]
   %577 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.val109 = load ptr, ptr %577, align 8, !noundef !3
   %578 = getelementptr inbounds nuw i8, ptr %1, i64 328
@@ -14354,7 +14354,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body242
 
 .body242:                                         ; preds = %602, %594, %.body239
-  %.pn49 = phi { ptr, i32 } [ %.pn47, %.body239 ], [ %595, %594 ], [ %595, %602 ]
+  %.pn49 = phi { ptr, i32 } [ %.pn47, %.body239 ], [ %595, %602 ], [ %595, %594 ]
   %603 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %.val115 = load ptr, ptr %603, align 8, !noundef !3
   %604 = getelementptr inbounds nuw i8, ptr %1, i64 344
@@ -14412,7 +14412,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %.body245
 
 .body245:                                         ; preds = %628, %620, %.body242
-  %.pn51 = phi { ptr, i32 } [ %.pn49, %.body242 ], [ %621, %620 ], [ %621, %628 ]
+  %.pn51 = phi { ptr, i32 } [ %.pn49, %.body242 ], [ %621, %628 ], [ %621, %620 ]
   %629 = load ptr, ptr %8, align 8, !noundef !3
   %630 = icmp ne ptr %629, null
   %or.cond3 = and i1 %10, %630
@@ -14470,7 +14470,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %47
   br label %common.resume
 
 common.resume:                                    ; preds = %.body245, %655, %718, %721, %646, %654
-  %common.resume.op = phi { ptr, i32 } [ %647, %646 ], [ %647, %654 ], [ %.pn51, %655 ], [ %.pn51, %.body245 ], [ %.pn, %721 ], [ %.pn, %718 ]
+  %common.resume.op = phi { ptr, i32 } [ %647, %654 ], [ %647, %646 ], [ %.pn51, %655 ], [ %.pn51, %.body245 ], [ %.pn, %721 ], [ %.pn, %718 ]
   resume { ptr, i32 } %common.resume.op
 
 655:                                              ; preds = %.body245
@@ -14778,7 +14778,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %55
 
 .body:                                            ; preds = %52, %46, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i", %25, %79
-  %.pn = phi { ptr, i32 } [ %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ %80, %79 ], [ %26, %25 ], [ %53, %52 ], [ %47, %46 ]
+  %.pn = phi { ptr, i32 } [ %80, %79 ], [ %26, %25 ], [ %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ %53, %52 ], [ %47, %46 ]
   %.val55 = load ptr, ptr %1, align 8, !noundef !3
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val56 = load ptr, ptr %51, align 8
@@ -14914,7 +14914,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body184
 
 .body184:                                         ; preds = %108, %100, %.body181
-  %.pn11 = phi { ptr, i32 } [ %71, %.body181 ], [ %101, %100 ], [ %101, %108 ]
+  %.pn11 = phi { ptr, i32 } [ %71, %.body181 ], [ %101, %108 ], [ %101, %100 ]
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val121 = load ptr, ptr %109, align 8, !noundef !3
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -14972,7 +14972,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body187
 
 .body187:                                         ; preds = %134, %126, %.body184
-  %.pn13 = phi { ptr, i32 } [ %.pn11, %.body184 ], [ %127, %126 ], [ %127, %134 ]
+  %.pn13 = phi { ptr, i32 } [ %.pn11, %.body184 ], [ %127, %134 ], [ %127, %126 ]
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.val127 = load ptr, ptr %135, align 8, !noundef !3
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -15030,7 +15030,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body190
 
 .body190:                                         ; preds = %160, %152, %.body187
-  %.pn15 = phi { ptr, i32 } [ %.pn13, %.body187 ], [ %153, %152 ], [ %153, %160 ]
+  %.pn15 = phi { ptr, i32 } [ %.pn13, %.body187 ], [ %153, %160 ], [ %153, %152 ]
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.val133 = load ptr, ptr %161, align 8, !noundef !3
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -15088,7 +15088,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body193
 
 .body193:                                         ; preds = %186, %178, %.body190
-  %.pn17 = phi { ptr, i32 } [ %.pn15, %.body190 ], [ %179, %178 ], [ %179, %186 ]
+  %.pn17 = phi { ptr, i32 } [ %.pn15, %.body190 ], [ %179, %186 ], [ %179, %178 ]
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.val139 = load ptr, ptr %187, align 8, !noundef !3
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -15146,7 +15146,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body196
 
 .body196:                                         ; preds = %212, %204, %.body193
-  %.pn19 = phi { ptr, i32 } [ %.pn17, %.body193 ], [ %205, %204 ], [ %205, %212 ]
+  %.pn19 = phi { ptr, i32 } [ %.pn17, %.body193 ], [ %205, %212 ], [ %205, %204 ]
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.val145 = load ptr, ptr %213, align 8, !noundef !3
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -15204,7 +15204,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body199
 
 .body199:                                         ; preds = %238, %230, %.body196
-  %.pn21 = phi { ptr, i32 } [ %.pn19, %.body196 ], [ %231, %230 ], [ %231, %238 ]
+  %.pn21 = phi { ptr, i32 } [ %.pn19, %.body196 ], [ %231, %238 ], [ %231, %230 ]
   %239 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %.val151 = load ptr, ptr %239, align 8, !noundef !3
   %240 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -15262,7 +15262,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body202
 
 .body202:                                         ; preds = %264, %256, %.body199
-  %.pn23 = phi { ptr, i32 } [ %.pn21, %.body199 ], [ %257, %256 ], [ %257, %264 ]
+  %.pn23 = phi { ptr, i32 } [ %.pn21, %.body199 ], [ %257, %264 ], [ %257, %256 ]
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %.val157 = load ptr, ptr %265, align 8, !noundef !3
   %266 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -15320,7 +15320,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body205
 
 .body205:                                         ; preds = %290, %282, %.body202
-  %.pn25 = phi { ptr, i32 } [ %.pn23, %.body202 ], [ %283, %282 ], [ %283, %290 ]
+  %.pn25 = phi { ptr, i32 } [ %.pn23, %.body202 ], [ %283, %290 ], [ %283, %282 ]
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %.val163 = load ptr, ptr %291, align 8, !noundef !3
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -15378,7 +15378,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body208
 
 .body208:                                         ; preds = %316, %308, %.body205
-  %.pn27 = phi { ptr, i32 } [ %.pn25, %.body205 ], [ %309, %308 ], [ %309, %316 ]
+  %.pn27 = phi { ptr, i32 } [ %.pn25, %.body205 ], [ %309, %316 ], [ %309, %308 ]
   %317 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %.val169 = load ptr, ptr %317, align 8, !noundef !3
   %318 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -15436,7 +15436,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body211
 
 .body211:                                         ; preds = %342, %334, %.body208
-  %.pn29 = phi { ptr, i32 } [ %.pn27, %.body208 ], [ %335, %334 ], [ %335, %342 ]
+  %.pn29 = phi { ptr, i32 } [ %.pn27, %.body208 ], [ %335, %342 ], [ %335, %334 ]
   %343 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %.val175 = load ptr, ptr %343, align 8, !noundef !3
   %344 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -15494,7 +15494,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body214
 
 .body214:                                         ; preds = %368, %360, %.body211
-  %.pn31 = phi { ptr, i32 } [ %.pn29, %.body211 ], [ %361, %360 ], [ %361, %368 ]
+  %.pn31 = phi { ptr, i32 } [ %.pn29, %.body211 ], [ %361, %368 ], [ %361, %360 ]
   %369 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %.val67 = load ptr, ptr %369, align 8, !noundef !3
   %370 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -15552,7 +15552,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body217
 
 .body217:                                         ; preds = %394, %386, %.body214
-  %.pn33 = phi { ptr, i32 } [ %.pn31, %.body214 ], [ %387, %386 ], [ %387, %394 ]
+  %.pn33 = phi { ptr, i32 } [ %.pn31, %.body214 ], [ %387, %394 ], [ %387, %386 ]
   %395 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %.val73 = load ptr, ptr %395, align 8, !noundef !3
   %396 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -15610,7 +15610,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body220
 
 .body220:                                         ; preds = %420, %412, %.body217
-  %.pn35 = phi { ptr, i32 } [ %.pn33, %.body217 ], [ %413, %412 ], [ %413, %420 ]
+  %.pn35 = phi { ptr, i32 } [ %.pn33, %.body217 ], [ %413, %420 ], [ %413, %412 ]
   %421 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %.val79 = load ptr, ptr %421, align 8, !noundef !3
   %422 = getelementptr inbounds nuw i8, ptr %1, i64 232
@@ -15668,7 +15668,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body223
 
 .body223:                                         ; preds = %446, %438, %.body220
-  %.pn37 = phi { ptr, i32 } [ %.pn35, %.body220 ], [ %439, %438 ], [ %439, %446 ]
+  %.pn37 = phi { ptr, i32 } [ %.pn35, %.body220 ], [ %439, %446 ], [ %439, %438 ]
   %447 = getelementptr inbounds nuw i8, ptr %1, i64 240
   invoke void @"_ZN4core3ptr263drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$str$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17h777b14ce77a744ceE.llvm.354153908270460661"(ptr noalias noundef nonnull align 8 dereferenceable(16) %447) #23
           to label %.body226 unwind label %81
@@ -15723,7 +15723,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body226
 
 .body226:                                         ; preds = %472, %464, %.body223
-  %.pn39 = phi { ptr, i32 } [ %.pn37, %.body223 ], [ %465, %464 ], [ %465, %472 ]
+  %.pn39 = phi { ptr, i32 } [ %.pn37, %.body223 ], [ %465, %472 ], [ %465, %464 ]
   %473 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %.val85 = load ptr, ptr %473, align 8, !noundef !3
   %474 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -15781,7 +15781,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body229
 
 .body229:                                         ; preds = %498, %490, %.body226
-  %.pn41 = phi { ptr, i32 } [ %.pn39, %.body226 ], [ %491, %490 ], [ %491, %498 ]
+  %.pn41 = phi { ptr, i32 } [ %.pn39, %.body226 ], [ %491, %498 ], [ %491, %490 ]
   %499 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %.val91 = load ptr, ptr %499, align 8, !noundef !3
   %500 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -15839,7 +15839,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body232
 
 .body232:                                         ; preds = %524, %516, %.body229
-  %.pn43 = phi { ptr, i32 } [ %.pn41, %.body229 ], [ %517, %516 ], [ %517, %524 ]
+  %.pn43 = phi { ptr, i32 } [ %.pn41, %.body229 ], [ %517, %524 ], [ %517, %516 ]
   %525 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %.val97 = load ptr, ptr %525, align 8, !noundef !3
   %526 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -15897,7 +15897,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body235
 
 .body235:                                         ; preds = %550, %542, %.body232
-  %.pn45 = phi { ptr, i32 } [ %.pn43, %.body232 ], [ %543, %542 ], [ %543, %550 ]
+  %.pn45 = phi { ptr, i32 } [ %.pn43, %.body232 ], [ %543, %550 ], [ %543, %542 ]
   %551 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %.val103 = load ptr, ptr %551, align 8, !noundef !3
   %552 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -15955,7 +15955,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body238
 
 .body238:                                         ; preds = %576, %568, %.body235
-  %.pn47 = phi { ptr, i32 } [ %.pn45, %.body235 ], [ %569, %568 ], [ %569, %576 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn45, %.body235 ], [ %569, %576 ], [ %569, %568 ]
   %577 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.val109 = load ptr, ptr %577, align 8, !noundef !3
   %578 = getelementptr inbounds nuw i8, ptr %1, i64 328
@@ -16013,7 +16013,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body241
 
 .body241:                                         ; preds = %602, %594, %.body238
-  %.pn49 = phi { ptr, i32 } [ %.pn47, %.body238 ], [ %595, %594 ], [ %595, %602 ]
+  %.pn49 = phi { ptr, i32 } [ %.pn47, %.body238 ], [ %595, %602 ], [ %595, %594 ]
   %603 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %.val115 = load ptr, ptr %603, align 8, !noundef !3
   %604 = getelementptr inbounds nuw i8, ptr %1, i64 344
@@ -16071,7 +16071,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body244
 
 .body244:                                         ; preds = %628, %620, %.body241
-  %.pn51 = phi { ptr, i32 } [ %.pn49, %.body241 ], [ %621, %620 ], [ %621, %628 ]
+  %.pn51 = phi { ptr, i32 } [ %.pn49, %.body241 ], [ %621, %628 ], [ %621, %620 ]
   %629 = load ptr, ptr %10, align 8, !noundef !3
   %630 = icmp ne ptr %629, null
   %or.cond3 = and i1 %12, %630
@@ -16129,7 +16129,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %common.resume
 
 common.resume:                                    ; preds = %.body244, %655, %718, %721, %646, %654
-  %common.resume.op = phi { ptr, i32 } [ %647, %646 ], [ %647, %654 ], [ %.pn51, %655 ], [ %.pn51, %.body244 ], [ %.pn, %721 ], [ %.pn, %718 ]
+  %common.resume.op = phi { ptr, i32 } [ %647, %654 ], [ %647, %646 ], [ %.pn51, %655 ], [ %.pn51, %.body244 ], [ %.pn, %721 ], [ %.pn, %718 ]
   resume { ptr, i32 } %common.resume.op
 
 655:                                              ; preds = %.body244
@@ -16432,7 +16432,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %55
 
 .body181:                                         ; preds = %25, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i", %52, %46, %.body
-  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %18, %.body ], [ %53, %52 ], [ %26, %25 ], [ %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ]
+  %.pn = phi { ptr, i32 } [ %18, %.body ], [ %53, %52 ], [ %47, %46 ], [ %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ %26, %25 ]
   %.val55 = load ptr, ptr %1, align 8, !noundef !3
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val56 = load ptr, ptr %51, align 8
@@ -16566,7 +16566,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body187
 
 .body187:                                         ; preds = %106, %98, %.body184
-  %.pn11 = phi { ptr, i32 } [ %71, %.body184 ], [ %99, %98 ], [ %99, %106 ]
+  %.pn11 = phi { ptr, i32 } [ %71, %.body184 ], [ %99, %106 ], [ %99, %98 ]
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val123 = load ptr, ptr %107, align 8, !noundef !3
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -16624,7 +16624,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body190
 
 .body190:                                         ; preds = %132, %124, %.body187
-  %.pn13 = phi { ptr, i32 } [ %.pn11, %.body187 ], [ %125, %124 ], [ %125, %132 ]
+  %.pn13 = phi { ptr, i32 } [ %.pn11, %.body187 ], [ %125, %132 ], [ %125, %124 ]
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.val129 = load ptr, ptr %133, align 8, !noundef !3
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -16682,7 +16682,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body193
 
 .body193:                                         ; preds = %158, %150, %.body190
-  %.pn15 = phi { ptr, i32 } [ %.pn13, %.body190 ], [ %151, %150 ], [ %151, %158 ]
+  %.pn15 = phi { ptr, i32 } [ %.pn13, %.body190 ], [ %151, %158 ], [ %151, %150 ]
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.val135 = load ptr, ptr %159, align 8, !noundef !3
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -16740,7 +16740,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body196
 
 .body196:                                         ; preds = %184, %176, %.body193
-  %.pn17 = phi { ptr, i32 } [ %.pn15, %.body193 ], [ %177, %176 ], [ %177, %184 ]
+  %.pn17 = phi { ptr, i32 } [ %.pn15, %.body193 ], [ %177, %184 ], [ %177, %176 ]
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.val141 = load ptr, ptr %185, align 8, !noundef !3
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -16798,7 +16798,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body199
 
 .body199:                                         ; preds = %210, %202, %.body196
-  %.pn19 = phi { ptr, i32 } [ %.pn17, %.body196 ], [ %203, %202 ], [ %203, %210 ]
+  %.pn19 = phi { ptr, i32 } [ %.pn17, %.body196 ], [ %203, %210 ], [ %203, %202 ]
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.val147 = load ptr, ptr %211, align 8, !noundef !3
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -16856,7 +16856,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body202
 
 .body202:                                         ; preds = %236, %228, %.body199
-  %.pn21 = phi { ptr, i32 } [ %.pn19, %.body199 ], [ %229, %228 ], [ %229, %236 ]
+  %.pn21 = phi { ptr, i32 } [ %.pn19, %.body199 ], [ %229, %236 ], [ %229, %228 ]
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %.val153 = load ptr, ptr %237, align 8, !noundef !3
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -16914,7 +16914,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body205
 
 .body205:                                         ; preds = %262, %254, %.body202
-  %.pn23 = phi { ptr, i32 } [ %.pn21, %.body202 ], [ %255, %254 ], [ %255, %262 ]
+  %.pn23 = phi { ptr, i32 } [ %.pn21, %.body202 ], [ %255, %262 ], [ %255, %254 ]
   %263 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %.val159 = load ptr, ptr %263, align 8, !noundef !3
   %264 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -16972,7 +16972,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body208
 
 .body208:                                         ; preds = %288, %280, %.body205
-  %.pn25 = phi { ptr, i32 } [ %.pn23, %.body205 ], [ %281, %280 ], [ %281, %288 ]
+  %.pn25 = phi { ptr, i32 } [ %.pn23, %.body205 ], [ %281, %288 ], [ %281, %280 ]
   %289 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %.val165 = load ptr, ptr %289, align 8, !noundef !3
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -17030,7 +17030,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body211
 
 .body211:                                         ; preds = %314, %306, %.body208
-  %.pn27 = phi { ptr, i32 } [ %.pn25, %.body208 ], [ %307, %306 ], [ %307, %314 ]
+  %.pn27 = phi { ptr, i32 } [ %.pn25, %.body208 ], [ %307, %314 ], [ %307, %306 ]
   %315 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %.val171 = load ptr, ptr %315, align 8, !noundef !3
   %316 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -17088,7 +17088,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body214
 
 .body214:                                         ; preds = %340, %332, %.body211
-  %.pn29 = phi { ptr, i32 } [ %.pn27, %.body211 ], [ %333, %332 ], [ %333, %340 ]
+  %.pn29 = phi { ptr, i32 } [ %.pn27, %.body211 ], [ %333, %340 ], [ %333, %332 ]
   %341 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %.val177 = load ptr, ptr %341, align 8, !noundef !3
   %342 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -17146,7 +17146,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body217
 
 .body217:                                         ; preds = %366, %358, %.body214
-  %.pn31 = phi { ptr, i32 } [ %.pn29, %.body214 ], [ %359, %358 ], [ %359, %366 ]
+  %.pn31 = phi { ptr, i32 } [ %.pn29, %.body214 ], [ %359, %366 ], [ %359, %358 ]
   %367 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %.val67 = load ptr, ptr %367, align 8, !noundef !3
   %368 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -17204,7 +17204,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body220
 
 .body220:                                         ; preds = %392, %384, %.body217
-  %.pn33 = phi { ptr, i32 } [ %.pn31, %.body217 ], [ %385, %384 ], [ %385, %392 ]
+  %.pn33 = phi { ptr, i32 } [ %.pn31, %.body217 ], [ %385, %392 ], [ %385, %384 ]
   %393 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %.val73 = load ptr, ptr %393, align 8, !noundef !3
   %394 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -17262,7 +17262,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body223
 
 .body223:                                         ; preds = %418, %410, %.body220
-  %.pn35 = phi { ptr, i32 } [ %.pn33, %.body220 ], [ %411, %410 ], [ %411, %418 ]
+  %.pn35 = phi { ptr, i32 } [ %.pn33, %.body220 ], [ %411, %418 ], [ %411, %410 ]
   %419 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %.val79 = load ptr, ptr %419, align 8, !noundef !3
   %420 = getelementptr inbounds nuw i8, ptr %1, i64 232
@@ -17320,7 +17320,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body226
 
 .body226:                                         ; preds = %444, %436, %.body223
-  %.pn37 = phi { ptr, i32 } [ %.pn35, %.body223 ], [ %437, %436 ], [ %437, %444 ]
+  %.pn37 = phi { ptr, i32 } [ %.pn35, %.body223 ], [ %437, %444 ], [ %437, %436 ]
   %445 = getelementptr inbounds nuw i8, ptr %1, i64 240
   invoke void @"_ZN4core3ptr263drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$str$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17h777b14ce77a744ceE.llvm.354153908270460661"(ptr noalias noundef nonnull align 8 dereferenceable(16) %445) #23
           to label %.body229 unwind label %79
@@ -17375,7 +17375,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body229
 
 .body229:                                         ; preds = %470, %462, %.body226
-  %.pn39 = phi { ptr, i32 } [ %.pn37, %.body226 ], [ %463, %462 ], [ %463, %470 ]
+  %.pn39 = phi { ptr, i32 } [ %.pn37, %.body226 ], [ %463, %470 ], [ %463, %462 ]
   %471 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %.val85 = load ptr, ptr %471, align 8, !noundef !3
   %472 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -17433,7 +17433,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body232
 
 .body232:                                         ; preds = %496, %488, %.body229
-  %.pn41 = phi { ptr, i32 } [ %.pn39, %.body229 ], [ %489, %488 ], [ %489, %496 ]
+  %.pn41 = phi { ptr, i32 } [ %.pn39, %.body229 ], [ %489, %496 ], [ %489, %488 ]
   %497 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %.val91 = load ptr, ptr %497, align 8, !noundef !3
   %498 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -17491,7 +17491,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body235
 
 .body235:                                         ; preds = %522, %514, %.body232
-  %.pn43 = phi { ptr, i32 } [ %.pn41, %.body232 ], [ %515, %514 ], [ %515, %522 ]
+  %.pn43 = phi { ptr, i32 } [ %.pn41, %.body232 ], [ %515, %522 ], [ %515, %514 ]
   %523 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %.val97 = load ptr, ptr %523, align 8, !noundef !3
   %524 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -17549,7 +17549,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body238
 
 .body238:                                         ; preds = %548, %540, %.body235
-  %.pn45 = phi { ptr, i32 } [ %.pn43, %.body235 ], [ %541, %540 ], [ %541, %548 ]
+  %.pn45 = phi { ptr, i32 } [ %.pn43, %.body235 ], [ %541, %548 ], [ %541, %540 ]
   %549 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %.val103 = load ptr, ptr %549, align 8, !noundef !3
   %550 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -17607,7 +17607,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body241
 
 .body241:                                         ; preds = %574, %566, %.body238
-  %.pn47 = phi { ptr, i32 } [ %.pn45, %.body238 ], [ %567, %566 ], [ %567, %574 ]
+  %.pn47 = phi { ptr, i32 } [ %.pn45, %.body238 ], [ %567, %574 ], [ %567, %566 ]
   %575 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.val109 = load ptr, ptr %575, align 8, !noundef !3
   %576 = getelementptr inbounds nuw i8, ptr %1, i64 328
@@ -17665,7 +17665,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %.body244
 
 .body244:                                         ; preds = %600, %592, %.body241
-  %.pn49 = phi { ptr, i32 } [ %.pn47, %.body241 ], [ %593, %592 ], [ %593, %600 ]
+  %.pn49 = phi { ptr, i32 } [ %.pn47, %.body241 ], [ %593, %600 ], [ %593, %592 ]
   %601 = load ptr, ptr %7, align 8, !noundef !3
   %602 = icmp ne ptr %601, null
   %or.cond3 = and i1 %9, %602
@@ -17727,7 +17727,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %45
   br label %common.resume
 
 common.resume:                                    ; preds = %.body247, %716, %621, %629
-  %common.resume.op = phi { ptr, i32 } [ %622, %621 ], [ %622, %629 ], [ %.pn51, %.body247 ], [ %.pn, %716 ]
+  %common.resume.op = phi { ptr, i32 } [ %622, %629 ], [ %622, %621 ], [ %.pn51, %.body247 ], [ %.pn, %716 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr280drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$serde_untagged..map..Map$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17hd3d1f8bf65fc79abE.llvm.354153908270460661.exit": ; preds = %"_ZN4core3ptr252drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$serde_untagged..seq..Seq$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$17h1a47ab9c08c77e2dE.exit", %613, %620
@@ -17775,7 +17775,7 @@ common.resume:                                    ; preds = %.body247, %716, %62
   br label %.body247
 
 .body247:                                         ; preds = %650, %642, %652, %.body244
-  %.pn51 = phi { ptr, i32 } [ %.pn49, %.body244 ], [ %.pn49, %652 ], [ %643, %642 ], [ %643, %650 ]
+  %.pn51 = phi { ptr, i32 } [ %.pn49, %652 ], [ %.pn49, %.body244 ], [ %643, %650 ], [ %643, %642 ]
   %651 = getelementptr inbounds nuw i8, ptr %1, i64 352
   invoke void @"_ZN4core3ptr280drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$serde_untagged..map..Map$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17hd3d1f8bf65fc79abE.llvm.354153908270460661"(ptr noalias noundef nonnull align 8 dereferenceable(16) %651) #23
           to label %common.resume unwind label %79
@@ -18036,7 +18036,7 @@ _ZN5serde2de7Visitor9visit_str17h4699c5624aca8ca5E.exit: ; preds = %33
   br label %.body
 
 .body:                                            ; preds = %45, %36, %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ %37, %36 ], [ %46, %45 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i" ], [ %19, %18 ], [ %37, %36 ], [ %46, %45 ]
   %.val52 = load ptr, ptr %1, align 8, !noundef !3
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val53 = load ptr, ptr %38, align 8
@@ -18194,7 +18194,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body179
 
 .body179:                                         ; preds = %100, %92, %.body176
-  %.pn = phi { ptr, i32 } [ %67, %.body176 ], [ %93, %92 ], [ %93, %100 ]
+  %.pn = phi { ptr, i32 } [ %67, %.body176 ], [ %93, %100 ], [ %93, %92 ]
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val118 = load ptr, ptr %101, align 8, !noundef !3
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -18252,7 +18252,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body182
 
 .body182:                                         ; preds = %126, %118, %.body179
-  %.pn10 = phi { ptr, i32 } [ %.pn, %.body179 ], [ %119, %118 ], [ %119, %126 ]
+  %.pn10 = phi { ptr, i32 } [ %.pn, %.body179 ], [ %119, %126 ], [ %119, %118 ]
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.val124 = load ptr, ptr %127, align 8, !noundef !3
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -18310,7 +18310,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body185
 
 .body185:                                         ; preds = %152, %144, %.body182
-  %.pn12 = phi { ptr, i32 } [ %.pn10, %.body182 ], [ %145, %144 ], [ %145, %152 ]
+  %.pn12 = phi { ptr, i32 } [ %.pn10, %.body182 ], [ %145, %152 ], [ %145, %144 ]
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.val130 = load ptr, ptr %153, align 8, !noundef !3
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -18368,7 +18368,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body188
 
 .body188:                                         ; preds = %178, %170, %.body185
-  %.pn14 = phi { ptr, i32 } [ %.pn12, %.body185 ], [ %171, %170 ], [ %171, %178 ]
+  %.pn14 = phi { ptr, i32 } [ %.pn12, %.body185 ], [ %171, %178 ], [ %171, %170 ]
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.val136 = load ptr, ptr %179, align 8, !noundef !3
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -18426,7 +18426,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body191
 
 .body191:                                         ; preds = %204, %196, %.body188
-  %.pn16 = phi { ptr, i32 } [ %.pn14, %.body188 ], [ %197, %196 ], [ %197, %204 ]
+  %.pn16 = phi { ptr, i32 } [ %.pn14, %.body188 ], [ %197, %204 ], [ %197, %196 ]
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.val142 = load ptr, ptr %205, align 8, !noundef !3
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -18484,7 +18484,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body194
 
 .body194:                                         ; preds = %230, %222, %.body191
-  %.pn18 = phi { ptr, i32 } [ %.pn16, %.body191 ], [ %223, %222 ], [ %223, %230 ]
+  %.pn18 = phi { ptr, i32 } [ %.pn16, %.body191 ], [ %223, %230 ], [ %223, %222 ]
   %231 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %.val148 = load ptr, ptr %231, align 8, !noundef !3
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -18542,7 +18542,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body197
 
 .body197:                                         ; preds = %256, %248, %.body194
-  %.pn20 = phi { ptr, i32 } [ %.pn18, %.body194 ], [ %249, %248 ], [ %249, %256 ]
+  %.pn20 = phi { ptr, i32 } [ %.pn18, %.body194 ], [ %249, %256 ], [ %249, %248 ]
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %.val154 = load ptr, ptr %257, align 8, !noundef !3
   %258 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -18600,7 +18600,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body200
 
 .body200:                                         ; preds = %282, %274, %.body197
-  %.pn22 = phi { ptr, i32 } [ %.pn20, %.body197 ], [ %275, %274 ], [ %275, %282 ]
+  %.pn22 = phi { ptr, i32 } [ %.pn20, %.body197 ], [ %275, %282 ], [ %275, %274 ]
   %283 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %.val160 = load ptr, ptr %283, align 8, !noundef !3
   %284 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -18658,7 +18658,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body203
 
 .body203:                                         ; preds = %308, %300, %.body200
-  %.pn24 = phi { ptr, i32 } [ %.pn22, %.body200 ], [ %301, %300 ], [ %301, %308 ]
+  %.pn24 = phi { ptr, i32 } [ %.pn22, %.body200 ], [ %301, %308 ], [ %301, %300 ]
   %309 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %.val166 = load ptr, ptr %309, align 8, !noundef !3
   %310 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -18716,7 +18716,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body206
 
 .body206:                                         ; preds = %334, %326, %.body203
-  %.pn26 = phi { ptr, i32 } [ %.pn24, %.body203 ], [ %327, %326 ], [ %327, %334 ]
+  %.pn26 = phi { ptr, i32 } [ %.pn24, %.body203 ], [ %327, %334 ], [ %327, %326 ]
   %335 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %.val172 = load ptr, ptr %335, align 8, !noundef !3
   %336 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -18774,7 +18774,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body209
 
 .body209:                                         ; preds = %360, %352, %.body206
-  %.pn28 = phi { ptr, i32 } [ %.pn26, %.body206 ], [ %353, %352 ], [ %353, %360 ]
+  %.pn28 = phi { ptr, i32 } [ %.pn26, %.body206 ], [ %353, %360 ], [ %353, %352 ]
   %361 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %.val64 = load ptr, ptr %361, align 8, !noundef !3
   %362 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -18832,7 +18832,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body212
 
 .body212:                                         ; preds = %386, %378, %.body209
-  %.pn30 = phi { ptr, i32 } [ %.pn28, %.body209 ], [ %379, %378 ], [ %379, %386 ]
+  %.pn30 = phi { ptr, i32 } [ %.pn28, %.body209 ], [ %379, %386 ], [ %379, %378 ]
   %387 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %.val70 = load ptr, ptr %387, align 8, !noundef !3
   %388 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -18890,7 +18890,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body215
 
 .body215:                                         ; preds = %412, %404, %.body212
-  %.pn32 = phi { ptr, i32 } [ %.pn30, %.body212 ], [ %405, %404 ], [ %405, %412 ]
+  %.pn32 = phi { ptr, i32 } [ %.pn30, %.body212 ], [ %405, %412 ], [ %405, %404 ]
   %413 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %.val76 = load ptr, ptr %413, align 8, !noundef !3
   %414 = getelementptr inbounds nuw i8, ptr %1, i64 232
@@ -18948,7 +18948,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body218
 
 .body218:                                         ; preds = %438, %430, %.body215
-  %.pn34 = phi { ptr, i32 } [ %.pn32, %.body215 ], [ %431, %430 ], [ %431, %438 ]
+  %.pn34 = phi { ptr, i32 } [ %.pn32, %.body215 ], [ %431, %438 ], [ %431, %430 ]
   %439 = load ptr, ptr %10, align 8, !noundef !3
   %440 = icmp ne ptr %439, null
   %or.cond3 = and i1 %12, %440
@@ -19052,7 +19052,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body223
 
 .body223:                                         ; preds = %488, %480, %649, %.body218
-  %.pn36 = phi { ptr, i32 } [ %.pn34, %.body218 ], [ %.pn34, %649 ], [ %481, %480 ], [ %481, %488 ]
+  %.pn36 = phi { ptr, i32 } [ %.pn34, %649 ], [ %.pn34, %.body218 ], [ %481, %488 ], [ %481, %480 ]
   %489 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %.val80 = load ptr, ptr %489, align 8, !noundef !3
   %490 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -19061,7 +19061,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
           to label %.body221 unwind label %647
 
 .body221:                                         ; preds = %466, %458, %.body223
-  %.pn38 = phi { ptr, i32 } [ %.pn36, %.body223 ], [ %459, %458 ], [ %459, %466 ]
+  %.pn38 = phi { ptr, i32 } [ %.pn36, %.body223 ], [ %459, %466 ], [ %459, %458 ]
   %491 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %.val88 = load ptr, ptr %491, align 8, !noundef !3
   %492 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -19119,7 +19119,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body226
 
 .body226:                                         ; preds = %516, %508, %.body221
-  %.pn40 = phi { ptr, i32 } [ %.pn38, %.body221 ], [ %509, %508 ], [ %509, %516 ]
+  %.pn40 = phi { ptr, i32 } [ %.pn38, %.body221 ], [ %509, %516 ], [ %509, %508 ]
   %517 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %.val94 = load ptr, ptr %517, align 8, !noundef !3
   %518 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -19177,7 +19177,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body229
 
 .body229:                                         ; preds = %542, %534, %.body226
-  %.pn42 = phi { ptr, i32 } [ %.pn40, %.body226 ], [ %535, %534 ], [ %535, %542 ]
+  %.pn42 = phi { ptr, i32 } [ %.pn40, %.body226 ], [ %535, %542 ], [ %535, %534 ]
   %543 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %.val100 = load ptr, ptr %543, align 8, !noundef !3
   %544 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -19235,7 +19235,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body232
 
 .body232:                                         ; preds = %568, %560, %.body229
-  %.pn44 = phi { ptr, i32 } [ %.pn42, %.body229 ], [ %561, %560 ], [ %561, %568 ]
+  %.pn44 = phi { ptr, i32 } [ %.pn42, %.body229 ], [ %561, %568 ], [ %561, %560 ]
   %569 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.val106 = load ptr, ptr %569, align 8, !noundef !3
   %570 = getelementptr inbounds nuw i8, ptr %1, i64 328
@@ -19293,7 +19293,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body235
 
 .body235:                                         ; preds = %594, %586, %.body232
-  %.pn46 = phi { ptr, i32 } [ %.pn44, %.body232 ], [ %587, %586 ], [ %587, %594 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn44, %.body232 ], [ %587, %594 ], [ %587, %586 ]
   %595 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %.val112 = load ptr, ptr %595, align 8, !noundef !3
   %596 = getelementptr inbounds nuw i8, ptr %1, i64 344
@@ -19351,7 +19351,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %.body238
 
 .body238:                                         ; preds = %620, %612, %.body235
-  %.pn48 = phi { ptr, i32 } [ %.pn46, %.body235 ], [ %613, %612 ], [ %613, %620 ]
+  %.pn48 = phi { ptr, i32 } [ %.pn46, %.body235 ], [ %613, %620 ], [ %613, %612 ]
   %621 = getelementptr inbounds nuw i8, ptr %1, i64 352
   invoke void @"_ZN4core3ptr280drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$serde_untagged..map..Map$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17hd3d1f8bf65fc79abE.llvm.354153908270460661"(ptr noalias noundef nonnull align 8 dereferenceable(16) %621) #23
           to label %common.resume unwind label %647
@@ -19406,7 +19406,7 @@ _ZN14serde_untagged5error7unerase17hb3fa5ba3429e4fa8E.exit.i: ; preds = %44
   br label %common.resume
 
 common.resume:                                    ; preds = %.body238, %714, %638, %646
-  %common.resume.op = phi { ptr, i32 } [ %639, %638 ], [ %639, %646 ], [ %.pn48, %.body238 ], [ %eh.lpad-body, %714 ]
+  %common.resume.op = phi { ptr, i32 } [ %639, %646 ], [ %639, %638 ], [ %.pn48, %.body238 ], [ %eh.lpad-body, %714 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr280drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$serde_untagged..map..Map$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17hd3d1f8bf65fc79abE.llvm.354153908270460661.exit": ; preds = %"_ZN4core3ptr280drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$serde_untagged..seq..Seq$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uv_configuration..trusted_host..TrustedHost$C$serde_untagged..error..Error$GT$$GT$$GT$$GT$17h522fe7d4ce648219E.exit", %630, %637
@@ -19803,7 +19803,7 @@ define void @_ZN11uv_settings8settings7Options6simple17he4b461bf0c96643eE(ptr de
           to label %81 unwind label %78
 
 .critedge:                                        ; preds = %75, %81
-  %.pn6 = phi { ptr, i32 } [ %76, %75 ], [ %48, %81 ]
+  %.pn6 = phi { ptr, i32 } [ %48, %81 ], [ %76, %75 ]
   resume { ptr, i32 } %.pn6
 
 81:                                               ; preds = %80
@@ -21295,7 +21295,7 @@ define void @_ZN11uv_settings8settings24ResolverInstallerOptions11relative_to17h
           to label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipFindLinks$GT$$GT$$GT$17h7232c2029fe45b91E.exit279" unwind label %157
 
 "_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17hc962302e6879d9beE.exit274": ; preds = %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17hc962302e6879d9beE.exit295", %306, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17hc962302e6879d9beE.exit270", %251
-  %.pn198.pn = phi { ptr, i32 } [ %.pn198, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17hc962302e6879d9beE.exit270" ], [ %.pn198, %251 ], [ %.pn182341408420, %306 ], [ %.pn182341408420, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17hc962302e6879d9beE.exit295" ]
+  %.pn198.pn = phi { ptr, i32 } [ %.pn198, %251 ], [ %.pn198, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17hc962302e6879d9beE.exit270" ], [ %.pn182341408420, %306 ], [ %.pn182341408420, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17hc962302e6879d9beE.exit295" ]
   resume { ptr, i32 } %.pn198.pn
 
 .thread416:                                       ; preds = %156
@@ -21319,11 +21319,11 @@ define void @_ZN11uv_settings8settings24ResolverInstallerOptions11relative_to17h
   invoke void @"_ZN4core3ptr56drop_in_place$LT$uv_distribution_types..index..Index$GT$17hdb10fb0efb7a65d8E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %269)
           to label %.thread404 unwind label %157
 
-273:                                              ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit242", %165
+273:                                              ; preds = %165, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit242"
   br i1 %162, label %.thread428, label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipFindLinks$GT$$GT$$GT$17h7232c2029fe45b91E.exit287"
 
 .thread404:                                       ; preds = %45, %49, %272, %.thread342, %268
-  %.pn182341409 = phi { ptr, i32 } [ %eh.lpad-body349, %272 ], [ %lpad.thr_comm.split-lp415, %268 ], [ %eh.lpad-body349, %.thread342 ], [ %46, %45 ], [ %46, %49 ]
+  %.pn182341409 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp415, %268 ], [ %eh.lpad-body349, %.thread342 ], [ %eh.lpad-body349, %272 ], [ %46, %49 ], [ %46, %45 ]
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %275 = load i64, ptr %274, align 8, !range !392, !alias.scope !1521, !noundef !3
   %276 = icmp eq i64 %275, -9223372036854775808
@@ -21334,7 +21334,7 @@ define void @_ZN11uv_settings8settings24ResolverInstallerOptions11relative_to17h
           to label %.thread428 unwind label %157
 
 "_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipFindLinks$GT$$GT$$GT$17h7232c2029fe45b91E.exit287": ; preds = %151, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit234", %.thread416, %.thread428, %285, %273
-  %.pn182341408420 = phi { ptr, i32 } [ %.pn180, %151 ], [ %lpad.thr_comm414, %.thread416 ], [ %.pn, %273 ], [ %.pn182341408421, %285 ], [ %.pn182341408421, %.thread428 ], [ %.pn180, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit234" ]
+  %.pn182341408420 = phi { ptr, i32 } [ %.pn, %273 ], [ %lpad.thr_comm414, %.thread416 ], [ %.pn182341408421, %285 ], [ %.pn182341408421, %.thread428 ], [ %.pn180, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit234" ], [ %.pn180, %151 ]
   %278 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %279 = load i64, ptr %278, align 8, !range !392, !alias.scope !1524, !noundef !3
   %280 = icmp eq i64 %279, -9223372036854775808
@@ -21345,7 +21345,7 @@ define void @_ZN11uv_settings8settings24ResolverInstallerOptions11relative_to17h
           to label %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..dependency_metadata..StaticMetadata$GT$$GT$$GT$17h5860bba9bf150127E.exit285" unwind label %157
 
 .thread428:                                       ; preds = %.thread404, %277, %173, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit", %.thread416.thread, %273
-  %.pn182341408421 = phi { ptr, i32 } [ %eh.lpad-body216, %173 ], [ %.pn, %273 ], [ %lpad.thr_comm414426, %.thread416.thread ], [ %eh.lpad-body216, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit" ], [ %.pn182341409, %277 ], [ %.pn182341409, %.thread404 ]
+  %.pn182341408421 = phi { ptr, i32 } [ %.pn, %273 ], [ %lpad.thr_comm414426, %.thread416.thread ], [ %eh.lpad-body216, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit" ], [ %eh.lpad-body216, %173 ], [ %.pn182341409, %277 ], [ %.pn182341409, %.thread404 ]
   %282 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %283 = load i64, ptr %282, align 8, !range !392, !alias.scope !1527, !noundef !3
   %284 = icmp eq i64 %283, -9223372036854775808
@@ -21758,7 +21758,7 @@ _ZN3std3env3var17he80944141e0082f5E.exit23:       ; preds = %28
           to label %90 unwind label %85
 
 .thread120:                                       ; preds = %49, %91, %90
-  %.pn.pn.pn.pn.pn53114123 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn54, %90 ], [ %.pn.pn.pn.pn.pn54, %91 ], [ %.pn, %49 ]
+  %.pn.pn.pn.pn.pn53114123 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn54, %91 ], [ %.pn.pn.pn.pn.pn54, %90 ], [ %.pn, %49 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn53114123
 
 91:                                               ; preds = %90
@@ -21838,18 +21838,18 @@ define void @_ZN11uv_settings8settings10PipOptions11relative_to17h1e0911d5feb7eb
   br i1 %31, label %52, label %51
 
 .body:                                            ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit", %238, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit264", %229, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit256", %213, %55, %59, %39, %47, %33
-  %.sroa.078.1 = phi i1 [ true, %39 ], [ true, %55 ], [ false, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit256" ], [ %226, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit264" ], [ %.sroa.078.0, %33 ], [ true, %47 ], [ true, %59 ], [ false, %213 ], [ %226, %229 ], [ true, %238 ], [ true, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit" ]
-  %.sroa.081.1 = phi i1 [ true, %39 ], [ true, %55 ], [ false, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit256" ], [ false, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit264" ], [ %.sroa.081.0, %33 ], [ true, %47 ], [ true, %59 ], [ false, %213 ], [ false, %229 ], [ false, %238 ], [ false, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit" ]
-  %.sroa.084.1 = phi i1 [ true, %39 ], [ false, %55 ], [ false, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit256" ], [ false, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit264" ], [ %.sroa.084.0, %33 ], [ true, %47 ], [ false, %59 ], [ false, %213 ], [ false, %229 ], [ false, %238 ], [ false, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit" ]
-  %.pn184 = phi { ptr, i32 } [ %40, %39 ], [ %56, %55 ], [ %.pn182, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit256" ], [ %.pn, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit264" ], [ %34, %33 ], [ %40, %47 ], [ %56, %59 ], [ %.pn182, %213 ], [ %.pn, %229 ], [ %eh.lpad-body238, %238 ], [ %eh.lpad-body238, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit" ]
+  %.sroa.078.1 = phi i1 [ %.sroa.078.0, %33 ], [ true, %47 ], [ true, %39 ], [ true, %59 ], [ true, %55 ], [ false, %213 ], [ false, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit256" ], [ %226, %229 ], [ %226, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit264" ], [ true, %238 ], [ true, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit" ]
+  %.sroa.081.1 = phi i1 [ %.sroa.081.0, %33 ], [ true, %47 ], [ true, %39 ], [ true, %59 ], [ true, %55 ], [ false, %213 ], [ false, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit256" ], [ false, %229 ], [ false, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit264" ], [ false, %238 ], [ false, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit" ]
+  %.sroa.084.1 = phi i1 [ %.sroa.084.0, %33 ], [ true, %47 ], [ true, %39 ], [ false, %59 ], [ false, %55 ], [ false, %213 ], [ false, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit256" ], [ false, %229 ], [ false, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit264" ], [ false, %238 ], [ false, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit" ]
+  %.pn184 = phi { ptr, i32 } [ %34, %33 ], [ %40, %47 ], [ %40, %39 ], [ %56, %59 ], [ %56, %55 ], [ %.pn182, %213 ], [ %.pn182, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit256" ], [ %.pn, %229 ], [ %.pn, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit264" ], [ %eh.lpad-body238, %238 ], [ %eh.lpad-body238, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$17h5f122a34eba7e030E.exit" ]
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 200
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E"(ptr noalias noundef align 8 dereferenceable(24) %32) #23
           to label %481 unwind label %221
 
 33:                                               ; preds = %234, %218, %67, %44
-  %.sroa.078.0 = phi i1 [ false, %218 ], [ true, %234 ], [ true, %67 ], [ true, %44 ]
-  %.sroa.081.0 = phi i1 [ false, %218 ], [ false, %234 ], [ true, %67 ], [ true, %44 ]
-  %.sroa.084.0 = phi i1 [ false, %218 ], [ false, %234 ], [ false, %67 ], [ true, %44 ]
+  %.sroa.078.0 = phi i1 [ true, %44 ], [ true, %67 ], [ false, %218 ], [ true, %234 ]
+  %.sroa.081.0 = phi i1 [ true, %44 ], [ true, %67 ], [ false, %218 ], [ false, %234 ]
+  %.sroa.084.0 = phi i1 [ true, %44 ], [ false, %67 ], [ false, %218 ], [ false, %234 ]
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -23248,7 +23248,7 @@ define void @_ZN11uv_settings8settings10PipOptions11relative_to17h1e0911d5feb7eb
           to label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipFindLinks$GT$$GT$$GT$17h7232c2029fe45b91E.exit336" unwind label %221
 
 "_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17hc962302e6879d9beE.exit329": ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit360", %547, %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit", %459
-  %.pn220.pn = phi { ptr, i32 } [ %.pn220, %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit" ], [ %.pn220, %459 ], [ %.pn184, %547 ], [ %.pn184, %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit360" ]
+  %.pn220.pn = phi { ptr, i32 } [ %.pn220, %459 ], [ %.pn220, %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit" ], [ %.pn184, %547 ], [ %.pn184, %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$$GT$17h2b4c8cc4b169b14bE.exit360" ]
   resume { ptr, i32 } %.pn220.pn
 
 481:                                              ; preds = %.body
@@ -25742,7 +25742,7 @@ _ZN8schemars8_private23json_schema_for_flatten17h496e344cbd6a8ed1E.exit: ; preds
           to label %.thread unwind label %40
 
 .thread:                                          ; preds = %52, %56, %47, %51, %42, %46, %35, %39, %57
-  %.pn38 = phi { ptr, i32 } [ %58, %57 ], [ %53, %52 ], [ %48, %47 ], [ %53, %56 ], [ %43, %42 ], [ %48, %51 ], [ %36, %35 ], [ %43, %46 ], [ %36, %39 ]
+  %.pn38 = phi { ptr, i32 } [ %58, %57 ], [ %36, %39 ], [ %36, %35 ], [ %43, %46 ], [ %43, %42 ], [ %48, %51 ], [ %48, %47 ], [ %53, %56 ], [ %53, %52 ]
   resume { ptr, i32 } %.pn38
 
 57:                                               ; preds = %33, %32, %31, %30, %29, %20
@@ -25831,8 +25831,8 @@ define void @"_ZN86_$LT$uv_settings..settings..GlobalOptions$u20$as$u20$uv_setti
   br label %31
 
 34:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$uv_configuration..required_version..RequiredVersion$GT$17hba5f4e67c5068892E.exit.i.i.i", %3, %22
-  %35 = phi i64 [ %19, %3 ], [ %15, %22 ], [ %15, %"_ZN4core3ptr72drop_in_place$LT$uv_configuration..required_version..RequiredVersion$GT$17hba5f4e67c5068892E.exit.i.i.i" ]
-  %36 = phi ptr [ %17, %3 ], [ %13, %22 ], [ %13, %"_ZN4core3ptr72drop_in_place$LT$uv_configuration..required_version..RequiredVersion$GT$17hba5f4e67c5068892E.exit.i.i.i" ]
+  %35 = phi i64 [ %15, %22 ], [ %19, %3 ], [ %15, %"_ZN4core3ptr72drop_in_place$LT$uv_configuration..required_version..RequiredVersion$GT$17hba5f4e67c5068892E.exit.i.i.i" ]
+  %36 = phi ptr [ %13, %22 ], [ %17, %3 ], [ %13, %"_ZN4core3ptr72drop_in_place$LT$uv_configuration..required_version..RequiredVersion$GT$17hba5f4e67c5068892E.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2184
   store ptr %36, ptr %11, align 8
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -36606,8 +36606,8 @@ default.unreachable:                              ; preds = %38
           to label %48 unwind label %23
 
 48:                                               ; preds = %45, %42, %39, %38, %25, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$uv_pep508..verbatim_url..VerbatimUrl$GT$$GT$17h1082dd2daff65de0E.llvm.4525295619829394506.exit.sink.split.i.i.i.i"
-  %.sroa.3.0.i.i = phi ptr [ %35, %25 ], [ %32, %38 ], [ %32, %39 ], [ %32, %42 ], [ %32, %45 ], [ %32, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$uv_pep508..verbatim_url..VerbatimUrl$GT$$GT$17h1082dd2daff65de0E.llvm.4525295619829394506.exit.sink.split.i.i.i.i" ]
-  %.sroa.0.0.i.i = phi i64 [ %33, %25 ], [ %30, %38 ], [ %30, %39 ], [ %30, %42 ], [ %30, %45 ], [ %30, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$uv_pep508..verbatim_url..VerbatimUrl$GT$$GT$17h1082dd2daff65de0E.llvm.4525295619829394506.exit.sink.split.i.i.i.i" ]
+  %.sroa.3.0.i.i = phi ptr [ %32, %38 ], [ %32, %39 ], [ %32, %42 ], [ %32, %45 ], [ %35, %25 ], [ %32, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$uv_pep508..verbatim_url..VerbatimUrl$GT$$GT$17h1082dd2daff65de0E.llvm.4525295619829394506.exit.sink.split.i.i.i.i" ]
+  %.sroa.0.0.i.i = phi i64 [ %30, %38 ], [ %30, %39 ], [ %30, %42 ], [ %30, %45 ], [ %33, %25 ], [ %30, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$uv_pep508..verbatim_url..VerbatimUrl$GT$$GT$17h1082dd2daff65de0E.llvm.4525295619829394506.exit.sink.split.i.i.i.i" ]
   %49 = icmp eq i8 %27, 3
   %..i = select i1 %49, i8 %29, i8 %27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

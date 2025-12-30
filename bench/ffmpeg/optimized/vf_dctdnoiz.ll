@@ -102,7 +102,7 @@ define internal range(i32 -22, 1) i32 @init(ptr noundef readonly captures(none) 
   unreachable
 
 25:                                               ; preds = %22, %19, %23, %20
-  %filter_freq_sigma_8.sink = phi ptr [ @filter_freq_expr_8, %19 ], [ @filter_freq_sigma_16, %23 ], [ @filter_freq_expr_16, %20 ], [ @filter_freq_sigma_8, %22 ]
+  %filter_freq_sigma_8.sink = phi ptr [ @filter_freq_sigma_16, %23 ], [ @filter_freq_expr_16, %20 ], [ @filter_freq_expr_8, %19 ], [ @filter_freq_sigma_8, %22 ]
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 312
   store ptr %filter_freq_sigma_8.sink, ptr %26, align 8, !tbaa !27
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 156
@@ -661,7 +661,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %55, %73, %84, %109, %118, %._crit_edge, %37, %._crit_edge194
-  %.0 = phi i32 [ -12, %118 ], [ -22, %37 ], [ %87, %84 ], [ -12, %109 ], [ 0, %._crit_edge194 ], [ -12, %._crit_edge ], [ -12, %73 ], [ -12, %55 ]
+  %.0 = phi i32 [ 0, %._crit_edge194 ], [ -22, %37 ], [ -12, %._crit_edge ], [ -12, %118 ], [ -12, %109 ], [ %87, %84 ], [ -12, %73 ], [ -12, %55 ]
   ret i32 %.0
 }
 

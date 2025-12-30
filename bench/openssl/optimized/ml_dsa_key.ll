@@ -130,7 +130,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_set_prekey(ptr noundef captures(address_
   br label %46
 
 46:                                               ; preds = %41, %39, %43, %7, %9, %12, %16, %24, %21
-  %.030 = phi i32 [ 0, %7 ], [ 0, %21 ], [ 0, %24 ], [ 0, %16 ], [ 0, %12 ], [ 0, %9 ], [ 0, %43 ], [ 1, %41 ], [ 1, %39 ]
+  %.030 = phi i32 [ 0, %21 ], [ 0, %24 ], [ 0, %16 ], [ 0, %12 ], [ 0, %9 ], [ 0, %7 ], [ 0, %43 ], [ 1, %41 ], [ 1, %39 ]
   ret i32 %.030
 }
 
@@ -176,7 +176,7 @@ ossl_ml_dsa_key_free.exit:                        ; preds = %8
   br label %18
 
 18:                                               ; preds = %6, %8, %3, %ossl_ml_dsa_key_free.exit
-  %.0 = phi ptr [ null, %3 ], [ null, %ossl_ml_dsa_key_free.exit ], [ %7, %8 ], [ null, %6 ]
+  %.0 = phi ptr [ null, %ossl_ml_dsa_key_free.exit ], [ null, %3 ], [ %7, %8 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -272,7 +272,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_key_priv_alloc(ptr noundef captures(none
   br label %vector_alloc.exit.thread
 
 vector_alloc.exit.thread:                         ; preds = %10, %1, %16
-  %.0 = phi i32 [ 0, %1 ], [ 1, %16 ], [ 0, %10 ]
+  %.0 = phi i32 [ 1, %16 ], [ 0, %1 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -590,7 +590,7 @@ ossl_ml_dsa_key_free.exit:                        ; preds = %75, %68, %40, %37, 
   br label %127
 
 127:                                              ; preds = %14, %112, %8, %11, %2, %ossl_ml_dsa_key_free.exit
-  %.0 = phi ptr [ null, %8 ], [ null, %2 ], [ null, %ossl_ml_dsa_key_free.exit ], [ null, %11 ], [ %15, %112 ], [ null, %14 ]
+  %.0 = phi ptr [ null, %ossl_ml_dsa_key_free.exit ], [ null, %2 ], [ null, %11 ], [ null, %8 ], [ %15, %112 ], [ null, %14 ]
   ret ptr %.0
 }
 
@@ -637,7 +637,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_key_equal(ptr noundef readonly captures(
   %.not27 = icmp eq i32 %bcmp, 0
   br i1 %.not27, label %31, label %32
 
-.critedge:                                        ; preds = %12, %15, %10
+.critedge:                                        ; preds = %10, %12, %15
   %21 = and i32 %2, 1
   %.not29 = icmp eq i32 %21, 0
   br i1 %.not29, label %31, label %22
@@ -662,11 +662,11 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_key_equal(ptr noundef readonly captures(
   br i1 %.not33, label %31, label %32
 
 31:                                               ; preds = %28, %18, %22, %25, %.critedge
-  %.1 = phi i32 [ 0, %.critedge ], [ 1, %18 ], [ 0, %25 ], [ 0, %22 ], [ 1, %28 ]
+  %.1 = phi i32 [ 0, %25 ], [ 0, %22 ], [ 0, %.critedge ], [ 1, %18 ], [ 1, %28 ]
   br label %32
 
 32:                                               ; preds = %8, %28, %18, %3, %31
-  %.017 = phi i32 [ 0, %28 ], [ 0, %3 ], [ %.1, %31 ], [ 0, %18 ], [ 1, %8 ]
+  %.017 = phi i32 [ %.1, %31 ], [ 0, %3 ], [ 0, %18 ], [ 0, %28 ], [ 1, %8 ]
   ret i32 %.017
 }
 
@@ -697,7 +697,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_key_has(ptr noundef readonly captures(no
   br label %15
 
 15:                                               ; preds = %2, %10, %4, %14
-  %.0 = phi i32 [ 0, %10 ], [ 0, %4 ], [ 1, %14 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %14 ], [ 0, %4 ], [ 0, %10 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -814,7 +814,7 @@ vector_equal.exit:                                ; preds = %30, %.preheader.i
   br label %shake_xof.exit
 
 shake_xof.exit:                                   ; preds = %.lr.ph.i, %26, %16, %13, %51, %48, %37, %vector_equal.exit, %23, %10
-  %55 = phi i32 [ 0, %vector_equal.exit ], [ 0, %16 ], [ 0, %23 ], [ %54, %51 ], [ 0, %10 ], [ 0, %48 ], [ 0, %37 ], [ 0, %13 ], [ 0, %26 ], [ 0, %.lr.ph.i ]
+  %55 = phi i32 [ 0, %vector_equal.exit ], [ 0, %23 ], [ 0, %10 ], [ 0, %48 ], [ 0, %37 ], [ %54, %51 ], [ 0, %13 ], [ 0, %16 ], [ 0, %26 ], [ 0, %.lr.ph.i ]
   tail call void @CRYPTO_free(ptr noundef nonnull %8, ptr noundef nonnull @.str.3, i32 noundef 46) #9
   tail call void @EVP_MD_CTX_free(ptr noundef %12) #9
   br label %vector_alloc.exit.thread
@@ -1104,13 +1104,13 @@ vector_equal.exit.thread36:                       ; preds = %.preheader.i
   br i1 %.not1.i31, label %44, label %vector_equal.exit33
 
 vector_equal.exit33:                              ; preds = %.lr.ph.i, %.lr.ph.i29, %44, %vector_equal.exit.thread36, %29, %vector_equal.exit, %23, %20
-  %.018 = phi i32 [ 0, %20 ], [ 0, %23 ], [ %spec.select, %vector_equal.exit.thread36 ], [ 0, %vector_equal.exit ], [ 0, %.lr.ph.i29 ], [ 0, %29 ], [ 1, %44 ], [ 0, %.lr.ph.i ]
+  %.018 = phi i32 [ 0, %20 ], [ 0, %23 ], [ 0, %vector_equal.exit ], [ 0, %29 ], [ %spec.select, %vector_equal.exit.thread36 ], [ 1, %44 ], [ 0, %.lr.ph.i29 ], [ 0, %.lr.ph.i ]
   tail call void @EVP_MD_CTX_free(ptr noundef %21) #9
   tail call void @CRYPTO_free(ptr noundef nonnull %18, ptr noundef nonnull @.str, i32 noundef 397) #9
   br label %50
 
 50:                                               ; preds = %15, %1, %11, %vector_equal.exit33
-  %.0 = phi i32 [ %.018, %vector_equal.exit33 ], [ 0, %1 ], [ 0, %11 ], [ 0, %15 ]
+  %.0 = phi i32 [ %.018, %vector_equal.exit33 ], [ 0, %11 ], [ 0, %1 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -1295,7 +1295,7 @@ shake_xof.exit49.i:                               ; preds = %99
   br label %ossl_ml_dsa_key_pub_alloc.exit.thread.i
 
 ossl_ml_dsa_key_pub_alloc.exit.thread.i:          ; preds = %103, %shake_xof.exit49.i, %99, %89, %87, %85, %78, %shake_xof.exit.i, %74, %53, %47, %38, %31, %28, %25
-  %.036.ph.i = phi i32 [ 0, %53 ], [ 0, %47 ], [ %106, %103 ], [ 0, %78 ], [ 0, %85 ], [ 0, %87 ], [ 0, %shake_xof.exit49.i ], [ 0, %31 ], [ 0, %shake_xof.exit.i ], [ 0, %25 ], [ 0, %28 ], [ 0, %38 ], [ 0, %74 ], [ 0, %99 ], [ 0, %89 ]
+  %.036.ph.i = phi i32 [ %106, %103 ], [ 0, %78 ], [ 0, %85 ], [ 0, %87 ], [ 0, %shake_xof.exit49.i ], [ 0, %shake_xof.exit.i ], [ 0, %25 ], [ 0, %28 ], [ 0, %31 ], [ 0, %38 ], [ 0, %47 ], [ 0, %74 ], [ 0, %53 ], [ 0, %99 ], [ 0, %89 ]
   %.pr.i = load ptr, ptr %4, align 8, !tbaa !16
   %.not45.i = icmp eq ptr %.pr.i, null
   br i1 %.not45.i, label %keygen_internal.exit, label %107
@@ -1312,8 +1312,8 @@ ossl_ml_dsa_key_pub_alloc.exit.thread.i:          ; preds = %103, %shake_xof.exi
   br label %keygen_internal.exit
 
 keygen_internal.exit:                             ; preds = %16, %ossl_ml_dsa_key_pub_alloc.exit.thread.i, %107, %110
-  %.060.i = phi ptr [ %26, %ossl_ml_dsa_key_pub_alloc.exit.thread.i ], [ %26, %110 ], [ %26, %107 ], [ null, %16 ]
-  %.03659.i = phi i32 [ %.036.ph.i, %ossl_ml_dsa_key_pub_alloc.exit.thread.i ], [ %.036.ph.i, %110 ], [ %.036.ph.i, %107 ], [ 0, %16 ]
+  %.060.i = phi ptr [ %26, %110 ], [ %26, %107 ], [ %26, %ossl_ml_dsa_key_pub_alloc.exit.thread.i ], [ null, %16 ]
+  %.03659.i = phi i32 [ %.036.ph.i, %110 ], [ %.036.ph.i, %107 ], [ %.036.ph.i, %ossl_ml_dsa_key_pub_alloc.exit.thread.i ], [ 0, %16 ]
   call void @EVP_MD_CTX_free(ptr noundef %.060.i) #9
   call void @OPENSSL_cleanse(ptr noundef nonnull %2, i64 noundef 34) #9
   call void @OPENSSL_cleanse(ptr noundef nonnull %3, i64 noundef 128) #9
@@ -1322,7 +1322,7 @@ keygen_internal.exit:                             ; preds = %16, %ossl_ml_dsa_ke
   br label %111
 
 111:                                              ; preds = %7, %keygen_internal.exit, %14
-  %.0 = phi i32 [ %.03659.i, %keygen_internal.exit ], [ 0, %14 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %14 ], [ %.03659.i, %keygen_internal.exit ], [ 0, %7 ]
   ret i32 %.0
 }
 

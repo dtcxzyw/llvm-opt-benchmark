@@ -829,7 +829,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %_ZN4l
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !202
 
 .thread:                                          ; preds = %.lr.ph.i.i, %70, %.critedge, %66, %43, %.critedge.thread.thread, %.preheader, %29, %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit
-  %.0 = phi i1 [ false, %29 ], [ true, %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit ], [ true, %.preheader ], [ false, %66 ], [ false, %43 ], [ false, %.critedge ], [ true, %70 ], [ false, %.critedge.thread.thread ], [ true, %.lr.ph.i.i ]
+  %.0 = phi i1 [ true, %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit ], [ false, %29 ], [ true, %.preheader ], [ true, %70 ], [ false, %.critedge ], [ false, %66 ], [ false, %43 ], [ false, %.critedge.thread.thread ], [ true, %.lr.ph.i.i ]
   ret i1 %.0
 }
 
@@ -988,7 +988,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb
   br i1 %65, label %.critedge2.i.i.backedge, label %.lr.ph, !llvm.loop !211
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %.critedge2.i.i.i.i, %.lr.ph, %57, %.critedge2.i.i, %34, %28, %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit
-  %.0 = phi i1 [ false, %28 ], [ true, %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit ], [ true, %34 ], [ false, %.lr.ph ], [ true, %.critedge2.i.i ], [ true, %.critedge2.i.i.i.i ], [ false, %57 ], [ true, %.lr.ph.i.i ]
+  %.0 = phi i1 [ true, %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit ], [ false, %28 ], [ true, %34 ], [ true, %.critedge2.i.i ], [ false, %57 ], [ false, %.lr.ph ], [ true, %.critedge2.i.i.i.i ], [ true, %.lr.ph.i.i ]
   ret i1 %.0
 }
 

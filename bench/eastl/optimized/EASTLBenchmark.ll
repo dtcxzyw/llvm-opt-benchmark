@@ -318,7 +318,7 @@ call4.i.noexc21:                                  ; preds = %invoke.cont1.thread
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %invoke.cont1, %call4.i.noexc21, %call.i.noexc19
-  %valueDest.0.i13 = phi i64 [ %nTime2, %invoke.cont1 ], [ %conv2.i12, %call.i.noexc19 ], [ %conv8.i18, %call4.i.noexc21 ]
+  %valueDest.0.i13 = phi i64 [ %conv2.i12, %call.i.noexc19 ], [ %conv8.i18, %call4.i.noexc21 ], [ %nTime2, %invoke.cont1 ]
   %mTime2NS = getelementptr inbounds nuw i8, ptr %result, i64 56
   store i64 %valueDest.0.i13, ptr %mTime2NS, align 8
   %tobool.not = icmp eq ptr %pNotes, null
@@ -826,7 +826,7 @@ lpad6:                                            ; preds = %for.inc, %if.else.i
   br label %ehcleanup
 
 if.end:                                           ; preds = %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i, %for.body, %if.then.i
-  %n.0 = phi i64 [ %13, %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i ], [ 0, %for.body ], [ %cond.i.i, %if.then.i ]
+  %n.0 = phi i64 [ %cond.i.i, %if.then.i ], [ 0, %for.body ], [ %13, %_ZN5eastl4findIPKccEET_S3_S3_RKT0_.exit.i ]
   %15 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i12, align 1
   %tobool.i.i.i.i = icmp slt i8 %15, 0
   %16 = load i64, ptr %mnSize.i.i.i.i, align 8
@@ -1287,13 +1287,13 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.i: ; preds = %if.
   br label %3
 
 3:                                                ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.i, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread.i
-  %4 = phi ptr [ %this, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.i ], [ %2, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread.i ]
+  %4 = phi ptr [ %2, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread.i ], [ %this, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.i ]
   store i8 0, ptr %4, align 1
   %.pre.i = load i8, ptr %mRemainingSizeField.i.i.i, align 1
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %3, %entry
-  %5 = phi i8 [ %0, %entry ], [ %.pre.i, %3 ]
+  %5 = phi i8 [ %.pre.i, %3 ], [ %0, %entry ]
   %tobool.i.i29.i = icmp sgt i8 %5, -1
   %mnCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %6 = load i64, ptr %mnCapacity.i.i.i, align 8
@@ -1342,13 +1342,13 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.i22: ; preds = %i
   br label %11
 
 11:                                               ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.i22, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread.i25
-  %12 = phi ptr [ %msSTLName1, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.i22 ], [ %10, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread.i25 ]
+  %12 = phi ptr [ %10, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread.i25 ], [ %msSTLName1, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.i22 ]
   store i8 0, ptr %12, align 1
   %.pre.i24 = load i8, ptr %mRemainingSizeField.i.i.i1, align 1
   br label %if.end10.i8
 
 if.end10.i8:                                      ; preds = %11, %_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm.exit
-  %13 = phi i8 [ %8, %_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm.exit ], [ %.pre.i24, %11 ]
+  %13 = phi i8 [ %.pre.i24, %11 ], [ %8, %_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm.exit ]
   %tobool.i.i29.i10 = icmp sgt i8 %13, -1
   %mnCapacity.i.i.i11 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %14 = load i64, ptr %mnCapacity.i.i.i11, align 8
@@ -1397,13 +1397,13 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.i48: ; preds = %i
   br label %19
 
 19:                                               ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.i48, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread.i51
-  %20 = phi ptr [ %msSTLName2, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.i48 ], [ %18, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread.i51 ]
+  %20 = phi ptr [ %18, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread.i51 ], [ %msSTLName2, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.i48 ]
   store i8 0, ptr %20, align 1
   %.pre.i50 = load i8, ptr %mRemainingSizeField.i.i.i27, align 1
   br label %if.end10.i34
 
 if.end10.i34:                                     ; preds = %19, %_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm.exit26
-  %21 = phi i8 [ %16, %_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm.exit26 ], [ %.pre.i50, %19 ]
+  %21 = phi i8 [ %.pre.i50, %19 ], [ %16, %_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm.exit26 ]
   %tobool.i.i29.i36 = icmp sgt i8 %21, -1
   %mnCapacity.i.i.i37 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %22 = load i64, ptr %mnCapacity.i.i.i37, align 8
@@ -1542,14 +1542,14 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit: ; preds = %if.th
   br label %6
 
 6:                                                ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread
-  %7 = phi ptr [ %spec.select, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit ], [ %add.ptr.i.i79, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread ]
+  %7 = phi ptr [ %add.ptr.i.i79, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit ]
   store i8 0, ptr %7, align 1
   %.pre = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %if.end10
 
 if.end10:                                         ; preds = %entry, %if.else, %6
-  %8 = phi i8 [ %0, %if.else ], [ %.pre, %6 ], [ %0, %entry ]
-  %n.addr.0 = phi i64 [ %n, %if.else ], [ %n, %6 ], [ %cond.i, %entry ]
+  %8 = phi i8 [ %.pre, %6 ], [ %0, %if.else ], [ %0, %entry ]
+  %n.addr.0 = phi i64 [ %n, %6 ], [ %n, %if.else ], [ %cond.i, %entry ]
   %mRemainingSizeField.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 23
   %tobool.i.i29 = icmp sgt i8 %8, -1
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2056,7 +2056,7 @@ _ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i.i:       ; preds = %lor.lhs.false2.i
   br label %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit.i
 
 _ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit.i: ; preds = %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i.i, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i.i
-  %cmp.i.i.i.i.i = phi i1 [ %10, %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i.i ], [ %7, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i.i ]
+  %cmp.i.i.i.i.i = phi i1 [ %7, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i.i ], [ %10, %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i.i ]
   %not.cmp.i.i.i.i.i = xor i1 %cmp.i.i.i.i.i, true
   %spec.select.i = zext i1 %not.cmp.i.i.i.i.i to i32
   br label %_ZN5eastl6rbtreeIN9Benchmark6ResultES2_NS_4lessIS2_EENS_9allocatorENS_8use_selfIS2_EELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKS2_PNS_11rbtree_nodeIS2_EE.exit
@@ -2175,7 +2175,7 @@ _ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i:         ; preds = %while.body
   br label %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit
 
 _ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit: ; preds = %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i, %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i
-  %cmp.i.i.i.i = phi i1 [ %9, %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i ], [ %6, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i ]
+  %cmp.i.i.i.i = phi i1 [ %6, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i ], [ %9, %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i ]
   %pCurrent.1.in.idx = select i1 %cmp.i.i.i.i, i64 8, i64 0
   %pCurrent.1.in = getelementptr inbounds nuw i8, ptr %pCurrent.049, i64 %pCurrent.1.in.idx
   %pCurrent.0 = load ptr, ptr %pCurrent.1.in, align 8
@@ -2232,27 +2232,27 @@ if.end16:                                         ; preds = %if.then12, %while.e
   %sub.ptr.sub3.i.i.i.i.i37 = sub i64 %sub.ptr.lhs.cast1.i.i.i.i.i35, %sub.ptr.rhs.cast2.i.i.i.i.i36
   %cond.i.i16.i.i.i.i38 = tail call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub3.i.i.i.i.i37, i64 %sub.ptr.sub.i.i.i.i.i34)
   %cmp.not.i.i.i.i.i.i39 = icmp eq i64 %cond.i.i16.i.i.i.i38, 0
-  br i1 %cmp.not.i.i.i.i.i.i39, label %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit46, label %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i40
+  br i1 %cmp.not.i.i.i.i.i.i39, label %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i45, label %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit46
 
-_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i40:       ; preds = %if.end16
+_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i45: ; preds = %if.end16
+  %17 = icmp slt i64 %sub.ptr.sub.i.i.i.i.i34, %sub.ptr.sub3.i.i.i.i.i37
+  br i1 %17, label %return, label %if.end21
+
+_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit46: ; preds = %if.end16
   %call.i.i.i.i.i.i41 = tail call i32 @memcmp(ptr noundef %spec.select.i.i.i.i.i.i16, ptr noundef %spec.select.i.i7.i.i.i.i25, i64 noundef %cond.i.i16.i.i.i.i38) #19
   %call.i.fr.i.i.i.i.i42 = freeze i32 %call.i.i.i.i.i.i41
   %cmp5.not.i.i.i.i.i43 = icmp eq i32 %call.i.fr.i.i.i.i.i42, 0
-  %17 = icmp slt i64 %sub.ptr.sub.i.i.i.i.i34, %sub.ptr.sub3.i.i.i.i.i37
-  %18 = icmp slt i32 %call.i.fr.i.i.i.i.i42, 0
-  %19 = select i1 %cmp5.not.i.i.i.i.i43, i1 %17, i1 %18
-  br i1 %19, label %return, label %if.end21
-
-_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit46: ; preds = %if.end16
-  %20 = icmp slt i64 %sub.ptr.sub.i.i.i.i.i34, %sub.ptr.sub3.i.i.i.i.i37
+  %18 = icmp slt i64 %sub.ptr.sub.i.i.i.i.i34, %sub.ptr.sub3.i.i.i.i.i37
+  %19 = icmp slt i32 %call.i.fr.i.i.i.i.i42, 0
+  %20 = select i1 %cmp5.not.i.i.i.i.i43, i1 %18, i1 %19
   br i1 %20, label %return, label %if.end21
 
-if.end21:                                         ; preds = %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i40, %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit46
+if.end21:                                         ; preds = %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i45, %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit46
   br label %return
 
-return:                                           ; preds = %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit46, %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i40, %if.then7, %if.end21
-  %.sink = phi i8 [ 0, %if.end21 ], [ 1, %if.then7 ], [ 1, %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i40 ], [ 1, %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit46 ]
-  %retval.0 = phi ptr [ %pLowerBound.1, %if.end21 ], [ %pLowerBound.0.lcssa54, %if.then7 ], [ %pLowerBound.0.lcssa53, %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i40 ], [ %pLowerBound.0.lcssa53, %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit46 ]
+return:                                           ; preds = %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit46, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i45, %if.then7, %if.end21
+  %.sink = phi i8 [ 0, %if.end21 ], [ 1, %if.then7 ], [ 1, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i45 ], [ 1, %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit46 ]
+  %retval.0 = phi ptr [ %pLowerBound.1, %if.end21 ], [ %pLowerBound.0.lcssa54, %if.then7 ], [ %pLowerBound.0.lcssa53, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i45 ], [ %pLowerBound.0.lcssa53, %_ZN5eastl19rb_base_compare_eboINS_4lessIN9Benchmark6ResultEEELb1EE7compareIS3_EEbRKT_S9_.exit46 ]
   store i8 %.sink, ptr %canInsert, align 1
   ret ptr %retval.0
 }

@@ -131,14 +131,14 @@ define internal range(i32 -1, 1) i32 @H5P__lacc_reg_prop(ptr noundef %0) #0 {
   br i1 %22, label %.sink.split, label %26
 
 .sink.split:                                      ; preds = %20, %17, %14, %11, %8
-  %.sink = phi i32 [ 213, %17 ], [ 192, %8 ], [ 200, %11 ], [ 207, %14 ], [ 219, %20 ]
+  %.sink = phi i32 [ 192, %8 ], [ 200, %11 ], [ 207, %14 ], [ 213, %17 ], [ 219, %20 ]
   %23 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
   %24 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !10
   %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5P__lacc_reg_prop, i32 noundef %.sink, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.26) #10
   br label %26
 
 26:                                               ; preds = %.sink.split, %20, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %20 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %1 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1458,8 +1458,8 @@ define internal noundef i32 @H5P__lacc_elink_pref_enc(ptr noundef readonly captu
   br label %H5VM_limit_enc_size.exit
 
 H5VM_limit_enc_size.exit:                         ; preds = %19, %24, %31, %36, %45, %50, %57, %.thread45
-  %.03239 = phi i64 [ %13, %50 ], [ %13, %24 ], [ %13, %36 ], [ %13, %19 ], [ %13, %31 ], [ %13, %45 ], [ %13, %57 ], [ %.032404448, %.thread45 ]
-  %.0.i.i = phi i32 [ %54, %50 ], [ %28, %24 ], [ %40, %36 ], [ %23, %19 ], [ %35, %31 ], [ %49, %45 ], [ %61, %57 ], [ %64, %.thread45 ]
+  %.03239 = phi i64 [ %13, %19 ], [ %13, %24 ], [ %13, %31 ], [ %13, %36 ], [ %13, %45 ], [ %13, %50 ], [ %13, %57 ], [ %.032404448, %.thread45 ]
+  %.0.i.i = phi i32 [ %23, %19 ], [ %28, %24 ], [ %35, %31 ], [ %40, %36 ], [ %49, %45 ], [ %54, %50 ], [ %61, %57 ], [ %64, %.thread45 ]
   %65 = lshr i32 %.0.i.i, 3
   %66 = load ptr, ptr %1, align 8, !tbaa !15
   %.not36 = icmp eq ptr %66, null
@@ -1681,7 +1681,7 @@ define internal i32 @H5P__lacc_elink_pref_cmp(ptr noundef readonly captures(none
   br label %21
 
 21:                                               ; preds = %15, %12, %19, %18, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %12 ], [ %20, %19 ], [ 0, %18 ], [ -1, %15 ]
+  %.0 = phi i32 [ %20, %19 ], [ 0, %18 ], [ 0, %3 ], [ 1, %12 ], [ -1, %15 ]
   ret i32 %.0
 }
 
@@ -1744,7 +1744,7 @@ define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_set(i64 %0, ptr readn
   br label %28
 
 28:                                               ; preds = %4, %11, %21, %24, %17
-  %.010 = phi i32 [ 0, %4 ], [ 0, %11 ], [ -1, %17 ], [ -1, %24 ], [ 0, %21 ]
+  %.010 = phi i32 [ 0, %11 ], [ 0, %4 ], [ -1, %17 ], [ -1, %24 ], [ 0, %21 ]
   ret i32 %.010
 }
 
@@ -1788,7 +1788,7 @@ define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_get(i64 %0, ptr readn
   br label %28
 
 28:                                               ; preds = %4, %11, %21, %24, %17
-  %.010 = phi i32 [ 0, %4 ], [ 0, %11 ], [ -1, %17 ], [ -1, %24 ], [ 0, %21 ]
+  %.010 = phi i32 [ 0, %11 ], [ 0, %4 ], [ -1, %17 ], [ -1, %24 ], [ 0, %21 ]
   ret i32 %.010
 }
 
@@ -1950,7 +1950,7 @@ define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_enc(ptr noundef reado
   br label %H5VM_limit_enc_size.exit
 
 H5VM_limit_enc_size.exit:                         ; preds = %42, %47, %54, %59, %68, %73, %80, %85
-  %.0.i.i = phi i32 [ %77, %73 ], [ %51, %47 ], [ %63, %59 ], [ %46, %42 ], [ %58, %54 ], [ %72, %68 ], [ %84, %80 ], [ %88, %85 ]
+  %.0.i.i = phi i32 [ %46, %42 ], [ %51, %47 ], [ %58, %54 ], [ %63, %59 ], [ %72, %68 ], [ %77, %73 ], [ %84, %80 ], [ %88, %85 ]
   %89 = lshr i32 %.0.i.i, 3
   %90 = add nuw nsw i32 %89, 1
   %91 = trunc nuw nsw i32 %90 to i8
@@ -2086,7 +2086,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %42, %47, %54, %59, 
   br label %H5VM_limit_enc_size.exit55
 
 H5VM_limit_enc_size.exit55:                       ; preds = %119, %124, %131, %136, %145, %150, %157, %162
-  %.0.i.i50 = phi i32 [ %154, %150 ], [ %128, %124 ], [ %140, %136 ], [ %123, %119 ], [ %135, %131 ], [ %149, %145 ], [ %161, %157 ], [ %165, %162 ]
+  %.0.i.i50 = phi i32 [ %123, %119 ], [ %128, %124 ], [ %135, %131 ], [ %140, %136 ], [ %149, %145 ], [ %154, %150 ], [ %161, %157 ], [ %165, %162 ]
   %166 = lshr i32 %.0.i.i50, 3
   %167 = add nuw nsw i32 %166, 2
   %168 = zext nneg i32 %167 to i64
@@ -2175,7 +2175,7 @@ define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_dec(ptr noundef captu
   br label %37
 
 37:                                               ; preds = %2, %36, %33, %29
-  %.026 = phi i32 [ 0, %2 ], [ 0, %36 ], [ -1, %29 ], [ 0, %33 ]
+  %.026 = phi i32 [ 0, %36 ], [ 0, %2 ], [ -1, %29 ], [ 0, %33 ]
   ret i32 %.026
 }
 
@@ -2250,7 +2250,7 @@ define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_copy(ptr readnone cap
   br label %27
 
 27:                                               ; preds = %3, %10, %20, %23, %16
-  %.010 = phi i32 [ 0, %3 ], [ 0, %10 ], [ -1, %16 ], [ -1, %23 ], [ 0, %20 ]
+  %.010 = phi i32 [ 0, %10 ], [ 0, %3 ], [ -1, %16 ], [ -1, %23 ], [ 0, %20 ]
   ret i32 %.010
 }
 
@@ -2311,7 +2311,7 @@ define internal i32 @H5P__lacc_elink_fapl_cmp(ptr noundef readonly captures(none
   br label %33
 
 33:                                               ; preds = %27, %.thread, %19, %14, %31, %30, %3
-  %34 = phi i32 [ 0, %3 ], [ 1, %14 ], [ -1, %19 ], [ 1, %.thread ], [ %.pre, %31 ], [ 0, %30 ], [ -1, %27 ]
+  %34 = phi i32 [ %.pre, %31 ], [ 0, %30 ], [ 0, %3 ], [ 1, %14 ], [ -1, %19 ], [ 1, %.thread ], [ -1, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %34
 }

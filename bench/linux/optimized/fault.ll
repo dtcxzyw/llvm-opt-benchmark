@@ -1134,7 +1134,7 @@ define internal void @do_user_addr_fault(ptr noundef %0, i64 noundef %1, i64 nou
   br label %bad_area_access_error.exit
 
 .thread9.split:                                   ; preds = %.split.split.split.us, %216, %215, %211, %202, %.split.split, %180
-  %.split23 = phi ptr [ %178, %180 ], [ %188, %216 ], [ %178, %.split.split ], [ %188, %202 ], [ %188, %211 ], [ %188, %215 ], [ %251, %.split.split.split.us ]
+  %.split23 = phi ptr [ %178, %180 ], [ %178, %.split.split ], [ %188, %202 ], [ %188, %211 ], [ %188, %215 ], [ %188, %216 ], [ %251, %.split.split.split.us ]
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 516, i32 16, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 104)) #14
           to label %287 [label %287, label %326], !srcloc !14
 
@@ -2024,9 +2024,9 @@ define internal fastcc range(i32 0, 2) i32 @is_prefetch(ptr noundef %0, i64 noun
   %54 = or i1 %53, %52
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.old = icmp ult ptr %45, %21
-  %or.cond12 = select i1 %54, i1 %.old, i1 false
-  br i1 %or.cond12, label %.lr.ph.backedge, label %.loopexit
+  %.old.old.old = icmp ult ptr %45, %21
+  %or.cond14 = select i1 %54, i1 %.old.old.old, i1 false
+  br i1 %or.cond14, label %.lr.ph.backedge, label %.loopexit
 
 55:                                               ; preds = %43
   %56 = and i8 %44, 12
@@ -2044,9 +2044,9 @@ define internal fastcc range(i32 0, 2) i32 @is_prefetch(ptr noundef %0, i64 noun
   %62 = or i1 %59, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.old.old.old = icmp ult ptr %45, %21
-  %or.cond14 = select i1 %62, i1 %.old.old.old, i1 false
-  br i1 %or.cond14, label %.lr.ph.backedge, label %.loopexit
+  %.old = icmp ult ptr %45, %21
+  %or.cond12 = select i1 %62, i1 %.old, i1 false
+  br i1 %or.cond12, label %.lr.ph.backedge, label %.loopexit
 
 63:                                               ; preds = %43
   %64 = call i64 @copy_from_kernel_nofault(ptr noundef nonnull %3, ptr noundef %45, i64 noundef 1) #14
@@ -2077,7 +2077,7 @@ define internal fastcc range(i32 0, 2) i32 @is_prefetch(ptr noundef %0, i64 noun
   %or.cond11 = select i1 %75, i1 %76, i1 false
   br i1 %or.cond11, label %.lr.ph.backedge, label %.loopexit
 
-.lr.ph.backedge:                                  ; preds = %73, %49, %55, %58
+.lr.ph.backedge:                                  ; preds = %73, %58, %55, %49
   br label %.lr.ph
 
 .loopexit.sink.split:                             ; preds = %31, %40, %.thread3
@@ -2085,8 +2085,8 @@ define internal fastcc range(i32 0, 2) i32 @is_prefetch(ptr noundef %0, i64 noun
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %73, %49, %55, %58, %.loopexit.sink.split, %16
-  %77 = phi i32 [ 0, %16 ], [ %.ph26, %.loopexit.sink.split ], [ 0, %58 ], [ 0, %55 ], [ 0, %49 ], [ 0, %73 ]
+.loopexit:                                        ; preds = %73, %58, %55, %49, %.loopexit.sink.split, %16
+  %77 = phi i32 [ 0, %16 ], [ %.ph26, %.loopexit.sink.split ], [ 0, %49 ], [ 0, %55 ], [ 0, %58 ], [ 0, %73 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !65
   %78 = load i32, ptr %22, align 4
   %79 = add i32 %78, -1

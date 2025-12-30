@@ -166,7 +166,7 @@ define dso_local i32 @get_rock_ridge_filename(ptr noundef %0, ptr noundef writeo
   br label %74
 
 74:                                               ; preds = %73, %72, %71, %70, %69, %68, %67, %66, %64, %64
-  %75 = phi i32 [ 4, %73 ], [ 16, %72 ], [ 28, %66 ], [ 7, %64 ], [ 12, %71 ], [ 7, %64 ], [ 20, %70 ], [ 36, %69 ], [ 5, %68 ], [ 8, %67 ]
+  %75 = phi i32 [ 4, %73 ], [ 16, %72 ], [ 12, %71 ], [ 20, %70 ], [ 36, %69 ], [ 5, %68 ], [ 8, %67 ], [ 28, %66 ], [ 7, %64 ], [ 7, %64 ]
   %76 = icmp samesign ugt i32 %75, %.val18
   br i1 %76, label %rock_check_overflow.exit, label %80
 
@@ -316,7 +316,7 @@ rock_check_overflow.exit:                         ; preds = %74
   ]
 
 .loopexit5:                                       ; preds = %157, %96, %92, %87, %86, %80, %54, %rock_check_overflow.exit
-  %161 = phi i32 [ -5, %rock_check_overflow.exit ], [ -1, %86 ], [ 0, %96 ], [ 0, %92 ], [ 0, %87 ], [ 0, %80 ], [ 0, %54 ], [ %160, %157 ]
+  %161 = phi i32 [ -5, %rock_check_overflow.exit ], [ 0, %96 ], [ 0, %92 ], [ 0, %87 ], [ 0, %80 ], [ 0, %54 ], [ -1, %86 ], [ %160, %157 ]
   %162 = load ptr, ptr %4, align 8
   tail call void @kfree(ptr noundef %162) #11
   br label %.loopexit6
@@ -633,7 +633,7 @@ define internal fastcc i32 @parse_rock_ridge_inode_internal(ptr noundef %0, ptr 
   br label %92
 
 92:                                               ; preds = %91, %90, %89, %88, %87, %86, %85, %84, %82, %82
-  %93 = phi i32 [ 4, %91 ], [ 16, %90 ], [ 28, %84 ], [ 7, %82 ], [ 12, %89 ], [ 7, %82 ], [ 20, %88 ], [ 36, %87 ], [ 5, %86 ], [ 8, %85 ]
+  %93 = phi i32 [ 4, %91 ], [ 16, %90 ], [ 12, %89 ], [ 20, %88 ], [ 36, %87 ], [ 5, %86 ], [ 8, %85 ], [ 28, %84 ], [ 7, %82 ], [ 7, %82 ]
   %94 = icmp samesign ugt i32 %93, %.val34
   br i1 %94, label %rock_check_overflow.exit, label %98
 
@@ -960,8 +960,8 @@ rock_check_overflow.exit:                         ; preds = %92
   br label %.thread8
 
 .thread8:                                         ; preds = %.thread, %283, %279
-  %286 = phi i32 [ %259, %279 ], [ %259, %283 ], [ %267, %.thread ]
-  %.pn9.in = phi i8 [ %256, %279 ], [ %256, %283 ], [ %264, %.thread ]
+  %286 = phi i32 [ %259, %283 ], [ %259, %279 ], [ %267, %.thread ]
+  %.pn9.in = phi i8 [ %256, %283 ], [ %256, %279 ], [ %264, %.thread ]
   %.pn9 = zext i8 %.pn9.in to i64
   %.pn = getelementptr i8, ptr %237, i64 %.pn9
   %287 = getelementptr i8, ptr %.pn, i64 2
@@ -1285,7 +1285,7 @@ define internal noundef range(i32 -5, 1) i32 @rock_ridge_symlink_read_folio(ptr 
   br label %96
 
 96:                                               ; preds = %95, %94, %93, %92, %91, %90, %89, %88, %86, %86
-  %97 = phi i32 [ 4, %95 ], [ 16, %94 ], [ 28, %88 ], [ 7, %86 ], [ 12, %93 ], [ 7, %86 ], [ 20, %92 ], [ 36, %91 ], [ 5, %90 ], [ 8, %89 ]
+  %97 = phi i32 [ 4, %95 ], [ 16, %94 ], [ 12, %93 ], [ 20, %92 ], [ 36, %91 ], [ 5, %90 ], [ 8, %89 ], [ 28, %88 ], [ 7, %86 ], [ 7, %86 ]
   %98 = icmp samesign ugt i32 %97, %.val
   br i1 %98, label %rock_check_overflow.exit, label %102
 
@@ -1415,7 +1415,7 @@ rock_check_overflow.exit:                         ; preds = %96
   br label %170
 
 170:                                              ; preds = %167, %162, %156, %149
-  %171 = phi ptr [ %139, %167 ], [ %153, %149 ], [ %164, %162 ], [ %157, %156 ]
+  %171 = phi ptr [ %139, %167 ], [ %164, %162 ], [ %157, %156 ], [ %153, %149 ]
   %172 = getelementptr inbounds nuw i8, ptr %137, i64 1
   %173 = load i8, ptr %172, align 1
   %174 = zext i8 %173 to i32
@@ -1481,7 +1481,7 @@ rock_check_overflow.exit:                         ; preds = %96
   br label %136
 
 .thread13:                                        ; preds = %.thread, %195, %189, %185, %130
-  %209 = phi ptr [ %81, %130 ], [ %171, %185 ], [ %171, %189 ], [ %196, %195 ], [ %178, %.thread ]
+  %209 = phi ptr [ %171, %189 ], [ %196, %195 ], [ %171, %185 ], [ %81, %130 ], [ %178, %.thread ]
   %210 = icmp eq ptr %209, null
   br i1 %210, label %.thread15, label %.thread13.thread-pre-split_crit_edge
 

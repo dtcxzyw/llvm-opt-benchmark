@@ -575,7 +575,7 @@ define internal i32 @conversation_hash_element_list(ptr noundef readonly capture
   br i1 %exitcond.not.i106, label %93, label %.lr.ph.i102, !llvm.loop !9
 
 add_address_to_hash.exit107:                      ; preds = %.lr.ph.i93, %.lr.ph.i84, %.lr.ph.i75, %.lr.ph.i66, %.lr.ph.i57, %.lr.ph.i48, %.lr.ph.i39, %.lr.ph.i, %2, %4, %25, %70
-  %.1 = phi i32 [ %.031, %2 ], [ %45, %.lr.ph.i57 ], [ %53, %.lr.ph.i66 ], [ %61, %.lr.ph.i75 ], [ %69, %.lr.ph.i84 ], [ %16, %.lr.ph.i ], [ %24, %.lr.ph.i39 ], [ %37, %.lr.ph.i48 ], [ %.031, %4 ], [ %.031, %25 ], [ %.031, %70 ], [ %83, %.lr.ph.i93 ]
+  %.1 = phi i32 [ %.031, %2 ], [ %.031, %4 ], [ %.031, %25 ], [ %.031, %70 ], [ %16, %.lr.ph.i ], [ %24, %.lr.ph.i39 ], [ %37, %.lr.ph.i48 ], [ %45, %.lr.ph.i57 ], [ %53, %.lr.ph.i66 ], [ %61, %.lr.ph.i75 ], [ %69, %.lr.ph.i84 ], [ %83, %.lr.ph.i93 ]
   %92 = getelementptr i8, ptr %.032, i64 32
   br label %2
 
@@ -1092,7 +1092,7 @@ copy_address_wmem.exit:                           ; preds = %21, %12, %27
   %.0466998 = phi ptr [ %.0466990, %.thread84 ], [ %.04669, %38 ]
   %.0.ph96 = phi i64 [ 3, %.thread84 ], [ %.62, %38 ]
   %.044.ph94 = phi i64 [ 0, %.thread84 ], [ %.61, %38 ]
-  %.not56.ph92 = phi i1 [ true, %.thread84 ], [ %.not50, %38 ]
+  %.not56.ph93 = phi i1 [ true, %.thread84 ], [ %.not50, %38 ]
   %44 = tail call ptr @wmem_file_scope()
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load i32, ptr %2, align 8
@@ -1114,7 +1114,7 @@ copy_address_wmem.exit:                           ; preds = %21, %12, %27
   store ptr %54, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %43, i64 12
   store i32 %48, ptr %57, align 4
-  br i1 %.not56.ph92, label %63, label %60
+  br i1 %.not56.ph93, label %63, label %60
 
 58:                                               ; preds = %38
   %59 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -1122,21 +1122,21 @@ copy_address_wmem.exit:                           ; preds = %21, %12, %27
   br i1 %.not50, label %63, label %60
 
 copy_address_wmem.exit63:                         ; preds = %42
-  br i1 %.not56.ph92, label %63, label %60
+  br i1 %.not56.ph93, label %63, label %60
 
-60:                                               ; preds = %58, %52, %37, %copy_address_wmem.exit63
-  %.0447383 = phi i64 [ 2, %37 ], [ %.044.ph94, %copy_address_wmem.exit63 ], [ %.044.ph94, %52 ], [ 3, %58 ]
-  %.07581 = phi i64 [ 3, %37 ], [ %.0.ph96, %copy_address_wmem.exit63 ], [ %.0.ph96, %52 ], [ 4, %58 ]
-  %.0467779 = phi ptr [ %conversation_hashtable_no_addr2.val, %37 ], [ %.0466998, %copy_address_wmem.exit63 ], [ %.0466998, %52 ], [ %conversation_hashtable_exact_addr_port.val, %58 ]
+60:                                               ; preds = %52, %37, %58, %copy_address_wmem.exit63
+  %.0447383 = phi i64 [ 3, %58 ], [ %.044.ph94, %copy_address_wmem.exit63 ], [ 2, %37 ], [ %.044.ph94, %52 ]
+  %.07581 = phi i64 [ 4, %58 ], [ %.0.ph96, %copy_address_wmem.exit63 ], [ 3, %37 ], [ %.0.ph96, %52 ]
+  %.0467779 = phi ptr [ %conversation_hashtable_exact_addr_port.val, %58 ], [ %.0466998, %copy_address_wmem.exit63 ], [ %conversation_hashtable_no_addr2.val, %37 ], [ %.0466998, %52 ]
   %61 = getelementptr %struct.conversation_element, ptr %11, i64 %.0447383
   store i32 2, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 %5, ptr %62, align 8
   br label %63
 
-63:                                               ; preds = %.thread100, %58, %52, %37, %60, %copy_address_wmem.exit63
-  %.07582 = phi i64 [ 2, %37 ], [ %.07581, %60 ], [ %.0.ph96, %copy_address_wmem.exit63 ], [ %.0.ph96, %52 ], [ 2, %58 ], [ 3, %.thread100 ]
-  %.0467780 = phi ptr [ %conversation_hashtable_no_addr2_or_port2.val, %37 ], [ %.0467779, %60 ], [ %.0466998, %copy_address_wmem.exit63 ], [ %.0466998, %52 ], [ %conversation_hashtable_exact_addr.val, %58 ], [ %.0466990, %.thread100 ]
+63:                                               ; preds = %.thread100, %52, %37, %58, %60, %copy_address_wmem.exit63
+  %.07582 = phi i64 [ 2, %58 ], [ %.07581, %60 ], [ %.0.ph96, %copy_address_wmem.exit63 ], [ 2, %37 ], [ %.0.ph96, %52 ], [ 3, %.thread100 ]
+  %.0467780 = phi ptr [ %conversation_hashtable_exact_addr.val, %58 ], [ %.0467779, %60 ], [ %.0466998, %copy_address_wmem.exit63 ], [ %conversation_hashtable_no_addr2_or_port2.val, %37 ], [ %.0466998, %52 ], [ %.0466990, %.thread100 ]
   %64 = getelementptr %struct.conversation_element, ptr %11, i64 %.07582
   store i32 0, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -1253,7 +1253,7 @@ find_conversation_deinterlacer_pinfo.exit:        ; preds = %26, %31, %34
   %50 = tail call ptr @conversation_new_deinterlaced(i32 noundef %41, ptr noundef nonnull %42, ptr noundef nonnull %43, i32 noundef %1, i32 noundef %45, i32 noundef %47, i32 noundef %49, i32 noundef %2)
   br label %61
 
-51:                                               ; preds = %3, %6, %find_conversation_deinterlacer_pinfo.exit
+51:                                               ; preds = %6, %3, %find_conversation_deinterlacer_pinfo.exit
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -2266,7 +2266,7 @@ define ptr @find_conversation_full(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %conversation_lookup_hashtable.exit
 
 conversation_lookup_hashtable.exit:               ; preds = %.critedge.i, %14, %8, %6, %2
-  %.0 = phi ptr [ null, %2 ], [ %13, %14 ], [ %.2.lcssa.i, %.critedge.i ], [ null, %6 ], [ null, %8 ]
+  %.0 = phi ptr [ null, %2 ], [ %13, %14 ], [ %.2.lcssa.i, %.critedge.i ], [ null, %8 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -2395,7 +2395,7 @@ define ptr @find_conversation(i32 noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %conversation_lookup_exact.exit
 
 conversation_lookup_exact.exit:                   ; preds = %25, %39, %45, %.critedge.i.i
-  %.027.i.i = phi ptr [ %44, %45 ], [ %.2.lcssa.i.i, %.critedge.i.i ], [ null, %25 ], [ null, %39 ]
+  %.027.i.i = phi ptr [ %44, %45 ], [ %.2.lcssa.i.i, %.critedge.i.i ], [ null, %39 ], [ null, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 1, ptr %19, align 16
@@ -2500,7 +2500,7 @@ conversation_lookup_exact.exit212.thread398:      ; preds = %81, %conversation_l
   %spec.select = select i1 %103, ptr %.027.i.i200401, ptr %.027.i.i
   br label %.thread404
 
-104:                                              ; preds = %75, %conversation_lookup_exact.exit
+104:                                              ; preds = %conversation_lookup_exact.exit, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %105 = icmp eq ptr %.027.i.i, null
   br i1 %105, label %106, label %.thread404
@@ -2598,7 +2598,7 @@ conversation_lookup_exact.exit212.thread398:      ; preds = %81, %conversation_l
   %.not38.i.i226 = icmp eq ptr %145, null
   br i1 %.not38.i.i226, label %146, label %138, !llvm.loop !13
 
-.thread411:                                       ; preds = %109, %123
+.thread411:                                       ; preds = %123, %109
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.thread407
 
@@ -2701,7 +2701,7 @@ conversation_lookup_no_addr2.exit:                ; preds = %174, %177
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread421
 
-182:                                              ; preds = %159, %148
+182:                                              ; preds = %148, %159
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %183 = load i32, ptr %spec.store.select, align 8
   %184 = icmp eq i32 %183, 5
@@ -2789,7 +2789,7 @@ conversation_lookup_no_addr2.exit:                ; preds = %174, %177
   %.not38.i.i259 = icmp eq ptr %218, null
   br i1 %.not38.i.i259, label %219, label %211, !llvm.loop !13
 
-.thread429:                                       ; preds = %185, %196
+.thread429:                                       ; preds = %196, %185
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.thread425
 
@@ -2800,7 +2800,7 @@ conversation_lookup_no_addr2.exit:                ; preds = %174, %177
   br label %.thread421
 
 .thread421:                                       ; preds = %219, %conversation_lookup_no_addr2.exit, %conversation_lookup_no_addr2.exit.thread418, %.thread432
-  %.3424 = phi ptr [ %201, %.thread432 ], [ %.2.lcssa.i.i261, %219 ], [ %164, %conversation_lookup_no_addr2.exit.thread418 ], [ %.2.lcssa.i.i245, %conversation_lookup_no_addr2.exit ]
+  %.3424 = phi ptr [ %.2.lcssa.i.i261, %219 ], [ %201, %.thread432 ], [ %164, %conversation_lookup_no_addr2.exit.thread418 ], [ %.2.lcssa.i.i245, %conversation_lookup_no_addr2.exit ]
   %220 = getelementptr inbounds nuw i8, ptr %.3424, i64 56
   %221 = load i32, ptr %220, align 8
   %222 = and i32 %221, 1
@@ -2905,7 +2905,7 @@ conversation_lookup_no_addr2.exit:                ; preds = %174, %177
   %.not38.i.i276 = icmp eq ptr %264, null
   br i1 %.not38.i.i276, label %conversation_lookup_no_addr2.exit279, label %257, !llvm.loop !13
 
-conversation_lookup_no_addr2.exit279.thread:      ; preds = %231, %242
+conversation_lookup_no_addr2.exit279.thread:      ; preds = %242, %231
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %272
 
@@ -3029,7 +3029,7 @@ conversation_lookup_no_port2.exit:                ; preds = %301, %304
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread445
 
-309:                                              ; preds = %286, %274
+309:                                              ; preds = %274, %286
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %310 = load i32, ptr %spec.store.select, align 8
   %311 = icmp eq i32 %310, 5
@@ -3118,7 +3118,7 @@ conversation_lookup_no_port2.exit:                ; preds = %301, %304
   %.not38.i.i309 = icmp eq ptr %346, null
   br i1 %.not38.i.i309, label %347, label %339, !llvm.loop !13
 
-.thread453:                                       ; preds = %312, %324
+.thread453:                                       ; preds = %324, %312
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread449
 
@@ -3129,7 +3129,7 @@ conversation_lookup_no_port2.exit:                ; preds = %301, %304
   br label %.thread445
 
 .thread445:                                       ; preds = %347, %conversation_lookup_no_port2.exit, %conversation_lookup_no_port2.exit.thread442, %.thread456
-  %.4448 = phi ptr [ %329, %.thread456 ], [ %.2.lcssa.i.i311, %347 ], [ %291, %conversation_lookup_no_port2.exit.thread442 ], [ %.2.lcssa.i.i295, %conversation_lookup_no_port2.exit ]
+  %.4448 = phi ptr [ %.2.lcssa.i.i311, %347 ], [ %329, %.thread456 ], [ %291, %conversation_lookup_no_port2.exit.thread442 ], [ %.2.lcssa.i.i295, %conversation_lookup_no_port2.exit ]
   %348 = getelementptr inbounds nuw i8, ptr %.4448, i64 56
   %349 = load i32, ptr %348, align 8
   %350 = and i32 %349, 2
@@ -3235,7 +3235,7 @@ conversation_lookup_no_port2.exit:                ; preds = %301, %304
   %.not38.i.i326 = icmp eq ptr %393, null
   br i1 %.not38.i.i326, label %conversation_lookup_no_port2.exit329, label %386, !llvm.loop !13
 
-conversation_lookup_no_port2.exit329.thread:      ; preds = %359, %371
+conversation_lookup_no_port2.exit329.thread:      ; preds = %371, %359
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %401
 
@@ -3380,7 +3380,7 @@ conversation_lookup_no_addr2_or_port2.exit.thread467: ; preds = %416, %conversat
   %445 = call fastcc ptr @conversation_create_from_template(ptr noundef %.027.i.i334470, ptr noundef nonnull %spec.store.select4, i32 noundef %5)
   br label %.thread404
 
-446:                                              ; preds = %410, %401
+446:                                              ; preds = %401, %410
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not184 = icmp eq i32 %3, 14
   br i1 %.not184, label %523, label %447
@@ -3469,7 +3469,7 @@ conversation_lookup_no_addr2_or_port2.exit.thread467: ; preds = %416, %conversat
   br label %conversation_lookup_no_addr2_or_port2.exit362
 
 conversation_lookup_no_addr2_or_port2.exit362:    ; preds = %450, %459, %465, %.critedge.i.i360
-  %.027.i.i350 = phi ptr [ %464, %465 ], [ %.2.lcssa.i.i361, %.critedge.i.i360 ], [ null, %450 ], [ null, %459 ]
+  %.027.i.i350 = phi ptr [ %464, %465 ], [ %.2.lcssa.i.i361, %.critedge.i.i360 ], [ null, %459 ], [ null, %450 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %514
 
@@ -3552,7 +3552,7 @@ conversation_lookup_no_addr2_or_port2.exit362:    ; preds = %450, %459, %465, %.
   br label %conversation_lookup_no_addr2_or_port2.exit379
 
 conversation_lookup_no_addr2_or_port2.exit379:    ; preds = %482, %491, %497, %.critedge.i.i377
-  %.027.i.i367 = phi ptr [ %496, %497 ], [ %.2.lcssa.i.i378, %.critedge.i.i377 ], [ null, %482 ], [ null, %491 ]
+  %.027.i.i367 = phi ptr [ %496, %497 ], [ %.2.lcssa.i.i378, %.critedge.i.i377 ], [ null, %491 ], [ null, %482 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %514
 
@@ -3670,7 +3670,7 @@ conversation_lookup_no_ports.exit:                ; preds = %550, %553
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread404
 
-558:                                              ; preds = %535, %525
+558:                                              ; preds = %525, %535
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %559 = call fastcc ptr @conversation_lookup_no_ports(i32 noundef %0, ptr noundef nonnull %spec.store.select4, ptr noundef nonnull %spec.store.select, i32 noundef %3)
   %.not188 = icmp eq ptr %559, null
@@ -3679,8 +3679,8 @@ conversation_lookup_no_ports.exit:                ; preds = %550, %553
 560:                                              ; preds = %558, %523
   br label %.thread404
 
-.thread404:                                       ; preds = %conversation_lookup_no_ports.exit, %146, %98, %conversation_lookup_exact.exit212.thread398, %104, %conversation_lookup_no_ports.exit.thread473, %.thread414, %558, %515, %521, %520, %conversation_lookup_no_addr2_or_port2.exit.thread467, %440, %443, %444, %conversation_lookup_no_port2.exit329.thread461, %399, %398, %.thread445, %356, %355, %conversation_lookup_no_addr2.exit279.thread437, %270, %269, %.thread421, %228, %227, %560
-  %.2 = phi ptr [ %445, %444 ], [ %.027.i.i334470, %440 ], [ %.027.i.i334470, %443 ], [ %.027.i.i334470, %conversation_lookup_no_addr2_or_port2.exit.thread467 ], [ %522, %521 ], [ %.5, %520 ], [ %.5, %515 ], [ %.2.lcssa.i.i395, %conversation_lookup_no_ports.exit ], [ %559, %558 ], [ null, %560 ], [ %357, %356 ], [ %.4448, %355 ], [ %.4448, %.thread445 ], [ %400, %399 ], [ %.027.i.i317464, %398 ], [ %.027.i.i317464, %conversation_lookup_no_port2.exit329.thread461 ], [ %229, %228 ], [ %.3424, %227 ], [ %.3424, %.thread421 ], [ %271, %270 ], [ %.027.i.i267440, %269 ], [ %.027.i.i267440, %conversation_lookup_no_addr2.exit279.thread437 ], [ %.2.lcssa.i.i228, %146 ], [ %540, %conversation_lookup_no_ports.exit.thread473 ], [ %128, %.thread414 ], [ %.027.i.i, %104 ], [ %spec.select, %98 ], [ %.027.i.i200401, %conversation_lookup_exact.exit212.thread398 ]
+.thread404:                                       ; preds = %conversation_lookup_no_ports.exit, %146, %conversation_lookup_exact.exit212.thread398, %98, %104, %conversation_lookup_no_ports.exit.thread473, %.thread414, %558, %515, %521, %520, %conversation_lookup_no_addr2_or_port2.exit.thread467, %440, %443, %444, %conversation_lookup_no_port2.exit329.thread461, %399, %398, %.thread445, %356, %355, %conversation_lookup_no_addr2.exit279.thread437, %270, %269, %.thread421, %228, %227, %560
+  %.2 = phi ptr [ %445, %444 ], [ %.027.i.i334470, %440 ], [ %.027.i.i334470, %443 ], [ %.027.i.i334470, %conversation_lookup_no_addr2_or_port2.exit.thread467 ], [ %522, %521 ], [ %.5, %520 ], [ %.5, %515 ], [ %.2.lcssa.i.i395, %conversation_lookup_no_ports.exit ], [ %559, %558 ], [ null, %560 ], [ %357, %356 ], [ %.4448, %355 ], [ %.4448, %.thread445 ], [ %400, %399 ], [ %.027.i.i317464, %398 ], [ %.027.i.i317464, %conversation_lookup_no_port2.exit329.thread461 ], [ %229, %228 ], [ %.3424, %227 ], [ %.3424, %.thread421 ], [ %271, %270 ], [ %.027.i.i267440, %269 ], [ %.027.i.i267440, %conversation_lookup_no_addr2.exit279.thread437 ], [ %.2.lcssa.i.i228, %146 ], [ %128, %.thread414 ], [ %540, %conversation_lookup_no_ports.exit.thread473 ], [ %.027.i.i, %104 ], [ %.027.i.i200401, %conversation_lookup_exact.exit212.thread398 ], [ %spec.select, %98 ]
   ret ptr %.2
 }
 
@@ -3835,7 +3835,7 @@ is_no_port2_key.exit:                             ; preds = %50, %46, %is_no_add
   br label %is_no_addr2_key.exit
 
 is_no_addr2_key.exit:                             ; preds = %23, %72, %68, %64, %62, %conversation_get_key_type.exit, %85, %is_no_port2_key.exit
-  %.1 = phi ptr [ %0, %is_no_port2_key.exit ], [ %.038, %85 ], [ %0, %conversation_get_key_type.exit ], [ %0, %62 ], [ %0, %64 ], [ %0, %68 ], [ %0, %72 ], [ %0, %23 ]
+  %.1 = phi ptr [ %.038, %85 ], [ %0, %is_no_port2_key.exit ], [ %0, %conversation_get_key_type.exit ], [ %0, %62 ], [ %0, %64 ], [ %0, %68 ], [ %0, %72 ], [ %0, %23 ]
   ret ptr %.1
 }
 
@@ -3921,7 +3921,7 @@ define internal fastcc ptr @conversation_lookup_no_ports(i32 noundef %0, ptr nou
   br label %conversation_lookup_hashtable.exit
 
 conversation_lookup_hashtable.exit:               ; preds = %4, %15, %21, %.critedge.i
-  %.027.i = phi ptr [ %20, %21 ], [ %.2.lcssa.i, %.critedge.i ], [ null, %4 ], [ null, %15 ]
+  %.027.i = phi ptr [ %20, %21 ], [ %.2.lcssa.i, %.critedge.i ], [ null, %15 ], [ null, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.027.i
 }
@@ -4035,7 +4035,7 @@ define ptr @find_conversation_deinterlaced(i32 noundef %0, ptr noundef readonly 
   br label %conversation_lookup_exact_anc.exit
 
 conversation_lookup_exact_anc.exit:               ; preds = %18, %34, %40, %.critedge.i.i
-  %.027.i.i = phi ptr [ %39, %40 ], [ %.2.lcssa.i.i, %.critedge.i.i ], [ null, %18 ], [ null, %34 ]
+  %.027.i.i = phi ptr [ %39, %40 ], [ %.2.lcssa.i.i, %.critedge.i.i ], [ null, %34 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 1, ptr %15, align 16
@@ -4125,7 +4125,7 @@ conversation_lookup_exact_anc.exit:               ; preds = %18, %34, %40, %.cri
   %.not38.i.i105 = icmp eq ptr %94, null
   br i1 %.not38.i.i105, label %conversation_lookup_exact_anc.exit108, label %87, !llvm.loop !13
 
-conversation_lookup_exact_anc.exit108.thread:     ; preds = %conversation_lookup_exact_anc.exit, %72
+conversation_lookup_exact_anc.exit108.thread:     ; preds = %72, %conversation_lookup_exact_anc.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %330
 
@@ -4244,7 +4244,7 @@ conversation_lookup_exact_anc.exit108.thread210:  ; preds = %78, %conversation_l
   br label %conversation_lookup_no_port2_anc.exit
 
 conversation_lookup_no_port2_anc.exit:            ; preds = %103, %117, %123, %.critedge.i.i123
-  %.027.i.i113 = phi ptr [ %122, %123 ], [ %.2.lcssa.i.i124, %.critedge.i.i123 ], [ null, %103 ], [ null, %117 ]
+  %.027.i.i113 = phi ptr [ %122, %123 ], [ %.2.lcssa.i.i124, %.critedge.i.i123 ], [ null, %117 ], [ null, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 1, ptr %13, align 16
@@ -4329,7 +4329,7 @@ conversation_lookup_no_port2_anc.exit:            ; preds = %103, %117, %123, %.
   %.not38.i.i138 = icmp eq ptr %175, null
   br i1 %.not38.i.i138, label %conversation_lookup_no_port2_anc.exit141, label %168, !llvm.loop !13
 
-conversation_lookup_no_port2_anc.exit141.thread:  ; preds = %conversation_lookup_no_port2_anc.exit, %153
+conversation_lookup_no_port2_anc.exit141.thread:  ; preds = %153, %conversation_lookup_no_port2_anc.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %330
 
@@ -4443,7 +4443,7 @@ conversation_lookup_no_port2_anc.exit141.thread216: ; preds = %159, %conversatio
   br label %conversation_lookup_no_ports_anc.exit
 
 conversation_lookup_no_ports_anc.exit:            ; preds = %184, %196, %202, %.critedge.i.i156
-  %.027.i.i146 = phi ptr [ %201, %202 ], [ %.2.lcssa.i.i157, %.critedge.i.i156 ], [ null, %184 ], [ null, %196 ]
+  %.027.i.i146 = phi ptr [ %201, %202 ], [ %.2.lcssa.i.i157, %.critedge.i.i156 ], [ null, %196 ], [ null, %184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 1, ptr %11, align 16
@@ -4523,7 +4523,7 @@ conversation_lookup_no_ports_anc.exit:            ; preds = %184, %196, %202, %.
   %.not38.i.i171 = icmp eq ptr %252, null
   br i1 %.not38.i.i171, label %conversation_lookup_no_ports_anc.exit174, label %245, !llvm.loop !13
 
-conversation_lookup_no_ports_anc.exit174.thread:  ; preds = %conversation_lookup_no_ports_anc.exit, %230
+conversation_lookup_no_ports_anc.exit174.thread:  ; preds = %230, %conversation_lookup_no_ports_anc.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %330
 
@@ -4627,7 +4627,7 @@ conversation_lookup_no_ports_anc.exit174.thread222: ; preds = %236, %conversatio
   br label %conversation_lookup_no_anc_anc.exit
 
 conversation_lookup_no_anc_anc.exit:              ; preds = %259, %269, %275, %.critedge.i.i189
-  %.027.i.i179 = phi ptr [ %274, %275 ], [ %.2.lcssa.i.i190, %.critedge.i.i189 ], [ null, %259 ], [ null, %269 ]
+  %.027.i.i179 = phi ptr [ %274, %275 ], [ %.2.lcssa.i.i190, %.critedge.i.i189 ], [ null, %269 ], [ null, %259 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 1, ptr %9, align 16
@@ -4702,7 +4702,7 @@ conversation_lookup_no_anc_anc.exit:              ; preds = %259, %269, %275, %.
   %.not38.i.i204 = icmp eq ptr %323, null
   br i1 %.not38.i.i204, label %conversation_lookup_no_anc_anc.exit207, label %316, !llvm.loop !13
 
-conversation_lookup_no_anc_anc.exit207.thread:    ; preds = %conversation_lookup_no_anc_anc.exit, %301
+conversation_lookup_no_anc_anc.exit207.thread:    ; preds = %301, %conversation_lookup_no_anc_anc.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %330
 
@@ -4727,7 +4727,7 @@ conversation_lookup_no_anc_anc.exit207.thread228: ; preds = %307, %conversation_
   br label %330
 
 330:                                              ; preds = %conversation_lookup_no_anc_anc.exit207.thread, %conversation_lookup_no_ports_anc.exit174.thread, %conversation_lookup_no_port2_anc.exit141.thread, %conversation_lookup_exact_anc.exit108.thread, %324, %253, %176, %95, %conversation_lookup_no_anc_anc.exit207.thread228, %conversation_lookup_no_ports_anc.exit174.thread222, %conversation_lookup_no_port2_anc.exit141.thread216, %conversation_lookup_exact_anc.exit108.thread210
-  %.0 = phi ptr [ %.027.i.i96213, %conversation_lookup_exact_anc.exit108.thread210 ], [ %spec.select, %95 ], [ %spec.select89, %176 ], [ %.027.i.i146, %conversation_lookup_no_ports_anc.exit174.thread ], [ %.027.i.i162225, %conversation_lookup_no_ports_anc.exit174.thread222 ], [ %.027.i.i179, %conversation_lookup_no_anc_anc.exit207.thread ], [ %spec.select91, %324 ], [ %.027.i.i, %conversation_lookup_exact_anc.exit108.thread ], [ %.027.i.i129219, %conversation_lookup_no_port2_anc.exit141.thread216 ], [ %.027.i.i195231, %conversation_lookup_no_anc_anc.exit207.thread228 ], [ %spec.select90, %253 ], [ %.027.i.i113, %conversation_lookup_no_port2_anc.exit141.thread ]
+  %.0 = phi ptr [ %spec.select, %95 ], [ %.027.i.i96213, %conversation_lookup_exact_anc.exit108.thread210 ], [ %spec.select89, %176 ], [ %.027.i.i129219, %conversation_lookup_no_port2_anc.exit141.thread216 ], [ %spec.select90, %253 ], [ %.027.i.i162225, %conversation_lookup_no_ports_anc.exit174.thread222 ], [ %spec.select91, %324 ], [ %.027.i.i195231, %conversation_lookup_no_anc_anc.exit207.thread228 ], [ %.027.i.i, %conversation_lookup_exact_anc.exit108.thread ], [ %.027.i.i113, %conversation_lookup_no_port2_anc.exit141.thread ], [ %.027.i.i146, %conversation_lookup_no_ports_anc.exit174.thread ], [ %.027.i.i179, %conversation_lookup_no_anc_anc.exit207.thread ]
   ret ptr %.0
 }
 
@@ -4829,7 +4829,7 @@ define ptr @find_conversation_deinterlacer(i32 noundef %0, ptr noundef readonly 
   br label %conversation_lookup_deinterlacer.exit
 
 conversation_lookup_deinterlacer.exit:            ; preds = %7, %25, %31, %.critedge.i.i
-  %.027.i.i = phi ptr [ %30, %31 ], [ %.2.lcssa.i.i, %.critedge.i.i ], [ null, %7 ], [ null, %25 ]
+  %.027.i.i = phi ptr [ %30, %31 ], [ %.2.lcssa.i.i, %.critedge.i.i ], [ null, %25 ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 1, ptr %8, align 16
@@ -4919,7 +4919,7 @@ conversation_lookup_deinterlacer.exit:            ; preds = %7, %25, %31, %.crit
   %.not38.i.i36 = icmp eq ptr %85, null
   br i1 %.not38.i.i36, label %conversation_lookup_deinterlacer.exit39, label %78, !llvm.loop !13
 
-conversation_lookup_deinterlacer.exit39.thread:   ; preds = %conversation_lookup_deinterlacer.exit, %63
+conversation_lookup_deinterlacer.exit39.thread:   ; preds = %63, %conversation_lookup_deinterlacer.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %92
 
@@ -4944,7 +4944,7 @@ conversation_lookup_deinterlacer.exit39.thread42: ; preds = %69, %conversation_l
   br label %92
 
 92:                                               ; preds = %conversation_lookup_deinterlacer.exit39.thread, %86, %conversation_lookup_deinterlacer.exit39.thread42
-  %.0 = phi ptr [ %.027.i.i, %conversation_lookup_deinterlacer.exit39.thread ], [ %.027.i.i2745, %conversation_lookup_deinterlacer.exit39.thread42 ], [ %spec.select, %86 ]
+  %.0 = phi ptr [ %spec.select, %86 ], [ %.027.i.i2745, %conversation_lookup_deinterlacer.exit39.thread42 ], [ %.027.i.i, %conversation_lookup_deinterlacer.exit39.thread ]
   ret ptr %.0
 }
 
@@ -5021,7 +5021,7 @@ define ptr @find_conversation_by_id(i32 noundef %0, i32 noundef %1, i32 noundef 
   br label %conversation_lookup_hashtable.exit
 
 conversation_lookup_hashtable.exit:               ; preds = %3, %9, %15, %.critedge.i
-  %.027.i = phi ptr [ %14, %15 ], [ %.2.lcssa.i, %.critedge.i ], [ null, %3 ], [ null, %9 ]
+  %.027.i = phi ptr [ %14, %15 ], [ %.2.lcssa.i, %.critedge.i ], [ null, %9 ], [ null, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.027.i
 }
@@ -5274,7 +5274,7 @@ try_conversation_call_dissector_helper.exit74.thread: ; preds = %37, %35, %32, %
   br i1 %.not1.i76, label %try_conversation_call_dissector_helper.exit78.thread, label %try_conversation_call_dissector_helper.exit78.thread.sink.split
 
 try_conversation_call_dissector_helper.exit78.thread.sink.split: ; preds = %46, %37, %28, %19
-  %.sink99 = phi ptr [ %39, %37 ], [ %30, %28 ], [ %21, %19 ], [ %48, %46 ]
+  %.sink99 = phi ptr [ %21, %19 ], [ %30, %28 ], [ %39, %37 ], [ %48, %46 ]
   %49 = tail call i32 @call_dissector_only(ptr noundef nonnull %.sink99, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %50 = icmp ne i32 %49, 0
   br label %try_conversation_call_dissector_helper.exit78.thread
@@ -5353,7 +5353,7 @@ define zeroext i1 @try_conversation_dissector_by_id(i32 noundef %0, i32 noundef 
   %.not38.i.i = icmp eq ptr %36, null
   br i1 %.not38.i.i, label %find_conversation_by_id.exit, label %29, !llvm.loop !13
 
-find_conversation_by_id.exit.thread:              ; preds = %6, %14
+find_conversation_by_id.exit.thread:              ; preds = %14, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %45
 
@@ -5828,7 +5828,7 @@ find_conversation_by_id.exit:                     ; preds = %26, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %50
 
-34:                                               ; preds = %11, %3
+34:                                               ; preds = %3, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = load i32, ptr %5, align 4
   %36 = call ptr @wmem_file_scope()
@@ -5989,7 +5989,7 @@ define i32 @conversation_get_id_from_elements(ptr noundef readonly captures(none
   br label %19
 
 19:                                               ; preds = %12, %7, %9, %3, %16
-  %.0 = phi i32 [ %18, %16 ], [ 0, %3 ], [ 0, %7 ], [ 0, %9 ], [ 0, %12 ]
+  %.0 = phi i32 [ %18, %16 ], [ 0, %3 ], [ 0, %9 ], [ 0, %7 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -6051,7 +6051,7 @@ define ptr @conversation_key_addr2(ptr noundef readonly captures(ret: address, p
   br label %13
 
 13:                                               ; preds = %8, %4, %1
-  %.0 = phi ptr [ @null_address_, %1 ], [ %spec.select, %8 ], [ @null_address_, %4 ]
+  %.0 = phi ptr [ @null_address_, %4 ], [ @null_address_, %1 ], [ %spec.select, %8 ]
   ret ptr %.0
 }
 
@@ -6088,7 +6088,7 @@ define i32 @conversation_key_port2(ptr noundef readonly captures(none) %0) local
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %8, %11, %4, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %11 ], [ 0, %8 ], [ 0, %4 ], [ %16, %.thread.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %1 ], [ 0, %11 ], [ 0, %8 ], [ %16, %.thread.sink.split ]
   ret i32 %.0
 }
 

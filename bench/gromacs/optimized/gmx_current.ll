@@ -2672,8 +2672,8 @@ _ZL9calc_cacfP8_IO_FILEfPfS1_iPKiii.exit359.i:    ; preds = %1090, %1102
           to label %.noexc239 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc239:                                        ; preds = %.noexc238, %_ZL9calc_cacfP8_IO_FILEfPfS1_iPKiii.exit359.i, %_ZL9calc_cacfP8_IO_FILEfPfS1_iPKiii.exit.i, %_ZL10calc_mjdspP8_IO_FILEfPfS1_iPKf.exit.i
-  %.0311.i = phi float [ 0.000000e+00, %_ZL10calc_mjdspP8_IO_FILEfPfS1_iPKf.exit.i ], [ %.1312.i, %_ZL9calc_cacfP8_IO_FILEfPfS1_iPKiii.exit359.i ], [ %.1312.i, %_ZL9calc_cacfP8_IO_FILEfPfS1_iPKiii.exit.i ], [ %.1312.i, %.noexc238 ]
-  %.0299.i = phi float [ 0.000000e+00, %_ZL10calc_mjdspP8_IO_FILEfPfS1_iPKf.exit.i ], [ %.2.i347.i, %_ZL9calc_cacfP8_IO_FILEfPfS1_iPKiii.exit359.i ], [ 0.000000e+00, %_ZL9calc_cacfP8_IO_FILEfPfS1_iPKiii.exit.i ], [ %.2.i347.i, %.noexc238 ]
+  %.0311.i = phi float [ %.1312.i, %_ZL9calc_cacfP8_IO_FILEfPfS1_iPKiii.exit359.i ], [ %.1312.i, %_ZL9calc_cacfP8_IO_FILEfPfS1_iPKiii.exit.i ], [ 0.000000e+00, %_ZL10calc_mjdspP8_IO_FILEfPfS1_iPKf.exit.i ], [ %.1312.i, %.noexc238 ]
+  %.0299.i = phi float [ %.2.i347.i, %_ZL9calc_cacfP8_IO_FILEfPfS1_iPKiii.exit359.i ], [ 0.000000e+00, %_ZL9calc_cacfP8_IO_FILEfPfS1_iPKiii.exit.i ], [ 0.000000e+00, %_ZL10calc_mjdspP8_IO_FILEfPfS1_iPKf.exit.i ], [ %.2.i347.i, %.noexc238 ]
   %1137 = load ptr, ptr @stderr, align 8, !tbaa !67
   %1138 = call i64 @fwrite(ptr nonnull @.str.105, i64 46, i64 1, ptr %1137) #20
   %1139 = fadd float %890, %906
@@ -3199,7 +3199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit268: ; preds = %_Z
   br label %1414
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %224, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i, %1407, %1389, %1371, %396, %378, %302, %200, %195
-  %.pn88 = phi { ptr, i32 } [ %.pn, %195 ], [ %.pn84.pn.pn, %1407 ], [ %.pn80.pn.pn, %1389 ], [ %.pn76.pn.pn, %1371 ], [ %.pn72.pn.pn, %396 ], [ %.pn68.pn.pn, %378 ], [ %.pn64.pn.pn, %302 ], [ %.pn62, %200 ], [ %232, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i ], [ %225, %224 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit291, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp292, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn88 = phi { ptr, i32 } [ %.pn84.pn.pn, %1407 ], [ %.pn80.pn.pn, %1389 ], [ %.pn76.pn.pn, %1371 ], [ %.pn72.pn.pn, %396 ], [ %.pn68.pn.pn, %378 ], [ %.pn64.pn.pn, %302 ], [ %.pn62, %200 ], [ %.pn, %195 ], [ %225, %224 ], [ %232, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit291, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp292, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %1413 = getelementptr inbounds nuw i8, ptr %31, i64 504
   br label %1436

@@ -516,7 +516,7 @@ invoke.cont34:                                    ; preds = %if.else33
   br label %if.end40
 
 if.end40:                                         ; preds = %invoke.cont34, %invoke.cont29, %invoke.cont20, %invoke.cont
-  %f.0 = phi i64 [ %spec.select, %invoke.cont29 ], [ 0, %invoke.cont ], [ 1, %invoke.cont20 ], [ %spec.select61, %invoke.cont34 ]
+  %f.0 = phi i64 [ 0, %invoke.cont ], [ 1, %invoke.cont20 ], [ %spec.select, %invoke.cont29 ], [ %spec.select61, %invoke.cont34 ]
   %number_.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   %21 = load i32, ptr %number_.i, align 4
   %call44 = invoke noundef i32 @_ZN6google8protobuf8compiler3cpp21EstimateAlignmentSizeEPKNS0_15FieldDescriptorE(ptr noundef nonnull %5)
@@ -670,7 +670,7 @@ lpad68:                                           ; preds = %invoke.cont75, %inv
   unreachable
 
 for.inc.sink.split:                               ; preds = %invoke.cont64, %invoke.cont56, %invoke.cont48
-  %ref.tmp60.val.sink = phi ptr [ %ref.tmp52.val, %invoke.cont56 ], [ %ref.tmp.val, %invoke.cont48 ], [ %ref.tmp60.val, %invoke.cont64 ]
+  %ref.tmp60.val.sink = phi ptr [ %ref.tmp.val, %invoke.cont48 ], [ %ref.tmp52.val, %invoke.cont56 ], [ %ref.tmp60.val, %invoke.cont64 ]
   tail call void @_ZdlPv(ptr noundef nonnull %ref.tmp60.val.sink) #26
   br label %for.inc
 
@@ -1323,7 +1323,7 @@ arraydestroy.done272:                             ; preds = %_ZNSt6vectorIN6goog
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %if.then.i.i.i.i188, %lpad160, %if.then.i.i.i.i150, %lpad112, %if.then.i.i.i.i130, %lpad63, %if.then.i.i.i.i118, %lpad55, %if.then.i.i.i.i106, %lpad47
-  %.pn = phi { ptr, i32 } [ %lpad.phi495, %if.then.i.i.i.i188 ], [ %lpad.phi498, %if.then.i.i.i.i150 ], [ %22, %if.then.i.i.i.i106 ], [ %23, %if.then.i.i.i.i118 ], [ %24, %if.then.i.i.i.i130 ], [ %22, %lpad47 ], [ %23, %lpad55 ], [ %24, %lpad63 ], [ %lpad.phi498, %lpad112 ], [ %lpad.phi495, %lpad160 ], [ %lpad.loopexit491, %lpad.loopexit ], [ %lpad.loopexit505, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp506, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %22, %lpad47 ], [ %22, %if.then.i.i.i.i106 ], [ %23, %lpad55 ], [ %23, %if.then.i.i.i.i118 ], [ %24, %lpad63 ], [ %24, %if.then.i.i.i.i130 ], [ %lpad.phi498, %lpad112 ], [ %lpad.phi498, %if.then.i.i.i.i150 ], [ %lpad.phi495, %lpad160 ], [ %lpad.phi495, %if.then.i.i.i.i188 ], [ %lpad.loopexit491, %lpad.loopexit ], [ %lpad.loopexit505, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp506, %lpad.loopexit.split-lp.loopexit.split-lp ]
   br label %arraydestroy.body249
 
 arraydestroy.body249:                             ; preds = %_ZNSt6vectorIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESaIS5_EED2Ev.exit265, %ehcleanup
@@ -2326,10 +2326,10 @@ while.body.i33:                                   ; preds = %if.else, %while.bod
   %__len.04.i34 = phi i64 [ %__len.1.i47, %while.body.i33 ], [ %sub.ptr.div.i.i.i.i30, %if.else ]
   %__first.sroa.0.03.i35 = phi ptr [ %__first.sroa.0.1.i46, %while.body.i33 ], [ %__first.coerce.tr60, %if.else ]
   %shr.i36 = lshr i64 %__len.04.i34, 1
-  %add.ptr.i.i.i.i40 = getelementptr inbounds nuw %"class.google::protobuf::compiler::cpp::(anonymous namespace)::FieldGroup", ptr %__first.sroa.0.03.i35, i64 %shr.i36
-  %call.val.i.i42 = load double, ptr %add.ptr.i.i.i.i40, align 8
+  %add.ptr.i.i.i.i39 = getelementptr inbounds nuw %"class.google::protobuf::compiler::cpp::(anonymous namespace)::FieldGroup", ptr %__first.sroa.0.03.i35, i64 %shr.i36
+  %call.val.i.i42 = load double, ptr %add.ptr.i.i.i.i39, align 8
   %cmp.i.i5.i43 = fcmp olt double %call36.val, %call.val.i.i42
-  %incdec.ptr.i.i44 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i40, i64 32
+  %incdec.ptr.i.i44 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i39, i64 32
   %8 = xor i64 %shr.i36, -1
   %sub9.i45 = add nsw i64 %__len.04.i34, %8
   %__first.sroa.0.1.i46 = select i1 %cmp.i.i5.i43, ptr %__first.sroa.0.03.i35, ptr %incdec.ptr.i.i44
@@ -2536,7 +2536,7 @@ for.cond.i.backedge:                              ; preds = %for.end58.i, %if.en
   br label %for.cond.i, !llvm.loop !35
 
 _ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS8_SaIS8_EEEEEET_SE_SE_SE_St26random_access_iterator_tag.exit: ; preds = %for.end.i, %for.end58.i, %for.body.i.i, %entry, %if.else.i
-  %retval.sroa.0.0.i = phi ptr [ %__middle.coerce, %for.body.i.i ], [ %__last.coerce, %entry ], [ %__first.coerce, %if.else.i ], [ %add.ptr.i.i, %for.end58.i ], [ %add.ptr.i.i, %for.end.i ]
+  %retval.sroa.0.0.i = phi ptr [ %__last.coerce, %entry ], [ %__first.coerce, %if.else.i ], [ %__middle.coerce, %for.body.i.i ], [ %add.ptr.i.i, %for.end58.i ], [ %add.ptr.i.i, %for.end.i ]
   ret ptr %retval.sroa.0.0.i
 }
 
@@ -3404,10 +3404,10 @@ while.body.i109:                                  ; preds = %if.else46, %while.b
   %__len.04.i110 = phi i64 [ %__len.1.i123, %while.body.i109 ], [ %sub.ptr.div.i.i.i.i106, %if.else46 ]
   %__first.sroa.0.03.i111 = phi ptr [ %__first.sroa.0.1.i122, %while.body.i109 ], [ %__first.coerce.tr174, %if.else46 ]
   %shr.i112 = lshr i64 %__len.04.i110, 1
-  %add.ptr.i.i.i.i116 = getelementptr inbounds nuw %"class.google::protobuf::compiler::cpp::(anonymous namespace)::FieldGroup", ptr %__first.sroa.0.03.i111, i64 %shr.i112
-  %call.val.i.i118 = load double, ptr %add.ptr.i.i.i.i116, align 8
+  %add.ptr.i.i.i.i115 = getelementptr inbounds nuw %"class.google::protobuf::compiler::cpp::(anonymous namespace)::FieldGroup", ptr %__first.sroa.0.03.i111, i64 %shr.i112
+  %call.val.i.i118 = load double, ptr %add.ptr.i.i.i.i115, align 8
   %cmp.i.i5.i119 = fcmp olt double %call51.val, %call.val.i.i118
-  %incdec.ptr.i.i120 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i116, i64 32
+  %incdec.ptr.i.i120 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i115, i64 32
   %42 = xor i64 %shr.i112, -1
   %sub9.i121 = add nsw i64 %__len.04.i110, %42
   %__first.sroa.0.1.i122 = select i1 %cmp.i.i5.i119, ptr %__first.sroa.0.03.i111, ptr %incdec.ptr.i.i120
@@ -3724,7 +3724,7 @@ if.else44.i:                                      ; preds = %if.else20.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEES8_lET_SD_SD_SD_T1_SE_T0_SE_.exit
 
 _ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEES8_lET_SD_SD_SD_T1_SE_T0_SE_.exit: ; preds = %if.then.i130, %_ZSt4moveIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i, %if.then22.i, %_ZSt13move_backwardIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i, %if.else44.i
-  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i.i.i38.i, %_ZSt4moveIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ], [ %call51.i, %if.else44.i ], [ %add.ptr.i.i.i.i116.i, %_ZSt13move_backwardIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ], [ %__first_cut.sroa.0.0, %if.then.i130 ], [ %__second_cut.sroa.0.0, %if.then22.i ]
+  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i.i.i38.i, %_ZSt4moveIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ], [ %add.ptr.i.i.i.i116.i, %_ZSt13move_backwardIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ], [ %call51.i, %if.else44.i ], [ %__first_cut.sroa.0.0, %if.then.i130 ], [ %__second_cut.sroa.0.0, %if.then22.i ]
   tail call fastcc void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEElS8_NS0_5__ops15_Iter_less_iterEEvT_SF_SF_T0_SG_T1_SG_T2_(ptr %__first.coerce.tr174, ptr %__first_cut.sroa.0.0, ptr %retval.sroa.0.0.i, i64 noundef %__len11.0, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size)
   %sub83 = sub nsw i64 %__len2.tr179, %__len22.0
   %cmp.not = icmp sgt i64 %sub, %sub83

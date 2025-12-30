@@ -543,7 +543,7 @@ Abc_SopStart.exit.us:                             ; preds = %._crit_edge46.us, %
   br label %Abc_SopStart.exit.us
 
 .loopexit:                                        ; preds = %Abc_SopStart.exit.us, %.loopexit.sink.split, %7, %.lr.ph50, %._crit_edge
-  %.037 = phi ptr [ null, %._crit_edge ], [ %22, %.lr.ph50 ], [ %6, %.loopexit.sink.split ], [ null, %7 ], [ %22, %Abc_SopStart.exit.us ]
+  %.037 = phi ptr [ null, %._crit_edge ], [ %22, %.lr.ph50 ], [ null, %7 ], [ %6, %.loopexit.sink.split ], [ %22, %Abc_SopStart.exit.us ]
   ret ptr %.037
 }
 
@@ -835,7 +835,7 @@ Abc_SopCreateFromIsop.exit:                       ; preds = %._crit_edge.us.i, %
   br label %.preheader, !llvm.loop !27
 
 Abc_SopComplement.exit.sink.split:                ; preds = %12, %17, %._crit_edge39, %._crit_edge
-  %.sink = phi i32 [ 667680, %._crit_edge ], [ 667936, %17 ], [ 667936, %._crit_edge39 ], [ 667680, %12 ]
+  %.sink = phi i32 [ 667680, %._crit_edge ], [ 667936, %._crit_edge39 ], [ 667936, %17 ], [ 667680, %12 ]
   %63 = tail call ptr @Mem_FlexEntryFetch(ptr noundef %0, i32 noundef 4) #23
   store i32 %.sink, ptr %63, align 1
   br label %Abc_SopComplement.exit
@@ -1255,7 +1255,7 @@ Abc_SopGetVarNum.exit:                            ; preds = %2, %6
   br label %17
 
 17:                                               ; preds = %Abc_SopGetVarNum.exit, %Abc_SopGetVarNum.exit, %16, %15
-  %.0 = phi i32 [ -1, %16 ], [ 1, %15 ], [ 0, %Abc_SopGetVarNum.exit ], [ 0, %Abc_SopGetVarNum.exit ]
+  %.0 = phi i32 [ 1, %15 ], [ -1, %16 ], [ 0, %Abc_SopGetVarNum.exit ], [ 0, %Abc_SopGetVarNum.exit ]
   ret i32 %.0
 }
 
@@ -1562,7 +1562,7 @@ Abc_SopGetCubeNum.exit:                           ; preds = %.lr.ph.i
   br label %Abc_SopGetCubeNum.exit.thread
 
 Abc_SopGetCubeNum.exit.thread:                    ; preds = %.preheader, %.preheader.i, %1, %13, %Abc_SopGetCubeNum.exit
-  %.06 = phi i32 [ 0, %.preheader.i ], [ 0, %Abc_SopGetCubeNum.exit ], [ %., %13 ], [ 0, %1 ], [ 0, %.preheader ]
+  %.06 = phi i32 [ 0, %Abc_SopGetCubeNum.exit ], [ %., %13 ], [ 0, %1 ], [ 0, %.preheader.i ], [ 0, %.preheader ]
   ret i32 %.06
 }
 
@@ -1758,8 +1758,8 @@ define range(i32 0, 2) i32 @Abc_SopCheck(ptr noundef %0, i32 noundef %1) local_u
   br label %25
 
 25:                                               ; preds = %17, %.fold.split, %20
-  %.124 = phi i32 [ 1, %17 ], [ %.02350, %20 ], [ %.02350, %.fold.split ]
-  %.1 = phi i32 [ %.051, %17 ], [ 1, %20 ], [ %.051, %.fold.split ]
+  %.124 = phi i32 [ %.02350, %20 ], [ 1, %17 ], [ %.02350, %.fold.split ]
+  %.1 = phi i32 [ 1, %20 ], [ %.051, %17 ], [ %.051, %.fold.split ]
   %26 = getelementptr inbounds nuw i8, ptr %.127.lcssa, i64 2
   %27 = load i8, ptr %26, align 1, !tbaa !3
   %.not34 = icmp eq i8 %27, 10
@@ -1923,7 +1923,7 @@ Vec_PtrFreeData.exit37:                           ; preds = %54, %45, %.preheade
   br label %57
 
 57:                                               ; preds = %Abc_SopGetVarNum.exit, %27, %Vec_PtrFreeData.exit37, %Vec_PtrFreeData.exit
-  %.020 = phi i32 [ 0, %Vec_PtrFreeData.exit ], [ 1, %27 ], [ 0, %Vec_PtrFreeData.exit37 ], [ 1, %Abc_SopGetVarNum.exit ]
+  %.020 = phi i32 [ 0, %Vec_PtrFreeData.exit ], [ 0, %Vec_PtrFreeData.exit37 ], [ 1, %27 ], [ 1, %Abc_SopGetVarNum.exit ]
   ret i32 %.020
 }
 
@@ -2030,8 +2030,8 @@ Vec_IntFree.exit:                                 ; preds = %24, %25
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %45, %47, %37, %39
-  %.sink113 = phi ptr [ %40, %39 ], [ %38, %37 ], [ %46, %45 ], [ %48, %47 ]
-  %.sink112 = phi i32 [ 16, %39 ], [ 16, %37 ], [ %42, %45 ], [ %42, %47 ]
+  %.sink113 = phi ptr [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %48, %47 ]
+  %.sink112 = phi i32 [ 16, %37 ], [ 16, %39 ], [ %42, %45 ], [ %42, %47 ]
   store ptr %.sink113, ptr %15, align 8, !tbaa !20
   store i32 %.sink112, ptr %12, align 8, !tbaa !29
   br label %Vec_IntPush.exit
@@ -2357,7 +2357,7 @@ define noalias noundef ptr @Abc_SopFromTruthHex(ptr noundef %0) local_unnamed_ad
   br label %106
 
 31:                                               ; preds = %.lr.ph, %25, %28
-  %.079.in = phi i8 [ %narrow, %28 ], [ %narrow86, %25 ], [ %22, %.lr.ph ]
+  %.079.in = phi i8 [ %narrow86, %25 ], [ %narrow, %28 ], [ %22, %.lr.ph ]
   %.079 = zext nneg i8 %.079.in to i32
   %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = xor i32 %32, -1
@@ -2412,8 +2412,8 @@ define noalias noundef ptr @Abc_SopFromTruthHex(ptr noundef %0) local_unnamed_ad
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %56, %58, %48, %50
-  %.sink135 = phi ptr [ %51, %50 ], [ %49, %48 ], [ %57, %56 ], [ %59, %58 ]
-  %.sink134 = phi i32 [ 16, %50 ], [ 16, %48 ], [ %53, %56 ], [ %53, %58 ]
+  %.sink135 = phi ptr [ %49, %48 ], [ %51, %50 ], [ %57, %56 ], [ %59, %58 ]
+  %.sink134 = phi i32 [ 16, %48 ], [ 16, %50 ], [ %53, %56 ], [ %53, %58 ]
   store ptr %.sink135, ptr %17, align 8, !tbaa !20
   store i32 %.sink134, ptr %14, align 8, !tbaa !29
   br label %Vec_IntPush.exit

@@ -257,7 +257,7 @@ fill_tree_desc_strict.exit21:                     ; preds = %21
   br label %score_matches.exit
 
 score_matches.exit:                               ; preds = %73, %70, %69, %66
-  %.pn = phi i32 [ %.0.i, %66 ], [ %spec.select.i, %73 ], [ -100, %69 ], [ -50, %70 ]
+  %.pn = phi i32 [ %.0.i, %66 ], [ -100, %69 ], [ -50, %70 ], [ %spec.select.i, %73 ]
   call void @update_tree_entry(ptr noundef nonnull %8) #11
   br label %74
 

@@ -744,9 +744,9 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   br label %341
 
 341:                                              ; preds = %320, %334
-  %342 = phi i64 [ %340, %334 ], [ %295, %320 ]
-  %343 = phi i32 [ %336, %334 ], [ %310, %320 ]
-  %344 = phi ptr [ %339, %334 ], [ %293, %320 ]
+  %342 = phi i64 [ %295, %320 ], [ %340, %334 ]
+  %343 = phi i32 [ %310, %320 ], [ %336, %334 ]
+  %344 = phi ptr [ %293, %320 ], [ %339, %334 ]
   %345 = icmp ugt ptr %313, %214
   br i1 %345, label %.thread, label %346
 
@@ -810,9 +810,9 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   br label %392
 
 392:                                              ; preds = %385, %371
-  %393 = phi i64 [ %391, %385 ], [ %342, %371 ]
-  %394 = phi i32 [ %387, %385 ], [ %361, %371 ]
-  %395 = phi ptr [ %390, %385 ], [ %344, %371 ]
+  %393 = phi i64 [ %342, %371 ], [ %391, %385 ]
+  %394 = phi i32 [ %361, %371 ], [ %387, %385 ]
+  %395 = phi ptr [ %344, %371 ], [ %390, %385 ]
   %396 = icmp ugt ptr %364, %214
   br i1 %396, label %.thread, label %.lr.ph103, !llvm.loop !19
 
@@ -1269,9 +1269,9 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   br label %741
 
 741:                                              ; preds = %720, %734
-  %742 = phi i64 [ %740, %734 ], [ %694, %720 ]
-  %743 = phi i32 [ %736, %734 ], [ %702, %720 ]
-  %744 = phi ptr [ %739, %734 ], [ %692, %720 ]
+  %742 = phi i64 [ %694, %720 ], [ %740, %734 ]
+  %743 = phi i32 [ %702, %720 ], [ %736, %734 ]
+  %744 = phi ptr [ %692, %720 ], [ %739, %734 ]
   %745 = icmp ugt ptr %713, %609
   br i1 %745, label %.thread, label %746
 
@@ -1336,9 +1336,9 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   br label %793
 
 793:                                              ; preds = %786, %772
-  %794 = phi i64 [ %792, %786 ], [ %742, %772 ]
-  %795 = phi i32 [ %788, %786 ], [ %754, %772 ]
-  %796 = phi ptr [ %791, %786 ], [ %744, %772 ]
+  %794 = phi i64 [ %742, %772 ], [ %792, %786 ]
+  %795 = phi i32 [ %754, %772 ], [ %788, %786 ]
+  %796 = phi ptr [ %744, %772 ], [ %791, %786 ]
   %797 = icmp ugt ptr %765, %609
   br i1 %797, label %.thread, label %.lr.ph126, !llvm.loop !19
 
@@ -1358,7 +1358,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   br label %.thread
 
 .thread:                                          ; preds = %392, %341, %793, %741, %.thread56, %.thread68, %411, %407, %460, %16, %12, %65, %.critedge2, %472, %.critedge, %77
-  %808 = phi i64 [ %406, %.critedge ], [ %3, %77 ], [ %807, %.critedge2 ], [ %3, %472 ], [ -72, %407 ], [ -1, %411 ], [ -20, %460 ], [ -70, %.thread68 ], [ -1, %16 ], [ -20, %65 ], [ -72, %12 ], [ -70, %793 ], [ -70, %.thread56 ], [ -70, %741 ], [ -70, %341 ], [ -70, %392 ]
+  %808 = phi i64 [ %406, %.critedge ], [ %3, %77 ], [ %807, %.critedge2 ], [ %3, %472 ], [ -72, %12 ], [ -20, %65 ], [ -1, %16 ], [ -72, %407 ], [ -20, %460 ], [ -1, %411 ], [ -70, %.thread68 ], [ -70, %.thread56 ], [ -70, %741 ], [ -70, %793 ], [ -70, %341 ], [ -70, %392 ]
   ret i64 %808
 }
 
@@ -1893,7 +1893,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   br label %.thread36
 
 .thread36:                                        ; preds = %325, %376, %.thread39, %60, %125, %67, %386, %138
-  %391 = phi i64 [ %390, %386 ], [ %30, %138 ], [ -72, %60 ], [ -20, %125 ], [ -1, %67 ], [ -70, %.thread39 ], [ -70, %376 ], [ -70, %325 ]
+  %391 = phi i64 [ %390, %386 ], [ %30, %138 ], [ -20, %125 ], [ -1, %67 ], [ -72, %60 ], [ -70, %.thread39 ], [ -70, %376 ], [ -70, %325 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2249,7 +2249,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   br label %.thread
 
 .thread:                                          ; preds = %25, %22, %.loopexit, %.thread36, %47, %28, %20
-  %656 = phi i64 [ %52, %47 ], [ %655, %.loopexit ], [ -1, %20 ], [ -44, %28 ], [ %391, %.thread36 ], [ -44, %25 ], [ %23, %22 ]
+  %656 = phi i64 [ %52, %47 ], [ -1, %20 ], [ -44, %28 ], [ %391, %.thread36 ], [ %655, %.loopexit ], [ -44, %25 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %657
@@ -2776,7 +2776,7 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   br label %.thread35
 
 .thread35:                                        ; preds = %320, %371, %.thread38, %56, %120, %62, %381, %133
-  %386 = phi i64 [ %385, %381 ], [ %25, %133 ], [ -72, %56 ], [ -20, %120 ], [ -1, %62 ], [ -70, %.thread38 ], [ -70, %371 ], [ -70, %320 ]
+  %386 = phi i64 [ %385, %381 ], [ %25, %133 ], [ -20, %120 ], [ -1, %62 ], [ -72, %56 ], [ -70, %.thread38 ], [ -70, %371 ], [ -70, %320 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3239,14 +3239,14 @@ BIT_initDStream.exit:                             ; preds = %393
   br label %BIT_initDStream.exit.thread
 
 BIT_initDStream.exit.thread:                      ; preds = %655, %707, %.thread42, %387, %451, %393, %717, %BIT_initDStream.exit
-  %722 = phi i64 [ %721, %717 ], [ %25, %BIT_initDStream.exit ], [ -72, %387 ], [ -20, %451 ], [ -1, %393 ], [ -70, %.thread42 ], [ -70, %707 ], [ -70, %655 ]
+  %722 = phi i64 [ %721, %717 ], [ %25, %BIT_initDStream.exit ], [ -20, %451 ], [ -1, %393 ], [ -72, %387 ], [ -70, %.thread42 ], [ -70, %707 ], [ -70, %655 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread
 
 .thread:                                          ; preds = %20, %17, %BIT_initDStream.exit.thread, %.thread35, %42, %23, %7
-  %723 = phi i64 [ %47, %42 ], [ %722, %BIT_initDStream.exit.thread ], [ -1, %7 ], [ -44, %23 ], [ %386, %.thread35 ], [ -44, %20 ], [ %18, %17 ]
+  %723 = phi i64 [ %47, %42 ], [ -1, %7 ], [ -44, %23 ], [ %386, %.thread35 ], [ %722, %BIT_initDStream.exit.thread ], [ -44, %20 ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i64 %723

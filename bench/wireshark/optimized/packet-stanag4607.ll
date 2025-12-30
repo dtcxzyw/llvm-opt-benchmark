@@ -1719,7 +1719,7 @@ dissect_target.exit.i:                            ; preds = %383, %382
   br label %dissect_dwell.exit
 
 dissect_dwell.exit:                               ; preds = %dissect_target.exit.i, %270, %502, %480, %391, %95
-  %.1 = phi i32 [ %503, %502 ], [ %116, %95 ], [ %501, %480 ], [ %475, %391 ], [ %.16.i, %270 ], [ %.17.i.i, %dissect_target.exit.i ]
+  %.1 = phi i32 [ %503, %502 ], [ %116, %95 ], [ %475, %391 ], [ %501, %480 ], [ %.16.i, %270 ], [ %.17.i.i, %dissect_target.exit.i ]
   %504 = icmp ult i32 %.1, %.0115
   br i1 %504, label %505, label %73
 

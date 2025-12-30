@@ -2192,8 +2192,8 @@ define internal void @fade_borders8(ptr noundef readonly captures(none) %0, ptr 
   br label %.preheader119
 
 .preheader119:                                    ; preds = %.preheader119.loopexit, %11
-  %38 = phi i32 [ %22, %11 ], [ %69, %.preheader119.loopexit ]
-  %39 = phi i32 [ %29, %11 ], [ %.pre, %.preheader119.loopexit ]
+  %38 = phi i32 [ %69, %.preheader119.loopexit ], [ %22, %11 ]
+  %39 = phi i32 [ %.pre, %.preheader119.loopexit ], [ %29, %11 ]
   %40 = icmp slt i32 %32, %39
   %41 = icmp sgt i32 %38, 0
   %or.cond176 = select i1 %40, i1 %41, i1 false

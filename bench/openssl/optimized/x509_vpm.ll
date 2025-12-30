@@ -464,7 +464,7 @@ define range(i32 0, 2) i32 @X509_VERIFY_PARAM_inherit(ptr noundef captures(addre
   br label %X509_VERIFY_PARAM_set1_email.exit.thread
 
 X509_VERIFY_PARAM_set1_email.exit.thread:         ; preds = %154, %.thread112, %171, %127, %98, %13, %2, %176
-  %.0 = phi i32 [ 1, %13 ], [ 1, %2 ], [ 0, %98 ], [ 1, %176 ], [ 0, %.thread112 ], [ 0, %127 ], [ 0, %171 ], [ 0, %154 ]
+  %.0 = phi i32 [ 1, %176 ], [ 1, %2 ], [ 1, %13 ], [ 0, %98 ], [ 0, %127 ], [ 0, %171 ], [ 0, %.thread112 ], [ 0, %154 ]
   ret i32 %.0
 }
 
@@ -532,7 +532,7 @@ define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef captures
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %10, %._crit_edge, %25, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %9 ], [ 1, %._crit_edge ], [ 0, %10 ], [ 0, %25 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %9 ], [ 0, %25 ], [ 1, %._crit_edge ], [ 0, %10 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -926,7 +926,7 @@ define internal fastcc range(i32 0, 2) i32 @int_x509_param_set_hosts(ptr noundef
   br label %46
 
 46:                                               ; preds = %37, %40, %44, %26, %24, %8, %36
-  %.0 = phi i32 [ 0, %8 ], [ 1, %24 ], [ 0, %36 ], [ 0, %40 ], [ 0, %26 ], [ 0, %44 ], [ 1, %37 ]
+  %.0 = phi i32 [ 0, %36 ], [ 0, %8 ], [ 1, %24 ], [ 0, %26 ], [ 0, %44 ], [ 0, %40 ], [ 1, %37 ]
   ret i32 %.0
 }
 

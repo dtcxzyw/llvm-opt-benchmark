@@ -55,8 +55,8 @@ define hidden { ptr, ptr } @"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h699b1d22ea6435e4E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h699b1d22ea6435e4E.exit.thread": ; preds = %13, %1, %11
-  %.sroa.6.1 = phi ptr [ %spec.select, %13 ], [ %.val9, %11 ], [ undef, %1 ]
-  %.sroa.0.1 = phi ptr [ %17, %13 ], [ %.val, %11 ], [ null, %1 ]
+  %.sroa.6.1 = phi ptr [ %.val9, %11 ], [ undef, %1 ], [ %spec.select, %13 ]
+  %.sroa.0.1 = phi ptr [ %.val, %11 ], [ null, %1 ], [ %17, %13 ]
   %20 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %21 = insertvalue { ptr, ptr } %20, ptr %.sroa.6.1, 1
   ret { ptr, ptr } %21

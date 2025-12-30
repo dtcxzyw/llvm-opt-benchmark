@@ -456,8 +456,8 @@ define hidden void @"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..Ima
   br label %"_ZN6object4read4util20StringTable$LT$R$GT$3get17h329f0992bec9c315E.exit"
 
 "_ZN6object4read4util20StringTable$LT$R$GT$3get17h329f0992bec9c315E.exit": ; preds = %14, %17, %23
-  %.sroa.4.0.i = phi i64 [ undef, %14 ], [ %31, %23 ], [ undef, %17 ]
-  %.sroa.0.0.i = phi ptr [ null, %14 ], [ %30, %23 ], [ null, %17 ]
+  %.sroa.4.0.i = phi i64 [ %31, %23 ], [ undef, %14 ], [ undef, %17 ]
+  %.sroa.0.0.i = phi ptr [ %30, %23 ], [ null, %14 ], [ null, %17 ]
   %32 = icmp eq ptr %.sroa.0.0.i, null
   %.sink2.i = select i1 %32, ptr @anon.d93180882ff7a1921298da0e7de554a2.13, ptr %.sroa.0.0.i
   %.sink.i = select i1 %32, i64 32, i64 %.sroa.4.0.i
@@ -525,8 +525,8 @@ define hidden { ptr, i64 } @"_ZN6object4read4util20StringTable$LT$R$GT$3get17h32
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %5, %2, %14
-  %.sroa.4.0 = phi i64 [ undef, %2 ], [ %22, %14 ], [ undef, %5 ]
-  %.sroa.0.0 = phi ptr [ null, %2 ], [ %21, %14 ], [ null, %5 ]
+  %.sroa.4.0 = phi i64 [ %22, %14 ], [ undef, %2 ], [ undef, %5 ]
+  %.sroa.0.0 = phi ptr [ %21, %14 ], [ null, %2 ], [ null, %5 ]
   %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %13 = insertvalue { ptr, i64 } %12, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %13
@@ -571,7 +571,7 @@ _ZN6object3pod16slice_from_bytes17h559b9b6d1929ae37E.exit: ; preds = %8
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17h559b9b6d1929ae37E.exit, %4
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17h559b9b6d1929ae37E.exit ], [ null, %4 ], [ null, %8 ]
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17h559b9b6d1929ae37E.exit ], [ null, %8 ]
   %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %20 = insertvalue { ptr, i64 } %19, i64 %3, 1
   ret { ptr, i64 } %20
@@ -605,7 +605,7 @@ _ZN6object3pod16slice_from_bytes17hb78dc872ea5fea35E.exit: ; preds = %8
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17hb78dc872ea5fea35E.exit, %4
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17hb78dc872ea5fea35E.exit ], [ null, %4 ], [ null, %8 ]
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17hb78dc872ea5fea35E.exit ], [ null, %8 ]
   %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %20 = insertvalue { ptr, i64 } %19, i64 %3, 1
   ret { ptr, i64 } %20
@@ -638,7 +638,7 @@ _ZN6object3pod16slice_from_bytes17h48366324a52a6742E.exit: ; preds = %7
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %7, %_ZN6object3pod16slice_from_bytes17h48366324a52a6742E.exit, %4
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17h48366324a52a6742E.exit ], [ null, %4 ], [ null, %7 ]
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17h48366324a52a6742E.exit ], [ null, %7 ]
   %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %19 = insertvalue { ptr, i64 } %18, i64 %3, 1
   ret { ptr, i64 } %19
@@ -672,7 +672,7 @@ _ZN6object3pod16slice_from_bytes17h61a9340fc205ed0bE.exit: ; preds = %8
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17h61a9340fc205ed0bE.exit, %4
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17h61a9340fc205ed0bE.exit ], [ null, %4 ], [ null, %8 ]
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17h61a9340fc205ed0bE.exit ], [ null, %8 ]
   %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %20 = insertvalue { ptr, i64 } %19, i64 %3, 1
   ret { ptr, i64 } %20
@@ -705,7 +705,7 @@ _ZN6object3pod16slice_from_bytes17h88d53c4e07c9697bE.exit: ; preds = %7
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %7, %_ZN6object3pod16slice_from_bytes17h88d53c4e07c9697bE.exit, %4
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17h88d53c4e07c9697bE.exit ], [ null, %4 ], [ null, %7 ]
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17h88d53c4e07c9697bE.exit ], [ null, %7 ]
   %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %19 = insertvalue { ptr, i64 } %18, i64 %3, 1
   ret { ptr, i64 } %19
@@ -735,7 +735,7 @@ _ZN6object3pod16slice_from_bytes17h81464f075cab7062E.exit: ; preds = %8
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17h81464f075cab7062E.exit, %4
-  %.sroa.0.1 = phi ptr [ %16, %_ZN6object3pod16slice_from_bytes17h81464f075cab7062E.exit ], [ null, %4 ], [ null, %8 ]
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %16, %_ZN6object3pod16slice_from_bytes17h81464f075cab7062E.exit ], [ null, %8 ]
   %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %18 = insertvalue { ptr, i64 } %17, i64 %3, 1
   ret { ptr, i64 } %18
@@ -768,7 +768,7 @@ _ZN6object3pod16slice_from_bytes17hdd615f85993ee209E.exit: ; preds = %7
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %7, %_ZN6object3pod16slice_from_bytes17hdd615f85993ee209E.exit, %4
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17hdd615f85993ee209E.exit ], [ null, %4 ], [ null, %7 ]
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17hdd615f85993ee209E.exit ], [ null, %7 ]
   %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %19 = insertvalue { ptr, i64 } %18, i64 %3, 1
   ret { ptr, i64 } %19
@@ -802,7 +802,7 @@ _ZN6object3pod16slice_from_bytes17h7326c41064de43ceE.exit: ; preds = %8
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17h7326c41064de43ceE.exit, %4
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17h7326c41064de43ceE.exit ], [ null, %4 ], [ null, %8 ]
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17h7326c41064de43ceE.exit ], [ null, %8 ]
   %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %20 = insertvalue { ptr, i64 } %19, i64 %3, 1
   ret { ptr, i64 } %20
@@ -836,7 +836,7 @@ _ZN6object3pod16slice_from_bytes17hdb50564873ef32eeE.exit: ; preds = %8
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17hdb50564873ef32eeE.exit, %4
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17hdb50564873ef32eeE.exit ], [ null, %4 ], [ null, %8 ]
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17hdb50564873ef32eeE.exit ], [ null, %8 ]
   %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %20 = insertvalue { ptr, i64 } %19, i64 %3, 1
   ret { ptr, i64 } %20
@@ -866,7 +866,7 @@ _ZN6object3pod16slice_from_bytes17hab8f599a2cb5378dE.exit: ; preds = %8
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17hab8f599a2cb5378dE.exit, %4
-  %.sroa.0.1 = phi ptr [ %16, %_ZN6object3pod16slice_from_bytes17hab8f599a2cb5378dE.exit ], [ null, %4 ], [ null, %8 ]
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %16, %_ZN6object3pod16slice_from_bytes17hab8f599a2cb5378dE.exit ], [ null, %8 ]
   %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %18 = insertvalue { ptr, i64 } %17, i64 %3, 1
   ret { ptr, i64 } %18
@@ -900,7 +900,7 @@ _ZN6object3pod16slice_from_bytes17hd0cff61e9bd42270E.exit: ; preds = %8
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17hd0cff61e9bd42270E.exit, %4
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17hd0cff61e9bd42270E.exit ], [ null, %4 ], [ null, %8 ]
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17hd0cff61e9bd42270E.exit ], [ null, %8 ]
   %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %20 = insertvalue { ptr, i64 } %19, i64 %3, 1
   ret { ptr, i64 } %20
@@ -929,7 +929,7 @@ _ZN6object3pod16slice_from_bytes17h48366324a52a6742E.exit.i: ; preds = %7
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17h447a9f5b662eb41dE.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17h447a9f5b662eb41dE.llvm.1655692584469633042.exit: ; preds = %4, %7, %_ZN6object3pod16slice_from_bytes17h48366324a52a6742E.exit.i
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17h48366324a52a6742E.exit.i ], [ null, %4 ], [ null, %7 ]
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17h48366324a52a6742E.exit.i ], [ null, %7 ]
   %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %17 = insertvalue { ptr, i64 } %16, i64 %3, 1
   ret { ptr, i64 } %17
@@ -959,7 +959,7 @@ _ZN6object3pod16slice_from_bytes17hb78dc872ea5fea35E.exit.i: ; preds = %8
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17h3eb7a54b7cc0aafeE.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17h3eb7a54b7cc0aafeE.llvm.1655692584469633042.exit: ; preds = %4, %8, %_ZN6object3pod16slice_from_bytes17hb78dc872ea5fea35E.exit.i
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17hb78dc872ea5fea35E.exit.i ], [ null, %4 ], [ null, %8 ]
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17hb78dc872ea5fea35E.exit.i ], [ null, %8 ]
   %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %18 = insertvalue { ptr, i64 } %17, i64 %3, 1
   ret { ptr, i64 } %18
@@ -989,7 +989,7 @@ _ZN6object3pod16slice_from_bytes17hd0cff61e9bd42270E.exit.i: ; preds = %8
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17hff0eec0433129923E.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17hff0eec0433129923E.llvm.1655692584469633042.exit: ; preds = %4, %8, %_ZN6object3pod16slice_from_bytes17hd0cff61e9bd42270E.exit.i
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17hd0cff61e9bd42270E.exit.i ], [ null, %4 ], [ null, %8 ]
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17hd0cff61e9bd42270E.exit.i ], [ null, %8 ]
   %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %18 = insertvalue { ptr, i64 } %17, i64 %3, 1
   ret { ptr, i64 } %18
@@ -1018,7 +1018,7 @@ _ZN6object3pod16slice_from_bytes17h88d53c4e07c9697bE.exit.i: ; preds = %7
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17h6fdd46137a9469d8E.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17h6fdd46137a9469d8E.llvm.1655692584469633042.exit: ; preds = %4, %7, %_ZN6object3pod16slice_from_bytes17h88d53c4e07c9697bE.exit.i
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17h88d53c4e07c9697bE.exit.i ], [ null, %4 ], [ null, %7 ]
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17h88d53c4e07c9697bE.exit.i ], [ null, %7 ]
   %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %17 = insertvalue { ptr, i64 } %16, i64 %3, 1
   ret { ptr, i64 } %17
@@ -1048,7 +1048,7 @@ _ZN6object3pod16slice_from_bytes17h7326c41064de43ceE.exit.i: ; preds = %8
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17hb8eac6abbe167d48E.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17hb8eac6abbe167d48E.llvm.1655692584469633042.exit: ; preds = %4, %8, %_ZN6object3pod16slice_from_bytes17h7326c41064de43ceE.exit.i
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17h7326c41064de43ceE.exit.i ], [ null, %4 ], [ null, %8 ]
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17h7326c41064de43ceE.exit.i ], [ null, %8 ]
   %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %18 = insertvalue { ptr, i64 } %17, i64 %3, 1
   ret { ptr, i64 } %18
@@ -1078,7 +1078,7 @@ _ZN6object3pod16slice_from_bytes17h61a9340fc205ed0bE.exit.i: ; preds = %8
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17h640ff3e02db74db3E.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17h640ff3e02db74db3E.llvm.1655692584469633042.exit: ; preds = %4, %8, %_ZN6object3pod16slice_from_bytes17h61a9340fc205ed0bE.exit.i
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17h61a9340fc205ed0bE.exit.i ], [ null, %4 ], [ null, %8 ]
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17h61a9340fc205ed0bE.exit.i ], [ null, %8 ]
   %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %18 = insertvalue { ptr, i64 } %17, i64 %3, 1
   ret { ptr, i64 } %18
@@ -1107,7 +1107,7 @@ _ZN6object3pod16slice_from_bytes17hdd615f85993ee209E.exit.i: ; preds = %7
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17haa1bced46011c431E.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17haa1bced46011c431E.llvm.1655692584469633042.exit: ; preds = %4, %7, %_ZN6object3pod16slice_from_bytes17hdd615f85993ee209E.exit.i
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17hdd615f85993ee209E.exit.i ], [ null, %4 ], [ null, %7 ]
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17hdd615f85993ee209E.exit.i ], [ null, %7 ]
   %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %17 = insertvalue { ptr, i64 } %16, i64 %3, 1
   ret { ptr, i64 } %17
@@ -1137,7 +1137,7 @@ _ZN6object3pod16slice_from_bytes17h559b9b6d1929ae37E.exit.i: ; preds = %8
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17h336095696dcc11c1E.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17h336095696dcc11c1E.llvm.1655692584469633042.exit: ; preds = %4, %8, %_ZN6object3pod16slice_from_bytes17h559b9b6d1929ae37E.exit.i
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17h559b9b6d1929ae37E.exit.i ], [ null, %4 ], [ null, %8 ]
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17h559b9b6d1929ae37E.exit.i ], [ null, %8 ]
   %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %18 = insertvalue { ptr, i64 } %17, i64 %3, 1
   ret { ptr, i64 } %18
@@ -1167,7 +1167,7 @@ _ZN6object3pod16slice_from_bytes17hdb50564873ef32eeE.exit.i: ; preds = %8
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17hc2d6f951a94038bbE.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17hc2d6f951a94038bbE.llvm.1655692584469633042.exit: ; preds = %4, %8, %_ZN6object3pod16slice_from_bytes17hdb50564873ef32eeE.exit.i
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17hdb50564873ef32eeE.exit.i ], [ null, %4 ], [ null, %8 ]
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17hdb50564873ef32eeE.exit.i ], [ null, %8 ]
   %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %18 = insertvalue { ptr, i64 } %17, i64 %3, 1
   ret { ptr, i64 } %18

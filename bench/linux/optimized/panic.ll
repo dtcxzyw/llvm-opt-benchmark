@@ -407,9 +407,9 @@ panic_other_cpus_shutdown.exit9:                  ; preds = %43, %47
   br i1 %90, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %85, %62, %59
-  %91 = phi i32 [ %60, %59 ], [ %64, %62 ], [ %87, %85 ]
-  %92 = phi i32 [ 0, %59 ], [ 0, %62 ], [ %78, %85 ]
-  %93 = phi i64 [ 0, %59 ], [ 0, %62 ], [ %79, %85 ]
+  %91 = phi i32 [ %64, %62 ], [ %60, %59 ], [ %87, %85 ]
+  %92 = phi i32 [ 0, %62 ], [ 0, %59 ], [ %78, %85 ]
+  %93 = phi i64 [ 0, %62 ], [ 0, %59 ], [ %79, %85 ]
   %94 = icmp eq i32 %91, 0
   br i1 %94, label %100, label %95
 

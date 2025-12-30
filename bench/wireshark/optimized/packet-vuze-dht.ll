@@ -442,9 +442,9 @@ define internal i32 @dissect_vuze_dht(ptr noundef %0, ptr noundef readonly captu
   br label %dissect_vuze_dht_request_header.exit
 
 dissect_vuze_dht_request_header.exit:             ; preds = %87, %82, %77, %51, %46, %.thread64.i
-  %.091 = phi i32 [ %18, %51 ], [ %18, %.thread64.i ], [ %18, %46 ], [ %58, %77 ], [ %58, %82 ], [ %58, %87 ]
-  %.090.in = phi i8 [ %25, %51 ], [ %25, %.thread64.i ], [ %25, %46 ], [ %67, %77 ], [ %67, %82 ], [ %67, %87 ]
-  %.0 = phi i32 [ %54, %51 ], [ %44, %.thread64.i ], [ %49, %46 ], [ %80, %77 ], [ %85, %82 ], [ %90, %87 ]
+  %.091 = phi i32 [ %18, %.thread64.i ], [ %18, %46 ], [ %18, %51 ], [ %58, %77 ], [ %58, %82 ], [ %58, %87 ]
+  %.090.in = phi i8 [ %25, %.thread64.i ], [ %25, %46 ], [ %25, %51 ], [ %67, %77 ], [ %67, %82 ], [ %67, %87 ]
+  %.0 = phi i32 [ %44, %.thread64.i ], [ %49, %46 ], [ %54, %51 ], [ %80, %77 ], [ %85, %82 ], [ %90, %87 ]
   %.090 = zext i8 %.090.in to i32
   switch i32 %.091, label %dissect_vuze_dht_reply_ping.exit [
     i32 1036, label %278
@@ -779,7 +779,7 @@ dissect_vuze_dht_contacts.exit.i:                 ; preds = %.lr.ph.i.i66, %231
   br label %dissect_vuze_dht_reply_ping.exit
 
 dissect_vuze_dht_reply_ping.exit:                 ; preds = %.lr.ph.i.i58, %.lr.ph.i29.i, %261, %259, %252, %250, %226, %.thread40.i, %161, %151, %142, %140, %dissect_vuze_dht_keys.exit.i, %93, %91, %dissect_vuze_dht_request_header.exit, %278, %197
-  %.1 = phi i32 [ %.0, %dissect_vuze_dht_request_header.exit ], [ %297, %278 ], [ %230, %226 ], [ %.0, %91 ], [ %277, %261 ], [ %.0, %140 ], [ %159, %151 ], [ %219, %197 ], [ %138, %.lr.ph.i29.i ], [ %94, %93 ], [ %132, %dissect_vuze_dht_keys.exit.i ], [ %150, %142 ], [ %167, %161 ], [ %190, %.thread40.i ], [ %251, %250 ], [ %258, %252 ], [ %260, %259 ], [ %195, %.lr.ph.i.i58 ]
+  %.1 = phi i32 [ %.0, %dissect_vuze_dht_request_header.exit ], [ %297, %278 ], [ %219, %197 ], [ %94, %93 ], [ %.0, %91 ], [ %132, %dissect_vuze_dht_keys.exit.i ], [ %150, %142 ], [ %.0, %140 ], [ %167, %161 ], [ %159, %151 ], [ %190, %.thread40.i ], [ %251, %250 ], [ %230, %226 ], [ %258, %252 ], [ %260, %259 ], [ %277, %261 ], [ %138, %.lr.ph.i29.i ], [ %195, %.lr.ph.i.i58 ]
   ret i32 %.1
 }
 

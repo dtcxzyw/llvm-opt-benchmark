@@ -433,7 +433,7 @@ has_popovers_in_top_row.exit:                     ; preds = %32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge10, %166, %.critedge14, %.critedge.loopexit.split.loop.exit, %.preheader397, %.preheader
-  %.1294 = phi i32 [ 0, %.preheader397 ], [ 0, %.preheader ], [ %161, %.critedge14 ], [ %176, %.critedge.loopexit.split.loop.exit ], [ %161, %.critedge10 ], [ %.0293401, %166 ]
+  %.1294 = phi i32 [ 0, %.preheader ], [ 0, %.preheader397 ], [ %176, %.critedge.loopexit.split.loop.exit ], [ %161, %.critedge14 ], [ %161, %.critedge10 ], [ %.0293401, %166 ]
   store i32 %.1294, ptr %151, align 8, !tbaa !18
   br label %.critedge337
 
@@ -751,7 +751,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
   br label %.critedge340
 
 .critedge340:                                     ; preds = %328, %284, %272, %228, %208, %191, %..critedge340_crit_edge, %293, %237, %292, %330, %236, %273, %218, %199
-  %333 = phi i32 [ %.pre439, %..critedge340_crit_edge ], [ %246, %272 ], [ %229, %228 ], [ %209, %208 ], [ %192, %191 ], [ %285, %284 ], [ 65535, %199 ], [ %302, %293 ], [ %246, %237 ], [ 65535, %292 ], [ %332, %330 ], [ 65535, %236 ], [ %274, %273 ], [ 65535, %218 ], [ %302, %328 ]
+  %333 = phi i32 [ %.pre439, %..critedge340_crit_edge ], [ %302, %293 ], [ %246, %237 ], [ 65535, %292 ], [ %332, %330 ], [ 65535, %236 ], [ %274, %273 ], [ 65535, %218 ], [ 65535, %199 ], [ %192, %191 ], [ %209, %208 ], [ %229, %228 ], [ %246, %272 ], [ %285, %284 ], [ %302, %328 ]
   tail call fastcc void @invalidate_button_area(ptr noundef nonnull %10, i32 noundef %333)
   br label %.critedge337
 
@@ -1067,8 +1067,8 @@ define internal fastcc void @update_map(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !41
 
 .critedge:                                        ; preds = %44, %47, %.lr.ph
-  %.097.lcssa = phi i32 [ %.097107, %.lr.ph ], [ %.097107, %44 ], [ %55, %47 ]
-  %.096.lcssa = phi i32 [ %.096108, %.lr.ph ], [ %.096108, %44 ], [ %56, %47 ]
+  %.097.lcssa = phi i32 [ %.097107, %44 ], [ %55, %47 ], [ %.097107, %.lr.ph ]
+  %.096.lcssa = phi i32 [ %.096108, %44 ], [ %56, %47 ], [ %.096108, %.lr.ph ]
   %60 = icmp eq i32 %.096.lcssa, 0
   br i1 %60, label %.critedge.thread, label %62
 

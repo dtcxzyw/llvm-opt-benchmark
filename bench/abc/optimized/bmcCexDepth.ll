@@ -209,8 +209,8 @@ Gia_ManAppendCi.exit..critedge.loopexit_crit_edge: ; preds = %Gia_ManAppendCi.ex
   br label %.critedge, !llvm.loop !36
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %Gia_ManAppendCi.exit..critedge.loopexit_crit_edge, %.preheader141
-  %.val102144194 = phi ptr [ %.val102144, %.preheader141 ], [ %.val102144, %.lr.ph.preheader ], [ %.val102, %Gia_ManAppendCi.exit..critedge.loopexit_crit_edge ], [ %.val102, %.lr.ph ]
-  %.val101143190 = phi i32 [ %.val101143, %.preheader141 ], [ %.val101143, %.lr.ph.preheader ], [ %.val101, %Gia_ManAppendCi.exit..critedge.loopexit_crit_edge ], [ %.val101, %.lr.ph ]
+  %.val102144194 = phi ptr [ %.val102144, %.preheader141 ], [ %.val102, %Gia_ManAppendCi.exit..critedge.loopexit_crit_edge ], [ %.val102144, %.lr.ph.preheader ], [ %.val102, %.lr.ph ]
+  %.val101143190 = phi i32 [ %.val101143, %.preheader141 ], [ %.val101, %Gia_ManAppendCi.exit..critedge.loopexit_crit_edge ], [ %.val101143, %.lr.ph.preheader ], [ %.val101, %.lr.ph ]
   %84 = add nuw nsw i32 %.0148, 1
   %exitcond.not = icmp eq i32 %84, %1
   br i1 %exitcond.not, label %.preheader140, label %.preheader141, !llvm.loop !41
@@ -966,8 +966,8 @@ define ptr @Bmc_CexBuildNetwork2(ptr noundef readonly captures(none) %0, ptr nou
   br label %.critedge2, !llvm.loop !56
 
 .critedge2:                                       ; preds = %.lr.ph202, %.lr.ph202.preheader, %..critedge2.loopexit_crit_edge, %.preheader
-  %.1.lcssa = phi i32 [ %.0222, %.preheader ], [ %.0222, %.lr.ph202.preheader ], [ %73, %..critedge2.loopexit_crit_edge ], [ %73, %.lr.ph202 ]
-  %.val167207 = phi i32 [ %.val158195, %.preheader ], [ %.val158195, %.lr.ph202.preheader ], [ %.val158, %..critedge2.loopexit_crit_edge ], [ %.val158, %.lr.ph202 ]
+  %.1.lcssa = phi i32 [ %.0222, %.preheader ], [ %73, %..critedge2.loopexit_crit_edge ], [ %.0222, %.lr.ph202.preheader ], [ %73, %.lr.ph202 ]
+  %.val167207 = phi i32 [ %.val158195, %.preheader ], [ %.val158, %..critedge2.loopexit_crit_edge ], [ %.val158195, %.lr.ph202.preheader ], [ %.val158, %.lr.ph202 ]
   %92 = add nsw i32 %.val167207, %.1.lcssa
   %93 = icmp sgt i32 %.val167207, 0
   br i1 %93, label %.lr.ph211, label %.critedge4
@@ -1449,8 +1449,8 @@ define ptr @Bmc_CexBuildNetwork2_(ptr noundef readonly captures(none) %0, ptr no
   br label %.critedge2, !llvm.loop !63
 
 .critedge2:                                       ; preds = %.lr.ph173, %.lr.ph173.preheader, %..critedge2.loopexit_crit_edge, %.preheader
-  %.1.lcssa = phi i32 [ %.0193, %.preheader ], [ %.0193, %.lr.ph173.preheader ], [ %71, %..critedge2.loopexit_crit_edge ], [ %71, %.lr.ph173 ]
-  %.val138178 = phi i32 [ %.val129166, %.preheader ], [ %.val129166, %.lr.ph173.preheader ], [ %.val129, %..critedge2.loopexit_crit_edge ], [ %.val129, %.lr.ph173 ]
+  %.1.lcssa = phi i32 [ %.0193, %.preheader ], [ %71, %..critedge2.loopexit_crit_edge ], [ %.0193, %.lr.ph173.preheader ], [ %71, %.lr.ph173 ]
+  %.val138178 = phi i32 [ %.val129166, %.preheader ], [ %.val129, %..critedge2.loopexit_crit_edge ], [ %.val129166, %.lr.ph173.preheader ], [ %.val129, %.lr.ph173 ]
   %89 = add nsw i32 %.val138178, %.1.lcssa
   %90 = icmp sgt i32 %.val138178, 0
   br i1 %90, label %.lr.ph182, label %.critedge4

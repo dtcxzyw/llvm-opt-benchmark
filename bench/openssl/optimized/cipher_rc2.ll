@@ -72,7 +72,7 @@ define internal noalias ptr @rc2_dupctx(ptr noundef readonly captures(none) %0) 
   br label %7
 
 7:                                                ; preds = %3, %1, %6
-  %.0 = phi ptr [ null, %1 ], [ %4, %6 ], [ null, %3 ]
+  %.0 = phi ptr [ %4, %6 ], [ null, %1 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -240,7 +240,7 @@ define internal range(i32 0, 2) i32 @rc2_get_ctx_params(ptr noundef %0, ptr noun
   br label %rc2_keybits_to_magic.exit
 
 rc2_keybits_to_magic.exit:                        ; preds = %46, %50, %51, %52
-  %.0.i = phi i64 [ 0, %52 ], [ 160, %51 ], [ 120, %50 ], [ 58, %46 ]
+  %.0.i = phi i64 [ 0, %52 ], [ 120, %50 ], [ 160, %51 ], [ 58, %46 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %55 = load i64, ptr %54, align 8, !tbaa !25
@@ -312,7 +312,7 @@ rc2_keybits_to_magic.exit:                        ; preds = %46, %50, %51, %52
   br label %77
 
 77:                                               ; preds = %13, %76, %.critedge, %2, %12
-  %.0 = phi i32 [ 0, %2 ], [ 0, %.critedge ], [ 0, %12 ], [ 1, %76 ], [ 1, %13 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %2 ], [ 0, %.critedge ], [ 1, %76 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -434,7 +434,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %16, %47, %.critedge.critedge, %8, %ossl_param_is_empty.exit, %15
-  %.027 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %8 ], [ 0, %.critedge.critedge ], [ 0, %15 ], [ 1, %47 ], [ 1, %16 ], [ 1, %2 ]
+  %.027 = phi i32 [ 0, %15 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %8 ], [ 0, %.critedge.critedge ], [ 1, %47 ], [ 1, %16 ], [ 1, %2 ]
   ret i32 %.027
 }
 
@@ -668,7 +668,7 @@ define internal fastcc range(i32 0, 129) i32 @rc2_magic_to_keybits(i32 noundef %
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi i32 [ 0, %4 ], [ 40, %3 ], [ 64, %2 ], [ 128, %1 ]
+  %.0 = phi i32 [ 0, %4 ], [ 64, %2 ], [ 40, %3 ], [ 128, %1 ]
   ret i32 %.0
 }
 

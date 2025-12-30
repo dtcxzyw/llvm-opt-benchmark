@@ -192,7 +192,7 @@ define noundef i32 @pmix_pgpu_base_allocate(ptr noundef readonly captures(addres
   br i1 %.not41, label %pmix_obj_new_tma.exit, label %.lr.ph52, !llvm.loop !71
 
 pmix_obj_new_tma.exit:                            ; preds = %61, %63, %32, %52, %16, %13
-  %.032 = phi i32 [ -32, %32 ], [ -27, %13 ], [ 0, %16 ], [ 0, %52 ], [ %62, %61 ], [ 0, %63 ]
+  %.032 = phi i32 [ -27, %13 ], [ 0, %16 ], [ 0, %52 ], [ -32, %32 ], [ %62, %61 ], [ 0, %63 ]
   ret i32 %.032
 }
 
@@ -439,7 +439,7 @@ pmix_obj_update.exit:                             ; preds = %pmix_obj_new_tma.ex
   br i1 %.not49, label %pmix_obj_new_tma.exit, label %.lr.ph74, !llvm.loop !77
 
 pmix_obj_new_tma.exit:                            ; preds = %96, %98, %91, %38, %14, %12
-  %.041 = phi i32 [ -32, %38 ], [ -27, %12 ], [ 0, %14 ], [ 0, %91 ], [ %97, %96 ], [ 0, %98 ]
+  %.041 = phi i32 [ -27, %12 ], [ 0, %14 ], [ -32, %38 ], [ 0, %91 ], [ %97, %96 ], [ 0, %98 ]
   ret i32 %.041
 }
 
@@ -513,7 +513,7 @@ define range(i32 -27, 1) i32 @pmix_pgpu_base_setup_fork(ptr noundef %0, ptr noun
   br i1 %.not25, label %.thread, label %.lr.ph36, !llvm.loop !83
 
 .thread:                                          ; preds = %19, %.lr.ph36, %.preheader, %22, %21, %11
-  %.020 = phi i32 [ -27, %11 ], [ 0, %22 ], [ 0, %21 ], [ 0, %.preheader ], [ 0, %.lr.ph36 ], [ 0, %19 ]
+  %.020 = phi i32 [ -27, %11 ], [ 0, %21 ], [ 0, %22 ], [ 0, %.preheader ], [ 0, %.lr.ph36 ], [ 0, %19 ]
   ret i32 %.020
 }
 

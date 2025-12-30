@@ -577,7 +577,7 @@ define void @ff_ivi_inverse_haar_8x8(ptr noundef readonly captures(none) %0, ptr
   br label %150
 
 .preheader._crit_edge:                            ; preds = %.preheader, %88, %85, %82, %79, %76, %73
-  %92 = phi i32 [ %72, %.preheader ], [ 0, %88 ], [ 0, %85 ], [ 0, %82 ], [ 0, %79 ], [ 0, %76 ], [ 0, %73 ]
+  %92 = phi i32 [ 0, %88 ], [ 0, %85 ], [ 0, %82 ], [ 0, %79 ], [ 0, %76 ], [ 0, %73 ], [ %72, %.preheader ]
   %93 = shl nsw i32 %70, 1
   %94 = shl nsw i32 %92, 1
   %95 = sub nsw i32 %93, %94
@@ -717,7 +717,7 @@ define void @ff_ivi_row_haar8(ptr noundef readonly captures(none) %0, ptr nounde
   br label %86
 
 ._crit_edge:                                      ; preds = %5, %24, %21, %18, %15, %12, %9
-  %28 = phi i32 [ %8, %5 ], [ 0, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ]
+  %28 = phi i32 [ 0, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ %8, %5 ]
   %29 = shl nsw i32 %6, 1
   %30 = shl nsw i32 %28, 1
   %31 = sub nsw i32 %29, %30
@@ -1003,7 +1003,7 @@ define void @ff_ivi_inverse_haar_4x4(ptr noundef readonly captures(none) %0, ptr
   br label %72
 
 .preheader._crit_edge:                            ; preds = %.preheader, %44, %41
-  %48 = phi i32 [ %40, %.preheader ], [ 0, %44 ], [ 0, %41 ]
+  %48 = phi i32 [ 0, %44 ], [ 0, %41 ], [ %40, %.preheader ]
   %49 = sub nsw i32 %38, %48
   %50 = ashr i32 %49, 1
   %51 = add nsw i32 %48, %38
@@ -1078,7 +1078,7 @@ define void @ff_ivi_row_haar4(ptr noundef readonly captures(none) %0, ptr nounde
   br label %40
 
 ._crit_edge:                                      ; preds = %5, %12, %9
-  %16 = phi i32 [ %8, %5 ], [ 0, %12 ], [ 0, %9 ]
+  %16 = phi i32 [ 0, %12 ], [ 0, %9 ], [ %8, %5 ]
   %17 = sub nsw i32 %6, %16
   %18 = ashr i32 %17, 1
   %19 = add nsw i32 %16, %6
@@ -1393,7 +1393,7 @@ define void @ff_ivi_inverse_slant_8x8(ptr noundef readonly captures(none) %0, pt
   br label %187
 
 .preheader._crit_edge:                            ; preds = %.preheader, %98, %95, %92, %89, %86, %83
-  %102 = phi i32 [ %82, %.preheader ], [ 0, %98 ], [ 0, %95 ], [ 0, %92 ], [ 0, %89 ], [ 0, %86 ], [ 0, %83 ]
+  %102 = phi i32 [ 0, %98 ], [ 0, %95 ], [ 0, %92 ], [ 0, %89 ], [ 0, %86 ], [ 0, %83 ], [ %82, %.preheader ]
   %103 = getelementptr inbounds nuw i8, ptr %.1234, i64 12
   %104 = load i32, ptr %103, align 4, !tbaa !34
   %105 = shl nsw i32 %102, 2
@@ -1593,7 +1593,7 @@ define void @ff_ivi_inverse_slant_4x4(ptr noundef readonly captures(none) %0, pt
   br label %81
 
 .preheader._crit_edge:                            ; preds = %.preheader, %44, %41
-  %48 = phi i32 [ %40, %.preheader ], [ 0, %44 ], [ 0, %41 ]
+  %48 = phi i32 [ 0, %44 ], [ 0, %41 ], [ %40, %.preheader ]
   %49 = getelementptr inbounds nuw i8, ptr %.199, i64 8
   %50 = load i32, ptr %49, align 4, !tbaa !34
   %51 = sub nsw i32 %38, %50
@@ -1738,7 +1738,7 @@ define void @ff_ivi_row_slant8(ptr noundef readonly captures(none) %0, ptr nound
   br label %113
 
 ._crit_edge:                                      ; preds = %5, %24, %21, %18, %15, %12, %9
-  %28 = phi i32 [ %8, %5 ], [ 0, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ]
+  %28 = phi i32 [ 0, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ %8, %5 ]
   %29 = getelementptr inbounds nuw i8, ptr %.0120, i64 12
   %30 = load i32, ptr %29, align 4, !tbaa !34
   %31 = shl nsw i32 %28, 2
@@ -2126,7 +2126,7 @@ define void @ff_ivi_row_slant4(ptr noundef readonly captures(none) %0, ptr nound
   br label %49
 
 ._crit_edge:                                      ; preds = %5, %12, %9
-  %16 = phi i32 [ %8, %5 ], [ 0, %12 ], [ 0, %9 ]
+  %16 = phi i32 [ 0, %12 ], [ 0, %9 ], [ %8, %5 ]
   %17 = getelementptr inbounds nuw i8, ptr %.048, i64 8
   %18 = load i32, ptr %17, align 4, !tbaa !34
   %19 = sub nsw i32 %6, %18

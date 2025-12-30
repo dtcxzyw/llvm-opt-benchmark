@@ -488,7 +488,7 @@ define internal fastcc ptr @_get_list(i32 noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %25, %.lr.ph38, %9, %3, %.preheader
-  %.020 = phi ptr [ %1, %3 ], [ %16, %.preheader ], [ %23, %.lr.ph38 ], [ %1, %9 ], [ %1, %25 ]
+  %.020 = phi ptr [ %16, %.preheader ], [ %1, %3 ], [ %1, %9 ], [ %23, %.lr.ph38 ], [ %1, %25 ]
   ret ptr %.020
 }
 
@@ -848,7 +848,7 @@ _destroy_list.exit:                               ; preds = %.lr.ph.i53
   br label %72
 
 72:                                               ; preds = %3, %_destroy_list.exit, %_destroy_hashtbl.exit
-  %.031 = phi i32 [ %.0, %_destroy_list.exit ], [ -1, %_destroy_hashtbl.exit ], [ -1, %3 ]
+  %.031 = phi i32 [ -1, %_destroy_hashtbl.exit ], [ %.0, %_destroy_list.exit ], [ -1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.031
 }

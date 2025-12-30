@@ -371,7 +371,7 @@ evsig_ensure_saved_.exit:                         ; preds = %11
   br label %52
 
 52:                                               ; preds = %evsig_ensure_saved_.exit, %36, %46, %35
-  %.0 = phi i32 [ -1, %evsig_ensure_saved_.exit ], [ -1, %35 ], [ -1, %46 ], [ 0, %36 ]
+  %.0 = phi i32 [ -1, %35 ], [ -1, %46 ], [ -1, %evsig_ensure_saved_.exit ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -695,7 +695,7 @@ define internal range(i32 -1, 1) i32 @evsig_add(ptr noundef %0, i32 noundef %1, 
   br label %55
 
 55:                                               ; preds = %46, %52, %35, %40
-  %.0 = phi i32 [ 0, %35 ], [ 0, %40 ], [ -1, %52 ], [ -1, %46 ]
+  %.0 = phi i32 [ 0, %40 ], [ 0, %35 ], [ -1, %52 ], [ -1, %46 ]
   ret i32 %.0
 }
 

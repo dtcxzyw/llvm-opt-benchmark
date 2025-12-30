@@ -31,7 +31,7 @@ fdt_cells.exit.thread:                            ; preds = %6, %7
   br label %12
 
 fdt_cells.exit:                                   ; preds = %7, %2
-  %.0.i = phi i32 [ %5, %2 ], [ %rev.i.i, %7 ]
+  %.0.i = phi i32 [ %rev.i.i, %7 ], [ %5, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   switch i32 %.0.i, label %11 [
     i32 0, label %12
@@ -45,7 +45,7 @@ fdt_cells.exit:                                   ; preds = %7, %2
   br label %12
 
 12:                                               ; preds = %fdt_cells.exit.thread, %fdt_cells.exit, %11, %10
-  %.0 = phi i32 [ -14, %fdt_cells.exit ], [ 2, %10 ], [ -14, %fdt_cells.exit.thread ], [ %.0.i, %11 ]
+  %.0 = phi i32 [ 2, %10 ], [ -14, %fdt_cells.exit ], [ -14, %fdt_cells.exit.thread ], [ %.0.i, %11 ]
   ret i32 %.0
 }
 
@@ -122,7 +122,7 @@ fdt_cells.exit.thread.i:                          ; preds = %13, %12
   br label %fdt_address_cells.exit.thread
 
 fdt_cells.exit.i:                                 ; preds = %13, %6
-  %.0.i.i = phi i32 [ %11, %6 ], [ %rev.i.i.i, %13 ]
+  %.0.i.i = phi i32 [ %rev.i.i.i, %13 ], [ %11, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   switch i32 %.0.i.i, label %fdt_address_cells.exit [
     i32 0, label %fdt_address_cells.exit.thread
@@ -284,7 +284,7 @@ fdt_size_cells.exit.thread:                       ; preds = %fdt_cells.exit.i43,
   br label %fdt_address_cells.exit.thread
 
 fdt_address_cells.exit.thread:                    ; preds = %fdt_cells.exit.thread.i, %fdt_cells.exit.i, %49, %58, %fdt_size_cells.exit.thread, %27, %fdt_size_cells.exit, %fdt_address_cells.exit, %78
-  %.0 = phi i32 [ -15, %27 ], [ %.0.i.i, %fdt_address_cells.exit ], [ %24, %fdt_size_cells.exit ], [ -14, %fdt_size_cells.exit.thread ], [ %89, %78 ], [ -15, %58 ], [ -14, %49 ], [ -14, %fdt_cells.exit.i ], [ -14, %fdt_cells.exit.thread.i ]
+  %.0 = phi i32 [ %89, %78 ], [ %.0.i.i, %fdt_address_cells.exit ], [ %24, %fdt_size_cells.exit ], [ -15, %27 ], [ -14, %fdt_size_cells.exit.thread ], [ -15, %58 ], [ -14, %49 ], [ -14, %fdt_cells.exit.i ], [ -14, %fdt_cells.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }

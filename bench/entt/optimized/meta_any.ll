@@ -5597,7 +5597,7 @@ define linkonce_odr hidden void @_ZN4entt8meta_anyD2Ev(ptr noundef nonnull align
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit.i:      ; preds = %13, %9
-  %18 = phi ptr [ %12, %9 ], [ %14, %13 ]
+  %18 = phi ptr [ %14, %13 ], [ %12, %9 ]
   invoke void %7(ptr noundef %18)
           to label %_ZN4entt8meta_any7releaseEv.exit unwind label %74
 
@@ -6904,7 +6904,7 @@ _ZN4entt8internal12meta_contextD2Ev.exit:         ; preds = %_ZN4entt8internal23
   br label %.body
 
 .body:                                            ; preds = %39, %35, %269
-  %.pn37.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn37.pn.pn.pn, %269 ], [ %36, %35 ], [ %36, %39 ]
+  %.pn37.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn37.pn.pn.pn, %269 ], [ %36, %39 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN4entt8meta_anyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %2) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -8053,7 +8053,7 @@ _ZN4entt8meta_any4dataEv.exit.thread:             ; preds = %303
   unreachable
 
 _ZN4entt8meta_any4dataEv.exit:                    ; preds = %305, %308
-  %313 = phi ptr [ %307, %305 ], [ %309, %308 ]
+  %313 = phi ptr [ %309, %308 ], [ %307, %305 ]
   store ptr %313, ptr %26, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr null, ptr %27, align 8, !tbaa !65
@@ -9368,9 +9368,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %233, %231, %228
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %248
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %248 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %248 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %2, %248 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %248 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %251, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %253 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !182
   %254 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !182
@@ -9566,7 +9566,7 @@ _ZN4entt8meta_any4dataEv.exit.thread:             ; preds = %305
   unreachable
 
 _ZN4entt8meta_any4dataEv.exit:                    ; preds = %307, %311
-  %316 = phi ptr [ %310, %307 ], [ %312, %311 ]
+  %316 = phi ptr [ %312, %311 ], [ %310, %307 ]
   store ptr %316, ptr %26, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr null, ptr %27, align 8, !tbaa !65
@@ -25022,7 +25022,7 @@ _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i81: ; preds = %
   unreachable
 
 _ZN4entt8meta_any7releaseEv.exit.i:               ; preds = %71, %68
-  %76 = phi ptr [ %70, %68 ], [ %72, %71 ]
+  %76 = phi ptr [ %72, %71 ], [ %70, %68 ]
   invoke void %66(ptr noundef %76)
           to label %.noexc85 unwind label %93
 
@@ -41637,9 +41637,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %276, %274, %271
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %291
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %291 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %291 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %2, %291 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %291 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %294, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %296 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !546
   %297 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !546
@@ -42982,9 +42982,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i451: ; preds = %716, %714, %7
   br label %.lr.ph.i.i.i.i.i.i.i.i454
 
 .lr.ph.i.i.i.i.i.i.i.i454:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i454, %731
-  %.011.i.i.i.i.i.pn.i.i.i455 = phi ptr [ %.011.i.i.i.i.i.i.i.i457, %.lr.ph.i.i.i.i.i.i.i.i454 ], [ %2, %731 ]
-  %.0810.i.i.i.i.idx.i.i.i.i456 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i459, %.lr.ph.i.i.i.i.i.i.i.i454 ], [ 0, %731 ]
-  %.011.i.i.i.i.i.i.i.i457 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i455, i64 8
+  %.pn.i.i.i455 = phi ptr [ %2, %731 ], [ %.011.i.i.i.i.i.i.i.i457, %.lr.ph.i.i.i.i.i.i.i.i454 ]
+  %.0810.i.i.i.i.idx.i.i.i.i456 = phi i64 [ 0, %731 ], [ %.0810.i.i.i.i.add.i.i.i.i459, %.lr.ph.i.i.i.i.i.i.i.i454 ]
+  %.011.i.i.i.i.i.i.i.i457 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i455, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i458 = getelementptr inbounds nuw i8, ptr %734, i64 %.0810.i.i.i.i.idx.i.i.i.i456
   %736 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i458, align 8, !tbaa !176, !noalias !559
   %737 = load double, ptr %.011.i.i.i.i.i.i.i.i457, align 8, !tbaa !176, !noalias !559
@@ -44316,9 +44316,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %135, %133, %130
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %151
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %151 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %151 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %2, %151 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %151 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %154, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %156 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !567
   %157 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !567
@@ -46646,9 +46646,9 @@ _ZN7testing7MessageD2Ev.exit352:                  ; preds = %_ZNKSt14default_del
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %509
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %4, %509 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %509 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %4, %509 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %509 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %511, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %512 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !607
   %513 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !607
@@ -46849,9 +46849,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %565, %563, %560
   br label %.lr.ph.i.i.i.i.i.i.i.i379
 
 .lr.ph.i.i.i.i.i.i.i.i379:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i379, %578
-  %.011.i.i.i.i.i.pn.i.i.i380 = phi ptr [ %.011.i.i.i.i.i.i.i.i382, %.lr.ph.i.i.i.i.i.i.i.i379 ], [ %4, %578 ]
-  %.0810.i.i.i.i.idx.i.i.i.i381 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i384, %.lr.ph.i.i.i.i.i.i.i.i379 ], [ 0, %578 ]
-  %.011.i.i.i.i.i.i.i.i382 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i380, i64 8
+  %.pn.i.i.i380 = phi ptr [ %4, %578 ], [ %.011.i.i.i.i.i.i.i.i382, %.lr.ph.i.i.i.i.i.i.i.i379 ]
+  %.0810.i.i.i.i.idx.i.i.i.i381 = phi i64 [ 0, %578 ], [ %.0810.i.i.i.i.add.i.i.i.i384, %.lr.ph.i.i.i.i.i.i.i.i379 ]
+  %.011.i.i.i.i.i.i.i.i382 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i380, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i383 = getelementptr inbounds nuw i8, ptr %581, i64 %.0810.i.i.i.i.idx.i.i.i.i381
   %582 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i383, align 8, !tbaa !176, !noalias !612
   %583 = load double, ptr %.011.i.i.i.i.i.i.i.i382, align 8, !tbaa !176, !noalias !612
@@ -47062,9 +47062,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i409: ; preds = %636, %634, %6
   br label %.lr.ph.i.i.i.i.i.i.i.i411
 
 .lr.ph.i.i.i.i.i.i.i.i411:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i411, %649
-  %.011.i.i.i.i.i.pn.i.i.i412 = phi ptr [ %.011.i.i.i.i.i.i.i.i414, %.lr.ph.i.i.i.i.i.i.i.i411 ], [ %4, %649 ]
-  %.0810.i.i.i.i.idx.i.i.i.i413 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i416, %.lr.ph.i.i.i.i.i.i.i.i411 ], [ 0, %649 ]
-  %.011.i.i.i.i.i.i.i.i414 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i412, i64 8
+  %.pn.i.i.i412 = phi ptr [ %4, %649 ], [ %.011.i.i.i.i.i.i.i.i414, %.lr.ph.i.i.i.i.i.i.i.i411 ]
+  %.0810.i.i.i.i.idx.i.i.i.i413 = phi i64 [ 0, %649 ], [ %.0810.i.i.i.i.add.i.i.i.i416, %.lr.ph.i.i.i.i.i.i.i.i411 ]
+  %.011.i.i.i.i.i.i.i.i414 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i412, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i415 = getelementptr inbounds nuw i8, ptr %652, i64 %.0810.i.i.i.i.idx.i.i.i.i413
   %654 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i415, align 8, !tbaa !176, !noalias !620
   %655 = load double, ptr %.011.i.i.i.i.i.i.i.i414, align 8, !tbaa !176, !noalias !620
@@ -50762,9 +50762,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %511, %509, %506
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %524
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %4, %524 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %524 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %4, %524 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %524 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %527, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %528 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !697
   %529 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !697
@@ -50970,9 +50970,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i367: ; preds = %581, %579, %5
   br label %.lr.ph.i.i.i.i.i.i.i.i369
 
 .lr.ph.i.i.i.i.i.i.i.i369:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i369, %594
-  %.011.i.i.i.i.i.pn.i.i.i370 = phi ptr [ %.011.i.i.i.i.i.i.i.i372, %.lr.ph.i.i.i.i.i.i.i.i369 ], [ %4, %594 ]
-  %.0810.i.i.i.i.idx.i.i.i.i371 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i374, %.lr.ph.i.i.i.i.i.i.i.i369 ], [ 0, %594 ]
-  %.011.i.i.i.i.i.i.i.i372 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i370, i64 8
+  %.pn.i.i.i370 = phi ptr [ %4, %594 ], [ %.011.i.i.i.i.i.i.i.i372, %.lr.ph.i.i.i.i.i.i.i.i369 ]
+  %.0810.i.i.i.i.idx.i.i.i.i371 = phi i64 [ 0, %594 ], [ %.0810.i.i.i.i.add.i.i.i.i374, %.lr.ph.i.i.i.i.i.i.i.i369 ]
+  %.011.i.i.i.i.i.i.i.i372 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i370, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i373 = getelementptr inbounds nuw i8, ptr %597, i64 %.0810.i.i.i.i.idx.i.i.i.i371
   %599 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i373, align 8, !tbaa !176, !noalias !705
   %600 = load double, ptr %.011.i.i.i.i.i.i.i.i372, align 8, !tbaa !176, !noalias !705
@@ -54482,9 +54482,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %221, %219, %216
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %236
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %236 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %236 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %2, %236 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %236 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %239, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %241 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !762
   %242 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !762
@@ -55137,7 +55137,7 @@ _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i: ; preds = %35
   unreachable
 
 _ZN4entt8meta_any7releaseEv.exit.i:               ; preds = %60, %57
-  %65 = phi ptr [ %59, %57 ], [ %61, %60 ]
+  %65 = phi ptr [ %61, %60 ], [ %59, %57 ]
   invoke void %55(ptr noundef %65)
           to label %.noexc80 unwind label %88
 
@@ -55658,9 +55658,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %224, %222, %219
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %237
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %237 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %237 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %2, %237 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %237 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %240, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %242 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !775
   %243 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !775
@@ -56573,9 +56573,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %125, %123, %120
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %141
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %141 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %141 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %2, %141 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %141 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %144, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %146 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !788
   %147 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !788
@@ -57552,9 +57552,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %163, %161, %158
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %176
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %176 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %176 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %2, %176 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %176 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %179, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %181 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !808
   %182 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !808
@@ -58653,9 +58653,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %194, %192, %189
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %207
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %207 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %207 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %2, %207 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %207 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %210, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %212 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !821
   %213 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !821
@@ -59825,9 +59825,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %85, %83, %80
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %100
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %100 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %100 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %2, %100 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %100 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %103, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %105 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !837
   %106 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !837
@@ -60731,9 +60731,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %136, %134, %131
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %151
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %13, %151 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %151 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %13, %151 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %151 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %158, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %159 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !847
   %160 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !847
@@ -61256,9 +61256,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i155: ; preds = %313, %311, %3
   br label %.lr.ph.i.i.i.i.i.i.i.i158
 
 .lr.ph.i.i.i.i.i.i.i.i158:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i158, %327
-  %.011.i.i.i.i.i.pn.i.i.i159 = phi ptr [ %.011.i.i.i.i.i.i.i.i161, %.lr.ph.i.i.i.i.i.i.i.i158 ], [ %25, %327 ]
-  %.0810.i.i.i.i.idx.i.i.i.i160 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i163, %.lr.ph.i.i.i.i.i.i.i.i158 ], [ 0, %327 ]
-  %.011.i.i.i.i.i.i.i.i161 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i159, i64 8
+  %.pn.i.i.i159 = phi ptr [ %25, %327 ], [ %.011.i.i.i.i.i.i.i.i161, %.lr.ph.i.i.i.i.i.i.i.i158 ]
+  %.0810.i.i.i.i.idx.i.i.i.i160 = phi i64 [ 0, %327 ], [ %.0810.i.i.i.i.add.i.i.i.i163, %.lr.ph.i.i.i.i.i.i.i.i158 ]
+  %.011.i.i.i.i.i.i.i.i161 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i159, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i162 = getelementptr inbounds nuw i8, ptr %334, i64 %.0810.i.i.i.i.idx.i.i.i.i160
   %335 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i162, align 8, !tbaa !176, !noalias !852
   %336 = load double, ptr %.011.i.i.i.i.i.i.i.i161, align 8, !tbaa !176, !noalias !852
@@ -62796,9 +62796,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %133, %131, %128
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %146
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %12, %146 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %146 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %12, %146 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %146 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %153, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %154 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !869
   %155 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !869
@@ -63320,9 +63320,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i159: ; preds = %308, %306, %3
   br label %.lr.ph.i.i.i.i.i.i.i.i162
 
 .lr.ph.i.i.i.i.i.i.i.i162:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i162, %321
-  %.011.i.i.i.i.i.pn.i.i.i163 = phi ptr [ %.011.i.i.i.i.i.i.i.i165, %.lr.ph.i.i.i.i.i.i.i.i162 ], [ %24, %321 ]
-  %.0810.i.i.i.i.idx.i.i.i.i164 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i167, %.lr.ph.i.i.i.i.i.i.i.i162 ], [ 0, %321 ]
-  %.011.i.i.i.i.i.i.i.i165 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i163, i64 8
+  %.pn.i.i.i163 = phi ptr [ %24, %321 ], [ %.011.i.i.i.i.i.i.i.i165, %.lr.ph.i.i.i.i.i.i.i.i162 ]
+  %.0810.i.i.i.i.idx.i.i.i.i164 = phi i64 [ 0, %321 ], [ %.0810.i.i.i.i.add.i.i.i.i167, %.lr.ph.i.i.i.i.i.i.i.i162 ]
+  %.011.i.i.i.i.i.i.i.i165 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i163, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i166 = getelementptr inbounds nuw i8, ptr %328, i64 %.0810.i.i.i.i.idx.i.i.i.i164
   %329 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i166, align 8, !tbaa !176, !noalias !874
   %330 = load double, ptr %.011.i.i.i.i.i.i.i.i165, align 8, !tbaa !176, !noalias !874
@@ -63505,9 +63505,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i192
 
 .lr.ph.i.i.i.i.i.i.i.i192:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i192, %382
-  %.011.i.i.i.i.i.pn.i.i.i193 = phi ptr [ %.011.i.i.i.i.i.i.i.i195, %.lr.ph.i.i.i.i.i.i.i.i192 ], [ %28, %382 ]
-  %.0810.i.i.i.i.idx.i.i.i.i194 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i197, %.lr.ph.i.i.i.i.i.i.i.i192 ], [ 0, %382 ]
-  %.011.i.i.i.i.i.i.i.i195 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i193, i64 8
+  %.pn.i.i.i193 = phi ptr [ %28, %382 ], [ %.011.i.i.i.i.i.i.i.i195, %.lr.ph.i.i.i.i.i.i.i.i192 ]
+  %.0810.i.i.i.i.idx.i.i.i.i194 = phi i64 [ 0, %382 ], [ %.0810.i.i.i.i.add.i.i.i.i197, %.lr.ph.i.i.i.i.i.i.i.i192 ]
+  %.011.i.i.i.i.i.i.i.i195 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i193, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i196 = getelementptr inbounds nuw i8, ptr %31, i64 %.0810.i.i.i.i.idx.i.i.i.i194
   %387 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i196, align 8, !tbaa !176, !noalias !879
   %388 = load double, ptr %.011.i.i.i.i.i.i.i.i195, align 8, !tbaa !176, !noalias !879
@@ -64061,9 +64061,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %133, %131, %128
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %146
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %12, %146 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %146 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %12, %146 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %146 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %153, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %154 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !891
   %155 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !891
@@ -64586,9 +64586,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i159: ; preds = %309, %307, %3
   br label %.lr.ph.i.i.i.i.i.i.i.i162
 
 .lr.ph.i.i.i.i.i.i.i.i162:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i162, %322
-  %.011.i.i.i.i.i.pn.i.i.i163 = phi ptr [ %.011.i.i.i.i.i.i.i.i165, %.lr.ph.i.i.i.i.i.i.i.i162 ], [ %24, %322 ]
-  %.0810.i.i.i.i.idx.i.i.i.i164 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i167, %.lr.ph.i.i.i.i.i.i.i.i162 ], [ 0, %322 ]
-  %.011.i.i.i.i.i.i.i.i165 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i163, i64 8
+  %.pn.i.i.i163 = phi ptr [ %24, %322 ], [ %.011.i.i.i.i.i.i.i.i165, %.lr.ph.i.i.i.i.i.i.i.i162 ]
+  %.0810.i.i.i.i.idx.i.i.i.i164 = phi i64 [ 0, %322 ], [ %.0810.i.i.i.i.add.i.i.i.i167, %.lr.ph.i.i.i.i.i.i.i.i162 ]
+  %.011.i.i.i.i.i.i.i.i165 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i163, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i166 = getelementptr inbounds nuw i8, ptr %329, i64 %.0810.i.i.i.i.idx.i.i.i.i164
   %330 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i166, align 8, !tbaa !176, !noalias !896
   %331 = load double, ptr %.011.i.i.i.i.i.i.i.i165, align 8, !tbaa !176, !noalias !896
@@ -64771,9 +64771,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i192
 
 .lr.ph.i.i.i.i.i.i.i.i192:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i192, %383
-  %.011.i.i.i.i.i.pn.i.i.i193 = phi ptr [ %.011.i.i.i.i.i.i.i.i195, %.lr.ph.i.i.i.i.i.i.i.i192 ], [ %28, %383 ]
-  %.0810.i.i.i.i.idx.i.i.i.i194 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i197, %.lr.ph.i.i.i.i.i.i.i.i192 ], [ 0, %383 ]
-  %.011.i.i.i.i.i.i.i.i195 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i193, i64 8
+  %.pn.i.i.i193 = phi ptr [ %28, %383 ], [ %.011.i.i.i.i.i.i.i.i195, %.lr.ph.i.i.i.i.i.i.i.i192 ]
+  %.0810.i.i.i.i.idx.i.i.i.i194 = phi i64 [ 0, %383 ], [ %.0810.i.i.i.i.add.i.i.i.i197, %.lr.ph.i.i.i.i.i.i.i.i192 ]
+  %.011.i.i.i.i.i.i.i.i195 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i193, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i196 = getelementptr inbounds nuw i8, ptr %31, i64 %.0810.i.i.i.i.idx.i.i.i.i194
   %388 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i196, align 8, !tbaa !176, !noalias !901
   %389 = load double, ptr %.011.i.i.i.i.i.i.i.i195, align 8, !tbaa !176, !noalias !901
@@ -65251,9 +65251,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %106, %104, %101
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %121
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %10, %121 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %121 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %10, %121 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %121 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %128, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %129 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !906
   %130 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !906
@@ -65898,9 +65898,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i163: ; preds = %331, %329, %.
   br label %.lr.ph.i.i.i.i.i.i.i.i166
 
 .lr.ph.i.i.i.i.i.i.i.i166:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i166, %345
-  %.011.i.i.i.i.i.pn.i.i.i167 = phi ptr [ %.011.i.i.i.i.i.i.i.i169, %.lr.ph.i.i.i.i.i.i.i.i166 ], [ %25, %345 ]
-  %.0810.i.i.i.i.idx.i.i.i.i168 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i171, %.lr.ph.i.i.i.i.i.i.i.i166 ], [ 0, %345 ]
-  %.011.i.i.i.i.i.i.i.i169 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i167, i64 8
+  %.pn.i.i.i167 = phi ptr [ %25, %345 ], [ %.011.i.i.i.i.i.i.i.i169, %.lr.ph.i.i.i.i.i.i.i.i166 ]
+  %.0810.i.i.i.i.idx.i.i.i.i168 = phi i64 [ 0, %345 ], [ %.0810.i.i.i.i.add.i.i.i.i171, %.lr.ph.i.i.i.i.i.i.i.i166 ]
+  %.011.i.i.i.i.i.i.i.i169 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i167, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i170 = getelementptr inbounds nuw i8, ptr %352, i64 %.0810.i.i.i.i.idx.i.i.i.i168
   %353 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i170, align 8, !tbaa !176, !noalias !911
   %354 = load double, ptr %.011.i.i.i.i.i.i.i.i169, align 8, !tbaa !176, !noalias !911
@@ -66541,9 +66541,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %105, %103, %100
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %120
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %11, %120 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %120 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %11, %120 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %120 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %127, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %128 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !921
   %129 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !921
@@ -66986,9 +66986,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i120: ; preds = %261, %259, %.
   br label %.lr.ph.i.i.i.i.i.i.i.i123
 
 .lr.ph.i.i.i.i.i.i.i.i123:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i123, %275
-  %.011.i.i.i.i.i.pn.i.i.i124 = phi ptr [ %.011.i.i.i.i.i.i.i.i126, %.lr.ph.i.i.i.i.i.i.i.i123 ], [ %20, %275 ]
-  %.0810.i.i.i.i.idx.i.i.i.i125 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i128, %.lr.ph.i.i.i.i.i.i.i.i123 ], [ 0, %275 ]
-  %.011.i.i.i.i.i.i.i.i126 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i124, i64 8
+  %.pn.i.i.i124 = phi ptr [ %20, %275 ], [ %.011.i.i.i.i.i.i.i.i126, %.lr.ph.i.i.i.i.i.i.i.i123 ]
+  %.0810.i.i.i.i.idx.i.i.i.i125 = phi i64 [ 0, %275 ], [ %.0810.i.i.i.i.add.i.i.i.i128, %.lr.ph.i.i.i.i.i.i.i.i123 ]
+  %.011.i.i.i.i.i.i.i.i126 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i124, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i127 = getelementptr inbounds nuw i8, ptr %282, i64 %.0810.i.i.i.i.idx.i.i.i.i125
   %283 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i127, align 8, !tbaa !176, !noalias !933
   %284 = load double, ptr %.011.i.i.i.i.i.i.i.i126, align 8, !tbaa !176, !noalias !933
@@ -68505,9 +68505,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %119, %117, %114
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %132
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %10, %132 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %132 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %10, %132 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %132 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %139, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %140 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !955
   %141 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !955
@@ -69151,9 +69151,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i179: ; preds = %342, %340, %.
   br label %.lr.ph.i.i.i.i.i.i.i.i182
 
 .lr.ph.i.i.i.i.i.i.i.i182:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i182, %355
-  %.011.i.i.i.i.i.pn.i.i.i183 = phi ptr [ %.011.i.i.i.i.i.i.i.i185, %.lr.ph.i.i.i.i.i.i.i.i182 ], [ %25, %355 ]
-  %.0810.i.i.i.i.idx.i.i.i.i184 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i187, %.lr.ph.i.i.i.i.i.i.i.i182 ], [ 0, %355 ]
-  %.011.i.i.i.i.i.i.i.i185 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i183, i64 8
+  %.pn.i.i.i183 = phi ptr [ %25, %355 ], [ %.011.i.i.i.i.i.i.i.i185, %.lr.ph.i.i.i.i.i.i.i.i182 ]
+  %.0810.i.i.i.i.idx.i.i.i.i184 = phi i64 [ 0, %355 ], [ %.0810.i.i.i.i.add.i.i.i.i187, %.lr.ph.i.i.i.i.i.i.i.i182 ]
+  %.011.i.i.i.i.i.i.i.i185 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i183, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i186 = getelementptr inbounds nuw i8, ptr %362, i64 %.0810.i.i.i.i.idx.i.i.i.i184
   %363 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i186, align 8, !tbaa !176, !noalias !960
   %364 = load double, ptr %.011.i.i.i.i.i.i.i.i185, align 8, !tbaa !176, !noalias !960
@@ -69336,9 +69336,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i212
 
 .lr.ph.i.i.i.i.i.i.i.i212:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i212, %416
-  %.011.i.i.i.i.i.pn.i.i.i213 = phi ptr [ %.011.i.i.i.i.i.i.i.i215, %.lr.ph.i.i.i.i.i.i.i.i212 ], [ %29, %416 ]
-  %.0810.i.i.i.i.idx.i.i.i.i214 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i217, %.lr.ph.i.i.i.i.i.i.i.i212 ], [ 0, %416 ]
-  %.011.i.i.i.i.i.i.i.i215 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i213, i64 8
+  %.pn.i.i.i213 = phi ptr [ %29, %416 ], [ %.011.i.i.i.i.i.i.i.i215, %.lr.ph.i.i.i.i.i.i.i.i212 ]
+  %.0810.i.i.i.i.idx.i.i.i.i214 = phi i64 [ 0, %416 ], [ %.0810.i.i.i.i.add.i.i.i.i217, %.lr.ph.i.i.i.i.i.i.i.i212 ]
+  %.011.i.i.i.i.i.i.i.i215 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i213, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i216 = getelementptr inbounds nuw i8, ptr %36, i64 %.0810.i.i.i.i.idx.i.i.i.i214
   %421 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i216, align 8, !tbaa !176, !noalias !965
   %422 = load double, ptr %.011.i.i.i.i.i.i.i.i215, align 8, !tbaa !176, !noalias !965
@@ -70011,9 +70011,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %119, %117, %114
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %132
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %10, %132 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %132 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %10, %132 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %132 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %139, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %140 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !982
   %141 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !982
@@ -70658,9 +70658,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i179: ; preds = %343, %341, %.
   br label %.lr.ph.i.i.i.i.i.i.i.i182
 
 .lr.ph.i.i.i.i.i.i.i.i182:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i182, %356
-  %.011.i.i.i.i.i.pn.i.i.i183 = phi ptr [ %.011.i.i.i.i.i.i.i.i185, %.lr.ph.i.i.i.i.i.i.i.i182 ], [ %25, %356 ]
-  %.0810.i.i.i.i.idx.i.i.i.i184 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i187, %.lr.ph.i.i.i.i.i.i.i.i182 ], [ 0, %356 ]
-  %.011.i.i.i.i.i.i.i.i185 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i183, i64 8
+  %.pn.i.i.i183 = phi ptr [ %25, %356 ], [ %.011.i.i.i.i.i.i.i.i185, %.lr.ph.i.i.i.i.i.i.i.i182 ]
+  %.0810.i.i.i.i.idx.i.i.i.i184 = phi i64 [ 0, %356 ], [ %.0810.i.i.i.i.add.i.i.i.i187, %.lr.ph.i.i.i.i.i.i.i.i182 ]
+  %.011.i.i.i.i.i.i.i.i185 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i183, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i186 = getelementptr inbounds nuw i8, ptr %363, i64 %.0810.i.i.i.i.idx.i.i.i.i184
   %364 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i186, align 8, !tbaa !176, !noalias !987
   %365 = load double, ptr %.011.i.i.i.i.i.i.i.i185, align 8, !tbaa !176, !noalias !987
@@ -70843,9 +70843,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i212
 
 .lr.ph.i.i.i.i.i.i.i.i212:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i212, %417
-  %.011.i.i.i.i.i.pn.i.i.i213 = phi ptr [ %.011.i.i.i.i.i.i.i.i215, %.lr.ph.i.i.i.i.i.i.i.i212 ], [ %29, %417 ]
-  %.0810.i.i.i.i.idx.i.i.i.i214 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i217, %.lr.ph.i.i.i.i.i.i.i.i212 ], [ 0, %417 ]
-  %.011.i.i.i.i.i.i.i.i215 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i213, i64 8
+  %.pn.i.i.i213 = phi ptr [ %29, %417 ], [ %.011.i.i.i.i.i.i.i.i215, %.lr.ph.i.i.i.i.i.i.i.i212 ]
+  %.0810.i.i.i.i.idx.i.i.i.i214 = phi i64 [ 0, %417 ], [ %.0810.i.i.i.i.add.i.i.i.i217, %.lr.ph.i.i.i.i.i.i.i.i212 ]
+  %.011.i.i.i.i.i.i.i.i215 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i213, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i216 = getelementptr inbounds nuw i8, ptr %36, i64 %.0810.i.i.i.i.idx.i.i.i.i214
   %422 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i216, align 8, !tbaa !176, !noalias !992
   %423 = load double, ptr %.011.i.i.i.i.i.i.i.i215, align 8, !tbaa !176, !noalias !992
@@ -78180,7 +78180,7 @@ _ZN4entt8meta_anyC2IvJEEESt15in_place_type_tIT_EDpOT0_.exit: ; preds = %1, %27
   unreachable
 
 _ZN4entt8meta_any7releaseEv.exit.i:               ; preds = %54, %50
-  %59 = phi ptr [ %53, %50 ], [ %55, %54 ]
+  %59 = phi ptr [ %55, %54 ], [ %53, %50 ]
   invoke void %48(ptr noundef %59)
           to label %.noexc65 unwind label %78
 
@@ -84734,7 +84734,7 @@ define linkonce_odr hidden void @_ZN4entt8meta_any7emplaceI5emptyJEEEvDpOT0_(ptr
   unreachable
 
 _ZN4entt8meta_any7releaseEv.exit:                 ; preds = %10, %14
-  %19 = phi ptr [ %13, %10 ], [ %15, %14 ]
+  %19 = phi ptr [ %15, %14 ], [ %13, %10 ]
   tail call void %8(ptr noundef %19)
   %.pre = load i8, ptr %3, align 8, !tbaa !62
   %.pre3 = add i8 %.pre, -1
@@ -85535,7 +85535,7 @@ define linkonce_odr hidden void @_ZN4entt8meta_any7emplaceI3fatJddddEEEvDpOT0_(p
   unreachable
 
 _ZN4entt8meta_any7releaseEv.exit:                 ; preds = %14, %18
-  %23 = phi ptr [ %17, %14 ], [ %19, %18 ]
+  %23 = phi ptr [ %19, %18 ], [ %17, %14 ]
   tail call void %12(ptr noundef %23)
   %.pre = load i8, ptr %7, align 8, !tbaa !62
   %.pre7 = add i8 %.pre, -1
@@ -87314,7 +87314,7 @@ define linkonce_odr hidden void @_ZN4entt8meta_any7emplaceIiJiEEEvDpOT0_(ptr nou
   unreachable
 
 _ZN4entt8meta_any7releaseEv.exit:                 ; preds = %11, %15
-  %20 = phi ptr [ %14, %11 ], [ %16, %15 ]
+  %20 = phi ptr [ %16, %15 ], [ %14, %11 ]
   tail call void %9(ptr noundef %20)
   %.pre = load i8, ptr %4, align 8, !tbaa !62
   %.pre4 = add i8 %.pre, -1
@@ -88732,7 +88732,7 @@ define linkonce_odr hidden void @_ZN4entt8meta_any7emplaceIvJEEEvDpOT0_(ptr noun
   unreachable
 
 _ZN4entt8meta_any7releaseEv.exit:                 ; preds = %10, %14
-  %19 = phi ptr [ %13, %10 ], [ %15, %14 ]
+  %19 = phi ptr [ %15, %14 ], [ %13, %10 ]
   tail call void %8(ptr noundef %19)
   %.pre = load i8, ptr %3, align 8, !tbaa !62
   %.pre2 = add i8 %.pre, -1
@@ -89845,7 +89845,7 @@ _ZN7testing7MessageD2Ev.exit110:                  ; preds = %_ZNKSt14default_del
   unreachable
 
 _ZNK4entt8meta_any4typeEv.exit126:                ; preds = %333, %335
-  %.sink.i124 = phi ptr [ %336, %335 ], [ %334, %333 ]
+  %.sink.i124 = phi ptr [ %334, %333 ], [ %336, %335 ]
   %340 = getelementptr inbounds nuw i8, ptr %18, i64 136
   store ptr %.sink.i124, ptr %340, align 8, !tbaa !105, !alias.scope !1317
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -90279,7 +90279,7 @@ define linkonce_odr hidden void @_ZN4entt8meta_any5resetEv(ptr noundef nonnull a
   unreachable
 
 _ZN4entt8meta_any7releaseEv.exit:                 ; preds = %9, %13
-  %18 = phi ptr [ %12, %9 ], [ %14, %13 ]
+  %18 = phi ptr [ %14, %13 ], [ %12, %9 ]
   tail call void %7(ptr noundef %18)
   %.pre = load i8, ptr %2, align 8, !tbaa !62
   %.pre10 = add i8 %.pre, -1
@@ -91555,9 +91555,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %74, %72, %_ZSt4s
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %87
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %9, %87 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %87 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %9, %87 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %87 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %90, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %96 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !1349
   %97 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !1349
@@ -91805,9 +91805,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i42: ; preds = %161, %159, %15
   br label %.lr.ph.i.i.i.i.i.i.i.i45
 
 .lr.ph.i.i.i.i.i.i.i.i45:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i45, %177
-  %.011.i.i.i.i.i.pn.i.i.i46 = phi ptr [ %.011.i.i.i.i.i.i.i.i48, %.lr.ph.i.i.i.i.i.i.i.i45 ], [ %14, %177 ]
-  %.0810.i.i.i.i.idx.i.i.i.i47 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i50, %.lr.ph.i.i.i.i.i.i.i.i45 ], [ 0, %177 ]
-  %.011.i.i.i.i.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i46, i64 8
+  %.pn.i.i.i46 = phi ptr [ %14, %177 ], [ %.011.i.i.i.i.i.i.i.i48, %.lr.ph.i.i.i.i.i.i.i.i45 ]
+  %.0810.i.i.i.i.idx.i.i.i.i47 = phi i64 [ 0, %177 ], [ %.0810.i.i.i.i.add.i.i.i.i50, %.lr.ph.i.i.i.i.i.i.i.i45 ]
+  %.011.i.i.i.i.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i46, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %181, i64 %.0810.i.i.i.i.idx.i.i.i.i47
   %187 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i49, align 8, !tbaa !176, !noalias !1357
   %188 = load double, ptr %.011.i.i.i.i.i.i.i.i48, align 8, !tbaa !176, !noalias !1357
@@ -93038,9 +93038,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %254, %252, %249
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %267
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %21, %267 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %267 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %21, %267 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %267 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %270, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %276 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !1379
   %277 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !1379
@@ -95369,9 +95369,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %133, %131, %128
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %148
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %13, %148 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %148 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %13, %148 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %148 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %151, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %157 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !1430
   %158 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !1430
@@ -95810,9 +95810,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i111: ; preds = %288, %286, %2
   br label %.lr.ph.i.i.i.i.i.i.i.i114
 
 .lr.ph.i.i.i.i.i.i.i.i114:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i114, %301
-  %.011.i.i.i.i.i.pn.i.i.i115 = phi ptr [ %.011.i.i.i.i.i.i.i.i117, %.lr.ph.i.i.i.i.i.i.i.i114 ], [ %22, %301 ]
-  %.0810.i.i.i.i.idx.i.i.i.i116 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i119, %.lr.ph.i.i.i.i.i.i.i.i114 ], [ 0, %301 ]
-  %.011.i.i.i.i.i.i.i.i117 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i115, i64 8
+  %.pn.i.i.i115 = phi ptr [ %22, %301 ], [ %.011.i.i.i.i.i.i.i.i117, %.lr.ph.i.i.i.i.i.i.i.i114 ]
+  %.0810.i.i.i.i.idx.i.i.i.i116 = phi i64 [ 0, %301 ], [ %.0810.i.i.i.i.add.i.i.i.i119, %.lr.ph.i.i.i.i.i.i.i.i114 ]
+  %.011.i.i.i.i.i.i.i.i117 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i115, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i118 = getelementptr inbounds nuw i8, ptr %304, i64 %.0810.i.i.i.i.idx.i.i.i.i116
   %310 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i118, align 8, !tbaa !176, !noalias !1445
   %311 = load double, ptr %.011.i.i.i.i.i.i.i.i117, align 8, !tbaa !176, !noalias !1445
@@ -96728,9 +96728,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %303, %301, %298
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %318
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %16, %318 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %318 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %16, %318 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %318 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %321, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %327 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !1475
   %328 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !1475
@@ -97555,9 +97555,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i168: ; preds = %629, %627, %6
   br label %.lr.ph.i.i.i.i.i.i.i.i171
 
 .lr.ph.i.i.i.i.i.i.i.i171:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i171, %642
-  %.011.i.i.i.i.i.pn.i.i.i172 = phi ptr [ %.011.i.i.i.i.i.i.i.i174, %.lr.ph.i.i.i.i.i.i.i.i171 ], [ %26, %642 ]
-  %.0810.i.i.i.i.idx.i.i.i.i173 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i176, %.lr.ph.i.i.i.i.i.i.i.i171 ], [ 0, %642 ]
-  %.011.i.i.i.i.i.i.i.i174 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i172, i64 8
+  %.pn.i.i.i172 = phi ptr [ %26, %642 ], [ %.011.i.i.i.i.i.i.i.i174, %.lr.ph.i.i.i.i.i.i.i.i171 ]
+  %.0810.i.i.i.i.idx.i.i.i.i173 = phi i64 [ 0, %642 ], [ %.0810.i.i.i.i.add.i.i.i.i176, %.lr.ph.i.i.i.i.i.i.i.i171 ]
+  %.011.i.i.i.i.i.i.i.i174 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i172, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i175 = getelementptr inbounds nuw i8, ptr %645, i64 %.0810.i.i.i.i.idx.i.i.i.i173
   %651 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i175, align 8, !tbaa !176, !noalias !1505
   %652 = load double, ptr %.011.i.i.i.i.i.i.i.i174, align 8, !tbaa !176, !noalias !1505
@@ -105586,7 +105586,7 @@ _ZN4entt7locatorINS_8meta_ctxEE8value_orIS1_JEEERS1_DpOT0_.exit.i238: ; preds = 
   br label %_ZNK4entt8meta_anyeqERKS0_.exit244
 
 _ZNK4entt8meta_anyeqERKS0_.exit244:               ; preds = %391, %400, %405, %411
-  %413 = phi i1 [ false, %391 ], [ %.mux.mux.i243, %400 ], [ false, %405 ], [ %412, %411 ]
+  %413 = phi i1 [ false, %391 ], [ false, %405 ], [ %412, %411 ], [ %.mux.mux.i243, %400 ]
   %414 = zext i1 %413 to i8
   store i8 %414, ptr %22, align 8, !tbaa !43
   %415 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -108635,7 +108635,7 @@ _ZN7testing7MessageD2Ev.exit226:                  ; preds = %_ZNKSt14default_del
   br label %_ZNK4entt8meta_anyeqERKS0_.exit238
 
 _ZNK4entt8meta_anyeqERKS0_.exit238:               ; preds = %367, %376, %381, %387
-  %389 = phi i1 [ false, %367 ], [ %.mux.mux.i237, %376 ], [ false, %381 ], [ %388, %387 ]
+  %389 = phi i1 [ false, %367 ], [ false, %381 ], [ %388, %387 ], [ %.mux.mux.i237, %376 ]
   %390 = zext i1 %389 to i8
   store i8 %390, ptr %22, align 8, !tbaa !43
   %391 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -112118,9 +112118,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i: ; preds = %304, %302, %299
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %320
-  %.011.i.i.i.i.i.pn.i.i.i = phi ptr [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %15, %320 ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %320 ]
-  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i, i64 8
+  %.pn.i.i.i = phi ptr [ %15, %320 ], [ %.011.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %320 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %324, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %325 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !176, !noalias !1656
   %326 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !176, !noalias !1656
@@ -112344,9 +112344,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i: ; preds = %383, %381, %378
   br label %.lr.ph.i.i.i.i.i.i.i.i175
 
 .lr.ph.i.i.i.i.i.i.i.i175:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i175, %397
-  %.011.i.i.i.i.i.pn.i.i.i176 = phi ptr [ %.011.i.i.i.i.i.i.i.i178, %.lr.ph.i.i.i.i.i.i.i.i175 ], [ %20, %397 ]
-  %.0810.i.i.i.i.idx.i.i.i.i177 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i180, %.lr.ph.i.i.i.i.i.i.i.i175 ], [ 0, %397 ]
-  %.011.i.i.i.i.i.i.i.i178 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i176, i64 8
+  %.pn.i.i.i176 = phi ptr [ %20, %397 ], [ %.011.i.i.i.i.i.i.i.i178, %.lr.ph.i.i.i.i.i.i.i.i175 ]
+  %.0810.i.i.i.i.idx.i.i.i.i177 = phi i64 [ 0, %397 ], [ %.0810.i.i.i.i.add.i.i.i.i180, %.lr.ph.i.i.i.i.i.i.i.i175 ]
+  %.011.i.i.i.i.i.i.i.i178 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i176, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i179 = getelementptr inbounds nuw i8, ptr %400, i64 %.0810.i.i.i.i.idx.i.i.i.i177
   %403 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i179, align 8, !tbaa !176, !noalias !1664
   %404 = load double, ptr %.011.i.i.i.i.i.i.i.i178, align 8, !tbaa !176, !noalias !1664
@@ -112527,9 +112527,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i205
 
 .lr.ph.i.i.i.i.i.i.i.i205:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i205, %456
-  %.011.i.i.i.i.i.pn.i.i.i206 = phi ptr [ %.011.i.i.i.i.i.i.i.i208, %.lr.ph.i.i.i.i.i.i.i.i205 ], [ %24, %456 ]
-  %.0810.i.i.i.i.idx.i.i.i.i207 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i210, %.lr.ph.i.i.i.i.i.i.i.i205 ], [ 0, %456 ]
-  %.011.i.i.i.i.i.i.i.i208 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i206, i64 8
+  %.pn.i.i.i206 = phi ptr [ %24, %456 ], [ %.011.i.i.i.i.i.i.i.i208, %.lr.ph.i.i.i.i.i.i.i.i205 ]
+  %.0810.i.i.i.i.idx.i.i.i.i207 = phi i64 [ 0, %456 ], [ %.0810.i.i.i.i.add.i.i.i.i210, %.lr.ph.i.i.i.i.i.i.i.i205 ]
+  %.011.i.i.i.i.i.i.i.i208 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i206, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i209 = getelementptr inbounds nuw i8, ptr %459, i64 %.0810.i.i.i.i.idx.i.i.i.i207
   %460 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i209, align 8, !tbaa !176, !noalias !1669
   %461 = load double, ptr %.011.i.i.i.i.i.i.i.i208, align 8, !tbaa !176, !noalias !1669
@@ -112753,9 +112753,9 @@ _ZN4entt7type_idI3fatEERKNS_9type_infoEv.exit.i.i.i235: ; preds = %518, %516, %5
   br label %.lr.ph.i.i.i.i.i.i.i.i237
 
 .lr.ph.i.i.i.i.i.i.i.i237:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i237, %532
-  %.011.i.i.i.i.i.pn.i.i.i238 = phi ptr [ %.011.i.i.i.i.i.i.i.i240, %.lr.ph.i.i.i.i.i.i.i.i237 ], [ %29, %532 ]
-  %.0810.i.i.i.i.idx.i.i.i.i239 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i242, %.lr.ph.i.i.i.i.i.i.i.i237 ], [ 0, %532 ]
-  %.011.i.i.i.i.i.i.i.i240 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i.i.i238, i64 8
+  %.pn.i.i.i238 = phi ptr [ %29, %532 ], [ %.011.i.i.i.i.i.i.i.i240, %.lr.ph.i.i.i.i.i.i.i.i237 ]
+  %.0810.i.i.i.i.idx.i.i.i.i239 = phi i64 [ 0, %532 ], [ %.0810.i.i.i.i.add.i.i.i.i242, %.lr.ph.i.i.i.i.i.i.i.i237 ]
+  %.011.i.i.i.i.i.i.i.i240 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i238, i64 8
   %.0810.i.i.i.i.ptr.i.i.i.i241 = getelementptr inbounds nuw i8, ptr %535, i64 %.0810.i.i.i.i.idx.i.i.i.i239
   %538 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i241, align 8, !tbaa !176, !noalias !1677
   %539 = load double, ptr %.011.i.i.i.i.i.i.i.i240, align 8, !tbaa !176, !noalias !1677
@@ -160128,7 +160128,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !2326
   br label %41
 
@@ -160693,45 +160693,45 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN7t
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread: ; preds = %9, %.noexc.i
   %68 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
+  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
 
 .body:                                            ; preds = %19
   %69 = landingpad { ptr, i32 }
           cleanup
   %70 = load ptr, ptr %4, align 8, !tbaa !54
   %71 = icmp eq ptr %70, %7
-  br i1 %71, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread
+  br i1 %71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread: ; preds = %.body
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25: ; preds = %.body
   %72 = load i64, ptr %7, align 8, !tbaa !58
   %73 = add i64 %72, 1
   call void @_ZdlPvm(ptr noundef %70, i64 noundef %73) #27
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
+  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
 
 .body.thread:                                     ; preds = %30
   %74 = load ptr, ptr %4, align 8, !tbaa !54
   %75 = icmp eq ptr %74, %7
-  br i1 %75, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9
+  br i1 %75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23: ; preds = %.body.thread
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread: ; preds = %.body.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9: ; preds = %.body.thread
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %.body.thread
   %76 = load i64, ptr %7, align 8, !tbaa !58
   %77 = add i64 %76, 1
   call void @_ZdlPvm(ptr noundef %74, i64 noundef %77) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %.body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread
-  %.pn16 = phi { ptr, i32 } [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread ], [ %69, %.body ]
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10: ; preds = %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread
+  %.pn16 = phi { ptr, i32 } [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread ], [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25 ], [ %69, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 144) #27
   br label %78
 
-78:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
-  %.pn15 = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23 ], [ %.pn16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11 ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9 ]
+78:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
+  %.pn15 = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11 ], [ %.pn16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10 ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread ]
   resume { ptr, i32 } %.pn15
 }
 
@@ -161874,7 +161874,7 @@ _ZNK4entt9basic_anyILm16ELm8EE4typeEv.exit:       ; preds = %7, %13, %16, %18
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit:        ; preds = %30, %34
-  %39 = phi ptr [ %33, %30 ], [ %35, %34 ]
+  %39 = phi ptr [ %35, %34 ], [ %33, %30 ]
   %.not10.not = icmp eq ptr %39, null
   br i1 %.not10.not, label %44, label %40
 
@@ -164527,7 +164527,7 @@ _ZN4entt8internal14meta_type_nodeD2Ev.exit:       ; preds = %_ZNSt12__shared_ptr
   resume { ptr, i32 } %73
 
 .thread:                                          ; preds = %.lr.ph.i, %_ZN4entt8internal14meta_type_nodeD2Ev.exit, %21, %.loopexit, %3
-  %.1 = phi ptr [ null, %3 ], [ null, %.loopexit ], [ null, %21 ], [ %26, %_ZN4entt8internal14meta_type_nodeD2Ev.exit ], [ %.sroa.010.017.i, %.lr.ph.i ]
+  %.1 = phi ptr [ null, %3 ], [ null, %.loopexit ], [ %26, %_ZN4entt8internal14meta_type_nodeD2Ev.exit ], [ null, %21 ], [ %.sroa.010.017.i, %.lr.ph.i ]
   ret ptr %.1
 }
 
@@ -165557,7 +165557,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeI5emptyJRKS3_EEEvDpOT0_.exit: ; preds =
   br label %34
 
 34:                                               ; preds = %3, %33, %32, %19, %9
-  %.0 = phi ptr [ null, %33 ], [ %2, %9 ], [ %8, %3 ], [ %21, %19 ], [ %2, %32 ]
+  %.0 = phi ptr [ null, %33 ], [ %2, %9 ], [ %21, %19 ], [ %2, %32 ], [ %8, %3 ]
   ret ptr %.0
 }
 
@@ -167048,9 +167048,9 @@ define linkonce_odr hidden noundef ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vta
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %17
-  %.011.i.i.i.i.i.pn.i = phi ptr [ %.011.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %2, %17 ]
-  %.0810.i.i.i.i.idx.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i, %.lr.ph.i.i.i.i.i.i ], [ 0, %17 ]
-  %.011.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.pn.i, i64 8
+  %.pn.i = phi ptr [ %2, %17 ], [ %.011.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.idx.i.i = phi i64 [ 0, %17 ], [ %.0810.i.i.i.i.add.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %.0810.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %18, i64 %.0810.i.i.i.i.idx.i.i
   %19 = load double, ptr %.0810.i.i.i.i.ptr.i.i, align 8, !tbaa !176
   %20 = load double, ptr %.011.i.i.i.i.i.i, align 8, !tbaa !176
@@ -167096,7 +167096,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeI3fatJRKS3_EEEvDpOT0_.exit: ; preds = %
   br label %36
 
 36:                                               ; preds = %3, %_ZN4entt9basic_anyILm16ELm8EE10initializeI3fatJRKS3_EEEvDpOT0_.exit, %13, %11, %_ZNK3fateqERKS_.exit, %8, %5
-  %.0 = phi ptr [ %22, %_ZNK3fateqERKS_.exit ], [ %2, %5 ], [ %2, %8 ], [ null, %11 ], [ null, %13 ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeI3fatJRKS3_EEEvDpOT0_.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %2, %5 ], [ %2, %8 ], [ %22, %_ZNK3fateqERKS_.exit ], [ null, %11 ], [ null, %13 ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeI3fatJRKS3_EEEvDpOT0_.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -179491,7 +179491,7 @@ define linkonce_odr hidden void @_ZN4entt8meta_any7emplaceI3fatJRKS2_EEEvDpOT0_(
   unreachable
 
 _ZN4entt8meta_any7releaseEv.exit:                 ; preds = %11, %15
-  %20 = phi ptr [ %14, %11 ], [ %16, %15 ]
+  %20 = phi ptr [ %16, %15 ], [ %14, %11 ]
   tail call void %9(ptr noundef %20)
   %.pre = load i8, ptr %4, align 8, !tbaa !62
   %.pre4 = add i8 %.pre, -1
@@ -179801,7 +179801,7 @@ define linkonce_odr hidden void @_ZN4entt8meta_any7emplaceI5emptyJS2_EEEvDpOT0_(
   unreachable
 
 _ZN4entt8meta_any7releaseEv.exit:                 ; preds = %11, %15
-  %20 = phi ptr [ %14, %11 ], [ %16, %15 ]
+  %20 = phi ptr [ %16, %15 ], [ %14, %11 ]
   tail call void %9(ptr noundef %20)
   %.pre = load i8, ptr %4, align 8, !tbaa !62
   %.pre4 = add i8 %.pre, -1
@@ -180106,7 +180106,7 @@ define linkonce_odr hidden void @_ZN4entt8meta_any7emplaceI3fatJS2_EEEvDpOT0_(pt
   unreachable
 
 _ZN4entt8meta_any7releaseEv.exit:                 ; preds = %11, %15
-  %20 = phi ptr [ %14, %11 ], [ %16, %15 ]
+  %20 = phi ptr [ %16, %15 ], [ %14, %11 ]
   tail call void %9(ptr noundef %20)
   %.pre = load i8, ptr %4, align 8, !tbaa !62
   %.pre4 = add i8 %.pre, -1
@@ -182159,7 +182159,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIN4test14non_comparableEJRKS4_EEEvDpOT0
   br label %27
 
 27:                                               ; preds = %3, %3, %3, %26, %25, %12
-  %.0 = phi ptr [ null, %26 ], [ %8, %25 ], [ %2, %3 ], [ %14, %12 ], [ %2, %3 ], [ %2, %3 ]
+  %.0 = phi ptr [ null, %26 ], [ %14, %12 ], [ %8, %25 ], [ %2, %3 ], [ %2, %3 ], [ %2, %3 ]
   ret ptr %.0
 }
 
@@ -185121,7 +185121,7 @@ define linkonce_odr hidden void @_ZN4entt8meta_any7emplaceIdJdEEEvDpOT0_(ptr nou
   unreachable
 
 _ZN4entt8meta_any7releaseEv.exit:                 ; preds = %11, %15
-  %20 = phi ptr [ %14, %11 ], [ %16, %15 ]
+  %20 = phi ptr [ %16, %15 ], [ %14, %11 ]
   tail call void %9(ptr noundef %20)
   %.pre = load i8, ptr %4, align 8, !tbaa !62
   %.pre4 = add i8 %.pre, -1
@@ -185427,7 +185427,7 @@ define linkonce_odr hidden void @_ZN4entt8meta_any7emplaceIfJfEEEvDpOT0_(ptr nou
   unreachable
 
 _ZN4entt8meta_any7releaseEv.exit:                 ; preds = %11, %15
-  %20 = phi ptr [ %14, %11 ], [ %16, %15 ]
+  %20 = phi ptr [ %16, %15 ], [ %14, %11 ]
   tail call void %9(ptr noundef %20)
   %.pre = load i8, ptr %4, align 8, !tbaa !62
   %.pre4 = add i8 %.pre, -1
@@ -186641,7 +186641,7 @@ define linkonce_odr hidden void @_ZN4entt8meta_any7emplaceI10enum_classJS2_EEEvD
   unreachable
 
 _ZN4entt8meta_any7releaseEv.exit:                 ; preds = %11, %15
-  %20 = phi ptr [ %14, %11 ], [ %16, %15 ]
+  %20 = phi ptr [ %16, %15 ], [ %14, %11 ]
   tail call void %9(ptr noundef %20)
   %.pre = load i8, ptr %4, align 8, !tbaa !62
   %.pre4 = add i8 %.pre, -1
@@ -189016,8 +189016,8 @@ _ZNK4entt9meta_type4infoEv.exit65.us:             ; preds = %71, %69, %66, %_ZNK
   br label %_ZN4entt8internal11find_memberITnDaXadL_ZNS0_14meta_base_node4typeEEESt6vectorIS2_SaIS2_EEjEEPDaRT0_T1_.exit.us
 
 _ZN4entt8internal11find_memberITnDaXadL_ZNS0_14meta_base_node4typeEEESt6vectorIS2_SaIS2_EEjEEPDaRT0_T1_.exit.us: ; preds = %.lr.ph.i.us, %.lr.ph.i68.us, %97, %.loopexit.us, %82, %79
-  %.044.us = phi i1 [ false, %82 ], [ %.not.i70.us, %.lr.ph.i68.us ], [ true, %97 ], [ true, %79 ], [ false, %.loopexit.us ], [ true, %.lr.ph.i.us ]
-  %.343.us = phi i64 [ %.040104.us, %82 ], [ %.040104.us, %.lr.ph.i68.us ], [ %98, %97 ], [ %.040104.us, %79 ], [ %.040104.us, %.loopexit.us ], [ %.040104.us, %.lr.ph.i.us ]
+  %.044.us = phi i1 [ false, %82 ], [ true, %79 ], [ true, %97 ], [ false, %.loopexit.us ], [ %.not.i70.us, %.lr.ph.i68.us ], [ true, %.lr.ph.i.us ]
+  %.343.us = phi i64 [ %.040104.us, %82 ], [ %.040104.us, %79 ], [ %98, %97 ], [ %.040104.us, %.loopexit.us ], [ %.040104.us, %.lr.ph.i68.us ], [ %.040104.us, %.lr.ph.i.us ]
   %.not.i.i.i.i.us = icmp eq ptr %.sroa.14.4.us, null
   br i1 %.not.i.i.i.i.us, label %_ZNSt12__shared_ptrIN4entt8internal20meta_type_descriptorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.us, label %99
 
@@ -189221,7 +189221,7 @@ _ZN4entt9meta_typeD2Ev.exit85.us:                 ; preds = %177, %176, %_ZN9__g
   br i1 %exitcond.not, label %.critedge.us.thread, label %21, !llvm.loop !2781
 
 .critedge.us:                                     ; preds = %21, %_ZN4entt9meta_typeD2Ev.exit85.us
-  %.141.us = phi i64 [ %.040104.us, %21 ], [ %.343.us, %_ZN4entt9meta_typeD2Ev.exit85.us ]
+  %.141.us = phi i64 [ %.343.us, %_ZN4entt9meta_typeD2Ev.exit85.us ], [ %.040104.us, %21 ]
   %187 = icmp eq i64 %.039105.us, %2
   br i1 %187, label %.critedge.us.thread, label %201
 
@@ -189251,9 +189251,9 @@ _ZN4entt9meta_typeD2Ev.exit85.us:                 ; preds = %177, %176, %_ZN9__g
   br label %201
 
 201:                                              ; preds = %191, %189, %.critedge.us.thread, %.critedge.us, %17, %13
-  %.151.us = phi i64 [ %.050114.us, %13 ], [ %.050114.us, %17 ], [ %.050114.us, %191 ], [ %.050114.us, %.critedge.us ], [ %.141.us180, %.critedge.us.thread ], [ %.050114.us, %189 ]
-  %.147.us = phi i1 [ %.046115.us, %13 ], [ %.046115.us, %17 ], [ %.not59.us, %191 ], [ %.046115.us, %.critedge.us ], [ false, %.critedge.us.thread ], [ %.046115.us, %189 ]
-  %.1.us = phi ptr [ %.0117.us, %13 ], [ %.0117.us, %17 ], [ %spec.select97.us, %191 ], [ %.0117.us, %.critedge.us ], [ %.045116.us, %.critedge.us.thread ], [ %.0117.us, %189 ]
+  %.151.us = phi i64 [ %.050114.us, %17 ], [ %.050114.us, %13 ], [ %.050114.us, %189 ], [ %.050114.us, %.critedge.us ], [ %.141.us180, %.critedge.us.thread ], [ %.050114.us, %191 ]
+  %.147.us = phi i1 [ %.046115.us, %17 ], [ %.046115.us, %13 ], [ %.046115.us, %189 ], [ %.046115.us, %.critedge.us ], [ false, %.critedge.us.thread ], [ %.not59.us, %191 ]
+  %.1.us = phi ptr [ %.0117.us, %17 ], [ %.0117.us, %13 ], [ %.0117.us, %189 ], [ %.0117.us, %.critedge.us ], [ %.045116.us, %.critedge.us.thread ], [ %spec.select97.us, %191 ]
   %.not.i86.us = icmp eq ptr %.sroa.093.0113.us, null
   br i1 %.not.i86.us, label %._crit_edge, label %_ZZNK4entt9meta_type6invokeEjNS_11meta_handleEPNS_8meta_anyEmENUlvE_clEv.exit87.us
 
@@ -189301,8 +189301,8 @@ _ZZNK4entt9meta_type6invokeEjNS_11meta_handleEPNS_8meta_anyEmENUlvE_clEv.exit87.
   br label %219
 
 219:                                              ; preds = %.preheader.us139.us, %214, %210, %.lr.ph118.split.split.us.split.us
-  %.147.us133.us = phi i1 [ %.046115.us125.us, %.lr.ph118.split.split.us.split.us ], [ %.046115.us125.us, %210 ], [ %218, %214 ], [ false, %.preheader.us139.us ]
-  %.1.us134.us = phi ptr [ %.0117.us123.us, %.lr.ph118.split.split.us.split.us ], [ %.0117.us123.us, %210 ], [ %.0117.us123.us, %214 ], [ %.045116.us124.us, %.preheader.us139.us ]
+  %.147.us133.us = phi i1 [ %.046115.us125.us, %210 ], [ %.046115.us125.us, %.lr.ph118.split.split.us.split.us ], [ false, %.preheader.us139.us ], [ %218, %214 ]
+  %.1.us134.us = phi ptr [ %.0117.us123.us, %210 ], [ %.0117.us123.us, %.lr.ph118.split.split.us.split.us ], [ %.045116.us124.us, %.preheader.us139.us ], [ %.0117.us123.us, %214 ]
   %.not.i86.us135.us = icmp eq ptr %.sroa.093.0113.us127.us, null
   br i1 %.not.i86.us135.us, label %._crit_edge, label %_ZZNK4entt9meta_type6invokeEjNS_11meta_handleEPNS_8meta_anyEmENUlvE_clEv.exit87.us136.us
 
@@ -189340,8 +189340,8 @@ _ZZNK4entt9meta_type6invokeEjNS_11meta_handleEPNS_8meta_anyEmENUlvE_clEv.exit87.
   br label %235
 
 235:                                              ; preds = %225, %.preheader.us139, %.lr.ph118.split.split.us.split
-  %.147.us133 = phi i1 [ false, %.preheader.us139 ], [ %.046115.us125, %.lr.ph118.split.split.us.split ], [ %.not59.us130, %225 ]
-  %.1.us134 = phi ptr [ %.045116.us124, %.preheader.us139 ], [ %.0117.us123, %.lr.ph118.split.split.us.split ], [ %spec.select97.us131, %225 ]
+  %.147.us133 = phi i1 [ %.046115.us125, %.lr.ph118.split.split.us.split ], [ false, %.preheader.us139 ], [ %.not59.us130, %225 ]
+  %.1.us134 = phi ptr [ %.0117.us123, %.lr.ph118.split.split.us.split ], [ %.045116.us124, %.preheader.us139 ], [ %spec.select97.us131, %225 ]
   %.not.i86.us135 = icmp eq ptr %.sroa.093.0113.us127, null
   br i1 %.not.i86.us135, label %._crit_edge, label %_ZZNK4entt9meta_type6invokeEjNS_11meta_handleEPNS_8meta_anyEmENUlvE_clEv.exit87.us136
 

@@ -1220,7 +1220,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %.thread, %PyObject_
   br label %35
 
 35:                                               ; preds = %.split, %.split30, %32, %24, %9, %17
-  %.0 = phi ptr [ null, %24 ], [ null, %32 ], [ null, %9 ], [ null, %17 ], [ %31, %.split ], [ %34, %.split30 ]
+  %.0 = phi ptr [ null, %24 ], [ null, %32 ], [ null, %17 ], [ null, %9 ], [ %31, %.split ], [ %34, %.split30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -1931,7 +1931,7 @@ Py_DECREF.exit67.i:                               ; preds = %135, %Py_DECREF.exi
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %142, %139, %137, %.loopexit.i, %85, %75
-  %.04978.i = phi ptr [ %.049.i, %142 ], [ %.049.i, %.loopexit.i ], [ %.049.i, %137 ], [ %.049.i, %139 ], [ null, %75 ], [ null, %85 ]
+  %.04978.i = phi ptr [ %.049.i, %.loopexit.i ], [ %.049.i, %137 ], [ %.049.i, %139 ], [ %.049.i, %142 ], [ null, %75 ], [ null, %85 ]
   %143 = load i32, ptr %73, align 8, !tbaa !35
   %.not.i.i = icmp sgt i32 %143, -1
   br i1 %.not.i.i, label %144, label %_Py_FindSourceFile.exit
@@ -2342,8 +2342,8 @@ PyUnicode_READ.exit:                              ; preds = %.lr.ph208, %283
   br i1 %286, label %PyUnicode_READ.exit, label %PyUnicode_READ.exit._crit_edge, !llvm.loop !62
 
 PyUnicode_READ.exit._crit_edge:                   ; preds = %276, %PyUnicode_READ.exit.us222, %269, %PyUnicode_READ.exit.us, %283, %PyUnicode_READ.exit
-  %.177.lcssa = phi i32 [ %270, %269 ], [ %.177207, %PyUnicode_READ.exit ], [ %284, %283 ], [ %.177207.us, %PyUnicode_READ.exit.us ], [ %.177207.us221, %PyUnicode_READ.exit.us222 ], [ %277, %276 ]
-  %.lcssa = phi i64 [ %271, %269 ], [ %280, %PyUnicode_READ.exit ], [ %285, %283 ], [ %266, %PyUnicode_READ.exit.us ], [ %273, %PyUnicode_READ.exit.us222 ], [ %278, %276 ]
+  %.177.lcssa = phi i32 [ %.177207, %PyUnicode_READ.exit ], [ %284, %283 ], [ %.177207.us, %PyUnicode_READ.exit.us ], [ %270, %269 ], [ %.177207.us221, %PyUnicode_READ.exit.us222 ], [ %277, %276 ]
+  %.lcssa = phi i64 [ %280, %PyUnicode_READ.exit ], [ %285, %283 ], [ %266, %PyUnicode_READ.exit.us ], [ %271, %269 ], [ %273, %PyUnicode_READ.exit.us222 ], [ %278, %276 ]
   %.not117 = icmp eq i32 %.177.lcssa, 0
   br i1 %.not117, label %Py_DECREF.exit124, label %287
 
@@ -2458,7 +2458,7 @@ _Py_WriteIndent.exit:                             ; preds = %306
   br label %Py_DECREF.exit146
 
 Py_DECREF.exit146:                                ; preds = %325, %322, %320, %319, %316, %314, %248, %245, %.split96, %Py_DECREF.exit126, %208, %205, %203, %168, %165, %Py_DECREF.exit144, %154, %151, %149, %209, %.critedge, %PyUnicode_READ_CHAR.exit183, %6, %Py_DECREF.exit138
-  %.0 = phi i32 [ 0, %6 ], [ 0, %PyUnicode_READ_CHAR.exit183 ], [ 0, %208 ], [ -1, %154 ], [ 0, %Py_DECREF.exit138 ], [ -1, %.critedge ], [ 0, %319 ], [ -1, %248 ], [ 0, %168 ], [ 0, %209 ], [ -1, %Py_DECREF.exit126 ], [ -1, %149 ], [ -1, %151 ], [ 0, %Py_DECREF.exit144 ], [ 0, %165 ], [ 0, %203 ], [ 0, %205 ], [ -1, %.split96 ], [ -1, %245 ], [ 0, %314 ], [ 0, %316 ], [ -1, %320 ], [ -1, %322 ], [ -1, %325 ]
+  %.0 = phi i32 [ 0, %Py_DECREF.exit138 ], [ 0, %6 ], [ 0, %PyUnicode_READ_CHAR.exit183 ], [ -1, %.critedge ], [ 0, %209 ], [ -1, %149 ], [ -1, %151 ], [ -1, %154 ], [ 0, %Py_DECREF.exit144 ], [ 0, %165 ], [ 0, %168 ], [ 0, %203 ], [ 0, %205 ], [ 0, %208 ], [ -1, %Py_DECREF.exit126 ], [ -1, %.split96 ], [ -1, %245 ], [ -1, %248 ], [ 0, %314 ], [ 0, %316 ], [ 0, %319 ], [ -1, %320 ], [ -1, %322 ], [ -1, %325 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
@@ -2707,7 +2707,7 @@ Py_DECREF.exit.i.i:                               ; preds = %98, %95, %92
   br label %ignore_source_errors.exit.i.i
 
 ignore_source_errors.exit.i.i:                    ; preds = %110, %107, %105
-  %.018.i.i = phi i32 [ 0, %105 ], [ -1, %107 ], [ 0, %110 ]
+  %.018.i.i = phi i32 [ -1, %107 ], [ 0, %110 ], [ 0, %105 ]
   %.not.i23.i.i = icmp eq ptr %103, null
   br i1 %.not.i23.i.i, label %tb_displayline.exit.i, label %ignore_source_errors.exit.thread.i.i
 
@@ -2823,7 +2823,7 @@ tb_print_line_repeated.exit.thread.i:             ; preds = %tb_print_line_repea
   br label %tb_printinternal.exit
 
 tb_printinternal.exit:                            ; preds = %.preheader.i, %._crit_edge.i, %tb_print_line_repeated.exit85.i, %.thread111.i, %tb_print_line_repeated.exit.thread.i, %.thread115.i, %145, %148, %24, %.critedge, %3, %10
-  %.013 = phi i32 [ -1, %10 ], [ 0, %3 ], [ 0, %.critedge ], [ -1, %24 ], [ 0, %tb_print_line_repeated.exit85.i ], [ 0, %.preheader.i ], [ 0, %._crit_edge.i ], [ -1, %.thread111.i ], [ -1, %tb_print_line_repeated.exit.thread.i ], [ -1, %.thread115.i ], [ -1, %145 ], [ -1, %148 ]
+  %.013 = phi i32 [ -1, %10 ], [ 0, %3 ], [ 0, %.critedge ], [ -1, %24 ], [ 0, %.preheader.i ], [ 0, %._crit_edge.i ], [ 0, %tb_print_line_repeated.exit85.i ], [ -1, %.thread111.i ], [ -1, %tb_print_line_repeated.exit.thread.i ], [ -1, %.thread115.i ], [ -1, %145 ], [ -1, %148 ]
   ret i32 %.013
 }
 
@@ -3318,7 +3318,7 @@ dump_frame.exit:                                  ; preds = %66, %67
   br i1 %72, label %.loopexit, label %17
 
 .loopexit.sink.split:                             ; preds = %11, %7, %7, %7, %7, %8, %8, %8, %8
-  %.str.38.sink = phi ptr [ @.str.37, %7 ], [ @.str.37, %8 ], [ @.str.37, %8 ], [ @.str.37, %8 ], [ @.str.37, %8 ], [ @.str.37, %7 ], [ @.str.37, %7 ], [ @.str.37, %7 ], [ @.str.38, %11 ]
+  %.str.38.sink = phi ptr [ @.str.37, %8 ], [ @.str.37, %8 ], [ @.str.37, %8 ], [ @.str.37, %8 ], [ @.str.37, %7 ], [ @.str.37, %7 ], [ @.str.37, %7 ], [ @.str.37, %7 ], [ @.str.38, %11 ]
   %74 = tail call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef nonnull %.str.38.sink, i64 noundef 20) #10
   br label %.loopexit
 
@@ -3476,7 +3476,7 @@ write_thread_id.exit:                             ; preds = %42
   br i1 %.not40, label %tstate_is_freed.exit.thread, label %28, !llvm.loop !147
 
 tstate_is_freed.exit.thread:                      ; preds = %62, %20, %20, %20, %20, %8, %8, %8, %8, %.thread, %.thread, %.thread, %.thread, %21, %32, %14
-  %.031 = phi ptr [ @.str.10, %20 ], [ @.str.8, %8 ], [ @.str.9, %14 ], [ @.str.11, %21 ], [ @.str.10, %20 ], [ null, %32 ], [ @.str.8, %8 ], [ @.str.8, %.thread ], [ @.str.8, %.thread ], [ @.str.8, %.thread ], [ @.str.8, %.thread ], [ @.str.8, %8 ], [ @.str.8, %8 ], [ @.str.10, %20 ], [ @.str.10, %20 ], [ null, %62 ]
+  %.031 = phi ptr [ @.str.9, %14 ], [ @.str.11, %21 ], [ null, %32 ], [ @.str.8, %.thread ], [ @.str.8, %.thread ], [ @.str.8, %.thread ], [ @.str.8, %.thread ], [ @.str.8, %8 ], [ @.str.8, %8 ], [ @.str.8, %8 ], [ @.str.10, %20 ], [ @.str.10, %20 ], [ @.str.10, %20 ], [ @.str.8, %8 ], [ @.str.10, %20 ], [ null, %62 ]
   ret ptr %.031
 }
 
@@ -3586,9 +3586,9 @@ define internal range(i32 -1, 1) i32 @tb_next_set(ptr noundef captures(address) 
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %._crit_edge.thread, %._crit_edge, %29
-  %31 = phi ptr [ %24, %._crit_edge.thread ], [ %26, %29 ], [ %26, %._crit_edge ]
-  %32 = phi ptr [ %23, %._crit_edge.thread ], [ %25, %29 ], [ %25, %._crit_edge ]
-  %.0153236 = phi ptr [ null, %._crit_edge.thread ], [ %1, %29 ], [ %1, %._crit_edge ]
+  %31 = phi ptr [ %24, %._crit_edge.thread ], [ %26, %._crit_edge ], [ %26, %29 ]
+  %32 = phi ptr [ %23, %._crit_edge.thread ], [ %25, %._crit_edge ], [ %25, %29 ]
+  %.0153236 = phi ptr [ null, %._crit_edge.thread ], [ %1, %._crit_edge ], [ %1, %29 ]
   store ptr %.0153236, ptr %32, align 8, !tbaa !38
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %Py_XDECREF.exit, label %33
@@ -3609,7 +3609,7 @@ _Py_XNewRef.exit:                                 ; preds = %._crit_edge.thread,
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %38, %35, %33, %_Py_XNewRef.exit, %17, %11, %4
-  %.0 = phi i32 [ -1, %4 ], [ -1, %11 ], [ -1, %17 ], [ 0, %_Py_XNewRef.exit ], [ 0, %33 ], [ 0, %35 ], [ 0, %38 ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %4 ], [ -1, %17 ], [ 0, %_Py_XNewRef.exit ], [ 0, %33 ], [ 0, %35 ], [ 0, %38 ]
   ret i32 %.0
 }
 

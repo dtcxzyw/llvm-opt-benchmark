@@ -245,7 +245,7 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_topocentricP8PJconst
   br label %104
 
 104:                                              ; preds = %27, %36, %39, %44, %94, %49, %8
-  %.0 = phi ptr [ %9, %8 ], [ %37, %36 ], [ %28, %27 ], [ %45, %44 ], [ %40, %39 ], [ %50, %49 ], [ %0, %94 ]
+  %.0 = phi ptr [ %9, %8 ], [ %37, %36 ], [ %45, %44 ], [ %40, %39 ], [ %28, %27 ], [ %50, %49 ], [ %0, %94 ]
   ret ptr %.0
 }
 

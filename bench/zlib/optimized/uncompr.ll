@@ -124,7 +124,7 @@ thread-pre-split:                                 ; preds = %31
   br label %53
 
 53:                                               ; preds = %52, %48, %.fold.split, %46, %10
-  %.028 = phi i32 [ %13, %10 ], [ 0, %46 ], [ -3, %48 ], [ %32, %52 ], [ -3, %.fold.split ]
+  %.028 = phi i32 [ %13, %10 ], [ 0, %46 ], [ %32, %52 ], [ -3, %48 ], [ -3, %.fold.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.028

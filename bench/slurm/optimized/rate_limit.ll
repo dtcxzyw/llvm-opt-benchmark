@@ -346,8 +346,8 @@ define dso_local noundef zeroext i1 @rate_limit_exceeded(ptr noundef %0) local_u
   br label %85
 
 85:                                               ; preds = %75, %78, %.critedge.thread, %32, %46
-  %.15779 = phi i32 [ %19, %.critedge.thread ], [ %.056, %32 ], [ %.056, %46 ], [ %.056, %78 ], [ %.056, %75 ]
-  %.1 = phi i1 [ false, %.critedge.thread ], [ false, %32 ], [ false, %46 ], [ %.not75, %78 ], [ %.not75, %75 ]
+  %.15779 = phi i32 [ %19, %.critedge.thread ], [ %.056, %46 ], [ %.056, %32 ], [ %.056, %78 ], [ %.056, %75 ]
+  %.1 = phi i1 [ false, %.critedge.thread ], [ false, %46 ], [ false, %32 ], [ %.not75, %78 ], [ %.not75, %75 ]
   %86 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @rate_limit_mutex) #7
   %.not76 = icmp eq i32 %86, 0
   br i1 %.not76, label %89, label %87
@@ -411,7 +411,7 @@ define dso_local noundef zeroext i1 @rate_limit_exceeded(ptr noundef %0) local_u
   br label %121
 
 121:                                              ; preds = %89, %92, %117, %12, %2, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %12 ], [ false, %2 ], [ true, %117 ], [ true, %92 ], [ %.1, %89 ]
+  %.0 = phi i1 [ false, %1 ], [ false, %2 ], [ true, %12 ], [ true, %117 ], [ true, %92 ], [ %.1, %89 ]
   ret i1 %.0
 }
 

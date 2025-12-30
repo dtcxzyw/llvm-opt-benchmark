@@ -433,7 +433,7 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i._crit_edge.i: ; preds = %_ZN7rocksdb
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread
 
-.thread:                                          ; preds = %_ZN7rocksdb11GetVarint32EPNS_5SliceEPj.exit, %73, %91
+.thread:                                          ; preds = %73, %_ZN7rocksdb11GetVarint32EPNS_5SliceEPj.exit, %91
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %97
 

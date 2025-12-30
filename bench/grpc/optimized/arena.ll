@@ -42,7 +42,7 @@ define hidden i64 @upb_Arena_SpaceAllocated(ptr noundef captures(none) %0, ptr n
   br i1 %20, label %.lr.ph.i, label %.lr.ph31.preheader, !llvm.loop !6
 
 .lr.ph31.preheader:                               ; preds = %.lr.ph.i, %2, %.lr.ph.i.preheader
-  %.030.ph = phi ptr [ %3, %2 ], [ %8, %.lr.ph.i.preheader ], [ %16, %.lr.ph.i ]
+  %.030.ph = phi ptr [ %8, %.lr.ph.i.preheader ], [ %3, %2 ], [ %16, %.lr.ph.i ]
   br label %.lr.ph31
 
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %._crit_edge
@@ -556,7 +556,7 @@ _upb_Arena_FixupRefs.exit:                        ; preds = %76
   br i1 %83, label %_upb_Arena_FixupRefs.exit.thread, label %.critedge.backedge
 
 _upb_Arena_FixupRefs.exit.thread:                 ; preds = %_upb_Arena_DoFuse.exit, %_upb_Arena_FixupRefs.exit, %8, %4, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %4 ], [ false, %8 ], [ true, %_upb_Arena_FixupRefs.exit ], [ true, %_upb_Arena_DoFuse.exit ]
+  %.0 = phi i1 [ true, %2 ], [ false, %8 ], [ false, %4 ], [ true, %_upb_Arena_FixupRefs.exit ], [ true, %_upb_Arena_DoFuse.exit ]
   ret i1 %.0
 }
 

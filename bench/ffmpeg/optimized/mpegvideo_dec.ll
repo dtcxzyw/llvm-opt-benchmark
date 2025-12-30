@@ -71,7 +71,7 @@ define range(i32 -12, 1) i32 @ff_mpv_decode_init(ptr noundef %0, ptr noundef %1)
   br label %32
 
 32:                                               ; preds = %27, %2, %31
-  %.0 = phi i32 [ 0, %2 ], [ 0, %31 ], [ -12, %27 ]
+  %.0 = phi i32 [ 0, %31 ], [ 0, %2 ], [ -12, %27 ]
   ret i32 %.0
 }
 
@@ -429,7 +429,7 @@ define range(i32 -2147483648, 1) i32 @ff_mpv_alloc_dummy_frames(ptr noundef %0) 
   unreachable
 
 62:                                               ; preds = %51, %57, %48, %25
-  %.0 = phi i32 [ %49, %48 ], [ %26, %25 ], [ 0, %57 ], [ 0, %51 ]
+  %.0 = phi i32 [ %26, %25 ], [ %49, %48 ], [ 0, %57 ], [ 0, %51 ]
   ret i32 %.0
 }
 
@@ -896,7 +896,7 @@ av_video_enc_params_block.exit.us:                ; preds = %31
   unreachable
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader.lr.ph, %.preheader36, %13, %4
-  %.0 = phi i32 [ -12, %13 ], [ 0, %4 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader36 ], [ 0, %._crit_edge.us ]
+  %.0 = phi i32 [ 0, %4 ], [ -12, %13 ], [ 0, %.preheader36 ], [ 0, %.preheader.lr.ph ], [ 0, %._crit_edge.us ]
   ret i32 %.0
 }
 
@@ -1021,7 +1021,7 @@ define void @ff_mpv_reconstruct_mb(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %27
 
 27:                                               ; preds = %24, %23
-  %.sink = phi i8 [ %., %24 ], [ 1, %23 ]
+  %.sink = phi i8 [ 1, %23 ], [ %., %24 ]
   store i8 %.sink, ptr %14, align 1, !tbaa !75
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !4

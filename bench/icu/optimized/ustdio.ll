@@ -82,7 +82,7 @@ _Z23ufile_flush_translit_77P5UFILE.exit:          ; preds = %21
   br label %32
 
 32:                                               ; preds = %29, %16, %15, %4, %24, %11, %8
-  %.029 = phi ptr [ %2, %8 ], [ %2, %11 ], [ %2, %4 ], [ %2, %24 ], [ %18, %16 ], [ null, %15 ], [ %.1, %29 ]
+  %.029 = phi ptr [ %2, %11 ], [ %2, %24 ], [ %2, %8 ], [ %2, %4 ], [ %18, %16 ], [ null, %15 ], [ %.1, %29 ]
   ret ptr %.029
 }
 
@@ -278,8 +278,8 @@ define i32 @u_file_write_flush_77(ptr noundef %0, i32 noundef %1, ptr noundef ca
   br label %_ZL15u_file_translitP5UFILEPKDsPia.exit
 
 _ZL15u_file_translitP5UFILEPKDsPia.exit:          ; preds = %56, %.sink.split.i
-  %.4 = phi i32 [ %.3, %.sink.split.i ], [ %.051, %56 ]
-  %.0.i = phi ptr [ %94, %.sink.split.i ], [ null, %56 ]
+  %.4 = phi i32 [ %.051, %56 ], [ %.3, %.sink.split.i ]
+  %.0.i = phi ptr [ null, %56 ], [ %94, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -994,7 +994,7 @@ define range(i32 0, 10559488) i32 @u_fgetcx_77(ptr noundef %0) local_unnamed_add
   br label %ufile_getch32_77.exit
 
 ufile_getch32_77.exit:                            ; preds = %18, %20, %8, %12
-  %.0 = phi i32 [ 65535, %8 ], [ %15, %12 ], [ %26, %20 ], [ 65535, %18 ]
+  %.0 = phi i32 [ %15, %12 ], [ 65535, %8 ], [ %26, %20 ], [ 65535, %18 ]
   ret i32 %.0
 }
 
@@ -1042,7 +1042,7 @@ define i32 @u_fungetc_77(i32 noundef %0, ptr noundef captures(none) %1) local_un
   br label %23
 
 23:                                               ; preds = %2, %8, %22, %21, %18
-  %.0 = phi i32 [ %spec.store.select, %22 ], [ 65535, %21 ], [ %0, %18 ], [ 65535, %8 ], [ 65535, %2 ]
+  %.0 = phi i32 [ 65535, %21 ], [ %0, %18 ], [ %spec.store.select, %22 ], [ 65535, %8 ], [ 65535, %2 ]
   ret i32 %.0
 }
 

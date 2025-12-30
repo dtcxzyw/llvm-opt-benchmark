@@ -213,7 +213,7 @@ select.unfold:                                    ; preds = %33
   store ptr null, ptr %5, align 8, !tbaa !24
   br label %70
 
-.thread79:                                        ; preds = %select.unfold, %17, %39, %.thread73, %57, %54
+.thread79:                                        ; preds = %select.unfold, %.thread73, %17, %39, %57, %54
   %.pr = load ptr, ptr %4, align 8, !tbaa !23
   %.not68 = icmp eq ptr %.pr, null
   br i1 %.not68, label %64, label %63
@@ -593,7 +593,7 @@ define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %0, pt
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %176
 
-.thread:                                          ; preds = %59, %73, %165, %.thread147, %156, %160
+.thread:                                          ; preds = %59, %73, %165, %156, %160, %.thread147
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not.not, label %174, label %176
 
@@ -604,7 +604,7 @@ define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %0, pt
   br label %176
 
 176:                                              ; preds = %18, %43, %36, %.thread164, %169, %.thread, %174, %38, %31, %22, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %.thread ], [ 0, %22 ], [ 0, %31 ], [ 0, %38 ], [ 0, %169 ], [ 0, %174 ], [ 1, %.thread164 ], [ 1, %36 ], [ 1, %43 ], [ 1, %18 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %22 ], [ 0, %31 ], [ 0, %38 ], [ 0, %169 ], [ 0, %174 ], [ 0, %.thread ], [ 1, %.thread164 ], [ 1, %36 ], [ 1, %43 ], [ 1, %18 ]
   ret i32 %.0
 }
 

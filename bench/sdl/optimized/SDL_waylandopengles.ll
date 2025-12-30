@@ -256,7 +256,7 @@ define hidden zeroext i1 @Wayland_GLES_SwapWindow(ptr noundef readonly captures(
   br label %101
 
 101:                                              ; preds = %76, %94, %2, %88, %23
-  %.0 = phi i1 [ %28, %23 ], [ true, %2 ], [ %93, %88 ], [ true, %94 ], [ true, %76 ]
+  %.0 = phi i1 [ %93, %88 ], [ %28, %23 ], [ true, %2 ], [ true, %94 ], [ true, %76 ]
   ret i1 %.0
 }
 

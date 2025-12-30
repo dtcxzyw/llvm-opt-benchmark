@@ -774,7 +774,7 @@ define dso_local noundef zeroext i1 @IsImportableForeignTable(ptr noundef readon
   br label %.thread47
 
 .thread47:                                        ; preds = %27, %13, %19, %.lr.ph, %5, %.lr.ph64, %2, %33
-  %.0 = phi i1 [ false, %33 ], [ true, %19 ], [ true, %2 ], [ false, %5 ], [ true, %.lr.ph ], [ false, %.lr.ph64 ], [ %.not39, %13 ], [ %.not36.not, %27 ]
+  %.0 = phi i1 [ false, %33 ], [ true, %2 ], [ false, %5 ], [ false, %.lr.ph64 ], [ true, %19 ], [ true, %.lr.ph ], [ %.not39, %13 ], [ %.not36.not, %27 ]
   ret i1 %.0
 }
 
@@ -1083,8 +1083,8 @@ define dso_local noundef ptr @GetExistingLocalJoinPath(ptr noundef readonly capt
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %9
 
-.loopexit:                                        ; preds = %46, %1, %.lr.ph, %38, %43, %33
-  %47 = phi ptr [ %.037.ph, %38 ], [ %.037.ph, %33 ], [ %.037.ph, %43 ], [ null, %1 ], [ null, %.lr.ph ], [ null, %46 ]
+.loopexit:                                        ; preds = %46, %1, %.lr.ph, %33, %38, %43
+  %47 = phi ptr [ %.037.ph, %43 ], [ %.037.ph, %38 ], [ %.037.ph, %33 ], [ null, %.lr.ph ], [ null, %1 ], [ null, %46 ]
   ret ptr %47
 }
 

@@ -476,7 +476,7 @@ _ZNSt6vectorIN3g2o12TripletEntryESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit59:
   br i1 %105, label %44, label %..loopexit_crit_edge, !llvm.loop !61
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3g2o12TripletEntryESt6vectorIS3_SaIS3_EEEENS2_14TripletColSortEEvT_SA_T0_.exit: ; preds = %_ZNSt6vectorIN3g2o12TripletEntryESaIS1_EE7reserveEm.exit, %._crit_edge, %.noexc40
-  %106 = phi ptr [ %.lcssa89, %.noexc40 ], [ %.lcssa89, %._crit_edge ], [ %.promoted88143, %_ZNSt6vectorIN3g2o12TripletEntryESaIS1_EE7reserveEm.exit ]
+  %106 = phi ptr [ %.lcssa89, %._crit_edge ], [ %.lcssa89, %.noexc40 ], [ %.promoted88143, %_ZNSt6vectorIN3g2o12TripletEntryESaIS1_EE7reserveEm.exit ]
   %107 = invoke fastcc noundef zeroext i1 @_ZN3g2oL19writeTripletEntriesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKSt6vectorINS_12TripletEntryESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %108 unwind label %32
 
@@ -497,8 +497,8 @@ _ZNSt6vectorIN3g2o12TripletEntryESaIS1_EED2Ev.exit: ; preds = %108, %109
   ret i1 %107
 
 114:                                              ; preds = %.loopexit77, %.loopexit.split-lp78, %.loopexit76, %.loopexit.split-lp, %32
-  %115 = phi ptr [ %.pre146, %32 ], [ %47, %.loopexit.split-lp ], [ %47, %.loopexit76 ], [ %71, %.loopexit77 ], [ %71, %.loopexit.split-lp78 ]
-  %.pn.pn = phi { ptr, i32 } [ %33, %32 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit76 ], [ %lpad.loopexit79, %.loopexit77 ], [ %lpad.loopexit.split-lp80, %.loopexit.split-lp78 ]
+  %115 = phi ptr [ %.pre146, %32 ], [ %47, %.loopexit76 ], [ %47, %.loopexit.split-lp ], [ %71, %.loopexit77 ], [ %71, %.loopexit.split-lp78 ]
+  %.pn.pn = phi { ptr, i32 } [ %33, %32 ], [ %lpad.loopexit, %.loopexit76 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit79, %.loopexit77 ], [ %lpad.loopexit.split-lp80, %.loopexit.split-lp78 ]
   %.not.i.i.i61 = icmp eq ptr %115, null
   br i1 %.not.i.i.i61, label %_ZNSt6vectorIN3g2o12TripletEntryESaIS1_EED2Ev.exit62, label %116
 
@@ -1345,7 +1345,7 @@ _ZNSt6vectorIN3g2o12TripletEntryESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit51:
   br i1 %exitcond.not, label %19, label %30, !llvm.loop !86
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3g2o12TripletEntryESt6vectorIS3_SaIS3_EEEENS2_14TripletColSortEEvT_SA_T0_.exit: ; preds = %13, %19, %.noexc32
-  %.lcssa80149 = phi ptr [ %89, %.noexc32 ], [ %89, %19 ], [ null, %13 ]
+  %.lcssa80149 = phi ptr [ %89, %19 ], [ %89, %.noexc32 ], [ null, %13 ]
   %91 = invoke fastcc noundef zeroext i1 @_ZN3g2oL19writeTripletEntriesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKSt6vectorINS_12TripletEntryESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %92 unwind label %28
 
@@ -1366,8 +1366,8 @@ _ZNSt6vectorIN3g2o12TripletEntryESaIS1_EED2Ev.exit: ; preds = %92, %93
   ret i1 %91
 
 98:                                               ; preds = %.loopexit68, %.loopexit.split-lp69, %.loopexit, %.loopexit.split-lp, %28
-  %99 = phi ptr [ %.pre, %28 ], [ %33, %.loopexit.split-lp ], [ %33, %.loopexit ], [ %59, %.loopexit68 ], [ %59, %.loopexit.split-lp69 ]
-  %.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit70, %.loopexit68 ], [ %lpad.loopexit.split-lp71, %.loopexit.split-lp69 ]
+  %99 = phi ptr [ %.pre, %28 ], [ %33, %.loopexit ], [ %33, %.loopexit.split-lp ], [ %59, %.loopexit68 ], [ %59, %.loopexit.split-lp69 ]
+  %.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit70, %.loopexit68 ], [ %lpad.loopexit.split-lp71, %.loopexit.split-lp69 ]
   %.not.i.i.i53 = icmp eq ptr %99, null
   br i1 %.not.i.i.i53, label %_ZNSt6vectorIN3g2o12TripletEntryESaIS1_EED2Ev.exit54, label %100
 

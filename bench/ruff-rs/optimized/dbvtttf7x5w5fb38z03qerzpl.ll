@@ -819,7 +819,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br label %"_ZN98_$LT$ruff_python_semantic..analyze..type_inference..PythonType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1641e38da033e9b6E.exit"
 
 "_ZN98_$LT$ruff_python_semantic..analyze..type_inference..PythonType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1641e38da033e9b6E.exit": ; preds = %2, %8
-  %.sroa.0.0.i = phi i1 [ %spec.select.i, %8 ], [ false, %2 ]
+  %.sroa.0.0.i = phi i1 [ false, %2 ], [ %spec.select.i, %8 ]
   ret i1 %.sroa.0.0.i
 }
 

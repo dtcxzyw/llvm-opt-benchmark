@@ -1017,7 +1017,7 @@ GinPageIsRecyclable.exit.thread66:                ; preds = %GinPageIsRecyclable
   br label %110
 
 110:                                              ; preds = %107, %.critedge, %9, %12
-  %.0 = phi ptr [ %1, %9 ], [ %1, %12 ], [ %.055, %.critedge ], [ %.055, %107 ]
+  %.0 = phi ptr [ %1, %12 ], [ %1, %9 ], [ %.055, %.critedge ], [ %.055, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
@@ -1061,7 +1061,7 @@ define dso_local zeroext i1 @GinPageIsRecyclable(ptr noundef readonly captures(n
   br label %17
 
 17:                                               ; preds = %12, %4, %1, %15
-  %.0 = phi i1 [ true, %1 ], [ %16, %15 ], [ false, %4 ], [ true, %12 ]
+  %.0 = phi i1 [ %16, %15 ], [ true, %1 ], [ false, %4 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -1250,12 +1250,12 @@ BufferGetPage.exit:                               ; preds = %27, %33
 88:                                               ; preds = %81
   %89 = and i16 %86, 128
   %.not80 = icmp eq i16 %89, 0
-  br i1 %.not80, label %90, label %98
+  br i1 %.not80, label %98, label %90
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %92 = load i16, ptr %91, align 4
-  %93 = icmp eq i16 %92, 0
+  %93 = icmp eq i16 %92, 32
   br i1 %93, label %102, label %240
 
 94:                                               ; preds = %81
@@ -1265,9 +1265,9 @@ BufferGetPage.exit:                               ; preds = %27, %33
   br i1 %97, label %102, label %240
 
 98:                                               ; preds = %88
-  %99 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %100 = load i16, ptr %99, align 4
-  %101 = icmp eq i16 %100, 32
+  %101 = icmp eq i16 %100, 0
   br i1 %101, label %102, label %240
 
 102:                                              ; preds = %90, %94, %98

@@ -93,7 +93,7 @@ define internal range(i32 -1094995529, 1) i32 @rpl_read_header(ptr noundef %0) #
   br label %read_line.exit
 
 read_line.exit:                                   ; preds = %.thread.i, %33
-  %.2.i = phi i32 [ %29, %.thread.i ], [ -1, %33 ]
+  %.2.i = phi i32 [ -1, %33 ], [ %29, %.thread.i ]
   br label %36
 
 36:                                               ; preds = %42, %read_line.exit
@@ -129,7 +129,7 @@ read_line.exit:                                   ; preds = %.thread.i, %33
   br label %read_line.exit157
 
 read_line.exit157:                                ; preds = %.thread.i151, %45
-  %.2.i153 = phi i32 [ %41, %.thread.i151 ], [ -1, %45 ]
+  %.2.i153 = phi i32 [ -1, %45 ], [ %41, %.thread.i151 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %49 = call i32 @av_dict_set(ptr noundef nonnull %48, ptr noundef nonnull @.str.3, ptr noundef nonnull %14, i32 noundef 0) #7
   br label %50
@@ -167,7 +167,7 @@ read_line.exit157:                                ; preds = %.thread.i151, %45
   br label %read_line.exit165
 
 read_line.exit165:                                ; preds = %.thread.i159, %59
-  %.2.i161 = phi i32 [ %55, %.thread.i159 ], [ -1, %59 ]
+  %.2.i161 = phi i32 [ -1, %59 ], [ %55, %.thread.i159 ]
   %62 = or i32 %.2.i153, %.2.i161
   %63 = call i32 @av_dict_set(ptr noundef nonnull %48, ptr noundef nonnull @.str.4, ptr noundef nonnull %14, i32 noundef 0) #7
   br label %64
@@ -205,7 +205,7 @@ read_line.exit165:                                ; preds = %.thread.i159, %59
   br label %read_line.exit173
 
 read_line.exit173:                                ; preds = %.thread.i167, %73
-  %.2.i169 = phi i32 [ %69, %.thread.i167 ], [ -1, %73 ]
+  %.2.i169 = phi i32 [ -1, %73 ], [ %69, %.thread.i167 ]
   %76 = or i32 %62, %.2.i169
   %77 = call i32 @av_dict_set(ptr noundef nonnull %48, ptr noundef nonnull @.str.5, ptr noundef nonnull %14, i32 noundef 0) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -244,7 +244,7 @@ read_line.exit173:                                ; preds = %.thread.i167, %73
   br label %read_line.exit.i
 
 read_line.exit.i:                                 ; preds = %87, %.thread.i.i
-  %.2.i.i = phi i32 [ %83, %.thread.i.i ], [ -1, %87 ]
+  %.2.i.i = phi i32 [ -1, %87 ], [ %83, %.thread.i.i ]
   %90 = or i32 %76, %.2.i.i
   %91 = load i8, ptr %11, align 16, !tbaa !27
   %92 = add i8 %91, -48
@@ -329,7 +329,7 @@ read_line_and_int.exit:                           ; preds = %.lr.ph.i.i
   br label %read_line.exit.i177
 
 read_line.exit.i177:                              ; preds = %117, %.thread.i.i175
-  %.2.i.i178 = phi i32 [ %113, %.thread.i.i175 ], [ -1, %117 ]
+  %.2.i.i178 = phi i32 [ -1, %117 ], [ %113, %.thread.i.i175 ]
   %120 = load i8, ptr %10, align 16, !tbaa !27
   %121 = add i8 %120, -48
   %or.cond11.i.i179 = icmp ult i8 %121, 10
@@ -399,7 +399,7 @@ read_line_and_int.exit190:                        ; preds = %read_line.exit.i177
   br label %read_line.exit.i194
 
 read_line.exit.i194:                              ; preds = %142, %.thread.i.i192
-  %.2.i.i195 = phi i32 [ %138, %.thread.i.i192 ], [ -1, %142 ]
+  %.2.i.i195 = phi i32 [ -1, %142 ], [ %138, %.thread.i.i192 ]
   %145 = load i8, ptr %9, align 16, !tbaa !27
   %146 = add i8 %145, -48
   %or.cond11.i.i196 = icmp ult i8 %146, 10
@@ -469,7 +469,7 @@ read_line_and_int.exit207:                        ; preds = %read_line.exit.i194
   br label %read_line.exit.i211
 
 read_line.exit.i211:                              ; preds = %167, %.thread.i.i209
-  %.2.i.i212 = phi i32 [ %163, %.thread.i.i209 ], [ -1, %167 ]
+  %.2.i.i212 = phi i32 [ -1, %167 ], [ %163, %.thread.i.i209 ]
   %170 = load i8, ptr %8, align 16, !tbaa !27
   %171 = add i8 %170, -48
   %or.cond11.i.i213 = icmp ult i8 %171, 10
@@ -571,14 +571,14 @@ read_line_and_int.exit224:                        ; preds = %read_line.exit.i211
   br label %read_line.exit232
 
 read_line.exit232:                                ; preds = %.thread.i226, %205
-  %.2.i228 = phi i32 [ %201, %.thread.i226 ], [ -1, %205 ]
+  %.2.i228 = phi i32 [ -1, %205 ], [ %201, %.thread.i226 ]
   %208 = add nuw nsw i32 %.0127542, 1
   %exitcond.not = icmp eq i32 %208, 3
   br i1 %exitcond.not, label %.loopexit500, label %.preheader498, !llvm.loop !46
 
 .loopexit500:                                     ; preds = %read_line.exit232, %185, %187, %189
-  %.0455 = phi i32 [ %.19, %187 ], [ %.19, %189 ], [ %.19, %185 ], [ %.2.i228, %read_line.exit232 ]
-  %.0121 = phi ptr [ %103, %187 ], [ %103, %189 ], [ %103, %185 ], [ null, %read_line.exit232 ]
+  %.0455 = phi i32 [ %.19, %189 ], [ %.19, %185 ], [ %.19, %187 ], [ %.2.i228, %read_line.exit232 ]
+  %.0121 = phi ptr [ %103, %189 ], [ %103, %185 ], [ %103, %187 ], [ null, %read_line.exit232 ]
   br label %209
 
 209:                                              ; preds = %215, %.loopexit500
@@ -614,7 +614,7 @@ read_line.exit232:                                ; preds = %.thread.i226, %205
   br label %read_line.exit240
 
 read_line.exit240:                                ; preds = %.thread.i234, %218
-  %.2.i236 = phi i32 [ %214, %.thread.i234 ], [ -1, %218 ]
+  %.2.i236 = phi i32 [ -1, %218 ], [ %214, %.thread.i234 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %221 = load i8, ptr %14, align 16, !tbaa !27
   %222 = add i8 %221, -48
@@ -733,7 +733,7 @@ read_int.exit.i:                                  ; preds = %.critedge.loopexit.
   br label %read_line.exit257
 
 read_line.exit257:                                ; preds = %.thread.i251, %260
-  %.2.i253 = phi i32 [ %256, %.thread.i251 ], [ -1, %260 ]
+  %.2.i253 = phi i32 [ -1, %260 ], [ %256, %.thread.i251 ]
   %263 = load i8, ptr %14, align 16, !tbaa !27
   %264 = add i8 %263, -48
   %or.cond11.i258 = icmp ult i8 %264, 10
@@ -817,7 +817,7 @@ read_int.exit:                                    ; preds = %.lr.ph.i262
   br label %read_line.exit.i267
 
 read_line.exit.i267:                              ; preds = %291, %.thread.i.i265
-  %.2.i.i268 = phi i32 [ %287, %.thread.i.i265 ], [ -1, %291 ]
+  %.2.i.i268 = phi i32 [ -1, %291 ], [ %287, %.thread.i.i265 ]
   %294 = load i8, ptr %6, align 16, !tbaa !27
   %295 = add i8 %294, -48
   %or.cond11.i.i269 = icmp ult i8 %295, 10
@@ -894,7 +894,7 @@ read_line_and_int.exit281:                        ; preds = %.lr.ph.i.i272
   br label %read_line.exit.i285
 
 read_line.exit.i285:                              ; preds = %320, %.thread.i.i283
-  %.2.i.i286 = phi i32 [ %316, %.thread.i.i283 ], [ -1, %320 ]
+  %.2.i.i286 = phi i32 [ -1, %320 ], [ %316, %.thread.i.i283 ]
   %323 = load i8, ptr %5, align 16, !tbaa !27
   %324 = add i8 %323, -48
   %or.cond11.i.i287 = icmp ult i8 %324, 10
@@ -960,7 +960,7 @@ read_line_and_int.exit299:                        ; preds = %.lr.ph.i.i290
   br label %read_line.exit307
 
 read_line.exit307:                                ; preds = %.thread.i301, %343
-  %.2.i303 = phi i32 [ %339, %.thread.i301 ], [ -1, %343 ]
+  %.2.i303 = phi i32 [ -1, %343 ], [ %339, %.thread.i301 ]
   %346 = load i8, ptr %14, align 16, !tbaa !27
   %347 = add i8 %346, -48
   %or.cond11.i308 = icmp ult i8 %347, 10
@@ -1149,7 +1149,7 @@ read_int.exit318:                                 ; preds = %read_line.exit307, 
   br label %read_line.exit326
 
 read_line.exit326:                                ; preds = %.thread.i320, %414
-  %.2.i322 = phi i32 [ %410, %.thread.i320 ], [ -1, %414 ]
+  %.2.i322 = phi i32 [ -1, %414 ], [ %410, %.thread.i320 ]
   %417 = add nuw nsw i32 %.1128544, 1
   %exitcond588.not = icmp eq i32 %417, 3
   br i1 %exitcond588.not, label %.loopexit, label %.preheader495, !llvm.loop !51
@@ -1199,7 +1199,7 @@ read_line.exit326:                                ; preds = %.thread.i320, %414
   br label %read_line.exit.i330
 
 read_line.exit.i330:                              ; preds = %431, %.thread.i.i328
-  %.2.i.i331 = phi i32 [ %427, %.thread.i.i328 ], [ -1, %431 ]
+  %.2.i.i331 = phi i32 [ -1, %431 ], [ %427, %.thread.i.i328 ]
   %434 = load i8, ptr %4, align 16, !tbaa !27
   %435 = add i8 %434, -48
   %or.cond11.i.i332 = icmp ult i8 %435, 10
@@ -1290,7 +1290,7 @@ read_line_and_int.exit344:                        ; preds = %.lr.ph.i.i335
   br label %read_line.exit.i348
 
 read_line.exit.i348:                              ; preds = %466, %.thread.i.i346
-  %.2.i.i349 = phi i32 [ %462, %.thread.i.i346 ], [ -1, %466 ]
+  %.2.i.i349 = phi i32 [ -1, %466 ], [ %462, %.thread.i.i346 ]
   %469 = load i8, ptr %3, align 16, !tbaa !27
   %470 = add i8 %469, -48
   %or.cond11.i.i350 = icmp ult i8 %470, 10
@@ -1362,7 +1362,7 @@ read_line_and_int.exit362:                        ; preds = %.lr.ph.i.i353
   br label %read_line.exit370
 
 read_line.exit370:                                ; preds = %.thread.i364, %492
-  %.2.i366 = phi i32 [ %488, %.thread.i364 ], [ -1, %492 ]
+  %.2.i366 = phi i32 [ -1, %492 ], [ %488, %.thread.i364 ]
   br label %495
 
 495:                                              ; preds = %501, %read_line.exit370
@@ -1398,7 +1398,7 @@ read_line.exit370:                                ; preds = %.thread.i364, %492
   br label %read_line.exit378
 
 read_line.exit378:                                ; preds = %.thread.i372, %504
-  %.2.i374 = phi i32 [ %500, %.thread.i372 ], [ -1, %504 ]
+  %.2.i374 = phi i32 [ -1, %504 ], [ %500, %.thread.i372 ]
   %507 = or i32 %.2.i366, %.2.i374
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %508
@@ -1436,7 +1436,7 @@ read_line.exit378:                                ; preds = %.thread.i372, %504
   br label %read_line.exit.i382
 
 read_line.exit.i382:                              ; preds = %517, %.thread.i.i380
-  %.2.i.i383 = phi i32 [ %513, %.thread.i.i380 ], [ -1, %517 ]
+  %.2.i.i383 = phi i32 [ -1, %517 ], [ %513, %.thread.i.i380 ]
   %520 = or i32 %507, %.2.i.i383
   %521 = load i8, ptr %2, align 16, !tbaa !27
   %522 = add i8 %521, -48
@@ -1504,7 +1504,7 @@ read_line_and_int.exit396:                        ; preds = %read_line.exit.i382
   br label %read_line.exit404
 
 read_line.exit404:                                ; preds = %.thread.i398, %541
-  %.2.i400 = phi i32 [ %537, %.thread.i398 ], [ -1, %541 ]
+  %.2.i400 = phi i32 [ -1, %541 ], [ %537, %.thread.i398 ]
   br label %544
 
 544:                                              ; preds = %550, %read_line.exit404
@@ -1540,7 +1540,7 @@ read_line.exit404:                                ; preds = %.thread.i398, %541
   br label %read_line.exit412
 
 read_line.exit412:                                ; preds = %.thread.i406, %553
-  %.2.i408 = phi i32 [ %549, %.thread.i406 ], [ -1, %553 ]
+  %.2.i408 = phi i32 [ -1, %553 ], [ %549, %.thread.i406 ]
   %556 = or i32 %.2.i400, %.2.i408
   br i1 %.not140, label %.preheader, label %573
 
@@ -1577,7 +1577,7 @@ read_line.exit412:                                ; preds = %.thread.i406, %553
   br label %read_line.exit420
 
 read_line.exit420:                                ; preds = %.thread.i414, %565
-  %.2.i416 = phi i32 [ %561, %.thread.i414 ], [ -1, %565 ]
+  %.2.i416 = phi i32 [ -1, %565 ], [ %561, %.thread.i414 ]
   %568 = sext i32 %482 to i64
   %569 = load i32, ptr %23, align 4, !tbaa !53
   %570 = sext i32 %569 to i64
@@ -1638,7 +1638,7 @@ read_line.exit420:                                ; preds = %.thread.i414, %565
   br label %read_line.exit428
 
 read_line.exit428:                                ; preds = %.thread.i422, %586
-  %.2.i424 = phi i1 [ %.not.i423.not, %.thread.i422 ], [ false, %586 ]
+  %.2.i424 = phi i1 [ false, %586 ], [ %.not.i423.not, %.thread.i422 ]
   %589 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.12, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #7
   %.not148 = icmp eq i32 %589, 3
   br i1 %.not148, label %590, label %._crit_edge.thread
@@ -1706,7 +1706,7 @@ read_line.exit428:                                ; preds = %.thread.i422, %586
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %._crit_edge.thread, %read_line_and_int.exit299.thread, %366, %read_line_and_int.exit299, %read_line_and_int.exit281, %276, %613, %read_line_and_int.exit362, %.loopexit, %102
-  %.0 = phi i32 [ -12, %102 ], [ -1094995529, %.loopexit ], [ -1094995529, %613 ], [ -12, %276 ], [ -1094995529, %read_line_and_int.exit362 ], [ -1094995529, %read_line_and_int.exit299.thread ], [ -1094995529, %366 ], [ -1094995529, %read_line_and_int.exit299 ], [ -1094995529, %read_line_and_int.exit281 ], [ -5, %._crit_edge.thread ], [ %spec.select665, %._crit_edge ]
+  %.0 = phi i32 [ -1094995529, %613 ], [ -12, %102 ], [ -1094995529, %.loopexit ], [ -1094995529, %read_line_and_int.exit362 ], [ -1094995529, %read_line_and_int.exit299.thread ], [ -1094995529, %366 ], [ -1094995529, %read_line_and_int.exit299 ], [ -1094995529, %read_line_and_int.exit281 ], [ -12, %276 ], [ -5, %._crit_edge.thread ], [ %spec.select665, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1894,8 +1894,8 @@ define internal i32 @rpl_read_packet(ptr noundef readonly captures(none) %0, ptr
   store i32 %110, ptr %108, align 8, !tbaa !83
   br label %.thread
 
-.thread:                                          ; preds = %52, %56, %48, %59, %101, %104, %107, %80, %74, %35, %17
-  %.0 = phi i32 [ %78, %74 ], [ -541478725, %17 ], [ -5, %80 ], [ %.166, %101 ], [ -5, %35 ], [ %.166, %107 ], [ %.166, %104 ], [ -5, %52 ], [ %57, %56 ], [ -5, %48 ], [ -5, %59 ]
+.thread:                                          ; preds = %59, %56, %48, %52, %101, %104, %107, %80, %74, %35, %17
+  %.0 = phi i32 [ -541478725, %17 ], [ -5, %35 ], [ %78, %74 ], [ -5, %80 ], [ %.166, %107 ], [ %.166, %104 ], [ %.166, %101 ], [ -5, %59 ], [ %57, %56 ], [ -5, %48 ], [ -5, %52 ]
   ret i32 %.0
 }
 

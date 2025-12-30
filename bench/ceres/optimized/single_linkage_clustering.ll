@@ -550,7 +550,7 @@ _ZNK5ceres8internal13WeightedGraphIiE10EdgeWeightERKiS4_.exit.sink.split: ; pred
   br label %_ZNK5ceres8internal13WeightedGraphIiE10EdgeWeightERKiS4_.exit
 
 _ZNK5ceres8internal13WeightedGraphIiE10EdgeWeightERKiS4_.exit: ; preds = %._crit_edge.i.i.i.i21.i, %._crit_edge.i.i.i.i.i, %_ZNK5ceres8internal13WeightedGraphIiE10EdgeWeightERKiS4_.exit.sink.split, %_ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4pairIiiEdEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaIS4_IKS5_dEEE4findIS5_EENSF_14const_iteratorERSC_.exit.i25.i, %_ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4pairIiiEdEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaIS4_IKS5_dEEE4findIS5_EENSF_14const_iteratorERSC_.exit.i.i
-  %.0.i = phi double [ 0.000000e+00, %_ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4pairIiiEdEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaIS4_IKS5_dEEE4findIS5_EENSF_14const_iteratorERSC_.exit.i25.i ], [ 0.000000e+00, %._crit_edge.i.i.i.i.i ], [ 0.000000e+00, %_ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4pairIiiEdEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaIS4_IKS5_dEEE4findIS5_EENSF_14const_iteratorERSC_.exit.i.i ], [ %.0.i24.pre.i.else.val, %_ZNK5ceres8internal13WeightedGraphIiE10EdgeWeightERKiS4_.exit.sink.split ], [ 0.000000e+00, %._crit_edge.i.i.i.i21.i ]
+  %.0.i = phi double [ 0.000000e+00, %_ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4pairIiiEdEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaIS4_IKS5_dEEE4findIS5_EENSF_14const_iteratorERSC_.exit.i.i ], [ 0.000000e+00, %_ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4pairIiiEdEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaIS4_IKS5_dEEE4findIS5_EENSF_14const_iteratorERSC_.exit.i25.i ], [ %.0.i24.pre.i.else.val, %_ZNK5ceres8internal13WeightedGraphIiE10EdgeWeightERKiS4_.exit.sink.split ], [ 0.000000e+00, %._crit_edge.i.i.i.i.i ], [ 0.000000e+00, %._crit_edge.i.i.i.i21.i ]
   %281 = load double, ptr %0, align 8, !tbaa !36
   %282 = fcmp olt double %.0.i, %281
   br i1 %282, label %375, label %283
@@ -994,8 +994,8 @@ define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2024011618container_intern
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %32, %29
-  %35 = phi ptr [ %3, %.loopexit ], [ %.pre, %32 ], [ %3, %29 ]
-  %.sroa.01.0 = phi i64 [ %25, %.loopexit ], [ %34, %32 ], [ %25, %29 ]
+  %35 = phi ptr [ %.pre, %32 ], [ %3, %29 ], [ %3, %.loopexit ]
+  %.sroa.01.0 = phi i64 [ %34, %32 ], [ %25, %29 ], [ %25, %.loopexit ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !57
   %38 = add i64 %37, 2

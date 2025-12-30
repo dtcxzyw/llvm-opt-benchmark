@@ -3796,8 +3796,8 @@ H5A__rename_common.exit:                          ; preds = %62
   %74 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__rename_api_common, i32 noundef 1620, i64 noundef %72, i64 noundef %73, ptr noundef nonnull @.str.104) #5
   br label %H5A__rename_common.exit.thread
 
-H5A__rename_common.exit.thread:                   ; preds = %60, %52, %H5A__rename_common.exit, %19, %24, %30, %35, %41, %48, %68, %5
-  %.0 = phi i32 [ -1, %19 ], [ -1, %48 ], [ -1, %68 ], [ 0, %H5A__rename_common.exit ], [ -1, %41 ], [ -1, %35 ], [ -1, %30 ], [ -1, %24 ], [ 0, %5 ], [ 0, %52 ], [ 0, %60 ]
+H5A__rename_common.exit.thread:                   ; preds = %52, %60, %H5A__rename_common.exit, %19, %24, %30, %35, %41, %48, %68, %5
+  %.0 = phi i32 [ -1, %19 ], [ -1, %48 ], [ -1, %68 ], [ 0, %H5A__rename_common.exit ], [ -1, %41 ], [ -1, %35 ], [ -1, %30 ], [ -1, %24 ], [ 0, %5 ], [ 0, %60 ], [ 0, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -4130,8 +4130,8 @@ H5A__rename_common.exit:                          ; preds = %64
   %76 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__rename_by_name_api_common, i32 noundef 1730, i64 noundef %74, i64 noundef %75, ptr noundef nonnull @.str.104) #5
   br label %H5A__rename_common.exit.thread
 
-H5A__rename_common.exit.thread:                   ; preds = %62, %54, %H5A__rename_common.exit, %21, %26, %32, %37, %43, %50, %70, %7
-  %.0 = phi i32 [ -1, %21 ], [ -1, %50 ], [ -1, %70 ], [ 0, %H5A__rename_common.exit ], [ -1, %43 ], [ -1, %37 ], [ -1, %32 ], [ -1, %26 ], [ 0, %7 ], [ 0, %54 ], [ 0, %62 ]
+H5A__rename_common.exit.thread:                   ; preds = %54, %62, %H5A__rename_common.exit, %21, %26, %32, %37, %43, %50, %70, %7
+  %.0 = phi i32 [ -1, %21 ], [ -1, %50 ], [ -1, %70 ], [ 0, %H5A__rename_common.exit ], [ -1, %43 ], [ -1, %37 ], [ -1, %32 ], [ -1, %26 ], [ 0, %7 ], [ 0, %62 ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
@@ -5337,8 +5337,8 @@ define range(i32 -1, 1) i32 @H5Aclose_async(ptr noundef %0, ptr noundef %1, i32 
   br label %76
 
 76:                                               ; preds = %65, %67, %72, %61
-  %.027 = phi i32 [ 0, %65 ], [ -1, %61 ], [ -1, %72 ], [ 0, %67 ]
-  %.0 = phi i1 [ false, %65 ], [ true, %61 ], [ true, %72 ], [ false, %67 ]
+  %.027 = phi i32 [ -1, %61 ], [ -1, %72 ], [ 0, %67 ], [ 0, %65 ]
+  %.0 = phi i1 [ true, %61 ], [ true, %72 ], [ false, %67 ], [ false, %65 ]
   %.not36 = icmp eq ptr %.131, null
   br i1 %.not36, label %85, label %77
 
@@ -5363,7 +5363,7 @@ define range(i32 -1, 1) i32 @H5Aclose_async(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.0, label %.thread55, label %88, !prof !30
 
 .thread55:                                        ; preds = %36, %29, %16, %.thread64, %.thread61, %85
-  %.1284859 = phi i32 [ -1, %.thread64 ], [ %.027, %85 ], [ -1, %.thread61 ], [ -1, %16 ], [ -1, %29 ], [ -1, %36 ]
+  %.1284859 = phi i32 [ %.027, %85 ], [ -1, %.thread61 ], [ -1, %.thread64 ], [ -1, %16 ], [ -1, %29 ], [ -1, %36 ]
   %87 = call i32 @H5E_dump_api_stack() #5
   br label %88
 
@@ -6090,7 +6090,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5A__create_comm
   br label %.thread
 
 .thread:                                          ; preds = %19, %23, %34, %27, %8
-  %.0 = phi i64 [ -1, %34 ], [ -1, %27 ], [ -1, %19 ], [ -1, %8 ], [ %25, %23 ]
+  %.0 = phi i64 [ -1, %34 ], [ -1, %27 ], [ -1, %8 ], [ %25, %23 ], [ -1, %19 ]
   ret i64 %.0
 }
 
@@ -6146,7 +6146,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5A__open_common
   br label %.thread
 
 .thread:                                          ; preds = %16, %20, %31, %24, %5
-  %.0 = phi i64 [ -1, %31 ], [ -1, %24 ], [ -1, %16 ], [ -1, %5 ], [ %22, %20 ]
+  %.0 = phi i64 [ -1, %31 ], [ -1, %24 ], [ -1, %5 ], [ %22, %20 ], [ -1, %16 ]
   ret i64 %.0
 }
 

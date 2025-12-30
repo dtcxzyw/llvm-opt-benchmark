@@ -1401,7 +1401,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i314, %828
   br i1 %.not278, label %.backedge.sink.split1023.backedge, label %850
 
 .backedge.sink.split1023.backedge:                ; preds = %yy_try_NUL_trans.exit, %115
-  %.1263.ph.be = phi ptr [ %778, %yy_try_NUL_trans.exit ], [ %.1263, %115 ]
+  %.1263.ph.be = phi ptr [ %.1263, %115 ], [ %778, %yy_try_NUL_trans.exit ]
   br label %.backedge.sink.split1023
 
 850:                                              ; preds = %yy_try_NUL_trans.exit
@@ -1411,9 +1411,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i314, %828
   br label %.loopexit358.backedge
 
 .loopexit358.backedge:                            ; preds = %._crit_edge.i332, %850, %1021
-  %.0262.be = phi ptr [ %778, %850 ], [ %1019, %1021 ], [ %1019, %._crit_edge.i332 ]
-  %.0254.be = phi ptr [ %852, %850 ], [ %1027, %1021 ], [ %1027, %._crit_edge.i332 ]
-  %.0243.be = phi i32 [ %851, %850 ], [ %1028, %1021 ], [ %1069, %._crit_edge.i332 ]
+  %.0262.be = phi ptr [ %1019, %1021 ], [ %778, %850 ], [ %1019, %._crit_edge.i332 ]
+  %.0254.be = phi ptr [ %1027, %1021 ], [ %852, %850 ], [ %1027, %._crit_edge.i332 ]
+  %.0243.be = phi i32 [ %1028, %1021 ], [ %851, %850 ], [ %1069, %._crit_edge.i332 ]
   br label %.loopexit358
 
 853:                                              ; preds = %763
@@ -2588,7 +2588,7 @@ define hidden void @Dtd_Parse_push_buffer_state(ptr noundef %0, ptr noundef capt
   br label %.thread
 
 .thread:                                          ; preds = %4, %12, %33, %.thread31
-  %35 = phi ptr [ %.pr34, %.thread31 ], [ null, %12 ], [ %.pr34, %33 ], [ null, %4 ]
+  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37
@@ -2797,7 +2797,7 @@ define hidden noundef ptr @Dtd_Parse__scan_buffer(ptr noundef %0, i64 noundef %1
   br label %53
 
 53:                                               ; preds = %16, %35, %34
-  %54 = phi ptr [ %28, %34 ], [ %.pre.i, %35 ], [ null, %16 ]
+  %54 = phi ptr [ %.pre.i, %35 ], [ %28, %34 ], [ null, %16 ]
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %56 = load i64, ptr %55, align 8
   %57 = getelementptr ptr, ptr %54, i64 %56
@@ -2829,7 +2829,7 @@ define hidden noundef ptr @Dtd_Parse__scan_buffer(ptr noundef %0, i64 noundef %1
   br label %Dtd_Parse__switch_to_buffer.exit
 
 Dtd_Parse__switch_to_buffer.exit:                 ; preds = %53, %.thread.i, %3, %5, %9
-  %.0 = phi ptr [ null, %3 ], [ null, %9 ], [ null, %5 ], [ %14, %.thread.i ], [ %14, %53 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %5 ], [ null, %3 ], [ %14, %.thread.i ], [ %14, %53 ]
   ret ptr %.0
 }
 
@@ -3259,7 +3259,7 @@ Dtd_Parse__delete_buffer.exit.i:                  ; preds = %32, %.critedge.i.i
   br label %Dtd_Parse_pop_buffer_state.exit
 
 Dtd_Parse_pop_buffer_state.exit:                  ; preds = %26, %44, %47
-  %56 = phi ptr [ %43, %44 ], [ %25, %26 ], [ %43, %47 ]
+  %56 = phi ptr [ %25, %26 ], [ %43, %44 ], [ %43, %47 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8

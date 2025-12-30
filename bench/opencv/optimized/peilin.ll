@@ -729,7 +729,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156: ; preds = %22
   br label %.body121
 
 .body121:                                         ; preds = %229, %171
-  %.pn43 = phi { ptr, i32 } [ %172, %171 ], [ %230, %229 ]
+  %.pn43 = phi { ptr, i32 } [ %230, %229 ], [ %172, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %253
@@ -740,7 +740,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156: ; preds = %22
   br label %.body127
 
 .body127:                                         ; preds = %231, %189
-  %.pn45 = phi { ptr, i32 } [ %190, %189 ], [ %232, %231 ]
+  %.pn45 = phi { ptr, i32 } [ %232, %231 ], [ %190, %189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %252

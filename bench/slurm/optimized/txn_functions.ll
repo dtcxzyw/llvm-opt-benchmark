@@ -605,13 +605,13 @@ _set_cond.exit:                                   ; preds = %183, %31
   br i1 %.not116, label %298, label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge132, %205, %201, %187
-  %.sink = phi ptr [ %197, %205 ], [ %197, %201 ], [ %5, %187 ], [ %197, %._crit_edge132 ]
-  %.0100.ph = phi i32 [ -1, %205 ], [ -1, %201 ], [ -1, %187 ], [ 0, %._crit_edge132 ]
+  %.sink = phi ptr [ %5, %187 ], [ %197, %201 ], [ %197, %205 ], [ %197, %._crit_edge132 ]
+  %.0100.ph = phi i32 [ -1, %187 ], [ -1, %201 ], [ -1, %205 ], [ 0, %._crit_edge132 ]
   call void @list_destroy(ptr noundef nonnull %.sink) #8
   br label %298
 
 298:                                              ; preds = %.sink.split, %._crit_edge132, %205, %201, %187
-  %.0100 = phi i32 [ -1, %201 ], [ -1, %187 ], [ -1, %205 ], [ 0, %._crit_edge132 ], [ %.0100.ph, %.sink.split ]
+  %.0100 = phi i32 [ -1, %187 ], [ -1, %201 ], [ -1, %205 ], [ 0, %._crit_edge132 ], [ %.0100.ph, %.sink.split ]
   ret i32 %.0100
 }
 

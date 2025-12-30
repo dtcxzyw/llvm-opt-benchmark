@@ -1179,7 +1179,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %16, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit", %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit18", %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit20", %32, %37, %42, %45
-  %.028.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i, %37 ], [ %12, %45 ], [ %.2.i.i.i.i.i.i.i, %42 ], [ %.029.lcssa.i.i.i.i.i.i.i, %32 ], [ %48, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit20" ], [ %47, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit18" ], [ %46, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit" ], [ %.02952.i.i.i.i.i.i.i, %16 ]
+  %.028.i.i.i.i.i.i.i = phi ptr [ %12, %45 ], [ %.029.lcssa.i.i.i.i.i.i.i, %32 ], [ %.1.i.i.i.i.i.i.i, %37 ], [ %.2.i.i.i.i.i.i.i, %42 ], [ %46, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit" ], [ %47, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit18" ], [ %48, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit20" ], [ %.02952.i.i.i.i.i.i.i, %16 ]
   %49 = icmp ne ptr %.028.i.i.i.i.i.i.i, %12
   ret i1 %49
 }
@@ -1702,7 +1702,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKSt4pairIN4llvm3LLTES2_EN9__gnu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit72, %.loopexit.loopexit.split.loop.exit74, %60, %51, %41, %67
-  %.028 = phi ptr [ %.1, %51 ], [ %1, %67 ], [ %.2, %60 ], [ %.029.lcssa, %41 ], [ %70, %.loopexit.loopexit.split.loop.exit74 ], [ %68, %.loopexit.loopexit.split.loop.exit ], [ %69, %.loopexit.loopexit.split.loop.exit72 ], [ %.02958, %13 ]
+  %.028 = phi ptr [ %1, %67 ], [ %.029.lcssa, %41 ], [ %.1, %51 ], [ %.2, %60 ], [ %68, %.loopexit.loopexit.split.loop.exit ], [ %69, %.loopexit.loopexit.split.loop.exit72 ], [ %70, %.loopexit.loopexit.split.loop.exit74 ], [ %.02958, %13 ]
   ret ptr %.028
 }
 
@@ -2401,7 +2401,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit82, %.loopexit.loopexit.split.loop.exit84, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit53, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit49, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit45, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit53.thread
-  %.028 = phi ptr [ %.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit49 ], [ %1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit53.thread ], [ %.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit53 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit45 ], [ %92, %.loopexit.loopexit.split.loop.exit84 ], [ %90, %.loopexit.loopexit.split.loop.exit ], [ %91, %.loopexit.loopexit.split.loop.exit82 ], [ %.02970, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit ]
+  %.028 = phi ptr [ %1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit53.thread ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit45 ], [ %.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit49 ], [ %.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit53 ], [ %90, %.loopexit.loopexit.split.loop.exit ], [ %91, %.loopexit.loopexit.split.loop.exit82 ], [ %92, %.loopexit.loopexit.split.loop.exit84 ], [ %.02970, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit ]
   ret ptr %.028
 }
 
@@ -2516,7 +2516,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %29, %32, %35, %43, %47, %51, %53
-  %.028.i.i.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i.i.i, %47 ], [ %25, %53 ], [ %.2.i.i.i.i.i.i.i.i.i, %51 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %43 ], [ %.02931.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %30, %29 ], [ %33, %32 ], [ %36, %35 ]
+  %.028.i.i.i.i.i.i.i.i.i = phi ptr [ %25, %53 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %43 ], [ %.1.i.i.i.i.i.i.i.i.i, %47 ], [ %.2.i.i.i.i.i.i.i.i.i, %51 ], [ %.02931.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %30, %29 ], [ %33, %32 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %54 = icmp ne ptr %25, %.028.i.i.i.i.i.i.i.i.i
   ret i1 %54
@@ -2823,7 +2823,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9isPointerEjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9isPointerEjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %2, %9
-  %11 = phi i1 [ %.not1.i.i.i.i, %9 ], [ false, %2 ]
+  %11 = phi i1 [ false, %2 ], [ %.not1.i.i.i.i, %9 ]
   ret i1 %11
 }
 
@@ -2877,7 +2877,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9isPointerEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 "_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9isPointerEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %2, %10
-  %16 = phi i1 [ false, %2 ], [ %15, %10 ]
+  %16 = phi i1 [ %15, %10 ], [ false, %2 ]
   ret i1 %16
 }
 

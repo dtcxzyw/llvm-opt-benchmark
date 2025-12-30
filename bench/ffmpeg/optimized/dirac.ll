@@ -1193,9 +1193,9 @@ get_interleaved_ue_golomb.exit246.i:              ; preds = %561
   br label %get_interleaved_ue_golomb.exit246.thread.i
 
 get_interleaved_ue_golomb.exit246.thread.i:       ; preds = %736, %734, %.loopexit.i244.i, %687
-  %740 = phi i32 [ %730, %734 ], [ %730, %736 ], [ %spec.select56.i242.i, %.loopexit.i244.i ], [ %..i234.i, %687 ]
-  %.sroa.0.1.i = phi i32 [ %.sroa.0.0.copyload.i, %734 ], [ %.sroa.0.0.copyload16.i, %736 ], [ %.043.i221.i, %.loopexit.i244.i ], [ %.043.i221.i, %687 ]
-  %.sroa.7.1.i = phi i32 [ %.sroa.7.0.copyload.i, %734 ], [ %.sroa.7.0.copyload19.i, %736 ], [ %727, %.loopexit.i244.i ], [ %696, %687 ]
+  %740 = phi i32 [ %730, %734 ], [ %730, %736 ], [ %..i234.i, %687 ], [ %spec.select56.i242.i, %.loopexit.i244.i ]
+  %.sroa.0.1.i = phi i32 [ %.sroa.0.0.copyload.i, %734 ], [ %.sroa.0.0.copyload16.i, %736 ], [ %.043.i221.i, %687 ], [ %.043.i221.i, %.loopexit.i244.i ]
+  %.sroa.7.1.i = phi i32 [ %.sroa.7.0.copyload.i, %734 ], [ %.sroa.7.0.copyload19.i, %736 ], [ %696, %687 ], [ %727, %.loopexit.i244.i ]
   %741 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 %.sroa.0.1.i, ptr %741, align 4, !tbaa !54
   %.sroa.7.0..sroa_idx20.i = getelementptr inbounds nuw i8, ptr %9, i64 36
@@ -2163,12 +2163,12 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
   store i32 %1349, ptr %1350, align 4, !tbaa !69
   br label %parse_source_parameters.exit.thread118
 
-parse_source_parameters.exit.thread:              ; preds = %.thread492, %1268, %494, %._crit_edge604.i, %get_interleaved_ue_golomb.exit218.i, %get_interleaved_ue_golomb.exit261.i, %get_interleaved_ue_golomb.exit361.i, %1229, %1252, %495, %1253
+parse_source_parameters.exit.thread:              ; preds = %.thread492, %495, %494, %._crit_edge604.i, %get_interleaved_ue_golomb.exit218.i, %get_interleaved_ue_golomb.exit261.i, %get_interleaved_ue_golomb.exit361.i, %1229, %1253, %1252, %1268
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %1405
 
-parse_source_parameters.exit.thread118:           ; preds = %1338, %1336, %1322, %1339, %1273
+parse_source_parameters.exit.thread118:           ; preds = %1273, %1338, %1336, %1322, %1339
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %1352
@@ -2266,7 +2266,7 @@ get_interleaved_ue_golomb.exit113:                ; preds = %1364, %.loopexit.i1
   br label %.sink.split666
 
 1405:                                             ; preds = %parse_source_parameters.exit.thread, %1401, %1402, %276, %parse_source_parameters.exit, %10
-  %.0 = phi i32 [ -1094995529, %10 ], [ -1094995529, %276 ], [ %1241, %parse_source_parameters.exit ], [ -1094995529, %1402 ], [ -1094995529, %1401 ], [ -1094995529, %parse_source_parameters.exit.thread ]
+  %.0 = phi i32 [ -1094995529, %10 ], [ %1241, %parse_source_parameters.exit ], [ -1094995529, %276 ], [ -1094995529, %1402 ], [ -1094995529, %1401 ], [ -1094995529, %parse_source_parameters.exit.thread ]
   call void @av_freep(ptr noundef nonnull %7) #5
   br label %.sink.split666
 

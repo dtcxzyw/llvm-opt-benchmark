@@ -245,7 +245,7 @@ define internal range(i32 -2147483648, 1) i32 @vqa_decode_init(ptr noundef %0) #
   br label %104
 
 104:                                              ; preds = %71, %66, %62, %60, %28, %52, %.loopexit, %59, %27, %15, %7
-  %.0 = phi i32 [ -22, %7 ], [ -1094995529, %15 ], [ %25, %27 ], [ -1094995529, %28 ], [ -1094995529, %59 ], [ 0, %.loopexit ], [ -12, %66 ], [ -12, %62 ], [ -12, %60 ], [ -1094995529, %52 ], [ -12, %71 ]
+  %.0 = phi i32 [ -22, %7 ], [ -1094995529, %15 ], [ %25, %27 ], [ -1094995529, %59 ], [ 0, %.loopexit ], [ -1094995529, %52 ], [ -1094995529, %28 ], [ -12, %60 ], [ -12, %62 ], [ -12, %66 ], [ -12, %71 ]
   ret i32 %.0
 }
 
@@ -363,15 +363,15 @@ bytestream2_init.exit:                            ; preds = %12
   br label %56
 
 56:                                               ; preds = %53, %52, %51, %50, %49, %48, %47, %33
-  %57 = phi ptr [ %.pre.i, %53 ], [ %34, %52 ], [ %34, %47 ], [ %34, %48 ], [ %34, %49 ], [ %34, %50 ], [ %34, %51 ], [ %34, %33 ]
-  %58 = phi ptr [ %.pre347.i, %53 ], [ %44, %52 ], [ %44, %47 ], [ %44, %48 ], [ %44, %49 ], [ %44, %50 ], [ %44, %51 ], [ %44, %33 ]
-  %.1232.i = phi i32 [ %.0231279.i, %53 ], [ %.0231279.i, %52 ], [ %.0231279.i, %47 ], [ %.0231279.i, %48 ], [ %.0231279.i, %49 ], [ %.0231279.i, %50 ], [ %.0231279.i, %51 ], [ %43, %33 ]
-  %.1230.i = phi i32 [ %.0229280.i, %53 ], [ %.0229280.i, %52 ], [ %43, %47 ], [ %.0229280.i, %48 ], [ %.0229280.i, %49 ], [ %.0229280.i, %50 ], [ %.0229280.i, %51 ], [ %.0229280.i, %33 ]
-  %.1228.i = phi i32 [ %.0227281.i, %53 ], [ %.0227281.i, %52 ], [ %.0227281.i, %47 ], [ %43, %48 ], [ %.0227281.i, %49 ], [ %.0227281.i, %50 ], [ %.0227281.i, %51 ], [ %.0227281.i, %33 ]
-  %.1226.i = phi i32 [ %.0225282.i, %53 ], [ %.0225282.i, %52 ], [ %.0225282.i, %47 ], [ %.0225282.i, %48 ], [ %43, %49 ], [ %.0225282.i, %50 ], [ %.0225282.i, %51 ], [ %.0225282.i, %33 ]
-  %.1224.i = phi i32 [ %.0223283.i, %53 ], [ %.0223283.i, %52 ], [ %.0223283.i, %47 ], [ %.0223283.i, %48 ], [ %.0223283.i, %49 ], [ %43, %50 ], [ %.0223283.i, %51 ], [ %.0223283.i, %33 ]
-  %.1222.i = phi i32 [ %.0221284.i, %53 ], [ %.0221284.i, %52 ], [ %.0221284.i, %47 ], [ %.0221284.i, %48 ], [ %.0221284.i, %49 ], [ %.0221284.i, %50 ], [ %43, %51 ], [ %.0221284.i, %33 ]
-  %.1220.i = phi i32 [ %.0219285.i, %53 ], [ %43, %52 ], [ %.0219285.i, %47 ], [ %.0219285.i, %48 ], [ %.0219285.i, %49 ], [ %.0219285.i, %50 ], [ %.0219285.i, %51 ], [ %.0219285.i, %33 ]
+  %57 = phi ptr [ %.pre.i, %53 ], [ %34, %47 ], [ %34, %48 ], [ %34, %49 ], [ %34, %50 ], [ %34, %51 ], [ %34, %52 ], [ %34, %33 ]
+  %58 = phi ptr [ %.pre347.i, %53 ], [ %44, %47 ], [ %44, %48 ], [ %44, %49 ], [ %44, %50 ], [ %44, %51 ], [ %44, %52 ], [ %44, %33 ]
+  %.1232.i = phi i32 [ %.0231279.i, %53 ], [ %.0231279.i, %47 ], [ %.0231279.i, %48 ], [ %.0231279.i, %49 ], [ %.0231279.i, %50 ], [ %.0231279.i, %51 ], [ %.0231279.i, %52 ], [ %43, %33 ]
+  %.1230.i = phi i32 [ %.0229280.i, %53 ], [ %43, %47 ], [ %.0229280.i, %48 ], [ %.0229280.i, %49 ], [ %.0229280.i, %50 ], [ %.0229280.i, %51 ], [ %.0229280.i, %52 ], [ %.0229280.i, %33 ]
+  %.1228.i = phi i32 [ %.0227281.i, %53 ], [ %.0227281.i, %47 ], [ %43, %48 ], [ %.0227281.i, %49 ], [ %.0227281.i, %50 ], [ %.0227281.i, %51 ], [ %.0227281.i, %52 ], [ %.0227281.i, %33 ]
+  %.1226.i = phi i32 [ %.0225282.i, %53 ], [ %.0225282.i, %47 ], [ %.0225282.i, %48 ], [ %43, %49 ], [ %.0225282.i, %50 ], [ %.0225282.i, %51 ], [ %.0225282.i, %52 ], [ %.0225282.i, %33 ]
+  %.1224.i = phi i32 [ %.0223283.i, %53 ], [ %.0223283.i, %47 ], [ %.0223283.i, %48 ], [ %.0223283.i, %49 ], [ %43, %50 ], [ %.0223283.i, %51 ], [ %.0223283.i, %52 ], [ %.0223283.i, %33 ]
+  %.1222.i = phi i32 [ %.0221284.i, %53 ], [ %.0221284.i, %47 ], [ %.0221284.i, %48 ], [ %.0221284.i, %49 ], [ %.0221284.i, %50 ], [ %43, %51 ], [ %.0221284.i, %52 ], [ %.0221284.i, %33 ]
+  %.1220.i = phi i32 [ %.0219285.i, %53 ], [ %.0219285.i, %47 ], [ %.0219285.i, %48 ], [ %.0219285.i, %49 ], [ %.0219285.i, %50 ], [ %.0219285.i, %51 ], [ %43, %52 ], [ %.0219285.i, %33 ]
   %59 = and i32 %46, 1
   %60 = add i32 %59, %46
   %61 = ptrtoint ptr %57 to i64
@@ -755,8 +755,8 @@ bytestream2_get_be32.exit248.i:                   ; preds = %196, %195
   br label %vqa_decode_frame_pal8.exit.thread
 
 .loopexit.i:                                      ; preds = %256, %228, %.lr.ph316.i
-  %.2215.i = phi i32 [ %.1214312.i, %.lr.ph316.i ], [ %267, %256 ], [ %237, %228 ]
-  %.2.i = phi i32 [ %.1209313.i, %.lr.ph316.i ], [ %266, %256 ], [ %236, %228 ]
+  %.2215.i = phi i32 [ %.1214312.i, %.lr.ph316.i ], [ %237, %228 ], [ %267, %256 ]
+  %.2.i = phi i32 [ %.1209313.i, %.lr.ph316.i ], [ %236, %228 ], [ %266, %256 ]
   %.not240303.i = icmp eq i32 %.2215.i, 0
   br i1 %.not240303.i, label %._crit_edge309.i, label %.lr.ph308.preheader.i
 
@@ -1028,8 +1028,8 @@ bytestream2_init.exit.i:                          ; preds = %412
   %425 = icmp slt i32 %422, 0
   br i1 %425, label %vqa_decode_frame_pal8.exit.thread, label %426
 
-vqa_decode_frame_pal8.exit.thread:                ; preds = %72, %96, %123, %167, %.thread431.i, %bytestream2_get_be32.exit244.i, %268, %315, %343, %394, %bytestream2_get_be32.exit248.i, %bytestream2_init.exit.i
-  %.0234.i.ph = phi i32 [ %422, %bytestream2_init.exit.i ], [ %203, %bytestream2_get_be32.exit248.i ], [ -1094995529, %394 ], [ -1094995529, %343 ], [ -1094995529, %315 ], [ -1094995529, %268 ], [ %146, %bytestream2_get_be32.exit244.i ], [ -1094995529, %.thread431.i ], [ -1094995529, %167 ], [ -1094995529, %123 ], [ -1094995529, %96 ], [ -1094995529, %72 ]
+vqa_decode_frame_pal8.exit.thread:                ; preds = %72, %96, %123, %167, %.thread431.i, %268, %315, %343, %394, %bytestream2_get_be32.exit244.i, %bytestream2_get_be32.exit248.i, %bytestream2_init.exit.i
+  %.0234.i.ph = phi i32 [ %422, %bytestream2_init.exit.i ], [ %203, %bytestream2_get_be32.exit248.i ], [ %146, %bytestream2_get_be32.exit244.i ], [ -1094995529, %394 ], [ -1094995529, %343 ], [ -1094995529, %315 ], [ -1094995529, %268 ], [ -1094995529, %.thread431.i ], [ -1094995529, %167 ], [ -1094995529, %123 ], [ -1094995529, %96 ], [ -1094995529, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %768
 
@@ -1097,12 +1097,12 @@ vqa_decode_frame_pal8.exit.thread:                ; preds = %72, %96, %123, %167
   br label %454
 
 454:                                              ; preds = %451, %450, %449, %448, %434
-  %455 = phi ptr [ %.pre.i40, %451 ], [ %435, %450 ], [ %435, %448 ], [ %435, %449 ], [ %435, %434 ]
-  %456 = phi ptr [ %.pre128.i, %451 ], [ %445, %450 ], [ %445, %448 ], [ %445, %449 ], [ %445, %434 ]
-  %.1149.i = phi i32 [ %.014846.i, %451 ], [ %.014846.i, %450 ], [ %.014846.i, %448 ], [ %.014846.i, %449 ], [ %444, %434 ]
-  %.1147.i = phi i32 [ %.014647.i, %451 ], [ %.014647.i, %450 ], [ %444, %448 ], [ %.014647.i, %449 ], [ %.014647.i, %434 ]
-  %.1145.i = phi i32 [ %.014448.i, %451 ], [ %.014448.i, %450 ], [ %.014448.i, %448 ], [ %444, %449 ], [ %.014448.i, %434 ]
-  %.1143.i = phi i32 [ %.014249.i, %451 ], [ %444, %450 ], [ %.014249.i, %448 ], [ %.014249.i, %449 ], [ %.014249.i, %434 ]
+  %455 = phi ptr [ %.pre.i40, %451 ], [ %435, %448 ], [ %435, %449 ], [ %435, %450 ], [ %435, %434 ]
+  %456 = phi ptr [ %.pre128.i, %451 ], [ %445, %448 ], [ %445, %449 ], [ %445, %450 ], [ %445, %434 ]
+  %.1149.i = phi i32 [ %.014846.i, %451 ], [ %.014846.i, %448 ], [ %.014846.i, %449 ], [ %.014846.i, %450 ], [ %444, %434 ]
+  %.1147.i = phi i32 [ %.014647.i, %451 ], [ %444, %448 ], [ %.014647.i, %449 ], [ %.014647.i, %450 ], [ %.014647.i, %434 ]
+  %.1145.i = phi i32 [ %.014448.i, %451 ], [ %.014448.i, %448 ], [ %444, %449 ], [ %.014448.i, %450 ], [ %.014448.i, %434 ]
+  %.1143.i = phi i32 [ %.014249.i, %451 ], [ %.014249.i, %448 ], [ %.014249.i, %449 ], [ %444, %450 ], [ %.014249.i, %434 ]
   %457 = and i32 %447, 1
   %458 = add i32 %457, %447
   %459 = ptrtoint ptr %455 to i64
@@ -1659,10 +1659,10 @@ bytestream2_get_byte.exit175.i:                   ; preds = %741, %737, %._crit_
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %666, %.critedge.loopexit98.i, %.critedge.loopexit.i, %.lr.ph68.split.us.i
-  %.us-phi.i = phi ptr [ %.sroa.0.4196206.i, %.lr.ph68.split.us.i ], [ %.sroa.0.4196206.i, %.critedge.loopexit98.i ], [ %.sroa.0.564.i, %.critedge.loopexit.i ], [ %.sroa.0.4196206.i, %666 ]
-  %.us-phi71.i = phi i32 [ %.013389.i, %.lr.ph68.split.us.i ], [ %747, %.critedge.loopexit98.i ], [ %746, %.critedge.loopexit.i ], [ %667, %666 ]
-  %.us-phi72.i = phi i32 [ %.0127199204.i, %.lr.ph68.split.us.i ], [ %677, %.critedge.loopexit98.i ], [ %.112867.i, %.critedge.loopexit.i ], [ %665, %666 ]
-  %.us-phi73.i = phi i32 [ %655, %.lr.ph68.split.us.i ], [ %671, %.critedge.loopexit98.i ], [ %705, %.critedge.loopexit.i ], [ %668, %666 ]
+  %.us-phi.i = phi ptr [ %.sroa.0.4196206.i, %.lr.ph68.split.us.i ], [ %.sroa.0.564.i, %.critedge.loopexit.i ], [ %.sroa.0.4196206.i, %.critedge.loopexit98.i ], [ %.sroa.0.4196206.i, %666 ]
+  %.us-phi71.i = phi i32 [ %.013389.i, %.lr.ph68.split.us.i ], [ %746, %.critedge.loopexit.i ], [ %747, %.critedge.loopexit98.i ], [ %667, %666 ]
+  %.us-phi72.i = phi i32 [ %.0127199204.i, %.lr.ph68.split.us.i ], [ %.112867.i, %.critedge.loopexit.i ], [ %677, %.critedge.loopexit98.i ], [ %665, %666 ]
+  %.us-phi73.i = phi i32 [ %655, %.lr.ph68.split.us.i ], [ %705, %.critedge.loopexit.i ], [ %671, %.critedge.loopexit98.i ], [ %668, %666 ]
   %748 = icmp sgt i32 %.us-phi72.i, 1
   br i1 %748, label %749, label %.critedge.thread.i
 
@@ -1680,8 +1680,8 @@ bytestream2_get_byte.exit175.i:                   ; preds = %741, %737, %._crit_
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %bytestream2_get_byte.exit175.us.us.i, %bytestream2_get_byte.exit.i.thread, %.critedge.thread.loopexit97.i, %.critedge.thread.loopexit.i, %.critedge.i, %.preheader.i35, %bytestream2_get_le16.exit.thread.i
-  %.sroa.0.8.i = phi ptr [ %.us-phi.i, %.critedge.i ], [ %.sroa.0.216.i, %bytestream2_get_le16.exit.thread.i ], [ %.sroa.0.4.i, %.preheader.i35 ], [ %.sroa.0.4196206.i, %.critedge.thread.loopexit97.i ], [ %.sroa.0.7.i, %.critedge.thread.loopexit.i ], [ %592, %bytestream2_get_byte.exit.i.thread ], [ %.sroa.0.4196206.i, %bytestream2_get_byte.exit175.us.us.i ]
-  %.1134.i = phi i32 [ %.us-phi71.i, %.critedge.i ], [ %618, %bytestream2_get_le16.exit.thread.i ], [ %.013389.i, %.preheader.i35 ], [ %752, %.critedge.thread.loopexit97.i ], [ %751, %.critedge.thread.loopexit.i ], [ %.013389.i, %bytestream2_get_byte.exit.i.thread ], [ %663, %bytestream2_get_byte.exit175.us.us.i ]
+  %.sroa.0.8.i = phi ptr [ %.sroa.0.216.i, %bytestream2_get_le16.exit.thread.i ], [ %.us-phi.i, %.critedge.i ], [ %.sroa.0.4.i, %.preheader.i35 ], [ %.sroa.0.7.i, %.critedge.thread.loopexit.i ], [ %.sroa.0.4196206.i, %.critedge.thread.loopexit97.i ], [ %592, %bytestream2_get_byte.exit.i.thread ], [ %.sroa.0.4196206.i, %bytestream2_get_byte.exit175.us.us.i ]
+  %.1134.i = phi i32 [ %618, %bytestream2_get_le16.exit.thread.i ], [ %.us-phi71.i, %.critedge.i ], [ %.013389.i, %.preheader.i35 ], [ %751, %.critedge.thread.loopexit.i ], [ %752, %.critedge.thread.loopexit97.i ], [ %.013389.i, %bytestream2_get_byte.exit.i.thread ], [ %663, %bytestream2_get_byte.exit175.us.us.i ]
   %753 = load i32, ptr %595, align 8, !tbaa !36
   %754 = icmp slt i32 %.1134.i, %753
   br i1 %754, label %.lr.ph90.i, label %._crit_edge91.loopexit.i
@@ -1699,8 +1699,8 @@ bytestream2_get_byte.exit175.i:                   ; preds = %741, %737, %._crit_
   %.not158.i = icmp slt i32 %758, %755
   br i1 %.not158.i, label %.preheader29.i, label %vqa_decode_frame_hicolor.exit, !llvm.loop !74
 
-vqa_decode_frame_hicolor.exit.thread:             ; preds = %.lr.ph90.i, %470, %.thread190.i, %514, %546, %bytestream2_get_be32.exit164.i, %bytestream2_get_be32.exit.i39, %749, %639, %703
-  %.0.i.ph = phi i32 [ -1094995529, %470 ], [ -1094995529, %703 ], [ -1094995529, %639 ], [ -558323010, %749 ], [ %493, %bytestream2_get_be32.exit.i39 ], [ %580, %bytestream2_get_be32.exit164.i ], [ -1094995529, %546 ], [ -1094995529, %514 ], [ -1094995529, %.thread190.i ], [ -1094995529, %.lr.ph90.i ]
+vqa_decode_frame_hicolor.exit.thread:             ; preds = %.lr.ph90.i, %470, %514, %546, %.thread190.i, %bytestream2_get_be32.exit.i39, %bytestream2_get_be32.exit164.i, %639, %749, %703
+  %.0.i.ph = phi i32 [ -1094995529, %703 ], [ -558323010, %749 ], [ -1094995529, %639 ], [ %580, %bytestream2_get_be32.exit164.i ], [ %493, %bytestream2_get_be32.exit.i39 ], [ -1094995529, %.thread190.i ], [ -1094995529, %546 ], [ -1094995529, %514 ], [ -1094995529, %470 ], [ -1094995529, %.lr.ph90.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %768
 
@@ -1726,7 +1726,7 @@ vqa_decode_frame_hicolor.exit:                    ; preds = %._crit_edge91.i, %b
   br label %768
 
 768:                                              ; preds = %vqa_decode_frame_hicolor.exit.thread, %vqa_decode_frame_pal8.exit.thread, %762, %4, %766, %759
-  %.0 = phi i32 [ -558323010, %759 ], [ %10, %4 ], [ %.0.i.ph, %vqa_decode_frame_hicolor.exit.thread ], [ %767, %766 ], [ %.0234.i.ph, %vqa_decode_frame_pal8.exit.thread ], [ %764, %762 ]
+  %.0 = phi i32 [ %767, %766 ], [ -558323010, %759 ], [ %10, %4 ], [ %764, %762 ], [ %.0234.i.ph, %vqa_decode_frame_pal8.exit.thread ], [ %.0.i.ph, %vqa_decode_frame_hicolor.exit.thread ]
   ret i32 %.0
 }
 
@@ -2186,7 +2186,7 @@ bytestream2_get_byte.exit196:                     ; preds = %168, %169
   br i1 %exitcond268.not, label %.loopexit, label %.preheader214, !llvm.loop !77
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader214, %.preheader, %.preheader216, %105, %151
-  %.1168 = phi i32 [ %173, %.preheader214 ], [ %99, %105 ], [ %67, %.preheader216 ], [ %145, %151 ], [ %124, %.preheader ], [ %67, %.lr.ph ]
+  %.1168 = phi i32 [ %99, %105 ], [ %145, %151 ], [ %67, %.preheader216 ], [ %124, %.preheader ], [ %173, %.preheader214 ], [ %67, %.lr.ph ]
   %197 = load ptr, ptr %8, align 8, !tbaa !58
   %198 = load ptr, ptr %27, align 8, !tbaa !59
   %199 = ptrtoint ptr %197 to i64
@@ -2216,7 +2216,7 @@ bytestream2_get_byte.exit192._crit_edge:          ; preds = %.loopexit, %bytestr
   br label %213
 
 213:                                              ; preds = %bytestream2_get_byte.exit192._crit_edge, %206, %188, %175, %147, %136, %126, %101, %79, %69, %46, %17
-  %.0164 = phi i32 [ -1094995529, %17 ], [ -1094995529, %188 ], [ -1094995529, %46 ], [ -1094995529, %69 ], [ -1094995529, %79 ], [ -1094995529, %101 ], [ -1094995529, %126 ], [ -1094995529, %136 ], [ -1094995529, %147 ], [ -1094995529, %175 ], [ 0, %206 ], [ 0, %bytestream2_get_byte.exit192._crit_edge ]
+  %.0164 = phi i32 [ -1094995529, %17 ], [ -1094995529, %46 ], [ -1094995529, %69 ], [ -1094995529, %79 ], [ -1094995529, %101 ], [ -1094995529, %126 ], [ -1094995529, %136 ], [ -1094995529, %147 ], [ -1094995529, %175 ], [ -1094995529, %188 ], [ 0, %206 ], [ 0, %bytestream2_get_byte.exit192._crit_edge ]
   ret i32 %.0164
 }
 

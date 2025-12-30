@@ -327,8 +327,8 @@ _Z23byte_size_in_exact_unitm.exit:                ; preds = %41
   br label %_Z24exact_unit_for_byte_sizem.exit
 
 _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread82, %_Z23byte_size_in_exact_unitm.exit, %53
-  %.0.i73 = phi i64 [ %spec.select.i, %53 ], [ %52, %_Z23byte_size_in_exact_unitm.exit ], [ %51, %.thread82 ]
-  %.0.i70 = phi ptr [ %spec.select.i69, %53 ], [ @.str.38, %_Z23byte_size_in_exact_unitm.exit ], [ @.str.39, %.thread82 ]
+  %.0.i73 = phi i64 [ %52, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i, %53 ], [ %51, %.thread82 ]
+  %.0.i70 = phi ptr [ @.str.38, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i69, %53 ], [ @.str.39, %.thread82 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.26, i64 noundef %.0.i73, ptr noundef nonnull %.0.i70) #7
   %61 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef 87) #7
   %62 = icmp eq i32 %61, 0
@@ -512,8 +512,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %2
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_size_in_proper_unitImET_S0_.exit, %12
-  %.0.i49 = phi i64 [ %10, %.thread ], [ %11, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %12 ]
-  %.0.i10 = phi ptr [ @.str.39, %.thread ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.40..str.41.i, %12 ]
+  %.0.i49 = phi i64 [ %11, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i, %12 ], [ %10, %.thread ]
+  %.0.i10 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.40..str.41.i, %12 ], [ @.str.39, %.thread ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.43, i64 noundef %6, i64 noundef %.0.i49, ptr noundef nonnull %.0.i10) #7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
@@ -540,8 +540,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit13:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit16
 
 _Z25proper_unit_for_byte_sizem.exit16:            ; preds = %.thread54, %_Z24byte_size_in_proper_unitImET_S0_.exit13, %22
-  %.0.i1253 = phi i64 [ %20, %.thread54 ], [ %21, %_Z24byte_size_in_proper_unitImET_S0_.exit13 ], [ %spec.select.i11, %22 ]
-  %.0.i15 = phi ptr [ @.str.39, %.thread54 ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit13 ], [ %.str.40..str.41.i14, %22 ]
+  %.0.i1253 = phi i64 [ %21, %_Z24byte_size_in_proper_unitImET_S0_.exit13 ], [ %spec.select.i11, %22 ], [ %20, %.thread54 ]
+  %.0.i15 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit13 ], [ %.str.40..str.41.i14, %22 ], [ @.str.39, %.thread54 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.44, i64 noundef %16, i64 noundef %.0.i1253, ptr noundef nonnull %.0.i15) #7
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i64, ptr %25, align 8
@@ -568,8 +568,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit19:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit22
 
 _Z25proper_unit_for_byte_sizem.exit22:            ; preds = %.thread59, %_Z24byte_size_in_proper_unitImET_S0_.exit19, %32
-  %.0.i1858 = phi i64 [ %30, %.thread59 ], [ %31, %_Z24byte_size_in_proper_unitImET_S0_.exit19 ], [ %spec.select.i17, %32 ]
-  %.0.i21 = phi ptr [ @.str.39, %.thread59 ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit19 ], [ %.str.40..str.41.i20, %32 ]
+  %.0.i1858 = phi i64 [ %31, %_Z24byte_size_in_proper_unitImET_S0_.exit19 ], [ %spec.select.i17, %32 ], [ %30, %.thread59 ]
+  %.0.i21 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit19 ], [ %.str.40..str.41.i20, %32 ], [ @.str.39, %.thread59 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.45, i64 noundef %26, i64 noundef %.0.i1858, ptr noundef nonnull %.0.i21) #7
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load i64, ptr %35, align 8
@@ -596,8 +596,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit25:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit28
 
 _Z25proper_unit_for_byte_sizem.exit28:            ; preds = %.thread64, %_Z24byte_size_in_proper_unitImET_S0_.exit25, %42
-  %.0.i2463 = phi i64 [ %40, %.thread64 ], [ %41, %_Z24byte_size_in_proper_unitImET_S0_.exit25 ], [ %spec.select.i23, %42 ]
-  %.0.i27 = phi ptr [ @.str.39, %.thread64 ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit25 ], [ %.str.40..str.41.i26, %42 ]
+  %.0.i2463 = phi i64 [ %41, %_Z24byte_size_in_proper_unitImET_S0_.exit25 ], [ %spec.select.i23, %42 ], [ %40, %.thread64 ]
+  %.0.i27 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit25 ], [ %.str.40..str.41.i26, %42 ], [ @.str.39, %.thread64 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.46, i64 noundef %36, i64 noundef %.0.i2463, ptr noundef nonnull %.0.i27) #7
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load i64, ptr %45, align 8
@@ -624,8 +624,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit31:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit34
 
 _Z25proper_unit_for_byte_sizem.exit34:            ; preds = %.thread69, %_Z24byte_size_in_proper_unitImET_S0_.exit31, %52
-  %.0.i3068 = phi i64 [ %50, %.thread69 ], [ %51, %_Z24byte_size_in_proper_unitImET_S0_.exit31 ], [ %spec.select.i29, %52 ]
-  %.0.i33 = phi ptr [ @.str.39, %.thread69 ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit31 ], [ %.str.40..str.41.i32, %52 ]
+  %.0.i3068 = phi i64 [ %51, %_Z24byte_size_in_proper_unitImET_S0_.exit31 ], [ %spec.select.i29, %52 ], [ %50, %.thread69 ]
+  %.0.i33 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit31 ], [ %.str.40..str.41.i32, %52 ], [ @.str.39, %.thread69 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.47, i64 noundef %46, i64 noundef %.0.i3068, ptr noundef nonnull %.0.i33) #7
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %56 = load i64, ptr %55, align 8
@@ -652,8 +652,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit37:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit40
 
 _Z25proper_unit_for_byte_sizem.exit40:            ; preds = %.thread74, %_Z24byte_size_in_proper_unitImET_S0_.exit37, %62
-  %.0.i3673 = phi i64 [ %60, %.thread74 ], [ %61, %_Z24byte_size_in_proper_unitImET_S0_.exit37 ], [ %spec.select.i35, %62 ]
-  %.0.i39 = phi ptr [ @.str.39, %.thread74 ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit37 ], [ %.str.40..str.41.i38, %62 ]
+  %.0.i3673 = phi i64 [ %61, %_Z24byte_size_in_proper_unitImET_S0_.exit37 ], [ %spec.select.i35, %62 ], [ %60, %.thread74 ]
+  %.0.i39 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit37 ], [ %.str.40..str.41.i38, %62 ], [ @.str.39, %.thread74 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.48, i64 noundef %56, i64 noundef %.0.i3673, ptr noundef nonnull %.0.i39) #7
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %66 = load i64, ptr %65, align 8
@@ -680,8 +680,8 @@ _Z24byte_size_in_proper_unitImET_S0_.exit43:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit46
 
 _Z25proper_unit_for_byte_sizem.exit46:            ; preds = %.thread79, %_Z24byte_size_in_proper_unitImET_S0_.exit43, %72
-  %.0.i4278 = phi i64 [ %70, %.thread79 ], [ %71, %_Z24byte_size_in_proper_unitImET_S0_.exit43 ], [ %spec.select.i41, %72 ]
-  %.0.i45 = phi ptr [ @.str.39, %.thread79 ], [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit43 ], [ %.str.40..str.41.i44, %72 ]
+  %.0.i4278 = phi i64 [ %71, %_Z24byte_size_in_proper_unitImET_S0_.exit43 ], [ %spec.select.i41, %72 ], [ %70, %.thread79 ]
+  %.0.i45 = phi ptr [ @.str.38, %_Z24byte_size_in_proper_unitImET_S0_.exit43 ], [ %.str.40..str.41.i44, %72 ], [ @.str.39, %.thread79 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.49, i64 noundef %66, i64 noundef %.0.i4278, ptr noundef nonnull %.0.i45) #7
   ret void
 }

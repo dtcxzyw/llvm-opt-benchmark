@@ -1520,8 +1520,8 @@ thread-pre-split:                                 ; preds = %.critedge
   br label %18
 
 18:                                               ; preds = %16, %.thread, %12
-  %.171 = phi ptr [ %.07091, %16 ], [ %.07091, %12 ], [ %17, %.thread ]
-  %.169 = phi i8 [ %13, %16 ], [ %.06892, %12 ], [ %13, %.thread ]
+  %.171 = phi ptr [ %.07091, %12 ], [ %17, %.thread ], [ %.07091, %16 ]
+  %.169 = phi i8 [ %.06892, %12 ], [ %13, %.thread ], [ %13, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !196
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

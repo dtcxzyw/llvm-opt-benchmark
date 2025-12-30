@@ -31,11 +31,11 @@ define i32 @Lpk_FunComputeMinSuppSizeVar(ptr noundef readonly captures(none) %0,
   br label %12
 
 12:                                               ; preds = %22, %.split.us.split.us
-  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %22 ], [ 0, %.split.us.split.us ]
-  %.06490.us.us = phi i32 [ %.1.us.us, %22 ], [ -1, %.split.us.split.us ]
-  %.06689.us.us = phi i32 [ %.167.us.us, %22 ], [ -1, %.split.us.split.us ]
-  %.07088.us.us = phi i32 [ %.171.us.us, %22 ], [ -1, %.split.us.split.us ]
-  %13 = trunc nuw nsw i64 %indvars.iv107 to i32
+  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %22 ], [ 0, %.split.us.split.us ]
+  %.06488.us.us = phi i32 [ %.1.us.us, %22 ], [ -1, %.split.us.split.us ]
+  %.06687.us.us = phi i32 [ %.167.us.us, %22 ], [ -1, %.split.us.split.us ]
+  %.07086.us.us = phi i32 [ %.171.us.us, %22 ], [ -1, %.split.us.split.us ]
+  %13 = trunc nuw nsw i64 %indvars.iv105 to i32
   %14 = shl nuw nsw i32 1, %13
   %15 = and i32 %11, %14
   %.not.us.us = icmp eq i32 %15, 0
@@ -45,8 +45,8 @@ define i32 @Lpk_FunComputeMinSuppSizeVar(ptr noundef readonly captures(none) %0,
   br i1 %or.cond.us.us, label %22, label %.preheader79.us.us
 
 18:                                               ; preds = %.preheader79.us.us
-  %19 = icmp eq i32 %.06490.us.us, %65
-  %20 = icmp sgt i32 %.06689.us.us, %invariant.op.us.us
+  %19 = icmp eq i32 %.06488.us.us, %65
+  %20 = icmp sgt i32 %.06687.us.us, %invariant.op.us.us
   %or.cond78.us.us = select i1 %19, i1 %20, i1 false
   br i1 %or.cond78.us.us, label %21, label %22
 
@@ -54,16 +54,16 @@ define i32 @Lpk_FunComputeMinSuppSizeVar(ptr noundef readonly captures(none) %0,
   br label %22
 
 22:                                               ; preds = %21, %18, %12
-  %.171.us.us = phi i32 [ %.07088.us.us, %12 ], [ %13, %21 ], [ %.07088.us.us, %18 ]
-  %.167.us.us = phi i32 [ %.06689.us.us, %12 ], [ %invariant.op.us.us, %21 ], [ %.06689.us.us, %18 ]
-  %.1.us.us = phi i32 [ %.06490.us.us, %12 ], [ %65, %21 ], [ %.06490.us.us, %18 ]
-  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %exitcond110.not = icmp eq i64 %indvars.iv.next108, 16
-  br i1 %exitcond110.not, label %.preheader, label %12, !llvm.loop !10
+  %.171.us.us = phi i32 [ %13, %21 ], [ %.07086.us.us, %18 ], [ %.07086.us.us, %12 ]
+  %.167.us.us = phi i32 [ %invariant.op.us.us, %21 ], [ %.06687.us.us, %18 ], [ %.06687.us.us, %12 ]
+  %.1.us.us = phi i32 [ %65, %21 ], [ %.06488.us.us, %18 ], [ %.06488.us.us, %12 ]
+  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
+  %exitcond108.not = icmp eq i64 %indvars.iv.next106, 16
+  br i1 %exitcond108.not, label %.preheader, label %12, !llvm.loop !10
 
 .preheader79.us.us:                               ; preds = %12
-  %.idx120 = shl nuw nsw i64 %indvars.iv107, 3
-  %23 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx120
+  %.idx118 = shl nuw nsw i64 %indvars.iv105, 3
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx118
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %23, align 4, !tbaa !12
   %26 = and i32 %25, 1431655765
@@ -107,15 +107,15 @@ define i32 @Lpk_FunComputeMinSuppSizeVar(ptr noundef readonly captures(none) %0,
   %64 = add nuw nsw i32 %62, %63
   %invariant.op.us.us = add nuw nsw i32 %44, %64
   %65 = tail call i32 @llvm.umax.i32(i32 %44, i32 %64)
-  %66 = icmp eq i32 %.07088.us.us, -1
-  %67 = icmp sgt i32 %.06490.us.us, %65
+  %66 = icmp eq i32 %.07086.us.us, -1
+  %67 = icmp sgt i32 %.06488.us.us, %65
   %or.cond77.us.us = select i1 %66, i1 true, i1 %67
   br i1 %or.cond77.us.us, label %21, label %18
 
 .split.us.split:                                  ; preds = %.split.us.split.preheader, %104
-  %.06490.us = phi i32 [ %.1.us, %104 ], [ -1, %.split.us.split.preheader ]
-  %.06689.us = phi i32 [ %.167.us, %104 ], [ -1, %.split.us.split.preheader ]
-  %.07088.us = phi i32 [ %.171.us, %104 ], [ -1, %.split.us.split.preheader ]
+  %.06488.us = phi i32 [ %.1.us, %104 ], [ -1, %.split.us.split.preheader ]
+  %.06687.us = phi i32 [ %.167.us, %104 ], [ -1, %.split.us.split.preheader ]
+  %.07086.us = phi i32 [ %.171.us, %104 ], [ -1, %.split.us.split.preheader ]
   %.07285.us = phi i32 [ %105, %104 ], [ 0, %.split.us.split.preheader ]
   %68 = load i32, ptr %6, align 4, !tbaa !3
   %69 = shl nuw nsw i32 1, %.07285.us
@@ -126,19 +126,19 @@ define i32 @Lpk_FunComputeMinSuppSizeVar(ptr noundef readonly captures(none) %0,
   %or.cond.us = or i1 %72, %.not.us
   br i1 %or.cond.us, label %104, label %.preheader79.us
 
-73:                                               ; preds = %._crit_edge.split.us94
-  %74 = icmp eq i32 %.06490.us, %101
-  %75 = icmp sgt i32 %.06689.us, %103
+73:                                               ; preds = %._crit_edge.split.us92
+  %74 = icmp eq i32 %.06488.us, %101
+  %75 = icmp sgt i32 %.06687.us, %103
   %or.cond78.us = select i1 %74, i1 %75, i1 false
   br i1 %or.cond78.us, label %76, label %104
 
-76:                                               ; preds = %73, %._crit_edge.split.us94
+76:                                               ; preds = %73, %._crit_edge.split.us92
   br label %104
 
 .preheader79.us:                                  ; preds = %.split.us.split, %.preheader79.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader79.us ], [ 0, %.split.us.split ]
-  %.082.us91 = phi i32 [ %101, %.preheader79.us ], [ 0, %.split.us.split ]
-  %.06581.us92 = phi i32 [ %103, %.preheader79.us ], [ 0, %.split.us.split ]
+  %.082.us89 = phi i32 [ %101, %.preheader79.us ], [ 0, %.split.us.split ]
+  %.06581.us90 = phi i32 [ %103, %.preheader79.us ], [ 0, %.split.us.split ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %78 = load ptr, ptr %77, align 8, !tbaa !13
@@ -165,25 +165,25 @@ define i32 @Lpk_FunComputeMinSuppSizeVar(ptr noundef readonly captures(none) %0,
   %97 = lshr i32 %96, 7
   %98 = and i32 %97, 31
   %99 = tail call i32 @Kit_TruthSupportSize(ptr noundef %95, i32 noundef %98) #11
-  %100 = tail call noundef i32 @llvm.smax.i32(i32 %.082.us91, i32 %94)
+  %100 = tail call noundef i32 @llvm.smax.i32(i32 %.082.us89, i32 %94)
   %101 = tail call noundef i32 @llvm.smax.i32(i32 %100, i32 %99)
-  %102 = add i32 %94, %.06581.us92
+  %102 = add i32 %94, %.06581.us90
   %103 = add i32 %102, %99
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond105.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond105.not, label %._crit_edge.split.us94, label %.preheader79.us, !llvm.loop !15
+  %exitcond103.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond103.not, label %._crit_edge.split.us92, label %.preheader79.us, !llvm.loop !15
 
 104:                                              ; preds = %76, %73, %.split.us.split
-  %.171.us = phi i32 [ %.07088.us, %.split.us.split ], [ %.07285.us, %76 ], [ %.07088.us, %73 ]
-  %.167.us = phi i32 [ %.06689.us, %.split.us.split ], [ %103, %76 ], [ %.06689.us, %73 ]
-  %.1.us = phi i32 [ %.06490.us, %.split.us.split ], [ %101, %76 ], [ %.06490.us, %73 ]
+  %.171.us = phi i32 [ %.07285.us, %76 ], [ %.07086.us, %73 ], [ %.07086.us, %.split.us.split ]
+  %.167.us = phi i32 [ %103, %76 ], [ %.06687.us, %73 ], [ %.06687.us, %.split.us.split ]
+  %.1.us = phi i32 [ %101, %76 ], [ %.06488.us, %73 ], [ %.06488.us, %.split.us.split ]
   %105 = add nuw nsw i32 %.07285.us, 1
-  %exitcond106.not = icmp eq i32 %105, 16
-  br i1 %exitcond106.not, label %.preheader, label %.split.us.split, !llvm.loop !10
+  %exitcond104.not = icmp eq i32 %105, 16
+  br i1 %exitcond104.not, label %.preheader, label %.split.us.split, !llvm.loop !10
 
-._crit_edge.split.us94:                           ; preds = %.preheader79.us
-  %106 = icmp eq i32 %.07088.us, -1
-  %107 = icmp sgt i32 %.06490.us, %101
+._crit_edge.split.us92:                           ; preds = %.preheader79.us
+  %106 = icmp eq i32 %.07086.us, -1
+  %107 = icmp sgt i32 %.06488.us, %101
   %or.cond77.us = select i1 %106, i1 true, i1 %107
   br i1 %or.cond77.us, label %76, label %73
 
@@ -192,53 +192,53 @@ define i32 @Lpk_FunComputeMinSuppSizeVar(ptr noundef readonly captures(none) %0,
   br label %109
 
 .preheader:                                       ; preds = %109, %104, %22
-  %.us-phi98 = phi i32 [ %.171.us, %104 ], [ %.171.us.us, %22 ], [ %.171, %109 ]
+  %.us-phi96 = phi i32 [ %.171.us.us, %22 ], [ %.171.us, %104 ], [ %.171, %109 ]
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %wide.trip.count114 = zext nneg i32 %2 to i64
+  %wide.trip.count112 = zext nneg i32 %2 to i64
   br label %116
 
 109:                                              ; preds = %.split, %109
-  %.07088 = phi i32 [ -1, %.split ], [ %.171, %109 ]
+  %.07086 = phi i32 [ -1, %.split ], [ %.171, %109 ]
   %.07285 = phi i32 [ 0, %.split ], [ %115, %109 ]
   %110 = shl nuw nsw i32 1, %.07285
   %111 = and i32 %108, %110
   %.not = icmp ne i32 %111, 0
   %112 = and i32 %110, %4
   %113 = icmp ne i32 %112, 0
-  %or.cond.not127 = and i1 %113, %.not
-  %114 = icmp eq i32 %.07088, -1
-  %or.cond125 = select i1 %or.cond.not127, i1 %114, i1 false
-  %.171 = select i1 %or.cond125, i32 %.07285, i32 %.07088
+  %or.cond.not125 = and i1 %113, %.not
+  %114 = icmp eq i32 %.07086, -1
+  %or.cond123 = select i1 %or.cond.not125, i1 %114, i1 false
+  %.171 = select i1 %or.cond123, i32 %.07285, i32 %.07086
   %115 = add nuw nsw i32 %.07285, 1
   %exitcond.not = icmp eq i32 %115, 16
   br i1 %exitcond.not, label %.preheader, label %109, !llvm.loop !10
 
 116:                                              ; preds = %.lr.ph, %116
-  %indvars.iv111 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next112, %116 ]
-  %.idx121 = shl nuw nsw i64 %indvars.iv111, 4
-  %117 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx121
+  %indvars.iv109 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next110, %116 ]
+  %.idx119 = shl nuw nsw i64 %indvars.iv109, 4
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx119
   %118 = load ptr, ptr %117, align 8, !tbaa !13
-  %119 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv111
+  %119 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv109
   %120 = load ptr, ptr %119, align 8, !tbaa !13
   %121 = load i32, ptr %8, align 8
   %122 = lshr i32 %121, 7
   %123 = and i32 %122, 31
-  tail call void @Kit_TruthCofactor0New(ptr noundef %118, ptr noundef %120, i32 noundef %123, i32 noundef %.us-phi98) #11
+  tail call void @Kit_TruthCofactor0New(ptr noundef %118, ptr noundef %120, i32 noundef %123, i32 noundef %.us-phi96) #11
   %124 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %125 = load ptr, ptr %124, align 8, !tbaa !13
   %126 = load ptr, ptr %119, align 8, !tbaa !13
   %127 = load i32, ptr %8, align 8
   %128 = lshr i32 %127, 7
   %129 = and i32 %128, 31
-  tail call void @Kit_TruthCofactor1New(ptr noundef %125, ptr noundef %126, i32 noundef %129, i32 noundef %.us-phi98) #11
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
-  br i1 %exitcond115.not, label %._crit_edge, label %116, !llvm.loop !16
+  tail call void @Kit_TruthCofactor1New(ptr noundef %125, ptr noundef %126, i32 noundef %129, i32 noundef %.us-phi96) #11
+  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
+  %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
+  br i1 %exitcond113.not, label %._crit_edge, label %116, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %116, %.preheader
-  ret i32 %.us-phi98
+  ret i32 %.us-phi96
 }
 
 declare void @Kit_TruthCofactor0New(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -851,8 +851,8 @@ define noalias noundef ptr @Lpk_MergeBoundSets(ptr noundef readonly captures(non
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %55, %57, %47, %49
-  %.sink50 = phi ptr [ %50, %49 ], [ %48, %47 ], [ %56, %55 ], [ %58, %57 ]
-  %.sink = phi i32 [ 16, %49 ], [ 16, %47 ], [ %52, %55 ], [ %52, %57 ]
+  %.sink50 = phi ptr [ %48, %47 ], [ %50, %49 ], [ %56, %55 ], [ %58, %57 ]
+  %.sink = phi i32 [ 16, %47 ], [ 16, %49 ], [ %52, %55 ], [ %52, %57 ]
   store ptr %.sink50, ptr %7, align 8, !tbaa !30
   store i32 %.sink, ptr %4, align 8, !tbaa !29
   br label %Vec_IntPush.exit
@@ -1339,8 +1339,8 @@ Lpk_DsdLateArriving.exit:                         ; preds = %40
   br label %Vec_IntPush.exit.sink.split.i
 
 Vec_IntPush.exit.sink.split.i:                    ; preds = %142, %140, %134, %132
-  %.sink50.i = phi ptr [ %135, %134 ], [ %133, %132 ], [ %141, %140 ], [ %143, %142 ]
-  %.sink.i = phi i32 [ 16, %134 ], [ 16, %132 ], [ %137, %140 ], [ %137, %142 ]
+  %.sink50.i = phi ptr [ %133, %132 ], [ %135, %134 ], [ %141, %140 ], [ %143, %142 ]
+  %.sink.i = phi i32 [ 16, %132 ], [ 16, %134 ], [ %137, %140 ], [ %137, %142 ]
   store ptr %.sink50.i, ptr %92, align 8, !tbaa !30
   store i32 %.sink.i, ptr %89, align 8, !tbaa !29
   br label %Vec_IntPush.exit.i
@@ -1699,7 +1699,7 @@ Kit_TruthCopy.exit:                               ; preds = %65
   br label %133
 
 133:                                              ; preds = %131, %128, %125, %121, %114, %104, %101, %97, %90, %82, %78, %71, %Vec_IntFree.exit, %108, %112, %88, %Kit_TruthCopy.exit
-  %.044 = phi ptr [ null, %Kit_TruthCopy.exit ], [ @Lpk_DsdAnalize.Res0, %Vec_IntFree.exit ], [ %spec.select, %131 ], [ null, %88 ], [ @Lpk_DsdAnalize.Res1, %71 ], [ @Lpk_DsdAnalize.Res0, %78 ], [ null, %112 ], [ @Lpk_DsdAnalize.Res1, %82 ], [ @Lpk_DsdAnalize.Res2, %90 ], [ @Lpk_DsdAnalize.Res0, %97 ], [ @Lpk_DsdAnalize.Res1, %101 ], [ null, %108 ], [ @Lpk_DsdAnalize.Res2, %104 ], [ @Lpk_DsdAnalize.Res3, %114 ], [ @Lpk_DsdAnalize.Res0, %121 ], [ @Lpk_DsdAnalize.Res1, %125 ], [ @Lpk_DsdAnalize.Res2, %128 ]
+  %.044 = phi ptr [ null, %112 ], [ null, %108 ], [ null, %88 ], [ null, %Kit_TruthCopy.exit ], [ @Lpk_DsdAnalize.Res0, %Vec_IntFree.exit ], [ @Lpk_DsdAnalize.Res1, %71 ], [ @Lpk_DsdAnalize.Res0, %78 ], [ @Lpk_DsdAnalize.Res1, %82 ], [ @Lpk_DsdAnalize.Res2, %90 ], [ @Lpk_DsdAnalize.Res0, %97 ], [ @Lpk_DsdAnalize.Res1, %101 ], [ @Lpk_DsdAnalize.Res2, %104 ], [ @Lpk_DsdAnalize.Res3, %114 ], [ @Lpk_DsdAnalize.Res0, %121 ], [ @Lpk_DsdAnalize.Res1, %125 ], [ @Lpk_DsdAnalize.Res2, %128 ], [ %spec.select, %131 ]
   %.not62 = icmp eq i32 %2, 31
   br i1 %.not62, label %._crit_edge, label %.lr.ph.preheader
 

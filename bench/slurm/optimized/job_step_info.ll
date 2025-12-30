@@ -498,7 +498,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_get_job_steps(i64 noundef %0, i32 n
   br label %_load_cluster_steps.exit
 
 _load_cluster_steps.exit:                         ; preds = %35, %41, %46, %48, %.thread16.i
-  %.011.i = phi i32 [ -1, %35 ], [ -1, %.thread16.i ], [ 0, %48 ], [ 0, %46 ], [ 0, %41 ]
+  %.011.i = phi i32 [ -1, %.thread16.i ], [ -1, %35 ], [ 0, %48 ], [ 0, %46 ], [ 0, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %157
 
@@ -617,7 +617,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %41, %46, %48, 
   br label %107
 
 107:                                              ; preds = %105, %69, %.lr.ph.i
-  %.166.i = phi i32 [ %.06599.i, %.lr.ph.i ], [ %106, %105 ], [ %.06599.i, %69 ]
+  %.166.i = phi i32 [ %106, %105 ], [ %.06599.i, %69 ], [ %.06599.i, %.lr.ph.i ]
   %108 = call ptr @list_next(ptr noundef %63) #11
   %.not.i19 = icmp eq ptr %108, null
   br i1 %.not.i19, label %._crit_edge.i, label %.lr.ph.i
@@ -848,8 +848,8 @@ define dso_local i32 @slurm_find_step_ids_by_container_id(i16 noundef zeroext %0
   br label %32
 
 32:                                               ; preds = %18, %21, %24, %26, %28
-  %33 = phi i16 [ 5009, %21 ], [ 8001, %28 ], [ %.pre, %26 ], [ 5009, %24 ], [ %20, %18 ]
-  %.07 = phi i32 [ 0, %21 ], [ %31, %28 ], [ 0, %26 ], [ 0, %24 ], [ 1000, %18 ]
+  %33 = phi i16 [ 8001, %28 ], [ %.pre, %26 ], [ 5009, %24 ], [ 5009, %21 ], [ %20, %18 ]
+  %.07 = phi i32 [ %31, %28 ], [ 0, %26 ], [ 0, %24 ], [ 0, %21 ], [ 1000, %18 ]
   %34 = zext i16 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %36 = load ptr, ptr %35, align 8
@@ -983,7 +983,7 @@ define dso_local ptr @slurm_job_step_layout_get(ptr noundef readonly captures(no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %.critedge, %40, %48, %44, %42
-  %.1 = phi ptr [ null, %44 ], [ null, %48 ], [ null, %40 ], [ %43, %42 ], [ null, %.critedge ], [ null, %33 ]
+  %.1 = phi ptr [ null, %48 ], [ null, %40 ], [ %43, %42 ], [ null, %44 ], [ null, %.critedge ], [ null, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1294,7 +1294,7 @@ define internal range(i32 -1, 2) i32 @_sort_stats_by_name(ptr noundef readonly c
   br label %_sort_pids_by_name.exit
 
 _sort_pids_by_name.exit:                          ; preds = %17, %14, %12, %10, %2, %6
-  %.0 = phi i32 [ 0, %2 ], [ 0, %6 ], [ 0, %10 ], [ %..i, %17 ], [ 1, %14 ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %2 ], [ 0, %12 ], [ 0, %10 ], [ 1, %14 ], [ %..i, %17 ]
   ret i32 %.0
 }
 
@@ -1523,7 +1523,7 @@ define internal range(i32 -1, 2) i32 @_sort_pids_by_name(ptr noundef readonly ca
   br label %12
 
 12:                                               ; preds = %11, %8, %2, %5
-  %.0 = phi i32 [ 0, %2 ], [ %., %11 ], [ 1, %8 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 1, %8 ], [ %., %11 ]
   ret i32 %.0
 }
 
@@ -1739,8 +1739,8 @@ define internal noalias noundef ptr @_load_step_thread(ptr noundef %0) #0 {
   store i32 %.019.i, ptr %23, align 4
   br label %_load_cluster_steps.exit.thread
 
-_load_cluster_steps.exit.thread:                  ; preds = %1, %.thread16.i, %19
-  %.011.i.ph = phi i32 [ 0, %19 ], [ -1, %.thread16.i ], [ -1, %1 ]
+_load_cluster_steps.exit.thread:                  ; preds = %.thread16.i, %1, %19
+  %.011.i.ph = phi i32 [ 0, %19 ], [ -1, %1 ], [ -1, %.thread16.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %24 = call i32 @get_log_level() #11
   %25 = icmp sgt i32 %24, 3

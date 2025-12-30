@@ -171,7 +171,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -923,7 +923,7 @@ define noundef range(i32 -1, 1310720) i32 @_ZN6icu_7721UTF8CollationIterator13ne
   br label %90
 
 90:                                               ; preds = %17, %22, %27, %42, %45, %57, %59, %68, %74, %78, %85, %2, %16
-  %.018 = phi i32 [ -1, %2 ], [ -1, %16 ], [ %20, %17 ], [ %88, %85 ], [ 65533, %78 ], [ 65533, %74 ], [ 65533, %68 ], [ 65533, %59 ], [ 65533, %57 ], [ 65533, %45 ], [ 65533, %42 ], [ 65533, %27 ], [ 65533, %22 ]
+  %.018 = phi i32 [ -1, %16 ], [ -1, %2 ], [ %20, %17 ], [ %88, %85 ], [ 65533, %78 ], [ 65533, %74 ], [ 65533, %68 ], [ 65533, %59 ], [ 65533, %57 ], [ 65533, %45 ], [ 65533, %42 ], [ 65533, %27 ], [ 65533, %22 ]
   ret i32 %.018
 }
 
@@ -1092,7 +1092,7 @@ define void @_ZN6icu_7721UTF8CollationIterator20forwardNumCodePointsEiR10UErrorC
   br label %75
 
 75:                                               ; preds = %.sink.split, %42, %40, %30, %51, %60, %62, %67, %69, %49, %.critedge2
-  %76 = phi i32 [ %19, %49 ], [ %41, %42 ], [ %8, %40 ], [ %19, %30 ], [ %19, %51 ], [ %8, %60 ], [ %61, %62 ], [ %8, %67 ], [ %68, %69 ], [ %19, %.critedge2 ], [ %74, %.sink.split ]
+  %76 = phi i32 [ %41, %42 ], [ %8, %40 ], [ %19, %30 ], [ %19, %51 ], [ %8, %60 ], [ %61, %62 ], [ %8, %67 ], [ %68, %69 ], [ %19, %49 ], [ %19, %.critedge2 ], [ %74, %.sink.split ]
   %77 = add nsw i32 %.030, -1
   %78 = icmp sgt i32 %.030, 1
   br i1 %78, label %11, label %.critedge, !llvm.loop !45
@@ -1198,7 +1198,7 @@ define noundef i32 @_ZNK6icu_7724FCDUTF8CollationIterator9getOffsetEv(ptr nounde
   br label %12
 
 12:                                               ; preds = %1, %10, %8
-  %.0.in = phi ptr [ %11, %10 ], [ %9, %8 ], [ %4, %1 ]
+  %.0.in = phi ptr [ %9, %8 ], [ %11, %10 ], [ %4, %1 ]
   %.0 = load i32, ptr %.0.in, align 4, !tbaa !12
   ret i32 %.0
 }
@@ -1579,15 +1579,15 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %211, %214
   br label %_ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv.exit
 
 _ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv.exit: ; preds = %198, %224, %.thread86
-  %.sink.i = phi i32 [ %..i, %224 ], [ 0, %198 ], [ 0, %.thread86 ]
+  %.sink.i = phi i32 [ %..i, %224 ], [ 0, %.thread86 ], [ 0, %198 ]
   store i32 %.sink.i, ptr %4, align 8, !tbaa !55
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %_ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv.exit, %195
   br label %.backedge, !llvm.loop !59
 
-.thread78:                                        ; preds = %60, %71, %84, %86, %_ZN6icu_7712CollationFCD7hasTcccEi.exit, %_ZNK6icu_7713UnicodeStringixEi.exit
-  %229 = phi i32 [ %.0.i.i, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ %69, %_ZN6icu_7712CollationFCD7hasTcccEi.exit ], [ %69, %86 ], [ %69, %84 ], [ %69, %71 ], [ %69, %60 ]
+.thread78:                                        ; preds = %60, %71, %_ZN6icu_7712CollationFCD7hasTcccEi.exit, %84, %86, %_ZNK6icu_7713UnicodeStringixEi.exit
+  %229 = phi i32 [ %.0.i.i, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ %69, %86 ], [ %69, %84 ], [ %69, %_ZN6icu_7712CollationFCD7hasTcccEi.exit ], [ %69, %71 ], [ %69, %60 ]
   %230 = load ptr, ptr %12, align 8, !tbaa !28
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 16
   %232 = load ptr, ptr %231, align 8, !tbaa !29
@@ -1606,7 +1606,7 @@ _ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv.exit: ; preds = %198, %2
   br label %.thread82
 
 .thread82:                                        ; preds = %100, %122, %_ZN6icu_7712CollationFCD7hasTcccEi.exit65, %134, %.thread, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit, %197, %.thread78, %201, %27, %18
-  %.1 = phi i32 [ 192, %18 ], [ %33, %27 ], [ %244, %.thread78 ], [ %202, %201 ], [ 192, %197 ], [ %194, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit ], [ %114, %122 ], [ %114, %_ZN6icu_7712CollationFCD7hasTcccEi.exit65 ], [ %114, %100 ], [ %114, %134 ], [ -195323, %.thread ]
+  %.1 = phi i32 [ 192, %18 ], [ %33, %27 ], [ %244, %.thread78 ], [ %202, %201 ], [ %194, %_ZNK6icu_7713CollationData24getCE32FromSupplementaryEi.exit ], [ 192, %197 ], [ %114, %100 ], [ %114, %122 ], [ %114, %_ZN6icu_7712CollationFCD7hasTcccEi.exit65 ], [ %114, %134 ], [ -195323, %.thread ]
   ret i32 %.1
 }
 
@@ -1741,7 +1741,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7724FCDUTF8CollationIterator1
   br i1 %84, label %.thread53, label %_ZN6icu_7712CollationFCD7hasLcccEi.exit
 
 .thread53:                                        ; preds = %76, %14, %22, %37, %40, %52, %54, %63, %70, %80
-  %85 = phi i32 [ %83, %80 ], [ 65533, %14 ], [ 65533, %70 ], [ 65533, %63 ], [ 65533, %54 ], [ 65533, %52 ], [ 65533, %40 ], [ 65533, %37 ], [ 65533, %22 ], [ %79, %76 ]
+  %85 = phi i32 [ %83, %80 ], [ 65533, %70 ], [ 65533, %63 ], [ 65533, %54 ], [ 65533, %52 ], [ 65533, %40 ], [ 65533, %37 ], [ 65533, %22 ], [ 65533, %14 ], [ %79, %76 ]
   %86 = lshr i32 %85, 5
   %87 = zext nneg i32 %86 to i64
   %88 = getelementptr inbounds nuw i8, ptr @_ZN6icu_7712CollationFCD9lcccIndexE, i64 %87
@@ -1760,7 +1760,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7724FCDUTF8CollationIterator1
   br label %_ZN6icu_7712CollationFCD7hasLcccEi.exit
 
 _ZN6icu_7712CollationFCD7hasLcccEi.exit:          ; preds = %90, %.thread53, %80, %1, %11
-  %.038 = phi i8 [ 0, %1 ], [ 0, %11 ], [ 0, %.thread53 ], [ 0, %80 ], [ %97, %90 ]
+  %.038 = phi i8 [ 0, %11 ], [ 0, %1 ], [ 0, %.thread53 ], [ 0, %80 ], [ %97, %90 ]
   ret i8 %.038
 }
 
@@ -2772,7 +2772,7 @@ _ZN6icu_7712CollationFCD7hasTcccEi.exit:          ; preds = %.thread91
   br label %_ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv.exit
 
 _ZN6icu_7724FCDUTF8CollationIterator15switchToForwardEv.exit: ; preds = %133, %228, %.thread98
-  %.sink.i = phi i32 [ %..i, %228 ], [ 0, %133 ], [ 0, %.thread98 ]
+  %.sink.i = phi i32 [ %..i, %228 ], [ 0, %.thread98 ], [ 0, %133 ]
   store i32 %.sink.i, ptr %3, align 8, !tbaa !55
   br label %.backedge.backedge
 
@@ -2786,7 +2786,7 @@ _ZN6icu_7712CollationFCD7hasTcccEi.exit.thread.sink.split: ; preds = %25, %221, 
   br label %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread
 
 _ZN6icu_7712CollationFCD7hasTcccEi.exit.thread:   ; preds = %28, %.thread, %.thread91, %_ZN6icu_7712CollationFCD7hasTcccEi.exit, %119, %120, %130, %12, %16, %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread.sink.split, %136, %144, %150, %165, %168, %180, %182, %191, %197, %201
-  %.051 = phi i32 [ 65533, %197 ], [ 65533, %191 ], [ 65533, %182 ], [ 65533, %180 ], [ 65533, %168 ], [ 65533, %165 ], [ 65533, %150 ], [ 65533, %144 ], [ %142, %136 ], [ %.051.ph, %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread.sink.split ], [ 65533, %201 ], [ %.38994, %_ZN6icu_7712CollationFCD7hasTcccEi.exit ], [ -1, %130 ], [ -1, %12 ], [ %31, %28 ], [ %.38994, %.thread91 ], [ %99, %.thread ], [ %.38994, %119 ], [ %.38994, %120 ], [ -1, %16 ]
+  %.051 = phi i32 [ %142, %136 ], [ 65533, %201 ], [ 65533, %197 ], [ 65533, %191 ], [ 65533, %182 ], [ 65533, %180 ], [ 65533, %168 ], [ 65533, %165 ], [ 65533, %150 ], [ 65533, %144 ], [ %.051.ph, %_ZN6icu_7712CollationFCD7hasTcccEi.exit.thread.sink.split ], [ %31, %28 ], [ %.38994, %.thread91 ], [ %99, %.thread ], [ %.38994, %_ZN6icu_7712CollationFCD7hasTcccEi.exit ], [ %.38994, %119 ], [ %.38994, %120 ], [ -1, %130 ], [ -1, %12 ], [ -1, %16 ]
   ret i32 %.051
 }
 
@@ -3013,7 +3013,7 @@ _ZNK6icu_7724FCDUTF8CollationIterator15previousHasTcccEv.exit: ; preds = %70
   br label %_ZN6icu_7724FCDUTF8CollationIterator16switchToBackwardEv.exit
 
 _ZN6icu_7724FCDUTF8CollationIterator16switchToBackwardEv.exit: ; preds = %96, %120, %123
-  %.sink.i = phi i32 [ %..i, %120 ], [ 1, %96 ], [ 1, %123 ]
+  %.sink.i = phi i32 [ %..i, %120 ], [ 1, %123 ], [ 1, %96 ]
   store i32 %.sink.i, ptr %4, align 8, !tbaa !55
   br label %.backedge.backedge
 
@@ -3021,7 +3021,7 @@ _ZN6icu_7724FCDUTF8CollationIterator16switchToBackwardEv.exit: ; preds = %96, %1
   br label %.backedge, !llvm.loop !71
 
 _ZN6icu_7712CollationFCD7hasLcccEi.exit.thread:   ; preds = %54, %32, %39, %_ZN6icu_7712CollationFCD7hasLcccEi.exit, %52, %_ZNK6icu_7724FCDUTF8CollationIterator15previousHasTcccEv.exit, %91, %10, %_ZNK6icu_7724FCDUTF8CollationIterator15previousHasTcccEv.exit.thread36, %99, %107, %112, %20
-  %.022 = phi i32 [ %115, %112 ], [ %21, %20 ], [ %108, %107 ], [ %.0, %_ZNK6icu_7724FCDUTF8CollationIterator15previousHasTcccEv.exit.thread36 ], [ %105, %99 ], [ %.0, %54 ], [ %.0, %39 ], [ %.0, %32 ], [ %.0, %52 ], [ %.0, %_ZNK6icu_7724FCDUTF8CollationIterator15previousHasTcccEv.exit ], [ %.0, %_ZN6icu_7712CollationFCD7hasLcccEi.exit ], [ -1, %91 ], [ -1, %10 ]
+  %.022 = phi i32 [ %21, %20 ], [ %115, %112 ], [ %105, %99 ], [ %108, %107 ], [ %.0, %_ZNK6icu_7724FCDUTF8CollationIterator15previousHasTcccEv.exit.thread36 ], [ %.0, %54 ], [ %.0, %32 ], [ %.0, %39 ], [ %.0, %_ZN6icu_7712CollationFCD7hasLcccEi.exit ], [ %.0, %52 ], [ %.0, %_ZNK6icu_7724FCDUTF8CollationIterator15previousHasTcccEv.exit ], [ -1, %91 ], [ -1, %10 ]
   ret i32 %.022
 }
 

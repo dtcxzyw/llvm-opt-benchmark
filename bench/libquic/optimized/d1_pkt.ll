@@ -152,7 +152,7 @@ dtls1_get_record.exit:                            ; preds = %53
   br label %73
 
 .loopexit:                                        ; preds = %35, %64, %57, %60
-  %.3.i.ph = phi i32 [ -1, %64 ], [ -1, %60 ], [ -1, %57 ], [ %36, %35 ]
+  %.3.i.ph = phi i32 [ -1, %60 ], [ -1, %57 ], [ -1, %64 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -414,12 +414,12 @@ dtls1_get_record.exit:                            ; preds = %53
   br label %185
 
 185:                                              ; preds = %.thread129, %.thread134, %170, %111, %89
-  %.196 = phi i32 [ 10, %89 ], [ 50, %111 ], [ 47, %.thread129 ], [ 50, %170 ], [ 10, %.thread134 ]
+  %.196 = phi i32 [ 10, %89 ], [ 50, %111 ], [ 50, %170 ], [ 10, %.thread134 ], [ 47, %.thread129 ]
   %186 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %.196) #6
   br label %.thread126
 
 .thread126:                                       ; preds = %.loopexit, %145, %140, %.thread135, %95, %107, %100, %93, %185, %76, %23
-  %.0 = phi i32 [ -1, %23 ], [ -1, %.thread135 ], [ 0, %76 ], [ -1, %185 ], [ 0, %145 ], [ %3, %93 ], [ %., %95 ], [ %., %100 ], [ %., %107 ], [ 0, %140 ], [ %71, %.loopexit ]
+  %.0 = phi i32 [ -1, %23 ], [ 0, %76 ], [ -1, %185 ], [ %3, %93 ], [ %., %100 ], [ %., %107 ], [ %., %95 ], [ -1, %.thread135 ], [ 0, %140 ], [ 0, %145 ], [ %71, %.loopexit ]
   ret i32 %.0
 }
 
@@ -461,7 +461,7 @@ define hidden range(i32 -2147483648, 2) i32 @dtls1_read_change_cipher_spec(ptr n
   br label %22
 
 22:                                               ; preds = %15, %18, %1, %13
-  %.0 = phi i32 [ %3, %1 ], [ -1, %13 ], [ 1, %18 ], [ 1, %15 ]
+  %.0 = phi i32 [ -1, %13 ], [ %3, %1 ], [ 1, %18 ], [ 1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -594,7 +594,7 @@ define internal fastcc i32 @do_dtls1_write(ptr noundef %0, i32 noundef %1, ptr n
   br label %39
 
 39:                                               ; preds = %12, %22, %38, %21
-  %.1 = phi i32 [ -1, %21 ], [ %17, %12 ], [ %.2, %38 ], [ 0, %22 ]
+  %.1 = phi i32 [ -1, %21 ], [ %.2, %38 ], [ %17, %12 ], [ 0, %22 ]
   ret i32 %.1
 }
 

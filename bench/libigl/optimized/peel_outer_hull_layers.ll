@@ -536,7 +536,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %._crit_edge196, %16
   br label %.body67
 
 .body67:                                          ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit91, %197, %198, %67
-  %.pn56.pn.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %44, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit91 ], [ %.pn56.pn, %198 ], [ %.pn56.pn, %197 ]
+  %.pn56.pn.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %44, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit91 ], [ %.pn56.pn, %197 ], [ %.pn56.pn, %198 ]
   %205 = load ptr, ptr %12, align 8, !tbaa !16
   call void @free(ptr noundef %205) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

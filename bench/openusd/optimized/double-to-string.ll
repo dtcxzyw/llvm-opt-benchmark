@@ -83,7 +83,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   br i1 %or.cond, label %34, label %.sink.split
 
 .sink.split:                                      ; preds = %19, %10, %12
-  %.sink23 = phi ptr [ %8, %10 ], [ %.pre, %12 ], [ %22, %19 ]
+  %.sink23 = phi ptr [ %.pre, %12 ], [ %8, %10 ], [ %22, %19 ]
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink23) #13
   %25 = trunc i64 %24 to i32
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -100,7 +100,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   br label %34
 
 34:                                               ; preds = %.sink.split, %19, %6
-  %.0 = phi i1 [ true, %.sink.split ], [ false, %19 ], [ false, %6 ]
+  %.0 = phi i1 [ false, %6 ], [ false, %19 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -550,7 +550,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   br i1 %29, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %26, %19, %17
-  %.sink23.i = phi ptr [ %15, %17 ], [ %.pre.i, %19 ], [ %28, %26 ]
+  %.sink23.i = phi ptr [ %.pre.i, %19 ], [ %15, %17 ], [ %28, %26 ]
   %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink23.i) #13
   %31 = trunc i64 %30 to i32
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -616,7 +616,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %26, %13, %61, %64
-  %.0 = phi i1 [ true, %61 ], [ true, %64 ], [ true, %.sink.split.i ], [ false, %26 ], [ false, %13 ]
+  %.0 = phi i1 [ true, %64 ], [ true, %61 ], [ false, %13 ], [ false, %26 ], [ true, %.sink.split.i ]
   ret i1 %.0
 }
 
@@ -652,9 +652,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23Doubl
 17:                                               ; preds = %13
   switch i32 %1, label %24 [
     i32 0, label %18
-    i32 1, label %25
-    i32 2, label %20
-    i32 3, label %22
+    i32 1, label %20
+    i32 2, label %22
+    i32 3, label %25
   ]
 
 18:                                               ; preds = %17
@@ -662,11 +662,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23Doubl
   br i1 %19, label %30, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit
 
 20:                                               ; preds = %17
-  %21 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13FastFixedDtoaEdiNS0_6VectorIcEEPiS3_(double noundef %.0, i32 noundef %2, ptr %3, i32 %4, ptr noundef %6, ptr noundef %7)
+  %21 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion8FastDtoaEdNS0_12FastDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0, i32 noundef 1, i32 noundef 0, ptr %3, i32 %4, ptr noundef %6, ptr noundef %7)
   br i1 %21, label %30, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit
 
 22:                                               ; preds = %17
-  %23 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion8FastDtoaEdNS0_12FastDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0, i32 noundef 2, i32 noundef %2, ptr %3, i32 %4, ptr noundef %6, ptr noundef %7)
+  %23 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13FastFixedDtoaEdiNS0_6VectorIcEEPiS3_(double noundef %.0, i32 noundef %2, ptr %3, i32 %4, ptr noundef %6, ptr noundef %7)
   br i1 %23, label %30, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit
 
 24:                                               ; preds = %17
@@ -674,10 +674,10 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23Doubl
   unreachable
 
 25:                                               ; preds = %17
-  %26 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion8FastDtoaEdNS0_12FastDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0, i32 noundef 1, i32 noundef 0, ptr %3, i32 %4, ptr noundef %6, ptr noundef %7)
+  %26 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion8FastDtoaEdNS0_12FastDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0, i32 noundef 2, i32 noundef %2, ptr %3, i32 %4, ptr noundef %6, ptr noundef %7)
   br i1 %26, label %30, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit: ; preds = %25, %18, %22, %20
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit: ; preds = %25, %18, %20, %22
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %.0, i32 noundef %1, i32 noundef %2, ptr %3, i32 %4, ptr noundef %6, ptr noundef %7)
   %27 = load i32, ptr %6, align 4
   %28 = sext i32 %27 to i64
@@ -685,7 +685,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaM
   store i8 0, ptr %29, align 1
   br label %30
 
-30:                                               ; preds = %20, %22, %18, %25, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit, %15, %12
+30:                                               ; preds = %22, %20, %18, %25, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit, %15, %12
   ret void
 }
 
@@ -735,7 +735,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   br i1 %or.cond.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %27, %20, %18
-  %.sink23.i = phi ptr [ %16, %18 ], [ %.pre.i, %20 ], [ %30, %27 ]
+  %.sink23.i = phi ptr [ %.pre.i, %20 ], [ %16, %18 ], [ %30, %27 ]
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink23.i) #13
   %33 = trunc i64 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -811,7 +811,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConv
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %42, %66
-  %.0 = phi i1 [ false, %42 ], [ true, %66 ], [ true, %.sink.split.i ], [ false, %27 ], [ false, %14 ]
+  %.0 = phi i1 [ true, %66 ], [ false, %42 ], [ false, %14 ], [ false, %27 ], [ true, %.sink.split.i ]
   ret i1 %.0
 }
 
@@ -861,7 +861,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   br i1 %or.cond.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %27, %20, %18
-  %.sink23.i = phi ptr [ %16, %18 ], [ %.pre.i, %20 ], [ %30, %27 ]
+  %.sink23.i = phi ptr [ %.pre.i, %20 ], [ %16, %18 ], [ %30, %27 ]
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink23.i) #13
   %33 = trunc i64 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -989,7 +989,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConv
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %42, %83
-  %.0 = phi i1 [ false, %42 ], [ true, %83 ], [ true, %.sink.split.i ], [ false, %27 ], [ false, %14 ]
+  %.0 = phi i1 [ true, %83 ], [ false, %42 ], [ false, %14 ], [ false, %27 ], [ true, %.sink.split.i ]
   ret i1 %.0
 }
 
@@ -1039,7 +1039,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   br i1 %or.cond.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %27, %20, %18
-  %.sink23.i = phi ptr [ %16, %18 ], [ %.pre.i, %20 ], [ %30, %27 ]
+  %.sink23.i = phi ptr [ %.pre.i, %20 ], [ %16, %18 ], [ %30, %27 ]
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink23.i) #13
   %33 = trunc i64 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1185,8 +1185,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConv
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %.lr.ph..critedge.loopexit.split.loop.exit69_crit_edge, %.thread50
-  %100 = phi i32 [ %.promoted, %.thread50 ], [ %.promoted, %.lr.ph.preheader ], [ %97, %.lr.ph..critedge.loopexit.split.loop.exit69_crit_edge ], [ %97, %.critedge.loopexit ]
-  %.lcssa = phi i32 [ %.promoted, %.thread50 ], [ %.promoted, %.lr.ph.preheader ], [ %99, %.lr.ph..critedge.loopexit.split.loop.exit69_crit_edge ], [ %85, %.critedge.loopexit ]
+  %100 = phi i32 [ %.promoted, %.thread50 ], [ %97, %.lr.ph..critedge.loopexit.split.loop.exit69_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %97, %.critedge.loopexit ]
+  %.lcssa = phi i32 [ %.promoted, %.thread50 ], [ %99, %.lr.ph..critedge.loopexit.split.loop.exit69_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %85, %.critedge.loopexit ]
   %.sroa.speculated41 = call i32 @llvm.smin.i32(i32 %.lcssa, i32 %2)
   br i1 %84, label %.thread51, label %._crit_edge63
 
@@ -1195,8 +1195,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConv
   br i1 %79, label %.thread51, label %._crit_edge63
 
 .thread51:                                        ; preds = %.thread..thread51_crit_edge, %.critedge, %101
-  %102 = phi i32 [ %100, %.critedge ], [ %.pre65, %101 ], [ %.pre64, %.thread..thread51_crit_edge ]
-  %.04853 = phi i32 [ %.sroa.speculated41, %.critedge ], [ %2, %101 ], [ %2, %.thread..thread51_crit_edge ]
+  %102 = phi i32 [ %.pre65, %101 ], [ %100, %.critedge ], [ %.pre64, %.thread..thread51_crit_edge ]
+  %.04853 = phi i32 [ %2, %101 ], [ %.sroa.speculated41, %.critedge ], [ %2, %.thread..thread51_crit_edge ]
   %103 = icmp slt i32 %102, %.04853
   br i1 %103, label %.lr.ph58.preheader, label %._crit_edge
 
@@ -1223,7 +1223,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConv
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %._crit_edge, %._crit_edge63, %42
-  %.021 = phi i1 [ true, %._crit_edge ], [ false, %42 ], [ true, %._crit_edge63 ], [ true, %.sink.split.i ], [ false, %27 ], [ false, %14 ]
+  %.021 = phi i1 [ false, %42 ], [ true, %._crit_edge63 ], [ true, %._crit_edge ], [ false, %14 ], [ false, %27 ], [ true, %.sink.split.i ]
   ret i1 %.021
 }
 

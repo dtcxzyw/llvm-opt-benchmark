@@ -459,8 +459,8 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
   br i1 %58, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %57, %32, %.preheader151
-  %.5120 = phi i32 [ %.4119.ph.us, %32 ], [ %.1116195, %.preheader151 ], [ %.4119.ph, %57 ]
-  %.5 = phi i32 [ %.4.ph.us, %32 ], [ %.1112196, %.preheader151 ], [ %.4.ph, %57 ]
+  %.5120 = phi i32 [ %.1116195, %.preheader151 ], [ %.4119.ph.us, %32 ], [ %.4119.ph, %57 ]
+  %.5 = phi i32 [ %.1112196, %.preheader151 ], [ %.4.ph.us, %32 ], [ %.4.ph, %57 ]
   %59 = icmp sgt i32 %.1124194, 1
   br i1 %59, label %.preheader151.backedge, label %.preheader154
 

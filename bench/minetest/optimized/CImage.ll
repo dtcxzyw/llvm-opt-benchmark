@@ -1079,7 +1079,7 @@ _ZN3irrL11getBlitter2ENS_8eBlitterEPKNS_5video6IImageES4_.exit.loopexit14.split.
   br label %_ZN3irrL11getBlitter2ENS_8eBlitterEPKNS_5video6IImageES4_.exit
 
 _ZN3irrL11getBlitter2ENS_8eBlitterEPKNS_5video6IImageES4_.exit: ; preds = %land.lhs.true.us.i, %if.else.i, %land.lhs.true.i, %_ZN3irrL11getBlitter2ENS_8eBlitterEPKNS_5video6IImageES4_.exit.loopexit14.split.loop.exit
-  %b.050.lcssa58.sink.i = phi ptr [ %add.ptr.us.i.le, %_ZN3irrL11getBlitter2ENS_8eBlitterEPKNS_5video6IImageES4_.exit.loopexit14.split.loop.exit ], [ %b.050.i, %if.else.i ], [ %b.050.i, %land.lhs.true.i ], [ %b.050.us.i, %land.lhs.true.us.i ]
+  %b.050.lcssa58.sink.i = phi ptr [ %add.ptr.us.i.le, %_ZN3irrL11getBlitter2ENS_8eBlitterEPKNS_5video6IImageES4_.exit.loopexit14.split.loop.exit ], [ %b.050.i, %land.lhs.true.i ], [ %b.050.i, %if.else.i ], [ %b.050.us.i, %land.lhs.true.us.i ]
   %func25.i = getelementptr inbounds nuw i8, ptr %b.050.lcssa58.sink.i, i64 16
   %14 = load ptr, ptr %func25.i, align 8, !tbaa !37
   %cmp = icmp eq ptr %14, null
@@ -1104,8 +1104,8 @@ if.then53.i:                                      ; preds = %if.end
   br label %_ZN3irr7setClipERNS_12AbsRectangleEPKNS_4core4rectIiEEPKNS_5video6IImageEiPKNS2_11dimension2dIjEE.exit
 
 _ZN3irr7setClipERNS_12AbsRectangleEPKNS_4core4rectIiEEPKNS_5video6IImageEiPKNS2_11dimension2dIjEE.exit: ; preds = %if.then53.i, %if.end
-  %23 = phi <2 x i32> [ zeroinitializer, %if.end ], [ %21, %if.then53.i ]
-  %24 = phi <2 x i32> [ %15, %if.end ], [ %22, %if.then53.i ]
+  %23 = phi <2 x i32> [ %21, %if.then53.i ], [ zeroinitializer, %if.end ]
+  %24 = phi <2 x i32> [ %22, %if.then53.i ], [ %15, %if.end ]
   br i1 %tobool1.not.i, label %cond.true, label %if.end11.i110
 
 if.end11.i110:                                    ; preds = %_ZN3irr7setClipERNS_12AbsRectangleEPKNS_4core4rectIiEEPKNS_5video6IImageEiPKNS2_11dimension2dIjEE.exit

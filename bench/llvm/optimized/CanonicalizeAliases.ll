@@ -236,7 +236,7 @@ _ZNSt6vectorIPN4llvm8ConstantESaIS2_EE9push_backEOS2_.exit: ; preds = %36, %_ZNS
   br i1 %.not31, label %._crit_edge.loopexit, label %.lr.ph
 
 _ZNSt6vectorIPN4llvm8ConstantESaIS2_EED2Ev.exit:  ; preds = %2, %9, %4, %32, %._crit_edge
-  %.1 = phi ptr [ %31, %32 ], [ %0, %2 ], [ %31, %._crit_edge ], [ %7, %4 ], [ %7, %9 ]
+  %.1 = phi ptr [ %31, %._crit_edge ], [ %31, %32 ], [ %7, %4 ], [ %7, %9 ], [ %0, %2 ]
   ret ptr %.1
 }
 

@@ -3507,7 +3507,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4ggml3cpu7aarch6413tensor_traitsI10bl
   br label %8
 
 8:                                                ; preds = %3, %7, %6
-  %.0 = phi i1 [ true, %7 ], [ true, %6 ], [ false, %3 ]
+  %.0 = phi i1 [ true, %6 ], [ true, %7 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -4624,7 +4624,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4ggml3cpu7aarch6413tensor_traitsI10bl
   br label %8
 
 8:                                                ; preds = %3, %7, %6
-  %.0 = phi i1 [ true, %7 ], [ true, %6 ], [ false, %3 ]
+  %.0 = phi i1 [ true, %6 ], [ true, %7 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -5718,7 +5718,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4ggml3cpu7aarch6413tensor_traitsI10bl
   br label %8
 
 8:                                                ; preds = %3, %7, %6
-  %.0 = phi i1 [ true, %7 ], [ true, %6 ], [ false, %3 ]
+  %.0 = phi i1 [ true, %6 ], [ true, %7 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -6927,7 +6927,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4ggml3cpu7aarch6413tensor_traitsI12bl
   br label %8
 
 8:                                                ; preds = %3, %7, %6
-  %.0 = phi i1 [ true, %7 ], [ true, %6 ], [ false, %3 ]
+  %.0 = phi i1 [ true, %6 ], [ true, %7 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -8164,7 +8164,7 @@ define internal fastcc noundef ptr @_ZL36ggml_aarch64_get_optimal_repack_typePK1
   br label %45
 
 45:                                               ; preds = %39, %30, %21, %12, %44
-  %.0 = phi ptr [ @_ZN4ggml3cpu7aarch64L13q4_0_4x4_q8_0E, %30 ], [ @_ZN4ggml3cpu7aarch64L13q4_0_8x8_q8_0E, %12 ], [ @_ZN4ggml3cpu7aarch64L13q4_0_4x8_q8_0E, %21 ], [ null, %44 ], [ @_ZN4ggml3cpu7aarch64L15iq4_nl_4x4_q8_0E, %39 ]
+  %.0 = phi ptr [ null, %44 ], [ @_ZN4ggml3cpu7aarch64L13q4_0_8x8_q8_0E, %12 ], [ @_ZN4ggml3cpu7aarch64L13q4_0_4x8_q8_0E, %21 ], [ @_ZN4ggml3cpu7aarch64L13q4_0_4x4_q8_0E, %30 ], [ @_ZN4ggml3cpu7aarch64L15iq4_nl_4x4_q8_0E, %39 ]
   ret ptr %.0
 }
 
@@ -8318,7 +8318,7 @@ thread-pre-split:                                 ; preds = %7, %12, %15, %23
   br label %75
 
 75:                                               ; preds = %70, %66, %35, %31, %74
-  %.0 = phi i1 [ false, %31 ], [ false, %74 ], [ true, %35 ], [ false, %66 ], [ true, %70 ]
+  %.0 = phi i1 [ false, %74 ], [ false, %31 ], [ true, %35 ], [ false, %66 ], [ true, %70 ]
   ret i1 %.0
 }
 

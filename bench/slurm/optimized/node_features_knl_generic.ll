@@ -646,7 +646,7 @@ _knl_numa_bits_cnt.exit104:                       ; preds = %127
   br i1 %.not13.i.i, label %select.unfold.i, label %_knl_numa_token.exit.i
 
 select.unfold.i:                                  ; preds = %154, %152, %150, %148, %146
-  %.0.i.ph.i = phi i32 [ 8, %152 ], [ 1, %146 ], [ 2, %148 ], [ 4, %150 ], [ 16, %154 ]
+  %.0.i.ph.i = phi i32 [ 8, %152 ], [ 4, %150 ], [ 2, %148 ], [ 1, %146 ], [ 16, %154 ]
   %156 = getelementptr inbounds nuw i8, ptr %145, i64 1
   %157 = call i32 @xlate_cpu_bind_str(ptr noundef nonnull %156, ptr noundef nonnull %5) #14
   %.not29.i = icmp eq i32 %157, 0
@@ -1188,7 +1188,7 @@ define internal fastcc zeroext range(i16 0, 32) i16 @_knl_numa_parse(ptr noundef
   br label %_knl_numa_token.exit
 
 _knl_numa_token.exit:                             ; preds = %.lr.ph, %9, %11, %13, %15
-  %.0.i = phi i16 [ %spec.select.i, %15 ], [ 8, %13 ], [ 4, %11 ], [ 2, %9 ], [ 1, %.lr.ph ]
+  %.0.i = phi i16 [ 1, %.lr.ph ], [ 2, %9 ], [ 4, %11 ], [ 8, %13 ], [ %spec.select.i, %15 ]
   %17 = or i16 %.0.i, %.015
   %18 = call ptr @strtok_r(ptr noundef null, ptr noundef %1, ptr noundef nonnull %3) #14
   %.not12 = icmp eq ptr %18, null
@@ -1816,7 +1816,7 @@ define dso_local void @node_features_p_node_state(ptr noundef %0, ptr noundef %1
   br i1 %.not72, label %.sink.split, label %66
 
 .sink.split:                                      ; preds = %63, %61, %59, %57, %54
-  %.str.61.sink = phi ptr [ @.str.61, %54 ], [ @.str.63, %57 ], [ @.str.67, %61 ], [ @.str.65, %59 ], [ @.str.69, %63 ]
+  %.str.61.sink = phi ptr [ @.str.61, %54 ], [ @.str.63, %57 ], [ @.str.65, %59 ], [ @.str.67, %61 ], [ @.str.69, %63 ]
   %65 = call ptr @xstrdup(ptr noundef nonnull %.str.61.sink) #14
   store ptr %65, ptr %4, align 8
   br label %66
@@ -1864,7 +1864,7 @@ define dso_local void @node_features_p_node_state(ptr noundef %0, ptr noundef %1
   br label %.thread107
 
 .thread107:                                       ; preds = %48, %66, %77, %83, %80
-  %.156112 = phi ptr [ %.156.ph, %80 ], [ %.156.ph, %66 ], [ %.156.ph, %77 ], [ %.156.ph, %83 ], [ @.str.48, %48 ]
+  %.156112 = phi ptr [ %.156.ph, %66 ], [ %.156.ph, %77 ], [ %.156.ph, %83 ], [ %.156.ph, %80 ], [ @.str.48, %48 ]
   %84 = load ptr, ptr %5, align 8
   %85 = call ptr @xstrcasestr(ptr noundef %84, ptr noundef nonnull @.str.60) #14
   %.not74 = icmp eq ptr %85, null
@@ -2031,7 +2031,7 @@ define dso_local void @node_features_p_node_state(ptr noundef %0, ptr noundef %1
   br i1 %.not86, label %.sink.split135, label %143
 
 .sink.split135:                                   ; preds = %141, %139, %137, %133, %135, %130
-  %.str.78.sink = phi ptr [ @.str.78, %130 ], [ @.str.81, %133 ], [ @.str.85, %139 ], [ @.str.83, %137 ], [ @.str.81, %135 ], [ @.str.87, %141 ]
+  %.str.78.sink = phi ptr [ @.str.78, %130 ], [ @.str.81, %135 ], [ @.str.81, %133 ], [ @.str.83, %137 ], [ @.str.85, %139 ], [ @.str.87, %141 ]
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.72, ptr noundef nonnull %.055, ptr noundef nonnull %.str.78.sink) #14
   br label %143
 
@@ -2606,8 +2606,8 @@ _knl_numa_bits_cnt.exit:                          ; preds = %36
   br i1 %50, label %51, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %48, %51
-  %.02341.be = phi i32 [ %53, %51 ], [ 0, %48 ]
-  %.02440.be = phi i32 [ %52, %51 ], [ 0, %48 ]
+  %.02341.be = phi i32 [ 0, %48 ], [ %53, %51 ]
+  %.02440.be = phi i32 [ 0, %48 ], [ %52, %51 ]
   br label %.lr.ph, !llvm.loop !29
 
 51:                                               ; preds = %48, %46
@@ -2698,7 +2698,7 @@ define dso_local ptr @node_features_p_job_xlate(ptr noundef %0, ptr noundef read
   br label %_knl_numa_token.exit
 
 _knl_numa_token.exit:                             ; preds = %12, %16, %18, %20, %22
-  %.0.i = phi i1 [ %24, %22 ], [ %.01730, %20 ], [ %.01730, %18 ], [ %.01730, %16 ], [ %.01730, %12 ]
+  %.0.i = phi i1 [ %.01730, %12 ], [ %.01730, %16 ], [ %.01730, %18 ], [ %.01730, %20 ], [ %24, %22 ]
   %not..0.i = xor i1 %.0.i, true
   %.118 = select i1 %not..0.i, i1 true, i1 %.01730
   %25 = select i1 %.0.i, i1 %or.cond, i1 false
@@ -2763,7 +2763,7 @@ define internal fastcc zeroext range(i16 0, 4097) i16 @_knl_mcdram_token(ptr nou
   br label %13
 
 13:                                               ; preds = %11, %9, %5, %7, %3, %1
-  %.0 = phi i16 [ %spec.select, %11 ], [ 512, %9 ], [ 2048, %5 ], [ 1024, %3 ], [ 256, %1 ], [ 2048, %7 ]
+  %.0 = phi i16 [ 256, %1 ], [ 1024, %3 ], [ 2048, %7 ], [ 2048, %5 ], [ 512, %9 ], [ %spec.select, %11 ]
   ret i16 %.0
 }
 
@@ -2924,7 +2924,7 @@ define dso_local range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0, 
   br label %59
 
 59:                                               ; preds = %57, %55, %53, %51, %49
-  %.020 = phi ptr [ @.str.66, %55 ], [ @.str.60, %49 ], [ @.str.62, %51 ], [ @.str.64, %53 ], [ %..str.68, %57 ]
+  %.020 = phi ptr [ @.str.60, %49 ], [ @.str.62, %51 ], [ @.str.64, %53 ], [ @.str.66, %55 ], [ %..str.68, %57 ]
   %60 = load i32, ptr @knl_system_type, align 4
   switch i32 %60, label %.thread58 [
     i32 1, label %61
@@ -3099,7 +3099,7 @@ define dso_local range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0, 
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %104, %110, %112, %114
-  %.121.ph = phi ptr [ @.str.82, %110 ], [ @.str.77, %104 ], [ %..str.86, %114 ], [ @.str.84, %112 ]
+  %.121.ph = phi ptr [ %..str.86, %114 ], [ @.str.84, %112 ], [ @.str.82, %110 ], [ @.str.77, %104 ]
   %.pr = load i32, ptr @knl_system_type, align 4
   br label %116
 
@@ -3195,7 +3195,7 @@ thread-pre-split:                                 ; preds = %104, %110, %112, %1
   br label %145
 
 145:                                              ; preds = %25, %26, %2, %10, %144, %34, %15
-  %.022 = phi i32 [ -1, %15 ], [ 0, %2 ], [ -1, %34 ], [ %.4, %144 ], [ 0, %10 ], [ -1, %26 ], [ -1, %25 ]
+  %.022 = phi i32 [ -1, %34 ], [ %.4, %144 ], [ -1, %15 ], [ 0, %10 ], [ 0, %2 ], [ -1, %26 ], [ -1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3293,7 +3293,7 @@ define internal fastcc ptr @_find_key_val(ptr noundef readonly captures(address_
   br label %.thread
 
 .thread:                                          ; preds = %28, %23, %5, %9, %37, %.critedge, %2
-  %.027 = phi ptr [ null, %2 ], [ %24, %37 ], [ null, %5 ], [ null, %.critedge ], [ null, %9 ], [ %24, %23 ], [ %24, %28 ]
+  %.027 = phi ptr [ null, %2 ], [ %24, %37 ], [ null, %.critedge ], [ null, %9 ], [ null, %5 ], [ %24, %23 ], [ %24, %28 ]
   ret ptr %.027
 }
 
@@ -3420,7 +3420,7 @@ define dso_local noundef i32 @node_features_p_node_update(ptr noundef %0, ptr no
   br label %_knl_numa_token.exit.i
 
 _knl_numa_token.exit.i:                           ; preds = %32, %30, %28, %26, %24
-  %.0.i.i = phi i32 [ %34, %32 ], [ 8, %30 ], [ 4, %28 ], [ 2, %26 ], [ 1, %24 ]
+  %.0.i.i = phi i32 [ 1, %24 ], [ 2, %26 ], [ 4, %28 ], [ 8, %30 ], [ %34, %32 ]
   br label %35
 
 35:                                               ; preds = %38, %_knl_numa_token.exit.i
@@ -3664,7 +3664,7 @@ _knl_numa_token.exit:                             ; preds = %27
   %.not51.not = icmp eq ptr %29, null
   br i1 %.not51.not, label %.critedge.critedge, label %.lr.ph, !llvm.loop !38
 
-_knl_numa_token.exit.thread:                      ; preds = %27, %19, %21, %23, %25, %.lr.ph
+_knl_numa_token.exit.thread:                      ; preds = %27, %25, %23, %21, %19, %.lr.ph
   call void @slurm_xfree(ptr noundef nonnull %3) #14
   br label %94
 
@@ -3725,7 +3725,7 @@ _knl_numa_token.exit73:                           ; preds = %43
   call void @slurm_xfree(ptr noundef nonnull %3) #14
   br label %52
 
-_knl_numa_token.exit73.thread:                    ; preds = %43, %35, %37, %39, %41, %.lr.ph98
+_knl_numa_token.exit73.thread:                    ; preds = %43, %41, %39, %37, %35, %.lr.ph98
   call void @slurm_xfree(ptr noundef nonnull %3) #14
   %46 = call i32 @get_log_level() #14
   %47 = icmp sgt i32 %46, 2
@@ -3787,7 +3787,7 @@ _knl_numa_token.exit81:                           ; preds = %67
   %.not59 = icmp eq ptr %69, null
   br i1 %.not59, label %._crit_edge103, label %.lr.ph102, !llvm.loop !40
 
-.thread92:                                        ; preds = %.lr.ph102, %65, %63, %61, %59, %67
+.thread92:                                        ; preds = %.lr.ph102, %59, %61, %63, %65, %67
   call void @slurm_xfree(ptr noundef nonnull %3) #14
   %70 = call i32 @get_log_level() #14
   %71 = icmp sgt i32 %70, 2
@@ -3843,7 +3843,7 @@ _knl_numa_token.exit81:                           ; preds = %67
   br label %94
 
 94:                                               ; preds = %_knl_numa_token.exit.thread, %79, %84, %82, %86, %89, %.thread92, %72, %_knl_numa_token.exit73.thread, %48, %7
-  %.042 = phi i1 [ true, %7 ], [ true, %_knl_numa_token.exit.thread ], [ false, %_knl_numa_token.exit73.thread ], [ false, %.thread92 ], [ false, %86 ], [ false, %48 ], [ false, %72 ], [ false, %89 ], [ true, %82 ], [ true, %84 ], [ true, %79 ]
+  %.042 = phi i1 [ true, %7 ], [ true, %_knl_numa_token.exit.thread ], [ false, %48 ], [ false, %_knl_numa_token.exit73.thread ], [ false, %72 ], [ false, %.thread92 ], [ false, %89 ], [ false, %86 ], [ true, %82 ], [ true, %84 ], [ true, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.042
@@ -3882,7 +3882,7 @@ define dso_local noundef zeroext i1 @node_features_p_changeable_feature(ptr noun
   %.not13.i = icmp eq i32 %12, 0
   br i1 %.not13.i, label %_knl_numa_token.exit.thread, label %_knl_numa_token.exit
 
-_knl_numa_token.exit.thread:                      ; preds = %9, %7, %5, %3, %11
+_knl_numa_token.exit.thread:                      ; preds = %3, %5, %7, %9, %11
   br label %_knl_numa_token.exit
 
 _knl_numa_token.exit:                             ; preds = %_knl_numa_token.exit.thread, %11, %1
@@ -3951,9 +3951,9 @@ _knl_numa_token.exit:                             ; preds = %20
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.72, ptr noundef %.162128, ptr noundef nonnull %.057129) #14
   br label %_knl_numa_token.exit.thread
 
-_knl_numa_token.exit.thread:                      ; preds = %20, %12, %14, %16, %18, %.lr.ph, %_knl_numa_token.exit
-  %.263 = phi ptr [ @.str.3, %_knl_numa_token.exit ], [ %.162128, %.lr.ph ], [ %.162128, %18 ], [ %.162128, %16 ], [ %.162128, %14 ], [ %.162128, %12 ], [ %.162128, %20 ]
-  %.2 = phi i1 [ %.1130, %_knl_numa_token.exit ], [ true, %.lr.ph ], [ true, %18 ], [ true, %16 ], [ true, %14 ], [ true, %12 ], [ true, %20 ]
+_knl_numa_token.exit.thread:                      ; preds = %20, %18, %16, %14, %12, %.lr.ph, %_knl_numa_token.exit
+  %.263 = phi ptr [ @.str.3, %_knl_numa_token.exit ], [ %.162128, %.lr.ph ], [ %.162128, %12 ], [ %.162128, %14 ], [ %.162128, %16 ], [ %.162128, %18 ], [ %.162128, %20 ]
+  %.2 = phi i1 [ %.1130, %_knl_numa_token.exit ], [ true, %.lr.ph ], [ true, %12 ], [ true, %14 ], [ true, %16 ], [ true, %18 ], [ true, %20 ]
   %22 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #14
   %.not75 = icmp eq ptr %22, null
   br i1 %.not75, label %._crit_edge, label %.lr.ph, !llvm.loop !41
@@ -4017,8 +4017,8 @@ _knl_numa_token.exit96:                           ; preds = %38
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.72, ptr noundef %.465133, ptr noundef nonnull %.158134) #14
   br label %_knl_numa_token.exit96.thread
 
-_knl_numa_token.exit96.thread:                    ; preds = %38, %30, %32, %34, %36, %_knl_numa_token.exit96, %.lr.ph136
-  %.5 = phi ptr [ @.str.3, %_knl_numa_token.exit96 ], [ %.465133, %.lr.ph136 ], [ %.465133, %36 ], [ %.465133, %34 ], [ %.465133, %32 ], [ %.465133, %30 ], [ %.465133, %38 ]
+_knl_numa_token.exit96.thread:                    ; preds = %38, %36, %34, %32, %30, %_knl_numa_token.exit96, %.lr.ph136
+  %.5 = phi ptr [ @.str.3, %_knl_numa_token.exit96 ], [ %.465133, %.lr.ph136 ], [ %.465133, %30 ], [ %.465133, %32 ], [ %.465133, %34 ], [ %.465133, %36 ], [ %.465133, %38 ]
   %40 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #14
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %._crit_edge137, label %.lr.ph136, !llvm.loop !42
@@ -4076,7 +4076,7 @@ _knl_numa_token.exit96.thread:                    ; preds = %38, %30, %32, %34, 
   br label %_knl_numa_token.exit104
 
 _knl_numa_token.exit104:                          ; preds = %46, %48, %50, %52, %54
-  %.0.i103 = phi i16 [ %spec.select.i102, %54 ], [ 8, %52 ], [ 4, %50 ], [ 2, %48 ], [ 1, %46 ]
+  %.0.i103 = phi i16 [ 1, %46 ], [ 2, %48 ], [ 4, %50 ], [ 8, %52 ], [ %spec.select.i102, %54 ]
   %56 = or i16 %.0.i103, %.049142
   br label %57
 
@@ -4148,9 +4148,9 @@ _knl_numa_token.exit104:                          ; preds = %46, %48, %50, %52, 
   %spec.select = select i1 %.not13.i109, i16 16, i16 0
   br label %_knl_numa_token.exit112
 
-_knl_numa_token.exit112:                          ; preds = %78, %70, %72, %74, %76, %66, %68
-  %.456 = phi i16 [ %.355150, %68 ], [ %67, %66 ], [ %.355150, %78 ], [ %.355150, %76 ], [ %.355150, %74 ], [ %.355150, %72 ], [ %.355150, %70 ]
-  %.4 = phi i16 [ %.3151, %68 ], [ %.3151, %66 ], [ %spec.select, %78 ], [ 8, %76 ], [ 4, %74 ], [ 2, %72 ], [ 1, %70 ]
+_knl_numa_token.exit112:                          ; preds = %78, %76, %74, %72, %70, %66, %68
+  %.456 = phi i16 [ %.355150, %68 ], [ %67, %66 ], [ %.355150, %70 ], [ %.355150, %72 ], [ %.355150, %74 ], [ %.355150, %76 ], [ %.355150, %78 ]
+  %.4 = phi i16 [ %.3151, %68 ], [ %.3151, %66 ], [ 1, %70 ], [ 2, %72 ], [ 4, %74 ], [ 8, %76 ], [ %spec.select, %78 ]
   %80 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #14
   %.not78 = icmp eq ptr %80, null
   br i1 %.not78, label %._crit_edge154, label %.lr.ph153, !llvm.loop !44
@@ -4285,8 +4285,8 @@ define dso_local ptr @node_features_p_node_xlate2(ptr noundef %0) local_unnamed_
   %.not13.i = icmp eq i32 %22, 0
   br i1 %.not13.i, label %select.unfold, label %_knl_numa_token.exit
 
-select.unfold:                                    ; preds = %21, %19, %17, %15, %13
-  %.0.i.ph = phi i16 [ 8, %19 ], [ 1, %13 ], [ 2, %15 ], [ 4, %17 ], [ 16, %21 ]
+select.unfold:                                    ; preds = %21, %13, %15, %17, %19
+  %.0.i.ph = phi i16 [ 8, %19 ], [ 4, %17 ], [ 2, %15 ], [ 1, %13 ], [ 16, %21 ]
   %23 = or i16 %.0.i.ph, %.01836
   br label %24
 
@@ -4520,7 +4520,7 @@ define dso_local noundef zeroext i1 @node_features_p_user_update(i32 noundef %0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %._crit_edge, %24, %21, %9, %5, %8
-  %.05 = phi i1 [ false, %5 ], [ true, %9 ], [ false, %._crit_edge ], [ false, %8 ], [ false, %21 ], [ false, %24 ], [ true, %15 ]
+  %.05 = phi i1 [ false, %8 ], [ false, %5 ], [ true, %9 ], [ false, %21 ], [ false, %24 ], [ false, %._crit_edge ], [ true, %15 ]
   ret i1 %.05
 }
 

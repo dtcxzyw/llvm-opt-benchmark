@@ -162,7 +162,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr write
   %62 = invoke align 16 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2611e9f4f949a58E"(ptr nonnull align 8 %31)
           to label %64 unwind label %.thread31
 
-.thread31:                                        ; preds = %175, %86, %67, %61, %88, %_ZN14cranelift_isle10trie_again14RuleSetBuilder29normalize_equivalence_classes17h685c3919fc964c8bE.exit.i, %.noexc21, %170
+.thread31:                                        ; preds = %86, %67, %61, %88, %_ZN14cranelift_isle10trie_again14RuleSetBuilder29normalize_equivalence_classes17h685c3919fc964c8bE.exit.i, %.noexc21, %170, %175
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread27
@@ -656,8 +656,8 @@ default.unreachable1:                             ; preds = %1
   br label %23
 
 23:                                               ; preds = %1, %1, %1, %21, %19, %17, %12, %10, %5, %3
-  %.sroa.11.0 = phi i64 [ 1, %21 ], [ 0, %1 ], [ 0, %1 ], [ 1, %3 ], [ %9, %5 ], [ 1, %10 ], [ %16, %12 ], [ 1, %17 ], [ 1, %19 ], [ 0, %1 ]
-  %.sroa.0.0 = phi ptr [ %22, %21 ], [ @anon.2025c647a50e221298676d0ea0dcd27f.11, %1 ], [ @anon.2025c647a50e221298676d0ea0dcd27f.11, %1 ], [ %4, %3 ], [ %7, %5 ], [ %11, %10 ], [ %14, %12 ], [ %18, %17 ], [ %20, %19 ], [ @anon.2025c647a50e221298676d0ea0dcd27f.11, %1 ]
+  %.sroa.11.0 = phi i64 [ 1, %3 ], [ %9, %5 ], [ 1, %10 ], [ %16, %12 ], [ 1, %17 ], [ 1, %19 ], [ 1, %21 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
+  %.sroa.0.0 = phi ptr [ %4, %3 ], [ %7, %5 ], [ %11, %10 ], [ %14, %12 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ @anon.2025c647a50e221298676d0ea0dcd27f.11, %1 ], [ @anon.2025c647a50e221298676d0ea0dcd27f.11, %1 ], [ @anon.2025c647a50e221298676d0ea0dcd27f.11, %1 ]
   %24 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %25 = insertvalue { ptr, i64 } %24, i64 %.sroa.11.0, 1
   ret { ptr, i64 } %25
@@ -781,8 +781,8 @@ define range(i8 0, 3) i8 @_ZN14cranelift_isle10trie_again4Rule11may_overlap17h42
   %.not16 = icmp eq ptr %34, null
   br i1 %.not16, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit", label %35
 
-"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread": ; preds = %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit", %61, %40, %35, %46, %73, %67, %52, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge", %19
-  %.013 = phi i8 [ %.1.ph22, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge" ], [ %.015, %19 ], [ 2, %61 ], [ 2, %40 ], [ 2, %35 ], [ 2, %46 ], [ 2, %73 ], [ 2, %67 ], [ 2, %52 ], [ 0, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit" ]
+"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread": ; preds = %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit", %61, %40, %46, %35, %73, %67, %52, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge", %19
+  %.013 = phi i8 [ %.015, %19 ], [ 2, %61 ], [ 2, %40 ], [ 2, %46 ], [ 2, %35 ], [ 2, %73 ], [ 2, %67 ], [ 2, %52 ], [ %.1.ph22, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.backedge" ], [ 0, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit" ]
   ret i8 %.013
 
 35:                                               ; preds = %30
@@ -1077,7 +1077,7 @@ default.unreachable:                              ; preds = %"_ZN4core6result19R
 95:                                               ; preds = %96
   resume { ptr, i32 } %lpad.thr_comm
 
-96:                                               ; preds = %90, %56, %15, %2, %39
+96:                                               ; preds = %90, %2, %15, %39, %56
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$cranelift_isle..trie_again..Binding$GT$17hea7416d2e2542842E"(ptr align 16 %1) #15
@@ -1133,7 +1133,7 @@ define internal fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14se
   switch i8 %.sroa.03.0.copyload, label %default.unreachable [
     i8 0, label %24
     i8 1, label %36
-    i8 2, label %40
+    i8 2, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.i"
     i8 3, label %_ZN14cranelift_isle10trie_again4Rule14set_constraint17h7d3cfa00d26cf0fdE.exit.thread
   ]
 
@@ -1163,15 +1163,15 @@ default.unreachable:                              ; preds = %52, %23
   %37 = getelementptr inbounds i8, ptr %.sroa.012.0.copyload.i, i64 -16
   %38 = load i128, ptr %37, align 16, !noalias !13, !noundef !3
   %39 = icmp eq i128 %38, %.sroa.8.0.copyload
-  br i1 %39, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.i", label %49
+  br i1 %39, label %40, label %49
 
-40:                                               ; preds = %23
+40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %.sroa.012.0.copyload.i, i64 -24
   %42 = load i64, ptr %41, align 8, !noalias !13, !noundef !3
   %43 = icmp eq i64 %42, %.sroa.513.0.copyload
   br i1 %43, label %_ZN14cranelift_isle10trie_again4Rule14set_constraint17h7d3cfa00d26cf0fdE.exit.thread, label %49
 
-"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.i": ; preds = %36
+"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.i": ; preds = %23
   %44 = getelementptr inbounds i8, ptr %.sroa.012.0.copyload.i, i64 -24
   %45 = load i64, ptr %44, align 8, !noalias !13, !noundef !3
   %46 = icmp eq i64 %45, %.sroa.513.0.copyload
@@ -1736,8 +1736,8 @@ default.unreachable:                              ; preds = %20
   unreachable
 
 46:                                               ; preds = %42, %40, %38, %33, %31, %26, %24, %20, %20, %20
-  %.sroa.11.0.i = phi i64 [ 1, %42 ], [ 0, %20 ], [ 0, %20 ], [ 1, %24 ], [ %30, %26 ], [ 1, %31 ], [ %37, %33 ], [ 1, %38 ], [ 1, %40 ], [ 0, %20 ]
-  %.sroa.0.0.i = phi ptr [ %43, %42 ], [ @anon.2025c647a50e221298676d0ea0dcd27f.11, %20 ], [ @anon.2025c647a50e221298676d0ea0dcd27f.11, %20 ], [ %25, %24 ], [ %28, %26 ], [ %32, %31 ], [ %35, %33 ], [ %39, %38 ], [ %41, %40 ], [ @anon.2025c647a50e221298676d0ea0dcd27f.11, %20 ]
+  %.sroa.11.0.i = phi i64 [ 1, %24 ], [ %30, %26 ], [ 1, %31 ], [ %37, %33 ], [ 1, %38 ], [ 1, %40 ], [ 1, %42 ], [ 0, %20 ], [ 0, %20 ], [ 0, %20 ]
+  %.sroa.0.0.i = phi ptr [ %25, %24 ], [ %28, %26 ], [ %32, %31 ], [ %35, %33 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ @anon.2025c647a50e221298676d0ea0dcd27f.11, %20 ], [ @anon.2025c647a50e221298676d0ea0dcd27f.11, %20 ], [ @anon.2025c647a50e221298676d0ea0dcd27f.11, %20 ]
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h9cbe7f1282974677E"(ptr nonnull align 8 %5, ptr nonnull align 2 %.sroa.0.0.i, i64 %.sroa.11.0.i)
           to label %47 unwind label %.loopexit
 
@@ -1834,7 +1834,7 @@ define hidden zeroext i1 @"_ZN76_$LT$cranelift_isle..trie_again..Binding$u20$as$
   ]
 
 7:                                                ; preds = %62, %50, %112, %44, %96, %32, %80, %26, %8, %2, %124, %118, %102, %90, %74, %68, %56, %38, %20, %14
-  %.0.shrunk = phi i1 [ %73, %68 ], [ false, %2 ], [ %19, %14 ], [ %25, %20 ], [ %79, %74 ], [ false, %8 ], [ %95, %90 ], [ false, %26 ], [ %43, %38 ], [ %111, %102 ], [ false, %32 ], [ %123, %118 ], [ false, %44 ], [ %61, %56 ], [ %129, %124 ], [ false, %50 ], [ false, %80 ], [ false, %96 ], [ false, %112 ], [ false, %62 ]
+  %.0.shrunk = phi i1 [ %73, %68 ], [ %19, %14 ], [ %25, %20 ], [ %79, %74 ], [ %95, %90 ], [ %43, %38 ], [ %111, %102 ], [ %123, %118 ], [ %61, %56 ], [ %129, %124 ], [ false, %2 ], [ false, %8 ], [ false, %26 ], [ false, %80 ], [ false, %32 ], [ false, %96 ], [ false, %44 ], [ false, %112 ], [ false, %50 ], [ false, %62 ]
   ret i1 %.0.shrunk
 
 default.unreachable3:                             ; preds = %6
@@ -2063,7 +2063,7 @@ define hidden noundef zeroext i1 @"_ZN79_$LT$cranelift_isle..trie_again..Constra
   ]
 
 7:                                                ; preds = %26, %8, %14, %6, %2, %38, %32, %20
-  %.0.shrunk = phi i1 [ %25, %20 ], [ false, %14 ], [ false, %2 ], [ %37, %32 ], [ false, %8 ], [ %43, %38 ], [ true, %6 ], [ false, %26 ]
+  %.0.shrunk = phi i1 [ %25, %20 ], [ %37, %32 ], [ %43, %38 ], [ false, %2 ], [ true, %6 ], [ false, %14 ], [ false, %8 ], [ false, %26 ]
   ret i1 %.0.shrunk
 
 default.unreachable3:                             ; preds = %6
@@ -2169,7 +2169,7 @@ default.unreachable54:                            ; preds = %2
   br i1 %25, label %.thread, label %26
 
 .thread:                                          ; preds = %33, %20, %12, %5, %46, %41, %39, %28, %26, %18
-  %.0 = phi i8 [ %.018, %28 ], [ 1, %26 ], [ 1, %18 ], [ %.015, %5 ], [ %.014, %41 ], [ 1, %39 ], [ %.013, %46 ], [ -1, %20 ], [ -1, %12 ], [ -1, %33 ]
+  %.0 = phi i8 [ %.018, %28 ], [ 1, %26 ], [ 1, %18 ], [ %.015, %5 ], [ %.014, %41 ], [ 1, %39 ], [ %.013, %46 ], [ -1, %12 ], [ -1, %20 ], [ -1, %33 ]
   ret i8 %.0
 
 26:                                               ; preds = %20

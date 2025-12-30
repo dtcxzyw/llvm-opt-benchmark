@@ -291,7 +291,7 @@ define internal void @do_err_strings_init_ossl_() #0 {
   br label %do_err_strings_init.exit
 
 do_err_strings_init.exit:                         ; preds = %0, %2, %5, %9
-  %.0.i = phi i32 [ 0, %0 ], [ 0, %9 ], [ 0, %2 ], [ 1, %5 ]
+  %.0.i = phi i32 [ 0, %9 ], [ 0, %0 ], [ 0, %2 ], [ 1, %5 ]
   store i32 %.0.i, ptr @do_err_strings_init_ossl_ret_, align 4, !tbaa !3
   ret void
 }
@@ -478,7 +478,7 @@ define void @ERR_clear_error() local_unnamed_addr #0 {
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %19, %18
-  %.sink.i.i = phi i32 [ 0, %19 ], [ 1, %18 ]
+  %.sink.i.i = phi i32 [ 1, %18 ], [ 0, %19 ]
   store i32 %.sink.i.i, ptr %12, align 4, !tbaa !3
   br label %err_clear.exit
 
@@ -627,7 +627,7 @@ OSSL_ERR_STATE_free.exit:                         ; preds = %err_clear.exit.i
   br label %50
 
 50:                                               ; preds = %11, %9, %4, %0, %49, %OSSL_ERR_STATE_free.exit, %16
-  %.0 = phi ptr [ null, %4 ], [ null, %16 ], [ %.08, %49 ], [ null, %OSSL_ERR_STATE_free.exit ], [ null, %9 ], [ null, %0 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %16 ], [ %.08, %49 ], [ null, %OSSL_ERR_STATE_free.exit ], [ null, %0 ], [ null, %4 ], [ null, %9 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -696,7 +696,7 @@ define internal fastcc i64 @get_error_values(i32 noundef range(i32 0, 3) %0, ptr
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %36, %35
-  %.sink.i.i = phi i32 [ 0, %36 ], [ 1, %35 ]
+  %.sink.i.i = phi i32 [ 1, %35 ], [ 0, %36 ]
   store i32 %.sink.i.i, ptr %29, align 4, !tbaa !3
   br label %err_clear.exit
 
@@ -764,7 +764,7 @@ err_clear.exit:                                   ; preds = %33, %.sink.split.i.
   br label %.sink.split.i.i81
 
 .sink.split.i.i81:                                ; preds = %65, %64
-  %.sink.i.i82 = phi i32 [ 0, %65 ], [ 1, %64 ]
+  %.sink.i.i82 = phi i32 [ 1, %64 ], [ 0, %65 ]
   store i32 %.sink.i.i82, ptr %58, align 4, !tbaa !3
   br label %err_clear.exit83
 
@@ -885,7 +885,7 @@ err_clear.exit83:                                 ; preds = %62, %.sink.split.i.
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %115, %114
-  %.sink.i = phi i32 [ 0, %115 ], [ 1, %114 ]
+  %.sink.i = phi i32 [ 1, %114 ], [ 0, %115 ]
   store i32 %.sink.i, ptr %108, align 4, !tbaa !3
   br label %err_clear_data.exit
 
@@ -905,7 +905,7 @@ err_clear.exit83:                                 ; preds = %62, %.sink.split.i.
   br label %err_clear_data.exit
 
 err_clear_data.exit:                              ; preds = %.backedge, %.preheader, %.sink.split.i, %112, %106, %121, %122, %117, %6
-  %.0 = phi i64 [ %85, %.sink.split.i ], [ 0, %6 ], [ %85, %117 ], [ %85, %122 ], [ %85, %121 ], [ %85, %106 ], [ %85, %112 ], [ 0, %.preheader ], [ 0, %.backedge ]
+  %.0 = phi i64 [ 0, %6 ], [ %85, %117 ], [ %85, %122 ], [ %85, %121 ], [ %85, %106 ], [ %85, %112 ], [ %85, %.sink.split.i ], [ 0, %.preheader ], [ 0, %.backedge ]
   ret i64 %.0
 }
 
@@ -1194,7 +1194,7 @@ int_err_get_item.exit19.thread22:                 ; preds = %int_err_get_item.ex
   br label %int_err_get_item.exit19.thread
 
 int_err_get_item.exit19.thread:                   ; preds = %int_err_get_item.exit.thread, %int_err_get_item.exit19.thread22, %int_err_get_item.exit19, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %int_err_get_item.exit19 ], [ %25, %int_err_get_item.exit19.thread22 ], [ null, %int_err_get_item.exit.thread ]
+  %.0 = phi ptr [ null, %1 ], [ %25, %int_err_get_item.exit19.thread22 ], [ null, %int_err_get_item.exit19 ], [ null, %int_err_get_item.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -1351,7 +1351,7 @@ define range(i32 0, 2) i32 @err_shelve_state(ptr noundef writeonly captures(none
   br label %14
 
 14:                                               ; preds = %10, %5, %1, %13
-  %.0 = phi i32 [ 1, %13 ], [ 0, %5 ], [ 0, %1 ], [ 0, %10 ]
+  %.0 = phi i32 [ 1, %13 ], [ 0, %1 ], [ 0, %5 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -1626,7 +1626,7 @@ define void @ERR_add_error_vdata(i32 noundef %0, ptr noundef captures(none) %1) 
   br label %err_clear_data.exit.i
 
 err_clear_data.exit.i:                            ; preds = %74, %73
-  %.sink.i.i = phi i32 [ 0, %74 ], [ 1, %73 ]
+  %.sink.i.i = phi i32 [ 1, %73 ], [ 0, %74 ]
   store i32 %.sink.i.i, ptr %66, align 4, !tbaa !3
   %.pre.i = load i32, ptr %62, align 8, !tbaa !26
   %.phi.trans.insert.i = sext i32 %.pre.i to i64

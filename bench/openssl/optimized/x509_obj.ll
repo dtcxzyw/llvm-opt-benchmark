@@ -344,9 +344,9 @@ define ptr @X509_NAME_oneline(ptr noundef readonly captures(address_is_null) %0,
   br label %141
 
 .loopexit:                                        ; preds = %90, %._crit_edge166, %44, %7, %10
-  %.sink211 = phi i32 [ 180, %7 ], [ 180, %10 ], [ 121, %._crit_edge166 ], [ 75, %44 ], [ 180, %90 ]
-  %.sink210 = phi i32 [ 524295, %7 ], [ 524295, %10 ], [ 134, %._crit_edge166 ], [ 134, %44 ], [ 524295, %90 ]
-  %.2 = phi ptr [ null, %7 ], [ %8, %10 ], [ %.1148.ph, %44 ], [ %.1148.ph, %._crit_edge166 ], [ %.1148.ph, %90 ]
+  %.sink211 = phi i32 [ 180, %10 ], [ 180, %7 ], [ 75, %44 ], [ 121, %._crit_edge166 ], [ 180, %90 ]
+  %.sink210 = phi i32 [ 524295, %10 ], [ 524295, %7 ], [ 134, %44 ], [ 134, %._crit_edge166 ], [ 524295, %90 ]
+  %.2 = phi ptr [ %8, %10 ], [ null, %7 ], [ %.1148.ph, %44 ], [ %.1148.ph, %._crit_edge166 ], [ %.1148.ph, %90 ]
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink211, ptr noundef nonnull @__func__.X509_NAME_oneline) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink210, ptr noundef null) #7

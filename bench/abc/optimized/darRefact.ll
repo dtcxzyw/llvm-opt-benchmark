@@ -672,10 +672,10 @@ define i32 @Dar_RefactTryGraph(ptr noundef %0, ptr noundef readnone captures(add
   br i1 %.not98, label %.thread, label %82
 
 .thread:                                          ; preds = %41, %78, %76
-  %80 = phi i1 [ true, %76 ], [ false, %78 ], [ true, %41 ]
-  %.06796 = phi ptr [ %70, %76 ], [ %70, %78 ], [ %57, %41 ]
-  %.06894 = phi ptr [ %65, %76 ], [ %65, %78 ], [ %55, %41 ]
-  %.06992 = phi ptr [ null, %76 ], [ %71, %78 ], [ null, %41 ]
+  %80 = phi i1 [ false, %78 ], [ true, %76 ], [ true, %41 ]
+  %.06796 = phi ptr [ %70, %78 ], [ %70, %76 ], [ %57, %41 ]
+  %.06894 = phi ptr [ %65, %78 ], [ %65, %76 ], [ %55, %41 ]
+  %.06992 = phi ptr [ %71, %78 ], [ null, %76 ], [ null, %41 ]
   %81 = add nsw i32 %.063101, 1
   %.not76 = icmp slt i32 %.063101, %4
   br i1 %.not76, label %82, label %.critedge2
@@ -723,7 +723,7 @@ define i32 @Dar_RefactTryGraph(ptr noundef %0, ptr noundef readnone captures(add
   br label %109
 
 109:                                              ; preds = %97, %.sink.split, %92, %82
-  %.062 = phi i32 [ %91, %82 ], [ %91, %97 ], [ 0, %92 ], [ %108, %.sink.split ]
+  %.062 = phi i32 [ %91, %82 ], [ 0, %92 ], [ %108, %.sink.split ], [ %91, %97 ]
   %110 = icmp sgt i32 %.062, %5
   br i1 %110, label %.critedge2, label %.critedge
 
@@ -743,7 +743,7 @@ define i32 @Dar_RefactTryGraph(ptr noundef %0, ptr noundef readnone captures(add
   br i1 %119, label %41, label %.critedge2, !llvm.loop !90
 
 .critedge2:                                       ; preds = %60, %.thread, %109, %.critedge, %.critedge.preheader, %6, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %6 ], [ 0, %.critedge.preheader ], [ -1, %109 ], [ -1, %60 ], [ -1, %.thread ], [ %.164, %.critedge ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %6 ], [ 0, %.critedge.preheader ], [ -1, %60 ], [ -1, %.thread ], [ -1, %109 ], [ %.164, %.critedge ]
   ret i32 %.0
 }
 

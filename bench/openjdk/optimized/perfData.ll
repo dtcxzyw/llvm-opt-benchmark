@@ -1564,7 +1564,7 @@ define hidden noundef ptr @_ZN12PerfDataList12find_by_nameEPKc(ptr noundef nonnu
   br label %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.exit.thread"
 
 "_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.exit.thread": ; preds = %12, %2, %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.exit", %14
-  %.0 = phi ptr [ %17, %14 ], [ null, %2 ], [ null, %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.exit" ], [ null, %12 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %"_ZNK17GrowableArrayViewIP8PerfDataE7find_ifIZN12PerfDataList12find_by_nameEPKcE3$_0EEiT_.exit" ], [ null, %2 ], [ null, %12 ]
   ret ptr %.0
 }
 

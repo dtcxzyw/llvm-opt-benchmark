@@ -367,7 +367,7 @@ _.exit41:                                         ; preds = %87, %89
   store ptr %96, ptr %106, align 8, !tbaa !33
   br label %select.unfold
 
-.thread45:                                        ; preds = %_.exit14.i, %_.exit.i, %86, %_.exit41
+.thread45:                                        ; preds = %_.exit14.i, %_.exit.i, %_.exit41, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge.thread
@@ -386,8 +386,8 @@ select.unfold:                                    ; preds = %58, %66, %99, %102
   %111 = call i32 @close(i32 noundef %0) #15
   br label %.critedge54
 
-.critedge54:                                      ; preds = %35, %select.unfold, %23, %.critedge.thread
-  %.0 = phi i32 [ -1, %.critedge.thread ], [ %0, %23 ], [ %0, %select.unfold ], [ %0, %35 ]
+.critedge54:                                      ; preds = %select.unfold, %35, %23, %.critedge.thread
+  %.0 = phi i32 [ -1, %.critedge.thread ], [ %0, %23 ], [ %0, %35 ], [ %0, %select.unfold ]
   call void @strbuf_release(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1203,7 +1203,7 @@ is_tag_in_date_range.exit.thread37.i:             ; preds = %155
   br i1 %163, label %is_tag_in_date_range.exit.thread.i, label %is_tag_in_date_range.exit.i
 
 is_tag_in_date_range.exit.thread.i:               ; preds = %132, %161, %144, %141, %137
-  %.024.i.ph.i = phi ptr [ %140, %161 ], [ %140, %141 ], [ %140, %144 ], [ null, %137 ], [ null, %132 ]
+  %.024.i.ph.i = phi ptr [ %140, %161 ], [ null, %137 ], [ %140, %141 ], [ %140, %144 ], [ null, %132 ]
   call void @free(ptr noundef %.024.i.ph.i) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1440,7 +1440,7 @@ write_pack_data.exit:                             ; preds = %._crit_edge.i
   unreachable
 
 260:                                              ; preds = %write_pack_data.exit.thread, %write_pack_data.exit, %256, %195, %_.exit
-  %.053 = phi i32 [ -1, %_.exit ], [ 0, %write_pack_data.exit ], [ -1, %195 ], [ 0, %256 ], [ -1, %write_pack_data.exit.thread ]
+  %.053 = phi i32 [ -1, %_.exit ], [ -1, %195 ], [ 0, %write_pack_data.exit ], [ 0, %256 ], [ -1, %write_pack_data.exit.thread ]
   %261 = getelementptr inbounds nuw i8, ptr %15, i64 8
   call void @object_array_clear(ptr noundef nonnull %261) #15
   call void @release_revisions(ptr noundef nonnull %14) #15
@@ -1651,7 +1651,7 @@ _.exit:                                           ; preds = %25, %27
   br label %30
 
 30:                                               ; preds = %19, %.cont24, %_.exit
-  %.0 = phi i32 [ -1, %.cont24 ], [ -1, %_.exit ], [ 0, %19 ]
+  %.0 = phi i32 [ -1, %_.exit ], [ -1, %.cont24 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

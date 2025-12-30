@@ -583,10 +583,10 @@ define hidden void @IntRgbSrcMaskFill(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %34
 
 34:                                               ; preds = %10, %.fold.split, %19
-  %.089 = phi i32 [ 0, %10 ], [ %6, %19 ], [ %6, %.fold.split ]
-  %.088 = phi i32 [ 0, %10 ], [ %25, %19 ], [ %17, %.fold.split ]
-  %.087 = phi i32 [ 0, %10 ], [ %29, %19 ], [ %15, %.fold.split ]
-  %.086 = phi i32 [ 0, %10 ], [ %33, %19 ], [ %13, %.fold.split ]
+  %.089 = phi i32 [ %6, %19 ], [ 0, %10 ], [ %6, %.fold.split ]
+  %.088 = phi i32 [ %25, %19 ], [ 0, %10 ], [ %17, %.fold.split ]
+  %.087 = phi i32 [ %29, %19 ], [ 0, %10 ], [ %15, %.fold.split ]
+  %.086 = phi i32 [ %33, %19 ], [ 0, %10 ], [ %13, %.fold.split ]
   %35 = shl nsw i32 %4, 2
   %36 = sub nsw i32 %12, %35
   %.not97 = icmp eq ptr %1, null
@@ -1148,10 +1148,10 @@ define hidden void @IntRgbAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %111, label %170, label %112
 
 112:                                              ; preds = %110, %94, %95
-  %.0125 = phi i32 [ %18, %94 ], [ %100, %95 ], [ 0, %110 ]
-  %.0122 = phi i32 [ %.0133, %94 ], [ %103, %95 ], [ 0, %110 ]
-  %.0119 = phi i32 [ %.0134, %94 ], [ %106, %95 ], [ 0, %110 ]
-  %.0116 = phi i32 [ %.0135, %94 ], [ %109, %95 ], [ 0, %110 ]
+  %.0125 = phi i32 [ %100, %95 ], [ %18, %94 ], [ 0, %110 ]
+  %.0122 = phi i32 [ %103, %95 ], [ %.0133, %94 ], [ 0, %110 ]
+  %.0119 = phi i32 [ %106, %95 ], [ %.0134, %94 ], [ 0, %110 ]
+  %.0116 = phi i32 [ %109, %95 ], [ %.0135, %94 ], [ 0, %110 ]
   %.not165 = icmp eq i32 %.4148, 0
   br i1 %.not165, label %147, label %113
 

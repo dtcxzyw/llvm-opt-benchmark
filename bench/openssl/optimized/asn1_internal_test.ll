@@ -247,9 +247,9 @@ define internal range(i32 0, 2) i32 @test_empty_nonoptional_content() #0 {
   br label %17
 
 17:                                               ; preds = %14, %0, %3, %6, %9
-  %.08 = phi ptr [ null, %0 ], [ null, %14 ], [ %4, %9 ], [ %4, %6 ], [ %4, %3 ]
-  %.07 = phi ptr [ null, %0 ], [ null, %14 ], [ %7, %9 ], [ %7, %6 ], [ null, %3 ]
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %14 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ]
+  %.08 = phi ptr [ %4, %9 ], [ %4, %6 ], [ %4, %3 ], [ null, %0 ], [ null, %14 ]
+  %.07 = phi ptr [ %7, %9 ], [ %7, %6 ], [ null, %3 ], [ null, %0 ], [ null, %14 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ %spec.select, %14 ]
   tail call void @RSA_free(ptr noundef %1) #4
   tail call void @BN_free(ptr noundef %.08) #4
   tail call void @BN_free(ptr noundef %.07) #4
@@ -543,7 +543,7 @@ test_obj_create_once.exit48:                      ; preds = %83, %.critedge.i41
   br label %111
 
 111:                                              ; preds = %108, %105, %test_obj_create_once.exit, %15, %test_obj_create_once.exit24, %33, %test_obj_create_once.exit32, %51, %54, %test_obj_create_once.exit40, %test_obj_create_once.exit48, %87, %90, %93, %96, %99, %102
-  %.0 = phi i32 [ 0, %105 ], [ 0, %test_obj_create_once.exit ], [ 0, %102 ], [ 0, %99 ], [ 0, %96 ], [ 0, %93 ], [ 0, %90 ], [ 0, %87 ], [ 0, %test_obj_create_once.exit48 ], [ 0, %test_obj_create_once.exit40 ], [ 0, %54 ], [ 0, %51 ], [ 0, %test_obj_create_once.exit32 ], [ 0, %33 ], [ 0, %test_obj_create_once.exit24 ], [ 0, %15 ], [ %spec.select, %108 ]
+  %.0 = phi i32 [ 0, %102 ], [ 0, %99 ], [ 0, %96 ], [ 0, %93 ], [ 0, %90 ], [ 0, %87 ], [ 0, %test_obj_create_once.exit48 ], [ 0, %test_obj_create_once.exit40 ], [ 0, %54 ], [ 0, %51 ], [ 0, %test_obj_create_once.exit32 ], [ 0, %33 ], [ 0, %test_obj_create_once.exit24 ], [ 0, %15 ], [ 0, %test_obj_create_once.exit ], [ 0, %105 ], [ %spec.select, %108 ]
   ret i32 %.0
 }
 
@@ -568,7 +568,7 @@ define internal range(i32 0, 2) i32 @test_obj_nid_undef() #0 {
   br label %9
 
 9:                                                ; preds = %6, %0, %3
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %6 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %0 ], [ %spec.select, %6 ]
   ret i32 %.0
 }
 

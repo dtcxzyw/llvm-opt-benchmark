@@ -315,7 +315,7 @@ qoa_lms_update.exit:                              ; preds = %138
   br i1 %148, label %118, label %._crit_edge, !llvm.loop !52
 
 bytestream2_get_be24.exit.thread:                 ; preds = %bytestream2_get_byte.exit, %74, %67, %bytestream2_get_be16.exit92, %41, %bytestream2_get_be24.exit, %._crit_edge129
-  %.0 = phi i32 [ -1094995529, %bytestream2_get_be24.exit ], [ %44, %41 ], [ -1094995529, %bytestream2_get_be16.exit92 ], [ -1094995529, %67 ], [ %100, %._crit_edge129 ], [ %75, %74 ], [ -1094995529, %bytestream2_get_byte.exit ]
+  %.0 = phi i32 [ %100, %._crit_edge129 ], [ -1094995529, %bytestream2_get_be24.exit ], [ %44, %41 ], [ -1094995529, %bytestream2_get_be16.exit92 ], [ -1094995529, %67 ], [ %75, %74 ], [ -1094995529, %bytestream2_get_byte.exit ]
   ret i32 %.0
 }
 

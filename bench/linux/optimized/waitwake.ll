@@ -516,7 +516,7 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %28, label %46, label %29
 
 .thread:                                          ; preds = %120, %108, %110, %112, %114, %116, %118
-  %.shrunk = phi i1 [ %119, %118 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ false, %120 ]
+  %.shrunk = phi i1 [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %119, %118 ], [ false, %120 ]
   %129 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %130 = load ptr, ptr %129, align 8
   %131 = icmp eq ptr %130, %129
@@ -656,7 +656,7 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %159, %155, %202, %198, %.loopexit24, %.loopexit26
-  %215 = phi i32 [ %214, %.loopexit24 ], [ %170, %.loopexit26 ], [ -22, %202 ], [ -22, %198 ], [ -22, %155 ], [ -22, %159 ]
+  %215 = phi i32 [ %214, %.loopexit24 ], [ %170, %.loopexit26 ], [ -22, %198 ], [ -22, %202 ], [ -22, %155 ], [ -22, %159 ]
   call void @_raw_spin_unlock(ptr noundef nonnull %44) #8
   br i1 %41, label %217, label %216
 
@@ -669,7 +669,7 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %.loopexit28
 
 .loopexit28:                                      ; preds = %32, %29, %123, %124, %217, %6
-  %218 = phi i32 [ %215, %217 ], [ %12, %6 ], [ %121, %123 ], [ %125, %124 ], [ %30, %29 ], [ %33, %32 ]
+  %218 = phi i32 [ %215, %217 ], [ %12, %6 ], [ %125, %124 ], [ %121, %123 ], [ %30, %29 ], [ %33, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -903,7 +903,7 @@ select.unfold:                                    ; preds = %68
   br label %.thread4
 
 .thread4:                                         ; preds = %.split10.us, %69, %select.unfold, %66, %79, %28, %.critedge
-  %86 = phi i32 [ -14, %69 ], [ 0, %.critedge ], [ %33, %28 ], [ 0, %79 ], [ 1, %66 ], [ -11, %select.unfold ], [ %15, %.split10.us ]
+  %86 = phi i32 [ 0, %.critedge ], [ %33, %28 ], [ 1, %66 ], [ -11, %select.unfold ], [ 0, %79 ], [ -14, %69 ], [ %15, %.split10.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %86
 }
@@ -1131,7 +1131,7 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %107, label %111, label %.split11.us
 
 .split11.us:                                      ; preds = %.split9.split.split, %.split9.split.split.us, %.split9.split.us.split, %.split9.split.us.split.us, %.split9.us
-  %.us-phi = phi i32 [ %12, %.split9.us ], [ %66, %.split9.split.us.split ], [ %54, %.split9.split.us.split.us ], [ %85, %.split9.split.split.us ], [ %106, %.split9.split.split ]
+  %.us-phi = phi i32 [ %12, %.split9.us ], [ %54, %.split9.split.us.split.us ], [ %66, %.split9.split.us.split ], [ %85, %.split9.split.split.us ], [ %106, %.split9.split.split ]
   %108 = icmp sgt i32 %.us-phi, 0
   %109 = load i32, ptr %4, align 4
   %110 = select i1 %108, i32 %109, i32 %.us-phi
@@ -1182,7 +1182,7 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %135, label %.split9.split.split, label %.critedge, !llvm.loop !47
 
 .critedge:                                        ; preds = %.thread, %132, %128, %102, %.thread.us19, %81, %77, %.thread.us13, %62, %.thread.us13.us, %50, %46, %43, %41, %.split11.us
-  %136 = phi i32 [ %110, %.split11.us ], [ -512, %77 ], [ -512, %62 ], [ -512, %102 ], [ %38, %41 ], [ -512, %46 ], [ -512, %50 ], [ -110, %43 ], [ -512, %.thread.us13.us ], [ -512, %81 ], [ -110, %.thread.us13 ], [ -512, %.thread.us19 ], [ -512, %132 ], [ -110, %.thread ], [ -512, %128 ]
+  %136 = phi i32 [ %110, %.split11.us ], [ -512, %46 ], [ -512, %50 ], [ -110, %43 ], [ %38, %41 ], [ -512, %.thread.us13.us ], [ -512, %62 ], [ -512, %77 ], [ -512, %81 ], [ -110, %.thread.us13 ], [ -512, %.thread.us19 ], [ -512, %102 ], [ -512, %128 ], [ -512, %132 ], [ -110, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %136
 }
@@ -1385,7 +1385,7 @@ define dso_local i32 @__futex_wait(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %64, label %.split, label %.critedge
 
 .critedge:                                        ; preds = %.split, %51, %54, %61, %57, %33, %29, %26, %.split.us, %5
-  %65 = phi i32 [ -22, %5 ], [ 0, %26 ], [ -512, %29 ], [ -512, %33 ], [ %14, %.split.us ], [ -512, %57 ], [ -512, %61 ], [ -110, %54 ], [ 0, %51 ], [ %37, %.split ]
+  %65 = phi i32 [ -22, %5 ], [ -512, %29 ], [ -512, %33 ], [ 0, %26 ], [ %14, %.split.us ], [ -512, %57 ], [ -512, %61 ], [ -110, %54 ], [ 0, %51 ], [ %37, %.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %65

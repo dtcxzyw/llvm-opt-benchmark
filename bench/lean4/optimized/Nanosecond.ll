@@ -163,7 +163,7 @@ lean_nat_mod.exit:                                ; preds = %4, %.critedge.i
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %lean_nat_mod.exit, %14
-  %.1.i5 = phi ptr [ %.1.i, %lean_nat_mod.exit ], [ %16, %14 ]
+  %.1.i5 = phi ptr [ %16, %14 ], [ %.1.i, %lean_nat_mod.exit ]
   ret ptr %.1.i5
 }
 
@@ -201,7 +201,7 @@ lean_nat_mod.exit.i:                              ; preds = %.critedge.i.i, %4
   br label %l_Std_Time_Nanosecond_instOfNatOrdinal.exit
 
 l_Std_Time_Nanosecond_instOfNatOrdinal.exit:      ; preds = %lean_nat_mod.exit.i, %14
-  %.1.i5.i = phi ptr [ %.1.i.i, %lean_nat_mod.exit.i ], [ %16, %14 ]
+  %.1.i5.i = phi ptr [ %16, %14 ], [ %.1.i.i, %lean_nat_mod.exit.i ]
   br i1 %.not.i.i, label %17, label %lean_dec.exit
 
 17:                                               ; preds = %l_Std_Time_Nanosecond_instOfNatOrdinal.exit
@@ -760,7 +760,7 @@ define ptr @l_Std_Time_Nanosecond_instOfNatOffset(ptr noundef %0) local_unnamed_
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
+  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
   ret ptr %.1.i
 }
 
@@ -779,7 +779,7 @@ define ptr @l_Std_Time_Nanosecond_Offset_ofNat(ptr noundef %0) local_unnamed_add
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
+  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
   ret ptr %.1.i
 }
 
@@ -1639,7 +1639,7 @@ define ptr @l_Std_Time_Nanosecond_Ordinal_ofNat(ptr noundef %0, ptr noundef read
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %2, %6
-  %.1.i = phi ptr [ %0, %2 ], [ %8, %6 ]
+  %.1.i = phi ptr [ %8, %6 ], [ %0, %2 ]
   ret ptr %.1.i
 }
 
@@ -1658,7 +1658,7 @@ define ptr @l_Std_Time_Nanosecond_Ordinal_ofFin(ptr noundef %0) local_unnamed_ad
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %1, %5
-  %.1.i = phi ptr [ %0, %1 ], [ %7, %5 ]
+  %.1.i = phi ptr [ %7, %5 ], [ %0, %1 ]
   ret ptr %.1.i
 }
 

@@ -356,7 +356,7 @@ get_zenity_version.exit:                          ; preds = %get_zenity_version.
   br label %143
 
 143:                                              ; preds = %get_zenity_version.exit.thread115, %get_zenity_version.exit.thread, %11, %142, %106, %110, %get_zenity_version.exit, %16
-  %.1 = phi i1 [ %17, %16 ], [ false, %get_zenity_version.exit ], [ %12, %11 ], [ true, %142 ], [ false, %106 ], [ false, %110 ], [ false, %get_zenity_version.exit.thread ], [ false, %get_zenity_version.exit.thread115 ]
+  %.1 = phi i1 [ %17, %16 ], [ %12, %11 ], [ false, %get_zenity_version.exit ], [ true, %142 ], [ false, %106 ], [ false, %110 ], [ false, %get_zenity_version.exit.thread ], [ false, %get_zenity_version.exit.thread115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.1
 }

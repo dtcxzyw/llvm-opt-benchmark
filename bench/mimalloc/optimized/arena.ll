@@ -703,7 +703,7 @@ mi_arena_segment_os_clear_abandoned.exit.thread.i: ; preds = %130, %128
   br i1 %.not.i10, label %mi_arena_segment_clear_abandoned_next_list.exit, label %97
 
 mi_arena_segment_clear_abandoned_next_list.exit:  ; preds = %141, %.thread.i12, %94, %93, %90, %mi_arena_segment_clear_abandoned_next_field.exit
-  %.1 = phi ptr [ %55, %mi_arena_segment_clear_abandoned_next_field.exit ], [ %106, %.thread.i12 ], [ null, %90 ], [ null, %93 ], [ null, %94 ], [ null, %141 ]
+  %.1 = phi ptr [ %55, %mi_arena_segment_clear_abandoned_next_field.exit ], [ null, %93 ], [ null, %90 ], [ %106, %.thread.i12 ], [ null, %94 ], [ null, %141 ]
   ret ptr %.1
 }
 
@@ -913,7 +913,7 @@ mi_arena_static_zalloc.exit:                      ; preds = %12
   br label %30
 
 30:                                               ; preds = %mi_arena_static_zalloc.exit, %25, %29, %22
-  %.0 = phi ptr [ null, %22 ], [ %21, %mi_arena_static_zalloc.exit ], [ %23, %29 ], [ %23, %25 ]
+  %.0 = phi ptr [ %21, %mi_arena_static_zalloc.exit ], [ null, %22 ], [ %23, %29 ], [ %23, %25 ]
   ret ptr %.0
 }
 
@@ -1146,7 +1146,7 @@ define internal fastcc ptr @mi_arena_try_alloc(i32 noundef %0, i64 noundef range
   br label %.thread
 
 .thread:                                          ; preds = %.preheader71, %.preheader, %6, %16, %.loopexit
-  %.0 = phi ptr [ null, %6 ], [ null, %.loopexit ], [ %17, %16 ], [ %29, %.preheader ], [ %22, %.preheader71 ]
+  %.0 = phi ptr [ null, %.loopexit ], [ %17, %16 ], [ null, %6 ], [ %29, %.preheader ], [ %22, %.preheader71 ]
   ret ptr %.0
 }
 
@@ -1214,7 +1214,7 @@ define internal fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %0, i1 noundef 
   br label %.thread29
 
 .thread29:                                        ; preds = %.thread, %39, %40, %24, %20, %8, %.critedge
-  %.0 = phi ptr [ null, %8 ], [ %41, %.critedge ], [ null, %24 ], [ null, %20 ], [ null, %40 ], [ null, %39 ], [ null, %.thread ]
+  %.0 = phi ptr [ %41, %.critedge ], [ null, %8 ], [ null, %20 ], [ null, %24 ], [ null, %40 ], [ null, %39 ], [ null, %.thread ]
   ret ptr %.0
 }
 
@@ -1701,7 +1701,7 @@ mi_arena_try_purge.exit:                          ; preds = %._crit_edge.i
   br label %mi_arena_try_purge.exit.thread
 
 mi_arena_try_purge.exit.thread:                   ; preds = %40, %37, %29, %mi_arena_try_purge.exit, %126, %26, %117
-  %.2.ph = phi i64 [ %.03151, %117 ], [ %127, %126 ], [ %.03151, %26 ], [ %.03151, %mi_arena_try_purge.exit ], [ %.03151, %29 ], [ %.03151, %37 ], [ %.03151, %40 ]
+  %.2.ph = phi i64 [ %.03151, %117 ], [ %.03151, %26 ], [ %.03151, %mi_arena_try_purge.exit ], [ %127, %126 ], [ %.03151, %29 ], [ %.03151, %37 ], [ %.03151, %40 ]
   %128 = add nuw i64 %.03350, 1
   %exitcond.not = icmp eq i64 %128, %16
   br i1 %exitcond.not, label %129, label %26, !llvm.loop !66
@@ -2526,7 +2526,7 @@ mi_reserve_huge_os_pages_interleave.exit:         ; preds = %27, %5
   br label %mi_reserve_huge_os_pages_interleave.exit.thread
 
 mi_reserve_huge_os_pages_interleave.exit.thread:  ; preds = %22, %31, %mi_reserve_huge_os_pages_interleave.exit
-  %.0.i11 = phi i32 [ 0, %mi_reserve_huge_os_pages_interleave.exit ], [ 0, %31 ], [ %26, %22 ]
+  %.0.i11 = phi i32 [ 0, %31 ], [ 0, %mi_reserve_huge_os_pages_interleave.exit ], [ %26, %22 ]
   ret i32 %.0.i11
 }
 
@@ -2741,7 +2741,7 @@ define internal fastcc ptr @mi_arena_try_alloc_at(ptr noundef nonnull %0, i64 no
   br label %mi_arena_try_claim.exit
 
 mi_arena_try_claim.exit:                          ; preds = %4, %49, %70, %69
-  %.0 = phi ptr [ %19, %49 ], [ %19, %69 ], [ %19, %70 ], [ null, %4 ]
+  %.0 = phi ptr [ %19, %69 ], [ %19, %70 ], [ %19, %49 ], [ null, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

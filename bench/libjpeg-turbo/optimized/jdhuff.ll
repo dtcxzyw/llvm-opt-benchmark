@@ -440,10 +440,10 @@ define range(i32 0, 2) i32 @jpeg_fill_bit_buffer(ptr noundef captures(none) %0, 
   br i1 %52, label %15, label %.loopexit82
 
 53:                                               ; preds = %.thread75, %4
-  %.264 = phi i32 [ %.062101, %.thread75 ], [ %2, %4 ]
-  %.260 = phi i64 [ %.058102, %.thread75 ], [ %1, %4 ]
-  %.656 = phi ptr [ %46, %.thread75 ], [ %5, %4 ]
-  %.6 = phi i64 [ %45, %.thread75 ], [ %7, %4 ]
+  %.264 = phi i32 [ %2, %4 ], [ %.062101, %.thread75 ]
+  %.260 = phi i64 [ %1, %4 ], [ %.058102, %.thread75 ]
+  %.656 = phi ptr [ %5, %4 ], [ %46, %.thread75 ]
+  %.6 = phi i64 [ %7, %4 ], [ %45, %.thread75 ]
   %54 = icmp sgt i32 %3, %.264
   br i1 %54, label %55, label %.loopexit82
 
@@ -607,7 +607,7 @@ define range(i32 -1, 256) i32 @jpeg_huff_decode(ptr noundef captures(none) %0, i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %7, %56, %49
-  %.040 = phi i32 [ -1, %7 ], [ 0, %49 ], [ %67, %56 ], [ -1, %31 ]
+  %.040 = phi i32 [ 0, %49 ], [ %67, %56 ], [ -1, %7 ], [ -1, %31 ]
   ret i32 %.040
 }
 
@@ -1282,8 +1282,8 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %39,
   br label %212
 
 212:                                              ; preds = %198, %161
-  %.0670.i = phi i32 [ %172, %161 ], [ %211, %198 ]
-  %.2603.i = phi i32 [ %171, %161 ], [ %.3604.lcssa.i, %198 ]
+  %.0670.i = phi i32 [ %211, %198 ], [ %172, %161 ]
+  %.2603.i = phi i32 [ %.3604.lcssa.i, %198 ], [ %171, %161 ]
   %.not738.i = icmp eq i32 %.0670.i, 0
   br i1 %.not738.i, label %.thread.i, label %213
 
@@ -1716,8 +1716,8 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %39,
   br label %458
 
 458:                                              ; preds = %446, %410
-  %.3673.i = phi i32 [ %420, %410 ], [ %457, %446 ]
-  %.8609.i = phi i32 [ %419, %410 ], [ %.9610.lcssa.i, %446 ]
+  %.3673.i = phi i32 [ %457, %446 ], [ %420, %410 ]
+  %.8609.i = phi i32 [ %.9610.lcssa.i, %446 ], [ %419, %410 ]
   %459 = lshr i32 %.3673.i, 4
   %460 = and i32 %.3673.i, 15
   %.not771.i = icmp eq i32 %460, 0
@@ -2131,8 +2131,8 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %39,
   br label %697
 
 697:                                              ; preds = %685, %649
-  %.5675.i = phi i32 [ %659, %649 ], [ %696, %685 ]
-  %.15616.i = phi i32 [ %658, %649 ], [ %.16617.lcssa.i, %685 ]
+  %.5675.i = phi i32 [ %696, %685 ], [ %659, %649 ]
+  %.15616.i = phi i32 [ %.16617.lcssa.i, %685 ], [ %658, %649 ]
   %698 = lshr i32 %.5675.i, 4
   %699 = and i32 %.5675.i, 15
   %.not756.i = icmp eq i32 %699, 0
@@ -2301,10 +2301,10 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %39,
   br i1 %787, label %568, label %.thread790.i, !llvm.loop !115
 
 .thread790.i:                                     ; preds = %784, %783, %._crit_edge820.i, %564, %561, %._crit_edge834.i
-  %788 = phi i32 [ %411, %561 ], [ %565, %564 ], [ %411, %._crit_edge834.i ], [ %785, %784 ], [ %650, %._crit_edge820.i ], [ %650, %783 ]
-  %.32652.i = phi ptr [ %.17637.i, %561 ], [ %.31651.i, %564 ], [ %.17637.i, %._crit_edge834.i ], [ %.48668.i, %784 ], [ %.34654.i, %._crit_edge820.i ], [ %.34654.i, %783 ]
-  %.12613.i = phi i32 [ %.8609.i, %561 ], [ %.11612.i, %564 ], [ %.9610.lcssa.i, %._crit_edge834.i ], [ %.18619.i, %784 ], [ %.16617.lcssa.i, %._crit_edge820.i ], [ %.15616.i, %783 ]
-  %.32.i = phi i64 [ %.17.i, %561 ], [ %.31.i, %564 ], [ %.17.i, %._crit_edge834.i ], [ %.48.i, %784 ], [ %.34.i, %._crit_edge820.i ], [ %.34.i, %783 ]
+  %788 = phi i32 [ %411, %561 ], [ %565, %564 ], [ %411, %._crit_edge834.i ], [ %650, %783 ], [ %785, %784 ], [ %650, %._crit_edge820.i ]
+  %.32652.i = phi ptr [ %.17637.i, %561 ], [ %.31651.i, %564 ], [ %.17637.i, %._crit_edge834.i ], [ %.34654.i, %783 ], [ %.48668.i, %784 ], [ %.34654.i, %._crit_edge820.i ]
+  %.12613.i = phi i32 [ %.8609.i, %561 ], [ %.11612.i, %564 ], [ %.9610.lcssa.i, %._crit_edge834.i ], [ %.15616.i, %783 ], [ %.18619.i, %784 ], [ %.16617.lcssa.i, %._crit_edge820.i ]
+  %.32.i = phi i64 [ %.17.i, %561 ], [ %.31.i, %564 ], [ %.17.i, %._crit_edge834.i ], [ %.34.i, %783 ], [ %.48.i, %784 ], [ %.34.i, %._crit_edge820.i ]
   %indvars.iv.next877.i = add nuw nsw i64 %indvars.iv876.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next877.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge849.i, label %71, !llvm.loop !116
@@ -2728,7 +2728,7 @@ decode_mcu_fast.exit:                             ; preds = %59, %._crit_edge849
   %.pre294.i = load i64, ptr %796, align 8, !tbaa !59
   br label %decode_mcu_slow.exit
 
-decode_mcu_slow.exit.thread:                      ; preds = %849, %840, %821, %948, %977, %966, %887, %917, %905
+decode_mcu_slow.exit.thread:                      ; preds = %849, %840, %821, %977, %966, %948, %917, %905, %887
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %process_restart.exit
@@ -2762,7 +2762,7 @@ decode_mcu_slow.exit:                             ; preds = %.thread54, %._crit_
   br label %process_restart.exit
 
 process_restart.exit:                             ; preds = %decode_mcu_slow.exit.thread, %14, %995, %997
-  %.015 = phi i32 [ 0, %decode_mcu_slow.exit.thread ], [ 1, %995 ], [ 1, %997 ], [ 0, %14 ]
+  %.015 = phi i32 [ 1, %997 ], [ 1, %995 ], [ 0, %14 ], [ 0, %decode_mcu_slow.exit.thread ]
   ret i32 %.015
 }
 

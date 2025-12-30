@@ -583,7 +583,7 @@ define void @_ZN6LibRaw21parseSonyLensFeaturesEhh(ptr noundef nonnull align 8 de
   br label %39
 
 39:                                               ; preds = %36, %33
-  %40 = phi i64 [ 16, %33 ], [ %38, %36 ]
+  %40 = phi i64 [ %38, %36 ], [ 16, %33 ]
   %41 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull @.str.6, i64 noundef %40) #20
   br label %42
 
@@ -612,7 +612,7 @@ define void @_ZN6LibRaw21parseSonyLensFeaturesEhh(ptr noundef nonnull align 8 de
   br label %55
 
 55:                                               ; preds = %52, %49
-  %56 = phi i64 [ 16, %49 ], [ %54, %52 ]
+  %56 = phi i64 [ %54, %52 ], [ 16, %49 ]
   %57 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull @.str.7, i64 noundef %56) #20
   br label %74
 
@@ -641,7 +641,7 @@ define void @_ZN6LibRaw21parseSonyLensFeaturesEhh(ptr noundef nonnull align 8 de
   br label %71
 
 71:                                               ; preds = %68, %65
-  %72 = phi i64 [ 16, %65 ], [ %70, %68 ]
+  %72 = phi i64 [ %70, %68 ], [ 16, %65 ]
   %73 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull @.str.8, i64 noundef %72) #20
   br label %74
 
@@ -672,7 +672,7 @@ define void @_ZN6LibRaw21parseSonyLensFeaturesEhh(ptr noundef nonnull align 8 de
   br label %88
 
 88:                                               ; preds = %85, %82
-  %89 = phi i64 [ 16, %82 ], [ %87, %85 ]
+  %89 = phi i64 [ %87, %85 ], [ 16, %82 ]
   %90 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull @.str.9, i64 noundef %89) #20
   br label %138
 
@@ -701,7 +701,7 @@ define void @_ZN6LibRaw21parseSonyLensFeaturesEhh(ptr noundef nonnull align 8 de
   br label %104
 
 104:                                              ; preds = %101, %98
-  %105 = phi i64 [ 16, %98 ], [ %103, %101 ]
+  %105 = phi i64 [ %103, %101 ], [ 16, %98 ]
   %106 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull @.str.10, i64 noundef %105) #20
   br label %138
 
@@ -728,7 +728,7 @@ define void @_ZN6LibRaw21parseSonyLensFeaturesEhh(ptr noundef nonnull align 8 de
   br label %119
 
 119:                                              ; preds = %116, %113
-  %120 = phi i64 [ 16, %113 ], [ %118, %116 ]
+  %120 = phi i64 [ %118, %116 ], [ 16, %113 ]
   %121 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull @.str.11, i64 noundef %120) #20
   br label %138
 
@@ -757,7 +757,7 @@ define void @_ZN6LibRaw21parseSonyLensFeaturesEhh(ptr noundef nonnull align 8 de
   br label %135
 
 135:                                              ; preds = %132, %129
-  %136 = phi i64 [ 16, %129 ], [ %134, %132 ]
+  %136 = phi i64 [ %134, %132 ], [ 16, %129 ]
   %137 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull @.str.12, i64 noundef %136) #20
   br label %138
 
@@ -786,7 +786,7 @@ define void @_ZN6LibRaw21parseSonyLensFeaturesEhh(ptr noundef nonnull align 8 de
   br label %151
 
 151:                                              ; preds = %148, %145
-  %152 = phi i64 [ 16, %145 ], [ %150, %148 ]
+  %152 = phi i64 [ %150, %148 ], [ 16, %145 ]
   %153 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull @.str.13, i64 noundef %152) #20
   br label %170
 
@@ -815,7 +815,7 @@ define void @_ZN6LibRaw21parseSonyLensFeaturesEhh(ptr noundef nonnull align 8 de
   br label %167
 
 167:                                              ; preds = %164, %161
-  %168 = phi i64 [ 16, %161 ], [ %166, %164 ]
+  %168 = phi i64 [ %166, %164 ], [ 16, %161 ]
   %169 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull @.str.14, i64 noundef %168) #20
   br label %170
 
@@ -843,7 +843,7 @@ define void @_ZN6LibRaw21parseSonyLensFeaturesEhh(ptr noundef nonnull align 8 de
   br label %182
 
 182:                                              ; preds = %179, %176
-  %183 = phi i64 [ 16, %176 ], [ %181, %179 ]
+  %183 = phi i64 [ %181, %179 ], [ 16, %176 ]
   %184 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull @.str.15, i64 noundef %183) #20
   br label %185
 
@@ -872,7 +872,7 @@ define void @_ZN6LibRaw21parseSonyLensFeaturesEhh(ptr noundef nonnull align 8 de
   br label %198
 
 198:                                              ; preds = %195, %192
-  %199 = phi i64 [ 16, %192 ], [ %197, %195 ]
+  %199 = phi i64 [ %197, %195 ], [ 16, %192 ]
   %200 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull @.str.16, i64 noundef %199) #20
   br label %201
 
@@ -901,7 +901,7 @@ define void @_ZN6LibRaw21parseSonyLensFeaturesEhh(ptr noundef nonnull align 8 de
   br label %214
 
 214:                                              ; preds = %211, %208
-  %215 = phi i64 [ 16, %208 ], [ %213, %211 ]
+  %215 = phi i64 [ %213, %211 ], [ 16, %208 ]
   %216 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull @.str.17, i64 noundef %215) #20
   br label %217
 
@@ -991,7 +991,7 @@ define void @_ZN6LibRaw19process_Sony_0x2010EPht(ptr noundef nonnull align 8 der
   br label %13
 
 13:                                               ; preds = %11, %12, %7, %3, %3
-  %.0 = phi i16 [ %., %7 ], [ 6444, %3 ], [ 6284, %12 ], [ 6488, %11 ], [ 6444, %3 ]
+  %.0 = phi i16 [ 6488, %11 ], [ 6284, %12 ], [ %., %7 ], [ 6444, %3 ], [ 6444, %3 ]
   %14 = icmp ult i16 %.0, %2
   br i1 %14, label %15, label %.fold.split
 
@@ -1023,7 +1023,7 @@ define void @_ZN6LibRaw19process_Sony_0x2010EPht(ptr noundef nonnull align 8 der
   br label %.fold.split.sink.split
 
 .fold.split.sink.split:                           ; preds = %15, %19, %21, %22, %20
-  %.sink = phi float [ 1.333000e+03, %19 ], [ 1.500000e+03, %20 ], [ %26, %22 ], [ 1.000000e+03, %21 ], [ 1.777000e+03, %15 ]
+  %.sink = phi float [ 1.500000e+03, %20 ], [ %26, %22 ], [ 1.000000e+03, %21 ], [ 1.333000e+03, %19 ], [ 1.777000e+03, %15 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 3692
   store float %.sink, ptr %27, align 4, !tbaa !103
   br label %.fold.split
@@ -1156,7 +1156,7 @@ define void @_ZN6LibRaw19process_Sony_0x9050EPhty(ptr noundef nonnull align 8 de
   br label %.thread
 
 .thread:                                          ; preds = %4, %11
-  %12 = phi i16 [ 1, %11 ], [ %8, %4 ]
+  %12 = phi i16 [ %8, %4 ], [ 1, %11 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1354
   %15 = load i16, ptr %14, align 2, !tbaa !86
@@ -3756,7 +3756,7 @@ _ZL7bcd2dech.exit854:                             ; preds = %583, %587, %590
   br label %757
 
 757:                                              ; preds = %755, %696, %727, %729, %743, %745, %747, %749, %751, %753
-  %.sink964 = phi i64 [ 47, %743 ], [ 41, %696 ], [ %spec.select, %755 ], [ 47, %753 ], [ 47, %751 ], [ 47, %749 ], [ 47, %747 ], [ 47, %745 ], [ 41, %729 ], [ 41, %727 ]
+  %.sink964 = phi i64 [ 47, %753 ], [ 47, %751 ], [ 47, %749 ], [ 47, %747 ], [ 47, %745 ], [ 47, %743 ], [ 41, %729 ], [ 41, %727 ], [ 41, %696 ], [ %spec.select, %755 ]
   %758 = getelementptr inbounds nuw i8, ptr %705, i64 %.sink964
   %759 = load i8, ptr %758, align 1, !tbaa !101
   %760 = zext i8 %759 to i16
@@ -6534,7 +6534,7 @@ _ZNK21libraw_static_table_tixEj.exit174:          ; preds = %363, %364, %366, %3
   br i1 %exitcond301.not, label %.loopexit210, label %.preheader214, !llvm.loop !215
 
 .loopexit210:                                     ; preds = %.loopexit, %112, %76, %67, %403, %389, %382, %145, %138, %131, %124, %105, %169, %187, %181, %_ZNK21libraw_static_table_tixEj.exit174, %_ZNK21libraw_static_table_tixEj.exit162.thread, %230, %_ZNK21libraw_static_table_tixEj.exit150, %55
-  %.1 = phi i32 [ %.0119266, %55 ], [ %231, %230 ], [ %.0119266, %_ZNK21libraw_static_table_tixEj.exit150 ], [ %335, %_ZNK21libraw_static_table_tixEj.exit162.thread ], [ %.0119266, %_ZNK21libraw_static_table_tixEj.exit174 ], [ %.0119266, %145 ], [ %.0119266, %403 ], [ %.0119266, %382 ], [ %.0119266, %181 ], [ %.0119266, %187 ], [ %.0119266, %169 ], [ %.0119266, %389 ], [ %.0119266, %112 ], [ %.0119266, %76 ], [ %.0119266, %67 ], [ %.0119266, %105 ], [ %.0119266, %124 ], [ %.0119266, %131 ], [ %.0119266, %138 ], [ %.0119266, %.loopexit ]
+  %.1 = phi i32 [ %231, %230 ], [ %.0119266, %_ZNK21libraw_static_table_tixEj.exit150 ], [ %335, %_ZNK21libraw_static_table_tixEj.exit162.thread ], [ %.0119266, %_ZNK21libraw_static_table_tixEj.exit174 ], [ %.0119266, %55 ], [ %.0119266, %181 ], [ %.0119266, %187 ], [ %.0119266, %169 ], [ %.0119266, %105 ], [ %.0119266, %124 ], [ %.0119266, %131 ], [ %.0119266, %138 ], [ %.0119266, %145 ], [ %.0119266, %382 ], [ %.0119266, %389 ], [ %.0119266, %403 ], [ %.0119266, %67 ], [ %.0119266, %76 ], [ %.0119266, %112 ], [ %.0119266, %.loopexit ]
   %.not = icmp eq i32 %53, 0
   br i1 %.not, label %.loopexit242, label %52, !llvm.loop !216
 
@@ -6898,7 +6898,7 @@ _ZN6LibRaw12sony_decryptEPjiii.exit:              ; preds = %.lr.ph.i, %.loopexi
           to label %170 unwind label %.loopexit.split-lp.loopexit
 
 170:                                              ; preds = %160, %162, %166
-  %.173 = phi i32 [ %.072112, %160 ], [ %.072112, %166 ], [ %165, %162 ]
+  %.173 = phi i32 [ %.072112, %166 ], [ %165, %162 ], [ %.072112, %160 ]
   %.not = icmp eq i16 %155, 0
   br i1 %.not, label %._crit_edge.loopexit, label %154, !llvm.loop !222
 
@@ -7046,8 +7046,8 @@ _ZNK21libraw_static_table_tixEj.exit:             ; preds = %217, %222, %223, %2
   br label %_ZNK21libraw_static_table_tixEj.exit93
 
 _ZNK21libraw_static_table_tixEj.exit93:           ; preds = %235, %236, %238, %245
-  %.sink = phi ptr [ %248, %245 ], [ %199, %236 ], [ %244, %238 ], [ %199, %235 ]
-  %.0.i92 = phi i32 [ %246, %245 ], [ 0, %236 ], [ %242, %238 ], [ 0, %235 ]
+  %.sink = phi ptr [ %244, %238 ], [ %248, %245 ], [ %199, %236 ], [ %199, %235 ]
+  %.0.i92 = phi i32 [ %242, %238 ], [ %246, %245 ], [ 0, %236 ], [ 0, %235 ]
   %249 = getelementptr inbounds nuw i32, ptr %.sink, i64 %229
   %250 = load i32, ptr %249, align 4, !tbaa !71
   %251 = sext i32 %.0.i92 to i64

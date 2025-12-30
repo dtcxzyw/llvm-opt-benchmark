@@ -72,9 +72,9 @@ define internal range(i32 0, 101) i32 @avs3video_probe(ptr noundef readonly capt
   br i1 %or.cond5, label %.loopexit, label %28
 
 28:                                               ; preds = %20, %20, %25, %23, %.lr.ph
-  %.133 = phi i32 [ %.03245, %20 ], [ %.03245, %20 ], [ %24, %23 ], [ %.03245, %25 ], [ %.03245, %.lr.ph ]
-  %.131 = phi i32 [ %21, %20 ], [ %21, %20 ], [ %.03046, %23 ], [ %.03046, %25 ], [ %.03046, %.lr.ph ]
-  %.1 = phi i32 [ %.2, %20 ], [ %.2, %20 ], [ %.2, %23 ], [ %.2, %25 ], [ %.02947, %.lr.ph ]
+  %.133 = phi i32 [ %.03245, %20 ], [ %24, %23 ], [ %.03245, %25 ], [ %.03245, %.lr.ph ], [ %.03245, %20 ]
+  %.131 = phi i32 [ %21, %20 ], [ %.03046, %23 ], [ %.03046, %25 ], [ %.03046, %.lr.ph ], [ %21, %20 ]
+  %.1 = phi i32 [ %.2, %20 ], [ %.2, %23 ], [ %.2, %25 ], [ %.02947, %.lr.ph ], [ %.2, %20 ]
   %29 = icmp ult ptr %10, %8
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
@@ -92,7 +92,7 @@ define internal range(i32 0, 101) i32 @avs3video_probe(ptr noundef readonly capt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %20, %17, %1, %33, %._crit_edge
-  %.034 = phi i32 [ %spec.select, %33 ], [ 0, %._crit_edge ], [ 0, %1 ], [ 0, %17 ], [ 0, %20 ], [ 0, %25 ]
+  %.034 = phi i32 [ 0, %._crit_edge ], [ %spec.select, %33 ], [ 0, %1 ], [ 0, %17 ], [ 0, %20 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.034
 }

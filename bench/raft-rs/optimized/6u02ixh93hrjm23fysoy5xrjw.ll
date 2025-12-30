@@ -1234,7 +1234,7 @@ select.unfold.i:                                  ; preds = %"_ZN73_$LT$$u5b$A$u
   br i1 %.not13.i.i.i.i, label %_ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread.i.i.i.i, label %.lr.ph.i.i.i.i
 
 _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread.i.i.i.i: ; preds = %select.unfold.i, %31, %.preheader.i.i.i.i.i, %.noexc19, %22
-  %34 = phi i64 [ %14, %31 ], [ %14, %22 ], [ %14, %.noexc19 ], [ %14, %.preheader.i.i.i.i.i ], [ %29, %select.unfold.i ]
+  %34 = phi i64 [ %14, %22 ], [ %14, %.noexc19 ], [ %14, %.preheader.i.i.i.i.i ], [ %14, %31 ], [ %29, %select.unfold.i ]
   %.sroa.4.0.i.i89.i = sub nuw i64 %12, %34
   %.sroa.0.0.i.i90.i = getelementptr inbounds nuw i8, ptr %11, i64 %34
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

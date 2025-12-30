@@ -134,7 +134,7 @@ define dso_local i32 @fdt_check_full(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %68, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %49, %64, %.lr.ph, %44, %55, %42, %.preheader, %43, %33, %13, %11, %8, %2, %62
-  %.0 = phi i32 [ %63, %62 ], [ -8, %2 ], [ -8, %8 ], [ %12, %11 ], [ -8, %13 ], [ %34, %33 ], [ %., %43 ], [ %37, %.preheader ], [ -11, %55 ], [ -11, %.lr.ph ], [ %67, %64 ], [ -11, %44 ], [ -11, %49 ], [ -13, %42 ]
+  %.0 = phi i32 [ %63, %62 ], [ -8, %2 ], [ -8, %8 ], [ %12, %11 ], [ -8, %13 ], [ %34, %33 ], [ %., %43 ], [ %37, %.preheader ], [ -11, %49 ], [ %67, %64 ], [ -11, %.lr.ph ], [ -11, %44 ], [ -11, %55 ], [ -13, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

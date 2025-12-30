@@ -406,7 +406,7 @@ pm_strpbrk_utf8.exit.loopexit115.split.loop.exit: ; preds = %.split.us.i42
   br label %pm_strpbrk_utf8.exit
 
 pm_strpbrk_utf8.exit:                             ; preds = %54, %.split.i, %37, %.split.us.i, %155, %193, %.split.i46, %148, %.split.i31, %132, %.split.us.i35, %68, %85, %pm_strpbrk_utf8.exit.loopexit115.split.loop.exit, %.split.loop.exit14.i, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %68 ], [ null, %37 ], [ null, %85 ], [ null, %193 ], [ null, %148 ], [ %195, %pm_strpbrk_utf8.exit.loopexit115.split.loop.exit ], [ %87, %.split.loop.exit14.i ], [ null, %132 ], [ null, %155 ], [ %95, %.split.us.i35 ], [ %134, %.split.i31 ], [ %157, %.split.i46 ], [ %13, %.split.us.i ], [ %39, %.split.i ], [ null, %54 ]
+  %.0 = phi ptr [ null, %5 ], [ %87, %.split.loop.exit14.i ], [ %195, %pm_strpbrk_utf8.exit.loopexit115.split.loop.exit ], [ null, %85 ], [ null, %68 ], [ null, %132 ], [ %95, %.split.us.i35 ], [ null, %148 ], [ %134, %.split.i31 ], [ null, %193 ], [ %157, %.split.i46 ], [ null, %155 ], [ null, %37 ], [ %13, %.split.us.i ], [ null, %54 ], [ %39, %.split.i ]
   ret ptr %.0
 }
 

@@ -572,7 +572,7 @@ sub_240:                                          ; preds = %sub_139
   br i1 %.not18, label %.sink.split, label %68
 
 .sink.split:                                      ; preds = %57, %.tail37, %41, %.tail
-  %.str.12.sink = phi ptr [ @.str.9, %41 ], [ @.str.9, %.tail ], [ @.str.12, %.tail37 ], [ @.str.12, %57 ]
+  %.str.12.sink = phi ptr [ @.str.9, %.tail ], [ @.str.9, %41 ], [ @.str.12, %.tail37 ], [ @.str.12, %57 ]
   store ptr %.str.12.sink, ptr %42, align 8, !tbaa !21
   br label %68
 
@@ -748,7 +748,7 @@ is_builtin.exit.i.i:                              ; preds = %129
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %134, %get_builtin.exit.thread.i
-  %137 = phi i32 [ %125, %get_builtin.exit.thread.i ], [ %136, %134 ]
+  %137 = phi i32 [ %136, %134 ], [ %125, %get_builtin.exit.thread.i ]
   switch i32 %137, label %commit_pager_choice.exit.i.i [
     i32 0, label %138
     i32 1, label %140
@@ -2398,7 +2398,7 @@ define internal fastcc i32 @run_builtin(ptr noundef nonnull readonly captures(no
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %32, %25
-  %36 = phi i32 [ %26, %25 ], [ %35, %32 ]
+  %36 = phi i32 [ %35, %32 ], [ %26, %25 ]
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %thread-pre-split.thread, label %41
 

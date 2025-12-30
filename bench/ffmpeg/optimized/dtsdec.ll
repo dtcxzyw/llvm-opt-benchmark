@@ -22,8 +22,8 @@ define internal range(i32 0, 52) i32 @dts_probe(ptr noundef readonly captures(no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(82) %3, i8 0, i64 82, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !4
-  %.067.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.067.sroa.gep103 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.067.sroa.gep102 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.067.sroa.gep103 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.067.sroa.gep104 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %7 = icmp sgt i32 %6, 4098
   br i1 %7, label %.lr.ph, label %.preheader.preheader
@@ -73,8 +73,8 @@ define internal range(i32 0, 52) i32 @dts_probe(ptr noundef readonly captures(no
   br label %32
 
 32:                                               ; preds = %22, %._crit_edge132, %10
-  %.171 = phi i64 [ %30, %._crit_edge132 ], [ %.070116, %22 ], [ %.070116, %10 ]
-  %.169 = phi i32 [ %31, %._crit_edge132 ], [ %.068117, %22 ], [ %.068117, %10 ]
+  %.171 = phi i64 [ %30, %._crit_edge132 ], [ %.070116, %10 ], [ %.070116, %22 ]
+  %.169 = phi i32 [ %31, %._crit_edge132 ], [ %.068117, %10 ], [ %.068117, %22 ]
   switch i32 %19, label %107 [
     i32 1683496997, label %33
     i32 2147385345, label %79
@@ -177,7 +177,7 @@ define internal range(i32 0, 52) i32 @dts_probe(ptr noundef readonly captures(no
   br i1 %93, label %94, label %107
 
 94:                                               ; preds = %90, %86, %83, %79
-  %.067.sroa.phi = phi ptr [ %.067.sroa.gep, %86 ], [ %2, %79 ], [ %.067.sroa.gep103, %83 ], [ %.067.sroa.gep104, %90 ]
+  %.067.sroa.phi = phi ptr [ %2, %79 ], [ %.067.sroa.gep102, %83 ], [ %.067.sroa.gep103, %86 ], [ %.067.sroa.gep104, %90 ]
   %95 = getelementptr inbounds i8, ptr %13, i64 -2
   %96 = call i32 @avpriv_dca_convert_bitstream(ptr noundef nonnull %95, i32 noundef 18, ptr noundef nonnull %3, i32 noundef 18) #7
   %97 = icmp slt i32 %96, 0
@@ -199,8 +199,8 @@ define internal range(i32 0, 52) i32 @dts_probe(ptr noundef readonly captures(no
   br label %107
 
 107:                                              ; preds = %86, %83, %79, %98, %94, %90, %32, %64, %60, %57, %35, %33, %101, %77
-  %.174 = phi i32 [ %.073115, %64 ], [ %.073115, %33 ], [ %.073115, %35 ], [ %.073115, %57 ], [ %.073115, %60 ], [ %78, %77 ], [ %.073115, %83 ], [ %.073115, %94 ], [ %.073115, %101 ], [ %.073115, %32 ], [ %.073115, %98 ], [ %.073115, %79 ], [ %.073115, %90 ], [ %.073115, %86 ]
-  %.1 = phi i32 [ %.066118, %64 ], [ %.066118, %33 ], [ %.066118, %35 ], [ %.066118, %57 ], [ %.066118, %60 ], [ %.2, %77 ], [ %.066118, %83 ], [ %.066118, %94 ], [ %.066118, %101 ], [ %.066118, %32 ], [ %.066118, %98 ], [ %.066118, %79 ], [ %.066118, %90 ], [ %.066118, %86 ]
+  %.174 = phi i32 [ %78, %77 ], [ %.073115, %101 ], [ %.073115, %33 ], [ %.073115, %35 ], [ %.073115, %57 ], [ %.073115, %60 ], [ %.073115, %64 ], [ %.073115, %32 ], [ %.073115, %90 ], [ %.073115, %94 ], [ %.073115, %98 ], [ %.073115, %79 ], [ %.073115, %83 ], [ %.073115, %86 ]
+  %.1 = phi i32 [ %.2, %77 ], [ %.066118, %101 ], [ %.066118, %33 ], [ %.066118, %35 ], [ %.066118, %57 ], [ %.066118, %60 ], [ %.066118, %64 ], [ %.066118, %32 ], [ %.066118, %90 ], [ %.066118, %94 ], [ %.066118, %98 ], [ %.066118, %79 ], [ %.066118, %83 ], [ %.066118, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %108 = load i32, ptr %5, align 8, !tbaa !4

@@ -437,8 +437,8 @@ set_textcolor.exit.i.us.us:                       ; preds = %167, %.sink.split.i
   br label %set_color.exit.us.us
 
 set_color.exit.us.us:                             ; preds = %.sink.split.i.us.us, %205, %202, %195, %181, %.lr.ph.us109
-  %.275.us.us = phi ptr [ %123, %.sink.split.i.us.us ], [ %.174101.us.us, %.lr.ph.us109 ], [ %123, %181 ], [ %123, %195 ], [ %123, %202 ], [ %123, %205 ]
-  %.272.us.us = phi ptr [ %121, %.sink.split.i.us.us ], [ %.171102.us.us, %.lr.ph.us109 ], [ %121, %181 ], [ %121, %195 ], [ %121, %202 ], [ %121, %205 ]
+  %.275.us.us = phi ptr [ %.174101.us.us, %.lr.ph.us109 ], [ %123, %181 ], [ %123, %195 ], [ %123, %202 ], [ %123, %205 ], [ %123, %.sink.split.i.us.us ]
+  %.272.us.us = phi ptr [ %.171102.us.us, %.lr.ph.us109 ], [ %121, %181 ], [ %121, %195 ], [ %121, %202 ], [ %121, %205 ], [ %121, %.sink.split.i.us.us ]
   %208 = load ptr, ptr %85, align 8, !tbaa !48
   %209 = getelementptr inbounds nuw ptr, ptr %208, i64 %indvars.iv137
   %210 = load ptr, ptr %209, align 8, !tbaa !49
@@ -1040,8 +1040,8 @@ define internal fastcc void @merge(ptr noundef readonly captures(none) %0, i32 n
   br label %from_directions.exit
 
 from_directions.exit:                             ; preds = %38, %39, %40, %41, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22
-  %.0.i.sink = phi i32 [ 0, %37 ], [ 10, %22 ], [ 15, %36 ], [ 13, %35 ], [ 14, %34 ], [ 7, %33 ], [ 11, %32 ], [ 4, %31 ], [ 8, %30 ], [ 1, %29 ], [ 2, %28 ], [ 3, %27 ], [ 12, %26 ], [ 5, %25 ], [ 9, %24 ], [ 6, %23 ], [ 0, %41 ], [ 15, %40 ], [ 12, %38 ], [ 3, %39 ]
-  %switch.table.merge.3.sink = phi ptr [ @switch.table.merge, %37 ], [ @switch.table.merge, %22 ], [ @switch.table.merge, %36 ], [ @switch.table.merge, %35 ], [ @switch.table.merge, %34 ], [ @switch.table.merge, %33 ], [ @switch.table.merge, %32 ], [ @switch.table.merge, %31 ], [ @switch.table.merge, %30 ], [ @switch.table.merge, %29 ], [ @switch.table.merge, %28 ], [ @switch.table.merge, %27 ], [ @switch.table.merge, %26 ], [ @switch.table.merge, %25 ], [ @switch.table.merge, %24 ], [ @switch.table.merge, %23 ], [ @switch.table.merge.3, %41 ], [ @switch.table.merge.3, %40 ], [ @switch.table.merge.3, %38 ], [ @switch.table.merge.3, %39 ]
+  %.0.i.sink = phi i32 [ 10, %22 ], [ 15, %36 ], [ 13, %35 ], [ 14, %34 ], [ 7, %33 ], [ 11, %32 ], [ 4, %31 ], [ 8, %30 ], [ 1, %29 ], [ 2, %28 ], [ 3, %27 ], [ 12, %26 ], [ 5, %25 ], [ 9, %24 ], [ 6, %23 ], [ 0, %37 ], [ 0, %41 ], [ 3, %39 ], [ 15, %40 ], [ 12, %38 ]
+  %switch.table.merge.3.sink = phi ptr [ @switch.table.merge, %22 ], [ @switch.table.merge, %36 ], [ @switch.table.merge, %35 ], [ @switch.table.merge, %34 ], [ @switch.table.merge, %33 ], [ @switch.table.merge, %32 ], [ @switch.table.merge, %31 ], [ @switch.table.merge, %30 ], [ @switch.table.merge, %29 ], [ @switch.table.merge, %28 ], [ @switch.table.merge, %27 ], [ @switch.table.merge, %26 ], [ @switch.table.merge, %25 ], [ @switch.table.merge, %24 ], [ @switch.table.merge, %23 ], [ @switch.table.merge, %37 ], [ @switch.table.merge.3, %41 ], [ @switch.table.merge.3, %39 ], [ @switch.table.merge.3, %40 ], [ @switch.table.merge.3, %38 ]
   %42 = xor i32 %4, -1
   %43 = and i32 %.0.i.sink, %42
   %44 = or i32 %43, %3

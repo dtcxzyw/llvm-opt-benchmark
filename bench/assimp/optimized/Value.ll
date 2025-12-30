@@ -1082,7 +1082,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116: ; preds = %_Z
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i120
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i120: ; preds = %204, %202, %.lr.ph.i.i117, %193
-  %.0.i.i121 = phi i32 [ 3, %202 ], [ %spec.select521, %204 ], [ 2, %.lr.ph.i.i117 ], [ 1, %193 ]
+  %.0.i.i121 = phi i32 [ 1, %193 ], [ 2, %.lr.ph.i.i117 ], [ 3, %202 ], [ %spec.select521, %204 ]
   %.lobit.i122 = lshr i32 %198, 31
   %206 = add nuw nsw i32 %.0.i.i121, %.lobit.i122
   %207 = zext nneg i32 %206 to i64
@@ -1322,7 +1322,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   br i1 %310, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i154, label %.lr.ph.i.i151, !llvm.loop !26
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i154: ; preds = %307, %305, %301, %297, %289
-  %.0.i.i155 = phi i32 [ %306, %305 ], [ %298, %297 ], [ %302, %301 ], [ 1, %289 ], [ %309, %307 ]
+  %.0.i.i155 = phi i32 [ %298, %297 ], [ %302, %301 ], [ %306, %305 ], [ 1, %289 ], [ %309, %307 ]
   %.lobit.i156 = lshr i32 %.0..0..0..0..0..0..i150, 31
   %311 = add i32 %.0.i.i155, %.lobit.i156
   %312 = zext i32 %311 to i64
@@ -1562,7 +1562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183: ; preds = %_Z
   br i1 %415, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i185, !llvm.loop !33
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %412, %410, %406, %402, %394
-  %.0.i.i186 = phi i32 [ %411, %410 ], [ %403, %402 ], [ %407, %406 ], [ 1, %394 ], [ %414, %412 ]
+  %.0.i.i186 = phi i32 [ %403, %402 ], [ %407, %406 ], [ %411, %410 ], [ 1, %394 ], [ %414, %412 ]
   %.lobit.i187 = lshr i64 %.0..0..0..0..0..0..i184, 63
   %416 = trunc nuw nsw i64 %.lobit.i187 to i32
   %417 = add i32 %.0.i.i186, %416
@@ -2547,7 +2547,7 @@ define hidden noalias noundef ptr @_ZN10ODDLParser14ValueAllocator13allocPrimDat
   br i1 %.not, label %.thread32, label %.thread
 
 .thread.sink.split:                               ; preds = %3, %3, %3, %8, %7, %6
-  %.sink = phi i64 [ 1, %3 ], [ 1, %3 ], [ 2, %6 ], [ 4, %7 ], [ 8, %8 ], [ 1, %3 ]
+  %.sink = phi i64 [ 2, %6 ], [ 4, %7 ], [ 8, %8 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
   store i64 %.sink, ptr %5, align 8
   br label %.thread
 

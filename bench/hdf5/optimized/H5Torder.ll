@@ -277,7 +277,7 @@ define i32 @H5T_get_order(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond41.not, label %.loopexit, label %37
 
 .loopexit:                                        ; preds = %50, %37, %.preheader, %14, %25, %28, %10, %46, %33
-  %.034 = phi i32 [ -1, %10 ], [ 4, %14 ], [ %27, %25 ], [ 4, %28 ], [ -1, %33 ], [ -1, %46 ], [ 4, %.preheader ], [ 3, %50 ], [ %spec.select, %37 ]
+  %.034 = phi i32 [ -1, %10 ], [ 4, %28 ], [ %27, %25 ], [ 4, %14 ], [ -1, %33 ], [ -1, %46 ], [ 4, %.preheader ], [ 3, %50 ], [ %spec.select, %37 ]
   ret i32 %.034
 }
 
@@ -550,7 +550,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5T__set_order(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %2, %37, %39, %33, %18, %63, %50, %44
-  %.035 = phi i32 [ -1, %18 ], [ 0, %2 ], [ -1, %33 ], [ 0, %39 ], [ 0, %37 ], [ -1, %44 ], [ -1, %50 ], [ -1, %63 ], [ 0, %54 ]
+  %.035 = phi i32 [ -1, %18 ], [ 0, %39 ], [ 0, %37 ], [ -1, %33 ], [ 0, %2 ], [ -1, %44 ], [ -1, %50 ], [ -1, %63 ], [ 0, %54 ]
   ret i32 %.035
 }
 

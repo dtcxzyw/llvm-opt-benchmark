@@ -313,7 +313,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1, %12, %9, %6, %15
-  %.0 = phi i32 [ 0, %12 ], [ 1, %15 ], [ 0, %9 ], [ 0, %6 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %15 ], [ 0, %6 ], [ 0, %9 ], [ 0, %12 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -461,7 +461,7 @@ define internal range(i32 0, 2) i32 @test_once() #1 {
   br label %17
 
 17:                                               ; preds = %14, %0, %6, %12
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %14 ], [ 0, %12 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %6 ], [ 0, %0 ], [ %spec.select, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -529,7 +529,7 @@ define internal range(i32 0, 2) i32 @test_thread_local() #1 {
   br label %34
 
 34:                                               ; preds = %29, %26, %23, %6, %9, %14, %20, %0
-  %.0 = phi i32 [ 0, %26 ], [ %., %29 ], [ 0, %23 ], [ 0, %6 ], [ 0, %0 ], [ 0, %20 ], [ 0, %14 ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %0 ], [ 0, %20 ], [ 0, %14 ], [ 0, %9 ], [ 0, %6 ], [ 0, %23 ], [ 0, %26 ], [ %., %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -846,7 +846,7 @@ define internal range(i32 0, 2) i32 @test_atomic() #1 {
   br label %166
 
 166:                                              ; preds = %160, %156, %151, %145, %147, %137, %139, %123, %127, %118, %112, %114, %104, %106, %90, %94, %85, %79, %81, %71, %73, %57, %61, %52, %46, %48, %38, %40, %27, %30, %22, %16, %18, %10, %12
-  %.08 = phi i32 [ 0, %16 ], [ %spec.select, %160 ], [ 0, %156 ], [ 0, %151 ], [ 0, %139 ], [ 0, %137 ], [ 0, %147 ], [ 0, %145 ], [ 0, %127 ], [ 0, %123 ], [ 0, %118 ], [ 0, %106 ], [ 0, %104 ], [ 0, %114 ], [ 0, %112 ], [ 0, %94 ], [ 0, %90 ], [ 0, %85 ], [ 0, %73 ], [ 0, %71 ], [ 0, %81 ], [ 0, %79 ], [ 0, %61 ], [ 0, %57 ], [ 0, %52 ], [ 0, %40 ], [ 0, %38 ], [ 0, %48 ], [ 0, %46 ], [ 0, %30 ], [ 0, %27 ], [ 0, %22 ], [ 0, %12 ], [ 0, %10 ], [ 0, %18 ]
+  %.08 = phi i32 [ 0, %156 ], [ 0, %151 ], [ 0, %139 ], [ 0, %137 ], [ 0, %147 ], [ 0, %145 ], [ 0, %127 ], [ 0, %123 ], [ 0, %118 ], [ 0, %106 ], [ 0, %104 ], [ 0, %114 ], [ 0, %112 ], [ 0, %94 ], [ 0, %90 ], [ 0, %85 ], [ 0, %73 ], [ 0, %71 ], [ 0, %81 ], [ 0, %79 ], [ 0, %61 ], [ 0, %57 ], [ 0, %52 ], [ 0, %40 ], [ 0, %38 ], [ 0, %48 ], [ 0, %46 ], [ 0, %30 ], [ 0, %27 ], [ 0, %22 ], [ 0, %12 ], [ 0, %10 ], [ 0, %18 ], [ 0, %16 ], [ %spec.select, %160 ]
   call void @CRYPTO_THREAD_lock_free(ptr noundef %5) #11
   br label %167
 
@@ -986,8 +986,8 @@ define internal range(i32 0, 2) i32 @test_multi_shared_pkey_release() #1 {
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %.lr.ph.preheader, label %.preheader.i
 
-.lr.ph.preheader:                                 ; preds = %.preheader, %.preheader.i, %0, %3, %15
-  %.227.ph = phi i64 [ 10, %.preheader.i ], [ 1, %3 ], [ 1, %0 ], [ 10, %15 ], [ %.125, %.preheader ]
+.lr.ph.preheader:                                 ; preds = %.preheader, %.preheader.i, %3, %0, %15
+  %.227.ph = phi i64 [ 1, %3 ], [ 1, %0 ], [ 10, %15 ], [ 10, %.preheader.i ], [ %.125, %.preheader ]
   br label %.lr.ph
 
 19:                                               ; preds = %.preheader.i
@@ -1164,9 +1164,9 @@ start_threads.exit:                               ; preds = %22
   br label %teardown_threads.exit
 
 teardown_threads.exit:                            ; preds = %.preheader.i, %.lr.ph.i, %18, %0, %.loopexit, %thread_setup_libctx.exit, %9, %13
-  %.04 = phi ptr [ %11, %.lr.ph.i ], [ %11, %.loopexit ], [ null, %thread_setup_libctx.exit ], [ null, %0 ], [ %11, %13 ], [ %11, %9 ], [ %11, %18 ], [ %11, %.preheader.i ]
-  %.03 = phi ptr [ null, %.lr.ph.i ], [ null, %.loopexit ], [ %7, %thread_setup_libctx.exit ], [ null, %0 ], [ %7, %13 ], [ %7, %9 ], [ null, %18 ], [ null, %.preheader.i ]
-  %.0 = phi i32 [ 0, %.lr.ph.i ], [ %spec.select, %.loopexit ], [ 0, %thread_setup_libctx.exit ], [ 0, %0 ], [ 0, %13 ], [ 0, %9 ], [ 0, %18 ], [ 0, %.preheader.i ]
+  %.04 = phi ptr [ %11, %13 ], [ %11, %9 ], [ null, %thread_setup_libctx.exit ], [ %11, %.loopexit ], [ null, %0 ], [ %11, %18 ], [ %11, %.lr.ph.i ], [ %11, %.preheader.i ]
+  %.03 = phi ptr [ %7, %13 ], [ %7, %9 ], [ %7, %thread_setup_libctx.exit ], [ null, %.loopexit ], [ null, %0 ], [ null, %18 ], [ null, %.lr.ph.i ], [ null, %.preheader.i ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %9 ], [ 0, %thread_setup_libctx.exit ], [ %spec.select, %.loopexit ], [ 0, %0 ], [ 0, %18 ], [ 0, %.lr.ph.i ], [ 0, %.preheader.i ]
   %43 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %.03) #11
   tail call void @EVP_MD_free(ptr noundef %.04) #11
   %44 = load ptr, ptr @multi_provider, align 16, !tbaa !24
@@ -1327,7 +1327,7 @@ start_threads.exit:                               ; preds = %11
   br label %teardown_threads.exit
 
 teardown_threads.exit:                            ; preds = %.preheader.i, %.lr.ph.i, %7, %.loopexit, %5
-  %.0 = phi i32 [ 0, %5 ], [ %spec.select, %.loopexit ], [ 0, %.lr.ph.i ], [ 0, %7 ], [ 0, %.preheader.i ]
+  %.0 = phi i32 [ 0, %5 ], [ %spec.select, %.loopexit ], [ 0, %7 ], [ 0, %.lr.ph.i ], [ 0, %.preheader.i ]
   %35 = load ptr, ptr @multi_provider, align 16, !tbaa !24
   %.not4.i = icmp eq ptr %35, null
   br i1 %.not4.i, label %thead_teardown_libctx.exit, label %.lr.ph.i13
@@ -1650,7 +1650,7 @@ define internal fastcc range(i32 0, 2) i32 @_torture_rw() unnamed_addr #1 {
   br label %86
 
 86:                                               ; preds = %79, %8, %14, %19, %24, %29, %35, %41, %47, %0, %5, %78
-  %.0 = phi i32 [ 0, %78 ], [ 0, %0 ], [ %spec.select, %79 ], [ 0, %47 ], [ 0, %41 ], [ 0, %35 ], [ 0, %29 ], [ 0, %24 ], [ 0, %19 ], [ 0, %14 ], [ 0, %8 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %78 ], [ 0, %47 ], [ 0, %41 ], [ 0, %35 ], [ 0, %29 ], [ 0, %24 ], [ 0, %19 ], [ 0, %14 ], [ 0, %8 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %79 ]
   %87 = load ptr, ptr @rwtorturelock, align 8, !tbaa !11
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %87) #11
   %88 = load ptr, ptr @atomiclock, align 8, !tbaa !11
@@ -2026,7 +2026,7 @@ define internal fastcc range(i32 0, 2) i32 @_torture_rcu() unnamed_addr #1 {
   br label %84
 
 84:                                               ; preds = %77, %6, %12, %17, %22, %27, %33, %39, %45, %3, %0, %76
-  %.013 = phi i32 [ 0, %3 ], [ 0, %76 ], [ 0, %0 ], [ %spec.select, %77 ], [ 0, %45 ], [ 0, %39 ], [ 0, %33 ], [ 0, %27 ], [ 0, %22 ], [ 0, %17 ], [ 0, %12 ], [ 0, %6 ]
+  %.013 = phi i32 [ 0, %3 ], [ 0, %76 ], [ 0, %45 ], [ 0, %39 ], [ 0, %33 ], [ 0, %27 ], [ 0, %22 ], [ 0, %17 ], [ 0, %12 ], [ 0, %6 ], [ 0, %0 ], [ %spec.select, %77 ]
   %85 = load ptr, ptr @rcu_lock, align 8, !tbaa !33
   tail call void @ossl_rcu_lock_free(ptr noundef %85) #11
   %86 = load ptr, ptr @atomiclock, align 8, !tbaa !11
@@ -2457,7 +2457,7 @@ define internal void @thread_general_worker() #1 {
   call void @EVP_PKEY_free(ptr noundef %56) #11
   br i1 %.not34, label %58, label %multi_set_success.exit
 
-.critedge:                                        ; preds = %.preheader42, %27, %32, %.preheader, %43, %48, %15, %17, %19, %0
+.critedge:                                        ; preds = %.preheader42, %27, %32, %.preheader, %43, %48, %0, %15, %17, %19
   call void @EVP_MD_CTX_free(ptr noundef %6) #11
   call void @EVP_MD_free(ptr noundef %8) #11
   call void @EVP_CIPHER_CTX_free(ptr noundef %9) #11
@@ -2608,7 +2608,7 @@ start_threads.exit13:                             ; preds = %.preheader.i8.prehe
   br label %teardown_threads.exit
 
 teardown_threads.exit:                            ; preds = %.lr.ph.i, %.preheader.i.preheader, %.preheader.i8.preheader, %start_threads.exit, %9, %.loopexit, %1, %4
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %.loopexit ], [ 0, %4 ], [ 0, %.preheader.i.preheader ], [ 0, %.preheader.i8.preheader ], [ 0, %9 ], [ 0, %start_threads.exit ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %1 ], [ %spec.select, %.loopexit ], [ 0, %9 ], [ 0, %start_threads.exit ], [ 0, %.preheader.i8.preheader ], [ 0, %.preheader.i.preheader ], [ 0, %.lr.ph.i ]
   %43 = load ptr, ptr @shared_evp_pkey, align 8, !tbaa !18
   tail call void @EVP_PKEY_free(ptr noundef %43) #11
   %44 = load ptr, ptr @multi_provider, align 16, !tbaa !24
@@ -3005,14 +3005,14 @@ define internal void @test_pem_read_one() #1 {
   br i1 %23, label %multi_set_success.exit, label %multi_set_success.exit.sink.split
 
 multi_set_success.exit.sink.split:                ; preds = %20, %13, %4
-  %.08.ph = phi ptr [ null, %13 ], [ null, %4 ], [ %11, %20 ]
+  %.08.ph = phi ptr [ null, %4 ], [ null, %13 ], [ %11, %20 ]
   %24 = load ptr, ptr @global_lock, align 8, !tbaa !11
   %25 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %24) #11
   br label %multi_set_success.exit
 
 multi_set_success.exit:                           ; preds = %multi_set_success.exit.sink.split, %20, %13, %4, %17
-  %.08 = phi ptr [ %11, %17 ], [ null, %13 ], [ %11, %20 ], [ null, %4 ], [ %.08.ph, %multi_set_success.exit.sink.split ]
-  %.0 = phi ptr [ %18, %17 ], [ null, %13 ], [ null, %20 ], [ null, %4 ], [ null, %multi_set_success.exit.sink.split ]
+  %.08 = phi ptr [ %11, %17 ], [ null, %4 ], [ null, %13 ], [ %11, %20 ], [ %.08.ph, %multi_set_success.exit.sink.split ]
+  %.0 = phi ptr [ %18, %17 ], [ null, %4 ], [ null, %13 ], [ null, %20 ], [ null, %multi_set_success.exit.sink.split ]
   call void @EVP_PKEY_free(ptr noundef %.0) #11
   %26 = call i32 @BIO_free(ptr noundef %.08) #11
   call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.18, i32 noundef 1261) #11

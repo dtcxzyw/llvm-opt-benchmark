@@ -413,7 +413,7 @@ parse_speex_extradata.exit:                       ; preds = %62
   br label %parse_speex_extradata.exit.thread
 
 parse_speex_extradata.exit.thread:                ; preds = %99, %97, %92, %51, %62, %38, %33, %29, %25, %17, %14, %72, %67, %1, %._crit_edge
-  %.069 = phi i32 [ -12, %1 ], [ 0, %._crit_edge ], [ -1094995529, %67 ], [ -1094995529, %51 ], [ -1094995529, %72 ], [ -1094995529, %14 ], [ -1094995529, %17 ], [ -1094995529, %25 ], [ -1094995529, %29 ], [ -1094995529, %33 ], [ -1094995529, %38 ], [ -1094995529, %62 ], [ -1094995529, %99 ], [ -1163346256, %97 ], [ -1094995529, %92 ]
+  %.069 = phi i32 [ 0, %._crit_edge ], [ -12, %1 ], [ -1094995529, %67 ], [ -1094995529, %72 ], [ -1094995529, %14 ], [ -1094995529, %17 ], [ -1094995529, %25 ], [ -1094995529, %29 ], [ -1094995529, %33 ], [ -1094995529, %38 ], [ -1094995529, %62 ], [ -1094995529, %51 ], [ -1094995529, %99 ], [ -1163346256, %97 ], [ -1094995529, %92 ]
   ret i32 %.069
 }
 
@@ -603,7 +603,7 @@ speex_decode_stereo.exit:                         ; preds = %82, %65, %62
   br label %.loopexit71
 
 .loopexit71:                                      ; preds = %49, %28, %4, %.loopexit
-  %.053 = phi i32 [ %35, %28 ], [ -1094995529, %4 ], [ %123, %.loopexit ], [ %60, %49 ]
+  %.053 = phi i32 [ %123, %.loopexit ], [ -1094995529, %4 ], [ %35, %28 ], [ %60, %49 ]
   ret i32 %.053
 }
 
@@ -902,7 +902,7 @@ define internal range(i32 -1094995529, 1) i32 @nb_decode(ptr noundef %0, ptr nou
   br label %188
 
 188:                                              ; preds = %186, %184, %182, %180, %178
-  %.0.i = phi i32 [ 16, %184 ], [ 1, %178 ], [ 4, %180 ], [ 8, %182 ], [ %..i419, %186 ]
+  %.0.i = phi i32 [ 1, %178 ], [ 4, %180 ], [ 8, %182 ], [ 16, %184 ], [ %..i419, %186 ]
   %189 = sub nsw i32 0, %136
   %190 = sub nsw i32 %29, %136
   %191 = icmp slt i32 %.0.i, %189
@@ -1438,8 +1438,8 @@ sanitize_values.exit:                             ; preds = %438
   br label %.thread476
 
 .thread476:                                       ; preds = %464, %506, %508, %501, %487
-  %.1346 = phi i32 [ %.0345514, %487 ], [ %507, %506 ], [ %.0345514, %501 ], [ %507, %508 ], [ %455, %464 ]
-  %.1334 = phi nsz float [ %.0333516, %487 ], [ %.0333516, %506 ], [ %.0333516, %501 ], [ %450, %508 ], [ %450, %464 ]
+  %.1346 = phi i32 [ %507, %506 ], [ %.0345514, %501 ], [ %.0345514, %487 ], [ %507, %508 ], [ %455, %464 ]
+  %.1334 = phi nsz float [ %.0333516, %506 ], [ %.0333516, %501 ], [ %.0333516, %487 ], [ %450, %508 ], [ %450, %464 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %8, i8 0, i64 160, i1 false)
   %509 = load ptr, ptr %219, align 8, !tbaa !64
   %510 = load i32, ptr %221, align 8, !tbaa !66
@@ -2041,8 +2041,8 @@ highpass.exit:                                    ; preds = %802, %678
   store i32 0, ptr %303, align 4, !tbaa !60
   br label %.critedge
 
-.critedge:                                        ; preds = %speex_inband_handler.exit, %113, %116, %56, %43, %79, %.preheader479, %112, %210, %highpass.exit, %iir_mem.exit
-  %.1 = phi i32 [ 0, %highpass.exit ], [ -1094995529, %210 ], [ -1094995529, %112 ], [ 0, %iir_mem.exit ], [ -1094995529, %.preheader479 ], [ -1094995529, %79 ], [ -1094995529, %43 ], [ -1094995529, %56 ], [ -1094995529, %116 ], [ -1094995529, %113 ], [ -1094995529, %speex_inband_handler.exit ]
+.critedge:                                        ; preds = %speex_inband_handler.exit, %113, %116, %79, %56, %43, %.preheader479, %112, %210, %highpass.exit, %iir_mem.exit
+  %.1 = phi i32 [ 0, %iir_mem.exit ], [ 0, %highpass.exit ], [ -1094995529, %210 ], [ -1094995529, %112 ], [ -1094995529, %.preheader479 ], [ -1094995529, %43 ], [ -1094995529, %56 ], [ -1094995529, %79 ], [ -1094995529, %116 ], [ -1094995529, %113 ], [ -1094995529, %speex_inband_handler.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2263,7 +2263,7 @@ define internal range(i32 -2147483648, 1) i32 @sb_decode(ptr noundef %0, ptr nou
   br i1 %exitcond.not.i, label %iir_mem.exit, label %.lr.ph29.split.i, !llvm.loop !123
 
 iir_mem.exit:                                     ; preds = %.lr.ph29.split.i, %._crit_edge.us.i, %._crit_edge280
-  %126 = phi ptr [ %95, %._crit_edge.us.i ], [ %92, %._crit_edge280 ], [ %95, %.lr.ph29.split.i ]
+  %126 = phi ptr [ %92, %._crit_edge280 ], [ %95, %._crit_edge.us.i ], [ %95, %.lr.ph29.split.i ]
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %128 = load i32, ptr %127, align 8, !tbaa !72
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 2248
@@ -2768,7 +2768,7 @@ signal_mul.exit:                                  ; preds = %.lr.ph.i216, %331
   br i1 %exitcond.not, label %._crit_edge267, label %.lr.ph266, !llvm.loop !164
 
 .loopexit254:                                     ; preds = %.lr.ph270, %300, %signal_mul.exit, %._crit_edge267
-  %.pr = phi i32 [ %380, %._crit_edge267 ], [ %279, %300 ], [ %359, %signal_mul.exit ], [ %279, %.lr.ph270 ]
+  %.pr = phi i32 [ %279, %300 ], [ %359, %signal_mul.exit ], [ %380, %._crit_edge267 ], [ %279, %.lr.ph270 ]
   %390 = load ptr, ptr %152, align 8, !tbaa !63
   %.not201 = icmp eq ptr %390, null
   %391 = icmp sgt i32 %.pr, 0
@@ -2894,7 +2894,7 @@ compute_rms.exit:                                 ; preds = %.lr.ph.i246
   br i1 %434, label %172, label %._crit_edge277, !llvm.loop !166
 
 435:                                              ; preds = %70, %20, %._crit_edge277, %iir_mem.exit
-  %.0179 = phi i32 [ 0, %._crit_edge277 ], [ %35, %20 ], [ 0, %iir_mem.exit ], [ -1094995529, %70 ]
+  %.0179 = phi i32 [ 0, %iir_mem.exit ], [ 0, %._crit_edge277 ], [ %35, %20 ], [ -1094995529, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

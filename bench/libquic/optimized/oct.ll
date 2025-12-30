@@ -255,7 +255,7 @@ define hidden range(i64 0, 8589934592) i64 @EC_POINT_point2oct(ptr noundef %0, p
   br label %ec_GFp_simple_point2oct.exit
 
 .sink.split.i:                                    ; preds = %53, %48, %43
-  %.sink.i = phi i32 [ 145, %48 ], [ 138, %43 ], [ 152, %53 ]
+  %.sink.i = phi i32 [ 138, %43 ], [ 145, %48 ], [ 152, %53 ]
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef %.sink.i) #3
   br label %55
 
@@ -264,8 +264,8 @@ define hidden range(i64 0, 8589934592) i64 @EC_POINT_point2oct(ptr noundef %0, p
   br label %ec_GFp_simple_point2oct.exit
 
 ec_GFp_simple_point2oct.exit:                     ; preds = %11, %14, %15, %26, %29, %54, %55
-  %.05381.sink.i = phi ptr [ null, %15 ], [ %.255.i, %54 ], [ %.255.i, %55 ], [ null, %11 ], [ null, %14 ], [ null, %26 ], [ null, %29 ]
-  %.051.i = phi i64 [ %23, %15 ], [ %23, %54 ], [ 0, %55 ], [ 0, %11 ], [ 0, %14 ], [ 0, %26 ], [ 0, %29 ]
+  %.05381.sink.i = phi ptr [ %.255.i, %54 ], [ null, %15 ], [ %.255.i, %55 ], [ null, %11 ], [ null, %14 ], [ null, %26 ], [ null, %29 ]
+  %.051.i = phi i64 [ %23, %54 ], [ %23, %15 ], [ 0, %55 ], [ 0, %11 ], [ 0, %14 ], [ 0, %26 ], [ 0, %29 ]
   tail call void @BN_CTX_free(ptr noundef %.05381.sink.i) #3
   br label %56
 
@@ -517,7 +517,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_set_compressed_coordinates(ptr 
   br label %100
 
 100:                                              ; preds = %98, %89, %92, %91, %83, %84, %93, %76, %72, %74, %65, %60, %55, %58, %45, %47, %49, %38, %40, %29, %33, %17, %97
-  %.0110 = phi i32 [ 0, %17 ], [ 0, %83 ], [ 0, %97 ], [ 0, %89 ], [ %spec.select, %98 ], [ 0, %93 ], [ 0, %38 ], [ 0, %74 ], [ 0, %72 ], [ 0, %76 ], [ 0, %49 ], [ 0, %47 ], [ 0, %45 ], [ 0, %65 ], [ 0, %58 ], [ 0, %55 ], [ 0, %60 ], [ 0, %33 ], [ 0, %29 ], [ 0, %40 ], [ 0, %84 ], [ 0, %91 ], [ 0, %92 ]
+  %.0110 = phi i32 [ 0, %17 ], [ 0, %97 ], [ 0, %93 ], [ 0, %74 ], [ 0, %72 ], [ 0, %76 ], [ 0, %49 ], [ 0, %47 ], [ 0, %45 ], [ 0, %65 ], [ 0, %58 ], [ 0, %55 ], [ 0, %60 ], [ 0, %33 ], [ 0, %29 ], [ 0, %40 ], [ 0, %38 ], [ 0, %84 ], [ 0, %83 ], [ 0, %91 ], [ 0, %92 ], [ 0, %89 ], [ %spec.select, %98 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %.0111) #3
   tail call void @BN_CTX_free(ptr noundef %.0112) #3
   br label %101

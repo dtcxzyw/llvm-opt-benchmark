@@ -1306,7 +1306,7 @@ if.then.i212:                                     ; preds = %lpad242
   br label %ehcleanup245
 
 ehcleanup245:                                     ; preds = %lpad185.loopexit, %lpad185.loopexit.split-lp, %if.then.i212, %lpad242, %lpad214
-  %.pn = phi { ptr, i32 } [ %42, %lpad214 ], [ %45, %if.then.i212 ], [ %45, %lpad242 ], [ %lpad.loopexit267, %lpad185.loopexit ], [ %lpad.loopexit.split-lp268, %lpad185.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %42, %lpad214 ], [ %45, %lpad242 ], [ %45, %if.then.i212 ], [ %lpad.loopexit267, %lpad185.loopexit ], [ %lpad.loopexit.split-lp268, %lpad185.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad
 
@@ -1410,7 +1410,7 @@ lpad.i:                                           ; preds = %if.then.i.i.i.i.i
   br label %_ZN8facebook5velox10ClockTimerD2Ev.exit18.i
 
 common.resume:                                    ; preds = %ehcleanup, %ehcleanup154, %lpad165, %ehcleanup309, %ehcleanup351, %ehcleanup245, %_ZN8facebook5velox10ClockTimerD2Ev.exit18.i, %lpad.i.i32.i
-  %common.resume.op = phi { ptr, i32 } [ %74, %lpad.i.i32.i ], [ %eh.lpad-body.i, %_ZN8facebook5velox10ClockTimerD2Ev.exit18.i ], [ %.pn166, %ehcleanup ], [ %.pn164, %ehcleanup154 ], [ %.pn162, %ehcleanup309 ], [ %.pn160, %ehcleanup351 ], [ %.pn, %ehcleanup245 ], [ %33, %lpad165 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZN8facebook5velox10ClockTimerD2Ev.exit18.i ], [ %74, %lpad.i.i32.i ], [ %.pn166, %ehcleanup ], [ %.pn164, %ehcleanup154 ], [ %.pn162, %ehcleanup309 ], [ %.pn160, %ehcleanup351 ], [ %.pn, %ehcleanup245 ], [ %33, %lpad165 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN8facebook5velox10ClockTimerD2Ev.exit18.i:      ; preds = %lpad.i, %lpad.i.i.i
@@ -1675,7 +1675,7 @@ ehcleanup351:                                     ; preds = %lpad336, %lpad326, 
   br label %common.resume
 
 return:                                           ; preds = %for.body.i, %if.end247, %if.end.thread, %if.then318, %for.end312, %if.then5, %land.lhs.true, %_ZNKSt8functionIFvlbEEclElb.exit, %if.end350, %if.end308, %if.end153, %if.end65
-  %retval.0 = phi i1 [ false, %if.end350 ], [ false, %if.end65 ], [ false, %if.end153 ], [ false, %if.end308 ], [ true, %if.then5 ], [ true, %if.end.thread ], [ true, %_ZNKSt8functionIFvlbEEclElb.exit ], [ true, %land.lhs.true ], [ true, %for.end312 ], [ true, %if.then318 ], [ true, %if.end247 ], [ true, %for.body.i ]
+  %retval.0 = phi i1 [ false, %if.end65 ], [ false, %if.end153 ], [ false, %if.end308 ], [ false, %if.end350 ], [ true, %_ZNKSt8functionIFvlbEEclElb.exit ], [ true, %land.lhs.true ], [ true, %if.then5 ], [ true, %for.end312 ], [ true, %if.then318 ], [ true, %if.end.thread ], [ true, %if.end247 ], [ true, %for.body.i ]
   ret i1 %retval.0
 
 terminate.lpad:                                   ; preds = %ehcleanup245
@@ -2827,7 +2827,7 @@ if.then.i134:                                     ; preds = %lpad119
   br label %ehcleanup122
 
 ehcleanup122:                                     ; preds = %lpad68.loopexit, %lpad68.loopexit.split-lp, %if.then.i134, %lpad119, %lpad93
-  %.pn109 = phi { ptr, i32 } [ %24, %lpad93 ], [ %28, %if.then.i134 ], [ %28, %lpad119 ], [ %lpad.loopexit221, %lpad68.loopexit ], [ %lpad.loopexit.split-lp222, %lpad68.loopexit.split-lp ]
+  %.pn109 = phi { ptr, i32 } [ %24, %lpad93 ], [ %28, %lpad119 ], [ %28, %if.then.i134 ], [ %lpad.loopexit221, %lpad68.loopexit ], [ %lpad.loopexit.split-lp222, %lpad68.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
@@ -3117,7 +3117,7 @@ if.else252:                                       ; preds = %if.else238
   br label %if.end256
 
 if.end256:                                        ; preds = %invoke.cont249, %if.else252
-  %data.0 = phi ptr [ %call254, %if.else252 ], [ %call250, %invoke.cont249 ]
+  %data.0 = phi ptr [ %call250, %invoke.cont249 ], [ %call254, %if.else252 ]
   %cmp257 = icmp eq ptr %data.0, null
   br i1 %cmp257, label %if.then258, label %if.end283
 
@@ -3214,7 +3214,7 @@ if.end283:                                        ; preds = %if.end256
   br label %return
 
 return:                                           ; preds = %if.then49, %land.lhs.true, %_ZNKSt8functionIFvlbEEclElb.exit, %if.end283, %invoke.cont281, %invoke.cont229, %invoke.cont202
-  %retval.0 = phi i1 [ false, %invoke.cont229 ], [ false, %invoke.cont202 ], [ false, %invoke.cont281 ], [ true, %if.end283 ], [ true, %_ZNKSt8functionIFvlbEEclElb.exit ], [ true, %land.lhs.true ], [ true, %if.then49 ]
+  %retval.0 = phi i1 [ false, %invoke.cont202 ], [ false, %invoke.cont281 ], [ true, %if.end283 ], [ false, %invoke.cont229 ], [ true, %_ZNKSt8functionIFvlbEEclElb.exit ], [ true, %land.lhs.true ], [ true, %if.then49 ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup122, %ehcleanup282, %lpad246, %ehcleanup230, %ehcleanup203, %lpad57, %ehcleanup43, %lpad
@@ -3289,7 +3289,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i.i
   br label %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i
 
 _ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i: ; preds = %if.end.i.i.i, %if.end.i.i, %if.then.i
-  %retval.0.i.i = phi i64 [ 0, %if.then.i ], [ %7, %if.end.i.i.i ], [ -1, %if.end.i.i ]
+  %retval.0.i.i = phi i64 [ 0, %if.then.i ], [ -1, %if.end.i.i ], [ %7, %if.end.i.i.i ]
   %arrayidx.i.i.i = getelementptr %"struct.facebook::velox::memory::SizeClassStats", ptr %this, i64 %retval.0.i.i
   %freeClocks.i = getelementptr i8, ptr %arrayidx.i.i.i, i64 88
   %8 = tail call noundef i64 @llvm.x86.rdtsc()
@@ -3760,8 +3760,8 @@ return:                                           ; preds = %if.end98, %seqcst.i
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad74, %lpad76, %lpad86, %lpad41, %lpad53, %lpad.loopexit.split-lp, %lpad.loopexit
-  %errorMsg69.sink = phi ptr [ %errorMsg, %lpad41 ], [ %errorMsg, %lpad.loopexit ], [ %errorMsg, %lpad.loopexit.split-lp ], [ %errorMsg, %lpad53 ], [ %errorMsg69, %lpad86 ], [ %errorMsg69, %lpad76 ], [ %errorMsg69, %lpad74 ]
-  %.pn58.pn = phi { ptr, i32 } [ %12, %lpad41 ], [ %lpad.loopexit101, %lpad.loopexit ], [ %lpad.loopexit.split-lp102, %lpad.loopexit.split-lp ], [ %16, %lpad53 ], [ %22, %lpad86 ], [ %21, %lpad76 ], [ %20, %lpad74 ]
+  %errorMsg69.sink = phi ptr [ %errorMsg, %lpad.loopexit ], [ %errorMsg, %lpad.loopexit.split-lp ], [ %errorMsg, %lpad53 ], [ %errorMsg, %lpad41 ], [ %errorMsg69, %lpad86 ], [ %errorMsg69, %lpad76 ], [ %errorMsg69, %lpad74 ]
+  %.pn58.pn = phi { ptr, i32 } [ %lpad.loopexit101, %lpad.loopexit ], [ %lpad.loopexit.split-lp102, %lpad.loopexit.split-lp ], [ %16, %lpad53 ], [ %12, %lpad41 ], [ %22, %lpad86 ], [ %21, %lpad76 ], [ %20, %lpad74 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errorMsg69.sink) #25
   resume { ptr, i32 } %.pn58.pn
 }
@@ -4028,7 +4028,7 @@ ehcleanup68:                                      ; preds = %if.then.i.i44, %lpa
   br label %eh.resume
 
 return:                                           ; preds = %invoke.cont19, %seqcst.i, %cleanup67, %cleanup
-  %retval.0 = phi ptr [ %retval.2, %cleanup67 ], [ %retval.1, %cleanup ], [ %cond, %seqcst.i ], [ null, %invoke.cont19 ]
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ %retval.2, %cleanup67 ], [ %cond, %seqcst.i ], [ null, %invoke.cont19 ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup68, %ehcleanup, %lpad
@@ -4541,7 +4541,7 @@ if.end.i.i.i.i.i.i.i37:                           ; preds = %call5.i.i.i.i2.i.i.
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %if.end.i.i.i.i.i.i.i37, %call5.i.i.i.i2.i.i.noexc45, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i42
-  %__first.addr.0.i.i.i.i.i40 = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i42 ], [ %incdec.ptr.i.i.i.i.i34, %call5.i.i.i.i2.i.i.noexc45 ], [ %add.ptr.i.i.i.i.i.i.i39, %if.end.i.i.i.i.i.i.i37 ]
+  %__first.addr.0.i.i.i.i.i40 = phi ptr [ %incdec.ptr.i.i.i.i.i34, %call5.i.i.i.i2.i.i.noexc45 ], [ %add.ptr.i.i.i.i.i.i.i39, %if.end.i.i.i.i.i.i.i37 ], [ null, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i42 ]
   %_M_finish.i.i7.i41 = getelementptr inbounds nuw i8, ptr %this, i64 152
   store ptr %__first.addr.0.i.i.i.i.i40, ptr %_M_finish.i.i7.i41, align 8
   %numAllocatedMapped_ = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -7011,7 +7011,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %if.then.i.i9, %lpad, %lpad.i, %if.then.i.i
-  %common.resume.op = phi { ptr, i32 } [ %15, %lpad.i ], [ %15, %if.then.i.i ], [ %26, %lpad ], [ %26, %if.then.i.i9 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %if.then.i.i ], [ %15, %lpad.i ], [ %26, %lpad ], [ %26, %if.then.i.i9 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvlbEEC2ERKS1_.exit:               ; preds = %entry, %invoke.cont.i

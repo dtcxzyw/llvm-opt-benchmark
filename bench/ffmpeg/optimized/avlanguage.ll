@@ -148,7 +148,7 @@ bsearch.exit.i:                                   ; preds = %56
   br i1 %exitcond46.not, label %ff_convert_lang_to.exit, label %.preheader, !llvm.loop !13
 
 ff_convert_lang_to.exit:                          ; preds = %bsearch.exit, %30, %bsearch.exit.i, %.preheader, %60, %41, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %bsearch.exit.i ], [ null, %41 ], [ %.1.i2639.ptr, %.preheader ], [ %.136, %30 ], [ null, %60 ], [ null, %bsearch.exit ]
+  %.0 = phi ptr [ null, %2 ], [ null, %41 ], [ %.1.i2639.ptr, %.preheader ], [ null, %60 ], [ null, %bsearch.exit.i ], [ %.136, %30 ], [ null, %bsearch.exit ]
   ret ptr %.0
 }
 

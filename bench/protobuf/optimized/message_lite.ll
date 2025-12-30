@@ -261,7 +261,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.end.i, %if.then, %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit
-  %retval.0 = phi i1 [ false, %if.end.i.i ], [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit ], [ true, %if.then ], [ true, %if.end.i ]
+  %retval.0 = phi i1 [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit ], [ true, %if.then ], [ true, %if.end.i ], [ false, %if.end.i.i ]
   ret i1 %retval.0
 }
 
@@ -344,7 +344,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream8InitFromESt17basic_string_viewI
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit
 
 _ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit: ; preds = %if.then10.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromESt17basic_string_viewIcSt11char_traitsIcEE.exit.sink.split.i
-  %retval.0.i.i = phi ptr [ %retval.0.i.ph.i, %_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromESt17basic_string_viewIcSt11char_traitsIcEE.exit.sink.split.i ], [ %patch_buffer_11.i.i, %if.then10.i.i ]
+  %retval.0.i.i = phi ptr [ %patch_buffer_11.i.i, %if.then10.i.i ], [ %retval.0.i.ph.i, %_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromESt17basic_string_viewIcSt11char_traitsIcEE.exit.sink.split.i ]
   %vtable = load ptr, ptr %msg, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %4 = load ptr, ptr %vfn, align 8
@@ -372,7 +372,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.end.i, %if.then, %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit
-  %retval.0 = phi i1 [ false, %if.end.i.i ], [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit ], [ true, %if.then ], [ true, %if.end.i ]
+  %retval.0 = phi i1 [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit ], [ true, %if.then ], [ true, %if.end.i ], [ false, %if.end.i.i ]
   ret i1 %retval.0
 }
 
@@ -420,7 +420,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.end.i, %if.then, %entry
-  %retval.0 = phi i1 [ false, %if.end.i.i ], [ false, %entry ], [ true, %if.then ], [ true, %if.end.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then ], [ true, %if.end.i ], [ false, %if.end.i.i ]
   ret i1 %retval.0
 }
 
@@ -471,7 +471,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.end.i, %if.then, %entry
-  %retval.0 = phi i1 [ false, %if.end.i.i ], [ false, %entry ], [ true, %if.then ], [ true, %if.end.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then ], [ true, %if.end.i ], [ false, %if.end.i.i ]
   ret i1 %retval.0
 }
 
@@ -1225,7 +1225,7 @@ if.end.i.i:                                       ; preds = %if.end.i23
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end.i.i, %land.rhs.i, %if.end.i23, %if.end31, %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit ], [ false, %if.end.i.i ], [ true, %if.end31 ], [ true, %if.end.i23 ], [ false, %land.rhs.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit ], [ true, %if.end31 ], [ true, %if.end.i23 ], [ false, %if.end.i.i ], [ false, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -1315,7 +1315,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   br label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1EPNS0_2io19ZeroCopyInputStreamEEEbRKT0_.exit
 
 _ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1EPNS0_2io19ZeroCopyInputStreamEEEbRKT0_.exit: ; preds = %entry, %if.then.i.i, %if.end.i.i.i.i
-  %retval.0.i.i = phi i1 [ false, %if.end.i.i.i.i ], [ false, %entry ], [ true, %if.then.i.i ]
+  %retval.0.i.i = phi i1 [ false, %entry ], [ true, %if.then.i.i ], [ false, %if.end.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ctx.i.i)
   ret i1 %retval.0.i.i
 }
@@ -1423,7 +1423,7 @@ invoke.cont2:                                     ; preds = %call.i.i.i.i.i.noex
   br label %land.end
 
 land.end:                                         ; preds = %invoke.cont.thread, %invoke.cont2
-  %6 = phi i1 [ false, %invoke.cont.thread ], [ %cmp, %invoke.cont2 ]
+  %6 = phi i1 [ %cmp, %invoke.cont2 ], [ false, %invoke.cont.thread ]
   %impl_.i = getelementptr inbounds nuw i8, ptr %input, i64 32
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %impl_.i) #24
   %copying_input_.i = getelementptr inbounds nuw i8, ptr %input, i64 8
@@ -1581,7 +1581,7 @@ land.rhs:                                         ; preds = %call.i.i.i.i.i.noex
           to label %land.end unwind label %lpad
 
 land.end:                                         ; preds = %invoke.cont.thread, %land.rhs
-  %5 = phi i1 [ false, %invoke.cont.thread ], [ %call3, %land.rhs ]
+  %5 = phi i1 [ %call3, %land.rhs ], [ false, %invoke.cont.thread ]
   %impl_.i = getelementptr inbounds nuw i8, ptr %zero_copy_input, i64 24
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %impl_.i) #24
   %copying_input_.i = getelementptr inbounds nuw i8, ptr %zero_copy_input, i64 8
@@ -1807,7 +1807,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   br label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1ESt17basic_string_viewIcSt11char_traitsIcEEEEbRKT0_.exit
 
 _ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1ESt17basic_string_viewIcSt11char_traitsIcEEEEbRKT0_.exit: ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i, %if.then.i.i, %if.end.i.i.i.i
-  %retval.0.i.i = phi i1 [ false, %if.end.i.i.i.i ], [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i ], [ true, %if.then.i.i ]
+  %retval.0.i.i = phi i1 [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i ], [ true, %if.then.i.i ], [ false, %if.end.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ctx.i.i)
   ret i1 %retval.0.i.i
 }
@@ -2001,7 +2001,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   br label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1ESt17basic_string_viewIcSt11char_traitsIcEEEEbRKT0_.exit
 
 _ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1ESt17basic_string_viewIcSt11char_traitsIcEEEEbRKT0_.exit: ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i, %if.then.i.i, %if.end.i.i.i.i
-  %retval.0.i.i = phi i1 [ false, %if.end.i.i.i.i ], [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i ], [ true, %if.then.i.i ]
+  %retval.0.i.i = phi i1 [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i ], [ true, %if.then.i.i ], [ false, %if.end.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ctx.i.i)
   ret i1 %retval.0.i.i
 }
@@ -2191,7 +2191,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   br label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE0ESt17basic_string_viewIcSt11char_traitsIcEEEEbRKT0_.exit
 
 _ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE0ESt17basic_string_viewIcSt11char_traitsIcEEEEbRKT0_.exit: ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i, %if.then.i.i, %if.end.i.i.i.i
-  %retval.0.i.i = phi i1 [ false, %if.end.i.i.i.i ], [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i ], [ true, %if.then.i.i ]
+  %retval.0.i.i = phi i1 [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i ], [ true, %if.then.i.i ], [ false, %if.end.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ctx.i.i)
   ret i1 %retval.0.i.i
 }
@@ -3413,7 +3413,7 @@ terminate.lpad.i.i68:                             ; preds = %if.then.i1.i
   unreachable
 
 cleanup70:                                        ; preds = %if.then3.i, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i, %if.then.i1.i, %_ZN4absl12lts_2023080210CordBufferD2Ev.exit.i, %if.then.i23, %invoke.cont29
-  %retval.1 = phi i1 [ true, %if.then.i23 ], [ true, %invoke.cont29 ], [ %retval.2, %_ZN4absl12lts_2023080210CordBufferD2Ev.exit.i ], [ %retval.2, %if.then.i1.i ], [ true, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i ], [ true, %if.then3.i ]
+  %retval.1 = phi i1 [ true, %invoke.cont29 ], [ true, %if.then.i23 ], [ %retval.2, %_ZN4absl12lts_2023080210CordBufferD2Ev.exit.i ], [ %retval.2, %if.then.i1.i ], [ true, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i ], [ true, %if.then3.i ]
   %65 = load i8, ptr %buffer, align 8
   %66 = and i8 %65, 1
   %cmp.i.not.i70 = icmp eq i8 %66, 0
@@ -3425,7 +3425,7 @@ if.then.i72:                                      ; preds = %cleanup70
   br label %return
 
 ehcleanup:                                        ; preds = %if.then.i26, %lpad28, %lpad47, %_ZN4absl12lts_2023080210CordBufferD2Ev.exit57, %lpad8
-  %.pn = phi { ptr, i32 } [ %49, %_ZN4absl12lts_2023080210CordBufferD2Ev.exit57 ], [ %24, %lpad8 ], [ %53, %lpad47 ], [ %35, %lpad28 ], [ %35, %if.then.i26 ]
+  %.pn = phi { ptr, i32 } [ %24, %lpad8 ], [ %53, %lpad47 ], [ %49, %_ZN4absl12lts_2023080210CordBufferD2Ev.exit57 ], [ %35, %lpad28 ], [ %35, %if.then.i26 ]
   %68 = load i8, ptr %buffer, align 8
   %69 = and i8 %68, 1
   %cmp.i.not.i74 = icmp eq i8 %69, 0
@@ -4136,7 +4136,7 @@ if.end4.i:                                        ; preds = %if.end.i
   br label %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit
 
 _ZN6google8protobuf2io16CodedInputStream4SkipEi.exit: ; preds = %entry, %if.then3.i, %if.end4.i
-  %retval.0.i = phi i1 [ %call5.i, %if.end4.i ], [ true, %if.then3.i ], [ false, %entry ]
+  %retval.0.i = phi i1 [ true, %if.then3.i ], [ %call5.i, %if.end4.i ], [ false, %entry ]
   ret i1 %retval.0.i
 }
 
@@ -4570,7 +4570,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i.i
   br label %_ZN6google8protobuf8internal13MergeFromImplILb0EEEbSt17basic_string_viewIcSt11char_traitsIcEEPNS0_11MessageLiteENS7_10ParseFlagsE.exit
 
 _ZN6google8protobuf8internal13MergeFromImplILb0EEEbSt17basic_string_viewIcSt11char_traitsIcEEPNS0_11MessageLiteENS7_10ParseFlagsE.exit: ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i, %if.then.i3, %if.end.i.i, %if.end.i.i.i
-  %retval.0.i = phi i1 [ false, %if.end.i.i.i ], [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i ], [ true, %if.then.i3 ], [ true, %if.end.i.i ]
+  %retval.0.i = phi i1 [ false, %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i ], [ true, %if.then.i3 ], [ true, %if.end.i.i ], [ false, %if.end.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ctx.i)
   br label %return
 
@@ -4618,7 +4618,7 @@ if.end.i.i.i25:                                   ; preds = %if.end.i.i21
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i.i.i25, %if.end.i.i21, %if.then.i18, %if.else
-  %retval.0.i17 = phi i1 [ true, %if.end.i.i21 ], [ false, %if.else ], [ true, %if.then.i18 ], [ false, %if.end.i.i.i25 ]
+  %retval.0.i17 = phi i1 [ false, %if.else ], [ true, %if.then.i18 ], [ true, %if.end.i.i21 ], [ false, %if.end.i.i.i25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ctx.i4)
   br label %return
 

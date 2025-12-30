@@ -1993,7 +1993,7 @@ rbimpl_intern_const.exit114:                      ; preds = %.lr.ph.i112, %32
   br i1 %.not81, label %43, label %.loopexit
 
 43:                                               ; preds = %38, %39, %.critedge
-  %.1 = phi ptr [ %41, %39 ], [ null, %.critedge ], [ null, %38 ]
+  %.1 = phi ptr [ null, %.critedge ], [ %41, %39 ], [ null, %38 ]
   %44 = call ptr @TS_RESP_CTX_new() #7
   %.not82 = icmp eq ptr %44, null
   br i1 %.not82, label %.loopexit, label %45
@@ -2145,11 +2145,11 @@ rb_array_len.exit:                                ; preds = %78, %81
   br label %.loopexit
 
 .loopexit:                                        ; preds = %84, %97, %45, %43, %38, %rbimpl_intern_const.exit108, %rbimpl_intern_const.exit, %93, %.thread, %52, %39, %101
-  %.not93 = phi i1 [ false, %rbimpl_intern_const.exit ], [ true, %52 ], [ true, %.thread ], [ true, %93 ], [ true, %101 ], [ false, %45 ], [ false, %97 ], [ false, %43 ], [ false, %38 ], [ true, %39 ], [ false, %rbimpl_intern_const.exit108 ], [ true, %84 ]
-  %.071 = phi ptr [ @.str.79, %rbimpl_intern_const.exit ], [ null, %52 ], [ null, %.thread ], [ null, %93 ], [ null, %101 ], [ @.str.89, %45 ], [ @.str.94, %97 ], [ @.str.88, %43 ], [ @.str.87, %38 ], [ null, %39 ], [ @.str.84, %rbimpl_intern_const.exit108 ], [ null, %84 ]
-  %.070 = phi ptr [ null, %rbimpl_intern_const.exit ], [ %.1, %52 ], [ %.1, %.thread ], [ %.1, %93 ], [ %.1, %101 ], [ %.1, %45 ], [ %.1, %97 ], [ %.1, %43 ], [ null, %38 ], [ %41, %39 ], [ null, %rbimpl_intern_const.exit108 ], [ %.1, %84 ]
-  %.069 = phi ptr [ null, %rbimpl_intern_const.exit ], [ %44, %52 ], [ %44, %.thread ], [ %44, %93 ], [ %44, %101 ], [ %44, %45 ], [ %44, %97 ], [ null, %43 ], [ null, %38 ], [ null, %39 ], [ null, %rbimpl_intern_const.exit108 ], [ %44, %84 ]
-  %.067 = phi i64 [ 4, %rbimpl_intern_const.exit ], [ 4, %52 ], [ 4, %.thread ], [ 4, %93 ], [ %10, %101 ], [ 4, %45 ], [ 4, %97 ], [ 4, %43 ], [ 4, %38 ], [ 4, %39 ], [ 4, %rbimpl_intern_const.exit108 ], [ 4, %84 ]
+  %.not93 = phi i1 [ true, %52 ], [ true, %.thread ], [ true, %93 ], [ true, %101 ], [ true, %39 ], [ false, %rbimpl_intern_const.exit ], [ false, %rbimpl_intern_const.exit108 ], [ false, %38 ], [ false, %43 ], [ false, %45 ], [ false, %97 ], [ true, %84 ]
+  %.071 = phi ptr [ null, %52 ], [ null, %.thread ], [ null, %93 ], [ null, %101 ], [ null, %39 ], [ @.str.79, %rbimpl_intern_const.exit ], [ @.str.84, %rbimpl_intern_const.exit108 ], [ @.str.87, %38 ], [ @.str.88, %43 ], [ @.str.89, %45 ], [ @.str.94, %97 ], [ null, %84 ]
+  %.070 = phi ptr [ %.1, %52 ], [ %.1, %.thread ], [ %.1, %93 ], [ %.1, %101 ], [ %41, %39 ], [ null, %rbimpl_intern_const.exit ], [ null, %rbimpl_intern_const.exit108 ], [ null, %38 ], [ %.1, %43 ], [ %.1, %45 ], [ %.1, %97 ], [ %.1, %84 ]
+  %.069 = phi ptr [ %44, %52 ], [ %44, %.thread ], [ %44, %93 ], [ %44, %101 ], [ null, %39 ], [ null, %rbimpl_intern_const.exit ], [ null, %rbimpl_intern_const.exit108 ], [ null, %38 ], [ null, %43 ], [ %44, %45 ], [ %44, %97 ], [ %44, %84 ]
+  %.067 = phi i64 [ 4, %52 ], [ 4, %.thread ], [ 4, %93 ], [ %10, %101 ], [ 4, %39 ], [ 4, %rbimpl_intern_const.exit ], [ 4, %rbimpl_intern_const.exit108 ], [ 4, %38 ], [ 4, %43 ], [ 4, %45 ], [ 4, %97 ], [ 4, %84 ]
   %104 = load ptr, ptr %6, align 8, !tbaa !84
   call void @ASN1_INTEGER_free(ptr noundef %104) #7
   call void @ASN1_OBJECT_free(ptr noundef %.070) #7

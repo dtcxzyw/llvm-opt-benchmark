@@ -1105,7 +1105,7 @@ ssl_print_handshake.exit:                         ; preds = %228, %230, %232, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %303
 
-262:                                              ; preds = %251, %141, %184, %thread-pre-split.i, %228, %230, %232, %234, %236, %238, %240, %242, %244, %249, %254, %255
+262:                                              ; preds = %254, %141, %184, %thread-pre-split.i, %228, %230, %232, %234, %236, %238, %240, %242, %244, %249, %251, %255
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %263 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.7) #5
@@ -1497,7 +1497,7 @@ do_ssl_trace_str.exit61:                          ; preds = %145, %142
   br label %ssl_print_version.exit.thread
 
 ssl_print_version.exit.thread:                    ; preds = %60, %58, %34, %30, %4, %._crit_edge87, %125, %._crit_edge, %79, %78, %ssl_print_hexbuf.exit56, %.loopexit70
-  %.0 = phi i32 [ 0, %ssl_print_hexbuf.exit56 ], [ 0, %78 ], [ 0, %79 ], [ 0, %._crit_edge ], [ 0, %125 ], [ %151, %._crit_edge87 ], [ 0, %4 ], [ 0, %.loopexit70 ], [ 0, %34 ], [ 0, %30 ], [ 0, %58 ], [ 0, %60 ]
+  %.0 = phi i32 [ 0, %.loopexit70 ], [ 0, %ssl_print_hexbuf.exit56 ], [ 0, %78 ], [ 0, %79 ], [ 0, %._crit_edge ], [ 0, %125 ], [ %151, %._crit_edge87 ], [ 0, %4 ], [ 0, %30 ], [ 0, %34 ], [ 0, %58 ], [ 0, %60 ]
   ret i32 %.0
 }
 
@@ -1572,7 +1572,7 @@ ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %30
   br label %ssl_print_version.exit.thread
 
 ssl_print_version.exit.thread:                    ; preds = %3, %ssl_print_hexbuf.exit, %.loopexit, %26
-  %.0 = phi i32 [ 0, %26 ], [ 1, %ssl_print_hexbuf.exit ], [ 0, %.loopexit ], [ 0, %3 ]
+  %.0 = phi i32 [ 1, %ssl_print_hexbuf.exit ], [ 0, %.loopexit ], [ 0, %26 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1758,7 +1758,7 @@ do_ssl_trace_str.exit28:                          ; preds = %92, %89
   br label %ssl_print_version.exit.thread
 
 ssl_print_version.exit.thread:                    ; preds = %34, %30, %3, %97, %80, %52, %ssl_print_hexbuf.exit, %.loopexit
-  %.0 = phi i32 [ 0, %ssl_print_hexbuf.exit ], [ 0, %52 ], [ 0, %80 ], [ %98, %97 ], [ 0, %.loopexit ], [ 0, %3 ], [ 0, %30 ], [ 0, %34 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %ssl_print_hexbuf.exit ], [ 0, %52 ], [ 0, %80 ], [ %98, %97 ], [ 0, %3 ], [ 0, %30 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -1825,8 +1825,8 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_server_keyex(ptr noundef %
   br label %ssl_get_keyex.exit
 
 ssl_get_keyex.exit:                               ; preds = %4, %11, %13, %15, %17, %19, %21, %23, %25, %27
-  %.str.15.sink.i = phi ptr [ @.str.439, %25 ], [ %.str.15..str.440.i, %27 ], [ @.str.438, %23 ], [ @.str.437, %21 ], [ @.str.436, %19 ], [ @.str.435, %17 ], [ @.str.434, %15 ], [ @.str.433, %13 ], [ @.str.432, %11 ], [ @.str.431, %4 ]
-  %.0.i = phi i32 [ 16, %25 ], [ %..i, %27 ], [ 32, %23 ], [ 128, %21 ], [ 256, %19 ], [ 64, %17 ], [ 8, %15 ], [ 4, %13 ], [ 2, %11 ], [ 1, %4 ]
+  %.str.15.sink.i = phi ptr [ @.str.431, %4 ], [ @.str.432, %11 ], [ @.str.433, %13 ], [ @.str.434, %15 ], [ @.str.435, %17 ], [ @.str.436, %19 ], [ @.str.437, %21 ], [ @.str.438, %23 ], [ @.str.439, %25 ], [ %.str.15..str.440.i, %27 ]
+  %.0.i = phi i32 [ 1, %4 ], [ 2, %11 ], [ 4, %13 ], [ 8, %15 ], [ 64, %17 ], [ 256, %19 ], [ 128, %21 ], [ 32, %23 ], [ 16, %25 ], [ %..i, %27 ]
   %29 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
   %30 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.419, ptr noundef nonnull %.str.15.sink.i) #5
   %31 = and i32 %.0.i, 456
@@ -2171,7 +2171,7 @@ do_ssl_trace_str.exit:                            ; preds = %211, %208
   br label %.critedge
 
 .critedge:                                        ; preds = %162, %.loopexit96, %138, %.loopexit97, %114, %112, %89, %.loopexit, %65, %63, %34, %32, %194, %185, %do_ssl_trace_str.exit, %224, %218
-  %.0 = phi i32 [ %226, %224 ], [ 0, %34 ], [ 0, %194 ], [ 0, %114 ], [ 0, %89 ], [ 0, %65 ], [ 0, %138 ], [ 0, %do_ssl_trace_str.exit ], [ 0, %218 ], [ 0, %185 ], [ 0, %32 ], [ 0, %63 ], [ 0, %.loopexit ], [ 0, %112 ], [ 0, %.loopexit97 ], [ 0, %.loopexit96 ], [ 0, %162 ]
+  %.0 = phi i32 [ %226, %224 ], [ 0, %do_ssl_trace_str.exit ], [ 0, %218 ], [ 0, %185 ], [ 0, %194 ], [ 0, %32 ], [ 0, %34 ], [ 0, %63 ], [ 0, %65 ], [ 0, %.loopexit ], [ 0, %89 ], [ 0, %112 ], [ 0, %114 ], [ 0, %.loopexit97 ], [ 0, %138 ], [ 0, %.loopexit96 ], [ 0, %162 ]
   ret i32 %.0
 }
 
@@ -2234,8 +2234,8 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_client_keyex(ptr noundef %
   br label %ssl_get_keyex.exit
 
 ssl_get_keyex.exit:                               ; preds = %4, %9, %11, %13, %15, %17, %19, %21, %23, %25
-  %.str.15.sink.i = phi ptr [ @.str.439, %23 ], [ %.str.15..str.440.i, %25 ], [ @.str.438, %21 ], [ @.str.437, %19 ], [ @.str.436, %17 ], [ @.str.435, %15 ], [ @.str.434, %13 ], [ @.str.433, %11 ], [ @.str.432, %9 ], [ @.str.431, %4 ]
-  %.0.i = phi i32 [ 16, %23 ], [ %..i, %25 ], [ 32, %21 ], [ 128, %19 ], [ 256, %17 ], [ 64, %15 ], [ 8, %13 ], [ 4, %11 ], [ 2, %9 ], [ 1, %4 ]
+  %.str.15.sink.i = phi ptr [ @.str.431, %4 ], [ @.str.432, %9 ], [ @.str.433, %11 ], [ @.str.434, %13 ], [ @.str.435, %15 ], [ @.str.436, %17 ], [ @.str.437, %19 ], [ @.str.438, %21 ], [ @.str.439, %23 ], [ %.str.15..str.440.i, %25 ]
+  %.0.i = phi i32 [ 1, %4 ], [ 2, %9 ], [ 4, %11 ], [ 8, %13 ], [ 64, %15 ], [ 256, %17 ], [ 128, %19 ], [ 32, %21 ], [ 16, %23 ], [ %..i, %25 ]
   %27 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #5
   %28 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.419, ptr noundef nonnull %.str.15.sink.i) #5
   %29 = and i32 %.0.i, 456
@@ -2495,7 +2495,7 @@ ssl_print_hex.exit62:                             ; preds = %.lr.ph.i59, %149
   br label %ssl_print_hexbuf.exit.thread
 
 ssl_print_hexbuf.exit.thread:                     ; preds = %124, %122, %100, %98, %76, %.critedge, %32, %30, %159
-  %.0 = phi i32 [ %160, %159 ], [ 0, %100 ], [ 0, %32 ], [ 0, %76 ], [ 0, %30 ], [ 0, %.critedge ], [ 0, %98 ], [ 0, %122 ], [ 0, %124 ]
+  %.0 = phi i32 [ %160, %159 ], [ 0, %30 ], [ 0, %32 ], [ 0, %.critedge ], [ 0, %76 ], [ 0, %98 ], [ 0, %100 ], [ 0, %122 ], [ 0, %124 ]
   ret i32 %.0
 }
 
@@ -2765,7 +2765,7 @@ ssl_print_certificate.exit.thread:                ; preds = %84, %88
   br i1 %.not40, label %ssl_print_hexbuf.exit.thread, label %84, !llvm.loop !111
 
 ssl_print_hexbuf.exit.thread:                     ; preds = %145, %147, %79, %22, %20, %ssl_print_certificate.exit.thread, %76, %.split, %41, %40, %ssl_print_hexbuf.exit, %78
-  %.0 = phi i32 [ 0, %ssl_print_hexbuf.exit ], [ 0, %40 ], [ 1, %78 ], [ 0, %.split ], [ 0, %41 ], [ 0, %ssl_print_certificate.exit.thread ], [ 0, %76 ], [ 0, %20 ], [ 0, %22 ], [ 1, %79 ], [ 0, %145 ], [ 1, %147 ]
+  %.0 = phi i32 [ 1, %78 ], [ 0, %ssl_print_hexbuf.exit ], [ 0, %40 ], [ 0, %41 ], [ 0, %.split ], [ 0, %76 ], [ 0, %ssl_print_certificate.exit.thread ], [ 0, %20 ], [ 0, %22 ], [ 1, %79 ], [ 0, %145 ], [ 1, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -3287,7 +3287,7 @@ do_ssl_trace_str.exit:                            ; preds = %105, %102
   br label %ssl_print_hexbuf.exit.thread
 
 ssl_print_hexbuf.exit.thread:                     ; preds = %20, %18, %166, %.critedge, %115, %111, %73, %71, %40, %38, %.loopexit96, %168
-  %.0 = phi i32 [ %37, %.loopexit96 ], [ 0, %38 ], [ 0, %166 ], [ 0, %71 ], [ 0, %73 ], [ 0, %111 ], [ 0, %.critedge ], [ %171, %168 ], [ 0, %115 ], [ 0, %40 ], [ 0, %18 ], [ 0, %20 ]
+  %.0 = phi i32 [ %171, %168 ], [ %37, %.loopexit96 ], [ 0, %38 ], [ 0, %40 ], [ 0, %71 ], [ 0, %73 ], [ 0, %111 ], [ 0, %115 ], [ 0, %.critedge ], [ 0, %166 ], [ 0, %18 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -3482,7 +3482,7 @@ thread-pre-split:                                 ; preds = %42, %13, %.loopexit
   br label %.critedge
 
 .critedge:                                        ; preds = %90, %thread-pre-split, %70, %47, %45, %124, %122, %11, %8
-  %.0 = phi i32 [ 1, %8 ], [ 0, %45 ], [ %.37, %124 ], [ 0, %122 ], [ 0, %70 ], [ 0, %11 ], [ 0, %47 ], [ 0, %thread-pre-split ], [ 0, %90 ]
+  %.0 = phi i32 [ 1, %8 ], [ 0, %11 ], [ 0, %122 ], [ %.37, %124 ], [ 0, %45 ], [ 0, %47 ], [ 0, %70 ], [ 0, %thread-pre-split ], [ 0, %90 ]
   ret i32 %.0
 }
 
@@ -4283,11 +4283,11 @@ do_ssl_trace_str.exit.i337.i:                     ; preds = %396, %393
   br label %ssl_print_extension.exit.thread68
 
 ssl_print_extension.exit:                         ; preds = %150, %340, %406
-  %.0.i = phi i32 [ %152, %150 ], [ %408, %406 ], [ %342, %340 ]
+  %.0.i = phi i32 [ %152, %150 ], [ %342, %340 ], [ %408, %406 ]
   %.not64 = icmp eq i32 %.0.i, 0
   br i1 %.not64, label %.critedge, label %ssl_print_extension.exit.thread68
 
-ssl_print_extension.exit.thread68:                ; preds = %do_ssl_trace_str.exit.i325.i, %ssl_print_hex.exit307.i, %do_ssl_trace_str.exit288.i, %169, %do_ssl_trace_str.exit.i280.i, %do_ssl_trace_str.exit.i.i, %do_ssl_trace_str.exit.us.i.i, %.preheader.i.i, %219, %do_ssl_trace_str.exit.i337.i, %222, %ssl_print_hex.exit.i, %225, %268, %363, %.critedge255.i, %349, %do_ssl_trace_str.exit312.i, %.preheader.i, %164, %124, %365, %409, %do_ssl_trace_str.exit297.i, %ssl_print_extension.exit
+ssl_print_extension.exit.thread68:                ; preds = %do_ssl_trace_str.exit.i325.i, %ssl_print_hex.exit307.i, %do_ssl_trace_str.exit288.i, %169, %do_ssl_trace_str.exit.i280.i, %do_ssl_trace_str.exit.i.i, %do_ssl_trace_str.exit.us.i.i, %do_ssl_trace_str.exit.i337.i, %268, %.preheader.i, %164, %349, %124, %.preheader.i.i, %do_ssl_trace_str.exit297.i, %365, %409, %219, %222, %ssl_print_hex.exit.i, %225, %363, %.critedge255.i, %do_ssl_trace_str.exit312.i, %ssl_print_extension.exit
   %411 = getelementptr inbounds nuw i8, ptr %61, i64 %53
   %412 = sub i64 %.055103, %54
   %.not = icmp eq i64 %412, 0
@@ -4298,8 +4298,8 @@ ssl_print_extension.exit.thread68:                ; preds = %do_ssl_trace_str.ex
   store i64 %30, ptr %5, align 8, !tbaa !84
   br label %.critedge
 
-.critedge:                                        ; preds = %400, %386, %364, %345, %343, %336, %334, %259, %256, %217, %210, %208, %179, %177, %402, %314, %153, %141, %139, %120, %118, %101, %75, %73, %155, %35, %ssl_print_extension.exit, %271, %.lr.ph.i, %166, %56, %26, %6, %413, %24, %10
-  %.0 = phi i32 [ 1, %10 ], [ 1, %413 ], [ 1, %24 ], [ 0, %6 ], [ 0, %26 ], [ 0, %271 ], [ 0, %56 ], [ 0, %166 ], [ 0, %.lr.ph.i ], [ 0, %ssl_print_extension.exit ], [ 0, %35 ], [ 0, %155 ], [ 0, %73 ], [ 0, %75 ], [ 0, %101 ], [ 0, %118 ], [ 0, %120 ], [ 0, %139 ], [ 0, %141 ], [ 0, %153 ], [ 0, %314 ], [ 0, %402 ], [ 0, %177 ], [ 0, %179 ], [ 0, %208 ], [ 0, %210 ], [ 0, %217 ], [ 0, %256 ], [ 0, %259 ], [ 0, %334 ], [ 0, %336 ], [ 0, %343 ], [ 0, %345 ], [ 0, %364 ], [ 0, %386 ], [ 0, %400 ]
+.critedge:                                        ; preds = %314, %402, %400, %386, %364, %345, %343, %336, %334, %259, %256, %217, %210, %208, %179, %177, %155, %153, %141, %139, %120, %118, %101, %75, %73, %35, %ssl_print_extension.exit, %.lr.ph.i, %271, %166, %56, %26, %6, %413, %24, %10
+  %.0 = phi i32 [ 1, %10 ], [ 1, %24 ], [ 1, %413 ], [ 0, %6 ], [ 0, %26 ], [ 0, %56 ], [ 0, %166 ], [ 0, %271 ], [ 0, %.lr.ph.i ], [ 0, %ssl_print_extension.exit ], [ 0, %35 ], [ 0, %73 ], [ 0, %75 ], [ 0, %101 ], [ 0, %118 ], [ 0, %120 ], [ 0, %139 ], [ 0, %141 ], [ 0, %153 ], [ 0, %155 ], [ 0, %177 ], [ 0, %179 ], [ 0, %208 ], [ 0, %210 ], [ 0, %217 ], [ 0, %256 ], [ 0, %259 ], [ 0, %334 ], [ 0, %336 ], [ 0, %343 ], [ 0, %345 ], [ 0, %364 ], [ 0, %386 ], [ 0, %400 ], [ 0, %402 ], [ 0, %314 ]
   ret i32 %.0
 }
 

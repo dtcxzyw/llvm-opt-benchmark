@@ -662,7 +662,7 @@ define dso_local ptr @GenerationRealloc(ptr noundef %0, i64 noundef %1, i32 noun
   br label %38
 
 38:                                               ; preds = %29, %37, %35
-  %.027 = phi ptr [ %33, %37 ], [ %36, %35 ], [ %0, %29 ]
+  %.027 = phi ptr [ %36, %35 ], [ %33, %37 ], [ %0, %29 ]
   ret ptr %.027
 }
 

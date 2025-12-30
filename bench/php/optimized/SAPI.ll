@@ -1643,7 +1643,7 @@ sapi_update_response_code.exit193:                ; preds = %220, %214
   br label %sapi_update_response_code.exit
 
 sapi_update_response_code.exit:                   ; preds = %25, %27, %103, %105, %24, %16, %15, %13, %14, %sapi_update_response_code.exit193, %122, %sapi_remove_header.exit, %66, %34
-  %.0 = phi i32 [ -1, %13 ], [ -1, %15 ], [ -1, %66 ], [ 0, %sapi_remove_header.exit ], [ 0, %sapi_update_response_code.exit193 ], [ 0, %122 ], [ 0, %24 ], [ -1, %103 ], [ 0, %34 ], [ -1, %14 ], [ 0, %16 ], [ -1, %105 ], [ -1, %27 ], [ -1, %25 ]
+  %.0 = phi i32 [ -1, %66 ], [ 0, %sapi_remove_header.exit ], [ 0, %sapi_update_response_code.exit193 ], [ 0, %122 ], [ 0, %34 ], [ -1, %14 ], [ -1, %13 ], [ -1, %15 ], [ 0, %16 ], [ 0, %24 ], [ -1, %105 ], [ -1, %103 ], [ -1, %27 ], [ -1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2357,7 +2357,7 @@ define dso_local ptr @sapi_getenv(ptr noundef %0, i64 noundef %1) local_unnamed_
   br label %15
 
 15:                                               ; preds = %9, %12, %7, %5, %2
-  %.0 = phi ptr [ null, %7 ], [ null, %5 ], [ null, %2 ], [ %.pre, %12 ], [ %10, %9 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %7 ], [ %.pre, %12 ], [ %10, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

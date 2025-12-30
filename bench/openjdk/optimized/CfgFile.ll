@@ -247,7 +247,7 @@ _ZNKSt3mapIN7CfgFile2IdINS0_14SectionNameTagEEES_INS1_INS0_15PropertyNameTagEEES
   %12 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   br label %14
 
-_ZNKSt3mapIN7CfgFile2IdINS0_14SectionNameTagEEES_INS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESt4lessIS5_ESaISt4pairIKS5_SE_EEESF_IS3_ESaISH_IKS3_SL_EEE4findERSN_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIN7CfgFile2IdINS0_14SectionNameTagEEESt4pairIKS3_St3mapINS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EESt4lessIS8_ESaIS4_IKS8_SH_EEEESt10_Select1stISO_ESI_IS3_ESaISO_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISO_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %2, %_ZNKSt3mapIN7CfgFile2IdINS0_14SectionNameTagEEES_INS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESt4lessIS5_ESaISt4pairIKS5_SE_EEESF_IS3_ESaISH_IKS3_SL_EEE4findERSN_.exit
+_ZNKSt3mapIN7CfgFile2IdINS0_14SectionNameTagEEES_INS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESt4lessIS5_ESaISt4pairIKS5_SE_EEESF_IS3_ESaISH_IKS3_SL_EEE4findERSN_.exit.thread: ; preds = %2, %_ZNKSt8_Rb_treeIN7CfgFile2IdINS0_14SectionNameTagEEESt4pairIKS3_St3mapINS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EESt4lessIS8_ESaIS4_IKS8_SH_EEEESt10_Select1stISO_ESI_IS3_ESaISO_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISO_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIN7CfgFile2IdINS0_14SectionNameTagEEES_INS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESt4lessIS5_ESaISt4pairIKS5_SE_EEESF_IS3_ESaISH_IKS3_SL_EEE4findERSN_.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %14
 
@@ -324,7 +324,7 @@ _ZNSt3mapIN7CfgFile2IdINS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stri
   br i1 %30, label %.critedge.i, label %_ZNSt3mapIN7CfgFile2IdINS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESt4lessIS3_ESaISt4pairIKS3_SC_EEEixERSG_.exit
 
 .critedge.i:                                      ; preds = %28, %_ZNSt3mapIN7CfgFile2IdINS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESt4lessIS3_ESaISt4pairIKS3_SC_EEE11lower_boundERSG_.exit.i, %20
-  %.08.lcssa.i.i.i10.i = phi ptr [ %.19.i.i.i.i, %28 ], [ %.19.i.i.i.i, %_ZNSt3mapIN7CfgFile2IdINS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESt4lessIS3_ESaISt4pairIKS3_SC_EEE11lower_boundERSG_.exit.i ], [ %24, %20 ]
+  %.08.lcssa.i.i.i10.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIN7CfgFile2IdINS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESt4lessIS3_ESaISt4pairIKS3_SC_EEE11lower_boundERSG_.exit.i ], [ %.19.i.i.i.i, %28 ], [ %24, %20 ]
   store ptr %2, ptr %9, align 8
   %31 = call ptr @_ZNSt8_Rb_treeIN7CfgFile2IdINS0_15PropertyNameTagEEESt4pairIKS3_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESQ_IJEEEEESt17_Rb_tree_iteratorISF_ESt23_Rb_tree_const_iteratorISF_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr %.08.lcssa.i.i.i10.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
   br label %_ZNSt3mapIN7CfgFile2IdINS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESt4lessIS3_ESaISt4pairIKS3_SC_EEEixERSG_.exit
@@ -337,7 +337,7 @@ _ZNSt3mapIN7CfgFile2IdINS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stri
   %33 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZNSt3mapIN7CfgFile2IdINS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESt4lessIS3_ESaISt4pairIKS3_SC_EEED2Ev.exit
 
-.critedge.i19:                                    ; preds = %_ZNSt8_Rb_treeIN7CfgFile2IdINS0_14SectionNameTagEEESt4pairIKS3_St3mapINS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EESt4lessIS8_ESaIS4_IKS8_SH_EEEESt10_Select1stISO_ESI_IS3_ESaISO_EE14_M_lower_boundEPSt13_Rb_tree_nodeISO_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, %4, %_ZNSt3mapIN7CfgFile2IdINS0_14SectionNameTagEEES_INS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESt4lessIS5_ESaISt4pairIKS5_SE_EEESF_IS3_ESaISH_IKS3_SL_EEE4findERSN_.exit
+.critedge.i19:                                    ; preds = %4, %_ZNSt8_Rb_treeIN7CfgFile2IdINS0_14SectionNameTagEEESt4pairIKS3_St3mapINS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EESt4lessIS8_ESaIS4_IKS8_SH_EEEESt10_Select1stISO_ESI_IS3_ESaISO_EE14_M_lower_boundEPSt13_Rb_tree_nodeISO_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNSt3mapIN7CfgFile2IdINS0_14SectionNameTagEEES_INS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESt4lessIS5_ESaISt4pairIKS5_SE_EEESF_IS3_ESaISH_IKS3_SL_EEE4findERSN_.exit
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -396,7 +396,7 @@ _ZNSt3mapIN7CfgFile2IdINS0_14SectionNameTagEEES_INS1_INS0_15PropertyNameTagEEESt
   br i1 %50, label %.critedge.i34, label %52
 
 .critedge.i34:                                    ; preds = %.noexc37, %_ZNSt3mapIN7CfgFile2IdINS0_14SectionNameTagEEES_INS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESt4lessIS5_ESaISt4pairIKS5_SE_EEESF_IS3_ESaISH_IKS3_SL_EEE11lower_boundERSN_.exit.i, %43
-  %.08.lcssa.i.i.i10.i35 = phi ptr [ %.19.i.i.i.i28, %.noexc37 ], [ %.19.i.i.i.i28, %_ZNSt3mapIN7CfgFile2IdINS0_14SectionNameTagEEES_INS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESt4lessIS5_ESaISt4pairIKS5_SE_EEESF_IS3_ESaISH_IKS3_SL_EEE11lower_boundERSN_.exit.i ], [ %14, %43 ]
+  %.08.lcssa.i.i.i10.i35 = phi ptr [ %.19.i.i.i.i28, %_ZNSt3mapIN7CfgFile2IdINS0_14SectionNameTagEEES_INS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESt4lessIS5_ESaISt4pairIKS5_SE_EEESF_IS3_ESaISH_IKS3_SL_EEE11lower_boundERSN_.exit.i ], [ %.19.i.i.i.i28, %.noexc37 ], [ %14, %43 ]
   store ptr %1, ptr %5, align 8
   %51 = invoke ptr @_ZNSt8_Rb_treeIN7CfgFile2IdINS0_14SectionNameTagEEESt4pairIKS3_St3mapINS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EESt4lessIS8_ESaIS4_IKS8_SH_EEEESt10_Select1stISO_ESI_IS3_ESaISO_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESY_IJEEEEESt17_Rb_tree_iteratorISO_ESt23_Rb_tree_const_iteratorISO_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i10.i35, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %52 unwind label %.loopexit.split-lp
@@ -1227,7 +1227,7 @@ _ZN8tstrings3anylsIPKcEERS0_T_.exit70:            ; preds = %_ZN8tstrings3anylsI
           cleanup
   br label %113
 
-.thread89:                                        ; preds = %_ZN8tstrings3anylsIPKcEERS0_T_.exit70, %_ZN8tstrings3anylsIiEERS0_T_.exit, %_ZN8tstrings3anylsIPKcEERS0_T_.exit67, %104, %_ZN8tstrings3anylsIPKcEERS0_T_.exit65, %_ZN8tstrings3anyC2Ev.exit63
+.thread89:                                        ; preds = %_ZN8tstrings3anylsIPKcEERS0_T_.exit70, %_ZN8tstrings3anylsIPKcEERS0_T_.exit65, %_ZN8tstrings3anyC2Ev.exit63, %104, %_ZN8tstrings3anylsIPKcEERS0_T_.exit67, %_ZN8tstrings3anylsIiEERS0_T_.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %14) #20
@@ -1280,7 +1280,7 @@ _ZN8tstrings3anylsIPKcEERS0_T_.exit70:            ; preds = %_ZN8tstrings3anylsI
   br label %_ZN12_GLOBAL__N_114getSectionNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN12_GLOBAL__N_114getSectionNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %117, %120, %123, %126, %129
-  %.0.i = phi ptr [ @_ZN11SectionName30AppCDSGenerateCacheJavaOptionsE, %126 ], [ @_ZN11SectionName11ApplicationE, %117 ], [ @_ZN11SectionName11JavaOptionsE, %120 ], [ @_ZN11SectionName17AppCDSJavaOptionsE, %123 ], [ %_ZN11SectionName10ArgOptionsE..i, %129 ]
+  %.0.i = phi ptr [ @_ZN11SectionName11ApplicationE, %117 ], [ @_ZN11SectionName11JavaOptionsE, %120 ], [ @_ZN11SectionName17AppCDSJavaOptionsE, %123 ], [ @_ZN11SectionName30AppCDSGenerateCacheJavaOptionsE, %126 ], [ %_ZN11SectionName10ArgOptionsE..i, %129 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #20
   %.not51 = icmp eq ptr %.0.i, null
   %_ZN12_GLOBAL__N_114UnknownSectionE. = select i1 %.not51, ptr @_ZN12_GLOBAL__N_114UnknownSectionE, ptr %.0.i
@@ -1465,7 +1465,7 @@ _ZNSt3mapIN7CfgFile2IdINS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stri
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %84, %178, %180, %156, %91
-  %.pn52.pn.pn = phi { ptr, i32 } [ %.pn52.pn, %156 ], [ %92, %91 ], [ %179, %178 ], [ %.pn46.pn95, %180 ], [ %.pn.i, %84 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn52.pn.pn = phi { ptr, i32 } [ %.pn52.pn, %156 ], [ %92, %91 ], [ %.pn46.pn95, %180 ], [ %179, %178 ], [ %.pn.i, %84 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #20
   call void @_ZNSt3mapIN7CfgFile2IdINS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESt4lessIS3_ESaISt4pairIKS3_SC_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #20
   call void @_ZN7CfgFileD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #20
@@ -1645,7 +1645,7 @@ _ZNSt3mapIN7CfgFile2IdINS0_14SectionNameTagEEES_INS1_INS0_15PropertyNameTagEEESt
   br i1 %24, label %.critedge.i, label %_ZNSt3mapIN7CfgFile2IdINS0_14SectionNameTagEEES_INS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESt4lessIS5_ESaISt4pairIKS5_SE_EEESF_IS3_ESaISH_IKS3_SL_EEEixERSN_.exit
 
 .critedge.i:                                      ; preds = %22, %_ZNSt3mapIN7CfgFile2IdINS0_14SectionNameTagEEES_INS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESt4lessIS5_ESaISt4pairIKS5_SE_EEESF_IS3_ESaISH_IKS3_SL_EEE11lower_boundERSN_.exit.i, %12
-  %.08.lcssa.i.i.i10.i = phi ptr [ %.19.i.i.i.i, %22 ], [ %.19.i.i.i.i, %_ZNSt3mapIN7CfgFile2IdINS0_14SectionNameTagEEES_INS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESt4lessIS5_ESaISt4pairIKS5_SE_EEESF_IS3_ESaISH_IKS3_SL_EEE11lower_boundERSN_.exit.i ], [ %18, %12 ]
+  %.08.lcssa.i.i.i10.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIN7CfgFile2IdINS0_14SectionNameTagEEES_INS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESt4lessIS5_ESaISt4pairIKS5_SE_EEESF_IS3_ESaISH_IKS3_SL_EEE11lower_boundERSN_.exit.i ], [ %.19.i.i.i.i, %22 ], [ %18, %12 ]
   store ptr %15, ptr %2, align 8
   %25 = call ptr @_ZNSt8_Rb_treeIN7CfgFile2IdINS0_14SectionNameTagEEESt4pairIKS3_St3mapINS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EESt4lessIS8_ESaIS4_IKS8_SH_EEEESt10_Select1stISO_ESI_IS3_ESaISO_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESY_IJEEEEESt17_Rb_tree_iteratorISO_ESt23_Rb_tree_const_iteratorISO_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr %.08.lcssa.i.i.i10.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
   br label %_ZNSt3mapIN7CfgFile2IdINS0_14SectionNameTagEEES_INS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESt4lessIS5_ESaISt4pairIKS5_SE_EEESF_IS3_ESaISH_IKS3_SL_EEEixERSN_.exit
@@ -1853,7 +1853,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111AddPropertyclERKNSt7__cxx1112bas
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %select.unfold, label %_ZN12_GLOBAL__N_115getPropertyNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-select.unfold:                                    ; preds = %36, %33, %6, %9, %12, %15, %18, %21, %24, %27, %30
+select.unfold:                                    ; preds = %36, %6, %9, %12, %15, %18, %21, %24, %27, %30, %33
   %.0.i.ph = phi ptr [ @_ZN12PropertyName9argumentsE, %33 ], [ @_ZN12PropertyName6memoryE, %30 ], [ @_ZN12PropertyName6splashE, %27 ], [ @_ZN12PropertyName7runtimeE, %24 ], [ @_ZN12PropertyName10modulepathE, %21 ], [ @_ZN12PropertyName9classpathE, %18 ], [ @_ZN12PropertyName9mainclassE, %15 ], [ @_ZN12PropertyName10mainmoduleE, %12 ], [ @_ZN12PropertyName7mainjarE, %9 ], [ @_ZN12PropertyName7versionE, %6 ], [ @_ZN12PropertyName11javaOptionsE, %36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1885,7 +1885,7 @@ _ZNSt3mapIN7CfgFile2IdINS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stri
   br i1 %47, label %.critedge.i, label %_ZNSt3mapIN7CfgFile2IdINS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESt4lessIS3_ESaISt4pairIKS3_SC_EEEixERSG_.exit
 
 .critedge.i:                                      ; preds = %45, %_ZNSt3mapIN7CfgFile2IdINS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESt4lessIS3_ESaISt4pairIKS3_SC_EEE11lower_boundERSG_.exit.i, %select.unfold
-  %.08.lcssa.i.i.i10.i = phi ptr [ %.19.i.i.i.i, %45 ], [ %.19.i.i.i.i, %_ZNSt3mapIN7CfgFile2IdINS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESt4lessIS3_ESaISt4pairIKS3_SC_EEE11lower_boundERSG_.exit.i ], [ %41, %select.unfold ]
+  %.08.lcssa.i.i.i10.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIN7CfgFile2IdINS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESt4lessIS3_ESaISt4pairIKS3_SC_EEE11lower_boundERSG_.exit.i ], [ %.19.i.i.i.i, %45 ], [ %41, %select.unfold ]
   store ptr %.0.i.ph, ptr %3, align 8
   %48 = call ptr @_ZNSt8_Rb_treeIN7CfgFile2IdINS0_15PropertyNameTagEEESt4pairIKS3_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESQ_IJEEEEESt17_Rb_tree_iteratorISF_ESt23_Rb_tree_const_iteratorISF_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %.8.val, ptr %.08.lcssa.i.i.i10.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
   br label %_ZNSt3mapIN7CfgFile2IdINS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESt4lessIS3_ESaISt4pairIKS3_SC_EEEixERSG_.exit
@@ -3717,8 +3717,8 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN7CfgFile2IdINS0_15Prope
   br label %_ZNSt8_Rb_treeIN7CfgFile2IdINS0_15PropertyNameTagEEESt4pairIKS3_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE24_M_get_insert_unique_posERS5_.exit
 
 _ZNSt8_Rb_treeIN7CfgFile2IdINS0_15PropertyNameTagEEESt4pairIKS3_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE24_M_get_insert_unique_posERS5_.exit: ; preds = %77, %._crit_edge.thread.i47, %51, %._crit_edge.thread.i27, %25, %._crit_edge.thread.i, %64, %39, %54, %56, %31, %14
-  %.sroa.070.0 = phi ptr [ %spec.select, %39 ], [ null, %14 ], [ null, %._crit_edge.thread.i27 ], [ %33, %31 ], [ %1, %54 ], [ null, %._crit_edge.thread.i ], [ %spec.select72, %64 ], [ null, %56 ], [ %spec.select.i, %25 ], [ %spec.select.i21, %51 ], [ %spec.select.i41, %77 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %spec.select71, %39 ], [ %15, %14 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %33, %31 ], [ null, %54 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select73, %64 ], [ %58, %56 ], [ %spec.select21.i, %25 ], [ %spec.select21.i22, %51 ], [ %spec.select21.i42, %77 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %14 ], [ %33, %31 ], [ null, %56 ], [ %1, %54 ], [ %spec.select, %39 ], [ %spec.select72, %64 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %25 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %51 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %77 ]
+  %.sroa.12.0 = phi ptr [ %15, %14 ], [ %33, %31 ], [ %58, %56 ], [ null, %54 ], [ %spec.select71, %39 ], [ %spec.select73, %64 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %25 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %51 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %77 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -4167,8 +4167,8 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN7CfgFile2IdINS0_14Secti
   br label %_ZNSt8_Rb_treeIN7CfgFile2IdINS0_14SectionNameTagEEESt4pairIKS3_St3mapINS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EESt4lessIS8_ESaIS4_IKS8_SH_EEEESt10_Select1stISO_ESI_IS3_ESaISO_EE24_M_get_insert_unique_posERS5_.exit
 
 _ZNSt8_Rb_treeIN7CfgFile2IdINS0_14SectionNameTagEEESt4pairIKS3_St3mapINS1_INS0_15PropertyNameTagEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EESt4lessIS8_ESaIS4_IKS8_SH_EEEESt10_Select1stISO_ESI_IS3_ESaISO_EE24_M_get_insert_unique_posERS5_.exit: ; preds = %77, %._crit_edge.thread.i47, %51, %._crit_edge.thread.i27, %25, %._crit_edge.thread.i, %64, %39, %54, %56, %31, %14
-  %.sroa.070.0 = phi ptr [ %spec.select, %39 ], [ null, %14 ], [ null, %._crit_edge.thread.i27 ], [ %33, %31 ], [ %1, %54 ], [ null, %._crit_edge.thread.i ], [ %spec.select72, %64 ], [ null, %56 ], [ %spec.select.i, %25 ], [ %spec.select.i21, %51 ], [ %spec.select.i41, %77 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %spec.select71, %39 ], [ %15, %14 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %33, %31 ], [ null, %54 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select73, %64 ], [ %58, %56 ], [ %spec.select21.i, %25 ], [ %spec.select21.i22, %51 ], [ %spec.select21.i42, %77 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %14 ], [ %33, %31 ], [ null, %56 ], [ %1, %54 ], [ %spec.select, %39 ], [ %spec.select72, %64 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %25 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %51 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %77 ]
+  %.sroa.12.0 = phi ptr [ %15, %14 ], [ %33, %31 ], [ %58, %56 ], [ null, %54 ], [ %spec.select71, %39 ], [ %spec.select73, %64 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %25 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %51 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %77 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

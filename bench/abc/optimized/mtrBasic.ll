@@ -165,7 +165,7 @@ Mtr_DeallocNode.exit:                             ; preds = %13
   br i1 %.not51, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %42, %5, %2, %24, %Mtr_DeallocNode.exit
-  %.040 = phi ptr [ null, %5 ], [ null, %2 ], [ %6, %42 ], [ null, %Mtr_DeallocNode.exit ], [ null, %24 ], [ %6, %.preheader ]
+  %.040 = phi ptr [ null, %Mtr_DeallocNode.exit ], [ null, %24 ], [ null, %2 ], [ null, %5 ], [ %6, %42 ], [ %6, %.preheader ]
   ret ptr %.040
 }
 

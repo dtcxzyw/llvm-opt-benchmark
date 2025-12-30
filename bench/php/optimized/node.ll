@@ -1235,7 +1235,7 @@ define hidden range(i32 -1, 1) i32 @dom_node_prefix_read(ptr noundef %0, ptr nou
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread, label %zend_string_alloc.exit
 
-.thread:                                          ; preds = %9, %6, %12
+.thread:                                          ; preds = %6, %9, %12
   %16 = load ptr, ptr @zend_empty_string, align 8, !tbaa !36
   store ptr %16, ptr %1, align 8, !tbaa !9
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1490,7 +1490,7 @@ zend_string_equals_cstr.exit59.thread:            ; preds = %47, %49, %zend_stri
   br label %75
 
 75:                                               ; preds = %.loopexit, %30, %25, %17, %6, %74, %54, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %74 ], [ -1, %54 ], [ 0, %6 ], [ 0, %17 ], [ 0, %25 ], [ 0, %30 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %54 ], [ -1, %74 ], [ 0, %6 ], [ 0, %17 ], [ 0, %25 ], [ 0, %30 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 
@@ -1914,7 +1914,7 @@ define hidden void @dom_set_document_ref_pointers(ptr noundef %0, ptr noundef %1
   br i1 %27, label %.preheader, label %php_dom_next_in_tree_order.exit
 
 php_dom_next_in_tree_order.exit:                  ; preds = %24, %12, %15
-  %.0.i = phi ptr [ %17, %15 ], [ %14, %12 ], [ %26, %24 ]
+  %.0.i = phi ptr [ %14, %12 ], [ %17, %15 ], [ %26, %24 ]
   %28 = tail call fastcc zeroext i1 @dom_set_document_ref_pointers_node(ptr noundef nonnull %.0.i, ptr noundef %1)
   br i1 %28, label %.lr.ph25, label %.critedge
 
@@ -1942,7 +1942,7 @@ define internal fastcc noundef zeroext i1 @dom_set_document_ref_pointers_node(pt
   store i32 %10, ptr %8, align 8, !tbaa !53
   br label %11
 
-11:                                               ; preds = %2, %7
+11:                                               ; preds = %7, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !26
   %14 = icmp eq i32 %13, 1
@@ -2260,7 +2260,7 @@ php_libxml_invalidate_node_list_cache.exit.i:     ; preds = %61, %58
   br i1 %129, label %.preheader.i.i, label %php_dom_next_in_tree_order.exit.i.i
 
 php_dom_next_in_tree_order.exit.i.i:              ; preds = %126, %117, %114
-  %.0.i.i.i = phi ptr [ %119, %117 ], [ %116, %114 ], [ %128, %126 ]
+  %.0.i.i.i = phi ptr [ %116, %114 ], [ %119, %117 ], [ %128, %126 ]
   %130 = call fastcc zeroext i1 @dom_set_document_ref_pointers_node(ptr noundef nonnull %.0.i.i.i, ptr noundef %104)
   br i1 %130, label %.lr.ph.i, label %dom_set_document_ref_pointers.exit.i
 
@@ -2623,7 +2623,7 @@ dom_insert_fragment.exit187.i:                    ; preds = %281, %260
   br label %.thread5.i
 
 .thread5.i:                                       ; preds = %286, %dom_insert_fragment.exit187.i, %257, %235, %234, %215, %dom_insert_fragment.exit.i, %185, %163, %159, %158
-  %.1.i = phi ptr [ %39, %163 ], [ %39, %159 ], [ %39, %158 ], [ %284, %286 ], [ %194, %dom_insert_fragment.exit.i ], [ %213, %215 ], [ %39, %234 ], [ %39, %235 ], [ %186, %185 ], [ %266, %dom_insert_fragment.exit187.i ], [ %258, %257 ]
+  %.1.i = phi ptr [ %39, %163 ], [ %39, %159 ], [ %39, %158 ], [ %194, %dom_insert_fragment.exit.i ], [ %213, %215 ], [ %39, %234 ], [ %39, %235 ], [ %266, %dom_insert_fragment.exit187.i ], [ %284, %286 ], [ %186, %185 ], [ %258, %257 ]
   %289 = call zeroext i1 @php_dom_create_object(ptr noundef %.1.i, ptr noundef %1, ptr noundef nonnull %16) #11
   br label %dom_node_insert_before_modern.exit
 
@@ -3051,7 +3051,7 @@ php_libxml_invalidate_node_list_cache.exit:       ; preds = %dom_insert_fragment
   %186 = call zeroext i1 @php_dom_create_object(ptr noundef %52, ptr noundef %1, ptr noundef nonnull %16) #11
   br label %187
 
-187:                                              ; preds = %88, %.critedge.i, %95, %92, %85, %81, %76, %72, %68, %65, %3, %60, %103, %108, %112, %121, %126, %php_libxml_invalidate_node_list_cache.exit, %45, %32, %19
+187:                                              ; preds = %.critedge.i, %88, %85, %95, %92, %81, %76, %72, %68, %65, %3, %60, %103, %108, %112, %121, %126, %php_libxml_invalidate_node_list_cache.exit, %45, %32, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -3114,11 +3114,11 @@ instanceof_function.exit:                         ; preds = %14
   br label %24
 
 24:                                               ; preds = %7, %.thread, %20
-  %.060 = phi i32 [ 0, %7 ], [ 18, %20 ], [ 0, %.thread ]
-  %.059 = phi ptr [ null, %7 ], [ null, %20 ], [ %23, %.thread ]
-  %.058 = phi ptr [ null, %7 ], [ %9, %20 ], [ %9, %.thread ]
-  %.057 = phi i32 [ 1, %7 ], [ 9, %20 ], [ 3, %.thread ]
-  %.0 = phi i32 [ 0, %7 ], [ 1, %20 ], [ 1, %.thread ]
+  %.060 = phi i32 [ 0, %7 ], [ 0, %.thread ], [ 18, %20 ]
+  %.059 = phi ptr [ null, %7 ], [ %23, %.thread ], [ null, %20 ]
+  %.058 = phi ptr [ null, %7 ], [ %9, %.thread ], [ %9, %20 ]
+  %.057 = phi i32 [ 1, %7 ], [ 3, %.thread ], [ 9, %20 ]
+  %.0 = phi i32 [ 0, %7 ], [ 1, %.thread ], [ 1, %20 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.057, i32 noundef %.0, ptr noundef %.059, i32 noundef %.060, ptr noundef %.058) #11
   br label %74
 
@@ -3275,11 +3275,11 @@ thread-pre-split:                                 ; preds = %instanceof_function
   br label %26
 
 26:                                               ; preds = %6, %22, %20
-  %.046 = phi ptr [ null, %6 ], [ %8, %20 ], [ %8, %22 ]
-  %.045 = phi i32 [ 0, %6 ], [ 18, %20 ], [ 0, %22 ]
-  %.044 = phi ptr [ null, %6 ], [ null, %20 ], [ %25, %22 ]
-  %.043 = phi i32 [ 0, %6 ], [ 1, %20 ], [ 1, %22 ]
-  %.042 = phi i32 [ 1, %6 ], [ 9, %20 ], [ 3, %22 ]
+  %.046 = phi ptr [ null, %6 ], [ %8, %22 ], [ %8, %20 ]
+  %.045 = phi i32 [ 0, %6 ], [ 0, %22 ], [ 18, %20 ]
+  %.044 = phi ptr [ null, %6 ], [ %25, %22 ], [ null, %20 ]
+  %.043 = phi i32 [ 0, %6 ], [ 1, %22 ], [ 1, %20 ]
+  %.042 = phi i32 [ 1, %6 ], [ 3, %22 ], [ 9, %20 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.042, i32 noundef %.043, ptr noundef %.044, i32 noundef %.045, ptr noundef %.046) #11
   br label %dom_node_append_child_legacy.exit
 
@@ -3411,7 +3411,7 @@ thread-pre-split:                                 ; preds = %instanceof_function
   br i1 %94, label %.preheader.i.i, label %php_dom_next_in_tree_order.exit.i.i
 
 php_dom_next_in_tree_order.exit.i.i:              ; preds = %91, %82, %79
-  %.0.i.i.i = phi ptr [ %84, %82 ], [ %81, %79 ], [ %93, %91 ]
+  %.0.i.i.i = phi ptr [ %81, %79 ], [ %84, %82 ], [ %93, %91 ]
   %95 = tail call fastcc zeroext i1 @dom_set_document_ref_pointers_node(ptr noundef nonnull %.0.i.i.i, ptr noundef %69)
   br i1 %95, label %.lr.ph.i, label %dom_set_document_ref_pointers.exit.i
 
@@ -3602,7 +3602,7 @@ dom_insert_fragment.exit.i:                       ; preds = %158, %137
   br label %179
 
 179:                                              ; preds = %176, %171, %dom_insert_fragment.exit.i, %.thread1.i, %114, %113
-  %.079.i = phi ptr [ %50, %113 ], [ %50, %114 ], [ %135, %.thread1.i ], [ %143, %dom_insert_fragment.exit.i ], [ %169, %171 ], [ %174, %176 ]
+  %.079.i = phi ptr [ %50, %113 ], [ %50, %114 ], [ %143, %dom_insert_fragment.exit.i ], [ %169, %171 ], [ %174, %176 ], [ %135, %.thread1.i ]
   %180 = load ptr, ptr %55, align 8, !tbaa !29
   %.not.i.i = icmp eq ptr %180, null
   br i1 %.not.i.i, label %php_libxml_invalidate_node_list_cache.exit.i, label %181
@@ -3685,11 +3685,11 @@ thread-pre-split:                                 ; preds = %instanceof_function
   br label %26
 
 26:                                               ; preds = %6, %22, %20
-  %.049 = phi ptr [ null, %6 ], [ %8, %20 ], [ %8, %22 ]
-  %.048 = phi i32 [ 0, %6 ], [ 18, %20 ], [ 0, %22 ]
-  %.047 = phi ptr [ null, %6 ], [ null, %20 ], [ %25, %22 ]
-  %.046 = phi i32 [ 0, %6 ], [ 1, %20 ], [ 1, %22 ]
-  %.045 = phi i32 [ 1, %6 ], [ 9, %20 ], [ 3, %22 ]
+  %.049 = phi ptr [ null, %6 ], [ %8, %22 ], [ %8, %20 ]
+  %.048 = phi i32 [ 0, %6 ], [ 0, %22 ], [ 18, %20 ]
+  %.047 = phi ptr [ null, %6 ], [ %25, %22 ], [ null, %20 ]
+  %.046 = phi i32 [ 0, %6 ], [ 1, %22 ], [ 1, %20 ]
+  %.045 = phi i32 [ 1, %6 ], [ 3, %22 ], [ 9, %20 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.045, i32 noundef %.046, ptr noundef %.047, i32 noundef %.048, ptr noundef %.049) #11
   br label %61
 
@@ -4170,11 +4170,11 @@ thread-pre-split:                                 ; preds = %instanceof_function
   br label %25
 
 25:                                               ; preds = %5, %21, %19
-  %.036 = phi ptr [ null, %5 ], [ %7, %19 ], [ %7, %21 ]
-  %.035 = phi i32 [ 0, %5 ], [ 18, %19 ], [ 0, %21 ]
-  %.034 = phi ptr [ null, %5 ], [ null, %19 ], [ %24, %21 ]
-  %.033 = phi i32 [ 0, %5 ], [ 1, %19 ], [ 1, %21 ]
-  %.032 = phi i32 [ 1, %5 ], [ 9, %19 ], [ 3, %21 ]
+  %.036 = phi ptr [ null, %5 ], [ %7, %21 ], [ %7, %19 ]
+  %.035 = phi i32 [ 0, %5 ], [ 0, %21 ], [ 18, %19 ]
+  %.034 = phi ptr [ null, %5 ], [ %24, %21 ], [ null, %19 ]
+  %.033 = phi i32 [ 0, %5 ], [ 1, %21 ], [ 1, %19 ]
+  %.032 = phi i32 [ 1, %5 ], [ 3, %21 ], [ 9, %19 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.032, i32 noundef %.033, ptr noundef %.034, i32 noundef %.035, ptr noundef %.036) #11
   br label %dom_node_is_same_node.exit
 
@@ -4285,11 +4285,11 @@ zend_parse_arg_object.exit:                       ; preds = %19
   br label %27
 
 27:                                               ; preds = %5, %23, %zend_parse_arg_object.exit
-  %.037 = phi ptr [ null, %5 ], [ %7, %zend_parse_arg_object.exit ], [ %7, %23 ]
-  %.036 = phi i32 [ 0, %5 ], [ 19, %zend_parse_arg_object.exit ], [ 0, %23 ]
-  %.035 = phi ptr [ null, %5 ], [ null, %zend_parse_arg_object.exit ], [ %26, %23 ]
-  %.034 = phi i32 [ 0, %5 ], [ 1, %zend_parse_arg_object.exit ], [ 1, %23 ]
-  %.033 = phi i32 [ 1, %5 ], [ 9, %zend_parse_arg_object.exit ], [ 4, %23 ]
+  %.037 = phi ptr [ null, %5 ], [ %7, %23 ], [ %7, %zend_parse_arg_object.exit ]
+  %.036 = phi i32 [ 0, %5 ], [ 0, %23 ], [ 19, %zend_parse_arg_object.exit ]
+  %.035 = phi ptr [ null, %5 ], [ %26, %23 ], [ null, %zend_parse_arg_object.exit ]
+  %.034 = phi i32 [ 0, %5 ], [ 1, %23 ], [ 1, %zend_parse_arg_object.exit ]
+  %.033 = phi i32 [ 1, %5 ], [ 4, %23 ], [ 9, %zend_parse_arg_object.exit ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.033, i32 noundef %.034, ptr noundef %.035, i32 noundef %.036, ptr noundef %.037) #11
   br label %dom_node_is_same_node.exit
 
@@ -4298,7 +4298,7 @@ zend_parse_arg_object.exit:                       ; preds = %19
   store i32 2, ptr %28, align 8, !tbaa !9
   br label %dom_node_is_same_node.exit
 
-instanceof_function.exit.thread:                  ; preds = %13, %instanceof_function.exit, %12
+instanceof_function.exit.thread:                  ; preds = %13, %12, %instanceof_function.exit
   %29 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %29, align 8, !tbaa !9
   %30 = getelementptr inbounds i8, ptr %.val, i64 -24
@@ -4420,11 +4420,11 @@ zend_parse_arg_object.exit:                       ; preds = %22
   br label %32
 
 32:                                               ; preds = %7, %28, %zend_parse_arg_object.exit
-  %.060 = phi i32 [ 0, %7 ], [ 1, %zend_parse_arg_object.exit ], [ 1, %28 ]
-  %.059 = phi ptr [ null, %7 ], [ %9, %zend_parse_arg_object.exit ], [ %9, %28 ]
-  %.058 = phi i32 [ 0, %7 ], [ 19, %zend_parse_arg_object.exit ], [ 0, %28 ]
-  %.057 = phi ptr [ null, %7 ], [ null, %zend_parse_arg_object.exit ], [ %31, %28 ]
-  %.056 = phi i32 [ 1, %7 ], [ 9, %zend_parse_arg_object.exit ], [ 4, %28 ]
+  %.060 = phi i32 [ 0, %7 ], [ 1, %28 ], [ 1, %zend_parse_arg_object.exit ]
+  %.059 = phi ptr [ null, %7 ], [ %9, %28 ], [ %9, %zend_parse_arg_object.exit ]
+  %.058 = phi i32 [ 0, %7 ], [ 0, %28 ], [ 19, %zend_parse_arg_object.exit ]
+  %.057 = phi ptr [ null, %7 ], [ %31, %28 ], [ null, %zend_parse_arg_object.exit ]
+  %.056 = phi i32 [ 1, %7 ], [ 4, %28 ], [ 9, %zend_parse_arg_object.exit ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.056, i32 noundef %.060, ptr noundef %.057, i32 noundef %.058, ptr noundef %.059) #11
   br label %71
 
@@ -4977,7 +4977,7 @@ tailrecurse.backedge:                             ; preds = %91, %98
   br i1 %.not, label %tailrecurse.backedge, label %.thread71
 
 .thread71:                                        ; preds = %94, %98, %tailrecurse, %tailrecurse, %91, %88, %._crit_edge.split, %31, %._crit_edge.split.us.us, %79, %83, %16, %10, %.split86.us
-  %.045 = phi ptr [ %59, %.split86.us ], [ @.str.8, %16 ], [ null, %83 ], [ @.str.7, %10 ], [ %81, %79 ], [ null, %31 ], [ null, %88 ], [ null, %._crit_edge.split.us.us ], [ null, %._crit_edge.split ], [ null, %91 ], [ null, %tailrecurse ], [ null, %tailrecurse ], [ null, %98 ], [ null, %94 ]
+  %.045 = phi ptr [ %59, %.split86.us ], [ @.str.7, %10 ], [ @.str.8, %16 ], [ %81, %79 ], [ null, %83 ], [ null, %._crit_edge.split.us.us ], [ null, %31 ], [ null, %._crit_edge.split ], [ null, %88 ], [ null, %91 ], [ null, %tailrecurse ], [ null, %tailrecurse ], [ null, %98 ], [ null, %94 ]
   ret ptr %.045
 }
 
@@ -5627,10 +5627,10 @@ zend_hash_str_find_deref.exit:                    ; preds = %109, %83, %62, %78,
   br label %.critedge165
 
 119:                                              ; preds = %115, %39, %39, %42
-  %.0129 = phi i1 [ true, %42 ], [ false, %39 ], [ false, %39 ], [ false, %115 ]
-  %.0124 = phi ptr [ null, %42 ], [ null, %39 ], [ null, %39 ], [ %111, %115 ]
-  %.0122 = phi ptr [ null, %42 ], [ null, %39 ], [ null, %39 ], [ %65, %115 ]
-  %.0 = phi ptr [ null, %42 ], [ null, %39 ], [ null, %39 ], [ %117, %115 ]
+  %.0129 = phi i1 [ true, %42 ], [ false, %39 ], [ false, %115 ], [ false, %39 ]
+  %.0124 = phi ptr [ null, %42 ], [ null, %39 ], [ %111, %115 ], [ null, %39 ]
+  %.0122 = phi ptr [ null, %42 ], [ null, %39 ], [ %65, %115 ], [ null, %39 ]
+  %.0 = phi ptr [ null, %42 ], [ null, %39 ], [ %117, %115 ], [ null, %39 ]
   %120 = load ptr, ptr %5, align 8, !tbaa !60
   %.not155 = icmp eq ptr %120, null
   br i1 %.not155, label %165, label %121
@@ -6171,11 +6171,11 @@ zend_parse_arg_object.exit:                       ; preds = %19
   br label %27
 
 27:                                               ; preds = %6, %23, %zend_parse_arg_object.exit
-  %.046 = phi ptr [ null, %6 ], [ %8, %zend_parse_arg_object.exit ], [ %8, %23 ]
-  %.045 = phi i32 [ 0, %6 ], [ 19, %zend_parse_arg_object.exit ], [ 0, %23 ]
-  %.044 = phi ptr [ null, %6 ], [ null, %zend_parse_arg_object.exit ], [ %26, %23 ]
-  %.043 = phi i32 [ 0, %6 ], [ 1, %zend_parse_arg_object.exit ], [ 1, %23 ]
-  %.042 = phi i32 [ 1, %6 ], [ 9, %zend_parse_arg_object.exit ], [ 4, %23 ]
+  %.046 = phi ptr [ null, %6 ], [ %8, %23 ], [ %8, %zend_parse_arg_object.exit ]
+  %.045 = phi i32 [ 0, %6 ], [ 0, %23 ], [ 19, %zend_parse_arg_object.exit ]
+  %.044 = phi ptr [ null, %6 ], [ %26, %23 ], [ null, %zend_parse_arg_object.exit ]
+  %.043 = phi i32 [ 0, %6 ], [ 1, %23 ], [ 1, %zend_parse_arg_object.exit ]
+  %.042 = phi i32 [ 1, %6 ], [ 4, %23 ], [ 9, %zend_parse_arg_object.exit ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.042, i32 noundef %.043, ptr noundef %.044, i32 noundef %.045, ptr noundef %.046) #11
   br label %60
 
@@ -6268,10 +6268,10 @@ define hidden void @zim_DOMNode_getRootNode(ptr noundef %0, ptr noundef %1) loca
   ], !prof !122
 
 14:                                               ; preds = %10, %7
-  %.044.ph = phi ptr [ %11, %10 ], [ null, %7 ]
-  %.043.ph = phi i32 [ 7, %10 ], [ 0, %7 ]
-  %.042.ph = phi i32 [ 1, %10 ], [ 0, %7 ]
-  %.040.ph = phi i32 [ 9, %10 ], [ 1, %7 ]
+  %.044.ph = phi ptr [ null, %7 ], [ %11, %10 ]
+  %.043.ph = phi i32 [ 0, %7 ], [ 7, %10 ]
+  %.042.ph = phi i32 [ 0, %7 ], [ 1, %10 ]
+  %.040.ph = phi i32 [ 1, %7 ], [ 9, %10 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.040.ph, i32 noundef %.042.ph, ptr noundef null, i32 noundef %.043.ph, ptr noundef %.044.ph) #11
   br label %32
 
@@ -6361,11 +6361,11 @@ instanceof_function.exit:                         ; preds = %14
   br label %24
 
 24:                                               ; preds = %7, %.thread, %20
-  %.0171 = phi i32 [ 1, %7 ], [ 9, %20 ], [ 3, %.thread ]
-  %.0170 = phi ptr [ null, %7 ], [ null, %20 ], [ %23, %.thread ]
-  %.0169 = phi i32 [ 0, %7 ], [ 18, %20 ], [ 0, %.thread ]
-  %.0168 = phi ptr [ null, %7 ], [ %9, %20 ], [ %9, %.thread ]
-  %.0 = phi i32 [ 0, %7 ], [ 1, %20 ], [ 1, %.thread ]
+  %.0171 = phi i32 [ 1, %7 ], [ 3, %.thread ], [ 9, %20 ]
+  %.0170 = phi ptr [ null, %7 ], [ %23, %.thread ], [ null, %20 ]
+  %.0169 = phi i32 [ 0, %7 ], [ 0, %.thread ], [ 18, %20 ]
+  %.0168 = phi ptr [ null, %7 ], [ %9, %.thread ], [ %9, %20 ]
+  %.0 = phi i32 [ 0, %7 ], [ 1, %.thread ], [ 1, %20 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.0171, i32 noundef %.0, ptr noundef %.0170, i32 noundef %.0169, ptr noundef %.0168) #11
   br label %151
 
@@ -6609,8 +6609,8 @@ instanceof_function.exit:                         ; preds = %14
   br i1 %126, label %.preheader221, label %.loopexit.preheader
 
 .loopexit.preheader:                              ; preds = %.preheader221, %.preheader, %121
-  %.3188.ph = phi ptr [ %.0185, %.preheader ], [ %.0185, %121 ], [ %124, %.preheader221 ]
-  %.3.ph = phi ptr [ %118, %.preheader ], [ %.0183, %121 ], [ %.0183, %.preheader221 ]
+  %.3188.ph = phi ptr [ %.0185, %121 ], [ %.0185, %.preheader ], [ %124, %.preheader221 ]
+  %.3.ph = phi ptr [ %.0183, %121 ], [ %118, %.preheader ], [ %.0183, %.preheader221 ]
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %.loopexit
@@ -6868,7 +6868,7 @@ define internal fastcc noundef zeroext i1 @dom_node_check_legacy_insertion_valid
   br label %.thread
 
 .thread:                                          ; preds = %38, %38, %._crit_edge, %40, %42, %41, %39, %31, %21, %15, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %15 ], [ false, %21 ], [ false, %31 ], [ false, %39 ], [ false, %41 ], [ false, %42 ], [ true, %._crit_edge ], [ true, %40 ], [ true, %38 ], [ true, %38 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %15 ], [ false, %21 ], [ false, %31 ], [ false, %39 ], [ false, %41 ], [ false, %42 ], [ true, %40 ], [ true, %._crit_edge ], [ true, %38 ], [ true, %38 ]
   ret i1 %.0
 }
 
@@ -7213,7 +7213,7 @@ php_dom_node_count_list_size_xmlNode.exit:        ; preds = %.lr.ph.i, %php_dom_
   br i1 %exitcond.not, label %php_dom_node_list_equality_check_ordered_xmlNode.exit, label %.lr.ph
 
 php_dom_node_list_equality_check_ordered_xmlNode.exit: ; preds = %.lr.ph, %161, %.preheader, %php_dom_node_count_list_size_xmlNode.exit, %10, %136, %142, %110, %116, %122, %128, %134, %81, %87, %62, %68, %74, %11, %php_dom_node_is_ns_prefix_equal.exit, %php_dom_node_is_ns_uri_equal.exit, %43, %50, %56, %3, %103, %101, %94
-  %.0 = phi i1 [ %148, %142 ], [ false, %3 ], [ %61, %56 ], [ %80, %74 ], [ %100, %94 ], [ %102, %101 ], [ %109, %103 ], [ %93, %87 ], [ %135, %134 ], [ false, %10 ], [ false, %50 ], [ false, %43 ], [ false, %php_dom_node_is_ns_uri_equal.exit ], [ false, %php_dom_node_is_ns_prefix_equal.exit ], [ false, %11 ], [ false, %68 ], [ false, %62 ], [ false, %81 ], [ false, %128 ], [ false, %122 ], [ false, %116 ], [ false, %110 ], [ false, %136 ], [ false, %php_dom_node_count_list_size_xmlNode.exit ], [ true, %.preheader ], [ %160, %161 ], [ %160, %.lr.ph ]
+  %.0 = phi i1 [ %100, %94 ], [ %102, %101 ], [ %109, %103 ], [ false, %3 ], [ false, %50 ], [ false, %43 ], [ false, %php_dom_node_is_ns_uri_equal.exit ], [ false, %php_dom_node_is_ns_prefix_equal.exit ], [ false, %11 ], [ %61, %56 ], [ false, %68 ], [ false, %62 ], [ %80, %74 ], [ false, %81 ], [ %93, %87 ], [ false, %128 ], [ false, %122 ], [ false, %116 ], [ false, %110 ], [ %135, %134 ], [ false, %136 ], [ %148, %142 ], [ false, %10 ], [ false, %php_dom_node_count_list_size_xmlNode.exit ], [ true, %.preheader ], [ %160, %161 ], [ %160, %.lr.ph ]
   ret i1 %.0
 }
 

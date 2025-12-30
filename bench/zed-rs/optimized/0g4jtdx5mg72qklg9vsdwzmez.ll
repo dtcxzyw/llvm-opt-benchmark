@@ -93,7 +93,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN3std11collect
   unreachable
 
 common.resume:                                    ; preds = %36, %16, %24, %28
-  %common.resume.op = phi { ptr, i32 } [ %25, %28 ], [ %17, %16 ], [ %25, %24 ], [ %37, %36 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %25, %24 ], [ %25, %28 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN118_$LT$assistant_slash_command..slash_command_registry..GlobalSlashCommandRegistry$u20$as$u20$core..default..Default$GT$7default17h98323de4a678fa1bE.exit.i": ; preds = %.noexc.i.i.i

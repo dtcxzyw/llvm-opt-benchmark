@@ -379,13 +379,13 @@ thread-pre-split:                                 ; preds = %17, %25, %21
   ret void
 
 .sink.split92:                                    ; preds = %72, %.sink.split91, %53, %.sink.split90, %40, %.sink.split
-  %.sink93 = phi ptr [ %46, %53 ], [ %33, %40 ], [ %33, %.sink.split ], [ %46, %.sink.split90 ], [ %65, %.sink.split91 ], [ %65, %72 ]
-  %.pn55.pn.pn.ph = phi { ptr, i32 } [ %54, %53 ], [ %41, %40 ], [ %.pn.pn71.ph, %.sink.split ], [ %.pn55.pn78.ph, %.sink.split90 ], [ %.pn50.pn85.ph, %.sink.split91 ], [ %73, %72 ]
+  %.sink93 = phi ptr [ %33, %.sink.split ], [ %33, %40 ], [ %46, %.sink.split90 ], [ %46, %53 ], [ %65, %.sink.split91 ], [ %65, %72 ]
+  %.pn55.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn71.ph, %.sink.split ], [ %41, %40 ], [ %.pn55.pn78.ph, %.sink.split90 ], [ %54, %53 ], [ %.pn50.pn85.ph, %.sink.split91 ], [ %73, %72 ]
   call void @__cxa_free_exception(ptr %.sink93) #26
   br label %75
 
 75:                                               ; preds = %.sink.split92, %72, %53, %40
-  %.pn55.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %54, %53 ], [ %41, %40 ], [ %.pn55.pn.pn.ph, %.sink.split92 ]
+  %.pn55.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %73, %72 ], [ %41, %40 ], [ %.pn55.pn.pn.ph, %.sink.split92 ]
   resume { ptr, i32 } %.pn55.pn.pn
 
 76:                                               ; preds = %69, %50, %37
@@ -875,7 +875,7 @@ define void @_Z20gmx_ana_poscalc_freeP17gmx_ana_poscalc_t(ptr noundef %0) local_
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %22, %16, %12
-  %23 = phi ptr [ %14, %12 ], [ %21, %22 ], [ %21, %16 ]
+  %23 = phi ptr [ %21, %22 ], [ %14, %12 ], [ %21, %16 ]
   %.not16.i = icmp eq ptr %23, null
   br i1 %.not16.i, label %26, label %24
 
@@ -1072,7 +1072,7 @@ define void @_ZN3gmx29PositionCalculationCollection4Impl17removeCalculationEP17g
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14, %20, %10
-  %21 = phi ptr [ %12, %10 ], [ %19, %20 ], [ %19, %14 ]
+  %21 = phi ptr [ %19, %20 ], [ %12, %10 ], [ %19, %14 ]
   %.not16 = icmp eq ptr %21, null
   br i1 %.not16, label %24, label %22
 
@@ -2169,7 +2169,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !120
   br label %41
 
@@ -2444,7 +2444,7 @@ _ZL12should_mergeP17gmx_ana_poscalc_tS0_P15gmx_ana_index_tS2_.exit.thread.i: ; p
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %101, %96, %93
-  %102 = phi ptr [ %94, %93 ], [ %100, %101 ], [ %100, %96 ]
+  %102 = phi ptr [ %100, %101 ], [ %94, %93 ], [ %100, %96 ]
   %.not16.i.i.i = icmp eq ptr %102, null
   br i1 %.not16.i.i.i, label %105, label %103
 
@@ -2514,7 +2514,7 @@ _ZL11merge_basesP17gmx_ana_poscalc_tS0_.exit.i:   ; preds = %121, %_ZN3gmx29Posi
   br label %_ZL12can_use_baseP17gmx_ana_poscalc_t.exit55.thread.i
 
 _ZL12can_use_baseP17gmx_ana_poscalc_t.exit55.thread.i: ; preds = %124, %_ZL12should_mergeP17gmx_ana_poscalc_tS0_P15gmx_ana_index_tS2_.exit.thread.i, %38, %34, %32, %29, %26
-  %.1.i = phi ptr [ %.04063.i, %29 ], [ %.3.i, %124 ], [ %.04063.i, %_ZL12should_mergeP17gmx_ana_poscalc_tS0_P15gmx_ana_index_tS2_.exit.thread.i ], [ %.04063.i, %26 ], [ %.04063.i, %32 ], [ %.04063.i, %34 ], [ %.04063.i, %38 ]
+  %.1.i = phi ptr [ %.04063.i, %29 ], [ %.3.i, %124 ], [ %.04063.i, %26 ], [ %.04063.i, %_ZL12should_mergeP17gmx_ana_poscalc_tS0_P15gmx_ana_index_tS2_.exit.thread.i ], [ %.04063.i, %32 ], [ %.04063.i, %34 ], [ %.04063.i, %38 ]
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %._crit_edge.i, label %26, !llvm.loop !124
 
@@ -2738,7 +2738,7 @@ _ZN3gmx29PositionCalculationCollection4Impl17createCalculationE11e_poscalc_ti.ex
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %46, %41, %38
-  %47 = phi ptr [ %39, %38 ], [ %45, %46 ], [ %45, %41 ]
+  %47 = phi ptr [ %45, %46 ], [ %39, %38 ], [ %45, %41 ]
   %.not16.i = icmp eq ptr %47, null
   br i1 %.not16.i, label %50, label %48
 

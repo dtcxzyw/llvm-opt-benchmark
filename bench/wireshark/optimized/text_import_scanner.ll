@@ -769,7 +769,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i227, %421
   br i1 %.not215, label %.backedge.sink.split759.backedge, label %443
 
 .backedge.sink.split759.backedge:                 ; preds = %yy_try_NUL_trans.exit, %126
-  %.1189.ph.be = phi ptr [ %367, %yy_try_NUL_trans.exit ], [ %.1189, %126 ]
+  %.1189.ph.be = phi ptr [ %.1189, %126 ], [ %367, %yy_try_NUL_trans.exit ]
   br label %.backedge.sink.split759
 
 443:                                              ; preds = %yy_try_NUL_trans.exit
@@ -779,9 +779,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i227, %421
   br label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %._crit_edge.i245, %443, %643
-  %.0188.be = phi ptr [ %367, %443 ], [ %641, %643 ], [ %641, %._crit_edge.i245 ]
-  %.0180.be = phi ptr [ %445, %443 ], [ %650, %643 ], [ %650, %._crit_edge.i245 ]
-  %.0175.be = phi i32 [ %444, %443 ], [ %655, %643 ], [ %696, %._crit_edge.i245 ]
+  %.0188.be = phi ptr [ %641, %643 ], [ %367, %443 ], [ %641, %._crit_edge.i245 ]
+  %.0180.be = phi ptr [ %650, %643 ], [ %445, %443 ], [ %650, %._crit_edge.i245 ]
+  %.0175.be = phi i32 [ %655, %643 ], [ %444, %443 ], [ %696, %._crit_edge.i245 ]
   br label %.loopexit
 
 446:                                              ; preds = %351
@@ -1966,7 +1966,7 @@ define hidden void @text_import_push_buffer_state(ptr noundef %0, ptr noundef ca
   br label %.thread
 
 .thread:                                          ; preds = %4, %12, %33, %.thread31
-  %35 = phi ptr [ %.pr34, %.thread31 ], [ null, %12 ], [ %.pr34, %33 ], [ null, %4 ]
+  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37
@@ -2175,7 +2175,7 @@ define hidden noundef ptr @text_import__scan_buffer(ptr noundef %0, i64 noundef 
   br label %53
 
 53:                                               ; preds = %16, %35, %34
-  %54 = phi ptr [ %28, %34 ], [ %.pre.i, %35 ], [ null, %16 ]
+  %54 = phi ptr [ %.pre.i, %35 ], [ %28, %34 ], [ null, %16 ]
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %56 = load i64, ptr %55, align 8
   %57 = getelementptr ptr, ptr %54, i64 %56
@@ -2207,7 +2207,7 @@ define hidden noundef ptr @text_import__scan_buffer(ptr noundef %0, i64 noundef 
   br label %text_import__switch_to_buffer.exit
 
 text_import__switch_to_buffer.exit:               ; preds = %53, %.thread.i, %3, %5, %9
-  %.0 = phi ptr [ null, %3 ], [ null, %9 ], [ null, %5 ], [ %14, %.thread.i ], [ %14, %53 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %5 ], [ null, %3 ], [ %14, %.thread.i ], [ %14, %53 ]
   ret ptr %.0
 }
 
@@ -2637,7 +2637,7 @@ text_import__delete_buffer.exit.i:                ; preds = %32, %.critedge.i.i
   br label %text_import_pop_buffer_state.exit
 
 text_import_pop_buffer_state.exit:                ; preds = %26, %44, %47
-  %56 = phi ptr [ %43, %44 ], [ %25, %26 ], [ %43, %47 ]
+  %56 = phi ptr [ %25, %26 ], [ %43, %44 ], [ %43, %47 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8

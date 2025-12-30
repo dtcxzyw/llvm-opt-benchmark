@@ -400,8 +400,8 @@ define dso_local range(i32 -110, 1) i32 @xhci_handshake(ptr noundef %0, i32 noun
   br i1 %27, label %.loopexit, label %.split, !llvm.loop !8
 
 .loopexit:                                        ; preds = %21, %.split.us, %19, %4
-  %.pre-phi = phi i32 [ %13, %.split.us ], [ %6, %4 ], [ %.pre, %19 ], [ %24, %21 ]
-  %28 = phi i32 [ %12, %.split.us ], [ %5, %4 ], [ %20, %19 ], [ %23, %21 ]
+  %.pre-phi = phi i32 [ %.pre, %19 ], [ %6, %4 ], [ %13, %.split.us ], [ %24, %21 ]
+  %28 = phi i32 [ %20, %19 ], [ %5, %4 ], [ %12, %.split.us ], [ %23, %21 ]
   %29 = icmp eq i32 %28, -1
   %30 = icmp eq i32 %.pre-phi, %2
   %31 = select i1 %30, i32 0, i32 -110
@@ -481,8 +481,8 @@ define dso_local range(i32 -110, 1) i32 @xhci_handshake_check_state(ptr noundef 
   br i1 %43, label %.loopexit, label %29, !llvm.loop !10
 
 .loopexit:                                        ; preds = %29, %38, %25, %.split.us, %36, %12, %6
-  %.pre-phi = phi i32 [ %21, %25 ], [ %8, %6 ], [ %.pre5, %36 ], [ %8, %12 ], [ %21, %.split.us ], [ %40, %38 ], [ %40, %29 ]
-  %44 = phi i32 [ %20, %25 ], [ %7, %6 ], [ %37, %36 ], [ %7, %12 ], [ %20, %.split.us ], [ %39, %38 ], [ %39, %29 ]
+  %.pre-phi = phi i32 [ %.pre5, %36 ], [ %8, %12 ], [ %8, %6 ], [ %21, %.split.us ], [ %21, %25 ], [ %40, %38 ], [ %40, %29 ]
+  %44 = phi i32 [ %37, %36 ], [ %7, %12 ], [ %7, %6 ], [ %20, %.split.us ], [ %20, %25 ], [ %39, %38 ], [ %39, %29 ]
   %45 = icmp eq i32 %.pre-phi, %3
   %46 = icmp eq i32 %44, -1
   %47 = or i1 %46, %45
@@ -576,8 +576,8 @@ define dso_local range(i32 -110, 1) i32 @xhci_halt(ptr noundef %0) local_unnamed
   br i1 %27, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %23, %19, %1
-  %.pre-phi = phi i32 [ 0, %1 ], [ %22, %19 ], [ 0, %23 ]
-  %28 = phi i32 [ %14, %1 ], [ %20, %19 ], [ %25, %23 ]
+  %.pre-phi = phi i32 [ %22, %19 ], [ 0, %1 ], [ 0, %23 ]
+  %28 = phi i32 [ %20, %19 ], [ %14, %1 ], [ %25, %23 ]
   %29 = icmp eq i32 %28, -1
   %30 = select i1 %29, i32 -19, i32 %.pre-phi
   %31 = icmp eq i32 %30, 0
@@ -693,8 +693,8 @@ define dso_local noundef range(i32 -110, 1) i32 @xhci_start(ptr noundef %0) loca
   br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %18, %16, %1
-  %.pre-phi = phi i32 [ %10, %1 ], [ %.pre, %16 ], [ %21, %18 ]
-  %25 = phi i32 [ %9, %1 ], [ %17, %16 ], [ %20, %18 ]
+  %.pre-phi = phi i32 [ %.pre, %16 ], [ %10, %1 ], [ %21, %18 ]
+  %25 = phi i32 [ %17, %16 ], [ %9, %1 ], [ %20, %18 ]
   %26 = icmp eq i32 %25, -1
   %27 = icmp eq i32 %.pre-phi, 0
   %28 = select i1 %27, i32 0, i32 -110
@@ -840,8 +840,8 @@ define dso_local range(i32 -110, 1) i32 @xhci_reset(ptr noundef %0, i64 noundef 
   br i1 %67, label %.loopexit5, label %53, !llvm.loop !10
 
 .loopexit5:                                       ; preds = %53, %62, %49, %.split.us, %60, %34, %27
-  %.pre-phi = phi i32 [ 1, %49 ], [ %30, %27 ], [ %.pre15, %60 ], [ 1, %34 ], [ %45, %.split.us ], [ %64, %62 ], [ 1, %53 ]
-  %68 = phi i32 [ %44, %49 ], [ %29, %27 ], [ %61, %60 ], [ %29, %34 ], [ %44, %.split.us ], [ %63, %62 ], [ %63, %53 ]
+  %.pre-phi = phi i32 [ %.pre15, %60 ], [ 1, %34 ], [ %30, %27 ], [ %45, %.split.us ], [ 1, %49 ], [ %64, %62 ], [ 1, %53 ]
+  %68 = phi i32 [ %61, %60 ], [ %29, %34 ], [ %29, %27 ], [ %44, %.split.us ], [ %44, %49 ], [ %63, %62 ], [ %63, %53 ]
   %69 = icmp eq i32 %.pre-phi, 0
   %70 = icmp eq i32 %68, -1
   %71 = or i1 %70, %69
@@ -929,8 +929,8 @@ define dso_local range(i32 -110, 1) i32 @xhci_reset(ptr noundef %0, i64 noundef 
   br i1 %112, label %.loopexit, label %.split7, !llvm.loop !8
 
 .loopexit:                                        ; preds = %106, %.split7.us, %104, %87
-  %.pre-phi17 = phi i32 [ %98, %.split7.us ], [ %91, %87 ], [ %.pre16, %104 ], [ %109, %106 ]
-  %113 = phi i32 [ %97, %.split7.us ], [ %90, %87 ], [ %105, %104 ], [ %108, %106 ]
+  %.pre-phi17 = phi i32 [ %.pre16, %104 ], [ %91, %87 ], [ %98, %.split7.us ], [ %109, %106 ]
+  %113 = phi i32 [ %105, %104 ], [ %90, %87 ], [ %97, %.split7.us ], [ %108, %106 ]
   %114 = icmp eq i32 %113, -1
   %115 = icmp eq i32 %.pre-phi17, 0
   %116 = select i1 %115, i32 0, i32 -110
@@ -950,7 +950,7 @@ define dso_local range(i32 -110, 1) i32 @xhci_reset(ptr noundef %0, i64 noundef 
   br label %.thread4
 
 .thread4:                                         ; preds = %73, %.thread23, %72, %.loopexit, %14, %8
-  %124 = phi i32 [ -19, %8 ], [ 0, %14 ], [ %117, %.loopexit ], [ -19, %.thread23 ], [ -19, %72 ], [ %spec.select, %73 ]
+  %124 = phi i32 [ -19, %8 ], [ 0, %14 ], [ %117, %.loopexit ], [ -19, %72 ], [ -19, %.thread23 ], [ %spec.select, %73 ]
   ret i32 %124
 }
 
@@ -1580,8 +1580,8 @@ define dso_local noundef range(i32 -110, 1) i32 @xhci_suspend(ptr noundef %0, i1
   br i1 %126, label %116, label %.loopexit13, !llvm.loop !8
 
 .loopexit13:                                      ; preds = %122, %119, %100
-  %.pre-phi = phi i1 [ true, %100 ], [ %121, %119 ], [ true, %122 ]
-  %127 = phi i32 [ %109, %100 ], [ %120, %119 ], [ %124, %122 ]
+  %.pre-phi = phi i1 [ %121, %119 ], [ true, %100 ], [ true, %122 ]
+  %127 = phi i32 [ %120, %119 ], [ %109, %100 ], [ %124, %122 ]
   %128 = icmp ne i32 %127, -1
   %129 = and i1 %128, %.pre-phi
   br i1 %129, label %133, label %130
@@ -1793,7 +1793,7 @@ define dso_local noundef range(i32 -110, 1) i32 @xhci_suspend(ptr noundef %0, i1
   br i1 %281, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %275, %273, %.loopexit12
-  %.pre-phi22 = phi i32 [ %267, %.loopexit12 ], [ %.pre21, %273 ], [ %278, %275 ]
+  %.pre-phi22 = phi i32 [ %.pre21, %273 ], [ %267, %.loopexit12 ], [ %278, %275 ]
   %282 = icmp eq i32 %.pre-phi22, 0
   br i1 %282, label %299, label %283
 
@@ -2111,7 +2111,7 @@ define dso_local i32 @xhci_resume(ptr noundef %0, i32 %1) #0 align 16 {
   br i1 %181, label %.loopexit, label %.preheader31, !llvm.loop !8
 
 .loopexit:                                        ; preds = %175, %173, %.loopexit32
-  %.pre-phi = phi i32 [ %167, %.loopexit32 ], [ %.pre40, %173 ], [ %178, %175 ]
+  %.pre-phi = phi i32 [ %.pre40, %173 ], [ %167, %.loopexit32 ], [ %178, %175 ]
   %182 = icmp eq i32 %.pre-phi, 0
   br i1 %182, label %186, label %183
 
@@ -2479,8 +2479,8 @@ define dso_local i32 @xhci_resume(ptr noundef %0, i32 %1) #0 align 16 {
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %296, %407, %.critedge
-  %413 = phi ptr [ %402, %.critedge ], [ %402, %407 ], [ %208, %296 ]
-  %414 = phi i32 [ 0, %.critedge ], [ 0, %407 ], [ %268, %296 ]
+  %413 = phi ptr [ %402, %407 ], [ %402, %.critedge ], [ %208, %296 ]
+  %414 = phi i32 [ 0, %407 ], [ 0, %.critedge ], [ %268, %296 ]
   %415 = load i64, ptr %413, align 8
   %416 = and i64 %415, 268435456
   %417 = icmp eq i64 %416, 0
@@ -2667,8 +2667,8 @@ define internal fastcc void @xhci_zero_64b_regs(ptr noundef readonly captures(no
   br i1 %95, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %91, %88, %.loopexit4
-  %.pre-phi = phi i1 [ true, %.loopexit4 ], [ %90, %88 ], [ true, %91 ]
-  %96 = phi i32 [ %83, %.loopexit4 ], [ %89, %88 ], [ %93, %91 ]
+  %.pre-phi = phi i1 [ %90, %88 ], [ true, %.loopexit4 ], [ true, %91 ]
+  %96 = phi i32 [ %89, %88 ], [ %83, %.loopexit4 ], [ %93, %91 ]
   %97 = icmp ne i32 %96, -1
   %98 = and i1 %97, %.pre-phi
   br i1 %98, label %99, label %102
@@ -3012,7 +3012,7 @@ define dso_local range(i32 -22, 1) i32 @xhci_drop_endpoint(ptr noundef %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %34, %30, %19, %24, %9, %3, %5, %130, %127, %117, %79, %52, %45
-  %144 = phi i32 [ 0, %130 ], [ 0, %79 ], [ 0, %117 ], [ -19, %45 ], [ 0, %52 ], [ 0, %127 ], [ -19, %34 ], [ -22, %30 ], [ -22, %19 ], [ -22, %24 ], [ 0, %9 ], [ -22, %3 ], [ -22, %5 ]
+  %144 = phi i32 [ 0, %130 ], [ 0, %79 ], [ -19, %45 ], [ 0, %52 ], [ 0, %127 ], [ 0, %117 ], [ -19, %34 ], [ -22, %30 ], [ -22, %19 ], [ -22, %24 ], [ 0, %9 ], [ -22, %3 ], [ -22, %5 ]
   ret i32 %144
 }
 
@@ -3609,7 +3609,7 @@ define dso_local range(i32 -108, 1) i32 @xhci_check_bandwidth(ptr noundef %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %31, %27, %16, %21, %6, %2, %.loopexit, %49, %42
-  %196 = phi i32 [ %193, %.loopexit ], [ -12, %49 ], [ -19, %42 ], [ -19, %31 ], [ -22, %27 ], [ -22, %16 ], [ -22, %21 ], [ 0, %6 ], [ -22, %2 ]
+  %196 = phi i32 [ %193, %.loopexit ], [ -19, %42 ], [ -12, %49 ], [ -19, %31 ], [ -22, %27 ], [ -22, %16 ], [ -22, %21 ], [ 0, %6 ], [ -22, %2 ]
   ret i32 %196
 }
 
@@ -6449,8 +6449,8 @@ define internal i32 @xhci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %.critedge
 
 .critedge:                                        ; preds = %42, %31, %33, %37, %23, %.thread, %28
-  %49 = phi i32 [ %27, %28 ], [ %27, %42 ], [ %22, %.thread ], [ %27, %23 ], [ %27, %37 ], [ %27, %33 ], [ %27, %31 ]
-  %50 = phi i32 [ %30, %28 ], [ %spec.select, %42 ], [ 1, %.thread ], [ 1, %23 ], [ 1, %37 ], [ 1, %33 ], [ 1, %31 ]
+  %49 = phi i32 [ %27, %28 ], [ %22, %.thread ], [ %27, %23 ], [ %27, %37 ], [ %27, %33 ], [ %27, %31 ], [ %27, %42 ]
+  %50 = phi i32 [ %30, %28 ], [ 1, %.thread ], [ 1, %23 ], [ 1, %37 ], [ 1, %33 ], [ 1, %31 ], [ %spec.select, %42 ]
   %51 = or i32 %2, 256
   %52 = sext i32 %50 to i64
   %53 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %52, i64 96)
@@ -6658,7 +6658,7 @@ default.unreachable21:                            ; preds = %162
   br i1 %177, label %179, label %.thread11
 
 .thread11:                                        ; preds = %89, %83, %109, %104, %115, %119, %94, %175, %159, %153, %141, %132, %124
-  %178 = phi i32 [ -108, %141 ], [ -22, %153 ], [ -22, %159 ], [ %176, %175 ], [ -108, %124 ], [ -19, %132 ], [ -22, %94 ], [ -22, %89 ], [ -22, %83 ], [ -22, %109 ], [ -22, %104 ], [ -22, %115 ], [ -19, %119 ]
+  %178 = phi i32 [ -22, %153 ], [ -22, %159 ], [ %176, %175 ], [ -108, %124 ], [ -19, %132 ], [ -108, %141 ], [ -22, %94 ], [ -22, %89 ], [ -22, %83 ], [ -22, %109 ], [ -22, %104 ], [ -22, %115 ], [ -19, %119 ]
   tail call void @xhci_urb_free_priv(ptr noundef nonnull %58) #21
   store ptr null, ptr %62, align 8
   br label %179
@@ -8236,7 +8236,7 @@ define internal range(i32 1, -1) i32 @xhci_alloc_streams(ptr noundef %0, ptr nou
   br i1 %169, label %170, label %.split, !llvm.loop !104
 
 .thread28:                                        ; preds = %138, %.split, %55, %78, %74, %64, %68, %53, %41, %134, %122, %88
-  %.ph31 = phi i32 [ -22, %122 ], [ -22, %134 ], [ -22, %88 ], [ -22, %41 ], [ -19, %78 ], [ -22, %74 ], [ -22, %64 ], [ -22, %68 ], [ -22, %53 ], [ -22, %.split ], [ -22, %55 ], [ -22, %138 ]
+  %.ph31 = phi i32 [ -22, %134 ], [ -22, %122 ], [ -22, %88 ], [ -22, %41 ], [ -19, %78 ], [ -22, %74 ], [ -22, %64 ], [ -22, %68 ], [ -22, %53 ], [ -22, %.split ], [ -22, %55 ], [ -22, %138 ]
   tail call void @xhci_free_command(ptr noundef nonnull %17, ptr noundef nonnull %28) #21
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %38, i64 noundef %39) #21
   br label %401
@@ -9159,7 +9159,7 @@ define internal i32 @xhci_discover_or_reset_device(ptr noundef %0, ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %16, %6, %2, %160, %86, %58, %54, %38
-  %162 = phi i32 [ %161, %160 ], [ -12, %86 ], [ %41, %38 ], [ %57, %54 ], [ 0, %58 ], [ -19, %16 ], [ 0, %6 ], [ -22, %2 ]
+  %162 = phi i32 [ %161, %160 ], [ %41, %38 ], [ %57, %54 ], [ 0, %58 ], [ -12, %86 ], [ -19, %16 ], [ 0, %6 ], [ -22, %2 ]
   ret i32 %162
 }
 
@@ -9788,7 +9788,7 @@ define internal range(i32 -108, 65536) i32 @xhci_enable_usb3_lpm_timeout(ptr nou
   br label %213
 
 213:                                              ; preds = %209, %203, %49, %36, %31, %17, %10
-  %214 = phi i32 [ %212, %209 ], [ 0, %17 ], [ 0, %10 ], [ 0, %31 ], [ 0, %49 ], [ %207, %203 ], [ 0, %36 ]
+  %214 = phi i32 [ %212, %209 ], [ 0, %17 ], [ 0, %10 ], [ 0, %49 ], [ %207, %203 ], [ 0, %36 ], [ 0, %31 ]
   ret i32 %214
 }
 
@@ -10502,7 +10502,7 @@ define internal fastcc i32 @xhci_setup_device(ptr noundef %0, ptr noundef %1, i3
   br label %270
 
 .thread:                                          ; preds = %167, %170, %182, %184, %76, %161, %255
-  %264 = phi i32 [ 0, %255 ], [ -22, %76 ], [ %159, %161 ], [ -62, %167 ], [ -22, %170 ], [ -19, %182 ], [ -22, %184 ]
+  %264 = phi i32 [ %159, %161 ], [ 0, %255 ], [ -22, %76 ], [ -62, %167 ], [ -22, %170 ], [ -19, %182 ], [ -22, %184 ]
   tail call void @mutex_unlock(ptr noundef nonnull %15) #21
   %265 = getelementptr inbounds nuw i8, ptr %65, i64 16
   br label %266
@@ -10516,7 +10516,7 @@ define internal fastcc i32 @xhci_setup_device(ptr noundef %0, ptr noundef %1, i3
   br label %270
 
 270:                                              ; preds = %.thread14, %266
-  %271 = phi i32 [ %.ph13, %.thread14 ], [ %268, %266 ]
+  %271 = phi i32 [ %268, %266 ], [ %.ph13, %.thread14 ]
   ret i32 %271
 }
 

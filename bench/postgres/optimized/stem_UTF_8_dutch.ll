@@ -193,7 +193,7 @@ define hidden range(i32 -2147483648, 2) i32 @dutch_UTF_8_stem(ptr noundef initia
   %.ph178 = phi i32 [ %.ph, %.preheader.i.preheader ], [ %86, %88 ]
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader.i.outer, %select.unfold.i
+.preheader.i:                                     ; preds = %.preheader.i.outer, %select.unfold190.i
   %59 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 232, i32 noundef 0) #3
   %.not159.i = icmp eq i32 %59, 0
   br i1 %.not159.i, label %60, label %._crit_edge240.i
@@ -234,7 +234,7 @@ define hidden range(i32 -2147483648, 2) i32 @dutch_UTF_8_stem(ptr noundef initia
 71:                                               ; preds = %68
   %72 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_6) #3
   %73 = icmp sgt i32 %72, -1
-  br i1 %73, label %select.unfold.i, label %r_standard_suffix.exit.thread
+  br i1 %73, label %select.unfold190.i, label %r_standard_suffix.exit.thread
 
 74:                                               ; preds = %._crit_edge238.i, %64
   %.pre242.i = phi ptr [ %.pre242.pre.i, %._crit_edge238.i ], [ %.pre242.pre245.i, %64 ]
@@ -255,7 +255,7 @@ define hidden range(i32 -2147483648, 2) i32 @dutch_UTF_8_stem(ptr noundef initia
   store i32 %81, ptr %6, align 8
   %82 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_7) #3
   %83 = icmp slt i32 %82, 0
-  br i1 %83, label %r_standard_suffix.exit.thread, label %select.unfold.i
+  br i1 %83, label %r_standard_suffix.exit.thread, label %select.unfold190.i
 
 .thread.i:                                        ; preds = %77, %74, %60, %._crit_edge240.i
   %84 = phi i32 [ %.pre243.i, %._crit_edge240.i ], [ %61, %60 ], [ %61, %74 ], [ %75, %77 ]
@@ -269,7 +269,7 @@ define hidden range(i32 -2147483648, 2) i32 @dutch_UTF_8_stem(ptr noundef initia
   store i32 %86, ptr %2, align 8
   br label %.preheader.i.outer
 
-select.unfold.i:                                  ; preds = %80, %71
+select.unfold190.i:                               ; preds = %80, %71
   store i32 %.ph178, ptr %2, align 8
   br label %.preheader.i
 
@@ -438,7 +438,7 @@ r_en_ending.exit.i:                               ; preds = %155
   br i1 %168, label %.thread.i45, label %r_standard_suffix.exit.thread
 
 .thread.i45:                                      ; preds = %166, %164, %162, %r_en_ending.exit.i, %151, %148, %146, %143, %141, %139, %137, %133, %126, %r_mark_regions.exit
-  %.0.i = phi i32 [ undef, %r_mark_regions.exit ], [ undef, %126 ], [ undef, %139 ], [ 1, %143 ], [ 0, %141 ], [ undef, %133 ], [ undef, %137 ], [ 1, %164 ], [ 1, %166 ], [ 0, %162 ], [ 0, %146 ], [ %.fr.i, %r_en_ending.exit.i ], [ 0, %148 ], [ 0, %151 ]
+  %.0.i = phi i32 [ undef, %r_mark_regions.exit ], [ undef, %126 ], [ undef, %139 ], [ 1, %143 ], [ 0, %141 ], [ 1, %164 ], [ 1, %166 ], [ 0, %162 ], [ undef, %137 ], [ undef, %133 ], [ 0, %151 ], [ 0, %148 ], [ 0, %146 ], [ %.fr.i, %r_en_ending.exit.i ]
   %169 = load i32, ptr %5, align 4
   store i32 %169, ptr %2, align 8
   %170 = load ptr, ptr %91, align 8
@@ -575,7 +575,7 @@ r_en_ending.exit:                                 ; preds = %222
   br i1 %229, label %.thread, label %r_standard_suffix.exit
 
 .thread:                                          ; preds = %r_en_ending.exit, %212, %215, %218, %209, %200, %196, %r_e_ending.exit.thread.i
-  %.9.i = phi i32 [ %.0.i, %r_e_ending.exit.thread.i ], [ %.0.i.mux, %r_en_ending.exit ], [ %.0.i, %209 ], [ %.0.i, %196 ], [ %.0.i, %200 ], [ %.0.i, %218 ], [ %.0.i, %215 ], [ %.0.i, %212 ]
+  %.9.i = phi i32 [ %.0.i, %209 ], [ %.0.i, %196 ], [ %.0.i, %r_e_ending.exit.thread.i ], [ %.0.i, %200 ], [ %.0.i, %218 ], [ %.0.i, %215 ], [ %.0.i, %212 ], [ %.0.i.mux, %r_en_ending.exit ]
   %230 = load i32, ptr %5, align 4
   store i32 %230, ptr %2, align 8
   store i32 %230, ptr %6, align 8
@@ -808,7 +808,7 @@ r_en_ending.exit:                                 ; preds = %222
   br i1 %334, label %r_standard_suffix.exit.thread81, label %r_standard_suffix.exit.thread
 
 r_standard_suffix.exit:                           ; preds = %r_en_ending.exit, %289
-  %.7.i = phi i32 [ %.fr..0.i, %r_en_ending.exit ], [ %.27.i, %289 ]
+  %.7.i = phi i32 [ %.27.i, %289 ], [ %.fr..0.i, %r_en_ending.exit ]
   %335 = icmp sgt i32 %.7.i, -1
   br i1 %335, label %r_standard_suffix.exit.thread81, label %r_standard_suffix.exit.thread
 
@@ -886,8 +886,8 @@ r_standard_suffix.exit.thread81:                  ; preds = %332, %325, %323, %3
   store i32 %336, ptr %2, align 8
   br label %r_standard_suffix.exit.thread
 
-r_standard_suffix.exit.thread:                    ; preds = %25, %37, %34, %31, %28, %80, %71, %349, %352, %222, %r_en_ending.exit.i, %248, %294, %301, %282, %286, %268, %143, %166, %155, %r_e_ending.exit.i, %185, %265, %206, %332, %362, %55, %r_standard_suffix.exit
-  %.1 = phi i32 [ %.7.i, %r_standard_suffix.exit ], [ %207, %206 ], [ %167, %166 ], [ %158, %155 ], [ %192, %r_e_ending.exit.i ], [ %188, %185 ], [ %350, %349 ], [ %266, %265 ], [ %57, %55 ], [ %82, %80 ], [ 1, %362 ], [ %225, %222 ], [ %333, %332 ], [ %.fr.i, %r_en_ending.exit.i ], [ %249, %248 ], [ %295, %294 ], [ %302, %301 ], [ %283, %282 ], [ %287, %286 ], [ %.fr502.i, %268 ], [ %144, %143 ], [ %353, %352 ], [ %72, %71 ], [ %29, %28 ], [ %32, %31 ], [ %26, %25 ], [ %35, %34 ], [ %38, %37 ]
+r_standard_suffix.exit.thread:                    ; preds = %37, %34, %31, %28, %25, %71, %80, %349, %352, %222, %268, %r_en_ending.exit.i, %265, %248, %282, %286, %294, %301, %206, %185, %155, %143, %166, %332, %r_e_ending.exit.i, %362, %55, %r_standard_suffix.exit
+  %.1 = phi i32 [ %.7.i, %r_standard_suffix.exit ], [ %57, %55 ], [ 1, %362 ], [ %.fr502.i, %268 ], [ %.fr.i, %r_en_ending.exit.i ], [ %266, %265 ], [ %249, %248 ], [ %283, %282 ], [ %287, %286 ], [ %295, %294 ], [ %302, %301 ], [ %207, %206 ], [ %188, %185 ], [ %158, %155 ], [ %144, %143 ], [ %167, %166 ], [ %333, %332 ], [ %192, %r_e_ending.exit.i ], [ %225, %222 ], [ %350, %349 ], [ %353, %352 ], [ %82, %80 ], [ %72, %71 ], [ %26, %25 ], [ %29, %28 ], [ %32, %31 ], [ %35, %34 ], [ %38, %37 ]
   ret i32 %.1
 }
 
@@ -981,7 +981,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_e_ending(ptr noundef ini
   br label %32
 
 32:                                               ; preds = %19, %28, %23, %16, %1, %10
-  %.0 = phi i32 [ 0, %16 ], [ 0, %1 ], [ %31, %28 ], [ %26, %23 ], [ 0, %10 ], [ 0, %19 ]
+  %.0 = phi i32 [ %26, %23 ], [ 0, %16 ], [ 0, %10 ], [ 0, %1 ], [ %31, %28 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -1044,8 +1044,8 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_undouble(ptr noundef %0)
   %spec.select = select i1 %32, i32 1, i32 %.
   br label %.thread
 
-.thread:                                          ; preds = %19, %9, %15, %1, %21, %29
-  %.1 = phi i32 [ 0, %21 ], [ %spec.select, %29 ], [ 0, %1 ], [ 0, %15 ], [ 0, %9 ], [ 0, %19 ]
+.thread:                                          ; preds = %19, %1, %9, %15, %21, %29
+  %.1 = phi i32 [ %spec.select, %29 ], [ 0, %21 ], [ 0, %15 ], [ 0, %9 ], [ 0, %1 ], [ 0, %19 ]
   ret i32 %.1
 }
 

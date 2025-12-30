@@ -1376,7 +1376,7 @@ _ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE14isE
   br label %34, !llvm.loop !172
 
 _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEEneERKS5_.exit.thread22.i: ; preds = %_ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE14isElementEqualEPKS5_.exit.i, %57, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEEeqERKS5_.exit.thread25.i, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEEeqERKS5_.exit.i, %37, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEEneERKS5_.exit.i, %35
-  %.0.i = phi i1 [ true, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEEneERKS5_.exit.i ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEEeqERKS5_.exit.i ], [ false, %_ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE14isElementEqualEPKS5_.exit.i ], [ false, %37 ], [ true, %35 ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEEeqERKS5_.exit.thread25.i ], [ false, %57 ]
+  %.0.i = phi i1 [ true, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEEneERKS5_.exit.i ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEEeqERKS5_.exit.i ], [ false, %_ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE14isElementEqualEPKS5_.exit.i ], [ true, %35 ], [ false, %37 ], [ false, %57 ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEEeqERKS5_.exit.thread25.i ]
   %69 = icmp eq ptr %.val12.i, %26
   br i1 %69, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEED2Ev.exit.i, label %70
 
@@ -1504,13 +1504,13 @@ define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerI
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %17 = load ptr, ptr %16, align 8, !tbaa !170
   %18 = icmp eq ptr %15, %17
-  br i1 %18, label %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit, label %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit
+  br i1 %18, label %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit, label %.thread28
 
 _ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit: ; preds = %13
   %19 = load ptr, ptr %1, align 8, !tbaa !171
   %20 = load ptr, ptr %7, align 8, !tbaa !171
   %21 = icmp eq ptr %19, %20
-  br i1 %21, label %22, label %28
+  br i1 %21, label %22, label %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit
 
 22:                                               ; preds = %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit
   %23 = getelementptr i8, ptr %2, i64 8
@@ -1522,38 +1522,38 @@ _ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit: ;
 
 26:                                               ; preds = %6
   %27 = icmp ult i32 %9, %11
-  br i1 %27, label %33, label %38
+  br i1 %27, label %32, label %37
 
-28:                                               ; preds = %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit
+.thread28:                                        ; preds = %13
+  %28 = icmp ult ptr %15, %17
+  br i1 %28, label %32, label %37
+
+_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit: ; preds = %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit
   %29 = load ptr, ptr %1, align 8, !tbaa !171
   %30 = load ptr, ptr %7, align 8, !tbaa !171
   %31 = icmp ult ptr %29, %30
-  br i1 %31, label %33, label %38
+  br i1 %31, label %32, label %37
 
-_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit: ; preds = %13
-  %32 = icmp ult ptr %15, %17
-  br i1 %32, label %33, label %38
-
-common.ret33:                                     ; preds = %22, %4, %38, %33
-  %common.ret33.op = phi ptr [ %42, %38 ], [ %37, %33 ], [ %25, %22 ], [ %5, %4 ]
+common.ret33:                                     ; preds = %22, %4, %37, %32
+  %common.ret33.op = phi ptr [ %36, %32 ], [ %41, %37 ], [ %5, %4 ], [ %25, %22 ]
   ret ptr %common.ret33.op
 
-33:                                               ; preds = %28, %26, %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit
-  %34 = getelementptr i8, ptr %2, i64 8
-  %.val23 = load ptr, ptr %34, align 8, !tbaa !176
-  %35 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE12add_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %.val23)
-  %36 = getelementptr i8, ptr %2, i64 16
-  %.val26 = load ptr, ptr %36, align 8, !tbaa !177
-  %37 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE11balanceTreeEPNS_11ImutAVLTreeIS4_EERKS3_S8_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %.val26)
+32:                                               ; preds = %.thread28, %26, %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit
+  %33 = getelementptr i8, ptr %2, i64 8
+  %.val23 = load ptr, ptr %33, align 8, !tbaa !176
+  %34 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE12add_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %.val23)
+  %35 = getelementptr i8, ptr %2, i64 16
+  %.val26 = load ptr, ptr %35, align 8, !tbaa !177
+  %36 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE11balanceTreeEPNS_11ImutAVLTreeIS4_EERKS3_S8_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %34, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %.val26)
   br label %common.ret33
 
-38:                                               ; preds = %28, %26, %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit
-  %39 = getelementptr i8, ptr %2, i64 8
-  %.val24 = load ptr, ptr %39, align 8, !tbaa !176
-  %40 = getelementptr i8, ptr %2, i64 16
-  %.val27 = load ptr, ptr %40, align 8, !tbaa !177
-  %41 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE12add_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %.val27)
-  %42 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE11balanceTreeEPNS_11ImutAVLTreeIS4_EERKS3_S8_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %.val24, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %41)
+37:                                               ; preds = %.thread28, %26, %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit
+  %38 = getelementptr i8, ptr %2, i64 8
+  %.val24 = load ptr, ptr %38, align 8, !tbaa !176
+  %39 = getelementptr i8, ptr %2, i64 16
+  %.val27 = load ptr, ptr %39, align 8, !tbaa !177
+  %40 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE12add_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %.val27)
+  %41 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE11balanceTreeEPNS_11ImutAVLTreeIS4_EERKS3_S8_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %.val24, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %40)
   br label %common.ret33
 }
 
@@ -1890,7 +1890,7 @@ _ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE9g
   br label %62
 
 62:                                               ; preds = %.critedge70, %52, %.critedge, %28, %60
-  %.1 = phi ptr [ %61, %60 ], [ %35, %28 ], [ %27, %.critedge ], [ %51, %.critedge70 ], [ %59, %52 ]
+  %.1 = phi ptr [ %61, %60 ], [ %27, %.critedge ], [ %35, %28 ], [ %51, %.critedge70 ], [ %59, %52 ]
   ret ptr %.1
 }
 
@@ -2342,7 +2342,7 @@ _ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE13comp
   br label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit
 
 _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm15ImutProfileInfoIN12_GLOBAL__N_19ZeroStateEE7ProfileERNS_16FoldingSetNodeIDERKS2_.exit, %_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE13computeDigestEPS5_S6_RKS3_.exit, %51
-  %.1.i12 = phi i32 [ %49, %51 ], [ %49, %_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE13computeDigestEPS5_S6_RKS3_.exit ], [ %47, %_ZN4llvm15ImutProfileInfoIN12_GLOBAL__N_19ZeroStateEE7ProfileERNS_16FoldingSetNodeIDERKS2_.exit ]
+  %.1.i12 = phi i32 [ %49, %_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE13computeDigestEPS5_S6_RKS3_.exit ], [ %49, %51 ], [ %47, %_ZN4llvm15ImutProfileInfoIN12_GLOBAL__N_19ZeroStateEE7ProfileERNS_16FoldingSetNodeIDERKS2_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %.1.i12, ptr %52, align 8, !tbaa !198
@@ -2677,7 +2677,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN12_GLOBAL__N_19Zero
   unreachable
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEEppEv.exit: ; preds = %25, %38, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit14.i
-  %.val2.pr9 = phi i32 [ %37, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit14.i ], [ %24, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %.val2.pr11, %25 ], [ %.val2.pr11, %38 ]
+  %.val2.pr9 = phi i32 [ %24, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %37, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit14.i ], [ %.val2.pr11, %38 ], [ %.val2.pr11, %25 ]
   %.not.i.i = icmp eq i32 %.val2.pr9, 0
   br i1 %.not.i.i, label %.critedge, label %50
 
@@ -3281,8 +3281,8 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_123TestAfterDivZeroC
   %29 = load i32, ptr %28, align 4, !tbaa !120, !noalias !236
   br label %30
 
-30:                                               ; preds = %47, %27
-  %.01220.i.i.i.i.i = phi ptr [ %26, %27 ], [ %.113.i.i.i.i.i, %47 ]
+30:                                               ; preds = %46, %27
+  %.01220.i.i.i.i.i = phi ptr [ %26, %27 ], [ %.113.i.i.i.i.i, %46 ]
   %31 = getelementptr inbounds nuw i8, ptr %.01220.i.i.i.i.i, i64 48
   %32 = getelementptr inbounds nuw i8, ptr %.01220.i.i.i.i.i, i64 56
   %33 = load i32, ptr %32, align 8, !tbaa !169
@@ -3293,46 +3293,46 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_123TestAfterDivZeroC
   %36 = getelementptr inbounds nuw i8, ptr %.01220.i.i.i.i.i, i64 64
   %37 = load ptr, ptr %36, align 8, !tbaa !170
   %38 = icmp eq ptr %20, %37
-  br i1 %38, label %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit.i.i.i.i.i, label %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit.i.i.i.i.i
+  br i1 %38, label %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit.i.i.i.i.i, label %.thread16.i.i.i.i.i
 
 _ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit.i.i.i.i.i: ; preds = %35
   %39 = load ptr, ptr %31, align 8, !tbaa !171
   %40 = icmp eq ptr %6, %39
-  br i1 %40, label %49, label %43
+  br i1 %40, label %48, label %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit.i.i.i.i.i
 
 41:                                               ; preds = %30
   %42 = icmp ult i32 %15, %33
-  br i1 %42, label %47, label %46
+  br i1 %42, label %46, label %45
 
-43:                                               ; preds = %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit.i.i.i.i.i
+.thread16.i.i.i.i.i:                              ; preds = %35
+  %43 = icmp ult ptr %20, %37
+  br i1 %43, label %46, label %45
+
+_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit.i.i.i.i.i: ; preds = %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit.i.i.i.i.i
   %44 = icmp ult ptr %6, %39
-  br i1 %44, label %47, label %46
+  br i1 %44, label %46, label %45
 
-_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit.i.i.i.i.i: ; preds = %35
-  %45 = icmp ult ptr %20, %37
-  br i1 %45, label %47, label %46
+45:                                               ; preds = %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit.i.i.i.i.i, %.thread16.i.i.i.i.i, %41
+  br label %46
 
-46:                                               ; preds = %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit.i.i.i.i.i, %43, %41
-  br label %47
-
-47:                                               ; preds = %46, %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit.i.i.i.i.i, %43, %41
-  %.sink.i.i.i.i.i = phi i64 [ 16, %46 ], [ 8, %43 ], [ 8, %41 ], [ 8, %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit.i.i.i.i.i ]
-  %48 = getelementptr i8, ptr %.01220.i.i.i.i.i, i64 %.sink.i.i.i.i.i
-  %.113.i.i.i.i.i = load ptr, ptr %48, align 8, !tbaa !137
+46:                                               ; preds = %45, %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit.i.i.i.i.i, %.thread16.i.i.i.i.i, %41
+  %.sink.i.i.i.i.i = phi i64 [ 16, %45 ], [ 8, %.thread16.i.i.i.i.i ], [ 8, %41 ], [ 8, %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit.i.i.i.i.i ]
+  %47 = getelementptr i8, ptr %.01220.i.i.i.i.i, i64 %.sink.i.i.i.i.i
+  %.113.i.i.i.i.i = load ptr, ptr %47, align 8, !tbaa !137
   %.not.i.i.i.i3.i = icmp eq ptr %.113.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i3.i, label %49, label %30
+  br i1 %.not.i.i.i.i3.i, label %48, label %30
 
-49:                                               ; preds = %47, %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit.i.i.i.i.i
-  %.ph.i = phi i1 [ false, %47 ], [ true, %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit.i.i.i.i.i ]
-  %50 = icmp eq i32 %29, 0
-  br i1 %50, label %51, label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_110DivZeroMapEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit
+48:                                               ; preds = %46, %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit.i.i.i.i.i
+  %.ph.i = phi i1 [ false, %46 ], [ true, %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit.i.i.i.i.i ]
+  %49 = icmp eq i32 %29, 0
+  br i1 %49, label %50, label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_110DivZeroMapEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit
 
-51:                                               ; preds = %49
+50:                                               ; preds = %48
   call fastcc void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(80) %26)
   br label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_110DivZeroMapEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit
 
-_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_110DivZeroMapEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit: ; preds = %51, %49, %25, %7, %3
-  %.0 = phi i1 [ false, %3 ], [ %.ph.i, %51 ], [ %.ph.i, %49 ], [ false, %25 ], [ false, %7 ]
+_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_110DivZeroMapEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit: ; preds = %50, %48, %25, %7, %3
+  %.0 = phi i1 [ false, %3 ], [ %.ph.i, %48 ], [ %.ph.i, %50 ], [ false, %25 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -3556,7 +3556,7 @@ _ZNKR5clang4ento12ExplodedNode13getLocationAsINS_8PostStmtEEESt8optionalIT_Ev.ex
   %.not20 = icmp eq ptr %40, null
   br i1 %.not20, label %_ZNKR5clang4ento12ExplodedNode13getLocationAsINS_8PostStmtEEESt8optionalIT_Ev.exit.thread27, label %41
 
-_ZNKR5clang4ento12ExplodedNode13getLocationAsINS_8PostStmtEEESt8optionalIT_Ev.exit.thread27: ; preds = %15, %31, %35, %_ZNKR5clang4ento12ExplodedNode13getLocationAsINS_8PostStmtEEESt8optionalIT_Ev.exit
+_ZNKR5clang4ento12ExplodedNode13getLocationAsINS_8PostStmtEEESt8optionalIT_Ev.exit.thread27: ; preds = %15, %35, %31, %_ZNKR5clang4ento12ExplodedNode13getLocationAsINS_8PostStmtEEESt8optionalIT_Ev.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %83
 
@@ -4522,13 +4522,13 @@ define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerI
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !170
   %17 = icmp eq ptr %14, %16
-  br i1 %17, label %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit, label %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit
+  br i1 %17, label %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit, label %.thread24
 
 _ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit: ; preds = %12
   %18 = load ptr, ptr %1, align 8, !tbaa !171
   %19 = load ptr, ptr %6, align 8, !tbaa !171
   %20 = icmp eq ptr %18, %19
-  br i1 %20, label %21, label %32
+  br i1 %20, label %21, label %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit
 
 21:                                               ; preds = %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit
   %22 = getelementptr i8, ptr %2, i64 8
@@ -4553,38 +4553,38 @@ _ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit: ;
 
 30:                                               ; preds = %5
   %31 = icmp ult i32 %8, %10
-  br i1 %31, label %37, label %42
+  br i1 %31, label %36, label %41
 
-32:                                               ; preds = %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit
+.thread24:                                        ; preds = %12
+  %32 = icmp ult ptr %14, %16
+  br i1 %32, label %36, label %41
+
+_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit: ; preds = %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE7isEqualERKS2_S5_.exit
   %33 = load ptr, ptr %1, align 8, !tbaa !171
   %34 = load ptr, ptr %6, align 8, !tbaa !171
   %35 = icmp ult ptr %33, %34
-  br i1 %35, label %37, label %42
+  br i1 %35, label %36, label %41
 
-_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit: ; preds = %12
-  %36 = icmp ult ptr %14, %16
-  br i1 %36, label %37, label %42
-
-common.ret29:                                     ; preds = %25, %24, %21, %3, %42, %37
-  %common.ret29.op = phi ptr [ %46, %42 ], [ %41, %37 ], [ %29, %25 ], [ %.val20, %24 ], [ null, %3 ], [ %.val23, %21 ]
+common.ret29:                                     ; preds = %25, %24, %21, %3, %41, %36
+  %common.ret29.op = phi ptr [ %40, %36 ], [ %45, %41 ], [ null, %3 ], [ %29, %25 ], [ %.val23, %21 ], [ %.val20, %24 ]
   ret ptr %common.ret29.op
 
-37:                                               ; preds = %32, %30, %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit
-  %38 = getelementptr i8, ptr %2, i64 8
-  %.val19 = load ptr, ptr %38, align 8, !tbaa !176
-  %39 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %.val19)
-  %40 = getelementptr i8, ptr %2, i64 16
-  %.val22 = load ptr, ptr %40, align 8, !tbaa !177
-  %41 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE11balanceTreeEPNS_11ImutAVLTreeIS4_EERKS3_S8_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %.val22)
+36:                                               ; preds = %.thread24, %30, %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit
+  %37 = getelementptr i8, ptr %2, i64 8
+  %.val19 = load ptr, ptr %37, align 8, !tbaa !176
+  %38 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %.val19)
+  %39 = getelementptr i8, ptr %2, i64 16
+  %.val22 = load ptr, ptr %39, align 8, !tbaa !177
+  %40 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE11balanceTreeEPNS_11ImutAVLTreeIS4_EERKS3_S8_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %.val22)
   br label %common.ret29
 
-42:                                               ; preds = %32, %30, %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit
-  %43 = getelementptr i8, ptr %2, i64 8
-  %.val = load ptr, ptr %43, align 8, !tbaa !176
-  %44 = getelementptr i8, ptr %2, i64 16
-  %.val21 = load ptr, ptr %44, align 8, !tbaa !177
-  %45 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %.val21)
-  %46 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE11balanceTreeEPNS_11ImutAVLTreeIS4_EERKS3_S8_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %.val, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %45)
+41:                                               ; preds = %.thread24, %30, %_ZN4llvm17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEE6isLessERKS2_S5_.exit
+  %42 = getelementptr i8, ptr %2, i64 8
+  %.val = load ptr, ptr %42, align 8, !tbaa !176
+  %43 = getelementptr i8, ptr %2, i64 16
+  %.val21 = load ptr, ptr %43, align 8, !tbaa !177
+  %44 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %.val21)
+  %45 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_19ZeroStateEEEE11balanceTreeEPNS_11ImutAVLTreeIS4_EERKS3_S8_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %.val, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %44)
   br label %common.ret29
 }
 

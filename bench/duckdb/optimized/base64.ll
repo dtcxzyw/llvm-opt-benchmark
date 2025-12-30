@@ -323,10 +323,10 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   br label %.thread
 
 .thread:                                          ; preds = %69, %.lr.ph, %.lr.ph, %.lr.ph, %66, %79, %74
-  %.170 = phi i32 [ %.069106, %.lr.ph ], [ %.069106, %.lr.ph ], [ %.069106, %.lr.ph ], [ %.271, %79 ], [ %.271, %74 ], [ %.271, %66 ], [ %.271, %69 ]
-  %.168 = phi i32 [ %.067107, %.lr.ph ], [ %.067107, %.lr.ph ], [ %.067107, %.lr.ph ], [ 0, %79 ], [ 0, %74 ], [ %67, %66 ], [ 0, %69 ]
-  %.4 = phi i32 [ %.3108, %.lr.ph ], [ %.3108, %.lr.ph ], [ %.3108, %.lr.ph ], [ 0, %79 ], [ 1, %74 ], [ %.5, %66 ], [ %.5, %69 ]
-  %.1 = phi ptr [ %.0109, %.lr.ph ], [ %.0109, %.lr.ph ], [ %.0109, %.lr.ph ], [ %81, %79 ], [ %77, %74 ], [ %.0109, %66 ], [ %72, %69 ]
+  %.170 = phi i32 [ %.069106, %.lr.ph ], [ %.271, %79 ], [ %.271, %74 ], [ %.271, %66 ], [ %.069106, %.lr.ph ], [ %.069106, %.lr.ph ], [ %.271, %69 ]
+  %.168 = phi i32 [ %.067107, %.lr.ph ], [ 0, %79 ], [ 0, %74 ], [ %67, %66 ], [ %.067107, %.lr.ph ], [ %.067107, %.lr.ph ], [ 0, %69 ]
+  %.4 = phi i32 [ %.3108, %.lr.ph ], [ 0, %79 ], [ 1, %74 ], [ %.5, %66 ], [ %.3108, %.lr.ph ], [ %.3108, %.lr.ph ], [ %.5, %69 ]
+  %.1 = phi ptr [ %.0109, %.lr.ph ], [ %81, %79 ], [ %77, %74 ], [ %.0109, %66 ], [ %.0109, %.lr.ph ], [ %.0109, %.lr.ph ], [ %72, %69 ]
   %82 = add i64 %.377105, -1
   %83 = getelementptr inbounds nuw i8, ptr %.079104, i64 1
   %.not87 = icmp eq i64 %82, 0
@@ -340,8 +340,8 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %44, %.critedge._crit_edge, %5, %._crit_edge110
-  %.sink = phi i64 [ %86, %._crit_edge110 ], [ 0, %.critedge._crit_edge ], [ 0, %5 ], [ %53, %44 ]
-  %.078.ph = phi i32 [ 0, %._crit_edge110 ], [ 0, %.critedge._crit_edge ], [ 0, %5 ], [ -42, %44 ]
+  %.sink = phi i64 [ %86, %._crit_edge110 ], [ 0, %5 ], [ 0, %.critedge._crit_edge ], [ %53, %44 ]
+  %.078.ph = phi i32 [ 0, %._crit_edge110 ], [ 0, %5 ], [ 0, %.critedge._crit_edge ], [ -42, %44 ]
   store i64 %.sink, ptr %2, align 8, !tbaa !3
   br label %.loopexit
 

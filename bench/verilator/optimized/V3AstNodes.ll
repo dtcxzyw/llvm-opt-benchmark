@@ -14610,7 +14610,7 @@ define dso_local noundef ptr @_ZNK8AstAcosD9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -14683,7 +14683,7 @@ define dso_local noundef ptr @_ZNK19AstNodeSystemUniopD9brokenGenEv(ptr noundef 
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.747, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.747, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -14955,7 +14955,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %110, %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %73, %72 ], [ %134, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ], [ %73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %lpad.phi, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i34 ], [ %140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51 ], [ %lpad.phi, %110 ]
+  %common.resume.op = phi { ptr, i32 } [ %73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %lpad.phi, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i34 ], [ %140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51 ], [ %134, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ], [ %73, %72 ], [ %lpad.phi, %110 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
@@ -15369,7 +15369,7 @@ define dso_local noundef ptr @_ZNK9AstAcoshD9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.2, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str.2, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -15478,7 +15478,7 @@ define dso_local noundef ptr @_ZNK9AstActive9brokenGenEv(ptr noundef nonnull rea
   br label %.critedge12
 
 .critedge12:                                      ; preds = %.critedge10, %10, %6, %4
-  %.0 = phi ptr [ @.str.5, %10 ], [ @.str.3, %4 ], [ @.str.4, %6 ], [ null, %.critedge10 ]
+  %.0 = phi ptr [ @.str.3, %4 ], [ @.str.4, %6 ], [ @.str.5, %10 ], [ null, %.critedge10 ]
   ret ptr %.0
 }
 
@@ -15995,7 +15995,7 @@ define dso_local noundef ptr @_ZNK6AstAdd9brokenGenEv(ptr noundef nonnull readon
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %._crit_edge.i.i, %25, %11, %6, %1, %58, %51, %._crit_edge.i, %.critedge8, %38, %34
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.10, %34 ], [ @.str.11, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.10, %34 ], [ @.str.11, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ %2, %1 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -16358,7 +16358,7 @@ define dso_local noundef ptr @_ZNK7AstAddD9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %._crit_edge.i.i, %25, %11, %6, %1, %58, %51, %._crit_edge.i, %.critedge8, %38, %34
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.13, %34 ], [ @.str.14, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.13, %34 ], [ @.str.14, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ %2, %1 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -16510,7 +16510,7 @@ define dso_local noundef ptr @_ZNK14AstAddrOfCFunc9brokenGenEv(ptr noundef nonnu
   br label %10
 
 10:                                               ; preds = %8, %4, %1, %.critedge
-  %.1 = phi ptr [ @.str.17, %8 ], [ @.str.15, %1 ], [ @.str.16, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.15, %1 ], [ @.str.16, %4 ], [ @.str.17, %8 ]
   ret ptr %.1
 }
 
@@ -17603,7 +17603,7 @@ define dso_local noundef ptr @_ZNK6AstAnd9brokenGenEv(ptr noundef nonnull readon
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %._crit_edge.i.i, %25, %11, %6, %1, %58, %51, %._crit_edge.i, %.critedge8, %38, %34
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.29, %34 ], [ @.str.30, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.29, %34 ], [ @.str.30, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ %2, %1 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -17747,7 +17747,7 @@ define dso_local noundef ptr @_ZNK6AstArg9brokenGenEv(ptr noundef nonnull readon
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.31, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.31, %4 ]
   ret ptr %.1
 }
 
@@ -17999,7 +17999,7 @@ define dso_local noundef ptr @_ZNK10AstNodeSel9brokenGenEv(ptr noundef nonnull r
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.741, %32 ], [ @.str.742, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.741, %32 ], [ @.str.742, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -18232,7 +18232,7 @@ define dso_local noundef ptr @_ZNK8AstAsinD9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.37, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str.37, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -18405,7 +18405,7 @@ define dso_local noundef ptr @_ZNK9AstAsinhD9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.38, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str.38, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -19041,7 +19041,7 @@ define dso_local noundef ptr @_ZNK12AstAssertCtl9brokenGenEv(ptr noundef nonnull
   br label %17
 
 17:                                               ; preds = %14, %9, %4, %.critedge11
-  %.1 = phi ptr [ @.str.49, %14 ], [ @.str.47, %4 ], [ @.str.48, %9 ], [ null, %.critedge11 ]
+  %.1 = phi ptr [ null, %.critedge11 ], [ @.str.47, %4 ], [ @.str.48, %9 ], [ @.str.49, %14 ]
   ret ptr %.1
 }
 
@@ -19514,8 +19514,8 @@ define dso_local noundef ptr @_ZNK9AstAssign9brokenGenEv(ptr noundef nonnull rea
 .critedge9:                                       ; preds = %.critedge, %16
   br label %.critedge11
 
-.critedge11:                                      ; preds = %.critedge9, %4, %9, %16, %13
-  %.1 = phi ptr [ @.str.673, %9 ], [ @.str.57, %13 ], [ @.str.58, %16 ], [ null, %.critedge9 ], [ @.str.672, %4 ]
+.critedge11:                                      ; preds = %.critedge9, %9, %4, %16, %13
+  %.1 = phi ptr [ @.str.57, %13 ], [ @.str.58, %16 ], [ null, %.critedge9 ], [ @.str.673, %9 ], [ @.str.672, %4 ]
   ret ptr %.1
 }
 
@@ -19550,7 +19550,7 @@ define dso_local noundef ptr @_ZNK13AstNodeAssign9brokenGenEv(ptr noundef nonnul
   br label %.critedge11
 
 .critedge11:                                      ; preds = %.critedge9, %9, %4
-  %.1 = phi ptr [ @.str.673, %9 ], [ @.str.672, %4 ], [ null, %.critedge9 ]
+  %.1 = phi ptr [ @.str.672, %4 ], [ @.str.673, %9 ], [ null, %.critedge9 ]
   ret ptr %.1
 }
 
@@ -19782,8 +19782,8 @@ define dso_local noundef ptr @_ZNK14AstAssignAlias9brokenGenEv(ptr noundef nonnu
 .critedge9:                                       ; preds = %.critedge, %16
   br label %.critedge11
 
-.critedge11:                                      ; preds = %.critedge9, %4, %9, %16, %13
-  %.1 = phi ptr [ @.str.673, %9 ], [ @.str.61, %13 ], [ @.str.62, %16 ], [ null, %.critedge9 ], [ @.str.672, %4 ]
+.critedge11:                                      ; preds = %.critedge9, %9, %4, %16, %13
+  %.1 = phi ptr [ @.str.61, %13 ], [ @.str.62, %16 ], [ null, %.critedge9 ], [ @.str.673, %9 ], [ @.str.672, %4 ]
   ret ptr %.1
 }
 
@@ -20010,8 +20010,8 @@ define dso_local noundef ptr @_ZNK12AstAssignDly9brokenGenEv(ptr noundef nonnull
 .critedge9:                                       ; preds = %.critedge, %16
   br label %.critedge11
 
-.critedge11:                                      ; preds = %.critedge9, %4, %9, %16, %13
-  %.1 = phi ptr [ @.str.673, %9 ], [ @.str.64, %13 ], [ @.str.65, %16 ], [ null, %.critedge9 ], [ @.str.672, %4 ]
+.critedge11:                                      ; preds = %.critedge9, %9, %4, %16, %13
+  %.1 = phi ptr [ @.str.64, %13 ], [ @.str.65, %16 ], [ null, %.critedge9 ], [ @.str.673, %9 ], [ @.str.672, %4 ]
   ret ptr %.1
 }
 
@@ -20238,8 +20238,8 @@ define dso_local noundef ptr @_ZNK14AstAssignForce9brokenGenEv(ptr noundef nonnu
 .critedge9:                                       ; preds = %.critedge, %16
   br label %.critedge11
 
-.critedge11:                                      ; preds = %.critedge9, %4, %9, %16, %13
-  %.1 = phi ptr [ @.str.673, %9 ], [ @.str.67, %13 ], [ @.str.68, %16 ], [ null, %.critedge9 ], [ @.str.672, %4 ]
+.critedge11:                                      ; preds = %.critedge9, %9, %4, %16, %13
+  %.1 = phi ptr [ @.str.67, %13 ], [ @.str.68, %16 ], [ null, %.critedge9 ], [ @.str.673, %9 ], [ @.str.672, %4 ]
   ret ptr %.1
 }
 
@@ -20466,8 +20466,8 @@ define dso_local noundef ptr @_ZNK13AstAssignPost9brokenGenEv(ptr noundef nonnul
 .critedge9:                                       ; preds = %.critedge, %16
   br label %.critedge11
 
-.critedge11:                                      ; preds = %.critedge9, %4, %9, %16, %13
-  %.1 = phi ptr [ @.str.673, %9 ], [ @.str.70, %13 ], [ @.str.71, %16 ], [ null, %.critedge9 ], [ @.str.672, %4 ]
+.critedge11:                                      ; preds = %.critedge9, %9, %4, %16, %13
+  %.1 = phi ptr [ @.str.70, %13 ], [ @.str.71, %16 ], [ null, %.critedge9 ], [ @.str.673, %9 ], [ @.str.672, %4 ]
   ret ptr %.1
 }
 
@@ -20694,8 +20694,8 @@ define dso_local noundef ptr @_ZNK12AstAssignPre9brokenGenEv(ptr noundef nonnull
 .critedge9:                                       ; preds = %.critedge, %16
   br label %.critedge11
 
-.critedge11:                                      ; preds = %.critedge9, %4, %9, %16, %13
-  %.1 = phi ptr [ @.str.673, %9 ], [ @.str.73, %13 ], [ @.str.74, %16 ], [ null, %.critedge9 ], [ @.str.672, %4 ]
+.critedge11:                                      ; preds = %.critedge9, %9, %4, %16, %13
+  %.1 = phi ptr [ @.str.73, %13 ], [ @.str.74, %16 ], [ null, %.critedge9 ], [ @.str.673, %9 ], [ @.str.672, %4 ]
   ret ptr %.1
 }
 
@@ -20922,8 +20922,8 @@ define dso_local noundef ptr @_ZNK17AstAssignVarScope9brokenGenEv(ptr noundef no
 .critedge9:                                       ; preds = %.critedge, %16
   br label %.critedge11
 
-.critedge11:                                      ; preds = %.critedge9, %4, %9, %16, %13
-  %.1 = phi ptr [ @.str.673, %9 ], [ @.str.76, %13 ], [ @.str.77, %16 ], [ null, %.critedge9 ], [ @.str.672, %4 ]
+.critedge11:                                      ; preds = %.critedge9, %9, %4, %16, %13
+  %.1 = phi ptr [ @.str.76, %13 ], [ @.str.77, %16 ], [ null, %.critedge9 ], [ @.str.673, %9 ], [ @.str.672, %4 ]
   ret ptr %.1
 }
 
@@ -21162,8 +21162,8 @@ define dso_local noundef ptr @_ZNK10AstAssignW9brokenGenEv(ptr noundef nonnull r
 .critedge14:                                      ; preds = %.critedge12, %21
   br label %_ZNK13AstNodeAssign9brokenGenEv.exit.thread
 
-_ZNK13AstNodeAssign9brokenGenEv.exit.thread:      ; preds = %4, %9, %21, %16, %13, %.critedge14
-  %.1 = phi ptr [ null, %.critedge14 ], [ @.str.79, %13 ], [ @.str.80, %16 ], [ @.str.82, %21 ], [ @.str.672, %4 ], [ @.str.673, %9 ]
+_ZNK13AstNodeAssign9brokenGenEv.exit.thread:      ; preds = %9, %4, %21, %16, %13, %.critedge14
+  %.1 = phi ptr [ null, %.critedge14 ], [ @.str.79, %13 ], [ @.str.80, %16 ], [ @.str.82, %21 ], [ @.str.673, %9 ], [ @.str.672, %4 ]
   ret ptr %.1
 }
 
@@ -21437,7 +21437,7 @@ define dso_local noundef ptr @_ZNK18AstAssocArrayDType9brokenGenEv(ptr noundef n
   br i1 %spec.select.i26, label %_ZNK18AstAssocArrayDType6brokenEv.exit, label %.critedge20, !prof !21
 
 .critedge20:                                      ; preds = %.critedge16, %.critedge18, %13
-  %.not1234 = phi i1 [ false, %13 ], [ true, %.critedge18 ], [ true, %.critedge16 ]
+  %.not1234 = phi i1 [ true, %.critedge18 ], [ false, %13 ], [ true, %.critedge16 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %.fr.i = freeze ptr %17
@@ -21483,7 +21483,7 @@ define dso_local noundef ptr @_ZNK18AstAssocArrayDType9brokenGenEv(ptr noundef n
   br label %_ZNK18AstAssocArrayDType6brokenEv.exit
 
 _ZNK18AstAssocArrayDType6brokenEv.exit:           ; preds = %28, %27, %.thread.i, %23, %18, %13, %11, %6, %4
-  %.1 = phi ptr [ @.str.89, %23 ], [ @.str.84, %4 ], [ @.str.85, %6 ], [ @.str.86, %11 ], [ @.str.87, %13 ], [ @.str.88, %18 ], [ %.str.1632.mux39, %28 ], [ %.str.1632.mux, %27 ], [ @.str.1633, %.thread.i ]
+  %.1 = phi ptr [ @.str.84, %4 ], [ @.str.85, %6 ], [ @.str.86, %11 ], [ @.str.87, %13 ], [ @.str.88, %18 ], [ @.str.89, %23 ], [ %.str.1632.mux39, %28 ], [ %.str.1632.mux, %27 ], [ @.str.1633, %.thread.i ]
   ret ptr %.1
 }
 
@@ -22233,7 +22233,7 @@ define dso_local noundef ptr @_ZNK18AstNodeSystemBiopD9brokenGenEv(ptr noundef n
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.745, %32 ], [ @.str.746, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.745, %32 ], [ @.str.746, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -22466,7 +22466,7 @@ define dso_local noundef ptr @_ZNK8AstAtanD9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.98, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str.98, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -22639,7 +22639,7 @@ define dso_local noundef ptr @_ZNK9AstAtanhD9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.99, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str.99, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -22779,7 +22779,7 @@ define dso_local noundef ptr @_ZNK7AstAtoN9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.100, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.100, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -22926,7 +22926,7 @@ define dso_local noundef ptr @_ZNK9AstAttrOf9brokenGenEv(ptr noundef nonnull rea
   br label %12
 
 12:                                               ; preds = %4, %9, %.critedge8
-  %.1 = phi ptr [ @.str.102, %9 ], [ @.str.101, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.102, %9 ], [ @.str.101, %4 ]
   ret ptr %.1
 }
 
@@ -23073,7 +23073,7 @@ define dso_local noundef ptr @_ZNK13AstBasicDType9brokenGenEv(ptr noundef nonnul
   br label %8
 
 8:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.104, %4 ], [ %..str.1634.i, %.critedge ]
+  %.1 = phi ptr [ %..str.1634.i, %.critedge ], [ @.str.104, %4 ]
   ret ptr %.1
 }
 
@@ -23503,7 +23503,7 @@ define dso_local noundef ptr @_ZNK14AstBitsToRealD9brokenGenEv(ptr noundef nonnu
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.111, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.111, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -23737,7 +23737,7 @@ define dso_local noundef ptr @_ZNK15AstBracketRange9brokenGenEv(ptr noundef nonn
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.115, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.115, %4 ]
   ret ptr %.1
 }
 
@@ -23955,7 +23955,7 @@ define dso_local noundef ptr @_ZNK9AstBufIf19brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.116, %32 ], [ @.str.117, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.116, %32 ], [ @.str.117, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -24019,7 +24019,7 @@ define dso_local noundef ptr @_ZNK11AstNodeBiop9brokenGenEv(ptr noundef nonnull 
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %30, %23, %._crit_edge.i, %.critedge8, %9, %4
-  %.1 = phi ptr [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %30 ], [ null, %23 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
+  %.1 = phi ptr [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %30 ], [ null, %23 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ]
   ret ptr %.1
 }
 
@@ -24236,7 +24236,7 @@ define dso_local noundef ptr @_ZNK9AstCAwait9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %41, %34, %.critedge13, %27, %24, %22
-  %.1 = phi ptr [ null, %.critedge13 ], [ @.str.118, %22 ], [ @.str.119, %24 ], [ @.str.120, %27 ], [ @.str.1112, %41 ], [ null, %34 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.118, %22 ], [ @.str.119, %24 ], [ @.str.120, %27 ], [ @.str.1112, %41 ], [ null, %34 ], [ null, %.critedge13 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -24418,8 +24418,8 @@ define dso_local noundef ptr @_ZNK8AstCCall9brokenGenEv(ptr noundef nonnull read
 .critedge:                                        ; preds = %.critedge.i, %15
   br label %_ZNK12AstNodeCCall9brokenGenEv.exit.thread
 
-_ZNK12AstNodeCCall9brokenGenEv.exit.thread:       ; preds = %8, %4, %1, %12, %15, %.critedge
-  %.1 = phi ptr [ @.str.121, %15 ], [ null, %.critedge ], [ @.str.684, %8 ], [ @.str.683, %4 ], [ @.str.682, %1 ], [ @.str.685, %12 ]
+_ZNK12AstNodeCCall9brokenGenEv.exit.thread:       ; preds = %12, %8, %4, %1, %15, %.critedge
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.121, %15 ], [ @.str.685, %12 ], [ @.str.684, %8 ], [ @.str.683, %4 ], [ @.str.682, %1 ]
   ret ptr %.1
 }
 
@@ -24462,7 +24462,7 @@ define dso_local noundef ptr @_ZNK12AstNodeCCall9brokenGenEv(ptr noundef nonnull
   br label %15
 
 15:                                               ; preds = %12, %8, %4, %1, %.critedge10
-  %.1 = phi ptr [ @.str.685, %12 ], [ @.str.682, %1 ], [ @.str.683, %4 ], [ @.str.684, %8 ], [ null, %.critedge10 ]
+  %.1 = phi ptr [ null, %.critedge10 ], [ @.str.682, %1 ], [ @.str.683, %4 ], [ @.str.684, %8 ], [ @.str.685, %12 ]
   ret ptr %.1
 }
 
@@ -24833,7 +24833,7 @@ define dso_local noundef ptr @_ZNK8AstCCast9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.123, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.123, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -25015,7 +25015,7 @@ define dso_local noundef ptr @_ZNK8AstCFile9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK11AstNodeFile9brokenGenEv.exit
 
 _ZNK11AstNodeFile9brokenGenEv.exit:               ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.712, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.712, %4 ]
   ret ptr %.1
 }
 
@@ -25143,7 +25143,7 @@ define dso_local noundef ptr @_ZNK8AstCFunc9brokenGenEv(ptr noundef nonnull read
   br label %.critedge18
 
 .critedge18:                                      ; preds = %.critedge16, %6, %4
-  %.0 = phi ptr [ @.str.129, %6 ], [ @.str.128, %4 ], [ null, %.critedge16 ]
+  %.0 = phi ptr [ @.str.128, %4 ], [ @.str.129, %6 ], [ null, %.critedge16 ]
   ret ptr %.0
 }
 
@@ -25579,7 +25579,7 @@ define dso_local noundef ptr @_ZNK8AstCLog29brokenGenEv(ptr noundef nonnull read
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.138, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.138, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -25711,8 +25711,8 @@ define dso_local noundef ptr @_ZNK14AstCMethodCall9brokenGenEv(ptr noundef nonnu
 .critedge8:                                       ; preds = %.critedge, %21
   br label %_ZNK12AstNodeCCall9brokenGenEv.exit.thread
 
-_ZNK12AstNodeCCall9brokenGenEv.exit.thread:       ; preds = %8, %4, %1, %12, %21, %18, %.critedge8
-  %.1 = phi ptr [ @.str.140, %21 ], [ @.str.139, %18 ], [ null, %.critedge8 ], [ @.str.684, %8 ], [ @.str.683, %4 ], [ @.str.682, %1 ], [ @.str.685, %12 ]
+_ZNK12AstNodeCCall9brokenGenEv.exit.thread:       ; preds = %12, %8, %4, %1, %21, %18, %.critedge8
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.139, %18 ], [ @.str.140, %21 ], [ @.str.685, %12 ], [ @.str.684, %8 ], [ @.str.683, %4 ], [ @.str.682, %1 ]
   ret ptr %.1
 }
 
@@ -25891,7 +25891,7 @@ define dso_local noundef ptr @_ZNK14AstCMethodHard9brokenGenEv(ptr noundef nonnu
   br label %12
 
 12:                                               ; preds = %9, %4, %.critedge8
-  %.1 = phi ptr [ @.str.142, %9 ], [ @.str.141, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.141, %4 ], [ @.str.142, %9 ]
   ret ptr %.1
 }
 
@@ -26062,8 +26062,8 @@ define dso_local noundef ptr @_ZNK7AstCNew9brokenGenEv(ptr noundef nonnull reado
 .critedge:                                        ; preds = %.critedge.i, %15
   br label %_ZNK12AstNodeCCall9brokenGenEv.exit.thread
 
-_ZNK12AstNodeCCall9brokenGenEv.exit.thread:       ; preds = %8, %4, %1, %12, %15, %.critedge
-  %.1 = phi ptr [ @.str.144, %15 ], [ null, %.critedge ], [ @.str.684, %8 ], [ @.str.683, %4 ], [ @.str.682, %1 ], [ @.str.685, %12 ]
+_ZNK12AstNodeCCall9brokenGenEv.exit.thread:       ; preds = %12, %8, %4, %1, %15, %.critedge
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.144, %15 ], [ @.str.685, %12 ], [ @.str.684, %8 ], [ @.str.683, %4 ], [ @.str.682, %1 ]
   ret ptr %.1
 }
 
@@ -26173,7 +26173,7 @@ define dso_local noundef ptr @_ZNK9AstCReset9brokenGenEv(ptr noundef nonnull rea
   br label %6
 
 6:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.145, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.145, %4 ]
   ret ptr %.1
 }
 
@@ -26262,7 +26262,7 @@ define dso_local noundef ptr @_ZNK10AstCReturn9brokenGenEv(ptr noundef nonnull r
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.147, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.147, %4 ]
   ret ptr %.1
 }
 
@@ -26474,8 +26474,8 @@ define dso_local noundef ptr @_ZNK7AstCase9brokenGenEv(ptr noundef nonnull reado
 .critedge9:                                       ; preds = %.critedge, %15
   br label %.critedge11
 
-.critedge11:                                      ; preds = %.critedge9, %4, %9, %15, %12
-  %.1 = phi ptr [ @.str.687, %9 ], [ @.str.149, %12 ], [ @.str.150, %15 ], [ null, %.critedge9 ], [ @.str.686, %4 ]
+.critedge11:                                      ; preds = %.critedge9, %9, %4, %15, %12
+  %.1 = phi ptr [ @.str.149, %12 ], [ @.str.150, %15 ], [ null, %.critedge9 ], [ @.str.687, %9 ], [ @.str.686, %4 ]
   ret ptr %.1
 }
 
@@ -26509,7 +26509,7 @@ define dso_local noundef ptr @_ZNK11AstNodeCase9brokenGenEv(ptr noundef nonnull 
   br label %.critedge11
 
 .critedge11:                                      ; preds = %.critedge9, %9, %4
-  %.1 = phi ptr [ @.str.687, %9 ], [ @.str.686, %4 ], [ null, %.critedge9 ]
+  %.1 = phi ptr [ @.str.686, %4 ], [ @.str.687, %9 ], [ null, %.critedge9 ]
   ret ptr %.1
 }
 
@@ -26866,7 +26866,7 @@ define dso_local noundef ptr @_ZNK7AstCast9brokenGenEv(ptr noundef nonnull reado
   br label %12
 
 12:                                               ; preds = %9, %4, %.critedge8
-  %.1 = phi ptr [ @.str.158, %9 ], [ @.str.157, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.157, %4 ], [ @.str.158, %9 ]
   ret ptr %.1
 }
 
@@ -27104,7 +27104,7 @@ define dso_local noundef ptr @_ZNK14AstCastDynamic9brokenGenEv(ptr noundef nonnu
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.159, %32 ], [ @.str.160, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.159, %32 ], [ @.str.160, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -27404,7 +27404,7 @@ define dso_local noundef ptr @_ZNK11AstCastSize9brokenGenEv(ptr noundef nonnull 
   br label %11
 
 11:                                               ; preds = %9, %4, %.critedge8
-  %.1 = phi ptr [ @.str.166, %9 ], [ @.str.165, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.165, %4 ], [ @.str.166, %9 ]
   ret ptr %.1
 }
 
@@ -27599,7 +27599,7 @@ define dso_local noundef ptr @_ZNK11AstCastWrap9brokenGenEv(ptr noundef nonnull 
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.167, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.167, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -27772,7 +27772,7 @@ define dso_local noundef ptr @_ZNK8AstCeilD9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.168, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str.168, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -28230,7 +28230,7 @@ define dso_local noundef ptr @_ZNK15AstCellArrayRef9brokenGenEv(ptr noundef nonn
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.178, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.178, %4 ]
   ret ptr %.1
 }
 
@@ -28632,7 +28632,7 @@ define dso_local noundef ptr @_ZNK10AstCellRef9brokenGenEv(ptr noundef nonnull r
   br label %6
 
 6:                                                ; preds = %3, %.critedge8
-  %.1 = phi ptr [ @.str.188, %3 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.188, %3 ]
   ret ptr %.1
 }
 
@@ -28819,7 +28819,7 @@ define dso_local noundef ptr @_ZNK8AstClass9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK13AstNodeModule9brokenGenEv.exit
 
 _ZNK13AstNodeModule9brokenGenEv.exit:             ; preds = %4, %18, %14, %11, %9, %.critedge22
-  %.1 = phi ptr [ @.str.193, %14 ], [ @.str.189, %9 ], [ @.str.190, %11 ], [ @.str.194, %18 ], [ null, %.critedge22 ], [ @.str.724, %4 ]
+  %.1 = phi ptr [ null, %.critedge22 ], [ @.str.189, %9 ], [ @.str.190, %11 ], [ @.str.193, %14 ], [ @.str.194, %18 ], [ @.str.724, %4 ]
   ret ptr %.1
 }
 
@@ -29891,7 +29891,7 @@ define dso_local noundef ptr @_ZNK20AstClassOrPackageRef9brokenGenEv(ptr noundef
   br label %10
 
 10:                                               ; preds = %8, %4, %.critedge13
-  %.1 = phi ptr [ @.str.204, %8 ], [ @.str.202, %4 ], [ null, %.critedge13 ]
+  %.1 = phi ptr [ null, %.critedge13 ], [ @.str.202, %4 ], [ @.str.204, %8 ]
   ret ptr %.1
 }
 
@@ -30390,7 +30390,7 @@ define dso_local noundef ptr @_ZNK16AstClassRefDType9brokenGenEv(ptr noundef non
   br label %19
 
 19:                                               ; preds = %17, %12, %10, %6, %4, %.critedge21
-  %.1 = phi ptr [ @.str.216, %17 ], [ @.str.212, %4 ], [ @.str.213, %6 ], [ @.str.214, %10 ], [ @.str.215, %12 ], [ null, %.critedge21 ]
+  %.1 = phi ptr [ null, %.critedge21 ], [ @.str.212, %4 ], [ @.str.213, %6 ], [ @.str.214, %10 ], [ @.str.215, %12 ], [ @.str.216, %17 ]
   ret ptr %.1
 }
 
@@ -31317,7 +31317,7 @@ define dso_local noundef ptr @_ZNK12AstCompareNN9brokenGenEv(ptr noundef nonnull
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.231, %32 ], [ @.str.232, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.231, %32 ], [ @.str.232, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -31555,7 +31555,7 @@ define dso_local noundef ptr @_ZNK9AstConcat9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.233, %32 ], [ @.str.234, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.233, %32 ], [ @.str.234, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -31793,7 +31793,7 @@ define dso_local noundef ptr @_ZNK10AstConcatN9brokenGenEv(ptr noundef nonnull r
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.235, %32 ], [ @.str.236, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.235, %32 ], [ @.str.236, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -32161,8 +32161,8 @@ define dso_local noundef ptr @_ZNK11AstNodeCond9brokenGenEv(ptr noundef nonnull 
 77:                                               ; preds = %70, %.thr_comm.i
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.689, %43 ], [ @.str.690, %47 ], [ @.str.691, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %14, %9, %4, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
+  %.1 = phi ptr [ @.str.689, %43 ], [ @.str.690, %47 ], [ @.str.691, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
   ret ptr %.1
 }
 
@@ -33420,7 +33420,7 @@ define dso_local noundef ptr @_ZNK13AstConstDType9brokenGenEv(ptr noundef nonnul
   br label %_ZNK13AstConstDType6brokenEv.exit
 
 _ZNK13AstConstDType6brokenEv.exit:                ; preds = %13, %.critedge11.thread, %.thread27, %.thread.i, %6, %4
-  %.1 = phi ptr [ %spec.select, %13 ], [ @.str.256, %4 ], [ @.str.257, %6 ], [ @.str.1638, %.thread.i ], [ null, %.critedge11.thread ], [ @.str.258, %.thread27 ]
+  %.1 = phi ptr [ @.str.256, %4 ], [ @.str.257, %6 ], [ @.str.1638, %.thread.i ], [ @.str.258, %.thread27 ], [ null, %.critedge11.thread ], [ %spec.select, %13 ]
   ret ptr %.1
 }
 
@@ -34151,7 +34151,7 @@ define dso_local noundef ptr @_ZNK17AstConstraintExpr9brokenGenEv(ptr noundef no
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.273, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.273, %4 ]
   ret ptr %.1
 }
 
@@ -34644,7 +34644,7 @@ define dso_local noundef ptr @_ZNK16AstConstraintRef9brokenGenEv(ptr noundef non
   br label %22
 
 22:                                               ; preds = %19, %14, %12, %8, %4, %1, %.critedge18
-  %.1 = phi ptr [ @.str.287, %19 ], [ @.str.282, %1 ], [ @.str.283, %4 ], [ @.str.284, %8 ], [ @.str.285, %12 ], [ @.str.286, %14 ], [ null, %.critedge18 ]
+  %.1 = phi ptr [ null, %.critedge18 ], [ @.str.282, %1 ], [ @.str.283, %4 ], [ @.str.284, %8 ], [ @.str.285, %12 ], [ @.str.286, %14 ], [ @.str.287, %19 ]
   ret ptr %.1
 }
 
@@ -35066,7 +35066,7 @@ define dso_local noundef ptr @_ZNK7AstCosD9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.291, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str.291, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -35239,7 +35239,7 @@ define dso_local noundef ptr @_ZNK8AstCoshD9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.292, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str.292, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -35523,7 +35523,7 @@ define dso_local noundef ptr @_ZNK13AstNodeQuadop9brokenGenEv(ptr noundef nonnul
   br label %_ZNK13AstNodeQuadop6brokenEv.exit
 
 _ZNK13AstNodeQuadop6brokenEv.exit:                ; preds = %52, %45, %.thr_comm.i, %.critedge14, %19, %14, %9, %4
-  %.1 = phi ptr [ @.str.734, %19 ], [ @.str.731, %4 ], [ @.str.732, %9 ], [ @.str.733, %14 ], [ @.str.1116, %52 ], [ null, %45 ], [ null, %.critedge14 ], [ null, %.thr_comm.i ]
+  %.1 = phi ptr [ @.str.731, %4 ], [ @.str.732, %9 ], [ @.str.733, %14 ], [ @.str.734, %19 ], [ @.str.1116, %52 ], [ null, %45 ], [ null, %.critedge14 ], [ null, %.thr_comm.i ]
   ret ptr %.1
 }
 
@@ -35884,7 +35884,7 @@ define dso_local noundef ptr @_ZNK12AstCountOnes9brokenGenEv(ptr noundef nonnull
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.299, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.299, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -36228,7 +36228,7 @@ define dso_local noundef ptr @_ZNK12AstCoverDecl9brokenGenEv(ptr noundef nonnull
   br label %9
 
 9:                                                ; preds = %6, %4, %.critedge10
-  %.1 = phi ptr [ @.str.306, %6 ], [ @.str.305, %4 ], [ %8, %.critedge10 ]
+  %.1 = phi ptr [ %8, %.critedge10 ], [ @.str.305, %4 ], [ @.str.306, %6 ]
   ret ptr %.1
 }
 
@@ -36398,7 +36398,7 @@ define dso_local noundef ptr @_ZNK11AstCoverInc9brokenGenEv(ptr noundef nonnull 
   br label %10
 
 10:                                               ; preds = %8, %4, %1, %.critedge
-  %.1 = phi ptr [ @.str.310, %8 ], [ @.str.308, %1 ], [ @.str.309, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.308, %1 ], [ @.str.309, %4 ], [ @.str.310, %8 ]
   ret ptr %.1
 }
 
@@ -36526,7 +36526,7 @@ define dso_local noundef ptr @_ZNK14AstCoverToggle9brokenGenEv(ptr noundef nonnu
   br label %16
 
 16:                                               ; preds = %13, %8, %4, %.critedge11
-  %.1 = phi ptr [ @.str.314, %13 ], [ @.str.312, %4 ], [ @.str.313, %8 ], [ null, %.critedge11 ]
+  %.1 = phi ptr [ null, %.critedge11 ], [ @.str.312, %4 ], [ @.str.313, %8 ], [ @.str.314, %13 ]
   ret ptr %.1
 }
 
@@ -36721,7 +36721,7 @@ define dso_local noundef ptr @_ZNK19AstCvtArrayToPacked9brokenGenEv(ptr noundef 
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.318, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.318, %4 ]
   ret ptr %.1
 }
 
@@ -36861,7 +36861,7 @@ define dso_local noundef ptr @_ZNK16AstCvtPackString9brokenGenEv(ptr noundef non
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.319, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.319, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -36950,7 +36950,7 @@ define dso_local noundef ptr @_ZNK19AstCvtPackedToArray9brokenGenEv(ptr noundef 
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.320, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.320, %4 ]
   ret ptr %.1
 }
 
@@ -37039,7 +37039,7 @@ define dso_local noundef ptr @_ZNK19AstDefImplicitDType9brokenGenEv(ptr noundef 
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.321, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.321, %4 ]
   ret ptr %.1
 }
 
@@ -37504,7 +37504,7 @@ define dso_local noundef ptr @_ZNK10AstDisplay9brokenGenEv(ptr noundef nonnull r
   br label %11
 
 11:                                               ; preds = %8, %4, %.critedge8
-  %.1 = phi ptr [ @.str.327, %8 ], [ @.str.326, %4 ], [ %.str.1641..i, %.critedge8 ]
+  %.1 = phi ptr [ %.str.1641..i, %.critedge8 ], [ @.str.326, %4 ], [ @.str.327, %8 ]
   ret ptr %.1
 }
 
@@ -37669,7 +37669,7 @@ define dso_local noundef ptr @_ZNK7AstDist9brokenGenEv(ptr noundef nonnull reado
   br label %11
 
 11:                                               ; preds = %9, %4, %.critedge8
-  %.1 = phi ptr [ @.str.331, %9 ], [ @.str.330, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.330, %4 ], [ @.str.331, %9 ]
   ret ptr %.1
 }
 
@@ -37976,7 +37976,7 @@ define dso_local noundef ptr @_ZNK15AstNodeDistBiop9brokenGenEv(ptr noundef nonn
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.695, %32 ], [ @.str.696, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.695, %32 ], [ @.str.696, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -38349,8 +38349,8 @@ define dso_local noundef ptr @_ZNK16AstNodeDistTriop9brokenGenEv(ptr noundef non
 77:                                               ; preds = %70, %.thr_comm.i
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.697, %43 ], [ @.str.698, %47 ], [ @.str.699, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %14, %9, %4, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
+  %.1 = phi ptr [ @.str.697, %43 ], [ @.str.698, %47 ], [ @.str.699, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
   ret ptr %.1
 }
 
@@ -38754,7 +38754,7 @@ define dso_local noundef ptr @_ZNK11AstDistItem9brokenGenEv(ptr noundef nonnull 
   br label %12
 
 12:                                               ; preds = %9, %4, %.critedge8
-  %.1 = phi ptr [ @.str.340, %9 ], [ @.str.339, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.339, %4 ], [ @.str.340, %9 ]
   ret ptr %.1
 }
 
@@ -39900,7 +39900,7 @@ define dso_local noundef ptr @_ZNK6AstDiv9brokenGenEv(ptr noundef nonnull readon
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.352, %32 ], [ @.str.353, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.352, %32 ], [ @.str.353, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -40138,7 +40138,7 @@ define dso_local noundef ptr @_ZNK7AstDivD9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.354, %32 ], [ @.str.355, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.354, %32 ], [ @.str.355, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -40376,7 +40376,7 @@ define dso_local noundef ptr @_ZNK7AstDivS9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.356, %32 ], [ @.str.357, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.356, %32 ], [ @.str.357, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -40677,7 +40677,7 @@ define dso_local noundef ptr @_ZNK6AstDot9brokenGenEv(ptr noundef nonnull readon
   br label %12
 
 12:                                               ; preds = %9, %4, %.critedge8
-  %.1 = phi ptr [ @.str.361, %9 ], [ @.str.360, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.360, %4 ], [ @.str.361, %9 ]
   ret ptr %.1
 }
 
@@ -40841,7 +40841,7 @@ define dso_local noundef ptr @_ZNK10AstDumpCtl9brokenGenEv(ptr noundef nonnull r
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.362, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.362, %4 ]
   ret ptr %.1
 }
 
@@ -40968,7 +40968,7 @@ define dso_local noundef ptr @_ZNK16AstDynArrayDType9brokenGenEv(ptr noundef non
   br label %_ZNK16AstDynArrayDType6brokenEv.exit
 
 _ZNK16AstDynArrayDType6brokenEv.exit:             ; preds = %13, %.critedge11.thread, %.thread27, %.thread.i, %6, %4
-  %.1 = phi ptr [ %spec.select, %13 ], [ @.str.363, %4 ], [ @.str.364, %6 ], [ @.str.1642, %.thread.i ], [ null, %.critedge11.thread ], [ @.str.365, %.thread27 ]
+  %.1 = phi ptr [ @.str.363, %4 ], [ @.str.364, %6 ], [ @.str.1642, %.thread.i ], [ @.str.365, %.thread27 ], [ null, %.critedge11.thread ], [ %spec.select, %13 ]
   ret ptr %.1
 }
 
@@ -41146,7 +41146,7 @@ define dso_local noundef ptr @_ZNK14AstElabDisplay9brokenGenEv(ptr noundef nonnu
   br label %.critedge
 
 .critedge:                                        ; preds = %4, %1
-  %.0 = phi ptr [ %spec.select, %4 ], [ @.str.1643, %1 ]
+  %.0 = phi ptr [ @.str.1643, %1 ], [ %spec.select, %4 ]
   ret ptr %.0
 }
 
@@ -41311,7 +41311,7 @@ define dso_local noundef ptr @_ZNK12AstEnumDType9brokenGenEv(ptr noundef nonnull
   br i1 %spec.select.i, label %_ZNK12AstEnumDType6brokenEv.exit, label %.critedge12, !prof !21
 
 .critedge12:                                      ; preds = %1, %.critedge, %6
-  %.not821 = phi i1 [ false, %6 ], [ true, %.critedge ], [ true, %1 ]
+  %.not821 = phi i1 [ true, %.critedge ], [ false, %6 ], [ true, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %.not9 = icmp eq ptr %10, null
@@ -41373,7 +41373,7 @@ define dso_local noundef ptr @_ZNK12AstEnumDType9brokenGenEv(ptr noundef nonnull
   br label %_ZNK12AstEnumDType6brokenEv.exit
 
 _ZNK12AstEnumDType6brokenEv.exit:                 ; preds = %25, %27, %"_ZSt6any_ofISt23_Rb_tree_const_iteratorISt4pairIK9VAttrTypeP6AstVarEEZNK12AstEnumDType6brokenEvE3$_0EbT_SA_T0_.exit.i", %.critedge.i, %19, %18, %16, %11, %6, %4
-  %.1 = phi ptr [ @.str.370, %16 ], [ @.str.367, %4 ], [ @.str.368, %6 ], [ @.str.369, %11 ], [ @.str.1313, %19 ], [ @.str.1313, %18 ], [ @.str.1314, %27 ], [ null, %"_ZSt6any_ofISt23_Rb_tree_const_iteratorISt4pairIK9VAttrTypeP6AstVarEEZNK12AstEnumDType6brokenEvE3$_0EbT_SA_T0_.exit.i" ], [ null, %.critedge.i ], [ null, %25 ]
+  %.1 = phi ptr [ @.str.367, %4 ], [ @.str.368, %6 ], [ @.str.369, %11 ], [ @.str.370, %16 ], [ @.str.1313, %19 ], [ @.str.1313, %18 ], [ @.str.1314, %27 ], [ null, %"_ZSt6any_ofISt23_Rb_tree_const_iteratorISt4pairIK9VAttrTypeP6AstVarEEZNK12AstEnumDType6brokenEvE3$_0EbT_SA_T0_.exit.i" ], [ null, %.critedge.i ], [ null, %25 ]
   ret ptr %.1
 }
 
@@ -41818,7 +41818,7 @@ define dso_local noundef ptr @_ZNK14AstEnumItemRef9brokenGenEv(ptr noundef nonnu
   br label %17
 
 17:                                               ; preds = %14, %12, %8, %4, %1, %.critedge15
-  %.1 = phi ptr [ @.str.378, %14 ], [ @.str.374, %1 ], [ @.str.375, %4 ], [ @.str.376, %8 ], [ @.str.377, %12 ], [ null, %.critedge15 ]
+  %.1 = phi ptr [ null, %.critedge15 ], [ @.str.374, %1 ], [ @.str.375, %4 ], [ @.str.376, %8 ], [ @.str.377, %12 ], [ @.str.378, %14 ]
   ret ptr %.1
 }
 
@@ -42153,7 +42153,7 @@ define dso_local noundef ptr @_ZNK12AstNodeBiCom9brokenGenEv(ptr noundef nonnull
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.675, %32 ], [ @.str.676, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.675, %32 ], [ @.str.676, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -43160,7 +43160,7 @@ define dso_local noundef ptr @_ZNK9AstEqWild9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.390, %32 ], [ @.str.391, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.390, %32 ], [ @.str.391, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -43687,7 +43687,7 @@ define dso_local noundef ptr @_ZNK7AstExpD9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.397, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str.397, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -43777,7 +43777,7 @@ define dso_local noundef ptr @_ZNK11AstExprStmt9brokenGenEv(ptr noundef nonnull 
   br label %6
 
 6:                                                ; preds = %3, %.critedge8
-  %.1 = phi ptr [ @.str.399, %3 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.399, %3 ]
   ret ptr %.1
 }
 
@@ -43972,7 +43972,7 @@ define dso_local noundef ptr @_ZNK9AstExtend9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.401, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.401, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -44112,7 +44112,7 @@ define dso_local noundef ptr @_ZNK10AstExtendS9brokenGenEv(ptr noundef nonnull r
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.402, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.402, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -44201,7 +44201,7 @@ define dso_local noundef ptr @_ZNK9AstFClose9brokenGenEv(ptr noundef nonnull rea
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.403, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.403, %4 ]
   ret ptr %.1
 }
 
@@ -44341,7 +44341,7 @@ define dso_local noundef ptr @_ZNK7AstFEof9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.404, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.404, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -44558,7 +44558,7 @@ define dso_local noundef ptr @_ZNK9AstFFlush9brokenGenEv(ptr noundef nonnull rea
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.408, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.408, %4 ]
   ret ptr %.1
 }
 
@@ -44698,7 +44698,7 @@ define dso_local noundef ptr @_ZNK8AstFGetC9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.409, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.409, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -44881,7 +44881,7 @@ define dso_local noundef ptr @_ZNK8AstFGetS9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.410, %32 ], [ @.str.411, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.410, %32 ], [ @.str.411, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -45038,7 +45038,7 @@ define dso_local noundef ptr @_ZNK8AstFOpen9brokenGenEv(ptr noundef nonnull read
   br label %12
 
 12:                                               ; preds = %9, %4, %.critedge8
-  %.1 = phi ptr [ @.str.413, %9 ], [ @.str.412, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.412, %4 ], [ @.str.413, %9 ]
   ret ptr %.1
 }
 
@@ -45182,7 +45182,7 @@ define dso_local noundef ptr @_ZNK11AstFOpenMcd9brokenGenEv(ptr noundef nonnull 
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.416, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.416, %4 ]
   ret ptr %.1
 }
 
@@ -46048,7 +46048,7 @@ define dso_local noundef ptr @_ZNK10AstFUngetC9brokenGenEv(ptr noundef nonnull r
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.433, %32 ], [ @.str.434, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.433, %32 ], [ @.str.434, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -46204,7 +46204,7 @@ define dso_local noundef ptr @_ZNK7AstFell9brokenGenEv(ptr noundef nonnull reado
   br label %11
 
 11:                                               ; preds = %9, %4, %.critedge8
-  %.1 = phi ptr [ @.str.436, %9 ], [ @.str.435, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.435, %4 ], [ @.str.436, %9 ]
   ret ptr %.1
 }
 
@@ -46442,7 +46442,7 @@ define dso_local noundef ptr @_ZNK12AstFireEvent9brokenGenEv(ptr noundef nonnull
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.438, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.438, %4 ]
   ret ptr %.1
 }
 
@@ -46615,7 +46615,7 @@ define dso_local noundef ptr @_ZNK9AstFloorD9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.440, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str.440, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -47004,7 +47004,7 @@ define dso_local noundef ptr @_ZNK7AstFunc9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK12AstNodeFTask6brokenEv.exit
 
 _ZNK12AstNodeFTask6brokenEv.exit:                 ; preds = %4, %11, %26, %22, %.critedge14, %16
-  %.1 = phi ptr [ null, %.critedge14 ], [ @.str.448, %16 ], [ @.str.1490, %26 ], [ null, %22 ], [ @.str.703, %4 ], [ @.str.1490, %11 ]
+  %.1 = phi ptr [ @.str.448, %16 ], [ @.str.1490, %26 ], [ null, %22 ], [ null, %.critedge14 ], [ @.str.703, %4 ], [ @.str.1490, %11 ]
   ret ptr %.1
 }
 
@@ -48214,7 +48214,7 @@ define dso_local noundef ptr @_ZNK10AstFuncRef9brokenGenEv(ptr noundef nonnull r
   br label %_ZNK15AstNodeFTaskRef6brokenEv.exit
 
 _ZNK15AstNodeFTaskRef6brokenEv.exit:              ; preds = %33, %.loopexit.i, %.loopexit.thr_comm.i, %.critedge11, %1, %10, %5
-  %.1 = phi ptr [ %2, %1 ], [ @.str.453, %10 ], [ @.str.452, %5 ], [ @.str.1108, %33 ], [ null, %.loopexit.i ], [ null, %.critedge11 ], [ null, %.loopexit.thr_comm.i ]
+  %.1 = phi ptr [ %2, %1 ], [ @.str.452, %5 ], [ @.str.453, %10 ], [ @.str.1108, %33 ], [ null, %.loopexit.i ], [ null, %.critedge11 ], [ null, %.loopexit.thr_comm.i ]
   ret ptr %.1
 }
 
@@ -48335,7 +48335,7 @@ define dso_local noundef ptr @_ZNK15AstNodeFTaskRef9brokenGenEv(ptr noundef nonn
   br label %_ZNK15AstNodeFTaskRef6brokenEv.exit
 
 _ZNK15AstNodeFTaskRef6brokenEv.exit:              ; preds = %45, %.loopexit.i, %.loopexit.thr_comm.i, %.critedge27, %23, %18, %13, %11, %6, %4
-  %.1 = phi ptr [ @.str.710, %23 ], [ @.str.704, %4 ], [ @.str.705, %6 ], [ @.str.706, %11 ], [ @.str.707, %13 ], [ @.str.709, %18 ], [ @.str.1108, %45 ], [ null, %.loopexit.i ], [ null, %.critedge27 ], [ null, %.loopexit.thr_comm.i ]
+  %.1 = phi ptr [ @.str.704, %4 ], [ @.str.705, %6 ], [ @.str.706, %11 ], [ @.str.707, %13 ], [ @.str.709, %18 ], [ @.str.710, %23 ], [ @.str.1108, %45 ], [ null, %.loopexit.i ], [ null, %.critedge27 ], [ null, %.loopexit.thr_comm.i ]
   ret ptr %.1
 }
 
@@ -48816,7 +48816,7 @@ define dso_local noundef ptr @_ZNK10AstGatePin9brokenGenEv(ptr noundef nonnull r
   br label %11
 
 11:                                               ; preds = %9, %4, %.critedge8
-  %.1 = phi ptr [ @.str.456, %9 ], [ @.str.455, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.455, %4 ], [ @.str.456, %9 ]
   ret ptr %.1
 }
 
@@ -48990,8 +48990,8 @@ define dso_local noundef ptr @_ZNK10AstGenCase9brokenGenEv(ptr noundef nonnull r
 .critedge9:                                       ; preds = %.critedge, %15
   br label %.critedge11
 
-.critedge11:                                      ; preds = %.critedge9, %4, %9, %15, %12
-  %.1 = phi ptr [ @.str.687, %9 ], [ @.str.457, %12 ], [ @.str.458, %15 ], [ null, %.critedge9 ], [ @.str.686, %4 ]
+.critedge11:                                      ; preds = %.critedge9, %9, %4, %15, %12
+  %.1 = phi ptr [ @.str.457, %12 ], [ @.str.458, %15 ], [ null, %.critedge9 ], [ @.str.687, %9 ], [ @.str.686, %4 ]
   ret ptr %.1
 }
 
@@ -49749,7 +49749,7 @@ define dso_local noundef ptr @_ZNK8AstGetcN9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.468, %32 ], [ @.str.469, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.468, %32 ], [ @.str.469, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -49987,7 +49987,7 @@ define dso_local noundef ptr @_ZNK11AstGetcRefN9brokenGenEv(ptr noundef nonnull 
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.470, %32 ], [ @.str.471, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.470, %32 ], [ @.str.471, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -50225,7 +50225,7 @@ define dso_local noundef ptr @_ZNK5AstGt9brokenGenEv(ptr noundef nonnull readonl
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.472, %32 ], [ @.str.473, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.472, %32 ], [ @.str.473, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -50463,7 +50463,7 @@ define dso_local noundef ptr @_ZNK6AstGtD9brokenGenEv(ptr noundef nonnull readon
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.474, %32 ], [ @.str.475, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.474, %32 ], [ @.str.475, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -50701,7 +50701,7 @@ define dso_local noundef ptr @_ZNK6AstGtN9brokenGenEv(ptr noundef nonnull readon
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.476, %32 ], [ @.str.477, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.476, %32 ], [ @.str.477, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -50939,7 +50939,7 @@ define dso_local noundef ptr @_ZNK6AstGtS9brokenGenEv(ptr noundef nonnull readon
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.478, %32 ], [ @.str.479, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.478, %32 ], [ @.str.479, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -51177,7 +51177,7 @@ define dso_local noundef ptr @_ZNK6AstGte9brokenGenEv(ptr noundef nonnull readon
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.480, %32 ], [ @.str.481, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.480, %32 ], [ @.str.481, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -51415,7 +51415,7 @@ define dso_local noundef ptr @_ZNK7AstGteD9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.482, %32 ], [ @.str.483, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.482, %32 ], [ @.str.483, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -51653,7 +51653,7 @@ define dso_local noundef ptr @_ZNK7AstGteN9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.484, %32 ], [ @.str.485, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.484, %32 ], [ @.str.485, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -51891,7 +51891,7 @@ define dso_local noundef ptr @_ZNK7AstGteS9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.486, %32 ], [ @.str.487, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.486, %32 ], [ @.str.487, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -52277,7 +52277,7 @@ define dso_local noundef ptr @_ZNK9AstISToRD9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.490, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.490, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -52417,7 +52417,7 @@ define dso_local noundef ptr @_ZNK8AstIToRD9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.491, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.491, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -52958,7 +52958,7 @@ define dso_local noundef ptr @_ZNK16AstIfaceRefDType9brokenGenEv(ptr noundef non
   br label %24
 
 24:                                               ; preds = %22, %18, %16, %12, %10, %6, %4, %.critedge29
-  %.1 = phi ptr [ @.str.504, %22 ], [ @.str.498, %4 ], [ @.str.499, %6 ], [ @.str.500, %10 ], [ @.str.501, %12 ], [ @.str.502, %16 ], [ @.str.503, %18 ], [ null, %.critedge29 ]
+  %.1 = phi ptr [ null, %.critedge29 ], [ @.str.498, %4 ], [ @.str.499, %6 ], [ @.str.500, %10 ], [ @.str.501, %12 ], [ @.str.502, %16 ], [ @.str.503, %18 ], [ @.str.504, %22 ]
   ret ptr %.1
 }
 
@@ -53273,7 +53273,7 @@ define dso_local noundef ptr @_ZNK14AstImplication9brokenGenEv(ptr noundef nonnu
   br label %16
 
 16:                                               ; preds = %14, %9, %4, %.critedge11
-  %.1 = phi ptr [ @.str.509, %14 ], [ @.str.507, %4 ], [ @.str.508, %9 ], [ null, %.critedge11 ]
+  %.1 = phi ptr [ null, %.critedge11 ], [ @.str.507, %4 ], [ @.str.508, %9 ], [ @.str.509, %14 ]
   ret ptr %.1
 }
 
@@ -53596,7 +53596,7 @@ define dso_local noundef ptr @_ZNK12AstInitArray9brokenGenEv(ptr noundef nonnull
   br i1 %.not9.i, label %_ZNK12AstInitArray6brokenEv.exit, label %.lr.ph.i, !llvm.loop !251
 
 _ZNK12AstInitArray6brokenEv.exit:                 ; preds = %14, %12, %.lr.ph.i, %.critedge8, %4
-  %.1 = phi ptr [ @.str.511, %4 ], [ null, %.critedge8 ], [ null, %14 ], [ @.str.1328, %12 ], [ @.str.1327, %.lr.ph.i ]
+  %.1 = phi ptr [ @.str.511, %4 ], [ null, %.critedge8 ], [ null, %14 ], [ @.str.1327, %.lr.ph.i ], [ @.str.1328, %12 ]
   ret ptr %.1
 }
 
@@ -53639,7 +53639,7 @@ define dso_local noundef ptr @_ZNK12AstInitArray6brokenEv(ptr noundef nonnull re
   br i1 %.not9, label %.thread, label %.lr.ph, !llvm.loop !251
 
 .thread:                                          ; preds = %9, %.lr.ph, %7, %1
-  %11 = phi ptr [ null, %1 ], [ @.str.1327, %.lr.ph ], [ @.str.1328, %7 ], [ null, %9 ]
+  %11 = phi ptr [ null, %1 ], [ @.str.1328, %7 ], [ @.str.1327, %.lr.ph ], [ null, %9 ]
   ret ptr %11
 }
 
@@ -54093,7 +54093,7 @@ define dso_local noundef ptr @_ZNK9AstInside9brokenGenEv(ptr noundef nonnull rea
   br label %12
 
 12:                                               ; preds = %9, %4, %.critedge8
-  %.1 = phi ptr [ @.str.518, %9 ], [ @.str.517, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.517, %4 ], [ @.str.518, %9 ]
   ret ptr %.1
 }
 
@@ -54250,7 +54250,7 @@ define dso_local noundef ptr @_ZNK14AstInsideRange9brokenGenEv(ptr noundef nonnu
   br label %12
 
 12:                                               ; preds = %9, %4, %.critedge8
-  %.1 = phi ptr [ @.str.520, %9 ], [ @.str.519, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.519, %4 ], [ @.str.520, %9 ]
   ret ptr %.1
 }
 
@@ -54465,7 +54465,7 @@ define dso_local noundef ptr @_ZNK14AstIsUnbounded9brokenGenEv(ptr noundef nonnu
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.521, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.521, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -54605,7 +54605,7 @@ define dso_local noundef ptr @_ZNK12AstIsUnknown9brokenGenEv(ptr noundef nonnull
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.522, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.522, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -54945,7 +54945,7 @@ define dso_local noundef ptr @_ZNK9AstJumpGo9brokenGenEv(ptr noundef nonnull rea
   br label %14
 
 14:                                               ; preds = %8, %4, %1, %.critedge
-  %.1 = phi ptr [ @.str.532, %8 ], [ @.str.530, %1 ], [ @.str.531, %4 ], [ %..str.1330.i, %.critedge ]
+  %.1 = phi ptr [ %..str.1330.i, %.critedge ], [ @.str.530, %1 ], [ @.str.531, %4 ], [ @.str.532, %8 ]
   ret ptr %.1
 }
 
@@ -55082,7 +55082,7 @@ define dso_local noundef ptr @_ZNK12AstJumpLabel9brokenGenEv(ptr noundef nonnull
   br label %_ZNK12AstJumpLabel6brokenEv.exit
 
 _ZNK12AstJumpLabel6brokenEv.exit:                 ; preds = %15, %.critedge, %8, %4, %1
-  %.1 = phi ptr [ @.str.535, %8 ], [ @.str.533, %1 ], [ @.str.534, %4 ], [ @.str.1645, %.critedge ], [ %..str.1646.i, %15 ]
+  %.1 = phi ptr [ @.str.533, %1 ], [ @.str.534, %4 ], [ @.str.535, %8 ], [ @.str.1645, %.critedge ], [ %..str.1646.i, %15 ]
   ret ptr %.1
 }
 
@@ -55280,7 +55280,7 @@ define dso_local noundef ptr @_ZNK7AstLenN9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.537, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.537, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -55411,7 +55411,7 @@ _ZN7AstNode9privateIsI11AstStmtExprPS_EEbPKS_.exit.i: ; preds = %18, %.critedge1
   br label %_ZNK6AstLet6brokenEv.exit
 
 _ZNK6AstLet6brokenEv.exit:                        ; preds = %18, %4, %11, %_ZN7AstNode9privateIsI11AstStmtExprPS_EEbPKS_.exit.i, %.critedge14
-  %.1 = phi ptr [ %spec.select.i, %_ZN7AstNode9privateIsI11AstStmtExprPS_EEbPKS_.exit.i ], [ %.str.541.mux, %18 ], [ @.str.1647, %.critedge14 ], [ @.str.703, %4 ], [ @.str.1490, %11 ]
+  %.1 = phi ptr [ %.str.541.mux, %18 ], [ @.str.1647, %.critedge14 ], [ %spec.select.i, %_ZN7AstNode9privateIsI11AstStmtExprPS_EEbPKS_.exit.i ], [ @.str.703, %4 ], [ @.str.1490, %11 ]
   ret ptr %.1
 }
 
@@ -55762,7 +55762,7 @@ define dso_local noundef ptr @_ZNK9AstLog10D9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.542, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str.542, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -55945,7 +55945,7 @@ define dso_local noundef ptr @_ZNK9AstLogAnd9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.543, %32 ], [ @.str.544, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.543, %32 ], [ @.str.544, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -56173,7 +56173,7 @@ define dso_local noundef ptr @_ZNK7AstLogD9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.545, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str.545, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -56547,7 +56547,7 @@ define dso_local noundef ptr @_ZNK8AstLogIf9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.548, %32 ], [ @.str.549, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.548, %32 ], [ @.str.549, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -56742,7 +56742,7 @@ define dso_local noundef ptr @_ZNK9AstLogNot9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.550, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.550, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -56925,7 +56925,7 @@ define dso_local noundef ptr @_ZNK8AstLogOr9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.551, %32 ], [ @.str.552, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.551, %32 ], [ @.str.552, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -57163,7 +57163,7 @@ define dso_local noundef ptr @_ZNK5AstLt9brokenGenEv(ptr noundef nonnull readonl
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.553, %32 ], [ @.str.554, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.553, %32 ], [ @.str.554, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -57401,7 +57401,7 @@ define dso_local noundef ptr @_ZNK6AstLtD9brokenGenEv(ptr noundef nonnull readon
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.555, %32 ], [ @.str.556, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.555, %32 ], [ @.str.556, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -57639,7 +57639,7 @@ define dso_local noundef ptr @_ZNK6AstLtN9brokenGenEv(ptr noundef nonnull readon
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.557, %32 ], [ @.str.558, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.557, %32 ], [ @.str.558, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -57877,7 +57877,7 @@ define dso_local noundef ptr @_ZNK6AstLtS9brokenGenEv(ptr noundef nonnull readon
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.559, %32 ], [ @.str.560, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.559, %32 ], [ @.str.560, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -58115,7 +58115,7 @@ define dso_local noundef ptr @_ZNK6AstLte9brokenGenEv(ptr noundef nonnull readon
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.561, %32 ], [ @.str.562, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.561, %32 ], [ @.str.562, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -58353,7 +58353,7 @@ define dso_local noundef ptr @_ZNK7AstLteD9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.563, %32 ], [ @.str.564, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.563, %32 ], [ @.str.564, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -58591,7 +58591,7 @@ define dso_local noundef ptr @_ZNK7AstLteN9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.565, %32 ], [ @.str.566, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.565, %32 ], [ @.str.566, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -58829,7 +58829,7 @@ define dso_local noundef ptr @_ZNK7AstLteS9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.567, %32 ], [ @.str.568, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.567, %32 ], [ @.str.568, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -59080,7 +59080,7 @@ define dso_local noundef ptr @_ZNK14AstMemberDType9brokenGenEv(ptr noundef nonnu
   br label %.critedge16
 
 .critedge16:                                      ; preds = %.critedge14, %11, %6, %4
-  %.1 = phi ptr [ @.str.572, %11 ], [ @.str.570, %4 ], [ @.str.571, %6 ], [ null, %.critedge14 ]
+  %.1 = phi ptr [ @.str.570, %4 ], [ @.str.571, %6 ], [ @.str.572, %11 ], [ null, %.critedge14 ]
   ret ptr %.1
 }
 
@@ -59312,7 +59312,7 @@ define dso_local noundef ptr @_ZNK12AstMemberSel9brokenGenEv(ptr noundef nonnull
   br label %13
 
 13:                                               ; preds = %10, %6, %4, %.critedge13
-  %.1 = phi ptr [ @.str.576, %10 ], [ @.str.574, %4 ], [ @.str.575, %6 ], [ null, %.critedge13 ]
+  %.1 = phi ptr [ null, %.critedge13 ], [ @.str.574, %4 ], [ @.str.575, %6 ], [ @.str.576, %10 ]
   ret ptr %.1
 }
 
@@ -59541,7 +59541,7 @@ define dso_local noundef ptr @_ZNK13AstMethodCall9brokenGenEv(ptr noundef nonnul
   br label %_ZNK15AstNodeFTaskRef6brokenEv.exit
 
 _ZNK15AstNodeFTaskRef6brokenEv.exit:              ; preds = %38, %.loopexit.i, %.loopexit.thr_comm.i, %.critedge14, %1, %15, %10, %5
-  %.1 = phi ptr [ %2, %1 ], [ @.str.580, %15 ], [ @.str.578, %5 ], [ @.str.579, %10 ], [ @.str.1108, %38 ], [ null, %.loopexit.i ], [ null, %.critedge14 ], [ null, %.loopexit.thr_comm.i ]
+  %.1 = phi ptr [ %2, %1 ], [ @.str.578, %5 ], [ @.str.579, %10 ], [ @.str.580, %15 ], [ @.str.1108, %38 ], [ null, %.loopexit.i ], [ null, %.critedge14 ], [ null, %.loopexit.thr_comm.i ]
   ret ptr %.1
 }
 
@@ -59924,7 +59924,7 @@ define dso_local noundef ptr @_ZNK9AstModDiv9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.581, %32 ], [ @.str.582, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.581, %32 ], [ @.str.582, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -60162,7 +60162,7 @@ define dso_local noundef ptr @_ZNK10AstModDivS9brokenGenEv(ptr noundef nonnull r
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.583, %32 ], [ @.str.584, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.583, %32 ], [ @.str.584, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -60916,7 +60916,7 @@ define dso_local noundef ptr @_ZNK6AstMul9brokenGenEv(ptr noundef nonnull readon
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %._crit_edge.i.i, %25, %11, %6, %1, %58, %51, %._crit_edge.i, %.critedge8, %38, %34
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.595, %34 ], [ @.str.596, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.595, %34 ], [ @.str.596, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ %2, %1 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -61159,7 +61159,7 @@ define dso_local noundef ptr @_ZNK7AstMulD9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %._crit_edge.i.i, %25, %11, %6, %1, %58, %51, %._crit_edge.i, %.critedge8, %38, %34
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.597, %34 ], [ @.str.598, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.597, %34 ], [ @.str.598, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ %2, %1 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -61402,7 +61402,7 @@ define dso_local noundef ptr @_ZNK7AstMulS9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %._crit_edge.i.i, %25, %11, %6, %1, %58, %51, %._crit_edge.i, %.critedge8, %38, %34
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.599, %34 ], [ @.str.600, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.599, %34 ], [ @.str.600, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ %2, %1 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -61555,7 +61555,7 @@ define dso_local noundef ptr @_ZNK22AstNBACommitQueueDType9brokenGenEv(ptr nound
   br label %11
 
 11:                                               ; preds = %8, %4, %1, %.critedge
-  %.1 = phi ptr [ @.str.603, %8 ], [ @.str.601, %1 ], [ @.str.602, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.601, %1 ], [ @.str.602, %4 ], [ @.str.603, %8 ]
   ret ptr %.1
 }
 
@@ -61710,7 +61710,7 @@ define dso_local noundef ptr @_ZNK7AstNToI9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.605, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.605, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -61850,7 +61850,7 @@ define dso_local noundef ptr @_ZNK9AstNegate9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.606, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.606, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -61990,7 +61990,7 @@ define dso_local noundef ptr @_ZNK10AstNegateD9brokenGenEv(ptr noundef nonnull r
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.607, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.607, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -63128,7 +63128,7 @@ define dso_local noundef ptr @_ZNK10AstNeqWild9brokenGenEv(ptr noundef nonnull r
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.618, %32 ], [ @.str.619, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.618, %32 ], [ @.str.619, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -63516,7 +63516,7 @@ define dso_local noundef ptr @_ZNK10AstNetlist9brokenGenEv(ptr noundef nonnull r
   br label %.critedge89
 
 .critedge89:                                      ; preds = %.critedge87, %79, %74, %70, %68, %64, %62, %58, %56, %52, %50, %46, %44, %40, %38, %34, %32, %28, %26, %22, %20, %16, %12, %.critedge, %8, %4, %1
-  %.0 = phi ptr [ @.str.645, %79 ], [ @.str.620, %1 ], [ @.str.621, %4 ], [ @.str.622, %8 ], [ @.str.623, %.critedge ], [ @.str.624, %12 ], [ @.str.625, %16 ], [ @.str.626, %20 ], [ @.str.627, %22 ], [ @.str.628, %26 ], [ @.str.629, %28 ], [ @.str.630, %32 ], [ @.str.631, %34 ], [ @.str.632, %38 ], [ @.str.633, %40 ], [ @.str.634, %44 ], [ @.str.635, %46 ], [ @.str.636, %50 ], [ @.str.637, %52 ], [ @.str.638, %56 ], [ @.str.639, %58 ], [ @.str.640, %62 ], [ @.str.641, %64 ], [ @.str.642, %68 ], [ @.str.643, %70 ], [ @.str.644, %74 ], [ null, %.critedge87 ]
+  %.0 = phi ptr [ @.str.620, %1 ], [ @.str.621, %4 ], [ @.str.622, %8 ], [ @.str.623, %.critedge ], [ @.str.624, %12 ], [ @.str.625, %16 ], [ @.str.626, %20 ], [ @.str.627, %22 ], [ @.str.628, %26 ], [ @.str.629, %28 ], [ @.str.630, %32 ], [ @.str.631, %34 ], [ @.str.632, %38 ], [ @.str.633, %40 ], [ @.str.634, %44 ], [ @.str.635, %46 ], [ @.str.636, %50 ], [ @.str.637, %52 ], [ @.str.638, %56 ], [ @.str.639, %58 ], [ @.str.640, %62 ], [ @.str.641, %64 ], [ @.str.642, %68 ], [ @.str.643, %70 ], [ @.str.644, %74 ], [ @.str.645, %79 ], [ null, %.critedge87 ]
   ret ptr %.0
 }
 
@@ -64528,7 +64528,7 @@ define dso_local noundef ptr @_ZNK6AstNew9brokenGenEv(ptr noundef nonnull readon
   br label %_ZNK15AstNodeFTaskRef6brokenEv.exit
 
 _ZNK15AstNodeFTaskRef6brokenEv.exit:              ; preds = %33, %.loopexit.i, %.loopexit.thr_comm.i, %.critedge11, %1, %10, %5
-  %.1 = phi ptr [ %2, %1 ], [ @.str.663, %10 ], [ @.str.662, %5 ], [ @.str.1108, %33 ], [ null, %.loopexit.i ], [ null, %.critedge11 ], [ null, %.loopexit.thr_comm.i ]
+  %.1 = phi ptr [ %2, %1 ], [ @.str.662, %5 ], [ @.str.663, %10 ], [ @.str.1108, %33 ], [ null, %.loopexit.i ], [ null, %.critedge11 ], [ null, %.loopexit.thr_comm.i ]
   ret ptr %.1
 }
 
@@ -64766,7 +64766,7 @@ define dso_local noundef ptr @_ZNK10AstNewCopy9brokenGenEv(ptr noundef nonnull r
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.664, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.664, %4 ]
   ret ptr %.1
 }
 
@@ -64868,7 +64868,7 @@ define dso_local noundef ptr @_ZNK13AstNewDynamic9brokenGenEv(ptr noundef nonnul
   br label %12
 
 12:                                               ; preds = %9, %4, %.critedge8
-  %.1 = phi ptr [ @.str.666, %9 ], [ @.str.665, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.665, %4 ], [ @.str.666, %9 ]
   ret ptr %.1
 }
 
@@ -65018,7 +65018,7 @@ define dso_local noundef ptr @_ZNK17AstNodeArrayDType9brokenGenEv(ptr noundef no
   br i1 %spec.select.i, label %_ZNK17AstNodeArrayDType6brokenEv.exit, label %.critedge12, !prof !21
 
 .critedge12:                                      ; preds = %1, %.critedge, %6
-  %.not821 = phi i1 [ false, %6 ], [ true, %.critedge ], [ true, %1 ]
+  %.not821 = phi i1 [ true, %.critedge ], [ false, %6 ], [ true, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %.fr.i = freeze ptr %10
@@ -65057,7 +65057,7 @@ define dso_local noundef ptr @_ZNK17AstNodeArrayDType9brokenGenEv(ptr noundef no
   br label %_ZNK17AstNodeArrayDType6brokenEv.exit
 
 _ZNK17AstNodeArrayDType6brokenEv.exit:            ; preds = %.thread.i, %19, %18, %16, %11, %6, %4
-  %.1 = phi ptr [ @.str.671, %16 ], [ @.str.668, %4 ], [ @.str.669, %6 ], [ @.str.670, %11 ], [ @.str.1649, %.thread.i ], [ null, %19 ], [ null, %18 ]
+  %.1 = phi ptr [ @.str.668, %4 ], [ @.str.669, %6 ], [ @.str.670, %11 ], [ @.str.671, %16 ], [ @.str.1649, %.thread.i ], [ null, %19 ], [ null, %18 ]
   ret ptr %.1
 }
 
@@ -66212,7 +66212,7 @@ define dso_local noundef ptr @_ZNK12AstNodeTriop9brokenGenEv(ptr noundef nonnull
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
 _ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %41, %34, %.thr_comm.i, %.critedge11, %14, %9, %4
-  %.1 = phi ptr [ @.str.750, %14 ], [ @.str.748, %4 ], [ @.str.749, %9 ], [ @.str.1114, %41 ], [ null, %34 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ]
+  %.1 = phi ptr [ @.str.748, %4 ], [ @.str.749, %9 ], [ @.str.750, %14 ], [ @.str.1114, %41 ], [ null, %34 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ]
   ret ptr %.1
 }
 
@@ -68176,7 +68176,7 @@ define dso_local noundef ptr @_ZNK13AstNodePreSel9brokenGenEv(ptr noundef nonnul
   br label %_ZNK13AstNodePreSel6brokenEv.exit
 
 _ZNK13AstNodePreSel6brokenEv.exit:                ; preds = %46, %40, %.thr_comm.i, %._crit_edge.i, %.critedge14, %19, %14, %9, %4
-  %.1 = phi ptr [ @.str.728, %19 ], [ @.str.725, %4 ], [ @.str.726, %9 ], [ @.str.727, %14 ], [ @.str.1115, %46 ], [ null, %40 ], [ null, %.critedge14 ], [ null, %.thr_comm.i ], [ null, %._crit_edge.i ]
+  %.1 = phi ptr [ @.str.725, %4 ], [ @.str.726, %9 ], [ @.str.727, %14 ], [ @.str.728, %19 ], [ @.str.1115, %46 ], [ null, %40 ], [ null, %.critedge14 ], [ null, %.thr_comm.i ], [ null, %._crit_edge.i ]
   ret ptr %.1
 }
 
@@ -68809,7 +68809,7 @@ define dso_local noundef ptr @_ZNK19AstNodeReadWriteMem9brokenGenEv(ptr noundef 
   br label %22
 
 22:                                               ; preds = %19, %14, %9, %4, %.critedge14
-  %.1 = phi ptr [ @.str.738, %19 ], [ @.str.735, %4 ], [ @.str.736, %9 ], [ @.str.737, %14 ], [ null, %.critedge14 ]
+  %.1 = phi ptr [ null, %.critedge14 ], [ @.str.735, %4 ], [ @.str.736, %9 ], [ @.str.737, %14 ], [ @.str.738, %19 ]
   ret ptr %.1
 }
 
@@ -69393,7 +69393,7 @@ define dso_local noundef ptr @_ZNK13AstNodeStream9brokenGenEv(ptr noundef nonnul
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.743, %32 ], [ @.str.744, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.743, %32 ], [ @.str.744, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -69925,7 +69925,7 @@ define dso_local noundef ptr @_ZNK21AstNodeUOrStructDType9brokenGenEv(ptr nounde
   br label %13
 
 13:                                               ; preds = %11, %6, %4, %.critedge13
-  %.1 = phi ptr [ @.str.753, %11 ], [ @.str.751, %4 ], [ @.str.752, %6 ], [ null, %.critedge13 ]
+  %.1 = phi ptr [ null, %.critedge13 ], [ @.str.751, %4 ], [ @.str.752, %6 ], [ @.str.753, %11 ]
   ret ptr %.1
 }
 
@@ -70194,7 +70194,7 @@ define dso_local noundef ptr @_ZNK13AstNodeVarRef9brokenGenEv(ptr noundef nonnul
   br label %21
 
 21:                                               ; preds = %18, %16, %12, %10, %6, %4, %.critedge26
-  %.1 = phi ptr [ @.str.760, %18 ], [ @.str.755, %4 ], [ @.str.756, %6 ], [ @.str.757, %10 ], [ @.str.758, %12 ], [ @.str.759, %16 ], [ null, %.critedge26 ]
+  %.1 = phi ptr [ null, %.critedge26 ], [ @.str.755, %4 ], [ @.str.756, %6 ], [ @.str.757, %10 ], [ @.str.758, %12 ], [ @.str.759, %16 ], [ @.str.760, %18 ]
   ret ptr %.1
 }
 
@@ -70482,7 +70482,7 @@ define dso_local noundef ptr @_ZNK6AstNot9brokenGenEv(ptr noundef nonnull readon
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.762, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.762, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -70817,7 +70817,7 @@ define dso_local noundef ptr @_ZNK12AstNullCheck9brokenGenEv(ptr noundef nonnull
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.766, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.766, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -70957,7 +70957,7 @@ define dso_local noundef ptr @_ZNK9AstOneHot9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.767, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.767, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -71097,7 +71097,7 @@ define dso_local noundef ptr @_ZNK10AstOneHot09brokenGenEv(ptr noundef nonnull r
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.768, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.768, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -71285,7 +71285,7 @@ define dso_local noundef ptr @_ZNK5AstOr9brokenGenEv(ptr noundef nonnull readonl
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %._crit_edge.i.i, %25, %11, %6, %1, %58, %51, %._crit_edge.i, %.critedge8, %38, %34
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.769, %34 ], [ @.str.770, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.769, %34 ], [ @.str.770, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ %2, %1 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -71435,7 +71435,7 @@ define dso_local noundef ptr @_ZNK17AstPackArrayDType9brokenGenEv(ptr noundef no
   br i1 %spec.select.i.i, label %_ZNK17AstNodeArrayDType6brokenEv.exit, label %.critedge12.i, !prof !21
 
 .critedge12.i:                                    ; preds = %6, %.critedge.i, %1
-  %.not821.i = phi i1 [ false, %6 ], [ true, %.critedge.i ], [ true, %1 ]
+  %.not821.i = phi i1 [ true, %.critedge.i ], [ false, %6 ], [ true, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %.fr.i.i = freeze ptr %10
@@ -71498,8 +71498,8 @@ define dso_local noundef ptr @_ZNK17AstPackArrayDType9brokenGenEv(ptr noundef no
 .thread.i:                                        ; preds = %26, %25
   br label %_ZNK17AstNodeArrayDType6brokenEv.exit
 
-_ZNK17AstNodeArrayDType6brokenEv.exit:            ; preds = %18, %19, %11, %6, %4, %16, %.thread.i, %26, %25, %23, %20
-  %.1 = phi ptr [ null, %25 ], [ @.str.771, %20 ], [ @.str.772, %23 ], [ @.str.1649, %.thread.i ], [ null, %26 ], [ @.str.671, %16 ], [ @.str.670, %11 ], [ @.str.669, %6 ], [ @.str.668, %4 ], [ @.str.1649, %19 ], [ @.str.1649, %18 ]
+_ZNK17AstNodeArrayDType6brokenEv.exit:            ; preds = %18, %19, %16, %11, %6, %4, %.thread.i, %26, %25, %23, %20
+  %.1 = phi ptr [ @.str.771, %20 ], [ @.str.772, %23 ], [ @.str.1649, %.thread.i ], [ null, %26 ], [ null, %25 ], [ @.str.671, %16 ], [ @.str.670, %11 ], [ @.str.669, %6 ], [ @.str.668, %4 ], [ @.str.1649, %19 ], [ @.str.1649, %18 ]
   ret ptr %.1
 }
 
@@ -72359,7 +72359,7 @@ define dso_local noundef ptr @_ZNK17AstParamTypeDType9brokenGenEv(ptr noundef no
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.781, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.781, %4 ]
   ret ptr %.1
 }
 
@@ -72470,7 +72470,7 @@ define dso_local noundef ptr @_ZNK11AstParseRef9brokenGenEv(ptr noundef nonnull 
   br label %6
 
 6:                                                ; preds = %3, %.critedge8
-  %.1 = phi ptr [ @.str.783, %3 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.783, %3 ]
   ret ptr %.1
 }
 
@@ -72647,7 +72647,7 @@ define dso_local noundef ptr @_ZNK7AstPast9brokenGenEv(ptr noundef nonnull reado
   br label %11
 
 11:                                               ; preds = %9, %4, %.critedge11
-  %.1 = phi ptr [ @.str.787, %9 ], [ @.str.785, %4 ], [ null, %.critedge11 ]
+  %.1 = phi ptr [ null, %.critedge11 ], [ @.str.785, %4 ], [ @.str.787, %9 ]
   ret ptr %.1
 }
 
@@ -72868,7 +72868,7 @@ define dso_local noundef ptr @_ZNK12AstPatMember9brokenGenEv(ptr noundef nonnull
   br label %17
 
 17:                                               ; preds = %14, %9, %4, %.critedge14
-  %.1 = phi ptr [ @.str.792, %14 ], [ @.str.789, %4 ], [ null, %.critedge14 ], [ @.str.791, %9 ]
+  %.1 = phi ptr [ null, %.critedge14 ], [ @.str.789, %4 ], [ @.str.791, %9 ], [ @.str.792, %14 ]
   ret ptr %.1
 }
 
@@ -73747,8 +73747,8 @@ define dso_local noundef ptr @_ZNK10AstPostAdd9brokenGenEv(ptr noundef nonnull r
 77:                                               ; preds = %70, %.thr_comm.i
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.805, %43 ], [ @.str.806, %47 ], [ @.str.807, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %14, %9, %4, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
+  %.1 = phi ptr [ @.str.805, %43 ], [ @.str.806, %47 ], [ @.str.807, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
   ret ptr %.1
 }
 
@@ -74077,8 +74077,8 @@ define dso_local noundef ptr @_ZNK10AstPostSub9brokenGenEv(ptr noundef nonnull r
 77:                                               ; preds = %70, %.thr_comm.i
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.808, %43 ], [ @.str.809, %47 ], [ @.str.810, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %14, %9, %4, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
+  %.1 = phi ptr [ @.str.808, %43 ], [ @.str.809, %47 ], [ @.str.810, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
   ret ptr %.1
 }
 
@@ -74367,7 +74367,7 @@ define dso_local noundef ptr @_ZNK6AstPow9brokenGenEv(ptr noundef nonnull readon
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.811, %32 ], [ @.str.812, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.811, %32 ], [ @.str.812, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -74605,7 +74605,7 @@ define dso_local noundef ptr @_ZNK7AstPowD9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.813, %32 ], [ @.str.814, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.813, %32 ], [ @.str.814, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -74843,7 +74843,7 @@ define dso_local noundef ptr @_ZNK8AstPowSS9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.815, %32 ], [ @.str.816, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.815, %32 ], [ @.str.816, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -75081,7 +75081,7 @@ define dso_local noundef ptr @_ZNK8AstPowSU9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.817, %32 ], [ @.str.818, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.817, %32 ], [ @.str.818, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -75319,7 +75319,7 @@ define dso_local noundef ptr @_ZNK8AstPowUS9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.819, %32 ], [ @.str.820, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.819, %32 ], [ @.str.820, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -75617,8 +75617,8 @@ define dso_local noundef ptr @_ZNK9AstPreAdd9brokenGenEv(ptr noundef nonnull rea
 77:                                               ; preds = %70, %.thr_comm.i
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.821, %43 ], [ @.str.822, %47 ], [ @.str.823, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %14, %9, %4, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
+  %.1 = phi ptr [ @.str.821, %43 ], [ @.str.822, %47 ], [ @.str.823, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
   ret ptr %.1
 }
 
@@ -75947,8 +75947,8 @@ define dso_local noundef ptr @_ZNK9AstPreSub9brokenGenEv(ptr noundef nonnull rea
 77:                                               ; preds = %70, %.thr_comm.i
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.824, %43 ], [ @.str.825, %47 ], [ @.str.826, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %14, %9, %4, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
+  %.1 = phi ptr [ @.str.824, %43 ], [ @.str.825, %47 ], [ @.str.826, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
   ret ptr %.1
 }
 
@@ -76370,7 +76370,7 @@ define dso_local noundef ptr @_ZNK11AstPropSpec9brokenGenEv(ptr noundef nonnull 
   br label %.critedge7
 
 .critedge7:                                       ; preds = %.critedge5, %8, %4
-  %.0 = phi ptr [ @.str.831, %8 ], [ @.str.830, %4 ], [ null, %.critedge5 ]
+  %.0 = phi ptr [ @.str.830, %4 ], [ @.str.831, %8 ], [ null, %.critedge5 ]
   ret ptr %.0
 }
 
@@ -76608,7 +76608,7 @@ define dso_local noundef ptr @_ZNK11AstProperty9brokenGenEv(ptr noundef nonnull 
   br label %_ZNK12AstNodeFTask6brokenEv.exit
 
 _ZNK12AstNodeFTask6brokenEv.exit:                 ; preds = %4, %11, %26, %22, %.critedge14, %16
-  %.1 = phi ptr [ null, %.critedge14 ], [ @.str.837, %16 ], [ @.str.1490, %26 ], [ null, %22 ], [ @.str.703, %4 ], [ @.str.1490, %11 ]
+  %.1 = phi ptr [ @.str.837, %16 ], [ @.str.1490, %26 ], [ null, %22 ], [ null, %.critedge14 ], [ @.str.703, %4 ], [ @.str.1490, %11 ]
   ret ptr %.1
 }
 
@@ -77078,8 +77078,8 @@ define dso_local noundef ptr @_ZNK8AstPutcN9brokenGenEv(ptr noundef nonnull read
 77:                                               ; preds = %70, %.thr_comm.i
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.839, %43 ], [ @.str.840, %47 ], [ @.str.841, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %14, %9, %4, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
+  %.1 = phi ptr [ @.str.839, %43 ], [ @.str.840, %47 ], [ @.str.841, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
   ret ptr %.1
 }
 
@@ -77280,7 +77280,7 @@ define dso_local noundef ptr @_ZNK13AstQueueDType9brokenGenEv(ptr noundef nonnul
   br i1 %spec.select.i, label %_ZNK13AstQueueDType6brokenEv.exit, label %.critedge12, !prof !21
 
 .critedge12:                                      ; preds = %1, %.critedge, %6
-  %.not822 = phi i1 [ false, %6 ], [ true, %.critedge ], [ true, %1 ]
+  %.not822 = phi i1 [ true, %.critedge ], [ false, %6 ], [ true, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %.fr.i = freeze ptr %10
@@ -77320,7 +77320,7 @@ define dso_local noundef ptr @_ZNK13AstQueueDType9brokenGenEv(ptr noundef nonnul
   br label %_ZNK13AstQueueDType6brokenEv.exit
 
 _ZNK13AstQueueDType6brokenEv.exit:                ; preds = %.thread.i, %20, %19, %16, %11, %6, %4
-  %.1 = phi ptr [ @.str.845, %16 ], [ @.str.842, %4 ], [ @.str.843, %6 ], [ @.str.844, %11 ], [ @.str.1650, %.thread.i ], [ null, %20 ], [ null, %19 ]
+  %.1 = phi ptr [ @.str.842, %4 ], [ @.str.843, %6 ], [ @.str.844, %11 ], [ @.str.845, %16 ], [ @.str.1650, %.thread.i ], [ null, %20 ], [ null, %19 ]
   ret ptr %.1
 }
 
@@ -77607,7 +77607,7 @@ define dso_local noundef ptr @_ZNK13AstRToIRoundS9brokenGenEv(ptr noundef nonnul
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.847, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.847, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -77747,7 +77747,7 @@ define dso_local noundef ptr @_ZNK8AstRToIS9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.848, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.848, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -77908,7 +77908,7 @@ define dso_local noundef ptr @_ZNK11AstRandCase9brokenGenEv(ptr noundef nonnull 
   br label %6
 
 6:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.851, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.851, %4 ]
   ret ptr %.1
 }
 
@@ -78030,7 +78030,7 @@ define dso_local noundef ptr @_ZNK8AstRange9brokenGenEv(ptr noundef nonnull read
   br label %12
 
 12:                                               ; preds = %9, %4, %.critedge8
-  %.1 = phi ptr [ @.str.853, %9 ], [ @.str.852, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.852, %4 ], [ @.str.853, %9 ]
   ret ptr %.1
 }
 
@@ -78252,8 +78252,8 @@ define dso_local noundef ptr @_ZNK10AstReadMem9brokenGenEv(ptr noundef nonnull r
 .critedge14:                                      ; preds = %.critedge12, %32
   br label %_ZNK19AstNodeReadWriteMem9brokenGenEv.exit.thread
 
-_ZNK19AstNodeReadWriteMem9brokenGenEv.exit.thread: ; preds = %14, %9, %4, %19, %32, %29, %26, %23, %.critedge14
-  %.1 = phi ptr [ @.str.859, %32 ], [ @.str.856, %23 ], [ @.str.857, %26 ], [ @.str.858, %29 ], [ null, %.critedge14 ], [ @.str.737, %14 ], [ @.str.736, %9 ], [ @.str.735, %4 ], [ @.str.738, %19 ]
+_ZNK19AstNodeReadWriteMem9brokenGenEv.exit.thread: ; preds = %19, %14, %9, %4, %32, %29, %26, %23, %.critedge14
+  %.1 = phi ptr [ null, %.critedge14 ], [ @.str.856, %23 ], [ @.str.857, %26 ], [ @.str.858, %29 ], [ @.str.859, %32 ], [ @.str.738, %19 ], [ @.str.737, %14 ], [ @.str.736, %9 ], [ @.str.735, %4 ]
   ret ptr %.1
 }
 
@@ -78550,7 +78550,7 @@ define dso_local noundef ptr @_ZNK13AstRealToBits9brokenGenEv(ptr noundef nonnul
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.860, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.860, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -78690,7 +78690,7 @@ define dso_local noundef ptr @_ZNK9AstRedAnd9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.861, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.861, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -78830,7 +78830,7 @@ define dso_local noundef ptr @_ZNK8AstRedOr9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.862, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.862, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -78970,7 +78970,7 @@ define dso_local noundef ptr @_ZNK9AstRedXor9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.863, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.863, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -79149,7 +79149,7 @@ define dso_local noundef ptr @_ZNK11AstRefDType9brokenGenEv(ptr noundef nonnull 
   br label %36
 
 36:                                               ; preds = %24, %34, %29, %19, %17, %12, %10, %6, %4, %.critedge35
-  %.1 = phi ptr [ @.str.872, %34 ], [ @.str.864, %4 ], [ @.str.865, %6 ], [ @.str.866, %10 ], [ @.str.867, %12 ], [ @.str.868, %17 ], [ @.str.869, %19 ], [ @.str.870, %24 ], [ @.str.871, %29 ], [ null, %.critedge35 ]
+  %.1 = phi ptr [ null, %.critedge35 ], [ @.str.864, %4 ], [ @.str.865, %6 ], [ @.str.866, %10 ], [ @.str.867, %12 ], [ @.str.868, %17 ], [ @.str.869, %19 ], [ @.str.871, %29 ], [ @.str.872, %34 ], [ @.str.870, %24 ]
   ret ptr %.1
 }
 
@@ -79563,7 +79563,7 @@ define dso_local noundef ptr @_ZNK10AstRelease9brokenGenEv(ptr noundef nonnull r
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.876, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.876, %4 ]
   ret ptr %.1
 }
 
@@ -79890,7 +79890,7 @@ define dso_local noundef ptr @_ZNK12AstReplicate9brokenGenEv(ptr noundef nonnull
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.879, %32 ], [ @.str.880, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.879, %32 ], [ @.str.880, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -80128,7 +80128,7 @@ define dso_local noundef ptr @_ZNK13AstReplicateN9brokenGenEv(ptr noundef nonnul
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.882, %32 ], [ @.str.883, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.882, %32 ], [ @.str.883, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -80323,7 +80323,7 @@ define dso_local noundef ptr @_ZNK15AstResizeLValue9brokenGenEv(ptr noundef nonn
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.884, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.884, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -80607,7 +80607,7 @@ define dso_local noundef ptr @_ZNK9AstReturn9brokenGenEv(ptr noundef nonnull rea
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.888, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.888, %4 ]
   ret ptr %.1
 }
 
@@ -80708,7 +80708,7 @@ define dso_local noundef ptr @_ZNK7AstRose9brokenGenEv(ptr noundef nonnull reado
   br label %11
 
 11:                                               ; preds = %9, %4, %.critedge8
-  %.1 = phi ptr [ @.str.890, %9 ], [ @.str.889, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.889, %4 ], [ @.str.890, %9 ]
   ret ptr %.1
 }
 
@@ -80865,7 +80865,7 @@ define dso_local noundef ptr @_ZNK10AstSFormat9brokenGenEv(ptr noundef nonnull r
   br label %11
 
 11:                                               ; preds = %8, %4, %.critedge8
-  %.1 = phi ptr [ @.str.892, %8 ], [ @.str.891, %4 ], [ %.str.1651..i, %.critedge8 ]
+  %.1 = phi ptr [ %.str.1651..i, %.critedge8 ], [ @.str.891, %4 ], [ @.str.892, %8 ]
   ret ptr %.1
 }
 
@@ -81030,7 +81030,7 @@ define dso_local noundef ptr @_ZNK11AstSFormatF9brokenGenEv(ptr noundef nonnull 
   br label %11
 
 11:                                               ; preds = %9, %4, %.critedge8
-  %.1 = phi ptr [ @.str.894, %9 ], [ @.str.893, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.893, %4 ], [ @.str.894, %9 ]
   ret ptr %.1
 }
 
@@ -81340,7 +81340,7 @@ define dso_local noundef ptr @_ZNK19AstSampleQueueDType9brokenGenEv(ptr noundef 
   br label %_ZNK19AstSampleQueueDType6brokenEv.exit
 
 _ZNK19AstSampleQueueDType6brokenEv.exit:          ; preds = %13, %.critedge11.thread, %.thread27, %.thread.i, %6, %4
-  %.1 = phi ptr [ %spec.select, %13 ], [ @.str.897, %4 ], [ @.str.898, %6 ], [ @.str.1652, %.thread.i ], [ null, %.critedge11.thread ], [ @.str.899, %.thread27 ]
+  %.1 = phi ptr [ @.str.897, %4 ], [ @.str.898, %6 ], [ @.str.1652, %.thread.i ], [ @.str.899, %.thread27 ], [ null, %.critedge11.thread ], [ %spec.select, %13 ]
   ret ptr %.1
 }
 
@@ -82211,7 +82211,7 @@ define dso_local noundef ptr @_ZNK12AstScopeName9brokenGenEv(ptr noundef nonnull
   br label %10
 
 10:                                               ; preds = %8, %4, %.critedge8
-  %.1 = phi ptr [ @.str.915, %8 ], [ @.str.914, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.914, %4 ], [ @.str.915, %8 ]
   ret ptr %.1
 }
 
@@ -82489,8 +82489,8 @@ define dso_local noundef ptr @_ZNK6AstSel9brokenGenEv(ptr noundef nonnull readon
 77:                                               ; preds = %70, %.thr_comm.i
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.918, %43 ], [ @.str.919, %47 ], [ @.str.920, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %14, %9, %4, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
+  %.1 = phi ptr [ @.str.918, %43 ], [ @.str.919, %47 ], [ @.str.920, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
   ret ptr %.1
 }
 
@@ -82856,8 +82856,8 @@ define dso_local noundef ptr @_ZNK9AstSelBit9brokenGenEv(ptr noundef nonnull rea
 86:                                               ; preds = %80, %.thr_comm.i, %._crit_edge.i
   br label %_ZNK13AstNodePreSel6brokenEv.exit
 
-_ZNK13AstNodePreSel6brokenEv.exit:                ; preds = %._crit_edge.i.i, %.thr_comm.i.i, %40, %14, %9, %4, %19, %86, %80, %.thr_comm.i, %._crit_edge.i, %.critedge14, %60, %56, %52, %48
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.922, %48 ], [ @.str.923, %52 ], [ @.str.924, %56 ], [ @.str.925, %60 ], [ @.str.1115, %86 ], [ null, %80 ], [ null, %.critedge14 ], [ null, %.thr_comm.i ], [ @.str.728, %19 ], [ @.str.727, %14 ], [ @.str.726, %9 ], [ @.str.725, %4 ], [ @.str.1115, %40 ], [ @.str.1115, %.thr_comm.i.i ], [ @.str.1115, %._crit_edge.i.i ]
+_ZNK13AstNodePreSel6brokenEv.exit:                ; preds = %._crit_edge.i.i, %.thr_comm.i.i, %40, %19, %14, %9, %4, %86, %80, %.thr_comm.i, %._crit_edge.i, %.critedge14, %60, %56, %52, %48
+  %.1 = phi ptr [ @.str.922, %48 ], [ @.str.923, %52 ], [ @.str.924, %56 ], [ @.str.925, %60 ], [ @.str.1115, %86 ], [ null, %80 ], [ null, %.critedge14 ], [ null, %.thr_comm.i ], [ null, %._crit_edge.i ], [ @.str.728, %19 ], [ @.str.727, %14 ], [ @.str.726, %9 ], [ @.str.725, %4 ], [ @.str.1115, %40 ], [ @.str.1115, %.thr_comm.i.i ], [ @.str.1115, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -83274,8 +83274,8 @@ define dso_local noundef ptr @_ZNK13AstSelExtract9brokenGenEv(ptr noundef nonnul
 86:                                               ; preds = %80, %.thr_comm.i, %._crit_edge.i
   br label %_ZNK13AstNodePreSel6brokenEv.exit
 
-_ZNK13AstNodePreSel6brokenEv.exit:                ; preds = %._crit_edge.i.i, %.thr_comm.i.i, %40, %14, %9, %4, %19, %86, %80, %.thr_comm.i, %._crit_edge.i, %.critedge14, %60, %56, %52, %48
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.926, %48 ], [ @.str.927, %52 ], [ @.str.928, %56 ], [ @.str.929, %60 ], [ @.str.1115, %86 ], [ null, %80 ], [ null, %.critedge14 ], [ null, %.thr_comm.i ], [ @.str.728, %19 ], [ @.str.727, %14 ], [ @.str.726, %9 ], [ @.str.725, %4 ], [ @.str.1115, %40 ], [ @.str.1115, %.thr_comm.i.i ], [ @.str.1115, %._crit_edge.i.i ]
+_ZNK13AstNodePreSel6brokenEv.exit:                ; preds = %._crit_edge.i.i, %.thr_comm.i.i, %40, %19, %14, %9, %4, %86, %80, %.thr_comm.i, %._crit_edge.i, %.critedge14, %60, %56, %52, %48
+  %.1 = phi ptr [ @.str.926, %48 ], [ @.str.927, %52 ], [ @.str.928, %56 ], [ @.str.929, %60 ], [ @.str.1115, %86 ], [ null, %80 ], [ null, %.critedge14 ], [ null, %.thr_comm.i ], [ null, %._crit_edge.i ], [ @.str.728, %19 ], [ @.str.727, %14 ], [ @.str.726, %9 ], [ @.str.725, %4 ], [ @.str.1115, %40 ], [ @.str.1115, %.thr_comm.i.i ], [ @.str.1115, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -83836,8 +83836,8 @@ define dso_local noundef ptr @_ZNK11AstSelMinus9brokenGenEv(ptr noundef nonnull 
 86:                                               ; preds = %80, %.thr_comm.i, %._crit_edge.i
   br label %_ZNK13AstNodePreSel6brokenEv.exit
 
-_ZNK13AstNodePreSel6brokenEv.exit:                ; preds = %._crit_edge.i.i, %.thr_comm.i.i, %40, %14, %9, %4, %19, %86, %80, %.thr_comm.i, %._crit_edge.i, %.critedge14, %60, %56, %52, %48
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.932, %48 ], [ @.str.933, %52 ], [ @.str.934, %56 ], [ @.str.935, %60 ], [ @.str.1115, %86 ], [ null, %80 ], [ null, %.critedge14 ], [ null, %.thr_comm.i ], [ @.str.728, %19 ], [ @.str.727, %14 ], [ @.str.726, %9 ], [ @.str.725, %4 ], [ @.str.1115, %40 ], [ @.str.1115, %.thr_comm.i.i ], [ @.str.1115, %._crit_edge.i.i ]
+_ZNK13AstNodePreSel6brokenEv.exit:                ; preds = %._crit_edge.i.i, %.thr_comm.i.i, %40, %19, %14, %9, %4, %86, %80, %.thr_comm.i, %._crit_edge.i, %.critedge14, %60, %56, %52, %48
+  %.1 = phi ptr [ @.str.932, %48 ], [ @.str.933, %52 ], [ @.str.934, %56 ], [ @.str.935, %60 ], [ @.str.1115, %86 ], [ null, %80 ], [ null, %.critedge14 ], [ null, %.thr_comm.i ], [ null, %._crit_edge.i ], [ @.str.728, %19 ], [ @.str.727, %14 ], [ @.str.726, %9 ], [ @.str.725, %4 ], [ @.str.1115, %40 ], [ @.str.1115, %.thr_comm.i.i ], [ @.str.1115, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -84254,8 +84254,8 @@ define dso_local noundef ptr @_ZNK10AstSelPlus9brokenGenEv(ptr noundef nonnull r
 86:                                               ; preds = %80, %.thr_comm.i, %._crit_edge.i
   br label %_ZNK13AstNodePreSel6brokenEv.exit
 
-_ZNK13AstNodePreSel6brokenEv.exit:                ; preds = %._crit_edge.i.i, %.thr_comm.i.i, %40, %14, %9, %4, %19, %86, %80, %.thr_comm.i, %._crit_edge.i, %.critedge14, %60, %56, %52, %48
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.936, %48 ], [ @.str.937, %52 ], [ @.str.938, %56 ], [ @.str.939, %60 ], [ @.str.1115, %86 ], [ null, %80 ], [ null, %.critedge14 ], [ null, %.thr_comm.i ], [ @.str.728, %19 ], [ @.str.727, %14 ], [ @.str.726, %9 ], [ @.str.725, %4 ], [ @.str.1115, %40 ], [ @.str.1115, %.thr_comm.i.i ], [ @.str.1115, %._crit_edge.i.i ]
+_ZNK13AstNodePreSel6brokenEv.exit:                ; preds = %._crit_edge.i.i, %.thr_comm.i.i, %40, %19, %14, %9, %4, %86, %80, %.thr_comm.i, %._crit_edge.i, %.critedge14, %60, %56, %52, %48
+  %.1 = phi ptr [ @.str.936, %48 ], [ @.str.937, %52 ], [ @.str.938, %56 ], [ @.str.939, %60 ], [ @.str.1115, %86 ], [ null, %80 ], [ null, %.critedge14 ], [ null, %.thr_comm.i ], [ null, %._crit_edge.i ], [ @.str.728, %19 ], [ @.str.727, %14 ], [ @.str.726, %9 ], [ @.str.725, %4 ], [ @.str.1115, %40 ], [ @.str.1115, %.thr_comm.i.i ], [ @.str.1115, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -84747,7 +84747,7 @@ define dso_local noundef ptr @_ZNK11AstSetAssoc9brokenGenEv(ptr noundef nonnull 
   br label %6
 
 6:                                                ; preds = %3, %.critedge11
-  %.1 = phi ptr [ @.str.946, %3 ], [ null, %.critedge11 ]
+  %.1 = phi ptr [ null, %.critedge11 ], [ @.str.946, %3 ]
   ret ptr %.1
 }
 
@@ -84943,7 +84943,7 @@ define dso_local noundef ptr @_ZNK14AstSetWildcard9brokenGenEv(ptr noundef nonnu
   br label %6
 
 6:                                                ; preds = %3, %.critedge11
-  %.1 = phi ptr [ @.str.949, %3 ], [ null, %.critedge11 ]
+  %.1 = phi ptr [ null, %.critedge11 ], [ @.str.949, %3 ]
   ret ptr %.1
 }
 
@@ -85232,7 +85232,7 @@ define dso_local noundef ptr @_ZNK9AstShiftL9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.950, %32 ], [ @.str.951, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.950, %32 ], [ @.str.951, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -85470,7 +85470,7 @@ define dso_local noundef ptr @_ZNK12AstShiftLOvr9brokenGenEv(ptr noundef nonnull
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.952, %32 ], [ @.str.953, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.952, %32 ], [ @.str.953, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -85708,7 +85708,7 @@ define dso_local noundef ptr @_ZNK9AstShiftR9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.954, %32 ], [ @.str.955, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.954, %32 ], [ @.str.955, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -85946,7 +85946,7 @@ define dso_local noundef ptr @_ZNK12AstShiftROvr9brokenGenEv(ptr noundef nonnull
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.956, %32 ], [ @.str.957, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.956, %32 ], [ @.str.957, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -86184,7 +86184,7 @@ define dso_local noundef ptr @_ZNK10AstShiftRS9brokenGenEv(ptr noundef nonnull r
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.958, %32 ], [ @.str.959, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.958, %32 ], [ @.str.959, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -86422,7 +86422,7 @@ define dso_local noundef ptr @_ZNK13AstShiftRSOvr9brokenGenEv(ptr noundef nonnul
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.960, %32 ], [ @.str.961, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.960, %32 ], [ @.str.961, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -86617,7 +86617,7 @@ define dso_local noundef ptr @_ZNK9AstSigned9brokenGenEv(ptr noundef nonnull rea
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.962, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.962, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -86790,7 +86790,7 @@ define dso_local noundef ptr @_ZNK7AstSinD9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.963, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str.963, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -86963,7 +86963,7 @@ define dso_local noundef ptr @_ZNK8AstSinhD9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.964, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str.964, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -87186,8 +87186,8 @@ define dso_local noundef ptr @_ZNK11AstSliceSel9brokenGenEv(ptr noundef nonnull 
 77:                                               ; preds = %70, %.thr_comm.i
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.965, %43 ], [ @.str.966, %47 ], [ @.str.967, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %14, %9, %4, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
+  %.1 = phi ptr [ @.str.965, %43 ], [ @.str.966, %47 ], [ @.str.967, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
   ret ptr %.1
 }
 
@@ -87486,7 +87486,7 @@ define dso_local noundef ptr @_ZNK8AstSqrtD9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.968, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str.968, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -87587,7 +87587,7 @@ define dso_local noundef ptr @_ZNK9AstStable9brokenGenEv(ptr noundef nonnull rea
   br label %11
 
 11:                                               ; preds = %9, %4, %.critedge8
-  %.1 = phi ptr [ @.str.970, %9 ], [ @.str.969, %4 ], [ null, %.critedge8 ]
+  %.1 = phi ptr [ null, %.critedge8 ], [ @.str.969, %4 ], [ @.str.970, %9 ]
   ret ptr %.1
 }
 
@@ -87771,7 +87771,7 @@ define dso_local noundef ptr @_ZNK11AstStmtExpr9brokenGenEv(ptr noundef nonnull 
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.971, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.971, %4 ]
   ret ptr %.1
 }
 
@@ -88329,8 +88329,8 @@ define dso_local noundef ptr @_ZNK14AstStructDType9brokenGenEv(ptr noundef nonnu
 .critedge:                                        ; preds = %.critedge11.i, %13
   br label %_ZNK21AstNodeUOrStructDType9brokenGenEv.exit.thread
 
-_ZNK21AstNodeUOrStructDType9brokenGenEv.exit.thread: ; preds = %6, %4, %11, %13, %.critedge
-  %.1 = phi ptr [ @.str.976, %13 ], [ null, %.critedge ], [ @.str.752, %6 ], [ @.str.751, %4 ], [ @.str.753, %11 ]
+_ZNK21AstNodeUOrStructDType9brokenGenEv.exit.thread: ; preds = %11, %6, %4, %13, %.critedge
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.976, %13 ], [ @.str.753, %11 ], [ @.str.752, %6 ], [ @.str.751, %4 ]
   ret ptr %.1
 }
 
@@ -88622,7 +88622,7 @@ define dso_local noundef ptr @_ZNK12AstStructSel9brokenGenEv(ptr noundef nonnull
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.977, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.977, %4 ]
   ret ptr %.1
 }
 
@@ -88805,7 +88805,7 @@ define dso_local noundef ptr @_ZNK6AstSub9brokenGenEv(ptr noundef nonnull readon
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.978, %32 ], [ @.str.979, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.978, %32 ], [ @.str.979, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -89043,7 +89043,7 @@ define dso_local noundef ptr @_ZNK7AstSubD9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.980, %32 ], [ @.str.981, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.980, %32 ], [ @.str.981, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -89321,8 +89321,8 @@ define dso_local noundef ptr @_ZNK10AstSubstrN9brokenGenEv(ptr noundef nonnull r
 77:                                               ; preds = %70, %.thr_comm.i
   br label %_ZNK12AstNodeTriop6brokenEv.exit
 
-_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %9, %4, %14, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
-  %.1 = phi ptr [ null, %.thr_comm.i ], [ @.str.982, %43 ], [ @.str.983, %47 ], [ @.str.984, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
+_ZNK12AstNodeTriop6brokenEv.exit:                 ; preds = %.thr_comm.i.i, %34, %14, %9, %4, %77, %70, %.thr_comm.i, %.critedge11, %51, %47, %43
+  %.1 = phi ptr [ @.str.982, %43 ], [ @.str.983, %47 ], [ @.str.984, %51 ], [ @.str.1114, %77 ], [ null, %70 ], [ null, %.critedge11 ], [ null, %.thr_comm.i ], [ @.str.750, %14 ], [ @.str.749, %9 ], [ @.str.748, %4 ], [ @.str.1114, %34 ], [ @.str.1114, %.thr_comm.i.i ]
   ret ptr %.1
 }
 
@@ -89517,7 +89517,7 @@ define dso_local noundef ptr @_ZNK16AstSysFuncAsTask9brokenGenEv(ptr noundef non
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.985, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.985, %4 ]
   ret ptr %.1
 }
 
@@ -89752,7 +89752,7 @@ define dso_local noundef ptr @_ZNK10AstSystemT9brokenGenEv(ptr noundef nonnull r
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.988, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.988, %4 ]
   ret ptr %.1
 }
 
@@ -89925,7 +89925,7 @@ define dso_local noundef ptr @_ZNK7AstTanD9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.989, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str.989, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -90098,7 +90098,7 @@ define dso_local noundef ptr @_ZNK8AstTanhD9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %28, %12, %4, %21, %51, %44, %.critedge, %37
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.990, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
+  %.1 = phi ptr [ @.str.990, %37 ], [ @.str.1112, %51 ], [ null, %44 ], [ null, %.critedge ], [ @.str.1112, %12 ], [ @.str.754, %4 ], [ @.str.747, %21 ], [ @.str.1112, %28 ]
   ret ptr %.1
 }
 
@@ -90230,7 +90230,7 @@ define dso_local noundef ptr @_ZNK7AstTask9brokenGenEv(ptr noundef nonnull reado
   br label %_ZNK12AstNodeFTask6brokenEv.exit
 
 _ZNK12AstNodeFTask6brokenEv.exit:                 ; preds = %4, %11, %26, %22, %.critedge14, %16
-  %.1 = phi ptr [ null, %.critedge14 ], [ @.str.994, %16 ], [ @.str.1490, %26 ], [ null, %22 ], [ @.str.703, %4 ], [ @.str.1490, %11 ]
+  %.1 = phi ptr [ @.str.994, %16 ], [ @.str.1490, %26 ], [ null, %22 ], [ null, %.critedge14 ], [ @.str.703, %4 ], [ @.str.1490, %11 ]
   ret ptr %.1
 }
 
@@ -90538,7 +90538,7 @@ define dso_local noundef ptr @_ZNK10AstTaskRef9brokenGenEv(ptr noundef nonnull r
   br label %_ZNK15AstNodeFTaskRef6brokenEv.exit
 
 _ZNK15AstNodeFTaskRef6brokenEv.exit:              ; preds = %33, %.loopexit.i, %.loopexit.thr_comm.i, %.critedge11, %1, %10, %5
-  %.1 = phi ptr [ %2, %1 ], [ @.str.997, %10 ], [ @.str.996, %5 ], [ @.str.1108, %33 ], [ null, %.loopexit.i ], [ null, %.critedge11 ], [ null, %.loopexit.thr_comm.i ]
+  %.1 = phi ptr [ %2, %1 ], [ @.str.996, %5 ], [ @.str.997, %10 ], [ @.str.1108, %33 ], [ null, %.loopexit.i ], [ null, %.critedge11 ], [ null, %.loopexit.thr_comm.i ]
   ret ptr %.1
 }
 
@@ -90943,7 +90943,7 @@ define dso_local noundef ptr @_ZNK10AstThisRef9brokenGenEv(ptr noundef nonnull r
   br label %6
 
 6:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.1002, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.1002, %4 ]
   ret ptr %.1
 }
 
@@ -91111,7 +91111,7 @@ define dso_local noundef ptr @_ZNK13AstTimeFormat9brokenGenEv(ptr noundef nonnul
   br label %22
 
 22:                                               ; preds = %19, %14, %9, %4, %.critedge14
-  %.1 = phi ptr [ @.str.1006, %19 ], [ @.str.1003, %4 ], [ @.str.1004, %9 ], [ @.str.1005, %14 ], [ null, %.critedge14 ]
+  %.1 = phi ptr [ null, %.critedge14 ], [ @.str.1003, %4 ], [ @.str.1004, %9 ], [ @.str.1005, %14 ], [ @.str.1006, %19 ]
   ret ptr %.1
 }
 
@@ -91408,7 +91408,7 @@ define dso_local noundef ptr @_ZNK13AstTimeImport9brokenGenEv(ptr noundef nonnul
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.1010, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.1010, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -91588,7 +91588,7 @@ define dso_local noundef ptr @_ZNK11AstToLowerN9brokenGenEv(ptr noundef nonnull 
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.1011, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.1011, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -91728,7 +91728,7 @@ define dso_local noundef ptr @_ZNK11AstToUpperN9brokenGenEv(ptr noundef nonnull 
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.1012, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.1012, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -91972,7 +91972,7 @@ define dso_local noundef ptr @_ZNK12AstTraceDecl9brokenGenEv(ptr noundef nonnull
   br label %7
 
 7:                                                ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.1016, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.1016, %4 ]
   ret ptr %.1
 }
 
@@ -92082,7 +92082,7 @@ define dso_local noundef ptr @_ZNK11AstTraceInc9brokenGenEv(ptr noundef nonnull 
   br label %15
 
 15:                                               ; preds = %12, %8, %4, %1, %.critedge10
-  %.1 = phi ptr [ @.str.1020, %12 ], [ @.str.1017, %1 ], [ @.str.1018, %4 ], [ @.str.1019, %8 ], [ null, %.critedge10 ]
+  %.1 = phi ptr [ null, %.critedge10 ], [ @.str.1017, %1 ], [ @.str.1018, %4 ], [ @.str.1019, %8 ], [ @.str.1020, %12 ]
   ret ptr %.1
 }
 
@@ -93205,7 +93205,7 @@ define dso_local noundef ptr @_ZNK15AstURandomRange9brokenGenEv(ptr noundef nonn
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %9, %4, %23, %._crit_edge.i.i, %56, %49, %._crit_edge.i, %.critedge8, %36, %32
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.1043, %32 ], [ @.str.1044, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ @.str.680, %9 ], [ @.str.679, %4 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.1043, %32 ], [ @.str.1044, %36 ], [ @.str.1113, %56 ], [ null, %49 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.679, %4 ], [ @.str.680, %9 ], [ @.str.1113, %23 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -93503,8 +93503,8 @@ define dso_local noundef ptr @_ZNK13AstUnionDType9brokenGenEv(ptr noundef nonnul
 .critedge:                                        ; preds = %.critedge11.i, %13
   br label %_ZNK21AstNodeUOrStructDType9brokenGenEv.exit.thread
 
-_ZNK21AstNodeUOrStructDType9brokenGenEv.exit.thread: ; preds = %6, %4, %11, %13, %.critedge
-  %.1 = phi ptr [ @.str.1047, %13 ], [ null, %.critedge ], [ @.str.752, %6 ], [ @.str.751, %4 ], [ @.str.753, %11 ]
+_ZNK21AstNodeUOrStructDType9brokenGenEv.exit.thread: ; preds = %11, %6, %4, %13, %.critedge
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.1047, %13 ], [ @.str.753, %11 ], [ @.str.752, %6 ], [ @.str.751, %4 ]
   ret ptr %.1
 }
 
@@ -93749,7 +93749,7 @@ define dso_local noundef ptr @_ZNK19AstUnpackArrayDType9brokenGenEv(ptr noundef 
   br i1 %spec.select.i.i, label %_ZNK17AstNodeArrayDType6brokenEv.exit, label %.critedge12.i, !prof !21
 
 .critedge12.i:                                    ; preds = %6, %.critedge.i, %1
-  %.not821.i = phi i1 [ false, %6 ], [ true, %.critedge.i ], [ true, %1 ]
+  %.not821.i = phi i1 [ true, %.critedge.i ], [ false, %6 ], [ true, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %.fr.i.i = freeze ptr %10
@@ -93812,8 +93812,8 @@ define dso_local noundef ptr @_ZNK19AstUnpackArrayDType9brokenGenEv(ptr noundef 
 .thread.i:                                        ; preds = %26, %25
   br label %_ZNK17AstNodeArrayDType6brokenEv.exit
 
-_ZNK17AstNodeArrayDType6brokenEv.exit:            ; preds = %18, %19, %11, %6, %4, %16, %.thread.i, %26, %25, %23, %20
-  %.1 = phi ptr [ null, %25 ], [ @.str.1052, %20 ], [ @.str.1053, %23 ], [ @.str.1649, %.thread.i ], [ null, %26 ], [ @.str.671, %16 ], [ @.str.670, %11 ], [ @.str.669, %6 ], [ @.str.668, %4 ], [ @.str.1649, %19 ], [ @.str.1649, %18 ]
+_ZNK17AstNodeArrayDType6brokenEv.exit:            ; preds = %18, %19, %16, %11, %6, %4, %.thread.i, %26, %25, %23, %20
+  %.1 = phi ptr [ @.str.1052, %20 ], [ @.str.1053, %23 ], [ @.str.1649, %.thread.i ], [ null, %26 ], [ null, %25 ], [ @.str.671, %16 ], [ @.str.670, %11 ], [ @.str.669, %6 ], [ @.str.668, %4 ], [ @.str.1649, %19 ], [ @.str.1649, %18 ]
   ret ptr %.1
 }
 
@@ -94030,7 +94030,7 @@ define dso_local noundef ptr @_ZNK11AstUnsigned9brokenGenEv(ptr noundef nonnull 
   br label %_ZNK12AstNodeUniop6brokenEv.exit
 
 _ZNK12AstNodeUniop6brokenEv.exit:                 ; preds = %4, %12, %35, %28, %.critedge, %21
-  %.1 = phi ptr [ null, %.critedge ], [ @.str.1054, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
+  %.1 = phi ptr [ @.str.1054, %21 ], [ @.str.1112, %35 ], [ null, %28 ], [ null, %.critedge ], [ @.str.754, %4 ], [ @.str.1112, %12 ]
   ret ptr %.1
 }
 
@@ -94157,7 +94157,7 @@ define dso_local noundef ptr @_ZNK20AstUnsizedArrayDType9brokenGenEv(ptr noundef
   br label %_ZNK20AstUnsizedArrayDType6brokenEv.exit
 
 _ZNK20AstUnsizedArrayDType6brokenEv.exit:         ; preds = %13, %.critedge11.thread, %.thread27, %.thread.i, %6, %4
-  %.1 = phi ptr [ %spec.select, %13 ], [ @.str.1055, %4 ], [ @.str.1056, %6 ], [ @.str.1654, %.thread.i ], [ null, %.critedge11.thread ], [ @.str.1057, %.thread27 ]
+  %.1 = phi ptr [ @.str.1055, %4 ], [ @.str.1056, %6 ], [ @.str.1654, %.thread.i ], [ @.str.1057, %.thread27 ], [ null, %.critedge11.thread ], [ %spec.select, %13 ]
   ret ptr %.1
 }
 
@@ -94357,7 +94357,7 @@ define dso_local noundef ptr @_ZNK8AstVFile9brokenGenEv(ptr noundef nonnull read
   br label %_ZNK11AstNodeFile9brokenGenEv.exit
 
 _ZNK11AstNodeFile9brokenGenEv.exit:               ; preds = %4, %.critedge
-  %.1 = phi ptr [ @.str.712, %4 ], [ null, %.critedge ]
+  %.1 = phi ptr [ null, %.critedge ], [ @.str.712, %4 ]
   ret ptr %.1
 }
 
@@ -94620,7 +94620,7 @@ define dso_local noundef ptr @_ZNK6AstVar9brokenGenEv(ptr noundef nonnull readon
   br label %.critedge18
 
 .critedge18:                                      ; preds = %19, %.critedge16, %15, %10, %6, %4
-  %.0 = phi ptr [ @.str.1066, %19 ], [ @.str.1062, %4 ], [ @.str.1063, %6 ], [ @.str.1064, %10 ], [ @.str.1065, %15 ], [ null, %.critedge16 ]
+  %.0 = phi ptr [ @.str.1062, %4 ], [ @.str.1063, %6 ], [ @.str.1064, %10 ], [ @.str.1065, %15 ], [ null, %.critedge16 ], [ @.str.1066, %19 ]
   ret ptr %.0
 }
 
@@ -94985,8 +94985,8 @@ define dso_local noundef ptr @_ZNK9AstVarRef9brokenGenEv(ptr noundef nonnull rea
   %.str.1419..i = select i1 %.not.i5, ptr @.str.1419, ptr null, !prof !21
   br label %_ZNK13AstNodeVarRef9brokenGenEv.exit.thread
 
-_ZNK13AstNodeVarRef9brokenGenEv.exit.thread:      ; preds = %16, %12, %10, %6, %4, %18, %21
-  %.1 = phi ptr [ %.str.1419..i, %21 ], [ @.str.759, %16 ], [ @.str.758, %12 ], [ @.str.757, %10 ], [ @.str.756, %6 ], [ @.str.755, %4 ], [ @.str.760, %18 ]
+_ZNK13AstNodeVarRef9brokenGenEv.exit.thread:      ; preds = %18, %16, %12, %10, %6, %4, %21
+  %.1 = phi ptr [ %.str.1419..i, %21 ], [ @.str.760, %18 ], [ @.str.759, %16 ], [ @.str.758, %12 ], [ @.str.757, %10 ], [ @.str.756, %6 ], [ @.str.755, %4 ]
   ret ptr %.1
 }
 
@@ -95476,8 +95476,8 @@ define dso_local noundef ptr @_ZNK10AstVarXRef9brokenGenEv(ptr noundef nonnull r
 21:                                               ; preds = %18, %.critedge24.i, %.critedge22.i
   br label %_ZNK13AstNodeVarRef9brokenGenEv.exit.thread
 
-_ZNK13AstNodeVarRef9brokenGenEv.exit.thread:      ; preds = %16, %12, %10, %6, %4, %18, %21
-  %.1 = phi ptr [ null, %21 ], [ @.str.759, %16 ], [ @.str.758, %12 ], [ @.str.757, %10 ], [ @.str.756, %6 ], [ @.str.755, %4 ], [ @.str.760, %18 ]
+_ZNK13AstNodeVarRef9brokenGenEv.exit.thread:      ; preds = %18, %16, %12, %10, %6, %4, %21
+  %.1 = phi ptr [ null, %21 ], [ @.str.760, %18 ], [ @.str.759, %16 ], [ @.str.758, %12 ], [ @.str.757, %10 ], [ @.str.756, %6 ], [ @.str.755, %4 ]
   ret ptr %.1
 }
 
@@ -96048,7 +96048,7 @@ define dso_local noundef ptr @_ZNK21AstWildcardArrayDType9brokenGenEv(ptr nounde
   br label %_ZNK21AstWildcardArrayDType6brokenEv.exit
 
 _ZNK21AstWildcardArrayDType6brokenEv.exit:        ; preds = %13, %.critedge11.thread, %.thread27, %.thread.i, %6, %4
-  %.1 = phi ptr [ %spec.select, %13 ], [ @.str.1081, %4 ], [ @.str.1082, %6 ], [ @.str.1655, %.thread.i ], [ null, %.critedge11.thread ], [ @.str.1083, %.thread27 ]
+  %.1 = phi ptr [ @.str.1081, %4 ], [ @.str.1082, %6 ], [ @.str.1655, %.thread.i ], [ @.str.1083, %.thread27 ], [ null, %.critedge11.thread ], [ %spec.select, %13 ]
   ret ptr %.1
 }
 
@@ -97074,8 +97074,8 @@ define dso_local noundef ptr @_ZNK11AstWriteMem9brokenGenEv(ptr noundef nonnull 
 .critedge14:                                      ; preds = %.critedge12, %32
   br label %_ZNK19AstNodeReadWriteMem9brokenGenEv.exit.thread
 
-_ZNK19AstNodeReadWriteMem9brokenGenEv.exit.thread: ; preds = %14, %9, %4, %19, %32, %29, %26, %23, %.critedge14
-  %.1 = phi ptr [ @.str.1099, %32 ], [ @.str.1096, %23 ], [ @.str.1097, %26 ], [ @.str.1098, %29 ], [ null, %.critedge14 ], [ @.str.737, %14 ], [ @.str.736, %9 ], [ @.str.735, %4 ], [ @.str.738, %19 ]
+_ZNK19AstNodeReadWriteMem9brokenGenEv.exit.thread: ; preds = %19, %14, %9, %4, %32, %29, %26, %23, %.critedge14
+  %.1 = phi ptr [ null, %.critedge14 ], [ @.str.1096, %23 ], [ @.str.1097, %26 ], [ @.str.1098, %29 ], [ @.str.1099, %32 ], [ @.str.738, %19 ], [ @.str.737, %14 ], [ @.str.736, %9 ], [ @.str.735, %4 ]
   ret ptr %.1
 }
 
@@ -97420,7 +97420,7 @@ define dso_local noundef ptr @_ZNK6AstXor9brokenGenEv(ptr noundef nonnull readon
   br label %_ZNK11AstNodeBiop6brokenEv.exit
 
 _ZNK11AstNodeBiop6brokenEv.exit:                  ; preds = %._crit_edge.i.i, %25, %11, %6, %1, %58, %51, %._crit_edge.i, %.critedge8, %38, %34
-  %.1 = phi ptr [ null, %._crit_edge.i ], [ @.str.1100, %34 ], [ @.str.1101, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ %2, %1 ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
+  %.1 = phi ptr [ @.str.1100, %34 ], [ @.str.1101, %38 ], [ @.str.1113, %58 ], [ null, %51 ], [ null, %.critedge8 ], [ null, %._crit_edge.i ], [ @.str.678, %11 ], [ @.str.677, %6 ], [ %2, %1 ], [ @.str.1113, %25 ], [ @.str.1113, %._crit_edge.i.i ]
   ret ptr %.1
 }
 
@@ -99136,7 +99136,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %_Z
   ret void
 
 481:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63
-  %.pn34 = phi { ptr, i32 } [ %441, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142 ], [ %.pn32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155 ], [ %.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ], [ %363, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117 ], [ %408, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128 ], [ %313, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105 ], [ %264, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92 ], [ %215, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79 ], [ %166, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66 ]
+  %.pn34 = phi { ptr, i32 } [ %441, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142 ], [ %.pn32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155 ], [ %363, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117 ], [ %408, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128 ], [ %313, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105 ], [ %264, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92 ], [ %215, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79 ], [ %166, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66 ], [ %.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ]
   resume { ptr, i32 } %.pn34
 }
 
@@ -99699,7 +99699,7 @@ _ZNK13AstNodePreSel16getPurityRecurseEv.exit:     ; preds = %21
   br label %_ZNK13AstNodePreSel16getPurityRecurseEv.exit.thread1
 
 _ZNK13AstNodePreSel16getPurityRecurseEv.exit.thread1: ; preds = %7, %14, %21, %_ZNK13AstNodePreSel16getPurityRecurseEv.exit
-  %28 = phi i64 [ -9223372036854775808, %21 ], [ %spec.select, %_ZNK13AstNodePreSel16getPurityRecurseEv.exit ], [ 0, %14 ], [ 0, %7 ]
+  %28 = phi i64 [ %spec.select, %_ZNK13AstNodePreSel16getPurityRecurseEv.exit ], [ -9223372036854775808, %21 ], [ 0, %14 ], [ 0, %7 ]
   %.in = load i64, ptr @_ZN9VIsCached14s_cachedCntGblE, align 8, !tbaa !22
   %29 = and i64 %.in, 9223372036854775807
   %30 = or disjoint i64 %29, %28
@@ -100042,7 +100042,7 @@ switch.lookup87:                                  ; preds = %switch.hole_check
   br label %.critedge
 
 .critedge:                                        ; preds = %switch.lookup87, %_ZNK13AstBasicDType8isOpaqueEv.exit, %34
-  %.sroa.0.0.copyload.i29 = phi i8 [ %.sroa.0.0.copyload.i25, %34 ], [ %switch.load89, %switch.lookup87 ], [ %.sroa.0.0.copyload.i29.pr.pre, %_ZNK13AstBasicDType8isOpaqueEv.exit ]
+  %.sroa.0.0.copyload.i29 = phi i8 [ %.sroa.0.0.copyload.i25, %34 ], [ %.sroa.0.0.copyload.i29.pr.pre, %_ZNK13AstBasicDType8isOpaqueEv.exit ], [ %switch.load89, %switch.lookup87 ]
   switch i8 %.sroa.0.0.copyload.i29, label %45 [
     i8 1, label %_ZNK14VBasicDTypeKwd5widthEv.exit31
     i8 2, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread
@@ -100070,7 +100070,7 @@ switch.lookup87:                                  ; preds = %switch.hole_check
   br label %_ZNK14VBasicDTypeKwd5widthEv.exit31
 
 _ZNK14VBasicDTypeKwd5widthEv.exit31:              ; preds = %.critedge, %.critedge, %.critedge, %43, %44, %45
-  %.0.i30 = phi i32 [ 0, %45 ], [ 1, %.critedge ], [ 1, %.critedge ], [ 64, %43 ], [ 1, %.critedge ], [ 32, %44 ]
+  %.0.i30 = phi i32 [ 0, %45 ], [ 64, %43 ], [ 32, %44 ], [ 1, %.critedge ], [ 1, %.critedge ], [ 1, %.critedge ]
   switch i8 %.sroa.0.0.copyload.i29, label %48 [
     i8 1, label %_ZNK14VBasicDTypeKwd5widthEv.exit34
     i8 2, label %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread
@@ -100106,8 +100106,8 @@ _ZNK14VBasicDTypeKwd5widthEv.exit31.thread65:     ; preds = %.critedge, %_ZNK14V
   br label %_ZNK14VBasicDTypeKwd5widthEv.exit34
 
 _ZNK14VBasicDTypeKwd5widthEv.exit34:              ; preds = %_ZNK14VBasicDTypeKwd5widthEv.exit31, %_ZNK14VBasicDTypeKwd5widthEv.exit31, %_ZNK14VBasicDTypeKwd5widthEv.exit31, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread, %46, %47, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread65, %48
-  %.0.i3064 = phi i32 [ %.0.i30, %48 ], [ %.0.i3067, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread65 ], [ %.0.i3063, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread ], [ %.0.i30, %46 ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ %.0.i30, %47 ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ]
-  %.0.i33 = phi i32 [ 0, %48 ], [ 16, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread65 ], [ 8, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread ], [ 64, %46 ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 32, %47 ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ]
+  %.0.i3064 = phi i32 [ %.0.i30, %48 ], [ %.0.i3063, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread ], [ %.0.i30, %46 ], [ %.0.i30, %47 ], [ %.0.i3067, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread65 ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ %.0.i30, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ]
+  %.0.i33 = phi i32 [ 0, %48 ], [ 8, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread ], [ 64, %46 ], [ 32, %47 ], [ 16, %_ZNK14VBasicDTypeKwd5widthEv.exit31.thread65 ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ], [ 1, %_ZNK14VBasicDTypeKwd5widthEv.exit31 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %.0.i3064, ptr %49, align 8, !tbaa !422
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -100569,7 +100569,7 @@ _ZNK7AstNode6isQuadEv.exit:                       ; preds = %7
   br label %_ZNK7AstNode6isQuadEv.exit.thread
 
 _ZNK7AstNode6isQuadEv.exit.thread:                ; preds = %_ZNK7AstNode6isQuadEv.exit, %7, %5, %1
-  %.0 = phi i32 [ 2, %5 ], [ 1, %1 ], [ 4, %7 ], [ %spec.select, %_ZNK7AstNode6isQuadEv.exit ]
+  %.0 = phi i32 [ 1, %1 ], [ 2, %5 ], [ 4, %7 ], [ %spec.select, %_ZNK7AstNode6isQuadEv.exit ]
   ret i32 %.0
 }
 
@@ -100595,7 +100595,7 @@ _ZNK7AstNode5widthEv.exit:                        ; preds = %1
   br label %_ZNK7AstNode5widthEv.exit.thread
 
 _ZNK7AstNode5widthEv.exit.thread:                 ; preds = %_ZNK7AstNode5widthEv.exit, %1
-  %7 = phi i1 [ %spec.select, %_ZNK7AstNode5widthEv.exit ], [ false, %1 ]
+  %7 = phi i1 [ false, %1 ], [ %spec.select, %_ZNK7AstNode5widthEv.exit ]
   ret i1 %7
 }
 
@@ -100701,7 +100701,7 @@ _ZNK13AstBasicDType7MemberseqERKS0_.exit:         ; preds = %14
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %8, %14, %2, %_ZNK13AstBasicDType7MemberseqERKS0_.exit, %34, %25
-  %.0 = phi i1 [ false, %25 ], [ %.not8, %33 ], [ %35, %34 ], [ false, %8 ], [ false, %_ZNK13AstBasicDType7MemberseqERKS0_.exit ], [ false, %2 ], [ false, %14 ]
+  %.0 = phi i1 [ false, %25 ], [ %35, %34 ], [ false, %_ZNK13AstBasicDType7MemberseqERKS0_.exit ], [ false, %2 ], [ false, %14 ], [ false, %8 ], [ %.not8, %33 ]
   ret i1 %.0
 }
 
@@ -100769,7 +100769,7 @@ define dso_local noundef range(i32 1, 9) i32 @_ZNK21AstNodeUOrStructDType15width
   br label %9
 
 9:                                                ; preds = %7, %5, %1
-  %.0 = phi i32 [ 2, %5 ], [ 1, %1 ], [ %., %7 ]
+  %.0 = phi i32 [ 1, %1 ], [ 2, %5 ], [ %., %7 ]
   ret i32 %.0
 }
 
@@ -100975,7 +100975,7 @@ _ZN6AstEqNC2EP8FileLineP11AstNodeExprS3_.exit.sink.split: ; preds = %39, %59, %6
   br label %_ZN6AstEqNC2EP8FileLineP11AstNodeExprS3_.exit
 
 _ZN6AstEqNC2EP8FileLineP11AstNodeExprS3_.exit:    ; preds = %_ZN6AstEqNC2EP8FileLineP11AstNodeExprS3_.exit.sink.split, %.noexc42, %.noexc37, %.noexc24
-  %.016 = phi ptr [ %54, %.noexc37 ], [ %62, %.noexc42 ], [ %34, %.noexc24 ], [ %.016.ph, %_ZN6AstEqNC2EP8FileLineP11AstNodeExprS3_.exit.sink.split ]
+  %.016 = phi ptr [ %34, %.noexc24 ], [ %54, %.noexc37 ], [ %62, %.noexc42 ], [ %.016.ph, %_ZN6AstEqNC2EP8FileLineP11AstNodeExprS3_.exit.sink.split ]
   ret ptr %.016
 
 72:                                               ; preds = %68, %60, %40
@@ -101248,7 +101248,7 @@ _ZN6AstEqNC2EP8FileLineP11AstNodeExprS3_.exit.sink.split: ; preds = %39, %59, %6
   br label %_ZN6AstEqNC2EP8FileLineP11AstNodeExprS3_.exit
 
 _ZN6AstEqNC2EP8FileLineP11AstNodeExprS3_.exit:    ; preds = %_ZN6AstEqNC2EP8FileLineP11AstNodeExprS3_.exit.sink.split, %.noexc42, %.noexc37, %.noexc24
-  %.016 = phi ptr [ %54, %.noexc37 ], [ %62, %.noexc42 ], [ %34, %.noexc24 ], [ %.016.ph, %_ZN6AstEqNC2EP8FileLineP11AstNodeExprS3_.exit.sink.split ]
+  %.016 = phi ptr [ %34, %.noexc24 ], [ %54, %.noexc37 ], [ %62, %.noexc42 ], [ %.016.ph, %_ZN6AstEqNC2EP8FileLineP11AstNodeExprS3_.exit.sink.split ]
   ret ptr %.016
 
 72:                                               ; preds = %68, %60, %40
@@ -101821,7 +101821,7 @@ _ZN17AstAlwaysObservedC2EP8FileLineP10AstSenTreeP7AstNode.exit: ; preds = %.noex
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 280) #38
   br label %75
 
-66:                                               ; preds = %.noexc, %12
+66:                                               ; preds = %12, %.noexc
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 184) #38
@@ -101854,7 +101854,7 @@ _ZN17AstAlwaysObservedC2EP8FileLineP10AstSenTreeP7AstNode.exit: ; preds = %.noex
   tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef 200) #38
   br label %.thread97
 
-74:                                               ; preds = %.noexc47, %58
+74:                                               ; preds = %58, %.noexc47
   %lpad.thr_comm.split-lp106 = landingpad { ptr, i32 }
           cleanup
   br label %.thread97
@@ -101864,7 +101864,7 @@ _ZN17AstAlwaysObservedC2EP8FileLineP10AstSenTreeP7AstNode.exit: ; preds = %.noex
   tail call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef 160) #38
   br label %.thread112
 
-.thread120:                                       ; preds = %.noexc51, %_ZN12AstFireEventC2EP8FileLineP11AstNodeExprb.exit, %.noexc50
+.thread120:                                       ; preds = %_ZN12AstFireEventC2EP8FileLineP11AstNodeExprb.exit, %.noexc50, %.noexc51
   %lpad.thr_comm118 = landingpad { ptr, i32 }
           cleanup
   br label %.thread112
@@ -101875,7 +101875,7 @@ _ZN17AstAlwaysObservedC2EP8FileLineP10AstSenTreeP7AstNode.exit: ; preds = %.noex
   br label %75
 
 75:                                               ; preds = %.thread79, %.thread112, %.thread73
-  %.pn38.pn.pn = phi { ptr, i32 } [ %.pn38.pn115, %.thread112 ], [ %65, %.thread79 ], [ %.pn.pn77, %.thread73 ]
+  %.pn38.pn.pn = phi { ptr, i32 } [ %.pn38.pn115, %.thread112 ], [ %.pn.pn77, %.thread73 ], [ %65, %.thread79 ]
   resume { ptr, i32 } %.pn38.pn.pn
 
 76:                                               ; preds = %_ZN17AstAlwaysObservedC2EP8FileLineP10AstSenTreeP7AstNode.exit, %2
@@ -104020,7 +104020,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %45,
   br label %79
 
 .thread:                                          ; preds = %56, %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.0 = phi ptr [ %32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %57, %56 ], [ %.2, %77 ]
+  %.0 = phi ptr [ %32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.2, %77 ], [ %57, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 
@@ -104421,20 +104421,20 @@ _ZN10AstNetlist9addMiscspEP7AstNode.exit14:       ; preds = %_ZN10AstNetlist9add
           cleanup
   %35 = load ptr, ptr %2, align 8, !tbaa !33
   %36 = icmp eq ptr %35, %4
-  br i1 %36, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
+  br i1 %36, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15: ; preds = %33
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16: ; preds = %33
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %.0, label %39, label %44
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %33
   %37 = load i64, ptr %4, align 8, !tbaa !32
   %38 = add i64 %37, 1
   call void @_ZdlPvm(ptr noundef %35, i64 noundef %38) #38
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.0, label %39, label %44
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %33
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.0, label %39, label %44
-
-39:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
+39:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
   call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 40) #38
   br label %44
 
@@ -104450,8 +104450,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %33
   call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef 280) #38
   br label %44
 
-44:                                               ; preds = %40, %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17, %39
-  %.pn9.pn = phi { ptr, i32 } [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15 ], [ %34, %39 ], [ %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17 ], [ %41, %40 ], [ %43, %42 ]
+44:                                               ; preds = %40, %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17, %39
+  %.pn9.pn = phi { ptr, i32 } [ %34, %39 ], [ %34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17 ], [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16 ], [ %43, %42 ], [ %41, %40 ]
   resume { ptr, i32 } %.pn9.pn
 }
 
@@ -104599,7 +104599,7 @@ switch.hole_check:                                ; preds = %8
   br i1 %switch.lobit, label %switch.lookup, label %11
 
 switch.lookup:                                    ; preds = %switch.hole_check, %11, %5
-  %13 = phi i1 [ %12, %11 ], [ false, %5 ], [ false, %switch.hole_check ]
+  %13 = phi i1 [ false, %5 ], [ %12, %11 ], [ false, %switch.hole_check ]
   ret i1 %13
 }
 
@@ -104633,7 +104633,7 @@ _ZNK7AstNode5widthEv.exit.i2:                     ; preds = %_ZNK7AstNode6isQuad
   br label %_ZNK7AstNode6isQuadEv.exit.thread
 
 _ZNK7AstNode6isQuadEv.exit.thread:                ; preds = %_ZNK7AstNode5widthEv.exit.i2, %5, %_ZNK7AstNode6isQuadEv.exit, %1
-  %14 = phi i1 [ %or.cond.not, %_ZNK7AstNode5widthEv.exit.i2 ], [ false, %_ZNK7AstNode6isQuadEv.exit ], [ false, %1 ], [ false, %5 ]
+  %14 = phi i1 [ false, %_ZNK7AstNode6isQuadEv.exit ], [ false, %1 ], [ false, %5 ], [ %or.cond.not, %_ZNK7AstNode5widthEv.exit.i2 ]
   ret i1 %14
 }
 
@@ -104714,7 +104714,7 @@ _ZNK7AstNode5widthEv.exit.i:                      ; preds = %_ZNK7AstNode5widthE
   br label %_ZNK7AstNode5widthEv.exit.thread
 
 _ZNK7AstNode5widthEv.exit.thread:                 ; preds = %8, %_ZNK7AstNode5widthEv.exit.i, %_ZNK7AstNode5widthEv.exit, %1
-  %17 = phi i1 [ %.not5, %_ZNK7AstNode5widthEv.exit.i ], [ false, %_ZNK7AstNode5widthEv.exit ], [ false, %8 ], [ false, %1 ]
+  %17 = phi i1 [ false, %_ZNK7AstNode5widthEv.exit ], [ false, %1 ], [ %.not5, %_ZNK7AstNode5widthEv.exit.i ], [ false, %8 ]
   ret i1 %17
 }
 
@@ -104775,7 +104775,7 @@ _ZNK7AstNode5widthEv.exit.i:                      ; preds = %_ZNK7AstNode5widthE
   br label %_ZNK7AstNode5widthEv.exit.thread
 
 _ZNK7AstNode5widthEv.exit.thread:                 ; preds = %8, %_ZNK7AstNode5widthEv.exit.i, %_ZNK7AstNode5widthEv.exit, %1
-  %17 = phi i1 [ %.not5, %_ZNK7AstNode5widthEv.exit.i ], [ false, %_ZNK7AstNode5widthEv.exit ], [ false, %8 ], [ false, %1 ]
+  %17 = phi i1 [ false, %_ZNK7AstNode5widthEv.exit ], [ false, %1 ], [ %.not5, %_ZNK7AstNode5widthEv.exit.i ], [ false, %8 ]
   ret i1 %17
 }
 
@@ -105402,7 +105402,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i47
   br label %.body39
 
 .body39:                                          ; preds = %146, %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i47, %144, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i33
-  %.pn = phi { ptr, i32 } [ %147, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i47 ], [ %145, %144 ], [ %128, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i33 ], [ %128, %127 ], [ %147, %146 ]
+  %.pn = phi { ptr, i32 } [ %145, %144 ], [ %128, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i33 ], [ %147, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i47 ], [ %128, %127 ], [ %147, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %263
 
@@ -105696,7 +105696,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i85
   br label %.body71
 
 .body71:                                          ; preds = %256, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i85, %254, %222
-  %.pn25 = phi { ptr, i32 } [ %223, %222 ], [ %255, %254 ], [ %257, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i85 ], [ %257, %256 ]
+  %.pn25 = phi { ptr, i32 } [ %255, %254 ], [ %223, %222 ], [ %257, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i85 ], [ %257, %256 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %263
 
@@ -106025,8 +106025,8 @@ _ZNK7AstNode8widthMinEv.exit.thread:              ; preds = %.critedge2.thread, 
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i38.invoke: ; preds = %25, %51, %_ZNK7AstNode8widthMinEv.exit.thread, %36
-  %55 = phi ptr [ @.str.1155, %_ZNK7AstNode8widthMinEv.exit.thread ], [ @.str.1154, %36 ], [ @.str.1156, %51 ], [ @.str.1153, %25 ]
-  %56 = phi i64 [ 10, %_ZNK7AstNode8widthMinEv.exit.thread ], [ 9, %36 ], [ 11, %51 ], [ 11, %25 ]
+  %55 = phi ptr [ @.str.1154, %36 ], [ @.str.1155, %_ZNK7AstNode8widthMinEv.exit.thread ], [ @.str.1156, %51 ], [ @.str.1153, %25 ]
+  %56 = phi i64 [ 9, %36 ], [ 10, %_ZNK7AstNode8widthMinEv.exit.thread ], [ 11, %51 ], [ 11, %25 ]
   %57 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %55, i64 noundef %56)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit unwind label %29
 
@@ -106044,7 +106044,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i38.invoke
   br i1 %63, label %.invoke63, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
 
 .invoke63:                                        ; preds = %62, %60, %58
-  %64 = phi ptr [ @.str.1158, %60 ], [ @.str.1157, %58 ], [ @.str.1159, %62 ]
+  %64 = phi ptr [ @.str.1157, %58 ], [ @.str.1158, %60 ], [ @.str.1159, %62 ]
   %65 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %64)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit unwind label %29
 
@@ -106551,7 +106551,7 @@ _ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i3.i126: ; preds
           to label %.noexc130 unwind label %.loopexit744
 
 .noexc130:                                        ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i3.i126, %99, %_ZNK17AstNodeArrayDType4leftEv.exit.i119
-  %.sroa.2.0.insert.ext.i123 = phi i32 [ 0, %99 ], [ 0, %_ZNK17AstNodeArrayDType4leftEv.exit.i119 ], [ %103, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i3.i126 ]
+  %.sroa.2.0.insert.ext.i123 = phi i32 [ 0, %_ZNK17AstNodeArrayDType4leftEv.exit.i119 ], [ 0, %99 ], [ %103, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i3.i126 ]
   %.not.i.i132 = icmp eq ptr %.sroa.19.4, %.sroa.36.5
   br i1 %.not.i.i132, label %106, label %104
 
@@ -106774,7 +106774,7 @@ _ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i3.i176: ; preds
           to label %.noexc180 unwind label %.loopexit734
 
 .noexc180:                                        ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i3.i176, %171, %_ZNK17AstNodeArrayDType4leftEv.exit.i169
-  %.sroa.2.0.insert.ext.i173 = phi i32 [ 0, %171 ], [ 0, %_ZNK17AstNodeArrayDType4leftEv.exit.i169 ], [ %175, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i3.i176 ]
+  %.sroa.2.0.insert.ext.i173 = phi i32 [ 0, %_ZNK17AstNodeArrayDType4leftEv.exit.i169 ], [ 0, %171 ], [ %175, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i3.i176 ]
   %.not.i.i182 = icmp eq ptr %.sroa.15.4, %.sroa.26.5
   br i1 %.not.i.i182, label %178, label %176
 
@@ -106854,12 +106854,12 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br label %859
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit141:        ; preds = %176, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i188, %104, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i138
-  %.sroa.26.2 = phi ptr [ %.sroa.26.1, %104 ], [ %.sroa.26.1, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i138 ], [ %196, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i188 ], [ %.sroa.26.5, %176 ]
-  %.sroa.15.2 = phi ptr [ %.sroa.15.1, %104 ], [ %.sroa.15.1, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i138 ], [ %194, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i188 ], [ %177, %176 ]
-  %.sroa.0514.2 = phi ptr [ %.sroa.0514.1, %104 ], [ %.sroa.0514.1, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i138 ], [ %190, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i188 ], [ %.sroa.0514.5, %176 ]
-  %.sroa.36.2 = phi ptr [ %.sroa.36.5, %104 ], [ %124, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i138 ], [ %.sroa.36.1, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i188 ], [ %.sroa.36.1, %176 ]
-  %.sroa.19.2 = phi ptr [ %105, %104 ], [ %122, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i138 ], [ %.sroa.19.1, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i188 ], [ %.sroa.19.1, %176 ]
-  %.sroa.0532.2 = phi ptr [ %.sroa.0532.5, %104 ], [ %118, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i138 ], [ %.sroa.0532.1, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i188 ], [ %.sroa.0532.1, %176 ]
+  %.sroa.26.2 = phi ptr [ %.sroa.26.1, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i138 ], [ %.sroa.26.1, %104 ], [ %196, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i188 ], [ %.sroa.26.5, %176 ]
+  %.sroa.15.2 = phi ptr [ %.sroa.15.1, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i138 ], [ %.sroa.15.1, %104 ], [ %194, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i188 ], [ %177, %176 ]
+  %.sroa.0514.2 = phi ptr [ %.sroa.0514.1, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i138 ], [ %.sroa.0514.1, %104 ], [ %190, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i188 ], [ %.sroa.0514.5, %176 ]
+  %.sroa.36.2 = phi ptr [ %124, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i138 ], [ %.sroa.36.5, %104 ], [ %.sroa.36.1, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i188 ], [ %.sroa.36.1, %176 ]
+  %.sroa.19.2 = phi ptr [ %122, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i138 ], [ %105, %104 ], [ %.sroa.19.1, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i188 ], [ %.sroa.19.1, %176 ]
+  %.sroa.0532.2 = phi ptr [ %118, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i138 ], [ %.sroa.0532.5, %104 ], [ %.sroa.0532.1, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i188 ], [ %.sroa.0532.1, %176 ]
   %197 = load ptr, ptr %46, align 8, !tbaa !24
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 384
   %199 = load ptr, ptr %198, align 8
@@ -107015,9 +107015,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br label %859
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit211.thread: ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit211, %201, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i208, %232
-  %.sroa.36.0 = phi ptr [ %.sroa.36.1, %201 ], [ %.sroa.36.7, %232 ], [ %252, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i208 ], [ %.sroa.36.1, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit211 ]
-  %.sroa.19.0 = phi ptr [ %.sroa.19.1, %201 ], [ %233, %232 ], [ %250, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i208 ], [ %.sroa.19.1, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit211 ]
-  %.sroa.0532.0 = phi ptr [ %.sroa.0532.1, %201 ], [ %.sroa.0532.7, %232 ], [ %246, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i208 ], [ %.sroa.0532.1, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit211 ]
+  %.sroa.36.0 = phi ptr [ %.sroa.36.7, %232 ], [ %252, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i208 ], [ %.sroa.36.1, %201 ], [ %.sroa.36.1, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit211 ]
+  %.sroa.19.0 = phi ptr [ %233, %232 ], [ %250, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i208 ], [ %.sroa.19.1, %201 ], [ %.sroa.19.1, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit211 ]
+  %.sroa.0532.0 = phi ptr [ %.sroa.0532.7, %232 ], [ %246, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i208 ], [ %.sroa.0532.1, %201 ], [ %.sroa.0532.1, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit211 ]
   %257 = icmp eq ptr %.sroa.0514.1, %.sroa.15.1
   br i1 %257, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267, label %258
 
@@ -107352,10 +107352,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257: ; preds = %37
   br label %859
 
 378:                                              ; preds = %.invoke1180, %.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i471, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i423, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i366, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i341, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i337, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i333, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i292, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i228
-  %.sroa.0532.0647 = phi ptr [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i471 ], [ %.sroa.0532.0646677, %.invoke ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i423 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i333 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i366 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i228 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i341 ], [ %.sroa.0532.0, %.invoke1180 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i337 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i292 ]
-  %.sroa.36.0620 = phi ptr [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i471 ], [ %.sroa.36.0621679, %.invoke ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i423 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i333 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i366 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i228 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i341 ], [ %.sroa.36.0, %.invoke1180 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i337 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i292 ]
-  %.sroa.0514.0595 = phi ptr [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i471 ], [ %.sroa.0514.0596680, %.invoke ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i423 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i333 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i366 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i228 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i341 ], [ %.sroa.0514.1, %.invoke1180 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i337 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i292 ]
-  %.sroa.26.0569 = phi ptr [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i471 ], [ %.sroa.26.0570682, %.invoke ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i423 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i333 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i366 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i228 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i341 ], [ %.sroa.26.1, %.invoke1180 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i337 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i292 ]
+  %.sroa.0532.0647 = phi ptr [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i471 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i423 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i366 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i341 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i337 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i333 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i292 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i228 ], [ %.sroa.0532.0646677, %.invoke ], [ %.sroa.0532.0, %.invoke1180 ]
+  %.sroa.36.0620 = phi ptr [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i471 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i423 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i366 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i341 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i337 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i333 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i292 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i228 ], [ %.sroa.36.0621679, %.invoke ], [ %.sroa.36.0, %.invoke1180 ]
+  %.sroa.0514.0595 = phi ptr [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i471 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i423 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i366 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i341 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i337 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i333 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i292 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i228 ], [ %.sroa.0514.0596680, %.invoke ], [ %.sroa.0514.1, %.invoke1180 ]
+  %.sroa.26.0569 = phi ptr [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i471 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i423 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i366 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i341 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i337 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i333 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i292 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i228 ], [ %.sroa.26.0570682, %.invoke ], [ %.sroa.26.1, %.invoke1180 ]
   %379 = landingpad { ptr, i32 }
           cleanup
   br label %859
@@ -107854,14 +107854,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329: ; pr
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit332 unwind label %.loopexit.split-lp
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit332: ; preds = %_ZNK6AstVar6basicpEv.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267
-  %541 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267 ], [ true, %_ZNK6AstVar6basicpEv.exit ]
-  %.sroa.26.0570682 = phi ptr [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267 ], [ null, %_ZNK6AstVar6basicpEv.exit ]
-  %.sroa.15.0594681 = phi ptr [ %.sroa.15.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329 ], [ %.sroa.15.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267 ], [ null, %_ZNK6AstVar6basicpEv.exit ]
-  %.sroa.0514.0596680 = phi ptr [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267 ], [ null, %_ZNK6AstVar6basicpEv.exit ]
-  %.sroa.36.0621679 = phi ptr [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267 ], [ null, %_ZNK6AstVar6basicpEv.exit ]
-  %.sroa.19.0645678 = phi ptr [ %.sroa.19.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329 ], [ %.sroa.19.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267 ], [ null, %_ZNK6AstVar6basicpEv.exit ]
-  %.sroa.0532.0646677 = phi ptr [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267 ], [ null, %_ZNK6AstVar6basicpEv.exit ]
-  %542 = phi i1 [ %257, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329 ], [ %257, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267 ], [ true, %_ZNK6AstVar6basicpEv.exit ]
+  %541 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329 ], [ true, %_ZNK6AstVar6basicpEv.exit ]
+  %.sroa.26.0570682 = phi ptr [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329 ], [ null, %_ZNK6AstVar6basicpEv.exit ]
+  %.sroa.15.0594681 = phi ptr [ %.sroa.15.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267 ], [ %.sroa.15.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329 ], [ null, %_ZNK6AstVar6basicpEv.exit ]
+  %.sroa.0514.0596680 = phi ptr [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329 ], [ null, %_ZNK6AstVar6basicpEv.exit ]
+  %.sroa.36.0621679 = phi ptr [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329 ], [ null, %_ZNK6AstVar6basicpEv.exit ]
+  %.sroa.19.0645678 = phi ptr [ %.sroa.19.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267 ], [ %.sroa.19.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329 ], [ null, %_ZNK6AstVar6basicpEv.exit ]
+  %.sroa.0532.0646677 = phi ptr [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329 ], [ null, %_ZNK6AstVar6basicpEv.exit ]
+  %542 = phi i1 [ %257, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit267 ], [ %257, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i329 ], [ true, %_ZNK6AstVar6basicpEv.exit ]
   %543 = load i64, ptr %30, align 8, !tbaa !30
   %544 = add i64 %543, -4611686018427387873
   %545 = icmp ult i64 %544, 31
@@ -108718,11 +108718,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit476:                 ; preds = %_ZNSt6vectorIiSaIiE
   ret void
 
 859:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit719, %.loopexit.split-lp720, %.loopexit734, %.loopexit.split-lp735, %.loopexit729, %.loopexit.split-lp730, %.loopexit744, %.loopexit.split-lp745, %.loopexit739, %.loopexit.split-lp740, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263, %125, %253, %255, %43, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit470, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit416, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit410, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit404, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319, %378, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254
-  %.sroa.26.4 = phi ptr [ %.sroa.26.0569, %378 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit404 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit410 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit470 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit416 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322 ], [ %.sroa.26.1, %.loopexit.split-lp720 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325 ], [ %.sroa.26.1, %253 ], [ %.sroa.26.1, %255 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328 ], [ %.sroa.26.1, %.loopexit.split-lp740 ], [ %.sroa.26.2, %125 ], [ %.sroa.26.1, %.loopexit.split-lp745 ], [ %.sroa.26.1, %.loopexit.split-lp730 ], [ %.sroa.26.1, %43 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263 ], [ %.sroa.26.5, %.loopexit.split-lp735 ], [ %.sroa.26.1, %.loopexit739 ], [ %.sroa.26.1, %.loopexit744 ], [ %.sroa.26.1, %.loopexit729 ], [ %.sroa.26.5, %.loopexit734 ], [ %.sroa.26.1, %.loopexit719 ], [ %.sroa.26.1, %.loopexit ], [ %.sroa.26.1, %.loopexit.split-lp ]
-  %.sroa.0514.4 = phi ptr [ %.sroa.0514.0595, %378 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit404 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit410 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit470 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit416 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322 ], [ %.sroa.0514.1, %.loopexit.split-lp720 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325 ], [ %.sroa.0514.1, %253 ], [ %.sroa.0514.1, %255 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328 ], [ %.sroa.0514.1, %.loopexit.split-lp740 ], [ %.sroa.0514.2, %125 ], [ %.sroa.0514.1, %.loopexit.split-lp745 ], [ %.sroa.0514.1, %.loopexit.split-lp730 ], [ %.sroa.0514.1, %43 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263 ], [ %.sroa.0514.5, %.loopexit.split-lp735 ], [ %.sroa.0514.1, %.loopexit739 ], [ %.sroa.0514.1, %.loopexit744 ], [ %.sroa.0514.1, %.loopexit729 ], [ %.sroa.0514.5, %.loopexit734 ], [ %.sroa.0514.1, %.loopexit719 ], [ %.sroa.0514.1, %.loopexit ], [ %.sroa.0514.1, %.loopexit.split-lp ]
-  %.sroa.36.4 = phi ptr [ %.sroa.36.0620, %378 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit404 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit410 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit470 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit416 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322 ], [ %.sroa.36.0, %.loopexit.split-lp720 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325 ], [ %.sroa.36.1, %253 ], [ %.sroa.36.7, %255 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328 ], [ %.sroa.36.1, %.loopexit.split-lp740 ], [ %.sroa.36.2, %125 ], [ %.sroa.36.5, %.loopexit.split-lp745 ], [ %.sroa.36.1, %.loopexit.split-lp730 ], [ %.sroa.36.1, %43 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263 ], [ %.sroa.36.1, %.loopexit.split-lp735 ], [ %.sroa.36.1, %.loopexit739 ], [ %.sroa.36.5, %.loopexit744 ], [ %.sroa.36.1, %.loopexit729 ], [ %.sroa.36.1, %.loopexit734 ], [ %.sroa.36.0, %.loopexit719 ], [ %.sroa.36.0, %.loopexit ], [ %.sroa.36.0, %.loopexit.split-lp ]
-  %.sroa.0532.4 = phi ptr [ %.sroa.0532.0647, %378 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit404 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit410 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit470 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit416 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322 ], [ %.sroa.0532.0, %.loopexit.split-lp720 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325 ], [ %.sroa.0532.1, %253 ], [ %.sroa.0532.7, %255 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328 ], [ %.sroa.0532.1, %.loopexit.split-lp740 ], [ %.sroa.0532.2, %125 ], [ %.sroa.0532.5, %.loopexit.split-lp745 ], [ %.sroa.0532.1, %.loopexit.split-lp730 ], [ %.sroa.0532.1, %43 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263 ], [ %.sroa.0532.1, %.loopexit.split-lp735 ], [ %.sroa.0532.1, %.loopexit739 ], [ %.sroa.0532.5, %.loopexit744 ], [ %.sroa.0532.1, %.loopexit729 ], [ %.sroa.0532.1, %.loopexit734 ], [ %.sroa.0532.0, %.loopexit719 ], [ %.sroa.0532.0, %.loopexit ], [ %.sroa.0532.0, %.loopexit.split-lp ]
-  %.pn109 = phi { ptr, i32 } [ %379, %378 ], [ %.pn92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit404 ], [ %.pn94.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit410 ], [ %.pn103.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464 ], [ %.pn106.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit470 ], [ %.pn97.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit416 ], [ %.pn100.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422 ], [ %.pn82.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319 ], [ %.pn85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322 ], [ %lpad.loopexit.split-lp722, %.loopexit.split-lp720 ], [ %.pn72.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254 ], [ %.pn75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257 ], [ %.pn87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325 ], [ %254, %253 ], [ %256, %255 ], [ %.pn89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328 ], [ %lpad.loopexit.split-lp742, %.loopexit.split-lp740 ], [ %126, %125 ], [ %lpad.loopexit.split-lp747, %.loopexit.split-lp745 ], [ %lpad.loopexit.split-lp732, %.loopexit.split-lp730 ], [ %44, %43 ], [ %.pn79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263 ], [ %lpad.loopexit.split-lp737, %.loopexit.split-lp735 ], [ %lpad.loopexit741, %.loopexit739 ], [ %lpad.loopexit746, %.loopexit744 ], [ %lpad.loopexit731, %.loopexit729 ], [ %lpad.loopexit736, %.loopexit734 ], [ %lpad.loopexit721, %.loopexit719 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.26.4 = phi ptr [ %.sroa.26.0569, %378 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit404 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit410 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit470 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit416 ], [ %.sroa.26.0570682, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257 ], [ %.sroa.26.1, %253 ], [ %.sroa.26.1, %255 ], [ %.sroa.26.2, %125 ], [ %.sroa.26.1, %43 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328 ], [ %.sroa.26.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325 ], [ %.sroa.26.1, %.loopexit739 ], [ %.sroa.26.1, %.loopexit.split-lp740 ], [ %.sroa.26.1, %.loopexit744 ], [ %.sroa.26.1, %.loopexit.split-lp745 ], [ %.sroa.26.1, %.loopexit729 ], [ %.sroa.26.1, %.loopexit.split-lp730 ], [ %.sroa.26.5, %.loopexit734 ], [ %.sroa.26.5, %.loopexit.split-lp735 ], [ %.sroa.26.1, %.loopexit719 ], [ %.sroa.26.1, %.loopexit.split-lp720 ], [ %.sroa.26.1, %.loopexit ], [ %.sroa.26.1, %.loopexit.split-lp ]
+  %.sroa.0514.4 = phi ptr [ %.sroa.0514.0595, %378 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit404 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit410 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit470 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit416 ], [ %.sroa.0514.0596680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257 ], [ %.sroa.0514.1, %253 ], [ %.sroa.0514.1, %255 ], [ %.sroa.0514.2, %125 ], [ %.sroa.0514.1, %43 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328 ], [ %.sroa.0514.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325 ], [ %.sroa.0514.1, %.loopexit739 ], [ %.sroa.0514.1, %.loopexit.split-lp740 ], [ %.sroa.0514.1, %.loopexit744 ], [ %.sroa.0514.1, %.loopexit.split-lp745 ], [ %.sroa.0514.1, %.loopexit729 ], [ %.sroa.0514.1, %.loopexit.split-lp730 ], [ %.sroa.0514.5, %.loopexit734 ], [ %.sroa.0514.5, %.loopexit.split-lp735 ], [ %.sroa.0514.1, %.loopexit719 ], [ %.sroa.0514.1, %.loopexit.split-lp720 ], [ %.sroa.0514.1, %.loopexit ], [ %.sroa.0514.1, %.loopexit.split-lp ]
+  %.sroa.36.4 = phi ptr [ %.sroa.36.0620, %378 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit404 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit410 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit470 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit416 ], [ %.sroa.36.0621679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257 ], [ %.sroa.36.1, %253 ], [ %.sroa.36.7, %255 ], [ %.sroa.36.2, %125 ], [ %.sroa.36.1, %43 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328 ], [ %.sroa.36.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325 ], [ %.sroa.36.1, %.loopexit739 ], [ %.sroa.36.1, %.loopexit.split-lp740 ], [ %.sroa.36.5, %.loopexit744 ], [ %.sroa.36.5, %.loopexit.split-lp745 ], [ %.sroa.36.1, %.loopexit729 ], [ %.sroa.36.1, %.loopexit.split-lp730 ], [ %.sroa.36.1, %.loopexit734 ], [ %.sroa.36.1, %.loopexit.split-lp735 ], [ %.sroa.36.0, %.loopexit719 ], [ %.sroa.36.0, %.loopexit.split-lp720 ], [ %.sroa.36.0, %.loopexit ], [ %.sroa.36.0, %.loopexit.split-lp ]
+  %.sroa.0532.4 = phi ptr [ %.sroa.0532.0647, %378 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit404 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit410 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit470 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit416 ], [ %.sroa.0532.0646677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257 ], [ %.sroa.0532.1, %253 ], [ %.sroa.0532.7, %255 ], [ %.sroa.0532.2, %125 ], [ %.sroa.0532.1, %43 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328 ], [ %.sroa.0532.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325 ], [ %.sroa.0532.1, %.loopexit739 ], [ %.sroa.0532.1, %.loopexit.split-lp740 ], [ %.sroa.0532.5, %.loopexit744 ], [ %.sroa.0532.5, %.loopexit.split-lp745 ], [ %.sroa.0532.1, %.loopexit729 ], [ %.sroa.0532.1, %.loopexit.split-lp730 ], [ %.sroa.0532.1, %.loopexit734 ], [ %.sroa.0532.1, %.loopexit.split-lp735 ], [ %.sroa.0532.0, %.loopexit719 ], [ %.sroa.0532.0, %.loopexit.split-lp720 ], [ %.sroa.0532.0, %.loopexit ], [ %.sroa.0532.0, %.loopexit.split-lp ]
+  %.pn109 = phi { ptr, i32 } [ %379, %378 ], [ %.pn92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit404 ], [ %.pn94.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit410 ], [ %.pn103.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464 ], [ %.pn106.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit470 ], [ %.pn97.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit416 ], [ %.pn100.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422 ], [ %.pn82.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319 ], [ %.pn85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322 ], [ %.pn72.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254 ], [ %.pn75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit257 ], [ %254, %253 ], [ %256, %255 ], [ %126, %125 ], [ %44, %43 ], [ %.pn79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263 ], [ %.pn89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328 ], [ %.pn87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325 ], [ %lpad.loopexit741, %.loopexit739 ], [ %lpad.loopexit.split-lp742, %.loopexit.split-lp740 ], [ %lpad.loopexit746, %.loopexit744 ], [ %lpad.loopexit.split-lp747, %.loopexit.split-lp745 ], [ %lpad.loopexit731, %.loopexit729 ], [ %lpad.loopexit.split-lp732, %.loopexit.split-lp730 ], [ %lpad.loopexit736, %.loopexit734 ], [ %lpad.loopexit.split-lp737, %.loopexit.split-lp735 ], [ %lpad.loopexit721, %.loopexit719 ], [ %lpad.loopexit.split-lp722, %.loopexit.split-lp720 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i477 = icmp eq ptr %.sroa.0514.4, null
   br i1 %.not.i.i.i477, label %_ZNSt6vectorIiSaIiEED2Ev.exit478, label %._crit_edge950
 
@@ -108743,9 +108743,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit476:                 ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit478
 
 _ZNSt6vectorIiSaIiEED2Ev.exit478:                 ; preds = %859, %860
-  %.pn109692 = phi { ptr, i32 } [ %.pn109704, %860 ], [ %.pn109, %859 ]
-  %.sroa.0532.4691 = phi ptr [ %.sroa.0532.4703, %860 ], [ %.sroa.0532.4, %859 ]
-  %.sroa.36.4690 = phi ptr [ %.sroa.36.4702, %860 ], [ %.sroa.36.4, %859 ]
+  %.pn109692 = phi { ptr, i32 } [ %.pn109, %859 ], [ %.pn109704, %860 ]
+  %.sroa.0532.4691 = phi ptr [ %.sroa.0532.4, %859 ], [ %.sroa.0532.4703, %860 ]
+  %.sroa.36.4690 = phi ptr [ %.sroa.36.4, %859 ], [ %.sroa.36.4702, %860 ]
   %.not.i.i.i479 = icmp eq ptr %.sroa.0532.4691, null
   br i1 %.not.i.i.i479, label %_ZNSt6vectorIiSaIiEED2Ev.exit480, label %863
 
@@ -109023,7 +109023,7 @@ _ZNK8AstRange9ascendingEv.exit.i._crit_edge.thread: ; preds = %_ZNK13AstBasicDTy
   br label %_ZNK13AstBasicDType2loEv.exit
 
 _ZNK13AstBasicDType2loEv.exit:                    ; preds = %_ZNK8AstRange9ascendingEv.exit.i._crit_edge.thread, %_ZNK8AstRange7hiConstEv.exit.i, %.thread, %_ZNK8AstRange7loConstEv.exit.i
-  %72 = phi i32 [ %..i.i, %.thread ], [ %45, %_ZNK8AstRange7loConstEv.exit.i ], [ %67, %_ZNK8AstRange7hiConstEv.exit.i ], [ %..i.i14, %_ZNK8AstRange9ascendingEv.exit.i._crit_edge.thread ]
+  %72 = phi i32 [ %45, %_ZNK8AstRange7loConstEv.exit.i ], [ %..i.i, %.thread ], [ %67, %_ZNK8AstRange7hiConstEv.exit.i ], [ %..i.i14, %_ZNK8AstRange9ascendingEv.exit.i._crit_edge.thread ]
   ret i32 %72
 }
 
@@ -109187,7 +109187,7 @@ _ZNK8AstRange9ascendingEv.exit.i._crit_edge.thread: ; preds = %_ZNK13AstBasicDTy
   br label %_ZNK13AstBasicDType2hiEv.exit
 
 _ZNK13AstBasicDType2hiEv.exit:                    ; preds = %_ZNK8AstRange9ascendingEv.exit.i._crit_edge.thread, %_ZNK8AstRange7loConstEv.exit.i, %.thread, %_ZNK8AstRange7hiConstEv.exit.i
-  %72 = phi i32 [ %..i.i, %.thread ], [ %45, %_ZNK8AstRange7hiConstEv.exit.i ], [ %67, %_ZNK8AstRange7loConstEv.exit.i ], [ %..i.i14, %_ZNK8AstRange9ascendingEv.exit.i._crit_edge.thread ]
+  %72 = phi i32 [ %45, %_ZNK8AstRange7hiConstEv.exit.i ], [ %..i.i, %.thread ], [ %67, %_ZNK8AstRange7loConstEv.exit.i ], [ %..i.i14, %_ZNK8AstRange9ascendingEv.exit.i._crit_edge.thread ]
   ret i32 %72
 }
 
@@ -110523,7 +110523,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   br label %.body
 
 .body:                                            ; preds = %375, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i161, %373, %351
-  %.pn31 = phi { ptr, i32 } [ %352, %351 ], [ %374, %373 ], [ %376, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i161 ], [ %376, %375 ]
+  %.pn31 = phi { ptr, i32 } [ %374, %373 ], [ %352, %351 ], [ %376, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i161 ], [ %376, %375 ]
   %382 = load ptr, ptr %18, align 8, !tbaa !33
   %383 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %384 = icmp eq ptr %382, %383
@@ -110865,7 +110865,7 @@ _ZNK13AstBasicDType13isDpiLogicVecEv.exit:        ; preds = %20
   br i1 %33, label %_ZNK13AstBasicDType11isDpiBitVecEv.exit16, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread
 
 _ZNK13AstBasicDType11isDpiBitVecEv.exit16:        ; preds = %_ZNK13AstBasicDType11isDpiBitVecEv.exit, %20, %20, %20, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit
-  %34 = phi i1 [ false, %20 ], [ false, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit ], [ false, %20 ], [ false, %20 ], [ true, %_ZNK13AstBasicDType11isDpiBitVecEv.exit ]
+  %34 = phi i1 [ false, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit ], [ false, %20 ], [ false, %20 ], [ false, %20 ], [ true, %_ZNK13AstBasicDType11isDpiBitVecEv.exit ]
   %35 = load ptr, ptr %1, align 8, !tbaa !24
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
@@ -111340,7 +111340,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %439
 
-_ZNK6AstVar11isScBigUintEv.exit.thread:           ; preds = %2, %26, %_ZNK7AstNode5widthEv.exit.i, %_ZNK6AstVar11isScBigUintEv.exit
+_ZNK6AstVar11isScBigUintEv.exit.thread:           ; preds = %26, %2, %_ZNK7AstNode5widthEv.exit.i, %_ZNK6AstVar11isScBigUintEv.exit
   %157 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1022), align 2, !range !95
   %158 = trunc nuw i8 %157 to i1
   %or.cond.i42 = select i1 %23, i1 %158, i1 false
@@ -111367,7 +111367,7 @@ _ZNK6AstVar8isScUintEv.exit:                      ; preds = %_ZNK7AstNode5widthE
   %.not5.i48 = and i1 %167, %.not.i3.i47
   br i1 %.not5.i48, label %_ZNK7AstNode8widthMinEv.exit54, label %_ZNK6AstVar8isScUintEv.exit.thread
 
-_ZNK6AstVar8isScUintEv.exit.thread:               ; preds = %_ZNK6AstVar11isScBigUintEv.exit.thread, %159, %_ZNK7AstNode5widthEv.exit.i44, %_ZNK6AstVar8isScUintEv.exit
+_ZNK6AstVar8isScUintEv.exit.thread:               ; preds = %159, %_ZNK6AstVar11isScBigUintEv.exit.thread, %_ZNK7AstNode5widthEv.exit.i44, %_ZNK6AstVar8isScUintEv.exit
   %168 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1023), align 1, !range !95
   %169 = trunc nuw i8 %168 to i1
   %or.cond.i49 = select i1 %23, i1 %169, i1 false
@@ -112262,7 +112262,7 @@ _ZN7AstNode11privateCastI11AstArraySelPS_EEPT_S2_.exit.thread.sink.split: ; pred
   br label %_ZN7AstNode11privateCastI11AstArraySelPS_EEPT_S2_.exit.thread
 
 _ZN7AstNode11privateCastI11AstArraySelPS_EEPT_S2_.exit.thread: ; preds = %tailrecurse, %_ZN7AstNode11privateCastI11AstArraySelPS_EEPT_S2_.exit, %.lr.ph, %_ZN7AstNode11privateCastI11AstArraySelPS_EEPT_S2_.exit.thread.sink.split, %1
-  %13 = phi ptr [ null, %1 ], [ %spec.select, %_ZN7AstNode11privateCastI11AstArraySelPS_EEPT_S2_.exit.thread.sink.split ], [ null, %.lr.ph ], [ %7, %_ZN7AstNode11privateCastI11AstArraySelPS_EEPT_S2_.exit ], [ null, %tailrecurse ]
+  %13 = phi ptr [ null, %1 ], [ %spec.select, %_ZN7AstNode11privateCastI11AstArraySelPS_EEPT_S2_.exit.thread.sink.split ], [ null, %tailrecurse ], [ %7, %_ZN7AstNode11privateCastI11AstArraySelPS_EEPT_S2_.exit ], [ null, %.lr.ph ]
   ret ptr %13
 }
 
@@ -113256,13 +113256,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit462: ; preds = 
   store i8 0, ptr %308, align 1, !tbaa !32
   %309 = load ptr, ptr %12, align 8, !tbaa !33
   %310 = icmp eq ptr %309, %271
-  br i1 %310, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i464, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i463
+  br i1 %310, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit465, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i463
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i463: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit462
   %311 = load i64, ptr %271, align 8, !tbaa !32
   %312 = add i64 %311, 1
   call void @_ZdlPvm(ptr noundef %309, i64 noundef %312) #38
-  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i464
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit465
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit465: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit462, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i463
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  br i1 %2, label %1307, label %.critedge406
 
 313:                                              ; preds = %.noexc.i.i
   %314 = landingpad { ptr, i32 }
@@ -115995,7 +115999,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i80
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i807
 
 1280:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit805, %1272, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit773, %1114, %1098, %1086, %1074, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit726, %1004
-  %.pn304.pn = phi { ptr, i32 } [ %.pn286.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit773 ], [ %1005, %1004 ], [ %.pn290.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit726 ], [ %1075, %1074 ], [ %1087, %1086 ], [ %1099, %1098 ], [ %1115, %1114 ], [ %1273, %1272 ], [ %.pn293.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit805 ]
+  %.pn304.pn = phi { ptr, i32 } [ %1005, %1004 ], [ %.pn290.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit726 ], [ %1075, %1074 ], [ %1087, %1086 ], [ %1099, %1098 ], [ %1115, %1114 ], [ %.pn286.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit773 ], [ %1273, %1272 ], [ %.pn293.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit805 ]
   %1281 = load ptr, ptr %49, align 8, !tbaa !33
   %1282 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %1283 = icmp eq ptr %1281, %1282
@@ -116008,7 +116012,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i80
   br label %.critedge388
 
 .critedge388:                                     ; preds = %1280, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i809, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit706, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i705
-  %.pn304.pn.pn = phi { ptr, i32 } [ %.pn304.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i809 ], [ %.pn282.pn.pn.ph, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i705 ], [ %1003, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit706 ], [ %.pn304.pn, %1280 ]
+  %.pn304.pn.pn = phi { ptr, i32 } [ %.pn282.pn.pn.ph, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i705 ], [ %1003, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit706 ], [ %.pn304.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i809 ], [ %.pn304.pn, %1280 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %1316
 
@@ -116071,11 +116075,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br i1 %2, label %1307, label %.critedge406
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i464: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit462, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i463
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %2, label %1307, label %.critedge406
-
-1307:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit678, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit694, %740, %.thread883, %_ZN12AstNodeDType13CTypeRecursedD2Ev.exit499, %_ZN12AstNodeDType13CTypeRecursedD2Ev.exit536, %568, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit573, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit590, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit607, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i807, %_ZN12AstNodeDType13CTypeRecursedD2Ev.exit438, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i464
+1307:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit694, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit678, %740, %.thread883, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit607, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit590, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit573, %568, %_ZN12AstNodeDType13CTypeRecursedD2Ev.exit536, %_ZN12AstNodeDType13CTypeRecursedD2Ev.exit499, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit465, %_ZN12AstNodeDType13CTypeRecursedD2Ev.exit438, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i807
   %1308 = load i64, ptr %82, align 8, !tbaa !30
   %.not896 = icmp eq i64 %1308, 0
   br i1 %.not896, label %.critedge406, label %1309, !prof !55
@@ -116100,11 +116100,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit819: ; preds = %1313
   unreachable
 
 1316:                                             ; preds = %95, %258, %323, %405, %505, %570, %621, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit596, %702, %764, %985, %.critedge388, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit817, %946, %955, %923, %857, %773, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit610, %667, %612, %579, %496, %414, %313, %267, %93
-  %.pn377.pn = phi { ptr, i32 } [ %94, %93 ], [ %96, %95 ], [ %.pn371.pn.pn.pn.pn, %258 ], [ %268, %267 ], [ %314, %313 ], [ %324, %323 ], [ %.pn364.pn, %405 ], [ %415, %414 ], [ %.pn359.pn, %496 ], [ %506, %505 ], [ %.pn354.pn, %570 ], [ %580, %579 ], [ %.pn345.pn, %612 ], [ %622, %621 ], [ %.pn340.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit596 ], [ %668, %667 ], [ %.pn336, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit610 ], [ %703, %702 ], [ %.pn331.pn, %764 ], [ %774, %773 ], [ %.pn323.pn, %857 ], [ %.pn311.pn.pn.pn.pn, %923 ], [ %956, %955 ], [ %947, %946 ], [ %.pn304.pn.pn, %.critedge388 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit817 ], [ %986, %985 ]
+  %.pn377.pn = phi { ptr, i32 } [ %94, %93 ], [ %96, %95 ], [ %.pn371.pn.pn.pn.pn, %258 ], [ %268, %267 ], [ %314, %313 ], [ %324, %323 ], [ %.pn364.pn, %405 ], [ %415, %414 ], [ %.pn359.pn, %496 ], [ %506, %505 ], [ %.pn354.pn, %570 ], [ %580, %579 ], [ %.pn345.pn, %612 ], [ %622, %621 ], [ %.pn340.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit596 ], [ %668, %667 ], [ %.pn336, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit610 ], [ %703, %702 ], [ %.pn331.pn, %764 ], [ %774, %773 ], [ %.pn323.pn, %857 ], [ %.pn311.pn.pn.pn.pn, %923 ], [ %947, %946 ], [ %956, %955 ], [ %.pn304.pn.pn, %.critedge388 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit817 ], [ %986, %985 ]
   call void @_ZN12AstNodeDType13CTypeRecursedD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #40
   resume { ptr, i32 } %.pn377.pn
 
-.critedge406:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit678, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit694, %740, %_ZN12AstNodeDType13CTypeRecursedD2Ev.exit499, %_ZN12AstNodeDType13CTypeRecursedD2Ev.exit536, %568, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit573, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit590, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit607, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i807, %_ZN12AstNodeDType13CTypeRecursedD2Ev.exit438, %1307, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i464
+.critedge406:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit694, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit678, %740, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit607, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit590, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit573, %568, %_ZN12AstNodeDType13CTypeRecursedD2Ev.exit536, %_ZN12AstNodeDType13CTypeRecursedD2Ev.exit499, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit465, %_ZN12AstNodeDType13CTypeRecursedD2Ev.exit438, %1307, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i807
   ret void
 }
 
@@ -116736,7 +116736,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEj(ptr dead_on_unwind
   br i1 %18, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !639
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %15, %2, %5, %9, %13
-  %.0.i = phi i32 [ %14, %13 ], [ %6, %5 ], [ %10, %9 ], [ 1, %2 ], [ %17, %15 ]
+  %.0.i = phi i32 [ %6, %5 ], [ %10, %9 ], [ %14, %13 ], [ 1, %2 ], [ %17, %15 ]
   %19 = zext i32 %.0.i to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !27
@@ -117309,8 +117309,8 @@ _ZN7AstNode9privateIsI17AstPackArrayDTypeKPK17AstNodeArrayDTypeEEbPKS_.exit: ; p
   br i1 %.not, label %.thread, label %3
 
 .thread:                                          ; preds = %27, %24, %22, %19, %11
-  %.04458 = phi i32 [ %.04464, %24 ], [ %.04464, %11 ], [ %.04464, %19 ], [ %.04464, %22 ], [ %28, %27 ]
-  %.147 = phi i32 [ %spec.select, %24 ], [ %.04663, %11 ], [ %.04663, %19 ], [ %23, %22 ], [ %.349, %27 ]
+  %.04458 = phi i32 [ %.04464, %11 ], [ %.04464, %19 ], [ %.04464, %22 ], [ %.04464, %24 ], [ %28, %27 ]
+  %.147 = phi i32 [ %.04663, %11 ], [ %.04663, %19 ], [ %23, %22 ], [ %spec.select, %24 ], [ %.349, %27 ]
   %.sroa.2.0.insert.ext.i = zext i32 %.04458 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %.147 to i64
@@ -117546,7 +117546,7 @@ switch.lookup:                                    ; preds = %tailrecurse._crit_e
   br label %_ZNK14VBasicDTypeKwd13isLiteralTypeEv.exit
 
 _ZNK14VBasicDTypeKwd13isLiteralTypeEv.exit:       ; preds = %tailrecurse._crit_edge, %switch.lookup, %18, %21
-  %.0 = phi i1 [ false, %18 ], [ %switch.masked, %switch.lookup ], [ %24, %21 ], [ false, %tailrecurse._crit_edge ]
+  %.0 = phi i1 [ %24, %21 ], [ false, %18 ], [ %switch.masked, %switch.lookup ], [ false, %tailrecurse._crit_edge ]
   ret i1 %.0
 }
 
@@ -119004,7 +119004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit.i44: ;
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit60, %.loopexit.split-lp61, %52
-  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp61 ], [ %lpad.loopexit62, %.loopexit60 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit57, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp58, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %lpad.loopexit62, %.loopexit60 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp61 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit57, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp58, %.loopexit.split-lp.loopexit.split-lp ]
   %105 = load ptr, ptr %0, align 8, !tbaa !33
   %106 = icmp eq ptr %105, %7
   br i1 %106, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i49
@@ -120302,8 +120302,8 @@ _ZNK9VNumRangeltERKS_.exit.i.i:                   ; preds = %96
   %100 = icmp samesign ult i8 %19, %99
   br i1 %100, label %.critedge, label %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit
 
-.critedge:                                        ; preds = %86, %_ZNK9VNumRangeltERKS_.exit.i.i, %68, %74, %80, %92, %62, %3, %_ZNSt3mapI13VBasicTypeKeyP13AstBasicDTypeSt4lessIS0_ESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit
-  %.08.lcssa.i.i.i20 = phi ptr [ %6, %3 ], [ %.19.i.i.i, %_ZNSt3mapI13VBasicTypeKeyP13AstBasicDTypeSt4lessIS0_ESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit ], [ %.19.i.i.i, %62 ], [ %.19.i.i.i, %92 ], [ %.19.i.i.i, %80 ], [ %.19.i.i.i, %74 ], [ %.19.i.i.i, %68 ], [ %.19.i.i.i, %_ZNK9VNumRangeltERKS_.exit.i.i ], [ %.19.i.i.i, %86 ]
+.critedge:                                        ; preds = %92, %86, %_ZNK9VNumRangeltERKS_.exit.i.i, %80, %74, %68, %62, %3, %_ZNSt3mapI13VBasicTypeKeyP13AstBasicDTypeSt4lessIS0_ESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit
+  %.08.lcssa.i.i.i20 = phi ptr [ %.19.i.i.i, %_ZNSt3mapI13VBasicTypeKeyP13AstBasicDTypeSt4lessIS0_ESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit ], [ %6, %3 ], [ %.19.i.i.i, %62 ], [ %.19.i.i.i, %68 ], [ %.19.i.i.i, %74 ], [ %.19.i.i.i, %80 ], [ %.19.i.i.i, %_ZNK9VNumRangeltERKS_.exit.i.i ], [ %.19.i.i.i, %86 ], [ %.19.i.i.i, %92 ]
   %101 = tail call ptr @_ZNSt8_Rb_treeI13VBasicTypeKeySt4pairIKS0_P13AstBasicDTypeESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE22_M_emplace_hint_uniqueIJRS2_RS4_EEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i20, ptr noundef nonnull align 4 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit
 
@@ -120777,7 +120777,7 @@ _ZN7AstNode9privateIsI8AstConstKPKS_EEbS3_.exit:  ; preds = %.critedge
   br label %.thread105, !llvm.loop !700
 
 _ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i: ; preds = %46, %29, %41
-  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %29 ], [ %42, %41 ], [ %48, %46 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.06.0.i.i.i, %29 ], [ %48, %46 ]
   br label %54
 
 54:                                               ; preds = %55, %_ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i
@@ -121209,15 +121209,15 @@ _ZL8sameInitPK12AstInitArrayS1_.exit:             ; preds = %147
   %or.cond.not147.i = select i1 %152, i1 %154, i1 false
   br i1 %or.cond.not147.i, label %.thread107, label %_ZL8sameInitPK12AstInitArrayS1_.exit.thread
 
-_ZL8sameInitPK12AstInitArrayS1_.exit.thread:      ; preds = %_ZNK12AstInitArray23getIndexDefaultedValuepEm.exit107.i, %.critedge.i, %160, %166, %106, %_ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit87.i, %180, %_ZN7AstNode11privateCastI18AstAssocArrayDTypeP12AstNodeDTypeEEPT_PS_.exit76.i, %_ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit.i, %145, %120, %_ZN7AstNode11privateCastI18AstAssocArrayDTypeP12AstNodeDTypeEEPT_PS_.exit.i, %_ZL8sameInitPK12AstInitArrayS1_.exit
+_ZL8sameInitPK12AstInitArrayS1_.exit.thread:      ; preds = %_ZNK12AstInitArray23getIndexDefaultedValuepEm.exit107.i, %.critedge.i, %160, %166, %_ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit.i, %106, %_ZN7AstNode11privateCastI18AstAssocArrayDTypeP12AstNodeDTypeEEPT_PS_.exit.i, %180, %_ZN7AstNode11privateCastI19AstUnpackArrayDTypeP12AstNodeDTypeEEPT_PS_.exit87.i, %_ZN7AstNode11privateCastI18AstAssocArrayDTypeP12AstNodeDTypeEEPT_PS_.exit76.i, %120, %145, %_ZL8sameInitPK12AstInitArrayS1_.exit
   %256 = load ptr, ptr %.sroa.093.0143, align 8, !tbaa !694
   %.not112 = icmp eq ptr %256, %.sroa.03.0.i.i
   br i1 %.not112, label %.thread105, label %82, !llvm.loop !710
 
-.thread105:                                       ; preds = %.lr.ph.i.i.i.i.i, %28, %_ZL8sameInitPK12AstInitArrayS1_.exit.thread, %33, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE11equal_rangeERS7_.exit
-  %.not112142211 = phi i1 [ false, %_ZL8sameInitPK12AstInitArrayS1_.exit.thread ], [ true, %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE11equal_rangeERS7_.exit ], [ true, %..loopexit_crit_edge21.i.i.i.i.i ], [ true, %28 ], [ true, %33 ], [ true, %.lr.ph.i.i.i.i.i ]
-  %.sroa.3.0.i.i210 = phi ptr [ %.sroa.03.0.i.i, %_ZL8sameInitPK12AstInitArrayS1_.exit.thread ], [ %.sroa.03.0.i.i, %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE11equal_rangeERS7_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %28 ], [ null, %33 ], [ null, %.lr.ph.i.i.i.i.i ]
-  %.sroa.07.0.i.i209 = phi ptr [ %.sroa.06.1.i.i.i, %_ZL8sameInitPK12AstInitArrayS1_.exit.thread ], [ %.sroa.06.1.i.i.i, %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE11equal_rangeERS7_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %28 ], [ null, %33 ], [ null, %.lr.ph.i.i.i.i.i ]
+.thread105:                                       ; preds = %.lr.ph.i.i.i.i.i, %28, %_ZL8sameInitPK12AstInitArrayS1_.exit.thread, %..loopexit_crit_edge21.i.i.i.i.i, %33, %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE11equal_rangeERS7_.exit
+  %.not112142211 = phi i1 [ true, %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE11equal_rangeERS7_.exit ], [ true, %33 ], [ true, %..loopexit_crit_edge21.i.i.i.i.i ], [ false, %_ZL8sameInitPK12AstInitArrayS1_.exit.thread ], [ true, %28 ], [ true, %.lr.ph.i.i.i.i.i ]
+  %.sroa.3.0.i.i210 = phi ptr [ %.sroa.03.0.i.i, %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE11equal_rangeERS7_.exit ], [ null, %33 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.sroa.03.0.i.i, %_ZL8sameInitPK12AstInitArrayS1_.exit.thread ], [ null, %28 ], [ null, %.lr.ph.i.i.i.i.i ]
+  %.sroa.07.0.i.i209 = phi ptr [ %.sroa.06.1.i.i.i, %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE11equal_rangeERS7_.exit ], [ null, %33 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.sroa.06.1.i.i.i, %_ZL8sameInitPK12AstInitArrayS1_.exit.thread ], [ null, %28 ], [ null, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %257 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %257, ptr %4, align 8, !tbaa !27
@@ -121368,7 +121368,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZN
   br i1 %307, label %.loopexit.i.i.i.i, label %303, !llvm.loop !715
 
 .loopexit.i.i.i.i:                                ; preds = %304, %303, %.noexc79
-  %.sroa.020.2.i.i.i.i.i = phi ptr [ null, %.noexc79 ], [ %.sroa.0.0.i.i.i.i.i, %304 ], [ null, %303 ]
+  %.sroa.020.2.i.i.i.i.i = phi ptr [ null, %.noexc79 ], [ null, %303 ], [ %.sroa.0.0.i.i.i.i.i, %304 ]
   %.sroa.4.2.i.i.i.i.i = zext i32 %296 to i64
   %308 = invoke ptr @_ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE20_M_insert_multi_nodeEPNS6_10_Hash_nodeIS4_Lb0EEEmSK_(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef %.sroa.020.2.i.i.i.i.i, i64 noundef %.sroa.4.2.i.i.i.i.i, ptr noundef nonnull %297)
           to label %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE7emplaceIJjRKS1_EEENSt8__detail14_Node_iteratorIS8_Lb0ELb0EEEDpOT_.exit unwind label %_ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit10.i.i.i.i
@@ -121459,7 +121459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88: ; preds = %327
   br label %.body
 
 .body:                                            ; preds = %334, %_ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit10.i.i.i.i, %336, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88, %323, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85
-  %.pn48.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85 ], [ %.pn46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88 ], [ %324, %323 ], [ %335, %334 ], [ %337, %336 ], [ %309, %_ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit10.i.i.i.i ]
+  %.pn48.pn = phi { ptr, i32 } [ %.pn46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88 ], [ %324, %323 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85 ], [ %335, %334 ], [ %337, %336 ], [ %309, %_ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit10.i.i.i.i ]
   %338 = load ptr, ptr %4, align 8, !tbaa !33
   %339 = icmp eq ptr %338, %257
   br i1 %339, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i89
@@ -121757,7 +121757,7 @@ define dso_local noundef ptr @_ZN12AstConstPool9findConstEP8AstConstb(ptr nounde
   br label %._crit_edge.i.i, !llvm.loop !700
 
 _ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i: ; preds = %34, %17, %29
-  %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %17 ], [ %30, %29 ], [ %36, %34 ]
+  %.sroa.06.1.i.i.i = phi ptr [ %30, %29 ], [ %.sroa.06.0.i.i.i, %17 ], [ %36, %34 ]
   br label %42
 
 42:                                               ; preds = %43, %_ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE4findERS1_.exit.i.i
@@ -121856,10 +121856,10 @@ _ZN7AstNode9privateAsI8AstConstPS_EEPT_S2_.exit:  ; preds = %.lr.ph.split, %66
   %.not = icmp eq ptr %85, %.sroa.03.0.i.i
   br i1 %.not, label %._crit_edge.i.i, label %.lr.ph.split, !llvm.loop !723
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %16, %84, %58, %21, %..loopexit_crit_edge21.i.i.i.i.i, %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE11equal_rangeERS7_.exit
-  %.not87140 = phi i1 [ false, %84 ], [ false, %58 ], [ true, %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE11equal_rangeERS7_.exit ], [ true, %..loopexit_crit_edge21.i.i.i.i.i ], [ true, %16 ], [ true, %21 ], [ true, %.lr.ph.i.i.i.i.i ]
-  %.sroa.3.0.i.i139 = phi ptr [ %.sroa.03.0.i.i, %84 ], [ %.sroa.03.0.i.i, %58 ], [ %.sroa.03.0.i.i, %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE11equal_rangeERS7_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %16 ], [ null, %21 ], [ null, %.lr.ph.i.i.i.i.i ]
-  %.sroa.07.0.i.i138 = phi ptr [ %.sroa.06.1.i.i.i, %84 ], [ %.sroa.06.1.i.i.i, %58 ], [ %.sroa.06.1.i.i.i, %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE11equal_rangeERS7_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %16 ], [ null, %21 ], [ null, %.lr.ph.i.i.i.i.i ]
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %16, %84, %58, %..loopexit_crit_edge21.i.i.i.i.i, %21, %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE11equal_rangeERS7_.exit
+  %.not87140 = phi i1 [ true, %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE11equal_rangeERS7_.exit ], [ true, %21 ], [ true, %..loopexit_crit_edge21.i.i.i.i.i ], [ false, %58 ], [ false, %84 ], [ true, %16 ], [ true, %.lr.ph.i.i.i.i.i ]
+  %.sroa.3.0.i.i139 = phi ptr [ %.sroa.03.0.i.i, %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE11equal_rangeERS7_.exit ], [ null, %21 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.sroa.03.0.i.i, %58 ], [ %.sroa.03.0.i.i, %84 ], [ null, %16 ], [ null, %.lr.ph.i.i.i.i.i ]
+  %.sroa.07.0.i.i138 = phi ptr [ %.sroa.06.1.i.i.i, %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE11equal_rangeERS7_.exit ], [ null, %21 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.sroa.06.1.i.i.i, %58 ], [ %.sroa.06.1.i.i.i, %84 ], [ null, %16 ], [ null, %.lr.ph.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %86, ptr %5, align 8, !tbaa !27
@@ -122010,7 +122010,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %_ZN
   br i1 %136, label %.loopexit.i.i.i.i, label %132, !llvm.loop !715
 
 .loopexit.i.i.i.i:                                ; preds = %133, %132, %.noexc50
-  %.sroa.020.2.i.i.i.i.i = phi ptr [ null, %.noexc50 ], [ %.sroa.0.0.i.i.i.i.i, %133 ], [ null, %132 ]
+  %.sroa.020.2.i.i.i.i.i = phi ptr [ null, %.noexc50 ], [ null, %132 ], [ %.sroa.0.0.i.i.i.i.i, %133 ]
   %.sroa.4.2.i.i.i.i.i = zext i32 %125 to i64
   %137 = invoke ptr @_ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE20_M_insert_multi_nodeEPNS6_10_Hash_nodeIS4_Lb0EEEmSK_(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %.sroa.020.2.i.i.i.i.i, i64 noundef %.sroa.4.2.i.i.i.i.i, ptr noundef nonnull %126)
           to label %_ZNSt18unordered_multimapIjP11AstVarScopeSt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEE7emplaceIJjRKS1_EEENSt8__detail14_Node_iteratorIS8_Lb0ELb0EEEDpOT_.exit unwind label %_ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit10.i.i.i.i
@@ -122101,7 +122101,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %156
   br label %.body
 
 .body:                                            ; preds = %163, %_ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit10.i.i.i.i, %165, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59, %152, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56
-  %.pn35.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56 ], [ %.pn33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59 ], [ %153, %152 ], [ %164, %163 ], [ %166, %165 ], [ %138, %_ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit10.i.i.i.i ]
+  %.pn35.pn = phi { ptr, i32 } [ %.pn33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59 ], [ %153, %152 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56 ], [ %164, %163 ], [ %166, %165 ], [ %138, %_ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit10.i.i.i.i ]
   %167 = load ptr, ptr %5, align 8, !tbaa !33
   %168 = icmp eq ptr %167, %86
   br i1 %168, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60
@@ -122787,7 +122787,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
   br label %.body
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61, %195, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i
-  %.pn.pn = phi { ptr, i32 } [ %54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i ], [ %196, %195 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60 ]
+  %.pn.pn = phi { ptr, i32 } [ %196, %195 ], [ %54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %211 = load ptr, ptr %12, align 8, !tbaa !33
@@ -123973,7 +123973,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZN
   br i1 %66, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !639
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %63, %61, %57, %53, %49
-  %.0.i.i = phi i32 [ %62, %61 ], [ %54, %53 ], [ %58, %57 ], [ 1, %49 ], [ %65, %63 ]
+  %.0.i.i = phi i32 [ %54, %53 ], [ %58, %57 ], [ %62, %61 ], [ 1, %49 ], [ %65, %63 ]
   %.lobit.i = lshr i32 %48, 31
   %67 = add i32 %.0.i.i, %.lobit.i
   %68 = zext i32 %67 to i64
@@ -124139,7 +124139,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35
   br i1 %142, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i41, label %.lr.ph.i.i38, !llvm.loop !639
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i41:  ; preds = %139, %137, %133, %129, %125
-  %.0.i.i42 = phi i32 [ %138, %137 ], [ %130, %129 ], [ %134, %133 ], [ 1, %125 ], [ %141, %139 ]
+  %.0.i.i42 = phi i32 [ %130, %129 ], [ %134, %133 ], [ %138, %137 ], [ 1, %125 ], [ %141, %139 ]
   %.lobit.i43 = lshr i32 %124, 31
   %143 = add i32 %.0.i.i42, %.lobit.i43
   %144 = zext i32 %143 to i64
@@ -125823,7 +125823,7 @@ _ZN7AstNode9privateIsI12AstNodeFTaskPKS_EEbS3_.exit.thread: ; preds = %_ZN7AstNo
   br label %_ZN7AstNode9privateIsI8AstCFuncPKS_EEbS3_.exit
 
 _ZN7AstNode9privateIsI8AstCFuncPKS_EEbS3_.exit:   ; preds = %_ZN7AstNode9privateIsI6AstVarPKS_EEbS3_.exit, %_ZN7AstNode9privateIsI6AstVarPKS_EEbS3_.exit, %_ZN7AstNode9privateIsI12AstNodeFTaskPKS_EEbS3_.exit.thread, %1, %_ZN7AstNode9privateAsI12AstNodeFTaskPKS_EEPKT_S3_.exit, %_ZN7AstNode9privateAsI13AstConstraintPKS_EEPKT_S3_.exit
-  %11 = phi i1 [ true, %_ZN7AstNode9privateAsI12AstNodeFTaskPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode9privateIsI6AstVarPKS_EEbS3_.exit ], [ true, %_ZN7AstNode9privateAsI13AstConstraintPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode9privateIsI6AstVarPKS_EEbS3_.exit ], [ %10, %_ZN7AstNode9privateIsI12AstNodeFTaskPKS_EEbS3_.exit.thread ], [ false, %1 ]
+  %11 = phi i1 [ true, %_ZN7AstNode9privateAsI12AstNodeFTaskPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode9privateAsI13AstConstraintPKS_EEPKT_S3_.exit ], [ true, %_ZN7AstNode9privateIsI6AstVarPKS_EEbS3_.exit ], [ %10, %_ZN7AstNode9privateIsI12AstNodeFTaskPKS_EEbS3_.exit.thread ], [ false, %1 ], [ true, %_ZN7AstNode9privateIsI6AstVarPKS_EEbS3_.exit ]
   ret i1 %11
 }
 
@@ -126155,7 +126155,7 @@ _ZNK15AstClassExtends12classOrNullpEv.exit.thread.i: ; preds = %_ZNK15AstClassEx
   unreachable
 
 .split12:                                         ; preds = %tailrecurse, %3, %5, %2
-  %.0.split = phi i1 [ false, %2 ], [ false, %tailrecurse ], [ false, %5 ], [ true, %3 ]
+  %.0.split = phi i1 [ false, %2 ], [ false, %tailrecurse ], [ true, %3 ], [ false, %5 ]
   ret i1 %.0.split
 }
 
@@ -127071,7 +127071,7 @@ _ZNK7AstNode8isDoubleEv.exit:                     ; preds = %_ZN7AstNode9private
   br label %_ZNK7AstNode8isDoubleEv.exit.thread
 
 _ZNK7AstNode8isDoubleEv.exit.thread:              ; preds = %_ZNK7AstNode8isDoubleEv.exit, %13, %_ZN7AstNode9privateIsI13AstBasicDTypeP12AstNodeDTypeEEbPKS_.exit.i, %2
-  %20 = phi ptr [ @.str.1210, %2 ], [ @.str.1366, %13 ], [ %spec.select, %_ZNK7AstNode8isDoubleEv.exit ], [ @.str.1366, %_ZN7AstNode9privateIsI13AstBasicDTypeP12AstNodeDTypeEEbPKS_.exit.i ]
+  %20 = phi ptr [ @.str.1210, %2 ], [ @.str.1366, %_ZN7AstNode9privateIsI13AstBasicDTypeP12AstNodeDTypeEEbPKS_.exit.i ], [ @.str.1366, %13 ], [ %spec.select, %_ZNK7AstNode8isDoubleEv.exit ]
   %21 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #40
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %20, i64 noundef %21)
   %23 = load i8, ptr %10, align 8, !tbaa !685
@@ -127099,7 +127099,7 @@ _ZNK7AstNode8isDoubleEv.exit12:                   ; preds = %_ZN7AstNode9private
   br label %_ZNK7AstNode8isDoubleEv.exit12.thread
 
 _ZNK7AstNode8isDoubleEv.exit12.thread:            ; preds = %_ZNK7AstNode8isDoubleEv.exit12, %_ZNK7AstNode8isDoubleEv.exit.thread, %_ZN7AstNode9privateIsI13AstBasicDTypeP12AstNodeDTypeEEbPKS_.exit.i8
-  %34 = phi ptr [ @.str.1210, %_ZNK7AstNode8isDoubleEv.exit.thread ], [ %spec.select37, %_ZNK7AstNode8isDoubleEv.exit12 ], [ @.str.1210, %_ZN7AstNode9privateIsI13AstBasicDTypeP12AstNodeDTypeEEbPKS_.exit.i8 ]
+  %34 = phi ptr [ @.str.1210, %_ZN7AstNode9privateIsI13AstBasicDTypeP12AstNodeDTypeEEbPKS_.exit.i8 ], [ @.str.1210, %_ZNK7AstNode8isDoubleEv.exit.thread ], [ %spec.select37, %_ZNK7AstNode8isDoubleEv.exit12 ]
   %35 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #40
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %34, i64 noundef %35)
   %37 = load ptr, ptr %28, align 8, !tbaa !126
@@ -127128,7 +127128,7 @@ _ZNK7AstNode8isStringEv.exit:                     ; preds = %38
   br label %_ZNK7AstNode8isStringEv.exit.thread
 
 _ZNK7AstNode8isStringEv.exit.thread:              ; preds = %_ZNK7AstNode8isStringEv.exit, %_ZNK7AstNode8isDoubleEv.exit12.thread, %38
-  %50 = phi ptr [ @.str.1210, %_ZNK7AstNode8isDoubleEv.exit12.thread ], [ %spec.select38, %_ZNK7AstNode8isStringEv.exit ], [ @.str.1210, %38 ]
+  %50 = phi ptr [ @.str.1210, %38 ], [ @.str.1210, %_ZNK7AstNode8isDoubleEv.exit12.thread ], [ %spec.select38, %_ZNK7AstNode8isStringEv.exit ]
   %51 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #40
   %52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %50, i64 noundef %51)
   %53 = load ptr, ptr %28, align 8, !tbaa !126
@@ -127382,7 +127382,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7:
   br label %.body
 
 .body:                                            ; preds = %38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7, %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i
-  %.pn = phi { ptr, i32 } [ %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i ], [ %37, %36 ], [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7 ], [ %39, %38 ]
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i ], [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7 ], [ %39, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = load ptr, ptr %5, align 8, !tbaa !33
   %46 = icmp eq ptr %45, %7
@@ -128243,7 +128243,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %88, %.loopexit110, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
-  %.pn23 = phi { ptr, i32 } [ %lpad.phi115, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit110 ], [ %lpad.phi115, %88 ]
+  %.pn23 = phi { ptr, i32 } [ %lpad.phi115, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50 ], [ %lpad.loopexit, %.loopexit110 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.phi115, %88 ]
   %93 = load ptr, ptr %6, align 8, !tbaa !33
   %94 = icmp eq ptr %93, %20
   br i1 %94, label %.body, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
@@ -128255,7 +128255,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
   br label %.body
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53, %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i
-  %.pn23.pn = phi { ptr, i32 } [ %32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i ], [ %87, %86 ], [ %.pn23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53 ], [ %.pn23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52 ]
+  %.pn23.pn = phi { ptr, i32 } [ %87, %86 ], [ %32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i ], [ %.pn23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53 ], [ %.pn23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %188
@@ -128542,13 +128542,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %.body80
 
 .body80:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i100, %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i75
-  %.pn.pn = phi { ptr, i32 } [ %137, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i75 ], [ %174, %173 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i100 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99 ]
+  %.pn.pn = phi { ptr, i32 } [ %174, %173 ], [ %137, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i75 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i100 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %188
 
 188:                                              ; preds = %.loopexit121, %.loopexit.split-lp122, %.loopexit126, %.loopexit.split-lp127, %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58, %.body80
-  %.pn30.pn = phi { ptr, i32 } [ %.pn.pn, %.body80 ], [ %lpad.loopexit.split-lp129, %.loopexit.split-lp127 ], [ %.pn23.pn, %.body ], [ %.pn27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58 ], [ %lpad.loopexit128, %.loopexit126 ], [ %lpad.loopexit123, %.loopexit121 ], [ %lpad.loopexit.split-lp124, %.loopexit.split-lp122 ]
+  %.pn30.pn = phi { ptr, i32 } [ %.pn.pn, %.body80 ], [ %.pn23.pn, %.body ], [ %.pn27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58 ], [ %lpad.loopexit128, %.loopexit126 ], [ %lpad.loopexit.split-lp129, %.loopexit.split-lp127 ], [ %lpad.loopexit123, %.loopexit121 ], [ %lpad.loopexit.split-lp124, %.loopexit.split-lp122 ]
   %189 = load ptr, ptr %0, align 8, !tbaa !33
   %190 = icmp eq ptr %189, %10
   br i1 %190, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i103
@@ -129136,7 +129136,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %176
   ret void
 
 197:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
-  %.pn = phi { ptr, i32 } [ %177, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ], [ %73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27 ], [ %125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ]
+  %.pn = phi { ptr, i32 } [ %177, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ], [ %125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ %73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -130130,7 +130130,7 @@ _ZNSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit: ;
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %24, %22
-  %29 = phi i1 [ %28, %24 ], [ true, %22 ]
+  %29 = phi i1 [ true, %22 ], [ %28, %24 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %29, ptr noundef nonnull %15, ptr noundef nonnull %21, ptr noundef nonnull align 8 dereferenceable(32) %6) #40
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8, !tbaa !676
@@ -130149,8 +130149,8 @@ _ZNSt8_Rb_treeImSt4pairIKmP11AstInitItemESt10_Select1stIS4_ESt4lessImESaIS4_EE10
   br label %_ZNSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE12emplace_hintIJRmDnEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_.exit
 
 _ZNSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE12emplace_hintIJRmDnEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_.exit: ; preds = %11, %34, %.thread.i.i
-  %.sroa.018.0 = phi ptr [ %20, %34 ], [ %15, %.thread.i.i ], [ %.19.i.i.i, %11 ]
-  %.sroa.3.0 = phi i8 [ 1, %34 ], [ 1, %.thread.i.i ], [ 0, %11 ]
+  %.sroa.018.0 = phi ptr [ %15, %.thread.i.i ], [ %20, %34 ], [ %.19.i.i.i, %11 ]
+  %.sroa.3.0 = phi i8 [ 1, %.thread.i.i ], [ 1, %34 ], [ 0, %11 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.018.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -130194,8 +130194,8 @@ _ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit: ; preds 
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   br label %_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.thread
 
-_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.thread: ; preds = %_ZNKSt8_Rb_treeImSt4pairIKmP11AstInitItemESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, %2, %_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit, %13
-  %.0 = phi ptr [ %17, %13 ], [ null, %_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit ], [ null, %2 ], [ null, %_ZNKSt8_Rb_treeImSt4pairIKmP11AstInitItemESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i ]
+_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.thread: ; preds = %2, %_ZNKSt8_Rb_treeImSt4pairIKmP11AstInitItemESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit, %13
+  %.0 = phi ptr [ %17, %13 ], [ null, %_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit ], [ null, %_ZNKSt8_Rb_treeImSt4pairIKmP11AstInitItemESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -130238,7 +130238,7 @@ _ZNK12AstInitArray14getIndexValuepEm.exit:        ; preds = %_ZNKSt3mapImP11AstI
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %_ZNK12AstInitArray14getIndexValuepEm.exit.thread, label %19
 
-_ZNK12AstInitArray14getIndexValuepEm.exit.thread: ; preds = %_ZNKSt8_Rb_treeImSt4pairIKmP11AstInitItemESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %2, %_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i, %_ZNK12AstInitArray14getIndexValuepEm.exit
+_ZNK12AstInitArray14getIndexValuepEm.exit.thread: ; preds = %2, %_ZNKSt8_Rb_treeImSt4pairIKmP11AstInitItemESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i, %_ZNK12AstInitArray14getIndexValuepEm.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   br label %19
@@ -131480,7 +131480,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %.critedge unwind label %78
 
 .critedge:                                        ; preds = %49, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %.ph = phi i1 [ %66, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %49 ]
+  %.ph = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %66, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ false, %49 ]
   %67 = load ptr, ptr %6, align 8, !tbaa !33
   %68 = icmp eq ptr %67, %38
   br i1 %68, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -131508,7 +131508,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %_ZN
   br label %.critedge25
 
 .critedge25:                                      ; preds = %2, %7, %11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32
-  %75 = phi i1 [ %.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32 ], [ false, %7 ], [ false, %2 ], [ false, %11 ]
+  %75 = phi i1 [ %.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32 ], [ false, %11 ], [ false, %7 ], [ false, %2 ]
   ret i1 %75
 
 76:                                               ; preds = %.noexc.i.i28
@@ -132998,15 +132998,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123: ; preds = %_Z
   %97 = load ptr, ptr %6, align 8, !tbaa !33
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %99 = icmp eq ptr %97, %98
-  br i1 %99, label %.critedge92, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i124
+  br i1 %99, label %.critedge92, label %.critedge90
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i124: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123
+.critedge90:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123
   %100 = load i64, ptr %98, align 8, !tbaa !32
   %101 = add i64 %100, 1
   call void @_ZdlPvm(ptr noundef %97, i64 noundef %101) #38
   br label %.critedge92
 
-.critedge92:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i124
+.critedge92:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123, %.critedge90
   br i1 %.not, label %108, label %102
 
 102:                                              ; preds = %.critedge92
@@ -133062,7 +133062,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   call void @_ZdlPvm(ptr noundef %116, i64 noundef %120) #38
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i131
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i131: ; preds = %114, %112, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i130
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i131: ; preds = %114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i, %112, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i130
   %.pn.pn.ph = phi { ptr, i32 } [ %115, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i130 ], [ %79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i ], [ %113, %112 ], [ %115, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %121 = load ptr, ptr %5, align 8, !tbaa !33
@@ -133080,15 +133080,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %125 = load ptr, ptr %6, align 8, !tbaa !33
   %126 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %127 = icmp eq ptr %125, %126
-  br i1 %127, label %.critedge100, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i136
+  br i1 %127, label %.critedge100, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i136: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i134
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i134
   %128 = load i64, ptr %126, align 8, !tbaa !32
   %129 = add i64 %128, 1
   call void @_ZdlPvm(ptr noundef %125, i64 noundef %129) #38
   br label %.critedge100
 
-.critedge100:                                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i134, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i136
+.critedge100:                                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i134, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138
   br i1 %.not, label %.critedge102.thread, label %130
 
 130:                                              ; preds = %.critedge100.thread193, %.critedge100
@@ -133109,7 +133109,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141: ; preds = %13
   br label %.critedge102.thread
 
 .critedge102.thread:                              ; preds = %.critedge100, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141
-  %.pn.pn.pn.pn.pn191202 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn198, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ], [ %.pn.pn.pn.ph, %.critedge100 ]
+  %.pn.pn.pn.pn.pn191202 = phi { ptr, i32 } [ %.pn.pn.pn.ph, %.critedge100 ], [ %.pn.pn.pn.pn.pn198, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn191202
@@ -133890,7 +133890,7 @@ _ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i: ; preds = %8
           to label %_ZNK8AstRange9leftConstEv.exit.i unwind label %36
 
 _ZNK8AstRange9leftConstEv.exit.i:                 ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i, %8, %._crit_edge.i.i
-  %13 = phi i32 [ 0, %8 ], [ 0, %._crit_edge.i.i ], [ %12, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i ]
+  %13 = phi i32 [ 0, %._crit_edge.i.i ], [ 0, %8 ], [ %12, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !56
   %.not.i.i1.i = icmp eq ptr %15, null
@@ -133908,7 +133908,7 @@ _ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i3.i: ; preds = %1
           to label %21 unwind label %36
 
 21:                                               ; preds = %16, %_ZNK8AstRange9leftConstEv.exit.i, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i3.i
-  %22 = phi i32 [ 0, %16 ], [ 0, %_ZNK8AstRange9leftConstEv.exit.i ], [ %20, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i3.i ]
+  %22 = phi i32 [ 0, %_ZNK8AstRange9leftConstEv.exit.i ], [ 0, %16 ], [ %20, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i3.i ]
   %23 = icmp slt i32 %13, %22
   %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1102, i64 noundef 2)
           to label %.noexc8 unwind label %36
@@ -134755,7 +134755,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %167, %.loopexit123, %.loopexit.split-lp124, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77
-  %.pn24 = phi { ptr, i32 } [ %lpad.phi132, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77 ], [ %lpad.loopexit.split-lp126, %.loopexit.split-lp124 ], [ %lpad.loopexit125, %.loopexit123 ], [ %lpad.phi132, %167 ]
+  %.pn24 = phi { ptr, i32 } [ %lpad.phi132, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77 ], [ %lpad.loopexit125, %.loopexit123 ], [ %lpad.loopexit.split-lp126, %.loopexit.split-lp124 ], [ %lpad.phi132, %167 ]
   %172 = load ptr, ptr %9, align 8, !tbaa !33
   %173 = icmp eq ptr %172, %46
   br i1 %173, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i80
@@ -134779,7 +134779,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83
   br label %.body
 
 .body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83, %163, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i
-  %.pn24.pn.pn = phi { ptr, i32 } [ %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i ], [ %164, %163 ], [ %.pn24.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83 ], [ %.pn24.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82 ]
+  %.pn24.pn.pn = phi { ptr, i32 } [ %164, %163 ], [ %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i ], [ %.pn24.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83 ], [ %.pn24.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -134949,7 +134949,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   br label %.body92
 
 .body92:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i113, %226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i87
-  %.pn.pn = phi { ptr, i32 } [ %190, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i87 ], [ %227, %226 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i113 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ]
+  %.pn.pn = phi { ptr, i32 } [ %227, %226 ], [ %190, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4.i87 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i113 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %241
@@ -135561,7 +135561,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   br label %.body
 
 .body:                                            ; preds = %76, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %98, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13
-  %.pn9 = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ], [ %99, %98 ], [ %77, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %77, %76 ]
+  %.pn9 = phi { ptr, i32 } [ %99, %98 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ], [ %77, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %77, %76 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn9
@@ -135962,7 +135962,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %158
   br label %.body
 
 .body:                                            ; preds = %129, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %46, %48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68
-  %.pn27 = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55 ], [ %.pn25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %49, %48 ], [ %47, %46 ], [ %130, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %130, %129 ]
+  %.pn27 = phi { ptr, i32 } [ %.pn25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %49, %48 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55 ], [ %47, %46 ], [ %130, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %130, %129 ]
   %165 = load ptr, ptr %5, align 8, !tbaa !33
   %166 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %167 = icmp eq ptr %165, %166
@@ -138875,7 +138875,7 @@ _ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i17: ; preds = %52
           to label %_ZNK13AstQueueDType10boundConstEv.exit19 unwind label %99
 
 _ZNK13AstQueueDType10boundConstEv.exit19:         ; preds = %52, %50, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i17
-  %57 = phi i32 [ 0, %52 ], [ 0, %50 ], [ %56, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i17 ]
+  %57 = phi i32 [ 0, %50 ], [ 0, %52 ], [ %56, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i17 ]
   store i32 %57, ptr %9, align 4, !tbaa !58
   invoke void @_Z8cvtToStrIiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %58 unwind label %99
@@ -139030,7 +139030,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.body
 
-_ZNK13AstQueueDType10boundConstEv.exit.thread:    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31, %_ZNK13AstQueueDType10boundConstEv.exit
+_ZNK13AstQueueDType10boundConstEv.exit.thread:    ; preds = %45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31, %_ZNK13AstQueueDType10boundConstEv.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !1046)
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %114, ptr %0, align 8, !tbaa !27, !alias.scope !1046
@@ -139836,8 +139836,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %95, %97
-  %100 = phi ptr [ %.pre61, %97 ], [ %.pre61, %95 ], [ %.pre, %..critedge_crit_edge ]
-  %101 = phi i1 [ %99, %97 ], [ true, %95 ], [ false, %..critedge_crit_edge ]
+  %100 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %.pre61, %97 ], [ %.pre61, %95 ]
+  %101 = phi i1 [ false, %..critedge_crit_edge ], [ %99, %97 ], [ true, %95 ]
   %102 = icmp eq ptr %100, %76
   br i1 %102, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
@@ -139869,7 +139869,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
   br label %.critedge27
 
 .critedge27:                                      ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %39, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43
-  %110 = phi i1 [ %101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.not21.mux, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ false, %39 ]
+  %110 = phi i1 [ %101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %39 ], [ %.not21.mux, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ]
   %111 = load ptr, ptr %8, align 8, !tbaa !33
   %112 = icmp eq ptr %111, %28
   br i1 %112, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44
@@ -140814,7 +140814,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.critedge
 
 .critedge:                                        ; preds = %70, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %.ph = phi i1 [ %85, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %70 ]
+  %.ph = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %85, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ false, %70 ]
   %86 = load ptr, ptr %6, align 8, !tbaa !33
   %87 = icmp eq ptr %86, %59
   br i1 %87, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -140865,7 +140865,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %95,
   resume { ptr, i32 } %96
 
 .critedge21:                                      ; preds = %17, %_ZNK16VSelfPointerTexteqERKS_.exit, %_ZNK16VSelfPointerTexteqERKS_.exit.thread, %9, %13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30
-  %.016 = phi i1 [ %16, %13 ], [ %.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ false, %9 ], [ false, %_ZNK16VSelfPointerTexteqERKS_.exit ], [ false, %_ZNK16VSelfPointerTexteqERKS_.exit.thread ], [ false, %17 ]
+  %.016 = phi i1 [ %.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ false, %9 ], [ %16, %13 ], [ false, %_ZNK16VSelfPointerTexteqERKS_.exit.thread ], [ false, %_ZNK16VSelfPointerTexteqERKS_.exit ], [ false, %17 ]
   ret i1 %.016
 }
 
@@ -141502,7 +141502,7 @@ switch.hole_check:                                ; preds = %214
   br i1 %switch.lobit, label %_ZNK6AstVar11isSigPublicEv.exit, label %217
 
 _ZNK6AstVar11isSigPublicEv.exit:                  ; preds = %switch.hole_check, %217, %211
-  %219 = phi i1 [ %218, %217 ], [ false, %211 ], [ false, %switch.hole_check ]
+  %219 = phi i1 [ false, %211 ], [ %218, %217 ], [ false, %switch.hole_check ]
   %220 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1102, i64 noundef 2)
           to label %.noexc218 unwind label %543
 
@@ -144590,7 +144590,7 @@ _ZN7AstNode11privateCastI16AstClassRefDTypePS_EEPT_S2_.exit: ; preds = %_ZN7AstN
   br label %_ZN7AstNode11privateCastI16AstClassRefDTypePS_EEPT_S2_.exit.thread
 
 _ZN7AstNode11privateCastI16AstClassRefDTypePS_EEPT_S2_.exit.thread: ; preds = %.lr.ph, %_ZN7AstNode11privateCastI10AstTypedefPS_EEPT_S2_.exit.thread.thread47, %_ZN7AstNode11privateCastI10AstTypedefPS_EEPT_S2_.exit.thread, %_ZN7AstNode11privateCastI16AstClassRefDTypePS_EEPT_S2_.exit
-  %.3 = phi ptr [ %17, %_ZN7AstNode11privateCastI16AstClassRefDTypePS_EEPT_S2_.exit ], [ null, %_ZN7AstNode11privateCastI10AstTypedefPS_EEPT_S2_.exit.thread ], [ %.250, %_ZN7AstNode11privateCastI10AstTypedefPS_EEPT_S2_.exit.thread.thread47 ], [ null, %.lr.ph ]
+  %.3 = phi ptr [ %17, %_ZN7AstNode11privateCastI16AstClassRefDTypePS_EEPT_S2_.exit ], [ %.250, %_ZN7AstNode11privateCastI10AstTypedefPS_EEPT_S2_.exit.thread.thread47 ], [ null, %_ZN7AstNode11privateCastI10AstTypedefPS_EEPT_S2_.exit.thread ], [ null, %.lr.ph ]
   %.not = icmp eq ptr %.3, %.052
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1112
 
@@ -145537,7 +145537,7 @@ _ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit: ; preds = %8, %162
 18:                                               ; preds = %.critedge
   %19 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #42
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %19, i8 0, i64 256, i1 false)
-  %.ptr64.i.i = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %.ptr66.i.i = getelementptr inbounds nuw i8, ptr %19, i64 16
   br label %51
 
 20:                                               ; preds = %51
@@ -145581,7 +145581,7 @@ _ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit: ; preds = %8, %162
   br i1 %.not.i.i.i, label %40, label %39
 
 39:                                               ; preds = %36
-  store ptr %38, ptr %.ptr64.i.i, align 8, !tbaa !235
+  store ptr %38, ptr %.ptr66.i.i, align 8, !tbaa !235
   br label %40
 
 40:                                               ; preds = %39, %36
@@ -145618,14 +145618,14 @@ _ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit: ; preds = %8, %162
   br i1 %.not23.i.i.i, label %.preheader.i.i, label %.preheader.thread73.i.i
 
 .preheader.thread73.i.i:                          ; preds = %48
-  %.ptr65.i.i = getelementptr inbounds nuw i8, ptr %19, i64 %.idx59.i.i
+  %.ptr64.i.i = getelementptr inbounds nuw i8, ptr %19, i64 %.idx59.i.i
   %.add.i.i = add nuw nsw i64 %.idx59.i.i, 8
-  store ptr %50, ptr %.ptr65.i.i, align 8, !tbaa !235
+  store ptr %50, ptr %.ptr64.i.i, align 8, !tbaa !235
   br label %.lr.ph.preheader.i.i
 
 51:                                               ; preds = %51, %18
   %indvars.iv.i.i = phi i64 [ -2, %18 ], [ %indvars.iv.next.i.i, %51 ]
-  %52 = getelementptr inbounds ptr, ptr %.ptr64.i.i, i64 %indvars.iv.i.i
+  %52 = getelementptr inbounds ptr, ptr %.ptr66.i.i, i64 %indvars.iv.i.i
   store ptr %.01238, ptr %52, align 8, !tbaa !235
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %53 = icmp eq i64 %indvars.iv.next.i.i, 0
@@ -145645,7 +145645,7 @@ _ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit: ; preds = %8, %162
   %.sroa.017.0 = phi ptr [ %19, %.lr.ph.preheader.i.i ], [ %.sroa.017.2, %.backedge.i.i ]
   %.sroa.14.0 = phi ptr [ %21, %.lr.ph.preheader.i.i ], [ %.sroa.14.2, %.backedge.i.i ]
   %55 = phi ptr [ %19, %.lr.ph.preheader.i.i ], [ %.pre.i.i, %.backedge.i.i ]
-  %.011.i = phi ptr [ %.ptr64.i.i, %.lr.ph.preheader.i.i ], [ %.112.i, %.backedge.i.i ]
+  %.011.i = phi ptr [ %.ptr66.i.i, %.lr.ph.preheader.i.i ], [ %.112.i, %.backedge.i.i ]
   %.0.i = phi ptr [ %22, %.lr.ph.preheader.i.i ], [ %.1.i, %.backedge.i.i ]
   %56 = phi ptr [ %.ptr.i.i, %.lr.ph.preheader.i.i ], [ %.2.i, %.backedge.i.i ]
   %57 = getelementptr inbounds i8, ptr %56, i64 -8
@@ -145755,10 +145755,10 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i: ; preds = %
   br label %"_ZZN7AstNode13predicateImplI13AstNodeVarRefLb0EZNK12AstNodeFTask16getPurityRecurseEvE3$_0EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit.i"
 
 "_ZZN7AstNode13predicateImplI13AstNodeVarRefLb0EZNK12AstNodeFTask16getPurityRecurseEvE3$_0EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit.i": ; preds = %104, %81, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i, %102
-  %.sroa.8.1 = phi ptr [ %.sroa.8.0, %102 ], [ %spec.select, %104 ], [ %82, %81 ], [ %85, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %100, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i ]
-  %.sroa.017.1 = phi ptr [ %.sroa.017.0, %102 ], [ %.sroa.017.0, %104 ], [ %.sroa.017.0, %81 ], [ %.sroa.017.0, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %92, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i ]
-  %.sroa.14.1 = phi ptr [ %.sroa.14.0, %102 ], [ %.sroa.14.0, %104 ], [ %.sroa.14.0, %81 ], [ %.sroa.14.0, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %101, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i ]
-  %106 = phi ptr [ %55, %102 ], [ %55, %104 ], [ %.sroa.017.0, %81 ], [ %.sroa.017.0, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %92, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.0, %102 ], [ %100, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i ], [ %82, %81 ], [ %85, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %spec.select, %104 ]
+  %.sroa.017.1 = phi ptr [ %.sroa.017.0, %102 ], [ %92, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i ], [ %.sroa.017.0, %81 ], [ %.sroa.017.0, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.017.0, %104 ]
+  %.sroa.14.1 = phi ptr [ %.sroa.14.0, %102 ], [ %101, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i ], [ %.sroa.14.0, %81 ], [ %.sroa.14.0, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.14.0, %104 ]
+  %106 = phi ptr [ %55, %102 ], [ %92, %_ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i ], [ %.sroa.017.0, %81 ], [ %.sroa.017.0, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %55, %104 ]
   %107 = ptrtoint ptr %57 to i64
   %108 = ptrtoint ptr %.011.i to i64
   %109 = sub i64 %107, %108
@@ -150177,7 +150177,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEE4findERS9_.exit
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEE4findERS9_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNK14AstCMethodHard4nameB5cxx11Ev.exit328
-  %.sroa.0.0.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN14AstCMethodHard9setPurityEvE12isPureMethodB5cxx11, i64 8), %_ZNK14AstCMethodHard4nameB5cxx11Ev.exit328 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN14AstCMethodHard9setPurityEvE12isPureMethodB5cxx11, i64 8), %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %spec.select.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %.sroa.0.0.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN14AstCMethodHard9setPurityEvE12isPureMethodB5cxx11, i64 8), %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN14AstCMethodHard9setPurityEvE12isPureMethodB5cxx11, i64 8), %_ZNK14AstCMethodHard4nameB5cxx11Ev.exit328 ], [ %spec.select.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
   %569 = icmp eq ptr %.pre, %534
   br i1 %569, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit331, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i329
 
@@ -150325,7 +150325,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341: ; preds = %_Z
   ret void
 
 632:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325, %.loopexit358
-  %.pn305.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn353, %.loopexit358 ], [ %528, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325 ], [ %.pn305, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341 ]
+  %.pn305.pn.pn = phi { ptr, i32 } [ %528, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn353, %.loopexit358 ], [ %.pn305, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341 ]
   resume { ptr, i32 } %.pn305.pn.pn
 }
 
@@ -153010,7 +153010,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK21AstNodeUOrStructDType6basicpEv(
   unreachable
 
 _ZN7AstNode9privateAsI13AstBasicDTypeP12AstNodeDTypeEEPT_PS_.exit: ; preds = %35, %31, %20, %16
-  %46 = phi ptr [ %19, %20 ], [ null, %16 ], [ null, %31 ], [ %34, %35 ]
+  %46 = phi ptr [ null, %16 ], [ %19, %20 ], [ null, %31 ], [ %34, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %47
@@ -153260,7 +153260,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK18AstAssocArrayDType8sameN
   br label %28
 
 28:                                               ; preds = %14, %21, %8, %2
-  %.0 = phi i1 [ false, %8 ], [ false, %2 ], [ false, %14 ], [ %27, %21 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ %27, %21 ]
   ret i1 %.0
 }
 
@@ -153369,7 +153369,7 @@ _ZNK12AstNodeDType12similarDTypeEPKS_.exit.thread: ; preds = %8, %_ZNK12AstNodeD
   br label %_ZNK12AstNodeDType12similarDTypeEPKS_.exit17
 
 _ZNK12AstNodeDType12similarDTypeEPKS_.exit17:     ; preds = %17, %41, %38, %29, %_ZNK12AstNodeDType12similarDTypeEPKS_.exit.thread, %_ZNK12AstNodeDType12similarDTypeEPKS_.exit, %2
-  %46 = phi i1 [ false, %_ZNK12AstNodeDType12similarDTypeEPKS_.exit.thread ], [ false, %_ZNK12AstNodeDType12similarDTypeEPKS_.exit ], [ false, %2 ], [ false, %38 ], [ %45, %41 ], [ true, %29 ], [ false, %17 ]
+  %46 = phi i1 [ false, %_ZNK12AstNodeDType12similarDTypeEPKS_.exit.thread ], [ false, %_ZNK12AstNodeDType12similarDTypeEPKS_.exit ], [ false, %2 ], [ %45, %41 ], [ true, %29 ], [ false, %38 ], [ false, %17 ]
   ret i1 %46
 }
 
@@ -153580,7 +153580,7 @@ _ZNK13AstBasicDType7MemberseqERKS0_.exit.i:       ; preds = %14
   br label %_ZNK13AstBasicDType8sameNodeEPK7AstNode.exit
 
 _ZNK13AstBasicDType8sameNodeEPK7AstNode.exit:     ; preds = %2, %8, %14, %_ZNK13AstBasicDType7MemberseqERKS0_.exit.i, %25, %33, %34
-  %.0.i = phi i1 [ false, %25 ], [ %.not8.i, %33 ], [ %35, %34 ], [ false, %8 ], [ false, %_ZNK13AstBasicDType7MemberseqERKS0_.exit.i ], [ false, %2 ], [ false, %14 ]
+  %.0.i = phi i1 [ false, %25 ], [ %35, %34 ], [ false, %_ZNK13AstBasicDType7MemberseqERKS0_.exit.i ], [ false, %2 ], [ false, %14 ], [ false, %8 ], [ %.not8.i, %33 ]
   ret i1 %.0.i
 }
 
@@ -176023,7 +176023,7 @@ define linkonce_odr dso_local void @_ZN10AstShiftRS13numberOperateER8V3NumberRKS
   br label %_ZNK7AstNode9widthMinVEv.exit
 
 _ZNK7AstNode9widthMinVEv.exit:                    ; preds = %10, %11, %17, %18
-  %21 = phi i32 [ 0, %10 ], [ %16, %11 ], [ %20, %18 ], [ 0, %17 ]
+  %21 = phi i32 [ %16, %11 ], [ 0, %10 ], [ %20, %18 ], [ 0, %17 ]
   %22 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9opShiftRSERKS_S1_j(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %21)
   ret void
 }
@@ -176194,7 +176194,7 @@ define linkonce_odr dso_local void @_ZN13AstShiftRSOvr13numberOperateER8V3Number
   br label %_ZNK7AstNode9widthMinVEv.exit
 
 _ZNK7AstNode9widthMinVEv.exit:                    ; preds = %10, %11, %17, %18
-  %21 = phi i32 [ 0, %10 ], [ %16, %11 ], [ %20, %18 ], [ 0, %17 ]
+  %21 = phi i32 [ %16, %11 ], [ 0, %10 ], [ %20, %18 ], [ 0, %17 ]
   %22 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9opShiftRSERKS_S1_j(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %21)
   ret void
 }
@@ -186064,7 +186064,7 @@ define linkonce_odr dso_local void @_ZN10AstExtendS13numberOperateER8V3NumberRKS
   br label %_ZNK7AstNode9widthMinVEv.exit
 
 _ZNK7AstNode9widthMinVEv.exit:                    ; preds = %9, %10, %16, %17
-  %20 = phi i32 [ 0, %9 ], [ %15, %10 ], [ %19, %17 ], [ 0, %16 ]
+  %20 = phi i32 [ %15, %10 ], [ 0, %9 ], [ %19, %17 ], [ 0, %16 ]
   %21 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9opExtendSERKS_j(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %20)
   ret void
 }
@@ -190463,8 +190463,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %109, %111
-  %114 = phi ptr [ %.pre79, %111 ], [ %.pre79, %109 ], [ %.pre, %..critedge_crit_edge ]
-  %115 = phi i1 [ %113, %111 ], [ true, %109 ], [ false, %..critedge_crit_edge ]
+  %114 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %.pre79, %111 ], [ %.pre79, %109 ]
+  %115 = phi i1 [ false, %..critedge_crit_edge ], [ %113, %111 ], [ true, %109 ]
   %116 = icmp eq ptr %114, %90
   br i1 %116, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
@@ -192352,8 +192352,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %165, %167
-  %170 = phi ptr [ %.pre125, %165 ], [ %.pre124, %..critedge_crit_edge ], [ %.pre125, %167 ]
-  %171 = phi i1 [ true, %165 ], [ false, %..critedge_crit_edge ], [ %169, %167 ]
+  %170 = phi ptr [ %.pre124, %..critedge_crit_edge ], [ %.pre125, %167 ], [ %.pre125, %165 ]
+  %171 = phi i1 [ false, %..critedge_crit_edge ], [ %169, %167 ], [ true, %165 ]
   %172 = icmp eq ptr %170, %146
   br i1 %172, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
@@ -192385,7 +192385,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83
   br label %.critedge55
 
 .critedge55:                                      ; preds = %123, %106, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit73.thread, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit73, %.critedge53.thread
-  %180 = phi i1 [ %171, %.critedge53.thread ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit73 ], [ true, %123 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit73.thread ], [ false, %106 ]
+  %180 = phi i1 [ %171, %.critedge53.thread ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit73.thread ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit73 ], [ false, %106 ], [ true, %123 ]
   %181 = load ptr, ptr %12, align 8, !tbaa !33
   %182 = icmp eq ptr %181, %95
   br i1 %182, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i86
@@ -200596,7 +200596,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit9
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit9: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %8, %42, %40, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit7.thread, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit7, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %2
-  %46 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit7 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %2 ], [ false, %8 ], [ true, %40 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit7.thread ], [ %45, %42 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ]
+  %46 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit7 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %2 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit7.thread ], [ %45, %42 ], [ true, %40 ], [ false, %8 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ]
   ret i1 %46
 }
 
@@ -211134,8 +211134,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7AstNode13predicateImplI13A
 
 _ZZN7AstNode13predicateImplI13AstNodeVarRefLb0EZNK10AstAssignW15isTimingControlEvEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit: ; preds = %2
   %.pre3.i = load ptr, ptr %3, align 8, !tbaa !1518
-  %.ptr70 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
-  store ptr %.ptr70, ptr %4, align 8, !tbaa !1512
+  %.ptr72 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 16
+  store ptr %.ptr72, ptr %4, align 8, !tbaa !1512
   %12 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 232
   store ptr %12, ptr %6, align 8, !tbaa !1512
   br label %41
@@ -211169,7 +211169,7 @@ _ZZN7AstNode13predicateImplI13AstNodeVarRefLb0EZNK10AstAssignW15isTimingControlE
   br i1 %.not.i, label %28, label %27
 
 27:                                               ; preds = %24
-  store ptr %26, ptr %.ptr70, align 8, !tbaa !235
+  store ptr %26, ptr %.ptr72, align 8, !tbaa !235
   br label %28
 
 28:                                               ; preds = %27, %24
@@ -211206,9 +211206,9 @@ _ZZN7AstNode13predicateImplI13AstNodeVarRefLb0EZNK10AstAssignW15isTimingControlE
   br i1 %.not23.i, label %.preheader, label %.preheader.thread79
 
 .preheader.thread79:                              ; preds = %36
-  %.ptr71 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.idx65
+  %.ptr70 = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.idx65
   %.add = add nuw nsw i64 %.idx65, 8
-  store ptr %38, ptr %.ptr71, align 8, !tbaa !235
+  store ptr %38, ptr %.ptr70, align 8, !tbaa !235
   br label %.lr.ph.preheader
 
 39:                                               ; preds = %2
@@ -211218,7 +211218,7 @@ _ZZN7AstNode13predicateImplI13AstNodeVarRefLb0EZNK10AstAssignW15isTimingControlE
 
 41:                                               ; preds = %_ZZN7AstNode13predicateImplI13AstNodeVarRefLb0EZNK10AstAssignW15isTimingControlEvEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit, %41
   %indvars.iv = phi i64 [ -2, %_ZZN7AstNode13predicateImplI13AstNodeVarRefLb0EZNK10AstAssignW15isTimingControlEvEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds ptr, ptr %.ptr70, i64 %indvars.iv
+  %42 = getelementptr inbounds ptr, ptr %.ptr72, i64 %indvars.iv
   store ptr %0, ptr %42, align 8, !tbaa !235
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %43 = icmp eq i64 %indvars.iv.next, 0
@@ -211301,7 +211301,7 @@ _ZZN7AstNode13predicateImplI13AstNodeVarRefLb0EZNK10AstAssignW15isTimingControlE
   %.not45 = icmp eq ptr %78, null
   br i1 %.not45, label %.backedge, label %.loopexit
 
-.backedge:                                        ; preds = %71, %100, %103, %74
+.backedge:                                        ; preds = %71, %100, %74, %103
   %79 = load ptr, ptr %5, align 8, !tbaa !1512
   %80 = load ptr, ptr %4, align 8, !tbaa !1512
   %81 = icmp ugt ptr %79, %80
@@ -211521,7 +211521,7 @@ _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !1521
   br label %41
 
@@ -216354,7 +216354,7 @@ _ZNK9VNumRangeltERKS_.exit.thread18.i.i.i.i:      ; preds = %_ZNK9VNumRangeltERK
   br label %.thread
 
 .thread:                                          ; preds = %13, %16, %21, %23, %29, %31, %37, %39, %45, %47, %55, %_ZNK9VNumRangeltERKS_.exit.i.i.i.i, %_ZNK9VNumRangeltERKS_.exit.thread18.i.i.i.i
-  %68 = phi i1 [ true, %47 ], [ true, %13 ], [ true, %16 ], [ false, %21 ], [ false, %29 ], [ false, %37 ], [ false, %45 ], [ true, %55 ], [ true, %39 ], [ true, %31 ], [ true, %23 ], [ true, %_ZNK9VNumRangeltERKS_.exit.i.i.i.i ], [ false, %_ZNK9VNumRangeltERKS_.exit.thread18.i.i.i.i ]
+  %68 = phi i1 [ true, %13 ], [ true, %16 ], [ false, %21 ], [ true, %23 ], [ false, %29 ], [ true, %31 ], [ false, %37 ], [ true, %39 ], [ false, %45 ], [ true, %_ZNK9VNumRangeltERKS_.exit.i.i.i.i ], [ true, %47 ], [ true, %55 ], [ false, %_ZNK9VNumRangeltERKS_.exit.thread18.i.i.i.i ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %68, ptr noundef nonnull %5, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(32) %14) #40
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %70 = load i64, ptr %69, align 8, !tbaa !676
@@ -216555,7 +216555,7 @@ _ZNK9VNumRangeltERKS_.exit.i.i12:                 ; preds = %111
   %117 = icmp samesign ult i8 %114, %116
   br i1 %117, label %118, label %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit13
 
-118:                                              ; preds = %66, %105, %89, %81, %73, %_ZNK9VNumRangeltERKS_.exit.i.i12, %97
+118:                                              ; preds = %66, %73, %81, %89, %_ZNK9VNumRangeltERKS_.exit.i.i12, %97, %105
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %120 = load ptr, ptr %119, align 8, !tbaa !686
   %121 = icmp eq ptr %120, %1
@@ -216640,7 +216640,7 @@ _ZNK9VNumRangeltERKS_.exit.i.i16:                 ; preds = %167
   %173 = icmp samesign ult i8 %170, %172
   br i1 %173, label %174, label %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit17
 
-174:                                              ; preds = %122, %161, %145, %137, %129, %_ZNK9VNumRangeltERKS_.exit.i.i16, %153
+174:                                              ; preds = %122, %129, %137, %145, %_ZNK9VNumRangeltERKS_.exit.i.i16, %153, %161
   %175 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %176 = load ptr, ptr %175, align 8, !tbaa !1223
   %177 = icmp eq ptr %176, null
@@ -216730,7 +216730,7 @@ _ZNK9VNumRangeltERKS_.exit.i.i20:                 ; preds = %221
   %227 = icmp samesign ult i8 %224, %226
   br i1 %227, label %228, label %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit21
 
-228:                                              ; preds = %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit13.thread, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit13, %215, %199, %191, %183, %_ZNK9VNumRangeltERKS_.exit.i.i20, %207
+228:                                              ; preds = %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit13.thread, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit13, %183, %191, %199, %_ZNK9VNumRangeltERKS_.exit.i.i20, %207, %215
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %230 = load ptr, ptr %229, align 8, !tbaa !686
   %231 = icmp eq ptr %230, %1
@@ -216815,7 +216815,7 @@ _ZNK9VNumRangeltERKS_.exit.i.i24:                 ; preds = %277
   %283 = icmp samesign ult i8 %280, %282
   br i1 %283, label %284, label %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit25
 
-284:                                              ; preds = %232, %271, %255, %247, %239, %_ZNK9VNumRangeltERKS_.exit.i.i24, %263
+284:                                              ; preds = %232, %239, %247, %255, %_ZNK9VNumRangeltERKS_.exit.i.i24, %263, %271
   %285 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %286 = load ptr, ptr %285, align 8, !tbaa !1223
   %287 = icmp eq ptr %286, null
@@ -216829,9 +216829,9 @@ _ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit25:   ; preds = %269, %277, %_ZNK9VN
   %290 = extractvalue { ptr, ptr } %288, 1
   br label %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit21
 
-_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit21:   ; preds = %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit13.thread, %284, %174, %213, %221, %_ZNK9VNumRangeltERKS_.exit.i.i20, %189, %197, %205, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit25, %228, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit17, %118, %42, %_ZNK9VNumRangeltERKS_.exit.i.i, %18, %26, %34, %50, %9, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit
-  %.sroa.046.0 = phi ptr [ %64, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit ], [ %1, %221 ], [ null, %42 ], [ %spec.select53, %284 ], [ null, %9 ], [ null, %50 ], [ null, %34 ], [ null, %26 ], [ null, %18 ], [ null, %_ZNK9VNumRangeltERKS_.exit.i.i ], [ %179, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit17 ], [ %120, %118 ], [ %1, %213 ], [ %289, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit25 ], [ null, %228 ], [ %spec.select, %174 ], [ %1, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit13.thread ], [ %1, %205 ], [ %1, %197 ], [ %1, %189 ], [ %1, %_ZNK9VNumRangeltERKS_.exit.i.i20 ]
-  %.sroa.12.0 = phi ptr [ %65, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit ], [ null, %221 ], [ %11, %42 ], [ %spec.select54, %284 ], [ %11, %9 ], [ %11, %50 ], [ %11, %34 ], [ %11, %26 ], [ %11, %18 ], [ %11, %_ZNK9VNumRangeltERKS_.exit.i.i ], [ %180, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit17 ], [ %120, %118 ], [ null, %213 ], [ %290, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit25 ], [ %230, %228 ], [ %spec.select52, %174 ], [ null, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit13.thread ], [ null, %205 ], [ null, %197 ], [ null, %189 ], [ null, %_ZNK9VNumRangeltERKS_.exit.i.i20 ]
+_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit21:   ; preds = %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit13.thread, %284, %174, %213, %221, %_ZNK9VNumRangeltERKS_.exit.i.i20, %189, %197, %205, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit25, %228, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit17, %118, %50, %42, %_ZNK9VNumRangeltERKS_.exit.i.i, %34, %26, %18, %9, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit
+  %.sroa.046.0 = phi ptr [ %64, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit ], [ null, %9 ], [ null, %18 ], [ null, %26 ], [ null, %34 ], [ null, %_ZNK9VNumRangeltERKS_.exit.i.i ], [ null, %42 ], [ null, %50 ], [ %179, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit17 ], [ %120, %118 ], [ %289, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit25 ], [ null, %228 ], [ %1, %205 ], [ %1, %197 ], [ %1, %189 ], [ %1, %_ZNK9VNumRangeltERKS_.exit.i.i20 ], [ %1, %221 ], [ %1, %213 ], [ %spec.select, %174 ], [ %spec.select53, %284 ], [ %1, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit13.thread ]
+  %.sroa.12.0 = phi ptr [ %65, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit ], [ %11, %9 ], [ %11, %18 ], [ %11, %26 ], [ %11, %34 ], [ %11, %_ZNK9VNumRangeltERKS_.exit.i.i ], [ %11, %42 ], [ %11, %50 ], [ %180, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit17 ], [ %120, %118 ], [ %290, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit25 ], [ %230, %228 ], [ null, %205 ], [ null, %197 ], [ null, %189 ], [ null, %_ZNK9VNumRangeltERKS_.exit.i.i20 ], [ null, %221 ], [ null, %213 ], [ %spec.select52, %174 ], [ %spec.select54, %284 ], [ null, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit13.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.046.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -216931,9 +216931,9 @@ _ZNK9VNumRangeltERKS_.exit.i.i:                   ; preds = %52
 _ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit:     ; preds = %46, %52, %_ZNK9VNumRangeltERKS_.exit.i.i, %40, %34, %28, %22
   br label %57
 
-57:                                               ; preds = %42, %_ZNK9VNumRangeltERKS_.exit.i.i, %24, %30, %36, %48, %18, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit
-  %.sink = phi i64 [ 24, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit ], [ 16, %18 ], [ 16, %48 ], [ 16, %36 ], [ 16, %30 ], [ 16, %24 ], [ 16, %_ZNK9VNumRangeltERKS_.exit.i.i ], [ 16, %42 ]
-  %.0.i.i26 = phi i1 [ false, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit ], [ true, %18 ], [ true, %48 ], [ true, %36 ], [ true, %30 ], [ true, %24 ], [ true, %_ZNK9VNumRangeltERKS_.exit.i.i ], [ true, %42 ]
+57:                                               ; preds = %48, %42, %_ZNK9VNumRangeltERKS_.exit.i.i, %36, %30, %24, %18, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit
+  %.sink = phi i64 [ 24, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit ], [ 16, %18 ], [ 16, %24 ], [ 16, %30 ], [ 16, %36 ], [ 16, %_ZNK9VNumRangeltERKS_.exit.i.i ], [ 16, %42 ], [ 16, %48 ]
+  %.0.i.i26 = phi i1 [ false, %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit ], [ true, %18 ], [ true, %24 ], [ true, %30 ], [ true, %36 ], [ true, %_ZNK9VNumRangeltERKS_.exit.i.i ], [ true, %42 ], [ true, %48 ]
   %58 = getelementptr inbounds nuw i8, ptr %.02431, i64 %.sink
   %.024 = load ptr, ptr %58, align 8, !tbaa !686
   %.not = icmp eq ptr %.024, null
@@ -217037,9 +217037,9 @@ _ZNK9VNumRangeltERKS_.exit.i.i7:                  ; preds = %109
 _ZNK9VNumRangeltERKS_.exit.thread18.i.i6:         ; preds = %_ZNK9VNumRangeltERKS_.exit.i.i7, %109, %101
   br label %_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit8
 
-_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit8:    ; preds = %69, %77, %85, %93, %_ZNK9VNumRangeltERKS_.exit.thread18.i.i6, %95, %_ZNK9VNumRangeltERKS_.exit.i.i7, %71, %79, %87, %103, %64, %._crit_edge.thread
-  %.sroa.022.0 = phi ptr [ null, %95 ], [ null, %._crit_edge.thread ], [ null, %64 ], [ null, %103 ], [ null, %87 ], [ null, %79 ], [ null, %71 ], [ null, %_ZNK9VNumRangeltERKS_.exit.i.i7 ], [ %.sroa.09.0, %_ZNK9VNumRangeltERKS_.exit.thread18.i.i6 ], [ %.sroa.09.0, %93 ], [ %.sroa.09.0, %85 ], [ %.sroa.09.0, %77 ], [ %.sroa.09.0, %69 ]
-  %.sroa.4.0 = phi ptr [ %.023.lcssa58, %95 ], [ %.023.lcssa59, %._crit_edge.thread ], [ %.023.lcssa58, %64 ], [ %.023.lcssa58, %103 ], [ %.023.lcssa58, %87 ], [ %.023.lcssa58, %79 ], [ %.023.lcssa58, %71 ], [ %.023.lcssa58, %_ZNK9VNumRangeltERKS_.exit.i.i7 ], [ null, %_ZNK9VNumRangeltERKS_.exit.thread18.i.i6 ], [ null, %93 ], [ null, %85 ], [ null, %77 ], [ null, %69 ]
+_ZNKSt4lessI13VBasicTypeKeyEclERKS0_S3_.exit8:    ; preds = %69, %77, %85, %93, %_ZNK9VNumRangeltERKS_.exit.thread18.i.i6, %103, %95, %_ZNK9VNumRangeltERKS_.exit.i.i7, %87, %79, %71, %64, %._crit_edge.thread
+  %.sroa.022.0 = phi ptr [ null, %._crit_edge.thread ], [ null, %64 ], [ null, %71 ], [ null, %79 ], [ null, %87 ], [ null, %_ZNK9VNumRangeltERKS_.exit.i.i7 ], [ null, %95 ], [ null, %103 ], [ %.sroa.09.0, %_ZNK9VNumRangeltERKS_.exit.thread18.i.i6 ], [ %.sroa.09.0, %93 ], [ %.sroa.09.0, %85 ], [ %.sroa.09.0, %77 ], [ %.sroa.09.0, %69 ]
+  %.sroa.4.0 = phi ptr [ %.023.lcssa59, %._crit_edge.thread ], [ %.023.lcssa58, %64 ], [ %.023.lcssa58, %71 ], [ %.023.lcssa58, %79 ], [ %.023.lcssa58, %87 ], [ %.023.lcssa58, %_ZNK9VNumRangeltERKS_.exit.i.i7 ], [ %.023.lcssa58, %95 ], [ %.023.lcssa58, %103 ], [ null, %_ZNK9VNumRangeltERKS_.exit.thread18.i.i6 ], [ null, %93 ], [ null, %85 ], [ null, %77 ], [ null, %69 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.022.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -217614,8 +217614,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmP11AstInit
   br label %_ZNSt8_Rb_treeImSt4pairIKmP11AstInitItemESt10_Select1stIS4_ESt4lessImESaIS4_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKmP11AstInitItemESt10_Select1stIS4_ESt4lessImESaIS4_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -217668,7 +217668,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit: ; preds = %8, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
-  %23 = phi i1 [ %22, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ true, %8 ]
+  %23 = phi i1 [ true, %8 ], [ %22, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ]
   %24 = load ptr, ptr %3, align 8, !tbaa !1552
   %25 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #42
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_bESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(33) %2)
@@ -217878,8 +217878,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %91
 
 91:                                               ; preds = %83, %57, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36, %87, %68, %61, %42, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit, %23
-  %.sroa.066.0 = phi ptr [ %25, %23 ], [ %spec.select, %57 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %spec.select74, %83 ], [ %63, %61 ], [ %44, %42 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %89, %87 ], [ null, %68 ]
-  %.sroa.12.0 = phi ptr [ %26, %23 ], [ %spec.select73, %57 ], [ %11, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %spec.select75, %83 ], [ %64, %61 ], [ %44, %42 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %90, %87 ], [ %70, %68 ]
+  %.sroa.066.0 = phi ptr [ %25, %23 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %63, %61 ], [ %44, %42 ], [ %89, %87 ], [ null, %68 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %spec.select, %57 ], [ %spec.select74, %83 ]
+  %.sroa.12.0 = phi ptr [ %26, %23 ], [ %11, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %64, %61 ], [ %44, %42 ], [ %90, %87 ], [ %70, %68 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36 ], [ %spec.select73, %57 ], [ %spec.select75, %83 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.066.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -217978,8 +217978,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %34
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
-  %.sroa.027.0 = phi ptr [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ null, %._crit_edge.thread ]
-  %.sroa.4.0 = phi ptr [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ %.028.lcssa39, %._crit_edge.thread ]
+  %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

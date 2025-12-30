@@ -1533,8 +1533,8 @@ define internal noundef i32 @dissect_drda_ccsid(ptr noundef %0, ptr noundef read
   br label %.sink.split
 
 .sink.split:                                      ; preds = %25, %24, %23, %22, %21, %20, %18, %18, %18, %17, %16, %15, %14, %13, %12, %10, %10, %10
-  %.sink8 = phi i64 [ 8, %17 ], [ 8, %10 ], [ 8, %10 ], [ 8, %10 ], [ 8, %12 ], [ 8, %13 ], [ 8, %14 ], [ 8, %15 ], [ 8, %16 ], [ 12, %18 ], [ 12, %18 ], [ 12, %18 ], [ 12, %20 ], [ 12, %21 ], [ 12, %22 ], [ 12, %23 ], [ 12, %24 ], [ 12, %25 ]
-  %.0.i6.sink = phi i32 [ 2, %17 ], [ 96, %10 ], [ 96, %10 ], [ 96, %10 ], [ 56, %12 ], [ 0, %13 ], [ 10, %14 ], [ 4, %15 ], [ -2147483644, %16 ], [ 96, %18 ], [ 96, %18 ], [ 96, %18 ], [ 56, %20 ], [ 0, %21 ], [ 10, %22 ], [ 4, %23 ], [ -2147483644, %24 ], [ 2, %25 ]
+  %.sink8 = phi i64 [ 8, %10 ], [ 8, %10 ], [ 8, %10 ], [ 8, %12 ], [ 8, %13 ], [ 8, %14 ], [ 8, %15 ], [ 8, %16 ], [ 8, %17 ], [ 12, %18 ], [ 12, %18 ], [ 12, %18 ], [ 12, %20 ], [ 12, %21 ], [ 12, %22 ], [ 12, %23 ], [ 12, %24 ], [ 12, %25 ]
+  %.0.i6.sink = phi i32 [ 96, %10 ], [ 96, %10 ], [ 96, %10 ], [ 56, %12 ], [ 0, %13 ], [ 10, %14 ], [ 4, %15 ], [ -2147483644, %16 ], [ 2, %17 ], [ 96, %18 ], [ 96, %18 ], [ 96, %18 ], [ 56, %20 ], [ 0, %21 ], [ 10, %22 ], [ 4, %23 ], [ -2147483644, %24 ], [ 2, %25 ]
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink8
   store i32 %.0.i6.sink, ptr %26, align 4
   br label %27
@@ -3731,7 +3731,7 @@ drda_set_server.exit27.i:                         ; preds = %131, %118
   br label %drda_packet_from_server.exit
 
 drda_packet_from_server.exit:                     ; preds = %42, %48, %64, %66, %73, %drda_set_server.exit.i, %drda_set_server.exit26.i, %117, %drda_set_server.exit27.i, %139
-  %.0.i = phi i64 [ 8, %drda_set_server.exit26.i ], [ 0, %117 ], [ 0, %drda_set_server.exit27.i ], [ 8, %139 ], [ 0, %drda_set_server.exit.i ], [ 0, %48 ], [ 0, %42 ], [ 0, %73 ], [ 8, %66 ], [ 8, %64 ]
+  %.0.i = phi i64 [ 0, %drda_set_server.exit27.i ], [ 8, %139 ], [ 0, %drda_set_server.exit.i ], [ 8, %drda_set_server.exit26.i ], [ 0, %48 ], [ 0, %42 ], [ 0, %117 ], [ 0, %73 ], [ 8, %66 ], [ 8, %64 ]
   %145 = load i32, ptr %9, align 4
   %146 = call ptr @val_to_str_ext(i32 noundef %145, ptr noundef nonnull @drda_opcode_vals_ext, ptr noundef nonnull @.str.829)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.828, ptr noundef %146)

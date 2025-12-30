@@ -167,7 +167,7 @@ pg_TZDIR.exit:                                    ; preds = %2, %4
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %19, %pg_TZDIR.exit, %73
-  %.029 = phi i32 [ %24, %19 ], [ -1, %.thread ], [ %74, %73 ], [ -1, %pg_TZDIR.exit ]
+  %.029 = phi i32 [ %74, %73 ], [ -1, %pg_TZDIR.exit ], [ %24, %19 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.029
 }
@@ -294,7 +294,7 @@ define dso_local ptr @pg_tzset(ptr noundef readonly captures(none) %0) local_unn
   br label %46
 
 46:                                               ; preds = %34, %37, %10, %1, %40, %24
-  %.012 = phi ptr [ null, %1 ], [ %25, %24 ], [ %43, %40 ], [ null, %10 ], [ null, %37 ], [ null, %34 ]
+  %.012 = phi ptr [ %25, %24 ], [ %43, %40 ], [ null, %1 ], [ null, %10 ], [ null, %37 ], [ null, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

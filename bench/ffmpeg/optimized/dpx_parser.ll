@@ -166,7 +166,7 @@ define internal i32 @dpx_parse(ptr noundef captures(none) initializes((40, 44)) 
   br i1 %exitcond101.not, label %.loopexit, label %.lr.ph82.split, !llvm.loop !27
 
 .loopexit:                                        ; preds = %71, %35, %58, %.split86.us, %62, %33, %57
-  %.156 = phi i32 [ %spec.select, %33 ], [ %spec.select, %57 ], [ %spec.select, %62 ], [ %spec.select, %58 ], [ %70, %.split86.us ], [ %spec.select, %35 ], [ %spec.select, %71 ]
+  %.156 = phi i32 [ %spec.select, %33 ], [ %spec.select, %57 ], [ %spec.select, %62 ], [ %70, %.split86.us ], [ %spec.select, %58 ], [ %spec.select, %35 ], [ %spec.select, %71 ]
   %72 = call i32 @ff_combine_frame(ptr noundef nonnull %9, i32 noundef %.156, ptr noundef nonnull %7, ptr noundef nonnull %8) #3
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %74, label %76

@@ -122,7 +122,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br label %.thread31
 
 .thread31:                                        ; preds = %28, %.thread, %16, %1, %.loopexit
-  %.021 = phi i32 [ %31, %.loopexit ], [ -12, %16 ], [ -12, %1 ], [ -12, %.thread ], [ %29, %28 ]
+  %.021 = phi i32 [ %31, %.loopexit ], [ -12, %1 ], [ -12, %16 ], [ -12, %.thread ], [ %29, %28 ]
   ret i32 %.021
 }
 
@@ -448,7 +448,7 @@ split:                                            ; preds = %25, %.lr.ph
   br label %.loopexit
 
 .loopexit:                                        ; preds = %85, %82, %.preheader, %95, %71, %50, %34, %.loopexit125, %._crit_edge, %split
-  %.0 = phi i32 [ -558323010, %.loopexit125 ], [ -12, %71 ], [ %104, %95 ], [ -22, %split ], [ %134, %._crit_edge ], [ -12, %50 ], [ %48, %34 ], [ 0, %.preheader ], [ -12, %85 ], [ 0, %82 ]
+  %.0 = phi i32 [ %134, %._crit_edge ], [ -22, %split ], [ -558323010, %.loopexit125 ], [ %48, %34 ], [ -12, %50 ], [ -12, %71 ], [ %104, %95 ], [ 0, %.preheader ], [ -12, %85 ], [ 0, %82 ]
   ret i32 %.0
 }
 
@@ -562,7 +562,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %41, %27, %47, %31
-  %.0 = phi i32 [ -12, %27 ], [ %40, %31 ], [ -12, %41 ], [ %62, %47 ], [ %23, %20 ]
+  %.0 = phi i32 [ %40, %31 ], [ %62, %47 ], [ -12, %27 ], [ -12, %41 ], [ %23, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1081,7 +1081,7 @@ define internal noundef i32 @mix_frames(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond778.not, label %.loopexit642, label %.preheader641.us, !llvm.loop !113
 
 .loopexit642:                                     ; preds = %._crit_edge.us, %.preheader641.lr.ph, %322, %311
-  %359 = phi i32 [ %.pre, %311 ], [ %275, %.preheader641.lr.ph ], [ %275, %322 ], [ %275, %._crit_edge.us ]
+  %359 = phi i32 [ %275, %322 ], [ %.pre, %311 ], [ %275, %.preheader641.lr.ph ], [ %275, %._crit_edge.us ]
   %indvars.iv.next780 = add nuw nsw i64 %indvars.iv779, 1
   %360 = sext i32 %359 to i64
   %361 = icmp slt i64 %indvars.iv.next780, %360
@@ -1863,7 +1863,7 @@ define internal fastcc range(i32 -22, 1) i32 @parse_weights(ptr noundef %0) unna
   br label %59
 
 59:                                               ; preds = %._crit_edge60, %56, %58
-  %storemerge = phi float [ %52, %56 ], [ %52, %58 ], [ %55, %._crit_edge60 ]
+  %storemerge = phi float [ %52, %58 ], [ %52, %56 ], [ %55, %._crit_edge60 ]
   store float %storemerge, ptr %6, align 4, !tbaa !99
   br label %60
 
@@ -1981,7 +1981,7 @@ define internal i32 @tmix_filter_frame(ptr noundef readonly captures(none) %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %20, %45
-  %63 = phi ptr [ %58, %45 ], [ %22, %20 ], [ %37, %41 ]
+  %63 = phi ptr [ %22, %20 ], [ %58, %45 ], [ %37, %41 ]
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %65 = load i32, ptr %64, align 8, !tbaa !88
   %.not63 = icmp eq i32 %65, 0
@@ -2031,7 +2031,7 @@ define internal i32 @tmix_filter_frame(ptr noundef readonly captures(none) %0, p
   br label %.loopexit67
 
 .loopexit67:                                      ; preds = %.lr.ph, %71, %66, %77, %69, %14
-  %.0 = phi i32 [ %15, %14 ], [ -12, %66 ], [ %70, %69 ], [ -12, %71 ], [ %94, %77 ], [ -12, %.lr.ph ]
+  %.0 = phi i32 [ %15, %14 ], [ %70, %69 ], [ %94, %77 ], [ -12, %66 ], [ -12, %71 ], [ -12, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

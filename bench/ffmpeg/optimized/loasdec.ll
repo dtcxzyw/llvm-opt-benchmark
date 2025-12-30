@@ -94,7 +94,7 @@ define internal range(i32 0, 52) i32 @loas_probe(ptr noundef readonly captures(n
   br label %.thread62
 
 .thread62:                                        ; preds = %42, %1, %40, %._crit_edge
-  %.036 = phi i32 [ 50, %40 ], [ 51, %._crit_edge ], [ 0, %1 ], [ %spec.select65, %42 ]
+  %.036 = phi i32 [ 51, %._crit_edge ], [ 50, %40 ], [ 0, %1 ], [ %spec.select65, %42 ]
   ret i32 %.036
 }
 

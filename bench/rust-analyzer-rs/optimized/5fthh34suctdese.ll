@@ -1444,31 +1444,31 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$span..SpanData$LT$Ctx$GT$$
   store i32 %19, ptr %5, align 4
   %20 = and i32 %7, 16
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %25
+  br i1 %21, label %22, label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u32$GT$3fmt17h0cce067069d3eeb7E.exit"
 
 22:                                               ; preds = %17
   %23 = and i32 %7, 32
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %27, label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u32$GT$3fmt17h0cce067069d3eeb7E.exit"
+  br i1 %24, label %25, label %27
 
-25:                                               ; preds = %17
-  %26 = call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$u32$GT$3fmt17h008a4e0f857e07afE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+25:                                               ; preds = %22
+  %26 = call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h4b9fb787c4dcbeb9E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %26, label %32, label %30
 
 27:                                               ; preds = %22
-  %28 = call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h4b9fb787c4dcbeb9E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %28 = call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u32$GT$3fmt17h4357183c7370c6b7E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %28, label %32, label %30
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u32$GT$3fmt17h0cce067069d3eeb7E.exit": ; preds = %22
-  %29 = call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u32$GT$3fmt17h4357183c7370c6b7E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u32$GT$3fmt17h0cce067069d3eeb7E.exit": ; preds = %17
+  %29 = call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$u32$GT$3fmt17h008a4e0f857e07afE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %29, label %32, label %30
 
-30:                                               ; preds = %25, %27, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u32$GT$3fmt17h0cce067069d3eeb7E.exit"
+30:                                               ; preds = %27, %25, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u32$GT$3fmt17h0cce067069d3eeb7E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %31 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$10write_char17hff6dac2c46a1503eE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 58)
   br i1 %31, label %46, label %33
 
-32:                                               ; preds = %25, %27, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u32$GT$3fmt17h0cce067069d3eeb7E.exit"
+32:                                               ; preds = %27, %25, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u32$GT$3fmt17h0cce067069d3eeb7E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %46
 
@@ -1499,7 +1499,7 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$span..SpanData$LT$Ctx$GT$$
   br label %46
 
 46:                                               ; preds = %33, %42, %39, %37, %30, %32, %10, %44
-  %.0.shrunk = phi i1 [ %16, %10 ], [ %45, %44 ], [ true, %39 ], [ true, %37 ], [ true, %30 ], [ true, %42 ], [ true, %32 ], [ true, %33 ]
+  %.0.shrunk = phi i1 [ %16, %10 ], [ %45, %44 ], [ true, %32 ], [ true, %30 ], [ true, %37 ], [ true, %39 ], [ true, %42 ], [ true, %33 ]
   ret i1 %.0.shrunk
 }
 

@@ -85,8 +85,8 @@ define internal i32 @mov_text_init(ptr noundef %0) #0 {
   br i1 %20, label %.sink.split.i, label %23
 
 .sink.split.i:                                    ; preds = %19, %17, %15
-  %switch.tableidx48.sink = phi i8 [ %switch.tableidx44, %17 ], [ %switch.tableidx, %15 ], [ %switch.tableidx48, %19 ]
-  %switch.table.mov_text_init.3.sink = phi ptr [ @switch.table.mov_text_init.2, %17 ], [ @switch.table.mov_text_init, %15 ], [ @switch.table.mov_text_init.3, %19 ]
+  %switch.tableidx48.sink = phi i8 [ %switch.tableidx, %15 ], [ %switch.tableidx44, %17 ], [ %switch.tableidx48, %19 ]
+  %switch.table.mov_text_init.3.sink = phi ptr [ @switch.table.mov_text_init, %15 ], [ @switch.table.mov_text_init.2, %17 ], [ @switch.table.mov_text_init.3, %19 ]
   %21 = zext nneg i8 %switch.tableidx48.sink to i64
   %switch.gep50 = getelementptr inbounds nuw i32, ptr %switch.table.mov_text_init.3.sink, i64 %21
   %switch.load51 = load i32, ptr %switch.gep50, align 4
@@ -314,7 +314,7 @@ mov_text_tx3g.exit:                               ; preds = %122, %120, %23
   store i16 0, ptr %7, align 4, !tbaa !29
   br label %162
 
-162:                                              ; preds = %.sink.split, %1, %73, %69
+162:                                              ; preds = %.sink.split, %1, %69, %73
   %163 = tail call i32 @ff_ass_subtitle_header_default(ptr noundef %0) #8
   br label %164
 
@@ -509,7 +509,7 @@ mov_text_cleanup.exit71.thread:                   ; preds = %89, %.thread, %91
   br label %105
 
 105:                                              ; preds = %mov_text_cleanup.exit71, %mov_text_cleanup.exit71.thread, %4, %10, %99, %17
-  %.0 = phi i32 [ -1094995529, %mov_text_cleanup.exit71 ], [ %19, %17 ], [ -1094995529, %4 ], [ %104, %99 ], [ -1094995529, %10 ], [ %96, %mov_text_cleanup.exit71.thread ]
+  %.0 = phi i32 [ %19, %17 ], [ %104, %99 ], [ -1094995529, %mov_text_cleanup.exit71 ], [ -1094995529, %10 ], [ -1094995529, %4 ], [ %96, %mov_text_cleanup.exit71.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -802,8 +802,8 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
   br label %109
 
 109:                                              ; preds = %48, %.thread147, %106, %102, %36, %33
-  %.193 = phi i32 [ %.092125, %33 ], [ %.092125, %36 ], [ %.294152, %102 ], [ %.294152, %106 ], [ %.294152, %.thread147 ], [ %50, %48 ]
-  %.1 = phi i32 [ %.091126, %33 ], [ %.091126, %36 ], [ %.4, %102 ], [ %.4, %106 ], [ %.2153, %.thread147 ], [ %49, %48 ]
+  %.193 = phi i32 [ %.092125, %36 ], [ %.092125, %33 ], [ %.294152, %102 ], [ %.294152, %106 ], [ %.294152, %.thread147 ], [ %50, %48 ]
+  %.1 = phi i32 [ %.091126, %36 ], [ %.091126, %33 ], [ %.4, %102 ], [ %.4, %106 ], [ %.2153, %.thread147 ], [ %49, %48 ]
   %110 = load i8, ptr %17, align 8, !tbaa !62
   %111 = zext i8 %110 to i32
   %112 = and i32 %111, 2
@@ -1146,9 +1146,9 @@ styles_equivalent.exit51.thread.sink.split:       ; preds = %styles_equivalent.e
   %126 = add nsw i32 %.04467, -1
   br label %styles_equivalent.exit51.thread
 
-styles_equivalent.exit51.thread:                  ; preds = %styles_equivalent.exit51.thread.sink.split, %98, %102, %106, %110, %114, %118, %styles_equivalent.exit51, %styles_equivalent.exit.thread, %94
-  %127 = phi i16 [ %28, %styles_equivalent.exit51 ], [ %28, %94 ], [ %28, %styles_equivalent.exit.thread ], [ %28, %106 ], [ %28, %102 ], [ %28, %98 ], [ %28, %118 ], [ %28, %114 ], [ %28, %110 ], [ %125, %styles_equivalent.exit51.thread.sink.split ]
-  %.145.ph = phi i32 [ %.04467, %styles_equivalent.exit51 ], [ %.04467, %94 ], [ 0, %styles_equivalent.exit.thread ], [ %.04467, %106 ], [ %.04467, %102 ], [ %.04467, %98 ], [ %.04467, %118 ], [ %.04467, %114 ], [ %.04467, %110 ], [ %126, %styles_equivalent.exit51.thread.sink.split ]
+styles_equivalent.exit51.thread:                  ; preds = %styles_equivalent.exit51.thread.sink.split, %98, %102, %106, %110, %114, %118, %styles_equivalent.exit.thread, %94, %styles_equivalent.exit51
+  %127 = phi i16 [ %28, %styles_equivalent.exit51 ], [ %28, %94 ], [ %28, %styles_equivalent.exit.thread ], [ %28, %118 ], [ %28, %114 ], [ %28, %110 ], [ %28, %106 ], [ %28, %102 ], [ %28, %98 ], [ %125, %styles_equivalent.exit51.thread.sink.split ]
+  %.145.ph = phi i32 [ %.04467, %styles_equivalent.exit51 ], [ %.04467, %94 ], [ 0, %styles_equivalent.exit.thread ], [ %.04467, %118 ], [ %.04467, %114 ], [ %.04467, %110 ], [ %.04467, %106 ], [ %.04467, %102 ], [ %.04467, %98 ], [ %126, %styles_equivalent.exit51.thread.sink.split ]
   %.1.ph = getelementptr inbounds nuw i8, ptr %.05666, i64 12
   %128 = add nsw i32 %.145.ph, 1
   %129 = zext i16 %127 to i32
@@ -1156,7 +1156,7 @@ styles_equivalent.exit51.thread:                  ; preds = %styles_equivalent.e
   br i1 %130, label %27, label %mov_text_cleanup.exit, !llvm.loop !86
 
 mov_text_cleanup.exit:                            ; preds = %styles_equivalent.exit51.thread, %15, %44, %11, %3
-  %.0 = phi i32 [ -1, %3 ], [ 0, %15 ], [ -12, %11 ], [ -1094995529, %44 ], [ 0, %styles_equivalent.exit51.thread ]
+  %.0 = phi i32 [ -1, %3 ], [ -12, %11 ], [ -1094995529, %44 ], [ 0, %15 ], [ 0, %styles_equivalent.exit51.thread ]
   ret i32 %.0
 }
 

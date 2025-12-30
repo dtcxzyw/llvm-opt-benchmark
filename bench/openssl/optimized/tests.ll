@@ -1366,7 +1366,7 @@ define range(i32 0, 2) i32 @test_str_eq(ptr noundef %0, i32 noundef %1, ptr noun
   br label %20
 
 20:                                               ; preds = %10, %6, %18
-  %.0 = phi i32 [ 1, %6 ], [ 0, %18 ], [ 1, %10 ]
+  %.0 = phi i32 [ 0, %18 ], [ 1, %6 ], [ 1, %10 ]
   ret i32 %.0
 }
 
@@ -1412,7 +1412,7 @@ define range(i32 0, 2) i32 @test_str_ne(ptr noundef %0, i32 noundef %1, ptr noun
   br label %21
 
 21:                                               ; preds = %11, %6, %18
-  %.0 = phi i32 [ 1, %6 ], [ 0, %18 ], [ 1, %11 ]
+  %.0 = phi i32 [ 0, %18 ], [ 1, %6 ], [ 1, %11 ]
   ret i32 %.0
 }
 
@@ -1455,7 +1455,7 @@ define range(i32 0, 2) i32 @test_strn_eq(ptr noundef %0, i32 noundef %1, ptr nou
   br label %23
 
 23:                                               ; preds = %13, %8, %21
-  %.0 = phi i32 [ 1, %8 ], [ 0, %21 ], [ 1, %13 ]
+  %.0 = phi i32 [ 0, %21 ], [ 1, %8 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -1502,7 +1502,7 @@ define range(i32 0, 2) i32 @test_strn_ne(ptr noundef %0, i32 noundef %1, ptr nou
   br label %25
 
 25:                                               ; preds = %14, %8, %23
-  %.0 = phi i32 [ 1, %8 ], [ 0, %23 ], [ 1, %14 ]
+  %.0 = phi i32 [ 0, %23 ], [ 1, %8 ], [ 1, %14 ]
   ret i32 %.0
 }
 
@@ -1529,7 +1529,7 @@ define range(i32 0, 2) i32 @test_mem_eq(ptr noundef %0, i32 noundef %1, ptr noun
   br label %15
 
 15:                                               ; preds = %13, %8, %14
-  %.0 = phi i32 [ 1, %8 ], [ 0, %14 ], [ 1, %13 ]
+  %.0 = phi i32 [ 0, %14 ], [ 1, %8 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -1557,7 +1557,7 @@ define range(i32 0, 2) i32 @test_mem_ne(ptr noundef %0, i32 noundef %1, ptr noun
   br label %15
 
 15:                                               ; preds = %12, %8, %14
-  %.0 = phi i32 [ 1, %12 ], [ 1, %8 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %14 ], [ 1, %8 ], [ 1, %12 ]
   ret i32 %.0
 }
 

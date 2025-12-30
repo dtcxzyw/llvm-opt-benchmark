@@ -103,7 +103,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Meta_TransparencyMode_lt(i8 noundef zer
   br label %lean_dec.exit19
 
 lean_dec.exit19:                                  ; preds = %7, %5, %3, %2
-  %.0.shrunk = phi i1 [ %6, %5 ], [ %4, %3 ], [ false, %2 ], [ %switch, %7 ]
+  %.0.shrunk = phi i1 [ false, %2 ], [ %4, %3 ], [ %6, %5 ], [ %switch, %7 ]
   %.0 = zext i1 %.0.shrunk to i8
   ret i8 %.0
 }
@@ -162,30 +162,30 @@ lean_dec.exit7:                                   ; preds = %13, %12, %10, %2
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %24, %23, %21, %lean_dec.exit7
-  switch i8 %5, label %26 [
+  switch i8 %5, label %l_Lean_Meta_TransparencyMode_lt.exit [
     i8 0, label %l_Lean_Meta_TransparencyMode_lt.exit.thread
-    i8 1, label %l_Lean_Meta_TransparencyMode_lt.exit
-    i8 2, label %25
+    i8 1, label %25
+    i8 2, label %27
   ]
 
 25:                                               ; preds = %lean_dec.exit
+  %26 = icmp eq i8 %16, 0
+  br i1 %26, label %29, label %l_Lean_Meta_TransparencyMode_lt.exit.thread
+
+27:                                               ; preds = %lean_dec.exit
   %.not15 = icmp eq i8 %16, 2
   br i1 %.not15, label %l_Lean_Meta_TransparencyMode_lt.exit.thread, label %29
 
-26:                                               ; preds = %lean_dec.exit
-  %27 = and i8 %16, -2
-  %switch.i.not = icmp eq i8 %27, 2
+l_Lean_Meta_TransparencyMode_lt.exit:             ; preds = %lean_dec.exit
+  %28 = and i8 %16, -2
+  %switch.i.not = icmp eq i8 %28, 2
   br i1 %switch.i.not, label %l_Lean_Meta_TransparencyMode_lt.exit.thread, label %29
 
-l_Lean_Meta_TransparencyMode_lt.exit:             ; preds = %lean_dec.exit
-  %28 = icmp eq i8 %16, 0
-  br i1 %28, label %29, label %l_Lean_Meta_TransparencyMode_lt.exit.thread
-
-29:                                               ; preds = %26, %25, %l_Lean_Meta_TransparencyMode_lt.exit
+29:                                               ; preds = %27, %25, %l_Lean_Meta_TransparencyMode_lt.exit
   br label %l_Lean_Meta_TransparencyMode_lt.exit.thread
 
-l_Lean_Meta_TransparencyMode_lt.exit.thread:      ; preds = %lean_dec.exit, %26, %25, %l_Lean_Meta_TransparencyMode_lt.exit, %29
-  %30 = phi ptr [ inttoptr (i64 3 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_TransparencyMode_lt.exit ], [ inttoptr (i64 1 to ptr), %26 ], [ inttoptr (i64 1 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+l_Lean_Meta_TransparencyMode_lt.exit.thread:      ; preds = %lean_dec.exit, %27, %25, %l_Lean_Meta_TransparencyMode_lt.exit, %29
+  %30 = phi ptr [ inttoptr (i64 3 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_TransparencyMode_lt.exit ], [ inttoptr (i64 1 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %27 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %30
 }
 

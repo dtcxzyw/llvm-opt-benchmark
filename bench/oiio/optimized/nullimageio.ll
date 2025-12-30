@@ -1202,7 +1202,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit53:                  ; preds = %353, %355
   br label %370
 
 361:                                              ; preds = %75, %56, %53, %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %.0 = phi i1 [ false, %53 ], [ true, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ false, %56 ], [ false, %75 ]
+  %.0 = phi i1 [ true, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ false, %53 ], [ false, %56 ], [ false, %75 ]
   %362 = load ptr, ptr %9, align 8, !tbaa !64
   %363 = icmp eq ptr %362, %50
   br i1 %363, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -1758,8 +1758,8 @@ _ZNSt6vectorIN11OpenImageIO6v3_1_07ustringESaIS2_EEC2EmRKS3_.exit.thread: ; pred
   br i1 %.not.i.i.i71, label %_ZNSt6vectorIN11OpenImageIO6v3_1_07ustringESaIS2_EED2Ev.exit72, label %_ZNSt6vectorIN11OpenImageIO6v3_1_07ustringESaIS2_EED2Ev.exit72.sink.split
 
 _ZNSt6vectorIfSaIfEED2Ev.exit65.sink.split:       ; preds = %._crit_edge120, %_ZNSt6vectorIN11OpenImageIO6v3_1_07ustringESaIS2_EEC2EmRKS3_.exit, %.thread108
-  %.sroa.074.0201.sink239 = phi ptr [ %.sroa.082.0190, %.thread108 ], [ %129, %_ZNSt6vectorIN11OpenImageIO6v3_1_07ustringESaIS2_EEC2EmRKS3_.exit ], [ %.sroa.074.0200, %._crit_edge120 ]
-  %.sink.i204.sink = phi i64 [ %122, %.thread108 ], [ %131, %_ZNSt6vectorIN11OpenImageIO6v3_1_07ustringESaIS2_EEC2EmRKS3_.exit ], [ %.sink.i203, %._crit_edge120 ]
+  %.sroa.074.0201.sink239 = phi ptr [ %.sroa.082.0190, %.thread108 ], [ %.sroa.074.0200, %._crit_edge120 ], [ %129, %_ZNSt6vectorIN11OpenImageIO6v3_1_07ustringESaIS2_EEC2EmRKS3_.exit ]
+  %.sink.i204.sink = phi i64 [ %122, %.thread108 ], [ %.sink.i203, %._crit_edge120 ], [ %131, %_ZNSt6vectorIN11OpenImageIO6v3_1_07ustringESaIS2_EEC2EmRKS3_.exit ]
   %152 = ptrtoint ptr %.sroa.074.0201.sink239 to i64
   %153 = sub i64 %.sink.i204.sink, %152
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.074.0201.sink239, i64 noundef %153) #22
@@ -1770,9 +1770,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit65:                  ; preds = %_ZNSt6vectorIfSaIfE
   ret void
 
 _ZNSt6vectorIN11OpenImageIO6v3_1_07ustringESaIS2_EED2Ev.exit72.sink.split: ; preds = %150, %.thread112, %_ZNSt6vectorIiSaIiEED2Ev.exit, %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %.sroa.074.0200.sink242 = phi ptr [ %.sroa.093.0176, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.sroa.082.0189, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %.sroa.074.0200, %.thread112 ], [ %.sroa.074.0200, %150 ]
-  %.sink.i203.sink = phi i64 [ %93, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %121, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %.sink.i203, %.thread112 ], [ %.sink.i203, %150 ]
-  %.pn49.pn.ph = phi { ptr, i32 } [ %92, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %120, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %149, %.thread112 ], [ %151, %150 ]
+  %.sroa.074.0200.sink242 = phi ptr [ %.sroa.082.0189, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %.sroa.093.0176, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.sroa.074.0200, %.thread112 ], [ %.sroa.074.0200, %150 ]
+  %.sink.i203.sink = phi i64 [ %121, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %93, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.sink.i203, %.thread112 ], [ %.sink.i203, %150 ]
+  %.pn49.pn.ph = phi { ptr, i32 } [ %120, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %92, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %149, %.thread112 ], [ %151, %150 ]
   %154 = ptrtoint ptr %.sroa.074.0200.sink242 to i64
   %155 = sub i64 %.sink.i203.sink, %154
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.074.0200.sink242, i64 noundef %155) #22
@@ -2184,7 +2184,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
+  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !54
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
@@ -2350,7 +2350,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_09NullInput13seek_subima
   br label %46
 
 46:                                               ; preds = %.loopexit, %3, %11, %10
-  %.0 = phi i1 [ false, %10 ], [ true, %3 ], [ false, %11 ], [ %.0.ph, %.loopexit ]
+  %.0 = phi i1 [ false, %10 ], [ false, %11 ], [ true, %3 ], [ %.0.ph, %.loopexit ]
   ret i1 %.0
 }
 
@@ -3710,7 +3710,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !98
   br label %41
 

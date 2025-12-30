@@ -87,7 +87,7 @@ define hidden noundef ptr @_Z18pj_create_internalP6pj_ctxPKc(ptr noundef %0, ptr
   br label %_Z23pj_create_argv_internalP6pj_ctxiPPc.exit
 
 _Z23pj_create_argv_internalP6pj_ctxiPPc.exit:     ; preds = %25, %30
-  %.0.i = phi ptr [ %27, %25 ], [ %31, %30 ]
+  %.0.i = phi ptr [ %31, %30 ], [ %27, %25 ]
   tail call void @free(ptr noundef nonnull %18) #14
   tail call void @free(ptr noundef nonnull %9) #14
   br label %32
@@ -730,8 +730,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not206, label %.thread203, label %.thread
 
-.thread:                                          ; preds = %202, %196, %155, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i196, %158
-  %246 = phi i1 [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i196 ], [ false, %158 ], [ false, %155 ], [ false, %196 ], [ true, %202 ]
+.thread:                                          ; preds = %196, %202, %155, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i196, %158
+  %246 = phi i1 [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i196 ], [ false, %158 ], [ false, %155 ], [ true, %202 ], [ false, %196 ]
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 356
   %248 = load i32, ptr %247, align 4, !tbaa !53
   %.not154 = icmp eq i32 %248, 0
@@ -809,12 +809,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   resume { ptr, i32 } %.pn152
 
 .thread203.sink.split:                            ; preds = %._crit_edge, %273, %277, %266
-  %.0111.ph = phi i32 [ 1, %277 ], [ 1, %266 ], [ 0, %273 ], [ 0, %._crit_edge ]
+  %.0111.ph = phi i32 [ 1, %266 ], [ 1, %277 ], [ 0, %273 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread203
 
 .thread203:                                       ; preds = %.thread203.sink.split, %203, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i196, %29, %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165, %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178, %105, %249, %11, %1
-  %.0111 = phi i32 [ 1, %11 ], [ 0, %1 ], [ 0, %105 ], [ 1, %249 ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i196 ], [ 0, %47 ], [ 0, %23 ], [ 0, %29 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178 ], [ 0, %203 ], [ %.0111.ph, %.thread203.sink.split ]
+  %.0111 = phi i32 [ 0, %1 ], [ 1, %11 ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i196 ], [ 0, %29 ], [ 0, %23 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165 ], [ 0, %47 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178 ], [ 0, %105 ], [ 1, %249 ], [ 0, %203 ], [ %.0111.ph, %.thread203.sink.split ]
   ret i32 %.0111
 }
 

@@ -51,8 +51,8 @@ define void @dsygvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %34
 
 34:                                               ; preds = %24, %29
-  %.0134 = phi i32 [ 1, %24 ], [ %33, %29 ]
-  %.0 = phi i32 [ 1, %24 ], [ %31, %29 ]
+  %.0134 = phi i32 [ %33, %29 ], [ 1, %24 ]
+  %.0 = phi i32 [ %31, %29 ], [ 1, %24 ]
   %35 = load i32, ptr %0, align 4, !tbaa !3
   %36 = add i32 %35, -4
   %or.cond154 = icmp ult i32 %36, -3
@@ -130,7 +130,7 @@ define void @dsygvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not148, label %67, label %.thread183
 
 .thread183.sink.split:                            ; preds = %61, %57, %52, %49, %46, %44, %.thread167, %34, %.thread
-  %.sink = phi i32 [ -1, %34 ], [ -3, %44 ], [ -6, %49 ], [ -4, %46 ], [ -2, %.thread167 ], [ -8, %52 ], [ -11, %57 ], [ -1, %.thread ], [ -13, %61 ]
+  %.sink = phi i32 [ -1, %.thread ], [ -1, %34 ], [ -2, %.thread167 ], [ -3, %44 ], [ -4, %46 ], [ -6, %49 ], [ -8, %52 ], [ -11, %57 ], [ -13, %61 ]
   store i32 %.sink, ptr %13, align 4, !tbaa !3
   br label %.thread183
 

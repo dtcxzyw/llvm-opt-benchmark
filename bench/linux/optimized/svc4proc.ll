@@ -353,7 +353,7 @@ define internal noundef range(i32 0, 83886081) i32 @nlm4svc_proc_sm_notify(ptr n
   %6 = load i16, ptr %5, align 8
   switch i16 %6, label %.critedge [
     i16 2, label %7
-    i16 10, label %12
+    i16 10, label %16
   ]
 
 7:                                                ; preds = %1
@@ -361,43 +361,43 @@ define internal noundef range(i32 0, 83886081) i32 @nlm4svc_proc_sm_notify(ptr n
   %9 = load i16, ptr %8, align 2
   %10 = and i16 %9, 252
   %11 = icmp eq i16 %10, 0
-  br i1 %11, label %30, label %.critedge
+  br i1 %11, label %12, label %.critedge
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  %14 = load i16, ptr %13, align 2
-  %15 = and i16 %14, 252
-  %16 = icmp eq i16 %15, 0
-  br i1 %16, label %17, label %.critedge
-
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %19 = tail call i32 @__ipv6_addr_type(ptr noundef nonnull %18) #7
-  %20 = and i32 %19, 4096
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %26, label %22
-
-22:                                               ; preds = %17
-  %23 = getelementptr i8, ptr %0, i64 68
-  %24 = load i32, ptr %23, align 4
-  %25 = and i32 %24, 255
-  %.not = icmp eq i32 %25, 127
-  br i1 %.not, label %36, label %.critedge
-
-26:                                               ; preds = %17
-  %27 = tail call i32 @__ipv6_addr_type(ptr noundef nonnull %18) #7
-  %28 = and i32 %27, 16
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %.critedge, label %36
-
-30:                                               ; preds = %7
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %32 = load i32, ptr %31, align 4
-  %33 = and i32 %32, 255
-  %.not1 = icmp eq i32 %33, 127
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %14 = load i32, ptr %13, align 4
+  %15 = and i32 %14, 255
+  %.not1 = icmp eq i32 %15, 127
   br i1 %.not1, label %36, label %.critedge
 
-.critedge:                                        ; preds = %26, %22, %1, %7, %12, %30
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  %18 = load i16, ptr %17, align 2
+  %19 = and i16 %18, 252
+  %20 = icmp eq i16 %19, 0
+  br i1 %20, label %21, label %.critedge
+
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %23 = tail call i32 @__ipv6_addr_type(ptr noundef nonnull %22) #7
+  %24 = and i32 %23, 4096
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %30, label %26
+
+26:                                               ; preds = %21
+  %27 = getelementptr i8, ptr %0, i64 68
+  %28 = load i32, ptr %27, align 4
+  %29 = and i32 %28, 255
+  %.not = icmp eq i32 %29, 127
+  br i1 %.not, label %36, label %.critedge
+
+30:                                               ; preds = %21
+  %31 = tail call i32 @__ipv6_addr_type(ptr noundef nonnull %22) #7
+  %32 = and i32 %31, 16
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %.critedge, label %36
+
+.critedge:                                        ; preds = %26, %12, %1, %7, %16, %30
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(63) %2, i8 0, i64 63, i1 false), !annotation !7
   %34 = call ptr @svc_print_addr(ptr noundef %0, ptr noundef nonnull %2, i64 noundef 63) #7
@@ -405,7 +405,7 @@ define internal noundef range(i32 0, 83886081) i32 @nlm4svc_proc_sm_notify(ptr n
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %44
 
-36:                                               ; preds = %26, %22, %30
+36:                                               ; preds = %26, %12, %30
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
@@ -789,7 +789,7 @@ define internal fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %1
   br label %.thread4
 
 .thread4:                                         ; preds = %42, %70, %69, %35, %.thread, %17, %9, %4
-  %71 = phi i32 [ 33554432, %.thread ], [ 0, %35 ], [ 33554432, %4 ], [ 134217728, %17 ], [ 134217728, %9 ], [ %40, %69 ], [ 33554432, %70 ], [ 0, %42 ]
+  %71 = phi i32 [ 33554432, %4 ], [ 134217728, %17 ], [ 134217728, %9 ], [ 33554432, %.thread ], [ 0, %35 ], [ 33554432, %70 ], [ %40, %69 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %71
 }

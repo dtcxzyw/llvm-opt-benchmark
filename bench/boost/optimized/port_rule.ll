@@ -139,7 +139,7 @@ define hidden void @_ZNK5boost4urls6detail9port_rule5parseERPKcS4_(ptr dead_on_u
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %10, %4, %34
-  %35 = phi ptr [ %.promoted64, %34 ], [ %3, %4 ], [ %3, %10 ]
+  %35 = phi ptr [ %3, %4 ], [ %.promoted64, %34 ], [ %3, %10 ]
   %36 = ptrtoint ptr %35 to i64
   %37 = ptrtoint ptr %7 to i64
   %38 = sub i64 %36, %37
@@ -328,9 +328,9 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit54: ; preds = %_
   br label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %48
-  %.0.lcssa = phi i16 [ %55, %48 ], [ %55, %.lr.ph.preheader ], [ %65, %..critedge.loopexit_crit_edge ], [ %65, %.lr.ph ]
-  %.pn.lcssa = phi ptr [ %5, %48 ], [ %5, %.lr.ph.preheader ], [ %storemerge106120, %..critedge.loopexit_crit_edge ], [ %storemerge106120, %.lr.ph ]
-  %storemerge.lcssa = phi ptr [ %storemerge102, %48 ], [ %storemerge102, %.lr.ph.preheader ], [ %storemerge, %..critedge.loopexit_crit_edge ], [ %storemerge, %.lr.ph ]
+  %.0.lcssa = phi i16 [ %55, %48 ], [ %65, %..critedge.loopexit_crit_edge ], [ %55, %.lr.ph.preheader ], [ %65, %.lr.ph ]
+  %.pn.lcssa = phi ptr [ %5, %48 ], [ %storemerge106120, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.preheader ], [ %storemerge106120, %.lr.ph ]
+  %storemerge.lcssa = phi ptr [ %storemerge102, %48 ], [ %storemerge, %..critedge.loopexit_crit_edge ], [ %storemerge102, %.lr.ph.preheader ], [ %storemerge, %.lr.ph ]
   %.not40 = icmp eq ptr %storemerge.lcssa, %3
   br i1 %.not40, label %103, label %66
 
@@ -524,7 +524,7 @@ define hidden void @_ZNK5boost4urls6detail16port_part_rule_t5parseERPKcS4_(ptr d
   br label %.critedge.thread.i.i
 
 .critedge.thread.i.i:                             ; preds = %17, %41, %13
-  %42 = phi ptr [ %.promoted64.i.i, %41 ], [ %3, %13 ], [ %3, %17 ]
+  %42 = phi ptr [ %3, %13 ], [ %.promoted64.i.i, %41 ], [ %3, %17 ]
   %43 = ptrtoint ptr %42 to i64
   %44 = ptrtoint ptr %14 to i64
   %45 = sub i64 %43, %44

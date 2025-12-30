@@ -441,7 +441,7 @@ define ptr @filelist(ptr noundef %0, ptr noundef writeonly captures(address_is_n
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge2, %.preheader, %35, %32, %14, %18, %29, %24
-  %.015 = phi ptr [ %40, %35 ], [ null, %14 ], [ null, %24 ], [ null, %29 ], [ null, %18 ], [ null, %32 ], [ @filelist.buff, %.preheader ], [ @filelist.buff, %.critedge2 ], [ @filelist.buff, %.lr.ph ]
+  %.015 = phi ptr [ null, %24 ], [ null, %29 ], [ null, %18 ], [ null, %14 ], [ %40, %35 ], [ null, %32 ], [ @filelist.buff, %.preheader ], [ @filelist.buff, %.critedge2 ], [ @filelist.buff, %.lr.ph ]
   ret ptr %.015
 }
 
@@ -554,7 +554,7 @@ define range(i32 -1, 1) i32 @close_std_descriptors() local_unnamed_addr #1 {
   br i1 %exitcond45.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %39, %32, %18
-  %.024 = phi i32 [ -1, %32 ], [ -1, %18 ], [ 0, %39 ]
+  %.024 = phi i32 [ -1, %18 ], [ -1, %32 ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.024
 }
@@ -793,7 +793,7 @@ define range(i32 0, 2) i32 @drop_privileges(ptr noundef %0, ptr noundef %1) loca
   br label %.thread36
 
 .thread36:                                        ; preds = %27, %54, %44, %17, %9, %2, %50
-  %.026 = phi i32 [ 0, %2 ], [ 0, %50 ], [ 1, %9 ], [ 1, %17 ], [ 1, %44 ], [ 1, %54 ], [ 1, %27 ]
+  %.026 = phi i32 [ 0, %50 ], [ 0, %2 ], [ 1, %9 ], [ 1, %17 ], [ 1, %44 ], [ 1, %54 ], [ 1, %27 ]
   ret i32 %.026
 }
 

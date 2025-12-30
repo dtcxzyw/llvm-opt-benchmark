@@ -170,7 +170,7 @@ define hidden noundef i64 @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_
   br label %178
 
 136:                                              ; preds = %.thread184, %._crit_edge
-  %.4 = phi i64 [ %.5187, %.thread184 ], [ %.0154.lcssa, %._crit_edge ]
+  %.4 = phi i64 [ %.0154.lcssa, %._crit_edge ], [ %.5187, %.thread184 ]
   %137 = sub i64 %12, %.4
   %138 = icmp ugt i64 %137, 3
   br i1 %138, label %139, label %162
@@ -209,7 +209,7 @@ define hidden noundef i64 @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_
   br label %178
 
 162:                                              ; preds = %.thread188, %136
-  %.6 = phi i64 [ %.7191, %.thread188 ], [ %.4, %136 ]
+  %.6 = phi i64 [ %.4, %136 ], [ %.7191, %.thread188 ]
   %163 = icmp ult i64 %.6, %12
   br i1 %163, label %164, label %178
 
@@ -231,7 +231,7 @@ define hidden noundef i64 @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_
   br label %178
 
 178:                                              ; preds = %159, %132, %88, %164, %162, %5
-  %.0 = phi i64 [ %6, %5 ], [ %.5, %132 ], [ %91, %88 ], [ %.8, %164 ], [ %.6, %162 ], [ %.7, %159 ]
+  %.0 = phi i64 [ %6, %5 ], [ %.8, %164 ], [ %.6, %162 ], [ %.7, %159 ], [ %.5, %132 ], [ %91, %88 ]
   ret i64 %.0
 }
 

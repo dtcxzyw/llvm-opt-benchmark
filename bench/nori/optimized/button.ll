@@ -653,7 +653,7 @@ _ZNKSt8functionIFvvEEclEv.exit._crit_edge:        ; preds = %_ZNKSt8functionIFvv
   br label %154
 
 154:                                              ; preds = %125, %_ZNKSt8functionIFvvEEclEv.exit._crit_edge, %153, %120, %124
-  %155 = phi i8 [ %.pre129, %_ZNKSt8functionIFvvEEclEv.exit._crit_edge ], [ %26, %125 ], [ 0, %153 ], [ %123, %120 ], [ 1, %124 ]
+  %155 = phi i8 [ %.pre129, %_ZNKSt8functionIFvvEEclEv.exit._crit_edge ], [ 0, %153 ], [ %123, %120 ], [ 1, %124 ], [ %26, %125 ]
   %156 = xor i8 %155, %26
   %157 = and i8 %156, 1
   %.not56 = icmp eq i8 %157, 0
@@ -678,7 +678,7 @@ _ZNKSt8functionIFvbEEclEb.exit79:                 ; preds = %160
   br label %_ZN7nanogui3refINS_6ButtonEED2Ev.exit81
 
 _ZN7nanogui3refINS_6ButtonEED2Ev.exit81:          ; preds = %15, %_ZNKSt8functionIFvbEEclEb.exit79, %5, %19, %14, %154
-  %.0 = phi i1 [ true, %154 ], [ true, %_ZNKSt8functionIFvbEEclEb.exit79 ], [ false, %15 ], [ false, %14 ], [ false, %19 ], [ false, %5 ]
+  %.0 = phi i1 [ true, %_ZNKSt8functionIFvbEEclEb.exit79 ], [ true, %154 ], [ false, %14 ], [ false, %19 ], [ false, %5 ], [ false, %15 ]
   call void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %0, i1 noundef zeroext true) #12
   ret i1 %.0
 }
@@ -733,10 +733,10 @@ define hidden void @_ZN7nanogui6Button4drawEP10NVGcontext(ptr noundef nonnull al
   br i1 %26, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %23, %2, %19
-  %.sink162 = phi i64 [ 296, %2 ], [ 296, %19 ], [ 232, %23 ]
-  %.sink160 = phi i64 [ 304, %2 ], [ 304, %19 ], [ 240, %23 ]
-  %.sink159 = phi i64 [ 312, %2 ], [ 312, %19 ], [ 248, %23 ]
-  %.sink = phi i64 [ 320, %2 ], [ 320, %19 ], [ 256, %23 ]
+  %.sink162 = phi i64 [ 296, %19 ], [ 296, %2 ], [ 232, %23 ]
+  %.sink160 = phi i64 [ 304, %19 ], [ 304, %2 ], [ 240, %23 ]
+  %.sink159 = phi i64 [ 312, %19 ], [ 312, %2 ], [ 248, %23 ]
+  %.sink = phi i64 [ 320, %19 ], [ 320, %2 ], [ 256, %23 ]
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink162
   %.sroa.051.0.copyload53 = load <2 x float>, ptr %27, align 4
   %.sroa.454.0..sroa_idx57 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink160

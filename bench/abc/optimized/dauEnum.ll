@@ -923,8 +923,8 @@ Vec_PtrGrow.exit.i.i301:                          ; preds = %214, %212
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %.thread329, %228, %184
-  %235 = phi i8 [ %.pr330.pre, %184 ], [ %.pr330.pre432.fr, %.thread329 ], [ %.pr330.pre432.fr, %228 ]
-  %.not.i = phi ptr [ @.str.1, %184 ], [ %spec.select, %.thread329 ], [ @.str.1, %228 ]
+  %235 = phi i8 [ %.pr330.pre, %184 ], [ %.pr330.pre432.fr, %228 ], [ %.pr330.pre432.fr, %.thread329 ]
+  %.not.i = phi ptr [ @.str.1, %184 ], [ @.str.1, %228 ], [ %spec.select, %.thread329 ]
   %.not12.i.i303 = icmp eq i8 %235, 0
   br i1 %.not12.i.i303, label %Dau_EnumLift.exit.i309, label %.lr.ph.i.i304.preheader
 
@@ -1208,9 +1208,9 @@ Dau_EnumCombineTwo.exit318:                       ; preds = %.Vec_PtrGrow.exit11
   br label %.critedge6
 
 .critedge6:                                       ; preds = %.lr.ph351, %.critedge6.loopexit, %.lr.ph354.split
-  %.val225 = phi i32 [ %.val225444, %.lr.ph354.split ], [ %.val225.pre, %.critedge6.loopexit ], [ %.val225444, %.lr.ph351 ]
-  %.val224441 = phi i32 [ %.val224440, %.lr.ph354.split ], [ %.val224, %.critedge6.loopexit ], [ %.val224440, %.lr.ph351 ]
-  %.val224349437 = phi i32 [ %.val224349, %.lr.ph354.split ], [ %.val224, %.critedge6.loopexit ], [ %.val224349, %.lr.ph351 ]
+  %.val225 = phi i32 [ %.val225.pre, %.critedge6.loopexit ], [ %.val225444, %.lr.ph354.split ], [ %.val225444, %.lr.ph351 ]
+  %.val224441 = phi i32 [ %.val224, %.critedge6.loopexit ], [ %.val224440, %.lr.ph354.split ], [ %.val224440, %.lr.ph351 ]
+  %.val224349437 = phi i32 [ %.val224, %.critedge6.loopexit ], [ %.val224349, %.lr.ph354.split ], [ %.val224349, %.lr.ph351 ]
   %indvars.iv.next396 = add nuw nsw i64 %indvars.iv395, 1
   %347 = sext i32 %.val225 to i64
   %348 = icmp slt i64 %indvars.iv.next396, %347

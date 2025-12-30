@@ -309,8 +309,8 @@ define internal fastcc double @lfo_get_value(ptr noundef readonly captures(none)
   br label %.thread32
 
 .thread32:                                        ; preds = %19, %.thread, %20
-  %21 = phi double [ %16, %.thread ], [ %11, %20 ], [ %11, %19 ]
-  %22 = phi nsz double [ 1.990000e+00, %.thread ], [ %4, %20 ], [ 1.000000e-02, %19 ]
+  %21 = phi double [ %11, %20 ], [ %11, %19 ], [ %16, %.thread ]
+  %22 = phi nsz double [ %4, %20 ], [ 1.000000e-02, %19 ], [ 1.990000e+00, %.thread ]
   %23 = fdiv nsz double %2, %22
   %24 = fadd nsz double %21, %23
   br label %25

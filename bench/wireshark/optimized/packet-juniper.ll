@@ -526,7 +526,7 @@ define internal i32 @dissect_juniper_mlppp(ptr noundef %0, ptr noundef %1, ptr n
   br label %juniper_svc_cookie_proto.exit
 
 juniper_svc_cookie_proto.exit:                    ; preds = %13, %17, %21, %26, %27, %28
-  %.0.i = phi i32 [ 6, %17 ], [ 201, %27 ], [ %.13.i, %21 ], [ 0, %13 ], [ 0, %28 ], [ 5, %26 ]
+  %.0.i = phi i32 [ 0, %28 ], [ 5, %26 ], [ 201, %27 ], [ %.13.i, %21 ], [ 6, %17 ], [ 0, %13 ]
   switch i8 %trunc.i, label %34 [
     i8 84, label %juniper_svc_cookie_proto.exit.thread
     i8 64, label %juniper_svc_cookie_len.exit
@@ -597,10 +597,10 @@ ppp_heuristic_guess.exit:                         ; preds = %34
 46:                                               ; preds = %ppp_heuristic_guess.exit, %ppp_heuristic_guess.exit, %ppp_heuristic_guess.exit, %ppp_heuristic_guess.exit, %ppp_heuristic_guess.exit, %ppp_heuristic_guess.exit, %ppp_heuristic_guess.exit, %ppp_heuristic_guess.exit, %ppp_heuristic_guess.exit, %ppp_heuristic_guess.exit, %ppp_heuristic_guess.exit, %ppp_heuristic_guess.exit, %ppp_heuristic_guess.exit
   br label %ppp_heuristic_guess.exit70
 
-ppp_heuristic_guess.exit70:                       ; preds = %juniper_svc_cookie_proto.exit.thread, %juniper_svc_cookie_len.exit, %40, %46, %ppp_heuristic_guess.exit
-  %.099 = phi i32 [ 0, %46 ], [ 0, %ppp_heuristic_guess.exit ], [ 4, %juniper_svc_cookie_proto.exit.thread ], [ 8, %juniper_svc_cookie_len.exit ], [ 2, %40 ]
-  %.0609098 = phi i32 [ %spec.select, %46 ], [ %spec.select, %ppp_heuristic_guess.exit ], [ %11, %juniper_svc_cookie_proto.exit.thread ], [ %11, %juniper_svc_cookie_len.exit ], [ %spec.select, %40 ]
-  %.2 = phi i32 [ 200, %46 ], [ %spec.select64, %ppp_heuristic_guess.exit ], [ %.0.i72.ph, %juniper_svc_cookie_proto.exit.thread ], [ %.0.i, %juniper_svc_cookie_len.exit ], [ 200, %40 ]
+ppp_heuristic_guess.exit70:                       ; preds = %juniper_svc_cookie_len.exit, %juniper_svc_cookie_proto.exit.thread, %40, %46, %ppp_heuristic_guess.exit
+  %.099 = phi i32 [ 0, %ppp_heuristic_guess.exit ], [ 0, %46 ], [ 8, %juniper_svc_cookie_len.exit ], [ 4, %juniper_svc_cookie_proto.exit.thread ], [ 2, %40 ]
+  %.0609098 = phi i32 [ %spec.select, %ppp_heuristic_guess.exit ], [ %spec.select, %46 ], [ %11, %juniper_svc_cookie_len.exit ], [ %11, %juniper_svc_cookie_proto.exit.thread ], [ %spec.select, %40 ]
+  %.2 = phi i32 [ %spec.select64, %ppp_heuristic_guess.exit ], [ 200, %46 ], [ %.0.i, %juniper_svc_cookie_len.exit ], [ %.0.i72.ph, %juniper_svc_cookie_proto.exit.thread ], [ 200, %40 ]
   %47 = load i32, ptr @hf_juniper_cookie_len, align 4
   %48 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %47, ptr noundef %0, i32 noundef %.0609098, i32 noundef 0, i32 noundef %.099)
   %.not.i = icmp eq ptr %48, null
@@ -683,7 +683,7 @@ define internal i32 @dissect_juniper_mlfr(ptr noundef %0, ptr noundef %1, ptr no
   br label %juniper_svc_cookie_proto.exit
 
 juniper_svc_cookie_proto.exit:                    ; preds = %13, %16, %20, %23, %24, %25
-  %.0.i = phi i32 [ 6, %16 ], [ 201, %24 ], [ 0, %13 ], [ %.14.i, %20 ], [ 0, %25 ], [ 5, %23 ]
+  %.0.i = phi i32 [ 0, %25 ], [ 5, %23 ], [ 201, %24 ], [ %.14.i, %20 ], [ 6, %16 ], [ 0, %13 ]
   switch i8 %trunc.i, label %31 [
     i8 84, label %juniper_svc_cookie_proto.exit.thread
     i8 64, label %.thread
@@ -775,8 +775,8 @@ juniper_svc_cookie_proto.exit.thread:             ; preds = %13, %juniper_svc_co
   br i1 %68, label %.thread127.sink.split, label %.thread127
 
 .thread127.sink.split:                            ; preds = %66, %60, %63, %56
-  %.sink = phi i32 [ 4, %60 ], [ 3, %56 ], [ 4, %63 ], [ 3, %66 ]
-  %.3.ph = phi i32 [ 201, %60 ], [ 206, %56 ], [ 201, %63 ], [ 201, %66 ]
+  %.sink = phi i32 [ 3, %56 ], [ 4, %63 ], [ 4, %60 ], [ 3, %66 ]
+  %.3.ph = phi i32 [ 206, %56 ], [ 201, %63 ], [ 201, %60 ], [ 201, %66 ]
   %69 = load i32, ptr @hf_juniper_mlpic_cookie, align 4
   %70 = zext i16 %36 to i32
   %71 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %69, ptr noundef %0, i32 noundef %.292, i32 noundef 2, i32 noundef %70)
@@ -784,9 +784,9 @@ juniper_svc_cookie_proto.exit.thread:             ; preds = %13, %juniper_svc_co
   br label %.thread127
 
 .thread127:                                       ; preds = %.thread127.sink.split, %55, %66
-  %.5 = phi i32 [ %.292, %55 ], [ %.292, %66 ], [ %72, %.thread127.sink.split ]
-  %.3 = phi i32 [ %.086, %55 ], [ %.086, %66 ], [ %.3.ph, %.thread127.sink.split ]
-  %.2 = phi i32 [ %.0.i101107110, %55 ], [ 0, %66 ], [ 2, %.thread127.sink.split ]
+  %.5 = phi i32 [ %.292, %66 ], [ %.292, %55 ], [ %72, %.thread127.sink.split ]
+  %.3 = phi i32 [ %.086, %66 ], [ %.086, %55 ], [ %.3.ph, %.thread127.sink.split ]
+  %.2 = phi i32 [ 0, %66 ], [ %.0.i101107110, %55 ], [ 2, %.thread127.sink.split ]
   %73 = load i32, ptr @hf_juniper_cookie_len, align 4
   %74 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %73, ptr noundef %0, i32 noundef %.5, i32 noundef 0, i32 noundef %.2)
   %.not.i = icmp eq ptr %74, null
@@ -1704,7 +1704,7 @@ ppp_heuristic_guess.exit.thread:                  ; preds = %100, %ppp_heuristic
   br label %125
 
 125:                                              ; preds = %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %ppp_heuristic_guess.exit.thread, %124
-  %.0.i145.ph = phi i32 [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 6, %124 ]
+  %.0.i145.ph = phi i32 [ 6, %124 ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ], [ 2, %ppp_heuristic_guess.exit.thread ]
   %126 = load i32, ptr @hf_juniper_encap_type, align 4
   %127 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %11, i32 noundef %126, ptr noundef %0, i32 noundef %.0114146, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.223)
   tail call fastcc void @dissect_juniper_payload_proto(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %11, i32 noundef %.0.i145.ph, i32 noundef %.0114146)
@@ -1850,7 +1850,7 @@ define internal fastcc range(i32 -1, 65536) i32 @dissect_juniper_header(ptr noun
   br label %juniper_ext_get_tlv_value.exit
 
 juniper_ext_get_tlv_value.exit:                   ; preds = %45, %46, %49, %52, %54, %56, %57, %60, %63, %65
-  %.0.i = phi i32 [ %66, %65 ], [ %48, %46 ], [ %51, %49 ], [ %53, %52 ], [ %55, %54 ], [ -1, %45 ], [ %59, %57 ], [ %62, %60 ], [ %64, %63 ], [ -1, %56 ]
+  %.0.i = phi i32 [ %48, %46 ], [ %51, %49 ], [ %53, %52 ], [ %55, %54 ], [ %59, %57 ], [ %62, %60 ], [ %64, %63 ], [ %66, %65 ], [ -1, %45 ], [ -1, %56 ]
   switch i8 %30, label %88 [
     i8 3, label %67
     i8 7, label %70

@@ -131,7 +131,7 @@ define internal i32 @flac_parse(ptr noundef captures(none) %0, ptr noundef %1, p
   %or.cond8.i = or i1 %49, %or.cond5.i
   br i1 %or.cond8.i, label %50, label %frame_header_is_valid.exit.thread
 
-frame_header_is_valid.exit.thread:                ; preds = %24, %14, %46
+frame_header_is_valid.exit.thread:                ; preds = %14, %24, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %72
 
@@ -893,7 +893,7 @@ find_headers_search.exit84.i:                     ; preds = %.loopexit.i73.i, %.
   br i1 %.not45.i, label %find_new_headers.exit.thread, label %.preheader.i, !llvm.loop !77
 
 find_new_headers.exit.thread:                     ; preds = %.preheader.i, %394, %395
-  %.2.i275 = phi i32 [ %.039.i, %394 ], [ 0, %395 ], [ %397, %.preheader.i ]
+  %.2.i275 = phi i32 [ 0, %395 ], [ %.039.i, %394 ], [ %397, %.preheader.i ]
   store i32 %.2.i275, ptr %170, align 4, !tbaa !60
   %400 = load i32, ptr %169, align 8, !tbaa !72
   %.not217 = icmp eq i32 %400, 0
@@ -1172,7 +1172,7 @@ select.unfold.outer.backedge:                     ; preds = %446, %402
   br label %flac_fifo_read_wrap.exit
 
 flac_fifo_read_wrap.exit:                         ; preds = %485, %492, %513
-  %.0.i257 = phi ptr [ null, %492 ], [ %514, %513 ], [ %.040.i, %485 ]
+  %.0.i257 = phi ptr [ %514, %513 ], [ null, %492 ], [ %.040.i, %485 ]
   store ptr %.0.i257, ptr %2, align 8, !tbaa !57
   br i1 %.not208.lcssa, label %515, label %519
 
@@ -1249,13 +1249,13 @@ flac_fifo_size.exit264:                           ; preds = %527, %537
   %553 = sub i64 %551, %552
   br i1 %.not208316, label %554, label %556
 
-554:                                              ; preds = %232, %465, %.thread276.thread, %.thread276
-  %.in = phi i64 [ %548, %.thread276.thread ], [ %553, %.thread276 ], [ %468, %465 ], [ %235, %232 ]
+554:                                              ; preds = %465, %232, %.thread276.thread, %.thread276
+  %.in = phi i64 [ %548, %.thread276.thread ], [ %553, %.thread276 ], [ %235, %232 ], [ %468, %465 ]
   %555 = trunc i64 %.in to i32
   br label %556
 
-556:                                              ; preds = %554, %.thread276, %465, %232, %152, %549, %542, %81, %72
-  %.0 = phi i32 [ %5, %72 ], [ %82, %81 ], [ %153, %152 ], [ %550, %549 ], [ %544, %542 ], [ %555, %554 ], [ 0, %.thread276 ], [ 0, %465 ], [ 0, %232 ]
+556:                                              ; preds = %554, %.thread276, %232, %465, %152, %549, %542, %81, %72
+  %.0 = phi i32 [ %5, %72 ], [ %82, %81 ], [ %544, %542 ], [ %550, %549 ], [ %153, %152 ], [ %555, %554 ], [ 0, %.thread276 ], [ 0, %232 ], [ 0, %465 ]
   ret i32 %.0
 }
 
@@ -1449,7 +1449,7 @@ flac_fifo_size.exit:                              ; preds = %17, %28
   br label %flac_fifo_read_wrap.exit
 
 flac_fifo_read_wrap.exit:                         ; preds = %69, %76, %97
-  %.0.i50 = phi ptr [ null, %76 ], [ %98, %97 ], [ %.040.i, %69 ]
+  %.0.i50 = phi ptr [ %98, %97 ], [ null, %76 ], [ %.040.i, %69 ]
   store ptr %.0.i50, ptr %1, align 8, !tbaa !57
   %99 = load ptr, ptr %0, align 8, !tbaa !12
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 184
@@ -1628,10 +1628,10 @@ flac_fifo_size.exit.thread:                       ; preds = %flac_fifo_space.exi
   br label %flac_fifo_size.exit47
 
 flac_fifo_size.exit47:                            ; preds = %flac_fifo_size.exit, %.thread61._crit_edge, %flac_fifo_size.exit.thread74, %37, %flac_fifo_size.exit.thread
-  %.pre-phi87 = phi i64 [ %27, %flac_fifo_size.exit.thread74 ], [ %18, %flac_fifo_size.exit ], [ %38, %37 ], [ %31, %flac_fifo_size.exit.thread ], [ %.pre, %.thread61._crit_edge ]
-  %.pre-phi = phi i64 [ %28, %flac_fifo_size.exit.thread74 ], [ %19, %flac_fifo_size.exit ], [ %39, %37 ], [ %32, %flac_fifo_size.exit.thread ], [ %.pre89, %.thread61._crit_edge ]
-  %.neg6.i525459 = phi i64 [ %.neg6.i51, %flac_fifo_size.exit.thread74 ], [ %.neg6.i, %flac_fifo_size.exit ], [ %.neg6.i51, %37 ], [ %.neg6.i51, %flac_fifo_size.exit.thread ], [ %.neg6.i51, %.thread61._crit_edge ]
-  %43 = phi i64 [ %2, %flac_fifo_size.exit.thread74 ], [ %spec.select, %flac_fifo_size.exit ], [ %42, %37 ], [ %2, %flac_fifo_size.exit.thread ], [ %.pre91, %.thread61._crit_edge ]
+  %.pre-phi87 = phi i64 [ %27, %flac_fifo_size.exit.thread74 ], [ %38, %37 ], [ %31, %flac_fifo_size.exit.thread ], [ %.pre, %.thread61._crit_edge ], [ %18, %flac_fifo_size.exit ]
+  %.pre-phi = phi i64 [ %28, %flac_fifo_size.exit.thread74 ], [ %39, %37 ], [ %32, %flac_fifo_size.exit.thread ], [ %.pre89, %.thread61._crit_edge ], [ %19, %flac_fifo_size.exit ]
+  %.neg6.i525459 = phi i64 [ %.neg6.i51, %flac_fifo_size.exit.thread74 ], [ %.neg6.i51, %37 ], [ %.neg6.i51, %flac_fifo_size.exit.thread ], [ %.neg6.i51, %.thread61._crit_edge ], [ %.neg6.i, %flac_fifo_size.exit ]
+  %43 = phi i64 [ %2, %flac_fifo_size.exit.thread74 ], [ %42, %37 ], [ %2, %flac_fifo_size.exit.thread ], [ %.pre91, %.thread61._crit_edge ], [ %spec.select, %flac_fifo_size.exit ]
   %44 = sub i64 %.pre-phi, %8
   %45 = sub i64 %.pre-phi87, %8
   %46 = xor i64 %43, -1
@@ -1817,7 +1817,7 @@ define internal fastcc range(i32 0, 89) i32 @check_header_mismatch(ptr noundef r
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %41 = load i32, ptr %40, align 8, !tbaa !56
   %42 = icmp eq i32 %39, %41
-  br i1 %42, label %43, label %57
+  br i1 %42, label %43, label %59
 
 43:                                               ; preds = %37
   %.not120 = icmp eq i32 %39, 0
@@ -1832,24 +1832,24 @@ define internal fastcc range(i32 0, 89) i32 @check_header_mismatch(ptr noundef r
   %50 = add nsw i64 %45, %49
   %51 = load i64, ptr %10, align 8, !tbaa !54
   %52 = icmp eq i64 %50, %51
-  br i1 %52, label %.critedge, label %59
+  br i1 %52, label %.critedge, label %57
 
 53:                                               ; preds = %43
   %54 = add nsw i64 %45, 1
   %55 = load i64, ptr %10, align 8, !tbaa !54
   %56 = icmp eq i64 %54, %55
-  br i1 %56, label %.critedge, label %59
+  br i1 %56, label %.critedge, label %57
 
-57:                                               ; preds = %37
-  %.not118 = icmp eq i32 %.0106, 0
-  %.not119 = icmp eq i32 %.0104, 0
-  %58 = select i1 %.not118, i1 %.not119, i1 false
-  br i1 %58, label %63, label %.critedge
-
-59:                                               ; preds = %53, %46
+57:                                               ; preds = %46, %53
   %.not122 = icmp eq i32 %.0106, 0
   %.not123 = icmp eq i32 %.0104, 0
-  %60 = select i1 %.not122, i1 %.not123, i1 false
+  %58 = select i1 %.not122, i1 %.not123, i1 false
+  br i1 %58, label %63, label %.critedge
+
+59:                                               ; preds = %37
+  %.not118 = icmp eq i32 %.0106, 0
+  %.not119 = icmp eq i32 %.0104, 0
+  %60 = select i1 %.not118, i1 %.not119, i1 false
   br i1 %60, label %63, label %.critedge
 
 .critedge:                                        ; preds = %57, %46, %53, %59
@@ -2198,7 +2198,7 @@ define internal fastcc i32 @find_headers_search_validate(ptr noundef %0, i32 nou
   br label %flac_fifo_read_wrap.exit
 
 flac_fifo_read_wrap.exit:                         ; preds = %19, %25, %47
-  %.0.i = phi ptr [ null, %25 ], [ %48, %47 ], [ %.040.i, %19 ]
+  %.0.i = phi ptr [ %48, %47 ], [ null, %25 ], [ %.040.i, %19 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2259,7 +2259,7 @@ flac_fifo_read_wrap.exit:                         ; preds = %19, %25, %47
   %or.cond8.i = or i1 %85, %or.cond5.i
   br i1 %or.cond8.i, label %86, label %frame_header_is_valid.exit.thread
 
-frame_header_is_valid.exit.thread:                ; preds = %60, %flac_fifo_read_wrap.exit, %82
+frame_header_is_valid.exit.thread:                ; preds = %flac_fifo_read_wrap.exit, %60, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %108
 

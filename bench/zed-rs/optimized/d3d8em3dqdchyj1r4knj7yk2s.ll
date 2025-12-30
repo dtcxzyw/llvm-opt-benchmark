@@ -269,8 +269,8 @@ define { ptr, i64 } @_ZN9google_ai5Model2id17h4aefd28ba15dac34E(ptr noalias noun
   br label %10
 
 10:                                               ; preds = %1, %5, %4
-  %.sroa.4.0 = phi i64 [ %9, %5 ], [ 16, %4 ], [ 14, %1 ]
-  %.sroa.0.0 = phi ptr [ %7, %5 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.3, %4 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.2, %1 ]
+  %.sroa.4.0 = phi i64 [ 16, %4 ], [ %9, %5 ], [ 14, %1 ]
+  %.sroa.0.0 = phi ptr [ @anon.b18fad0c55fffb1a80b539602e1e54e2.3, %4 ], [ %7, %5 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.2, %1 ]
   %11 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %12 = insertvalue { ptr, i64 } %11, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %12
@@ -300,8 +300,8 @@ define { ptr, i64 } @_ZN9google_ai5Model12display_name17h603c263b32812e6aE(ptr n
   br label %13
 
 13:                                               ; preds = %1, %5, %4
-  %.sroa.4.0 = phi i64 [ %12, %5 ], [ 16, %4 ], [ 14, %1 ]
-  %.sroa.0.0 = phi ptr [ %10, %5 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.5, %4 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.4, %1 ]
+  %.sroa.4.0 = phi i64 [ 16, %4 ], [ %12, %5 ], [ 14, %1 ]
+  %.sroa.0.0 = phi ptr [ @anon.b18fad0c55fffb1a80b539602e1e54e2.5, %4 ], [ %10, %5 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.4, %1 ]
   %14 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %15 = insertvalue { ptr, i64 } %14, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %15
@@ -325,7 +325,7 @@ define noundef i64 @_ZN9google_ai5Model15max_token_count17h3a9fa288247a975aE(ptr
   br label %8
 
 8:                                                ; preds = %1, %5, %4
-  %.sroa.0.0 = phi i64 [ %7, %5 ], [ 1000000, %4 ], [ 2000000, %1 ]
+  %.sroa.0.0 = phi i64 [ 1000000, %4 ], [ %7, %5 ], [ 2000000, %1 ]
   ret i64 %.sroa.0.0
 }
 
@@ -354,8 +354,8 @@ define noundef zeroext i1 @"_ZN55_$LT$google_ai..Model$u20$as$u20$core..fmt..Dis
   br label %_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit
 
 _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit: ; preds = %2, %8, %9
-  %.sroa.4.0.i = phi i64 [ %13, %9 ], [ 16, %8 ], [ 14, %2 ]
-  %.sroa.0.0.i = phi ptr [ %11, %9 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.3, %8 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.2, %2 ]
+  %.sroa.4.0.i = phi i64 [ 16, %8 ], [ %13, %9 ], [ 14, %2 ]
+  %.sroa.0.0.i = phi ptr [ @anon.b18fad0c55fffb1a80b539602e1e54e2.3, %8 ], [ %11, %9 ], [ @anon.b18fad0c55fffb1a80b539602e1e54e2.2, %2 ]
   store ptr %.sroa.0.0.i, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.4.0.i, ptr %14, align 8
@@ -1181,7 +1181,7 @@ define void @"_ZN9google_ai1_67_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$go
   br label %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..InstanceType$GT$$GT$$GT$17h610a2608e0de2029E.exit102"
 
 "_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..InstanceType$GT$$GT$$GT$17h610a2608e0de2029E.exit102": ; preds = %.body, %98, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h91287cc02d2d2582E.exit"
-  %.pn74 = phi { ptr, i32 } [ %93, %.body ], [ %.pn72, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h91287cc02d2d2582E.exit" ], [ %93, %98 ]
+  %.pn74 = phi { ptr, i32 } [ %.pn72, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h91287cc02d2d2582E.exit" ], [ %93, %98 ], [ %93, %.body ]
   invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$$GT$17hc4a749a81397213bE"(ptr noalias noundef align 8 dereferenceable(24) %46) #20
           to label %101 unwind label %99
 

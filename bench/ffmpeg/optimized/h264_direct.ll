@@ -438,8 +438,8 @@ define void @ff_h264_direct_ref_list_init(ptr noundef readonly captures(none) %0
   br label %115
 
 115:                                              ; preds = %87, %._crit_edge209, %104, %107, %112
-  %.086 = phi i32 [ %9, %112 ], [ %9, %104 ], [ %9, %107 ], [ %102, %._crit_edge209 ], [ 1, %87 ]
-  %.085 = phi i32 [ %13, %112 ], [ %13, %104 ], [ %13, %107 ], [ %102, %._crit_edge209 ], [ 1, %87 ]
+  %.086 = phi i32 [ %9, %104 ], [ %9, %107 ], [ %9, %112 ], [ %102, %._crit_edge209 ], [ 1, %87 ]
+  %.085 = phi i32 [ %13, %104 ], [ %13, %107 ], [ %13, %112 ], [ %102, %._crit_edge209 ], [ 1, %87 ]
   %.086.fr = freeze i32 %.086
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %117 = load i32, ptr %116, align 8, !tbaa !93
@@ -562,8 +562,8 @@ define void @ff_h264_direct_ref_list_init(ptr noundef readonly captures(none) %0
   br label %..loopexit_crit_edge.us.i.us.us.us.us
 
 ..loopexit_crit_edge.us.i.us.us.us.us:            ; preds = %174, %175, %177
-  %180 = phi i32 [ %.pre211, %177 ], [ %154, %175 ], [ %154, %174 ]
-  %181 = phi i32 [ %.pre211, %177 ], [ %155, %175 ], [ %155, %174 ]
+  %180 = phi i32 [ %154, %175 ], [ %.pre211, %177 ], [ %154, %174 ]
+  %181 = phi i32 [ %155, %175 ], [ %.pre211, %177 ], [ %155, %174 ]
   %indvars.iv.next74.i.us.us.us.us = add nuw nsw i64 %indvars.iv73.i.us.us.us.us, 1
   %182 = sext i32 %181 to i64
   %183 = icmp slt i64 %indvars.iv.next74.i.us.us.us.us, %182
@@ -807,8 +807,8 @@ fill_colmap.exit:                                 ; preds = %._crit_edge.i.us.us
   br label %..loopexit_crit_edge.us.i115.us164
 
 ..loopexit_crit_edge.us.i115.us164:               ; preds = %292, %293, %295
-  %300 = phi i32 [ %.pre214, %295 ], [ %272, %293 ], [ %272, %292 ]
-  %301 = phi i32 [ %.pre214, %295 ], [ %273, %293 ], [ %273, %292 ]
+  %300 = phi i32 [ %272, %293 ], [ %.pre214, %295 ], [ %272, %292 ]
+  %301 = phi i32 [ %273, %293 ], [ %.pre214, %295 ], [ %273, %292 ]
   %indvars.iv.next74.i116.us165 = add nuw nsw i64 %indvars.iv73.i109.us155, 1
   %302 = sext i32 %301 to i64
   %303 = icmp slt i64 %indvars.iv.next74.i116.us165, %302
@@ -1042,7 +1042,7 @@ await_reference_mb_row.exit.i:                    ; preds = %24, %14
   br label %mid_pred.exit.i
 
 mid_pred.exit.i:                                  ; preds = %90, %88, %87, %85
-  %.0.i.i = phi i32 [ %..i.i, %87 ], [ %81, %88 ], [ %81, %85 ], [ %.20.i.i, %90 ]
+  %.0.i.i = phi i32 [ %81, %85 ], [ %81, %88 ], [ %..i.i, %87 ], [ %.20.i.i, %90 ]
   %91 = getelementptr inbounds nuw i8, ptr %55, i64 46
   %92 = load i16, ptr %91, align 2, !tbaa !119
   %93 = sext i16 %92 to i32
@@ -1072,7 +1072,7 @@ mid_pred.exit.i:                                  ; preds = %90, %88, %87, %85
   br label %mid_pred.exit416.i
 
 mid_pred.exit416.i:                               ; preds = %106, %104, %103, %101
-  %.0.i413.i = phi i32 [ %..i415.i, %103 ], [ %96, %104 ], [ %96, %101 ], [ %.20.i414.i, %106 ]
+  %.0.i413.i = phi i32 [ %96, %101 ], [ %96, %104 ], [ %..i415.i, %103 ], [ %.20.i414.i, %106 ]
   %107 = and i32 %.0.i.i, 65535
   %108 = shl nsw i32 %.0.i413.i, 16
   %109 = or disjoint i32 %108, %107
@@ -1557,9 +1557,9 @@ await_reference_mb_row.exit418.i:                 ; preds = %258, %252
   br label %.thread.i
 
 .thread.i:                                        ; preds = %384, %379, %373, %369, %367, %362, %356, %349, %335
-  %.2336.i = phi i32 [ %385, %384 ], [ %.0334426.i, %335 ], [ %.0334426.i, %379 ], [ %.0334426.i, %373 ], [ %.0334426.i, %369 ], [ %.0334426.i, %367 ], [ %.0334426.i, %349 ], [ %.0334426.i, %362 ], [ %.0334426.i, %356 ]
-  %.1325.i = phi i32 [ %spec.select405.i, %384 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %335 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %379 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %373 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %369 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %367 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %349 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %362 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %356 ]
-  %.1323.i = phi i32 [ %.0322.i, %384 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %335 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %379 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %373 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %369 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %367 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %349 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %362 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %356 ]
+  %.2336.i = phi i32 [ %385, %384 ], [ %.0334426.i, %379 ], [ %.0334426.i, %373 ], [ %.0334426.i, %369 ], [ %.0334426.i, %367 ], [ %.0334426.i, %349 ], [ %.0334426.i, %335 ], [ %.0334426.i, %362 ], [ %.0334426.i, %356 ]
+  %.1325.i = phi i32 [ %spec.select405.i, %384 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %379 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %373 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %369 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %367 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %349 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %335 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %362 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %356 ]
+  %.1323.i = phi i32 [ %.0322.i, %384 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %379 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %373 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %369 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %367 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %349 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %335 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %362 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %356 ]
   %386 = getelementptr inbounds nuw [2 x i16], ptr %43, i64 %340
   store i32 %.1325.i, ptr %386, align 4, !tbaa !65
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 4
@@ -1751,7 +1751,7 @@ await_reference_mb_row.exit418.i:                 ; preds = %258, %252
   br label %483
 
 483:                                              ; preds = %481, %476, %467, %460, %455, %451, %449, %426, %422
-  %.1318.us.i = phi i32 [ %.0317431.us.i, %422 ], [ %.0317431.us.i, %460 ], [ %.0317431.us.i, %426 ], [ %.0317431.us.i, %449 ], [ %.0317431.us.i, %455 ], [ %.0317431.us.i, %451 ], [ %482, %481 ], [ %477, %476 ], [ %.0317431.us.i, %467 ]
+  %.1318.us.i = phi i32 [ %.0317431.us.i, %422 ], [ %.0317431.us.i, %426 ], [ %.0317431.us.i, %455 ], [ %.0317431.us.i, %451 ], [ %.0317431.us.i, %449 ], [ %482, %481 ], [ %477, %476 ], [ %.0317431.us.i, %467 ], [ %.0317431.us.i, %460 ]
   %indvars.iv.next461.i = add nuw nsw i64 %indvars.iv460.i, 1
   %exitcond463.not.i = icmp eq i64 %indvars.iv.next461.i, 4
   br i1 %exitcond463.not.i, label %.split439.us.loopexit.i, label %.preheader421.split.us.i, !llvm.loop !133
@@ -1944,8 +1944,8 @@ await_reference_mb_row.exit418.i:                 ; preds = %258, %252
   br label %.thread420.i
 
 .thread420.i:                                     ; preds = %584, %580, %575, %571, %569, %567, %562, %558, %552, %538
-  %.1321.i = phi i32 [ %spec.select407.i, %584 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %538 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %580 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %575 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %571 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %569 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %567 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %552 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %562 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %558 ]
-  %.0319.i = phi i32 [ %spec.select409.i, %584 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %538 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %580 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %575 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %571 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %569 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %567 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %552 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %562 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %558 ]
+  %.1321.i = phi i32 [ %spec.select407.i, %584 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %580 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %575 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %571 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %569 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %567 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %552 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %538 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %562 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %558 ]
+  %.0319.i = phi i32 [ %spec.select409.i, %584 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %580 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %575 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %571 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %569 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %567 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %552 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %538 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %562 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.4., %558 ]
   %587 = getelementptr inbounds nuw i8, ptr %1, i64 28800
   store i32 %.1321.i, ptr %587, align 4, !tbaa !65
   %588 = getelementptr inbounds nuw i8, ptr %1, i64 28804
@@ -2381,10 +2381,10 @@ await_reference_mb_row.exit304.i:                 ; preds = %764, %758
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %818, %817, %811
-  %.pre-phi.i = phi i32 [ 0, %817 ], [ %.pre334.i, %818 ], [ %.pre334.i, %811 ]
-  %.0266.i = phi ptr [ %814, %817 ], [ %826, %818 ], [ %814, %811 ]
-  %.sroa.077.0.i = phi ptr [ %812, %817 ], [ %823, %818 ], [ %812, %811 ]
-  %.sroa.7.0.i = phi ptr [ %813, %817 ], [ %824, %818 ], [ %813, %811 ]
+  %.pre-phi.i = phi i32 [ %.pre334.i, %818 ], [ 0, %817 ], [ %.pre334.i, %811 ]
+  %.0266.i = phi ptr [ %826, %818 ], [ %814, %817 ], [ %814, %811 ]
+  %.sroa.077.0.i = phi ptr [ %823, %818 ], [ %812, %817 ], [ %812, %811 ]
+  %.sroa.7.0.i = phi ptr [ %824, %818 ], [ %813, %817 ], [ %813, %811 ]
   %827 = getelementptr inbounds nuw i8, ptr %780, i64 692
   %828 = load i32, ptr %827, align 4, !tbaa !89
   %829 = shl i32 %828, 4

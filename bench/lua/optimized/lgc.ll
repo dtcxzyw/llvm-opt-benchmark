@@ -159,7 +159,7 @@ getgclist.exit.loopexit:                          ; preds = %tailrecurse
   br label %getgclist.exit
 
 getgclist.exit:                                   ; preds = %tailrecurse, %tailrecurse, %getgclist.exit.loopexit, %30, %47, %48
-  %.sink68 = phi i64 [ 120, %48 ], [ 40, %getgclist.exit.loopexit ], [ 32, %30 ], [ 72, %47 ], [ 16, %tailrecurse ], [ 16, %tailrecurse ]
+  %.sink68 = phi i64 [ 72, %47 ], [ 120, %48 ], [ 32, %30 ], [ 40, %getgclist.exit.loopexit ], [ 16, %tailrecurse ], [ 16, %tailrecurse ]
   %49 = getelementptr inbounds nuw i8, ptr %.tr32, i64 %.sink68
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %51 = load ptr, ptr %50, align 8, !tbaa !46
@@ -213,7 +213,7 @@ unreachable:                                      ; preds = %7
   unreachable
 
 getgclist.exit:                                   ; preds = %7, %12, %13, %14, %15
-  %.sink = phi i64 [ 32, %15 ], [ 16, %12 ], [ 40, %7 ], [ 72, %13 ], [ 120, %14 ]
+  %.sink = phi i64 [ 16, %12 ], [ 72, %13 ], [ 120, %14 ], [ 32, %15 ], [ 40, %7 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %18 = load ptr, ptr %17, align 8, !tbaa !46
@@ -979,7 +979,7 @@ sweeplist.exit.i.i:                               ; preds = %.lr.ph.i.i.i
   br i1 %103, label %83, label %entersweep.exit
 
 entersweep.exit:                                  ; preds = %83, %sweeplist.exit.i.i, %101
-  %104 = phi ptr [ null, %101 ], [ null, %83 ], [ %.023.i.i.i, %sweeplist.exit.i.i ]
+  %104 = phi ptr [ null, %101 ], [ %.023.i.i.i, %sweeplist.exit.i.i ], [ null, %83 ]
   %105 = getelementptr inbounds nuw i8, ptr %80, i64 120
   store ptr %104, ptr %105, align 8, !tbaa !53
   br label %203
@@ -1218,7 +1218,7 @@ checkSizes.exit:                                  ; preds = %183, %186, %193
   br label %203
 
 203:                                              ; preds = %checkmajorminor.exit, %201, %202, %entersweep.exit, %50, %51, %checkSizes.exit, %sweepstep.exit67, %sweepstep.exit55, %sweepstep.exit, %restartcollection.exit
-  %.0 = phi i64 [ 1, %restartcollection.exit ], [ 1, %50 ], [ %52, %51 ], [ 10, %201 ], [ -2, %entersweep.exit ], [ 20, %sweepstep.exit ], [ 20, %sweepstep.exit55 ], [ 20, %sweepstep.exit67 ], [ 20, %checkSizes.exit ], [ -3, %202 ], [ -1, %checkmajorminor.exit ]
+  %.0 = phi i64 [ 1, %restartcollection.exit ], [ 1, %50 ], [ %52, %51 ], [ -2, %entersweep.exit ], [ 20, %sweepstep.exit ], [ 20, %sweepstep.exit55 ], [ 20, %sweepstep.exit67 ], [ 20, %checkSizes.exit ], [ -3, %202 ], [ 10, %201 ], [ -1, %checkmajorminor.exit ]
   store i8 0, ptr %5, align 1, !tbaa !60
   br label %204
 
@@ -1626,8 +1626,8 @@ sweepgen.exit84.i:                                ; preds = %sweepgen.exit84.loo
   br label %187
 
 187:                                              ; preds = %184, %177, %175, %170
-  %.127.i91.i = phi i64 [ %.0262.i89.i, %175 ], [ %.0262.i89.i, %170 ], [ %186, %184 ], [ %.0262.i89.i, %177 ]
-  %.1.i92.i = phi ptr [ %165, %175 ], [ %.03.i88.i, %170 ], [ %165, %184 ], [ %165, %177 ]
+  %.127.i91.i = phi i64 [ %.0262.i89.i, %175 ], [ %.0262.i89.i, %177 ], [ %.0262.i89.i, %170 ], [ %186, %184 ]
+  %.1.i92.i = phi ptr [ %165, %175 ], [ %165, %177 ], [ %.03.i88.i, %170 ], [ %165, %184 ]
   %188 = load ptr, ptr %.1.i92.i, align 8, !tbaa !46
   %.not.i93.i = icmp eq ptr %188, %161
   br i1 %.not.i93.i, label %sweepgen.exit97.i, label %164
@@ -1691,8 +1691,8 @@ sweepgen.exit97.i:                                ; preds = %187, %sweepgen.exit
   br label %216
 
 216:                                              ; preds = %213, %206, %204, %199
-  %.127.i104.i = phi i64 [ %.0262.i102.i, %204 ], [ %.0262.i102.i, %199 ], [ %215, %213 ], [ %.0262.i102.i, %206 ]
-  %.1.i105.i = phi ptr [ %194, %204 ], [ %.03.i101.i, %199 ], [ %194, %213 ], [ %194, %206 ]
+  %.127.i104.i = phi i64 [ %.0262.i102.i, %204 ], [ %.0262.i102.i, %206 ], [ %.0262.i102.i, %199 ], [ %215, %213 ]
+  %.1.i105.i = phi ptr [ %194, %204 ], [ %194, %206 ], [ %.03.i101.i, %199 ], [ %194, %213 ]
   %217 = load ptr, ptr %.1.i105.i, align 8, !tbaa !46
   %.not.i106.i = icmp eq ptr %217, %191
   br i1 %.not.i106.i, label %sweepgen.exit110.loopexit.i, label %193
@@ -1763,8 +1763,8 @@ sweepgen.exit110.i:                               ; preds = %sweepgen.exit110.lo
   br label %246
 
 246:                                              ; preds = %243, %236, %234, %229
-  %.127.i117.i = phi i64 [ %.0262.i115.i, %234 ], [ %.0262.i115.i, %229 ], [ %245, %243 ], [ %.0262.i115.i, %236 ]
-  %.1.i118.i = phi ptr [ %224, %234 ], [ %.03.i114.i, %229 ], [ %224, %243 ], [ %224, %236 ]
+  %.127.i117.i = phi i64 [ %.0262.i115.i, %234 ], [ %.0262.i115.i, %236 ], [ %.0262.i115.i, %229 ], [ %245, %243 ]
+  %.1.i118.i = phi ptr [ %224, %234 ], [ %224, %236 ], [ %.03.i114.i, %229 ], [ %224, %243 ]
   %247 = load ptr, ptr %.1.i118.i, align 8, !tbaa !46
   %.not.i119.i = icmp eq ptr %247, null
   br i1 %.not.i119.i, label %sweepgen.exit123.i, label %223
@@ -1851,7 +1851,7 @@ sweeplist.exit.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i
   br i1 %284, label %264, label %minor2inc.exit.i
 
 minor2inc.exit.i:                                 ; preds = %sweeplist.exit.i.i.i.i, %264, %282
-  %285 = phi ptr [ null, %282 ], [ null, %264 ], [ %.023.i.i.i.i.i, %sweeplist.exit.i.i.i.i ]
+  %285 = phi ptr [ null, %282 ], [ %.023.i.i.i.i.i, %sweeplist.exit.i.i.i.i ], [ null, %264 ]
   %286 = getelementptr inbounds nuw i8, ptr %261, i64 120
   store ptr %285, ptr %286, align 8, !tbaa !53
   %287 = getelementptr inbounds nuw i8, ptr %3, i64 105
@@ -1873,7 +1873,7 @@ youngcollection.exit:                             ; preds = %minor2inc.exit.i, %
   br label %incstep.exit.sink.split
 
 incstep.exit.sink.split:                          ; preds = %.split20.us.i, %30, %7, %youngcollection.exit
-  %spec.store.select.i.sink.i.sink = phi i64 [ 20000, %7 ], [ %293, %youngcollection.exit ], [ %spec.store.select.i.i, %30 ], [ %15, %.split20.us.i ]
+  %spec.store.select.i.sink.i.sink = phi i64 [ %293, %youngcollection.exit ], [ 20000, %7 ], [ %spec.store.select.i.i, %30 ], [ %15, %.split20.us.i ]
   tail call void @luaE_setdebt(ptr noundef nonnull %3, i64 noundef %spec.store.select.i.sink.i.sink) #8
   br label %incstep.exit
 
@@ -1964,7 +1964,7 @@ sweeplist.exit.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i
   br i1 %38, label %18, label %fullgen.exit
 
 fullgen.exit:                                     ; preds = %18, %sweeplist.exit.i.i.i.i, %36
-  %39 = phi ptr [ null, %36 ], [ null, %18 ], [ %.023.i.i.i.i.i, %sweeplist.exit.i.i.i.i ]
+  %39 = phi ptr [ null, %36 ], [ %.023.i.i.i.i.i, %sweeplist.exit.i.i.i.i ], [ null, %18 ]
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 120
   store ptr %39, ptr %40, align 8, !tbaa !53
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 105
@@ -2054,7 +2054,7 @@ sweeplist.exit.i.i:                               ; preds = %.lr.ph.i.i.i
   br i1 %31, label %11, label %entersweep.exit
 
 entersweep.exit:                                  ; preds = %11, %sweeplist.exit.i.i, %29
-  %32 = phi ptr [ null, %29 ], [ null, %11 ], [ %.023.i.i.i, %sweeplist.exit.i.i ]
+  %32 = phi ptr [ null, %29 ], [ %.023.i.i.i, %sweeplist.exit.i.i ], [ null, %11 ]
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store ptr %32, ptr %33, align 8, !tbaa !53
   br label %34
@@ -3519,7 +3519,7 @@ iscleared.exit.thread.i.i:                        ; preds = %iscleared.exit.i.i,
   br label %clearkey.exit.i.i
 
 clearkey.exit.i.i:                                ; preds = %iscleared.exit.thread.i.i, %iscleared.exit.i.i, %89, %80, %79
-  %.1.i.i = phi i32 [ %.035.i.i, %80 ], [ 1, %89 ], [ %.035.i.i, %79 ], [ 0, %iscleared.exit.thread.i.i ], [ 1, %iscleared.exit.i.i ]
+  %.1.i.i = phi i32 [ 1, %89 ], [ %.035.i.i, %79 ], [ %.035.i.i, %80 ], [ 0, %iscleared.exit.thread.i.i ], [ 1, %iscleared.exit.i.i ]
   %106 = getelementptr inbounds nuw i8, ptr %.02534.i.i, i64 24
   %107 = icmp ult ptr %106, %67
   br i1 %107, label %.lr.ph.i.i, label %traverseweakvalue.exit.i
@@ -3713,7 +3713,7 @@ unreachable.i.i.i:                                ; preds = %183
   unreachable
 
 getgclist.exit.i.i.i:                             ; preds = %188, %187, %186, %185, %183
-  %.sink.i.i.i = phi i64 [ 32, %188 ], [ 16, %185 ], [ 40, %183 ], [ 72, %186 ], [ 120, %187 ]
+  %.sink.i.i.i = phi i64 [ 16, %185 ], [ 72, %186 ], [ 120, %187 ], [ 32, %188 ], [ 40, %183 ]
   %189 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink.i.i.i
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %191 = load ptr, ptr %190, align 8, !tbaa !46
@@ -3830,7 +3830,7 @@ unreachable.i.i:                                  ; preds = %230
   unreachable
 
 getgclist.exit.i.i:                               ; preds = %235, %234, %233, %232, %230
-  %.sink.i.i = phi i64 [ 32, %235 ], [ 16, %232 ], [ 40, %230 ], [ 72, %233 ], [ 120, %234 ]
+  %.sink.i.i = phi i64 [ 16, %232 ], [ 72, %233 ], [ 120, %234 ], [ 32, %235 ], [ 40, %230 ]
   %236 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink.i.i
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %238 = load ptr, ptr %237, align 8, !tbaa !46
@@ -4259,7 +4259,7 @@ traverseproto.exit:                               ; preds = %.preheader.i, %._cr
   br label %traverseudata.exit
 
 traverseudata.exit:                               ; preds = %traverseCclosure.exit.loopexit, %getgclist.exit.thread53, %traverseLclosure.exit.loopexit, %245, %432, %381, %.sink.split.i.i, %._crit_edge.i, %traverseproto.exit, %traversetable.exit
-  %.0 = phi i64 [ %.lcssa.i, %.sink.split.i.i ], [ %201, %traversetable.exit ], [ 0, %381 ], [ %439, %432 ], [ 1, %245 ], [ %372, %traverseproto.exit ], [ %.lcssa.i, %._crit_edge.i ], [ %263, %traverseLclosure.exit.loopexit ], [ %282, %traverseCclosure.exit.loopexit ], [ 1, %getgclist.exit.thread53 ]
+  %.0 = phi i64 [ %201, %traversetable.exit ], [ %372, %traverseproto.exit ], [ %.lcssa.i, %._crit_edge.i ], [ %.lcssa.i, %.sink.split.i.i ], [ %439, %432 ], [ 0, %381 ], [ %263, %traverseLclosure.exit.loopexit ], [ 1, %245 ], [ %282, %traverseCclosure.exit.loopexit ], [ 1, %getgclist.exit.thread53 ]
   ret i64 %.0
 }
 
@@ -4418,9 +4418,9 @@ iscleared.exit.thread:                            ; preds = %44, %57, %58, %45, 
   br label %clearkey.exit
 
 clearkey.exit:                                    ; preds = %43, %42, %61, %59, %73, %68, %iscleared.exit.thread
-  %.140 = phi i32 [ %.03956, %68 ], [ %.03956, %iscleared.exit.thread ], [ %spec.select, %61 ], [ %.03956, %59 ], [ %.03956, %73 ], [ %.03956, %42 ], [ %.03956, %43 ]
-  %.138 = phi i32 [ %.03757, %68 ], [ %.03757, %iscleared.exit.thread ], [ %.03757, %61 ], [ %.03757, %59 ], [ 1, %73 ], [ %.03757, %42 ], [ %.03757, %43 ]
-  %.1 = phi i32 [ %.058, %68 ], [ %.058, %iscleared.exit.thread ], [ 1, %61 ], [ 1, %59 ], [ %.058, %73 ], [ %.058, %42 ], [ %.058, %43 ]
+  %.140 = phi i32 [ %.03956, %59 ], [ %.03956, %73 ], [ %.03956, %68 ], [ %.03956, %iscleared.exit.thread ], [ %spec.select, %61 ], [ %.03956, %42 ], [ %.03956, %43 ]
+  %.138 = phi i32 [ %.03757, %59 ], [ 1, %73 ], [ %.03757, %68 ], [ %.03757, %iscleared.exit.thread ], [ %.03757, %61 ], [ %.03757, %42 ], [ %.03757, %43 ]
+  %.1 = phi i32 [ 1, %59 ], [ %.058, %73 ], [ %.058, %68 ], [ %.058, %iscleared.exit.thread ], [ 1, %61 ], [ %.058, %42 ], [ %.058, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %74, label %28
@@ -4512,7 +4512,7 @@ unreachable.i:                                    ; preds = %105
   unreachable
 
 getgclist.exit.i:                                 ; preds = %111, %110, %109, %108, %105
-  %.sink.i = phi i64 [ 32, %111 ], [ 16, %108 ], [ 40, %105 ], [ 72, %109 ], [ 120, %110 ]
+  %.sink.i = phi i64 [ 16, %108 ], [ 72, %109 ], [ 120, %110 ], [ 32, %111 ], [ 40, %105 ]
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink.i
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %114 = load ptr, ptr %113, align 8, !tbaa !46
@@ -4647,7 +4647,7 @@ define internal fastcc ptr @correctgraylist(ptr noundef captures(ret: address, p
   br label %getgclist.exit
 
 getgclist.exit:                                   ; preds = %.lr.ph, %6, %8, %10, %12, %14, %16
-  %.0.i = phi ptr [ %17, %16 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ null, %.lr.ph ]
+  %.0.i = phi ptr [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ null, %.lr.ph ]
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %19 = load i8, ptr %18, align 1, !tbaa !27
   %20 = zext i8 %19 to i32

@@ -604,7 +604,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %98, %_ZNSt11char_tr
   br i1 %exitcond.not.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, !llvm.loop !37
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.i: ; preds = %98, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
-  %.2.i.i.i = phi i64 [ %.01116.i.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ -1, %98 ]
+  %.2.i.i.i = phi i64 [ -1, %98 ], [ %.01116.i.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ]
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %.sroa.053.073.i, i64 %.2.i.i.i)
   %100 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %.sroa.8.074.i, i64 noundef %.sroa.speculated.i.i) #9
   %101 = icmp eq i64 %.2.i.i.i, -1
@@ -4082,7 +4082,7 @@ _ZN4llvm11raw_ostreamlsEc.exit739:                ; preds = %1795, %1793, %_ZN4l
   br i1 %.not641, label %._crit_edge, label %.lr.ph754, !llvm.loop !46
 
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %274, %272, %1702, %1700, %_ZL21printPTERNLOGCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.exit.thread, %1642, %_ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.exit, %3
-  %.0588 = phi i1 [ false, %1642 ], [ true, %3 ], [ true, %_ZL21printPTERNLOGCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.exit.thread ], [ true, %1702 ], [ false, %_ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.exit ], [ true, %1700 ], [ true, %272 ], [ true, %274 ]
+  %.0588 = phi i1 [ true, %3 ], [ false, %_ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.exit ], [ false, %1642 ], [ true, %_ZL21printPTERNLOGCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.exit.thread ], [ true, %1700 ], [ true, %1702 ], [ true, %272 ], [ true, %274 ]
   %1797 = load ptr, ptr %5, align 8, !tbaa !3
   %1798 = icmp eq ptr %1797, %6
   br i1 %1798, label %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit, label %1799
@@ -6718,7 +6718,7 @@ _ZN4llvm5X86II8isXMMRegENS_10MCRegisterE.exit.thread10.i: ; preds = %_ZN4llvm5X8
   br label %_ZL16getVectorRegSizeN4llvm10MCRegisterE.exit
 
 _ZL16getVectorRegSizeN4llvm10MCRegisterE.exit:    ; preds = %1, %5, %8, %_ZN4llvm5X86II8isXMMRegENS_10MCRegisterE.exit.i, %_ZN4llvm5X86II8isXMMRegENS_10MCRegisterE.exit.thread10.i
-  %.0.i = phi i16 [ 64, %_ZN4llvm5X86II8isXMMRegENS_10MCRegisterE.exit.thread10.i ], [ 512, %1 ], [ 128, %8 ], [ 128, %_ZN4llvm5X86II8isXMMRegENS_10MCRegisterE.exit.i ], [ 256, %5 ]
+  %.0.i = phi i16 [ 64, %_ZN4llvm5X86II8isXMMRegENS_10MCRegisterE.exit.thread10.i ], [ 512, %1 ], [ 128, %_ZN4llvm5X86II8isXMMRegENS_10MCRegisterE.exit.i ], [ 256, %5 ], [ 128, %8 ]
   %.rhs.trunc = trunc nuw nsw i32 %0 to i16
   %13 = udiv i16 %.0.i, %.rhs.trunc
   %.zext = zext nneg i16 %13 to i32
@@ -6821,7 +6821,7 @@ define internal fastcc void @_ZL12printMaskingRN4llvm11raw_ostreamEPKNS_6MCInstE
   br label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread
 
 _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread: ; preds = %19, %10
-  %33 = phi i32 [ %spec.select, %19 ], [ %14, %10 ]
+  %33 = phi i32 [ %14, %10 ], [ %spec.select, %19 ]
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = zext nneg i32 %33 to i64
   %36 = load ptr, ptr %34, align 8, !tbaa !3

@@ -270,7 +270,7 @@ define internal i32 @odls_default_kill_local(i32 noundef %0, i32 noundef %1) #1 
   br label %30
 
 30:                                               ; preds = %9, %11, %17, %20, %22, %28
-  %.0 = phi i32 [ 0, %20 ], [ 0, %28 ], [ 0, %22 ], [ %.pre, %17 ], [ %8, %11 ], [ %8, %9 ]
+  %.0 = phi i32 [ 0, %28 ], [ 0, %22 ], [ 0, %20 ], [ %.pre, %17 ], [ %8, %11 ], [ %8, %9 ]
   ret i32 %.0
 }
 
@@ -732,7 +732,7 @@ do_parent.exit:                                   ; preds = %69, %86, %101, %133
   br label %244
 
 244:                                              ; preds = %23, %25, %12, %14, %do_parent.exit
-  %.0 = phi i32 [ %.0.i, %do_parent.exit ], [ -70, %12 ], [ -70, %14 ], [ -71, %25 ], [ -71, %23 ]
+  %.0 = phi i32 [ %.0.i, %do_parent.exit ], [ -70, %14 ], [ -70, %12 ], [ -71, %25 ], [ -71, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

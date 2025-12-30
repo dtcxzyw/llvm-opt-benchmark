@@ -175,7 +175,7 @@ lv_spangroup_get_mode.exit.i.i.i:                 ; preds = %41
   br label %convert_indent_pct.exit.i.i
 
 convert_indent_pct.exit.i.i:                      ; preds = %lv_spangroup_get_mode.exit.i.i.i, %41, %32
-  %.0.i.i.i = phi i32 [ %37, %32 ], [ %53, %lv_spangroup_get_mode.exit.i.i.i ], [ 0, %41 ]
+  %.0.i.i.i = phi i32 [ %53, %lv_spangroup_get_mode.exit.i.i.i ], [ %37, %32 ], [ 0, %41 ]
   %54 = sub nsw i32 %35, %.0.i.i.i
   %55 = call zeroext i8 @lv_obj_get_style_opa_recursive(ptr noundef nonnull %24, i32 noundef 0) #9
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -356,7 +356,7 @@ lv_span_get_style_text_letter_space.exit.i.i:     ; preds = %116, %113
   br label %lv_text_get_snippet.exit.i.i
 
 lv_text_get_snippet.exit.i.i:                     ; preds = %135, %124
-  %.0.i224.i.i = phi i1 [ true, %124 ], [ %switch.selectcmp.i.i.i, %135 ]
+  %.0.i224.i.i = phi i1 [ %switch.selectcmp.i.i.i, %135 ], [ true, %124 ]
   %140 = icmp ne i32 %127, 0
   %or.cond13.i.i = and i1 %140, %.0.i224.i.i
   br i1 %or.cond13.i.i, label %141, label %lv_text_get_snippet.exit.thread.i.i
@@ -490,9 +490,9 @@ lv_text_is_break_char.exit248.i.i:                ; preds = %.preheader.i.i
   br label %.thread311.i.i
 
 lv_text_get_snippet.exit.thread.i.i:              ; preds = %.thread308.i.i, %141, %lv_text_get_snippet.exit.i.i, %134, %121
-  %186 = phi i32 [ %132, %lv_text_get_snippet.exit.i.i ], [ %132, %141 ], [ %.pre.i.i, %.thread308.i.i ], [ %132, %134 ], [ 0, %121 ]
-  %.0.i224300.i.i = phi i1 [ %.0.i224.i.i, %lv_text_get_snippet.exit.i.i ], [ true, %141 ], [ true, %.thread308.i.i ], [ false, %134 ], [ false, %121 ]
-  %.0291299.i.i = phi i32 [ %127, %lv_text_get_snippet.exit.i.i ], [ %127, %141 ], [ %127, %.thread308.i.i ], [ 0, %134 ], [ 0, %121 ]
+  %186 = phi i32 [ %132, %141 ], [ %132, %lv_text_get_snippet.exit.i.i ], [ %.pre.i.i, %.thread308.i.i ], [ %132, %134 ], [ 0, %121 ]
+  %.0.i224300.i.i = phi i1 [ true, %141 ], [ %.0.i224.i.i, %lv_text_get_snippet.exit.i.i ], [ true, %.thread308.i.i ], [ false, %134 ], [ false, %121 ]
+  %.0291299.i.i = phi i32 [ %127, %141 ], [ %127, %lv_text_get_snippet.exit.i.i ], [ %127, %.thread308.i.i ], [ 0, %134 ], [ 0, %121 ]
   store ptr %104, ptr %68, align 8, !tbaa !61
   store i32 %.0291299.i.i, ptr %69, align 8, !tbaa !62
   store i32 %186, ptr %70, align 4, !tbaa !63
@@ -1153,8 +1153,8 @@ lv_spangroup_get_mode.exit:                       ; preds = %457
   br label %509
 
 509:                                              ; preds = %507, %502, %489, %495, %477, %473
-  %.050 = phi i32 [ %474, %473 ], [ %490, %489 ], [ %497, %495 ], [ 0, %477 ], [ 0, %502 ], [ %508, %507 ]
-  %.0 = phi i32 [ %476, %473 ], [ %478, %489 ], [ %478, %495 ], [ %478, %477 ], [ %503, %502 ], [ %503, %507 ]
+  %.050 = phi i32 [ %474, %473 ], [ %490, %489 ], [ %497, %495 ], [ 0, %477 ], [ %508, %507 ], [ 0, %502 ]
+  %.0 = phi i32 [ %476, %473 ], [ %478, %489 ], [ %478, %495 ], [ %478, %477 ], [ %503, %507 ], [ %503, %502 ]
   %510 = load i32, ptr %451, align 4, !tbaa !82
   %..0 = tail call i32 @llvm.smax.i32(i32 %510, i32 %.0)
   store i32 %..0, ptr %451, align 4, !tbaa !82
@@ -2104,7 +2104,7 @@ lv_spangroup_get_mode.exit.i:                     ; preds = %22
   br label %convert_indent_pct.exit
 
 convert_indent_pct.exit:                          ; preds = %14, %22, %lv_spangroup_get_mode.exit.i
-  %.0.i = phi i32 [ %18, %14 ], [ %34, %lv_spangroup_get_mode.exit.i ], [ 0, %22 ]
+  %.0.i = phi i32 [ %34, %lv_spangroup_get_mode.exit.i ], [ %18, %14 ], [ 0, %22 ]
   %35 = sub nsw i32 %1, %.0.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @lv_point_set(ptr noundef nonnull %5, i32 noundef %.0.i, i32 noundef 0) #9
@@ -2407,9 +2407,9 @@ lv_text_is_break_char.exit156:                    ; preds = %.preheader214
   br label %.thread199
 
 148:                                              ; preds = %.thread196, %.thread, %lv_text_get_snippet.exit.thread
-  %149 = phi i32 [ %97, %.thread ], [ %.pre268, %.thread196 ], [ %93, %lv_text_get_snippet.exit.thread ]
-  %.0166173187 = phi i32 [ 0, %.thread ], [ %88, %.thread196 ], [ %88, %lv_text_get_snippet.exit.thread ]
-  %.0.i132175186 = phi i1 [ false, %.thread ], [ true, %.thread196 ], [ %.0.i132175, %lv_text_get_snippet.exit.thread ]
+  %149 = phi i32 [ %97, %.thread ], [ %93, %lv_text_get_snippet.exit.thread ], [ %.pre268, %.thread196 ]
+  %.0166173187 = phi i32 [ 0, %.thread ], [ %88, %lv_text_get_snippet.exit.thread ], [ %88, %.thread196 ]
+  %.0.i132175186 = phi i1 [ false, %.thread ], [ %.0.i132175, %lv_text_get_snippet.exit.thread ], [ true, %.thread196 ]
   store ptr %64, ptr %46, align 8, !tbaa !61
   store i32 %.0166173187, ptr %47, align 8, !tbaa !62
   store i32 %149, ptr %48, align 4, !tbaa !63

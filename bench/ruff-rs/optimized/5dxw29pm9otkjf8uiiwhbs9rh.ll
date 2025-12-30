@@ -81,8 +81,8 @@ define internal fastcc void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNe
 33:                                               ; preds = %61, %9
   ret void
 
-34:                                               ; preds = %29, %21, %25, %26
-  %.sroa.3.0.i.ph = phi i8 [ 1, %26 ], [ 0, %25 ], [ 1, %21 ], [ %spec.select.i, %29 ]
+34:                                               ; preds = %25, %21, %26, %29
+  %.sroa.3.0.i.ph = phi i8 [ %spec.select.i, %29 ], [ 1, %26 ], [ 1, %21 ], [ 0, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %.sroa.3.0.i.ph, ptr %5, align 1
   %35 = call noundef i64 @_ZN16ruff_source_file8newlines10LineEnding3len17ha337f21575292d8cE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %5)
@@ -724,7 +724,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit: ; pred
   br label %.thread63
 
 .thread63:                                        ; preds = %31, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit, %.thread
-  %35 = phi i64 [ %.sroa.7.1, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit ], [ 0, %.thread ], [ %30, %31 ]
+  %35 = phi i64 [ 0, %.thread ], [ %.sroa.7.1, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit ], [ %30, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %36 = icmp ult i64 %35, %4
   br i1 %36, label %49, label %37

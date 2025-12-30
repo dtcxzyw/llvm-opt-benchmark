@@ -192,11 +192,11 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   br i1 %or.cond5, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %63, %._crit_edge258, %65
-  %68 = phi i1 [ false, %._crit_edge258 ], [ %67, %65 ], [ false, %63 ]
-  %.0178231316 = phi ptr [ %5, %._crit_edge258 ], [ @inflate_table.dbase, %65 ], [ @inflate_table.lbase, %63 ]
-  %.0177232315 = phi ptr [ %5, %._crit_edge258 ], [ @inflate_table.dext, %65 ], [ @inflate_table.lext, %63 ]
-  %.0233314 = phi i32 [ 20, %._crit_edge258 ], [ 0, %65 ], [ 257, %63 ]
-  %69 = phi i1 [ false, %._crit_edge258 ], [ false, %65 ], [ true, %63 ]
+  %68 = phi i1 [ %67, %65 ], [ false, %._crit_edge258 ], [ false, %63 ]
+  %.0178231316 = phi ptr [ @inflate_table.dbase, %65 ], [ %5, %._crit_edge258 ], [ @inflate_table.lbase, %63 ]
+  %.0177232315 = phi ptr [ @inflate_table.dext, %65 ], [ %5, %._crit_edge258 ], [ @inflate_table.lext, %63 ]
+  %.0233314 = phi i32 [ 0, %65 ], [ 20, %._crit_edge258 ], [ 257, %63 ]
+  %69 = phi i1 [ false, %65 ], [ false, %._crit_edge258 ], [ true, %63 ]
   %70 = shl nuw i32 1, %spec.select222
   %71 = add i32 %70, -1
   %72 = load ptr, ptr %3, align 8, !tbaa !12
@@ -244,8 +244,8 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   br label %93
 
 93:                                               ; preds = %84, %75, %85
-  %.sroa.14.0 = phi i16 [ %80, %75 ], [ %92, %85 ], [ 0, %84 ]
-  %.sroa.0.0 = phi i8 [ 0, %75 ], [ %90, %85 ], [ 96, %84 ]
+  %.sroa.14.0 = phi i16 [ %92, %85 ], [ %80, %75 ], [ 0, %84 ]
+  %.sroa.0.0 = phi i8 [ %90, %85 ], [ 0, %75 ], [ 96, %84 ]
   %.neg = shl nsw i32 -1, %76
   %94 = lshr i32 %.0185, %.0191.ph
   br label %95
@@ -411,7 +411,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %._crit_edge263, %.loopexit.sink.split, %63, %65, %41
-  %.0180 = phi i32 [ 1, %65 ], [ 1, %63 ], [ 0, %.loopexit.sink.split ], [ -1, %41 ], [ 1, %._crit_edge263 ], [ -1, %33 ]
+  %.0180 = phi i32 [ -1, %41 ], [ 1, %65 ], [ 1, %63 ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge263 ], [ -1, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0180

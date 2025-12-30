@@ -443,7 +443,7 @@ define noundef ptr @Abc_ConvertSopToBdd(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not90, label %.loopexit, label %.split, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.critedge.split.split, %.critedge.split.us.us, %.preheader99, %.preheader, %57
-  %.178 = phi ptr [ %9, %.lr.ph.split.us ], [ %.279, %57 ], [ %5, %.preheader ], [ %34, %.critedge.split.us.us ], [ %74, %.critedge.split.split ], [ %5, %.preheader99 ], [ %13, %.lr.ph.split ]
+  %.178 = phi ptr [ %.279, %57 ], [ %5, %.preheader ], [ %5, %.preheader99 ], [ %34, %.critedge.split.us.us ], [ %74, %.critedge.split.split ], [ %9, %.lr.ph.split.us ], [ %13, %.lr.ph.split ]
   %78 = ptrtoint ptr %.178 to i64
   %79 = tail call i32 @Abc_SopGetPhase(ptr noundef %1) #17
   %.not97 = icmp eq i32 %79, 0
@@ -878,7 +878,7 @@ Vec_IntFreeP.exit:                                ; preds = %156, %161
   br label %165
 
 165:                                              ; preds = %.thread127, %Vec_IntFreeP.exit, %149
-  %.3 = phi i32 [ 0, %.thread127 ], [ 0, %149 ], [ 1, %Vec_IntFreeP.exit ]
+  %.3 = phi i32 [ 0, %149 ], [ 1, %Vec_IntFreeP.exit ], [ 0, %.thread127 ]
   ret i32 %.3
 }
 
@@ -1325,8 +1325,8 @@ Vec_IntAlloc.exit.thread:                         ; preds = %4
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %28, %Vec_IntAlloc.exit
-  %31 = phi ptr [ %14, %Vec_IntAlloc.exit ], [ %30, %28 ]
-  %32 = phi ptr [ %15, %Vec_IntAlloc.exit ], [ %29, %28 ]
+  %31 = phi ptr [ %30, %28 ], [ %14, %Vec_IntAlloc.exit ]
+  %32 = phi ptr [ %29, %28 ], [ %15, %Vec_IntAlloc.exit ]
   %33 = icmp sgt i32 %.val118.val, 0
   br i1 %33, label %.lr.ph.i, label %Vec_IntFill.exit
 
@@ -1343,7 +1343,7 @@ Vec_IntGrow.exit.i:                               ; preds = %28, %Vec_IntAlloc.e
   br i1 %exitcond.not.i, label %Vec_IntFill.exit, label %34, !llvm.loop !72
 
 Vec_IntFill.exit:                                 ; preds = %34, %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i
-  %36 = phi ptr [ %16, %Vec_IntAlloc.exit.thread ], [ %32, %Vec_IntGrow.exit.i ], [ %32, %34 ]
+  %36 = phi ptr [ %32, %Vec_IntGrow.exit.i ], [ %16, %Vec_IntAlloc.exit.thread ], [ %32, %34 ]
   %37 = icmp slt i32 %2, 1000000000
   br i1 %37, label %38, label %.critedge103
 
@@ -2317,8 +2317,8 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntG
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %124, %126, %116, %118
-  %.sink162 = phi ptr [ %119, %118 ], [ %117, %116 ], [ %125, %124 ], [ %127, %126 ]
-  %.sink = phi i32 [ 16, %118 ], [ 16, %116 ], [ %121, %124 ], [ %121, %126 ]
+  %.sink162 = phi ptr [ %117, %116 ], [ %119, %118 ], [ %125, %124 ], [ %127, %126 ]
+  %.sink = phi i32 [ 16, %116 ], [ 16, %118 ], [ %121, %124 ], [ %121, %126 ]
   store ptr %.sink162, ptr %16, align 8, !tbaa !42
   store i32 %.sink, ptr %8, align 8, !tbaa !41
   br label %Vec_IntPush.exit
@@ -2355,10 +2355,10 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %138, label %133, label %.loopexit, !llvm.loop !93
 
 .loopexit:                                        ; preds = %133, %.preheader, %37, %30, %Abc_ObjIsBarBuf.exit
-  %.val82147 = phi ptr [ %.val82146, %Abc_ObjIsBarBuf.exit ], [ %.val82, %.preheader ], [ %.val82146, %37 ], [ %.val82146, %30 ], [ %.val82, %133 ]
-  %.pre.i141 = phi ptr [ %.pre.i140, %Abc_ObjIsBarBuf.exit ], [ %.pre.i142, %.preheader ], [ %.pre.i140, %37 ], [ %.pre.i140, %30 ], [ %.val82, %133 ]
-  %.val81134 = phi ptr [ %.val81133, %Abc_ObjIsBarBuf.exit ], [ %.val81135, %.preheader ], [ %.val81133, %37 ], [ %.val81133, %30 ], [ %.val82, %133 ]
-  %139 = phi ptr [ %31, %Abc_ObjIsBarBuf.exit ], [ %96, %.preheader ], [ %31, %37 ], [ %31, %30 ], [ %.val82, %133 ]
+  %.val82147 = phi ptr [ %.val82, %.preheader ], [ %.val82146, %37 ], [ %.val82146, %30 ], [ %.val82146, %Abc_ObjIsBarBuf.exit ], [ %.val82, %133 ]
+  %.pre.i141 = phi ptr [ %.pre.i142, %.preheader ], [ %.pre.i140, %37 ], [ %.pre.i140, %30 ], [ %.pre.i140, %Abc_ObjIsBarBuf.exit ], [ %.val82, %133 ]
+  %.val81134 = phi ptr [ %.val81135, %.preheader ], [ %.val81133, %37 ], [ %.val81133, %30 ], [ %.val81133, %Abc_ObjIsBarBuf.exit ], [ %.val82, %133 ]
+  %139 = phi ptr [ %96, %.preheader ], [ %31, %37 ], [ %31, %30 ], [ %31, %Abc_ObjIsBarBuf.exit ], [ %.val82, %133 ]
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %140 = load ptr, ptr %20, align 8, !tbaa !18
   %141 = getelementptr i8, ptr %140, i64 4
@@ -2720,7 +2720,7 @@ define ptr @Abc_ConvertSopToAigInternal(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not42, label %.loopexit, label %17, !llvm.loop !101
 
 .loopexit:                                        ; preds = %.lr.ph, %.critedge, %9, %14
-  %.138 = phi ptr [ %32, %.critedge ], [ %8, %14 ], [ %8, %9 ], [ %12, %.lr.ph ]
+  %.138 = phi ptr [ %8, %14 ], [ %8, %9 ], [ %32, %.critedge ], [ %12, %.lr.ph ]
   %36 = tail call i32 @Abc_SopIsComplement(ptr noundef %1) #17
   %.not45 = icmp eq i32 %36, 0
   %37 = ptrtoint ptr %.138 to i64
@@ -4262,7 +4262,7 @@ define range(i32 0, 2) i32 @Abc_NtkToSop(ptr noundef %0, i32 noundef %1, i32 nou
   br label %19
 
 19:                                               ; preds = %3, %.fold.split, %15, %7, %5, %17, %13, %11, %9
-  %.0 = phi i32 [ 0, %15 ], [ 1, %3 ], [ %10, %9 ], [ 1, %5 ], [ 1, %11 ], [ %14, %13 ], [ %18, %17 ], [ 0, %7 ], [ 0, %.fold.split ]
+  %.0 = phi i32 [ %10, %9 ], [ 1, %11 ], [ %14, %13 ], [ %18, %17 ], [ 1, %3 ], [ 1, %5 ], [ 0, %7 ], [ 0, %15 ], [ 0, %.fold.split ]
   ret i32 %.0
 }
 
@@ -4296,7 +4296,7 @@ define range(i32 0, 2) i32 @Abc_NtkToBdd(ptr noundef %0) local_unnamed_addr #1 {
   br label %11
 
 11:                                               ; preds = %1, %1, %.fold.split, %9, %6, %3
-  %.0 = phi i32 [ 1, %1 ], [ 1, %1 ], [ %5, %3 ], [ %8, %6 ], [ %10, %9 ], [ 0, %.fold.split ]
+  %.0 = phi i32 [ %5, %3 ], [ %8, %6 ], [ %10, %9 ], [ 1, %1 ], [ 1, %1 ], [ 0, %.fold.split ]
   ret i32 %.0
 }
 
@@ -4334,7 +4334,7 @@ define range(i32 0, 2) i32 @Abc_NtkToAig(ptr noundef %0) local_unnamed_addr #1 {
   br label %12
 
 12:                                               ; preds = %1, %1, %.fold.split, %6, %10, %8, %3
-  %.0 = phi i32 [ 0, %6 ], [ 1, %1 ], [ %5, %3 ], [ %9, %8 ], [ 1, %1 ], [ %11, %10 ], [ 0, %.fold.split ]
+  %.0 = phi i32 [ %5, %3 ], [ %9, %8 ], [ %11, %10 ], [ 1, %1 ], [ 0, %6 ], [ 1, %1 ], [ 0, %.fold.split ]
   ret i32 %.0
 }
 

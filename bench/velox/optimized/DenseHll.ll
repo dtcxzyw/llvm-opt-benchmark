@@ -1049,8 +1049,8 @@ sw.default.i:                                     ; preds = %if.end12, %for.end2
   br label %_ZN8facebook5velox6common3hll12_GLOBAL__N_15alphaEi.exit
 
 _ZN8facebook5velox6common3hll12_GLOBAL__N_15alphaEi.exit: ; preds = %for.end23, %sw.bb1.i, %sw.bb2.i, %sw.default.i
-  %sum.0.lcssa50 = phi double [ %sum.0.lcssa51, %sw.default.i ], [ %sum.0.lcssa, %sw.bb2.i ], [ %sum.0.lcssa, %sw.bb1.i ], [ %sum.0.lcssa, %for.end23 ]
-  %retval.0.i = phi double [ %div3.i, %sw.default.i ], [ 7.090000e-01, %sw.bb2.i ], [ 6.970000e-01, %sw.bb1.i ], [ 6.730000e-01, %for.end23 ]
+  %sum.0.lcssa50 = phi double [ %sum.0.lcssa51, %sw.default.i ], [ %sum.0.lcssa, %sw.bb1.i ], [ %sum.0.lcssa, %sw.bb2.i ], [ %sum.0.lcssa, %for.end23 ]
+  %retval.0.i = phi double [ %div3.i, %sw.default.i ], [ 6.970000e-01, %sw.bb1.i ], [ 7.090000e-01, %sw.bb2.i ], [ 6.730000e-01, %for.end23 ]
   %conv27 = sitofp i32 %shl to double
   %mul28 = fmul double %retval.0.i, %conv27
   %mul30 = fmul double %mul28, %conv27
@@ -1441,7 +1441,7 @@ for.body:                                         ; preds = %if.end28, %for.body
   br i1 %or.cond75.not, label %for.body, label %return, !llvm.loop !18
 
 return:                                           ; preds = %for.body, %_ZNK8facebook5velox6common3hll12_GLOBAL__N_112DenseHllView8getValueEi.exit.us, %if.end18, %if.end10, %if.end3, %if.end, %entry
-  %retval.0 = phi i1 [ false, %if.end18 ], [ false, %entry ], [ false, %if.end ], [ false, %if.end3 ], [ false, %if.end10 ], [ %or.cond1.us, %_ZNK8facebook5velox6common3hll12_GLOBAL__N_112DenseHllView8getValueEi.exit.us ], [ %or.cond1, %for.body ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end3 ], [ false, %if.end10 ], [ false, %if.end18 ], [ %or.cond1.us, %_ZNK8facebook5velox6common3hll12_GLOBAL__N_112DenseHllView8getValueEi.exit.us ], [ %or.cond1, %for.body ]
   ret i1 %retval.0
 }
 
@@ -2095,7 +2095,7 @@ _ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i.i72: ; preds = %if
   br label %_ZSt27__uninitialized_default_n_aIPtmN8facebook5velox12StlAllocatorItEEET_S5_T0_RT1_.exit22.i
 
 _ZSt27__uninitialized_default_n_aIPtmN8facebook5velox12StlAllocatorItEEET_S5_T0_RT1_.exit22.i: ; preds = %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i.i72, %if.then.i.i.i.i90
-  %cond.i17.i76 = phi ptr [ %add.ptr.i.i.i.i.i75, %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i.i72 ], [ %call.i.i.i.i91, %if.then.i.i.i.i90 ]
+  %cond.i17.i76 = phi ptr [ %call.i.i.i.i91, %if.then.i.i.i.i90 ], [ %add.ptr.i.i.i.i.i75, %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i.i72 ]
   %add.ptr26.i77 = getelementptr inbounds i8, ptr %cond.i17.i76, i64 %sub.ptr.sub.i.i.i.i
   %27 = shl nuw nsw i64 %sub.i.i.i, 1
   tail call void @llvm.memset.p0.i64(ptr align 2 %add.ptr26.i77, i8 0, i64 %27, i1 false)
@@ -2237,7 +2237,7 @@ _ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i.i: ; preds = %_ZN8
   br label %_ZSt27__uninitialized_default_n_aIPamN8facebook5velox12StlAllocatorIaEEET_S5_T0_RT1_.exit22.i
 
 _ZSt27__uninitialized_default_n_aIPamN8facebook5velox12StlAllocatorIaEEET_S5_T0_RT1_.exit22.i: ; preds = %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i.i, %if.then.i.i.i.i47
-  %cond.i17.i = phi ptr [ %add.ptr.i.i.i.i.i, %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i.i ], [ %call.i.i.i.i, %if.then.i.i.i.i47 ]
+  %cond.i17.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i47 ], [ %add.ptr.i.i.i.i.i, %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i.i ]
   %add.ptr26.i = getelementptr inbounds nuw i8, ptr %cond.i17.i, i64 %sub.ptr.sub.i.i5.i.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr26.i, i8 0, i64 %sub.i14.i.i, i1 false)
   %cmp.not5.i.i.i.i = icmp eq ptr %34, %33
@@ -2352,7 +2352,7 @@ if.then12.i:                                      ; preds = %if.else10.i
   br label %_ZN8facebook5velox6common3hll8DenseHll14updateOverflowEiia.exit
 
 _ZN8facebook5velox6common3hll8DenseHll14updateOverflowEiia.exit: ; preds = %if.then3.i, %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit.i, %if.else10.i, %if.then12.i
-  %delta.addr.0.i = phi i8 [ %sub, %if.else10.i ], [ %sub, %if.then12.i ], [ 15, %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit.i ], [ 15, %if.then3.i ]
+  %delta.addr.0.i = phi i8 [ %sub, %if.then12.i ], [ %sub, %if.else10.i ], [ 15, %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit.i ], [ 15, %if.then3.i ]
   %shl = shl i8 %newSlot.0131, 4
   %or = or i8 %delta.addr.0.i, %shl
   %inc58 = add i32 %bucket.1133, 1
@@ -2575,7 +2575,7 @@ if.then12:                                        ; preds = %if.else10
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then3, %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit, %if.else10, %if.then12
-  %delta.addr.0 = phi i8 [ %delta, %if.else10 ], [ %delta, %if.then12 ], [ 15, %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit ], [ 15, %if.then3 ]
+  %delta.addr.0 = phi i8 [ %delta, %if.then12 ], [ %delta, %if.else10 ], [ 15, %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit ], [ 15, %if.then3 ]
   ret i8 %delta.addr.0
 }
 
@@ -2706,7 +2706,7 @@ _ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i: ; preds = %_ZN8fa
   br label %_ZSt27__uninitialized_default_n_aIPamN8facebook5velox12StlAllocatorIaEEET_S5_T0_RT1_.exit22
 
 _ZSt27__uninitialized_default_n_aIPamN8facebook5velox12StlAllocatorIaEEET_S5_T0_RT1_.exit22: ; preds = %if.then.i.i.i, %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i
-  %cond.i17 = phi ptr [ %add.ptr.i.i.i.i, %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i ], [ %call.i.i.i, %if.then.i.i.i ]
+  %cond.i17 = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i, %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i ]
   %add.ptr26 = getelementptr inbounds nuw i8, ptr %cond.i17, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr26, i8 0, i64 %__n, i1 false)
   %cmp.not5.i.i.i = icmp eq ptr %1, %0
@@ -2846,7 +2846,7 @@ _ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i: ; preds = %if.end
   br label %_ZSt27__uninitialized_default_n_aIPtmN8facebook5velox12StlAllocatorItEEET_S5_T0_RT1_.exit22
 
 _ZSt27__uninitialized_default_n_aIPtmN8facebook5velox12StlAllocatorItEEET_S5_T0_RT1_.exit22: ; preds = %if.then.i.i.i, %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i
-  %cond.i17 = phi ptr [ %add.ptr.i.i.i.i, %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i ], [ %call.i.i.i, %if.then.i.i.i ]
+  %cond.i17 = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i, %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i ]
   %add.ptr26 = getelementptr inbounds i8, ptr %cond.i17, i64 %sub.ptr.sub.i
   %7 = shl nuw nsw i64 %__n, 1
   tail call void @llvm.memset.p0.i64(ptr align 2 %add.ptr26, i8 0, i64 %7, i1 false)

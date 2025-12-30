@@ -683,7 +683,7 @@ _ZN10serde_json3ser9Formatter9write_i6417h462eb8b84a65d48bE.exit.i: ; preds = %1
   br label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_u6417hcfecfcee56ab2e6eE.exit"
 
 "_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_u6417hcfecfcee56ab2e6eE.exit": ; preds = %138, %136, %129, %123, %118, %_ZN10serde_json3ser9Formatter9write_i6417h462eb8b84a65d48bE.exit.i, %60, %_ZN10serde_json3ser9Formatter9write_u6417hb12c183dd1f26ac7E.exit.i
-  %.sroa.0.0 = phi ptr [ null, %_ZN10serde_json3ser9Formatter9write_i6417h462eb8b84a65d48bE.exit.i ], [ null, %_ZN10serde_json3ser9Formatter9write_u6417hb12c183dd1f26ac7E.exit.i ], [ %61, %60 ], [ %119, %118 ], [ null, %123 ], [ %137, %136 ], [ %139, %138 ], [ null, %129 ]
+  %.sroa.0.0 = phi ptr [ %61, %60 ], [ null, %_ZN10serde_json3ser9Formatter9write_u6417hb12c183dd1f26ac7E.exit.i ], [ %119, %118 ], [ null, %_ZN10serde_json3ser9Formatter9write_i6417h462eb8b84a65d48bE.exit.i ], [ %137, %136 ], [ null, %123 ], [ %139, %138 ], [ null, %129 ]
   ret ptr %.sroa.0.0
 }
 

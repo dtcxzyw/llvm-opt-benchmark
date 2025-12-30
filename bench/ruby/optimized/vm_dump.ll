@@ -204,7 +204,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_stack_dump_raw(ptr noundef readonly
   br label %41
 
 41:                                               ; preds = %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %28
-  %.086.i = phi ptr [ @.str.51, %40 ], [ @.str.50, %39 ], [ @.str.42, %31 ], [ @.str.43, %32 ], [ @.str.44, %33 ], [ @.str.45, %34 ], [ @.str.46, %35 ], [ @.str.47, %36 ], [ @.str.48, %37 ], [ @.str.49, %38 ], [ @.str.41, %28 ]
+  %.086.i = phi ptr [ @.str.51, %40 ], [ @.str.42, %31 ], [ @.str.43, %32 ], [ @.str.44, %33 ], [ @.str.45, %34 ], [ @.str.46, %35 ], [ @.str.47, %36 ], [ @.str.48, %37 ], [ @.str.49, %38 ], [ @.str.50, %39 ], [ @.str.41, %28 ]
   %42 = getelementptr inbounds nuw i8, ptr %.01012, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !27
   %.not.i = icmp eq ptr %43, null
@@ -300,9 +300,9 @@ RSTRING_PTR.exit118.i:                            ; preds = %76, %70
   br label %86
 
 86:                                               ; preds = %79, %78, %RSTRING_PTR.exit118.i, %RSTRING_PTR.exit114.i, %RB_SYMBOL_P.exit.thread124.i, %RSTRING_PTR.exit.i, %imemo_type_p.exit.i
-  %.not100.i = phi i1 [ true, %78 ], [ false, %RSTRING_PTR.exit.i ], [ false, %RSTRING_PTR.exit118.i ], [ true, %RSTRING_PTR.exit114.i ], [ true, %imemo_type_p.exit.i ], [ false, %79 ], [ true, %RB_SYMBOL_P.exit.thread124.i ]
-  %.083.i = phi ptr [ null, %78 ], [ null, %RSTRING_PTR.exit.i ], [ %43, %RSTRING_PTR.exit118.i ], [ %43, %RSTRING_PTR.exit114.i ], [ null, %imemo_type_p.exit.i ], [ null, %79 ], [ null, %RB_SYMBOL_P.exit.thread124.i ]
-  %.082.i = phi i64 [ -1, %78 ], [ -1, %RSTRING_PTR.exit.i ], [ %68, %RSTRING_PTR.exit118.i ], [ %68, %RSTRING_PTR.exit114.i ], [ -1, %imemo_type_p.exit.i ], [ -1, %79 ], [ -1, %RB_SYMBOL_P.exit.thread124.i ]
+  %.not100.i = phi i1 [ false, %RSTRING_PTR.exit.i ], [ false, %RSTRING_PTR.exit118.i ], [ true, %RSTRING_PTR.exit114.i ], [ false, %79 ], [ true, %78 ], [ true, %imemo_type_p.exit.i ], [ true, %RB_SYMBOL_P.exit.thread124.i ]
+  %.083.i = phi ptr [ null, %RSTRING_PTR.exit.i ], [ %43, %RSTRING_PTR.exit118.i ], [ %43, %RSTRING_PTR.exit114.i ], [ null, %79 ], [ null, %78 ], [ null, %imemo_type_p.exit.i ], [ null, %RB_SYMBOL_P.exit.thread124.i ]
+  %.082.i = phi i64 [ -1, %RSTRING_PTR.exit.i ], [ %68, %RSTRING_PTR.exit118.i ], [ %68, %RSTRING_PTR.exit114.i ], [ -1, %79 ], [ -1, %78 ], [ -1, %imemo_type_p.exit.i ], [ -1, %RB_SYMBOL_P.exit.thread124.i ]
   %87 = load ptr, ptr %0, align 8, !tbaa !7
   %88 = load i64, ptr %8, align 8, !tbaa !22
   %89 = getelementptr i64, ptr %87, i64 %88
@@ -918,7 +918,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_debug_print_pre(ptr noundef readonl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %42, %40, %4
-  %.017 = phi i1 [ true, %4 ], [ false, %._crit_edge ], [ true, %40 ], [ true, %42 ], [ false, %.lr.ph ]
+  %.017 = phi i1 [ true, %4 ], [ false, %._crit_edge ], [ true, %42 ], [ true, %40 ], [ false, %.lr.ph ]
   ret i1 %.017
 }
 
@@ -1778,7 +1778,7 @@ RSTRING_PTR.exit139:                              ; preds = %412, %419
   %422 = icmp slt i32 %421, 0
   br i1 %422, label %.thread158, label %423
 
-423:                                              ; preds = %RSTRING_PTR.exit139, %rbimpl_RB_TYPE_P_fastpath.exit118.thread, %RSTRING_PTR.exit135, %rbimpl_RB_TYPE_P_fastpath.exit116.thread, %RSTRING_PTR.exit131
+423:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit118.thread, %RSTRING_PTR.exit139, %rbimpl_RB_TYPE_P_fastpath.exit116.thread, %RSTRING_PTR.exit135, %RSTRING_PTR.exit131
   %424 = add i32 %.088, 1
   br label %.preheader163, !llvm.loop !148
 
@@ -1816,7 +1816,7 @@ fread.inline.exit:                                ; preds = %.preheader
   %438 = icmp slt i32 %437, 0
   br i1 %438, label %.thread158, label %439
 
-.thread158:                                       ; preds = %rbimpl_RB_TYPE_P_fastpath.exit118.thread, %RSTRING_PTR.exit139, %rbimpl_RB_TYPE_P_fastpath.exit116.thread, %RSTRING_PTR.exit135, %RSTRING_PTR.exit131, %435, %429, %.loopexit, %337, %331, %RSTRING_PTR.exit, %310, %306, %rb_dump_machine_register.exit, %68, %65, %rb_ec_ractor_ptr.exit, %51, %48, %42, %33
+.thread158:                                       ; preds = %RSTRING_PTR.exit139, %rbimpl_RB_TYPE_P_fastpath.exit118.thread, %RSTRING_PTR.exit135, %rbimpl_RB_TYPE_P_fastpath.exit116.thread, %RSTRING_PTR.exit131, %435, %429, %.loopexit, %337, %331, %RSTRING_PTR.exit, %310, %306, %rb_dump_machine_register.exit, %68, %65, %rb_ec_ractor_ptr.exit, %51, %48, %42, %33
   br label %439
 
 439:                                              ; preds = %435, %427, %33, %.thread158
@@ -1890,7 +1890,7 @@ define internal fastcc i64 @rb_class_of(i64 noundef %0) unnamed_addr #8 {
   br label %17
 
 17:                                               ; preds = %14, %12, %9, %11, %10, %6
-  %.0.in = phi ptr [ %8, %6 ], [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select, %14 ]
+  %.0.in = phi ptr [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ %8, %6 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select, %14 ]
   %.0 = load i64, ptr %.0.in, align 8, !tbaa !26
   ret i64 %.0
 }

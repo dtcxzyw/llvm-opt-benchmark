@@ -1457,7 +1457,7 @@ define void @_ZN6LibRaw16blend_highlightsEv(ptr noundef nonnull readonly align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader95, %._crit_edge.thread, %.loopexit.loopexit, %._crit_edge
-  %117 = phi i16 [ %.pre207, %.loopexit.loopexit ], [ %48, %.preheader95 ], [ %48, %._crit_edge ], [ %48, %._crit_edge.thread ]
+  %117 = phi i16 [ %.pre207, %.loopexit.loopexit ], [ %48, %._crit_edge ], [ %48, %._crit_edge.thread ], [ %48, %.preheader95 ]
   %118 = add nuw nsw i32 %.077148, 1
   %119 = zext i16 %117 to i32
   %120 = icmp samesign ult i32 %118, %119

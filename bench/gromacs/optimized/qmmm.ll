@@ -869,7 +869,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_14QMMM18initForceProvidersEPNS_14Force
   br label %common.resume
 
 common.resume:                                    ; preds = %52, %54, %39, %41, %26, %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32, %60
-  %common.resume.op = phi { ptr, i32 } [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32 ], [ %.pn.pn4.i, %28 ], [ %.pn.pn4.i13, %41 ], [ %61, %60 ], [ %27, %26 ], [ %40, %39 ], [ %53, %52 ], [ %.pn.pn4.i23, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32 ], [ %27, %26 ], [ %.pn.pn4.i, %28 ], [ %40, %39 ], [ %.pn.pn4.i13, %41 ], [ %53, %52 ], [ %.pn.pn4.i23, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %23
@@ -1738,7 +1738,7 @@ _ZNSt14_Function_baseD2Ev.exit78:                 ; preds = %204, %_ZN3gmx17MDMo
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit80:                 ; preds = %.body29, %220, %.body47, %236, %.body65, %251, %.body74, %258, %244, %.body56, %228, %.body38, %212, %.body
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %210, %212 ], [ %210, %.body ], [ %eh.lpad-body30, %220 ], [ %eh.lpad-body30, %.body29 ], [ %eh.lpad-body39, %228 ], [ %eh.lpad-body39, %.body38 ], [ %eh.lpad-body48, %236 ], [ %eh.lpad-body48, %.body47 ], [ %eh.lpad-body57, %244 ], [ %eh.lpad-body57, %.body56 ], [ %249, %251 ], [ %249, %.body65 ], [ %256, %.body74 ], [ %256, %258 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %210, %.body ], [ %210, %212 ], [ %eh.lpad-body30, %.body29 ], [ %eh.lpad-body30, %220 ], [ %eh.lpad-body39, %.body38 ], [ %eh.lpad-body39, %228 ], [ %eh.lpad-body48, %.body47 ], [ %eh.lpad-body48, %236 ], [ %eh.lpad-body57, %.body56 ], [ %eh.lpad-body57, %244 ], [ %249, %.body65 ], [ %249, %251 ], [ %256, %.body74 ], [ %256, %258 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 }
 
@@ -2388,7 +2388,7 @@ _ZNSt14_Function_baseD2Ev.exit80:                 ; preds = %208, %_ZN3gmx17MDMo
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit82:                 ; preds = %.body31, %224, %.body49, %240, %.body67, %255, %.body76, %262, %248, %.body58, %232, %.body40, %216, %.body
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %214, %216 ], [ %214, %.body ], [ %eh.lpad-body32, %224 ], [ %eh.lpad-body32, %.body31 ], [ %eh.lpad-body41, %232 ], [ %eh.lpad-body41, %.body40 ], [ %eh.lpad-body50, %240 ], [ %eh.lpad-body50, %.body49 ], [ %eh.lpad-body59, %248 ], [ %eh.lpad-body59, %.body58 ], [ %253, %255 ], [ %253, %.body67 ], [ %260, %.body76 ], [ %260, %262 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %214, %.body ], [ %214, %216 ], [ %eh.lpad-body32, %.body31 ], [ %eh.lpad-body32, %224 ], [ %eh.lpad-body41, %.body40 ], [ %eh.lpad-body41, %232 ], [ %eh.lpad-body50, %.body49 ], [ %eh.lpad-body50, %240 ], [ %eh.lpad-body59, %.body58 ], [ %eh.lpad-body59, %248 ], [ %253, %.body67 ], [ %253, %255 ], [ %260, %.body76 ], [ %260, %262 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 }
 

@@ -133,7 +133,7 @@ define internal fastcc zeroext i1 @parse(ptr noundef readonly captures(none) %0,
   br label %41
 
 41:                                               ; preds = %38, %17, %20, %23, %26, %29, %32, %35, %12
-  %.0 = phi i1 [ false, %17 ], [ false, %12 ], [ %40, %38 ], [ false, %35 ], [ false, %32 ], [ false, %29 ], [ false, %26 ], [ false, %23 ], [ false, %20 ]
+  %.0 = phi i1 [ false, %12 ], [ false, %35 ], [ false, %32 ], [ false, %29 ], [ false, %26 ], [ false, %23 ], [ false, %20 ], [ false, %17 ], [ %40, %38 ]
   ret i1 %.0
 }
 

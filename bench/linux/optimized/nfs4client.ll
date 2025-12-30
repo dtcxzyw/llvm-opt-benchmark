@@ -661,7 +661,7 @@ thread-pre-split:                                 ; preds = %54
   %.not = icmp eq i32 %74, 0
   br i1 %.not, label %.thread17, label %.thread13
 
-.thread17:                                        ; preds = %70, %66, %73
+.thread17:                                        ; preds = %66, %70, %73
   %75 = getelementptr i8, ptr %27, i64 128
   %76 = call i32 @bcmp(ptr noundef dereferenceable(8) %75, ptr noundef nonnull dereferenceable(8) %16, i64 8)
   %77 = icmp eq i32 %76, 0

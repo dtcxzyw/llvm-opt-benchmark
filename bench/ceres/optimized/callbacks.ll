@@ -613,7 +613,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %_ZN
   ret i32 0
 
 173:                                              ; preds = %162, %168, %121, %115, %80, %73
-  %.pn34 = phi { ptr, i32 } [ %81, %80 ], [ %122, %121 ], [ %74, %73 ], [ %116, %115 ], [ %.pn, %168 ], [ %163, %162 ]
+  %.pn34 = phi { ptr, i32 } [ %81, %80 ], [ %74, %73 ], [ %116, %115 ], [ %122, %121 ], [ %.pn, %168 ], [ %163, %162 ]
   %174 = load ptr, ptr %5, align 8, !tbaa !41
   %175 = icmp eq ptr %174, %9
   br i1 %175, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57

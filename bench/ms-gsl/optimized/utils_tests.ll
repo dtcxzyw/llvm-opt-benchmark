@@ -684,7 +684,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit225: ; preds = %78
           cleanup
   br label %114
 
-90:                                               ; preds = %66, %69, %.critedge
+90:                                               ; preds = %69, %66, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %91 unwind label %99
@@ -942,7 +942,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit294: ; preds = %17
           cleanup
   br label %218
 
-187:                                              ; preds = %163, %166, %.critedge201
+187:                                              ; preds = %166, %163, %.critedge201
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %188 unwind label %196
@@ -1200,7 +1200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit316: ; preds = %27
           cleanup
   br label %315
 
-284:                                              ; preds = %260, %263, %.critedge204
+284:                                              ; preds = %263, %260, %.critedge204
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %285 unwind label %293
@@ -1458,7 +1458,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit338: ; preds = %36
           cleanup
   br label %405
 
-381:                                              ; preds = %357, %360, %.critedge207
+381:                                              ; preds = %360, %357, %.critedge207
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %382 unwind label %390
@@ -1716,7 +1716,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit379: ; preds = %46
           cleanup
   br label %502
 
-478:                                              ; preds = %454, %457, %.critedge210
+478:                                              ; preds = %457, %454, %.critedge210
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20)
           to label %479 unwind label %487
@@ -1816,7 +1816,7 @@ _ZN7testing15AssertionResultD2Ev.exit408:         ; preds = %_ZNSt7__cxx1112basi
   ret void
 
 507:                                              ; preds = %_ZN7testing8internal14TrueWithStringD2Ev.exit308, %_ZN7testing8internal14TrueWithStringD2Ev.exit330, %_ZN7testing8internal14TrueWithStringD2Ev.exit350, %_ZN7testing8internal14TrueWithStringD2Ev.exit391, %_ZN7testing8internal14TrueWithStringD2Ev.exit234
-  %.pn194.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn150.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit308 ], [ %.pn126.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit234 ], [ %.pn174.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit350 ], [ %.pn190.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit391 ], [ %.pn162.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit330 ]
+  %.pn194.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn126.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit234 ], [ %.pn190.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit391 ], [ %.pn174.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit350 ], [ %.pn162.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit330 ], [ %.pn150.pn.pn, %_ZN7testing8internal14TrueWithStringD2Ev.exit308 ]
   resume { ptr, i32 } %.pn194.pn.pn.pn.pn
 
 508:                                              ; preds = %475, %458, %378, %361, %281, %264, %184, %167, %87, %70

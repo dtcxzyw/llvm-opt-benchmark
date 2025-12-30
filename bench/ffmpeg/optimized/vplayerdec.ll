@@ -183,7 +183,7 @@ read_ts.exit:                                     ; preds = %31
   br label %63
 
 63:                                               ; preds = %.critedge.thread, %1, %.loopexit
-  %.0 = phi i32 [ -12, %.critedge.thread ], [ 0, %.loopexit ], [ -12, %1 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ -12, %1 ], [ -12, %.critedge.thread ]
   ret i32 %.0
 }
 

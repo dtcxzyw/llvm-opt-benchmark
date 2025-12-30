@@ -3482,7 +3482,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZN4absl12lts_20240
   ret void
 
 _ZNSt14_Function_baseD2Ev.exit28:                 ; preds = %132, %129, %88, %.body, %20
-  %.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %21, %20 ], [ %130, %129 ], [ %130, %132 ], [ %89, %88 ]
+  %.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %eh.lpad-body, %.body ], [ %89, %88 ], [ %130, %129 ], [ %130, %132 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit29 unwind label %140
 
@@ -6131,7 +6131,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58
   br label %.body42
 
 .body42:                                          ; preds = %256, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58, %254, %167
-  %.pn14 = phi { ptr, i32 } [ %168, %167 ], [ %255, %254 ], [ %257, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58 ], [ %257, %256 ]
+  %.pn14 = phi { ptr, i32 } [ %255, %254 ], [ %168, %167 ], [ %257, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58 ], [ %257, %256 ]
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #32
   br label %_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit62
 
@@ -6155,7 +6155,7 @@ _ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit62: ; pr
   br label %.body48
 
 .body48:                                          ; preds = %262, %194, %"_ZZN9grpc_core11HttpRequest11DoHandshakeERKN17grpc_event_engine12experimental11EventEngine15ResolvedAddressEEN3$_0D2Ev.exit64", %_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit62, %136, %130
-  %.pn17.pn.pn = phi { ptr, i32 } [ %264, %"_ZZN9grpc_core11HttpRequest11DoHandshakeERKN17grpc_event_engine12experimental11EventEngine15ResolvedAddressEEN3$_0D2Ev.exit64" ], [ %131, %130 ], [ %.pn, %136 ], [ %.pn14.pn, %_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit62 ], [ %263, %262 ], [ %195, %194 ]
+  %.pn17.pn.pn = phi { ptr, i32 } [ %264, %"_ZZN9grpc_core11HttpRequest11DoHandshakeERKN17grpc_event_engine12experimental11EventEngine15ResolvedAddressEEN3$_0D2Ev.exit64" ], [ %131, %130 ], [ %.pn14.pn, %_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit62 ], [ %.pn, %136 ], [ %263, %262 ], [ %195, %194 ]
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #32
   br label %266
 
@@ -7498,7 +7498,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i.i: ; preds = %114
   unreachable
 
 .body.i.i.i.i:                                    ; preds = %113, %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i, %36
-  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %37, %36 ], [ %.pn.i.i.i.i.i, %113 ], [ %37, %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i.i, %113 ], [ %37, %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i ], [ %37, %36 ]
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #32
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i
 
@@ -7983,9 +7983,9 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorIN17grpc_event_
   br label %86
 
 86:                                               ; preds = %84, %82, %58
-  %.sroa.16.022.i.i.i = phi ptr [ %.sroa.16.1.i.i.i, %82 ], [ %.sroa.16.0.lcssa52.i.i.i, %84 ], [ %.sroa.16.028.i.i.i, %58 ]
-  %.sroa.04.018.i.i.i = phi ptr [ %.sroa.04.1.i.i.i, %82 ], [ %.sroa.04.0.lcssa54.i.i.i, %84 ], [ %.sroa.04.030.i.i.i, %58 ]
-  %.pn.pn.i.i.i = phi { ptr, i32 } [ %83, %82 ], [ %85, %84 ], [ %lpad.phi.i.i.i, %58 ]
+  %.sroa.16.022.i.i.i = phi ptr [ %.sroa.16.0.lcssa52.i.i.i, %84 ], [ %.sroa.16.1.i.i.i, %82 ], [ %.sroa.16.028.i.i.i, %58 ]
+  %.sroa.04.018.i.i.i = phi ptr [ %.sroa.04.0.lcssa54.i.i.i, %84 ], [ %.sroa.04.1.i.i.i, %82 ], [ %.sroa.04.030.i.i.i, %58 ]
+  %.pn.pn.i.i.i = phi { ptr, i32 } [ %85, %84 ], [ %83, %82 ], [ %lpad.phi.i.i.i, %58 ]
   %.not.i.i.i16.i.i.i = icmp eq ptr %.sroa.04.018.i.i.i, null
   br i1 %.not.i.i.i16.i.i.i, label %.body.i.i, label %87
 
@@ -8111,7 +8111,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i:     ; preds = %119
   unreachable
 
 .body.i.i:                                        ; preds = %117, %97, %87, %86
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %.pn.pn.i.i.i, %87 ], [ %98, %97 ], [ %118, %117 ], [ %.pn.pn.i.i.i, %86 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %98, %97 ], [ %118, %117 ], [ %.pn.pn.i.i.i, %86 ], [ %.pn.pn.i.i.i, %87 ]
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorI21grpc_resolved_addressSaIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #32
   resume { ptr, i32 } %eh.lpad-body.i.i
 

@@ -1021,7 +1021,7 @@ proto_item_set_generated.exit:                    ; preds = %267, %264, %261, %2
   br label %370
 
 370:                                              ; preds = %16, %4, %368
-  %.0 = phi i32 [ 0, %4 ], [ %369, %368 ], [ 0, %16 ]
+  %.0 = phi i32 [ %369, %368 ], [ 0, %4 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1533,7 +1533,7 @@ define internal fastcc void @rtpproxy_add_parameter(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %.lr.ph173, %50, %67, %158, %138, %132, %126, %124, %87, %85
-  %.3 = phi i32 [ %13, %.lr.ph173 ], [ %163, %158 ], [ %68, %67 ], [ %13, %50 ], [ %86, %85 ], [ %101, %87 ], [ %125, %124 ], [ %131, %126 ], [ %137, %132 ], [ %157, %138 ], [ %13, %17 ], [ %spec.select, %.lr.ph ]
+  %.3 = phi i32 [ %13, %.lr.ph173 ], [ %68, %67 ], [ %13, %50 ], [ %86, %85 ], [ %101, %87 ], [ %125, %124 ], [ %131, %126 ], [ %137, %132 ], [ %157, %138 ], [ %163, %158 ], [ %13, %17 ], [ %spec.select, %.lr.ph ]
   %164 = icmp ult i32 %.3, %4
   br i1 %164, label %.lr.ph173, label %._crit_edge, !llvm.loop !11
 

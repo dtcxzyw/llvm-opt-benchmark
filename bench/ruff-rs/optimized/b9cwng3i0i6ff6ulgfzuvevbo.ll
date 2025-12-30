@@ -1056,7 +1056,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   br label %"_ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3843551dcf170019E.exit"
 
 "_ZN120_$LT$ruff_formatter..printer..queue..QueueContentIterator$LT$Q$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3843551dcf170019E.exit": ; preds = %.lr.ph.i, %17, %20, %switch.lookup
-  %.sroa.42.2 = phi i64 [ %21, %20 ], [ %18, %17 ], [ %.sroa.42.09, %switch.lookup ], [ %.sroa.42.09, %.lr.ph.i ]
+  %.sroa.42.2 = phi i64 [ %.sroa.42.09, %switch.lookup ], [ %21, %20 ], [ %18, %17 ], [ %.sroa.42.09, %.lr.ph.i ]
   %22 = icmp eq i64 %.sroa.42.2, 0
   br i1 %22, label %23, label %3
 
@@ -1147,7 +1147,7 @@ switch.lookup:                                    ; preds = %.lr.ph
   br label %27
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %switch.lookup, %1, %27
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.sroa.05.015, %27 ], [ null, %22 ], [ %.sroa.05.015, %switch.lookup ], [ %.sroa.05.015, %.lr.ph ]
+  %.sroa.0.0 = phi ptr [ %.sroa.05.015, %27 ], [ null, %1 ], [ %.sroa.05.015, %switch.lookup ], [ null, %22 ], [ %.sroa.05.015, %.lr.ph ]
   ret ptr %.sroa.0.0
 
 27:                                               ; preds = %22, %25
@@ -1406,9 +1406,9 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h8203a764ab41f7cbE.exit: ; preds = %39
   br label %"_ZN79_$LT$ruff_formatter..format_element..tag..Tag$u20$as$u20$core..clone..Clone$GT$5clone17h821775493f0fd8b0E.exit"
 
 "_ZN79_$LT$ruff_formatter..format_element..tag..Tag$u20$as$u20$core..clone..Clone$GT$5clone17h821775493f0fd8b0E.exit": ; preds = %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %64, %67, %70, %75, %82, %87, %90, %93, %98, %104, %110
-  %.sroa.61.0 = phi i32 [ undef, %61 ], [ undef, %61 ], [ undef, %64 ], [ undef, %61 ], [ undef, %67 ], [ undef, %61 ], [ %72, %70 ], [ undef, %61 ], [ %79, %75 ], [ undef, %61 ], [ %84, %82 ], [ undef, %61 ], [ %89, %87 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ %92, %90 ], [ undef, %61 ], [ %95, %93 ], [ undef, %61 ], [ undef, %98 ], [ undef, %61 ], [ %.sroa.08.0.i, %110 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ %106, %104 ], [ undef, %61 ]
-  %.sroa.4.0 = phi i8 [ undef, %61 ], [ undef, %61 ], [ %66, %64 ], [ undef, %61 ], [ %69, %67 ], [ undef, %61 ], [ undef, %70 ], [ undef, %61 ], [ undef, %75 ], [ undef, %61 ], [ undef, %82 ], [ undef, %61 ], [ undef, %87 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %90 ], [ undef, %61 ], [ undef, %93 ], [ undef, %61 ], [ undef, %98 ], [ undef, %61 ], [ undef, %110 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %104 ], [ undef, %61 ]
-  %.sroa.14.0 = phi i64 [ undef, %61 ], [ undef, %61 ], [ undef, %64 ], [ undef, %61 ], [ undef, %67 ], [ undef, %61 ], [ %.sroa.14.8.insert.ext15, %70 ], [ undef, %61 ], [ %.sroa.14.12.insert.insert22, %75 ], [ undef, %61 ], [ %.sroa.14.8.insert.ext7, %82 ], [ undef, %61 ], [ undef, %87 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %90 ], [ undef, %61 ], [ %.sroa.14.8.insert.ext, %93 ], [ undef, %61 ], [ %100, %98 ], [ undef, %61 ], [ %.sroa.14.12.insert.insert, %110 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %104 ], [ undef, %61 ]
+  %.sroa.61.0 = phi i32 [ undef, %61 ], [ undef, %64 ], [ undef, %67 ], [ %72, %70 ], [ %79, %75 ], [ %84, %82 ], [ %89, %87 ], [ %92, %90 ], [ %95, %93 ], [ undef, %98 ], [ %.sroa.08.0.i, %110 ], [ %106, %104 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ]
+  %.sroa.4.0 = phi i8 [ undef, %61 ], [ %66, %64 ], [ %69, %67 ], [ undef, %70 ], [ undef, %75 ], [ undef, %82 ], [ undef, %87 ], [ undef, %90 ], [ undef, %93 ], [ undef, %98 ], [ undef, %110 ], [ undef, %104 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ]
+  %.sroa.14.0 = phi i64 [ undef, %61 ], [ undef, %64 ], [ undef, %67 ], [ %.sroa.14.8.insert.ext15, %70 ], [ %.sroa.14.12.insert.insert22, %75 ], [ %.sroa.14.8.insert.ext7, %82 ], [ undef, %87 ], [ undef, %90 ], [ %.sroa.14.8.insert.ext, %93 ], [ %100, %98 ], [ %.sroa.14.12.insert.insert, %110 ], [ undef, %104 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %63, ptr %113, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9

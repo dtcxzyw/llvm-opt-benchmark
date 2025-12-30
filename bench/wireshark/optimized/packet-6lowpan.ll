@@ -1306,7 +1306,7 @@ dissect_6lowpan_mesh.exit:                        ; preds = %251, %286
   br label %lowpan_reassembly_id.exit.i
 
 lowpan_reassembly_id.exit.i:                      ; preds = %.lr.ph.i.i.i, %370, %366, %353
-  %.0.i.i = phi i32 [ %350, %366 ], [ %375, %370 ], [ %350, %353 ], [ %365, %.lr.ph.i.i.i ]
+  %.0.i.i = phi i32 [ %375, %370 ], [ %350, %366 ], [ %350, %353 ], [ %365, %.lr.ph.i.i.i ]
   br i1 %.not.i94, label %376, label %379
 
 376:                                              ; preds = %lowpan_reassembly_id.exit.i
@@ -1445,7 +1445,7 @@ dissect_6lowpan_rfrag.exit:                       ; preds = %385
   br label %lowpan_reassembly_id.exit.i97
 
 lowpan_reassembly_id.exit.i97:                    ; preds = %.lr.ph.i.i.i103, %448, %444, %431
-  %.0.i.i98 = phi i32 [ %419, %444 ], [ %453, %448 ], [ %419, %431 ], [ %443, %.lr.ph.i.i.i103 ]
+  %.0.i.i98 = phi i32 [ %453, %448 ], [ %419, %444 ], [ %419, %431 ], [ %443, %.lr.ph.i.i.i103 ]
   %454 = icmp slt i32 %426, %415
   %455 = call ptr @fragment_add_check(ptr noundef nonnull @lowpan_reassembly_table, ptr noundef nonnull %423, i32 noundef 0, ptr noundef %1, i32 noundef %.0.i.i98, ptr noundef null, i32 noundef 0, i32 noundef %426, i1 noundef zeroext %454)
   %456 = call ptr @process_reassembled_data(ptr noundef nonnull %423, i32 noundef 0, ptr noundef %1, ptr noundef nonnull @.str.285, ptr noundef %455, ptr noundef nonnull @lowpan_frag_items, ptr noundef null, ptr noundef %166)
@@ -1539,7 +1539,7 @@ dissect_6lowpan_frag_first.exit:                  ; preds = %408, %lowpan_reasse
   br label %lowpan_reassembly_id.exit.i109
 
 lowpan_reassembly_id.exit.i109:                   ; preds = %.lr.ph.i.i.i114, %504, %500, %487
-  %.0.i.i110 = phi i32 [ %474, %500 ], [ %509, %504 ], [ %474, %487 ], [ %499, %.lr.ph.i.i.i114 ]
+  %.0.i.i110 = phi i32 [ %509, %504 ], [ %474, %500 ], [ %474, %487 ], [ %499, %.lr.ph.i.i.i114 ]
   %510 = add i32 %481, %478
   %511 = icmp slt i32 %510, %470
   %512 = call ptr @fragment_add_check(ptr noundef nonnull @lowpan_reassembly_table, ptr noundef %.2, i32 noundef 5, ptr noundef %1, i32 noundef %.0.i.i110, ptr noundef null, i32 noundef %478, i32 noundef %481, i1 noundef zeroext %511)
@@ -1861,8 +1861,8 @@ default.unreachable:                              ; preds = %621, %592
   unreachable
 
 select.unfold.i:                                  ; preds = %664, %654, %644, %633, %.preheader.i, %563, %619, %614, %609, %603, %597, %588, %568, %555, %536
-  %.1195.i = phi i32 [ 0, %619 ], [ 1, %633 ], [ 1, %555 ], [ 1, %588 ], [ -1, %536 ], [ 1, %654 ], [ 1, %597 ], [ 1, %603 ], [ 1, %609 ], [ 1, %614 ], [ 1, %644 ], [ 0, %568 ], [ 1, %563 ], [ 1, %.preheader.i ], [ 1, %664 ]
-  %.3.i = phi i32 [ %.1241.i, %619 ], [ %643, %633 ], [ %560, %555 ], [ %589, %588 ], [ %.1241.i, %536 ], [ %663, %654 ], [ %602, %597 ], [ %608, %603 ], [ %613, %609 ], [ %618, %614 ], [ %653, %644 ], [ %.1241.i, %568 ], [ %566, %563 ], [ %631, %.preheader.i ], [ %672, %664 ]
+  %.1195.i = phi i32 [ 1, %555 ], [ 1, %588 ], [ 1, %597 ], [ 1, %603 ], [ 1, %609 ], [ 1, %614 ], [ 0, %568 ], [ 0, %619 ], [ -1, %536 ], [ 1, %563 ], [ 1, %.preheader.i ], [ 1, %633 ], [ 1, %644 ], [ 1, %654 ], [ 1, %664 ]
+  %.3.i = phi i32 [ %560, %555 ], [ %589, %588 ], [ %602, %597 ], [ %608, %603 ], [ %613, %609 ], [ %618, %614 ], [ %.1241.i, %568 ], [ %.1241.i, %619 ], [ %.1241.i, %536 ], [ %566, %563 ], [ %631, %.preheader.i ], [ %643, %633 ], [ %653, %644 ], [ %663, %654 ], [ %672, %664 ]
   %673 = call zeroext i16 @tvb_get_ntohs(ptr noundef %.2, i32 noundef %.3.i)
   %674 = lshr i16 %673, 13
   %675 = add nsw i16 %674, -6
@@ -2527,9 +2527,9 @@ default.unreachable:                              ; preds = %319, %250, %169, %1
   br label %184
 
 184:                                              ; preds = %166, %171, %176, %179, %174
-  %.0363 = phi ptr [ %.0.i, %179 ], [ %.0.i, %171 ], [ %spec.select396, %174 ], [ %.0.i, %176 ], [ @lowpan_context_default, %166 ]
-  %.not440 = phi i1 [ true, %179 ], [ false, %171 ], [ true, %174 ], [ true, %176 ], [ false, %166 ]
-  %.0355 = phi i32 [ 2, %179 ], [ 0, %171 ], [ 16, %174 ], [ 8, %176 ], [ 0, %166 ]
+  %.0363 = phi ptr [ %.0.i, %171 ], [ %spec.select396, %174 ], [ %.0.i, %176 ], [ %.0.i, %179 ], [ @lowpan_context_default, %166 ]
+  %.not440 = phi i1 [ false, %171 ], [ true, %174 ], [ true, %176 ], [ true, %179 ], [ false, %166 ]
+  %.0355 = phi i32 [ 0, %171 ], [ 16, %174 ], [ 8, %176 ], [ 2, %179 ], [ 0, %166 ]
   %185 = getelementptr inbounds nuw i8, ptr %.0363, i64 5
   %186 = getelementptr inbounds nuw i8, ptr %.0363, i64 4
   %187 = load i8, ptr %186, align 4
@@ -3446,7 +3446,7 @@ default.unreachable:                              ; preds = %106
   br label %243
 
 243:                                              ; preds = %.thread255, %238
-  %.1224 = phi ptr [ %206, %.thread255 ], [ %228, %238 ]
+  %.1224 = phi ptr [ %228, %238 ], [ %206, %.thread255 ]
   %244 = call fastcc ptr @lowpan_reassemble_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %.1224)
   call void @add_new_data_source(ptr noundef %1, ptr noundef %244, ptr noundef nonnull @.str.311)
   br label %245
@@ -4137,7 +4137,7 @@ default.unreachable315:                           ; preds = %198
   br label %293
 
 293:                                              ; preds = %195, %31, %14, %269, %194
-  %.1 = phi ptr [ null, %14 ], [ %103, %194 ], [ %276, %269 ], [ %37, %31 ], [ null, %195 ]
+  %.1 = phi ptr [ %103, %194 ], [ %276, %269 ], [ %37, %31 ], [ null, %14 ], [ null, %195 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.1
 }

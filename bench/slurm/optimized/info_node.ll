@@ -249,8 +249,8 @@ define dso_local void @scontrol_print_node(ptr noundef %0, ptr noundef readonly 
   br label %16
 
 16:                                               ; preds = %12, %.lr.ph.split.us.split
-  %17 = phi i32 [ %6, %.lr.ph.split.us.split ], [ %.pre42, %12 ]
-  %.2.us = phi i32 [ %.033.us, %.lr.ph.split.us.split ], [ %13, %12 ]
+  %17 = phi i32 [ %.pre42, %12 ], [ %6, %.lr.ph.split.us.split ]
+  %.2.us = phi i32 [ %13, %12 ], [ %.033.us, %.lr.ph.split.us.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = zext i32 %17 to i64
   %19 = icmp samesign ult i64 %indvars.iv.next, %18
@@ -892,8 +892,8 @@ define dso_local void @scontrol_print_front_end(ptr noundef %0, ptr noundef read
   br label %16
 
 16:                                               ; preds = %12, %.lr.ph.split.us.split
-  %17 = phi i32 [ %6, %.lr.ph.split.us.split ], [ %.pre43, %12 ]
-  %.2.us = phi i32 [ %.034.us, %.lr.ph.split.us.split ], [ %13, %12 ]
+  %17 = phi i32 [ %.pre43, %12 ], [ %6, %.lr.ph.split.us.split ]
+  %.2.us = phi i32 [ %13, %12 ], [ %.034.us, %.lr.ph.split.us.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = zext i32 %17 to i64
   %19 = icmp samesign ult i64 %indvars.iv.next, %18
@@ -1042,8 +1042,8 @@ define dso_local void @scontrol_print_front_end_list(ptr noundef %0) local_unnam
   br label %33
 
 33:                                               ; preds = %29, %.lr.ph.split.us.split.i
-  %34 = phi i32 [ %23, %.lr.ph.split.us.split.i ], [ %.pre43.i, %29 ]
-  %.2.us.i = phi i32 [ %.034.us.i, %.lr.ph.split.us.split.i ], [ %30, %29 ]
+  %34 = phi i32 [ %.pre43.i, %29 ], [ %23, %.lr.ph.split.us.split.i ]
+  %.2.us.i = phi i32 [ %30, %29 ], [ %.034.us.i, %.lr.ph.split.us.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next.i, %35

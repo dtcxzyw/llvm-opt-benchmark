@@ -233,7 +233,7 @@ InitVertexBuffer.exit:                            ; preds = %51
   br label %103
 
 103:                                              ; preds = %InitVertexBuffer.exit.thread, %102, %14, %44, %47, %InitVertexBuffer.exit, %62, %12, %10
-  %.0 = phi i1 [ %11, %10 ], [ false, %12 ], [ %97, %102 ], [ false, %InitVertexBuffer.exit ], [ false, %47 ], [ false, %44 ], [ false, %14 ], [ false, %62 ], [ false, %InitVertexBuffer.exit.thread ]
+  %.0 = phi i1 [ %11, %10 ], [ false, %12 ], [ %97, %102 ], [ false, %14 ], [ false, %44 ], [ false, %47 ], [ false, %InitVertexBuffer.exit ], [ false, %62 ], [ false, %InitVertexBuffer.exit.thread ]
   ret i1 %.0
 }
 
@@ -276,7 +276,7 @@ define internal zeroext i1 @GPU_SupportsBlendMode(ptr readnone captures(none) %0
   br label %GPU_ConvertBlendFactor.exit
 
 GPU_ConvertBlendFactor.exit:                      ; preds = %2, %11, %9
-  %.0 = phi i1 [ false, %2 ], [ %13, %11 ], [ false, %9 ]
+  %.0 = phi i1 [ false, %9 ], [ %13, %11 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -339,7 +339,7 @@ PixFormatToTexFormat.exit:                        ; preds = %3
   br label %switch.edge
 
 switch.edge:                                      ; preds = %21, %22, %21, %21, %21, %23
-  %25 = phi i32 [ %24, %23 ], [ 2, %21 ], [ 2, %21 ], [ 2, %21 ], [ 1, %22 ], [ 2, %21 ]
+  %25 = phi i32 [ %24, %23 ], [ 2, %21 ], [ 1, %22 ], [ 2, %21 ], [ 2, %21 ], [ 2, %21 ]
   %26 = mul i32 %25, %19
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 %26, ptr %27, align 8
@@ -482,7 +482,7 @@ define internal zeroext i1 @GPU_UpdateTexture(ptr noundef readonly captures(none
   br label %switch.edge
 
 switch.edge:                                      ; preds = %14, %15, %14, %14, %14, %16
-  %19 = phi i64 [ %18, %16 ], [ 2, %14 ], [ 2, %14 ], [ 2, %14 ], [ 1, %15 ], [ 2, %14 ]
+  %19 = phi i64 [ %18, %16 ], [ 2, %14 ], [ 1, %15 ], [ 2, %14 ], [ 2, %14 ], [ 2, %14 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
@@ -632,7 +632,7 @@ define internal noundef zeroext i1 @GPU_LockTexture(ptr readnone captures(none) 
   br label %switch.edge
 
 switch.edge:                                      ; preds = %17, %18, %17, %17, %17, %19
-  %21 = phi i32 [ %20, %19 ], [ 2, %17 ], [ 2, %17 ], [ 2, %17 ], [ 1, %18 ], [ 2, %17 ]
+  %21 = phi i32 [ %20, %19 ], [ 2, %17 ], [ 1, %18 ], [ 2, %17 ], [ 2, %17 ], [ 2, %17 ]
   %22 = mul nsw i32 %14, %12
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %10, i64 %23
@@ -680,7 +680,7 @@ define internal void @GPU_UnlockTexture(ptr noundef readonly captures(none) %0, 
   br label %switch.edge
 
 switch.edge:                                      ; preds = %14, %15, %14, %14, %14, %16
-  %18 = phi i32 [ %17, %16 ], [ 2, %14 ], [ 2, %14 ], [ 2, %14 ], [ 1, %15 ], [ 2, %14 ]
+  %18 = phi i32 [ %17, %16 ], [ 2, %14 ], [ 1, %15 ], [ 2, %14 ], [ 2, %14 ], [ 2, %14 ]
   %19 = mul nsw i32 %11, %9
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %7, i64 %20
@@ -1424,8 +1424,8 @@ GetDrawCmdColor.exit156:                          ; preds = %127, %130
   br i1 %.not140, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %155, %.lr.ph230, %.lr.ph, %158, %.lr.ph.preheader, %148
-  %.0127.lcssa = phi ptr [ %.0113212, %148 ], [ %.0113212, %.lr.ph.preheader ], [ %.0130173227, %158 ], [ %.0127171229, %155 ], [ %.0127171229, %.lr.ph230 ], [ %.0130173227, %.lr.ph ]
-  %.0124.lcssa = phi i32 [ %143, %148 ], [ %143, %.lr.ph.preheader ], [ %159, %158 ], [ %.0124172228, %155 ], [ %.0124172228, %.lr.ph230 ], [ %159, %.lr.ph ]
+  %.0127.lcssa = phi ptr [ %.0113212, %148 ], [ %.0113212, %.lr.ph.preheader ], [ %.0130173227, %158 ], [ %.0130173227, %.lr.ph ], [ %.0127171229, %.lr.ph230 ], [ %.0127171229, %155 ]
+  %.0124.lcssa = phi i32 [ %143, %148 ], [ %143, %.lr.ph.preheader ], [ %159, %158 ], [ %159, %.lr.ph ], [ %.0124172228, %.lr.ph230 ], [ %.0124172228, %155 ]
   call fastcc void @Draw(ptr noundef %12, ptr noundef %.0113212, i32 noundef %.0124.lcssa, i32 noundef %145, i32 noundef 2)
   br label %199
 
@@ -1505,8 +1505,8 @@ GetDrawCmdColor.exit156:                          ; preds = %127, %130
   br i1 %.not144, label %.thread163, label %.lr.ph190
 
 .thread163:                                       ; preds = %.lr.ph244, %181, %184, %187, %190, %.lr.ph190, %193, %.lr.ph190.preheader, %160
-  %.0121.lcssa = phi ptr [ %.0113212, %160 ], [ %.0113212, %.lr.ph190.preheader ], [ %.0119189241, %193 ], [ %.0121187243, %.lr.ph244 ], [ %.0121187243, %181 ], [ %.0121187243, %184 ], [ %.0121187243, %187 ], [ %.0121187243, %190 ], [ %.0119189241, %.lr.ph190 ]
-  %.0116.lcssa = phi i32 [ %174, %160 ], [ %174, %.lr.ph190.preheader ], [ %197, %193 ], [ %.0116188242, %.lr.ph244 ], [ %.0116188242, %181 ], [ %.0116188242, %184 ], [ %.0116188242, %187 ], [ %.0116188242, %190 ], [ %197, %.lr.ph190 ]
+  %.0121.lcssa = phi ptr [ %.0113212, %160 ], [ %.0113212, %.lr.ph190.preheader ], [ %.0119189241, %193 ], [ %.0119189241, %.lr.ph190 ], [ %.0121187243, %190 ], [ %.0121187243, %187 ], [ %.0121187243, %184 ], [ %.0121187243, %181 ], [ %.0121187243, %.lr.ph244 ]
+  %.0116.lcssa = phi i32 [ %174, %160 ], [ %174, %.lr.ph190.preheader ], [ %197, %193 ], [ %197, %.lr.ph190 ], [ %.0116188242, %190 ], [ %.0116188242, %187 ], [ %.0116188242, %184 ], [ %.0116188242, %181 ], [ %.0116188242, %.lr.ph244 ]
   %198 = icmp eq i32 %84, 5
   %spec.store.select = select i1 %198, i32 4, i32 0
   call fastcc void @Draw(ptr noundef %12, ptr noundef %.0113212, i32 noundef %.0116.lcssa, i32 noundef %176, i32 noundef %spec.store.select)
@@ -1558,7 +1558,7 @@ thread-pre-split:                                 ; preds = %.preheader, %._crit
   br label %UploadVertices.exit.thread
 
 UploadVertices.exit.thread:                       ; preds = %InitVertexBuffer.exit.thread.i, %38, %InitVertexBuffer.exit.i, %210, %212, %81
-  %.0 = phi i1 [ true, %210 ], [ %82, %81 ], [ true, %212 ], [ false, %InitVertexBuffer.exit.i ], [ false, %38 ], [ false, %InitVertexBuffer.exit.thread.i ]
+  %.0 = phi i1 [ %82, %81 ], [ true, %212 ], [ true, %210 ], [ false, %InitVertexBuffer.exit.i ], [ false, %38 ], [ false, %InitVertexBuffer.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -2094,7 +2094,7 @@ ChoosePresentMode.exit:                           ; preds = %2
   br i1 %12, label %ChoosePresentMode.exit.thread, label %22
 
 ChoosePresentMode.exit.thread:                    ; preds = %2, %8, %10, %ChoosePresentMode.exit
-  %.01114 = phi i32 [ 0, %ChoosePresentMode.exit ], [ %spec.select.i, %10 ], [ 0, %2 ], [ 2, %8 ]
+  %.01114 = phi i32 [ 0, %ChoosePresentMode.exit ], [ 0, %2 ], [ %spec.select.i, %10 ], [ 2, %8 ]
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 116
   %14 = load i32, ptr %13, align 4
   %.not = icmp eq i32 %.01114, %14
@@ -2156,7 +2156,7 @@ define internal fastcc void @ChoosePresentMode(ptr noundef %0, ptr noundef %1, i
   br label %12
 
 11:                                               ; preds = %7, %4, %5
-  %.0 = phi i32 [ 2, %5 ], [ 0, %4 ], [ %spec.select, %7 ]
+  %.0 = phi i32 [ 2, %5 ], [ %spec.select, %7 ], [ 0, %4 ]
   store i32 %.0, ptr %3, align 4
   br label %12
 
@@ -2339,8 +2339,8 @@ RestartRenderPass.exit:                           ; preds = %5, %19
   br label %46
 
 46:                                               ; preds = %33, %44, %45, %36
-  %.175 = phi i32 [ 0, %36 ], [ %., %44 ], [ %.94, %45 ], [ 0, %33 ]
-  %.1 = phi i32 [ 1, %36 ], [ 2, %44 ], [ 2, %45 ], [ 0, %33 ]
+  %.175 = phi i32 [ %., %44 ], [ %.94, %45 ], [ 0, %36 ], [ 0, %33 ]
+  %.1 = phi i32 [ 2, %44 ], [ 2, %45 ], [ 1, %36 ], [ 0, %33 ]
   %.not90 = icmp eq ptr %34, null
   br i1 %.not90, label %49, label %47
 

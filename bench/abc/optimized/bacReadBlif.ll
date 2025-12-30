@@ -749,7 +749,7 @@ Vec_StrGrow.exit.i.i35.i.i:                       ; preds = %247, %.thread.i.thr
   br label %Vec_StrPush.exit.i32.i.i
 
 Vec_StrPush.exit.i32.i.i:                         ; preds = %257, %Vec_StrGrow.exit.i.i35.i.i, %thread-pre-split.i.thread.i.i, %thread-pre-split.i.i..Vec_StrGrow.exit10_crit_edge.i.i29.i_crit_edge.i
-  %259 = phi ptr [ %249, %Vec_StrGrow.exit.i.i35.i.i ], [ %258, %257 ], [ %.pre.i.i31.i.pre.i, %thread-pre-split.i.i..Vec_StrGrow.exit10_crit_edge.i.i29.i_crit_edge.i ], [ %.val14.i.i.i, %thread-pre-split.i.thread.i.i ]
+  %259 = phi ptr [ %258, %257 ], [ %249, %Vec_StrGrow.exit.i.i35.i.i ], [ %.pre.i.i31.i.pre.i, %thread-pre-split.i.i..Vec_StrGrow.exit10_crit_edge.i.i29.i_crit_edge.i ], [ %.val14.i.i.i, %thread-pre-split.i.thread.i.i ]
   %260 = load i32, ptr %41, align 4, !tbaa !31
   %261 = add nsw i32 %260, 1
   store i32 %261, ptr %41, align 4, !tbaa !31
@@ -833,7 +833,7 @@ Vec_StrPush.exit.i32.i.i:                         ; preds = %257, %Vec_StrGrow.e
   br label %Psr_ManSaveCover.exit.i.i
 
 Psr_ManSaveCover.exit.i.i:                        ; preds = %291, %289, %287, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %265, %Vec_StrPush.exit.i32.i.i
-  %.0.i.i.i.i = phi i32 [ 18, %289 ], [ %..i.i.i.i, %291 ], [ 17, %287 ], [ 17, %285 ], [ 16, %283 ], [ 16, %281 ], [ 14, %279 ], [ 14, %277 ], [ 14, %275 ], [ 15, %273 ], [ 12, %271 ], [ 11, %269 ], [ 10, %267 ], [ 7, %265 ], [ 6, %Vec_StrPush.exit.i32.i.i ]
+  %.0.i.i.i.i = phi i32 [ 6, %Vec_StrPush.exit.i32.i.i ], [ 7, %265 ], [ 10, %267 ], [ 11, %269 ], [ 12, %271 ], [ 15, %273 ], [ 14, %275 ], [ 14, %277 ], [ 14, %279 ], [ 16, %281 ], [ 16, %283 ], [ 17, %285 ], [ 17, %287 ], [ 18, %289 ], [ %..i.i.i.i, %291 ]
   store i32 0, ptr %41, align 4, !tbaa !31
   %293 = load ptr, ptr %42, align 8, !tbaa !36
   %294 = getelementptr i8, ptr %293, i64 212
@@ -1836,7 +1836,7 @@ Psr_ManSkipToChar.exit.i.i126.i.i:                ; preds = %.lr.ph.i.i.i124.i.i
   br label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %612, %.lr.ph.i.preheader.i.i.i.loopexit635, %.lr.ph.i.preheader.i.i.i.loopexit
-  %620 = phi i32 [ 0, %.lr.ph.i.preheader.i.i.i.loopexit635 ], [ 1, %.lr.ph.i.preheader.i.i.i.loopexit ], [ 2, %612 ]
+  %620 = phi i32 [ 1, %.lr.ph.i.preheader.i.i.i.loopexit ], [ 0, %.lr.ph.i.preheader.i.i.i.loopexit635 ], [ 2, %612 ]
   br label %.lr.ph.i.i129.i.i
 
 .lr.ph.i.i129.i.i:                                ; preds = %.lr.ph.i.i129.i.i, %.lr.ph.i.preheader.i.i.i
@@ -2140,7 +2140,7 @@ Psr_ManSkipToChar.exit.i.i170.i.i:                ; preds = %.lr.ph.i.i.i167.i.i
   br label %Psr_ManReadLines.exit
 
 Psr_ManReadName.exit.thread.i.i:                  ; preds = %Psr_ManReadName.exit.i.i, %.critedge.i.i.i, %304, %.lr.ph.i14.i.i37.i.i
-  %.0.i41174.i.i = phi i32 [ 0, %.lr.ph.i14.i.i37.i.i ], [ 0, %304 ], [ 0, %.critedge.i.i.i ], [ %317, %Psr_ManReadName.exit.i.i ]
+  %.0.i41174.i.i = phi i32 [ 0, %.lr.ph.i14.i.i37.i.i ], [ 0, %304 ], [ %317, %Psr_ManReadName.exit.i.i ], [ 0, %.critedge.i.i.i ]
   %690 = load ptr, ptr %25, align 8, !tbaa !20
   %691 = tail call ptr @Abc_NamStr(ptr noundef %690, i32 noundef %.0.i41174.i.i) #19
   %692 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef %691)
@@ -3294,7 +3294,7 @@ Psr_ManReadList3.exit:                            ; preds = %135
   br label %Psr_ManReadList3.exit.thread
 
 Psr_ManReadList3.exit.thread:                     ; preds = %79, %Psr_ManReadName.exit48.thread.i, %Psr_ManReadName.exit.thread.i, %137, %._crit_edge.thread.i, %Psr_ManReadList3.exit, %141, %Psr_ManReadName.exit.thread
-  %.0 = phi i32 [ 1, %Psr_ManReadName.exit.thread ], [ 0, %Psr_ManReadList3.exit ], [ 0, %141 ], [ 1, %._crit_edge.thread.i ], [ 1, %137 ], [ 1, %Psr_ManReadName.exit.thread.i ], [ 1, %Psr_ManReadName.exit48.thread.i ], [ 1, %79 ]
+  %.0 = phi i32 [ 1, %Psr_ManReadName.exit.thread ], [ 0, %141 ], [ 0, %Psr_ManReadList3.exit ], [ 1, %._crit_edge.thread.i ], [ 1, %137 ], [ 1, %Psr_ManReadName.exit.thread.i ], [ 1, %Psr_ManReadName.exit48.thread.i ], [ 1, %79 ]
   ret i32 %.0
 }
 

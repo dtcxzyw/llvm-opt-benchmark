@@ -327,7 +327,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit36
   br label %lean_dec.exit34
 
 lean_dec.exit34:                                  ; preds = %lean_obj_tag.exit68.thread, %51, %lean_obj_tag.exit, %102, %104, %105, %55, %57, %58, %lean_obj_tag.exit55, %lean_alloc_ctor.exit, %lean_dec.exit
-  %.4 = phi ptr [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit68.thread ], [ inttoptr (i64 1 to ptr), %51 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit55 ], [ %14, %lean_dec.exit ], [ %94, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %58 ], [ inttoptr (i64 1 to ptr), %57 ], [ inttoptr (i64 1 to ptr), %55 ], [ inttoptr (i64 1 to ptr), %105 ], [ inttoptr (i64 1 to ptr), %104 ], [ inttoptr (i64 1 to ptr), %102 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
+  %.4 = phi ptr [ %14, %lean_dec.exit ], [ %94, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit55 ], [ inttoptr (i64 1 to ptr), %58 ], [ inttoptr (i64 1 to ptr), %57 ], [ inttoptr (i64 1 to ptr), %55 ], [ inttoptr (i64 1 to ptr), %51 ], [ inttoptr (i64 1 to ptr), %105 ], [ inttoptr (i64 1 to ptr), %104 ], [ inttoptr (i64 1 to ptr), %102 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit68.thread ]
   ret ptr %.4
 }
 

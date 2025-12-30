@@ -219,7 +219,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %.thread.us.us
 
 .thread.us.us:                                    ; preds = %72, %69
-  %.3103.us.us = phi i32 [ %.1109.us.us, %69 ], [ %80, %72 ]
+  %.3103.us.us = phi i32 [ %80, %72 ], [ %.1109.us.us, %69 ]
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
   br i1 %exitcond137.not, label %._crit_edge.us, label %69, !llvm.loop !10

@@ -277,8 +277,8 @@ _ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit: ; preds = %81
   br label %92
 
 85:                                               ; preds = %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit, %75, %54
-  %86 = phi ptr [ %52, %54 ], [ %52, %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit ], [ %.pre48, %75 ]
-  %.1 = phi ptr [ null, %54 ], [ %80, %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit ], [ %74, %75 ]
+  %86 = phi ptr [ %52, %54 ], [ %.pre48, %75 ], [ %52, %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit ]
+  %.1 = phi ptr [ null, %54 ], [ %74, %75 ], [ %80, %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit ]
   %.not.i.i.i = icmp eq ptr %86, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit, label %87
 

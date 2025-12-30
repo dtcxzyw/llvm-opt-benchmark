@@ -102,7 +102,7 @@ define ptr @Extra_TransferPermute(ptr noundef %0, ptr noundef initializes((448, 
   br label %extraTransferPermute.exit
 
 extraTransferPermute.exit:                        ; preds = %8, %._crit_edge.i, %25, %32
-  %.022.i = phi ptr [ null, %._crit_edge.i ], [ %11, %25 ], [ null, %8 ], [ null, %32 ]
+  %.022.i = phi ptr [ %11, %25 ], [ null, %._crit_edge.i ], [ null, %32 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %33 = load i32, ptr %7, align 8, !tbaa !3
@@ -306,7 +306,7 @@ define ptr @Extra_bddMove(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   br i1 %32, label %29, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %29, %5, %3
-  %.015 = phi ptr [ %1, %5 ], [ %1, %3 ], [ %30, %29 ]
+  %.015 = phi ptr [ %1, %3 ], [ %1, %5 ], [ %30, %29 ]
   ret ptr %.015
 }
 
@@ -427,7 +427,7 @@ define ptr @extraBddMove(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %74
 
 74:                                               ; preds = %49, %64, %65, %37, %9, %3
-  %.051 = phi ptr [ %10, %9 ], [ %1, %3 ], [ %62, %65 ], [ null, %49 ], [ null, %64 ], [ null, %37 ]
+  %.051 = phi ptr [ %1, %3 ], [ %10, %9 ], [ null, %49 ], [ null, %64 ], [ %62, %65 ], [ null, %37 ]
   ret ptr %.051
 }
 
@@ -559,7 +559,7 @@ define void @Extra_bddPrint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %.split, !llvm.loop !42
 
 .loopexit.sink.split:                             ; preds = %15, %8, %2
-  %.str.3.sink = phi ptr [ @.str.2, %8 ], [ @.str.1, %2 ], [ @.str.3, %15 ]
+  %.str.3.sink = phi ptr [ @.str.1, %2 ], [ @.str.2, %8 ], [ @.str.3, %15 ]
   %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.3.sink)
   br label %.loopexit
 
@@ -687,7 +687,7 @@ define range(i32 0, 2) i32 @Extra_bddSuppOverlapping(ptr noundef readonly captur
   br i1 %.not, label %.critedge, label %6, !llvm.loop !46
 
 .critedge:                                        ; preds = %9, %26, %6, %3
-  %.012 = phi i32 [ 0, %3 ], [ 0, %26 ], [ 0, %6 ], [ 1, %9 ]
+  %.012 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %26 ], [ 1, %9 ]
   ret i32 %.012
 }
 
@@ -786,8 +786,8 @@ Extra_bddSuppSize.exit:                           ; preds = %.lr.ph.i, %.critedg
   br label %52
 
 .outer._crit_edge:                                ; preds = %.outer, %14, %4
-  %.0.ph.lcssa61 = phi i32 [ %.0.ph71, %14 ], [ 0, %4 ], [ %21, %.outer ]
-  %.029.lcssa = phi ptr [ %18, %14 ], [ %2, %4 ], [ %.130, %.outer ]
+  %.0.ph.lcssa61 = phi i32 [ 0, %4 ], [ %.0.ph71, %14 ], [ %21, %.outer ]
+  %.029.lcssa = phi ptr [ %2, %4 ], [ %18, %14 ], [ %.130, %.outer ]
   %44 = load i32, ptr %.029.lcssa, align 8, !tbaa !35
   %.not40 = icmp eq i32 %44, 2147483647
   br i1 %.not40, label %52, label %45
@@ -902,14 +902,14 @@ define range(i32 0, 2) i32 @Extra_bddSuppCheckContainment(ptr noundef readonly c
   br label %.thread85
 
 .thread85:                                        ; preds = %.loopexit, %14, %11
-  %39 = phi ptr [ %2, %11 ], [ %spec.select, %.loopexit ], [ %1, %14 ]
-  %40 = phi ptr [ %1, %11 ], [ %spec.select101, %.loopexit ], [ %2, %14 ]
+  %39 = phi ptr [ %2, %11 ], [ %1, %14 ], [ %spec.select, %.loopexit ]
+  %40 = phi ptr [ %1, %11 ], [ %2, %14 ], [ %spec.select101, %.loopexit ]
   store ptr %39, ptr %3, align 8, !tbaa !25
   store ptr %40, ptr %4, align 8, !tbaa !25
   br label %.loopexit60
 
 .loopexit60:                                      ; preds = %35, %14, %11, %5, %.thread85
-  %.049 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 1, %.thread85 ], [ 0, %11 ], [ 0, %35 ]
+  %.049 = phi i32 [ 1, %.thread85 ], [ 0, %5 ], [ 0, %11 ], [ 0, %14 ], [ 0, %35 ]
   ret i32 %.049
 }
 
@@ -1374,7 +1374,7 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %5
-  %.0.lcssa = phi ptr [ %7, %5 ], [ %41, %.lr.ph.split.split.us ], [ %29, %.lr.ph.split.us.split ], [ %20, %.lr.ph.split.us.split.us ], [ %52, %.lr.ph.split.split ]
+  %.0.lcssa = phi ptr [ %7, %5 ], [ %20, %.lr.ph.split.us.split.us ], [ %29, %.lr.ph.split.us.split ], [ %41, %.lr.ph.split.split.us ], [ %52, %.lr.ph.split.split ]
   tail call void @Cudd_Deref(ptr noundef %.0.lcssa) #19
   ret ptr %.0.lcssa
 }
@@ -1888,7 +1888,7 @@ define internal ptr @extraZddPrimes(ptr noundef %0, ptr noundef %1) #0 {
   br label %126
 
 126:                                              ; preds = %42, %52, %74, %90, %94, %104, %114, %125, %16, %115, %14, %12, %9
-  %.0 = phi ptr [ %11, %9 ], [ %15, %14 ], [ %4, %12 ], [ null, %114 ], [ null, %42 ], [ null, %52 ], [ null, %74 ], [ null, %16 ], [ %123, %125 ], [ null, %90 ], [ null, %94 ], [ null, %104 ], [ null, %115 ]
+  %.0 = phi ptr [ %11, %9 ], [ %4, %12 ], [ %15, %14 ], [ null, %42 ], [ null, %52 ], [ null, %74 ], [ %123, %125 ], [ null, %90 ], [ null, %94 ], [ null, %104 ], [ null, %114 ], [ null, %16 ], [ null, %115 ]
   ret ptr %.0
 }
 
@@ -2083,7 +2083,7 @@ define internal fastcc ptr @cuddBddPermuteRecur(ptr noundef %0, ptr noundef %1, 
   br label %76
 
 76:                                               ; preds = %69, %21, %4, %.critedge, %56, %37, %15
-  %.0 = phi ptr [ null, %69 ], [ %20, %15 ], [ %2, %4 ], [ null, %37 ], [ null, %56 ], [ %75, %.critedge ], [ null, %21 ]
+  %.0 = phi ptr [ %20, %15 ], [ null, %37 ], [ null, %56 ], [ %75, %.critedge ], [ null, %69 ], [ %2, %4 ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -2281,7 +2281,7 @@ define ptr @extraBddChangePolarity(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.critedge
 
 ._crit_edge:                                      ; preds = %63, %83, %87
-  %.284 = phi ptr [ %88, %87 ], [ %86, %83 ], [ %spec.select100, %63 ]
+  %.284 = phi ptr [ %86, %83 ], [ %88, %87 ], [ %spec.select100, %63 ]
   %91 = ptrtoint ptr %spec.select to i64
   %92 = and i64 %91, -2
   %93 = inttoptr i64 %92 to ptr
@@ -2302,8 +2302,8 @@ define ptr @extraBddChangePolarity(ptr noundef %0, ptr noundef %1, ptr noundef %
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraBddChangePolarity, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %.082) #19
   br label %.critedge
 
-.critedge:                                        ; preds = %102, %50, %82, %62, %90, %13, %7, %3
-  %.0 = phi ptr [ %14, %13 ], [ %1, %3 ], [ %1, %7 ], [ %.082, %102 ], [ null, %50 ], [ null, %82 ], [ null, %62 ], [ null, %90 ]
+.critedge:                                        ; preds = %102, %50, %90, %82, %62, %13, %7, %3
+  %.0 = phi ptr [ %1, %3 ], [ %1, %7 ], [ %14, %13 ], [ %.082, %102 ], [ null, %50 ], [ null, %90 ], [ null, %82 ], [ null, %62 ]
   ret ptr %.0
 }
 
@@ -2367,7 +2367,7 @@ define range(i32 -1, 2) i32 @Extra_bddVarIsInCube(ptr noundef %0, i32 noundef %1
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !69
 
 .loopexit:                                        ; preds = %34, %2, %20, %21
-  %.0 = phi i32 [ %26, %21 ], [ 0, %20 ], [ -1, %2 ], [ -1, %34 ]
+  %.0 = phi i32 [ 0, %20 ], [ %26, %21 ], [ -1, %2 ], [ -1, %34 ]
   ret i32 %.0
 }
 
@@ -2671,7 +2671,7 @@ Abc_Clock.exit118:                                ; preds = %46, %49
   br label %176
 
 176:                                              ; preds = %.thread123, %Abc_Clock.exit118, %Abc_Clock.exit, %24, %22, %15, %6, %155, %154, %144
-  %.0 = phi ptr [ %152, %155 ], [ %13, %6 ], [ %13, %15 ], [ %2, %22 ], [ %25, %24 ], [ null, %Abc_Clock.exit ], [ null, %Abc_Clock.exit118 ], [ null, %144 ], [ null, %154 ], [ null, %.thread123 ]
+  %.0 = phi ptr [ null, %144 ], [ null, %154 ], [ %152, %155 ], [ %13, %6 ], [ %13, %15 ], [ %2, %22 ], [ %25, %24 ], [ null, %Abc_Clock.exit ], [ null, %Abc_Clock.exit118 ], [ null, %.thread123 ]
   ret ptr %.0
 }
 
@@ -2938,8 +2938,8 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr noundef captures(none) %1, i
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %72, %69, %63, %48, %._crit_edge.loopexit135.split.loop.exit, %._crit_edge.loopexit.split.loop.exit, %.thread._crit_edge, %6
-  %.062.lcssa = phi i32 [ %.us-phi, %.thread._crit_edge ], [ 0, %6 ], [ %2, %48 ], [ %2, %63 ], [ %2, %69 ], [ %73, %._crit_edge.loopexit.split.loop.exit ], [ %74, %._crit_edge.loopexit135.split.loop.exit ], [ %2, %72 ]
-  %.060.lcssa = phi i32 [ %.us-phi90, %.thread._crit_edge ], [ 0, %6 ], [ %.1.us.us, %48 ], [ %.1.us, %63 ], [ %.1.us89, %69 ], [ %.06072.us.us, %._crit_edge.loopexit.split.loop.exit ], [ %.06072.us, %._crit_edge.loopexit135.split.loop.exit ], [ 0, %72 ]
+  %.062.lcssa = phi i32 [ %.us-phi, %.thread._crit_edge ], [ 0, %6 ], [ %73, %._crit_edge.loopexit.split.loop.exit ], [ %74, %._crit_edge.loopexit135.split.loop.exit ], [ %2, %48 ], [ %2, %63 ], [ %2, %69 ], [ %2, %72 ]
+  %.060.lcssa = phi i32 [ %.us-phi90, %.thread._crit_edge ], [ 0, %6 ], [ %.06072.us.us, %._crit_edge.loopexit.split.loop.exit ], [ %.06072.us, %._crit_edge.loopexit135.split.loop.exit ], [ %.1.us.us, %48 ], [ %.1.us, %63 ], [ %.1.us89, %69 ], [ 0, %72 ]
   store i32 %11, ptr %10, align 4, !tbaa !76
   tail call void @st__free_table(ptr noundef %9) #19
   %75 = icmp eq i32 %.062.lcssa, %2
@@ -3328,7 +3328,7 @@ define internal fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %1, p
   br label %190
 
 190:                                              ; preds = %72, %189, %188, %184, %173, %159, %144, %140, %133, %129, %125, %121, %106, %99, %92, %88, %84, %27, %20, %17
-  %.0257 = phi ptr [ %15, %17 ], [ %12, %20 ], [ %22, %27 ], [ %171, %189 ], [ null, %84 ], [ null, %88 ], [ null, %92 ], [ null, %99 ], [ null, %106 ], [ null, %121 ], [ null, %125 ], [ null, %129 ], [ null, %133 ], [ null, %140 ], [ null, %144 ], [ null, %159 ], [ null, %173 ], [ null, %184 ], [ null, %188 ], [ null, %72 ]
+  %.0257 = phi ptr [ %15, %17 ], [ %12, %20 ], [ %22, %27 ], [ null, %84 ], [ null, %88 ], [ null, %92 ], [ null, %99 ], [ null, %106 ], [ null, %121 ], [ null, %125 ], [ null, %129 ], [ null, %133 ], [ null, %140 ], [ null, %144 ], [ null, %159 ], [ null, %173 ], [ null, %184 ], [ null, %188 ], [ %171, %189 ], [ null, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -4139,7 +4139,7 @@ Extra_zddCombination.exit.loopexit:               ; preds = %extraZddCombination
   br label %83
 
 83:                                               ; preds = %4, %._crit_edge71, %14
-  %.0 = phi ptr [ %.158, %._crit_edge71 ], [ null, %14 ], [ null, %4 ]
+  %.0 = phi ptr [ null, %14 ], [ %.158, %._crit_edge71 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -4326,7 +4326,7 @@ define ptr @extraBddTuples(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %95
 
 ._crit_edge:                                      ; preds = %62, %80, %84
-  %.065 = phi ptr [ %85, %84 ], [ %83, %80 ], [ %.0, %62 ]
+  %.065 = phi ptr [ %83, %80 ], [ %85, %84 ], [ %.0, %62 ]
   %88 = load i32, ptr %44, align 4, !tbaa !24
   %89 = add i32 %88, -1
   store i32 %89, ptr %44, align 4, !tbaa !24
@@ -4340,7 +4340,7 @@ define ptr @extraBddTuples(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %95
 
 95:                                               ; preds = %35, %33, %31, %._crit_edge, %87, %79, %59, %27
-  %.064 = phi ptr [ %30, %27 ], [ null, %59 ], [ %26, %31 ], [ %34, %33 ], [ %.065, %._crit_edge ], [ null, %79 ], [ null, %87 ], [ null, %35 ]
+  %.064 = phi ptr [ %30, %27 ], [ %.065, %._crit_edge ], [ null, %79 ], [ null, %87 ], [ null, %59 ], [ %26, %31 ], [ %34, %33 ], [ null, %35 ]
   ret ptr %.064
 }
 
@@ -4608,7 +4608,7 @@ Abc_Clock.exit73:                                 ; preds = %46, %49
   br label %113
 
 113:                                              ; preds = %.split64, %Abc_Clock.exit73, %Abc_Clock.exit, %109, %108, %96, %92, %78, %23, %17
-  %.062 = phi ptr [ %20, %17 ], [ %27, %23 ], [ %112, %109 ], [ null, %Abc_Clock.exit ], [ null, %Abc_Clock.exit73 ], [ null, %78 ], [ null, %92 ], [ null, %96 ], [ null, %108 ], [ null, %.split64 ]
+  %.062 = phi ptr [ %20, %17 ], [ %27, %23 ], [ null, %78 ], [ null, %92 ], [ null, %96 ], [ null, %108 ], [ %112, %109 ], [ null, %Abc_Clock.exit ], [ null, %Abc_Clock.exit73 ], [ null, %.split64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.062
 }

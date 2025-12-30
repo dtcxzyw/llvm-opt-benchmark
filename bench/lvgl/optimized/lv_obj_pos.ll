@@ -482,7 +482,7 @@ lv_obj_is_layout_positioned.exit97.thread.i:      ; preds = %lv_obj_is_layout_po
   br label %182
 
 182:                                              ; preds = %._crit_edge.thread.i, %._crit_edge.i, %._crit_edge114.thread.i, %._crit_edge114.i
-  %.2.i = phi i32 [ %130, %._crit_edge114.i ], [ -536870911, %._crit_edge114.thread.i ], [ -536870911, %._crit_edge.thread.i ], [ %181, %._crit_edge.i ]
+  %.2.i = phi i32 [ -536870911, %._crit_edge114.thread.i ], [ %130, %._crit_edge114.i ], [ -536870911, %._crit_edge.thread.i ], [ %181, %._crit_edge.i ]
   %183 = load ptr, ptr %48, align 8, !tbaa !6
   %.not84.i = icmp eq ptr %183, null
   br i1 %.not84.i, label %calc_content_width.exit, label %184
@@ -2239,8 +2239,8 @@ lv_obj_get_height.exit268:                        ; preds = %24
   br label %193
 
 193:                                              ; preds = %24, %lv_obj_get_height.exit268, %lv_obj_get_height.exit259, %lv_obj_get_width.exit250, %lv_obj_get_height.exit247, %lv_obj_get_height.exit238, %lv_obj_get_width.exit229, %lv_obj_get_height.exit226, %lv_obj_get_height.exit217, %lv_obj_get_height.exit208, %lv_obj_get_height.exit205, %lv_obj_get_height.exit196, %lv_obj_get_height.exit187, %lv_obj_get_height.exit184, %lv_obj_get_height.exit178, %lv_obj_get_height.exit175, %lv_obj_get_height.exit169, %lv_obj_get_height.exit163, %lv_obj_get_width.exit160, %lv_obj_get_width.exit157, %.thread281, %lv_obj_get_height.exit
-  %.0122 = phi i32 [ 0, %24 ], [ %75, %lv_obj_get_height.exit ], [ %59, %.thread281 ], [ %59, %lv_obj_get_width.exit157 ], [ %59, %lv_obj_get_width.exit160 ], [ %91, %lv_obj_get_height.exit163 ], [ %101, %lv_obj_get_height.exit169 ], [ %110, %lv_obj_get_height.exit175 ], [ %116, %lv_obj_get_height.exit178 ], [ %126, %lv_obj_get_height.exit184 ], [ %129, %lv_obj_get_height.exit187 ], [ %137, %lv_obj_get_height.exit196 ], [ %144, %lv_obj_get_height.exit205 ], [ %146, %lv_obj_get_height.exit208 ], [ %153, %lv_obj_get_height.exit217 ], [ %159, %lv_obj_get_height.exit226 ], [ 0, %lv_obj_get_width.exit229 ], [ %170, %lv_obj_get_height.exit238 ], [ %177, %lv_obj_get_height.exit247 ], [ 0, %lv_obj_get_width.exit250 ], [ %186, %lv_obj_get_height.exit259 ], [ %192, %lv_obj_get_height.exit268 ]
-  %.0121 = phi i32 [ 0, %24 ], [ %70, %lv_obj_get_height.exit ], [ %50, %.thread281 ], [ %81, %lv_obj_get_width.exit157 ], [ %86, %lv_obj_get_width.exit160 ], [ %50, %lv_obj_get_height.exit163 ], [ %97, %lv_obj_get_height.exit169 ], [ %106, %lv_obj_get_height.exit175 ], [ %50, %lv_obj_get_height.exit178 ], [ %121, %lv_obj_get_height.exit184 ], [ 0, %lv_obj_get_height.exit187 ], [ %135, %lv_obj_get_height.exit196 ], [ %142, %lv_obj_get_height.exit205 ], [ 0, %lv_obj_get_height.exit208 ], [ %152, %lv_obj_get_height.exit217 ], [ %158, %lv_obj_get_height.exit226 ], [ %162, %lv_obj_get_width.exit229 ], [ %165, %lv_obj_get_height.exit238 ], [ %173, %lv_obj_get_height.exit247 ], [ %179, %lv_obj_get_width.exit250 ], [ %181, %lv_obj_get_height.exit259 ], [ %188, %lv_obj_get_height.exit268 ]
+  %.0122 = phi i32 [ %75, %lv_obj_get_height.exit ], [ %59, %.thread281 ], [ %59, %lv_obj_get_width.exit157 ], [ %59, %lv_obj_get_width.exit160 ], [ %91, %lv_obj_get_height.exit163 ], [ %101, %lv_obj_get_height.exit169 ], [ %110, %lv_obj_get_height.exit175 ], [ %116, %lv_obj_get_height.exit178 ], [ %126, %lv_obj_get_height.exit184 ], [ %129, %lv_obj_get_height.exit187 ], [ %137, %lv_obj_get_height.exit196 ], [ %144, %lv_obj_get_height.exit205 ], [ %146, %lv_obj_get_height.exit208 ], [ %153, %lv_obj_get_height.exit217 ], [ %159, %lv_obj_get_height.exit226 ], [ 0, %lv_obj_get_width.exit229 ], [ %170, %lv_obj_get_height.exit238 ], [ %177, %lv_obj_get_height.exit247 ], [ 0, %lv_obj_get_width.exit250 ], [ %186, %lv_obj_get_height.exit259 ], [ %192, %lv_obj_get_height.exit268 ], [ 0, %24 ]
+  %.0121 = phi i32 [ %70, %lv_obj_get_height.exit ], [ %50, %.thread281 ], [ %81, %lv_obj_get_width.exit157 ], [ %86, %lv_obj_get_width.exit160 ], [ %50, %lv_obj_get_height.exit163 ], [ %97, %lv_obj_get_height.exit169 ], [ %106, %lv_obj_get_height.exit175 ], [ %50, %lv_obj_get_height.exit178 ], [ %121, %lv_obj_get_height.exit184 ], [ 0, %lv_obj_get_height.exit187 ], [ %135, %lv_obj_get_height.exit196 ], [ %142, %lv_obj_get_height.exit205 ], [ 0, %lv_obj_get_height.exit208 ], [ %152, %lv_obj_get_height.exit217 ], [ %158, %lv_obj_get_height.exit226 ], [ %162, %lv_obj_get_width.exit229 ], [ %165, %lv_obj_get_height.exit238 ], [ %173, %lv_obj_get_height.exit247 ], [ %179, %lv_obj_get_width.exit250 ], [ %181, %lv_obj_get_height.exit259 ], [ %188, %lv_obj_get_height.exit268 ], [ 0, %24 ]
   %194 = and i32 %3, 1610612736
   %195 = icmp eq i32 %194, 536870912
   br i1 %195, label %196, label %205
@@ -2728,7 +2728,7 @@ lv_obj_get_content_height.exit:                   ; preds = %lv_obj_is_layout_po
   br label %74
 
 74:                                               ; preds = %63, %68, %61, %lv_obj_get_content_height.exit
-  %.086 = phi i32 [ %.sroa.0.0.extract.trunc.i, %lv_obj_get_content_height.exit ], [ %73, %68 ], [ %.sroa.0.0.extract.trunc.i, %61 ], [ 0, %63 ]
+  %.086 = phi i32 [ %73, %68 ], [ %.sroa.0.0.extract.trunc.i, %61 ], [ %.sroa.0.0.extract.trunc.i, %lv_obj_get_content_height.exit ], [ 0, %63 ]
   %75 = and i32 %.sroa.0.0.extract.trunc.i106, 1610612736
   %76 = icmp ne i32 %75, 536870912
   %77 = and i32 %.sroa.0.0.extract.trunc.i106, -1610612737
@@ -2890,8 +2890,8 @@ lv_obj_get_height.exit:                           ; preds = %89
   br label %.thread
 
 .thread:                                          ; preds = %118, %123, %158, %152, %147, %141, %138, %134, %.thread128, %128
-  %.2 = phi i32 [ %120, %118 ], [ %164, %158 ], [ %120, %128 ], [ %120, %.thread128 ], [ %137, %134 ], [ %140, %138 ], [ %146, %141 ], [ %151, %147 ], [ %157, %152 ], [ %120, %123 ]
-  %.1 = phi i32 [ %119, %118 ], [ %161, %158 ], [ %131, %128 ], [ %133, %.thread128 ], [ %119, %134 ], [ %119, %138 ], [ %144, %141 ], [ %149, %147 ], [ %154, %152 ], [ %119, %123 ]
+  %.2 = phi i32 [ %164, %158 ], [ %120, %128 ], [ %120, %.thread128 ], [ %137, %134 ], [ %140, %138 ], [ %146, %141 ], [ %151, %147 ], [ %157, %152 ], [ %120, %123 ], [ %120, %118 ]
+  %.1 = phi i32 [ %161, %158 ], [ %131, %128 ], [ %133, %.thread128 ], [ %119, %134 ], [ %119, %138 ], [ %144, %141 ], [ %149, %147 ], [ %154, %152 ], [ %119, %123 ], [ %119, %118 ]
   tail call void @lv_obj_move_to(ptr noundef nonnull %0, i32 noundef %.1, i32 noundef %.2)
   br label %165
 
@@ -3930,7 +3930,7 @@ lv_obj_get_click_area.exit:                       ; preds = %6, %20
   br label %31
 
 31:                                               ; preds = %24, %lv_obj_get_click_area.exit, %26
-  %.1 = phi i1 [ false, %lv_obj_get_click_area.exit ], [ %30, %26 ], [ true, %24 ]
+  %.1 = phi i1 [ %30, %26 ], [ false, %lv_obj_get_click_area.exit ], [ true, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 

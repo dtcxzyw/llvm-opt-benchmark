@@ -303,7 +303,7 @@ _ZN5zxing3RefINS_8BitArrayEED2Ev.exit8.sink.split: ; preds = %42, %51
   br label %_ZN5zxing3RefINS_8BitArrayEED2Ev.exit8
 
 _ZN5zxing3RefINS_8BitArrayEED2Ev.exit8:           ; preds = %_ZN5zxing3RefINS_8BitArrayEED2Ev.exit8.sink.split, %46, %43, %37, %34
-  %.pn = phi { ptr, i32 } [ %44, %46 ], [ %35, %34 ], [ %35, %37 ], [ %44, %43 ], [ %.pn.ph, %_ZN5zxing3RefINS_8BitArrayEED2Ev.exit8.sink.split ]
+  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %35, %37 ], [ %44, %43 ], [ %44, %46 ], [ %.pn.ph, %_ZN5zxing3RefINS_8BitArrayEED2Ev.exit8.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 }

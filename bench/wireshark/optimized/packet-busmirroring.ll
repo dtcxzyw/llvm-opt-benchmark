@@ -595,7 +595,7 @@ switch.early.test:                                ; preds = %203
   br i1 %209, label %.sink.split365, label %211
 
 .sink.split365:                                   ; preds = %207, %206, %switch.early.test
-  %ei_lin_length_invalid.sink = phi ptr [ @ei_can_length_invalid, %206 ], [ @ei_can_length_invalid, %switch.early.test ], [ @ei_lin_length_invalid, %207 ]
+  %ei_lin_length_invalid.sink = phi ptr [ @ei_can_length_invalid, %switch.early.test ], [ @ei_can_length_invalid, %206 ], [ @ei_lin_length_invalid, %207 ]
   %210 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %199, ptr noundef nonnull %ei_lin_length_invalid.sink)
   br label %211
 
@@ -627,7 +627,7 @@ switch.early.test:                                ; preds = %203
   %222 = icmp ult i32 %.0297.be, %9
   br i1 %222, label %.lr.ph, label %.thread, !llvm.loop !6
 
-.thread:                                          ; preds = %.backedge, %41, %195, %149, %122, %171, %91, %76, %62, %53, %.thread323
+.thread:                                          ; preds = %.backedge, %41, %195, %171, %149, %122, %91, %76, %62, %53, %.thread323
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %223

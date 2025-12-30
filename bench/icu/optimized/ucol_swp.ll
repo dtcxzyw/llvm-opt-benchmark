@@ -107,7 +107,7 @@ define signext range(i8 0, 2) i8 @ucol_looksLikeCollationBinary_77(ptr noundef %
   br label %58
 
 58:                                               ; preds = %53, %34, %32, %45, %38, %49, %24
-  %.2 = phi i8 [ 1, %24 ], [ 0, %38 ], [ 0, %49 ], [ 0, %32 ], [ 0, %34 ], [ 0, %45 ], [ %spec.select, %53 ]
+  %.2 = phi i8 [ 1, %24 ], [ 0, %34 ], [ 0, %32 ], [ 0, %45 ], [ 0, %38 ], [ 0, %49 ], [ %spec.select, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %59
 
@@ -170,7 +170,7 @@ define i32 @ucol_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   br i1 %or.cond, label %48, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14, %29, %25, %21
-  %33 = phi i8 [ %19, %14 ], [ 67, %29 ], [ 67, %25 ], [ 67, %21 ]
+  %33 = phi i8 [ 67, %29 ], [ 67, %25 ], [ 67, %21 ], [ %19, %14 ]
   %34 = zext i8 %16 to i32
   %35 = zext i8 %33 to i32
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -555,7 +555,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_118swapFormatVersion3EPK12UD
   br label %235
 
 235:                                              ; preds = %53, %215, %214, %5, %._crit_edge263, %._crit_edge, %27, %15
-  %.0 = phi i32 [ 0, %27 ], [ 0, %15 ], [ 0, %._crit_edge263 ], [ 0, %5 ], [ 0, %._crit_edge ], [ %.sroa.0.0, %214 ], [ %.sroa.0.0, %215 ], [ %.sroa.0.0, %53 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %._crit_edge263 ], [ 0, %._crit_edge ], [ 0, %27 ], [ 0, %5 ], [ %.sroa.0.0, %214 ], [ %.sroa.0.0, %215 ], [ %.sroa.0.0, %53 ]
   ret i32 %.0
 }
 
@@ -904,7 +904,7 @@ define i32 @ucol_swapInverseUCA_77(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not81, label %._crit_edge, label %48
 
 ._crit_edge:                                      ; preds = %11, %30, %26, %22, %18
-  %33 = phi i8 [ %16, %11 ], [ 110, %30 ], [ 110, %26 ], [ 110, %22 ], [ 110, %18 ]
+  %33 = phi i8 [ 110, %30 ], [ 110, %26 ], [ 110, %22 ], [ 110, %18 ], [ %16, %11 ]
   %34 = zext i8 %13 to i32
   %35 = zext i8 %33 to i32
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -1002,7 +1002,7 @@ define i32 @ucol_swapInverseUCA_77(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %103
 
 103:                                              ; preds = %5, %8, %101, %60, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ %102, %101 ], [ 0, %60 ], [ 0, %8 ], [ 0, %5 ]
+  %.0 = phi i32 [ %102, %101 ], [ 0, %60 ], [ 0, %._crit_edge ], [ 0, %8 ], [ 0, %5 ]
   ret i32 %.0
 }
 

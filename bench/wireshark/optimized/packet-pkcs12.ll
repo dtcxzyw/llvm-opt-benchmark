@@ -319,11 +319,11 @@ define hidden range(i32 0, 2) i32 @PBE_decrypt_data(ptr noundef readonly capture
   br label %105
 
 24:                                               ; preds = %21, %19, %16
-  %.078 = phi i32 [ 301, %19 ], [ 2, %16 ], [ 307, %21 ]
-  %.077 = phi i32 [ 0, %19 ], [ 3, %16 ], [ 3, %21 ]
-  %.not84 = phi i1 [ true, %19 ], [ false, %16 ], [ false, %21 ]
-  %.076 = phi i32 [ 0, %19 ], [ 8, %16 ], [ 8, %21 ]
-  %.075 = phi i32 [ 16, %19 ], [ 24, %16 ], [ 5, %21 ]
+  %.078 = phi i32 [ 2, %16 ], [ 301, %19 ], [ 307, %21 ]
+  %.077 = phi i32 [ 3, %16 ], [ 0, %19 ], [ 3, %21 ]
+  %.not84 = phi i1 [ false, %16 ], [ true, %19 ], [ false, %21 ]
+  %.076 = phi i32 [ 8, %16 ], [ 0, %19 ], [ 8, %21 ]
+  %.075 = phi i32 [ 24, %16 ], [ 16, %19 ], [ 5, %21 ]
   %25 = load i32, ptr @iteration_count, align 4
   %26 = icmp eq i32 %25, 0
   %27 = load ptr, ptr @salt, align 8
@@ -472,7 +472,7 @@ define hidden range(i32 0, 2) i32 @PBE_decrypt_data(ptr noundef readonly capture
   br label %105
 
 105:                                              ; preds = %48, %40, %30, %15, %10, %94, %.loopexit.thread, %75, %63, %55, %29, %23
-  %.073 = phi i32 [ 0, %15 ], [ 0, %23 ], [ 0, %29 ], [ 0, %40 ], [ 0, %55 ], [ 0, %63 ], [ 0, %75 ], [ 1, %94 ], [ 0, %.loopexit.thread ], [ 0, %30 ], [ 0, %10 ], [ 0, %48 ]
+  %.073 = phi i32 [ 0, %23 ], [ 0, %29 ], [ 0, %55 ], [ 0, %63 ], [ 0, %75 ], [ 1, %94 ], [ 0, %.loopexit.thread ], [ 0, %10 ], [ 0, %15 ], [ 0, %30 ], [ 0, %40 ], [ 0, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.073
 }
@@ -698,7 +698,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr noundef reado
   br label %.loopexit71
 
 .loopexit71:                                      ; preds = %.loopexit, %77, %.loopexit73, %91, %22, %70
-  %.052 = phi i32 [ 0, %91 ], [ 0, %22 ], [ 1, %70 ], [ 0, %.loopexit73 ], [ 0, %77 ], [ 0, %.loopexit ]
+  %.052 = phi i32 [ 1, %70 ], [ 0, %91 ], [ 0, %22 ], [ 0, %.loopexit73 ], [ 0, %77 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

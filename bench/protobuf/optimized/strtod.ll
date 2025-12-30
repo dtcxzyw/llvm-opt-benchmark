@@ -51,7 +51,7 @@ if.else16:                                        ; preds = %if.else
   br label %return
 
 return:                                           ; preds = %if.then8, %if.then, %if.else16, %if.end13, %if.end
-  %retval.0 = phi float [ %conv17, %if.else16 ], [ 0x7FF0000000000000, %if.end ], [ 0x47EFFFFFE0000000, %if.then ], [ 0xFFF0000000000000, %if.end13 ], [ 0xC7EFFFFFE0000000, %if.then8 ]
+  %retval.0 = phi float [ 0x7FF0000000000000, %if.end ], [ 0xFFF0000000000000, %if.end13 ], [ %conv17, %if.else16 ], [ 0x47EFFFFFE0000000, %if.then ], [ 0xC7EFFFFFE0000000, %if.then8 ]
   ret float %retval.0
 }
 

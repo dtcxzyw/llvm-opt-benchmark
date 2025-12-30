@@ -258,7 +258,7 @@ switch.lookup:                                    ; preds = %28
   br label %php_sxe_get_first_node_non_destructive.exit
 
 php_sxe_get_first_node_non_destructive.exit:      ; preds = %22, %34
-  %.0.i = phi ptr [ %35, %34 ], [ %.068, %22 ]
+  %.0.i = phi ptr [ %.068, %22 ], [ %35, %34 ]
   %.not80 = icmp eq ptr %.0.i, null
   br i1 %.not80, label %156, label %36
 
@@ -830,7 +830,7 @@ switch.lookup:                                    ; preds = %24
   br label %php_sxe_get_first_node_non_destructive.exit
 
 php_sxe_get_first_node_non_destructive.exit:      ; preds = %17, %29
-  %.0.i = phi ptr [ %30, %29 ], [ %.0, %17 ]
+  %.0.i = phi ptr [ %.0, %17 ], [ %30, %29 ]
   %.not47 = icmp eq ptr %.0.i, null
   br i1 %.not47, label %31, label %33
 
@@ -1013,7 +1013,7 @@ switch.lookup:                                    ; preds = %25
   br label %php_sxe_get_first_node_non_destructive.exit
 
 php_sxe_get_first_node_non_destructive.exit:      ; preds = %18, %30
-  %.0.i = phi ptr [ %31, %30 ], [ %.0, %18 ]
+  %.0.i = phi ptr [ %.0, %18 ], [ %31, %30 ]
   %.not26 = icmp eq ptr %.0.i, null
   br i1 %.not26, label %44, label %32
 
@@ -1394,7 +1394,7 @@ switch.lookup:                                    ; preds = %27
   br label %php_sxe_get_first_node_non_destructive.exit
 
 php_sxe_get_first_node_non_destructive.exit:      ; preds = %21, %32
-  %.0.i = phi ptr [ %33, %32 ], [ %.0, %21 ]
+  %.0.i = phi ptr [ %.0, %21 ], [ %33, %32 ]
   %.not16 = icmp eq ptr %.0.i, null
   br i1 %.not16, label %38, label %34
 
@@ -1479,7 +1479,7 @@ switch.lookup:                                    ; preds = %20
   br label %php_sxe_get_first_node_non_destructive.exit
 
 php_sxe_get_first_node_non_destructive.exit:      ; preds = %13, %25
-  %.0.i = phi ptr [ %26, %25 ], [ %.0, %13 ]
+  %.0.i = phi ptr [ %.0, %13 ], [ %26, %25 ]
   %.not23 = icmp eq ptr %.0.i, null
   br i1 %.not23, label %41, label %zend_string_alloc.exit
 
@@ -1594,7 +1594,7 @@ switch.lookup:                                    ; preds = %24
   br label %php_sxe_get_first_node_non_destructive.exit
 
 php_sxe_get_first_node_non_destructive.exit:      ; preds = %17, %29
-  %.0.i = phi ptr [ %30, %29 ], [ %.0, %17 ]
+  %.0.i = phi ptr [ %.0, %17 ], [ %30, %29 ]
   %.not16 = icmp eq ptr %.0.i, null
   br i1 %.not16, label %38, label %31
 
@@ -1928,7 +1928,7 @@ switch.lookup:                                    ; preds = %33
   br label %php_sxe_get_first_node_non_destructive.exit
 
 php_sxe_get_first_node_non_destructive.exit:      ; preds = %26, %38
-  %.0.i = phi ptr [ %39, %38 ], [ %.0, %26 ]
+  %.0.i = phi ptr [ %.0, %26 ], [ %39, %38 ]
   %.not38 = icmp eq ptr %.0.i, null
   br i1 %.not38, label %.thread, label %40
 
@@ -2123,7 +2123,7 @@ php_sxe_get_first_node_non_destructive.exit:      ; preds = %13, %switch.lookup
   store i32 3, ptr %21, align 8, !tbaa !9
   br label %291
 
-php_sxe_get_first_node_non_destructive.exit.thread: ; preds = %8, %.thread.i.i, %php_sxe_get_first_node_non_destructive.exit
+php_sxe_get_first_node_non_destructive.exit.thread: ; preds = %.thread.i.i, %8, %php_sxe_get_first_node_non_destructive.exit
   %22 = load ptr, ptr %4, align 8, !tbaa !24
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %match_ns.exit.thread.sink.split.i, label %23
@@ -2320,7 +2320,7 @@ switch.lookup147:                                 ; preds = %99
   br label %php_sxe_get_first_node_non_destructive.exit107.i
 
 php_sxe_get_first_node_non_destructive.exit107.i: ; preds = %105, %93
-  %.0.i105.i = phi ptr [ %106, %105 ], [ %.263.i, %93 ]
+  %.0.i105.i = phi ptr [ %.263.i, %93 ], [ %106, %105 ]
   %.not82.i = icmp eq ptr %.0.i105.i, null
   br i1 %.not82.i, label %sxe_prop_is_empty.exit, label %107
 
@@ -2390,7 +2390,7 @@ php_sxe_get_first_node_non_destructive.exit107.i: ; preds = %105, %93
   br label %.lr.ph135.split.us.i
 
 .lr.ph135.split.preheader.i:                      ; preds = %.thread, %113, %117, %120, %123, %126
-  %.364177185.i = phi ptr [ %.0.i105.i, %113 ], [ %116, %117 ], [ %116, %120 ], [ %116, %123 ], [ %116, %126 ], [ %.pre.i, %.thread ]
+  %.364177185.i = phi ptr [ %116, %117 ], [ %116, %120 ], [ %116, %123 ], [ %116, %126 ], [ %.0.i105.i, %113 ], [ %.pre.i, %.thread ]
   %136 = getelementptr inbounds i8, ptr %0, i64 -56
   %137 = getelementptr inbounds i8, ptr %0, i64 -48
   br label %.lr.ph135.split.i
@@ -2574,8 +2574,8 @@ match_ns.exit.thread.sink.split.i:                ; preds = %97, %95, %23, %php_
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1) #14
   br label %sxe_prop_is_empty.exit
 
-sxe_prop_is_empty.exit:                           ; preds = %60, %.thread.i.us.i, %61, %78, %.thread.i.i49, %77, %176, %match_ns.exit114.thread.us.i, %match_ns.exit114.us.i, %match_ns.exit114.thread.i, %199, %match_ns.exit114.i, %109, %match_ns.exit.thread.sink.split.i, %132, %114, %107, %php_sxe_get_first_node_non_destructive.exit107.i, %.thread
-  %227 = phi i32 [ 2, %match_ns.exit.thread.sink.split.i ], [ 2, %.thread ], [ 2, %php_sxe_get_first_node_non_destructive.exit107.i ], [ 2, %107 ], [ 2, %114 ], [ 2, %132 ], [ 3, %109 ], [ 2, %match_ns.exit114.i ], [ 2, %match_ns.exit114.us.i ], [ 3, %78 ], [ 3, %match_ns.exit114.thread.i ], [ 3, %199 ], [ 3, %176 ], [ 3, %match_ns.exit114.thread.us.i ], [ 3, %77 ], [ 3, %.thread.i.i49 ], [ 3, %61 ], [ 3, %.thread.i.us.i ], [ 3, %60 ]
+sxe_prop_is_empty.exit:                           ; preds = %.thread.i.us.i, %61, %60, %78, %77, %.thread.i.i49, %176, %match_ns.exit114.thread.us.i, %match_ns.exit114.us.i, %199, %match_ns.exit114.thread.i, %match_ns.exit114.i, %109, %match_ns.exit.thread.sink.split.i, %132, %114, %107, %php_sxe_get_first_node_non_destructive.exit107.i, %.thread
+  %227 = phi i32 [ 2, %.thread ], [ 2, %php_sxe_get_first_node_non_destructive.exit107.i ], [ 2, %107 ], [ 2, %114 ], [ 2, %132 ], [ 2, %match_ns.exit.thread.sink.split.i ], [ 3, %109 ], [ 3, %199 ], [ 3, %match_ns.exit114.thread.i ], [ 2, %match_ns.exit114.i ], [ 3, %176 ], [ 3, %match_ns.exit114.thread.us.i ], [ 2, %match_ns.exit114.us.i ], [ 3, %.thread.i.i49 ], [ 3, %77 ], [ 3, %78 ], [ 3, %60 ], [ 3, %61 ], [ 3, %.thread.i.us.i ]
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %227, ptr %228, align 8, !tbaa !9
   br label %291
@@ -2674,8 +2674,8 @@ php_sxe_get_first_node_non_destructive.exit60:    ; preds = %234, %switch.lookup
   br label %272
 
 272:                                              ; preds = %269, %261, %241
-  %.033 = phi ptr [ %247, %241 ], [ %271, %269 ], [ %265, %261 ]
-  %.032 = phi i1 [ true, %241 ], [ false, %269 ], [ true, %261 ]
+  %.033 = phi ptr [ %247, %241 ], [ %265, %261 ], [ %271, %269 ]
+  %.032 = phi i1 [ true, %241 ], [ true, %261 ], [ false, %269 ]
   %.not.not.i = icmp eq ptr %.033, null
   br i1 %.not.not.i, label %.thread77, label %zend_string_alloc.exit.i
 
@@ -2698,11 +2698,11 @@ zend_string_alloc.exit.i:                         ; preds = %272
   store ptr %276, ptr %1, align 8, !tbaa !9
   br label %.thread77
 
-.thread77:                                        ; preds = %249, %php_sxe_get_first_node_non_destructive.exit60.thread, %252, %.thread75, %266, %php_sxe_get_first_node_non_destructive.exit60, %zend_string_alloc.exit.i, %272
-  %.not.not.i83 = phi i1 [ false, %zend_string_alloc.exit.i ], [ true, %272 ], [ true, %php_sxe_get_first_node_non_destructive.exit60 ], [ true, %266 ], [ true, %.thread75 ], [ true, %252 ], [ true, %php_sxe_get_first_node_non_destructive.exit60.thread ], [ true, %249 ]
-  %.03282 = phi i1 [ %.032, %zend_string_alloc.exit.i ], [ %.032, %272 ], [ true, %php_sxe_get_first_node_non_destructive.exit60 ], [ true, %266 ], [ true, %.thread75 ], [ true, %252 ], [ true, %php_sxe_get_first_node_non_destructive.exit60.thread ], [ true, %249 ]
-  %.03381 = phi ptr [ %.033, %zend_string_alloc.exit.i ], [ null, %272 ], [ null, %php_sxe_get_first_node_non_destructive.exit60 ], [ null, %266 ], [ null, %.thread75 ], [ null, %252 ], [ null, %php_sxe_get_first_node_non_destructive.exit60.thread ], [ null, %249 ]
-  %.sink.i = phi i32 [ 262, %zend_string_alloc.exit.i ], [ 1, %272 ], [ 1, %php_sxe_get_first_node_non_destructive.exit60 ], [ 1, %266 ], [ 1, %.thread75 ], [ 1, %252 ], [ 1, %php_sxe_get_first_node_non_destructive.exit60.thread ], [ 1, %249 ]
+.thread77:                                        ; preds = %249, %php_sxe_get_first_node_non_destructive.exit60.thread, %266, %252, %.thread75, %php_sxe_get_first_node_non_destructive.exit60, %zend_string_alloc.exit.i, %272
+  %.not.not.i83 = phi i1 [ false, %zend_string_alloc.exit.i ], [ true, %272 ], [ true, %php_sxe_get_first_node_non_destructive.exit60 ], [ true, %.thread75 ], [ true, %252 ], [ true, %266 ], [ true, %php_sxe_get_first_node_non_destructive.exit60.thread ], [ true, %249 ]
+  %.03282 = phi i1 [ %.032, %zend_string_alloc.exit.i ], [ %.032, %272 ], [ true, %php_sxe_get_first_node_non_destructive.exit60 ], [ true, %.thread75 ], [ true, %252 ], [ true, %266 ], [ true, %php_sxe_get_first_node_non_destructive.exit60.thread ], [ true, %249 ]
+  %.03381 = phi ptr [ %.033, %zend_string_alloc.exit.i ], [ null, %272 ], [ null, %php_sxe_get_first_node_non_destructive.exit60 ], [ null, %.thread75 ], [ null, %252 ], [ null, %266 ], [ null, %php_sxe_get_first_node_non_destructive.exit60.thread ], [ null, %249 ]
+  %.sink.i = phi i32 [ 262, %zend_string_alloc.exit.i ], [ 1, %272 ], [ 1, %php_sxe_get_first_node_non_destructive.exit60 ], [ 1, %.thread75 ], [ 1, %252 ], [ 1, %266 ], [ 1, %php_sxe_get_first_node_non_destructive.exit60.thread ], [ 1, %249 ]
   %282 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink.i, ptr %282, align 8, !tbaa !9
   switch i32 %2, label %cast_object.exit [
@@ -2743,7 +2743,7 @@ cast_object.exit:                                 ; preds = %.thread77, %283, %2
   br label %291
 
 291:                                              ; preds = %cast_object.exit, %289, %20, %sxe_prop_is_empty.exit
-  %.0 = phi i32 [ 0, %20 ], [ 0, %sxe_prop_is_empty.exit ], [ %.0.i61, %289 ], [ %.0.i61, %cast_object.exit ]
+  %.0 = phi i32 [ 0, %sxe_prop_is_empty.exit ], [ 0, %20 ], [ %.0.i61, %289 ], [ %.0.i61, %cast_object.exit ]
   ret i32 %.0
 }
 
@@ -3012,7 +3012,7 @@ define hidden void @zim_SimpleXMLElement_current(ptr noundef readonly captures(n
   br label %29
 
 29:                                               ; preds = %.sink.split, %13, %19
-  %.0 = phi ptr [ %8, %13 ], [ %21, %19 ], [ %.sink.in, %.sink.split ]
+  %.0 = phi ptr [ %21, %19 ], [ %8, %13 ], [ %.sink.in, %.sink.split ]
   %30 = load ptr, ptr %.0, align 8, !tbaa !9
   %31 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !9
@@ -3313,7 +3313,7 @@ define hidden void @zim_SimpleXMLElement_getChildren(ptr noundef readonly captur
   br label %32
 
 32:                                               ; preds = %.sink.split, %16, %22
-  %.0 = phi ptr [ %8, %16 ], [ %24, %22 ], [ %.sink.in, %.sink.split ]
+  %.0 = phi ptr [ %24, %22 ], [ %8, %16 ], [ %.sink.in, %.sink.split ]
   %33 = load ptr, ptr %.0, align 8, !tbaa !9
   %34 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !9
@@ -4431,7 +4431,7 @@ match_ns.exit74:                                  ; preds = %.thread.i68, %148, 
   br i1 %.not43, label %.thread, label %.lr.ph116.split
 
 match_ns.exit.thread:                             ; preds = %.thread.i61, %.thread.i61.us, %101, %97, %.thread.i, %.thread.i.us, %29, %25, %.thread.i54, %.thread.i54.us, %47, %43, %.thread.i68, %.thread.i68.us, %137, %133
-  %.2 = phi ptr [ %.0103.us, %.thread.i.us ], [ %.1109.us, %.thread.i54.us ], [ %.4115.us, %.thread.i68.us ], [ %.0103, %.thread.i ], [ %.4115, %.thread.i68 ], [ %.3100.us, %.thread.i61.us ], [ %.1109, %.thread.i54 ], [ %.4115.us, %133 ], [ %.4115.us, %137 ], [ %.1109.us, %43 ], [ %.1109.us, %47 ], [ %.0103.us, %25 ], [ %.0103.us, %29 ], [ %.3100.us, %97 ], [ %.3100.us, %101 ], [ %.3100, %.thread.i61 ]
+  %.2 = phi ptr [ %.4115.us, %133 ], [ %.4115.us, %137 ], [ %.4115.us, %.thread.i68.us ], [ %.4115, %.thread.i68 ], [ %.1109.us, %43 ], [ %.1109.us, %47 ], [ %.1109.us, %.thread.i54.us ], [ %.1109, %.thread.i54 ], [ %.0103.us, %25 ], [ %.0103.us, %29 ], [ %.0103.us, %.thread.i.us ], [ %.0103, %.thread.i ], [ %.3100.us, %97 ], [ %.3100.us, %101 ], [ %.3100.us, %.thread.i61.us ], [ %.3100, %.thread.i61 ]
   %.not86 = icmp eq i32 %2, 0
   br i1 %.not86, label %.thread, label %156
 
@@ -4441,7 +4441,7 @@ match_ns.exit.thread:                             ; preds = %.thread.i61, %.thre
   br label %.thread
 
 .thread:                                          ; preds = %match_ns.exit67, %match_ns.exit67.us, %match_ns.exit, %match_ns.exit.us, %match_ns.exit60, %match_ns.exit60.us, %match_ns.exit74, %match_ns.exit74.us, %.preheader92, %.preheader89, %.preheader, %126, %156, %match_ns.exit.thread
-  %.285 = phi ptr [ %.2, %match_ns.exit.thread ], [ %.2, %156 ], [ null, %126 ], [ null, %.preheader89 ], [ null, %.preheader ], [ null, %.preheader92 ], [ null, %match_ns.exit74.us ], [ null, %match_ns.exit74 ], [ null, %match_ns.exit60.us ], [ null, %match_ns.exit60 ], [ null, %match_ns.exit.us ], [ null, %match_ns.exit ], [ null, %match_ns.exit67.us ], [ null, %match_ns.exit67 ]
+  %.285 = phi ptr [ %.2, %156 ], [ %.2, %match_ns.exit.thread ], [ null, %126 ], [ null, %.preheader ], [ null, %.preheader89 ], [ null, %.preheader92 ], [ null, %match_ns.exit74.us ], [ null, %match_ns.exit74 ], [ null, %match_ns.exit60.us ], [ null, %match_ns.exit60 ], [ null, %match_ns.exit.us ], [ null, %match_ns.exit ], [ null, %match_ns.exit67.us ], [ null, %match_ns.exit67 ]
   ret ptr %.285
 }
 
@@ -4502,7 +4502,7 @@ switch.lookup:                                    ; preds = %15
   br label %php_sxe_get_first_node_non_destructive.exit
 
 php_sxe_get_first_node_non_destructive.exit:      ; preds = %8, %.thread.i.i, %20
-  %.0.i = phi ptr [ null, %.thread.i.i ], [ %.0, %8 ], [ %21, %20 ]
+  %.0.i = phi ptr [ %.0, %8 ], [ %21, %20 ], [ null, %.thread.i.i ]
   ret ptr %.0.i
 }
 
@@ -5036,7 +5036,7 @@ define internal ptr @sxe_property_get_adr(ptr noundef %0, ptr noundef %1, i32 %2
   br label %19
 
 19:                                               ; preds = %12, %.sink.split.i.i.i
-  %.1.i.i.i = phi ptr [ %11, %12 ], [ %18, %.sink.split.i.i.i ]
+  %.1.i.i.i = phi ptr [ %18, %.sink.split.i.i.i ], [ %11, %12 ]
   %20 = tail call fastcc ptr @php_sxe_iterator_fetch(ptr noundef nonnull %8, ptr noundef %.1.i.i.i, i32 noundef 0)
   store i32 %16, ptr %15, align 4, !tbaa !10
   %21 = icmp eq i32 %16, 1
@@ -5213,7 +5213,7 @@ sxe_get_element_by_name.exit.thread:              ; preds = %match_ns.exit.i.i, 
   br label %sxe_get_element_by_name.exit
 
 sxe_get_element_by_name.exit:                     ; preds = %79, %.thread, %sxe_get_element_by_name.exit.thread, %103
-  %.0 = phi ptr [ %98, %103 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %.thread ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %sxe_get_element_by_name.exit.thread ], [ null, %79 ]
+  %.0 = phi ptr [ %98, %103 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %sxe_get_element_by_name.exit.thread ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %.thread ], [ null, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -5892,9 +5892,9 @@ define internal fastcc noundef ptr @sxe_prop_dim_read(ptr noundef %0, ptr nounde
   br label %34
 
 34:                                               ; preds = %28, %._crit_edge, %23, %9
-  %.0131 = phi ptr [ null, %23 ], [ null, %9 ], [ %27, %28 ], [ %.pre274, %._crit_edge ]
-  %.1129 = phi i32 [ %spec.select, %23 ], [ 0, %9 ], [ %2, %28 ], [ %2, %._crit_edge ]
-  %.5 = phi ptr [ %.1127, %23 ], [ null, %9 ], [ %6, %28 ], [ %.1127, %._crit_edge ]
+  %.0131 = phi ptr [ null, %9 ], [ null, %23 ], [ %27, %28 ], [ %.pre274, %._crit_edge ]
+  %.1129 = phi i32 [ 0, %9 ], [ %spec.select, %23 ], [ %2, %28 ], [ %2, %._crit_edge ]
+  %.5 = phi ptr [ null, %9 ], [ %.1127, %23 ], [ %6, %28 ], [ %.1127, %._crit_edge ]
   %35 = load ptr, ptr %8, align 8, !tbaa !24
   %.not159 = icmp eq ptr %35, null
   br i1 %.not159, label %38, label %36
@@ -5940,7 +5940,7 @@ define internal fastcc noundef ptr @sxe_prop_dim_read(ptr noundef %0, ptr nounde
   br label %php_sxe_get_first_node_non_destructive.exit
 
 php_sxe_get_first_node_non_destructive.exit:      ; preds = %.thread.i.i, %47
-  %.0.i = phi ptr [ null, %.thread.i.i ], [ %50, %47 ]
+  %.0.i = phi ptr [ %50, %47 ], [ null, %.thread.i.i ]
   %51 = load ptr, ptr %40, align 8, !tbaa !88
   %.not178 = icmp eq ptr %51, null
   br label %75
@@ -6154,7 +6154,7 @@ match_ns.exit201.us:                              ; preds = %.thread.i195.us, %9
   %.not13.i = icmp eq i32 %138, 0
   br i1 %.not13.i, label %match_ns.exit, label %139
 
-139:                                              ; preds = %129, %130, %.thread.i
+139:                                              ; preds = %130, %129, %.thread.i
   %140 = load i64, ptr %.5, align 8, !tbaa !9
   %141 = icmp eq i64 %140, %113
   br i1 %141, label %142, label %145
@@ -6224,8 +6224,8 @@ match_ns.exit:                                    ; preds = %.thread.i, %134, %1
   %.not13.i199 = icmp eq i32 %173, 0
   br i1 %.not13.i199, label %match_ns.exit201, label %.split.us
 
-.split.us:                                        ; preds = %.thread.i195, %165, %164, %96, %97, %.thread.i195.us
-  %.us-phi = phi ptr [ %.2138261.us, %96 ], [ %.2138261.us, %.thread.i195.us ], [ %.2138261.us, %97 ], [ %.2138261, %164 ], [ %.2138261, %165 ], [ %.2138261, %.thread.i195 ]
+.split.us:                                        ; preds = %.thread.i195, %164, %165, %96, %97, %.thread.i195.us
+  %.us-phi = phi ptr [ %.2138261.us, %.thread.i195.us ], [ %.2138261.us, %97 ], [ %.2138261.us, %96 ], [ %.2138261, %165 ], [ %.2138261, %164 ], [ %.2138261, %.thread.i195 ]
   %174 = load ptr, ptr %83, align 8, !tbaa !89
   %175 = load i32, ptr %84, align 8, !tbaa !90
   call fastcc void @node_as_zval(ptr noundef nonnull %8, ptr noundef nonnull %.us-phi, ptr noundef %4, i32 noundef 0, ptr noundef null, ptr noundef %174, i32 noundef %175)
@@ -6284,7 +6284,7 @@ match_ns.exit201:                                 ; preds = %.thread.i195, %169,
   br label %php_sxe_get_first_node_non_destructive.exit211thread-pre-split
 
 php_sxe_get_first_node_non_destructive.exit211thread-pre-split: ; preds = %.thread.i.i210, %194
-  %.2141.ph = phi ptr [ %197, %194 ], [ null, %.thread.i.i210 ]
+  %.2141.ph = phi ptr [ null, %.thread.i.i210 ], [ %197, %194 ]
   %.pr = load i32, ptr %41, align 4, !tbaa !10
   br label %php_sxe_get_first_node_non_destructive.exit211
 
@@ -6468,7 +6468,7 @@ sxe_find_element_by_name.exit:                    ; preds = %263, %235
   br label %.critedge182
 
 .critedge182:                                     ; preds = %281, %276, %26, %.critedge, %73, %13
-  %.0 = phi ptr [ %4, %.critedge ], [ @executor_globals, %73 ], [ @executor_globals, %26 ], [ @executor_globals, %13 ], [ %4, %281 ], [ %4, %276 ]
+  %.0 = phi ptr [ @executor_globals, %73 ], [ @executor_globals, %13 ], [ %4, %.critedge ], [ @executor_globals, %26 ], [ %4, %276 ], [ %4, %281 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -6542,7 +6542,7 @@ define internal fastcc ptr @sxe_get_element_by_offset(ptr noundef readonly captu
   %.not13.i = icmp eq i32 %37, 0
   br i1 %.not13.i, label %match_ns.exit, label %38
 
-38:                                               ; preds = %28, %29, %.thread.i
+38:                                               ; preds = %29, %28, %.thread.i
   %39 = load i32, ptr %6, align 4, !tbaa !10
   switch i32 %39, label %match_ns.exit [
     i32 2, label %46
@@ -6567,7 +6567,7 @@ define internal fastcc ptr @sxe_get_element_by_offset(ptr noundef readonly captu
   br label %match_ns.exit
 
 match_ns.exit:                                    ; preds = %.thread.i, %33, %38, %40, %48, %17
-  %.1 = phi i64 [ %49, %48 ], [ %.036, %40 ], [ %.036, %38 ], [ %.036, %17 ], [ %.036, %33 ], [ %.036, %.thread.i ]
+  %.1 = phi i64 [ %49, %48 ], [ %.036, %40 ], [ %.036, %17 ], [ %.036, %38 ], [ %.036, %33 ], [ %.036, %.thread.i ]
   %50 = getelementptr inbounds nuw i8, ptr %.02535, i64 48
   %51 = load ptr, ptr %50, align 8, !tbaa !125
   %52 = icmp ne ptr %51, null
@@ -6588,7 +6588,7 @@ match_ns.exit:                                    ; preds = %.thread.i, %33, %38
   br label %55
 
 55:                                               ; preds = %.sink.split, %._crit_edge, %14, %16
-  %.024 = phi ptr [ null, %14 ], [ %2, %16 ], [ %.025.lcssa, %._crit_edge ], [ %.024.ph, %.sink.split ]
+  %.024 = phi ptr [ %2, %16 ], [ null, %14 ], [ %.025.lcssa, %._crit_edge ], [ %.024.ph, %.sink.split ]
   ret ptr %.024
 }
 
@@ -6685,10 +6685,10 @@ define internal fastcc ptr @sxe_prop_dim_write(ptr noundef captures(none) %0, pt
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %.zend_string_release_ex.exit_crit_edge, %46, %41, %29
-  %47 = phi i8 [ undef, %.zend_string_release_ex.exit_crit_edge ], [ %40, %29 ], [ %40, %41 ], [ %40, %46 ]
-  %48 = phi ptr [ undef, %.zend_string_release_ex.exit_crit_edge ], [ %30, %29 ], [ %30, %41 ], [ %30, %46 ]
-  %49 = phi ptr [ %.pre417, %.zend_string_release_ex.exit_crit_edge ], [ %30, %29 ], [ %30, %41 ], [ %30, %46 ]
-  %.2 = phi ptr [ %.1, %.zend_string_release_ex.exit_crit_edge ], [ %7, %29 ], [ %7, %41 ], [ %7, %46 ]
+  %47 = phi i8 [ %40, %29 ], [ %40, %41 ], [ %40, %46 ], [ undef, %.zend_string_release_ex.exit_crit_edge ]
+  %48 = phi ptr [ %30, %29 ], [ %30, %41 ], [ %30, %46 ], [ undef, %.zend_string_release_ex.exit_crit_edge ]
+  %49 = phi ptr [ %30, %29 ], [ %30, %41 ], [ %30, %46 ], [ %.pre417, %.zend_string_release_ex.exit_crit_edge ]
+  %.2 = phi ptr [ %7, %29 ], [ %7, %41 ], [ %7, %46 ], [ %.1, %.zend_string_release_ex.exit_crit_edge ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i64, ptr %50, align 8, !tbaa !93
   %.not213 = icmp eq i64 %51, 0
@@ -6717,10 +6717,10 @@ zend_string_release_ex.exit:                      ; preds = %.zend_string_releas
   br label %zval_ptr_dtor_str.exit270
 
 60:                                               ; preds = %24, %10, %zend_string_release_ex.exit
-  %61 = phi ptr [ %48, %zend_string_release_ex.exit ], [ undef, %24 ], [ undef, %10 ]
-  %62 = phi i8 [ %47, %zend_string_release_ex.exit ], [ undef, %24 ], [ undef, %10 ]
-  %.0166 = phi i32 [ %3, %zend_string_release_ex.exit ], [ %spec.select257, %24 ], [ 0, %10 ]
-  %.3 = phi ptr [ %.2, %zend_string_release_ex.exit ], [ %.1, %24 ], [ null, %10 ]
+  %61 = phi ptr [ %48, %zend_string_release_ex.exit ], [ undef, %10 ], [ undef, %24 ]
+  %62 = phi i8 [ %47, %zend_string_release_ex.exit ], [ undef, %10 ], [ undef, %24 ]
+  %.0166 = phi i32 [ %3, %zend_string_release_ex.exit ], [ 0, %10 ], [ %spec.select257, %24 ]
+  %.3 = phi ptr [ %.2, %zend_string_release_ex.exit ], [ null, %10 ], [ %.1, %24 ]
   %63 = load ptr, ptr %9, align 8, !tbaa !24
   %.not216 = icmp eq ptr %63, null
   br i1 %.not216, label %66, label %64
@@ -6766,7 +6766,7 @@ zend_string_release_ex.exit:                      ; preds = %.zend_string_releas
   br label %php_sxe_get_first_node_non_destructive.exit
 
 php_sxe_get_first_node_non_destructive.exit:      ; preds = %.thread.i.i, %75
-  %.0.i = phi ptr [ null, %.thread.i.i ], [ %78, %75 ]
+  %.0.i = phi ptr [ %78, %75 ], [ null, %.thread.i.i ]
   %79 = load ptr, ptr %68, align 8, !tbaa !88
   %.not236 = icmp eq ptr %79, null
   br label %.thread306
@@ -6926,7 +6926,7 @@ zval_ptr_dtor_str.exit267:                        ; preds = %142, %138, %136
   br label %zval_ptr_dtor_str.exit270
 
 zval_get_string.exit:                             ; preds = %125, %122, %117, %133, %.thread306
-  %.0168 = phi ptr [ null, %.thread306 ], [ %135, %133 ], [ %126, %125 ], [ %118, %122 ], [ %118, %117 ]
+  %.0168 = phi ptr [ %135, %133 ], [ null, %.thread306 ], [ %126, %125 ], [ %118, %122 ], [ %118, %117 ]
   %.not221 = icmp eq ptr %.1170, null
   br i1 %.not221, label %change_node_zval.exit, label %146
 
@@ -7039,7 +7039,7 @@ php_libxml_invalidate_node_list_cache_from_doc.exit: ; preds = %157, %154, %146,
   %.not13.i = icmp eq i32 %196, 0
   br i1 %.not13.i, label %match_ns.exit, label %197
 
-197:                                              ; preds = %187, %188, %.thread.i
+197:                                              ; preds = %188, %187, %.thread.i
   %198 = load i64, ptr %.3, align 8, !tbaa !9
   %199 = icmp eq i64 %198, %171
   br i1 %199, label %.critedge.thread, label %200
@@ -7254,7 +7254,7 @@ match_ns.exit290:                                 ; preds = %.thread.i284, %229,
   %.not13.i295 = icmp eq i32 %303, 0
   br i1 %.not13.i295, label %match_ns.exit297, label %match_ns.exit297.thread
 
-match_ns.exit297.thread:                          ; preds = %294, %295, %.thread.i291
+match_ns.exit297.thread:                          ; preds = %295, %294, %.thread.i291
   br label %match_ns.exit297
 
 match_ns.exit297:                                 ; preds = %299, %.thread.i291, %match_ns.exit297.thread
@@ -7275,9 +7275,9 @@ match_ns.exit297:                                 ; preds = %299, %.thread.i291,
   %307 = icmp eq i32 %.2180, 1
   br i1 %307, label %.critedge.thread, label %321
 
-.critedge.thread:                                 ; preds = %224, %225, %.thread.i284, %197, %266, %263, %262, %270, %.critedge
-  %.1165323354 = phi ptr [ %2, %262 ], [ %2, %270 ], [ %2, %197 ], [ %2, %.critedge ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %266 ], [ %2, %263 ], [ %2, %.thread.i284 ], [ %2, %225 ], [ %2, %224 ]
-  %308 = phi ptr [ %.1170, %262 ], [ %272, %270 ], [ %.1182405, %197 ], [ %.3188, %.critedge ], [ %.1170, %266 ], [ %.1170, %263 ], [ %.2183402, %.thread.i284 ], [ %.2183402, %225 ], [ %.2183402, %224 ]
+.critedge.thread:                                 ; preds = %225, %224, %.thread.i284, %197, %266, %263, %262, %270, %.critedge
+  %.1165323354 = phi ptr [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %266 ], [ %2, %263 ], [ %2, %262 ], [ %2, %270 ], [ %2, %.critedge ], [ %2, %197 ], [ %2, %.thread.i284 ], [ %2, %224 ], [ %2, %225 ]
+  %308 = phi ptr [ %.1170, %266 ], [ %.1170, %263 ], [ %.1170, %262 ], [ %272, %270 ], [ %.3188, %.critedge ], [ %.1182405, %197 ], [ %.2183402, %.thread.i284 ], [ %.2183402, %224 ], [ %.2183402, %225 ]
   %.not247 = icmp eq ptr %.0168, null
   br i1 %.not247, label %change_node_zval.exit, label %.preheader
 
@@ -7326,9 +7326,9 @@ sxe_unlink_node.exit:                             ; preds = %.lr.ph412, %313
   br label %change_node_zval.exit
 
 .thread340:                                       ; preds = %match_ns.exit290, %match_ns.exit, %170, %321
-  %.1186335349 = phi ptr [ %.3188, %321 ], [ null, %match_ns.exit ], [ null, %170 ], [ null, %match_ns.exit290 ]
+  %.1186335349 = phi ptr [ %.3188, %321 ], [ null, %170 ], [ null, %match_ns.exit ], [ null, %match_ns.exit290 ]
   %.2176337348 = phi i32 [ 0, %321 ], [ %.1175, %match_ns.exit ], [ %.0174406, %170 ], [ 0, %match_ns.exit290 ]
-  %.2171338347 = phi ptr [ null, %321 ], [ %.1170, %match_ns.exit ], [ %.1170, %170 ], [ %.1170, %match_ns.exit290 ]
+  %.2171338347 = phi ptr [ null, %321 ], [ %.1170, %170 ], [ %.1170, %match_ns.exit ], [ %.1170, %match_ns.exit290 ]
   %324 = icmp eq i32 %.1167, 0
   br i1 %324, label %325, label %.thread340.thread
 
@@ -7427,8 +7427,8 @@ sxe_unlink_node.exit:                             ; preds = %.lr.ph412, %313
   br label %change_node_zval.exit
 
 change_node_zval.exit:                            ; preds = %319, %._crit_edge, %.critedge.thread, %.thread364.thread375, %.critedge256, %330, %340, %370, %368, %323, %zval_get_string.exit
-  %.0185 = phi ptr [ null, %zval_get_string.exit ], [ %308, %.critedge.thread ], [ %.3188, %323 ], [ %364, %.critedge256 ], [ %.1186335349361370379, %.thread364.thread375 ], [ %339, %330 ], [ %345, %340 ], [ %.1186335349460, %368 ], [ %375, %370 ], [ %308, %._crit_edge ], [ %308, %319 ]
-  %.0164 = phi ptr [ %2, %zval_get_string.exit ], [ %.1165323354, %.critedge.thread ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %323 ], [ %2, %.critedge256 ], [ %2, %.thread364.thread375 ], [ %2, %330 ], [ %2, %340 ], [ %2, %368 ], [ %2, %370 ], [ %.1165323354, %._crit_edge ], [ %.1165323354, %319 ]
+  %.0185 = phi ptr [ %308, %.critedge.thread ], [ %.3188, %323 ], [ %364, %.critedge256 ], [ %.1186335349361370379, %.thread364.thread375 ], [ %339, %330 ], [ %345, %340 ], [ %.1186335349460, %368 ], [ %375, %370 ], [ null, %zval_get_string.exit ], [ %308, %._crit_edge ], [ %308, %319 ]
+  %.0164 = phi ptr [ %.1165323354, %.critedge.thread ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %323 ], [ %2, %.critedge256 ], [ %2, %.thread364.thread375 ], [ %2, %330 ], [ %2, %340 ], [ %2, %368 ], [ %2, %370 ], [ %2, %zval_get_string.exit ], [ %.1165323354, %._crit_edge ], [ %.1165323354, %319 ]
   %376 = icmp ne ptr %.3, %7
   %377 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %378 = load i8, ptr %377, align 1
@@ -7492,7 +7492,7 @@ zval_ptr_dtor_str.exit:                           ; preds = %384, %379, %change_
   br label %zval_ptr_dtor_str.exit270
 
 zval_ptr_dtor_str.exit270:                        ; preds = %399, %398, %391, %387, %258, %257, %250, %246, %59, %55, %386, %245, %52, %27, %zval_ptr_dtor_str.exit267, %100, %14
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %zval_ptr_dtor_str.exit267 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %245 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %52 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %100 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %14 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %27 ], [ %.0164, %386 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %59 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %258 ], [ %.0164, %399 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %55 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %246 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %250 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %257 ], [ %.0164, %387 ], [ %.0164, %391 ], [ %.0164, %398 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %zval_ptr_dtor_str.exit267 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %100 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %14 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %27 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %52 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %245 ], [ %.0164, %386 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %55 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %59 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %246 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %250 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %257 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %258 ], [ %.0164, %387 ], [ %.0164, %391 ], [ %.0164, %398 ], [ %.0164, %399 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
@@ -7604,8 +7604,8 @@ define internal fastcc range(i32 0, 2) i32 @sxe_prop_dim_exists(ptr noundef capt
   br label %php_sxe_get_first_node_non_destructive.exit
 
 php_sxe_get_first_node_non_destructive.exit:      ; preds = %33, %.thread.i.i, %26, %.fold.split, %23
-  %.196 = phi ptr [ %.095, %.fold.split ], [ %.095, %23 ], [ %.095, %26 ], [ null, %.thread.i.i ], [ %36, %33 ]
-  %.087 = phi i32 [ 0, %.fold.split ], [ %3, %23 ], [ %3, %26 ], [ 0, %.thread.i.i ], [ 0, %33 ]
+  %.196 = phi ptr [ %.095, %26 ], [ %.095, %23 ], [ %.095, %.fold.split ], [ %36, %33 ], [ null, %.thread.i.i ]
+  %.087 = phi i32 [ %3, %26 ], [ %3, %23 ], [ 0, %.fold.split ], [ 0, %33 ], [ 0, %.thread.i.i ]
   %37 = getelementptr inbounds i8, ptr %0, i64 -64
   %38 = getelementptr inbounds i8, ptr %0, i64 -44
   %39 = load i32, ptr %38, align 4, !tbaa !10
@@ -7636,7 +7636,7 @@ php_sxe_get_first_node_non_destructive.exit:      ; preds = %33, %.thread.i.i, %
   br label %php_sxe_get_first_node_non_destructive.exit152
 
 php_sxe_get_first_node_non_destructive.exit152:   ; preds = %.thread.i.i151, %44
-  %.0.i150 = phi ptr [ null, %.thread.i.i151 ], [ %47, %44 ]
+  %.0.i150 = phi ptr [ %47, %44 ], [ null, %.thread.i.i151 ]
   %48 = load ptr, ptr %37, align 8, !tbaa !88
   %.not133 = icmp eq ptr %48, null
   br label %60
@@ -7817,7 +7817,7 @@ match_ns.exit170.us:                              ; preds = %.thread.i164.us, %8
   %.not13.i = icmp eq i32 %120, 0
   br i1 %.not13.i, label %match_ns.exit, label %121
 
-121:                                              ; preds = %111, %112, %.thread.i
+121:                                              ; preds = %112, %111, %.thread.i
   %122 = load i64, ptr %.084, align 8, !tbaa !9
   %123 = icmp eq i64 %122, %95
   br i1 %123, label %.critedge, label %124
@@ -7889,8 +7889,8 @@ match_ns.exit170:                                 ; preds = %.thread.i164, %150,
   %.not125 = icmp eq ptr %156, null
   br i1 %.not125, label %.thread, label %.lr.ph.split
 
-.critedge:                                        ; preds = %145, %146, %.thread.i164, %.thread.i164.us, %82, %81, %121
-  %.294 = phi ptr [ %.193236, %121 ], [ %.3234.us, %.thread.i164.us ], [ %.3234.us, %81 ], [ %.3234.us, %82 ], [ %.3234, %.thread.i164 ], [ %.3234, %146 ], [ %.3234, %145 ]
+.critedge:                                        ; preds = %146, %145, %.thread.i164, %.thread.i164.us, %82, %81, %121
+  %.294 = phi ptr [ %.193236, %121 ], [ %.3234.us, %81 ], [ %.3234.us, %82 ], [ %.3234.us, %.thread.i164.us ], [ %.3234, %.thread.i164 ], [ %.3234, %145 ], [ %.3234, %146 ]
   %157 = icmp eq i32 %2, 1
   br i1 %157, label %158, label %.thread
 
@@ -8013,7 +8013,7 @@ match_ns.exit.i:                                  ; preds = %209, %.thread.i.i18
   br i1 %.not.i181, label %.thread, label %188
 
 sxe_find_element_by_name.exit:                    ; preds = %170, %.thread.i.i179, %177
-  %.398 = phi ptr [ %.297207, %170 ], [ null, %.thread.i.i179 ], [ %180, %177 ]
+  %.398 = phi ptr [ %.297207, %170 ], [ %180, %177 ], [ null, %.thread.i.i179 ]
   %215 = load i64, ptr %.084, align 8, !tbaa !9
   %216 = tail call fastcc ptr @sxe_get_element_by_offset(ptr noundef nonnull %18, i64 noundef %215, ptr noundef %.398, ptr noundef null)
   %.not119 = icmp eq ptr %216, null
@@ -8061,8 +8061,8 @@ sxe_find_element_by_name.exit.thread220:          ; preds = %209, %sxe_find_elem
 235:                                              ; preds = %233, %231, %228, %218
   br label %.thread
 
-.thread:                                          ; preds = %match_ns.exit.i, %match_ns.exit170, %match_ns.exit170.us, %match_ns.exit, %94, %.preheader226, %.preheader, %181, %php_sxe_get_first_node_non_destructive.exit162.thread, %php_sxe_get_first_node_non_destructive.exit162, %168, %166, %.critedge, %sxe_find_element_by_name.exit.thread220, %221, %225, %233, %235, %sxe_find_element_by_name.exit, %60
-  %.090 = phi i32 [ 0, %168 ], [ 1, %166 ], [ 1, %.critedge ], [ 1, %225 ], [ 0, %235 ], [ 1, %233 ], [ 1, %221 ], [ 1, %sxe_find_element_by_name.exit.thread220 ], [ 0, %sxe_find_element_by_name.exit ], [ 0, %60 ], [ 0, %181 ], [ 0, %php_sxe_get_first_node_non_destructive.exit162.thread ], [ 0, %php_sxe_get_first_node_non_destructive.exit162 ], [ 0, %.preheader226 ], [ 0, %.preheader ], [ 0, %match_ns.exit ], [ 0, %match_ns.exit170.us ], [ 0, %match_ns.exit170 ], [ 0, %94 ], [ 0, %match_ns.exit.i ]
+.thread:                                          ; preds = %match_ns.exit.i, %match_ns.exit170, %match_ns.exit170.us, %94, %match_ns.exit, %.preheader226, %.preheader, %181, %php_sxe_get_first_node_non_destructive.exit162.thread, %php_sxe_get_first_node_non_destructive.exit162, %168, %166, %.critedge, %sxe_find_element_by_name.exit.thread220, %221, %225, %233, %235, %sxe_find_element_by_name.exit, %60
+  %.090 = phi i32 [ 0, %168 ], [ 1, %166 ], [ 1, %.critedge ], [ 1, %225 ], [ 0, %235 ], [ 1, %233 ], [ 1, %221 ], [ 1, %sxe_find_element_by_name.exit.thread220 ], [ 0, %sxe_find_element_by_name.exit ], [ 0, %60 ], [ 0, %php_sxe_get_first_node_non_destructive.exit162 ], [ 0, %php_sxe_get_first_node_non_destructive.exit162.thread ], [ 0, %181 ], [ 0, %.preheader ], [ 0, %.preheader226 ], [ 0, %match_ns.exit ], [ 0, %94 ], [ 0, %match_ns.exit170.us ], [ 0, %match_ns.exit170 ], [ 0, %match_ns.exit.i ]
   %236 = icmp ne ptr %.084, %5
   %or.cond225 = select i1 %236, i1 true, i1 %.not.i
   br i1 %or.cond225, label %.critedge141, label %237
@@ -8081,7 +8081,7 @@ sxe_find_element_by_name.exit.thread220:          ; preds = %209, %sxe_find_elem
   br label %.critedge141
 
 .critedge141:                                     ; preds = %241, %237, %8, %.thread
-  %.183 = phi i32 [ %.090, %.thread ], [ 0, %8 ], [ %.090, %241 ], [ %.090, %237 ]
+  %.183 = phi i32 [ %.090, %.thread ], [ 0, %8 ], [ %.090, %237 ], [ %.090, %241 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.183
 }
@@ -8172,8 +8172,8 @@ define internal fastcc void @sxe_prop_dim_delete(ptr noundef captures(none) %0, 
   br label %php_sxe_get_first_node_non_destructive.exit
 
 php_sxe_get_first_node_non_destructive.exit:      ; preds = %32, %.thread.i.i, %25, %.fold.split, %22
-  %.185 = phi ptr [ %.084, %.fold.split ], [ %.084, %22 ], [ %.084, %25 ], [ null, %.thread.i.i ], [ %35, %32 ]
-  %.081 = phi i32 [ 0, %.fold.split ], [ %2, %22 ], [ %2, %25 ], [ 0, %.thread.i.i ], [ 0, %32 ]
+  %.185 = phi ptr [ %.084, %25 ], [ %.084, %22 ], [ %.084, %.fold.split ], [ %35, %32 ], [ null, %.thread.i.i ]
+  %.081 = phi i32 [ %2, %25 ], [ %2, %22 ], [ 0, %.fold.split ], [ 0, %32 ], [ 0, %.thread.i.i ]
   %36 = getelementptr inbounds i8, ptr %0, i64 -64
   %37 = getelementptr inbounds i8, ptr %0, i64 -44
   %38 = load i32, ptr %37, align 4, !tbaa !10
@@ -8204,7 +8204,7 @@ php_sxe_get_first_node_non_destructive.exit:      ; preds = %32, %.thread.i.i, %
   br label %php_sxe_get_first_node_non_destructive.exit136
 
 php_sxe_get_first_node_non_destructive.exit136:   ; preds = %.thread.i.i135, %43
-  %.0.i134 = phi ptr [ null, %.thread.i.i135 ], [ %46, %43 ]
+  %.0.i134 = phi ptr [ %46, %43 ], [ null, %.thread.i.i135 ]
   %47 = load ptr, ptr %36, align 8, !tbaa !88
   %.not119 = icmp eq ptr %47, null
   br label %59
@@ -8415,7 +8415,7 @@ match_ns.exit155.us:                              ; preds = %.thread.i149.us, %9
   %.not13.i = icmp eq i32 %133, 0
   br i1 %.not13.i, label %match_ns.exit, label %134
 
-134:                                              ; preds = %124, %125, %.thread.i
+134:                                              ; preds = %125, %124, %.thread.i
   %135 = load i64, ptr %.079, align 8, !tbaa !9
   %136 = icmp eq i64 %135, %108
   br i1 %136, label %137, label %140
@@ -8493,8 +8493,8 @@ match_ns.exit:                                    ; preds = %.thread.i, %129, %1
   %.not13.i153 = icmp eq i32 %172, 0
   br i1 %.not13.i153, label %match_ns.exit155, label %.split.us
 
-.split.us:                                        ; preds = %.thread.i149, %164, %163, %96, %97, %.thread.i149.us
-  %.us-phi = phi ptr [ %.289221.us, %96 ], [ %.289221.us, %.thread.i149.us ], [ %.289221.us, %97 ], [ %.289221, %163 ], [ %.289221, %164 ], [ %.289221, %.thread.i149 ]
+.split.us:                                        ; preds = %.thread.i149, %163, %164, %96, %97, %.thread.i149.us
+  %.us-phi = phi ptr [ %.289221.us, %.thread.i149.us ], [ %.289221.us, %97 ], [ %.289221.us, %96 ], [ %.289221, %164 ], [ %.289221, %163 ], [ %.289221, %.thread.i149 ]
   tail call void @xmlUnlinkNode(ptr noundef nonnull %.us-phi) #14
   %173 = load ptr, ptr %.us-phi, align 8, !tbaa !167
   %.not.i156 = icmp eq ptr %173, null
@@ -8537,7 +8537,7 @@ match_ns.exit155:                                 ; preds = %.thread.i149, %168,
   br label %php_sxe_get_first_node_non_destructive.exit167
 
 php_sxe_get_first_node_non_destructive.exit167:   ; preds = %183, %.thread.i.i166, %176
-  %.3 = phi ptr [ %.2204, %176 ], [ null, %.thread.i.i166 ], [ %186, %183 ]
+  %.3 = phi ptr [ %.2204, %176 ], [ %186, %183 ], [ null, %.thread.i.i166 ]
   %187 = load i64, ptr %.079, align 8, !tbaa !9
   %188 = tail call fastcc ptr @sxe_get_element_by_offset(ptr noundef nonnull %17, i64 noundef %187, ptr noundef %.3, ptr noundef null)
   %.not110 = icmp eq ptr %188, null
@@ -8614,7 +8614,7 @@ php_sxe_get_first_node_non_destructive.exit167:   ; preds = %183, %.thread.i.i16
   %.not13.i174 = icmp eq i32 %225, 0
   br i1 %.not13.i174, label %match_ns.exit176, label %226
 
-226:                                              ; preds = %216, %217, %.thread.i170
+226:                                              ; preds = %217, %216, %.thread.i170
   tail call void @xmlUnlinkNode(ptr noundef nonnull %.4219) #14
   %227 = load ptr, ptr %.4219, align 8, !tbaa !167
   %.not.i177 = icmp eq ptr %227, null
@@ -8794,7 +8794,7 @@ php_sxe_get_first_node_non_destructive.exit.thread188: ; preds = %._crit_edge, %
   %.not13.i = icmp eq i32 %67, 0
   br i1 %.not13.i, label %match_ns.exit, label %68
 
-68:                                               ; preds = %58, %59, %.thread.i
+68:                                               ; preds = %59, %58, %.thread.i
   %69 = load ptr, ptr %42, align 8, !tbaa !30
   %70 = load ptr, ptr %69, align 8, !tbaa !31
   %71 = getelementptr inbounds nuw i8, ptr %.0110204, i64 24
@@ -8916,7 +8916,7 @@ switch.lookup:                                    ; preds = %113
   br label %php_sxe_get_first_node_non_destructive.exit165
 
 php_sxe_get_first_node_non_destructive.exit165:   ; preds = %106, %119
-  %.0.i163 = phi ptr [ %120, %119 ], [ %.2, %106 ]
+  %.0.i163 = phi ptr [ %.2, %106 ], [ %120, %119 ]
   %.not133 = icmp eq ptr %.0.i163, null
   br i1 %.not133, label %.loopexit, label %121
 
@@ -9171,7 +9171,7 @@ sxe_xmlNodeListGetString.exit173:                 ; preds = %zend_string_alloc.e
   %.not13.i178 = icmp eq i32 %246, 0
   br i1 %.not13.i178, label %match_ns.exit180, label %match_ns.exit180.thread
 
-match_ns.exit180.thread:                          ; preds = %.thread.i174, %238, %237, %226
+match_ns.exit180.thread:                          ; preds = %.thread.i174, %237, %238, %226
   %247 = getelementptr inbounds nuw i8, ptr %.4206, i64 16
   %248 = load ptr, ptr %247, align 8, !tbaa !83
   %.not150 = icmp eq ptr %248, null

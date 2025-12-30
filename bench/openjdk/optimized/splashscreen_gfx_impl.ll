@@ -974,7 +974,7 @@ define internal fastcc i32 @getRGBA(ptr noundef readonly captures(none) %0, ptr 
   br label %118
 
 118:                                              ; preds = %68, %76, %72
-  %.070 = phi i32 [ %117, %76 ], [ %75, %72 ], [ 0, %68 ]
+  %.070 = phi i32 [ %75, %72 ], [ %117, %76 ], [ 0, %68 ]
   ret i32 %.070
 }
 

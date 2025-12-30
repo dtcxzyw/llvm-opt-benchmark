@@ -162,7 +162,7 @@ dsa_signverify_message_update.exit:               ; preds = %11
   br label %dsa_get_md_size.exit.i
 
 dsa_get_md_size.exit.i:                           ; preds = %42, %36
-  %.0.i.i = phi i64 [ %spec.select.i.i, %42 ], [ 0, %36 ]
+  %.0.i.i = phi i64 [ 0, %36 ], [ %spec.select.i.i, %42 ]
   %44 = tail call i32 @ossl_prov_is_running() #9
   %.not.i = icmp eq i32 %44, 0
   br i1 %.not.i, label %dsa_sign_directly.exit, label %45
@@ -205,12 +205,12 @@ dsa_get_md_size.exit.i:                           ; preds = %42, %36
   br label %dsa_sign_directly.exit
 
 dsa_sign_directly.exit:                           ; preds = %dsa_get_md_size.exit.i, %47, %49, %50, %.sink.split.i
-  %.0.i24 = phi i32 [ 0, %50 ], [ 0, %dsa_get_md_size.exit.i ], [ 0, %47 ], [ 0, %49 ], [ 1, %.sink.split.i ]
+  %.0.i24 = phi i32 [ 0, %dsa_get_md_size.exit.i ], [ 0, %47 ], [ 0, %49 ], [ 0, %50 ], [ 1, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dsa_sign_message_final.exit
 
 dsa_sign_message_final.exit:                      ; preds = %29, %dsa_get_md_size.exit.i.i, %16, %13, %dsa_signverify_message_update.exit, %dsa_sign_directly.exit, %34
-  %.0 = phi i32 [ 0, %dsa_signverify_message_update.exit ], [ %.0.i24, %dsa_sign_directly.exit ], [ %35, %34 ], [ 0, %13 ], [ 1, %29 ], [ 0, %16 ], [ 0, %dsa_get_md_size.exit.i.i ]
+  %.0 = phi i32 [ %35, %34 ], [ %.0.i24, %dsa_sign_directly.exit ], [ 0, %dsa_signverify_message_update.exit ], [ 0, %16 ], [ 0, %13 ], [ 0, %dsa_get_md_size.exit.i.i ], [ 1, %29 ]
   ret i32 %.0
 }
 
@@ -266,7 +266,7 @@ dsa_signverify_message_update.exit:               ; preds = %11
   br label %dsa_get_md_size.exit.i
 
 dsa_get_md_size.exit.i:                           ; preds = %22, %20
-  %.0.i.i = phi i64 [ %spec.select.i.i, %22 ], [ 0, %20 ]
+  %.0.i.i = phi i64 [ 0, %20 ], [ %spec.select.i.i, %22 ]
   %24 = tail call i32 @ossl_prov_is_running() #9
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %dsa_verify_directly.exit, label %25
@@ -286,7 +286,7 @@ dsa_get_md_size.exit.i:                           ; preds = %22, %20
   br label %dsa_verify_directly.exit
 
 dsa_verify_directly.exit:                         ; preds = %26, %25, %dsa_get_md_size.exit.i, %dsa_signverify_message_update.exit, %11, %18
-  %.0 = phi i32 [ 0, %dsa_signverify_message_update.exit ], [ 0, %11 ], [ %19, %18 ], [ %31, %26 ], [ 0, %25 ], [ 0, %dsa_get_md_size.exit.i ]
+  %.0 = phi i32 [ %19, %18 ], [ 0, %11 ], [ 0, %dsa_signverify_message_update.exit ], [ %31, %26 ], [ 0, %25 ], [ 0, %dsa_get_md_size.exit.i ]
   ret i32 %.0
 }
 
@@ -511,7 +511,7 @@ define internal ptr @dsa_dupctx(ptr noundef readonly captures(none) %0) #0 {
   br label %45
 
 45:                                               ; preds = %31, %34, %3, %1, %37
-  %.0 = phi ptr [ null, %1 ], [ null, %37 ], [ null, %3 ], [ %4, %34 ], [ %4, %31 ]
+  %.0 = phi ptr [ null, %37 ], [ null, %1 ], [ null, %3 ], [ %4, %34 ], [ %4, %31 ]
   ret ptr %.0
 }
 
@@ -562,7 +562,7 @@ define internal range(i32 0, 2) i32 @dsa_get_ctx_params(ptr noundef %0, ptr noun
   br label %25
 
 25:                                               ; preds = %20, %15, %6, %2, %24
-  %.0 = phi i32 [ 0, %2 ], [ 1, %24 ], [ 0, %15 ], [ 0, %6 ], [ 0, %20 ]
+  %.0 = phi i32 [ 1, %24 ], [ 0, %2 ], [ 0, %6 ], [ 0, %15 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -640,7 +640,7 @@ dsa_common_set_ctx_params.exit:                   ; preds = %13, %11
 25:                                               ; preds = %23, %dsa_common_set_ctx_params.exit
   br label %ossl_param_is_empty.exit.thread
 
-.critedge:                                        ; preds = %17, %21
+.critedge:                                        ; preds = %21, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -648,7 +648,7 @@ dsa_common_set_ctx_params.exit:                   ; preds = %13, %11
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %13, %8, %.critedge, %ossl_param_is_empty.exit, %2, %23, %25
-  %.0 = phi i32 [ 0, %23 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %25 ], [ 1, %8 ], [ 0, %.critedge ], [ 0, %13 ]
+  %.0 = phi i32 [ 1, %25 ], [ 0, %23 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %.critedge ], [ 1, %8 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -836,7 +836,7 @@ dsa_get_md_size.exit.i:                           ; preds = %21, %.split
   br label %dsa_get_md_size.exit.i19
 
 dsa_get_md_size.exit.i19:                         ; preds = %34, %.split10
-  %.0.i.i20 = phi i64 [ %spec.select.i.i18, %34 ], [ 0, %.split10 ]
+  %.0.i.i20 = phi i64 [ 0, %.split10 ], [ %spec.select.i.i18, %34 ]
   %36 = call i32 @ossl_prov_is_running() #9
   %.not.i21 = icmp eq i32 %36, 0
   %37 = icmp ult i64 %3, %32
@@ -868,12 +868,12 @@ dsa_get_md_size.exit.i19:                         ; preds = %34, %.split10
   br label %dsa_sign_directly.exit23
 
 dsa_sign_directly.exit23:                         ; preds = %dsa_get_md_size.exit.i19, %38, %39, %.sink.split.i
-  %.0.i22 = phi i32 [ 0, %39 ], [ 0, %dsa_get_md_size.exit.i19 ], [ 1, %.sink.split.i ], [ 0, %38 ]
+  %.0.i22 = phi i32 [ 0, %dsa_get_md_size.exit.i19 ], [ 0, %38 ], [ 0, %39 ], [ 1, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dsa_sign_directly.exit
 
 dsa_sign_directly.exit:                           ; preds = %24, %dsa_get_md_size.exit.i, %dsa_sign_directly.exit23, %25, %4, %11
-  %.0 = phi i32 [ 0, %4 ], [ 0, %25 ], [ 0, %11 ], [ %.0.i22, %dsa_sign_directly.exit23 ], [ 1, %24 ], [ 0, %dsa_get_md_size.exit.i ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %4 ], [ 0, %25 ], [ %.0.i22, %dsa_sign_directly.exit23 ], [ 0, %dsa_get_md_size.exit.i ], [ 1, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -934,7 +934,7 @@ define internal i32 @dsa_verify_message_final(ptr noundef readonly captures(addr
   br label %dsa_get_md_size.exit.i
 
 dsa_get_md_size.exit.i:                           ; preds = %20, %12
-  %.0.i.i = phi i64 [ %spec.select.i.i, %20 ], [ 0, %12 ]
+  %.0.i.i = phi i64 [ 0, %12 ], [ %spec.select.i.i, %20 ]
   %22 = call i32 @ossl_prov_is_running() #9
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %dsa_verify_directly.exit, label %23
@@ -1014,7 +1014,7 @@ dsa_common_set_ctx_params.exit:                   ; preds = %9, %7
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %9, %4, %17, %ossl_param_is_empty.exit, %2, %22
-  %.0 = phi i32 [ 1, %4 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %22 ], [ 0, %17 ], [ 0, %9 ]
+  %.0 = phi i32 [ 1, %22 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %17 ], [ 1, %4 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -1284,7 +1284,7 @@ define internal fastcc range(i32 0, 2) i32 @dsa_signverify_init(ptr noundef %0, 
   br label %23
 
 23:                                               ; preds = %20, %15, %5, %14
-  %.0 = phi i32 [ 0, %5 ], [ 0, %14 ], [ 0, %15 ], [ %., %20 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 0, %15 ], [ %., %20 ]
   ret i32 %.0
 }
 
@@ -1379,7 +1379,7 @@ define internal fastcc range(i32 0, 2) i32 @dsa_digest_signverify_init(ptr nound
   br label %35
 
 35:                                               ; preds = %28, %16, %7, %5, %33
-  %.0 = phi i32 [ 0, %33 ], [ 0, %16 ], [ 0, %7 ], [ 0, %5 ], [ 1, %28 ]
+  %.0 = phi i32 [ 0, %33 ], [ 0, %5 ], [ 0, %7 ], [ 0, %16 ], [ 1, %28 ]
   ret i32 %.0
 }
 
@@ -1537,13 +1537,13 @@ define internal fastcc range(i32 0, 2) i32 @dsa_setup_md(ptr noundef %0, ptr nou
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %64
 
-63:                                               ; preds = %37, %27, %24, %22
+63:                                               ; preds = %27, %37, %24, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   tail call void @EVP_MD_free(ptr noundef %13) #9
   br label %64
 
 64:                                               ; preds = %62, %9, %63
-  %.1 = phi i32 [ 1, %9 ], [ 0, %63 ], [ 1, %62 ]
+  %.1 = phi i32 [ 0, %63 ], [ 1, %62 ], [ 1, %9 ]
   ret i32 %.1
 }
 
@@ -1664,7 +1664,7 @@ define internal fastcc range(i32 0, 2) i32 @dsa_sigalg_signverify_init(ptr nound
   br label %29
 
 29:                                               ; preds = %22, %9, %7, %5, %27
-  %.0 = phi i32 [ 0, %27 ], [ 0, %9 ], [ 0, %7 ], [ 0, %5 ], [ 1, %22 ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %5 ], [ 0, %7 ], [ 0, %9 ], [ 1, %22 ]
   ret i32 %.0
 }
 

@@ -122,7 +122,7 @@ define dso_local range(i32 0, 2) i32 @onas_sendln(ptr noundef %0, ptr noundef %1
   br i1 %.not17, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %52, %.preheader18, %49, %46, %38, %16
-  %.0 = phi i32 [ 1, %16 ], [ 1, %38 ], [ 1, %49 ], [ 1, %46 ], [ 0, %.preheader18 ], [ 0, %52 ]
+  %.0 = phi i32 [ 1, %16 ], [ 1, %38 ], [ 1, %46 ], [ 1, %49 ], [ 0, %.preheader18 ], [ 0, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
@@ -346,7 +346,7 @@ define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr 
   br label %25
 
 93:                                               ; preds = %55, %58, %60, %85, %73, %49, %22
-  %.0 = phi i32 [ -1, %22 ], [ %77, %73 ], [ -1, %85 ], [ -1, %49 ], [ -1, %58 ], [ -1, %60 ], [ 0, %55 ]
+  %.0 = phi i32 [ -1, %22 ], [ %77, %73 ], [ -1, %85 ], [ -1, %49 ], [ -1, %60 ], [ -1, %58 ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -476,7 +476,7 @@ define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr noundef writeonly captu
   br label %10
 
 56:                                               ; preds = %19, %22, %24, %48, %36
-  %.0 = phi i32 [ %40, %36 ], [ -1, %48 ], [ -1, %22 ], [ -1, %24 ], [ 0, %19 ]
+  %.0 = phi i32 [ %40, %36 ], [ -1, %48 ], [ -1, %24 ], [ -1, %22 ], [ 0, %19 ]
   ret i32 %.0
 }
 

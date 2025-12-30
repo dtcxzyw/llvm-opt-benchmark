@@ -4085,12 +4085,12 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
   br label %.thread1203.thread
 
 .thread1203.thread:                               ; preds = %.thread1278, %320, %366, %408, %410, %.thread1203
-  %411 = phi ptr [ %210, %.thread1203 ], [ %210, %410 ], [ %210, %.thread1278 ], [ %210, %320 ], [ %210, %366 ], [ %58, %408 ]
-  %412 = phi ptr [ %209, %.thread1203 ], [ %209, %410 ], [ %209, %.thread1278 ], [ %209, %320 ], [ %367, %366 ], [ %367, %408 ]
-  %413 = phi ptr [ %208, %.thread1203 ], [ %208, %410 ], [ %316, %.thread1278 ], [ %316, %320 ], [ %316, %366 ], [ %316, %408 ]
-  %.08861288 = phi i1 [ false, %.thread1203 ], [ false, %410 ], [ true, %.thread1278 ], [ true, %320 ], [ false, %366 ], [ false, %408 ]
-  %.01187.shrunk1286 = phi i1 [ false, %.thread1203 ], [ false, %410 ], [ false, %.thread1278 ], [ false, %320 ], [ true, %366 ], [ true, %408 ]
-  %.111951285 = phi float [ %.0119412291320, %.thread1203 ], [ %.0119412291320, %410 ], [ %spec.select, %.thread1278 ], [ %.0119412291320, %320 ], [ %323, %366 ], [ %323, %408 ]
+  %411 = phi ptr [ %210, %410 ], [ %210, %.thread1203 ], [ %210, %.thread1278 ], [ %210, %320 ], [ %210, %366 ], [ %58, %408 ]
+  %412 = phi ptr [ %209, %410 ], [ %209, %.thread1203 ], [ %209, %.thread1278 ], [ %209, %320 ], [ %367, %366 ], [ %367, %408 ]
+  %413 = phi ptr [ %208, %410 ], [ %208, %.thread1203 ], [ %316, %.thread1278 ], [ %316, %320 ], [ %316, %366 ], [ %316, %408 ]
+  %.08861288 = phi i1 [ false, %410 ], [ false, %.thread1203 ], [ true, %.thread1278 ], [ true, %320 ], [ false, %366 ], [ false, %408 ]
+  %.01187.shrunk1286 = phi i1 [ false, %410 ], [ false, %.thread1203 ], [ false, %.thread1278 ], [ false, %320 ], [ true, %366 ], [ true, %408 ]
+  %.111951285 = phi float [ %.0119412291320, %410 ], [ %.0119412291320, %.thread1203 ], [ %spec.select, %.thread1278 ], [ %.0119412291320, %320 ], [ %323, %366 ], [ %323, %408 ]
   %414 = or i1 %.not1232, %.08861288
   %415 = load float, ptr %63, align 16
   %416 = fadd contract float %.111951285, %415
@@ -4438,16 +4438,16 @@ _ZN5drjitmlIN7mitsuba8SpectrumIfLm4EEES3_Lm4EEENS_6MatrixINS_6detail14replace_sc
   br i1 %.not1309, label %._crit_edge.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %.thread1214, %.thread1289
-  %.011861230.be = phi i8 [ 0, %.thread1289 ], [ %420, %.thread1214 ]
+  %.011861230.be = phi i8 [ %420, %.thread1214 ], [ 0, %.thread1289 ]
   %615 = fsub contract float %171, %.4
   store float %615, ptr %176, align 16
   %616 = fcmp contract ogt float %615, 0.000000e+00
   br i1 %616, label %.lr.ph1321, label %._crit_edge.loopexit, !llvm.loop !479
 
 ._crit_edge.loopexit:                             ; preds = %.outer, %572, %.thread1214, %.backedge, %.thread1289
-  %617 = phi ptr [ %411, %572 ], [ %411, %.thread1289 ], [ %411, %.backedge ], [ %411, %.thread1214 ], [ %.lcssa12981304, %.outer ]
-  %618 = phi ptr [ %412, %572 ], [ %412, %.thread1289 ], [ %412, %.backedge ], [ %412, %.thread1214 ], [ %.lcssa12961302, %.outer ]
-  %619 = phi ptr [ %413, %572 ], [ %413, %.thread1289 ], [ %413, %.backedge ], [ %413, %.thread1214 ], [ %.lcssa12941301, %.outer ]
+  %617 = phi ptr [ %411, %.thread1289 ], [ %411, %.backedge ], [ %411, %.thread1214 ], [ %411, %572 ], [ %.lcssa12981304, %.outer ]
+  %618 = phi ptr [ %412, %.thread1289 ], [ %412, %.backedge ], [ %412, %.thread1214 ], [ %412, %572 ], [ %.lcssa12961302, %.outer ]
+  %619 = phi ptr [ %413, %.thread1289 ], [ %413, %.backedge ], [ %413, %.thread1214 ], [ %413, %572 ], [ %.lcssa12941301, %.outer ]
   store ptr %.lcssa12941301, ptr %67, align 8
   store ptr %.lcssa12961302, ptr %68, align 8
   store ptr %.lcssa12981304, ptr %69, align 8
@@ -5484,12 +5484,12 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
   br label %.thread1215.thread
 
 .thread1215.thread:                               ; preds = %.thread1291, %330, %376, %418, %420, %.thread1215
-  %421 = phi ptr [ %220, %.thread1215 ], [ %220, %420 ], [ %220, %.thread1291 ], [ %220, %330 ], [ %220, %376 ], [ %58, %418 ]
-  %422 = phi ptr [ %219, %.thread1215 ], [ %219, %420 ], [ %219, %.thread1291 ], [ %219, %330 ], [ %377, %376 ], [ %377, %418 ]
-  %423 = phi ptr [ %218, %.thread1215 ], [ %218, %420 ], [ %326, %.thread1291 ], [ %326, %330 ], [ %326, %376 ], [ %326, %418 ]
-  %.08921301 = phi i1 [ false, %.thread1215 ], [ false, %420 ], [ true, %.thread1291 ], [ true, %330 ], [ false, %376 ], [ false, %418 ]
-  %.01198.shrunk1299 = phi i1 [ false, %.thread1215 ], [ false, %420 ], [ false, %.thread1291 ], [ false, %330 ], [ true, %376 ], [ true, %418 ]
-  %.112061298 = phi float [ %.0120512421333, %.thread1215 ], [ %.0120512421333, %420 ], [ %spec.select1227, %.thread1291 ], [ %.0120512421333, %330 ], [ %333, %376 ], [ %333, %418 ]
+  %421 = phi ptr [ %220, %420 ], [ %220, %.thread1215 ], [ %220, %.thread1291 ], [ %220, %330 ], [ %220, %376 ], [ %58, %418 ]
+  %422 = phi ptr [ %219, %420 ], [ %219, %.thread1215 ], [ %219, %.thread1291 ], [ %219, %330 ], [ %377, %376 ], [ %377, %418 ]
+  %423 = phi ptr [ %218, %420 ], [ %218, %.thread1215 ], [ %326, %.thread1291 ], [ %326, %330 ], [ %326, %376 ], [ %326, %418 ]
+  %.08921301 = phi i1 [ false, %420 ], [ false, %.thread1215 ], [ true, %.thread1291 ], [ true, %330 ], [ false, %376 ], [ false, %418 ]
+  %.01198.shrunk1299 = phi i1 [ false, %420 ], [ false, %.thread1215 ], [ false, %.thread1291 ], [ false, %330 ], [ true, %376 ], [ true, %418 ]
+  %.112061298 = phi float [ %.0120512421333, %420 ], [ %.0120512421333, %.thread1215 ], [ %spec.select1227, %.thread1291 ], [ %.0120512421333, %330 ], [ %333, %376 ], [ %333, %418 ]
   %424 = or i1 %.not1245, %.08921301
   %425 = load float, ptr %63, align 16
   %426 = fadd contract float %.112061298, %425
@@ -5837,16 +5837,16 @@ _ZN5drjitmlIN7mitsuba8SpectrumIfLm4EEES3_Lm4EEENS_6MatrixINS_6detail14replace_sc
   br i1 %.not1322, label %._crit_edge.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %.thread1226, %.thread1302
-  %.011971243.be = phi i8 [ 0, %.thread1302 ], [ %430, %.thread1226 ]
+  %.011971243.be = phi i8 [ %430, %.thread1226 ], [ 0, %.thread1302 ]
   %625 = fsub contract float %171, %.4
   store float %625, ptr %176, align 16
   %626 = fcmp contract ogt float %625, 0.000000e+00
   br i1 %626, label %.lr.ph1334, label %._crit_edge.loopexit, !llvm.loop !603
 
 ._crit_edge.loopexit:                             ; preds = %.outer, %582, %.thread1226, %.backedge, %.thread1302
-  %627 = phi ptr [ %421, %582 ], [ %421, %.thread1302 ], [ %421, %.backedge ], [ %421, %.thread1226 ], [ %.lcssa13111317, %.outer ]
-  %628 = phi ptr [ %422, %582 ], [ %422, %.thread1302 ], [ %422, %.backedge ], [ %422, %.thread1226 ], [ %.lcssa13091315, %.outer ]
-  %629 = phi ptr [ %423, %582 ], [ %423, %.thread1302 ], [ %423, %.backedge ], [ %423, %.thread1226 ], [ %.lcssa13071314, %.outer ]
+  %627 = phi ptr [ %421, %.thread1302 ], [ %421, %.backedge ], [ %421, %.thread1226 ], [ %421, %582 ], [ %.lcssa13111317, %.outer ]
+  %628 = phi ptr [ %422, %.thread1302 ], [ %422, %.backedge ], [ %422, %.thread1226 ], [ %422, %582 ], [ %.lcssa13091315, %.outer ]
+  %629 = phi ptr [ %423, %.thread1302 ], [ %423, %.backedge ], [ %423, %.thread1226 ], [ %423, %582 ], [ %.lcssa13071314, %.outer ]
   store ptr %.lcssa13071314, ptr %67, align 8
   store ptr %.lcssa13091315, ptr %68, align 8
   store ptr %.lcssa13111317, ptr %69, align 8
@@ -7931,7 +7931,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -8006,7 +8006,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
   ret ptr %.069
 }
 
@@ -8231,7 +8231,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 

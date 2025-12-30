@@ -423,7 +423,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %.preheader87, %122, %113, %.critedge85, %139, %136, %79, %65, %54, %37, %74
-  %.1 = phi i32 [ 0, %.critedge85 ], [ %27, %37 ], [ -12, %74 ], [ -12, %65 ], [ %107, %79 ], [ 0, %122 ], [ 0, %113 ], [ %44, %54 ], [ 0, %136 ], [ 0, %139 ], [ 0, %.preheader87 ], [ 0, %17 ]
+  %.1 = phi i32 [ -12, %74 ], [ 0, %122 ], [ 0, %113 ], [ %27, %37 ], [ %44, %54 ], [ -12, %65 ], [ %107, %79 ], [ 0, %136 ], [ 0, %139 ], [ 0, %.critedge85 ], [ 0, %.preheader87 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
@@ -842,7 +842,7 @@ define internal fastcc void @compressor(ptr noundef captures(none) %0, ptr nound
   br label %output_gain.exit
 
 output_gain.exit:                                 ; preds = %88, %90, %108, %110
-  %.1.i = phi nsz double [ %107, %90 ], [ %.030.i, %108 ], [ %.030.i, %88 ], [ %127, %110 ]
+  %.1.i = phi nsz double [ %107, %90 ], [ %.030.i, %88 ], [ %127, %110 ], [ %.030.i, %108 ]
   %128 = fsub nsz double %.1.i, %.031.i
   %129 = tail call nsz double @llvm.exp.f64(double %128)
   %130 = fmul nsz double %11, %129

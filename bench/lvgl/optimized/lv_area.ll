@@ -318,7 +318,7 @@ define signext range(i8 -1, 5) i8 @lv_area_diff(ptr noundef writeonly captures(n
   br label %lv_area_is_on.exit
 
 lv_area_is_on.exit:                               ; preds = %21, %16, %11, %7, %3, %57, %62
-  %.0 = phi i8 [ %.2, %57 ], [ -1, %16 ], [ %65, %62 ], [ -1, %3 ], [ -1, %7 ], [ -1, %11 ], [ 0, %21 ]
+  %.0 = phi i8 [ %65, %62 ], [ %.2, %57 ], [ -1, %3 ], [ -1, %7 ], [ -1, %11 ], [ -1, %16 ], [ 0, %21 ]
   ret i8 %.0
 }
 
@@ -424,12 +424,12 @@ define zeroext i1 @lv_area_is_in(ptr noundef readonly captures(none) %0, ptr nou
   br label %33
 
 33:                                               ; preds = %31, %29, %27, %24
-  %.1 = phi i1 [ false, %29 ], [ false, %24 ], [ false, %27 ], [ %32, %31 ]
+  %.1 = phi i1 [ false, %24 ], [ false, %27 ], [ false, %29 ], [ %32, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
-.critedge:                                        ; preds = %3, %12, %7, %22, %17, %33
-  %.026 = phi i1 [ false, %17 ], [ %.1, %33 ], [ true, %22 ], [ false, %7 ], [ false, %12 ], [ false, %3 ]
+.critedge:                                        ; preds = %12, %7, %3, %22, %17, %33
+  %.026 = phi i1 [ %.1, %33 ], [ false, %17 ], [ true, %22 ], [ false, %3 ], [ false, %7 ], [ false, %12 ]
   ret i1 %.026
 }
 
@@ -584,8 +584,8 @@ lv_area_is_point_on.exit90:                       ; preds = %58
   %.not.i91 = icmp samesign ule i32 %69, %66
   br label %.critedge
 
-.critedge:                                        ; preds = %44, %58, %lv_area_is_point_on.exit, %lv_area_is_point_on.exit74, %lv_area_is_point_on.exit82, %lv_area_is_point_on.exit90, %3, %9, %6, %17, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %3 ], [ true, %17 ], [ false, %6 ], [ false, %9 ], [ %.not.i67, %lv_area_is_point_on.exit ], [ %.not.i75, %lv_area_is_point_on.exit74 ], [ %.not.i83, %lv_area_is_point_on.exit82 ], [ %.not.i91, %lv_area_is_point_on.exit90 ], [ true, %58 ], [ true, %44 ]
+.critedge:                                        ; preds = %44, %58, %lv_area_is_point_on.exit, %lv_area_is_point_on.exit74, %lv_area_is_point_on.exit82, %lv_area_is_point_on.exit90, %9, %6, %3, %17, %14
+  %.0 = phi i1 [ false, %14 ], [ true, %17 ], [ false, %3 ], [ false, %6 ], [ false, %9 ], [ %.not.i67, %lv_area_is_point_on.exit ], [ %.not.i75, %lv_area_is_point_on.exit74 ], [ %.not.i83, %lv_area_is_point_on.exit82 ], [ %.not.i91, %lv_area_is_point_on.exit90 ], [ true, %58 ], [ true, %44 ]
   ret i1 %.0
 }
 
@@ -661,12 +661,12 @@ define zeroext i1 @lv_area_is_out(ptr noundef readonly captures(none) %0, ptr no
   br label %37
 
 37:                                               ; preds = %35, %33, %31, %28
-  %.1 = phi i1 [ false, %33 ], [ false, %28 ], [ false, %31 ], [ %not., %35 ]
+  %.1 = phi i1 [ false, %28 ], [ false, %31 ], [ false, %33 ], [ %not., %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
 38:                                               ; preds = %26, %3, %9, %15, %20, %37
-  %.0 = phi i1 [ %.1, %37 ], [ true, %3 ], [ true, %20 ], [ true, %15 ], [ true, %9 ], [ false, %26 ]
+  %.0 = phi i1 [ %.1, %37 ], [ true, %20 ], [ true, %15 ], [ true, %9 ], [ true, %3 ], [ false, %26 ]
   ret i1 %.0
 }
 
@@ -1118,8 +1118,8 @@ define void @lv_area_align(ptr noundef readonly captures(none) %0, ptr noundef %
   br label %310
 
 310:                                              ; preds = %5, %293, %273, %267, %252, %234, %230, %214, %195, %188, %174, %157, %152, %128, %113, %92, %68, %56, %46, %33, %6
-  %.070 = phi i32 [ %292, %273 ], [ %32, %6 ], [ %309, %293 ], [ 0, %33 ], [ 0, %46 ], [ %67, %56 ], [ %91, %68 ], [ %112, %92 ], [ %127, %113 ], [ %151, %128 ], [ %.neg96, %152 ], [ %.neg94, %157 ], [ %.neg92, %174 ], [ %194, %188 ], [ %213, %195 ], [ %229, %214 ], [ 0, %230 ], [ %251, %234 ], [ %266, %252 ], [ 0, %267 ], [ 0, %5 ]
-  %.0 = phi i32 [ %278, %273 ], [ %18, %6 ], [ %298, %293 ], [ %45, %33 ], [ %55, %46 ], [ 0, %56 ], [ %80, %68 ], [ %101, %92 ], [ 0, %113 ], [ %137, %128 ], [ 0, %152 ], [ %169, %157 ], [ %183, %174 ], [ 0, %188 ], [ %207, %195 ], [ %223, %214 ], [ %.neg86, %230 ], [ %.neg84, %234 ], [ %.neg80, %252 ], [ %272, %267 ], [ 0, %5 ]
+  %.070 = phi i32 [ %32, %6 ], [ 0, %33 ], [ 0, %46 ], [ %67, %56 ], [ %91, %68 ], [ %112, %92 ], [ %127, %113 ], [ %151, %128 ], [ %.neg96, %152 ], [ %.neg94, %157 ], [ %.neg92, %174 ], [ %194, %188 ], [ %213, %195 ], [ %229, %214 ], [ 0, %230 ], [ %251, %234 ], [ %266, %252 ], [ 0, %267 ], [ %292, %273 ], [ %309, %293 ], [ 0, %5 ]
+  %.0 = phi i32 [ %18, %6 ], [ %45, %33 ], [ %55, %46 ], [ 0, %56 ], [ %80, %68 ], [ %101, %92 ], [ 0, %113 ], [ %137, %128 ], [ 0, %152 ], [ %169, %157 ], [ %183, %174 ], [ 0, %188 ], [ %207, %195 ], [ %223, %214 ], [ %.neg86, %230 ], [ %.neg84, %234 ], [ %.neg80, %252 ], [ %272, %267 ], [ %278, %273 ], [ %298, %293 ], [ 0, %5 ]
   %311 = load i32, ptr %0, align 4, !tbaa !3
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %313 = load i32, ptr %312, align 4, !tbaa !8

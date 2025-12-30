@@ -123,7 +123,7 @@ define void @dorm22_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %66, label %69, label %.thread
 
 .thread.sink.split:                               ; preds = %62, %59, %55, %53, %47, %50, %44, %41, %39, %35
-  %.sink = phi i32 [ -1, %35 ], [ -2, %39 ], [ -4, %44 ], [ -6, %53 ], [ -10, %59 ], [ -8, %55 ], [ -5, %47 ], [ -3, %41 ], [ -5, %50 ], [ -12, %62 ]
+  %.sink = phi i32 [ -1, %35 ], [ -2, %39 ], [ -3, %41 ], [ -4, %44 ], [ -5, %50 ], [ -5, %47 ], [ -6, %53 ], [ -8, %55 ], [ -10, %59 ], [ -12, %62 ]
   store i32 %.sink, ptr %12, align 4, !tbaa !3
   br label %.thread
 

@@ -1103,7 +1103,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 
@@ -1266,7 +1266,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE6sbumpcB8ne190000Ev.exit: ; pre
   br label %.thread
 
 .thread:                                          ; preds = %62, %57, %68, %72
-  %.1 = phi i32 [ 1, %72 ], [ %spec.select, %68 ], [ 4, %62 ], [ 0, %57 ]
+  %.1 = phi i32 [ 1, %72 ], [ %spec.select, %68 ], [ 0, %57 ], [ 4, %62 ]
   %73 = load ptr, ptr %0, align 8
   %74 = getelementptr i8, ptr %73, i64 -24
   %75 = load i64, ptr %74, align 8
@@ -1452,8 +1452,8 @@ _ZNSt3__18functionIFPN7mitsuba6ObjectERKNS1_10PropertiesEEED2Ev.exit23.i: ; pred
   br label %common.resume
 
 common.resume:                                    ; preds = %67, %88, %29, %50
-  %.sink = phi ptr [ %13, %29 ], [ %13, %50 ], [ %51, %88 ], [ %51, %67 ]
-  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %.pn.pn.pn.i, %50 ], [ %.pn.pn.pn.i3, %88 ], [ %68, %67 ]
+  %.sink = phi ptr [ %13, %50 ], [ %13, %29 ], [ %51, %88 ], [ %51, %67 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.i, %50 ], [ %30, %29 ], [ %.pn.pn.pn.i3, %88 ], [ %68, %67 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #16
   resume { ptr, i32 } %common.resume.op
 

@@ -349,7 +349,7 @@ slurmdb_qos_str.exit.thread33:                    ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %29
 
-slurmdb_qos_str.exit.thread:                      ; preds = %20, %23
+slurmdb_qos_str.exit.thread:                      ; preds = %23, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
@@ -486,7 +486,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_setup_cluster_rec(ptr noundef %0)
   br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %45, %22, %26, %4, %7, %16
-  %.0 = phi i32 [ -1, %16 ], [ -1, %4 ], [ -1, %7 ], [ 0, %26 ], [ 0, %22 ], [ 0, %45 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ -1, %16 ], [ -1, %7 ], [ -1, %4 ], [ 0, %26 ], [ 0, %22 ], [ 0, %45 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -3444,7 +3444,7 @@ define dso_local ptr @slurmdb_get_info_cluster(ptr noundef %0) local_unnamed_add
   br label %6
 
 6:                                                ; preds = %4, %1
-  %.0 = phi i1 [ %.not37, %4 ], [ false, %1 ]
+  %.0 = phi i1 [ false, %1 ], [ %.not37, %4 ]
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 248), align 8
   %8 = tail call ptr @acct_storage_g_get_connection(i32 noundef 0, ptr noundef null, i1 noundef zeroext true, ptr noundef %7) #19
   store ptr %8, ptr %3, align 8
@@ -4148,7 +4148,7 @@ define dso_local ptr @slurmdb_qos_str(ptr noundef %0, i32 noundef %1) local_unna
   br label %16
 
 16:                                               ; preds = %11, %7, %10, %13, %4
-  %.0 = phi ptr [ %15, %13 ], [ @.str.11, %7 ], [ null, %4 ], [ @.str.11, %10 ], [ null, %11 ]
+  %.0 = phi ptr [ %15, %13 ], [ null, %4 ], [ @.str.11, %10 ], [ @.str.11, %7 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -4225,7 +4225,7 @@ define dso_local i32 @str_2_slurmdb_qos(ptr noundef %0, ptr noundef %1) local_un
   br label %25
 
 25:                                               ; preds = %.critedge, %6, %9, %22, %3
-  %.013 = phi i32 [ %24, %22 ], [ 0, %6 ], [ -2, %3 ], [ 0, %9 ], [ -2, %.critedge ]
+  %.013 = phi i32 [ %24, %22 ], [ -2, %3 ], [ 0, %9 ], [ 0, %6 ], [ -2, %.critedge ]
   ret i32 %.013
 }
 
@@ -4512,7 +4512,7 @@ define dso_local range(i32 -805306369, 268435457) i32 @str_2_federation_flags(pt
   br label %15
 
 15:                                               ; preds = %7, %._crit_edge, %5
-  %.015 = phi i32 [ 268435456, %5 ], [ 268435456, %._crit_edge ], [ -805306369, %7 ]
+  %.015 = phi i32 [ 268435456, %._crit_edge ], [ 268435456, %5 ], [ -805306369, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.015
@@ -4586,7 +4586,7 @@ define dso_local range(i32 -1, 50) i32 @str_2_cluster_fed_states(ptr noundef %0)
   br label %16
 
 16:                                               ; preds = %13, %4, %7, %10, %2
-  %.012 = phi i32 [ -1, %2 ], [ %spec.select, %13 ], [ 17, %10 ], [ 2, %7 ], [ 1, %4 ]
+  %.012 = phi i32 [ -1, %2 ], [ 1, %4 ], [ 2, %7 ], [ 17, %10 ], [ %spec.select, %13 ]
   ret i32 %.012
 }
 
@@ -4626,7 +4626,7 @@ define dso_local ptr @slurmdb_job_flags_str(i32 noundef %0) local_unnamed_addr #
   br i1 %.not9, label %15, label %.sink.split
 
 .sink.split:                                      ; preds = %13, %11, %9, %6
-  %.str.29.sink = phi ptr [ @.str.28, %6 ], [ @.str.30, %11 ], [ @.str.29, %9 ], [ @.str.31, %13 ]
+  %.str.29.sink = phi ptr [ @.str.28, %6 ], [ @.str.29, %9 ], [ @.str.30, %11 ], [ @.str.31, %13 ]
   call void @_xstrcat(ptr noundef nonnull %2, ptr noundef nonnull %.str.29.sink) #19
   br label %15
 
@@ -4703,7 +4703,7 @@ define dso_local range(i32 0, 32) i32 @str_2_job_flags(ptr noundef %0) local_unn
   br label %_str_2_job_flags.exit
 
 _str_2_job_flags.exit:                            ; preds = %.lr.ph, %10, %12, %14, %16
-  %.0.i = phi i32 [ 8, %14 ], [ 0, %.lr.ph ], [ 2, %10 ], [ 4, %12 ], [ %..i, %16 ]
+  %.0.i = phi i32 [ 0, %.lr.ph ], [ 2, %10 ], [ 4, %12 ], [ 8, %14 ], [ %..i, %16 ]
   %18 = or i32 %.0.i, %.0816
   %19 = and i32 %18, 1
   %.not12 = icmp eq i32 %19, 0
@@ -4971,7 +4971,7 @@ define dso_local range(i32 -805306369, 1073743872) i32 @str_2_qos_flags(ptr noun
   br label %_str_2_qos_flags.exit
 
 _str_2_qos_flags.exit:                            ; preds = %.lr.ph, %15, %17, %19, %21, %23, %25, %27, %29, %31, %33
-  %.0.i = phi i32 [ 1024, %31 ], [ 64, %.lr.ph ], [ 8, %15 ], [ 1, %17 ], [ 2, %19 ], [ 4, %21 ], [ 32, %23 ], [ 128, %25 ], [ 16, %27 ], [ 256, %29 ], [ %..i, %33 ]
+  %.0.i = phi i32 [ 64, %.lr.ph ], [ 8, %15 ], [ 1, %17 ], [ 2, %19 ], [ 4, %21 ], [ 32, %23 ], [ 128, %25 ], [ 16, %27 ], [ 256, %29 ], [ 1024, %31 ], [ %..i, %33 ]
   %35 = or i32 %.0.i, %.01421
   %36 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %4) #19
   %.not18 = icmp eq ptr %36, null
@@ -4997,7 +4997,7 @@ _str_2_qos_flags.exit:                            ; preds = %.lr.ph, %15, %17, %
   br label %42
 
 42:                                               ; preds = %._crit_edge.thread, %40, %38, %._crit_edge, %37, %7, %5
-  %.015 = phi i32 [ 268435456, %5 ], [ -805306369, %7 ], [ %39, %38 ], [ %41, %40 ], [ %35, %37 ], [ 268435456, %._crit_edge ], [ 268435456, %._crit_edge.thread ]
+  %.015 = phi i32 [ 268435456, %5 ], [ -805306369, %7 ], [ %39, %38 ], [ %41, %40 ], [ 268435456, %._crit_edge ], [ %35, %37 ], [ 268435456, %._crit_edge.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.015
@@ -5175,7 +5175,7 @@ define dso_local range(i32 0, 4) i32 @str_2_slurmdb_admin_level(ptr noundef %0) 
   br label %10
 
 10:                                               ; preds = %8, %6, %4, %2, %1
-  %.0 = phi i32 [ 3, %6 ], [ 2, %4 ], [ 1, %2 ], [ 0, %1 ], [ %spec.select, %8 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %2 ], [ 2, %4 ], [ 3, %6 ], [ %spec.select, %8 ]
   ret i32 %.0
 }
 
@@ -5241,7 +5241,7 @@ define dso_local noundef ptr @slurmdb_ping_all() local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %9, %2, %0, %11
-  %.019 = phi ptr [ null, %0 ], [ %4, %11 ], [ %4, %2 ], [ %4, %9 ]
+  %.019 = phi ptr [ %4, %11 ], [ null, %0 ], [ %4, %2 ], [ %4, %9 ]
   ret ptr %.019
 }
 
@@ -6016,7 +6016,7 @@ slurmdb_qos_str.exit.thread36:                    ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
-slurmdb_qos_str.exit.thread:                      ; preds = %22, %25
+slurmdb_qos_str.exit.thread:                      ; preds = %25, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %30
 
@@ -6125,7 +6125,7 @@ define dso_local noundef ptr @get_classification_str(i16 noundef zeroext %0) loc
   br label %7
 
 7:                                                ; preds = %6, %5, %4, %3, %1
-  %.0 = phi ptr [ %.str.53..str.69, %6 ], [ %.str.66..str.65, %4 ], [ %.str.68..str.67, %5 ], [ %.str.64..str.63, %3 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %1 ], [ %.str.64..str.63, %3 ], [ %.str.66..str.65, %4 ], [ %.str.68..str.67, %5 ], [ %.str.53..str.69, %6 ]
   ret ptr %.0
 }
 
@@ -6151,7 +6151,7 @@ define dso_local zeroext range(i16 0, 260) i16 @str_2_classification(ptr noundef
   br label %8
 
 8:                                                ; preds = %6, %4, %2
-  %.0 = phi i16 [ %spec.select, %6 ], [ 2, %2 ], [ 1, %4 ]
+  %.0 = phi i16 [ 2, %2 ], [ 1, %4 ], [ %spec.select, %6 ]
   %9 = tail call ptr @xstrcasestr(ptr noundef nonnull %0, ptr noundef nonnull @.str.73) #19
   %.not15 = icmp eq ptr %9, null
   br i1 %.not15, label %12, label %10
@@ -6217,7 +6217,7 @@ define dso_local zeroext range(i16 0, 5) i16 @str_2_slurmdb_problem(ptr noundef 
   br label %10
 
 10:                                               ; preds = %8, %2, %4, %6, %1
-  %.07 = phi i16 [ 0, %1 ], [ %spec.select, %8 ], [ 3, %2 ], [ 2, %4 ], [ 3, %6 ]
+  %.07 = phi i16 [ 0, %1 ], [ 3, %2 ], [ 2, %4 ], [ 3, %6 ], [ %spec.select, %8 ]
   ret i16 %.07
 }
 
@@ -6353,7 +6353,7 @@ define dso_local void @log_assoc_rec(ptr noundef readonly captures(none) %0, ptr
   br label %slurmdb_qos_str.exit
 
 slurmdb_qos_str.exit:                             ; preds = %56, %59, %62, %63, %65
-  %.0.i = phi ptr [ %67, %65 ], [ @.str.11, %59 ], [ null, %56 ], [ @.str.11, %62 ], [ null, %63 ]
+  %.0.i = phi ptr [ %67, %65 ], [ null, %56 ], [ @.str.11, %62 ], [ @.str.11, %59 ], [ null, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.89, ptr noundef %.0.i) #19
   br label %70
@@ -7120,7 +7120,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_report_set_start_end_time(ptr nou
   br label %57
 
 57:                                               ; preds = %49, %55, %46, %35, %21, %13
-  %.0 = phi i32 [ -1, %13 ], [ -1, %46 ], [ -1, %35 ], [ -1, %21 ], [ 0, %55 ], [ 0, %49 ]
+  %.0 = phi i32 [ -1, %46 ], [ -1, %35 ], [ -1, %21 ], [ -1, %13 ], [ 0, %55 ], [ 0, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -7310,7 +7310,7 @@ define dso_local i32 @slurmdb_addto_qos_char_list(ptr noundef %0, ptr noundef %1
   br label %18
 
 18:                                               ; preds = %12, %16, %10, %6
-  %.0 = phi i32 [ 0, %6 ], [ 1, %10 ], [ 0, %16 ], [ %15, %12 ]
+  %.0 = phi i32 [ 1, %10 ], [ 0, %6 ], [ 0, %16 ], [ %15, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -7389,7 +7389,7 @@ str_2_slurmdb_qos.exit:                           ; preds = %29
   %35 = icmp eq i32 %34, -2
   br i1 %35, label %str_2_slurmdb_qos.exit.thread, label %51
 
-str_2_slurmdb_qos.exit.thread:                    ; preds = %19, %.critedge.i, %str_2_slurmdb_qos.exit
+str_2_slurmdb_qos.exit.thread:                    ; preds = %.critedge.i, %19, %str_2_slurmdb_qos.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7988,7 +7988,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_get_first_avail_cluster(ptr nound
   br label %80
 
 80:                                               ; preds = %67, %.loopexit
-  %.032 = phi i32 [ -1, %67 ], [ 0, %.loopexit ]
+  %.032 = phi i32 [ 0, %.loopexit ], [ -1, %67 ]
   %.not54 = icmp eq ptr %31, null
   br i1 %.not54, label %.thread, label %81
 
@@ -7997,7 +7997,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_get_first_avail_cluster(ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %9, %15, %81, %80
-  %.03259.ph = phi i32 [ 0, %15 ], [ -1, %9 ], [ %.032, %81 ], [ %.032, %80 ]
+  %.03259.ph = phi i32 [ 0, %15 ], [ -1, %9 ], [ %.032, %80 ], [ %.032, %81 ]
   %.pr = load ptr, ptr %5, align 8
   %.not55 = icmp eq ptr %.pr, null
   br i1 %.not55, label %.thread.thread, label %82
@@ -8007,7 +8007,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_get_first_avail_cluster(ptr nound
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread, %82, %7, %3
-  %.033 = phi i32 [ -1, %3 ], [ %.03259.ph, %.thread ], [ %.03259.ph, %82 ], [ -1, %7 ]
+  %.033 = phi i32 [ -1, %3 ], [ %.03259.ph, %82 ], [ %.03259.ph, %.thread ], [ -1, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.033
@@ -8171,7 +8171,7 @@ define internal range(i32 -1, 2) i32 @_sort_local_cluster(ptr noundef readonly c
   br label %32
 
 32:                                               ; preds = %26, %20, %18, %12, %10, %2
-  %.0 = phi i32 [ 1, %18 ], [ -1, %2 ], [ 1, %10 ], [ -1, %12 ], [ -1, %20 ], [ %., %26 ]
+  %.0 = phi i32 [ -1, %2 ], [ 1, %10 ], [ -1, %12 ], [ 1, %18 ], [ -1, %20 ], [ %., %26 ]
   ret i32 %.0
 }
 
@@ -8438,7 +8438,7 @@ _het_job_will_run.exit:                           ; preds = %64, %48, %54
   br label %109
 
 109:                                              ; preds = %96, %.loopexit
-  %.041 = phi i32 [ -1, %96 ], [ 0, %.loopexit ]
+  %.041 = phi i32 [ 0, %.loopexit ], [ -1, %96 ]
   %.not67 = icmp eq ptr %37, null
   br i1 %.not67, label %.thread, label %110
 
@@ -8447,7 +8447,7 @@ _het_job_will_run.exit:                           ; preds = %64, %48, %54
   br label %.thread
 
 .thread:                                          ; preds = %11, %17, %110, %109
-  %.04172.ph = phi i32 [ 0, %17 ], [ -1, %11 ], [ %.041, %110 ], [ %.041, %109 ]
+  %.04172.ph = phi i32 [ 0, %17 ], [ -1, %11 ], [ %.041, %109 ], [ %.041, %110 ]
   %.pr = load ptr, ptr %7, align 8
   %.not68 = icmp eq ptr %.pr, null
   br i1 %.not68, label %.thread.thread, label %111
@@ -8457,7 +8457,7 @@ _het_job_will_run.exit:                           ; preds = %64, %48, %54
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread, %111, %9, %3
-  %.042 = phi i32 [ -1, %3 ], [ %.04172.ph, %.thread ], [ %.04172.ph, %111 ], [ -1, %9 ]
+  %.042 = phi i32 [ -1, %3 ], [ %.04172.ph, %111 ], [ %.04172.ph, %.thread ], [ -1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.042
@@ -9826,7 +9826,7 @@ slurmdb_get_tres_base_unit.exit:                  ; preds = %57, %59
   br label %63
 
 63:                                               ; preds = %50, %50, %slurmdb_get_tres_base_unit.exit, %52, %46
-  %.055 = phi i64 [ %.156, %slurmdb_get_tres_base_unit.exit ], [ %48, %52 ], [ %48, %50 ], [ %48, %50 ], [ %48, %46 ]
+  %.055 = phi i64 [ %.156, %slurmdb_get_tres_base_unit.exit ], [ %48, %52 ], [ %48, %50 ], [ %48, %46 ], [ %48, %50 ]
   %64 = load ptr, ptr %4, align 8
   %.not83 = icmp eq ptr %64, null
   br i1 %.not83, label %66, label %65
@@ -9878,7 +9878,7 @@ slurmdb_get_tres_base_unit.exit:                  ; preds = %57, %59
   br label %82
 
 82:                                               ; preds = %3, %10, %.critedge89, %.critedge, %80, %44
-  %.0 = phi ptr [ %81, %80 ], [ null, %44 ], [ null, %.critedge89 ], [ null, %.critedge ], [ null, %10 ], [ null, %3 ]
+  %.0 = phi ptr [ %81, %80 ], [ null, %44 ], [ null, %.critedge ], [ null, %.critedge89 ], [ null, %10 ], [ null, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -10011,8 +10011,8 @@ define dso_local range(i32 -1, 2) i32 @slurmdb_sort_tres_by_id_asc(ptr noundef r
   %.24 = zext i1 %34 to i32
   br label %.thread
 
-.thread:                                          ; preds = %19, %12, %20, %33, %28, %27
-  %.1 = phi i32 [ 1, %27 ], [ %.24, %33 ], [ -1, %28 ], [ 1, %19 ], [ -1, %12 ], [ -1, %20 ]
+.thread:                                          ; preds = %20, %19, %12, %33, %28, %27
+  %.1 = phi i32 [ 1, %27 ], [ -1, %28 ], [ %.24, %33 ], [ -1, %20 ], [ 1, %19 ], [ -1, %12 ]
   ret i32 %.1
 }
 
@@ -10269,7 +10269,7 @@ define dso_local void @slurmdb_tres_list_from_string(ptr noundef captures(none) 
   br i1 %.not113, label %.loopexit, label %18, !llvm.loop !58
 
 .loopexit:                                        ; preds = %107, %.thread, %52, %48
-  %.183 = phi i32 [ %.082, %48 ], [ %.082, %.thread ], [ %.082, %52 ], [ %.2, %107 ]
+  %.183 = phi i32 [ %.082, %48 ], [ %.082, %52 ], [ %.082, %.thread ], [ %.2, %107 ]
   %.not114 = icmp eq i32 %.183, 0
   %110 = and i32 %2, 4
   %.not115 = icmp eq i32 %110, 0
@@ -10446,7 +10446,7 @@ define dso_local ptr @slurmdb_find_tres_in_string(ptr noundef readonly %0, i32 n
   br i1 %.not22, label %.loopexit, label %8
 
 .loopexit:                                        ; preds = %.lr.ph, %14, %2, %3, %16
-  %.016 = phi ptr [ %17, %16 ], [ null, %2 ], [ null, %3 ], [ null, %14 ], [ null, %.lr.ph ]
+  %.016 = phi ptr [ %17, %16 ], [ null, %3 ], [ null, %2 ], [ null, %14 ], [ null, %.lr.ph ]
   ret ptr %.016
 }
 
@@ -10495,7 +10495,7 @@ define dso_local i64 @slurmdb_find_tres_count_in_string(ptr noundef readonly %0,
   br i1 %.not15, label %.loopexit, label %8
 
 .loopexit:                                        ; preds = %.lr.ph, %14, %2, %3, %16
-  %.010 = phi i64 [ %18, %16 ], [ -1, %2 ], [ -1, %3 ], [ -1, %14 ], [ -1, %.lr.ph ]
+  %.010 = phi i64 [ %18, %16 ], [ -1, %3 ], [ -1, %2 ], [ -1, %14 ], [ -1, %.lr.ph ]
   ret i64 %.010
 }
 
@@ -10893,7 +10893,7 @@ define dso_local ptr @slurmdb_ave_tres_usage(ptr noundef %0, i32 noundef %1) loc
   br label %32
 
 32:                                               ; preds = %2, %5, %.loopexit, %10
-  %.0 = phi ptr [ null, %10 ], [ %31, %.loopexit ], [ null, %5 ], [ null, %2 ]
+  %.0 = phi ptr [ %31, %.loopexit ], [ null, %10 ], [ null, %5 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -11286,7 +11286,7 @@ define internal range(i32 -1, 2) i32 @_sort_children_list(ptr noundef readonly c
   br label %21
 
 21:                                               ; preds = %20, %13, %12, %11
-  %.0 = phi i32 [ 1, %12 ], [ %., %20 ], [ -1, %13 ], [ -1, %11 ]
+  %.0 = phi i32 [ -1, %11 ], [ 1, %12 ], [ -1, %13 ], [ %., %20 ]
   ret i32 %.0
 }
 

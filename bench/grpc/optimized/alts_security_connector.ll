@@ -615,7 +615,7 @@ _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev.exit: ; preds = %.thread81
   br label %162
 
 161:                                              ; preds = %149, %155, %110, %108, %106
-  %.pn53.pn.pn = phi { ptr, i32 } [ %107, %106 ], [ %150, %149 ], [ %111, %110 ], [ %.pn, %155 ], [ %109, %108 ]
+  %.pn53.pn.pn = phi { ptr, i32 } [ %107, %106 ], [ %.pn, %155 ], [ %150, %149 ], [ %109, %108 ], [ %111, %110 ]
   call void @_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %163
@@ -872,7 +872,7 @@ _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit.i.i: ; preds =
   unreachable
 
 _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit7.i: ; preds = %58, %54, %50, %47
-  %eh.lpad-body.i = phi { ptr, i32 } [ %48, %54 ], [ %59, %58 ], [ %48, %47 ], [ %48, %50 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %59, %58 ], [ %48, %47 ], [ %48, %50 ], [ %48, %54 ]
   call void @_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #30, !noalias !38
   call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 64) #31, !noalias !38
   br label %common.resume

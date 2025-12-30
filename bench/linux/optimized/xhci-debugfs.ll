@@ -1221,7 +1221,7 @@ default.unreachable:                              ; preds = %86
   unreachable
 
 xhci_trb_type_string.exit:                        ; preds = %86, %93, %94, %95, %96, %97, %98, %99
-  %100 = phi ptr [ @.str.66, %94 ], [ @.str.65, %93 ], [ @.str.67, %95 ], [ @.str.71, %99 ], [ @.str.70, %98 ], [ @.str.69, %97 ], [ @.str.68, %96 ], [ @.str.64, %86 ]
+  %100 = phi ptr [ @.str.71, %99 ], [ @.str.70, %98 ], [ @.str.69, %97 ], [ @.str.68, %96 ], [ @.str.67, %95 ], [ @.str.66, %94 ], [ @.str.65, %93 ], [ @.str.64, %86 ]
   %101 = and i32 %30, 4
   %102 = icmp eq i32 %101, 0
   %103 = select i1 %102, i32 101, i32 69
@@ -1346,7 +1346,7 @@ default.unreachable3:                             ; preds = %175
   unreachable
 
 xhci_trb_type_string.exit2:                       ; preds = %175, %181, %182, %183, %184, %185, %186, %187
-  %188 = phi ptr [ @.str.42, %181 ], [ @.str.41, %175 ], [ @.str.48, %187 ], [ @.str.47, %186 ], [ @.str.46, %185 ], [ @.str.45, %184 ], [ @.str.44, %183 ], [ @.str.43, %182 ]
+  %188 = phi ptr [ @.str.48, %187 ], [ @.str.47, %186 ], [ @.str.46, %185 ], [ @.str.45, %184 ], [ @.str.44, %183 ], [ @.str.43, %182 ], [ @.str.42, %181 ], [ @.str.41, %175 ]
   %189 = and i32 %30, 512
   %190 = icmp eq i32 %189, 0
   %191 = select i1 %190, i32 98, i32 66

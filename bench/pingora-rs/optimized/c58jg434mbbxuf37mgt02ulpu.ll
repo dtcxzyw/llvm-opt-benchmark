@@ -316,7 +316,7 @@ select.unfold.i.i:                                ; preds = %14, %9
   br label %"_ZN15pingora_runtime14NoStealRuntime10init_pools28_$u7b$$u7b$closure$u7d$$u7d$17hd48b237fd02a8548E.exit"
 
 .body.thread.thread32.i:                          ; preds = %select.unfold.i.i, %31, %22
-  %.sroa.04.0.ph.ph.i = phi i1 [ false, %31 ], [ true, %select.unfold.i.i ], [ true, %22 ]
+  %.sroa.04.0.ph.ph.i = phi i1 [ false, %31 ], [ true, %22 ], [ true, %select.unfold.i.i ]
   %lpad.thr_comm30.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread.thread.i

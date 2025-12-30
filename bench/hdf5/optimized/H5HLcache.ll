@@ -126,7 +126,7 @@ define internal range(i32 -1, 1) i32 @H5HL__cache_prefix_get_final_load_size(ptr
   br label %33
 
 33:                                               ; preds = %15, %24, %31, %19, %4
-  %.0 = phi i32 [ -1, %15 ], [ 0, %31 ], [ 0, %4 ], [ 0, %24 ], [ 0, %19 ]
+  %.0 = phi i32 [ -1, %15 ], [ 0, %31 ], [ 0, %24 ], [ 0, %19 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -275,7 +275,7 @@ define internal ptr @H5HL__cache_prefix_deserialize(ptr noundef %0, i64 noundef 
   br label %93
 
 93:                                               ; preds = %82, %73, %66, %33, %86, %89, %75, %78, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %78 ], [ null, %75 ], [ null, %89 ], [ null, %86 ], [ null, %82 ], [ %27, %73 ], [ %27, %66 ], [ %27, %33 ]
+  %.0 = phi ptr [ null, %78 ], [ null, %75 ], [ null, %89 ], [ null, %86 ], [ null, %82 ], [ null, %4 ], [ %27, %73 ], [ %27, %66 ], [ %27, %33 ]
   ret ptr %.0
 }
 
@@ -648,7 +648,7 @@ define internal ptr @H5HL__cache_datablock_deserialize(ptr noundef readonly capt
   br label %.thread
 
 .thread:                                          ; preds = %14, %18, %31, %41, %38, %4
-  %.0 = phi ptr [ null, %41 ], [ null, %38 ], [ null, %14 ], [ null, %4 ], [ %12, %18 ], [ %12, %31 ]
+  %.0 = phi ptr [ null, %41 ], [ null, %38 ], [ null, %4 ], [ %12, %18 ], [ %12, %31 ], [ null, %14 ]
   ret ptr %.0
 }
 
@@ -1342,7 +1342,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %86, %..loopexit_crit_edge, %94, %64
-  %103 = phi i64 [ %.pre132, %..loopexit_crit_edge ], [ %82, %64 ], [ %102, %94 ], [ %92, %86 ]
+  %103 = phi i64 [ %.pre132, %..loopexit_crit_edge ], [ %102, %94 ], [ %82, %64 ], [ %92, %86 ]
   %104 = add i64 %103, %.088124
   %105 = load i64, ptr %12, align 8, !tbaa !19
   %106 = icmp ugt i64 %104, %105
@@ -1376,7 +1376,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
   br label %.thread107
 
 .thread107:                                       ; preds = %115, %8, %21, %28, %1, %116
-  %.085 = phi i32 [ -1, %116 ], [ -1, %21 ], [ 0, %1 ], [ -1, %28 ], [ 0, %8 ], [ 0, %115 ]
+  %.085 = phi i32 [ -1, %116 ], [ 0, %1 ], [ -1, %28 ], [ -1, %21 ], [ 0, %8 ], [ 0, %115 ]
   ret i32 %.085
 }
 
@@ -1515,7 +1515,7 @@ define internal fastcc void @H5HL__fl_serialize(ptr noundef readonly captures(no
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %40, %.preheader, %54, %60, %20, %45
-  %.sink = phi i64 [ 4, %54 ], [ 8, %.preheader ], [ 2, %60 ], [ 4, %20 ], [ 2, %45 ], [ 8, %40 ]
+  %.sink = phi i64 [ 4, %54 ], [ 2, %60 ], [ 4, %20 ], [ 2, %45 ], [ 8, %.preheader ], [ 8, %40 ]
   %62 = getelementptr inbounds nuw i8, ptr %15, i64 %.sink
   %.pr = load i64, ptr %11, align 8, !tbaa !45
   br label %63

@@ -321,7 +321,7 @@ define hidden range(i32 -1, 1) i32 @output_console(ptr noundef %0, ptr noundef %
   br label %115
 
 115:                                              ; preds = %30, %.critedge, %113, %29, %25, %21, %11
-  %.090 = phi i32 [ 0, %21 ], [ 0, %25 ], [ 0, %29 ], [ 0, %.critedge ], [ -1, %11 ], [ 0, %113 ], [ 0, %30 ]
+  %.090 = phi i32 [ 0, %21 ], [ 0, %25 ], [ 0, %29 ], [ -1, %11 ], [ 0, %113 ], [ 0, %.critedge ], [ 0, %30 ]
   ret i32 %.090
 }
 
@@ -401,7 +401,7 @@ define internal fastcc void @output_distances(ptr noundef readonly captures(none
   br label %36
 
 36:                                               ; preds = %34, %32, %24
-  %.0 = phi ptr [ @.str.19, %32 ], [ @.str.18, %24 ], [ %.str.21..str.20, %34 ]
+  %.0 = phi ptr [ @.str.18, %24 ], [ @.str.19, %32 ], [ %.str.21..str.20, %34 ]
   %.not70 = icmp eq ptr %27, null
   %spec.store.select = select i1 %.not70, ptr @.str.22, ptr %27
   %37 = load i32, ptr %22, align 8, !tbaa !48
@@ -911,7 +911,7 @@ hwloc_calc_check_object_filtered.exit:            ; preds = %76, %73, %67, %64, 
   %fputc = tail call i32 @fputc(i32 10, ptr %4)
   br label %hwloc_calc_check_object_filtered.exit.thread
 
-hwloc_calc_check_object_filtered.exit.thread:     ; preds = %33, %28, %40, %hwloc_obj_get_info_by_name.exit.i, %21, %58, %18, %76, %53, %67, %hwloc_calc_check_object_filtered.exit, %9
+hwloc_calc_check_object_filtered.exit.thread:     ; preds = %33, %28, %40, %hwloc_obj_get_info_by_name.exit.i, %76, %67, %58, %18, %21, %53, %hwloc_calc_check_object_filtered.exit, %9
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.052 = load ptr, ptr %81, align 8, !tbaa !51
   %.not4153 = icmp eq ptr %.052, null
@@ -1416,7 +1416,7 @@ hwloc_get_nbobjs_by_type.exit.thread:             ; preds = %11, %hwloc_get_nbob
   br label %hwloc_get_nbobjs_by_type.exit50
 
 hwloc_get_nbobjs_by_type.exit50:                  ; preds = %hwloc_get_nbobjs_by_type.exit.thread, %19, %20
-  %.0.i49 = phi i32 [ %21, %20 ], [ -1, %19 ], [ 0, %hwloc_get_nbobjs_by_type.exit.thread ]
+  %.0.i49 = phi i32 [ -1, %19 ], [ %21, %20 ], [ 0, %hwloc_get_nbobjs_by_type.exit.thread ]
   %22 = tail call i32 @hwloc_get_type_depth(ptr noundef %4, i32 noundef 17) #19
   switch i32 %22, label %24 [
     i32 -1, label %hwloc_get_nbobjs_by_type.exit52
@@ -1431,7 +1431,7 @@ hwloc_get_nbobjs_by_type.exit50:                  ; preds = %hwloc_get_nbobjs_by
   br label %hwloc_get_nbobjs_by_type.exit52
 
 hwloc_get_nbobjs_by_type.exit52:                  ; preds = %hwloc_get_nbobjs_by_type.exit50, %23, %24
-  %.0.i51 = phi i32 [ %25, %24 ], [ -1, %23 ], [ 0, %hwloc_get_nbobjs_by_type.exit50 ]
+  %.0.i51 = phi i32 [ -1, %23 ], [ %25, %24 ], [ 0, %hwloc_get_nbobjs_by_type.exit50 ]
   %26 = tail call i32 @hwloc_get_type_depth(ptr noundef %4, i32 noundef 18) #19
   switch i32 %26, label %27 [
     i32 -1, label %hwloc_get_nbobjs_by_type.exit54
@@ -1949,7 +1949,7 @@ output_memattr_initiator.exit:                    ; preds = %.thread.i, %output_
   br label %182
 
 182:                                              ; preds = %29, %24, %21, %2, %._crit_edge
-  %.062 = phi i32 [ 0, %2 ], [ 0, %._crit_edge ], [ 0, %24 ], [ -1, %21 ], [ 0, %29 ]
+  %.062 = phi i32 [ 0, %._crit_edge ], [ 0, %2 ], [ -1, %21 ], [ 0, %24 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

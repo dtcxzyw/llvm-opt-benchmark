@@ -66,8 +66,8 @@ idn_decode.exit.thread:                           ; preds = %7, %2
   store ptr %13, ptr %1, align 8, !tbaa !8
   br label %.thread
 
-.thread:                                          ; preds = %10, %idn_decode.exit.thread, %14
-  %.020 = phi i32 [ 0, %14 ], [ 27, %10 ], [ %.117.i.ph, %idn_decode.exit.thread ]
+.thread:                                          ; preds = %idn_decode.exit.thread, %10, %14
+  %.020 = phi i32 [ 0, %14 ], [ %.117.i.ph, %idn_decode.exit.thread ], [ 27, %10 ]
   ret i32 %.020
 }
 
@@ -175,7 +175,7 @@ idn_decode.exit.thread.i:                         ; preds = %12, %Curl_is_ASCII_
   store ptr %18, ptr %3, align 8, !tbaa !14
   br label %Curl_is_ASCII_name.exit.thread
 
-Curl_is_ASCII_name.exit.thread:                   ; preds = %.preheader.i, %1, %.thread, %idn_decode.exit.thread.i, %15
+Curl_is_ASCII_name.exit.thread:                   ; preds = %.preheader.i, %1, %.thread, %15, %idn_decode.exit.thread.i
   %.1 = phi i32 [ 27, %15 ], [ %.117.i.ph.i, %idn_decode.exit.thread.i ], [ 0, %.thread ], [ 0, %1 ], [ 0, %.preheader.i ]
   ret i32 %.1
 }

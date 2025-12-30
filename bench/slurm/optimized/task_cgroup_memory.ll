@@ -315,7 +315,7 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
   br label %68
 
 68:                                               ; preds = %65, %63, %67
-  %.0 = phi i32 [ -1, %63 ], [ 0, %67 ], [ -1, %65 ]
+  %.0 = phi i32 [ 0, %67 ], [ -1, %63 ], [ -1, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -425,7 +425,7 @@ define dso_local range(i32 -1, 13) i32 @task_cgroup_memory_check_oom(ptr noundef
   br label %49
 
 49:                                               ; preds = %3, %1, %48
-  %.010 = phi i32 [ 0, %1 ], [ %.0, %48 ], [ -1, %3 ]
+  %.010 = phi i32 [ %.0, %48 ], [ 0, %1 ], [ -1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.010
 }

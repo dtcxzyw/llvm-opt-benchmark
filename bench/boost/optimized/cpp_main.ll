@@ -536,7 +536,7 @@ _ZN5boost9unit_testneIKcEEbRKNS0_13basic_cstringIT_EEPS4_.exit55: ; preds = %160
   ret i32 %.181
 
 184:                                              ; preds = %154, %148, %127
-  %.merged = phi { ptr, i32 } [ %149, %148 ], [ %.pn27.pn, %127 ], [ %.pn31, %154 ]
+  %.merged = phi { ptr, i32 } [ %.pn27.pn, %127 ], [ %149, %148 ], [ %.pn31, %154 ]
   resume { ptr, i32 } %.merged
 
 185:                                              ; preds = %154, %148

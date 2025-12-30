@@ -90,7 +90,7 @@ define internal range(i32 0, 51) i32 @lrc_probe(ptr noundef readonly captures(no
   br i1 %.not34, label %.loopexit, label %20, !llvm.loop !16
 
 .loopexit:                                        ; preds = %7, %26, %.critedge38, %.preheader, %14, %11
-  %.0 = phi i32 [ 5, %.preheader ], [ 40, %11 ], [ 50, %14 ], [ 5, %.critedge38 ], [ 40, %26 ], [ 0, %7 ]
+  %.0 = phi i32 [ 40, %11 ], [ 50, %14 ], [ 5, %.preheader ], [ 40, %26 ], [ 5, %.critedge38 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -280,7 +280,7 @@ count_ts.exit.preheader:                          ; preds = %69, %71
   br label %count_ts.exit
 
 73:                                               ; preds = %71, %70, %70, %70, %67, %62, %find_header.exit.thread, %find_header.exit.thread
-  %.1.i = phi i32 [ %.0.i63, %find_header.exit.thread ], [ %63, %62 ], [ %68, %67 ], [ %.0.i63, %find_header.exit.thread ], [ %.0.i63, %71 ], [ %.0.i63, %70 ], [ %.0.i63, %70 ], [ %.0.i63, %70 ]
+  %.1.i = phi i32 [ %63, %62 ], [ %68, %67 ], [ %.0.i63, %find_header.exit.thread ], [ %.0.i63, %find_header.exit.thread ], [ %.0.i63, %71 ], [ %.0.i63, %70 ], [ %.0.i63, %70 ], [ %.0.i63, %70 ]
   %.128.i = add nuw nsw i64 %.027.i, 1
   br label %find_header.exit.thread
 

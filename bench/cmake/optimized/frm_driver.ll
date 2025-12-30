@@ -42,7 +42,7 @@ define dso_local range(i32 -2, 1) i32 @_nc_Position_Form_Cursor(ptr noundef read
   br label %15
 
 15:                                               ; preds = %11, %8
-  %16 = phi ptr [ %spec.select, %11 ], [ %10, %8 ]
+  %16 = phi ptr [ %10, %8 ], [ %spec.select, %11 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -102,7 +102,7 @@ define dso_local range(i32 -2, 1) i32 @_nc_Position_Form_Cursor(ptr noundef read
   br label %59
 
 59:                                               ; preds = %.sink.split, %2, %5, %1
-  %.0 = phi i32 [ -1, %2 ], [ -2, %1 ], [ -1, %5 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -2, %1 ], [ -1, %5 ], [ -1, %2 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -152,7 +152,7 @@ define dso_local range(i32 -2, 1) i32 @_nc_Refresh_Current_Field(ptr noundef cap
   br label %19
 
 19:                                               ; preds = %15, %12
-  %20 = phi ptr [ %spec.select, %15 ], [ %14, %12 ]
+  %20 = phi ptr [ %14, %12 ], [ %spec.select, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %22 = load i32, ptr %21, align 8, !tbaa !19
   %23 = and i32 %22, 4
@@ -384,7 +384,7 @@ define dso_local range(i32 -2, 1) i32 @_nc_Refresh_Current_Field(ptr noundef cap
   br label %.sink.split
 
 .sink.split:                                      ; preds = %106, %31, %62, %127, %.loopexit, %._crit_edge
-  %.sink = phi ptr [ %20, %62 ], [ %6, %31 ], [ %20, %._crit_edge ], [ %20, %.loopexit ], [ %20, %127 ], [ %20, %106 ]
+  %.sink = phi ptr [ %20, %._crit_edge ], [ %20, %.loopexit ], [ %20, %127 ], [ %20, %62 ], [ %6, %31 ], [ %20, %106 ]
   tail call void @wsyncup(ptr noundef %.sink) #14
   br label %148
 
@@ -534,7 +534,7 @@ define dso_local range(i32 -2, 1) i32 @_nc_Synchronize_Attributes(ptr noundef ca
   br label %68
 
 68:                                               ; preds = %64, %61
-  %69 = phi ptr [ %spec.select, %64 ], [ %63, %61 ]
+  %69 = phi ptr [ %63, %61 ], [ %spec.select, %64 ]
   %70 = load ptr, ptr %23, align 8, !tbaa !4
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %72 = load i16, ptr %71, align 2, !tbaa !28
@@ -813,7 +813,7 @@ define internal fastcc range(i32 -1, 1) i32 @Display_Or_Erase_Field(ptr noundef 
   br label %12
 
 12:                                               ; preds = %8, %3
-  %13 = phi ptr [ %spec.select, %8 ], [ %7, %3 ]
+  %13 = phi ptr [ %7, %3 ], [ %spec.select, %8 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %15 = load i16, ptr %14, align 2, !tbaa !25
   %16 = sext i16 %15 to i32
@@ -1358,7 +1358,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Current_Field(ptr noundef captur
   br label %106
 
 106:                                              ; preds = %102, %99
-  %107 = phi ptr [ %spec.select, %102 ], [ %101, %99 ]
+  %107 = phi ptr [ %101, %99 ], [ %spec.select, %102 ]
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %109 = load i16, ptr %108, align 2, !tbaa !28
   %110 = sext i16 %109 to i32
@@ -1469,7 +1469,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Current_Field(ptr noundef captur
   br label %175
 
 175:                                              ; preds = %115, %15, %11, %2, %5, %8, %173
-  %.088 = phi i32 [ -5, %11 ], [ -2, %2 ], [ 0, %173 ], [ -11, %15 ], [ -2, %8 ], [ -2, %5 ], [ -1, %115 ]
+  %.088 = phi i32 [ 0, %173 ], [ -2, %8 ], [ -2, %5 ], [ -2, %2 ], [ -5, %11 ], [ -11, %15 ], [ -1, %115 ]
   ret i32 %.088
 }
 
@@ -1755,7 +1755,7 @@ tailrecurse:                                      ; preds = %17
   br label %.loopexit29
 
 .loopexit29:                                      ; preds = %17, %tailrecurse, %11, %3, %26, %29
-  %.1 = phi i1 [ true, %26 ], [ %30, %29 ], [ true, %3 ], [ true, %11 ], [ true, %tailrecurse ], [ true, %17 ]
+  %.1 = phi i1 [ %30, %29 ], [ true, %26 ], [ true, %3 ], [ true, %11 ], [ true, %tailrecurse ], [ true, %17 ]
   ret i1 %.1
 }
 
@@ -1850,7 +1850,7 @@ Next_Field_On_Page.exit:                          ; preds = %36
   br label %64
 
 64:                                               ; preds = %Next_Field_On_Page.exit, %61, %62
-  %.0 = phi ptr [ %40, %Next_Field_On_Page.exit ], [ %57, %61 ], [ %63, %62 ]
+  %.0 = phi ptr [ %40, %Next_Field_On_Page.exit ], [ %63, %62 ], [ %57, %61 ]
   ret ptr %.0
 }
 
@@ -1877,7 +1877,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef captures(a
   br label %14
 
 14:                                               ; preds = %10, %7
-  %15 = phi ptr [ %spec.select, %10 ], [ %9, %7 ]
+  %15 = phi ptr [ %9, %7 ], [ %spec.select, %10 ]
   %16 = tail call i32 @werase(ptr noundef %15) #14
   %17 = trunc i32 %1 to i16
   store i16 %17, ptr %4, align 4, !tbaa !47
@@ -1971,7 +1971,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef captures(a
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %.critedge.sink.split, %3
-  %.1 = phi i32 [ %80, %.critedge.sink.split ], [ 0, %3 ], [ -1, %33 ]
+  %.1 = phi i32 [ 0, %3 ], [ %80, %.critedge.sink.split ], [ -1, %33 ]
   ret i32 %.1
 }
 
@@ -2145,7 +2145,7 @@ Next_Field_On_Page.exit.i:                        ; preds = %45
   br label %_nc_First_Active_Field.exit
 
 _nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.exit.i, %70, %71
-  %.0.i = phi ptr [ %49, %Next_Field_On_Page.exit.i ], [ %66, %70 ], [ %72, %71 ]
+  %.0.i = phi ptr [ %49, %Next_Field_On_Page.exit.i ], [ %72, %71 ], [ %66, %70 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.0.i, ptr %73, align 8, !tbaa !14
   br label %129
@@ -2243,7 +2243,7 @@ _nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.
   br label %.thread51
 
 .thread51:                                        ; preds = %86, %96, %92, %106, %102, %108, %110, %117, %125
-  %.2 = phi i32 [ -8, %110 ], [ -8, %108 ], [ %126, %125 ], [ -8, %117 ], [ -1, %92 ], [ -1, %96 ], [ %105, %102 ], [ %107, %106 ], [ -8, %86 ]
+  %.2 = phi i32 [ -8, %108 ], [ %126, %125 ], [ -8, %117 ], [ -8, %110 ], [ -1, %96 ], [ -1, %92 ], [ %105, %102 ], [ %107, %106 ], [ -8, %86 ]
   %127 = tail call i32 @_nc_Refresh_Current_Field(ptr noundef nonnull %0)
   %128 = tail call ptr @__errno_location() #15
   store i32 %.2, ptr %128, align 4, !tbaa !32
@@ -2645,7 +2645,7 @@ tailrecurse:                                      ; preds = %6
   br label %.loopexit19
 
 .loopexit19:                                      ; preds = %6, %.loopexit, %18
-  %.0 = phi i1 [ %27, %.loopexit ], [ %19, %18 ], [ true, %6 ]
+  %.0 = phi i1 [ %19, %18 ], [ %27, %.loopexit ], [ true, %6 ]
   ret i1 %.0
 }
 
@@ -2862,12 +2862,12 @@ define internal fastcc i32 @Data_Entry(ptr noundef nonnull %0, i32 noundef range
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %132, %122, %108
-  %.sink.i = phi i32 [ 0, %122 ], [ %134, %132 ], [ 0, %108 ]
+  %.sink.i = phi i32 [ %134, %132 ], [ 0, %122 ], [ 0, %108 ]
   store i32 %.sink.i, ptr %102, align 4, !tbaa !18
   br label %IFN_Next_Character.exit
 
-IFN_Next_Character.exit:                          ; preds = %65, %62, %54, %.sink.split.i, %130, %.critedge52, %2, %70, %97, %95
-  %.1 = phi i32 [ 0, %.sink.split.i ], [ -12, %2 ], [ %71, %70 ], [ -1, %97 ], [ %96, %95 ], [ 0, %.critedge52 ], [ 0, %130 ], [ -1, %65 ], [ -12, %62 ], [ -12, %54 ]
+IFN_Next_Character.exit:                          ; preds = %65, %54, %62, %.sink.split.i, %130, %.critedge52, %2, %70, %97, %95
+  %.1 = phi i32 [ %71, %70 ], [ -12, %2 ], [ %96, %95 ], [ -1, %97 ], [ 0, %.critedge52 ], [ 0, %130 ], [ 0, %.sink.split.i ], [ -1, %65 ], [ -12, %54 ], [ -12, %62 ]
   ret i32 %.1
 }
 
@@ -3086,7 +3086,7 @@ Synchronize_Linked_Fields.exit:                   ; preds = %.lr.ph.i, %112, %.p
   br label %.critedge118
 
 .critedge118:                                     ; preds = %24, %62, %.thread, %Synchronize_Linked_Fields.exit, %42, %3, %7
-  %.sink = phi i32 [ -2, %62 ], [ -1, %42 ], [ -2, %3 ], [ 0, %.thread ], [ -2, %7 ], [ %.2100, %Synchronize_Linked_Fields.exit ], [ -2, %24 ]
+  %.sink = phi i32 [ -2, %7 ], [ -2, %3 ], [ -1, %42 ], [ %.2100, %Synchronize_Linked_Fields.exit ], [ 0, %.thread ], [ -2, %62 ], [ -2, %24 ]
   %122 = tail call ptr @__errno_location() #15
   store i32 %.sink, ptr %122, align 4, !tbaa !32
   ret i32 %.sink
@@ -3143,7 +3143,7 @@ define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef captures(addr
   br label %.thread
 
 .thread:                                          ; preds = %6, %23, %30, %26
-  %31 = phi i1 [ false, %26 ], [ true, %30 ], [ false, %23 ], [ false, %6 ]
+  %31 = phi i1 [ true, %30 ], [ false, %26 ], [ false, %23 ], [ false, %6 ]
   br i1 %13, label %32, label %42
 
 32:                                               ; preds = %.thread
@@ -3441,7 +3441,7 @@ Buffer_To_Window.exit.thread:                     ; preds = %119, %Buffer_To_Win
   br i1 %.not180, label %.critedge185, label %.preheader, !llvm.loop !107
 
 .critedge185:                                     ; preds = %.preheader, %.thread187, %69, %70, %.critedge, %2, %3, %174
-  %.4 = phi i1 [ true, %174 ], [ false, %2 ], [ false, %3 ], [ false, %69 ], [ false, %.thread187 ], [ false, %.critedge ], [ false, %70 ], [ true, %.preheader ]
+  %.4 = phi i1 [ false, %3 ], [ false, %2 ], [ true, %174 ], [ false, %.critedge ], [ false, %70 ], [ false, %69 ], [ false, %.thread187 ], [ true, %.preheader ]
   ret i1 %.4
 }
 
@@ -4053,7 +4053,7 @@ Sorted_Previous_Field.exit27.i:                   ; preds = %.preheader.i
   br i1 %or.cond.i30.i, label %Upper_Neighbour_Field.exit, label %.critedge2.i, !llvm.loop !110
 
 Upper_Neighbour_Field.exit:                       ; preds = %19, %.lr.ph.i, %.critedge2.i
-  %.1.i = phi ptr [ %.239.i, %.lr.ph.i ], [ %35, %.critedge2.i ], [ %11, %19 ]
+  %.1.i = phi ptr [ %35, %.critedge2.i ], [ %.239.i, %.lr.ph.i ], [ %11, %19 ]
   %40 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %.1.i)
   ret i32 %40
 }
@@ -4134,7 +4134,7 @@ Sorted_Next_Field.exit27.i:                       ; preds = %.preheader.i
   br i1 %or.cond.i30.i, label %Down_Neighbour_Field.exit, label %.critedge2.i, !llvm.loop !112
 
 Down_Neighbour_Field.exit:                        ; preds = %19, %.lr.ph.i, %.critedge2.i
-  %.1.i = phi ptr [ %.239.i, %.lr.ph.i ], [ %35, %.critedge2.i ], [ %11, %19 ]
+  %.1.i = phi ptr [ %35, %.critedge2.i ], [ %.239.i, %.lr.ph.i ], [ %11, %19 ]
   %40 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %.1.i)
   ret i32 %40
 }
@@ -4203,8 +4203,8 @@ define internal range(i32 -12, 1) i32 @IFN_Next_Character(ptr noundef captures(n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %10, %25, %35
-  %.sink = phi i32 [ 0, %25 ], [ %37, %35 ], [ 0, %10 ]
-  %.0.ph = phi i32 [ 0, %25 ], [ -12, %35 ], [ 0, %10 ]
+  %.sink = phi i32 [ %37, %35 ], [ 0, %25 ], [ 0, %10 ]
+  %.0.ph = phi i32 [ -12, %35 ], [ 0, %25 ], [ 0, %10 ]
   store i32 %.sink, ptr %4, align 4, !tbaa !18
   br label %38
 
@@ -4858,7 +4858,7 @@ define internal range(i32 -12, 1) i32 @IFN_Right_Character(ptr noundef captures(
   br label %23
 
 23:                                               ; preds = %1, %21, %18
-  %.1 = phi i32 [ 0, %18 ], [ -12, %21 ], [ 0, %1 ]
+  %.1 = phi i32 [ -12, %21 ], [ 0, %18 ], [ 0, %1 ]
   ret i32 %.1
 }
 
@@ -5115,7 +5115,7 @@ After_End_Of_Data.exit:                           ; preds = %101, %103
   br label %124
 
 124:                                              ; preds = %After_End_Of_Data.exit, %.thread, %.thread.thread, %57, %35, %24, %61, %.critedge, %28
-  %.0 = phi i32 [ %34, %28 ], [ -12, %57 ], [ 0, %.critedge ], [ -12, %24 ], [ %62, %61 ], [ -1, %35 ], [ 0, %After_End_Of_Data.exit ], [ -12, %.thread ], [ -1, %.thread.thread ]
+  %.0 = phi i32 [ %34, %28 ], [ 0, %.critedge ], [ %62, %61 ], [ -12, %24 ], [ -1, %35 ], [ -12, %57 ], [ 0, %After_End_Of_Data.exit ], [ -12, %.thread ], [ -1, %.thread.thread ]
   ret i32 %.0
 }
 
@@ -5183,7 +5183,7 @@ define internal range(i32 -12, 1) i32 @FE_Insert_Character(ptr noundef captures(
   br label %49
 
 49:                                               ; preds = %33, %41, %.critedge, %44, %1
-  %.0 = phi i32 [ -12, %1 ], [ %48, %.critedge ], [ -12, %33 ], [ -12, %41 ], [ -1, %44 ]
+  %.0 = phi i32 [ -12, %1 ], [ %48, %.critedge ], [ -12, %41 ], [ -12, %33 ], [ -1, %44 ]
   ret i32 %.0
 }
 
@@ -5423,7 +5423,7 @@ Adjust_Cursor_Position.exit:                      ; preds = %.critedge, %75
   br label %87
 
 87:                                               ; preds = %1, %81, %Adjust_Cursor_Position.exit, %13, %After_End_Of_Data.exit46
-  %.0 = phi i32 [ -12, %1 ], [ -12, %13 ], [ -12, %After_End_Of_Data.exit46 ], [ 0, %Adjust_Cursor_Position.exit ], [ 0, %81 ]
+  %.0 = phi i32 [ -12, %After_End_Of_Data.exit46 ], [ -12, %13 ], [ 0, %Adjust_Cursor_Position.exit ], [ 0, %81 ], [ -12, %1 ]
   ret i32 %.0
 }
 
@@ -5746,7 +5746,7 @@ VSC_Generic.exit.sink.split:                      ; preds = %26, %19
   br label %VSC_Generic.exit
 
 VSC_Generic.exit:                                 ; preds = %VSC_Generic.exit.sink.split, %11, %24
-  %.025.i = phi i32 [ -12, %24 ], [ -12, %11 ], [ 0, %VSC_Generic.exit.sink.split ]
+  %.025.i = phi i32 [ -12, %11 ], [ -12, %24 ], [ 0, %VSC_Generic.exit.sink.split ]
   ret i32 %.025.i
 }
 
@@ -5801,7 +5801,7 @@ VSC_Generic.exit.sink.split:                      ; preds = %26, %19
   br label %VSC_Generic.exit
 
 VSC_Generic.exit:                                 ; preds = %VSC_Generic.exit.sink.split, %11, %24
-  %.025.i = phi i32 [ -12, %24 ], [ -12, %11 ], [ 0, %VSC_Generic.exit.sink.split ]
+  %.025.i = phi i32 [ -12, %11 ], [ -12, %24 ], [ 0, %VSC_Generic.exit.sink.split ]
   ret i32 %.025.i
 }
 
@@ -5858,7 +5858,7 @@ VSC_Generic.exit.sink.split:                      ; preds = %28, %21
   br label %VSC_Generic.exit
 
 VSC_Generic.exit:                                 ; preds = %VSC_Generic.exit.sink.split, %13, %26
-  %.025.i = phi i32 [ -12, %26 ], [ -12, %13 ], [ 0, %VSC_Generic.exit.sink.split ]
+  %.025.i = phi i32 [ -12, %13 ], [ -12, %26 ], [ 0, %VSC_Generic.exit.sink.split ]
   ret i32 %.025.i
 }
 
@@ -5915,7 +5915,7 @@ VSC_Generic.exit.sink.split:                      ; preds = %27, %20
   br label %VSC_Generic.exit
 
 VSC_Generic.exit:                                 ; preds = %VSC_Generic.exit.sink.split, %12, %25
-  %.025.i = phi i32 [ -12, %25 ], [ -12, %12 ], [ 0, %VSC_Generic.exit.sink.split ]
+  %.025.i = phi i32 [ -12, %12 ], [ -12, %25 ], [ 0, %VSC_Generic.exit.sink.split ]
   ret i32 %.025.i
 }
 
@@ -6023,7 +6023,7 @@ HSC_Generic.exit.sink.split:                      ; preds = %26, %19
   br label %HSC_Generic.exit
 
 HSC_Generic.exit:                                 ; preds = %HSC_Generic.exit.sink.split, %11, %24
-  %.025.i = phi i32 [ -12, %24 ], [ -12, %11 ], [ 0, %HSC_Generic.exit.sink.split ]
+  %.025.i = phi i32 [ -12, %11 ], [ -12, %24 ], [ 0, %HSC_Generic.exit.sink.split ]
   ret i32 %.025.i
 }
 
@@ -6078,7 +6078,7 @@ HSC_Generic.exit.sink.split:                      ; preds = %26, %19
   br label %HSC_Generic.exit
 
 HSC_Generic.exit:                                 ; preds = %HSC_Generic.exit.sink.split, %11, %24
-  %.025.i = phi i32 [ -12, %24 ], [ -12, %11 ], [ 0, %HSC_Generic.exit.sink.split ]
+  %.025.i = phi i32 [ -12, %11 ], [ -12, %24 ], [ 0, %HSC_Generic.exit.sink.split ]
   ret i32 %.025.i
 }
 
@@ -6135,7 +6135,7 @@ HSC_Generic.exit.sink.split:                      ; preds = %28, %21
   br label %HSC_Generic.exit
 
 HSC_Generic.exit:                                 ; preds = %HSC_Generic.exit.sink.split, %13, %26
-  %.025.i = phi i32 [ -12, %26 ], [ -12, %13 ], [ 0, %HSC_Generic.exit.sink.split ]
+  %.025.i = phi i32 [ -12, %13 ], [ -12, %26 ], [ 0, %HSC_Generic.exit.sink.split ]
   ret i32 %.025.i
 }
 
@@ -6192,7 +6192,7 @@ HSC_Generic.exit.sink.split:                      ; preds = %27, %20
   br label %HSC_Generic.exit
 
 HSC_Generic.exit:                                 ; preds = %HSC_Generic.exit.sink.split, %12, %25
-  %.025.i = phi i32 [ -12, %25 ], [ -12, %12 ], [ 0, %HSC_Generic.exit.sink.split ]
+  %.025.i = phi i32 [ -12, %12 ], [ -12, %25 ], [ 0, %HSC_Generic.exit.sink.split ]
   ret i32 %.025.i
 }
 
@@ -6542,8 +6542,8 @@ After_Last_Whitespace_Character.exit:             ; preds = %90, %92
   %exitcond40.not.i69 = icmp eq i32 %148, %.027.lcssa.i63
   br i1 %exitcond40.not.i69, label %Window_To_Buffer.exit71, label %.lr.ph39.i66, !llvm.loop !55
 
-Window_To_Buffer.exit71:                          ; preds = %147, %113, %108, %After_Last_Whitespace_Character.exit, %46, %.critedge.thread.i58, %.critedge.i62, %43, %21, %13, %1
-  %.1 = phi i32 [ 0, %1 ], [ 0, %43 ], [ 0, %21 ], [ 0, %13 ], [ -12, %.critedge.i62 ], [ -1, %46 ], [ -12, %.critedge.thread.i58 ], [ 0, %113 ], [ 0, %108 ], [ 0, %After_Last_Whitespace_Character.exit ], [ -12, %147 ]
+Window_To_Buffer.exit71:                          ; preds = %147, %After_Last_Whitespace_Character.exit, %108, %113, %46, %.critedge.thread.i58, %.critedge.i62, %43, %21, %13, %1
+  %.1 = phi i32 [ 0, %43 ], [ 0, %21 ], [ 0, %13 ], [ 0, %1 ], [ -12, %.critedge.thread.i58 ], [ -12, %.critedge.i62 ], [ 0, %After_Last_Whitespace_Character.exit ], [ 0, %108 ], [ 0, %113 ], [ -1, %46 ], [ -12, %147 ]
   ret i32 %.1
 }
 
@@ -6706,7 +6706,7 @@ After_Last_Whitespace_Character.exit:             ; preds = %72, %74
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %48, %After_Last_Whitespace_Character.exit, %37, %40
-  %.0 = phi i32 [ -12, %48 ], [ -12, %37 ], [ -1, %40 ], [ %83, %After_Last_Whitespace_Character.exit ], [ 0, %.thread.sink.split ]
+  %.0 = phi i32 [ -1, %40 ], [ %83, %After_Last_Whitespace_Character.exit ], [ -12, %48 ], [ -12, %37 ], [ 0, %.thread.sink.split ]
   tail call void @free(ptr noundef %26) #14
   ret i32 %.0
 }
@@ -6764,7 +6764,7 @@ tailrecurse:                                      ; preds = %9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %tailrecurse, %9, %3, %18
-  %.0 = phi i1 [ %21, %18 ], [ false, %3 ], [ false, %tailrecurse ], [ false, %.lr.ph ], [ true, %9 ]
+  %.0 = phi i1 [ %21, %18 ], [ false, %3 ], [ false, %.lr.ph ], [ false, %tailrecurse ], [ true, %9 ]
   ret i1 %.0
 }
 
@@ -6809,7 +6809,7 @@ tailrecurse:                                      ; preds = %9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %tailrecurse, %9, %3, %18
-  %.0 = phi i1 [ %21, %18 ], [ false, %3 ], [ false, %tailrecurse ], [ false, %.lr.ph ], [ true, %9 ]
+  %.0 = phi i1 [ %21, %18 ], [ false, %3 ], [ false, %.lr.ph ], [ false, %tailrecurse ], [ true, %9 ]
   ret i1 %.0
 }
 

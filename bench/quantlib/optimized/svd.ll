@@ -141,10 +141,10 @@ lpad12:                                           ; preds = %cond.true.i.i455
   br label %_ZN8QuantLib6MatrixD2Ev.exit879
 
 if.end:                                           ; preds = %invoke.cont8.loopexit.us.i, %invoke.cont6.lr.ph.i, %_ZN8QuantLib6MatrixC2Emm.exit.i, %cond.end.i.i, %if.then.i.i.i.i.i.i.i, %if.then
-  %.sink = phi i8 [ 0, %cond.end.i.i ], [ 0, %if.then ], [ 0, %if.then.i.i.i.i.i.i.i ], [ 1, %invoke.cont6.lr.ph.i ], [ 1, %_ZN8QuantLib6MatrixC2Emm.exit.i ], [ 1, %invoke.cont8.loopexit.us.i ]
-  %A.sroa.31.0 = phi i64 [ %1, %cond.end.i.i ], [ %1, %if.then ], [ %1, %if.then.i.i.i.i.i.i.i ], [ %0, %invoke.cont6.lr.ph.i ], [ %0, %_ZN8QuantLib6MatrixC2Emm.exit.i ], [ %0, %invoke.cont8.loopexit.us.i ]
-  %A.sroa.27.0 = phi i64 [ %0, %cond.end.i.i ], [ %0, %if.then ], [ %0, %if.then.i.i.i.i.i.i.i ], [ %1, %invoke.cont6.lr.ph.i ], [ %1, %_ZN8QuantLib6MatrixC2Emm.exit.i ], [ %1, %invoke.cont8.loopexit.us.i ]
-  %A.sroa.0.0 = phi ptr [ %call2.i.i452, %cond.end.i.i ], [ null, %if.then ], [ %call2.i.i452, %if.then.i.i.i.i.i.i.i ], [ %cond.i.i456, %invoke.cont6.lr.ph.i ], [ %cond.i.i456, %_ZN8QuantLib6MatrixC2Emm.exit.i ], [ %cond.i.i456, %invoke.cont8.loopexit.us.i ]
+  %.sink = phi i8 [ 0, %if.then ], [ 0, %if.then.i.i.i.i.i.i.i ], [ 0, %cond.end.i.i ], [ 1, %_ZN8QuantLib6MatrixC2Emm.exit.i ], [ 1, %invoke.cont6.lr.ph.i ], [ 1, %invoke.cont8.loopexit.us.i ]
+  %A.sroa.31.0 = phi i64 [ %1, %if.then ], [ %1, %if.then.i.i.i.i.i.i.i ], [ %1, %cond.end.i.i ], [ %0, %_ZN8QuantLib6MatrixC2Emm.exit.i ], [ %0, %invoke.cont6.lr.ph.i ], [ %0, %invoke.cont8.loopexit.us.i ]
+  %A.sroa.27.0 = phi i64 [ %0, %if.then ], [ %0, %if.then.i.i.i.i.i.i.i ], [ %0, %cond.end.i.i ], [ %1, %_ZN8QuantLib6MatrixC2Emm.exit.i ], [ %1, %invoke.cont6.lr.ph.i ], [ %1, %invoke.cont8.loopexit.us.i ]
+  %A.sroa.0.0 = phi ptr [ null, %if.then ], [ %call2.i.i452, %if.then.i.i.i.i.i.i.i ], [ %call2.i.i452, %cond.end.i.i ], [ %cond.i.i456, %_ZN8QuantLib6MatrixC2Emm.exit.i ], [ %cond.i.i456, %invoke.cont6.lr.ph.i ], [ %cond.i.i456, %invoke.cont8.loopexit.us.i ]
   %transpose_15 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i8 %.sink, ptr %transpose_15, align 8, !tbaa !25
   %conv = trunc i64 %A.sroa.27.0 to i32
@@ -228,9 +228,9 @@ cond.true.i494:                                   ; preds = %cond.true.i480
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %_ZN8QuantLib6MatrixD2Ev.exit492.thread, %cond.true.i494
-  %columns_.i.i4881425 = phi ptr [ %columns_.i.i4881424, %_ZN8QuantLib6MatrixD2Ev.exit492.thread ], [ %columns_.i.i488, %cond.true.i494 ]
-  %27 = phi ptr [ null, %_ZN8QuantLib6MatrixD2Ev.exit492.thread ], [ %call.i485, %cond.true.i494 ]
-  %cond.i495 = phi ptr [ null, %_ZN8QuantLib6MatrixD2Ev.exit492.thread ], [ %call.i498, %cond.true.i494 ]
+  %columns_.i.i4881425 = phi ptr [ %columns_.i.i488, %cond.true.i494 ], [ %columns_.i.i4881424, %_ZN8QuantLib6MatrixD2Ev.exit492.thread ]
+  %27 = phi ptr [ %call.i485, %cond.true.i494 ], [ null, %_ZN8QuantLib6MatrixD2Ev.exit492.thread ]
+  %cond.i495 = phi ptr [ %call.i498, %cond.true.i494 ], [ null, %_ZN8QuantLib6MatrixD2Ev.exit492.thread ]
   %cmp.not.i500 = icmp eq i32 %conv, 0
   br i1 %cmp.not.i500, label %invoke.cont53, label %cond.true.i501
 
@@ -1593,7 +1593,7 @@ while.end:                                        ; preds = %if.end1455, %while.
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.end992, %for.end888, %sw.bb894, %sw.bb, %while.end, %for.end1319
-  %p.1 = phi i32 [ %dec1457, %while.end ], [ %p.01191, %for.end1319 ], [ %p.01191, %sw.bb ], [ %p.01191, %sw.bb894 ], [ %p.01191, %for.end888 ], [ %p.01191, %for.end992 ]
+  %p.1 = phi i32 [ %p.01191, %for.end1319 ], [ %dec1457, %while.end ], [ %p.01191, %sw.bb ], [ %p.01191, %sw.bb894 ], [ %p.01191, %for.end888 ], [ %p.01191, %for.end992 ]
   %cmp701 = icmp sgt i32 %p.1, 0
   br i1 %cmp701, label %while.body, label %while.end1460, !llvm.loop !74
 
@@ -1629,7 +1629,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %ehcleanup1474
 
 ehcleanup1474:                                    ; preds = %lpad48, %lpad52, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i875, %lpad42, %lpad33, %lpad24
-  %.pn443.pn.pn.pn = phi { ptr, i32 } [ %48, %lpad52 ], [ %46, %lpad42 ], [ %45, %lpad33 ], [ %44, %lpad24 ], [ %48, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i875 ], [ %47, %lpad48 ]
+  %.pn443.pn.pn.pn = phi { ptr, i32 } [ %46, %lpad42 ], [ %45, %lpad33 ], [ %44, %lpad24 ], [ %47, %lpad48 ], [ %48, %lpad52 ], [ %48, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i875 ]
   %cmp.not.i.i877 = icmp eq ptr %A.sroa.0.0, null
   br i1 %cmp.not.i.i877, label %_ZN8QuantLib6MatrixD2Ev.exit879, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i878
 
@@ -1637,8 +1637,8 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   tail call void @_ZdaPv(ptr noundef nonnull %A.sroa.0.0) #23
   br label %_ZN8QuantLib6MatrixD2Ev.exit879
 
-_ZN8QuantLib6MatrixD2Ev.exit879:                  ; preds = %lpad12, %lpad6, %ehcleanup1474, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i878
-  %.pn443.pn.pn.pn1030 = phi { ptr, i32 } [ %.pn443.pn.pn.pn, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i878 ], [ %.pn443.pn.pn.pn, %ehcleanup1474 ], [ %6, %lpad6 ], [ %12, %lpad12 ]
+_ZN8QuantLib6MatrixD2Ev.exit879:                  ; preds = %lpad6, %lpad12, %ehcleanup1474, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i878
+  %.pn443.pn.pn.pn1030 = phi { ptr, i32 } [ %.pn443.pn.pn.pn, %ehcleanup1474 ], [ %.pn443.pn.pn.pn, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i878 ], [ %12, %lpad12 ], [ %6, %lpad6 ]
   %252 = load ptr, ptr %s_, align 8, !tbaa !16
   %cmp.not.i.i880 = icmp eq ptr %252, null
   br i1 %cmp.not.i.i880, label %_ZN8QuantLib5ArrayD2Ev.exit882, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i881
@@ -2226,7 +2226,7 @@ ehcleanup36:                                      ; preds = %ehcleanup, %if.then
   %16 = load ptr, ptr %ref.tmp, align 8, !tbaa !83
   %17 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i56 = icmp eq ptr %16, %17
-  br i1 %cmp.i.i.i56, label %ehcleanup40, label %if.then.i.i57
+  br i1 %cmp.i.i.i56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i59, label %ehcleanup40
 
 ehcleanup36.thread:                               ; preds = %invoke.cont25
   %18 = landingpad { ptr, i32 }
@@ -2236,15 +2236,20 @@ ehcleanup36.thread:                               ; preds = %invoke.cont25
   %19 = load ptr, ptr %ref.tmp, align 8, !tbaa !83
   %20 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i5682 = icmp eq ptr %19, %20
-  br i1 %cmp.i.i.i5682, label %cleanup.action.sink.split, label %if.then.i.i57.thread
+  br i1 %cmp.i.i.i5682, label %cleanup.action.sink.split, label %ehcleanup40.thread91
 
-if.then.i.i57.thread:                             ; preds = %ehcleanup36.thread
+ehcleanup40.thread91:                             ; preds = %ehcleanup36.thread
   %21 = load i64, ptr %20, align 8, !tbaa !86
   %add.i.i.i5894 = add i64 %21, 1
   call void @_ZdlPvm(ptr noundef %19, i64 noundef %add.i.i.i5894) #23
   br label %cleanup.action.sink.split
 
-if.then.i.i57:                                    ; preds = %ehcleanup36
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i59: ; preds = %ehcleanup36
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
+  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup44
+
+ehcleanup40:                                      ; preds = %ehcleanup36
   %22 = load i64, ptr %17, align 8, !tbaa !86
   %add.i.i.i58 = add i64 %22, 1
   call void @_ZdlPvm(ptr noundef %16, i64 noundef %add.i.i.i58) #23
@@ -2252,24 +2257,19 @@ if.then.i.i57:                                    ; preds = %ehcleanup36
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup44
 
-ehcleanup40:                                      ; preds = %ehcleanup36
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp23)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup44
-
-cleanup.action.sink.split:                        ; preds = %ehcleanup36.thread, %ehcleanup40.thread, %if.then.i.i57.thread
-  %.pn.pn.pn79.ph = phi { ptr, i32 } [ %18, %if.then.i.i57.thread ], [ %7, %ehcleanup40.thread ], [ %18, %ehcleanup36.thread ]
+cleanup.action.sink.split:                        ; preds = %ehcleanup36.thread, %ehcleanup40.thread, %ehcleanup40.thread91
+  %.pn.pn.pn79.ph = phi { ptr, i32 } [ %18, %ehcleanup40.thread91 ], [ %7, %ehcleanup40.thread ], [ %18, %ehcleanup36.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp23)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %cleanup.action
 
-cleanup.action:                                   ; preds = %cleanup.action.sink.split, %if.then.i.i57, %ehcleanup40
-  %.pn.pn.pn79 = phi { ptr, i32 } [ %.pn, %if.then.i.i57 ], [ %.pn, %ehcleanup40 ], [ %.pn.pn.pn79.ph, %cleanup.action.sink.split ]
+cleanup.action:                                   ; preds = %cleanup.action.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i59, %ehcleanup40
+  %.pn.pn.pn79 = phi { ptr, i32 } [ %.pn, %ehcleanup40 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i59 ], [ %.pn.pn.pn79.ph, %cleanup.action.sink.split ]
   call void @__cxa_free_exception(ptr %exception) #24
   br label %ehcleanup44
 
-ehcleanup44:                                      ; preds = %if.then.i.i57, %ehcleanup40, %cleanup.action, %lpad
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn79, %cleanup.action ], [ %.pn, %ehcleanup40 ], [ %6, %lpad ], [ %.pn, %if.then.i.i57 ]
+ehcleanup44:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i59, %ehcleanup40, %cleanup.action, %lpad
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn79, %cleanup.action ], [ %.pn, %ehcleanup40 ], [ %6, %lpad ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i59 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %_ql_msg_stream)
   resume { ptr, i32 } %.pn.pn.pn.pn
@@ -2490,7 +2490,7 @@ ehcleanup32:                                      ; preds = %ehcleanup, %if.then
   %15 = load ptr, ptr %ref.tmp, align 8, !tbaa !83
   %16 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i39 = icmp eq ptr %15, %16
-  br i1 %cmp.i.i.i39, label %ehcleanup36, label %if.then.i.i40
+  br i1 %cmp.i.i.i39, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42, label %ehcleanup36
 
 ehcleanup32.thread:                               ; preds = %invoke.cont21
   %17 = landingpad { ptr, i32 }
@@ -2500,15 +2500,20 @@ ehcleanup32.thread:                               ; preds = %invoke.cont21
   %18 = load ptr, ptr %ref.tmp, align 8, !tbaa !83
   %19 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i3958 = icmp eq ptr %18, %19
-  br i1 %cmp.i.i.i3958, label %cleanup.action.sink.split, label %if.then.i.i40.thread
+  br i1 %cmp.i.i.i3958, label %cleanup.action.sink.split, label %ehcleanup36.thread67
 
-if.then.i.i40.thread:                             ; preds = %ehcleanup32.thread
+ehcleanup36.thread67:                             ; preds = %ehcleanup32.thread
   %20 = load i64, ptr %19, align 8, !tbaa !86
   %add.i.i.i4170 = add i64 %20, 1
   call void @_ZdlPvm(ptr noundef %18, i64 noundef %add.i.i.i4170) #23
   br label %cleanup.action.sink.split
 
-if.then.i.i40:                                    ; preds = %ehcleanup32
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42: ; preds = %ehcleanup32
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
+  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup40
+
+ehcleanup36:                                      ; preds = %ehcleanup32
   %21 = load i64, ptr %16, align 8, !tbaa !86
   %add.i.i.i41 = add i64 %21, 1
   call void @_ZdlPvm(ptr noundef %15, i64 noundef %add.i.i.i41) #23
@@ -2516,24 +2521,19 @@ if.then.i.i40:                                    ; preds = %ehcleanup32
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup40
 
-ehcleanup36:                                      ; preds = %ehcleanup32
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp19)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup40
-
-cleanup.action.sink.split:                        ; preds = %ehcleanup32.thread, %ehcleanup36.thread, %if.then.i.i40.thread
-  %.pn.pn.pn55.ph = phi { ptr, i32 } [ %17, %if.then.i.i40.thread ], [ %6, %ehcleanup36.thread ], [ %17, %ehcleanup32.thread ]
+cleanup.action.sink.split:                        ; preds = %ehcleanup32.thread, %ehcleanup36.thread, %ehcleanup36.thread67
+  %.pn.pn.pn55.ph = phi { ptr, i32 } [ %17, %ehcleanup36.thread67 ], [ %6, %ehcleanup36.thread ], [ %17, %ehcleanup32.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp19)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %cleanup.action
 
-cleanup.action:                                   ; preds = %cleanup.action.sink.split, %if.then.i.i40, %ehcleanup36
-  %.pn.pn.pn55 = phi { ptr, i32 } [ %.pn, %if.then.i.i40 ], [ %.pn, %ehcleanup36 ], [ %.pn.pn.pn55.ph, %cleanup.action.sink.split ]
+cleanup.action:                                   ; preds = %cleanup.action.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42, %ehcleanup36
+  %.pn.pn.pn55 = phi { ptr, i32 } [ %.pn, %ehcleanup36 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42 ], [ %.pn.pn.pn55.ph, %cleanup.action.sink.split ]
   call void @__cxa_free_exception(ptr %exception) #24
   br label %ehcleanup40
 
-ehcleanup40:                                      ; preds = %if.then.i.i40, %ehcleanup36, %cleanup.action, %lpad
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn55, %cleanup.action ], [ %.pn, %ehcleanup36 ], [ %5, %lpad ], [ %.pn, %if.then.i.i40 ]
+ehcleanup40:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42, %ehcleanup36, %cleanup.action, %lpad
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn55, %cleanup.action ], [ %.pn, %ehcleanup36 ], [ %5, %lpad ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %_ql_msg_stream)
   resume { ptr, i32 } %.pn.pn.pn.pn

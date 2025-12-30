@@ -327,11 +327,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.unreachable: ; 
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %74, %54, %34, %104, %127, %114, %94
-  %.1125 = phi i32 [ %73, %74 ], [ %53, %54 ], [ %31, %34 ], [ %93, %94 ], [ %103, %104 ], [ %113, %114 ], [ %.0124243, %127 ]
-  %.1123 = phi double [ %.0122244, %74 ], [ %.0122244, %54 ], [ %.0122244, %34 ], [ %.0122244, %94 ], [ %.0122244, %104 ], [ %119, %114 ], [ %.0122244, %127 ]
-  %.1121 = phi double [ %.0120245, %74 ], [ %.0120245, %54 ], [ %.0120245, %34 ], [ %.0120245, %94 ], [ %108, %104 ], [ %.0120245, %114 ], [ %.0120245, %127 ]
-  %.1119 = phi i32 [ %.0118246, %74 ], [ %.0118246, %54 ], [ %.0118246, %34 ], [ %.0118246, %94 ], [ %.0118246, %104 ], [ %.0118246, %114 ], [ %129, %127 ]
-  %.1117 = phi i32 [ %.0116247, %74 ], [ %.0116247, %54 ], [ %.0116247, %34 ], [ %99, %94 ], [ %.0116247, %104 ], [ %.0116247, %114 ], [ %.0116247, %127 ]
+  %.1125 = phi i32 [ %93, %94 ], [ %103, %104 ], [ %113, %114 ], [ %.0124243, %127 ], [ %31, %34 ], [ %53, %54 ], [ %73, %74 ]
+  %.1123 = phi double [ %.0122244, %94 ], [ %.0122244, %104 ], [ %119, %114 ], [ %.0122244, %127 ], [ %.0122244, %34 ], [ %.0122244, %54 ], [ %.0122244, %74 ]
+  %.1121 = phi double [ %.0120245, %94 ], [ %108, %104 ], [ %.0120245, %114 ], [ %.0120245, %127 ], [ %.0120245, %34 ], [ %.0120245, %54 ], [ %.0120245, %74 ]
+  %.1119 = phi i32 [ %.0118246, %94 ], [ %.0118246, %104 ], [ %.0118246, %114 ], [ %129, %127 ], [ %.0118246, %34 ], [ %.0118246, %54 ], [ %.0118246, %74 ]
+  %.1117 = phi i32 [ %99, %94 ], [ %.0116247, %104 ], [ %.0116247, %114 ], [ %.0116247, %127 ], [ %.0116247, %34 ], [ %.0116247, %54 ], [ %.0116247, %74 ]
   %132 = add nsw i32 %.1125, 1
   %133 = icmp slt i32 %132, %0
   br i1 %133, label %.lr.ph, label %._crit_edge, !llvm.loop !17
@@ -383,7 +383,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %74,
   unreachable
 
 155:                                              ; preds = %151, %139
-  %.0126 = phi ptr [ %154, %151 ], [ %141, %139 ]
+  %.0126 = phi ptr [ %141, %139 ], [ %154, %151 ]
   %156 = icmp eq ptr %.0126, null
   br i1 %156, label %.thread, label %157
 
@@ -510,9 +510,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %74,
   br i1 %exitcond303.not, label %._crit_edge257, label %.lr.ph256.split.split.us, !llvm.loop !20
 
 ._crit_edge257:                                   ; preds = %.lr.ph256.split.split, %.lr.ph256.split.split.us, %.lr.ph256.split.us.split, %.lr.ph256.split.us.split.us, %183
-  %.sroa.14.0.lcssa = phi double [ %160, %183 ], [ %217, %.lr.ph256.split.split.us ], [ %160, %.lr.ph256.split.us.split ], [ %199, %.lr.ph256.split.us.split.us ], [ %160, %.lr.ph256.split.split ]
-  %.sroa.010.0.lcssa = phi double [ %158, %183 ], [ %158, %.lr.ph256.split.split.us ], [ %208, %.lr.ph256.split.us.split ], [ %193, %.lr.ph256.split.us.split.us ], [ %158, %.lr.ph256.split.split ]
-  %.0115.lcssa = phi double [ 0.000000e+00, %183 ], [ %219, %.lr.ph256.split.split.us ], [ %210, %.lr.ph256.split.us.split ], [ %201, %.lr.ph256.split.us.split.us ], [ %226, %.lr.ph256.split.split ]
+  %.sroa.14.0.lcssa = phi double [ %160, %183 ], [ %199, %.lr.ph256.split.us.split.us ], [ %160, %.lr.ph256.split.us.split ], [ %217, %.lr.ph256.split.split.us ], [ %160, %.lr.ph256.split.split ]
+  %.sroa.010.0.lcssa = phi double [ %158, %183 ], [ %193, %.lr.ph256.split.us.split.us ], [ %208, %.lr.ph256.split.us.split ], [ %158, %.lr.ph256.split.split.us ], [ %158, %.lr.ph256.split.split ]
+  %.0115.lcssa = phi double [ 0.000000e+00, %183 ], [ %201, %.lr.ph256.split.us.split.us ], [ %210, %.lr.ph256.split.us.split ], [ %219, %.lr.ph256.split.split.us ], [ %226, %.lr.ph256.split.split ]
   %221 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #14
   %222 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #14
   br i1 %185, label %.lr.ph281, label %._crit_edge282
@@ -661,7 +661,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161: ; preds = %_Z
   br label %282
 
 282:                                              ; preds = %142, %281, %144, %32
-  %.pn150 = phi { ptr, i32 } [ %33, %32 ], [ %145, %144 ], [ %143, %142 ], [ %.pn140.pn, %281 ]
+  %.pn150 = phi { ptr, i32 } [ %33, %32 ], [ %143, %142 ], [ %.pn140.pn, %281 ], [ %145, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %283 = load ptr, ptr %5, align 8, !tbaa !19
   %284 = icmp eq ptr %283, %15

@@ -78,7 +78,7 @@ define hidden noundef ptr @BN_MONT_CTX_copy(ptr noundef %0, ptr noundef %1) loca
   br label %17
 
 17:                                               ; preds = %4, %6, %2, %10
-  %.0 = phi ptr [ %0, %2 ], [ %0, %10 ], [ null, %6 ], [ null, %4 ]
+  %.0 = phi ptr [ %0, %10 ], [ %0, %2 ], [ null, %6 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -196,7 +196,7 @@ define hidden range(i32 0, 2) i32 @BN_MONT_CTX_set(ptr noundef %0, ptr noundef %
   br label %55
 
 55:                                               ; preds = %53, %44, %35, %33, %31, %27, %19, %14, %11, %8
-  %.036 = phi i32 [ 0, %8 ], [ 0, %19 ], [ 0, %11 ], [ %spec.select, %53 ], [ 0, %44 ], [ 0, %35 ], [ 0, %33 ], [ 0, %31 ], [ 0, %27 ], [ 0, %14 ]
+  %.036 = phi i32 [ 0, %8 ], [ 0, %19 ], [ 0, %44 ], [ 0, %35 ], [ 0, %33 ], [ 0, %31 ], [ 0, %27 ], [ 0, %14 ], [ 0, %11 ], [ %spec.select, %53 ]
   call void @BN_CTX_end(ptr noundef %2) #6
   br label %56
 
@@ -271,7 +271,7 @@ BN_MONT_CTX_free.exit:                            ; preds = %10
   br label %BN_MONT_CTX_new.exit.thread
 
 BN_MONT_CTX_new.exit.thread:                      ; preds = %8, %6, %13, %BN_MONT_CTX_free.exit
-  %.0 = phi i32 [ 1, %6 ], [ 0, %BN_MONT_CTX_free.exit ], [ 1, %13 ], [ 0, %8 ]
+  %.0 = phi i32 [ 1, %6 ], [ 1, %13 ], [ 0, %BN_MONT_CTX_free.exit ], [ 0, %8 ]
   tail call void @CRYPTO_MUTEX_unlock(ptr noundef %1) #6
   br label %14
 
@@ -366,12 +366,12 @@ define hidden range(i32 0, 2) i32 @BN_mod_mul_montgomery(ptr noundef %0, ptr nou
   br label %48
 
 48:                                               ; preds = %46, %44, %42, %37
-  %.037 = phi i32 [ 0, %37 ], [ 0, %44 ], [ %47, %46 ], [ 0, %42 ]
+  %.037 = phi i32 [ 0, %37 ], [ 0, %42 ], [ 0, %44 ], [ %47, %46 ]
   tail call void @BN_CTX_end(ptr noundef %4) #6
   br label %49
 
 49:                                               ; preds = %18, %48, %29
-  %.0 = phi i32 [ %.037, %48 ], [ 1, %29 ], [ 0, %18 ]
+  %.0 = phi i32 [ 1, %29 ], [ %.037, %48 ], [ 0, %18 ]
   ret i32 %.0
 }
 

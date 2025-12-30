@@ -302,7 +302,7 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   br label %147
 
 147:                                              ; preds = %139, %145, %141
-  %148 = phi double [ 0.000000e+00, %141 ], [ %146, %145 ], [ %6, %139 ]
+  %148 = phi double [ %146, %145 ], [ 0.000000e+00, %141 ], [ %6, %139 ]
   %149 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store double %148, ptr %149, align 8, !tbaa !44
   %150 = getelementptr inbounds nuw i8, ptr %31, i64 120
@@ -853,7 +853,7 @@ define internal i32 @CVBBDPrecSetup(double noundef %0, ptr noundef %1, ptr readn
   br i1 %exitcond.not.i, label %.loopexit, label %91
 
 CVBBDDQJac.exit:                                  ; preds = %._crit_edge.i, %35, %41
-  %.0148.i = phi i32 [ %48, %41 ], [ %40, %35 ], [ %144, %._crit_edge.i ]
+  %.0148.i = phi i32 [ %40, %35 ], [ %48, %41 ], [ %144, %._crit_edge.i ]
   %203 = icmp slt i32 %.0148.i, 0
   br i1 %203, label %204, label %223
 
@@ -897,7 +897,7 @@ CVBBDDQJac.exit:                                  ; preds = %._crit_edge.i, %35,
   br label %223
 
 223:                                              ; preds = %CVBBDDQJac.exit, %211, %24, %18, %218, %217, %210, %204, %23, %17
-  %.0 = phi i32 [ -1, %17 ], [ 1, %211 ], [ -1, %217 ], [ %222, %218 ], [ -1, %23 ], [ 1, %18 ], [ -1, %204 ], [ 1, %24 ], [ -1, %210 ], [ 1, %CVBBDDQJac.exit ]
+  %.0 = phi i32 [ -1, %17 ], [ -1, %217 ], [ %222, %218 ], [ -1, %23 ], [ -1, %204 ], [ -1, %210 ], [ 1, %18 ], [ 1, %24 ], [ 1, %211 ], [ 1, %CVBBDDQJac.exit ]
   ret i32 %.0
 }
 
@@ -979,7 +979,7 @@ define range(i32 -5, 1) i32 @CVBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64
   br label %32
 
 32:                                               ; preds = %17, %30, %26
-  %33 = phi double [ 0.000000e+00, %26 ], [ %31, %30 ], [ %3, %17 ]
+  %33 = phi double [ %31, %30 ], [ 0.000000e+00, %26 ], [ %3, %17 ]
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store double %33, ptr %34, align 8, !tbaa !44
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 144

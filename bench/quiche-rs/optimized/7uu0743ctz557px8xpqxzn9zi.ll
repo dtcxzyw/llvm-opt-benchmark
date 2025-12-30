@@ -761,9 +761,9 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4ite
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h237377c8bf039c2aE.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h237377c8bf039c2aE.exit": ; preds = %2, %17, %19
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %19 ], [ %.sroa.0.0.i, %17 ], [ 0, %2 ]
-  %.sroa.5.0 = phi i64 [ %20, %19 ], [ %14, %17 ], [ 0, %2 ]
-  %.sroa.11.0 = phi i64 [ 0, %19 ], [ %18, %17 ], [ 0, %2 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %17 ], [ %.sroa.0.0.i, %19 ], [ 0, %2 ]
+  %.sroa.5.0 = phi i64 [ %14, %17 ], [ %20, %19 ], [ 0, %2 ]
+  %.sroa.11.0 = phi i64 [ %18, %17 ], [ 0, %19 ], [ 0, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %.sroa.0.0
@@ -1181,9 +1181,9 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8ite
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h4d34fa0f69b08416E.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h4d34fa0f69b08416E.exit": ; preds = %2, %17, %19
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %19 ], [ %.sroa.0.0.i, %17 ], [ 0, %2 ]
-  %.sroa.5.0 = phi i64 [ %20, %19 ], [ %14, %17 ], [ 0, %2 ]
-  %.sroa.11.0 = phi i64 [ 0, %19 ], [ %18, %17 ], [ 0, %2 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %17 ], [ %.sroa.0.0.i, %19 ], [ 0, %2 ]
+  %.sroa.5.0 = phi i64 [ %14, %17 ], [ %20, %19 ], [ 0, %2 ]
+  %.sroa.11.0 = phi i64 [ %18, %17 ], [ 0, %19 ], [ 0, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw { ptr, i64, i64, i64, i64, i8, {}, [7 x i8] }, ptr %22, i64 %.sroa.0.0
@@ -1237,9 +1237,9 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8tru
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h4d34fa0f69b08416E.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h4d34fa0f69b08416E.exit": ; preds = %6, %19, %21
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %21 ], [ %.sroa.0.0.i, %19 ], [ 0, %6 ]
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ %16, %19 ], [ 0, %6 ]
-  %.sroa.11.0 = phi i64 [ 0, %21 ], [ %20, %19 ], [ 0, %6 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %19 ], [ %.sroa.0.0.i, %21 ], [ 0, %6 ]
+  %.sroa.5.0 = phi i64 [ %16, %19 ], [ %22, %21 ], [ 0, %6 ]
+  %.sroa.11.0 = phi i64 [ %20, %19 ], [ 0, %21 ], [ 0, %6 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
   %25 = sub i64 %.sroa.5.0, %.sroa.0.0
@@ -1390,9 +1390,9 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8tru
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17hc000e447121d0e40E.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17hc000e447121d0e40E.exit": ; preds = %6, %19, %21
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %21 ], [ %.sroa.0.0.i, %19 ], [ 0, %6 ]
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ %16, %19 ], [ 0, %6 ]
-  %.sroa.11.0 = phi i64 [ 0, %21 ], [ %20, %19 ], [ 0, %6 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %19 ], [ %.sroa.0.0.i, %21 ], [ 0, %6 ]
+  %.sroa.5.0 = phi i64 [ %16, %19 ], [ %22, %21 ], [ 0, %6 ]
+  %.sroa.11.0 = phi i64 [ %20, %19 ], [ 0, %21 ], [ 0, %6 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
   %25 = sub i64 %.sroa.5.0, %.sroa.0.0
@@ -1880,7 +1880,7 @@ define hidden noundef ptr @"_ZN7inquire2ui7backend16Backend$LT$T$GT$27move_curso
   br label %14
 
 14:                                               ; preds = %10, %6, %1
-  %.sroa.0.0 = phi ptr [ %9, %6 ], [ %13, %10 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %9, %6 ], [ %13, %10 ]
   ret ptr %.sroa.0.0
 }
 
@@ -1961,10 +1961,10 @@ define hidden void @"_ZN7inquire2ui7backend16Backend$LT$T$GT$3new17h26b11fe5487c
   unreachable
 
 .thread:                                          ; preds = %23, %32
-  %.pn12 = phi { ptr, i32 } [ %24, %23 ], [ %lpad.thr_comm, %32 ]
+  %.pn12 = phi { ptr, i32 } [ %lpad.thr_comm, %32 ], [ %24, %23 ]
   resume { ptr, i32 } %.pn12
 
-32:                                               ; preds = %13, %3
+32:                                               ; preds = %3, %13
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr68drop_in_place$LT$inquire..terminal..crossterm..CrosstermTerminal$GT$17h3a1ef994b43a64b4E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1) #17
@@ -2065,7 +2065,7 @@ define hidden noundef ptr @"_ZN94_$LT$inquire..ui..backend..Backend$LT$T$GT$$u20
   br i1 %.not26.i, label %18, label %"_ZN7inquire2ui7backend16Backend$LT$T$GT$12reset_prompt17h4703216ad2cb5b13E.exit"
 
 "_ZN7inquire2ui7backend16Backend$LT$T$GT$12reset_prompt17h4703216ad2cb5b13E.exit": ; preds = %26, %24, %19, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$27move_cursor_to_end_position17hc0f00dbf910ee0f0E.exit.i", %11, %4, %1
-  %.sroa.0.0 = phi ptr [ %5, %4 ], [ %3, %1 ], [ %16, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$27move_cursor_to_end_position17hc0f00dbf910ee0f0E.exit.i" ], [ %23, %19 ], [ %13, %11 ], [ %25, %24 ], [ %28, %26 ]
+  %.sroa.0.0 = phi ptr [ %3, %1 ], [ %5, %4 ], [ %16, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$27move_cursor_to_end_position17hc0f00dbf910ee0f0E.exit.i" ], [ %23, %19 ], [ %13, %11 ], [ %25, %24 ], [ %28, %26 ]
   ret ptr %.sroa.0.0
 }
 
@@ -2190,7 +2190,7 @@ define hidden noundef ptr @"_ZN94_$LT$inquire..ui..backend..Backend$LT$T$GT$$u20
   br label %_ZN13unicode_width6tables12lookup_width17hd6af0363af6eaad8E.exit.i
 
 _ZN13unicode_width6tables12lookup_width17hd6af0363af6eaad8E.exit.i: ; preds = %56, %55, %49, %48, %48, %48, %38
-  %.sroa.0.0.i32.i = phi i8 [ 0, %56 ], [ 1, %48 ], [ %spec.select44.i, %49 ], [ 1, %48 ], [ 1, %48 ], [ 3, %55 ], [ %47, %38 ]
+  %.sroa.0.0.i32.i = phi i8 [ 3, %55 ], [ 0, %56 ], [ %47, %38 ], [ 1, %48 ], [ 1, %48 ], [ 1, %48 ], [ %spec.select44.i, %49 ]
   %57 = zext nneg i8 %.sroa.0.0.i32.i to i16
   br label %.thread.i
 
@@ -2388,8 +2388,8 @@ define hidden noundef ptr @"_ZN94_$LT$inquire..ui..backend..Backend$LT$T$GT$$u20
   %.not34.i = icmp eq ptr %10, null
   br i1 %.not34.i, label %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit", label %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.thread"
 
-"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.thread": ; preds = %9, %3
-  %.sroa.0.0.i.ph = phi ptr [ %8, %3 ], [ %10, %9 ]
+"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.thread": ; preds = %3, %9
+  %.sroa.0.0.i.ph = phi ptr [ %10, %9 ], [ %8, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
@@ -2428,7 +2428,7 @@ define hidden noundef ptr @"_ZN94_$LT$inquire..ui..backend..Backend$LT$T$GT$$u20
   br label %20
 
 20:                                               ; preds = %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.thread", %18, %15, %13, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit"
-  %.sroa.0.0 = phi ptr [ %17, %15 ], [ %12, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit" ], [ %14, %13 ], [ %19, %18 ], [ %.sroa.0.0.i.ph, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.thread" ]
+  %.sroa.0.0 = phi ptr [ %12, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit" ], [ %14, %13 ], [ %17, %15 ], [ %19, %18 ], [ %.sroa.0.0.i.ph, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.thread" ]
   ret ptr %.sroa.0.0
 }
 
@@ -2451,8 +2451,8 @@ define hidden noundef ptr @"_ZN94_$LT$inquire..ui..backend..Backend$LT$T$GT$$u20
   %.not34.i = icmp eq ptr %13, null
   br i1 %.not34.i, label %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit", label %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.thread"
 
-"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.thread": ; preds = %12, %5
-  %.sroa.0.0.i.ph = phi ptr [ %11, %5 ], [ %13, %12 ]
+"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.thread": ; preds = %5, %12
+  %.sroa.0.0.i.ph = phi ptr [ %13, %12 ], [ %11, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %24
 
@@ -2507,7 +2507,7 @@ define hidden noundef ptr @"_ZN94_$LT$inquire..ui..backend..Backend$LT$T$GT$$u20
   br label %24
 
 24:                                               ; preds = %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.thread", %16, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit", %25, %23
-  %.sroa.0.0 = phi ptr [ null, %23 ], [ %15, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit" ], [ %.sroa.0.1, %25 ], [ %17, %16 ], [ %.sroa.0.0.i.ph, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.thread" ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %25 ], [ null, %23 ], [ %15, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit" ], [ %17, %16 ], [ %.sroa.0.0.i.ph, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.thread" ]
   ret ptr %.sroa.0.0
 
 25:                                               ; preds = %21, %18
@@ -2650,7 +2650,7 @@ define hidden noundef ptr @"_ZN94_$LT$inquire..ui..backend..Backend$LT$T$GT$$u20
   br i1 %.not42, label %61, label %60
 
 60:                                               ; preds = %96, %98, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$19print_option_prefix17he19c7ec3b789bb48E.exit", %61, %.thread, %102, %45
-  %.sroa.0.0 = phi ptr [ null, %45 ], [ %101, %.thread ], [ %59, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$19print_option_prefix17he19c7ec3b789bb48E.exit" ], [ %103, %102 ], [ %62, %61 ], [ %76, %96 ], [ %99, %98 ]
+  %.sroa.0.0 = phi ptr [ null, %45 ], [ %59, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$19print_option_prefix17he19c7ec3b789bb48E.exit" ], [ %62, %61 ], [ %101, %.thread ], [ %103, %102 ], [ %76, %96 ], [ %99, %98 ]
   ret ptr %.sroa.0.0
 
 61:                                               ; preds = %"_ZN7inquire2ui7backend16Backend$LT$T$GT$19print_option_prefix17he19c7ec3b789bb48E.exit"
@@ -2870,7 +2870,7 @@ define hidden noundef ptr @"_ZN94_$LT$inquire..ui..backend..Backend$LT$T$GT$$u20
   br i1 %.not34.i.i, label %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.i", label %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.thread.i"
 
 "_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.thread.i": ; preds = %12, %4
-  %.sroa.0.0.i.ph.i = phi ptr [ %11, %4 ], [ %13, %12 ]
+  %.sroa.0.0.i.ph.i = phi ptr [ %13, %12 ], [ %11, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !129
   br label %"_ZN7inquire2ui7backend16Backend$LT$T$GT$23print_prompt_with_input17hd4d33b9f639b264eE.exit"
 
@@ -3016,7 +3016,7 @@ define hidden noundef ptr @"_ZN94_$LT$inquire..ui..backend..Backend$LT$T$GT$$u20
   br label %"_ZN7inquire2ui7backend16Backend$LT$T$GT$23print_prompt_with_input17hd4d33b9f639b264eE.exit"
 
 "_ZN7inquire2ui7backend16Backend$LT$T$GT$23print_prompt_with_input17hd4d33b9f639b264eE.exit": ; preds = %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.thread.i", %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.i", %16, %47, %54, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$11print_input17hcd4d0eb67edea3faE.exit.i", %"_ZN7inquire2ui7backend16Backend$LT$T$GT$11print_input17hcd4d0eb67edea3faE.exit.thread5.i"
-  %.sroa.02.0.i = phi ptr [ %15, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.i" ], [ %63, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$11print_input17hcd4d0eb67edea3faE.exit.i" ], [ %64, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$11print_input17hcd4d0eb67edea3faE.exit.thread5.i" ], [ %.sroa.0.0.i.ph.i, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.thread.i" ], [ %53, %47 ], [ %17, %16 ], [ %58, %54 ]
+  %.sroa.02.0.i = phi ptr [ %15, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.i" ], [ %63, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$11print_input17hcd4d0eb67edea3faE.exit.i" ], [ %64, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$11print_input17hcd4d0eb67edea3faE.exit.thread5.i" ], [ %.sroa.0.0.i.ph.i, %"_ZN7inquire2ui7backend16Backend$LT$T$GT$24print_prompt_with_prefix17h9eae8b370ec711e8E.exit.thread.i" ], [ %53, %47 ], [ %58, %54 ], [ %17, %16 ]
   ret ptr %.sroa.02.0.i
 }
 

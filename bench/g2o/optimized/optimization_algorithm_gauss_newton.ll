@@ -174,7 +174,7 @@ define noundef range(i32 -1, 2) i32 @_ZN3g2o32OptimizationAlgorithmGaussNewton5s
   br label %57
 
 57:                                               ; preds = %56, %14
-  %.0 = phi i32 [ %., %56 ], [ -1, %14 ]
+  %.0 = phi i32 [ -1, %14 ], [ %., %56 ]
   ret i32 %.0
 }
 

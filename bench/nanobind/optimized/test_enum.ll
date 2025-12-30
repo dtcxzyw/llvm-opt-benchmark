@@ -871,7 +871,7 @@ _ZN8nanobind5enum_I11ClassicEnumE13export_valuesEv.exit.i: ; preds = %_ZN8nanobi
   br label %302
 
 302:                                              ; preds = %300, %298, %296
-  %.pn43.pn.i = phi { ptr, i32 } [ %297, %296 ], [ %301, %300 ], [ %299, %298 ]
+  %.pn43.pn.i = phi { ptr, i32 } [ %301, %300 ], [ %299, %298 ], [ %297, %296 ]
   %303 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %58) #13
   br label %304
 

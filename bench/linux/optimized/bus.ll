@@ -202,7 +202,7 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_bus_get_status(ptr noundef 
   br label %18
 
 18:                                               ; preds = %13, %._crit_edge, %9, %4
-  %19 = phi i32 [ 0, %9 ], [ %6, %4 ], [ %17, %._crit_edge ], [ 15, %13 ]
+  %19 = phi i32 [ %6, %4 ], [ 0, %9 ], [ %17, %._crit_edge ], [ 15, %13 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %19, ptr %20, align 8
   br label %21
@@ -900,7 +900,7 @@ define dso_local ptr @acpi_device_get_match_data(ptr noundef readonly captures(a
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %.thread, %12, %27, %18, %84, %79, %55
-  %88 = phi ptr [ %87, %84 ], [ null, %79 ], [ %57, %55 ], [ null, %12 ], [ null, %18 ], [ null, %27 ], [ null, %.thread ], [ null, %.loopexit ]
+  %88 = phi ptr [ %87, %84 ], [ null, %79 ], [ %57, %55 ], [ null, %18 ], [ null, %27 ], [ null, %12 ], [ null, %.thread ], [ null, %.loopexit ]
   ret ptr %88
 }
 
@@ -1022,7 +1022,7 @@ define dso_local noundef zeroext i1 @acpi_driver_match_device(ptr noundef readon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit7, %39, %.thread, %71, %24, %15, %14
-  %74 = phi i1 [ %73, %71 ], [ false, %14 ], [ false, %15 ], [ false, %24 ], [ true, %39 ], [ false, %.thread ], [ false, %.loopexit7 ]
+  %74 = phi i1 [ %73, %71 ], [ false, %14 ], [ false, %15 ], [ false, %24 ], [ false, %.thread ], [ true, %39 ], [ false, %.loopexit7 ]
   ret i1 %74
 }
 
@@ -1082,7 +1082,7 @@ define internal fastcc noundef zeroext i1 @acpi_of_match_device(ptr readonly cap
   br i1 %35, label %.loopexit, label %.thread.split, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.loopexit1, %23, %.thread, %8, %1
-  %36 = phi i1 [ false, %8 ], [ false, %1 ], [ true, %23 ], [ false, %.thread ], [ false, %.loopexit1 ]
+  %36 = phi i1 [ false, %1 ], [ false, %8 ], [ false, %.thread ], [ true, %23 ], [ false, %.loopexit1 ]
   ret i1 %36
 }
 

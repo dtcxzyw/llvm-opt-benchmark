@@ -122,7 +122,7 @@ define hidden void @keypair_context_update_seed(ptr noundef readonly captures(no
   br i1 %exitcond.not.i, label %rf4ce_addr_table_get_addr_entry_by_ieee.exit, label %.lr.ph.split.i, !llvm.loop !10
 
 rf4ce_addr_table_get_addr_entry_by_ieee.exit:     ; preds = %35, %37
-  %.07.i = phi ptr [ null, %37 ], [ %31, %35 ]
+  %.07.i = phi ptr [ %31, %35 ], [ null, %37 ]
   br label %.lr.ph.split.i24
 
 .lr.ph.split.i24:                                 ; preds = %44, %rf4ce_addr_table_get_addr_entry_by_ieee.exit
@@ -144,7 +144,7 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit:     ; preds = %35, %37
   br i1 %exitcond.not.i27, label %rf4ce_addr_table_get_addr_entry_by_ieee.exit30, label %.lr.ph.split.i24, !llvm.loop !10
 
 rf4ce_addr_table_get_addr_entry_by_ieee.exit30:   ; preds = %42, %44
-  %.07.i28 = phi ptr [ null, %44 ], [ %38, %42 ]
+  %.07.i28 = phi ptr [ %38, %42 ], [ null, %44 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @keypair_context, i64 80), ptr noundef nonnull align 1 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @keypair_context, i64 160), i64 noundef 80, i1 noundef false) #17
   br label %83
 
@@ -539,7 +539,7 @@ define hidden noundef zeroext i1 @rf4ce_addr_table_get_ieee_addr(ptr noundef %0,
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !30
 
 .loopexit:                                        ; preds = %31, %21, %.split40.us, %10, %8, %3
-  %.029 = phi i1 [ false, %8 ], [ false, %3 ], [ false, %10 ], [ true, %.split40.us ], [ false, %21 ], [ false, %31 ]
+  %.029 = phi i1 [ false, %3 ], [ false, %8 ], [ false, %10 ], [ true, %.split40.us ], [ false, %21 ], [ false, %31 ]
   ret i1 %.029
 }
 
@@ -673,7 +673,7 @@ define hidden void @key_exchange_calc_key(i32 noundef %0) local_unnamed_addr #5 
   br i1 %exitcond.not.i, label %rf4ce_addr_table_get_addr_entry_by_ieee.exit, label %.lr.ph.split.i, !llvm.loop !10
 
 rf4ce_addr_table_get_addr_entry_by_ieee.exit:     ; preds = %7, %9
-  %.07.i = phi ptr [ null, %9 ], [ %3, %7 ]
+  %.07.i = phi ptr [ %3, %7 ], [ null, %9 ]
   br label %.lr.ph.split.i14
 
 .lr.ph.split.i14:                                 ; preds = %16, %rf4ce_addr_table_get_addr_entry_by_ieee.exit
@@ -695,7 +695,7 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit:     ; preds = %7, %9
   br i1 %exitcond.not.i17, label %rf4ce_addr_table_get_addr_entry_by_ieee.exit20, label %.lr.ph.split.i14, !llvm.loop !10
 
 rf4ce_addr_table_get_addr_entry_by_ieee.exit20:   ; preds = %14, %16
-  %.07.i18 = phi ptr [ null, %16 ], [ %10, %14 ]
+  %.07.i18 = phi ptr [ %10, %14 ], [ null, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %17
 

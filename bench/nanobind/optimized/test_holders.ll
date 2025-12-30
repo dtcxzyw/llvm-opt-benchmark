@@ -4939,7 +4939,7 @@ _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i
   br label %_ZNSt12__shared_ptrI9ExampleSTLN9__gnu_cxx12_Lock_policyE2EEC2ERKSt10__weak_ptrIS0_LS2_2EESt9nothrow_t.exit
 
 _ZNSt12__shared_ptrI9ExampleSTLN9__gnu_cxx12_Lock_policyE2EEC2ERKSt10__weak_ptrIS0_LS2_2EESt9nothrow_t.exit: ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i
-  %29 = phi ptr [ %spec.select, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i ], [ null, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i ], [ null, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i ]
+  %29 = phi ptr [ null, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i ], [ null, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i ], [ %spec.select, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i ]
   store ptr %29, ptr %3, align 8, !tbaa !141
   %30 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !37
   %.not.i.i.i = icmp eq i8 %30, 0
@@ -5798,7 +5798,7 @@ _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i
   br label %_ZNSt12__shared_ptrI9ExampleSTLN9__gnu_cxx12_Lock_policyE2EEC2ERKSt10__weak_ptrIS0_LS2_2EESt9nothrow_t.exit.i
 
 _ZNSt12__shared_ptrI9ExampleSTLN9__gnu_cxx12_Lock_policyE2EEC2ERKSt10__weak_ptrIS0_LS2_2EESt9nothrow_t.exit.i: ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i
-  %28 = phi ptr [ %spec.select.i, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i ], [ null, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i ], [ null, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i ]
+  %28 = phi ptr [ null, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i ], [ null, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i ], [ %spec.select.i, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i ]
   store ptr %28, ptr %2, align 8, !tbaa !141
   %29 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !37
   %.not.i.i.i.i = icmp eq i8 %29, 0
@@ -6292,7 +6292,7 @@ _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i
   br label %_ZNSt12__shared_ptrI9ExampleSTLN9__gnu_cxx12_Lock_policyE2EEC2ERKSt10__weak_ptrIS0_LS2_2EESt9nothrow_t.exit
 
 _ZNSt12__shared_ptrI9ExampleSTLN9__gnu_cxx12_Lock_policyE2EEC2ERKSt10__weak_ptrIS0_LS2_2EESt9nothrow_t.exit: ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i
-  %39 = phi ptr [ %spec.select, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i ], [ null, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i ], [ null, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i ]
+  %39 = phi ptr [ null, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i ], [ null, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i ], [ %spec.select, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i ]
   store ptr %39, ptr %8, align 8, !tbaa !141
   %40 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !37
   %.not.i.i.i = icmp eq i8 %40, 0
@@ -8115,7 +8115,7 @@ _ZNSt4pairISt10unique_ptrI7ExampleSt14default_deleteIS1_EES4_ED2Ev.exit: ; preds
   br i1 %37, label %20, label %._crit_edge, !llvm.loop !348
 
 ._crit_edge:                                      ; preds = %_ZNSt4pairISt10unique_ptrI7ExampleSt14default_deleteIS1_EES4_ED2Ev.exit, %24, %20, %12
-  %.09 = phi i1 [ %17, %12 ], [ false, %24 ], [ false, %20 ], [ %17, %_ZNSt4pairISt10unique_ptrI7ExampleSt14default_deleteIS1_EES4_ED2Ev.exit ]
+  %.09 = phi i1 [ %17, %12 ], [ false, %20 ], [ false, %24 ], [ %17, %_ZNSt4pairISt10unique_ptrI7ExampleSt14default_deleteIS1_EES4_ED2Ev.exit ]
   %38 = load ptr, ptr %6, align 8, !tbaa !115
   %.not.i = icmp eq ptr %38, null
   br i1 %.not.i, label %_ZL11_Py_XDECREFP7_object.exit, label %39
@@ -8419,7 +8419,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8nanobind6detail11type_caster
   store i8 1, ptr %6, align 8, !tbaa !308
   br label %12
 
-12:                                               ; preds = %1, %11, %5
+12:                                               ; preds = %11, %5, %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !22
   %15 = icmp eq ptr %14, @_Py_NoneStruct
@@ -8440,7 +8440,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8nanobind6detail11type_caster
   br label %_ZNK8nanobind6detail11type_casterISt10unique_ptrI7ExampleSt14default_deleteIS3_EEiE8can_castIS6_EEbv.exit
 
 _ZNK8nanobind6detail11type_casterISt10unique_ptrI7ExampleSt14default_deleteIS3_EEiE8can_castIS6_EEbv.exit: ; preds = %22, %20, %16, %12, %9
-  %23 = phi i1 [ false, %9 ], [ true, %12 ], [ true, %22 ], [ true, %16 ], [ false, %20 ]
+  %23 = phi i1 [ false, %9 ], [ true, %22 ], [ true, %16 ], [ true, %12 ], [ false, %20 ]
   ret i1 %23
 }
 

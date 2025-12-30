@@ -101,7 +101,7 @@ define internal range(i32 -12, 1) i32 @aic_decode_init(ptr noundef %0) #0 {
   br i1 %exitcond53.not, label %.loopexit46, label %.lr.ph, !llvm.loop !42
 
 .loopexit46:                                      ; preds = %36, %15, %34
-  %38 = phi i64 [ %35, %34 ], [ 16, %15 ], [ 16, %36 ]
+  %38 = phi i64 [ 16, %15 ], [ %35, %34 ], [ 16, %36 ]
   %39 = tail call noalias ptr @av_calloc(i64 noundef %38, i64 noundef 768) #7
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store ptr %39, ptr %40, align 16, !tbaa !43
@@ -978,7 +978,7 @@ get_ue_golomb.exit100.i.i:                        ; preds = %472, %.preheader180
   br i1 %exitcond.not.i.i, label %.loopexit.i, label %.preheader132.i.i, !llvm.loop !60
 
 .loopexit.i:                                      ; preds = %496, %._crit_edge.split.us144.i.i, %._crit_edge.split.us.split.us155.us.i.i, %._crit_edge.split.us.split.us.us.us.us.i.i, %338, %.preheader130.i.i
-  %.sroa.5.8.ph.i = phi i32 [ %350, %338 ], [ %.sroa.5.7.i, %._crit_edge.split.us144.i.i ], [ %220, %.preheader130.i.i ], [ %264, %._crit_edge.split.us.split.us155.us.i.i ], [ %spec.select.i.i123.us.us.us.us.us.i.i, %._crit_edge.split.us.split.us.us.us.us.i.i ], [ %.sroa.5.3.i, %496 ]
+  %.sroa.5.8.ph.i = phi i32 [ %350, %338 ], [ %220, %.preheader130.i.i ], [ %spec.select.i.i123.us.us.us.us.us.i.i, %._crit_edge.split.us.split.us.us.us.us.i.i ], [ %264, %._crit_edge.split.us.split.us155.us.i.i ], [ %.sroa.5.7.i, %._crit_edge.split.us144.i.i ], [ %.sroa.5.3.i, %496 ]
   %indvars.iv.next233.i = add nuw nsw i64 %indvars.iv232.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next233.i, 4
   br i1 %exitcond.not.i, label %.preheader179.i, label %183, !llvm.loop !61
@@ -1321,7 +1321,7 @@ unquant_block.exit149.i:                          ; preds = %623
   %exitcond239.not.i = icmp eq i32 %650, %..i
   br i1 %exitcond239.not.i, label %.loopexit85, label %.preheader.i, !llvm.loop !76
 
-.loopexit:                                        ; preds = %183, %485, %421, %328, %get_ue_golomb.exit119.loopexit.us.us152.us.i.i
+.loopexit:                                        ; preds = %183, %421, %485, %328, %get_ue_golomb.exit119.loopexit.us.us152.us.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.069)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %.054121, i32 noundef %.053125) #7
@@ -1355,7 +1355,7 @@ unquant_block.exit149.i:                          ; preds = %623
   br label %660
 
 660:                                              ; preds = %54, %._crit_edge126, %.loopexit, %bytestream2_get_le16.exit.thread, %53, %21
-  %.0 = phi i32 [ -1094995529, %21 ], [ -1094995529, %53 ], [ %659, %._crit_edge126 ], [ -1094995529, %.loopexit ], [ -1094995529, %bytestream2_get_le16.exit.thread ], [ %64, %54 ]
+  %.0 = phi i32 [ -1094995529, %21 ], [ -1094995529, %53 ], [ -1094995529, %.loopexit ], [ -1094995529, %bytestream2_get_le16.exit.thread ], [ %659, %._crit_edge126 ], [ %64, %54 ]
   ret i32 %.0
 }
 

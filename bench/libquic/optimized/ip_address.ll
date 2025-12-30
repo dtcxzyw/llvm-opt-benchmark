@@ -596,7 +596,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %33,
   br label %40
 
 38:                                               ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i14, %29
-  %.sroa.0.3 = phi ptr [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i14 ], [ %28, %29 ]
+  %.sroa.0.3 = phi ptr [ %28, %29 ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i14 ]
   %39 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -643,7 +643,7 @@ _ZN12_GLOBAL__N_121ParseIPLiteralToBytesERKN4base16BasicStringPieceINSt7__cxx111
   br i1 %51, label %55, label %.thread
 
 52:                                               ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i, %.noexc4, %2
-  %.sroa.0.0 = phi ptr [ null, %2 ], [ %43, %.noexc4 ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0.0 = phi ptr [ %43, %.noexc4 ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i ], [ null, %2 ]
   %53 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -746,7 +746,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   br label %12
 
 12:                                               ; preds = %11, %.noexc4, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
-  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %8, %.noexc4 ], [ %6, %11 ]
+  %.0.i.i.i.i.i = phi ptr [ %8, %.noexc4 ], [ %6, %11 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.0.i.i.i.i.i, ptr %13, align 8, !tbaa !3
   invoke void @_ZN3net9IPAddressC1ERKSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -1443,7 +1443,7 @@ define noundef zeroext i1 @_ZN3net22IPAddressMatchesPrefixERKNS_9IPAddressES2_m(
   br label %_ZN12_GLOBAL__N_120IPAddressPrefixCheckERKSt6vectorIhSaIhEEPKhm.exit
 
 _ZN12_GLOBAL__N_120IPAddressPrefixCheckERKSt6vectorIhSaIhEEPKhm.exit: ; preds = %.lr.ph.i, %51, %40, %28, %22
-  %.015 = phi i1 [ %21, %22 ], [ %27, %28 ], [ false, %40 ], [ true, %51 ], [ false, %.lr.ph.i ]
+  %.015 = phi i1 [ %21, %22 ], [ %27, %28 ], [ true, %51 ], [ false, %40 ], [ false, %.lr.ph.i ]
   ret i1 %.015
 
 52:                                               ; preds = %29, %23
@@ -1515,14 +1515,14 @@ define noundef zeroext i1 @_ZN3net14ParseCIDRBlockERKNSt7__cxx1112basic_stringIc
   br label %38
 
 38:                                               ; preds = %26, %23, %37
-  %.1 = phi i1 [ false, %23 ], [ true, %37 ], [ false, %26 ]
+  %.1 = phi i1 [ true, %37 ], [ false, %23 ], [ false, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load ptr, ptr %4, align 8, !tbaa !43
   br label %39
 
 39:                                               ; preds = %17, %3, %38
-  %40 = phi ptr [ %11, %3 ], [ %.pre, %38 ], [ %.pre13, %17 ]
-  %.07 = phi i1 [ false, %3 ], [ %.1, %38 ], [ false, %17 ]
+  %40 = phi ptr [ %.pre, %38 ], [ %11, %3 ], [ %.pre13, %17 ]
+  %.07 = phi i1 [ %.1, %38 ], [ false, %3 ], [ false, %17 ]
   %.not.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit, label %41
 
@@ -1729,8 +1729,8 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   br label %16
 
 16:                                               ; preds = %.noexc7, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
-  %17 = phi ptr [ %11, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %13, %.noexc7 ]
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %14, %.noexc7 ]
+  %17 = phi ptr [ %13, %.noexc7 ], [ %11, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ %14, %.noexc7 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
   store ptr %.0.i.i.i.i.i.i.i, ptr %17, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN3net9IPAddressC1ERKSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %2)

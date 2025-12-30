@@ -1291,7 +1291,7 @@ _ZN3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1ELln1EEEENS_12layo
   br label %90
 
 common.resume:                                    ; preds = %165, %167, %152, %154, %139, %141, %123, %125, %103, %105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54, %173, %90
-  %common.resume.op = phi { ptr, i32 } [ %.pn8.pn.pn.i, %90 ], [ %187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ %.pn.pn4.i, %105 ], [ %.pn.pn4.i16, %125 ], [ %.pn.pn4.i25, %141 ], [ %.pn.pn4.i35, %154 ], [ %174, %173 ], [ %104, %103 ], [ %124, %123 ], [ %140, %139 ], [ %153, %152 ], [ %166, %165 ], [ %.pn.pn4.i45, %167 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn8.pn.pn.i, %90 ], [ %174, %173 ], [ %187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54 ], [ %104, %103 ], [ %.pn.pn4.i, %105 ], [ %124, %123 ], [ %.pn.pn4.i16, %125 ], [ %140, %139 ], [ %.pn.pn4.i25, %141 ], [ %153, %152 ], [ %.pn.pn4.i35, %154 ], [ %166, %165 ], [ %.pn.pn4.i45, %167 ]
   resume { ptr, i32 } %common.resume.op
 
 90:                                               ; preds = %89, %71
@@ -2507,7 +2507,7 @@ _ZNSt14_Function_baseD2Ev.exit93:                 ; preds = %244, %_ZN3gmx17MDMo
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit95:                 ; preds = %.body35, %260, %.body53, %276, %.body71, %292, %306, %.body89, %299, %.body80, %284, %.body62, %268, %.body44, %252, %.body
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %250, %252 ], [ %250, %.body ], [ %eh.lpad-body36, %260 ], [ %eh.lpad-body36, %.body35 ], [ %eh.lpad-body45, %268 ], [ %eh.lpad-body45, %.body44 ], [ %eh.lpad-body54, %276 ], [ %eh.lpad-body54, %.body53 ], [ %eh.lpad-body63, %284 ], [ %eh.lpad-body63, %.body62 ], [ %eh.lpad-body72, %292 ], [ %eh.lpad-body72, %.body71 ], [ %297, %299 ], [ %297, %.body80 ], [ %304, %.body89 ], [ %304, %306 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %250, %.body ], [ %250, %252 ], [ %eh.lpad-body36, %.body35 ], [ %eh.lpad-body36, %260 ], [ %eh.lpad-body45, %.body44 ], [ %eh.lpad-body45, %268 ], [ %eh.lpad-body54, %.body53 ], [ %eh.lpad-body54, %276 ], [ %eh.lpad-body63, %.body62 ], [ %eh.lpad-body63, %284 ], [ %eh.lpad-body72, %.body71 ], [ %eh.lpad-body72, %292 ], [ %297, %.body80 ], [ %297, %299 ], [ %304, %.body89 ], [ %304, %306 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -2729,7 +2729,7 @@ _ZNSt14_Function_baseD2Ev.exit28:                 ; preds = %64, %_ZN3gmx17MDMod
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit30:                 ; preds = %.body15, %79, %.body24, %86, %72, %.body
-  %.pn.pn = phi { ptr, i32 } [ %70, %72 ], [ %70, %.body ], [ %77, %79 ], [ %77, %.body15 ], [ %84, %.body24 ], [ %84, %86 ]
+  %.pn.pn = phi { ptr, i32 } [ %70, %.body ], [ %70, %72 ], [ %77, %.body15 ], [ %77, %79 ], [ %84, %.body24 ], [ %84, %86 ]
   resume { ptr, i32 } %.pn.pn
 }
 

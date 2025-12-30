@@ -261,7 +261,7 @@ validate_cc_data_pair.exit:                       ; preds = %68, %73
   br label %get_writing_screen.exit.i.i
 
 get_writing_screen.exit.i.i:                      ; preds = %104, %100, %93
-  %.0.i.i.i = phi ptr [ %107, %104 ], [ %103, %100 ], [ null, %93 ]
+  %.0.i.i.i = phi ptr [ %103, %100 ], [ %107, %104 ], [ null, %93 ]
   %108 = icmp eq i8 %98, 1
   br i1 %108, label %109, label %111
 
@@ -382,7 +382,7 @@ write_char.exit.i.i:                              ; preds = %152, %132
   br label %get_writing_screen.exit.i126.i
 
 get_writing_screen.exit.i126.i:                   ; preds = %169, %165, %163
-  %.0.i.i127.i = phi ptr [ %172, %169 ], [ %168, %165 ], [ null, %163 ]
+  %.0.i.i127.i = phi ptr [ %168, %165 ], [ %172, %169 ], [ null, %163 ]
   br i1 %91, label %process_cc608.exit.thread, label %173
 
 173:                                              ; preds = %get_writing_screen.exit.i126.i
@@ -573,11 +573,11 @@ get_writing_screen.exit.i126.i:                   ; preds = %169, %165, %163
   br i1 %exitcond.not.i, label %process_cc608.exit.thread, label %.lr.ph.i, !llvm.loop !54
 
 process_cc608.exit:                               ; preds = %236, %244
-  %.0120.i = phi i32 [ %245, %244 ], [ %.1.i, %236 ]
+  %.0120.i = phi i32 [ %.1.i, %236 ], [ %245, %244 ]
   %256 = icmp slt i32 %.0120.i, 0
   br i1 %256, label %.loopexit, label %process_cc608.exit.thread
 
-process_cc608.exit.thread:                        ; preds = %.lr.ph.i, %write_char.exit.i.i, %189, %get_writing_screen.exit.i126.i, %111, %109, %251, %250, %247, %237, %239, %231, %230, %229, %227, %226, %225, %224, %215, %212, %82, %process_cc608.exit
+process_cc608.exit.thread:                        ; preds = %.lr.ph.i, %write_char.exit.i.i, %212, %189, %get_writing_screen.exit.i126.i, %111, %109, %251, %250, %247, %237, %239, %231, %230, %229, %227, %226, %225, %224, %215, %82, %process_cc608.exit
   %257 = load i32, ptr %32, align 4, !tbaa !55
   %.not116 = icmp eq i32 %257, 0
   br i1 %.not116, label %validate_cc_data_pair.exit.thread, label %258
@@ -646,8 +646,8 @@ process_cc608.exit.thread:                        ; preds = %.lr.ph.i, %write_ch
   store i32 0, ptr %39, align 8, !tbaa !62
   br label %validate_cc_data_pair.exit.thread
 
-validate_cc_data_pair.exit.thread:                ; preds = %68, %48, %73, %56, %validate_cc_data_pair.exit, %process_cc608.exit.thread, %284, %272
-  %.199.ph = phi i32 [ %.2100, %272 ], [ %.2100, %284 ], [ %.098138, %process_cc608.exit.thread ], [ %.098138, %validate_cc_data_pair.exit ], [ %.098138, %56 ], [ %.098138, %73 ], [ %.098138, %68 ], [ %.098138, %48 ]
+validate_cc_data_pair.exit.thread:                ; preds = %68, %73, %56, %48, %validate_cc_data_pair.exit, %process_cc608.exit.thread, %284, %272
+  %.199.ph = phi i32 [ %.2100, %272 ], [ %.2100, %284 ], [ %.098138, %process_cc608.exit.thread ], [ %.098138, %validate_cc_data_pair.exit ], [ %.098138, %48 ], [ %.098138, %56 ], [ %.098138, %68 ], [ %.098138, %73 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %286 = trunc nuw i64 %indvars.iv.next to i32
   %287 = icmp sgt i32 %15, %286
@@ -765,7 +765,7 @@ validate_cc_data_pair.exit.thread:                ; preds = %68, %48, %73, %56, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %process_cc608.exit, %279, %334, %299, %348
-  %.2 = phi i32 [ %344, %334 ], [ %303, %299 ], [ %353, %348 ], [ %282, %279 ], [ %.0120.i, %process_cc608.exit ]
+  %.2 = phi i32 [ %353, %348 ], [ %303, %299 ], [ %344, %334 ], [ %282, %279 ], [ %.0120.i, %process_cc608.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2
 }
@@ -1054,7 +1054,7 @@ switch.lookup237:                                 ; preds = %84
   br label %90
 
 90:                                               ; preds = %switch.lookup237, %84
-  %.0125 = phi ptr [ %switch.load239, %switch.lookup237 ], [ @.str.19, %84 ]
+  %.0125 = phi ptr [ @.str.19, %84 ], [ %switch.load239, %switch.lookup237 ]
   %91 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv225
   %92 = load i8, ptr %91, align 1, !tbaa !42
   %93 = sext i8 %92 to i32
@@ -1070,7 +1070,7 @@ switch.lookup241:                                 ; preds = %90
   br label %96
 
 96:                                               ; preds = %switch.lookup241, %90
-  %.0124 = phi ptr [ %switch.load243, %switch.lookup241 ], [ @.str.19, %90 ]
+  %.0124 = phi ptr [ @.str.19, %90 ], [ %switch.load243, %switch.lookup241 ]
   %97 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv225
   %98 = load i8, ptr %97, align 1, !tbaa !42
   %99 = sext i8 %98 to i64
@@ -1130,7 +1130,7 @@ switch.lookup241:                                 ; preds = %90
   br label %._crit_edge212
 
 ._crit_edge212:                                   ; preds = %1, %._crit_edge212.loopexit
-  %.lcssa = phi i1 [ false, %1 ], [ %116, %._crit_edge212.loopexit ]
+  %.lcssa = phi i1 [ %116, %._crit_edge212.loopexit ], [ false, %1 ]
   %117 = getelementptr i8, ptr %11, i64 8
   %.val = load i32, ptr %117, align 8, !tbaa !64
   %118 = getelementptr i8, ptr %11, i64 12
@@ -1191,7 +1191,7 @@ define internal fastcc void @handle_delete_end_of_row(ptr noundef captures(none)
   br label %get_writing_screen.exit
 
 get_writing_screen.exit:                          ; preds = %1, %4, %10
-  %.0.i = phi ptr [ %15, %10 ], [ %9, %4 ], [ null, %1 ]
+  %.0.i = phi ptr [ %9, %4 ], [ %15, %10 ], [ null, %1 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 5317
   %17 = load i8, ptr %16, align 1, !tbaa !48
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 5316
@@ -1316,7 +1316,7 @@ define internal fastcc void @roll_up(ptr noundef captures(none) %0) unnamed_addr
   br label %get_writing_screen.exit
 
 get_writing_screen.exit:                          ; preds = %1, %4, %10
-  %.0.i = phi ptr [ %15, %10 ], [ %9, %4 ], [ null, %1 ]
+  %.0.i = phi ptr [ %9, %4 ], [ %15, %10 ], [ null, %1 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 5316
   %17 = load i8, ptr %16, align 4, !tbaa !32
   %18 = zext i8 %17 to i32
@@ -1516,7 +1516,7 @@ define internal fastcc void @handle_char(ptr noundef %0, i8 noundef signext rang
   br label %get_writing_screen.exit
 
 get_writing_screen.exit:                          ; preds = %3, %6, %12
-  %.0.i = phi ptr [ %17, %12 ], [ %11, %6 ], [ null, %3 ]
+  %.0.i = phi ptr [ %11, %6 ], [ %17, %12 ], [ null, %3 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 5316
   %19 = load i8, ptr %18, align 4, !tbaa !32
   %20 = zext nneg i8 %19 to i32

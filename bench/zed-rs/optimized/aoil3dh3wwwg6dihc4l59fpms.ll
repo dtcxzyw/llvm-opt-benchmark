@@ -141,7 +141,7 @@ define void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element..Rende
   br label %185
 
 .body63:                                          ; preds = %.body57, %122, %.thread85, %42, %.body46
-  %.pn35 = phi { ptr, i32 } [ %eh.lpad-body58, %.body57 ], [ %eh.lpad-body, %.body46 ], [ %43, %42 ], [ %123, %122 ], [ %eh.lpad-body5088, %.thread85 ]
+  %.pn35 = phi { ptr, i32 } [ %eh.lpad-body, %.body46 ], [ %43, %42 ], [ %eh.lpad-body5088, %.thread85 ], [ %123, %122 ], [ %eh.lpad-body58, %.body57 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17hef5780e2de7f6d62E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %33) #16
           to label %190 unwind label %163
 
@@ -686,7 +686,7 @@ define void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element..Rende
   resume { ptr, i32 } %.pn35.pn
 
 .body60.thread97:                                 ; preds = %152, %161, %"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h61a818424aa0d07bE.exit", %.body60
-  %.pn33100 = phi { ptr, i32 } [ %.pn31115, %"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h61a818424aa0d07bE.exit" ], [ %.pn31115, %.body60 ], [ %153, %152 ], [ %162, %161 ]
+  %.pn33100 = phi { ptr, i32 } [ %.pn31115, %.body60 ], [ %.pn31115, %"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h61a818424aa0d07bE.exit" ], [ %153, %152 ], [ %162, %161 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17hef5780e2de7f6d62E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %26) #16
           to label %190 unwind label %163
 
@@ -696,7 +696,7 @@ define void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element..Rende
           to label %.body63 unwind label %163
 
 .body46:                                          ; preds = %"_ZN4core3ptr84drop_in_place$LT$alloc..vec..drain..Drain$LT$workspace..item..BreadcrumbText$GT$$GT$17ha93a2341e0ca65aeE.exit.i", %92, %76, %56
-  %eh.lpad-body = phi { ptr, i32 } [ %77, %76 ], [ %57, %56 ], [ %.pn.i, %92 ], [ %.pn.i, %"_ZN4core3ptr84drop_in_place$LT$alloc..vec..drain..Drain$LT$workspace..item..BreadcrumbText$GT$$GT$17ha93a2341e0ca65aeE.exit.i" ]
+  %eh.lpad-body = phi { ptr, i32 } [ %57, %56 ], [ %77, %76 ], [ %.pn.i, %92 ], [ %.pn.i, %"_ZN4core3ptr84drop_in_place$LT$alloc..vec..drain..Drain$LT$workspace..item..BreadcrumbText$GT$$GT$17ha93a2341e0ca65aeE.exit.i" ]
   invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$workspace..item..BreadcrumbText$GT$$GT$17hc0befc3602d159a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31) #16
           to label %.body63 unwind label %163
 }

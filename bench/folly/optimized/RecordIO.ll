@@ -1349,7 +1349,7 @@ define noundef zeroext i1 @_ZN5folly16recordio_helpers20validateRecordHeaderENS_
   br label %30
 
 30:                                               ; preds = %22, %18, %15, %12, %10, %25, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %10 ], [ %.not15, %25 ], [ false, %22 ], [ false, %18 ], [ false, %15 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %22 ], [ false, %18 ], [ false, %15 ], [ false, %12 ], [ false, %10 ], [ %.not15, %25 ]
   ret i1 %.0
 }
 
@@ -1480,7 +1480,7 @@ _ZN5folly16recordio_helpers20validateRecordHeaderENS_5RangeIPKhEEj.exit: ; preds
   %.not15.i = icmp eq i32 %31, %29
   br i1 %.not15.i, label %33, label %_ZN5folly16recordio_helpers20validateRecordHeaderENS_5RangeIPKhEEj.exit.thread
 
-_ZN5folly16recordio_helpers20validateRecordHeaderENS_5RangeIPKhEEj.exit.thread: ; preds = %15, %18, %21, %25, %13, %4, %_ZN5folly16recordio_helpers20validateRecordHeaderENS_5RangeIPKhEEj.exit
+_ZN5folly16recordio_helpers20validateRecordHeaderENS_5RangeIPKhEEj.exit.thread: ; preds = %13, %15, %18, %21, %25, %4, %_ZN5folly16recordio_helpers20validateRecordHeaderENS_5RangeIPKhEEj.exit
   store i32 0, ptr %0, align 8, !tbaa !110
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)

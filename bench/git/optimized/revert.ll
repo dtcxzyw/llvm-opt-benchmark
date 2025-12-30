@@ -685,7 +685,7 @@ define internal fastcc i32 @run_sequencer(i32 noundef %0, ptr noundef %1, ptr no
   br label %276
 
 276:                                              ; preds = %271, %273, %275, %274
-  %.084 = phi ptr [ @.str.51, %275 ], [ @.str.49, %273 ], [ @.str.50, %274 ], [ @.str.48, %271 ]
+  %.084 = phi ptr [ @.str.49, %273 ], [ @.str.50, %274 ], [ @.str.51, %275 ], [ @.str.48, %271 ]
   %277 = load i32, ptr %72, align 4, !tbaa !57
   %278 = load i32, ptr %104, align 8, !tbaa !58
   %279 = getelementptr inbounds nuw i8, ptr %3, i64 68
@@ -918,7 +918,7 @@ thread-pre-split:                                 ; preds = %358, %xstrdup_or_nu
   br label %390
 
 390:                                              ; preds = %374, %376, %387, %384, %381, %378
-  %.0 = phi i32 [ %389, %387 ], [ %380, %378 ], [ %383, %381 ], [ %386, %384 ], [ 0, %376 ], [ %375, %374 ]
+  %.0 = phi i32 [ %380, %378 ], [ %383, %381 ], [ %386, %384 ], [ %389, %387 ], [ 0, %376 ], [ %375, %374 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

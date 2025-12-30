@@ -256,7 +256,7 @@ define dso_local noundef zeroext i1 @__tlb_remove_page_size(ptr noundef captures
   br label %41
 
 41:                                               ; preds = %15, %39, %29, %25, %3
-  %42 = phi i1 [ true, %15 ], [ true, %25 ], [ true, %29 ], [ false, %3 ], [ false, %39 ]
+  %42 = phi i1 [ true, %25 ], [ true, %29 ], [ false, %3 ], [ false, %39 ], [ true, %15 ]
   ret i1 %42
 }
 

@@ -55,8 +55,8 @@ define range(i32 0, 3) i32 @uriUnixFilenameToUriStringA(ptr noundef %0, ptr noun
   br label %15
 
 15:                                               ; preds = %13, %10, %.thread87.split.us.split.i
-  %16 = phi i8 [ %9, %10 ], [ %9, %.thread87.split.us.split.i ], [ %.pre114.i, %13 ]
-  %.2.us.i = phi ptr [ %.164.us.i, %10 ], [ %.164.us.i, %.thread87.split.us.split.i ], [ %14, %13 ]
+  %16 = phi i8 [ %.pre114.i, %13 ], [ %9, %10 ], [ %9, %.thread87.split.us.split.i ]
+  %.2.us.i = phi ptr [ %14, %13 ], [ %.164.us.i, %10 ], [ %.164.us.i, %.thread87.split.us.split.i ]
   switch i8 %16, label %19 [
     i8 0, label %.split.us.i
     i8 47, label %17
@@ -150,8 +150,8 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringA(ptr noundef %0, ptr n
   br label %21
 
 21:                                               ; preds = %19, %16, %.thread87.split.us.split.us.i
-  %22 = phi i8 [ %15, %16 ], [ %15, %.thread87.split.us.split.us.i ], [ %.pre115.i, %19 ]
-  %.2.us.us.i = phi ptr [ %.164.us.us.i, %16 ], [ %.164.us.us.i, %.thread87.split.us.split.us.i ], [ %20, %19 ]
+  %22 = phi i8 [ %.pre115.i, %19 ], [ %15, %16 ], [ %15, %.thread87.split.us.split.us.i ]
+  %.2.us.us.i = phi ptr [ %20, %19 ], [ %.164.us.us.i, %16 ], [ %.164.us.us.i, %.thread87.split.us.split.us.i ]
   switch i8 %22, label %25 [
     i8 0, label %.split.us.i
     i8 92, label %23
@@ -204,7 +204,7 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringA(ptr noundef %0, ptr n
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %34, %32, %28
-  %.2.us102.ph.i = phi ptr [ %33, %32 ], [ %39, %34 ], [ %.164.us96.i, %28 ]
+  %.2.us102.ph.i = phi ptr [ %.164.us96.i, %28 ], [ %33, %32 ], [ %39, %34 ]
   %.pr.i = load i8, ptr %.059.us99.i, align 1, !tbaa !3
   br label %40
 
@@ -262,7 +262,7 @@ define range(i32 0, 3) i32 @uriUriStringToUnixFilenameA(ptr noundef readonly cap
   br label %.thread58.i
 
 .thread58.i:                                      ; preds = %11, %5, %8
-  %14 = phi i64 [ 0, %5 ], [ %spec.select, %11 ], [ 0, %8 ]
+  %14 = phi i64 [ 0, %8 ], [ 0, %5 ], [ %spec.select, %11 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #6
   %17 = add i64 %16, 1
@@ -298,7 +298,7 @@ define range(i32 0, 3) i32 @uriUriStringToWindowsFilenameA(ptr noundef readonly 
   br i1 %13, label %18, label %.thread
 
 .thread:                                          ; preds = %5, %8, %11
-  %.ph5663.i = phi i1 [ false, %5 ], [ false, %8 ], [ true, %11 ]
+  %.ph5663.i = phi i1 [ false, %8 ], [ false, %5 ], [ true, %11 ]
   %or.cond5.i = icmp ne i32 %6, 0
   %.not.i = or i1 %or.cond5.i, %.ph5663.i
   %14 = select i1 %.not.i, i64 0, i64 5
@@ -399,8 +399,8 @@ define range(i32 0, 3) i32 @uriUnixFilenameToUriStringW(ptr noundef %0, ptr noun
   br label %15
 
 15:                                               ; preds = %13, %10, %.thread87.split.us.split.i
-  %16 = phi i32 [ %9, %10 ], [ %9, %.thread87.split.us.split.i ], [ %.pre114.i, %13 ]
-  %.2.us.i = phi ptr [ %.164.us.i, %10 ], [ %.164.us.i, %.thread87.split.us.split.i ], [ %14, %13 ]
+  %16 = phi i32 [ %.pre114.i, %13 ], [ %9, %10 ], [ %9, %.thread87.split.us.split.i ]
+  %.2.us.i = phi ptr [ %14, %13 ], [ %.164.us.i, %10 ], [ %.164.us.i, %.thread87.split.us.split.i ]
   switch i32 %16, label %19 [
     i32 0, label %.split.us.i
     i32 47, label %17
@@ -495,8 +495,8 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
   br label %22
 
 22:                                               ; preds = %20, %17, %.thread87.split.us.split.us.i
-  %23 = phi i32 [ %16, %17 ], [ %16, %.thread87.split.us.split.us.i ], [ %.pre115.i, %20 ]
-  %.2.us.us.i = phi ptr [ %.164.us.us.i, %17 ], [ %.164.us.us.i, %.thread87.split.us.split.us.i ], [ %21, %20 ]
+  %23 = phi i32 [ %.pre115.i, %20 ], [ %16, %17 ], [ %16, %.thread87.split.us.split.us.i ]
+  %.2.us.us.i = phi ptr [ %21, %20 ], [ %.164.us.us.i, %17 ], [ %.164.us.us.i, %.thread87.split.us.split.us.i ]
   switch i32 %23, label %26 [
     i32 0, label %.split.us.i
     i32 92, label %24
@@ -550,7 +550,7 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %35, %33, %29
-  %.2.us102.ph.i = phi ptr [ %34, %33 ], [ %41, %35 ], [ %.164.us96.i, %29 ]
+  %.2.us102.ph.i = phi ptr [ %.164.us96.i, %29 ], [ %34, %33 ], [ %41, %35 ]
   %.pr.i = load i32, ptr %.059.us99.i, align 4, !tbaa !8
   br label %42
 
@@ -608,7 +608,7 @@ define range(i32 0, 3) i32 @uriUriStringToUnixFilenameW(ptr noundef readonly %0,
   br label %.thread58.i
 
 .thread58.i:                                      ; preds = %11, %5, %8
-  %14 = phi i64 [ 0, %5 ], [ %spec.select, %11 ], [ 0, %8 ]
+  %14 = phi i64 [ 0, %8 ], [ 0, %5 ], [ %spec.select, %11 ]
   %15 = getelementptr inbounds nuw i32, ptr %0, i64 %14
   %16 = tail call i64 @wcslen(ptr noundef nonnull %15) #6
   %17 = shl i64 %16, 2
@@ -645,7 +645,7 @@ define range(i32 0, 3) i32 @uriUriStringToWindowsFilenameW(ptr noundef readonly 
   br i1 %13, label %17, label %.thread
 
 .thread:                                          ; preds = %5, %8, %11
-  %.ph5663.i = phi i1 [ false, %5 ], [ false, %8 ], [ true, %11 ]
+  %.ph5663.i = phi i1 [ false, %8 ], [ false, %5 ], [ true, %11 ]
   %or.cond5.i = icmp ne i32 %6, 0
   %.not.i = or i1 %or.cond5.i, %.ph5663.i
   %14 = select i1 %.not.i, i64 0, i64 5

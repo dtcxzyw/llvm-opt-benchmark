@@ -190,7 +190,7 @@ define noundef i32 @udata_swap(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   br label %111
 
 111:                                              ; preds = %46, %70, %67, %12, %5, %9, %91
-  %.0 = phi i32 [ 0, %91 ], [ 0, %5 ], [ 0, %12 ], [ 0, %9 ], [ %43, %67 ], [ %43, %70 ], [ %43, %46 ]
+  %.0 = phi i32 [ 0, %91 ], [ 0, %9 ], [ 0, %5 ], [ 0, %12 ], [ %43, %67 ], [ %43, %70 ], [ %43, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -272,7 +272,7 @@ define internal noundef i32 @_ZL11uprops_swapPK12UDataSwapperPKviPvP10UErrorCode
   br i1 %40, label %53, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %37, %33, %27, %23, %19
-  %41 = phi i8 [ %17, %12 ], [ 80, %37 ], [ 80, %33 ], [ 80, %27 ], [ 80, %23 ], [ 80, %19 ]
+  %41 = phi i8 [ 80, %37 ], [ 80, %33 ], [ 80, %27 ], [ 80, %23 ], [ 80, %19 ], [ %17, %12 ]
   %42 = zext i8 %14 to i32
   %43 = zext i8 %41 to i32
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -435,7 +435,7 @@ define internal noundef i32 @_ZL11uprops_swapPK12UDataSwapperPKviPvP10UErrorCode
   br label %150
 
 150:                                              ; preds = %146, %.thread, %5, %9, %58, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %58 ], [ 0, %5 ], [ 0, %9 ], [ %149, %.thread ], [ 0, %146 ]
+  %.0 = phi i32 [ 0, %58 ], [ 0, %._crit_edge ], [ 0, %9 ], [ 0, %5 ], [ %149, %.thread ], [ 0, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -499,7 +499,7 @@ define internal noundef i32 @_ZL10ucase_swapPK12UDataSwapperPKviPvP10UErrorCode(
   br i1 %or.cond, label %53, label %.thread
 
 .thread:                                          ; preds = %12, %31, %35, %39, %23, %19
-  %41 = phi i8 [ %17, %12 ], [ 65, %31 ], [ 65, %35 ], [ 65, %39 ], [ 65, %23 ], [ 65, %19 ]
+  %41 = phi i8 [ 65, %31 ], [ 65, %35 ], [ 65, %39 ], [ 65, %23 ], [ 65, %19 ], [ %17, %12 ]
   %42 = zext i8 %14 to i32
   %43 = zext i8 %41 to i32
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -603,7 +603,7 @@ define internal noundef i32 @_ZL10ucase_swapPK12UDataSwapperPKviPvP10UErrorCode(
   br label %105
 
 105:                                              ; preds = %5, %9, %103, %74, %61, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %61 ], [ 0, %74 ], [ %104, %103 ], [ 0, %9 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %61 ], [ 0, %74 ], [ %104, %103 ], [ 0, %.thread ], [ 0, %9 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -664,7 +664,7 @@ define internal noundef i32 @_ZL10ubidi_swapPK12UDataSwapperPKviPvP10UErrorCode(
   br i1 %37, label %50, label %.thread
 
 .thread:                                          ; preds = %12, %27, %30, %34, %23, %19
-  %38 = phi i8 [ %17, %12 ], [ 105, %27 ], [ 105, %30 ], [ 105, %34 ], [ 105, %23 ], [ 105, %19 ]
+  %38 = phi i8 [ 105, %27 ], [ 105, %30 ], [ 105, %34 ], [ 105, %23 ], [ 105, %19 ], [ %17, %12 ]
   %39 = zext i8 %14 to i32
   %40 = zext i8 %38 to i32
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -764,7 +764,7 @@ define internal noundef i32 @_ZL10ubidi_swapPK12UDataSwapperPKviPvP10UErrorCode(
   br label %98
 
 98:                                               ; preds = %5, %9, %96, %71, %58, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %58 ], [ 0, %71 ], [ %97, %96 ], [ 0, %9 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %58 ], [ 0, %71 ], [ %97, %96 ], [ 0, %.thread ], [ 0, %9 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -811,7 +811,7 @@ define internal noundef i32 @_ZL10unorm_swapPK12UDataSwapperPKviPvP10UErrorCode(
   br i1 %30, label %43, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %27, %23, %19
-  %31 = phi i8 [ %17, %12 ], [ 111, %27 ], [ 111, %23 ], [ 111, %19 ]
+  %31 = phi i8 [ 111, %27 ], [ 111, %23 ], [ 111, %19 ], [ %17, %12 ]
   %32 = zext i8 %14 to i32
   %33 = zext i8 %31 to i32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -950,7 +950,7 @@ define internal noundef i32 @_ZL10unorm_swapPK12UDataSwapperPKviPvP10UErrorCode(
   br label %118
 
 118:                                              ; preds = %5, %9, %116, %81, %51, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %51 ], [ 0, %81 ], [ %117, %116 ], [ 0, %9 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %51 ], [ 0, %81 ], [ %117, %116 ], [ 0, %._crit_edge ], [ 0, %9 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -998,7 +998,7 @@ define internal noundef i32 @_ZL12ulayout_swapPK12UDataSwapperPKviPvP10UErrorCod
   br i1 %30, label %43, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %27, %23, %19
-  %31 = phi i8 [ %17, %12 ], [ 97, %27 ], [ 97, %23 ], [ 97, %19 ]
+  %31 = phi i8 [ 97, %27 ], [ 97, %23 ], [ 97, %19 ], [ %17, %12 ]
   %32 = zext i8 %14 to i32
   %33 = zext i8 %31 to i32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -1120,7 +1120,7 @@ define internal noundef i32 @_ZL12ulayout_swapPK12UDataSwapperPKviPvP10UErrorCod
   br label %91
 
 91:                                               ; preds = %._crit_edge, %56, %90, %51, %5, %9
-  %.0 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 0, %._crit_edge ], [ 0, %51 ], [ 0, %56 ], [ %.4, %90 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %5 ], [ 0, %._crit_edge ], [ 0, %51 ], [ 0, %56 ], [ %.4, %90 ]
   ret i32 %.0
 }
 
@@ -1165,7 +1165,7 @@ define internal noundef i32 @_ZL11uemoji_swapPK12UDataSwapperPKviPvP10UErrorCode
   br i1 %30, label %43, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %27, %23, %19
-  %31 = phi i8 [ %17, %12 ], [ 109, %27 ], [ 109, %23 ], [ 109, %19 ]
+  %31 = phi i8 [ 109, %27 ], [ 109, %23 ], [ 109, %19 ], [ %17, %12 ]
   %32 = zext i8 %14 to i32
   %33 = zext i8 %31 to i32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -1291,7 +1291,7 @@ define internal noundef i32 @_ZL11uemoji_swapPK12UDataSwapperPKviPvP10UErrorCode
   br label %102
 
 102:                                              ; preds = %._crit_edge, %56, %101, %51, %5, %9
-  %.0 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 0, %._crit_edge ], [ 0, %51 ], [ 0, %56 ], [ %.4, %101 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %5 ], [ 0, %._crit_edge ], [ 0, %51 ], [ 0, %56 ], [ %.4, %101 ]
   ret i32 %.0
 }
 
@@ -1343,7 +1343,7 @@ define internal noundef i32 @_ZL11upname_swapPK12UDataSwapperPKviPvP10UErrorCode
   br i1 %29, label %42, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11, %26, %22, %18
-  %30 = phi i8 [ %16, %11 ], [ 110, %26 ], [ 110, %22 ], [ 110, %18 ]
+  %30 = phi i8 [ 110, %26 ], [ 110, %22 ], [ 110, %18 ], [ %16, %11 ]
   %31 = zext i8 %13 to i32
   %32 = zext i8 %30 to i32
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -1419,7 +1419,7 @@ define internal noundef i32 @_ZL11upname_swapPK12UDataSwapperPKviPvP10UErrorCode
   br label %77
 
 77:                                               ; preds = %._crit_edge, %60, %74, %50, %5, %8
-  %.0 = phi i32 [ 0, %5 ], [ 0, %8 ], [ 0, %._crit_edge ], [ 0, %50 ], [ 0, %60 ], [ %76, %74 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %5 ], [ 0, %._crit_edge ], [ 0, %50 ], [ 0, %60 ], [ %76, %74 ]
   ret i32 %.0
 }
 
@@ -1476,7 +1476,7 @@ define internal noundef range(i32 -2147483641, -2147483648) i32 @_ZL9test_swapPK
   br i1 %32, label %45, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14, %29, %25, %21
-  %33 = phi i8 [ %19, %14 ], [ 101, %29 ], [ 101, %25 ], [ 101, %21 ]
+  %33 = phi i8 [ 101, %29 ], [ 101, %25 ], [ 101, %21 ], [ %19, %14 ]
   %34 = zext i8 %16 to i32
   %35 = zext i8 %33 to i32
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 14

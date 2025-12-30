@@ -123,7 +123,7 @@ default.unreachable13:                            ; preds = %2
   br label %17
 
 17:                                               ; preds = %4, %2, %"_ZN4core3pin12Pin$LT$P$GT$3set17h91232cb32bba52abE.llvm.10658646520225780758.exit"
-  %.0 = phi i1 [ false, %2 ], [ false, %"_ZN4core3pin12Pin$LT$P$GT$3set17h91232cb32bba52abE.llvm.10658646520225780758.exit" ], [ true, %4 ]
+  %.0 = phi i1 [ false, %"_ZN4core3pin12Pin$LT$P$GT$3set17h91232cb32bba52abE.llvm.10658646520225780758.exit" ], [ false, %2 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -742,7 +742,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
           to label %80 unwind label %81
 
 80:                                               ; preds = %126, %.body
-  %.pn10 = phi { ptr, i32 } [ %.pn8, %126 ], [ %eh.lpad-body, %.body ]
+  %.pn10 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn8, %126 ]
   resume { ptr, i32 } %.pn10
 
 81:                                               ; preds = %126, %120, %114, %.body12, %.body14, %.body
@@ -815,7 +815,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %118
 
 .body12:                                          ; preds = %90, %83, %19, %.body14, %.body24, %104
-  %.pn2 = phi { ptr, i32 } [ %.pn, %.body24 ], [ %20, %19 ], [ %eh.lpad-body15, %.body14 ], [ %105, %104 ], [ %84, %83 ], [ %91, %90 ]
+  %.pn2 = phi { ptr, i32 } [ %eh.lpad-body15, %.body14 ], [ %105, %104 ], [ %.pn, %.body24 ], [ %84, %83 ], [ %20, %19 ], [ %91, %90 ]
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 624
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h9ab3e8b890c03630E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %103) #21
           to label %114 unwind label %81
@@ -1473,7 +1473,7 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..message
   unreachable
 
 common.resume:                                    ; preds = %213, %144, %179, %185, %205, %225, %230, %235, %240, %245, %250, %152
-  %common.resume.op = phi { ptr, i32 } [ %246, %245 ], [ %153, %152 ], [ %251, %250 ], [ %.pn10, %144 ], [ %.pn4, %179 ], [ %186, %185 ], [ %.pn2, %205 ], [ %226, %225 ], [ %231, %230 ], [ %236, %235 ], [ %241, %240 ], [ %214, %213 ]
+  %common.resume.op = phi { ptr, i32 } [ %153, %152 ], [ %251, %250 ], [ %.pn10, %144 ], [ %.pn4, %179 ], [ %186, %185 ], [ %.pn2, %205 ], [ %226, %225 ], [ %231, %230 ], [ %236, %235 ], [ %241, %240 ], [ %246, %245 ], [ %214, %213 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_core..routing..address_meta..AddressAndMetadata$GT$$GT$17hbf646732c61773f2E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b3c0d111f9de198E.llvm.14529172514207159973.exit.i", %156, %160

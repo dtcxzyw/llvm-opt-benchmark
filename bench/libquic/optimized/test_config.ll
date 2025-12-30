@@ -324,7 +324,7 @@ _ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit
   br i1 %.not145, label %6, label %.thread, !llvm.loop !36
 
 .thread:                                          ; preds = %.thread103, %3, %_ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit.thread, %90, %54, %32, %101, %.thread108
-  %106 = phi i1 [ false, %.thread108 ], [ false, %_ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit.thread ], [ false, %90 ], [ false, %54 ], [ false, %32 ], [ false, %101 ], [ true, %3 ], [ true, %.thread103 ]
+  %106 = phi i1 [ false, %_ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit.thread ], [ false, %90 ], [ false, %54 ], [ false, %32 ], [ false, %101 ], [ false, %.thread108 ], [ true, %3 ], [ true, %.thread103 ]
   ret i1 %106
 }
 

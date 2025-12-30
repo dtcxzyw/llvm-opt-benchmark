@@ -121,13 +121,13 @@ define dso_local noundef zeroext i1 @parse_bool_with_len(ptr noundef %0, i64 nou
   br i1 %.not43, label %37, label %.sink.split
 
 .sink.split:                                      ; preds = %36, %35, %32, %29, %25, %20, %16, %12, %8
-  %.sink = phi i8 [ 0, %35 ], [ 1, %32 ], [ 0, %29 ], [ 1, %25 ], [ 0, %20 ], [ 1, %16 ], [ 0, %12 ], [ 1, %8 ], [ 0, %36 ]
-  %.0.ph = phi i1 [ true, %35 ], [ true, %32 ], [ true, %29 ], [ true, %25 ], [ true, %20 ], [ true, %16 ], [ true, %12 ], [ true, %8 ], [ false, %36 ]
+  %.sink = phi i8 [ 1, %8 ], [ 0, %12 ], [ 1, %16 ], [ 0, %20 ], [ 1, %25 ], [ 0, %29 ], [ 1, %32 ], [ 0, %35 ], [ 0, %36 ]
+  %.0.ph = phi i1 [ true, %8 ], [ true, %12 ], [ true, %16 ], [ true, %20 ], [ true, %25 ], [ true, %29 ], [ true, %32 ], [ true, %35 ], [ false, %36 ]
   store i8 %.sink, ptr %2, align 1
   br label %37
 
 37:                                               ; preds = %.sink.split, %36, %35, %32, %29, %25, %20, %16, %12, %8
-  %.0 = phi i1 [ true, %35 ], [ true, %32 ], [ true, %8 ], [ true, %12 ], [ true, %16 ], [ true, %20 ], [ true, %25 ], [ true, %29 ], [ false, %36 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i1 [ true, %8 ], [ true, %12 ], [ true, %16 ], [ true, %20 ], [ true, %25 ], [ true, %29 ], [ true, %32 ], [ true, %35 ], [ false, %36 ], [ %.0.ph, %.sink.split ]
   ret i1 %.0
 }
 

@@ -482,7 +482,7 @@ _ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit: ; preds = 
   br label %38
 
 38:                                               ; preds = %33, %37, %35
-  %.0 = phi i32 [ %.42, %37 ], [ %.mux, %33 ], [ %., %35 ]
+  %.0 = phi i32 [ %.mux, %33 ], [ %., %35 ], [ %.42, %37 ]
   %39 = load ptr, ptr %1, align 8, !tbaa !12
   %40 = tail call i32 (ptr, i32, ...) @open(ptr noundef %39, i32 noundef %.0, i32 noundef 438)
   %41 = icmp eq i32 %40, -1

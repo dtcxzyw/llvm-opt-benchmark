@@ -586,7 +586,7 @@ dissect_rx_response.exit:                         ; preds = %186, %dissect_rx_re
   br label %261
 
 261:                                              ; preds = %9, %4, %259
-  %.0 = phi i32 [ 0, %4 ], [ %260, %259 ], [ 0, %9 ]
+  %.0 = phi i32 [ %260, %259 ], [ 0, %4 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

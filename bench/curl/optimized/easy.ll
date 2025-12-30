@@ -91,7 +91,7 @@ curl_simple_lock_lock.exit:                       ; preds = %.loopexit.i, %1
   br label %global_init.exit
 
 global_init.exit:                                 ; preds = %curl_simple_lock_lock.exit, %12, %14
-  %.0.i = phi i32 [ 0, %curl_simple_lock_lock.exit ], [ 2, %14 ], [ 0, %12 ]
+  %.0.i = phi i32 [ 2, %14 ], [ 0, %curl_simple_lock_lock.exit ], [ 0, %12 ]
   store atomic i32 0, ptr @s_lock release, align 4
   ret i32 %.0.i
 }
@@ -530,7 +530,7 @@ sigpipe_apply.exit.i:                             ; preds = %sigpipe_apply.exit.
   br label %easy_transfer.exit.i
 
 easy_transfer.exit.i:                             ; preds = %66, %.thread35.i.i
-  %69 = phi i32 [ %spec.select.i.i, %66 ], [ %54, %.thread35.i.i ]
+  %69 = phi i32 [ %54, %.thread35.i.i ], [ %spec.select.i.i, %66 ]
   %70 = call i32 @curl_multi_remove_handle(ptr noundef nonnull %.032.i, ptr noundef nonnull %0) #10
   %71 = load i8, ptr %45, align 8, !tbaa !85, !range !92, !noundef !93
   %72 = trunc nuw i8 %71 to i1
@@ -541,7 +541,7 @@ easy_transfer.exit.i:                             ; preds = %66, %.thread35.i.i
   br label %easy_perform.exit
 
 easy_perform.exit:                                ; preds = %1, %15, %29, %31, %41, %easy_transfer.exit.i, %73
-  %.0.i = phi i32 [ 2, %15 ], [ 27, %29 ], [ %..i, %41 ], [ 93, %31 ], [ 43, %1 ], [ %69, %easy_transfer.exit.i ], [ %69, %73 ]
+  %.0.i = phi i32 [ 2, %15 ], [ 43, %1 ], [ 27, %29 ], [ 93, %31 ], [ %..i, %41 ], [ %69, %easy_transfer.exit.i ], [ %69, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
@@ -1134,7 +1134,7 @@ define i32 @curl_easy_pause(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   %.not60 = icmp eq i32 %59, 0
   br i1 %.not60, label %.thread, label %.thread64
 
-.thread:                                          ; preds = %52, %55, %57
+.thread:                                          ; preds = %55, %52, %57
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 5036
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, 4096
@@ -1155,7 +1155,7 @@ define i32 @curl_easy_pause(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %67
 
 67:                                               ; preds = %.thread64, %66, %2, %3, %6
-  %.0 = phi i32 [ 43, %2 ], [ 43, %6 ], [ 43, %3 ], [ %.2, %66 ], [ %.2, %.thread64 ]
+  %.0 = phi i32 [ 43, %6 ], [ 43, %3 ], [ 43, %2 ], [ %.2, %66 ], [ %.2, %.thread64 ]
   ret i32 %.0
 }
 
@@ -1277,7 +1277,7 @@ easy_connection.exit:                             ; preds = %7
   br label %easy_connection.exit.thread
 
 easy_connection.exit.thread:                      ; preds = %.sink.split.i, %1, %easy_connection.exit, %12
-  %.0 = phi i32 [ 0, %easy_connection.exit ], [ 0, %12 ], [ 1, %.sink.split.i ], [ 43, %1 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %easy_connection.exit ], [ 1, %.sink.split.i ], [ 43, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1407,7 +1407,7 @@ define i32 @curl_easy_upkeep(ptr noundef %0) local_unnamed_addr #5 {
   br label %9
 
 9:                                                ; preds = %5, %1, %2, %7
-  %.0 = phi i32 [ 43, %1 ], [ %8, %7 ], [ 43, %2 ], [ 93, %5 ]
+  %.0 = phi i32 [ %8, %7 ], [ 43, %2 ], [ 43, %1 ], [ 93, %5 ]
   ret i32 %.0
 }
 

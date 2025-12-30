@@ -96,7 +96,7 @@ pk_write_ec_pubkey.exit:                          ; preds = %21, %28, %31, %37
   br label %42
 
 42:                                               ; preds = %pk_write_ec_pubkey.exit, %10, %18
-  %.015 = phi i32 [ %17, %10 ], [ -14720, %18 ], [ %.0.i20, %pk_write_ec_pubkey.exit ]
+  %.015 = phi i32 [ -14720, %18 ], [ %17, %10 ], [ %.0.i20, %pk_write_ec_pubkey.exit ]
   ret i32 %.015
 }
 
@@ -247,7 +247,7 @@ pk_write_ec_param.exit:                           ; preds = %46, %48
   br label %76
 
 76:                                               ; preds = %44, %pk_write_ec_param.exit, %69, %64, %59, %57, %26, %21, %15, %11, %3, %72
-  %.0 = phi i32 [ %70, %69 ], [ -108, %3 ], [ %13, %11 ], [ -108, %15 ], [ %24, %21 ], [ %27, %26 ], [ %58, %57 ], [ %62, %59 ], [ %67, %64 ], [ %75, %72 ], [ %45, %44 ], [ %.0.i, %pk_write_ec_param.exit ]
+  %.0 = phi i32 [ %75, %72 ], [ -108, %3 ], [ %13, %11 ], [ -108, %15 ], [ %24, %21 ], [ %27, %26 ], [ %58, %57 ], [ %62, %59 ], [ %67, %64 ], [ %70, %69 ], [ %45, %44 ], [ %.0.i, %pk_write_ec_param.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -612,7 +612,7 @@ pk_write_ec_param.exit.i:                         ; preds = %144, %136
   br label %pk_write_ec_der.exit
 
 pk_write_ec_der.exit:                             ; preds = %178, %175, %162, %159, %156, %153, %149, %pk_write_ec_param.exit.i, %133, %126, %123, %118, %112, %pk_write_ec_pubkey.exit.i, %pk_write_ec_pubkey.exit.thread.i, %30, %3, %pk_write_ec_rfc8410_der.exit, %24
-  %.0 = phi i32 [ -108, %3 ], [ %29, %24 ], [ %.0.i, %pk_write_ec_rfc8410_der.exit ], [ -14720, %30 ], [ %181, %178 ], [ %.0.i.i21, %pk_write_ec_pubkey.exit.i ], [ -108, %112 ], [ %121, %118 ], [ %124, %123 ], [ %131, %126 ], [ %134, %133 ], [ %.0.i108.i, %pk_write_ec_param.exit.i ], [ %151, %149 ], [ %154, %153 ], [ %157, %156 ], [ %160, %159 ], [ %173, %162 ], [ %176, %175 ], [ -108, %pk_write_ec_pubkey.exit.thread.i ]
+  %.0 = phi i32 [ %29, %24 ], [ %.0.i, %pk_write_ec_rfc8410_der.exit ], [ -108, %3 ], [ -14720, %30 ], [ %181, %178 ], [ %.0.i.i21, %pk_write_ec_pubkey.exit.i ], [ -108, %112 ], [ %121, %118 ], [ %124, %123 ], [ %131, %126 ], [ %134, %133 ], [ %.0.i108.i, %pk_write_ec_param.exit.i ], [ %151, %149 ], [ %154, %153 ], [ %157, %156 ], [ %160, %159 ], [ %173, %162 ], [ %176, %175 ], [ -108, %pk_write_ec_pubkey.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret i32 %.0
 }

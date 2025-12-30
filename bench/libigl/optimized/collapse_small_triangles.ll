@@ -512,7 +512,7 @@ _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IS1_EERKNS_9EigenBaseIT_EE.exit147:
   ret void
 
 185:                                              ; preds = %169, %179, %167
-  %.pn130 = phi { ptr, i32 } [ %170, %169 ], [ %168, %167 ], [ %.pn, %179 ]
+  %.pn130 = phi { ptr, i32 } [ %.pn, %179 ], [ %168, %167 ], [ %170, %169 ]
   %186 = load ptr, ptr %9, align 8, !tbaa !27
   call void @free(ptr noundef %186) #12
   br label %187

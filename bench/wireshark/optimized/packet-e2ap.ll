@@ -4272,7 +4272,7 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
   br i1 %exitcond.not, label %.thread, label %25, !llvm.loop !6
 
 42:                                               ; preds = %30, %38
-  %.062 = phi ptr [ null, %30 ], [ %40, %38 ]
+  %.062 = phi ptr [ %40, %38 ], [ null, %30 ]
   %.not6981.not = icmp eq i32 %18, 0
   br i1 %.not6981.not, label %.critedge, label %.lr.ph.preheader
 
@@ -4675,7 +4675,7 @@ e2ap_get_private_data.exit.i:                     ; preds = %83, %79
   br label %lookup_ranfunction_oid.exit.thread.sink.split.i
 
 lookup_ranfunction_oid.exit.thread.sink.split.i:  ; preds = %104, %111, %.loopexit.i
-  %.lcssa.sink.i = phi ptr [ %113, %111 ], [ %119, %.loopexit.i ], [ %106, %104 ]
+  %.lcssa.sink.i = phi ptr [ %119, %.loopexit.i ], [ %113, %111 ], [ %106, %104 ]
   %120 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 1016
   store ptr %.lcssa.sink.i, ptr %120, align 8
   br label %update_dissector_using_oid.exit
@@ -9511,7 +9511,7 @@ proto_item_set_generated.exit69:                  ; preds = %ran_function_to_str
   br label %85
 
 85:                                               ; preds = %.thread, %._crit_edge, %81, %e2ap_get_private_data.exit
-  %.0 = phi ptr [ null, %e2ap_get_private_data.exit ], [ %80, %.thread ], [ null, %81 ], [ null, %._crit_edge ]
+  %.0 = phi ptr [ null, %e2ap_get_private_data.exit ], [ null, %81 ], [ null, %._crit_edge ], [ %80, %.thread ]
   ret ptr %.0
 }
 

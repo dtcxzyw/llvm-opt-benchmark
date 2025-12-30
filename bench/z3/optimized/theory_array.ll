@@ -2598,7 +2598,7 @@ _ZNK3smt17theory_array_base8is_storeEPK3app.exit22: ; preds = %_ZNK3smt17theory_
   br label %_ZNK3smt17theory_array_base8is_storeEPK3app.exit22.thread
 
 _ZNK3smt17theory_array_base8is_storeEPK3app.exit22.thread: ; preds = %_ZNK3smt12theory_array8lazinessEv.exit.thread, %_ZNK3smt12theory_array8lazinessEv.exit, %_ZNK3smt17theory_array_base8is_storeEPK3app.exit22, %73, %60, %16, %_ZNK3smt17theory_array_base12is_array_extEPK3app.exit, %_ZNK3smt17theory_array_base12is_array_extEPK3app.exit.thread
-  %.0 = phi i1 [ true, %16 ], [ false, %_ZNK3smt17theory_array_base12is_array_extEPK3app.exit ], [ false, %_ZNK3smt17theory_array_base12is_array_extEPK3app.exit.thread ], [ true, %60 ], [ true, %73 ], [ true, %_ZNK3smt17theory_array_base8is_storeEPK3app.exit22 ], [ true, %_ZNK3smt12theory_array8lazinessEv.exit ], [ true, %_ZNK3smt12theory_array8lazinessEv.exit.thread ]
+  %.0 = phi i1 [ false, %_ZNK3smt17theory_array_base12is_array_extEPK3app.exit.thread ], [ false, %_ZNK3smt17theory_array_base12is_array_extEPK3app.exit ], [ true, %16 ], [ true, %60 ], [ true, %73 ], [ true, %_ZNK3smt17theory_array_base8is_storeEPK3app.exit22 ], [ true, %_ZNK3smt12theory_array8lazinessEv.exit ], [ true, %_ZNK3smt12theory_array8lazinessEv.exit.thread ]
   ret i1 %.0
 }
 
@@ -3314,7 +3314,7 @@ define hidden noundef i32 @_ZN3smt12theory_array14final_check_ehEv(ptr noundef n
   br label %52
 
 52:                                               ; preds = %42, %19, %37, %31, %47, %14, %24
-  %.0 = phi i32 [ 1, %14 ], [ %51, %47 ], [ %28, %24 ], [ %..i9, %37 ], [ %35, %31 ], [ 1, %19 ], [ 1, %42 ]
+  %.0 = phi i32 [ 1, %14 ], [ %28, %24 ], [ %..i9, %37 ], [ %35, %31 ], [ %51, %47 ], [ 1, %19 ], [ 1, %42 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %54 = load i8, ptr %53, align 1, !tbaa !633, !range !568, !noundef !569
   %55 = trunc nuw i8 %54 to i1
@@ -3352,7 +3352,7 @@ _ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit: ; preds = %60, %52
   br label %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit.thread
 
 _ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit.thread: ; preds = %56, %68, %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit
-  %.1 = phi i32 [ %spec.select, %68 ], [ %.0, %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit ], [ %.0, %56 ]
+  %.1 = phi i32 [ %.0, %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit ], [ %spec.select, %68 ], [ %.0, %56 ]
   ret i32 %.1
 }
 
@@ -3479,7 +3479,7 @@ _ZN3smt12theory_array23instantiate_axiom2b_forEi.exit.loopexit14: ; preds = %._c
   br label %_ZN3smt12theory_array23instantiate_axiom2b_forEi.exit.thread
 
 _ZN3smt12theory_array23instantiate_axiom2b_forEi.exit.thread: ; preds = %_ZN3smt12theory_array23instantiate_axiom2b_forEi.exit.loopexit14, %.lr.ph29.i, %22, %_ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit.i, %15
-  %.1 = phi i32 [ %.0912, %15 ], [ %.0912, %22 ], [ %.0912, %_ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit.i ], [ %50, %_ZN3smt12theory_array23instantiate_axiom2b_forEi.exit.loopexit14 ], [ %.0912, %.lr.ph29.i ]
+  %.1 = phi i32 [ %.0912, %15 ], [ %.0912, %_ZN6vectorIPN3smt5enodeELb0EjE3endEv.exit.i ], [ %.0912, %22 ], [ %50, %_ZN3smt12theory_array23instantiate_axiom2b_forEi.exit.loopexit14 ], [ %.0912, %.lr.ph29.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !637

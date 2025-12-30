@@ -94,7 +94,7 @@ define internal range(i32 -1094995529, 1) i32 @frm_read_header(ptr noundef %0) #
   br label %26
 
 26:                                               ; preds = %5, %1, %13
-  %.0 = phi i32 [ -12, %1 ], [ 0, %13 ], [ -1094995529, %5 ]
+  %.0 = phi i32 [ 0, %13 ], [ -12, %1 ], [ -1094995529, %5 ]
   ret i32 %.0
 }
 

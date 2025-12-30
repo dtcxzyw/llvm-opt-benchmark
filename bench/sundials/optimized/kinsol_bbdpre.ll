@@ -272,7 +272,7 @@ define i32 @KINBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   br label %134
 
 134:                                              ; preds = %126, %132, %128
-  %135 = phi double [ 0.000000e+00, %128 ], [ %133, %132 ], [ %6, %126 ]
+  %135 = phi double [ %133, %132 ], [ 0.000000e+00, %128 ], [ %6, %126 ]
   %136 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store double %135, ptr %136, align 8, !tbaa !43
   %137 = getelementptr inbounds nuw i8, ptr %31, i64 56
@@ -664,7 +664,7 @@ define internal i32 @KINBBDPrecSetup(ptr noundef %0, ptr noundef %1, ptr readnon
   %exitcond.not.i = icmp eq i64 %.0100134.i, %..i
   br i1 %exitcond.not.i, label %KBBDDQJac.exit, label %54
 
-.loopexit:                                        ; preds = %._crit_edge.i, %33, %27
+.loopexit:                                        ; preds = %._crit_edge.i, %27, %33
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %7, i32 noundef -1, i32 noundef 427, ptr noundef nonnull @__func__.KINBBDPrecSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #9
   br label %116
 

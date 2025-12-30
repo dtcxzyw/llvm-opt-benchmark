@@ -731,13 +731,13 @@ _ZNK7mitsuba10filesystem4path6nativeEv.exit31:    ; preds = %38
   ret i1 %73
 
 .sink.split:                                      ; preds = %63, %.thread41, %.thread45, %37, %.thread, %.thread38
-  %.sink = phi ptr [ %24, %37 ], [ %24, %.thread38 ], [ %24, %.thread ], [ %50, %.thread45 ], [ %50, %.thread41 ], [ %50, %63 ]
-  %.pn26.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn26, %37 ], [ %32, %.thread38 ], [ %31, %.thread ], [ %58, %.thread45 ], [ %57, %.thread41 ], [ %.pn, %63 ]
+  %.sink = phi ptr [ %24, %.thread38 ], [ %24, %.thread ], [ %24, %37 ], [ %50, %.thread45 ], [ %50, %.thread41 ], [ %50, %63 ]
+  %.pn26.pn.pn.pn.ph = phi { ptr, i32 } [ %32, %.thread38 ], [ %31, %.thread ], [ %.pn26, %37 ], [ %58, %.thread45 ], [ %57, %.thread41 ], [ %.pn, %63 ]
   call void @__cxa_free_exception(ptr %.sink) #20
   br label %74
 
 74:                                               ; preds = %.sink.split, %63, %37
-  %.pn26.pn.pn.pn = phi { ptr, i32 } [ %.pn, %63 ], [ %.pn26, %37 ], [ %.pn26.pn.pn.pn.ph, %.sink.split ]
+  %.pn26.pn.pn.pn = phi { ptr, i32 } [ %.pn26, %37 ], [ %.pn, %63 ], [ %.pn26.pn.pn.pn.ph, %.sink.split ]
   resume { ptr, i32 } %.pn26.pn.pn.pn
 
 75:                                               ; preds = %56, %30
@@ -3462,7 +3462,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 

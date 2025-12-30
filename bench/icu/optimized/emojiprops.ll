@@ -411,7 +411,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710EmojiProps17hasBinaryPrope
   br label %_ZNK6icu_7710EmojiProps21hasBinaryPropertyImplEi9UProperty.exit
 
 _ZNK6icu_7710EmojiProps21hasBinaryPropertyImplEi9UProperty.exit: ; preds = %44, %8, %2
-  %54 = phi i8 [ 0, %2 ], [ 0, %8 ], [ %53, %44 ]
+  %54 = phi i8 [ 0, %2 ], [ %53, %44 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i8 %54
 }
@@ -601,7 +601,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710EmojiProps21hasBinaryProp
   br i1 %.not, label %24, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %30, %.critedge, %18, %17, %11, %13, %4
-  %.0 = phi i8 [ 0, %17 ], [ 0, %4 ], [ 0, %11 ], [ 0, %13 ], [ 0, %18 ], [ 1, %30 ], [ 0, %.critedge ]
+  %.0 = phi i8 [ 0, %4 ], [ 0, %13 ], [ 0, %11 ], [ 0, %17 ], [ 0, %18 ], [ 1, %30 ], [ 0, %.critedge ]
   ret i8 %.0
 }
 

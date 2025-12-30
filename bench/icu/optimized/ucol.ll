@@ -143,13 +143,13 @@ define noundef ptr @ucol_safeClone_77(ptr noundef %0, ptr noundef readnone captu
   br i1 %brmerge, label %.sink.split, label %20
 
 .sink.split:                                      ; preds = %14, %9
-  %.sink = phi i32 [ %.mux, %14 ], [ 1, %9 ]
-  %.0.ph = phi ptr [ %18, %14 ], [ null, %9 ]
+  %.sink = phi i32 [ 1, %9 ], [ %.mux, %14 ]
+  %.0.ph = phi ptr [ null, %9 ], [ %18, %14 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !3
   br label %20
 
 20:                                               ; preds = %14, %.sink.split, %12, %4, %6
-  %.0 = phi ptr [ null, %12 ], [ %18, %14 ], [ null, %4 ], [ null, %6 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ null, %12 ], [ null, %6 ], [ null, %4 ], [ %.0.ph, %.sink.split ], [ %18, %14 ]
   ret ptr %.0
 }
 
@@ -176,12 +176,12 @@ define noundef ptr @ucol_clone_77(ptr noundef %0, ptr noundef captures(address_i
   br i1 %14, label %.sink.split.i, label %ucol_safeClone_77.exit
 
 .sink.split.i:                                    ; preds = %9, %7
-  %.sink.i = phi i32 [ 7, %9 ], [ 1, %7 ]
+  %.sink.i = phi i32 [ 1, %7 ], [ 7, %9 ]
   store i32 %.sink.i, ptr %1, align 4, !tbaa !3
   br label %ucol_safeClone_77.exit
 
 ucol_safeClone_77.exit:                           ; preds = %2, %4, %9, %.sink.split.i
-  %.0.i = phi ptr [ null, %.sink.split.i ], [ %13, %9 ], [ null, %2 ], [ null, %4 ]
+  %.0.i = phi ptr [ null, %4 ], [ null, %2 ], [ null, %.sink.split.i ], [ %13, %9 ]
   ret ptr %.0.i
 }
 
@@ -375,7 +375,7 @@ define i32 @ucol_mergeSortkeys_77(ptr noundef readonly captures(address_is_null)
   br label %.thread
 
 .thread:                                          ; preds = %32, %33, %80, %52, %36, %39
-  %.068 = phi i32 [ 0, %36 ], [ 0, %39 ], [ %84, %80 ], [ %53, %52 ], [ 0, %33 ], [ 0, %32 ]
+  %.068 = phi i32 [ 0, %39 ], [ 0, %36 ], [ %84, %80 ], [ %53, %52 ], [ 0, %33 ], [ 0, %32 ]
   ret i32 %.068
 }
 
@@ -507,7 +507,7 @@ define range(i32 -2147483647, -2147483648) i32 @ucol_getBound_77(ptr noundef rea
   br label %44
 
 44:                                               ; preds = %37, %38, %42, %7, %9, %15
-  %.041 = phi i32 [ 0, %7 ], [ 0, %15 ], [ 0, %9 ], [ 0, %37 ], [ %39, %38 ], [ %43, %42 ]
+  %.041 = phi i32 [ 0, %15 ], [ 0, %9 ], [ 0, %7 ], [ 0, %37 ], [ %39, %38 ], [ %43, %42 ]
   ret i32 %.041
 }
 
@@ -761,7 +761,7 @@ define noundef i32 @ucol_strcollIter_77(ptr noundef %0, ptr noundef %1, ptr noun
   br label %18
 
 18:                                               ; preds = %4, %5, %13, %12
-  %.0 = phi i32 [ %17, %13 ], [ 0, %12 ], [ 0, %5 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %12 ], [ %17, %13 ], [ 0, %5 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -917,7 +917,7 @@ _ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11: ; pr
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %21, %19, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit
-  %.0 = phi ptr [ @_ZZ16ucol_getRules_77E4_NUL, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit ], [ %23, %21 ], [ %20, %19 ], [ null, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11 ]
+  %.0 = phi ptr [ @_ZZ16ucol_getRules_77E4_NUL, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit ], [ %20, %19 ], [ %23, %21 ], [ null, %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.thread11 ]
   ret ptr %.0
 }
 
@@ -1083,7 +1083,7 @@ define noundef ptr @ucol_getTailoredSet_77(ptr noundef %0, ptr noundef %1) local
   br label %15
 
 15:                                               ; preds = %5, %14, %12, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %12 ], [ null, %14 ], [ %9, %5 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %14 ], [ null, %12 ], [ %9, %5 ]
   ret ptr %.0
 }
 

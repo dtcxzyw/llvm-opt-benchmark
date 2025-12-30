@@ -270,14 +270,14 @@ IsCurrentOfClause.exit:                           ; preds = %63
   %69 = icmp eq i32 %67, %68
   br i1 %69, label %74, label %IsCurrentOfClause.exit.thread
 
-IsCurrentOfClause.exit.thread:                    ; preds = %63, %61, %IsCurrentOfClause.exit
+IsCurrentOfClause.exit.thread:                    ; preds = %61, %63, %IsCurrentOfClause.exit
   %70 = icmp eq ptr %.055135171, null
   %spec.select = select i1 %70, ptr %13, ptr %.055135171
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %is_andclause.exit.thread, %45, %.lr.ph, %15, %IsCurrentOfClause.exit.thread, %.critedge, %58, %list_length.exit83, %59
-  %.4.ph = phi ptr [ %.059132172, %59 ], [ %.059132172, %list_length.exit83 ], [ %47, %58 ], [ %.059132172, %IsCurrentOfClause.exit.thread ], [ %.059132172, %.critedge ], [ %.059132172, %15 ], [ %.059132172, %.lr.ph ], [ %.059132172, %45 ], [ %.059132172, %is_andclause.exit.thread ]
-  %.358.ph = phi ptr [ %.055135171, %59 ], [ %.055135171, %list_length.exit83 ], [ %.055135171, %58 ], [ %spec.select, %IsCurrentOfClause.exit.thread ], [ %.055135171, %.critedge ], [ %.055135171, %15 ], [ %.055135171, %.lr.ph ], [ %.055135171, %45 ], [ %.055135171, %is_andclause.exit.thread ]
+.critedge.thread:                                 ; preds = %is_andclause.exit.thread, %45, %.lr.ph, %15, %.critedge, %58, %list_length.exit83, %59, %IsCurrentOfClause.exit.thread
+  %.4.ph = phi ptr [ %.059132172, %IsCurrentOfClause.exit.thread ], [ %.059132172, %.critedge ], [ %.059132172, %list_length.exit83 ], [ %47, %58 ], [ %.059132172, %59 ], [ %.059132172, %15 ], [ %.059132172, %.lr.ph ], [ %.059132172, %45 ], [ %.059132172, %is_andclause.exit.thread ]
+  %.358.ph = phi ptr [ %spec.select, %IsCurrentOfClause.exit.thread ], [ %.055135171, %.critedge ], [ %.055135171, %list_length.exit83 ], [ %.055135171, %58 ], [ %.055135171, %59 ], [ %.055135171, %15 ], [ %.055135171, %.lr.ph ], [ %.055135171, %45 ], [ %.055135171, %is_andclause.exit.thread ]
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147170, 1
   %71 = load i32, ptr %6, align 4
   %72 = sext i32 %71 to i64
@@ -357,7 +357,7 @@ define internal zeroext i1 @ec_member_matches_ctid(ptr readnone captures(none) %
   br label %IsCTIDVar.exit
 
 IsCTIDVar.exit:                                   ; preds = %29, %5, %8, %11, %15, %19, %25
-  %.0 = phi i1 [ false, %5 ], [ %32, %29 ], [ false, %25 ], [ false, %19 ], [ false, %15 ], [ false, %11 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %25 ], [ false, %19 ], [ false, %15 ], [ false, %11 ], [ false, %8 ], [ false, %5 ], [ %32, %29 ]
   ret i1 %.0
 }
 
@@ -539,7 +539,7 @@ IsTidEqualAnyClause.exit:                         ; preds = %58
   %61 = tail call zeroext i1 @contain_volatile_functions(ptr noundef %32) #5
   br i1 %61, label %IsTidEqualAnyClause.exit.thread, label %IsCurrentOfClause.exit
 
-IsTidEqualAnyClause.exit.thread:                  ; preds = %54, %50, %44, %40, %36, %33, %19, %58, %26, %22, %IsTidEqualAnyClause.exit
+IsTidEqualAnyClause.exit.thread:                  ; preds = %54, %50, %44, %40, %36, %26, %33, %58, %22, %19, %IsTidEqualAnyClause.exit
   %.val11.pr = load ptr, ptr %16, align 8
   %.not.i13 = icmp eq ptr %.val11.pr, null
   br i1 %.not.i13, label %IsCurrentOfClause.exit, label %thread-pre-split
@@ -563,7 +563,7 @@ IsTidEqualAnyClause.exit.thread.thread19:         ; preds = %IsTidEqualClause.ex
   br label %IsCurrentOfClause.exit
 
 IsCurrentOfClause.exit:                           ; preds = %IsTidEqualClause.exit.thread, %64, %IsTidEqualAnyClause.exit.thread.thread19, %IsTidEqualAnyClause.exit.thread, %IsTidEqualClause.exit, %IsTidEqualAnyClause.exit, %7, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %7 ], [ true, %IsTidEqualClause.exit ], [ true, %IsTidEqualAnyClause.exit ], [ %69, %64 ], [ false, %IsTidEqualAnyClause.exit.thread ], [ false, %IsTidEqualAnyClause.exit.thread.thread19 ], [ false, %IsTidEqualClause.exit.thread ]
+  %.0 = phi i1 [ false, %3 ], [ false, %7 ], [ true, %IsTidEqualAnyClause.exit ], [ true, %IsTidEqualClause.exit ], [ false, %IsTidEqualAnyClause.exit.thread.thread19 ], [ false, %IsTidEqualAnyClause.exit.thread ], [ %69, %64 ], [ false, %IsTidEqualClause.exit.thread ]
   ret i1 %.0
 }
 
@@ -649,8 +649,8 @@ list_length.exit:                                 ; preds = %7
   br label %IsCTIDVar.exit
 
 IsCTIDVar.exit:                                   ; preds = %38, %34, %28, %24, %20, %42, %17, %12
-  %.024 = phi ptr [ %16, %42 ], [ null, %12 ], [ null, %17 ], [ null, %20 ], [ null, %24 ], [ null, %28 ], [ null, %34 ], [ null, %38 ]
-  %.0 = phi ptr [ %44, %42 ], [ null, %12 ], [ null, %17 ], [ null, %20 ], [ null, %24 ], [ null, %28 ], [ null, %34 ], [ null, %38 ]
+  %.024 = phi ptr [ %16, %42 ], [ null, %17 ], [ null, %12 ], [ null, %20 ], [ null, %24 ], [ null, %28 ], [ null, %34 ], [ null, %38 ]
+  %.0 = phi ptr [ %44, %42 ], [ null, %17 ], [ null, %12 ], [ null, %20 ], [ null, %24 ], [ null, %28 ], [ null, %34 ], [ null, %38 ]
   %45 = icmp eq ptr %.024, null
   %46 = icmp ne ptr %16, null
   %or.cond = select i1 %45, i1 %46, i1 false
@@ -716,7 +716,7 @@ IsCTIDVar.exit34:                                 ; preds = %72, %IsCTIDVar.exit
   br label %is_opclause.exit.thread
 
 is_opclause.exit.thread:                          ; preds = %68, %64, %58, %54, %50, %47, %7, %2, %79, %75, %IsCTIDVar.exit34, %list_length.exit, %is_opclause.exit
-  %.026 = phi i1 [ false, %is_opclause.exit ], [ false, %IsCTIDVar.exit34 ], [ false, %75 ], [ false, %list_length.exit ], [ %not., %79 ], [ false, %7 ], [ false, %2 ], [ false, %47 ], [ false, %50 ], [ false, %54 ], [ false, %58 ], [ false, %64 ], [ false, %68 ]
+  %.026 = phi i1 [ false, %is_opclause.exit ], [ false, %list_length.exit ], [ false, %IsCTIDVar.exit34 ], [ false, %75 ], [ %not., %79 ], [ false, %2 ], [ false, %7 ], [ false, %47 ], [ false, %50 ], [ false, %54 ], [ false, %58 ], [ false, %64 ], [ false, %68 ]
   ret i1 %.026
 }
 

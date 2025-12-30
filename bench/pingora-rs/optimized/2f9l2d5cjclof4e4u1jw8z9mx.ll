@@ -301,7 +301,7 @@ define hidden void @"_ZN2h25codec18Codec$LT$T$C$B$GT$24with_max_recv_frame_size1
   unreachable
 
 .thread:                                          ; preds = %25, %32
-  %.pn5 = phi { ptr, i32 } [ %26, %25 ], [ %lpad.thr_comm.split-lp, %32 ]
+  %.pn5 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %32 ], [ %26, %25 ]
   resume { ptr, i32 } %.pn5
 
 32:                                               ; preds = %4
@@ -774,7 +774,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i: ; preds = %125, %.
   br label %.critedge115.i
 
 .thread133.i.invoke:                              ; preds = %143, %148, %66, %71
-  %155 = phi ptr [ @anon.3c170ea5605079453661ad6f6d79f0a4.33, %66 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.33, %71 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.38, %148 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.38, %143 ]
+  %155 = phi ptr [ @anon.3c170ea5605079453661ad6f6d79f0a4.33, %71 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.33, %66 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.38, %148 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.38, %143 ]
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.3c170ea5605079453661ad6f6d79f0a4.28, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %155) #27
           to label %.thread133.i.cont unwind label %156
 
@@ -1395,7 +1395,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i: ; preds = %97, %.n
   br label %.body7
 
 .body7:                                           ; preds = %35, %.body.thread.i, %103
-  %eh.lpad-body8 = phi { ptr, i32 } [ %104, %103 ], [ %.pn.i, %35 ], [ %.pn313.i, %.body.thread.i ]
+  %eh.lpad-body8 = phi { ptr, i32 } [ %104, %103 ], [ %.pn313.i, %.body.thread.i ], [ %.pn.i, %35 ]
   invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$h2..proto..streams..streams..Inner$GT$$GT$17hc627a36075a4a8c0E"(ptr nonnull %28, i8 %30) #25
           to label %.thread unwind label %115
 
@@ -1437,7 +1437,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %111, %.no
   unreachable
 
 .thread:                                          ; preds = %.body7, %.thread15
-  %.pn14 = phi { ptr, i32 } [ %eh.lpad-body8, %.body7 ], [ %eh.lpad-body18, %.thread15 ]
+  %.pn14 = phi { ptr, i32 } [ %eh.lpad-body18, %.thread15 ], [ %eh.lpad-body8, %.body7 ]
   resume { ptr, i32 } %.pn14
 
 .thread15:                                        ; preds = %21, %11
@@ -2452,7 +2452,7 @@ _ZN2h25proto7streams5state5State14is_local_error17hf32f3e30b267443eE.exit.thread
           to label %239 unwind label %.thread161.i, !noalias !138
 
 .thread199.invoke.i:                              ; preds = %230, %225, %204, %199, %171, %166
-  %238 = phi ptr [ @anon.3c170ea5605079453661ad6f6d79f0a4.51, %204 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.48, %171 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.48, %166 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.51, %199 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.55, %225 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.55, %230 ]
+  %238 = phi ptr [ @anon.3c170ea5605079453661ad6f6d79f0a4.48, %166 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.48, %171 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.51, %199 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.51, %204 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.55, %225 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.55, %230 ]
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.3c170ea5605079453661ad6f6d79f0a4.28, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %238) #27
           to label %.thread199.cont.i unwind label %.thread161.i, !noalias !138
 
@@ -2479,7 +2479,7 @@ _ZN2h25proto7streams5state5State14is_local_error17hf32f3e30b267443eE.exit.thread
   br label %.body8
 
 .body8:                                           ; preds = %137, %.thread157.i, %240
-  %eh.lpad-body9 = phi { ptr, i32 } [ %241, %240 ], [ %138, %137 ], [ %eh.lpad-body160.i, %.thread157.i ]
+  %eh.lpad-body9 = phi { ptr, i32 } [ %241, %240 ], [ %eh.lpad-body160.i, %.thread157.i ], [ %138, %137 ]
   invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$h2..proto..streams..streams..Inner$GT$$GT$17hc627a36075a4a8c0E"(ptr nonnull %52, i8 %54) #25
           to label %.thread unwind label %253
 
@@ -2524,7 +2524,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %249, %.no
   unreachable
 
 .thread:                                          ; preds = %.body8, %.thread16
-  %.pn15 = phi { ptr, i32 } [ %eh.lpad-body9, %.body8 ], [ %eh.lpad-body19, %.thread16 ]
+  %.pn15 = phi { ptr, i32 } [ %eh.lpad-body19, %.thread16 ], [ %eh.lpad-body9, %.body8 ]
   resume { ptr, i32 } %.pn15
 
 .thread16:                                        ; preds = %45, %35
@@ -3357,7 +3357,7 @@ define hidden void @"_ZN2h25proto7streams7streams19DynStreams$LT$B$GT$17recv_pus
           to label %210 unwind label %211, !noalias !176
 
 .thread291.invoke.i:                              ; preds = %201, %196, %136, %131, %93, %88
-  %209 = phi ptr [ @anon.3c170ea5605079453661ad6f6d79f0a4.64, %136 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.61, %93 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.61, %88 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.64, %131 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.68, %196 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.68, %201 ]
+  %209 = phi ptr [ @anon.3c170ea5605079453661ad6f6d79f0a4.61, %88 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.61, %93 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.64, %131 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.64, %136 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.68, %196 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.68, %201 ]
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.3c170ea5605079453661ad6f6d79f0a4.28, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %209) #27
           to label %.thread291.cont.i unwind label %211, !noalias !176
 
@@ -3438,7 +3438,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %223, %.no
   unreachable
 
 .thread:                                          ; preds = %.body12, %.thread20
-  %.pn19 = phi { ptr, i32 } [ %eh.lpad-body13, %.body12 ], [ %eh.lpad-body23, %.thread20 ]
+  %.pn19 = phi { ptr, i32 } [ %eh.lpad-body23, %.thread20 ], [ %eh.lpad-body13, %.body12 ]
   resume { ptr, i32 } %.pn19
 
 .thread20:                                        ; preds = %47, %37
@@ -4534,7 +4534,7 @@ define hidden void @"_ZN2h25proto7streams7streams19DynStreams$LT$B$GT$9recv_data
           to label %166 unwind label %.thread146.i, !noalias !222
 
 .thread176.invoke.i:                              ; preds = %157, %152, %123, %118, %93, %88
-  %165 = phi ptr [ @anon.3c170ea5605079453661ad6f6d79f0a4.81, %123 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.77, %93 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.77, %88 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.81, %118 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.86, %152 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.86, %157 ]
+  %165 = phi ptr [ @anon.3c170ea5605079453661ad6f6d79f0a4.77, %88 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.77, %93 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.81, %118 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.81, %123 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.86, %152 ], [ @anon.3c170ea5605079453661ad6f6d79f0a4.86, %157 ]
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.3c170ea5605079453661ad6f6d79f0a4.28, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %165) #27
           to label %.thread176.cont.i unwind label %.thread146.i, !noalias !222
 
@@ -4658,7 +4658,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i: ; preds = %199, %.
   br label %.body8
 
 .body8:                                           ; preds = %189, %.thread142.i, %205
-  %eh.lpad-body9 = phi { ptr, i32 } [ %206, %205 ], [ %190, %189 ], [ %eh.lpad-body145.i, %.thread142.i ]
+  %eh.lpad-body9 = phi { ptr, i32 } [ %206, %205 ], [ %eh.lpad-body145.i, %.thread142.i ], [ %190, %189 ]
   invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$h2..proto..streams..streams..Inner$GT$$GT$17hc627a36075a4a8c0E"(ptr nonnull %48, i8 %50) #25
           to label %.thread unwind label %218
 
@@ -4701,7 +4701,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %214, %.no
   unreachable
 
 .thread:                                          ; preds = %.body8, %.thread16
-  %.pn15 = phi { ptr, i32 } [ %eh.lpad-body9, %.body8 ], [ %eh.lpad-body19, %.thread16 ]
+  %.pn15 = phi { ptr, i32 } [ %eh.lpad-body19, %.thread16 ], [ %eh.lpad-body9, %.body8 ]
   resume { ptr, i32 } %.pn15
 
 .thread16:                                        ; preds = %41, %31
@@ -5096,8 +5096,8 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i: ; preds = %96, %.n
           to label %114 unwind label %112
 
 99:                                               ; preds = %68, %65, %60, %57
-  %.sroa.6.3.i = phi ptr [ %69, %68 ], [ undef, %65 ], [ undef, %57 ], [ %61, %60 ]
-  %.sroa.0.3.i = phi i64 [ 0, %68 ], [ 1, %65 ], [ 1, %57 ], [ 0, %60 ]
+  %.sroa.6.3.i = phi ptr [ undef, %65 ], [ %69, %68 ], [ undef, %57 ], [ %61, %60 ]
+  %.sroa.0.3.i = phi i64 [ 1, %65 ], [ 0, %68 ], [ 1, %57 ], [ 0, %60 ]
   %100 = getelementptr inbounds nuw i8, ptr %46, i64 4
   br i1 %49, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i31.i, label %101
 
@@ -5140,8 +5140,8 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i31.i: ; preds = %107, 
           to label %common.resume unwind label %128
 
 114:                                              ; preds = %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i31.i, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i, %"_ZN4core3ptr123drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$h2..proto..streams..buffer..Buffer$LT$h2..frame..Frame$GT$$GT$$GT$17h1013d0a206a88653E.exit.sink.split.i"
-  %.sroa.6.2.i = phi ptr [ %.sroa.6.3.i, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i31.i ], [ null, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i ], [ %.sroa.6.2.ph.i, %"_ZN4core3ptr123drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$h2..proto..streams..buffer..Buffer$LT$h2..frame..Frame$GT$$GT$$GT$17h1013d0a206a88653E.exit.sink.split.i" ]
-  %.sroa.0.2.i = phi i64 [ %.sroa.0.3.i, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i31.i ], [ 0, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i ], [ %.sroa.0.2.ph.i, %"_ZN4core3ptr123drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$h2..proto..streams..buffer..Buffer$LT$h2..frame..Frame$GT$$GT$$GT$17h1013d0a206a88653E.exit.sink.split.i" ]
+  %.sroa.6.2.i = phi ptr [ null, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i ], [ %.sroa.6.3.i, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i31.i ], [ %.sroa.6.2.ph.i, %"_ZN4core3ptr123drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$h2..proto..streams..buffer..Buffer$LT$h2..frame..Frame$GT$$GT$$GT$17h1013d0a206a88653E.exit.sink.split.i" ]
+  %.sroa.0.2.i = phi i64 [ 0, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i ], [ %.sroa.0.3.i, %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i31.i ], [ %.sroa.0.2.ph.i, %"_ZN4core3ptr123drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$h2..proto..streams..buffer..Buffer$LT$h2..frame..Frame$GT$$GT$$GT$17h1013d0a206a88653E.exit.sink.split.i" ]
   %115 = getelementptr inbounds nuw i8, ptr %24, i64 4
   br i1 %27, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i, label %116
 
@@ -7129,8 +7129,8 @@ select.unfold.i:                                  ; preds = %43, %4
   br label %210
 
 210:                                              ; preds = %203, %199
-  %211 = phi i8 [ %.pre.i.i, %203 ], [ %201, %199 ]
-  %.sroa.3.0.i.i.ph.i.i = phi i64 [ %209, %203 ], [ %.sroa.4.113.i.i.i.i, %199 ]
+  %211 = phi i8 [ %201, %199 ], [ %.pre.i.i, %203 ]
+  %.sroa.3.0.i.i.ph.i.i = phi i64 [ %.sroa.4.113.i.i.i.i, %199 ], [ %209, %203 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !496)
   %212 = getelementptr inbounds nuw i8, ptr %.val.i.i11.i, i64 %.sroa.3.0.i.i.ph.i.i
   %213 = and i8 %211, 1
@@ -7194,7 +7194,7 @@ select.unfold.i:                                  ; preds = %43, %4
   unreachable
 
 235:                                              ; preds = %232, %229, %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$$LP$i32$C$pingora_pool..lru..Node$LT$pingora_pool..connection..ConnectionMeta$GT$$RP$$GT$$GT$17hf27a82628ef2d18eE.exit.i.i"
-  %.pn.i = phi { ptr, i32 } [ %124, %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$$LP$i32$C$pingora_pool..lru..Node$LT$pingora_pool..connection..ConnectionMeta$GT$$RP$$GT$$GT$17hf27a82628ef2d18eE.exit.i.i" ], [ %230, %229 ], [ %230, %232 ]
+  %.pn.i = phi { ptr, i32 } [ %124, %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$$LP$i32$C$pingora_pool..lru..Node$LT$pingora_pool..connection..ConnectionMeta$GT$$RP$$GT$$GT$17hf27a82628ef2d18eE.exit.i.i" ], [ %230, %232 ], [ %230, %229 ]
   resume { ptr, i32 } %.pn.i
 
 "_ZN3lru25LruCache$LT$K$C$V$C$S$GT$13capturing_put17h80f45ceec88b45c9E.exit": ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h6dbca6853426d285E.exit.i"

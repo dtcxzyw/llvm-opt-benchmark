@@ -774,7 +774,7 @@ _ZNK10ValueStack10locks_sizeEv.exit36.lr.ph:      ; preds = %.critedge.preheader
   br i1 %exitcond.not, label %.critedge37, label %65
 
 .critedge37:                                      ; preds = %46, %68, %.critedge, %.critedge.preheader, %_ZNK10ValueStack10locks_sizeEv.exit36.lr.ph, %_ZNK10ValueStack10locks_sizeEv.exit35, %15, %10, %5, %2
-  %.023 = phi i1 [ true, %_ZNK10ValueStack10locks_sizeEv.exit36.lr.ph ], [ false, %2 ], [ false, %5 ], [ false, %10 ], [ false, %15 ], [ false, %_ZNK10ValueStack10locks_sizeEv.exit35 ], [ true, %.critedge.preheader ], [ true, %.critedge ], [ false, %68 ], [ false, %46 ]
+  %.023 = phi i1 [ false, %2 ], [ false, %5 ], [ false, %10 ], [ false, %15 ], [ false, %_ZNK10ValueStack10locks_sizeEv.exit35 ], [ true, %.critedge.preheader ], [ true, %_ZNK10ValueStack10locks_sizeEv.exit36.lr.ph ], [ false, %68 ], [ true, %.critedge ], [ false, %46 ]
   ret i1 %.023
 }
 

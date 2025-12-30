@@ -138,7 +138,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_btree2_name_compare(ptr noundef
   br label %46
 
 46:                                               ; preds = %3, %17, %20, %45
-  %.023 = phi i32 [ 0, %17 ], [ 0, %20 ], [ 0, %3 ], [ %.1, %45 ]
+  %.023 = phi i32 [ 0, %17 ], [ 0, %20 ], [ %.1, %45 ], [ 0, %3 ]
   ret i32 %.023
 }
 
@@ -549,7 +549,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_fh_name_cmp(ptr noundef %0, i64
   br label %56
 
 56:                                               ; preds = %18, %28, %41, %52
-  %.1 = phi i32 [ 0, %18 ], [ -1, %52 ], [ 0, %41 ], [ 0, %28 ]
+  %.1 = phi i32 [ -1, %52 ], [ 0, %41 ], [ 0, %28 ], [ 0, %18 ]
   %57 = load i8, ptr %4, align 1, !range !7
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %61, label %59

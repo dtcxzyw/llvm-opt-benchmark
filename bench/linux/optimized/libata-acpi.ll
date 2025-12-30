@@ -1462,7 +1462,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   br i1 %117, label %221, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %88, %114, %110, %106, %102, %98
-  %118 = phi i8 [ %96, %88 ], [ 0, %114 ], [ 0, %110 ], [ 0, %106 ], [ 0, %102 ], [ 0, %98 ]
+  %118 = phi i8 [ 0, %114 ], [ 0, %110 ], [ 0, %106 ], [ 0, %102 ], [ 0, %98 ], [ %96, %88 ]
   %119 = load ptr, ptr %0, align 64
   %120 = load ptr, ptr %119, align 64
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 168
@@ -1729,8 +1729,8 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   br i1 %277, label %307, label %.thread30
 
 .thread30:                                        ; preds = %.loopexit, %58, %273, %272
-  %278 = phi i32 [ %70, %272 ], [ -22, %273 ], [ -5, %58 ], [ -5, %.loopexit ]
-  %279 = phi i1 [ true, %272 ], [ true, %273 ], [ true, %58 ], [ %252, %.loopexit ]
+  %278 = phi i32 [ -22, %273 ], [ %70, %272 ], [ -5, %58 ], [ -5, %.loopexit ]
+  %279 = phi i1 [ true, %273 ], [ true, %272 ], [ true, %58 ], [ %252, %.loopexit ]
   %280 = load i64, ptr %10, align 16
   %281 = and i64 %280, 64
   %282 = icmp eq i64 %281, 0

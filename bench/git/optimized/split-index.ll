@@ -188,7 +188,7 @@ oidread.exit:                                     ; preds = %32, %.split.loop.ex
   br i1 %.not30, label %59, label %.sink.split
 
 .sink.split:                                      ; preds = %56, %48, %43, %3
-  %.str.4.sink = phi ptr [ @.str.3, %48 ], [ @.str.2, %43 ], [ @.str.1, %3 ], [ @.str.4, %56 ]
+  %.str.4.sink = phi ptr [ @.str.1, %3 ], [ @.str.2, %43 ], [ @.str.3, %48 ], [ @.str.4, %56 ]
   %58 = tail call i32 (ptr, ...) @error(ptr noundef nonnull %.str.4.sink) #12
   br label %59
 

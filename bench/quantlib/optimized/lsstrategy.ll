@@ -420,9 +420,9 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.
   br label %invoke.cont67
 
 invoke.cont67:                                    ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
-  %ref.tmp62.sroa.11.0 = phi ptr [ %add.ptr.i.i.i89, %if.end.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i89, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %ref.tmp62.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i93, %if.end.i.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i93, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %ref.tmp62.sroa.11.0 = phi ptr [ %add.ptr.i.i.i89, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i89, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %ref.tmp62.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i93, %call5.i.i.i.i2.i.i.noexc ], [ %call5.i.i.i.i2.i.i93, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
   %42 = load ptr, ptr %exerciseIndex_, align 8, !tbaa !19
   %_M_finish.i.i.i.i94 = getelementptr inbounds nuw i8, ptr %this, i64 296
   %_M_end_of_storage.i.i.i.i95 = getelementptr inbounds nuw i8, ptr %this, i64 304
@@ -1217,7 +1217,7 @@ ehcleanup182:                                     ; preds = %if.then.i.i.i305, %
   br label %ehcleanup184
 
 ehcleanup184:                                     ; preds = %lpad98.loopexit, %lpad98.loopexit.split-lp, %lpad103, %ehcleanup182
-  %.pn30 = phi { ptr, i32 } [ %92, %lpad103 ], [ %.pn26.pn, %ehcleanup182 ], [ %lpad.loopexit385, %lpad98.loopexit ], [ %lpad.loopexit.split-lp386, %lpad98.loopexit.split-lp ]
+  %.pn30 = phi { ptr, i32 } [ %.pn26.pn, %ehcleanup182 ], [ %92, %lpad103 ], [ %lpad.loopexit385, %lpad98.loopexit ], [ %lpad.loopexit.split-lp386, %lpad98.loopexit.split-lp ]
   %_M_data.i311 = getelementptr inbounds nuw i8, ptr %v, i64 8
   %143 = load ptr, ptr %_M_data.i311, align 8, !tbaa !28
   call void @_ZdlPv(ptr noundef %143) #19
@@ -3357,7 +3357,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
-  %__first.addr.0.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %incdec.ptr.i.i.i, %if.then.i.i.i ]
+  %__first.addr.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ]
   store ptr %__first.addr.0.i.i.i, ptr %_M_finish.i, align 8, !tbaa !22
   br label %if.end44
 

@@ -1150,7 +1150,7 @@ _ZN8rationalD2Ev.exit134:                         ; preds = %.noexc.i133
   br label %267
 
 .body:                                            ; preds = %.body119, %185, %179, %106
-  %.pn98.pn.pn.pn = phi { ptr, i32 } [ %107, %106 ], [ %.pn98.pn, %.body119 ], [ %180, %179 ], [ %.pn93.pn, %185 ]
+  %.pn98.pn.pn.pn = phi { ptr, i32 } [ %107, %106 ], [ %.pn98.pn, %.body119 ], [ %.pn93.pn, %185 ], [ %180, %179 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %273
@@ -1419,12 +1419,12 @@ _ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev.exit161: ; preds = %_ZN1
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 .thread174:                                       ; preds = %270, %69, %45
-  %.pn103.pn.pn.ph = phi { ptr, i32 } [ %271, %270 ], [ %70, %69 ], [ %46, %45 ]
+  %.pn103.pn.pn.ph = phi { ptr, i32 } [ %271, %270 ], [ %46, %45 ], [ %70, %69 ]
   %.063176 = extractvalue { ptr, i32 } %.pn103.pn.pn.ph, 1
   br label %274
 
 273:                                              ; preds = %152, %244, %.body140, %265, %263, %.body, %154, %19
-  %.pn103.pn.pn = phi { ptr, i32 } [ %245, %244 ], [ %266, %265 ], [ %20, %19 ], [ %153, %152 ], [ %264, %263 ], [ %155, %154 ], [ %.pn98.pn.pn.pn, %.body ], [ %.pn87.pn.pn.pn, %.body140 ]
+  %.pn103.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %153, %152 ], [ %155, %154 ], [ %.pn98.pn.pn.pn, %.body ], [ %.pn87.pn.pn.pn, %.body140 ], [ %245, %244 ], [ %266, %265 ], [ %264, %263 ]
   %.063 = extractvalue { ptr, i32 } %.pn103.pn.pn, 1
   br i1 %17, label %274, label %_ZN10z3_log_ctxD2Ev.exit162, !prof !195
 
@@ -1458,7 +1458,7 @@ _ZN10z3_log_ctxD2Ev.exit162:                      ; preds = %273, %274
           to label %282 unwind label %283
 
 _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %272, %268, %67, %43, %279
-  %.1 = phi ptr [ null, %279 ], [ %.0.ph, %272 ], [ null, %67 ], [ null, %43 ], [ %.183, %268 ]
+  %.1 = phi ptr [ null, %279 ], [ %.0.ph, %272 ], [ null, %43 ], [ null, %67 ], [ %.183, %268 ]
   ret ptr %.1
 
 282:                                              ; preds = %280, %_ZN10z3_log_ctxD2Ev.exit162
@@ -2133,7 +2133,7 @@ _ZN8rationalD2Ev.exit134:                         ; preds = %.noexc.i133
   br label %267
 
 .body:                                            ; preds = %.body119, %185, %179, %106
-  %.pn98.pn.pn.pn = phi { ptr, i32 } [ %107, %106 ], [ %.pn98.pn, %.body119 ], [ %180, %179 ], [ %.pn93.pn, %185 ]
+  %.pn98.pn.pn.pn = phi { ptr, i32 } [ %107, %106 ], [ %.pn98.pn, %.body119 ], [ %.pn93.pn, %185 ], [ %180, %179 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %273
@@ -2402,12 +2402,12 @@ _ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev.exit161: ; preds = %_ZN1
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 .thread174:                                       ; preds = %270, %69, %45
-  %.pn103.pn.pn.ph = phi { ptr, i32 } [ %271, %270 ], [ %70, %69 ], [ %46, %45 ]
+  %.pn103.pn.pn.ph = phi { ptr, i32 } [ %271, %270 ], [ %46, %45 ], [ %70, %69 ]
   %.063176 = extractvalue { ptr, i32 } %.pn103.pn.pn.ph, 1
   br label %274
 
 273:                                              ; preds = %152, %244, %.body140, %265, %263, %.body, %154, %19
-  %.pn103.pn.pn = phi { ptr, i32 } [ %245, %244 ], [ %266, %265 ], [ %20, %19 ], [ %153, %152 ], [ %264, %263 ], [ %155, %154 ], [ %.pn98.pn.pn.pn, %.body ], [ %.pn87.pn.pn.pn, %.body140 ]
+  %.pn103.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %153, %152 ], [ %155, %154 ], [ %.pn98.pn.pn.pn, %.body ], [ %.pn87.pn.pn.pn, %.body140 ], [ %245, %244 ], [ %266, %265 ], [ %264, %263 ]
   %.063 = extractvalue { ptr, i32 } %.pn103.pn.pn, 1
   br i1 %17, label %274, label %_ZN10z3_log_ctxD2Ev.exit162, !prof !195
 
@@ -2441,7 +2441,7 @@ _ZN10z3_log_ctxD2Ev.exit162:                      ; preds = %273, %274
           to label %282 unwind label %283
 
 _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %272, %268, %67, %43, %279
-  %.1 = phi ptr [ null, %279 ], [ %.0.ph, %272 ], [ null, %67 ], [ null, %43 ], [ %.183, %268 ]
+  %.1 = phi ptr [ null, %279 ], [ %.0.ph, %272 ], [ null, %43 ], [ null, %67 ], [ %.183, %268 ]
   ret ptr %.1
 
 282:                                              ; preds = %280, %_ZN10z3_log_ctxD2Ev.exit162
@@ -3129,7 +3129,7 @@ _ZN8rationalD2Ev.exit134:                         ; preds = %.noexc.i133
   br label %267
 
 .body:                                            ; preds = %.body119, %185, %179, %106
-  %.pn98.pn.pn.pn = phi { ptr, i32 } [ %107, %106 ], [ %.pn98.pn, %.body119 ], [ %180, %179 ], [ %.pn93.pn, %185 ]
+  %.pn98.pn.pn.pn = phi { ptr, i32 } [ %107, %106 ], [ %.pn98.pn, %.body119 ], [ %.pn93.pn, %185 ], [ %180, %179 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %273
@@ -3398,12 +3398,12 @@ _ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev.exit161: ; preds = %_ZN1
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 .thread174:                                       ; preds = %270, %69, %45
-  %.pn103.pn.pn.ph = phi { ptr, i32 } [ %271, %270 ], [ %70, %69 ], [ %46, %45 ]
+  %.pn103.pn.pn.ph = phi { ptr, i32 } [ %271, %270 ], [ %46, %45 ], [ %70, %69 ]
   %.063176 = extractvalue { ptr, i32 } %.pn103.pn.pn.ph, 1
   br label %274
 
 273:                                              ; preds = %152, %244, %.body140, %265, %263, %.body, %154, %19
-  %.pn103.pn.pn = phi { ptr, i32 } [ %245, %244 ], [ %266, %265 ], [ %20, %19 ], [ %153, %152 ], [ %264, %263 ], [ %155, %154 ], [ %.pn98.pn.pn.pn, %.body ], [ %.pn87.pn.pn.pn, %.body140 ]
+  %.pn103.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %153, %152 ], [ %155, %154 ], [ %.pn98.pn.pn.pn, %.body ], [ %.pn87.pn.pn.pn, %.body140 ], [ %245, %244 ], [ %266, %265 ], [ %264, %263 ]
   %.063 = extractvalue { ptr, i32 } %.pn103.pn.pn, 1
   br i1 %17, label %274, label %_ZN10z3_log_ctxD2Ev.exit162, !prof !195
 
@@ -3437,7 +3437,7 @@ _ZN10z3_log_ctxD2Ev.exit162:                      ; preds = %273, %274
           to label %282 unwind label %283
 
 _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %272, %268, %67, %43, %279
-  %.1 = phi ptr [ null, %279 ], [ %.0.ph, %272 ], [ null, %67 ], [ null, %43 ], [ %.183, %268 ]
+  %.1 = phi ptr [ null, %279 ], [ %.0.ph, %272 ], [ null, %43 ], [ null, %67 ], [ %.183, %268 ]
   ret ptr %.1
 
 282:                                              ; preds = %280, %_ZN10z3_log_ctxD2Ev.exit162
@@ -3846,8 +3846,8 @@ _ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit:     ; preds = %76
   br label %_ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit.thread
 
 _ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit.thread: ; preds = %._ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit.thread_crit_edge, %76, %Z3_algebraic_is_value_core.exit136.thread, %_ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit
-  %107 = phi i32 [ %73, %_ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit ], [ %.pre229, %._ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit.thread_crit_edge ], [ %73, %Z3_algebraic_is_value_core.exit136.thread ], [ %73, %76 ]
-  %108 = phi i1 [ false, %_ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit ], [ true, %._ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit.thread_crit_edge ], [ false, %Z3_algebraic_is_value_core.exit136.thread ], [ false, %76 ]
+  %107 = phi i32 [ %.pre229, %._ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit.thread_crit_edge ], [ %73, %_ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit ], [ %73, %Z3_algebraic_is_value_core.exit136.thread ], [ %73, %76 ]
+  %108 = phi i1 [ true, %._ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit.thread_crit_edge ], [ false, %_ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit ], [ false, %Z3_algebraic_is_value_core.exit136.thread ], [ false, %76 ]
   %109 = and i32 %107, 65535
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %111, label %_ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit141.thread
@@ -4317,7 +4317,7 @@ _ZN8rationalD2Ev.exit178:                         ; preds = %.noexc.i177
   br label %342
 
 .body154:                                         ; preds = %.body160, %260, %254, %181
-  %.pn122.pn.pn.pn = phi { ptr, i32 } [ %182, %181 ], [ %.pn122.pn, %.body160 ], [ %255, %254 ], [ %.pn117.pn, %260 ]
+  %.pn122.pn.pn.pn = phi { ptr, i32 } [ %182, %181 ], [ %.pn122.pn, %.body160 ], [ %.pn117.pn, %260 ], [ %255, %254 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.body
@@ -4586,12 +4586,12 @@ _ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev.exit205: ; preds = %_ZN1
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 .body.thread:                                     ; preds = %345, %144, %71, %47
-  %.pn130.ph = phi { ptr, i32 } [ %346, %345 ], [ %72, %71 ], [ %48, %47 ], [ %145, %144 ]
+  %.pn130.ph = phi { ptr, i32 } [ %346, %345 ], [ %48, %47 ], [ %72, %71 ], [ %145, %144 ]
   %.077224 = extractvalue { ptr, i32 } %.pn130.ph, 1
   br label %348
 
 .body:                                            ; preds = %141, %227, %319, %.body184, %340, %338, %.body154, %229, %143, %21
-  %.pn130 = phi { ptr, i32 } [ %.pn111.pn.pn.pn, %.body184 ], [ %22, %21 ], [ %320, %319 ], [ %.pn.ph, %143 ], [ %339, %338 ], [ %341, %340 ], [ %228, %227 ], [ %142, %141 ], [ %230, %229 ], [ %.pn122.pn.pn.pn, %.body154 ]
+  %.pn130 = phi { ptr, i32 } [ %22, %21 ], [ %.pn.ph, %143 ], [ %228, %227 ], [ %230, %229 ], [ %.pn122.pn.pn.pn, %.body154 ], [ %.pn111.pn.pn.pn, %.body184 ], [ %320, %319 ], [ %341, %340 ], [ %339, %338 ], [ %142, %141 ]
   %.077 = extractvalue { ptr, i32 } %.pn130, 1
   br i1 %19, label %348, label %_ZN10z3_log_ctxD2Ev.exit206, !prof !226
 
@@ -4625,7 +4625,7 @@ _ZN10z3_log_ctxD2Ev.exit206:                      ; preds = %.body, %348
           to label %356 unwind label %357
 
 _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %347, %343, %139, %69, %45, %353
-  %.1 = phi ptr [ null, %353 ], [ %.0.ph, %347 ], [ null, %69 ], [ null, %139 ], [ null, %45 ], [ %.1102, %343 ]
+  %.1 = phi ptr [ null, %353 ], [ %.0.ph, %347 ], [ null, %45 ], [ null, %69 ], [ null, %139 ], [ %.1102, %343 ]
   ret ptr %.1
 
 356:                                              ; preds = %354, %_ZN10z3_log_ctxD2Ev.exit206
@@ -4938,8 +4938,8 @@ _ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit:     ; preds = %47
   br label %_ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit.thread
 
 _ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit.thread: ; preds = %._ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit.thread_crit_edge, %47, %43, %_ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit
-  %78 = phi i32 [ %44, %_ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit ], [ %.pre, %._ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit.thread_crit_edge ], [ %44, %43 ], [ %44, %47 ]
-  %79 = phi i1 [ false, %_ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit ], [ true, %._ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit.thread_crit_edge ], [ false, %43 ], [ false, %47 ]
+  %78 = phi i32 [ %.pre, %._ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit.thread_crit_edge ], [ %44, %_ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit ], [ %44, %43 ], [ %44, %47 ]
+  %79 = phi i1 [ true, %._ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit.thread_crit_edge ], [ false, %_ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit ], [ false, %43 ], [ false, %47 ]
   %80 = and i32 %78, 65535
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %82, label %_ZL11is_rationalP11_Z3_contextP7_Z3_ast.exit86.thread
@@ -5292,7 +5292,7 @@ _ZN10arith_util10mk_numeralERN17algebraic_numbers7managerERKNS0_4anumEb.exit: ; 
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 196:                                              ; preds = %186, %188, %176, %173
-  %.pn75.pn = phi { ptr, i32 } [ %187, %186 ], [ %.pn72, %173 ], [ %177, %176 ], [ %189, %188 ]
+  %.pn75.pn = phi { ptr, i32 } [ %.pn72, %173 ], [ %177, %176 ], [ %189, %188 ], [ %187, %186 ]
   call void @_ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.body
@@ -5303,7 +5303,7 @@ _ZN10arith_util10mk_numeralERN17algebraic_numbers7managerERKNS0_4anumEb.exit: ; 
   br label %197
 
 .body:                                            ; preds = %112, %167, %196, %114, %13
-  %.pn80 = phi { ptr, i32 } [ %.pn75.pn, %196 ], [ %14, %13 ], [ %113, %112 ], [ %.pn.ph, %114 ], [ %168, %167 ]
+  %.pn80 = phi { ptr, i32 } [ %14, %13 ], [ %.pn.ph, %114 ], [ %.pn75.pn, %196 ], [ %168, %167 ], [ %113, %112 ]
   %.052 = extractvalue { ptr, i32 } %.pn80, 1
   br i1 %11, label %197, label %_ZN10z3_log_ctxD2Ev.exit109, !prof !234
 
@@ -5675,13 +5675,13 @@ _ZN10arith_util10mk_numeralERN17algebraic_numbers7managerERKNS0_4anumEb.exit: ; 
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 117:                                              ; preds = %107, %109, %97, %94
-  %.pn50.pn = phi { ptr, i32 } [ %108, %107 ], [ %.pn47, %94 ], [ %98, %97 ], [ %110, %109 ]
+  %.pn50.pn = phi { ptr, i32 } [ %.pn47, %94 ], [ %98, %97 ], [ %110, %109 ], [ %108, %107 ]
   call void @_ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %118
 
 118:                                              ; preds = %88, %117, %11
-  %.pn50.pn.pn.pn.pn = phi { ptr, i32 } [ %12, %11 ], [ %89, %88 ], [ %.pn50.pn, %117 ]
+  %.pn50.pn.pn.pn.pn = phi { ptr, i32 } [ %12, %11 ], [ %.pn50.pn, %117 ], [ %89, %88 ]
   %.037 = extractvalue { ptr, i32 } %.pn50.pn.pn.pn.pn, 1
   br i1 %9, label %119, label %_ZN10z3_log_ctxD2Ev.exit64, !prof !238
 
@@ -6035,7 +6035,7 @@ _ZL12get_rationalP11_Z3_contextP7_Z3_ast.exit91:  ; preds = %123, %121
           to label %_ZltRK8rationalS1_.exit unwind label %163
 
 _ZltRK8rationalS1_.exit:                          ; preds = %.noexc92, %148, %155
-  %.0.i.i = phi i1 [ %154, %.noexc92 ], [ %151, %148 ], [ %156, %155 ]
+  %.0.i.i = phi i1 [ %151, %148 ], [ %154, %.noexc92 ], [ %156, %155 ]
   %157 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !177
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %157, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc.i unwind label %158
@@ -6141,7 +6141,7 @@ _ZN8rationalD2Ev.exit96:                          ; preds = %.noexc.i95
   br label %237
 
 .body:                                            ; preds = %.body89, %177, %175, %94
-  %.pn70.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %.pn70, %.body89 ], [ %176, %175 ], [ %178, %177 ]
+  %.pn70.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %.pn70, %.body89 ], [ %178, %177 ], [ %176, %175 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %239
@@ -6294,7 +6294,7 @@ _ZL14get_irrationalP11_Z3_contextP7_Z3_ast.exit109: ; preds = %_ZL11is_rationalP
   br label %239
 
 237:                                              ; preds = %Z3_algebraic_is_value_core.exit81.thread114.invoke, %_ZN8rationalD2Ev.exit96, %_ZL14get_irrationalP11_Z3_contextP7_Z3_ast.exit109, %_ZN8rationalD2Ev.exit107
-  %.0 = phi i1 [ false, %Z3_algebraic_is_value_core.exit81.thread114.invoke ], [ %234, %_ZL14get_irrationalP11_Z3_contextP7_Z3_ast.exit109 ], [ %.061.in, %_ZN8rationalD2Ev.exit96 ], [ %219, %_ZN8rationalD2Ev.exit107 ]
+  %.0 = phi i1 [ %.061.in, %_ZN8rationalD2Ev.exit96 ], [ %219, %_ZN8rationalD2Ev.exit107 ], [ %234, %_ZL14get_irrationalP11_Z3_contextP7_Z3_ast.exit109 ], [ false, %Z3_algebraic_is_value_core.exit81.thread114.invoke ]
   br i1 %13, label %238, label %_ZN10z3_log_ctxD2Ev.exit, !prof !171
 
 238:                                              ; preds = %237
@@ -6302,7 +6302,7 @@ _ZL14get_irrationalP11_Z3_contextP7_Z3_ast.exit109: ; preds = %_ZL11is_rationalP
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 239:                                              ; preds = %161, %229, %.body102, %235, %.body, %15
-  %.pn70.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %16, %15 ], [ %162, %161 ], [ %.pn70.pn.pn, %.body ], [ %230, %229 ], [ %.pn.pn, %.body102 ], [ %236, %235 ]
+  %.pn70.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %16, %15 ], [ %162, %161 ], [ %.pn70.pn.pn, %.body ], [ %.pn.pn, %.body102 ], [ %236, %235 ], [ %230, %229 ]
   %.049 = extractvalue { ptr, i32 } %.pn70.pn.pn.pn.pn.pn, 1
   br i1 %13, label %240, label %_ZN10z3_log_ctxD2Ev.exit110, !prof !171
 
@@ -6782,7 +6782,7 @@ _ZN8rationalD2Ev.exit96:                          ; preds = %.noexc.i95
   br label %236
 
 .body:                                            ; preds = %.body89, %176, %174, %94
-  %.pn70.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %.pn70, %.body89 ], [ %175, %174 ], [ %177, %176 ]
+  %.pn70.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %.pn70, %.body89 ], [ %177, %176 ], [ %175, %174 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %238
@@ -6935,7 +6935,7 @@ _ZL14get_irrationalP11_Z3_contextP7_Z3_ast.exit109: ; preds = %_ZL11is_rationalP
   br label %238
 
 236:                                              ; preds = %Z3_algebraic_is_value_core.exit81.thread114.invoke, %_ZN8rationalD2Ev.exit96, %_ZL14get_irrationalP11_Z3_contextP7_Z3_ast.exit109, %_ZN8rationalD2Ev.exit107
-  %.0 = phi i1 [ false, %Z3_algebraic_is_value_core.exit81.thread114.invoke ], [ %233, %_ZL14get_irrationalP11_Z3_contextP7_Z3_ast.exit109 ], [ %.061.in, %_ZN8rationalD2Ev.exit96 ], [ %218, %_ZN8rationalD2Ev.exit107 ]
+  %.0 = phi i1 [ %.061.in, %_ZN8rationalD2Ev.exit96 ], [ %218, %_ZN8rationalD2Ev.exit107 ], [ %233, %_ZL14get_irrationalP11_Z3_contextP7_Z3_ast.exit109 ], [ false, %Z3_algebraic_is_value_core.exit81.thread114.invoke ]
   br i1 %13, label %237, label %_ZN10z3_log_ctxD2Ev.exit, !prof !171
 
 237:                                              ; preds = %236
@@ -6943,7 +6943,7 @@ _ZL14get_irrationalP11_Z3_contextP7_Z3_ast.exit109: ; preds = %_ZL11is_rationalP
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 238:                                              ; preds = %160, %228, %.body102, %234, %.body, %15
-  %.pn70.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %16, %15 ], [ %161, %160 ], [ %.pn70.pn.pn, %.body ], [ %229, %228 ], [ %.pn.pn, %.body102 ], [ %235, %234 ]
+  %.pn70.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %16, %15 ], [ %161, %160 ], [ %.pn70.pn.pn, %.body ], [ %.pn.pn, %.body102 ], [ %235, %234 ], [ %229, %228 ]
   %.049 = extractvalue { ptr, i32 } %.pn70.pn.pn.pn.pn.pn, 1
   br i1 %13, label %239, label %_ZN10z3_log_ctxD2Ev.exit110, !prof !171
 

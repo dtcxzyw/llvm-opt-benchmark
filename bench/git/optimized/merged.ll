@@ -142,7 +142,7 @@ define dso_local range(i32 -2147483648, 1) i32 @merged_table_init_iter(ptr nound
   br i1 %20, label %.lr.ph65.split, label %10
 
 ._crit_edge:                                      ; preds = %10, %3, %8
-  %.04279 = phi ptr [ null, %3 ], [ %7, %8 ], [ %7, %10 ]
+  %.04279 = phi ptr [ %7, %8 ], [ null, %3 ], [ %7, %10 ]
   %21 = tail call ptr @reftable_calloc(i64 noundef 1, i64 noundef 56) #6
   %.not53 = icmp eq ptr %21, null
   br i1 %.not53, label %.loopexit, label %.thread57
@@ -175,8 +175,8 @@ define dso_local range(i32 -2147483648, 1) i32 @merged_table_init_iter(ptr nound
   br i1 %.not70, label %.critedge, label %.lr.ph68
 
 .critedge:                                        ; preds = %.lr.ph68, %6, %.lr.ph65.split, %.loopexit
-  %.04084 = phi i32 [ -13, %6 ], [ -13, %.loopexit ], [ %.04090, %.lr.ph65.split ], [ %.04090, %.lr.ph68 ]
-  %.14383 = phi ptr [ null, %6 ], [ null, %.loopexit ], [ %.14389, %.lr.ph65.split ], [ %.14389, %.lr.ph68 ]
+  %.04084 = phi i32 [ %.04090, %.lr.ph65.split ], [ -13, %.loopexit ], [ -13, %6 ], [ %.04090, %.lr.ph68 ]
+  %.14383 = phi ptr [ %.14389, %.lr.ph65.split ], [ null, %.loopexit ], [ null, %6 ], [ %.14389, %.lr.ph68 ]
   tail call void @reftable_free(ptr noundef %.14383) #6
   tail call void @reftable_free(ptr noundef null) #6
   br label %35
@@ -291,7 +291,7 @@ merged_iter_advance_subiter.exit.i:               ; preds = %22, %17
   br i1 %.not23.i, label %11, label %merged_iter_seek.exit, !llvm.loop !42
 
 merged_iter_seek.exit:                            ; preds = %11, %merged_iter_advance_subiter.exit.i, %25, %.preheader.i
-  %spec.select.i = phi i32 [ 0, %.preheader.i ], [ 0, %25 ], [ %.0.i.i, %merged_iter_advance_subiter.exit.i ], [ %14, %11 ]
+  %spec.select.i = phi i32 [ 0, %.preheader.i ], [ 0, %25 ], [ %14, %11 ], [ %.0.i.i, %merged_iter_advance_subiter.exit.i ]
   ret i32 %spec.select.i
 }
 
@@ -415,7 +415,7 @@ merged_iter_next_entry.exit:                      ; preds = %15
   br i1 %.not11, label %merged_iter_next_entry.exit.thread, label %12
 
 merged_iter_next_entry.exit.thread:               ; preds = %46, %48, %24, %merged_iter_advance_subiter.exit.i, %merged_iter_next_entry.exit, %merged_iter_advance_subiter.exit49.i
-  %.1.ph = phi i32 [ %.0.i48.i, %merged_iter_advance_subiter.exit49.i ], [ 0, %48 ], [ 1, %24 ], [ 0, %46 ], [ %45, %merged_iter_next_entry.exit ], [ %.0.i.i, %merged_iter_advance_subiter.exit.i ]
+  %.1.ph = phi i32 [ %.0.i48.i, %merged_iter_advance_subiter.exit49.i ], [ 0, %46 ], [ 0, %48 ], [ %.0.i.i, %merged_iter_advance_subiter.exit.i ], [ 1, %24 ], [ %45, %merged_iter_next_entry.exit ]
   ret i32 %.1.ph
 }
 

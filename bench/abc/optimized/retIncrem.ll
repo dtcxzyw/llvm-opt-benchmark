@@ -267,8 +267,8 @@ Abc_NtkRetimeNodeIsEnabled.exit.i:                ; preds = %88, %.loopexit49.Ab
   br i1 %105, label %.split.i, label %.loopexit50.i, !llvm.loop !38
 
 .loopexit50.i:                                    ; preds = %.split.i, %.critedge.i.loopexit46, %.critedge.i.loopexit.us, %.split.i.us, %.critedge.thread.i
-  %.0.i68 = phi ptr [ %30, %.critedge.i.loopexit.us ], [ %.0.i6973, %.critedge.thread.i ], [ %30, %.split.i.us ], [ null, %.critedge.i.loopexit46 ], [ null, %.split.i ]
-  %.034.i66 = phi ptr [ %29, %.critedge.i.loopexit.us ], [ %.034.i6775, %.critedge.thread.i ], [ %29, %.split.i.us ], [ null, %.critedge.i.loopexit46 ], [ null, %.split.i ]
+  %.0.i68 = phi ptr [ %.0.i6973, %.critedge.thread.i ], [ %30, %.split.i.us ], [ %30, %.critedge.i.loopexit.us ], [ null, %.critedge.i.loopexit46 ], [ null, %.split.i ]
+  %.034.i66 = phi ptr [ %.034.i6775, %.critedge.thread.i ], [ %29, %.split.i.us ], [ %29, %.critedge.i.loopexit.us ], [ null, %.critedge.i.loopexit46 ], [ null, %.split.i ]
   br i1 %.not.i, label %.loopexit50.i.thread78, label %.loopexit50.i.thread
 
 .loopexit50.i.thread:                             ; preds = %.thread, %.loopexit50.i
@@ -1518,7 +1518,7 @@ define range(i32 0, 2) i32 @Abc_NtkRetimeNodeIsEnabled(ptr noundef readonly capt
   br i1 %.not26, label %22, label %.critedge
 
 .critedge:                                        ; preds = %14, %13, %23, %22, %.preheader27, %.preheader
-  %.015 = phi i32 [ 1, %.preheader27 ], [ 1, %22 ], [ 1, %.preheader ], [ 0, %23 ], [ 1, %13 ], [ 0, %14 ]
+  %.015 = phi i32 [ 1, %.preheader ], [ 1, %.preheader27 ], [ 0, %23 ], [ 1, %22 ], [ 0, %14 ], [ 1, %13 ]
   ret i32 %.015
 }
 

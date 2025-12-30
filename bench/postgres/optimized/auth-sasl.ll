@@ -153,7 +153,7 @@ define dso_local range(i32 -2, 1) i32 @CheckSASLAuth(ptr noundef readonly captur
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %64, %.loopexit.loopexit, %27
-  %.0 = phi i32 [ 0, %64 ], [ -1, %27 ], [ -2, %18 ], [ -1, %.loopexit.loopexit ]
+  %.0 = phi i32 [ -1, %27 ], [ 0, %64 ], [ -2, %18 ], [ -1, %.loopexit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -1193,7 +1193,7 @@ _ZNSt12__shared_ptrIN2cv13TrackerGOTURNELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
   br label %_ZL4helpv.exit
 
 402:                                              ; preds = %.loopexit, %.loopexit.split-lp, %217, %293, %289, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173, %247, %245, %234, %232, %222, %219, %354, %352, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156, %211, %209, %155
-  %.pn100 = phi { ptr, i32 } [ %156, %155 ], [ %210, %209 ], [ %214, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %212, %211 ], [ %290, %289 ], [ %294, %293 ], [ %218, %217 ], [ %220, %219 ], [ %286, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ %235, %234 ], [ %233, %232 ], [ %248, %247 ], [ %246, %245 ], [ %223, %222 ], [ %353, %352 ], [ %355, %354 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn100 = phi { ptr, i32 } [ %156, %155 ], [ %214, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %212, %211 ], [ %210, %209 ], [ %294, %293 ], [ %218, %217 ], [ %286, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ %235, %234 ], [ %233, %232 ], [ %248, %247 ], [ %246, %245 ], [ %223, %222 ], [ %220, %219 ], [ %290, %289 ], [ %355, %354 ], [ %353, %352 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt12__shared_ptrIN2cv8datasets10TRACK_alovELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
   br label %403
 
@@ -1738,12 +1738,12 @@ define internal void @_GLOBAL__sub_I_goturnTracker.cpp() #13 section ".text.star
   br label %19
 
 19:                                               ; preds = %17, %15, %13
-  %.017.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN2cv8datasetsL12sectionNamesB5cxx11E, i64 384), %17 ], [ getelementptr inbounds nuw (i8, ptr @_ZN2cv8datasetsL12sectionNamesB5cxx11E, i64 160), %13 ], [ getelementptr inbounds nuw (i8, ptr @_ZN2cv8datasetsL12sectionNamesB5cxx11E, i64 192), %15 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %18, %17 ], [ %14, %13 ], [ %16, %15 ]
+  %.017.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN2cv8datasetsL12sectionNamesB5cxx11E, i64 160), %13 ], [ getelementptr inbounds nuw (i8, ptr @_ZN2cv8datasetsL12sectionNamesB5cxx11E, i64 192), %15 ], [ getelementptr inbounds nuw (i8, ptr @_ZN2cv8datasetsL12sectionNamesB5cxx11E, i64 384), %17 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %14, %13 ], [ %16, %15 ], [ %18, %17 ]
   br label %20
 
 20:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %19
-  %21 = phi ptr [ %.017.i, %19 ], [ %22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
+  %21 = phi ptr [ %22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.017.i, %19 ]
   %22 = getelementptr inbounds i8, ptr %21, i64 -32
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %24 = getelementptr inbounds i8, ptr %21, i64 -16

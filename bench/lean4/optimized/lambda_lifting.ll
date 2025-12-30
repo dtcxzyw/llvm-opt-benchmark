@@ -345,7 +345,7 @@ _ZN4lean4nameaSERKS0_.exit:                       ; preds = %_ZN4lean3incEP11lea
   br label %2, !llvm.loop !13
 
 _ZNK4lean4name9is_atomicEv.exit.thread:           ; preds = %_ZNK4lean4name12is_anonymousEv.exit.i, %_ZNK4lean4name9is_atomicEv.exit, %33
-  %.0 = phi i1 [ true, %33 ], [ false, %_ZNK4lean4name9is_atomicEv.exit ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i ]
+  %.0 = phi i1 [ false, %_ZNK4lean4name9is_atomicEv.exit ], [ true, %33 ], [ false, %_ZNK4lean4name12is_anonymousEv.exit.i ]
   ret i1 %.0
 }
 
@@ -1386,7 +1386,7 @@ _ZN4lean10object_refD2Ev.exit36:                  ; preds = %_ZN4lean7mk_pairINS
   br label %.body
 
 .body:                                            ; preds = %127, %28, %113
-  %.pn19.pn.pn = phi { ptr, i32 } [ %.pn14.pn, %113 ], [ %29, %28 ], [ %128, %127 ]
+  %.pn19.pn.pn = phi { ptr, i32 } [ %.pn14.pn, %113 ], [ %128, %127 ], [ %29, %28 ]
   call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn19.pn.pn
@@ -3695,7 +3695,7 @@ _ZN4lean6bufferINS_4exprELm16EED2Ev.exit:         ; preds = %_ZN4lean6bufferINS_
   br label %196
 
 196:                                              ; preds = %120, %132, %195
-  %.pn16.pn.pn.pn = phi { ptr, i32 } [ %121, %120 ], [ %.pn12, %195 ], [ %.pn16.pn, %132 ]
+  %.pn16.pn.pn.pn = phi { ptr, i32 } [ %.pn12, %195 ], [ %.pn16.pn, %132 ], [ %121, %120 ]
   call void @_ZN4lean6bufferINS_4exprELm16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4lean4fletINS_9local_ctxEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
@@ -6303,7 +6303,7 @@ _ZN4lean6bufferINS_4exprELm16EED2Ev.exit:         ; preds = %_ZN4lean6bufferINS_
   ret void
 
 341:                                              ; preds = %234, %305, %310, %318, %220, %215, %95
-  %.pn53.pn = phi { ptr, i32 } [ %.pn53, %95 ], [ %.pn38, %305 ], [ %.pn36, %220 ], [ %.pn, %215 ], [ %.pn48.pn.pn, %234 ], [ %.pn43.pn, %318 ], [ %.pn40, %310 ]
+  %.pn53.pn = phi { ptr, i32 } [ %.pn53, %95 ], [ %.pn36, %220 ], [ %.pn, %215 ], [ %.pn48.pn.pn, %234 ], [ %.pn43.pn, %318 ], [ %.pn40, %310 ], [ %.pn38, %305 ]
   call void @_ZN4lean6bufferINS_4exprELm16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %7) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN4lean4fletINS_9local_ctxEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16

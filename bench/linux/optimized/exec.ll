@@ -924,7 +924,7 @@ define internal fastcc ptr @do_open_execat(i32 noundef %0, ptr noundef %1, i32 n
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.lr.ph, %.critedge, %17, %3
-  %55 = phi ptr [ %54, %.critedge ], [ inttoptr (i64 -22 to ptr), %3 ], [ %18, %17 ], [ %18, %.lr.ph ]
+  %55 = phi ptr [ %54, %.critedge ], [ %18, %17 ], [ inttoptr (i64 -22 to ptr), %3 ], [ %18, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %55
 }
@@ -1363,7 +1363,7 @@ define dso_local i32 @begin_new_exec(ptr noundef %0) #0 align 16 {
   br i1 %210, label %211, label %.preheader.i, !llvm.loop !42
 
 211:                                              ; preds = %207, %.preheader.i
-  %212 = phi ptr [ @init_user_ns, %207 ], [ %205, %.preheader.i ]
+  %212 = phi ptr [ %205, %.preheader.i ], [ @init_user_ns, %207 ]
   %213 = icmp eq ptr %203, %212
   br i1 %213, label %would_dump.exit, label %214
 
@@ -1724,7 +1724,7 @@ acct_arg_size.exit:                               ; preds = %223, %231
   br label %exec_mmap.exit
 
 exec_mmap.exit:                                   ; preds = %.loopexit, %94, %252, %acct_arg_size.exit, %413, %406, %402, %395, %180, %177, %67
-  %416 = phi i32 [ %68, %67 ], [ 0, %402 ], [ 0, %395 ], [ %239, %acct_arg_size.exit ], [ %178, %177 ], [ %185, %180 ], [ %407, %413 ], [ %407, %406 ], [ %247, %252 ], [ -11, %94 ], [ -11, %.loopexit ]
+  %416 = phi i32 [ %68, %67 ], [ 0, %402 ], [ 0, %395 ], [ %178, %177 ], [ %185, %180 ], [ %407, %406 ], [ %407, %413 ], [ %247, %252 ], [ %239, %acct_arg_size.exit ], [ -11, %94 ], [ -11, %.loopexit ]
   ret i32 %416
 }
 
@@ -1771,7 +1771,7 @@ define dso_local void @would_dump(ptr noundef captures(none) %0, ptr noundef rea
   br i1 %25, label %26, label %.preheader, !llvm.loop !42
 
 26:                                               ; preds = %22, %.preheader
-  %27 = phi ptr [ @init_user_ns, %22 ], [ %20, %.preheader ]
+  %27 = phi ptr [ %20, %.preheader ], [ @init_user_ns, %22 ]
   %28 = icmp eq ptr %18, %27
   br i1 %28, label %.thread, label %29
 
@@ -2373,7 +2373,7 @@ define dso_local i32 @kernel_execve(ptr noundef %0, ptr noundef readonly capture
   br label %.thread29
 
 .thread29:                                        ; preds = %37, %30, %63, %.preheader, %.lr.ph, %115, %.lr.ph52, %136, %.thread, %.thread34, %._crit_edge53, %88, %72, %49
-  %144 = phi i32 [ %47, %49 ], [ %73, %72 ], [ -514, %63 ], [ %96, %88 ], [ -514, %136 ], [ %109, %.lr.ph ], [ %143, %._crit_edge53 ], [ -7, %.thread34 ], [ -22, %.thread ], [ %130, %.lr.ph52 ], [ -514, %115 ], [ -7, %.preheader ], [ -514, %37 ], [ -7, %30 ]
+  %144 = phi i32 [ %47, %49 ], [ %73, %72 ], [ %96, %88 ], [ %143, %._crit_edge53 ], [ -7, %.thread34 ], [ -22, %.thread ], [ %130, %.lr.ph52 ], [ -514, %136 ], [ %109, %.lr.ph ], [ -514, %115 ], [ -7, %.preheader ], [ -514, %63 ], [ -7, %30 ], [ -514, %37 ]
   tail call fastcc void @free_bprm(ptr noundef %18)
   br label %145
 
@@ -2452,7 +2452,7 @@ define internal fastcc ptr @alloc_bprm(i32 noundef %0, ptr noundef %1, i32 nound
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %16, %31, %29, %19
-  %35 = phi ptr [ %.pre, %19 ], [ %26, %29 ], [ %26, %31 ], [ %.pre, %16 ]
+  %35 = phi ptr [ %.pre, %19 ], [ %26, %31 ], [ %26, %29 ], [ %.pre, %16 ]
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %35, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 104
@@ -3799,7 +3799,7 @@ define internal fastcc i32 @do_execveat_common(i32 noundef %0, ptr noundef %1, i
   br label %94
 
 94:                                               ; preds = %52, %92, %88, %81, %75, %65, %.thread, %47
-  %95 = phi i32 [ %38, %47 ], [ %50, %.thread ], [ %93, %92 ], [ %73, %65 ], [ %79, %75 ], [ %83, %81 ], [ %89, %88 ], [ -7, %52 ]
+  %95 = phi i32 [ %38, %47 ], [ %50, %.thread ], [ %73, %65 ], [ %79, %75 ], [ %83, %81 ], [ %89, %88 ], [ %93, %92 ], [ -7, %52 ]
   tail call fastcc void @free_bprm(ptr noundef %32)
   br label %96
 
@@ -3939,7 +3939,7 @@ define internal fastcc i32 @count(i8 range(i8 0, 2) %0, ptr %1) unnamed_addr #0 
   br label %.thread6
 
 .thread6:                                         ; preds = %50, %58, %63, %26, %18, %16, %31, %.thread6.loopexit31.split.loop.exit, %.thread6.loopexit.split.loop.exit43, %.split.us, %.split, %2
-  %75 = phi i32 [ 0, %2 ], [ %73, %.thread6.loopexit.split.loop.exit43 ], [ -14, %.split ], [ -14, %.split.us ], [ %74, %.thread6.loopexit31.split.loop.exit ], [ -14, %31 ], [ -514, %26 ], [ -7, %18 ], [ -14, %16 ], [ -7, %50 ], [ -14, %63 ], [ -514, %58 ]
+  %75 = phi i32 [ 0, %2 ], [ -14, %.split.us ], [ -14, %.split ], [ %73, %.thread6.loopexit.split.loop.exit43 ], [ %74, %.thread6.loopexit31.split.loop.exit ], [ -514, %26 ], [ -7, %18 ], [ -14, %16 ], [ -14, %31 ], [ -7, %50 ], [ -514, %58 ], [ -14, %63 ]
   ret i32 %75
 }
 
@@ -4152,8 +4152,8 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
   br i1 %140, label %54, label %.thread24.thread, !llvm.loop !90
 
 .thread24:                                        ; preds = %.loopexit, %38, %43, %47, %18, %28, %89, %68
-  %141 = phi ptr [ %55, %89 ], [ %55, %68 ], [ %13, %18 ], [ %13, %38 ], [ %13, %43 ], [ %13, %47 ], [ %13, %28 ], [ %55, %.loopexit ]
-  %142 = phi i32 [ -7, %89 ], [ -514, %68 ], [ -14, %18 ], [ -14, %38 ], [ -7, %43 ], [ -7, %47 ], [ -14, %28 ], [ 0, %.loopexit ]
+  %141 = phi ptr [ %55, %68 ], [ %55, %89 ], [ %55, %.loopexit ], [ %13, %38 ], [ %13, %43 ], [ %13, %47 ], [ %13, %18 ], [ %13, %28 ]
+  %142 = phi i32 [ -7, %89 ], [ -514, %68 ], [ 0, %.loopexit ], [ -14, %38 ], [ -7, %43 ], [ -7, %47 ], [ -14, %18 ], [ -14, %28 ]
   %143 = icmp eq ptr %141, null
   br i1 %143, label %.thread24.thread78, label %.thread24.thread
 

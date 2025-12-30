@@ -318,7 +318,7 @@ define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
   br label %78
 
 78:                                               ; preds = %72, %75, %37, %35, %32, %29, %11, %0, %61, %56, %49, %44, %26, %20, %8
-  %.046 = phi i32 [ 0, %8 ], [ 0, %20 ], [ 0, %26 ], [ 0, %49 ], [ 0, %61 ], [ 0, %72 ], [ 0, %0 ], [ %spec.select, %75 ], [ 0, %56 ], [ 0, %44 ], [ 0, %37 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %11 ]
+  %.046 = phi i32 [ 0, %8 ], [ 0, %20 ], [ 0, %26 ], [ 0, %49 ], [ 0, %61 ], [ 0, %72 ], [ 0, %56 ], [ 0, %44 ], [ 0, %37 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %11 ], [ 0, %0 ], [ %spec.select, %75 ]
   call void @OPENSSL_LH_free(ptr noundef %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.046
@@ -401,7 +401,7 @@ define internal range(i32 0, 2) i32 @test_stress() #0 {
   br i1 %exitcond39.not, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %30, %.thread, %13, %0, %7
-  %.021 = phi i32 [ 0, %7 ], [ 0, %.thread ], [ 0, %0 ], [ 0, %13 ], [ 1, %30 ]
+  %.021 = phi i32 [ 0, %7 ], [ 0, %13 ], [ 0, %0 ], [ 0, %.thread ], [ 1, %30 ]
   call void @OPENSSL_LH_free(ptr noundef %3) #13
   ret i32 %.021
 }
@@ -539,7 +539,7 @@ define internal range(i32 0, 2) i32 @test_int_hashtable() #0 {
   br i1 %exitcond48.not, label %.loopexit, label %42, !llvm.loop !40
 
 .loopexit:                                        ; preds = %52, %36, %20, %51, %48, %33, %28, %17
-  %.028 = phi i32 [ 0, %17 ], [ 0, %33 ], [ 0, %48 ], [ 0, %51 ], [ 0, %20 ], [ 0, %36 ], [ 0, %28 ], [ 1, %52 ]
+  %.028 = phi i32 [ 0, %17 ], [ 0, %33 ], [ 0, %48 ], [ 0, %51 ], [ 0, %36 ], [ 0, %28 ], [ 0, %20 ], [ 1, %52 ]
   call void @ossl_ht_free(ptr noundef nonnull %5) #13
   br label %54
 
@@ -704,7 +704,7 @@ ossl_ht_test_int_get.exit.us:                     ; preds = %53, %50, %47, %.pre
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %38, %.preheader.split.preheader, %.split.us, %.split48.us, %27, %1, %23, %17
-  %.029 = phi i32 [ 0, %23 ], [ 0, %17 ], [ 0, %.split.us ], [ 0, %1 ], [ 0, %27 ], [ 0, %.split48.us ], [ 1, %.preheader.split.preheader ], [ 1, %38 ], [ 1, %59 ]
+  %.029 = phi i32 [ 0, %23 ], [ 0, %17 ], [ 0, %27 ], [ 0, %1 ], [ 0, %.split48.us ], [ 0, %.split.us ], [ 1, %.preheader.split.preheader ], [ 1, %38 ], [ 1, %59 ]
   call void @ossl_ht_free(ptr noundef %7) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

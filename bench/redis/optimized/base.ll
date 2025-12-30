@@ -244,7 +244,7 @@ base_map.exit.thread60:                           ; preds = %47
   br label %tsd_fetch_impl.exit.i.i.i
 
 tsd_fetch_impl.exit.i.i.i:                        ; preds = %60, %56, %54
-  %62 = phi ptr [ %57, %56 ], [ %61, %60 ], [ %0, %54 ]
+  %62 = phi ptr [ %61, %60 ], [ %57, %56 ], [ %0, %54 ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 832
   %64 = load i8, ptr %63, align 8, !tbaa !16
   %65 = icmp eq i8 %64, 0
@@ -276,7 +276,7 @@ ehooks_pre_reentrancy.exit.i.i:                   ; preds = %69, %tsd_fetch_impl
   br label %tsd_fetch_impl.exit.i27.i.i
 
 tsd_fetch_impl.exit.i27.i.i:                      ; preds = %76, %72, %ehooks_pre_reentrancy.exit.i.i
-  %78 = phi ptr [ %73, %72 ], [ %77, %76 ], [ %0, %ehooks_pre_reentrancy.exit.i.i ]
+  %78 = phi ptr [ %77, %76 ], [ %73, %72 ], [ %0, %ehooks_pre_reentrancy.exit.i.i ]
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 1
   %80 = load i8, ptr %79, align 1, !tbaa !16
   %81 = add i8 %80, -1
@@ -289,7 +289,7 @@ tsd_fetch_impl.exit.i27.i.i:                      ; preds = %76, %72, %ehooks_pr
   br label %base_map.exit
 
 base_map.exit:                                    ; preds = %52, %tsd_fetch_impl.exit.i27.i.i, %83
-  %.0.i54 = phi ptr [ %71, %tsd_fetch_impl.exit.i27.i.i ], [ %71, %83 ], [ %53, %52 ]
+  %.0.i54 = phi ptr [ %53, %52 ], [ %71, %tsd_fetch_impl.exit.i27.i.i ], [ %71, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %84 = icmp eq ptr %.0.i54, null
@@ -424,7 +424,7 @@ base_auto_thp_switch.exit.thread:                 ; preds = %128, %malloc_mutex_
   %142 = call zeroext i1 @je_pages_huge(ptr noundef nonnull %.0.i5462, i64 noundef %43) #9
   br label %base_auto_thp_switch.exit.thread71
 
-base_auto_thp_switch.exit.thread71:               ; preds = %base_get_num_blocks.exit.i, %126, %base_auto_thp_switch.exit.thread, %base_auto_thp_switch.exit
+base_auto_thp_switch.exit.thread71:               ; preds = %126, %base_get_num_blocks.exit.i, %base_auto_thp_switch.exit.thread, %base_auto_thp_switch.exit
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store atomic i8 0, ptr %143 monotonic, align 1
   %144 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %99) #9
@@ -538,7 +538,7 @@ define internal fastcc void @base_unmap(ptr noundef %0, ptr noundef readonly cap
   br label %tsd_fetch_impl.exit.i.i
 
 tsd_fetch_impl.exit.i.i:                          ; preds = %31, %27, %25
-  %33 = phi ptr [ %28, %27 ], [ %32, %31 ], [ %0, %25 ]
+  %33 = phi ptr [ %32, %31 ], [ %28, %27 ], [ %0, %25 ]
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 832
   %35 = load i8, ptr %34, align 8, !tbaa !16
   %36 = icmp eq i8 %35, 0
@@ -570,7 +570,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %40, %tsd_fetch_impl
   br label %tsd_fetch_impl.exit.i15.i
 
 tsd_fetch_impl.exit.i15.i:                        ; preds = %47, %43, %ehooks_pre_reentrancy.exit.i
-  %49 = phi ptr [ %44, %43 ], [ %48, %47 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
+  %49 = phi ptr [ %48, %47 ], [ %44, %43 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %51 = load i8, ptr %50, align 1, !tbaa !16
   %52 = add i8 %51, -1
@@ -617,7 +617,7 @@ ehooks_dalloc.exit.thread:                        ; preds = %21, %54, %19, %ehoo
   br label %tsd_fetch_impl.exit.i.i30
 
 tsd_fetch_impl.exit.i.i30:                        ; preds = %69, %65, %63
-  %71 = phi ptr [ %66, %65 ], [ %70, %69 ], [ %0, %63 ]
+  %71 = phi ptr [ %70, %69 ], [ %66, %65 ], [ %0, %63 ]
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 832
   %73 = load i8, ptr %72, align 8, !tbaa !16
   %74 = icmp eq i8 %73, 0
@@ -649,7 +649,7 @@ ehooks_pre_reentrancy.exit.i31:                   ; preds = %78, %tsd_fetch_impl
   br label %tsd_fetch_impl.exit.i17.i
 
 tsd_fetch_impl.exit.i17.i:                        ; preds = %85, %81, %ehooks_pre_reentrancy.exit.i31
-  %87 = phi ptr [ %82, %81 ], [ %86, %85 ], [ %0, %ehooks_pre_reentrancy.exit.i31 ]
+  %87 = phi ptr [ %86, %85 ], [ %82, %81 ], [ %0, %ehooks_pre_reentrancy.exit.i31 ]
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
   %89 = load i8, ptr %88, align 1, !tbaa !16
   %90 = add i8 %89, -1
@@ -696,7 +696,7 @@ ehooks_decommit.exit.thread:                      ; preds = %59, %92, %57, %ehoo
   br label %tsd_fetch_impl.exit.i.i36
 
 tsd_fetch_impl.exit.i.i36:                        ; preds = %107, %103, %101
-  %109 = phi ptr [ %104, %103 ], [ %108, %107 ], [ %0, %101 ]
+  %109 = phi ptr [ %108, %107 ], [ %104, %103 ], [ %0, %101 ]
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 832
   %111 = load i8, ptr %110, align 8, !tbaa !16
   %112 = icmp eq i8 %111, 0
@@ -728,7 +728,7 @@ ehooks_pre_reentrancy.exit.i37:                   ; preds = %116, %tsd_fetch_imp
   br label %tsd_fetch_impl.exit.i17.i39
 
 tsd_fetch_impl.exit.i17.i39:                      ; preds = %123, %119, %ehooks_pre_reentrancy.exit.i37
-  %125 = phi ptr [ %120, %119 ], [ %124, %123 ], [ %0, %ehooks_pre_reentrancy.exit.i37 ]
+  %125 = phi ptr [ %124, %123 ], [ %120, %119 ], [ %0, %ehooks_pre_reentrancy.exit.i37 ]
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 1
   %127 = load i8, ptr %126, align 1, !tbaa !16
   %128 = add i8 %127, -1
@@ -775,7 +775,7 @@ ehooks_purge_forced.exit.thread:                  ; preds = %97, %130, %95, %eho
   br label %tsd_fetch_impl.exit.i.i44
 
 tsd_fetch_impl.exit.i.i44:                        ; preds = %145, %141, %139
-  %147 = phi ptr [ %142, %141 ], [ %146, %145 ], [ %0, %139 ]
+  %147 = phi ptr [ %146, %145 ], [ %142, %141 ], [ %0, %139 ]
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 832
   %149 = load i8, ptr %148, align 8, !tbaa !16
   %150 = icmp eq i8 %149, 0
@@ -807,7 +807,7 @@ ehooks_pre_reentrancy.exit.i45:                   ; preds = %154, %tsd_fetch_imp
   br label %tsd_fetch_impl.exit.i17.i47
 
 tsd_fetch_impl.exit.i17.i47:                      ; preds = %161, %157, %ehooks_pre_reentrancy.exit.i45
-  %163 = phi ptr [ %158, %157 ], [ %162, %161 ], [ %0, %ehooks_pre_reentrancy.exit.i45 ]
+  %163 = phi ptr [ %162, %161 ], [ %158, %157 ], [ %0, %ehooks_pre_reentrancy.exit.i45 ]
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 1
   %165 = load i8, ptr %164, align 1, !tbaa !16
   %166 = add i8 %165, -1
@@ -1192,7 +1192,7 @@ malloc_mutex_lock.exit.i:                         ; preds = %71, %67
   br label %base_extent_alloc.exit
 
 base_extent_alloc.exit:                           ; preds = %malloc_mutex_lock.exit.i, %.loopexit, %121
-  %.0 = phi ptr [ %112, %.loopexit ], [ %112, %121 ], [ null, %malloc_mutex_lock.exit.i ]
+  %.0 = phi ptr [ %112, %121 ], [ %112, %.loopexit ], [ null, %malloc_mutex_lock.exit.i ]
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store atomic i8 0, ptr %123 monotonic, align 1
   %124 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %15) #9

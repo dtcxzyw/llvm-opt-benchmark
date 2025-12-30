@@ -783,7 +783,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %23
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !60
 
 .loopexit:                                        ; preds = %41, %1, %pmix_obj_update.exit, %36, %34
-  %.0 = phi i32 [ 0, %pmix_obj_update.exit ], [ 0, %34 ], [ 0, %36 ], [ -13, %1 ], [ -13, %41 ]
+  %.0 = phi i32 [ 0, %34 ], [ 0, %36 ], [ 0, %pmix_obj_update.exit ], [ -13, %1 ], [ -13, %41 ]
   ret i32 %.0
 }
 
@@ -1359,7 +1359,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %23
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !69
 
 .loopexit:                                        ; preds = %41, %1, %pmix_obj_update.exit, %36, %34
-  %.0 = phi i32 [ 0, %pmix_obj_update.exit ], [ 0, %34 ], [ 0, %36 ], [ -13, %1 ], [ -13, %41 ]
+  %.0 = phi i32 [ 0, %34 ], [ 0, %36 ], [ 0, %pmix_obj_update.exit ], [ -13, %1 ], [ -13, %41 ]
   ret i32 %.0
 }
 
@@ -1770,8 +1770,8 @@ define void @prte_state_base_notify_data_server(ptr noundef %0) local_unnamed_ad
   br i1 %.not24, label %27, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %10, %8, %5
-  %.sink29 = phi i32 [ %9, %8 ], [ %7, %5 ], [ %11, %10 ]
-  %.sink28 = phi i32 [ 395, %8 ], [ 387, %5 ], [ 403, %10 ]
+  %.sink29 = phi i32 [ %7, %5 ], [ %9, %8 ], [ %11, %10 ]
+  %.sink28 = phi i32 [ 387, %5 ], [ 395, %8 ], [ 403, %10 ]
   %26 = call ptr @PMIx_Error_string(i32 noundef %.sink29) #14
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef %26, ptr noundef nonnull @.str.15, i32 noundef %.sink28) #14
   br label %.sink.split
@@ -3871,8 +3871,8 @@ pmix_obj_run_destructors.exit296:                 ; preds = %.lr.ph.i293, %488
   br label %544
 
 544:                                              ; preds = %510, %511, %517, %pmix_obj_update.exit237, %501, %499, %428, %542, %525, %524, %502, %463, %421, %pmix_pointer_array_get_item.exit291
-  %.1189 = phi i1 [ %.0188324, %pmix_pointer_array_get_item.exit291 ], [ %.0188324, %421 ], [ true, %463 ], [ %.0188324, %524 ], [ %.0188324, %428 ], [ %.0188324, %502 ], [ %.0188324, %pmix_obj_update.exit237 ], [ %.0188324, %542 ], [ %.0188324, %525 ], [ %.0188324, %499 ], [ %.0188324, %501 ], [ true, %517 ], [ true, %511 ], [ true, %510 ]
-  %.2 = phi ptr [ %.1326, %pmix_pointer_array_get_item.exit291 ], [ %.1326, %421 ], [ %.1326, %463 ], [ %.1326, %524 ], [ %.1326, %428 ], [ %.1326, %502 ], [ %.1326, %pmix_obj_update.exit237 ], [ %.1326, %542 ], [ %.1326, %525 ], [ null, %499 ], [ null, %501 ], [ %.1326, %517 ], [ %.1326, %511 ], [ %.1326, %510 ]
+  %.1189 = phi i1 [ %.0188324, %pmix_pointer_array_get_item.exit291 ], [ %.0188324, %421 ], [ true, %463 ], [ %.0188324, %502 ], [ %.0188324, %542 ], [ %.0188324, %525 ], [ %.0188324, %524 ], [ %.0188324, %428 ], [ %.0188324, %499 ], [ %.0188324, %501 ], [ %.0188324, %pmix_obj_update.exit237 ], [ true, %517 ], [ true, %511 ], [ true, %510 ]
+  %.2 = phi ptr [ %.1326, %pmix_pointer_array_get_item.exit291 ], [ %.1326, %421 ], [ %.1326, %463 ], [ %.1326, %502 ], [ %.1326, %542 ], [ %.1326, %525 ], [ %.1326, %524 ], [ %.1326, %428 ], [ null, %499 ], [ null, %501 ], [ %.1326, %pmix_obj_update.exit237 ], [ %.1326, %517 ], [ %.1326, %511 ], [ %.1326, %510 ]
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
   %545 = load ptr, ptr @prte_job_data, align 8, !tbaa !119
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 128

@@ -160,7 +160,7 @@ define void @dgelsy_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not353, label %94, label %.thread373
 
 .thread373.sink.split:                            ; preds = %87, %55, %52, %49, %46, %13
-  %.sink = phi i32 [ -1, %13 ], [ -3, %49 ], [ -5, %52 ], [ -2, %46 ], [ -7, %55 ], [ -12, %87 ]
+  %.sink = phi i32 [ -1, %13 ], [ -2, %46 ], [ -3, %49 ], [ -5, %52 ], [ -7, %55 ], [ -12, %87 ]
   store i32 %.sink, ptr %12, align 4, !tbaa !3
   br label %.thread373
 

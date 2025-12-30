@@ -878,13 +878,13 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit71: ; preds = %_ZNSt6vecto
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65: ; preds = %50, %74, %69, %.critedge62, %85
-  %.4 = phi i1 [ true, %.critedge62 ], [ false, %74 ], [ true, %85 ], [ false, %69 ], [ false, %50 ]
+  %.4 = phi i1 [ true, %85 ], [ true, %.critedge62 ], [ false, %69 ], [ false, %74 ], [ false, %50 ]
   tail call void @_ZdaPv(ptr noundef nonnull %28) #17
   tail call void @_ZdaPv(ptr noundef nonnull %27) #17
   br label %86
 
 86:                                               ; preds = %3, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65
-  %.0 = phi i1 [ false, %3 ], [ %.4, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65 ]
+  %.0 = phi i1 [ %.4, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -1060,7 +1060,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %16, %18, %20, %22
   br label %_ZN5draco13DecoderBuffer6DecodeEPvm.exit
 
 _ZN5draco13DecoderBuffer6DecodeEPvm.exit:         ; preds = %54, %48, %39, %32, %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %.0 = phi i1 [ false, %32 ], [ false, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ true, %54 ], [ false, %48 ], [ false, %39 ]
+  %.0 = phi i1 [ false, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ false, %32 ], [ true, %54 ], [ false, %48 ], [ false, %39 ]
   ret i1 %.0
 }
 
@@ -1377,7 +1377,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !36
   br label %41
 

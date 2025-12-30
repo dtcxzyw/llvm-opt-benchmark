@@ -401,8 +401,8 @@ define hidden noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15Dependenc
   resume { ptr, i32 } %lpad.phi2531
 
 .thread26:                                        ; preds = %.thread37.loopexit, %.thread37.loopexit.split-lp, %29, %26
-  %.sroa.0.02332 = phi ptr [ %0, %29 ], [ %0, %26 ], [ %.sroa.0.1, %.thread37.loopexit ], [ %0, %.thread37.loopexit.split-lp ]
-  %lpad.phi2531 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %29 ], [ %lpad.thr_comm.split-lp, %26 ], [ %lpad.loopexit, %.thread37.loopexit ], [ %lpad.loopexit.split-lp, %.thread37.loopexit.split-lp ]
+  %.sroa.0.02332 = phi ptr [ %0, %26 ], [ %0, %29 ], [ %.sroa.0.1, %.thread37.loopexit ], [ %0, %.thread37.loopexit.split-lp ]
+  %lpad.phi2531 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %26 ], [ %lpad.thr_comm.split-lp, %29 ], [ %lpad.loopexit, %.thread37.loopexit ], [ %lpad.loopexit.split-lp, %.thread37.loopexit.split-lp ]
   %32 = cmpxchg ptr %.sroa.0.02332, i8 1, i8 0 release monotonic, align 1
   %33 = extractvalue { i8, i1 } %32, 1
   br i1 %33, label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17hec7519f116e4eedbE.exit14", label %34, !prof !20
@@ -627,7 +627,7 @@ _ZN5salsa5table4Page3get17h1d3d737e2efd6327E.exit: ; preds = %27
   %54 = insertvalue { ptr, ptr } %53, ptr %49, 1
   ret { ptr, ptr } %54
 
-"_ZN6boxcar3raw12Vec$LT$T$GT$7get_mut17h9c2e85dcc22da1e0E.exit.thread": ; preds = %2, %20
+"_ZN6boxcar3raw12Vec$LT$T$GT$7get_mut17h9c2e85dcc22da1e0E.exit.thread": ; preds = %20, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %9, ptr %7, align 8

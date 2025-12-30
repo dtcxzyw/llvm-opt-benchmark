@@ -408,7 +408,7 @@ define internal i32 @be_ssl_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef cap
   br label %26
 
 26:                                               ; preds = %3, %4, %23, %18, %11
-  %.0 = phi i32 [ %10, %4 ], [ 0, %23 ], [ %17, %11 ], [ 0, %18 ], [ -1, %3 ]
+  %.0 = phi i32 [ %17, %11 ], [ 0, %18 ], [ 0, %23 ], [ %10, %4 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -614,7 +614,7 @@ define internal fastcc i32 @set_handshake_callbacks(ptr noundef %0, i32 noundef 
   br label %30
 
 30:                                               ; preds = %19, %26, %7, %5, %10
-  %.0 = phi i32 [ 1, %7 ], [ 0, %5 ], [ %11, %10 ], [ 0, %26 ], [ 0, %19 ]
+  %.0 = phi i32 [ %11, %10 ], [ 0, %5 ], [ 1, %7 ], [ 0, %26 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -803,7 +803,7 @@ bufferevent_ssl_stop_writing.exit:                ; preds = %78, %84, %85
   br label %start_writing.exit
 
 start_writing.exit:                               ; preds = %99, %96, %91, %90, %69, %66, %62, %61, %58, %103, %1, %24
-  %.0 = phi i32 [ 1, %24 ], [ -1, %1 ], [ -1, %103 ], [ 0, %66 ], [ 0, %61 ], [ 0, %58 ], [ %65, %62 ], [ %72, %69 ], [ 0, %90 ], [ %102, %99 ], [ 0, %96 ], [ %94, %91 ]
+  %.0 = phi i32 [ 1, %24 ], [ -1, %1 ], [ -1, %103 ], [ 0, %61 ], [ 0, %58 ], [ %65, %62 ], [ %72, %69 ], [ 0, %66 ], [ 0, %90 ], [ %102, %99 ], [ 0, %96 ], [ %94, %91 ]
   ret i32 %.0
 }
 
@@ -944,7 +944,7 @@ be_ssl_auto_fd.exit:                              ; preds = %31, %43, %48
   br label %72
 
 72:                                               ; preds = %66, %69, %67, %51, %55, %52
-  %.0 = phi ptr [ %12, %51 ], [ %12, %52 ], [ %12, %55 ], [ null, %67 ], [ null, %69 ], [ null, %66 ]
+  %.0 = phi ptr [ %12, %52 ], [ %12, %55 ], [ %12, %51 ], [ null, %67 ], [ null, %69 ], [ null, %66 ]
   ret ptr %.0
 }
 
@@ -1066,7 +1066,7 @@ define internal fastcc range(i32 -1, 1) i32 @be_ssl_set_fd(ptr noundef %0, i32 n
   br label %45
 
 45:                                               ; preds = %3, %41, %34, %26, %19, %11, %44
-  %.0 = phi i32 [ -1, %41 ], [ -1, %11 ], [ 0, %44 ], [ -1, %34 ], [ -1, %26 ], [ -1, %19 ], [ -1, %3 ]
+  %.0 = phi i32 [ 0, %44 ], [ -1, %11 ], [ -1, %19 ], [ -1, %26 ], [ -1, %34 ], [ -1, %41 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -1217,7 +1217,7 @@ define i64 @bufferevent_ssl_set_flags(ptr noundef captures(none) %0, i64 noundef
   br label %23
 
 23:                                               ; preds = %.thread, %14, %20, %2, %4
-  %.0 = phi i64 [ -1, %2 ], [ -1, %4 ], [ %18, %20 ], [ %18, %14 ], [ %12, %.thread ]
+  %.0 = phi i64 [ -1, %4 ], [ -1, %2 ], [ %18, %20 ], [ %18, %14 ], [ %12, %.thread ]
   ret i64 %.0
 }
 
@@ -1267,7 +1267,7 @@ define i64 @bufferevent_ssl_clear_flags(ptr noundef captures(none) %0, i64 nound
   br label %25
 
 25:                                               ; preds = %.thread, %15, %22, %2, %4
-  %.0 = phi i64 [ -1, %2 ], [ -1, %4 ], [ %19, %22 ], [ %19, %15 ], [ %12, %.thread ]
+  %.0 = phi i64 [ -1, %4 ], [ -1, %2 ], [ %19, %22 ], [ %19, %15 ], [ %12, %.thread ]
   ret i64 %.0
 }
 
@@ -1306,7 +1306,7 @@ define hidden range(i32 -1, 2) i32 @bufferevent_ssl_get_allow_dirty_shutdown(ptr
   br label %bufferevent_ssl_get_flags.exit
 
 bufferevent_ssl_get_flags.exit:                   ; preds = %.thread.i, %10, %15
-  %.0.i = phi i64 [ %9, %.thread.i ], [ %14, %15 ], [ %14, %10 ]
+  %.0.i = phi i64 [ %14, %15 ], [ %14, %10 ], [ %9, %.thread.i ]
   %.0.i.fr = freeze i64 %.0.i
   %18 = icmp eq i64 %.0.i.fr, -1
   %19 = trunc i64 %.0.i.fr to i32
@@ -1676,7 +1676,7 @@ split:                                            ; preds = %3, %._crit_edge55
   %28 = trunc i64 %27 to i32
   br label %bytes_to_read.exit
 
-bytes_to_read.exit.thread:                        ; preds = %22, %10, %16
+bytes_to_read.exit.thread:                        ; preds = %10, %16, %22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 388
   br label %bufferevent_trigger_nolock_.exit
 
@@ -1797,7 +1797,7 @@ bytes_to_read.exit47:                             ; preds = %72, %45
   br label %bufferevent_trigger_nolock_.exit
 
 bufferevent_trigger_nolock_.exit:                 ; preds = %bytes_to_read.exit.thread, %bytes_to_read.exit, %85, %80, %._crit_edge
-  %86 = phi ptr [ %35, %._crit_edge ], [ %35, %85 ], [ %35, %80 ], [ %29, %bytes_to_read.exit.thread ], [ %35, %bytes_to_read.exit ]
+  %86 = phi ptr [ %35, %85 ], [ %35, %80 ], [ %35, %._crit_edge ], [ %29, %bytes_to_read.exit.thread ], [ %35, %bytes_to_read.exit ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %88 = load ptr, ptr %87, align 8
   %.not35 = icmp eq ptr %88, null
@@ -2072,7 +2072,7 @@ define internal fastcc range(i32 0, 8) i32 @do_write(ptr noundef %0) unnamed_add
   br label %bufferevent_trigger_nolock_.exit
 
 bufferevent_trigger_nolock_.exit:                 ; preds = %52, %20, %101, %86, %132, %127, %.loopexit, %16, %113
-  %.0 = phi i32 [ %.178155, %132 ], [ %114, %113 ], [ %87, %86 ], [ 4, %16 ], [ %.178, %.loopexit ], [ %.178155, %127 ], [ %102, %101 ], [ 0, %20 ], [ 5, %52 ]
+  %.0 = phi i32 [ %114, %113 ], [ 4, %16 ], [ %.178, %.loopexit ], [ %.178155, %127 ], [ %.178155, %132 ], [ %102, %101 ], [ %87, %86 ], [ 0, %20 ], [ 5, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -2284,7 +2284,7 @@ define internal fastcc range(i32 0, 6) i32 @do_read(ptr noundef %0, i32 noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %.preheader, %67, %80, %.thread.thread, %100, %103, %93, %8, %2
-  %.0 = phi i32 [ %.172170, %.thread.thread ], [ 0, %2 ], [ %68, %67 ], [ 4, %8 ], [ %.172170, %93 ], [ %.172170, %103 ], [ %.172170, %100 ], [ %81, %80 ], [ 0, %.preheader ], [ 5, %38 ]
+  %.0 = phi i32 [ 0, %2 ], [ 4, %8 ], [ %.172170, %93 ], [ %.172170, %103 ], [ %.172170, %100 ], [ %.172170, %.thread.thread ], [ %68, %67 ], [ %81, %80 ], [ 0, %.preheader ], [ 5, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2749,8 +2749,8 @@ split:                                            ; preds = %7, %bufferevent_tri
   br i1 %.not49, label %.split, label %.critedge
 
 .critedge:                                        ; preds = %61, %.split, %55, %57, %.critedge2.thread.thread, %51, %46, %44, %.split.us.split, %.critedge2.us.us, %39, %37, %.split.us.split.us
-  %67 = phi ptr [ %34, %.critedge2.us.us ], [ %30, %51 ], [ %34, %.split.us.split.us ], [ %34, %37 ], [ %34, %39 ], [ %30, %.split.us.split ], [ %30, %44 ], [ %30, %46 ], [ %30, %.critedge2.thread.thread ], [ %30, %57 ], [ %30, %55 ], [ %30, %.split ], [ %30, %61 ]
-  %68 = phi ptr [ %33, %.critedge2.us.us ], [ %29, %51 ], [ %33, %.split.us.split.us ], [ %33, %37 ], [ %33, %39 ], [ %29, %.split.us.split ], [ %29, %44 ], [ %29, %46 ], [ %29, %.critedge2.thread.thread ], [ %29, %57 ], [ %29, %55 ], [ %29, %.split ], [ %29, %61 ]
+  %67 = phi ptr [ %34, %.split.us.split.us ], [ %34, %37 ], [ %34, %39 ], [ %34, %.critedge2.us.us ], [ %30, %.split.us.split ], [ %30, %44 ], [ %30, %46 ], [ %30, %51 ], [ %30, %.critedge2.thread.thread ], [ %30, %57 ], [ %30, %55 ], [ %30, %.split ], [ %30, %61 ]
+  %68 = phi ptr [ %33, %.split.us.split.us ], [ %33, %37 ], [ %33, %39 ], [ %33, %.critedge2.us.us ], [ %29, %.split.us.split ], [ %29, %44 ], [ %29, %46 ], [ %29, %51 ], [ %29, %.critedge2.thread.thread ], [ %29, %57 ], [ %29, %55 ], [ %29, %.split ], [ %29, %61 ]
   %69 = load ptr, ptr %21, align 8
   %.not50 = icmp eq ptr %69, null
   br i1 %.not50, label %70, label %80

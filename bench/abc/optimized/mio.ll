@@ -270,7 +270,7 @@ define internal range(i32 0, 2) i32 @Mio_CommandReadGenlib(ptr noundef %0, i32 n
   br label %88
 
 .loopexit.sink.split:                             ; preds = %19, %26, %8
-  %.str.13.sink = phi ptr [ @.str.11, %8 ], [ @.str.13, %26 ], [ @.str.12, %19 ]
+  %.str.13.sink = phi ptr [ @.str.13, %26 ], [ @.str.11, %8 ], [ @.str.12, %19 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull %.str.13.sink)
   br label %.loopexit
 

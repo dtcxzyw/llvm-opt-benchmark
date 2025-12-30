@@ -214,7 +214,7 @@ define dso_local noundef zeroext i1 @__refrigerator(i1 noundef zeroext %0) #0 al
   br label %.split
 
 .split3.us:                                       ; preds = %.split, %42, %46, %55, %58, %.split.us, %17, %21, %30, %33
-  %.us-phi = phi i1 [ %15, %.split.us ], [ %15, %33 ], [ %15, %30 ], [ %15, %21 ], [ %15, %17 ], [ %40, %58 ], [ %40, %55 ], [ %40, %46 ], [ %40, %42 ], [ %40, %.split ]
+  %.us-phi = phi i1 [ %15, %33 ], [ %15, %30 ], [ %15, %21 ], [ %15, %17 ], [ %15, %.split.us ], [ %40, %58 ], [ %40, %55 ], [ %40, %46 ], [ %40, %42 ], [ %40, %.split ]
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @freezer_lock) #5
   br label %.loopexit
 

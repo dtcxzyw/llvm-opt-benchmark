@@ -134,8 +134,8 @@ define dso_local void @gistSplitByKey(ptr noundef %0, ptr noundef %1, ptr nounde
   %76 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %28, i32 noundef %16, ptr noundef %29) #7
   br label %index_getattr.exit.thread
 
-index_getattr.exit.thread:                        ; preds = %67, %75, %51, %54, %57, %60, %65
-  %.1.i.ph = phi i64 [ %61, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %51 ], [ %68, %67 ], [ %76, %75 ], [ %66, %65 ]
+index_getattr.exit.thread:                        ; preds = %75, %51, %54, %57, %60, %65, %67
+  %.1.i.ph = phi i64 [ %66, %65 ], [ %61, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %51 ], [ %68, %67 ], [ %76, %75 ]
   %77 = sext i32 %.0143156 to i64
   %78 = getelementptr inbounds %struct.GISTENTRY, ptr %23, i64 %77
   %79 = trunc i32 %.0143156 to i16
@@ -1295,8 +1295,8 @@ placeOne.exit:                                    ; preds = %._crit_edge.i136, %
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
-.critedge:                                        ; preds = %216, %306, %307, %207, %findDontCares.exit, %placeOne.exit
-  %.1 = phi i1 [ false, %207 ], [ false, %placeOne.exit ], [ false, %findDontCares.exit ], [ true, %307 ], [ true, %306 ], [ true, %216 ]
+.critedge:                                        ; preds = %306, %216, %307, %207, %findDontCares.exit, %placeOne.exit
+  %.1 = phi i1 [ false, %placeOne.exit ], [ false, %findDontCares.exit ], [ false, %207 ], [ true, %307 ], [ true, %216 ], [ true, %306 ]
   ret i1 %.1
 }
 

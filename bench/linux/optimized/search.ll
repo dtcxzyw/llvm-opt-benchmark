@@ -206,7 +206,7 @@ select.unfold:                                    ; preds = %83, %74, %69, %117,
   br i1 %125, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %42, %60, %117, %74, %83, %select.unfold, %25, %.thread, %3
-  %126 = phi i32 [ %33, %25 ], [ %15, %3 ], [ 0, %.thread ], [ 0, %select.unfold ], [ %81, %74 ], [ 0, %60 ], [ %119, %117 ], [ %94, %83 ], [ %50, %42 ]
+  %126 = phi i32 [ %15, %3 ], [ 0, %.thread ], [ %33, %25 ], [ %119, %117 ], [ %94, %83 ], [ %81, %74 ], [ 0, %60 ], [ 0, %select.unfold ], [ %50, %42 ]
   ret i32 %126
 }
 

@@ -299,7 +299,7 @@ define dso_local range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nou
   br label %128
 
 128:                                              ; preds = %.loopexit, %.loopexit.thread
-  %129 = phi i32 [ %spec.select, %.loopexit ], [ %113, %.loopexit.thread ]
+  %129 = phi i32 [ %113, %.loopexit.thread ], [ %spec.select, %.loopexit ]
   %130 = add nuw nsw i32 %129, %47
   br label %131
 
@@ -376,7 +376,7 @@ define dso_local range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nou
   br label %.outer
 
 .thread21:                                        ; preds = %151, %64, %131, %32, %21, %.thread16
-  %156 = phi i32 [ 0, %.thread16 ], [ 0, %151 ], [ -22, %64 ], [ -2, %21 ], [ -22, %131 ], [ -2, %32 ]
+  %156 = phi i32 [ 0, %.thread16 ], [ 0, %151 ], [ -22, %131 ], [ -2, %32 ], [ -2, %21 ], [ -22, %64 ]
   ret i32 %156
 }
 

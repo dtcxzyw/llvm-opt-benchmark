@@ -872,7 +872,7 @@ switch.lookup:                                    ; preds = %.split
   br label %70
 
 68:                                               ; preds = %.split, %49, %31, %32, %33, %61
-  %.070 = phi ptr [ %.str.18..str.19, %61 ], [ @.str.10, %31 ], [ @.str.11, %32 ], [ @.str.12, %33 ], [ @.str.18, %49 ], [ @.str.18, %.split ]
+  %.070 = phi ptr [ @.str.10, %31 ], [ @.str.11, %32 ], [ @.str.12, %33 ], [ %.str.18..str.19, %61 ], [ @.str.18, %49 ], [ @.str.18, %.split ]
   %69 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %8, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %.070) #30
   br label %70
 
@@ -1460,7 +1460,7 @@ define internal i64 @php_zend_stream_fsizer(ptr noundef %0) #2 {
   br label %11
 
 11:                                               ; preds = %5, %1, %8
-  %.0 = phi i64 [ 0, %1 ], [ %10, %8 ], [ 0, %5 ]
+  %.0 = phi i64 [ %10, %8 ], [ 0, %1 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
@@ -2280,7 +2280,7 @@ zend_hash_str_find_ptr.exit.thread:               ; preds = %89, %91, %87
   br label %110
 
 110:                                              ; preds = %109, %104, %103
-  %.1.i = phi ptr [ %spec.select.i, %109 ], [ null, %103 ], [ null, %104 ]
+  %.1.i = phi ptr [ null, %104 ], [ null, %103 ], [ %spec.select.i, %109 ]
   %111 = getelementptr inbounds nuw i8, ptr %.0.i43, i64 1
   br label %101
 
@@ -2375,7 +2375,7 @@ zend_hash_str_find_ptr.exit38.thread:             ; preds = %php_disable_classes
   br label %146
 
 146:                                              ; preds = %zend_hash_str_find_ptr.exit38.thread, %84, %php_binary_init.exit, %2, %.loopexit, %80, %72
-  %.022 = phi i32 [ %.024, %.loopexit ], [ 0, %2 ], [ -1, %72 ], [ -1, %80 ], [ -1, %php_binary_init.exit ], [ -1, %84 ], [ -1, %zend_hash_str_find_ptr.exit38.thread ]
+  %.022 = phi i32 [ -1, %72 ], [ -1, %80 ], [ %.024, %.loopexit ], [ 0, %2 ], [ -1, %php_binary_init.exit ], [ -1, %84 ], [ -1, %zend_hash_str_find_ptr.exit38.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.022
@@ -2454,7 +2454,7 @@ zend_string_equals.exit141.thread:                ; preds = %26, %zend_string_eq
   br label %zend_string_equals.exit.thread146
 
 zend_string_equals.exit.thread146:                ; preds = %29, %15, %4, %zend_string_equals.exit, %24, %zend_string_equals.exit141, %zend_string_equals.exit141.thread
-  %.0102 = phi i1 [ false, %zend_string_equals.exit141.thread ], [ true, %zend_string_equals.exit ], [ true, %zend_string_equals.exit141 ], [ true, %24 ], [ true, %4 ], [ true, %15 ], [ true, %29 ]
+  %.0102 = phi i1 [ false, %zend_string_equals.exit141.thread ], [ true, %zend_string_equals.exit141 ], [ true, %24 ], [ true, %zend_string_equals.exit ], [ true, %4 ], [ true, %15 ], [ true, %29 ]
   %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8, !tbaa !186
   %37 = icmp eq i32 %36, 1
   %38 = tail call range(i32 0, 15) i32 @llvm.ctpop.i32(i32 %7)
@@ -2622,7 +2622,7 @@ switch.lookup:                                    ; preds = %.split7
   br label %106
 
 106:                                              ; preds = %96, %91
-  %107 = phi i8 [ %83, %91 ], [ %.pre, %96 ]
+  %107 = phi i8 [ %.pre, %96 ], [ %83, %91 ]
   %.not118 = icmp eq i8 %107, 0
   br i1 %.not118, label %zend_string_free.exit, label %.thread155
 
@@ -3447,7 +3447,7 @@ zend_string_alloc.exit:                           ; preds = %33
   br label %72
 
 72:                                               ; preds = %70, %69
-  %.366 = phi i1 [ %.2.in, %69 ], [ %71, %70 ]
+  %.366 = phi i1 [ %71, %70 ], [ %.2.in, %69 ]
   %.not52 = icmp eq ptr %.034, null
   br i1 %.not52, label %74, label %73
 
@@ -3942,7 +3942,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateDefaultCharset(ptr noundef %0, ptr
   br label %17
 
 17:                                               ; preds = %13, %16, %6, %11
-  %.0 = phi i32 [ -1, %6 ], [ -1, %11 ], [ 0, %16 ], [ 0, %13 ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %6 ], [ 0, %16 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -4449,12 +4449,12 @@ zend_string_equals_cstr.exit:                     ; preds = %zend_string_equals_
   br i1 %.not.i, label %zend_string_equals_cstr.exit.thread.sink.split, label %zend_string_equals_cstr.exit.thread
 
 zend_string_equals_cstr.exit.thread.sink.split:   ; preds = %zend_string_equals_cstr.exit44, %zend_string_equals_cstr.exit, %zend_string_equals_cstr.exit50, %zend_string_equals_cstr.exit47, %zend_string_equals_cstr.exit56, %zend_string_equals_cstr.exit53, %zend_string_equals_cstr.exit62, %zend_string_equals_cstr.exit59, %zend_string_equals_cstr.exit68, %zend_string_equals_cstr.exit65, %zend_string_equals_cstr.exit74, %zend_string_equals_cstr.exit71, %zend_string_equals_cstr.exit80, %zend_string_equals_cstr.exit77, %zend_string_equals_cstr.exit86, %zend_string_equals_cstr.exit83, %zend_string_equals_cstr.exit92, %zend_string_equals_cstr.exit89, %zend_string_equals.exit, %zend_string_equals_cstr.exit95, %zend_string_equals_cstr.exit98.thread, %zend_string_equals_cstr.exit101, %zend_string_equals_cstr.exit98, %zend_string_equals_cstr.exit107, %zend_string_equals_cstr.exit104, %zend_string_equals_cstr.exit113, %zend_string_equals_cstr.exit110, %zend_string_equals_cstr.exit119, %zend_string_equals_cstr.exit116, %zend_string_equals_cstr.exit125, %zend_string_equals_cstr.exit122, %zend_string_equals_cstr.exit131, %zend_string_equals_cstr.exit128, %zend_string_equals_cstr.exit137, %zend_string_equals_cstr.exit134, %zend_string_equals_cstr.exit143, %zend_string_equals_cstr.exit140, %zend_string_equals_cstr.exit149, %zend_string_equals_cstr.exit146, %zend_string_equals_cstr.exit158, %zend_string_equals_cstr.exit155, %zend_string_equals_cstr.exit152
-  %.sink = phi i64 [ 176, %zend_string_equals_cstr.exit50 ], [ 168, %zend_string_equals_cstr.exit56 ], [ 160, %zend_string_equals_cstr.exit62 ], [ 152, %zend_string_equals_cstr.exit68 ], [ 144, %zend_string_equals_cstr.exit74 ], [ 136, %zend_string_equals_cstr.exit80 ], [ 128, %zend_string_equals_cstr.exit86 ], [ 64, %zend_string_equals_cstr.exit92 ], [ 8, %zend_string_equals.exit ], [ 40, %zend_string_equals_cstr.exit101 ], [ 56, %zend_string_equals_cstr.exit107 ], [ 16, %zend_string_equals_cstr.exit113 ], [ 48, %zend_string_equals_cstr.exit119 ], [ 0, %zend_string_equals_cstr.exit125 ], [ 88, %zend_string_equals_cstr.exit131 ], [ 24, %zend_string_equals_cstr.exit137 ], [ 72, %zend_string_equals_cstr.exit143 ], [ 80, %zend_string_equals_cstr.exit149 ], [ 32, %zend_string_equals_cstr.exit158 ], [ 32, %zend_string_equals_cstr.exit152 ], [ 32, %zend_string_equals_cstr.exit155 ], [ 80, %zend_string_equals_cstr.exit146 ], [ 72, %zend_string_equals_cstr.exit140 ], [ 24, %zend_string_equals_cstr.exit134 ], [ 88, %zend_string_equals_cstr.exit128 ], [ 0, %zend_string_equals_cstr.exit122 ], [ 48, %zend_string_equals_cstr.exit116 ], [ 16, %zend_string_equals_cstr.exit110 ], [ 56, %zend_string_equals_cstr.exit104 ], [ 40, %zend_string_equals_cstr.exit98 ], [ 8, %zend_string_equals_cstr.exit98.thread ], [ 8, %zend_string_equals_cstr.exit95 ], [ 64, %zend_string_equals_cstr.exit89 ], [ 128, %zend_string_equals_cstr.exit83 ], [ 136, %zend_string_equals_cstr.exit77 ], [ 144, %zend_string_equals_cstr.exit71 ], [ 152, %zend_string_equals_cstr.exit65 ], [ 160, %zend_string_equals_cstr.exit59 ], [ 168, %zend_string_equals_cstr.exit53 ], [ 176, %zend_string_equals_cstr.exit47 ], [ 184, %zend_string_equals_cstr.exit ], [ 184, %zend_string_equals_cstr.exit44 ]
+  %.sink = phi i64 [ 32, %zend_string_equals_cstr.exit152 ], [ 32, %zend_string_equals_cstr.exit155 ], [ 32, %zend_string_equals_cstr.exit158 ], [ 80, %zend_string_equals_cstr.exit146 ], [ 80, %zend_string_equals_cstr.exit149 ], [ 72, %zend_string_equals_cstr.exit140 ], [ 72, %zend_string_equals_cstr.exit143 ], [ 24, %zend_string_equals_cstr.exit134 ], [ 24, %zend_string_equals_cstr.exit137 ], [ 88, %zend_string_equals_cstr.exit128 ], [ 88, %zend_string_equals_cstr.exit131 ], [ 0, %zend_string_equals_cstr.exit122 ], [ 0, %zend_string_equals_cstr.exit125 ], [ 48, %zend_string_equals_cstr.exit116 ], [ 48, %zend_string_equals_cstr.exit119 ], [ 16, %zend_string_equals_cstr.exit110 ], [ 16, %zend_string_equals_cstr.exit113 ], [ 56, %zend_string_equals_cstr.exit104 ], [ 56, %zend_string_equals_cstr.exit107 ], [ 40, %zend_string_equals_cstr.exit98 ], [ 40, %zend_string_equals_cstr.exit101 ], [ 8, %zend_string_equals_cstr.exit98.thread ], [ 8, %zend_string_equals_cstr.exit95 ], [ 8, %zend_string_equals.exit ], [ 64, %zend_string_equals_cstr.exit89 ], [ 64, %zend_string_equals_cstr.exit92 ], [ 128, %zend_string_equals_cstr.exit83 ], [ 128, %zend_string_equals_cstr.exit86 ], [ 136, %zend_string_equals_cstr.exit77 ], [ 136, %zend_string_equals_cstr.exit80 ], [ 144, %zend_string_equals_cstr.exit71 ], [ 144, %zend_string_equals_cstr.exit74 ], [ 152, %zend_string_equals_cstr.exit65 ], [ 152, %zend_string_equals_cstr.exit68 ], [ 160, %zend_string_equals_cstr.exit59 ], [ 160, %zend_string_equals_cstr.exit62 ], [ 168, %zend_string_equals_cstr.exit53 ], [ 168, %zend_string_equals_cstr.exit56 ], [ 176, %zend_string_equals_cstr.exit47 ], [ 176, %zend_string_equals_cstr.exit50 ], [ 184, %zend_string_equals_cstr.exit ], [ 184, %zend_string_equals_cstr.exit44 ]
   store i64 %.sink, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 584), align 8, !tbaa !220
   br label %zend_string_equals_cstr.exit.thread
 
 zend_string_equals_cstr.exit.thread:              ; preds = %zend_string_equals_cstr.exit.thread.sink.split, %zend_string_equals_cstr.exit44, %zend_string_equals.exit.thread227, %zend_string_equals_cstr.exit89, %zend_string_equals_cstr.exit92, %zend_string_equals_cstr.exit
-  %.0 = phi i32 [ -1, %zend_string_equals_cstr.exit ], [ -1, %zend_string_equals.exit.thread227 ], [ -1, %zend_string_equals_cstr.exit92 ], [ -1, %zend_string_equals_cstr.exit89 ], [ -1, %zend_string_equals_cstr.exit44 ], [ 0, %zend_string_equals_cstr.exit.thread.sink.split ]
+  %.0 = phi i32 [ -1, %zend_string_equals_cstr.exit ], [ -1, %zend_string_equals_cstr.exit92 ], [ -1, %zend_string_equals_cstr.exit89 ], [ -1, %zend_string_equals.exit.thread227 ], [ -1, %zend_string_equals_cstr.exit44 ], [ 0, %zend_string_equals_cstr.exit.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -4492,12 +4492,12 @@ zend_string_equals_cstr.exit:                     ; preds = %zend_string_equals_
   br i1 %.not.i, label %zend_string_equals_cstr.exit.thread.sink.split, label %zend_string_equals_cstr.exit.thread
 
 zend_string_equals_cstr.exit.thread.sink.split:   ; preds = %zend_string_equals_cstr.exit, %zend_string_equals_cstr.exit7, %zend_string_equals_cstr.exit10, %zend_string_equals_cstr.exit13
-  %.sink = phi i64 [ 2, %zend_string_equals_cstr.exit7 ], [ 1, %zend_string_equals_cstr.exit10 ], [ 0, %zend_string_equals_cstr.exit13 ], [ 3, %zend_string_equals_cstr.exit ]
+  %.sink = phi i64 [ 0, %zend_string_equals_cstr.exit13 ], [ 1, %zend_string_equals_cstr.exit10 ], [ 2, %zend_string_equals_cstr.exit7 ], [ 3, %zend_string_equals_cstr.exit ]
   store i64 %.sink, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 600), align 8, !tbaa !221
   br label %zend_string_equals_cstr.exit.thread
 
 zend_string_equals_cstr.exit.thread:              ; preds = %zend_string_equals_cstr.exit.thread.sink.split, %6, %zend_string_equals_cstr.exit10, %zend_string_equals_cstr.exit7, %zend_string_equals_cstr.exit
-  %.0 = phi i32 [ -1, %zend_string_equals_cstr.exit ], [ -1, %zend_string_equals_cstr.exit7 ], [ -1, %6 ], [ -1, %zend_string_equals_cstr.exit10 ], [ 0, %zend_string_equals_cstr.exit.thread.sink.split ]
+  %.0 = phi i32 [ -1, %zend_string_equals_cstr.exit ], [ -1, %zend_string_equals_cstr.exit7 ], [ -1, %zend_string_equals_cstr.exit10 ], [ -1, %6 ], [ 0, %zend_string_equals_cstr.exit.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -4584,7 +4584,7 @@ thread-pre-split37:                               ; preds = %18
   br label %36
 
 36:                                               ; preds = %29, %24, %18, %12, %6, %1, %.thread
-  %.0 = phi i8 [ %.1, %.thread ], [ 2, %24 ], [ 1, %18 ], [ 1, %12 ], [ 1, %6 ], [ 1, %1 ], [ 1, %29 ]
+  %.0 = phi i8 [ %.1, %.thread ], [ 1, %1 ], [ 1, %6 ], [ 1, %12 ], [ 1, %18 ], [ 2, %24 ], [ 1, %29 ]
   ret i8 %.0
 }
 

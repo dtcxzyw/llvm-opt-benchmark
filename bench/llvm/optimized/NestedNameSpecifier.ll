@@ -465,7 +465,7 @@ default.unreachable:                              ; preds = %4
   unreachable
 
 20:                                               ; preds = %15, %9, %4, %1, %19, %18
-  %.0 = phi i32 [ 5, %1 ], [ %8, %4 ], [ 3, %18 ], [ 4, %19 ], [ %17, %15 ], [ 6, %9 ]
+  %.0 = phi i32 [ 3, %18 ], [ 4, %19 ], [ 5, %1 ], [ %8, %4 ], [ %17, %15 ], [ 6, %9 ]
   ret i32 %.0
 }
 
@@ -550,7 +550,7 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 18:                                               ; preds = %1, %14, %6
-  %.0 = phi ptr [ %17, %14 ], [ %spec.select.i.i, %6 ], [ null, %1 ]
+  %.0 = phi ptr [ %spec.select.i.i, %6 ], [ %17, %14 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -656,7 +656,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %.lr.ph47, %32
   br label %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.thread
 
 _ZNK5clang19NestedNameSpecifier7getKindEv.exit.thread: ; preds = %15, %tailrecurse, %23, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit, %1, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit, %9, %40
-  %accumulator.tr38 = phi i8 [ %accumulator.tr40, %40 ], [ %accumulator.tr40, %9 ], [ %accumulator.tr40, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit ], [ 0, %1 ], [ %accumulator.tr40, %23 ], [ %accumulator.tr40, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ], [ %accumulator.tr40, %15 ], [ 6, %tailrecurse ]
+  %accumulator.tr38 = phi i8 [ %accumulator.tr40, %40 ], [ %accumulator.tr40, %9 ], [ %accumulator.tr40, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit ], [ 0, %1 ], [ %accumulator.tr40, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ], [ %accumulator.tr40, %23 ], [ %accumulator.tr40, %15 ], [ 6, %tailrecurse ]
   %.1 = phi i8 [ %47, %40 ], [ 0, %9 ], [ 0, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit ], [ 0, %1 ], [ 0, %23 ], [ 4, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ], [ 6, %15 ], [ 0, %tailrecurse ]
   %accumulator.ret.tr = or i8 %.1, %accumulator.tr38
   ret i8 %accumulator.ret.tr
@@ -1802,7 +1802,7 @@ define dso_local noundef range(i32 4, 13) i32 @_ZN5clang22NestedNameSpecifierLoc
   br label %_ZNK5clang19NestedNameSpecifier7getKindEv.exit
 
 _ZNK5clang19NestedNameSpecifier7getKindEv.exit:   ; preds = %4, %1
-  %.0 = phi i32 [ %spec.select, %4 ], [ 4, %1 ]
+  %.0 = phi i32 [ 4, %1 ], [ %spec.select, %4 ]
   ret i32 %.0
 }
 
@@ -1952,8 +1952,8 @@ select.unfold.i31:                                ; preds = %23
   br label %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36
 
 _ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit36: ; preds = %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34, %select.unfold.i31, %32
-  %.sroa.0.0.i464 = phi i32 [ %.sroa.0.0.i463, %32 ], [ %.sroa.0.0.i463, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34 ], [ %.sroa.0.0.i463, %select.unfold.i31 ], [ %12, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ]
-  %.sroa.6.0.i25 = phi i32 [ %.0.copyload.i17.i24, %32 ], [ %.0.copyload.i.i35, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34 ], [ %.0.copyload.i13.i33, %select.unfold.i31 ], [ 0, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ]
+  %.sroa.0.0.i464 = phi i32 [ %.sroa.0.0.i463, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34 ], [ %.sroa.0.0.i463, %select.unfold.i31 ], [ %.sroa.0.0.i463, %32 ], [ %12, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ]
+  %.sroa.6.0.i25 = phi i32 [ %.0.copyload.i.i35, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i34 ], [ %.0.copyload.i13.i33, %select.unfold.i31 ], [ %.0.copyload.i17.i24, %32 ], [ 0, %_ZNK5clang22NestedNameSpecifierLoc19getLocalSourceRangeEv.exit ]
   %41 = zext i32 %.sroa.6.0.i25 to i64
   %42 = shl nuw i64 %41, 32
   %43 = zext i32 %.sroa.0.0.i464 to i64
@@ -2048,8 +2048,8 @@ select.unfold:                                    ; preds = %14
   br label %34
 
 34:                                               ; preds = %1, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit, %select.unfold, %27
-  %.sroa.6.0 = phi i32 [ %.0.copyload.i17, %27 ], [ %.0.copyload.i, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit ], [ %.0.copyload.i13, %select.unfold ], [ 0, %1 ]
-  %.sroa.0.0 = phi i32 [ %29, %27 ], [ %.0.copyload.i, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit ], [ %.0.copyload.i12, %select.unfold ], [ 0, %1 ]
+  %.sroa.6.0 = phi i32 [ %.0.copyload.i, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit ], [ %.0.copyload.i13, %select.unfold ], [ %.0.copyload.i17, %27 ], [ 0, %1 ]
+  %.sroa.0.0 = phi i32 [ %.0.copyload.i, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit ], [ %.0.copyload.i12, %select.unfold ], [ %29, %27 ], [ 0, %1 ]
   %.sroa.6.0.insert.ext = zext i32 %.sroa.6.0 to i64
   %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0 to i64
@@ -2249,7 +2249,7 @@ _ZN4llvm11safe_mallocEm.exit:                     ; preds = %21, %27
   unreachable
 
 _ZN4llvm12safe_reallocEPvm.exit:                  ; preds = %41, %34, %_ZN4llvm11safe_mallocEm.exit, %33
-  %storemerge = phi ptr [ %.0.i, %_ZN4llvm11safe_mallocEm.exit ], [ %.0.i, %33 ], [ %37, %34 ], [ %42, %41 ]
+  %storemerge = phi ptr [ %.0.i, %33 ], [ %.0.i, %_ZN4llvm11safe_mallocEm.exit ], [ %37, %34 ], [ %42, %41 ]
   store ptr %storemerge, ptr %2, align 8, !tbaa !515
   store i32 %.sroa.speculated, ptr %4, align 4, !tbaa !514
   %.pre40 = load i32, ptr %3, align 4, !tbaa !514
@@ -2857,8 +2857,8 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %29, %32
   br label %37
 
 37:                                               ; preds = %2, %_ZNK5clang10ASTContext8AllocateEmj.exit, %8
-  %.sroa.0.0 = phi ptr [ %36, %_ZNK5clang10ASTContext8AllocateEmj.exit ], [ %3, %8 ], [ null, %2 ]
-  %.sroa.5.0 = phi ptr [ %.0.i.i.i, %_ZNK5clang10ASTContext8AllocateEmj.exit ], [ %10, %8 ], [ null, %2 ]
+  %.sroa.0.0 = phi ptr [ %3, %8 ], [ %36, %_ZNK5clang10ASTContext8AllocateEmj.exit ], [ null, %2 ]
+  %.sroa.5.0 = phi ptr [ %10, %8 ], [ %.0.i.i.i, %_ZNK5clang10ASTContext8AllocateEmj.exit ], [ null, %2 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.5.0, 1
   ret { ptr, ptr } %.fca.1.insert

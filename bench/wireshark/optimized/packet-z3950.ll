@@ -4814,7 +4814,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   br label %84
 
 84:                                               ; preds = %77, %82, %68
-  %.0288 = phi i32 [ %.1289338, %82 ], [ %79, %77 ], [ 0, %68 ]
+  %.0288 = phi i32 [ %.1289338, %82 ], [ 0, %68 ], [ %79, %77 ]
   %85 = load i32, ptr @hf_marc_leader_encoding_level, align 4
   %86 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %85, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
   %87 = load i32, ptr @hf_marc_leader_descriptive_cataloging, align 4

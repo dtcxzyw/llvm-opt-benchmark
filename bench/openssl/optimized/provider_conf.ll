@@ -45,7 +45,7 @@ define ptr @ossl_prov_conf_ctx_new(ptr noundef readnone captures(none) %0) local
   br label %8
 
 8:                                                ; preds = %4, %1, %7
-  %.0 = phi ptr [ null, %1 ], [ null, %7 ], [ %2, %4 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %1 ], [ %2, %4 ]
   ret ptr %.0
 }
 
@@ -190,8 +190,8 @@ define internal range(i32 0, 2) i32 @provider_conf_init(ptr noundef %0, ptr noun
   br i1 %.not60.i, label %provider_conf_load.exit.thread, label %53
 
 53:                                               ; preds = %51, %48, %45, %43, %.lr.ph.i
-  %.154.i = phi ptr [ %.05381.i, %48 ], [ %.05381.i, %43 ], [ %.05381.i, %.lr.ph.i ], [ %.05381.i, %51 ], [ %37, %45 ]
-  %.145.i = phi ptr [ %.04483.i, %48 ], [ %.04483.i, %43 ], [ %37, %.lr.ph.i ], [ %.04483.i, %51 ], [ %.04483.i, %45 ]
+  %.154.i = phi ptr [ %.05381.i, %43 ], [ %.05381.i, %51 ], [ %.05381.i, %48 ], [ %.05381.i, %.lr.ph.i ], [ %37, %45 ]
+  %.145.i = phi ptr [ %.04483.i, %43 ], [ %.04483.i, %51 ], [ %.04483.i, %48 ], [ %37, %.lr.ph.i ], [ %.04483.i, %45 ]
   %54 = add nuw nsw i32 %.04782.i, 1
   %55 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %26) #5
   %56 = icmp slt i32 %54, %55
@@ -362,12 +362,12 @@ provider_conf_params.exit.i.i:                    ; preds = %96
   br i1 %127, label %.thread59.i.i, label %prov_already_activated.exit.i.i
 
 .thread59.i.i:                                    ; preds = %126, %122, %111, %105, %101, %96
-  %.161.i.i = phi i32 [ %99, %126 ], [ 0, %122 ], [ 0, %105 ], [ 0, %111 ], [ 0, %101 ], [ -1, %96 ]
+  %.161.i.i = phi i32 [ %99, %126 ], [ 0, %101 ], [ 0, %105 ], [ 0, %111 ], [ 0, %122 ], [ -1, %96 ]
   call void @ossl_provider_free(ptr noundef nonnull %.03556.i.i) #5
   br label %prov_already_activated.exit.i.i
 
 prov_already_activated.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %.thread59.i.i, %126, %.thread58.i.i
-  %.0.i67.i = phi i32 [ %99, %126 ], [ %.161.i.i, %.thread59.i.i ], [ 1, %.thread58.i.i ], [ 0, %.lr.ph.i.i.i ]
+  %.0.i67.i = phi i32 [ %.161.i.i, %.thread59.i.i ], [ %99, %126 ], [ 1, %.thread58.i.i ], [ 0, %.lr.ph.i.i.i ]
   %128 = load ptr, ptr %60, align 8, !tbaa !3
   %129 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %128) #5
   br label %provider_conf_activate.exit.i
@@ -431,7 +431,7 @@ provider_conf_params.exit.i:                      ; preds = %.thread71.i
   br label %150
 
 provider_conf_params.exit.thread.i:               ; preds = %143, %provider_conf_params.exit.i, %.thread71.i, %138, %135
-  %.4.ph.i = phi i32 [ %141, %143 ], [ %141, %provider_conf_params.exit.i ], [ -1, %.thread71.i ], [ 0, %138 ], [ 0, %135 ]
+  %.4.ph.i = phi i32 [ %141, %provider_conf_params.exit.i ], [ %141, %143 ], [ -1, %.thread71.i ], [ 0, %138 ], [ 0, %135 ]
   call void @ossl_provider_info_clear(ptr noundef nonnull %6) #5
   br label %150
 
@@ -610,7 +610,7 @@ sub_140:                                          ; preds = %sub_021
   br label %57
 
 56:                                               ; preds = %.tail29, %.tail33, %.tail38, %.tail38.thread, %46, %49, %52, %.tail, %.tail.thread, %12, %15, %18, %.tail20, %.tail24
-  %storemerge = phi i32 [ 1, %.tail ], [ 1, %.tail24 ], [ 1, %.tail20 ], [ 1, %18 ], [ 1, %15 ], [ 1, %12 ], [ 1, %.tail.thread ], [ 0, %52 ], [ 0, %49 ], [ 0, %46 ], [ 0, %.tail38.thread ], [ 0, %.tail38 ], [ 0, %.tail33 ], [ 0, %.tail29 ]
+  %storemerge = phi i32 [ 1, %.tail24 ], [ 1, %.tail20 ], [ 1, %18 ], [ 1, %15 ], [ 1, %12 ], [ 1, %.tail.thread ], [ 1, %.tail ], [ 0, %52 ], [ 0, %49 ], [ 0, %46 ], [ 0, %.tail38.thread ], [ 0, %.tail38 ], [ 0, %.tail33 ], [ 0, %.tail29 ]
   store i32 %storemerge, ptr %2, align 4, !tbaa !16
   br label %57
 
@@ -772,7 +772,7 @@ define internal fastcc i32 @provider_conf_params_internal(ptr noundef %0, ptr no
   br label %57
 
 57:                                               ; preds = %._crit_edge66, %.thread59, %55, %53
-  %.3 = phi i32 [ %56, %55 ], [ %54, %53 ], [ 1, %._crit_edge66 ], [ %.0.ph, %.thread59 ]
+  %.3 = phi i32 [ %54, %53 ], [ %56, %55 ], [ 1, %._crit_edge66 ], [ %.0.ph, %.thread59 ]
   ret i32 %.3
 }
 

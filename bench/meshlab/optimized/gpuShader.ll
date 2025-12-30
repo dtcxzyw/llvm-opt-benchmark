@@ -164,7 +164,7 @@ define noundef zeroext i1 @_ZN9GPUShader12createShaderEv(ptr noundef nonnull ali
   br label %.sink.split
 
 14:                                               ; preds = %1, %8, %4
-  %.sink4 = phi i32 [ 35632, %8 ], [ 35633, %4 ], [ 36313, %1 ]
+  %.sink4 = phi i32 [ 35633, %4 ], [ 35632, %8 ], [ 36313, %1 ]
   %15 = load ptr, ptr @__glewCreateShader, align 8
   %16 = tail call i32 %15(i32 noundef %.sink4)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 36

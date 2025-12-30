@@ -323,7 +323,7 @@ zlib_post_call.exit:                              ; preds = %38
   br label %zerr_to_string.exit
 
 zerr_to_string.exit:                              ; preds = %zlib_post_call.exit, %47, %48, %49, %50, %51
-  %.0.i = phi ptr [ @.str.19, %51 ], [ @.str.18, %50 ], [ @.str.15, %47 ], [ @.str.16, %48 ], [ @.str.17, %49 ], [ @.str.14, %zlib_post_call.exit ]
+  %.0.i = phi ptr [ @.str.19, %51 ], [ @.str.15, %47 ], [ @.str.16, %48 ], [ @.str.17, %49 ], [ @.str.18, %50 ], [ @.str.14, %zlib_post_call.exit ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %53 = load ptr, ptr %52, align 8, !tbaa !25
   %.not = icmp eq ptr %53, null
@@ -479,7 +479,7 @@ zerr_to_string.exit.loopexit:                     ; preds = %54
   br label %zerr_to_string.exit
 
 zerr_to_string.exit:                              ; preds = %54, %zerr_to_string.exit.loopexit, %55, %.loopexit24, %.loopexit25, %.loopexit26, %.loopexit
-  %.0.i = phi ptr [ @.str.19, %.loopexit ], [ @.str.18, %.loopexit26 ], [ @.str.15, %55 ], [ @.str.15, %zerr_to_string.exit.loopexit ], [ @.str.17, %.loopexit25 ], [ @.str.16, %.loopexit24 ], [ @.str.16, %54 ]
+  %.0.i = phi ptr [ @.str.19, %.loopexit ], [ @.str.17, %.loopexit25 ], [ @.str.18, %.loopexit26 ], [ @.str.15, %55 ], [ @.str.16, %.loopexit24 ], [ @.str.15, %zerr_to_string.exit.loopexit ], [ @.str.16, %54 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %57 = load ptr, ptr %56, align 8, !tbaa !25
   %.not21 = icmp eq ptr %57, null
@@ -765,7 +765,7 @@ define dso_local void @git_deflate_end(ptr noundef initializes((0, 12), (16, 36)
   br label %zerr_to_string.exit
 
 zerr_to_string.exit:                              ; preds = %1, %3, %4, %5, %6, %7
-  %.0.i = phi ptr [ @.str.19, %7 ], [ @.str.18, %6 ], [ @.str.15, %3 ], [ @.str.16, %4 ], [ @.str.17, %5 ], [ @.str.14, %1 ]
+  %.0.i = phi ptr [ @.str.19, %7 ], [ @.str.15, %3 ], [ @.str.16, %4 ], [ @.str.17, %5 ], [ @.str.18, %6 ], [ @.str.14, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !25
   %.not = icmp eq ptr %9, null
@@ -992,7 +992,7 @@ zerr_to_string.exit.loopexit:                     ; preds = %54
   br label %zerr_to_string.exit
 
 zerr_to_string.exit:                              ; preds = %54, %zerr_to_string.exit.loopexit, %55, %.loopexit24, %.loopexit25, %.loopexit26, %.loopexit
-  %.0.i = phi ptr [ @.str.19, %.loopexit ], [ @.str.18, %.loopexit26 ], [ @.str.15, %55 ], [ @.str.15, %zerr_to_string.exit.loopexit ], [ @.str.17, %.loopexit25 ], [ @.str.16, %.loopexit24 ], [ @.str.16, %54 ]
+  %.0.i = phi ptr [ @.str.19, %.loopexit ], [ @.str.17, %.loopexit25 ], [ @.str.18, %.loopexit26 ], [ @.str.15, %55 ], [ @.str.16, %.loopexit24 ], [ @.str.15, %zerr_to_string.exit.loopexit ], [ @.str.16, %54 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %57 = load ptr, ptr %56, align 8, !tbaa !25
   %.not21 = icmp eq ptr %57, null

@@ -362,7 +362,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   br i1 %.not.i4.i.i.i.i.i.i.i.i, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h43c64f79ee709366E.exit.thread.i.i.i.i.i.i", label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h43c64f79ee709366E.exit.i.i.i.i.i.i"
 
 common.resume.i.i.i.i:                            ; preds = %55, %50, %36, %26, %21
-  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %51, %50 ], [ %27, %26 ], [ %56, %55 ], [ %37, %36 ]
+  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %22, %21 ], [ %51, %50 ], [ %56, %55 ], [ %37, %36 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i
 
 21:                                               ; preds = %19
@@ -6852,7 +6852,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -7185,7 +7185,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -7518,7 +7518,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -7851,7 +7851,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -8184,7 +8184,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -8517,7 +8517,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -8850,7 +8850,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -9183,7 +9183,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -9516,7 +9516,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -9849,7 +9849,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -10182,7 +10182,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -10515,7 +10515,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -10848,7 +10848,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -11181,7 +11181,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -11514,7 +11514,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -11847,7 +11847,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -12180,7 +12180,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -12513,7 +12513,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -12846,7 +12846,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -13179,7 +13179,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -13512,7 +13512,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -13845,7 +13845,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -14178,7 +14178,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -14511,7 +14511,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -14844,7 +14844,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -15177,7 +15177,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -15510,7 +15510,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -15843,7 +15843,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -16176,7 +16176,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -16509,7 +16509,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -16842,7 +16842,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -17175,7 +17175,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -17508,7 +17508,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -17841,7 +17841,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -18174,7 +18174,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -18507,7 +18507,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -18840,7 +18840,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -19173,7 +19173,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -19506,7 +19506,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -19839,7 +19839,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -20172,7 +20172,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -20505,7 +20505,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -20838,7 +20838,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -21171,7 +21171,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -21504,7 +21504,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -21837,7 +21837,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -22170,7 +22170,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -22503,7 +22503,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -22836,7 +22836,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -23169,7 +23169,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -23502,7 +23502,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -23835,7 +23835,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -24168,7 +24168,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -24501,7 +24501,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -24834,7 +24834,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -25167,7 +25167,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -25500,7 +25500,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -25833,7 +25833,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -26166,7 +26166,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -26499,7 +26499,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -26832,7 +26832,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -27165,7 +27165,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -27498,7 +27498,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -27831,7 +27831,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -28164,7 +28164,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -28497,7 +28497,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67
@@ -28830,7 +28830,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53" unwind label %93
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit53": ; preds = %.body, %67, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38", %96, %100, %78, %101, %104
-  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %101 ], [ %62, %.body ], [ %.pn3470, %104 ], [ %62, %67 ], [ %97, %96 ], [ %79, %78 ], [ %97, %100 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ]
+  %.pn3466 = phi { ptr, i32 } [ %.pn3470, %104 ], [ %.pn3470, %101 ], [ %79, %78 ], [ %97, %100 ], [ %97, %96 ], [ %45, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hc1fd5dbb99ca09d4E.exit38" ], [ %62, %67 ], [ %62, %.body ]
   resume { ptr, i32 } %.pn3466
 
 101:                                              ; preds = %.thread72, %.thread67

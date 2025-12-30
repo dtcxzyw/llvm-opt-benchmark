@@ -440,7 +440,7 @@ dissect_rftap_header.exit:                        ; preds = %46, %115, %116, %12
   br label %147
 
 147:                                              ; preds = %.sink.split, %10, %4
-  %.0 = phi i32 [ 0, %10 ], [ 0, %4 ], [ %146, %.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ %146, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

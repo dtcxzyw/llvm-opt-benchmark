@@ -82,7 +82,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_clock_gettime(i32 n
   br label %19
 
 19:                                               ; preds = %5, %2, %13, %9
-  %.05 = phi i32 [ 0, %13 ], [ -14, %2 ], [ %12, %9 ], [ -22, %5 ]
+  %.05 = phi i32 [ %12, %9 ], [ 0, %13 ], [ -14, %2 ], [ -22, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.05
 }
@@ -288,7 +288,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__socket_sockopt(ptr no
   br label %25
 
 25:                                               ; preds = %19, %7, %3, %21
-  %.017 = phi i32 [ -22, %3 ], [ %24, %21 ], [ -95, %7 ], [ 0, %19 ]
+  %.017 = phi i32 [ %24, %21 ], [ -22, %3 ], [ -95, %7 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.017
 }
@@ -902,7 +902,7 @@ uv__cloexec.exit.thread:                          ; preds = %uv__nonblock_ioctl.
   br label %uv__close.exit
 
 uv__close.exit:                                   ; preds = %26, %36, %uv__cloexec.exit.thread, %uv__cloexec.exit, %3, %15, %10
-  %.017 = phi i32 [ %6, %3 ], [ %11, %10 ], [ %17, %15 ], [ %.042, %36 ], [ %13, %uv__cloexec.exit ], [ %.042, %uv__cloexec.exit.thread ], [ %13, %26 ]
+  %.017 = phi i32 [ %11, %10 ], [ %17, %15 ], [ %6, %3 ], [ %13, %uv__cloexec.exit ], [ %.042, %uv__cloexec.exit.thread ], [ %.042, %36 ], [ %13, %26 ]
   ret i32 %.017
 }
 
@@ -1180,7 +1180,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__nonblock_fcntl(i32 no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %.critedge17, %.critedge2, %.critedge
-  %.015 = phi i32 [ %10, %.critedge ], [ 0, %.critedge17 ], [ %24, %.critedge2 ], [ %18, %17 ]
+  %.015 = phi i32 [ %10, %.critedge ], [ %24, %.critedge2 ], [ 0, %.critedge17 ], [ %18, %17 ]
   ret i32 %.015
 }
 
@@ -1276,7 +1276,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cwd(ptr noundef %0,
   br label %36
 
 36:                                               ; preds = %31, %2, %6, %33, %19, %14
-  %.0 = phi i32 [ %21, %19 ], [ -105, %33 ], [ -22, %2 ], [ %15, %14 ], [ -22, %6 ], [ 0, %31 ]
+  %.0 = phi i32 [ -105, %33 ], [ %15, %14 ], [ %21, %19 ], [ -22, %6 ], [ -22, %2 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2009,7 +2009,7 @@ uv__close_nocheckstdio.exit.thread:               ; preds = %23, %23, %uv__close
   br label %33
 
 33:                                               ; preds = %uv__open_cloexec.exit, %31, %28
-  %.0 = phi i32 [ 0, %31 ], [ %30, %28 ], [ %.0.i, %uv__open_cloexec.exit ]
+  %.0 = phi i32 [ %30, %28 ], [ 0, %31 ], [ %.0.i, %uv__open_cloexec.exit ]
   ret i32 %.0
 }
 
@@ -2101,7 +2101,7 @@ uv_os_getenv.exit:                                ; preds = %9
   br label %uv_os_getenv.exit.thread
 
 uv_os_getenv.exit.thread:                         ; preds = %.sink.split.i, %2, %6, %uv_os_getenv.exit, %25, %24
-  %.0 = phi i32 [ 0, %25 ], [ %17, %uv_os_getenv.exit ], [ -105, %24 ], [ %.0.ph.i, %.sink.split.i ], [ -22, %2 ], [ -22, %6 ]
+  %.0 = phi i32 [ -105, %24 ], [ 0, %25 ], [ %17, %uv_os_getenv.exit ], [ %.0.ph.i, %.sink.split.i ], [ -22, %2 ], [ -22, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2367,7 +2367,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_get_group(ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %.preheader61, %24, %2, %._crit_edge79, %42, %22
-  %.049 = phi i32 [ 0, %._crit_edge79 ], [ -22, %2 ], [ %23, %22 ], [ -2, %24 ], [ -12, %42 ], [ -12, %.preheader61 ], [ -12, %8 ]
+  %.049 = phi i32 [ %23, %22 ], [ -12, %42 ], [ 0, %._crit_edge79 ], [ -22, %2 ], [ -2, %24 ], [ -12, %.preheader61 ], [ -12, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.049
@@ -2488,7 +2488,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__getpwuid_r(p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %.preheader42, %24, %2, %42, %41, %22
-  %.0 = phi i32 [ 0, %42 ], [ -22, %2 ], [ %23, %22 ], [ -2, %24 ], [ -12, %41 ], [ -12, %.preheader42 ], [ -12, %8 ]
+  %.0 = phi i32 [ %23, %22 ], [ -12, %41 ], [ 0, %42 ], [ -22, %2 ], [ -2, %24 ], [ -12, %.preheader42 ], [ -12, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -2584,8 +2584,8 @@ define dso_local range(i32 -12, 1) i32 @uv_os_environ(ptr noundef captures(none)
   %29 = add nsw i32 %.03853, 1
   br label %30
 
-30:                                               ; preds = %23, %22
-  %.2.ph = phi i32 [ %.03853, %22 ], [ %29, %23 ]
+30:                                               ; preds = %22, %23
+  %.2.ph = phi i32 [ %29, %23 ], [ %.03853, %22 ]
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
   br i1 %exitcond.not, label %.sink.split, label %.lr.ph
@@ -2643,7 +2643,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_setenv(ptr nound
   br label %11
 
 11:                                               ; preds = %5, %2, %7
-  %.0 = phi i32 [ -22, %2 ], [ %10, %7 ], [ 0, %5 ]
+  %.0 = phi i32 [ %10, %7 ], [ -22, %2 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -2667,7 +2667,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_unsetenv(ptr nou
   br label %9
 
 9:                                                ; preds = %3, %1, %5
-  %.0 = phi i32 [ -22, %1 ], [ %8, %5 ], [ 0, %3 ]
+  %.0 = phi i32 [ %8, %5 ], [ -22, %1 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -2718,7 +2718,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_gethostname(ptr 
   br label %22
 
 22:                                               ; preds = %2, %6, %21, %20, %11
-  %.0 = phi i32 [ 0, %21 ], [ %14, %11 ], [ -105, %20 ], [ -22, %6 ], [ -22, %2 ]
+  %.0 = phi i32 [ %14, %11 ], [ -105, %20 ], [ 0, %21 ], [ -22, %6 ], [ -22, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2785,7 +2785,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_getpriority(i32 
   br label %13
 
 13:                                               ; preds = %2, %12, %10
-  %.0 = phi i32 [ 0, %12 ], [ %11, %10 ], [ -22, %2 ]
+  %.0 = phi i32 [ %11, %10 ], [ 0, %12 ], [ -22, %2 ]
   ret i32 %.0
 }
 
@@ -2810,7 +2810,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_setpriority(i32 
   br label %10
 
 10:                                               ; preds = %4, %2, %6
-  %.0 = phi i32 [ -22, %2 ], [ %9, %6 ], [ 0, %4 ]
+  %.0 = phi i32 [ %9, %6 ], [ -22, %2 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -2875,7 +2875,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_thread_getpriority(
   br label %30
 
 30:                                               ; preds = %2, %28, %27, %25, %10
-  %.0 = phi i32 [ 0, %28 ], [ %13, %10 ], [ %26, %25 ], [ 0, %27 ], [ -22, %2 ]
+  %.0 = phi i32 [ %13, %10 ], [ %26, %25 ], [ 0, %27 ], [ 0, %28 ], [ -22, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -2962,7 +2962,7 @@ default.unreachable:                              ; preds = %23
   unreachable
 
 36:                                               ; preds = %23, %35, %32, %29, %25
-  %.0 = phi i32 [ %18, %35 ], [ %28, %25 ], [ %31, %29 ], [ %34, %32 ], [ %20, %23 ]
+  %.0 = phi i32 [ %28, %25 ], [ %31, %29 ], [ %34, %32 ], [ %18, %35 ], [ %20, %23 ]
   %37 = load i32, ptr %4, align 4
   %.not32 = icmp eq i32 %37, %.0
   br i1 %.not32, label %set_nice_for_calling_thread.exit, label %38
@@ -3056,7 +3056,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_uname(ptr nounde
   br label %37
 
 37:                                               ; preds = %27, %1, %33
-  %.014 = phi i32 [ -22, %1 ], [ %.0, %33 ], [ 0, %27 ]
+  %.014 = phi i32 [ %.0, %33 ], [ -22, %1 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.014
 }
@@ -3113,7 +3113,7 @@ uv_fileno.exit:                                   ; preds = %switch.lookup
   br label %uv_fileno.exit.thread
 
 uv_fileno.exit.thread:                            ; preds = %4, %switch.lookup, %22, %18
-  %.0 = phi i32 [ 0, %22 ], [ %21, %18 ], [ -9, %switch.lookup ], [ -22, %4 ]
+  %.0 = phi i32 [ %21, %18 ], [ 0, %22 ], [ -9, %switch.lookup ], [ -22, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -3147,7 +3147,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_gettimeofday(ptr no
   br label %16
 
 16:                                               ; preds = %1, %10, %6
-  %.0 = phi i32 [ 0, %10 ], [ %9, %6 ], [ -22, %1 ]
+  %.0 = phi i32 [ %9, %6 ], [ 0, %10 ], [ -22, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -3283,7 +3283,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__search_path(ptr nound
   br label %48
 
 48:                                               ; preds = %29, %26, %3, %9, %._crit_edge, %40, %20, %16
-  %.033 = phi i32 [ -22, %._crit_edge ], [ %19, %16 ], [ 0, %20 ], [ -22, %3 ], [ -22, %26 ], [ 0, %40 ], [ -22, %9 ], [ -12, %29 ]
+  %.033 = phi i32 [ %19, %16 ], [ 0, %20 ], [ 0, %40 ], [ -22, %._crit_edge ], [ -22, %9 ], [ -22, %3 ], [ -22, %26 ], [ -12, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -885,7 +885,7 @@ define internal fastcc i32 @dissect_pn_rta_remaining_user_data_bytes(ptr noundef
   br label %50
 
 50:                                               ; preds = %29, %42, %16, %23
-  %.2.sink = phi ptr [ %28, %23 ], [ %22, %16 ], [ %41, %29 ], [ %49, %42 ]
+  %.2.sink = phi ptr [ %22, %16 ], [ %28, %23 ], [ %41, %29 ], [ %49, %42 ]
   %51 = getelementptr inbounds nuw i8, ptr %.2.sink, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = tail call ptr @fragment_get(ptr noundef nonnull @pn_rsi_reassembly_table, ptr noundef %2, i32 noundef %52, ptr noundef null)

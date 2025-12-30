@@ -262,7 +262,7 @@ count_items.exit65:                               ; preds = %49
   br label %108
 
 108:                                              ; preds = %97, %count_items.exit65, %76, %78, %106, %96, %92, %19
-  %.0 = phi i32 [ -22, %92 ], [ -22, %96 ], [ 0, %106 ], [ -12, %count_items.exit65 ], [ -22, %19 ], [ -12, %78 ], [ -12, %76 ], [ -12, %97 ]
+  %.0 = phi i32 [ -22, %92 ], [ -22, %96 ], [ 0, %106 ], [ -22, %19 ], [ -12, %78 ], [ -12, %76 ], [ -12, %count_items.exit65 ], [ -12, %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -640,7 +640,7 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   br label %.critedge
 
 .critedge:                                        ; preds = %41, %16, %1, %10, %13
-  %.1 = phi i32 [ -12, %16 ], [ %44, %41 ], [ -541478725, %10 ], [ -541478725, %13 ], [ %8, %1 ]
+  %.1 = phi i32 [ -541478725, %10 ], [ -541478725, %13 ], [ %8, %1 ], [ -12, %16 ], [ %44, %41 ]
   ret i32 %.1
 }
 
@@ -810,7 +810,7 @@ define internal i32 @config_output(ptr noundef readonly captures(none) %0) #1 {
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %.lr.ph91, %79, %74, %._crit_edge92
-  %.2 = phi i32 [ -12, %.lr.ph91 ], [ -12, %79 ], [ %101, %._crit_edge92 ], [ -12, %74 ], [ -12, %21 ]
+  %.2 = phi i32 [ %101, %._crit_edge92 ], [ -12, %74 ], [ -12, %79 ], [ -12, %.lr.ph91 ], [ -12, %21 ]
   ret i32 %.2
 }
 

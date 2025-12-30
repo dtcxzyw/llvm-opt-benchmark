@@ -1123,7 +1123,7 @@ X509_digest.exit:                                 ; preds = %70, %72
   br label %94
 
 94:                                               ; preds = %90, %91, %46, %.critedge, %36, %93, %69, %55, %21, %17
-  %.0 = phi ptr [ null, %17 ], [ null, %93 ], [ null, %46 ], [ null, %36 ], [ null, %.critedge ], [ null, %55 ], [ null, %69 ], [ null, %21 ], [ %84, %91 ], [ %84, %90 ]
+  %.0 = phi ptr [ null, %17 ], [ null, %93 ], [ null, %36 ], [ null, %55 ], [ null, %69 ], [ null, %21 ], [ null, %.critedge ], [ null, %46 ], [ %84, %91 ], [ %84, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

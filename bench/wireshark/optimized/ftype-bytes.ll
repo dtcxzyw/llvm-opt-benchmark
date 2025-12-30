@@ -121,7 +121,7 @@ define hidden ptr @byte_array_from_literal(ptr noundef %0, ptr noundef writeonly
   br label %17
 
 17:                                               ; preds = %12, %15, %9, %2
-  %.133 = phi ptr [ %16, %15 ], [ %spec.select, %12 ], [ %spec.select, %9 ], [ %spec.select, %2 ]
+  %.133 = phi ptr [ %16, %15 ], [ %spec.select, %9 ], [ %spec.select, %2 ], [ %spec.select, %12 ]
   %18 = tail call ptr @g_byte_array_new()
   %19 = tail call i64 @strlen(ptr noundef %.133) #10
   %20 = icmp eq i64 %19, 10
@@ -195,7 +195,7 @@ define hidden ptr @byte_array_from_literal(ptr noundef %0, ptr noundef writeonly
   br label %51
 
 51:                                               ; preds = %41, %44, %49
-  %.1 = phi ptr [ %18, %41 ], [ null, %49 ], [ %18, %44 ]
+  %.1 = phi ptr [ null, %49 ], [ %18, %41 ], [ %18, %44 ]
   ret ptr %.1
 }
 
@@ -397,7 +397,7 @@ bytes_fvalue_free.exit:                           ; preds = %12, %15
   br label %byte_array_from_charconst.exit.thread
 
 byte_array_from_charconst.exit.thread:            ; preds = %6, %7, %byte_array_from_charconst.exit, %bytes_fvalue_free.exit
-  %17 = phi i1 [ true, %bytes_fvalue_free.exit ], [ false, %byte_array_from_charconst.exit ], [ false, %7 ], [ false, %6 ]
+  %17 = phi i1 [ false, %byte_array_from_charconst.exit ], [ true, %bytes_fvalue_free.exit ], [ false, %7 ], [ false, %6 ]
   ret i1 %17
 }
 
@@ -443,7 +443,7 @@ bytes_fvalue_free.exit.i:                         ; preds = %16, %13
   br label %bytes_from_charconst.exit
 
 bytes_from_charconst.exit:                        ; preds = %bytes_fvalue_free.exit.i, %byte_array_from_charconst.exit.i, %7, %8
-  %.0 = phi i1 [ false, %7 ], [ false, %8 ], [ true, %bytes_fvalue_free.exit.i ], [ false, %byte_array_from_charconst.exit.i ]
+  %.0 = phi i1 [ false, %8 ], [ false, %7 ], [ false, %byte_array_from_charconst.exit.i ], [ true, %bytes_fvalue_free.exit.i ]
   ret i1 %.0
 }
 
@@ -502,7 +502,7 @@ bytes_fvalue_free.exit.i.i:                       ; preds = %21, %18
   br label %bytes_from_uinteger64.exit
 
 bytes_from_uinteger64.exit:                       ; preds = %bytes_fvalue_free.exit.i.i, %byte_array_from_charconst.exit.i.i, %13, %12, %7, %8
-  %.0 = phi i1 [ false, %7 ], [ false, %8 ], [ false, %12 ], [ false, %13 ], [ true, %bytes_fvalue_free.exit.i.i ], [ false, %byte_array_from_charconst.exit.i.i ]
+  %.0 = phi i1 [ false, %8 ], [ false, %7 ], [ false, %13 ], [ false, %12 ], [ false, %byte_array_from_charconst.exit.i.i ], [ true, %bytes_fvalue_free.exit.i.i ]
   ret i1 %.0
 }
 
@@ -795,13 +795,13 @@ bytes_from_literal.exit:                          ; preds = %4
   br i1 %.not, label %21, label %.sink.split
 
 .sink.split:                                      ; preds = %bytes_from_literal.exit, %19, %14
-  %.str.24.sink = phi ptr [ @.str.23, %19 ], [ @.str.22, %14 ], [ @.str.24, %bytes_from_literal.exit ]
+  %.str.24.sink = phi ptr [ @.str.22, %14 ], [ @.str.23, %19 ], [ @.str.24, %bytes_from_literal.exit ]
   %20 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull %.str.24.sink, ptr noundef %1)
   store ptr %20, ptr %3, align 8
   br label %21
 
 21:                                               ; preds = %.sink.split, %bytes_from_literal.exit, %15, %19, %14
-  %.0 = phi i1 [ true, %15 ], [ false, %19 ], [ false, %14 ], [ false, %bytes_from_literal.exit ], [ false, %.sink.split ]
+  %.0 = phi i1 [ false, %14 ], [ false, %19 ], [ true, %15 ], [ false, %bytes_from_literal.exit ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -849,13 +849,13 @@ bytes_from_literal.exit:                          ; preds = %4
   br i1 %.not, label %21, label %.sink.split
 
 .sink.split:                                      ; preds = %bytes_from_literal.exit, %19, %14
-  %.str.27.sink = phi ptr [ @.str.26, %19 ], [ @.str.25, %14 ], [ @.str.27, %bytes_from_literal.exit ]
+  %.str.27.sink = phi ptr [ @.str.25, %14 ], [ @.str.26, %19 ], [ @.str.27, %bytes_from_literal.exit ]
   %20 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull %.str.27.sink, ptr noundef %1)
   store ptr %20, ptr %3, align 8
   br label %21
 
 21:                                               ; preds = %.sink.split, %bytes_from_literal.exit, %15, %19, %14
-  %.0 = phi i1 [ true, %15 ], [ false, %19 ], [ false, %14 ], [ false, %bytes_from_literal.exit ], [ false, %.sink.split ]
+  %.0 = phi i1 [ false, %14 ], [ false, %19 ], [ true, %15 ], [ false, %bytes_from_literal.exit ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -1000,7 +1000,7 @@ bytes_from_literal.exit:                          ; preds = %4
   br label %16
 
 16:                                               ; preds = %.sink.split, %bytes_from_literal.exit, %10, %14
-  %.0 = phi i1 [ true, %10 ], [ false, %14 ], [ false, %bytes_from_literal.exit ], [ false, %.sink.split ]
+  %.0 = phi i1 [ false, %14 ], [ true, %10 ], [ false, %bytes_from_literal.exit ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -1055,7 +1055,7 @@ bytes_from_literal.exit:                          ; preds = %4
   br label %16
 
 16:                                               ; preds = %.sink.split, %bytes_from_literal.exit, %10, %14
-  %.0 = phi i1 [ true, %10 ], [ false, %14 ], [ false, %bytes_from_literal.exit ], [ false, %.sink.split ]
+  %.0 = phi i1 [ false, %14 ], [ true, %10 ], [ false, %bytes_from_literal.exit ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -1103,13 +1103,13 @@ bytes_from_literal.exit:                          ; preds = %4
   br i1 %.not, label %21, label %.sink.split
 
 .sink.split:                                      ; preds = %bytes_from_literal.exit, %19, %14
-  %.str.36.sink = phi ptr [ @.str.35, %19 ], [ @.str.34, %14 ], [ @.str.36, %bytes_from_literal.exit ]
+  %.str.36.sink = phi ptr [ @.str.34, %14 ], [ @.str.35, %19 ], [ @.str.36, %bytes_from_literal.exit ]
   %20 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull %.str.36.sink, ptr noundef %1)
   store ptr %20, ptr %3, align 8
   br label %21
 
 21:                                               ; preds = %.sink.split, %bytes_from_literal.exit, %15, %19, %14
-  %.0 = phi i1 [ true, %15 ], [ false, %19 ], [ false, %14 ], [ false, %bytes_from_literal.exit ], [ false, %.sink.split ]
+  %.0 = phi i1 [ false, %14 ], [ false, %19 ], [ true, %15 ], [ false, %bytes_from_literal.exit ], [ false, %.sink.split ]
   ret i1 %.0
 }
 

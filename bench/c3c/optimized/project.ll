@@ -395,7 +395,7 @@ define dso_local ptr @project_select_target(ptr noundef readonly captures(none) 
   unreachable
 
 project_select_default_target.exit:               ; preds = %.preheader, %.lr.ph.i, %._crit_edge.i
-  %.023 = phi ptr [ %11, %.lr.ph.i ], [ %14, %._crit_edge.i ], [ %18, %.preheader ]
+  %.023 = phi ptr [ %14, %._crit_edge.i ], [ %11, %.lr.ph.i ], [ %18, %.preheader ]
   ret ptr %.023
 }
 
@@ -744,7 +744,7 @@ check_json_keys.exit.sink.split:                  ; preds = %._crit_edge.i372, %
   br label %check_json_keys.exit
 
 check_json_keys.exit:                             ; preds = %check_json_keys.exit.sink.split, %._crit_edge.i372, %26, %._crit_edge.i, %7
-  %45 = phi ptr [ @.str.111, %._crit_edge.i372 ], [ @.str.18, %7 ], [ @.str.18, %._crit_edge.i ], [ @.str.111, %26 ], [ %.ph, %check_json_keys.exit.sink.split ]
+  %45 = phi ptr [ @.str.18, %7 ], [ @.str.18, %._crit_edge.i ], [ @.str.111, %26 ], [ @.str.111, %._crit_edge.i372 ], [ %.ph, %check_json_keys.exit.sink.split ]
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.6) #8
@@ -832,7 +832,7 @@ get_string.exit379:                               ; preds = %get_string.exit, %6
   br label %78
 
 78:                                               ; preds = %76, %75
-  %.0327540 = phi ptr [ %66, %75 ], [ %.0327541, %76 ]
+  %.0327540 = phi ptr [ %.0327541, %76 ], [ %66, %75 ]
   %.not353 = icmp eq ptr %.0327540, null
   br i1 %.not353, label %.thread542, label %79
 

@@ -37,7 +37,7 @@ define hidden noundef nonnull ptr @hb_blob_create(ptr noundef %0, i32 noundef %1
   br label %10
 
 10:                                               ; preds = %8, %6, %7
-  %.0 = phi ptr [ %spec.select, %8 ], [ @_hb_NullPool, %6 ], [ @_hb_NullPool, %7 ]
+  %.0 = phi ptr [ @_hb_NullPool, %7 ], [ @_hb_NullPool, %6 ], [ %spec.select, %8 ]
   ret ptr %.0
 }
 
@@ -162,8 +162,8 @@ _ZL17hb_object_destroyI9hb_blob_tEbPT_.exit.i:    ; preds = %36, %_ZL14hb_object
   tail call void @free(ptr noundef nonnull %8) #21
   br label %hb_blob_destroy.exit
 
-hb_blob_destroy.exit:                             ; preds = %_ZN9hb_blob_t17destroy_user_dataEv.exit.i, %.thread.i, %_ZL17hb_object_destroyI9hb_blob_tEbPT_.exit.i, %27, %_ZN9hb_blob_t17try_make_writableEv.exit, %10, %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread, %9
-  %.0 = phi ptr [ %8, %10 ], [ null, %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread ], [ null, %9 ], [ null, %_ZL17hb_object_destroyI9hb_blob_tEbPT_.exit.i ], [ null, %_ZN9hb_blob_t17try_make_writableEv.exit ], [ null, %27 ], [ %8, %.thread.i ], [ %8, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i ]
+hb_blob_destroy.exit:                             ; preds = %.thread.i, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i, %_ZL17hb_object_destroyI9hb_blob_tEbPT_.exit.i, %27, %_ZN9hb_blob_t17try_make_writableEv.exit, %10, %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread, %9
+  %.0 = phi ptr [ null, %9 ], [ null, %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread ], [ %8, %10 ], [ null, %_ZN9hb_blob_t17try_make_writableEv.exit ], [ null, %27 ], [ null, %_ZL17hb_object_destroyI9hb_blob_tEbPT_.exit.i ], [ %8, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i ], [ %8, %.thread.i ]
   ret ptr %.0
 }
 
@@ -234,7 +234,7 @@ _ZN9hb_blob_t17destroy_user_dataEv.exit:          ; preds = %_ZL9hb_memcpyPvPKvm
   br label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.thread
 
 _ZN9hb_blob_t25try_make_writable_inplaceEv.exit.thread: ; preds = %.thread, %7, %9, %5, %_ZN9hb_blob_t17destroy_user_dataEv.exit
-  %.0 = phi i1 [ false, %9 ], [ true, %5 ], [ true, %7 ], [ true, %_ZN9hb_blob_t17destroy_user_dataEv.exit ], [ true, %.thread ]
+  %.0 = phi i1 [ true, %_ZN9hb_blob_t17destroy_user_dataEv.exit ], [ true, %5 ], [ false, %9 ], [ true, %7 ], [ true, %.thread ]
   ret i1 %.0
 }
 
@@ -293,7 +293,7 @@ _ZL17hb_object_destroyI9hb_blob_tEbPT_.exit:      ; preds = %16, %_ZL14hb_object
   tail call void @free(ptr noundef nonnull %0) #21
   br label %_ZL17hb_object_destroyI9hb_blob_tEbPT_.exit.thread
 
-_ZL17hb_object_destroyI9hb_blob_tEbPT_.exit.thread: ; preds = %1, %2, %5, %_ZL17hb_object_destroyI9hb_blob_tEbPT_.exit
+_ZL17hb_object_destroyI9hb_blob_tEbPT_.exit.thread: ; preds = %1, %5, %2, %_ZL17hb_object_destroyI9hb_blob_tEbPT_.exit
   ret void
 }
 
@@ -369,13 +369,13 @@ _ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i: ; preds = %24, %hb_bl
   br label %hb_blob_create_or_fail.exit
 
 hb_blob_create_or_fail.exit:                      ; preds = %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i, %26
-  %.0.i15 = phi ptr [ %25, %26 ], [ null, %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i ]
+  %.0.i15 = phi ptr [ null, %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i ], [ %25, %26 ]
   %.not15.i = icmp eq ptr %.0.i15, null
   %spec.select.i = select i1 %.not15.i, ptr @_hb_NullPool, ptr %.0.i15
   br label %hb_blob_create.exit
 
 hb_blob_create.exit:                              ; preds = %hb_blob_create_or_fail.exit, %3, %6
-  %.0 = phi ptr [ @_hb_NullPool, %3 ], [ @_hb_NullPool, %6 ], [ %spec.select.i, %hb_blob_create_or_fail.exit ]
+  %.0 = phi ptr [ @_hb_NullPool, %6 ], [ @_hb_NullPool, %3 ], [ %spec.select.i, %hb_blob_create_or_fail.exit ]
   ret ptr %.0
 }
 
@@ -494,7 +494,7 @@ define hidden range(i32 0, 2) i32 @hb_blob_set_user_data(ptr noundef captures(ad
   br label %_ZL23hb_object_set_user_dataI9hb_blob_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit
 
 _ZL23hb_object_set_user_dataI9hb_blob_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit: ; preds = %.lr.ph.i, %5, %6, %.split.loop.exit.i
-  %.015.i = phi i32 [ 0, %5 ], [ %22, %.split.loop.exit.i ], [ 0, %6 ], [ 0, %.lr.ph.i ]
+  %.015.i = phi i32 [ %22, %.split.loop.exit.i ], [ 0, %6 ], [ 0, %5 ], [ 0, %.lr.ph.i ]
   ret i32 %.015.i
 }
 
@@ -550,7 +550,7 @@ _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %17, %18, 
   br label %_ZL23hb_object_get_user_dataIK9hb_blob_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK9hb_blob_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %2, %3, %5, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
-  %.0.i = phi ptr [ null, %2 ], [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %5 ]
+  %.0.i = phi ptr [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %2 ], [ null, %5 ]
   ret ptr %.0.i
 }
 
@@ -666,7 +666,7 @@ _ZN9hb_blob_t17try_make_writableEv.exit:          ; preds = %12, %2
   store i32 0, ptr %1, align 4
   br label %33
 
-27:                                               ; preds = %9, %10, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i, %.thread.i
+27:                                               ; preds = %_ZN9hb_blob_t17destroy_user_dataEv.exit.i, %9, %10, %.thread.i
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %30, label %28
 
@@ -863,7 +863,7 @@ _ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i: ; preds = %25, %21
   br label %hb_blob_create_or_fail.exit
 
 36:                                               ; preds = %15, %13, %10
-  %.3 = phi ptr [ %.132, %10 ], [ %.2, %15 ], [ %.132, %13 ]
+  %.3 = phi ptr [ %.132, %10 ], [ %.132, %13 ], [ %.2, %15 ]
   %37 = tail call i32 @fclose(ptr noundef nonnull %4)
   br label %38
 
@@ -873,7 +873,7 @@ _ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i: ; preds = %25, %21
   br label %hb_blob_create_or_fail.exit
 
 hb_blob_create_or_fail.exit:                      ; preds = %27, %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i, %1, %38
-  %.0 = phi ptr [ null, %38 ], [ null, %1 ], [ %26, %27 ], [ null, %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i ]
+  %.0 = phi ptr [ null, %38 ], [ null, %1 ], [ null, %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i ], [ %26, %27 ]
   ret ptr %.0
 }
 
@@ -1219,7 +1219,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EE
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %19, %17, %20, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
-  %.0 = phi ptr [ %.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ null, %20 ], [ %16, %17 ], [ %16, %19 ]
+  %.0 = phi ptr [ null, %20 ], [ %.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ %16, %17 ], [ %16, %19 ]
   %43 = load i32, ptr %0, align 8
   %44 = icmp slt i32 %43, 0
   %45 = select i1 %44, ptr null, ptr %.0

@@ -245,7 +245,7 @@ define dso_local i64 @hugetlb_vmemmap_restore_folios(ptr noundef readonly captur
   br label %.thread3
 
 .thread3:                                         ; preds = %33, %3
-  %35 = phi i64 [ %spec.select, %33 ], [ 0, %3 ]
+  %35 = phi i64 [ 0, %3 ], [ %spec.select, %33 ]
   ret i64 %35
 }
 

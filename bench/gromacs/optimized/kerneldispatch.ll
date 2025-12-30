@@ -156,7 +156,7 @@ define noundef range(i32 0, 5) i32 @_ZN3gmx20getCoulombKernelTypeENS_18EwaldExcl
   br label %_ZL7usingRFRK22CoulombInteractionType.exit.thread
 
 _ZL7usingRFRK22CoulombInteractionType.exit.thread: ; preds = %3, %3, %3, %3, %3, %7, %6
-  %.0 = phi i32 [ %.5, %7 ], [ %., %6 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+  %.0 = phi i32 [ %., %6 ], [ %.5, %7 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -423,7 +423,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %67,
   br label %73
 
 switch.lookup:                                    ; preds = %18, %52, %50, %17, %31
-  %.031 = phi i32 [ 5, %50 ], [ 6, %52 ], [ 3, %17 ], [ 4, %31 ], [ %1, %18 ]
+  %.031 = phi i32 [ 4, %31 ], [ 3, %17 ], [ 5, %50 ], [ 6, %52 ], [ %1, %18 ]
   ret i32 %.031
 
 73:                                               ; preds = %28, %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -896,7 +896,7 @@ define void @_ZNK3gmx18nonbonded_verlet_t23dispatchNonbondedKernelENS_19Interact
   br label %_ZN3gmx20getCoulombKernelTypeENS_18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
 
 _ZN3gmx20getCoulombKernelTypeENS_18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i: ; preds = %48, %47, %27, %27, %27, %27, %27
-  %.0.i.i = phi i32 [ %.5.i.i, %48 ], [ %..i.i, %47 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ]
+  %.0.i.i = phi i32 [ %..i.i, %47 ], [ %.5.i.i, %48 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ]
   store i32 %.0.i.i, ptr %13, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %49 = load i32, ptr %25, align 8, !tbaa !48
@@ -1217,7 +1217,7 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
   br label %.invoke
 
 .invoke111:                                       ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92, %98, %53
-  %77 = phi i32 [ 315, %98 ], [ 280, %53 ], [ 358, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92 ]
+  %77 = phi i32 [ 280, %53 ], [ 315, %98 ], [ 358, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92 ]
   invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16NbnxmKernelSetupEPNS_16nbnxn_atomdata_tERK19interaction_const_tNS_8ArrayRefIKNS_11BasicVectorIfEEEERKNS_12StepWorkloadEiPfSJ_P13gmx_wallcycleENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef %77) #21
           to label %.cont unwind label %.loopexit.split-lp
 

@@ -1270,7 +1270,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIfLi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %136, %..loopexit_crit_edge, %.preheader71, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIfLin1ELi1ELi0ELin1ELi1EEEEERS2_RKNS_9EigenBaseIT_EE.exit
-  %170 = phi ptr [ %.pre80, %..loopexit_crit_edge ], [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIfLin1ELi1ELi0ELin1ELi1EEEEERS2_RKNS_9EigenBaseIT_EE.exit ], [ null, %.preheader71 ], [ null, %136 ]
+  %170 = phi ptr [ %.pre80, %..loopexit_crit_edge ], [ null, %.preheader71 ], [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIfLin1ELi1ELi0ELin1ELi1EEEEERS2_RKNS_9EigenBaseIT_EE.exit ], [ null, %136 ]
   call void @free(ptr noundef %170) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %171
@@ -1279,8 +1279,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIfLi
   ret void
 
 172:                                              ; preds = %134, %.body, %43
-  %173 = phi ptr [ %.pre, %134 ], [ null, %43 ], [ null, %.body ]
-  %.pn45 = phi { ptr, i32 } [ %135, %134 ], [ %44, %43 ], [ %.pn, %.body ]
+  %173 = phi ptr [ %.pre, %134 ], [ null, %.body ], [ null, %43 ]
+  %.pn45 = phi { ptr, i32 } [ %135, %134 ], [ %.pn, %.body ], [ %44, %43 ]
   call void @free(ptr noundef %173) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn45
@@ -4063,7 +4063,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIdLi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %126, %..loopexit_crit_edge, %.preheader71, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIdLin1ELi1ELi0ELin1ELi1EEEEERS2_RKNS_9EigenBaseIT_EE.exit
-  %163 = phi ptr [ %.pre80, %..loopexit_crit_edge ], [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIdLin1ELi1ELi0ELin1ELi1EEEEERS2_RKNS_9EigenBaseIT_EE.exit ], [ null, %.preheader71 ], [ null, %126 ]
+  %163 = phi ptr [ %.pre80, %..loopexit_crit_edge ], [ null, %.preheader71 ], [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIdLin1ELi1ELi0ELin1ELi1EEEEERS2_RKNS_9EigenBaseIT_EE.exit ], [ null, %126 ]
   call void @free(ptr noundef %163) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %164
@@ -4072,8 +4072,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIdLi
   ret void
 
 165:                                              ; preds = %124, %.body, %45
-  %166 = phi ptr [ %.pre, %124 ], [ null, %45 ], [ null, %.body ]
-  %.pn45 = phi { ptr, i32 } [ %125, %124 ], [ %46, %45 ], [ %.pn, %.body ]
+  %166 = phi ptr [ %.pre, %124 ], [ null, %.body ], [ null, %45 ]
+  %.pn45 = phi { ptr, i32 } [ %125, %124 ], [ %.pn, %.body ], [ %46, %45 ]
   call void @free(ptr noundef %166) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn45
@@ -4532,7 +4532,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEaSINS_13CwiseBin
   br label %141
 
 141:                                              ; preds = %137, %135, %133, %139
-  %.pn28 = phi { ptr, i32 } [ %140, %139 ], [ %138, %137 ], [ %136, %135 ], [ %134, %133 ]
+  %.pn28 = phi { ptr, i32 } [ %140, %139 ], [ %134, %133 ], [ %136, %135 ], [ %138, %137 ]
   %142 = load ptr, ptr %17, align 8, !tbaa !19
   call void @free(ptr noundef %142) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -5895,7 +5895,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIdLi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %127, %..loopexit_crit_edge, %.preheader71, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIdLin1ELi1ELi0ELin1ELi1EEEEERS2_RKNS_9EigenBaseIT_EE.exit
-  %161 = phi ptr [ %.pre80, %..loopexit_crit_edge ], [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIdLin1ELi1ELi0ELin1ELi1EEEEERS2_RKNS_9EigenBaseIT_EE.exit ], [ null, %.preheader71 ], [ null, %127 ]
+  %161 = phi ptr [ %.pre80, %..loopexit_crit_edge ], [ null, %.preheader71 ], [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIdLin1ELi1ELi0ELin1ELi1EEEEERS2_RKNS_9EigenBaseIT_EE.exit ], [ null, %127 ]
   call void @free(ptr noundef %161) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %162
@@ -5904,8 +5904,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIdLi
   ret void
 
 163:                                              ; preds = %125, %.body, %43
-  %164 = phi ptr [ %.pre, %125 ], [ null, %43 ], [ null, %.body ]
-  %.pn45 = phi { ptr, i32 } [ %126, %125 ], [ %44, %43 ], [ %.pn, %.body ]
+  %164 = phi ptr [ %.pre, %125 ], [ null, %.body ], [ null, %43 ]
+  %.pn45 = phi { ptr, i32 } [ %126, %125 ], [ %.pn, %.body ], [ %44, %43 ]
   call void @free(ptr noundef %164) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn45
@@ -6399,7 +6399,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIiLi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %123, %..loopexit_crit_edge, %.preheader66, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIiLin1ELi1ELi0ELin1ELi1EEEEERS2_RKNS_9EigenBaseIT_EE.exit
-  %158 = phi ptr [ %.pre77, %..loopexit_crit_edge ], [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIiLin1ELi1ELi0ELin1ELi1EEEEERS2_RKNS_9EigenBaseIT_EE.exit ], [ null, %.preheader66 ], [ null, %123 ]
+  %158 = phi ptr [ %.pre77, %..loopexit_crit_edge ], [ null, %.preheader66 ], [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIiLin1ELi1ELi0ELin1ELi1EEEEERS2_RKNS_9EigenBaseIT_EE.exit ], [ null, %123 ]
   call void @free(ptr noundef %158) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %159
@@ -6408,8 +6408,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEaSINS_5ArrayIiLi
   ret void
 
 160:                                              ; preds = %121, %.body, %34
-  %161 = phi ptr [ %.pre76, %121 ], [ null, %34 ], [ null, %.body ]
-  %.pn45 = phi { ptr, i32 } [ %122, %121 ], [ %35, %34 ], [ %.pn, %.body ]
+  %161 = phi ptr [ %.pre76, %121 ], [ null, %.body ], [ null, %34 ]
+  %.pn45 = phi { ptr, i32 } [ %122, %121 ], [ %.pn, %.body ], [ %35, %34 ]
   call void @free(ptr noundef %161) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn45
@@ -7527,7 +7527,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit, %..loopexit_crit_edge, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.preheader, %76
-  %125 = phi ptr [ %.pre59, %..loopexit_crit_edge ], [ null, %76 ], [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.preheader ], [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit ]
+  %125 = phi ptr [ %.pre59, %..loopexit_crit_edge ], [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.preheader ], [ null, %76 ], [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit ]
   call void @free(ptr noundef %125) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %126
@@ -7536,8 +7536,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   ret void
 
 127:                                              ; preds = %90, %83, %43
-  %128 = phi ptr [ %.pre, %90 ], [ null, %43 ], [ null, %83 ]
-  %.pn45 = phi { ptr, i32 } [ %91, %90 ], [ %44, %43 ], [ %.pn, %83 ]
+  %128 = phi ptr [ %.pre, %90 ], [ null, %83 ], [ null, %43 ]
+  %.pn45 = phi { ptr, i32 } [ %91, %90 ], [ %.pn, %83 ], [ %44, %43 ]
   call void @free(ptr noundef %128) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn45
@@ -8127,7 +8127,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEaSINS_13CwiseB
   br label %144
 
 144:                                              ; preds = %140, %138, %136, %142
-  %.pn28 = phi { ptr, i32 } [ %143, %142 ], [ %141, %140 ], [ %139, %138 ], [ %137, %136 ]
+  %.pn28 = phi { ptr, i32 } [ %143, %142 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ]
   %145 = load ptr, ptr %17, align 8, !tbaa !19
   call void @free(ptr noundef %145) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %17)

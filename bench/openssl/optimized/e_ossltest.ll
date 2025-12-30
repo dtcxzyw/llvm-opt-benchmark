@@ -433,7 +433,7 @@ define internal range(i32 0, 4) i32 @ossltest_ciphers(ptr readnone captures(none
   br i1 %.not4.i, label %._crit_edge.i, label %ossltest_aes_128_cbc.exit
 
 ._crit_edge.i:                                    ; preds = %21, %19, %17, %15, %13, %10
-  %25 = phi ptr [ null, %10 ], [ %.pre5.i, %19 ], [ %.pre6.i, %17 ], [ %.pre7.i, %15 ], [ %.pre8.i, %13 ], [ %.pre9.i, %21 ]
+  %25 = phi ptr [ %.pre5.i, %19 ], [ %.pre6.i, %17 ], [ %.pre7.i, %15 ], [ %.pre8.i, %13 ], [ null, %10 ], [ %.pre9.i, %21 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %25) #8
   store ptr null, ptr @_hidden_aes_128_cbc, align 8, !tbaa !18
   br label %ossltest_aes_128_cbc.exit
@@ -493,7 +493,7 @@ ossltest_aes_128_cbc.exit:                        ; preds = %7, %21, %._crit_edg
   br i1 %.not5.i, label %._crit_edge.i19, label %ossltest_aes_128_gcm.exit
 
 ._crit_edge.i19:                                  ; preds = %43, %41, %39, %37, %35, %33, %30
-  %47 = phi ptr [ null, %30 ], [ %.pre6.i18, %41 ], [ %.pre7.i16, %39 ], [ %.pre8.i14, %37 ], [ %.pre9.i12, %35 ], [ %.pre10.i, %33 ], [ %.pre11.i, %43 ]
+  %47 = phi ptr [ %.pre6.i18, %41 ], [ %.pre7.i16, %39 ], [ %.pre8.i14, %37 ], [ %.pre9.i12, %35 ], [ %.pre10.i, %33 ], [ null, %30 ], [ %.pre11.i, %43 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %47) #8
   store ptr null, ptr @_hidden_aes_128_gcm, align 8, !tbaa !18
   br label %ossltest_aes_128_gcm.exit
@@ -563,7 +563,7 @@ ossltest_aes_128_gcm.exit:                        ; preds = %27, %43, %._crit_ed
   br i1 %.not7.i, label %._crit_edge.i30, label %ossltest_aes_128_cbc_hmac_sha1.exit
 
 ._crit_edge.i30:                                  ; preds = %69, %67, %65, %63, %61, %59, %57, %55, %52
-  %71 = phi ptr [ null, %52 ], [ %.pre8.i29, %67 ], [ %.pre9.i28, %65 ], [ %.pre10.i26, %63 ], [ %.pre11.i24, %61 ], [ %.pre12.i, %59 ], [ %.pre13.i, %57 ], [ %.pre14.i, %55 ], [ %.pre15.i, %69 ]
+  %71 = phi ptr [ %.pre8.i29, %67 ], [ %.pre9.i28, %65 ], [ %.pre10.i26, %63 ], [ %.pre11.i24, %61 ], [ %.pre12.i, %59 ], [ %.pre13.i, %57 ], [ %.pre14.i, %55 ], [ null, %52 ], [ %.pre15.i, %69 ]
   tail call void @EVP_CIPHER_meth_free(ptr noundef %71) #8
   store ptr null, ptr @_hidden_aes_128_cbc_hmac_sha1, align 8, !tbaa !18
   br label %ossltest_aes_128_cbc_hmac_sha1.exit
@@ -1487,7 +1487,7 @@ fill_known_data.exit:                             ; preds = %18
   br i1 %.not60, label %52, label %.critedge
 
 .critedge:                                        ; preds = %52, %.lr.ph68, %.lr.ph.preheader, %fill_known_data.exit, %47, %.thread, %32, %37, %39, %15, %27, %12, %4
-  %.0 = phi i32 [ 1, %.lr.ph.preheader ], [ 0, %12 ], [ 0, %4 ], [ 0, %32 ], [ 1, %27 ], [ 1, %15 ], [ 1, %.thread ], [ 0, %39 ], [ 0, %37 ], [ 1, %fill_known_data.exit ], [ 1, %47 ], [ 0, %.lr.ph68 ], [ 1, %52 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 1, %27 ], [ 1, %15 ], [ 0, %39 ], [ 0, %37 ], [ 0, %32 ], [ 1, %.thread ], [ 1, %47 ], [ 1, %fill_known_data.exit ], [ 1, %.lr.ph.preheader ], [ 1, %52 ], [ 0, %.lr.ph68 ]
   ret i32 %.0
 }
 
@@ -1561,7 +1561,7 @@ define internal range(i32 -65503, 65572) i32 @ossltest_aes128_cbc_hmac_sha1_ctrl
   br label %43
 
 43:                                               ; preds = %37, %41, %6, %30, %4, %42
-  %.029 = phi i32 [ -1, %42 ], [ 1, %4 ], [ 20, %41 ], [ -1, %6 ], [ %40, %37 ], [ 0, %30 ]
+  %.029 = phi i32 [ -1, %42 ], [ 1, %4 ], [ %40, %37 ], [ 20, %41 ], [ -1, %6 ], [ 0, %30 ]
   ret i32 %.029
 }
 

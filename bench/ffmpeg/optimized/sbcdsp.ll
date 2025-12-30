@@ -1013,11 +1013,11 @@ ff_clz_c.exit156:                                 ; preds = %53
   br i1 %exitcond234.not, label %.preheader.loopexit, label %.lr.ph200, !llvm.loop !42
 
 ff_clz_c.exit164:                                 ; preds = %ff_clz_c.exit156.thread, %.preheader.loopexit
-  %77 = phi ptr [ %35, %ff_clz_c.exit156.thread ], [ %61, %.preheader.loopexit ]
-  %78 = phi ptr [ %34, %ff_clz_c.exit156.thread ], [ %60, %.preheader.loopexit ]
-  %.4116.lcssa = phi i32 [ 0, %ff_clz_c.exit156.thread ], [ %63, %.preheader.loopexit ]
-  %.4.lcssa = phi i32 [ 0, %ff_clz_c.exit156.thread ], [ %65, %.preheader.loopexit ]
-  %79 = phi i32 [ 0, %ff_clz_c.exit156.thread ], [ %66, %.preheader.loopexit ]
+  %77 = phi ptr [ %61, %.preheader.loopexit ], [ %35, %ff_clz_c.exit156.thread ]
+  %78 = phi ptr [ %60, %.preheader.loopexit ], [ %34, %ff_clz_c.exit156.thread ]
+  %.4116.lcssa = phi i32 [ %63, %.preheader.loopexit ], [ 0, %ff_clz_c.exit156.thread ]
+  %.4.lcssa = phi i32 [ %65, %.preheader.loopexit ], [ 0, %ff_clz_c.exit156.thread ]
+  %79 = phi i32 [ %66, %.preheader.loopexit ], [ 0, %ff_clz_c.exit156.thread ]
   %80 = add nuw nsw i32 %.4.lcssa, %.4116.lcssa
   %81 = icmp samesign ugt i32 %79, %80
   br i1 %81, label %82, label %.loopexit

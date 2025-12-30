@@ -667,7 +667,7 @@ _ZNK2cv20MatCommaInitializer_IhEcvNS_4Mat_IhEEEv.exit78: ; preds = %_ZN2cv20MatC
   br i1 %208, label %.loopexit, label %205
 
 .loopexit:                                        ; preds = %193, %205, %.thread
-  %.pn14.pn = phi { ptr, i32 } [ %198, %205 ], [ %169, %.thread ], [ %192, %193 ]
+  %.pn14.pn = phi { ptr, i32 } [ %169, %.thread ], [ %198, %205 ], [ %192, %193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #12
   br label %209

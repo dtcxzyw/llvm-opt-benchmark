@@ -489,7 +489,7 @@ prepareFromUMappings.exit.i:                      ; preds = %95, %44
   br i1 %exitcond.not.i9, label %makeFromUTable.exit, label %201, !llvm.loop !54
 
 makeFromUTable.exit:                              ; preds = %190, %201, %.loopexit.i, %176, %makeToUTable.exit, %7
-  %.0 = phi i8 [ 0, %7 ], [ 0, %makeToUTable.exit ], [ 1, %.loopexit.i ], [ 0, %176 ], [ 1, %201 ], [ 0, %190 ]
+  %.0 = phi i8 [ 0, %7 ], [ 0, %makeToUTable.exit ], [ 0, %176 ], [ 1, %.loopexit.i ], [ 1, %201 ], [ 0, %190 ]
   ret i8 %.0
 }
 

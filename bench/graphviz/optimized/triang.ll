@@ -524,7 +524,7 @@ between.exit79.thread:                            ; preds = %86, %between.exit76
   br label %between.exit82
 
 between.exit82:                                   ; preds = %105, %101, %between.exit79.thread, %between.exit, %between.exit76, %between.exit79, %111
-  %.0 = phi i1 [ %114, %111 ], [ true, %between.exit ], [ true, %between.exit76 ], [ true, %between.exit79 ], [ false, %between.exit79.thread ], [ false, %101 ], [ %110, %105 ]
+  %.0 = phi i1 [ %114, %111 ], [ true, %between.exit79 ], [ true, %between.exit76 ], [ true, %between.exit ], [ false, %between.exit79.thread ], [ false, %101 ], [ %110, %105 ]
   ret i1 %.0
 }
 

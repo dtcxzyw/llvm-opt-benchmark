@@ -405,7 +405,7 @@ _ZN8XAddress5is_inEm.exit:                        ; preds = %2
   br label %_ZNK5XPage5is_inEm.exit
 
 _ZNK5XPage5is_inEm.exit:                          ; preds = %2, %22, %19, %_ZN8XAddress5is_inEm.exit, %12
-  %.0 = phi i1 [ %25, %22 ], [ false, %12 ], [ false, %_ZN8XAddress5is_inEm.exit ], [ false, %19 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %12 ], [ false, %_ZN8XAddress5is_inEm.exit ], [ false, %19 ], [ %25, %22 ], [ false, %2 ]
   ret i1 %.0
 }
 

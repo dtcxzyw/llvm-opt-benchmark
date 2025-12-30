@@ -877,7 +877,7 @@ define internal i32 @dissect_edonkey_tcp(ptr noundef %0, ptr noundef %1, ptr nou
   br label %17
 
 17:                                               ; preds = %6, %4, %11
-  %.0 = phi i32 [ 0, %4 ], [ %16, %11 ], [ 0, %6 ]
+  %.0 = phi i32 [ %16, %11 ], [ 0, %4 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -990,7 +990,7 @@ dissect_kademlia_udp_compressed_message.exit:     ; preds = %51, %47, %39, %41, 
   br label %61
 
 61:                                               ; preds = %6, %4, %59
-  %.0 = phi i32 [ 0, %4 ], [ %60, %59 ], [ 0, %6 ]
+  %.0 = phi i32 [ %60, %59 ], [ 0, %4 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -1444,7 +1444,7 @@ define internal void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph237, %106, %.thread230, %47, %56, %121, %132, %24, %147, %145, %142, %140, %138, %136, %101, %96, %90, %81, %76, %73, %68, %63, %59, %45, %41, %39, %37, %35, %33, %30
-  %.1 = phi i32 [ %3, %147 ], [ %29, %24 ], [ %23, %.thread230 ], [ %32, %30 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %46, %45 ], [ %146, %145 ], [ %62, %59 ], [ %67, %63 ], [ %72, %68 ], [ %.pre.i, %73 ], [ %.pre.i226, %76 ], [ %89, %81 ], [ %3, %90 ], [ %100, %96 ], [ %105, %101 ], [ %54, %47 ], [ %130, %132 ], [ %130, %121 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ], [ %144, %142 ], [ %54, %56 ], [ %109, %106 ], [ %119, %.lr.ph237 ]
+  %.1 = phi i32 [ %3, %147 ], [ %29, %24 ], [ %32, %30 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %46, %45 ], [ %62, %59 ], [ %67, %63 ], [ %72, %68 ], [ %.pre.i, %73 ], [ %.pre.i226, %76 ], [ %89, %81 ], [ %3, %90 ], [ %100, %96 ], [ %105, %101 ], [ %130, %132 ], [ %130, %121 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ], [ %144, %142 ], [ %146, %145 ], [ %54, %56 ], [ %54, %47 ], [ %23, %.thread230 ], [ %109, %106 ], [ %119, %.lr.ph237 ]
   %150 = icmp slt i32 %.1, %12
   br i1 %150, label %151, label %155
 
@@ -2308,7 +2308,7 @@ define internal fastcc i32 @dissect_edonkey_list(ptr noundef %0, ptr noundef %1,
   br label %17
 
 17:                                               ; preds = %9, %12, %15
-  %.047 = phi i32 [ %11, %9 ], [ %16, %15 ], [ %14, %12 ]
+  %.047 = phi i32 [ %11, %9 ], [ %14, %12 ], [ %16, %15 ]
   %18 = load i32, ptr @hf_edonkey_list_size, align 4
   %19 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %3, i32 noundef %18, ptr noundef %0, i32 noundef %2, i32 noundef %4, i32 noundef %.047, ptr noundef nonnull @.str.418, ptr noundef %5, i32 noundef %.047)
   %20 = add i32 %4, %2
@@ -2536,7 +2536,7 @@ lookup_str_index.exit.i:                          ; preds = %110
   br label %edonkey_metatag_name_get_type.exit
 
 edonkey_metatag_name_get_type.exit:               ; preds = %edonkey_tree_add_metatag_name.exit325, %lookup_str_index.exit.i
-  %.1.i = phi i8 [ %.0319, %edonkey_tree_add_metatag_name.exit325 ], [ %120, %lookup_str_index.exit.i ]
+  %.1.i = phi i8 [ %120, %lookup_str_index.exit.i ], [ %.0319, %edonkey_tree_add_metatag_name.exit325 ]
   switch i8 %.1.i, label %edonkey_metatag_name_get_type.exit.thread [
     i8 16, label %121
     i8 -111, label %124
@@ -2873,7 +2873,7 @@ edonkey_tree_add_metatag_name.exit339:            ; preds = %311, %314
   br label %edonkey_tree_add_metatag_name.exit327
 
 edonkey_tree_add_metatag_name.exit327:            ; preds = %339, %336, %150, %147, %edonkey_tree_add_metatag_name.exit339, %121, %edonkey_metatag_name_get_type.exit.thread, %124, %edonkey_tree_add_metatag_name.exit337, %edonkey_tree_add_metatag_name.exit335, %edonkey_tree_add_metatag_name.exit333, %edonkey_tree_add_metatag_name.exit331, %edonkey_tree_add_metatag_name.exit329, %edonkey_tree_add_metatag_name.exit323, %edonkey_tree_add_metatag_name.exit
-  %.1 = phi i32 [ %294, %edonkey_tree_add_metatag_name.exit339 ], [ %130, %150 ], [ %21, %edonkey_tree_add_metatag_name.exit ], [ %50, %edonkey_tree_add_metatag_name.exit323 ], [ %79, %121 ], [ %79, %124 ], [ %79, %edonkey_metatag_name_get_type.exit.thread ], [ %263, %edonkey_tree_add_metatag_name.exit337 ], [ %154, %edonkey_tree_add_metatag_name.exit329 ], [ %180, %edonkey_tree_add_metatag_name.exit331 ], [ %206, %edonkey_tree_add_metatag_name.exit333 ], [ %235, %edonkey_tree_add_metatag_name.exit335 ], [ %130, %147 ], [ %.0, %336 ], [ %.0, %339 ]
+  %.1 = phi i32 [ %294, %edonkey_tree_add_metatag_name.exit339 ], [ %21, %edonkey_tree_add_metatag_name.exit ], [ %50, %edonkey_tree_add_metatag_name.exit323 ], [ %79, %121 ], [ %79, %124 ], [ %79, %edonkey_metatag_name_get_type.exit.thread ], [ %154, %edonkey_tree_add_metatag_name.exit329 ], [ %180, %edonkey_tree_add_metatag_name.exit331 ], [ %206, %edonkey_tree_add_metatag_name.exit333 ], [ %235, %edonkey_tree_add_metatag_name.exit335 ], [ %263, %edonkey_tree_add_metatag_name.exit337 ], [ %130, %147 ], [ %130, %150 ], [ %.0, %336 ], [ %.0, %339 ]
   %342 = add i32 %.1, %2
   ret i32 %342
 }
@@ -3816,7 +3816,7 @@ dissect_edonkey_list.exit324:                     ; preds = %.lr.ph.i319, %199
   br label %255
 
 255:                                              ; preds = %proto_item_set_hidden.exit, %28, %30, %38, %47, %49, %58, %66, %68, %80, %130, %134, %137, %140, %144, %148, %154, %dissect_edonkey_list.exit, %dissect_edonkey_list.exit317, %dissect_edonkey_list.exit324, %76, %73, %166, %158, %._crit_edge.thread, %250, %6
-  %.0 = phi i32 [ %3, %6 ], [ %3, %proto_item_set_hidden.exit ], [ %29, %28 ], [ %37, %30 ], [ %46, %38 ], [ %48, %47 ], [ %57, %49 ], [ %65, %58 ], [ %67, %66 ], [ %72, %68 ], [ %79, %76 ], [ %74, %73 ], [ %84, %80 ], [ %117, %130 ], [ %136, %134 ], [ %139, %137 ], [ %143, %140 ], [ %147, %144 ], [ %153, %148 ], [ %157, %154 ], [ %163, %158 ], [ %.045.lcssa.i, %dissect_edonkey_list.exit ], [ %.045.lcssa.i316, %dissect_edonkey_list.exit317 ], [ %.045.lcssa.i323, %dissect_edonkey_list.exit324 ], [ %167, %166 ], [ %252, %250 ], [ %254, %._crit_edge.thread ]
+  %.0 = phi i32 [ %3, %6 ], [ %3, %proto_item_set_hidden.exit ], [ %29, %28 ], [ %37, %30 ], [ %46, %38 ], [ %48, %47 ], [ %57, %49 ], [ %65, %58 ], [ %67, %66 ], [ %72, %68 ], [ %79, %76 ], [ %74, %73 ], [ %84, %80 ], [ %117, %130 ], [ %136, %134 ], [ %139, %137 ], [ %143, %140 ], [ %147, %144 ], [ %153, %148 ], [ %157, %154 ], [ %.045.lcssa.i, %dissect_edonkey_list.exit ], [ %.045.lcssa.i316, %dissect_edonkey_list.exit317 ], [ %.045.lcssa.i323, %dissect_edonkey_list.exit324 ], [ %167, %166 ], [ %163, %158 ], [ %252, %250 ], [ %254, %._crit_edge.thread ]
   ret i32 %.0
 }
 

@@ -518,8 +518,8 @@ define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..option..Optio
           to label %.sink.split.i unwind label %5
 
 common.resume.i:                                  ; preds = %85, %82, %79, %66, %63, %60, %54, %50, %40, %31, %.body.i.i.i, %8, %5
-  %.sink.i = phi i64 [ 136, %85 ], [ 104, %82 ], [ 24, %79 ], [ 200, %66 ], [ 184, %63 ], [ 48, %.body.i.i.i ], [ 24, %50 ], [ 80, %5 ], [ 96, %8 ], [ 48, %40 ], [ 48, %31 ], [ 16, %60 ], [ 16, %54 ]
-  %common.resume.op.i = phi { ptr, i32 } [ %86, %85 ], [ %83, %82 ], [ %80, %79 ], [ %67, %66 ], [ %64, %63 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %51, %50 ], [ %6, %5 ], [ %9, %8 ], [ %41, %40 ], [ %eh.lpad-body.i.i.i, %31 ], [ %61, %60 ], [ %55, %54 ]
+  %.sink.i = phi i64 [ 136, %85 ], [ 104, %82 ], [ 24, %79 ], [ 200, %66 ], [ 184, %63 ], [ 24, %50 ], [ 96, %8 ], [ 80, %5 ], [ 48, %40 ], [ 48, %31 ], [ 48, %.body.i.i.i ], [ 16, %60 ], [ 16, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %86, %85 ], [ %83, %82 ], [ %80, %79 ], [ %67, %66 ], [ %64, %63 ], [ %51, %50 ], [ %9, %8 ], [ %6, %5 ], [ %41, %40 ], [ %eh.lpad-body.i.i.i, %31 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %61, %60 ], [ %55, %54 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef %.sink.i, i64 noundef 8) #11
   resume { ptr, i32 } %common.resume.op.i
 
@@ -755,7 +755,7 @@ common.resume.i:                                  ; preds = %85, %82, %79, %66, 
   br label %common.resume.i
 
 .sink.split.i:                                    ; preds = %84, %81, %"_ZN4core3ptr61drop_in_place$LT$influxdb_influxql_parser..show..OnClause$GT$17h81bec8aa46dd3b87E.llvm.11290379560268722015.exit.i.i.i.i", %68, %65, %62, %"_ZN4core3ptr92drop_in_place$LT$alloc..boxed..Box$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$17hb0c78366aa12515eE.llvm.11290379560268722015.exit.i.i.i", %"_ZN4core3ptr102drop_in_place$LT$alloc..boxed..Box$LT$influxdb_influxql_parser..drop..DropMeasurementStatement$GT$$GT$17h8beb4ee29688efa8E.exit.i", %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.exit3.sink.split.i.i.i", %33, %7, %4
-  %.sink3.i = phi i64 [ 104, %81 ], [ 24, %"_ZN4core3ptr61drop_in_place$LT$influxdb_influxql_parser..show..OnClause$GT$17h81bec8aa46dd3b87E.llvm.11290379560268722015.exit.i.i.i.i" ], [ 200, %65 ], [ 184, %62 ], [ 16, %"_ZN4core3ptr92drop_in_place$LT$alloc..boxed..Box$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$17hb0c78366aa12515eE.llvm.11290379560268722015.exit.i.i.i" ], [ 48, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.exit3.sink.split.i.i.i" ], [ 24, %"_ZN4core3ptr102drop_in_place$LT$alloc..boxed..Box$LT$influxdb_influxql_parser..drop..DropMeasurementStatement$GT$$GT$17h8beb4ee29688efa8E.exit.i" ], [ 96, %7 ], [ 80, %4 ], [ 48, %33 ], [ 24, %68 ], [ 136, %84 ]
+  %.sink3.i = phi i64 [ 24, %"_ZN4core3ptr102drop_in_place$LT$alloc..boxed..Box$LT$influxdb_influxql_parser..drop..DropMeasurementStatement$GT$$GT$17h8beb4ee29688efa8E.exit.i" ], [ 80, %4 ], [ 96, %7 ], [ 48, %33 ], [ 48, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..common..WhereClause$GT$$GT$17h02dce4b5ad4ca960E.exit3.sink.split.i.i.i" ], [ 16, %"_ZN4core3ptr92drop_in_place$LT$alloc..boxed..Box$LT$influxdb_influxql_parser..statement..Statement$GT$$GT$17hb0c78366aa12515eE.llvm.11290379560268722015.exit.i.i.i" ], [ 184, %62 ], [ 200, %65 ], [ 24, %68 ], [ 24, %"_ZN4core3ptr61drop_in_place$LT$influxdb_influxql_parser..show..OnClause$GT$17h81bec8aa46dd3b87E.llvm.11290379560268722015.exit.i.i.i.i" ], [ 104, %81 ], [ 136, %84 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef %.sink3.i, i64 noundef 8) #11
   br label %"_ZN4core3ptr67drop_in_place$LT$influxdb_influxql_parser..statement..Statement$GT$17h3617c84437831de1E.exit"
 }
@@ -1146,7 +1146,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bc101fc17
   ret void
 
 .body:                                            ; preds = %63, %55
-  %eh.lpad-body22 = phi { ptr, i32 } [ %eh.lpad-body.ph.i, %63 ], [ %56, %55 ]
+  %eh.lpad-body22 = phi { ptr, i32 } [ %56, %55 ], [ %eh.lpad-body.ph.i, %63 ]
   resume { ptr, i32 } %eh.lpad-body22
 }
 

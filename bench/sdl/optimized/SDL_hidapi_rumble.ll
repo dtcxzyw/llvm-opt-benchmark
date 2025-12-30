@@ -84,7 +84,7 @@ define hidden noundef zeroext i1 @SDL_HIDAPI_GetPendingRumbleLocked(ptr noundef 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge, %8
-  %.not1522 = phi i1 [ true, %8 ], [ false, %._crit_edge ], [ false, %4 ]
+  %.not1522 = phi i1 [ false, %._crit_edge ], [ true, %8 ], [ false, %4 ]
   ret i1 %.not1522
 }
 

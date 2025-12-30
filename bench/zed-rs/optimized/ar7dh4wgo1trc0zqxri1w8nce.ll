@@ -4168,7 +4168,7 @@ define void @"_ZN3rpc4auth102_$LT$impl$u20$core..convert..TryFrom$LT$rpc..auth..
   unreachable
 
 common.resume:                                    ; preds = %11, %51, %34
-  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %35, %34 ], [ %.pn, %11 ]
+  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %52, %51 ], [ %.pn, %11 ]
   resume { ptr, i32 } %common.resume.op
 
 39:                                               ; preds = %30

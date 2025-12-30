@@ -206,7 +206,7 @@ match_list_free.exit37:                           ; preds = %.lr.ph.i34, %match_
   br label %26
 
 26:                                               ; preds = %1, %3, %match_list_free.exit37
-  %.0 = phi i32 [ -30, %3 ], [ 0, %match_list_free.exit37 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %match_list_free.exit37 ], [ -30, %3 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -464,7 +464,7 @@ match_path_inclusion.exit58.thread:               ; preds = %53, %46, %match_pat
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %match_path_exclusion.exit, %.preheader, %._crit_edge89.loopexit, %61, %.thread74, %match_path_exclusion.exit.thread, %.thread, %44, %2
-  %.037 = phi i32 [ %.116.i, %match_path_exclusion.exit ], [ 0, %2 ], [ 0, %.preheader ], [ -30, %.thread74 ], [ -30, %match_path_exclusion.exit.thread ], [ 0, %44 ], [ -30, %.thread ], [ %spec.select, %61 ], [ %63, %._crit_edge89.loopexit ], [ %25, %26 ]
+  %.037 = phi i32 [ 0, %2 ], [ 0, %44 ], [ -30, %.thread ], [ -30, %match_path_exclusion.exit.thread ], [ -30, %.thread74 ], [ %spec.select, %61 ], [ %63, %._crit_edge89.loopexit ], [ 0, %.preheader ], [ %.116.i, %match_path_exclusion.exit ], [ %25, %26 ]
   ret i32 %.037
 }
 
@@ -798,7 +798,7 @@ define internal fastcc range(i32 0, 2) i32 @time_excluded(ptr noundef %0, ptr no
   br label %183
 
 183:                                              ; preds = %180, %178, %172, %164, %159, %149, %147, %141, %133, %128, %115, %111, %107, %103, %97, %88, %81, %74, %67, %60, %54, %42, %29, %23, %11, %182
-  %.097 = phi i32 [ 1, %147 ], [ 1, %11 ], [ 1, %23 ], [ 1, %29 ], [ 1, %42 ], [ 1, %54 ], [ 1, %60 ], [ 1, %67 ], [ 1, %74 ], [ 1, %81 ], [ 1, %88 ], [ 1, %97 ], [ 1, %103 ], [ 0, %107 ], [ 0, %111 ], [ 0, %115 ], [ 1, %149 ], [ 0, %182 ], [ 1, %159 ], [ 1, %164 ], [ 1, %172 ], [ 1, %178 ], [ 1, %128 ], [ 1, %133 ], [ 1, %141 ], [ 1, %180 ]
+  %.097 = phi i32 [ 0, %182 ], [ 1, %11 ], [ 1, %23 ], [ 1, %29 ], [ 1, %42 ], [ 1, %54 ], [ 1, %60 ], [ 1, %67 ], [ 1, %74 ], [ 1, %81 ], [ 1, %88 ], [ 1, %97 ], [ 1, %103 ], [ 0, %107 ], [ 0, %111 ], [ 0, %115 ], [ 1, %128 ], [ 1, %133 ], [ 1, %141 ], [ 1, %147 ], [ 1, %149 ], [ 1, %159 ], [ 1, %164 ], [ 1, %172 ], [ 1, %178 ], [ 1, %180 ]
   ret i32 %.097
 }
 
@@ -937,7 +937,7 @@ match_owner_id.exit36:                            ; preds = %32, %match_owner_id
   %.not.i38 = icmp eq ptr %.0.i, null
   br i1 %.not.i38, label %match_owner_name_mbs.exit.thread, label %.lr.ph.i37, !llvm.loop !85
 
-match_owner_name_mbs.exit.thread:                 ; preds = %65, %45, %49, %.preheader.i
+match_owner_name_mbs.exit.thread:                 ; preds = %65, %49, %45, %.preheader.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %match_owner_id.exit.thread
 
@@ -1005,7 +1005,7 @@ match_owner_name_mbs.exit.thread:                 ; preds = %65, %45, %49, %.pre
   %.not.i46 = icmp eq ptr %.0.i45, null
   br i1 %.not.i46, label %match_owner_name_mbs.exit48.thread, label %.lr.ph.i42, !llvm.loop !85
 
-match_owner_name_mbs.exit48.thread:               ; preds = %91, %71, %75, %.preheader.i39
+match_owner_name_mbs.exit48.thread:               ; preds = %91, %75, %71, %.preheader.i39
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %match_owner_id.exit.thread
 
@@ -1016,7 +1016,7 @@ match_owner_name_mbs.exit48.thread:               ; preds = %91, %71, %75, %.pre
   br label %match_owner_id.exit.thread
 
 match_owner_id.exit.thread:                       ; preds = %20, %39, %26, %7, %68, %92, %.thread58, %match_owner_name_mbs.exit48.thread, %.thread, %match_owner_name_mbs.exit.thread
-  %.0 = phi i32 [ 1, %match_owner_name_mbs.exit.thread ], [ 1, %match_owner_name_mbs.exit48.thread ], [ -30, %.thread58 ], [ -30, %.thread ], [ 1, %39 ], [ 0, %68 ], [ 0, %92 ], [ 1, %7 ], [ 1, %26 ], [ 1, %20 ]
+  %.0 = phi i32 [ 1, %match_owner_name_mbs.exit.thread ], [ -30, %.thread ], [ 1, %match_owner_name_mbs.exit48.thread ], [ -30, %.thread58 ], [ 0, %92 ], [ 0, %68 ], [ 1, %7 ], [ 1, %26 ], [ 1, %39 ], [ 1, %20 ]
   ret i32 %.0
 }
 
@@ -1541,7 +1541,7 @@ define internal fastcc i32 @add_pattern_from_file(ptr noundef %0, ptr noundef ca
   br label %135
 
 135:                                              ; preds = %.thread104, %30, %133, %131, %122, %33, %26, %.thread, %13
-  %.065 = phi i32 [ -30, %13 ], [ %.07192, %.thread ], [ %.172, %26 ], [ 0, %133 ], [ %29, %33 ], [ -30, %.thread104 ], [ %.lcssa, %122 ], [ %130, %131 ], [ 0, %30 ]
+  %.065 = phi i32 [ -30, %13 ], [ %.07192, %.thread ], [ %.172, %26 ], [ %29, %33 ], [ %.lcssa, %122 ], [ %130, %131 ], [ 0, %133 ], [ 0, %30 ], [ -30, %.thread104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1767,7 +1767,7 @@ define dso_local i32 @archive_match_path_excluded(ptr noundef %0, ptr noundef %1
   br label %15
 
 15:                                               ; preds = %7, %2, %12, %6
-  %.1 = phi i32 [ -25, %6 ], [ -30, %2 ], [ %14, %12 ], [ 0, %7 ]
+  %.1 = phi i32 [ -25, %6 ], [ %14, %12 ], [ -30, %2 ], [ 0, %7 ]
   ret i32 %.1
 }
 
@@ -2028,7 +2028,7 @@ define dso_local range(i32 -30, 1) i32 @archive_match_include_time(ptr noundef %
   br i1 %15, label %.sink.split.i, label %validate_time_flag.exit
 
 .sink.split.i:                                    ; preds = %13, %11, %8, %6
-  %.str.38.sink.i = phi ptr [ @.str.37, %11 ], [ @.str.36, %8 ], [ @.str.35, %6 ], [ @.str.38, %13 ]
+  %.str.38.sink.i = phi ptr [ @.str.35, %6 ], [ @.str.36, %8 ], [ @.str.37, %11 ], [ @.str.38, %13 ]
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull %.str.38.sink.i) #14
   br label %set_timefilter.exit
 
@@ -2127,7 +2127,7 @@ validate_time_flag.exit:                          ; preds = %13
   br label %set_timefilter.exit
 
 set_timefilter.exit:                              ; preds = %.sink.split.i, %4, %56, %52, %39
-  %.0 = phi i32 [ 0, %56 ], [ 0, %39 ], [ 0, %52 ], [ -25, %.sink.split.i ], [ -30, %4 ]
+  %.0 = phi i32 [ 0, %39 ], [ 0, %52 ], [ 0, %56 ], [ -25, %.sink.split.i ], [ -30, %4 ]
   ret i32 %.0
 }
 
@@ -2158,7 +2158,7 @@ define dso_local range(i32 -30, 1) i32 @archive_match_include_date(ptr noundef %
   br i1 %14, label %.sink.split.i, label %validate_time_flag.exit
 
 .sink.split.i:                                    ; preds = %12, %10, %7, %5
-  %.str.38.sink.i = phi ptr [ @.str.37, %10 ], [ @.str.36, %7 ], [ @.str.35, %5 ], [ @.str.38, %12 ]
+  %.str.38.sink.i = phi ptr [ @.str.35, %5 ], [ @.str.36, %7 ], [ @.str.37, %10 ], [ @.str.38, %12 ]
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull %.str.38.sink.i) #14
   br label %set_timefilter_date.exit
 
@@ -2281,7 +2281,7 @@ validate_time_flag.exit:                          ; preds = %12
   br label %set_timefilter_date.exit
 
 set_timefilter_date.exit:                         ; preds = %.sink.split.i, %3, %67, %63, %50, %25, %19
-  %.0 = phi i32 [ 0, %67 ], [ -25, %19 ], [ -25, %25 ], [ 0, %50 ], [ 0, %63 ], [ -25, %.sink.split.i ], [ -30, %3 ]
+  %.0 = phi i32 [ -25, %19 ], [ -25, %25 ], [ 0, %50 ], [ 0, %63 ], [ 0, %67 ], [ -25, %.sink.split.i ], [ -30, %3 ]
   ret i32 %.0
 }
 
@@ -2313,7 +2313,7 @@ define dso_local range(i32 -30, 1) i32 @archive_match_include_date_w(ptr noundef
   br i1 %15, label %.sink.split.i, label %validate_time_flag.exit
 
 .sink.split.i:                                    ; preds = %13, %11, %8, %6
-  %.str.38.sink.i = phi ptr [ @.str.37, %11 ], [ @.str.36, %8 ], [ @.str.35, %6 ], [ @.str.38, %13 ]
+  %.str.38.sink.i = phi ptr [ @.str.35, %6 ], [ @.str.36, %8 ], [ @.str.37, %11 ], [ @.str.38, %13 ]
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull %.str.38.sink.i) #14
   br label %validate_time_flag.exit.thread
 
@@ -2499,7 +2499,7 @@ define dso_local range(i32 -30, 1) i32 @archive_match_include_file_time(ptr noun
   br i1 %14, label %.sink.split.i, label %validate_time_flag.exit
 
 .sink.split.i:                                    ; preds = %12, %10, %7, %5
-  %.str.38.sink.i = phi ptr [ @.str.37, %10 ], [ @.str.36, %7 ], [ @.str.35, %5 ], [ @.str.38, %12 ]
+  %.str.38.sink.i = phi ptr [ @.str.35, %5 ], [ @.str.36, %7 ], [ @.str.37, %10 ], [ @.str.38, %12 ]
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull %.str.38.sink.i) #14
   br label %validate_time_flag.exit.thread
 
@@ -2684,7 +2684,7 @@ define dso_local range(i32 -30, 1) i32 @archive_match_include_file_time_w(ptr no
   br i1 %15, label %.sink.split.i, label %validate_time_flag.exit
 
 .sink.split.i:                                    ; preds = %13, %11, %8, %6
-  %.str.38.sink.i = phi ptr [ @.str.37, %11 ], [ @.str.36, %8 ], [ @.str.35, %6 ], [ @.str.38, %13 ]
+  %.str.38.sink.i = phi ptr [ @.str.35, %6 ], [ @.str.36, %8 ], [ @.str.37, %11 ], [ @.str.38, %13 ]
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull %.str.38.sink.i) #14
   br label %validate_time_flag.exit.thread
 
@@ -2782,7 +2782,7 @@ define dso_local range(i32 -30, 1) i32 @archive_match_exclude_entry(ptr noundef 
   br i1 %19, label %.sink.split.i, label %validate_time_flag.exit
 
 .sink.split.i:                                    ; preds = %17, %15, %12, %10
-  %.str.38.sink.i = phi ptr [ @.str.37, %15 ], [ @.str.36, %12 ], [ @.str.35, %10 ], [ @.str.38, %17 ]
+  %.str.38.sink.i = phi ptr [ @.str.35, %10 ], [ @.str.36, %12 ], [ @.str.37, %15 ], [ @.str.38, %17 ]
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull %.str.38.sink.i) #14
   br label %add_entry.exit
 
@@ -2876,7 +2876,7 @@ validate_time_flag.exit:                          ; preds = %17
   br label %add_entry.exit
 
 add_entry.exit:                                   ; preds = %.sink.split.i, %8, %57, %56, %27, %22, %3, %7
-  %.1 = phi i32 [ -25, %7 ], [ -30, %3 ], [ 0, %56 ], [ -30, %22 ], [ -25, %27 ], [ 0, %57 ], [ -25, %.sink.split.i ], [ -30, %8 ]
+  %.1 = phi i32 [ -25, %7 ], [ -30, %3 ], [ -30, %22 ], [ -25, %27 ], [ 0, %57 ], [ 0, %56 ], [ -25, %.sink.split.i ], [ -30, %8 ]
   ret i32 %.1
 }
 
@@ -2906,7 +2906,7 @@ define dso_local range(i32 -30, 2) i32 @archive_match_time_excluded(ptr noundef 
   br label %14
 
 14:                                               ; preds = %7, %2, %12, %6
-  %.1 = phi i32 [ -25, %6 ], [ -30, %2 ], [ %13, %12 ], [ 0, %7 ]
+  %.1 = phi i32 [ -25, %6 ], [ %13, %12 ], [ -30, %2 ], [ 0, %7 ]
   ret i32 %.1
 }
 
@@ -3249,7 +3249,7 @@ define dso_local range(i32 -30, 2) i32 @archive_match_owner_excluded(ptr noundef
   br label %14
 
 14:                                               ; preds = %7, %2, %12, %6
-  %.1 = phi i32 [ -25, %6 ], [ -30, %2 ], [ %13, %12 ], [ 0, %7 ]
+  %.1 = phi i32 [ -25, %6 ], [ %13, %12 ], [ -30, %2 ], [ 0, %7 ]
   ret i32 %.1
 }
 

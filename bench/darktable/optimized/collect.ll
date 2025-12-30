@@ -354,7 +354,7 @@ define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0
   br label %47
 
 47:                                               ; preds = %.sink.split, %6, %27, %7
-  %.1 = phi ptr [ null, %27 ], [ null, %7 ], [ null, %6 ], [ %.1.ph, %.sink.split ]
+  %.1 = phi ptr [ null, %7 ], [ null, %27 ], [ null, %6 ], [ %.1.ph, %.sink.split ]
   ret ptr %.1
 }
 
@@ -1158,7 +1158,7 @@ switch.lookup:                                    ; preds = %1
   br label %88
 
 88:                                               ; preds = %52, %87, %86, %85, %84
-  %.0228 = phi ptr [ @.str.88, %87 ], [ @.str.87, %86 ], [ @.str.85, %84 ], [ @.str.86, %85 ], [ @.str.84, %52 ]
+  %.0228 = phi ptr [ @.str.85, %84 ], [ @.str.86, %85 ], [ @.str.87, %86 ], [ @.str.88, %87 ], [ @.str.84, %52 ]
   %89 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.89, ptr noundef nonnull %.0228, ptr noundef nonnull %.0228, ptr noundef nonnull %.0228, ptr noundef %66) #16
   store ptr %89, ptr %6, align 8, !tbaa !98
   br label %90
@@ -1266,7 +1266,7 @@ switch.lookup:                                    ; preds = %1
   br label %145
 
 145:                                              ; preds = %143, %136
-  %.sink.i = phi i8 [ %..i, %143 ], [ 32, %136 ]
+  %.sink.i = phi i8 [ 32, %136 ], [ %..i, %143 ]
   store i8 %.sink.i, ptr %140, align 1, !tbaa !127
   %146 = getelementptr inbounds nuw i8, ptr %140, i64 1
   %147 = add i64 %138, 1
@@ -1538,7 +1538,7 @@ tag_collate_key.exit:                             ; preds = %148
   br label %split_path.exit
 
 split_path.exit:                                  ; preds = %._crit_edge.i, %254, %259, %257
-  %.0240 = phi ptr [ %260, %259 ], [ %255, %254 ], [ %258, %257 ], [ %251, %._crit_edge.i ]
+  %.0240 = phi ptr [ %255, %254 ], [ %258, %257 ], [ %260, %259 ], [ %251, %._crit_edge.i ]
   %.not293 = icmp eq ptr %.0240, null
   br i1 %.not293, label %split_path.exit.thread, label %261
 
@@ -2255,8 +2255,8 @@ define internal fastcc void @_list_view(ptr noundef %0) unnamed_addr #1 {
   %147 = call i32 @dt_conf_is_equal(ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.149) #16
   %.not243 = icmp eq i32 %147, 0
   %.not244 = icmp eq i32 %40, 0
-  %.str.153..str.152 = select i1 %.not244, ptr @.str.153, ptr @.str.152
   %.str.151..str.150 = select i1 %.not244, ptr @.str.151, ptr @.str.150
+  %.str.153..str.152 = select i1 %.not244, ptr @.str.153, ptr @.str.152
   %.str.152.sink = select i1 %.not243, ptr %.str.153..str.152, ptr %.str.151..str.150
   %148 = call noalias ptr @g_strdup(ptr noundef nonnull %.str.152.sink) #16
   %149 = call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.154, ptr noundef %54, ptr noundef %148) #16
@@ -3879,13 +3879,13 @@ define internal range(i32 0, 2) i32 @view_onButtonPressed(ptr noundef %0, ptr no
   br i1 %.not82, label %135, label %.sink.split
 
 .sink.split:                                      ; preds = %.thread85, %131, %96, %66
-  %.sink = phi ptr [ %133, %131 ], [ %98, %96 ], [ %68, %66 ], [ %134, %.thread85 ]
-  %.0.ph = phi i32 [ 1, %131 ], [ 1, %96 ], [ 1, %66 ], [ 0, %.thread85 ]
+  %.sink = phi ptr [ %68, %66 ], [ %98, %96 ], [ %133, %131 ], [ %134, %.thread85 ]
+  %.0.ph = phi i32 [ 1, %66 ], [ 1, %96 ], [ 1, %131 ], [ 0, %.thread85 ]
   call void @gtk_tree_path_free(ptr noundef %.sink) #16
   br label %135
 
 135:                                              ; preds = %.sink.split, %.thread85, %131, %96
-  %.0 = phi i32 [ 0, %.thread85 ], [ 1, %96 ], [ 1, %131 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 1, %96 ], [ 1, %131 ], [ 0, %.thread85 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -4668,8 +4668,8 @@ define internal fastcc void @_set_tooltip(ptr noundef readonly captures(none) %0
   br label %25
 
 25:                                               ; preds = %18, %10, %22, %24, %23, %21, %15, %7
-  %.str.64.sink = phi ptr [ @.str.64, %10 ], [ @.str.63, %7 ], [ @.str.68, %22 ], [ @.str.70, %24 ], [ @.str.69, %23 ], [ @.str.67, %21 ], [ @.str.65, %15 ], [ @.str.66, %18 ]
-  %.sink = phi ptr [ %12, %10 ], [ %9, %7 ], [ %20, %22 ], [ %20, %24 ], [ %20, %23 ], [ %20, %21 ], [ %17, %15 ], [ %20, %18 ]
+  %.str.64.sink = phi ptr [ @.str.64, %10 ], [ @.str.68, %22 ], [ @.str.70, %24 ], [ @.str.69, %23 ], [ @.str.67, %21 ], [ @.str.65, %15 ], [ @.str.63, %7 ], [ @.str.66, %18 ]
+  %.sink = phi ptr [ %12, %10 ], [ %20, %22 ], [ %20, %24 ], [ %20, %23 ], [ %20, %21 ], [ %17, %15 ], [ %9, %7 ], [ %20, %18 ]
   %26 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.64.sink, i32 noundef 5) #16
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %.sink, ptr noundef %26) #16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4934,7 +4934,7 @@ define internal fastcc ptr @_create_filtered_model(ptr noundef %0, ptr %.16.val)
   br label %.thread5
 
 .thread5:                                         ; preds = %.thread5.sink.split, %10, %50, %._crit_edge
-  %.127 = phi ptr [ null, %50 ], [ null, %10 ], [ null, %._crit_edge ], [ %65, %.thread5.sink.split ]
+  %.127 = phi ptr [ null, %._crit_edge ], [ null, %50 ], [ null, %10 ], [ %65, %.thread5.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %66
@@ -5480,7 +5480,7 @@ sub_176:                                          ; preds = %.tail69, %sub_171
   br label %105
 
 105:                                              ; preds = %91, %94, %56, %72, %.tail74.thread, %87, %81, %63, %47, %38, %36, %103, %99, %29
-  %.2 = phi i32 [ %42, %38 ], [ 1, %29 ], [ %102, %99 ], [ %104, %103 ], [ %50, %47 ], [ %59, %56 ], [ %66, %63 ], [ %75, %72 ], [ %84, %81 ], [ %90, %87 ], [ 1, %.tail74.thread ], [ 0, %36 ], [ 1, %94 ], [ 1, %91 ]
+  %.2 = phi i32 [ 1, %29 ], [ %102, %99 ], [ %104, %103 ], [ %50, %47 ], [ %59, %56 ], [ %66, %63 ], [ %75, %72 ], [ %84, %81 ], [ %90, %87 ], [ 1, %.tail74.thread ], [ 0, %36 ], [ %42, %38 ], [ 1, %94 ], [ 1, %91 ]
   call void @g_free(ptr noundef %21) #16
   br label %106
 
@@ -6359,7 +6359,7 @@ switch.early.test:                                ; preds = %57
   br label %_combo_set_active_collection.exit
 
 _combo_set_active_collection.exit:                ; preds = %52, %49, %47, %44, %switch.early.test, %64, %105, %106, %71, %43, %95, %97, %81, %91, %85, %35, %21
-  %.not107 = phi i1 [ true, %switch.early.test ], [ true, %47 ], [ true, %43 ], [ true, %64 ], [ true, %81 ], [ true, %85 ], [ true, %91 ], [ true, %21 ], [ true, %97 ], [ true, %95 ], [ true, %71 ], [ true, %35 ], [ true, %106 ], [ true, %105 ], [ true, %44 ], [ false, %49 ], [ false, %52 ]
+  %.not107 = phi i1 [ true, %64 ], [ true, %81 ], [ true, %85 ], [ true, %91 ], [ true, %97 ], [ true, %95 ], [ true, %71 ], [ true, %35 ], [ true, %21 ], [ true, %43 ], [ true, %106 ], [ true, %105 ], [ true, %switch.early.test ], [ true, %44 ], [ true, %47 ], [ false, %49 ], [ false, %52 ]
   call void @g_list_free_full(ptr noundef nonnull %16, ptr noundef nonnull @gtk_tree_path_free) #16
   %107 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %108 = load ptr, ptr %107, align 8, !tbaa !80
@@ -6839,7 +6839,7 @@ _lib_folders_update_collection.exit:              ; preds = %175, %188
   br label %203
 
 201:                                              ; preds = %.thread, %32
-  %.1 = phi ptr [ %44, %.thread ], [ null, %32 ]
+  %.1 = phi ptr [ null, %32 ], [ %44, %.thread ]
   %202 = load ptr, ptr %7, align 8, !tbaa !98
   call void @g_free(ptr noundef %202) #16
   call void @g_free(ptr noundef %.1) #16

@@ -284,7 +284,7 @@ define hidden noundef zeroext i1 @"_ZN109_$LT$alloc..collections..vec_deque..ite
   br i1 %.not.i5, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hb3d1049481317879E.llvm.6390491434047147085.exit6, label %23
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hb3d1049481317879E.llvm.6390491434047147085.exit6: ; preds = %10, %25, %23
-  %.0 = phi i1 [ %.not9.not.not.i4.not.not.not, %25 ], [ %.not9.not.not.i4.not.not.not, %23 ], [ true, %10 ]
+  %.0 = phi i1 [ %.not9.not.not.i4.not.not.not, %23 ], [ %.not9.not.not.i4.not.not.not, %25 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -388,7 +388,7 @@ define hidden void @"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$
   unreachable
 
 .thread.i.i.i:                                    ; preds = %13, %.body.i.i.i
-  %.pn4.i.i.i = phi { ptr, i32 } [ %10, %.body.i.i.i ], [ %14, %13 ]
+  %.pn4.i.i.i = phi { ptr, i32 } [ %14, %13 ], [ %10, %.body.i.i.i ]
   resume { ptr, i32 } %.pn4.i.i.i
 
 13:                                               ; preds = %1
@@ -446,7 +446,7 @@ define hidden void @"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$
   unreachable
 
 .thread.i.i:                                      ; preds = %14, %.body.i.i
-  %.pn4.i.i = phi { ptr, i32 } [ %11, %.body.i.i ], [ %15, %14 ]
+  %.pn4.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i ]
   resume { ptr, i32 } %.pn4.i.i
 
 14:                                               ; preds = %1
@@ -717,7 +717,7 @@ define hidden void @"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn4.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn4.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn4.i.i.i
 
 14:                                               ; preds = %1
@@ -775,7 +775,7 @@ define hidden void @"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$
   unreachable
 
 .thread.i.i:                                      ; preds = %14, %.body.i.i
-  %.pn4.i.i = phi { ptr, i32 } [ %11, %.body.i.i ], [ %15, %14 ]
+  %.pn4.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i ]
   resume { ptr, i32 } %.pn4.i.i
 
 14:                                               ; preds = %1
@@ -845,7 +845,7 @@ define hidden void @"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$
   unreachable
 
 .thread.i.i.i:                                    ; preds = %14, %.body.i.i.i
-  %.pn4.i.i.i = phi { ptr, i32 } [ %11, %.body.i.i.i ], [ %15, %14 ]
+  %.pn4.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i.i ]
   resume { ptr, i32 } %.pn4.i.i.i
 
 14:                                               ; preds = %1
@@ -912,7 +912,7 @@ define hidden void @"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$
   unreachable
 
 .thread.i.i.i:                                    ; preds = %13, %.body.i.i.i
-  %.pn4.i.i.i = phi { ptr, i32 } [ %10, %.body.i.i.i ], [ %14, %13 ]
+  %.pn4.i.i.i = phi { ptr, i32 } [ %14, %13 ], [ %10, %.body.i.i.i ]
   resume { ptr, i32 } %.pn4.i.i.i
 
 13:                                               ; preds = %1
@@ -1136,7 +1136,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h56849a16444c9227E.l
   unreachable
 
 .thread.i.i:                                      ; preds = %14, %.body.i.i
-  %.pn4.i.i = phi { ptr, i32 } [ %11, %.body.i.i ], [ %15, %14 ]
+  %.pn4.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i ]
   resume { ptr, i32 } %.pn4.i.i
 
 14:                                               ; preds = %1
@@ -1213,7 +1213,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h791a8d214826dceaE.l
   unreachable
 
 .thread.i.i:                                      ; preds = %14, %.body.i.i
-  %.pn4.i.i = phi { ptr, i32 } [ %11, %.body.i.i ], [ %15, %14 ]
+  %.pn4.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i.i ]
   resume { ptr, i32 } %.pn4.i.i
 
 14:                                               ; preds = %1
@@ -1267,7 +1267,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h9752cfe2fe517936E.l
   unreachable
 
 .thread.i.i:                                      ; preds = %13, %.body.i.i
-  %.pn4.i.i = phi { ptr, i32 } [ %10, %.body.i.i ], [ %14, %13 ]
+  %.pn4.i.i = phi { ptr, i32 } [ %14, %13 ], [ %10, %.body.i.i ]
   resume { ptr, i32 } %.pn4.i.i
 
 13:                                               ; preds = %1
@@ -1321,7 +1321,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h99039febfd94f91dE.l
   unreachable
 
 .thread.i.i:                                      ; preds = %13, %.body.i.i
-  %.pn4.i.i = phi { ptr, i32 } [ %10, %.body.i.i ], [ %14, %13 ]
+  %.pn4.i.i = phi { ptr, i32 } [ %14, %13 ], [ %10, %.body.i.i ]
   resume { ptr, i32 } %.pn4.i.i
 
 13:                                               ; preds = %1
@@ -2667,7 +2667,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness11cancel_task28_$u7b$$u7b$clo
   unreachable
 
 .thread.i:                                        ; preds = %14, %.body.i
-  %.pn4.i = phi { ptr, i32 } [ %11, %.body.i ], [ %15, %14 ]
+  %.pn4.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i ]
   resume { ptr, i32 } %.pn4.i
 
 14:                                               ; preds = %1
@@ -2744,7 +2744,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness11cancel_task28_$u7b$$u7b$clo
   unreachable
 
 .thread.i:                                        ; preds = %14, %.body.i
-  %.pn4.i = phi { ptr, i32 } [ %11, %.body.i ], [ %15, %14 ]
+  %.pn4.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body.i ]
   resume { ptr, i32 } %.pn4.i
 
 14:                                               ; preds = %1
@@ -2802,7 +2802,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness11poll_future28_$u7b$$u7b$clo
   unreachable
 
 .thread.i:                                        ; preds = %16, %.body.i
-  %.pn4.i = phi { ptr, i32 } [ %13, %.body.i ], [ %17, %16 ]
+  %.pn4.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i ]
   resume { ptr, i32 } %.pn4.i
 
 16:                                               ; preds = %1
@@ -2958,7 +2958,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness11poll_future28_$u7b$$u7b$clo
   unreachable
 
 .thread.i:                                        ; preds = %16, %.body.i
-  %.pn4.i = phi { ptr, i32 } [ %13, %.body.i ], [ %17, %16 ]
+  %.pn4.i = phi { ptr, i32 } [ %17, %16 ], [ %13, %.body.i ]
   resume { ptr, i32 } %.pn4.i
 
 16:                                               ; preds = %1
@@ -3056,7 +3056,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$21drop_
   unreachable
 
 .thread.i:                                        ; preds = %15, %.body.i
-  %.pn4.i = phi { ptr, i32 } [ %12, %.body.i ], [ %16, %15 ]
+  %.pn4.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i ]
   resume { ptr, i32 } %.pn4.i
 
 15:                                               ; preds = %1
@@ -3112,7 +3112,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$21drop_
   unreachable
 
 .thread.i:                                        ; preds = %15, %.body.i
-  %.pn4.i = phi { ptr, i32 } [ %12, %.body.i ], [ %16, %15 ]
+  %.pn4.i = phi { ptr, i32 } [ %16, %15 ], [ %12, %.body.i ]
   resume { ptr, i32 } %.pn4.i
 
 15:                                               ; preds = %1
@@ -3201,7 +3201,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
   unreachable
 
 .thread.i:                                        ; preds = %20, %.body.i
-  %.pn4.i = phi { ptr, i32 } [ %17, %.body.i ], [ %21, %20 ]
+  %.pn4.i = phi { ptr, i32 } [ %21, %20 ], [ %17, %.body.i ]
   resume { ptr, i32 } %.pn4.i
 
 20:                                               ; preds = %7
@@ -3316,7 +3316,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
   unreachable
 
 .thread.i:                                        ; preds = %20, %.body.i
-  %.pn4.i = phi { ptr, i32 } [ %17, %.body.i ], [ %21, %20 ]
+  %.pn4.i = phi { ptr, i32 } [ %21, %20 ], [ %17, %.body.i ]
   resume { ptr, i32 } %.pn4.i
 
 20:                                               ; preds = %7
@@ -3582,7 +3582,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb6e79ba0f31224c4E.llvm.63
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17ha4f80afdee9ee4faE.exit"
 
 "_ZN9hashbrown3raw22RawTableInner$LT$A$GT$17new_uninitialized17h1418e9bef168a913E.exit.thread.i": ; preds = %25, %21
-  %.pn.i = phi { i64, i64 } [ %22, %21 ], [ %26, %25 ]
+  %.pn.i = phi { i64, i64 } [ %26, %25 ], [ %22, %21 ]
   %.sroa.11.02024.ph.i = extractvalue { i64, i64 } %.pn.i, 1
   %.sroa.6.026.ph.i = extractvalue { i64, i64 } %.pn.i, 0
   %.pre = add i64 %.sroa.6.026.ph.i, 17
@@ -3766,7 +3766,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb6e79ba0f31224c4E.llvm.63
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17hce6cb26a5893adeeE.exit"
 
 "_ZN9hashbrown3raw22RawTableInner$LT$A$GT$17new_uninitialized17h1418e9bef168a913E.exit.thread.i": ; preds = %22, %18
-  %.pn.i = phi { i64, i64 } [ %19, %18 ], [ %23, %22 ]
+  %.pn.i = phi { i64, i64 } [ %23, %22 ], [ %19, %18 ]
   %.sroa.6.026.ph.i = extractvalue { i64, i64 } %.pn.i, 0
   %.pre = add i64 %.sroa.6.026.ph.i, 17
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17hce6cb26a5893adeeE.exit"
@@ -4874,9 +4874,9 @@ define hidden void @"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$15allocation_info1
   br label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb6e79ba0f31224c4E.llvm.6390491434047147085.exit
 
 _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb6e79ba0f31224c4E.llvm.6390491434047147085.exit: ; preds = %4, %10, %15, %25
-  %.sroa.9.0 = phi i64 [ undef, %4 ], [ %18, %25 ], [ undef, %15 ], [ undef, %10 ]
-  %.sroa.7.0 = phi i64 [ undef, %4 ], [ %22, %25 ], [ undef, %15 ], [ undef, %10 ]
-  %.sroa.0.0 = phi i64 [ 0, %4 ], [ %3, %25 ], [ 0, %15 ], [ 0, %10 ]
+  %.sroa.9.0 = phi i64 [ %18, %25 ], [ undef, %15 ], [ undef, %10 ], [ undef, %4 ]
+  %.sroa.7.0 = phi i64 [ %22, %25 ], [ undef, %15 ], [ undef, %10 ], [ undef, %4 ]
+  %.sroa.0.0 = phi i64 [ %3, %25 ], [ 0, %15 ], [ 0, %10 ], [ 0, %4 ]
   %28 = icmp ne i64 %.sroa.0.0, 0
   tail call void @llvm.assume(i1 %28)
   %29 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
@@ -5051,9 +5051,9 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner15allocation_info17h5d
   br label %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd42b690389ecd742E.llvm.6390491434047147085.exit
 
 _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd42b690389ecd742E.llvm.6390491434047147085.exit: ; preds = %4, %10, %15, %25
-  %.sroa.9.0 = phi i64 [ undef, %4 ], [ %18, %25 ], [ undef, %15 ], [ undef, %10 ]
-  %.sroa.7.0 = phi i64 [ undef, %4 ], [ %22, %25 ], [ undef, %15 ], [ undef, %10 ]
-  %.sroa.0.0 = phi i64 [ 0, %4 ], [ %3, %25 ], [ 0, %15 ], [ 0, %10 ]
+  %.sroa.9.0 = phi i64 [ %18, %25 ], [ undef, %15 ], [ undef, %10 ], [ undef, %4 ]
+  %.sroa.7.0 = phi i64 [ %22, %25 ], [ undef, %15 ], [ undef, %10 ], [ undef, %4 ]
+  %.sroa.0.0 = phi i64 [ %3, %25 ], [ 0, %15 ], [ 0, %10 ], [ 0, %4 ]
   %28 = icmp ne i64 %.sroa.0.0, 0
   tail call void @llvm.assume(i1 %28)
   %29 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4

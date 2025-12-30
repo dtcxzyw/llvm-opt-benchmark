@@ -157,7 +157,7 @@ define hidden range(i32 -1, 2) i32 @nettrace_3gpp_32_423_file_open(ptr noundef c
   br label %54
 
 54:                                               ; preds = %31, %27, %25, %20, %17, %16, %14, %34, %11
-  %.0 = phi i32 [ -1, %11 ], [ 0, %16 ], [ 0, %14 ], [ 0, %20 ], [ 1, %34 ], [ 0, %27 ], [ 0, %25 ], [ 0, %17 ], [ 0, %31 ]
+  %.0 = phi i32 [ -1, %11 ], [ 1, %34 ], [ 0, %14 ], [ 0, %16 ], [ 0, %17 ], [ 0, %20 ], [ 0, %25 ], [ 0, %27 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -296,7 +296,7 @@ read_until.exit.thread:                           ; preds = %21, %19
   store i64 %67, ptr %49, align 8
   br i1 %53, label %70, label %.thread
 
-.thread:                                          ; preds = %40, %read_until.exit.thread, %._crit_edge
+.thread:                                          ; preds = %read_until.exit.thread, %40, %._crit_edge
   %68 = load ptr, ptr %8, align 8
   %69 = call ptr @g_byte_array_set_size(ptr noundef %68, i32 noundef 0)
   br label %70
@@ -959,7 +959,7 @@ thread-pre-split:                                 ; preds = %155, %151
   br label %267
 
 267:                                              ; preds = %28, %34, %38, %77, %95, %123, %130, %157, %._crit_edge, %132, %249, %15
-  %.0 = phi i1 [ false, %15 ], [ false, %34 ], [ true, %77 ], [ true, %95 ], [ false, %123 ], [ false, %130 ], [ false, %28 ], [ false, %249 ], [ true, %._crit_edge ], [ false, %157 ], [ false, %38 ], [ false, %132 ]
+  %.0 = phi i1 [ false, %15 ], [ false, %34 ], [ true, %77 ], [ true, %95 ], [ false, %123 ], [ false, %130 ], [ false, %249 ], [ true, %._crit_edge ], [ false, %157 ], [ false, %38 ], [ false, %28 ], [ false, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

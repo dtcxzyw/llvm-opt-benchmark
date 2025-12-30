@@ -198,12 +198,12 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %23, %18, %54, %44, 
   tail call void @qemu_plugin_register_atexit_cb(i64 noundef %0, ptr noundef nonnull @plugin_exit, ptr noundef null) #7
   br label %83
 
-glib_auto_cleanup_GStrv.exit19:                   ; preds = %48, %37, %24, %57
+glib_auto_cleanup_GStrv.exit19:                   ; preds = %57, %48, %37, %24
   tail call void @g_strfreev(ptr noundef nonnull %9) #7
   br label %83
 
 83:                                               ; preds = %glib_auto_cleanup_GStrv.exit19, %81, %75, %68
-  %.2 = phi i32 [ -1, %glib_auto_cleanup_GStrv.exit19 ], [ -1, %68 ], [ 0, %81 ], [ -1, %75 ]
+  %.2 = phi i32 [ -1, %68 ], [ 0, %81 ], [ -1, %75 ], [ -1, %glib_auto_cleanup_GStrv.exit19 ]
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %glib_autoptr_cleanup_GString.exit, label %84
 

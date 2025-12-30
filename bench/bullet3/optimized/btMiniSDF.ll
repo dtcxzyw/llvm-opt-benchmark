@@ -2399,7 +2399,7 @@ define dso_local noundef zeroext i1 @_ZNK9btMiniSDF11interpolateEjRdRK9btVector3
   br label %197
 
 197:                                              ; preds = %196, %39, %13, %5
-  %.0 = phi i1 [ false, %13 ], [ false, %5 ], [ %.6, %196 ], [ false, %39 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %13 ], [ %.6, %196 ], [ false, %39 ]
   ret i1 %.0
 }
 

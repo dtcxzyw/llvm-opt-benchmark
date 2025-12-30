@@ -1107,7 +1107,7 @@ define hidden void @"_ZN80_$LT$$LP$A$C$B$RP$$u20$as$u20$nom..branch..Alt$LT$Inpu
   br label %.thread
 
 .thread:                                          ; preds = %33, %32, %31, %30, %29, %24, %22
-  %.sroa.0.0.i.i.i.i = phi i64 [ -9223372036854775802, %22 ], [ -9223372036854775803, %33 ], [ -9223372036854775807, %29 ], [ -9223372036854775806, %30 ], [ -9223372036854775805, %31 ], [ %.sroa.0.0.copyload1.i.i.i.i.i, %32 ], [ -9223372036854775808, %24 ]
+  %.sroa.0.0.i.i.i.i = phi i64 [ -9223372036854775802, %22 ], [ -9223372036854775807, %29 ], [ -9223372036854775806, %30 ], [ -9223372036854775805, %31 ], [ %.sroa.0.0.copyload1.i.i.i.i.i, %32 ], [ -9223372036854775803, %33 ], [ -9223372036854775808, %24 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.i.i.i.i.i, i64 16, i1 false), !noalias !520
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.i.i.i.i.i)
   store i64 0, ptr %0, align 8

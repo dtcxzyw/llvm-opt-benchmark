@@ -344,7 +344,7 @@ define internal void @_ZN12_GLOBAL__N_116LibcxxTestModule17addCheckFactoriesERN5
   unreachable
 
 common.resume:                                    ; preds = %157, %160, %140, %143, %123, %126, %106, %109, %89, %92, %72, %75, %55, %58, %38, %41, %21, %24
-  %common.resume.op = phi { ptr, i32 } [ %141, %140 ], [ %22, %21 ], [ %39, %38 ], [ %56, %55 ], [ %73, %72 ], [ %90, %89 ], [ %107, %106 ], [ %124, %123 ], [ %22, %24 ], [ %39, %41 ], [ %56, %58 ], [ %73, %75 ], [ %90, %92 ], [ %107, %109 ], [ %124, %126 ], [ %141, %143 ], [ %158, %160 ], [ %158, %157 ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %24 ], [ %22, %21 ], [ %39, %41 ], [ %39, %38 ], [ %56, %58 ], [ %56, %55 ], [ %73, %75 ], [ %73, %72 ], [ %90, %92 ], [ %90, %89 ], [ %107, %109 ], [ %107, %106 ], [ %124, %126 ], [ %124, %123 ], [ %141, %143 ], [ %141, %140 ], [ %158, %160 ], [ %158, %157 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5clang4tidy23ClangTidyCheckFactories13registerCheckIN6libcpp18abi_tag_on_virtualEEEvN4llvm9StringRefE.exit: ; preds = %14, %16

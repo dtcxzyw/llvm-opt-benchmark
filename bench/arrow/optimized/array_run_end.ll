@@ -2580,7 +2580,7 @@ define linkonce_odr void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayData
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit
 
 _ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit: ; preds = %2, %14, %10, %8
-  %.sink = phi ptr [ null, %8 ], [ %16, %14 ], [ null, %10 ], [ null, %2 ]
+  %.sink = phi ptr [ %16, %14 ], [ null, %10 ], [ null, %8 ], [ null, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %17, align 8, !tbaa !124
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3190,7 +3190,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i:
   br label %_ZN5arrow12_GLOBAL__N_118MakeLogicalRunEndsINS_9Int16TypeEEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKNS_18RunEndEncodedArrayEPNS_10MemoryPoolE.exit
 
 267:                                              ; preds = %241, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit109.i, %147
-  %.pn72.pn.i = phi { ptr, i32 } [ %148, %147 ], [ %.pn68.i, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit109.i ], [ %242, %241 ]
+  %.pn72.pn.i = phi { ptr, i32 } [ %.pn68.i, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit109.i ], [ %148, %147 ], [ %242, %241 ]
   call void @_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %38) #19
   br label %268
 
@@ -3277,7 +3277,7 @@ _ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit116.i: ; preds = %280, %269
   br label %_ZN5arrow14NumericBuilderINS_9Int16TypeEEC2IS1_EENSt9enable_ifIXsr22is_parameter_free_typeIT_EE5valueEPNS_10MemoryPoolEE4typeEl.exit.i
 
 common.resume:                                    ; preds = %1108, %1152, %1315, %689, %733, %898, %268, %312, %477
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i11, %898 ], [ %.pn.i, %477 ], [ %313, %312 ], [ %.pn72.pn.pn.i, %268 ], [ %734, %733 ], [ %.pn72.pn.pn.i55, %689 ], [ %1153, %1152 ], [ %.pn72.pn.pn.i143, %1108 ], [ %.pn.i99, %1315 ]
+  %common.resume.op = phi { ptr, i32 } [ %313, %312 ], [ %.pn72.pn.pn.i, %268 ], [ %.pn.i, %477 ], [ %734, %733 ], [ %.pn72.pn.pn.i55, %689 ], [ %.pn.i11, %898 ], [ %1153, %1152 ], [ %.pn72.pn.pn.i143, %1108 ], [ %.pn.i99, %1315 ]
   resume { ptr, i32 } %common.resume.op
 
 312:                                              ; preds = %_ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit116.i
@@ -4129,7 +4129,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i6
   br label %_ZN5arrow12_GLOBAL__N_118MakeLogicalRunEndsINS_9Int32TypeEEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKNS_18RunEndEncodedArrayEPNS_10MemoryPoolE.exit
 
 688:                                              ; preds = %662, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit109.i79, %568
-  %.pn72.pn.i61 = phi { ptr, i32 } [ %569, %568 ], [ %.pn68.i76, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit109.i79 ], [ %663, %662 ]
+  %.pn72.pn.i61 = phi { ptr, i32 } [ %.pn68.i76, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit109.i79 ], [ %569, %568 ], [ %663, %662 ]
   call void @_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #19
   br label %689
 
@@ -5062,7 +5062,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i1
   br label %_ZN5arrow12_GLOBAL__N_118MakeLogicalRunEndsINS_9Int64TypeEEENS_6ResultISt10shared_ptrINS_5ArrayEEEERKNS_18RunEndEncodedArrayEPNS_10MemoryPoolE.exit
 
 1107:                                             ; preds = %1081, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit109.i167, %988
-  %.pn72.pn.i149 = phi { ptr, i32 } [ %989, %988 ], [ %.pn68.i164, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit109.i167 ], [ %1082, %1081 ]
+  %.pn72.pn.i149 = phi { ptr, i32 } [ %.pn68.i164, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit109.i167 ], [ %989, %988 ], [ %1082, %1081 ]
   call void @_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #19
   br label %1108
 

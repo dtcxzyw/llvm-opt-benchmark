@@ -343,8 +343,8 @@ define internal { double, double } @_ZL14aeqd_s_inverse5PJ_XYP8PJconsts(double %
   br label %56
 
 56:                                               ; preds = %53, %49, %45, %47, %15, %11
-  %.sroa.6.0 = phi double [ 0.000000e+00, %11 ], [ %17, %15 ], [ %54, %53 ], [ %50, %49 ], [ %.sroa.6.1, %45 ], [ %.sroa.6.1, %47 ]
-  %.sroa.042.0 = phi double [ 0.000000e+00, %11 ], [ 0.000000e+00, %15 ], [ %55, %53 ], [ %52, %49 ], [ 0.000000e+00, %45 ], [ %48, %47 ]
+  %.sroa.6.0 = phi double [ 0.000000e+00, %11 ], [ %17, %15 ], [ %50, %49 ], [ %54, %53 ], [ %.sroa.6.1, %45 ], [ %.sroa.6.1, %47 ]
+  %.sroa.042.0 = phi double [ 0.000000e+00, %11 ], [ 0.000000e+00, %15 ], [ %52, %49 ], [ %55, %53 ], [ 0.000000e+00, %45 ], [ %48, %47 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.042.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.6.0, 1
   ret { double, double } %.fca.1.insert
@@ -463,8 +463,8 @@ define internal { double, double } @_ZL14aeqd_s_forward5PJ_LPP8PJconsts(double %
   br label %.thread
 
 .thread:                                          ; preds = %50, %52, %20, %22, %26, %56, %.thread89, %78
-  %.sroa.072.1 = phi double [ 0.000000e+00, %78 ], [ %76, %.thread89 ], [ 0.000000e+00, %20 ], [ %31, %26 ], [ %61, %56 ], [ %24, %22 ], [ %54, %52 ], [ 0.000000e+00, %50 ]
-  %.sroa.7.1 = phi double [ 0.000000e+00, %78 ], [ %77, %.thread89 ], [ %13, %20 ], [ %32, %26 ], [ %65, %56 ], [ %25, %22 ], [ %55, %52 ], [ %43, %50 ]
+  %.sroa.072.1 = phi double [ 0.000000e+00, %78 ], [ %31, %26 ], [ %61, %56 ], [ %76, %.thread89 ], [ %24, %22 ], [ 0.000000e+00, %20 ], [ %54, %52 ], [ 0.000000e+00, %50 ]
+  %.sroa.7.1 = phi double [ 0.000000e+00, %78 ], [ %32, %26 ], [ %65, %56 ], [ %77, %.thread89 ], [ %25, %22 ], [ %13, %20 ], [ %55, %52 ], [ %43, %50 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.072.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.7.1, 1
   ret { double, double } %.fca.1.insert

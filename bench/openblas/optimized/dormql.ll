@@ -197,7 +197,7 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not233, label %97, label %.thread257
 
 .thread257.sink.split:                            ; preds = %59, %56, %52, %48, %45, %42, %40, %35
-  %.sink = phi i32 [ -1, %35 ], [ -3, %42 ], [ -5, %48 ], [ -10, %56 ], [ -7, %52 ], [ -4, %45 ], [ -2, %40 ], [ -12, %59 ]
+  %.sink = phi i32 [ -1, %35 ], [ -2, %40 ], [ -3, %42 ], [ -4, %45 ], [ -5, %48 ], [ -7, %52 ], [ -10, %56 ], [ -12, %59 ]
   store i32 %.sink, ptr %12, align 4, !tbaa !3
   br label %.thread257
 

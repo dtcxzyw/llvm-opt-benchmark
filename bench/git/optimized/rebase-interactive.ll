@@ -121,7 +121,7 @@ _.exit24.sink.split:                              ; preds = %30
   br label %_.exit24
 
 _.exit24:                                         ; preds = %30, %_.exit24.sink.split
-  %.0 = phi ptr [ %.str.3..str.4, %30 ], [ %36, %_.exit24.sink.split ]
+  %.0 = phi ptr [ %36, %_.exit24.sink.split ], [ %.str.3..str.4, %30 ]
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #11
   %38 = load ptr, ptr @comment_line_str, align 8, !tbaa !16
   tail call void @strbuf_add_commented_lines(ptr noundef %3, ptr noundef nonnull %.0, i64 noundef %37, ptr noundef %38) #10
@@ -135,7 +135,7 @@ _.exit30.sink.split:                              ; preds = %_.exit24
   br label %_.exit30
 
 _.exit30:                                         ; preds = %_.exit24, %_.exit30.sink.split
-  %.1 = phi ptr [ %.str.5..str.6, %_.exit24 ], [ %40, %_.exit30.sink.split ]
+  %.1 = phi ptr [ %40, %_.exit30.sink.split ], [ %.str.5..str.6, %_.exit24 ]
   %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #11
   %42 = load ptr, ptr @comment_line_str, align 8, !tbaa !16
   tail call void @strbuf_add_commented_lines(ptr noundef %3, ptr noundef nonnull %.1, i64 noundef %41, ptr noundef %42) #10
@@ -191,7 +191,7 @@ _.exit:                                           ; preds = %11, %13
   br label %16
 
 16:                                               ; preds = %9, %7, %0, %4, %_.exit
-  %.0 = phi i32 [ 0, %0 ], [ 0, %_.exit ], [ 1, %7 ], [ 0, %4 ], [ 2, %9 ]
+  %.0 = phi i32 [ 0, %_.exit ], [ 0, %4 ], [ 0, %0 ], [ 1, %7 ], [ 2, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -355,7 +355,7 @@ todo_list_check_against_backup.exit:              ; preds = %60
   br label %80
 
 80:                                               ; preds = %45, %41, %79, %77, %68, %_.exit50, %_.exit47, %_.exit
-  %.039 = phi i32 [ -1, %_.exit ], [ -1, %_.exit47 ], [ -2, %41 ], [ -4, %_.exit50 ], [ -4, %68 ], [ 0, %79 ], [ -4, %77 ], [ -3, %45 ]
+  %.039 = phi i32 [ -1, %_.exit ], [ -4, %_.exit50 ], [ -4, %68 ], [ 0, %79 ], [ -4, %77 ], [ -1, %_.exit47 ], [ -2, %41 ], [ -3, %45 ]
   ret i32 %.039
 }
 
@@ -676,9 +676,9 @@ _.exit59:                                         ; preds = %_.exit56, %121
   br label %._crit_edge98.thread
 
 ._crit_edge98.thread:                             ; preds = %._crit_edge, %._crit_edge98, %_.exit59
-  %.sroa.2977.3.lcssa132 = phi ptr [ %.sroa.2977.4, %._crit_edge98 ], [ %.sroa.2977.4, %_.exit59 ], [ %.sroa.2977.1.lcssa, %._crit_edge ]
-  %.sroa.16.3.lcssa131 = phi i32 [ %.sroa.16.4, %._crit_edge98 ], [ %.sroa.16.4, %_.exit59 ], [ %.sroa.16.1.lcssa, %._crit_edge ]
-  %.0 = phi i32 [ 0, %._crit_edge98 ], [ %spec.select, %_.exit59 ], [ 0, %._crit_edge ]
+  %.sroa.2977.3.lcssa132 = phi ptr [ %.sroa.2977.4, %_.exit59 ], [ %.sroa.2977.4, %._crit_edge98 ], [ %.sroa.2977.1.lcssa, %._crit_edge ]
+  %.sroa.16.3.lcssa131 = phi i32 [ %.sroa.16.4, %_.exit59 ], [ %.sroa.16.4, %._crit_edge98 ], [ %.sroa.16.1.lcssa, %._crit_edge ]
+  %.0 = phi i32 [ %spec.select, %_.exit59 ], [ 0, %._crit_edge98 ], [ 0, %._crit_edge ]
   %.not.i = icmp eq i32 %.sroa.16.3.lcssa131, 0
   br i1 %.not.i, label %clear_commit_seen.exit, label %.lr.ph.i.preheader
 
@@ -696,8 +696,8 @@ _.exit59:                                         ; preds = %_.exit56, %121
   br i1 %exitcond.not, label %clear_commit_seen.exit, label %.lr.ph.i, !llvm.loop !40
 
 clear_commit_seen.exit:                           ; preds = %.lr.ph.i, %2, %._crit_edge98.thread
-  %.087 = phi i32 [ 0, %2 ], [ %.0, %._crit_edge98.thread ], [ %.0, %.lr.ph.i ]
-  %.sroa.2977.086 = phi ptr [ null, %2 ], [ %.sroa.2977.3.lcssa132, %._crit_edge98.thread ], [ %.sroa.2977.3.lcssa132, %.lr.ph.i ]
+  %.087 = phi i32 [ %.0, %._crit_edge98.thread ], [ 0, %2 ], [ %.0, %.lr.ph.i ]
+  %.sroa.2977.086 = phi ptr [ %.sroa.2977.3.lcssa132, %._crit_edge98.thread ], [ null, %2 ], [ %.sroa.2977.3.lcssa132, %.lr.ph.i ]
   call void @free(ptr noundef %.sroa.2977.086) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.087

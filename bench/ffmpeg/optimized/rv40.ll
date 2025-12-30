@@ -500,9 +500,9 @@ define internal noundef i32 @rv40_decode_intra_types(ptr noundef readonly captur
   br label %get_vlc2.exit
 
 get_vlc2.exit:                                    ; preds = %68, %90
-  %.064.i = phi i32 [ %72, %68 ], [ %93, %90 ]
-  %.062.i = phi i16 [ %85, %68 ], [ %106, %90 ]
-  %.0.i = phi i32 [ %88, %68 ], [ %109, %90 ]
+  %.064.i = phi i32 [ %93, %90 ], [ %72, %68 ]
+  %.062.i = phi i16 [ %106, %90 ], [ %85, %68 ]
+  %.0.i = phi i32 [ %109, %90 ], [ %88, %68 ]
   %110 = add i32 %.0.i, %.064.i
   %111 = tail call i32 @llvm.umin.i32(i32 %73, i32 %110)
   store i32 %111, ptr %6, align 8, !tbaa !63
@@ -939,7 +939,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   br label %207
 
 207:                                              ; preds = %.sink.split, %173, %156, %72, %get_interleaved_ue_golomb.exit
-  %.053 = phi i32 [ -1, %get_interleaved_ue_golomb.exit ], [ 6, %72 ], [ %183, %173 ], [ %166, %156 ], [ 0, %.sink.split ]
+  %.053 = phi i32 [ -1, %get_interleaved_ue_golomb.exit ], [ 6, %72 ], [ %166, %156 ], [ %183, %173 ], [ 0, %.sink.split ]
   ret i32 %.053
 }
 

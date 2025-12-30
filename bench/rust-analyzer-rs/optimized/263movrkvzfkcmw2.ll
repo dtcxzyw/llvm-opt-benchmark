@@ -170,7 +170,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$cor
   br label %"_ZN58_$LT$salsa..DatabaseKeyIndex$u20$as$u20$core..cmp..Ord$GT$3cmp17h561c8876f79b38dcE.llvm.12611796297594801985.exit"
 
 "_ZN58_$LT$salsa..DatabaseKeyIndex$u20$as$u20$core..cmp..Ord$GT$3cmp17h561c8876f79b38dcE.llvm.12611796297594801985.exit": ; preds = %2, %10, %12, %18, %20, %24
-  %.1.i = phi i8 [ %.12.i, %24 ], [ 1, %10 ], [ -1, %20 ], [ 1, %18 ], [ -1, %2 ], [ -1, %12 ]
+  %.1.i = phi i8 [ 1, %18 ], [ 1, %10 ], [ %.12.i, %24 ], [ -1, %20 ], [ -1, %2 ], [ -1, %12 ]
   ret i8 %.1.i
 }
 
@@ -221,7 +221,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   br label %"_ZN9itertools9Itertools12position_min28_$u7b$$u7b$closure$u7d$$u7d$17hef224368eac78771E.llvm.12611796297594801985.exit"
 
 "_ZN9itertools9Itertools12position_min28_$u7b$$u7b$closure$u7d$$u7d$17hef224368eac78771E.llvm.12611796297594801985.exit": ; preds = %3, %13, %15, %21, %23, %27
-  %.1.i.i.i = phi i8 [ %.12.i.i.i, %27 ], [ 1, %13 ], [ -1, %23 ], [ 1, %21 ], [ -1, %3 ], [ -1, %15 ]
+  %.1.i.i.i = phi i8 [ 1, %21 ], [ 1, %13 ], [ %.12.i.i.i, %27 ], [ -1, %23 ], [ -1, %3 ], [ -1, %15 ]
   ret i8 %.1.i.i.i
 }
 
@@ -1973,7 +1973,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN9itertools9Itertools12position_min
   br label %"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$RF$A$GT$3cmp17h0858e65e442e9826E.llvm.12611796297594801985.exit"
 
 "_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$RF$A$GT$3cmp17h0858e65e442e9826E.llvm.12611796297594801985.exit": ; preds = %3, %13, %15, %21, %23, %27
-  %.1.i.i = phi i8 [ %.12.i.i, %27 ], [ 1, %13 ], [ -1, %23 ], [ 1, %21 ], [ -1, %3 ], [ -1, %15 ]
+  %.1.i.i = phi i8 [ 1, %21 ], [ 1, %13 ], [ %.12.i.i, %27 ], [ -1, %23 ], [ -1, %3 ], [ -1, %15 ]
   ret i8 %.1.i.i
 }
 
@@ -2147,7 +2147,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN58_$LT$salsa..DatabaseKeyIndex$u20
   br i1 %15, label %.thread, label %16
 
 .thread:                                          ; preds = %10, %2, %18, %22, %16, %8
-  %.1 = phi i8 [ %.12, %22 ], [ 1, %8 ], [ -1, %18 ], [ 1, %16 ], [ -1, %2 ], [ -1, %10 ]
+  %.1 = phi i8 [ 1, %16 ], [ 1, %8 ], [ %.12, %22 ], [ -1, %18 ], [ -1, %2 ], [ -1, %10 ]
   ret i8 %.1
 
 16:                                               ; preds = %10

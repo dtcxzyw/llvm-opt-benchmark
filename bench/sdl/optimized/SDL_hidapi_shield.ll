@@ -831,7 +831,7 @@ define internal zeroext i1 @HIDAPI_DriverShield_RumbleJoystick(ptr noundef %0, p
   br label %HIDAPI_DriverShield_SendCommand.exit.i
 
 HIDAPI_DriverShield_SendCommand.exit.i:           ; preds = %56, %48, %39
-  %.0.i.i = phi i1 [ true, %48 ], [ %57, %56 ], [ false, %39 ]
+  %.0.i.i = phi i1 [ %57, %56 ], [ false, %39 ], [ true, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %HIDAPI_DriverShield_SendNextRumble.exit
 
@@ -949,7 +949,7 @@ HIDAPI_DriverShield_SendCommand.exit:             ; preds = %16, %18, %29, %31
   br label %HIDAPI_DriverShield_SendCommand.exit12
 
 HIDAPI_DriverShield_SendCommand.exit12:           ; preds = %35, %40, %47
-  %.0.i10 = phi i1 [ true, %40 ], [ %48, %47 ], [ false, %35 ]
+  %.0.i10 = phi i1 [ %48, %47 ], [ false, %35 ], [ true, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %51
 

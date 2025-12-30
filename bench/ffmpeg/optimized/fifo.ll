@@ -214,7 +214,7 @@ define range(i32 -22, 1) i32 @av_fifo_grow2(ptr noundef captures(none) %0, i64 n
   br label %45
 
 45:                                               ; preds = %7, %2, %42
-  %.0 = phi i32 [ -22, %2 ], [ 0, %42 ], [ -12, %7 ]
+  %.0 = phi i32 [ 0, %42 ], [ -22, %2 ], [ -12, %7 ]
   ret i32 %.0
 }
 

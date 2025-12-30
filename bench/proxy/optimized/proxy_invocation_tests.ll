@@ -1594,9 +1594,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit157: ; preds = %_Z
   br label %.body61
 
 .body61:                                          ; preds = %62, %276, %216, %152, %112
-  %.sroa.15.2 = phi ptr [ null, %276 ], [ null, %112 ], [ null, %216 ], [ %.sroa.15.0, %62 ], [ null, %152 ]
-  %.sroa.0171.2 = phi ptr [ null, %276 ], [ null, %112 ], [ null, %216 ], [ %.sroa.0171.0, %62 ], [ null, %152 ]
-  %.pn44.pn.pn = phi { ptr, i32 } [ %.pn44.pn, %276 ], [ %.pn.pn.pn, %112 ], [ %.pn41.pn, %216 ], [ %63, %62 ], [ %.pn34.pn, %152 ]
+  %.sroa.15.2 = phi ptr [ null, %276 ], [ null, %216 ], [ null, %152 ], [ null, %112 ], [ %.sroa.15.0, %62 ]
+  %.sroa.0171.2 = phi ptr [ null, %276 ], [ null, %216 ], [ null, %152 ], [ null, %112 ], [ %.sroa.0171.0, %62 ]
+  %.pn44.pn.pn = phi { ptr, i32 } [ %.pn44.pn, %276 ], [ %.pn41.pn, %216 ], [ %.pn34.pn, %152 ], [ %.pn.pn.pn, %112 ], [ %63, %62 ]
   %.val1.i158 = load ptr, ptr %12, align 8
   %.not.i159 = icmp eq ptr %.val1.i158, null
   br i1 %.not.i159, label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8CallableIJFiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIiSaIiEEEEEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNSG_13HasDestructorEE.exit160, label %277
@@ -1650,7 +1650,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit166:                 ; preds = %288, %_ZNSt6vectorI
   br label %.body
 
 .body:                                            ; preds = %293, %_ZNSt6vectorIiSaIiEED2Ev.exit166, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i
-  %.pn44.pn.pn.pn.pn = phi { ptr, i32 } [ %29, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i ], [ %.pn44.pn.pn.pn193, %293 ], [ %.pn44.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit166 ]
+  %.pn44.pn.pn.pn.pn = phi { ptr, i32 } [ %29, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i ], [ %.pn44.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit166 ], [ %.pn44.pn.pn.pn193, %293 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   br label %297
 
@@ -2014,7 +2014,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec8CallableIJFvvEEEEED2EvQaantL_ZNS_5proxy20HasT
   br label %114
 
 114:                                              ; preds = %68, %113, %66, %13
-  %.merged = phi { ptr, i32 } [ %.pn33.pn.pn, %113 ], [ %14, %13 ], [ %67, %66 ], [ %.pn.pn.pn, %68 ]
+  %.merged = phi { ptr, i32 } [ %.pn33.pn.pn, %113 ], [ %67, %66 ], [ %.pn.pn.pn, %68 ], [ %14, %13 ]
   %.val1.i68 = load ptr, ptr %4, align 8
   %.not.i69 = icmp eq ptr %.val1.i68, null
   br i1 %.not.i69, label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8CallableIJFvvEEEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS7_13HasDestructorEE.exit70, label %115
@@ -3746,7 +3746,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i154, %_
   br label %.body61
 
 .body61:                                          ; preds = %235, %237, %185, %_ZN3pro5proxyIN12_GLOBAL__N_14spec9ContainerIiEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS6_13HasDestructorEE.exit103, %98, %100, %49, %287, %247, %177, %110
-  %.pn33.pn.pn = phi { ptr, i32 } [ %.pn33.pn, %287 ], [ %.pn.pn, %110 ], [ %.pn30.pn, %247 ], [ %99, %98 ], [ %.pn25.pn, %177 ], [ %.pn28, %185 ], [ %50, %49 ], [ %99, %100 ], [ %.pn28, %_ZN3pro5proxyIN12_GLOBAL__N_14spec9ContainerIiEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS6_13HasDestructorEE.exit103 ], [ %236, %237 ], [ %236, %235 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %.pn33.pn, %287 ], [ %.pn30.pn, %247 ], [ %.pn25.pn, %177 ], [ %.pn.pn, %110 ], [ %50, %49 ], [ %99, %100 ], [ %99, %98 ], [ %.pn28, %_ZN3pro5proxyIN12_GLOBAL__N_14spec9ContainerIiEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS6_13HasDestructorEE.exit103 ], [ %.pn28, %185 ], [ %236, %237 ], [ %236, %235 ]
   %.val1.i158 = load ptr, ptr %6, align 8
   %.not.i159 = icmp eq ptr %.val1.i158, null
   br i1 %.not.i159, label %_ZN3pro5proxyIN12_GLOBAL__N_14spec9ContainerIiEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS6_13HasDestructorEE.exit160, label %288
@@ -4605,7 +4605,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i154, %_
   br label %.body61
 
 .body61:                                          ; preds = %235, %237, %185, %_ZN3pro5proxyIN12_GLOBAL__N_14spec9ContainerIiEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS6_13HasDestructorEE.exit103, %98, %100, %49, %287, %247, %177, %110
-  %.pn33.pn.pn = phi { ptr, i32 } [ %.pn33.pn, %287 ], [ %.pn.pn, %110 ], [ %.pn30.pn, %247 ], [ %99, %98 ], [ %.pn25.pn, %177 ], [ %.pn28, %185 ], [ %50, %49 ], [ %99, %100 ], [ %.pn28, %_ZN3pro5proxyIN12_GLOBAL__N_14spec9ContainerIiEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS6_13HasDestructorEE.exit103 ], [ %236, %237 ], [ %236, %235 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %.pn33.pn, %287 ], [ %.pn30.pn, %247 ], [ %.pn25.pn, %177 ], [ %.pn.pn, %110 ], [ %50, %49 ], [ %99, %100 ], [ %99, %98 ], [ %.pn28, %_ZN3pro5proxyIN12_GLOBAL__N_14spec9ContainerIiEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS6_13HasDestructorEE.exit103 ], [ %.pn28, %185 ], [ %236, %237 ], [ %236, %235 ]
   %.val1.i158 = load ptr, ptr %6, align 8
   %.not.i159 = icmp eq ptr %.val1.i158, null
   br i1 %.not.i159, label %_ZN3pro5proxyIN12_GLOBAL__N_14spec9ContainerIiEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS6_13HasDestructorEE.exit160, label %288
@@ -5861,7 +5861,7 @@ _ZNSt6vectorISt10type_indexSaIS0_EED2Ev.exit244:  ; preds = %_ZN3pro5proxyIZN48P
   ret void
 
 .body:                                            ; preds = %418, %415, %320, %317, %234, %231, %148, %145, %62, %59, %57, %378, %462, %414, %316, %230, %144
-  %.pn47.pn.pn.pn = phi { ptr, i32 } [ %416, %418 ], [ %.pn44.pn, %462 ], [ %318, %320 ], [ %.pn.i.i, %378 ], [ %.pn41.pn, %414 ], [ %232, %234 ], [ %.pn38.pn, %316 ], [ %146, %148 ], [ %.pn35.pn, %230 ], [ %60, %62 ], [ %.pn.pn, %144 ], [ %58, %57 ], [ %60, %59 ], [ %146, %145 ], [ %232, %231 ], [ %318, %317 ], [ %416, %415 ]
+  %.pn47.pn.pn.pn = phi { ptr, i32 } [ %.pn44.pn, %462 ], [ %.pn41.pn, %414 ], [ %.pn38.pn, %316 ], [ %.pn35.pn, %230 ], [ %.pn.pn, %144 ], [ %58, %57 ], [ %.pn.i.i, %378 ], [ %60, %59 ], [ %60, %62 ], [ %146, %145 ], [ %146, %148 ], [ %232, %231 ], [ %232, %234 ], [ %318, %317 ], [ %318, %320 ], [ %416, %415 ], [ %416, %418 ]
   %.val1.i245 = load ptr, ptr %5, align 8
   %.not.i246 = icmp eq ptr %.val1.i245, null
   br i1 %.not.i246, label %_ZN3pro5proxyIZN48ProxyInvocationTests_TestOverloadResolution_Test8TestBodyEvE18OverloadedCallableED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit247, label %473
@@ -6388,7 +6388,7 @@ _ZNSt6vectorISt10type_indexSaIS0_EED2Ev.exit97:   ; preds = %_ZN3pro5proxyIN12_G
   ret void
 
 _ZNSt6vectorISt10type_indexSaIS0_EED2Ev.exit35:   ; preds = %136, %133, %50, %47, %180, %132, %45
-  %.pn23.pn.pn.pn = phi { ptr, i32 } [ %134, %136 ], [ %.pn20.pn, %180 ], [ %48, %50 ], [ %46, %45 ], [ %.pn.pn, %132 ], [ %48, %47 ], [ %134, %133 ]
+  %.pn23.pn.pn.pn = phi { ptr, i32 } [ %.pn20.pn, %180 ], [ %46, %45 ], [ %.pn.pn, %132 ], [ %48, %47 ], [ %48, %50 ], [ %134, %133 ], [ %134, %136 ]
   %.val1.i98 = load ptr, ptr %3, align 8
   %.not.i99 = icmp eq ptr %.val1.i98, null
   br i1 %.not.i99, label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8CallableIJDoFviEFvdEEEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS8_13HasDestructorEE.exit100, label %191
@@ -7445,7 +7445,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   ret void
 
 240:                                              ; preds = %214, %167, %166, %121, %119
-  %.merged71 = phi { ptr, i32 } [ %122, %121 ], [ %120, %119 ], [ %.pn62.pn.pn, %214 ], [ %168, %167 ], [ %.pn57.pn, %166 ]
+  %.merged71 = phi { ptr, i32 } [ %120, %119 ], [ %.pn62.pn.pn, %214 ], [ %168, %167 ], [ %.pn57.pn, %166 ], [ %122, %121 ]
   %.val1.i128 = load ptr, ptr %11, align 8
   %.not.i129 = icmp eq ptr %.val1.i128, null
   br i1 %.not.i129, label %_ZN3pro5proxyIN12_GLOBAL__N_14spec18ResourceDictionaryEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit130, label %241
@@ -7909,7 +7909,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec12WeakCallableIJFvvEEEEED2EvQaantL_ZNS_5proxy2
   ret void
 
 111:                                              ; preds = %107, %105, %58
-  %.merged43 = phi { ptr, i32 } [ %59, %58 ], [ %106, %105 ], [ %.pn35.pn.pn, %107 ]
+  %.merged43 = phi { ptr, i32 } [ %106, %105 ], [ %.pn35.pn.pn, %107 ], [ %59, %58 ]
   %.val1.i79 = load ptr, ptr %6, align 8
   %.not.i80 = icmp eq ptr %.val1.i79, null
   br i1 %.not.i80, label %_ZN3pro5proxyIN12_GLOBAL__N_14spec12WeakCallableIJFvvEEEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS7_13HasDestructorEE.exit56, label %_ZN3pro5proxyIN12_GLOBAL__N_14spec12WeakCallableIJFvvEEEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS7_13HasDestructorEE.exit56.sink.split
@@ -7924,7 +7924,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec12WeakCallableIJFvvEEEEED2EvQaantL_ZNS_5proxy2
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec12WeakCallableIJFvvEEEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS7_13HasDestructorEE.exit56
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec12WeakCallableIJFvvEEEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS7_13HasDestructorEE.exit56: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_14spec12WeakCallableIJFvvEEEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS7_13HasDestructorEE.exit56.sink.split, %111, %57
-  %.merged = phi { ptr, i32 } [ %.merged43, %111 ], [ %.pn.pn.pn, %57 ], [ %.merged.ph, %_ZN3pro5proxyIN12_GLOBAL__N_14spec12WeakCallableIJFvvEEEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS7_13HasDestructorEE.exit56.sink.split ]
+  %.merged = phi { ptr, i32 } [ %.pn.pn.pn, %57 ], [ %.merged43, %111 ], [ %.merged.ph, %_ZN3pro5proxyIN12_GLOBAL__N_14spec12WeakCallableIJFvvEEEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS7_13HasDestructorEE.exit56.sink.split ]
   resume { ptr, i32 } %.merged
 
 114:                                              ; preds = %107
@@ -9141,7 +9141,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec16SharedStringableEED2EvQaantL_ZNS_5proxy20Has
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec16SharedStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit149
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec16SharedStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit149: ; preds = %206, %205, %410, %365, %364, %306, %255, %40
-  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn70.pn, %410 ], [ %366, %365 ], [ %41, %40 ], [ %.pn66.pn.pn, %364 ], [ %.pn62.pn.pn, %306 ], [ %.pn58.pn.pn, %255 ], [ %.pn54.pn.pn, %206 ], [ %.pn54.pn.pn, %205 ]
+  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn70.pn, %410 ], [ %366, %365 ], [ %41, %40 ], [ %.pn66.pn.pn, %364 ], [ %.pn62.pn.pn, %306 ], [ %.pn58.pn.pn, %255 ], [ %.pn54.pn.pn, %205 ], [ %.pn54.pn.pn, %206 ]
   %.val.i257 = load ptr, ptr %3, align 8
   %.not.i258 = icmp eq ptr %.val.i257, null
   br i1 %.not.i258, label %_ZN3pro5proxyIN12_GLOBAL__N_14spec4WeakINS2_16SharedStringableEEEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS7_13HasDestructorEE.exit259, label %411
@@ -11761,7 +11761,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !437
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %16, %15 ], [ %8, %7 ], [ %12, %11 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
   %21 = add i32 %.0.i, %.lobit
   %22 = zext i32 %21 to i64
@@ -12309,8 +12309,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %391, %397, %361, %367, %331, %337, %301, %307, %271, %277, %241, %247, %211, %217, %181, %187, %151, %157, %121, %127, %91, %97, %61, %67
-  %.sink = phi ptr [ %6, %361 ], [ %9, %331 ], [ %12, %301 ], [ %15, %271 ], [ %18, %241 ], [ %21, %211 ], [ %24, %181 ], [ %27, %151 ], [ %30, %121 ], [ %33, %91 ], [ %36, %61 ], [ %36, %67 ], [ %33, %97 ], [ %30, %127 ], [ %27, %157 ], [ %24, %187 ], [ %21, %217 ], [ %18, %247 ], [ %15, %277 ], [ %12, %307 ], [ %9, %337 ], [ %6, %367 ], [ %3, %397 ], [ %3, %391 ]
-  %common.resume.op = phi { ptr, i32 } [ %362, %361 ], [ %332, %331 ], [ %302, %301 ], [ %272, %271 ], [ %242, %241 ], [ %212, %211 ], [ %182, %181 ], [ %152, %151 ], [ %122, %121 ], [ %92, %91 ], [ %62, %61 ], [ %.pn.pn.i, %67 ], [ %.pn.i, %97 ], [ %.pn.i8, %127 ], [ %.pn.i15, %157 ], [ %.pn.i22, %187 ], [ %.pn.i29, %217 ], [ %.pn.i36, %247 ], [ %.pn.i43, %277 ], [ %.pn.i50, %307 ], [ %.pn.i57, %337 ], [ %.pn.i64, %367 ], [ %.pn.i71, %397 ], [ %392, %391 ]
+  %.sink = phi ptr [ %36, %67 ], [ %36, %61 ], [ %33, %97 ], [ %33, %91 ], [ %30, %127 ], [ %30, %121 ], [ %27, %157 ], [ %27, %151 ], [ %24, %187 ], [ %24, %181 ], [ %21, %217 ], [ %21, %211 ], [ %18, %247 ], [ %18, %241 ], [ %15, %277 ], [ %15, %271 ], [ %12, %307 ], [ %12, %301 ], [ %9, %337 ], [ %9, %331 ], [ %6, %367 ], [ %6, %361 ], [ %3, %397 ], [ %3, %391 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %67 ], [ %62, %61 ], [ %.pn.i, %97 ], [ %92, %91 ], [ %.pn.i8, %127 ], [ %122, %121 ], [ %.pn.i15, %157 ], [ %152, %151 ], [ %.pn.i22, %187 ], [ %182, %181 ], [ %.pn.i29, %217 ], [ %212, %211 ], [ %.pn.i36, %247 ], [ %242, %241 ], [ %.pn.i43, %277 ], [ %272, %271 ], [ %.pn.i50, %307 ], [ %302, %301 ], [ %.pn.i57, %337 ], [ %332, %331 ], [ %.pn.i64, %367 ], [ %362, %361 ], [ %.pn.i71, %397 ], [ %392, %391 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #28
   resume { ptr, i32 } %common.resume.op
 

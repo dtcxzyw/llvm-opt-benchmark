@@ -1523,7 +1523,7 @@ Kit_TruthNot.exit141:                             ; preds = %select.unfold.i138,
   br label %252
 
 252:                                              ; preds = %246, %Kit_TruthNot.exit141, %If_CutTruth.exit
-  %.027 = phi i32 [ 4095, %Kit_TruthNot.exit141 ], [ 4095, %If_CutTruth.exit ], [ %., %246 ]
+  %.027 = phi i32 [ 4095, %If_CutTruth.exit ], [ 4095, %Kit_TruthNot.exit141 ], [ %., %246 ]
   ret i32 %.027
 }
 

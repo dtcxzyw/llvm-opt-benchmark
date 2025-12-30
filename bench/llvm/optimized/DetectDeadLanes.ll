@@ -590,7 +590,7 @@ _ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitma
   unreachable
 
 _ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit: ; preds = %70, %64, %_ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit24, %17, %8, %4, %4, %61, %53
-  %.sroa.032.0 = phi i64 [ %.sroa.03.0.i23, %_ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit24 ], [ %2, %4 ], [ %2, %8 ], [ %60, %53 ], [ %63, %61 ], [ %2, %4 ], [ %23, %17 ], [ %76, %70 ], [ %2, %64 ]
+  %.sroa.032.0 = phi i64 [ %60, %53 ], [ %63, %61 ], [ %2, %4 ], [ %2, %4 ], [ %23, %17 ], [ %2, %8 ], [ %.sroa.03.0.i23, %_ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit24 ], [ %76, %70 ], [ %2, %64 ]
   ret i64 %.sroa.032.0
 }
 
@@ -876,7 +876,7 @@ _ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread91: ; preds = 
   br label %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit
 
 _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit: ; preds = %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread91, %29, %32
-  %.sroa.0.0.i = phi ptr [ %spec.select.i, %32 ], [ null, %29 ], [ %.0.i.i.i.i, %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread91 ]
+  %.sroa.0.0.i = phi ptr [ null, %29 ], [ %.0.i.i.i.i, %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread91 ], [ %spec.select.i, %32 ]
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !104
   %37 = getelementptr i8, ptr %36, i64 68
@@ -1053,7 +1053,7 @@ _ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit63.thread94: ; preds 
   br label %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72
 
 _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72: ; preds = %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit63.thread94, %124
-  %.sroa.0.0.i68 = phi ptr [ %126, %124 ], [ %.0.i.i.i.i54, %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit63.thread94 ]
+  %.sroa.0.0.i68 = phi ptr [ %.0.i.i.i.i54, %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit63.thread94 ], [ %126, %124 ]
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i68, i64 8
   %128 = load ptr, ptr %127, align 8, !tbaa !104
   %129 = getelementptr i8, ptr %128, i64 68
@@ -1067,7 +1067,7 @@ _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72: ; preds = %_ZNK4l
     i16 10, label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread93
   ]
 
-.critedge:                                        ; preds = %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72, %114, %98, %117, %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit63
+.critedge:                                        ; preds = %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72, %117, %114, %98, %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit63
   %130 = load i32, ptr %.045102, align 8
   %131 = lshr i32 %130, 8
   %132 = and i32 %131, 4095
@@ -1084,14 +1084,14 @@ _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72: ; preds = %_ZNK4l
   br label %_ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit
 
 _ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit: ; preds = %134, %.critedge, %94, %92
-  %.sroa.077.0 = phi i64 [ -1, %94 ], [ -1, %92 ], [ %139, %134 ], [ %133, %.critedge ]
+  %.sroa.077.0 = phi i64 [ -1, %92 ], [ -1, %94 ], [ %139, %134 ], [ %133, %.critedge ]
   %140 = call noundef i32 @_ZNK4llvm14MachineOperand12getOperandNoEv(ptr noundef nonnull align 8 dereferenceable(32) %.045102) #16
   %141 = call i64 @_ZNK4llvm16DeadLaneDetector20transferDefinedLanesERKNS_14MachineOperandEjNS_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0.i, i32 noundef %140, i64 %.sroa.077.0)
   %142 = or i64 %141, %.sroa.089.1100
   br label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread93
 
 _ZNK4llvm14MachineOperand8readsRegEv.exit.thread93: ; preds = %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread, %_ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit, %86
-  %.sroa.089.2 = phi i64 [ %.sroa.089.1100, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72 ], [ %.sroa.089.1100, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72 ], [ %.sroa.089.1100, %86 ], [ %.sroa.089.1100, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread ], [ %142, %_ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit ], [ %.sroa.089.1100, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72 ], [ %.sroa.089.1100, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72 ], [ %.sroa.089.1100, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72 ], [ %.sroa.089.1100, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72 ]
+  %.sroa.089.2 = phi i64 [ %.sroa.089.1100, %86 ], [ %.sroa.089.1100, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread ], [ %142, %_ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit ], [ %.sroa.089.1100, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72 ], [ %.sroa.089.1100, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72 ], [ %.sroa.089.1100, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72 ], [ %.sroa.089.1100, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72 ], [ %.sroa.089.1100, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72 ], [ %.sroa.089.1100, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit72 ]
   %143 = getelementptr inbounds nuw i8, ptr %.045102, i64 32
   %.not = icmp eq ptr %143, %84
   br i1 %.not, label %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread, label %86
@@ -1106,8 +1106,8 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread93: ; preds = %_ZNK4llvm19Machin
   %149 = tail call i64 @_ZNK4llvm19MachineRegisterInfo21getMaxLaneMaskForVRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %4, i32 %1) #16
   br label %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread
 
-_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread: ; preds = %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread93, %68, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit, %19, %2, %22, %144, %_ZN4llvm16DeadLaneDetector13PutInWorklistEj.exit, %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit, %148
-  %.sroa.089.0 = phi i64 [ -1, %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit ], [ 0, %_ZN4llvm16DeadLaneDetector13PutInWorklistEj.exit ], [ -1, %19 ], [ %149, %148 ], [ 0, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit ], [ 0, %144 ], [ -1, %22 ], [ -1, %2 ], [ 0, %68 ], [ %.sroa.089.2, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread93 ]
+_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread: ; preds = %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread93, %68, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit, %22, %19, %2, %144, %_ZN4llvm16DeadLaneDetector13PutInWorklistEj.exit, %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit, %148
+  %.sroa.089.0 = phi i64 [ %149, %148 ], [ -1, %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit ], [ 0, %_ZN4llvm16DeadLaneDetector13PutInWorklistEj.exit ], [ 0, %144 ], [ -1, %2 ], [ -1, %19 ], [ -1, %22 ], [ 0, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit ], [ 0, %68 ], [ %.sroa.089.2, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread93 ]
   ret i64 %.sroa.089.0
 }
 
@@ -1191,14 +1191,14 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.thread: ; pre
   br label %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread
 
 _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread: ; preds = %14, %26, %41, %48
-  %.039.ph = phi i32 [ %17, %14 ], [ %17, %41 ], [ %52, %48 ], [ %17, %26 ]
+  %.039.ph = phi i32 [ %17, %41 ], [ %52, %48 ], [ %17, %26 ], [ %17, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq i32 %.039.ph, 0
   br i1 %.not, label %.thread, label %58
 
 _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit: ; preds = %29, %33
-  %.038.in.in = phi ptr [ %40, %33 ], [ %32, %29 ]
+  %.038.in.in = phi ptr [ %32, %29 ], [ %40, %33 ]
   %.038.in = load i64, ptr %.038.in.in, align 8, !tbaa !50
   %.038 = trunc i64 %.038.in to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1373,7 +1373,7 @@ _ZL14lowersToCopiesRKN4llvm12MachineInstrE.exit:  ; preds = %33, %_ZL14lowersToC
   br label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread53
 
 _ZNK4llvm14MachineOperand8readsRegEv.exit.thread53: ; preds = %40, %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread, %51, %_ZL14lowersToCopiesRKN4llvm12MachineInstrE.exit38
-  %.sroa.051.2.ph = phi i64 [ %.sroa.051.081, %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit ], [ %.sroa.051.081, %_ZL14lowersToCopiesRKN4llvm12MachineInstrE.exit38 ], [ %.sroa.051.081, %40 ], [ %.sroa.051.081, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread ], [ %57, %51 ]
+  %.sroa.051.2.ph = phi i64 [ %.sroa.051.081, %_ZL14lowersToCopiesRKN4llvm12MachineInstrE.exit38 ], [ %57, %51 ], [ %.sroa.051.081, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread ], [ %.sroa.051.081, %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit ], [ %.sroa.051.081, %40 ]
   br label %.critedge2.i.i
 
 .critedge2.i.i:                                   ; preds = %58, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread53
@@ -1395,7 +1395,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread53: ; preds = %40, %_ZN4llvm19Ma
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge2.i.i.i.i, %.critedge2.i.i, %2, %61
-  %64 = phi i64 [ %63, %61 ], [ %.sroa.051.2.ph, %.critedge2.i.i ], [ 0, %2 ], [ 0, %.critedge2.i.i.i.i ]
+  %64 = phi i64 [ %63, %61 ], [ 0, %2 ], [ %.sroa.051.2.ph, %.critedge2.i.i ], [ 0, %.critedge2.i.i.i.i ]
   ret i64 %64
 }
 
@@ -1567,7 +1567,7 @@ _ZNSt5dequeIjSaIjEE9pop_frontEv.exit:             ; preds = %38, %40
   br label %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit
 
 _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit: ; preds = %_ZNSt5dequeIjSaIjEE9pop_frontEv.exit, %68
-  %.sroa.0.0.i = phi ptr [ %70, %68 ], [ %.0.i.i, %_ZNSt5dequeIjSaIjEE9pop_frontEv.exit ]
+  %.sroa.0.0.i = phi ptr [ %.0.i.i, %_ZNSt5dequeIjSaIjEE9pop_frontEv.exit ], [ %70, %68 ]
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !104
   %.sroa.04.0.copyload = load i64, ptr %58, align 8, !tbaa !49
@@ -1706,7 +1706,7 @@ _ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitma
   unreachable
 
 _ZNK4llvm16DeadLaneDetector17transferUsedLanesERKNS_12MachineInstrENS_11LaneBitmaskERKNS_14MachineOperandE.exit: ; preds = %91, %91, %94, %102, %_ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit24.i, %135, %143, %146, %151
-  %.sroa.032.0.i = phi i64 [ %.sroa.03.0.i23.i, %_ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit24.i ], [ %.sroa.04.0.copyload, %91 ], [ %.sroa.04.0.copyload, %94 ], [ %142, %135 ], [ %145, %143 ], [ %.sroa.04.0.copyload, %91 ], [ %107, %102 ], [ %156, %151 ], [ %.sroa.04.0.copyload, %146 ]
+  %.sroa.032.0.i = phi i64 [ %142, %135 ], [ %145, %143 ], [ %.sroa.04.0.copyload, %91 ], [ %.sroa.04.0.copyload, %91 ], [ %107, %102 ], [ %.sroa.04.0.copyload, %94 ], [ %.sroa.03.0.i23.i, %_ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit24.i ], [ %156, %151 ], [ %.sroa.04.0.copyload, %146 ]
   %158 = load i32, ptr %.018.i, align 8
   %159 = and i32 %158, 805306368
   %or.cond.not.i.i32 = icmp ne i32 %159, 0
@@ -2163,7 +2163,7 @@ _ZSt4copyIPPjS1_ET0_T_S3_S2_.exit26:              ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPjS1_ET0_T_S3_S2_.exit
 
 _ZSt4copyIPPjS1_ET0_T_S3_S2_.exit:                ; preds = %32, %31, %28, %27, %_ZSt4copyIPPjS1_ET0_T_S3_S2_.exit26
-  %.0 = phi ptr [ %53, %_ZSt4copyIPPjS1_ET0_T_S3_S2_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %53, %_ZSt4copyIPPjS1_ET0_T_S3_S2_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !38
   %60 = load ptr, ptr %.0, align 8, !tbaa !37
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2433,8 +2433,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
   br label %69
 
 69:                                               ; preds = %67, %64, %55
-  %70 = phi i32 [ %48, %55 ], [ %68, %67 ], [ %48, %64 ]
-  %.5.i = phi i8 [ %.284.i, %55 ], [ 1, %67 ], [ %.284.i, %64 ]
+  %70 = phi i32 [ %68, %67 ], [ %48, %64 ], [ %48, %55 ]
+  %.5.i = phi i8 [ 1, %67 ], [ %.284.i, %64 ], [ %.284.i, %55 ]
   %71 = and i32 %70, 805306368
   %or.cond.not.i.i = icmp ne i32 %71, 0
   %72 = and i32 %70, 17825536
@@ -2613,7 +2613,7 @@ _ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitma
   unreachable
 
 _ZNK4llvm16DeadLaneDetector17transferUsedLanesERKNS_12MachineInstrENS_11LaneBitmaskERKNS_14MachineOperandE.exit.i: ; preds = %170, %165, %162, %154, %_ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit24.i.i, %121, %113, %107, %107
-  %.sroa.032.0.i.i = phi i64 [ %.sroa.03.0.i23.i.i, %_ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit24.i.i ], [ %.sroa.01.0.copyload.i.i, %107 ], [ %.sroa.01.0.copyload.i.i, %113 ], [ %161, %154 ], [ %164, %162 ], [ %.sroa.01.0.copyload.i.i, %107 ], [ %126, %121 ], [ %175, %170 ], [ %.sroa.01.0.copyload.i.i, %165 ]
+  %.sroa.032.0.i.i = phi i64 [ %161, %154 ], [ %164, %162 ], [ %.sroa.01.0.copyload.i.i, %107 ], [ %.sroa.01.0.copyload.i.i, %107 ], [ %126, %121 ], [ %.sroa.01.0.copyload.i.i, %113 ], [ %.sroa.03.0.i23.i.i, %_ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit24.i.i ], [ %175, %170 ], [ %.sroa.01.0.copyload.i.i, %165 ]
   %.not30.i.i = icmp eq i64 %.sroa.032.0.i.i, 0
   %177 = load i32, ptr %52, align 4
   %178 = icmp slt i32 %177, 0
@@ -2705,14 +2705,14 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.thread.i.i: ;
   br label %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.i.i
 
 _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.thread.i.i: ; preds = %224, %218, %205, %194
-  %.039.ph.i.i = phi i32 [ %197, %194 ], [ %197, %218 ], [ %228, %224 ], [ %197, %205 ]
+  %.039.ph.i.i = phi i32 [ %197, %218 ], [ %228, %224 ], [ %197, %205 ], [ %197, %194 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i.i = icmp eq i32 %.039.ph.i.i, 0
   br i1 %.not.i.i, label %.thread.i.i, label %234
 
 _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i.i: ; preds = %211, %208
-  %.038.in.in.i.i = phi ptr [ %217, %211 ], [ %210, %208 ]
+  %.038.in.in.i.i = phi ptr [ %210, %208 ], [ %217, %211 ]
   %.038.in.i.i = load i64, ptr %.038.in.in.i.i, align 8, !tbaa !50
   %.038.i.i = trunc i64 %.038.in.i.i to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2772,8 +2772,8 @@ _ZNK12_GLOBAL__N_115DetectDeadLanes12isUndefInputERKN4llvm16DeadLaneDetectorERKN
   br label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread60.i
 
 _ZNK4llvm14MachineOperand8readsRegEv.exit.thread60.i: ; preds = %248, %.thread.i, %_ZNK12_GLOBAL__N_115DetectDeadLanes12isUndefInputERKN4llvm16DeadLaneDetectorERKNS1_14MachineOperandEPb.exit.i, %.thread68.i, %96, %90, %86, %84, %82, %69, %51, %.lr.ph.i
-  %.357.i = phi i1 [ %.25683.i, %.lr.ph.i ], [ %.25683.i, %.thread68.i ], [ %.25683.i, %90 ], [ %.25683.i, %51 ], [ %.25683.i, %82 ], [ %.25683.i, %96 ], [ %spec.select.i, %248 ], [ %.25683.i, %_ZNK12_GLOBAL__N_115DetectDeadLanes12isUndefInputERKN4llvm16DeadLaneDetectorERKNS1_14MachineOperandEPb.exit.i ], [ %.25683.i, %69 ], [ %.25683.i, %.thread.i ], [ %.25683.i, %84 ], [ %.25683.i, %86 ]
-  %.3.i = phi i8 [ %.284.i, %.lr.ph.i ], [ 1, %.thread68.i ], [ %.5.i, %90 ], [ %.284.i, %51 ], [ 1, %82 ], [ %.5.i, %96 ], [ 1, %248 ], [ %.5.i, %_ZNK12_GLOBAL__N_115DetectDeadLanes12isUndefInputERKN4llvm16DeadLaneDetectorERKNS1_14MachineOperandEPb.exit.i ], [ %.5.i, %69 ], [ 1, %.thread.i ], [ %.5.i, %84 ], [ %.5.i, %86 ]
+  %.357.i = phi i1 [ %.25683.i, %.lr.ph.i ], [ %.25683.i, %51 ], [ %.25683.i, %82 ], [ %.25683.i, %_ZNK12_GLOBAL__N_115DetectDeadLanes12isUndefInputERKN4llvm16DeadLaneDetectorERKNS1_14MachineOperandEPb.exit.i ], [ %.25683.i, %.thread.i ], [ %.25683.i, %.thread68.i ], [ %.25683.i, %69 ], [ %.25683.i, %84 ], [ %.25683.i, %86 ], [ %.25683.i, %90 ], [ %.25683.i, %96 ], [ %spec.select.i, %248 ]
+  %.3.i = phi i8 [ %.284.i, %.lr.ph.i ], [ %.284.i, %51 ], [ 1, %82 ], [ %.5.i, %_ZNK12_GLOBAL__N_115DetectDeadLanes12isUndefInputERKN4llvm16DeadLaneDetectorERKNS1_14MachineOperandEPb.exit.i ], [ 1, %.thread.i ], [ 1, %.thread68.i ], [ %.5.i, %69 ], [ %.5.i, %84 ], [ %.5.i, %86 ], [ %.5.i, %90 ], [ %.5.i, %96 ], [ 1, %248 ]
   %251 = getelementptr inbounds nuw i8, ptr %.02985.i, i64 32
   %.not.i = icmp eq ptr %251, %36
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i

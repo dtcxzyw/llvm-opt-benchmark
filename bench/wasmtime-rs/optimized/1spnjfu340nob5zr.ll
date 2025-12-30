@@ -4474,8 +4474,8 @@ default.unreachable:                              ; preds = %5
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %_ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h9bd1c51f2483dfbaE.llvm.13870219068130913800.exit", %12, %5
-  %.sroa.015.0 = phi i32 [ 0, %12 ], [ 0, %5 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h9bd1c51f2483dfbaE.llvm.13870219068130913800.exit" ], [ 1, %_ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E.exit ]
-  %.sroa.3.0 = phi i32 [ undef, %12 ], [ undef, %5 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h9bd1c51f2483dfbaE.llvm.13870219068130913800.exit" ], [ %.0.i, %_ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E.exit ]
+  %.sroa.015.0 = phi i32 [ 0, %5 ], [ 0, %12 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h9bd1c51f2483dfbaE.llvm.13870219068130913800.exit" ], [ 1, %_ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E.exit ]
+  %.sroa.3.0 = phi i32 [ undef, %5 ], [ undef, %12 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h9bd1c51f2483dfbaE.llvm.13870219068130913800.exit" ], [ %.0.i, %_ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %3, ptr %7, align 4, !noalias !465
@@ -5547,8 +5547,8 @@ _ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E.exit: ; preds
   br label %_ZN16wasmtime_runtime2gc7GcStore21expose_gc_ref_to_wasm17ha3a13f01acae7eb1E.exit
 
 _ZN16wasmtime_runtime2gc7GcStore21expose_gc_ref_to_wasm17ha3a13f01acae7eb1E.exit: ; preds = %_ZN16wasmtime_runtime8instance8Instance5store17ha09c795bc3115f7bE.llvm.13870219068130913800.exit10, %89, %_ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E.exit, %73
-  %.sroa.4.0 = phi ptr [ %86, %89 ], [ null, %73 ], [ %86, %_ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E.exit ], [ %72, %_ZN16wasmtime_runtime8instance8Instance5store17ha09c795bc3115f7bE.llvm.13870219068130913800.exit10 ]
-  %.sroa.0.0 = phi i64 [ 0, %89 ], [ 0, %73 ], [ 0, %_ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E.exit ], [ 1, %_ZN16wasmtime_runtime8instance8Instance5store17ha09c795bc3115f7bE.llvm.13870219068130913800.exit10 ]
+  %.sroa.4.0 = phi ptr [ null, %73 ], [ %86, %_ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E.exit ], [ %86, %89 ], [ %72, %_ZN16wasmtime_runtime8instance8Instance5store17ha09c795bc3115f7bE.llvm.13870219068130913800.exit10 ]
+  %.sroa.0.0 = phi i64 [ 0, %73 ], [ 0, %_ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E.exit ], [ 0, %89 ], [ 1, %_ZN16wasmtime_runtime8instance8Instance5store17ha09c795bc3115f7bE.llvm.13870219068130913800.exit10 ]
   %94 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %95 = insertvalue { i64, ptr } %94, ptr %.sroa.4.0, 1
   ret { i64, ptr } %95
@@ -5681,8 +5681,8 @@ define hidden i64 @_ZN16wasmtime_runtime8libcalls20memory_atomic_notify17h5e6760
   br label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.i
 
 _ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.i: ; preds = %23, %18
-  %.sroa.4.0.i = phi i64 [ 256, %23 ], [ 512, %18 ]
-  %.sink.i.i = phi i64 [ %28, %23 ], [ 1, %18 ]
+  %.sroa.4.0.i = phi i64 [ 512, %18 ], [ 256, %23 ]
+  %.sink.i.i = phi i64 [ 1, %18 ], [ %28, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !658
   br label %_ZN16wasmtime_runtime6memory6Memory13atomic_notify17hdbd220eaa4b19c52E.exit
 
@@ -5758,7 +5758,7 @@ define hidden range(i64 0, 8589934593) i64 @_ZN16wasmtime_runtime8libcalls20memo
   br label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.i
 
 _ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.i: ; preds = %36, %31
-  %.sink.i.i = phi i8 [ %41, %36 ], [ 2, %31 ]
+  %.sink.i.i = phi i8 [ 2, %31 ], [ %41, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !676
   %42 = insertvalue { i1, i8 } { i1 true, i8 poison }, i8 %.sink.i.i, 1
   br label %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit
@@ -5861,7 +5861,7 @@ define hidden range(i64 0, 8589934593) i64 @_ZN16wasmtime_runtime8libcalls20memo
   br label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.i
 
 _ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.i: ; preds = %36, %31
-  %.sink.i.i = phi i8 [ %41, %36 ], [ 2, %31 ]
+  %.sink.i.i = phi i8 [ 2, %31 ], [ %41, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !694
   %42 = insertvalue { i1, i8 } { i1 true, i8 poison }, i8 %.sink.i.i, 1
   br label %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit

@@ -640,7 +640,7 @@ _control_job_print.exit:                          ; preds = %14, %26
   br label %_control_job_equal.exit
 
 _control_job_equal.exit:                          ; preds = %71, %89
-  %.0.shrunk.i.in = phi i32 [ %91, %89 ], [ %bcmp.i, %71 ]
+  %.0.shrunk.i.in = phi i32 [ %bcmp.i, %71 ], [ %91, %89 ]
   %.0.shrunk.i.not = icmp eq i32 %.0.shrunk.i.in, 0
   br i1 %.0.shrunk.i.not, label %92, label %_control_job_equal.exit..critedge_crit_edge
 
@@ -776,7 +776,7 @@ _control_job_equal.exit..critedge_crit_edge:      ; preds = %_control_job_equal.
   br label %_control_job_equal.exit129
 
 _control_job_equal.exit129:                       ; preds = %139, %157
-  %.0.shrunk.i125.in = phi i32 [ %159, %157 ], [ %bcmp.i128, %139 ]
+  %.0.shrunk.i125.in = phi i32 [ %bcmp.i128, %139 ], [ %159, %157 ]
   %.0.shrunk.i125.not = icmp eq i32 %.0.shrunk.i125.in, 0
   br i1 %.0.shrunk.i125.not, label %160, label %_control_job_equal.exit129.thread
 
@@ -890,9 +890,9 @@ _control_job_set_state.exit137:                   ; preds = %179, %196
   br label %208
 
 208:                                              ; preds = %_control_job_set_state.exit137, %.loopexit, %.thread160
-  %storemerge205 = phi i64 [ %207, %.thread160 ], [ %177, %.loopexit ], [ %.1106, %_control_job_set_state.exit137 ]
-  %.395167 = phi ptr [ %2, %.thread160 ], [ %.193, %.loopexit ], [ %.193, %_control_job_set_state.exit137 ]
-  %.3100165 = phi ptr [ null, %.thread160 ], [ %.198, %.loopexit ], [ %.198, %_control_job_set_state.exit137 ]
+  %storemerge205 = phi i64 [ %207, %.thread160 ], [ %.1106, %_control_job_set_state.exit137 ], [ %177, %.loopexit ]
+  %.395167 = phi ptr [ %2, %.thread160 ], [ %.193, %_control_job_set_state.exit137 ], [ %.193, %.loopexit ]
+  %.3100165 = phi ptr [ null, %.thread160 ], [ %.198, %_control_job_set_state.exit137 ], [ %.198, %.loopexit ]
   store i64 %storemerge205, ptr %22, align 8, !tbaa !65
   %209 = getelementptr inbounds nuw i8, ptr %.395167, i64 40
   %210 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %209) #16
@@ -950,14 +950,14 @@ _control_job_set_state.exit140:                   ; preds = %208, %214
   br label %_control_job_set_state.exit145.sink.split
 
 _control_job_set_state.exit145.sink.split:        ; preds = %232, %235, %115, %113, %10
-  %.sink210 = phi ptr [ %104, %115 ], [ %11, %10 ], [ %104, %113 ], [ %223, %235 ], [ %223, %232 ]
-  %.sink.ph = phi ptr [ %2, %115 ], [ %2, %10 ], [ %2, %113 ], [ %.3100165, %235 ], [ %.3100165, %232 ]
+  %.sink210 = phi ptr [ %11, %10 ], [ %104, %113 ], [ %104, %115 ], [ %223, %235 ], [ %223, %232 ]
+  %.sink.ph = phi ptr [ %2, %10 ], [ %2, %113 ], [ %2, %115 ], [ %.3100165, %235 ], [ %.3100165, %232 ]
   %236 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.sink210) #16
   br label %_control_job_set_state.exit145
 
 _control_job_set_state.exit145:                   ; preds = %_control_job_set_state.exit145.sink.split, %_control_job_set_state.exit140, %3
-  %.sink = phi ptr [ %.3100165, %_control_job_set_state.exit140 ], [ %2, %3 ], [ %.sink.ph, %_control_job_set_state.exit145.sink.split ]
-  %.0 = phi i32 [ 0, %_control_job_set_state.exit140 ], [ 1, %3 ], [ 0, %_control_job_set_state.exit145.sink.split ]
+  %.sink = phi ptr [ %2, %3 ], [ %.3100165, %_control_job_set_state.exit140 ], [ %.sink.ph, %_control_job_set_state.exit145.sink.split ]
+  %.0 = phi i32 [ 1, %3 ], [ 0, %_control_job_set_state.exit140 ], [ 0, %_control_job_set_state.exit145.sink.split ]
   tail call void @dt_control_job_dispose(ptr noundef %.sink)
   ret i32 %.0
 }

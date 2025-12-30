@@ -161,7 +161,7 @@ define dso_local noundef zeroext i1 @safe_strtoull(ptr noundef %0, ptr noundef w
   br label %28
 
 28:                                               ; preds = %11, %22, %2, %8, %27
-  %.0 = phi i1 [ false, %22 ], [ false, %2 ], [ true, %27 ], [ false, %8 ], [ false, %11 ]
+  %.0 = phi i1 [ true, %27 ], [ false, %8 ], [ false, %2 ], [ false, %22 ], [ false, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -222,7 +222,7 @@ define dso_local noundef zeroext i1 @safe_strtoull_hex(ptr noundef %0, ptr nound
   br label %28
 
 28:                                               ; preds = %11, %22, %2, %8, %27
-  %.0 = phi i1 [ false, %22 ], [ false, %2 ], [ true, %27 ], [ false, %8 ], [ false, %11 ]
+  %.0 = phi i1 [ true, %27 ], [ false, %8 ], [ false, %2 ], [ false, %22 ], [ false, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -262,7 +262,7 @@ define dso_local noundef zeroext i1 @safe_strtoll(ptr noundef %0, ptr noundef wr
   br label %21
 
 21:                                               ; preds = %11, %2, %8, %20
-  %.0 = phi i1 [ false, %2 ], [ true, %20 ], [ false, %8 ], [ false, %11 ]
+  %.0 = phi i1 [ true, %20 ], [ false, %8 ], [ false, %2 ], [ false, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -319,7 +319,7 @@ define dso_local noundef zeroext i1 @safe_strtoul(ptr noundef %0, ptr noundef wr
   br label %29
 
 29:                                               ; preds = %11, %22, %2, %8, %27
-  %.0 = phi i1 [ false, %22 ], [ false, %2 ], [ true, %27 ], [ false, %8 ], [ false, %11 ]
+  %.0 = phi i1 [ true, %27 ], [ false, %8 ], [ false, %2 ], [ false, %22 ], [ false, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -363,7 +363,7 @@ define dso_local noundef zeroext i1 @safe_strtol(ptr noundef %0, ptr noundef wri
   br label %22
 
 22:                                               ; preds = %11, %2, %8, %20
-  %.0 = phi i1 [ false, %2 ], [ true, %20 ], [ false, %8 ], [ false, %11 ]
+  %.0 = phi i1 [ true, %20 ], [ false, %8 ], [ false, %2 ], [ false, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -406,7 +406,7 @@ define dso_local noundef zeroext i1 @safe_strtod(ptr noundef %0, ptr noundef wri
   br label %21
 
 21:                                               ; preds = %11, %2, %8, %20
-  %.0 = phi i1 [ false, %2 ], [ true, %20 ], [ false, %8 ], [ false, %11 ]
+  %.0 = phi i1 [ true, %20 ], [ false, %8 ], [ false, %2 ], [ false, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }

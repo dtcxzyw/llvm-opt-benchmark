@@ -571,7 +571,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %.pn33 = phi { ptr, i32 } [ %lpad.thr_comm, %62 ], [ %lpad.thr_comm, %59 ], [ %43, %42 ]
   resume { ptr, i32 } %.pn33
 
-59:                                               ; preds = %.thread42, %22, %27
+59:                                               ; preds = %27, %.thread42, %22
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %60 = load ptr, ptr %4, align 8, !alias.scope !119, !noundef !11
@@ -747,7 +747,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu12custom_entry1
   unreachable
 
 .thread:                                          ; preds = %70, %67, %75, %56, %.body3
-  %.pn14 = phi { ptr, i32 } [ %34, %.body3 ], [ %57, %56 ], [ %14, %70 ], [ %14, %75 ], [ %14, %67 ]
+  %.pn14 = phi { ptr, i32 } [ %34, %.body3 ], [ %57, %56 ], [ %14, %75 ], [ %14, %67 ], [ %14, %70 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$ui..components..context_menu..ContextMenu$GT$17h7f1335c252c341e8E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %1) #39
           to label %76 unwind label %65
 
@@ -1054,7 +1054,7 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu12custom_entry1
   unreachable
 
 .thread:                                          ; preds = %70, %67, %75, %56, %.body3
-  %.pn14 = phi { ptr, i32 } [ %34, %.body3 ], [ %57, %56 ], [ %14, %70 ], [ %14, %75 ], [ %14, %67 ]
+  %.pn14 = phi { ptr, i32 } [ %34, %.body3 ], [ %57, %56 ], [ %14, %75 ], [ %14, %67 ], [ %14, %70 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$ui..components..context_menu..ContextMenu$GT$17h7f1335c252c341e8E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %1) #39
           to label %76 unwind label %65
 
@@ -1244,7 +1244,7 @@ define hidden void @"_ZN2ui10components12context_menu11ContextMenu12custom_entry
   unreachable
 
 .body.thread.i:                                   ; preds = %55, %52, %50, %47, %44, %42, %41, %.noexc.i.i.i
-  %eh.lpad-body4.i = phi { ptr, i32 } [ %51, %52 ], [ %43, %42 ], [ %43, %44 ], [ %27, %41 ], [ %27, %.noexc.i.i.i ], [ %43, %47 ], [ %51, %55 ], [ %51, %50 ]
+  %eh.lpad-body4.i = phi { ptr, i32 } [ %27, %.noexc.i.i.i ], [ %27, %41 ], [ %43, %47 ], [ %43, %42 ], [ %43, %44 ], [ %51, %55 ], [ %51, %50 ], [ %51, %52 ]
   resume { ptr, i32 } %eh.lpad-body4.i
 
 50:                                               ; preds = %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb4eb61be7f79572eE.exit.i"
@@ -1335,7 +1335,7 @@ define hidden void @"_ZN2ui10components12context_menu11ContextMenu12custom_entry
   unreachable
 
 common.resume.i:                                  ; preds = %44, %40, %39, %36, %18
-  %common.resume.op.i = phi { ptr, i32 } [ %19, %18 ], [ %33, %36 ], [ %45, %44 ], [ %33, %39 ], [ %41, %40 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %19, %18 ], [ %45, %44 ], [ %41, %40 ], [ %33, %36 ], [ %33, %39 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17he208d0388b553378E.exit.i": ; preds = %20
@@ -3261,7 +3261,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$ui..components..context_menu
   br label %common.resume
 
 common.resume:                                    ; preds = %"_ZN4core3ptr222drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$core..option..Option$LT$$RF$gpui..window..FocusHandle$GT$$C$$RF$mut$u20$gpui..window..WindowContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17h6756495a7d1f7200E.exit", %.body, %77, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10072259457928192795.exit.i4.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %78, %77 ], [ %78, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10072259457928192795.exit.i4.i.i" ], [ %.pn, %"_ZN4core3ptr222drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$core..option..Option$LT$$RF$gpui..window..FocusHandle$GT$$C$$RF$mut$u20$gpui..window..WindowContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17h6756495a7d1f7200E.exit" ], [ %20, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %78, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10072259457928192795.exit.i4.i.i" ], [ %78, %77 ], [ %.pn, %"_ZN4core3ptr222drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$core..option..Option$LT$$RF$gpui..window..FocusHandle$GT$$C$$RF$mut$u20$gpui..window..WindowContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17h6756495a7d1f7200E.exit" ], [ %20, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 85:                                               ; preds = %.body, %55, %"_ZN4core3ptr222drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$core..option..Option$LT$$RF$gpui..window..FocusHandle$GT$$C$$RF$mut$u20$gpui..window..WindowContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17h6756495a7d1f7200E.exit"
@@ -3799,13 +3799,13 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h740cfe1fb6e00f96E.exit: ; p
   br label %28
 
 28:                                               ; preds = %27, %.thread156
-  %.sroa.087.2170 = phi i64 [ 2, %.thread156 ], [ 1, %27 ]
-  %.sroa.081.0151169 = phi ptr [ inttoptr (i64 1 to ptr), %.thread156 ], [ %18, %27 ]
-  %.sroa.382.0152168 = phi i64 [ 0, %.thread156 ], [ %19, %27 ]
-  %.sroa.03.1153167 = phi ptr [ null, %.thread156 ], [ %18, %27 ]
-  %.sroa.3.1154166 = phi ptr [ %.sroa.3.1154.ph, %.thread156 ], [ %23, %27 ]
-  %.sroa.0.1155165 = phi ptr [ %.sroa.0.1155.ph, %.thread156 ], [ %22, %27 ]
-  %.sroa.53.i.sroa.4.0 = phi i64 [ undef, %.thread156 ], [ %19, %27 ]
+  %.sroa.087.2170 = phi i64 [ 1, %27 ], [ 2, %.thread156 ]
+  %.sroa.081.0151169 = phi ptr [ %18, %27 ], [ inttoptr (i64 1 to ptr), %.thread156 ]
+  %.sroa.382.0152168 = phi i64 [ %19, %27 ], [ 0, %.thread156 ]
+  %.sroa.03.1153167 = phi ptr [ %18, %27 ], [ null, %.thread156 ]
+  %.sroa.3.1154166 = phi ptr [ %23, %27 ], [ %.sroa.3.1154.ph, %.thread156 ]
+  %.sroa.0.1155165 = phi ptr [ %22, %27 ], [ %.sroa.0.1155.ph, %.thread156 ]
+  %.sroa.53.i.sroa.4.0 = phi i64 [ %19, %27 ], [ undef, %.thread156 ]
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i32, ptr %.in, align 8, !noundef !11
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -6035,8 +6035,8 @@ _ZN8smallvec10deallocate17h190e1b3660f918e7E.exit: ; preds = %28
   br label %_ZN8smallvec12layout_array17hd89b7e9a8cc4590bE.exit78.thread
 
 _ZN8smallvec12layout_array17hd89b7e9a8cc4590bE.exit78.thread: ; preds = %18, %15, %14, %_ZN8smallvec10deallocate17h190e1b3660f918e7E.exit, %25, %13, %20, %23
-  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17h190e1b3660f918e7E.exit ], [ %16, %20 ], [ %16, %23 ], [ %19, %18 ], [ undef, %14 ], [ undef, %13 ], [ undef, %25 ], [ %16, %15 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17h190e1b3660f918e7E.exit ], [ 8, %20 ], [ 8, %23 ], [ 0, %18 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %13 ], [ -9223372036854775807, %25 ], [ 0, %15 ]
+  %.sroa.7.0 = phi i64 [ %16, %23 ], [ %16, %20 ], [ undef, %13 ], [ undef, %25 ], [ undef, %_ZN8smallvec10deallocate17h190e1b3660f918e7E.exit ], [ undef, %14 ], [ %16, %15 ], [ %19, %18 ]
+  %.sroa.0.0 = phi i64 [ 8, %23 ], [ 8, %20 ], [ -9223372036854775807, %13 ], [ -9223372036854775807, %25 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h190e1b3660f918e7E.exit ], [ -9223372036854775807, %14 ], [ 0, %15 ], [ 0, %18 ]
   %33 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %34 = insertvalue { i64, i64 } %33, i64 %.sroa.7.0, 1
   ret { i64, i64 } %34
@@ -6135,8 +6135,8 @@ _ZN8smallvec10deallocate17hfcec26cd31636e92E.exit: ; preds = %33
   br label %_ZN8smallvec12layout_array17h62434817f13fa4c2E.exit78.thread
 
 _ZN8smallvec12layout_array17h62434817f13fa4c2E.exit78.thread: ; preds = %21, %16, %15, %_ZN8smallvec10deallocate17hfcec26cd31636e92E.exit, %30, %14, %25, %28
-  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17hfcec26cd31636e92E.exit ], [ %17, %25 ], [ %17, %28 ], [ %22, %21 ], [ undef, %15 ], [ undef, %14 ], [ undef, %30 ], [ %17, %16 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17hfcec26cd31636e92E.exit ], [ 8, %25 ], [ 8, %28 ], [ 0, %21 ], [ -9223372036854775807, %15 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ 0, %16 ]
+  %.sroa.7.0 = phi i64 [ %17, %28 ], [ %17, %25 ], [ undef, %14 ], [ undef, %30 ], [ undef, %_ZN8smallvec10deallocate17hfcec26cd31636e92E.exit ], [ undef, %15 ], [ %17, %16 ], [ %22, %21 ]
+  %.sroa.0.0 = phi i64 [ 8, %28 ], [ 8, %25 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17hfcec26cd31636e92E.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %21 ]
   %40 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %41 = insertvalue { i64, i64 } %40, i64 %.sroa.7.0, 1
   ret { i64, i64 } %41
@@ -6235,8 +6235,8 @@ _ZN8smallvec10deallocate17hf9983f5ab8d83ca0E.exit: ; preds = %33
   br label %_ZN8smallvec12layout_array17h99c4e07766105094E.exit78.thread
 
 _ZN8smallvec12layout_array17h99c4e07766105094E.exit78.thread: ; preds = %21, %16, %15, %_ZN8smallvec10deallocate17hf9983f5ab8d83ca0E.exit, %30, %14, %25, %28
-  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17hf9983f5ab8d83ca0E.exit ], [ %17, %25 ], [ %17, %28 ], [ %22, %21 ], [ undef, %15 ], [ undef, %14 ], [ undef, %30 ], [ %17, %16 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17hf9983f5ab8d83ca0E.exit ], [ 4, %25 ], [ 4, %28 ], [ 0, %21 ], [ -9223372036854775807, %15 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ 0, %16 ]
+  %.sroa.7.0 = phi i64 [ %17, %28 ], [ %17, %25 ], [ undef, %14 ], [ undef, %30 ], [ undef, %_ZN8smallvec10deallocate17hf9983f5ab8d83ca0E.exit ], [ undef, %15 ], [ %17, %16 ], [ %22, %21 ]
+  %.sroa.0.0 = phi i64 [ 4, %28 ], [ 4, %25 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %30 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17hf9983f5ab8d83ca0E.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %21 ]
   %40 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %41 = insertvalue { i64, i64 } %40, i64 %.sroa.7.0, 1
   ret { i64, i64 } %41
@@ -6329,8 +6329,8 @@ _ZN8smallvec10deallocate17h41b8c44d5888fb8dE.exit: ; preds = %29
   br label %_ZN8smallvec12layout_array17h10a67525f30aa3b6E.exit78.thread
 
 _ZN8smallvec12layout_array17h10a67525f30aa3b6E.exit78.thread: ; preds = %19, %16, %15, %_ZN8smallvec10deallocate17h41b8c44d5888fb8dE.exit, %26, %14, %21, %24
-  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17h41b8c44d5888fb8dE.exit ], [ %17, %21 ], [ %17, %24 ], [ %20, %19 ], [ undef, %15 ], [ undef, %14 ], [ undef, %26 ], [ %17, %16 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17h41b8c44d5888fb8dE.exit ], [ 8, %21 ], [ 8, %24 ], [ 0, %19 ], [ -9223372036854775807, %15 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %26 ], [ 0, %16 ]
+  %.sroa.7.0 = phi i64 [ %17, %24 ], [ %17, %21 ], [ undef, %14 ], [ undef, %26 ], [ undef, %_ZN8smallvec10deallocate17h41b8c44d5888fb8dE.exit ], [ undef, %15 ], [ %17, %16 ], [ %20, %19 ]
+  %.sroa.0.0 = phi i64 [ 8, %24 ], [ 8, %21 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %26 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h41b8c44d5888fb8dE.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %19 ]
   %34 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %35 = insertvalue { i64, i64 } %34, i64 %.sroa.7.0, 1
   ret { i64, i64 } %35
@@ -6430,8 +6430,8 @@ _ZN8smallvec10deallocate17h0e198c6f8bb0bf8cE.exit: ; preds = %32
   br label %_ZN8smallvec12layout_array17h087ba8b053da1ac8E.exit78.thread
 
 _ZN8smallvec12layout_array17h087ba8b053da1ac8E.exit78.thread: ; preds = %20, %15, %14, %_ZN8smallvec10deallocate17h0e198c6f8bb0bf8cE.exit, %29, %13, %24, %27
-  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17h0e198c6f8bb0bf8cE.exit ], [ %16, %24 ], [ %16, %27 ], [ %21, %20 ], [ undef, %14 ], [ undef, %13 ], [ undef, %29 ], [ %16, %15 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17h0e198c6f8bb0bf8cE.exit ], [ 4, %24 ], [ 4, %27 ], [ 0, %20 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %13 ], [ -9223372036854775807, %29 ], [ 0, %15 ]
+  %.sroa.7.0 = phi i64 [ %16, %27 ], [ %16, %24 ], [ undef, %13 ], [ undef, %29 ], [ undef, %_ZN8smallvec10deallocate17h0e198c6f8bb0bf8cE.exit ], [ undef, %14 ], [ %16, %15 ], [ %21, %20 ]
+  %.sroa.0.0 = phi i64 [ 4, %27 ], [ 4, %24 ], [ -9223372036854775807, %13 ], [ -9223372036854775807, %29 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h0e198c6f8bb0bf8cE.exit ], [ -9223372036854775807, %14 ], [ 0, %15 ], [ 0, %20 ]
   %39 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %40 = insertvalue { i64, i64 } %39, i64 %.sroa.7.0, 1
   ret { i64, i64 } %40
@@ -6531,8 +6531,8 @@ _ZN8smallvec10deallocate17hb822932dde70562aE.exit: ; preds = %32
   br label %_ZN8smallvec12layout_array17he9d08dd08c9f86d6E.exit78.thread
 
 _ZN8smallvec12layout_array17he9d08dd08c9f86d6E.exit78.thread: ; preds = %20, %15, %14, %_ZN8smallvec10deallocate17hb822932dde70562aE.exit, %29, %13, %24, %27
-  %.sroa.7.0 = phi i64 [ undef, %_ZN8smallvec10deallocate17hb822932dde70562aE.exit ], [ %16, %24 ], [ %16, %27 ], [ %21, %20 ], [ undef, %14 ], [ undef, %13 ], [ undef, %29 ], [ %16, %15 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %_ZN8smallvec10deallocate17hb822932dde70562aE.exit ], [ 8, %24 ], [ 8, %27 ], [ 0, %20 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %13 ], [ -9223372036854775807, %29 ], [ 0, %15 ]
+  %.sroa.7.0 = phi i64 [ %16, %27 ], [ %16, %24 ], [ undef, %13 ], [ undef, %29 ], [ undef, %_ZN8smallvec10deallocate17hb822932dde70562aE.exit ], [ undef, %14 ], [ %16, %15 ], [ %21, %20 ]
+  %.sroa.0.0 = phi i64 [ 8, %27 ], [ 8, %24 ], [ -9223372036854775807, %13 ], [ -9223372036854775807, %29 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17hb822932dde70562aE.exit ], [ -9223372036854775807, %14 ], [ 0, %15 ], [ 0, %20 ]
   %39 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %40 = insertvalue { i64, i64 } %39, i64 %.sroa.7.0, 1
   ret { i64, i64 } %40

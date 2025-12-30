@@ -331,7 +331,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i15: ; 
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.invoke: ; preds = %32, %58, %54, %50, %46, %42, %38
-  %36 = phi ptr [ @.str.7, %58 ], [ @.str.6, %54 ], [ @.str.2, %38 ], [ @.str.3, %42 ], [ @.str.4, %46 ], [ @.str.5, %50 ], [ @.str.1, %32 ]
+  %36 = phi ptr [ @.str.2, %38 ], [ @.str.3, %42 ], [ @.str.4, %46 ], [ @.str.5, %50 ], [ @.str.6, %54 ], [ @.str.7, %58 ], [ @.str.1, %32 ]
   %37 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %36, i64 noundef 2)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit unwind label %.loopexit
 

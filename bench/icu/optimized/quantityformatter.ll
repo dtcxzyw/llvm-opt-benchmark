@@ -181,7 +181,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -707,7 +707,7 @@ _ZN6icu_7715SimpleFormatterC2ERKNS_13UnicodeStringEiiR10UErrorCode.exit: ; preds
   br label %25
 
 25:                                               ; preds = %20, %23, %24, %8, %4
-  %.0 = phi i8 [ 1, %8 ], [ 0, %4 ], [ 0, %20 ], [ 0, %23 ], [ 1, %24 ]
+  %.0 = phi i8 [ 0, %4 ], [ 1, %8 ], [ 0, %20 ], [ 0, %23 ], [ 1, %24 ]
   ret i8 %.0
 }
 
@@ -1022,7 +1022,7 @@ _ZN6icu_7714StandardPlural17orOtherFromStringERKNS_13UnicodeStringE.exit: ; pred
   br label %86
 
 86:                                               ; preds = %_ZN6icu_7714StandardPlural17orOtherFromStringERKNS_13UnicodeStringE.exit, %.critedge, %76
-  %.237 = phi i32 [ 5, %.critedge ], [ %85, %_ZN6icu_7714StandardPlural17orOtherFromStringERKNS_13UnicodeStringE.exit ], [ 5, %76 ]
+  %.237 = phi i32 [ 5, %76 ], [ 5, %.critedge ], [ %85, %_ZN6icu_7714StandardPlural17orOtherFromStringERKNS_13UnicodeStringE.exit ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %88

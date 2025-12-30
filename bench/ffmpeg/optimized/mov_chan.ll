@@ -215,7 +215,7 @@ switch.lookup:                                    ; preds = %67
   br label %73
 
 73:                                               ; preds = %switch.lookup, %65
-  %.0.i.ph = phi i32 [ %switch.load, %switch.lookup ], [ %66, %65 ]
+  %.0.i.ph = phi i32 [ %66, %65 ], [ %switch.load, %switch.lookup ]
   %74 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv100
   store i32 %.0.i.ph, ptr %74, align 4, !tbaa !20
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
@@ -229,7 +229,7 @@ switch.lookup:                                    ; preds = %67
   br label %.thread65
 
 .thread65:                                        ; preds = %44, %.thread62, %69, %51, %.loopexit, %._crit_edge
-  %.1 = phi i32 [ 0, %.loopexit ], [ 0, %._crit_edge ], [ -12, %.thread62 ], [ -38, %69 ], [ -38, %44 ], [ 0, %51 ]
+  %.1 = phi i32 [ 0, %._crit_edge ], [ 0, %.loopexit ], [ -12, %.thread62 ], [ -38, %69 ], [ 0, %51 ], [ -38, %44 ]
   ret i32 %.1
 }
 
@@ -350,7 +350,7 @@ switch.lookup:                                    ; preds = %50
   br label %53
 
 53:                                               ; preds = %50, %switch.lookup, %48, %38
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %49, %48 ], [ 512, %38 ], [ 768, %50 ]
+  %.0.i = phi i32 [ %49, %48 ], [ 512, %38 ], [ %switch.load, %switch.lookup ], [ 768, %50 ]
   %54 = load ptr, ptr %35, align 8, !tbaa !23
   %55 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %54, i64 %indvars.iv
   store i32 %.0.i, ptr %55, align 8, !tbaa !52
@@ -432,14 +432,14 @@ switch.lookup:                                    ; preds = %50
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %90, %93, %31, %83, %82, %79, %77
-  %.195 = phi i32 [ %spec.select, %._crit_edge ], [ 0, %77 ], [ 0, %79 ], [ 0, %82 ], [ 0, %90 ], [ 0, %83 ], [ %32, %31 ], [ 0, %93 ]
-  %.489 = phi i64 [ %.186.lcssa, %._crit_edge ], [ %3, %77 ], [ %3, %79 ], [ %3, %82 ], [ %3, %90 ], [ %3, %83 ], [ %3, %31 ], [ %3, %93 ]
+  %.195 = phi i32 [ 0, %77 ], [ 0, %79 ], [ 0, %82 ], [ 0, %83 ], [ %32, %31 ], [ 0, %93 ], [ 0, %90 ], [ %spec.select, %._crit_edge ]
+  %.489 = phi i64 [ %3, %77 ], [ %3, %79 ], [ %3, %82 ], [ %3, %83 ], [ %3, %31 ], [ %3, %93 ], [ %3, %90 ], [ %.186.lcssa, %._crit_edge ]
   %94 = add nsw i64 %.489, -12
   %95 = tail call i64 @avio_skip(ptr noundef %1, i64 noundef %94) #3
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.thread121, %25, %22, %90, %9, %4, %.critedge
-  %.0 = phi i32 [ 0, %9 ], [ -1094995529, %4 ], [ %91, %90 ], [ %.195, %.critedge ], [ -1094995529, %22 ], [ -1094995529, %25 ], [ -1094995529, %.thread121 ]
+  %.0 = phi i32 [ %.195, %.critedge ], [ -1094995529, %4 ], [ 0, %9 ], [ %91, %90 ], [ -1094995529, %22 ], [ -1094995529, %25 ], [ -1094995529, %.thread121 ]
   ret i32 %.0
 }
 
@@ -550,7 +550,7 @@ find_layout_map.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i
   br i1 %46, label %32, label %._crit_edge, !llvm.loop !55
 
 find_layout_map.exit.thread:                      ; preds = %.lr.ph, %4, %find_layout_map.exit, %._crit_edge, %18, %24
-  %.1 = phi i32 [ %25, %24 ], [ %31, %._crit_edge ], [ -1094995529, %18 ], [ 0, %find_layout_map.exit ], [ 0, %4 ], [ 0, %.lr.ph ]
+  %.1 = phi i32 [ %31, %._crit_edge ], [ -1094995529, %18 ], [ %25, %24 ], [ 0, %find_layout_map.exit ], [ 0, %4 ], [ 0, %.lr.ph ]
   ret i32 %.1
 }
 
@@ -673,7 +673,7 @@ define i32 @ff_mov_get_channel_layout_from_config(i32 noundef %0, ptr noundef %1
   br label %50
 
 50:                                               ; preds = %3, %45, %5
-  %.1 = phi i32 [ -1094995529, %5 ], [ %49, %45 ], [ 1, %3 ]
+  %.1 = phi i32 [ %49, %45 ], [ -1094995529, %5 ], [ 1, %3 ]
   ret i32 %.1
 }
 
@@ -727,7 +727,7 @@ define range(i32 -22, 1) i32 @ff_mov_get_channel_positions_from_layout(ptr nound
   br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %16, %.lr.ph, %18, %.preheader25, %3
-  %.022 = phi i32 [ -22, %3 ], [ 0, %.preheader25 ], [ -22, %.lr.ph ], [ -22, %16 ], [ 0, %18 ]
+  %.022 = phi i32 [ -22, %3 ], [ 0, %.preheader25 ], [ -22, %16 ], [ -22, %.lr.ph ], [ 0, %18 ]
   ret i32 %.022
 }
 
@@ -873,7 +873,7 @@ ff_mov_get_channel_layout_from_config.exit.thread: ; preds = %34, %ff_mov_get_ch
   br label %.thread67
 
 .thread67:                                        ; preds = %40, %8, %._crit_edge, %ff_mov_get_channel_layout_from_config.exit, %ff_mov_get_channel_layout_from_config.exit.thread, %86
-  %.4 = phi i32 [ 0, %ff_mov_get_channel_layout_from_config.exit.thread ], [ 0, %86 ], [ %14, %8 ], [ %83, %ff_mov_get_channel_layout_from_config.exit ], [ %32, %._crit_edge ], [ -1094995529, %40 ]
+  %.4 = phi i32 [ 0, %86 ], [ 0, %ff_mov_get_channel_layout_from_config.exit.thread ], [ %32, %._crit_edge ], [ %83, %ff_mov_get_channel_layout_from_config.exit ], [ %14, %8 ], [ -1094995529, %40 ]
   ret i32 %.4
 }
 

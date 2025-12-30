@@ -36,7 +36,7 @@ define noundef nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCto
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -84,7 +84,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit
 
 l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit: ; preds = %lean_dec.exit, %13, %14, %15
-  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -385,7 +385,7 @@ define zeroext range(i8 0, 2) i8 @l_Std_Tactic_BVDecide_LRAT_Internal_instDecida
   br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit
 
 l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit: ; preds = %2, %3, %4, %5
-  %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %8 [
     i8 0, label %lean_dec.exit
     i8 1, label %6
@@ -402,7 +402,7 @@ l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit: ; preds = %2, %3,
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %8, %7, %6, %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 1 to ptr), %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit ]
   %9 = icmp eq ptr %.0.i9, %.0.i10
   %10 = zext i1 %9 to i8
   ret i8 %10
@@ -478,7 +478,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit.i
 
 l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit.i: ; preds = %27, %26, %25, %lean_dec.exit
-  %.0.i9.i = phi ptr [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   switch i8 %16, label %30 [
     i8 0, label %l_Std_Tactic_BVDecide_LRAT_Internal_instDecidableEqAssignment.exit
     i8 1, label %28
@@ -495,7 +495,7 @@ l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit.i: ; preds = %27, 
   br label %l_Std_Tactic_BVDecide_LRAT_Internal_instDecidableEqAssignment.exit
 
 l_Std_Tactic_BVDecide_LRAT_Internal_instDecidableEqAssignment.exit: ; preds = %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit.i, %28, %29, %30
-  %.0.i10.i = phi ptr [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 1 to ptr), %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit.i ]
   %31 = icmp eq ptr %.0.i9.i, %.0.i10.i
   %32 = select i1 %31, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %32
@@ -519,7 +519,7 @@ define zeroext range(i8 0, 2) i8 @l_Std_Tactic_BVDecide_LRAT_Internal_beqAssignm
   br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit
 
 l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit: ; preds = %2, %3, %4, %5
-  %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
+  %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %8 [
     i8 0, label %lean_dec.exit
     i8 1, label %6
@@ -536,7 +536,7 @@ l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit: ; preds = %2, %3,
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %8, %7, %6, %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit
-  %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 1 to ptr), %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit ]
+  %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit ]
   %9 = icmp eq ptr %.0.i9, %.0.i10
   %10 = zext i1 %9 to i8
   ret i8 %10
@@ -612,7 +612,7 @@ lean_dec.exit:                                    ; preds = %24, %23, %21, %lean
   br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit.i
 
 l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit.i: ; preds = %27, %26, %25, %lean_dec.exit
-  %.0.i9.i = phi ptr [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i9.i = phi ptr [ inttoptr (i64 7 to ptr), %27 ], [ inttoptr (i64 3 to ptr), %25 ], [ inttoptr (i64 5 to ptr), %26 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   switch i8 %16, label %30 [
     i8 0, label %l_Std_Tactic_BVDecide_LRAT_Internal_beqAssignment____x40_Std_Tactic_BVDecide_LRAT_Internal_Assignment___hyg_119_.exit
     i8 1, label %28
@@ -629,7 +629,7 @@ l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit.i: ; preds = %27, 
   br label %l_Std_Tactic_BVDecide_LRAT_Internal_beqAssignment____x40_Std_Tactic_BVDecide_LRAT_Internal_Assignment___hyg_119_.exit
 
 l_Std_Tactic_BVDecide_LRAT_Internal_beqAssignment____x40_Std_Tactic_BVDecide_LRAT_Internal_Assignment___hyg_119_.exit: ; preds = %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit.i, %28, %29, %30
-  %.0.i10.i = phi ptr [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 1 to ptr), %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit.i ]
+  %.0.i10.i = phi ptr [ inttoptr (i64 7 to ptr), %30 ], [ inttoptr (i64 3 to ptr), %28 ], [ inttoptr (i64 5 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit.i ]
   %31 = icmp eq ptr %.0.i9.i, %.0.i10.i
   %32 = select i1 %31, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %32
@@ -982,7 +982,7 @@ define zeroext range(i8 0, 3) i8 @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %8, %4
-  %.1 = phi i8 [ %spec.select, %8 ], [ %7, %4 ]
+  %.1 = phi i8 [ %7, %4 ], [ %spec.select, %8 ]
   ret i8 %.1
 }
 
@@ -1058,7 +1058,7 @@ lean_dec.exit:                                    ; preds = %22, %21, %19, %lean
   br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_addAssignment.exit
 
 l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_addAssignment.exit: ; preds = %25, %30
-  %.1.i = phi i64 [ %spec.select.i, %30 ], [ %29, %25 ]
+  %.1.i = phi i64 [ %29, %25 ], [ %spec.select.i, %30 ]
   %32 = or disjoint i64 %.1.i, 1
   %33 = inttoptr i64 %32 to ptr
   ret ptr %33
@@ -1084,7 +1084,7 @@ define zeroext range(i8 0, 4) i8 @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %8, %4
-  %.1 = phi i8 [ %spec.select, %8 ], [ %7, %4 ]
+  %.1 = phi i8 [ %7, %4 ], [ %spec.select, %8 ]
   ret i8 %.1
 }
 
@@ -1160,7 +1160,7 @@ lean_dec.exit:                                    ; preds = %22, %21, %19, %lean
   br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_removeAssignment.exit
 
 l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_removeAssignment.exit: ; preds = %25, %30
-  %.1.i = phi i64 [ %spec.select.i, %30 ], [ %29, %25 ]
+  %.1.i = phi i64 [ %29, %25 ], [ %spec.select.i, %30 ]
   %32 = or disjoint i64 %.1.i, 1
   %33 = inttoptr i64 %32 to ptr
   ret ptr %33
@@ -1184,7 +1184,7 @@ define zeroext range(i8 0, 2) i8 @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment
   br label %lean_dec.exit13
 
 lean_dec.exit13:                                  ; preds = %4, %6
-  %.1.in = phi i1 [ %switch.selectcmp, %6 ], [ %switch, %4 ]
+  %.1.in = phi i1 [ %switch, %4 ], [ %switch.selectcmp, %6 ]
   %.1 = zext i1 %.1.in to i8
   ret i8 %.1
 }
@@ -1259,7 +1259,7 @@ lean_dec.exit:                                    ; preds = %22, %21, %19, %lean
   br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_hasAssignment.exit
 
 l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_hasAssignment.exit: ; preds = %25, %27
-  %.1.in.i = phi i1 [ %switch.selectcmp.i, %27 ], [ %switch.i, %25 ]
+  %.1.in.i = phi i1 [ %switch.i, %25 ], [ %switch.selectcmp.i, %27 ]
   %31 = select i1 %.1.in.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %31
 }
@@ -1369,7 +1369,7 @@ define noundef ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Assignment_0__
   br label %lean_inc.exit11
 
 lean_inc.exit11:                                  ; preds = %33, %38, %40, %41, %24, %29, %31, %32, %15, %20, %22, %23, %6, %11, %13, %14
-  %.0 = phi ptr [ %3, %24 ], [ %2, %15 ], [ %1, %6 ], [ %1, %14 ], [ %1, %13 ], [ %1, %11 ], [ %2, %23 ], [ %2, %22 ], [ %2, %20 ], [ %3, %32 ], [ %3, %31 ], [ %3, %29 ], [ %4, %41 ], [ %4, %40 ], [ %4, %38 ], [ %4, %33 ]
+  %.0 = phi ptr [ %1, %14 ], [ %1, %13 ], [ %1, %11 ], [ %1, %6 ], [ %2, %23 ], [ %2, %22 ], [ %2, %20 ], [ %2, %15 ], [ %3, %32 ], [ %3, %31 ], [ %3, %29 ], [ %3, %24 ], [ %4, %41 ], [ %4, %40 ], [ %4, %38 ], [ %4, %33 ]
   ret ptr %.0
 }
 
@@ -1733,7 +1733,7 @@ _init_l_Std_Tactic_BVDecide_LRAT_Internal_instBEqAssignment___closed__1.exit: ; 
   br label %63
 
 63:                                               ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %8, %7 ], [ %.sink33, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %.sink33, %.sink.split ]
   ret ptr %.0
 }
 

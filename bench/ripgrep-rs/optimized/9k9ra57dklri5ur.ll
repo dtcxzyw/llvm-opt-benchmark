@@ -611,7 +611,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17h0bc666f429281eceE(ptr 
   unreachable
 
 "_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$17h8c20c31c4af776e6E.llvm.6027615119203585168.exit": ; preds = %14, %.sink.split.i.i.i, %.body
-  %.pn14 = phi { ptr, i32 } [ %7, %.body ], [ %15, %14 ], [ %7, %.sink.split.i.i.i ]
+  %.pn14 = phi { ptr, i32 } [ %7, %.sink.split.i.i.i ], [ %7, %.body ], [ %15, %14 ]
   resume { ptr, i32 } %.pn14
 
 .sink.split.i.i.i:                                ; preds = %.body
@@ -707,7 +707,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17hc42ba8858bcd8fbeE(ptr 
   unreachable
 
 "_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$grep_regex..error..Error$GT$$GT$17h8c20c31c4af776e6E.llvm.6027615119203585168.exit": ; preds = %14, %.sink.split.i.i.i, %.body
-  %.pn14 = phi { ptr, i32 } [ %7, %.body ], [ %15, %14 ], [ %7, %.sink.split.i.i.i ]
+  %.pn14 = phi { ptr, i32 } [ %7, %.sink.split.i.i.i ], [ %7, %.body ], [ %15, %14 ]
   resume { ptr, i32 } %.pn14
 
 .sink.split.i.i.i:                                ; preds = %.body
@@ -839,7 +839,7 @@ define noundef zeroext i1 @_ZN10grep_regex6config6Config19is_case_insensitive17h
   br i1 %or.cond, label %14, label %13
 
 13:                                               ; preds = %6, %2, %14
-  %.0 = phi i1 [ true, %2 ], [ %17, %14 ], [ false, %6 ]
+  %.0 = phi i1 [ %17, %14 ], [ true, %2 ], [ false, %6 ]
   ret i1 %.0
 
 14:                                               ; preds = %6
@@ -1247,11 +1247,11 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %2
           to label %12 unwind label %30
 
 33:                                               ; preds = %12, %34
-  %.pn1317 = phi { ptr, i32 } [ %22, %12 ], [ %.pn1318, %34 ]
+  %.pn1317 = phi { ptr, i32 } [ %.pn1318, %34 ], [ %22, %12 ]
   resume { ptr, i32 } %.pn1317
 
 34:                                               ; preds = %.thread21, %.thread
-  %.pn1318 = phi { ptr, i32 } [ %11, %.thread21 ], [ %17, %.thread ]
+  %.pn1318 = phi { ptr, i32 } [ %17, %.thread ], [ %11, %.thread21 ]
   invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..hir..Hir$GT$17h9af6366c8c6b49b3E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1) #27
           to label %33 unwind label %30
 }
@@ -1286,7 +1286,7 @@ define noundef zeroext i1 @_ZN10grep_regex6config19has_line_terminator17h560a706
   br i1 %.not.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02c112ae1c069990E.llvm.6027615119203585168.exit", label %.preheader22
 
 "_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02c112ae1c069990E.llvm.6027615119203585168.exit": ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h068942be9d3f3c64E.exit.i", %.preheader22, %7, %7, %.preheader
-  %.0.in = phi i1 [ %.not.not.not.i.not.not.not, %7 ], [ %.not.not.not.i.not.not.not, %.preheader ], [ %.not.not.not.i.not.not.not, %7 ], [ %.not10.not.not.i.not.not.not, %.preheader22 ], [ %.not10.not.not.i.not.not.not, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h068942be9d3f3c64E.exit.i" ]
+  %.0.in = phi i1 [ %.not.not.not.i.not.not.not, %.preheader ], [ %.not.not.not.i.not.not.not, %7 ], [ %.not.not.not.i.not.not.not, %7 ], [ %.not10.not.not.i.not.not.not, %.preheader22 ], [ %.not10.not.not.i.not.not.not, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h068942be9d3f3c64E.exit.i" ]
   ret i1 %.0.in
 }
 

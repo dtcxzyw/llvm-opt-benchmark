@@ -419,12 +419,12 @@ define range(i32 -2147483648, 1) i32 @avtext_context_open(ptr noundef writeonly 
   br label %119
 
 117:                                              ; preds = %.thread, %20, %17, %114, %76, %._crit_edge, %44
-  %.045 = phi i32 [ -22, %44 ], [ -22, %._crit_edge ], [ %74, %76 ], [ %115, %114 ], [ %.247.ph, %.thread ], [ -12, %17 ], [ -12, %20 ]
+  %.045 = phi i32 [ -22, %44 ], [ -22, %._crit_edge ], [ %74, %76 ], [ %115, %114 ], [ -12, %17 ], [ -12, %20 ], [ %.247.ph, %.thread ]
   %118 = call i32 @avtext_context_close(ptr noundef nonnull %9)
   br label %119
 
 119:                                              ; preds = %.loopexit, %117, %.thread88
-  %.0 = phi i32 [ %.045, %117 ], [ %.lcssa, %.loopexit ], [ 0, %.thread88 ]
+  %.0 = phi i32 [ %.045, %117 ], [ 0, %.thread88 ], [ %.lcssa, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -961,8 +961,8 @@ define internal fastcc noundef nonnull ptr @value_string(ptr noundef readonly ca
   br i1 %52, label %.thread63, label %54
 
 .thread63:                                        ; preds = %.thread, %.thread83, %.thread62
-  %.069 = phi ptr [ %.1, %.thread62 ], [ %.07688, %.thread83 ], [ @.str.35, %.thread ]
-  %.14867 = phi double [ %.2, %.thread62 ], [ %.1487590, %.thread83 ], [ %5, %.thread ]
+  %.069 = phi ptr [ %.07688, %.thread83 ], [ %.1, %.thread62 ], [ @.str.35, %.thread ]
+  %.14867 = phi double [ %.1487590, %.thread83 ], [ %.2, %.thread62 ], [ %5, %.thread ]
   %53 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 128, ptr noundef nonnull @.str.42, double noundef %.14867) #12
   br label %._crit_edge
 
@@ -1087,7 +1087,7 @@ bprint_bytes.exit:                                ; preds = %.lr.ph.i, %19
   br label %43
 
 43:                                               ; preds = %36, %.critedge
-  %.235 = phi i32 [ %32, %36 ], [ %.13441, %.critedge ]
+  %.235 = phi i32 [ %.13441, %.critedge ], [ %32, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %44 = load ptr, ptr %4, align 8, !tbaa !51
   %45 = load i8, ptr %44, align 1, !tbaa !52
@@ -1111,7 +1111,7 @@ bprint_bytes.exit:                                ; preds = %.lr.ph.i, %19
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %3, %.thread, %._crit_edge, %46, %50
-  %.2 = phi i32 [ -1094995529, %.thread ], [ 0, %50 ], [ 0, %46 ], [ 0, %._crit_edge ], [ 0, %3 ]
+  %.2 = phi i32 [ 0, %50 ], [ 0, %46 ], [ 0, %._crit_edge ], [ -1094995529, %.thread ], [ 0, %3 ]
   %53 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef nonnull %1) #12
   %54 = call i32 @av_bprint_finalize(ptr noundef nonnull %6, ptr noundef null) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1739,7 +1739,7 @@ thread-pre-split:                                 ; preds = %11, %25
   br label %avtextwriter_context_close.exit
 
 avtextwriter_context_close.exit:                  ; preds = %6, %41, %2, %.thread
-  %.0 = phi i32 [ -22, %2 ], [ 0, %.thread ], [ %.013, %41 ], [ -12, %6 ]
+  %.0 = phi i32 [ 0, %.thread ], [ -22, %2 ], [ %.013, %41 ], [ -12, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

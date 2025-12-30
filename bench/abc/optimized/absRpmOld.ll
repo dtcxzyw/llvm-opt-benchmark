@@ -140,8 +140,8 @@ Abc_UtilStrsav.exit131:                           ; preds = %Abc_UtilStrsav.exit
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %55, %57, %47, %49
-  %.sink227 = phi ptr [ %50, %49 ], [ %48, %47 ], [ %56, %55 ], [ %58, %57 ]
-  %.sink = phi i32 [ 16, %49 ], [ 16, %47 ], [ %52, %55 ], [ %52, %57 ]
+  %.sink227 = phi ptr [ %48, %47 ], [ %50, %49 ], [ %56, %55 ], [ %58, %57 ]
+  %.sink = phi i32 [ 16, %47 ], [ 16, %49 ], [ %52, %55 ], [ %52, %57 ]
   store ptr %.sink227, ptr %14, align 8, !tbaa !31
   store i32 %.sink, ptr %6, align 8, !tbaa !30
   br label %Vec_IntPush.exit
@@ -1021,8 +1021,8 @@ Abc_UtilStrsav.exit69:                            ; preds = %Abc_UtilStrsav.exit
   br label %.critedge, !llvm.loop !52
 
 .critedge:                                        ; preds = %26, %.lr.ph, %..critedge.loopexit_crit_edge, %Abc_UtilStrsav.exit69
-  %.val78 = phi i32 [ %.val5772, %Abc_UtilStrsav.exit69 ], [ %.val5772, %.lr.ph ], [ %.val57, %..critedge.loopexit_crit_edge ], [ %.val57, %26 ]
-  %.val57.neg.lcssa = phi i32 [ %.val57.neg73, %Abc_UtilStrsav.exit69 ], [ %.val57.neg73, %.lr.ph ], [ %.val57.neg, %..critedge.loopexit_crit_edge ], [ %.val57.neg, %26 ]
+  %.val78 = phi i32 [ %.val5772, %Abc_UtilStrsav.exit69 ], [ %.val57, %..critedge.loopexit_crit_edge ], [ %.val5772, %.lr.ph ], [ %.val57, %26 ]
+  %.val57.neg.lcssa = phi i32 [ %.val57.neg73, %Abc_UtilStrsav.exit69 ], [ %.val57.neg, %..critedge.loopexit_crit_edge ], [ %.val57.neg73, %.lr.ph ], [ %.val57.neg, %26 ]
   %40 = getelementptr i8, ptr %0, i64 64
   %.val50 = load ptr, ptr %40, align 8, !tbaa !28
   %41 = getelementptr i8, ptr %.val50, i64 4
@@ -1107,9 +1107,9 @@ Abc_UtilStrsav.exit69:                            ; preds = %Abc_UtilStrsav.exit
   br label %.critedge2, !llvm.loop !54
 
 .critedge2:                                       ; preds = %.lr.ph88, %..critedge2_crit_edge, %.lr.ph88.preheader
-  %.val59.val92.pre = phi i32 [ %.val61.val85, %.lr.ph88.preheader ], [ %.val61.val, %..critedge2_crit_edge ], [ %.val61.val, %.lr.ph88 ]
-  %.val5991112 = phi ptr [ %.val6184, %.lr.ph88.preheader ], [ %.val61, %..critedge2_crit_edge ], [ %.val61, %.lr.ph88 ]
-  %.val5890109 = phi i32 [ %.val6083, %.lr.ph88.preheader ], [ %.val60, %..critedge2_crit_edge ], [ %.val60, %.lr.ph88 ]
+  %.val59.val92.pre = phi i32 [ %.val61.val, %..critedge2_crit_edge ], [ %.val61.val85, %.lr.ph88.preheader ], [ %.val61.val, %.lr.ph88 ]
+  %.val5991112 = phi ptr [ %.val61, %..critedge2_crit_edge ], [ %.val6184, %.lr.ph88.preheader ], [ %.val61, %.lr.ph88 ]
+  %.val5890109 = phi i32 [ %.val60, %..critedge2_crit_edge ], [ %.val6083, %.lr.ph88.preheader ], [ %.val60, %.lr.ph88 ]
   %74 = icmp sgt i32 %.val59.val92.pre, %.val5890109
   br i1 %74, label %.lr.ph95, label %.critedge4
 

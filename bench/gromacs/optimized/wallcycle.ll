@@ -1702,7 +1702,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %218, 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %230, %237, %245
-  %.0296 = phi ptr [ %247, %245 ], [ %232, %230 ], [ %232, %237 ]
+  %.0296 = phi ptr [ %247, %245 ], [ %232, %237 ], [ %232, %230 ]
   %248 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
   %249 = load double, ptr %248, align 8, !tbaa !100
   call fastcc void @_ZL12print_cyclesP8_IO_FILEdPKciiidd(ptr noundef %0, double noundef %93, ptr noundef %.0296, i32 noundef %34, i32 noundef %4, i32 noundef %235, double noundef %249, double noundef %.fr)
@@ -1956,9 +1956,9 @@ _ZNSt6vectorI16WallCycleCounterSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17
   br i1 %.not.i.i.i343, label %_ZNSt6vectorI16WallCycleCounterSaIS0_EED2Ev.exit344, label %371
 
 _ZNSt6vectorI16WallCycleCounterSaIS0_EE9push_backEOS0_.exit: ; preds = %326, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, %317, %321
-  %.sroa.15.1 = phi ptr [ %.sroa.15.0511, %317 ], [ %.sroa.15.0511, %321 ], [ %348, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %.sroa.15.0511, %326 ]
-  %.sroa.10.1 = phi ptr [ %.sroa.10.0512, %317 ], [ %.sroa.10.0512, %321 ], [ %346, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %328, %326 ]
-  %.sroa.0436.1 = phi ptr [ %.sroa.0436.0513, %317 ], [ %.sroa.0436.0513, %321 ], [ %341, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %.sroa.0436.0513, %326 ]
+  %.sroa.15.1 = phi ptr [ %.sroa.15.0511, %321 ], [ %.sroa.15.0511, %317 ], [ %348, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %.sroa.15.0511, %326 ]
+  %.sroa.10.1 = phi ptr [ %.sroa.10.0512, %321 ], [ %.sroa.10.0512, %317 ], [ %346, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %328, %326 ]
+  %.sroa.0436.1 = phi ptr [ %.sroa.0436.0513, %321 ], [ %.sroa.0436.0513, %317 ], [ %341, %_ZNSt6vectorI16WallCycleCounterSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %.sroa.0436.0513, %326 ]
   %indvars.iv.next562 = add nuw nsw i64 %indvars.iv561, 1
   %.not483 = icmp eq i64 %indvars.iv.next562, 60
   br i1 %.not483, label %315, label %317, !llvm.loop !127
@@ -2673,7 +2673,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit404:              ; preds = %677, %_ZNKSt7__cxx1
   ret void
 
 _ZNSt6vectorI16WallCycleCounterSaIS0_EED2Ev.exit344: ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit352, %_ZN3gmx14LogEntryWriterD2Ev.exit360, %_ZN3gmx14LogEntryWriterD2Ev.exit368, %_ZN3gmx14LogEntryWriterD2Ev.exit404, %_ZN3gmx14LogEntryWriterD2Ev.exit396, %_ZN3gmx14LogEntryWriterD2Ev.exit388, %_ZN3gmx14LogEntryWriterD2Ev.exit380, %349, %371, %_ZN3gmx14LogEntryWriterD2Ev.exit338, %_ZN3gmx14LogEntryWriterD2Ev.exit329
-  %.pn325 = phi { ptr, i32 } [ %58, %_ZN3gmx14LogEntryWriterD2Ev.exit329 ], [ %83, %_ZN3gmx14LogEntryWriterD2Ev.exit338 ], [ %525, %_ZN3gmx14LogEntryWriterD2Ev.exit360 ], [ %678, %_ZN3gmx14LogEntryWriterD2Ev.exit404 ], [ %617, %_ZN3gmx14LogEntryWriterD2Ev.exit388 ], [ %646, %_ZN3gmx14LogEntryWriterD2Ev.exit396 ], [ %574, %_ZN3gmx14LogEntryWriterD2Ev.exit380 ], [ %549, %_ZN3gmx14LogEntryWriterD2Ev.exit368 ], [ %504, %_ZN3gmx14LogEntryWriterD2Ev.exit352 ], [ %lpad.phi, %349 ], [ %lpad.phi, %371 ]
+  %.pn325 = phi { ptr, i32 } [ %58, %_ZN3gmx14LogEntryWriterD2Ev.exit329 ], [ %83, %_ZN3gmx14LogEntryWriterD2Ev.exit338 ], [ %678, %_ZN3gmx14LogEntryWriterD2Ev.exit404 ], [ %617, %_ZN3gmx14LogEntryWriterD2Ev.exit388 ], [ %646, %_ZN3gmx14LogEntryWriterD2Ev.exit396 ], [ %574, %_ZN3gmx14LogEntryWriterD2Ev.exit380 ], [ %549, %_ZN3gmx14LogEntryWriterD2Ev.exit368 ], [ %504, %_ZN3gmx14LogEntryWriterD2Ev.exit352 ], [ %525, %_ZN3gmx14LogEntryWriterD2Ev.exit360 ], [ %lpad.phi, %349 ], [ %lpad.phi, %371 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   resume { ptr, i32 } %.pn325
 }

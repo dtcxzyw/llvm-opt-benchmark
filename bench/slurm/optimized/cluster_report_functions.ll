@@ -380,7 +380,7 @@ _find_assoc_in_report.exit.thread.i.us.i.us:      ; preds = %134, %128, %126
   br label %_find_assoc_in_report.exit.i.us.i.us
 
 _find_assoc_in_report.exit.i.us.i.us:             ; preds = %141, %_find_assoc_in_report.exit.thread.i.us.i.us, %134
-  %.1.i.us.i.us = phi ptr [ %142, %141 ], [ %140, %_find_assoc_in_report.exit.thread.i.us.i.us ], [ %.032.i.us.i.us, %134 ]
+  %.1.i.us.i.us = phi ptr [ %140, %_find_assoc_in_report.exit.thread.i.us.i.us ], [ %142, %141 ], [ %.032.i.us.i.us, %134 ]
   %160 = getelementptr inbounds nuw i8, ptr %.1.i.us.i.us, i64 32
   %161 = call i32 @slurmdb_add_accounting_to_tres_list(ptr noundef nonnull %127, ptr noundef nonnull %160) #6
   %162 = call ptr @list_next(ptr noundef %121) #6
@@ -680,8 +680,8 @@ _process_assoc_type.exit:                         ; preds = %.backedge.i115, %21
   br i1 %.not108, label %.thread150, label %.thread150.sink.split
 
 .thread150.sink.split:                            ; preds = %270, %266, %265
-  %.sink231 = phi ptr [ %18, %266 ], [ %18, %265 ], [ %9, %270 ]
-  %.0.ph = phi ptr [ %9, %266 ], [ %9, %265 ], [ null, %270 ]
+  %.sink231 = phi ptr [ %18, %265 ], [ %18, %266 ], [ %9, %270 ]
+  %.0.ph = phi ptr [ %9, %265 ], [ %9, %266 ], [ null, %270 ]
   call void @list_destroy(ptr noundef nonnull %.sink231) #6
   br label %.thread150
 

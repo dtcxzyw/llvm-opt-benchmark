@@ -149,10 +149,10 @@ define hidden range(i32 0, 3) i32 @pj_wkt1_parse(ptr noundef %0) local_unnamed_a
   br label %9
 
 7:                                                ; preds = %111, %72
-  %.1192 = phi ptr [ %74, %72 ], [ %91, %111 ]
-  %.1171 = phi ptr [ %.2172, %72 ], [ %90, %111 ]
-  %.1158 = phi i32 [ %68, %72 ], [ %112, %111 ]
-  %.1 = phi i32 [ -2, %72 ], [ %.7, %111 ]
+  %.1192 = phi ptr [ %91, %111 ], [ %74, %72 ]
+  %.1171 = phi ptr [ %90, %111 ], [ %.2172, %72 ]
+  %.1158 = phi i32 [ %112, %111 ], [ %68, %72 ]
+  %.1 = phi i32 [ %.7, %111 ], [ -2, %72 ]
   %8 = getelementptr inbounds nuw i8, ptr %.1171, i64 2
   br label %9
 
@@ -599,9 +599,9 @@ yytnamerr.exit120:                                ; preds = %.preheader31.split.
   br label %.thread7
 
 .thread7:                                         ; preds = %38, %24, %yytnamerr.exit, %3, %._crit_edge, %62, %61, %60, %59, %58
-  %.0836 = phi i32 [ %.588, %61 ], [ %.588, %62 ], [ %.588, %58 ], [ %.588, %59 ], [ %.588, %60 ], [ %.588, %._crit_edge ], [ 0, %3 ], [ 1, %yytnamerr.exit ], [ 1, %24 ], [ 1, %38 ]
-  %.0904 = phi i64 [ %.696, %61 ], [ %.696, %62 ], [ %.696, %58 ], [ %.696, %59 ], [ %.696, %60 ], [ %.696, %._crit_edge ], [ 0, %3 ], [ %.122.i, %yytnamerr.exit ], [ %.122.i, %24 ], [ %.122.i, %38 ]
-  %.079 = phi ptr [ @.str.9, %61 ], [ @.str.10, %62 ], [ @.str.6, %58 ], [ @.str.7, %59 ], [ @.str.8, %60 ], [ @.str, %._crit_edge ], [ @.str, %3 ], [ @.str.6, %yytnamerr.exit ], [ @.str.6, %24 ], [ @.str.6, %38 ]
+  %.0836 = phi i32 [ %.588, %62 ], [ %.588, %59 ], [ %.588, %60 ], [ %.588, %61 ], [ %.588, %._crit_edge ], [ 0, %3 ], [ 1, %yytnamerr.exit ], [ %.588, %58 ], [ 1, %24 ], [ 1, %38 ]
+  %.0904 = phi i64 [ %.696, %62 ], [ %.696, %59 ], [ %.696, %60 ], [ %.696, %61 ], [ %.696, %._crit_edge ], [ 0, %3 ], [ %.122.i, %yytnamerr.exit ], [ %.696, %58 ], [ %.122.i, %24 ], [ %.122.i, %38 ]
+  %.079 = phi ptr [ @.str.10, %62 ], [ @.str.7, %59 ], [ @.str.8, %60 ], [ @.str.9, %61 ], [ @.str, %._crit_edge ], [ @.str, %3 ], [ @.str.6, %yytnamerr.exit ], [ @.str.6, %58 ], [ @.str.6, %24 ], [ @.str.6, %38 ]
   %strlen.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.079)
   %63 = shl nsw i32 %.0836, 1
   %64 = sext i32 %63 to i64
@@ -701,15 +701,15 @@ yystpcpy.exit.i:                                  ; preds = %.preheader.i
   br label %yytnamerr.exit131
 
 yytnamerr.exit131:                                ; preds = %73, %.preheader, %yystpcpy.exit.i, %.split.us.thread.i
-  %.sink41 = phi i64 [ %.020.i, %.split.us.thread.i ], [ %99, %yystpcpy.exit.i ], [ 1, %.preheader ], [ 1, %73 ]
-  %.sink = phi i64 [ 2, %.split.us.thread.i ], [ 2, %yystpcpy.exit.i ], [ 1, %.preheader ], [ 1, %73 ]
-  %.1 = phi i32 [ %79, %.split.us.thread.i ], [ %79, %yystpcpy.exit.i ], [ %.0, %.preheader ], [ %.0, %73 ]
+  %.sink41 = phi i64 [ %99, %yystpcpy.exit.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %73 ]
+  %.sink = phi i64 [ 2, %yystpcpy.exit.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %73 ]
+  %.1 = phi i32 [ %79, %yystpcpy.exit.i ], [ %79, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %73 ]
   %100 = getelementptr inbounds i8, ptr %.071, i64 %.sink41
   %101 = getelementptr inbounds nuw i8, ptr %.180, i64 %.sink
   br label %.preheader
 
 .critedge:                                        ; preds = %yytnamerr.exit120, %.preheader, %70, %.thread7
-  %.7 = phi i32 [ 1, %70 ], [ 0, %.preheader ], [ 2, %.thread7 ], [ 2, %yytnamerr.exit120 ]
+  %.7 = phi i32 [ 2, %.thread7 ], [ 1, %70 ], [ 0, %.preheader ], [ 2, %yytnamerr.exit120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.7
 }

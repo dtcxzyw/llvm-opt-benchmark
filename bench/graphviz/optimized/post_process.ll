@@ -406,7 +406,7 @@ StressMajorizationSmoother_delete.exit:           ; preds = %129, %128
   unreachable
 
 179:                                              ; preds = %164, %167, %173
-  %.0319 = phi double [ %175, %173 ], [ %172, %167 ], [ 1.000000e+00, %164 ]
+  %.0319 = phi double [ %172, %167 ], [ %175, %173 ], [ 1.000000e+00, %164 ]
   %180 = fmul double %.0319, %.0319
   %181 = fdiv double -1.000000e+00, %180
   %182 = getelementptr inbounds double, ptr %136, i64 %165
@@ -530,8 +530,8 @@ StressMajorizationSmoother_delete.exit:           ; preds = %129, %128
   unreachable
 
 238:                                              ; preds = %223, %224, %232
-  %239 = phi i32 [ %.pre543, %232 ], [ %218, %224 ], [ %218, %223 ]
-  %.1320 = phi double [ %234, %232 ], [ %231, %224 ], [ 2.000000e+00, %223 ]
+  %239 = phi i32 [ %218, %224 ], [ %.pre543, %232 ], [ %218, %223 ]
+  %.1320 = phi double [ %231, %224 ], [ %234, %232 ], [ 2.000000e+00, %223 ]
   %240 = sext i32 %.12446 to i64
   %241 = getelementptr inbounds i32, ptr %134, i64 %240
   store i32 %239, ptr %241, align 4, !tbaa !22
@@ -634,8 +634,8 @@ StressMajorizationSmoother_delete.exit:           ; preds = %129, %128
   br i1 %exitcond538.not, label %._crit_edge487, label %.lr.ph486, !llvm.loop !41
 
 ._crit_edge487:                                   ; preds = %.lr.ph486, %130, %._crit_edge480
-  %283 = phi double [ 0x7FF8000000000000, %130 ], [ %278, %._crit_edge480 ], [ %278, %.lr.ph486 ]
-  %.8.lcssa581 = phi i32 [ 0, %130 ], [ %275, %._crit_edge480 ], [ %275, %.lr.ph486 ]
+  %283 = phi double [ %278, %._crit_edge480 ], [ 0x7FF8000000000000, %130 ], [ %278, %.lr.ph486 ]
+  %.8.lcssa581 = phi i32 [ %275, %._crit_edge480 ], [ 0, %130 ], [ %275, %.lr.ph486 ]
   store double %283, ptr %17, align 8, !tbaa !16
   %284 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store i32 %.8.lcssa581, ptr %284, align 8, !tbaa !42
@@ -1336,8 +1336,8 @@ StressMajorizationSmoother_delete.exit167:        ; preds = %._crit_edge198
   br i1 %exitcond225.not, label %._crit_edge204, label %.lr.ph203, !llvm.loop !59
 
 ._crit_edge204:                                   ; preds = %.lr.ph203, %58, %.preheader
-  %.0152.lcssa240242 = phi i32 [ 0, %58 ], [ %114, %.preheader ], [ %114, %.lr.ph203 ]
-  %123 = phi double [ 0x7FF8000000000000, %58 ], [ %117, %.preheader ], [ %117, %.lr.ph203 ]
+  %.0152.lcssa240242 = phi i32 [ %114, %.preheader ], [ 0, %58 ], [ %114, %.lr.ph203 ]
+  %123 = phi double [ %117, %.preheader ], [ 0x7FF8000000000000, %58 ], [ %117, %.lr.ph203 ]
   store double %123, ptr %25, align 8, !tbaa !16
   %124 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 %.0152.lcssa240242, ptr %124, align 8, !tbaa !42

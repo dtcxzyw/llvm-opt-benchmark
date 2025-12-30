@@ -2476,7 +2476,7 @@ _ZN4llvm11raw_ostreamlsEc.exit62:                 ; preds = %47, %49
   br label %_ZN4llvm11raw_ostreamlsEc.exit65
 
 _ZN4llvm11raw_ostreamlsEc.exit65:                 ; preds = %69, %67, %56
-  %.3 = phi i32 [ %55, %69 ], [ %62, %56 ], [ %55, %67 ]
+  %.3 = phi i32 [ %62, %56 ], [ %55, %67 ], [ %55, %69 ]
   %71 = zext i32 %.3 to i64
   %72 = getelementptr inbounds nuw i8, ptr %14, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !20
@@ -3458,7 +3458,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit240:              ; preds = %239, %241
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit219
 
 _ZN4llvm11raw_ostreamlsEPKc.exit219:              ; preds = %249, %247, %133, %131, %155, %41, %152, %_ZN4llvm11raw_ostreamlsEPKc.exit213, %_ZN4llvm11raw_ostreamlsEPKc.exit237, %136, %43, %25, %15, %3, %7
-  %.0178 = phi i1 [ false, %3 ], [ false, %7 ], [ true, %_ZN4llvm11raw_ostreamlsEPKc.exit237 ], [ true, %41 ], [ true, %_ZN4llvm11raw_ostreamlsEPKc.exit213 ], [ true, %152 ], [ false, %15 ], [ true, %133 ], [ false, %155 ], [ false, %136 ], [ false, %43 ], [ false, %25 ], [ true, %131 ], [ true, %249 ], [ true, %247 ]
+  %.0178 = phi i1 [ false, %7 ], [ false, %3 ], [ true, %41 ], [ true, %152 ], [ true, %_ZN4llvm11raw_ostreamlsEPKc.exit213 ], [ true, %_ZN4llvm11raw_ostreamlsEPKc.exit237 ], [ false, %155 ], [ false, %136 ], [ false, %43 ], [ false, %25 ], [ false, %15 ], [ true, %131 ], [ true, %133 ], [ true, %247 ], [ true, %249 ]
   ret i1 %.0178
 }
 

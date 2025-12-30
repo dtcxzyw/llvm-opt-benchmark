@@ -395,8 +395,8 @@ define void @DES_xcbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   br label %245
 
 245:                                              ; preds = %._crit_edge324, %242, %._crit_edge324.thread, %._crit_edge, %125
-  %.1277.sink = phi i32 [ %.0280.lcssa, %._crit_edge ], [ %132, %125 ], [ %60, %._crit_edge324 ], [ %189, %242 ], [ %189, %._crit_edge324.thread ]
-  %.1275.sink = phi i32 [ %.0278.lcssa, %._crit_edge ], [ %135, %125 ], [ %62, %._crit_edge324 ], [ %202, %242 ], [ %202, %._crit_edge324.thread ]
+  %.1277.sink = phi i32 [ %132, %125 ], [ %.0280.lcssa, %._crit_edge ], [ %60, %._crit_edge324 ], [ %189, %242 ], [ %189, %._crit_edge324.thread ]
+  %.1275.sink = phi i32 [ %135, %125 ], [ %.0278.lcssa, %._crit_edge ], [ %62, %._crit_edge324 ], [ %202, %242 ], [ %202, %._crit_edge324.thread ]
   store i32 %.1277.sink, ptr %4, align 1
   store i32 %.1275.sink, ptr %61, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

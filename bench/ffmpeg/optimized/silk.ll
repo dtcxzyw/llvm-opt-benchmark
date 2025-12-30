@@ -773,11 +773,11 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   %172 = shl i16 %171, 10
   %173 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv.next153.i
   %174 = icmp slt i8 %170, 0
+  %175 = or disjoint i16 %172, 102
   %.not129.i = icmp eq i8 %170, 0
-  %175 = add i16 %172, -102
-  %spec.select.i = select i1 %.not129.i, i16 0, i16 %175
-  %176 = or disjoint i16 %172, 102
-  %177 = select i1 %174, i16 %176, i16 %spec.select.i
+  %176 = add i16 %172, -102
+  %spec.select.i = select i1 %.not129.i, i16 0, i16 %176
+  %177 = select i1 %174, i16 %175, i16 %spec.select.i
   %178 = sext i16 %177 to i32
   %179 = mul nsw i32 %142, %178
   %180 = lshr i32 %179, 16
@@ -1319,7 +1319,7 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   br label %476
 
 476:                                              ; preds = %468, %472, %459, %463
-  %.0248 = phi ptr [ %466, %463 ], [ %462, %459 ], [ %471, %468 ], [ %475, %472 ]
+  %.0248 = phi ptr [ %462, %459 ], [ %466, %463 ], [ %471, %468 ], [ %475, %472 ]
   %477 = load i32, ptr %77, align 8, !tbaa !10
   %478 = icmp sgt i32 %477, 0
   br i1 %478, label %.lr.ph304, label %._crit_edge305

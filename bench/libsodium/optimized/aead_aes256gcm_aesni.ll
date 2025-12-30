@@ -1754,7 +1754,7 @@ required_blocks.exit.i:                           ; preds = %29
   br label %crypto_aead_aes256gcm_verify_mac.exit
 
 crypto_aead_aes256gcm_verify_mac.exit:            ; preds = %23, %29, %._crit_edge.i95.thread.i
-  %.0.i = phi i32 [ %127, %._crit_edge.i95.thread.i ], [ -1, %23 ], [ -1, %29 ]
+  %.0.i = phi i32 [ %127, %._crit_edge.i95.thread.i ], [ -1, %29 ], [ -1, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %required_blocks.exit.thread
@@ -2673,7 +2673,7 @@ encrypt.exit.i:                                   ; preds = %563
   br label %aes_gcm_decrypt_generic.exit
 
 aes_gcm_decrypt_generic.exit:                     ; preds = %.lr.ph463.i, %._crit_edge.i323.thread.i
-  %.in = phi <2 x i64> [ %642, %._crit_edge.i323.thread.i ], [ %610, %.lr.ph463.i ]
+  %.in = phi <2 x i64> [ %610, %.lr.ph463.i ], [ %642, %._crit_edge.i323.thread.i ]
   %643 = bitcast <2 x i64> %.in to <16 x i8>
   %644 = shufflevector <16 x i8> %643, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %645 = bitcast <16 x i8> %644 to <2 x i64>
@@ -2691,7 +2691,7 @@ aes_gcm_decrypt_generic.exit:                     ; preds = %.lr.ph463.i, %._cri
   br label %required_blocks.exit.thread
 
 required_blocks.exit.thread:                      ; preds = %128, %134, %aes_gcm_decrypt_generic.exit, %648, %crypto_aead_aes256gcm_verify_mac.exit
-  %.0 = phi i32 [ %.0.i, %crypto_aead_aes256gcm_verify_mac.exit ], [ -1, %128 ], [ -1, %648 ], [ 0, %aes_gcm_decrypt_generic.exit ], [ -1, %134 ]
+  %.0 = phi i32 [ %.0.i, %crypto_aead_aes256gcm_verify_mac.exit ], [ -1, %648 ], [ 0, %aes_gcm_decrypt_generic.exit ], [ -1, %134 ], [ -1, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret i32 %.0

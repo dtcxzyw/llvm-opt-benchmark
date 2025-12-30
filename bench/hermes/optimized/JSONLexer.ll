@@ -1072,7 +1072,7 @@ while.end:                                        ; preds = %_ZN6hermes11UTF16St
   br label %_ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb1EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit
 
 _ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb1EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit: ; preds = %sw.bb80, %cond.end, %while.end, %sw.default, %if.then48, %if.then27, %if.end
-  %retval.0 = phi i32 [ %call.i161, %while.end ], [ 1, %if.end ], [ %call.i7, %if.then27 ], [ %call92, %sw.default ], [ 0, %cond.end ], [ %call.i25, %if.then48 ], [ 0, %sw.bb80 ]
+  %retval.0 = phi i32 [ 1, %if.end ], [ %call.i7, %if.then27 ], [ %call92, %sw.default ], [ %call.i25, %if.then48 ], [ %call.i161, %while.end ], [ 0, %cond.end ], [ 0, %sw.bb80 ]
   call void @_ZN6hermes11UTF16Stream13cancelCaptureEv(ptr noundef nonnull align 8 dereferenceable(64) %this) #10
   %77 = load ptr, ptr %tmpStorage, align 8
   %cmp.i.i.i.i = icmp eq ptr %77, %add.ptr.i.i.i.i.i.i
@@ -1630,7 +1630,7 @@ while.end:                                        ; preds = %_ZN6hermes11UTF16St
   br label %_ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb0EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit
 
 _ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb0EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit: ; preds = %sw.bb83, %_ZN6hermes2vm15StringPrimitive23createWithKnownEncodingERNS0_7RuntimeEN4llvh8ArrayRefIDsEEb.exit, %while.end, %sw.default, %if.then51, %if.then30, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit
-  %retval.0 = phi i32 [ %call.i164, %while.end ], [ 1, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ %call.i9, %if.then30 ], [ %call95, %sw.default ], [ 0, %_ZN6hermes2vm15StringPrimitive23createWithKnownEncodingERNS0_7RuntimeEN4llvh8ArrayRefIDsEEb.exit ], [ %call.i27, %if.then51 ], [ 0, %sw.bb83 ]
+  %retval.0 = phi i32 [ 1, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ %call.i9, %if.then30 ], [ %call95, %sw.default ], [ %call.i27, %if.then51 ], [ %call.i164, %while.end ], [ 0, %_ZN6hermes2vm15StringPrimitive23createWithKnownEncodingERNS0_7RuntimeEN4llvh8ArrayRefIDsEEb.exit ], [ 0, %sw.bb83 ]
   call void @_ZN6hermes11UTF16Stream13cancelCaptureEv(ptr noundef nonnull align 8 dereferenceable(64) %this) #10
   %86 = load ptr, ptr %tmpStorage, align 8
   %cmp.i.i.i.i = icmp eq ptr %86, %add.ptr.i.i.i.i.i.i

@@ -490,12 +490,12 @@ default.unreachable.i:                            ; preds = %169
   unreachable
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %215, %213, %208, %202, %._crit_edge.i
-  %.6.i = phi ptr [ %.5240.i, %215 ], [ %.5240.i, %._crit_edge.i ], [ %.5240.i, %213 ], [ %204, %202 ], [ %211, %208 ], [ %.5240.i, %.lr.ph.i ]
-  %.3184.i = phi ptr [ %217, %215 ], [ %181, %._crit_edge.i ], [ %214, %213 ], [ %203, %202 ], [ %210, %208 ], [ %184, %.lr.ph.i ]
+  %.6.i = phi ptr [ %.5240.i, %._crit_edge.i ], [ %204, %202 ], [ %211, %208 ], [ %.5240.i, %213 ], [ %.5240.i, %215 ], [ %.5240.i, %.lr.ph.i ]
+  %.3184.i = phi ptr [ %181, %._crit_edge.i ], [ %203, %202 ], [ %210, %208 ], [ %214, %213 ], [ %217, %215 ], [ %184, %.lr.ph.i ]
   %.not254.i = icmp eq ptr %.3184.i, %.0180.i
   br i1 %.not254.i, label %decode_bmv_frame.exit, label %119
 
-.loopexit:                                        ; preds = %205, %.thread235.i, %171, %182, %199, %122, %173, %187, %131, %.preheader255.i, %94
+.loopexit:                                        ; preds = %122, %.thread235.i, %173, %171, %187, %182, %199, %205, %.preheader255.i, %131, %94
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.7) #7
   br label %241
 
@@ -541,7 +541,7 @@ decode_bmv_frame.exit:                            ; preds = %.loopexit.i
   br label %241
 
 241:                                              ; preds = %.thread80, %.thread, %91, %._crit_edge, %.loopexit, %83, %53
-  %.2 = phi i32 [ -1094995529, %53 ], [ -1094995529, %83 ], [ -1094995529, %.thread ], [ -1094995529, %.loopexit ], [ %240, %._crit_edge ], [ -1094995529, %.thread80 ], [ %92, %91 ]
+  %.2 = phi i32 [ -1094995529, %53 ], [ -1094995529, %83 ], [ -1094995529, %.loopexit ], [ %240, %._crit_edge ], [ %92, %91 ], [ -1094995529, %.thread ], [ -1094995529, %.thread80 ]
   ret i32 %.2
 }
 

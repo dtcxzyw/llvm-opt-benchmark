@@ -298,7 +298,7 @@ sw.bb3.i:                                         ; preds = %sw.bb
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb3.i, %sw.bb.i
-  %rc.0.i = phi i32 [ %call5.i, %sw.bb3.i ], [ %call2.i, %sw.bb.i ]
+  %rc.0.i = phi i32 [ %call2.i, %sw.bb.i ], [ %call5.i, %sw.bb3.i ]
   %cmp.i68 = icmp eq i32 %rc.0.i, -105
   br i1 %cmp.i68, label %if.then.i70, label %if.end.i69
 
@@ -322,7 +322,7 @@ sw.bb10.i:                                        ; preds = %if.then.i70
   br label %if.end.i69
 
 if.end.i69:                                       ; preds = %sw.bb10.i, %sw.bb7.i, %sw.epilog.i
-  %rc.1.i = phi i32 [ %rc.0.i, %sw.epilog.i ], [ %call9.i71, %sw.bb7.i ], [ %call12.i, %sw.bb10.i ]
+  %rc.1.i = phi i32 [ %call9.i71, %sw.bb7.i ], [ %call12.i, %sw.bb10.i ], [ %rc.0.i, %sw.epilog.i ]
   %cmp15.i = icmp eq i32 %rc.1.i, 0
   %18 = load i64, ptr %size.i, align 8
   %cmp16.i = icmp ne i64 %18, 0
@@ -392,7 +392,7 @@ sw.bb1.i:                                         ; preds = %sw.bb10
   br label %sw.epilog.i74
 
 sw.epilog.i74:                                    ; preds = %sw.bb1.i, %sw.bb.i79
-  %rc.0.i75 = phi i32 [ %call2.i73, %sw.bb1.i ], [ %call.i80, %sw.bb.i79 ]
+  %rc.0.i75 = phi i32 [ %call.i80, %sw.bb.i79 ], [ %call2.i73, %sw.bb1.i ]
   %rc.0.fr.i = freeze i32 %rc.0.i75
   %cmp.i76 = icmp eq i32 %rc.0.fr.i, 0
   %spec.select.i = select i1 %cmp.i76, ptr %addr_storage.i, ptr null

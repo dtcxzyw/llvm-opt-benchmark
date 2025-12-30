@@ -475,8 +475,8 @@ _ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit: ; preds = %166
   br label %172
 
 172:                                              ; preds = %._crit_edge52.thread81, %158, %._crit_edge52, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit", %12
-  %.sroa.8.0 = phi float [ %15, %12 ], [ %.sroa.8.148.ph, %._crit_edge52 ], [ %22, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ %162, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ %.sroa.8.1.lcssa75, %158 ], [ %156, %._crit_edge52.thread81 ]
-  %.sroa.0.0 = phi i32 [ %14, %12 ], [ 1, %._crit_edge52 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ 1, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ 0, %158 ], [ 1, %._crit_edge52.thread81 ]
+  %.sroa.8.0 = phi float [ %15, %12 ], [ %.sroa.8.148.ph, %._crit_edge52 ], [ %162, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ %22, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ %.sroa.8.1.lcssa75, %158 ], [ %156, %._crit_edge52.thread81 ]
+  %.sroa.0.0 = phi i32 [ %14, %12 ], [ 1, %._crit_edge52 ], [ 1, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ 0, %158 ], [ 1, %._crit_edge52.thread81 ]
   %173 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
   %174 = insertvalue { i32, float } %173, float %.sroa.8.0, 1
   ret { i32, float } %174
@@ -1079,8 +1079,8 @@ default.unreachable:                              ; preds = %26, %7
   br label %"_ZN101_$LT$rodio..source..buffered..Buffered$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf91355891084d4aE.exit"
 
 "_ZN101_$LT$rodio..source..buffered..Buffered$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf91355891084d4aE.exit": ; preds = %"_ZN101_$LT$rodio..source..buffered..Buffered$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf91355891084d4aE.exit.sink.split", %39, %26, %19, %7, %3
-  %.sroa.4.0 = phi float [ undef, %3 ], [ undef, %7 ], [ %43, %39 ], [ %23, %19 ], [ undef, %26 ], [ %.sroa.4.0.ph, %"_ZN101_$LT$rodio..source..buffered..Buffered$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf91355891084d4aE.exit.sink.split" ]
-  %.sroa.0.0 = phi i32 [ 0, %3 ], [ 0, %7 ], [ 1, %39 ], [ 1, %19 ], [ 0, %26 ], [ 1, %"_ZN101_$LT$rodio..source..buffered..Buffered$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf91355891084d4aE.exit.sink.split" ]
+  %.sroa.4.0 = phi float [ undef, %3 ], [ %23, %19 ], [ undef, %7 ], [ %43, %39 ], [ undef, %26 ], [ %.sroa.4.0.ph, %"_ZN101_$LT$rodio..source..buffered..Buffered$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf91355891084d4aE.exit.sink.split" ]
+  %.sroa.0.0 = phi i32 [ 0, %3 ], [ 1, %19 ], [ 0, %7 ], [ 1, %39 ], [ 0, %26 ], [ 1, %"_ZN101_$LT$rodio..source..buffered..Buffered$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf91355891084d4aE.exit.sink.split" ]
   %46 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
   %47 = insertvalue { i32, float } %46, float %.sroa.4.0, 1
   ret { i32, float } %47

@@ -148,7 +148,7 @@ define internal ptr @v2i_NAME_CONSTRAINTS(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %.preheader, %42, %43
-  %.029 = phi ptr [ null, %42 ], [ null, %43 ], [ %5, %.preheader ], [ %5, %10 ]
+  %.029 = phi ptr [ null, %43 ], [ null, %42 ], [ %5, %.preheader ], [ %5, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.029
 }
@@ -375,7 +375,7 @@ define internal fastcc range(i32 0, 54) i32 @nc_match(ptr noundef readonly captu
   br label %.loopexit43
 
 .loopexit43:                                      ; preds = %10, %13, %18, %37, %34, %42, %40, %.loopexit43.loopexit69, %.preheader, %._crit_edge
-  %.033 = phi i32 [ 48, %.loopexit43.loopexit69 ], [ 47, %._crit_edge ], [ %41, %40 ], [ 0, %.preheader ], [ 49, %37 ], [ 49, %34 ], [ 0, %42 ], [ 49, %13 ], [ %19, %18 ], [ 49, %10 ]
+  %.033 = phi i32 [ 47, %._crit_edge ], [ 0, %.preheader ], [ %41, %40 ], [ 49, %37 ], [ 49, %34 ], [ 0, %42 ], [ 48, %.loopexit43.loopexit69 ], [ 49, %10 ], [ 49, %13 ], [ %19, %18 ]
   ret i32 %.033
 }
 
@@ -773,7 +773,7 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
   br label %nc_dn.exit
 
 nc_dn.exit:                                       ; preds = %136, %135, %134, %127, %119, %106, %103, %94, %91, %87, %80, %79, %74, %55, %53, %50, %32, %26, %20, %17, %11, %2
-  %.0 = phi i32 [ 53, %55 ], [ 51, %2 ], [ %..i, %26 ], [ 47, %50 ], [ 47, %20 ], [ 17, %11 ], [ 17, %17 ], [ 0, %32 ], [ %..i11, %53 ], [ 0, %74 ], [ 47, %80 ], [ %..i14, %91 ], [ 47, %87 ], [ 47, %79 ], [ 47, %135 ], [ 53, %94 ], [ 47, %134 ], [ 53, %119 ], [ 0, %127 ], [ 53, %106 ], [ 53, %103 ], [ %spec.select.i, %136 ]
+  %.0 = phi i32 [ 51, %2 ], [ 17, %11 ], [ 17, %17 ], [ 47, %20 ], [ %..i, %26 ], [ 0, %32 ], [ 47, %50 ], [ %..i11, %53 ], [ 47, %79 ], [ 53, %55 ], [ 0, %74 ], [ 47, %80 ], [ 47, %87 ], [ %..i14, %91 ], [ 47, %134 ], [ 53, %106 ], [ 53, %103 ], [ 53, %94 ], [ 53, %119 ], [ 0, %127 ], [ 47, %135 ], [ %spec.select.i, %136 ]
   ret i32 %.0
 }
 

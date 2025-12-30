@@ -398,7 +398,7 @@ define internal i32 @dissect_hsms_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %95
 
 95:                                               ; preds = %86, %93, %41, %38, %37, %34, %33, %30, %27, %25, %13, %9, %4
-  %.0 = phi i32 [ 0, %38 ], [ 0, %4 ], [ 0, %9 ], [ 0, %41 ], [ 0, %13 ], [ 0, %25 ], [ 0, %27 ], [ 0, %30 ], [ 0, %33 ], [ 0, %34 ], [ 0, %37 ], [ %.pre, %93 ], [ 14, %86 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %13 ], [ 0, %25 ], [ 0, %27 ], [ 0, %30 ], [ 0, %33 ], [ 0, %34 ], [ 0, %37 ], [ 0, %38 ], [ 0, %41 ], [ %.pre, %93 ], [ 14, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -642,14 +642,14 @@ default.unreachable:                              ; preds = %4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %80, %63, %.loopexit.sink.split, %.preheader
-  %.0138 = phi i32 [ %91, %.loopexit.sink.split ], [ %.4142.us, %63 ], [ 0, %.preheader ], [ %.4142, %80 ]
+  %.0138 = phi i32 [ 0, %.preheader ], [ %91, %.loopexit.sink.split ], [ %.4142.us, %63 ], [ %.4142, %80 ]
   %97 = add nuw nsw i32 %14, 1
   %98 = add i32 %97, %.0138
   call void @proto_item_set_len(ptr noundef %43, i32 noundef %98)
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.split, %.lr.ph.split.us, %30, %4, %.loopexit
-  %.0 = phi i32 [ -1, %30 ], [ -1, %4 ], [ %98, %.loopexit ], [ -1, %.lr.ph.split.us ], [ -1, %.lr.ph.split ]
+  %.0 = phi i32 [ %98, %.loopexit ], [ -1, %4 ], [ -1, %30 ], [ -1, %.lr.ph.split.us ], [ -1, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

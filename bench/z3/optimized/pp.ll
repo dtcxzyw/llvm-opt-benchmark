@@ -666,8 +666,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit153: ; preds = %.lr.
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exitthread-pre-split unwind label %75
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exitthread-pre-split: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit153, %144, %_ZNSt4pairI7obj_refI3app11ast_managerEjED2Ev.exit, %_ZNK3app13get_decl_kindEv.exit, %77, %92, %.noexc110, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i, %257, %64, %129, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit151.preheader
-  %.179.ph = phi i32 [ %.078209, %144 ], [ %.078209, %_ZNK3app13get_decl_kindEv.exit ], [ %249, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit151.preheader ], [ %.078209, %.noexc110 ], [ %.078209, %129 ], [ %.078209, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i ], [ %.078209, %_ZNSt4pairI7obj_refI3app11ast_managerEjED2Ev.exit ], [ %.078209, %64 ], [ %.078209, %92 ], [ %249, %257 ], [ %.078209, %77 ], [ %249, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit153 ]
-  %.177.ph = phi i32 [ %.076210, %144 ], [ %.076210, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit151.preheader ], [ %90, %.noexc110 ], [ %.076210, %129 ], [ %90, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i ], [ %.076210, %_ZNSt4pairI7obj_refI3app11ast_managerEjED2Ev.exit ], [ %.076210, %64 ], [ %.076210, %92 ], [ %.sroa.5.0.copyload, %257 ], [ %.076210, %77 ], [ %.sroa.5.0.copyload, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit153 ]
+  %.179.ph = phi i32 [ %249, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit151.preheader ], [ %.078209, %129 ], [ %.078209, %64 ], [ %249, %257 ], [ %.078209, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i ], [ %.078209, %.noexc110 ], [ %.078209, %92 ], [ %.078209, %77 ], [ %.078209, %_ZNSt4pairI7obj_refI3app11ast_managerEjED2Ev.exit ], [ %.078209, %_ZNK3app13get_decl_kindEv.exit ], [ %.078209, %144 ], [ %249, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit153 ]
+  %.177.ph = phi i32 [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit151.preheader ], [ %.076210, %129 ], [ %.076210, %64 ], [ %.sroa.5.0.copyload, %257 ], [ %90, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i ], [ %90, %.noexc110 ], [ %.076210, %92 ], [ %.076210, %77 ], [ %.076210, %_ZNSt4pairI7obj_refI3app11ast_managerEjED2Ev.exit ], [ %.076210, %_ZNK3app13get_decl_kindEv.exit ], [ %.076210, %144 ], [ %.sroa.5.0.copyload, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit153 ]
   %.pr = load ptr, ptr %6, align 8, !tbaa !12
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
@@ -679,7 +679,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZStlsI
   br i1 %260, label %_ZNK6vectorISt4pairIP3appjELb0EjE5emptyEv.exit.thread.loopexit, label %_ZNK6vectorISt4pairIP3appjELb0EjE5emptyEv.exit, !llvm.loop !123
 
 261:                                              ; preds = %.loopexit, %.loopexit.split-lp, %75, %94, %153, %185, %211, %246, %255
-  %.pn87.pn = phi { ptr, i32 } [ %256, %255 ], [ %76, %75 ], [ %95, %94 ], [ %247, %246 ], [ %154, %153 ], [ %186, %185 ], [ %212, %211 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn87.pn = phi { ptr, i32 } [ %76, %75 ], [ %95, %94 ], [ %154, %153 ], [ %186, %185 ], [ %212, %211 ], [ %247, %246 ], [ %256, %255 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
   br label %281
 
@@ -975,8 +975,8 @@ _ZNK3app13get_decl_kindEv.exit.thread:            ; preds = %1, %_ZNK3app13get_d
   br label %.critedge19
 
 .critedge19:                                      ; preds = %.critedge, %26, %.preheader, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit.thread, %33, %22, %_ZNK9parameter10get_symbolEv.exit
-  %.sroa.014.sroa.0.0 = phi i32 [ 0, %_ZNK3app13get_decl_kindEv.exit.thread ], [ %21, %_ZNK9parameter10get_symbolEv.exit ], [ %.sroa.014.sroa.0.0.extract.trunc16, %22 ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ %.sroa.014.sroa.0.0.extract.trunc19, %33 ], [ 0, %.preheader ], [ %32, %26 ], [ %32, %.critedge ]
-  %.sroa.014.sroa.8.0 = phi i64 [ 0, %_ZNK3app13get_decl_kindEv.exit.thread ], [ 0, %_ZNK9parameter10get_symbolEv.exit ], [ %.sroa.014.sroa.8.0.extract.shift2029, %22 ], [ 4294967296, %_ZNK3app13get_decl_kindEv.exit ], [ 4294967296, %_ZNK3app13get_decl_kindEv.exit ], [ %.sroa.014.sroa.8.0.extract.shift2628, %33 ], [ 0, %.preheader ], [ 4294967296, %.critedge ], [ 0, %26 ]
+  %.sroa.014.sroa.0.0 = phi i32 [ 0, %_ZNK3app13get_decl_kindEv.exit.thread ], [ %21, %_ZNK9parameter10get_symbolEv.exit ], [ %.sroa.014.sroa.0.0.extract.trunc16, %22 ], [ %.sroa.014.sroa.0.0.extract.trunc19, %33 ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %.preheader ], [ %32, %26 ], [ %32, %.critedge ]
+  %.sroa.014.sroa.8.0 = phi i64 [ 0, %_ZNK3app13get_decl_kindEv.exit.thread ], [ 0, %_ZNK9parameter10get_symbolEv.exit ], [ %.sroa.014.sroa.8.0.extract.shift2029, %22 ], [ %.sroa.014.sroa.8.0.extract.shift2628, %33 ], [ 4294967296, %_ZNK3app13get_decl_kindEv.exit ], [ 4294967296, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %.preheader ], [ 4294967296, %.critedge ], [ 0, %26 ]
   %.sroa.014.sroa.0.0.insert.ext = zext i32 %.sroa.014.sroa.0.0 to i64
   %.sroa.014.sroa.0.0.insert.insert = or disjoint i64 %.sroa.014.sroa.8.0, %.sroa.014.sroa.0.0.insert.ext
   ret i64 %.sroa.014.sroa.0.0.insert.insert

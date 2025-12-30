@@ -383,14 +383,14 @@ define hidden noundef zeroext i1 @_ZNK3sat6clause12satisfied_byERK7svectorI5lboo
   %.idx = shl nuw nsw i64 %6, 2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not18.not = icmp eq i32 %5, 0
-  br i1 %.not18.not, label %.critedge, label %.lr.ph
+  br i1 %.not18.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %8 = load ptr, ptr %1, align 8
   br label %9
 
-9:                                                ; preds = %.lr.ph, %20
-  %.01319 = phi ptr [ %3, %.lr.ph ], [ %21, %20 ]
+9:                                                ; preds = %.lr.ph, %.critedge
+  %.01319 = phi ptr [ %3, %.lr.ph ], [ %20, %.critedge ]
   %10 = load i32, ptr %.01319, align 4, !tbaa !16
   %11 = and i32 %10, 1
   %.not17 = icmp eq i32 %11, 0
@@ -402,19 +402,19 @@ define hidden noundef zeroext i1 @_ZNK3sat6clause12satisfied_byERK7svectorI5lboo
 
 16:                                               ; preds = %9
   %17 = icmp eq i32 %15, -1
-  br i1 %17, label %.critedge, label %20
+  br i1 %17, label %.thread, label %.critedge
 
 18:                                               ; preds = %9
   %19 = icmp eq i32 %15, 1
-  br i1 %19, label %.critedge, label %20
+  br i1 %19, label %.thread, label %.critedge
 
-20:                                               ; preds = %18, %16
-  %21 = getelementptr inbounds nuw i8, ptr %.01319, i64 4
-  %.not.not = icmp eq ptr %21, %7
-  br i1 %.not.not, label %.critedge, label %9
+.critedge:                                        ; preds = %18, %16
+  %20 = getelementptr inbounds nuw i8, ptr %.01319, i64 4
+  %.not.not = icmp eq ptr %20, %7
+  br i1 %.not.not, label %.thread, label %9
 
-.critedge:                                        ; preds = %20, %18, %16, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ true, %16 ], [ true, %18 ], [ false, %20 ]
+.thread:                                          ; preds = %.critedge, %18, %16, %2
+  %.not.lcssa = phi i1 [ false, %2 ], [ true, %16 ], [ true, %18 ], [ false, %.critedge ]
   ret i1 %.not.lcssa
 }
 
@@ -1206,7 +1206,7 @@ _ZNK3sat14clause_wrapperixEj.exit:                ; preds = %.lr.ph15
   br i1 %16, label %.critedge, label %.lr.ph15, !llvm.loop !57
 
 .critedge:                                        ; preds = %_ZNK3sat14clause_wrapperixEj.exit, %.lr.ph15, %_ZNK3sat14clause_wrapperixEj.exit.us, %.lr.ph18, %.lr.ph.split.us, %.lr.ph.split, %_ZNK3sat14clause_wrapper4sizeEv.exit
-  %.not.lcssa = phi i1 [ false, %_ZNK3sat14clause_wrapper4sizeEv.exit ], [ true, %.lr.ph.split.us ], [ true, %.lr.ph.split ], [ %exitcond23.not.not.not, %_ZNK3sat14clause_wrapperixEj.exit.us ], [ %exitcond23.not.not.not, %.lr.ph18 ], [ %exitcond.not.not.not, %.lr.ph15 ], [ %exitcond.not.not.not, %_ZNK3sat14clause_wrapperixEj.exit ]
+  %.not.lcssa = phi i1 [ false, %_ZNK3sat14clause_wrapper4sizeEv.exit ], [ true, %.lr.ph.split.us ], [ true, %.lr.ph.split ], [ %exitcond23.not.not.not, %.lr.ph18 ], [ %exitcond23.not.not.not, %_ZNK3sat14clause_wrapperixEj.exit.us ], [ %exitcond.not.not.not, %.lr.ph15 ], [ %exitcond.not.not.not, %_ZNK3sat14clause_wrapperixEj.exit ]
   ret i1 %.not.lcssa
 }
 
@@ -1271,7 +1271,7 @@ _ZNK3sat14clause_wrapperixEj.exit:                ; preds = %.lr.ph15
   br i1 %20, label %.critedge, label %.lr.ph15, !llvm.loop !58
 
 .critedge:                                        ; preds = %_ZNK3sat14clause_wrapperixEj.exit, %.lr.ph15, %_ZNK3sat14clause_wrapperixEj.exit.us, %.lr.ph18, %.lr.ph.split.us, %.lr.ph.split, %_ZNK3sat14clause_wrapper4sizeEv.exit
-  %.not.lcssa = phi i1 [ false, %_ZNK3sat14clause_wrapper4sizeEv.exit ], [ true, %.lr.ph.split.us ], [ true, %.lr.ph.split ], [ %exitcond23.not.not.not, %_ZNK3sat14clause_wrapperixEj.exit.us ], [ %exitcond23.not.not.not, %.lr.ph18 ], [ %exitcond.not.not.not, %.lr.ph15 ], [ %exitcond.not.not.not, %_ZNK3sat14clause_wrapperixEj.exit ]
+  %.not.lcssa = phi i1 [ false, %_ZNK3sat14clause_wrapper4sizeEv.exit ], [ true, %.lr.ph.split.us ], [ true, %.lr.ph.split ], [ %exitcond23.not.not.not, %.lr.ph18 ], [ %exitcond23.not.not.not, %_ZNK3sat14clause_wrapperixEj.exit.us ], [ %exitcond.not.not.not, %.lr.ph15 ], [ %exitcond.not.not.not, %_ZNK3sat14clause_wrapperixEj.exit ]
   ret i1 %.not.lcssa
 }
 

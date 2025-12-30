@@ -745,7 +745,7 @@ get_fps.exit.i.us.i:                              ; preds = %300, %297
   br label %ff_vbv_update.exit.us.i
 
 ff_vbv_update.exit.us.i:                          ; preds = %355, %348, %327, %get_fps.exit.i.us.i
-  %.1.i223.us.i = phi i32 [ 0, %get_fps.exit.i.us.i ], [ 0, %327 ], [ %.039.i.us.i, %348 ], [ %.039.i.us.i, %355 ]
+  %.1.i223.us.i = phi i32 [ 0, %327 ], [ 0, %get_fps.exit.i.us.i ], [ %.039.i.us.i, %348 ], [ %.039.i.us.i, %355 ]
   %356 = shl nsw i32 %.1.i223.us.i, 3
   %357 = sitofp i32 %356 to double
   %358 = fadd nsz double %287, %357
@@ -852,7 +852,7 @@ ff_vbv_update.exit.us.i:                          ; preds = %355, %348, %327, %g
   br label %411
 
 411:                                              ; preds = %410, %407, %398
-  %.2.i211.us.i = phi nsz double [ %405, %398 ], [ %.14.i210.us.i, %407 ], [ %408, %410 ]
+  %.2.i211.us.i = phi nsz double [ %408, %410 ], [ %.14.i210.us.i, %407 ], [ %405, %398 ]
   store double %.2.i211.us.i, ptr %400, align 8, !tbaa !98
   %.not.i212.us.i = icmp eq i32 %.val205.us.i, 3
   br i1 %.not.i212.us.i, label %get_diff_limited_q.exit220.us.i, label %412
@@ -953,7 +953,7 @@ get_diff_limited_q.exit220.us.i:                  ; preds = %412, %411
   br label %459
 
 459:                                              ; preds = %458, %455, %446
-  %.2.i.us.i = phi nsz double [ %453, %446 ], [ %.14.i.us.i, %455 ], [ %456, %458 ]
+  %.2.i.us.i = phi nsz double [ %456, %458 ], [ %.14.i.us.i, %455 ], [ %453, %446 ]
   store double %.2.i.us.i, ptr %448, align 8, !tbaa !98
   %.not.i.us.i = icmp eq i32 %.val.us.i, 3
   br i1 %.not.i.us.i, label %get_diff_limited_q.exit.us.i, label %460
@@ -1239,8 +1239,8 @@ get_diff_limited_q.exit.us.i:                     ; preds = %460, %459
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %146, i32 noundef 16, ptr noundef nonnull @.str.50) #13
   br label %.thread211
 
-.thread211:                                       ; preds = %224, %533, %580, %586
-  %.0.i.ph = phi i32 [ -1, %586 ], [ -1, %580 ], [ -12, %533 ], [ -1, %224 ]
+.thread211:                                       ; preds = %224, %580, %586, %533
+  %.0.i.ph = phi i32 [ -12, %533 ], [ -1, %586 ], [ -1, %580 ], [ -1, %224 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread207
@@ -1332,7 +1332,7 @@ get_diff_limited_q.exit.us.i:                     ; preds = %460, %459
   br label %643
 
 643:                                              ; preds = %639, %623
-  %.sink = phi i32 [ %., %639 ], [ 1, %623 ]
+  %.sink = phi i32 [ 1, %623 ], [ %., %639 ]
   store i32 %.sink, ptr %5, align 8, !tbaa !112
   store i32 %.sink, ptr %606, align 8, !tbaa !110
   %644 = fmul nsz double %633, %632
@@ -1460,8 +1460,8 @@ get_fps.exit204:                                  ; preds = %691, %692
   store ptr %713, ptr %714, align 8, !tbaa !162
   br label %.thread207
 
-.thread207:                                       ; preds = %703, %91, %139, %._crit_edge, %.loopexit, %712, %.thread211, %599, %54
-  %.0 = phi i32 [ %45, %54 ], [ 0, %.loopexit ], [ -1, %._crit_edge ], [ -1, %599 ], [ %.0.i.ph, %.thread211 ], [ 0, %712 ], [ -12, %91 ], [ -1, %139 ], [ -12, %703 ]
+.thread207:                                       ; preds = %703, %91, %._crit_edge, %139, %.loopexit, %712, %.thread211, %599, %54
+  %.0 = phi i32 [ %45, %54 ], [ -1, %599 ], [ %.0.i.ph, %.thread211 ], [ 0, %712 ], [ 0, %.loopexit ], [ -12, %91 ], [ -1, %._crit_edge ], [ -1, %139 ], [ -12, %703 ]
   ret i32 %.0
 }
 
@@ -1773,9 +1773,9 @@ qp2bits.exit:                                     ; preds = %162, %165
   br label %180
 
 180:                                              ; preds = %qp2bits.exit, %175, %155, %149
-  %.pre102 = phi i32 [ %.pre101, %155 ], [ %.pre101, %149 ], [ %.pre, %qp2bits.exit ], [ %.pre101, %175 ]
-  %181 = phi i32 [ %150, %155 ], [ %150, %149 ], [ %.pre, %qp2bits.exit ], [ %150, %175 ]
-  %.2 = phi nsz double [ %.198, %155 ], [ %.198, %149 ], [ %174, %qp2bits.exit ], [ %179, %175 ]
+  %.pre102 = phi i32 [ %.pre101, %149 ], [ %.pre101, %155 ], [ %.pre, %qp2bits.exit ], [ %.pre101, %175 ]
+  %181 = phi i32 [ %150, %149 ], [ %150, %155 ], [ %.pre, %qp2bits.exit ], [ %150, %175 ]
+  %.2 = phi nsz double [ %.198, %149 ], [ %.198, %155 ], [ %174, %qp2bits.exit ], [ %179, %175 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %182 = sext i32 %181 to i64
   %183 = icmp slt i64 %indvars.iv.next, %182
@@ -1829,7 +1829,7 @@ bits2qp.exit:                                     ; preds = %._crit_edge, %185
   br label %209
 
 209:                                              ; preds = %.sink.split, %195, %bits2qp.exit, %199
-  %.091 = phi nsz double [ %194, %bits2qp.exit ], [ %194, %195 ], [ %194, %199 ], [ %208, %.sink.split ]
+  %.091 = phi nsz double [ %194, %199 ], [ %194, %bits2qp.exit ], [ %194, %195 ], [ %208, %.sink.split ]
   %210 = fcmp nsz olt double %.091, 1.000000e+00
   %.192 = select nsz i1 %210, double 1.000000e+00, double %.091
   br label %211
@@ -1980,7 +1980,7 @@ get_fps.exit:                                     ; preds = %12, %13
   br label %.thread
 
 .thread:                                          ; preds = %73, %66, %get_fps.exit, %44
-  %.1 = phi i32 [ 0, %get_fps.exit ], [ 0, %44 ], [ %.039, %66 ], [ %.039, %73 ]
+  %.1 = phi i32 [ 0, %44 ], [ 0, %get_fps.exit ], [ %.039, %66 ], [ %.039, %73 ]
   ret i32 %.1
 }
 
@@ -2479,7 +2479,7 @@ update_predictor.exit:                            ; preds = %63, %55, %get_fps.e
   br label %287
 
 287:                                              ; preds = %286, %283, %273
-  %.2.i = phi nsz double [ %281, %273 ], [ %.14.i, %283 ], [ %284, %286 ]
+  %.2.i = phi nsz double [ %284, %286 ], [ %.14.i, %283 ], [ %281, %273 ]
   store double %.2.i, ptr %275, align 8, !tbaa !98
   %.not.i193 = icmp eq i32 %.0171.val, 3
   br i1 %.not.i193, label %get_diff_limited_q.exit, label %288
@@ -2606,7 +2606,7 @@ get_diff_limited_q.exit:                          ; preds = %287, %288
   br label %355
 
 355:                                              ; preds = %348, %351, %354
-  %.2 = phi nsz float [ %.0165, %351 ], [ %352, %354 ], [ %349, %348 ]
+  %.2 = phi nsz float [ %352, %354 ], [ %.0165, %351 ], [ %349, %348 ]
   %356 = getelementptr inbounds nuw i8, ptr %0, i64 4856
   %357 = load i32, ptr %356, align 8, !tbaa !158
   %.not189 = icmp eq i32 %357, 0
@@ -3098,7 +3098,7 @@ get_qminmax.exit:                                 ; preds = %39, %.sink.split.i
   br label %86
 
 86:                                               ; preds = %78, %83, %85
-  %.081 = phi nsz double [ %81, %83 ], [ 1.000000e-04, %85 ], [ 1.000000e+00, %78 ]
+  %.081 = phi nsz double [ 1.000000e-04, %85 ], [ %81, %83 ], [ 1.000000e+00, %78 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8032
   %88 = load float, ptr %87, align 8, !tbaa !211
   %89 = fpext nsz float %88 to double
@@ -3167,7 +3167,7 @@ bits2qp.exit:                                     ; preds = %86, %102
   br label %131
 
 131:                                              ; preds = %124, %128, %130
-  %.080 = phi nsz double [ %126, %128 ], [ 1.000000e-04, %130 ], [ 1.000000e+00, %124 ]
+  %.080 = phi nsz double [ 1.000000e-04, %130 ], [ %126, %128 ], [ 1.000000e+00, %124 ]
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 8032
   %133 = load float, ptr %132, align 8, !tbaa !211
   %134 = fpext nsz float %133 to double
@@ -3257,7 +3257,7 @@ bits2qp.exit102:                                  ; preds = %131, %147
   br label %194
 
 194:                                              ; preds = %173, %178, %175, %179
-  %.6 = phi nsz double [ %193, %179 ], [ %176, %178 ], [ %.5, %175 ], [ %172, %173 ]
+  %.6 = phi nsz double [ %176, %178 ], [ %.5, %175 ], [ %193, %179 ], [ %172, %173 ]
   ret double %.6
 }
 

@@ -654,7 +654,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit139: ; preds = %250, %254, %260
   br label %277
 
 .body128:                                         ; preds = %246, %209, %248
-  %.pn62.pn = phi { ptr, i32 } [ %210, %209 ], [ %249, %248 ], [ %247, %246 ]
+  %.pn62.pn = phi { ptr, i32 } [ %249, %248 ], [ %247, %246 ], [ %210, %209 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
   br label %264
 
@@ -1059,7 +1059,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit145: ; preds = %_ZN4cvc58internal1
   ret void
 
 .body164:                                         ; preds = %368, %264, %169
-  %.pn74.pn.pn.pn = phi { ptr, i32 } [ %369, %368 ], [ %.pn68.pn.pn, %169 ], [ %.pn62.pn.pn, %264 ]
+  %.pn74.pn.pn.pn = phi { ptr, i32 } [ %.pn68.pn.pn, %169 ], [ %.pn62.pn.pn, %264 ], [ %369, %368 ]
   resume { ptr, i32 } %.pn74.pn.pn.pn
 }
 
@@ -1559,7 +1559,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit259: ; preds = %182, %187, %193
   br i1 %.not591, label %.thread567, label %.lr.ph
 
 223:                                              ; preds = %215, %213
-  %.pn223.pn = phi { ptr, i32 } [ %216, %215 ], [ %214, %213 ]
+  %.pn223.pn = phi { ptr, i32 } [ %214, %213 ], [ %216, %215 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.body
 
@@ -2013,7 +2013,7 @@ _ZNK4cvc58internal12NodeTemplateILb0EE8getConstIbEERKT_v.exit: ; preds = %324
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit284
 
 397:                                              ; preds = %387, %395, %355, %353, %381, %379, %377, %385, %383, %335
-  %.pn211.pn = phi { ptr, i32 } [ %336, %335 ], [ %354, %353 ], [ %382, %381 ], [ %384, %383 ], [ %388, %387 ], [ %386, %385 ], [ %396, %395 ], [ %380, %379 ], [ %356, %355 ], [ %378, %377 ]
+  %.pn211.pn = phi { ptr, i32 } [ %336, %335 ], [ %388, %387 ], [ %396, %395 ], [ %356, %355 ], [ %354, %353 ], [ %378, %377 ], [ %382, %381 ], [ %380, %379 ], [ %386, %385 ], [ %384, %383 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %.body
 
@@ -2761,7 +2761,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit284: ; preds = %260, %_ZN4cvc58in
   ret void
 
 .body:                                            ; preds = %95, %223, %268, %.body350, %397, %197
-  %.pn236 = phi { ptr, i32 } [ %.pn191.pn.pn.pn.pn, %.body350 ], [ %96, %95 ], [ %.pn211.pn, %397 ], [ %.pn226.pn578, %268 ], [ %.pn223.pn, %223 ], [ %.pn178.pn, %197 ]
+  %.pn236 = phi { ptr, i32 } [ %.pn178.pn, %197 ], [ %.pn211.pn, %397 ], [ %.pn191.pn.pn.pn.pn, %.body350 ], [ %.pn226.pn578, %268 ], [ %.pn223.pn, %223 ], [ %96, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn236
 }

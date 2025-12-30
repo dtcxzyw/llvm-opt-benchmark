@@ -1519,13 +1519,13 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass18PyClassPyO3Options10set_op
           to label %74 unwind label %72
 
 70:                                               ; preds = %.thread82, %.thread80, %.thread78, %.thread76, %.thread74, %.thread, %327, %310, %300, %260, %248, %202, %72
-  %.sroa.038.1 = phi i1 [ %.sroa.038.0, %72 ], [ true, %202 ], [ true, %.thread ], [ true, %248 ], [ true, %.thread74 ], [ true, %260 ], [ true, %.thread76 ], [ true, %300 ], [ true, %.thread78 ], [ true, %310 ], [ true, %.thread80 ], [ false, %327 ], [ false, %.thread82 ]
-  %.sroa.039.1 = phi i1 [ %.sroa.039.0, %72 ], [ true, %202 ], [ true, %.thread ], [ true, %248 ], [ true, %.thread74 ], [ true, %260 ], [ true, %.thread76 ], [ true, %300 ], [ true, %.thread78 ], [ false, %310 ], [ false, %.thread80 ], [ true, %327 ], [ true, %.thread82 ]
-  %.sroa.040.1 = phi i1 [ %.sroa.040.0, %72 ], [ true, %202 ], [ true, %.thread ], [ true, %248 ], [ true, %.thread74 ], [ true, %260 ], [ true, %.thread76 ], [ false, %300 ], [ false, %.thread78 ], [ true, %310 ], [ true, %.thread80 ], [ true, %327 ], [ true, %.thread82 ]
-  %.sroa.041.1 = phi i1 [ %.sroa.041.0, %72 ], [ true, %202 ], [ true, %.thread ], [ true, %248 ], [ true, %.thread74 ], [ false, %260 ], [ false, %.thread76 ], [ true, %300 ], [ true, %.thread78 ], [ true, %310 ], [ true, %.thread80 ], [ true, %327 ], [ true, %.thread82 ]
-  %.sroa.042.1 = phi i1 [ %.sroa.042.0, %72 ], [ true, %202 ], [ true, %.thread ], [ false, %248 ], [ false, %.thread74 ], [ true, %260 ], [ true, %.thread76 ], [ true, %300 ], [ true, %.thread78 ], [ true, %310 ], [ true, %.thread80 ], [ true, %327 ], [ true, %.thread82 ]
-  %.sroa.043.1 = phi i1 [ %.sroa.043.0, %72 ], [ false, %202 ], [ false, %.thread ], [ true, %248 ], [ true, %.thread74 ], [ true, %260 ], [ true, %.thread76 ], [ true, %300 ], [ true, %.thread78 ], [ true, %310 ], [ true, %.thread80 ], [ true, %327 ], [ true, %.thread82 ]
-  %.pn70 = phi { ptr, i32 } [ %73, %72 ], [ %203, %202 ], [ %199, %.thread ], [ %249, %248 ], [ %246, %.thread74 ], [ %261, %260 ], [ %256, %.thread76 ], [ %301, %300 ], [ %296, %.thread78 ], [ %311, %310 ], [ %308, %.thread80 ], [ %328, %327 ], [ %325, %.thread82 ]
+  %.sroa.038.1 = phi i1 [ %.sroa.038.0, %72 ], [ true, %202 ], [ true, %248 ], [ true, %260 ], [ true, %300 ], [ true, %310 ], [ false, %327 ], [ true, %.thread ], [ true, %.thread74 ], [ true, %.thread76 ], [ true, %.thread78 ], [ true, %.thread80 ], [ false, %.thread82 ]
+  %.sroa.039.1 = phi i1 [ %.sroa.039.0, %72 ], [ true, %202 ], [ true, %248 ], [ true, %260 ], [ true, %300 ], [ false, %310 ], [ true, %327 ], [ true, %.thread ], [ true, %.thread74 ], [ true, %.thread76 ], [ true, %.thread78 ], [ false, %.thread80 ], [ true, %.thread82 ]
+  %.sroa.040.1 = phi i1 [ %.sroa.040.0, %72 ], [ true, %202 ], [ true, %248 ], [ true, %260 ], [ false, %300 ], [ true, %310 ], [ true, %327 ], [ true, %.thread ], [ true, %.thread74 ], [ true, %.thread76 ], [ false, %.thread78 ], [ true, %.thread80 ], [ true, %.thread82 ]
+  %.sroa.041.1 = phi i1 [ %.sroa.041.0, %72 ], [ true, %202 ], [ true, %248 ], [ false, %260 ], [ true, %300 ], [ true, %310 ], [ true, %327 ], [ true, %.thread ], [ true, %.thread74 ], [ false, %.thread76 ], [ true, %.thread78 ], [ true, %.thread80 ], [ true, %.thread82 ]
+  %.sroa.042.1 = phi i1 [ %.sroa.042.0, %72 ], [ true, %202 ], [ false, %248 ], [ true, %260 ], [ true, %300 ], [ true, %310 ], [ true, %327 ], [ true, %.thread ], [ false, %.thread74 ], [ true, %.thread76 ], [ true, %.thread78 ], [ true, %.thread80 ], [ true, %.thread82 ]
+  %.sroa.043.1 = phi i1 [ %.sroa.043.0, %72 ], [ false, %202 ], [ true, %248 ], [ true, %260 ], [ true, %300 ], [ true, %310 ], [ true, %327 ], [ false, %.thread ], [ true, %.thread74 ], [ true, %.thread76 ], [ true, %.thread78 ], [ true, %.thread80 ], [ true, %.thread82 ]
+  %.pn70 = phi { ptr, i32 } [ %73, %72 ], [ %203, %202 ], [ %249, %248 ], [ %261, %260 ], [ %301, %300 ], [ %311, %310 ], [ %328, %327 ], [ %199, %.thread ], [ %246, %.thread74 ], [ %256, %.thread76 ], [ %296, %.thread78 ], [ %308, %.thread80 ], [ %325, %.thread82 ]
   %71 = load i32, ptr %2, align 8
   switch i32 %71, label %377 [
     i32 0, label %378
@@ -2570,7 +2570,7 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
           to label %78 unwind label %60
 
 .sink.split:                                      ; preds = %187, %127, %120, %115, %103
-  %.sink65 = phi ptr [ %18, %127 ], [ %19, %120 ], [ %118, %115 ], [ %106, %103 ], [ %23, %187 ]
+  %.sink65 = phi ptr [ %106, %103 ], [ %118, %115 ], [ %19, %120 ], [ %18, %127 ], [ %23, %187 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %.sink65, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
@@ -3487,9 +3487,9 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass10impl_class17h7c9b
   invoke void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h2b7f2741f421f32dE"(ptr nonnull align 8 %46, ptr nonnull align 8 %28)
           to label %109 unwind label %.thread86
 
-.thread86:                                        ; preds = %105, %160, %109
-  %.sroa.026.2.ph = phi i8 [ 0, %109 ], [ 0, %160 ], [ 1, %105 ]
-  %.sroa.022.11.ph = phi i8 [ 1, %109 ], [ 0, %160 ], [ 1, %105 ]
+.thread86:                                        ; preds = %109, %105, %160
+  %.sroa.026.2.ph = phi i8 [ 0, %160 ], [ 1, %105 ], [ 0, %109 ]
+  %.sroa.022.11.ph = phi i8 [ 0, %160 ], [ 1, %105 ], [ 1, %109 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread75
@@ -4144,10 +4144,10 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
           to label %101 unwind label %280
 
 .thread104:                                       ; preds = %216, %224, %108, %285, %101
-  %.sroa.020.4113 = phi i8 [ %.sroa.020.4, %101 ], [ %.sroa.020.4, %285 ], [ 0, %108 ], [ 0, %224 ], [ 0, %216 ]
-  %.sroa.022.10112 = phi i8 [ %.sroa.022.10, %101 ], [ %.sroa.022.10, %285 ], [ 0, %108 ], [ 0, %224 ], [ 0, %216 ]
-  %.sroa.024.11111 = phi i8 [ 1, %101 ], [ 1, %285 ], [ 0, %108 ], [ 0, %224 ], [ 0, %216 ]
-  %.pn50.pn110 = phi { ptr, i32 } [ %.pn50.pn, %101 ], [ %.pn50.pn, %285 ], [ %lpad.thr_comm.split-lp, %108 ], [ %.pn47.pn, %224 ], [ %217, %216 ]
+  %.sroa.020.4113 = phi i8 [ %.sroa.020.4, %285 ], [ %.sroa.020.4, %101 ], [ 0, %108 ], [ 0, %224 ], [ 0, %216 ]
+  %.sroa.022.10112 = phi i8 [ %.sroa.022.10, %285 ], [ %.sroa.022.10, %101 ], [ 0, %108 ], [ 0, %224 ], [ 0, %216 ]
+  %.sroa.024.11111 = phi i8 [ 1, %285 ], [ 1, %101 ], [ 0, %108 ], [ 0, %224 ], [ 0, %216 ]
+  %.pn50.pn110 = phi { ptr, i32 } [ %.pn50.pn, %285 ], [ %.pn50.pn, %101 ], [ %lpad.thr_comm.split-lp, %108 ], [ %.pn47.pn, %224 ], [ %217, %216 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$syn..item..ImplItemFn$GT$$GT$17h23cc46b339027361E"(ptr nonnull align 8 %52) #13
           to label %82 unwind label %280
 
@@ -4852,7 +4852,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14, !noalias !18
   unreachable
 
-.body22.thread70:                                 ; preds = %_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit.thread.i, %192, %204, %205, %_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exit.thread.i, %_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exit.i, %236, %.noexc25
+.body22.thread70:                                 ; preds = %192, %204, %205, %_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exit.thread.i, %_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exit.i, %236, %.noexc25, %_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit.thread.i
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body22.thread
@@ -5020,8 +5020,8 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
           to label %300 unwind label %.loopexit.split-lp.i.i, !noalias !33
 
 299:                                              ; preds = %729, %.body107.i.i, %317, %.loopexit.split-lp.i.i, %.loopexit.i.i
-  %.sroa.041.6.i.i = phi i8 [ 1, %317 ], [ %.sroa.041.9.i.i, %729 ], [ 1, %.body107.i.i ], [ 1, %.loopexit.i.i ], [ %.sroa.041.5.ph.i.i, %.loopexit.split-lp.i.i ]
-  %.pn97.i.i = phi { ptr, i32 } [ %.pn67.i.i, %317 ], [ %.pn94.pn.i.i, %729 ], [ %eh.lpad-body108.i.i, %.body107.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
+  %.sroa.041.6.i.i = phi i8 [ %.sroa.041.9.i.i, %729 ], [ 1, %.body107.i.i ], [ 1, %317 ], [ 1, %.loopexit.i.i ], [ %.sroa.041.5.ph.i.i, %.loopexit.split-lp.i.i ]
+  %.pn97.i.i = phi { ptr, i32 } [ %.pn94.pn.i.i, %729 ], [ %eh.lpad-body108.i.i, %.body107.i.i ], [ %.pn67.i.i, %317 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %99) #13
           to label %294 unwind label %708, !noalias !33
 
@@ -5979,7 +5979,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   br label %.body.i.i.i
 
 .body.i.i.i:                                      ; preds = %586, %576, %570
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %577, %576 ], [ %571, %570 ], [ %587, %586 ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %571, %570 ], [ %577, %576 ], [ %587, %586 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$syn..item..ImplItemFn$GT$17ha2b11de006741d53E"(ptr nonnull align 8 %23) #13
           to label %482 unwind label %595, !noalias !34
 
@@ -6098,7 +6098,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   br i1 %599, label %.body117.thread.i.i, label %722
 
 600:                                              ; preds = %711, %699, %598, %594, %432, %431, %.noexc111.i.i, %.noexc.i.i, %425
-  %.sroa.041.10.i.i = phi i8 [ 0, %699 ], [ %.sroa.041.22.i.i, %711 ], [ 1, %598 ], [ 1, %425 ], [ 1, %.noexc.i.i ], [ 1, %.noexc111.i.i ], [ 1, %431 ], [ 1, %432 ], [ 1, %594 ]
+  %.sroa.041.10.i.i = phi i8 [ 0, %699 ], [ %.sroa.041.22.i.i, %711 ], [ 1, %425 ], [ 1, %.noexc.i.i ], [ 1, %.noexc111.i.i ], [ 1, %431 ], [ 1, %432 ], [ 1, %594 ], [ 1, %598 ]
   %601 = landingpad { ptr, i32 }
           cleanup
   br label %.body117.i.i
@@ -6555,7 +6555,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
           to label %717 unwind label %600, !noalias !33
 
 712:                                              ; preds = %626, %625, %623
-  %.sroa.044.1.ph.i.i = phi i1 [ false, %625 ], [ false, %626 ], [ true, %623 ]
+  %.sroa.044.1.ph.i.i = phi i1 [ true, %623 ], [ false, %625 ], [ false, %626 ]
   %lpad.thr_comm.i.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pymethod..MethodAndSlotDef$GT$$GT$17hfb0c07d092f58d89E"(ptr nonnull align 8 %60) #13
@@ -6854,8 +6854,8 @@ _ZN19pyo3_macros_backend7pyclass16impl_simple_enum17hed1b310fd78c2cb4E.exit.i: ;
   call void @"_ZN4core3ptr62drop_in_place$LT$pyo3_macros_backend..pyclass..PyClassArgs$GT$17h2dd9a1b192133412E"(ptr align 8 %2)
   ret void
 
-.body22.thread:                                   ; preds = %211, %220, %243, %199, %.body22.thread70
-  %eh.lpad-body2365 = phi { ptr, i32 } [ %lpad.thr_comm, %.body22.thread70 ], [ %212, %211 ], [ %221, %220 ], [ %.pn18.i.i, %243 ], [ %200, %199 ]
+.body22.thread:                                   ; preds = %199, %211, %220, %243, %.body22.thread70
+  %eh.lpad-body2365 = phi { ptr, i32 } [ %lpad.thr_comm, %.body22.thread70 ], [ %200, %199 ], [ %.pn18.i.i, %243 ], [ %221, %220 ], [ %212, %211 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$pyo3_macros_backend..utils..PythonDoc$GT$17h7e63866d37bbf73dE"(ptr nonnull align 8 %130) #13
           to label %.body22.thread66 unwind label %761
 
@@ -7248,7 +7248,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass22EnumVariantPyO3Options10se
   br label %27
 
 31:                                               ; preds = %.thread9, %.thread, %44, %32
-  %.pn4.pn = phi { ptr, i32 } [ %33, %32 ], [ %28, %.thread ], [ %45, %44 ], [ %42, %.thread9 ]
+  %.pn4.pn = phi { ptr, i32 } [ %33, %32 ], [ %45, %44 ], [ %28, %.thread ], [ %42, %.thread9 ]
   resume { ptr, i32 } %.pn4.pn
 
 32:                                               ; preds = %25, %23, %21
@@ -8366,7 +8366,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
           to label %510 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %540, %526, %514
-  %.pn150 = phi { ptr, i32 } [ %.pn146, %514 ], [ %541, %540 ], [ %.pn148, %526 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit286, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit289, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit291, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp292, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn150 = phi { ptr, i32 } [ %541, %540 ], [ %.pn148, %526 ], [ %.pn146, %514 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit286, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit289, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit291, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp292, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %115) #13
           to label %413 unwind label %609
 
@@ -8734,8 +8734,8 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
           to label %617 unwind label %.loopexit303
 
 616:                                              ; preds = %.loopexit303, %.loopexit.split-lp304, %.thread244, %659, %650, %618
-  %.sroa.057.3 = phi i8 [ 1, %618 ], [ %.sroa.057.5, %.thread244 ], [ 1, %659 ], [ 1, %650 ], [ %.sroa.057.2.ph, %.loopexit303 ], [ %.sroa.057.7, %.loopexit.split-lp304 ]
-  %.pn141 = phi { ptr, i32 } [ %.pn132, %618 ], [ %.pn137.pn.pn, %.thread244 ], [ %660, %659 ], [ %651, %650 ], [ %lpad.loopexit305, %.loopexit303 ], [ %lpad.loopexit.split-lp306, %.loopexit.split-lp304 ]
+  %.sroa.057.3 = phi i8 [ %.sroa.057.5, %.thread244 ], [ 1, %659 ], [ 1, %650 ], [ 1, %618 ], [ %.sroa.057.2.ph, %.loopexit303 ], [ %.sroa.057.7, %.loopexit.split-lp304 ]
+  %.pn141 = phi { ptr, i32 } [ %.pn137.pn.pn, %.thread244 ], [ %660, %659 ], [ %651, %650 ], [ %.pn132, %618 ], [ %lpad.loopexit305, %.loopexit303 ], [ %lpad.loopexit.split-lp306, %.loopexit.split-lp304 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %140) #13
           to label %611 unwind label %609
 
@@ -8922,8 +8922,8 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
           to label %662 unwind label %.loopexit308
 
 .thread244:                                       ; preds = %.loopexit308, %.loopexit.split-lp309, %1039, %1032, %1044, %670, %1051
-  %.sroa.057.5 = phi i8 [ %.sroa.057.9.ph, %1051 ], [ 0, %1039 ], [ 0, %670 ], [ 0, %1044 ], [ 0, %1032 ], [ 1, %.loopexit308 ], [ 0, %.loopexit.split-lp309 ]
-  %.pn137.pn.pn = phi { ptr, i32 } [ %.pn137.pn.ph, %1051 ], [ %1040, %1039 ], [ %lpad.thr_comm.split-lp258, %670 ], [ %1045, %1044 ], [ %1033, %1032 ], [ %lpad.loopexit310, %.loopexit308 ], [ %lpad.loopexit.split-lp311, %.loopexit.split-lp309 ]
+  %.sroa.057.5 = phi i8 [ %.sroa.057.9.ph, %1051 ], [ 0, %670 ], [ 0, %1044 ], [ 0, %1032 ], [ 0, %1039 ], [ 1, %.loopexit308 ], [ 0, %.loopexit.split-lp309 ]
+  %.pn137.pn.pn = phi { ptr, i32 } [ %.pn137.pn.ph, %1051 ], [ %lpad.thr_comm.split-lp258, %670 ], [ %1045, %1044 ], [ %1033, %1032 ], [ %1040, %1039 ], [ %lpad.loopexit310, %.loopexit308 ], [ %lpad.loopexit.split-lp311, %.loopexit.split-lp309 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$pyo3_macros_backend..pyclass..PyClassArgs$GT$17h2dd9a1b192133412E"(ptr nonnull align 8 %129) #13
           to label %616 unwind label %609
 
@@ -8965,8 +8965,8 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
   store i64 -9223372036854775807, ptr %0, align 8
   br label %.thread265
 
-.thread259:                                       ; preds = %.sink.split.i.i, %1030, %.sink.split.i13.i, %667
-  %.sroa.057.6.ph = phi i8 [ 1, %667 ], [ 0, %.sink.split.i13.i ], [ 0, %1030 ], [ 0, %.sink.split.i.i ]
+.thread259:                                       ; preds = %1030, %667, %.sink.split.i.i, %.sink.split.i13.i
+  %.sroa.057.6.ph = phi i8 [ 0, %.sink.split.i13.i ], [ 0, %.sink.split.i.i ], [ 1, %667 ], [ 0, %1030 ]
   %lpad.thr_comm257 = landingpad { ptr, i32 }
           cleanup
   br label %.thread248
@@ -9548,7 +9548,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
           to label %775 unwind label %756
 
 .thread103.i.i:                                   ; preds = %766, %760, %.thread107.i.i
-  %.pn88106.i.i = phi { ptr, i32 } [ %752, %.thread107.i.i ], [ %.pn86.i.i, %760 ], [ %767, %766 ]
+  %.pn88106.i.i = phi { ptr, i32 } [ %.pn86.i.i, %760 ], [ %752, %.thread107.i.i ], [ %767, %766 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$pyo3_macros_backend..pyfunction..signature..FunctionSignature$GT$17h9281387b7aed982aE"(ptr nonnull align 8 %70) #13
           to label %724 unwind label %756
 
@@ -10231,7 +10231,7 @@ _ZN19pyo3_macros_backend7pyclass31complex_enum_struct_variant_new17h9ee762c91a75
           to label %948 unwind label %929
 
 .thread113.i.i:                                   ; preds = %939, %933, %.thread117.i.i
-  %.pn98116.i.i = phi { ptr, i32 } [ %925, %.thread117.i.i ], [ %.pn96.i.i, %933 ], [ %940, %939 ]
+  %.pn98116.i.i = phi { ptr, i32 } [ %.pn96.i.i, %933 ], [ %925, %.thread117.i.i ], [ %940, %939 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$pyo3_macros_backend..pyfunction..signature..FunctionSignature$GT$17h9281387b7aed982aE"(ptr nonnull align 8 %24) #13
           to label %897 unwind label %929
 
@@ -10477,8 +10477,8 @@ _ZN19pyo3_macros_backend7pyclass30complex_enum_tuple_variant_new17h53206f9bb0424
           to label %.thread265 unwind label %.loopexit.split-lp309
 
 .thread248:                                       ; preds = %1027, %1023, %1013, %1009, %1008, %999, %989, %985, %984, %975, %846, %842, %840, %836, %835, %826, %816, %812, %811, %802, %.thread259
-  %eh.lpad-body254 = phi { ptr, i32 } [ %lpad.thr_comm257, %.thread259 ], [ %824, %836 ], [ %803, %811 ], [ %803, %802 ], [ %800, %816 ], [ %800, %812 ], [ %.pn97.i.i, %846 ], [ %.pn97.i.i, %842 ], [ %827, %835 ], [ %827, %826 ], [ %824, %840 ], [ %976, %984 ], [ %976, %975 ], [ %973, %989 ], [ %973, %985 ], [ %.pn107.i.i, %1027 ], [ %.pn107.i.i, %1023 ], [ %1000, %1008 ], [ %1000, %999 ], [ %997, %1013 ], [ %997, %1009 ]
-  %.sroa.057.6.lpad-body253 = phi i8 [ %.sroa.057.6.ph, %.thread259 ], [ 0, %836 ], [ 0, %811 ], [ 0, %802 ], [ 0, %816 ], [ 0, %812 ], [ 0, %846 ], [ 0, %842 ], [ 0, %835 ], [ 0, %826 ], [ 0, %840 ], [ 0, %984 ], [ 0, %975 ], [ 0, %989 ], [ 0, %985 ], [ 0, %1027 ], [ 0, %1023 ], [ 0, %1008 ], [ 0, %999 ], [ 0, %1013 ], [ 0, %1009 ]
+  %eh.lpad-body254 = phi { ptr, i32 } [ %lpad.thr_comm257, %.thread259 ], [ %803, %811 ], [ %803, %802 ], [ %800, %816 ], [ %800, %812 ], [ %.pn97.i.i, %846 ], [ %.pn97.i.i, %842 ], [ %827, %835 ], [ %827, %826 ], [ %824, %840 ], [ %824, %836 ], [ %976, %984 ], [ %976, %975 ], [ %973, %989 ], [ %973, %985 ], [ %.pn107.i.i, %1027 ], [ %.pn107.i.i, %1023 ], [ %1000, %1008 ], [ %1000, %999 ], [ %997, %1013 ], [ %997, %1009 ]
+  %.sroa.057.6.lpad-body253 = phi i8 [ %.sroa.057.6.ph, %.thread259 ], [ 0, %811 ], [ 0, %802 ], [ 0, %816 ], [ 0, %812 ], [ 0, %846 ], [ 0, %842 ], [ 0, %835 ], [ 0, %826 ], [ 0, %840 ], [ 0, %836 ], [ 0, %984 ], [ 0, %975 ], [ 0, %989 ], [ 0, %985 ], [ 0, %1027 ], [ 0, %1023 ], [ 0, %1008 ], [ 0, %999 ], [ 0, %1013 ], [ 0, %1009 ]
   invoke void @"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pymethod..MethodAndSlotDef$GT$$GT$17hfb0c07d092f58d89E"(ptr nonnull align 8 %123) #13
           to label %1051 unwind label %609
 
@@ -10587,17 +10587,17 @@ _ZN19pyo3_macros_backend7pyclass30complex_enum_tuple_variant_new17h53206f9bb0424
 .thread204:                                       ; preds = %1077
   br i1 %.sroa.068.0.ph, label %1078, label %.thread204.thread
 
-1077:                                             ; preds = %263, %271, %270
-  %.sroa.068.0.ph = phi i1 [ false, %270 ], [ false, %271 ], [ true, %263 ]
+1077:                                             ; preds = %271, %270, %263
+  %.sroa.068.0.ph = phi i1 [ true, %263 ], [ false, %270 ], [ false, %271 ]
   %lpad.thr_comm216 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pymethod..MethodAndSlotDef$GT$$GT$17hfb0c07d092f58d89E"(ptr nonnull align 8 %177) #13
           to label %.thread204 unwind label %609
 
 .thread204.thread:                                ; preds = %.thread229, %269, %1078, %.thread204
-  %.sroa.061.10210281 = phi i8 [ 1, %.thread204 ], [ 1, %1078 ], [ %.sroa.061.11, %.thread229 ], [ %.sroa.061.8.ph, %269 ]
-  %.sroa.063.17211280 = phi i8 [ 1, %.thread204 ], [ 1, %1078 ], [ 0, %.thread229 ], [ 0, %269 ]
-  %.pn164213279 = phi { ptr, i32 } [ %lpad.thr_comm216, %.thread204 ], [ %lpad.thr_comm216, %1078 ], [ %.pn161.pn, %.thread229 ], [ %lpad.thr_comm.split-lp217, %269 ]
+  %.sroa.061.10210281 = phi i8 [ 1, %1078 ], [ 1, %.thread204 ], [ %.sroa.061.11, %.thread229 ], [ %.sroa.061.8.ph, %269 ]
+  %.sroa.063.17211280 = phi i8 [ 1, %1078 ], [ 1, %.thread204 ], [ 0, %.thread229 ], [ 0, %269 ]
+  %.pn164213279 = phi { ptr, i32 } [ %lpad.thr_comm216, %1078 ], [ %lpad.thr_comm216, %.thread204 ], [ %.pn161.pn, %.thread229 ], [ %lpad.thr_comm.split-lp217, %269 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$syn..item..ImplItemFn$GT$$GT$17h23cc46b339027361E"(ptr nonnull align 8 %180) #13
           to label %.thread195 unwind label %609
 
@@ -10606,9 +10606,9 @@ _ZN19pyo3_macros_backend7pyclass30complex_enum_tuple_variant_new17h53206f9bb0424
           to label %.thread204.thread unwind label %609
 
 .thread195:                                       ; preds = %.thread204.thread, %.thread200, %1082, %1079
-  %.sroa.061.7 = phi i8 [ 1, %1082 ], [ %.sroa.061.4.ph, %.thread200 ], [ 1, %1079 ], [ %.sroa.061.10210281, %.thread204.thread ]
-  %.sroa.063.14 = phi i8 [ 1, %1082 ], [ 0, %.thread200 ], [ 1, %1079 ], [ %.sroa.063.17211280, %.thread204.thread ]
-  %.pn166.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %1082 ], [ %lpad.thr_comm, %.thread200 ], [ %1080, %1079 ], [ %.pn164213279, %.thread204.thread ]
+  %.sroa.061.7 = phi i8 [ 1, %1082 ], [ 1, %1079 ], [ %.sroa.061.4.ph, %.thread200 ], [ %.sroa.061.10210281, %.thread204.thread ]
+  %.sroa.063.14 = phi i8 [ 1, %1082 ], [ 1, %1079 ], [ 0, %.thread200 ], [ %.sroa.063.17211280, %.thread204.thread ]
+  %.pn166.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %1082 ], [ %1080, %1079 ], [ %lpad.thr_comm, %.thread200 ], [ %.pn164213279, %.thread204.thread ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$syn..item..ImplItemFn$GT$$GT$17h23cc46b339027361E"(ptr nonnull align 8 %183) #13
           to label %250 unwind label %609
 
@@ -10997,8 +10997,8 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
           to label %199 unwind label %.loopexit.split-lp104.i, !noalias !66
 
 198:                                              ; preds = %453, %.thread94.i, %357, %350, %213, %.loopexit.split-lp104.i, %.loopexit103.i
-  %.sroa.026.1.i = phi i1 [ true, %.thread94.i ], [ true, %213 ], [ true, %453 ], [ true, %357 ], [ true, %350 ], [ true, %.loopexit103.i ], [ %.sroa.026.0.ph.i, %.loopexit.split-lp104.i ]
-  %.pn59.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %.thread94.i ], [ %.pn56.pn.i, %213 ], [ %.pn45.pn74.i, %453 ], [ %.pn45.pn.i, %357 ], [ %351, %350 ], [ %lpad.loopexit105.i, %.loopexit103.i ], [ %lpad.loopexit.split-lp106.i, %.loopexit.split-lp104.i ]
+  %.sroa.026.1.i = phi i1 [ true, %213 ], [ true, %453 ], [ true, %357 ], [ true, %350 ], [ true, %.thread94.i ], [ true, %.loopexit103.i ], [ %.sroa.026.0.ph.i, %.loopexit.split-lp104.i ]
+  %.pn59.i = phi { ptr, i32 } [ %.pn56.pn.i, %213 ], [ %.pn45.pn74.i, %453 ], [ %.pn45.pn.i, %357 ], [ %351, %350 ], [ %lpad.thr_comm.split-lp.i, %.thread94.i ], [ %lpad.loopexit105.i, %.loopexit103.i ], [ %lpad.loopexit.split-lp106.i, %.loopexit.split-lp104.i ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %167) #13
           to label %336 unwind label %345, !noalias !66
 
@@ -11184,7 +11184,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
           to label %249 unwind label %.loopexit.split-lp.i, !noalias !66
 
 248:                                              ; preds = %281, %252, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn54.i = phi { ptr, i32 } [ %lpad.phi102.i, %252 ], [ %.pn52.i, %281 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn54.i = phi { ptr, i32 } [ %.pn52.i, %281 ], [ %lpad.phi102.i, %252 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %128) #13
           to label %218 unwind label %345, !noalias !66
 
@@ -11985,7 +11985,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
           to label %198 unwind label %345, !noalias !66
 
 454:                                              ; preds = %.thread.i, %336
-  %.pn6170.i = phi { ptr, i32 } [ %448, %.thread.i ], [ %.pn59.i, %336 ]
+  %.pn6170.i = phi { ptr, i32 } [ %.pn59.i, %336 ], [ %448, %.thread.i ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pymethod..MethodAndMethodDef$GT$$GT$17h92afdbd25b5b4462E"(ptr nonnull align 8 %168) #13
           to label %450 unwind label %345, !noalias !66
 
@@ -13050,7 +13050,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %937 unwind label %948, !noalias !69
 
 675:                                              ; preds = %935, %790, %670, %664, %627
-  %.sroa.020.2.i = phi i1 [ false, %935 ], [ true, %790 ], [ true, %670 ], [ true, %627 ], [ true, %664 ]
+  %.sroa.020.2.i = phi i1 [ false, %935 ], [ true, %790 ], [ true, %627 ], [ true, %664 ], [ true, %670 ]
   %676 = landingpad { ptr, i32 }
           cleanup
   br label %.body81.i
@@ -13104,7 +13104,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %.body81.i unwind label %948, !noalias !69
 
 681:                                              ; preds = %934, %784, %683, %678
-  %.sroa.020.5.i = phi i1 [ false, %934 ], [ true, %784 ], [ true, %678 ], [ true, %683 ]
+  %.sroa.020.5.i = phi i1 [ false, %934 ], [ true, %678 ], [ true, %683 ], [ true, %784 ]
   %682 = landingpad { ptr, i32 }
           cleanup
   br label %.body92.i
@@ -13722,7 +13722,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %834 unwind label %.loopexit.split-lp.i10, !noalias !69
 
 833:                                              ; preds = %874, %837, %.loopexit.split-lp.i10, %.loopexit.i14
-  %.pn54.i12 = phi { ptr, i32 } [ %lpad.phi145.i, %837 ], [ %.pn52.i13, %874 ], [ %lpad.loopexit.i15, %.loopexit.i14 ], [ %lpad.loopexit.split-lp.i11, %.loopexit.split-lp.i10 ]
+  %.pn54.i12 = phi { ptr, i32 } [ %.pn52.i13, %874 ], [ %lpad.phi145.i, %837 ], [ %lpad.loopexit.i15, %.loopexit.i14 ], [ %lpad.loopexit.split-lp.i11, %.loopexit.split-lp.i10 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %89) #13
           to label %803 unwind label %948, !noalias !69
 
@@ -14150,7 +14150,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %959 unwind label %942, !noalias !69
 
 958:                                              ; preds = %.thread156.i, %937
-  %.pn65155.i = phi { ptr, i32 } [ %955, %.thread156.i ], [ %.pn63.i, %937 ]
+  %.pn65155.i = phi { ptr, i32 } [ %.pn63.i, %937 ], [ %955, %.thread156.i ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pymethod..MethodAndMethodDef$GT$$GT$17h92afdbd25b5b4462E"(ptr nonnull align 8 %106) #13
           to label %.body.i unwind label %948, !noalias !69
 
@@ -14182,7 +14182,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %_ZN19pyo3_macros_backend7pyclass35impl_complex_enum_tuple_variant_cls17hf4091065a9cf710eE.exit unwind label %459, !noalias !69
 
 965:                                              ; preds = %.thread159.i, %945
-  %.pn70158.i = phi { ptr, i32 } [ %960, %.thread159.i ], [ %.pn68.i1, %945 ]
+  %.pn70158.i = phi { ptr, i32 } [ %.pn68.i1, %945 ], [ %960, %.thread159.i ]
   invoke void @"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pymethod..MethodAndSlotDef$GT$$GT$17hfb0c07d092f58d89E"(ptr nonnull align 8 %109) #13
           to label %962 unwind label %948, !noalias !69
 
@@ -15742,7 +15742,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_vari
           to label %.thread unwind label %53
 
 .thread:                                          ; preds = %56, %41, %57
-  %.pn33 = phi { ptr, i32 } [ %42, %41 ], [ %lpad.thr_comm.split-lp, %57 ], [ %31, %56 ]
+  %.pn33 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %57 ], [ %31, %56 ], [ %42, %41 ]
   resume { ptr, i32 } %.pn33
 
 57:                                               ; preds = %24

@@ -548,7 +548,7 @@ rb_scan_args_set.exit.thread:                     ; preds = %.thread22
   br label %extract_options.exit
 
 .thread:                                          ; preds = %.thread22, %3, %20, %16
-  %.0.i13 = phi i32 [ 0, %16 ], [ %18, %20 ], [ %0, %3 ], [ %0, %.thread22 ]
+  %.0.i13 = phi i32 [ %18, %20 ], [ 0, %16 ], [ %0, %3 ], [ %0, %.thread22 ]
   tail call void @rb_error_arity(i32 noundef %.0.i13, i32 noundef 1, i32 noundef 1) #11
   unreachable
 
@@ -1111,7 +1111,7 @@ rb_scan_args_set.exit.thread:                     ; preds = %.thread16
   br label %extract_options.exit
 
 .thread:                                          ; preds = %.thread16, %4, %18, %14
-  %.0.i6 = phi i32 [ 0, %14 ], [ %16, %18 ], [ %0, %4 ], [ %0, %.thread16 ]
+  %.0.i6 = phi i32 [ %16, %18 ], [ 0, %14 ], [ %0, %4 ], [ %0, %.thread16 ]
   tail call void @rb_error_arity(i32 noundef %.0.i6, i32 noundef 1, i32 noundef 1) #11
   unreachable
 
@@ -1644,7 +1644,7 @@ rb_num2int_inline.exit:                           ; preds = %40, %42
   unreachable
 
 90:                                               ; preds = %.lr.ph, %82, %83, %84, %85, %86
-  %.sink = phi i8 [ 32, %86 ], [ 2, %82 ], [ 4, %83 ], [ 8, %84 ], [ 16, %85 ], [ 1, %.lr.ph ]
+  %.sink = phi i8 [ 2, %82 ], [ 4, %83 ], [ 8, %84 ], [ 16, %85 ], [ 32, %86 ], [ 1, %.lr.ph ]
   %91 = or i8 %.06165, %.sink
   %92 = add nuw i64 %.066, 1
   %exitcond.not = icmp eq i64 %92, %79
@@ -1974,7 +1974,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %.lr.ph, %RB_SYMBOL_
   unreachable
 
 99:                                               ; preds = %94, %91, %88, %RB_SYMBOL_P.exit.thread
-  %.sink = phi i8 [ 1, %RB_SYMBOL_P.exit.thread ], [ 4, %91 ], [ 2, %88 ], [ 8, %94 ]
+  %.sink = phi i8 [ 1, %RB_SYMBOL_P.exit.thread ], [ 2, %88 ], [ 4, %91 ], [ 8, %94 ]
   %100 = or i8 %.1113, %.sink
   %101 = add nuw i64 %.062112, 1
   %exitcond.not = icmp eq i64 %101, %.0.i79
@@ -1987,9 +1987,9 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %.lr.ph, %RB_SYMBOL_
   unreachable
 
 .loopexit:                                        ; preds = %99, %rb_array_len.exit80, %rbimpl_RB_TYPE_P_fastpath.exit67
-  %.pre-phi = phi ptr [ %31, %rbimpl_RB_TYPE_P_fastpath.exit67 ], [ %44, %rb_array_len.exit80 ], [ %44, %99 ]
-  %.061 = phi i8 [ 0, %rbimpl_RB_TYPE_P_fastpath.exit67 ], [ 0, %rb_array_len.exit80 ], [ %100, %99 ]
-  %.059 = phi i64 [ %26, %rbimpl_RB_TYPE_P_fastpath.exit67 ], [ %39, %rb_array_len.exit80 ], [ %39, %99 ]
+  %.pre-phi = phi ptr [ %44, %rb_array_len.exit80 ], [ %31, %rbimpl_RB_TYPE_P_fastpath.exit67 ], [ %44, %99 ]
+  %.061 = phi i8 [ 0, %rb_array_len.exit80 ], [ 0, %rbimpl_RB_TYPE_P_fastpath.exit67 ], [ %100, %99 ]
+  %.059 = phi i64 [ %39, %rb_array_len.exit80 ], [ %26, %rbimpl_RB_TYPE_P_fastpath.exit67 ], [ %39, %99 ]
   %105 = load i64, ptr %.pre-phi, align 8, !tbaa !47
   %106 = and i64 %105, 8192
   %.not.i81 = icmp eq i64 %106, 0
@@ -2557,7 +2557,7 @@ parser_location.exit.i23:                         ; preds = %128, %103
   unreachable
 
 rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i37.i, %.lr.ph.i31.i, %.lr.ph.i.i, %136, %134, %132
-  %.lcssa.i36.sink.i = phi i64 [ %135, %.lr.ph.i31.i ], [ %133, %.lr.ph.i.i ], [ %.pr.i.i, %132 ], [ %.pr.i28.i, %134 ], [ %.pr.i34.i, %136 ], [ %137, %.lr.ph.i37.i ]
+  %.lcssa.i36.sink.i = phi i64 [ %.pr.i.i, %132 ], [ %.pr.i28.i, %134 ], [ %.pr.i34.i, %136 ], [ %133, %.lr.ph.i.i ], [ %135, %.lr.ph.i31.i ], [ %137, %.lr.ph.i37.i ]
   %141 = call i64 @rb_id2sym(i64 noundef %.lcssa.i36.sink.i) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %108, ptr %10, align 16, !tbaa !7
@@ -2681,7 +2681,7 @@ parser_location.exit.i29:                         ; preds = %185, %160
   unreachable
 
 rbimpl_intern_const.exit.i30:                     ; preds = %.lr.ph.i30.i, %.lr.ph.i.i37, %191, %189
-  %.lcssa.i29.sink.i = phi i64 [ %190, %.lr.ph.i.i37 ], [ %.pr.i.i35, %189 ], [ %.pr.i27.i, %191 ], [ %192, %.lr.ph.i30.i ]
+  %.lcssa.i29.sink.i = phi i64 [ %.pr.i.i35, %189 ], [ %.pr.i27.i, %191 ], [ %190, %.lr.ph.i.i37 ], [ %192, %.lr.ph.i30.i ]
   %196 = call i64 @rb_id2sym(i64 noundef %.lcssa.i29.sink.i) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %165, ptr %8, align 16, !tbaa !7
@@ -2884,7 +2884,7 @@ define internal fastcc void @file_options(i32 noundef %0, ptr noundef readonly c
   br i1 %18, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %5, %.thread21, %13
-  %.0.i17 = phi i32 [ 0, %13 ], [ %.0.i25, %.thread21 ], [ %0, %5 ]
+  %.0.i17 = phi i32 [ %.0.i25, %.thread21 ], [ 0, %13 ], [ %0, %5 ]
   tail call void @rb_error_arity(i32 noundef %.0.i17, i32 noundef 1, i32 noundef 1) #11
   unreachable
 

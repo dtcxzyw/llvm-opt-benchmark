@@ -151,7 +151,7 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
   br label %80
 
 80:                                               ; preds = %.sink.split, %14, %19, %4, %5, %10
-  %.0 = phi ptr [ null, %4 ], [ null, %19 ], [ null, %14 ], [ null, %10 ], [ null, %5 ], [ %79, %.sink.split ]
+  %.0 = phi ptr [ null, %10 ], [ null, %5 ], [ null, %4 ], [ null, %19 ], [ null, %14 ], [ %79, %.sink.split ]
   ret ptr %.0
 }
 

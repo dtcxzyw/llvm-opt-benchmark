@@ -223,7 +223,7 @@ define dso_local range(i32 -11, -2147483648) i32 @clamd_connect(ptr noundef %0, 
   br label %101
 
 101:                                              ; preds = %29, %._crit_edge72, %99, %94, %32, %23, %9
-  %.0 = phi i32 [ -11, %9 ], [ -1, %23 ], [ -11, %32 ], [ 1, %99 ], [ %72, %94 ], [ -1, %._crit_edge72 ], [ %21, %29 ]
+  %.0 = phi i32 [ -11, %9 ], [ -1, %23 ], [ -11, %32 ], [ %72, %94 ], [ -1, %._crit_edge72 ], [ 1, %99 ], [ %21, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -313,7 +313,7 @@ define dso_local range(i32 -1, 2) i32 @notify(ptr noundef %0) local_unnamed_addr
   br label %26
 
 26:                                               ; preds = %1, %23, %20, %8
-  %.0 = phi i32 [ -1, %20 ], [ 1, %8 ], [ 0, %23 ], [ 1, %1 ]
+  %.0 = phi i32 [ 1, %8 ], [ 0, %23 ], [ -1, %20 ], [ 1, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

@@ -773,7 +773,7 @@ _ZL33update_class_file_load_hook_event14jvmtiEventMode.exit.i: ; preds = %75, %6
   br label %79
 
 79:                                               ; preds = %_ZL33update_class_file_load_hook_event14jvmtiEventMode.exit.i, %_ZL18register_callbacksP10JavaThread.exit.thread.i, %_ZL21register_capabilitiesP10JavaThread.exit.thread.i, %22
-  %.0.i = phi i1 [ false, %22 ], [ %.not.i.i.i.i, %_ZL33update_class_file_load_hook_event14jvmtiEventMode.exit.i ], [ false, %_ZL21register_capabilitiesP10JavaThread.exit.thread.i ], [ false, %_ZL18register_callbacksP10JavaThread.exit.thread.i ]
+  %.0.i = phi i1 [ %.not.i.i.i.i, %_ZL33update_class_file_load_hook_event14jvmtiEventMode.exit.i ], [ false, %22 ], [ false, %_ZL21register_capabilitiesP10JavaThread.exit.thread.i ], [ false, %_ZL18register_callbacksP10JavaThread.exit.thread.i ]
   %80 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %81 = trunc i8 %80 to i1
   store volatile i32 6, ptr %24, align 4
@@ -826,7 +826,7 @@ _ZL10initializeP10JavaThread.exit:                ; preds = %_ZN18SafepointMecha
   br label %97
 
 97:                                               ; preds = %.thread, %_ZL10initializeP10JavaThread.exit, %96, %_ZL37log_and_throw_illegal_state_exceptionP10JavaThread.exit
-  %.0 = phi i1 [ false, %_ZL37log_and_throw_illegal_state_exceptionP10JavaThread.exit ], [ false, %.thread ], [ false, %96 ], [ true, %_ZL10initializeP10JavaThread.exit ]
+  %.0 = phi i1 [ false, %96 ], [ false, %_ZL37log_and_throw_illegal_state_exceptionP10JavaThread.exit ], [ true, %_ZL10initializeP10JavaThread.exit ], [ false, %.thread ]
   ret i1 %.0
 }
 

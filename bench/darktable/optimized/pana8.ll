@@ -878,9 +878,9 @@ _ZN13pana8_bufio_t8getQWordEj.exit293:            ; preds = %.sink.split.i290, %
   br label %319
 
 150:                                              ; preds = %.thread, %_ZN13pana8_bufio_t8getQWordEj.exit293
-  %.5237 = phi i64 [ %120, %.thread ], [ %144, %_ZN13pana8_bufio_t8getQWordEj.exit293 ]
-  %.6229 = phi i32 [ %spec.select, %.thread ], [ %147, %_ZN13pana8_bufio_t8getQWordEj.exit293 ]
-  %.5222 = phi i32 [ %84, %.thread ], [ %spec.store.select, %_ZN13pana8_bufio_t8getQWordEj.exit293 ]
+  %.5237 = phi i64 [ %144, %_ZN13pana8_bufio_t8getQWordEj.exit293 ], [ %120, %.thread ]
+  %.6229 = phi i32 [ %147, %_ZN13pana8_bufio_t8getQWordEj.exit293 ], [ %spec.select, %.thread ]
+  %.5222 = phi i32 [ %spec.store.select, %_ZN13pana8_bufio_t8getQWordEj.exit293 ], [ %84, %.thread ]
   br i1 %32, label %151, label %.preheader446
 
 151:                                              ; preds = %150
@@ -974,7 +974,7 @@ _ZN13pana8_param_t7GetDBitEm.exit:                ; preds = %163, %.loopexit.loo
   br label %205
 
 205:                                              ; preds = %196, %199, %202, %194
-  %.0241 = phi i32 [ %195, %194 ], [ %204, %202 ], [ %201, %199 ], [ 0, %196 ]
+  %.0241 = phi i32 [ %195, %194 ], [ %201, %199 ], [ %204, %202 ], [ 0, %196 ]
   %.not261 = icmp eq i32 %177, 0
   %206 = add nsw i32 %177, -1
   %207 = shl nuw nsw i32 1, %206
@@ -1062,7 +1062,7 @@ default.unreachable:                              ; preds = %205
   %252 = load i32, ptr %75, align 4, !tbaa !96
   br label %253
 
-253:                                              ; preds = %243, %248
+253:                                              ; preds = %248, %243
   %.sroa.12.3.ph = phi i32 [ %.sroa.12.1409, %243 ], [ %252, %248 ]
   %.sroa.9.3.ph = phi i32 [ %.sroa.9.1410, %243 ], [ %251, %248 ]
   %.sroa.6.3.ph = phi i32 [ %.sroa.6.1411, %243 ], [ %250, %248 ]
@@ -1173,7 +1173,7 @@ default.unreachable:                              ; preds = %205
   br i1 %exitcond455.not, label %.critedge, label %.preheader359, !llvm.loop !124
 
 319:                                              ; preds = %148, %124, %122
-  %.pn.pn.pn = phi { ptr, i32 } [ %123, %122 ], [ %149, %148 ], [ %125, %124 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %149, %148 ], [ %125, %124 ], [ %123, %122 ]
   %.2208 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
   %320 = tail call ptr @__cxa_begin_catch(ptr %.2208) #14
   invoke void @__cxa_end_catch()
@@ -1186,7 +1186,7 @@ default.unreachable:                              ; preds = %205
   br i1 %.not.i.i.i294, label %_ZNSt6vectorIhSaIhEED2Ev.exit295, label %326
 
 .critedge:                                        ; preds = %.loopexit, %126, %81, %319
-  %.8 = phi i1 [ false, %319 ], [ false, %126 ], [ false, %81 ], [ true, %.loopexit ]
+  %.8 = phi i1 [ false, %319 ], [ false, %81 ], [ false, %126 ], [ true, %.loopexit ]
   %.not.i.i.i = icmp eq ptr %.sroa.0298.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %323
 
@@ -1713,7 +1713,7 @@ define noundef i32 @_ZN13pana8_param_t10gammaCurveEj(ptr noundef nonnull readonl
   br label %68
 
 68:                                               ; preds = %57, %60, %65
-  %.038 = phi i32 [ %64, %60 ], [ %45, %57 ], [ %67, %65 ]
+  %.038 = phi i32 [ %64, %60 ], [ %67, %65 ], [ %45, %57 ]
   %69 = lshr i32 %40, 16
   %70 = add i32 %.038, %69
   br label %71
@@ -1874,7 +1874,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
+  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !116
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 

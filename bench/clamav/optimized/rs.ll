@@ -158,7 +158,7 @@ _ZN7RSCoder6pnMultEPiS0_S0_.exit.i:               ; preds = %.loopexit.i.i
   br label %._crit_edge27.i
 
 ._crit_edge27.i:                                  ; preds = %.lr.ph26.preheader.i, %_ZN7RSCoder6pnMultEPiS0_S0_.exit.i, %.preheader20.i.i, %25
-  %69 = phi i32 [ %64, %_ZN7RSCoder6pnMultEPiS0_S0_.exit.i ], [ %64, %.lr.ph26.preheader.i ], [ %34, %.preheader20.i.i ], [ %26, %25 ]
+  %69 = phi i32 [ %64, %.lr.ph26.preheader.i ], [ %64, %_ZN7RSCoder6pnMultEPiS0_S0_.exit.i ], [ %34, %.preheader20.i.i ], [ %26, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next.i2 = add nuw nsw i64 %indvars.iv.i1, 1
   %70 = sext i32 %69 to i64
@@ -332,7 +332,7 @@ _ZN7RSCoder6pnMultEPiS0_S0_.exit:                 ; preds = %.loopexit.i
   br label %._crit_edge27
 
 ._crit_edge27:                                    ; preds = %12, %.preheader20.i, %.lr.ph26.preheader, %_ZN7RSCoder6pnMultEPiS0_S0_.exit
-  %56 = phi i32 [ %51, %_ZN7RSCoder6pnMultEPiS0_S0_.exit ], [ %51, %.lr.ph26.preheader ], [ %21, %.preheader20.i ], [ %13, %12 ]
+  %56 = phi i32 [ %51, %.lr.ph26.preheader ], [ %51, %_ZN7RSCoder6pnMultEPiS0_S0_.exit ], [ %21, %.preheader20.i ], [ %13, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = sext i32 %56 to i64
@@ -762,7 +762,7 @@ _ZN7RSCoder6gfMultEii.exit84.us125:               ; preds = %66, %.lr.ph118.spli
   br label %._crit_edge123
 
 ._crit_edge123:                                   ; preds = %._crit_edge123.loopexit, %.lr.ph
-  %.pre199 = phi i32 [ %9, %.lr.ph ], [ %.pre199.pre, %._crit_edge123.loopexit ]
+  %.pre199 = phi i32 [ %.pre199.pre, %._crit_edge123.loopexit ], [ %9, %.lr.ph ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8192
   store i32 0, ptr %79, align 4, !tbaa !28
   %80 = sub nsw i32 255, %2

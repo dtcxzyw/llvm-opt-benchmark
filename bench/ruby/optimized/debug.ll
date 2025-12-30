@@ -298,7 +298,7 @@ sub_0:                                            ; preds = %3
   br label %.thread
 
 .thread:                                          ; preds = %sub_0, %42, %.tail, %10, %.thread45, %19, %21, %.thread46, %.thread47, %50, %44, %18, %13, %9
-  %.032 = phi i32 [ 1, %9 ], [ 1, %13 ], [ 1, %18 ], [ 1, %.thread47 ], [ 1, %44 ], [ 1, %50 ], [ 0, %.thread46 ], [ 0, %21 ], [ 0, %19 ], [ 0, %.tail ], [ 0, %.thread45 ], [ 0, %10 ], [ 1, %42 ], [ 0, %sub_0 ]
+  %.032 = phi i32 [ 1, %9 ], [ 1, %13 ], [ 1, %18 ], [ 1, %44 ], [ 1, %50 ], [ 1, %.thread47 ], [ 0, %.thread46 ], [ 0, %21 ], [ 0, %19 ], [ 0, %.thread45 ], [ 0, %10 ], [ 0, %.tail ], [ 1, %42 ], [ 0, %sub_0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.032

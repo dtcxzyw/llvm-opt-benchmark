@@ -100,7 +100,7 @@ define i32 @FT_Get_BDF_Property(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br label %.thread
 
 .thread:                                          ; preds = %5, %16, %13, %11, %4, %3
-  %.015 = phi i32 [ 6, %4 ], [ 35, %3 ], [ %17, %16 ], [ 6, %13 ], [ 6, %11 ], [ 6, %5 ]
+  %.015 = phi i32 [ 35, %3 ], [ 6, %4 ], [ %17, %16 ], [ 6, %13 ], [ 6, %11 ], [ 6, %5 ]
   ret i32 %.015
 }
 

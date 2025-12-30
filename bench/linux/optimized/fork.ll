@@ -1659,7 +1659,7 @@ define dso_local noundef range(i32 -13, 1) i32 @set_mm_exe_file(ptr noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %6, %24, %22
-  %28 = phi i32 [ 0, %22 ], [ 0, %24 ], [ -13, %6 ], [ -13, %18 ]
+  %28 = phi i32 [ 0, %24 ], [ 0, %22 ], [ -13, %6 ], [ -13, %18 ]
   ret i32 %28
 }
 
@@ -1826,7 +1826,7 @@ define dso_local noundef range(i32 -16, 1) i32 @replace_mm_exe_file(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %53, %41, %69, %64, %40
-  %73 = phi i32 [ %38, %40 ], [ 0, %64 ], [ 0, %69 ], [ -13, %41 ], [ -13, %53 ]
+  %73 = phi i32 [ %38, %40 ], [ 0, %69 ], [ 0, %64 ], [ -13, %41 ], [ -13, %53 ]
   ret i32 %73
 }
 
@@ -1959,7 +1959,7 @@ define dso_local ptr @mm_access(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br label %36
 
 36:                                               ; preds = %.thread, %35, %30, %28, %21
-  %37 = phi ptr [ %14, %28 ], [ %14, %21 ], [ null, %.thread ], [ inttoptr (i64 -13 to ptr), %30 ], [ inttoptr (i64 -13 to ptr), %35 ]
+  %37 = phi ptr [ %14, %28 ], [ %14, %21 ], [ inttoptr (i64 -13 to ptr), %30 ], [ inttoptr (i64 -13 to ptr), %35 ], [ null, %.thread ]
   %38 = load ptr, ptr %3, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 1056
   tail call void @up_read(ptr noundef nonnull %39) #18
@@ -2298,7 +2298,7 @@ define dso_local i32 @pidfd_prepare(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %__pidfd_prepare.exit
 
 __pidfd_prepare.exit:                             ; preds = %30, %18, %11, %5, %3
-  %31 = phi i32 [ -22, %3 ], [ -22, %5 ], [ %20, %18 ], [ %12, %30 ], [ %12, %11 ]
+  %31 = phi i32 [ -22, %5 ], [ -22, %3 ], [ %20, %18 ], [ %12, %30 ], [ %12, %11 ]
   ret i32 %31
 }
 
@@ -3246,7 +3246,7 @@ define dso_local ptr @copy_process(ptr noundef readnone captures(address) %0, i3
   br label %526
 
 526:                                              ; preds = %523, %320
-  %527 = phi i32 [ %524, %523 ], [ %329, %320 ]
+  %527 = phi i32 [ %329, %320 ], [ %524, %523 ]
   br i1 %48, label %531, label %.thread36
 
 .thread36:                                        ; preds = %279, %526
@@ -4528,7 +4528,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @copy_mm(i64 noundef %0, pt
   br label %.thread40
 
 .thread40:                                        ; preds = %335, %328, %19, %23, %336, %2
-  %338 = phi i32 [ 0, %336 ], [ 0, %2 ], [ -12, %335 ], [ -12, %23 ], [ -12, %19 ], [ -12, %328 ]
+  %338 = phi i32 [ 0, %336 ], [ 0, %2 ], [ -12, %23 ], [ -12, %19 ], [ -12, %328 ], [ -12, %335 ]
   ret i32 %338
 }
 
@@ -5581,8 +5581,8 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_clone3(i
   %84 = icmp eq i64 %83, 0
   br i1 %84, label %87, label %85
 
-85:                                               ; preds = %2, %10, %40, %30, %34, %44, %80, %27, %21
-  %.ph = phi i32 [ %26, %21 ], [ -14, %27 ], [ -14, %80 ], [ -22, %44 ], [ -22, %34 ], [ -22, %30 ], [ -22, %40 ], [ -22, %10 ], [ -7, %2 ]
+85:                                               ; preds = %2, %10, %30, %34, %80, %40, %27, %21, %44
+  %.ph = phi i32 [ -22, %44 ], [ %26, %21 ], [ -14, %27 ], [ -22, %40 ], [ -14, %80 ], [ -22, %34 ], [ -22, %30 ], [ -22, %10 ], [ -7, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %86 = sext i32 %.ph to i64
   br label %112
@@ -6049,7 +6049,7 @@ define dso_local i32 @ksys_unshare(i64 noundef %0) local_unnamed_addr #1 align 1
   br label %.thread
 
 .thread:                                          ; preds = %22, %49, %38, %28, %1, %65, %141, %137
-  %142 = phi i32 [ -12, %65 ], [ %139, %137 ], [ %139, %141 ], [ -22, %1 ], [ -22, %28 ], [ -22, %38 ], [ -22, %49 ], [ -22, %22 ]
+  %142 = phi i32 [ %139, %141 ], [ %139, %137 ], [ -12, %65 ], [ -22, %1 ], [ -22, %28 ], [ -22, %38 ], [ -22, %49 ], [ -22, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %142
 }

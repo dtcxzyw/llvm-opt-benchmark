@@ -828,7 +828,7 @@ thread-pre-split.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen15PlainObj
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph85.i.i.i.i.i, %159, %148, %98
-  %.0.i.i.i = phi double [ 0.000000e+00, %98 ], [ %149, %148 ], [ %163, %159 ], [ %157, %.lr.ph85.i.i.i.i.i ]
+  %.0.i.i.i = phi double [ 0.000000e+00, %98 ], [ %163, %159 ], [ %149, %148 ], [ %157, %.lr.ph85.i.i.i.i.i ]
   %.scalar.i = call noundef double @llvm.sqrt.f64(double %.0.i.i.i)
   %164 = fcmp ogt double %.scalar.i, 1.000000e-10
   br i1 %164, label %.thread16, label %170

@@ -467,7 +467,7 @@ _ZN6icu_7717UCharsTrieElement5setToERKNS_13UnicodeStringEiRS1_R10UErrorCode.exit
   br i1 %.not23, label %_ZN6icu_7717UCharsTrieElement5setToERKNS_13UnicodeStringEiRS1_R10UErrorCode.exit.thread, label %_ZN6icu_7717UCharsTrieElement5setToERKNS_13UnicodeStringEiRS1_R10UErrorCode.exit.thread.sink.split
 
 _ZN6icu_7717UCharsTrieElement5setToERKNS_13UnicodeStringEiRS1_R10UErrorCode.exit.thread.sink.split: ; preds = %79, %48, %21, %8
-  %.sink = phi i32 [ 7, %21 ], [ 30, %8 ], [ 8, %48 ], [ 7, %79 ]
+  %.sink = phi i32 [ 30, %8 ], [ 7, %21 ], [ 8, %48 ], [ 7, %79 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !3
   br label %_ZN6icu_7717UCharsTrieElement5setToERKNS_13UnicodeStringEiRS1_R10UErrorCode.exit.thread
 
@@ -1265,7 +1265,7 @@ define noundef zeroext i1 @_ZNK6icu_7717UCharsTrieBuilder18UCTLinearMatchNodeeqE
   br label %15
 
 15:                                               ; preds = %4, %2, %6
-  %.0 = phi i1 [ true, %2 ], [ %14, %6 ], [ false, %4 ]
+  %.0 = phi i1 [ %14, %6 ], [ true, %2 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -1441,7 +1441,7 @@ _ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit: ; preds = %
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit, %40, %42
-  %.0.i = phi ptr [ %44, %42 ], [ %41, %40 ], [ null, %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit ]
+  %.0.i = phi ptr [ %41, %40 ], [ %44, %42 ], [ null, %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit ]
   %45 = sext i32 %2 to i64
   %46 = getelementptr inbounds i16, ptr %.0.i, i64 %45
   invoke void @_ZN6icu_7717UCharsTrieBuilder18UCTLinearMatchNodeC1EPKDsiPNS_17StringTrieBuilder4NodeE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %46, i32 noundef %3, ptr noundef %4)
@@ -1524,7 +1524,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7717UCharsTrieBuilder14ensureC
   br label %28
 
 28:                                               ; preds = %.sink.split, %6, %2
-  %.012 = phi i8 [ 1, %6 ], [ 0, %2 ], [ %.012.ph, %.sink.split ]
+  %.012 = phi i8 [ 0, %2 ], [ 1, %6 ], [ %.012.ph, %.sink.split ]
   ret i8 %.012
 }
 
@@ -1659,7 +1659,7 @@ _ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit: ; preds = %
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit, %37, %39
-  %.0.i = phi ptr [ %41, %39 ], [ %38, %37 ], [ null, %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit ]
+  %.0.i = phi ptr [ %38, %37 ], [ %41, %39 ], [ null, %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit ]
   %42 = sext i32 %2 to i64
   %43 = getelementptr inbounds i16, ptr %.0.i, i64 %42
   %44 = invoke noundef i32 @_ZN6icu_7717UCharsTrieBuilder5writeEPKDsi(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %43, i32 noundef %3)

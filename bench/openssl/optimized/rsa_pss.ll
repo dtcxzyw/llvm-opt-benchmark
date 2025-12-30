@@ -355,8 +355,8 @@ define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_PSS_mgf1(ptr noundef %0, 
   br label %102
 
 17:                                               ; preds = %11, %12, %14, %13
-  %.190 = phi i32 [ %7, %14 ], [ -3, %12 ], [ -3, %13 ], [ %9, %11 ]
-  %.0 = phi i32 [ -1, %14 ], [ -1, %12 ], [ %9, %13 ], [ %7, %11 ]
+  %.190 = phi i32 [ -3, %12 ], [ -3, %13 ], [ %7, %14 ], [ %9, %11 ]
+  %.0 = phi i32 [ -1, %12 ], [ %9, %13 ], [ -1, %14 ], [ %7, %11 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !7
   %20 = tail call i32 @BN_num_bits(ptr noundef %19) #10
@@ -409,7 +409,7 @@ define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_PSS_mgf1(ptr noundef %0, 
   br label %102
 
 43:                                               ; preds = %37, %40
-  %.2 = phi i32 [ %spec.select107, %37 ], [ %.190, %40 ]
+  %.2 = phi i32 [ %.190, %40 ], [ %spec.select107, %37 ]
   %44 = icmp sgt i32 %.2, 0
   br i1 %44, label %45, label %54
 

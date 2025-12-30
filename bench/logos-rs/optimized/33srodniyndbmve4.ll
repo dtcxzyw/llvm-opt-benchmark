@@ -375,7 +375,7 @@ define hidden i64 @_ZN13logos_codegen3mir3Mir8priority17h1ab64aebcde8d421E(ptr r
   br i1 %32, label %34, label %42
 
 33:                                               ; preds = %15, %1, %1, %1, %42, %34, %25, %8
-  %.sroa.0.0 = phi i64 [ %43, %42 ], [ %14, %8 ], [ 0, %1 ], [ %spec.select, %15 ], [ 2, %25 ], [ %41, %34 ], [ 0, %1 ], [ 0, %1 ]
+  %.sroa.0.0 = phi i64 [ %14, %8 ], [ 2, %25 ], [ %41, %34 ], [ %43, %42 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ %spec.select, %15 ]
   ret i64 %.sroa.0.0
 
 34:                                               ; preds = %26
@@ -674,8 +674,8 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
           to label %150 unwind label %.body140.thread192
 
 149:                                              ; preds = %178, %.body134
-  %.sroa.091.1 = phi i1 [ %.sroa.091.2, %178 ], [ %210, %.body134 ]
-  %.pn129 = phi { ptr, i32 } [ %.pn127, %178 ], [ %eh.lpad-body135, %.body134 ]
+  %.sroa.091.1 = phi i1 [ %210, %.body134 ], [ %.sroa.091.2, %178 ]
+  %.pn129 = phi { ptr, i32 } [ %eh.lpad-body135, %.body134 ], [ %.pn127, %178 ]
   br i1 %.sroa.091.1, label %.thread182, label %.thread
 
 .body140.thread192:                               ; preds = %.invoke, %147, %190, %244, %242, %175
@@ -1417,17 +1417,17 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
           to label %330 unwind label %336
 
 .thread182:                                       ; preds = %.body, %336, %.body140.thread192, %149
-  %.pn129186 = phi { ptr, i32 } [ %lpad.thr_comm190, %.body140.thread192 ], [ %.pn129, %149 ], [ %eh.lpad-body, %.body ], [ %337, %336 ]
+  %.pn129186 = phi { ptr, i32 } [ %.pn129, %149 ], [ %lpad.thr_comm190, %.body140.thread192 ], [ %eh.lpad-body, %.body ], [ %337, %336 ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$logos_codegen..mir..Mir$GT$17h6cee15723dba3ec3E"(ptr nonnull align 8 %41) #7
           to label %.thread unwind label %117
 
 .thread:                                          ; preds = %170, %160, %.body140, %149, %.thread182, %105, %358
-  %.pn131175 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %105 ], [ %lpad.thr_comm, %358 ], [ %.pn129, %149 ], [ %.pn129186, %.thread182 ], [ %lpad.thr_comm.split-lp191, %.body140 ], [ %161, %160 ], [ %171, %170 ]
+  %.pn131175 = phi { ptr, i32 } [ %lpad.thr_comm, %358 ], [ %lpad.thr_comm.split-lp, %105 ], [ %.pn129, %149 ], [ %.pn129186, %.thread182 ], [ %lpad.thr_comm.split-lp191, %.body140 ], [ %161, %160 ], [ %171, %170 ]
   %357 = getelementptr inbounds nuw i8, ptr %42, i64 8
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7c4f21ebe3d9de4dE"(ptr nonnull align 8 %357) #7
           to label %.thread196 unwind label %117
 
-358:                                              ; preds = %.invoke222, %120, %119, %95
+358:                                              ; preds = %.invoke222, %95, %119, %120
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %359 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -1671,7 +1671,7 @@ define internal fastcc void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core.
   resume { ptr, i32 } %.pn7
 
 .thread:                                          ; preds = %15, %19, %.thread8
-  %.pn7 = phi { ptr, i32 } [ %13, %.thread8 ], [ %16, %15 ], [ %20, %19 ]
+  %.pn7 = phi { ptr, i32 } [ %16, %15 ], [ %13, %.thread8 ], [ %20, %19 ]
   %34 = load i64, ptr %0, align 8
   %35 = icmp eq i64 %34, 5
   br i1 %35, label %33, label %36

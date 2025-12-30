@@ -374,7 +374,7 @@ define internal fastcc i64 @process_vm_rw(i32 noundef %0, ptr noundef %1, i64 no
   br i1 %162, label %.split, label %.split22.us
 
 .split22.us:                                      ; preds = %152, %.split, %.split.us, %135
-  %163 = phi i1 [ %.not49, %.split.us ], [ %.not49, %135 ], [ %.not47, %.split ], [ %.not47, %152 ]
+  %163 = phi i1 [ %.not49, %135 ], [ %.not49, %.split.us ], [ %.not47, %.split ], [ %.not47, %152 ]
   %.us-phi = phi i64 [ 0, %.split.us ], [ -14, %135 ], [ -14, %152 ], [ 0, %.split ]
   %164 = sub i64 %106, %128
   %165 = sub i64 %108, %125

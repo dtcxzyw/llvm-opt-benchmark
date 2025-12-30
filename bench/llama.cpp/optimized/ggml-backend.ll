@@ -1772,7 +1772,7 @@ ggml_backend_event_new.exit:                      ; preds = %.lr.ph.split, %127,
   br i1 %134, label %.lr.ph.split, label %.loopexit, !llvm.loop !139
 
 .loopexit:                                        ; preds = %ggml_backend_event_new.exit, %.lr.ph.split.us, %116
-  %135 = phi i32 [ 1, %116 ], [ %33, %.lr.ph.split.us ], [ %33, %ggml_backend_event_new.exit ]
+  %135 = phi i32 [ %33, %.lr.ph.split.us ], [ 1, %116 ], [ %33, %ggml_backend_event_new.exit ]
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %90, !llvm.loop !141
@@ -2366,7 +2366,7 @@ _ZL24ggml_hash_find_or_insertP13ggml_hash_setP11ggml_tensor.exit650: ; preds = %
   br label %_ZL35ggml_backend_sched_set_if_supportedP18ggml_backend_schedP11ggml_tensoriPi.exit
 
 _ZL35ggml_backend_sched_set_if_supportedP18ggml_backend_schedP11ggml_tensoriPi.exit: ; preds = %186, %177, %176, %172, %133
-  %.1 = phi i32 [ %.05321327, %133 ], [ %., %172 ], [ -1, %176 ], [ %.05321327, %177 ], [ %.05321327, %186 ]
+  %.1 = phi i32 [ %.05321327, %133 ], [ -1, %176 ], [ %., %172 ], [ %.05321327, %177 ], [ %.05321327, %186 ]
   %indvars.iv.next1843 = add nuw nsw i64 %indvars.iv1842, 1
   %187 = load i32, ptr %24, align 4, !tbaa !147
   %188 = sext i32 %187 to i64
@@ -2482,7 +2482,7 @@ _ZL24ggml_hash_find_or_insertP13ggml_hash_setP11ggml_tensor.exit656: ; preds = %
   br label %_ZL35ggml_backend_sched_set_if_supportedP18ggml_backend_schedP11ggml_tensoriPi.exit657
 
 _ZL35ggml_backend_sched_set_if_supportedP18ggml_backend_schedP11ggml_tensoriPi.exit657: ; preds = %250, %241, %240, %236, %197
-  %.1539 = phi i32 [ %.05381331, %197 ], [ %.638, %236 ], [ -1, %240 ], [ %.05381331, %241 ], [ %.05381331, %250 ]
+  %.1539 = phi i32 [ %.05381331, %197 ], [ -1, %240 ], [ %.638, %236 ], [ %.05381331, %241 ], [ %.05381331, %250 ]
   %251 = icmp sgt i64 %indvars.iv1845, 1
   br i1 %251, label %197, label %.preheader880, !llvm.loop !165
 
@@ -3070,7 +3070,7 @@ _ZL35ggml_backend_sched_buffer_supportedP18ggml_backend_schedP11ggml_tensori.exi
   br label %_ZL35ggml_backend_sched_buffer_supportedP18ggml_backend_schedP11ggml_tensori.exit.thread
 
 _ZL35ggml_backend_sched_buffer_supportedP18ggml_backend_schedP11ggml_tensori.exit.thread: ; preds = %_ZL35ggml_backend_sched_buffer_supportedP18ggml_backend_schedP11ggml_tensori.exit, %532, %.loopexit.i, %563, %_ZL24ggml_hash_find_or_insertP13ggml_hash_setP11ggml_tensor.exit687, %.preheader872
-  %.1561 = phi i32 [ %.05601356, %.preheader872 ], [ %.05601356, %_ZL24ggml_hash_find_or_insertP13ggml_hash_setP11ggml_tensor.exit687 ], [ %.05601356, %532 ], [ %spec.select, %_ZL35ggml_backend_sched_buffer_supportedP18ggml_backend_schedP11ggml_tensori.exit ], [ %.05601356, %563 ], [ %.05601356, %.loopexit.i ]
+  %.1561 = phi i32 [ %.05601356, %.preheader872 ], [ %.05601356, %_ZL24ggml_hash_find_or_insertP13ggml_hash_setP11ggml_tensor.exit687 ], [ %.05601356, %563 ], [ %.05601356, %.loopexit.i ], [ %.05601356, %532 ], [ %spec.select, %_ZL35ggml_backend_sched_buffer_supportedP18ggml_backend_schedP11ggml_tensori.exit ]
   %indvars.iv.next1861 = add nuw nsw i64 %indvars.iv1860, 1
   %exitcond1863.not = icmp eq i64 %indvars.iv.next1861, 10
   br i1 %exitcond1863.not, label %436, label %.preheader872, !llvm.loop !168
@@ -3899,7 +3899,7 @@ _ZL24ggml_hash_find_or_insertP13ggml_hash_setP11ggml_tensor.exit760: ; preds = %
   %or.cond = or i1 %1013, %1027
   br i1 %or.cond, label %1028, label %.loopexit868.thread
 
-1028:                                             ; preds = %1014, %_ZL24ggml_hash_find_or_insertP13ggml_hash_setP11ggml_tensor.exit760, %.thread848, %934
+1028:                                             ; preds = %1014, %_ZL24ggml_hash_find_or_insertP13ggml_hash_setP11ggml_tensor.exit760, %934, %.thread848
   %indvars.iv.next1882 = add nuw nsw i64 %indvars.iv1881, 1
   %exitcond1884.not = icmp eq i64 %indvars.iv.next1882, 10
   br i1 %exitcond1884.not, label %.loopexit868, label %934, !llvm.loop !180
@@ -7702,7 +7702,7 @@ ggml_backend_offload_op.exit.thread:              ; preds = %153, %145, %ggml_ba
   br label %.thread110
 
 .thread110:                                       ; preds = %160, %ggml_backend_offload_op.exit.thread, %.thread110.loopexit.split.loop.exit156, %ggml_backend_buffer_is_host.exit, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit99, %137, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit87, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit, %86
-  %.052 = phi i32 [ %60, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit87 ], [ %30, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit ], [ %89, %86 ], [ %.016.i93, %ggml_backend_offload_op.exit.thread ], [ %.016.i93, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit99 ], [ %.016.i93, %ggml_backend_buffer_is_host.exit ], [ %.016.i93, %137 ], [ %161, %.thread110.loopexit.split.loop.exit156 ], [ -1, %160 ]
+  %.052 = phi i32 [ %89, %86 ], [ %30, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit ], [ %60, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit87 ], [ %.016.i93, %_ZL38ggml_backend_sched_backend_from_bufferP18ggml_backend_schedPK11ggml_tensorS3_.exit99 ], [ %.016.i93, %ggml_backend_buffer_is_host.exit ], [ %.016.i93, %137 ], [ %161, %.thread110.loopexit.split.loop.exit156 ], [ %.016.i93, %ggml_backend_offload_op.exit.thread ], [ -1, %160 ]
   ret i32 %.052
 }
 
@@ -7966,7 +7966,7 @@ ggml_backend_buffer_is_host.exit:                 ; preds = %3
   br label %ggml_backend_buffer_is_host.exit.thread
 
 ggml_backend_buffer_is_host.exit.thread:          ; preds = %3, %ggml_backend_buffer_is_host.exit, %11
-  %.0.i.i6 = phi i1 [ true, %11 ], [ false, %ggml_backend_buffer_is_host.exit ], [ false, %3 ]
+  %.0.i.i6 = phi i1 [ false, %ggml_backend_buffer_is_host.exit ], [ true, %11 ], [ false, %3 ]
   ret i1 %.0.i.i6
 }
 

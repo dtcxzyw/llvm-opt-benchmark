@@ -818,7 +818,7 @@ define hidden void @_ZN12object_store6client13ClientOptions11with_config17h2ce17
   br label %97
 
 .body:                                            ; preds = %35, %65, %95, %80, %50, %266, %240, %226, %211, %196, %181, %167, %153, %139, %125, %110
-  %.pn = phi { ptr, i32 } [ %267, %266 ], [ %111, %110 ], [ %126, %125 ], [ %140, %139 ], [ %154, %153 ], [ %168, %167 ], [ %182, %181 ], [ %197, %196 ], [ %212, %211 ], [ %227, %226 ], [ %241, %240 ], [ %36, %35 ], [ %51, %50 ], [ %66, %65 ], [ %81, %80 ], [ %96, %95 ]
+  %.pn = phi { ptr, i32 } [ %111, %110 ], [ %126, %125 ], [ %140, %139 ], [ %154, %153 ], [ %168, %167 ], [ %182, %181 ], [ %197, %196 ], [ %212, %211 ], [ %227, %226 ], [ %241, %240 ], [ %267, %266 ], [ %36, %35 ], [ %51, %50 ], [ %66, %65 ], [ %81, %80 ], [ %96, %95 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$object_store..client..ClientOptions$GT$17hc9d212ce878b8d1aE"(ptr noalias noundef nonnull align 8 dereferenceable(544) %1) #23
           to label %270 unwind label %268
 
@@ -2103,16 +2103,16 @@ define internal noundef zeroext i1 @"_ZN45_$LT$url..Url$u20$as$u20$core..fmt..De
 
 19:                                               ; preds = %2
   %.not.i.i.i.i = icmp ugt i64 %.val1, %17
-  br i1 %.not.i.i.i.i, label %20, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i"
+  br i1 %.not.i.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds nuw i8, ptr %.val, i64 %17
-  %22 = load i8, ptr %21, align 1, !alias.scope !467, !noundef !7
-  %23 = icmp sgt i8 %22, -65
-  br i1 %23, label %_ZN3url3Url5slice17had26d31ec325bfc6E.exit, label %25
+  %21 = icmp eq i64 %.val1, %17
+  br i1 %21, label %_ZN3url3Url5slice17had26d31ec325bfc6E.exit, label %25
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i": ; preds = %19
-  %24 = icmp eq i64 %.val1, %17
+  %22 = getelementptr inbounds nuw i8, ptr %.val, i64 %17
+  %23 = load i8, ptr %22, align 1, !alias.scope !467, !noundef !7
+  %24 = icmp sgt i8 %23, -65
   br i1 %24, label %_ZN3url3Url5slice17had26d31ec325bfc6E.exit, label %25
 
 25:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", %20
@@ -2132,25 +2132,25 @@ _ZN3url3Url5slice17had26d31ec325bfc6E.exit:       ; preds = %2, %20, %"_ZN4core3
 
 31:                                               ; preds = %_ZN3url3Url5slice17had26d31ec325bfc6E.exit
   %.not.i.i.i.i.i = icmp ugt i64 %.val1, %29
-  br i1 %.not.i.i.i.i.i, label %32, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw i8, ptr %.val, i64 %29
-  %34 = load i8, ptr %33, align 1, !alias.scope !474, !noalias !481, !noundef !7
-  %35 = icmp sgt i8 %34, -65
-  %36 = sub nuw i64 %.val1, %29
-  br i1 %35, label %_ZN3url3Url5slice17hd4c37e8a4c1a1d35E.exit.i, label %38
+  %33 = icmp eq i64 %.val1, %29
+  br i1 %33, label %_ZN3url3Url16cannot_be_a_base17h5e3896910a5eea43E.exit, label %38
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i": ; preds = %31
-  %37 = icmp eq i64 %.val1, %29
-  br i1 %37, label %_ZN3url3Url16cannot_be_a_base17h5e3896910a5eea43E.exit, label %38
+  %34 = getelementptr inbounds nuw i8, ptr %.val, i64 %29
+  %35 = load i8, ptr %34, align 1, !alias.scope !474, !noalias !481, !noundef !7
+  %36 = icmp sgt i8 %35, -65
+  %37 = sub nuw i64 %.val1, %29
+  br i1 %36, label %_ZN3url3Url5slice17hd4c37e8a4c1a1d35E.exit.i, label %38
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", %32
   call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val1, i64 noundef %29, i64 noundef %.val1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.238a1486b68034117e55f5a34ec07389.106) #25, !noalias !481
   unreachable
 
-_ZN3url3Url5slice17hd4c37e8a4c1a1d35E.exit.i:     ; preds = %32, %_ZN3url3Url5slice17had26d31ec325bfc6E.exit
-  %39 = phi i64 [ %36, %32 ], [ %.val1, %_ZN3url3Url5slice17had26d31ec325bfc6E.exit ]
+_ZN3url3Url5slice17hd4c37e8a4c1a1d35E.exit.i:     ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", %_ZN3url3Url5slice17had26d31ec325bfc6E.exit
+  %39 = phi i64 [ %37, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i" ], [ %.val1, %_ZN3url3Url5slice17had26d31ec325bfc6E.exit ]
   %.not.i.i = icmp eq i64 %39, 0
   br i1 %.not.i.i, label %_ZN3url3Url16cannot_be_a_base17h5e3896910a5eea43E.exit, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hed1d992999a093d5E.exit.i.i"
 
@@ -2161,8 +2161,8 @@ _ZN3url3Url5slice17hd4c37e8a4c1a1d35E.exit.i:     ; preds = %32, %_ZN3url3Url5sl
   %42 = zext i1 %41 to i8
   br label %_ZN3url3Url16cannot_be_a_base17h5e3896910a5eea43E.exit
 
-_ZN3url3Url16cannot_be_a_base17h5e3896910a5eea43E.exit: ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", %_ZN3url3Url5slice17hd4c37e8a4c1a1d35E.exit.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hed1d992999a093d5E.exit.i.i"
-  %.0.i.i = phi i8 [ %42, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hed1d992999a093d5E.exit.i.i" ], [ 1, %_ZN3url3Url5slice17hd4c37e8a4c1a1d35E.exit.i ], [ 1, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i" ]
+_ZN3url3Url16cannot_be_a_base17h5e3896910a5eea43E.exit: ; preds = %32, %_ZN3url3Url5slice17hd4c37e8a4c1a1d35E.exit.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hed1d992999a093d5E.exit.i.i"
+  %.0.i.i = phi i8 [ %42, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hed1d992999a093d5E.exit.i.i" ], [ 1, %_ZN3url3Url5slice17hd4c37e8a4c1a1d35E.exit.i ], [ 1, %32 ]
   store i8 %.0.i.i, ptr %10, align 1
   %43 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17h9485b9119de058a4E(ptr noalias noundef nonnull align 8 dereferenceable(16) %27, ptr noalias noundef nonnull readonly align 1 @anon.238a1486b68034117e55f5a34ec07389.26, i64 noundef 16, ptr noundef nonnull align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.238a1486b68034117e55f5a34ec07389.27)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

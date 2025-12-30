@@ -106,7 +106,7 @@ define internal void @diff_int16_c(ptr noundef writeonly captures(none) %0, ptr 
   br i1 %.not61, label %.loopexit, label %.lr.ph66, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph66, %.preheader, %56
-  %.1 = phi i64 [ %74, %.lr.ph66 ], [ 0, %56 ], [ 0, %.preheader ], [ %53, %.lr.ph ]
+  %.1 = phi i64 [ 0, %56 ], [ 0, %.preheader ], [ %74, %.lr.ph66 ], [ %53, %.lr.ph ]
   %75 = sext i32 %4 to i64
   %76 = icmp slt i64 %.1, %75
   br i1 %76, label %.lr.ph69, label %._crit_edge
@@ -182,7 +182,7 @@ define internal void @sub_hfyu_median_pred_int16_c(ptr noundef writeonly capture
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %22, %24, %25, %27
-  %.0.i = phi i32 [ %..i, %24 ], [ %16, %25 ], [ %16, %22 ], [ %.20.i, %27 ]
+  %.0.i = phi i32 [ %16, %22 ], [ %16, %25 ], [ %..i, %24 ], [ %.20.i, %27 ]
   %28 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %29 = load i16, ptr %28, align 2, !tbaa !10
   %30 = zext i16 %29 to i32

@@ -276,7 +276,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %44
 
 44:                                               ; preds = %35, %31, %23, %17, %3, %40, %29
-  %.0 = phi i32 [ %21, %17 ], [ %12, %3 ], [ %30, %29 ], [ -12, %23 ], [ %33, %31 ], [ %43, %40 ], [ %38, %35 ]
+  %.0 = phi i32 [ %30, %29 ], [ %43, %40 ], [ %12, %3 ], [ %21, %17 ], [ -12, %23 ], [ %33, %31 ], [ %38, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1562,8 +1562,8 @@ get_transfer_characteristics.exit436.i:           ; preds = %393
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %create_filtergraph.exit
 
-656:                                              ; preds = %211, %244, %425, %.thread455.i, %.thread454.i, %452, %406, %328, %select.unfold.i, %313, %326, %327, %404, %405
-  %.0348.i.ph = phi i32 [ -22, %405 ], [ -22, %404 ], [ -22, %327 ], [ -22, %326 ], [ -22, %313 ], [ -22, %select.unfold.i ], [ -22, %328 ], [ -22, %406 ], [ -22, %452 ], [ %502, %.thread454.i ], [ %554, %.thread455.i ], [ %426, %425 ], [ -22, %244 ], [ -22, %211 ]
+656:                                              ; preds = %211, %244, %452, %select.unfold.i, %313, %326, %327, %328, %404, %405, %406, %425, %.thread454.i, %.thread455.i
+  %.0348.i.ph = phi i32 [ %554, %.thread455.i ], [ %502, %.thread454.i ], [ %426, %425 ], [ -22, %406 ], [ -22, %405 ], [ -22, %404 ], [ -22, %328 ], [ -22, %327 ], [ -22, %326 ], [ -22, %313 ], [ -22, %select.unfold.i ], [ -22, %452 ], [ -22, %244 ], [ -22, %211 ]
   call void @av_frame_free(ptr noundef nonnull %12) #9
   call void @av_frame_free(ptr noundef nonnull %13) #9
   br label %720

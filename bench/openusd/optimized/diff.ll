@@ -657,7 +657,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit53.i.i: ; preds = %259, %2
   br label %300
 
 297:                                              ; preds = %291, %286, %170, %.loopexit.split-lp.i.i, %.loopexit.i.i
-  %.pn28.i.i = phi { ptr, i32 } [ %.pn.i.i, %170 ], [ %.pn26.i.i, %291 ], [ %.pn24.i.i, %286 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
+  %.pn28.i.i = phi { ptr, i32 } [ %.pn26.i.i, %291 ], [ %.pn24.i.i, %286 ], [ %.pn.i.i, %170 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !5
   br i1 %89, label %298, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit58.i.i
 
@@ -1136,7 +1136,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit54.i.i: ; preds = %476, %4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper16_TightenFromLeftEv.exit.i
 
 514:                                              ; preds = %508, %503, %387, %.loopexit.split-lp.i7.i, %.loopexit.i21.i
-  %.pn29.i.i = phi { ptr, i32 } [ %.pn.i11.i, %387 ], [ %.pn27.i.i, %508 ], [ %.pn25.i.i, %503 ], [ %lpad.loopexit.i22.i, %.loopexit.i21.i ], [ %lpad.loopexit.split-lp.i8.i, %.loopexit.split-lp.i7.i ]
+  %.pn29.i.i = phi { ptr, i32 } [ %.pn27.i.i, %508 ], [ %.pn25.i.i, %503 ], [ %.pn.i11.i, %387 ], [ %lpad.loopexit.i22.i, %.loopexit.i21.i ], [ %lpad.loopexit.split-lp.i8.i, %.loopexit.split-lp.i7.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !5
   br i1 %313, label %515, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit59.i.i
 
@@ -1599,7 +1599,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit94: ; preds = %_ZN32pxrInt
           to label %157 unwind label %239
 
 157:                                              ; preds = %148, %155
-  %.0.i.i104 = phi i1 [ %156, %155 ], [ %154, %148 ]
+  %.0.i.i104 = phi i1 [ %154, %148 ], [ %156, %155 ]
   br i1 %.0.i.i104, label %158, label %.critedge81
 
 158:                                              ; preds = %144, %157
@@ -1828,7 +1828,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit121: ; preds = %.critedge8
           to label %271 unwind label %349
 
 271:                                              ; preds = %262, %269
-  %.0.i.i125 = phi i1 [ %270, %269 ], [ %268, %262 ]
+  %.0.i.i125 = phi i1 [ %268, %262 ], [ %270, %269 ]
   br i1 %.0.i.i125, label %272, label %.critedge83
 
 272:                                              ; preds = %258, %271
@@ -2041,7 +2041,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit142: ; preds = %.critedge8
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit unwind label %237
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %368, %375
-  %.0.i = phi i1 [ %376, %375 ], [ %374, %368 ]
+  %.0.i = phi i1 [ %374, %368 ], [ %376, %375 ]
   br i1 %.0.i, label %377, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit._crit_edge
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit._crit_edge: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit
@@ -2466,8 +2466,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit189: ; preds = %_ZN32pxrIn
   br label %716
 
 588:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit178, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit189, %407, %468
-  %.039 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167 ], [ false, %407 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit178 ], [ %.0.i.i180, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit189 ], [ false, %468 ]
-  %.038.in = phi i1 [ %432, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167 ], [ false, %407 ], [ %493, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit178 ], [ %558, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit189 ], [ false, %468 ]
+  %.039 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit178 ], [ %.0.i.i180, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit189 ], [ false, %407 ], [ false, %468 ]
+  %.038.in = phi i1 [ %432, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167 ], [ %493, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit178 ], [ %558, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit189 ], [ false, %407 ], [ false, %468 ]
   %589 = fcmp olt double %390, %401
   %590 = select i1 %589, double %401, double %390
   %591 = call double @llvm.fabs.f64(double %590)
@@ -2719,7 +2719,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit218: ; preds = %_ZN32pxrIn
   br label %718
 
 716:                                              ; preds = %522, %461, %689, %587, %356, %246, %237
-  %.pn76 = phi { ptr, i32 } [ %238, %237 ], [ %.pn74, %461 ], [ %.pn62.pn, %246 ], [ %.pn72, %522 ], [ %.pn65.pn, %356 ], [ %.pn70, %587 ], [ %.pn68, %689 ]
+  %.pn76 = phi { ptr, i32 } [ %238, %237 ], [ %.pn74, %461 ], [ %.pn72, %522 ], [ %.pn70, %587 ], [ %.pn68, %689 ], [ %.pn65.pn, %356 ], [ %.pn62.pn, %246 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #13
   br label %717
 
@@ -3286,7 +3286,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %229, 
   ret void
 
 232:                                              ; preds = %.loopexit, %.loopexit.split-lp, %221, %143, %79
-  %.pn30 = phi { ptr, i32 } [ %.pn, %143 ], [ %.pn28, %221 ], [ %80, %79 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn30 = phi { ptr, i32 } [ %.pn28, %221 ], [ %.pn, %143 ], [ %80, %79 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %14, label %233, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit73
 
@@ -3593,9 +3593,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit121: ; preds = %132, %137
   store ptr null, ptr %112, align 8
   br i1 %.ph, label %.critedge101.thread, label %.thread264
 
-.critedge101.thread:                              ; preds = %106, %96, %.critedge101
-  %157 = phi ptr [ %104, %.critedge101 ], [ %104, %106 ], [ %99, %96 ]
-  %158 = phi ptr [ %41, %.critedge101 ], [ %41, %106 ], [ %97, %96 ]
+.critedge101.thread:                              ; preds = %96, %106, %.critedge101
+  %157 = phi ptr [ %104, %.critedge101 ], [ %99, %96 ], [ %104, %106 ]
+  %158 = phi ptr [ %41, %.critedge101 ], [ %97, %96 ], [ %41, %106 ]
   %159 = load ptr, ptr %0, align 8
   %160 = invoke fastcc ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper19_GetNextNonFlatKnotERKNS_8TsSplineERKN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS7_SaIS7_EEEE(ptr noundef nonnull align 8 dereferenceable(16) %159, ptr noundef nonnull align 8 dereferenceable(8) %37)
           to label %166 unwind label %89
@@ -3726,9 +3726,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit132: ; preds = %197, %202
   store ptr null, ptr %177, align 8
   br i1 %.ph268, label %.critedge103.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit140.thread.thread
 
-.critedge103.thread:                              ; preds = %171, %166, %.critedge103
-  %.sroa.0238.0266271278 = phi ptr [ %.sroa.0238.0267, %.critedge103 ], [ %.sroa.0238.0267, %171 ], [ %160, %166 ]
-  %222 = phi ptr [ %167, %.critedge103 ], [ %167, %171 ], [ %158, %166 ]
+.critedge103.thread:                              ; preds = %166, %171, %.critedge103
+  %.sroa.0238.0266271278 = phi ptr [ %.sroa.0238.0267, %.critedge103 ], [ %160, %166 ], [ %.sroa.0238.0267, %171 ]
+  %222 = phi ptr [ %167, %.critedge103 ], [ %158, %166 ], [ %167, %171 ]
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %224 = load ptr, ptr %223, align 8
   %225 = invoke fastcc ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper19_GetNextNonFlatKnotERKNS_8TsSplineERKN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS7_SaIS7_EEEE(ptr noundef nonnull align 8 dereferenceable(16) %224, ptr noundef nonnull align 8 dereferenceable(8) %222)
@@ -3803,7 +3803,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit132: ; preds = %197, %202
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit140 unwind label %411
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit140: ; preds = %256, %249, %244
-  %258 = phi i1 [ %257, %256 ], [ %246, %244 ], [ %255, %249 ]
+  %258 = phi i1 [ %246, %244 ], [ %255, %249 ], [ %257, %256 ]
   %259 = load ptr, ptr %241, align 8
   %260 = ptrtoint ptr %259 to i64
   %.not.i.i141 = icmp eq ptr %259, null
@@ -3944,7 +3944,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit140.thread.thread: ; 
           to label %331 unwind label %416
 
 331:                                              ; preds = %322, %329
-  %.0.i.i151 = phi i1 [ %330, %329 ], [ %328, %322 ]
+  %.0.i.i151 = phi i1 [ %328, %322 ], [ %330, %329 ]
   br i1 %.0.i.i151, label %332, label %.critedge107
 
 332:                                              ; preds = %318, %331
@@ -4200,7 +4200,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit171: ; preds = %_ZN32pxrIn
           to label %450 unwind label %530
 
 450:                                              ; preds = %441, %448
-  %.0.i.i173 = phi i1 [ %449, %448 ], [ %447, %441 ]
+  %.0.i.i173 = phi i1 [ %447, %441 ], [ %449, %448 ]
   br i1 %.0.i.i173, label %451, label %.critedge109
 
 451:                                              ; preds = %437, %450
@@ -4450,7 +4450,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit193: ; preds = %_ZN32pxrIn
           to label %568 unwind label %602
 
 568:                                              ; preds = %559, %566
-  %.0.i.i195 = phi i1 [ %567, %566 ], [ %565, %559 ]
+  %.0.i.i195 = phi i1 [ %565, %559 ], [ %567, %566 ]
   br i1 %.0.i.i195, label %569, label %.critedge111
 
 569:                                              ; preds = %555, %568
@@ -4767,7 +4767,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %.crit
   ret i1 %.0
 
 709:                                              ; preds = %413, %230, %165, %706, %610, %538, %424, %95, %89
-  %.pn98 = phi { ptr, i32 } [ %90, %89 ], [ %.pn94.pn.pn, %424 ], [ %.pn90.pn.pn, %538 ], [ %.pn86.pn.pn, %610 ], [ %.pn84, %706 ], [ %.pn82, %413 ], [ %.pn78, %165 ], [ %.pn80, %230 ], [ %.pn, %95 ]
+  %.pn98 = phi { ptr, i32 } [ %90, %89 ], [ %.pn94.pn.pn, %424 ], [ %.pn90.pn.pn, %538 ], [ %.pn86.pn.pn, %610 ], [ %.pn84, %706 ], [ %.pn82, %413 ], [ %.pn80, %230 ], [ %.pn78, %165 ], [ %.pn, %95 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %28, label %710, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit224
 
@@ -5196,7 +5196,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit56: ; preds = %183, %188
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit56, %235
-  %.sroa.07.0.be = phi ptr [ %210, %235 ], [ %196, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit56 ]
+  %.sroa.07.0.be = phi ptr [ %196, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit56 ], [ %210, %235 ]
   br label %.backedge, !llvm.loop !131
 
 197:                                              ; preds = %180
@@ -5291,7 +5291,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHel
   br i1 %234, label %.backedge.backedge, label %.loopexit37
 
 .loopexit37:                                      ; preds = %82, %235, %176, %.critedge, %56, %28, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper16_GetLastKeyFrameERKNS_8TsSplineEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS7_SaIS7_EEEE.exit67, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper16_GetLastKeyFrameERKNS_8TsSplineEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS7_SaIS7_EEEE.exit
-  %.sroa.017.0 = phi ptr [ %.sroa.0.0.i62, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper16_GetLastKeyFrameERKNS_8TsSplineEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS7_SaIS7_EEEE.exit67 ], [ %.sroa.0.0.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper16_GetLastKeyFrameERKNS_8TsSplineEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS7_SaIS7_EEEE.exit ], [ %25, %28 ], [ %57, %56 ], [ %.sroa.07.0, %.critedge ], [ %.sroa.07.0, %176 ], [ %.sroa.07.0, %235 ], [ %.sroa.07.0, %82 ]
+  %.sroa.017.0 = phi ptr [ %.sroa.0.0.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper16_GetLastKeyFrameERKNS_8TsSplineEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS7_SaIS7_EEEE.exit ], [ %.sroa.0.0.i62, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper16_GetLastKeyFrameERKNS_8TsSplineEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS7_SaIS7_EEEE.exit67 ], [ %25, %28 ], [ %57, %56 ], [ %.sroa.07.0, %.critedge ], [ %.sroa.07.0, %176 ], [ %.sroa.07.0, %235 ], [ %.sroa.07.0, %82 ]
   %236 = load ptr, ptr %26, align 8
   %237 = ptrtoint ptr %236 to i64
   %.not.i.i68 = icmp eq ptr %236, null
@@ -5332,7 +5332,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32
   ret ptr %.sroa.017.0
 
 250:                                              ; preds = %.loopexit, %.loopexit.split-lp, %177, %140, %79
-  %.pn29 = phi { ptr, i32 } [ %.pn, %140 ], [ %178, %177 ], [ %80, %79 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn29 = phi { ptr, i32 } [ %178, %177 ], [ %.pn, %140 ], [ %80, %79 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %15, label %251, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit71

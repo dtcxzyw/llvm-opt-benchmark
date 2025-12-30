@@ -821,8 +821,8 @@ _ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit: ; preds = %57, %54, %5
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE104ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.5, ptr noundef %62, i64 noundef %63)
   br label %_ZN10OopStorage20block_for_allocationEv.exit.thread
 
-_ZN10OopStorage20block_for_allocationEv.exit.thread: ; preds = %15, %13, %61, %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit
-  %.0 = phi ptr [ %33, %61 ], [ %33, %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit ], [ null, %13 ], [ null, %15 ]
+_ZN10OopStorage20block_for_allocationEv.exit.thread: ; preds = %13, %15, %61, %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit
+  %.0 = phi ptr [ %33, %_ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit ], [ %33, %61 ], [ null, %15 ], [ null, %13 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %64
 
 64:                                               ; preds = %_ZN10OopStorage20block_for_allocationEv.exit.thread
@@ -875,7 +875,7 @@ thread-pre-split:                                 ; preds = %8, %.lr.ph
   br i1 %.not, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %14, %1, %12, %10
-  %16 = phi ptr [ null, %10 ], [ null, %12 ], [ %3, %1 ], [ %15, %14 ]
+  %16 = phi ptr [ null, %12 ], [ null, %10 ], [ %3, %1 ], [ %15, %14 ]
   ret ptr %16
 }
 
@@ -1026,10 +1026,10 @@ _ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit: ; preds = %44, %42, 
   %49 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %48, ptr nonnull %39) #20, !srcloc !10
   br label %_ZN10OopStorage20block_for_allocationEv.exit.thread
 
-_ZN10OopStorage20block_for_allocationEv.exit.thread: ; preds = %17, %15, %_ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit
-  %50 = phi i1 [ true, %_ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit ], [ false, %15 ], [ false, %17 ]
-  %51 = phi ptr [ %21, %_ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit ], [ null, %15 ], [ null, %17 ]
-  %.032 = phi i64 [ %48, %_ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit ], [ undef, %15 ], [ undef, %17 ]
+_ZN10OopStorage20block_for_allocationEv.exit.thread: ; preds = %15, %17, %_ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit
+  %50 = phi i1 [ true, %_ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit ], [ false, %17 ], [ false, %15 ]
+  %51 = phi ptr [ %21, %_ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit ], [ null, %17 ], [ null, %15 ]
+  %.032 = phi i64 [ %48, %_ZNK10OopStorage20log_block_transitionEPNS_5BlockEPKc.exit ], [ undef, %17 ], [ undef, %15 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %52
 
 52:                                               ; preds = %_ZN10OopStorage20block_for_allocationEv.exit.thread
@@ -1330,7 +1330,7 @@ _ZN10OopStorage14AllocationList9push_backERKNS_5BlockE.exit: ; preds = %50, %52
   br label %58
 
 58:                                               ; preds = %_ZN13MutexUnlockerD2Ev.exit.thread, %56, %_ZN10OopStorage14AllocationList9push_backERKNS_5BlockE.exit, %44
-  %.0 = phi i1 [ false, %44 ], [ false, %_ZN13MutexUnlockerD2Ev.exit.thread ], [ true, %_ZN10OopStorage14AllocationList9push_backERKNS_5BlockE.exit ], [ true, %56 ]
+  %.0 = phi i1 [ false, %44 ], [ true, %_ZN10OopStorage14AllocationList9push_backERKNS_5BlockE.exit ], [ true, %56 ], [ false, %_ZN13MutexUnlockerD2Ev.exit.thread ]
   ret i1 %.0
 }
 
@@ -2414,7 +2414,7 @@ _ZN10OopStorage18delete_empty_blockERKNS_5BlockE.exit: ; preds = %_ZN10OopStorag
   br label %_ZN13MutexUnlockerD2Ev.exit
 
 _ZN13MutexUnlockerD2Ev.exit:                      ; preds = %138, %135, %134, %_ZN10OopStorage18delete_empty_blockERKNS_5BlockE.exit, %63, %60, %59, %44
-  %.sink = phi ptr [ %45, %63 ], [ %45, %44 ], [ %45, %59 ], [ %45, %60 ], [ %113, %_ZN10OopStorage18delete_empty_blockERKNS_5BlockE.exit ], [ %113, %134 ], [ %113, %135 ], [ %113, %138 ]
+  %.sink = phi ptr [ %45, %44 ], [ %45, %59 ], [ %45, %60 ], [ %45, %63 ], [ %113, %_ZN10OopStorage18delete_empty_blockERKNS_5BlockE.exit ], [ %113, %134 ], [ %113, %135 ], [ %113, %138 ]
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %.sink) #20
   %139 = add nuw i64 %.01244, 1
   %exitcond.not = icmp eq i64 %139, %36
@@ -2431,7 +2431,7 @@ _ZNK10OopStorage5Block17is_safe_to_deleteEv.exit.thread: ; preds = %_ZN13MutexUn
   br label %_ZN11MutexLockerD2Ev.exit19
 
 _ZN11MutexLockerD2Ev.exit19:                      ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit15, %64, %67, %141, %_ZNK10OopStorage5Block17is_safe_to_deleteEv.exit.thread
-  %.2 = phi i1 [ true, %_ZNK10OopStorage5Block17is_safe_to_deleteEv.exit.thread ], [ true, %141 ], [ false, %64 ], [ false, %67 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit15 ]
+  %.2 = phi i1 [ true, %_ZNK10OopStorage5Block17is_safe_to_deleteEv.exit.thread ], [ true, %141 ], [ false, %67 ], [ false, %64 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit15 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit21, label %142
 
 142:                                              ; preds = %_ZN11MutexLockerD2Ev.exit19
@@ -2884,7 +2884,7 @@ define hidden noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_seg
   br label %_ZNK10OopStorage13BasicParState16finish_iterationEPKNS0_13IterationDataE.exit
 
 _ZNK10OopStorage13BasicParState16finish_iterationEPKNS0_13IterationDataE.exit: ; preds = %41, %39, %16, %14, %36
-  %.0 = phi i1 [ false, %16 ], [ true, %36 ], [ false, %14 ], [ false, %39 ], [ false, %41 ]
+  %.0 = phi i1 [ true, %36 ], [ false, %14 ], [ false, %16 ], [ false, %39 ], [ false, %41 ]
   ret i1 %.0
 }
 

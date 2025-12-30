@@ -333,9 +333,9 @@ define hidden void @_ZN10libloading2os4unix7Library4open17hd7cabb4d009a0ea2E(ptr
   br label %21
 
 21:                                               ; preds = %17, %.thread
-  %.pn3.i.i.i34 = phi ptr [ %.pn3.i.i.i, %17 ], [ %.pn3.i.i.i30, %.thread ]
-  %.sroa.0.032 = phi i1 [ %20, %17 ], [ false, %.thread ]
-  %22 = phi ptr [ %spec.select, %17 ], [ null, %.thread ]
+  %.pn3.i.i.i34 = phi ptr [ %.pn3.i.i.i30, %.thread ], [ %.pn3.i.i.i, %17 ]
+  %.sroa.0.032 = phi i1 [ false, %.thread ], [ %20, %17 ]
+  %22 = phi ptr [ null, %.thread ], [ %spec.select, %17 ]
   %23 = invoke noundef ptr @dlopen(ptr noundef %22, i32 noundef %2)
           to label %24 unwind label %28, !noalias !89
 
@@ -4608,7 +4608,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.llvm.6082948530530484711.exit.i: ; pred
 22:                                               ; preds = %23
   resume { ptr, i32 } %lpad.thr_comm
 
-23:                                               ; preds = %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.llvm.6082948530530484711.exit.i, %9, %16
+23:                                               ; preds = %9, %16, %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.llvm.6082948530530484711.exit.i
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5e5e454df53751b4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #24

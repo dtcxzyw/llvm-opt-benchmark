@@ -49,7 +49,7 @@ define ptr @X509_LOOKUP_new(ptr noundef %0) local_unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %4, %8, %1, %11
-  %.0 = phi ptr [ null, %1 ], [ null, %11 ], [ %2, %8 ], [ %2, %4 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %1 ], [ %2, %8 ], [ %2, %4 ]
   ret ptr %.0
 }
 
@@ -124,7 +124,7 @@ define i32 @X509_LOOKUP_init(ptr noundef %0) local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %5, %1, %8
-  %.0 = phi i32 [ 0, %1 ], [ %9, %8 ], [ 1, %5 ]
+  %.0 = phi i32 [ %9, %8 ], [ 0, %1 ], [ 1, %5 ]
   ret i32 %.0
 }
 
@@ -146,7 +146,7 @@ define i32 @X509_LOOKUP_shutdown(ptr noundef %0) local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %5, %1, %8
-  %.0 = phi i32 [ 0, %1 ], [ %9, %8 ], [ 1, %5 ]
+  %.0 = phi i32 [ %9, %8 ], [ 0, %1 ], [ 1, %5 ]
   ret i32 %.0
 }
 
@@ -178,7 +178,7 @@ define i32 @X509_LOOKUP_ctrl_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br label %21
 
 21:                                               ; preds = %16, %7, %19, %14
-  %.0 = phi i32 [ -1, %7 ], [ %15, %14 ], [ %20, %19 ], [ 1, %16 ]
+  %.0 = phi i32 [ %15, %14 ], [ %20, %19 ], [ -1, %7 ], [ 1, %16 ]
   ret i32 %.0
 }
 
@@ -210,7 +210,7 @@ define i32 @X509_LOOKUP_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64
   br label %X509_LOOKUP_ctrl_ex.exit
 
 X509_LOOKUP_ctrl_ex.exit:                         ; preds = %5, %12, %14, %17
-  %.0.i = phi i32 [ -1, %5 ], [ %13, %12 ], [ %18, %17 ], [ 1, %14 ]
+  %.0.i = phi i32 [ %13, %12 ], [ %18, %17 ], [ -1, %5 ], [ 1, %14 ]
   ret i32 %.0.i
 }
 
@@ -251,7 +251,7 @@ define i32 @X509_LOOKUP_by_subject_ex(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %25
 
 25:                                               ; preds = %6, %9, %20, %23, %.thread
-  %.0 = phi i32 [ %24, %23 ], [ %22, %.thread ], [ 0, %20 ], [ 0, %9 ], [ 0, %6 ]
+  %.0 = phi i32 [ %22, %.thread ], [ %24, %23 ], [ 0, %20 ], [ 0, %9 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -292,7 +292,7 @@ define i32 @X509_LOOKUP_by_subject(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %X509_LOOKUP_by_subject_ex.exit
 
 X509_LOOKUP_by_subject_ex.exit:                   ; preds = %4, %7, %18, %.thread.i, %21
-  %.0.i = phi i32 [ %22, %21 ], [ %20, %.thread.i ], [ 0, %18 ], [ 0, %7 ], [ 0, %4 ]
+  %.0.i = phi i32 [ %20, %.thread.i ], [ %22, %21 ], [ 0, %18 ], [ 0, %7 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -430,8 +430,8 @@ define ptr @X509_STORE_new() local_unnamed_addr #0 {
   br label %32
 
 24:                                               ; preds = %18, %15, %11, %7, %3
-  %.sink19 = phi i32 [ 203, %15 ], [ 199, %11 ], [ 194, %7 ], [ 189, %3 ], [ 209, %18 ]
-  %.sink = phi i32 [ 524303, %15 ], [ 524299, %11 ], [ 524303, %7 ], [ 524303, %3 ], [ 524303, %18 ]
+  %.sink19 = phi i32 [ 189, %3 ], [ 194, %7 ], [ 199, %11 ], [ 203, %15 ], [ 209, %18 ]
+  %.sink = phi i32 [ 524303, %3 ], [ 524303, %7 ], [ 524299, %11 ], [ 524303, %15 ], [ 524303, %18 ]
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink19, ptr noundef nonnull @__func__.X509_STORE_new) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #6
@@ -450,7 +450,7 @@ define ptr @X509_STORE_new() local_unnamed_addr #0 {
   br label %32
 
 32:                                               ; preds = %0, %24, %22
-  %.0 = phi ptr [ %1, %22 ], [ null, %24 ], [ null, %0 ]
+  %.0 = phi ptr [ null, %24 ], [ %1, %22 ], [ null, %0 ]
   ret ptr %.0
 }
 
@@ -489,7 +489,7 @@ define internal i32 @x509_object_cmp(ptr noundef readonly captures(none) %0, ptr
   br label %21
 
 21:                                               ; preds = %8, %9, %15, %2
-  %.010 = phi i32 [ %7, %2 ], [ %20, %15 ], [ 0, %8 ], [ %14, %9 ]
+  %.010 = phi i32 [ %7, %2 ], [ 0, %8 ], [ %14, %9 ], [ %20, %15 ]
   ret i32 %.010
 }
 
@@ -687,7 +687,7 @@ define ptr @X509_STORE_add_lookup(ptr noundef %0, ptr noundef %1) local_unnamed_
   tail call void @CRYPTO_free(ptr noundef nonnull %15, ptr noundef nonnull @.str, i32 noundef 27) #6
   br label %25
 
-25:                                               ; preds = %._crit_edge, %24
+25:                                               ; preds = %24, %._crit_edge
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 284, ptr noundef nonnull @__func__.X509_STORE_add_lookup) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524299, ptr noundef null) #6
@@ -724,7 +724,7 @@ X509_LOOKUP_free.exit:                            ; preds = %29, %31, %34
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %X509_LOOKUP_new.exit, %X509_LOOKUP_free.exit, %25
-  %.0 = phi ptr [ null, %X509_LOOKUP_free.exit ], [ null, %25 ], [ %15, %X509_LOOKUP_new.exit ], [ %11, %.lr.ph ]
+  %.0 = phi ptr [ null, %25 ], [ null, %X509_LOOKUP_free.exit ], [ %15, %X509_LOOKUP_new.exit ], [ %11, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -938,7 +938,7 @@ X509_OBJECT_retrieve_by_subject.exit:             ; preds = %X509_OBJECT_idx_by_
   br label %X509_LOOKUP_by_subject_ex.exit
 
 X509_LOOKUP_by_subject_ex.exit:                   ; preds = %.thread.i, %69
-  %.0.i45 = phi i32 [ %70, %69 ], [ %68, %.thread.i ]
+  %.0.i45 = phi i32 [ %68, %.thread.i ], [ %70, %69 ]
   %.not42 = icmp eq i32 %.0.i45, 0
   br i1 %.not42, label %X509_LOOKUP_by_subject_ex.exit.thread, label %.thread
 
@@ -977,7 +977,7 @@ X509_LOOKUP_by_subject_ex.exit.thread:            ; preds = %66, %X509_LOOKUP_by
   br label %X509_OBJECT_up_ref_count.exit
 
 X509_OBJECT_up_ref_count.exit:                    ; preds = %77, %81
-  %.0.i46 = phi i32 [ %80, %77 ], [ %84, %81 ]
+  %.0.i46 = phi i32 [ %84, %81 ], [ %80, %77 ]
   %.not44 = icmp eq i32 %.0.i46, 0
   br i1 %.not44, label %.loopexit, label %X509_OBJECT_up_ref_count.exit.X509_OBJECT_up_ref_count.exit.thread_crit_edge
 
@@ -995,7 +995,7 @@ X509_OBJECT_up_ref_count.exit.thread:             ; preds = %X509_OBJECT_up_ref_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %53, %.thread, %X509_OBJECT_up_ref_count.exit.thread, %X509_OBJECT_up_ref_count.exit, %._crit_edge, %19, %11, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %19 ], [ 1, %.thread ], [ -1, %X509_OBJECT_up_ref_count.exit ], [ 0, %._crit_edge ], [ 0, %11 ], [ 1, %X509_OBJECT_up_ref_count.exit.thread ], [ -1, %53 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %11 ], [ 0, %19 ], [ 0, %._crit_edge ], [ -1, %X509_OBJECT_up_ref_count.exit ], [ 1, %X509_OBJECT_up_ref_count.exit.thread ], [ 1, %.thread ], [ -1, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -1076,7 +1076,7 @@ define i32 @X509_OBJECT_up_ref_count(ptr noundef readonly captures(none) %0) loc
   br label %11
 
 11:                                               ; preds = %1, %7, %3
-  %.0 = phi i32 [ %6, %3 ], [ %10, %7 ], [ 1, %1 ]
+  %.0 = phi i32 [ %10, %7 ], [ %6, %3 ], [ 1, %1 ]
   ret i32 %.0
 }
 
@@ -1125,7 +1125,7 @@ define internal fastcc range(i32 0, 2) i32 @x509_store_add(ptr noundef readonly 
   br label %X509_OBJECT_up_ref_count.exit
 
 X509_OBJECT_up_ref_count.exit:                    ; preds = %10, %12
-  %.0.i = phi i32 [ %11, %10 ], [ %13, %12 ]
+  %.0.i = phi i32 [ %13, %12 ], [ %11, %10 ]
   %.not28 = icmp eq i32 %.0.i, 0
   br i1 %.not28, label %X509_OBJECT_free.exit, label %14
 
@@ -1192,7 +1192,7 @@ X509_OBJECT_new.exit.thread.sink.split:           ; preds = %37, %34, %32, %X509
   br label %X509_OBJECT_new.exit.thread
 
 X509_OBJECT_new.exit.thread:                      ; preds = %X509_OBJECT_new.exit.thread.sink.split, %5, %24, %3
-  %.025 = phi i32 [ 0, %5 ], [ 0, %3 ], [ %28, %24 ], [ %.025.ph, %X509_OBJECT_new.exit.thread.sink.split ]
+  %.025 = phi i32 [ 0, %3 ], [ %28, %24 ], [ 0, %5 ], [ %.025.ph, %X509_OBJECT_new.exit.thread.sink.split ]
   ret i32 %.025
 }
 
@@ -1529,7 +1529,7 @@ X509_OBJECT_get0_X509.exit.thread:                ; preds = %.lr.ph, %19, %X509_
   br label %34
 
 34:                                               ; preds = %4, %33, %._crit_edge, %3
-  %.0 = phi ptr [ null, %3 ], [ %5, %._crit_edge ], [ null, %4 ], [ null, %33 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %33 ], [ %5, %._crit_edge ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -1656,7 +1656,7 @@ define ptr @X509_STORE_CTX_get1_certs(ptr noundef readonly captures(none) %0, pt
   br label %63
 
 63:                                               ; preds = %33, %31, %29, %12, %.loopexit, %53, %10
-  %.0 = phi ptr [ %11, %10 ], [ null, %12 ], [ %43, %.loopexit ], [ null, %53 ], [ null, %29 ], [ %32, %31 ], [ null, %33 ]
+  %.0 = phi ptr [ %11, %10 ], [ %43, %.loopexit ], [ null, %53 ], [ null, %12 ], [ %32, %31 ], [ null, %29 ], [ null, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
@@ -1758,7 +1758,7 @@ define ptr @X509_STORE_CTX_get1_crls(ptr noundef readonly captures(none) %0, ptr
   br label %50
 
 50:                                               ; preds = %9, %2, %._crit_edge, %40, %35, %27, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %2 ], [ %10, %27 ], [ null, %40 ], [ null, %35 ], [ %10, %._crit_edge ], [ %10, %9 ]
+  %.0 = phi ptr [ %10, %27 ], [ null, %40 ], [ null, %35 ], [ %10, %._crit_edge ], [ null, %16 ], [ null, %2 ], [ %10, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -1856,7 +1856,7 @@ x509_object_cmp.exit.thread:                      ; preds = %17, %thread-pre-spl
   br i1 %exitcond.not, label %x509_object_cmp.exit.thread29, label %13, !llvm.loop !96
 
 x509_object_cmp.exit.thread29:                    ; preds = %x509_object_cmp.exit, %40, %29, %34, %x509_object_cmp.exit.thread, %13, %9, %2, %7
-  %.0 = phi ptr [ null, %2 ], [ %8, %7 ], [ null, %9 ], [ %14, %x509_object_cmp.exit.thread ], [ null, %x509_object_cmp.exit ], [ %14, %29 ], [ null, %40 ], [ %14, %34 ], [ null, %13 ]
+  %.0 = phi ptr [ %8, %7 ], [ null, %2 ], [ null, %9 ], [ null, %x509_object_cmp.exit ], [ null, %40 ], [ %14, %29 ], [ %14, %34 ], [ %14, %x509_object_cmp.exit.thread ], [ null, %13 ]
   ret ptr %.0
 }
 

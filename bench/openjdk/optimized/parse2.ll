@@ -2448,7 +2448,7 @@ _ZN5Parse19maybe_add_safepointEi.exit:            ; preds = %20, %23
   br label %45
 
 45:                                               ; preds = %40, %36, %27
-  %.0 = phi ptr [ null, %27 ], [ %spec.select, %40 ], [ null, %36 ]
+  %.0 = phi ptr [ null, %36 ], [ null, %27 ], [ %spec.select, %40 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %28, align 8
@@ -2770,7 +2770,7 @@ _ZN11SwitchRange11adjoinRangeEiiifb.exit:         ; preds = %196, %199, %200, %.
   store float %208, ptr %207, align 4
   br label %216
 
-209:                                              ; preds = %203, %195, %200, %182
+209:                                              ; preds = %195, %200, %203, %182
   %210 = add nsw i32 %.1.lcssa, 1
   %211 = sext i32 %210 to i64
   %212 = getelementptr inbounds %class.SwitchRange, ptr %57, i64 %211
@@ -3133,8 +3133,8 @@ _ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread:    ; preds = %.lr.ph.i
   br label %.loopexit176
 
 .loopexit176:                                     ; preds = %95, %90, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit, %113, %97, %108
-  %.07.lcssa.i241 = phi float [ %.07.lcssa.i242, %97 ], [ %.07.lcssa.i242, %113 ], [ %.07.lcssa.i242, %108 ], [ 0.000000e+00, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit ], [ %83, %90 ], [ %83, %95 ]
-  %.098 = phi ptr [ %106, %97 ], [ %spec.select, %113 ], [ %106, %108 ], [ null, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit ], [ null, %95 ], [ %.0100189, %90 ]
+  %.07.lcssa.i241 = phi float [ %.07.lcssa.i242, %108 ], [ %.07.lcssa.i242, %97 ], [ %.07.lcssa.i242, %113 ], [ 0.000000e+00, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit ], [ %83, %90 ], [ %83, %95 ]
+  %.098 = phi ptr [ %106, %108 ], [ %106, %97 ], [ %spec.select, %113 ], [ null, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit ], [ null, %95 ], [ %.0100189, %90 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %.098, %58
@@ -3935,7 +3935,7 @@ _ZN5Parse19maybe_add_safepointEi.exit:            ; preds = %17, %20
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %24, %33
-  %.0 = phi ptr [ null, %24 ], [ %spec.select, %37 ], [ null, %33 ]
+  %.0 = phi ptr [ null, %33 ], [ null, %24 ], [ %spec.select, %37 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %25, align 8
@@ -4151,8 +4151,8 @@ _ZN5Parse19maybe_add_safepointEi.exit:            ; preds = %17, %20
   %168 = sitofp i32 %122 to float
   br label %181
 
-_ZN11SwitchRange11adjoinRangeEiiifb.exit.thread:  ; preds = %._ZN11SwitchRange11adjoinRangeEiiifb.exit.thread_crit_edge, %140, %159, %154, %162
-  %.pre-phi166 = phi i32 [ %.pre165, %._ZN11SwitchRange11adjoinRangeEiiifb.exit.thread_crit_edge ], [ %143, %140 ], [ %143, %159 ], [ %143, %154 ], [ %143, %162 ]
+_ZN11SwitchRange11adjoinRangeEiiifb.exit.thread:  ; preds = %._ZN11SwitchRange11adjoinRangeEiiifb.exit.thread_crit_edge, %140, %162, %159, %154
+  %.pre-phi166 = phi i32 [ %.pre165, %._ZN11SwitchRange11adjoinRangeEiiifb.exit.thread_crit_edge ], [ %143, %140 ], [ %143, %162 ], [ %143, %159 ], [ %143, %154 ]
   %169 = add nsw i32 %.0130138, 1
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds %class.SwitchRange, ptr %115, i64 %170
@@ -4238,9 +4238,9 @@ _ZN11SwitchRange6adjoinEiifb.exit:                ; preds = %191, %194, %195, %.
   store float %203, ptr %202, align 4
   br label %210
 
-_ZN11SwitchRange6adjoinEiifb.exit.thread:         ; preds = %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge, %177, %195, %190, %198
-  %.pre-phi164 = phi float [ %.pre163, %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge ], [ %180, %177 ], [ %182, %195 ], [ %182, %190 ], [ %182, %198 ]
-  %.1134 = phi i32 [ %.1, %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge ], [ %.1, %177 ], [ %.1133187, %195 ], [ %.1133187, %190 ], [ %.1133187, %198 ]
+_ZN11SwitchRange6adjoinEiifb.exit.thread:         ; preds = %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge, %177, %198, %195, %190
+  %.pre-phi164 = phi float [ %.pre163, %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge ], [ %180, %177 ], [ %182, %198 ], [ %182, %195 ], [ %182, %190 ]
+  %.1134 = phi i32 [ %.1, %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge ], [ %.1, %177 ], [ %.1133187, %198 ], [ %.1133187, %195 ], [ %.1133187, %190 ]
   %204 = add nsw i32 %.1134, 1
   %205 = sext i32 %204 to i64
   %206 = getelementptr inbounds %class.SwitchRange, ptr %115, i64 %205
@@ -4327,7 +4327,7 @@ _ZN11SwitchRange11adjoinRangeEiiifb.exit116:      ; preds = %231, %234, %235, %.
   store float %243, ptr %242, align 4
   br label %251
 
-244:                                              ; preds = %238, %230, %235, %214
+244:                                              ; preds = %230, %235, %238, %214
   %245 = add nsw i32 %.2, 1
   %246 = sext i32 %245 to i64
   %247 = getelementptr inbounds %class.SwitchRange, ptr %115, i64 %246
@@ -5749,7 +5749,7 @@ _ZN5Parse19jump_if_always_forkEib.exit:           ; preds = %390, %.thread
   br label %404
 
 404:                                              ; preds = %87, %85, %81, %65, %8, %4, %._crit_edge201
-  %.0 = phi i1 [ false, %8 ], [ false, %65 ], [ false, %85 ], [ true, %._crit_edge201 ], [ false, %81 ], [ false, %4 ], [ false, %87 ]
+  %.0 = phi i1 [ true, %._crit_edge201 ], [ false, %4 ], [ false, %8 ], [ false, %65 ], [ false, %81 ], [ false, %85 ], [ false, %87 ]
   ret i1 %.0
 }
 
@@ -6775,7 +6775,7 @@ _ZNK16ciBytecodeStream8get_destEv.exit42:         ; preds = %147, %154
   br label %166
 
 166:                                              ; preds = %131, %_ZNK16ciBytecodeStream8get_destEv.exit42, %_ZL23counters_are_meaningfuliii.exit.thread, %_ZNK16ciBytecodeStream8get_destEv.exit, %56, %51, %44
-  %.028 = phi float [ -1.000000e+00, %44 ], [ -1.000000e+00, %_ZL23counters_are_meaningfuliii.exit.thread ], [ -1.000000e+00, %56 ], [ -1.000000e+00, %51 ], [ -1.000000e+00, %_ZNK16ciBytecodeStream8get_destEv.exit ], [ %.025, %_ZNK16ciBytecodeStream8get_destEv.exit42 ], [ %.025, %131 ]
+  %.028 = phi float [ -1.000000e+00, %44 ], [ -1.000000e+00, %51 ], [ -1.000000e+00, %56 ], [ -1.000000e+00, %_ZNK16ciBytecodeStream8get_destEv.exit ], [ -1.000000e+00, %_ZL23counters_are_meaningfuliii.exit.thread ], [ %.025, %_ZNK16ciBytecodeStream8get_destEv.exit42 ], [ %.025, %131 ]
   %167 = load ptr, ptr %11, align 8
   %.not.i.i.i.i43 = icmp eq ptr %167, null
   br i1 %.not.i.i.i.i43, label %169, label %168
@@ -6867,7 +6867,7 @@ define hidden noundef float @_ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4N
   br label %47
 
 47:                                               ; preds = %8, %15, %12, %22, %26, %5, %46
-  %.0 = phi float [ %6, %5 ], [ -1.000000e+00, %22 ], [ -1.000000e+00, %26 ], [ %switch.select20, %8 ], [ 0x3FECCCCCC0000000, %15 ], [ 0x3FECCCCCC0000000, %12 ], [ 0x3FECCCCCC0000000, %46 ]
+  %.0 = phi float [ %6, %5 ], [ -1.000000e+00, %26 ], [ -1.000000e+00, %22 ], [ %switch.select20, %8 ], [ 0x3FECCCCCC0000000, %15 ], [ 0x3FECCCCCC0000000, %12 ], [ 0x3FECCCCCC0000000, %46 ]
   ret float %.0
 }
 
@@ -6972,7 +6972,7 @@ _ZNK16ciBytecodeStream8get_destEv.exit:           ; preds = %3, %11
   %72 = icmp eq i32 %62, %71
   br i1 %72, label %_ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4Node.exit.thread48, label %_ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4Node.exit.thread
 
-_ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4Node.exit.thread48: ; preds = %53, %49
+_ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4Node.exit.thread48: ; preds = %49, %53
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %74 = load i32, ptr %73, align 8
   %75 = sext i32 %74 to i64
@@ -7003,7 +7003,7 @@ _ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4Node.exit.thread48: ; preds = 
   br label %298
 
 _ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4Node.exit.thread: ; preds = %_ZNK16ciBytecodeStream8get_destEv.exit, %53, %39, %42, %35
-  %.0.i46 = phi float [ 0x3FECCCCCC0000000, %53 ], [ %switch.select20.i, %35 ], [ 0x3FECCCCCC0000000, %39 ], [ 0x3FECCCCCC0000000, %42 ], [ %33, %_ZNK16ciBytecodeStream8get_destEv.exit ]
+  %.0.i46 = phi float [ 0x3FECCCCCC0000000, %39 ], [ 0x3FECCCCCC0000000, %42 ], [ %switch.select20.i, %35 ], [ 0x3FECCCCCC0000000, %53 ], [ %33, %_ZNK16ciBytecodeStream8get_destEv.exit ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %96 = load ptr, ptr %95, align 8
   %97 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -7918,7 +7918,7 @@ _ZNK16ciBytecodeStream8get_destEv.exit:           ; preds = %3, %11
   %72 = icmp eq i32 %62, %71
   br i1 %72, label %_ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4Node.exit.thread98, label %_ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4Node.exit.thread
 
-_ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4Node.exit.thread98: ; preds = %53, %49
+_ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4Node.exit.thread98: ; preds = %49, %53
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %74 = load i32, ptr %73, align 8
   %75 = sext i32 %74 to i64
@@ -7949,7 +7949,7 @@ _ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4Node.exit.thread98: ; preds = 
   br label %328
 
 _ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4Node.exit.thread: ; preds = %_ZNK16ciBytecodeStream8get_destEv.exit, %53, %39, %42, %35
-  %.0.i96 = phi float [ 0x3FECCCCCC0000000, %53 ], [ %switch.select20.i, %35 ], [ 0x3FECCCCCC0000000, %39 ], [ 0x3FECCCCCC0000000, %42 ], [ %33, %_ZNK16ciBytecodeStream8get_destEv.exit ]
+  %.0.i96 = phi float [ 0x3FECCCCCC0000000, %39 ], [ 0x3FECCCCCC0000000, %42 ], [ %switch.select20.i, %35 ], [ 0x3FECCCCCC0000000, %53 ], [ %33, %_ZNK16ciBytecodeStream8get_destEv.exit ]
   %95 = fsub float 1.000000e+00, %.0.i96
   %96 = add i32 %1, -2
   %switch.selectcmp.i74 = icmp ult i32 %96, 4
@@ -8544,7 +8544,7 @@ define hidden void @_ZN5Parse21sharpen_type_after_ifEN8BoolTest4maskEP4NodePK4Ty
   br label %_ZL27extract_obj_from_klass_loadP8PhaseGVNP4Node.exit
 
 _ZL27extract_obj_from_klass_loadP8PhaseGVNP4Node.exit: ; preds = %55, %20, %32, %36, %44
-  %.0.i = phi ptr [ null, %20 ], [ null, %32 ], [ null, %36 ], [ %spec.select, %55 ], [ null, %44 ]
+  %.0.i = phi ptr [ null, %20 ], [ null, %32 ], [ null, %36 ], [ null, %44 ], [ %spec.select, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %58 = load ptr, ptr %3, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 296
@@ -8873,7 +8873,7 @@ _ZN9Node_List4pushEP4Node.exit.i.i.i:             ; preds = %261, %255
   br label %_ZNK8GraphKit15record_for_igvnEP4Node.exit.thread
 
 _ZNK8GraphKit15record_for_igvnEP4Node.exit:       ; preds = %205, %206, %210, %217
-  %.063.ph = phi ptr [ %218, %217 ], [ %2, %210 ], [ %2, %205 ], [ %2, %206 ]
+  %.063.ph = phi ptr [ %218, %217 ], [ %2, %210 ], [ %2, %206 ], [ %2, %205 ]
   %.not85 = icmp eq ptr %.063.ph, null
   br i1 %.not85, label %_ZNK8GraphKit15record_for_igvnEP4Node.exit.thread106, label %_ZNK8GraphKit15record_for_igvnEP4Node.exit.thread
 
@@ -8882,7 +8882,7 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit.thread: ; preds = %_ZN9Node_List4push
   call void @_ZN8GraphKit14replace_in_mapEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %4, ptr noundef nonnull %.1104) #16
   br label %_ZNK8GraphKit15record_for_igvnEP4Node.exit.thread106
 
-_ZNK8GraphKit15record_for_igvnEP4Node.exit.thread106: ; preds = %151, %152, %214, %_ZN4NodenwEm.exit, %210, %206, %197, %146, %131, %_ZNK8GraphKit15record_for_igvnEP4Node.exit.thread, %_ZNK8GraphKit15record_for_igvnEP4Node.exit
+_ZNK8GraphKit15record_for_igvnEP4Node.exit.thread106: ; preds = %151, %152, %210, %206, %214, %_ZN4NodenwEm.exit, %197, %146, %131, %_ZNK8GraphKit15record_for_igvnEP4Node.exit.thread, %_ZNK8GraphKit15record_for_igvnEP4Node.exit
   ret void
 }
 
@@ -13942,7 +13942,7 @@ _ZN5Parse19maybe_add_safepointEi.exit283:         ; preds = %2976, %2981
   br label %3022
 
 3022:                                             ; preds = %_ZN7Compile16check_node_countEjPKc.exit, %3021, %3020, %3019, %3018, %3017
-  %.2 = phi i32 [ 7, %3021 ], [ 4, %3017 ], [ 3, %3018 ], [ 5, %3019 ], [ 1, %3020 ], [ 0, %_ZN7Compile16check_node_countEjPKc.exit ]
+  %.2 = phi i32 [ 4, %3017 ], [ 3, %3018 ], [ 5, %3019 ], [ 1, %3020 ], [ 7, %3021 ], [ 0, %_ZN7Compile16check_node_countEjPKc.exit ]
   %3023 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3024 = tail call noundef i32 @_ZNK16ciBytecodeStream8get_destEv(ptr noundef nonnull align 8 dereferenceable(72) %3023)
   %3025 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -14009,7 +14009,7 @@ _ZN5Parse19maybe_add_safepointEi.exit285:         ; preds = %3022, %3027
   br label %3060
 
 3060:                                             ; preds = %_ZN7Compile16check_node_countEjPKc.exit, %3059, %3058, %3057, %3056, %3055
-  %.3 = phi i32 [ 7, %3059 ], [ 4, %3055 ], [ 3, %3056 ], [ 5, %3057 ], [ 1, %3058 ], [ 0, %_ZN7Compile16check_node_countEjPKc.exit ]
+  %.3 = phi i32 [ 4, %3055 ], [ 3, %3056 ], [ 5, %3057 ], [ 1, %3058 ], [ 7, %3059 ], [ 0, %_ZN7Compile16check_node_countEjPKc.exit ]
   %3061 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3062 = tail call noundef i32 @_ZNK16ciBytecodeStream8get_destEv(ptr noundef nonnull align 8 dereferenceable(72) %3061)
   %3063 = getelementptr inbounds nuw i8, ptr %0, i64 56

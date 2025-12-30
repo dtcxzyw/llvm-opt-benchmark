@@ -798,7 +798,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i191: ; preds = %.noexc194, %
           to label %_ZNSolsEPFRSoS_E.exit97 unwind label %251
 
 _ZNSolsEPFRSoS_E.exit97:                          ; preds = %.noexc185.invoke, %.noexc196, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit103
-  %307 = phi i1 [ false, %.noexc185.invoke ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit103 ], [ true, %.noexc196 ]
+  %307 = phi i1 [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit103 ], [ true, %.noexc196 ], [ false, %.noexc185.invoke ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZNSolsEPFRSoS_E.exit93
 
@@ -808,7 +808,7 @@ _ZNSolsEPFRSoS_E.exit97:                          ; preds = %.noexc185.invoke, %
   br label %_ZNSolsEPFRSoS_E.exit93
 
 _ZNSolsEPFRSoS_E.exit93:                          ; preds = %_ZNSolsEPFRSoS_E.exit97, %.noexc163, %.critedge, %_ZNSolsEPFRSoS_E.exit81
-  %.2 = phi i1 [ false, %.critedge ], [ false, %_ZNSolsEPFRSoS_E.exit81 ], [ %307, %_ZNSolsEPFRSoS_E.exit97 ], [ false, %.noexc163 ]
+  %.2 = phi i1 [ false, %_ZNSolsEPFRSoS_E.exit81 ], [ false, %.critedge ], [ %307, %_ZNSolsEPFRSoS_E.exit97 ], [ false, %.noexc163 ]
   %308 = load ptr, ptr %8, align 8, !tbaa !7
   %309 = icmp eq ptr %308, %83
   br i1 %309, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i110
@@ -851,7 +851,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %_Z
   ret i1 %.2
 
 321:                                              ; preds = %232, %251, %231, %141
-  %.pn41.pn = phi { ptr, i32 } [ %.pn37.pn.pn, %231 ], [ %142, %141 ], [ %233, %232 ], [ %252, %251 ]
+  %.pn41.pn = phi { ptr, i32 } [ %142, %141 ], [ %.pn37.pn.pn, %231 ], [ %233, %232 ], [ %252, %251 ]
   %322 = load ptr, ptr %8, align 8, !tbaa !7
   %323 = icmp eq ptr %322, %83
   br i1 %323, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i119

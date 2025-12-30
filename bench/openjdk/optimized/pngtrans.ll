@@ -418,7 +418,7 @@ define hidden void @png_do_packswap(ptr noundef readonly captures(none) %0, ptr 
   br label %12
 
 12:                                               ; preds = %6, %10, %11
-  %.0 = phi ptr [ @fourbppswaptable, %11 ], [ @twobppswaptable, %10 ], [ @onebppswaptable, %6 ]
+  %.0 = phi ptr [ @twobppswaptable, %10 ], [ @fourbppswaptable, %11 ], [ @onebppswaptable, %6 ]
   %13 = icmp sgt i64 %8, 0
   br i1 %13, label %.lr.ph, label %.loopexit
 

@@ -236,8 +236,8 @@ define dso_local ptr @heap_create(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br label %41
 
 41:                                               ; preds = %40, %30
-  %.0108.shrunk = phi i1 [ %14, %40 ], [ false, %30 ]
-  %.0107 = phi i32 [ %spec.select113, %40 ], [ %4, %30 ]
+  %.0108.shrunk = phi i1 [ false, %30 ], [ %14, %40 ]
+  %.0107 = phi i32 [ %4, %30 ], [ %spec.select113, %40 ]
   %42 = load i32, ptr @MyDatabaseTableSpace, align 4
   %43 = icmp eq i32 %spec.select, %42
   %spec.store.select = select i1 %43, i32 0, i32 %spec.select
@@ -1385,7 +1385,7 @@ define dso_local noundef i32 @heap_create_with_catalog(ptr noundef %0, i32 nound
   br label %102
 
 90:                                               ; preds = %.thread, %82, %83
-  %.0159 = phi ptr [ null, %82 ], [ %84, %83 ], [ null, %.thread ]
+  %.0159 = phi ptr [ %84, %83 ], [ null, %82 ], [ null, %.thread ]
   %91 = call ptr @heap_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.0, i32 noundef %.0161, i32 noundef %7, ptr noundef %8, i8 noundef signext %10, i8 noundef signext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i1 noundef zeroext %17, ptr noundef nonnull %24, ptr noundef nonnull %25, i1 noundef zeroext true)
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 56
   %93 = load ptr, ptr %92, align 8
@@ -2722,7 +2722,7 @@ fastgetattr.exit.i:                               ; preds = %198
   unreachable
 
 207:                                              ; preds = %201, %196, %194, %189, %186, %183, %180
-  %.1.i.ph.i = phi i64 [ %190, %189 ], [ %188, %186 ], [ %185, %183 ], [ %182, %180 ], [ %197, %196 ], [ %195, %194 ], [ %202, %201 ]
+  %.1.i.ph.i = phi i64 [ %195, %194 ], [ %190, %189 ], [ %188, %186 ], [ %185, %183 ], [ %182, %180 ], [ %197, %196 ], [ %202, %201 ]
   %208 = inttoptr i64 %.1.i.ph.i to ptr
   %209 = call ptr @text_to_cstring(ptr noundef %208) #11
   %210 = call ptr @stringToNode(ptr noundef %209) #11
@@ -2749,7 +2749,7 @@ fastgetattr.exit.i:                               ; preds = %198
   br label %222
 
 222:                                              ; preds = %217, %213, %212
-  %.0.shrunk.i = phi i1 [ %3, %213 ], [ %spec.select.i, %217 ], [ %3, %212 ]
+  %.0.shrunk.i = phi i1 [ %3, %213 ], [ %3, %212 ], [ %spec.select.i, %217 ]
   %or.cond.i = and i1 %.1.i, %.0.shrunk.i
   br i1 %or.cond.i, label %229, label %223
 
@@ -2976,8 +2976,8 @@ list_length.exit.thread:                          ; preds = %322, %list_length.e
   br label %341
 
 341:                                              ; preds = %.critedge252, %list_length.exit.thread
-  %.0216 = phi ptr [ %121, %.critedge252 ], [ %339, %list_length.exit.thread ]
-  %.3207 = phi ptr [ %133, %.critedge252 ], [ %340, %list_length.exit.thread ]
+  %.0216 = phi ptr [ %339, %list_length.exit.thread ], [ %121, %.critedge252 ]
+  %.3207 = phi ptr [ %340, %list_length.exit.thread ], [ %133, %.critedge252 ]
   %342 = getelementptr inbounds nuw i8, ptr %99, i64 18
   %343 = load i8, ptr %342, align 2, !range !10, !noundef !11
   %344 = trunc nuw i8 %343 to i1
@@ -3164,10 +3164,10 @@ list_length.exit.thread:                          ; preds = %322, %list_length.e
   br label %.preheader254
 
 .preheader254:                                    ; preds = %MergeWithExistingConstraint.exit, %440, %408, %341, %.lr.ph563
-  %.2212 = phi ptr [ %.1211387562, %341 ], [ %.1211387562, %.lr.ph563 ], [ %.1211387562, %MergeWithExistingConstraint.exit ], [ %441, %440 ], [ %.1211387562, %408 ]
-  %.4208 = phi ptr [ %.3207, %341 ], [ %.1205388561, %.lr.ph563 ], [ %133, %MergeWithExistingConstraint.exit ], [ %.1205388561, %440 ], [ %.1205388561, %408 ]
-  %.3201 = phi i32 [ %352, %341 ], [ %.1199389560, %.lr.ph563 ], [ %.1199389560, %MergeWithExistingConstraint.exit ], [ %.1199389560, %440 ], [ %.1199389560, %408 ]
-  %.6 = phi ptr [ %367, %341 ], [ %.4390559, %.lr.ph563 ], [ %.4390559, %MergeWithExistingConstraint.exit ], [ %462, %440 ], [ %.4390559, %408 ]
+  %.2212 = phi ptr [ %.1211387562, %.lr.ph563 ], [ %.1211387562, %MergeWithExistingConstraint.exit ], [ %.1211387562, %341 ], [ %441, %440 ], [ %.1211387562, %408 ]
+  %.4208 = phi ptr [ %.1205388561, %.lr.ph563 ], [ %133, %MergeWithExistingConstraint.exit ], [ %.3207, %341 ], [ %.1205388561, %440 ], [ %.1205388561, %408 ]
+  %.3201 = phi i32 [ %.1199389560, %.lr.ph563 ], [ %.1199389560, %MergeWithExistingConstraint.exit ], [ %352, %341 ], [ %.1199389560, %440 ], [ %.1199389560, %408 ]
+  %.6 = phi ptr [ %.4390559, %.lr.ph563 ], [ %.4390559, %MergeWithExistingConstraint.exit ], [ %367, %341 ], [ %462, %440 ], [ %.4390559, %408 ]
   %indvars.iv.next458 = add nuw nsw i64 %indvars.iv457558, 1
   %463 = load i32, ptr %28, align 4
   %464 = sext i32 %463 to i64

@@ -72,7 +72,7 @@ define internal zeroext i1 @HIDAPI_DriverPS5_IsSupportedDevice(ptr noundef reado
   br label %25
 
 25:                                               ; preds = %13, %15, %16, %19, %10
-  %.0 = phi i1 [ true, %15 ], [ %or.cond, %19 ], [ true, %10 ], [ true, %16 ], [ false, %13 ]
+  %.0 = phi i1 [ true, %10 ], [ %or.cond, %19 ], [ true, %16 ], [ true, %15 ], [ false, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.0
 }
@@ -346,8 +346,8 @@ switch.lookup:                                    ; preds = %109
   br label %137
 
 137:                                              ; preds = %122, %116, %112, %120, %132, %134, %128, %75
-  %138 = phi i16 [ 1356, %75 ], [ %114, %112 ], [ 5426, %128 ], [ 5426, %134 ], [ 5426, %132 ], [ 12933, %116 ], [ 12933, %120 ], [ %123, %122 ]
-  %.088 = phi i32 [ 1, %75 ], [ %.1, %112 ], [ 1, %128 ], [ 3, %134 ], [ 1, %132 ], [ %.1, %116 ], [ %.1, %120 ], [ 1, %122 ]
+  %138 = phi i16 [ 1356, %75 ], [ 5426, %128 ], [ 5426, %134 ], [ 5426, %132 ], [ 12933, %116 ], [ 12933, %120 ], [ %114, %112 ], [ %123, %122 ]
+  %.088 = phi i32 [ 1, %75 ], [ 1, %128 ], [ 3, %134 ], [ 1, %132 ], [ %.1, %116 ], [ %.1, %120 ], [ %.1, %112 ], [ 1, %122 ]
   %139 = getelementptr inbounds nuw i8, ptr %4, i64 19
   %140 = load i8, ptr %139, align 1, !range !5, !noundef !6
   %141 = trunc nuw i8 %140 to i1
@@ -438,7 +438,7 @@ switch.lookup:                                    ; preds = %109
   br label %185
 
 185:                                              ; preds = %180, %171, %1, %183
-  %.0 = phi i1 [ false, %1 ], [ true, %171 ], [ %184, %183 ], [ true, %180 ]
+  %.0 = phi i1 [ %184, %183 ], [ false, %1 ], [ true, %171 ], [ true, %180 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
@@ -883,7 +883,7 @@ HIDAPI_DriverPS5_UpdateEffects.exit.i:            ; preds = %229, %226
   br label %HIDAPI_DriverPS5_IsPacketValid.exit
 
 HIDAPI_DriverPS5_IsPacketValid.exit:              ; preds = %60, %90, %HIDAPI_DriverPS5_UpdateEffects.exit.i, %206, %89, %68, %184, %185, %HIDAPI_DriverPS5_HandleSimpleStatePacket.exit, %194, %101, %99
-  %.1 = phi i32 [ %100, %99 ], [ %100, %184 ], [ %100, %101 ], [ %100, %194 ], [ %100, %HIDAPI_DriverPS5_UpdateEffects.exit.i ], [ %100, %HIDAPI_DriverPS5_HandleSimpleStatePacket.exit ], [ %100, %185 ], [ %.06473, %68 ], [ %.06473, %89 ], [ %100, %206 ], [ %.06473, %90 ], [ %.06473, %60 ]
+  %.1 = phi i32 [ %100, %99 ], [ %100, %101 ], [ %100, %194 ], [ %100, %HIDAPI_DriverPS5_HandleSimpleStatePacket.exit ], [ %100, %185 ], [ %100, %184 ], [ %.06473, %68 ], [ %.06473, %89 ], [ %100, %206 ], [ %100, %HIDAPI_DriverPS5_UpdateEffects.exit.i ], [ %.06473, %90 ], [ %.06473, %60 ]
   %232 = load ptr, ptr %18, align 8
   %233 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %232, ptr noundef nonnull %5, i64 noundef 128, i32 noundef 0) #9
   %234 = icmp sgt i32 %233, 0
@@ -969,8 +969,8 @@ HIDAPI_DriverPS5_TickleBluetooth.exit:            ; preds = %256, %257, %260
   br label %273
 
 273:                                              ; preds = %HIDAPI_DriverPS5_TickleBluetooth.exit, %.thread90, %271, %267, %264, %._crit_edge
-  %.lcssa88 = phi i32 [ %233, %._crit_edge ], [ %.lcssa8993, %HIDAPI_DriverPS5_TickleBluetooth.exit ], [ %.lcssa8993, %.thread90 ], [ %233, %271 ], [ %233, %267 ], [ %233, %264 ]
-  %.064.lcssa86 = phi i1 [ %235, %._crit_edge ], [ true, %HIDAPI_DriverPS5_TickleBluetooth.exit ], [ true, %.thread90 ], [ false, %271 ], [ false, %267 ], [ false, %264 ]
+  %.lcssa88 = phi i32 [ %.lcssa8993, %HIDAPI_DriverPS5_TickleBluetooth.exit ], [ %.lcssa8993, %.thread90 ], [ %233, %271 ], [ %233, %267 ], [ %233, %264 ], [ %233, %._crit_edge ]
+  %.064.lcssa86 = phi i1 [ true, %HIDAPI_DriverPS5_TickleBluetooth.exit ], [ true, %.thread90 ], [ false, %271 ], [ false, %267 ], [ false, %264 ], [ %235, %._crit_edge ]
   %274 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %275 = load i8, ptr %274, align 8, !range !5, !noundef !6
   %276 = trunc nuw i8 %275 to i1
@@ -1725,7 +1725,7 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef ca
   br label %.sink.split44
 
 .sink.split44:                                    ; preds = %90, %100, %96
-  %.sink.i.sink = phi i8 [ 0, %96 ], [ %105, %100 ], [ 0, %90 ]
+  %.sink.i.sink = phi i8 [ %105, %100 ], [ 0, %96 ], [ 0, %90 ]
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 43
   store i8 %.sink.i.sink, ptr %106, align 1
   br label %107
@@ -1976,7 +1976,7 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %20
   br label %122
 
 122:                                              ; preds = %119, %.critedge, %97, %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread, %14
-  %.0 = phi i1 [ %.not, %119 ], [ false, %97 ], [ true, %.critedge ], [ %15, %14 ], [ %80, %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread ]
+  %.0 = phi i1 [ %80, %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread ], [ %15, %14 ], [ false, %97 ], [ true, %.critedge ], [ %.not, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3005,7 +3005,7 @@ define internal void @SDL_PS5PlayerLEDHintChanged(ptr noundef captures(none) %0,
   br label %.sink.split44.i
 
 .sink.split44.i:                                  ; preds = %60, %56, %54
-  %.sink.i.sink.i = phi i8 [ 0, %56 ], [ %65, %60 ], [ 0, %54 ]
+  %.sink.i.sink.i = phi i8 [ %65, %60 ], [ 0, %56 ], [ 0, %54 ]
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 43
   store i8 %.sink.i.sink.i, ptr %66, align 1
   br label %67

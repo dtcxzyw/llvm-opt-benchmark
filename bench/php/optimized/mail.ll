@@ -1464,7 +1464,7 @@ php_mail_build_headers_elems.exit:                ; preds = %545, %496, %445, %3
   br label %smart_str_0.exit
 
 smart_str_0.exit:                                 ; preds = %551, %562, %557, %553, %567, %.loopexit
-  %.4 = phi ptr [ %.pre462, %567 ], [ null, %.loopexit ], [ null, %553 ], [ null, %557 ], [ null, %562 ], [ null, %551 ]
+  %.4 = phi ptr [ null, %.loopexit ], [ %.pre462, %567 ], [ null, %553 ], [ null, %557 ], [ null, %562 ], [ null, %551 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.4
 }
@@ -1553,7 +1553,7 @@ php_mail_build_headers_check_field_name.exit:     ; preds = %13, %6
   ]
 
 .backedge.i:                                      ; preds = %35, %35, %27, %27, %.lr.ph.i36
-  %.sink.i = phi i64 [ 1, %.lr.ph.i36 ], [ 2, %35 ], [ 2, %35 ], [ 3, %27 ], [ 3, %27 ]
+  %.sink.i = phi i64 [ 2, %35 ], [ 2, %35 ], [ 1, %.lr.ph.i36 ], [ 3, %27 ], [ 3, %27 ]
   %30 = add i64 %.sink.i, %.0261.i
   %31 = icmp ult i64 %30, %18
   br i1 %31, label %.lr.ph.i36, label %.loopexit
@@ -1579,7 +1579,7 @@ php_mail_build_headers_check_field_name.exit:     ; preds = %13, %6
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.41, ptr noundef nonnull %7) #11
   br label %93
 
-40:                                               ; preds = %27, %24
+40:                                               ; preds = %24, %27
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.42, ptr noundef nonnull %7) #11
   br label %93
 
@@ -1610,9 +1610,9 @@ php_mail_build_headers_check_field_value.exit:    ; preds = %.lr.ph.i36
   br label %49
 
 49:                                               ; preds = %48, %42
-  %50 = phi i64 [ %44, %42 ], [ %.pre49, %48 ]
-  %51 = phi ptr [ %41, %42 ], [ %.pre, %48 ]
-  %.1.i33 = phi i64 [ %45, %42 ], [ %.0.i32, %48 ]
+  %50 = phi i64 [ %.pre49, %48 ], [ %44, %42 ]
+  %51 = phi ptr [ %.pre, %48 ], [ %41, %42 ]
+  %.1.i33 = phi i64 [ %.0.i32, %48 ], [ %45, %42 ]
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %50
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull align 1 %7, i64 %9, i1 false)
@@ -2013,11 +2013,11 @@ thread-pre-split284:                              ; preds = %zend_parse_arg_str_
   %.not338 = icmp eq i64 %83, %84
   br i1 %.not338, label %.critedge197, label %85, !prof !54
 
-85:                                               ; preds = %11, %zend_parse_arg_array_ht_or_str.exit, %zend_parse_arg_path.exit200, %zend_parse_arg_path.exit199, %zend_parse_arg_path.exit, %80, %zend_parse_arg_str_ex.exit220
-  %.0151.ph = phi i32 [ 5, %80 ], [ 5, %zend_parse_arg_str_ex.exit220 ], [ 1, %zend_parse_arg_path.exit ], [ 2, %zend_parse_arg_path.exit199 ], [ 3, %zend_parse_arg_path.exit200 ], [ 4, %zend_parse_arg_array_ht_or_str.exit ], [ 0, %11 ]
-  %.0150.ph = phi ptr [ %72, %80 ], [ %72, %zend_parse_arg_str_ex.exit220 ], [ %13, %zend_parse_arg_path.exit ], [ %29, %zend_parse_arg_path.exit199 ], [ %45, %zend_parse_arg_path.exit200 ], [ %62, %zend_parse_arg_array_ht_or_str.exit ], [ null, %11 ]
-  %.0149.ph = phi i32 [ 16, %80 ], [ 16, %zend_parse_arg_str_ex.exit220 ], [ 16, %zend_parse_arg_path.exit ], [ 16, %zend_parse_arg_path.exit199 ], [ 16, %zend_parse_arg_path.exit200 ], [ 26, %zend_parse_arg_array_ht_or_str.exit ], [ 0, %11 ]
-  %.0146.ph = phi i32 [ 9, %80 ], [ 9, %zend_parse_arg_str_ex.exit220 ], [ 9, %zend_parse_arg_path.exit ], [ 9, %zend_parse_arg_path.exit199 ], [ 9, %zend_parse_arg_path.exit200 ], [ 9, %zend_parse_arg_array_ht_or_str.exit ], [ 1, %11 ]
+85:                                               ; preds = %11, %zend_parse_arg_path.exit, %zend_parse_arg_path.exit199, %zend_parse_arg_path.exit200, %zend_parse_arg_array_ht_or_str.exit, %80, %zend_parse_arg_str_ex.exit220
+  %.0151.ph = phi i32 [ 5, %80 ], [ 5, %zend_parse_arg_str_ex.exit220 ], [ 4, %zend_parse_arg_array_ht_or_str.exit ], [ 3, %zend_parse_arg_path.exit200 ], [ 2, %zend_parse_arg_path.exit199 ], [ 1, %zend_parse_arg_path.exit ], [ 0, %11 ]
+  %.0150.ph = phi ptr [ %72, %80 ], [ %72, %zend_parse_arg_str_ex.exit220 ], [ %62, %zend_parse_arg_array_ht_or_str.exit ], [ %45, %zend_parse_arg_path.exit200 ], [ %29, %zend_parse_arg_path.exit199 ], [ %13, %zend_parse_arg_path.exit ], [ null, %11 ]
+  %.0149.ph = phi i32 [ 16, %80 ], [ 16, %zend_parse_arg_str_ex.exit220 ], [ 26, %zend_parse_arg_array_ht_or_str.exit ], [ 16, %zend_parse_arg_path.exit200 ], [ 16, %zend_parse_arg_path.exit199 ], [ 16, %zend_parse_arg_path.exit ], [ 0, %11 ]
+  %.0146.ph = phi i32 [ 9, %80 ], [ 9, %zend_parse_arg_str_ex.exit220 ], [ 9, %zend_parse_arg_array_ht_or_str.exit ], [ 9, %zend_parse_arg_path.exit200 ], [ 9, %zend_parse_arg_path.exit199 ], [ 9, %zend_parse_arg_path.exit ], [ 1, %11 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0146.ph, i32 noundef %.0151.ph, ptr noundef null, i32 noundef %.0149.ph, ptr noundef %.0150.ph) #11
   br label %219
 
@@ -2144,7 +2144,7 @@ thread-pre-split284:                              ; preds = %zend_parse_arg_str_
   br label %.loopexit340
 
 .loopexit340:                                     ; preds = %.critedge, %.lr.ph, %135
-  %.2 = phi i64 [ %.0344, %.lr.ph ], [ %.0344, %135 ], [ %.1, %.critedge ]
+  %.2 = phi i64 [ %.0344, %135 ], [ %.0344, %.lr.ph ], [ %.1, %.critedge ]
   %136 = add i64 %.2, 1
   %137 = getelementptr inbounds nuw i8, ptr %102, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !12
@@ -2236,7 +2236,7 @@ thread-pre-split284:                              ; preds = %zend_parse_arg_str_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge2, %.lr.ph348, %173
-  %.5 = phi i64 [ %.3347, %.lr.ph348 ], [ %.3347, %173 ], [ %.4, %.critedge2 ]
+  %.5 = phi i64 [ %.3347, %173 ], [ %.3347, %.lr.ph348 ], [ %.4, %.critedge2 ]
   %174 = add i64 %.5, 1
   %175 = getelementptr inbounds nuw i8, ptr %140, i64 %174
   %176 = load i8, ptr %175, align 1, !tbaa !12
@@ -2603,7 +2603,7 @@ switch.early.test.i:                              ; preds = %86
   ]
 
 98:                                               ; preds = %95, %92, %89, %.preheader.i
-  %.sink.i = phi i64 [ 2, %89 ], [ 2, %95 ], [ 2, %92 ], [ 1, %.preheader.i ]
+  %.sink.i = phi i64 [ 2, %92 ], [ 2, %89 ], [ 2, %95 ], [ 1, %.preheader.i ]
   %99 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.sink.i
   %.pre.i = load i8, ptr %99, align 1, !tbaa !12
   br label %.preheader.i
@@ -2690,13 +2690,13 @@ php_mail_detect_multiple_crlf.exit:               ; preds = %.preheader.i, %85, 
   br i1 %.not77, label %133, label %.sink.split
 
 .sink.split:                                      ; preds = %125, %131, %117, %101, %.loopexit, %52
-  %.sink = phi ptr [ %53, %52 ], [ %100, %.loopexit ], [ %102, %101 ], [ %130, %125 ], [ %119, %117 ], [ %132, %131 ]
-  %.0.ph = phi i1 [ false, %52 ], [ false, %.loopexit ], [ false, %101 ], [ %or.cond.not, %125 ], [ false, %117 ], [ false, %131 ]
+  %.sink = phi ptr [ %53, %52 ], [ %100, %.loopexit ], [ %102, %101 ], [ %119, %117 ], [ %132, %131 ], [ %130, %125 ]
+  %.0.ph = phi i1 [ false, %52 ], [ false, %.loopexit ], [ false, %101 ], [ false, %117 ], [ false, %131 ], [ %or.cond.not, %125 ]
   call void @_efree(ptr noundef nonnull %.sink) #11
   br label %133
 
 133:                                              ; preds = %125, %.sink.split, %.loopexit, %101, %117, %131, %52
-  %.0 = phi i1 [ false, %52 ], [ false, %131 ], [ false, %.loopexit ], [ false, %101 ], [ false, %117 ], [ %or.cond.not, %125 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i1 [ false, %52 ], [ false, %.loopexit ], [ false, %101 ], [ false, %117 ], [ false, %131 ], [ %.0.ph, %.sink.split ], [ %or.cond.not, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0

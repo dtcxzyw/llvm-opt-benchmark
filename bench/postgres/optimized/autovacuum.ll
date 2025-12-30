@@ -429,8 +429,8 @@ define dso_local void @AutoVacLauncherMain(ptr noundef readnone captures(none) %
   br label %launcher_determine_sleep.exit
 
 launcher_determine_sleep.exit:                    ; preds = %108, %.thread26.i, %104, %.thread.i
-  %.sroa.13.2 = phi i64 [ %.sroa.13.1, %104 ], [ %spec.select50, %.thread26.i ], [ %spec.select, %.thread.i ], [ %.sroa.13.0, %108 ]
-  %.sroa.0.2 = phi i64 [ %spec.select49, %104 ], [ %spec.select51, %.thread26.i ], [ %spec.select48, %.thread.i ], [ %spec.select52, %108 ]
+  %.sroa.13.2 = phi i64 [ %spec.select, %.thread.i ], [ %.sroa.13.1, %104 ], [ %spec.select50, %.thread26.i ], [ %.sroa.13.0, %108 ]
+  %.sroa.0.2 = phi i64 [ %spec.select48, %.thread.i ], [ %spec.select49, %104 ], [ %spec.select51, %.thread26.i ], [ %spec.select52, %108 ]
   %109 = load ptr, ptr @MyLatch, align 8
   %110 = mul i64 %.sroa.0.2, 1000
   %.lhs.trunc = trunc i64 %.sroa.13.2 to i32
@@ -652,7 +652,7 @@ autovac_recalculate_workers_for_balance.exit:     ; preds = %._crit_edge.i, %172
   br label %dclist_push_head.exit
 
 dclist_push_head.exit:                            ; preds = %209, %216
-  %218 = phi ptr [ %214, %209 ], [ %212, %216 ]
+  %218 = phi ptr [ %212, %216 ], [ %214, %209 ]
   %219 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store ptr %218, ptr %219, align 8
   store ptr %212, ptr %208, align 8
@@ -1109,10 +1109,10 @@ select.unfold:                                    ; preds = %68
   br label %92
 
 92:                                               ; preds = %82, %91, %.thread, %61, %60, %54, %59, %47, %41, %46
-  %.167 = phi i1 [ %.06694120, %60 ], [ %.06694120, %41 ], [ %.06694120, %47 ], [ %.06694120, %54 ], [ %.06694120, %61 ], [ true, %.thread ], [ %.06694120, %46 ], [ %.06694120, %59 ], [ false, %91 ], [ false, %82 ]
-  %.2 = phi ptr [ %.06495119, %60 ], [ %.06495119, %41 ], [ %.06495119, %47 ], [ %.06495119, %54 ], [ %.06495119, %61 ], [ %.06495119, %.thread ], [ %35, %46 ], [ %35, %59 ], [ %35, %91 ], [ %.06495119, %82 ]
-  %.163 = phi i1 [ true, %60 ], [ %.06296118, %41 ], [ %.06296118, %47 ], [ true, %54 ], [ false, %61 ], [ false, %.thread ], [ %.06296118, %46 ], [ true, %59 ], [ false, %91 ], [ false, %82 ]
-  %.1 = phi i1 [ false, %60 ], [ true, %41 ], [ true, %47 ], [ false, %54 ], [ false, %61 ], [ false, %.thread ], [ true, %46 ], [ false, %59 ], [ false, %91 ], [ false, %82 ]
+  %.167 = phi i1 [ %.06694120, %46 ], [ %.06694120, %41 ], [ %.06694120, %47 ], [ %.06694120, %59 ], [ %.06694120, %54 ], [ %.06694120, %60 ], [ %.06694120, %61 ], [ true, %.thread ], [ false, %91 ], [ false, %82 ]
+  %.2 = phi ptr [ %35, %46 ], [ %.06495119, %41 ], [ %.06495119, %47 ], [ %35, %59 ], [ %.06495119, %54 ], [ %.06495119, %60 ], [ %.06495119, %61 ], [ %.06495119, %.thread ], [ %35, %91 ], [ %.06495119, %82 ]
+  %.163 = phi i1 [ %.06296118, %46 ], [ %.06296118, %41 ], [ %.06296118, %47 ], [ true, %59 ], [ true, %54 ], [ true, %60 ], [ false, %61 ], [ false, %.thread ], [ false, %91 ], [ false, %82 ]
+  %.1 = phi i1 [ true, %46 ], [ true, %41 ], [ true, %47 ], [ false, %59 ], [ false, %54 ], [ false, %60 ], [ false, %61 ], [ false, %.thread ], [ false, %91 ], [ false, %82 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv116, 1
   %93 = load i32, ptr %29, align 4
   %94 = sext i32 %93 to i64
@@ -1628,7 +1628,7 @@ define internal void @FreeWorkerInfo(i32 %0, i64 %1) #3 {
   br label %dclist_push_head.exit
 
 dclist_push_head.exit:                            ; preds = %4, %26
-  %28 = phi ptr [ %24, %4 ], [ %21, %26 ]
+  %28 = phi ptr [ %21, %26 ], [ %24, %4 ]
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %28, ptr %29, align 8
   store ptr %21, ptr %22, align 8
@@ -1856,8 +1856,8 @@ extract_autovac_opts.exit:                        ; preds = %81, %84
   br label %110
 
 110:                                              ; preds = %97, %109, %74, %79, %.lr.ph
-  %.1159 = phi ptr [ %.0158246, %74 ], [ %.0158246, %.lr.ph ], [ %80, %79 ], [ %.0158246, %109 ], [ %.0158246, %97 ]
-  %.1 = phi ptr [ %.0247, %74 ], [ %.0247, %.lr.ph ], [ %.0247, %79 ], [ %.2, %109 ], [ %.2, %97 ]
+  %.1159 = phi ptr [ %.0158246, %.lr.ph ], [ %80, %79 ], [ %.0158246, %74 ], [ %.0158246, %109 ], [ %.0158246, %97 ]
+  %.1 = phi ptr [ %.0247, %.lr.ph ], [ %.0247, %79 ], [ %.0247, %74 ], [ %.2, %109 ], [ %.2, %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2206,7 +2206,7 @@ extract_autovac_opts.exit230:                     ; preds = %128
   %274 = icmp eq i32 %273, %228
   br i1 %274, label %278, label %275
 
-275:                                              ; preds = %262, %271, %268
+275:                                              ; preds = %262, %268, %271
   %276 = getelementptr inbounds nuw i8, ptr %.sroa.0.0261, i64 8
   %277 = load ptr, ptr %276, align 8
   %.not205.not = icmp eq ptr %277, %257
@@ -2455,7 +2455,7 @@ table_recheck_autovac.exit.thread:                ; preds = %.loopexit, %table_r
   br label %536
 
 416:                                              ; preds = %404, %394, %.thread91.i
-  %417 = phi i8 [ 1, %.thread91.i ], [ 0, %394 ], [ %407, %404 ]
+  %417 = phi i8 [ 0, %394 ], [ %407, %404 ], [ 1, %.thread91.i ]
   %418 = getelementptr inbounds nuw i8, ptr %366, i64 76
   store i8 %417, ptr %418, align 4
   call void @heap_freetuple(ptr noundef nonnull %291) #17
@@ -2812,7 +2812,7 @@ define dso_local void @VacuumUpdateCosts() local_unnamed_addr #3 {
   br label %10
 
 10:                                               ; preds = %5, %2, %8
-  %.sink = phi double [ %3, %2 ], [ %9, %8 ], [ %6, %5 ]
+  %.sink = phi double [ %9, %8 ], [ %3, %2 ], [ %6, %5 ]
   store double %.sink, ptr @vacuum_cost_delay, align 8
   %11 = load i32, ptr @av_storage_param_cost_limit, align 4
   %12 = icmp sgt i32 %11, 0
@@ -3128,7 +3128,7 @@ define dso_local void @AutoVacuumShmemInit() local_unnamed_addr #3 {
   br label %dclist_push_head.exit
 
 dclist_push_head.exit:                            ; preds = %.lr.ph, %26
-  %28 = phi ptr [ %24, %.lr.ph ], [ %21, %26 ]
+  %28 = phi ptr [ %21, %26 ], [ %24, %.lr.ph ]
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %28, ptr %29, align 8
   store ptr %21, ptr %22, align 8
@@ -3455,7 +3455,7 @@ define internal fastcc void @relation_needs_vacanalyze(i32 noundef %0, ptr nound
   br label %85
 
 85:                                               ; preds = %.thread152, %80
-  %.0 = phi i1 [ %84, %80 ], [ false, %.thread152 ]
+  %.0 = phi i1 [ false, %.thread152 ], [ %84, %80 ]
   %86 = zext i1 %.0 to i8
   store i8 %86, ptr %7, align 1
   %or.cond = select i1 %65, i1 true, i1 %.0

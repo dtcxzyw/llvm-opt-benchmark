@@ -1058,7 +1058,7 @@ SDLTest_RunTest.exit:                             ; preds = %269, %272, %274, %2
   br label %348
 
 348:                                              ; preds = %.thread420, %.loopexit, %113, %._crit_edge482, %44, %._crit_edge.thread
-  %.0 = phi i32 [ -1, %._crit_edge.thread ], [ 2, %._crit_edge482 ], [ %165, %.thread420 ], [ %.0316, %.loopexit ], [ %115, %113 ], [ -1, %44 ]
+  %.0 = phi i32 [ -1, %._crit_edge.thread ], [ 2, %._crit_edge482 ], [ %.0316, %.loopexit ], [ %115, %113 ], [ -1, %44 ], [ %165, %.thread420 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1299,7 +1299,7 @@ define internal range(i32 0, 3) i32 @SDLTest_TestSuiteCommonArg(ptr noundef %0, 
   br label %51
 
 51:                                               ; preds = %9, %29, %45, %39, %19, %49, %42, %32, %22, %12
-  %.0 = phi i32 [ 2, %12 ], [ 1, %49 ], [ 2, %22 ], [ 2, %32 ], [ 2, %42 ], [ 0, %19 ], [ 0, %39 ], [ 0, %45 ], [ 0, %29 ], [ 0, %9 ]
+  %.0 = phi i32 [ 2, %12 ], [ 2, %22 ], [ 2, %32 ], [ 2, %42 ], [ 1, %49 ], [ 0, %19 ], [ 0, %39 ], [ 0, %45 ], [ 0, %29 ], [ 0, %9 ]
   ret i32 %.0
 }
 

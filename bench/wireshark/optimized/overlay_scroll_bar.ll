@@ -1209,7 +1209,7 @@ _ZNK8QPalette6windowEv.exit:                      ; preds = %151
   br label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit47
 
 _ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit47: ; preds = %108, %165, %175, %145, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i45, %143, %102
-  %.pn30.pn.pn.pn.pn = phi { ptr, i32 } [ %103, %102 ], [ %.pn, %108 ], [ %.pn26, %175 ], [ %166, %165 ], [ %.pn30.pn, %145 ], [ %.pn30.pn, %143 ], [ %.pn30.pn, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i45 ]
+  %.pn30.pn.pn.pn.pn = phi { ptr, i32 } [ %103, %102 ], [ %.pn26, %175 ], [ %166, %165 ], [ %.pn, %108 ], [ %.pn30.pn, %143 ], [ %.pn30.pn, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i45 ], [ %.pn30.pn, %145 ]
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %13) #11
   br label %176
 

@@ -145,7 +145,7 @@ define dso_local ptr @logicalrep_worker_find(i32 noundef %0, i32 noundef %1, i1 
   br i1 %exitcond.not, label %.thread16, label %.lr.ph.split, !llvm.loop !6
 
 .thread16:                                        ; preds = %42, %38, %26, %23, %3
-  %.1 = phi ptr [ null, %3 ], [ %8, %23 ], [ null, %26 ], [ null, %42 ], [ %27, %38 ]
+  %.1 = phi ptr [ null, %3 ], [ %8, %23 ], [ null, %26 ], [ %27, %38 ], [ null, %42 ]
   ret ptr %.1
 }
 
@@ -232,9 +232,9 @@ define dso_local ptr @logicalrep_workers_find(i32 noundef %0, i1 noundef zeroext
   br label %45
 
 45:                                               ; preds = %43, %39, %.lr.ph.split
-  %46 = phi i32 [ %.pre21, %43 ], [ %32, %.lr.ph.split ], [ %32, %39 ]
-  %47 = phi ptr [ %.pre, %43 ], [ %33, %.lr.ph.split ], [ %33, %39 ]
-  %.1 = phi ptr [ %44, %43 ], [ %.01213, %.lr.ph.split ], [ %.01213, %39 ]
+  %46 = phi i32 [ %.pre21, %43 ], [ %32, %39 ], [ %32, %.lr.ph.split ]
+  %47 = phi ptr [ %.pre, %43 ], [ %33, %39 ], [ %33, %.lr.ph.split ]
+  %.1 = phi ptr [ %44, %43 ], [ %.01213, %39 ], [ %.01213, %.lr.ph.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = sext i32 %46 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
@@ -358,7 +358,7 @@ define dso_local zeroext i1 @logicalrep_worker_launch(i32 noundef %0, i32 nounde
   br label %55
 
 55:                                               ; preds = %50, %47, %42
-  %.1.i = phi i32 [ %.089.i, %42 ], [ %spec.select.i, %50 ], [ %.089.i, %47 ]
+  %.1.i = phi i32 [ %.089.i, %47 ], [ %.089.i, %42 ], [ %spec.select.i, %50 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %logicalrep_sync_worker_count.exit, label %42, !llvm.loop !10
@@ -483,7 +483,7 @@ logicalrep_sync_worker_count.exit:                ; preds = %55, %28
   br label %110
 
 110:                                              ; preds = %105, %102, %97
-  %.1.i91 = phi i32 [ %.089.i90, %97 ], [ %spec.select.i94, %105 ], [ %.089.i90, %102 ]
+  %.1.i91 = phi i32 [ %.089.i90, %102 ], [ %.089.i90, %97 ], [ %spec.select.i94, %105 ]
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i89, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, %wide.trip.count.i88
   br i1 %exitcond.not.i93, label %logicalrep_pa_worker_count.exit, label %97, !llvm.loop !12
@@ -737,7 +737,7 @@ WaitForReplicationWorkerAttach.exit:              ; preds = %207, %224
   br label %236
 
 236:                                              ; preds = %183, %190, %116, %120, %WaitForReplicationWorkerAttach.exit, %112, %90
-  %.0 = phi i1 [ false, %90 ], [ false, %112 ], [ false, %116 ], [ %.1.ph.i, %WaitForReplicationWorkerAttach.exit ], [ false, %120 ], [ false, %190 ], [ false, %183 ]
+  %.0 = phi i1 [ false, %90 ], [ false, %112 ], [ %.1.ph.i, %WaitForReplicationWorkerAttach.exit ], [ false, %120 ], [ false, %116 ], [ false, %190 ], [ false, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
@@ -791,7 +791,7 @@ define dso_local i32 @logicalrep_sync_worker_count(i32 noundef %0) local_unnamed
   br label %19
 
 19:                                               ; preds = %14, %11, %6
-  %.1 = phi i32 [ %.089, %6 ], [ %spec.select, %14 ], [ %.089, %11 ]
+  %.1 = phi i32 [ %.089, %11 ], [ %.089, %6 ], [ %spec.select, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !10
@@ -970,7 +970,7 @@ define internal fastcc void @logicalrep_worker_stop_internal(ptr noundef readonl
   %.not19 = icmp eq ptr %50, null
   br i1 %.not19, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %26, %20, %.lr.ph, %46, %.critedge
+.thread:                                          ; preds = %20, %26, %.lr.ph, %46, %.critedge
   ret void
 }
 
@@ -2152,7 +2152,7 @@ define dso_local noundef i64 @pg_stat_get_subscription(ptr noundef %0) local_unn
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
-select.unfold:                                    ; preds = %87, %38, %42
+select.unfold:                                    ; preds = %87, %42, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

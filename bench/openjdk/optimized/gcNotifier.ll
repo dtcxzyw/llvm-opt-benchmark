@@ -1161,7 +1161,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %54, %52
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i, %38, %_ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit, %2
-  %.sroa.010.0 = phi ptr [ null, %_ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit ], [ null, %2 ], [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %38 ]
+  %.sroa.010.0 = phi ptr [ null, %2 ], [ null, %_ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit ], [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %38 ]
   ret ptr %.sroa.010.0
 }
 

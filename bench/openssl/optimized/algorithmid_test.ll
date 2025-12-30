@@ -196,7 +196,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1, %7, %10, %.critedge, %40, %36, %27
-  %.024 = phi i32 [ 1, %.critedge ], [ 0, %7 ], [ 0, %27 ], [ 0, %36 ], [ 1, %40 ], [ 0, %10 ], [ 0, %1 ]
+  %.024 = phi i32 [ 0, %27 ], [ 0, %36 ], [ 1, %40 ], [ 1, %.critedge ], [ 0, %10 ], [ 0, %7 ], [ 0, %1 ]
   ret i32 %.024
 }
 
@@ -405,8 +405,8 @@ define internal range(i32 0, 2) i32 @test_x509_files() #1 {
   br label %test_x509_sig_aid.exit
 
 test_x509_sig_aid.exit:                           ; preds = %29, %37, %41, %46, %56, %63, %77, %89, %92, %98
-  %.015.i = phi ptr [ null, %29 ], [ %68, %98 ], [ %68, %92 ], [ %68, %89 ], [ %68, %77 ], [ null, %63 ], [ null, %56 ], [ null, %46 ], [ null, %41 ], [ null, %37 ]
-  %.0.i = phi i32 [ 0, %29 ], [ %spec.select.i, %98 ], [ 0, %92 ], [ 1, %89 ], [ 0, %77 ], [ 0, %63 ], [ 0, %56 ], [ 0, %46 ], [ 0, %41 ], [ 0, %37 ]
+  %.015.i = phi ptr [ %68, %92 ], [ %68, %89 ], [ %68, %77 ], [ null, %63 ], [ null, %56 ], [ null, %46 ], [ null, %41 ], [ null, %37 ], [ null, %29 ], [ %68, %98 ]
+  %.0.i = phi i32 [ 0, %92 ], [ 1, %89 ], [ 0, %77 ], [ 0, %63 ], [ 0, %56 ], [ 0, %46 ], [ 0, %41 ], [ 0, %37 ], [ 0, %29 ], [ %spec.select.i, %98 ]
   call void @EVP_MD_CTX_free(ptr noundef %.015.i) #6
   %104 = load ptr, ptr %6, align 8, !tbaa !11
   call void @CRYPTO_free(ptr noundef %104, ptr noundef nonnull @.str.26, i32 noundef 184) #6
@@ -650,7 +650,7 @@ define internal fastcc range(i32 0, 2) i32 @test_spki_aid(ptr noundef %0, ptr no
   br label %56
 
 56:                                               ; preds = %50, %44, %20, %16, %2, %13, %43, %35, %28
-  %.0 = phi i32 [ 1, %28 ], [ 0, %2 ], [ %spec.select, %50 ], [ 0, %44 ], [ 1, %43 ], [ 1, %35 ], [ 0, %20 ], [ 0, %16 ], [ 0, %13 ]
+  %.0 = phi i32 [ 1, %28 ], [ 0, %44 ], [ 1, %43 ], [ 1, %35 ], [ 0, %20 ], [ 0, %16 ], [ 0, %13 ], [ 0, %2 ], [ %spec.select, %50 ]
   %57 = load ptr, ptr %5, align 8, !tbaa !25
   call void @EVP_KEYMGMT_free(ptr noundef %57) #6
   %58 = load ptr, ptr %7, align 8, !tbaa !11

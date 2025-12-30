@@ -913,7 +913,7 @@ define ptr @cloudBddAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
   br i1 %127, label %133, label %128
 
 128:                                              ; preds = %108, %121, %125
-  %.096 = phi ptr [ %126, %125 ], [ %124, %121 ], [ %.090, %108 ]
+  %.096 = phi ptr [ %124, %121 ], [ %126, %125 ], [ %.090, %108 ]
   %129 = load i32, ptr %36, align 8, !tbaa !21
   store i32 %129, ptr %34, align 8, !tbaa !44
   %130 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -925,7 +925,7 @@ define ptr @cloudBddAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
   br label %133
 
 133:                                              ; preds = %125, %113, %106, %99, %20, %11, %128, %50, %13
-  %.095 = phi ptr [ null, %113 ], [ %15, %13 ], [ %., %20 ], [ %1, %11 ], [ %49, %50 ], [ null, %106 ], [ null, %99 ], [ %.096, %128 ], [ null, %125 ]
+  %.095 = phi ptr [ %15, %13 ], [ %49, %50 ], [ %.096, %128 ], [ %1, %11 ], [ %., %20 ], [ null, %99 ], [ null, %106 ], [ null, %113 ], [ null, %125 ]
   ret ptr %.095
 }
 
@@ -1158,7 +1158,7 @@ cloudBddAnd_gate.exit.i:                          ; preds = %65, %63
   br label %Cloud_bddOr.exit
 
 Cloud_bddOr.exit:                                 ; preds = %cloudBddAnd_gate.exit.i, %42, %39, %cloudBddAnd_gate.exit21, %cloudBddAnd_gate.exit, %3, %6
-  %.0 = phi ptr [ null, %cloudBddAnd_gate.exit21 ], [ null, %3 ], [ null, %cloudBddAnd_gate.exit ], [ null, %6 ], [ %71, %cloudBddAnd_gate.exit.i ], [ null, %42 ], [ null, %39 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %3 ], [ null, %cloudBddAnd_gate.exit ], [ null, %cloudBddAnd_gate.exit21 ], [ %71, %cloudBddAnd_gate.exit.i ], [ null, %42 ], [ null, %39 ]
   ret ptr %.0
 }
 
@@ -1234,7 +1234,7 @@ define ptr @Cloud_Support(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %Cloud_bddAnd.exit
 
 Cloud_bddAnd.exit:                                ; preds = %40, %42
-  %.0.i = phi ptr [ %43, %42 ], [ %41, %40 ]
+  %.0.i = phi ptr [ %41, %40 ], [ %43, %42 ]
   %44 = icmp eq ptr %.0.i, null
   br i1 %44, label %.thread, label %45
 
@@ -1248,7 +1248,7 @@ Cloud_bddAnd.exit:                                ; preds = %40, %42
   br i1 %.not, label %47, label %.thread
 
 .thread:                                          ; preds = %45, %22, %Cloud_bddAnd.exit, %._crit_edge
-  %.126 = phi ptr [ %10, %._crit_edge ], [ %.2, %45 ], [ null, %Cloud_bddAnd.exit ], [ null, %22 ]
+  %.126 = phi ptr [ %10, %._crit_edge ], [ %.2, %45 ], [ null, %22 ], [ null, %Cloud_bddAnd.exit ]
   tail call void @free(ptr noundef nonnull %5) #16
   br label %47
 
@@ -1695,7 +1695,7 @@ define ptr @Cloud_GetOneCube(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %Cloud_bddAnd.exit
 
 Cloud_bddAnd.exit:                                ; preds = %92, %90, %66, %61, %59, %32, %63, %26, %2
-  %.027 = phi ptr [ null, %26 ], [ %1, %2 ], [ null, %63 ], [ %62, %61 ], [ null, %32 ], [ %60, %59 ], [ null, %66 ], [ %91, %90 ], [ %93, %92 ]
+  %.027 = phi ptr [ %1, %2 ], [ null, %26 ], [ null, %63 ], [ null, %32 ], [ %60, %59 ], [ %62, %61 ], [ null, %66 ], [ %91, %90 ], [ %93, %92 ]
   ret ptr %.027
 }
 

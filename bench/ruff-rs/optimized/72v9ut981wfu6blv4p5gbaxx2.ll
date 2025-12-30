@@ -147,8 +147,8 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h5c0f1e9c798871a0E.exit: 
   br label %.thread
 
 .thread:                                          ; preds = %23, %20, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h5c0f1e9c798871a0E.exit, %19, %15
-  %.sroa.3.0 = phi i8 [ 3, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h5c0f1e9c798871a0E.exit ], [ 1, %15 ], [ 0, %19 ], [ 1, %20 ], [ %spec.select, %23 ]
-  %.sroa.0.0 = phi i64 [ undef, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h5c0f1e9c798871a0E.exit ], [ %13, %15 ], [ %13, %19 ], [ %13, %20 ], [ %13, %23 ]
+  %.sroa.3.0 = phi i8 [ 3, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h5c0f1e9c798871a0E.exit ], [ 0, %19 ], [ 1, %15 ], [ 1, %20 ], [ %spec.select, %23 ]
+  %.sroa.0.0 = phi i64 [ undef, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h5c0f1e9c798871a0E.exit ], [ %13, %19 ], [ %13, %15 ], [ %13, %20 ], [ %13, %23 ]
   %27 = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
   %28 = insertvalue { i64, i8 } %27, i8 %.sroa.3.0, 1
   ret { i64, i8 } %28
@@ -216,8 +216,8 @@ define void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u2
   unreachable
 
 32:                                               ; preds = %38, %29, %12
-  %.sroa.4.0.i = phi i64 [ %39, %38 ], [ %30, %29 ], [ %9, %12 ]
-  %.sroa.02.0.i = phi ptr [ %20, %38 ], [ %28, %29 ], [ %13, %12 ]
+  %.sroa.4.0.i = phi i64 [ %30, %29 ], [ %39, %38 ], [ %9, %12 ]
+  %.sroa.02.0.i = phi ptr [ %28, %29 ], [ %20, %38 ], [ %13, %12 ]
   store i8 10, ptr %7, align 1, !noalias !3
   store i8 13, ptr %6, align 1, !noalias !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3
@@ -447,7 +447,7 @@ define { ptr, i64 } @"_ZN76_$LT$ruff_source_file..newlines..Line$u20$as$u20$core
   br label %_ZN16ruff_source_file8newlines4Line11line_ending17h01fef5e812c70d46E.exit.i
 
 _ZN16ruff_source_file8newlines4Line11line_ending17h01fef5e812c70d46E.exit.i: ; preds = %12, %11, %9, %7, %1
-  %.sroa.0.0.i.i = phi i8 [ 1, %11 ], [ 3, %7 ], [ 3, %1 ], [ 0, %9 ], [ %spec.select.i.i, %12 ]
+  %.sroa.0.0.i.i = phi i8 [ 1, %11 ], [ 3, %1 ], [ 3, %7 ], [ 0, %9 ], [ %spec.select.i.i, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %15 = call i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h52e4c1dd9027d334E"(i8 %.sroa.0.0.i.i, i64 0)
   %16 = load ptr, ptr %0, align 8
@@ -504,7 +504,7 @@ define zeroext i1 @"_ZN88_$LT$ruff_source_file..newlines..Line$u20$as$u20$core..
   br label %_ZN16ruff_source_file8newlines4Line11line_ending17h01fef5e812c70d46E.exit.i
 
 _ZN16ruff_source_file8newlines4Line11line_ending17h01fef5e812c70d46E.exit.i: ; preds = %13, %12, %10, %8, %2
-  %.sroa.0.0.i.i = phi i8 [ 1, %12 ], [ 3, %8 ], [ 3, %2 ], [ 0, %10 ], [ %spec.select.i.i, %13 ]
+  %.sroa.0.0.i.i = phi i8 [ 1, %12 ], [ 3, %2 ], [ 3, %8 ], [ 0, %10 ], [ %spec.select.i.i, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %16 = call i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h52e4c1dd9027d334E"(i8 %.sroa.0.0.i.i, i64 0)
   %17 = load ptr, ptr %0, align 8
@@ -566,7 +566,7 @@ define zeroext i1 @"_ZN16ruff_source_file8newlines98_$LT$impl$u20$core..cmp..Par
   br label %_ZN16ruff_source_file8newlines4Line11line_ending17h01fef5e812c70d46E.exit.i
 
 _ZN16ruff_source_file8newlines4Line11line_ending17h01fef5e812c70d46E.exit.i: ; preds = %13, %12, %10, %8, %2
-  %.sroa.0.0.i.i = phi i8 [ 1, %12 ], [ 3, %8 ], [ 3, %2 ], [ 0, %10 ], [ %spec.select.i.i, %13 ]
+  %.sroa.0.0.i.i = phi i8 [ 1, %12 ], [ 3, %2 ], [ 3, %8 ], [ 0, %10 ], [ %spec.select.i.i, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %16 = call i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h52e4c1dd9027d334E"(i8 %.sroa.0.0.i.i, i64 0)
   %17 = load ptr, ptr %1, align 8

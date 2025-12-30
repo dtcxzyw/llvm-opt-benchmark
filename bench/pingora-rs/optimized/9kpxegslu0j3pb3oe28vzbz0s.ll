@@ -693,7 +693,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   unreachable
 
 "_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit": ; preds = %101, %104, %54, %59, %123, %.thread
-  %.pn13 = phi { ptr, i32 } [ %124, %123 ], [ %111, %101 ], [ %lpad.thr_comm, %.thread ], [ %55, %59 ], [ %55, %54 ], [ %111, %104 ]
+  %.pn13 = phi { ptr, i32 } [ %124, %123 ], [ %lpad.thr_comm, %.thread ], [ %55, %59 ], [ %55, %54 ], [ %111, %104 ], [ %111, %101 ]
   resume { ptr, i32 } %.pn13
 
 123:                                              ; preds = %43

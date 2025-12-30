@@ -432,7 +432,7 @@ should_use_loose_object_map.exit.thread.sink.split: ; preds = %should_use_loose_
   br label %should_use_loose_object_map.exit.thread
 
 should_use_loose_object_map.exit.thread:          ; preds = %should_use_loose_object_map.exit.thread.sink.split, %1, %should_use_loose_object_map.exit
-  %.021 = phi i32 [ 0, %1 ], [ 0, %should_use_loose_object_map.exit ], [ %.021.ph, %should_use_loose_object_map.exit.thread.sink.split ]
+  %.021 = phi i32 [ 0, %should_use_loose_object_map.exit ], [ 0, %1 ], [ %.021.ph, %should_use_loose_object_map.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -667,7 +667,7 @@ kh_get_oid_map.exit.thread:                       ; preds = %.critedge2.i
   br label %kh_get_oid_map.exit
 
 kh_get_oid_map.exit:                              ; preds = %13, %.critedge.i
-  %.1.i = phi i32 [ %spec.select.i, %.critedge.i ], [ 0, %13 ]
+  %.1.i = phi i32 [ 0, %13 ], [ %spec.select.i, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = icmp ult i32 %.1.i, %17
   br i1 %45, label %46, label %55

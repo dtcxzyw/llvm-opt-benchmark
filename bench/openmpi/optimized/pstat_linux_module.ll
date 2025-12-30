@@ -3359,7 +3359,7 @@ pmix_obj_run_destructors.exit857:                 ; preds = %.lr.ph.i854, %1710
   br i1 %.not.i861, label %pmix_obj_run_destructors.exit862, label %.lr.ph.i859, !llvm.loop !112
 
 pmix_obj_run_destructors.exit862:                 ; preds = %.lr.ph.i859, %40, %29, %._crit_edge1057, %pmix_obj_run_destructors.exit823, %.thread, %1177, %local_stripper.exit._crit_edge, %1101, %next_field.exit723, %51, %45, %37, %32
-  %.0 = phi i32 [ 0, %1177 ], [ -1, %32 ], [ -1, %40 ], [ -1, %37 ], [ -27, %45 ], [ -27, %51 ], [ -1, %next_field.exit723 ], [ 0, %1101 ], [ -1, %local_stripper.exit._crit_edge ], [ 0, %.thread ], [ 0, %pmix_obj_run_destructors.exit823 ], [ 0, %._crit_edge1057 ], [ 0, %29 ], [ 0, %.lr.ph.i859 ]
+  %.0 = phi i32 [ -1, %32 ], [ -1, %37 ], [ -27, %45 ], [ -27, %51 ], [ -1, %next_field.exit723 ], [ 0, %1101 ], [ -1, %local_stripper.exit._crit_edge ], [ 0, %1177 ], [ 0, %.thread ], [ 0, %pmix_obj_run_destructors.exit823 ], [ 0, %._crit_edge1057 ], [ 0, %29 ], [ -1, %40 ], [ 0, %.lr.ph.i859 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)

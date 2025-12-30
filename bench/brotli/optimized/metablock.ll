@@ -300,7 +300,7 @@ CommandRestoreDistanceCode.exit.us.i:             ; preds = %86, %80
   br label %PrefixEncodeCopyDistance.exit.us.i
 
 PrefixEncodeCopyDistance.exit.us.i:               ; preds = %124, %105
-  %.0.us.i = phi i16 [ %123, %105 ], [ %125, %124 ]
+  %.0.us.i = phi i16 [ %125, %124 ], [ %123, %105 ]
   %126 = and i16 %.0.us.i, 1023
   %127 = zext nneg i16 %126 to i64
   %128 = getelementptr inbounds nuw i32, ptr %14, i64 %127
@@ -315,8 +315,8 @@ PrefixEncodeCopyDistance.exit.us.i:               ; preds = %124, %105
   br label %.critedge.us.i
 
 .critedge.us.i:                                   ; preds = %PrefixEncodeCopyDistance.exit.us.i, %76, %.lr.ph.split.us.i
-  %135 = phi i64 [ %71, %.lr.ph.split.us.i ], [ %71, %76 ], [ %131, %PrefixEncodeCopyDistance.exit.us.i ]
-  %.234.us.i = phi double [ %.03243.us.i, %.lr.ph.split.us.i ], [ %.03243.us.i, %76 ], [ %134, %PrefixEncodeCopyDistance.exit.us.i ]
+  %135 = phi i64 [ %131, %PrefixEncodeCopyDistance.exit.us.i ], [ %71, %76 ], [ %71, %.lr.ph.split.us.i ]
+  %.234.us.i = phi double [ %134, %PrefixEncodeCopyDistance.exit.us.i ], [ %.03243.us.i, %76 ], [ %.03243.us.i, %.lr.ph.split.us.i ]
   %136 = add nuw i64 %.03144.us.i, 1
   %exitcond48.not.i = icmp eq i64 %136, %8
   br i1 %exitcond48.not.i, label %.loopexit279, label %.lr.ph.split.us.i, !llvm.loop !42
@@ -355,8 +355,8 @@ PrefixEncodeCopyDistance.exit.i:                  ; preds = %142
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %PrefixEncodeCopyDistance.exit.i, %142, %.lr.ph.split.i
-  %157 = phi i64 [ %137, %.lr.ph.split.i ], [ %137, %142 ], [ %153, %PrefixEncodeCopyDistance.exit.i ]
-  %.234.i = phi double [ %.03243.i, %.lr.ph.split.i ], [ %.03243.i, %142 ], [ %156, %PrefixEncodeCopyDistance.exit.i ]
+  %157 = phi i64 [ %153, %PrefixEncodeCopyDistance.exit.i ], [ %137, %142 ], [ %137, %.lr.ph.split.i ]
+  %.234.i = phi double [ %156, %PrefixEncodeCopyDistance.exit.i ], [ %.03243.i, %142 ], [ %.03243.i, %.lr.ph.split.i ]
   %158 = add nuw i64 %.03144.i, 1
   %exitcond.not.i = icmp eq i64 %158, %8
   br i1 %exitcond.not.i, label %.loopexit279, label %.lr.ph.split.i, !llvm.loop !42
@@ -444,8 +444,8 @@ PrefixEncodeCopyDistance.exit.i218:               ; preds = %177
   br label %.critedge.i215
 
 .critedge.i215:                                   ; preds = %PrefixEncodeCopyDistance.exit.i218, %177, %.lr.ph.split.i211
-  %192 = phi i64 [ %172, %.lr.ph.split.i211 ], [ %172, %177 ], [ %188, %PrefixEncodeCopyDistance.exit.i218 ]
-  %.234.i216 = phi double [ %.03243.i213, %.lr.ph.split.i211 ], [ %.03243.i213, %177 ], [ %191, %PrefixEncodeCopyDistance.exit.i218 ]
+  %192 = phi i64 [ %188, %PrefixEncodeCopyDistance.exit.i218 ], [ %172, %177 ], [ %172, %.lr.ph.split.i211 ]
+  %.234.i216 = phi double [ %191, %PrefixEncodeCopyDistance.exit.i218 ], [ %.03243.i213, %177 ], [ %.03243.i213, %.lr.ph.split.i211 ]
   %193 = add nuw i64 %.03144.i212, 1
   %exitcond.not.i217 = icmp eq i64 %193, %8
   br i1 %exitcond.not.i217, label %ComputeDistanceCost.exit219, label %.lr.ph.split.i211, !llvm.loop !42
@@ -639,9 +639,9 @@ RecomputeDistancePrefixes.exit:                   ; preds = %274, %200, %204
   br i1 %exitcond324.not, label %ClearHistogramsLiteral.exit, label %.lr.ph303, !llvm.loop !59
 
 ClearHistogramsLiteral.exit:                      ; preds = %.lr.ph303, %280, %281, %.loopexit278
-  %293 = phi ptr [ null, %280 ], [ null, %.loopexit278 ], [ null, %281 ], [ %289, %.lr.ph303 ]
-  %294 = phi i64 [ 0, %280 ], [ 0, %.loopexit278 ], [ 0, %281 ], [ %287, %.lr.ph303 ]
-  %.0155370375 = phi ptr [ null, %280 ], [ %.0155, %.loopexit278 ], [ %283, %281 ], [ %.0155, %.lr.ph303 ]
+  %293 = phi ptr [ null, %.loopexit278 ], [ null, %281 ], [ null, %280 ], [ %289, %.lr.ph303 ]
+  %294 = phi i64 [ 0, %.loopexit278 ], [ 0, %281 ], [ 0, %280 ], [ %287, %.lr.ph303 ]
+  %.0155370375 = phi ptr [ %.0155, %.loopexit278 ], [ %283, %281 ], [ null, %280 ], [ %.0155, %.lr.ph303 ]
   %295 = load i64, ptr %277, align 8, !tbaa !60
   %296 = shl i64 %295, 2
   %.not168 = icmp eq i64 %296, 0
@@ -1333,8 +1333,8 @@ ContextBlockSplitterAddSymbol.exit:               ; preds = %237, %.lr.ph68
   br label %BlockSplitterAddSymbolDistance.exit47
 
 BlockSplitterAddSymbolDistance.exit47:            ; preds = %269, %253, %243, %._crit_edge69
-  %.284.i39 = phi i8 [ %.183.i33.lcssa, %._crit_edge69 ], [ %247, %243 ], [ %247, %253 ], [ %247, %269 ]
-  %.2.i40 = phi i8 [ %.177.i35.lcssa, %._crit_edge69 ], [ %251, %243 ], [ %251, %253 ], [ %251, %269 ]
+  %.284.i39 = phi i8 [ %247, %243 ], [ %.183.i33.lcssa, %._crit_edge69 ], [ %247, %253 ], [ %247, %269 ]
+  %.2.i40 = phi i8 [ %251, %243 ], [ %.177.i35.lcssa, %._crit_edge69 ], [ %251, %253 ], [ %251, %269 ]
   %270 = add nuw i64 %.180.i3074, 1
   %exitcond102.not = icmp eq i64 %270, %10
   br i1 %exitcond102.not, label %._crit_edge79, label %190, !llvm.loop !101

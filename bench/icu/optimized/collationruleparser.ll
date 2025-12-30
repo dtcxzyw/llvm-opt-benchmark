@@ -262,7 +262,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -2720,7 +2720,7 @@ _ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit350: ; preds
   br label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit374
 
 734:                                              ; preds = %470, %481, %490, %497, %403, %414, %425, %434, %448, %364, %373, %380, %732, %600, %581, %579, %557, %555, %537, %535, %517, %515, %464, %397, %358, %308, %306, %242
-  %.pn281 = phi { ptr, i32 } [ %309, %308 ], [ %243, %242 ], [ %.pn273, %364 ], [ %.pn262, %403 ], [ %518, %517 ], [ %538, %537 ], [ %558, %557 ], [ %582, %581 ], [ %.pn244.pn.pn.pn, %732 ], [ %.pn222, %600 ], [ %.pn220, %579 ], [ %.pn218, %555 ], [ %.pn216, %535 ], [ %.pn214, %515 ], [ %.pn212, %464 ], [ %.pn210, %397 ], [ %.pn208, %358 ], [ %.pn206, %306 ], [ %381, %380 ], [ %.pn275, %373 ], [ %449, %448 ], [ %.pn268, %434 ], [ %.pn266, %425 ], [ %.pn264, %414 ], [ %498, %497 ], [ %.pn257, %490 ], [ %.pn255, %481 ], [ %.pn253, %470 ]
+  %.pn281 = phi { ptr, i32 } [ %309, %308 ], [ %518, %517 ], [ %538, %537 ], [ %558, %557 ], [ %582, %581 ], [ %.pn244.pn.pn.pn, %732 ], [ %.pn222, %600 ], [ %.pn220, %579 ], [ %.pn218, %555 ], [ %.pn216, %535 ], [ %.pn214, %515 ], [ %.pn212, %464 ], [ %.pn210, %397 ], [ %.pn208, %358 ], [ %.pn206, %306 ], [ %243, %242 ], [ %381, %380 ], [ %.pn275, %373 ], [ %.pn273, %364 ], [ %449, %448 ], [ %.pn268, %434 ], [ %.pn266, %425 ], [ %.pn264, %414 ], [ %.pn262, %403 ], [ %498, %497 ], [ %.pn257, %490 ], [ %.pn255, %481 ], [ %.pn253, %470 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %829
@@ -3036,7 +3036,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %.lr.ph.split, %_ZNK
   br i1 %exitcond.not, label %.thread, label %.lr.ph.split
 
 .thread:                                          ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.us, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, %2
-  %.1 = phi i32 [ %12, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.us ], [ %1, %2 ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %12, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ]
+  %.1 = phi i32 [ %1, %2 ], [ %12, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %12, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit ]
   ret i32 %.1
 }
 
@@ -3555,8 +3555,8 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit43:       ; preds = %82
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit37.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit37.thread: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit43, %67, %_ZNK6icu_7713UnicodeString6charAtEi.exit37, %74, %_ZNK6icu_7713UnicodeString6charAtEi.exit40, %82
-  %.025 = phi i32 [ 0, %67 ], [ 1, %74 ], [ 2, %82 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit37 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit40 ], [ %spec.select, %_ZNK6icu_7713UnicodeString6charAtEi.exit43 ]
-  %.023 = phi i32 [ %57, %67 ], [ %75, %74 ], [ %83, %82 ], [ %57, %_ZNK6icu_7713UnicodeString6charAtEi.exit37 ], [ %75, %_ZNK6icu_7713UnicodeString6charAtEi.exit40 ], [ %spec.select83, %_ZNK6icu_7713UnicodeString6charAtEi.exit43 ]
+  %.025 = phi i32 [ 2, %82 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit40 ], [ 1, %74 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit37 ], [ 0, %67 ], [ %spec.select, %_ZNK6icu_7713UnicodeString6charAtEi.exit43 ]
+  %.023 = phi i32 [ %83, %82 ], [ %75, %_ZNK6icu_7713UnicodeString6charAtEi.exit40 ], [ %75, %74 ], [ %57, %_ZNK6icu_7713UnicodeString6charAtEi.exit37 ], [ %57, %67 ], [ %spec.select83, %_ZNK6icu_7713UnicodeString6charAtEi.exit43 ]
   %91 = icmp slt i32 %.023, %55
   %92 = icmp ult i32 %.023, %55
   %or.cond55 = and i1 %91, %92
@@ -3595,15 +3595,15 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit49:       ; preds = %101
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit46.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit46.thread: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit49, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %101, %_ZNK6icu_7713UnicodeString6charAtEi.exit37.thread, %_ZNK6icu_7713UnicodeString6charAtEi.exit46, %97, %100
-  %.126 = phi i32 [ %99, %97 ], [ %.025, %_ZNK6icu_7713UnicodeString6charAtEi.exit46 ], [ %.025, %_ZNK6icu_7713UnicodeString6charAtEi.exit37.thread ], [ 15, %101 ], [ 2, %100 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %spec.select84, %_ZNK6icu_7713UnicodeString6charAtEi.exit49 ]
-  %.124 = phi i32 [ %98, %97 ], [ %.023, %_ZNK6icu_7713UnicodeString6charAtEi.exit46 ], [ %.023, %_ZNK6icu_7713UnicodeString6charAtEi.exit37.thread ], [ %57, %101 ], [ %57, %100 ], [ %57, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %spec.select85, %_ZNK6icu_7713UnicodeString6charAtEi.exit49 ]
+  %.126 = phi i32 [ %99, %97 ], [ %.025, %_ZNK6icu_7713UnicodeString6charAtEi.exit46 ], [ %.025, %_ZNK6icu_7713UnicodeString6charAtEi.exit37.thread ], [ 2, %100 ], [ 15, %101 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %spec.select84, %_ZNK6icu_7713UnicodeString6charAtEi.exit49 ]
+  %.124 = phi i32 [ %98, %97 ], [ %.023, %_ZNK6icu_7713UnicodeString6charAtEi.exit46 ], [ %.023, %_ZNK6icu_7713UnicodeString6charAtEi.exit37.thread ], [ %57, %100 ], [ %57, %101 ], [ %57, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %spec.select85, %_ZNK6icu_7713UnicodeString6charAtEi.exit49 ]
   %109 = sub nsw i32 %.124, %.0.lcssa.i
   %110 = shl i32 %109, 8
   %111 = or i32 %110, %.126
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %56, %_ZNK6icu_7713UnicodeString6charAtEi.exit46.thread, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit, %2
-  %.0 = phi i32 [ -1, %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit ], [ -1, %2 ], [ %111, %_ZNK6icu_7713UnicodeString6charAtEi.exit46.thread ], [ -1, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ -1, %56 ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit ], [ %111, %_ZNK6icu_7713UnicodeString6charAtEi.exit46.thread ], [ -1, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ -1, %56 ]
   ret i32 %.0
 }
 
@@ -3724,7 +3724,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit48:       ; preds = %61, %_ZNK6icu_7713U
           to label %_ZNK6icu_7713UnicodeString6charAtEi.exit48.thread unwind label %47
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit48.thread: ; preds = %17, %49, %71, %_ZNK6icu_7713UnicodeString6charAtEi.exit48
-  %.1 = phi i32 [ %.0, %_ZNK6icu_7713UnicodeString6charAtEi.exit48 ], [ %73, %71 ], [ %11, %17 ], [ %43, %49 ]
+  %.1 = phi i32 [ %.0, %_ZNK6icu_7713UnicodeString6charAtEi.exit48 ], [ %73, %71 ], [ %43, %49 ], [ %11, %17 ]
   %74 = load i16, ptr %8, align 8, !tbaa !35
   %75 = icmp ugt i16 %74, 31
   br i1 %75, label %76, label %107
@@ -4331,7 +4331,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %._crit_edge, %_ZNK6
   ret void
 
 217:                                              ; preds = %.loopexit134, %.loopexit.split-lp135, %.loopexit124, %.loopexit.split-lp125, %.loopexit129, %.loopexit.split-lp130, %.loopexit139, %.loopexit.split-lp140, %103, %179
-  %.pn89 = phi { ptr, i32 } [ %lpad.phi, %179 ], [ %.pn83, %103 ], [ %lpad.loopexit.split-lp142, %.loopexit.split-lp140 ], [ %lpad.loopexit.split-lp132, %.loopexit.split-lp130 ], [ %lpad.loopexit.split-lp127, %.loopexit.split-lp125 ], [ %lpad.loopexit141, %.loopexit139 ], [ %lpad.loopexit131, %.loopexit129 ], [ %lpad.loopexit126, %.loopexit124 ], [ %lpad.loopexit136, %.loopexit134 ], [ %lpad.loopexit.split-lp137, %.loopexit.split-lp135 ]
+  %.pn89 = phi { ptr, i32 } [ %.pn83, %103 ], [ %lpad.phi, %179 ], [ %lpad.loopexit141, %.loopexit139 ], [ %lpad.loopexit.split-lp142, %.loopexit.split-lp140 ], [ %lpad.loopexit131, %.loopexit129 ], [ %lpad.loopexit.split-lp132, %.loopexit.split-lp130 ], [ %lpad.loopexit126, %.loopexit124 ], [ %lpad.loopexit.split-lp127, %.loopexit.split-lp125 ], [ %lpad.loopexit136, %.loopexit134 ], [ %lpad.loopexit.split-lp137, %.loopexit.split-lp135 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #17
@@ -4697,7 +4697,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %22, %115, %_ZNK6icu
           to label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit unwind label %52
 
 _ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit: ; preds = %129, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, %133, %96, %_ZN6icu_7713UnicodeString6appendEDs.exit48, %_ZN6icu_7713UnicodeString6appendEDs.exit46
-  %.231 = phi i32 [ %46, %_ZN6icu_7713UnicodeString6appendEDs.exit48 ], [ %46, %96 ], [ %46, %_ZN6icu_7713UnicodeString6appendEDs.exit46 ], [ %1, %133 ], [ %1, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ %1, %129 ]
+  %.231 = phi i32 [ %46, %96 ], [ %46, %_ZN6icu_7713UnicodeString6appendEDs.exit46 ], [ %46, %_ZN6icu_7713UnicodeString6appendEDs.exit48 ], [ %1, %133 ], [ %1, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ %1, %129 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %135
@@ -5231,7 +5231,7 @@ _ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread: ; preds = %.lr.ph12
   br label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit
 
 _ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit81, %79, %116, %108, %51
-  %.261 = phi i32 [ %53, %51 ], [ %30, %116 ], [ %113, %108 ], [ %68, %79 ], [ %68, %_ZNK6icu_7713UnicodeString6charAtEi.exit81 ]
+  %.261 = phi i32 [ %53, %51 ], [ %113, %108 ], [ %30, %116 ], [ %68, %79 ], [ %68, %_ZNK6icu_7713UnicodeString6charAtEi.exit81 ]
   %118 = load ptr, ptr %15, align 8, !tbaa !17
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load i16, ptr %119, align 8, !tbaa !35
@@ -5245,7 +5245,7 @@ _ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit: ; preds = 
   br i1 %127, label %.lr.ph127, label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread107.loopexit
 
 _ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread107.loopexit: ; preds = %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread95, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit
-  %.059.lcssa.ph = phi i32 [ %.261, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit ], [ %.059125, %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread ], [ %.059125, %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread95 ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ]
+  %.059.lcssa.ph = phi i32 [ %.261, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit ], [ %.059125, %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread95 ], [ %.059125, %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ], [ %.059125, %switch.early.test.i ]
   %.pre = load i16, ptr %11, align 8, !tbaa !35
   br label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread107
 
@@ -5315,12 +5315,12 @@ _ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit85: ; preds 
   br i1 %164, label %.lr.ph155, label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread, !llvm.loop !67
 
 _ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread.sink.split: ; preds = %151, %142, %104, %61
-  %.0.ph = phi i32 [ %.059.lcssa, %142 ], [ %.362.lcssa, %61 ], [ %27, %104 ], [ %.059.lcssa, %151 ]
+  %.0.ph = phi i32 [ %.362.lcssa, %61 ], [ %27, %104 ], [ %.059.lcssa, %142 ], [ %.059.lcssa, %151 ]
   call void @_ZN6icu_7719CollationRuleParser15setErrorContextEv(ptr noundef nonnull align 8 dereferenceable(76) %0)
   br label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread
 
 _ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread: ; preds = %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit85, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread.sink.split, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread107, %104, %101, %61, %_ZNK6icu_7713UnicodeString6charAtEi.exit75.thread._crit_edge, %139, %142, %148, %151, %4
-  %.0 = phi i32 [ %1, %4 ], [ %.362.lcssa, %_ZNK6icu_7713UnicodeString6charAtEi.exit75.thread._crit_edge ], [ %.0.ph, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread.sink.split ], [ %.362.lcssa, %61 ], [ %.059.lcssa, %139 ], [ %.059.lcssa, %142 ], [ %.059.lcssa, %148 ], [ %.059.lcssa, %151 ], [ %.059.lcssa, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread107 ], [ %27, %104 ], [ %27, %101 ], [ %.059.lcssa, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit85 ]
+  %.0 = phi i32 [ %1, %4 ], [ %.059.lcssa, %139 ], [ %.059.lcssa, %142 ], [ %.059.lcssa, %148 ], [ %.059.lcssa, %151 ], [ %27, %104 ], [ %27, %101 ], [ %.362.lcssa, %61 ], [ %.362.lcssa, %_ZNK6icu_7713UnicodeString6charAtEi.exit75.thread._crit_edge ], [ %.059.lcssa, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread107 ], [ %.0.ph, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit.thread.sink.split ], [ %.059.lcssa, %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit85 ]
   ret i32 %.0
 }
 
@@ -5462,9 +5462,9 @@ _ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit: ; preds = %_ZNK6icu_771
   br label %64
 
 64:                                               ; preds = %.lr.ph, %.backedge
-  %65 = phi i32 [ %60, %.lr.ph ], [ %122, %.backedge ]
-  %66 = phi i16 [ %61, %.lr.ph ], [ %116, %.backedge ]
-  %67 = phi ptr [ %62, %.lr.ph ], [ %114, %.backedge ]
+  %65 = phi i32 [ %60, %.lr.ph ], [ %113, %.backedge ]
+  %66 = phi i16 [ %61, %.lr.ph ], [ %107, %.backedge ]
+  %67 = phi ptr [ %62, %.lr.ph ], [ %105, %.backedge ]
   %.098 = phi i32 [ %.0.ph109, %.lr.ph ], [ %.028.ph108, %.backedge ]
   %68 = icmp ult i32 %.028.ph108, %65
   br i1 %68, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %_ZN6icu_7719CollationRuleParser12isSyntaxCharEi.exit.thread66
@@ -5550,46 +5550,46 @@ _ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit: ; preds = %85
   %102 = icmp ne i16 %101, 0
   %103 = icmp eq i32 %100, 0
   %or.cond.i36 = and i1 %102, %103
-  br i1 %or.cond.i36, label %104, label %105
+  br i1 %or.cond.i36, label %104, label %114
 
 104:                                              ; preds = %93
   call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %2)
   br i1 %or.cond564, label %.loopexit, label %.backedge
 
-105:                                              ; preds = %93
+.backedge:                                        ; preds = %104, %117, %121
+  %105 = load ptr, ptr %10, align 8, !tbaa !17
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %107 = load i16, ptr %106, align 8, !tbaa !35
+  %108 = icmp slt i16 %107, 0
+  %109 = ashr i16 %107, 5
+  %110 = sext i16 %109 to i32
+  %111 = getelementptr inbounds nuw i8, ptr %105, i64 12
+  %112 = load i32, ptr %111, align 4
+  %113 = select i1 %108, i32 %112, i32 %110
+  %.not = icmp slt i32 %.028.ph108, %113
+  br i1 %.not, label %64, label %.loopexit
+
+114:                                              ; preds = %93
   %.not72 = icmp eq i32 %99, 0
-  br i1 %.not72, label %_ZN6icu_7713UnicodeString8truncateEi.exit, label %106
+  br i1 %.not72, label %_ZN6icu_7713UnicodeString8truncateEi.exit, label %115
 
-106:                                              ; preds = %105
-  %107 = icmp slt i32 %99, 1025
-  br i1 %107, label %108, label %112
+115:                                              ; preds = %114
+  %116 = icmp slt i32 %99, 1025
+  br i1 %116, label %117, label %121
 
-108:                                              ; preds = %106
-  %109 = and i16 %94, 31
+117:                                              ; preds = %115
+  %118 = and i16 %94, 31
   %.tr.i.i.i = trunc i32 %100 to i16
-  %110 = shl i16 %.tr.i.i.i, 5
-  %111 = or disjoint i16 %110, %109
-  store i16 %111, ptr %6, align 8, !tbaa !35
+  %119 = shl i16 %.tr.i.i.i, 5
+  %120 = or disjoint i16 %119, %118
+  store i16 %120, ptr %6, align 8, !tbaa !35
   br i1 %or.cond564, label %.loopexit, label %.backedge
 
-112:                                              ; preds = %106
-  %113 = or i16 %94, -32
-  store i16 %113, ptr %6, align 8, !tbaa !35
+121:                                              ; preds = %115
+  %122 = or i16 %94, -32
+  store i16 %122, ptr %6, align 8, !tbaa !35
   store i32 %100, ptr %50, align 4, !tbaa !35
   br i1 %or.cond564, label %.loopexit, label %.backedge
-
-.backedge:                                        ; preds = %112, %104, %108
-  %114 = load ptr, ptr %10, align 8, !tbaa !17
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  %116 = load i16, ptr %115, align 8, !tbaa !35
-  %117 = icmp slt i16 %116, 0
-  %118 = ashr i16 %116, 5
-  %119 = sext i16 %118 to i32
-  %120 = getelementptr inbounds nuw i8, ptr %114, i64 12
-  %121 = load i32, ptr %120, align 4
-  %122 = select i1 %117, i32 %121, i32 %119
-  %.not = icmp slt i32 %.028.ph108, %122
-  br i1 %.not, label %64, label %.loopexit
 
 123:                                              ; preds = %85
   %124 = landingpad { ptr, i32 }
@@ -5678,10 +5678,10 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i42:     ; preds = %146, %.lr.ph.i39
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %or.cond563, label %.loopexit, label %.outer.backedge
 
-_ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %105, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit, %82, %156, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42, %128
-  %or.cond562 = phi i1 [ %or.cond563, %128 ], [ %or.cond563, %156 ], [ %or.cond563, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42 ], [ %or.cond564, %82 ], [ %or.cond564, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %or.cond564, %105 ]
-  %.129 = phi i32 [ %127, %128 ], [ %157, %156 ], [ %144, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42 ], [ %.028.ph108, %82 ], [ %.028.ph108, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %.028.ph108, %105 ]
-  %.2 = phi i32 [ %.098, %128 ], [ %.098, %156 ], [ %.098, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42 ], [ %.028.ph108, %82 ], [ %.028.ph108, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %.028.ph108, %105 ]
+_ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %114, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit, %82, %156, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42, %128
+  %or.cond562 = phi i1 [ %or.cond563, %128 ], [ %or.cond563, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42 ], [ %or.cond563, %156 ], [ %or.cond564, %82 ], [ %or.cond564, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %or.cond564, %114 ]
+  %.129 = phi i32 [ %127, %128 ], [ %157, %156 ], [ %144, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42 ], [ %.028.ph108, %82 ], [ %.028.ph108, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %.028.ph108, %114 ]
+  %.2 = phi i32 [ %.098, %128 ], [ %.098, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i42 ], [ %.098, %156 ], [ %.028.ph108, %82 ], [ %.028.ph108, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %.028.ph108, %114 ]
   br i1 %or.cond562, label %.loopexit, label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %_ZN6icu_7713UnicodeString8truncateEi.exit, %169
@@ -5699,8 +5699,8 @@ _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %105, %_ZNK6icu_7713
   %.not97 = icmp slt i32 %.028.ph.be, %179
   br i1 %.not97, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %169, %_ZN6icu_7713UnicodeString8truncateEi.exit, %.outer.backedge, %.backedge, %112, %104, %108, %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit
-  %.1 = phi i32 [ 0, %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit ], [ %.028.ph108, %108 ], [ %.028.ph108, %104 ], [ %.028.ph108, %112 ], [ 0, %.backedge ], [ %.098, %169 ], [ %.2, %_ZN6icu_7713UnicodeString8truncateEi.exit ], [ 0, %.outer.backedge ]
+.loopexit:                                        ; preds = %169, %_ZN6icu_7713UnicodeString8truncateEi.exit, %.outer.backedge, %.backedge, %104, %117, %121, %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit
+  %.1 = phi i32 [ 0, %_ZNK6icu_7719CollationRuleParser14skipWhiteSpaceEi.exit ], [ %.028.ph108, %121 ], [ %.028.ph108, %117 ], [ %.028.ph108, %104 ], [ 0, %.backedge ], [ %.098, %169 ], [ %.2, %_ZN6icu_7713UnicodeString8truncateEi.exit ], [ 0, %.outer.backedge ]
   ret i32 %.1
 }
 
@@ -5752,7 +5752,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK6icu_7713UnicodeStringeqERKS0_(ptr n
   br label %36
 
 36:                                               ; preds = %11, %28, %6
-  %.0 = phi i1 [ %10, %6 ], [ %35, %28 ], [ false, %11 ]
+  %.0 = phi i1 [ %10, %6 ], [ false, %11 ], [ %35, %28 ]
   ret i1 %.0
 }
 
@@ -6046,7 +6046,7 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit: ; preds = %_ZN6icu_779UVec
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %55, %68, %53
-  %.pn43.pn = phi { ptr, i32 } [ %54, %53 ], [ %56, %55 ], [ %.pn, %68 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit56, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp57, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn43.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn, %68 ], [ %56, %55 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit56, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp57, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #17
   br label %114
 
@@ -6217,7 +6217,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %.noexc, %10
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit18
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit18:        ; preds = %.noexc17, %57, %52
-  %.0.i13 = phi i1 [ %56, %52 ], [ %81, %.noexc17 ], [ false, %57 ]
+  %.0.i13 = phi i1 [ %56, %52 ], [ false, %57 ], [ %81, %.noexc17 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #17
   %82 = load ptr, ptr %5, align 8, !tbaa !41
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %82) #17, !srcloc !44
@@ -6325,7 +6325,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.us:      ; preds = %.lr.ph.split.us
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.us
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.thread.us: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.us, %29, %26, %.lr.ph.split.us
-  %.2.us = phi i32 [ %27, %26 ], [ %30, %29 ], [ %.02754.us, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %.02754.us, %.lr.ph.split.us ]
+  %.2.us = phi i32 [ %30, %29 ], [ %.02754.us, %_ZNK6icu_7713UnicodeString6charAtEi.exit.us ], [ %27, %26 ], [ %.02754.us, %.lr.ph.split.us ]
   %31 = trunc nsw i64 %indvars.iv.next64 to i32
   %32 = icmp eq i32 %15, %31
   br i1 %32, label %._crit_edge, label %.lr.ph.split.us
@@ -6375,7 +6375,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %.lr.ph.split
   br i1 %48, label %.split.us, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %.lr.ph.split, %46, %44, %_ZNK6icu_7713UnicodeString6charAtEi.exit
-  %.2 = phi i32 [ %47, %46 ], [ %45, %44 ], [ %.02754, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %.02754, %.lr.ph.split ]
+  %.2 = phi i32 [ %45, %44 ], [ %.02754, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %47, %46 ], [ %.02754, %.lr.ph.split ]
   %49 = trunc nsw i64 %indvars.iv.next to i32
   %50 = icmp eq i32 %15, %49
   br i1 %50, label %._crit_edge, label %.lr.ph.split
@@ -6534,7 +6534,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit40.thread: ; preds = %_ZNK6icu_7713Unico
   br label %_ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit
 
 _ZN6icu_7719CollationRuleParser13setParseErrorEPKcR10UErrorCode.exit: ; preds = %122, %118, %_ZNK6icu_7713UnicodeString6charAtEi.exit40.thread, %60, %56, %39, %35, %._crit_edge, %123
-  %.0 = phi i32 [ %124, %123 ], [ %.028.lcssa, %39 ], [ %.us-phi, %60 ], [ %.028.lcssa, %._crit_edge ], [ %.028.lcssa, %35 ], [ %.us-phi, %56 ], [ %.0.lcssa.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit40.thread ], [ %.0.lcssa.i, %118 ], [ %.0.lcssa.i, %122 ]
+  %.0 = phi i32 [ %124, %123 ], [ %.028.lcssa, %._crit_edge ], [ %.028.lcssa, %35 ], [ %.028.lcssa, %39 ], [ %.us-phi, %56 ], [ %.us-phi, %60 ], [ %.0.lcssa.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit40.thread ], [ %.0.lcssa.i, %118 ], [ %.0.lcssa.i, %122 ]
   ret i32 %.0
 }
 

@@ -537,7 +537,7 @@ define noundef range(i32 -1, 2) i32 @_ZNK6icu_7712CollationKey9compareToERKS0_(p
   br label %_ZNK6icu_7712CollationKey9compareToERKS0_R10UErrorCode.exit
 
 _ZNK6icu_7712CollationKey9compareToERKS0_R10UErrorCode.exit: ; preds = %2, %19, %23, %24
-  %.3.i = phi i32 [ -1, %23 ], [ 0, %2 ], [ %.021.i, %24 ], [ 1, %19 ]
+  %.3.i = phi i32 [ 0, %2 ], [ %.021.i, %24 ], [ -1, %23 ], [ 1, %19 ]
   ret i32 %.3.i
 }
 
@@ -585,7 +585,7 @@ define noundef range(i32 -1, 2) i32 @_ZNK6icu_7712CollationKey9compareToERKS0_R1
   br label %.thread
 
 .thread:                                          ; preds = %23, %3, %6, %27, %28
-  %.3 = phi i32 [ -1, %27 ], [ 0, %6 ], [ %.021, %28 ], [ 0, %3 ], [ 1, %23 ]
+  %.3 = phi i32 [ 0, %6 ], [ %.021, %28 ], [ -1, %27 ], [ 0, %3 ], [ 1, %23 ]
   ret i32 %.3
 }
 

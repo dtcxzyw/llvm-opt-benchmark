@@ -545,7 +545,7 @@ define internal noundef zeroext range(i8 0, 10) i8 @dm_mq_queue_rq(ptr readnone 
   br label %163
 
 163:                                              ; preds = %.thread, %.critedge, %161, %141, %29, %2
-  %164 = phi i8 [ 9, %161 ], [ 9, %.critedge ], [ 9, %2 ], [ 9, %29 ], [ 0, %141 ], [ 0, %.thread ]
+  %164 = phi i8 [ 9, %161 ], [ 9, %2 ], [ 9, %29 ], [ 0, %141 ], [ 9, %.critedge ], [ 0, %.thread ]
   ret i8 %164
 }
 

@@ -535,7 +535,7 @@ define noundef nonnull ptr @Pa_GetErrorText(i32 noundef %0) local_unnamed_addr #
   br label %34
 
 34:                                               ; preds = %32, %1, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ %.str.32..str.33, %32 ], [ @.str.1, %1 ], [ @.str.31, %31 ], [ @.str.2, %2 ], [ @.str.3, %3 ], [ @.str.4, %4 ], [ @.str.5, %5 ], [ @.str.6, %6 ], [ @.str.7, %7 ], [ @.str.8, %8 ], [ @.str.9, %9 ], [ @.str.10, %10 ], [ @.str.11, %11 ], [ @.str.12, %12 ], [ @.str.13, %13 ], [ @.str.14, %14 ], [ @.str.15, %15 ], [ @.str.16, %16 ], [ @.str.17, %17 ], [ @.str.18, %18 ], [ @.str.19, %19 ], [ @.str.20, %20 ], [ @.str.21, %21 ], [ @.str.22, %22 ], [ @.str.23, %23 ], [ @.str.24, %24 ], [ @.str.25, %25 ], [ @.str.26, %26 ], [ @.str.27, %27 ], [ @.str.28, %28 ], [ @.str.29, %29 ], [ @.str.30, %30 ]
+  %.0 = phi ptr [ @.str.2, %2 ], [ @.str.3, %3 ], [ @.str.4, %4 ], [ @.str.5, %5 ], [ @.str.6, %6 ], [ @.str.7, %7 ], [ @.str.8, %8 ], [ @.str.9, %9 ], [ @.str.10, %10 ], [ @.str.11, %11 ], [ @.str.12, %12 ], [ @.str.13, %13 ], [ @.str.14, %14 ], [ @.str.15, %15 ], [ @.str.16, %16 ], [ @.str.17, %17 ], [ @.str.18, %18 ], [ @.str.19, %19 ], [ @.str.20, %20 ], [ @.str.21, %21 ], [ @.str.22, %22 ], [ @.str.23, %23 ], [ @.str.24, %24 ], [ @.str.25, %25 ], [ @.str.26, %26 ], [ @.str.27, %27 ], [ @.str.28, %28 ], [ @.str.29, %29 ], [ @.str.30, %30 ], [ @.str.31, %31 ], [ @.str.1, %1 ], [ %.str.32..str.33, %32 ]
   ret ptr %.0
 }
 
@@ -691,7 +691,7 @@ define ptr @Pa_GetHostApiInfo(i32 noundef %0) local_unnamed_addr #9 {
   br label %12
 
 12:                                               ; preds = %3, %1, %6
-  %.0 = phi ptr [ null, %1 ], [ %11, %6 ], [ null, %3 ]
+  %.0 = phi ptr [ %11, %6 ], [ null, %1 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -729,7 +729,7 @@ define i32 @Pa_HostApiDeviceIndexToDeviceIndex(i32 noundef %0, i32 noundef %1) l
   br label %20
 
 20:                                               ; preds = %7, %9, %4, %2, %16
-  %.0 = phi i32 [ -10000, %2 ], [ -9978, %4 ], [ %19, %16 ], [ -9996, %9 ], [ -9996, %7 ]
+  %.0 = phi i32 [ %19, %16 ], [ -10000, %2 ], [ -9978, %4 ], [ -9996, %9 ], [ -9996, %7 ]
   ret i32 %.0
 }
 
@@ -844,7 +844,7 @@ FindHostApi.exit:                                 ; preds = %7
   br label %FindHostApi.exit.thread
 
 FindHostApi.exit.thread:                          ; preds = %12, %.preheader.i, %1, %FindHostApi.exit
-  %.0 = phi ptr [ %21, %FindHostApi.exit ], [ null, %.preheader.i ], [ null, %1 ], [ null, %12 ]
+  %.0 = phi ptr [ %21, %FindHostApi.exit ], [ null, %1 ], [ null, %.preheader.i ], [ null, %12 ]
   ret ptr %.0
 }
 
@@ -932,7 +932,7 @@ define i32 @Pa_IsFormatSupported(ptr noundef readonly captures(address_is_null) 
   br label %47
 
 47:                                               ; preds = %10, %3, %42
-  %.021 = phi i32 [ -10000, %3 ], [ %46, %42 ], [ %11, %10 ]
+  %.021 = phi i32 [ %46, %42 ], [ -10000, %3 ], [ %11, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1006,8 +1006,8 @@ Pa_HostApiTypeIdToHostApiIndex.exit:              ; preds = %26
   br label %Pa_HostApiTypeIdToHostApiIndex.exit.thread
 
 Pa_HostApiTypeIdToHostApiIndex.exit.thread:       ; preds = %32, %.Pa_HostApiTypeIdToHostApiIndex.exit.thread_crit_edge, %Pa_HostApiTypeIdToHostApiIndex.exit, %.preheader.i
-  %34 = phi ptr [ %.pre162, %Pa_HostApiTypeIdToHostApiIndex.exit ], [ %.pre, %.Pa_HostApiTypeIdToHostApiIndex.exit.thread_crit_edge ], [ %.pre162, %.preheader.i ], [ %.pre162, %32 ]
-  %.06.i132 = phi i32 [ %33, %Pa_HostApiTypeIdToHostApiIndex.exit ], [ -10000, %.Pa_HostApiTypeIdToHostApiIndex.exit.thread_crit_edge ], [ -9979, %.preheader.i ], [ -9979, %32 ]
+  %34 = phi ptr [ %.pre162, %Pa_HostApiTypeIdToHostApiIndex.exit ], [ %.pre162, %.preheader.i ], [ %.pre, %.Pa_HostApiTypeIdToHostApiIndex.exit.thread_crit_edge ], [ %.pre162, %32 ]
+  %.06.i132 = phi i32 [ %33, %Pa_HostApiTypeIdToHostApiIndex.exit ], [ -9979, %.preheader.i ], [ -10000, %.Pa_HostApiTypeIdToHostApiIndex.exit.thread_crit_edge ], [ -9979, %32 ]
   store i32 -2, ptr %7, align 4, !tbaa !12
   %35 = sext i32 %.06.i132 to i64
   %36 = getelementptr inbounds ptr, ptr %34, i64 %35
@@ -1158,8 +1158,8 @@ Pa_HostApiTypeIdToHostApiIndex.exit114:           ; preds = %87
   br label %Pa_HostApiTypeIdToHostApiIndex.exit114.thread
 
 Pa_HostApiTypeIdToHostApiIndex.exit114.thread:    ; preds = %93, %.Pa_HostApiTypeIdToHostApiIndex.exit114.thread_crit_edge, %Pa_HostApiTypeIdToHostApiIndex.exit114, %.preheader.i106
-  %95 = phi ptr [ %.pre164, %Pa_HostApiTypeIdToHostApiIndex.exit114 ], [ %.pre163, %.Pa_HostApiTypeIdToHostApiIndex.exit114.thread_crit_edge ], [ %.pre164, %.preheader.i106 ], [ %.pre164, %93 ]
-  %.06.i107138 = phi i32 [ %94, %Pa_HostApiTypeIdToHostApiIndex.exit114 ], [ -10000, %.Pa_HostApiTypeIdToHostApiIndex.exit114.thread_crit_edge ], [ -9979, %.preheader.i106 ], [ -9979, %93 ]
+  %95 = phi ptr [ %.pre164, %Pa_HostApiTypeIdToHostApiIndex.exit114 ], [ %.pre164, %.preheader.i106 ], [ %.pre163, %.Pa_HostApiTypeIdToHostApiIndex.exit114.thread_crit_edge ], [ %.pre164, %93 ]
+  %.06.i107138 = phi i32 [ %94, %Pa_HostApiTypeIdToHostApiIndex.exit114 ], [ -9979, %.preheader.i106 ], [ -10000, %.Pa_HostApiTypeIdToHostApiIndex.exit114.thread_crit_edge ], [ -9979, %93 ]
   store i32 -2, ptr %8, align 4, !tbaa !12
   %96 = sext i32 %.06.i107138 to i64
   %97 = getelementptr inbounds ptr, ptr %95, i64 %96
@@ -1252,7 +1252,7 @@ SampleFormatIsValid.exit129:                      ; preds = %.split.i128, %.spli
   br i1 %.not85, label %135, label %FindHostApi.exit.thread
 
 135:                                              ; preds = %Pa_HostApiTypeIdToHostApiIndex.exit114.thread, %130, %SampleFormatIsValid.exit129
-  %.0 = phi i32 [ %114, %SampleFormatIsValid.exit129 ], [ %.06.i107138, %Pa_HostApiTypeIdToHostApiIndex.exit114.thread ], [ %114, %130 ]
+  %.0 = phi i32 [ %.06.i107138, %Pa_HostApiTypeIdToHostApiIndex.exit114.thread ], [ %114, %130 ], [ %114, %SampleFormatIsValid.exit129 ]
   %.not88 = icmp eq i32 %.063, %.0
   %or.cond95 = or i1 %10, %.not88
   br i1 %or.cond95, label %136, label %FindHostApi.exit.thread
@@ -1285,7 +1285,7 @@ SampleFormatIsValid.exit129:                      ; preds = %.split.i128, %.spli
   br label %FindHostApi.exit.thread
 
 FindHostApi.exit.thread:                          ; preds = %51, %112, %.split.i128, %121, %.preheader.i117, %102, %.split.i, %60, %.preheader.i99, %41, %143, %139, %136, %135, %130, %FindHostApi.exit126, %99, %78, %69, %FindHostApi.exit, %38, %17, %9, %146
-  %.064 = phi i32 [ -9998, %FindHostApi.exit ], [ -9984, %130 ], [ -9993, %135 ], [ -9997, %136 ], [ -9995, %143 ], [ -9986, %112 ], [ 0, %146 ], [ -9995, %139 ], [ -9984, %69 ], [ -9986, %.preheader.i117 ], [ -9996, %78 ], [ -9996, %99 ], [ -9994, %121 ], [ -9994, %60 ], [ -9998, %FindHostApi.exit126 ], [ -9996, %9 ], [ -9986, %102 ], [ -9996, %17 ], [ -9996, %38 ], [ -9994, %.split.i128 ], [ -9994, %.split.i ], [ -9986, %41 ], [ -9986, %.preheader.i99 ], [ -9986, %51 ]
+  %.064 = phi i32 [ 0, %146 ], [ -9996, %9 ], [ -9996, %17 ], [ -9996, %38 ], [ -9998, %FindHostApi.exit ], [ -9984, %69 ], [ -9996, %78 ], [ -9996, %99 ], [ -9998, %FindHostApi.exit126 ], [ -9984, %130 ], [ -9993, %135 ], [ -9997, %136 ], [ -9995, %139 ], [ -9995, %143 ], [ -9986, %41 ], [ -9986, %.preheader.i99 ], [ -9994, %60 ], [ -9994, %.split.i ], [ -9986, %102 ], [ -9986, %.preheader.i117 ], [ -9994, %121 ], [ -9994, %.split.i128 ], [ -9986, %112 ], [ -9986, %51 ]
   ret i32 %.064
 }
 
@@ -1569,7 +1569,7 @@ FindHostApi.exit.i37:                             ; preds = %FindHostApi.exit.i3
   br label %Pa_GetDefaultInputDevice.exit.thread
 
 Pa_GetDefaultInputDevice.exit.thread:             ; preds = %54, %52, %14, %12, %Pa_GetDefaultOutputDevice.exit, %Pa_GetDefaultInputDevice.exit, %90
-  %.015 = phi i32 [ %91, %90 ], [ -9985, %Pa_GetDefaultInputDevice.exit ], [ -9985, %Pa_GetDefaultOutputDevice.exit ], [ -9985, %14 ], [ -9985, %12 ], [ -9985, %52 ], [ -9985, %54 ]
+  %.015 = phi i32 [ %91, %90 ], [ -9985, %Pa_GetDefaultInputDevice.exit ], [ -9985, %Pa_GetDefaultOutputDevice.exit ], [ -9985, %12 ], [ -9985, %14 ], [ -9985, %52 ], [ -9985, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.015
@@ -1592,7 +1592,7 @@ define range(i32 -10000, 1) i32 @PaUtil_ValidateStreamPointer(ptr noundef readon
   br label %7
 
 7:                                                ; preds = %5, %3, %1
-  %.0 = phi i32 [ -10000, %1 ], [ %., %5 ], [ -9988, %3 ]
+  %.0 = phi i32 [ -10000, %1 ], [ -9988, %3 ], [ %., %5 ]
   ret i32 %.0
 }
 
@@ -1613,7 +1613,7 @@ define i32 @Pa_CloseStream(ptr noundef %0) local_unnamed_addr #3 {
   br label %PaUtil_ValidateStreamPointer.exit
 
 PaUtil_ValidateStreamPointer.exit:                ; preds = %1, %3, %5
-  %.0.i = phi i32 [ -10000, %1 ], [ %..i, %5 ], [ -9988, %3 ]
+  %.0.i = phi i32 [ -10000, %1 ], [ -9988, %3 ], [ %..i, %5 ]
   %.012.i = load ptr, ptr @firstOpenStream_, align 8, !tbaa !31
   %.not13.i = icmp eq ptr %.012.i, null
   br i1 %.not13.i, label %RemoveOpenStream.exit, label %.lr.ph.i.preheader
@@ -1709,8 +1709,8 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %6
   store ptr %1, ptr %16, align 8, !tbaa !66
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
-PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %4, %6, %2, %PaUtil_ValidateStreamPointer.exit, %15
-  %.0 = phi i32 [ 0, %15 ], [ %spec.store.select, %PaUtil_ValidateStreamPointer.exit ], [ -9988, %4 ], [ -9988, %6 ], [ -10000, %2 ]
+PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %6, %4, %2, %PaUtil_ValidateStreamPointer.exit, %15
+  %.0 = phi i32 [ 0, %15 ], [ %spec.store.select, %PaUtil_ValidateStreamPointer.exit ], [ -9988, %6 ], [ -9988, %4 ], [ -10000, %2 ]
   ret i32 %.0
 }
 
@@ -1750,8 +1750,8 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %5
 .fold.split:                                      ; preds = %PaUtil_ValidateStreamPointer.exit
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
-PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %3, %5, %1, %PaUtil_ValidateStreamPointer.exit, %.fold.split, %12
-  %.0 = phi i32 [ %11, %.fold.split ], [ %16, %12 ], [ -9982, %PaUtil_ValidateStreamPointer.exit ], [ -9988, %3 ], [ -9988, %5 ], [ -10000, %1 ]
+PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %3, %1, %PaUtil_ValidateStreamPointer.exit, %.fold.split, %12
+  %.0 = phi i32 [ %16, %12 ], [ -9982, %PaUtil_ValidateStreamPointer.exit ], [ %11, %.fold.split ], [ -9988, %5 ], [ -9988, %3 ], [ -10000, %1 ]
   ret i32 %.0
 }
 
@@ -1791,8 +1791,8 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %5
   %spec.store.select = select i1 %19, i32 -9983, i32 %11
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
-PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %3, %5, %1, %13, %18
-  %.0 = phi i32 [ %17, %13 ], [ %spec.store.select, %18 ], [ -9988, %3 ], [ -9988, %5 ], [ -10000, %1 ]
+PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %3, %1, %13, %18
+  %.0 = phi i32 [ %17, %13 ], [ %spec.store.select, %18 ], [ -9988, %5 ], [ -9988, %3 ], [ -10000, %1 ]
   ret i32 %.0
 }
 
@@ -1832,8 +1832,8 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %5
   %spec.store.select = select i1 %19, i32 -9983, i32 %11
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
-PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %3, %5, %1, %13, %18
-  %.0 = phi i32 [ %17, %13 ], [ %spec.store.select, %18 ], [ -9988, %3 ], [ -9988, %5 ], [ -10000, %1 ]
+PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %3, %1, %13, %18
+  %.0 = phi i32 [ %17, %13 ], [ %spec.store.select, %18 ], [ -9988, %5 ], [ -9988, %3 ], [ -10000, %1 ]
   ret i32 %.0
 }
 
@@ -1860,8 +1860,8 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %5
   %11 = tail call i32 %10(ptr noundef nonnull %0) #14
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
-PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %3, %5, %1, %PaUtil_ValidateStreamPointer.exit
-  %.0 = phi i32 [ %11, %PaUtil_ValidateStreamPointer.exit ], [ -9988, %3 ], [ -9988, %5 ], [ -10000, %1 ]
+PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %3, %1, %PaUtil_ValidateStreamPointer.exit
+  %.0 = phi i32 [ %11, %PaUtil_ValidateStreamPointer.exit ], [ -9988, %5 ], [ -9988, %3 ], [ -10000, %1 ]
   ret i32 %.0
 }
 
@@ -1888,8 +1888,8 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %5
   %11 = tail call i32 %10(ptr noundef nonnull %0) #14
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
-PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %3, %5, %1, %PaUtil_ValidateStreamPointer.exit
-  %.0 = phi i32 [ %11, %PaUtil_ValidateStreamPointer.exit ], [ -9988, %3 ], [ -9988, %5 ], [ -10000, %1 ]
+PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %3, %1, %PaUtil_ValidateStreamPointer.exit
+  %.0 = phi i32 [ %11, %PaUtil_ValidateStreamPointer.exit ], [ -9988, %5 ], [ -9988, %3 ], [ -10000, %1 ]
   ret i32 %.0
 }
 
@@ -1909,7 +1909,7 @@ define ptr @Pa_GetStreamInfo(ptr noundef readonly captures(address_is_null, ret:
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %4, %1
-  %7 = phi ptr [ %spec.select, %4 ], [ null, %1 ]
+  %7 = phi ptr [ null, %1 ], [ %spec.select, %4 ]
   ret ptr %7
 }
 
@@ -2009,8 +2009,8 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %7
   %spec.store.select = select i1 %25, i32 -9983, i32 %17
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
-PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %7, %3, %10, %PaUtil_ValidateStreamPointer.exit, %19, %24
-  %.0 = phi i32 [ -9972, %10 ], [ 0, %PaUtil_ValidateStreamPointer.exit ], [ %23, %19 ], [ %spec.store.select, %24 ], [ -9988, %5 ], [ -9988, %7 ], [ -10000, %3 ]
+PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %7, %5, %3, %10, %PaUtil_ValidateStreamPointer.exit, %19, %24
+  %.0 = phi i32 [ %23, %19 ], [ %spec.store.select, %24 ], [ 0, %PaUtil_ValidateStreamPointer.exit ], [ -9972, %10 ], [ -9988, %7 ], [ -9988, %5 ], [ -10000, %3 ]
   ret i32 %.0
 }
 
@@ -2058,8 +2058,8 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %7
   %spec.store.select = select i1 %25, i32 -9983, i32 %17
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
-PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %7, %3, %10, %PaUtil_ValidateStreamPointer.exit, %19, %24
-  %.0 = phi i32 [ -9972, %10 ], [ 0, %PaUtil_ValidateStreamPointer.exit ], [ %23, %19 ], [ %spec.store.select, %24 ], [ -9988, %5 ], [ -9988, %7 ], [ -10000, %3 ]
+PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %7, %5, %3, %10, %PaUtil_ValidateStreamPointer.exit, %19, %24
+  %.0 = phi i32 [ %23, %19 ], [ %spec.store.select, %24 ], [ 0, %PaUtil_ValidateStreamPointer.exit ], [ -9972, %10 ], [ -9988, %7 ], [ -9988, %5 ], [ -10000, %3 ]
   ret i32 %.0
 }
 

@@ -244,7 +244,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit19:                  ; preds = %54, %56
   br i1 %80, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !29
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %77, %75, %71, %67, %._crit_edge
-  %.0.i.i = phi i32 [ %76, %75 ], [ %68, %67 ], [ %72, %71 ], [ 1, %._crit_edge ], [ %79, %77 ]
+  %.0.i.i = phi i32 [ %68, %67 ], [ %72, %71 ], [ %76, %75 ], [ 1, %._crit_edge ], [ %79, %77 ]
   %.lobit.i = lshr i32 %63, 31
   %81 = add i32 %.0.i.i, %.lobit.i
   %82 = zext i32 %81 to i64
@@ -381,7 +381,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i: ; pred
   br i1 %149, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i24, label %.lr.ph.i.i21, !llvm.loop !29
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i24:  ; preds = %146, %144, %140, %136, %129
-  %.0.i.i25 = phi i32 [ %145, %144 ], [ %137, %136 ], [ %141, %140 ], [ 1, %129 ], [ %148, %146 ]
+  %.0.i.i25 = phi i32 [ %137, %136 ], [ %141, %140 ], [ %145, %144 ], [ 1, %129 ], [ %148, %146 ]
   %.lobit.i26 = lshr i32 %132, 31
   %150 = add i32 %.0.i.i25, %.lobit.i26
   %151 = zext i32 %150 to i64
@@ -969,8 +969,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %150, %193
-  %61 = phi ptr [ %29, %.invoke ], [ %180, %193 ], [ %137, %150 ]
-  %62 = phi ptr [ %24, %.invoke ], [ %183, %193 ], [ %140, %150 ]
+  %61 = phi ptr [ %137, %150 ], [ %180, %193 ], [ %29, %.invoke ]
+  %62 = phi ptr [ %140, %150 ], [ %183, %193 ], [ %24, %.invoke ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -1077,13 +1077,13 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit44:        ; preds = %_ZNSt6vectorIiSaIiE
   br label %.critedge, !llvm.loop !46
 
 .critedge:                                        ; preds = %13, %.lr.ph, %..critedge.loopexit_crit_edge, %4
-  %109 = phi ptr [ null, %4 ], [ null, %.lr.ph ], [ %97, %..critedge.loopexit_crit_edge ], [ %97, %13 ]
-  %110 = phi ptr [ null, %4 ], [ null, %.lr.ph ], [ %99, %..critedge.loopexit_crit_edge ], [ %99, %13 ]
-  %111 = phi ptr [ %7, %4 ], [ %7, %.lr.ph ], [ %103, %..critedge.loopexit_crit_edge ], [ %103, %13 ]
-  %112 = phi ptr [ %6, %4 ], [ %6, %.lr.ph ], [ %102, %..critedge.loopexit_crit_edge ], [ %102, %13 ]
-  %.lcssa = phi ptr [ null, %4 ], [ null, %.lr.ph ], [ %100, %..critedge.loopexit_crit_edge ], [ %100, %13 ]
-  %.026.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph ], [ %.127, %..critedge.loopexit_crit_edge ], [ %.127, %13 ]
-  %.0.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph ], [ %.1, %..critedge.loopexit_crit_edge ], [ %.1, %13 ]
+  %109 = phi ptr [ null, %4 ], [ %97, %..critedge.loopexit_crit_edge ], [ null, %.lr.ph ], [ %97, %13 ]
+  %110 = phi ptr [ null, %4 ], [ %99, %..critedge.loopexit_crit_edge ], [ null, %.lr.ph ], [ %99, %13 ]
+  %111 = phi ptr [ %7, %4 ], [ %103, %..critedge.loopexit_crit_edge ], [ %7, %.lr.ph ], [ %103, %13 ]
+  %112 = phi ptr [ %6, %4 ], [ %102, %..critedge.loopexit_crit_edge ], [ %6, %.lr.ph ], [ %102, %13 ]
+  %.lcssa = phi ptr [ null, %4 ], [ %100, %..critedge.loopexit_crit_edge ], [ null, %.lr.ph ], [ %100, %13 ]
+  %.026.lcssa = phi i32 [ 0, %4 ], [ %.127, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %.127, %13 ]
+  %.0.lcssa = phi i32 [ 0, %4 ], [ %.1, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %.1, %13 ]
   store ptr %.lcssa, ptr %0, align 8
   %113 = zext i32 %.0.lcssa to i64
   %114 = ptrtoint ptr %112 to i64
@@ -1423,7 +1423,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23, %14
   br i1 %55, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !29
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %52, %50, %46, %42, %._crit_edge
-  %.0.i.i = phi i32 [ %51, %50 ], [ %43, %42 ], [ %47, %46 ], [ 1, %._crit_edge ], [ %54, %52 ]
+  %.0.i.i = phi i32 [ %43, %42 ], [ %47, %46 ], [ %51, %50 ], [ 1, %._crit_edge ], [ %54, %52 ]
   %.lobit.i = lshr i32 %38, 31
   %56 = add i32 %.0.i.i, %.lobit.i
   %57 = zext i32 %56 to i64
@@ -1570,7 +1570,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i: ; pred
   br i1 %127, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i18, label %.lr.ph.i.i15, !llvm.loop !29
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i18:  ; preds = %124, %122, %118, %114, %108
-  %.0.i.i19 = phi i32 [ %123, %122 ], [ %115, %114 ], [ %119, %118 ], [ 1, %108 ], [ %126, %124 ]
+  %.0.i.i19 = phi i32 [ %115, %114 ], [ %119, %118 ], [ %123, %122 ], [ 1, %108 ], [ %126, %124 ]
   %.lobit.i20 = lshr i32 %110, 31
   %128 = add i32 %.0.i.i19, %.lobit.i20
   %129 = zext i32 %128 to i64
@@ -2083,7 +2083,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb12Customizable12IsInstanceOf
   br label %22
 
 22:                                               ; preds = %21, %18, %6, %2
-  %.0 = phi i1 [ true, %6 ], [ false, %2 ], [ false, %21 ], [ true, %18 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %6 ], [ false, %21 ], [ true, %18 ]
   ret i1 %.0
 }
 

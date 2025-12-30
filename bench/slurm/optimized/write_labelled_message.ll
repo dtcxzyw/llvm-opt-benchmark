@@ -119,7 +119,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @write_labelled_message
   br i1 %56, label %.lr.ph.split, label %.sink.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %44, %47, %34, %26
-  %.037.lcssa = phi i32 [ %.03751.us, %34 ], [ %.03751.us, %26 ], [ %.03751, %47 ], [ %.03751, %44 ]
+  %.037.lcssa = phi i32 [ %.03751.us, %26 ], [ %.03751.us, %34 ], [ %.03751, %47 ], [ %.03751, %44 ]
   %.1 = phi i32 [ %35, %34 ], [ %32, %26 ], [ %45, %44 ], [ %53, %47 ]
   %.037.lcssa.fr = freeze i32 %.037.lcssa
   call void @slurm_xfree(ptr noundef nonnull %10) #7
@@ -128,12 +128,12 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @write_labelled_message
   br label %57
 
 .sink.split:                                      ; preds = %55, %37, %.thread, %17
-  %.ph = phi i32 [ -1, %.thread ], [ -1, %17 ], [ %.138.us, %37 ], [ %.138, %55 ]
+  %.ph = phi i32 [ -1, %17 ], [ -1, %.thread ], [ %.138.us, %37 ], [ %.138, %55 ]
   call void @slurm_xfree(ptr noundef nonnull %10) #7
   br label %57
 
 57:                                               ; preds = %._crit_edge, %.sink.split
-  %58 = phi i32 [ %.ph, %.sink.split ], [ %spec.select, %._crit_edge ]
+  %58 = phi i32 [ %spec.select, %._crit_edge ], [ %.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %58
 }

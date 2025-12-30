@@ -219,7 +219,7 @@ _ZN4absl7debian211UnparseFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit: ; preds = %7, %4, %29, %28, %_ZN4absl7debian211UnparseFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKT_.exit, %21, %14, %13, %12, %10, %9
-  %.0 = phi ptr [ null, %29 ], [ inttoptr (i64 32 to ptr), %4 ], [ null, %9 ], [ null, %10 ], [ null, %12 ], [ inttoptr (i64 80 to ptr), %28 ], [ @_ZN4absl7debian213base_internal11FastTypeTagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9dummy_varE, %13 ], [ @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, %14 ], [ %.1, %21 ], [ null, %_ZN4absl7debian211UnparseFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKT_.exit ], [ %8, %7 ]
+  %.0 = phi ptr [ null, %29 ], [ null, %9 ], [ null, %10 ], [ null, %12 ], [ @_ZN4absl7debian213base_internal11FastTypeTagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9dummy_varE, %13 ], [ @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, %14 ], [ %.1, %21 ], [ null, %_ZN4absl7debian211UnparseFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKT_.exit ], [ inttoptr (i64 80 to ptr), %28 ], [ inttoptr (i64 32 to ptr), %4 ], [ %8, %7 ]
   ret ptr %.0
 }
 
@@ -329,8 +329,8 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit:                 ; preds = %2, %33
           to label %_ZN4absl7debian27GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKNS0_14flags_internal4FlagIS8_EE.exit.i unwind label %39, !noalias !15
 
 common.resume:                                    ; preds = %147, %.body.i5, %.body21.i, %39, %.body.i, %146
-  %.sink.i2.sink = phi ptr [ %17, %.body.i ], [ %16, %39 ], [ %17, %146 ], [ %5, %147 ], [ %6, %.body21.i ], [ %6, %.body.i5 ]
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %40, %39 ], [ %.pn10.pn.pn.pn.i, %146 ], [ %148, %147 ], [ %.pn12.pn.pn.pn.pn.i, %.body21.i ], [ %.pn.i6, %.body.i5 ]
+  %.sink.i2.sink = phi ptr [ %16, %39 ], [ %17, %146 ], [ %17, %.body.i ], [ %5, %147 ], [ %6, %.body21.i ], [ %6, %.body.i5 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %.pn10.pn.pn.pn.i, %146 ], [ %.pn.i, %.body.i ], [ %148, %147 ], [ %.pn12.pn.pn.pn.pn.i, %.body21.i ], [ %.pn.i6, %.body.i5 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i2.sink) #19
   resume { ptr, i32 } %common.resume.op
 
@@ -1018,7 +1018,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10unique_ptrIN10open_spiel3uci6UCIBotESt14default_deleteIS2_EED2Ev.exit44.i
 
 _ZNSt10unique_ptrIN10open_spiel3uci6UCIBotESt14default_deleteIS2_EED2Ev.exit44.i: ; preds = %279, %277, %171
-  %.pn12.pn.pn.i = phi { ptr, i32 } [ %172, %171 ], [ %.pn12.pn.i, %279 ], [ %.pn12.pn.i, %277 ]
+  %.pn12.pn.pn.i = phi { ptr, i32 } [ %172, %171 ], [ %.pn12.pn.i, %277 ], [ %.pn12.pn.i, %279 ]
   %284 = load ptr, ptr %167, align 8
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
   %286 = load ptr, ptr %285, align 8

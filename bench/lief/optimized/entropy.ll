@@ -213,12 +213,12 @@ define hidden i32 @mbedtls_entropy_gather(ptr noundef %0) local_unnamed_addr #0 
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %9, %._crit_edge.loopexit.i, %.preheader.i
-  %.119.i = phi i32 [ %33, %._crit_edge.loopexit.i ], [ -61, %.preheader.i ], [ %17, %9 ]
+  %.119.i = phi i32 [ -61, %.preheader.i ], [ %33, %._crit_edge.loopexit.i ], [ %17, %9 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 128) #10
   br label %entropy_gather_internal.exit
 
 entropy_gather_internal.exit:                     ; preds = %20, %1, %.loopexit.i
-  %.020.i = phi i32 [ -64, %1 ], [ %.119.i, %.loopexit.i ], [ %22, %20 ]
+  %.020.i = phi i32 [ %.119.i, %.loopexit.i ], [ -64, %1 ], [ %22, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.020.i
@@ -405,7 +405,7 @@ entropy_gather_internal.exit:                     ; preds = %._crit_edge.loopexi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %entropy_gather_internal.exit.thread56, %entropy_gather_internal.exit.thread, %63, %61, %59, %56, %54, %._crit_edge79
-  %.040 = phi i32 [ 0, %._crit_edge79 ], [ %.119.i.ph, %entropy_gather_internal.exit.thread56 ], [ %55, %54 ], [ %58, %56 ], [ %60, %59 ], [ %62, %61 ], [ %65, %63 ], [ %.020.i.ph, %entropy_gather_internal.exit.thread ], [ -60, %.backedge ]
+  %.040 = phi i32 [ %55, %54 ], [ %58, %56 ], [ %60, %59 ], [ %62, %61 ], [ %65, %63 ], [ 0, %._crit_edge79 ], [ %.020.i.ph, %entropy_gather_internal.exit.thread ], [ %.119.i.ph, %entropy_gather_internal.exit.thread56 ], [ -60, %.backedge ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 64) #10
   br label %70
 
@@ -443,8 +443,8 @@ define hidden range(i32 -63, 1) i32 @mbedtls_entropy_write_seed_file(ptr noundef
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread, label %8
 
-.thread:                                          ; preds = %5, %2
-  %.06.ph = phi i32 [ -60, %2 ], [ -63, %5 ]
+.thread:                                          ; preds = %2, %5
+  %.06.ph = phi i32 [ -63, %5 ], [ -60, %2 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 64) #10
   br label %11
 
@@ -676,7 +676,7 @@ mbedtls_entropy_add_source.exit.sink.split:       ; preds = %27, %9, %mbedtls_en
   br label %mbedtls_entropy_add_source.exit
 
 mbedtls_entropy_add_source.exit:                  ; preds = %.preheader38, %.preheader, %60, %mbedtls_entropy_add_source.exit.sink.split, %40, %43
-  %.015 = phi i32 [ 1, %40 ], [ 1, %.preheader ], [ %50, %43 ], [ 1, %mbedtls_entropy_add_source.exit.sink.split ], [ 0, %60 ], [ 1, %.preheader38 ]
+  %.015 = phi i32 [ %50, %43 ], [ 1, %40 ], [ 1, %mbedtls_entropy_add_source.exit.sink.split ], [ 1, %.preheader ], [ 0, %60 ], [ 1, %.preheader38 ]
   %65 = load i32, ptr %10, align 8, !tbaa !3
   %66 = icmp eq i32 %65, -1
   br i1 %66, label %mbedtls_entropy_free.exit, label %67

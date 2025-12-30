@@ -1101,7 +1101,7 @@ define noundef zeroext i1 @_ZNK9PrefsItem13isPrefDefaultEv(ptr noundef readonly 
   br label %11
 
 11:                                               ; preds = %5, %1, %9
-  %.0 = phi i1 [ true, %1 ], [ %10, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ %10, %9 ], [ true, %1 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -5553,7 +5553,7 @@ define i32 @_ZNK18AdvancedPrefsModel5flagsERK11QModelIndex(ptr noundef align 8 d
   br label %29
 
 29:                                               ; preds = %12, %25, %27
-  %.sroa.06.1 = phi i32 [ %28, %27 ], [ %26, %25 ], [ 0, %12 ]
+  %.sroa.06.1 = phi i32 [ %26, %25 ], [ %28, %27 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK11QModelIndex7isValidEv.exit.thread
 
@@ -6504,7 +6504,7 @@ _ZNK5QListI8QVariantE5valueEx.exit.i:             ; preds = %227
   br i1 %.not51, label %227, label %.critedge53, !llvm.loop !107
 
 .critedge53:                                      ; preds = %241, %242, %.preheader, %181, %184, %.critedge, %_ZNK9PrefsItem11getPrefTypeEv.exit120.thread, %_ZNK9PrefsItem13isPrefDefaultEv.exit, %_ZNK9PrefsItem11getPrefTypeEv.exit, %_ZNK9PrefsItem11getPrefTypeEv.exit120
-  %.1 = phi i1 [ true, %.critedge ], [ false, %_ZNK9PrefsItem13isPrefDefaultEv.exit ], [ true, %_ZNK9PrefsItem11getPrefTypeEv.exit120.thread ], [ false, %_ZNK9PrefsItem11getPrefTypeEv.exit120 ], [ false, %_ZNK9PrefsItem11getPrefTypeEv.exit ], [ true, %184 ], [ true, %181 ], [ false, %.preheader ], [ true, %241 ], [ false, %242 ]
+  %.1 = phi i1 [ false, %_ZNK9PrefsItem11getPrefTypeEv.exit120 ], [ false, %_ZNK9PrefsItem11getPrefTypeEv.exit ], [ false, %_ZNK9PrefsItem13isPrefDefaultEv.exit ], [ true, %_ZNK9PrefsItem11getPrefTypeEv.exit120.thread ], [ true, %.critedge ], [ true, %184 ], [ true, %181 ], [ false, %.preheader ], [ true, %241 ], [ false, %242 ]
   %245 = load ptr, ptr %13, align 8
   %.not.i.i.i138 = icmp eq ptr %245, null
   br i1 %.not.i.i.i138, label %_ZN7QStringD2Ev.exit141, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i139
@@ -6540,7 +6540,7 @@ _ZN7QStringD2Ev.exit145:                          ; preds = %_ZN7QStringD2Ev.exi
   br label %261
 
 .body:                                            ; preds = %233, %236, %225, %_ZN7QStringD2Ev.exit137, %_ZN17QArrayDataPointerIDsED2Ev.exit114, %133, %67
-  %.pn49 = phi { ptr, i32 } [ %.pn.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit114 ], [ %.pn46, %_ZN7QStringD2Ev.exit137 ], [ %134, %133 ], [ %68, %67 ], [ %226, %225 ], [ %234, %233 ], [ %237, %236 ]
+  %.pn49 = phi { ptr, i32 } [ %.pn46, %_ZN7QStringD2Ev.exit137 ], [ %68, %67 ], [ %.pn.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit114 ], [ %134, %133 ], [ %226, %225 ], [ %234, %233 ], [ %237, %236 ]
   %253 = load ptr, ptr %13, align 8
   %.not.i.i.i146 = icmp eq ptr %253, null
   br i1 %.not.i.i.i146, label %_ZN7QStringD2Ev.exit149, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i147
@@ -6612,7 +6612,7 @@ define noundef zeroext i1 @_ZNK18AdvancedPrefsModel16filterAcceptsRowEiRK11QMode
   br label %23
 
 23:                                               ; preds = %21, %17, %3
-  %.0 = phi i1 [ false, %17 ], [ true, %3 ], [ %22, %21 ]
+  %.0 = phi i1 [ true, %3 ], [ false, %17 ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -7536,8 +7536,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %124
   br label %135
 
 135:                                              ; preds = %132, %129, %114
-  %.018 = phi i1 [ true, %132 ], [ true, %129 ], [ false, %114 ]
-  %cond = phi i1 [ %134, %132 ], [ false, %129 ], [ false, %114 ]
+  %.018 = phi i1 [ false, %114 ], [ true, %129 ], [ true, %132 ]
+  %cond = phi i1 [ false, %114 ], [ false, %129 ], [ %134, %132 ]
   %136 = load ptr, ptr %7, align 8
   %.not.i.i.i39 = icmp eq ptr %136, null
   br i1 %.not.i.i.i39, label %_ZN7QStringD2Ev.exit42, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i40
@@ -7638,7 +7638,7 @@ define noundef zeroext i1 @_ZNK16ModulePrefsModel16filterAcceptsRowEiRK11QModelI
   br label %24
 
 24:                                               ; preds = %19, %13, %3, %23
-  %.0 = phi i1 [ false, %13 ], [ true, %3 ], [ true, %23 ], [ false, %19 ]
+  %.0 = phi i1 [ true, %23 ], [ true, %3 ], [ false, %13 ], [ false, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }

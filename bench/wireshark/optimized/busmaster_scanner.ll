@@ -730,7 +730,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   br label %406
 
 406:                                              ; preds = %398, %390, %382, %366, %379
-  %.1 = phi i32 [ %spec.select, %398 ], [ 2, %366 ], [ 2, %382 ], [ 2, %390 ], [ 2, %379 ]
+  %.1 = phi i32 [ 2, %379 ], [ 2, %366 ], [ 2, %382 ], [ 2, %390 ], [ %spec.select, %398 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
@@ -1091,7 +1091,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i290, %605
   br i1 %.not280, label %.backedge.sink.split987.backedge, label %627
 
 .backedge.sink.split987.backedge:                 ; preds = %yy_try_NUL_trans.exit, %120
-  %.1261.ph.be = phi ptr [ %555, %yy_try_NUL_trans.exit ], [ %.1261, %120 ]
+  %.1261.ph.be = phi ptr [ %.1261, %120 ], [ %555, %yy_try_NUL_trans.exit ]
   br label %.backedge.sink.split987
 
 627:                                              ; preds = %yy_try_NUL_trans.exit
@@ -1101,9 +1101,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i290, %605
   br label %.loopexit332.backedge
 
 .loopexit332.backedge:                            ; preds = %._crit_edge.i308, %627, %784
-  %.0260.be = phi ptr [ %555, %627 ], [ %782, %784 ], [ %782, %._crit_edge.i308 ]
-  %.0252.be = phi ptr [ %629, %627 ], [ %790, %784 ], [ %790, %._crit_edge.i308 ]
-  %.0245.be = phi i32 [ %628, %627 ], [ %791, %784 ], [ %832, %._crit_edge.i308 ]
+  %.0260.be = phi ptr [ %782, %784 ], [ %555, %627 ], [ %782, %._crit_edge.i308 ]
+  %.0252.be = phi ptr [ %790, %784 ], [ %629, %627 ], [ %790, %._crit_edge.i308 ]
+  %.0245.be = phi i32 [ %791, %784 ], [ %628, %627 ], [ %832, %._crit_edge.i308 ]
   br label %.loopexit332
 
 630:                                              ; preds = %540
@@ -2171,7 +2171,7 @@ define hidden void @busmaster_push_buffer_state(ptr noundef %0, ptr noundef capt
   br label %.thread
 
 .thread:                                          ; preds = %4, %12, %33, %.thread31
-  %35 = phi ptr [ %.pr34, %.thread31 ], [ null, %12 ], [ %.pr34, %33 ], [ null, %4 ]
+  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37
@@ -2622,7 +2622,7 @@ busmaster__delete_buffer.exit.i:                  ; preds = %32, %.critedge.i.i
   br label %busmaster_pop_buffer_state.exit
 
 busmaster_pop_buffer_state.exit:                  ; preds = %26, %44, %47
-  %56 = phi ptr [ %43, %44 ], [ %25, %26 ], [ %43, %47 ]
+  %56 = phi ptr [ %25, %26 ], [ %43, %44 ], [ %43, %47 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8

@@ -1014,7 +1014,7 @@ hqa_decode_slice.exit.loopexit.i:                 ; preds = %._crit_edge.i.i
   br i1 %exitcond88.not.i, label %hqa_decode_frame.exit, label %.preheader.split.i, !llvm.loop !59
 
 hqa_decode_frame.exit:                            ; preds = %hqa_decode_slice.exit.loopexit.i, %hqa_decode_slice.exit.us.i, %323, %329, %353, %356, %.split.us.i, %hqa_decode_slice.exit.thread.i
-  %.0.i = phi i32 [ -1094995529, %323 ], [ %338, %329 ], [ -1094995529, %353 ], [ %358, %356 ], [ -1094995529, %hqa_decode_slice.exit.thread.i ], [ 0, %.split.us.i ], [ 0, %hqa_decode_slice.exit.us.i ], [ 0, %hqa_decode_slice.exit.loopexit.i ]
+  %.0.i = phi i32 [ -1094995529, %323 ], [ %338, %329 ], [ -1094995529, %353 ], [ %358, %356 ], [ 0, %.split.us.i ], [ -1094995529, %hqa_decode_slice.exit.thread.i ], [ 0, %hqa_decode_slice.exit.us.i ], [ 0, %hqa_decode_slice.exit.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %635
 

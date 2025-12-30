@@ -993,7 +993,7 @@ H5FD__core_get_default_config.exit:               ; preds = %45, %43, %41, %36
   br label %.thread255
 
 113:                                              ; preds = %92, %103, %70, %82
-  %.0190 = phi i32 [ %76, %82 ], [ %97, %103 ], [ -1, %92 ], [ %63, %70 ]
+  %.0190 = phi i32 [ %97, %103 ], [ %76, %82 ], [ %63, %70 ], [ -1, %92 ]
   %114 = call noalias dereferenceable_or_null(232) ptr @calloc(i64 noundef 1, i64 noundef 232) #20
   %115 = icmp eq ptr %114, null
   br i1 %115, label %116, label %120
@@ -1284,7 +1284,7 @@ H5FD__core_get_default_config.exit:               ; preds = %45, %43, %41, %36
   %270 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD__core_open, i32 noundef 942, i64 noundef %268, i64 noundef %269, ptr noundef nonnull @.str.33) #18
   br label %.thread251
 
-.thread251:                                       ; preds = %143, %.critedge229, %183, %191, %242, %.thread, %223, %.thread234
+.thread251:                                       ; preds = %143, %.critedge229, %183, %242, %191, %.thread, %223, %.thread234
   %271 = load i32, ptr %121, align 4, !tbaa !30
   %272 = icmp sgt i32 %271, -1
   br i1 %272, label %273, label %275
@@ -1303,8 +1303,8 @@ H5FD__core_get_default_config.exit:               ; preds = %45, %43, %41, %36
   %282 = call ptr @H5MM_xfree(ptr noundef nonnull %114) #18
   br label %.thread255
 
-.thread255:                                       ; preds = %265, %78, %65, %106, %85, %116, %99, %56, %32, %19, %25, %.thread247, %4, %275
-  %.0183 = phi ptr [ null, %275 ], [ %114, %265 ], [ null, %4 ], [ %114, %.thread247 ], [ null, %25 ], [ null, %78 ], [ null, %65 ], [ null, %106 ], [ null, %85 ], [ null, %116 ], [ null, %99 ], [ null, %56 ], [ null, %32 ], [ null, %19 ]
+.thread255:                                       ; preds = %265, %19, %85, %78, %65, %106, %116, %99, %56, %32, %25, %.thread247, %4, %275
+  %.0183 = phi ptr [ null, %275 ], [ null, %4 ], [ %114, %.thread247 ], [ null, %19 ], [ null, %85 ], [ null, %78 ], [ null, %65 ], [ null, %106 ], [ null, %116 ], [ null, %99 ], [ null, %56 ], [ null, %32 ], [ null, %25 ], [ %114, %265 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0183
@@ -1458,7 +1458,7 @@ H5FD__core_destroy_dirty_list.exit.thread:        ; preds = %34, %19, %16
   br label %82
 
 82:                                               ; preds = %.thread, %1, %80, %74, %35, %12
-  %.024 = phi i32 [ -1, %12 ], [ -1, %35 ], [ -1, %74 ], [ %.1, %80 ], [ -1, %.thread ], [ 0, %1 ]
+  %.024 = phi i32 [ -1, %12 ], [ -1, %35 ], [ -1, %74 ], [ %.1, %80 ], [ 0, %1 ], [ -1, %.thread ]
   ret i32 %.024
 }
 
@@ -1537,7 +1537,7 @@ define internal i32 @H5FD__core_cmp(ptr noundef readonly captures(address) %0, p
   br label %.thread
 
 .thread:                                          ; preds = %39, %31, %44, %42, %25, %23, %17, %46, %2
-  %.0 = phi i32 [ 0, %2 ], [ -1, %17 ], [ 1, %23 ], [ -1, %25 ], [ 1, %44 ], [ %spec.select, %31 ], [ %., %42 ], [ -1, %39 ], [ %47, %46 ]
+  %.0 = phi i32 [ %47, %46 ], [ 0, %2 ], [ -1, %17 ], [ 1, %23 ], [ -1, %25 ], [ %spec.select, %31 ], [ %., %42 ], [ 1, %44 ], [ -1, %39 ]
   ret i32 %.0
 }
 
@@ -1702,7 +1702,7 @@ define internal range(i32 -1, 1) i32 @H5FD__core_get_handle(ptr noundef %0, i64 
   br label %45
 
 45:                                               ; preds = %40, %3, %43, %12, %41, %23
-  %.023 = phi i32 [ 0, %3 ], [ -1, %12 ], [ 0, %43 ], [ -1, %23 ], [ %.2, %40 ], [ 0, %41 ]
+  %.023 = phi i32 [ 0, %43 ], [ -1, %12 ], [ 0, %3 ], [ -1, %23 ], [ 0, %41 ], [ %.2, %40 ]
   ret i32 %.023
 }
 
@@ -1963,7 +1963,7 @@ define internal range(i32 -1, 1) i32 @H5FD__core_write(ptr noundef captures(none
   br label %117
 
 117:                                              ; preds = %114, %111, %105
-  %.1.i = phi i64 [ %.0.i, %105 ], [ %spec.select69.i, %114 ], [ %.0.i, %111 ]
+  %.1.i = phi i64 [ %.0.i, %111 ], [ %.0.i, %105 ], [ %spec.select69.i, %114 ]
   %.not65.i = icmp eq ptr %108, null
   br i1 %.not65.i, label %124, label %118
 
@@ -2070,8 +2070,8 @@ define internal range(i32 -1, 1) i32 @H5FD__core_write(ptr noundef captures(none
   store i8 1, ptr %166, align 8, !tbaa !66
   br label %.thread88
 
-.thread88:                                        ; preds = %67, %.thread, %58, %154, %6, %162, %25
-  %.066 = phi i32 [ -1, %25 ], [ 0, %162 ], [ -1, %154 ], [ 0, %6 ], [ -1, %58 ], [ -1, %.thread ], [ -1, %67 ]
+.thread88:                                        ; preds = %.thread, %67, %58, %154, %6, %162, %25
+  %.066 = phi i32 [ -1, %25 ], [ 0, %162 ], [ -1, %154 ], [ 0, %6 ], [ -1, %58 ], [ -1, %67 ], [ -1, %.thread ]
   ret i32 %.066
 }
 
@@ -2330,7 +2330,7 @@ define internal range(i32 -1, 1) i32 @H5FD__core_truncate(ptr noundef captures(n
   br label %90
 
 90:                                               ; preds = %.thread, %3, %12, %26, %82, %89, %59, %50
-  %.053 = phi i32 [ 0, %26 ], [ 0, %3 ], [ 0, %12 ], [ -1, %50 ], [ 0, %89 ], [ -1, %82 ], [ -1, %.thread ], [ -1, %59 ]
+  %.053 = phi i32 [ 0, %12 ], [ 0, %3 ], [ 0, %26 ], [ -1, %50 ], [ 0, %89 ], [ -1, %82 ], [ -1, %59 ], [ -1, %.thread ]
   ret i32 %.053
 }
 
@@ -2381,7 +2381,7 @@ define internal range(i32 -1, 1) i32 @H5FD__core_lock(ptr noundef readonly captu
   br label %31
 
 31:                                               ; preds = %2, %9, %25, %13, %._crit_edge
-  %.011 = phi i32 [ 0, %25 ], [ 0, %2 ], [ -1, %._crit_edge ], [ 0, %13 ], [ 0, %9 ]
+  %.011 = phi i32 [ 0, %25 ], [ -1, %._crit_edge ], [ 0, %13 ], [ 0, %9 ], [ 0, %2 ]
   ret i32 %.011
 }
 
@@ -2431,7 +2431,7 @@ define internal range(i32 -1, 1) i32 @H5FD__core_unlock(ptr noundef readonly cap
   br label %29
 
 29:                                               ; preds = %1, %8, %23, %12, %._crit_edge
-  %.09 = phi i32 [ 0, %23 ], [ 0, %1 ], [ -1, %._crit_edge ], [ 0, %12 ], [ 0, %8 ]
+  %.09 = phi i32 [ 0, %23 ], [ -1, %._crit_edge ], [ 0, %12 ], [ 0, %8 ], [ 0, %1 ]
   ret i32 %.09
 }
 
@@ -2501,7 +2501,7 @@ H5FD__core_get_default_config.exit:               ; preds = %25, %23, %21, %16
   br label %39
 
 39:                                               ; preds = %2, %H5FD__core_get_default_config.exit, %29, %12, %32
-  %.010 = phi i32 [ -1, %12 ], [ 0, %2 ], [ -1, %32 ], [ 0, %29 ], [ 0, %H5FD__core_get_default_config.exit ]
+  %.010 = phi i32 [ -1, %12 ], [ -1, %32 ], [ 0, %29 ], [ 0, %H5FD__core_get_default_config.exit ], [ 0, %2 ]
   ret i32 %.010
 }
 

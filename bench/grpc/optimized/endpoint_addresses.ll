@@ -520,8 +520,8 @@ define noundef i32 @_ZNK9grpc_core17EndpointAddresses3CmpERKS0_(ptr noundef nonn
   %..i = zext i1 %34 to i32
   br label %_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit
 
-_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit: ; preds = %23, %25, %15, %13, %33, %29, %._crit_edge
-  %.3 = phi i32 [ %..i, %33 ], [ -1, %._crit_edge ], [ -1, %29 ], [ 1, %13 ], [ 1, %15 ], [ %27, %25 ], [ -1, %23 ]
+_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit: ; preds = %23, %15, %13, %25, %33, %29, %._crit_edge
+  %.3 = phi i32 [ -1, %._crit_edge ], [ -1, %29 ], [ %..i, %33 ], [ %27, %25 ], [ 1, %13 ], [ 1, %15 ], [ -1, %23 ]
   ret i32 %.3
 }
 
@@ -843,9 +843,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br i1 %.not43.i.i.i.i, label %.loopexit115, label %.lr.ph50.i.i.i.i, !llvm.loop !56
 
 .loopexit115:                                     ; preds = %.lr.ph50.i.i.i.i, %._crit_edge.thread, %._crit_edge, %._crit_edge.i.i.i.i, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i
-  %121 = phi ptr [ %23, %._crit_edge.thread ], [ %91, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %91, %._crit_edge ], [ %91, %._crit_edge.i.i.i.i ], [ %91, %.lr.ph50.i.i.i.i ]
-  %122 = phi ptr [ %22, %._crit_edge.thread ], [ %90, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %90, %._crit_edge ], [ %90, %._crit_edge.i.i.i.i ], [ %90, %.lr.ph50.i.i.i.i ]
-  %123 = phi ptr [ %21, %._crit_edge.thread ], [ %89, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %89, %._crit_edge ], [ %89, %._crit_edge.i.i.i.i ], [ %89, %.lr.ph50.i.i.i.i ]
+  %121 = phi ptr [ %23, %._crit_edge.thread ], [ %91, %._crit_edge ], [ %91, %._crit_edge.i.i.i.i ], [ %91, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %91, %.lr.ph50.i.i.i.i ]
+  %122 = phi ptr [ %22, %._crit_edge.thread ], [ %90, %._crit_edge ], [ %90, %._crit_edge.i.i.i.i ], [ %90, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %90, %.lr.ph50.i.i.i.i ]
+  %123 = phi ptr [ %21, %._crit_edge.thread ], [ %89, %._crit_edge ], [ %89, %._crit_edge.i.i.i.i ], [ %89, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %89, %.lr.ph50.i.i.i.i ]
   %124 = load ptr, ptr %10, align 8, !tbaa !38
   %125 = load i64, ptr %121, align 8, !tbaa !33
   store i64 %125, ptr %9, align 8
@@ -1310,7 +1310,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   ret void
 
 .body89:                                          ; preds = %246, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i80, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70, %208
-  %.pn32 = phi { ptr, i32 } [ %.pn26, %208 ], [ %.pn28.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70 ], [ %247, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i80 ], [ %247, %246 ]
+  %.pn32 = phi { ptr, i32 } [ %.pn28.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70 ], [ %.pn26, %208 ], [ %247, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i80 ], [ %247, %246 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #29
   br label %289
 
@@ -1906,9 +1906,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br i1 %.not43.i.i.i.i, label %.loopexit, label %.lr.ph50.i.i.i.i, !llvm.loop !56
 
 .loopexit:                                        ; preds = %.lr.ph50.i.i.i.i, %._crit_edge.thread, %._crit_edge, %._crit_edge.i.i.i.i, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i
-  %122 = phi ptr [ %26, %._crit_edge.thread ], [ %92, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %92, %._crit_edge ], [ %92, %._crit_edge.i.i.i.i ], [ %92, %.lr.ph50.i.i.i.i ]
-  %123 = phi ptr [ %25, %._crit_edge.thread ], [ %91, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %91, %._crit_edge ], [ %91, %._crit_edge.i.i.i.i ], [ %91, %.lr.ph50.i.i.i.i ]
-  %124 = phi ptr [ %24, %._crit_edge.thread ], [ %90, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %90, %._crit_edge ], [ %90, %._crit_edge.i.i.i.i ], [ %90, %.lr.ph50.i.i.i.i ]
+  %122 = phi ptr [ %26, %._crit_edge.thread ], [ %92, %._crit_edge ], [ %92, %._crit_edge.i.i.i.i ], [ %92, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %92, %.lr.ph50.i.i.i.i ]
+  %123 = phi ptr [ %25, %._crit_edge.thread ], [ %91, %._crit_edge ], [ %91, %._crit_edge.i.i.i.i ], [ %91, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %91, %.lr.ph50.i.i.i.i ]
+  %124 = phi ptr [ %24, %._crit_edge.thread ], [ %90, %._crit_edge ], [ %90, %._crit_edge.i.i.i.i ], [ %90, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %90, %.lr.ph50.i.i.i.i ]
   %125 = load ptr, ptr %8, align 8, !tbaa !38
   %126 = load i64, ptr %122, align 8, !tbaa !33
   store i64 %126, ptr %7, align 8

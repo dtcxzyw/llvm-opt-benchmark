@@ -1054,10 +1054,10 @@ lpad74:                                           ; preds = %if.end67
   br label %ehcleanup
 
 cleanup80thread-pre-split:                        ; preds = %invoke.cont43, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit, %land.lhs.true52, %if.end46, %if.end9.i.i.i.i, %cleanup, %if.then.i190, %.noexc.i
-  %nonConstant.3.ph = phi i1 [ true, %.noexc.i ], [ true, %if.then.i190 ], [ true, %cleanup ], [ true, %land.lhs.true52 ], [ %nonConstant.1627, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ %nonConstant.1627, %if.end9.i.i.i.i ], [ %nonConstant.1627, %invoke.cont43 ], [ true, %if.end46 ]
-  %firstPeeled.3.ph = phi i32 [ %firstPeeled.4, %.noexc.i ], [ %firstPeeled.4, %if.then.i190 ], [ %firstPeeled.4, %cleanup ], [ %firstPeeled.1628, %land.lhs.true52 ], [ %firstPeeled.1628, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ %firstPeeled.1628, %if.end9.i.i.i.i ], [ %firstPeeled.1628, %invoke.cont43 ], [ %firstPeeled.1628, %if.end46 ]
-  %cleanup.dest.slot.0.ph = phi i32 [ %cleanup.dest.slot.1, %.noexc.i ], [ %cleanup.dest.slot.1, %if.then.i190 ], [ %cleanup.dest.slot.1, %cleanup ], [ 4, %land.lhs.true52 ], [ 6, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ 6, %if.end9.i.i.i.i ], [ 6, %invoke.cont43 ], [ 4, %if.end46 ]
-  %peeled.2.ph = phi i1 [ %peeled.3, %.noexc.i ], [ %peeled.3, %if.then.i190 ], [ %peeled.3, %cleanup ], [ false, %land.lhs.true52 ], [ %peeled.0632, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ %peeled.0632, %if.end9.i.i.i.i ], [ %peeled.0632, %invoke.cont43 ], [ false, %if.end46 ]
+  %nonConstant.3.ph = phi i1 [ true, %.noexc.i ], [ true, %if.then.i190 ], [ true, %cleanup ], [ %nonConstant.1627, %if.end9.i.i.i.i ], [ true, %if.end46 ], [ true, %land.lhs.true52 ], [ %nonConstant.1627, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ %nonConstant.1627, %invoke.cont43 ]
+  %firstPeeled.3.ph = phi i32 [ %firstPeeled.4, %.noexc.i ], [ %firstPeeled.4, %if.then.i190 ], [ %firstPeeled.4, %cleanup ], [ %firstPeeled.1628, %if.end9.i.i.i.i ], [ %firstPeeled.1628, %if.end46 ], [ %firstPeeled.1628, %land.lhs.true52 ], [ %firstPeeled.1628, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ %firstPeeled.1628, %invoke.cont43 ]
+  %cleanup.dest.slot.0.ph = phi i32 [ %cleanup.dest.slot.1, %.noexc.i ], [ %cleanup.dest.slot.1, %if.then.i190 ], [ %cleanup.dest.slot.1, %cleanup ], [ 6, %if.end9.i.i.i.i ], [ 4, %if.end46 ], [ 4, %land.lhs.true52 ], [ 6, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ 6, %invoke.cont43 ]
+  %peeled.2.ph = phi i1 [ %peeled.3, %.noexc.i ], [ %peeled.3, %if.then.i190 ], [ %peeled.3, %cleanup ], [ %peeled.0632, %if.end9.i.i.i.i ], [ false, %if.end46 ], [ false, %land.lhs.true52 ], [ %peeled.0632, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ %peeled.0632, %invoke.cont43 ]
   %.pr609 = load ptr, ptr %_M_refcount.i.i, align 8
   %109 = icmp ne i32 %cleanup.dest.slot.0.ph, 4
   br label %cleanup80
@@ -1777,7 +1777,7 @@ lpad142:                                          ; preds = %if.end163, %if.else
   br label %ehcleanup226
 
 if.end163:                                        ; preds = %if.end9.i.i.i389, %invoke.cont159, %invoke.cont150, %land.lhs.true139, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit348
-  %numLevels.2 = phi i32 [ %numLevels.1, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit348 ], [ %numLevels.1, %invoke.cont150 ], [ %numLevels.1, %land.lhs.true139 ], [ %inc154, %invoke.cont159 ], [ %inc154, %if.end9.i.i.i389 ]
+  %numLevels.2 = phi i32 [ %numLevels.1, %invoke.cont150 ], [ %numLevels.1, %land.lhs.true139 ], [ %numLevels.1, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit348 ], [ %inc154, %invoke.cont159 ], [ %inc154, %if.end9.i.i.i389 ]
   %225 = load ptr, ptr %firstWrapper, align 8
   invoke void @_ZN8facebook5velox13DecodedVector11makeIndicesERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEi(ptr noundef nonnull align 8 dereferenceable(120) %decodedVector, ptr noundef nonnull align 8 dereferenceable(99) %225, ptr noundef nonnull align 8 dereferenceable(38) %rows, i32 noundef %numLevels.2)
           to label %invoke.cont165 unwind label %lpad142
@@ -4185,7 +4185,7 @@ if.then26.i.i.i:                                  ; preds = %for.end.i.i.i
   br label %land.end.i
 
 land.end.i:                                       ; preds = %for.body.i.i.i, %if.then26.i.i.i, %for.end.i.i.i, %land.rhs.i, %land.lhs.true.i, %if.end.i
-  %frombool.i = phi i16 [ 256, %land.lhs.true.i ], [ 256, %if.end.i ], [ 257, %land.rhs.i ], [ 257, %for.end.i.i.i ], [ %17, %if.then26.i.i.i ], [ 256, %for.body.i.i.i ]
+  %frombool.i = phi i16 [ 256, %land.lhs.true.i ], [ 256, %if.end.i ], [ 257, %land.rhs.i ], [ %17, %if.then26.i.i.i ], [ 257, %for.end.i.i.i ], [ 256, %for.body.i.i.i ]
   store i16 %frombool.i, ptr %allSelected_.i, align 4
   %18 = trunc i16 %frombool.i to i8
   br label %invoke.cont10
@@ -5145,7 +5145,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
-  %__first.addr.0.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %incdec.ptr.i.i.i, %if.then.i.i.i ]
+  %__first.addr.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ]
   store ptr %__first.addr.0.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end44
 
@@ -5375,7 +5375,7 @@ return.sink.split:                                ; preds = %if.then.i, %_ZZN8fa
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then27 ], [ true, %if.then3 ], [ false, %return.sink.split ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.end ], [ true, %if.then3 ], [ true, %if.then27 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 

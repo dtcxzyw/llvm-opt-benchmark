@@ -1780,7 +1780,7 @@ _ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit284: ; preds = 
   ret void
 
 _ZNSt6vectorIfSaIfEED2Ev.exit286:                 ; preds = %_ZNSt10unique_ptrIN5faiss18ArrayInvertedListsESt14default_deleteIS1_EED2Ev.exit206, %308, %312, %_ZNKSt14default_deleteIN5faiss18ArrayInvertedListsEEclEPS1_.exit.i205, %201, %_ZN7testing7MessageD2Ev.exit183, %_ZN7testing7MessageD2Ev.exit197, %_ZN7testing7MessageD2Ev.exit263, %_ZN7testing7MessageD2Ev.exit243, %383, %382, %194
-  %.pn98.pn.pn.pn = phi { ptr, i32 } [ %.pn68.pn, %194 ], [ %.pn80.pn.pn, %_ZN7testing7MessageD2Ev.exit263 ], [ %.pn75.pn.pn, %_ZN7testing7MessageD2Ev.exit243 ], [ %384, %383 ], [ %.pn71.pn.pn, %382 ], [ %202, %201 ], [ %.pn90.pn.pn, %_ZN7testing7MessageD2Ev.exit197 ], [ %.pn85.pn.pn, %_ZN7testing7MessageD2Ev.exit183 ], [ %309, %308 ], [ %.pn98, %_ZNSt10unique_ptrIN5faiss18ArrayInvertedListsESt14default_deleteIS1_EED2Ev.exit206 ], [ %311, %_ZNKSt14default_deleteIN5faiss18ArrayInvertedListsEEclEPS1_.exit.i205 ], [ %311, %312 ]
+  %.pn98.pn.pn.pn = phi { ptr, i32 } [ %.pn80.pn.pn, %_ZN7testing7MessageD2Ev.exit263 ], [ %.pn75.pn.pn, %_ZN7testing7MessageD2Ev.exit243 ], [ %384, %383 ], [ %.pn71.pn.pn, %382 ], [ %.pn68.pn, %194 ], [ %.pn90.pn.pn, %_ZN7testing7MessageD2Ev.exit197 ], [ %.pn85.pn.pn, %_ZN7testing7MessageD2Ev.exit183 ], [ %202, %201 ], [ %.pn98, %_ZNSt10unique_ptrIN5faiss18ArrayInvertedListsESt14default_deleteIS1_EED2Ev.exit206 ], [ %311, %_ZNKSt14default_deleteIN5faiss18ArrayInvertedListsEEclEPS1_.exit.i205 ], [ %311, %312 ], [ %309, %308 ]
   call void @_ZdlPvm(ptr noundef nonnull %92, i64 noundef 4000) #20
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit288
 
@@ -1790,7 +1790,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit288:                 ; preds = %_ZNSt6vectorIfSaIfE
   br label %.body131
 
 .body131:                                         ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit288, %_ZNSt6vectorIfSaIfEED2Ev.exit.i129, %179
-  %.pn98.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %86, %_ZNSt6vectorIfSaIfEED2Ev.exit.i129 ], [ %.pn98.pn.pn.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit288 ], [ %180, %179 ]
+  %.pn98.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %180, %179 ], [ %86, %_ZNSt6vectorIfSaIfEED2Ev.exit.i129 ], [ %.pn98.pn.pn.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit288 ]
   %.not.i289 = icmp eq ptr %83, null
   br i1 %.not.i289, label %_ZNSt6vectorIfSaIfEED2Ev.exit293, label %_ZNKSt14default_deleteIN5faiss5IndexEEclEPS1_.exit.i290
 
@@ -1813,7 +1813,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit295:                 ; preds = %_ZNSt6vectorIfSaIfE
   br label %.body121
 
 .body121:                                         ; preds = %171, %_ZNSt6vectorIlSaIlEED2Ev.exit295, %_ZNSt6vectorIfSaIfEED2Ev.exit.i119, %159
-  %.pn98.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %38, %_ZNSt6vectorIfSaIfEED2Ev.exit.i119 ], [ %.pn98.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit295 ], [ %172, %171 ], [ %160, %159 ]
+  %.pn98.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %160, %159 ], [ %38, %_ZNSt6vectorIfSaIfEED2Ev.exit.i119 ], [ %.pn98.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit295 ], [ %172, %171 ]
   %.not.i296 = icmp eq ptr %35, null
   br i1 %.not.i296, label %_ZNSt6vectorIfSaIfEED2Ev.exit300, label %_ZNKSt14default_deleteIN5faiss5IndexEEclEPS1_.exit.i297
 
@@ -1831,7 +1831,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit300:                 ; preds = %_ZNKSt14default_del
   br label %.body
 
 .body:                                            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit300, %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %152
-  %.pn98.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %29, %_ZNSt6vectorIfSaIfEED2Ev.exit.i ], [ %.pn98.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit300 ], [ %153, %152 ]
+  %.pn98.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %153, %152 ], [ %29, %_ZNSt6vectorIfSaIfEED2Ev.exit.i ], [ %.pn98.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit300 ]
   %.not.i301 = icmp eq ptr %27, null
   br i1 %.not.i301, label %_ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit303, label %_ZNKSt14default_deleteIN5faiss5IndexEEclEPS1_.exit.i302
 

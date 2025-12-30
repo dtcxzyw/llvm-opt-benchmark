@@ -362,7 +362,7 @@ define noundef range(i32 0, 3) i32 @_ZN6LibRaw28parseLeicaInternalBodySerialEj(p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %13, %20, %11, %4
-  %.010 = phi i32 [ 2, %20 ], [ 0, %4 ], [ 1, %11 ], [ 1, %13 ], [ 1, %.preheader ]
+  %.010 = phi i32 [ 2, %20 ], [ 1, %11 ], [ 0, %4 ], [ 1, %13 ], [ 1, %.preheader ]
   ret i32 %.010
 }
 
@@ -441,7 +441,7 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
   br i1 %or.cond91, label %.thread, label %.thread109
 
 .thread:                                          ; preds = %30, %40
-  %.1108 = phi i32 [ %39, %30 ], [ -3, %40 ]
+  %.1108 = phi i32 [ -3, %40 ], [ %39, %30 ]
   %43 = load ptr, ptr %10, align 8, !tbaa !77
   %44 = load ptr, ptr %43, align 8, !tbaa !81
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
@@ -452,8 +452,8 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
   br label %.thread109
 
 .thread109:                                       ; preds = %30, %30, %30, %30, %30, %40, %27, %.thread
-  %.071 = phi i32 [ %., %27 ], [ 0, %40 ], [ %.1108, %.thread ], [ %39, %30 ], [ %39, %30 ], [ %39, %30 ], [ %39, %30 ], [ %39, %30 ]
-  %.0 = phi i32 [ %1, %27 ], [ %1, %40 ], [ %49, %.thread ], [ %1, %30 ], [ %1, %30 ], [ %1, %30 ], [ %1, %30 ], [ %1, %30 ]
+  %.071 = phi i32 [ %.1108, %.thread ], [ %., %27 ], [ 0, %40 ], [ %39, %30 ], [ %39, %30 ], [ %39, %30 ], [ %39, %30 ], [ %39, %30 ]
+  %.0 = phi i32 [ %49, %.thread ], [ %1, %27 ], [ %1, %40 ], [ %1, %30 ], [ %1, %30 ], [ %1, %30 ], [ %1, %30 ], [ %1, %30 ]
   call void @_ZN6LibRaw20setLeicaBodyFeaturesEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %.071)
   %50 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %51 = icmp ugt i16 %50, 1000

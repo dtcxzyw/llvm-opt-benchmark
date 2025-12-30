@@ -783,7 +783,7 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
   br i1 %.not47, label %142, label %158
 
 .invoke:                                          ; preds = %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread, %80, %142, %121, %109, %85, %92, %95
-  %168 = phi ptr [ @.str.9, %121 ], [ @.str.8, %109 ], [ @.str.5, %85 ], [ @.str.12, %142 ], [ @.str.5, %95 ], [ @.str.5, %92 ], [ @.str.4, %80 ], [ @.str.4, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread ]
+  %168 = phi ptr [ @.str.5, %95 ], [ @.str.5, %92 ], [ @.str.5, %85 ], [ @.str.8, %109 ], [ @.str.9, %121 ], [ @.str.12, %142 ], [ @.str.4, %80 ], [ @.str.4, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread ]
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %168, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEEC2ENS_8RawImageESt5tupleIJiiiEENS_8iPoint2DENS_14Cr2SliceWidthsESt6vectorINS6_18PerComponentRecipeESaISD_EENS_10Array1DRefIKhEE) #13
           to label %.cont unwind label %83
 
@@ -927,7 +927,7 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:     ; preds = %_ZN8rawspeed12_GLOB
   ret void
 
 215:                                              ; preds = %206, %189, %83, %119, %140, %165, %40
-  %.pn56 = phi { ptr, i32 } [ %41, %40 ], [ %166, %165 ], [ %84, %83 ], [ %120, %119 ], [ %141, %140 ], [ %190, %189 ], [ %207, %206 ]
+  %.pn56 = phi { ptr, i32 } [ %41, %40 ], [ %84, %83 ], [ %120, %119 ], [ %141, %140 ], [ %166, %165 ], [ %207, %206 ], [ %190, %189 ]
   %216 = load ptr, ptr %26, align 8, !tbaa !50
   %.not.i.i.i = icmp eq ptr %216, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS3_EEEEE18PerComponentRecipeESaIS8_EED2Ev.exit, label %217
@@ -1308,7 +1308,7 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
   br label %100
 
 100:                                              ; preds = %._crit_edge381, %._crit_edge381.thread
-  %101 = phi i32 [ %spec.select, %._crit_edge381 ], [ 0, %._crit_edge381.thread ]
+  %101 = phi i32 [ 0, %._crit_edge381.thread ], [ %spec.select, %._crit_edge381 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %101
@@ -2152,7 +2152,7 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
   br label %100
 
 100:                                              ; preds = %._crit_edge381, %._crit_edge381.thread
-  %101 = phi i32 [ %spec.select, %._crit_edge381 ], [ 0, %._crit_edge381.thread ]
+  %101 = phi i32 [ 0, %._crit_edge381.thread ], [ %spec.select, %._crit_edge381 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %101
@@ -2991,7 +2991,7 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
   br label %95
 
 95:                                               ; preds = %._crit_edge383, %._crit_edge383.thread
-  %96 = phi i32 [ %spec.select, %._crit_edge383 ], [ 0, %._crit_edge383.thread ]
+  %96 = phi i32 [ 0, %._crit_edge383.thread ], [ %spec.select, %._crit_edge383 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret i32 %96
@@ -3823,7 +3823,7 @@ _ZNK8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS
   br label %104
 
 104:                                              ; preds = %._crit_edge381, %._crit_edge381.thread
-  %105 = phi i32 [ %spec.select, %._crit_edge381 ], [ 0, %._crit_edge381.thread ]
+  %105 = phi i32 [ 0, %._crit_edge381.thread ], [ %spec.select, %._crit_edge381 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %105

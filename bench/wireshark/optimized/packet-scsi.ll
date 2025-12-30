@@ -4742,7 +4742,7 @@ split.i:                                          ; preds = %29
   br i1 %.not80.i, label %.loopexit.i, label %65, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %72, %69, %65, %62, %49
-  %.075.i = phi ptr [ null, %49 ], [ null, %62 ], [ null, %65 ], [ %.17686.i, %69 ], [ null, %72 ]
+  %.075.i = phi ptr [ null, %49 ], [ null, %62 ], [ null, %65 ], [ null, %72 ], [ %.17686.i, %69 ]
   %.not81.i = icmp eq i8 %58, 0
   br i1 %.not81.i, label %94, label %74
 
@@ -5945,8 +5945,8 @@ define hidden void @dissect_scsi_lun(ptr noundef %0, ptr noundef %1, i32 noundef
 76:                                               ; preds = %75
   br label %77
 
-77:                                               ; preds = %75, %76
-  %.1.ph = phi ptr [ @.str.58, %76 ], [ @.str.57, %75 ]
+77:                                               ; preds = %76, %75
+  %.1.ph = phi ptr [ @.str.57, %75 ], [ @.str.58, %76 ]
   %78 = load i32, ptr @hf_scsi_lun_extended, align 4
   %79 = add i32 %10, 1
   %80 = add nsw i32 %67, -1
@@ -5967,7 +5967,7 @@ define hidden void @dissect_scsi_lun(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %.loopexit
 
 87:                                               ; preds = %75, %82, %61, %84, %77, %70, %71
-  %.0 = phi ptr [ @.str.12, %61 ], [ null, %70 ], [ @.str.56, %71 ], [ %.1.ph, %77 ], [ %spec.select, %82 ], [ null, %84 ], [ null, %75 ]
+  %.0 = phi ptr [ null, %70 ], [ @.str.56, %71 ], [ %.1.ph, %77 ], [ null, %84 ], [ %spec.select, %82 ], [ @.str.12, %61 ], [ null, %75 ]
   %.not125 = icmp eq ptr %.0, null
   %spec.store.select = select i1 %.not125, ptr @.str.12, ptr %.0
   %88 = load ptr, ptr %4, align 8
@@ -6344,7 +6344,7 @@ define hidden void @dissect_spc_mgmt_protocol_in(ptr noundef %0, ptr noundef %1,
   br label %91
 
 91:                                               ; preds = %87, %82
-  %.0.i = phi i8 [ %85, %82 ], [ %90, %87 ]
+  %.0.i = phi i8 [ %90, %87 ], [ %85, %82 ]
   %92 = call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %84, i64 noundef 24) #16
   %93 = and i8 %.0.i, 127
   switch i8 %93, label %98 [
@@ -7452,7 +7452,7 @@ define hidden void @dissect_scsi_cdb(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %23
 
 23:                                               ; preds = %19, %11
-  %.0.i = phi i8 [ %17, %11 ], [ %22, %19 ]
+  %.0.i = phi i8 [ %22, %19 ], [ %17, %11 ]
   %24 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %16, i64 noundef 24) #16
   %25 = and i8 %.0.i, 127
   switch i8 %25, label %30 [
@@ -7713,7 +7713,7 @@ define hidden void @dissect_scsi_payload(ptr noundef %0, ptr noundef %1, ptr nou
   br label %28
 
 28:                                               ; preds = %24, %13
-  %.0.i = phi i8 [ %22, %13 ], [ %27, %24 ]
+  %.0.i = phi i8 [ %27, %24 ], [ %22, %13 ]
   %29 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %21, i64 noundef 24) #16
   %30 = and i8 %.0.i, 127
   switch i8 %30, label %35 [
@@ -8146,7 +8146,7 @@ define internal range(i32 0, 2) i32 @scsistat_packet(ptr noundef readonly captur
   br label %29
 
 29:                                               ; preds = %19, %22, %12, %15, %5, %26
-  %.0 = phi i32 [ 1, %26 ], [ 0, %5 ], [ 0, %12 ], [ 0, %15 ], [ 0, %22 ], [ 0, %19 ]
+  %.0 = phi i32 [ 1, %26 ], [ 0, %5 ], [ 0, %15 ], [ 0, %12 ], [ 0, %22 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -9195,9 +9195,9 @@ define internal noundef zeroext i1 @dissect_scsi_mmc5_modepage(ptr noundef %0, p
   br label %.sink.split
 
 .sink.split:                                      ; preds = %58, %7, %62
-  %hf_scsi_mmc5_modepage_lba_space.sink = phi ptr [ @hf_scsi_mmc5_modepage_lba_space, %7 ], [ @hf_scsi_mmc5_modepage_num_write_speed_performance, %62 ], [ @hf_scsi_mmc5_modepage_vendor_specific, %58 ]
-  %.sink222 = phi i32 [ 3, %7 ], [ 30, %62 ], [ 52, %58 ]
-  %.sink221 = phi i32 [ 1, %7 ], [ 2, %62 ], [ 4, %58 ]
+  %hf_scsi_mmc5_modepage_lba_space.sink = phi ptr [ @hf_scsi_mmc5_modepage_num_write_speed_performance, %62 ], [ @hf_scsi_mmc5_modepage_lba_space, %7 ], [ @hf_scsi_mmc5_modepage_vendor_specific, %58 ]
+  %.sink222 = phi i32 [ 30, %62 ], [ 3, %7 ], [ 52, %58 ]
+  %.sink221 = phi i32 [ 2, %62 ], [ 1, %7 ], [ 4, %58 ]
   %171 = load i32, ptr %hf_scsi_mmc5_modepage_lba_space.sink, align 4
   %172 = add i32 %3, %.sink222
   %173 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %171, ptr noundef %0, i32 noundef %172, i32 noundef %.sink221, i32 noundef 0)

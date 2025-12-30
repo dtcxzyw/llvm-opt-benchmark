@@ -277,7 +277,7 @@ define i32 @ff_ps_read_data(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   br i1 %exitcond449.not, label %.loopexit389, label %155, !llvm.loop !28
 
 .loopexit389:                                     ; preds = %152, %155, %.preheader390, %.preheader388
-  %.sroa.28303.4 = phi i32 [ %127, %.preheader388 ], [ %127, %155 ], [ %127, %.preheader390 ], [ %154, %152 ]
+  %.sroa.28303.4 = phi i32 [ %127, %.preheader388 ], [ %127, %.preheader390 ], [ %127, %155 ], [ %154, %152 ]
   %160 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %161 = load i32, ptr %160, align 4, !tbaa !14
   %.not222 = icmp eq i32 %161, 0
@@ -526,7 +526,7 @@ read_iid_data.exit:                               ; preds = %get_vlc2.exit.i, %g
   br label %.thread367
 
 .loopexit383:                                     ; preds = %199, %266, %.preheader.i, %192
-  %.sroa.28303.16.ph = phi i32 [ %spec.select.i253, %192 ], [ %268, %266 ], [ %spec.select.i253, %.preheader.i ], [ %201, %199 ]
+  %.sroa.28303.16.ph = phi i32 [ %spec.select.i253, %192 ], [ %spec.select.i253, %.preheader.i ], [ %268, %266 ], [ %201, %199 ]
   %indvars.iv.next451 = add nuw nsw i64 %indvars.iv450, 1
   %exitcond454.not = icmp eq i64 %indvars.iv.next451, %wide.trip.count453
   br i1 %exitcond454.not, label %.loopexit387, label %171, !llvm.loop !33
@@ -649,9 +649,9 @@ read_iid_data.exit:                               ; preds = %get_vlc2.exit.i, %g
   br label %get_vlc2.exit.i260
 
 get_vlc2.exit.i260:                               ; preds = %385, %367
-  %.064.i.i261 = phi i32 [ %.sroa.28303.17, %367 ], [ %388, %385 ]
-  %.062.i.i262 = phi i16 [ %380, %367 ], [ %401, %385 ]
-  %.0.i.i263 = phi i32 [ %383, %367 ], [ %404, %385 ]
+  %.064.i.i261 = phi i32 [ %388, %385 ], [ %.sroa.28303.17, %367 ]
+  %.062.i.i262 = phi i16 [ %401, %385 ], [ %380, %367 ]
+  %.0.i.i263 = phi i32 [ %404, %385 ], [ %383, %367 ]
   %405 = trunc i16 %.062.i.i262 to i8
   %406 = add i8 %369, %405
   %407 = getelementptr inbounds nuw i8, ptr %363, i64 %indvars.iv.i259
@@ -711,9 +711,9 @@ get_vlc2.exit.i260:                               ; preds = %385, %367
   br label %get_vlc2.exit52.i
 
 get_vlc2.exit52.i:                                ; preds = %429, %412
-  %.064.i49.i = phi i32 [ %.sroa.28303.19, %412 ], [ %431, %429 ]
-  %.062.i50.i = phi i32 [ %424, %412 ], [ %445, %429 ]
-  %.0.i51.i = phi i32 [ %427, %412 ], [ %448, %429 ]
+  %.064.i49.i = phi i32 [ %431, %429 ], [ %.sroa.28303.19, %412 ]
+  %.062.i50.i = phi i32 [ %445, %429 ], [ %424, %412 ]
+  %.0.i51.i = phi i32 [ %448, %429 ], [ %427, %412 ]
   %449 = add i32 %.062.i50.i, %.060.i
   %450 = trunc i32 %449 to i8
   %451 = getelementptr inbounds nuw i8, ptr %356, i64 %indvars.iv65.i
@@ -726,7 +726,7 @@ read_icc_data.exit:                               ; preds = %get_vlc2.exit.i260,
   br label %.thread367
 
 .loopexit378:                                     ; preds = %364, %409, %.preheader.i267, %357
-  %.sroa.28303.20.ph = phi i32 [ %spec.select.i254, %357 ], [ %411, %409 ], [ %spec.select.i254, %.preheader.i267 ], [ %366, %364 ]
+  %.sroa.28303.20.ph = phi i32 [ %spec.select.i254, %357 ], [ %spec.select.i254, %.preheader.i267 ], [ %411, %409 ], [ %366, %364 ]
   %indvars.iv.next456 = add nuw nsw i64 %indvars.iv455, 1
   %exitcond459.not = icmp eq i64 %indvars.iv.next456, %wide.trip.count458
   br i1 %exitcond459.not, label %.loopexit382, label %342, !llvm.loop !36
@@ -928,7 +928,7 @@ read_icc_data.exit:                               ; preds = %get_vlc2.exit.i260,
   br i1 %exitcond11.not.i.i, label %read_ipdopd_data.exit.i, label %558, !llvm.loop !39
 
 read_ipdopd_data.exit.i:                          ; preds = %535, %558, %528, %.preheader.i.i
-  %.sroa.28303.22 = phi i32 [ %spec.select.i30.i, %528 ], [ %spec.select.i30.i, %.preheader.i.i ], [ %575, %558 ], [ %553, %535 ]
+  %.sroa.28303.22 = phi i32 [ %spec.select.i30.i, %.preheader.i.i ], [ %spec.select.i30.i, %528 ], [ %575, %558 ], [ %553, %535 ]
   %579 = lshr i32 %.sroa.28303.22, 3
   %580 = zext nneg i32 %579 to i64
   %581 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %580
@@ -1027,7 +1027,7 @@ read_ipdopd_data.exit.i:                          ; preds = %535, %558, %528, %.
   br i1 %exitcond11.not.i46.i, label %read_ipdopd_data.exit47.i, label %623, !llvm.loop !39
 
 read_ipdopd_data.exit47.i:                        ; preds = %600, %623, %593, %.preheader.i40.i
-  %.sroa.28303.23 = phi i32 [ %spec.select.i31.i, %593 ], [ %spec.select.i31.i, %.preheader.i40.i ], [ %640, %623 ], [ %618, %600 ]
+  %.sroa.28303.23 = phi i32 [ %spec.select.i31.i, %.preheader.i40.i ], [ %spec.select.i31.i, %593 ], [ %640, %623 ], [ %618, %600 ]
   %indvars.iv.next.i274 = add nuw nsw i64 %indvars.iv.i273, 1
   %exitcond.not.i275 = icmp eq i64 %indvars.iv.next.i274, %wide.trip.count.i272
   br i1 %exitcond.not.i275, label %.loopexit.i270, label %513, !llvm.loop !40
@@ -1316,7 +1316,7 @@ ps_read_extension_data.exit:                      ; preds = %489, %.loopexit.i27
   br label %774
 
 774:                                              ; preds = %.thread367, %759
-  %.0192 = phi i32 [ %758, %759 ], [ %3, %.thread367 ]
+  %.0192 = phi i32 [ %3, %.thread367 ], [ %758, %759 ]
   ret i32 %.0192
 }
 

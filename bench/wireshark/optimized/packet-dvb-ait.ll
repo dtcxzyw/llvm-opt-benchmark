@@ -527,7 +527,7 @@ dissect_dvb_ait_app_name_desc_body.exit:          ; preds = %.lr.ph.i68
   br label %dissect_dvb_ait_trpt_proto_desc_body.exit
 
 dissect_dvb_ait_trpt_proto_desc_body.exit:        ; preds = %.lr.ph.i72, %74, %99, %103, %121
-  %.071.i = phi i32 [ %102, %99 ], [ %81, %74 ], [ %123, %121 ], [ %113, %103 ], [ %119, %.lr.ph.i72 ]
+  %.071.i = phi i32 [ %102, %99 ], [ %123, %121 ], [ %81, %74 ], [ %113, %103 ], [ %119, %.lr.ph.i72 ]
   %126 = sub i32 %.071.i, %18
   %127 = icmp sgt i32 %126, 0
   %spec.select66 = select i1 %127, i32 %.071.i, i32 %18
@@ -546,7 +546,7 @@ dissect_dvb_ait_trpt_proto_desc_body.exit:        ; preds = %.lr.ph.i72, %74, %9
   br label %dissect_dvb_ait_app_name_desc_body.exit.thread
 
 dissect_dvb_ait_app_name_desc_body.exit.thread:   ; preds = %dissect_dvb_ait_app_name_desc_body.exit, %61, %dissect_dvb_ait_trpt_proto_desc_body.exit, %dissect_dvb_ait_app_desc_body.exit, %132, %128
-  %.0 = phi i32 [ %135, %132 ], [ %131, %128 ], [ %spec.select66, %dissect_dvb_ait_trpt_proto_desc_body.exit ], [ %spec.select, %dissect_dvb_ait_app_desc_body.exit ], [ %18, %61 ], [ %spec.select3, %dissect_dvb_ait_app_name_desc_body.exit ]
+  %.0 = phi i32 [ %135, %132 ], [ %131, %128 ], [ %spec.select, %dissect_dvb_ait_app_desc_body.exit ], [ %spec.select66, %dissect_dvb_ait_trpt_proto_desc_body.exit ], [ %18, %61 ], [ %spec.select3, %dissect_dvb_ait_app_name_desc_body.exit ]
   %136 = sub i32 %.0, %1
   br label %139
 

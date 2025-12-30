@@ -105,7 +105,7 @@ define hidden range(i32 -1, 2) i32 @visual_open(ptr noundef %0, ptr noundef %1, 
   br label %52
 
 34:                                               ; preds = %24, %30, %29, %28, %27, %26
-  %.037 = phi i32 [ 13, %30 ], [ 2, %26 ], [ 12, %27 ], [ 40, %28 ], [ 27, %29 ], [ 1, %24 ]
+  %.037 = phi i32 [ 2, %26 ], [ 12, %27 ], [ 40, %28 ], [ 27, %29 ], [ 13, %30 ], [ 1, %24 ]
   %35 = load i32, ptr @visual_file_type_subtype, align 4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %35, ptr %36, align 4
@@ -138,7 +138,7 @@ define hidden range(i32 -1, 2) i32 @visual_open(ptr noundef %0, ptr noundef %1, 
   br label %52
 
 52:                                               ; preds = %11, %10, %8, %34, %31, %21
-  %.0 = phi i32 [ %., %8 ], [ -1, %21 ], [ -1, %31 ], [ 1, %34 ], [ 0, %10 ], [ -1, %11 ]
+  %.0 = phi i32 [ -1, %21 ], [ -1, %31 ], [ 1, %34 ], [ %., %8 ], [ 0, %10 ], [ -1, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -202,7 +202,7 @@ define internal noundef zeroext i1 @visual_seek_read(ptr noundef readonly captur
   br label %17
 
 17:                                               ; preds = %10, %13, %16, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %13 ], [ false, %16 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %16 ], [ false, %13 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -575,7 +575,7 @@ define internal fastcc noundef zeroext i1 @visual_read_packet(ptr noundef readon
   br label %187
 
 187:                                              ; preds = %150, %176, %178, %181, %185, %172, %174, %147, %89, %5, %145, %80, %69, %53, %45
-  %.0 = phi i1 [ false, %145 ], [ false, %147 ], [ false, %89 ], [ false, %45 ], [ false, %53 ], [ false, %69 ], [ false, %80 ], [ false, %5 ], [ true, %174 ], [ true, %172 ], [ true, %185 ], [ true, %181 ], [ true, %178 ], [ true, %176 ], [ true, %150 ]
+  %.0 = phi i1 [ false, %145 ], [ false, %45 ], [ false, %53 ], [ false, %69 ], [ false, %80 ], [ false, %5 ], [ false, %89 ], [ false, %147 ], [ true, %174 ], [ true, %172 ], [ true, %185 ], [ true, %181 ], [ true, %178 ], [ true, %176 ], [ true, %150 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
@@ -613,7 +613,7 @@ define internal range(i32 -9, 1) i32 @visual_dump_can_write_encap(i32 noundef %0
   br label %4
 
 4:                                                ; preds = %1, %3, %2
-  %.0 = phi i32 [ 0, %2 ], [ -8, %3 ], [ -9, %1 ]
+  %.0 = phi i32 [ -8, %3 ], [ 0, %2 ], [ -9, %1 ]
   ret i32 %.0
 }
 
@@ -837,7 +837,7 @@ define internal noundef zeroext i1 @visual_dump(ptr noundef %0, ptr noundef read
   br label %99
 
 99:                                               ; preds = %72, %.thread, %24, %87, %33, %23, %19, %13
-  %.052 = phi i1 [ false, %13 ], [ false, %19 ], [ false, %23 ], [ false, %24 ], [ false, %33 ], [ true, %87 ], [ false, %.thread ], [ false, %72 ]
+  %.052 = phi i1 [ false, %13 ], [ false, %19 ], [ false, %23 ], [ false, %33 ], [ true, %87 ], [ false, %24 ], [ false, %.thread ], [ false, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.052
 }
@@ -956,7 +956,7 @@ define internal zeroext i1 @visual_dump_finish(ptr noundef %0, ptr noundef %1, p
   br label %visual_dump_free.exit
 
 visual_dump_free.exit:                            ; preds = %50, %48, %28, %27, %19, %18, %22, %3
-  %.0 = phi i1 [ false, %19 ], [ false, %3 ], [ false, %22 ], [ false, %28 ], [ false, %18 ], [ false, %27 ], [ %49, %48 ], [ %49, %50 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %22 ], [ false, %18 ], [ false, %19 ], [ false, %27 ], [ false, %28 ], [ %49, %48 ], [ %49, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }

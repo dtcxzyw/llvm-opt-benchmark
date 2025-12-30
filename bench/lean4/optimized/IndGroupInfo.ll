@@ -149,7 +149,7 @@ lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit28
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %15, %13, %24, %23, %21
-  %.1.i45 = phi ptr [ %18, %24 ], [ %18, %21 ], [ %18, %23 ], [ inttoptr (i64 1 to ptr), %13 ], [ %17, %15 ]
+  %.1.i45 = phi ptr [ %18, %21 ], [ %18, %23 ], [ %18, %24 ], [ inttoptr (i64 1 to ptr), %13 ], [ %17, %15 ]
   %25 = ptrtoint ptr %.1.i45 to i64
   %26 = lshr i64 %25, 1
   %27 = getelementptr inbounds nuw ptr, ptr %8, i64 %26
@@ -293,8 +293,8 @@ lean_dec.exit27:                                  ; preds = %63, %62, %60, %lean
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.023) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %lean_nat_eq.exit, %65, %73, %72, %70, %79, %78, %76
-  %.2.ph = phi i8 [ 0, %65 ], [ 1, %76 ], [ 1, %78 ], [ 1, %79 ], [ 0, %70 ], [ 0, %72 ], [ 0, %73 ], [ 1, %lean_nat_eq.exit ]
+.loopexit:                                        ; preds = %lean_nat_eq.exit, %73, %72, %70, %65, %79, %78, %76
+  %.2.ph = phi i8 [ 1, %76 ], [ 1, %78 ], [ 1, %79 ], [ 0, %65 ], [ 0, %70 ], [ 0, %72 ], [ 0, %73 ], [ 1, %lean_nat_eq.exit ]
   ret i8 %.2.ph
 }
 
@@ -351,7 +351,7 @@ lean_nat_eq.exit27:                               ; preds = %26, %.critedge.i25
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_dec.exit22, %lean_nat_eq.exit27, %14
-  %.0 = phi i8 [ 0, %14 ], [ %29, %lean_nat_eq.exit27 ], [ 0, %lean_dec.exit22 ]
+  %.0 = phi i8 [ %29, %lean_nat_eq.exit27 ], [ 0, %14 ], [ 0, %lean_dec.exit22 ]
   ret i8 %.0
 }
 
@@ -511,7 +511,7 @@ lean_nat_eq.exit27.i:                             ; preds = %.critedge.i25.i, %2
   br label %l_Lean_Elab_Structural_beqIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_26_.exit
 
 l_Lean_Elab_Structural_beqIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_26_.exit: ; preds = %2, %15, %lean_nat_eq.exit27.i
-  %.0.i = phi i64 [ 1, %15 ], [ %30, %lean_nat_eq.exit27.i ], [ 1, %2 ]
+  %.0.i = phi i64 [ %30, %lean_nat_eq.exit27.i ], [ 1, %15 ], [ 1, %2 ]
   %31 = ptrtoint ptr %1 to i64
   %32 = and i64 %31, 1
   %.not = icmp eq i64 %32, 0
@@ -1359,7 +1359,7 @@ common.ret46:                                     ; preds = %58, %61, %lean_dec.
   ret ptr %common.ret46.op
 
 lean_dec.exit28:                                  ; preds = %29, %33, %42, %41, %39
-  %.0.i39 = phi ptr [ %36, %42 ], [ %36, %39 ], [ %36, %41 ], [ %34, %33 ], [ %32, %29 ]
+  %.0.i39 = phi ptr [ %36, %39 ], [ %36, %41 ], [ %36, %42 ], [ %34, %33 ], [ %32, %29 ]
   %43 = tail call ptr @l_Lean_Elab_Structural_IndGroupInfo_brecOnName(ptr noundef nonnull %0, i8 noundef zeroext %1, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %44 = tail call ptr @lean_name_append_index_after(ptr noundef %43, ptr noundef %.0.i39) #4
   br label %common.ret46
@@ -1950,7 +1950,7 @@ lean_dec.exit:                                    ; preds = %83, %82, %80, %lean
   br label %lean_dec.exit25
 
 lean_dec.exit25:                                  ; preds = %12, %18, %20, %21, %lean_dec.exit23, %lean_dec.exit
-  %.0 = phi ptr [ %85, %lean_dec.exit ], [ %66, %lean_dec.exit23 ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
+  %.0 = phi ptr [ %66, %lean_dec.exit23 ], [ %85, %lean_dec.exit ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
   ret ptr %.0
 }
 
@@ -3669,8 +3669,8 @@ lean_alloc_ctor.exit193:                          ; preds = %lean_dec.exit
   %.not = icmp eq i64 %299, %2
   br i1 %.not, label %._crit_edge, label %18
 
-300:                                              ; preds = %lean_alloc_ctor.exit193, %lean_dec.exit106, %lean_alloc_ctor.exit, %lean_dec.exit100, %lean_alloc_ctor.exit192
-  %.5.ph = phi ptr [ %80, %lean_dec.exit100 ], [ %252, %lean_alloc_ctor.exit192 ], [ %80, %lean_dec.exit106 ], [ %170, %lean_alloc_ctor.exit ], [ %292, %lean_alloc_ctor.exit193 ]
+300:                                              ; preds = %lean_alloc_ctor.exit193, %lean_alloc_ctor.exit, %lean_dec.exit106, %lean_dec.exit100, %lean_alloc_ctor.exit192
+  %.5.ph = phi ptr [ %80, %lean_dec.exit100 ], [ %252, %lean_alloc_ctor.exit192 ], [ %170, %lean_alloc_ctor.exit ], [ %80, %lean_dec.exit106 ], [ %292, %lean_alloc_ctor.exit193 ]
   ret ptr %.5.ph
 }
 
@@ -4305,13 +4305,13 @@ lean_alloc_ctor.exit174:                          ; preds = %lean_dec.exit
   br label %lean_dec.exit100
 
 lean_dec.exit104.thread:                          ; preds = %111, %110, %108, %lean_inc.exit108, %lean_dec.exit105, %19, %21, %22
-  %.085182 = phi ptr [ %7, %lean_dec.exit105 ], [ %7, %22 ], [ %7, %21 ], [ %7, %19 ], [ %95, %lean_inc.exit108 ], [ %95, %108 ], [ %95, %110 ], [ %95, %111 ]
+  %.085182 = phi ptr [ %7, %22 ], [ %7, %21 ], [ %7, %19 ], [ %7, %lean_dec.exit105 ], [ %95, %lean_inc.exit108 ], [ %95, %108 ], [ %95, %110 ], [ %95, %111 ]
   %225 = load ptr, ptr @l_Lean_Elab_Structural_IndGroupInst_isDefEq___lambda__2___closed__1, align 8, !tbaa !11
   %226 = tail call ptr @lean_apply_6(ptr noundef %225, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %.085182) #4
   br label %lean_dec.exit100
 
 lean_dec.exit100:                                 ; preds = %lean_dec.exit95, %lean_alloc_ctor.exit, %lean_dec.exit104.thread, %lean_alloc_ctor.exit174
-  %.0 = phi ptr [ %219, %lean_alloc_ctor.exit174 ], [ %226, %lean_dec.exit104.thread ], [ %55, %lean_dec.exit95 ], [ %184, %lean_alloc_ctor.exit ]
+  %.0 = phi ptr [ %219, %lean_alloc_ctor.exit174 ], [ %226, %lean_dec.exit104.thread ], [ %184, %lean_alloc_ctor.exit ], [ %55, %lean_dec.exit95 ]
   ret ptr %.0
 }
 
@@ -5193,7 +5193,7 @@ lean_nat_eq.exit27.i:                             ; preds = %.critedge.i25.i, %5
   br label %l_Lean_Elab_Structural_beqIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_26_.exit
 
 l_Lean_Elab_Structural_beqIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_26_.exit: ; preds = %lean_inc.exit, %40, %lean_nat_eq.exit27.i
-  %.0.i = phi i1 [ true, %40 ], [ %55, %lean_nat_eq.exit27.i ], [ true, %lean_inc.exit ]
+  %.0.i = phi i1 [ %55, %lean_nat_eq.exit27.i ], [ true, %40 ], [ true, %lean_inc.exit ]
   br i1 %.not58, label %56, label %lean_dec.exit36
 
 56:                                               ; preds = %l_Lean_Elab_Structural_beqIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_26_.exit
@@ -6088,7 +6088,7 @@ lean_dec.exit29:                                  ; preds = %78, %77, %75, %69
   br label %lean_dec.exit30
 
 lean_dec.exit30:                                  ; preds = %lean_dec.exit29, %84, %86, %87, %lean_alloc_ctor.exit, %65, %67, %68
-  %.0 = phi ptr [ %61, %lean_alloc_ctor.exit ], [ %61, %68 ], [ %61, %67 ], [ %61, %65 ], [ %80, %87 ], [ %80, %86 ], [ %80, %84 ], [ %80, %lean_dec.exit29 ]
+  %.0 = phi ptr [ %61, %68 ], [ %61, %67 ], [ %61, %65 ], [ %61, %lean_alloc_ctor.exit ], [ %80, %87 ], [ %80, %86 ], [ %80, %84 ], [ %80, %lean_dec.exit29 ]
   ret ptr %.0
 }
 
@@ -6879,7 +6879,7 @@ lean_alloc_ctor.exit130:                          ; preds = %lean_dec.exit
   br label %200
 
 200:                                              ; preds = %lean_alloc_ctor.exit130, %lean_dec.exit68, %lean_alloc_ctor.exit123, %lean_alloc_ctor.exit, %lean_dec.exit73
-  %.2 = phi ptr [ %112, %lean_alloc_ctor.exit ], [ %156, %lean_alloc_ctor.exit123 ], [ %15, %lean_dec.exit73 ], [ %194, %lean_alloc_ctor.exit130 ], [ %15, %lean_dec.exit68 ]
+  %.2 = phi ptr [ %156, %lean_alloc_ctor.exit123 ], [ %15, %lean_dec.exit73 ], [ %112, %lean_alloc_ctor.exit ], [ %194, %lean_alloc_ctor.exit130 ], [ %15, %lean_dec.exit68 ]
   ret ptr %.2
 }
 
@@ -7502,7 +7502,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   br label %lean_dec.exit71
 
 lean_dec.exit71:                                  ; preds = %lean_dec.exit72, %149, %151, %152, %lean_dec.exit66, %lean_alloc_ctor.exit, %lean_dec.exit77
-  %.0 = phi ptr [ %21, %lean_dec.exit77 ], [ %57, %lean_dec.exit66 ], [ %220, %lean_alloc_ctor.exit ], [ %115, %152 ], [ %115, %151 ], [ %115, %149 ], [ %115, %lean_dec.exit72 ]
+  %.0 = phi ptr [ %21, %lean_dec.exit77 ], [ %220, %lean_alloc_ctor.exit ], [ %57, %lean_dec.exit66 ], [ %115, %152 ], [ %115, %151 ], [ %115, %149 ], [ %115, %lean_dec.exit72 ]
   ret ptr %.0
 }
 
@@ -9184,7 +9184,7 @@ lean_alloc_ctor.exit241:                          ; preds = %lean_dec.exit
   br label %408
 
 408:                                              ; preds = %lean_alloc_ctor.exit241, %lean_dec.exit117, %lean_dec.exit129, %lean_alloc_ctor.exit234, %lean_dec.exit123, %lean_dec.exit127
-  %.3 = phi ptr [ %207, %lean_dec.exit123 ], [ %156, %lean_dec.exit129 ], [ %264, %lean_dec.exit127 ], [ %323, %lean_alloc_ctor.exit234 ], [ %402, %lean_alloc_ctor.exit241 ], [ %49, %lean_dec.exit117 ]
+  %.3 = phi ptr [ %156, %lean_dec.exit129 ], [ %264, %lean_dec.exit127 ], [ %323, %lean_alloc_ctor.exit234 ], [ %207, %lean_dec.exit123 ], [ %402, %lean_alloc_ctor.exit241 ], [ %49, %lean_dec.exit117 ]
   ret ptr %.3
 }
 
@@ -9870,7 +9870,7 @@ _init_l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_Structural_IndGr
   br label %_init_l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____spec__1___closed__6.exit
 
 _init_l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____spec__1___closed__6.exit: ; preds = %_init_l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____spec__1___closed__3.exit, %64
-  %.1.i.i = phi ptr [ %60, %_init_l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____spec__1___closed__3.exit ], [ %66, %64 ]
+  %.1.i.i = phi ptr [ %66, %64 ], [ %60, %_init_l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____spec__1___closed__3.exit ]
   store ptr %.1.i.i, ptr @l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____spec__1___closed__6, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #4
   %67 = load ptr, ptr @l_Array_Array_repr___at___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____spec__1___closed__4, align 8, !tbaa !11
@@ -10066,7 +10066,7 @@ _init_l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_S
   br label %_init_l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__13.exit
 
 _init_l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__13.exit: ; preds = %_init_l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__9.exit, %133
-  %.1.i.i7 = phi ptr [ %129, %_init_l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__9.exit ], [ %135, %133 ]
+  %.1.i.i7 = phi ptr [ %135, %133 ], [ %129, %_init_l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__9.exit ]
   store ptr %.1.i.i7, ptr @l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__13, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i7) #4
   %136 = load ptr, ptr @l___private_Lean_Elab_PreDefinition_Structural_IndGroupInfo_0__Lean_Elab_Structural_reprIndGroupInfo____x40_Lean_Elab_PreDefinition_Structural_IndGroupInfo___hyg_111____closed__11, align 8, !tbaa !11

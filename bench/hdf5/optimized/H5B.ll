@@ -253,7 +253,7 @@ define range(i32 -1, 1) i32 @H5B_create(ptr noundef %0, ptr noundef readonly cap
   br label %.critedge
 
 .critedge:                                        ; preds = %83, %76, %72, %59, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %59 ], [ -1, %72 ], [ -1, %76 ], [ -1, %83 ]
+  %.0 = phi i32 [ -1, %72 ], [ 0, %10 ], [ 0, %59 ], [ -1, %76 ], [ -1, %83 ]
   ret i32 %.0
 }
 
@@ -666,7 +666,7 @@ define range(i32 -1, 1) i32 @H5B_insert(ptr noundef %0, ptr noundef %1, i64 noun
   %129 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5B_t_reg_free_list, ptr noundef nonnull %102) #6
   br label %130
 
-130:                                              ; preds = %121, %104, %91
+130:                                              ; preds = %121, %91, %104
   %131 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !29
   %132 = load i64, ptr @H5E_CANTCOPY_g, align 8, !tbaa !29
   %133 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5B_insert, i32 noundef 584, i64 noundef %131, i64 noundef %132, ptr noundef nonnull @.str.17) #6
@@ -795,8 +795,8 @@ define range(i32 -1, 1) i32 @H5B_insert(ptr noundef %0, ptr noundef %1, i64 noun
   br label %H5B__node_dest.exit
 
 H5B__node_dest.exit:                              ; preds = %45, %49, %215, %207
-  %223 = phi ptr [ %.pre, %45 ], [ %208, %215 ], [ %208, %207 ], [ %.pre82, %49 ]
-  %.2 = phi i32 [ -1, %45 ], [ -1, %215 ], [ -1, %207 ], [ 0, %49 ]
+  %223 = phi ptr [ %208, %207 ], [ %208, %215 ], [ %.pre82, %49 ], [ %.pre, %45 ]
+  %.2 = phi i32 [ -1, %207 ], [ -1, %215 ], [ 0, %49 ], [ -1, %45 ]
   %.not = icmp eq ptr %223, null
   br i1 %.not, label %H5B__node_dest.exit.thread, label %H5B__node_dest.exit.thread94
 
@@ -817,8 +817,8 @@ H5B__node_dest.exit.thread94:                     ; preds = %87, %130, %H5B__nod
   %234 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5B_insert, i32 noundef 627, i64 noundef %232, i64 noundef %233, ptr noundef nonnull @.str.22) #6
   br label %H5B__node_dest.exit.thread
 
-H5B__node_dest.exit.thread:                       ; preds = %38, %162, %26, %H5B__node_dest.exit.thread94, %231, %H5B__node_dest.exit
-  %.3 = phi i32 [ -1, %231 ], [ %.297, %H5B__node_dest.exit.thread94 ], [ %.2, %H5B__node_dest.exit ], [ -1, %38 ], [ 0, %162 ], [ -1, %26 ]
+H5B__node_dest.exit.thread:                       ; preds = %26, %38, %162, %H5B__node_dest.exit.thread94, %231, %H5B__node_dest.exit
+  %.3 = phi i32 [ -1, %231 ], [ %.297, %H5B__node_dest.exit.thread94 ], [ %.2, %H5B__node_dest.exit ], [ -1, %26 ], [ -1, %38 ], [ 0, %162 ]
   %235 = load ptr, ptr %11, align 8, !tbaa !54
   %.not76 = icmp eq ptr %235, null
   br i1 %.not76, label %247, label %236
@@ -1337,8 +1337,8 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   br label %354
 
 354:                                              ; preds = %.sink.split, %86, %149, %129, %328, %310, %213, %235, %93
-  %.1265 = phi i32 [ 0, %93 ], [ %44, %328 ], [ 0, %129 ], [ 0, %149 ], [ %44, %310 ], [ %200, %213 ], [ %236, %235 ], [ 0, %86 ], [ %.1265.ph, %.sink.split ]
-  %.0260 = phi i32 [ %106, %93 ], [ %348, %328 ], [ %139, %129 ], [ %165, %149 ], [ %322, %310 ], [ %225, %213 ], [ %256, %235 ], [ 0, %86 ], [ %.0260.ph, %.sink.split ]
+  %.1265 = phi i32 [ 0, %93 ], [ 0, %129 ], [ 0, %149 ], [ %200, %213 ], [ %236, %235 ], [ %44, %310 ], [ %44, %328 ], [ 0, %86 ], [ %.1265.ph, %.sink.split ]
+  %.0260 = phi i32 [ %106, %93 ], [ %139, %129 ], [ %165, %149 ], [ %225, %213 ], [ %256, %235 ], [ %322, %310 ], [ %348, %328 ], [ 0, %86 ], [ %.0260.ph, %.sink.split ]
   %355 = load i8, ptr %4, align 1, !tbaa !3, !range !7, !noundef !8
   %356 = trunc nuw i8 %355 to i1
   br i1 %356, label %357, label %371
@@ -1665,9 +1665,9 @@ define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noun
   br label %565
 
 565:                                              ; preds = %407, %559, %562
-  %.2266 = phi i32 [ %.1265, %559 ], [ %563, %562 ], [ %.1265, %407 ]
-  %.pn = phi ptr [ %1, %559 ], [ %9, %562 ], [ %1, %407 ]
-  %.0257 = phi ptr [ %23, %559 ], [ %564, %562 ], [ %23, %407 ]
+  %.2266 = phi i32 [ %563, %562 ], [ %.1265, %559 ], [ %.1265, %407 ]
+  %.pn = phi ptr [ %9, %562 ], [ %1, %559 ], [ %1, %407 ]
+  %.0257 = phi ptr [ %564, %562 ], [ %23, %559 ], [ %23, %407 ]
   %.0258 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   %566 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %567 = load i64, ptr %566, align 8, !tbaa !51
@@ -1788,7 +1788,7 @@ H5B__insert_child.exit.thread:                    ; preds = %623, %565, %405, %3
   br label %646
 
 646:                                              ; preds = %H5B__insert_child.exit, %H5B__insert_child.exit.thread, %637, %350, %324, %306, %290, %283, %258, %227, %209, %189, %167, %141, %125, %108, %82, %28
-  %.1 = phi i32 [ -1, %28 ], [ -1, %82 ], [ -1, %108 ], [ 2, %637 ], [ -1, %350 ], [ -1, %H5B__insert_child.exit ], [ -1, %125 ], [ -1, %141 ], [ -1, %167 ], [ -1, %189 ], [ -1, %209 ], [ -1, %227 ], [ -1, %258 ], [ -1, %283 ], [ -1, %290 ], [ -1, %306 ], [ -1, %324 ], [ 0, %H5B__insert_child.exit.thread ]
+  %.1 = phi i32 [ -1, %28 ], [ -1, %82 ], [ -1, %108 ], [ 2, %637 ], [ -1, %H5B__insert_child.exit ], [ -1, %125 ], [ -1, %141 ], [ -1, %167 ], [ -1, %189 ], [ -1, %209 ], [ -1, %227 ], [ -1, %258 ], [ -1, %283 ], [ -1, %290 ], [ -1, %306 ], [ -1, %324 ], [ -1, %350 ], [ 0, %H5B__insert_child.exit.thread ]
   %647 = load ptr, ptr %14, align 8, !tbaa !54
   %.not289 = icmp eq ptr %647, null
   br i1 %.not289, label %659, label %648
@@ -2544,9 +2544,9 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   br label %336
 
 336:                                              ; preds = %139, %221, %228, %294, %325, %264
-  %.3245 = phi i32 [ 0, %221 ], [ 2, %228 ], [ 2, %264 ], [ 2, %294 ], [ 2, %325 ], [ %.2244, %139 ]
-  %.1241 = phi ptr [ null, %221 ], [ %31, %228 ], [ %31, %264 ], [ %31, %294 ], [ %31, %325 ], [ %31, %139 ]
-  %.3 = phi i32 [ 5, %221 ], [ 5, %228 ], [ 0, %264 ], [ 0, %294 ], [ 0, %325 ], [ 0, %139 ]
+  %.3245 = phi i32 [ 2, %228 ], [ 2, %264 ], [ 2, %294 ], [ 2, %325 ], [ 0, %221 ], [ %.2244, %139 ]
+  %.1241 = phi ptr [ %31, %228 ], [ %31, %264 ], [ %31, %294 ], [ %31, %325 ], [ null, %221 ], [ %31, %139 ]
+  %.3 = phi i32 [ 5, %228 ], [ 0, %264 ], [ 0, %294 ], [ 0, %325 ], [ 5, %221 ], [ 0, %139 ]
   %337 = load i8, ptr %5, align 1, !tbaa !3, !range !7, !noundef !8
   %338 = trunc nuw i8 %337 to i1
   br i1 %338, label %339, label %372
@@ -2650,10 +2650,10 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   %.not269 = icmp eq ptr %.1241, null
   br i1 %.not269, label %.thread278, label %.thread
 
-.thread:                                          ; preds = %385, %375, %349, %404, %381, %107, %368, %345, %217, %193, %183, %152, %85, %.critedge, %408
-  %.1276 = phi i32 [ %.3, %408 ], [ %.3, %385 ], [ %.3, %375 ], [ %.3, %349 ], [ -1, %404 ], [ -1, %381 ], [ -1, %107 ], [ -1, %368 ], [ -1, %345 ], [ -1, %217 ], [ -1, %193 ], [ -1, %183 ], [ -1, %152 ], [ -1, %85 ], [ -1, %.critedge ]
-  %.0240275 = phi ptr [ %.1241, %408 ], [ %.1241, %385 ], [ %.1241, %375 ], [ %.1241, %349 ], [ %.1241, %404 ], [ %.1241, %381 ], [ %31, %107 ], [ %.1241, %368 ], [ %.1241, %345 ], [ %31, %217 ], [ %31, %193 ], [ %31, %183 ], [ %31, %152 ], [ %31, %85 ], [ %31, %.critedge ]
-  %.0242274 = phi i32 [ %.3245, %408 ], [ %.3245, %385 ], [ %.3245, %375 ], [ %.3245, %349 ], [ %.3245, %404 ], [ %.3245, %381 ], [ 0, %107 ], [ %.3245, %368 ], [ %.3245, %345 ], [ %.2244, %217 ], [ %.2244, %193 ], [ %.2244, %183 ], [ %.2244, %152 ], [ 0, %85 ], [ 0, %.critedge ]
+.thread:                                          ; preds = %385, %349, %107, %375, %404, %381, %368, %345, %217, %193, %183, %152, %85, %.critedge, %408
+  %.1276 = phi i32 [ %.3, %408 ], [ %.3, %385 ], [ %.3, %349 ], [ -1, %107 ], [ %.3, %375 ], [ -1, %404 ], [ -1, %381 ], [ -1, %368 ], [ -1, %345 ], [ -1, %217 ], [ -1, %193 ], [ -1, %183 ], [ -1, %152 ], [ -1, %85 ], [ -1, %.critedge ]
+  %.0240275 = phi ptr [ %.1241, %408 ], [ %.1241, %385 ], [ %.1241, %349 ], [ %31, %107 ], [ %.1241, %375 ], [ %.1241, %404 ], [ %.1241, %381 ], [ %.1241, %368 ], [ %.1241, %345 ], [ %31, %217 ], [ %31, %193 ], [ %31, %183 ], [ %31, %152 ], [ %31, %85 ], [ %31, %.critedge ]
+  %.0242274 = phi i32 [ %.3245, %408 ], [ %.3245, %385 ], [ %.3245, %349 ], [ 0, %107 ], [ %.3245, %375 ], [ %.3245, %404 ], [ %.3245, %381 ], [ %.3245, %368 ], [ %.3245, %345 ], [ %.2244, %217 ], [ %.2244, %193 ], [ %.2244, %183 ], [ %.2244, %152 ], [ 0, %85 ], [ 0, %.critedge ]
   %409 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %1, ptr noundef nonnull %.0240275, i32 noundef %.0242274) #6
   %410 = icmp slt i32 %409, 0
   br i1 %410, label %411, label %.thread278
@@ -2954,7 +2954,7 @@ define ptr @H5B_shared_new(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
   br label %.thread54
 
 .thread54:                                        ; preds = %59, %15, %73, %9
-  %.0 = phi ptr [ null, %73 ], [ null, %15 ], [ null, %9 ], [ %13, %59 ]
+  %.0 = phi ptr [ null, %73 ], [ null, %9 ], [ null, %15 ], [ %13, %59 ]
   ret ptr %.0
 }
 
@@ -3043,7 +3043,7 @@ define i32 @H5B_get_info(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nou
   br label %27
 
 27:                                               ; preds = %.sink.split, %21, %20, %13
-  %.0 = phi i32 [ 0, %20 ], [ 0, %13 ], [ %22, %21 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ %22, %21 ], [ 0, %20 ], [ 0, %13 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

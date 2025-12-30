@@ -1963,7 +1963,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %_ZN7QStringD2Ev.exi
   br i1 %151, label %79, label %._crit_edge, !llvm.loop !18
 
 _ZN7QStringD2Ev.exit56:                           ; preds = %130, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i58, %.body, %120, %122, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i54, %125
-  %.pn26 = phi { ptr, i32 } [ %123, %125 ], [ %121, %120 ], [ %123, %122 ], [ %123, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i54 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i58 ], [ %eh.lpad-body, %130 ]
+  %.pn26 = phi { ptr, i32 } [ %121, %120 ], [ %123, %122 ], [ %123, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i54 ], [ %123, %125 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i58 ], [ %eh.lpad-body, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %12) #30
   br label %152
@@ -2179,7 +2179,7 @@ define linkonce_odr void @_ZNK5QListI7QStringE3midExx(ptr dead_on_unwind noalias
   %22 = icmp sgt i64 %.140, 0
   br i1 %22, label %32, label %23
 
-23:                                               ; preds = %4, %21, %15
+23:                                               ; preds = %21, %4, %15
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZN5QListI7QStringEC2ERKS1_.exit
 
@@ -2795,7 +2795,7 @@ _ZN7QStringD2Ev.exit10.thread:                    ; preds = %_Z12qobject_castIP7
   br label %60
 
 54:                                               ; preds = %33, %23
-  %.0 = phi i1 [ false, %33 ], [ true, %23 ]
+  %.0 = phi i1 [ true, %23 ], [ false, %33 ]
   %55 = landingpad { ptr, i32 }
           cleanup
   %56 = load ptr, ptr %2, align 8
@@ -4106,7 +4106,7 @@ _ZN7QStringD2Ev.exit47:                           ; preds = %_ZN7QStringD2Ev.exi
   resume { ptr, i32 } %.pn
 
 _ZN7QStringD2Ev.exit31:                           ; preds = %42, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29, %_ZN7QStringD2Ev.exit27, %4, %9
-  %.08 = phi i1 [ false, %4 ], [ false, %9 ], [ true, %_ZN7QStringD2Ev.exit27 ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29 ], [ true, %42 ]
+  %.08 = phi i1 [ false, %9 ], [ false, %4 ], [ true, %_ZN7QStringD2Ev.exit27 ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29 ], [ true, %42 ]
   ret i1 %.08
 }
 
@@ -5849,7 +5849,7 @@ _ZN7QStringD2Ev.exit52:                           ; preds = %280, %_ZN17QArrayDa
   br i1 %.not, label %._crit_edge, label %41, !llvm.loop !36
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %286, %199, %82, %278, %_ZN7QStringD2Ev.exit52
-  %.pn.pn = phi { ptr, i32 } [ %281, %_ZN7QStringD2Ev.exit52 ], [ %83, %82 ], [ %279, %278 ], [ %200, %199 ], [ %287, %286 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %279, %278 ], [ %281, %_ZN7QStringD2Ev.exit52 ], [ %83, %82 ], [ %287, %286 ], [ %200, %199 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i.i.i.i53 = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i53, label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit56, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i54

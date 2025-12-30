@@ -1021,7 +1021,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301.
   br label %_ZN14StackMapStream6get_u2EP10JavaThread.exit.thread
 
 _ZN14StackMapStream6get_u2EP10JavaThread.exit.thread: ; preds = %.lr.ph345, %.lr.ph350, %.lr.ph356, %17, %138, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301.thread, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301, %385, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299.thread, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299, %351, %325, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit297, %266, %280, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit295.thread, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit295, %207, %224, %203, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit294, %185, %180, %152, %150, %_ZN14StackMapStream6get_u2EP10JavaThread.exit, %111, %128, %107, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit, %89, %84, %47, %65, %_ZN14StackMapStream6get_u1EP10JavaThread.exit, %425, %338
-  %.0 = phi ptr [ %426, %425 ], [ null, %_ZN14StackMapStream6get_u1EP10JavaThread.exit ], [ %48, %47 ], [ null, %84 ], [ null, %89 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit ], [ null, %107 ], [ %112, %111 ], [ null, %_ZN14StackMapStream6get_u2EP10JavaThread.exit ], [ null, %150 ], [ null, %152 ], [ null, %180 ], [ null, %185 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit294 ], [ null, %203 ], [ %208, %207 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit295 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit295.thread ], [ %267, %266 ], [ null, %.lr.ph356 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit297 ], [ %339, %338 ], [ null, %325 ], [ null, %351 ], [ null, %17 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299.thread ], [ null, %385 ], [ null, %138 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301 ], [ %48, %65 ], [ %112, %128 ], [ %208, %224 ], [ %267, %280 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301.thread ], [ null, %.lr.ph350 ], [ null, %.lr.ph345 ]
+  %.0 = phi ptr [ %339, %338 ], [ %426, %425 ], [ null, %_ZN14StackMapStream6get_u1EP10JavaThread.exit ], [ %48, %65 ], [ %48, %47 ], [ null, %84 ], [ null, %89 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit ], [ null, %107 ], [ %112, %128 ], [ %112, %111 ], [ null, %_ZN14StackMapStream6get_u2EP10JavaThread.exit ], [ null, %150 ], [ null, %152 ], [ null, %180 ], [ null, %185 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit294 ], [ null, %203 ], [ %208, %224 ], [ %208, %207 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit295 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit295.thread ], [ %267, %280 ], [ %267, %266 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit297 ], [ null, %325 ], [ null, %351 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit299.thread ], [ null, %385 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301 ], [ null, %_ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit301.thread ], [ null, %138 ], [ null, %17 ], [ null, %.lr.ph356 ], [ null, %.lr.ph350 ], [ null, %.lr.ph345 ]
   ret ptr %.0
 }
 
@@ -1233,7 +1233,7 @@ _ZN13StackMapFrame5resetEv.exit:                  ; preds = %57, %.preheader.i, 
   br label %68
 
 68:                                               ; preds = %31, %_ZN13StackMapFrame5resetEv.exit, %26, %22, %12
-  %.0 = phi i1 [ false, %12 ], [ %23, %26 ], [ %23, %22 ], [ %.037, %_ZN13StackMapFrame5resetEv.exit ], [ %.037, %31 ]
+  %.0 = phi i1 [ false, %12 ], [ %23, %22 ], [ %23, %26 ], [ %.037, %_ZN13StackMapFrame5resetEv.exit ], [ %.037, %31 ]
   ret i1 %.0
 }
 
@@ -1518,7 +1518,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %20, %_ZN26Gro
   br label %_ZN14StackMapStream6get_u2EP10JavaThread.exit
 
 _ZN14StackMapStream6get_u2EP10JavaThread.exit:    ; preds = %6, %57, %54
-  %.0.i.sink = phi i32 [ 0, %54 ], [ %66, %57 ], [ 0, %6 ]
+  %.0.i.sink = phi i32 [ %66, %57 ], [ 0, %54 ], [ 0, %6 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %.0.i.sink, ptr %67, align 4
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #10
@@ -1619,7 +1619,7 @@ define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN14StackMapRead
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %6, %._crit_edge.loopexit, %4
-  %.014 = phi i32 [ %20, %._crit_edge.loopexit ], [ -1, %4 ], [ %2, %6 ], [ -1, %12 ]
+  %.014 = phi i32 [ -1, %4 ], [ %2, %6 ], [ %20, %._crit_edge.loopexit ], [ -1, %12 ]
   ret i32 %.014
 }
 
@@ -1850,7 +1850,7 @@ _ZN14StackMapStream6get_u2EP10JavaThread.exit44:  ; preds = %80, %._crit_edge.i3
   br label %_ZN14StackMapStream6get_u2EP10JavaThread.exit.thread
 
 _ZN14StackMapStream6get_u2EP10JavaThread.exit.thread: ; preds = %12, %85, %38, %_ZN14StackMapStream6get_u2EP10JavaThread.exit44, %72, %73, %_ZN14StackMapStream6get_u2EP10JavaThread.exit, %_ZN14StackMapStream6get_u1EP10JavaThread.exit, %112, %108, %105, %.critedge2, %.critedge, %.thread
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 4294901761 to ptr), %112 ], [ %27, %.thread ], [ inttoptr (i64 4294901761 to ptr), %85 ], [ inttoptr (i64 4294901761 to ptr), %.critedge ], [ %71, %.critedge2 ], [ inttoptr (i64 4294901761 to ptr), %_ZN14StackMapStream6get_u2EP10JavaThread.exit ], [ inttoptr (i64 16776962 to ptr), %72 ], [ inttoptr (i64 4294901761 to ptr), %105 ], [ %111, %108 ], [ inttoptr (i64 4294901761 to ptr), %_ZN14StackMapStream6get_u1EP10JavaThread.exit ], [ inttoptr (i64 4294901761 to ptr), %_ZN14StackMapStream6get_u2EP10JavaThread.exit44 ], [ inttoptr (i64 16776962 to ptr), %73 ], [ inttoptr (i64 4294901761 to ptr), %38 ], [ inttoptr (i64 4294901761 to ptr), %12 ]
+  %.sroa.0.0 = phi ptr [ %27, %.thread ], [ inttoptr (i64 4294901761 to ptr), %.critedge ], [ %71, %.critedge2 ], [ inttoptr (i64 4294901761 to ptr), %105 ], [ %111, %108 ], [ inttoptr (i64 4294901761 to ptr), %112 ], [ inttoptr (i64 4294901761 to ptr), %_ZN14StackMapStream6get_u1EP10JavaThread.exit ], [ inttoptr (i64 4294901761 to ptr), %_ZN14StackMapStream6get_u2EP10JavaThread.exit ], [ inttoptr (i64 16776962 to ptr), %73 ], [ inttoptr (i64 16776962 to ptr), %72 ], [ inttoptr (i64 4294901761 to ptr), %_ZN14StackMapStream6get_u2EP10JavaThread.exit44 ], [ inttoptr (i64 4294901761 to ptr), %38 ], [ inttoptr (i64 4294901761 to ptr), %85 ], [ inttoptr (i64 4294901761 to ptr), %12 ]
   ret ptr %.sroa.0.0
 }
 

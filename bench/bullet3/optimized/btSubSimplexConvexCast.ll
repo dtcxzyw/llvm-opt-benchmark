@@ -541,8 +541,8 @@ define dso_local noundef zeroext i1 @_ZN22btSubsimplexConvexCast16calcTimeOfImpa
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.critedge60
 
-.critedge60:                                      ; preds = %252, %171, %316, %327
-  %.2 = phi i1 [ false, %316 ], [ true, %327 ], [ false, %171 ], [ false, %252 ]
+.critedge60:                                      ; preds = %171, %252, %316, %327
+  %.2 = phi i1 [ true, %327 ], [ false, %316 ], [ false, %252 ], [ false, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

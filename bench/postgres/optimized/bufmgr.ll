@@ -348,7 +348,7 @@ define dso_local range(i64 0, 4294967297) i64 @PrefetchSharedBuffer(ptr noundef 
   br label %32
 
 32:                                               ; preds = %27, %23, %29
-  %.sroa.0.0.insert.insert = phi i64 [ %31, %29 ], [ %spec.select, %27 ], [ 0, %23 ]
+  %.sroa.0.0.insert.insert = phi i64 [ 0, %23 ], [ %31, %29 ], [ %spec.select, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0.insert.insert
 }
@@ -2371,7 +2371,7 @@ RelationGetSmgr.exit:                             ; preds = %17, %22
   br label %ReleaseBuffer.exit
 
 ReleaseBuffer.exit:                               ; preds = %.lr.ph, %81, %80
-  %.2 = phi i32 [ %.163, %81 ], [ %.163, %80 ], [ %73, %.lr.ph ]
+  %.2 = phi i32 [ %.163, %80 ], [ %.163, %81 ], [ %73, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
@@ -3037,7 +3037,7 @@ PinBufferForBlock.exit:                           ; preds = %126, %140, %.thread
   br label %.loopexit
 
 168:                                              ; preds = %164, %162, %157, %154
-  %.250.i.ph = phi i32 [ %160, %162 ], [ %160, %164 ], [ %.048.i26, %157 ], [ %.048.i26, %154 ]
+  %.250.i.ph = phi i32 [ %160, %162 ], [ %160, %164 ], [ %.048.i26, %154 ], [ %.048.i26, %157 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %169 = sext i32 %.250.i.ph to i64
   %170 = icmp slt i64 %indvars.iv.next, %169
@@ -3082,7 +3082,7 @@ PinBufferForBlock.exit:                           ; preds = %126, %140, %.thread
   br label %StartReadBuffersImpl.exit
 
 StartReadBuffersImpl.exit:                        ; preds = %5, %.loopexit, %171, %180
-  %187 = phi i1 [ true, %180 ], [ false, %.loopexit ], [ true, %171 ], [ false, %5 ]
+  %187 = phi i1 [ false, %.loopexit ], [ true, %171 ], [ true, %180 ], [ false, %5 ]
   ret i1 %187
 }
 
@@ -4144,7 +4144,7 @@ BufTagMatchesRelFileLocator.exit25.thread:        ; preds = %39, %43, %53, %BufT
   br label %62
 
 62:                                               ; preds = %53, %28, %60
-  %.0 = phi i32 [ %0, %28 ], [ %61, %60 ], [ %0, %53 ]
+  %.0 = phi i32 [ %61, %60 ], [ %0, %28 ], [ %0, %53 ]
   ret i32 %.0
 }
 
@@ -4342,8 +4342,8 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 
   br label %99
 
 99:                                               ; preds = %98, %92
-  %.258 = phi i32 [ %.05690, %98 ], [ %94, %92 ]
-  %.2 = phi i32 [ %spec.select79, %98 ], [ %93, %92 ]
+  %.258 = phi i32 [ %94, %92 ], [ %.05690, %98 ]
+  %.2 = phi i32 [ %93, %92 ], [ %spec.select79, %98 ]
   %100 = icmp samesign ugt i32 %.06089, 1
   %101 = icmp slt i32 %.2, %spec.select
   %102 = select i1 %100, i1 %101, i1 false
@@ -6015,7 +6015,7 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
   br label %._crit_edge149.thread
 
 ._crit_edge149.thread:                            ; preds = %._crit_edge143, %68, %._crit_edge149
-  %69 = phi i1 [ false, %._crit_edge149 ], [ true, %68 ], [ false, %._crit_edge143 ]
+  %69 = phi i1 [ true, %68 ], [ false, %._crit_edge149 ], [ false, %._crit_edge143 ]
   %70 = load i32, ptr @NBuffers, align 4
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %.lr.ph154, label %._crit_edge155
@@ -6114,13 +6114,13 @@ rlocator_comparator.exit:                         ; preds = %109
   %.not126 = icmp ult i32 %.sroa.0.0.copyload.i, %.sroa.0.0.extract.trunc
   br i1 %.not126, label %rlocator_comparator.exit.thread122, label %bsearch.exit
 
-rlocator_comparator.exit.thread122:               ; preds = %103, %107, %rlocator_comparator.exit
+rlocator_comparator.exit.thread122:               ; preds = %107, %103, %rlocator_comparator.exit
   %111 = add nuw i64 %99, 1
   br label %rlocator_comparator.exit.thread
 
-rlocator_comparator.exit.thread:                  ; preds = %105, %.lr.ph.i, %109, %rlocator_comparator.exit.thread122
-  %.118.i = phi i64 [ %.01720.i, %rlocator_comparator.exit.thread122 ], [ %99, %109 ], [ %99, %.lr.ph.i ], [ %99, %105 ]
-  %.1.i = phi i64 [ %111, %rlocator_comparator.exit.thread122 ], [ %.01621.i, %109 ], [ %.01621.i, %.lr.ph.i ], [ %.01621.i, %105 ]
+rlocator_comparator.exit.thread:                  ; preds = %109, %105, %.lr.ph.i, %rlocator_comparator.exit.thread122
+  %.118.i = phi i64 [ %.01720.i, %rlocator_comparator.exit.thread122 ], [ %99, %.lr.ph.i ], [ %99, %105 ], [ %99, %109 ]
+  %.1.i = phi i64 [ %111, %rlocator_comparator.exit.thread122 ], [ %.01621.i, %.lr.ph.i ], [ %.01621.i, %105 ], [ %.01621.i, %109 ]
   %112 = icmp ult i64 %.1.i, %.118.i
   br i1 %112, label %.lr.ph.i, label %bsearch.exit.thread, !llvm.loop !42
 
@@ -6240,7 +6240,7 @@ define internal range(i32 -1, 2) i32 @rlocator_comparator(ptr noundef readonly c
   br label %14
 
 14:                                               ; preds = %12, %10, %8, %6, %4, %2
-  %.0 = phi i32 [ -1, %10 ], [ -1, %2 ], [ 1, %4 ], [ -1, %6 ], [ 1, %8 ], [ %., %12 ]
+  %.0 = phi i32 [ -1, %2 ], [ 1, %4 ], [ -1, %6 ], [ 1, %8 ], [ -1, %10 ], [ %., %12 ]
   ret i32 %.0
 }
 
@@ -6841,7 +6841,7 @@ define dso_local void @FlushRelationsAllBuffers(ptr noundef readonly captures(no
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %6, %17, %._crit_edge
-  %18 = phi i1 [ false, %._crit_edge ], [ true, %17 ], [ false, %6 ]
+  %18 = phi i1 [ true, %17 ], [ false, %._crit_edge ], [ false, %6 ]
   %19 = load i32, ptr @NBuffers, align 4
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph79, label %._crit_edge80
@@ -6940,13 +6940,13 @@ rlocator_comparator.exit:                         ; preds = %58
   %.not = icmp ult i32 %.sroa.0.0.copyload.i, %.sroa.0.0.extract.trunc
   br i1 %.not, label %rlocator_comparator.exit.thread62, label %bsearch.exit
 
-rlocator_comparator.exit.thread62:                ; preds = %52, %56, %rlocator_comparator.exit
+rlocator_comparator.exit.thread62:                ; preds = %56, %52, %rlocator_comparator.exit
   %60 = add nuw i64 %48, 1
   br label %rlocator_comparator.exit.thread
 
-rlocator_comparator.exit.thread:                  ; preds = %54, %.lr.ph.i, %58, %rlocator_comparator.exit.thread62
-  %.118.i = phi i64 [ %.01720.i, %rlocator_comparator.exit.thread62 ], [ %48, %58 ], [ %48, %.lr.ph.i ], [ %48, %54 ]
-  %.1.i = phi i64 [ %60, %rlocator_comparator.exit.thread62 ], [ %.01621.i, %58 ], [ %.01621.i, %.lr.ph.i ], [ %.01621.i, %54 ]
+rlocator_comparator.exit.thread:                  ; preds = %58, %54, %.lr.ph.i, %rlocator_comparator.exit.thread62
+  %.118.i = phi i64 [ %.01720.i, %rlocator_comparator.exit.thread62 ], [ %48, %.lr.ph.i ], [ %48, %54 ], [ %48, %58 ]
+  %.1.i = phi i64 [ %60, %rlocator_comparator.exit.thread62 ], [ %.01621.i, %.lr.ph.i ], [ %.01621.i, %54 ], [ %.01621.i, %58 ]
   %61 = icmp ult i64 %.1.i, %.118.i
   br i1 %61, label %.lr.ph.i, label %bsearch.exit.thread, !llvm.loop !42
 
@@ -7678,7 +7678,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %18, %23, %25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %14, %11, %ReservePrivateRefCountEntry.exit
-  %.0 = phi ptr [ %16, %14 ], [ %39, %ReservePrivateRefCountEntry.exit ], [ null, %11 ], [ %48, %.loopexit.loopexit ]
+  %.0 = phi ptr [ %39, %ReservePrivateRefCountEntry.exit ], [ null, %11 ], [ %16, %14 ], [ %48, %.loopexit.loopexit ]
   ret ptr %.0
 }
 
@@ -7829,7 +7829,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %40
   store i32 %74, ptr @VacuumCostBalance, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %28, %30, %14, %65, %71, %66, %13
+.critedge:                                        ; preds = %30, %28, %14, %65, %71, %66, %13
   ret void
 }
 
@@ -8411,7 +8411,7 @@ LockBuffer.exit:                                  ; preds = %LockBufHdr.exit
   br label %GetPrivateRefCount.exit.thread
 
 GetPrivateRefCount.exit.thread:                   ; preds = %GetPrivateRefCountEntry.exit.thread.i, %GetPrivateRefCountEntry.exit.i, %ConditionalLockBuffer.exit, %GetPrivateRefCount.exit, %5, %LockBuffer.exit, %47
-  %.0 = phi i1 [ %.not16, %5 ], [ false, %GetPrivateRefCount.exit ], [ false, %LockBuffer.exit ], [ true, %47 ], [ false, %ConditionalLockBuffer.exit ], [ false, %GetPrivateRefCountEntry.exit.i ], [ false, %GetPrivateRefCountEntry.exit.thread.i ]
+  %.0 = phi i1 [ true, %47 ], [ false, %LockBuffer.exit ], [ %.not16, %5 ], [ false, %GetPrivateRefCount.exit ], [ false, %ConditionalLockBuffer.exit ], [ false, %GetPrivateRefCountEntry.exit.i ], [ false, %GetPrivateRefCountEntry.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -8776,7 +8776,7 @@ rlocator_comparator.exit.i:                       ; preds = %25
   %38 = icmp ugt i32 %35, %37
   br i1 %38, label %buffertag_comparator.exit.thread208, label %.critedge
 
-buffertag_comparator.exit.thread208:              ; preds = %33, %31, %19, %rlocator_comparator.exit.i, %23
+buffertag_comparator.exit.thread208:              ; preds = %33, %19, %23, %31, %rlocator_comparator.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(20) %.0130276, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.0130276, ptr noundef nonnull align 4 dereferenceable(20) %13, i64 20, i1 false)
@@ -8785,7 +8785,7 @@ buffertag_comparator.exit.thread208:              ; preds = %33, %31, %19, %rloc
   %39 = icmp ugt ptr %13, %.0127.ph
   br i1 %39, label %.lr.ph277, label %.critedge, !llvm.loop !56
 
-.critedge:                                        ; preds = %buffertag_comparator.exit.thread208, %33, %27, %21, %.lr.ph277, %25, %.preheader
+.critedge:                                        ; preds = %buffertag_comparator.exit.thread208, %27, %33, %25, %21, %.lr.ph277, %.preheader
   %.0129 = getelementptr inbounds nuw i8, ptr %.0129284, i64 20
   %40 = icmp ult ptr %.0129, %10
   br i1 %40, label %.preheader, label %.critedge155, !llvm.loop !57
@@ -8846,12 +8846,12 @@ rlocator_comparator.exit.i162:                    ; preds = %53
   %66 = icmp ugt i32 %63, %65
   br i1 %66, label %buffertag_comparator.exit168.thread212, label %buffertag_comparator.exit168.thread
 
-buffertag_comparator.exit168.thread:              ; preds = %53, %.lr.ph, %49, %55, %61
+buffertag_comparator.exit168.thread:              ; preds = %.lr.ph, %49, %53, %61, %55
   %67 = getelementptr inbounds nuw i8, ptr %.1244, i64 20
   %68 = icmp ult ptr %67, %10
   br i1 %68, label %.lr.ph, label %.critedge155, !llvm.loop !58
 
-buffertag_comparator.exit168.thread212:           ; preds = %61, %59, %47, %rlocator_comparator.exit.i162, %51
+buffertag_comparator.exit168.thread212:           ; preds = %61, %47, %51, %59, %rlocator_comparator.exit.i162
   %69 = lshr i64 %.0, 1
   %70 = getelementptr inbounds nuw %struct.PendingWriteback, ptr %.0127.ph, i64 %69
   %.not = icmp eq i64 %.0, 7
@@ -8969,15 +8969,15 @@ buffertag_comparator.exit182:                     ; preds = %110
   %117 = getelementptr inbounds nuw i8, ptr %.1140247, i64 20
   br label %118
 
-118:                                              ; preds = %103, %.lr.ph249, %99, %105, %110, %116
-  %.2141 = phi ptr [ %117, %116 ], [ %.1140247, %110 ], [ %.1140247, %105 ], [ %.1140247, %99 ], [ %.1140247, %.lr.ph249 ], [ %.1140247, %103 ]
+118:                                              ; preds = %.lr.ph249, %99, %103, %110, %105, %116
+  %.2141 = phi ptr [ %117, %116 ], [ %.1140247, %105 ], [ %.1140247, %110 ], [ %.1140247, %103 ], [ %.1140247, %99 ], [ %.1140247, %.lr.ph249 ]
   %119 = getelementptr inbounds nuw i8, ptr %.1138248, i64 20
   %.not151 = icmp ugt ptr %119, %.0135
   br i1 %.not151, label %.critedge2, label %.lr.ph249, !llvm.loop !59
 
-.critedge2:                                       ; preds = %buffertag_comparator.exit182, %118, %101, %rlocator_comparator.exit.i176, %97, %108, %92
-  %.1140.lcssa = phi ptr [ %.0139, %92 ], [ %.1140247, %108 ], [ %.1140247, %97 ], [ %.1140247, %rlocator_comparator.exit.i176 ], [ %.1140247, %101 ], [ %.2141, %118 ], [ %.1140247, %buffertag_comparator.exit182 ]
-  %.1138.lcssa = phi ptr [ %.0137, %92 ], [ %.1138248, %108 ], [ %.1138248, %97 ], [ %.1138248, %rlocator_comparator.exit.i176 ], [ %.1138248, %101 ], [ %119, %118 ], [ %.1138248, %buffertag_comparator.exit182 ]
+.critedge2:                                       ; preds = %buffertag_comparator.exit182, %118, %rlocator_comparator.exit.i176, %108, %101, %97, %92
+  %.1140.lcssa = phi ptr [ %.0139, %92 ], [ %.1140247, %97 ], [ %.1140247, %101 ], [ %.1140247, %108 ], [ %.1140247, %rlocator_comparator.exit.i176 ], [ %.2141, %118 ], [ %.1140247, %buffertag_comparator.exit182 ]
+  %.1138.lcssa = phi ptr [ %.0137, %92 ], [ %.1138248, %97 ], [ %.1138248, %101 ], [ %.1138248, %108 ], [ %.1138248, %rlocator_comparator.exit.i176 ], [ %119, %118 ], [ %.1138248, %buffertag_comparator.exit182 ]
   %.not152264 = icmp ugt ptr %.1138.lcssa, %.0135
   br i1 %.not152264, label %.critedge4, label %.lr.ph267
 
@@ -9393,34 +9393,34 @@ define internal fastcc void @ZeroAndLockBuffer(i32 noundef %0, i32 noundef %1, i
   br i1 %2, label %.critedge, label %6
 
 6:                                                ; preds = %3
-  br i1 %5, label %13, label %7
+  br i1 %5, label %7, label %16
 
 7:                                                ; preds = %6
-  %8 = add nsw i32 %0, -1
-  %9 = load ptr, ptr @BufferDescriptors, align 8
-  %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %9, i64 %10
-  %12 = tail call fastcc zeroext i1 @StartBufferIO(ptr noundef %11, i1 noundef zeroext true, i1 noundef zeroext false)
-  br i1 %12, label %22, label %.critedge.thread31
+  %8 = xor i32 %0, -1
+  %9 = load ptr, ptr @LocalBufferDescriptors, align 8
+  %10 = zext nneg i32 %8 to i64
+  %11 = getelementptr inbounds nuw %struct.BufferDesc, ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %13 = load volatile i32, ptr %12, align 4
+  %14 = and i32 %13, 16777216
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %.critedge23, label %.critedge.thread
 
-13:                                               ; preds = %6
-  %14 = xor i32 %0, -1
-  %15 = load ptr, ptr @LocalBufferDescriptors, align 8
-  %16 = zext nneg i32 %14 to i64
-  %17 = getelementptr inbounds nuw %struct.BufferDesc, ptr %15, i64 %16
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = load volatile i32, ptr %18, align 4
-  %20 = and i32 %19, 16777216
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.critedge23, label %.critedge.thread
+16:                                               ; preds = %6
+  %17 = add nsw i32 %0, -1
+  %18 = load ptr, ptr @BufferDescriptors, align 8
+  %19 = zext i32 %17 to i64
+  %20 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %18, i64 %19
+  %21 = tail call fastcc zeroext i1 @StartBufferIO(ptr noundef %20, i1 noundef zeroext true, i1 noundef zeroext false)
+  br i1 %21, label %22, label %.critedge.thread31
 
-22:                                               ; preds = %7
+22:                                               ; preds = %16
   %23 = load ptr, ptr @BufferBlocks, align 8
-  %24 = sext i32 %8 to i64
+  %24 = sext i32 %17 to i64
   %25 = shl nsw i64 %24, 13
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 %25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %26, i8 0, i64 8192, i1 false)
-  %27 = getelementptr inbounds nuw i8, ptr %11, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %28 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %27, i32 noundef 0) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8
@@ -9434,7 +9434,7 @@ define internal fastcc void @ZeroAndLockBuffer(i32 noundef %0, i32 noundef %1, i
   store i32 5707, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr @__func__.LockBufHdr, ptr %33, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %35 = atomicrmw or ptr %34, i32 4194304 seq_cst, align 4
   %36 = and i32 %35, 4194304
   %.not2.i.i = icmp eq i32 %36, 0
@@ -9456,7 +9456,7 @@ TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %22
   %39 = or disjoint i32 %.0.i, 16777216
   store volatile i32 %39, ptr %34, align 4
   %40 = load ptr, ptr @CurrentResourceOwner, align 8
-  %41 = getelementptr i8, ptr %11, i64 20
+  %41 = getelementptr i8, ptr %20, i64 20
   %.val.i = load i32, ptr %41, align 4
   %42 = add i32 %.val.i, 1
   %43 = sext i32 %42 to i64
@@ -9468,20 +9468,20 @@ TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %22
   call void @ConditionVariableBroadcast(ptr noundef %46) #15
   br label %.critedge.thread
 
-.critedge23:                                      ; preds = %13
+.critedge23:                                      ; preds = %7
   %47 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %16
+  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %10
   %49 = load ptr, ptr %48, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %49, i8 0, i64 8192, i1 false)
-  %50 = load volatile i32, ptr %18, align 4
+  %50 = load volatile i32, ptr %12, align 4
   %51 = or i32 %50, 16777216
-  store volatile i32 %51, ptr %18, align 4
+  store volatile i32 %51, ptr %12, align 4
   br label %.critedge.thread
 
 .critedge:                                        ; preds = %3
   br i1 %5, label %.critedge.thread, label %.critedge.thread31
 
-.critedge.thread31:                               ; preds = %7, %.critedge
+.critedge.thread31:                               ; preds = %16, %.critedge
   %52 = icmp eq i32 %1, 1
   br i1 %52, label %LockBuffer.exit, label %59
 
@@ -9498,7 +9498,7 @@ LockBuffer.exit:                                  ; preds = %.critedge.thread31
   tail call void @LockBufferForCleanup(i32 noundef %0)
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %13, %.critedge, %59, %LockBuffer.exit, %.critedge23, %TerminateBufferIO.exit
+.critedge.thread:                                 ; preds = %7, %.critedge, %59, %LockBuffer.exit, %.critedge23, %TerminateBufferIO.exit
   ret void
 }
 
@@ -9859,7 +9859,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %.split
   br label %38
 
 38:                                               ; preds = %.loopexit.split.us, %31, %29
-  %.0 = phi i1 [ true, %31 ], [ false, %29 ], [ false, %.loopexit.split.us ]
+  %.0 = phi i1 [ false, %29 ], [ true, %31 ], [ false, %.loopexit.split.us ]
   ret i1 %.0
 }
 
@@ -9977,7 +9977,7 @@ GetPrivateRefCountEntry.exit.loopexit:            ; preds = %10
   br label %GetPrivateRefCountEntry.exit
 
 GetPrivateRefCountEntry.exit:                     ; preds = %GetPrivateRefCountEntry.exit.loopexit, %14, %17
-  %.0.i = phi ptr [ %19, %17 ], [ null, %14 ], [ %20, %GetPrivateRefCountEntry.exit.loopexit ]
+  %.0.i = phi ptr [ null, %14 ], [ %19, %17 ], [ %20, %GetPrivateRefCountEntry.exit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %22 = load i32, ptr %21, align 4
@@ -10208,7 +10208,7 @@ define internal fastcc void @sort_checkpoint_bufferids(ptr noundef %0, i64 nound
   %47 = icmp ugt i32 %44, %46
   br i1 %47, label %ckpt_buforder_comparator.exit.thread172, label %.critedge
 
-ckpt_buforder_comparator.exit.thread172:          ; preds = %42, %40, %24, %32
+ckpt_buforder_comparator.exit.thread172:          ; preds = %42, %40, %32, %24
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) %.0130238, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.0130238, ptr noundef nonnull align 4 dereferenceable(20) %20, i64 20, i1 false)
@@ -10217,7 +10217,7 @@ ckpt_buforder_comparator.exit.thread172:          ; preds = %42, %40, %24, %32
   %48 = icmp ugt ptr %20, %.0127.ph
   br i1 %48, label %.lr.ph239, label %.critedge, !llvm.loop !62
 
-.critedge:                                        ; preds = %ckpt_buforder_comparator.exit.thread172, %42, %.lr.ph239, %26, %34, %.preheader
+.critedge:                                        ; preds = %ckpt_buforder_comparator.exit.thread172, %.lr.ph239, %26, %34, %42, %.preheader
   %.0129 = getelementptr inbounds nuw i8, ptr %.0129245, i64 20
   %49 = icmp ult ptr %.0129, %17
   br i1 %49, label %.preheader, label %.critedge155, !llvm.loop !63
@@ -10266,12 +10266,12 @@ ckpt_buforder_comparator.exit.thread172:          ; preds = %42, %40, %24, %32
   %77 = icmp ugt i32 %74, %76
   br i1 %77, label %ckpt_buforder_comparator.exit158.thread176, label %ckpt_buforder_comparator.exit158.thread
 
-ckpt_buforder_comparator.exit158.thread:          ; preds = %64, %56, %.lr.ph, %72
+ckpt_buforder_comparator.exit158.thread:          ; preds = %72, %64, %56, %.lr.ph
   %78 = getelementptr inbounds nuw i8, ptr %.1208, i64 20
   %79 = icmp ult ptr %78, %17
   br i1 %79, label %.lr.ph, label %.critedge155, !llvm.loop !64
 
-ckpt_buforder_comparator.exit158.thread176:       ; preds = %72, %70, %54, %62
+ckpt_buforder_comparator.exit158.thread176:       ; preds = %72, %70, %62, %54
   %80 = lshr i64 %.0, 1
   %81 = getelementptr inbounds nuw %struct.CkptSortItem, ptr %.0127.ph, i64 %80
   %.not = icmp eq i64 %.0, 7
@@ -10377,15 +10377,15 @@ ckpt_buforder_comparator.exit161:                 ; preds = %123
   %130 = getelementptr inbounds nuw i8, ptr %.1140211, i64 20
   br label %131
 
-131:                                              ; preds = %116, %109, %.lr.ph213, %123, %129
-  %.2141 = phi ptr [ %130, %129 ], [ %.1140211, %123 ], [ %.1140211, %.lr.ph213 ], [ %.1140211, %109 ], [ %.1140211, %116 ]
+131:                                              ; preds = %123, %116, %109, %.lr.ph213, %129
+  %.2141 = phi ptr [ %130, %129 ], [ %.1140211, %.lr.ph213 ], [ %.1140211, %109 ], [ %.1140211, %116 ], [ %.1140211, %123 ]
   %132 = getelementptr inbounds nuw i8, ptr %.1138212, i64 20
   %.not151 = icmp ugt ptr %132, %.0135
   br i1 %.not151, label %.critedge2, label %.lr.ph213, !llvm.loop !65
 
-.critedge2:                                       ; preds = %ckpt_buforder_comparator.exit161, %131, %114, %107, %121, %103
-  %.1140.lcssa = phi ptr [ %.0139, %103 ], [ %.1140211, %121 ], [ %.1140211, %107 ], [ %.1140211, %114 ], [ %.2141, %131 ], [ %.1140211, %ckpt_buforder_comparator.exit161 ]
-  %.1138.lcssa = phi ptr [ %.0137, %103 ], [ %.1138212, %121 ], [ %.1138212, %107 ], [ %.1138212, %114 ], [ %132, %131 ], [ %.1138212, %ckpt_buforder_comparator.exit161 ]
+.critedge2:                                       ; preds = %ckpt_buforder_comparator.exit161, %131, %107, %114, %121, %103
+  %.1140.lcssa = phi ptr [ %.0139, %103 ], [ %.1140211, %121 ], [ %.1140211, %114 ], [ %.1140211, %107 ], [ %.2141, %131 ], [ %.1140211, %ckpt_buforder_comparator.exit161 ]
+  %.1138.lcssa = phi ptr [ %.0137, %103 ], [ %.1138212, %121 ], [ %.1138212, %114 ], [ %.1138212, %107 ], [ %132, %131 ], [ %.1138212, %ckpt_buforder_comparator.exit161 ]
   %.not152226 = icmp ugt ptr %.1138.lcssa, %.0135
   br i1 %.not152226, label %.critedge4, label %.lr.ph229
 
@@ -10630,7 +10630,7 @@ define internal fastcc ptr @sort_checkpoint_bufferids_med3(ptr noundef readonly 
   %30 = icmp ult i32 %27, %29
   br i1 %30, label %31, label %ckpt_buforder_comparator.exit
 
-31:                                               ; preds = %25, %3, %9, %17
+31:                                               ; preds = %3, %9, %17, %25
   %32 = load i32, ptr %2, align 4
   %33 = icmp ult i32 %5, %32
   br i1 %33, label %ckpt_buforder_comparator.exit21, label %34
@@ -10753,7 +10753,7 @@ ckpt_buforder_comparator.exit:                    ; preds = %25, %23, %15, %7
   %108 = icmp ugt i32 %105, %107
   br i1 %108, label %ckpt_buforder_comparator.exit21, label %ckpt_buforder_comparator.exit24.thread
 
-ckpt_buforder_comparator.exit24.thread:           ; preds = %95, %87, %ckpt_buforder_comparator.exit, %103
+ckpt_buforder_comparator.exit24.thread:           ; preds = %103, %95, %87, %ckpt_buforder_comparator.exit
   %109 = icmp ult i32 %4, %83
   br i1 %109, label %ckpt_buforder_comparator.exit21, label %110
 
@@ -10794,8 +10794,8 @@ ckpt_buforder_comparator.exit24.thread:           ; preds = %95, %87, %ckpt_bufo
   %spec.select38 = select i1 %133, ptr %0, ptr %2
   br label %ckpt_buforder_comparator.exit21
 
-ckpt_buforder_comparator.exit21:                  ; preds = %103, %128, %77, %101, %85, %93, %44, %36, %31, %52, %110, %118, %126, %ckpt_buforder_comparator.exit24.thread, %112, %120, %59, %67, %75, %ckpt_buforder_comparator.exit18, %61, %69
-  %134 = phi ptr [ %1, %103 ], [ %1, %44 ], [ %0, %120 ], [ %1, %101 ], [ %0, %59 ], [ %0, %67 ], [ %0, %75 ], [ %1, %85 ], [ %2, %ckpt_buforder_comparator.exit18 ], [ %2, %61 ], [ %2, %69 ], [ %spec.select, %77 ], [ %2, %110 ], [ %2, %118 ], [ %2, %126 ], [ %spec.select38, %128 ], [ %0, %ckpt_buforder_comparator.exit24.thread ], [ %0, %112 ], [ %1, %52 ], [ %1, %31 ], [ %1, %36 ], [ %1, %93 ]
+ckpt_buforder_comparator.exit21:                  ; preds = %103, %128, %77, %101, %93, %85, %52, %44, %36, %31, %110, %118, %126, %ckpt_buforder_comparator.exit24.thread, %112, %120, %59, %67, %75, %ckpt_buforder_comparator.exit18, %61, %69
+  %134 = phi ptr [ %0, %59 ], [ %0, %67 ], [ %0, %75 ], [ %2, %ckpt_buforder_comparator.exit18 ], [ %2, %61 ], [ %2, %69 ], [ %2, %110 ], [ %2, %118 ], [ %2, %126 ], [ %0, %ckpt_buforder_comparator.exit24.thread ], [ %0, %112 ], [ %0, %120 ], [ %1, %31 ], [ %1, %36 ], [ %1, %44 ], [ %1, %52 ], [ %1, %85 ], [ %1, %93 ], [ %1, %101 ], [ %spec.select, %77 ], [ %spec.select38, %128 ], [ %1, %103 ]
   ret ptr %134
 }
 
@@ -10912,7 +10912,7 @@ rlocator_comparator.exit.i:                       ; preds = %15
   %28 = icmp ult i32 %25, %27
   br i1 %28, label %29, label %buffertag_comparator.exit
 
-29:                                               ; preds = %23, %17, %11, %3, %15
+29:                                               ; preds = %17, %23, %15, %11, %3
   %30 = load i64, ptr %2, align 4
   %31 = getelementptr i8, ptr %2, i64 8
   %.val.i25.i17 = load i32, ptr %31, align 4
@@ -11055,7 +11055,7 @@ rlocator_comparator.exit.i48:                     ; preds = %83
   %96 = icmp ugt i32 %93, %95
   br i1 %96, label %buffertag_comparator.exit41, label %buffertag_comparator.exit54.thread
 
-buffertag_comparator.exit54.thread:               ; preds = %83, %buffertag_comparator.exit, %79, %85, %91
+buffertag_comparator.exit54.thread:               ; preds = %buffertag_comparator.exit, %79, %83, %91, %85
   %97 = icmp ult i32 %.val.i.i, %.val.i25.i43
   br i1 %97, label %buffertag_comparator.exit41, label %98
 
@@ -11100,8 +11100,8 @@ rlocator_comparator.exit.i61:                     ; preds = %104
   %spec.select78 = select i1 %117, ptr %0, ptr %2
   br label %buffertag_comparator.exit41
 
-buffertag_comparator.exit41:                      ; preds = %91, %112, %68, %89, %77, %rlocator_comparator.exit.i48, %81, %39, %29, %35, %41, %47, %98, %102, %rlocator_comparator.exit.i61, %110, %106, %100, %buffertag_comparator.exit54.thread, %104, %54, %58, %rlocator_comparator.exit.i35, %66, %62, %56, %buffertag_comparator.exit28, %60
-  %118 = phi ptr [ %1, %91 ], [ %1, %39 ], [ %0, %104 ], [ %1, %89 ], [ %0, %54 ], [ %0, %58 ], [ %0, %rlocator_comparator.exit.i35 ], [ %0, %66 ], [ %1, %77 ], [ %2, %62 ], [ %2, %56 ], [ %2, %buffertag_comparator.exit28 ], [ %2, %60 ], [ %spec.select, %68 ], [ %2, %98 ], [ %2, %102 ], [ %2, %rlocator_comparator.exit.i61 ], [ %2, %110 ], [ %spec.select78, %112 ], [ %0, %106 ], [ %0, %100 ], [ %0, %buffertag_comparator.exit54.thread ], [ %1, %47 ], [ %1, %41 ], [ %1, %35 ], [ %1, %29 ], [ %1, %81 ], [ %1, %rlocator_comparator.exit.i48 ]
+buffertag_comparator.exit41:                      ; preds = %91, %112, %68, %77, %81, %89, %rlocator_comparator.exit.i48, %29, %35, %39, %47, %41, %98, %102, %rlocator_comparator.exit.i61, %110, %106, %104, %100, %buffertag_comparator.exit54.thread, %54, %58, %rlocator_comparator.exit.i35, %66, %62, %60, %56, %buffertag_comparator.exit28
+  %118 = phi ptr [ %0, %54 ], [ %0, %58 ], [ %0, %rlocator_comparator.exit.i35 ], [ %0, %66 ], [ %2, %62 ], [ %2, %60 ], [ %2, %56 ], [ %2, %buffertag_comparator.exit28 ], [ %2, %98 ], [ %2, %102 ], [ %2, %rlocator_comparator.exit.i61 ], [ %2, %110 ], [ %0, %106 ], [ %0, %104 ], [ %0, %100 ], [ %0, %buffertag_comparator.exit54.thread ], [ %1, %41 ], [ %1, %47 ], [ %1, %39 ], [ %1, %35 ], [ %1, %29 ], [ %1, %rlocator_comparator.exit.i48 ], [ %1, %89 ], [ %1, %81 ], [ %1, %77 ], [ %spec.select, %68 ], [ %spec.select78, %112 ], [ %1, %91 ]
   ret ptr %118
 }
 

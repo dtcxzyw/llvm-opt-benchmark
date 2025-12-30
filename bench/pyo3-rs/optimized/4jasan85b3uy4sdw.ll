@@ -2656,7 +2656,7 @@ define void @_ZN4core4iter8adapters11try_process17h0a6ea3f692985cffE(ptr sret([3
   unreachable
 
 .thread:                                          ; preds = %21, %25, %9
-  %.pn9 = phi { ptr, i32 } [ %.pn, %9 ], [ %.pn, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %.pn, %25 ], [ %.pn, %9 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %9
@@ -2735,7 +2735,7 @@ define void @_ZN4core4iter8adapters11try_process17h0d1311ca30692c43E(ptr sret([3
   unreachable
 
 .thread:                                          ; preds = %22, %26, %10
-  %.pn10 = phi { ptr, i32 } [ %.pn, %10 ], [ %.pn, %26 ], [ %23, %22 ]
+  %.pn10 = phi { ptr, i32 } [ %.pn, %26 ], [ %.pn, %10 ], [ %23, %22 ]
   resume { ptr, i32 } %.pn10
 
 26:                                               ; preds = %10
@@ -2812,7 +2812,7 @@ define void @_ZN4core4iter8adapters11try_process17h13eeb881396d1adeE(ptr sret([3
   unreachable
 
 .thread:                                          ; preds = %21, %25, %9
-  %.pn9 = phi { ptr, i32 } [ %.pn, %9 ], [ %.pn, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %.pn, %25 ], [ %.pn, %9 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %9
@@ -2889,7 +2889,7 @@ define void @_ZN4core4iter8adapters11try_process17h28e7544d9e5ccab2E(ptr sret([3
   unreachable
 
 .thread:                                          ; preds = %21, %25, %9
-  %.pn9 = phi { ptr, i32 } [ %.pn, %9 ], [ %.pn, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %.pn, %25 ], [ %.pn, %9 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %9
@@ -2968,7 +2968,7 @@ define void @_ZN4core4iter8adapters11try_process17h3eef833cecad58a5E(ptr sret([3
   unreachable
 
 .thread:                                          ; preds = %22, %26, %10
-  %.pn10 = phi { ptr, i32 } [ %.pn, %10 ], [ %.pn, %26 ], [ %23, %22 ]
+  %.pn10 = phi { ptr, i32 } [ %.pn, %26 ], [ %.pn, %10 ], [ %23, %22 ]
   resume { ptr, i32 } %.pn10
 
 26:                                               ; preds = %10
@@ -3045,7 +3045,7 @@ define void @_ZN4core4iter8adapters11try_process17h475a115eb7b0a9ebE(ptr sret([3
   unreachable
 
 .thread:                                          ; preds = %21, %25, %9
-  %.pn9 = phi { ptr, i32 } [ %.pn, %9 ], [ %.pn, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %.pn, %25 ], [ %.pn, %9 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %9
@@ -3122,7 +3122,7 @@ define void @_ZN4core4iter8adapters11try_process17h53ced5933ee4eebbE(ptr sret([3
   unreachable
 
 .thread:                                          ; preds = %21, %25, %9
-  %.pn9 = phi { ptr, i32 } [ %.pn, %9 ], [ %.pn, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %.pn, %25 ], [ %.pn, %9 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %9
@@ -3199,7 +3199,7 @@ define void @_ZN4core4iter8adapters11try_process17h5d730f274787bfe5E(ptr sret([3
   unreachable
 
 .thread:                                          ; preds = %21, %25, %9
-  %.pn9 = phi { ptr, i32 } [ %.pn, %9 ], [ %.pn, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %.pn, %25 ], [ %.pn, %9 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %9
@@ -3276,7 +3276,7 @@ define void @_ZN4core4iter8adapters11try_process17h8d3a988ff0a15146E(ptr sret([3
   unreachable
 
 .thread:                                          ; preds = %21, %25, %9
-  %.pn9 = phi { ptr, i32 } [ %.pn, %9 ], [ %.pn, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %.pn, %25 ], [ %.pn, %9 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %9
@@ -3353,7 +3353,7 @@ define void @_ZN4core4iter8adapters11try_process17h999305d7d3de512cE(ptr sret([3
   unreachable
 
 .thread:                                          ; preds = %21, %25, %9
-  %.pn9 = phi { ptr, i32 } [ %.pn, %9 ], [ %.pn, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %.pn, %25 ], [ %.pn, %9 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %9
@@ -3430,7 +3430,7 @@ define void @_ZN4core4iter8adapters11try_process17ha198ce640cb76ba2E(ptr sret([3
   unreachable
 
 .thread:                                          ; preds = %21, %25, %9
-  %.pn9 = phi { ptr, i32 } [ %.pn, %9 ], [ %.pn, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %.pn, %25 ], [ %.pn, %9 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %9
@@ -3507,7 +3507,7 @@ define void @_ZN4core4iter8adapters11try_process17ha1e2267218a1add4E(ptr sret([3
   unreachable
 
 .thread:                                          ; preds = %21, %25, %9
-  %.pn9 = phi { ptr, i32 } [ %.pn, %9 ], [ %.pn, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %.pn, %25 ], [ %.pn, %9 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %9
@@ -3584,7 +3584,7 @@ define void @_ZN4core4iter8adapters11try_process17ha25ea63ed0cf0165E(ptr sret([3
   unreachable
 
 .thread:                                          ; preds = %21, %25, %9
-  %.pn9 = phi { ptr, i32 } [ %.pn, %9 ], [ %.pn, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %.pn, %25 ], [ %.pn, %9 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %9
@@ -3661,7 +3661,7 @@ define void @_ZN4core4iter8adapters11try_process17hcac70a72ab500bdaE(ptr sret([3
   unreachable
 
 .thread:                                          ; preds = %21, %25, %9
-  %.pn9 = phi { ptr, i32 } [ %.pn, %9 ], [ %.pn, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %.pn, %25 ], [ %.pn, %9 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %9
@@ -3740,7 +3740,7 @@ define void @_ZN4core4iter8adapters11try_process17hfd616f37eec652d4E(ptr sret([3
   unreachable
 
 .thread:                                          ; preds = %22, %26, %10
-  %.pn10 = phi { ptr, i32 } [ %.pn, %10 ], [ %.pn, %26 ], [ %23, %22 ]
+  %.pn10 = phi { ptr, i32 } [ %.pn, %26 ], [ %.pn, %10 ], [ %23, %22 ]
   resume { ptr, i32 } %.pn10
 
 26:                                               ; preds = %10
@@ -3819,7 +3819,7 @@ define void @_ZN4core4iter8adapters11try_process17hfe448e319533374bE(ptr sret([3
   unreachable
 
 .thread:                                          ; preds = %22, %26, %10
-  %.pn10 = phi { ptr, i32 } [ %.pn, %10 ], [ %.pn, %26 ], [ %23, %22 ]
+  %.pn10 = phi { ptr, i32 } [ %.pn, %26 ], [ %.pn, %10 ], [ %23, %22 ]
   resume { ptr, i32 } %.pn10
 
 26:                                               ; preds = %10
@@ -3896,7 +3896,7 @@ define void @_ZN4core4iter8adapters11try_process17hfff6298b6f153edaE(ptr sret([3
   unreachable
 
 .thread:                                          ; preds = %21, %25, %9
-  %.pn9 = phi { ptr, i32 } [ %.pn, %9 ], [ %.pn, %25 ], [ %22, %21 ]
+  %.pn9 = phi { ptr, i32 } [ %.pn, %25 ], [ %.pn, %9 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn9
 
 25:                                               ; preds = %9

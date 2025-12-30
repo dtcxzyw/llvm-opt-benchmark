@@ -730,7 +730,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   br label %200
 
 200:                                              ; preds = %199, %.body, %137
-  %.pn73 = phi { ptr, i32 } [ %138, %137 ], [ %.pn71, %199 ], [ %.pn68.pn, %.body ]
+  %.pn73 = phi { ptr, i32 } [ %.pn71, %199 ], [ %.pn68.pn, %.body ], [ %138, %137 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %20) #15
   br label %201
 
@@ -4561,7 +4561,7 @@ _ZN2cv5arucoL21_generateRandomMarkerEiRNS_3RNGE.exit: ; preds = %._crit_edge.us.
   br i1 %224, label %151, label %._crit_edge175, !llvm.loop !139
 
 .body110:                                         ; preds = %195, %204, %210, %221, %188, %182
-  %.pn83.pn.pn = phi { ptr, i32 } [ %.pn.i104, %182 ], [ %189, %188 ], [ %.pn83, %204 ], [ %.pn81, %221 ], [ %211, %210 ], [ %196, %195 ]
+  %.pn83.pn.pn = phi { ptr, i32 } [ %189, %188 ], [ %.pn.i104, %182 ], [ %.pn83, %204 ], [ %.pn81, %221 ], [ %211, %210 ], [ %196, %195 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #15
   br label %225
 

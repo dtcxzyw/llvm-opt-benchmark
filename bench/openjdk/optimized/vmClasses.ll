@@ -123,7 +123,7 @@ _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread: ; preds = %13, %_ZN9vmClas
   br label %26
 
 26:                                               ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit, %24, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread, %9
-  %.0 = phi i1 [ false, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread ], [ %.not16, %9 ], [ %25, %24 ], [ true, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit ]
+  %.0 = phi i1 [ %.not16, %9 ], [ false, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread ], [ %25, %24 ], [ true, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit ]
   ret i1 %.0
 }
 

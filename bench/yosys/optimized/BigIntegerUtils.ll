@@ -226,7 +226,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i57
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i57: ; preds = %49, %_ZN15NumberlikeArrayItED2Ev.exit2.i, %47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56
-  %.pn.ph = phi { ptr, i32 } [ %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56 ], [ %48, %47 ], [ %19, %_ZN15NumberlikeArrayItED2Ev.exit2.i ], [ %50, %49 ]
+  %.pn.ph = phi { ptr, i32 } [ %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56 ], [ %19, %_ZN15NumberlikeArrayItED2Ev.exit2.i ], [ %48, %47 ], [ %50, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = load ptr, ptr %5, align 8, !tbaa !32
   %57 = icmp eq ptr %56, %9
@@ -835,8 +835,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
   call void @_ZdaPv(ptr noundef nonnull %150) #14
   br label %153
 
-153:                                              ; preds = %137, %_ZN15NumberlikeArrayItED2Ev.exit2.i88, %147, %152
-  %.pn61.pn.ph = phi { ptr, i32 } [ %148, %152 ], [ %148, %147 ], [ %138, %137 ], [ %72, %_ZN15NumberlikeArrayItED2Ev.exit2.i88 ]
+153:                                              ; preds = %_ZN15NumberlikeArrayItED2Ev.exit2.i88, %137, %147, %152
+  %.pn61.pn.ph = phi { ptr, i32 } [ %148, %152 ], [ %148, %147 ], [ %72, %_ZN15NumberlikeArrayItED2Ev.exit2.i88 ], [ %138, %137 ]
   %154 = load ptr, ptr %11, align 8, !tbaa !32
   %155 = icmp eq ptr %154, %52
   br i1 %155, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i114, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i113
@@ -848,7 +848,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i114
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %_ZN15NumberlikeArrayItED2Ev.exit2.i94, %139, %141, %146
-  %.pn = phi { ptr, i32 } [ %98, %_ZN15NumberlikeArrayItED2Ev.exit2.i94 ], [ %140, %139 ], [ %142, %141 ], [ %142, %146 ]
+  %.pn = phi { ptr, i32 } [ %140, %139 ], [ %98, %_ZN15NumberlikeArrayItED2Ev.exit2.i94 ], [ %142, %141 ], [ %142, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge80
 
@@ -870,8 +870,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @_ZdaPv(ptr noundef nonnull %161) #14
   br label %.critedge79
 
-.critedge79:                                      ; preds = %133, %_ZN15NumberlikeArrayItED2Ev.exit2.i, %158, %163
-  %.pn65.pn.ph = phi { ptr, i32 } [ %159, %163 ], [ %159, %158 ], [ %134, %133 ], [ %40, %_ZN15NumberlikeArrayItED2Ev.exit2.i ]
+.critedge79:                                      ; preds = %_ZN15NumberlikeArrayItED2Ev.exit2.i, %133, %158, %163
+  %.pn65.pn.ph = phi { ptr, i32 } [ %159, %163 ], [ %159, %158 ], [ %40, %_ZN15NumberlikeArrayItED2Ev.exit2.i ], [ %134, %133 ]
   %164 = load ptr, ptr %9, align 8, !tbaa !32
   %165 = icmp eq ptr %164, %21
   br i1 %165, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i117
@@ -960,7 +960,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %26, %28
   unreachable
 
 32:                                               ; preds = %2, %17, %15, %21, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
-  %.014 = phi i16 [ 8, %21 ], [ 16, %17 ], [ 16, %15 ], [ 8, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ], [ 10, %2 ]
+  %.014 = phi i16 [ 16, %17 ], [ 16, %15 ], [ 8, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit ], [ 8, %21 ], [ 10, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN18BigUnsignedInABaseC1ERK11BigUnsignedt(ptr noundef nonnull align 8 dereferenceable(18) %5, ptr noundef nonnull align 8 dereferenceable(16) %1, i16 noundef zeroext %.014)

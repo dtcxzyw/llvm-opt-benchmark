@@ -3365,7 +3365,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %80, %77, %75, %72, %67, %64, %62, %58
-  %.sink1092 = phi i32 [ %69, %67 ], [ 2, %58 ], [ 0, %62 ], [ 1, %64 ], [ 2, %72 ], [ 0, %75 ], [ 1, %77 ], [ %82, %80 ]
+  %.sink1092 = phi i32 [ 2, %58 ], [ 0, %62 ], [ 1, %64 ], [ %69, %67 ], [ 2, %72 ], [ 0, %75 ], [ 1, %77 ], [ %82, %80 ]
   %83 = icmp eq i32 %.sink1092, 0
   %84 = zext i1 %83 to i64
   %85 = load i64, ptr %50, align 8, !tbaa !52
@@ -3563,7 +3563,7 @@ update_minmax.exit:                               ; preds = %111, %114
   br label %.sink.split1093
 
 .sink.split1093:                                  ; preds = %182, %179, %177, %174, %169, %166, %164, %160
-  %.sink1102 = phi i32 [ %171, %169 ], [ 2, %160 ], [ 0, %164 ], [ 1, %166 ], [ 2, %174 ], [ 0, %177 ], [ 1, %179 ], [ %184, %182 ]
+  %.sink1102 = phi i32 [ 2, %160 ], [ 0, %164 ], [ 1, %166 ], [ %171, %169 ], [ 2, %174 ], [ 0, %177 ], [ 1, %179 ], [ %184, %182 ]
   %185 = icmp eq i32 %.sink1102, 0
   %186 = zext i1 %185 to i64
   %187 = load i64, ptr %152, align 8, !tbaa !52
@@ -5469,8 +5469,8 @@ define internal fastcc void @update_stat(ptr noundef readonly captures(none) %0,
   br label %calc_noise_floor.exit
 
 calc_noise_floor.exit:                            ; preds = %.lr.ph.i, %.lr.ph88.i, %198, %215, %.preheader.i, %.critedge.i
-  %.259103.i = phi i32 [ %.05778.i, %.critedge.i ], [ %207, %215 ], [ %.05778.i, %.lr.ph88.i ], [ %207, %.preheader.i ], [ %206, %198 ], [ %207, %.lr.ph.i ]
-  %.156.i = phi i32 [ %spec.select71.i, %.critedge.i ], [ %207, %215 ], [ %.05778.i, %.lr.ph88.i ], [ %207, %.preheader.i ], [ %206, %198 ], [ %207, %.lr.ph.i ]
+  %.259103.i = phi i32 [ %.05778.i, %.critedge.i ], [ %207, %.preheader.i ], [ %207, %215 ], [ %206, %198 ], [ %.05778.i, %.lr.ph88.i ], [ %207, %.lr.ph.i ]
+  %.156.i = phi i32 [ %spec.select71.i, %.critedge.i ], [ %207, %.preheader.i ], [ %207, %215 ], [ %206, %198 ], [ %.05778.i, %.lr.ph88.i ], [ %207, %.lr.ph.i ]
   %239 = sext i32 %.156.i to i64
   %240 = getelementptr inbounds double, ptr %201, i64 %239
   store double %205, ptr %240, align 8, !tbaa !88
@@ -5726,7 +5726,7 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef readonly captur
   br i1 %exitcond.not.i, label %._crit_edge.i, label %92, !llvm.loop !89
 
 .critedge:                                        ; preds = %31, %.lr.ph, %._crit_edge.i, %.critedge47, %1
-  %.0 = phi i32 [ 0, %.critedge47 ], [ -12, %1 ], [ 0, %._crit_edge.i ], [ -12, %.lr.ph ], [ -12, %31 ]
+  %.0 = phi i32 [ -12, %1 ], [ 0, %.critedge47 ], [ 0, %._crit_edge.i ], [ -12, %.lr.ph ], [ -12, %31 ]
   ret i32 %.0
 }
 

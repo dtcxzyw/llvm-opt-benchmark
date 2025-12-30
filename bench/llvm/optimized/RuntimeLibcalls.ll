@@ -1882,30 +1882,30 @@ define dso_local void @_ZN4llvm5RTLIB19RuntimeLibcallsInfo12initLibcallsERKNS_6T
   %616 = load i32, ptr %604, align 4, !tbaa !20
   %617 = and i32 %616, -9
   %spec.select.i.i46 = icmp eq i32 %617, 1
-  br i1 %spec.select.i.i46, label %618, label %622
+  br i1 %spec.select.i.i46, label %618, label %620
 
 618:                                              ; preds = %615
   %619 = tail call noundef zeroext i1 @_ZNK4llvm6Triple17isMacOSXVersionLTEjjj(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 10, i32 noundef 9, i32 noundef 0) #3
-  br i1 %619, label %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread, label %620
+  br i1 %619, label %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread, label %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit
 
-620:                                              ; preds = %618
-  %621 = tail call noundef zeroext i1 @_ZNK4llvm6Triple11isArch64BitEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #3
-  br i1 %621, label %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread57, label %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread
-
-622:                                              ; preds = %615
-  switch i32 %616, label %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread57 [
-    i32 26, label %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit
-    i32 5, label %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit
+620:                                              ; preds = %615
+  switch i32 %616, label %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread55 [
+    i32 26, label %621
+    i32 5, label %621
   ]
 
-_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit: ; preds = %622, %622
-  %623 = tail call { i64, i64 } @_ZNK4llvm6Triple12getOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #3
-  %624 = extractvalue { i64, i64 } %623, 0
-  %625 = trunc i64 %624 to i32
-  %626 = icmp ugt i32 %625, 6
-  br i1 %626, label %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread57, label %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread
+621:                                              ; preds = %620, %620
+  %622 = tail call { i64, i64 } @_ZNK4llvm6Triple12getOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #3
+  %623 = extractvalue { i64, i64 } %622, 0
+  %624 = trunc i64 %623 to i32
+  %625 = icmp ugt i32 %624, 6
+  br i1 %625, label %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread55, label %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread
 
-_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread57: ; preds = %622, %620, %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit
+_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit: ; preds = %618
+  %626 = tail call noundef zeroext i1 @_ZNK4llvm6Triple11isArch64BitEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #3
+  br i1 %626, label %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread55, label %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread
+
+_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread55: ; preds = %620, %621, %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit
   store ptr @.str.549, ptr %204, align 8, !tbaa !3
   store ptr @.str.550, ptr %205, align 8, !tbaa !3
   %627 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -1913,14 +1913,14 @@ _ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread57
   %629 = icmp eq i32 %628, 26
   br i1 %629, label %630, label %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread
 
-630:                                              ; preds = %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread57
+630:                                              ; preds = %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread55
   %631 = getelementptr inbounds nuw i8, ptr %0, i64 6584
   store i32 68, ptr %631, align 8, !tbaa !22
   %632 = getelementptr inbounds nuw i8, ptr %0, i64 6588
   store i32 68, ptr %632, align 4, !tbaa !22
   br label %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread
 
-_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread: ; preds = %618, %612, %620, %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread57, %630, %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit
+_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread: ; preds = %618, %612, %621, %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread55, %630, %_ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit
   %633 = load i32, ptr %604, align 4, !tbaa !20
   switch i32 %633, label %647 [
     i32 9, label %634
@@ -1977,166 +1977,166 @@ _ZN4llvm5RTLIB19RuntimeLibcallsInfo15darwinHasSinCosERKNS_6TripleE.exit.thread: 
   %spec.select.i48 = icmp ult i32 %650, 12
   %651 = load i32, ptr %604, align 4
   %652 = icmp eq i32 %651, 4
-  %or.cond63 = select i1 %spec.select.i48, i1 true, i1 %652
-  br i1 %or.cond63, label %660, label %653
+  %or.cond61 = select i1 %spec.select.i48, i1 true, i1 %652
+  br i1 %or.cond61, label %661, label %653
 
 653:                                              ; preds = %647
   %654 = icmp eq i32 %649, 17
-  br i1 %654, label %655, label %661
+  br i1 %654, label %655, label %662
 
 655:                                              ; preds = %653
   %656 = tail call { i64, i64 } @_ZNK4llvm6Triple21getEnvironmentVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #3
   %657 = extractvalue { i64, i64 } %656, 0
   %658 = tail call noundef zeroext i1 @_ZNK4llvm6Triple11isArch64BitEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #3
   %659 = trunc i64 %657 to i32
-  %.0.i5066 = icmp ugt i32 %659, 8
-  %.0.i50.not = select i1 %658, i1 true, i1 %.0.i5066
-  br i1 %.0.i50.not, label %660, label %thread-pre-split81
+  %660 = icmp ugt i32 %659, 8
+  %.not64 = select i1 %658, i1 true, i1 %660
+  br i1 %.not64, label %661, label %thread-pre-split79
 
-660:                                              ; preds = %655, %647
+661:                                              ; preds = %655, %647
   store ptr @.str.553, ptr %199, align 8, !tbaa !3
   store ptr @.str.554, ptr %200, align 8, !tbaa !3
   store ptr @.str.555, ptr %201, align 8, !tbaa !3
   store ptr @.str.555, ptr %202, align 8, !tbaa !3
   store ptr @.str.555, ptr %203, align 8, !tbaa !3
-  br label %thread-pre-split81
+  br label %thread-pre-split79
 
-thread-pre-split81:                               ; preds = %655, %660
-  %.pr.pre78.pr = load i32, ptr %604, align 4, !tbaa !20
-  br label %661
+thread-pre-split79:                               ; preds = %655, %661
+  %.pr.pre76.pr = load i32, ptr %604, align 4, !tbaa !20
+  br label %662
 
-661:                                              ; preds = %thread-pre-split81, %653
-  %.pr.pre78 = phi i32 [ %.pr.pre78.pr, %thread-pre-split81 ], [ %651, %653 ]
-  %662 = load i32, ptr %593, align 8, !tbaa !8
-  %663 = icmp eq i32 %662, 38
-  %664 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %665 = load i32, ptr %664, align 8
-  %666 = icmp eq i32 %665, 3
-  %or.cond.i.i = select i1 %663, i1 %666, i1 false
-  %667 = add i32 %.pr.pre78, -23
-  %spec.select.i51 = icmp ult i32 %667, 2
-  %or.cond82 = select i1 %or.cond.i.i, i1 %spec.select.i51, i1 false
-  br i1 %or.cond82, label %668, label %thread-pre-split
+662:                                              ; preds = %thread-pre-split79, %653
+  %.pr.pre76 = phi i32 [ %.pr.pre76.pr, %thread-pre-split79 ], [ %651, %653 ]
+  %663 = load i32, ptr %593, align 8, !tbaa !8
+  %664 = icmp eq i32 %663, 38
+  %665 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %666 = load i32, ptr %665, align 8
+  %667 = icmp eq i32 %666, 3
+  %or.cond.i.i = select i1 %664, i1 %667, i1 false
+  %668 = add i32 %.pr.pre76, -23
+  %spec.select.i49 = icmp ult i32 %668, 2
+  %or.cond80 = select i1 %or.cond.i.i, i1 %spec.select.i49, i1 false
+  br i1 %or.cond80, label %669, label %thread-pre-split
 
-668:                                              ; preds = %661
+669:                                              ; preds = %662
   store ptr @.str.553, ptr %199, align 8, !tbaa !3
   store ptr @.str.554, ptr %200, align 8, !tbaa !3
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %668, %661
-  switch i32 %.pr.pre78, label %_ZNK4llvm6Triple11isOSCygMingEv.exit.thread [
-    i32 11, label %.thread59
-    i32 14, label %669
+thread-pre-split:                                 ; preds = %669, %662
+  switch i32 %.pr.pre76, label %_ZNK4llvm6Triple11isOSCygMingEv.exit.thread [
+    i32 11, label %.thread57
+    i32 14, label %670
   ]
 
-.thread59:                                        ; preds = %thread-pre-split
+.thread57:                                        ; preds = %thread-pre-split
   store ptr null, ptr %587, align 8, !tbaa !3
   br label %_ZNK4llvm6Triple11isOSCygMingEv.exit.thread
 
-669:                                              ; preds = %thread-pre-split
-  %670 = load i32, ptr %648, align 8
-  switch i32 %670, label %671 [
+670:                                              ; preds = %thread-pre-split
+  %671 = load i32, ptr %648, align 8
+  switch i32 %671, label %672 [
     i32 29, label %_ZNK4llvm6Triple11isOSCygMingEv.exit.thread
     i32 1, label %_ZNK4llvm6Triple11isOSCygMingEv.exit.thread
   ]
 
-671:                                              ; preds = %669
+672:                                              ; preds = %670
   store ptr null, ptr %306, align 8, !tbaa !3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %308, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %313, i8 0, i64 24, i1 false)
   br label %_ZNK4llvm6Triple11isOSCygMingEv.exit.thread
 
-_ZNK4llvm6Triple11isOSCygMingEv.exit.thread:      ; preds = %669, %669, %thread-pre-split, %.thread59, %671
-  %672 = phi i1 [ false, %.thread59 ], [ true, %671 ], [ true, %669 ], [ false, %thread-pre-split ], [ true, %669 ]
-  %673 = add i32 %662, -25
-  %spec.select.i52 = icmp ult i32 %673, 2
-  br i1 %spec.select.i52, label %.preheader67, label %.loopexit68
+_ZNK4llvm6Triple11isOSCygMingEv.exit.thread:      ; preds = %670, %670, %thread-pre-split, %.thread57, %672
+  %673 = phi i1 [ false, %.thread57 ], [ true, %672 ], [ true, %670 ], [ false, %thread-pre-split ], [ true, %670 ]
+  %674 = add i32 %663, -25
+  %spec.select.i50 = icmp ult i32 %674, 2
+  br i1 %spec.select.i50, label %.preheader65, label %.loopexit66
 
-.preheader67:                                     ; preds = %_ZNK4llvm6Triple11isOSCygMingEv.exit.thread, %678
-  %indvars.iv = phi i64 [ %indvars.iv.next, %678 ], [ 0, %_ZNK4llvm6Triple11isOSCygMingEv.exit.thread ]
-  %674 = trunc i64 %indvars.iv to i32
-  %675 = add i32 %674, -592
-  %or.cond = icmp ult i32 %675, -54
-  br i1 %or.cond, label %676, label %678
+.preheader65:                                     ; preds = %_ZNK4llvm6Triple11isOSCygMingEv.exit.thread, %679
+  %indvars.iv = phi i64 [ %indvars.iv.next, %679 ], [ 0, %_ZNK4llvm6Triple11isOSCygMingEv.exit.thread ]
+  %675 = trunc i64 %indvars.iv to i32
+  %676 = add i32 %675, -592
+  %or.cond = icmp ult i32 %676, -54
+  br i1 %or.cond, label %677, label %679
 
-676:                                              ; preds = %.preheader67
-  %677 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  store ptr null, ptr %677, align 8, !tbaa !3
-  br label %678
+677:                                              ; preds = %.preheader65
+  %678 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  store ptr null, ptr %678, align 8, !tbaa !3
+  br label %679
 
-678:                                              ; preds = %676, %.preheader67
+679:                                              ; preds = %677, %.preheader65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 717
-  br i1 %exitcond.not, label %.loopexit68, label %.preheader67, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit66, label %.preheader65, !llvm.loop !24
 
-.loopexit68:                                      ; preds = %678, %_ZNK4llvm6Triple11isOSCygMingEv.exit.thread
-  %679 = add i32 %662, -41
-  %spec.select.i53 = icmp ult i32 %679, 2
-  br i1 %spec.select.i53, label %.preheader, label %.loopexit
+.loopexit66:                                      ; preds = %679, %_ZNK4llvm6Triple11isOSCygMingEv.exit.thread
+  %680 = add i32 %663, -41
+  %spec.select.i51 = icmp ult i32 %680, 2
+  br i1 %spec.select.i51, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.loopexit68, %684
-  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %684 ], [ 0, %.loopexit68 ]
-  %680 = trunc i64 %indvars.iv74 to i32
-  %681 = add i32 %680, -592
-  %or.cond3 = icmp ult i32 %681, -54
-  br i1 %or.cond3, label %682, label %684
+.preheader:                                       ; preds = %.loopexit66, %685
+  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %685 ], [ 0, %.loopexit66 ]
+  %681 = trunc i64 %indvars.iv72 to i32
+  %682 = add i32 %681, -592
+  %or.cond3 = icmp ult i32 %682, -54
+  br i1 %or.cond3, label %683, label %685
 
-682:                                              ; preds = %.preheader
-  %683 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv74
-  store ptr null, ptr %683, align 8, !tbaa !3
-  br label %684
+683:                                              ; preds = %.preheader
+  %684 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv72
+  store ptr null, ptr %684, align 8, !tbaa !3
+  br label %685
 
-684:                                              ; preds = %682, %.preheader
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond77.not = icmp eq i64 %indvars.iv.next75, 717
-  br i1 %exitcond77.not, label %.loopexit, label %.preheader, !llvm.loop !26
+685:                                              ; preds = %683, %.preheader
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %exitcond75.not = icmp eq i64 %indvars.iv.next73, 717
+  br i1 %exitcond75.not, label %.loopexit, label %.preheader, !llvm.loop !26
 
-.loopexit:                                        ; preds = %684, %.loopexit68
-  %685 = load i32, ptr %648, align 8
-  %686 = icmp ult i32 %685, 2
-  %687 = add i32 %685, -27
-  %688 = icmp ult i32 %687, 2
-  %689 = or i1 %686, %688
-  %or.cond65 = select i1 %672, i1 %689, i1 false
-  br i1 %or.cond65, label %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread, label %690
+.loopexit:                                        ; preds = %685, %.loopexit66
+  %686 = load i32, ptr %648, align 8
+  %687 = icmp ult i32 %686, 2
+  %688 = add i32 %686, -27
+  %689 = icmp ult i32 %688, 2
+  %690 = or i1 %687, %689
+  %or.cond63 = select i1 %673, i1 %690, i1 false
+  br i1 %or.cond63, label %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread, label %691
 
 _ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread:       ; preds = %.loopexit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false)
-  br label %690
+  br label %691
 
-690:                                              ; preds = %.loopexit, %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread
-  %691 = icmp eq i32 %662, 7
-  br i1 %691, label %.thread60, label %692
+691:                                              ; preds = %.loopexit, %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread
+  %692 = icmp eq i32 %663, 7
+  br i1 %692, label %.thread58, label %693
 
-.thread60:                                        ; preds = %690
+.thread58:                                        ; preds = %691
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
-  br label %694
+  br label %695
 
-692:                                              ; preds = %690
-  %693 = add i32 %662, -55
-  %spec.select.i54 = icmp ult i32 %693, 2
-  br i1 %spec.select.i54, label %698, label %694
+693:                                              ; preds = %691
+  %694 = add i32 %663, -55
+  %spec.select.i52 = icmp ult i32 %694, 2
+  br i1 %spec.select.i52, label %699, label %695
 
-694:                                              ; preds = %.thread60, %692
-  %695 = tail call noundef zeroext i1 @_ZNK4llvm6Triple11isArch32BitEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #3
-  br i1 %695, label %696, label %697
+695:                                              ; preds = %.thread58, %693
+  %696 = tail call noundef zeroext i1 @_ZNK4llvm6Triple11isArch32BitEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #3
+  br i1 %696, label %697, label %698
 
-696:                                              ; preds = %694
+697:                                              ; preds = %695
   store ptr null, ptr %6, align 8, !tbaa !3
   store ptr null, ptr %10, align 8, !tbaa !3
   store ptr null, ptr %14, align 8, !tbaa !3
   store ptr null, ptr %19, align 8, !tbaa !3
   store ptr null, ptr %21, align 8, !tbaa !3
-  br label %697
-
-697:                                              ; preds = %696, %694
-  store ptr null, ptr %22, align 8, !tbaa !3
   br label %698
 
-698:                                              ; preds = %697, %692
+698:                                              ; preds = %697, %695
+  store ptr null, ptr %22, align 8, !tbaa !3
+  br label %699
+
+699:                                              ; preds = %698, %693
   ret void
 }
 

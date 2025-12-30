@@ -1519,7 +1519,7 @@ _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit: ; preds = %70
   br label %75
 
 75:                                               ; preds = %19, %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit, %28, %8
-  %.0 = phi i1 [ %18, %8 ], [ %41, %28 ], [ %.1, %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit ], [ false, %19 ]
+  %.0 = phi i1 [ %18, %8 ], [ %.1, %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit ], [ %41, %28 ], [ false, %19 ]
   ret i1 %.0
 }
 
@@ -3433,7 +3433,7 @@ _ZN17algebraic_numbers7manager3imp13isolate_rootsERK7obj_refIN10polynomial10poly
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %133, %200, %216, %290, %164, %162, %198
-  %.pn121.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %163, %162 ], [ %199, %198 ], [ %201, %200 ], [ %165, %164 ], [ %.pn121.pn.pn.pn, %216 ], [ %.pn116.pn.pn, %290 ], [ %134, %133 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn121.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %199, %198 ], [ %165, %164 ], [ %163, %162 ], [ %.pn121.pn.pn.pn, %216 ], [ %.pn116.pn.pn, %290 ], [ %201, %200 ], [ %134, %133 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %304
@@ -3789,7 +3789,7 @@ _ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev.exit: ; preds = %.noexc1
   br label %154
 
 154:                                              ; preds = %105, %107, %152, %78, %76
-  %.pn.pn = phi { ptr, i32 } [ %79, %78 ], [ %153, %152 ], [ %77, %76 ], [ %108, %107 ], [ %106, %105 ]
+  %.pn.pn = phi { ptr, i32 } [ %153, %152 ], [ %77, %76 ], [ %79, %78 ], [ %108, %107 ], [ %106, %105 ]
   call void @_ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn.pn
@@ -5119,7 +5119,7 @@ define linkonce_odr hidden noundef i32 @_ZN17algebraic_numbers7manager3imp7compa
   br label %_ZN17algebraic_numbers7manager3imp7compareEPNS_14algebraic_cellERK3mpq.exit17
 
 _ZN17algebraic_numbers7manager3imp7compareEPNS_14algebraic_cellERK3mpq.exit17: ; preds = %36, %29, %26, %62, %55, %52, %44, %42, %69, %13
-  %.0 = phi i32 [ %17, %13 ], [ %70, %69 ], [ 0, %55 ], [ 1, %42 ], [ 1, %52 ], [ -1, %44 ], [ %68, %62 ], [ -1, %26 ], [ 0, %29 ], [ -1, %36 ]
+  %.0 = phi i32 [ %17, %13 ], [ %70, %69 ], [ 1, %42 ], [ -1, %44 ], [ 1, %52 ], [ %68, %62 ], [ 0, %55 ], [ 0, %29 ], [ -1, %26 ], [ -1, %36 ]
   ret i32 %.0
 }
 
@@ -5226,7 +5226,7 @@ _ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i:       ; preds = %17, %8
   br label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
 
 _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit:         ; preds = %56, %53, %47, %44, %40, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i, %22
-  %.0 = phi i1 [ %46, %44 ], [ false, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i ], [ false, %22 ], [ %43, %40 ], [ false, %53 ], [ false, %47 ], [ %62, %56 ]
+  %.0 = phi i1 [ false, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i ], [ false, %22 ], [ %43, %40 ], [ %46, %44 ], [ false, %47 ], [ false, %53 ], [ %62, %56 ]
   ret i1 %.0
 }
 
@@ -5417,7 +5417,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager3im
   br label %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
 
 _ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit:         ; preds = %65, %58, %55, %49, %47, %44, %40
-  %.0 = phi i1 [ %46, %44 ], [ %48, %47 ], [ %43, %40 ], [ false, %55 ], [ true, %49 ], [ %70, %65 ], [ false, %58 ]
+  %.0 = phi i1 [ %48, %47 ], [ %43, %40 ], [ %46, %44 ], [ true, %49 ], [ false, %55 ], [ %70, %65 ], [ false, %58 ]
   ret i1 %.0
 }
 
@@ -5600,7 +5600,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN17algebraic_numbers7manager3im
   br label %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit
 
 _ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit:         ; preds = %65, %58, %55, %49, %47, %44, %40
-  %.0 = phi i1 [ %46, %44 ], [ %48, %47 ], [ %43, %40 ], [ true, %55 ], [ false, %49 ], [ %70, %65 ], [ false, %58 ]
+  %.0 = phi i1 [ %48, %47 ], [ %43, %40 ], [ %46, %44 ], [ false, %49 ], [ true, %55 ], [ %70, %65 ], [ false, %58 ]
   ret i1 %.0
 }
 
@@ -5892,7 +5892,7 @@ define hidden noundef range(i32 0, 536870912) i32 @_ZN17algebraic_numbers7manage
   br label %_ZN17algebraic_numbers7manager3imp5get_iERKNS_4anumE.exit
 
 _ZN17algebraic_numbers7manager3imp5get_iERKNS_4anumE.exit: ; preds = %8, %28
-  %.0.i = phi i32 [ %..i, %8 ], [ %30, %28 ]
+  %.0.i = phi i32 [ %30, %28 ], [ %..i, %8 ]
   ret i32 %.0.i
 }
 
@@ -7636,8 +7636,8 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %.preheader, %161
   br i1 %163, label %.critedge, label %_ZNK6vectorIjLb0EjE4sizeEv.exit, !llvm.loop !143
 
 .critedge:                                        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit, %161
-  %164 = phi ptr [ %129, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ null, %161 ]
-  %.0130.lcssa = phi i1 [ %.0130298, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ %.3133.ph, %161 ]
+  %164 = phi ptr [ null, %161 ], [ %129, %_ZNK6vectorIjLb0EjE4sizeEv.exit ]
+  %.0130.lcssa = phi i1 [ %.3133.ph, %161 ], [ %.0130298, %_ZNK6vectorIjLb0EjE4sizeEv.exit ]
   br i1 %.0130.lcssa, label %111, label %.critedge308
 
 .critedge308:                                     ; preds = %.preheader, %.critedge
@@ -8106,7 +8106,7 @@ _ZN6vectorIjLb0EjE3endEv.exit176:                 ; preds = %315
   br label %338
 
 338:                                              ; preds = %266, %337, %268, %239, %243, %241, %211
-  %.pn152.pn.pn = phi { ptr, i32 } [ %212, %211 ], [ %242, %241 ], [ %240, %239 ], [ %244, %243 ], [ %267, %266 ], [ %.pn145.pn, %337 ], [ %269, %268 ]
+  %.pn152.pn.pn = phi { ptr, i32 } [ %212, %211 ], [ %240, %239 ], [ %244, %243 ], [ %242, %241 ], [ %267, %266 ], [ %.pn145.pn, %337 ], [ %269, %268 ]
   call void @_ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %339
@@ -8130,14 +8130,14 @@ _ZN6vectorIjLb0EjE3endEv.exit176:                 ; preds = %315
   br label %342
 
 342:                                              ; preds = %203, %341, %157, %159, %127
-  %.pn152.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %158, %157 ], [ %128, %127 ], [ %160, %159 ], [ %.pn152.pn.pn.pn.pn.pn, %341 ], [ %204, %203 ]
+  %.pn152.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %128, %127 ], [ %160, %159 ], [ %158, %157 ], [ %.pn152.pn.pn.pn.pn.pn, %341 ], [ %204, %203 ]
   call void @_ZN22basic_interval_managerI12mpbq_managerLb0EE15scoped_intervalD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %343
 
 343:                                              ; preds = %.loopexit204, %.loopexit.split-lp, %125, %342
-  %.pn163 = phi { ptr, i32 } [ %126, %125 ], [ %.pn152.pn.pn.pn.pn.pn.pn.pn, %342 ], [ %lpad.loopexit, %.loopexit204 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn163 = phi { ptr, i32 } [ %.pn152.pn.pn.pn.pn.pn.pn.pn, %342 ], [ %126, %125 ], [ %lpad.loopexit, %.loopexit204 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -8148,7 +8148,7 @@ _ZN6vectorIjLb0EjE3endEv.exit176:                 ; preds = %315
   resume { ptr, i32 } %.merged
 
 .loopexit205:                                     ; preds = %.thread187, %.thread197, %.thread193, %.thread188
-  %.1191 = phi i32 [ %71, %.thread188 ], [ %.3.ph, %.thread197 ], [ %.2.ph, %.thread193 ], [ %.4, %.thread187 ]
+  %.1191 = phi i32 [ %71, %.thread188 ], [ %.2.ph, %.thread193 ], [ %.3.ph, %.thread197 ], [ %.4, %.thread187 ]
   ret i32 %.1191
 }
 
@@ -11897,7 +11897,7 @@ _ZN11upolynomial12core_manager6degreeERK7svectorI3mpzjE.exit.thread: ; preds = %
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %348, %330, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %346, %481, %483, %460, %458, %192, %190
-  %.pn67 = phi { ptr, i32 } [ %193, %192 ], [ %191, %190 ], [ %331, %330 ], [ %347, %346 ], [ %482, %481 ], [ %459, %458 ], [ %461, %460 ], [ %484, %483 ], [ %349, %348 ], [ %325, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit164, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp165, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn67 = phi { ptr, i32 } [ %193, %192 ], [ %191, %190 ], [ %347, %346 ], [ %461, %460 ], [ %459, %458 ], [ %484, %483 ], [ %482, %481 ], [ %349, %348 ], [ %325, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %331, %330 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit164, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp165, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn67
@@ -14569,7 +14569,7 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !224
 
 _ZSt11swap_rangesIPjS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit ], [ %23, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %23, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit ], [ %23, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -15171,7 +15171,7 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit45.i:   ; preds = %279, %_ZSt4moveIPjS
   br label %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit
 
 _ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit: ; preds = %255, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit38.i, %270, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit45.i, %284
-  %.0.i100 = phi ptr [ %268, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit38.i ], [ %285, %284 ], [ %283, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit45.i ], [ %.0115, %255 ], [ %.0114, %270 ]
+  %.0.i100 = phi ptr [ %268, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit38.i ], [ %283, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit45.i ], [ %285, %284 ], [ %.0115, %255 ], [ %.0114, %270 ]
   tail call void @_ZSt16__merge_adaptiveIPjlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEEvT_S9_S9_T0_SA_T1_SA_T2_(ptr noundef %.tr133, ptr noundef %.0115, ptr noundef %.0.i100, i64 noundef %.0, i64 noundef %.061, ptr noundef %5, i64 noundef %6, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.25") align 8 %7)
   %286 = sub nsw i64 %.tr121138, %.061
   %.not = icmp sgt i64 %253, %286
@@ -17382,7 +17382,7 @@ _ZN22_scoped_numeral_vectorI13mpzzp_managerED2Ev.exit116: ; preds = %_ZN22_scope
   ret void
 
 .body:                                            ; preds = %.loopexit.split-lp118, %.loopexit117.split.us, %.loopexit117.split, %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %120, %.split162.us, %.split168.us, %.split165.us
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %113, %.split165.us ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %121, %120 ], [ %112, %.split162.us ], [ %114, %.split168.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.split-lp120, %.loopexit.split-lp118 ], [ %lpad.loopexit119, %.loopexit117.split ], [ %lpad.loopexit119.us, %.loopexit117.split.us ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %112, %.split162.us ], [ %114, %.split168.us ], [ %113, %.split165.us ], [ %121, %120 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp120, %.loopexit.split-lp118 ], [ %lpad.loopexit119, %.loopexit117.split ], [ %lpad.loopexit119.us, %.loopexit117.split.us ]
   call void @_ZN22basic_interval_managerI12mpbq_managerLb0EE15scoped_intervalD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN17algebraic_numbers7manager3imp14save_intervalsD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %11) #29
@@ -19091,7 +19091,7 @@ _ZN22_scoped_numeral_vectorI13mpzzp_managerED2Ev.exit117: ; preds = %_ZN22_scope
   ret void
 
 .body:                                            ; preds = %.loopexit.split-lp119, %.loopexit118.split.us, %.loopexit118.split, %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %125, %.split162.us, %.split168.us, %.split165.us
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %118, %.split165.us ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %126, %125 ], [ %117, %.split162.us ], [ %119, %.split168.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.split-lp121, %.loopexit.split-lp119 ], [ %lpad.loopexit120, %.loopexit118.split ], [ %lpad.loopexit120.us, %.loopexit118.split.us ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %117, %.split162.us ], [ %119, %.split168.us ], [ %118, %.split165.us ], [ %126, %125 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp121, %.loopexit.split-lp119 ], [ %lpad.loopexit120, %.loopexit118.split ], [ %lpad.loopexit120.us, %.loopexit118.split.us ]
   call void @_ZN22basic_interval_managerI12mpbq_managerLb0EE15scoped_intervalD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN17algebraic_numbers7manager3imp14save_intervalsD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %11) #29
@@ -20701,7 +20701,7 @@ _ZN22_scoped_numeral_vectorI13mpzzp_managerED2Ev.exit128: ; preds = %_ZN22_scope
   ret void
 
 .body:                                            ; preds = %.loopexit129, %.loopexit.split-lp130, %.loopexit, %.loopexit.split-lp, %97, %130, %134, %132
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %133, %132 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %98, %97 ], [ %131, %130 ], [ %135, %134 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit131, %.loopexit129 ], [ %lpad.loopexit.split-lp132, %.loopexit.split-lp130 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %131, %130 ], [ %135, %134 ], [ %133, %132 ], [ %98, %97 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit131, %.loopexit129 ], [ %lpad.loopexit.split-lp132, %.loopexit.split-lp130 ]
   call void @_ZN22basic_interval_managerI12mpbq_managerLb0EE15scoped_intervalD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN17algebraic_numbers7manager3imp14save_intervalsD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %13) #29
@@ -22326,7 +22326,7 @@ _ZN22_scoped_numeral_vectorI13mpzzp_managerED2Ev.exit128: ; preds = %_ZN22_scope
   ret void
 
 .body:                                            ; preds = %.loopexit129, %.loopexit.split-lp130, %.loopexit, %.loopexit.split-lp, %97, %130, %134, %132
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %133, %132 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %98, %97 ], [ %131, %130 ], [ %135, %134 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit131, %.loopexit129 ], [ %lpad.loopexit.split-lp132, %.loopexit.split-lp130 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %131, %130 ], [ %135, %134 ], [ %133, %132 ], [ %98, %97 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit131, %.loopexit129 ], [ %lpad.loopexit.split-lp132, %.loopexit.split-lp130 ]
   call void @_ZN22basic_interval_managerI12mpbq_managerLb0EE15scoped_intervalD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN17algebraic_numbers7manager3imp14save_intervalsD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %13) #29
@@ -23943,7 +23943,7 @@ _ZN22_scoped_numeral_vectorI13mpzzp_managerED2Ev.exit127: ; preds = %_ZN22_scope
   ret void
 
 .body:                                            ; preds = %.loopexit.split-lp129, %.loopexit128.split.us, %.loopexit128.split, %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %134, %.split172.us, %.split178.us, %.split175.us
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %127, %.split175.us ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %135, %134 ], [ %126, %.split172.us ], [ %128, %.split178.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.split-lp131, %.loopexit.split-lp129 ], [ %lpad.loopexit130, %.loopexit128.split ], [ %lpad.loopexit130.us, %.loopexit128.split.us ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %126, %.split172.us ], [ %128, %.split178.us ], [ %127, %.split175.us ], [ %135, %134 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp131, %.loopexit.split-lp129 ], [ %lpad.loopexit130, %.loopexit128.split ], [ %lpad.loopexit130.us, %.loopexit128.split.us ]
   call void @_ZN22basic_interval_managerI12mpbq_managerLb0EE15scoped_intervalD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN17algebraic_numbers7manager3imp14save_intervalsD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %13) #29
@@ -25387,7 +25387,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit117: ; preds = %262,
   resume { ptr, i32 } %.pn.pn.pn
 
 .thread:                                          ; preds = %_ZN17algebraic_numbers7manager3imp6refineERNS_4anumEj.exit, %143, %149, %_ZN17algebraic_numbers7manager3imp6refineERNS_4anumEj.exit114, %166, %172, %293, %200, %194, %188, %.loopexit137, %70, %64, %42, %29, %23
-  %.0 = phi i32 [ -1, %23 ], [ 1, %29 ], [ 0, %42 ], [ -1, %64 ], [ 1, %70 ], [ 0, %.loopexit137 ], [ -1, %143 ], [ 1, %149 ], [ -1, %166 ], [ 1, %172 ], [ %.3, %293 ], [ %137, %_ZN17algebraic_numbers7manager3imp6refineERNS_4anumEj.exit ], [ %160, %_ZN17algebraic_numbers7manager3imp6refineERNS_4anumEj.exit114 ], [ %189, %188 ], [ 1, %200 ], [ -1, %194 ]
+  %.0 = phi i32 [ -1, %23 ], [ 1, %29 ], [ 0, %42 ], [ -1, %64 ], [ 1, %70 ], [ 0, %.loopexit137 ], [ -1, %143 ], [ 1, %149 ], [ -1, %166 ], [ 1, %172 ], [ %.3, %293 ], [ %160, %_ZN17algebraic_numbers7manager3imp6refineERNS_4anumEj.exit114 ], [ %137, %_ZN17algebraic_numbers7manager3imp6refineERNS_4anumEj.exit ], [ %189, %188 ], [ 1, %200 ], [ -1, %194 ]
   ret i32 %.0
 }
 

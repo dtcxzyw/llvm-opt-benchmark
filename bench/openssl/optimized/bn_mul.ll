@@ -183,7 +183,7 @@ define i64 @bn_sub_part_words(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br i1 %93, label %.thread157, label %.lr.ph180
 
 .thread157:                                       ; preds = %.lr.ph, %50, %56, %62, %83, %78, %.lr.ph180, %88, %37, %.lr.ph190, %23, %30, %.preheader163, %.preheader, %5
-  %.0109 = phi i64 [ %6, %5 ], [ %spec.select149, %30 ], [ 0, %83 ], [ 0, %.preheader163 ], [ %spec.select185, %.preheader ], [ %spec.select148, %23 ], [ %spec.select147, %.lr.ph190 ], [ %spec.select, %37 ], [ 0, %88 ], [ 0, %.lr.ph180 ], [ 0, %78 ], [ %spec.select150, %.lr.ph ], [ %spec.select151, %50 ], [ %spec.select152, %56 ], [ %spec.select153, %62 ]
+  %.0109 = phi i64 [ %6, %5 ], [ %spec.select185, %.preheader ], [ 0, %.preheader163 ], [ %spec.select, %37 ], [ %spec.select147, %.lr.ph190 ], [ %spec.select148, %23 ], [ %spec.select149, %30 ], [ 0, %88 ], [ 0, %.lr.ph180 ], [ 0, %78 ], [ 0, %83 ], [ %spec.select150, %.lr.ph ], [ %spec.select151, %50 ], [ %spec.select152, %56 ], [ %spec.select153, %62 ]
   ret i64 %.0109
 }
 
@@ -276,7 +276,7 @@ define void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %58
 
 58:                                               ; preds = %31, %40, %45, %49, %54
-  %.not232 = phi i1 [ true, %31 ], [ true, %40 ], [ false, %49 ], [ false, %45 ], [ true, %54 ]
+  %.not232 = phi i1 [ true, %31 ], [ true, %40 ], [ false, %45 ], [ false, %49 ], [ true, %54 ]
   %59 = and i32 %3, 2147483646
   %60 = icmp eq i32 %59, 16
   %or.cond11 = and i1 %60, %13
@@ -331,10 +331,10 @@ define void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %86, i8 0, i64 %87, i1 false)
   br label %88
 
-88:                                               ; preds = %74, %81
-  %.pre-phi265 = phi i64 [ %78, %74 ], [ %85, %81 ]
-  %89 = phi ptr [ %77, %74 ], [ %84, %81 ]
-  %.not232238254263 = phi i1 [ %.not232, %74 ], [ true, %81 ]
+88:                                               ; preds = %81, %74
+  %.pre-phi265 = phi i64 [ %85, %81 ], [ %78, %74 ]
+  %89 = phi ptr [ %84, %81 ], [ %77, %74 ]
+  %.not232238254263 = phi i1 [ true, %81 ], [ %.not232, %74 ]
   tail call void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef %89)
   %90 = getelementptr inbounds nuw i64, ptr %0, i64 %.pre-phi265
   tail call void @bn_mul_recursive(ptr noundef %90, ptr noundef %33, ptr noundef %36, i32 noundef %8, i32 noundef %4, i32 noundef %5, ptr noundef %89)
@@ -342,7 +342,7 @@ define void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %92 = trunc i64 %91 to i32
   br i1 %.not232238254263, label %100, label %93
 
-93:                                               ; preds = %70, %88
+93:                                               ; preds = %88, %70
   %94 = phi i32 [ %73, %70 ], [ %92, %88 ]
   %95 = phi i64 [ %.pre-phi, %70 ], [ %.pre-phi265, %88 ]
   %96 = getelementptr inbounds nuw i64, ptr %6, i64 %95
@@ -351,7 +351,7 @@ define void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %99 = sub nsw i32 %94, %98
   br label %107
 
-100:                                              ; preds = %70, %88
+100:                                              ; preds = %88, %70
   %101 = phi i32 [ %73, %70 ], [ %92, %88 ]
   %102 = phi i64 [ %.pre-phi, %70 ], [ %.pre-phi265, %88 ]
   %103 = getelementptr inbounds nuw i64, ptr %6, i64 %102

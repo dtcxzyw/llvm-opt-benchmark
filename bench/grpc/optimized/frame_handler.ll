@@ -158,7 +158,7 @@ _Z25alts_is_frame_writer_doneP17alts_frame_writer.exit: ; preds = %6
   br label %.sink.split
 
 .sink.split:                                      ; preds = %17, %_Z25alts_is_frame_writer_doneP17alts_frame_writer.exit, %6, %.critedge
-  %.sroa.speculated49.sink = phi i64 [ 0, %_Z25alts_is_frame_writer_doneP17alts_frame_writer.exit ], [ %34, %.critedge ], [ 0, %6 ], [ %.sroa.speculated49, %17 ]
+  %.sroa.speculated49.sink = phi i64 [ %34, %.critedge ], [ 0, %6 ], [ 0, %_Z25alts_is_frame_writer_doneP17alts_frame_writer.exit ], [ %.sroa.speculated49, %17 ]
   store i64 %.sroa.speculated49.sink, ptr %2, align 8, !tbaa !3
   br label %37
 
@@ -445,9 +445,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit: ; pr
   resume { ptr, i32 } %.pn
 
 59:                                               ; preds = %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73._crit_edge, %.thread
-  %60 = phi i64 [ %55, %.thread ], [ %.pre, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73._crit_edge ]
-  %.055 = phi i64 [ %.sroa.speculated, %.thread ], [ 0, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73._crit_edge ]
-  %.052 = phi ptr [ %29, %.thread ], [ %1, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73._crit_edge ]
+  %60 = phi i64 [ %.pre, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73._crit_edge ], [ %55, %.thread ]
+  %.055 = phi i64 [ 0, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73._crit_edge ], [ %.sroa.speculated, %.thread ]
+  %.052 = phi ptr [ %1, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73._crit_edge ], [ %29, %.thread ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %62 = load i64, ptr %2, align 8, !tbaa !3
   %63 = tail call i64 @llvm.umin.i64(i64 %60, i64 %62)
@@ -466,8 +466,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit: ; pr
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit, %13, %11, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit, %59, %57
-  %.sink = phi i64 [ 0, %57 ], [ %66, %59 ], [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit ], [ 0, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit ], [ 0, %11 ], [ 0, %13 ], [ %.sroa.speculated, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73 ]
-  %.0.ph = phi i1 [ false, %57 ], [ true, %59 ], [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit ], [ true, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit ], [ false, %11 ], [ true, %13 ], [ true, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73 ]
+  %.sink = phi i64 [ 0, %57 ], [ %66, %59 ], [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit ], [ 0, %11 ], [ 0, %13 ], [ 0, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit ], [ %.sroa.speculated, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73 ]
+  %.0.ph = phi i1 [ false, %57 ], [ true, %59 ], [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit ], [ false, %11 ], [ true, %13 ], [ true, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit ], [ true, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73 ]
   store i64 %.sink, ptr %2, align 8, !tbaa !3
   br label %.critedge
 

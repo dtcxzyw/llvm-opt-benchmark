@@ -1666,7 +1666,7 @@ define void @_ZN8uu_cksum6uu_app17haf5e585804148673E(ptr noalias noundef sret({ 
   ret void
 
 .body:                                            ; preds = %372, %321, %288, %241, %208, %157, %86, %76, %388, %386, %385, %384, %383, %.thread257, %380, %377
-  %.pn39 = phi { ptr, i32 } [ %eh.lpad-body148.ph, %377 ], [ %322, %321 ], [ %eh.lpad-body131.ph, %380 ], [ %289, %288 ], [ %.pn256, %.thread257 ], [ %242, %241 ], [ %eh.lpad-body92.ph, %383 ], [ %209, %208 ], [ %eh.lpad-body71.ph, %384 ], [ %158, %157 ], [ %eh.lpad-body52.ph, %385 ], [ %87, %86 ], [ %387, %386 ], [ %77, %76 ], [ %389, %388 ], [ %373, %372 ]
+  %.pn39 = phi { ptr, i32 } [ %eh.lpad-body148.ph, %377 ], [ %eh.lpad-body131.ph, %380 ], [ %.pn256, %.thread257 ], [ %eh.lpad-body92.ph, %383 ], [ %eh.lpad-body71.ph, %384 ], [ %eh.lpad-body52.ph, %385 ], [ %387, %386 ], [ %389, %388 ], [ %77, %76 ], [ %87, %86 ], [ %158, %157 ], [ %209, %208 ], [ %242, %241 ], [ %289, %288 ], [ %322, %321 ], [ %373, %372 ]
   resume { ptr, i32 } %.pn39
 
 377:                                              ; preds = %326, %331, %359
@@ -1692,7 +1692,7 @@ define void @_ZN8uu_cksum6uu_app17haf5e585804148673E(ptr noalias noundef sret({ 
           to label %.thread257 unwind label %378
 
 .thread257:                                       ; preds = %260, %381, %265, %.thread260
-  %.pn256 = phi { ptr, i32 } [ %.pn.i105, %265 ], [ %246, %.thread260 ], [ %382, %381 ], [ %261, %260 ]
+  %.pn256 = phi { ptr, i32 } [ %246, %.thread260 ], [ %.pn.i105, %265 ], [ %382, %381 ], [ %261, %260 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17ha5f49df61210a8f3E"(ptr noalias noundef nonnull align 8 dereferenceable(712) %52) #13
           to label %.body unwind label %378
 

@@ -855,9 +855,9 @@ find_object.exit.i71:                             ; preds = %.lr.ph.i104.i
   br label %451
 
 451:                                              ; preds = %449, %438, %.thread.i.i
-  %.16266.i.i = phi ptr [ %.162.i.i, %449 ], [ %.16268.i.i, %438 ], [ %.16268.i.i, %.thread.i.i ]
-  %.247.i.i = phi i32 [ %.04580.i.i, %449 ], [ %436, %438 ], [ %.04580.i.i, %.thread.i.i ]
-  %.244.i.i = phi i32 [ %450, %449 ], [ %.04281.i.i, %438 ], [ %.04281.i.i, %.thread.i.i ]
+  %.16266.i.i = phi ptr [ %.16268.i.i, %438 ], [ %.162.i.i, %449 ], [ %.16268.i.i, %.thread.i.i ]
+  %.247.i.i = phi i32 [ %436, %438 ], [ %.04580.i.i, %449 ], [ %.04580.i.i, %.thread.i.i ]
+  %.244.i.i = phi i32 [ %.04281.i.i, %438 ], [ %450, %449 ], [ %.04281.i.i, %.thread.i.i ]
   %452 = icmp ult ptr %.16266.i.i, %407
   br i1 %452, label %.lr.ph.i108.i, label %.critedge.i.i, !llvm.loop !91
 
@@ -931,8 +931,8 @@ display_end_segment.exit.thread:                  ; preds = %201
   %477 = icmp eq i32 %213, -12
   br i1 %477, label %display_end_segment.exit.thread.thread, label %.thread
 
-.thread:                                          ; preds = %395, %.loopexit13.i, %.loopexit.i, %310, %.loopexit14.i, %476, %150, %319, %49, %127, %134, %168, %186, %109, %248, %261, %display_end_segment.exit.thread
-  %.0.ph87 = phi i32 [ %213, %display_end_segment.exit.thread ], [ -1094995529, %310 ], [ -1094995529, %261 ], [ -1094995529, %248 ], [ -1094995529, %109 ], [ -1094995529, %186 ], [ -1094995529, %168 ], [ -1094995529, %134 ], [ -1094995529, %127 ], [ -1094995529, %49 ], [ -1094995529, %319 ], [ -1094995529, %150 ], [ -1094995529, %476 ], [ -1094995529, %.loopexit14.i ], [ -1094995529, %.loopexit.i ], [ -1094995529, %.loopexit13.i ], [ -1094995529, %395 ]
+.thread:                                          ; preds = %.loopexit13.i, %395, %.loopexit.i, %310, %.loopexit14.i, %476, %319, %49, %168, %186, %127, %109, %134, %150, %248, %261, %display_end_segment.exit.thread
+  %.0.ph87 = phi i32 [ %213, %display_end_segment.exit.thread ], [ -1094995529, %261 ], [ -1094995529, %248 ], [ -1094995529, %150 ], [ -1094995529, %134 ], [ -1094995529, %109 ], [ -1094995529, %127 ], [ -1094995529, %186 ], [ -1094995529, %168 ], [ -1094995529, %49 ], [ -1094995529, %319 ], [ -1094995529, %476 ], [ -1094995529, %.loopexit14.i ], [ -1094995529, %310 ], [ -1094995529, %.loopexit.i ], [ -1094995529, %395 ], [ -1094995529, %.loopexit13.i ]
   %478 = load i32, ptr %18, align 8, !tbaa !66
   %479 = and i32 %478, 8
   %.not45 = icmp eq i32 %479, 0
@@ -944,7 +944,7 @@ parse_palette_segment.exit:                       ; preds = %313, %58, %33, %dis
   br i1 %481, label %21, label %display_end_segment.exit.thread.thread, !llvm.loop !95
 
 display_end_segment.exit.thread.thread:           ; preds = %.thread, %display_end_segment.exit.thread, %parse_palette_segment.exit, %330, %21, %351, %decode_rle.exit.i, %400, %.thread88, %4
-  %.040 = phi i32 [ -1, %4 ], [ -12, %.thread88 ], [ -12, %351 ], [ -12, %400 ], [ -12, %decode_rle.exit.i ], [ -12, %display_end_segment.exit.thread ], [ -12, %330 ], [ %.0.ph87, %.thread ], [ %8, %21 ], [ %8, %parse_palette_segment.exit ]
+  %.040 = phi i32 [ -1, %4 ], [ -12, %.thread88 ], [ -12, %400 ], [ -12, %decode_rle.exit.i ], [ -12, %351 ], [ %.0.ph87, %.thread ], [ -12, %display_end_segment.exit.thread ], [ %8, %parse_palette_segment.exit ], [ -12, %330 ], [ %8, %21 ]
   ret i32 %.040
 }
 

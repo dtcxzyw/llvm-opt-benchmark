@@ -199,7 +199,7 @@ dt_util_localize_string.exit52:                   ; preds = %.lr.ph59, %39, %42
   br i1 %.not43, label %.loopexit, label %.lr.ph59
 
 .loopexit:                                        ; preds = %dt_util_localize_string.exit52, %dt_util_localize_string.exit49, %3, %1
-  %.034 = phi ptr [ null, %1 ], [ null, %3 ], [ %26, %dt_util_localize_string.exit49 ], [ %26, %dt_util_localize_string.exit52 ]
+  %.034 = phi ptr [ null, %3 ], [ null, %1 ], [ %26, %dt_util_localize_string.exit49 ], [ %26, %dt_util_localize_string.exit52 ]
   tail call void @g_strfreev(ptr noundef %2) #29
   ret ptr %.034
 }
@@ -569,7 +569,7 @@ define noalias ptr @dt_util_fix_path(ptr noundef %0) local_unnamed_addr #0 {
   br label %25
 
 25:                                               ; preds = %18, %20, %23, %3, %1
-  %.024 = phi ptr [ null, %1 ], [ null, %3 ], [ %24, %23 ], [ %19, %18 ], [ %22, %20 ]
+  %.024 = phi ptr [ null, %3 ], [ null, %1 ], [ %24, %23 ], [ %19, %18 ], [ %22, %20 ]
   ret ptr %.024
 }
 
@@ -724,7 +724,7 @@ define range(i32 0, 2) i32 @dt_util_test_writable_dir(ptr noundef %0) local_unna
   br label %12
 
 12:                                               ; preds = %10, %6, %4
-  %.1 = phi i32 [ 0, %6 ], [ 0, %4 ], [ %., %10 ]
+  %.1 = phi i32 [ 0, %4 ], [ 0, %6 ], [ %., %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %13
 
@@ -919,7 +919,7 @@ define range(i32 0, 4) i32 @dt_util_get_logo_season() local_unnamed_addr #0 {
   br label %65
 
 65:                                               ; preds = %18, %15, %0, %12
-  %.0 = phi i32 [ %spec.select, %18 ], [ 1, %0 ], [ 2, %15 ], [ 1, %12 ]
+  %.0 = phi i32 [ 1, %12 ], [ 1, %0 ], [ 2, %15 ], [ %spec.select, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
@@ -1900,7 +1900,7 @@ define range(i32 0, 2) i32 @dt_has_same_path_basename(ptr noundef %0, ptr nounde
   br label %28
 
 28:                                               ; preds = %27, %5, %9, %7, %2
-  %.021 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 0, %7 ], [ %spec.select, %27 ], [ 0, %9 ]
+  %.021 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 0, %7 ], [ 0, %9 ], [ %spec.select, %27 ]
   ret i32 %.021
 }
 

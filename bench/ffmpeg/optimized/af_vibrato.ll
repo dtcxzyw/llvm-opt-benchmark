@@ -302,7 +302,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %1, %42
-  %.0 = phi i32 [ -12, %1 ], [ 0, %42 ], [ -12, %._crit_edge ], [ -12, %.lr.ph ]
+  %.0 = phi i32 [ 0, %42 ], [ -12, %1 ], [ -12, %._crit_edge ], [ -12, %.lr.ph ]
   ret i32 %.0
 }
 

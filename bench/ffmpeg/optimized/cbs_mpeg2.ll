@@ -772,8 +772,8 @@ cbs_mpeg2_read_picture_header.exit:               ; preds = %252, %269, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
   br label %cbs_mpeg2_read_user_data.exit.thread
 
-cbs_mpeg2_read_user_data.exit.thread:             ; preds = %323, %307, %.critedge.i87
-  %.131.i.ph = phi i32 [ %294, %.critedge.i87 ], [ -12, %307 ], [ %321, %323 ]
+cbs_mpeg2_read_user_data.exit.thread:             ; preds = %323, %.critedge.i87, %307
+  %.131.i.ph = phi i32 [ -12, %307 ], [ %294, %.critedge.i87 ], [ %321, %323 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
   br label %.thread
 
@@ -1013,8 +1013,8 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %cbs_mpeg2_read_sequence_header.exit.thread
 
-cbs_mpeg2_read_sequence_header.exit.thread:       ; preds = %408, %426, %.critedge.i90, %415, %397, %390, %383, %375, %374, %367, %360, %351, %344
-  %.1110.i.ph = phi i32 [ %342, %344 ], [ %349, %351 ], [ %358, %360 ], [ %365, %367 ], [ %372, %374 ], [ %378, %375 ], [ %381, %383 ], [ %388, %390 ], [ %395, %397 ], [ %413, %415 ], [ %337, %.critedge.i90 ], [ %424, %426 ], [ %406, %408 ]
+cbs_mpeg2_read_sequence_header.exit.thread:       ; preds = %408, %426, %415, %397, %390, %383, %375, %374, %367, %360, %351, %344, %.critedge.i90
+  %.1110.i.ph = phi i32 [ %337, %.critedge.i90 ], [ %342, %344 ], [ %349, %351 ], [ %358, %360 ], [ %365, %367 ], [ %372, %374 ], [ %378, %375 ], [ %381, %383 ], [ %388, %390 ], [ %395, %397 ], [ %413, %415 ], [ %424, %426 ], [ %406, %408 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %79)
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %.thread
@@ -1598,7 +1598,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   br label %cbs_mpeg2_read_quant_matrix_extension.exit.i
 
 cbs_mpeg2_read_quant_matrix_extension.exit.i:     ; preds = %672, %.critedge.i37.i, %671, %661, %660, %653, %642, %635, %624, %617
-  %.181.i.i = phi i32 [ %615, %617 ], [ %633, %635 ], [ %651, %653 ], [ %669, %671 ], [ %605, %.critedge.i37.i ], [ %658, %660 ], [ %640, %642 ], [ %622, %624 ], [ 0, %661 ], [ 0, %672 ]
+  %.181.i.i = phi i32 [ %615, %617 ], [ %633, %635 ], [ %651, %653 ], [ %669, %671 ], [ %658, %660 ], [ %640, %642 ], [ %622, %624 ], [ %605, %.critedge.i37.i ], [ 0, %661 ], [ 0, %672 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
@@ -1681,7 +1681,7 @@ cbs_mpeg2_read_quant_matrix_extension.exit.i:     ; preds = %672, %.critedge.i37
   br i1 %709, label %685, label %cbs_mpeg2_read_picture_display_extension.exit.i
 
 cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %703, %693, %676
-  %.242.i.i = phi i32 [ %691, %693 ], [ %701, %703 ], [ 0, %676 ], [ %708, %704 ], [ %698, %694 ], [ 0, %685 ]
+  %.242.i.i = phi i32 [ %701, %703 ], [ %691, %693 ], [ 0, %676 ], [ %698, %694 ], [ %708, %704 ], [ 0, %685 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %cbs_mpeg2_read_extension_data.exit
@@ -2077,7 +2077,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   br label %.thread
 
 cbs_mpeg2_read_extension_data.exit:               ; preds = %534, %603, %cbs_mpeg2_read_quant_matrix_extension.exit.i, %cbs_mpeg2_read_picture_display_extension.exit.i
-  %.133.i = phi i32 [ %.242.i.i, %cbs_mpeg2_read_picture_display_extension.exit.i ], [ %spec.select.i36.i, %603 ], [ %spec.select.i.i, %534 ], [ %.181.i.i, %cbs_mpeg2_read_quant_matrix_extension.exit.i ]
+  %.133.i = phi i32 [ %.181.i.i, %cbs_mpeg2_read_quant_matrix_extension.exit.i ], [ %.242.i.i, %cbs_mpeg2_read_picture_display_extension.exit.i ], [ %spec.select.i.i, %534 ], [ %spec.select.i36.i, %603 ]
   %883 = icmp sgt i32 %.133.i, -1
   br i1 %883, label %cbs_mpeg2_read_extension_data.exit.thread103, label %.thread
 
@@ -2168,8 +2168,8 @@ cbs_mpeg2_read_sequence_end.exit:                 ; preds = %910
 cbs_mpeg2_read_extension_data.exit.thread103:     ; preds = %841, %.thread263.i.i, %cbs_mpeg2_read_sequence_end.exit.thread, %cbs_mpeg2_read_group_of_pictures_header.exit.thread106, %cbs_mpeg2_read_sequence_header.exit, %cbs_mpeg2_read_user_data.exit, %220, %cbs_mpeg2_read_picture_header.exit, %cbs_mpeg2_read_extension_data.exit
   br label %.thread
 
-.thread:                                          ; preds = %894, %900, %.critedge.i93, %721, %728, %735, %742, %749, %756, %763, %770, %777, %784, %791, %798, %805, %812, %840, %848, %855, %862, %869, %879, %.critedge.i42.i, %552, %563, %574, %589, %590, %.critedge.i35.i, %464, %471, %478, %499, %500, %509, %516, %523, %.critedge.i.i, %441, %544, %457, %.critedge.i92, %880, %237, %244, %251, %261, %268, %277, %287, %.critedge.i86, %142, %156, %160, %180, %186, %193, %203, %.critedge.i, %208, %207, %cbs_mpeg2_read_slice_header.exit, %cbs_mpeg2_read_sequence_end.exit, %cbs_mpeg2_read_group_of_pictures_header.exit, %cbs_mpeg2_read_sequence_header.exit.thread, %cbs_mpeg2_read_user_data.exit.thread, %226, %117, %2, %cbs_mpeg2_read_picture_header.exit, %cbs_mpeg2_read_extension_data.exit, %cbs_mpeg2_read_extension_data.exit.thread103
-  %.0 = phi i32 [ %913, %cbs_mpeg2_read_sequence_end.exit ], [ -1094995529, %2 ], [ 0, %cbs_mpeg2_read_extension_data.exit.thread103 ], [ -1163346256, %880 ], [ %118, %117 ], [ %289, %cbs_mpeg2_read_picture_header.exit ], [ %.131.i.ph, %cbs_mpeg2_read_user_data.exit.thread ], [ %.1110.i.ph, %cbs_mpeg2_read_sequence_header.exit.thread ], [ %.133.i, %cbs_mpeg2_read_extension_data.exit ], [ %905, %cbs_mpeg2_read_group_of_pictures_header.exit ], [ -38, %226 ], [ %128, %.critedge.i ], [ %230, %.critedge.i86 ], [ %205, %cbs_mpeg2_read_slice_header.exit ], [ -12, %208 ], [ -1094995529, %207 ], [ %137, %142 ], [ %151, %156 ], [ %158, %160 ], [ %178, %180 ], [ %184, %186 ], [ %191, %193 ], [ %198, %203 ], [ %235, %237 ], [ %242, %244 ], [ %249, %251 ], [ %259, %261 ], [ %266, %268 ], [ %275, %277 ], [ %282, %287 ], [ %719, %721 ], [ %726, %728 ], [ %733, %735 ], [ %740, %742 ], [ %747, %749 ], [ %754, %756 ], [ %761, %763 ], [ %768, %770 ], [ %775, %777 ], [ %782, %784 ], [ %789, %791 ], [ %796, %798 ], [ %803, %805 ], [ %810, %812 ], [ %838, %840 ], [ %846, %848 ], [ %853, %855 ], [ %860, %862 ], [ %867, %869 ], [ %874, %879 ], [ %713, %.critedge.i42.i ], [ %550, %552 ], [ %561, %563 ], [ %572, %574 ], [ %587, %589 ], [ %594, %590 ], [ %536, %.critedge.i35.i ], [ %462, %464 ], [ %469, %471 ], [ %476, %478 ], [ %497, %499 ], [ %504, %500 ], [ %507, %509 ], [ %514, %516 ], [ %521, %523 ], [ %449, %.critedge.i.i ], [ %439, %441 ], [ %542, %544 ], [ %455, %457 ], [ %434, %.critedge.i92 ], [ %892, %894 ], [ %898, %900 ], [ %887, %.critedge.i93 ]
+.thread:                                          ; preds = %.critedge.i93, %894, %900, %.critedge.i42.i, %721, %728, %735, %742, %749, %756, %763, %770, %777, %784, %791, %798, %805, %812, %840, %848, %855, %862, %869, %879, %.critedge.i35.i, %544, %552, %563, %574, %589, %590, %.critedge.i.i, %457, %464, %471, %478, %499, %500, %509, %516, %523, %.critedge.i92, %441, %880, %.critedge.i86, %237, %244, %251, %261, %268, %277, %287, %.critedge.i, %142, %156, %160, %180, %186, %193, %203, %208, %207, %cbs_mpeg2_read_slice_header.exit, %cbs_mpeg2_read_sequence_end.exit, %cbs_mpeg2_read_group_of_pictures_header.exit, %cbs_mpeg2_read_sequence_header.exit.thread, %cbs_mpeg2_read_user_data.exit.thread, %226, %117, %2, %cbs_mpeg2_read_picture_header.exit, %cbs_mpeg2_read_extension_data.exit, %cbs_mpeg2_read_extension_data.exit.thread103
+  %.0 = phi i32 [ 0, %cbs_mpeg2_read_extension_data.exit.thread103 ], [ %289, %cbs_mpeg2_read_picture_header.exit ], [ %.133.i, %cbs_mpeg2_read_extension_data.exit ], [ %905, %cbs_mpeg2_read_group_of_pictures_header.exit ], [ %913, %cbs_mpeg2_read_sequence_end.exit ], [ -1094995529, %2 ], [ %118, %117 ], [ -38, %226 ], [ %.131.i.ph, %cbs_mpeg2_read_user_data.exit.thread ], [ %.1110.i.ph, %cbs_mpeg2_read_sequence_header.exit.thread ], [ -12, %208 ], [ -1094995529, %207 ], [ %205, %cbs_mpeg2_read_slice_header.exit ], [ %128, %.critedge.i ], [ %137, %142 ], [ %151, %156 ], [ %158, %160 ], [ %178, %180 ], [ %184, %186 ], [ %191, %193 ], [ %198, %203 ], [ %230, %.critedge.i86 ], [ %235, %237 ], [ %242, %244 ], [ %249, %251 ], [ %259, %261 ], [ %266, %268 ], [ %275, %277 ], [ %282, %287 ], [ %713, %.critedge.i42.i ], [ %719, %721 ], [ %726, %728 ], [ %733, %735 ], [ %740, %742 ], [ %747, %749 ], [ %754, %756 ], [ %761, %763 ], [ %768, %770 ], [ %775, %777 ], [ %782, %784 ], [ %789, %791 ], [ %796, %798 ], [ %803, %805 ], [ %810, %812 ], [ %838, %840 ], [ %846, %848 ], [ %853, %855 ], [ %860, %862 ], [ %867, %869 ], [ %874, %879 ], [ %536, %.critedge.i35.i ], [ %542, %544 ], [ %550, %552 ], [ %561, %563 ], [ %572, %574 ], [ %587, %589 ], [ %594, %590 ], [ %449, %.critedge.i.i ], [ %455, %457 ], [ %462, %464 ], [ %469, %471 ], [ %476, %478 ], [ %497, %499 ], [ %504, %500 ], [ %507, %509 ], [ %514, %516 ], [ %521, %523 ], [ %434, %.critedge.i92 ], [ %439, %441 ], [ -1163346256, %880 ], [ %887, %.critedge.i93 ], [ %892, %894 ], [ %898, %900 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %102)
   ret i32 %.0
 }
@@ -2997,7 +2997,7 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
   br i1 %463, label %cbs_mpeg2_write_sequence_header.exit.i, label %456
 
 cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %452, %.loopexit99.i.i, %429, %423, %417, %414, %409, %403, %394, %388, %382, %373
-  %.0.i23.i = phi i32 [ %415, %414 ], [ %380, %373 ], [ %386, %382 ], [ %392, %388 ], [ %401, %394 ], [ %407, %403 ], [ %412, %409 ], [ %421, %417 ], [ %427, %423 ], [ %433, %429 ], [ %462, %457 ], [ %450, %.loopexit99.i.i ], [ 0, %452 ], [ 0, %456 ], [ %445, %440 ]
+  %.0.i23.i = phi i32 [ %415, %414 ], [ %380, %373 ], [ %386, %382 ], [ %392, %388 ], [ %401, %394 ], [ %407, %403 ], [ %412, %409 ], [ %421, %417 ], [ %427, %423 ], [ %433, %429 ], [ %450, %.loopexit99.i.i ], [ 0, %452 ], [ 0, %456 ], [ %462, %457 ], [ %445, %440 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %cbs_mpeg2_write_slice.exit
@@ -3383,7 +3383,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
   br i1 %688, label %cbs_mpeg2_write_quant_matrix_extension.exit.i.i, label %681
 
 cbs_mpeg2_write_quant_matrix_extension.exit.i.i:  ; preds = %631, %648, %665, %682, %681, %677, %.loopexit74.i.i.i, %.loopexit77.i.i.i, %.loopexit80.i.i.i, %620
-  %.061.i.i.i = phi i32 [ 0, %677 ], [ %624, %620 ], [ %653, %648 ], [ %641, %.loopexit80.i.i.i ], [ %670, %665 ], [ %658, %.loopexit77.i.i.i ], [ %687, %682 ], [ %675, %.loopexit74.i.i.i ], [ 0, %681 ], [ %636, %631 ]
+  %.061.i.i.i = phi i32 [ %624, %620 ], [ %641, %.loopexit80.i.i.i ], [ %658, %.loopexit77.i.i.i ], [ %675, %.loopexit74.i.i.i ], [ 0, %677 ], [ %687, %682 ], [ 0, %681 ], [ %670, %665 ], [ %653, %648 ], [ %636, %631 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3742,7 +3742,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
   br label %cbs_mpeg2_write_slice.exit
 
 cbs_mpeg2_write_slice.exit:                       ; preds = %905, %899, %894, %888, %883, %876, %873, %872, %866, %860, %854, %848, %842, %834, %807, %801, %795, %789, %783, %777, %771, %765, %759, %753, %747, %741, %735, %729, %721, %cbs_mpeg2_write_picture_display_extension.exit.i.i, %cbs_mpeg2_write_quant_matrix_extension.exit.i.i, %615, %612, %606, %584, %578, %574, %564, %558, %553, %547, %541, %535, %532, %511, %505, %499, %493, %487, %479, %471, %464, %cbs_mpeg2_write_sequence_header.exit.i, %cbs_mpeg2_write_user_data.exit.i, %cbs_mpeg2_write_extra_information.exit.i.i, %324, %318, %310, %304, %295, %289, %283, %276, %put_bits.exit65.i, %skip_put_bytes.exit.i, %119, %101, %cbs_mpeg2_write_slice_header.exit.i, %cbs_mpeg2_write_slice_header.exit.thread3.i, %73, %67, %61, %57, %48, %42, %29, %17
-  %.0 = phi i32 [ %77, %73 ], [ %.2.i.i.ph.i, %cbs_mpeg2_write_slice_header.exit.thread3.i ], [ 0, %101 ], [ %99, %cbs_mpeg2_write_slice_header.exit.i ], [ -28, %119 ], [ 0, %put_bits.exit65.i ], [ 0, %skip_put_bytes.exit.i ], [ %71, %67 ], [ %65, %61 ], [ %59, %57 ], [ %52, %48 ], [ %46, %42 ], [ %33, %29 ], [ %23, %17 ], [ -1163346256, %905 ], [ %..i30.i, %899 ], [ %.016.i.i, %cbs_mpeg2_write_user_data.exit.i ], [ %.0.i23.i, %cbs_mpeg2_write_sequence_header.exit.i ], [ %.2.i.i.i, %cbs_mpeg2_write_extra_information.exit.i.i ], [ %870, %866 ], [ %328, %324 ], [ %281, %276 ], [ %287, %283 ], [ %293, %289 ], [ %299, %295 ], [ %308, %304 ], [ %314, %310 ], [ %322, %318 ], [ %610, %606 ], [ %469, %464 ], [ -1163346256, %873 ], [ %475, %471 ], [ %551, %547 ], [ %.061.i.i.i, %cbs_mpeg2_write_quant_matrix_extension.exit.i.i ], [ %.1.i.i.i, %cbs_mpeg2_write_picture_display_extension.exit.i.i ], [ %533, %532 ], [ %485, %479 ], [ %491, %487 ], [ %497, %493 ], [ %503, %499 ], [ %509, %505 ], [ %530, %511 ], [ %539, %535 ], [ %545, %541 ], [ %..i.i.i, %553 ], [ %613, %612 ], [ %562, %558 ], [ %568, %564 ], [ %576, %574 ], [ %582, %578 ], [ %588, %584 ], [ %..i32.i.i, %615 ], [ 0, %872 ], [ %727, %721 ], [ %733, %729 ], [ %739, %735 ], [ %745, %741 ], [ %751, %747 ], [ %757, %753 ], [ %763, %759 ], [ %769, %765 ], [ %775, %771 ], [ %781, %777 ], [ %787, %783 ], [ %793, %789 ], [ %799, %795 ], [ %805, %801 ], [ %811, %807 ], [ %838, %834 ], [ %846, %842 ], [ %852, %848 ], [ %858, %854 ], [ %864, %860 ], [ %892, %888 ], [ %881, %876 ], [ %886, %883 ], [ %..i.i, %894 ]
+  %.0 = phi i32 [ %99, %cbs_mpeg2_write_slice_header.exit.i ], [ -28, %119 ], [ %.2.i.i.ph.i, %cbs_mpeg2_write_slice_header.exit.thread3.i ], [ 0, %put_bits.exit65.i ], [ 0, %skip_put_bytes.exit.i ], [ 0, %101 ], [ %77, %73 ], [ %71, %67 ], [ %65, %61 ], [ %59, %57 ], [ %52, %48 ], [ %46, %42 ], [ %33, %29 ], [ %23, %17 ], [ -1163346256, %905 ], [ %.016.i.i, %cbs_mpeg2_write_user_data.exit.i ], [ %.0.i23.i, %cbs_mpeg2_write_sequence_header.exit.i ], [ %..i30.i, %899 ], [ %281, %276 ], [ %287, %283 ], [ %293, %289 ], [ %299, %295 ], [ %308, %304 ], [ %314, %310 ], [ %322, %318 ], [ %328, %324 ], [ %.2.i.i.i, %cbs_mpeg2_write_extra_information.exit.i.i ], [ -1163346256, %873 ], [ %.061.i.i.i, %cbs_mpeg2_write_quant_matrix_extension.exit.i.i ], [ %.1.i.i.i, %cbs_mpeg2_write_picture_display_extension.exit.i.i ], [ %469, %464 ], [ %475, %471 ], [ %533, %532 ], [ %485, %479 ], [ %491, %487 ], [ %497, %493 ], [ %503, %499 ], [ %509, %505 ], [ %530, %511 ], [ %539, %535 ], [ %545, %541 ], [ %551, %547 ], [ %..i.i.i, %553 ], [ %613, %612 ], [ %562, %558 ], [ %568, %564 ], [ %576, %574 ], [ %582, %578 ], [ %588, %584 ], [ %610, %606 ], [ %..i32.i.i, %615 ], [ 0, %872 ], [ %727, %721 ], [ %733, %729 ], [ %739, %735 ], [ %745, %741 ], [ %751, %747 ], [ %757, %753 ], [ %763, %759 ], [ %769, %765 ], [ %775, %771 ], [ %781, %777 ], [ %787, %783 ], [ %793, %789 ], [ %799, %795 ], [ %805, %801 ], [ %811, %807 ], [ %838, %834 ], [ %846, %842 ], [ %852, %848 ], [ %858, %854 ], [ %864, %860 ], [ %870, %866 ], [ %881, %876 ], [ %886, %883 ], [ %892, %888 ], [ %..i.i, %894 ]
   ret i32 %.0
 }
 
@@ -3903,7 +3903,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_extra_infor
   br i1 %30, label %16, label %.critedge, !llvm.loop !175
 
 .critedge:                                        ; preds = %16, %25
-  %.048.lcssa = phi i64 [ %29, %25 ], [ %.04864, %16 ]
+  %.048.lcssa = phi i64 [ %.04864, %16 ], [ %29, %25 ]
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %.048.lcssa, ptr %31, align 8, !tbaa !149
   %.not54 = icmp eq i64 %.048.lcssa, 0
@@ -3971,7 +3971,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_extra_infor
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %48, %._crit_edge, %32
-  %.045 = phi i32 [ %46, %48 ], [ %spec.select, %._crit_edge ], [ -12, %32 ], [ %42, %41 ]
+  %.045 = phi i32 [ %46, %48 ], [ -12, %32 ], [ %spec.select, %._crit_edge ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.045
 }

@@ -474,7 +474,7 @@ hwloc__export_synthetic_update_status.exit.thread.sink.split: ; preds = %87, %88
   br label %hwloc__export_synthetic_update_status.exit.thread
 
 hwloc__export_synthetic_update_status.exit.thread: ; preds = %152, %127, %140, %hwloc__export_synthetic_update_status.exit.thread.sink.split, %117, %105, %92
-  %.0 = phi i32 [ -1, %hwloc__export_synthetic_update_status.exit.thread.sink.split ], [ -1, %92 ], [ -1, %105 ], [ %.1, %117 ], [ -1, %140 ], [ -1, %127 ], [ %.4126, %152 ]
+  %.0 = phi i32 [ -1, %92 ], [ -1, %105 ], [ %.1, %117 ], [ -1, %hwloc__export_synthetic_update_status.exit.thread.sink.split ], [ %.4126, %152 ], [ -1, %127 ], [ -1, %140 ]
   ret i32 %.0
 }
 
@@ -566,7 +566,7 @@ thread-pre-split:                                 ; preds = %16, %5
   br i1 %.not76, label %.critedge, label %.lr.ph, !llvm.loop !60
 
 .critedge:                                        ; preds = %.lr.ph, %32
-  %.061.lcssa = phi i64 [ %36, %32 ], [ %.061153, %.lr.ph ]
+  %.061.lcssa = phi i64 [ %.061153, %.lr.ph ], [ %36, %32 ]
   %.not77 = icmp eq i64 %.061.lcssa, 0
   br i1 %.not77, label %.thread, label %37
 
@@ -575,7 +575,7 @@ thread-pre-split:                                 ; preds = %16, %5
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %12, %thread-pre-split, %.critedge, %37, %27
-  %.2 = phi ptr [ %.165, %27 ], [ @.str.66, %37 ], [ %.165, %.critedge ], [ @.str.67, %12 ], [ %.064, %thread-pre-split ], [ %.165, %.preheader ]
+  %.2 = phi ptr [ %.165, %27 ], [ @.str.66, %37 ], [ %.165, %.critedge ], [ %.064, %thread-pre-split ], [ @.str.67, %12 ], [ %.165, %.preheader ]
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %40 = load i32, ptr %39, align 4, !tbaa !61
   %.not78 = icmp eq i32 %40, 0
@@ -872,7 +872,7 @@ thread-pre-split:                                 ; preds = %16, %5
   br i1 %exitcond203.not.i, label %hwloc__export_synthetic_update_status.exit100.thread.sink.split.i, label %.lr.ph165.i, !llvm.loop !74
 
 .loopexit.i:                                      ; preds = %._crit_edge143.i, %._crit_edge.i, %118, %125, %._crit_edge158.us.i, %.preheader129.i, %88
-  %.083.i = phi ptr [ null, %88 ], [ %142, %._crit_edge158.us.i ], [ %.184150.i, %125 ], [ %.184.lcssa217222.i, %.preheader129.i ], [ %.184150.i, %118 ], [ %.184150.i, %._crit_edge.i ], [ %.184150.i, %._crit_edge143.i ]
+  %.083.i = phi ptr [ null, %88 ], [ %.184.lcssa217222.i, %.preheader129.i ], [ %142, %._crit_edge158.us.i ], [ %.184150.i, %125 ], [ %.184150.i, %118 ], [ %.184150.i, %._crit_edge.i ], [ %.184150.i, %._crit_edge143.i ]
   call void @free(ptr noundef %.083.i) #25
   %.081168.i = load ptr, ptr %.0, align 8, !tbaa !47
   %.not95169.i = icmp eq ptr %.081168.i, null
@@ -910,8 +910,8 @@ hwloc__export_synthetic_update_status.exit100.i:  ; preds = %.lr.ph175.i
   br i1 %.not95.i, label %hwloc__export_synthetic_indexes.exit, label %.lr.ph175.i, !llvm.loop !75
 
 hwloc__export_synthetic_update_status.exit100.thread.sink.split.i: ; preds = %161, %.lr.ph165.i, %148, %.preheader.i
-  %.184.lcssa218.i123 = phi ptr [ %.184.lcssa217222.i, %148 ], [ %142, %.preheader.i ], [ %142, %.lr.ph165.i ], [ %142, %161 ]
-  %.082.ph.i = phi i32 [ 0, %148 ], [ 0, %.preheader.i ], [ -1, %.lr.ph165.i ], [ %162, %161 ]
+  %.184.lcssa218.i123 = phi ptr [ %142, %.preheader.i ], [ %.184.lcssa217222.i, %148 ], [ %142, %.lr.ph165.i ], [ %142, %161 ]
+  %.082.ph.i = phi i32 [ 0, %.preheader.i ], [ 0, %148 ], [ %162, %161 ], [ -1, %.lr.ph165.i ]
   call void @free(ptr noundef %.184.lcssa218.i123) #25
   br label %hwloc__export_synthetic_indexes.exit
 
@@ -926,7 +926,7 @@ hwloc__export_synthetic_indexes.exit.thread126:   ; preds = %.loopexit.i, %hwloc
   br label %.critedge83
 
 .critedge83:                                      ; preds = %.lr.ph175.i, %hwloc__export_synthetic_indexes.exit, %85, %57, %hwloc__export_synthetic_indexes.exit.thread126, %61, %.loopexit
-  %.268 = phi i32 [ 0, %.loopexit ], [ -1, %85 ], [ -1, %57 ], [ %59, %61 ], [ %188, %hwloc__export_synthetic_indexes.exit.thread126 ], [ -1, %hwloc__export_synthetic_indexes.exit ], [ -1, %.lr.ph175.i ]
+  %.268 = phi i32 [ 0, %.loopexit ], [ %188, %hwloc__export_synthetic_indexes.exit.thread126 ], [ %59, %61 ], [ -1, %57 ], [ -1, %85 ], [ -1, %hwloc__export_synthetic_indexes.exit ], [ -1, %.lr.ph175.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1215,7 +1215,7 @@ hwloc__export_synthetic_add_char.exit53:          ; preds = %97, %107
   br i1 %.not37, label %.critedge46, label %.preheader, !llvm.loop !78
 
 .critedge46:                                      ; preds = %hwloc__export_synthetic_add_char.exit48, %hwloc__export_synthetic_add_char.exit53, %hwloc__export_synthetic_add_char.exit53.us, %hwloc__export_synthetic_add_char.exit48.us, %._crit_edge, %7, %56
-  %.030 = phi i32 [ -1, %56 ], [ 0, %7 ], [ %spec.select, %._crit_edge ], [ -1, %hwloc__export_synthetic_add_char.exit48.us ], [ %40, %hwloc__export_synthetic_add_char.exit53.us ], [ %111, %hwloc__export_synthetic_add_char.exit53 ], [ -1, %hwloc__export_synthetic_add_char.exit48 ]
+  %.030 = phi i32 [ -1, %56 ], [ 0, %7 ], [ %spec.select, %._crit_edge ], [ %40, %hwloc__export_synthetic_add_char.exit53.us ], [ -1, %hwloc__export_synthetic_add_char.exit48.us ], [ %111, %hwloc__export_synthetic_add_char.exit53 ], [ -1, %hwloc__export_synthetic_add_char.exit48 ]
   ret i32 %.030
 }
 
@@ -2371,7 +2371,7 @@ hwloc_synthetic_free_levels.exit.i:               ; preds = %._crit_edge.i.i
   store i32 0, ptr %476, align 8, !tbaa !121
   br label %478
 
-477:                                              ; preds = %hwloc_synthetic_free_levels.exit.i, %36, %190, %215, %225, %235, %245, %254, %265, %282, %207
+477:                                              ; preds = %190, %215, %225, %235, %245, %254, %265, %282, %207, %hwloc_synthetic_free_levels.exit.i, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2685,9 +2685,9 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_synthetic_parse_attrs(ptr nou
   br i1 %77, label %._crit_edge, label %.lr.ph.split, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %68, %75, %35, %38
-  %.028.lcssa = phi ptr [ %.129.us, %35 ], [ %.129.us, %38 ], [ %.129, %75 ], [ %.129, %68 ]
-  %.026.lcssa = phi i64 [ %.127.us, %35 ], [ %.127.us, %38 ], [ %.127, %75 ], [ %.127, %68 ]
-  %.023.lcssa = phi i64 [ %.124.us, %35 ], [ %.124.us, %38 ], [ %.124, %75 ], [ %.124, %68 ]
+  %.028.lcssa = phi ptr [ %.129.us, %38 ], [ %.129.us, %35 ], [ %.129, %75 ], [ %.129, %68 ]
+  %.026.lcssa = phi i64 [ %.127.us, %38 ], [ %.127.us, %35 ], [ %.127, %75 ], [ %.127, %68 ]
+  %.023.lcssa = phi i64 [ %.124.us, %38 ], [ %.124.us, %35 ], [ %.124, %75 ], [ %.124, %68 ]
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %.023.lcssa, ptr %78, align 8, !tbaa !109
   %.not33 = icmp eq ptr %.028.lcssa, null
@@ -2717,7 +2717,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_synthetic_parse_attrs(ptr nou
   br label %90
 
 90:                                               ; preds = %.critedge42, %88, %45
-  %.0 = phi i32 [ -1, %.critedge42 ], [ 0, %88 ], [ -1, %45 ]
+  %.0 = phi i32 [ 0, %88 ], [ -1, %45 ], [ -1, %.critedge42 ]
   ret i32 %.0
 }
 
@@ -2817,7 +2817,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull %.str.47.sink, i64 noundef %.0215435, ptr noundef %.0436) #29
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %33, %27
+.thread:                                          ; preds = %.thread.sink.split, %27, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread353
 
@@ -3192,8 +3192,8 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   br label %188
 
 188:                                              ; preds = %._crit_edge410, %.thread337
-  %.4240 = phi i64 [ %92, %.thread337 ], [ %.6242.lcssa, %._crit_edge410 ]
-  %.5235 = phi i32 [ %spec.select, %.thread337 ], [ %.7.lcssa, %._crit_edge410 ]
+  %.4240 = phi i64 [ %.6242.lcssa, %._crit_edge410 ], [ %92, %.thread337 ]
+  %.5235 = phi i32 [ %.7.lcssa, %._crit_edge410 ], [ %spec.select, %.thread337 ]
   %.not300 = icmp eq i64 %.4240, %2
   br i1 %.not300, label %._crit_edge473, label %189
 
@@ -3321,7 +3321,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   store ptr %14, ptr %239, align 8, !tbaa !137
   br label %240
 
-.thread353:                                       ; preds = %235, %236, %229, %.thread347, %99, %201, %228, %._crit_edge, %.thread
+.thread353:                                       ; preds = %.thread347, %235, %236, %228, %229, %._crit_edge, %99, %201, %.thread
   call void @free(ptr noundef %14) #25
   br label %240
 

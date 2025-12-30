@@ -159,7 +159,7 @@ define ptr @X509V3_EXT_get_nid(i32 noundef %0) local_unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %9, %1, %11, %7
-  %.0 = phi ptr [ null, %1 ], [ %8, %7 ], [ %15, %11 ], [ null, %9 ]
+  %.0 = phi ptr [ %8, %7 ], [ %15, %11 ], [ null, %1 ], [ null, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
@@ -211,7 +211,7 @@ define ptr @X509V3_EXT_get(ptr noundef %0) local_unnamed_addr #0 {
   br label %X509V3_EXT_get_nid.exit
 
 X509V3_EXT_get_nid.exit:                          ; preds = %7, %11, %13, %15
-  %.0.i = phi ptr [ null, %7 ], [ %12, %11 ], [ %19, %15 ], [ null, %13 ]
+  %.0.i = phi ptr [ %12, %11 ], [ %19, %15 ], [ null, %7 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %20
@@ -306,7 +306,7 @@ X509V3_EXT_get_nid.exit.thread:                   ; preds = %2, %10
   br label %18
 
 X509V3_EXT_get_nid.exit:                          ; preds = %8, %12
-  %.0.i = phi ptr [ %16, %12 ], [ %9, %8 ]
+  %.0.i = phi ptr [ %9, %8 ], [ %16, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = icmp eq ptr %.0.i, null
@@ -357,7 +357,7 @@ X509V3_EXT_add.exit.sink.split:                   ; preds = %18, %.sink.split.i
   br label %X509V3_EXT_add.exit
 
 X509V3_EXT_add.exit:                              ; preds = %X509V3_EXT_add.exit.sink.split, %31, %19
-  %.0 = phi i32 [ 1, %31 ], [ 0, %19 ], [ 0, %X509V3_EXT_add.exit.sink.split ]
+  %.0 = phi i32 [ 0, %19 ], [ 1, %31 ], [ 0, %X509V3_EXT_add.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -429,7 +429,7 @@ define ptr @X509V3_EXT_d2i(ptr noundef %0) local_unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %1, %15, %11
-  %.0 = phi ptr [ %19, %15 ], [ %14, %11 ], [ null, %1 ]
+  %.0 = phi ptr [ %14, %11 ], [ %19, %15 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -571,7 +571,7 @@ define ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
   br label %X509V3_EXT_d2i.exit
 
 X509V3_EXT_d2i.exit:                              ; preds = %40, %49, %53
-  %.0.i = phi ptr [ %57, %53 ], [ %52, %49 ], [ null, %40 ]
+  %.0.i = phi ptr [ %52, %49 ], [ %57, %53 ], [ null, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %60
 
@@ -591,7 +591,7 @@ X509V3_EXT_d2i.exit:                              ; preds = %40, %49, %53
   br label %60
 
 60:                                               ; preds = %58, %59, %.split.us, %32, %8, %9, %X509V3_EXT_d2i.exit
-  %.033 = phi ptr [ %.0.i, %X509V3_EXT_d2i.exit ], [ null, %.split.us ], [ null, %8 ], [ null, %9 ], [ null, %32 ], [ null, %59 ], [ null, %58 ]
+  %.033 = phi ptr [ %.0.i, %X509V3_EXT_d2i.exit ], [ null, %9 ], [ null, %8 ], [ null, %32 ], [ null, %.split.us ], [ null, %59 ], [ null, %58 ]
   ret ptr %.033
 }
 
@@ -666,7 +666,7 @@ define range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %0, i32 
   br label %44
 
 .thread61:                                        ; preds = %.thread, %.thread57
-  %28 = phi ptr [ %20, %.thread ], [ %21, %.thread57 ]
+  %28 = phi ptr [ %21, %.thread57 ], [ %20, %.thread ]
   %29 = load ptr, ptr %0, align 8, !tbaa !24
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %34
@@ -713,7 +713,7 @@ define range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %0, i32 
   br label %44
 
 44:                                               ; preds = %41, %43, %23, %12, %11, %40, %36, %22, %16
-  %.0 = phi i32 [ 0, %22 ], [ 1, %36 ], [ 1, %11 ], [ 1, %16 ], [ -1, %12 ], [ %., %23 ], [ -1, %40 ], [ 0, %43 ], [ 0, %41 ]
+  %.0 = phi i32 [ 1, %16 ], [ -1, %40 ], [ 1, %36 ], [ 0, %22 ], [ 1, %11 ], [ -1, %12 ], [ %., %23 ], [ 0, %43 ], [ 0, %41 ]
   ret i32 %.0
 }
 

@@ -859,7 +859,7 @@ define hidden void @_ZN4gpui3app10AppContext10set_global17hc3a1c8af6ea27503E.llv
   ret void
 
 "_ZN4core3ptr70drop_in_place$LT$snippet_provider..registry..GlobalSnippetRegistry$GT$17h572f578bb347af58E.exit8": ; preds = %38, %46, %17, %13, %47, %51
-  %eh.lpad-body11 = phi { ptr, i32 } [ %48, %47 ], [ %39, %38 ], [ %48, %51 ], [ %14, %17 ], [ %14, %13 ], [ %39, %46 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %48, %51 ], [ %48, %47 ], [ %14, %13 ], [ %14, %17 ], [ %39, %46 ], [ %39, %38 ]
   resume { ptr, i32 } %eh.lpad-body11
 
 47:                                               ; preds = %2
@@ -1875,8 +1875,8 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   br i1 %or.cond5.i, label %229, label %.thread.i
 
 62:                                               ; preds = %209, %172, %123, %115, %69, %55
-  %.sroa.08.0.i = phi i1 [ false, %209 ], [ false, %172 ], [ true, %123 ], [ true, %115 ], [ true, %69 ], [ true, %55 ]
-  %.sroa.0.0.i = phi i1 [ true, %209 ], [ false, %172 ], [ true, %123 ], [ true, %115 ], [ true, %69 ], [ true, %55 ]
+  %.sroa.08.0.i = phi i1 [ true, %115 ], [ true, %55 ], [ true, %69 ], [ true, %123 ], [ false, %172 ], [ false, %209 ]
+  %.sroa.0.0.i = phi i1 [ true, %115 ], [ true, %55 ], [ true, %69 ], [ true, %123 ], [ false, %172 ], [ true, %209 ]
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -2050,8 +2050,8 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
           to label %137 unwind label %135, !noalias !399
 
 .body17:                                          ; preds = %135, %153, %207, %159, %156
-  %.pn17.i = phi { ptr, i32 } [ %157, %156 ], [ %208, %207 ], [ %160, %159 ], [ %136, %135 ], [ %154, %153 ]
-  %.sroa.0.3.i = phi i1 [ true, %156 ], [ false, %207 ], [ false, %159 ], [ true, %135 ], [ true, %153 ]
+  %.pn17.i = phi { ptr, i32 } [ %208, %207 ], [ %160, %159 ], [ %157, %156 ], [ %136, %135 ], [ %154, %153 ]
+  %.sroa.0.3.i = phi i1 [ false, %207 ], [ false, %159 ], [ true, %156 ], [ true, %135 ], [ true, %153 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb299dd3a0e6f6d25E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #28
           to label %.thread.i unwind label %195, !noalias !399
 
@@ -2339,8 +2339,8 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   br label %"_ZN16snippet_provider15process_updates28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h242393e0cbbc2813E.exit"
 
 .thread.i:                                        ; preds = %229, %.body17, %.body.i.i
-  %.sroa.0.127.i = phi i1 [ %.sroa.0.0.lpad-body.i, %.body.i.i ], [ %.sroa.0.0.lpad-body.i, %229 ], [ %.sroa.0.3.i, %.body17 ]
-  %.pn1926.i = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i.i ], [ %eh.lpad-body.i, %229 ], [ %.pn17.i, %.body17 ]
+  %.sroa.0.127.i = phi i1 [ %.sroa.0.0.lpad-body.i, %229 ], [ %.sroa.0.0.lpad-body.i, %.body.i.i ], [ %.sroa.0.3.i, %.body17 ]
+  %.pn1926.i = phi { ptr, i32 } [ %eh.lpad-body.i, %229 ], [ %eh.lpad-body.i, %.body.i.i ], [ %.pn17.i, %.body17 ]
   br i1 %.sroa.0.127.i, label %230, label %.body
 
 229:                                              ; preds = %.body.i.i
@@ -2357,7 +2357,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   br label %.body
 
 .body:                                            ; preds = %193, %.thread.i, %230, %231
-  %eh.lpad-body = phi { ptr, i32 } [ %232, %231 ], [ %194, %193 ], [ %.pn1926.i, %230 ], [ %.pn1926.i, %.thread.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %232, %231 ], [ %.pn1926.i, %230 ], [ %.pn1926.i, %.thread.i ], [ %194, %193 ]
   %233 = getelementptr inbounds nuw i8, ptr %27, i64 16
   invoke void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he12876eb3d8a35c8E.llvm.9899833156714210745"(ptr noalias noundef nonnull align 8 dereferenceable(8) %233)
           to label %"_ZN4core3ptr100drop_in_place$LT$gpui..app..model_context..ModelContext$LT$snippet_provider..SnippetProvider$GT$$GT$17h9b73ce8df105efadE.exit.thread" unwind label %236
@@ -3266,7 +3266,7 @@ _ZN4gpui3app10AppContext10has_global17haab4db7178aaf4c6E.exit.i: ; preds = %_ZN4
   unreachable
 
 .thread.i:                                        ; preds = %106, %105, %97, %75, %58
-  %eh.lpad-body.i = phi { ptr, i32 } [ %59, %58 ], [ %98, %97 ], [ %107, %106 ], [ %76, %75 ], [ %98, %105 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %59, %58 ], [ %107, %106 ], [ %76, %75 ], [ %98, %105 ], [ %98, %97 ]
   %156 = atomicrmw sub ptr %60, i64 1 release, align 8, !noalias !696
   %157 = icmp eq i64 %156, 1
   br i1 %157, label %158, label %.noexc18.i
@@ -3431,7 +3431,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
           to label %"_ZN4core3ptr93drop_in_place$LT$snippet_provider..GlobalSnippetWatcher..new..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2e60c9d2c12b3b25E.exit10" unwind label %30
 
 "_ZN4core3ptr93drop_in_place$LT$snippet_provider..GlobalSnippetWatcher..new..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2e60c9d2c12b3b25E.exit10": ; preds = %32, %33, %37
-  %.pn.pn13 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %.pn.ph, %32 ]
+  %.pn.pn13 = phi { ptr, i32 } [ %34, %37 ], [ %34, %33 ], [ %.pn.ph, %32 ]
   resume { ptr, i32 } %.pn.pn13
 
 33:                                               ; preds = %4
@@ -3632,7 +3632,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hf36041
           to label %47 unwind label %25
 
 .thread:                                          ; preds = %30, %32, %28, %27
-  %.sroa.01.0 = phi ptr [ %7, %27 ], [ %7, %28 ], [ %34, %32 ], [ inttoptr (i64 8 to ptr), %30 ]
+  %.sroa.01.0 = phi ptr [ %7, %28 ], [ %7, %27 ], [ %34, %32 ], [ inttoptr (i64 8 to ptr), %30 ]
   store i64 %11, ptr %0, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.01.0, ptr %37, align 8

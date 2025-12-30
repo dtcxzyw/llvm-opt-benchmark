@@ -396,9 +396,9 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %88, %200, %.thread
-  %201 = phi i8 [ %152, %.thread ], [ %152, %200 ], [ %89, %88 ]
-  %202 = phi i64 [ %151, %.thread ], [ %151, %200 ], [ %90, %88 ]
-  %203 = phi ptr [ %150, %.thread ], [ %150, %200 ], [ null, %88 ]
+  %201 = phi i8 [ %152, %200 ], [ %152, %.thread ], [ %89, %88 ]
+  %202 = phi i64 [ %151, %200 ], [ %151, %.thread ], [ %90, %88 ]
+  %203 = phi ptr [ %150, %200 ], [ %150, %.thread ], [ null, %88 ]
   %204 = load volatile i64, ptr %19, align 8
   %205 = and i64 %204, 8
   %206 = icmp eq i64 %205, 0
@@ -637,7 +637,7 @@ define dso_local void @netfs_readahead(ptr noundef %0) #0 align 16 {
   br label %71
 
 71:                                               ; preds = %68, %61
-  %72 = phi i32 [ 1, %61 ], [ %70, %68 ]
+  %72 = phi i32 [ %70, %68 ], [ 1, %61 ]
   store i32 %72, ptr %50, align 4
   %73 = icmp eq ptr %64, null
   br i1 %73, label %.loopexit, label %74
@@ -1578,7 +1578,7 @@ define dso_local i32 @netfs_write_begin(ptr noundef readonly captures(none) %0, 
   br label %287
 
 287:                                              ; preds = %284, %277
-  %288 = phi i32 [ 1, %277 ], [ %286, %284 ]
+  %288 = phi i32 [ %286, %284 ], [ 1, %277 ]
   store i32 %288, ptr %16, align 4
   %289 = icmp eq ptr %280, null
   br i1 %289, label %.loopexit, label %290

@@ -49,7 +49,7 @@ define noundef ptr @"_ZN9quinn_udp4cmsg3imp96_$LT$impl$u20$quinn_udp..cmsg..MsgH
   br label %_ZN4libc4unix10linux_like5linux11CMSG_NXTHDR17h09b6c777e63fa11bE.exit
 
 _ZN4libc4unix10linux_like5linux11CMSG_NXTHDR17h09b6c777e63fa11bE.exit: ; preds = %2, %18, %24
-  %.sroa.0.0.i = phi ptr [ %12, %18 ], [ null, %24 ], [ null, %2 ]
+  %.sroa.0.0.i = phi ptr [ null, %24 ], [ %12, %18 ], [ null, %2 ]
   ret ptr %.sroa.0.0.i
 }
 

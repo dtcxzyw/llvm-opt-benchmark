@@ -79,7 +79,7 @@ define internal range(i32 0, 101) i32 @vivo_probe(ptr noundef readonly captures(
   br label %29
 
 29:                                               ; preds = %25, %22, %17, %1
-  %.021 = phi i32 [ %spec.select, %25 ], [ 0, %1 ], [ 0, %17 ], [ 0, %22 ]
+  %.021 = phi i32 [ 0, %1 ], [ 0, %17 ], [ 0, %22 ], [ %spec.select, %25 ]
   ret i32 %.021
 }
 
@@ -273,10 +273,10 @@ define internal range(i32 -1094995529, 1) i32 @vivo_read_header(ptr noundef %0) 
   br label %92
 
 92:                                               ; preds = %90, %59, %69, %80, %88, %84, %75, %63, %53
-  %.0113 = phi i1 [ false, %59 ], [ %.not133, %90 ], [ false, %88 ], [ false, %84 ], [ false, %80 ], [ false, %75 ], [ false, %69 ], [ false, %63 ], [ true, %53 ]
-  %.2112 = phi i64 [ %55, %59 ], [ %.1111.ph192, %90 ], [ %.1111.ph192, %88 ], [ %.1111.ph192, %84 ], [ %.1111.ph192, %80 ], [ %.1111.ph192, %75 ], [ %.1111.ph192, %69 ], [ %.1111.ph192, %63 ], [ %.1111.ph192, %53 ]
-  %.sroa.9.2 = phi i32 [ %.sroa.9.1.ph194, %59 ], [ %.sroa.9.1.ph194, %90 ], [ %.sroa.9.1.ph194, %88 ], [ %.sroa.9.1.ph194, %84 ], [ %81, %80 ], [ %.sroa.9.1.ph194, %75 ], [ %.sroa.9.1.ph194, %69 ], [ %.sroa.9.1.ph194, %63 ], [ %.sroa.9.1.ph194, %53 ]
-  %.sroa.074.2 = phi i32 [ %.sroa.074.1.ph195, %59 ], [ %.sroa.074.1.ph195, %90 ], [ %.sroa.074.1.ph195, %88 ], [ %.sroa.074.1.ph195, %84 ], [ %.sroa.074.1.ph195, %80 ], [ %77, %75 ], [ %.sroa.074.1.ph195, %69 ], [ %.sroa.074.1.ph195, %63 ], [ %.sroa.074.1.ph195, %53 ]
+  %.0113 = phi i1 [ false, %88 ], [ false, %84 ], [ false, %80 ], [ false, %75 ], [ false, %69 ], [ false, %63 ], [ true, %53 ], [ false, %59 ], [ %.not133, %90 ]
+  %.2112 = phi i64 [ %.1111.ph192, %88 ], [ %.1111.ph192, %84 ], [ %.1111.ph192, %80 ], [ %.1111.ph192, %75 ], [ %.1111.ph192, %69 ], [ %.1111.ph192, %63 ], [ %.1111.ph192, %53 ], [ %55, %59 ], [ %.1111.ph192, %90 ]
+  %.sroa.9.2 = phi i32 [ %.sroa.9.1.ph194, %88 ], [ %.sroa.9.1.ph194, %84 ], [ %81, %80 ], [ %.sroa.9.1.ph194, %75 ], [ %.sroa.9.1.ph194, %69 ], [ %.sroa.9.1.ph194, %63 ], [ %.sroa.9.1.ph194, %53 ], [ %.sroa.9.1.ph194, %59 ], [ %.sroa.9.1.ph194, %90 ]
+  %.sroa.074.2 = phi i32 [ %.sroa.074.1.ph195, %88 ], [ %.sroa.074.1.ph195, %84 ], [ %.sroa.074.1.ph195, %80 ], [ %77, %75 ], [ %.sroa.074.1.ph195, %69 ], [ %.sroa.074.1.ph195, %63 ], [ %.sroa.074.1.ph195, %53 ], [ %.sroa.074.1.ph195, %59 ], [ %.sroa.074.1.ph195, %90 ]
   %93 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0108179, ptr noundef nonnull dereferenceable(8) @.str.17) #11
   %.not134 = icmp eq i32 %93, 0
   br i1 %.not134, label %94, label %96
@@ -329,17 +329,17 @@ define internal range(i32 -1094995529, 1) i32 @vivo_read_header(ptr noundef %0) 
   %109 = call i32 @av_dict_set(ptr noundef nonnull %22, ptr noundef nonnull %.0108179, ptr noundef nonnull %54, i32 noundef 0) #10
   br label %.thread146
 
-.thread146:                                       ; preds = %94, %.thread, %108, %107
-  %.sroa.074.3152 = phi i32 [ %.sroa.074.2, %107 ], [ %.sroa.074.2, %108 ], [ %.sroa.074.2, %94 ], [ %.sroa.074.4.ph, %.thread ]
-  %.sroa.9.3151 = phi i32 [ %.sroa.9.2, %107 ], [ %.sroa.9.2, %108 ], [ %.sroa.9.2, %94 ], [ %.sroa.9.4.ph, %.thread ]
+.thread146:                                       ; preds = %.thread, %94, %108, %107
+  %.sroa.074.3152 = phi i32 [ %.sroa.074.2, %108 ], [ %.sroa.074.2, %107 ], [ %.sroa.074.4.ph, %.thread ], [ %.sroa.074.2, %94 ]
+  %.sroa.9.3151 = phi i32 [ %.sroa.9.2, %108 ], [ %.sroa.9.2, %107 ], [ %.sroa.9.4.ph, %.thread ], [ %.sroa.9.2, %94 ]
   %110 = load i8, ptr %47, align 1, !tbaa !11
   %.not123178 = icmp eq i8 %110, 0
   br i1 %.not123178, label %.outer154, label %.lr.ph180, !llvm.loop !42
 
 .outer154:                                        ; preds = %.thread146, %.backedge, %44, %30
-  %.1111.ph.lcssa = phi i64 [ %.1111.ph192, %.backedge ], [ %.0110.ph199, %30 ], [ %.1111.ph192, %44 ], [ %.2112, %.thread146 ]
-  %.sroa.9.1.ph.lcssa = phi i32 [ %.sroa.9.1.ph194, %.backedge ], [ %.sroa.9.0.ph200, %30 ], [ %.sroa.9.1.ph194, %44 ], [ %.sroa.9.3151, %.thread146 ]
-  %.sroa.074.1.ph.lcssa = phi i32 [ %.sroa.074.1.ph195, %.backedge ], [ %.sroa.074.0.ph201, %30 ], [ %.sroa.074.1.ph195, %44 ], [ %.sroa.074.3152, %.thread146 ]
+  %.1111.ph.lcssa = phi i64 [ %.0110.ph199, %30 ], [ %.1111.ph192, %44 ], [ %.1111.ph192, %.backedge ], [ %.2112, %.thread146 ]
+  %.sroa.9.1.ph.lcssa = phi i32 [ %.sroa.9.0.ph200, %30 ], [ %.sroa.9.1.ph194, %44 ], [ %.sroa.9.1.ph194, %.backedge ], [ %.sroa.9.3151, %.thread146 ]
+  %.sroa.074.1.ph.lcssa = phi i32 [ %.sroa.074.0.ph201, %30 ], [ %.sroa.074.1.ph195, %44 ], [ %.sroa.074.1.ph195, %.backedge ], [ %.sroa.074.3152, %.thread146 ]
   %111 = call fastcc i32 @vivo_get_packet_header(ptr noundef nonnull %0)
   %112 = icmp slt i32 %111, 0
   br i1 %112, label %.loopexit, label %.lr.ph
@@ -415,7 +415,7 @@ define internal range(i32 -1094995529, 1) i32 @vivo_read_header(ptr noundef %0) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer154, %37, %94, %10, %106, %1, %142
-  %.0 = phi i32 [ -12, %1 ], [ 0, %142 ], [ -1094995529, %106 ], [ %42, %37 ], [ -1094995529, %94 ], [ %14, %10 ], [ %111, %.outer154 ]
+  %.0 = phi i32 [ 0, %142 ], [ -1094995529, %106 ], [ -12, %1 ], [ %14, %10 ], [ -1094995529, %94 ], [ %42, %37 ], [ %111, %.outer154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -520,7 +520,7 @@ define internal range(i32 -2147483648, 1) i32 @vivo_read_packet(ptr noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %12, %49, %45, %43, %30, %.loopexit47, %.critedge, %26
-  %.037 = phi i32 [ 0, %.critedge ], [ -1094995529, %26 ], [ %31, %30 ], [ -541478725, %43 ], [ %28, %.loopexit47 ], [ %50, %49 ], [ %47, %45 ], [ %20, %16 ], [ -541478725, %12 ]
+  %.037 = phi i32 [ -1094995529, %26 ], [ 0, %.critedge ], [ %28, %.loopexit47 ], [ %31, %30 ], [ %50, %49 ], [ %47, %45 ], [ -541478725, %43 ], [ %20, %16 ], [ -541478725, %12 ]
   ret i32 %.037
 }
 
@@ -602,7 +602,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vivo_get_packet_header(ptr
   br label %33
 
 33:                                               ; preds = %19, %25, %.thread, %1, %32, %18
-  %.028 = phi i32 [ -541478725, %1 ], [ -1094995529, %18 ], [ -1094995529, %32 ], [ 0, %.thread ], [ 0, %25 ], [ 0, %19 ]
+  %.028 = phi i32 [ -1094995529, %18 ], [ -1094995529, %32 ], [ -541478725, %1 ], [ 0, %.thread ], [ 0, %25 ], [ 0, %19 ]
   ret i32 %.028
 }
 

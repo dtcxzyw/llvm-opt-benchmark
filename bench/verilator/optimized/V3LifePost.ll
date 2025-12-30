@@ -1021,7 +1021,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %38,
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25._crit_edge
 
 44:                                               ; preds = %26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
-  %.pn.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22 ], [ %27, %26 ]
   %45 = load ptr, ptr %1, align 8, !tbaa !5
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = icmp eq ptr %45, %46
@@ -1038,7 +1038,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %44,
   resume { ptr, i32 } %.pn.pn.pn
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25._crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %0
-  %.1 = phi i32 [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ], [ %5, %0 ]
+  %.1 = phi i32 [ %5, %0 ], [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   ret i32 %.1
 }
 
@@ -1742,11 +1742,11 @@ _ZNSt13unordered_mapIPK11AstVarScope16LifePostLocationSt4hashIS2_ESt8equal_toIS2
   %.pre33 = urem i64 %.pre32, %.pre
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.loopexit.loopexit, %..loopexit_crit_edge21.i.i.i.i, %20
-  %.pre-phi34 = phi i64 [ %24, %20 ], [ %.pre33, %.loopexit.loopexit ], [ %24, %..loopexit_crit_edge21.i.i.i.i ], [ %24, %.lr.ph.i.i.i.i ]
-  %.pre-phi = phi i64 [ %21, %20 ], [ %.pre32, %.loopexit.loopexit ], [ %21, %..loopexit_crit_edge21.i.i.i.i ], [ %21, %.lr.ph.i.i.i.i ]
-  %44 = phi ptr [ %25, %20 ], [ %.pre31, %.loopexit.loopexit ], [ %25, %..loopexit_crit_edge21.i.i.i.i ], [ %25, %.lr.ph.i.i.i.i ]
-  %45 = phi i64 [ %23, %20 ], [ %.pre, %.loopexit.loopexit ], [ %23, %..loopexit_crit_edge21.i.i.i.i ], [ %23, %.lr.ph.i.i.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.loopexit.loopexit, %20, %..loopexit_crit_edge21.i.i.i.i
+  %.pre-phi34 = phi i64 [ %.pre33, %.loopexit.loopexit ], [ %24, %20 ], [ %24, %..loopexit_crit_edge21.i.i.i.i ], [ %24, %.lr.ph.i.i.i.i ]
+  %.pre-phi = phi i64 [ %.pre32, %.loopexit.loopexit ], [ %21, %20 ], [ %21, %..loopexit_crit_edge21.i.i.i.i ], [ %21, %.lr.ph.i.i.i.i ]
+  %44 = phi ptr [ %.pre31, %.loopexit.loopexit ], [ %25, %20 ], [ %25, %..loopexit_crit_edge21.i.i.i.i ], [ %25, %.lr.ph.i.i.i.i ]
+  %45 = phi i64 [ %.pre, %.loopexit.loopexit ], [ %23, %20 ], [ %23, %..loopexit_crit_edge21.i.i.i.i ], [ %23, %.lr.ph.i.i.i.i ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load ptr, ptr %46, align 8, !tbaa !145
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -1803,7 +1803,7 @@ _ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_16LifePostLocationESaIS6_ENSt8__det
   resume { ptr, i32 } %70
 
 _ZNSt13unordered_mapIPK11AstVarScope16LifePostLocationSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEixERS9_.exit: ; preds = %58, %53, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %69, %.loopexit.i.i ], [ %54, %53 ], [ %60, %58 ]
+  %.pn.i.i = phi ptr [ %54, %53 ], [ %69, %.loopexit.i.i ], [ %60, %58 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store ptr %47, ptr %.1.i.i, align 8, !tbaa !152
   %.sroa.4.0..1.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
@@ -3158,7 +3158,7 @@ _ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4
   br label %_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i: ; preds = %85, %83, %80, %64
-  %90 = phi i1 [ false, %83 ], [ true, %64 ], [ %89, %85 ], [ true, %80 ]
+  %90 = phi i1 [ true, %64 ], [ %89, %85 ], [ true, %80 ], [ false, %83 ]
   %91 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !201
@@ -3302,7 +3302,7 @@ _ZNSt13unordered_mapIPK11AstVarScopeSt3setI12LifeLocationSt4lessIS4_ESaIS4_EESt4
   br label %_ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i26
 
 _ZNSt8_Rb_treeI12LifeLocationS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i26: ; preds = %153, %151, %148, %132
-  %158 = phi i1 [ false, %151 ], [ true, %132 ], [ %157, %153 ], [ true, %148 ]
+  %158 = phi i1 [ true, %132 ], [ %157, %153 ], [ true, %148 ], [ false, %151 ]
   %159 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !201
@@ -4827,7 +4827,7 @@ _ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit12.i: ; preds = %.lr.ph.i
   %.not.i63 = icmp eq ptr %183, %160
   br i1 %.not.i63, label %.loopexit113, label %.lr.ph.i
 
-.loopexit113:                                     ; preds = %182, %167, %161, %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i, %171
+.loopexit113:                                     ; preds = %182, %161, %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i, %167, %171
   %184 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.091.0138) #25
   %.not110 = icmp eq ptr %184, %158
   br i1 %.not110, label %_ZN18LifePostDlyVisitor19outsideCriticalAreaE12LifeLocationRKSt3setIS0_St4lessIS0_ESaIS0_EES0_.exit.thread104, label %161, !llvm.loop !232
@@ -4968,7 +4968,7 @@ _ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit12.i80: ; preds = %.lr.ph
   %.not.i82 = icmp eq ptr %240, %217
   br i1 %.not.i82, label %.loopexit, label %.lr.ph.i78
 
-.loopexit:                                        ; preds = %239, %224, %218, %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i76, %228
+.loopexit:                                        ; preds = %239, %218, %_ZN18LifePostDlyVisitor6beforeERK12LifeLocationS2_.exit.i76, %224, %228
   %241 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.087.0140) #25
   %.not111 = icmp eq ptr %241, %215
   br i1 %.not111, label %._crit_edge, label %218, !llvm.loop !233

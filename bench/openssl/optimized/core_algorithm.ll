@@ -146,7 +146,7 @@ define internal range(i32 0, 2) i32 @algorithm_do_this(ptr noundef %0, ptr nound
   br i1 %.not34.i, label %.sink.split.i, label %algorithm_do_map.exit
 
 .sink.split.i:                                    ; preds = %35, %.loopexit.i, %25, %22
-  %.sink.i = phi i32 [ 1, %25 ], [ 1, %.loopexit.i ], [ -1, %22 ], [ -1, %35 ]
+  %.sink.i = phi i32 [ -1, %22 ], [ 1, %25 ], [ 1, %.loopexit.i ], [ -1, %35 ]
   store i32 %.sink.i, ptr %3, align 4, !tbaa !18
   br label %algorithm_do_map.exit
 

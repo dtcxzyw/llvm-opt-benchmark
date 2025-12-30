@@ -244,9 +244,9 @@ _ZL11TestBuiltinP8_IO_FILE.exit.thread6:          ; preds = %15
   br label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.i
 
 _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.i:             ; preds = %79, %.noexc.i, %70
-  %.sroa.31.5.i = phi ptr [ %75, %79 ], [ %75, %.noexc.i ], [ null, %70 ]
-  %.sroa.0130.7.i = phi ptr [ %74, %79 ], [ %74, %.noexc.i ], [ null, %70 ]
-  %.0.i.i.i.i.i.i = phi ptr [ %75, %79 ], [ %76, %.noexc.i ], [ null, %70 ]
+  %.sroa.31.5.i = phi ptr [ %75, %.noexc.i ], [ %75, %79 ], [ null, %70 ]
+  %.sroa.0130.7.i = phi ptr [ %74, %.noexc.i ], [ %74, %79 ], [ null, %70 ]
+  %.0.i.i.i.i.i.i = phi ptr [ %76, %.noexc.i ], [ %75, %79 ], [ null, %70 ]
   %80 = invoke i32 @ECDSA_sign(i32 noundef 0, ptr noundef nonnull %1, i64 noundef 20, ptr noundef %.sroa.0130.7.i, ptr noundef nonnull %6, ptr noundef nonnull %33)
           to label %81 unwind label %88
 
@@ -269,7 +269,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.i:             ; preds = %79, %.noexc.i, %70
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit129.i
 
 88:                                               ; preds = %144, %137, %130, %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.i
-  %.sroa.0130.4.i = phi ptr [ %.sroa.0130.7.i, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.i ], [ %.sroa.0130.8.i, %144 ], [ %.sroa.0130.8.i, %137 ], [ %.sroa.0130.8.i, %130 ], [ %.sroa.0130.8.i, %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i ], [ %.sroa.0130.7.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.sroa.0130.4.i = phi ptr [ %.sroa.0130.8.i, %144 ], [ %.sroa.0130.8.i, %137 ], [ %.sroa.0130.8.i, %130 ], [ %.sroa.0130.8.i, %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i ], [ %.sroa.0130.7.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i ], [ %.sroa.0130.7.i, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.i ]
   %89 = landingpad { ptr, i32 }
           cleanup
   br label %219
@@ -600,7 +600,7 @@ _ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit
   unreachable
 
 _ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i: ; preds = %211, %210
-  %.179188.i = phi i32 [ %.179192.i, %211 ], [ %.381.i, %210 ]
+  %.179188.i = phi i32 [ %.381.i, %210 ], [ %.179192.i, %211 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   switch i32 %.179188.i, label %_ZL11TestBuiltinP8_IO_FILE.exit [
     i32 0, label %216
@@ -1066,7 +1066,7 @@ _ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit: ; preds = %_ZNSt10
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %.thread
 
 .thread:                                          ; preds = %78, %71, %76, %42, %47, %_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit, %_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit.thread, %80
-  %.120 = phi i1 [ false, %80 ], [ %79, %78 ], [ false, %76 ], [ false, %_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit.thread ], [ false, %47 ], [ false, %_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit ], [ false, %42 ], [ false, %71 ]
+  %.120 = phi i1 [ false, %80 ], [ %79, %78 ], [ false, %_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit.thread ], [ false, %71 ], [ false, %76 ], [ false, %42 ], [ false, %47 ], [ false, %_ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.01.0) #17
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
@@ -1082,7 +1082,7 @@ _ZL14VerifyECDSASig3ApiPKhmPK12ecdsa_sig_stP9ec_key_sti.exit: ; preds = %_ZNSt10
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit53
 
 _ZNSt6vectorIhSaIhEED2Ev.exit53:                  ; preds = %.body.thread, %.body
-  %.pn.pn = phi { ptr, i32 } [ %.pn24, %.body.thread ], [ %81, %.body ]
+  %.pn.pn = phi { ptr, i32 } [ %81, %.body ], [ %.pn24, %.body.thread ]
   resume { ptr, i32 } %.pn.pn
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %.thread, %80, %5
@@ -1274,7 +1274,7 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit18:  ; preds = %16, %18
   br label %23
 
 23:                                               ; preds = %.critedge, %21
-  %.1 = phi i1 [ false, %.critedge ], [ %22, %21 ]
+  %.1 = phi i1 [ %22, %21 ], [ false, %.critedge ]
   ret i1 %.1
 }
 

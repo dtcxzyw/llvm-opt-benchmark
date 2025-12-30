@@ -999,7 +999,7 @@ _ZN11OpenImageIO6v3_1_08farmhash10farmhashuo6Hash64EPKcm.exit: ; preds = %268
   br label %_ZN11OpenImageIO6v3_1_08farmhash10farmhashna12HashLen0to16EPKcm.exit
 
 _ZN11OpenImageIO6v3_1_08farmhash10farmhashna12HashLen0to16EPKcm.exit: ; preds = %54, %53, %33, %8, %_ZN11OpenImageIO6v3_1_08farmhash10farmhashuo6Hash64EPKcm.exit, %270, %173, %109, %75
-  %.0 = phi i64 [ %272, %_ZN11OpenImageIO6v3_1_08farmhash10farmhashuo6Hash64EPKcm.exit ], [ %106, %75 ], [ %170, %109 ], [ %267, %173 ], [ %271, %270 ], [ %30, %8 ], [ %52, %33 ], [ %74, %54 ], [ -7286425919675154353, %53 ]
+  %.0 = phi i64 [ %106, %75 ], [ %170, %109 ], [ %267, %173 ], [ %271, %270 ], [ %272, %_ZN11OpenImageIO6v3_1_08farmhash10farmhashuo6Hash64EPKcm.exit ], [ %30, %8 ], [ %52, %33 ], [ %74, %54 ], [ -7286425919675154353, %53 ]
   ret i64 %.0
 }
 
@@ -1374,7 +1374,7 @@ define linkonce_odr hidden noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash10farmha
   br label %_ZN11OpenImageIO6v3_1_08farmhash10farmhashna12HashLen0to16EPKcm.exit
 
 _ZN11OpenImageIO6v3_1_08farmhash10farmhashna12HashLen0to16EPKcm.exit: ; preds = %54, %53, %33, %8, %234, %109, %75
-  %.0 = phi i64 [ %332, %234 ], [ %106, %75 ], [ %171, %109 ], [ %30, %8 ], [ %52, %33 ], [ %74, %54 ], [ -7286425919675154353, %53 ]
+  %.0 = phi i64 [ %106, %75 ], [ %171, %109 ], [ %332, %234 ], [ %30, %8 ], [ %52, %33 ], [ %74, %54 ], [ -7286425919675154353, %53 ]
   ret i64 %.0
 }
 

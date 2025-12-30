@@ -204,13 +204,13 @@ define internal void @_ZN12_GLOBAL__N_17LogPass7executeESt6vectorINSt7__cxx1112b
   br i1 %51, label %52, label %._crit_edge.loopexit
 
 52:                                               ; preds = %47, %42, %37, %32, %27, %22, %.lr.ph
-  %.145 = phi i1 [ %.04467, %42 ], [ true, %.lr.ph ], [ %.04467, %22 ], [ %.04467, %27 ], [ %.04467, %32 ], [ %.04467, %37 ], [ %.04467, %47 ]
-  %.143 = phi i1 [ %.04268, %42 ], [ %.04268, %.lr.ph ], [ true, %22 ], [ %.04268, %27 ], [ %.04268, %32 ], [ %.04268, %37 ], [ %.04268, %47 ]
-  %.141 = phi i1 [ %.04069, %42 ], [ %.04069, %.lr.ph ], [ %.04069, %22 ], [ false, %27 ], [ %.04069, %32 ], [ %.04069, %37 ], [ %.04069, %47 ]
-  %.139 = phi i1 [ %.03870, %42 ], [ %.03870, %.lr.ph ], [ %.03870, %22 ], [ %.03870, %27 ], [ false, %32 ], [ %.03870, %37 ], [ %.03870, %47 ]
-  %.137 = phi i1 [ %.03671, %42 ], [ %.03671, %.lr.ph ], [ %.03671, %22 ], [ %.03671, %27 ], [ %.03671, %32 ], [ true, %37 ], [ %.03671, %47 ]
-  %.135 = phi i1 [ true, %42 ], [ %.03472, %.lr.ph ], [ %.03472, %22 ], [ %.03472, %27 ], [ %.03472, %32 ], [ %.03472, %37 ], [ %.03472, %47 ]
-  %.133 = phi i1 [ %.03273, %42 ], [ %.03273, %.lr.ph ], [ %.03273, %22 ], [ %.03273, %27 ], [ %.03273, %32 ], [ %.03273, %37 ], [ true, %47 ]
+  %.145 = phi i1 [ true, %.lr.ph ], [ %.04467, %22 ], [ %.04467, %27 ], [ %.04467, %32 ], [ %.04467, %37 ], [ %.04467, %42 ], [ %.04467, %47 ]
+  %.143 = phi i1 [ %.04268, %.lr.ph ], [ true, %22 ], [ %.04268, %27 ], [ %.04268, %32 ], [ %.04268, %37 ], [ %.04268, %42 ], [ %.04268, %47 ]
+  %.141 = phi i1 [ %.04069, %.lr.ph ], [ %.04069, %22 ], [ false, %27 ], [ %.04069, %32 ], [ %.04069, %37 ], [ %.04069, %42 ], [ %.04069, %47 ]
+  %.139 = phi i1 [ %.03870, %.lr.ph ], [ %.03870, %22 ], [ %.03870, %27 ], [ false, %32 ], [ %.03870, %37 ], [ %.03870, %42 ], [ %.03870, %47 ]
+  %.137 = phi i1 [ %.03671, %.lr.ph ], [ %.03671, %22 ], [ %.03671, %27 ], [ %.03671, %32 ], [ true, %37 ], [ %.03671, %42 ], [ %.03671, %47 ]
+  %.135 = phi i1 [ %.03472, %.lr.ph ], [ %.03472, %22 ], [ %.03472, %27 ], [ %.03472, %32 ], [ %.03472, %37 ], [ true, %42 ], [ %.03472, %47 ]
+  %.133 = phi i1 [ %.03273, %.lr.ph ], [ %.03273, %22 ], [ %.03273, %27 ], [ %.03273, %32 ], [ %.03273, %37 ], [ %.03273, %42 ], [ true, %47 ]
   %53 = add nuw i64 %.074, 1
   %54 = load ptr, ptr %9, align 8, !tbaa !16
   %55 = load ptr, ptr %1, align 8, !tbaa !19
@@ -425,7 +425,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
   br label %.body
 
 .body:                                            ; preds = %127, %100, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51, %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51 ], [ %126, %125 ], [ %101, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %101, %100 ], [ %lpad.phi, %127 ]
+  %.pn = phi { ptr, i32 } [ %126, %125 ], [ %101, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %lpad.phi, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51 ], [ %101, %100 ], [ %lpad.phi, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %157
 

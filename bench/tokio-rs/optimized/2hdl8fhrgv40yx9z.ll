@@ -1315,7 +1315,7 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$tokio_util..sync..cancellati
   unreachable
 
 common.resume:                                    ; preds = %4, %6, %10
-  %common.resume.op = phi { ptr, i32 } [ %7, %6 ], [ %7, %10 ], [ %5, %4 ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %10 ], [ %7, %6 ], [ %5, %4 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$tokio_util..sync..cancellation_token..CancellationToken$GT$$GT$17h171d825c5562f3ffE.llvm.7545075396174394512.exit": ; preds = %1, %"_ZN97_$LT$tokio_util..sync..cancellation_token..CancellationToken$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha5b48df046f807baE.exit.i.i", %13

@@ -2490,7 +2490,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit220
   ret void
 
 859:                                              ; preds = %269, %613, %834, %734, %167, %56
-  %.pn67.pn.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %.pn.pn, %167 ], [ %.pn59.pn.pn, %613 ], [ %270, %269 ], [ %.pn67.pn, %834 ], [ %735, %734 ]
+  %.pn67.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %167 ], [ %57, %56 ], [ %270, %269 ], [ %.pn59.pn.pn, %613 ], [ %.pn67.pn, %834 ], [ %735, %734 ]
   call void @_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   resume { ptr, i32 } %.pn67.pn.pn.pn.pn

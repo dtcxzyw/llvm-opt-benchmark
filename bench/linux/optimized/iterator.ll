@@ -468,7 +468,7 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
   unreachable
 
 .thread20:                                        ; preds = %35, %40, %.thread20.loopexit, %.thread, %183, %19
-  %186 = phi i64 [ %184, %183 ], [ 0, %.thread ], [ 0, %19 ], [ 0, %40 ], [ %69, %.thread20.loopexit ], [ 0, %35 ]
+  %186 = phi i64 [ %184, %183 ], [ 0, %19 ], [ 0, %.thread ], [ 0, %40 ], [ %69, %.thread20.loopexit ], [ 0, %35 ]
   ret i64 %186
 }
 

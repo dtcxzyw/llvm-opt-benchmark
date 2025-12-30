@@ -191,7 +191,7 @@ Gia_ObjFanin2.exit.i:                             ; preds = %51, %48
   br label %Gia_ObjWhatFanin.exit
 
 Gia_ObjWhatFanin.exit:                            ; preds = %36, %42, %Gia_ObjFanin2.exit.i
-  %.0.i = phi i32 [ 1, %42 ], [ 0, %36 ], [ %..i, %Gia_ObjFanin2.exit.i ]
+  %.0.i = phi i32 [ 0, %36 ], [ 1, %42 ], [ %..i, %Gia_ObjFanin2.exit.i ]
   %60 = shl i32 %.pre-phi68, 1
   %61 = or i32 %.0.i, %60
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -321,7 +321,7 @@ Gia_ObjFanin2.exit.i:                             ; preds = %24, %21
   br label %Gia_ObjWhatFanin.exit
 
 Gia_ObjWhatFanin.exit:                            ; preds = %3, %15, %Gia_ObjFanin2.exit.i
-  %.0.i = phi i32 [ 1, %15 ], [ 0, %3 ], [ %..i, %Gia_ObjFanin2.exit.i ]
+  %.0.i = phi i32 [ 0, %3 ], [ 1, %15 ], [ %..i, %Gia_ObjFanin2.exit.i ]
   %33 = shl i32 %9, 1
   %34 = or i32 %.0.i, %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -522,7 +522,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %1
   br label %Vec_IntStart.exit
 
 Vec_IntStart.exit:                                ; preds = %1, %Vec_IntAlloc.exit.i, %16
-  %19 = phi ptr [ %15, %16 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %1 ]
+  %19 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %15, %16 ], [ null, %1 ]
   %20 = icmp sgt i32 %.val, 0
   br i1 %20, label %.lr.ph, label %.critedge2
 
@@ -713,8 +713,8 @@ Vec_IntAlloc.exit.thread:                         ; preds = %2
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %24, %Vec_IntAlloc.exit
-  %27 = phi ptr [ %10, %Vec_IntAlloc.exit ], [ %26, %24 ]
-  %28 = phi ptr [ %11, %Vec_IntAlloc.exit ], [ %25, %24 ]
+  %27 = phi ptr [ %26, %24 ], [ %10, %Vec_IntAlloc.exit ]
+  %28 = phi ptr [ %25, %24 ], [ %11, %Vec_IntAlloc.exit ]
   %29 = icmp sgt i32 %.val, 0
   br i1 %29, label %Vec_IntFill.exit, label %Vec_IntFill.exit.thread
 
@@ -894,7 +894,7 @@ Vec_IntAlloc.exit.i112:                           ; preds = %26
   br label %Vec_IntStart.exit115
 
 Vec_IntStart.exit115:                             ; preds = %26, %Vec_IntAlloc.exit.i112, %31
-  %34 = phi ptr [ %30, %31 ], [ null, %Vec_IntAlloc.exit.i112 ], [ null, %26 ]
+  %34 = phi ptr [ null, %Vec_IntAlloc.exit.i112 ], [ %30, %31 ], [ null, %26 ]
   %35 = icmp sgt i32 %.val84, 1
   br i1 %35, label %.lr.ph126, label %.preheader
 

@@ -319,7 +319,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
   br label %.body18
 
 .body18:                                          ; preds = %102, %98, %83, %34
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %84, %83 ], [ %.pn.pn.pn.pn, %98 ], [ %.pn.pn.pn.pn, %102 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %35, %34 ], [ %.pn.pn.pn.pn, %98 ], [ %.pn.pn.pn.pn, %102 ]
   %106 = load ptr, ptr %28, align 8
   %107 = ptrtoint ptr %106 to i64
   %108 = and i64 %107, 7
@@ -346,7 +346,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit32: ; preds = %.body18, %1
   br label %.body
 
 .body:                                            ; preds = %116, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit32, %6
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %7, %6 ], [ %.pn.pn.pn.pn.pn, %116 ], [ %.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit32 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %7, %6 ], [ %.pn.pn.pn.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit32 ], [ %.pn.pn.pn.pn.pn, %116 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 }
 
@@ -2379,15 +2379,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit45: ; preds = %_ZNK32pxrIn
   ret i64 %.016
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25.sink.split: ; preds = %.body41, %.body31, %.body
-  %.sroa.0.0.sink = phi i64 [ %.sroa.061.0.fr, %.body31 ], [ %.sroa.064.0, %.body ], [ %.sroa.0.0, %.body41 ]
-  %.pn.ph = phi { ptr, i32 } [ %eh.lpad-body32, %.body31 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body42, %.body41 ]
+  %.sroa.0.0.sink = phi i64 [ %.sroa.064.0, %.body ], [ %.sroa.061.0.fr, %.body31 ], [ %.sroa.0.0, %.body41 ]
+  %.pn.ph = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body32, %.body31 ], [ %eh.lpad-body42, %.body41 ]
   %134 = and i64 %.sroa.0.0.sink, -8
   %135 = inttoptr i64 %134 to ptr
   %136 = atomicrmw sub ptr %135, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25.sink.split, %.body41, %.body31, %.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body32, %.body31 ], [ %eh.lpad-body42, %.body41 ], [ %eh.lpad-body, %.body ], [ %.pn.ph, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25.sink.split ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body32, %.body31 ], [ %eh.lpad-body42, %.body41 ], [ %.pn.ph, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25.sink.split ]
   resume { ptr, i32 } %.pn
 }
 

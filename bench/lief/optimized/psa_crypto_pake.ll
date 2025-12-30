@@ -160,16 +160,16 @@ define hidden i32 @mbedtls_psa_pake_setup(ptr noundef %0, ptr noundef %1) local_
   br label %74
 
 72:                                               ; preds = %38, %55, %66, %64, %68, %43, %26, %22, %17, %35, %32, %30
-  %.060 = phi ptr [ %24, %55 ], [ null, %17 ], [ null, %22 ], [ %24, %30 ], [ %24, %32 ], [ %24, %35 ], [ %24, %26 ], [ %24, %43 ], [ %24, %68 ], [ %24, %64 ], [ %24, %66 ], [ %24, %38 ]
-  %.059 = phi ptr [ %28, %55 ], [ null, %17 ], [ null, %22 ], [ %28, %30 ], [ %28, %32 ], [ %28, %35 ], [ null, %26 ], [ %28, %43 ], [ %28, %68 ], [ %28, %64 ], [ %28, %66 ], [ %28, %38 ]
-  %.057 = phi i32 [ -134, %55 ], [ -141, %17 ], [ -141, %22 ], [ %31, %30 ], [ %34, %32 ], [ %37, %35 ], [ -141, %26 ], [ -134, %43 ], [ %71, %68 ], [ -134, %64 ], [ -134, %66 ], [ -134, %38 ]
+  %.060 = phi ptr [ %24, %30 ], [ %24, %32 ], [ %24, %35 ], [ null, %17 ], [ null, %22 ], [ %24, %26 ], [ %24, %43 ], [ %24, %68 ], [ %24, %64 ], [ %24, %66 ], [ %24, %55 ], [ %24, %38 ]
+  %.059 = phi ptr [ %28, %30 ], [ %28, %32 ], [ %28, %35 ], [ null, %17 ], [ null, %22 ], [ null, %26 ], [ %28, %43 ], [ %28, %68 ], [ %28, %64 ], [ %28, %66 ], [ %28, %55 ], [ %28, %38 ]
+  %.057 = phi i32 [ %31, %30 ], [ %34, %32 ], [ %37, %35 ], [ -141, %17 ], [ -141, %22 ], [ -141, %26 ], [ -134, %43 ], [ %71, %68 ], [ -134, %64 ], [ -134, %66 ], [ -134, %55 ], [ -134, %38 ]
   call void @free(ptr noundef %.060) #8
   call void @free(ptr noundef %.059) #8
   %73 = call i32 @mbedtls_psa_pake_abort(ptr noundef nonnull %0)
   br label %74
 
 74:                                               ; preds = %.critedge, %15, %13, %11, %2, %72
-  %.0 = phi i32 [ 0, %.critedge ], [ %10, %2 ], [ %12, %11 ], [ %14, %13 ], [ %.057, %72 ], [ %16, %15 ]
+  %.0 = phi i32 [ %.057, %72 ], [ %10, %2 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -242,7 +242,7 @@ mbedtls_ecjpake_to_psa_error.exit.fold.split:     ; preds = %1, %1, %1, %1
   br label %mbedtls_ecjpake_to_psa_error.exit
 
 mbedtls_ecjpake_to_psa_error.exit:                ; preds = %1, %mbedtls_ecjpake_to_psa_error.exit.fold.split, %15, %14, %13, %12
-  %.0 = phi i32 [ %9, %1 ], [ -132, %15 ], [ -151, %14 ], [ -138, %12 ], [ -134, %13 ], [ -153, %mbedtls_ecjpake_to_psa_error.exit.fold.split ]
+  %.0 = phi i32 [ %9, %1 ], [ -132, %15 ], [ -138, %12 ], [ -134, %13 ], [ -151, %14 ], [ -153, %mbedtls_ecjpake_to_psa_error.exit.fold.split ]
   ret i32 %.0
 }
 
@@ -403,7 +403,7 @@ define hidden range(i32 -153, 1) i32 @mbedtls_psa_pake_output(ptr noundef %0, i3
   br label %mbedtls_psa_pake_output_internal.exit
 
 mbedtls_psa_pake_output_internal.exit:            ; preds = %5, %9, %9, %9, %9, %14, %15, %16, %17, %18, %18, %18, %18, %23, %24, %25, %26, %34, %46, %48, %52
-  %.0.i = phi i32 [ -134, %5 ], [ 0, %52 ], [ -152, %34 ], [ -138, %46 ], [ -153, %9 ], [ 0, %48 ], [ -132, %17 ], [ -151, %16 ], [ -138, %14 ], [ -134, %15 ], [ -153, %9 ], [ -153, %9 ], [ -153, %9 ], [ -132, %26 ], [ -151, %25 ], [ -138, %23 ], [ -134, %24 ], [ -153, %18 ], [ -153, %18 ], [ -153, %18 ], [ -153, %18 ]
+  %.0.i = phi i32 [ -152, %34 ], [ -138, %46 ], [ 0, %48 ], [ 0, %52 ], [ -134, %5 ], [ -132, %17 ], [ -138, %14 ], [ -134, %15 ], [ -151, %16 ], [ -132, %26 ], [ -138, %23 ], [ -134, %24 ], [ -151, %25 ], [ -153, %9 ], [ -153, %9 ], [ -153, %9 ], [ -153, %9 ], [ -153, %18 ], [ -153, %18 ], [ -153, %18 ], [ -153, %18 ]
   ret i32 %.0.i
 }
 
@@ -530,7 +530,7 @@ define hidden range(i32 -153, 1) i32 @mbedtls_psa_pake_input(ptr noundef %0, i32
   br label %mbedtls_psa_pake_input_internal.exit
 
 mbedtls_psa_pake_input_internal.exit:             ; preds = %4, %13, %23, %29, %38, %41, %42, %43, %44, %45, %48, %49, %50, %51, %.critedge.fold.split.i, %.critedge.fold.split43.i
-  %.1.i = phi i32 [ -134, %4 ], [ %47, %45 ], [ -138, %23 ], [ -151, %50 ], [ -138, %13 ], [ %40, %38 ], [ 0, %29 ], [ -132, %44 ], [ -151, %43 ], [ -138, %41 ], [ -134, %42 ], [ -138, %48 ], [ -134, %49 ], [ -153, %.critedge.fold.split.i ], [ -132, %51 ], [ -153, %.critedge.fold.split43.i ]
+  %.1.i = phi i32 [ -138, %23 ], [ 0, %29 ], [ %47, %45 ], [ %40, %38 ], [ -134, %4 ], [ -138, %13 ], [ -132, %44 ], [ -138, %41 ], [ -134, %42 ], [ -151, %43 ], [ -132, %51 ], [ -138, %48 ], [ -134, %49 ], [ -151, %50 ], [ -153, %.critedge.fold.split.i ], [ -153, %.critedge.fold.split43.i ]
   ret i32 %.1.i
 }
 
@@ -571,7 +571,7 @@ mbedtls_ecjpake_to_psa_error.exit.fold.split:     ; preds = %7, %7, %7, %7
   br label %mbedtls_ecjpake_to_psa_error.exit
 
 mbedtls_ecjpake_to_psa_error.exit:                ; preds = %7, %mbedtls_ecjpake_to_psa_error.exit.fold.split, %13, %12, %11, %10, %4
-  %.0 = phi i32 [ -134, %4 ], [ %9, %7 ], [ -132, %13 ], [ -151, %12 ], [ -138, %10 ], [ -134, %11 ], [ -153, %mbedtls_ecjpake_to_psa_error.exit.fold.split ]
+  %.0 = phi i32 [ %9, %7 ], [ -134, %4 ], [ -132, %13 ], [ -138, %10 ], [ -134, %11 ], [ -151, %12 ], [ -153, %mbedtls_ecjpake_to_psa_error.exit.fold.split ]
   ret i32 %.0
 }
 

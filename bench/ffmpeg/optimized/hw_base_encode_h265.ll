@@ -72,9 +72,9 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h265(ptr noundef rea
   br label %32
 
 32:                                               ; preds = %24, %.fold.split, %27, %17
-  %33 = phi i8 [ 0, %27 ], [ 1, %17 ], [ %26, %24 ], [ 1, %.fold.split ]
-  %34 = phi i8 [ 0, %27 ], [ 1, %17 ], [ %26, %24 ], [ %26, %.fold.split ]
-  %.0292 = phi i8 [ 3, %27 ], [ 0, %17 ], [ %26, %24 ], [ 2, %.fold.split ]
+  %33 = phi i8 [ 1, %17 ], [ %26, %24 ], [ 0, %27 ], [ 1, %.fold.split ]
+  %34 = phi i8 [ 1, %17 ], [ %26, %24 ], [ 0, %27 ], [ %26, %.fold.split ]
+  %.0292 = phi i8 [ 0, %17 ], [ %26, %24 ], [ 3, %27 ], [ 2, %.fold.split ]
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %36 = load i32, ptr %35, align 8, !tbaa !29
   store i8 32, ptr %2, align 8, !tbaa !31

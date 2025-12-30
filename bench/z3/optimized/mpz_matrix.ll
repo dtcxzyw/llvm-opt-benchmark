@@ -86,9 +86,9 @@ define hidden void @_ZN18mpz_matrix_manager2mkEjjR10mpz_matrix(ptr noundef nonnu
   br label %._crit_edge22.i
 
 ._crit_edge22.i:                                  ; preds = %._crit_edge22.loopexit26.i, %.preheader.lr.ph.i, %.preheader19.i
-  %11 = phi ptr [ %6, %.preheader.lr.ph.i ], [ %.pre29.i, %._crit_edge22.loopexit26.i ], [ %6, %.preheader19.i ]
-  %12 = phi i32 [ 0, %.preheader.lr.ph.i ], [ %19, %._crit_edge22.loopexit26.i ], [ %.pre28.i, %.preheader19.i ]
-  %.lcssa.i = phi i32 [ %7, %.preheader.lr.ph.i ], [ %20, %._crit_edge22.loopexit26.i ], [ 0, %.preheader19.i ]
+  %11 = phi ptr [ %.pre29.i, %._crit_edge22.loopexit26.i ], [ %6, %.preheader.lr.ph.i ], [ %6, %.preheader19.i ]
+  %12 = phi i32 [ %19, %._crit_edge22.loopexit26.i ], [ 0, %.preheader.lr.ph.i ], [ %.pre28.i, %.preheader19.i ]
+  %.lcssa.i = phi i32 [ %20, %._crit_edge22.loopexit26.i ], [ %7, %.preheader.lr.ph.i ], [ 0, %.preheader19.i ]
   %13 = shl i32 %12, 4
   %14 = mul i32 %13, %.lcssa.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -195,9 +195,9 @@ define hidden void @_ZN18mpz_matrix_manager3delER10mpz_matrix(ptr noundef nonnul
   br label %._crit_edge22
 
 ._crit_edge22:                                    ; preds = %.preheader19, %.preheader.lr.ph, %._crit_edge22.loopexit26
-  %9 = phi ptr [ %4, %.preheader.lr.ph ], [ %.pre29, %._crit_edge22.loopexit26 ], [ %4, %.preheader19 ]
-  %10 = phi i32 [ 0, %.preheader.lr.ph ], [ %16, %._crit_edge22.loopexit26 ], [ %.pre28, %.preheader19 ]
-  %.lcssa = phi i32 [ %5, %.preheader.lr.ph ], [ %17, %._crit_edge22.loopexit26 ], [ 0, %.preheader19 ]
+  %9 = phi ptr [ %.pre29, %._crit_edge22.loopexit26 ], [ %4, %.preheader.lr.ph ], [ %4, %.preheader19 ]
+  %10 = phi i32 [ %16, %._crit_edge22.loopexit26 ], [ 0, %.preheader.lr.ph ], [ %.pre28, %.preheader19 ]
+  %.lcssa = phi i32 [ %17, %._crit_edge22.loopexit26 ], [ %5, %.preheader.lr.ph ], [ 0, %.preheader19 ]
   %11 = shl i32 %.lcssa, 4
   %12 = mul i32 %11, %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -290,9 +290,9 @@ define hidden void @_ZN18mpz_matrix_manager3setER10mpz_matrixRKS0_(ptr noundef n
   br label %._crit_edge22.i
 
 ._crit_edge22.i:                                  ; preds = %._crit_edge22.loopexit26.i, %.preheader.lr.ph.i, %.preheader19.i
-  %19 = phi ptr [ %15, %.preheader.lr.ph.i ], [ %.pre29.i, %._crit_edge22.loopexit26.i ], [ %15, %.preheader19.i ]
-  %20 = phi i32 [ 0, %.preheader.lr.ph.i ], [ %26, %._crit_edge22.loopexit26.i ], [ %.pre28.i, %.preheader19.i ]
-  %.lcssa.i = phi i32 [ %6, %.preheader.lr.ph.i ], [ %27, %._crit_edge22.loopexit26.i ], [ 0, %.preheader19.i ]
+  %19 = phi ptr [ %.pre29.i, %._crit_edge22.loopexit26.i ], [ %15, %.preheader.lr.ph.i ], [ %15, %.preheader19.i ]
+  %20 = phi i32 [ %26, %._crit_edge22.loopexit26.i ], [ 0, %.preheader.lr.ph.i ], [ %.pre28.i, %.preheader19.i ]
+  %.lcssa.i = phi i32 [ %27, %._crit_edge22.loopexit26.i ], [ %6, %.preheader.lr.ph.i ], [ 0, %.preheader19.i ]
   %21 = shl i32 %20, 4
   %22 = mul i32 %21, %.lcssa.i
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -635,9 +635,9 @@ define linkonce_odr hidden void @_ZN17scoped_mpz_matrixD2Ev(ptr noundef nonnull 
   br label %._crit_edge22.i
 
 ._crit_edge22.i:                                  ; preds = %._crit_edge22.loopexit26.i, %.preheader.lr.ph.i, %.preheader19.i
-  %10 = phi ptr [ %5, %.preheader.lr.ph.i ], [ %.pre29.i, %._crit_edge22.loopexit26.i ], [ %5, %.preheader19.i ]
-  %11 = phi i32 [ 0, %.preheader.lr.ph.i ], [ %17, %._crit_edge22.loopexit26.i ], [ %.pre28.i, %.preheader19.i ]
-  %.lcssa.i = phi i32 [ %6, %.preheader.lr.ph.i ], [ %18, %._crit_edge22.loopexit26.i ], [ 0, %.preheader19.i ]
+  %10 = phi ptr [ %.pre29.i, %._crit_edge22.loopexit26.i ], [ %5, %.preheader.lr.ph.i ], [ %5, %.preheader19.i ]
+  %11 = phi i32 [ %17, %._crit_edge22.loopexit26.i ], [ 0, %.preheader.lr.ph.i ], [ %.pre28.i, %.preheader19.i ]
+  %.lcssa.i = phi i32 [ %18, %._crit_edge22.loopexit26.i ], [ %6, %.preheader.lr.ph.i ], [ 0, %.preheader19.i ]
   %12 = shl i32 %11, 4
   %13 = mul i32 %12, %.lcssa.i
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -934,7 +934,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %26, %28
   br label %.thread
 
 .thread:                                          ; preds = %33, %5, %62, %._crit_edge, %.loopexit
-  %.141 = phi i1 [ true, %._crit_edge ], [ true, %.loopexit ], [ false, %62 ], [ true, %5 ], [ true, %33 ]
+  %.141 = phi i1 [ true, %.loopexit ], [ true, %._crit_edge ], [ false, %62 ], [ true, %5 ], [ true, %33 ]
   %68 = load ptr, ptr %6, align 8, !tbaa !44
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %68, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit unwind label %69
@@ -1570,7 +1570,7 @@ _ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit: ; preds = %.lr.ph.i, %28
   %.not.i.i = icmp eq ptr %.pre110, null
   br i1 %.not.i.i, label %_ZN17scoped_mpz_matrixD2Ev.exit, label %.preheader19.i.i
 
-.preheader19.i.i:                                 ; preds = %93, %26, %115, %128, %.critedge
+.preheader19.i.i:                                 ; preds = %93, %26, %128, %115, %.critedge
   %.3124 = phi i1 [ true, %.critedge ], [ true, %128 ], [ false, %115 ], [ false, %26 ], [ false, %93 ]
   %.pre29.i.i123 = phi ptr [ %.pre110, %.critedge ], [ %101, %115 ], [ %101, %128 ], [ %.pre, %26 ], [ %.pre, %93 ]
   %150 = load ptr, ptr %5, align 8, !tbaa !36
@@ -1654,7 +1654,7 @@ _ZN17scoped_mpz_matrixD2Ev.exit:                  ; preds = %._crit_edge22.i.i, 
   ret i1 %.3125
 
 177:                                              ; preds = %113, %148, %22, %12
-  %.pn.pn = phi { ptr, i32 } [ %13, %12 ], [ %23, %22 ], [ %149, %148 ], [ %114, %113 ]
+  %.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %13, %12 ], [ %149, %148 ], [ %114, %113 ]
   call void @_ZN17scoped_mpz_matrixD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
@@ -1831,7 +1831,7 @@ _ZN18mpz_matrix_manager2mkEjjR10mpz_matrix.exit:  ; preds = %19, %.noexc25
   br label %._crit_edge22.i.i44
 
 ._crit_edge22.i.i44:                              ; preds = %._crit_edge22.loopexit26.i.i42, %.preheader19.i.i28
-  %.lcssa.i.i45 = phi i64 [ 0, %.preheader19.i.i28 ], [ %57, %._crit_edge22.loopexit26.i.i42 ]
+  %.lcssa.i.i45 = phi i64 [ %57, %._crit_edge22.loopexit26.i.i42 ], [ 0, %.preheader19.i.i28 ]
   %58 = load ptr, ptr %11, align 8, !tbaa !16
   invoke void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %58, i64 noundef %.lcssa.i.i45, ptr noundef nonnull %15)
           to label %_ZN17scoped_mpz_matrixD2Ev.exit unwind label %.loopexit.split-lp.i
@@ -2489,7 +2489,7 @@ _ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit:         ; preds = %_ZN6bufferIjLb0ELj1
   br label %93
 
 93:                                               ; preds = %86, %84, %76
-  %.159 = phi i32 [ %.058120, %76 ], [ %spec.select, %86 ], [ %77, %84 ]
+  %.159 = phi i32 [ %.058120, %76 ], [ %77, %84 ], [ %spec.select, %86 ]
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %94 = icmp samesign ult i64 %indvars.iv.next144, %61
   br i1 %94, label %76, label %74, !llvm.loop !66
@@ -2722,9 +2722,9 @@ _ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   br i1 %.not.i21.i.i.i, label %_ZSt4sortIPjEvT_S1_.exit, label %.lr.ph.i15.i.i.i, !llvm.loop !69
 
 _ZSt4sortIPjEvT_S1_.exit:                         ; preds = %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i, %33, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit, %.preheader116, %177, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge
-  %.not.i.i93193 = phi i1 [ false, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ true, %33 ], [ true, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge ], [ false, %177 ], [ true, %.preheader116 ], [ true, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ false, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
-  %194 = phi i64 [ %151, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ 0, %33 ], [ 0, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge ], [ 1, %177 ], [ 0, %.preheader116 ], [ 0, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ %151, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
-  %.1192 = phi i32 [ %.1, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ 0, %33 ], [ 0, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge ], [ 1, %177 ], [ 0, %.preheader116 ], [ 0, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ %.1, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
+  %.not.i.i93193 = phi i1 [ false, %177 ], [ true, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge ], [ true, %.preheader116 ], [ true, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ true, %33 ], [ false, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ false, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
+  %194 = phi i64 [ 1, %177 ], [ 0, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge ], [ 0, %.preheader116 ], [ 0, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ 0, %33 ], [ %151, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ %151, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
+  %.1192 = phi i32 [ 1, %177 ], [ 0, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge ], [ 0, %.preheader116 ], [ 0, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ 0, %33 ], [ %.1, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i ], [ %.1, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i ]
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %196 = load i32, ptr %195, align 4, !tbaa !15
   invoke void @_ZN18mpz_matrix_manager2mkEjjR10mpz_matrix(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.1192, i32 noundef %196, ptr noundef nonnull align 8 dereferenceable(16) %13)
@@ -2991,7 +2991,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %284, %289
   br label %296
 
 296:                                              ; preds = %266, %294, %142, %66, %64
-  %.pn81.pn = phi { ptr, i32 } [ %67, %66 ], [ %143, %142 ], [ %65, %64 ], [ %267, %266 ], [ %295, %294 ]
+  %.pn81.pn = phi { ptr, i32 } [ %65, %64 ], [ %67, %66 ], [ %143, %142 ], [ %295, %294 ], [ %267, %266 ]
   call void @_ZN6bufferIjLb0ELj128EED2Ev(ptr noundef nonnull align 8 dereferenceable(528) %12) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %297
@@ -3475,7 +3475,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPjN9__gnu_cxx5__ops15_Iter_le
   br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, !llvm.loop !84
 
 _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %40, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.01317.i.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %40 ]
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.018.i.i.us, %40 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
   %43 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.us
   store i32 %21, ptr %43, align 4, !tbaa !33
   %.not.us = icmp eq i64 %.013.us, 0

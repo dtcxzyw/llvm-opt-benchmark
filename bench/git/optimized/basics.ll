@@ -132,7 +132,7 @@ reftable_malloc.exit:                             ; preds = %8, %10
   br label %reftable_malloc.exit.thread
 
 reftable_malloc.exit.thread:                      ; preds = %4, %reftable_malloc.exit, %3, %12
-  %.0 = phi ptr [ null, %3 ], [ %.0.i, %12 ], [ null, %reftable_malloc.exit ], [ null, %4 ]
+  %.0 = phi ptr [ %.0.i, %12 ], [ null, %3 ], [ null, %reftable_malloc.exit ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -502,7 +502,7 @@ define dso_local i64 @binsearch(i64 noundef %0, ptr noundef readonly captures(no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %12, %13
-  %.2 = phi i64 [ %.023, %12 ], [ %15, %13 ], [ %0, %7 ]
+  %.2 = phi i64 [ %15, %13 ], [ %.023, %12 ], [ %0, %7 ]
   ret i64 %.2
 }
 
@@ -654,8 +654,8 @@ reftable_realloc.exit.i:                          ; preds = %22, %20
   br i1 %.not.i, label %.thread, label %reftable_alloc_grow.exit.thread
 
 reftable_alloc_grow.exit.thread:                  ; preds = %reftable_realloc.exit.i, %11
-  %.278 = phi i64 [ %spec.select.i, %reftable_realloc.exit.i ], [ %.076105, %11 ]
-  %.245 = phi ptr [ %.0.i.i, %reftable_realloc.exit.i ], [ %.043106, %11 ]
+  %.278 = phi i64 [ %.076105, %11 ], [ %spec.select.i, %reftable_realloc.exit.i ]
+  %.245 = phi ptr [ %.043106, %11 ], [ %.0.i.i, %reftable_realloc.exit.i ]
   %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.040108) #23
   %25 = add i64 %24, 1
   %.not.i.i53 = icmp eq i64 %25, 0
@@ -737,14 +737,14 @@ reftable_realloc.exit.i62:                        ; preds = %47, %45
   br i1 %.not.i64, label %.thread, label %reftable_alloc_grow.exit67.thread
 
 reftable_alloc_grow.exit67.thread:                ; preds = %reftable_realloc.exit.i62, %._crit_edge
-  %.5 = phi ptr [ %.0.i.i63, %reftable_realloc.exit.i62 ], [ %.043.lcssa, %._crit_edge ]
+  %.5 = phi ptr [ %.043.lcssa, %._crit_edge ], [ %.0.i.i63, %reftable_realloc.exit.i62 ]
   %49 = getelementptr inbounds nuw ptr, ptr %.5, i64 %.041.lcssa
   store ptr null, ptr %49, align 8, !tbaa !18
   br label %reftable_free.exit
 
 .thread:                                          ; preds = %reftable_realloc.exit.i, %reftable_realloc.exit.i62, %reftable_strdup.exit.thread
-  %.4 = phi ptr [ %.043.lcssa, %reftable_realloc.exit.i62 ], [ %.245, %reftable_strdup.exit.thread ], [ %.043106, %reftable_realloc.exit.i ]
-  %.3 = phi i64 [ %.041.lcssa, %reftable_realloc.exit.i62 ], [ %12, %reftable_strdup.exit.thread ], [ %.041107, %reftable_realloc.exit.i ]
+  %.4 = phi ptr [ %.245, %reftable_strdup.exit.thread ], [ %.043.lcssa, %reftable_realloc.exit.i62 ], [ %.043106, %reftable_realloc.exit.i ]
+  %.3 = phi i64 [ %12, %reftable_strdup.exit.thread ], [ %.041.lcssa, %reftable_realloc.exit.i62 ], [ %.041107, %reftable_realloc.exit.i ]
   %.not114 = icmp eq i64 %.3, 0
   br i1 %.not114, label %._crit_edge113, label %.lr.ph112
 
@@ -888,7 +888,7 @@ define dso_local range(i32 20, 33) i32 @hash_size(i32 noundef %0) local_unnamed_
   unreachable
 
 4:                                                ; preds = %1, %1, %2
-  %.0 = phi i32 [ 20, %1 ], [ 32, %2 ], [ 20, %1 ]
+  %.0 = phi i32 [ 32, %2 ], [ 20, %1 ], [ 20, %1 ]
   ret i32 %.0
 }
 

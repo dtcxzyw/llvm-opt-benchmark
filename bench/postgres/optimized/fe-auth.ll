@@ -330,7 +330,7 @@ check_expected_areq.exit:                         ; preds = %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %pg_password_sendauth.exit.thread
 
-pg_password_sendauth.exit.thread:                 ; preds = %.critedge.i, %88, %100
+pg_password_sendauth.exit.thread:                 ; preds = %88, %.critedge.i, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %122
 
@@ -658,7 +658,7 @@ pg_password_sendauth.exit:                        ; preds = %100, %117
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.12) #10
   br label %pg_SASL_init.exit
 
-pg_SASL_init.exit.thread:                         ; preds = %257, %237
+pg_SASL_init.exit.thread:                         ; preds = %237, %257
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -817,8 +817,8 @@ pg_SASL_continue.exit:                            ; preds = %312, %313
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.9, i32 noundef %0) #10
   br label %.critedge
 
-.critedge:                                        ; preds = %60, %61, %26, %auth_method_description.exit.i, %21, %54, %check_expected_areq.exit, %124, %pg_SASL_continue.exit, %pg_SASL_init.exit.thread, %pg_SASL_continue.exit.thread68, %pg_SASL_init.exit, %267, %320, %324, %84, %122, %325, %66, %65, %64, %63, %62
-  %.043 = phi i32 [ -1, %325 ], [ -1, %267 ], [ -1, %62 ], [ -1, %63 ], [ -1, %64 ], [ -1, %65 ], [ -1, %66 ], [ -1, %pg_SASL_init.exit ], [ 0, %54 ], [ -1, %84 ], [ -1, %122 ], [ -1, %324 ], [ -1, %320 ], [ 0, %pg_SASL_continue.exit.thread68 ], [ 0, %pg_SASL_init.exit.thread ], [ %0, %check_expected_areq.exit ], [ 0, %pg_SASL_continue.exit ], [ 0, %124 ], [ -1, %21 ], [ -1, %auth_method_description.exit.i ], [ -1, %26 ], [ -1, %61 ], [ -1, %60 ]
+.critedge:                                        ; preds = %60, %61, %21, %26, %auth_method_description.exit.i, %54, %check_expected_areq.exit, %124, %pg_SASL_continue.exit, %pg_SASL_init.exit.thread, %pg_SASL_continue.exit.thread68, %pg_SASL_init.exit, %267, %324, %320, %84, %122, %325, %66, %65, %64, %63, %62
+  %.043 = phi i32 [ -1, %325 ], [ -1, %62 ], [ -1, %63 ], [ -1, %64 ], [ -1, %65 ], [ -1, %66 ], [ -1, %pg_SASL_init.exit ], [ -1, %122 ], [ -1, %84 ], [ -1, %320 ], [ -1, %324 ], [ -1, %267 ], [ 0, %pg_SASL_continue.exit.thread68 ], [ 0, %pg_SASL_init.exit.thread ], [ 0, %pg_SASL_continue.exit ], [ 0, %124 ], [ %0, %check_expected_areq.exit ], [ 0, %54 ], [ -1, %auth_method_description.exit.i ], [ -1, %26 ], [ -1, %21 ], [ -1, %61 ], [ -1, %60 ]
   ret i32 %.043
 }
 
@@ -927,7 +927,7 @@ define noundef ptr @PQencryptPassword(ptr noundef %0, ptr noundef %1) local_unna
   br label %9
 
 9:                                                ; preds = %5, %2, %8
-  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ %4, %5 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %2 ], [ %4, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -1092,7 +1092,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %22, %27, %12, %46, %57, %58, %4, %59
-  %.0 = phi ptr [ null, %4 ], [ null, %59 ], [ null, %58 ], [ %43, %46 ], [ %.142, %57 ], [ null, %12 ], [ null, %27 ], [ null, %22 ], [ null, %17 ]
+  %.0 = phi ptr [ null, %59 ], [ null, %4 ], [ %43, %46 ], [ %.142, %57 ], [ null, %58 ], [ null, %12 ], [ null, %27 ], [ null, %22 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

@@ -21,7 +21,7 @@ define hidden range(i32 -2147483648, 2) i32 @dtls1_accept(ptr noundef %0) local_
   br label %9
 
 9:                                                ; preds = %4, %1
-  %.0149 = phi ptr [ %8, %4 ], [ %3, %1 ]
+  %.0149 = phi ptr [ %3, %1 ], [ %8, %4 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 385
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -354,7 +354,7 @@ define hidden range(i32 -2147483648, 2) i32 @dtls1_accept(ptr noundef %0) local_
   br label %143
 
 143:                                              ; preds = %141, %138
-  %.sink212 = phi i32 [ %.215, %141 ], [ 3, %138 ]
+  %.sink212 = phi i32 [ 3, %138 ], [ %.215, %141 ]
   store i32 %.sink212, ptr %10, align 4, !tbaa !42
   store i32 0, ptr %13, align 8, !tbaa !44
   br label %172
@@ -452,8 +452,8 @@ define hidden range(i32 -2147483648, 2) i32 @dtls1_accept(ptr noundef %0) local_
   br label %.backedge
 
 .loopexit:                                        ; preds = %151, %132, %34, %28, %31, %153, %148, %144, %135, %126, %122, %118, %114, %94, %90, %82, %67, %58, %44, %40, %171, %165, %104, %38
-  %.0150 = phi i32 [ -1, %171 ], [ 1, %165 ], [ -1, %38 ], [ -1, %104 ], [ -1, %151 ], [ -1, %31 ], [ %154, %153 ], [ -1, %132 ], [ %149, %148 ], [ %145, %144 ], [ %136, %135 ], [ -1, %34 ], [ %130, %126 ], [ %123, %122 ], [ %119, %118 ], [ %115, %114 ], [ %95, %94 ], [ %91, %90 ], [ %83, %82 ], [ %68, %67 ], [ %59, %58 ], [ %45, %44 ], [ %41, %40 ], [ -1, %28 ]
-  %.2147 = phi ptr [ null, %171 ], [ null, %165 ], [ null, %38 ], [ null, %104 ], [ null, %151 ], [ %29, %31 ], [ null, %153 ], [ null, %132 ], [ null, %148 ], [ null, %144 ], [ null, %135 ], [ null, %34 ], [ null, %126 ], [ null, %122 ], [ null, %118 ], [ null, %114 ], [ null, %94 ], [ null, %90 ], [ null, %82 ], [ null, %67 ], [ null, %58 ], [ null, %44 ], [ null, %40 ], [ null, %28 ]
+  %.0150 = phi i32 [ -1, %171 ], [ -1, %38 ], [ -1, %104 ], [ 1, %165 ], [ -1, %151 ], [ -1, %132 ], [ -1, %34 ], [ -1, %28 ], [ -1, %31 ], [ %154, %153 ], [ %149, %148 ], [ %145, %144 ], [ %136, %135 ], [ %130, %126 ], [ %123, %122 ], [ %119, %118 ], [ %115, %114 ], [ %95, %94 ], [ %91, %90 ], [ %83, %82 ], [ %68, %67 ], [ %59, %58 ], [ %45, %44 ], [ %41, %40 ]
+  %.2147 = phi ptr [ null, %171 ], [ null, %38 ], [ null, %104 ], [ null, %165 ], [ null, %151 ], [ null, %132 ], [ null, %34 ], [ null, %28 ], [ %29, %31 ], [ null, %153 ], [ null, %148 ], [ null, %144 ], [ null, %135 ], [ null, %126 ], [ null, %122 ], [ null, %118 ], [ null, %114 ], [ null, %94 ], [ null, %90 ], [ null, %82 ], [ null, %67 ], [ null, %58 ], [ null, %44 ], [ null, %40 ]
   tail call void @BUF_MEM_free(ptr noundef %.2147) #2
   br i1 %.not186, label %181, label %180
 

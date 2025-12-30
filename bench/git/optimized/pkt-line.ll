@@ -160,8 +160,8 @@ define internal fastcc void @packet_trace(ptr noundef %0, i32 noundef %1, i32 no
   br label %packet_trace_pack.exit36
 
 packet_trace_pack.exit36:                         ; preds = %28, %12, %13, %29, %27, %21
-  %.023 = phi i32 [ 8, %29 ], [ %1, %21 ], [ 8, %27 ], [ 8, %28 ], [ 0, %12 ], [ %1, %13 ]
-  %.022 = phi ptr [ @.str.23, %29 ], [ %0, %21 ], [ @.str.23, %27 ], [ @.str.23, %28 ], [ %0, %12 ], [ %0, %13 ]
+  %.023 = phi i32 [ %1, %21 ], [ 8, %27 ], [ 8, %28 ], [ 8, %29 ], [ %1, %13 ], [ 0, %12 ]
+  %.022 = phi ptr [ %0, %21 ], [ @.str.23, %27 ], [ @.str.23, %28 ], [ @.str.23, %29 ], [ %0, %13 ], [ %0, %12 ]
   %32 = tail call i32 @trace_want(ptr noundef nonnull @trace_packet) #16
   %.not29 = icmp eq i32 %32, 0
   br i1 %.not29, label %packet_trace_pack.exit, label %33
@@ -889,7 +889,7 @@ packet_write_gently.exit..split22_crit_edge:      ; preds = %.lr.ph
   br label %.split22.us, !llvm.loop !22
 
 .split22.us:                                      ; preds = %16, %8, %.split, %packet_write_gently.exit..split22_crit_edge, %.split.us, %packet_write_gently.exit.us..split22.us_crit_edge
-  %.us-phi = phi i32 [ 0, %8 ], [ 0, %.split.us ], [ -1, %packet_write_gently.exit.us..split22.us_crit_edge ], [ 0, %.split ], [ -1, %packet_write_gently.exit..split22_crit_edge ], [ 0, %16 ]
+  %.us-phi = phi i32 [ -1, %packet_write_gently.exit.us..split22.us_crit_edge ], [ 0, %.split.us ], [ -1, %packet_write_gently.exit..split22_crit_edge ], [ 0, %.split ], [ 0, %8 ], [ 0, %16 ]
   ret i32 %.us-phi
 }
 
@@ -1291,7 +1291,7 @@ _.exit42:                                         ; preds = %35, %37
   unreachable
 
 42:                                               ; preds = %_.exit, %.critedge, %31, %_.exit42
-  %.1 = phi i32 [ -1, %_.exit ], [ -1, %_.exit42 ], [ -1, %31 ], [ 0, %.critedge ]
+  %.1 = phi i32 [ -1, %_.exit42 ], [ -1, %_.exit ], [ -1, %31 ], [ 0, %.critedge ]
   ret i32 %.1
 }
 
@@ -1332,7 +1332,7 @@ define internal fastcc ptr @find_packfile_uri_path(ptr noundef readonly %0) unna
   br label %18
 
 18:                                               ; preds = %15, %12, %9, %5, %1
-  %.0 = phi ptr [ null, %5 ], [ null, %12 ], [ null, %9 ], [ null, %1 ], [ %spec.select, %15 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %5 ], [ null, %9 ], [ null, %12 ], [ %spec.select, %15 ]
   ret ptr %.0
 }
 

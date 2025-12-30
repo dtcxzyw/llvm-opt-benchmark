@@ -743,7 +743,7 @@ _ZNK4ncnn3Mat5emptyEv.exit81.thread:              ; preds = %210, %_ZNK4ncnn3Mat
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %157, %109, %184, %.thread91, %134, %.thread, %145, %97, %_ZNK4ncnn3Mat5emptyEv.exit80.thread, %_ZNK4ncnn3Mat5emptyEv.exit81.thread, %_ZNK4ncnn3Mat5emptyEv.exit79, %186, %142, %136, %_ZNK4ncnn3Mat5emptyEv.exit
-  %.1 = phi i32 [ 0, %109 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %136 ], [ 0, %157 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit79 ], [ %.3, %_ZNK4ncnn3Mat5emptyEv.exit80.thread ], [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit81.thread ], [ 0, %186 ], [ 0, %142 ], [ -100, %97 ], [ -100, %145 ], [ 0, %134 ], [ 0, %.thread ], [ 0, %.thread91 ], [ 0, %184 ]
+  %.1 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %136 ], [ %.3, %_ZNK4ncnn3Mat5emptyEv.exit80.thread ], [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit81.thread ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit79 ], [ 0, %186 ], [ 0, %142 ], [ -100, %97 ], [ -100, %145 ], [ 0, %.thread ], [ 0, %134 ], [ 0, %.thread91 ], [ 0, %184 ], [ 0, %109 ], [ 0, %157 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3600,7 +3600,7 @@ _ZN4ncnn3Mat4fillItEEvT_.exit:                    ; preds = %.lr.ph68, %112, %13
   br label %.noexc63
 
 .noexc63:                                         ; preds = %._crit_edge81, %151, %.thread
-  %.1 = phi i32 [ %157, %151 ], [ %147, %._crit_edge81 ], [ %., %.thread ]
+  %.1 = phi i32 [ %157, %151 ], [ %., %.thread ], [ %147, %._crit_edge81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !160)
   %158 = load i32, ptr %47, align 4, !tbaa !46, !noalias !160
@@ -4020,7 +4020,7 @@ _ZN4ncnn3Mat4fillItEEvT_.exit:                    ; preds = %.lr.ph117, %131, %_
   br label %.noexc83
 
 .noexc83:                                         ; preds = %._crit_edge137, %148, %.thread
-  %.1 = phi i32 [ %154, %148 ], [ %144, %._crit_edge137 ], [ %., %.thread ]
+  %.1 = phi i32 [ %154, %148 ], [ %., %.thread ], [ %144, %._crit_edge137 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %155 = load i32, ptr %46, align 4, !tbaa !46, !noalias !168
   %156 = load i32, ptr %47, align 8, !tbaa !47, !noalias !168

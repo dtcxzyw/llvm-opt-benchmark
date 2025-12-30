@@ -19,8 +19,8 @@ define { i64, ptr } @_ZN8protobuf7reflect8repeated12vec_downcast13VecMutVariant8
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %34, %29, %24, %19, %14, %6, %1
-  %.sroa.9.0 = phi ptr [ %32, %29 ], [ %spec.select, %34 ], [ %27, %24 ], [ %22, %19 ], [ %17, %14 ], [ %9, %6 ], [ %4, %1 ]
-  %.sroa.0.0 = phi i64 [ 5, %29 ], [ %spec.select34, %34 ], [ 4, %24 ], [ 3, %19 ], [ 2, %14 ], [ 1, %6 ], [ 0, %1 ]
+  %.sroa.9.0 = phi ptr [ %4, %1 ], [ %9, %6 ], [ %17, %14 ], [ %22, %19 ], [ %27, %24 ], [ %32, %29 ], [ %spec.select, %34 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ 1, %6 ], [ 2, %14 ], [ 3, %19 ], [ 4, %24 ], [ 5, %29 ], [ %spec.select34, %34 ]
   %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %13 = insertvalue { i64, ptr } %12, ptr %.sroa.9.0, 1
   ret { i64, ptr } %13

@@ -728,9 +728,9 @@ stbir__edge_wrap.exit212:                         ; preds = %54, %57
   br label %70
 
 70:                                               ; preds = %65, %67, %._crit_edge233
-  %.3173 = phi i32 [ %69, %67 ], [ %.2172, %._crit_edge233 ], [ %.2172, %65 ]
-  %.3169 = phi i32 [ %68, %67 ], [ %spec.select202254, %._crit_edge233 ], [ %spec.select202254, %65 ]
-  %.1163 = phi i32 [ 0, %67 ], [ %30, %._crit_edge233 ], [ %30, %65 ]
+  %.3173 = phi i32 [ %69, %67 ], [ %.2172, %65 ], [ %.2172, %._crit_edge233 ]
+  %.3169 = phi i32 [ %68, %67 ], [ %spec.select202254, %65 ], [ %spec.select202254, %._crit_edge233 ]
+  %.1163 = phi i32 [ 0, %67 ], [ %30, %65 ], [ %30, %._crit_edge233 ]
   %71 = sub nsw i32 0, %.1163
   %72 = icmp ne i32 %.0178.lcssa, 2147483647
   br i1 %72, label %73, label %80
@@ -758,7 +758,7 @@ stbir__edge_wrap.exit212:                         ; preds = %54, %57
   br label %80
 
 80:                                               ; preds = %75, %77, %70
-  %.1165 = phi i32 [ 0, %77 ], [ %.0164, %70 ], [ %.0164, %75 ]
+  %.1165 = phi i32 [ 0, %77 ], [ %.0164, %75 ], [ %.0164, %70 ]
   %81 = icmp ne i32 %.1163, 0
   %or.cond = and i1 %62, %81
   br i1 %or.cond, label %82, label %92
@@ -1225,7 +1225,7 @@ define void @stbir__calculate_coefficients_for_gather_downsample(i32 noundef %0,
   br label %63
 
 63:                                               ; preds = %62, %59
-  %.073 = phi i32 [ %spec.select, %62 ], [ %spec.select.i, %59 ]
+  %.073 = phi i32 [ %spec.select.i, %59 ], [ %spec.select, %62 ]
   %.not6877 = icmp slt i32 %.073, %spec.store.select.i
   br i1 %.not6877, label %.loopexit, label %.lr.ph
 
@@ -1893,8 +1893,8 @@ stbir__insert_coeff.exit257:                      ; preds = %169, %._crit_edge.i
   br label %stbir__insert_coeff.exit278
 
 stbir__insert_coeff.exit278:                      ; preds = %.preheader, %103, %._crit_edge64.i275, %237, %231, %._crit_edge.i261, %219, %95, %.loopexit283, %91
-  %251 = phi i32 [ %92, %91 ], [ %214, %._crit_edge64.i275 ], [ %215, %237 ], [ %215, %231 ], [ %215, %._crit_edge.i261 ], [ %215, %219 ], [ %92, %95 ], [ %105, %103 ], [ %155, %.loopexit283 ], [ %92, %.preheader ]
-  %252 = phi i32 [ %93, %91 ], [ %216, %._crit_edge64.i275 ], [ %216, %237 ], [ %216, %231 ], [ %214, %._crit_edge.i261 ], [ %216, %219 ], [ 0, %95 ], [ %.pre434, %103 ], [ %156, %.loopexit283 ], [ 0, %.preheader ]
+  %251 = phi i32 [ %214, %._crit_edge64.i275 ], [ %215, %237 ], [ %215, %231 ], [ %215, %._crit_edge.i261 ], [ %215, %219 ], [ %92, %95 ], [ %155, %.loopexit283 ], [ %92, %91 ], [ %105, %103 ], [ %92, %.preheader ]
+  %252 = phi i32 [ %216, %._crit_edge64.i275 ], [ %216, %237 ], [ %216, %231 ], [ %214, %._crit_edge.i261 ], [ %216, %219 ], [ 0, %95 ], [ %156, %.loopexit283 ], [ %93, %91 ], [ %.pre434, %103 ], [ 0, %.preheader ]
   %253 = getelementptr inbounds nuw i8, ptr %.1206367, i64 4
   %.not229 = icmp sgt i32 %252, %251
   br i1 %.not229, label %.loopexit, label %254
@@ -2661,7 +2661,7 @@ stbir__calculate_coefficients_for_gather_upsample.exit: ; preds = %stbir__calcul
   br label %187
 
 187:                                              ; preds = %186, %183
-  %.073.i = phi i32 [ %spec.select.i160, %186 ], [ %spec.select.i.i156, %183 ]
+  %.073.i = phi i32 [ %spec.select.i.i156, %183 ], [ %spec.select.i160, %186 ]
   %.not6877.i = icmp slt i32 %.073.i, %spec.store.select.i.i
   br i1 %.not6877.i, label %.loopexit.i, label %.lr.ph.i157
 
@@ -3683,7 +3683,7 @@ define void @stbir__encode_uint8_srgb(ptr noundef writeonly captures(address) %0
   br label %stbir__linear_to_srgb_uchar.exit
 
 stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %130, %132
-  %.0.i = phi i8 [ 0, %.lr.ph ], [ %147, %132 ], [ -1, %130 ]
+  %.0.i = phi i8 [ %147, %132 ], [ 0, %.lr.ph ], [ -1, %130 ]
   store i8 %.0.i, ptr %.pn165, align 1, !tbaa !4
   %148 = getelementptr inbounds nuw i8, ptr %.2166, i64 4
   %149 = load float, ptr %148, align 4, !tbaa !50
@@ -3713,7 +3713,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %130, %132
   br label %stbir__linear_to_srgb_uchar.exit154
 
 stbir__linear_to_srgb_uchar.exit154:              ; preds = %stbir__linear_to_srgb_uchar.exit, %151, %153
-  %.0.i153 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %168, %153 ], [ -1, %151 ]
+  %.0.i153 = phi i8 [ %168, %153 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %151 ]
   %169 = getelementptr inbounds nuw i8, ptr %.pn165, i64 1
   store i8 %.0.i153, ptr %169, align 1, !tbaa !4
   %170 = getelementptr inbounds nuw i8, ptr %.2166, i64 8
@@ -3744,7 +3744,7 @@ stbir__linear_to_srgb_uchar.exit154:              ; preds = %stbir__linear_to_sr
   br label %stbir__linear_to_srgb_uchar.exit156
 
 stbir__linear_to_srgb_uchar.exit156:              ; preds = %stbir__linear_to_srgb_uchar.exit154, %173, %175
-  %.0.i155 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit154 ], [ %190, %175 ], [ -1, %173 ]
+  %.0.i155 = phi i8 [ %190, %175 ], [ 0, %stbir__linear_to_srgb_uchar.exit154 ], [ -1, %173 ]
   %191 = getelementptr inbounds nuw i8, ptr %.pn165, i64 2
   store i8 %.0.i155, ptr %191, align 1, !tbaa !4
   %192 = getelementptr inbounds nuw i8, ptr %.2166, i64 12
@@ -3775,7 +3775,7 @@ stbir__linear_to_srgb_uchar.exit156:              ; preds = %stbir__linear_to_sr
   br label %stbir__linear_to_srgb_uchar.exit158
 
 stbir__linear_to_srgb_uchar.exit158:              ; preds = %stbir__linear_to_srgb_uchar.exit156, %195, %197
-  %.0.i157 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit156 ], [ %212, %197 ], [ -1, %195 ]
+  %.0.i157 = phi i8 [ %212, %197 ], [ 0, %stbir__linear_to_srgb_uchar.exit156 ], [ -1, %195 ]
   %213 = getelementptr inbounds nuw i8, ptr %.pn165, i64 3
   store i8 %.0.i157, ptr %213, align 1, !tbaa !4
   %214 = getelementptr inbounds nuw i8, ptr %.2166, i64 16
@@ -3814,7 +3814,7 @@ stbir__linear_to_srgb_uchar.exit158:              ; preds = %stbir__linear_to_sr
   br label %stbir__linear_to_srgb_uchar.exit160
 
 stbir__linear_to_srgb_uchar.exit160:              ; preds = %.lr.ph171, %217, %219
-  %.0.i159 = phi i8 [ 0, %.lr.ph171 ], [ %234, %219 ], [ -1, %217 ]
+  %.0.i159 = phi i8 [ %234, %219 ], [ 0, %.lr.ph171 ], [ -1, %217 ]
   store i8 %.0.i159, ptr %.3145169, align 1, !tbaa !4
   %235 = getelementptr inbounds nuw i8, ptr %.3145169, i64 1
   %236 = getelementptr inbounds nuw i8, ptr %.3170, i64 4
@@ -4045,7 +4045,7 @@ define void @stbir__encode_uint8_srgb4_linearalpha(ptr noundef writeonly capture
   br label %stbir__linear_to_srgb_uchar.exit
 
 stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %111, %113
-  %.0.i = phi i8 [ 0, %.preheader ], [ %128, %113 ], [ -1, %111 ]
+  %.0.i = phi i8 [ %128, %113 ], [ 0, %.preheader ], [ -1, %111 ]
   store i8 %.0.i, ptr %.2127, align 1, !tbaa !4
   %129 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %130 = load float, ptr %129, align 4, !tbaa !50
@@ -4075,7 +4075,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %111, %
   br label %stbir__linear_to_srgb_uchar.exit136
 
 stbir__linear_to_srgb_uchar.exit136:              ; preds = %stbir__linear_to_srgb_uchar.exit, %132, %134
-  %.0.i135 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %149, %134 ], [ -1, %132 ]
+  %.0.i135 = phi i8 [ %149, %134 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %132 ]
   %150 = getelementptr inbounds nuw i8, ptr %.2127, i64 1
   store i8 %.0.i135, ptr %150, align 1, !tbaa !4
   %151 = getelementptr inbounds nuw i8, ptr %.2, i64 8
@@ -4106,7 +4106,7 @@ stbir__linear_to_srgb_uchar.exit136:              ; preds = %stbir__linear_to_sr
   br label %stbir__linear_to_srgb_uchar.exit138
 
 stbir__linear_to_srgb_uchar.exit138:              ; preds = %stbir__linear_to_srgb_uchar.exit136, %154, %156
-  %.0.i137 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit136 ], [ %171, %156 ], [ -1, %154 ]
+  %.0.i137 = phi i8 [ %171, %156 ], [ 0, %stbir__linear_to_srgb_uchar.exit136 ], [ -1, %154 ]
   %172 = getelementptr inbounds nuw i8, ptr %.2127, i64 2
   store i8 %.0.i137, ptr %172, align 1, !tbaa !4
   %173 = getelementptr inbounds nuw i8, ptr %.2, i64 12
@@ -4346,7 +4346,7 @@ define void @stbir__encode_uint8_srgb2_linearalpha(ptr noundef writeonly capture
   br label %stbir__linear_to_srgb_uchar.exit
 
 stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %93, %95
-  %.0.i = phi i8 [ 0, %.preheader ], [ %110, %95 ], [ -1, %93 ]
+  %.0.i = phi i8 [ %110, %95 ], [ 0, %.preheader ], [ -1, %93 ]
   store i8 %.0.i, ptr %.2110, align 1, !tbaa !4
   %111 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %112 = load float, ptr %111, align 4, !tbaa !50
@@ -6124,7 +6124,7 @@ define void @stbir__encode_uint8_srgb_BGRA(ptr noundef writeonly captures(addres
   br label %stbir__linear_to_srgb_uchar.exit
 
 stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %130, %132
-  %.0.i = phi i8 [ 0, %.lr.ph ], [ %147, %132 ], [ -1, %130 ]
+  %.0.i = phi i8 [ %147, %132 ], [ 0, %.lr.ph ], [ -1, %130 ]
   store i8 %.0.i, ptr %.pn153, align 1, !tbaa !4
   %148 = getelementptr inbounds nuw i8, ptr %.2154, i64 4
   %149 = load float, ptr %148, align 4, !tbaa !50
@@ -6154,7 +6154,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %130, %132
   br label %stbir__linear_to_srgb_uchar.exit145
 
 stbir__linear_to_srgb_uchar.exit145:              ; preds = %stbir__linear_to_srgb_uchar.exit, %151, %153
-  %.0.i144 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %168, %153 ], [ -1, %151 ]
+  %.0.i144 = phi i8 [ %168, %153 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %151 ]
   %169 = getelementptr inbounds nuw i8, ptr %.pn153, i64 1
   store i8 %.0.i144, ptr %169, align 1, !tbaa !4
   %170 = load float, ptr %.2154, align 4, !tbaa !50
@@ -6184,7 +6184,7 @@ stbir__linear_to_srgb_uchar.exit145:              ; preds = %stbir__linear_to_sr
   br label %stbir__linear_to_srgb_uchar.exit147
 
 stbir__linear_to_srgb_uchar.exit147:              ; preds = %stbir__linear_to_srgb_uchar.exit145, %172, %174
-  %.0.i146 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit145 ], [ %189, %174 ], [ -1, %172 ]
+  %.0.i146 = phi i8 [ %189, %174 ], [ 0, %stbir__linear_to_srgb_uchar.exit145 ], [ -1, %172 ]
   %190 = getelementptr inbounds nuw i8, ptr %.pn153, i64 2
   store i8 %.0.i146, ptr %190, align 1, !tbaa !4
   %191 = getelementptr inbounds nuw i8, ptr %.2154, i64 12
@@ -6215,7 +6215,7 @@ stbir__linear_to_srgb_uchar.exit147:              ; preds = %stbir__linear_to_sr
   br label %stbir__linear_to_srgb_uchar.exit149
 
 stbir__linear_to_srgb_uchar.exit149:              ; preds = %stbir__linear_to_srgb_uchar.exit147, %194, %196
-  %.0.i148 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit147 ], [ %211, %196 ], [ -1, %194 ]
+  %.0.i148 = phi i8 [ %211, %196 ], [ 0, %stbir__linear_to_srgb_uchar.exit147 ], [ -1, %194 ]
   %212 = getelementptr inbounds nuw i8, ptr %.pn153, i64 3
   store i8 %.0.i148, ptr %212, align 1, !tbaa !4
   %213 = getelementptr inbounds nuw i8, ptr %.2154, i64 16
@@ -6447,7 +6447,7 @@ define void @stbir__encode_uint8_srgb4_linearalpha_BGRA(ptr noundef writeonly ca
   br label %stbir__linear_to_srgb_uchar.exit
 
 stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %111, %113
-  %.0.i = phi i8 [ 0, %.preheader ], [ %128, %113 ], [ -1, %111 ]
+  %.0.i = phi i8 [ %128, %113 ], [ 0, %.preheader ], [ -1, %111 ]
   %129 = getelementptr inbounds nuw i8, ptr %.2127, i64 2
   store i8 %.0.i, ptr %129, align 1, !tbaa !4
   %130 = getelementptr inbounds nuw i8, ptr %.2, i64 4
@@ -6478,7 +6478,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %111, %
   br label %stbir__linear_to_srgb_uchar.exit136
 
 stbir__linear_to_srgb_uchar.exit136:              ; preds = %stbir__linear_to_srgb_uchar.exit, %133, %135
-  %.0.i135 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %150, %135 ], [ -1, %133 ]
+  %.0.i135 = phi i8 [ %150, %135 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %133 ]
   %151 = getelementptr inbounds nuw i8, ptr %.2127, i64 1
   store i8 %.0.i135, ptr %151, align 1, !tbaa !4
   %152 = getelementptr inbounds nuw i8, ptr %.2, i64 8
@@ -6509,7 +6509,7 @@ stbir__linear_to_srgb_uchar.exit136:              ; preds = %stbir__linear_to_sr
   br label %stbir__linear_to_srgb_uchar.exit138
 
 stbir__linear_to_srgb_uchar.exit138:              ; preds = %stbir__linear_to_srgb_uchar.exit136, %155, %157
-  %.0.i137 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit136 ], [ %172, %157 ], [ -1, %155 ]
+  %.0.i137 = phi i8 [ %172, %157 ], [ 0, %stbir__linear_to_srgb_uchar.exit136 ], [ -1, %155 ]
   store i8 %.0.i137, ptr %.2127, align 1, !tbaa !4
   %173 = getelementptr inbounds nuw i8, ptr %.2, i64 12
   %174 = load float, ptr %173, align 4, !tbaa !50
@@ -8052,7 +8052,7 @@ define void @stbir__encode_uint8_srgb_ARGB(ptr noundef writeonly captures(addres
   br label %stbir__linear_to_srgb_uchar.exit
 
 stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %130, %132
-  %.0.i = phi i8 [ 0, %.lr.ph ], [ %147, %132 ], [ -1, %130 ]
+  %.0.i = phi i8 [ %147, %132 ], [ 0, %.lr.ph ], [ -1, %130 ]
   store i8 %.0.i, ptr %.pn153, align 1, !tbaa !4
   %148 = load float, ptr %.2154, align 4, !tbaa !50
   %149 = fcmp ogt float %148, 0x3F20000000000000
@@ -8081,7 +8081,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %130, %132
   br label %stbir__linear_to_srgb_uchar.exit145
 
 stbir__linear_to_srgb_uchar.exit145:              ; preds = %stbir__linear_to_srgb_uchar.exit, %150, %152
-  %.0.i144 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %167, %152 ], [ -1, %150 ]
+  %.0.i144 = phi i8 [ %167, %152 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %150 ]
   %168 = getelementptr inbounds nuw i8, ptr %.pn153, i64 1
   store i8 %.0.i144, ptr %168, align 1, !tbaa !4
   %169 = getelementptr inbounds nuw i8, ptr %.2154, i64 4
@@ -8112,7 +8112,7 @@ stbir__linear_to_srgb_uchar.exit145:              ; preds = %stbir__linear_to_sr
   br label %stbir__linear_to_srgb_uchar.exit147
 
 stbir__linear_to_srgb_uchar.exit147:              ; preds = %stbir__linear_to_srgb_uchar.exit145, %172, %174
-  %.0.i146 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit145 ], [ %189, %174 ], [ -1, %172 ]
+  %.0.i146 = phi i8 [ %189, %174 ], [ 0, %stbir__linear_to_srgb_uchar.exit145 ], [ -1, %172 ]
   %190 = getelementptr inbounds nuw i8, ptr %.pn153, i64 2
   store i8 %.0.i146, ptr %190, align 1, !tbaa !4
   %191 = getelementptr inbounds nuw i8, ptr %.2154, i64 8
@@ -8143,7 +8143,7 @@ stbir__linear_to_srgb_uchar.exit147:              ; preds = %stbir__linear_to_sr
   br label %stbir__linear_to_srgb_uchar.exit149
 
 stbir__linear_to_srgb_uchar.exit149:              ; preds = %stbir__linear_to_srgb_uchar.exit147, %194, %196
-  %.0.i148 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit147 ], [ %211, %196 ], [ -1, %194 ]
+  %.0.i148 = phi i8 [ %211, %196 ], [ 0, %stbir__linear_to_srgb_uchar.exit147 ], [ -1, %194 ]
   %212 = getelementptr inbounds nuw i8, ptr %.pn153, i64 3
   store i8 %.0.i148, ptr %212, align 1, !tbaa !4
   %213 = getelementptr inbounds nuw i8, ptr %.2154, i64 16
@@ -8375,7 +8375,7 @@ define void @stbir__encode_uint8_srgb4_linearalpha_ARGB(ptr noundef writeonly ca
   br label %stbir__linear_to_srgb_uchar.exit
 
 stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %111, %113
-  %.0.i = phi i8 [ 0, %.preheader ], [ %128, %113 ], [ -1, %111 ]
+  %.0.i = phi i8 [ %128, %113 ], [ 0, %.preheader ], [ -1, %111 ]
   %129 = getelementptr inbounds nuw i8, ptr %.2127, i64 1
   store i8 %.0.i, ptr %129, align 1, !tbaa !4
   %130 = getelementptr inbounds nuw i8, ptr %.2, i64 4
@@ -8406,7 +8406,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %111, %
   br label %stbir__linear_to_srgb_uchar.exit136
 
 stbir__linear_to_srgb_uchar.exit136:              ; preds = %stbir__linear_to_srgb_uchar.exit, %133, %135
-  %.0.i135 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %150, %135 ], [ -1, %133 ]
+  %.0.i135 = phi i8 [ %150, %135 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %133 ]
   %151 = getelementptr inbounds nuw i8, ptr %.2127, i64 2
   store i8 %.0.i135, ptr %151, align 1, !tbaa !4
   %152 = getelementptr inbounds nuw i8, ptr %.2, i64 8
@@ -8437,7 +8437,7 @@ stbir__linear_to_srgb_uchar.exit136:              ; preds = %stbir__linear_to_sr
   br label %stbir__linear_to_srgb_uchar.exit138
 
 stbir__linear_to_srgb_uchar.exit138:              ; preds = %stbir__linear_to_srgb_uchar.exit136, %155, %157
-  %.0.i137 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit136 ], [ %172, %157 ], [ -1, %155 ]
+  %.0.i137 = phi i8 [ %172, %157 ], [ 0, %stbir__linear_to_srgb_uchar.exit136 ], [ -1, %155 ]
   %173 = getelementptr inbounds nuw i8, ptr %.2127, i64 3
   store i8 %.0.i137, ptr %173, align 1, !tbaa !4
   %174 = getelementptr inbounds nuw i8, ptr %.2, i64 12
@@ -9980,7 +9980,7 @@ define void @stbir__encode_uint8_srgb_ABGR(ptr noundef writeonly captures(addres
   br label %stbir__linear_to_srgb_uchar.exit
 
 stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %130, %132
-  %.0.i = phi i8 [ 0, %.lr.ph ], [ %147, %132 ], [ -1, %130 ]
+  %.0.i = phi i8 [ %147, %132 ], [ 0, %.lr.ph ], [ -1, %130 ]
   store i8 %.0.i, ptr %.pn153, align 1, !tbaa !4
   %148 = getelementptr inbounds nuw i8, ptr %.2154, i64 8
   %149 = load float, ptr %148, align 4, !tbaa !50
@@ -10010,7 +10010,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %130, %132
   br label %stbir__linear_to_srgb_uchar.exit145
 
 stbir__linear_to_srgb_uchar.exit145:              ; preds = %stbir__linear_to_srgb_uchar.exit, %151, %153
-  %.0.i144 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %168, %153 ], [ -1, %151 ]
+  %.0.i144 = phi i8 [ %168, %153 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %151 ]
   %169 = getelementptr inbounds nuw i8, ptr %.pn153, i64 1
   store i8 %.0.i144, ptr %169, align 1, !tbaa !4
   %170 = getelementptr inbounds nuw i8, ptr %.2154, i64 4
@@ -10041,7 +10041,7 @@ stbir__linear_to_srgb_uchar.exit145:              ; preds = %stbir__linear_to_sr
   br label %stbir__linear_to_srgb_uchar.exit147
 
 stbir__linear_to_srgb_uchar.exit147:              ; preds = %stbir__linear_to_srgb_uchar.exit145, %173, %175
-  %.0.i146 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit145 ], [ %190, %175 ], [ -1, %173 ]
+  %.0.i146 = phi i8 [ %190, %175 ], [ 0, %stbir__linear_to_srgb_uchar.exit145 ], [ -1, %173 ]
   %191 = getelementptr inbounds nuw i8, ptr %.pn153, i64 2
   store i8 %.0.i146, ptr %191, align 1, !tbaa !4
   %192 = load float, ptr %.2154, align 4, !tbaa !50
@@ -10071,7 +10071,7 @@ stbir__linear_to_srgb_uchar.exit147:              ; preds = %stbir__linear_to_sr
   br label %stbir__linear_to_srgb_uchar.exit149
 
 stbir__linear_to_srgb_uchar.exit149:              ; preds = %stbir__linear_to_srgb_uchar.exit147, %194, %196
-  %.0.i148 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit147 ], [ %211, %196 ], [ -1, %194 ]
+  %.0.i148 = phi i8 [ %211, %196 ], [ 0, %stbir__linear_to_srgb_uchar.exit147 ], [ -1, %194 ]
   %212 = getelementptr inbounds nuw i8, ptr %.pn153, i64 3
   store i8 %.0.i148, ptr %212, align 1, !tbaa !4
   %213 = getelementptr inbounds nuw i8, ptr %.2154, i64 16
@@ -10303,7 +10303,7 @@ define void @stbir__encode_uint8_srgb4_linearalpha_ABGR(ptr noundef writeonly ca
   br label %stbir__linear_to_srgb_uchar.exit
 
 stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %111, %113
-  %.0.i = phi i8 [ 0, %.preheader ], [ %128, %113 ], [ -1, %111 ]
+  %.0.i = phi i8 [ %128, %113 ], [ 0, %.preheader ], [ -1, %111 ]
   %129 = getelementptr inbounds nuw i8, ptr %.2127, i64 3
   store i8 %.0.i, ptr %129, align 1, !tbaa !4
   %130 = getelementptr inbounds nuw i8, ptr %.2, i64 4
@@ -10334,7 +10334,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %111, %
   br label %stbir__linear_to_srgb_uchar.exit136
 
 stbir__linear_to_srgb_uchar.exit136:              ; preds = %stbir__linear_to_srgb_uchar.exit, %133, %135
-  %.0.i135 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %150, %135 ], [ -1, %133 ]
+  %.0.i135 = phi i8 [ %150, %135 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %133 ]
   %151 = getelementptr inbounds nuw i8, ptr %.2127, i64 2
   store i8 %.0.i135, ptr %151, align 1, !tbaa !4
   %152 = getelementptr inbounds nuw i8, ptr %.2, i64 8
@@ -10365,7 +10365,7 @@ stbir__linear_to_srgb_uchar.exit136:              ; preds = %stbir__linear_to_sr
   br label %stbir__linear_to_srgb_uchar.exit138
 
 stbir__linear_to_srgb_uchar.exit138:              ; preds = %stbir__linear_to_srgb_uchar.exit136, %155, %157
-  %.0.i137 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit136 ], [ %172, %157 ], [ -1, %155 ]
+  %.0.i137 = phi i8 [ %172, %157 ], [ 0, %stbir__linear_to_srgb_uchar.exit136 ], [ -1, %155 ]
   %173 = getelementptr inbounds nuw i8, ptr %.2127, i64 1
   store i8 %.0.i137, ptr %173, align 1, !tbaa !4
   %174 = getelementptr inbounds nuw i8, ptr %.2, i64 12
@@ -12059,7 +12059,7 @@ define void @stbir__encode_uint8_srgb_AR(ptr noundef writeonly captures(address)
   br label %stbir__linear_to_srgb_uchar.exit
 
 stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %131, %133
-  %.0.i = phi i8 [ 0, %.lr.ph ], [ %148, %133 ], [ -1, %131 ]
+  %.0.i = phi i8 [ %148, %133 ], [ 0, %.lr.ph ], [ -1, %131 ]
   store i8 %.0.i, ptr %.pn169, align 1, !tbaa !4
   %149 = load float, ptr %.2170, align 4, !tbaa !50
   %150 = fcmp ogt float %149, 0x3F20000000000000
@@ -12088,7 +12088,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %131, %133
   br label %stbir__linear_to_srgb_uchar.exit156
 
 stbir__linear_to_srgb_uchar.exit156:              ; preds = %stbir__linear_to_srgb_uchar.exit, %151, %153
-  %.0.i155 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit ], [ %168, %153 ], [ -1, %151 ]
+  %.0.i155 = phi i8 [ %168, %153 ], [ 0, %stbir__linear_to_srgb_uchar.exit ], [ -1, %151 ]
   %169 = getelementptr inbounds nuw i8, ptr %.pn169, i64 1
   store i8 %.0.i155, ptr %169, align 1, !tbaa !4
   %170 = getelementptr inbounds nuw i8, ptr %.2170, i64 12
@@ -12119,7 +12119,7 @@ stbir__linear_to_srgb_uchar.exit156:              ; preds = %stbir__linear_to_sr
   br label %stbir__linear_to_srgb_uchar.exit158
 
 stbir__linear_to_srgb_uchar.exit158:              ; preds = %stbir__linear_to_srgb_uchar.exit156, %173, %175
-  %.0.i157 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit156 ], [ %190, %175 ], [ -1, %173 ]
+  %.0.i157 = phi i8 [ %190, %175 ], [ 0, %stbir__linear_to_srgb_uchar.exit156 ], [ -1, %173 ]
   %191 = getelementptr inbounds nuw i8, ptr %.pn169, i64 2
   store i8 %.0.i157, ptr %191, align 1, !tbaa !4
   %192 = getelementptr inbounds nuw i8, ptr %.2170, i64 8
@@ -12150,7 +12150,7 @@ stbir__linear_to_srgb_uchar.exit158:              ; preds = %stbir__linear_to_sr
   br label %stbir__linear_to_srgb_uchar.exit160
 
 stbir__linear_to_srgb_uchar.exit160:              ; preds = %stbir__linear_to_srgb_uchar.exit158, %195, %197
-  %.0.i159 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit158 ], [ %212, %197 ], [ -1, %195 ]
+  %.0.i159 = phi i8 [ %212, %197 ], [ 0, %stbir__linear_to_srgb_uchar.exit158 ], [ -1, %195 ]
   %213 = getelementptr inbounds nuw i8, ptr %.pn169, i64 3
   store i8 %.0.i159, ptr %213, align 1, !tbaa !4
   %214 = getelementptr inbounds nuw i8, ptr %.2170, i64 16
@@ -12190,7 +12190,7 @@ stbir__linear_to_srgb_uchar.exit160:              ; preds = %stbir__linear_to_sr
   br label %stbir__linear_to_srgb_uchar.exit162
 
 stbir__linear_to_srgb_uchar.exit162:              ; preds = %.lr.ph175, %218, %220
-  %.0.i161 = phi i8 [ 0, %.lr.ph175 ], [ %235, %220 ], [ -1, %218 ]
+  %.0.i161 = phi i8 [ %235, %220 ], [ 0, %.lr.ph175 ], [ -1, %218 ]
   store i8 %.0.i161, ptr %.3147173, align 1, !tbaa !4
   %236 = load float, ptr %.3174, align 4, !tbaa !50
   %237 = fcmp ogt float %236, 0x3F20000000000000
@@ -12219,7 +12219,7 @@ stbir__linear_to_srgb_uchar.exit162:              ; preds = %.lr.ph175, %218, %2
   br label %stbir__linear_to_srgb_uchar.exit164
 
 stbir__linear_to_srgb_uchar.exit164:              ; preds = %stbir__linear_to_srgb_uchar.exit162, %238, %240
-  %.0.i163 = phi i8 [ 0, %stbir__linear_to_srgb_uchar.exit162 ], [ %255, %240 ], [ -1, %238 ]
+  %.0.i163 = phi i8 [ %255, %240 ], [ 0, %stbir__linear_to_srgb_uchar.exit162 ], [ -1, %238 ]
   %256 = getelementptr inbounds nuw i8, ptr %.3147173, i64 1
   store i8 %.0.i163, ptr %256, align 1, !tbaa !4
   %257 = getelementptr inbounds nuw i8, ptr %.3147173, i64 2
@@ -12447,7 +12447,7 @@ define void @stbir__encode_uint8_srgb2_linearalpha_AR(ptr noundef writeonly capt
   br label %stbir__linear_to_srgb_uchar.exit
 
 stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %93, %95
-  %.0.i = phi i8 [ 0, %.preheader ], [ %110, %95 ], [ -1, %93 ]
+  %.0.i = phi i8 [ %110, %95 ], [ 0, %.preheader ], [ -1, %93 ]
   %111 = getelementptr inbounds nuw i8, ptr %.2110, i64 1
   store i8 %.0.i, ptr %111, align 1, !tbaa !4
   %112 = getelementptr inbounds nuw i8, ptr %.2, i64 4
@@ -28417,7 +28417,7 @@ define void @stbir__set_sampler(ptr noundef captures(none) initializes((16, 32),
   br label %29
 
 29:                                               ; preds = %16, %10, %28, %8
-  %.0 = phi i32 [ %1, %8 ], [ 4, %28 ], [ 5, %10 ], [ 6, %16 ]
+  %.0 = phi i32 [ 4, %28 ], [ 5, %10 ], [ %1, %8 ], [ 6, %16 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %.0, ptr %30, align 4, !tbaa !941
   %31 = zext i32 %.0 to i64
@@ -29062,7 +29062,7 @@ define range(i32 0, 2) i32 @stbir__should_do_vertical_first(ptr noundef readonly
   br label %25
 
 25:                                               ; preds = %23, %21, %19, %17, %12
-  %.0 = phi i32 [ %14, %12 ], [ %18, %17 ], [ 3, %21 ], [ 2, %19 ], [ %., %23 ]
+  %.0 = phi i32 [ %14, %12 ], [ %18, %17 ], [ 2, %19 ], [ 3, %21 ], [ %., %23 ]
   %26 = zext nneg i32 %.0 to i64
   %27 = getelementptr inbounds nuw [4 x float], ptr %0, i64 %26
   %28 = sitofp i32 %1 to float
@@ -29187,11 +29187,11 @@ stbir__get_max_split.exit:                        ; preds = %.lr.ph.i, %10
   br label %47
 
 47:                                               ; preds = %44, %42, %37, %38, %30
-  %48 = phi i1 [ false, %30 ], [ true, %38 ], [ false, %37 ], [ false, %42 ], [ false, %44 ]
-  %49 = phi i1 [ false, %30 ], [ false, %38 ], [ true, %37 ], [ false, %42 ], [ false, %44 ]
-  %50 = phi i1 [ false, %30 ], [ false, %38 ], [ false, %37 ], [ false, %42 ], [ %or.cond17, %44 ]
-  %51 = phi i1 [ false, %30 ], [ false, %38 ], [ false, %37 ], [ true, %42 ], [ false, %44 ]
-  %.0333 = phi i32 [ %27, %30 ], [ %41, %38 ], [ %27, %37 ], [ %27, %42 ], [ %27, %44 ]
+  %48 = phi i1 [ true, %38 ], [ false, %30 ], [ false, %37 ], [ false, %42 ], [ false, %44 ]
+  %49 = phi i1 [ false, %38 ], [ false, %30 ], [ true, %37 ], [ false, %42 ], [ false, %44 ]
+  %50 = phi i1 [ false, %38 ], [ false, %30 ], [ false, %37 ], [ false, %42 ], [ %or.cond17, %44 ]
+  %51 = phi i1 [ false, %38 ], [ false, %30 ], [ false, %37 ], [ true, %42 ], [ false, %44 ]
+  %.0333 = phi i32 [ %41, %38 ], [ %27, %30 ], [ %27, %37 ], [ %27, %42 ], [ %27, %44 ]
   %52 = zext i32 %23 to i64
   %53 = getelementptr inbounds nuw i8, ptr @stbir__pixel_channels, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !4
@@ -29249,7 +29249,7 @@ stbir__get_max_split.exit:                        ; preds = %.lr.ph.i, %10
   br label %stbir__should_do_vertical_first.exit
 
 stbir__should_do_vertical_first.exit:             ; preds = %75, %80, %82, %84, %86
-  %.0.i = phi i64 [ %77, %75 ], [ %81, %80 ], [ 3, %84 ], [ 2, %82 ], [ %..i, %86 ]
+  %.0.i = phi i64 [ %77, %75 ], [ %81, %80 ], [ 2, %82 ], [ 3, %84 ], [ %..i, %86 ]
   %88 = getelementptr inbounds nuw [4 x float], ptr %60, i64 %.0.i
   %89 = sitofp i32 %62 to float
   %90 = load float, ptr %88, align 16, !tbaa !50
@@ -29623,7 +29623,7 @@ stbir__should_do_vertical_first.exit:             ; preds = %75, %80, %82, %84, 
   br i1 %316, label %341, label %.thread386
 
 .thread386:                                       ; preds = %305, %314, %309, %301, %293
-  %.0319 = phi ptr [ null, %293 ], [ %0, %314 ], [ null, %305 ], [ null, %301 ], [ null, %309 ]
+  %.0319 = phi ptr [ null, %305 ], [ null, %301 ], [ null, %293 ], [ null, %309 ], [ %0, %314 ]
   %317 = ptrtoint ptr %297 to i64
   %318 = add i64 %317, 15
   %319 = and i64 %318, -16
@@ -30040,7 +30040,7 @@ stbir__get_split_info.exit:                       ; preds = %496, %stbir_simd_me
   br i1 %542, label %.thread393, label %168
 
 .thread393:                                       ; preds = %.thread391, %._crit_edge411.us426, %.loopexit.us, %.lr.ph418.split, %stbir__get_split_info.exit, %47
-  %.0310 = phi ptr [ null, %47 ], [ %172, %stbir__get_split_info.exit ], [ %spec.select366.le, %._crit_edge411.us426 ], [ %spec.select366.le, %.loopexit.us ], [ %172, %.lr.ph418.split ], [ null, %.thread391 ]
+  %.0310 = phi ptr [ null, %47 ], [ %172, %stbir__get_split_info.exit ], [ %172, %.lr.ph418.split ], [ %spec.select366.le, %.loopexit.us ], [ %spec.select366.le, %._crit_edge411.us426 ], [ null, %.thread391 ]
   ret ptr %.0310
 }
 
@@ -30484,7 +30484,7 @@ define range(i32 0, 2) i32 @stbir__double_to_rational(double noundef %0, i32 nou
   %.pre = uitofp i32 %46 to double
   br label %51
 
-._crit_edge.thread:                               ; preds = %18, %16, %._crit_edge
+._crit_edge.thread:                               ; preds = %16, %18, %._crit_edge
   %47 = uitofp i32 %1 to double
   %48 = fdiv double %47, %0
   %49 = fadd double %48, 5.000000e-01
@@ -30509,7 +30509,7 @@ define range(i32 0, 2) i32 @stbir__double_to_rational(double noundef %0, i32 nou
   br label %60
 
 60:                                               ; preds = %.thread83, %51
-  %.2 = phi i32 [ 1, %.thread83 ], [ %59, %51 ]
+  %.2 = phi i32 [ %59, %51 ], [ 1, %.thread83 ]
   ret i32 %.2
 }
 
@@ -30610,7 +30610,7 @@ stbir__clip.exit:                                 ; preds = %39, %44
   br label %67
 
 67:                                               ; preds = %stbir__clip.exit, %13, %15, %7, %53
-  %.0 = phi i32 [ 1, %53 ], [ 0, %7 ], [ 0, %13 ], [ 0, %15 ], [ 0, %stbir__clip.exit ]
+  %.0 = phi i32 [ 1, %53 ], [ 0, %7 ], [ 0, %15 ], [ 0, %13 ], [ 0, %stbir__clip.exit ]
   ret i32 %.0
 }
 
@@ -30907,7 +30907,7 @@ define range(i32 0, 2) i32 @stbir_set_input_subrect(ptr noundef writeonly captur
   br label %21
 
 21:                                               ; preds = %16, %5, %12
-  %.0 = phi i32 [ 0, %5 ], [ %spec.select, %16 ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %5 ], [ %spec.select, %16 ]
   ret i32 %.0
 }
 
@@ -30948,7 +30948,7 @@ define range(i32 0, 2) i32 @stbir_set_output_pixel_subrect(ptr noundef captures(
   br label %23
 
 23:                                               ; preds = %18, %5, %15
-  %.0 = phi i32 [ 0, %5 ], [ %spec.select, %18 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %5 ], [ %spec.select, %18 ]
   ret i32 %.0
 }
 
@@ -31145,7 +31145,7 @@ define range(i32 -536870912, -2147483648) i32 @stbir__perform_build(ptr noundef 
   br label %92
 
 92:                                               ; preds = %78, %49, %36, %19, %14, %10, %2, %89
-  %.0 = phi i32 [ 0, %78 ], [ 0, %2 ], [ 0, %10 ], [ 0, %14 ], [ 0, %36 ], [ %.046, %89 ], [ 0, %49 ], [ 0, %19 ]
+  %.0 = phi i32 [ %.046, %89 ], [ 0, %2 ], [ 0, %10 ], [ 0, %14 ], [ 0, %19 ], [ 0, %36 ], [ 0, %49 ], [ 0, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -31429,7 +31429,7 @@ define range(i32 0, 2) i32 @stbir_resize_extended_split(ptr noundef captures(non
   br label %stbir__perform_resize.exit
 
 stbir__perform_resize.exit:                       ; preds = %34, %33, %17, %22, %10, %14, %8
-  %.0 = phi i32 [ %9, %8 ], [ 0, %17 ], [ 0, %10 ], [ 0, %14 ], [ 0, %22 ], [ 1, %33 ], [ 1, %34 ]
+  %.0 = phi i32 [ %9, %8 ], [ 0, %14 ], [ 0, %10 ], [ 0, %22 ], [ 0, %17 ], [ 1, %33 ], [ 1, %34 ]
   ret i32 %.0
 }
 
@@ -31474,7 +31474,7 @@ define range(i32 0, 2) i32 @stbir__check_output_stuff(ptr noundef writeonly capt
   br label %30
 
 30:                                               ; preds = %24, %29, %26, %19, %16, %8
-  %.0 = phi i32 [ 0, %26 ], [ 0, %8 ], [ 0, %16 ], [ 0, %19 ], [ 1, %29 ], [ 1, %24 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %16 ], [ 0, %19 ], [ 0, %26 ], [ 1, %29 ], [ 1, %24 ]
   ret i32 %.0
 }
 
@@ -31581,8 +31581,8 @@ stbir__check_output_stuff.exit:                   ; preds = %30, %28
   call void @free(ptr noundef nonnull %.022) #24
   br label %stbir__check_output_stuff.exit.thread
 
-stbir__check_output_stuff.exit.thread:            ; preds = %stbir__check_output_stuff.exit, %23, %20, %9, %30, %60
-  %.0 = phi ptr [ null, %23 ], [ %.mux, %stbir__check_output_stuff.exit ], [ null, %60 ], [ null, %30 ], [ null, %9 ], [ null, %20 ]
+stbir__check_output_stuff.exit.thread:            ; preds = %stbir__check_output_stuff.exit, %30, %23, %20, %9, %60
+  %.0 = phi ptr [ null, %60 ], [ %.mux, %stbir__check_output_stuff.exit ], [ null, %9 ], [ null, %20 ], [ null, %23 ], [ null, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.0
 }
@@ -31690,8 +31690,8 @@ stbir__check_output_stuff.exit:                   ; preds = %30, %28
   call void @free(ptr noundef nonnull %.022) #24
   br label %stbir__check_output_stuff.exit.thread
 
-stbir__check_output_stuff.exit.thread:            ; preds = %stbir__check_output_stuff.exit, %23, %20, %9, %30, %60
-  %.0 = phi ptr [ null, %23 ], [ %.mux, %stbir__check_output_stuff.exit ], [ null, %60 ], [ null, %30 ], [ null, %9 ], [ null, %20 ]
+stbir__check_output_stuff.exit.thread:            ; preds = %stbir__check_output_stuff.exit, %30, %23, %20, %9, %60
+  %.0 = phi ptr [ null, %60 ], [ %.mux, %stbir__check_output_stuff.exit ], [ null, %9 ], [ null, %20 ], [ null, %23 ], [ null, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.0
 }
@@ -31800,8 +31800,8 @@ stbir__check_output_stuff.exit:                   ; preds = %31, %29
   call void @free(ptr noundef nonnull %.022) #24
   br label %stbir__check_output_stuff.exit.thread
 
-stbir__check_output_stuff.exit.thread:            ; preds = %stbir__check_output_stuff.exit, %24, %21, %9, %31, %61
-  %.0 = phi ptr [ null, %24 ], [ %.mux, %stbir__check_output_stuff.exit ], [ null, %61 ], [ null, %31 ], [ null, %9 ], [ null, %21 ]
+stbir__check_output_stuff.exit.thread:            ; preds = %stbir__check_output_stuff.exit, %31, %24, %21, %9, %61
+  %.0 = phi ptr [ null, %61 ], [ %.mux, %stbir__check_output_stuff.exit ], [ null, %9 ], [ null, %21 ], [ null, %24 ], [ null, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.0
 }
@@ -31921,8 +31921,8 @@ stbir__check_output_stuff.exit:                   ; preds = %38, %36
   call void @free(ptr noundef nonnull %.028) #24
   br label %stbir__check_output_stuff.exit.thread
 
-stbir__check_output_stuff.exit.thread:            ; preds = %stbir__check_output_stuff.exit, %31, %28, %12, %38, %72
-  %.0 = phi ptr [ null, %31 ], [ %.mux, %stbir__check_output_stuff.exit ], [ null, %72 ], [ null, %38 ], [ null, %12 ], [ null, %28 ]
+stbir__check_output_stuff.exit.thread:            ; preds = %stbir__check_output_stuff.exit, %38, %31, %28, %12, %72
+  %.0 = phi ptr [ null, %72 ], [ %.mux, %stbir__check_output_stuff.exit ], [ null, %12 ], [ null, %28 ], [ null, %31 ], [ null, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret ptr %.0
 }

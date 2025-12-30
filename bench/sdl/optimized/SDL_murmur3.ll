@@ -67,8 +67,8 @@ define hidden i32 @SDL_murmur3_32_REAL(ptr noundef %0, i64 noundef %1, i32 nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit69, %.loopexit.loopexit, %21, %8
-  %.148 = phi i32 [ %20, %.loopexit.loopexit ], [ %2, %8 ], [ %2, %21 ], [ %32, %.loopexit.loopexit69 ]
-  %.1 = phi ptr [ %scevgep74, %.loopexit.loopexit ], [ %0, %8 ], [ %0, %21 ], [ %scevgep, %.loopexit.loopexit69 ]
+  %.148 = phi i32 [ %2, %8 ], [ %2, %21 ], [ %20, %.loopexit.loopexit ], [ %32, %.loopexit.loopexit69 ]
+  %.1 = phi ptr [ %0, %8 ], [ %0, %21 ], [ %scevgep74, %.loopexit.loopexit ], [ %scevgep, %.loopexit.loopexit69 ]
   %35 = and i64 %1, 3
   %.not52 = icmp eq i64 %35, 0
   br i1 %.not52, label %49, label %.preheader

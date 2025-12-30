@@ -99,7 +99,7 @@ define hidden noundef zeroext i1 @_ZNK13IdealLoopTree18policy_unswitchingEP14Pha
   br label %_ZN14PhaseIdealLoop17may_require_nodesEjj.exit
 
 _ZN14PhaseIdealLoop17may_require_nodesEjj.exit:   ; preds = %42, %25, %22, %19, %15, %5, %2
-  %.0 = phi i1 [ false, %5 ], [ false, %15 ], [ false, %19 ], [ false, %22 ], [ false, %2 ], [ false, %25 ], [ %45, %42 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %5 ], [ false, %15 ], [ false, %19 ], [ false, %22 ], [ false, %25 ], [ %45, %42 ]
   ret i1 %.0
 }
 
@@ -207,7 +207,7 @@ _ZNK14PhaseIdealLoop4idomEP4Node.exit:            ; preds = %_ZNK10Node_ArrayixE
   br label %69
 
 69:                                               ; preds = %67, %42, %56, %65, %47, %_ZNK14PhaseIdealLoop4idomEP4Node.exit
-  %.1 = phi ptr [ %spec.select, %67 ], [ %.023, %_ZNK14PhaseIdealLoop4idomEP4Node.exit ], [ %.023, %65 ], [ %.023, %56 ], [ %.023, %47 ], [ %.023, %42 ]
+  %.1 = phi ptr [ %.023, %65 ], [ %.023, %56 ], [ %.023, %47 ], [ %.023, %42 ], [ %.023, %_ZNK14PhaseIdealLoop4idomEP4Node.exit ], [ %spec.select, %67 ]
   %.not = icmp eq ptr %.0.lcssa.i.i.i, %4
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !8
 
@@ -1336,7 +1336,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %53, %55
   br label %67
 
 67:                                               ; preds = %_ZN4NodenwEm.exit8, %58, %_ZN4NodenwEm.exit, %43
-  %.0 = phi ptr [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i, %43 ], [ %.0.i.i.i7, %58 ], [ null, %_ZN4NodenwEm.exit8 ]
+  %.0 = phi ptr [ %.0.i.i.i, %43 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i7, %58 ], [ null, %_ZN4NodenwEm.exit8 ]
   %68 = load ptr, ptr %0, align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load ptr, ptr %69, align 8

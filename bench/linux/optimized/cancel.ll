@@ -791,7 +791,7 @@ define dso_local i32 @io_sync_cancel(ptr noundef %0, ptr noundef %1) local_unnam
   br label %.loopexit14
 
 .loopexit14:                                      ; preds = %35, %43, %72, %68, %152, %.thread, %54, %24, %2
-  %153 = phi i32 [ -14, %2 ], [ -22, %24 ], [ -9, %54 ], [ %150, %152 ], [ %150, %.thread ], [ -22, %43 ], [ -9, %72 ], [ -9, %68 ], [ -22, %35 ]
+  %153 = phi i32 [ -14, %2 ], [ -22, %24 ], [ -9, %54 ], [ %150, %152 ], [ %150, %.thread ], [ -9, %68 ], [ -9, %72 ], [ -22, %43 ], [ -22, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

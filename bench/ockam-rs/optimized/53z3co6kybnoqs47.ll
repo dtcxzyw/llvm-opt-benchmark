@@ -3108,10 +3108,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit175
   br label %"_ZN4core3ptr244drop_in_place$LT$core..result..Result$LT$aws_smithy_runtime_api..client..interceptors..context..Output$C$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$$GT$17h4a98b1ffef6359c4E.llvm.17010984734500373274.exit"
 
 .thread:                                          ; preds = %232, %238, %243
-  %.pn.pn250 = phi { ptr, i32 } [ %.pn, %232 ], [ %lpad.thr_comm, %243 ], [ %.pn, %238 ]
+  %.pn.pn250 = phi { ptr, i32 } [ %lpad.thr_comm, %243 ], [ %.pn, %238 ], [ %.pn, %232 ]
   resume { ptr, i32 } %.pn.pn250
 
-243:                                              ; preds = %.invoke270, %.noexc170, %.noexc169, %.critedge9.i, %108, %77, %44, %67, %95, %47, %70, %133
+243:                                              ; preds = %.invoke270, %133, %.noexc170, %.noexc169, %.critedge9.i, %108, %44, %47, %67, %70, %77, %95
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr152drop_in_place$LT$aws_smithy_runtime_api..client..orchestrator..OrchestratorError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$$GT$17h87be7e4f3e423c9fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %1) #19

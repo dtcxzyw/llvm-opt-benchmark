@@ -260,7 +260,7 @@ define range(i32 -1, 1) i32 @H5B2__hdr_init(ptr noundef %0, ptr noundef readonly
   br label %H5VM_limit_enc_size.exit
 
 H5VM_limit_enc_size.exit:                         ; preds = %100, %105, %112, %.thread
-  %.0.i.i = phi i16 [ %109, %105 ], [ %116, %112 ], [ %104, %100 ], [ %119, %.thread ]
+  %.0.i.i = phi i16 [ %104, %100 ], [ %109, %105 ], [ %116, %112 ], [ %119, %.thread ]
   %120 = lshr i16 %.0.i.i, 3
   %121 = trunc nuw nsw i16 %120 to i8
   %122 = add nuw nsw i8 %121, 1
@@ -411,7 +411,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %100, %105, %112, %.
   br label %H5VM_limit_enc_size.exit134
 
 H5VM_limit_enc_size.exit134:                      ; preds = %168, %173, %180, %185, %194, %199, %206, %211
-  %.0.i.i129 = phi i16 [ %203, %199 ], [ %177, %173 ], [ %189, %185 ], [ %172, %168 ], [ %184, %180 ], [ %198, %194 ], [ %210, %206 ], [ %214, %211 ]
+  %.0.i.i129 = phi i16 [ %172, %168 ], [ %177, %173 ], [ %184, %180 ], [ %189, %185 ], [ %198, %194 ], [ %203, %199 ], [ %210, %206 ], [ %214, %211 ]
   %215 = lshr i16 %.0.i.i129, 3
   %216 = trunc nuw nsw i16 %215 to i8
   %217 = add nuw nsw i8 %216, 1
@@ -1160,7 +1160,7 @@ define ptr @H5B2__hdr_protect(ptr noundef %0, i64 noundef %1, ptr noundef %2, i3
   br label %.thread
 
 .thread:                                          ; preds = %17, %21, %26, %37, %48, %44, %4
-  %.0 = phi ptr [ null, %48 ], [ null, %44 ], [ null, %17 ], [ null, %4 ], [ %15, %21 ], [ %15, %26 ], [ %15, %37 ]
+  %.0 = phi ptr [ null, %48 ], [ null, %44 ], [ null, %4 ], [ %15, %21 ], [ %15, %26 ], [ %15, %37 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -1303,7 +1303,7 @@ H5B2__hdr_unprotect.exit:                         ; preds = %36, %49
   %56 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__hdr_delete, i32 noundef 679, i64 noundef %54, i64 noundef %55, ptr noundef nonnull @.str.16) #5
   br label %H5B2__hdr_unprotect.exit.thread
 
-H5B2__hdr_unprotect.exit.thread:                  ; preds = %.split, %42, %29, %.split14, %H5B2__hdr_unprotect.exit, %1
+H5B2__hdr_unprotect.exit.thread:                  ; preds = %.split, %42, %.split14, %29, %H5B2__hdr_unprotect.exit, %1
   %.0 = phi i32 [ -1, %H5B2__hdr_unprotect.exit ], [ 0, %1 ], [ 0, %42 ], [ 0, %.split ], [ -1, %29 ], [ -1, %.split14 ]
   ret i32 %.0
 }

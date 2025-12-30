@@ -1176,7 +1176,7 @@ _ZN7mitsuba3refINS_7EmitterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEaSIS7_E
   br i1 %.not214, label %._crit_edge.loopexit, label %62
 
 _ZN7mitsuba3refINS_6ObjectEED2Ev.exit74:          ; preds = %.loopexit222, %.loopexit.split-lp223, %236, %233, %205, %202, %184, %181, %159, %156, %142, %139, %121, %118, %94, %91, %244, %214
-  %.pn = phi { ptr, i32 } [ %234, %236 ], [ %140, %142 ], [ %157, %159 ], [ %119, %121 ], [ %92, %94 ], [ %215, %214 ], [ %182, %184 ], [ %203, %205 ], [ %245, %244 ], [ %92, %91 ], [ %119, %118 ], [ %140, %139 ], [ %157, %156 ], [ %182, %181 ], [ %203, %202 ], [ %234, %233 ], [ %lpad.loopexit224, %.loopexit222 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp223 ]
+  %.pn = phi { ptr, i32 } [ %215, %214 ], [ %245, %244 ], [ %92, %91 ], [ %92, %94 ], [ %119, %118 ], [ %119, %121 ], [ %140, %139 ], [ %140, %142 ], [ %157, %156 ], [ %157, %159 ], [ %182, %181 ], [ %182, %184 ], [ %203, %202 ], [ %203, %205 ], [ %234, %233 ], [ %234, %236 ], [ %lpad.loopexit224, %.loopexit222 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp223 ]
   call void @_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEENS5_ISC_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
   br label %.loopexit.split-lp
 
@@ -3278,9 +3278,9 @@ define weak_odr { i64, float } @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumI
   br label %30
 
 30:                                               ; preds = %13, %22, %18
-  %.sroa.025.0 = phi i32 [ %..i, %22 ], [ %spec.select, %13 ], [ %.sroa.0.0.extract.trunc, %18 ]
-  %.sroa.5.0 = phi float [ %24, %22 ], [ %spec.select28, %13 ], [ %21, %18 ]
-  %.sroa.9.0 = phi float [ %29, %22 ], [ %1, %13 ], [ %20, %18 ]
+  %.sroa.025.0 = phi i32 [ %.sroa.0.0.extract.trunc, %18 ], [ %..i, %22 ], [ %spec.select, %13 ]
+  %.sroa.5.0 = phi float [ %21, %18 ], [ %24, %22 ], [ %spec.select28, %13 ]
+  %.sroa.9.0 = phi float [ %20, %18 ], [ %29, %22 ], [ %1, %13 ]
   %31 = bitcast float %.sroa.5.0 to i32
   %.sroa.5.0.insert.ext = zext i32 %31 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
@@ -3496,9 +3496,9 @@ define weak_odr void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   br label %_ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImplIS4_Lm4ELb0ES5_iEEIS4_NS_6MatrixIS3_Lm4EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSB_5DepthsrSC_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESC_EE.exit.i
 
 _ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImplIS4_Lm4ELb0ES5_iEEIS4_NS_6MatrixIS3_Lm4EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSB_5DepthsrSC_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESC_EE.exit.i: ; preds = %24, %.noexc, %33
-  %.sroa.025.0.i = phi i32 [ %..i.i, %33 ], [ %.sroa.0.0.extract.trunc.i, %.noexc ], [ -1, %24 ]
-  %.sroa.5.0.i = phi float [ %35, %33 ], [ %32, %.noexc ], [ 0.000000e+00, %24 ]
-  %.sroa.9.0.i = phi float [ %40, %33 ], [ %31, %.noexc ], [ %3, %24 ]
+  %.sroa.025.0.i = phi i32 [ %.sroa.0.0.extract.trunc.i, %.noexc ], [ %..i.i, %33 ], [ -1, %24 ]
+  %.sroa.5.0.i = phi float [ %32, %.noexc ], [ %35, %33 ], [ 0.000000e+00, %24 ]
+  %.sroa.9.0.i = phi float [ %31, %.noexc ], [ %40, %33 ], [ %3, %24 ]
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %42 = zext i32 %.sroa.025.0.i to i64
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -3737,9 +3737,9 @@ define weak_odr void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   br label %65
 
 65:                                               ; preds = %48, %.noexc, %57
-  %.sroa.025.0.i = phi i32 [ %..i.i, %57 ], [ %.sroa.0.0.extract.trunc.i, %.noexc ], [ -1, %48 ]
-  %.sroa.5.0.i = phi float [ %59, %57 ], [ %56, %.noexc ], [ 0.000000e+00, %48 ]
-  %.sroa.9.0.i = phi float [ %64, %57 ], [ %55, %.noexc ], [ %47, %48 ]
+  %.sroa.025.0.i = phi i32 [ %.sroa.0.0.extract.trunc.i, %.noexc ], [ %..i.i, %57 ], [ -1, %48 ]
+  %.sroa.5.0.i = phi float [ %56, %.noexc ], [ %59, %57 ], [ 0.000000e+00, %48 ]
+  %.sroa.9.0.i = phi float [ %55, %.noexc ], [ %64, %57 ], [ %47, %48 ]
   store float %.sroa.9.0.i, ptr %30, align 8
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %67 = zext i32 %.sroa.025.0.i to i64
@@ -4589,7 +4589,7 @@ _ZN5drjit6gatherIPKN7mitsuba5ShapeIfNS_6MatrixINS1_8SpectrumIfLm4EEELm4EEEEELb0E
   br label %157
 
 157:                                              ; preds = %.thread620, %55
-  %158 = phi float [ %spec.select621, %.thread620 ], [ %.pre, %55 ]
+  %158 = phi float [ %.pre, %55 ], [ %spec.select621, %.thread620 ]
   %159 = fmul contract float %.fca.1.extract, %158
   store float %159, ptr %41, align 4
   store i32 %.sroa.0565.0.extract.trunc, ptr %47, align 4
@@ -8275,7 +8275,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -8350,7 +8350,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
   ret ptr %.069
 }
 
@@ -8736,7 +8736,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 
@@ -9911,7 +9911,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   br label %common.resume
 
 common.resume:                                    ; preds = %12, %73, %20, %23
-  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %21, %23 ], [ %13, %12 ], [ %.pn, %73 ]
+  %common.resume.op = phi { ptr, i32 } [ %21, %23 ], [ %21, %20 ], [ %13, %12 ], [ %.pn, %73 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit:    ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i

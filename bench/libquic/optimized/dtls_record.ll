@@ -381,7 +381,7 @@ define hidden range(i32 0, 2) i32 @dtls_seal_record(ptr noundef %0, ptr noundef 
   br label %71
 
 71:                                               ; preds = %59, %68, %37, %53, %58
-  %.1 = phi i32 [ 0, %58 ], [ 0, %37 ], [ 0, %53 ], [ 1, %68 ], [ 1, %59 ]
+  %.1 = phi i32 [ 0, %58 ], [ 0, %53 ], [ 0, %37 ], [ 1, %68 ], [ 1, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %72
 

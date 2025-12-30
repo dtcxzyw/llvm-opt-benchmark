@@ -155,7 +155,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -518,7 +518,7 @@ define noundef ptr @ulocale_openForLocaleID_77(ptr noundef %0, i32 noundef %1, p
   br label %21
 
 20:                                               ; preds = %3, %17, %12
-  %.08 = phi ptr [ %16, %17 ], [ %11, %12 ], [ null, %3 ]
+  %.08 = phi ptr [ %11, %12 ], [ %16, %17 ], [ null, %3 ]
   ret ptr %.08
 
 21:                                               ; preds = %18, %13
@@ -779,7 +779,7 @@ define i32 @ulocale_getKeywordValue_77(ptr noundef %0, ptr noundef %1, i32 nound
   resume { ptr, i32 } %.pn.i
 
 "_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ26ulocale_getKeywordValue_77E3$_0vEEiPciOT_R10UErrorCode.exit": ; preds = %37, %6, %13
-  %.0 = phi i32 [ 0, %6 ], [ 0, %13 ], [ %.1.i, %37 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %6 ], [ %.1.i, %37 ]
   ret i32 %.0
 }
 
@@ -873,7 +873,7 @@ define i32 @ulocale_getUnicodeKeywordValue_77(ptr noundef %0, ptr noundef %1, i3
   resume { ptr, i32 } %.pn.i
 
 "_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ33ulocale_getUnicodeKeywordValue_77E3$_0vEEiPciOT_R10UErrorCode.exit": ; preds = %37, %6, %13
-  %.0 = phi i32 [ 0, %6 ], [ 0, %13 ], [ %.1.i, %37 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %6 ], [ %.1.i, %37 ]
   ret i32 %.0
 }
 
@@ -897,7 +897,7 @@ define ptr @ulocale_getKeywords_77(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %11
 
 11:                                               ; preds = %2, %8, %7
-  %.0 = phi ptr [ %10, %8 ], [ null, %7 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %7 ], [ %10, %8 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -925,7 +925,7 @@ define ptr @ulocale_getUnicodeKeywords_77(ptr noundef %0, ptr noundef %1) local_
   br label %11
 
 11:                                               ; preds = %2, %8, %7
-  %.0 = phi ptr [ %10, %8 ], [ null, %7 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %7 ], [ %10, %8 ], [ null, %2 ]
   ret ptr %.0
 }
 

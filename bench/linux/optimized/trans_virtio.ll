@@ -1031,10 +1031,10 @@ define internal i32 @p9_virtio_zc_request(ptr noundef %0, ptr noundef %1, ptr no
   br label %.thread14
 
 .thread14:                                        ; preds = %48, %56, %.thread, %43
-  %64 = phi i32 [ %27, %.thread ], [ 0, %43 ], [ 0, %56 ], [ 0, %48 ]
-  %65 = phi i32 [ 0, %.thread ], [ 0, %43 ], [ %54, %56 ], [ %54, %48 ]
-  %66 = phi i32 [ %37, %.thread ], [ %5, %43 ], [ %5, %56 ], [ %5, %48 ]
-  %67 = phi i32 [ %4, %.thread ], [ %4, %43 ], [ %46, %56 ], [ %4, %48 ]
+  %64 = phi i32 [ 0, %43 ], [ %27, %.thread ], [ 0, %56 ], [ 0, %48 ]
+  %65 = phi i32 [ 0, %43 ], [ 0, %.thread ], [ %54, %56 ], [ %54, %48 ]
+  %66 = phi i32 [ %5, %43 ], [ %37, %.thread ], [ %5, %56 ], [ %5, %48 ]
+  %67 = phi i32 [ %4, %43 ], [ %4, %.thread ], [ %46, %56 ], [ %4, %48 ]
   store volatile i32 2, ptr %1, align 8
   %68 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %69 = getelementptr inbounds nuw i8, ptr %16, i64 56
@@ -1310,10 +1310,10 @@ pack_sg_list.exit.thread:                         ; preds = %.critedge, %117, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread16, %45, %18, %221, %216, %212, %192
-  %224 = phi i1 [ true, %45 ], [ true, %192 ], [ false, %221 ], [ false, %216 ], [ false, %212 ], [ true, %18 ], [ true, %.thread16 ]
-  %225 = phi i32 [ 0, %45 ], [ %64, %192 ], [ %64, %221 ], [ %64, %216 ], [ %64, %212 ], [ 0, %18 ], [ %64, %.thread16 ]
-  %226 = phi i32 [ 0, %45 ], [ %65, %192 ], [ %65, %221 ], [ %65, %216 ], [ %65, %212 ], [ 0, %18 ], [ %65, %.thread16 ]
-  %227 = phi i32 [ %46, %45 ], [ -5, %192 ], [ %213, %221 ], [ %213, %216 ], [ %213, %212 ], [ %19, %18 ], [ -512, %.thread16 ]
+  %224 = phi i1 [ true, %192 ], [ false, %221 ], [ false, %216 ], [ false, %212 ], [ true, %18 ], [ true, %45 ], [ true, %.thread16 ]
+  %225 = phi i32 [ %64, %192 ], [ %64, %221 ], [ %64, %216 ], [ %64, %212 ], [ 0, %18 ], [ 0, %45 ], [ %64, %.thread16 ]
+  %226 = phi i32 [ %65, %192 ], [ %65, %221 ], [ %65, %216 ], [ %65, %212 ], [ 0, %18 ], [ 0, %45 ], [ %65, %.thread16 ]
+  %227 = phi i32 [ -5, %192 ], [ %213, %221 ], [ %213, %216 ], [ %213, %212 ], [ %19, %18 ], [ %46, %45 ], [ -512, %.thread16 ]
   %228 = load i32, ptr %12, align 4
   %229 = icmp eq i32 %228, 0
   br i1 %229, label %240, label %230
@@ -1449,7 +1449,7 @@ define internal fastcc i32 @pack_sg_list(ptr noundef captures(none) %0, i32 noun
   br label %.thread
 
 .thread:                                          ; preds = %4, %51, %48
-  %57 = phi i32 [ %1, %48 ], [ %49, %51 ], [ %1, %4 ]
+  %57 = phi i32 [ %49, %51 ], [ %1, %48 ], [ %1, %4 ]
   %58 = sub i32 %57, %1
   ret i32 %58
 }
@@ -1746,7 +1746,7 @@ define internal fastcc i32 @pack_sg_list_p(ptr noundef captures(none) %0, i32 no
   br label %.thread
 
 .thread:                                          ; preds = %9, %51, %48
-  %57 = phi i32 [ %1, %48 ], [ %49, %51 ], [ %1, %9 ]
+  %57 = phi i32 [ %49, %51 ], [ %1, %48 ], [ %1, %9 ]
   %58 = sub i32 %57, %1
   ret i32 %58
 }

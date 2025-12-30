@@ -416,11 +416,11 @@ _ZNSt6vectorI9HuffTableSaIS0_EE6resizeEm.exit:    ; preds = %_ZNSt6vectorI9HuffT
   br i1 %exitcond.not, label %101, label %_ZNSt6vectorI9HuffTableSaIS0_EE6resizeEm.exit, !llvm.loop !57
 
 .critedge.thread.loopexit70:                      ; preds = %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26, %51, %53, %56, %.critedge
-  %.sink.ph = phi i32 [ 3, %53 ], [ 5, %56 ], [ 6, %51 ], [ 4, %.critedge ], [ 8, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ]
+  %.sink.ph = phi i32 [ 6, %51 ], [ 3, %53 ], [ 5, %56 ], [ 4, %.critedge ], [ 8, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ]
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.i.i, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26, %.critedge.thread.loopexit70, %.preheader, %58, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit, %_ZN12ByteStreamBE6get_u8Ev.exit.i, %101
-  %.sink = phi i32 [ %.sink.ph, %.critedge.thread.loopexit70 ], [ 7, %58 ], [ 0, %101 ], [ 2, %_ZN12ByteStreamBE6get_u8Ev.exit.i ], [ 2, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit ], [ 4, %.preheader ], [ 4, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ], [ 4, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ], [ 4, %.critedge.i.i ]
+  %.sink = phi i32 [ 0, %101 ], [ 2, %_ZN12ByteStreamBE6get_u8Ev.exit.i ], [ 2, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit ], [ 7, %58 ], [ 4, %.preheader ], [ %.sink.ph, %.critedge.thread.loopexit70 ], [ 4, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ], [ 4, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ], [ 4, %.critedge.i.i ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %.sink, ptr %113, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -640,7 +640,7 @@ _ZN12ByteStreamBE14skip_to_markerEv.exit.thread.sink.split: ; preds = %_ZN12Byte
   br label %_ZN12ByteStreamBE14skip_to_markerEv.exit.thread
 
 _ZN12ByteStreamBE14skip_to_markerEv.exit.thread:  ; preds = %.critedge.i, %_ZN12ByteStreamBE14skip_to_markerEv.exit.thread.sink.split, %20, %_ZN12ByteStreamBE6get_u8Ev.exit
-  %.0 = phi i8 [ -1, %20 ], [ -1, %_ZN12ByteStreamBE6get_u8Ev.exit ], [ %.0.ph, %_ZN12ByteStreamBE14skip_to_markerEv.exit.thread.sink.split ], [ -1, %.critedge.i ]
+  %.0 = phi i8 [ -1, %_ZN12ByteStreamBE6get_u8Ev.exit ], [ -1, %20 ], [ %.0.ph, %_ZN12ByteStreamBE14skip_to_markerEv.exit.thread.sink.split ], [ -1, %.critedge.i ]
   ret i8 %.0
 }
 
@@ -884,7 +884,7 @@ _ZN12ByteStreamBE6get_u8Ev.exit28:                ; preds = %_ZNSt6vectorI24LibR
   br i1 %123, label %87, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit28, %73, %_ZN12ByteStreamBE6get_u8Ev.exit21
-  %.0 = phi i1 [ false, %73 ], [ false, %_ZN12ByteStreamBE6get_u8Ev.exit21 ], [ true, %_ZN12ByteStreamBE6get_u8Ev.exit28 ]
+  %.0 = phi i1 [ false, %_ZN12ByteStreamBE6get_u8Ev.exit21 ], [ false, %73 ], [ true, %_ZN12ByteStreamBE6get_u8Ev.exit28 ]
   ret i1 %.0
 }
 
@@ -1034,7 +1034,7 @@ _ZN12ByteStreamBE6get_u8Ev.exit45:                ; preds = %57
   %.not = icmp eq i16 %70, 0
   br i1 %.not, label %.thread, label %.lr.ph56, !llvm.loop !74
 
-.thread:                                          ; preds = %._crit_edge, %53, %_ZN12ByteStreamBE6get_u8Ev.exit, %39, %_ZN12ByteStreamBE7get_u16Ev.exit
+.thread:                                          ; preds = %._crit_edge, %_ZN12ByteStreamBE6get_u8Ev.exit, %39, %53, %_ZN12ByteStreamBE7get_u16Ev.exit
   %.3 = phi i1 [ true, %_ZN12ByteStreamBE7get_u16Ev.exit ], [ true, %53 ], [ false, %39 ], [ false, %_ZN12ByteStreamBE6get_u8Ev.exit ], [ true, %._crit_edge ]
   ret i1 %.3
 }
@@ -1283,7 +1283,7 @@ _ZN12ByteStreamBE6get_u8Ev.exit48:                ; preds = %_ZN12ByteStreamBE6g
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit42.us, %65, %_ZN12ByteStreamBE6get_u8Ev.exit42.us.us, %43, %_ZN12ByteStreamBE6get_u8Ev.exit40, %_ZN12ByteStreamBE6get_u8Ev.exit48, %_ZN12ByteStreamBE6get_u8Ev.exit, %2
-  %.0 = phi i32 [ 65536, %2 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit ], [ %101, %_ZN12ByteStreamBE6get_u8Ev.exit48 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit40 ], [ 65536, %43 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit42.us.us ], [ 65536, %65 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit42.us ]
+  %.0 = phi i32 [ 65536, %2 ], [ %101, %_ZN12ByteStreamBE6get_u8Ev.exit48 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit40 ], [ 65536, %43 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit42.us.us ], [ 65536, %65 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit42.us ]
   ret i32 %.0
 }
 
@@ -1956,7 +1956,7 @@ _ZN9HuffTable6decodeER7BitPump.exit88:            ; preds = %244, %246, %251, %.
   br i1 %280, label %109, label %._crit_edge, !llvm.loop !114
 
 281:                                              ; preds = %._crit_edge93, %51, %47, %27, %16, %11, %4
-  %.0 = phi i1 [ false, %16 ], [ false, %4 ], [ false, %11 ], [ true, %._crit_edge93 ], [ false, %51 ], [ false, %47 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %11 ], [ false, %16 ], [ true, %._crit_edge93 ], [ false, %51 ], [ false, %47 ], [ false, %27 ]
   ret i1 %.0
 }
 
@@ -2105,7 +2105,7 @@ _ZN7BitPump3getEj.exit.i:                         ; preds = %3
   br label %_ZN9HuffTable4diffER7BitPumpj.exit
 
 _ZN9HuffTable4diffER7BitPumpj.exit:               ; preds = %3, %20, %24, %_ZN7BitPump3getEj.exit.i, %48
-  %.018.i = phi i32 [ -32768, %20 ], [ 0, %3 ], [ -32768, %24 ], [ %50, %48 ], [ %43, %_ZN7BitPump3getEj.exit.i ]
+  %.018.i = phi i32 [ 0, %3 ], [ -32768, %24 ], [ -32768, %20 ], [ %50, %48 ], [ %43, %_ZN7BitPump3getEj.exit.i ]
   %51 = and i32 %19, 255
   %52 = add nuw nsw i32 %15, %51
   store i32 %52, ptr %2, align 4, !tbaa !71
@@ -2279,8 +2279,8 @@ define linkonce_odr noundef i32 @_ZN11BitPumpJpeg4peekEj(ptr noundef nonnull ali
   br i1 %or.cond, label %.critedge, label %59, !llvm.loop !119
 
 .critedge:                                        ; preds = %81, %2, %8
-  %91 = phi i8 [ %7, %2 ], [ 1, %8 ], [ %82, %81 ]
-  %92 = phi i32 [ %4, %2 ], [ %4, %8 ], [ %88, %81 ]
+  %91 = phi i8 [ 1, %8 ], [ %7, %2 ], [ %82, %81 ]
+  %92 = phi i32 [ %4, %8 ], [ %4, %2 ], [ %88, %81 ]
   %93 = icmp ugt i32 %1, %92
   %94 = trunc nuw i8 %91 to i1
   %or.cond26 = select i1 %93, i1 %94, i1 false
@@ -2405,7 +2405,7 @@ _ZN7BitPump3getEj.exit.i:                         ; preds = %2
   br label %_ZN9HuffTable4diffER7BitPumpj.exit
 
 _ZN9HuffTable4diffER7BitPumpj.exit:               ; preds = %2, %19, %23, %_ZN7BitPump3getEj.exit.i, %47
-  %.018.i = phi i32 [ -32768, %19 ], [ 0, %2 ], [ -32768, %23 ], [ %49, %47 ], [ %42, %_ZN7BitPump3getEj.exit.i ]
+  %.018.i = phi i32 [ 0, %2 ], [ -32768, %23 ], [ -32768, %19 ], [ %49, %47 ], [ %42, %_ZN7BitPump3getEj.exit.i ]
   ret i32 %.018.i
 }
 
@@ -2887,7 +2887,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !87
   br label %41
 

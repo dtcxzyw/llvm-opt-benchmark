@@ -981,7 +981,7 @@ define dso_local noundef ptr @pgstat_get_backend_current_activity(i32 noundef %0
   br i1 %.not, label %.thread29, label %.preheader, !llvm.loop !27
 
 .thread29:                                        ; preds = %45, %2, %33, %24, %28
-  %.2 = phi ptr [ @.str.4, %24 ], [ @.str.5, %28 ], [ %37, %33 ], [ @.str.6, %2 ], [ @.str.6, %45 ]
+  %.2 = phi ptr [ @.str.5, %28 ], [ @.str.4, %24 ], [ %37, %33 ], [ @.str.6, %2 ], [ @.str.6, %45 ]
   ret ptr %.2
 }
 
@@ -1064,7 +1064,7 @@ define dso_local noundef ptr @pgstat_get_crashed_backend_activity(i32 noundef %0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
 
 .loopexit:                                        ; preds = %30, %.preheader, %27, %17, %12, %24, %3
-  %.0 = phi ptr [ null, %24 ], [ null, %3 ], [ %1, %27 ], [ null, %12 ], [ null, %17 ], [ null, %.preheader ], [ null, %30 ]
+  %.0 = phi ptr [ null, %3 ], [ %1, %27 ], [ null, %17 ], [ null, %12 ], [ null, %24 ], [ null, %.preheader ], [ null, %30 ]
   ret ptr %.0
 }
 

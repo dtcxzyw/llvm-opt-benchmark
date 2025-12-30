@@ -249,7 +249,7 @@ define internal fastcc void @read_pages(ptr noundef %0) unnamed_addr #0 align 16
   br label %49
 
 49:                                               ; preds = %46, %39
-  %50 = phi i32 [ 1, %39 ], [ %48, %46 ]
+  %50 = phi i32 [ %48, %46 ], [ 1, %39 ]
   store i32 %50, ptr %24, align 4
   %51 = icmp eq ptr %42, null
   br i1 %51, label %.loopexit, label %52
@@ -354,7 +354,7 @@ define internal fastcc void @read_pages(ptr noundef %0) unnamed_addr #0 align 16
   br label %107
 
 107:                                              ; preds = %104, %97
-  %108 = phi i32 [ 1, %97 ], [ %106, %104 ]
+  %108 = phi i32 [ %106, %104 ], [ 1, %97 ]
   store i32 %108, ptr %16, align 4
   %109 = icmp eq ptr %100, null
   br i1 %109, label %.loopexit, label %110
@@ -852,8 +852,8 @@ define internal fastcc void @ondemand_readahead(ptr noundef %0, ptr noundef %1, 
   br label %.thread
 
 129:                                              ; preds = %75, %77, %54, %56
-  %.sink45 = phi i64 [ %60, %56 ], [ %55, %54 ], [ %76, %75 ], [ %81, %77 ]
-  %130 = phi i64 [ %41, %56 ], [ %41, %54 ], [ %65, %75 ], [ %65, %77 ]
+  %.sink45 = phi i64 [ %55, %54 ], [ %60, %56 ], [ %76, %75 ], [ %81, %77 ]
+  %130 = phi i64 [ %41, %54 ], [ %41, %56 ], [ %65, %75 ], [ %65, %77 ]
   %131 = trunc i64 %.sink45 to i32
   store i32 %131, ptr %38, align 8
   store i32 %131, ptr %42, align 4

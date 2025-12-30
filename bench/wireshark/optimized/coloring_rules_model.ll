@@ -2145,7 +2145,7 @@ define noundef zeroext i1 @_ZN18ColoringRulesModel7copyRowEii(ptr noundef align 
           to label %_ZNK5QListI8QVariantE5valueEx.exit.i unwind label %42
 
 common.resume:                                    ; preds = %42, %45, %59, %51
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %52, %51 ], [ %43, %42 ], [ %46, %45 ]
+  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %60, %59 ], [ %43, %42 ], [ %46, %45 ]
   resume { ptr, i32 } %common.resume.op
 
 42:                                               ; preds = %40
@@ -2222,7 +2222,7 @@ _ZN19ModelHelperTreeItemI16ColoringRuleItemE11insertChildEiPS0_.exit: ; preds = 
   br label %61
 
 61:                                               ; preds = %_ZN19ModelHelperTreeItemI16ColoringRuleItemE5childEi.exit, %50, %_ZN19ModelHelperTreeItemI16ColoringRuleItemE11insertChildEiPS0_.exit, %21, %.critedge
-  %.0 = phi i1 [ false, %21 ], [ false, %.critedge ], [ false, %_ZN19ModelHelperTreeItemI16ColoringRuleItemE5childEi.exit ], [ false, %50 ], [ true, %_ZN19ModelHelperTreeItemI16ColoringRuleItemE11insertChildEiPS0_.exit ]
+  %.0 = phi i1 [ false, %.critedge ], [ false, %21 ], [ false, %_ZN19ModelHelperTreeItemI16ColoringRuleItemE5childEi.exit ], [ false, %50 ], [ true, %_ZN19ModelHelperTreeItemI16ColoringRuleItemE11insertChildEiPS0_.exit ]
   ret i1 %.0
 }
 
@@ -2486,7 +2486,7 @@ _ZeqRK8QVariantS1_.exit:                          ; preds = %29
           to label %_ZNK5QListI8QVariantE5valueEx.exit.i unwind label %51
 
 common.resume:                                    ; preds = %34, %177, %51, %54
-  %common.resume.op = phi { ptr, i32 } [ %55, %54 ], [ %52, %51 ], [ %.pn, %177 ], [ %35, %34 ]
+  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %55, %54 ], [ %.pn, %177 ], [ %35, %34 ]
   resume { ptr, i32 } %common.resume.op
 
 51:                                               ; preds = %49
@@ -2848,7 +2848,7 @@ _ZN5QListIiED2Ev.exit65:                          ; preds = %170, %_ZN17QArrayDa
   br label %177
 
 176:                                              ; preds = %57, %115, %97, %90, %58, %_ZN5QListIiED2Ev.exit
-  %.2 = phi i1 [ false, %115 ], [ false, %97 ], [ true, %_ZN5QListIiED2Ev.exit ], [ false, %58 ], [ false, %90 ], [ false, %57 ]
+  %.2 = phi i1 [ true, %_ZN5QListIiED2Ev.exit ], [ false, %58 ], [ false, %90 ], [ false, %97 ], [ false, %115 ], [ false, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK11QModelIndex7isValidEv.exit.thread
@@ -2860,7 +2860,7 @@ _ZN5QListIiED2Ev.exit65:                          ; preds = %170, %_ZN17QArrayDa
   br label %common.resume
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4, %176, %_ZN19ModelHelperTreeItemI16ColoringRuleItemE5childEi.exit, %_ZeqRK8QVariantS1_.exit
-  %.0 = phi i1 [ false, %4 ], [ true, %_ZeqRK8QVariantS1_.exit ], [ %.2, %176 ], [ false, %_ZN19ModelHelperTreeItemI16ColoringRuleItemE5childEi.exit ]
+  %.0 = phi i1 [ true, %_ZeqRK8QVariantS1_.exit ], [ %.2, %176 ], [ false, %_ZN19ModelHelperTreeItemI16ColoringRuleItemE5childEi.exit ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -4050,7 +4050,7 @@ _ZN7QStringD2Ev.exit134:                          ; preds = %273, %_ZN17QArrayDa
   br label %.body
 
 .body:                                            ; preds = %103, %100, %282
-  %.pn69.pn.pn.pn = phi { ptr, i32 } [ %.pn69.pn.pn, %282 ], [ %104, %103 ], [ %101, %100 ]
+  %.pn69.pn.pn.pn = phi { ptr, i32 } [ %.pn69.pn.pn, %282 ], [ %101, %100 ], [ %104, %103 ]
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit138, label %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i136
 
 _ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i136: ; preds = %.body
@@ -4254,7 +4254,7 @@ _ZN10QByteArrayD2Ev.exit153:                      ; preds = %337, %_ZN17QArrayDa
   br label %_ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit138
 
 _ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit138: ; preds = %.body, %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i136, %284, %340
-  %.pn69.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn46.pn.pn, %340 ], [ %.pn69.pn.pn.pn, %284 ], [ %.pn69.pn.pn.pn, %.body ], [ %.pn69.pn.pn.pn, %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i136 ]
+  %.pn69.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn46.pn.pn, %340 ], [ %.pn69.pn.pn.pn, %.body ], [ %.pn69.pn.pn.pn, %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i.i136 ], [ %.pn69.pn.pn.pn, %284 ]
   call void @_ZN10QJsonArrayD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %11) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %341
@@ -5753,7 +5753,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i292:   ; preds = %522
   br label %.body250
 
 .body250:                                         ; preds = %526, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i292, %522, %520, %443
-  %.pn125 = phi { ptr, i32 } [ %444, %443 ], [ %521, %520 ], [ %523, %522 ], [ %523, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i292 ], [ %523, %526 ]
+  %.pn125 = phi { ptr, i32 } [ %521, %520 ], [ %444, %443 ], [ %523, %522 ], [ %523, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i292 ], [ %523, %526 ]
   %528 = load ptr, ptr %58, align 8
   %.not.i.i.i295 = icmp eq ptr %528, null
   br i1 %.not.i.i.i295, label %_ZN7QStringD2Ev.exit298, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i296
@@ -5807,7 +5807,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i304:   ; preds = %_ZN7QStringD2Ev.exi
   br label %.body
 
 .body:                                            ; preds = %539, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i304, %_ZN7QStringD2Ev.exit302, %514, %432
-  %.pn125.pn.pn.pn = phi { ptr, i32 } [ %433, %432 ], [ %515, %514 ], [ %.pn125.pn.pn, %_ZN7QStringD2Ev.exit302 ], [ %.pn125.pn.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i304 ], [ %.pn125.pn.pn, %539 ]
+  %.pn125.pn.pn.pn = phi { ptr, i32 } [ %515, %514 ], [ %433, %432 ], [ %.pn125.pn.pn, %_ZN7QStringD2Ev.exit302 ], [ %.pn125.pn.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i304 ], [ %.pn125.pn.pn, %539 ]
   %541 = load ptr, ptr %54, align 8
   %.not.i.i.i307 = icmp eq ptr %541, null
   br i1 %.not.i.i.i307, label %_ZN7QStringD2Ev.exit310, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i308
@@ -6006,7 +6006,7 @@ _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread.i.i.i.i: ; preds =
   br label %601
 
 601:                                              ; preds = %239, %562, %600, %569
-  %.pn135.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %570, %569 ], [ %.pn109, %600 ], [ %.pn135.pn.pn.pn.pn.pn, %562 ], [ %240, %239 ]
+  %.pn135.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn109, %600 ], [ %570, %569 ], [ %.pn135.pn.pn.pn.pn.pn, %562 ], [ %240, %239 ]
   call void @_ZN10QJsonArrayD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %33) #23
   br label %602
 
@@ -6016,7 +6016,7 @@ _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread.i.i.i.i: ; preds =
   br label %613
 
 .critedge148.thread:                              ; preds = %113, %.critedge148, %._crit_edge
-  %.1 = phi i1 [ true, %._crit_edge ], [ false, %.critedge148 ], [ false, %113 ]
+  %.1 = phi i1 [ false, %.critedge148 ], [ true, %._crit_edge ], [ false, %113 ]
   call void @_ZN13QJsonDocumentD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %29) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %603 = load ptr, ptr %28, align 8

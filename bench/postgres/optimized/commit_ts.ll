@@ -328,7 +328,7 @@ define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr no
   br label %74
 
 74:                                               ; preds = %50, %51, %13, %14, %63, %33
-  %.0 = phi i1 [ %37, %33 ], [ false, %13 ], [ %73, %63 ], [ false, %14 ], [ false, %51 ], [ false, %50 ]
+  %.0 = phi i1 [ %37, %33 ], [ %73, %63 ], [ false, %14 ], [ false, %13 ], [ false, %51 ], [ false, %50 ]
   ret i1 %.0
 }
 

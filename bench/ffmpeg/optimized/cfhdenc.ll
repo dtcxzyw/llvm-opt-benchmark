@@ -402,7 +402,7 @@ define internal range(i32 -2147483648, 1) i32 @cfhd_encode_init(ptr noundef %0) 
   br label %.loopexit268
 
 .loopexit268:                                     ; preds = %38, %195, %188, %1, %19, %14
-  %.0236 = phi i32 [ %., %195 ], [ -1094995529, %14 ], [ -1094995529, %19 ], [ %8, %1 ], [ 0, %188 ], [ -12, %38 ]
+  %.0236 = phi i32 [ -1094995529, %14 ], [ -1094995529, %19 ], [ %8, %1 ], [ 0, %188 ], [ %., %195 ], [ -12, %38 ]
   ret i32 %.0236
 }
 
@@ -810,7 +810,7 @@ bytestream2_put_be16.exit529:                     ; preds = %207
   br label %bytestream2_put_be16.exit531
 
 bytestream2_put_be16.exit529.thread:              ; preds = %207, %bytestream2_put_be16.exit527, %190, %bytestream2_put_be16.exit, %199, %216, %bytestream2_put_be16.exit529
-  %227 = phi ptr [ %214, %bytestream2_put_be16.exit529 ], [ %214, %216 ], [ %206, %bytestream2_put_be16.exit527 ], [ %206, %207 ], [ %198, %bytestream2_put_be16.exit ], [ %198, %199 ], [ %185, %190 ]
+  %227 = phi ptr [ %214, %216 ], [ %214, %bytestream2_put_be16.exit529 ], [ %206, %bytestream2_put_be16.exit527 ], [ %206, %207 ], [ %198, %bytestream2_put_be16.exit ], [ %198, %199 ], [ %185, %190 ]
   store i32 1, ptr %195, align 8, !tbaa !82
   br label %bytestream2_put_be16.exit531
 
@@ -952,7 +952,7 @@ bytestream2_put_be16.exit543:                     ; preds = %275
   br label %bytestream2_put_be16.exit545
 
 bytestream2_put_be16.exit543.thread:              ; preds = %275, %bytestream2_put_be16.exit541, %bytestream2_put_be16.exit537.thread, %258, %bytestream2_put_be16.exit537, %bytestream2_put_be16.exit539, %266, %285, %bytestream2_put_be16.exit543
-  %294 = phi ptr [ %284, %bytestream2_put_be16.exit543 ], [ %284, %285 ], [ %273, %bytestream2_put_be16.exit541 ], [ %273, %275 ], [ %265, %bytestream2_put_be16.exit539 ], [ %265, %266 ], [ %257, %bytestream2_put_be16.exit537 ], [ %257, %258 ], [ %255, %bytestream2_put_be16.exit537.thread ]
+  %294 = phi ptr [ %284, %285 ], [ %284, %bytestream2_put_be16.exit543 ], [ %273, %bytestream2_put_be16.exit541 ], [ %273, %275 ], [ %265, %bytestream2_put_be16.exit539 ], [ %265, %266 ], [ %257, %bytestream2_put_be16.exit537 ], [ %257, %258 ], [ %255, %bytestream2_put_be16.exit537.thread ]
   store i32 1, ptr %195, align 8, !tbaa !82
   br label %bytestream2_put_be16.exit545
 
@@ -1446,7 +1446,7 @@ bytestream2_put_be16.exit589:                     ; preds = %517
   br label %bytestream2_put_be16.exit591
 
 bytestream2_put_be16.exit589.thread:              ; preds = %517, %bytestream2_put_be16.exit587, %bytestream2_put_be16.exit583.thread, %498, %bytestream2_put_be16.exit583, %bytestream2_put_be16.exit585, %508, %525, %bytestream2_put_be16.exit589
-  %534 = phi ptr [ %524, %bytestream2_put_be16.exit589 ], [ %524, %525 ], [ %516, %bytestream2_put_be16.exit587 ], [ %516, %517 ], [ %505, %bytestream2_put_be16.exit585 ], [ %505, %508 ], [ %497, %bytestream2_put_be16.exit583 ], [ %497, %498 ], [ %494, %bytestream2_put_be16.exit583.thread ]
+  %534 = phi ptr [ %524, %525 ], [ %524, %bytestream2_put_be16.exit589 ], [ %516, %bytestream2_put_be16.exit587 ], [ %516, %517 ], [ %505, %bytestream2_put_be16.exit585 ], [ %505, %508 ], [ %497, %bytestream2_put_be16.exit583 ], [ %497, %498 ], [ %494, %bytestream2_put_be16.exit583.thread ]
   store i32 1, ptr %195, align 8, !tbaa !82
   br label %bytestream2_put_be16.exit591
 
@@ -1506,7 +1506,7 @@ bytestream2_put_be16.exit735:                     ; preds = %548
   br label %bytestream2_put_be16.exit737
 
 bytestream2_put_be16.exit735.thread:              ; preds = %548, %._crit_edge1058, %556, %bytestream2_put_be16.exit735
-  %565 = phi ptr [ %555, %bytestream2_put_be16.exit735 ], [ %555, %556 ], [ %546, %._crit_edge1058 ], [ %546, %548 ]
+  %565 = phi ptr [ %555, %556 ], [ %555, %bytestream2_put_be16.exit735 ], [ %546, %._crit_edge1058 ], [ %546, %548 ]
   store i32 1, ptr %195, align 8, !tbaa !82
   br label %bytestream2_put_be16.exit737
 
@@ -1752,8 +1752,8 @@ bytestream2_put_be16.exit609:                     ; preds = %679
   br i1 %692, label %bytestream2_put_be16.exit611, label %bytestream2_put_be16.exit611.thread
 
 bytestream2_put_be16.exit611.thread:              ; preds = %679, %bytestream2_put_be16.exit607, %bytestream2_put_be16.exit603.thread, %664, %bytestream2_put_be16.exit603, %bytestream2_put_be16.exit605, %671, %bytestream2_put_be16.exit609, %687
-  %693 = phi ptr [ %686, %bytestream2_put_be16.exit609 ], [ %686, %687 ], [ %678, %bytestream2_put_be16.exit607 ], [ %678, %679 ], [ %670, %bytestream2_put_be16.exit605 ], [ %670, %671 ], [ %651, %bytestream2_put_be16.exit603.thread ], [ %658, %664 ], [ %658, %bytestream2_put_be16.exit603 ]
-  %694 = phi i32 [ %663, %bytestream2_put_be16.exit609 ], [ %663, %687 ], [ %663, %bytestream2_put_be16.exit607 ], [ %663, %679 ], [ %663, %bytestream2_put_be16.exit605 ], [ %663, %671 ], [ %656, %bytestream2_put_be16.exit603.thread ], [ %663, %664 ], [ %663, %bytestream2_put_be16.exit603 ]
+  %693 = phi ptr [ %686, %687 ], [ %686, %bytestream2_put_be16.exit609 ], [ %678, %679 ], [ %678, %bytestream2_put_be16.exit607 ], [ %670, %671 ], [ %670, %bytestream2_put_be16.exit605 ], [ %651, %bytestream2_put_be16.exit603.thread ], [ %658, %664 ], [ %658, %bytestream2_put_be16.exit603 ]
+  %694 = phi i32 [ %663, %687 ], [ %663, %bytestream2_put_be16.exit609 ], [ %663, %679 ], [ %663, %bytestream2_put_be16.exit607 ], [ %663, %671 ], [ %663, %bytestream2_put_be16.exit605 ], [ %656, %bytestream2_put_be16.exit603.thread ], [ %663, %664 ], [ %663, %bytestream2_put_be16.exit603 ]
   store i32 1, ptr %195, align 8, !tbaa !82
   br label %bytestream2_put_be16.exit619.thread
 
@@ -1828,8 +1828,8 @@ bytestream2_put_be16.exit617:                     ; preds = %715
   br i1 %728, label %bytestream2_put_be16.exit619, label %bytestream2_put_be16.exit619.thread
 
 bytestream2_put_be16.exit619.thread:              ; preds = %715, %bytestream2_put_be16.exit615, %bytestream2_put_be16.exit611.thread, %697, %bytestream2_put_be16.exit611, %bytestream2_put_be16.exit613, %705, %bytestream2_put_be16.exit617, %723
-  %729 = phi ptr [ %722, %bytestream2_put_be16.exit617 ], [ %722, %723 ], [ %714, %bytestream2_put_be16.exit615 ], [ %714, %715 ], [ %704, %bytestream2_put_be16.exit613 ], [ %704, %705 ], [ %693, %bytestream2_put_be16.exit611.thread ], [ %696, %697 ], [ %696, %bytestream2_put_be16.exit611 ]
-  %730 = phi i32 [ %663, %bytestream2_put_be16.exit617 ], [ %663, %723 ], [ %663, %bytestream2_put_be16.exit615 ], [ %663, %715 ], [ %663, %bytestream2_put_be16.exit613 ], [ %663, %705 ], [ %694, %bytestream2_put_be16.exit611.thread ], [ %663, %697 ], [ %663, %bytestream2_put_be16.exit611 ]
+  %729 = phi ptr [ %722, %723 ], [ %722, %bytestream2_put_be16.exit617 ], [ %714, %715 ], [ %714, %bytestream2_put_be16.exit615 ], [ %704, %705 ], [ %704, %bytestream2_put_be16.exit613 ], [ %693, %bytestream2_put_be16.exit611.thread ], [ %696, %697 ], [ %696, %bytestream2_put_be16.exit611 ]
+  %730 = phi i32 [ %663, %723 ], [ %663, %bytestream2_put_be16.exit617 ], [ %663, %715 ], [ %663, %bytestream2_put_be16.exit615 ], [ %663, %705 ], [ %663, %bytestream2_put_be16.exit613 ], [ %694, %bytestream2_put_be16.exit611.thread ], [ %663, %697 ], [ %663, %bytestream2_put_be16.exit611 ]
   store i32 1, ptr %195, align 8, !tbaa !82
   br label %bytestream2_put_be16.exit627.thread
 
@@ -1904,8 +1904,8 @@ bytestream2_put_be16.exit625:                     ; preds = %751
   br i1 %764, label %bytestream2_put_be16.exit627, label %bytestream2_put_be16.exit627.thread
 
 bytestream2_put_be16.exit627.thread:              ; preds = %751, %bytestream2_put_be16.exit623, %bytestream2_put_be16.exit619.thread, %735, %bytestream2_put_be16.exit619, %bytestream2_put_be16.exit621, %743, %bytestream2_put_be16.exit625, %759
-  %765 = phi ptr [ %758, %bytestream2_put_be16.exit625 ], [ %758, %759 ], [ %750, %bytestream2_put_be16.exit623 ], [ %750, %751 ], [ %742, %bytestream2_put_be16.exit621 ], [ %742, %743 ], [ %729, %bytestream2_put_be16.exit619.thread ], [ %734, %735 ], [ %734, %bytestream2_put_be16.exit619 ]
-  %766 = phi i32 [ %663, %bytestream2_put_be16.exit625 ], [ %663, %759 ], [ %663, %bytestream2_put_be16.exit623 ], [ %663, %751 ], [ %663, %bytestream2_put_be16.exit621 ], [ %663, %743 ], [ %730, %bytestream2_put_be16.exit619.thread ], [ %663, %735 ], [ %663, %bytestream2_put_be16.exit619 ]
+  %765 = phi ptr [ %758, %759 ], [ %758, %bytestream2_put_be16.exit625 ], [ %750, %751 ], [ %750, %bytestream2_put_be16.exit623 ], [ %742, %743 ], [ %742, %bytestream2_put_be16.exit621 ], [ %729, %bytestream2_put_be16.exit619.thread ], [ %734, %735 ], [ %734, %bytestream2_put_be16.exit619 ]
+  %766 = phi i32 [ %663, %759 ], [ %663, %bytestream2_put_be16.exit625 ], [ %663, %751 ], [ %663, %bytestream2_put_be16.exit623 ], [ %663, %743 ], [ %663, %bytestream2_put_be16.exit621 ], [ %730, %bytestream2_put_be16.exit619.thread ], [ %663, %735 ], [ %663, %bytestream2_put_be16.exit619 ]
   store i32 1, ptr %195, align 8, !tbaa !82
   br label %bytestream2_put_be16.exit633.thread
 
@@ -1985,8 +1985,8 @@ bytestream2_put_be16.exit633:                     ; preds = %785
   br label %bytestream2_put_be16.exit635
 
 bytestream2_put_be16.exit633.thread:              ; preds = %785, %bytestream2_put_be16.exit631, %bytestream2_put_be16.exit627.thread, %769, %bytestream2_put_be16.exit627, %bytestream2_put_be16.exit629, %777, %793, %bytestream2_put_be16.exit633
-  %802 = phi ptr [ %792, %bytestream2_put_be16.exit633 ], [ %792, %793 ], [ %784, %bytestream2_put_be16.exit631 ], [ %784, %785 ], [ %776, %bytestream2_put_be16.exit629 ], [ %776, %777 ], [ %765, %bytestream2_put_be16.exit627.thread ], [ %768, %769 ], [ %768, %bytestream2_put_be16.exit627 ]
-  %803 = phi i32 [ %663, %bytestream2_put_be16.exit633 ], [ %663, %793 ], [ %663, %bytestream2_put_be16.exit631 ], [ %663, %785 ], [ %663, %bytestream2_put_be16.exit629 ], [ %663, %777 ], [ %766, %bytestream2_put_be16.exit627.thread ], [ %663, %769 ], [ %663, %bytestream2_put_be16.exit627 ]
+  %802 = phi ptr [ %792, %793 ], [ %792, %bytestream2_put_be16.exit633 ], [ %784, %785 ], [ %784, %bytestream2_put_be16.exit631 ], [ %776, %777 ], [ %776, %bytestream2_put_be16.exit629 ], [ %765, %bytestream2_put_be16.exit627.thread ], [ %768, %769 ], [ %768, %bytestream2_put_be16.exit627 ]
+  %803 = phi i32 [ %663, %793 ], [ %663, %bytestream2_put_be16.exit633 ], [ %663, %785 ], [ %663, %bytestream2_put_be16.exit631 ], [ %663, %777 ], [ %663, %bytestream2_put_be16.exit629 ], [ %766, %bytestream2_put_be16.exit627.thread ], [ %663, %769 ], [ %663, %bytestream2_put_be16.exit627 ]
   store i32 1, ptr %195, align 8, !tbaa !82
   br label %bytestream2_put_be16.exit635
 
@@ -2575,8 +2575,8 @@ bytestream2_put_be16.exit683:                     ; preds = %1058
   br label %bytestream2_put_be16.exit685
 
 bytestream2_put_be16.exit683.thread:              ; preds = %1058, %bytestream2_put_be16.exit681, %bytestream2_put_be16.exit677.thread, %1042, %bytestream2_put_be16.exit677, %bytestream2_put_be16.exit679, %1050, %1066, %bytestream2_put_be16.exit683
-  %.pre1133.pre-phi = phi i16 [ %1007, %bytestream2_put_be16.exit683 ], [ %1007, %1066 ], [ %1007, %bytestream2_put_be16.exit681 ], [ %1007, %1058 ], [ %1007, %bytestream2_put_be16.exit679 ], [ %1007, %1050 ], [ %1007, %bytestream2_put_be16.exit677 ], [ %1007, %1042 ], [ %.pre1150.pre-phi, %bytestream2_put_be16.exit677.thread ]
-  %.pre1129.pre-phi = phi i16 [ %989, %bytestream2_put_be16.exit683 ], [ %989, %1066 ], [ %989, %bytestream2_put_be16.exit681 ], [ %989, %1058 ], [ %989, %bytestream2_put_be16.exit679 ], [ %989, %1050 ], [ %989, %bytestream2_put_be16.exit677 ], [ %989, %1042 ], [ %.pre1148.pre-phi, %bytestream2_put_be16.exit677.thread ]
+  %.pre1133.pre-phi = phi i16 [ %1007, %1066 ], [ %1007, %bytestream2_put_be16.exit683 ], [ %1007, %bytestream2_put_be16.exit681 ], [ %1007, %1058 ], [ %1007, %bytestream2_put_be16.exit679 ], [ %1007, %1050 ], [ %1007, %bytestream2_put_be16.exit677 ], [ %1007, %1042 ], [ %.pre1150.pre-phi, %bytestream2_put_be16.exit677.thread ]
+  %.pre1129.pre-phi = phi i16 [ %989, %1066 ], [ %989, %bytestream2_put_be16.exit683 ], [ %989, %bytestream2_put_be16.exit681 ], [ %989, %1058 ], [ %989, %bytestream2_put_be16.exit679 ], [ %989, %1050 ], [ %989, %bytestream2_put_be16.exit677 ], [ %989, %1042 ], [ %.pre1148.pre-phi, %bytestream2_put_be16.exit677.thread ]
   store i32 1, ptr %195, align 8, !tbaa !82
   br label %bytestream2_put_be16.exit685
 
@@ -2633,7 +2633,7 @@ bytestream2_put_be16.exit731:                     ; preds = %1084
   br label %bytestream2_put_be16.exit733
 
 bytestream2_put_be16.exit731.thread:              ; preds = %1084, %1082, %1092, %bytestream2_put_be16.exit731
-  %1101 = phi ptr [ %1091, %bytestream2_put_be16.exit731 ], [ %1091, %1092 ], [ %1546, %1082 ], [ %1546, %1084 ]
+  %1101 = phi ptr [ %1091, %1092 ], [ %1091, %bytestream2_put_be16.exit731 ], [ %1546, %1082 ], [ %1546, %1084 ]
   store i32 1, ptr %195, align 8, !tbaa !82
   br label %bytestream2_put_be16.exit733
 
@@ -2794,7 +2794,7 @@ bytestream2_put_be16.exit699:                     ; preds = %1163
   br i1 %1176, label %bytestream2_put_be16.exit701, label %bytestream2_put_be16.exit701.thread
 
 bytestream2_put_be16.exit701.thread:              ; preds = %1163, %bytestream2_put_be16.exit697, %bytestream2_put_be16.exit693.thread, %1147, %bytestream2_put_be16.exit693, %bytestream2_put_be16.exit695, %1155, %bytestream2_put_be16.exit699, %1171
-  %1177 = phi i32 [ %1135, %bytestream2_put_be16.exit699 ], [ %1135, %1171 ], [ %1135, %bytestream2_put_be16.exit697 ], [ %1135, %1163 ], [ %1135, %bytestream2_put_be16.exit695 ], [ %1135, %1155 ], [ %1142, %bytestream2_put_be16.exit693.thread ], [ %1135, %1147 ], [ %1135, %bytestream2_put_be16.exit693 ]
+  %1177 = phi i32 [ %1135, %1171 ], [ %1135, %bytestream2_put_be16.exit699 ], [ %1135, %1163 ], [ %1135, %bytestream2_put_be16.exit697 ], [ %1135, %1155 ], [ %1135, %bytestream2_put_be16.exit695 ], [ %1142, %bytestream2_put_be16.exit693.thread ], [ %1135, %1147 ], [ %1135, %bytestream2_put_be16.exit693 ]
   store i32 1, ptr %195, align 8, !tbaa !82
   br label %bytestream2_put_be16.exit709.thread
 
@@ -2867,7 +2867,7 @@ bytestream2_put_be16.exit707:                     ; preds = %1196
   br i1 %1209, label %bytestream2_put_be16.exit709, label %bytestream2_put_be16.exit709.thread
 
 bytestream2_put_be16.exit709.thread:              ; preds = %1196, %bytestream2_put_be16.exit705, %bytestream2_put_be16.exit701.thread, %1180, %bytestream2_put_be16.exit701, %bytestream2_put_be16.exit703, %1188, %bytestream2_put_be16.exit707, %1204
-  %1210 = phi i32 [ %1135, %bytestream2_put_be16.exit707 ], [ %1135, %1204 ], [ %1135, %bytestream2_put_be16.exit705 ], [ %1135, %1196 ], [ %1135, %bytestream2_put_be16.exit703 ], [ %1135, %1188 ], [ %1177, %bytestream2_put_be16.exit701.thread ], [ %1135, %1180 ], [ %1135, %bytestream2_put_be16.exit701 ]
+  %1210 = phi i32 [ %1135, %1204 ], [ %1135, %bytestream2_put_be16.exit707 ], [ %1135, %1196 ], [ %1135, %bytestream2_put_be16.exit705 ], [ %1135, %1188 ], [ %1135, %bytestream2_put_be16.exit703 ], [ %1177, %bytestream2_put_be16.exit701.thread ], [ %1135, %1180 ], [ %1135, %bytestream2_put_be16.exit701 ]
   store i32 1, ptr %195, align 8, !tbaa !82
   br label %bytestream2_put_be16.exit715.thread
 
@@ -2925,7 +2925,7 @@ bytestream2_put_be16.exit713:                     ; preds = %1223
   br i1 %1236, label %bytestream2_put_be16.exit715, label %bytestream2_put_be16.exit715.thread
 
 bytestream2_put_be16.exit715.thread:              ; preds = %1223, %bytestream2_put_be16.exit711, %bytestream2_put_be16.exit709, %1215, %bytestream2_put_be16.exit709.thread, %bytestream2_put_be16.exit713, %1231
-  %1237 = phi i32 [ %1135, %bytestream2_put_be16.exit713 ], [ %1135, %1231 ], [ %1135, %bytestream2_put_be16.exit711 ], [ %1135, %1223 ], [ %1210, %bytestream2_put_be16.exit709.thread ], [ %1135, %1215 ], [ %1135, %bytestream2_put_be16.exit709 ]
+  %1237 = phi i32 [ %1135, %1231 ], [ %1135, %bytestream2_put_be16.exit713 ], [ %1135, %1223 ], [ %1135, %bytestream2_put_be16.exit711 ], [ %1210, %bytestream2_put_be16.exit709.thread ], [ %1135, %1215 ], [ %1135, %bytestream2_put_be16.exit709 ]
   %1238 = getelementptr inbounds nuw i32, ptr %851, i64 %1105
   br label %bytestream2_put_be16.exit717.thread
 
@@ -3032,8 +3032,8 @@ bytestream2_put_be16.exit723:                     ; preds = %1271
   br label %bytestream2_put_be16.exit725
 
 bytestream2_put_be16.exit723.thread:              ; preds = %1271, %bytestream2_put_be16.exit721, %bytestream2_put_be16.exit717.thread, %1255, %bytestream2_put_be16.exit717, %bytestream2_put_be16.exit719, %1263, %1279, %bytestream2_put_be16.exit723
-  %1288 = phi ptr [ %1241, %bytestream2_put_be16.exit723 ], [ %1241, %1279 ], [ %1241, %bytestream2_put_be16.exit721 ], [ %1241, %1271 ], [ %1241, %bytestream2_put_be16.exit719 ], [ %1241, %1263 ], [ %1249, %bytestream2_put_be16.exit717.thread ], [ %1241, %1255 ], [ %1241, %bytestream2_put_be16.exit717 ]
-  %1289 = phi i32 [ %1135, %bytestream2_put_be16.exit723 ], [ %1135, %1279 ], [ %1135, %bytestream2_put_be16.exit721 ], [ %1135, %1271 ], [ %1135, %bytestream2_put_be16.exit719 ], [ %1135, %1263 ], [ %1250, %bytestream2_put_be16.exit717.thread ], [ %1135, %1255 ], [ %1135, %bytestream2_put_be16.exit717 ]
+  %1288 = phi ptr [ %1241, %1279 ], [ %1241, %bytestream2_put_be16.exit723 ], [ %1241, %1271 ], [ %1241, %bytestream2_put_be16.exit721 ], [ %1241, %1263 ], [ %1241, %bytestream2_put_be16.exit719 ], [ %1249, %bytestream2_put_be16.exit717.thread ], [ %1241, %1255 ], [ %1241, %bytestream2_put_be16.exit717 ]
+  %1289 = phi i32 [ %1135, %1279 ], [ %1135, %bytestream2_put_be16.exit723 ], [ %1135, %1271 ], [ %1135, %bytestream2_put_be16.exit721 ], [ %1135, %1263 ], [ %1135, %bytestream2_put_be16.exit719 ], [ %1250, %bytestream2_put_be16.exit717.thread ], [ %1135, %1255 ], [ %1135, %bytestream2_put_be16.exit717 ]
   store i32 1, ptr %195, align 8, !tbaa !82
   br label %bytestream2_put_be16.exit725
 
@@ -3082,7 +3082,7 @@ bytestream2_put_be16.exit725:                     ; preds = %1285, %bytestream2_
   br i1 %exitcond23.not.i, label %quantize_band.exit, label %.preheader.us.i747, !llvm.loop !100
 
 quantize_band.exit:                               ; preds = %._crit_edge.us.i752, %bytestream2_put_be16.exit725, %.preheader.lr.ph.i744
-  %brmerge = phi i1 [ true, %.preheader.lr.ph.i744 ], [ true, %bytestream2_put_be16.exit725 ], [ false, %._crit_edge.us.i752 ]
+  %brmerge = phi i1 [ true, %bytestream2_put_be16.exit725 ], [ true, %.preheader.lr.ph.i744 ], [ false, %._crit_edge.us.i752 ]
   %1311 = load ptr, ptr %184, align 8, !tbaa !76
   %1312 = load ptr, ptr %8, align 8, !tbaa !79
   %1313 = load ptr, ptr %191, align 8, !tbaa !80
@@ -3342,8 +3342,8 @@ put_bits.exit.i758:                               ; preds = %1438, %1419
   br i1 %1442, label %.preheader1232, label %put_runcode.exit761, !llvm.loop !106
 
 put_runcode.exit761:                              ; preds = %put_bits.exit.i758, %quantize_band.exit, %._crit_edge1004
-  %1443 = phi i32 [ 32, %quantize_band.exit ], [ %.pre11.i.us1122, %._crit_edge1004 ], [ %.0.i.i.i760, %put_bits.exit.i758 ]
-  %1444 = phi i32 [ 0, %quantize_band.exit ], [ %.pre.i.us1119, %._crit_edge1004 ], [ %.026.i.i.i759, %put_bits.exit.i758 ]
+  %1443 = phi i32 [ %.pre11.i.us1122, %._crit_edge1004 ], [ 32, %quantize_band.exit ], [ %.0.i.i.i760, %put_bits.exit.i758 ]
+  %1444 = phi i32 [ %.pre.i.us1119, %._crit_edge1004 ], [ 0, %quantize_band.exit ], [ %.026.i.i.i759, %put_bits.exit.i758 ]
   %1445 = load i32, ptr %545, align 4, !tbaa !52
   %1446 = load i32, ptr %544, align 4, !tbaa !50
   %1447 = icmp slt i32 %1445, %1443
@@ -3549,7 +3549,7 @@ bytestream2_put_be16.exit727:                     ; preds = %1528
   br label %bytestream2_put_be16.exit729
 
 bytestream2_put_be16.exit727.thread:              ; preds = %1528, %._crit_edge1009, %1536, %bytestream2_put_be16.exit727
-  %1545 = phi ptr [ %1535, %bytestream2_put_be16.exit727 ], [ %1535, %1536 ], [ %1526, %._crit_edge1009 ], [ %1526, %1528 ]
+  %1545 = phi ptr [ %1535, %1536 ], [ %1535, %bytestream2_put_be16.exit727 ], [ %1526, %._crit_edge1009 ], [ %1526, %1528 ]
   store i32 1, ptr %195, align 8, !tbaa !82
   br label %bytestream2_put_be16.exit729
 

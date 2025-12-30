@@ -703,9 +703,9 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN8raws
   ret void
 
 165:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit90, %.loopexit.split-lp91, %124, %121, %36
-  %.sroa.22.2 = phi ptr [ %.sroa.22.1108124, %.loopexit.split-lp91 ], [ %.sroa.22.1.lcssa, %121 ], [ %.sroa.22.0, %36 ], [ %.sroa.22.4, %124 ], [ %.sroa.13.0109, %.loopexit90 ], [ %.sroa.22.4, %.loopexit.split-lp ], [ %.sroa.22.4, %.loopexit ]
-  %.sroa.064.2 = phi ptr [ %.sroa.064.1110, %.loopexit.split-lp91 ], [ %.sroa.064.1.lcssa, %121 ], [ %.sroa.064.0, %36 ], [ %.sroa.064.4, %124 ], [ %.sroa.064.1110, %.loopexit90 ], [ %.sroa.064.4, %.loopexit.split-lp ], [ %.sroa.064.4, %.loopexit ]
-  %.pn17 = phi { ptr, i32 } [ %lpad.loopexit.split-lp93, %.loopexit.split-lp91 ], [ %122, %121 ], [ %37, %36 ], [ %125, %124 ], [ %lpad.loopexit92, %.loopexit90 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
+  %.sroa.22.2 = phi ptr [ %.sroa.22.1.lcssa, %121 ], [ %.sroa.22.0, %36 ], [ %.sroa.22.4, %124 ], [ %.sroa.13.0109, %.loopexit90 ], [ %.sroa.22.1108124, %.loopexit.split-lp91 ], [ %.sroa.22.4, %.loopexit.split-lp ], [ %.sroa.22.4, %.loopexit ]
+  %.sroa.064.2 = phi ptr [ %.sroa.064.1.lcssa, %121 ], [ %.sroa.064.0, %36 ], [ %.sroa.064.4, %124 ], [ %.sroa.064.1110, %.loopexit90 ], [ %.sroa.064.1110, %.loopexit.split-lp91 ], [ %.sroa.064.4, %.loopexit.split-lp ], [ %.sroa.064.4, %.loopexit ]
+  %.pn17 = phi { ptr, i32 } [ %122, %121 ], [ %37, %36 ], [ %125, %124 ], [ %lpad.loopexit92, %.loopexit90 ], [ %lpad.loopexit.split-lp93, %.loopexit.split-lp91 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   %.not.i.i.i43 = icmp eq ptr %.sroa.064.2, null
   br i1 %.not.i.i.i43, label %_ZNSt6vectorIjSaIjEED2Ev.exit44, label %166
 
@@ -1187,7 +1187,7 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_16BitStreamerMSB32EE8ge
   br label %142
 
 142:                                              ; preds = %.preheader488._crit_edge, %138, %134
-  %143 = phi i32 [ %.pre, %.preheader488._crit_edge ], [ %141, %138 ], [ %137, %134 ]
+  %143 = phi i32 [ %.pre, %.preheader488._crit_edge ], [ %137, %134 ], [ %141, %138 ]
   %144 = icmp slt i32 %143, 0
   br i1 %144, label %145, label %146
 

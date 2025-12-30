@@ -317,7 +317,7 @@ define internal i64 @read_mem(ptr readnone captures(none) %0, ptr noundef %1, i6
   br label %64
 
 .thread:                                          ; preds = %23, %17, %30, %33, %39
-  %.ph = phi i64 [ -1, %17 ], [ -14, %39 ], [ -14, %33 ], [ -14, %30 ], [ -14, %23 ]
+  %.ph = phi i64 [ -14, %39 ], [ -14, %33 ], [ -14, %30 ], [ -1, %17 ], [ -14, %23 ]
   tail call void @kfree(ptr noundef nonnull %10) #12
   br label %64
 
@@ -402,7 +402,7 @@ define internal i64 @write_mem(ptr readnone captures(none) %0, ptr noundef %1, i
   br i1 %.not, label %.preheader, label %.thread
 
 .thread:                                          ; preds = %43, %47, %.preheader, %27, %22
-  %50 = phi i64 [ %11, %22 ], [ %29, %27 ], [ %35, %47 ], [ %35, %43 ], [ %11, %.preheader ]
+  %50 = phi i64 [ %29, %27 ], [ %11, %22 ], [ %35, %47 ], [ %35, %43 ], [ %11, %.preheader ]
   %51 = load i64, ptr %3, align 8
   %52 = add i64 %51, %50
   store i64 %52, ptr %3, align 8
@@ -880,7 +880,7 @@ define internal i64 @read_iter_zero(ptr noundef readonly captures(none) %0, ptr 
   br i1 %48, label %.thread, label %8, !llvm.loop !21
 
 .thread:                                          ; preds = %46, %17, %41, %.critedge, %2
-  %49 = phi i64 [ 0, %2 ], [ %32, %.critedge ], [ %19, %17 ], [ %43, %41 ], [ %21, %46 ]
+  %49 = phi i64 [ 0, %2 ], [ %19, %17 ], [ %43, %41 ], [ %32, %.critedge ], [ %21, %46 ]
   ret i64 %49
 }
 

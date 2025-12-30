@@ -702,7 +702,7 @@ _ZN7rocksdb10BinaryHeapINS_18CoalescingIterator19WideColumnWithOrderENS1_29WideC
   ret void
 
 284:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit93, %.loopexit.split-lp94, %41, %196, %99
-  %.pn25.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %197, %196 ], [ %100, %99 ], [ %lpad.loopexit.split-lp96, %.loopexit.split-lp94 ], [ %42, %41 ], [ %lpad.loopexit95, %.loopexit93 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn25.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %197, %196 ], [ %42, %41 ], [ %lpad.loopexit95, %.loopexit93 ], [ %lpad.loopexit.split-lp96, %.loopexit.split-lp94 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.pr.i.i.i63 = load i64, ptr %4, align 8, !tbaa !4
   %.not1.i.i.i64 = icmp eq i64 %.pr.i.i.i63, 0
   br i1 %.not1.i.i.i64, label %285, label %.lr.ph.preheader.i.i.i65
@@ -935,8 +935,8 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_18CoalescingIterator19WideC
   br label %61
 
 61:                                               ; preds = %._crit_edge53, %35, %33
-  %62 = phi ptr [ %.pre54, %35 ], [ %.pre54, %33 ], [ %.pre, %._crit_edge53 ]
-  %.222 = phi i64 [ %spec.select, %35 ], [ %27, %33 ], [ %31, %._crit_edge53 ]
+  %62 = phi ptr [ %.pre54, %33 ], [ %.pre54, %35 ], [ %.pre, %._crit_edge53 ]
+  %.222 = phi i64 [ %27, %33 ], [ %spec.select, %35 ], [ %31, %._crit_edge53 ]
   %63 = icmp ult i64 %.222, 8
   %64 = getelementptr inbounds nuw %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %62, i64 %.222
   %65 = getelementptr %"struct.rocksdb::CoalescingIterator::WideColumnWithOrder", ptr %26, i64 %.222

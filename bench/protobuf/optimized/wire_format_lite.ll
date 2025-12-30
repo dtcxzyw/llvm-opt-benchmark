@@ -301,7 +301,7 @@ if.else.i55:                                      ; preds = %sw.bb30
   br label %return
 
 return:                                           ; preds = %if.end4.i39, %if.else.i55, %if.then.i58, %if.end4.i, %if.then3.i, %if.else.i, %if.then.i17, %if.end.i, %if.then.i, %if.end, %_ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit, %sw.bb17, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit, %entry
-  %retval.0 = phi i1 [ true, %if.then.i58 ], [ %call4.i56, %if.else.i55 ], [ false, %entry ], [ false, %if.end ], [ %cmp.i48, %_ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit ], [ %tobool.i, %if.end.i ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit ], [ %call4.i, %if.else.i ], [ false, %sw.bb17 ], [ true, %if.then.i ], [ true, %if.then.i17 ], [ %call5.i, %if.end4.i ], [ true, %if.then3.i ], [ false, %if.end4.i39 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit ], [ false, %sw.bb17 ], [ %cmp.i48, %_ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit ], [ false, %if.end ], [ true, %if.then.i ], [ %tobool.i, %if.end.i ], [ true, %if.then.i17 ], [ %call4.i, %if.else.i ], [ true, %if.then3.i ], [ %call5.i, %if.end4.i ], [ true, %if.then.i58 ], [ %call4.i56, %if.else.i55 ], [ false, %if.end4.i39 ]
   ret i1 %retval.0
 }
 
@@ -882,7 +882,7 @@ _ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit: ; preds =
   br label %return
 
 return:                                           ; preds = %if.end4.i, %if.end, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit, %_ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit142, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit, %entry, %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit, %cleanup, %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit
-  %retval.0 = phi i1 [ true, %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit ], [ false, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit ], [ true, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit ], [ false, %entry ], [ true, %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit ], [ %call14, %cleanup ], [ false, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit ], [ false, %if.end ], [ %cmp.i155, %_ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit ], [ false, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit142 ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit ], [ false, %if.end4.i ]
+  %retval.0 = phi i1 [ true, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit ], [ true, %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit ], [ %call14, %cleanup ], [ true, %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit ], [ false, %entry ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit ], [ false, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit ], [ false, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit142 ], [ %cmp.i155, %_ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit ], [ false, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit ], [ false, %if.end ], [ false, %if.end4.i ]
   ret i1 %retval.0
 }
 
@@ -1442,7 +1442,7 @@ while.end:                                        ; preds = %if.end10, %_ZN6goog
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit23, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit23.us, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit, %while.end
-  %retval.0 = phi i1 [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit ], [ true, %while.end ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit23.us ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit23 ]
+  %retval.0 = phi i1 [ true, %while.end ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit23.us ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit23 ]
   ret i1 %retval.0
 }
 

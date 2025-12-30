@@ -221,7 +221,7 @@ define internal range(i32 -1, 1) i32 @queuemodule_exec(ptr noundef %0) #0 {
   br label %14
 
 14:                                               ; preds = %12, %9, %6, %1
-  %.0 = phi i32 [ -1, %9 ], [ -1, %1 ], [ -1, %6 ], [ %.lobit, %12 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %6 ], [ -1, %9 ], [ %.lobit, %12 ]
   ret i32 %.0
 }
 
@@ -505,7 +505,7 @@ define internal ptr @simplequeue_new(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %simplequeue_new_impl.exit
 
 simplequeue_new_impl.exit:                        ; preds = %43, %40, %37, %29, %25, %.thread24, %23, %16
-  %.0 = phi ptr [ null, %.thread24 ], [ null, %23 ], [ null, %16 ], [ %28, %29 ], [ null, %25 ], [ null, %37 ], [ null, %40 ], [ null, %43 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %16 ], [ null, %.thread24 ], [ null, %25 ], [ %28, %29 ], [ null, %37 ], [ null, %40 ], [ null, %43 ]
   ret ptr %.0
 }
 
@@ -944,7 +944,7 @@ RingBuf_Get.exit:                                 ; preds = %._crit_edge, %35, %
   unreachable
 
 .thread33:                                        ; preds = %94, %25, %.split56.us, %.split58.us
-  %.5.ph = phi ptr [ %89, %.split56.us ], [ null, %.split58.us ], [ null, %25 ], [ null, %94 ]
+  %.5.ph = phi ptr [ null, %.split58.us ], [ %89, %.split56.us ], [ null, %25 ], [ null, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %99
@@ -961,7 +961,7 @@ RingBuf_Get.exit:                                 ; preds = %._crit_edge, %35, %
   br label %99
 
 99:                                               ; preds = %.thread33, %.thread, %.critedge, %78, %RingBuf_Get.exit
-  %.2 = phi ptr [ %.5.ph, %.thread33 ], [ null, %78 ], [ %72, %RingBuf_Get.exit ], [ null, %.critedge ], [ null, %.thread ]
+  %.2 = phi ptr [ null, %78 ], [ %72, %RingBuf_Get.exit ], [ null, %.critedge ], [ null, %.thread ], [ %.5.ph, %.thread33 ]
   ret ptr %.2
 }
 

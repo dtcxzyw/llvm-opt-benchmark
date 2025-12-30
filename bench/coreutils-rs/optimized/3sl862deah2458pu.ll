@@ -722,7 +722,7 @@ define void @_ZN6uu_seq6uu_app17h0039fed9134d123fE(ptr noalias noundef writeonly
   ret void
 
 .body:                                            ; preds = %190, %183, %151, %119, %87, %55, %203, %202, %201, %200, %199, %195
-  %.pn = phi { ptr, i32 } [ %196, %195 ], [ %184, %183 ], [ %eh.lpad-body85.ph, %199 ], [ %152, %151 ], [ %eh.lpad-body68.ph, %200 ], [ %120, %119 ], [ %eh.lpad-body51.ph, %201 ], [ %88, %87 ], [ %eh.lpad-body36.ph, %202 ], [ %56, %55 ], [ %204, %203 ], [ %191, %190 ]
+  %.pn = phi { ptr, i32 } [ %196, %195 ], [ %eh.lpad-body85.ph, %199 ], [ %eh.lpad-body68.ph, %200 ], [ %eh.lpad-body51.ph, %201 ], [ %eh.lpad-body36.ph, %202 ], [ %204, %203 ], [ %56, %55 ], [ %88, %87 ], [ %120, %119 ], [ %152, %151 ], [ %184, %183 ], [ %191, %190 ]
   resume { ptr, i32 } %.pn
 
 195:                                              ; preds = %187
@@ -960,7 +960,7 @@ select.unfold:                                    ; preds = %69
 78:                                               ; preds = %82
   unreachable
 
-79:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i", %71
+79:                                               ; preds = %71, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !275
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -1078,7 +1078,7 @@ select.unfold:                                    ; preds = %69
   unreachable
 
 121:                                              ; preds = %82, %118, %113, %112, %111
-  %.058 = phi double [ %119, %118 ], [ 0x7FF8000000000000, %113 ], [ 0xFFF0000000000000, %111 ], [ -0.000000e+00, %112 ], [ 0x7FF0000000000000, %82 ]
+  %.058 = phi double [ %119, %118 ], [ 0xFFF0000000000000, %111 ], [ -0.000000e+00, %112 ], [ 0x7FF8000000000000, %113 ], [ 0x7FF0000000000000, %82 ]
   %122 = invoke noundef ptr @"_ZN6uucore8features6format15Format$LT$F$GT$3fmt17hfcdd5a7c0af14eaaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %25, double noundef %.058)
           to label %123 unwind label %.loopexit
 
@@ -1120,7 +1120,7 @@ select.unfold:                                    ; preds = %69
   unreachable
 
 .loopexit143:                                     ; preds = %123, %87, %161, %select.unfold, %select.unfold138
-  %.0 = phi ptr [ %139, %161 ], [ %spec.select142, %select.unfold138 ], [ %spec.select, %select.unfold ], [ %81, %87 ], [ %122, %123 ]
+  %.0 = phi ptr [ %spec.select142, %select.unfold138 ], [ %spec.select, %select.unfold ], [ %139, %161 ], [ %122, %123 ], [ %81, %87 ]
   %135 = load i64, ptr %22, align 8, !range !293, !alias.scope !312, !noundef !28
   %136 = icmp sgt i64 %135, -9223372036854775805
   br i1 %136, label %137, label %"_ZN4core3ptr67drop_in_place$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$GT$17h2f8150382e6fa204E.exit86"
@@ -1201,7 +1201,7 @@ select.unfold138:                                 ; preds = %150
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #10, !noalias !324
   unreachable
 
-160:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i87", %152
+160:                                              ; preds = %152, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i87"
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !320
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -1221,7 +1221,7 @@ select.unfold138:                                 ; preds = %150
           to label %"_ZN4core3ptr67drop_in_place$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$GT$17h2f8150382e6fa204E.exit97" unwind label %170
 
 "_ZN4core3ptr67drop_in_place$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$GT$17h2f8150382e6fa204E.exit116": ; preds = %128, %132, %125, %.body81, %209, %170
-  %.pn65 = phi { ptr, i32 } [ %171, %170 ], [ %eh.lpad-body, %.body81 ], [ %eh.lpad-body, %209 ], [ %126, %125 ], [ %129, %132 ], [ %129, %128 ]
+  %.pn65 = phi { ptr, i32 } [ %171, %170 ], [ %eh.lpad-body, %209 ], [ %eh.lpad-body, %.body81 ], [ %126, %125 ], [ %129, %132 ], [ %129, %128 ]
   %167 = load i64, ptr %23, align 8, !range !293, !alias.scope !340, !noundef !28
   %168 = icmp sgt i64 %167, -9223372036854775805
   br i1 %168, label %169, label %"_ZN4core3ptr67drop_in_place$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$GT$17h2f8150382e6fa204E.exit99"
@@ -1307,7 +1307,7 @@ select.unfold138:                                 ; preds = %150
   br label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17he91fae2891be160fE.exit114"
 
 "_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17he91fae2891be160fE.exit114": ; preds = %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17he91fae2891be160fE.exit114.sink.split", %"_ZN4core3ptr67drop_in_place$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$GT$17h2f8150382e6fa204E.exit105", %.noexc106, %"_ZN4core3ptr67drop_in_place$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$GT$17h2f8150382e6fa204E.exit111", %.noexc112
-  %.1 = phi ptr [ %.0, %"_ZN4core3ptr67drop_in_place$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$GT$17h2f8150382e6fa204E.exit111" ], [ null, %.noexc106 ], [ %.0, %.noexc112 ], [ null, %"_ZN4core3ptr67drop_in_place$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$GT$17h2f8150382e6fa204E.exit105" ], [ %.1.ph, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17he91fae2891be160fE.exit114.sink.split" ]
+  %.1 = phi ptr [ %.0, %.noexc112 ], [ %.0, %"_ZN4core3ptr67drop_in_place$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$GT$17h2f8150382e6fa204E.exit111" ], [ null, %.noexc106 ], [ null, %"_ZN4core3ptr67drop_in_place$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$GT$17h2f8150382e6fa204E.exit105" ], [ %.1.ph, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17he91fae2891be160fE.exit114.sink.split" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   ret ptr %.1
@@ -1384,7 +1384,7 @@ select.unfold138:                                 ; preds = %150
           to label %.critedge unwind label %133
 
 .critedge77:                                      ; preds = %.critedge, %221, %"_ZN4core3ptr67drop_in_place$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$GT$17h2f8150382e6fa204E.exit103"
-  %.pn71125 = phi { ptr, i32 } [ %.pn69, %"_ZN4core3ptr67drop_in_place$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$GT$17h2f8150382e6fa204E.exit103" ], [ %lpad.thr_comm.split-lp, %.critedge ], [ %lpad.thr_comm.split-lp, %221 ]
+  %.pn71125 = phi { ptr, i32 } [ %.pn69, %"_ZN4core3ptr67drop_in_place$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$GT$17h2f8150382e6fa204E.exit103" ], [ %lpad.thr_comm.split-lp, %221 ], [ %lpad.thr_comm.split-lp, %.critedge ]
   resume { ptr, i32 } %.pn71125
 
 .critedge:                                        ; preds = %217, %.noexc117

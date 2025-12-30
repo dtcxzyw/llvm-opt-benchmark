@@ -697,12 +697,12 @@ _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.threa
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %65, %63
-  %.sink.i = phi ptr [ %..i, %65 ], [ %64, %63 ]
+  %.sink.i = phi ptr [ %64, %63 ], [ %..i, %65 ]
   store ptr %.sink.i, ptr %60, align 8, !tbaa !70
   br label %_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE.exit
 
 _ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE.exit: ; preds = %.sink.split.i, %59, %._crit_edge.i, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.thread
-  %.128 = phi ptr [ %.1, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.thread ], [ %.0.lcssa.i, %._crit_edge.i ], [ %.1, %59 ], [ %.1, %.sink.split.i ]
+  %.128 = phi ptr [ %.0.lcssa.i, %._crit_edge.i ], [ %.1, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.thread ], [ %.1, %59 ], [ %.1, %.sink.split.i ]
   %67 = load ptr, ptr %.128, align 8, !tbaa !56
   %68 = icmp ne ptr %67, %1
   %69 = icmp ne ptr %.128, %12
@@ -805,7 +805,7 @@ _ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit: ; preds = %76, %
   br label %121
 
 121:                                              ; preds = %.loopexit, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
-  %.029 = phi ptr [ %12, %.loopexit ], [ %.0.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit ]
+  %.029 = phi ptr [ %.0.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit ], [ %12, %.loopexit ]
   %.not38 = icmp eq ptr %.029, null
   %122 = getelementptr inbounds nuw i8, ptr %.029, i64 40
   %123 = getelementptr inbounds nuw i8, ptr %.029, i64 19
@@ -1190,7 +1190,7 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit: ; 
   br i1 %25, label %61, label %26
 
 26:                                               ; preds = %22, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit, %5
-  %.020 = phi i1 [ false, %5 ], [ false, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit ], [ true, %22 ]
+  %.020 = phi i1 [ false, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit ], [ false, %5 ], [ true, %22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = tail call noundef ptr @_ZN4absl13base_internal30CurrentThreadIdentityIfPresentEv()
   %28 = icmp eq ptr %27, null
@@ -1264,7 +1264,7 @@ _ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_in
   br label %59
 
 59:                                               ; preds = %55, %52
-  %60 = phi i1 [ %58, %55 ], [ true, %52 ]
+  %60 = phi i1 [ true, %52 ], [ %58, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
@@ -1354,7 +1354,7 @@ _ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_in
   unreachable
 
 .critedge:                                        ; preds = %_ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit, %35, %38
-  %40 = phi i1 [ false, %38 ], [ true, %35 ], [ true, %_ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit ]
+  %40 = phi i1 [ true, %35 ], [ false, %38 ], [ true, %_ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
@@ -1918,10 +1918,10 @@ _ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i: ; preds = %231
   br label %_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE.exit.thread.i
 
 _ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE.exit.thread.i: ; preds = %._crit_edge.i.i, %238, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
-  %.235.i = phi ptr [ %.0.i.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ], [ %.0.i, %238 ], [ %.0.i, %._crit_edge.i.i ]
-  %.12034.i = phi i1 [ %.019.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ], [ true, %238 ], [ true, %._crit_edge.i.i ]
-  %.12333.i = phi ptr [ %.022.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ], [ %.021.i, %238 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %.12532.i = phi ptr [ %.021.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ], [ %.024.i, %238 ], [ %.024.i, %._crit_edge.i.i ]
+  %.235.i = phi ptr [ %.0.i, %238 ], [ %.0.i, %._crit_edge.i.i ], [ %.0.i.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
+  %.12034.i = phi i1 [ true, %238 ], [ true, %._crit_edge.i.i ], [ %.019.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
+  %.12333.i = phi ptr [ %.021.i, %238 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ], [ %.022.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
+  %.12532.i = phi ptr [ %.024.i, %238 ], [ %.024.i, %._crit_edge.i.i ], [ %.021.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
   %247 = icmp eq ptr %.12333.i, %.235.i
   %.not27.i = select i1 %247, i1 %.12034.i, i1 false
   br i1 %.not27.i, label %_ZN4abslL18DequeueAllWakeableEPNS_13base_internal14PerThreadSynchES2_PS2_.exit, label %.preheader259, !llvm.loop !101
@@ -1966,7 +1966,7 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit: ; 
   br label %22
 
 .thread.sink.split:                               ; preds = %254, %255, %127, %131, %79, %85
-  %.0149.sink = phi i64 [ %23, %79 ], [ %128, %127 ], [ %88, %85 ], [ %.1150, %131 ], [ %261, %255 ], [ %249, %254 ]
+  %.0149.sink = phi i64 [ %88, %85 ], [ %23, %79 ], [ %.1150, %131 ], [ %128, %127 ], [ %261, %255 ], [ %249, %254 ]
   store atomic i64 %.0149.sink, ptr %0 release, align 8
   br label %.thread
 
@@ -2296,9 +2296,9 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.t
   %134 = or i32 %.0, 1
   br label %.thread150
 
-.thread150:                                       ; preds = %40, %113, %85, %76, %107, %110, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.thread, %56
-  %.558 = phi i32 [ 0, %56 ], [ %.053, %113 ], [ 0, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.thread ], [ %.053, %85 ], [ %.053, %76 ], [ %.053, %110 ], [ 0, %107 ], [ %.053, %40 ]
-  %.5 = phi i32 [ %58, %56 ], [ %.0, %113 ], [ %134, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.thread ], [ %.0, %85 ], [ %.0, %76 ], [ %.0, %110 ], [ %109, %107 ], [ %.0, %40 ]
+.thread150:                                       ; preds = %40, %113, %85, %76, %110, %107, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.thread, %56
+  %.558 = phi i32 [ 0, %56 ], [ 0, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.thread ], [ %.053, %76 ], [ %.053, %110 ], [ 0, %107 ], [ %.053, %85 ], [ %.053, %113 ], [ %.053, %40 ]
+  %.5 = phi i32 [ %58, %56 ], [ %134, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.thread ], [ %.0, %76 ], [ %.0, %110 ], [ %109, %107 ], [ %.0, %85 ], [ %.0, %113 ], [ %.0, %40 ]
   %135 = load ptr, ptr %12, align 8, !tbaa !91
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 32
   %137 = load ptr, ptr %136, align 8, !tbaa !57
@@ -2435,7 +2435,7 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit: ; 
   br label %12
 
 12:                                               ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit, %8, %10
-  %.0 = phi i1 [ %7, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit ], [ %11, %10 ], [ false, %8 ]
+  %.0 = phi i1 [ %11, %10 ], [ false, %8 ], [ %7, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit ]
   ret i1 %.0
 }
 
@@ -2654,7 +2654,7 @@ define dso_local noundef zeroext i1 @_ZN4absl5Mutex13ReaderTryLockEv(ptr noundef
   %2 = load atomic i64, ptr %0 monotonic, align 8
   %3 = and i64 %2, 28
   %.not612 = icmp eq i64 %3, 0
-  br i1 %.not612, label %.lr.ph, label %.critedge, !prof !113
+  br i1 %.not612, label %.lr.ph, label %._crit_edge, !prof !113
 
 .lr.ph:                                           ; preds = %1, %8
   %.0414 = phi i32 [ %10, %8 ], [ 5, %1 ]
@@ -2663,7 +2663,7 @@ define dso_local noundef zeroext i1 @_ZN4absl5Mutex13ReaderTryLockEv(ptr noundef
   %5 = add nsw i64 %4, 256
   %6 = cmpxchg ptr %0, i64 %.013, i64 %5 acquire monotonic, align 8
   %7 = extractvalue { i64, i1 } %6, 1
-  br i1 %7, label %.loopexit, label %8
+  br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %.lr.ph
   %9 = extractvalue { i64, i1 } %6, 0
@@ -2672,20 +2672,20 @@ define dso_local noundef zeroext i1 @_ZN4absl5Mutex13ReaderTryLockEv(ptr noundef
   %11 = and i64 %9, 28
   %.not6 = icmp eq i64 %11, 0
   %or.cond = select i1 %.not, i1 %.not6, i1 false, !prof !114
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !prof !115, !llvm.loop !116
+  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !prof !115, !llvm.loop !116
 
-.critedge:                                        ; preds = %8, %1
+._crit_edge:                                      ; preds = %8, %1
   %.0.lcssa = phi i64 [ %2, %1 ], [ %9, %8 ]
   %12 = and i64 %.0.lcssa, 16
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %.loopexit, label %14, !prof !19
+  br i1 %13, label %.critedge, label %14, !prof !19
 
-14:                                               ; preds = %.critedge
+14:                                               ; preds = %._crit_edge
   %15 = tail call noundef zeroext i1 @_ZN4absl5Mutex17ReaderTryLockSlowEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph, %.critedge, %14
-  %.1 = phi i1 [ false, %.critedge ], [ %15, %14 ], [ true, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %._crit_edge, %14
+  %.1 = phi i1 [ %15, %14 ], [ false, %._crit_edge ], [ true, %.lr.ph ]
   ret i1 %.1
 }
 
@@ -3294,7 +3294,7 @@ _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit114: ;
   store ptr %203, ptr %62, align 8, !tbaa !70
   br label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit114.thread
 
-235:                                              ; preds = %126, %123, %102
+235:                                              ; preds = %123, %102, %126
   %236 = and i32 %3, 1
   %.not100 = icmp eq i32 %236, 0
   %.pre = load ptr, ptr %0, align 8, !tbaa !56
@@ -3402,7 +3402,7 @@ _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit120: ;
   br label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit114.thread
 
 _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit114.thread: ; preds = %282, %288, %265, %222, %228, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit110.thread, %209, %280, %220, %234, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit114, %251, %254, %294, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit120, %255, %99
-  %.092 = phi ptr [ %52, %99 ], [ %0, %234 ], [ %0, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit114 ], [ %0, %254 ], [ %0, %251 ], [ %52, %294 ], [ %52, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit120 ], [ %52, %255 ], [ %52, %280 ], [ %0, %220 ], [ %0, %222 ], [ %0, %209 ], [ %0, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit110.thread ], [ %0, %228 ], [ %52, %282 ], [ %52, %265 ], [ %52, %288 ]
+  %.092 = phi ptr [ %52, %99 ], [ %0, %234 ], [ %0, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit114 ], [ %0, %254 ], [ %0, %251 ], [ %52, %294 ], [ %52, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit120 ], [ %52, %255 ], [ %0, %220 ], [ %52, %280 ], [ %0, %209 ], [ %0, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit110.thread ], [ %0, %228 ], [ %0, %222 ], [ %52, %265 ], [ %52, %288 ], [ %52, %282 ]
   %296 = getelementptr inbounds nuw i8, ptr %52, i64 28
   store atomic i32 1, ptr %296 monotonic, align 4
   br label %297

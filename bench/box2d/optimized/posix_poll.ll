@@ -76,8 +76,8 @@ switch.early.test:                                ; preds = %35
   %38 = fcmp ugt double %33, 0.000000e+00
   br i1 %38, label %39, label %.thread
 
-.thread:                                          ; preds = %switch.early.test, %.split, %37
-  %.1.ph = phi i32 [ 0, %37 ], [ 1, %.split ], [ 0, %switch.early.test ]
+.thread:                                          ; preds = %.split, %switch.early.test, %37
+  %.1.ph = phi i32 [ 0, %37 ], [ 0, %switch.early.test ], [ 1, %.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread36
 

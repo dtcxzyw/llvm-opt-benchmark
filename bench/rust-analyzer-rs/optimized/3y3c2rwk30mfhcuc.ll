@@ -527,10 +527,10 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %58
 
 58:                                               ; preds = %52, %.thread
-  %.pn = phi i64 [ %53, %52 ], [ %15, %.thread ]
-  %trunc.i.i154.in = phi i64 [ %13, %52 ], [ %19, %.thread ]
-  %.sroa.3.0.i9.pn.i.i152.in = phi ptr [ %55, %52 ], [ %34, %.thread ]
-  %59 = phi i64 [ %spec.select, %52 ], [ %35, %.thread ]
+  %.pn = phi i64 [ %15, %.thread ], [ %53, %52 ]
+  %trunc.i.i154.in = phi i64 [ %19, %.thread ], [ %13, %52 ]
+  %.sroa.3.0.i9.pn.i.i152.in = phi ptr [ %34, %.thread ], [ %55, %52 ]
+  %59 = phi i64 [ %35, %.thread ], [ %spec.select, %52 ]
   %.sroa.3.0.i9.pn.i.i152 = load i32, ptr %.sroa.3.0.i9.pn.i.i152.in, align 4, !alias.scope !227, !noundef !14
   %trunc.i.i154 = trunc i64 %trunc.i.i154.in to i1
   %60 = sub nuw i64 %.val3.i.i.i, %.pn
@@ -1394,7 +1394,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h5fca2007f397
   br label %common.resume
 
 common.resume:                                    ; preds = %51, %41, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.5062853439722839227.exit.i1.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %42, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.5062853439722839227.exit.i1.i.i" ], [ %.pn, %51 ]
+  %common.resume.op = phi { ptr, i32 } [ %42, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.5062853439722839227.exit.i1.i.i" ], [ %42, %41 ], [ %.pn, %51 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tt..TokenTree$LT$proc_macro_api..msg..flat..TokenId$GT$$u5d$$GT$$GT$17ha24cd72aa8169106E.llvm.5062853439722839227.exit.i.i": ; preds = %37
@@ -1626,7 +1626,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hae5c5c470534
   br label %common.resume
 
 common.resume:                                    ; preds = %67, %57, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.5062853439722839227.exit.i1.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %58, %57 ], [ %58, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.5062853439722839227.exit.i1.i.i" ], [ %.pn, %67 ]
+  %common.resume.op = phi { ptr, i32 } [ %58, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.5062853439722839227.exit.i1.i.i" ], [ %58, %57 ], [ %.pn, %67 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$u5d$$GT$$GT$17h213c6b1b1f421d06E.llvm.5062853439722839227.exit.i.i": ; preds = %53

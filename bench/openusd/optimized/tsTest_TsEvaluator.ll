@@ -1228,7 +1228,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit104: ; preds = %344, %349
           to label %398 unwind label %.loopexit.split-lp
 
 397:                                              ; preds = %.loopexit, %.loopexit.split-lp, %365, %321, %276, %234, %192
-  %.pn78.pn = phi { ptr, i32 } [ %.pn78, %192 ], [ %.pn, %234 ], [ %.pn76, %365 ], [ %.pn74, %321 ], [ %.pn72, %276 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn78.pn = phi { ptr, i32 } [ %.pn78, %192 ], [ %.pn76, %365 ], [ %.pn74, %321 ], [ %.pn72, %276 ], [ %.pn, %234 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   resume { ptr, i32 } %.pn78.pn
 
@@ -2237,7 +2237,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit25.i: ; preds = %127, %122
   br i1 %.not.i, label %.loopexit, label %53
 
 140:                                              ; preds = %135, %113, %111, %109, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn.i = phi { ptr, i32 } [ %110, %109 ], [ %136, %135 ], [ %114, %113 ], [ %112, %111 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.i = phi { ptr, i32 } [ %136, %135 ], [ %114, %113 ], [ %112, %111 ], [ %110, %109 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineDataD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #20
   br label %.body
 

@@ -1328,7 +1328,7 @@ dissect_eigrp_wide_metric.exit.i:                 ; preds = %dissect_eigrp_wide_
   br label %416
 
 416:                                              ; preds = %414, %dissect_eigrp_wide_metric.exit.i
-  %.0.i114 = phi i32 [ %408, %dissect_eigrp_wide_metric.exit.i ], [ %415, %414 ]
+  %.0.i114 = phi i32 [ %415, %414 ], [ %408, %dissect_eigrp_wide_metric.exit.i ]
   switch i16 %279, label %426 [
     i16 1, label %417
     i16 2, label %418
@@ -1396,7 +1396,7 @@ dissect_eigrp_wide_metric.exit.i:                 ; preds = %dissect_eigrp_wide_
   br label %450
 
 450:                                              ; preds = %448, %428
-  %.0.i115 = phi i32 [ %442, %428 ], [ %449, %448 ]
+  %.0.i115 = phi i32 [ %449, %448 ], [ %442, %428 ]
   switch i16 %434, label %460 [
     i16 1, label %451
     i16 2, label %452

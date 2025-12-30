@@ -316,7 +316,7 @@ define range(i32 -1, 1) i32 @H5FA_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread28
 
 .thread28:                                        ; preds = %44, %37, %27, %7, %54, %50
-  %.022 = phi i32 [ 0, %54 ], [ 0, %7 ], [ -1, %50 ], [ -1, %27 ], [ -1, %37 ], [ -1, %44 ]
+  %.022 = phi i32 [ 0, %54 ], [ -1, %50 ], [ 0, %7 ], [ -1, %27 ], [ -1, %37 ], [ -1, %44 ]
   ret i32 %.022
 }
 
@@ -574,11 +574,11 @@ define range(i32 -1, 1) i32 @H5FA_set(ptr noundef readonly captures(none) %0, i6
   br label %110
 
 110:                                              ; preds = %85, %97, %101, %38, %30, %22
-  %.072 = phi i32 [ 0, %30 ], [ 0, %22 ], [ 2, %38 ], [ %.173, %97 ], [ %.173, %101 ], [ 0, %85 ]
-  %.070 = phi i32 [ 0, %30 ], [ 0, %22 ], [ 0, %38 ], [ 0, %97 ], [ 2, %101 ], [ 0, %85 ]
-  %.169 = phi i32 [ -1, %30 ], [ -1, %22 ], [ 0, %38 ], [ -1, %97 ], [ 0, %101 ], [ -1, %85 ]
-  %.067 = phi ptr [ null, %30 ], [ null, %22 ], [ null, %38 ], [ null, %97 ], [ %95, %101 ], [ null, %85 ]
-  %.065 = phi ptr [ null, %30 ], [ null, %22 ], [ %28, %38 ], [ %28, %97 ], [ %28, %101 ], [ %28, %85 ]
+  %.072 = phi i32 [ 0, %30 ], [ 2, %38 ], [ 0, %22 ], [ %.173, %97 ], [ %.173, %101 ], [ 0, %85 ]
+  %.070 = phi i32 [ 0, %30 ], [ 0, %38 ], [ 0, %22 ], [ 0, %97 ], [ 2, %101 ], [ 0, %85 ]
+  %.169 = phi i32 [ -1, %30 ], [ 0, %38 ], [ -1, %22 ], [ -1, %97 ], [ 0, %101 ], [ -1, %85 ]
+  %.067 = phi ptr [ null, %30 ], [ null, %38 ], [ null, %22 ], [ null, %97 ], [ %95, %101 ], [ null, %85 ]
+  %.065 = phi ptr [ null, %30 ], [ %28, %38 ], [ null, %22 ], [ %28, %97 ], [ %28, %101 ], [ %28, %85 ]
   %111 = load i8, ptr %4, align 1, !tbaa !3, !range !7, !noundef !8
   %112 = trunc nuw i8 %111 to i1
   br i1 %112, label %113, label %120
@@ -805,8 +805,8 @@ define range(i32 -1, 1) i32 @H5FA_get(ptr noundef readonly captures(none) %0, i6
   br label %112
 
 112:                                              ; preds = %41, %99, %103, %64, %71
-  %.160.ph = phi i32 [ 0, %103 ], [ -1, %99 ], [ -1, %71 ], [ 0, %64 ], [ 0, %41 ]
-  %.057.ph = phi ptr [ %97, %103 ], [ null, %99 ], [ null, %71 ], [ null, %64 ], [ null, %41 ]
+  %.160.ph = phi i32 [ 0, %103 ], [ -1, %99 ], [ 0, %64 ], [ -1, %71 ], [ 0, %41 ]
+  %.057.ph = phi ptr [ %97, %103 ], [ null, %99 ], [ null, %64 ], [ null, %71 ], [ null, %41 ]
   %113 = tail call i32 @H5FA__dblock_unprotect(ptr noundef nonnull %31, i32 noundef 0) #5
   %114 = icmp slt i32 %113, 0
   br i1 %114, label %115, label %119
@@ -833,8 +833,8 @@ define range(i32 -1, 1) i32 @H5FA_get(ptr noundef readonly captures(none) %0, i6
   %126 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FA_get, i32 noundef 494, i64 noundef %124, i64 noundef %125, ptr noundef nonnull @.str.11) #5
   br label %.thread78
 
-.thread78:                                        ; preds = %26, %19, %33, %10, %123, %120, %119
-  %.059 = phi i32 [ -1, %123 ], [ %.4, %120 ], [ %.4, %119 ], [ 0, %10 ], [ -1, %26 ], [ 0, %19 ], [ -1, %33 ]
+.thread78:                                        ; preds = %19, %26, %33, %10, %123, %120, %119
+  %.059 = phi i32 [ -1, %123 ], [ %.4, %120 ], [ %.4, %119 ], [ 0, %10 ], [ 0, %19 ], [ -1, %26 ], [ -1, %33 ]
   ret i32 %.059
 }
 
@@ -902,7 +902,7 @@ define range(i32 -1, 1) i32 @H5FA_delete(ptr noundef %0, i64 noundef %1, ptr nou
   br label %32
 
 32:                                               ; preds = %28, %22
-  %.1 = phi i32 [ -1, %28 ], [ 0, %22 ]
+  %.1 = phi i32 [ 0, %22 ], [ -1, %28 ]
   %33 = tail call i32 @H5FA__hdr_unprotect(ptr noundef nonnull %13, i32 noundef 0) #5
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %.thread18
@@ -995,7 +995,7 @@ define i32 @H5FA_iterate(ptr noundef readonly captures(none) %0, ptr noundef rea
   br label %49
 
 .loopexit:                                        ; preds = %23, %.preheader, %40, %33
-  %.1.ph = phi i32 [ -1, %33 ], [ %38, %40 ], [ 0, %.preheader ], [ %38, %23 ]
+  %.1.ph = phi i32 [ %38, %40 ], [ -1, %33 ], [ 0, %.preheader ], [ %38, %23 ]
   %48 = tail call ptr @H5FL_blk_free(ptr noundef nonnull @H5_fa_native_elmt_blk_free_list, ptr noundef nonnull %18) #5
   br label %49
 

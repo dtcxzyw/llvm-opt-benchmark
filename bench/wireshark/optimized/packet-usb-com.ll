@@ -1198,7 +1198,7 @@ proto_item_set_generated.exit:                    ; preds = %39, %49, %52
   br label %105
 
 105:                                              ; preds = %36, %21, %24, %4, %18, %103, %100, %95
-  %.0 = phi i32 [ 0, %4 ], [ 0, %21 ], [ %97, %95 ], [ %104, %103 ], [ %102, %100 ], [ 0, %18 ], [ 0, %24 ], [ 0, %36 ]
+  %.0 = phi i32 [ %97, %95 ], [ %104, %103 ], [ %102, %100 ], [ 0, %18 ], [ 0, %4 ], [ 0, %24 ], [ 0, %21 ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

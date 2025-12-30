@@ -285,8 +285,8 @@ _ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit: ; preds = %3, %13
   br label %44
 
 44:                                               ; preds = %41, %.thread, %.thread37
-  %.not1535 = phi i1 [ false, %.thread37 ], [ false, %41 ], [ true, %.thread ]
-  %45 = phi i64 [ %38, %.thread37 ], [ %spec.select, %41 ], [ %40, %.thread ]
+  %.not1535 = phi i1 [ false, %.thread37 ], [ true, %.thread ], [ false, %41 ]
+  %45 = phi i64 [ %38, %.thread37 ], [ %40, %.thread ], [ %spec.select, %41 ]
   %46 = add i64 %45, 4
   %47 = icmp ugt i64 %23, 127
   br i1 %47, label %.lr.ph.i, label %_ZN7rocksdb12VarintLengthEm.exit
@@ -686,7 +686,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %exitcond.not.i, label %_ZNK7rocksdb5Slice17difference_offsetERKS0_.exit, label %.lr.ph.i, !llvm.loop !55
 
 _ZNK7rocksdb5Slice17difference_offsetERKS0_.exit: ; preds = %94, %.lr.ph.i, %86, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
-  %.022 = phi i64 [ 0, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ], [ 0, %86 ], [ %.011.i, %.lr.ph.i ], [ %.sroa.6.0, %94 ]
+  %.022 = phi i64 [ 0, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ], [ 0, %86 ], [ %.sroa.6.0, %94 ], [ %.011.i, %.lr.ph.i ]
   %96 = sub i64 %.sroa.3.0.i, %.022
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %98 = load i8, ptr %97, align 1, !tbaa !28, !range !45, !noundef !46
@@ -997,7 +997,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !37
   br label %41
 

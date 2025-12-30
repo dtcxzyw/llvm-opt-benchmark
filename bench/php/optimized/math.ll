@@ -233,7 +233,7 @@ php_round_get_basic_edge_case.exit83.i:           ; preds = %35
   unreachable
 
 php_round_helper.exit:                            ; preds = %35, %php_round_get_basic_edge_case.exit.i, %43, %php_round_get_basic_edge_case.exit81.i, %52, %php_round_get_zero_edge_case.exit.i, %60, %php_round_get_zero_edge_case.exit84.i, %67, %php_round_get_zero_edge_case.exit85.i, %73, %82, %87, %92, %99, %104, %109
-  %.0.i49 = phi double [ %45, %43 ], [ %108, %104 ], [ %54, %52 ], [ %.1, %php_round_get_basic_edge_case.exit.i ], [ %61, %60 ], [ %.1, %php_round_get_basic_edge_case.exit81.i ], [ %68, %67 ], [ %.1, %php_round_get_zero_edge_case.exit.i ], [ %.1, %php_round_get_zero_edge_case.exit84.i ], [ %75, %73 ], [ %.1, %35 ], [ %84, %82 ], [ %.1, %92 ], [ %91, %87 ], [ %101, %99 ], [ %.1, %109 ], [ %.1, %php_round_get_zero_edge_case.exit85.i ]
+  %.0.i49 = phi double [ %45, %43 ], [ %54, %52 ], [ %61, %60 ], [ %68, %67 ], [ %75, %73 ], [ %84, %82 ], [ %.1, %92 ], [ %91, %87 ], [ %101, %99 ], [ %.1, %109 ], [ %108, %104 ], [ %.1, %php_round_get_basic_edge_case.exit.i ], [ %.1, %php_round_get_basic_edge_case.exit81.i ], [ %.1, %php_round_get_zero_edge_case.exit.i ], [ %.1, %php_round_get_zero_edge_case.exit84.i ], [ %.1, %35 ], [ %.1, %php_round_get_zero_edge_case.exit85.i ]
   %111 = icmp samesign ult i32 %7, 23
   br i1 %111, label %112, label %117
 
@@ -262,7 +262,7 @@ php_round_helper.exit:                            ; preds = %35, %php_round_get_
   br label %124
 
 124:                                              ; preds = %117, %115, %113, %27, %3
-  %.047 = phi double [ %0, %27 ], [ %0, %3 ], [ %114, %113 ], [ %116, %115 ], [ %., %117 ]
+  %.047 = phi double [ %0, %3 ], [ %0, %27 ], [ %114, %113 ], [ %116, %115 ], [ %., %117 ]
   ret double %.047
 }
 
@@ -557,7 +557,7 @@ define dso_local range(i32 1, 9) i32 @php_math_round_mode_from_enum(ptr noundef 
   unreachable
 
 19:                                               ; preds = %1, %17, %16, %15, %14, %13, %12, %11
-  %.0 = phi i32 [ 5, %17 ], [ 2, %11 ], [ 3, %12 ], [ 4, %13 ], [ 7, %14 ], [ 8, %15 ], [ 6, %16 ], [ 1, %1 ]
+  %.0 = phi i32 [ 2, %11 ], [ 3, %12 ], [ 4, %13 ], [ 7, %14 ], [ 8, %15 ], [ 6, %16 ], [ 5, %17 ], [ 1, %1 ]
   ret i32 %.0
 }
 
@@ -670,11 +670,11 @@ zend_parse_arg_obj_or_long.exit:                  ; preds = %38
   br label %49
 
 49:                                               ; preds = %9, %44, %zend_parse_arg_number.exit, %zend_parse_arg_long_ex.exit
-  %.073 = phi ptr [ null, %9 ], [ %19, %zend_parse_arg_long_ex.exit ], [ %27, %44 ], [ %11, %zend_parse_arg_number.exit ]
-  %.072 = phi i32 [ 0, %9 ], [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %44 ], [ 22, %zend_parse_arg_number.exit ]
-  %.071 = phi ptr [ null, %9 ], [ null, %zend_parse_arg_long_ex.exit ], [ %48, %44 ], [ null, %zend_parse_arg_number.exit ]
-  %.070 = phi i32 [ 1, %9 ], [ 9, %zend_parse_arg_long_ex.exit ], [ 7, %44 ], [ 9, %zend_parse_arg_number.exit ]
-  %.068 = phi i32 [ 0, %9 ], [ 2, %zend_parse_arg_long_ex.exit ], [ 3, %44 ], [ 1, %zend_parse_arg_number.exit ]
+  %.073 = phi ptr [ null, %9 ], [ %27, %44 ], [ %11, %zend_parse_arg_number.exit ], [ %19, %zend_parse_arg_long_ex.exit ]
+  %.072 = phi i32 [ 0, %9 ], [ 0, %44 ], [ 22, %zend_parse_arg_number.exit ], [ 0, %zend_parse_arg_long_ex.exit ]
+  %.071 = phi ptr [ null, %9 ], [ %48, %44 ], [ null, %zend_parse_arg_number.exit ], [ null, %zend_parse_arg_long_ex.exit ]
+  %.070 = phi i32 [ 1, %9 ], [ 7, %44 ], [ 9, %zend_parse_arg_number.exit ], [ 9, %zend_parse_arg_long_ex.exit ]
+  %.068 = phi i32 [ 0, %9 ], [ 3, %44 ], [ 1, %zend_parse_arg_number.exit ], [ 2, %zend_parse_arg_long_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.070, i32 noundef %.068, ptr noundef %.071, i32 noundef %.072, ptr noundef %.073) #16
   br label %87
 
@@ -1116,10 +1116,10 @@ zend_parse_arg_double.exit:                       ; preds = %15
   br i1 %cond.fr, label %.critedge, label %.thread69, !prof !17
 
 .thread69:                                        ; preds = %zend_parse_arg_double.exit, %zend_parse_arg_double.exit57, %7
-  %.078 = phi i32 [ 0, %7 ], [ 1, %zend_parse_arg_double.exit57 ], [ 2, %zend_parse_arg_double.exit ]
-  %.04977 = phi i32 [ 1, %7 ], [ 9, %zend_parse_arg_double.exit57 ], [ 9, %zend_parse_arg_double.exit ]
-  %.05076 = phi ptr [ null, %7 ], [ %9, %zend_parse_arg_double.exit57 ], [ %16, %zend_parse_arg_double.exit ]
-  %.05175 = phi i32 [ 0, %7 ], [ 20, %zend_parse_arg_double.exit57 ], [ 20, %zend_parse_arg_double.exit ]
+  %.078 = phi i32 [ 1, %zend_parse_arg_double.exit57 ], [ 0, %7 ], [ 2, %zend_parse_arg_double.exit ]
+  %.04977 = phi i32 [ 9, %zend_parse_arg_double.exit57 ], [ 1, %7 ], [ 9, %zend_parse_arg_double.exit ]
+  %.05076 = phi ptr [ %9, %zend_parse_arg_double.exit57 ], [ null, %7 ], [ %16, %zend_parse_arg_double.exit ]
+  %.05175 = phi i32 [ 20, %zend_parse_arg_double.exit57 ], [ 0, %7 ], [ 20, %zend_parse_arg_double.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.04977, i32 noundef %.078, ptr noundef null, i32 noundef %.05175, ptr noundef %.05076) #16
   br label %25
 
@@ -1837,10 +1837,10 @@ zend_parse_arg_double.exit:                       ; preds = %18
   br i1 %cond.fr, label %.critedge, label %.thread83, !prof !17
 
 .thread83:                                        ; preds = %zend_parse_arg_double.exit, %zend_parse_arg_double.exit71, %8
-  %.092 = phi i32 [ 0, %8 ], [ 1, %zend_parse_arg_double.exit71 ], [ 2, %zend_parse_arg_double.exit ]
-  %.06191 = phi ptr [ null, %8 ], [ %10, %zend_parse_arg_double.exit71 ], [ %19, %zend_parse_arg_double.exit ]
-  %.06290 = phi i32 [ 0, %8 ], [ 20, %zend_parse_arg_double.exit71 ], [ 20, %zend_parse_arg_double.exit ]
-  %.06489 = phi i32 [ 1, %8 ], [ 9, %zend_parse_arg_double.exit71 ], [ 9, %zend_parse_arg_double.exit ]
+  %.092 = phi i32 [ 1, %zend_parse_arg_double.exit71 ], [ 0, %8 ], [ 2, %zend_parse_arg_double.exit ]
+  %.06191 = phi ptr [ %10, %zend_parse_arg_double.exit71 ], [ null, %8 ], [ %19, %zend_parse_arg_double.exit ]
+  %.06290 = phi i32 [ 20, %zend_parse_arg_double.exit71 ], [ 0, %8 ], [ 20, %zend_parse_arg_double.exit ]
+  %.06489 = phi i32 [ 9, %zend_parse_arg_double.exit71 ], [ 1, %8 ], [ 9, %zend_parse_arg_double.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.06489, i32 noundef %.092, ptr noundef null, i32 noundef %.06290, ptr noundef %.06191) #16
   br label %57
 
@@ -2066,10 +2066,10 @@ zend_parse_arg_double.exit:                       ; preds = %15
   br i1 %cond.fr, label %.critedge, label %.thread69, !prof !17
 
 .thread69:                                        ; preds = %zend_parse_arg_double.exit, %zend_parse_arg_double.exit57, %7
-  %.078 = phi i32 [ 0, %7 ], [ 1, %zend_parse_arg_double.exit57 ], [ 2, %zend_parse_arg_double.exit ]
-  %.04977 = phi i32 [ 1, %7 ], [ 9, %zend_parse_arg_double.exit57 ], [ 9, %zend_parse_arg_double.exit ]
-  %.05076 = phi ptr [ null, %7 ], [ %9, %zend_parse_arg_double.exit57 ], [ %16, %zend_parse_arg_double.exit ]
-  %.05175 = phi i32 [ 0, %7 ], [ 20, %zend_parse_arg_double.exit57 ], [ 20, %zend_parse_arg_double.exit ]
+  %.078 = phi i32 [ 1, %zend_parse_arg_double.exit57 ], [ 0, %7 ], [ 2, %zend_parse_arg_double.exit ]
+  %.04977 = phi i32 [ 9, %zend_parse_arg_double.exit57 ], [ 1, %7 ], [ 9, %zend_parse_arg_double.exit ]
+  %.05076 = phi ptr [ %9, %zend_parse_arg_double.exit57 ], [ null, %7 ], [ %16, %zend_parse_arg_double.exit ]
+  %.05175 = phi i32 [ 20, %zend_parse_arg_double.exit57 ], [ 0, %7 ], [ 20, %zend_parse_arg_double.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.04977, i32 noundef %.078, ptr noundef null, i32 noundef %.05175, ptr noundef %.05076) #16
   br label %25
 
@@ -2264,7 +2264,7 @@ define dso_local i64 @_php_math_basetolong(ptr noundef readonly captures(none) %
   br i1 %40, label %15, label %.loopexit
 
 .loopexit:                                        ; preds = %38, %8, %2, %37
-  %.040 = phi i64 [ 0, %2 ], [ 9223372036854775807, %37 ], [ 0, %8 ], [ %.1, %38 ]
+  %.040 = phi i64 [ 9223372036854775807, %37 ], [ 0, %2 ], [ 0, %8 ], [ %.1, %38 ]
   ret i64 %.040
 }
 
@@ -2386,7 +2386,7 @@ define dso_local void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr 
   br label %.thread105
 
 .thread105:                                       ; preds = %34, %35, %41, %38, %43, %49, %46, %54, %51, %57, %.critedge2
-  %.188 = phi ptr [ %58, %57 ], [ %.087.lcssa, %54 ], [ %.087.lcssa, %51 ], [ %.087.lcssa, %34 ], [ %.087.lcssa, %.critedge2 ], [ %50, %49 ], [ %.087.lcssa, %43 ], [ %.087.lcssa, %46 ], [ %.087.lcssa, %35 ], [ %.087.lcssa, %38 ], [ %42, %41 ]
+  %.188 = phi ptr [ %58, %57 ], [ %.087.lcssa, %51 ], [ %.087.lcssa, %.critedge2 ], [ %.087.lcssa, %54 ], [ %.087.lcssa, %46 ], [ %.087.lcssa, %43 ], [ %50, %49 ], [ %.087.lcssa, %38 ], [ %.087.lcssa, %35 ], [ %42, %41 ], [ %.087.lcssa, %34 ]
   %59 = sext i32 %1 to i64
   %60 = sdiv i64 9223372036854775807, %59
   %61 = srem i64 9223372036854775807, %59
@@ -2439,7 +2439,7 @@ define dso_local void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %77, label %65, label %.outer._crit_edge
 
 78:                                               ; preds = %65, %71, %75
-  %.085 = phi i8 [ %76, %75 ], [ %72, %71 ], [ %68, %65 ]
+  %.085 = phi i8 [ %72, %71 ], [ %76, %75 ], [ %68, %65 ]
   %79 = zext nneg i8 %.085 to i32
   %.not100 = icmp sgt i32 %1, %79
   br i1 %.not100, label %80, label %.backedge
@@ -2476,9 +2476,9 @@ define dso_local void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr 
   br label %.outer
 
 .outer:                                           ; preds = %92, %86
-  %.183 = phi i32 [ 1, %92 ], [ 0, %86 ]
-  %.180 = phi double [ %95, %92 ], [ %.079.ph126, %86 ]
-  %.1 = phi i64 [ %.0.ph127, %92 ], [ %89, %86 ]
+  %.183 = phi i32 [ 0, %86 ], [ 1, %92 ]
+  %.180 = phi double [ %.079.ph126, %86 ], [ %95, %92 ]
+  %.1 = phi i64 [ %89, %86 ], [ %.0.ph127, %92 ]
   %96 = icmp ult ptr %66, %.086
   br i1 %96, label %.lr.ph114, label %.outer._crit_edge
 
@@ -3281,11 +3281,11 @@ zend_parse_arg_long_ex.exit82:                    ; preds = %24
   %30 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %25, ptr noundef nonnull %6, i32 noundef 3) #16
   br i1 %30, label %.critedge, label %.thread, !prof !52
 
-.thread:                                          ; preds = %zend_parse_arg_long_ex.exit82, %zend_parse_arg_str_ex.exit, %zend_parse_arg_long_ex.exit, %9
-  %.098 = phi i32 [ 3, %zend_parse_arg_long_ex.exit82 ], [ 0, %9 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 2, %zend_parse_arg_long_ex.exit ]
-  %.07097 = phi i32 [ 9, %zend_parse_arg_long_ex.exit82 ], [ 1, %9 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %zend_parse_arg_long_ex.exit ]
-  %.07196 = phi ptr [ %25, %zend_parse_arg_long_ex.exit82 ], [ null, %9 ], [ %11, %zend_parse_arg_str_ex.exit ], [ %18, %zend_parse_arg_long_ex.exit ]
-  %.07295 = phi i32 [ 0, %zend_parse_arg_long_ex.exit82 ], [ 0, %9 ], [ 4, %zend_parse_arg_str_ex.exit ], [ 0, %zend_parse_arg_long_ex.exit ]
+.thread:                                          ; preds = %zend_parse_arg_long_ex.exit82, %zend_parse_arg_long_ex.exit, %zend_parse_arg_str_ex.exit, %9
+  %.098 = phi i32 [ 2, %zend_parse_arg_long_ex.exit ], [ 1, %zend_parse_arg_str_ex.exit ], [ 0, %9 ], [ 3, %zend_parse_arg_long_ex.exit82 ]
+  %.07097 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 9, %zend_parse_arg_str_ex.exit ], [ 1, %9 ], [ 9, %zend_parse_arg_long_ex.exit82 ]
+  %.07196 = phi ptr [ %18, %zend_parse_arg_long_ex.exit ], [ %11, %zend_parse_arg_str_ex.exit ], [ null, %9 ], [ %25, %zend_parse_arg_long_ex.exit82 ]
+  %.07295 = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 4, %zend_parse_arg_str_ex.exit ], [ 0, %9 ], [ 0, %zend_parse_arg_long_ex.exit82 ]
   call void @zend_wrong_parameter_error(i32 noundef %.07097, i32 noundef %.098, ptr noundef null, i32 noundef %.07295, ptr noundef %.07196) #16
   br label %50
 
@@ -3434,7 +3434,7 @@ zend_safe_address.exit:                           ; preds = %36
   unreachable
 
 zend_safe_addmult.exit121:                        ; preds = %zend_safe_address.exit, %36, %zend_safe_addmult.exit
-  %.085 = phi i64 [ %.188, %zend_safe_addmult.exit ], [ %38, %36 ], [ %.013.i, %zend_safe_address.exit ]
+  %.085 = phi i64 [ %38, %36 ], [ %.188, %zend_safe_addmult.exit ], [ %.013.i, %zend_safe_address.exit ]
   %.not108.not = and i1 %7, %22
   %41 = zext i1 %.not108.not to i64
   %spec.select = add i64 %.085, %41
@@ -3623,8 +3623,8 @@ define dso_local noalias noundef ptr @_php_math_number_format_long(i64 noundef %
   br label %.thread
 
 .thread:                                          ; preds = %10, %8, %6
-  %.176 = phi i64 [ %.075, %6 ], [ %.277, %10 ], [ 0, %8 ]
-  %.174 = phi i32 [ %.073, %6 ], [ %spec.select, %10 ], [ 0, %8 ]
+  %.176 = phi i64 [ %.075, %6 ], [ 0, %8 ], [ %.277, %10 ]
+  %.174 = phi i32 [ %.073, %6 ], [ 0, %8 ], [ %spec.select, %10 ]
   %19 = tail call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.10, i64 noundef %.176) #16
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !43
@@ -3668,7 +3668,7 @@ zend_safe_address.exit107:                        ; preds = %29
   unreachable
 
 zend_safe_addmult.exit:                           ; preds = %zend_safe_addmult.exit98, %29, %zend_safe_address.exit107
-  %.172 = phi i64 [ %27, %zend_safe_addmult.exit98 ], [ %30, %29 ], [ %.013.i104, %zend_safe_address.exit107 ]
+  %.172 = phi i64 [ %30, %29 ], [ %27, %zend_safe_addmult.exit98 ], [ %.013.i104, %zend_safe_address.exit107 ]
   %33 = and i64 %.172, -8
   %34 = add i64 %33, 32
   %35 = tail call noalias ptr @_emalloc(i64 noundef %34) #19
@@ -3931,17 +3931,17 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %45, %41, %thread-pr
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
-.thread:                                          ; preds = %zend_parse_arg_number.exit, %zend_parse_arg_long_ex.exit, %zend_parse_arg_string.exit, %10, %53
-  %.089170 = phi i32 [ 4, %53 ], [ 1, %zend_parse_arg_number.exit ], [ 2, %zend_parse_arg_long_ex.exit ], [ 3, %zend_parse_arg_string.exit ], [ 0, %10 ]
-  %.090169 = phi ptr [ %42, %53 ], [ %12, %zend_parse_arg_number.exit ], [ %20, %zend_parse_arg_long_ex.exit ], [ %29, %zend_parse_arg_string.exit ], [ null, %10 ]
-  %.091168 = phi i32 [ 5, %53 ], [ 22, %zend_parse_arg_number.exit ], [ 0, %zend_parse_arg_long_ex.exit ], [ 5, %zend_parse_arg_string.exit ], [ 0, %10 ]
-  %.093167 = phi i32 [ 9, %53 ], [ 9, %zend_parse_arg_number.exit ], [ 9, %zend_parse_arg_long_ex.exit ], [ 9, %zend_parse_arg_string.exit ], [ 1, %10 ]
+.thread:                                          ; preds = %zend_parse_arg_string.exit, %zend_parse_arg_long_ex.exit, %zend_parse_arg_number.exit, %10, %53
+  %.089170 = phi i32 [ 4, %53 ], [ 3, %zend_parse_arg_string.exit ], [ 2, %zend_parse_arg_long_ex.exit ], [ 1, %zend_parse_arg_number.exit ], [ 0, %10 ]
+  %.090169 = phi ptr [ %42, %53 ], [ %29, %zend_parse_arg_string.exit ], [ %20, %zend_parse_arg_long_ex.exit ], [ %12, %zend_parse_arg_number.exit ], [ null, %10 ]
+  %.091168 = phi i32 [ 5, %53 ], [ 5, %zend_parse_arg_string.exit ], [ 0, %zend_parse_arg_long_ex.exit ], [ 22, %zend_parse_arg_number.exit ], [ 0, %10 ]
+  %.093167 = phi i32 [ 9, %53 ], [ 9, %zend_parse_arg_string.exit ], [ 9, %zend_parse_arg_long_ex.exit ], [ 9, %zend_parse_arg_number.exit ], [ 1, %10 ]
   call void @zend_wrong_parameter_error(i32 noundef %.093167, i32 noundef %.089170, ptr noundef null, i32 noundef %.091168, ptr noundef %.090169) #16
   br label %97
 
 .critedge:                                        ; preds = %.thread172, %40
-  %.2136 = phi i64 [ %.3137.ph, %.thread172 ], [ 0, %40 ]
-  %.2 = phi ptr [ %.4.ph, %.thread172 ], [ null, %40 ]
+  %.2136 = phi i64 [ 0, %40 ], [ %.3137.ph, %.thread172 ]
+  %.2 = phi ptr [ null, %40 ], [ %.4.ph, %.thread172 ]
   %54 = icmp eq ptr %.4142.ph, null
   %spec.select = select i1 %54, ptr @.str.11, ptr %.4142.ph
   %spec.select195 = select i1 %54, i64 1, i64 %.3133.ph
@@ -3951,10 +3951,10 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %45, %41, %thread-pr
   br label %.thread186
 
 .thread186:                                       ; preds = %.critedge, %17, %26
-  %.1131193 = phi i64 [ %spec.select195, %.critedge ], [ 1, %17 ], [ 1, %26 ]
-  %.1139191 = phi ptr [ %spec.select, %.critedge ], [ @.str.11, %17 ], [ @.str.11, %26 ]
-  %.1135 = phi i64 [ %spec.select196, %.critedge ], [ 1, %17 ], [ 1, %26 ]
-  %.1 = phi ptr [ %spec.select197, %.critedge ], [ @.str.12, %17 ], [ @.str.12, %26 ]
+  %.1131193 = phi i64 [ 1, %26 ], [ 1, %17 ], [ %spec.select195, %.critedge ]
+  %.1139191 = phi ptr [ @.str.11, %26 ], [ @.str.11, %17 ], [ %spec.select, %.critedge ]
+  %.1135 = phi i64 [ 1, %26 ], [ 1, %17 ], [ %spec.select196, %.critedge ]
+  %.1 = phi ptr [ @.str.12, %26 ], [ @.str.12, %17 ], [ %spec.select197, %.critedge ]
   %56 = load ptr, ptr %5, align 8, !tbaa !14
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i8, ptr %57, align 8, !tbaa !11
@@ -4082,10 +4082,10 @@ zend_parse_arg_double.exit:                       ; preds = %15
   br i1 %cond.fr, label %.critedge, label %.thread69, !prof !17
 
 .thread69:                                        ; preds = %zend_parse_arg_double.exit, %zend_parse_arg_double.exit57, %7
-  %.078 = phi i32 [ 0, %7 ], [ 1, %zend_parse_arg_double.exit57 ], [ 2, %zend_parse_arg_double.exit ]
-  %.04977 = phi i32 [ 1, %7 ], [ 9, %zend_parse_arg_double.exit57 ], [ 9, %zend_parse_arg_double.exit ]
-  %.05076 = phi ptr [ null, %7 ], [ %9, %zend_parse_arg_double.exit57 ], [ %16, %zend_parse_arg_double.exit ]
-  %.05175 = phi i32 [ 0, %7 ], [ 20, %zend_parse_arg_double.exit57 ], [ 20, %zend_parse_arg_double.exit ]
+  %.078 = phi i32 [ 1, %zend_parse_arg_double.exit57 ], [ 0, %7 ], [ 2, %zend_parse_arg_double.exit ]
+  %.04977 = phi i32 [ 9, %zend_parse_arg_double.exit57 ], [ 1, %7 ], [ 9, %zend_parse_arg_double.exit ]
+  %.05076 = phi ptr [ %9, %zend_parse_arg_double.exit57 ], [ null, %7 ], [ %16, %zend_parse_arg_double.exit ]
+  %.05175 = phi i32 [ 20, %zend_parse_arg_double.exit57 ], [ 0, %7 ], [ 20, %zend_parse_arg_double.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.04977, i32 noundef %.078, ptr noundef null, i32 noundef %.05175, ptr noundef %.05076) #16
   br label %25
 
@@ -4149,10 +4149,10 @@ zend_parse_arg_double.exit:                       ; preds = %15
   br i1 %cond.fr, label %.critedge, label %.thread69, !prof !17
 
 .thread69:                                        ; preds = %zend_parse_arg_double.exit, %zend_parse_arg_double.exit57, %7
-  %.078 = phi i32 [ 0, %7 ], [ 1, %zend_parse_arg_double.exit57 ], [ 2, %zend_parse_arg_double.exit ]
-  %.04977 = phi i32 [ 1, %7 ], [ 9, %zend_parse_arg_double.exit57 ], [ 9, %zend_parse_arg_double.exit ]
-  %.05076 = phi ptr [ null, %7 ], [ %9, %zend_parse_arg_double.exit57 ], [ %16, %zend_parse_arg_double.exit ]
-  %.05175 = phi i32 [ 0, %7 ], [ 20, %zend_parse_arg_double.exit57 ], [ 20, %zend_parse_arg_double.exit ]
+  %.078 = phi i32 [ 1, %zend_parse_arg_double.exit57 ], [ 0, %7 ], [ 2, %zend_parse_arg_double.exit ]
+  %.04977 = phi i32 [ 9, %zend_parse_arg_double.exit57 ], [ 1, %7 ], [ 9, %zend_parse_arg_double.exit ]
+  %.05076 = phi ptr [ %9, %zend_parse_arg_double.exit57 ], [ null, %7 ], [ %16, %zend_parse_arg_double.exit ]
+  %.05175 = phi i32 [ 20, %zend_parse_arg_double.exit57 ], [ 0, %7 ], [ 20, %zend_parse_arg_double.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.04977, i32 noundef %.078, ptr noundef null, i32 noundef %.05175, ptr noundef %.05076) #16
   br label %25
 
@@ -4216,10 +4216,10 @@ zend_parse_arg_double.exit:                       ; preds = %15
   br i1 %cond.fr, label %.critedge, label %.thread69, !prof !17
 
 .thread69:                                        ; preds = %zend_parse_arg_double.exit, %zend_parse_arg_double.exit57, %7
-  %.078 = phi i32 [ 0, %7 ], [ 1, %zend_parse_arg_double.exit57 ], [ 2, %zend_parse_arg_double.exit ]
-  %.04977 = phi i32 [ 1, %7 ], [ 9, %zend_parse_arg_double.exit57 ], [ 9, %zend_parse_arg_double.exit ]
-  %.05076 = phi ptr [ null, %7 ], [ %9, %zend_parse_arg_double.exit57 ], [ %16, %zend_parse_arg_double.exit ]
-  %.05175 = phi i32 [ 0, %7 ], [ 20, %zend_parse_arg_double.exit57 ], [ 20, %zend_parse_arg_double.exit ]
+  %.078 = phi i32 [ 1, %zend_parse_arg_double.exit57 ], [ 0, %7 ], [ 2, %zend_parse_arg_double.exit ]
+  %.04977 = phi i32 [ 9, %zend_parse_arg_double.exit57 ], [ 1, %7 ], [ 9, %zend_parse_arg_double.exit ]
+  %.05076 = phi ptr [ %9, %zend_parse_arg_double.exit57 ], [ null, %7 ], [ %16, %zend_parse_arg_double.exit ]
+  %.05175 = phi i32 [ 20, %zend_parse_arg_double.exit57 ], [ 0, %7 ], [ 20, %zend_parse_arg_double.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.04977, i32 noundef %.078, ptr noundef null, i32 noundef %.05175, ptr noundef %.05076) #16
   br label %25
 
@@ -4290,9 +4290,9 @@ zend_parse_arg_long_ex.exit59:                    ; preds = %15
   br i1 %21, label %.critedgethread-pre-split, label %.thread, !prof !52
 
 .thread:                                          ; preds = %zend_parse_arg_long_ex.exit59, %zend_parse_arg_long_ex.exit, %7
-  %.071 = phi i32 [ 2, %zend_parse_arg_long_ex.exit59 ], [ 0, %7 ], [ 1, %zend_parse_arg_long_ex.exit ]
-  %.05070 = phi i32 [ 9, %zend_parse_arg_long_ex.exit59 ], [ 1, %7 ], [ 9, %zend_parse_arg_long_ex.exit ]
-  %.05169 = phi ptr [ %16, %zend_parse_arg_long_ex.exit59 ], [ null, %7 ], [ %9, %zend_parse_arg_long_ex.exit ]
+  %.071 = phi i32 [ 1, %zend_parse_arg_long_ex.exit ], [ 0, %7 ], [ 2, %zend_parse_arg_long_ex.exit59 ]
+  %.05070 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %7 ], [ 9, %zend_parse_arg_long_ex.exit59 ]
+  %.05169 = phi ptr [ %9, %zend_parse_arg_long_ex.exit ], [ null, %7 ], [ %16, %zend_parse_arg_long_ex.exit59 ]
   call void @zend_wrong_parameter_error(i32 noundef %.05070, i32 noundef %.071, ptr noundef null, i32 noundef 0, ptr noundef %.05169) #16
   br label %37
 

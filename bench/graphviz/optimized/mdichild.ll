@@ -1754,7 +1754,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i33:    ; preds = %_ZN7QStringD2Ev.exi
   br label %.body
 
 .body:                                            ; preds = %55, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i33, %_ZN7QStringD2Ev.exit31, %43, %11
-  %.pn.pn = phi { ptr, i32 } [ %12, %11 ], [ %44, %43 ], [ %.pn, %_ZN7QStringD2Ev.exit31 ], [ %.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i33 ], [ %.pn, %55 ]
+  %.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %12, %11 ], [ %.pn, %_ZN7QStringD2Ev.exit31 ], [ %.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i33 ], [ %.pn, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %57 = load ptr, ptr %5, align 8, !tbaa !41
   %.not.i.i.i36 = icmp eq ptr %57, null
@@ -1796,7 +1796,7 @@ _ZN8MdiChild4saveEv.exit.thread:                  ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN8MdiChild4saveEv.exit
 
 _ZN8MdiChild4saveEv.exit:                         ; preds = %39, %37, %1, %_ZN7QStringD2Ev.exit27, %_ZN8MdiChild4saveEv.exit.thread
-  %.1 = phi i1 [ true, %1 ], [ true, %_ZN7QStringD2Ev.exit27 ], [ %40, %39 ], [ %38, %37 ], [ false, %_ZN8MdiChild4saveEv.exit.thread ]
+  %.1 = phi i1 [ true, %_ZN7QStringD2Ev.exit27 ], [ true, %1 ], [ %40, %39 ], [ %38, %37 ], [ false, %_ZN8MdiChild4saveEv.exit.thread ]
   ret i1 %.1
 }
 

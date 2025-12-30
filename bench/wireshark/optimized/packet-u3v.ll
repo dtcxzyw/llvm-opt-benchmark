@@ -934,7 +934,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %brmerge, label %.thread, label %.thread242
 
 .thread:                                          ; preds = %29, %28, %28
-  %.0207230 = phi i1 [ true, %28 ], [ %35, %29 ], [ true, %28 ]
+  %.0207230 = phi i1 [ %35, %29 ], [ true, %28 ], [ true, %28 ]
   %36 = load ptr, ptr %6, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i16, ptr %37, align 4
@@ -1209,7 +1209,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %.thread245
 
 .thread245:                                       ; preds = %.thread242, %155, %77, %48, %18, %4, %5, %178, %153
-  %.0208 = phi i32 [ 0, %4 ], [ %154, %153 ], [ 0, %18 ], [ %179, %178 ], [ 0, %77 ], [ 0, %5 ], [ 0, %48 ], [ 0, %155 ], [ 0, %.thread242 ]
+  %.0208 = phi i32 [ %154, %153 ], [ %179, %178 ], [ 0, %5 ], [ 0, %4 ], [ 0, %18 ], [ 0, %48 ], [ 0, %77 ], [ 0, %155 ], [ 0, %.thread242 ]
   ret i32 %.0208
 }
 
@@ -1273,7 +1273,7 @@ define internal noundef zeroext i1 @dissect_u3v_heur(ptr noundef %0, ptr noundef
   br label %23
 
 23:                                               ; preds = %13, %17, %7, %9, %4, %21
-  %.0 = phi i1 [ false, %4 ], [ true, %21 ], [ false, %7 ], [ false, %9 ], [ false, %17 ], [ false, %13 ]
+  %.0 = phi i1 [ true, %21 ], [ false, %4 ], [ false, %9 ], [ false, %7 ], [ false, %17 ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -1357,7 +1357,7 @@ define internal range(i32 0, 21) i32 @dissect_u3v_descriptors(ptr noundef %0, pt
   br label %65
 
 65:                                               ; preds = %21, %9, %7, %4, %34
-  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 20, %34 ], [ 3, %9 ], [ 7, %21 ]
+  %.0 = phi i32 [ 20, %34 ], [ 0, %4 ], [ 0, %7 ], [ 3, %9 ], [ 7, %21 ]
   ret i32 %.0
 }
 
@@ -1691,7 +1691,7 @@ define internal fastcc void @dissect_u3v_read_mem_ack(ptr noundef %0, ptr nounde
   br label %.sink.split26.i
 
 .sink.split26.i:                                  ; preds = %19, %18, %16
-  %.sink28.i = phi i64 [ 32, %19 ], [ 24, %18 ], [ 16, %16 ]
+  %.sink28.i = phi i64 [ 24, %18 ], [ 32, %19 ], [ 16, %16 ]
   %20 = tail call i64 @tvb_get_letoh64(ptr noundef %1, i32 noundef 12)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink28.i
   store i64 %20, ptr %21, align 8
@@ -2340,7 +2340,7 @@ switch.lookup4:                                   ; preds = %100
   br label %.sink.split214
 
 .sink.split214:                                   ; preds = %110, %113, %112
-  %hf_u3v_bootstrap_EI_Control.sink = phi ptr [ @hf_u3v_bootstrap_Event_Test_Control, %113 ], [ @hf_u3v_bootstrap_Maximum_Event_Transfer_Length, %112 ], [ @hf_u3v_bootstrap_EI_Control, %110 ]
+  %hf_u3v_bootstrap_EI_Control.sink = phi ptr [ @hf_u3v_bootstrap_Maximum_Event_Transfer_Length, %112 ], [ @hf_u3v_bootstrap_Event_Test_Control, %113 ], [ @hf_u3v_bootstrap_EI_Control, %110 ]
   %114 = load i32, ptr %hf_u3v_bootstrap_EI_Control.sink, align 4
   %115 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %114, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   br label %116

@@ -911,9 +911,9 @@ _ZN4ncnn3MatD2Ev.exit154.loopexit:                ; preds = %._crit_edge321
   br label %_ZN4ncnn3MatD2Ev.exit154
 
 _ZN4ncnn3MatD2Ev.exit154:                         ; preds = %.preheader289.lr.ph, %_ZN4ncnn3MatD2Ev.exit154.loopexit, %.noexc
-  %122 = phi i32 [ %35, %.noexc ], [ %.pre348, %_ZN4ncnn3MatD2Ev.exit154.loopexit ], [ %35, %.preheader289.lr.ph ]
-  %123 = phi i32 [ %36, %.noexc ], [ %126, %_ZN4ncnn3MatD2Ev.exit154.loopexit ], [ %36, %.preheader289.lr.ph ]
-  %124 = phi i32 [ %37, %.noexc ], [ %126, %_ZN4ncnn3MatD2Ev.exit154.loopexit ], [ %37, %.preheader289.lr.ph ]
+  %122 = phi i32 [ %.pre348, %_ZN4ncnn3MatD2Ev.exit154.loopexit ], [ %35, %.noexc ], [ %35, %.preheader289.lr.ph ]
+  %123 = phi i32 [ %126, %_ZN4ncnn3MatD2Ev.exit154.loopexit ], [ %36, %.noexc ], [ %36, %.preheader289.lr.ph ]
+  %124 = phi i32 [ %126, %_ZN4ncnn3MatD2Ev.exit154.loopexit ], [ %37, %.noexc ], [ %37, %.preheader289.lr.ph ]
   %indvars.iv.next345 = add nsw i64 %indvars.iv344, 1
   %125 = sext i32 %122 to i64
   %.not.not = icmp slt i64 %indvars.iv344, %125

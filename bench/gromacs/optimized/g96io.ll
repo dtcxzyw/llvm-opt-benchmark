@@ -233,7 +233,7 @@ define noundef i32 @_Z13read_g96_confP8_IO_FILERKNSt10filesystem7__cxx114pathEPP
   br label %112
 
 112:                                              ; preds = %96, %99, %.critedge4, %88
-  %.1102 = phi i1 [ false, %88 ], [ %105, %.critedge4 ], [ true, %99 ], [ true, %96 ]
+  %.1102 = phi i1 [ %105, %.critedge4 ], [ false, %88 ], [ true, %99 ], [ true, %96 ]
   br i1 %89, label %113, label %253
 
 113:                                              ; preds = %112
@@ -538,9 +538,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121.i: ; preds = %
   br label %227
 
 227:                                              ; preds = %225, %sub_0.i
-  %.286.i = phi i32 [ %.185129.i161, %sub_0.i ], [ %226, %225 ]
-  %.182.i = phi i32 [ %.081130.i160, %sub_0.i ], [ %.283.i, %225 ]
-  %.179.i = phi i32 [ %.078131.i159, %sub_0.i ], [ %.280.i, %225 ]
+  %.286.i = phi i32 [ %226, %225 ], [ %.185129.i161, %sub_0.i ]
+  %.182.i = phi i32 [ %.283.i, %225 ], [ %.081130.i160, %sub_0.i ]
+  %.179.i = phi i32 [ %.280.i, %225 ], [ %.078131.i159, %sub_0.i ]
   %228 = call noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef nonnull %5, i32 noundef 4096, ptr noundef %0)
   %.not98.i = icmp eq ptr %228, null
   br i1 %.not98.i, label %.critedge.i, label %sub_0.i
@@ -638,7 +638,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   br label %common.resume
 
 _ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit: ; preds = %.thread.i, %.critedge.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124.i
-  %.084.i = phi i32 [ %.185129.i.lcssa, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124.i ], [ 0, %.thread.i ], [ %.185129.i.lcssa, %.critedge.i ]
+  %.084.i = phi i32 [ %.185129.i.lcssa, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124.i ], [ %.185129.i.lcssa, %.critedge.i ], [ 0, %.thread.i ]
   store i32 %.084.i, ptr %66, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -652,8 +652,8 @@ _ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxfr
   br label %253
 
 253:                                              ; preds = %113, %_ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit, %112
-  %.2103 = phi i1 [ %.1102, %112 ], [ %.1102, %_ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit ], [ true, %113 ]
-  %.1100 = phi i32 [ %.099, %112 ], [ %.084.i, %_ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit ], [ %.099, %113 ]
+  %.2103 = phi i1 [ %.1102, %_ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit ], [ %.1102, %112 ], [ true, %113 ]
+  %.1100 = phi i32 [ %.084.i, %_ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit ], [ %.099, %112 ], [ %.099, %113 ]
   %254 = load ptr, ptr %74, align 8, !tbaa !69
   %255 = icmp ne ptr %254, null
   %or.cond = select i1 %255, i1 %92, i1 false
@@ -730,7 +730,7 @@ sub_1.us.i:                                       ; preds = %sub_0.us.i
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %280, %sub_0.us.i
-  %.242.us.i = phi i32 [ %.14168.us.i168, %sub_0.us.i ], [ %281, %280 ]
+  %.242.us.i = phi i32 [ %281, %280 ], [ %.14168.us.i168, %sub_0.us.i ]
   %282 = call noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef nonnull %5, i32 noundef 4096, ptr noundef %0)
   %.not47.us.i = icmp eq ptr %282, null
   br i1 %.not47.us.i, label %.critedge.i121, label %sub_0.us.i
@@ -872,13 +872,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.i: ; preds = %3
   br label %.split.i
 
 .split.i:                                         ; preds = %328, %sub_0.i114
-  %.242.i = phi i32 [ %.14168.i164, %sub_0.i114 ], [ %329, %328 ]
+  %.242.i = phi i32 [ %329, %328 ], [ %.14168.i164, %sub_0.i114 ]
   %330 = call noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef nonnull %5, i32 noundef 4096, ptr noundef %0)
   %.not47.i = icmp eq ptr %330, null
   br i1 %.not47.i, label %.critedge.i121, label %sub_0.i114
 
 .critedge.i121:                                   ; preds = %.split.i, %.tail.i120, %.split.us.i, %.tail.us.i, %.split.i.preheader
-  %.us-phi.i = phi i32 [ 0, %.split.i.preheader ], [ %.14168.us.i168, %.tail.us.i ], [ %.242.us.i, %.split.us.i ], [ %.14168.i164, %.tail.i120 ], [ %.242.i, %.split.i ]
+  %.us-phi.i = phi i32 [ 0, %.split.i.preheader ], [ %.242.us.i, %.split.us.i ], [ %.14168.us.i168, %.tail.us.i ], [ %.242.i, %.split.i ], [ %.14168.i164, %.tail.i120 ]
   %.not58.i = icmp eq i32 %.us-phi.i, %.fr.i
   %or.cond59.i = select i1 %.not50.i, i1 true, i1 %.not58.i
   br i1 %or.cond59.i, label %_ZL12read_g96_velPcP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit, label %331
@@ -960,7 +960,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65.i: ; preds = %_
   br label %common.resume
 
 _ZL12read_g96_velPcP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit: ; preds = %.split.us.i.preheader, %.critedge.i121, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65.i
-  %.us-phi.i229 = phi i32 [ %.us-phi.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65.i ], [ %.us-phi.i, %.critedge.i121 ], [ 0, %.split.us.i.preheader ]
+  %.us-phi.i229 = phi i32 [ %.us-phi.i, %.critedge.i121 ], [ %.us-phi.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65.i ], [ 0, %.split.us.i.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1629,7 +1629,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %132, %.loopexit153, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i144
-  %.pn = phi { ptr, i32 } [ %133, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i144 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit153 ], [ %133, %132 ]
+  %.pn = phi { ptr, i32 } [ %133, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i144 ], [ %lpad.loopexit, %.loopexit153 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %133, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %138 = load ptr, ptr %8, align 8, !tbaa !35
   %139 = icmp eq ptr %138, %44

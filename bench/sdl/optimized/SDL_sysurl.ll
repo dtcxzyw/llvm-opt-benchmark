@@ -38,8 +38,8 @@ define hidden zeroext i1 @SDL_SYS_OpenURL(ptr noundef %0) local_unnamed_addr #0 
   br label %14
 
 14:                                               ; preds = %9, %6, %1
-  %.013 = phi ptr [ null, %1 ], [ %13, %9 ], [ null, %6 ]
-  %.0 = phi i1 [ false, %1 ], [ %.not18, %9 ], [ false, %6 ]
+  %.013 = phi ptr [ null, %6 ], [ null, %1 ], [ %13, %9 ]
+  %.0 = phi i1 [ false, %6 ], [ false, %1 ], [ %.not18, %9 ]
   call void @SDL_DestroyEnvironment_REAL(ptr noundef %5) #3
   call void @SDL_DestroyProcess_REAL(ptr noundef %.013) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

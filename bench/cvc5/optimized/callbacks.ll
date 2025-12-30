@@ -266,8 +266,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %34, %32, 
   br label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %63, %41, %40, %..loopexit_crit_edge21.i.i.i.i.i, %54, %.noexc4
-  %74 = phi ptr [ %.pre, %..loopexit_crit_edge21.i.i.i.i.i ], [ %18, %41 ], [ %.pre, %54 ], [ %.pre, %.noexc4 ], [ %18, %40 ], [ %.pre, %63 ], [ %.pre, %.lr.ph.i.i.i.i.i ]
-  %.sroa.06.1.i.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.sroa.06.0.i.i.i, %41 ], [ %55, %54 ], [ null, %.noexc4 ], [ null, %40 ], [ null, %.lr.ph.i.i.i.i.i ], [ %69, %63 ]
+  %74 = phi ptr [ %.pre, %.noexc4 ], [ %.pre, %..loopexit_crit_edge21.i.i.i.i.i ], [ %.pre, %54 ], [ %18, %40 ], [ %18, %41 ], [ %.pre, %63 ], [ %.pre, %.lr.ph.i.i.i.i.i ]
+  %.sroa.06.1.i.i.i = phi ptr [ null, %.noexc4 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ %55, %54 ], [ %.sroa.06.0.i.i.i, %41 ], [ null, %40 ], [ null, %.lr.ph.i.i.i.i.i ], [ %69, %63 ]
   %.not = icmp eq ptr %.sroa.06.1.i.i.i, null
   %75 = load i64, ptr %74, align 8
   %76 = and i64 %75, 1152920405095219200
@@ -1850,8 +1850,8 @@ _ZNSt12_Vector_baseIN4cvc58internal8RationalESaIS2_EE13_M_deallocateEPS2_m.exit:
   store ptr %43, ptr %38, align 8, !tbaa !93
   ret void
 
-.body.thread42:                                   ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal8RationalES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %.noexc, %_ZNSt12_Vector_baseIN4cvc58internal8RationalESaIS2_EE11_M_allocateEm.exit
-  %.0.ph = phi ptr [ %22, %_ZNSt12_Vector_baseIN4cvc58internal8RationalESaIS2_EE11_M_allocateEm.exit ], [ %22, %.noexc ], [ %32, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal8RationalES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
+.body.thread42:                                   ; preds = %_ZNSt12_Vector_baseIN4cvc58internal8RationalESaIS2_EE11_M_allocateEm.exit, %.noexc, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal8RationalES3_SaIS2_EET0_T_S6_S5_RT1_.exit
+  %.0.ph = phi ptr [ %32, %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal8RationalES3_SaIS2_EET0_T_S6_S5_RT1_.exit ], [ %22, %.noexc ], [ %22, %_ZNSt12_Vector_baseIN4cvc58internal8RationalESaIS2_EE11_M_allocateEm.exit ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           catch ptr null
   br label %.body.thread

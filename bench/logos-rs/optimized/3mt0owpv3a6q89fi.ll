@@ -1575,8 +1575,8 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h6ed00101f7143f8fE"(p
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha6c149dbb375171fE.exit", label %.lr.ph.i
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h824a75e0e5bf2490E.exit": ; preds = %2, %16
-  %18 = phi i64 [ 1, %16 ], [ 0, %2 ]
-  %19 = phi i64 [ %15, %16 ], [ 0, %2 ]
+  %18 = phi i64 [ 0, %2 ], [ 1, %16 ]
+  %19 = phi i64 [ 0, %2 ], [ %15, %16 ]
   %.not1.i = icmp eq i64 %19, %6
   br i1 %.not1.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha6c149dbb375171fE.exit", label %.lr.ph.i3.preheader
 
@@ -1627,7 +1627,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h6ed00101f7143f8fE"(p
 37:                                               ; preds = %.loopexit.split-lp
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %.lr.ph.i3, %27
+.loopexit:                                        ; preds = %27, %.lr.ph.i3
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -2114,7 +2114,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h99c050570a4f1ef8
 31:                                               ; preds = %32
   resume { ptr, i32 } %lpad.thr_comm
 
-32:                                               ; preds = %19, %20, %2
+32:                                               ; preds = %20, %2, %19
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr78drop_in_place$LT$core..option..IntoIter$LT$syn..generics..GenericParam$GT$$GT$17h4dae10dcbd5c856dE"(ptr align 8 %1) #18
@@ -2192,7 +2192,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hb6e612079aa2d30d
 31:                                               ; preds = %32
   resume { ptr, i32 } %lpad.thr_comm
 
-32:                                               ; preds = %19, %20, %2
+32:                                               ; preds = %20, %2, %19
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr192drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$u8$GT$$C$$LT$u8$u20$as$u20$core..convert..Into$LT$logos_codegen..graph..range..Range$GT$$GT$..into$GT$$GT$17had20f8e026f3077cE"(ptr align 8 %1) #18
@@ -2314,7 +2314,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hccb9662202900743
 31:                                               ; preds = %32
   resume { ptr, i32 } %lpad.thr_comm
 
-32:                                               ; preds = %19, %20, %2
+32:                                               ; preds = %20, %2, %19
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr300drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$u8$GT$$C$$LT$$RF$logos_codegen..parser..definition..Literal$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$..make_ascii_case_insensitive..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4b9054336b03a906E"(ptr align 8 %1) #18
@@ -2392,7 +2392,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hda7b1fb0673357fa
 31:                                               ; preds = %32
   resume { ptr, i32 } %lpad.thr_comm
 
-32:                                               ; preds = %19, %20, %2
+32:                                               ; preds = %20, %2, %19
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr339drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$syn..generics..GenericParam$C$syn..token..Comma$RP$$GT$$C$$LT$syn..punctuated..Punctuated$LT$syn..generics..GenericParam$C$syn..token..Comma$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$..into_iter..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha8f14137bed32cdbE"(ptr align 8 %1) #18

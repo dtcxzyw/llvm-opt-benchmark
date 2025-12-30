@@ -29,7 +29,7 @@ define dso_local ptr @_nc_Make_Argument(ptr noundef readonly captures(address_is
   br i1 %.not26, label %20, label %12
 
 common.ret29:                                     ; preds = %3, %4, %23, %27, %20, %12
-  %common.ret29.op = phi ptr [ %11, %12 ], [ null, %4 ], [ null, %3 ], [ null, %20 ], [ %26, %23 ], [ null, %27 ]
+  %common.ret29.op = phi ptr [ %11, %12 ], [ null, %20 ], [ %26, %23 ], [ null, %27 ], [ null, %4 ], [ null, %3 ]
   ret ptr %common.ret29.op
 
 12:                                               ; preds = %10
@@ -90,7 +90,7 @@ define dso_local ptr @_nc_Copy_Argument(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not30, label %19, label %12
 
 common.ret34:                                     ; preds = %3, %4, %27, %25, %19, %22, %12
-  %common.ret34.op = phi ptr [ %11, %12 ], [ null, %4 ], [ %1, %22 ], [ null, %19 ], [ %26, %25 ], [ null, %27 ], [ null, %3 ]
+  %common.ret34.op = phi ptr [ %11, %12 ], [ null, %19 ], [ %26, %25 ], [ null, %27 ], [ null, %4 ], [ null, %3 ], [ %1, %22 ]
   ret ptr %common.ret34.op
 
 12:                                               ; preds = %10

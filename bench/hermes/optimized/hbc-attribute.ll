@@ -362,7 +362,7 @@ if.then4.i.i:                                     ; preds = %if.then
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %phi.call.i = phi ptr [ %call3, %if.then4.i.i ], [ %call3.i.i, %if.then.i.i ]
+  %phi.call.i = phi ptr [ %call3.i.i, %if.then.i.i ], [ %call3, %if.then4.i.i ]
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL13InputFilenameB5cxx11, i64 152)) #22
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL13InputFilenameB5cxx11, i64 152)) #22
   %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i, ptr noundef %call.i, i64 noundef %call2.i) #22
@@ -388,7 +388,7 @@ if.then4.i.i15:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit20
 
 _ZN4llvh11raw_ostreamlsEPKc.exit20:               ; preds = %if.then.i.i18, %if.then4.i.i15
-  %phi.call.i17 = phi ptr [ %call3.i, %if.then4.i.i15 ], [ %call3.i.i19, %if.then.i.i18 ]
+  %phi.call.i17 = phi ptr [ %call3.i.i19, %if.then.i.i18 ], [ %call3.i, %if.then4.i.i15 ]
   %bf.load.i22 = load i8, ptr %HasError.i, align 8
   %bf.cast.i23 = trunc i8 %bf.load.i22 to i1
   br i1 %bf.cast.i23, label %cond.true.i, label %cond.false.i
@@ -497,7 +497,7 @@ if.then4.i.i54:                                   ; preds = %if.then18
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit59
 
 _ZN4llvh11raw_ostreamlsEPKc.exit59:               ; preds = %if.then.i.i57, %if.then4.i.i54
-  %phi.call.i56 = phi ptr [ %call19, %if.then4.i.i54 ], [ %call3.i.i58, %if.then.i.i57 ]
+  %phi.call.i56 = phi ptr [ %call3.i.i58, %if.then.i.i57 ], [ %call19, %if.then4.i.i54 ]
   %call.i60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL14OutputFilenameB5cxx11, i64 152)) #22
   %call2.i61 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL14OutputFilenameB5cxx11, i64 152)) #22
   %call3.i62 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i56, ptr noundef %call.i60, i64 noundef %call2.i61) #22
@@ -523,7 +523,7 @@ if.then4.i.i72:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit77
 
 _ZN4llvh11raw_ostreamlsEPKc.exit77:               ; preds = %if.then.i.i75, %if.then4.i.i72
-  %phi.call.i74 = phi ptr [ %call3.i62, %if.then4.i.i72 ], [ %call3.i.i76, %if.then.i.i75 ]
+  %phi.call.i74 = phi ptr [ %call3.i.i76, %if.then.i.i75 ], [ %call3.i62, %if.then4.i.i72 ]
   %23 = load ptr, ptr %_M_cat.i, align 8, !noalias !8
   %24 = load i32, ptr %EC, align 8, !noalias !8
   %vtable.i79 = load ptr, ptr %23, align 8, !noalias !8
@@ -643,7 +643,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i88
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit.i:               ; preds = %if.then4.i.i.i, %if.then.i.i.i90
-  %phi.call.i.i = phi ptr [ %call6.i, %if.then4.i.i.i ], [ %call3.i.i.i, %if.then.i.i.i90 ]
+  %phi.call.i.i = phi ptr [ %call3.i.i.i, %if.then.i.i.i90 ], [ %call6.i, %if.then4.i.i.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %ret.i, i64 8
   %call.i6.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i) #22
   %call2.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i) #22
@@ -714,9 +714,9 @@ if.else.i.i.i.i.i30.i:                            ; preds = %if.then.i.i.i25.i
   br label %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_.exit31.i
 
 _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_.exit31.i: ; preds = %if.else.i.i.i.i.i30.i, %if.then.i.i.i.i.i28.i, %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_.exit.i, %if.end.i91
-  %cmp.not.i.i.i247.i = phi i1 [ false, %if.else.i.i.i.i.i30.i ], [ true, %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_.exit.i ], [ false, %if.then.i.i.i.i.i28.i ], [ true, %if.end.i91 ]
-  %51 = phi ptr [ %47, %if.else.i.i.i.i.i30.i ], [ %47, %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_.exit.i ], [ %47, %if.then.i.i.i.i.i28.i ], [ %42, %if.end.i91 ]
-  %52 = phi ptr [ %.pr.i, %if.else.i.i.i.i.i30.i ], [ null, %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_.exit.i ], [ %.pr.i, %if.then.i.i.i.i.i28.i ], [ null, %if.end.i91 ]
+  %cmp.not.i.i.i247.i = phi i1 [ true, %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_.exit.i ], [ false, %if.then.i.i.i.i.i28.i ], [ false, %if.else.i.i.i.i.i30.i ], [ true, %if.end.i91 ]
+  %51 = phi ptr [ %47, %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_.exit.i ], [ %47, %if.then.i.i.i.i.i28.i ], [ %47, %if.else.i.i.i.i.i30.i ], [ %42, %if.end.i91 ]
+  %52 = phi ptr [ null, %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_.exit.i ], [ %.pr.i, %if.then.i.i.i.i.i28.i ], [ %.pr.i, %if.else.i.i.i.i.i30.i ], [ null, %if.end.i91 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   call void @llvm.lifetime.start.p0(ptr nonnull %i.i.i)
   %functionCount_.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 12
@@ -2256,7 +2256,7 @@ if.end13.i.i24:                                   ; preds = %if.end9.i.i18
   br i1 %cmp.i.i.i34, label %if.end12, label %if.end9.i.i18, !llvm.loop !19
 
 if.end12:                                         ; preds = %if.end13.i.i, %if.end13.i.i24, %if.then12.i.i37, %if.end.i.i11, %if.then10, %if.then12.i.i, %if.end.i.i, %if.then, %if.else
-  %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ %add.ptr.i.i33, %if.end13.i.i24 ], [ %cond.i.i, %if.then12.i.i ], [ null, %if.then ], [ %add.ptr21.i.i, %if.end.i.i ], [ %cond.i.i39, %if.then12.i.i37 ], [ null, %if.then10 ], [ %add.ptr21.i.i16, %if.end.i.i11 ], [ %add.ptr.i.i, %if.end13.i.i ]
+  %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ %cond.i.i, %if.then12.i.i ], [ null, %if.then ], [ %add.ptr21.i.i, %if.end.i.i ], [ %cond.i.i39, %if.then12.i.i37 ], [ null, %if.then10 ], [ %add.ptr21.i.i16, %if.end.i.i11 ], [ %add.ptr.i.i33, %if.end13.i.i24 ], [ %add.ptr.i.i, %if.end13.i.i ]
   %15 = load i32, ptr %NumEntries.i.i, align 8
   %add.i = add i32 %15, 1
   store i32 %add.i, ptr %NumEntries.i.i, align 8
@@ -4004,10 +4004,10 @@ while.body.us:                                    ; preds = %if.end, %_ZN4llvh12
   %magicptr.i.i.us = ptrtoint ptr %agg.tmp1.sroa.0.0.copyload.i.us to i64
   switch i64 %magicptr.i.i.us, label %if.end19.i.i.us [
     i64 -1, label %if.then.i.i.us
-    i64 -2, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i.us
+    i64 -2, label %if.then13.i.i.us
   ]
 
-_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i.us: ; preds = %while.body.us
+if.then13.i.i.us:                                 ; preds = %while.body.us
   br i1 %cmp18.i.i, label %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us, label %land.rhs.i46.us
 
 if.then.i.i.us:                                   ; preds = %while.body.us
@@ -4019,7 +4019,7 @@ if.end19.i.i.us:                                  ; preds = %while.body.us
   %cmp.i.i.i.us = icmp eq i64 %agg.tmp1.sroa.2.0.copyload.i.us, 0
   br i1 %cmp.i.i.i.us, label %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us, label %if.then.i.i28.us
 
-_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us: ; preds = %if.end19.i.i.us, %if.then.i.i.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i.us
+_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us: ; preds = %if.end19.i.i.us, %if.then.i.i.us, %if.then13.i.i.us
   %second3.i.us = getelementptr inbounds nuw i8, ptr %add.ptr.us, i64 16
   %3 = load i32, ptr %second3.i.us, align 4
   %cmp.i.i.us = icmp eq i32 %2, %3
@@ -4031,7 +4031,7 @@ if.then.i.i28.us:                                 ; preds = %_ZN4llvh12DenseMapI
     i64 -2, label %land.rhs.i46.us
   ]
 
-land.rhs.i46.us:                                  ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i.us, %if.then.i.i28.us
+land.rhs.i46.us:                                  ; preds = %if.then13.i.i.us, %if.then.i.i28.us
   %second.i47.us = getelementptr inbounds nuw i8, ptr %add.ptr.us, i64 16
   %4 = load i32, ptr %second.i47.us, align 4
   %cmp.i.i49.us = icmp eq i32 %4, -2
@@ -4044,7 +4044,7 @@ _ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us: ; p
   br i1 %cmp.i.i27.us, label %if.then10, label %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit60.us
 
 _ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit60.us: ; preds = %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us, %land.rhs.i46.us, %if.then.i.i28.us
-  %6 = phi i1 [ false, %if.then.i.i28.us ], [ %cmp.i.i49.us, %land.rhs.i46.us ], [ false, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us ]
+  %6 = phi i1 [ %cmp.i.i49.us, %land.rhs.i46.us ], [ false, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us ], [ false, %if.then.i.i28.us ]
   %tobool14.us = icmp eq ptr %FoundTombstone.0.us, null
   %or.cond.not.us = select i1 %6, i1 %tobool14.us, i1 false
   %spec.select.us = select i1 %or.cond.not.us, ptr %add.ptr.us, ptr %FoundTombstone.0.us
@@ -4108,7 +4108,7 @@ _ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us90: ;
   br i1 %cmp.i.i27.us92, label %if.then10, label %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit60.us93
 
 _ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit60.us93: ; preds = %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us90, %land.rhs.i46.us87, %if.then.i.i28.us85
-  %11 = phi i1 [ false, %if.then.i.i28.us85 ], [ %cmp.i.i49.us89, %land.rhs.i46.us87 ], [ false, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us90 ]
+  %11 = phi i1 [ %cmp.i.i49.us89, %land.rhs.i46.us87 ], [ false, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us90 ], [ false, %if.then.i.i28.us85 ]
   %tobool14.us94 = icmp eq ptr %FoundTombstone.0.us67, null
   %or.cond.not.us95 = select i1 %11, i1 %tobool14.us94, i1 false
   %spec.select.us96 = select i1 %or.cond.not.us95, ptr %add.ptr.us72, ptr %FoundTombstone.0.us67
@@ -4167,7 +4167,7 @@ _ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us130: 
   br i1 %cmp.i.i27.us132, label %if.then10, label %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit60.us133
 
 _ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit60.us133: ; preds = %if.then.i.i28.us125, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us130, %land.rhs.i46.us127
-  %16 = phi i1 [ false, %if.then.i.i28.us125 ], [ %cmp.i.i49.us129, %land.rhs.i46.us127 ], [ false, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us130 ]
+  %16 = phi i1 [ %cmp.i.i49.us129, %land.rhs.i46.us127 ], [ false, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us130 ], [ false, %if.then.i.i28.us125 ]
   %tobool14.us134 = icmp eq ptr %FoundTombstone.0.us106, null
   %or.cond.not.us135 = select i1 %16, i1 %tobool14.us134, i1 false
   %spec.select.us136 = select i1 %or.cond.not.us135, ptr %add.ptr.us111, ptr %FoundTombstone.0.us106
@@ -4217,8 +4217,8 @@ _ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38: ; pred
   br i1 %cmp.i.i27, label %if.then10, label %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit60
 
 if.then10:                                        ; preds = %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us130, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us90, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us
-  %.us-phi64 = phi ptr [ %FoundTombstone.0.us67, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us90 ], [ %FoundTombstone.0.us106, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us130 ], [ %FoundTombstone.0.us, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us ], [ %FoundTombstone.0, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38 ]
-  %.us-phi65 = phi ptr [ %add.ptr.us72, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us90 ], [ %add.ptr.us111, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us130 ], [ %add.ptr.us, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us ], [ %add.ptr, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38 ]
+  %.us-phi64 = phi ptr [ %FoundTombstone.0.us, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us ], [ %FoundTombstone.0.us67, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us90 ], [ %FoundTombstone.0.us106, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us130 ], [ %FoundTombstone.0, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38 ]
+  %.us-phi65 = phi ptr [ %add.ptr.us, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us ], [ %add.ptr.us72, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us90 ], [ %add.ptr.us111, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38.us130 ], [ %add.ptr, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38 ]
   %tobool.not = icmp eq ptr %.us-phi64, null
   %cond = select i1 %tobool.not, ptr %.us-phi65, ptr %.us-phi64
   br label %return
@@ -4230,7 +4230,7 @@ land.rhs.i46:                                     ; preds = %if.then.i.i28
   br label %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit60
 
 _ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit60: ; preds = %if.then.i.i28, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38, %land.rhs.i46
-  %21 = phi i1 [ false, %if.then.i.i28 ], [ %cmp.i.i49, %land.rhs.i46 ], [ false, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38 ]
+  %21 = phi i1 [ %cmp.i.i49, %land.rhs.i46 ], [ false, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit38 ], [ false, %if.then.i.i28 ]
   %tobool14 = icmp eq ptr %FoundTombstone.0, null
   %or.cond.not = select i1 %21, i1 %tobool14, i1 false
   %spec.select = select i1 %or.cond.not, ptr %add.ptr, ptr %FoundTombstone.0
@@ -4239,8 +4239,8 @@ _ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit60: ; pred
   br label %while.body, !llvm.loop !34
 
 return:                                           ; preds = %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us122, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us82, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us, %entry, %if.then10
-  %cond.sink = phi ptr [ %cond, %if.then10 ], [ null, %entry ], [ %add.ptr.us72, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us82 ], [ %add.ptr.us111, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us122 ], [ %add.ptr.us, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us ], [ %add.ptr, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit ]
-  %retval.0 = phi i1 [ false, %if.then10 ], [ false, %entry ], [ true, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us82 ], [ true, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us122 ], [ true, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us ], [ true, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit ]
+  %cond.sink = phi ptr [ %cond, %if.then10 ], [ null, %entry ], [ %add.ptr.us, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us ], [ %add.ptr.us72, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us82 ], [ %add.ptr.us111, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us122 ], [ %add.ptr, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit ]
+  %retval.0 = phi i1 [ false, %if.then10 ], [ false, %entry ], [ true, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us ], [ true, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us82 ], [ true, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit.us122 ], [ true, %_ZN4llvh12DenseMapInfoISt4pairINS_9StringRefEjEE7isEqualERKS3_S6_.exit ]
   store ptr %cond.sink, ptr %FoundBucket, align 8
   ret i1 %retval.0
 }

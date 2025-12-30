@@ -803,7 +803,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i:                  ; preds = %261, %_ZNSt6vectorI
   br label %_ZNSt6vectorImSaImEED2Ev.exit143.i
 
 _ZNSt6vectorImSaImEED2Ev.exit143.i:               ; preds = %265, %264, %58
-  %.pn111.pn.pn.i = phi { ptr, i32 } [ %.pn111.pn247.i, %265 ], [ %59, %58 ], [ %.pn111.i, %264 ]
+  %.pn111.pn.pn.i = phi { ptr, i32 } [ %59, %58 ], [ %.pn111.i, %264 ], [ %.pn111.pn247.i, %265 ]
   %266 = load ptr, ptr %4, align 8
   %.not.i.i.i144.i = icmp eq ptr %266, null
   br i1 %.not.i.i.i144.i, label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit145.i, label %267
@@ -1141,7 +1141,7 @@ _ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHol
   resume { ptr, i32 } %.pn33.pn
 
 _ZN3ue2L20hasLargeDegreeVertexERKNS_8NGHolderE.exit: ; preds = %22, %15, %13, %3, %_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EESaISA_EED2Ev.exit
-  %.0 = phi i1 [ false, %15 ], [ %.1, %_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EESaISA_EED2Ev.exit ], [ false, %13 ], [ false, %3 ], [ false, %22 ]
+  %.0 = phi i1 [ %.1, %_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EESaISA_EED2Ev.exit ], [ false, %3 ], [ false, %13 ], [ false, %15 ], [ false, %22 ]
   ret i1 %.0
 }
 
@@ -1482,7 +1482,7 @@ _ZN3ue28flat_setIjSt4lessIjESaIjEEaSERKS4_.exit:  ; preds = %._crit_edge, %79
   br label %86
 
 86:                                               ; preds = %.loopexit, %.loopexit.split-lp, %84, %41
-  %.pn29 = phi { ptr, i32 } [ %85, %84 ], [ %42, %41 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn29 = phi { ptr, i32 } [ %42, %41 ], [ %85, %84 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %87 = load i64, ptr %7, align 8
   %.not.i.i.i.i = icmp eq i64 %87, 0
   br i1 %.not.i.i.i.i, label %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit, label %88

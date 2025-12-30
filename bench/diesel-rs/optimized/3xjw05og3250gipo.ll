@@ -209,7 +209,7 @@ define hidden void @"_ZN20migrations_internals10file_names28_$u7b$$u7b$closure$u
   br i1 %or.cond, label %54, label %.thread
 
 18:                                               ; preds = %.invoke, %51, %43, %11
-  %.0 = phi i1 [ false, %.invoke ], [ true, %51 ], [ true, %11 ], [ true, %43 ]
+  %.0 = phi i1 [ true, %51 ], [ true, %43 ], [ true, %11 ], [ false, %.invoke ]
   %19 = landingpad { ptr, i32 }
           cleanup
   br label %15
@@ -309,7 +309,7 @@ define hidden void @"_ZN20migrations_internals10file_names28_$u7b$$u7b$closure$u
           to label %48 unwind label %18
 
 .thread:                                          ; preds = %45, %54, %15
-  %.pn813 = phi { ptr, i32 } [ %.pn8, %15 ], [ %.pn8, %54 ], [ %46, %45 ]
+  %.pn813 = phi { ptr, i32 } [ %.pn8, %54 ], [ %.pn8, %15 ], [ %46, %45 ]
   resume { ptr, i32 } %.pn813
 
 54:                                               ; preds = %15

@@ -2591,7 +2591,7 @@ _ZN5wasmi5store5inner10StoreInner13unwrap_stored17hbdf222a05495a0e8E.exit.i.i.i:
   br label %"_ZN5wasmi5store6pruned17PrunedStoreVTable3new28_$u7b$$u7b$closure$u7d$$u7d$17h5e6b57030e303326E.exit"
 
 "_ZN5wasmi5store6pruned17PrunedStoreVTable3new28_$u7b$$u7b$closure$u7d$$u7d$17h5e6b57030e303326E.exit": ; preds = %"_ZN5wasmi5store14Store$LT$T$GT$14call_host_func17h3da612da84da1cfbE.exit.i", %74, %82, %85
-  %.sroa.0.0.i = phi ptr [ %68, %"_ZN5wasmi5store14Store$LT$T$GT$14call_host_func17h3da612da84da1cfbE.exit.i" ], [ %81, %74 ], [ null, %82 ], [ %92, %85 ]
+  %.sroa.0.0.i = phi ptr [ %81, %74 ], [ %68, %"_ZN5wasmi5store14Store$LT$T$GT$14call_host_func17h3da612da84da1cfbE.exit.i" ], [ null, %82 ], [ %92, %85 ]
   ret ptr %.sroa.0.0.i
 }
 

@@ -280,7 +280,7 @@ switch.lookup:                                    ; preds = %130
   br label %148
 
 148:                                              ; preds = %115, %48, %22, %.critedge, %.critedge114, %102, %12, %14, %.thread, %switch.lookup
-  %.1 = phi ptr [ %147, %.thread ], [ %131, %switch.lookup ], [ %23, %22 ], [ %49, %48 ], [ %17, %14 ], [ %116, %115 ], [ %13, %12 ], [ %85, %.critedge ], [ %101, %.critedge114 ], [ %106, %102 ]
+  %.1 = phi ptr [ %147, %.thread ], [ %23, %22 ], [ %49, %48 ], [ %116, %115 ], [ %131, %switch.lookup ], [ %13, %12 ], [ %17, %14 ], [ %85, %.critedge ], [ %101, %.critedge114 ], [ %106, %102 ]
   ret ptr %.1
 }
 
@@ -395,8 +395,8 @@ is_orclause.exit:                                 ; preds = %3
   %36 = tail call ptr @lappend(ptr noundef %.056154166, ptr noundef %18) #4
   br label %37
 
-37:                                               ; preds = %35, %31, %27, %32
-  %.258.ph = phi ptr [ %.056154166, %27 ], [ %.056154166, %32 ], [ %.056154166, %31 ], [ %36, %35 ]
+37:                                               ; preds = %35, %27, %31, %32
+  %.258.ph = phi ptr [ %.056154166, %32 ], [ %.056154166, %27 ], [ %.056154166, %31 ], [ %36, %35 ]
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %38 = load i32, ptr %11, align 4
   %39 = sext i32 %38 to i64
@@ -716,7 +716,7 @@ list_length.exit139.thread.i:                     ; preds = %list_length.exit139
   br label %select.unfold108.us147
 
 select.unfold108.us147:                           ; preds = %172, %169, %165
-  %.263.ph.us148 = phi ptr [ %173, %172 ], [ %.061136143.us, %165 ], [ %.061136143.us, %169 ]
+  %.263.ph.us148 = phi ptr [ %.061136143.us, %165 ], [ %173, %172 ], [ %.061136143.us, %169 ]
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %174 = load i32, ptr %154, align 4
   %175 = sext i32 %174 to i64
@@ -759,7 +759,7 @@ select.unfold108.us147:                           ; preds = %172, %169, %165
   br label %select.unfold108
 
 select.unfold108:                                 ; preds = %192, %188
-  %.263.ph = phi ptr [ %193, %192 ], [ %.061136143, %188 ]
+  %.263.ph = phi ptr [ %.061136143, %188 ], [ %193, %192 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %194 = load i32, ptr %154, align 4
   %195 = sext i32 %194 to i64
@@ -793,7 +793,7 @@ list_length.exit:                                 ; preds = %._crit_edge138
   br label %process_duplicate_ors.exit
 
 process_duplicate_ors.exit:                       ; preds = %169, %32, %is_orclause.exit, %.split, %3, %2, %.split164, %list_length.exit139.thread.i, %146, %.critedge121.thread.i, %50, %43, %199, %204, %207
-  %.5 = phi ptr [ %0, %3 ], [ %191, %.split ], [ %0, %is_orclause.exit ], [ %200, %199 ], [ %206, %204 ], [ %208, %207 ], [ %44, %43 ], [ %52, %50 ], [ %106, %.critedge121.thread.i ], [ %148, %146 ], [ %150, %list_length.exit139.thread.i ], [ %30, %.split164 ], [ %18, %32 ], [ null, %2 ], [ %161, %169 ]
+  %.5 = phi ptr [ %200, %199 ], [ %206, %204 ], [ %208, %207 ], [ %44, %43 ], [ %52, %50 ], [ %106, %.critedge121.thread.i ], [ %148, %146 ], [ %150, %list_length.exit139.thread.i ], [ %30, %.split164 ], [ null, %2 ], [ %0, %3 ], [ %191, %.split ], [ %0, %is_orclause.exit ], [ %18, %32 ], [ %161, %169 ]
   ret ptr %.5
 }
 

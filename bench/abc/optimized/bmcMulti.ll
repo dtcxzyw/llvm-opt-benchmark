@@ -130,8 +130,8 @@ Vec_IntAlloc.exit:                                ; preds = %3, %8
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %44, %46, %36, %38
-  %.sink40 = phi ptr [ %39, %38 ], [ %37, %36 ], [ %45, %44 ], [ %47, %46 ]
-  %.sink = phi i32 [ 16, %38 ], [ 16, %36 ], [ %41, %44 ], [ %41, %46 ]
+  %.sink40 = phi ptr [ %37, %36 ], [ %39, %38 ], [ %45, %44 ], [ %47, %46 ]
+  %.sink = phi i32 [ 16, %36 ], [ 16, %38 ], [ %41, %44 ], [ %41, %46 ]
   store ptr %.sink40, ptr %13, align 8, !tbaa !13
   store i32 %.sink, ptr %5, align 8, !tbaa !12
   br label %Vec_IntPush.exit
@@ -819,7 +819,7 @@ Vec_PtrCountZero.exit187:                         ; preds = %207, %203
   br i1 %exitcond.not, label %.thread197, label %100, !llvm.loop !87
 
 .thread197:                                       ; preds = %172, %117, %224, %214, %198, %143
-  %.1 = phi ptr [ %.4, %198 ], [ %.2, %143 ], [ %.4, %214 ], [ %.0212, %117 ], [ %.2, %172 ], [ %.5, %224 ]
+  %.1 = phi ptr [ %.4, %214 ], [ %.4, %198 ], [ %.2, %143 ], [ %.0212, %117 ], [ %.2, %172 ], [ %.5, %224 ]
   %230 = load ptr, ptr %67, align 8, !tbaa !13
   %.not.i188 = icmp eq ptr %230, null
   br i1 %.not.i188, label %Vec_IntFree.exit189, label %231

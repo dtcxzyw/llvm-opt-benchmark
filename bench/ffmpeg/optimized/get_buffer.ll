@@ -332,12 +332,12 @@ define i32 @avcodec_default_get_buffer2(ptr noundef %0, ptr noundef %1, i32 noun
   unreachable
 
 171:                                              ; preds = %153, %143, %.thread69.i
-  %.1.i = phi i32 [ %.050.ph.i, %.thread69.i ], [ %151, %143 ], [ -12, %153 ]
+  %.1.i = phi i32 [ %151, %143 ], [ -12, %153 ], [ %.050.ph.i, %.thread69.i ]
   call void @av_refstruct_unref(ptr noundef nonnull %4) #6
   br label %update_frame_pool.exit
 
 update_frame_pool.exit:                           ; preds = %.thread.i, %171
-  %.053.i = phi i32 [ -12, %.thread.i ], [ %.1.i, %171 ]
+  %.053.i = phi i32 [ %.1.i, %171 ], [ -12, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %video_get_buffer.exit
 
@@ -582,7 +582,7 @@ update_frame_pool.exit:                           ; preds = %.thread.i, %171
   br label %video_get_buffer.exit
 
 video_get_buffer.exit:                            ; preds = %.loopexit.i, %277, %._crit_edge.i35, %234, %215, %214, %._crit_edge.i, %189, %update_frame_pool.exit, %172, %39
-  %.0 = phi i32 [ %13, %39 ], [ 0, %._crit_edge.i ], [ %.053.i, %update_frame_pool.exit ], [ -1, %172 ], [ -1, %189 ], [ -12, %215 ], [ 0, %214 ], [ -12, %.loopexit.i ], [ -12, %234 ], [ 0, %277 ], [ 0, %._crit_edge.i35 ]
+  %.0 = phi i32 [ %13, %39 ], [ %.053.i, %update_frame_pool.exit ], [ -1, %172 ], [ -1, %189 ], [ -12, %215 ], [ 0, %214 ], [ 0, %._crit_edge.i ], [ -12, %.loopexit.i ], [ -12, %234 ], [ 0, %277 ], [ 0, %._crit_edge.i35 ]
   ret i32 %.0
 }
 

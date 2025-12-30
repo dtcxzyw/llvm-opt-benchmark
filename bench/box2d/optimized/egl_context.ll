@@ -546,7 +546,7 @@ extensionSupportedEGL.exit83:                     ; preds = %176, %178
   br label %_glfwTerminateEGL.exit
 
 _glfwTerminateEGL.exit:                           ; preds = %141, %139, %126, %124, %74, %72, %0, %extensionSupportedEGL.exit83, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %74 ], [ 1, %extensionSupportedEGL.exit83 ], [ 0, %126 ], [ 1, %0 ], [ 0, %72 ], [ 0, %124 ], [ 0, %139 ], [ 0, %141 ]
+  %.0 = phi i32 [ 1, %extensionSupportedEGL.exit83 ], [ 0, %4 ], [ 1, %0 ], [ 0, %72 ], [ 0, %74 ], [ 0, %124 ], [ 0, %126 ], [ 0, %139 ], [ 0, %141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -722,9 +722,9 @@ getEGLErrorString.exit138:                        ; preds = %29, %switch.lookup1
   br label %45
 
 45:                                               ; preds = %39, %.fold.split, %44, %37
-  %.not126 = phi i1 [ true, %37 ], [ false, %44 ], [ false, %39 ], [ true, %.fold.split ]
-  %.0102 = phi i32 [ 0, %37 ], [ 2, %44 ], [ 1, %39 ], [ 0, %.fold.split ]
-  %.0101 = phi i32 [ 0, %37 ], [ %spec.select, %44 ], [ %spec.select, %39 ], [ %spec.select, %.fold.split ]
+  %.not126 = phi i1 [ false, %44 ], [ true, %37 ], [ false, %39 ], [ true, %.fold.split ]
+  %.0102 = phi i32 [ 2, %44 ], [ 0, %37 ], [ 1, %39 ], [ 0, %.fold.split ]
+  %.0101 = phi i32 [ %spec.select, %44 ], [ 0, %37 ], [ %spec.select, %39 ], [ %spec.select, %.fold.split ]
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %47 = load i32, ptr %46, align 4, !tbaa !171
   %.not122 = icmp ne i32 %47, 0
@@ -868,7 +868,7 @@ getEGLErrorString.exit138:                        ; preds = %29, %switch.lookup1
   br label %104
 
 104:                                              ; preds = %.sink.split161, %96, %94
-  %.7 = phi i32 [ %.6, %96 ], [ %.6, %94 ], [ %102, %.sink.split161 ]
+  %.7 = phi i32 [ %.6, %94 ], [ %.6, %96 ], [ %102, %.sink.split161 ]
   %105 = zext nneg i32 %.7 to i64
   %106 = getelementptr inbounds nuw i32, ptr %4, i64 %105
   store i32 12344, ptr %106, align 4, !tbaa !173
@@ -1345,8 +1345,8 @@ define internal fastcc range(i32 0, 2) i32 @chooseEGLConfig(ptr noundef readonly
   br label %143
 
 143:                                              ; preds = %129, %87, %.critedge, %58, %49, %132
-  %.159 = phi i32 [ %.05873, %49 ], [ %.05873, %132 ], [ 1, %87 ], [ %.05873, %.critedge ], [ %.05873, %129 ], [ %.05873, %58 ]
-  %.1 = phi i32 [ %.05674, %49 ], [ %142, %132 ], [ %.05674, %87 ], [ %.05674, %.critedge ], [ %.05674, %129 ], [ %.05674, %58 ]
+  %.159 = phi i32 [ %.05873, %132 ], [ %.05873, %49 ], [ %.05873, %58 ], [ %.05873, %.critedge ], [ 1, %87 ], [ %.05873, %129 ]
+  %.1 = phi i32 [ %142, %132 ], [ %.05674, %49 ], [ %.05674, %58 ], [ %.05674, %.critedge ], [ %.05674, %87 ], [ %.05674, %129 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %144 = load i32, ptr %15, align 4, !tbaa !173
   %145 = sext i32 %144 to i64

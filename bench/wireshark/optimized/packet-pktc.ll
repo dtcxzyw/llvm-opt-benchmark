@@ -728,7 +728,7 @@ proto_item_set_hidden.exit:                       ; preds = %13, %16, %19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph67, %.preheader61, %.preheader, %50
-  %.159 = phi i32 [ %23, %50 ], [ %35, %.lr.ph67 ], [ %23, %.preheader ], [ %23, %.preheader61 ], [ %48, %.lr.ph ]
+  %.159 = phi i32 [ %23, %50 ], [ %23, %.preheader ], [ %23, %.preheader61 ], [ %35, %.lr.ph67 ], [ %48, %.lr.ph ]
   %52 = sub i32 %.159, %3
   tail call void @proto_item_set_len(ptr noundef %7, i32 noundef %52)
   ret i32 %.159

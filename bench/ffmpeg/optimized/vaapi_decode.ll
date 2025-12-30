@@ -359,7 +359,7 @@ define range(i32 -22, 1) i32 @ff_vaapi_decode_issue(ptr noundef %0, ptr noundef 
   br label %57
 
 57:                                               ; preds = %48, %55, %50, %2, %43
-  %.2 = phi i32 [ 0, %43 ], [ -5, %48 ], [ -5, %55 ], [ -5, %50 ], [ -22, %2 ]
+  %.2 = phi i32 [ 0, %43 ], [ -5, %55 ], [ -5, %50 ], [ -5, %48 ], [ -22, %2 ]
   tail call fastcc void @ff_vaapi_decode_destroy_buffers(ptr noundef %0, ptr noundef nonnull %1)
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %58, align 4, !tbaa !34
@@ -519,7 +519,7 @@ define range(i32 -38, 1) i32 @ff_vaapi_common_frame_params(ptr noundef %0, ptr n
   br label %21
 
 21:                                               ; preds = %16, %18, %10, %2
-  %.0 = phi i32 [ %15, %10 ], [ -22, %2 ], [ 0, %18 ], [ 0, %16 ]
+  %.0 = phi i32 [ -22, %2 ], [ %15, %10 ], [ 0, %18 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -781,7 +781,7 @@ select.unfold:                                    ; preds = %49, %44, %switch.ea
   br label %124
 
 119:                                              ; preds = %63, %108, %78, %76, %16, %4, %106, %._crit_edge, %74, %59, %25
-  %.085 = phi i32 [ -38, %25 ], [ -38, %59 ], [ -5, %74 ], [ -22, %._crit_edge ], [ -22, %106 ], [ -12, %78 ], [ -12, %76 ], [ -12, %16 ], [ %115, %108 ], [ -22, %4 ], [ -22, %63 ]
+  %.085 = phi i32 [ -38, %25 ], [ -38, %59 ], [ -5, %74 ], [ -22, %._crit_edge ], [ -22, %106 ], [ -22, %4 ], [ -12, %16 ], [ -12, %76 ], [ -12, %78 ], [ %115, %108 ], [ -22, %63 ]
   call void @av_hwframe_constraints_free(ptr noundef nonnull %6) #4
   call void @av_freep(ptr noundef nonnull %5) #4
   %120 = load i32, ptr %2, align 4, !tbaa !49

@@ -475,8 +475,8 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   br label %._crit_edge201.i
 
 ._crit_edge201.i:                                 ; preds = %221, %212, %210
-  %225 = phi i8 [ %218, %221 ], [ %.pre203.i, %212 ], [ %.pre203.i, %210 ]
-  %.3.i = phi i32 [ %222, %221 ], [ %.0137188.i, %212 ], [ %.0137188.i, %210 ]
+  %225 = phi i8 [ %.pre203.i, %212 ], [ %218, %221 ], [ %.pre203.i, %210 ]
+  %.3.i = phi i32 [ %.0137188.i, %212 ], [ %222, %221 ], [ %.0137188.i, %210 ]
   %226 = zext i8 %.sroa.0.0.copyload.i to i32
   %227 = zext i8 %225 to i32
   %228 = xor i32 %227, %226
@@ -601,7 +601,7 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   br label %.thread171.i
 
 .thread171.i:                                     ; preds = %281, %273, %270, %262, %258, %255, %253, %235, %._crit_edge201.i, %197, %194
-  %.8.i = phi i32 [ %.0137188.i, %194 ], [ %.0137188.i, %197 ], [ %.3.i, %235 ], [ %.3.i, %._crit_edge201.i ], [ %.5.i, %270 ], [ %.5.i, %273 ], [ %283, %281 ], [ %.0137188.i, %253 ], [ %.0137188.i, %262 ], [ %.0137188.i, %255 ], [ %.0137188.i, %258 ]
+  %.8.i = phi i32 [ %.0137188.i, %194 ], [ %.0137188.i, %197 ], [ %.3.i, %235 ], [ %.3.i, %._crit_edge201.i ], [ %.5.i, %270 ], [ %.5.i, %273 ], [ %283, %281 ], [ %.0137188.i, %262 ], [ %.0137188.i, %253 ], [ %.0137188.i, %258 ], [ %.0137188.i, %255 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %62, !llvm.loop !76
@@ -865,8 +865,8 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
   br i1 %exitcond222.not.i.i, label %.loopexit171.i.i, label %.lr.ph190.i.i, !llvm.loop !81
 
 .loopexit172.i.i:                                 ; preds = %.loopexit171.i.i, %._crit_edge187.i.i, %._crit_edge.i166.i, %294
-  %.0131.lcssa260.i.i = phi i1 [ true, %294 ], [ true, %._crit_edge.i166.i ], [ false, %._crit_edge187.i.i ], [ false, %.loopexit171.i.i ]
-  %.0140.lcssa259.i.i = phi i32 [ 0, %294 ], [ %.1141.i.i, %._crit_edge.i166.i ], [ %.1141265270.i.i, %._crit_edge187.i.i ], [ %.1141265270.i.i, %.loopexit171.i.i ]
+  %.0131.lcssa260.i.i = phi i1 [ false, %._crit_edge187.i.i ], [ true, %._crit_edge.i166.i ], [ true, %294 ], [ false, %.loopexit171.i.i ]
+  %.0140.lcssa259.i.i = phi i32 [ %.1141265270.i.i, %._crit_edge187.i.i ], [ %.1141.i.i, %._crit_edge.i166.i ], [ 0, %294 ], [ %.1141265270.i.i, %.loopexit171.i.i ]
   %423 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %424 = load i32, ptr %423, align 8, !tbaa !82
   %425 = getelementptr inbounds nuw i8, ptr %5, i64 172

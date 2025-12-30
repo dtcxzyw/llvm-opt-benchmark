@@ -2692,7 +2692,7 @@ is_imsi_string_valid.exit:                        ; preds = %26
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %31, label %is_imsi_string_valid.exit.thread
 
-is_imsi_string_valid.exit.thread:                 ; preds = %23, %26, %is_imsi_string_valid.exit
+is_imsi_string_valid.exit.thread:                 ; preds = %26, %23, %is_imsi_string_valid.exit
   %30 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.0, ptr noundef nonnull @ei_E212_imsi_malformed)
   %.pre = load ptr, ptr %7, align 8
   br label %31
@@ -2824,7 +2824,7 @@ is_imsi_string_valid.exit:                        ; preds = %12
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %17, label %is_imsi_string_valid.exit.thread
 
-is_imsi_string_valid.exit.thread:                 ; preds = %5, %12, %is_imsi_string_valid.exit
+is_imsi_string_valid.exit.thread:                 ; preds = %12, %5, %is_imsi_string_valid.exit
   %16 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %10, ptr noundef nonnull @ei_E212_imsi_malformed)
   br label %17
 

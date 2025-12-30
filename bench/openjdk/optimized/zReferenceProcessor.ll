@@ -583,7 +583,7 @@ _ZNK19ZReferenceProcessor14is_softly_liveE8zaddress13ReferenceType.exit: ; preds
   br label %_ZNK19ZReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread
 
 _ZNK19ZReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread: ; preds = %_ZNK19ZReferenceProcessor14is_softly_liveE8zaddress13ReferenceType.exit, %40, %30, %11, %_ZNK19ZReferenceProcessor16is_strongly_liveEP7oopDesc.exit, %18, %_ZNK19ZReferenceProcessor11is_inactiveE8zaddressP7oopDesc13ReferenceType.exit
-  %.0 = phi i1 [ false, %_ZNK19ZReferenceProcessor16is_strongly_liveEP7oopDesc.exit ], [ false, %_ZNK19ZReferenceProcessor11is_inactiveE8zaddressP7oopDesc13ReferenceType.exit ], [ false, %18 ], [ false, %30 ], [ false, %11 ], [ true, %40 ], [ %47, %_ZNK19ZReferenceProcessor14is_softly_liveE8zaddress13ReferenceType.exit ]
+  %.0 = phi i1 [ false, %_ZNK19ZReferenceProcessor11is_inactiveE8zaddressP7oopDesc13ReferenceType.exit ], [ false, %18 ], [ false, %_ZNK19ZReferenceProcessor16is_strongly_liveEP7oopDesc.exit ], [ false, %11 ], [ false, %30 ], [ true, %40 ], [ %47, %_ZNK19ZReferenceProcessor14is_softly_liveE8zaddress13ReferenceType.exit ]
   ret i1 %.0
 }
 
@@ -636,7 +636,7 @@ define hidden noundef zeroext i1 @_ZNK19ZReferenceProcessor17try_make_inactiveE8
   unreachable
 
 27:                                               ; preds = %18, %3, %20, %16, %13
-  %.0 = phi i1 [ false, %3 ], [ %14, %13 ], [ %17, %16 ], [ true, %20 ], [ false, %18 ]
+  %.0 = phi i1 [ %14, %13 ], [ %17, %16 ], [ true, %20 ], [ false, %3 ], [ false, %18 ]
   ret i1 %.0
 }
 
@@ -1520,19 +1520,19 @@ _ZL14reference_type8zaddress.exit:                ; preds = %11, %21
 40:                                               ; preds = %_ZL14reference_type8zaddress.exit
   %41 = add i8 %24, -1
   %or.cond.i = icmp ult i8 %41, 2
-  br i1 %or.cond.i, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit, label %42
+  br i1 %or.cond.i, label %42, label %44
 
 42:                                               ; preds = %40
+  %43 = tail call noundef zeroext i1 @_ZN8ZBarrier31clean_barrier_on_weak_oop_fieldEPV8zpointer(ptr noundef nonnull %36)
+  br i1 %43, label %54, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread
+
+44:                                               ; preds = %40
   switch i8 %24, label %50 [
-    i8 4, label %43
+    i8 4, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit
     i8 3, label %45
   ]
 
-43:                                               ; preds = %42
-  %44 = tail call noundef zeroext i1 @_ZN8ZBarrier34clean_barrier_on_phantom_oop_fieldEPV8zpointer(ptr noundef nonnull %36)
-  br i1 %44, label %54, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread
-
-45:                                               ; preds = %42
+45:                                               ; preds = %44
   %46 = tail call noundef zeroext i1 @_ZN8ZBarrier32clean_barrier_on_final_oop_fieldEPV8zpointer(ptr noundef nonnull %36)
   br i1 %46, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread28, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread
 
@@ -1543,18 +1543,18 @@ _ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.threa
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %48, ptr noundef nonnull %7) #11
   br label %54
 
-50:                                               ; preds = %42
+50:                                               ; preds = %44
   %51 = zext i8 %24 to i32
   %52 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %52, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.7, i32 noundef 230, ptr noundef nonnull @.str.8, i32 noundef %51) #12
   unreachable
 
-_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit: ; preds = %40
-  %53 = tail call noundef zeroext i1 @_ZN8ZBarrier31clean_barrier_on_weak_oop_fieldEPV8zpointer(ptr noundef nonnull %36)
+_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit: ; preds = %44
+  %53 = tail call noundef zeroext i1 @_ZN8ZBarrier34clean_barrier_on_phantom_oop_fieldEPV8zpointer(ptr noundef nonnull %36)
   br i1 %53, label %54, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread
 
-54:                                               ; preds = %43, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread28, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit
+54:                                               ; preds = %42, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread28, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit
   %55 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %58, label %switch.lookup
@@ -1590,7 +1590,7 @@ switch.lookup:                                    ; preds = %54
   tail call void %74(ptr noundef nonnull align 8 dereferenceable(16) %71, i64 noundef %73, ptr noundef nonnull %7) #11
   br label %_ZL11list_appendR8zaddressS0_S_.exit
 
-_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread: ; preds = %45, %_ZL14reference_type8zaddress.exit, %43, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit
+_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread: ; preds = %45, %_ZL14reference_type8zaddress.exit, %42, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit
   %75 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not30 = icmp eq ptr %75, null
   br i1 %.not30, label %_ZL11list_appendR8zaddressS0_S_.exit, label %76
@@ -1614,8 +1614,8 @@ switch.lookup55:                                  ; preds = %76
   br label %_ZL11list_appendR8zaddressS0_S_.exit
 
 _ZL11list_appendR8zaddressS0_S_.exit:             ; preds = %70, %58, %switch.lookup55, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread
-  %.126 = phi i64 [ %.02539, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread ], [ %.02539, %switch.lookup55 ], [ %.02539, %70 ], [ %.041, %58 ]
-  %.1 = phi i64 [ %.02440, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread ], [ %.02440, %switch.lookup55 ], [ %.041, %70 ], [ %.041, %58 ]
+  %.126 = phi i64 [ %.02539, %switch.lookup55 ], [ %.02539, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread ], [ %.02539, %70 ], [ %.041, %58 ]
+  %.1 = phi i64 [ %.02440, %switch.lookup55 ], [ %.02440, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread ], [ %.041, %70 ], [ %.041, %58 ]
   %81 = load volatile i8, ptr @_ZN20SuspendibleThreadSet12_suspend_allE, align 1
   %82 = trunc i8 %81 to i1
   br i1 %82, label %83, label %_ZN20SuspendibleThreadSet5yieldEv.exit
@@ -2327,7 +2327,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
   ret ptr %.0.i.i
 }
 
@@ -2503,7 +2503,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -2693,7 +2693,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
   ret ptr %.0.i.i
 }
 

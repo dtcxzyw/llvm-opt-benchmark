@@ -273,7 +273,7 @@ int_ctrl_cmd_is_null.exit52.i:                    ; preds = %76
   br label %int_ctrl_helper.exit
 
 int_ctrl_helper.exit:                             ; preds = %109, %106, %99, %93, %87, %82, %int_ctrl_cmd_is_null.exit52.i, %76, %73, %int_ctrl_cmd_by_name.exit.i, %int_ctrl_cmd_by_name.exit.thread.i, %36, %int_ctrl_cmd_is_null.exit.i, %25, %21, %.critedge21, %111, %.critedge, %12, %7
-  %.0 = phi i32 [ 0, %7 ], [ %112, %.critedge21 ], [ 0, %111 ], [ %13, %12 ], [ -1, %.critedge ], [ %108, %106 ], [ 0, %76 ], [ -1, %36 ], [ -1, %int_ctrl_cmd_by_name.exit.thread.i ], [ %56, %int_ctrl_cmd_by_name.exit.i ], [ -1, %73 ], [ -1, %109 ], [ 0, %21 ], [ %86, %82 ], [ %92, %87 ], [ %98, %93 ], [ %105, %99 ], [ 0, %25 ], [ %spec.select.i, %int_ctrl_cmd_is_null.exit.i ], [ %spec.select5.i, %int_ctrl_cmd_is_null.exit52.i ]
+  %.0 = phi i32 [ 0, %7 ], [ %112, %.critedge21 ], [ 0, %111 ], [ %13, %12 ], [ -1, %.critedge ], [ -1, %36 ], [ -1, %int_ctrl_cmd_by_name.exit.thread.i ], [ %56, %int_ctrl_cmd_by_name.exit.i ], [ -1, %73 ], [ -1, %109 ], [ %86, %82 ], [ %92, %87 ], [ %98, %93 ], [ %105, %99 ], [ %108, %106 ], [ 0, %21 ], [ 0, %25 ], [ 0, %76 ], [ %spec.select.i, %int_ctrl_cmd_is_null.exit.i ], [ %spec.select5.i, %int_ctrl_cmd_is_null.exit52.i ]
   ret i32 %.0
 }
 
@@ -505,7 +505,7 @@ ENGINE_cmd_is_executable.exit:                    ; preds = %19
   br label %57
 
 57:                                               ; preds = %54, %41, %34, %53, %46, %38, %33, %28, %24, %18, %17, %8
-  %.0.shrunk = phi i1 [ false, %8 ], [ true, %17 ], [ false, %18 ], [ false, %28 ], [ false, %33 ], [ %36, %34 ], [ false, %24 ], [ false, %38 ], [ %43, %41 ], [ false, %46 ], [ false, %53 ], [ %56, %54 ]
+  %.0.shrunk = phi i1 [ false, %8 ], [ true, %17 ], [ false, %18 ], [ false, %28 ], [ false, %33 ], [ false, %38 ], [ false, %53 ], [ false, %46 ], [ false, %24 ], [ %36, %34 ], [ %43, %41 ], [ %56, %54 ]
   %.0 = zext i1 %.0.shrunk to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

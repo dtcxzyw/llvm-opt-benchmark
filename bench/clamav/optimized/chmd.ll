@@ -720,8 +720,8 @@ define internal i32 @chmd_fast_find(ptr noundef captures(address_is_null) %0, pt
   br i1 %.not.i, label %read_encint.exit, label %42
 
 read_encint.exit:                                 ; preds = %42, %46
-  %53 = phi ptr [ %scevgep, %42 ], [ %47, %46 ]
-  %.014.i = phi i32 [ %.01319.i, %42 ], [ %52, %46 ]
+  %53 = phi ptr [ %47, %46 ], [ %scevgep, %42 ]
+  %.014.i = phi i32 [ %52, %46 ], [ %.01319.i, %42 ]
   store ptr %53, ptr %6, align 8
   %54 = tail call fastcc ptr @read_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef %.014.i)
   %.not84 = icmp eq ptr %54, null
@@ -877,15 +877,15 @@ read_encint.exit110.thread:                       ; preds = %119
   br i1 %.not.i109, label %read_encint.exit110, label %116
 
 read_encint.exit110:                              ; preds = %116, %121
-  %.014.i108 = phi i64 [ %.01319.i105, %116 ], [ %127, %121 ]
+  %.014.i108 = phi i64 [ %127, %121 ], [ %.01319.i105, %116 ]
   %128 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %.014.i108, ptr %128, align 8, !tbaa !55
   %.not86 = icmp eq i32 %.5, 0
   br i1 %.not86, label %130, label %read_encint.exit.thread
 
 .loopexit:                                        ; preds = %71, %61, %32, %65
-  %.1114.ph = phi i32 [ 0, %32 ], [ %67, %65 ], [ 0, %61 ], [ 0, %71 ]
-  %.066.ph = phi i32 [ %34, %32 ], [ %.167, %65 ], [ %.167, %61 ], [ %69, %71 ]
+  %.1114.ph = phi i32 [ %67, %65 ], [ 0, %32 ], [ 0, %61 ], [ 0, %71 ]
+  %.066.ph = phi i32 [ %.167, %65 ], [ %34, %32 ], [ %69, %71 ], [ %.167, %61 ]
   %129 = icmp slt i32 %.066.ph, 0
   %spec.select = select i1 %129, i32 8, i32 %.1114.ph
   br label %130
@@ -908,7 +908,7 @@ read_encint.exit.thread:                          ; preds = %45, %read_encint.ex
   br label %137
 
 137:                                              ; preds = %12, %5, %read_encint.exit.thread, %130, %._crit_edge
-  %.0 = phi i32 [ 1, %5 ], [ 8, %read_encint.exit.thread ], [ %.2, %130 ], [ %31, %._crit_edge ], [ 2, %12 ]
+  %.0 = phi i32 [ 8, %read_encint.exit.thread ], [ %.2, %130 ], [ %31, %._crit_edge ], [ 1, %5 ], [ 2, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -1659,14 +1659,14 @@ read_encint.exit289.i:                            ; preds = %287, %284
   br label %352
 
 352:                                              ; preds = %351, %350, %347, %312, %304, %298, %296, %294
-  %.2215.i = phi ptr [ %.1214347.i, %296 ], [ %.1214347.i, %347 ], [ %317, %351 ], [ %.1214347.i, %294 ], [ %.1214347.i, %312 ], [ %.1214347.i, %304 ], [ %317, %350 ], [ %.1214347.i, %298 ]
+  %.2215.i = phi ptr [ %.1214347.i, %312 ], [ %.1214347.i, %298 ], [ %.1214347.i, %296 ], [ %.1214347.i, %294 ], [ %.1214347.i, %304 ], [ %.1214347.i, %347 ], [ %317, %351 ], [ %317, %350 ]
   %.not254.i = icmp eq i32 %244, 0
   br i1 %.not254.i, label %.thread.i, label %.preheader.i
 
 .thread.i:                                        ; preds = %352, %read_encint.exit289.i, %256, %read_encint.exit.i, %247, %286, %235
-  %.0220340.i = phi i32 [ %.0220346.i, %286 ], [ %.0220346.i, %247 ], [ 0, %235 ], [ %.0220346.i, %read_encint.exit289.i ], [ %.0220346.i, %read_encint.exit.i ], [ 0, %352 ], [ %.0220346.i, %256 ]
-  %.1214336.i = phi ptr [ %.1214347.i, %286 ], [ %.1214347.i, %247 ], [ %.0213.ph.i, %235 ], [ %.1214347.i, %read_encint.exit289.i ], [ %.1214347.i, %read_encint.exit.i ], [ %.2215.i, %352 ], [ %.1214347.i, %256 ]
-  %.3297.i = phi i32 [ 1, %286 ], [ 1, %247 ], [ %.0296.ph.i, %235 ], [ 1, %read_encint.exit289.i ], [ 1, %read_encint.exit.i ], [ 0, %352 ], [ 0, %256 ]
+  %.0220340.i = phi i32 [ 0, %235 ], [ %.0220346.i, %286 ], [ %.0220346.i, %247 ], [ %.0220346.i, %read_encint.exit289.i ], [ %.0220346.i, %read_encint.exit.i ], [ %.0220346.i, %256 ], [ 0, %352 ]
+  %.1214336.i = phi ptr [ %.0213.ph.i, %235 ], [ %.1214347.i, %286 ], [ %.1214347.i, %247 ], [ %.1214347.i, %read_encint.exit289.i ], [ %.1214347.i, %read_encint.exit.i ], [ %.1214347.i, %256 ], [ %.2215.i, %352 ]
+  %.3297.i = phi i32 [ %.0296.ph.i, %235 ], [ 1, %286 ], [ 1, %247 ], [ 1, %read_encint.exit289.i ], [ 1, %read_encint.exit.i ], [ 0, %256 ], [ 0, %352 ]
   %353 = icmp sgt i32 %.0220340.i, 0
   %354 = zext i1 %353 to i32
   %spec.select.i = add i32 %.0210.ph.i, %354
@@ -1686,8 +1686,8 @@ chmd_read_headers.exit.thread.sink.split:         ; preds = %216, %314
   call void %359(ptr noundef nonnull %207) #13
   br label %chmd_read_headers.exit.thread
 
-chmd_read_headers.exit.thread:                    ; preds = %chmd_read_headers.exit.thread.sink.split, %15, %31, %33, %75, %78, %194, %88, %110, %114, %201
-  %.0.i.ph = phi i32 [ 7, %31 ], [ 6, %201 ], [ 3, %15 ], [ 3, %114 ], [ 5, %110 ], [ 3, %88 ], [ 5, %194 ], [ 5, %78 ], [ 3, %75 ], [ 7, %33 ], [ %.0.i.ph.ph, %chmd_read_headers.exit.thread.sink.split ]
+chmd_read_headers.exit.thread:                    ; preds = %chmd_read_headers.exit.thread.sink.split, %194, %15, %31, %33, %75, %78, %88, %110, %114, %201
+  %.0.i.ph = phi i32 [ 6, %201 ], [ 3, %114 ], [ 5, %110 ], [ 3, %88 ], [ 5, %78 ], [ 3, %75 ], [ 7, %33 ], [ 7, %31 ], [ 3, %15 ], [ 5, %194 ], [ %.0.i.ph.ph, %chmd_read_headers.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %367
@@ -1697,7 +1697,7 @@ chmd_read_headers.exit:                           ; preds = %355, %192
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %368
 
-360:                                              ; preds = %169, %181, %190, %355, %164
+360:                                              ; preds = %355, %164, %169, %181, %190
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %361 = load ptr, ptr %17, align 8, !tbaa !22
@@ -1721,8 +1721,8 @@ chmd_read_headers.exit:                           ; preds = %355, %192
   br label %368
 
 368:                                              ; preds = %11, %367, %364, %chmd_read_headers.exit
-  %.sink = phi i32 [ 0, %chmd_read_headers.exit ], [ 0, %364 ], [ %.0.i43, %367 ], [ 6, %11 ]
-  %.1 = phi ptr [ %14, %chmd_read_headers.exit ], [ %14, %364 ], [ null, %367 ], [ null, %11 ]
+  %.sink = phi i32 [ 0, %364 ], [ %.0.i43, %367 ], [ 0, %chmd_read_headers.exit ], [ 6, %11 ]
+  %.1 = phi ptr [ %14, %364 ], [ null, %367 ], [ %14, %chmd_read_headers.exit ], [ null, %11 ]
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.sink, ptr %369, align 8, !tbaa !20
   %370 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1881,7 +1881,7 @@ define internal fastcc ptr @read_chunk(ptr noundef captures(none) %0, ptr nounde
   br label %79
 
 79:                                               ; preds = %.thread, %20, %4, %76, %72, %54, %44, %32
-  %.0 = phi ptr [ null, %.thread ], [ null, %4 ], [ null, %44 ], [ null, %54 ], [ %31, %76 ], [ null, %72 ], [ null, %32 ], [ %24, %20 ]
+  %.0 = phi ptr [ null, %44 ], [ null, %54 ], [ %31, %76 ], [ null, %72 ], [ null, %32 ], [ null, %4 ], [ %24, %20 ], [ null, %.thread ]
   ret ptr %.0
 }
 
@@ -2252,7 +2252,7 @@ read_encint.exit.thread.sink.split:               ; preds = %160, %123, %.crited
   br label %read_encint.exit.thread
 
 read_encint.exit.thread:                          ; preds = %read_encint.exit, %83, %65, %read_encint.exit142, %147, %read_encint.exit142.us, %110, %._crit_edge, %read_encint.exit.thread.sink.split, %4
-  %.097 = phi i32 [ -1, %147 ], [ -1, %4 ], [ 1, %read_encint.exit.thread.sink.split ], [ -1, %65 ], [ -1, %read_encint.exit142.us ], [ -1, %read_encint.exit142 ], [ -1, %110 ], [ %spec.select, %._crit_edge ], [ -1, %read_encint.exit ], [ 0, %83 ]
+  %.097 = phi i32 [ -1, %4 ], [ %spec.select, %._crit_edge ], [ 1, %read_encint.exit.thread.sink.split ], [ -1, %110 ], [ -1, %read_encint.exit142.us ], [ -1, %147 ], [ -1, %read_encint.exit142 ], [ -1, %65 ], [ -1, %read_encint.exit ], [ 0, %83 ]
   ret i32 %.097
 }
 
@@ -2355,8 +2355,8 @@ define internal fastcc i32 @compare(ptr noundef readonly captures(address) %0, p
   br label %.thread
 
 .thread:                                          ; preds = %29, %45, %47, %.lr.ph, %19, %50, %32
-  %.0116 = phi i32 [ %14, %.lr.ph ], [ %26, %19 ], [ %43, %32 ], [ %spec.store.select, %50 ], [ 65533, %47 ], [ 65533, %45 ], [ 65533, %29 ]
-  %.1 = phi ptr [ %12, %.lr.ph ], [ %22, %19 ], [ %44, %32 ], [ %69, %50 ], [ %12, %47 ], [ %12, %45 ], [ %12, %29 ]
+  %.0116 = phi i32 [ %26, %19 ], [ %43, %32 ], [ %spec.store.select, %50 ], [ %14, %.lr.ph ], [ 65533, %47 ], [ 65533, %45 ], [ 65533, %29 ]
+  %.1 = phi ptr [ %22, %19 ], [ %44, %32 ], [ %69, %50 ], [ %12, %.lr.ph ], [ %12, %47 ], [ %12, %45 ], [ %12, %29 ]
   %70 = getelementptr inbounds nuw i8, ptr %.0114138, i64 1
   %71 = load i8, ptr %.0114138, align 1, !tbaa !71
   %72 = zext i8 %71 to i32
@@ -2439,8 +2439,8 @@ define internal fastcc i32 @compare(ptr noundef readonly captures(address) %0, p
   br label %.thread136
 
 .thread136:                                       ; preds = %87, %103, %105, %.thread, %77, %108, %90
-  %.0118 = phi i32 [ %72, %.thread ], [ %84, %77 ], [ %101, %90 ], [ %spec.store.select18, %108 ], [ 65533, %105 ], [ 65533, %103 ], [ 65533, %87 ]
-  %.1115 = phi ptr [ %70, %.thread ], [ %80, %77 ], [ %102, %90 ], [ %127, %108 ], [ %70, %105 ], [ %70, %103 ], [ %70, %87 ]
+  %.0118 = phi i32 [ %84, %77 ], [ %101, %90 ], [ %spec.store.select18, %108 ], [ %72, %.thread ], [ 65533, %105 ], [ 65533, %103 ], [ 65533, %87 ]
+  %.1115 = phi ptr [ %80, %77 ], [ %102, %90 ], [ %127, %108 ], [ %70, %.thread ], [ %70, %105 ], [ %70, %103 ], [ %70, %87 ]
   %128 = icmp eq i32 %.0116, %.0118
   br i1 %128, label %.backedge, label %132
 
@@ -2463,7 +2463,7 @@ tolower.exit.sink.split:                          ; preds = %132
   br label %tolower.exit
 
 tolower.exit:                                     ; preds = %132, %tolower.exit.sink.split
-  %.0117 = phi i32 [ %137, %tolower.exit.sink.split ], [ %.0116, %132 ]
+  %.0117 = phi i32 [ %.0116, %132 ], [ %137, %tolower.exit.sink.split ]
   %or.cond.i133 = icmp samesign ult i32 %.0118, 256
   br i1 %or.cond.i133, label %tolower.exit134.sink.split, label %tolower.exit134
 
@@ -2476,7 +2476,7 @@ tolower.exit134.sink.split:                       ; preds = %tolower.exit
   br label %tolower.exit134
 
 tolower.exit134:                                  ; preds = %tolower.exit134.sink.split, %tolower.exit
-  %.0113 = phi i32 [ %142, %tolower.exit134.sink.split ], [ %.0118, %tolower.exit ]
+  %.0113 = phi i32 [ %.0118, %tolower.exit ], [ %142, %tolower.exit134.sink.split ]
   %.not = icmp eq i32 %.0117, %.0113
   br i1 %.not, label %.backedge, label %143
 
@@ -2583,8 +2583,8 @@ define internal fastcc i32 @chmd_init_decomp(ptr noundef nonnull %0, ptr noundef
   store i32 %.0.i, ptr %32, align 8, !tbaa !20
   br label %209
 
-33:                                               ; preds = %2, %24
-  %34 = phi ptr [ %8, %2 ], [ %.pre, %24 ]
+33:                                               ; preds = %24, %2
+  %34 = phi ptr [ %.pre, %24 ], [ %8, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2630,8 +2630,8 @@ define internal fastcc i32 @chmd_init_decomp(ptr noundef nonnull %0, ptr noundef
   store i32 %.0.i103, ptr %56, align 8, !tbaa !20
   br label %209
 
-57:                                               ; preds = %33, %48
-  %58 = phi ptr [ %36, %33 ], [ %54, %48 ]
+57:                                               ; preds = %48, %33
+  %58 = phi ptr [ %54, %48 ], [ %36, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load i64, ptr %59, align 8, !tbaa !55
@@ -2893,7 +2893,7 @@ read_sys_file.exit:                               ; preds = %97
   br label %209
 
 209:                                              ; preds = %208, %._crit_edge117, %182, %159, %154, %144, %113, %108, %61, %55, %31
-  %.0 = phi i32 [ %.0.i, %31 ], [ %.0.i103, %55 ], [ 8, %61 ], [ 7, %113 ], [ 8, %144 ], [ 8, %154 ], [ 8, %159 ], [ %110, %108 ], [ %181, %182 ], [ %.pre118, %._crit_edge117 ], [ 6, %208 ]
+  %.0 = phi i32 [ %.0.i, %31 ], [ %.0.i103, %55 ], [ 8, %61 ], [ 7, %113 ], [ 8, %144 ], [ 8, %154 ], [ 8, %159 ], [ %181, %182 ], [ %110, %108 ], [ %.pre118, %._crit_edge117 ], [ 6, %208 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -2947,8 +2947,8 @@ find_sys_file.exit:                               ; preds = %11, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %read_sys_file.exit.thread
 
-29:                                               ; preds = %5, %22
-  %30 = phi ptr [ %10, %5 ], [ %28, %22 ]
+29:                                               ; preds = %22, %5
+  %30 = phi ptr [ %28, %22 ], [ %10, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i64, ptr %31, align 8, !tbaa !55
@@ -3109,7 +3109,7 @@ read_sys_file.exit:                               ; preds = %69
   br label %read_sys_file.exit.thread
 
 read_sys_file.exit.thread:                        ; preds = %48, %76, %65, %41, %find_sys_file.exit, %29, %123, %82
-  %.057 = phi i32 [ %124, %123 ], [ 0, %find_sys_file.exit ], [ 0, %29 ], [ 0, %82 ], [ 0, %41 ], [ 0, %65 ], [ 0, %76 ], [ 0, %48 ]
+  %.057 = phi i32 [ 0, %82 ], [ %124, %123 ], [ 0, %find_sys_file.exit ], [ 0, %29 ], [ 0, %41 ], [ 0, %65 ], [ 0, %76 ], [ 0, %48 ]
   ret i32 %.057
 }
 
@@ -3159,8 +3159,8 @@ find_sys_file.exit:                               ; preds = %9, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %87
 
-27:                                               ; preds = %3, %20
-  %28 = phi ptr [ %8, %3 ], [ %26, %20 ]
+27:                                               ; preds = %20, %3
+  %28 = phi ptr [ %26, %20 ], [ %8, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load i64, ptr %29, align 8, !tbaa !55
@@ -3263,7 +3263,7 @@ read_sys_file.exit:                               ; preds = %68
   br label %87
 
 87:                                               ; preds = %find_sys_file.exit, %read_sys_file.exit, %27, %79
-  %.0 = phi i32 [ %spec.select, %read_sys_file.exit ], [ 8, %find_sys_file.exit ], [ %81, %79 ], [ 8, %27 ]
+  %.0 = phi i32 [ %81, %79 ], [ 8, %find_sys_file.exit ], [ 8, %27 ], [ %spec.select, %read_sys_file.exit ]
   ret i32 %.0
 }
 

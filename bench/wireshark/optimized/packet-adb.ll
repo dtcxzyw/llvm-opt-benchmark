@@ -416,13 +416,13 @@ define internal i32 @dissect_adb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %120, label %138, label %121
 
 121:                                              ; preds = %82, %88, %118
-  %.0388552 = phi i1 [ %.0388.ph, %118 ], [ false, %82 ], [ false, %88 ]
-  %.0390550 = phi i8 [ %.0390.ph, %118 ], [ 0, %82 ], [ 0, %88 ]
-  %.0393547 = phi i8 [ %.0393.ph, %118 ], [ 1, %82 ], [ 1, %88 ]
-  %.0398545 = phi i32 [ %.0398.ph, %118 ], [ 0, %82 ], [ 0, %88 ]
-  %.0403543 = phi i32 [ %.0403.ph, %118 ], [ 0, %82 ], [ 0, %88 ]
-  %.0524541 = phi ptr [ %.0524.ph, %118 ], [ null, %82 ], [ null, %88 ]
-  %.0526537 = phi ptr [ %89, %118 ], [ null, %82 ], [ null, %88 ]
+  %.0388552 = phi i1 [ %.0388.ph, %118 ], [ false, %88 ], [ false, %82 ]
+  %.0390550 = phi i8 [ %.0390.ph, %118 ], [ 0, %88 ], [ 0, %82 ]
+  %.0393547 = phi i8 [ %.0393.ph, %118 ], [ 1, %88 ], [ 1, %82 ]
+  %.0398545 = phi i32 [ %.0398.ph, %118 ], [ 0, %88 ], [ 0, %82 ]
+  %.0403543 = phi i32 [ %.0403.ph, %118 ], [ 0, %88 ], [ 0, %82 ]
+  %.0524541 = phi ptr [ %.0524.ph, %118 ], [ null, %88 ], [ null, %82 ]
+  %.0526537 = phi ptr [ %89, %118 ], [ null, %88 ], [ null, %82 ]
   %122 = call i32 @tvb_reported_length(ptr noundef %0)
   %123 = icmp ult i32 %122, 24
   br i1 %123, label %138, label %124
@@ -888,7 +888,7 @@ proto_item_set_generated.exit:                    ; preds = %186, %183, %180, %1
   br label %362
 
 362:                                              ; preds = %359, %341
-  %.sink.in.i = phi ptr [ %spec.select562, %359 ], [ %345, %341 ]
+  %.sink.in.i = phi ptr [ %345, %341 ], [ %spec.select562, %359 ]
   %.sink.i = load i32, ptr %.sink.in.i, align 4
   store i32 %.sink.i, ptr %9, align 4
   store i32 1, ptr %320, align 16
@@ -1173,8 +1173,8 @@ proto_item_set_generated.exit488.thread:          ; preds = %proto_item_set_gene
   br label %proto_item_set_generated.exit491
 
 proto_item_set_generated.exit491:                 ; preds = %486, %483, %480, %proto_item_set_generated.exit488.thread, %proto_item_set_generated.exit488
-  %.not451561 = phi i1 [ true, %proto_item_set_generated.exit488 ], [ false, %proto_item_set_generated.exit488.thread ], [ false, %480 ], [ false, %483 ], [ false, %486 ]
-  %.1559 = phi ptr [ %.0380, %proto_item_set_generated.exit488 ], [ %.1558, %proto_item_set_generated.exit488.thread ], [ %.1558, %480 ], [ %.1558, %483 ], [ %.1558, %486 ]
+  %.not451561 = phi i1 [ false, %proto_item_set_generated.exit488.thread ], [ true, %proto_item_set_generated.exit488 ], [ false, %480 ], [ false, %483 ], [ false, %486 ]
+  %.1559 = phi ptr [ %.1558, %proto_item_set_generated.exit488.thread ], [ %.0380, %proto_item_set_generated.exit488 ], [ %.1558, %480 ], [ %.1558, %483 ], [ %.1558, %486 ]
   %490 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0384)
   %491 = icmp slt i32 %490, 1
   %492 = trunc nuw i8 %.4 to i1

@@ -1253,7 +1253,7 @@ createNativeSurface.exit:                         ; preds = %4
   br label %136
 
 136:                                              ; preds = %createNativeSurface.exit, %133, %107, %105, %103, %101, %99, %135, %98
-  %.0 = phi i32 [ 1, %135 ], [ 0, %107 ], [ 0, %105 ], [ 0, %99 ], [ 0, %createNativeSurface.exit ], [ 0, %98 ], [ 0, %103 ], [ 0, %101 ], [ 0, %133 ]
+  %.0 = phi i32 [ 1, %135 ], [ 0, %98 ], [ 0, %createNativeSurface.exit ], [ 0, %99 ], [ 0, %101 ], [ 0, %103 ], [ 0, %105 ], [ 0, %107 ], [ 0, %133 ]
   ret i32 %.0
 }
 
@@ -1691,8 +1691,8 @@ setIdleInhibitor.exit.i8:                         ; preds = %171, %168, %158, %1
   br label %216
 
 216:                                              ; preds = %213, %210, %206, %202
-  %.024.i.i = phi i32 [ %204, %210 ], [ %214, %213 ], [ 0, %206 ], [ 0, %202 ]
-  %.023.i.i = phi i32 [ %208, %210 ], [ %215, %213 ], [ 0, %206 ], [ 0, %202 ]
+  %.024.i.i = phi i32 [ %214, %213 ], [ %204, %210 ], [ 0, %206 ], [ 0, %202 ]
+  %.023.i.i = phi i32 [ %215, %213 ], [ %208, %210 ], [ 0, %206 ], [ 0, %202 ]
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %218 = load i32, ptr %217, align 8, !tbaa !212
   %219 = icmp eq i32 %218, -1
@@ -1723,10 +1723,10 @@ setIdleInhibitor.exit.i8:                         ; preds = %171, %168, %158, %1
   br label %updateXdgSizeLimits.exit.i
 
 updateXdgSizeLimits.exit.i:                       ; preds = %230, %227, %224, %220, %216
-  %.125.i.i = phi i32 [ %232, %230 ], [ %.024.i.i, %227 ], [ %.024.i.i, %224 ], [ %.024.i.i, %220 ], [ %.024.i.i, %216 ]
-  %.1.i.i = phi i32 [ %234, %230 ], [ %.023.i.i, %227 ], [ %.023.i.i, %224 ], [ %.023.i.i, %220 ], [ %.023.i.i, %216 ]
-  %.022.i.i = phi i32 [ %232, %230 ], [ %228, %227 ], [ %218, %224 ], [ 0, %220 ], [ 0, %216 ]
-  %.0.i.i = phi i32 [ %234, %230 ], [ %229, %227 ], [ %222, %224 ], [ 0, %220 ], [ 0, %216 ]
+  %.125.i.i = phi i32 [ %.024.i.i, %227 ], [ %.024.i.i, %224 ], [ %232, %230 ], [ %.024.i.i, %220 ], [ %.024.i.i, %216 ]
+  %.1.i.i = phi i32 [ %.023.i.i, %227 ], [ %.023.i.i, %224 ], [ %234, %230 ], [ %.023.i.i, %220 ], [ %.023.i.i, %216 ]
+  %.022.i.i = phi i32 [ %228, %227 ], [ %218, %224 ], [ %232, %230 ], [ 0, %220 ], [ 0, %216 ]
+  %.0.i.i = phi i32 [ %229, %227 ], [ %222, %224 ], [ %234, %230 ], [ 0, %220 ], [ 0, %216 ]
   %235 = load ptr, ptr %117, align 8, !tbaa !235
   %236 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !136
   %237 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !93
@@ -2127,8 +2127,8 @@ define hidden void @_glfwSetWindowSizeLimitsWayland(ptr noundef readonly capture
   br label %36
 
 36:                                               ; preds = %33, %30, %26, %22
-  %.024.i = phi i32 [ %24, %30 ], [ %34, %33 ], [ 0, %26 ], [ 0, %22 ]
-  %.023.i = phi i32 [ %28, %30 ], [ %35, %33 ], [ 0, %26 ], [ 0, %22 ]
+  %.024.i = phi i32 [ %34, %33 ], [ %24, %30 ], [ 0, %26 ], [ 0, %22 ]
+  %.023.i = phi i32 [ %35, %33 ], [ %28, %30 ], [ 0, %26 ], [ 0, %22 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %38 = load i32, ptr %37, align 8, !tbaa !212
   %39 = icmp eq i32 %38, -1
@@ -2159,10 +2159,10 @@ define hidden void @_glfwSetWindowSizeLimitsWayland(ptr noundef readonly capture
   br label %updateXdgSizeLimits.exit
 
 updateXdgSizeLimits.exit:                         ; preds = %36, %40, %44, %47, %50
-  %.125.i = phi i32 [ %52, %50 ], [ %.024.i, %47 ], [ %.024.i, %44 ], [ %.024.i, %40 ], [ %.024.i, %36 ]
-  %.1.i = phi i32 [ %54, %50 ], [ %.023.i, %47 ], [ %.023.i, %44 ], [ %.023.i, %40 ], [ %.023.i, %36 ]
-  %.022.i = phi i32 [ %52, %50 ], [ %48, %47 ], [ %38, %44 ], [ 0, %40 ], [ 0, %36 ]
-  %.0.i = phi i32 [ %54, %50 ], [ %49, %47 ], [ %42, %44 ], [ 0, %40 ], [ 0, %36 ]
+  %.125.i = phi i32 [ %.024.i, %47 ], [ %.024.i, %44 ], [ %52, %50 ], [ %.024.i, %40 ], [ %.024.i, %36 ]
+  %.1.i = phi i32 [ %.023.i, %47 ], [ %.023.i, %44 ], [ %54, %50 ], [ %.023.i, %40 ], [ %.023.i, %36 ]
+  %.022.i = phi i32 [ %48, %47 ], [ %38, %44 ], [ %52, %50 ], [ 0, %40 ], [ 0, %36 ]
+  %.0.i = phi i32 [ %49, %47 ], [ %42, %44 ], [ %54, %50 ], [ 0, %40 ], [ 0, %36 ]
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !136
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !93
   %57 = tail call i32 %56(ptr noundef nonnull %18) #20
@@ -3031,8 +3031,8 @@ define hidden void @_glfwSetWindowResizableWayland(ptr noundef readonly captures
   br label %30
 
 30:                                               ; preds = %27, %24, %20, %16
-  %.024.i = phi i32 [ %18, %24 ], [ %28, %27 ], [ 0, %20 ], [ 0, %16 ]
-  %.023.i = phi i32 [ %22, %24 ], [ %29, %27 ], [ 0, %20 ], [ 0, %16 ]
+  %.024.i = phi i32 [ %28, %27 ], [ %18, %24 ], [ 0, %20 ], [ 0, %16 ]
+  %.023.i = phi i32 [ %29, %27 ], [ %22, %24 ], [ 0, %20 ], [ 0, %16 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %32 = load i32, ptr %31, align 8, !tbaa !212
   %33 = icmp eq i32 %32, -1
@@ -3063,10 +3063,10 @@ define hidden void @_glfwSetWindowResizableWayland(ptr noundef readonly captures
   br label %updateXdgSizeLimits.exit
 
 updateXdgSizeLimits.exit:                         ; preds = %30, %34, %38, %41, %44
-  %.125.i = phi i32 [ %46, %44 ], [ %.024.i, %41 ], [ %.024.i, %38 ], [ %.024.i, %34 ], [ %.024.i, %30 ]
-  %.1.i = phi i32 [ %48, %44 ], [ %.023.i, %41 ], [ %.023.i, %38 ], [ %.023.i, %34 ], [ %.023.i, %30 ]
-  %.022.i = phi i32 [ %46, %44 ], [ %42, %41 ], [ %32, %38 ], [ 0, %34 ], [ 0, %30 ]
-  %.0.i = phi i32 [ %48, %44 ], [ %43, %41 ], [ %36, %38 ], [ 0, %34 ], [ 0, %30 ]
+  %.125.i = phi i32 [ %.024.i, %41 ], [ %.024.i, %38 ], [ %46, %44 ], [ %.024.i, %34 ], [ %.024.i, %30 ]
+  %.1.i = phi i32 [ %.023.i, %41 ], [ %.023.i, %38 ], [ %48, %44 ], [ %.023.i, %34 ], [ %.023.i, %30 ]
+  %.022.i = phi i32 [ %42, %41 ], [ %32, %38 ], [ %46, %44 ], [ 0, %34 ], [ 0, %30 ]
+  %.0.i = phi i32 [ %43, %41 ], [ %36, %38 ], [ %48, %44 ], [ 0, %34 ], [ 0, %30 ]
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !136
   %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !93
   %51 = tail call i32 %50(ptr noundef nonnull %12) #20
@@ -4180,8 +4180,8 @@ createTmpfileCloexec.exit.i:                      ; preds = %16
   store i32 %25, ptr %28, align 4, !tbaa !147
   br label %29
 
-29:                                               ; preds = %26, %createTmpfileCloexec.exit.thread.i, %14
-  %.pre-phi = phi ptr [ %28, %26 ], [ %.pre, %createTmpfileCloexec.exit.thread.i ], [ %15, %14 ]
+29:                                               ; preds = %26, %14, %createTmpfileCloexec.exit.thread.i
+  %.pre-phi = phi ptr [ %28, %26 ], [ %15, %14 ], [ %.pre, %createTmpfileCloexec.exit.thread.i ]
   %30 = load i32, ptr %.pre-phi, align 4, !tbaa !147
   %31 = tail call ptr @strerror(i32 noundef %30) #20
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65544, ptr noundef nonnull @.str.69, i32 noundef %6, ptr noundef %31) #20
@@ -4362,7 +4362,7 @@ switch.lookup25:                                  ; preds = %17
   br label %33
 
 33:                                               ; preds = %15, %27, %30, %25, %24, %19
-  %.014 = phi i32 [ 0, %24 ], [ 0, %19 ], [ 1, %25 ], [ 1, %30 ], [ 1, %27 ], [ 1, %15 ]
+  %.014 = phi i32 [ 0, %19 ], [ 0, %24 ], [ 1, %25 ], [ 1, %30 ], [ 1, %27 ], [ 1, %15 ]
   ret i32 %.014
 }
 
@@ -4599,7 +4599,7 @@ define hidden ptr @_glfwGetClipboardStringWayland() local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %3, %6, %2
-  %.0 = phi ptr [ null, %2 ], [ %8, %6 ], [ %5, %3 ]
+  %.0 = phi ptr [ %8, %6 ], [ null, %2 ], [ %5, %3 ]
   ret ptr %.0
 }
 
@@ -4688,8 +4688,8 @@ define internal fastcc ptr @readDataOfferAsString(ptr noundef %0, ptr noundef %1
   store i8 0, ptr %29, align 1, !tbaa !314
   br label %.thread41
 
-.thread41:                                        ; preds = %35, %.thread, %41, %6
-  %.0 = phi ptr [ null, %6 ], [ %.125, %41 ], [ null, %.thread ], [ null, %35 ]
+.thread41:                                        ; preds = %.thread, %35, %41, %6
+  %.0 = phi ptr [ null, %6 ], [ %.125, %41 ], [ null, %35 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -5177,7 +5177,7 @@ define internal void @pointerHandleMotion(ptr readnone captures(none) %0, ptr re
   br label %64
 
 64:                                               ; preds = %59, %57, %51, %45, %40, %38, %53, %29
-  %.054 = phi ptr [ @.str.42, %40 ], [ @.str.22, %38 ], [ %.str.43..str.44, %45 ], [ @.str.22, %29 ], [ %.str.45..str.46, %51 ], [ @.str.22, %53 ], [ @.str.47, %57 ], [ %.str.48..str.49, %59 ]
+  %.054 = phi ptr [ @.str.42, %40 ], [ @.str.22, %38 ], [ @.str.22, %53 ], [ @.str.22, %29 ], [ %.str.43..str.44, %45 ], [ %.str.45..str.46, %51 ], [ @.str.47, %57 ], [ %.str.48..str.49, %59 ]
   %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134120), align 8, !tbaa !359
   %.not67 = icmp eq ptr %65, %.054
   br i1 %.not67, label %.critedge, label %66
@@ -5356,7 +5356,7 @@ define internal void @pointerHandleButton(ptr readnone captures(none) %0, ptr re
   br label %68
 
 68:                                               ; preds = %27, %43, %51, %59, %63
-  %.0 = phi i32 [ 6, %59 ], [ %.43, %63 ], [ %., %43 ], [ 1, %27 ], [ %.42, %51 ]
+  %.0 = phi i32 [ 1, %27 ], [ %., %43 ], [ %.42, %51 ], [ 6, %59 ], [ %.43, %63 ]
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 960
   %70 = load ptr, ptr %69, align 8, !tbaa !235
   %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133928), align 8, !tbaa !252
@@ -5386,7 +5386,7 @@ define internal void @pointerHandleButton(ptr readnone captures(none) %0, ptr re
   %90 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %87(ptr noundef nonnull %78, i32 noundef 4, ptr noundef null, i32 noundef %89, i32 noundef 0, ptr noundef %80, i32 noundef %2, i32 noundef %83, i32 noundef %86) #20
   br label %.critedge
 
-.critedge:                                        ; preds = %17, %79, %76, %55, %31, %68, %20, %6, %12
+.critedge:                                        ; preds = %17, %79, %76, %31, %55, %68, %20, %6, %12
   ret void
 }
 
@@ -5854,7 +5854,7 @@ define internal fastcc void @inputText(ptr noundef %0, i32 noundef %1) unnamed_a
   br label %composeSymbol.exit
 
 composeSymbol.exit:                               ; preds = %9, %15, %18, %18, %22, %26
-  %.0.i = phi i32 [ %11, %9 ], [ %11, %26 ], [ %25, %22 ], [ %11, %15 ], [ 0, %18 ], [ 0, %18 ]
+  %.0.i = phi i32 [ %11, %26 ], [ %25, %22 ], [ %11, %9 ], [ %11, %15 ], [ 0, %18 ], [ 0, %18 ]
   %27 = call i32 @_glfwKeySym2Unicode(i32 noundef %.0.i) #20
   %.not = icmp eq i32 %27, -1
   br i1 %.not, label %32, label %28
@@ -6091,8 +6091,8 @@ define internal void @xdgSurfaceHandleConfigure(ptr noundef %0, ptr noundef %1, 
   br label %64
 
 64:                                               ; preds = %56, %61, %59, %42, %45, %34
-  %.049 = phi i32 [ %41, %34 ], [ %41, %42 ], [ %41, %45 ], [ %58, %56 ], [ %41, %61 ], [ %41, %59 ]
-  %.0 = phi i32 [ %39, %34 ], [ %39, %42 ], [ %39, %45 ], [ %39, %56 ], [ %63, %61 ], [ %39, %59 ]
+  %.049 = phi i32 [ %41, %34 ], [ %41, %45 ], [ %41, %42 ], [ %58, %56 ], [ %41, %61 ], [ %41, %59 ]
+  %.0 = phi i32 [ %39, %34 ], [ %39, %45 ], [ %39, %42 ], [ %39, %56 ], [ %63, %61 ], [ %39, %59 ]
   %65 = tail call fastcc i32 @resizeWindow(ptr noundef nonnull %0, i32 noundef %.0, i32 noundef %.049)
   %.not66 = icmp eq i32 %65, 0
   br i1 %.not66, label %73, label %66

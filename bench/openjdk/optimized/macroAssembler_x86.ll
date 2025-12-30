@@ -3645,7 +3645,7 @@ switch.lookup:                                    ; preds = %72
   br label %77
 
 77:                                               ; preds = %72, %switch.lookup
-  %.0 = phi i32 [ 5, %72 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 5, %72 ]
   %78 = load i32, ptr @_ZN9VMRegImpl14slots_per_wordE, align 4
   %79 = mul nsw i32 %78, %.0
   %80 = add nsw i32 %79, %2
@@ -13852,7 +13852,7 @@ define hidden void @_ZN14MacroAssembler9vblendvpsE11XMMRegisterS0_S0_S0_ibS0_(pt
   br label %16
 
 16:                                               ; preds = %14, %8
-  %17 = phi i1 [ %spec.select, %14 ], [ false, %8 ]
+  %17 = phi i1 [ false, %8 ], [ %spec.select, %14 ]
   %.not87 = icmp eq i32 %1, %4
   br i1 %.not87, label %.thread, label %18
 
@@ -13928,7 +13928,7 @@ define hidden void @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_(pt
   br label %15
 
 15:                                               ; preds = %14, %8
-  %16 = phi i1 [ %spec.select, %14 ], [ false, %8 ]
+  %16 = phi i1 [ false, %8 ], [ %spec.select, %14 ]
   %.not100 = icmp eq i32 %1, %4
   br i1 %.not100, label %.thread, label %17
 
@@ -16696,7 +16696,7 @@ define hidden void @_ZN14MacroAssembler35pop_call_clobbered_registers_exceptE14A
   br label %.thread
 
 .thread:                                          ; preds = %3, %35, %38
-  %44 = phi i32 [ %43, %38 ], [ %34, %3 ], [ %34, %35 ]
+  %44 = phi i32 [ %43, %38 ], [ %34, %35 ], [ %34, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %45 = icmp eq i64 %17, 0
   br i1 %45, label %_ZN14MacroAssembler7pop_setE14AbstractRegSetI8RegisterEi.exit, label %_ZN21ReverseRegSetIteratorI8RegisterEdeEv.exit.lr.ph.i
@@ -20860,7 +20860,7 @@ thread-pre-split:                                 ; preds = %45
   br label %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit
 
 _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit: ; preds = %59, %58, %52, %51, %60
-  %61 = phi i1 [ true, %52 ], [ false, %60 ], [ true, %51 ], [ false, %58 ], [ false, %59 ]
+  %61 = phi i1 [ false, %60 ], [ true, %51 ], [ true, %52 ], [ false, %58 ], [ false, %59 ]
   call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %15, i1 noundef zeroext true) #19
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %16) #19
   %62 = load i64, ptr @MaxVectorSize, align 8

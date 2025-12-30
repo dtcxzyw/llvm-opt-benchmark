@@ -1412,7 +1412,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %704, %.critedge.cri
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %._crit_edge721, %._crit_edge687, %._crit_edge, %_ZNK4ncnn3Mat5emptyEv.exit443, %_ZNK4ncnn3Mat5emptyEv.exit440, %648, %684, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit448, %_ZNK4ncnn3Mat5emptyEv.exit, %.critedge436, %.critedge434, %.critedge431, %.critedge426
-  %.2 = phi i32 [ -100, %.critedge426 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit440 ], [ -100, %.critedge431 ], [ -100, %.critedge434 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit448 ], [ -100, %._crit_edge721 ], [ -100, %.critedge436 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit443 ], [ 0, %684 ], [ 0, %648 ], [ -100, %._crit_edge ], [ -100, %._crit_edge687 ], [ 0, %.thread ]
+  %.2 = phi i32 [ -100, %.critedge426 ], [ -100, %.critedge431 ], [ -100, %.critedge434 ], [ -100, %.critedge436 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit448 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ 0, %684 ], [ 0, %648 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit440 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit443 ], [ -100, %._crit_edge ], [ -100, %._crit_edge687 ], [ -100, %._crit_edge721 ], [ 0, %.thread ]
   ret i32 %.2
 
 719:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit458, %_ZN4ncnn3MatD2Ev.exit450
@@ -1822,9 +1822,9 @@ define internal void @_ZNK4ncnn10Concat_x867forwardERKSt6vectorINS_3MatESaIS2_EE
   br label %._crit_edge96
 
 ._crit_edge96:                                    ; preds = %.preheader87.lr.ph, %._crit_edge96.loopexit, %.noexc42
-  %44 = phi i32 [ %28, %.noexc42 ], [ %.pre113, %._crit_edge96.loopexit ], [ %28, %.preheader87.lr.ph ]
-  %45 = phi i32 [ %29, %.noexc42 ], [ %51, %._crit_edge96.loopexit ], [ %29, %.preheader87.lr.ph ]
-  %46 = phi i32 [ %30, %.noexc42 ], [ %51, %._crit_edge96.loopexit ], [ %30, %.preheader87.lr.ph ]
+  %44 = phi i32 [ %.pre113, %._crit_edge96.loopexit ], [ %28, %.noexc42 ], [ %28, %.preheader87.lr.ph ]
+  %45 = phi i32 [ %51, %._crit_edge96.loopexit ], [ %29, %.noexc42 ], [ %29, %.preheader87.lr.ph ]
+  %46 = phi i32 [ %51, %._crit_edge96.loopexit ], [ %30, %.noexc42 ], [ %30, %.preheader87.lr.ph ]
   %indvars.iv.next108 = add nsw i64 %indvars.iv107, 1
   %47 = sext i32 %44 to i64
   %.not.not = icmp slt i64 %indvars.iv107, %47

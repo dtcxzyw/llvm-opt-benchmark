@@ -641,7 +641,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %19
   br label %.body101
 
 .body101:                                         ; preds = %.body109.thread, %.body109, %211, %_ZNSt6vectorIPN4LIEF7SectionESaIS2_EED2Ev.exit4.i98
-  %.pn62.pn.pn = phi { ptr, i32 } [ %157, %_ZNSt6vectorIPN4LIEF7SectionESaIS2_EED2Ev.exit4.i98 ], [ %212, %211 ], [ %.us-phi, %.body109 ], [ %.pn62.pn399, %.body109.thread ]
+  %.pn62.pn.pn = phi { ptr, i32 } [ %212, %211 ], [ %157, %_ZNSt6vectorIPN4LIEF7SectionESaIS2_EED2Ev.exit4.i98 ], [ %.us-phi, %.body109 ], [ %.pn62.pn399, %.body109.thread ]
   %.not.i.i.i.i130 = icmp eq ptr %.sroa.0362.0, null
   br i1 %.not.i.i.i.i130, label %.body, label %232
 
@@ -939,7 +939,7 @@ _ZN4LIEF12ref_iteratorIKSt6vectorIPNS_6SymbolESaIS3_EES3_N9__gnu_cxx17__normal_i
   br label %.body153
 
 .body153:                                         ; preds = %.body161.thread, %.body161, %314, %_ZNSt6vectorIPN4LIEF6SymbolESaIS2_EED2Ev.exit4.i148
-  %.pn57.pn.pn = phi { ptr, i32 } [ %273, %_ZNSt6vectorIPN4LIEF6SymbolESaIS2_EED2Ev.exit4.i148 ], [ %315, %314 ], [ %.us-phi454, %.body161 ], [ %.pn57.pn417, %.body161.thread ]
+  %.pn57.pn.pn = phi { ptr, i32 } [ %315, %314 ], [ %273, %_ZNSt6vectorIPN4LIEF6SymbolESaIS2_EED2Ev.exit4.i148 ], [ %.us-phi454, %.body161 ], [ %.pn57.pn417, %.body161.thread ]
   %.not.i.i.i.i181 = icmp eq ptr %.sroa.0336.0, null
   br i1 %.not.i.i.i.i181, label %.body, label %335
 
@@ -1588,7 +1588,7 @@ _ZNSt10unique_ptrIKN4LIEF6BinaryESt14default_deleteIS2_EED2Ev.exit: ; preds = %_
   br label %.body260
 
 .body260:                                         ; preds = %.body268.thread, %.body268, %547, %_ZNSt6vectorIPN4LIEF10RelocationESaIS2_EED2Ev.exit4.i255
-  %.pn46.pn.pn = phi { ptr, i32 } [ %504, %_ZNSt6vectorIPN4LIEF10RelocationESaIS2_EED2Ev.exit4.i255 ], [ %548, %547 ], [ %.us-phi475, %.body268 ], [ %.pn46.pn435, %.body268.thread ]
+  %.pn46.pn.pn = phi { ptr, i32 } [ %548, %547 ], [ %504, %_ZNSt6vectorIPN4LIEF10RelocationESaIS2_EED2Ev.exit4.i255 ], [ %.us-phi475, %.body268 ], [ %.pn46.pn435, %.body268.thread ]
   %.not.i.i.i.i287 = icmp eq ptr %.sroa.0301.0, null
   br i1 %.not.i.i.i.i287, label %.body, label %568
 
@@ -1597,12 +1597,12 @@ _ZNSt10unique_ptrIKN4LIEF6BinaryESt14default_deleteIS2_EED2Ev.exit: ; preds = %_
   br label %.body
 
 .body:                                            ; preds = %568, %.body260, %335, %.body153, %232, %.body101, %462, %418, %376, %202
-  %.pn62.pn.pn.pn.pn = phi { ptr, i32 } [ %419, %418 ], [ %.pn57.pn.pn, %335 ], [ %.pn62.pn.pn, %232 ], [ %463, %462 ], [ %.pn46.pn.pn, %.body260 ], [ %.pn46.pn.pn, %568 ], [ %203, %202 ], [ %.pn57.pn.pn, %.body153 ], [ %.pn62.pn.pn, %.body101 ], [ %377, %376 ]
+  %.pn62.pn.pn.pn.pn = phi { ptr, i32 } [ %203, %202 ], [ %377, %376 ], [ %419, %418 ], [ %463, %462 ], [ %.pn62.pn.pn, %.body101 ], [ %.pn62.pn.pn, %232 ], [ %.pn57.pn.pn, %.body153 ], [ %.pn57.pn.pn, %335 ], [ %.pn46.pn.pn, %.body260 ], [ %.pn46.pn.pn, %568 ]
   %.not.i289 = icmp eq ptr %85, null
   br i1 %.not.i289, label %_ZNSt10unique_ptrIKN4LIEF6BinaryESt14default_deleteIS2_EED2Ev.exit291, label %_ZNKSt14default_deleteIKN4LIEF6BinaryEEclEPS2_.exit.i290
 
 _ZNKSt14default_deleteIKN4LIEF6BinaryEEclEPS2_.exit.i290: ; preds = %208, %360, %402, %444, %146, %149, %209, %262, %265, %312, %493, %496, %545, %.body
-  %.pn62.pn.pn.pn.pn439 = phi { ptr, i32 } [ %.pn62.pn.pn.pn.pn, %.body ], [ %494, %496 ], [ %546, %545 ], [ %263, %265 ], [ %313, %312 ], [ %147, %149 ], [ %210, %209 ], [ %494, %493 ], [ %263, %262 ], [ %147, %146 ], [ %445, %444 ], [ %403, %402 ], [ %361, %360 ], [ %.pn44, %208 ]
+  %.pn62.pn.pn.pn.pn439 = phi { ptr, i32 } [ %.pn62.pn.pn.pn.pn, %.body ], [ %494, %493 ], [ %494, %496 ], [ %546, %545 ], [ %263, %262 ], [ %263, %265 ], [ %313, %312 ], [ %147, %146 ], [ %147, %149 ], [ %210, %209 ], [ %445, %444 ], [ %403, %402 ], [ %361, %360 ], [ %.pn44, %208 ]
   %569 = load ptr, ptr %85, align 8, !tbaa !7
   %570 = getelementptr inbounds nuw i8, ptr %569, i64 24
   %571 = load ptr, ptr %570, align 8

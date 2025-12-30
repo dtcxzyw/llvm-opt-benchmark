@@ -163,7 +163,7 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef %0, ptr n
   br label %.loopexit44
 
 .loopexit44:                                      ; preds = %28, %.lr.ph.split.us, %.loopexit, %38
-  %.036 = phi i32 [ 0, %.loopexit ], [ %36, %38 ], [ -1, %.lr.ph.split.us ], [ %29, %28 ]
+  %.036 = phi i32 [ %36, %38 ], [ 0, %.loopexit ], [ -1, %.lr.ph.split.us ], [ %29, %28 ]
   ret i32 %.036
 }
 

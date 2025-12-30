@@ -248,7 +248,7 @@ define hidden range(i32 1, -2147483648) i32 @SDL_GetDefaultSampleFramesFromFreq(
   br label %12
 
 12:                                               ; preds = %10, %8, %6, %3
-  %.1 = phi i32 [ %4, %3 ], [ 512, %6 ], [ %., %10 ], [ 1024, %8 ]
+  %.1 = phi i32 [ %4, %3 ], [ 512, %6 ], [ 1024, %8 ], [ %., %10 ]
   ret i32 %.1
 }
 
@@ -405,7 +405,7 @@ define hidden noundef zeroext i1 @SDL_AudioSpecsEqual(ptr noundef readonly captu
   br label %26
 
 26:                                               ; preds = %21, %4, %7, %12, %17, %25
-  %.0 = phi i1 [ true, %25 ], [ false, %4 ], [ false, %17 ], [ false, %12 ], [ false, %7 ], [ false, %21 ]
+  %.0 = phi i1 [ true, %25 ], [ false, %17 ], [ false, %12 ], [ false, %7 ], [ false, %4 ], [ false, %21 ]
   ret i1 %.0
 }
 
@@ -731,7 +731,7 @@ ObtainPhysicalAudioDeviceObj.exit:                ; preds = %1
   br label %45
 
 45:                                               ; preds = %.lr.ph.split, %40
-  %.3 = phi ptr [ %.147, %.lr.ph.split ], [ %39, %40 ]
+  %.3 = phi ptr [ %39, %40 ], [ %.147, %.lr.ph.split ]
   %46 = getelementptr inbounds nuw i8, ptr %.03748, i64 80
   %.037 = load ptr, ptr %46, align 8
   %.not41 = icmp eq ptr %.037, null
@@ -749,7 +749,7 @@ ObtainPhysicalAudioDeviceObj.exit:                ; preds = %1
   br label %52
 
 52:                                               ; preds = %._crit_edge, %47
-  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %38, %47 ]
+  %.0 = phi ptr [ %38, %47 ], [ %.1.lcssa, %._crit_edge ]
   tail call fastcc void @ReleaseAudioDevice(ptr noundef nonnull %0)
   %53 = load ptr, ptr %3, align 8
   %.not43 = icmp eq ptr %53, null
@@ -996,7 +996,7 @@ select.unfold.preheader:                          ; preds = %18, %select.unfold
   br label %32
 
 32:                                               ; preds = %29, %26
-  %.155 = phi ptr [ %spec.select, %29 ], [ @.str.5, %26 ]
+  %.155 = phi ptr [ @.str.5, %26 ], [ %spec.select, %29 ]
   br label %33
 
 33:                                               ; preds = %32, %50
@@ -1818,7 +1818,7 @@ SDL_AudioChannelMapsEqual.exit151.thread:         ; preds = %143, %144, %134, %S
   br label %SDL_AudioChannelMapsEqual.exit.thread
 
 SDL_AudioChannelMapsEqual.exit.thread:            ; preds = %78, %79, %67, %183, %SDL_AudioChannelMapsEqual.exit, %66, %.thread155
-  %.2 = phi i1 [ %.3.lcssa, %183 ], [ false, %SDL_AudioChannelMapsEqual.exit ], [ true, %.thread155 ], [ false, %66 ], [ false, %67 ], [ false, %79 ], [ false, %78 ]
+  %.2 = phi i1 [ %.3.lcssa, %183 ], [ false, %SDL_AudioChannelMapsEqual.exit ], [ false, %66 ], [ true, %.thread155 ], [ false, %67 ], [ false, %79 ], [ false, %78 ]
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %185 = load ptr, ptr %184, align 8
   %186 = load i32, ptr %2, align 4
@@ -2482,7 +2482,7 @@ define internal fastcc ptr @ObtainPhysicalAudioDeviceDefaultAllowed(i32 noundef 
   br i1 %33, label %._crit_edge, label %.lr.ph.split.split
 
 .thread30:                                        ; preds = %24, %.lr.ph.split.split, %.lr.ph.split.us.split, %10, %._crit_edge, %20
-  %.018 = phi ptr [ %21, %20 ], [ null, %._crit_edge ], [ null, %.lr.ph.split.us.split ], [ %9, %10 ], [ %23, %24 ], [ null, %.lr.ph.split.split ]
+  %.018 = phi ptr [ %21, %20 ], [ null, %._crit_edge ], [ %9, %10 ], [ null, %.lr.ph.split.us.split ], [ %23, %24 ], [ null, %.lr.ph.split.split ]
   ret ptr %.018
 }
 
@@ -3223,7 +3223,7 @@ SerializePhysicalDeviceClose.exit:                ; preds = %7, %2
   br label %PrepareAudioFormat.exit
 
 PrepareAudioFormat.exit:                          ; preds = %51, %53, %56, %59, %62, %65, %68, %71, %74, %77, %80, %83, %49
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %49 ], [ 32784, %51 ], [ %spec.select.i, %83 ], [ 37152, %80 ], [ 33056, %77 ], [ 32800, %74 ], [ 36896, %71 ], [ 32800, %68 ], [ 32784, %65 ], [ 36880, %62 ], [ 32784, %59 ], [ 32776, %56 ], [ 8, %53 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %49 ], [ 32784, %51 ], [ 37152, %80 ], [ 33056, %77 ], [ 32800, %74 ], [ 36896, %71 ], [ 32800, %68 ], [ 32784, %65 ], [ 36880, %62 ], [ 32784, %59 ], [ 32776, %56 ], [ 8, %53 ], [ %spec.select.i, %83 ]
   %86 = load i32, ptr %30, align 8
   %87 = and i32 %86, 255
   %88 = and i32 %.sroa.0.0, 255
@@ -3264,7 +3264,7 @@ PrepareAudioFormat.exit:                          ; preds = %51, %53, %56, %59, 
   br label %SDL_GetDefaultSampleFramesFromFreq.exit
 
 SDL_GetDefaultSampleFramesFromFreq.exit:          ; preds = %99, %102, %104, %106
-  %.1.i = phi i32 [ %100, %99 ], [ 512, %102 ], [ %..i, %106 ], [ 1024, %104 ]
+  %.1.i = phi i32 [ %100, %99 ], [ 512, %102 ], [ 1024, %104 ], [ %..i, %106 ]
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %.1.i, ptr %108, align 4
   %109 = load i32, ptr %89, align 8
@@ -3374,7 +3374,7 @@ SDL_GetDefaultSampleFramesFromFreq.exit:          ; preds = %99, %102, %104, %10
   br label %169
 
 169:                                              ; preds = %124, %142, %151, %.thread, %168, %152, %14, %SerializePhysicalDeviceClose.exit
-  %.045 = phi i1 [ true, %14 ], [ true, %SerializePhysicalDeviceClose.exit ], [ false, %124 ], [ %167, %.thread ], [ false, %151 ], [ false, %142 ], [ true, %168 ], [ true, %152 ]
+  %.045 = phi i1 [ true, %SerializePhysicalDeviceClose.exit ], [ true, %14 ], [ false, %151 ], [ false, %142 ], [ false, %124 ], [ %167, %.thread ], [ true, %168 ], [ true, %152 ]
   ret i1 %.045
 }
 
@@ -3465,7 +3465,7 @@ define internal fastcc void @UpdateAudioStreamFormatsPhysical(ptr noundef captur
   br label %34
 
 34:                                               ; preds = %29, %.lr.ph48.split.us
-  %.sroa.0.3.us = phi i32 [ %33, %29 ], [ 33056, %.lr.ph48.split.us ]
+  %.sroa.0.3.us = phi i32 [ 33056, %.lr.ph48.split.us ], [ %33, %29 ]
   %35 = getelementptr inbounds nuw i8, ptr %.046.us, i64 24
   %.03340.us = load ptr, ptr %35, align 8
   %.not3741.us = icmp eq ptr %.03340.us, null
@@ -3902,14 +3902,14 @@ define hidden zeroext i1 @SDL_BindAudioStreams_REAL(i32 noundef %0, ptr noundef 
   br i1 %exitcond107.not, label %.thread67, label %49, !llvm.loop !24
 
 .thread67:                                        ; preds = %61, %._crit_edge, %47, %17, %23
-  %.05169 = phi i1 [ false, %23 ], [ false, %._crit_edge ], [ false, %17 ], [ false, %47 ], [ true, %61 ]
+  %.05169 = phi i1 [ false, %23 ], [ false, %17 ], [ false, %47 ], [ false, %._crit_edge ], [ true, %61 ]
   %62 = load ptr, ptr %4, align 8
   tail call fastcc void @UpdateAudioStreamFormatsPhysical(ptr noundef %62)
   tail call fastcc void @ReleaseAudioDevice(ptr noundef %62)
   br label %63
 
 63:                                               ; preds = %3, %.thread67, %15, %12, %9
-  %.0 = phi i1 [ %13, %12 ], [ %10, %9 ], [ %.05169, %.thread67 ], [ %16, %15 ], [ true, %3 ]
+  %.0 = phi i1 [ %10, %9 ], [ %.05169, %.thread67 ], [ %16, %15 ], [ %13, %12 ], [ true, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -4466,7 +4466,7 @@ define hidden noundef nonnull ptr @SDL_GetAudioFormatName_REAL(i32 noundef %0) l
   br label %10
 
 10:                                               ; preds = %1, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.34, %9 ], [ @.str.33, %8 ], [ @.str.27, %2 ], [ @.str.28, %3 ], [ @.str.29, %4 ], [ @.str.30, %5 ], [ @.str.31, %6 ], [ @.str.32, %7 ], [ @.str.26, %1 ]
+  %.0 = phi ptr [ @.str.34, %9 ], [ @.str.27, %2 ], [ @.str.28, %3 ], [ @.str.29, %4 ], [ @.str.30, %5 ], [ @.str.31, %6 ], [ @.str.32, %7 ], [ @.str.33, %8 ], [ @.str.26, %1 ]
   ret ptr %.0
 }
 
@@ -4624,7 +4624,7 @@ ObtainPhysicalAudioDeviceObj.exit:                ; preds = %18, %17
   br label %SDL_AudioSpecsEqual.exit
 
 SDL_AudioSpecsEqual.exit:                         ; preds = %62, %52, %57
-  %.0.i = phi i1 [ %.not16.i, %62 ], [ false, %52 ], [ false, %57 ]
+  %.0.i = phi i1 [ false, %57 ], [ false, %52 ], [ %.not16.i, %62 ]
   %67 = load ptr, ptr %28, align 8
   %.not97140 = icmp eq ptr %67, null
   br i1 %.not97140, label %._crit_edge144, label %.lr.ph143
@@ -4950,7 +4950,7 @@ SDL_AudioSpecsEqual.exit:                         ; preds = %15
   %22 = icmp eq i32 %2, %21
   br i1 %22, label %86, label %SDL_AudioSpecsEqual.exit.thread
 
-SDL_AudioSpecsEqual.exit.thread:                  ; preds = %15, %10, %3, %SDL_AudioSpecsEqual.exit
+SDL_AudioSpecsEqual.exit.thread:                  ; preds = %3, %10, %15, %SDL_AudioSpecsEqual.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   tail call fastcc void @UpdateAudioStreamFormatsPhysical(ptr noundef nonnull %0)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -5004,7 +5004,7 @@ SDL_AudioSpecsEqual.exit.thread:                  ; preds = %15, %10, %3, %SDL_A
   br label %52
 
 52:                                               ; preds = %47, %40
-  %.254 = phi i1 [ %spec.select, %47 ], [ %.not61, %40 ]
+  %.254 = phi i1 [ %.not61, %40 ], [ %spec.select, %47 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %54 = load ptr, ptr %53, align 8
   tail call void @SDL_aligned_free_REAL(ptr noundef %54) #14
@@ -5285,7 +5285,7 @@ define internal fastcc noundef ptr @CreatePhysicalAudioDevice(ptr noundef %0, i1
   br label %SDL_GetDefaultSampleFramesFromFreq.exit
 
 SDL_GetDefaultSampleFramesFromFreq.exit:          ; preds = %37, %40, %42, %44
-  %.1.i = phi i32 [ %38, %37 ], [ 512, %40 ], [ %..i, %44 ], [ 1024, %42 ]
+  %.1.i = phi i32 [ %38, %37 ], [ 512, %40 ], [ 1024, %42 ], [ %..i, %44 ]
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 132
   store i32 %.1.i, ptr %46, align 4
   %47 = load i32, ptr %32, align 8

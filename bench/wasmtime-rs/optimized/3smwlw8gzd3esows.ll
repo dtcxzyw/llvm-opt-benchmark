@@ -1377,11 +1377,11 @@ _ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308: ; p
   br label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337
 
 _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337: ; preds = %.lr.ph, %251, %250
-  %.sroa.5.0.i319 = phi i1 [ %268, %251 ], [ %247, %.lr.ph ], [ true, %250 ]
-  %.sroa.4.0.i320 = phi i1 [ %267, %251 ], [ %246, %.lr.ph ], [ %246, %250 ]
-  %.sroa.3.0.i321 = phi i1 [ %266, %251 ], [ %245, %.lr.ph ], [ %245, %250 ]
-  %.sroa.0.0.i322 = phi i8 [ %261, %251 ], [ 0, %.lr.ph ], [ 0, %250 ]
-  %.sroa.6.0.i323 = phi i1 [ %269, %251 ], [ %248, %.lr.ph ], [ %248, %250 ]
+  %.sroa.5.0.i319 = phi i1 [ true, %250 ], [ %268, %251 ], [ %247, %.lr.ph ]
+  %.sroa.4.0.i320 = phi i1 [ %246, %250 ], [ %267, %251 ], [ %246, %.lr.ph ]
+  %.sroa.3.0.i321 = phi i1 [ %245, %250 ], [ %266, %251 ], [ %245, %.lr.ph ]
+  %.sroa.0.0.i322 = phi i8 [ 0, %250 ], [ %261, %251 ], [ 0, %.lr.ph ]
+  %.sroa.6.0.i323 = phi i1 [ %248, %250 ], [ %269, %251 ], [ %248, %.lr.ph ]
   %270 = or i8 %244, %.sroa.0.0.i322
   %271 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce8b98510e597cc5E"(ptr nonnull align 8 %5)
   %272 = icmp eq ptr %271, null

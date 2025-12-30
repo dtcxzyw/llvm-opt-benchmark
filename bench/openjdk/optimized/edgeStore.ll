@@ -401,7 +401,7 @@ _ZN9EdgeStore3putE13UnifiedOopRef.exit:           ; preds = %.loopexit, %37
   br label %63
 
 63:                                               ; preds = %4, %_ZN9EdgeStore3putE13UnifiedOopRef.exit, %28
-  %.0 = phi i1 [ false, %_ZN9EdgeStore3putE13UnifiedOopRef.exit ], [ true, %28 ], [ false, %4 ]
+  %.0 = phi i1 [ true, %28 ], [ false, %_ZN9EdgeStore3putE13UnifiedOopRef.exit ], [ false, %4 ]
   ret i1 %.0
 }
 

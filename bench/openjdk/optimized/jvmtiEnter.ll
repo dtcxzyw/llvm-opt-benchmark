@@ -247,7 +247,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
   br label %56
 
 56:                                               ; preds = %4, %_ZN17HandleMarkCleanerD2Ev.exit, %54, %11, %15, %7
-  %.0 = phi i32 [ 112, %4 ], [ 116, %7 ], [ 115, %11 ], [ 115, %15 ], [ %34, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %55, %54 ]
+  %.0 = phi i32 [ 116, %7 ], [ 115, %15 ], [ 115, %11 ], [ %34, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %55, %54 ], [ 112, %4 ]
   ret i32 %.0
 }
 
@@ -323,7 +323,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %36
 
 36:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %34
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ], [ %35, %34 ]
+  %.1 = phi i32 [ %35, %34 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %38 = load ptr, ptr %37, align 8
@@ -361,7 +361,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %36, %42
   br label %56
 
 56:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -437,7 +437,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %36
 
 36:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %34
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ], [ %35, %34 ]
+  %.1 = phi i32 [ %35, %34 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %38 = load ptr, ptr %37, align 8
@@ -475,7 +475,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %36, %42
   br label %56
 
 56:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -552,7 +552,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %37
 
 37:                                               ; preds = %30, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %35
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %36, %35 ], [ 99, %30 ]
+  %.1 = phi i32 [ %36, %35 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %30 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %39 = load ptr, ptr %38, align 8
@@ -590,7 +590,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %37, %43
   br label %57
 
 57:                                               ; preds = %6, %10, %2, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %2 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %10 ], [ 115, %6 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ], [ 115, %10 ], [ 115, %6 ]
   ret i32 %.0
 }
 
@@ -667,7 +667,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %37
 
 37:                                               ; preds = %30, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %35
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %36, %35 ], [ 99, %30 ]
+  %.1 = phi i32 [ %36, %35 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %30 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %39 = load ptr, ptr %38, align 8
@@ -705,7 +705,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %37, %43
   br label %57
 
 57:                                               ; preds = %6, %10, %2, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %2 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %10 ], [ 115, %6 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ], [ 115, %10 ], [ 115, %6 ]
   ret i32 %.0
 }
 
@@ -782,7 +782,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %38
 
 38:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %36
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %37, %36 ], [ 99, %31 ]
+  %.1 = phi i32 [ %37, %36 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %40 = load ptr, ptr %39, align 8
@@ -820,7 +820,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %38, %44
   br label %58
 
 58:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -897,7 +897,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %37
 
 37:                                               ; preds = %30, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %35
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %36, %35 ], [ 99, %30 ]
+  %.1 = phi i32 [ %36, %35 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %30 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %39 = load ptr, ptr %38, align 8
@@ -935,7 +935,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %37, %43
   br label %57
 
 57:                                               ; preds = %6, %10, %2, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %2 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %10 ], [ 115, %6 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ], [ 115, %10 ], [ 115, %6 ]
   ret i32 %.0
 }
 
@@ -1009,7 +1009,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %35
 
 35:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %33
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %34, %33 ], [ 100, %31 ]
+  %.1 = phi i32 [ %34, %33 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %37 = load ptr, ptr %36, align 8
@@ -1047,7 +1047,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %35, %41
   br label %55
 
 55:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -1130,7 +1130,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %42
 
 42:                                               ; preds = %37, %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %40
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 100, %37 ], [ %41, %40 ]
+  %.1 = phi i32 [ %41, %40 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 100, %37 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %44 = load ptr, ptr %43, align 8
@@ -1168,7 +1168,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %42, %48
   br label %62
 
 62:                                               ; preds = %8, %12, %4, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %4 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
   ret i32 %.0
 }
 
@@ -1249,7 +1249,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %40
 
 40:                                               ; preds = %36, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %38
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ %39, %38 ], [ 100, %36 ]
+  %.1 = phi i32 [ %39, %38 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 100, %36 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %42 = load ptr, ptr %41, align 8
@@ -1287,7 +1287,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %40, %46
   br label %60
 
 60:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -1361,7 +1361,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %37
 
 37:                                               ; preds = %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %35
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %36, %35 ], [ 100, %33 ]
+  %.1 = phi i32 [ %36, %35 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %33 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %39 = load ptr, ptr %38, align 8
@@ -1399,7 +1399,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %37, %43
   br label %57
 
 57:                                               ; preds = %9, %13, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %5 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -1475,7 +1475,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %36
 
 36:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %34
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ], [ %35, %34 ]
+  %.1 = phi i32 [ %35, %34 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %38 = load ptr, ptr %37, align 8
@@ -1513,7 +1513,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %36, %42
   br label %56
 
 56:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -1587,7 +1587,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %35
 
 35:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %33
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %34, %33 ], [ 100, %31 ]
+  %.1 = phi i32 [ %34, %33 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %37 = load ptr, ptr %36, align 8
@@ -1625,7 +1625,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %35, %41
   br label %55
 
 55:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -1705,7 +1705,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %41
 
 41:                                               ; preds = %34, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %39
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %34 ], [ %40, %39 ]
+  %.1 = phi i32 [ %40, %39 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %34 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %43 = load ptr, ptr %42, align 8
@@ -1743,7 +1743,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %41, %47
   br label %61
 
 61:                                               ; preds = %10, %14, %6, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %6 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %14 ], [ 115, %10 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %6 ], [ 115, %14 ], [ 115, %10 ]
   ret i32 %.0
 }
 
@@ -1817,7 +1817,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %35
 
 35:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %33
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %34, %33 ], [ 100, %31 ]
+  %.1 = phi i32 [ %34, %33 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %37 = load ptr, ptr %36, align 8
@@ -1855,7 +1855,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %35, %41
   br label %55
 
 55:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -1929,7 +1929,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %35
 
 35:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %33
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %34, %33 ], [ 100, %31 ]
+  %.1 = phi i32 [ %34, %33 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %37 = load ptr, ptr %36, align 8
@@ -1967,7 +1967,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %35, %41
   br label %55
 
 55:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -2044,7 +2044,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %34
 
 34:                                               ; preds = %30, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %32
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %33, %32 ], [ 100, %30 ]
+  %.1 = phi i32 [ %33, %32 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %30 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %36 = load ptr, ptr %35, align 8
@@ -2082,7 +2082,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %34, %40
   br label %54
 
 54:                                               ; preds = %2, %6, %10, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ], [ 115, %10 ], [ 115, %6 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %10 ], [ 115, %6 ], [ 112, %2 ]
   ret i32 %.0
 }
 
@@ -2162,7 +2162,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %40
 
 40:                                               ; preds = %35, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %38
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 103, %33 ], [ 100, %35 ], [ %39, %38 ]
+  %.1 = phi i32 [ %39, %38 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 103, %33 ], [ 100, %35 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %42 = load ptr, ptr %41, align 8
@@ -2200,7 +2200,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %40, %46
   br label %60
 
 60:                                               ; preds = %9, %13, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %5 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -2281,7 +2281,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %40
 
 40:                                               ; preds = %36, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %38
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ %39, %38 ], [ 103, %36 ]
+  %.1 = phi i32 [ %39, %38 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 103, %36 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %42 = load ptr, ptr %41, align 8
@@ -2319,7 +2319,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %40, %46
   br label %60
 
 60:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -2404,7 +2404,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %44
 
 44:                                               ; preds = %40, %38, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %42
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 103, %38 ], [ %43, %42 ], [ 100, %40 ]
+  %.1 = phi i32 [ %43, %42 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 103, %38 ], [ 100, %40 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %46 = load ptr, ptr %45, align 8
@@ -2442,7 +2442,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %44, %50
   br label %64
 
 64:                                               ; preds = %9, %13, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %5 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -2527,7 +2527,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %44
 
 44:                                               ; preds = %40, %38, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %42
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 103, %38 ], [ %43, %42 ], [ 100, %40 ]
+  %.1 = phi i32 [ %43, %42 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 103, %38 ], [ 100, %40 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %46 = load ptr, ptr %45, align 8
@@ -2565,7 +2565,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %44, %50
   br label %64
 
 64:                                               ; preds = %9, %13, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %5 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -2650,7 +2650,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %44
 
 44:                                               ; preds = %40, %38, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %42
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 103, %38 ], [ %43, %42 ], [ 100, %40 ]
+  %.1 = phi i32 [ %43, %42 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 103, %38 ], [ 100, %40 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %46 = load ptr, ptr %45, align 8
@@ -2688,7 +2688,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %44, %50
   br label %64
 
 64:                                               ; preds = %9, %13, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %5 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -2773,7 +2773,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %44
 
 44:                                               ; preds = %40, %38, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %42
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 103, %38 ], [ %43, %42 ], [ 100, %40 ]
+  %.1 = phi i32 [ %43, %42 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 103, %38 ], [ 100, %40 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %46 = load ptr, ptr %45, align 8
@@ -2811,7 +2811,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %44, %50
   br label %64
 
 64:                                               ; preds = %9, %13, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %5 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -2896,7 +2896,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %44
 
 44:                                               ; preds = %40, %38, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %42
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 103, %38 ], [ %43, %42 ], [ 100, %40 ]
+  %.1 = phi i32 [ %43, %42 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 103, %38 ], [ 100, %40 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %46 = load ptr, ptr %45, align 8
@@ -2934,7 +2934,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %44, %50
   br label %64
 
 64:                                               ; preds = %9, %13, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %5 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -3015,7 +3015,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %42
 
 42:                                               ; preds = %38, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %40
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ %41, %40 ], [ 103, %38 ]
+  %.1 = phi i32 [ %41, %40 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 103, %38 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %44 = load ptr, ptr %43, align 8
@@ -3053,7 +3053,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %42, %48
   br label %62
 
 62:                                               ; preds = %9, %13, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %5 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -3134,7 +3134,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %42
 
 42:                                               ; preds = %38, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %40
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ %41, %40 ], [ 103, %38 ]
+  %.1 = phi i32 [ %41, %40 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 103, %38 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %44 = load ptr, ptr %43, align 8
@@ -3172,7 +3172,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %42, %48
   br label %62
 
 62:                                               ; preds = %9, %13, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %5 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -3253,7 +3253,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %42
 
 42:                                               ; preds = %38, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %40
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ %41, %40 ], [ 103, %38 ]
+  %.1 = phi i32 [ %41, %40 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 103, %38 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %44 = load ptr, ptr %43, align 8
@@ -3291,7 +3291,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %42, %48
   br label %62
 
 62:                                               ; preds = %9, %13, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %5 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -3372,7 +3372,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %42
 
 42:                                               ; preds = %38, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %40
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ %41, %40 ], [ 103, %38 ]
+  %.1 = phi i32 [ %41, %40 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 103, %38 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %44 = load ptr, ptr %43, align 8
@@ -3410,7 +3410,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %42, %48
   br label %62
 
 62:                                               ; preds = %9, %13, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %5 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -3491,7 +3491,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %42
 
 42:                                               ; preds = %38, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %40
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ %41, %40 ], [ 103, %38 ]
+  %.1 = phi i32 [ %41, %40 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 103, %38 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %44 = load ptr, ptr %43, align 8
@@ -3529,7 +3529,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %42, %48
   br label %62
 
 62:                                               ; preds = %9, %13, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %5 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -3664,7 +3664,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %41, %47
   br label %65
 
 65:                                               ; preds = %3, %_ZN17HandleMarkCleanerD2Ev.exit, %63, %.critedge, %18, %5
-  %.022 = phi i32 [ 112, %3 ], [ %64, %63 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 116, %5 ], [ 115, %18 ], [ 100, %.critedge ]
+  %.022 = phi i32 [ 116, %5 ], [ 115, %18 ], [ 100, %.critedge ], [ %64, %63 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ]
   ret i32 %.022
 }
 
@@ -3754,7 +3754,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %41
 
 41:                                               ; preds = %37, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %39
-  %spec.select = phi i32 [ 50, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %40, %39 ], [ 50, %37 ]
+  %spec.select = phi i32 [ %40, %39 ], [ 50, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 50, %37 ]
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -3803,7 +3803,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %41, %47
   br label %66
 
 66:                                               ; preds = %2, %_ZN17HandleMarkCleanerD2Ev.exit, %64, %62, %.critedge, %17, %4
-  %.0 = phi i32 [ 112, %2 ], [ 50, %62 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 116, %4 ], [ 115, %17 ], [ 50, %.critedge ], [ %65, %64 ]
+  %.0 = phi i32 [ 116, %4 ], [ 115, %17 ], [ 50, %.critedge ], [ 50, %62 ], [ %65, %64 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ]
   ret i32 %.0
 }
 
@@ -3858,7 +3858,7 @@ define internal noundef i32 @_ZL21jvmti_RawMonitorEnterP9_jvmtiEnvP14_jrawMonito
   br label %28
 
 28:                                               ; preds = %.sink.split, %25, %.critedge, %22, %20, %15, %2
-  %.0 = phi i32 [ 115, %15 ], [ 50, %25 ], [ 50, %20 ], [ 116, %2 ], [ 50, %22 ], [ 50, %.critedge ], [ %27, %.sink.split ]
+  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 50, %20 ], [ 50, %22 ], [ 50, %.critedge ], [ 50, %25 ], [ %27, %.sink.split ]
   ret i32 %.0
 }
 
@@ -3913,7 +3913,7 @@ define internal noundef i32 @_ZL20jvmti_RawMonitorExitP9_jvmtiEnvP14_jrawMonitor
   br label %28
 
 28:                                               ; preds = %.sink.split, %25, %.critedge, %22, %20, %15, %2
-  %.0 = phi i32 [ 115, %15 ], [ 50, %25 ], [ 50, %20 ], [ 116, %2 ], [ 50, %22 ], [ 50, %.critedge ], [ %27, %.sink.split ]
+  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 50, %20 ], [ 50, %22 ], [ 50, %.critedge ], [ 50, %25 ], [ %27, %.sink.split ]
   ret i32 %.0
 }
 
@@ -3968,7 +3968,7 @@ define internal noundef i32 @_ZL20jvmti_RawMonitorWaitP9_jvmtiEnvP14_jrawMonitor
   br label %29
 
 29:                                               ; preds = %.sink.split, %26, %.critedge, %23, %21, %16, %3
-  %.0 = phi i32 [ 115, %16 ], [ 50, %26 ], [ 50, %21 ], [ 116, %3 ], [ 50, %23 ], [ 50, %.critedge ], [ %28, %.sink.split ]
+  %.0 = phi i32 [ 116, %3 ], [ 115, %16 ], [ 50, %21 ], [ 50, %23 ], [ 50, %.critedge ], [ 50, %26 ], [ %28, %.sink.split ]
   ret i32 %.0
 }
 
@@ -4051,7 +4051,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %39
 
 39:                                               ; preds = %35, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %37
-  %spec.select = phi i32 [ 50, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %38, %37 ], [ 50, %35 ]
+  %spec.select = phi i32 [ %38, %37 ], [ 50, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 50, %35 ]
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -4100,7 +4100,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %39, %45
   br label %64
 
 64:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %62, %60, %.critedge, %15, %2
-  %.0 = phi i32 [ 50, %60 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 116, %2 ], [ 115, %15 ], [ 50, %.critedge ], [ %63, %62 ]
+  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 50, %.critedge ], [ 50, %60 ], [ %63, %62 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.0
 }
 
@@ -4183,7 +4183,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %39
 
 39:                                               ; preds = %35, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %37
-  %spec.select = phi i32 [ 50, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %38, %37 ], [ 50, %35 ]
+  %spec.select = phi i32 [ %38, %37 ], [ 50, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 50, %35 ]
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -4232,7 +4232,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %39, %45
   br label %64
 
 64:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %62, %60, %.critedge, %15, %2
-  %.0 = phi i32 [ 50, %60 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 116, %2 ], [ 115, %15 ], [ 50, %.critedge ], [ %63, %62 ]
+  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 50, %.critedge ], [ 50, %60 ], [ %63, %62 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.0
 }
 
@@ -4314,7 +4314,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %41
 
 41:                                               ; preds = %36, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %39
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ %40, %39 ], [ 23, %36 ]
+  %.1 = phi i32 [ %40, %39 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 23, %36 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %43 = load ptr, ptr %42, align 8
@@ -4352,7 +4352,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %41, %47
   br label %61
 
 61:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -4434,7 +4434,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %41
 
 41:                                               ; preds = %36, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %39
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ %40, %39 ], [ 23, %36 ]
+  %.1 = phi i32 [ %40, %39 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 23, %36 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %43 = load ptr, ptr %42, align 8
@@ -4472,7 +4472,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %41, %47
   br label %61
 
 61:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -4548,7 +4548,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %37
 
 37:                                               ; preds = %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %35
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %32 ], [ %36, %35 ]
+  %.1 = phi i32 [ %36, %35 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %32 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %39 = load ptr, ptr %38, align 8
@@ -4586,7 +4586,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %37, %43
   br label %57
 
 57:                                               ; preds = %8, %12, %4, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %4 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
   ret i32 %.0
 }
 
@@ -4756,7 +4756,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread27
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread27:          ; preds = %64, %69, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %38, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %93
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.2, %93 ], [ 21, %38 ], [ 21, %69 ], [ 21, %64 ]
+  %.1 = phi i32 [ %.2, %93 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 21, %38 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %69 ], [ 21, %64 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %95 = load ptr, ptr %94, align 8
@@ -4794,7 +4794,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %113
 
 113:                                              ; preds = %9, %13, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -4964,7 +4964,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread27
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread27:          ; preds = %64, %69, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %38, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %93
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.2, %93 ], [ 21, %38 ], [ 21, %69 ], [ 21, %64 ]
+  %.1 = phi i32 [ %.2, %93 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 21, %38 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %69 ], [ 21, %64 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %95 = load ptr, ptr %94, align 8
@@ -5002,7 +5002,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %113
 
 113:                                              ; preds = %9, %13, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -5172,7 +5172,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread27
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread27:          ; preds = %64, %69, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %38, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %93
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.2, %93 ], [ 21, %38 ], [ 21, %69 ], [ 21, %64 ]
+  %.1 = phi i32 [ %.2, %93 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 21, %38 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %69 ], [ 21, %64 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %95 = load ptr, ptr %94, align 8
@@ -5210,7 +5210,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %113
 
 113:                                              ; preds = %9, %13, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -5380,7 +5380,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread27
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread27:          ; preds = %64, %69, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %38, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %93
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.2, %93 ], [ 21, %38 ], [ 21, %69 ], [ 21, %64 ]
+  %.1 = phi i32 [ %.2, %93 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 21, %38 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %69 ], [ 21, %64 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %95 = load ptr, ptr %94, align 8
@@ -5418,7 +5418,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %113
 
 113:                                              ; preds = %9, %13, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -5541,7 +5541,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread25
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread25:          ; preds = %57, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %60
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %61, %60 ], [ 21, %31 ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %57 ]
+  %.1 = phi i32 [ %61, %60 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %31 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %57 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %63 = load ptr, ptr %62, align 8
@@ -5579,7 +5579,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %81
 
 81:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -5703,7 +5703,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %37, %43
   br label %60
 
 60:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %58, %.critedge, %16, %3
-  %.020 = phi i32 [ 100, %.critedge ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 116, %3 ], [ 115, %16 ], [ %59, %58 ]
+  %.020 = phi i32 [ 116, %3 ], [ 115, %16 ], [ 100, %.critedge ], [ %59, %58 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.020
 }
 
@@ -5815,7 +5815,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
   br label %55
 
 55:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %.critedge, %15, %2
-  %.0 = phi i32 [ 115, %15 ], [ 116, %2 ], [ %34, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %54, %.critedge ]
+  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ %34, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %54, %.critedge ]
   ret i32 %.0
 }
 
@@ -5934,7 +5934,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread24
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread24:          ; preds = %58, %_ZNK7oopDesc4is_aEP5Klass.exit, %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %_ZNK7oopDesc4is_aEP5Klass.exit.thread
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %60, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %32 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %58 ]
+  %.1 = phi i32 [ %60, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %32 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %58 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %62 = load ptr, ptr %61, align 8
@@ -5972,7 +5972,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %80
 
 80:                                               ; preds = %4, %8, %12, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ], [ 112, %4 ]
   ret i32 %.0
 }
 
@@ -6095,7 +6095,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread25
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread25:          ; preds = %57, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %60
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %61, %60 ], [ 21, %31 ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %57 ]
+  %.1 = phi i32 [ %61, %60 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %31 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %57 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %63 = load ptr, ptr %62, align 8
@@ -6133,7 +6133,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %81
 
 81:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -6263,7 +6263,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread26
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread26:          ; preds = %62, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %36, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %65
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %66, %65 ], [ 21, %36 ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %62 ]
+  %.1 = phi i32 [ %66, %65 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 21, %36 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %62 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %68 = load ptr, ptr %67, align 8
@@ -6301,7 +6301,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %86
 
 86:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -6424,7 +6424,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread25
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread25:          ; preds = %57, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %60
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %61, %60 ], [ 21, %31 ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %57 ]
+  %.1 = phi i32 [ %61, %60 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %31 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %57 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %63 = load ptr, ptr %62, align 8
@@ -6462,7 +6462,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %81
 
 81:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -6587,7 +6587,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread28
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread28:          ; preds = %58, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %62
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %63, %62 ], [ 21, %32 ], [ 21, %58 ]
+  %.1 = phi i32 [ %63, %62 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %32 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %58 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %65 = load ptr, ptr %64, align 8
@@ -6625,7 +6625,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %83
 
 83:                                               ; preds = %4, %8, %12, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ], [ 112, %4 ]
   ret i32 %.0
 }
 
@@ -6750,7 +6750,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread28
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread28:          ; preds = %58, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %62
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %63, %62 ], [ 21, %32 ], [ 21, %58 ]
+  %.1 = phi i32 [ %63, %62 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %32 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %58 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %65 = load ptr, ptr %64, align 8
@@ -6788,7 +6788,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %83
 
 83:                                               ; preds = %4, %8, %12, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ], [ 112, %4 ]
   ret i32 %.0
 }
 
@@ -6913,7 +6913,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread28
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread28:          ; preds = %58, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %62
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %63, %62 ], [ 21, %32 ], [ 21, %58 ]
+  %.1 = phi i32 [ %63, %62 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %32 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %58 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %65 = load ptr, ptr %64, align 8
@@ -6951,7 +6951,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %83
 
 83:                                               ; preds = %4, %8, %12, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ], [ 112, %4 ]
   ret i32 %.0
 }
 
@@ -7074,7 +7074,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread25
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread25:          ; preds = %57, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %60
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %61, %60 ], [ 21, %31 ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %57 ]
+  %.1 = phi i32 [ %61, %60 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %31 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %57 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %63 = load ptr, ptr %62, align 8
@@ -7112,7 +7112,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %81
 
 81:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -7235,7 +7235,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread25
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread25:          ; preds = %57, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %60
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %61, %60 ], [ 21, %31 ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %57 ]
+  %.1 = phi i32 [ %61, %60 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %31 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %57 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %63 = load ptr, ptr %62, align 8
@@ -7273,7 +7273,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %81
 
 81:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -7396,7 +7396,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread25
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread25:          ; preds = %57, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %60
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %61, %60 ], [ 21, %31 ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %57 ]
+  %.1 = phi i32 [ %61, %60 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %31 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %57 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %63 = load ptr, ptr %62, align 8
@@ -7434,7 +7434,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %81
 
 81:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -7511,7 +7511,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %35
 
 35:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %33
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %34, %33 ], [ 100, %31 ]
+  %.1 = phi i32 [ %34, %33 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %37 = load ptr, ptr %36, align 8
@@ -7549,7 +7549,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %35, %41
   br label %55
 
 55:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -7630,7 +7630,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %40
 
 40:                                               ; preds = %36, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %38
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ %39, %38 ], [ 100, %36 ]
+  %.1 = phi i32 [ %39, %38 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 100, %36 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %42 = load ptr, ptr %41, align 8
@@ -7668,7 +7668,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %40, %46
   br label %60
 
 60:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -7834,7 +7834,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread31
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread31:          ; preds = %62, %67, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %36, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %91
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.2, %91 ], [ 21, %36 ], [ 21, %67 ], [ 21, %62 ]
+  %.1 = phi i32 [ %.2, %91 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %36 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %67 ], [ 21, %62 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
   %92 = getelementptr inbounds nuw i8, ptr %14, i64 408
   %93 = load ptr, ptr %92, align 8
@@ -7872,7 +7872,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %111
 
 111:                                              ; preds = %6, %12, %16, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %6 ], [ 115, %16 ], [ 115, %12 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %16 ], [ 115, %12 ], [ 112, %6 ]
   ret i32 %.0
 }
 
@@ -8036,13 +8036,13 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %91
 
 91:                                               ; preds = %87, %69, %89
-  %.2 = phi i32 [ 25, %69 ], [ %90, %89 ], [ 100, %87 ]
+  %.2 = phi i32 [ %90, %89 ], [ 25, %69 ], [ 100, %87 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %85) #7
   call void @_ZN12ResourceMarkD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #7
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread31
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread31:          ; preds = %60, %65, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %34, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %91
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.2, %91 ], [ 21, %34 ], [ 21, %65 ], [ 21, %60 ]
+  %.1 = phi i32 [ %.2, %91 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %34 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %65 ], [ 21, %60 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %92 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %93 = load ptr, ptr %92, align 8
@@ -8080,7 +8080,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %111
 
 111:                                              ; preds = %4, %10, %14, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %14 ], [ 115, %10 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %14 ], [ 115, %10 ], [ 112, %4 ]
   ret i32 %.0
 }
 
@@ -8244,13 +8244,13 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %91
 
 91:                                               ; preds = %87, %69, %89
-  %.2 = phi i32 [ 25, %69 ], [ %90, %89 ], [ 100, %87 ]
+  %.2 = phi i32 [ %90, %89 ], [ 25, %69 ], [ 100, %87 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %85) #7
   call void @_ZN12ResourceMarkD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #7
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread31
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread31:          ; preds = %60, %65, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %34, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %91
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.2, %91 ], [ 21, %34 ], [ 21, %65 ], [ 21, %60 ]
+  %.1 = phi i32 [ %.2, %91 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %34 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %65 ], [ 21, %60 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %92 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %93 = load ptr, ptr %92, align 8
@@ -8288,7 +8288,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %111
 
 111:                                              ; preds = %4, %10, %14, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %14 ], [ 115, %10 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %14 ], [ 115, %10 ], [ 112, %4 ]
   ret i32 %.0
 }
 
@@ -8459,13 +8459,13 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %96
 
 96:                                               ; preds = %92, %74, %94
-  %.2 = phi i32 [ 25, %74 ], [ %95, %94 ], [ 100, %92 ]
+  %.2 = phi i32 [ %95, %94 ], [ 25, %74 ], [ 100, %92 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %90) #7
   call void @_ZN12ResourceMarkD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #7
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread32
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread32:          ; preds = %65, %70, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %39, %34, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %96
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %34 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.2, %96 ], [ 21, %39 ], [ 21, %70 ], [ 21, %65 ]
+  %.1 = phi i32 [ %.2, %96 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %34 ], [ 21, %39 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %70 ], [ 21, %65 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %97 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %98 = load ptr, ptr %97, align 8
@@ -8503,7 +8503,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %116
 
 116:                                              ; preds = %4, %10, %14, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %14 ], [ 115, %10 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %14 ], [ 115, %10 ], [ 112, %4 ]
   ret i32 %.0
 }
 
@@ -8581,7 +8581,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %38
 
 38:                                               ; preds = %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %36
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %37, %36 ], [ 23, %33 ]
+  %.1 = phi i32 [ %37, %36 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 23, %33 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %40 = load ptr, ptr %39, align 8
@@ -8619,7 +8619,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %38, %44
   br label %58
 
 58:                                               ; preds = %5, %9, %13, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ], [ 112, %5 ]
   ret i32 %.0
 }
 
@@ -8701,7 +8701,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %38
 
 38:                                               ; preds = %34, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %36
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 23, %31 ], [ %37, %36 ], [ 100, %34 ]
+  %.1 = phi i32 [ %37, %36 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 23, %31 ], [ 100, %34 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %40 = load ptr, ptr %39, align 8
@@ -8739,7 +8739,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %38, %44
   br label %58
 
 58:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -8821,7 +8821,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %38
 
 38:                                               ; preds = %34, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %36
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 23, %31 ], [ %37, %36 ], [ 100, %34 ]
+  %.1 = phi i32 [ %37, %36 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 23, %31 ], [ 100, %34 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %40 = load ptr, ptr %39, align 8
@@ -8859,7 +8859,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %38, %44
   br label %58
 
 58:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -8948,7 +8948,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %41
 
 41:                                               ; preds = %37, %34, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %39
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 23, %31 ], [ 104, %34 ], [ %40, %39 ], [ 100, %37 ]
+  %.1 = phi i32 [ %40, %39 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 23, %31 ], [ 104, %34 ], [ 100, %37 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %43 = load ptr, ptr %42, align 8
@@ -8986,7 +8986,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %41, %47
   br label %61
 
 61:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -9075,7 +9075,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %41
 
 41:                                               ; preds = %37, %34, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %39
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 23, %31 ], [ 104, %34 ], [ %40, %39 ], [ 100, %37 ]
+  %.1 = phi i32 [ %40, %39 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 23, %31 ], [ 104, %34 ], [ 100, %37 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %43 = load ptr, ptr %42, align 8
@@ -9113,7 +9113,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %41, %47
   br label %61
 
 61:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -9211,7 +9211,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %48
 
 48:                                               ; preds = %43, %40, %37, %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %46
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 23, %37 ], [ 104, %40 ], [ 100, %43 ], [ %47, %46 ]
+  %.1 = phi i32 [ %47, %46 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 23, %37 ], [ 104, %40 ], [ 100, %43 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %50 = load ptr, ptr %49, align 8
@@ -9249,7 +9249,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %48, %54
   br label %68
 
 68:                                               ; preds = %4, %8, %12, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ], [ 112, %4 ]
   ret i32 %.0
 }
 
@@ -9340,7 +9340,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %43
 
 43:                                               ; preds = %38, %35, %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %41
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 23, %32 ], [ 104, %35 ], [ 100, %38 ], [ %42, %41 ]
+  %.1 = phi i32 [ %42, %41 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 23, %32 ], [ 104, %35 ], [ 100, %38 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %45 = load ptr, ptr %44, align 8
@@ -9378,7 +9378,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %43, %49
   br label %63
 
 63:                                               ; preds = %4, %8, %12, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ], [ 112, %4 ]
   ret i32 %.0
 }
 
@@ -9473,7 +9473,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %48
 
 48:                                               ; preds = %43, %40, %37, %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %46
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 23, %37 ], [ 104, %40 ], [ 100, %43 ], [ %47, %46 ]
+  %.1 = phi i32 [ %47, %46 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 23, %37 ], [ 104, %40 ], [ 100, %43 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %50 = load ptr, ptr %49, align 8
@@ -9511,7 +9511,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %48, %54
   br label %68
 
 68:                                               ; preds = %8, %12, %4, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %4 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
   ret i32 %.0
 }
 
@@ -9626,7 +9626,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
   br label %57
 
 57:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %55, %12, %16, %5, %2
-  %.0 = phi i32 [ 116, %2 ], [ 99, %5 ], [ 115, %12 ], [ 115, %16 ], [ %35, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %56, %55 ]
+  %.0 = phi i32 [ 116, %2 ], [ 99, %5 ], [ 115, %16 ], [ 115, %12 ], [ %35, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %56, %55 ]
   ret i32 %.0
 }
 
@@ -9761,7 +9761,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %41, %47
   br label %67
 
 67:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %65, %63, %61, %13, %17, %6, %3
-  %.022 = phi i32 [ 116, %3 ], [ 99, %6 ], [ 100, %63 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 103, %61 ], [ 115, %17 ], [ %66, %65 ]
+  %.022 = phi i32 [ 116, %3 ], [ 99, %6 ], [ 115, %17 ], [ 115, %13 ], [ 103, %61 ], [ 100, %63 ], [ %66, %65 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.022
 }
 
@@ -9859,7 +9859,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %48
 
 48:                                               ; preds = %43, %40, %37, %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %46
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 23, %37 ], [ 104, %40 ], [ 100, %43 ], [ %47, %46 ]
+  %.1 = phi i32 [ %47, %46 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 23, %37 ], [ 104, %40 ], [ 100, %43 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %50 = load ptr, ptr %49, align 8
@@ -9897,7 +9897,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %48, %54
   br label %68
 
 68:                                               ; preds = %4, %8, %12, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ], [ 112, %4 ]
   ret i32 %.0
 }
 
@@ -9979,7 +9979,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %38
 
 38:                                               ; preds = %34, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %36
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 23, %31 ], [ %37, %36 ], [ 100, %34 ]
+  %.1 = phi i32 [ %37, %36 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 23, %31 ], [ 100, %34 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %40 = load ptr, ptr %39, align 8
@@ -10017,7 +10017,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %38, %44
   br label %58
 
 58:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -10106,7 +10106,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %43
 
 43:                                               ; preds = %39, %36, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %41
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 23, %36 ], [ %42, %41 ], [ 100, %39 ]
+  %.1 = phi i32 [ %42, %41 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 23, %36 ], [ 100, %39 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %45 = load ptr, ptr %44, align 8
@@ -10144,7 +10144,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %43, %49
   br label %63
 
 63:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -10220,7 +10220,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %36
 
 36:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %34
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ], [ %35, %34 ]
+  %.1 = phi i32 [ %35, %34 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %38 = load ptr, ptr %37, align 8
@@ -10258,7 +10258,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %36, %42
   br label %56
 
 56:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -10334,7 +10334,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %37
 
 37:                                               ; preds = %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %35
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %32 ], [ %36, %35 ]
+  %.1 = phi i32 [ %36, %35 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %32 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %39 = load ptr, ptr %38, align 8
@@ -10372,7 +10372,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %37, %43
   br label %57
 
 57:                                               ; preds = %8, %12, %4, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %4 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
   ret i32 %.0
 }
 
@@ -10449,7 +10449,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %37
 
 37:                                               ; preds = %30, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %35
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %36, %35 ], [ 99, %30 ]
+  %.1 = phi i32 [ %36, %35 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %30 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %39 = load ptr, ptr %38, align 8
@@ -10487,7 +10487,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %37, %43
   br label %57
 
 57:                                               ; preds = %6, %10, %2, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %2 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %10 ], [ 115, %6 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ], [ 115, %10 ], [ 115, %6 ]
   ret i32 %.0
 }
 
@@ -10564,7 +10564,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %38
 
 38:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %36
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %37, %36 ], [ 99, %31 ]
+  %.1 = phi i32 [ %37, %36 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %40 = load ptr, ptr %39, align 8
@@ -10602,7 +10602,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %38, %44
   br label %58
 
 58:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -10679,7 +10679,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %38
 
 38:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %36
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %37, %36 ], [ 99, %31 ]
+  %.1 = phi i32 [ %37, %36 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %40 = load ptr, ptr %39, align 8
@@ -10717,7 +10717,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %38, %44
   br label %58
 
 58:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -10794,7 +10794,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %38
 
 38:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %36
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %37, %36 ], [ 99, %31 ]
+  %.1 = phi i32 [ %37, %36 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %40 = load ptr, ptr %39, align 8
@@ -10832,7 +10832,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %38, %44
   br label %58
 
 58:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -10909,7 +10909,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %38
 
 38:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %36
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %37, %36 ], [ 99, %31 ]
+  %.1 = phi i32 [ %37, %36 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %40 = load ptr, ptr %39, align 8
@@ -10947,7 +10947,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %38, %44
   br label %58
 
 58:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -11024,7 +11024,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %38
 
 38:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %36
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %37, %36 ], [ 99, %31 ]
+  %.1 = phi i32 [ %37, %36 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %40 = load ptr, ptr %39, align 8
@@ -11062,7 +11062,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %38, %44
   br label %58
 
 58:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -11139,7 +11139,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %37
 
 37:                                               ; preds = %30, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %35
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %36, %35 ], [ 99, %30 ]
+  %.1 = phi i32 [ %36, %35 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %30 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %39 = load ptr, ptr %38, align 8
@@ -11177,7 +11177,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %37, %43
   br label %57
 
 57:                                               ; preds = %6, %10, %2, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %2 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %10 ], [ 115, %6 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ], [ 115, %10 ], [ 115, %6 ]
   ret i32 %.0
 }
 
@@ -11262,7 +11262,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %42
 
 42:                                               ; preds = %38, %36, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %40
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 103, %36 ], [ %41, %40 ], [ 100, %38 ]
+  %.1 = phi i32 [ %41, %40 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 103, %36 ], [ 100, %38 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %44 = load ptr, ptr %43, align 8
@@ -11300,7 +11300,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %42, %48
   br label %62
 
 62:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -11420,7 +11420,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %32, %38
   br label %56
 
 56:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %54, %52, %7, %11, %2
-  %.017 = phi i32 [ 116, %2 ], [ 100, %52 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %7 ], [ 115, %11 ], [ %55, %54 ]
+  %.017 = phi i32 [ 116, %2 ], [ 115, %11 ], [ 115, %7 ], [ 100, %52 ], [ %55, %54 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.017
 }
 
@@ -11540,7 +11540,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %32, %38
   br label %56
 
 56:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %54, %52, %7, %11, %2
-  %.017 = phi i32 [ 116, %2 ], [ 100, %52 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %7 ], [ 115, %11 ], [ %55, %54 ]
+  %.017 = phi i32 [ 116, %2 ], [ 115, %11 ], [ 115, %7 ], [ 100, %52 ], [ %55, %54 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.017
 }
 
@@ -11670,7 +11670,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread26
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread26:          ; preds = %62, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %36, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %65
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %66, %65 ], [ 21, %36 ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %62 ]
+  %.1 = phi i32 [ %66, %65 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 21, %36 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %62 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %68 = load ptr, ptr %67, align 8
@@ -11708,7 +11708,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %86
 
 86:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -11790,7 +11790,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %38
 
 38:                                               ; preds = %34, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %36
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 23, %31 ], [ %37, %36 ], [ 100, %34 ]
+  %.1 = phi i32 [ %37, %36 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 23, %31 ], [ 100, %34 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %40 = load ptr, ptr %39, align 8
@@ -11828,7 +11828,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %38, %44
   br label %58
 
 58:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -11915,7 +11915,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %44
 
 44:                                               ; preds = %39, %37, %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %42
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 103, %37 ], [ 100, %39 ], [ %43, %42 ]
+  %.1 = phi i32 [ %43, %42 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 103, %37 ], [ 100, %39 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %46 = load ptr, ptr %45, align 8
@@ -11953,7 +11953,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %44, %50
   br label %64
 
 64:                                               ; preds = %8, %12, %4, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %4 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
   ret i32 %.0
 }
 
@@ -12040,7 +12040,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %44
 
 44:                                               ; preds = %39, %37, %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %42
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 103, %37 ], [ 100, %39 ], [ %43, %42 ]
+  %.1 = phi i32 [ %43, %42 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 103, %37 ], [ 100, %39 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %46 = load ptr, ptr %45, align 8
@@ -12078,7 +12078,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %44, %50
   br label %64
 
 64:                                               ; preds = %8, %12, %4, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %4 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
   ret i32 %.0
 }
 
@@ -12154,7 +12154,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %36
 
 36:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %34
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ], [ %35, %34 ]
+  %.1 = phi i32 [ %35, %34 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %38 = load ptr, ptr %37, align 8
@@ -12192,7 +12192,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %36, %42
   br label %56
 
 56:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -12270,7 +12270,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %38
 
 38:                                               ; preds = %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %36
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %32 ], [ %37, %36 ]
+  %.1 = phi i32 [ %37, %36 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %32 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %40 = load ptr, ptr %39, align 8
@@ -12308,7 +12308,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %38, %44
   br label %58
 
 58:                                               ; preds = %8, %12, %4, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %4 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
   ret i32 %.0
 }
 
@@ -12386,7 +12386,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %38
 
 38:                                               ; preds = %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %36
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %32 ], [ %37, %36 ]
+  %.1 = phi i32 [ %37, %36 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %32 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %40 = load ptr, ptr %39, align 8
@@ -12424,7 +12424,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %38, %44
   br label %58
 
 58:                                               ; preds = %8, %12, %4, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %4 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
   ret i32 %.0
 }
 
@@ -12500,7 +12500,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %36
 
 36:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %34
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ], [ %35, %34 ]
+  %.1 = phi i32 [ %35, %34 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %38 = load ptr, ptr %37, align 8
@@ -12538,7 +12538,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %36, %42
   br label %56
 
 56:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -12616,7 +12616,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %38
 
 38:                                               ; preds = %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %36
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %32 ], [ %37, %36 ]
+  %.1 = phi i32 [ %37, %36 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %32 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %40 = load ptr, ptr %39, align 8
@@ -12654,7 +12654,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %38, %44
   br label %58
 
 58:                                               ; preds = %8, %12, %4, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %4 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
   ret i32 %.0
 }
 
@@ -12730,7 +12730,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %36
 
 36:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %34
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ], [ %35, %34 ]
+  %.1 = phi i32 [ %35, %34 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %38 = load ptr, ptr %37, align 8
@@ -12768,7 +12768,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %36, %42
   br label %56
 
 56:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -12848,7 +12848,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %39
 
 39:                                               ; preds = %34, %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %37
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 103, %32 ], [ 100, %34 ], [ %38, %37 ]
+  %.1 = phi i32 [ %38, %37 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 103, %32 ], [ 100, %34 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %41 = load ptr, ptr %40, align 8
@@ -12886,7 +12886,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %39, %45
   br label %59
 
 59:                                               ; preds = %8, %12, %4, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %4 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
   ret i32 %.0
 }
 
@@ -12972,7 +12972,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %43
 
 43:                                               ; preds = %39, %37, %35, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %41
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 103, %33 ], [ 100, %35 ], [ 103, %37 ], [ %42, %41 ], [ 100, %39 ]
+  %.1 = phi i32 [ %42, %41 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 103, %33 ], [ 100, %35 ], [ 103, %37 ], [ 100, %39 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %45 = load ptr, ptr %44, align 8
@@ -13010,7 +13010,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %43, %49
   br label %63
 
 63:                                               ; preds = %9, %13, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %5 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -13049,7 +13049,7 @@ define internal noundef i32 @_ZL27jvmti_GetThreadLocalStorageP9_jvmtiEnvP8_jobje
   br label %21
 
 21:                                               ; preds = %3, %17, %15, %6, %10, %19
-  %.0 = phi i32 [ 115, %6 ], [ 112, %3 ], [ 116, %15 ], [ %20, %19 ], [ 115, %10 ], [ 100, %17 ]
+  %.0 = phi i32 [ %20, %19 ], [ 115, %10 ], [ 115, %6 ], [ 116, %15 ], [ 100, %17 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -13160,7 +13160,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %33, %39
   br label %53
 
 53:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -13240,7 +13240,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %41
 
 41:                                               ; preds = %36, %34, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %39
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 103, %34 ], [ 100, %36 ], [ %40, %39 ]
+  %.1 = phi i32 [ %40, %39 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 103, %34 ], [ 100, %36 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %43 = load ptr, ptr %42, align 8
@@ -13278,7 +13278,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %41, %47
   br label %61
 
 61:                                               ; preds = %10, %14, %6, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %6 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %14 ], [ 115, %10 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %6 ], [ 115, %14 ], [ 115, %10 ]
   ret i32 %.0
 }
 
@@ -13362,7 +13362,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %40
 
 40:                                               ; preds = %36, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %38
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ %39, %38 ], [ 100, %36 ]
+  %.1 = phi i32 [ %39, %38 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 100, %36 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %42 = load ptr, ptr %41, align 8
@@ -13400,7 +13400,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %40, %46
   br label %60
 
 60:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -13480,7 +13480,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %38
 
 38:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %36
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %37, %36 ], [ 99, %31 ]
+  %.1 = phi i32 [ %37, %36 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %40 = load ptr, ptr %39, align 8
@@ -13518,7 +13518,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %38, %44
   br label %58
 
 58:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -13626,7 +13626,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %31, %37
   br label %51
 
 51:                                               ; preds = %5, %9, %1, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %1 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %9 ], [ 115, %5 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %1 ], [ 115, %9 ], [ 115, %5 ]
   ret i32 %.0
 }
 
@@ -13707,7 +13707,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %41
 
 41:                                               ; preds = %37, %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %39
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ %40, %39 ], [ 100, %37 ]
+  %.1 = phi i32 [ %40, %39 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 100, %37 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %43 = load ptr, ptr %42, align 8
@@ -13745,7 +13745,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %41, %47
   br label %61
 
 61:                                               ; preds = %8, %12, %4, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %4 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
   ret i32 %.0
 }
 
@@ -13822,7 +13822,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %40
 
 40:                                               ; preds = %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %38
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %39, %38 ], [ 99, %33 ]
+  %.1 = phi i32 [ %39, %38 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %42 = load ptr, ptr %41, align 8
@@ -13860,7 +13860,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %40, %46
   br label %60
 
 60:                                               ; preds = %9, %13, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %5 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -13941,7 +13941,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %41
 
 41:                                               ; preds = %37, %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %39
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ %40, %39 ], [ 100, %37 ]
+  %.1 = phi i32 [ %40, %39 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 100, %37 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %43 = load ptr, ptr %42, align 8
@@ -13979,7 +13979,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %41, %47
   br label %61
 
 61:                                               ; preds = %8, %12, %4, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %4 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
   ret i32 %.0
 }
 
@@ -14106,7 +14106,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread26
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread26:          ; preds = %64, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %38, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %67
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %68, %67 ], [ 21, %38 ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %64 ]
+  %.1 = phi i32 [ %68, %67 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 21, %38 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %64 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %69 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %70 = load ptr, ptr %69, align 8
@@ -14144,7 +14144,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %88
 
 88:                                               ; preds = %9, %13, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %5 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -14231,7 +14231,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %46
 
 46:                                               ; preds = %41, %39, %34, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %44
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %34 ], [ 103, %39 ], [ 100, %41 ], [ %45, %44 ]
+  %.1 = phi i32 [ %45, %44 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %34 ], [ 103, %39 ], [ 100, %41 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
   %47 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %48 = load ptr, ptr %47, align 8
@@ -14269,7 +14269,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %46, %52
   br label %66
 
 66:                                               ; preds = %10, %14, %6, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %6 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %14 ], [ 115, %10 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %6 ], [ 115, %14 ], [ 115, %10 ]
   ret i32 %.0
 }
 
@@ -14350,7 +14350,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %43
 
 43:                                               ; preds = %39, %34, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %41
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %34 ], [ %42, %41 ], [ 100, %39 ]
+  %.1 = phi i32 [ %42, %41 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %34 ], [ 100, %39 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %45 = load ptr, ptr %44, align 8
@@ -14388,7 +14388,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %43, %49
   br label %63
 
 63:                                               ; preds = %10, %14, %6, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %6 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %14 ], [ 115, %10 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %6 ], [ 115, %14 ], [ 115, %10 ]
   ret i32 %.0
 }
 
@@ -14469,7 +14469,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %42
 
 42:                                               ; preds = %38, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %40
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ %41, %40 ], [ 100, %38 ]
+  %.1 = phi i32 [ %41, %40 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 100, %38 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %44 = load ptr, ptr %43, align 8
@@ -14507,7 +14507,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %42, %48
   br label %62
 
 62:                                               ; preds = %9, %13, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %5 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
   ret i32 %.0
 }
 
@@ -14588,7 +14588,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %39
 
 39:                                               ; preds = %35, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %37
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 103, %35 ], [ %38, %37 ]
+  %.1 = phi i32 [ %38, %37 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 103, %35 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %41 = load ptr, ptr %40, align 8
@@ -14626,7 +14626,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %39, %45
   br label %59
 
 59:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -14707,7 +14707,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %39
 
 39:                                               ; preds = %35, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %37
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 103, %35 ], [ %38, %37 ]
+  %.1 = phi i32 [ %38, %37 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 103, %35 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %41 = load ptr, ptr %40, align 8
@@ -14745,7 +14745,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %39, %45
   br label %59
 
 59:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -14822,7 +14822,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %34
 
 34:                                               ; preds = %30, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %32
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %33, %32 ], [ 100, %30 ]
+  %.1 = phi i32 [ %33, %32 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %30 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %36 = load ptr, ptr %35, align 8
@@ -14860,7 +14860,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %34, %40
   br label %54
 
 54:                                               ; preds = %2, %6, %10, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ], [ 115, %10 ], [ 115, %6 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %10 ], [ 115, %6 ], [ 112, %2 ]
   ret i32 %.0
 }
 
@@ -14937,7 +14937,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %34
 
 34:                                               ; preds = %30, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %32
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %33, %32 ], [ 100, %30 ]
+  %.1 = phi i32 [ %33, %32 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %30 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %36 = load ptr, ptr %35, align 8
@@ -14975,7 +14975,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %34, %40
   br label %54
 
 54:                                               ; preds = %2, %6, %10, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ], [ 115, %10 ], [ 115, %6 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %10 ], [ 115, %6 ], [ 112, %2 ]
   ret i32 %.0
 }
 
@@ -15102,7 +15102,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %36, %42
   br label %60
 
 60:                                               ; preds = %3, %_ZN17HandleMarkCleanerD2Ev.exit, %58, %56, %10, %14, %6
-  %.019 = phi i32 [ 112, %3 ], [ 116, %6 ], [ 103, %56 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %10 ], [ 115, %14 ], [ %59, %58 ]
+  %.019 = phi i32 [ 116, %6 ], [ 115, %14 ], [ 115, %10 ], [ 103, %56 ], [ %59, %58 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ]
   ret i32 %.019
 }
 
@@ -15210,7 +15210,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %32, %38
   br label %52
 
 52:                                               ; preds = %6, %10, %2, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %2 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %10 ], [ 115, %6 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ], [ 115, %10 ], [ 115, %6 ]
   ret i32 %.0
 }
 
@@ -15341,7 +15341,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %37, %43
   br label %62
 
 62:                                               ; preds = %3, %_ZN17HandleMarkCleanerD2Ev.exit, %60, %57, %10, %14, %6
-  %.021 = phi i32 [ 112, %3 ], [ 116, %6 ], [ %61, %60 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %10 ], [ 100, %57 ], [ 115, %14 ]
+  %.021 = phi i32 [ 116, %6 ], [ 115, %14 ], [ 115, %10 ], [ 100, %57 ], [ %61, %60 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ]
   ret i32 %.021
 }
 
@@ -15472,7 +15472,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %37, %43
   br label %62
 
 62:                                               ; preds = %3, %_ZN17HandleMarkCleanerD2Ev.exit, %60, %57, %10, %14, %6
-  %.021 = phi i32 [ 112, %3 ], [ 116, %6 ], [ %61, %60 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %10 ], [ 100, %57 ], [ 115, %14 ]
+  %.021 = phi i32 [ 116, %6 ], [ 115, %14 ], [ 115, %10 ], [ 100, %57 ], [ %61, %60 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ]
   ret i32 %.021
 }
 
@@ -15587,7 +15587,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
   br label %55
 
 55:                                               ; preds = %3, %_ZN17HandleMarkCleanerD2Ev.exit, %53, %10, %14, %6
-  %.0 = phi i32 [ 112, %3 ], [ 116, %6 ], [ 115, %10 ], [ 115, %14 ], [ %33, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %54, %53 ]
+  %.0 = phi i32 [ 116, %6 ], [ 115, %14 ], [ 115, %10 ], [ %33, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %54, %53 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -15695,7 +15695,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
   br label %51
 
 51:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %49, %6, %10, %1
-  %.0 = phi i32 [ 116, %1 ], [ 115, %6 ], [ 115, %10 ], [ %29, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %50, %49 ]
+  %.0 = phi i32 [ 116, %1 ], [ 115, %10 ], [ 115, %6 ], [ %29, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %50, %49 ]
   ret i32 %.0
 }
 
@@ -15815,7 +15815,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %33, %39
   br label %57
 
 57:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %55, %53, %8, %12, %3
-  %.019 = phi i32 [ 116, %3 ], [ 100, %53 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %8 ], [ 115, %12 ], [ %56, %55 ]
+  %.019 = phi i32 [ 116, %3 ], [ 115, %12 ], [ 115, %8 ], [ 100, %53 ], [ %56, %55 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.019
 }
 
@@ -15935,7 +15935,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %32, %38
   br label %56
 
 56:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %54, %52, %7, %11, %2
-  %.017 = phi i32 [ 116, %2 ], [ 100, %52 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %7 ], [ 115, %11 ], [ %55, %54 ]
+  %.017 = phi i32 [ 116, %2 ], [ 115, %11 ], [ 115, %7 ], [ 100, %52 ], [ %55, %54 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.017
 }
 
@@ -16066,7 +16066,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %37, %43
   br label %62
 
 62:                                               ; preds = %3, %_ZN17HandleMarkCleanerD2Ev.exit, %60, %57, %10, %14, %6
-  %.021 = phi i32 [ 112, %3 ], [ 116, %6 ], [ %61, %60 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %10 ], [ 100, %57 ], [ 115, %14 ]
+  %.021 = phi i32 [ 116, %6 ], [ 115, %14 ], [ 115, %10 ], [ 100, %57 ], [ %61, %60 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ]
   ret i32 %.021
 }
 
@@ -16197,7 +16197,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %37, %43
   br label %62
 
 62:                                               ; preds = %3, %_ZN17HandleMarkCleanerD2Ev.exit, %60, %57, %10, %14, %6
-  %.021 = phi i32 [ 112, %3 ], [ 116, %6 ], [ %61, %60 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %10 ], [ 100, %57 ], [ 115, %14 ]
+  %.021 = phi i32 [ 116, %6 ], [ 115, %14 ], [ 115, %10 ], [ 100, %57 ], [ %61, %60 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ]
   ret i32 %.021
 }
 
@@ -16322,7 +16322,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %35, %41
   br label %59
 
 59:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %57, %55, %10, %14, %6, %3
-  %.019 = phi i32 [ 112, %3 ], [ 116, %6 ], [ 100, %55 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %10 ], [ 115, %14 ], [ %58, %57 ]
+  %.019 = phi i32 [ 112, %3 ], [ 116, %6 ], [ 115, %14 ], [ 115, %10 ], [ 100, %55 ], [ %58, %57 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.019
 }
 
@@ -16442,7 +16442,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %32, %38
   br label %56
 
 56:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %54, %52, %7, %11, %2
-  %.017 = phi i32 [ 116, %2 ], [ 100, %52 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %7 ], [ 115, %11 ], [ %55, %54 ]
+  %.017 = phi i32 [ 116, %2 ], [ 115, %11 ], [ 115, %7 ], [ 100, %52 ], [ %55, %54 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.017
 }
 
@@ -16495,7 +16495,7 @@ define internal noundef i32 @_ZL34jvmti_GetCurrentThreadCpuTimerInfoP9_jvmtiEnvP
   br label %30
 
 30:                                               ; preds = %2, %26, %21, %19, %5, %14, %28
-  %.0 = phi i32 [ 115, %5 ], [ 112, %2 ], [ 116, %19 ], [ 99, %21 ], [ %29, %28 ], [ 115, %14 ], [ 100, %26 ]
+  %.0 = phi i32 [ %29, %28 ], [ 115, %14 ], [ 115, %5 ], [ 116, %19 ], [ 99, %21 ], [ 100, %26 ], [ 112, %2 ]
   ret i32 %.0
 }
 
@@ -16548,7 +16548,7 @@ define internal noundef i32 @_ZL29jvmti_GetCurrentThreadCpuTimeP9_jvmtiEnvPl(ptr
   br label %30
 
 30:                                               ; preds = %2, %26, %21, %19, %5, %14, %28
-  %.0 = phi i32 [ 115, %5 ], [ 112, %2 ], [ 116, %19 ], [ 99, %21 ], [ %29, %28 ], [ 115, %14 ], [ 100, %26 ]
+  %.0 = phi i32 [ %29, %28 ], [ 115, %14 ], [ 115, %5 ], [ 116, %19 ], [ 99, %21 ], [ 100, %26 ], [ 112, %2 ]
   ret i32 %.0
 }
 
@@ -16629,7 +16629,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %39
 
 39:                                               ; preds = %35, %30, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %37
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %30 ], [ %38, %37 ], [ 100, %35 ]
+  %.1 = phi i32 [ %38, %37 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %30 ], [ 100, %35 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %41 = load ptr, ptr %40, align 8
@@ -16667,7 +16667,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %39, %45
   br label %59
 
 59:                                               ; preds = %6, %10, %2, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %2 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %10 ], [ 115, %6 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ], [ 115, %10 ], [ 115, %6 ]
   ret i32 %.0
 }
 
@@ -16744,7 +16744,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %38
 
 38:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %36
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %37, %36 ], [ 99, %31 ]
+  %.1 = phi i32 [ %37, %36 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %40 = load ptr, ptr %39, align 8
@@ -16782,7 +16782,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %38, %44
   br label %58
 
 58:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -16906,7 +16906,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %36, %42
   br label %59
 
 59:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %57, %.critedge, %15, %2
-  %.018 = phi i32 [ 100, %.critedge ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 116, %2 ], [ 115, %15 ], [ %58, %57 ]
+  %.018 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 100, %.critedge ], [ %58, %57 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.018
 }
 
@@ -17030,7 +17030,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %36, %42
   br label %59
 
 59:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %57, %.critedge, %15, %2
-  %.018 = phi i32 [ 100, %.critedge ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 116, %2 ], [ 115, %15 ], [ %58, %57 ]
+  %.018 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 100, %.critedge ], [ %58, %57 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.018
 }
 
@@ -17157,7 +17157,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %34, %40
   br label %58
 
 58:                                               ; preds = %2, %_ZN17HandleMarkCleanerD2Ev.exit, %56, %54, %9, %13, %5
-  %.017 = phi i32 [ 112, %2 ], [ 116, %5 ], [ 100, %54 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %9 ], [ 115, %13 ], [ %57, %56 ]
+  %.017 = phi i32 [ 116, %5 ], [ 115, %13 ], [ 115, %9 ], [ 100, %54 ], [ %57, %56 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ]
   ret i32 %.017
 }
 
@@ -17284,7 +17284,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %34, %40
   br label %58
 
 58:                                               ; preds = %2, %_ZN17HandleMarkCleanerD2Ev.exit, %56, %54, %9, %13, %5
-  %.017 = phi i32 [ 112, %2 ], [ 116, %5 ], [ 100, %54 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %9 ], [ 115, %13 ], [ %57, %56 ]
+  %.017 = phi i32 [ 116, %5 ], [ 115, %13 ], [ 115, %9 ], [ 100, %54 ], [ %57, %56 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ]
   ret i32 %.017
 }
 
@@ -17411,7 +17411,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %34, %40
   br label %58
 
 58:                                               ; preds = %2, %_ZN17HandleMarkCleanerD2Ev.exit, %56, %54, %9, %13, %5
-  %.017 = phi i32 [ 112, %2 ], [ 116, %5 ], [ 100, %54 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %9 ], [ 115, %13 ], [ %57, %56 ]
+  %.017 = phi i32 [ 116, %5 ], [ 115, %13 ], [ 115, %9 ], [ 100, %54 ], [ %57, %56 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ]
   ret i32 %.017
 }
 
@@ -17531,7 +17531,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %32, %38
   br label %56
 
 56:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %54, %52, %7, %11, %2
-  %.017 = phi i32 [ 116, %2 ], [ 100, %52 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %7 ], [ 115, %11 ], [ %55, %54 ]
+  %.017 = phi i32 [ 116, %2 ], [ 115, %11 ], [ 115, %7 ], [ 100, %52 ], [ %55, %54 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.017
 }
 
@@ -17656,7 +17656,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread28
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread28:          ; preds = %58, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %62
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %63, %62 ], [ 21, %32 ], [ 21, %58 ]
+  %.1 = phi i32 [ %63, %62 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 21, %32 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %58 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %65 = load ptr, ptr %64, align 8
@@ -17694,7 +17694,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %83
 
 83:                                               ; preds = %4, %8, %12, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ], [ 112, %4 ]
   ret i32 %.0
 }
 
@@ -17828,7 +17828,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread33
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread33:          ; preds = %64, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %38, %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %69
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %38 ], [ %70, %69 ], [ 21, %64 ]
+  %.1 = phi i32 [ %70, %69 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %33 ], [ 21, %38 ], [ 21, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ 100, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ 21, %64 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %71 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %72 = load ptr, ptr %71, align 8
@@ -17866,7 +17866,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZNK7oopDesc4is_aEP
   br label %90
 
 90:                                               ; preds = %5, %9, %13, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %5 ], [ 115, %13 ], [ 115, %9 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %13 ], [ 115, %9 ], [ 112, %5 ]
   ret i32 %.0
 }
 
@@ -17913,7 +17913,7 @@ define internal noundef i32 @_ZL32jvmti_GetEnvironmentLocalStorageP9_jvmtiEnvPPv
   br label %24
 
 24:                                               ; preds = %.sink.split, %.critedge, %20, %15, %2
-  %.015 = phi i32 [ 115, %15 ], [ 100, %.critedge ], [ 116, %2 ], [ 100, %20 ], [ %23, %.sink.split ]
+  %.015 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 100, %20 ], [ 100, %.critedge ], [ %23, %.sink.split ]
   ret i32 %.015
 }
 
@@ -17952,7 +17952,7 @@ define internal noundef i32 @_ZL32jvmti_SetEnvironmentLocalStorageP9_jvmtiEnvPKv
   br label %21
 
 21:                                               ; preds = %.sink.split, %15, %2
-  %.013 = phi i32 [ 115, %15 ], [ 116, %2 ], [ %20, %.sink.split ]
+  %.013 = phi i32 [ 116, %2 ], [ 115, %15 ], [ %20, %.sink.split ]
   ret i32 %.013
 }
 
@@ -18079,7 +18079,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %34, %40
   br label %58
 
 58:                                               ; preds = %2, %_ZN17HandleMarkCleanerD2Ev.exit, %56, %54, %9, %13, %5
-  %.017 = phi i32 [ 112, %2 ], [ 116, %5 ], [ 100, %54 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %9 ], [ 115, %13 ], [ %57, %56 ]
+  %.017 = phi i32 [ 116, %5 ], [ 115, %13 ], [ 115, %9 ], [ 100, %54 ], [ %57, %56 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ]
   ret i32 %.017
 }
 
@@ -18187,7 +18187,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
   br label %53
 
 53:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %51, %8, %12, %3
-  %.0 = phi i32 [ 116, %3 ], [ 115, %8 ], [ 115, %12 ], [ %31, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %52, %51 ]
+  %.0 = phi i32 [ 116, %3 ], [ 115, %12 ], [ 115, %8 ], [ %31, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %52, %51 ]
   ret i32 %.0
 }
 
@@ -18314,7 +18314,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %34, %40
   br label %58
 
 58:                                               ; preds = %2, %_ZN17HandleMarkCleanerD2Ev.exit, %56, %54, %9, %13, %5
-  %.017 = phi i32 [ 112, %2 ], [ 116, %5 ], [ 100, %54 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %9 ], [ 115, %13 ], [ %57, %56 ]
+  %.017 = phi i32 [ 116, %5 ], [ 115, %13 ], [ 115, %9 ], [ 100, %54 ], [ %57, %56 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ]
   ret i32 %.017
 }
 
@@ -18399,7 +18399,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %42
 
 42:                                               ; preds = %38, %36, %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %40
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 103, %36 ], [ %41, %40 ], [ 100, %38 ]
+  %.1 = phi i32 [ %41, %40 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %31 ], [ 103, %36 ], [ 100, %38 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %44 = load ptr, ptr %43, align 8
@@ -18437,7 +18437,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %42, %48
   br label %62
 
 62:                                               ; preds = %7, %11, %3, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %3 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
   ret i32 %.0
 }
 
@@ -18520,7 +18520,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %42
 
 42:                                               ; preds = %37, %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %40
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 100, %37 ], [ %41, %40 ]
+  %.1 = phi i32 [ %41, %40 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 100, %37 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %44 = load ptr, ptr %43, align 8
@@ -18558,7 +18558,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %42, %48
   br label %62
 
 62:                                               ; preds = %8, %12, %4, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %4 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
   ret i32 %.0
 }
 
@@ -18635,7 +18635,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %35
 
 35:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %33
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %34, %33 ], [ 100, %31 ]
+  %.1 = phi i32 [ %34, %33 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %31 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %37 = load ptr, ptr %36, align 8
@@ -18673,7 +18673,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %35, %41
   br label %55
 
 55:                                               ; preds = %3, %7, %11, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %3 ], [ 115, %11 ], [ 115, %7 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %11 ], [ 115, %7 ], [ 112, %3 ]
   ret i32 %.0
 }
 
@@ -18758,7 +18758,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %43
 
 43:                                               ; preds = %39, %37, %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %41
-  %.1 = phi i32 [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 103, %37 ], [ %42, %41 ], [ 100, %39 ]
+  %.1 = phi i32 [ %42, %41 ], [ 116, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 99, %32 ], [ 103, %37 ], [ 100, %39 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %45 = load ptr, ptr %44, align 8
@@ -18796,7 +18796,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %43, %49
   br label %63
 
 63:                                               ; preds = %8, %12, %4, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.0 = phi i32 [ 112, %4 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 115, %12 ], [ 115, %8 ]
+  %.0 = phi i32 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %4 ], [ 115, %12 ], [ 115, %8 ]
   ret i32 %.0
 }
 
@@ -18918,7 +18918,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
   br label %59
 
 59:                                               ; preds = %2, %_ZN17HandleMarkCleanerD2Ev.exit, %57, %14, %18, %7, %5
-  %.0 = phi i32 [ 112, %2 ], [ 116, %5 ], [ 99, %7 ], [ 115, %14 ], [ 115, %18 ], [ %37, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %58, %57 ]
+  %.0 = phi i32 [ 116, %5 ], [ 99, %7 ], [ 115, %18 ], [ 115, %14 ], [ %37, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %58, %57 ], [ 112, %2 ]
   ret i32 %.0
 }
 

@@ -1763,7 +1763,7 @@ for.inc:                                          ; preds = %for.body.i, %for.bo
   br i1 %cmp4.not, label %return, label %for.body, !llvm.loop !40
 
 return:                                           ; preds = %for.inc, %for.inc.i, %for.inc.us, %for.body.us, %for.cond.preheader, %entry, %if.then
-  %retval.0 = phi ptr [ null, %entry ], [ %pMemory, %if.then ], [ %pCurrent8.018, %for.inc.i ], [ null, %for.cond.preheader ], [ null, %for.inc.us ], [ %pCurrent8.018.us, %for.body.us ], [ null, %for.inc ]
+  %retval.0 = phi ptr [ %pMemory, %if.then ], [ null, %entry ], [ null, %for.cond.preheader ], [ null, %for.inc.us ], [ %pCurrent8.018.us, %for.body.us ], [ %pCurrent8.018, %for.inc.i ], [ null, %for.inc ]
   ret ptr %retval.0
 }
 

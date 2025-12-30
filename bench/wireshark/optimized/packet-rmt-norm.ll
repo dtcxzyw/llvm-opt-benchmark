@@ -694,7 +694,7 @@ dissect_norm_hdrext.exit.i47.i:                   ; preds = %257, %253
   br label %dissect_norm_cmd_cc.exit.i
 
 dissect_norm_cmd_cc.exit.i:                       ; preds = %.lr.ph.i45.i, %.lr.ph.i42.i, %UnquantizeRtt.exit.i.i, %272, %266, %238, %dissect_norm_hdrext.exit.i41.i, %222, %177, %147
-  %.0.i75 = phi i32 [ 13, %147 ], [ 16, %272 ], [ %220, %UnquantizeRtt.exit.i.i ], [ %223, %222 ], [ %244, %.lr.ph.i42.i ], [ %.0.i.i, %177 ], [ %237, %dissect_norm_hdrext.exit.i41.i ], [ %239, %238 ], [ %.0.i43.i, %266 ], [ %269, %.lr.ph.i45.i ]
+  %.0.i75 = phi i32 [ 13, %147 ], [ 16, %272 ], [ %.0.i.i, %177 ], [ %237, %dissect_norm_hdrext.exit.i41.i ], [ %223, %222 ], [ %239, %238 ], [ %.0.i43.i, %266 ], [ %220, %UnquantizeRtt.exit.i.i ], [ %244, %.lr.ph.i42.i ], [ %269, %.lr.ph.i45.i ]
   %279 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i75)
   %280 = icmp sgt i32 %279, 0
   br i1 %280, label %281, label %dissect_norm_info.exit

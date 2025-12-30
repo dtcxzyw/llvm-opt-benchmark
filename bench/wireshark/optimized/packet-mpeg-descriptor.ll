@@ -3856,7 +3856,7 @@ proto_mpeg_descriptor_dissect_mosaic_measure_l_cell_len.exit: ; preds = %.lr.ph9
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %._crit_edge, %57
-  %.3 = phi i32 [ %56, %._crit_edge ], [ %66, %57 ], [ %70, %.thread.sink.split ]
+  %.3 = phi i32 [ %66, %57 ], [ %56, %._crit_edge ], [ %70, %.thread.sink.split ]
   %71 = icmp ult i32 %.3, %5
   br i1 %71, label %.lr.ph94, label %._crit_edge95, !llvm.loop !16
 
@@ -5371,7 +5371,7 @@ proto_mpeg_descriptor_dissect_nordig_lcd_v2_measure_ch_list.exit: ; preds = %7, 
   %.not = icmp eq i32 %.399.lcssa, 0
   br i1 %.not, label %.critedge, label %7, !llvm.loop !32
 
-.critedge.critedge:                               ; preds = %31, %52, %66, %.lr.ph
+.critedge.critedge:                               ; preds = %52, %31, %66, %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 

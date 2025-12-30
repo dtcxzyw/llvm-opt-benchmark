@@ -105,7 +105,7 @@ define internal range(i32 -30, 1) i32 @archive_write_gnutar_options(ptr noundef 
   br label %19
 
 19:                                               ; preds = %3, %13, %16
-  %.011 = phi i32 [ %., %16 ], [ -25, %13 ], [ -20, %3 ]
+  %.011 = phi i32 [ -25, %13 ], [ %., %16 ], [ -20, %3 ]
   ret i32 %.011
 }
 
@@ -433,7 +433,7 @@ switch.lookup:                                    ; preds = %146
   br label %153
 
 153:                                              ; preds = %switch.lookup, %144
-  %.0151 = phi i32 [ %switch.load, %switch.lookup ], [ 49, %144 ]
+  %.0151 = phi i32 [ 49, %144 ], [ %switch.load, %switch.lookup ]
   %154 = call fastcc i32 @archive_format_gnutar_header(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %1, i32 noundef %.0151)
   %155 = icmp slt i32 %154, -20
   br i1 %155, label %.thread191, label %156
@@ -454,8 +454,8 @@ switch.lookup:                                    ; preds = %146
   store i64 %162, ptr %163, align 8, !tbaa !39
   br label %.thread191
 
-.thread191:                                       ; preds = %139, %133, %127, %136, %119, %112, %107, %115, %156, %153, %159, %151, %100, %87, %75, %63, %51
-  %.0141 = phi i32 [ -30, %51 ], [ -30, %63 ], [ -30, %75 ], [ -30, %87 ], [ -30, %100 ], [ %154, %153 ], [ %157, %156 ], [ %spec.select190, %159 ], [ -25, %151 ], [ %122, %119 ], [ %117, %115 ], [ %113, %112 ], [ %110, %107 ], [ %137, %136 ], [ %134, %133 ], [ %131, %127 ], [ %142, %139 ]
+.thread191:                                       ; preds = %139, %136, %133, %127, %119, %115, %112, %107, %156, %153, %159, %151, %100, %87, %75, %63, %51
+  %.0141 = phi i32 [ -30, %51 ], [ -30, %63 ], [ -30, %75 ], [ -30, %87 ], [ -30, %100 ], [ %154, %153 ], [ %spec.select190, %159 ], [ -25, %151 ], [ %157, %156 ], [ %117, %115 ], [ %113, %112 ], [ %110, %107 ], [ %122, %119 ], [ %137, %136 ], [ %134, %133 ], [ %131, %127 ], [ %142, %139 ]
   call void @archive_entry_free(ptr noundef null) #12
   br label %164
 

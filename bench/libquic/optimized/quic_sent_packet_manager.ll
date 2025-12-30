@@ -457,7 +457,7 @@ _ZN3net8RttStats18set_initial_rtt_usEl.exit:      ; preds = %10
   br label %.sink.split
 
 common.resume:                                    ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit86, %_ZNSt6vectorIjSaIjEED2Ev.exit75, %_ZNSt6vectorIjSaIjEED2Ev.exit84, %_ZNSt6vectorIjSaIjEED2Ev.exit96, %_ZNSt6vectorIjSaIjEED2Ev.exit100, %_ZNSt6vectorIjSaIjEED2Ev.exit104
-  %common.resume.op = phi { ptr, i32 } [ %102, %_ZNSt6vectorIjSaIjEED2Ev.exit96 ], [ %78, %_ZNSt6vectorIjSaIjEED2Ev.exit86 ], [ %163, %_ZNSt6vectorIjSaIjEED2Ev.exit104 ], [ %48, %_ZNSt6vectorIjSaIjEED2Ev.exit75 ], [ %151, %_ZNSt6vectorIjSaIjEED2Ev.exit100 ], [ %74, %_ZNSt6vectorIjSaIjEED2Ev.exit84 ]
+  %common.resume.op = phi { ptr, i32 } [ %163, %_ZNSt6vectorIjSaIjEED2Ev.exit104 ], [ %151, %_ZNSt6vectorIjSaIjEED2Ev.exit100 ], [ %78, %_ZNSt6vectorIjSaIjEED2Ev.exit86 ], [ %102, %_ZNSt6vectorIjSaIjEED2Ev.exit96 ], [ %74, %_ZNSt6vectorIjSaIjEED2Ev.exit84 ], [ %48, %_ZNSt6vectorIjSaIjEED2Ev.exit75 ]
   resume { ptr, i32 } %common.resume.op
 
 13:                                               ; preds = %10, %2
@@ -700,8 +700,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit96:                  ; preds = %101, %104
   br label %common.resume
 
 .critedge64.thread.sink.split.sink.split:         ; preds = %90, %81, %70
-  %.sink134 = phi ptr [ %83, %81 ], [ %72, %70 ], [ %100, %90 ]
-  %.sink130.ph = phi ptr [ %82, %81 ], [ %71, %70 ], [ %98, %90 ]
+  %.sink134 = phi ptr [ %72, %70 ], [ %83, %81 ], [ %100, %90 ]
+  %.sink130.ph = phi ptr [ %71, %70 ], [ %82, %81 ], [ %98, %90 ]
   %105 = load ptr, ptr %.sink134, align 8, !tbaa !3
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
@@ -709,7 +709,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit96:                  ; preds = %101, %104
   br label %.critedge64.thread.sink.split
 
 .critedge64.thread.sink.split:                    ; preds = %.critedge64.thread.sink.split.sink.split, %90, %81, %70
-  %.sink130 = phi ptr [ %82, %81 ], [ %98, %90 ], [ %71, %70 ], [ %.sink130.ph, %.critedge64.thread.sink.split.sink.split ]
+  %.sink130 = phi ptr [ %71, %70 ], [ %82, %81 ], [ %98, %90 ], [ %.sink130.ph, %.critedge64.thread.sink.split.sink.split ]
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 680
   call void @_ZN3net12PacingSender10set_senderEPNS_22SendAlgorithmInterfaceE(ptr noundef nonnull align 8 dereferenceable(41) %108, ptr noundef %.sink130)
   br label %.critedge64.thread
@@ -1392,7 +1392,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43: ; preds = %_ZNSo
   resume { ptr, i32 } %.pn
 
 .critedge33:                                      ; preds = %46, %27, %.critedge35, %.critedge, %14, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %.critedge ], [ false, %14 ], [ false, %.critedge35 ], [ false, %27 ], [ true, %46 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %14 ], [ false, %.critedge ], [ false, %.critedge35 ], [ false, %27 ], [ true, %46 ]
   ret i1 %.0
 }
 
@@ -1797,8 +1797,8 @@ define linkonce_odr ptr @_ZN15linked_hash_mapImN3net16TransmissionTypeESt4hashIm
   br i1 %30, label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !187
 
 _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit: ; preds = %.lr.ph.i.i.i.i, %10, %14
-  %31 = phi i64 [ %9, %10 ], [ %15, %14 ], [ %15, %.lr.ph.i.i.i.i ]
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %10 ], [ %22, %14 ], [ %26, %.lr.ph.i.i.i.i ]
+  %31 = phi i64 [ %15, %14 ], [ %9, %10 ], [ %15, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ %22, %14 ], [ %.sroa.06.0.i.i, %10 ], [ %26, %.lr.ph.i.i.i.i ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !188
@@ -2226,7 +2226,7 @@ define void @_ZN3net21QuicSentPacketManager21MarkForRetransmissionEmNS_16Transmi
   br label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread, !llvm.loop !187
 
 _ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit: ; preds = %49, %33, %44
-  %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %33 ], [ %45, %44 ], [ %51, %49 ]
+  %.sroa.06.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.sroa.06.0.i.i.i.i, %33 ], [ %51, %49 ]
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !188
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -2404,7 +2404,7 @@ define linkonce_odr noundef i64 @_ZN15linked_hash_mapImN3net16TransmissionTypeES
   br label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit.thread, !llvm.loop !187
 
 _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit: ; preds = %26, %9, %21
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %9 ], [ %22, %21 ], [ %28, %26 ]
+  %.sroa.06.1.i.i = phi ptr [ %22, %21 ], [ %.sroa.06.0.i.i, %9 ], [ %28, %26 ]
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !188
@@ -2487,8 +2487,8 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4h
   store i64 %70, ptr %3, align 8, !tbaa !184
   br label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit.thread
 
-_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %8, %13, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE5eraseENSt8__detail14_Node_iteratorISB_Lb0ELb0EEE.exit
-  %.0 = phi i64 [ 1, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE5eraseENSt8__detail14_Node_iteratorISB_Lb0ELb0EEE.exit ], [ 0, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %8 ], [ 0, %13 ], [ 0, %.lr.ph.i.i.i.i ]
+_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %8, %..loopexit_crit_edge21.i.i.i.i, %13, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE5eraseENSt8__detail14_Node_iteratorISB_Lb0ELb0EEE.exit
+  %.0 = phi i64 [ 1, %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE5eraseENSt8__detail14_Node_iteratorISB_Lb0ELb0EEE.exit ], [ 0, %13 ], [ 0, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %8 ], [ 0, %.lr.ph.i.i.i.i ]
   ret i64 %.0
 }
 
@@ -3214,7 +3214,7 @@ define noundef range(i32 0, 4) i32 @_ZNK3net21QuicSentPacketManager21GetRetransm
   br label %25
 
 25:                                               ; preds = %21, %8, %5, %24
-  %.0 = phi i32 [ 2, %5 ], [ 3, %8 ], [ 0, %24 ], [ 1, %21 ]
+  %.0 = phi i32 [ 0, %24 ], [ 2, %5 ], [ 3, %8 ], [ 1, %21 ]
   ret i32 %.0
 }
 
@@ -3791,7 +3791,7 @@ _ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit28: ; preds = %112,
   br label %131
 
 131:                                              ; preds = %1, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit28, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit, %46, %27
-  %.sroa.013.0 = phi i64 [ %.sroa.013.0.copyload.sroa.speculated, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit ], [ %.sroa.013.0.copyload14.sroa.speculated, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit28 ], [ %45, %27 ], [ %51, %46 ], [ 0, %1 ]
+  %.sroa.013.0 = phi i64 [ %45, %27 ], [ %51, %46 ], [ %.sroa.013.0.copyload.sroa.speculated, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit ], [ %.sroa.013.0.copyload14.sroa.speculated, %_ZNK3net21QuicSentPacketManager21GetTailLossProbeDelayEv.exit28 ], [ 0, %1 ]
   ret i64 %.sroa.013.0
 }
 
@@ -4271,13 +4271,13 @@ define linkonce_odr { ptr, i8 } @_ZN15linked_hash_mapImN3net16TransmissionTypeES
   br label %.loopexit, !llvm.loop !187
 
 _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit: ; preds = %28, %11, %23
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %11 ], [ %24, %23 ], [ %30, %28 ]
+  %.sroa.06.1.i.i = phi ptr [ %24, %23 ], [ %.sroa.06.0.i.i, %11 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %36 = load i64, ptr %35, align 8, !tbaa !297
   %37 = inttoptr i64 %36 to ptr
   br label %55
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %10, %..loopexit_crit_edge21.i.i.i.i, %15
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %10, %15, %..loopexit_crit_edge21.i.i.i.i
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -4421,7 +4421,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net16TransmissionTypeEEEE
   resume { ptr, i32 } %42
 
 _ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net16TransmissionTypeEEEESaIS7_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %33, %20, %28
-  %.sroa.042.0.ph = phi ptr [ %.sroa.034.0, %20 ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.042.0.ph = phi ptr [ %29, %28 ], [ %.sroa.034.0, %20 ], [ %35, %33 ]
   tail call void @_ZdlPv(ptr noundef nonnull %3) #19
   br label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net16TransmissionTypeEEEESaIS7_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

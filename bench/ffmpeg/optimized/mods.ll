@@ -36,7 +36,7 @@ define internal range(i32 0, 101) i32 @mods_probe(ptr noundef readonly captures(
   br label %16
 
 16:                                               ; preds = %12, %8, %4, %1
-  %.0 = phi i32 [ 0, %8 ], [ 0, %1 ], [ 0, %4 ], [ %., %12 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %4 ], [ 0, %8 ], [ %., %12 ]
   ret i32 %.0
 }
 

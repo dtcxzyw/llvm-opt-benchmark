@@ -1323,7 +1323,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly c
   br label %.thread123
 
 .thread123:                                       ; preds = %129, %.thread121, %151, %130, %145
-  %.6 = phi ptr [ %.3146, %129 ], [ %.3146, %.thread121 ], [ %.3146, %130 ], [ %167, %151 ], [ %.3146, %145 ]
+  %.6 = phi ptr [ %167, %151 ], [ %.3146, %130 ], [ %.3146, %145 ], [ %.3146, %.thread121 ], [ %.3146, %129 ]
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %168 = load i32, ptr %95, align 4
   %169 = sext i32 %168 to i64
@@ -1515,7 +1515,7 @@ define dso_local ptr @extractRelOptions(ptr noundef %0, ptr noundef %1, ptr noun
   br label %50
 
 50:                                               ; preds = %28, %31, %34, %37, %42, %44, %48
-  %.1.i.ph = phi i64 [ %38, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %45, %44 ], [ %43, %42 ], [ %49, %48 ]
+  %.1.i.ph = phi i64 [ %43, %42 ], [ %38, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %45, %44 ], [ %49, %48 ]
   %.val = load ptr, ptr %4, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 22
   %52 = load i8, ptr %51, align 2
@@ -1563,7 +1563,7 @@ define dso_local ptr @extractRelOptions(ptr noundef %0, ptr noundef %1, ptr noun
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %50, %68, %67, %63, %59, %57, %46, %65
-  %.0 = phi ptr [ null, %67 ], [ null, %50 ], [ null, %46 ], [ %69, %68 ], [ %66, %65 ], [ null, %57 ], [ %64, %63 ], [ %58, %59 ]
+  %.0 = phi ptr [ %66, %65 ], [ null, %46 ], [ %64, %63 ], [ %58, %59 ], [ null, %57 ], [ null, %50 ], [ %69, %68 ], [ null, %67 ]
   ret ptr %.0
 }
 
@@ -1594,7 +1594,7 @@ define dso_local noundef ptr @heap_reloptions(i8 noundef signext %0, i64 noundef
   br label %12
 
 12:                                               ; preds = %3, %4, %6, %10
-  %.0 = phi ptr [ null, %4 ], [ %11, %10 ], [ %5, %6 ], [ null, %3 ]
+  %.0 = phi ptr [ %11, %10 ], [ %5, %6 ], [ null, %4 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1991,7 +1991,7 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
   br label %.thread98.us
 
 .thread98.us:                                     ; preds = %83, %76, %69, %62, %.thread96.us, %54, %51, %48, %._crit_edge.us
-  %.1101.us = phi i32 [ %.081110.us, %._crit_edge.us ], [ %.081110.us, %51 ], [ %50, %48 ], [ %.081110.us, %.thread96.us ], [ %61, %54 ], [ %.081110.us, %62 ], [ %.081110.us, %69 ], [ %.081110.us, %76 ], [ %.081110.us, %83 ]
+  %.1101.us = phi i32 [ %.081110.us, %._crit_edge.us ], [ %.081110.us, %51 ], [ %50, %48 ], [ %61, %54 ], [ %.081110.us, %.thread96.us ], [ %.081110.us, %62 ], [ %.081110.us, %69 ], [ %.081110.us, %76 ], [ %.081110.us, %83 ]
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
   br i1 %exitcond133.not, label %._crit_edge112, label %.preheader.us, !llvm.loop !16
@@ -2856,7 +2856,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   br i1 %or.cond3.i.us, label %113, label %.split114.us
 
 113:                                              ; preds = %110, %106, %100, %93, %87
-  %.0.i.us = phi i1 [ %112, %110 ], [ %86, %93 ], [ %99, %100 ], [ %86, %87 ], [ %99, %106 ]
+  %.0.i.us = phi i1 [ %112, %110 ], [ %99, %106 ], [ %99, %100 ], [ %86, %93 ], [ %86, %87 ]
   br i1 %.0.i.us, label %.thread115.i.us, label %.thread113.i.us
 
 .thread115.i.us:                                  ; preds = %113
@@ -2868,7 +2868,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   br label %parse_one_reloption.exit.us
 
 parse_one_reloption.exit.us:                      ; preds = %39, %.thread113.i.us, %.thread118.i.us
-  %.03645.us = phi i32 [ %41, %.thread113.i.us ], [ %41, %.thread118.i.us ], [ %3, %39 ]
+  %.03645.us = phi i32 [ %41, %.thread118.i.us ], [ %41, %.thread113.i.us ], [ %3, %39 ]
   %114 = icmp sge i32 %.03645.us, %3
   %or.cond.us = and i1 %1, %114
   br i1 %or.cond.us, label %.split118.us, label %20

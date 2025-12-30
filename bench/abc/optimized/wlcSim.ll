@@ -795,7 +795,7 @@ Wlc_ObjSimAnd.exit.loopexit244:                   ; preds = %.lr.ph.i163
   br label %Wlc_ObjSimAnd.exit
 
 Wlc_ObjSimAnd.exit:                               ; preds = %.lr.ph.i173, %.lr.ph.i157, %.lr.ph31.i, %.lr.ph.i, %.lr.ph79.i, %.lr.ph81.i, %.lr.ph83.i, %Wlc_ObjSimAnd.exit.loopexit244, %251, %Gia_ObjIsRo.exit, %263, %.preheader.i161, %.preheader27.i, %.preheader.i, %.preheader71.i, %.preheader73.i, %.preheader75.i
-  %284 = phi i32 [ %174, %.preheader75.i ], [ %174, %.lr.ph.i157 ], [ %.pre, %Wlc_ObjSimAnd.exit.loopexit244 ], [ %174, %.lr.ph31.i ], [ %174, %.lr.ph.i ], [ %174, %.lr.ph79.i ], [ %174, %.lr.ph81.i ], [ %174, %.lr.ph83.i ], [ %174, %.preheader73.i ], [ %174, %251 ], [ %174, %Gia_ObjIsRo.exit ], [ %174, %263 ], [ %174, %.preheader.i161 ], [ %174, %.preheader27.i ], [ %174, %.preheader.i ], [ %174, %.preheader71.i ], [ %174, %.lr.ph.i173 ]
+  %284 = phi i32 [ %.pre, %Wlc_ObjSimAnd.exit.loopexit244 ], [ %174, %251 ], [ %174, %Gia_ObjIsRo.exit ], [ %174, %263 ], [ %174, %.preheader.i161 ], [ %174, %.preheader27.i ], [ %174, %.preheader.i ], [ %174, %.preheader71.i ], [ %174, %.preheader73.i ], [ %174, %.preheader75.i ], [ %174, %.lr.ph83.i ], [ %174, %.lr.ph81.i ], [ %174, %.lr.ph79.i ], [ %174, %.lr.ph.i ], [ %174, %.lr.ph31.i ], [ %174, %.lr.ph.i157 ], [ %174, %.lr.ph.i173 ]
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
   %285 = sext i32 %284 to i64
   %286 = icmp slt i64 %indvars.iv.next254, %285

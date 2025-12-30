@@ -37,7 +37,7 @@ define internal range(i32 0, 101) i32 @nc_probe(ptr noundef readonly captures(no
   br label %19
 
 19:                                               ; preds = %13, %5, %1
-  %.0 = phi i32 [ 25, %5 ], [ 0, %1 ], [ %., %13 ]
+  %.0 = phi i32 [ 0, %1 ], [ 25, %5 ], [ %., %13 ]
   ret i32 %.0
 }
 
@@ -109,7 +109,7 @@ define internal range(i32 1, 0) i32 @nc_read_packet(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %21, %24, %20
-  %.016 = phi i32 [ %16, %24 ], [ -11, %20 ], [ -5, %21 ], [ -5, %4 ]
+  %.016 = phi i32 [ -11, %20 ], [ %16, %24 ], [ -5, %21 ], [ -5, %4 ]
   ret i32 %.016
 }
 

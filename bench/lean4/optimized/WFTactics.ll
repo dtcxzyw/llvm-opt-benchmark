@@ -13339,7 +13339,7 @@ _init_l_tacticDecreasing__tactic___closed__5.exit: ; preds = %_init_l_tacticDecr
   br label %724
 
 724:                                              ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %8, %7 ], [ %.sink81, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %.sink81, %.sink.split ]
   ret ptr %.0
 }
 

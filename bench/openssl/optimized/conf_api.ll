@@ -181,7 +181,7 @@ define ptr @_CONF_get_string(ptr noundef readonly captures(address_is_null) %0, 
   br label %34
 
 34:                                               ; preds = %26, %24, %10, %3, %31, %18, %8
-  %.0 = phi ptr [ %33, %31 ], [ %9, %8 ], [ null, %3 ], [ %20, %18 ], [ null, %10 ], [ %25, %24 ], [ null, %26 ]
+  %.0 = phi ptr [ %9, %8 ], [ %20, %18 ], [ %33, %31 ], [ null, %3 ], [ null, %10 ], [ %25, %24 ], [ null, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -267,7 +267,7 @@ define internal i32 @conf_value_cmp(ptr noundef readonly captures(none) %0, ptr 
   br label %15
 
 15:                                               ; preds = %12, %._crit_edge, %5, %13
-  %.0 = phi i32 [ %6, %5 ], [ %14, %13 ], [ 1, %12 ], [ %11, %._crit_edge ]
+  %.0 = phi i32 [ %14, %13 ], [ %6, %5 ], [ 1, %12 ], [ %11, %._crit_edge ]
   ret i32 %.0
 }
 

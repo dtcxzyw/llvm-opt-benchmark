@@ -359,7 +359,7 @@ define hidden noundef i32 @_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %2, %21, %._crit_edge.thread, %16
-  %.010 = phi i32 [ 0, %21 ], [ 10, %2 ], [ 10, %16 ], [ %7, %._crit_edge.thread ], [ %22, %.loopexit.loopexit ]
+  %.010 = phi i32 [ 10, %16 ], [ %7, %._crit_edge.thread ], [ 0, %21 ], [ 10, %2 ], [ %22, %.loopexit.loopexit ]
   ret i32 %.010
 }
 
@@ -432,7 +432,7 @@ _ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit.thread19: ; preds = %4
   br label %_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit
 
 _ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit: ; preds = %._crit_edge.thread.i, %.loopexit.loopexit.i
-  %.010.i = phi i32 [ %20, %.loopexit.loopexit.i ], [ %7, %._crit_edge.thread.i ]
+  %.010.i = phi i32 [ %7, %._crit_edge.thread.i ], [ %20, %.loopexit.loopexit.i ]
   %21 = icmp ult i32 %.010.i, 10
   br i1 %21, label %22, label %_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit.thread
 
@@ -491,7 +491,7 @@ _ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit: ; preds = %._crit_edg
   %58 = load ptr, ptr %57, align 8
   br label %59
 
-_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit.thread: ; preds = %16, %2, %_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit
+_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit.thread: ; preds = %2, %16, %_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit
   store ptr null, ptr @_ZL9StatArray, align 8
   store i64 0, ptr @_ZL8seg_size, align 8
   store i32 0, ptr @_ZL13log2_seg_size, align 4
@@ -579,7 +579,7 @@ _ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit.thread18: ; preds = %4
   br label %_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit
 
 _ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit: ; preds = %._crit_edge.thread.i, %.loopexit.loopexit.i
-  %.010.i = phi i32 [ %20, %.loopexit.loopexit.i ], [ %7, %._crit_edge.thread.i ]
+  %.010.i = phi i32 [ %7, %._crit_edge.thread.i ], [ %20, %.loopexit.loopexit.i ]
   %21 = icmp ult i32 %.010.i, 10
   br i1 %21, label %22, label %_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit.thread
 
@@ -634,7 +634,7 @@ _ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit: ; preds = %._crit_edg
   store ptr %53, ptr %54, align 8
   br label %_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit.thread
 
-_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit.thread: ; preds = %16, %2, %22, %_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit
+_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit.thread: ; preds = %2, %16, %22, %_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit
   ret void
 }
 
@@ -1680,7 +1680,7 @@ _ZN13CodeHeapState22holding_required_locksEv.exit1070.thread: ; preds = %249, %t
   %..i = select i1 %264, i32 4, i32 3
   br label %265
 
-265:                                              ; preds = %258, %262
+265:                                              ; preds = %262, %258
   %.0.i1033.ph = phi i32 [ %..i, %262 ], [ 2, %258 ]
   %266 = load ptr, ptr %10, align 8
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 800
@@ -1758,11 +1758,11 @@ default.unreachable:                              ; preds = %290
   unreachable
 
 314:                                              ; preds = %290, %308, %302
-  %.2850 = phi i64 [ %.08481180, %290 ], [ %312, %308 ], [ %306, %302 ]
-  %.2845 = phi i64 [ %.08431181, %290 ], [ %.08431181, %308 ], [ %307, %302 ]
-  %.2840 = phi i64 [ %.08381182, %290 ], [ %313, %308 ], [ %.08381182, %302 ]
-  %.2796 = phi i32 [ %.07941192, %290 ], [ %311, %308 ], [ %.07941192, %302 ]
-  %.2782 = phi i32 [ %.07801193, %290 ], [ %.07801193, %308 ], [ %305, %302 ]
+  %.2850 = phi i64 [ %306, %302 ], [ %312, %308 ], [ %.08481180, %290 ]
+  %.2845 = phi i64 [ %307, %302 ], [ %.08431181, %308 ], [ %.08431181, %290 ]
+  %.2840 = phi i64 [ %.08381182, %302 ], [ %313, %308 ], [ %.08381182, %290 ]
+  %.2796 = phi i32 [ %.07941192, %302 ], [ %311, %308 ], [ %.07941192, %290 ]
+  %.2782 = phi i32 [ %305, %302 ], [ %.07801193, %308 ], [ %.07801193, %290 ]
   %315 = load ptr, ptr %270, align 8
   %.not.i.i.i.i = icmp eq ptr %315, null
   br i1 %.not.i.i.i.i, label %317, label %316
@@ -2091,9 +2091,9 @@ _ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread1449: ; 
   br label %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046
 
 _ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046: ; preds = %432, %450, %.thread1094, %359, %_ZN12ResourceMarkD2Ev.exit
-  %.3871 = phi i64 [ %.18691175, %_ZN12ResourceMarkD2Ev.exit ], [ %.58731100, %.thread1094 ], [ %.18691175, %359 ], [ %.58731100, %450 ], [ %366, %432 ]
-  %.8 = phi i1 [ false, %_ZN12ResourceMarkD2Ev.exit ], [ true, %.thread1094 ], [ false, %359 ], [ true, %450 ], [ false, %432 ]
-  %.3802 = phi i32 [ %.18001191, %_ZN12ResourceMarkD2Ev.exit ], [ %spec.select1011, %.thread1094 ], [ %.18001191, %359 ], [ %spec.select1011, %450 ], [ %spec.select1011, %432 ]
+  %.3871 = phi i64 [ %.18691175, %_ZN12ResourceMarkD2Ev.exit ], [ %.18691175, %359 ], [ %.58731100, %.thread1094 ], [ %.58731100, %450 ], [ %366, %432 ]
+  %.8 = phi i1 [ false, %_ZN12ResourceMarkD2Ev.exit ], [ false, %359 ], [ true, %.thread1094 ], [ true, %450 ], [ false, %432 ]
+  %.3802 = phi i32 [ %.18001191, %_ZN12ResourceMarkD2Ev.exit ], [ %.18001191, %359 ], [ %spec.select1011, %.thread1094 ], [ %spec.select1011, %450 ], [ %spec.select1011, %432 ]
   %.not1002 = icmp eq ptr %.1777, null
   br i1 %.not1002, label %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread, label %451
 
@@ -2101,12 +2101,12 @@ _ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046: ; preds = %43
   call void @_ZN2os4freeEPv(ptr noundef nonnull %.1777) #13
   br label %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread
 
-_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread: ; preds = %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread1449, %415, %403, %342, %328, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046, %451
-  %.7875 = phi i64 [ %.3871, %451 ], [ %.3871, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046 ], [ %366, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread1449 ], [ %.18691175, %328 ], [ %.18691175, %342 ], [ %.6874.lcssa, %403 ], [ %.6874.lcssa, %415 ]
-  %.11 = phi i1 [ %.8, %451 ], [ %.8, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046 ], [ false, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread1449 ], [ false, %328 ], [ false, %342 ], [ false, %403 ], [ false, %415 ]
-  %.7 = phi i32 [ %.18111189, %451 ], [ %.18111189, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046 ], [ %spec.select1012, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread1449 ], [ 0, %328 ], [ %326, %342 ], [ %.0767.lcssa, %403 ], [ %.0766.lcssa, %415 ]
-  %.6 = phi i32 [ %.18051190, %451 ], [ %.18051190, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046 ], [ %.18051190, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread1449 ], [ %177, %328 ], [ %177, %342 ], [ %177, %403 ], [ %420, %415 ]
-  %.5 = phi i32 [ %.3802, %451 ], [ %.3802, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046 ], [ %spec.select1011, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread1449 ], [ %177, %328 ], [ %.18001191, %342 ], [ %spec.select1011, %403 ], [ %spec.select1011, %415 ]
+_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread: ; preds = %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread1449, %403, %415, %342, %328, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046, %451
+  %.7875 = phi i64 [ %.3871, %451 ], [ %.3871, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046 ], [ %.18691175, %328 ], [ %.18691175, %342 ], [ %.6874.lcssa, %415 ], [ %.6874.lcssa, %403 ], [ %366, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread1449 ]
+  %.11 = phi i1 [ %.8, %451 ], [ %.8, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046 ], [ false, %328 ], [ false, %342 ], [ false, %415 ], [ false, %403 ], [ false, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread1449 ]
+  %.7 = phi i32 [ %.18111189, %451 ], [ %.18111189, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046 ], [ 0, %328 ], [ %326, %342 ], [ %.0766.lcssa, %415 ], [ %.0767.lcssa, %403 ], [ %spec.select1012, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread1449 ]
+  %.6 = phi i32 [ %.18051190, %451 ], [ %.18051190, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046 ], [ %177, %328 ], [ %177, %342 ], [ %420, %415 ], [ %177, %403 ], [ %.18051190, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread1449 ]
+  %.5 = phi i32 [ %.3802, %451 ], [ %.3802, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046 ], [ %177, %328 ], [ %.18001191, %342 ], [ %spec.select1011, %415 ], [ %spec.select1011, %403 ], [ %spec.select1011, %_ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread1449 ]
   %452 = icmp eq i32 %186, %190
   br i1 %452, label %459, label %508
 
@@ -2456,25 +2456,25 @@ _ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread.thread:
   br label %867
 
 .loopexit1128:                                    ; preds = %.lr.ph1172.split, %.lr.ph1172.split.us.split, %.lr.ph1172.split.us.split.us, %.thread1531, %571, %217, %492, %496
-  %.2870 = phi i64 [ %.78751475, %571 ], [ %.78751475, %.lr.ph1172.split.us.split ], [ %.78751475, %.lr.ph1172.split.us.split.us ], [ %.787514741530, %496 ], [ %.18691175, %217 ], [ %.7875, %492 ], [ %.78751475, %.thread1531 ], [ %.78751475, %.lr.ph1172.split ]
-  %.1866 = phi i32 [ %526, %571 ], [ %526, %.lr.ph1172.split.us.split ], [ %526, %.lr.ph1172.split.us.split.us ], [ %.08651176, %496 ], [ %.08651176, %217 ], [ %466, %492 ], [ %.08651176, %.thread1531 ], [ %.08651176, %.lr.ph1172.split ]
-  %.1864 = phi i64 [ %243, %571 ], [ %243, %.lr.ph1172.split.us.split ], [ %243, %.lr.ph1172.split.us.split.us ], [ %243, %496 ], [ %.08631177, %217 ], [ %243, %492 ], [ %243, %.thread1531 ], [ %243, %.lr.ph1172.split ]
-  %.1859 = phi i64 [ %.3861, %571 ], [ %.3861, %.lr.ph1172.split.us.split ], [ %.3861, %.lr.ph1172.split.us.split.us ], [ %.08581178, %496 ], [ %.08581178, %217 ], [ %.2860, %492 ], [ %.08581178, %.thread1531 ], [ %.08581178, %.lr.ph1172.split ]
-  %.1854 = phi i64 [ %.3856, %571 ], [ %.3856, %.lr.ph1172.split.us.split ], [ %.3856, %.lr.ph1172.split.us.split.us ], [ %.08531179, %496 ], [ %.08531179, %217 ], [ %.2855, %492 ], [ %.08531179, %.thread1531 ], [ %.08531179, %.lr.ph1172.split ]
-  %.1849 = phi i64 [ %.48521477, %571 ], [ %.48521477, %.lr.ph1172.split.us.split ], [ %.48521477, %.lr.ph1172.split.us.split.us ], [ %.485214761529, %496 ], [ %.08481180, %217 ], [ %.3851, %492 ], [ %.48521477, %.thread1531 ], [ %.48521477, %.lr.ph1172.split ]
-  %.1844 = phi i64 [ %.48471479, %571 ], [ %.48471479, %.lr.ph1172.split.us.split ], [ %.48471479, %.lr.ph1172.split.us.split.us ], [ %.484714781528, %496 ], [ %.08431181, %217 ], [ %.3846, %492 ], [ %.48471479, %.thread1531 ], [ %.48471479, %.lr.ph1172.split ]
-  %.1839 = phi i64 [ %.48421481, %571 ], [ %.48421481, %.lr.ph1172.split.us.split ], [ %.48421481, %.lr.ph1172.split.us.split.us ], [ %.484214801527, %496 ], [ %.08381182, %217 ], [ %.3841, %492 ], [ %.48421481, %.thread1531 ], [ %.48421481, %.lr.ph1172.split ]
-  %.1836 = phi i64 [ %.08351183, %571 ], [ %.08351183, %.lr.ph1172.split.us.split ], [ %.08351183, %.lr.ph1172.split.us.split.us ], [ %500, %496 ], [ %.08351183, %217 ], [ %.08351183, %492 ], [ %580, %.thread1531 ], [ %580, %.lr.ph1172.split ]
-  %.1834 = phi i64 [ %.08331184, %571 ], [ %.08331184, %.lr.ph1172.split.us.split ], [ %.08331184, %.lr.ph1172.split.us.split.us ], [ %.08331184, %496 ], [ %219, %217 ], [ %.08331184, %492 ], [ %.08331184, %.thread1531 ], [ %.08331184, %.lr.ph1172.split ]
-  %.7830 = phi i1 [ %.111483, %571 ], [ %.111483, %.lr.ph1172.split.us.split ], [ %.111483, %.lr.ph1172.split.us.split.us ], [ %.1114821526, %496 ], [ false, %217 ], [ %.11, %492 ], [ %.111483, %.thread1531 ], [ %.111483, %.lr.ph1172.split ]
-  %.2812 = phi i32 [ %.71485, %571 ], [ %.71485, %.lr.ph1172.split.us.split ], [ %.71485, %.lr.ph1172.split.us.split.us ], [ %.714841525, %496 ], [ %.18111189, %217 ], [ %.7, %492 ], [ %.71485, %.thread1531 ], [ %.71485, %.lr.ph1172.split ]
-  %.2806 = phi i32 [ %.61487, %571 ], [ %.61487, %.lr.ph1172.split.us.split ], [ %.61487, %.lr.ph1172.split.us.split.us ], [ %.614861524, %496 ], [ %.18051190, %217 ], [ %.6, %492 ], [ %.61487, %.thread1531 ], [ %.61487, %.lr.ph1172.split ]
-  %.2801 = phi i32 [ %.51489, %571 ], [ %.51489, %.lr.ph1172.split.us.split ], [ %.51489, %.lr.ph1172.split.us.split.us ], [ %.514881523, %496 ], [ %.18001191, %217 ], [ %.5, %492 ], [ %.51489, %.thread1531 ], [ %.51489, %.lr.ph1172.split ]
-  %.1795 = phi i32 [ %.47981491, %571 ], [ %.47981491, %.lr.ph1172.split.us.split ], [ %.47981491, %.lr.ph1172.split.us.split.us ], [ %.479814901522, %496 ], [ %.07941192, %217 ], [ %.3797, %492 ], [ %.47981491, %.thread1531 ], [ %.47981491, %.lr.ph1172.split ]
-  %.1781 = phi i32 [ %.47841500, %571 ], [ %.47841500, %.lr.ph1172.split.us.split ], [ %.47841500, %.lr.ph1172.split.us.split.us ], [ %.478414991521, %496 ], [ %.07801193, %217 ], [ %.3783, %492 ], [ %.47841500, %.thread1531 ], [ %.47841500, %.lr.ph1172.split ]
-  %.1773 = phi i32 [ %.27741502, %571 ], [ %.27741502, %.lr.ph1172.split.us.split ], [ %.27741502, %.lr.ph1172.split.us.split.us ], [ %.277415011520, %496 ], [ %.07721194, %217 ], [ %.07721194, %492 ], [ %.27741502, %.thread1531 ], [ %.27741502, %.lr.ph1172.split ]
-  %.1771 = phi i32 [ %242, %571 ], [ %242, %.lr.ph1172.split.us.split ], [ %242, %.lr.ph1172.split.us.split.us ], [ %242, %496 ], [ %.07701196, %217 ], [ %242, %492 ], [ %242, %.thread1531 ], [ %242, %.lr.ph1172.split ]
-  %.2762 = phi i32 [ %.17611197, %571 ], [ %.17611197, %.lr.ph1172.split.us.split ], [ %.17611197, %.lr.ph1172.split.us.split.us ], [ %.17611197, %496 ], [ %218, %217 ], [ %.17611197, %492 ], [ %.17611197, %.thread1531 ], [ %.17611197, %.lr.ph1172.split ]
+  %.2870 = phi i64 [ %.7875, %492 ], [ %.787514741530, %496 ], [ %.18691175, %217 ], [ %.78751475, %571 ], [ %.78751475, %.thread1531 ], [ %.78751475, %.lr.ph1172.split.us.split.us ], [ %.78751475, %.lr.ph1172.split.us.split ], [ %.78751475, %.lr.ph1172.split ]
+  %.1866 = phi i32 [ %466, %492 ], [ %.08651176, %496 ], [ %.08651176, %217 ], [ %526, %571 ], [ %.08651176, %.thread1531 ], [ %526, %.lr.ph1172.split.us.split.us ], [ %526, %.lr.ph1172.split.us.split ], [ %.08651176, %.lr.ph1172.split ]
+  %.1864 = phi i64 [ %243, %492 ], [ %243, %496 ], [ %.08631177, %217 ], [ %243, %571 ], [ %243, %.thread1531 ], [ %243, %.lr.ph1172.split.us.split.us ], [ %243, %.lr.ph1172.split.us.split ], [ %243, %.lr.ph1172.split ]
+  %.1859 = phi i64 [ %.2860, %492 ], [ %.08581178, %496 ], [ %.08581178, %217 ], [ %.3861, %571 ], [ %.08581178, %.thread1531 ], [ %.3861, %.lr.ph1172.split.us.split.us ], [ %.3861, %.lr.ph1172.split.us.split ], [ %.08581178, %.lr.ph1172.split ]
+  %.1854 = phi i64 [ %.2855, %492 ], [ %.08531179, %496 ], [ %.08531179, %217 ], [ %.3856, %571 ], [ %.08531179, %.thread1531 ], [ %.3856, %.lr.ph1172.split.us.split.us ], [ %.3856, %.lr.ph1172.split.us.split ], [ %.08531179, %.lr.ph1172.split ]
+  %.1849 = phi i64 [ %.3851, %492 ], [ %.485214761529, %496 ], [ %.08481180, %217 ], [ %.48521477, %571 ], [ %.48521477, %.thread1531 ], [ %.48521477, %.lr.ph1172.split.us.split.us ], [ %.48521477, %.lr.ph1172.split.us.split ], [ %.48521477, %.lr.ph1172.split ]
+  %.1844 = phi i64 [ %.3846, %492 ], [ %.484714781528, %496 ], [ %.08431181, %217 ], [ %.48471479, %571 ], [ %.48471479, %.thread1531 ], [ %.48471479, %.lr.ph1172.split.us.split.us ], [ %.48471479, %.lr.ph1172.split.us.split ], [ %.48471479, %.lr.ph1172.split ]
+  %.1839 = phi i64 [ %.3841, %492 ], [ %.484214801527, %496 ], [ %.08381182, %217 ], [ %.48421481, %571 ], [ %.48421481, %.thread1531 ], [ %.48421481, %.lr.ph1172.split.us.split.us ], [ %.48421481, %.lr.ph1172.split.us.split ], [ %.48421481, %.lr.ph1172.split ]
+  %.1836 = phi i64 [ %.08351183, %492 ], [ %500, %496 ], [ %.08351183, %217 ], [ %.08351183, %571 ], [ %580, %.thread1531 ], [ %.08351183, %.lr.ph1172.split.us.split.us ], [ %.08351183, %.lr.ph1172.split.us.split ], [ %580, %.lr.ph1172.split ]
+  %.1834 = phi i64 [ %.08331184, %492 ], [ %.08331184, %496 ], [ %219, %217 ], [ %.08331184, %571 ], [ %.08331184, %.thread1531 ], [ %.08331184, %.lr.ph1172.split.us.split.us ], [ %.08331184, %.lr.ph1172.split.us.split ], [ %.08331184, %.lr.ph1172.split ]
+  %.7830 = phi i1 [ %.11, %492 ], [ %.1114821526, %496 ], [ false, %217 ], [ %.111483, %571 ], [ %.111483, %.thread1531 ], [ %.111483, %.lr.ph1172.split.us.split.us ], [ %.111483, %.lr.ph1172.split.us.split ], [ %.111483, %.lr.ph1172.split ]
+  %.2812 = phi i32 [ %.7, %492 ], [ %.714841525, %496 ], [ %.18111189, %217 ], [ %.71485, %571 ], [ %.71485, %.thread1531 ], [ %.71485, %.lr.ph1172.split.us.split.us ], [ %.71485, %.lr.ph1172.split.us.split ], [ %.71485, %.lr.ph1172.split ]
+  %.2806 = phi i32 [ %.6, %492 ], [ %.614861524, %496 ], [ %.18051190, %217 ], [ %.61487, %571 ], [ %.61487, %.thread1531 ], [ %.61487, %.lr.ph1172.split.us.split.us ], [ %.61487, %.lr.ph1172.split.us.split ], [ %.61487, %.lr.ph1172.split ]
+  %.2801 = phi i32 [ %.5, %492 ], [ %.514881523, %496 ], [ %.18001191, %217 ], [ %.51489, %571 ], [ %.51489, %.thread1531 ], [ %.51489, %.lr.ph1172.split.us.split.us ], [ %.51489, %.lr.ph1172.split.us.split ], [ %.51489, %.lr.ph1172.split ]
+  %.1795 = phi i32 [ %.3797, %492 ], [ %.479814901522, %496 ], [ %.07941192, %217 ], [ %.47981491, %571 ], [ %.47981491, %.thread1531 ], [ %.47981491, %.lr.ph1172.split.us.split.us ], [ %.47981491, %.lr.ph1172.split.us.split ], [ %.47981491, %.lr.ph1172.split ]
+  %.1781 = phi i32 [ %.3783, %492 ], [ %.478414991521, %496 ], [ %.07801193, %217 ], [ %.47841500, %571 ], [ %.47841500, %.thread1531 ], [ %.47841500, %.lr.ph1172.split.us.split.us ], [ %.47841500, %.lr.ph1172.split.us.split ], [ %.47841500, %.lr.ph1172.split ]
+  %.1773 = phi i32 [ %.07721194, %492 ], [ %.277415011520, %496 ], [ %.07721194, %217 ], [ %.27741502, %571 ], [ %.27741502, %.thread1531 ], [ %.27741502, %.lr.ph1172.split.us.split.us ], [ %.27741502, %.lr.ph1172.split.us.split ], [ %.27741502, %.lr.ph1172.split ]
+  %.1771 = phi i32 [ %242, %492 ], [ %242, %496 ], [ %.07701196, %217 ], [ %242, %571 ], [ %242, %.thread1531 ], [ %242, %.lr.ph1172.split.us.split.us ], [ %242, %.lr.ph1172.split.us.split ], [ %242, %.lr.ph1172.split ]
+  %.2762 = phi i32 [ %.17611197, %492 ], [ %.17611197, %496 ], [ %218, %217 ], [ %.17611197, %571 ], [ %.17611197, %.thread1531 ], [ %.17611197, %.lr.ph1172.split.us.split.us ], [ %.17611197, %.lr.ph1172.split.us.split ], [ %.17611197, %.lr.ph1172.split ]
   %643 = call noundef ptr @_ZNK8CodeHeap10next_blockEP9HeapBlock(ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull %.08171187) #13
   %644 = icmp eq ptr %643, null
   %.not983 = or i1 %644, %.7830
@@ -3412,7 +3412,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %18
 
 18:                                               ; preds = %switch.lookup, %1, %8, %6, %14, %10
-  %.0 = phi i32 [ %., %14 ], [ %switch.load, %switch.lookup ], [ 0, %1 ], [ 2, %10 ], [ 0, %8 ], [ 0, %6 ]
+  %.0 = phi i32 [ 2, %10 ], [ %., %14 ], [ 0, %6 ], [ 0, %8 ], [ 0, %1 ], [ %switch.load, %switch.lookup ]
   ret i32 %.0
 }
 
@@ -4474,7 +4474,7 @@ _ZN13CodeHeapState12get_heapNameEP8CodeHeap.exit: ; preds = %9, %12
   br label %137
 
 .critedge.thread355:                              ; preds = %.preheader362, %126, %._crit_edge382
-  %.1279357 = phi i32 [ %.0278383, %._crit_edge382 ], [ %128, %126 ], [ %.0278383, %.preheader362 ]
+  %.1279357 = phi i32 [ %128, %126 ], [ %.0278383, %._crit_edge382 ], [ %.0278383, %.preheader362 ]
   %130 = and i64 %indvars.iv420, 4294967295
   %131 = getelementptr inbounds nuw ptr, ptr %4, i64 %130
   %132 = load ptr, ptr %131, align 8
@@ -4489,9 +4489,9 @@ _ZN13CodeHeapState12get_heapNameEP8CodeHeap.exit: ; preds = %9, %12
   br label %137
 
 137:                                              ; preds = %134, %106, %.critedge.thread355, %.critedge.thread
-  %138 = phi i32 [ %.pre466, %.critedge.thread ], [ %107, %106 ], [ %107, %134 ], [ %107, %.critedge.thread355 ]
-  %139 = phi ptr [ %.pre, %.critedge.thread ], [ %108, %106 ], [ %108, %134 ], [ %108, %.critedge.thread355 ]
-  %.2280 = phi i32 [ %.0278383, %.critedge.thread ], [ %.0278383, %106 ], [ %spec.select, %134 ], [ %.1279357, %.critedge.thread355 ]
+  %138 = phi i32 [ %.pre466, %.critedge.thread ], [ %107, %.critedge.thread355 ], [ %107, %106 ], [ %107, %134 ]
+  %139 = phi ptr [ %.pre, %.critedge.thread ], [ %108, %.critedge.thread355 ], [ %108, %106 ], [ %108, %134 ]
+  %.2280 = phi i32 [ %.0278383, %.critedge.thread ], [ %.1279357, %.critedge.thread355 ], [ %.0278383, %106 ], [ %spec.select, %134 ]
   %indvars.iv.next434 = add nuw nsw i64 %indvars.iv433, 1
   %140 = zext i32 %138 to i64
   %141 = icmp samesign ult i64 %indvars.iv.next434, %140
@@ -4712,9 +4712,9 @@ _ZN13CodeHeapState12get_heapNameEP8CodeHeap.exit: ; preds = %9, %12
   br label %237
 
 237:                                              ; preds = %234, %208, %.critedge7.thread, %.critedge7.thread500
-  %238 = phi i32 [ %.pre469, %.critedge7.thread500 ], [ %193, %208 ], [ %193, %234 ], [ %193, %.critedge7.thread ]
-  %239 = phi ptr [ %.pre467, %.critedge7.thread500 ], [ %194, %208 ], [ %194, %234 ], [ %194, %.critedge7.thread ]
-  %.5283 = phi i32 [ %.4282503, %.critedge7.thread500 ], [ %.3281397, %208 ], [ %spec.select345, %234 ], [ %.4282359, %.critedge7.thread ]
+  %238 = phi i32 [ %.pre469, %.critedge7.thread500 ], [ %193, %.critedge7.thread ], [ %193, %208 ], [ %193, %234 ]
+  %239 = phi ptr [ %.pre467, %.critedge7.thread500 ], [ %194, %.critedge7.thread ], [ %194, %208 ], [ %194, %234 ]
+  %.5283 = phi i32 [ %.4282503, %.critedge7.thread500 ], [ %.4282359, %.critedge7.thread ], [ %.3281397, %208 ], [ %spec.select345, %234 ]
   %indvars.iv.next457 = add nuw nsw i64 %indvars.iv456, 1
   %240 = add i32 %238, -1
   %241 = zext i32 %240 to i64
@@ -7473,7 +7473,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %_ZN13CodeHeapState10get_cbTypeEP8CodeBlob.exit.thread
 
 _ZN13CodeHeapState10get_cbTypeEP8CodeBlob.exit.thread: ; preds = %switch.lookup, %146, %_ZN13CodeHeapState22holding_required_locksEv.exit265, %_ZN13CodeHeapState22holding_required_locksEv.exit265.thread, %152, %156, %_ZN13CodeHeapState10get_cbTypeEP8CodeBlob.exit
-  %.0223283 = phi i32 [ %163, %_ZN13CodeHeapState10get_cbTypeEP8CodeBlob.exit ], [ %..i, %156 ], [ 0, %_ZN13CodeHeapState22holding_required_locksEv.exit265.thread ], [ 0, %_ZN13CodeHeapState22holding_required_locksEv.exit265 ], [ 2, %152 ], [ 0, %146 ], [ %switch.load, %switch.lookup ]
+  %.0223283 = phi i32 [ %163, %_ZN13CodeHeapState10get_cbTypeEP8CodeBlob.exit ], [ 0, %_ZN13CodeHeapState22holding_required_locksEv.exit265.thread ], [ 0, %_ZN13CodeHeapState22holding_required_locksEv.exit265 ], [ %..i, %156 ], [ 2, %152 ], [ 0, %146 ], [ %switch.load, %switch.lookup ]
   %165 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds nuw i8, ptr %119, i64 52
@@ -7701,7 +7701,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %281, %279, %_ZN13Co
 293:                                              ; preds = %_ZN13CodeHeapState19blob_access_is_safeEP8CodeBlob.exit
   br i1 %133, label %296, label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %120, %293
+.thread:                                          ; preds = %120, %.lr.ph, %293
   %294 = icmp ne ptr %119, %.1218289
   %295 = icmp ne ptr %119, null
   %or.cond3 = and i1 %294, %295
@@ -7709,8 +7709,8 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %281, %279, %_ZN13Co
   br label %296
 
 296:                                              ; preds = %287, %.thread, %291, %_ZN12ResourceMarkD2Ev.exit, %293
-  %.4228 = phi i8 [ 1, %291 ], [ %.2226288, %293 ], [ %.2226288, %.thread ], [ 1, %_ZN12ResourceMarkD2Ev.exit ], [ 1, %287 ]
-  %.2219 = phi ptr [ %119, %291 ], [ %.1218289, %293 ], [ %spec.select, %.thread ], [ %119, %_ZN12ResourceMarkD2Ev.exit ], [ %119, %287 ]
+  %.4228 = phi i8 [ 1, %291 ], [ 1, %_ZN12ResourceMarkD2Ev.exit ], [ %.2226288, %293 ], [ %.2226288, %.thread ], [ 1, %287 ]
+  %.2219 = phi ptr [ %119, %291 ], [ %119, %_ZN12ResourceMarkD2Ev.exit ], [ %.1218289, %293 ], [ %spec.select, %.thread ], [ %119, %287 ]
   %297 = load i64, ptr @_ZL8seg_size, align 8
   %298 = trunc i64 %297 to i32
   %299 = add i32 %.0231287, %298
@@ -7801,7 +7801,7 @@ define hidden noundef zeroext i1 @_ZN13CodeHeapState19blob_access_is_safeEP8Code
   br label %17
 
 17:                                               ; preds = %6, %2, %1
-  %18 = phi i1 [ false, %1 ], [ false, %2 ], [ %16, %6 ]
+  %18 = phi i1 [ false, %2 ], [ false, %1 ], [ %16, %6 ]
   ret i1 %18
 }
 
@@ -7831,7 +7831,7 @@ define hidden noundef zeroext i1 @_ZN13CodeHeapState22nmethod_access_is_safeEP7n
   br label %.thread
 
 .thread:                                          ; preds = %1, %6, %3
-  %18 = phi i1 [ %17, %6 ], [ false, %3 ], [ false, %1 ]
+  %18 = phi i1 [ false, %3 ], [ %17, %6 ], [ false, %1 ]
   ret i1 %18
 }
 

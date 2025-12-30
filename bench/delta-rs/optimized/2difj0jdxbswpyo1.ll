@@ -3940,7 +3940,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %52
           to label %77 unwind label %75
 
 "_ZN4core3ptr155drop_in_place$LT$alloc..sync..Arc$LT$dashmap..DashMap$LT$url..Url$C$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$GT$$GT$17hf6c85cddf2c7250bE.exit": ; preds = %.body118, %406, %.body, %84, %75
-  %.pn14 = phi { ptr, i32 } [ %76, %75 ], [ %.pn, %.body ], [ %.pn, %84 ], [ %.pn12, %406 ], [ %.pn12, %.body118 ]
+  %.pn14 = phi { ptr, i32 } [ %76, %75 ], [ %.pn, %84 ], [ %.pn, %.body ], [ %.pn12, %406 ], [ %.pn12, %.body118 ]
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h13d6ec1bf8ce4a89E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %36) #31
           to label %45 unwind label %732
 
@@ -3968,7 +3968,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %52
           to label %87 unwind label %85
 
 .body:                                            ; preds = %126, %.noexc21.i, %376, %.body.i, %85
-  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %127, %126 ], [ %eh.lpad-body.i, %376 ], [ %eh.lpad-body.i, %.body.i ], [ %384, %.noexc21.i ]
+  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %127, %126 ], [ %384, %.noexc21.i ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.i, %376 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !392)
   call void @llvm.experimental.noalias.scope.decl(metadata !395)
   %81 = load ptr, ptr %30, align 8, !alias.scope !398, !nonnull !4, !noundef !4
@@ -4402,8 +4402,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %52
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %329, %325
-  %336 = phi i8 [ %327, %325 ], [ %.pre22.i.i, %329 ]
-  %.sroa.4.0.ph.i.i = phi i64 [ %.sroa.6.1.i.i.i.i, %325 ], [ %335, %329 ]
+  %336 = phi i8 [ %.pre22.i.i, %329 ], [ %327, %325 ]
+  %.sroa.4.0.ph.i.i = phi i64 [ %335, %329 ], [ %.sroa.6.1.i.i.i.i, %325 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.010.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.010.i.i, ptr noundef nonnull align 8 dereferenceable(88) %19, i64 88, i1 false), !noalias !442
   %337 = load ptr, ptr %16, align 8, !noalias !434, !noundef !4
@@ -4586,7 +4586,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %52
           to label %409 unwind label %407
 
 .body118:                                         ; preds = %436, %.noexc21.i63, %686, %.body.i111, %407
-  %.pn12 = phi { ptr, i32 } [ %408, %407 ], [ %437, %436 ], [ %eh.lpad-body.i112, %686 ], [ %eh.lpad-body.i112, %.body.i111 ], [ %694, %.noexc21.i63 ]
+  %.pn12 = phi { ptr, i32 } [ %408, %407 ], [ %437, %436 ], [ %694, %.noexc21.i63 ], [ %eh.lpad-body.i112, %.body.i111 ], [ %eh.lpad-body.i112, %686 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !550)
   call void @llvm.experimental.noalias.scope.decl(metadata !553)
   %403 = load ptr, ptr %27, align 8, !alias.scope !556, !nonnull !4, !noundef !4
@@ -5008,8 +5008,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %52
   br label %.thread.i.i102
 
 .thread.i.i102:                                   ; preds = %639, %635
-  %646 = phi i8 [ %637, %635 ], [ %.pre22.i.i109, %639 ]
-  %.sroa.4.0.ph.i.i103 = phi i64 [ %.sroa.6.1.i.i.i.i100, %635 ], [ %645, %639 ]
+  %646 = phi i8 [ %.pre22.i.i109, %639 ], [ %637, %635 ]
+  %.sroa.4.0.ph.i.i103 = phi i64 [ %645, %639 ], [ %.sroa.6.1.i.i.i.i100, %635 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.010.i.i45)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.010.i.i45, ptr noundef nonnull align 8 dereferenceable(88) %10, i64 88, i1 false), !noalias !598
   %647 = load ptr, ptr %7, align 8, !noalias !590, !noundef !4

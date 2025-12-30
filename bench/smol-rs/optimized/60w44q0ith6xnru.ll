@@ -112,7 +112,7 @@ default.unreachable:                              ; preds = %"_ZN50_$LT$T$u20$as
   br label %.preheader.i
 
 41:                                               ; preds = %.loopexit, %.loopexit.split-lp, %140, %194, %197, %147, %141, %50
-  %.pn77.pn.pn.pn.i = phi { ptr, i32 } [ %148, %147 ], [ %51, %50 ], [ %.pn71.i, %140 ], [ %66, %141 ], [ %.pn7711.i, %194 ], [ %161, %197 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn77.pn.pn.pn.i = phi { ptr, i32 } [ %66, %141 ], [ %148, %147 ], [ %51, %50 ], [ %.pn7711.i, %194 ], [ %161, %197 ], [ %.pn71.i, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 16
   invoke void @"_ZN4core3ptr125drop_in_place$LT$event_listener..Listener$LT$$LP$$RP$$C$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h1791e95088b67237E.llvm.14408593437386099104"(ptr noundef nonnull align 8 %42)
           to label %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h890ed78022cf18d5E.exit.i" unwind label %138
@@ -354,7 +354,7 @@ default.unreachable:                              ; preds = %"_ZN50_$LT$T$u20$as
   br label %.body.i.i.i.i
 
 .body.i.i.i.i:                                    ; preds = %120, %116, %108
-  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %109, %108 ], [ %117, %116 ], [ %121, %120 ]
+  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %109, %108 ], [ %121, %120 ], [ %117, %116 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$async_executor..Executor$GT$17hfc25e5ad91093318E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #13
           to label %.body.i unwind label %124, !noalias !17
 
@@ -491,7 +491,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i.i.i.i: ; preds = %103
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.i, %.loopexit.i, %136, %131, %.body.i.i.i.i, %86
-  %.pn71.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i.i.i, %136 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %132, %131 ], [ %87, %86 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn71.i = phi { ptr, i32 } [ %87, %86 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %lpad.thr_comm.i.i.i.i, %136 ], [ %132, %131 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr149drop_in_place$LT$async_lock..once_cell..OnceCell$LT$T$GT$..initialize_or_wait..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$async_executor..Executor$GT$$GT$17he986d6e1ab24c6c8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %60) #13
           to label %140 unwind label %138
 

@@ -189,8 +189,8 @@ residual_filter.exit:                             ; preds = %59, %41
   br i1 %exitcond382.not.i, label %.loopexit342.i, label %94, !llvm.loop !16
 
 .loopexit342.i:                                   ; preds = %94, %.lr.ph351.i, %residual_filter.exit
-  %101 = phi i1 [ true, %.lr.ph351.i ], [ true, %residual_filter.exit ], [ false, %94 ]
-  %.0272424.i = phi i32 [ %.0272423426.i, %.lr.ph351.i ], [ 3, %residual_filter.exit ], [ %85, %94 ]
+  %101 = phi i1 [ true, %residual_filter.exit ], [ true, %.lr.ph351.i ], [ false, %94 ]
+  %.0272424.i = phi i32 [ 3, %residual_filter.exit ], [ %.0272423426.i, %.lr.ph351.i ], [ %85, %94 ]
   %102 = load ptr, ptr %0, align 8, !tbaa !17
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 304
   %104 = call i32 %102(ptr noundef nonnull %103, ptr noundef nonnull %103, i32 noundef %9) #8

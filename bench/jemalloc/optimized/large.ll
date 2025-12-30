@@ -134,7 +134,7 @@ sz_s2u.exit29:                                    ; preds = %39, %37
   br label %sz_sa2u.exit
 
 sz_sa2u.exit:                                     ; preds = %sz_s2u.exit, %.thread41
-  %.018.i = phi i64 [ %..0.i, %.thread41 ], [ %.0.i27, %sz_s2u.exit ]
+  %.018.i = phi i64 [ %.0.i27, %sz_s2u.exit ], [ %..0.i, %.thread41 ]
   %55 = add nsw i64 %.018.i, -8070450532247928833
   %56 = icmp ult i64 %55, -8070450532247928832
   br i1 %56, label %sz_sa2u.exit.thread, label %57, !prof !12
@@ -283,7 +283,7 @@ percpu_arena_update.exit.i.i:                     ; preds = %119, %arena_get.exi
   br label %atomic_load_zu.exit
 
 atomic_load_zu.exit:                              ; preds = %123, %95, %percpu_arena_ind_limit.exit.i.i, %85, %71, %68, %60
-  %.011.i = phi ptr [ %62, %60 ], [ %74, %percpu_arena_ind_limit.exit.i.i ], [ %74, %85 ], [ %.2.i.i, %123 ], [ %74, %95 ], [ %72, %71 ], [ %.0.i.i.i.i, %68 ]
+  %.011.i = phi ptr [ %62, %60 ], [ %74, %85 ], [ %.2.i.i, %123 ], [ %74, %95 ], [ %74, %percpu_arena_ind_limit.exit.i.i ], [ %72, %71 ], [ %.0.i.i.i.i, %68 ]
   %125 = getelementptr inbounds nuw i8, ptr %.011.i, i64 69328
   %126 = load atomic i64, ptr %125 monotonic, align 8
   %.not14.i = icmp ult i64 %2, %126
@@ -750,7 +750,7 @@ ticker_geom_ticks.exit65:                         ; preds = %171
   br label %arena_decay_ticks.exit
 
 arena_decay_ticks.exit:                           ; preds = %163, %108, %83, %53, %19, %173, %158, %ticker_geom_ticks.exit65, %large_ralloc_no_move_shrink.exit.thread79, %93, %78, %ticker_geom_ticks.exit57, %63, %48, %ticker_geom_ticks.exit51, %29, %14, %ticker_geom_ticks.exit, %107
-  %.0 = phi i1 [ false, %29 ], [ false, %63 ], [ true, %107 ], [ false, %83 ], [ true, %large_ralloc_no_move_shrink.exit.thread79 ], [ false, %ticker_geom_ticks.exit ], [ false, %173 ], [ false, %14 ], [ false, %ticker_geom_ticks.exit51 ], [ false, %19 ], [ false, %48 ], [ false, %ticker_geom_ticks.exit57 ], [ false, %53 ], [ false, %78 ], [ false, %93 ], [ false, %ticker_geom_ticks.exit65 ], [ true, %108 ], [ false, %158 ], [ false, %163 ]
+  %.0 = phi i1 [ true, %107 ], [ false, %ticker_geom_ticks.exit ], [ false, %14 ], [ false, %29 ], [ false, %ticker_geom_ticks.exit51 ], [ false, %48 ], [ false, %63 ], [ false, %ticker_geom_ticks.exit57 ], [ false, %78 ], [ false, %93 ], [ true, %large_ralloc_no_move_shrink.exit.thread79 ], [ false, %ticker_geom_ticks.exit65 ], [ false, %158 ], [ false, %173 ], [ false, %19 ], [ false, %53 ], [ false, %83 ], [ true, %108 ], [ false, %163 ]
   ret i1 %.0
 }
 

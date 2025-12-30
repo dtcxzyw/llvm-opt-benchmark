@@ -1368,11 +1368,11 @@ _ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i: ; preds = %428
   br label %809
 
 _ZN20b3AlignedObjectArrayIiE6removeERKi.exit:     ; preds = %432, %435, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i, %418, %.lr.ph575
-  %445 = phi i32 [ %382, %.lr.ph575 ], [ %442, %435 ], [ %426, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %426, %418 ], [ %426, %432 ]
-  %446 = phi ptr [ %383, %.lr.ph575 ], [ %419, %435 ], [ %419, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %419, %418 ], [ %419, %432 ]
-  %447 = phi ptr [ %384, %.lr.ph575 ], [ %419, %435 ], [ %419, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %419, %418 ], [ %419, %432 ]
-  %448 = phi i32 [ %385, %.lr.ph575 ], [ %420, %435 ], [ %420, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %420, %418 ], [ %420, %432 ]
-  %449 = phi i32 [ %386, %.lr.ph575 ], [ %425, %435 ], [ %425, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %425, %418 ], [ %425, %432 ]
+  %445 = phi i32 [ %442, %435 ], [ %426, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %426, %418 ], [ %382, %.lr.ph575 ], [ %426, %432 ]
+  %446 = phi ptr [ %419, %435 ], [ %419, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %419, %418 ], [ %383, %.lr.ph575 ], [ %419, %432 ]
+  %447 = phi ptr [ %419, %435 ], [ %419, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %419, %418 ], [ %384, %.lr.ph575 ], [ %419, %432 ]
+  %448 = phi i32 [ %420, %435 ], [ %420, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %420, %418 ], [ %385, %.lr.ph575 ], [ %420, %432 ]
+  %449 = phi i32 [ %425, %435 ], [ %425, %_ZNK20b3AlignedObjectArrayIiE16findLinearSearchERKi.exit.i ], [ %425, %418 ], [ %386, %.lr.ph575 ], [ %425, %432 ]
   %indvars.iv.next630 = add nsw i64 %indvars.iv629, -1
   %450 = icmp sgt i64 %indvars.iv629, 0
   br i1 %450, label %.lr.ph575, label %._crit_edge576, !llvm.loop !62
@@ -1959,7 +1959,7 @@ _ZN20b3AlignedObjectArrayI15b3GrahamVector3ED2Ev.exit395: ; preds = %_ZN8b3MyFac
   br label %671
 
 671:                                              ; preds = %526, %670
-  %.pn185.pn = phi { ptr, i32 } [ %527, %526 ], [ %.pn181, %670 ]
+  %.pn185.pn = phi { ptr, i32 } [ %.pn181, %670 ], [ %527, %526 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN20b3AlignedObjectArrayI15b3GrahamVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %12) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -2237,8 +2237,8 @@ _ZN8b3MyFaceD2Ev.exit.i.i:                        ; preds = %750, %742
   br i1 %756, label %_ZN20b3AlignedObjectArrayI8b3MyFaceE7destroyEii.exit.i, label %742, !llvm.loop !31
 
 _ZN20b3AlignedObjectArrayI8b3MyFaceE7destroyEii.exit.i: ; preds = %_ZN8b3MyFaceD2Ev.exit.i.i, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit.i, %.noexc463, %.split.i
-  %.035.i = phi i32 [ 0, %.noexc463 ], [ %698, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit.i ], [ %698, %.split.i ], [ %698, %_ZN8b3MyFaceD2Ev.exit.i.i ]
-  %.0.i2334.i = phi ptr [ null, %.noexc463 ], [ %703, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit.i ], [ %703, %.split.i ], [ %703, %_ZN8b3MyFaceD2Ev.exit.i.i ]
+  %.035.i = phi i32 [ %698, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit.i ], [ %698, %.split.i ], [ 0, %.noexc463 ], [ %698, %_ZN8b3MyFaceD2Ev.exit.i.i ]
+  %.0.i2334.i = phi ptr [ %703, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit.i ], [ %703, %.split.i ], [ null, %.noexc463 ], [ %703, %_ZN8b3MyFaceD2Ev.exit.i.i ]
   %757 = load ptr, ptr %328, align 8, !tbaa !23
   %.not.i21.i = icmp ne ptr %757, null
   %758 = load i8, ptr %334, align 16, !range !15
@@ -2407,8 +2407,8 @@ _ZN8b3MyFaceD2Ev.exit404:                         ; preds = %.loopexit537, %793
   br label %809
 
 .loopexit542:                                     ; preds = %_ZN8b3MyFaceD2Ev.exit404, %.critedge212, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3ED2Ev.exit395
-  %802 = phi i32 [ %445, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3ED2Ev.exit395 ], [ %445, %.critedge212 ], [ %673, %_ZN8b3MyFaceD2Ev.exit404 ]
-  %803 = phi ptr [ %648, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3ED2Ev.exit395 ], [ %446, %.critedge212 ], [ %.pre709, %_ZN8b3MyFaceD2Ev.exit404 ]
+  %802 = phi i32 [ %445, %.critedge212 ], [ %445, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3ED2Ev.exit395 ], [ %673, %_ZN8b3MyFaceD2Ev.exit404 ]
+  %803 = phi ptr [ %446, %.critedge212 ], [ %648, %_ZN20b3AlignedObjectArrayI15b3GrahamVector3ED2Ev.exit395 ], [ %.pre709, %_ZN8b3MyFaceD2Ev.exit404 ]
   %.not.i.i.i405.not = icmp eq ptr %803, null
   br i1 %.not.i.i.i405.not, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit, label %804
 
@@ -2434,7 +2434,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %._ZN20b3AlignedObje
   br i1 %.not, label %._crit_edge608, label %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i292, !llvm.loop !87
 
 809:                                              ; preds = %443, %801, %671, %380
-  %.pn190.pn = phi { ptr, i32 } [ %381, %380 ], [ %444, %443 ], [ %.pn179, %801 ], [ %.pn185.pn, %671 ]
+  %.pn190.pn = phi { ptr, i32 } [ %381, %380 ], [ %444, %443 ], [ %.pn185.pn, %671 ], [ %.pn179, %801 ]
   call void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %870
@@ -4532,8 +4532,8 @@ _ZN8b3MyFaceD2Ev.exit.i:                          ; preds = %33, %25
   br i1 %39, label %_ZN20b3AlignedObjectArrayI8b3MyFaceE7destroyEii.exit, label %25, !llvm.loop !31
 
 _ZN20b3AlignedObjectArrayI8b3MyFaceE7destroyEii.exit: ; preds = %_ZN8b3MyFaceD2Ev.exit.i, %.split, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit15, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit
-  %.035 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit15 ], [ %1, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit ], [ %1, %.split ], [ %1, %_ZN8b3MyFaceD2Ev.exit.i ]
-  %.0.i2334 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit15 ], [ %9, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit ], [ %9, %.split ], [ %9, %_ZN8b3MyFaceD2Ev.exit.i ]
+  %.035 = phi i32 [ %1, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit ], [ %1, %.split ], [ 0, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit15 ], [ %1, %_ZN8b3MyFaceD2Ev.exit.i ]
+  %.0.i2334 = phi ptr [ %9, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit ], [ %9, %.split ], [ null, %_ZNK20b3AlignedObjectArrayI8b3MyFaceE4copyEiiPS0_.exit15 ], [ %9, %_ZN8b3MyFaceD2Ev.exit.i ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !23
   %.not.i21 = icmp ne ptr %41, null

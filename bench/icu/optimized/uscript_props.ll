@@ -76,7 +76,7 @@ _ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit.thread: ; preds = %13, %23,
   br label %34
 
 34:                                               ; preds = %4, %_ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit.thread, %12
-  %.025 = phi i32 [ %33, %_ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit.thread ], [ 0, %12 ], [ 0, %4 ]
+  %.025 = phi i32 [ 0, %12 ], [ %33, %_ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit.thread ], [ 0, %4 ]
   ret i32 %.025
 }
 

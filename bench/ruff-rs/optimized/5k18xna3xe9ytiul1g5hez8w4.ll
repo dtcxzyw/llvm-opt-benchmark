@@ -333,7 +333,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h109a182f182e7afeE(pt
   br i1 %exitcond42.not.i, label %_ZN4core5slice4sort6shared17find_existing_run17h89d7302b29db0566E.exit.i, label %.lr.ph34.i
 
 _ZN4core5slice4sort6shared17find_existing_run17h89d7302b29db0566E.exit.i: ; preds = %37, %.lr.ph.i, %43, %.lr.ph34.i
-  %.sroa.0.0.i.i = phi i64 [ %22, %43 ], [ %.sroa.01.0.i33.i, %.lr.ph34.i ], [ %.sroa.01.1.i30.i, %.lr.ph.i ], [ %22, %37 ]
+  %.sroa.0.0.i.i = phi i64 [ %22, %43 ], [ %.sroa.01.0.i33.i, %.lr.ph34.i ], [ %22, %37 ], [ %.sroa.01.1.i30.i, %.lr.ph.i ]
   %45 = icmp ule i64 %.sroa.0.0.i.i, %22
   tail call void @llvm.assume(i1 %45)
   %.not3.i = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0
@@ -355,7 +355,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h89d7302b29db0566E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h8cb7fda763f86355E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h0f6b73805fd84822E.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h47c22ae1eccb186fE.exit.i.i.i, %.preheader28.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha39f07a9ecba179eE.exit.i", %46, %25
-  %.sroa.0.0.i2427.i = phi i64 [ %22, %25 ], [ %.sroa.0.0.i.i, %46 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha39f07a9ecba179eE.exit.i" ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i586568.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h47c22ae1eccb186fE.exit.i.i.i ]
+  %.sroa.0.0.i2427.i = phi i64 [ %.sroa.0.0.i.i, %46 ], [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha39f07a9ecba179eE.exit.i" ], [ %22, %25 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i586568.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h47c22ae1eccb186fE.exit.i.i.i ]
   %52 = shl i64 %.sroa.0.0.i2427.i, 1
   %53 = or disjoint i64 %52, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h8cb7fda763f86355E.exit

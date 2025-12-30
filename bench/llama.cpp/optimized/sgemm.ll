@@ -296,7 +296,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi1EEEvllll.exit.i.
   br label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6matmulEll.exit
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6matmulEll.exit: ; preds = %24, %49, %50, %51, %52, %53, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i, %67, %68, %69, %70, %71, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i, %74, %85, %86, %87, %88, %89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i
-  %.0.i = phi i1 [ false, %24 ], [ false, %74 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i ], [ true, %49 ], [ true, %50 ], [ true, %51 ], [ true, %52 ], [ true, %53 ], [ true, %67 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %85 ], [ true, %86 ], [ true, %87 ], [ true, %88 ], [ true, %89 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i ]
+  %.0.i = phi i1 [ false, %24 ], [ false, %74 ], [ true, %49 ], [ true, %50 ], [ true, %51 ], [ true, %52 ], [ true, %53 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i ], [ true, %67 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i ], [ true, %85 ], [ true, %86 ], [ true, %87 ], [ true, %88 ], [ true, %89 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %288
 
@@ -490,7 +490,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi1EE
   br label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6matmulEll.exit
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6matmulEll.exit: ; preds = %94, %119, %120, %121, %122, %123, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i, %137, %138, %139, %140, %141, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i, %144, %155, %156, %157, %158, %159, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i
-  %.0.i91 = phi i1 [ false, %94 ], [ false, %144 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i ], [ true, %119 ], [ true, %120 ], [ true, %121 ], [ true, %122 ], [ true, %123 ], [ true, %137 ], [ true, %138 ], [ true, %139 ], [ true, %140 ], [ true, %141 ], [ true, %155 ], [ true, %156 ], [ true, %157 ], [ true, %158 ], [ true, %159 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i ]
+  %.0.i91 = phi i1 [ false, %94 ], [ false, %144 ], [ true, %119 ], [ true, %120 ], [ true, %121 ], [ true, %122 ], [ true, %123 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i ], [ true, %137 ], [ true, %138 ], [ true, %139 ], [ true, %140 ], [ true, %141 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i ], [ true, %155 ], [ true, %156 ], [ true, %157 ], [ true, %158 ], [ true, %159 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %288
 
@@ -684,7 +684,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi1EEEvllll.exit.i.
   br label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6matmulEll.exit
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6matmulEll.exit: ; preds = %164, %189, %190, %191, %192, %193, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i, %207, %208, %209, %210, %211, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i, %214, %225, %226, %227, %228, %229, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i
-  %.0.i94 = phi i1 [ false, %164 ], [ false, %214 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i ], [ true, %189 ], [ true, %190 ], [ true, %191 ], [ true, %192 ], [ true, %193 ], [ true, %207 ], [ true, %208 ], [ true, %209 ], [ true, %210 ], [ true, %211 ], [ true, %225 ], [ true, %226 ], [ true, %227 ], [ true, %228 ], [ true, %229 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i ]
+  %.0.i94 = phi i1 [ false, %164 ], [ false, %214 ], [ true, %189 ], [ true, %190 ], [ true, %191 ], [ true, %192 ], [ true, %193 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i ], [ true, %207 ], [ true, %208 ], [ true, %209 ], [ true, %210 ], [ true, %211 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i ], [ true, %225 ], [ true, %226 ], [ true, %227 ], [ true, %228 ], [ true, %229 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %288
 
@@ -817,7 +817,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6matmulEll.exit: ; preds = %164, %1
   br label %288
 
 288:                                              ; preds = %22, %274, %260, %246, %232, %162, %92, %23, %13, %275, %261, %247, %233, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6matmulEll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6matmulEll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6matmulEll.exit
-  %.0 = phi i1 [ true, %275 ], [ false, %13 ], [ false, %274 ], [ false, %22 ], [ %.0.i, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6matmulEll.exit ], [ %.0.i91, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6matmulEll.exit ], [ false, %23 ], [ %.0.i94, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6matmulEll.exit ], [ false, %92 ], [ false, %162 ], [ true, %233 ], [ false, %232 ], [ true, %247 ], [ false, %246 ], [ true, %261 ], [ false, %260 ]
+  %.0 = phi i1 [ %.0.i, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6matmulEll.exit ], [ %.0.i91, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6matmulEll.exit ], [ %.0.i94, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6matmulEll.exit ], [ true, %233 ], [ true, %247 ], [ true, %261 ], [ true, %275 ], [ false, %13 ], [ false, %23 ], [ false, %92 ], [ false, %162 ], [ false, %232 ], [ false, %246 ], [ false, %260 ], [ false, %274 ], [ false, %22 ]
   ret i1 %.0
 }
 

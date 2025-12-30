@@ -683,7 +683,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   br label %183
 
 183:                                              ; preds = %181, %.loopexit72, %.loopexit
-  %184 = phi ptr [ %182, %181 ], [ %134, %.loopexit72 ], [ %96, %.loopexit ]
+  %184 = phi ptr [ %96, %.loopexit ], [ %134, %.loopexit72 ], [ %182, %181 ]
   %185 = icmp eq ptr %184, null
   br i1 %185, label %.thread, label %.thread57
 
@@ -1683,7 +1683,7 @@ define internal fastcc noundef zeroext i1 @deref_stack_reg(ptr noundef %0, i64 n
   br label %.thread
 
 .thread:                                          ; preds = %26, %20, %.thread5, %35
-  %41 = phi i1 [ false, %35 ], [ true, %.thread5 ], [ false, %20 ], [ false, %26 ]
+  %41 = phi i1 [ true, %.thread5 ], [ false, %35 ], [ false, %20 ], [ false, %26 ]
   ret i1 %41
 }
 

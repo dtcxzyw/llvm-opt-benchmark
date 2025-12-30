@@ -544,16 +544,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
   br i1 %105, label %_ZN5ZXing7IndexOfIA20_iiEEiRKT_RKT0_.exit.i.i, label %106
 
 106:                                              ; preds = %103
-  %.02946.i.i.i.i.add.i.i.i = or disjoint i64 %.02946.i.i.i.i.idx.i.i.i, 8
-  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add.i.i.i
-  %107 = load i32, ptr %.ptr.i.i.i, align 8, !tbaa !32
+  %.02946.i.i.i.i.add7.i.i.i = or disjoint i64 %.02946.i.i.i.i.idx.i.i.i, 8
+  %.ptr10.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add7.i.i.i
+  %107 = load i32, ptr %.ptr10.i.i.i, align 8, !tbaa !32
   %108 = icmp eq i32 %107, %100
   br i1 %108, label %_ZN5ZXing7IndexOfIA20_iiEEiRKT_RKT0_.exit.i.i, label %109
 
 109:                                              ; preds = %106
-  %.02946.i.i.i.i.add7.i.i.i = or disjoint i64 %.02946.i.i.i.i.idx.i.i.i, 12
-  %.ptr10.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add7.i.i.i
-  %110 = load i32, ptr %.ptr10.i.i.i, align 4, !tbaa !32
+  %.02946.i.i.i.i.add.i.i.i = or disjoint i64 %.02946.i.i.i.i.idx.i.i.i, 12
+  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add.i.i.i
+  %110 = load i32, ptr %.ptr.i.i.i, align 4, !tbaa !32
   %111 = icmp eq i32 %110, %100
   br i1 %111, label %_ZN5ZXing7IndexOfIA20_iiEEiRKT_RKT0_.exit.i.i, label %112
 
@@ -564,7 +564,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
   br i1 %114, label %.noexc33, label %_ZN5ZXing4OneD9RowReader23DecodeNarrowWidePatternIA20_iA21_cEEcRKNS_11PatternViewERKT_RKT0_.exit, !llvm.loop !61
 
 _ZN5ZXing7IndexOfIA20_iiEEiRKT_RKT0_.exit.i.i:    ; preds = %109, %106, %103, %.noexc33
-  %.028.i.i.i.i.idx15.i.i.i = phi i64 [ %.02946.i.i.i.i.idx.i.i.i, %.noexc33 ], [ %.02946.i.i.i.i.add.i.i.i, %106 ], [ %.02946.i.i.i.i.add7.i.i.i, %109 ], [ %.02946.i.i.i.i.add8.i.i.i, %103 ]
+  %.028.i.i.i.i.idx15.i.i.i = phi i64 [ %.02946.i.i.i.i.idx.i.i.i, %.noexc33 ], [ %.02946.i.i.i.i.add.i.i.i, %109 ], [ %.02946.i.i.i.i.add7.i.i.i, %106 ], [ %.02946.i.i.i.i.add8.i.i.i, %103 ]
   %115 = and i64 %.028.i.i.i.i.idx15.i.i.i, 17179869180
   %116 = icmp eq i64 %115, 17179869180
   br i1 %116, label %_ZN5ZXing4OneD9RowReader23DecodeNarrowWidePatternIA20_iA21_cEEcRKNS_11PatternViewERKT_RKT0_.exit, label %117
@@ -771,16 +771,16 @@ _ZN5ZXing6ResultC2Ev.exit40:                      ; preds = %_ZN5ZXing11PatternV
   br i1 %202, label %_ZN5ZXing7IndexOfIA20_iiEEiRKT_RKT0_.exit.i.i51, label %203
 
 203:                                              ; preds = %200
-  %.02946.i.i.i.i.add.i.i.i46 = or disjoint i64 %.02946.i.i.i.i.idx.i.i.i42, 8
-  %.ptr.i.i.i47 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add.i.i.i46
-  %204 = load i32, ptr %.ptr.i.i.i47, align 8, !tbaa !32
+  %.02946.i.i.i.i.add7.i.i.i46 = or disjoint i64 %.02946.i.i.i.i.idx.i.i.i42, 8
+  %.ptr10.i.i.i47 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add7.i.i.i46
+  %204 = load i32, ptr %.ptr10.i.i.i47, align 8, !tbaa !32
   %205 = icmp eq i32 %204, %197
   br i1 %205, label %_ZN5ZXing7IndexOfIA20_iiEEiRKT_RKT0_.exit.i.i51, label %206
 
 206:                                              ; preds = %203
-  %.02946.i.i.i.i.add7.i.i.i48 = or disjoint i64 %.02946.i.i.i.i.idx.i.i.i42, 12
-  %.ptr10.i.i.i49 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add7.i.i.i48
-  %207 = load i32, ptr %.ptr10.i.i.i49, align 4, !tbaa !32
+  %.02946.i.i.i.i.add.i.i.i48 = or disjoint i64 %.02946.i.i.i.i.idx.i.i.i42, 12
+  %.ptr.i.i.i49 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %.02946.i.i.i.i.add.i.i.i48
+  %207 = load i32, ptr %.ptr.i.i.i49, align 4, !tbaa !32
   %208 = icmp eq i32 %207, %197
   br i1 %208, label %_ZN5ZXing7IndexOfIA20_iiEEiRKT_RKT0_.exit.i.i51, label %209
 
@@ -791,7 +791,7 @@ _ZN5ZXing6ResultC2Ev.exit40:                      ; preds = %_ZN5ZXing11PatternV
   br i1 %211, label %.noexc55, label %_ZN5ZXing4OneD9RowReader23DecodeNarrowWidePatternIA20_iA21_cEEcRKNS_11PatternViewERKT_RKT0_.exit56, !llvm.loop !61
 
 _ZN5ZXing7IndexOfIA20_iiEEiRKT_RKT0_.exit.i.i51:  ; preds = %206, %203, %200, %.noexc55
-  %.028.i.i.i.i.idx15.i.i.i52 = phi i64 [ %.02946.i.i.i.i.idx.i.i.i42, %.noexc55 ], [ %.02946.i.i.i.i.add.i.i.i46, %203 ], [ %.02946.i.i.i.i.add7.i.i.i48, %206 ], [ %.02946.i.i.i.i.add8.i.i.i44, %200 ]
+  %.028.i.i.i.i.idx15.i.i.i52 = phi i64 [ %.02946.i.i.i.i.idx.i.i.i42, %.noexc55 ], [ %.02946.i.i.i.i.add.i.i.i48, %206 ], [ %.02946.i.i.i.i.add7.i.i.i46, %203 ], [ %.02946.i.i.i.i.add8.i.i.i44, %200 ]
   %212 = and i64 %.028.i.i.i.i.idx15.i.i.i52, 17179869180
   %213 = icmp eq i64 %212, 17179869180
   br i1 %213, label %_ZN5ZXing4OneD9RowReader23DecodeNarrowWidePatternIA20_iA21_cEEcRKNS_11PatternViewERKT_RKT0_.exit56, label %214
@@ -1100,7 +1100,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81: ; preds = %_ZN
   br label %356
 
 _ZN5ZXing5ErrorD2Ev.exit77:                       ; preds = %342, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i75, %321
-  %.pn21 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %322, %321 ], [ %343, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i75 ], [ %lpad.loopexit, %.loopexit ], [ %343, %342 ]
+  %.pn21 = phi { ptr, i32 } [ %322, %321 ], [ %343, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i75 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %343, %342 ]
   %352 = load ptr, ptr %8, align 8, !tbaa !60
   %353 = icmp eq ptr %352, %96
   br i1 %353, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i82

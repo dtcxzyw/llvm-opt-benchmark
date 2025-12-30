@@ -110,7 +110,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex13_AcquireWriteE
   br label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex23_StagedAcquireWriteStepENS0_24_StagedAcquireWriteStateE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex23_StagedAcquireWriteStepENS0_24_StagedAcquireWriteStateE.exit: ; preds = %12, %17, %20, %23
-  %.013.i = phi i32 [ 0, %17 ], [ 2, %23 ], [ %22, %20 ], [ 2, %12 ]
+  %.013.i = phi i32 [ %22, %20 ], [ 2, %23 ], [ 0, %17 ], [ 2, %12 ]
   store i32 %.013.i, ptr %15, align 4
   %24 = icmp eq i32 %.013.i, 2
   %25 = and i1 %.089, %24

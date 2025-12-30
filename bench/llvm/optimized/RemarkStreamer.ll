@@ -527,7 +527,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm7remarks14RemarkStreamer12needsSec
   br label %12
 
 12:                                               ; preds = %1, %.fold.split, %8, %3
-  %.0 = phi i1 [ %switch, %8 ], [ true, %1 ], [ false, %3 ], [ false, %.fold.split ]
+  %.0 = phi i1 [ true, %1 ], [ false, %3 ], [ %switch, %8 ], [ false, %.fold.split ]
   ret i1 %.0
 }
 

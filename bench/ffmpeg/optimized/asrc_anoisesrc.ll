@@ -120,7 +120,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br label %22
 
 22:                                               ; preds = %18, %._crit_edge44
-  %.034 = phi i32 [ %spec.select, %18 ], [ %.pre, %._crit_edge44 ]
+  %.034 = phi i32 [ %.pre, %._crit_edge44 ], [ %spec.select, %18 ]
   %23 = tail call ptr @ff_get_audio_buffer(ptr noundef %4, i32 noundef %.034) #10
   %.not40 = icmp eq ptr %23, null
   br i1 %.not40, label %68, label %24
@@ -196,7 +196,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br label %68
 
 68:                                               ; preds = %22, %1, %._crit_edge._crit_edge, %15
-  %.0 = phi i32 [ %67, %._crit_edge._crit_edge ], [ -1497649742, %1 ], [ 0, %15 ], [ -12, %22 ]
+  %.0 = phi i32 [ %67, %._crit_edge._crit_edge ], [ 0, %15 ], [ -1497649742, %1 ], [ -12, %22 ]
   ret i32 %.0
 }
 

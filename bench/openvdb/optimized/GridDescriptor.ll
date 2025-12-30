@@ -384,7 +384,7 @@ lpad:                                             ; preds = %call.i11.noexc, %en
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i
-  %.pn = phi { ptr, i32 } [ %0, %lpad.i ], [ %10, %lpad ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad ], [ %0, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #13
   br label %eh.resume
 

@@ -487,7 +487,7 @@ define internal noundef i32 @lagfun_frame16(ptr noundef readonly captures(none) 
   br i1 %exitcond84.not, label %.loopexit, label %.preheader.us, !llvm.loop !71
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader.lr.ph, %57, %53
-  %85 = phi i32 [ %.pre, %53 ], [ %24, %.preheader.lr.ph ], [ %24, %57 ], [ %24, %._crit_edge.us ]
+  %85 = phi i32 [ %24, %57 ], [ %.pre, %53 ], [ %24, %.preheader.lr.ph ], [ %24, %._crit_edge.us ]
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next86, %86
@@ -617,7 +617,7 @@ define internal noundef i32 @lagfun_frame32(ptr noundef readonly captures(none) 
   br i1 %exitcond84.not, label %.loopexit, label %.preheader.us, !llvm.loop !74
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader.lr.ph, %57, %53
-  %82 = phi i32 [ %.pre, %53 ], [ %24, %.preheader.lr.ph ], [ %24, %57 ], [ %24, %._crit_edge.us ]
+  %82 = phi i32 [ %24, %57 ], [ %.pre, %53 ], [ %24, %.preheader.lr.ph ], [ %24, %._crit_edge.us ]
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next86, %83
@@ -876,7 +876,7 @@ define internal noundef i32 @lagfun_framed16(ptr noundef readonly captures(none)
   br i1 %exitcond85.not, label %.loopexit, label %.preheader.us, !llvm.loop !80
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader.lr.ph, %57, %53
-  %83 = phi i32 [ %.pre, %53 ], [ %24, %.preheader.lr.ph ], [ %24, %57 ], [ %24, %._crit_edge.us ]
+  %83 = phi i32 [ %24, %57 ], [ %.pre, %53 ], [ %24, %.preheader.lr.ph ], [ %24, %._crit_edge.us ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next87, %84
@@ -1007,7 +1007,7 @@ define internal noundef i32 @lagfun_framed32(ptr noundef readonly captures(none)
   br i1 %exitcond85.not, label %.loopexit, label %.preheader.us, !llvm.loop !83
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader.lr.ph, %57, %53
-  %83 = phi i32 [ %.pre, %53 ], [ %24, %.preheader.lr.ph ], [ %24, %57 ], [ %24, %._crit_edge.us ]
+  %83 = phi i32 [ %24, %57 ], [ %.pre, %53 ], [ %24, %.preheader.lr.ph ], [ %24, %._crit_edge.us ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next87, %84

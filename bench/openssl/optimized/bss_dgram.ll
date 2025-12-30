@@ -1029,7 +1029,7 @@ ossl_time_from_timeval.exit:                      ; preds = %194, %198
   br label %dgram_get_mtu_overhead.exit176
 
 dgram_get_mtu_overhead.exit176:                   ; preds = %299, %286, %188, %309, %264, %259, %254, %98, %110, %100, %93, %75, %70, %4, %4, %4, %54, %187, %303, %312, %273, %266, %283, %276, %263, %258, %229, %235, %204, %210, %160, %163, %135, %148, %149, %106, %116, %82, %77, %90, %85, %._crit_edge, %48, %53, %51, %323, %319, %318, %314, %300, %253, %228, %ossl_time_from_timeval.exit, %169, %164, %155, %67, %64, %60
-  %.0126 = phi i64 [ 0, %323 ], [ 1, %319 ], [ 15, %318 ], [ 1, %53 ], [ 1, %51 ], [ 1, %48 ], [ %59, %._crit_edge ], [ 1, %314 ], [ %63, %60 ], [ 1, %64 ], [ -1, %54 ], [ 1, %303 ], [ 1, %67 ], [ 1, %4 ], [ 0, %70 ], [ %80, %82 ], [ %80, %77 ], [ %88, %90 ], [ %88, %85 ], [ -1, %75 ], [ 0, %110 ], [ 0, %93 ], [ %109, %106 ], [ 0, %100 ], [ %119, %116 ], [ %150, %149 ], [ %136, %135 ], [ %.1127, %148 ], [ %2, %155 ], [ 1, %160 ], [ 1, %163 ], [ %.0125, %164 ], [ 1, %169 ], [ %.2, %187 ], [ 0, %309 ], [ 0, %98 ], [ 1, %ossl_time_from_timeval.exit ], [ %208, %210 ], [ %208, %204 ], [ %.3, %228 ], [ %233, %235 ], [ %233, %229 ], [ %.4, %253 ], [ 1, %258 ], [ %spec.select, %188 ], [ 1, %263 ], [ 0, %254 ], [ 0, %259 ], [ %271, %273 ], [ %271, %266 ], [ %281, %283 ], [ %281, %276 ], [ 1, %4 ], [ 1, %300 ], [ -1, %264 ], [ 1, %4 ], [ 1, %312 ], [ %.1.i175, %299 ], [ 28, %286 ]
+  %.0126 = phi i64 [ 0, %323 ], [ 1, %53 ], [ 1, %51 ], [ 1, %48 ], [ %59, %._crit_edge ], [ %63, %60 ], [ 1, %64 ], [ 1, %67 ], [ %80, %82 ], [ %80, %77 ], [ %88, %90 ], [ %88, %85 ], [ %109, %106 ], [ %119, %116 ], [ %150, %149 ], [ %136, %135 ], [ %.1127, %148 ], [ %2, %155 ], [ 1, %160 ], [ 1, %163 ], [ %.0125, %164 ], [ 1, %169 ], [ %.2, %187 ], [ 1, %ossl_time_from_timeval.exit ], [ %208, %210 ], [ %208, %204 ], [ %.3, %228 ], [ %233, %235 ], [ %233, %229 ], [ %.4, %253 ], [ 1, %258 ], [ 1, %263 ], [ %271, %273 ], [ %271, %266 ], [ %281, %283 ], [ %281, %276 ], [ 1, %300 ], [ 1, %312 ], [ 1, %303 ], [ 1, %314 ], [ 15, %318 ], [ 1, %319 ], [ -1, %54 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 0, %70 ], [ -1, %75 ], [ 0, %93 ], [ 0, %100 ], [ 0, %110 ], [ 0, %98 ], [ %spec.select, %188 ], [ 0, %254 ], [ 0, %259 ], [ -1, %264 ], [ 0, %309 ], [ %.1.i175, %299 ], [ 28, %286 ]
   %spec.store.select = call i64 @llvm.smax.i64(i64 %.0126, i64 -1)
   br label %324
 
@@ -1096,7 +1096,7 @@ dgram_clear.exit:                                 ; preds = %13, %3
   br label %17
 
 17:                                               ; preds = %1, %dgram_clear.exit
-  %.0 = phi i32 [ 0, %1 ], [ 1, %dgram_clear.exit ]
+  %.0 = phi i32 [ 1, %dgram_clear.exit ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -1256,7 +1256,7 @@ pack_local.exit.us:                               ; preds = %translate_msg.exit.
   br label %translate_msg.exit
 
 translate_msg.exit:                               ; preds = %74, %77, %78
-  %.sink.i = phi i32 [ %switch.select3.i, %77 ], [ 0, %78 ], [ 0, %74 ]
+  %.sink.i = phi i32 [ 0, %78 ], [ %switch.select3.i, %77 ], [ 0, %74 ]
   %79 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i32 %.sink.i, ptr %79, align 8, !tbaa !44
   %80 = getelementptr inbounds nuw i8, ptr %65, i64 16
@@ -1346,7 +1346,7 @@ translate_msg.exit:                               ; preds = %74, %77, %78
   br i1 %.not38.i, label %pack_local.exit.sink.split, label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %115, %110, %100
-  %.sink = phi i32 [ 1279, %110 ], [ 1209, %100 ], [ 1285, %115 ]
+  %.sink = phi i32 [ 1209, %100 ], [ 1279, %110 ], [ 1285, %115 ]
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.pack_local) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 150, ptr noundef null) #11
@@ -1359,7 +1359,7 @@ translate_msg.exit:                               ; preds = %74, %77, %78
   br label %._crit_edge
 
 pack_local.exit.sink.split:                       ; preds = %112, %115, %90, %100
-  %.sink83 = phi i64 [ 32, %90 ], [ 32, %100 ], [ 40, %115 ], [ 40, %112 ]
+  %.sink83 = phi i64 [ 32, %100 ], [ 32, %90 ], [ 40, %115 ], [ 40, %112 ]
   store i64 %.sink83, ptr %87, align 8, !tbaa !49
   br label %pack_local.exit
 
@@ -1406,8 +1406,8 @@ pack_local.exit:                                  ; preds = %pack_local.exit.sin
   br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader, %6, %124, %.loopexit, %.split59.us
-  %.sink84 = phi i64 [ 0, %6 ], [ 0, %124 ], [ 0, %.loopexit ], [ 0, %.split59.us ], [ %123, %.preheader ], [ %123, %.lr.ph ]
-  %.0 = phi i32 [ 1, %6 ], [ 0, %124 ], [ 0, %.loopexit ], [ 0, %.split59.us ], [ 1, %.preheader ], [ 1, %.lr.ph ]
+  %.sink84 = phi i64 [ 0, %124 ], [ 0, %.loopexit ], [ 0, %.split59.us ], [ 0, %6 ], [ %123, %.preheader ], [ %123, %.lr.ph ]
+  %.0 = phi i32 [ 0, %124 ], [ 0, %.loopexit ], [ 0, %.split59.us ], [ 1, %6 ], [ 1, %.preheader ], [ 1, %.lr.ph ]
   store i64 %.sink84, ptr %5, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1796,7 +1796,7 @@ translate_msg.exit:                               ; preds = %.split, %87
   store i32 0, ptr %193, align 4, !tbaa !29
   br label %extract_local.exit
 
-.loopexit:                                        ; preds = %167, %164, %173, %153, %147, %144, %134, %.lr.ph.i, %129
+.loopexit:                                        ; preds = %164, %167, %173, %144, %147, %153, %134, %.lr.ph.i, %129
   %194 = load ptr, ptr %114, align 8, !tbaa !47
   call void @BIO_ADDR_clear(ptr noundef %194) #11
   br label %extract_local.exit
@@ -1807,8 +1807,8 @@ extract_local.exit:                               ; preds = %.split12.us.i, %.sp
   br i1 %exitcond86.not, label %._crit_edge, label %118, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %extract_local.exit, %.preheader, %6, %115, %.split66.us
-  %.sink = phi i64 [ 0, %6 ], [ 0, %115 ], [ 0, %.split66.us ], [ %113, %.preheader ], [ %113, %extract_local.exit ]
-  %.0 = phi i32 [ 1, %6 ], [ 0, %115 ], [ 0, %.split66.us ], [ 1, %.preheader ], [ 1, %extract_local.exit ]
+  %.sink = phi i64 [ 0, %115 ], [ 0, %.split66.us ], [ 0, %6 ], [ %113, %.preheader ], [ %113, %extract_local.exit ]
+  %.0 = phi i32 [ 0, %115 ], [ 0, %.split66.us ], [ 1, %6 ], [ 1, %.preheader ], [ 1, %extract_local.exit ]
   store i64 %.sink, ptr %5, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

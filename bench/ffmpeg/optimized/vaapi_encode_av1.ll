@@ -627,7 +627,7 @@ tile_log2.exit234.i:                              ; preds = %183
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %249, %..loopexit238_crit_edge.i, %.preheader.i, %._crit_edge263.i, %164
-  %.0188245.i = phi i32 [ %.0188256.i, %.preheader.i ], [ %.0188256.i, %._crit_edge263.i ], [ %spec.select.i, %164 ], [ %179, %..loopexit238_crit_edge.i ], [ %.0188256.i, %249 ]
+  %.0188245.i = phi i32 [ %.0188256.i, %._crit_edge263.i ], [ %.0188256.i, %.preheader.i ], [ %179, %..loopexit238_crit_edge.i ], [ %spec.select.i, %164 ], [ %.0188256.i, %249 ]
   store i32 %.0188245.i, ptr %.phi.trans.insert.i, align 8, !tbaa !72
   %265 = load i32, ptr %84, align 4, !tbaa !71
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.98, i32 noundef %265, i32 noundef %.0188245.i) #14
@@ -664,7 +664,7 @@ tile_log2.exit234.i:                              ; preds = %183
   br label %vaapi_encode_av1_set_tile.exit
 
 vaapi_encode_av1_set_tile.exit:                   ; preds = %.loopexit._crit_edge.i, %277, %._crit_edge307.i, %151, %163, %272, %262, %24, %70, %52, %36, %23
-  %.0 = phi i32 [ -22, %23 ], [ %25, %24 ], [ -542398533, %36 ], [ -542398533, %52 ], [ -542398533, %70 ], [ 0, %277 ], [ 0, %.loopexit._crit_edge.i ], [ -22, %._crit_edge307.i ], [ -22, %151 ], [ -22, %163 ], [ -22, %272 ], [ -22, %262 ]
+  %.0 = phi i32 [ -22, %23 ], [ -542398533, %36 ], [ -542398533, %52 ], [ -542398533, %70 ], [ %25, %24 ], [ 0, %.loopexit._crit_edge.i ], [ 0, %277 ], [ -22, %._crit_edge307.i ], [ -22, %151 ], [ -22, %163 ], [ -22, %272 ], [ -22, %262 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -929,8 +929,8 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_av1_init_sequence_pa
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24, %66
-  %71 = phi i32 [ %65, %24 ], [ 2, %66 ]
-  %72 = phi i8 [ 1, %24 ], [ %70, %66 ]
+  %71 = phi i32 [ 2, %66 ], [ %65, %24 ]
+  %72 = phi i8 [ %70, %66 ], [ 1, %24 ]
   %73 = trunc i32 %63 to i8
   %74 = trunc i32 %71 to i8
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -1984,7 +1984,7 @@ vaapi_encode_av1_add_obu.exit:                    ; preds = %370
   br label %vaapi_encode_av1_write_obu.exit.thread
 
 vaapi_encode_av1_write_obu.exit.thread:           ; preds = %389, %380, %vaapi_encode_av1_add_obu.exit.thread, %516, %519, %435
-  %.0300 = phi i32 [ %371, %vaapi_encode_av1_add_obu.exit.thread ], [ 0, %516 ], [ 0, %435 ], [ 0, %519 ], [ -28, %389 ], [ %378, %380 ]
+  %.0300 = phi i32 [ 0, %435 ], [ 0, %519 ], [ 0, %516 ], [ %371, %vaapi_encode_av1_add_obu.exit.thread ], [ -28, %389 ], [ %378, %380 ]
   tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %11) #14
   br label %536
 
@@ -2167,7 +2167,7 @@ vaapi_encode_av1_add_obu.exit:                    ; preds = %19
   br label %vaapi_encode_av1_write_obu.exit.thread
 
 vaapi_encode_av1_write_obu.exit.thread:           ; preds = %68, %59, %vaapi_encode_av1_add_obu.exit.thread, %76
-  %.1 = phi i32 [ %51, %vaapi_encode_av1_add_obu.exit.thread ], [ 0, %76 ], [ -28, %68 ], [ %57, %59 ]
+  %.1 = phi i32 [ 0, %76 ], [ %51, %vaapi_encode_av1_add_obu.exit.thread ], [ -28, %68 ], [ %57, %59 ]
   tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %7) #14
   ret i32 %.1
 }
@@ -2231,7 +2231,7 @@ vaapi_encode_av1_add_obu.exit:                    ; preds = %13
   br label %vaapi_encode_av1_write_obu.exit.thread
 
 vaapi_encode_av1_write_obu.exit.thread:           ; preds = %33, %24, %vaapi_encode_av1_add_obu.exit.thread, %34
-  %.0 = phi i32 [ %17, %vaapi_encode_av1_add_obu.exit.thread ], [ 0, %34 ], [ -28, %33 ], [ %22, %24 ]
+  %.0 = phi i32 [ 0, %34 ], [ %17, %vaapi_encode_av1_add_obu.exit.thread ], [ -28, %33 ], [ %22, %24 ]
   tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %10) #14
   br label %36
 

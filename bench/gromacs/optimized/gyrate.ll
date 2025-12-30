@@ -740,10 +740,10 @@ _ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPosi
   br label %.sink.split.i
 
 ._crit_edge:                                      ; preds = %.sink.split.i.us121, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us, %.sink.split.i, %5
-  %54 = phi float [ 0.000000e+00, %5 ], [ %32, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ], [ %83, %.sink.split.i ], [ %51, %.sink.split.i.us121 ]
-  %55 = phi float [ 0.000000e+00, %5 ], [ %31, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ], [ %82, %.sink.split.i ], [ %50, %.sink.split.i.us121 ]
-  %56 = phi float [ 0.000000e+00, %5 ], [ %30, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ], [ %81, %.sink.split.i ], [ %49, %.sink.split.i.us121 ]
-  %.0100.lcssa = phi float [ 0.000000e+00, %5 ], [ %33, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ], [ %84, %.sink.split.i ], [ %52, %.sink.split.i.us121 ]
+  %54 = phi float [ 0.000000e+00, %5 ], [ %83, %.sink.split.i ], [ %32, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ], [ %51, %.sink.split.i.us121 ]
+  %55 = phi float [ 0.000000e+00, %5 ], [ %82, %.sink.split.i ], [ %31, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ], [ %50, %.sink.split.i.us121 ]
+  %56 = phi float [ 0.000000e+00, %5 ], [ %81, %.sink.split.i ], [ %30, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ], [ %49, %.sink.split.i.us121 ]
+  %.0100.lcssa = phi float [ 0.000000e+00, %5 ], [ %84, %.sink.split.i ], [ %33, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ], [ %52, %.sink.split.i.us121 ]
   %57 = fdiv float 1.000000e+00, %.0100.lcssa
   %58 = fmul float %57, %56
   store float %58, ptr %7, align 4, !tbaa !120
@@ -1125,8 +1125,8 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i17.i.i: ; preds = %59
   br label %_ZSt11make_uniqueIN3gmx8internal14EnumIndexStoreINS0_15analysismodules12_GLOBAL__N_110GyrateModeEEEJPS5_PSt6vectorIS5_SaIS5_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 66:                                               ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i
-  %67 = phi ptr [ %.pre.i.i, %.loopexit.split-lp.i.i ], [ %29, %.loopexit.i.i ]
-  %.pn.i.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ]
+  %67 = phi ptr [ %29, %.loopexit.i.i ], [ %.pre.i.i, %.loopexit.split-lp.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   %.not.i.i.i.i.i = icmp eq ptr %67, null
   br i1 %.not.i.i.i.i.i, label %.body.i, label %68
 

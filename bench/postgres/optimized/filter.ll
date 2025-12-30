@@ -574,8 +574,8 @@ read_quoted_string.exit.i.loopexit:               ; preds = %144
   br label %read_quoted_string.exit.i
 
 read_quoted_string.exit.i:                        ; preds = %117, %read_quoted_string.exit.i.loopexit, %163, %160, %158
-  %.338.i = phi ptr [ %165, %read_quoted_string.exit.i.loopexit ], [ %159, %158 ], [ %164, %163 ], [ %.23763.i, %160 ], [ %119, %117 ]
-  %.3.i = phi i1 [ false, %read_quoted_string.exit.i.loopexit ], [ true, %158 ], [ true, %163 ], [ false, %160 ], [ false, %117 ]
+  %.338.i = phi ptr [ %159, %158 ], [ %164, %163 ], [ %.23763.i, %160 ], [ %165, %read_quoted_string.exit.i.loopexit ], [ %119, %117 ]
+  %.3.i = phi i1 [ true, %158 ], [ true, %163 ], [ false, %160 ], [ false, %read_quoted_string.exit.i.loopexit ], [ false, %117 ]
   %166 = load ptr, ptr %14, align 8
   br label %167
 
@@ -702,12 +702,12 @@ define internal fastcc noundef zeroext i1 @get_object_type(ptr noundef %0, i32 n
   br i1 %35, label %.thread51.sink.split, label %.thread51
 
 .thread51.sink.split:                             ; preds = %33, %30, %27, %24, %21, %.thread46, %16, %13, %10, %7, %4
-  %.sink = phi i32 [ 1, %4 ], [ 2, %7 ], [ 4, %13 ], [ 6, %.thread46 ], [ 8, %24 ], [ 10, %30 ], [ 9, %27 ], [ 7, %21 ], [ 5, %16 ], [ 3, %10 ], [ 11, %33 ]
+  %.sink = phi i32 [ 1, %4 ], [ 2, %7 ], [ 3, %10 ], [ 4, %13 ], [ 5, %16 ], [ 6, %.thread46 ], [ 7, %21 ], [ 8, %24 ], [ 9, %27 ], [ 10, %30 ], [ 11, %33 ]
   store i32 %.sink, ptr %2, align 4
   br label %.thread51
 
 .thread51:                                        ; preds = %.thread51.sink.split, %.thread46, %13, %16, %4, %7, %3, %27, %24, %30, %33
-  %.0 = phi i1 [ false, %30 ], [ false, %3 ], [ false, %33 ], [ false, %7 ], [ false, %16 ], [ false, %13 ], [ false, %.thread46 ], [ false, %24 ], [ false, %27 ], [ false, %4 ], [ true, %.thread51.sink.split ]
+  %.0 = phi i1 [ false, %33 ], [ false, %30 ], [ false, %24 ], [ false, %27 ], [ false, %3 ], [ false, %7 ], [ false, %4 ], [ false, %16 ], [ false, %13 ], [ false, %.thread46 ], [ true, %.thread51.sink.split ]
   ret i1 %.0
 }
 

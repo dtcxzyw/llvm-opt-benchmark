@@ -63,7 +63,7 @@ define internal range(i32 0, 101) i32 @lc3_read_probe(ptr noundef readonly captu
   br label %check_frame_length.exit
 
 check_frame_length.exit:                          ; preds = %18, %18, %18, %18, %23, %13, %5, %9, %1
-  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ 0, %9 ], [ 100, %18 ], [ 100, %18 ], [ 100, %18 ], [ 100, %18 ], [ 0, %23 ], [ 0, %13 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %9 ], [ 0, %5 ], [ 100, %18 ], [ 100, %18 ], [ 100, %18 ], [ 100, %18 ], [ 0, %23 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -203,7 +203,7 @@ check_frame_length.exit:                          ; preds = %39, %39, %39, %39
   br label %check_frame_length.exit.thread
 
 check_frame_length.exit.thread:                   ; preds = %40, %38, %45, %check_frame_length.exit, %1, %57
-  %.0 = phi i32 [ %55, %45 ], [ -1094995529, %1 ], [ -12, %check_frame_length.exit ], [ 0, %57 ], [ -1094995529, %38 ], [ -1094995529, %40 ]
+  %.0 = phi i32 [ 0, %57 ], [ -1094995529, %1 ], [ -12, %check_frame_length.exit ], [ %55, %45 ], [ -1094995529, %38 ], [ -1094995529, %40 ]
   ret i32 %.0
 }
 
@@ -357,7 +357,7 @@ check_frame_length.exit:                          ; preds = %36, %36, %36, %36
   br label %check_frame_length.exit.thread
 
 check_frame_length.exit.thread:                   ; preds = %37, %35, %check_frame_length.exit, %55, %1
-  %.0 = phi i32 [ 0, %check_frame_length.exit ], [ -1094995529, %1 ], [ 0, %55 ], [ -1094995529, %35 ], [ -1094995529, %37 ]
+  %.0 = phi i32 [ -1094995529, %1 ], [ 0, %55 ], [ 0, %check_frame_length.exit ], [ -1094995529, %35 ], [ -1094995529, %37 ]
   ret i32 %.0
 }
 

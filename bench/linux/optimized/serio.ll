@@ -291,7 +291,7 @@ define dso_local void @serio_unregister_port(ptr noundef %0) #0 align 16 {
   br i1 %19, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %16, %.preheader
-  %.be = phi ptr [ %17, %16 ], [ %9, %.preheader ]
+  %.be = phi ptr [ %9, %.preheader ], [ %17, %16 ]
   br label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %16, %1
@@ -338,7 +338,7 @@ define internal fastcc void @serio_destroy_port(ptr noundef %0) unnamed_addr #0 
   br i1 %20, label %.thread, label %7, !llvm.loop !11
 
 .thread:                                          ; preds = %.loopexit10, %18, %1
-  %21 = phi i64 [ %6, %18 ], [ %2, %1 ], [ %43, %.loopexit10 ]
+  %21 = phi i64 [ %2, %1 ], [ %6, %18 ], [ %43, %.loopexit10 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @serio_event_lock, i64 noundef %21) #10
   br label %.loopexit13
 
@@ -530,7 +530,7 @@ define dso_local void @serio_unregister_child_port(ptr noundef readonly captures
   br i1 %25, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %22, %.preheader
-  %.be = phi ptr [ %23, %22 ], [ %15, %.preheader ]
+  %.be = phi ptr [ %15, %.preheader ], [ %23, %22 ]
   br label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %22, %.preheader3
@@ -684,7 +684,7 @@ define dso_local void @serio_unregister_driver(ptr noundef initializes((16, 17))
   br i1 %49, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %46, %.preheader
-  %.be = phi ptr [ %47, %46 ], [ %39, %.preheader ]
+  %.be = phi ptr [ %39, %.preheader ], [ %47, %46 ]
   br label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %46, %30
@@ -1190,7 +1190,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr readnone captures(none) %1
   br i1 %31, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %28, %.preheader
-  %.be = phi ptr [ %29, %28 ], [ %21, %.preheader ]
+  %.be = phi ptr [ %21, %.preheader ], [ %29, %28 ]
   br label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %28, %13
@@ -1282,7 +1282,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr readnone captures(none) %1
   br i1 %78, label %.loopexit29, label %.preheader28.backedge
 
 .preheader28.backedge:                            ; preds = %75, %.preheader28
-  %.be69 = phi ptr [ %76, %75 ], [ %68, %.preheader28 ]
+  %.be69 = phi ptr [ %68, %.preheader28 ], [ %76, %75 ]
   br label %.preheader28, !llvm.loop !10
 
 .loopexit29:                                      ; preds = %75, %60
@@ -1383,7 +1383,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr readnone captures(none) %1
   br i1 %128, label %.loopexit34, label %.preheader33.backedge
 
 .preheader33.backedge:                            ; preds = %125, %.preheader33
-  %.be70 = phi ptr [ %126, %125 ], [ %118, %.preheader33 ]
+  %.be70 = phi ptr [ %118, %.preheader33 ], [ %126, %125 ]
   br label %.preheader33, !llvm.loop !10
 
 .loopexit34:                                      ; preds = %125, %110
@@ -1610,7 +1610,7 @@ define internal fastcc i32 @serio_reconnect_port(ptr noundef %0) unnamed_addr #0
   br i1 %32, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %29, %.preheader
-  %.be = phi ptr [ %30, %29 ], [ %22, %.preheader ]
+  %.be = phi ptr [ %22, %.preheader ], [ %30, %29 ]
   br label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %29, %13
@@ -1973,7 +1973,7 @@ define internal void @serio_handle_event(ptr readnone captures(none) %0) #0 alig
   br i1 %68, label %.loopexit16, label %.preheader15.backedge
 
 .preheader15.backedge:                            ; preds = %65, %.preheader15
-  %.be57 = phi ptr [ %66, %65 ], [ %58, %.preheader15 ]
+  %.be57 = phi ptr [ %58, %.preheader15 ], [ %66, %65 ]
   br label %.preheader15, !llvm.loop !10
 
 .loopexit16:                                      ; preds = %65, %48
@@ -2056,7 +2056,7 @@ define internal void @serio_handle_event(ptr readnone captures(none) %0) #0 alig
   br i1 %113, label %.loopexit.i, label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %110, %.preheader.i
-  %.be = phi ptr [ %111, %110 ], [ %103, %.preheader.i ]
+  %.be = phi ptr [ %103, %.preheader.i ], [ %111, %110 ]
   br label %.preheader.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %110, %95

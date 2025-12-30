@@ -245,13 +245,13 @@ atomic_store_b.exit:                              ; preds = %98
   store atomic i8 1, ptr @dss_exhausted.0 release, align 1
   br label %.thread
 
-.thread:                                          ; preds = %37, %atomic_store_p.exit.i, %61, %atomic_store_b.exit, %atomic_load_b.exit
+.thread:                                          ; preds = %atomic_store_p.exit.i, %37, %61, %atomic_store_b.exit, %atomic_load_b.exit
   store atomic i8 0, ptr @dss_extending release, align 1
   tail call void @je_edata_cache_put(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %13) #6
   br label %.thread89
 
 .thread89:                                        ; preds = %77, %.thread116, %97, %11, %7, %.thread
-  %.0 = phi ptr [ null, %11 ], [ null, %7 ], [ null, %.thread ], [ %70, %97 ], [ %70, %.thread116 ], [ %70, %77 ]
+  %.0 = phi ptr [ null, %.thread ], [ null, %7 ], [ null, %11 ], [ %70, %97 ], [ %70, %77 ], [ %70, %.thread116 ]
   ret ptr %.0
 }
 

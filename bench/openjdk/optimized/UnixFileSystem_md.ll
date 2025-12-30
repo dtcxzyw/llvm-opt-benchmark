@@ -258,7 +258,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_setPermission0(ptr
   br label %23
 
 23:                                               ; preds = %22, %21, %20, %19
-  %.023 = phi i32 [ 0, %19 ], [ %., %20 ], [ %.32, %22 ], [ %.31, %21 ]
+  %.023 = phi i32 [ 0, %19 ], [ %., %20 ], [ %.31, %21 ], [ %.32, %22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = call i32 @stat64(ptr noundef nonnull readonly %17, ptr noundef nonnull %7) #7
   %25 = icmp eq i32 %24, 0
@@ -296,7 +296,7 @@ statMode.exit.thread:                             ; preds = %23
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %.critedge.loopexit, %statMode.exit.thread
-  %.1 = phi i8 [ 0, %.critedge.loopexit ], [ 0, %statMode.exit.thread ], [ 1, %32 ]
+  %.1 = phi i8 [ 0, %statMode.exit.thread ], [ 0, %.critedge.loopexit ], [ 1, %32 ]
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull %17) #7
   br label %38
 
@@ -446,7 +446,7 @@ sub_0:                                            ; preds = %6
   br label %21
 
 21:                                               ; preds = %.sink.split, %18, %15, %.tail
-  %.1 = phi i8 [ 1, %18 ], [ 0, %15 ], [ 0, %.tail ], [ %.1.ph, %.sink.split ]
+  %.1 = phi i8 [ 0, %15 ], [ 0, %.tail ], [ 1, %18 ], [ %.1.ph, %.sink.split ]
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %7) #7
   br label %22
 
@@ -661,7 +661,7 @@ sub_185:                                          ; preds = %.tail
   br label %.thread81
 
 .thread81:                                        ; preds = %15, %.thread, %78, %.outer._crit_edge, %72, %18, %3, %.loopexit
-  %.0 = phi ptr [ %spec.select, %78 ], [ null, %3 ], [ null, %.loopexit ], [ null, %18 ], [ null, %72 ], [ %.068.ph.lcssa89, %.outer._crit_edge ], [ null, %.thread ], [ null, %15 ]
+  %.0 = phi ptr [ null, %.loopexit ], [ null, %3 ], [ null, %18 ], [ null, %72 ], [ %.068.ph.lcssa89, %.outer._crit_edge ], [ %spec.select, %78 ], [ null, %.thread ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -902,7 +902,7 @@ statMode.exit:                                    ; preds = %16
   br label %.critedge
 
 .critedge:                                        ; preds = %22, %.critedge.loopexit, %statMode.exit.thread
-  %.1 = phi i8 [ 0, %.critedge.loopexit ], [ 0, %statMode.exit.thread ], [ 1, %22 ]
+  %.1 = phi i8 [ 0, %statMode.exit.thread ], [ 0, %.critedge.loopexit ], [ 1, %22 ]
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %14) #7
   br label %28
 

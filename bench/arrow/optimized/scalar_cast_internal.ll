@@ -5049,7 +5049,7 @@ _ZN5arrow6ResultINS_5DatumEED2Ev.exit80:          ; preds = %_ZN5arrow6ResultINS
   ret void
 
 232:                                              ; preds = %102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63, %230, %149, %100
-  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %103, %102 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ], [ %.pn49, %230 ], [ %.pn39.pn.pn, %149 ]
+  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ], [ %103, %102 ], [ %.pn49, %230 ], [ %.pn39.pn.pn, %149 ]
   call void @_ZN5arrow15DictionaryArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %13) #21
   br label %233
 
@@ -9568,7 +9568,7 @@ _ZN5arrow7compute9InputTypeD2Ev.exit120:          ; preds = %_ZNSt12__shared_ptr
   br label %487
 
 487:                                              ; preds = %.loopexit, %.loopexit123, %250, %249
-  %.pn32.pn.pn.pn = phi { ptr, i32 } [ %.pn32.pn.pn, %.loopexit ], [ %.pn28.pn.pn, %.loopexit123 ], [ %.pn.pn.pn, %249 ], [ %251, %250 ]
+  %.pn32.pn.pn.pn = phi { ptr, i32 } [ %.pn32.pn.pn, %.loopexit ], [ %.pn28.pn.pn, %.loopexit123 ], [ %251, %250 ], [ %.pn.pn.pn, %249 ]
   call void @_ZN5arrow7compute6KernelD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn32.pn.pn.pn

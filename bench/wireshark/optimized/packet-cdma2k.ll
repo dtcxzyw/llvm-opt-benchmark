@@ -2251,8 +2251,8 @@ cdma2k_message_ADDR_FIELDS.exit.loopexit:         ; preds = %.lr.ph, %272
   br label %cdma2k_message_ADDR_FIELDS.exit
 
 cdma2k_message_ADDR_FIELDS.exit:                  ; preds = %cdma2k_message_ADDR_FIELDS.exit.loopexit, %271, %269, %264, %195, %193, %188
-  %289 = phi i16 [ %262, %271 ], [ %186, %195 ], [ %83, %188 ], [ %186, %193 ], [ %209, %264 ], [ %262, %269 ], [ %.lcssa22, %cdma2k_message_ADDR_FIELDS.exit.loopexit ]
-  %.1 = phi i16 [ 1, %271 ], [ %.025, %195 ], [ %.025, %188 ], [ %.025, %193 ], [ 1, %264 ], [ 1, %269 ], [ %.025, %cdma2k_message_ADDR_FIELDS.exit.loopexit ]
+  %289 = phi i16 [ %83, %188 ], [ %186, %193 ], [ %186, %195 ], [ %209, %264 ], [ %262, %269 ], [ %262, %271 ], [ %.lcssa22, %cdma2k_message_ADDR_FIELDS.exit.loopexit ]
+  %.1 = phi i16 [ %.025, %188 ], [ %.025, %193 ], [ %.025, %195 ], [ 1, %264 ], [ 1, %269 ], [ 1, %271 ], [ %.025, %cdma2k_message_ADDR_FIELDS.exit.loopexit ]
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond = icmp eq i32 %indvars.iv, %53
   br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph26, !llvm.loop !9
@@ -4504,7 +4504,7 @@ cdma2k_message_PAGE_RESPONSE.exit:                ; preds = %._crit_edge.i187, %
   br label %cdma2k_message_ORDER_CMD.exit
 
 cdma2k_message_ORDER_CMD.exit:                    ; preds = %1505, %1532, %1545, %1550, %1562, %1572, %.thread9.i, %1635, %1654, %1659, %1703, %1754, %1835, %1852, %1868, %1879, %1884
-  %.0395.i = phi i16 [ %1525, %1884 ], [ %1544, %1532 ], [ %1549, %1545 ], [ %1584, %1572 ], [ %1570, %1562 ], [ %1560, %1550 ], [ %.3.i211, %1635 ], [ %.3.i211, %.thread9.i ], [ %1658, %1654 ], [ %1675, %1659 ], [ %1758, %1754 ], [ %1708, %1703 ], [ %1851, %1835 ], [ %1864, %1852 ], [ %1525, %1505 ], [ %1883, %1879 ], [ %1877, %1868 ]
+  %.0395.i = phi i16 [ %1525, %1884 ], [ %1544, %1532 ], [ %1549, %1545 ], [ %1584, %1572 ], [ %1570, %1562 ], [ %1560, %1550 ], [ %.3.i211, %1635 ], [ %.3.i211, %.thread9.i ], [ %1658, %1654 ], [ %1675, %1659 ], [ %1758, %1754 ], [ %1708, %1703 ], [ %1851, %1835 ], [ %1864, %1852 ], [ %1883, %1879 ], [ %1877, %1868 ], [ %1525, %1505 ]
   %1885 = zext i16 %.0395.i to i32
   %1886 = add nuw nsw i32 %1885, 7
   %storemerge.i202 = lshr i32 %1886, 3
@@ -5413,7 +5413,7 @@ cdma2k_message_DATA_BURST_CMD.exit:               ; preds = %1887, %._crit_edge9
   br label %.loopexit.i233
 
 .loopexit.i233:                                   ; preds = %.lr.ph10.i238, %.lr.ph12.i, %.lr.ph15.i, %.lr.ph18.i, %.lr.ph30.i, %2530, %2516, %2505, %2484, %._crit_edge.i237, %2365, %2327, %.thread.i239, %2208, %2170, %2162, %2137, %._crit_edge22.i, %._crit_edge26.i, %2047
-  %2531 = phi i32 [ %2324, %.lr.ph12.i ], [ %2243, %.lr.ph15.i ], [ %2205, %.lr.ph18.i ], [ %2058, %.lr.ph30.i ], [ %2091, %._crit_edge26.i ], [ %.pre50.i, %2327 ], [ %.pre.i241, %.thread.i239 ], [ %.pre51.i, %2208 ], [ %.pre52.i, %2170 ], [ %.pre53.i, %2047 ], [ %2504, %2484 ], [ %2515, %2505 ], [ %.pre49.i, %2530 ], [ %2529, %2516 ], [ %2469, %._crit_edge.i237 ], [ %2396, %2365 ], [ %2169, %2162 ], [ %2161, %2137 ], [ %2136, %._crit_edge22.i ], [ %2362, %.lr.ph10.i238 ]
+  %2531 = phi i32 [ %.pre50.i, %2327 ], [ %.pre.i241, %.thread.i239 ], [ %.pre51.i, %2208 ], [ %.pre52.i, %2170 ], [ %.pre53.i, %2047 ], [ %2504, %2484 ], [ %2515, %2505 ], [ %.pre49.i, %2530 ], [ %2529, %2516 ], [ %2469, %._crit_edge.i237 ], [ %2396, %2365 ], [ %2169, %2162 ], [ %2161, %2137 ], [ %2136, %._crit_edge22.i ], [ %2091, %._crit_edge26.i ], [ %2058, %.lr.ph30.i ], [ %2205, %.lr.ph18.i ], [ %2243, %.lr.ph15.i ], [ %2324, %.lr.ph12.i ], [ %2362, %.lr.ph10.i238 ]
   %2532 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %2531)
   %.not.i234 = icmp eq i32 %2532, 0
   br i1 %.not.i234, label %cdma2k_message_GEN_PAGE_REQ.exit, label %.lr.ph34.i, !llvm.loop !28
@@ -5761,11 +5761,11 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   br i1 %.not574, label %.loopexit366, label %.lr.ph378, !llvm.loop !30
 
 .loopexit366:                                     ; preds = %.lr.ph378, %236, %.loopexit367, %103
-  %.7 = phi i16 [ %108, %103 ], [ %234, %.loopexit367 ], [ %252, %236 ], [ %261, %.lr.ph378 ]
-  %.0561 = phi i16 [ -1, %103 ], [ %193, %.loopexit367 ], [ %193, %236 ], [ %193, %.lr.ph378 ]
-  %.0560 = phi i16 [ -1, %103 ], [ %233, %.loopexit367 ], [ 1, %236 ], [ 1, %.lr.ph378 ]
-  %.0555 = phi i16 [ -1, %103 ], [ %143, %.loopexit367 ], [ %143, %236 ], [ %143, %.lr.ph378 ]
-  %.0551 = phi i16 [ -1, %103 ], [ %121, %.loopexit367 ], [ %121, %236 ], [ %121, %.lr.ph378 ]
+  %.7 = phi i16 [ %234, %.loopexit367 ], [ %108, %103 ], [ %252, %236 ], [ %261, %.lr.ph378 ]
+  %.0561 = phi i16 [ %193, %.loopexit367 ], [ -1, %103 ], [ %193, %236 ], [ %193, %.lr.ph378 ]
+  %.0560 = phi i16 [ %233, %.loopexit367 ], [ -1, %103 ], [ 1, %236 ], [ 1, %.lr.ph378 ]
+  %.0555 = phi i16 [ %143, %.loopexit367 ], [ -1, %103 ], [ %143, %236 ], [ %143, %.lr.ph378 ]
+  %.0551 = phi i16 [ %121, %.loopexit367 ], [ -1, %103 ], [ %121, %236 ], [ %121, %.lr.ph378 ]
   %264 = load i32, ptr @hf_cdma2k_Use_Pwr_Cntl_Step, align 4
   %265 = zext i16 %.7 to i32
   %266 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %264, ptr noundef %0, i32 noundef %265, i32 noundef 1, i32 noundef 0)
@@ -6635,7 +6635,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   br i1 %exitcond61.i, label %.loopexit.i, label %.lr.ph43.i, !llvm.loop !42
 
 .loopexit.i:                                      ; preds = %.lr.ph43.i, %805, %.loopexit2.i
-  %.49 = phi i16 [ %.45, %.loopexit2.i ], [ %.47, %805 ], [ %819, %.lr.ph43.i ]
+  %.49 = phi i16 [ %.47, %805 ], [ %.45, %.loopexit2.i ], [ %819, %.lr.ph43.i ]
   %820 = zext i16 %.49 to i32
   %821 = and i32 %820, 7
   %.not492.i = icmp eq i32 %821, 0
@@ -6776,7 +6776,7 @@ cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit:     ; preds = %822, %.loopexit.i, 
   br i1 %.not578, label %.loopexit364, label %.lr.ph398, !llvm.loop !43
 
 .loopexit364:                                     ; preds = %.lr.ph398, %886, %879, %875
-  %.56 = phi i16 [ %.54, %875 ], [ %884, %879 ], [ %891, %886 ], [ %901, %.lr.ph398 ]
+  %.56 = phi i16 [ %884, %879 ], [ %.54, %875 ], [ %891, %886 ], [ %901, %.lr.ph398 ]
   %903 = load i32, ptr @hf_cdma2k_Cc_Info_Incl, align 4
   %904 = zext i16 %.56 to i32
   %905 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %903, ptr noundef %0, i32 noundef %904, i32 noundef 1, i32 noundef 0)
@@ -6880,8 +6880,8 @@ cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit:     ; preds = %822, %.loopexit.i, 
   br i1 %or.cond47, label %.sink.split, label %961
 
 .sink.split:                                      ; preds = %955, %954, %953, %951, %949, %947, %946
-  %.sink458 = phi i32 [ 8, %954 ], [ 13, %946 ], [ 12, %947 ], [ 10, %951 ], [ 9, %953 ], [ 11, %949 ], [ 6, %955 ]
-  %.sink455 = phi i16 [ 9, %954 ], [ 14, %946 ], [ 13, %947 ], [ 11, %951 ], [ 10, %953 ], [ 12, %949 ], [ 7, %955 ]
+  %.sink458 = phi i32 [ 13, %946 ], [ 12, %947 ], [ 11, %949 ], [ 10, %951 ], [ 9, %953 ], [ 8, %954 ], [ 6, %955 ]
+  %.sink455 = phi i16 [ 14, %946 ], [ 13, %947 ], [ 12, %949 ], [ 11, %951 ], [ 10, %953 ], [ 9, %954 ], [ 7, %955 ]
   %957 = load i32, ptr @hf_cdma2k_Reserved, align 4
   %958 = zext i16 %942 to i32
   %959 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %957, ptr noundef %0, i32 noundef %958, i32 noundef %.sink458, i32 noundef 0)
@@ -7270,7 +7270,7 @@ cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit:     ; preds = %822, %.loopexit.i, 
   br i1 %.not581, label %.critedge584, label %1204, !llvm.loop !45
 
 .critedge584:                                     ; preds = %1231, %1201, %1173, %1175
-  %.76 = phi i16 [ %1167, %1173 ], [ %1180, %1175 ], [ %.73, %1201 ], [ %.75, %1231 ]
+  %.76 = phi i16 [ %1180, %1175 ], [ %1167, %1173 ], [ %.73, %1201 ], [ %.75, %1231 ]
   %1234 = icmp eq i8 %941, 1
   br i1 %1234, label %1235, label %1240
 

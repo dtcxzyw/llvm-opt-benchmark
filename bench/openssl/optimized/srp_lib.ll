@@ -675,7 +675,7 @@ define ptr @SRP_check_known_gN_param(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %17, %2, %15
-  %.010 = phi ptr [ null, %2 ], [ %16, %15 ], [ null, %17 ]
+  %.010 = phi ptr [ %16, %15 ], [ null, %2 ], [ null, %17 ]
   ret ptr %.010
 }
 

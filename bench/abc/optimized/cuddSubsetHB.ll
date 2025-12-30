@@ -141,8 +141,8 @@ define ptr @cuddSubsetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.b.i, label %45, label %SubsetCountMinterm.exit
 
 .sink.split.sink.split.i:                         ; preds = %41, %37, %31
-  %.sink.i = phi ptr [ %35, %41 ], [ %29, %37 ], [ %29, %31 ]
-  %mintermPages.sink.i = phi ptr [ @nodeDataPages, %41 ], [ @mintermPages, %37 ], [ @mintermPages, %31 ]
+  %.sink.i = phi ptr [ %29, %37 ], [ %35, %41 ], [ %29, %31 ]
+  %mintermPages.sink.i = phi ptr [ @mintermPages, %37 ], [ @nodeDataPages, %41 ], [ @mintermPages, %31 ]
   tail call void @free(ptr noundef nonnull %.sink.i) #8
   store ptr null, ptr %mintermPages.sink.i, align 8, !tbaa !40
   br label %.sink.split.i
@@ -359,15 +359,15 @@ SubsetCountMinterm.exit:                          ; preds = %42
   br i1 %.b.i109, label %100, label %SubsetCountNodes.exit
 
 .sink.split.sink.split.sink.split.i:              ; preds = %83, %._crit_edge.thread.i, %._crit_edge.i, %._crit_edge86.i
-  %.pre114.sink.i = phi ptr [ %.pre114.i, %._crit_edge86.i ], [ %71, %._crit_edge.i ], [ %71, %._crit_edge.thread.i ], [ %.pre114.i, %83 ]
-  %nodeDataPages.sink133.i = phi ptr [ @nodeDataPages, %._crit_edge86.i ], [ @currentNodePage, %._crit_edge.i ], [ @currentNodePage, %._crit_edge.thread.i ], [ @nodeDataPages, %83 ]
+  %.pre114.sink.i = phi ptr [ %.pre114.i, %._crit_edge86.i ], [ %71, %._crit_edge.thread.i ], [ %71, %._crit_edge.i ], [ %.pre114.i, %83 ]
+  %nodeDataPages.sink133.i = phi ptr [ @nodeDataPages, %._crit_edge86.i ], [ @currentNodePage, %._crit_edge.thread.i ], [ @currentNodePage, %._crit_edge.i ], [ @nodeDataPages, %83 ]
   tail call void @free(ptr noundef %.pre114.sink.i) #8
   store ptr null, ptr %nodeDataPages.sink133.i, align 8, !tbaa !40
   br label %.sink.split.sink.split.i110
 
 .sink.split.sink.split.i110:                      ; preds = %69, %.sink.split.sink.split.sink.split.i, %._crit_edge86.i, %._crit_edge95.i
-  %.pre116.sink.i = phi ptr [ %53, %._crit_edge86.i ], [ %.pre116.i, %._crit_edge95.i ], [ %53, %.sink.split.sink.split.sink.split.i ], [ %.pre116.i, %69 ]
-  %nodeDataPages.sink.i = phi ptr [ @lightNodePages, %._crit_edge86.i ], [ @nodeDataPages, %._crit_edge95.i ], [ @lightNodePages, %.sink.split.sink.split.sink.split.i ], [ @nodeDataPages, %69 ]
+  %.pre116.sink.i = phi ptr [ %.pre116.i, %._crit_edge95.i ], [ %53, %._crit_edge86.i ], [ %53, %.sink.split.sink.split.sink.split.i ], [ %.pre116.i, %69 ]
+  %nodeDataPages.sink.i = phi ptr [ @nodeDataPages, %._crit_edge95.i ], [ @lightNodePages, %._crit_edge86.i ], [ @lightNodePages, %.sink.split.sink.split.sink.split.i ], [ @nodeDataPages, %69 ]
   tail call void @free(ptr noundef %.pre116.sink.i) #8
   store ptr null, ptr %nodeDataPages.sink.i, align 8, !tbaa !40
   br label %.sink.split.i111
@@ -654,7 +654,7 @@ SubsetCountNodes.exit:                            ; preds = %98
   br label %191
 
 191:                                              ; preds = %183, %14, %184, %153, %147, %115, %100, %45, %9
-  %.0 = phi ptr [ null, %9 ], [ %1, %14 ], [ null, %45 ], [ null, %100 ], [ null, %115 ], [ null, %147 ], [ null, %153 ], [ %135, %184 ], [ null, %183 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %45 ], [ null, %100 ], [ null, %115 ], [ null, %147 ], [ null, %153 ], [ %135, %184 ], [ %1, %14 ], [ null, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -787,7 +787,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br label %58
 
 58:                                               ; preds = %53, %56, %49
-  %.0104 = phi double [ %52, %49 ], [ %57, %56 ], [ 0.000000e+00, %53 ]
+  %.0104 = phi double [ %57, %56 ], [ %52, %49 ], [ 0.000000e+00, %53 ]
   %59 = and i64 %35, -2
   %60 = inttoptr i64 %59 to ptr
   %61 = load i32, ptr %60, align 8, !tbaa !29
@@ -823,7 +823,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br label %79
 
 79:                                               ; preds = %74, %77, %70
-  %.0103 = phi double [ %73, %70 ], [ %78, %77 ], [ 0.000000e+00, %74 ]
+  %.0103 = phi double [ %78, %77 ], [ %73, %70 ], [ 0.000000e+00, %74 ]
   %80 = load i32, ptr %2, align 4, !tbaa !31
   %81 = load ptr, ptr %8, align 8, !tbaa !38
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
@@ -907,9 +907,9 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br label %133
 
 133:                                              ; preds = %113, %90, %128, %123, %105, %100
-  %.sink129 = phi ptr [ %60, %90 ], [ %132, %128 ], [ %127, %123 ], [ %104, %100 ], [ %109, %105 ], [ %39, %113 ]
-  %.0102 = phi ptr [ %88, %90 ], [ %129, %128 ], [ %124, %123 ], [ %88, %100 ], [ %88, %105 ], [ %34, %113 ]
-  %.0101 = phi ptr [ %37, %90 ], [ %111, %128 ], [ %111, %123 ], [ %101, %100 ], [ %106, %105 ], [ %111, %113 ]
+  %.sink129 = phi ptr [ %132, %128 ], [ %127, %123 ], [ %109, %105 ], [ %104, %100 ], [ %60, %90 ], [ %39, %113 ]
+  %.0102 = phi ptr [ %129, %128 ], [ %124, %123 ], [ %88, %105 ], [ %88, %100 ], [ %88, %90 ], [ %34, %113 ]
+  %.0101 = phi ptr [ %111, %128 ], [ %111, %123 ], [ %106, %105 ], [ %101, %100 ], [ %37, %90 ], [ %111, %113 ]
   %134 = getelementptr inbounds nuw i8, ptr %.sink129, i64 4
   %135 = load i32, ptr %134, align 4, !tbaa !48
   %136 = add i32 %135, 1
@@ -986,7 +986,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br label %172
 
 172:                                              ; preds = %.critedge, %165, %154, %110, %87, %14, %169, %65, %44, %13
-  %.0 = phi ptr [ %1, %13 ], [ null, %44 ], [ %1, %14 ], [ null, %110 ], [ %145, %169 ], [ null, %154 ], [ null, %.critedge ], [ null, %87 ], [ null, %65 ], [ null, %165 ]
+  %.0 = phi ptr [ %1, %13 ], [ %145, %169 ], [ null, %65 ], [ null, %44 ], [ %1, %14 ], [ null, %87 ], [ null, %110 ], [ null, %154 ], [ null, %165 ], [ null, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1384,7 +1384,7 @@ ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
   br label %122
 
 122:                                              ; preds = %.thread, %30, %19, %10, %121, %96, %80, %15
-  %.053 = phi double [ %., %10 ], [ 0.000000e+00, %30 ], [ %18, %15 ], [ 0.000000e+00, %121 ], [ 0.000000e+00, %19 ], [ 0.000000e+00, %80 ], [ 0.000000e+00, %96 ], [ %37, %.thread ]
+  %.053 = phi double [ %18, %15 ], [ 0.000000e+00, %80 ], [ 0.000000e+00, %96 ], [ 0.000000e+00, %121 ], [ %., %10 ], [ 0.000000e+00, %19 ], [ 0.000000e+00, %30 ], [ %37, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.053
 }
@@ -1602,7 +1602,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br label %48
 
 48:                                               ; preds = %38, %44
-  %.098 = phi double [ %., %38 ], [ %47, %44 ]
+  %.098 = phi double [ %47, %44 ], [ %., %38 ]
   %49 = and i64 %31, -2
   %50 = inttoptr i64 %49 to ptr
   %51 = load i32, ptr %50, align 8, !tbaa !29
@@ -1627,7 +1627,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br label %63
 
 63:                                               ; preds = %53, %59
-  %.097 = phi double [ %.146, %53 ], [ %62, %59 ]
+  %.097 = phi double [ %62, %59 ], [ %.146, %53 ]
   %64 = fcmp ult double %.098, %.097
   br i1 %64, label %89, label %65
 
@@ -1836,10 +1836,10 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br label %183
 
 .thread:                                          ; preds = %93, %..thread148_crit_edge, %69, %..thread_crit_edge
-  %.sink = phi i32 [ %70, %69 ], [ %.pre, %..thread_crit_edge ], [ %.pre221, %..thread148_crit_edge ], [ %94, %93 ]
-  %.sink260 = phi i32 [ %68, %69 ], [ %68, %..thread_crit_edge ], [ %92, %..thread148_crit_edge ], [ %92, %93 ]
-  %.0101 = phi i32 [ %68, %69 ], [ %68, %..thread_crit_edge ], [ %90, %..thread148_crit_edge ], [ %90, %93 ]
-  %.099 = phi i32 [ %66, %69 ], [ %66, %..thread_crit_edge ], [ %92, %..thread148_crit_edge ], [ %92, %93 ]
+  %.sink = phi i32 [ %.pre, %..thread_crit_edge ], [ %70, %69 ], [ %.pre221, %..thread148_crit_edge ], [ %94, %93 ]
+  %.sink260 = phi i32 [ %68, %..thread_crit_edge ], [ %68, %69 ], [ %92, %..thread148_crit_edge ], [ %92, %93 ]
+  %.0101 = phi i32 [ %68, %..thread_crit_edge ], [ %68, %69 ], [ %90, %..thread148_crit_edge ], [ %90, %93 ]
+  %.099 = phi i32 [ %66, %..thread_crit_edge ], [ %66, %69 ], [ %92, %..thread148_crit_edge ], [ %92, %93 ]
   %113 = load ptr, ptr @currentLightNodePage, align 8, !tbaa !45
   %114 = sext i32 %.sink to i64
   %115 = getelementptr inbounds i32, ptr %113, i64 %114
@@ -2062,7 +2062,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   br label %183
 
 183:                                              ; preds = %91, %89, %67, %65, %56, %41, %15, %18, %3, %9, %181, %173, %148, %112, %88
-  %.0 = phi i32 [ 0, %18 ], [ 0, %3 ], [ 0, %56 ], [ 0, %65 ], [ 0, %88 ], [ 0, %148 ], [ 0, %173 ], [ %182, %181 ], [ 0, %67 ], [ 0, %89 ], [ 0, %112 ], [ 0, %41 ], [ 0, %15 ], [ 0, %9 ], [ 0, %91 ]
+  %.0 = phi i32 [ 0, %88 ], [ 0, %148 ], [ 0, %173 ], [ %182, %181 ], [ 0, %112 ], [ 0, %9 ], [ 0, %3 ], [ 0, %18 ], [ 0, %15 ], [ 0, %41 ], [ 0, %56 ], [ 0, %65 ], [ 0, %67 ], [ 0, %89 ], [ 0, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

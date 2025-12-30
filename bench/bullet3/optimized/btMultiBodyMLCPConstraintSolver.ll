@@ -998,8 +998,8 @@ _ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i.thread: ; preds 
           to label %360 unwind label %390
 
 360:                                              ; preds = %347, %345, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i.thread, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i
-  %.sroa.26703.7 = phi ptr [ %.sroa.26703.0805, %345 ], [ %.sroa.26703.0805, %347 ], [ %.0.i.i.i517, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i.thread ], [ %.0.i.i.i517, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i ]
-  %.sroa.17.4 = phi i32 [ %.sroa.17.0806, %345 ], [ %.sroa.3.0807, %347 ], [ %349, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i.thread ], [ %349, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i ]
+  %.sroa.26703.7 = phi ptr [ %.sroa.26703.0805, %347 ], [ %.sroa.26703.0805, %345 ], [ %.0.i.i.i517, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i.thread ], [ %.0.i.i.i517, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i ]
+  %.sroa.17.4 = phi i32 [ %.sroa.3.0807, %347 ], [ %.sroa.17.0806, %345 ], [ %349, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i.thread ], [ %349, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i ]
   %361 = add nsw i32 %.sroa.3.0807, 1
   %362 = sext i32 %.sroa.3.0807 to i64
   %363 = getelementptr inbounds %struct.btJointNode1, ptr %.sroa.26703.7, i64 %362
@@ -1222,8 +1222,8 @@ _ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i536.thread: ; pre
           to label %475 unwind label %505
 
 475:                                              ; preds = %462, %460, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i536.thread, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i536
-  %.sroa.26703.8 = phi ptr [ %.sroa.26703.4, %460 ], [ %.sroa.26703.4, %462 ], [ %.0.i.i.i535, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i536.thread ], [ %.0.i.i.i535, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i536 ]
-  %.sroa.17.5 = phi i32 [ %.sroa.17.1, %460 ], [ %.sroa.17.1, %462 ], [ %464, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i536.thread ], [ %464, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i536 ]
+  %.sroa.26703.8 = phi ptr [ %.sroa.26703.4, %462 ], [ %.sroa.26703.4, %460 ], [ %.0.i.i.i535, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i536.thread ], [ %.0.i.i.i535, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i536 ]
+  %.sroa.17.5 = phi i32 [ %.sroa.17.1, %462 ], [ %.sroa.17.1, %460 ], [ %464, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i536.thread ], [ %464, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i536 ]
   %476 = add nsw i32 %.sroa.3.1, 1
   %477 = sext i32 %.sroa.3.1 to i64
   %478 = getelementptr inbounds %struct.btJointNode1, ptr %.sroa.26703.8, i64 %477
@@ -2061,7 +2061,7 @@ _ZN9btMatrixXIfE7addElemEiif.exit.us.i609:        ; preds = %.sink.split.i.us.i6
   br label %962
 
 _ZN9btMatrixXIfE16multiplyAdd2_p8rEPKfS2_iiii.exit617: ; preds = %._crit_edge.us.i612, %843, %_ZN9btMatrixXIfE13multiply2_p8rEPKfS2_iiii.exit
-  %947 = phi i32 [ %845, %843 ], [ %847, %_ZN9btMatrixXIfE13multiply2_p8rEPKfS2_iiii.exit ], [ %847, %._crit_edge.us.i612 ]
+  %947 = phi i32 [ %847, %_ZN9btMatrixXIfE13multiply2_p8rEPKfS2_iiii.exit ], [ %845, %843 ], [ %847, %._crit_edge.us.i612 ]
   %948 = add i32 %947, %.0315832
   %indvars.iv.next908 = add nuw nsw i64 %indvars.iv907, 1
   %949 = icmp slt i32 %948, %819
@@ -2466,7 +2466,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %1084, %_ZN20btAlign
   unreachable
 
 _ZN20btAlignedObjectArrayI12btJointNode1ED2Ev.exit688: ; preds = %296, %1089, %1090
-  %.pn367.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn367.pn.pn.pn.pn.pn.pn.pn, %1090 ], [ %.pn332, %296 ], [ %.pn367.pn.pn.pn.pn.pn.pn.pn, %1089 ]
+  %.pn367.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn367.pn.pn.pn.pn.pn.pn.pn, %1089 ], [ %.pn367.pn.pn.pn.pn.pn.pn.pn, %1090 ], [ %.pn332, %296 ]
   %.not.i.i.i689.not = icmp eq ptr %.sroa.14737.2, null
   br i1 %.not.i.i.i689.not, label %_ZN20btAlignedObjectArrayIiED2Ev.exit691, label %1094
 
@@ -3283,7 +3283,7 @@ _ZL37computeDeltaVelocityInConstraintSpacePKfS0_i.exit129.loopexit.i: ; preds = 
   br label %_ZL37computeDeltaVelocityInConstraintSpacePKfS0_i.exit.i144
 
 _ZL37computeDeltaVelocityInConstraintSpacePKfS0_i.exit.i144: ; preds = %373, %363, %335, %_ZL37computeDeltaVelocityInConstraintSpacePKfS0_i.exit129.loopexit.i, %308, %306, %_ZL37computeDeltaVelocityInConstraintSpacePKfS0_i.exit.loopexit.i, %293
-  %.1.i145 = phi float [ 0.000000e+00, %306 ], [ 0.000000e+00, %363 ], [ %305, %_ZL37computeDeltaVelocityInConstraintSpacePKfS0_i.exit.loopexit.i ], [ %362, %335 ], [ %400, %373 ], [ 0.000000e+00, %293 ], [ 0.000000e+00, %308 ], [ %320, %_ZL37computeDeltaVelocityInConstraintSpacePKfS0_i.exit129.loopexit.i ]
+  %.1.i145 = phi float [ 0.000000e+00, %306 ], [ %362, %335 ], [ %400, %373 ], [ 0.000000e+00, %363 ], [ 0.000000e+00, %293 ], [ %305, %_ZL37computeDeltaVelocityInConstraintSpacePKfS0_i.exit.loopexit.i ], [ 0.000000e+00, %308 ], [ %320, %_ZL37computeDeltaVelocityInConstraintSpacePKfS0_i.exit129.loopexit.i ]
   %.not118.i = icmp eq ptr %286, null
   br i1 %.not118.i, label %435, label %401
 
@@ -3458,7 +3458,7 @@ _ZL37computeDeltaVelocityInConstraintSpacePKfS0_i.exit147.i: ; preds = %.lr.ph.i
   br label %515
 
 515:                                              ; preds = %487, %477, %449, %_ZL37computeDeltaVelocityInConstraintSpacePKfS0_i.exit147.i, %420, %_ZL37computeDeltaVelocityInConstraintSpacePKfS0_i.exit138.i
-  %.4.i = phi float [ %.1.i145, %420 ], [ %419, %_ZL37computeDeltaVelocityInConstraintSpacePKfS0_i.exit138.i ], [ %434, %_ZL37computeDeltaVelocityInConstraintSpacePKfS0_i.exit147.i ], [ %476, %449 ], [ %514, %487 ], [ %.1.i145, %477 ]
+  %.4.i = phi float [ %419, %_ZL37computeDeltaVelocityInConstraintSpacePKfS0_i.exit138.i ], [ %434, %_ZL37computeDeltaVelocityInConstraintSpacePKfS0_i.exit147.i ], [ %.1.i145, %420 ], [ %476, %449 ], [ %514, %487 ], [ %.1.i145, %477 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv224
   store float %.4.i, ptr %gep, align 4, !tbaa !19
   %516 = mul nsw i64 %indvars.iv224, %145
@@ -5629,7 +5629,7 @@ _ZN9btVectorXIfE6resizeEi.exit432:                ; preds = %547, %.lr.ph.i.i416
   ret float 0.000000e+00
 
 569:                                              ; preds = %198, %241, %314, %363, %401, %448, %491, %151, %113, %111, %109
-  %.pn101 = phi { ptr, i32 } [ %152, %151 ], [ %110, %109 ], [ %114, %113 ], [ %112, %111 ], [ %242, %241 ], [ %402, %401 ], [ %199, %198 ], [ %315, %314 ], [ %449, %448 ], [ %492, %491 ], [ %364, %363 ]
+  %.pn101 = phi { ptr, i32 } [ %152, %151 ], [ %114, %113 ], [ %112, %111 ], [ %110, %109 ], [ %402, %401 ], [ %315, %314 ], [ %449, %448 ], [ %492, %491 ], [ %364, %363 ], [ %199, %198 ], [ %242, %241 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %572

@@ -904,7 +904,7 @@ _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit.thread: ; preds = 
   br label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit9
 
 _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit9: ; preds = %25, %28, %18, %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit.thread, %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit
-  %.0 = phi i1 [ true, %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit ], [ false, %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit.thread ], [ true, %18 ], [ %32, %28 ], [ true, %25 ]
+  %.0 = phi i1 [ true, %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit ], [ false, %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit.thread ], [ %32, %28 ], [ true, %18 ], [ true, %25 ]
   ret i1 %.0
 }
 
@@ -1069,7 +1069,7 @@ _ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT
   br label %_ZL26resolve_inlining_predicate18CompileCommandEnumRK12methodHandle.exit
 
 _ZL26resolve_inlining_predicate18CompileCommandEnumRK12methodHandle.exit: ; preds = %64, %53, %50, %48, %44, %39, %67
-  %.0 = phi i1 [ %52, %50 ], [ %70, %67 ], [ %40, %39 ], [ %46, %44 ], [ %49, %48 ], [ false, %53 ], [ false, %64 ]
+  %.0 = phi i1 [ %70, %67 ], [ %40, %39 ], [ %46, %44 ], [ %49, %48 ], [ %52, %50 ], [ false, %53 ], [ false, %64 ]
   ret i1 %.0
 }
 
@@ -1116,7 +1116,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle17should_not_inlineERK12met
   br label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit
 
 _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit: ; preds = %12, %15, %3, %1
-  %19 = phi i1 [ true, %1 ], [ false, %3 ], [ %18, %15 ], [ false, %12 ]
+  %19 = phi i1 [ true, %1 ], [ %18, %15 ], [ false, %3 ], [ false, %12 ]
   ret i1 %19
 }
 
@@ -1153,7 +1153,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle12should_printERK12methodHa
   br label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit
 
 _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit: ; preds = %10, %1, %13
-  %.0.i = phi i1 [ false, %1 ], [ %16, %13 ], [ false, %10 ]
+  %.0.i = phi i1 [ %16, %13 ], [ false, %1 ], [ false, %10 ]
   ret i1 %.0.i
 }
 
@@ -1220,7 +1220,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle10should_logERK12methodHand
   br label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit
 
 _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit: ; preds = %14, %17, %7, %4, %1
-  %.0 = phi i1 [ true, %4 ], [ false, %1 ], [ false, %7 ], [ %20, %17 ], [ false, %14 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %4 ], [ %20, %17 ], [ false, %7 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -1257,7 +1257,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle15should_break_atERK12metho
   br label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit
 
 _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit: ; preds = %10, %1, %13
-  %.0.i = phi i1 [ false, %1 ], [ %16, %13 ], [ false, %10 ]
+  %.0.i = phi i1 [ %16, %13 ], [ false, %1 ], [ false, %10 ]
   ret i1 %.0.i
 }
 
@@ -2095,15 +2095,15 @@ _ZL10skip_commaRPc.exit49:                        ; preds = %278, %284
   br label %312
 
 312:                                              ; preds = %._crit_edge, %309, %311, %305, %304, %301, %288, %260, %.loopexit, %237, %169, %74, %73, %64
-  %313 = phi i64 [ %65, %64 ], [ %63, %73 ], [ %63, %74 ], [ %63, %169 ], [ %63, %237 ], [ %63, %.loopexit ], [ %63, %260 ], [ %63, %311 ], [ %63, %288 ], [ %63, %301 ], [ %63, %304 ], [ %63, %305 ], [ %63, %309 ], [ %63, %._crit_edge ]
-  %314 = phi ptr [ %66, %64 ], [ %61, %73 ], [ %61, %74 ], [ %61, %169 ], [ %61, %237 ], [ %61, %.loopexit ], [ %61, %260 ], [ %61, %311 ], [ %61, %288 ], [ %61, %301 ], [ %61, %304 ], [ %61, %305 ], [ %61, %309 ], [ %61, %._crit_edge ]
-  %315 = phi ptr [ %67, %64 ], [ %60, %73 ], [ %60, %74 ], [ %60, %169 ], [ %60, %237 ], [ %60, %.loopexit ], [ %60, %260 ], [ %60, %311 ], [ %60, %288 ], [ %60, %301 ], [ %60, %304 ], [ %60, %305 ], [ %60, %309 ], [ %60, %._crit_edge ]
-  %316 = phi ptr [ %68, %64 ], [ %59, %73 ], [ %59, %74 ], [ %59, %169 ], [ %59, %237 ], [ %59, %.loopexit ], [ %59, %260 ], [ %59, %311 ], [ %59, %288 ], [ %59, %301 ], [ %59, %304 ], [ %59, %305 ], [ %59, %309 ], [ %59, %._crit_edge ]
-  %317 = phi ptr [ %69, %64 ], [ %58, %73 ], [ %58, %74 ], [ %58, %169 ], [ %58, %237 ], [ %58, %.loopexit ], [ %58, %260 ], [ %58, %311 ], [ %58, %288 ], [ %58, %301 ], [ %58, %304 ], [ %58, %305 ], [ %58, %309 ], [ %58, %._crit_edge ]
-  %318 = phi ptr [ %70, %64 ], [ %57, %73 ], [ %57, %74 ], [ %57, %169 ], [ %57, %237 ], [ %57, %.loopexit ], [ %57, %260 ], [ %57, %311 ], [ %57, %288 ], [ %57, %301 ], [ %57, %304 ], [ %57, %305 ], [ %57, %309 ], [ %57, %._crit_edge ]
-  %319 = phi ptr [ %71, %64 ], [ %56, %73 ], [ %56, %74 ], [ %56, %169 ], [ %56, %237 ], [ %56, %.loopexit ], [ %56, %260 ], [ %56, %311 ], [ %56, %288 ], [ %56, %301 ], [ %56, %304 ], [ %56, %305 ], [ %56, %309 ], [ %56, %._crit_edge ]
-  %320 = phi ptr [ %72, %64 ], [ %55, %73 ], [ %55, %74 ], [ %55, %169 ], [ %55, %237 ], [ %55, %.loopexit ], [ %55, %260 ], [ %55, %311 ], [ %55, %288 ], [ %55, %301 ], [ %55, %304 ], [ %55, %305 ], [ %55, %309 ], [ %55, %._crit_edge ]
-  %.1 = phi i1 [ false, %64 ], [ true, %73 ], [ true, %74 ], [ false, %169 ], [ false, %237 ], [ false, %.loopexit ], [ false, %260 ], [ false, %311 ], [ false, %288 ], [ true, %301 ], [ true, %304 ], [ false, %305 ], [ true, %309 ], [ true, %._crit_edge ]
+  %313 = phi i64 [ %65, %64 ], [ %63, %73 ], [ %63, %74 ], [ %63, %169 ], [ %63, %237 ], [ %63, %.loopexit ], [ %63, %260 ], [ %63, %288 ], [ %63, %301 ], [ %63, %304 ], [ %63, %305 ], [ %63, %311 ], [ %63, %309 ], [ %63, %._crit_edge ]
+  %314 = phi ptr [ %66, %64 ], [ %61, %73 ], [ %61, %74 ], [ %61, %169 ], [ %61, %237 ], [ %61, %.loopexit ], [ %61, %260 ], [ %61, %288 ], [ %61, %301 ], [ %61, %304 ], [ %61, %305 ], [ %61, %311 ], [ %61, %309 ], [ %61, %._crit_edge ]
+  %315 = phi ptr [ %67, %64 ], [ %60, %73 ], [ %60, %74 ], [ %60, %169 ], [ %60, %237 ], [ %60, %.loopexit ], [ %60, %260 ], [ %60, %288 ], [ %60, %301 ], [ %60, %304 ], [ %60, %305 ], [ %60, %311 ], [ %60, %309 ], [ %60, %._crit_edge ]
+  %316 = phi ptr [ %68, %64 ], [ %59, %73 ], [ %59, %74 ], [ %59, %169 ], [ %59, %237 ], [ %59, %.loopexit ], [ %59, %260 ], [ %59, %288 ], [ %59, %301 ], [ %59, %304 ], [ %59, %305 ], [ %59, %311 ], [ %59, %309 ], [ %59, %._crit_edge ]
+  %317 = phi ptr [ %69, %64 ], [ %58, %73 ], [ %58, %74 ], [ %58, %169 ], [ %58, %237 ], [ %58, %.loopexit ], [ %58, %260 ], [ %58, %288 ], [ %58, %301 ], [ %58, %304 ], [ %58, %305 ], [ %58, %311 ], [ %58, %309 ], [ %58, %._crit_edge ]
+  %318 = phi ptr [ %70, %64 ], [ %57, %73 ], [ %57, %74 ], [ %57, %169 ], [ %57, %237 ], [ %57, %.loopexit ], [ %57, %260 ], [ %57, %288 ], [ %57, %301 ], [ %57, %304 ], [ %57, %305 ], [ %57, %311 ], [ %57, %309 ], [ %57, %._crit_edge ]
+  %319 = phi ptr [ %71, %64 ], [ %56, %73 ], [ %56, %74 ], [ %56, %169 ], [ %56, %237 ], [ %56, %.loopexit ], [ %56, %260 ], [ %56, %288 ], [ %56, %301 ], [ %56, %304 ], [ %56, %305 ], [ %56, %311 ], [ %56, %309 ], [ %56, %._crit_edge ]
+  %320 = phi ptr [ %72, %64 ], [ %55, %73 ], [ %55, %74 ], [ %55, %169 ], [ %55, %237 ], [ %55, %.loopexit ], [ %55, %260 ], [ %55, %288 ], [ %55, %301 ], [ %55, %304 ], [ %55, %305 ], [ %55, %311 ], [ %55, %309 ], [ %55, %._crit_edge ]
+  %.1 = phi i1 [ false, %64 ], [ true, %73 ], [ true, %74 ], [ false, %169 ], [ false, %237 ], [ false, %.loopexit ], [ false, %260 ], [ false, %288 ], [ true, %301 ], [ true, %304 ], [ false, %305 ], [ false, %311 ], [ true, %309 ], [ true, %._crit_edge ]
   %321 = load ptr, ptr %318, align 8
   %.not.i.i.i.i = icmp eq ptr %321, null
   br i1 %.not.i.i.i.i, label %323, label %322
@@ -2438,7 +2438,7 @@ _Z14multiply_by_1kImEbRT_.exit.thread.i.i:        ; preds = %50
   br label %52
 
 52:                                               ; preds = %_Z14multiply_by_1kImEbRT_.exit.thread.i.i, %48, %48
-  %.026.i.i = phi i64 [ %51, %_Z14multiply_by_1kImEbRT_.exit.thread.i.i ], [ %42, %48 ], [ %42, %48 ]
+  %.026.i.i = phi i64 [ %42, %48 ], [ %42, %48 ], [ %51, %_Z14multiply_by_1kImEbRT_.exit.thread.i.i ]
   %.not4.i16.i.i = icmp ult i64 %.026.i.i, 18014398509481984
   br i1 %.not4.i16.i.i, label %_Z14multiply_by_1kImEbRT_.exit17.thread.i.i, label %60
 
@@ -2447,7 +2447,7 @@ _Z14multiply_by_1kImEbRT_.exit17.thread.i.i:      ; preds = %52
   br label %54
 
 54:                                               ; preds = %_Z14multiply_by_1kImEbRT_.exit17.thread.i.i, %48, %48
-  %.1.i.i = phi i64 [ %53, %_Z14multiply_by_1kImEbRT_.exit17.thread.i.i ], [ %42, %48 ], [ %42, %48 ]
+  %.1.i.i = phi i64 [ %42, %48 ], [ %42, %48 ], [ %53, %_Z14multiply_by_1kImEbRT_.exit17.thread.i.i ]
   %.not4.i18.i.i = icmp ult i64 %.1.i.i, 18014398509481984
   br i1 %.not4.i18.i.i, label %_Z14multiply_by_1kImEbRT_.exit19.thread.i.i, label %60
 
@@ -2456,7 +2456,7 @@ _Z14multiply_by_1kImEbRT_.exit19.thread.i.i:      ; preds = %54
   br label %56
 
 56:                                               ; preds = %_Z14multiply_by_1kImEbRT_.exit19.thread.i.i, %48, %48
-  %.2.i.i = phi i64 [ %55, %_Z14multiply_by_1kImEbRT_.exit19.thread.i.i ], [ %42, %48 ], [ %42, %48 ]
+  %.2.i.i = phi i64 [ %42, %48 ], [ %42, %48 ], [ %55, %_Z14multiply_by_1kImEbRT_.exit19.thread.i.i ]
   %.not4.i20.i.i = icmp ult i64 %.2.i.i, 18014398509481984
   br i1 %.not4.i20.i.i, label %57, label %60
 
@@ -3215,7 +3215,7 @@ _ZN14CompilerOracle15parse_from_fileEv.exit:      ; preds = %18, %21
   br label %32
 
 32:                                               ; preds = %_ZN14CompilerOracle15parse_from_fileEv.exit, %28, %31
-  %.3 = phi i1 [ %.0.i, %_ZN14CompilerOracle15parse_from_fileEv.exit ], [ %.2, %28 ], [ %.2, %31 ]
+  %.3 = phi i1 [ %.2, %31 ], [ %.2, %28 ], [ %.0.i, %_ZN14CompilerOracle15parse_from_fileEv.exit ]
   %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 3), align 1
   %34 = trunc i8 %33 to i1
   %35 = load i8, ptr @PrintAssembly, align 1

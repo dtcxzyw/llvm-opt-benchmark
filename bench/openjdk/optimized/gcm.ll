@@ -422,7 +422,7 @@ _ZNK4Node14is_block_startEv.exit11.i:             ; preds = %.preheader.i
   br label %.preheader.i, !llvm.loop !10
 
 _ZNK8PhaseCFG19find_block_for_nodeEP4Node.exit:   ; preds = %26, %_ZNK4Node14is_block_startEv.exit11.i, %10, %_ZNK4Node14is_block_startEv.exit.i, %17
-  %.0.lcssa.sink.i = phi ptr [ %1, %_ZNK4Node14is_block_startEv.exit.i ], [ %1, %10 ], [ %1, %17 ], [ %.0.i, %_ZNK4Node14is_block_startEv.exit11.i ], [ %.0.i, %26 ]
+  %.0.lcssa.sink.i = phi ptr [ %1, %10 ], [ %1, %17 ], [ %1, %_ZNK4Node14is_block_startEv.exit.i ], [ %.0.i, %_ZNK4Node14is_block_startEv.exit11.i ], [ %.0.i, %26 ]
   %33 = getelementptr inbounds nuw i8, ptr %.0.lcssa.sink.i, i64 40
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -483,7 +483,7 @@ _ZNK4Node14is_block_startEv.exit11.i31:           ; preds = %.preheader.i26
   br label %.preheader.i26, !llvm.loop !10
 
 _ZNK8PhaseCFG19find_block_for_nodeEP4Node.exit32: ; preds = %59, %_ZNK4Node14is_block_startEv.exit11.i31, %43, %_ZNK4Node14is_block_startEv.exit.i22, %50
-  %.0.lcssa.sink.i24 = phi ptr [ %2, %_ZNK4Node14is_block_startEv.exit.i22 ], [ %2, %43 ], [ %2, %50 ], [ %.0.i30, %_ZNK4Node14is_block_startEv.exit11.i31 ], [ %.0.i30, %59 ]
+  %.0.lcssa.sink.i24 = phi ptr [ %2, %43 ], [ %2, %50 ], [ %2, %_ZNK4Node14is_block_startEv.exit.i22 ], [ %.0.i30, %_ZNK4Node14is_block_startEv.exit11.i31 ], [ %.0.i30, %59 ]
   %66 = getelementptr inbounds nuw i8, ptr %.0.lcssa.sink.i24, i64 40
   %67 = load i32, ptr %66, align 8
   %68 = load ptr, ptr %35, align 8
@@ -635,7 +635,7 @@ _ZN5Block7dom_lcaEPS_.exit:                       ; preds = %.lr.ph31.i, %117, %
   br label %140
 
 140:                                              ; preds = %87, %76, %_ZN8PhaseCFG21is_dominating_controlEP4NodeS1_.exit, %99, %94, %_ZNK4Node14is_block_startEv.exit35, %_ZNK4Node14is_block_startEv.exit, %3, %_ZN5Block7dom_lcaEPS_.exit
-  %.0 = phi i1 [ %139, %_ZN5Block7dom_lcaEPS_.exit ], [ true, %3 ], [ true, %_ZNK4Node14is_block_startEv.exit ], [ false, %_ZNK4Node14is_block_startEv.exit35 ], [ false, %94 ], [ %.06.i, %_ZN8PhaseCFG21is_dominating_controlEP4NodeS1_.exit ], [ true, %99 ], [ true, %76 ], [ false, %87 ]
+  %.0 = phi i1 [ %139, %_ZN5Block7dom_lcaEPS_.exit ], [ true, %3 ], [ true, %_ZNK4Node14is_block_startEv.exit ], [ false, %_ZNK4Node14is_block_startEv.exit35 ], [ false, %94 ], [ true, %99 ], [ %.06.i, %_ZN8PhaseCFG21is_dominating_controlEP4NodeS1_.exit ], [ true, %76 ], [ false, %87 ]
   ret i1 %.0
 }
 
@@ -694,7 +694,7 @@ _ZNK4Node14is_block_startEv.exit11:               ; preds = %.preheader
   br i1 %29, label %.loopexit, label %.preheader.backedge
 
 .loopexit:                                        ; preds = %_ZNK4Node14is_block_startEv.exit11, %23, %_ZNK4Node14is_block_startEv.exit, %14, %7
-  %.0.lcssa.sink = phi ptr [ %1, %_ZNK4Node14is_block_startEv.exit ], [ %1, %7 ], [ %1, %14 ], [ %.0, %23 ], [ %.0, %_ZNK4Node14is_block_startEv.exit11 ]
+  %.0.lcssa.sink = phi ptr [ %1, %7 ], [ %1, %14 ], [ %1, %_ZNK4Node14is_block_startEv.exit ], [ %.0, %23 ], [ %.0, %_ZNK4Node14is_block_startEv.exit11 ]
   %30 = getelementptr inbounds nuw i8, ptr %.0.lcssa.sink, i64 40
   %31 = load i32, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1136,7 +1136,7 @@ _ZN8PhaseCFG6is_CFGEP4Node.exit.thread:           ; preds = %107, %97, %87, %_ZN
   br label %_ZN8PhaseCFG6is_CFGEP4Node.exit.thread112
 
 _ZN8PhaseCFG6is_CFGEP4Node.exit.thread112:        ; preds = %113, %_ZN8PhaseCFG6is_CFGEP4Node.exit.thread, %124, %_ZN8PhaseCFG6is_CFGEP4Node.exit, %81
-  %.1 = phi ptr [ %.041119, %81 ], [ %.041119, %_ZN8PhaseCFG6is_CFGEP4Node.exit ], [ %126, %124 ], [ %85, %_ZN8PhaseCFG6is_CFGEP4Node.exit.thread ], [ %.041119, %113 ]
+  %.1 = phi ptr [ %.041119, %81 ], [ %126, %124 ], [ %.041119, %_ZN8PhaseCFG6is_CFGEP4Node.exit ], [ %85, %_ZN8PhaseCFG6is_CFGEP4Node.exit.thread ], [ %.041119, %113 ]
   %.040 = add i32 %.040120, -1
   %127 = load i32, ptr %78, align 8
   %.not = icmp ult i32 %.040, %127
@@ -1706,7 +1706,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %_ZL18find_deepes
   br label %.backedge92
 
 .loopexit56:                                      ; preds = %.loopexit, %_ZNK8PhaseCFG9has_blockEPK4Node.exit.thread, %_ZN9VectorSet3setEj.exit
-  %.not60 = phi i1 [ false, %_ZNK8PhaseCFG9has_blockEPK4Node.exit.thread ], [ true, %_ZN9VectorSet3setEj.exit ], [ true, %.loopexit ]
+  %.not60 = phi i1 [ true, %_ZN9VectorSet3setEj.exit ], [ false, %_ZNK8PhaseCFG9has_blockEPK4Node.exit.thread ], [ true, %.loopexit ]
   ret i1 %.not60
 }
 
@@ -2444,9 +2444,9 @@ _ZN9Node_List4pushEP4Node.exit147:                ; preds = %318, %323
   br label %.backedge
 
 .backedge:                                        ; preds = %313, %315, %316, %_ZN9Node_List4pushEP4Node.exit147, %327, %328, %287, %194, %..loopexit158_crit_edge, %240, %242, %261, %265, %273, %239, %239
-  %.0113.be = phi ptr [ %.0113175, %239 ], [ %.0113175, %239 ], [ %.0113175, %240 ], [ %.0113175, %261 ], [ %.0113175, %265 ], [ %spec.store.select, %194 ], [ %.0113175, %273 ], [ %.0113175, %242 ], [ %spec.store.select, %..loopexit158_crit_edge ], [ %.0113175, %287 ], [ %.0113175, %315 ], [ %.0113175, %328 ], [ %.0113175, %327 ], [ %.0113175, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0113175, %316 ], [ %.0113175, %313 ]
-  %.0108.be = phi i1 [ %.0108176, %239 ], [ %.0108176, %239 ], [ %.0108176, %240 ], [ %.0108176, %261 ], [ %.0108176, %265 ], [ %.0108176, %194 ], [ %.0108176, %273 ], [ %.0108176, %242 ], [ %.0108176, %..loopexit158_crit_edge ], [ %.0108176, %287 ], [ %.0108176, %315 ], [ %.0108176, %328 ], [ %.0108176, %327 ], [ true, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0108176, %316 ], [ %.2110, %313 ]
-  %.0106.be = phi ptr [ %.0106177, %239 ], [ %.0106177, %239 ], [ %.0106177, %240 ], [ %.0106177, %261 ], [ %.0106177, %265 ], [ %.0106177, %194 ], [ %.0106177, %273 ], [ %.0106177, %242 ], [ %.0106177, %..loopexit158_crit_edge ], [ %.0106177, %287 ], [ %.0106177, %315 ], [ %.0107, %328 ], [ %.0107, %327 ], [ %.0106177, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0106177, %316 ], [ %.2, %313 ]
+  %.0113.be = phi ptr [ %.0113175, %239 ], [ %.0113175, %240 ], [ %.0113175, %261 ], [ %.0113175, %265 ], [ %.0113175, %273 ], [ %.0113175, %242 ], [ %.0113175, %239 ], [ %spec.store.select, %..loopexit158_crit_edge ], [ %spec.store.select, %194 ], [ %.0113175, %287 ], [ %.0113175, %328 ], [ %.0113175, %327 ], [ %.0113175, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0113175, %316 ], [ %.0113175, %315 ], [ %.0113175, %313 ]
+  %.0108.be = phi i1 [ %.0108176, %239 ], [ %.0108176, %240 ], [ %.0108176, %261 ], [ %.0108176, %265 ], [ %.0108176, %273 ], [ %.0108176, %242 ], [ %.0108176, %239 ], [ %.0108176, %..loopexit158_crit_edge ], [ %.0108176, %194 ], [ %.0108176, %287 ], [ %.0108176, %328 ], [ %.0108176, %327 ], [ true, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0108176, %316 ], [ %.0108176, %315 ], [ %.2110, %313 ]
+  %.0106.be = phi ptr [ %.0106177, %239 ], [ %.0106177, %240 ], [ %.0106177, %261 ], [ %.0106177, %265 ], [ %.0106177, %273 ], [ %.0106177, %242 ], [ %.0106177, %239 ], [ %.0106177, %..loopexit158_crit_edge ], [ %.0106177, %194 ], [ %.0106177, %287 ], [ %.0107, %328 ], [ %.0107, %327 ], [ %.0106177, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0106177, %316 ], [ %.0106177, %315 ], [ %.2, %313 ]
   %329 = load i32, ptr %119, align 8
   %.not = icmp eq i32 %329, 0
   br i1 %.not, label %._crit_edge, label %176, !llvm.loop !26
@@ -2744,7 +2744,7 @@ _ZL21raise_LCA_above_marksP5BlockjS0_PK8PhaseCFG.exit: ; preds = %_ZN5Block7dom_
   br i1 %.not120, label %.loopexit, label %.lr.ph183.split, !llvm.loop !33
 
 .loopexit:                                        ; preds = %450, %.preheader, %._crit_edge.thread, %432, %.thread, %._crit_edge, %4
-  %.0 = phi ptr [ %1, %4 ], [ %.0106.be, %._crit_edge ], [ %.4, %.thread ], [ %.4, %432 ], [ %1, %._crit_edge.thread ], [ %.4, %.preheader ], [ %.4, %450 ]
+  %.0 = phi ptr [ %1, %4 ], [ %.0106.be, %._crit_edge ], [ %.4, %.thread ], [ %.4, %432 ], [ %.4, %.preheader ], [ %1, %._crit_edge.thread ], [ %.4, %450 ]
   ret ptr %.0
 }
 
@@ -3517,7 +3517,7 @@ _ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit:   ; preds = %35, %._crit_edge.i.
   br i1 %86, label %.lr.ph53, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %75, %.lr.ph53, %_ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit, %76, %32, %23, %4, %6
-  %.0 = phi i32 [ 0, %23 ], [ 0, %32 ], [ 0, %4 ], [ 0, %6 ], [ %spec.select47, %.lr.ph53 ], [ 0, %76 ], [ 0, %_ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit ], [ %.1, %75 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %23 ], [ 0, %32 ], [ 0, %76 ], [ 0, %_ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit ], [ %spec.select47, %.lr.ph53 ], [ %.1, %75 ]
   ret i32 %.0
 }
 
@@ -3655,7 +3655,7 @@ define hidden noundef zeroext i1 @_ZN8PhaseCFG16is_cheaper_blockEP5BlockP4Nodejj
   br label %25
 
 25:                                               ; preds = %22, %15, %24, %11
-  %.0 = phi i1 [ %14, %11 ], [ true, %15 ], [ false, %24 ], [ true, %22 ]
+  %.0 = phi i1 [ %14, %11 ], [ false, %24 ], [ true, %15 ], [ true, %22 ]
   ret i1 %.0
 }
 
@@ -3951,7 +3951,7 @@ _ZNK7RegMask11is_NotEmptyEv.exit:                 ; preds = %.lr.ph.i
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK7RegMask11is_NotEmptyEv.exit, %144, %_ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit98, %138
-  %.160 = phi i1 [ %narrow, %144 ], [ %narrow, %138 ], [ %narrow, %_ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit98 ], [ %spec.select152, %_ZNK7RegMask11is_NotEmptyEv.exit ]
+  %.160 = phi i1 [ %narrow, %138 ], [ %narrow, %_ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit98 ], [ %narrow, %144 ], [ %spec.select152, %_ZNK7RegMask11is_NotEmptyEv.exit ]
   %158 = getelementptr inbounds nuw i8, ptr %2, i64 96
   br label %.outer.outer.outer
 
@@ -4060,7 +4060,7 @@ _ZNK4Node16is_memory_writerEv.exit:               ; preds = %191
   br i1 %208, label %.outer.split, label %_ZNK4Node16is_memory_writerEv.exit.thread, !llvm.loop !44
 
 _ZNK4Node16is_memory_writerEv.exit.thread:        ; preds = %164, %_ZNK4Node16is_memory_writerEv.exit.us, %173, %_ZNK4Node16is_memory_writerEv.exit, %200, %191
-  %.us-phi162 = phi ptr [ %184, %_ZNK4Node16is_memory_writerEv.exit ], [ %184, %191 ], [ %184, %200 ], [ %162, %173 ], [ %162, %_ZNK4Node16is_memory_writerEv.exit.us ], [ %162, %164 ]
+  %.us-phi162 = phi ptr [ %184, %191 ], [ %184, %200 ], [ %184, %_ZNK4Node16is_memory_writerEv.exit ], [ %162, %173 ], [ %162, %_ZNK4Node16is_memory_writerEv.exit.us ], [ %162, %164 ]
   %209 = getelementptr inbounds nuw i8, ptr %.us-phi162, i64 24
   %210 = getelementptr inbounds nuw i8, ptr %.us-phi162, i64 32
   %211 = load ptr, ptr %210, align 8
@@ -4546,7 +4546,7 @@ _ZNK4Node16is_memory_writerEv.exit:               ; preds = %143
   br label %.backedge
 
 .thread:                                          ; preds = %143, %68, %138, %_ZNK4Node16is_memory_writerEv.exit
-  %153 = phi ptr [ null, %68 ], [ %24, %138 ], [ %24, %_ZNK4Node16is_memory_writerEv.exit ], [ %24, %143 ]
+  %153 = phi ptr [ %24, %138 ], [ %24, %_ZNK4Node16is_memory_writerEv.exit ], [ null, %68 ], [ %24, %143 ]
   %154 = load ptr, ptr %31, align 8
   %155 = load i32, ptr %60, align 8
   %156 = zext i32 %155 to i64
@@ -4723,7 +4723,7 @@ _ZN5Block7dom_lcaEPS_.exit40.i:                   ; preds = %.lr.ph31.i31.i, %.p
   br i1 %exitcond.not.i, label %_ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.exit, label %201, !llvm.loop !46
 
 _ZL19raise_LCA_above_useP5BlockP4NodeS2_PK8PhaseCFG.exit: ; preds = %.lr.ph31.i.i, %_ZN5Block7dom_lcaEPS_.exit40.i, %158, %171, %.preheader.i.i, %194
-  %.0.i = phi ptr [ %.1.i, %_ZN5Block7dom_lcaEPS_.exit40.i ], [ %.06086, %158 ], [ %164, %171 ], [ %.016.lcssa.i.i, %.preheader.i.i ], [ %.06086, %194 ], [ %191, %.lr.ph31.i.i ]
+  %.0.i = phi ptr [ %.06086, %158 ], [ %164, %171 ], [ %.016.lcssa.i.i, %.preheader.i.i ], [ %.06086, %194 ], [ %.1.i, %_ZN5Block7dom_lcaEPS_.exit40.i ], [ %191, %.lr.ph31.i.i ]
   %239 = getelementptr inbounds nuw i8, ptr %.06185, i64 8
   %240 = icmp ult ptr %239, %157
   br i1 %240, label %158, label %._crit_edge, !llvm.loop !47
@@ -4873,7 +4873,7 @@ _ZNK4Node16is_memory_writerEv.exit73:             ; preds = %305
   br i1 %329, label %.lr.ph88, label %_ZNK4Node16is_memory_writerEv.exit73.thread, !llvm.loop !48
 
 _ZNK4Node16is_memory_writerEv.exit73.thread:      ; preds = %.lr.ph88, %.preheader, %305, %_ZNK4Node16is_memory_writerEv.exit73
-  %.2 = phi ptr [ %.1, %305 ], [ %.1, %_ZNK4Node16is_memory_writerEv.exit73 ], [ %.1, %.preheader ], [ %324, %.lr.ph88 ]
+  %.2 = phi ptr [ %.1, %_ZNK4Node16is_memory_writerEv.exit73 ], [ %.1, %305 ], [ %.1, %.preheader ], [ %324, %.lr.ph88 ]
   %330 = load i8, ptr @StressGCM, align 1
   %331 = trunc i8 %330 to i1
   %332 = icmp ne ptr %.2, %30
@@ -6329,7 +6329,7 @@ _ZNK5Block8get_nodeEj.exit14:                     ; preds = %_ZNK5Block8get_node
   unreachable
 
 .loopexit:                                        ; preds = %_ZNK5Block8get_nodeEj.exit14, %53, %.preheader, %45, %45, %37, %61, %52
-  %.0 = phi i32 [ 0, %61 ], [ 1, %37 ], [ 1, %52 ], [ 2, %45 ], [ 2, %45 ], [ 0, %.preheader ], [ 1, %_ZNK5Block8get_nodeEj.exit14 ], [ 0, %53 ]
+  %.0 = phi i32 [ 1, %52 ], [ 0, %61 ], [ 1, %37 ], [ 2, %45 ], [ 2, %45 ], [ 0, %.preheader ], [ 1, %_ZNK5Block8get_nodeEj.exit14 ], [ 0, %53 ]
   ret i32 %.0
 }
 
@@ -6777,7 +6777,7 @@ _ZN7CFGLoop9push_predEP5BlockiR10Block_ListP8PhaseCFG.exit: ; preds = %.lr.ph.i,
   br i1 %.not59, label %.loopexit83, label %105, !llvm.loop !65
 
 .loopexit83:                                      ; preds = %.loopexit, %_ZN7CFGLoop10add_memberEP10CFGElement.exit, %_ZNK5Block4headEv.exit, %55
-  %.1 = phi i32 [ %.04994, %_ZNK5Block4headEv.exit ], [ %.04994, %55 ], [ %71, %_ZN7CFGLoop10add_memberEP10CFGElement.exit ], [ %71, %.loopexit ]
+  %.1 = phi i32 [ %.04994, %55 ], [ %.04994, %_ZNK5Block4headEv.exit ], [ %71, %_ZN7CFGLoop10add_memberEP10CFGElement.exit ], [ %71, %.loopexit ]
   %indvars.iv.next101 = add nsw i64 %indvars.iv100, -1
   %186 = and i64 %indvars.iv.next101, 4294967295
   %.not = icmp eq i64 %186, 0
@@ -7971,7 +7971,7 @@ _ZNK5Block8get_nodeEj.exit30:                     ; preds = %94
   unreachable
 
 144:                                              ; preds = %94, %94, %_ZNK5Block8get_nodeEj.exit30, %_ZNK5Block8get_nodeEj.exit28, %141, %137, %_ZNK5Block8get_nodeEj.exit29, %109, %79, %71, %53
-  %.0 = phi float [ %59, %53 ], [ %78, %71 ], [ %88, %79 ], [ %110, %109 ], [ 1.000000e+00, %94 ], [ %125, %_ZNK5Block8get_nodeEj.exit29 ], [ %140, %137 ], [ %96, %_ZNK5Block8get_nodeEj.exit28 ], [ 0x3EE4F8B580000000, %_ZNK5Block8get_nodeEj.exit30 ], [ 0.000000e+00, %141 ], [ 1.000000e+00, %94 ]
+  %.0 = phi float [ %59, %53 ], [ %78, %71 ], [ %88, %79 ], [ %110, %109 ], [ %125, %_ZNK5Block8get_nodeEj.exit29 ], [ %140, %137 ], [ 0.000000e+00, %141 ], [ %96, %_ZNK5Block8get_nodeEj.exit28 ], [ 0x3EE4F8B580000000, %_ZNK5Block8get_nodeEj.exit30 ], [ 1.000000e+00, %94 ], [ 1.000000e+00, %94 ]
   ret float %.0
 }
 
@@ -8096,7 +8096,7 @@ _ZNK5Block8get_nodeEj.exit14:                     ; preds = %58
   unreachable
 
 73:                                               ; preds = %58, %58, %58, %58, %70, %_ZNK5Block8get_nodeEj.exit14, %_ZNK5Block8get_nodeEj.exit13
-  %.0 = phi i1 [ %52, %_ZNK5Block8get_nodeEj.exit13 ], [ false, %70 ], [ %69, %_ZNK5Block8get_nodeEj.exit14 ], [ true, %58 ], [ true, %58 ], [ true, %58 ], [ true, %58 ]
+  %.0 = phi i1 [ %52, %_ZNK5Block8get_nodeEj.exit13 ], [ %69, %_ZNK5Block8get_nodeEj.exit14 ], [ false, %70 ], [ true, %58 ], [ true, %58 ], [ true, %58 ], [ true, %58 ]
   ret i1 %.0
 }
 

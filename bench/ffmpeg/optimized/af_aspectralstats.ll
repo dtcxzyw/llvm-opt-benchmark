@@ -668,7 +668,7 @@ set_metadata.exit.i:                              ; preds = %set_metadata.exit.l
   br label %257
 
 257:                                              ; preds = %.thread39, %252, %42, %.critedge37, %244, %.critedge, %256, %249
-  %.127 = phi i32 [ 0, %42 ], [ %45, %.critedge ], [ 0, %249 ], [ 0, %256 ], [ %245, %244 ], [ 0, %252 ], [ -1497649742, %.critedge37 ], [ %.015.i.ph, %.thread39 ]
+  %.127 = phi i32 [ 0, %249 ], [ 0, %256 ], [ 0, %252 ], [ 0, %42 ], [ %45, %.critedge ], [ %245, %244 ], [ -1497649742, %.critedge37 ], [ %.015.i.ph, %.thread39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   ret i32 %.127
 }
@@ -1396,7 +1396,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
   br label %397
 
 397:                                              ; preds = %390, %387, %379, %371, %363
-  %.sink561.i = phi float [ %375, %371 ], [ %396, %390 ], [ %367, %363 ], [ %386, %379 ], [ 0.000000e+00, %387 ]
+  %.sink561.i = phi float [ %375, %371 ], [ %396, %390 ], [ %386, %379 ], [ %367, %363 ], [ 0.000000e+00, %387 ]
   %398 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv463.i
   store float %.sink561.i, ptr %398, align 4, !tbaa !78
   %indvars.iv.next464.i = add nuw nsw i64 %indvars.iv463.i, 1
@@ -1498,7 +1498,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
   unreachable
 
 generate_window_func.exit:                        ; preds = %441, %420, %418, %397, %353, %._crit_edge401.i, %291, %266, %263, %235, %227, %214, %197, %180, %135, %125, %112, %103, %93, %84, %.lr.ph450.i, %.preheader382.i, %.preheader381.i, %.preheader380.i, %.preheader379.i, %.preheader378.i, %.preheader377.i, %.preheader376.i, %.preheader375.i, %.preheader374.i, %.preheader373.i, %.preheader372.i, %.preheader371.i, %.preheader370.i, %.preheader369.i, %.preheader368.i, %.preheader367.i, %.preheader366.i, %.preheader365.i, %.preheader.i, %293, %434
-  %.sink565.i = phi float [ 7.500000e-01, %.preheader382.i ], [ 7.500000e-01, %.preheader381.i ], [ 7.500000e-01, %.preheader380.i ], [ 7.500000e-01, %.preheader379.i ], [ 5.000000e-01, %293 ], [ 0x3FD51EB860000000, %.preheader378.i ], [ 7.500000e-01, %.preheader377.i ], [ 7.500000e-01, %.preheader376.i ], [ 0x3FE5374BC0000000, %.preheader375.i ], [ 7.500000e-01, %.preheader374.i ], [ 5.000000e-01, %.preheader373.i ], [ 0x3FE526E980000000, %.preheader372.i ], [ 0x3FE526E980000000, %.preheader371.i ], [ 0x3FEAE978E0000000, %.preheader370.i ], [ 0x3FD2C08320000000, %.preheader369.i ], [ 0x3FE526E980000000, %.preheader368.i ], [ 5.000000e-01, %.preheader367.i ], [ 5.000000e-01, %.preheader366.i ], [ 5.000000e-01, %.preheader365.i ], [ 0.000000e+00, %.preheader.i ], [ 7.500000e-01, %434 ], [ 0x3FE5374BC0000000, %235 ], [ 7.500000e-01, %263 ], [ 7.500000e-01, %266 ], [ 0x3FD51EB860000000, %291 ], [ 5.000000e-01, %._crit_edge401.i ], [ 7.500000e-01, %353 ], [ 7.500000e-01, %397 ], [ 7.500000e-01, %418 ], [ 7.500000e-01, %420 ], [ 0.000000e+00, %.lr.ph450.i ], [ 5.000000e-01, %84 ], [ 5.000000e-01, %93 ], [ 5.000000e-01, %103 ], [ 0x3FE526E980000000, %112 ], [ 0x3FD2C08320000000, %125 ], [ 0x3FEAE978E0000000, %135 ], [ 0x3FE526E980000000, %180 ], [ 0x3FE526E980000000, %197 ], [ 5.000000e-01, %214 ], [ 7.500000e-01, %227 ], [ 7.500000e-01, %441 ]
+  %.sink565.i = phi float [ 0.000000e+00, %.preheader.i ], [ 5.000000e-01, %.preheader365.i ], [ 5.000000e-01, %.preheader366.i ], [ 5.000000e-01, %.preheader367.i ], [ 0x3FE526E980000000, %.preheader368.i ], [ 0x3FD2C08320000000, %.preheader369.i ], [ 0x3FEAE978E0000000, %.preheader370.i ], [ 0x3FE526E980000000, %.preheader371.i ], [ 0x3FE526E980000000, %.preheader372.i ], [ 5.000000e-01, %.preheader373.i ], [ 7.500000e-01, %.preheader374.i ], [ 0x3FE5374BC0000000, %.preheader375.i ], [ 7.500000e-01, %.preheader376.i ], [ 7.500000e-01, %.preheader377.i ], [ 0x3FD51EB860000000, %.preheader378.i ], [ 5.000000e-01, %293 ], [ 7.500000e-01, %.preheader379.i ], [ 7.500000e-01, %.preheader380.i ], [ 7.500000e-01, %.preheader381.i ], [ 7.500000e-01, %.preheader382.i ], [ 7.500000e-01, %434 ], [ 0.000000e+00, %.lr.ph450.i ], [ 5.000000e-01, %84 ], [ 5.000000e-01, %93 ], [ 5.000000e-01, %103 ], [ 0x3FE526E980000000, %112 ], [ 0x3FD2C08320000000, %125 ], [ 0x3FEAE978E0000000, %135 ], [ 0x3FE526E980000000, %180 ], [ 0x3FE526E980000000, %197 ], [ 5.000000e-01, %214 ], [ 7.500000e-01, %227 ], [ 0x3FE5374BC0000000, %235 ], [ 7.500000e-01, %263 ], [ 7.500000e-01, %266 ], [ 0x3FD51EB860000000, %291 ], [ 5.000000e-01, %._crit_edge401.i ], [ 7.500000e-01, %353 ], [ 7.500000e-01, %397 ], [ 7.500000e-01, %418 ], [ 7.500000e-01, %420 ], [ 7.500000e-01, %441 ]
   %454 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %455 = load float, ptr %454, align 4, !tbaa !104
   %456 = fcmp nsz oeq float %455, 1.000000e+00
@@ -1649,7 +1649,7 @@ generate_window_func.exit:                        ; preds = %441, %420, %418, %3
   br label %.thread
 
 .thread:                                          ; preds = %502, %508, %514, %520, %526, %._crit_edge, %492, %487, %482, %477, %472, %467, %458, %1
-  %.069 = phi i32 [ -12, %1 ], [ -12, %492 ], [ %., %._crit_edge ], [ -22, %458 ], [ -12, %487 ], [ -12, %482 ], [ -12, %477 ], [ -12, %472 ], [ -12, %467 ], [ -12, %520 ], [ -12, %514 ], [ -12, %508 ], [ %506, %502 ], [ -12, %526 ]
+  %.069 = phi i32 [ -12, %1 ], [ -22, %458 ], [ -12, %467 ], [ -12, %472 ], [ -12, %477 ], [ -12, %482 ], [ -12, %487 ], [ -12, %492 ], [ %., %._crit_edge ], [ %506, %502 ], [ -12, %508 ], [ -12, %514 ], [ -12, %520 ], [ -12, %526 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.069
 }
@@ -1916,7 +1916,7 @@ spectral_mean.exit:                               ; preds = %.lr.ph.i, %._crit_e
   br label %116
 
 116:                                              ; preds = %spectral_mean.exit, %._crit_edge281
-  %117 = phi i32 [ %100, %._crit_edge281 ], [ %113, %spectral_mean.exit ]
+  %117 = phi i32 [ %113, %spectral_mean.exit ], [ %100, %._crit_edge281 ]
   %118 = and i32 %117, 2
   %.not155 = icmp eq i32 %118, 0
   br i1 %.not155, label %.thread328, label %119
@@ -1950,7 +1950,7 @@ spectral_variance.exit:                           ; preds = %.lr.ph.i169, %119
   br label %.thread328
 
 .thread328:                                       ; preds = %._crit_edge281.thread, %spectral_variance.exit, %116
-  %129 = phi i32 [ %117, %116 ], [ %117, %spectral_variance.exit ], [ %102, %._crit_edge281.thread ]
+  %129 = phi i32 [ %117, %spectral_variance.exit ], [ %117, %116 ], [ %102, %._crit_edge281.thread ]
   %130 = and i32 %129, 60
   %.not156 = icmp eq i32 %130, 0
   br i1 %.not156, label %147, label %131

@@ -332,7 +332,7 @@ define hidden range(i32 0, 2) i32 @AttachPreparedDictionary(ptr noundef captures
   br label %39
 
 39:                                               ; preds = %2, %34
-  %.0 = phi i32 [ 0, %2 ], [ 1, %34 ]
+  %.0 = phi i32 [ 1, %34 ], [ 0, %2 ]
   ret i32 %.0
 }
 

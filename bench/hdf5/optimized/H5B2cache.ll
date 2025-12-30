@@ -394,7 +394,7 @@ define internal ptr @H5B2__cache_hdr_deserialize(ptr noundef %0, i64 %1, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %17, %154, %161, %158, %4
-  %.041 = phi ptr [ null, %161 ], [ null, %158 ], [ null, %17 ], [ null, %4 ], [ %15, %154 ]
+  %.041 = phi ptr [ null, %161 ], [ null, %158 ], [ null, %4 ], [ %15, %154 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.041
@@ -1113,7 +1113,7 @@ define internal ptr @H5B2__cache_int_deserialize(ptr noundef %0, i64 %1, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %170, %15, %176, %173, %4
-  %.078 = phi ptr [ null, %176 ], [ null, %173 ], [ null, %15 ], [ null, %4 ], [ %13, %170 ]
+  %.078 = phi ptr [ null, %176 ], [ null, %173 ], [ null, %4 ], [ null, %15 ], [ %13, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.078
 }
@@ -1719,7 +1719,7 @@ define internal ptr @H5B2__cache_leaf_deserialize(ptr noundef %0, i64 %1, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %88, %71, %14, %104, %101, %4
-  %.0 = phi ptr [ null, %104 ], [ null, %101 ], [ null, %14 ], [ null, %4 ], [ %12, %71 ], [ %12, %88 ]
+  %.0 = phi ptr [ null, %104 ], [ null, %101 ], [ null, %4 ], [ null, %14 ], [ %12, %71 ], [ %12, %88 ]
   ret ptr %.0
 }
 

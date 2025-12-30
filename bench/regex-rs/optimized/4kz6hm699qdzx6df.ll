@@ -3914,8 +3914,8 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$regex_syntax..error..Error$G
   br i1 %6, label %"_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17h03f910e6579234d0E.exit", label %"_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17h03f910e6579234d0E.exit.sink.split"
 
 "_ZN4core3ptr45drop_in_place$LT$regex_syntax..ast..Error$GT$17h03f910e6579234d0E.exit.sink.split": ; preds = %1, %3
-  %.sink = phi i64 [ 8, %1 ], [ 16, %3 ]
-  %.sink3 = phi i64 [ %2, %1 ], [ %5, %3 ]
+  %.sink = phi i64 [ 16, %3 ], [ 8, %1 ]
+  %.sink3 = phi i64 [ %5, %3 ], [ %2, %1 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink3, i64 noundef 1) #18, !noalias !4
@@ -4351,7 +4351,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$regex_syntax..ast..ClassSet$
   unreachable
 
 common.resume:                                    ; preds = %21, %22, %.body, %18
-  %common.resume.op = phi { ptr, i32 } [ %12, %.body ], [ %19, %18 ], [ %3, %22 ], [ %3, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %12, %.body ], [ %3, %22 ], [ %3, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..ClassSetBinaryOp$GT$17h6d532726ee28aaf4E.exit": ; preds = %10
@@ -6802,7 +6802,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$regex_automata..hybrid..rege
   unreachable
 
 common.resume:                                    ; preds = %.body, %41, %47
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %42, %47 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %42, %47 ], [ %42, %41 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr53drop_in_place$LT$regex_automata..hybrid..dfa..DFA$GT$17h740ca186ca5659bcE.exit3": ; preds = %"_ZN4core3ptr56drop_in_place$LT$regex_automata..hybrid..dfa..Config$GT$17hf915ca853da00875E.exit.i1", %52
@@ -7332,7 +7332,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..
   unreachable
 
 common.resume:                                    ; preds = %.body, %39, %40
-  %common.resume.op = phi { ptr, i32 } [ %31, %39 ], [ %31, %40 ], [ %14, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %31, %40 ], [ %31, %39 ], [ %14, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr54drop_in_place$LT$regex_syntax..ast..ClassBracketed$GT$17hf579865df0513ed7E.llvm.17425413886787028408.exit": ; preds = %38, %37, %26
@@ -7447,7 +7447,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..
   br label %common.resume
 
 common.resume:                                    ; preds = %.body, %.body2, %40
-  %common.resume.op = phi { ptr, i32 } [ %30, %.body2 ], [ %30, %40 ], [ %5, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %40 ], [ %30, %.body2 ], [ %5, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 42:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6def012201a12af6E.llvm.17425413886787028408.exit.i.i"
@@ -9112,7 +9112,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$regex_automata..meta..strate
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit", %45, %51
-  %common.resume.op = phi { ptr, i32 } [ %46, %45 ], [ %46, %51 ], [ %.pn2, %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %46, %51 ], [ %46, %45 ], [ %.pn2, %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr66drop_in_place$LT$regex_automata..meta..wrappers..ReverseHybrid$GT$17hf6266469c4700541E.exit": ; preds = %"_ZN4core3ptr60drop_in_place$LT$regex_automata..nfa..thompson..nfa..NFA$GT$17h0f2aa052becc43c4E.exit8", %"_ZN4core3ptr56drop_in_place$LT$regex_automata..hybrid..dfa..Config$GT$17hf915ca853da00875E.exit.i.i.i.i", %56

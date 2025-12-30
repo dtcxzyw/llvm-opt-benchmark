@@ -533,7 +533,7 @@ _ZN10wasmi_core9func_type8FuncType3new17h13f093b01168406cE.exit.thread12: ; pred
   unreachable
 
 96:                                               ; preds = %84, %.invoke.i.i, %41, %30, %26, %20, %3
-  %.sroa.07.1.i.i = phi i1 [ true, %3 ], [ false, %84 ], [ true, %41 ], [ true, %.invoke.i.i ], [ true, %20 ], [ true, %26 ], [ true, %30 ]
+  %.sroa.07.1.i.i = phi i1 [ true, %20 ], [ true, %3 ], [ true, %26 ], [ true, %30 ], [ true, %41 ], [ false, %84 ], [ true, %.invoke.i.i ]
   %97 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr265drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..val..wasm_valtype_t$GT$$GT$$GT$$C$wasmi_c_api..types..func..wasm_functype_new..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2965af4dcc7d3d7aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12) #17
@@ -545,7 +545,7 @@ _ZN10wasmi_core9func_type8FuncType3new17h13f093b01168406cE.exit.thread12: ; pred
           to label %.thread36.i.i unwind label %94, !noalias !53
 
 .thread36.i.i:                                    ; preds = %98, %93, %18
-  %.pn13.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i, %93 ], [ %.pn1125.i.i, %98 ], [ %97, %18 ]
+  %.pn13.i.i = phi { ptr, i32 } [ %.pn1125.i.i, %98 ], [ %97, %18 ], [ %lpad.thr_comm.split-lp.i.i, %93 ]
   resume { ptr, i32 } %.pn13.i.i
 
 _ZN10wasmi_core9func_type13FuncTypeInner3new17he828c2405af09675E.exit.i: ; preds = %82
@@ -747,7 +747,7 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN11wasmi_c_api4func15create
           to label %53 unwind label %49
 
 .thread34:                                        ; preds = %53, %44, %37
-  %.pn.pn32 = phi { ptr, i32 } [ %45, %44 ], [ %.pn.pn.ph, %53 ], [ %38, %37 ]
+  %.pn.pn32 = phi { ptr, i32 } [ %38, %37 ], [ %45, %44 ], [ %.pn.pn.ph, %53 ]
   resume { ptr, i32 } %.pn.pn32
 
 53:                                               ; preds = %51, %11
@@ -896,7 +896,7 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN11wasmi_c_api4func15create
           to label %.thread unwind label %45
 
 .thread:                                          ; preds = %40, %33, %47
-  %.pn31 = phi { ptr, i32 } [ %34, %33 ], [ %41, %40 ], [ %48, %47 ]
+  %.pn31 = phi { ptr, i32 } [ %48, %47 ], [ %34, %33 ], [ %41, %40 ]
   resume { ptr, i32 } %.pn31
 }
 

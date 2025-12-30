@@ -83,7 +83,7 @@ define internal range(i32 0, 101) i32 @vqf_probe(ptr noundef readonly captures(n
   br label %12
 
 12:                                               ; preds = %8, %7, %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ %., %8 ], [ 100, %7 ], [ 100, %5 ]
+  %.0 = phi i32 [ 0, %1 ], [ 100, %5 ], [ 100, %7 ], [ %., %8 ]
   ret i32 %.0
 }
 
@@ -335,7 +335,7 @@ add_metadata.exit:                                ; preds = %77
   br label %.thread
 
 118:                                              ; preds = %108, %108, %108, %108, %114, %113
-  %.083 = phi i32 [ 2048, %114 ], [ 1024, %113 ], [ 512, %108 ], [ 512, %108 ], [ 512, %108 ], [ 512, %108 ]
+  %.083 = phi i32 [ 1024, %113 ], [ 2048, %114 ], [ 512, %108 ], [ 512, %108 ], [ 512, %108 ], [ 512, %108 ]
   %119 = getelementptr inbounds nuw i8, ptr %101, i64 48
   %120 = load i64, ptr %119, align 8, !tbaa !41
   %121 = zext nneg i32 %.083 to i64
@@ -358,8 +358,8 @@ add_metadata.exit:                                ; preds = %77
   call void @ff_metadata_conv_ctx(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @vqf_metadata_conv) #8
   br label %.thread
 
-.thread:                                          ; preds = %add_metadata.exit, %35, %add_metadata.exit.thread, %32, %55, %118, %7, %1, %129, %115, %107, %97, %92
-  %.0 = phi i32 [ -12, %1 ], [ %127, %118 ], [ -1094995529, %97 ], [ -1094995529, %107 ], [ -1, %115 ], [ -1094995529, %7 ], [ 0, %129 ], [ -1, %92 ], [ %.0.i.ph, %add_metadata.exit.thread ], [ -1, %32 ], [ -1094995529, %55 ], [ -1094995529, %35 ], [ %84, %add_metadata.exit ]
+.thread:                                          ; preds = %add_metadata.exit, %35, %add_metadata.exit.thread, %55, %32, %118, %7, %1, %129, %115, %107, %97, %92
+  %.0 = phi i32 [ -1094995529, %97 ], [ -1094995529, %107 ], [ -1, %115 ], [ 0, %129 ], [ -1, %92 ], [ -12, %1 ], [ -1094995529, %7 ], [ %127, %118 ], [ %.0.i.ph, %add_metadata.exit.thread ], [ -1094995529, %55 ], [ -1, %32 ], [ -1094995529, %35 ], [ %84, %add_metadata.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

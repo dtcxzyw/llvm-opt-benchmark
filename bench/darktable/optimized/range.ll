@@ -251,7 +251,7 @@ define void @dtgtk_range_select_redraw(ptr noundef captures(none) %0) local_unna
   br label %42
 
 42:                                               ; preds = %38, %34, %30
-  %.1.i = phi i32 [ 0, %30 ], [ %spec.select.i, %38 ], [ 1, %34 ]
+  %.1.i = phi i32 [ 1, %34 ], [ 0, %30 ], [ %spec.select.i, %38 ]
   br label %43
 
 43:                                               ; preds = %43, %42
@@ -2412,9 +2412,9 @@ _graph_value_from_pos.exit:                       ; preds = %47, %6, %49
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %120, %123, %73
-  %125 = phi double [ %64, %73 ], [ %121, %123 ], [ %121, %120 ]
-  %126 = phi double [ %65, %73 ], [ %114, %123 ], [ %114, %120 ]
-  %127 = phi i32 [ 4, %73 ], [ %124, %123 ], [ %.pre53, %120 ]
+  %125 = phi double [ %121, %123 ], [ %64, %73 ], [ %121, %120 ]
+  %126 = phi double [ %114, %123 ], [ %65, %73 ], [ %114, %120 ]
+  %127 = phi i32 [ %124, %123 ], [ 4, %73 ], [ %.pre53, %120 ]
   store i32 0, ptr %4, align 4, !tbaa !162
   tail call void @dtgtk_range_select_set_selection(ptr noundef nonnull %2, i32 noundef %127, double noundef %126, double noundef %125, i32 noundef 1, i32 noundef 0)
   br label %128
@@ -2618,8 +2618,8 @@ _current_show_popup.exit:                         ; preds = %28, %62
   br label %126
 
 126:                                              ; preds = %119, %113, %125
-  %.sink48 = phi i32 [ 2, %113 ], [ 1, %125 ], [ 3, %119 ]
-  %.sink = phi i32 [ 70, %113 ], [ 68, %125 ], [ 96, %119 ]
+  %.sink48 = phi i32 [ 1, %125 ], [ 2, %113 ], [ 3, %119 ]
+  %.sink = phi i32 [ 68, %125 ], [ 70, %113 ], [ 96, %119 ]
   %127 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i32 %.sink48, ptr %127, align 8, !tbaa !56
   call void @dt_control_change_cursor(i32 noundef %.sink) #17
@@ -3488,7 +3488,7 @@ define void @dtgtk_range_select_set_selection_from_raw_text(ptr noundef %0, ptr 
   br label %86
 
 86:                                               ; preds = %78, %82, %69
-  %.4 = phi i32 [ %79, %78 ], [ %.3, %69 ], [ %.3, %82 ]
+  %.4 = phi i32 [ %.3, %69 ], [ %.3, %82 ], [ %79, %78 ]
   %87 = and i32 %.4, 16
   %.not74 = icmp eq i32 %87, 0
   br i1 %.not74, label %94, label %88
@@ -4030,7 +4030,7 @@ define internal fastcc void @_popup_show(ptr noundef %0, ptr noundef %1) unnamed
   br label %70
 
 70:                                               ; preds = %61, %51, %41, %32, %26
-  %.1.i = phi i32 [ %.094.i, %26 ], [ %69, %61 ], [ %.094.i, %41 ], [ %.094.i, %32 ], [ %.094.i, %51 ]
+  %.1.i = phi i32 [ %69, %61 ], [ %.094.i, %26 ], [ %.094.i, %32 ], [ %.094.i, %41 ], [ %.094.i, %51 ]
   %71 = getelementptr inbounds nuw i8, ptr %.07295.i, i64 8
   %.072.i = load ptr, ptr %71, align 8, !tbaa !37
   %.not.i = icmp eq ptr %.072.i, null
@@ -4881,8 +4881,8 @@ define internal fastcc void @_bound_change(ptr noundef %0, ptr noundef %1, i32 n
   br label %119
 
 .thread96:                                        ; preds = %.thread, %._crit_edge, %51, %53, %27, %31, %77, %75, %71
-  %95 = phi i1 [ false, %71 ], [ false, %77 ], [ false, %75 ], [ false, %31 ], [ false, %27 ], [ true, %53 ], [ true, %51 ], [ true, %._crit_edge ], [ true, %.thread ]
-  %96 = phi i1 [ false, %71 ], [ false, %77 ], [ false, %75 ], [ true, %31 ], [ true, %27 ], [ false, %53 ], [ false, %51 ], [ false, %._crit_edge ], [ false, %.thread ]
+  %95 = phi i1 [ false, %77 ], [ false, %75 ], [ false, %71 ], [ false, %31 ], [ false, %27 ], [ true, %53 ], [ true, %51 ], [ true, %._crit_edge ], [ true, %.thread ]
+  %96 = phi i1 [ false, %77 ], [ false, %75 ], [ false, %71 ], [ true, %31 ], [ true, %27 ], [ false, %53 ], [ false, %51 ], [ false, %._crit_edge ], [ false, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double 0.000000e+00, ptr %4, align 8, !tbaa !124
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -5271,7 +5271,7 @@ define internal void @_popup_date_changed(ptr noundef readnone captures(address)
   br label %193
 
 193:                                              ; preds = %184, %172, %192
-  %.str.104.sink = phi ptr [ @.str.103, %172 ], [ @.str.105, %192 ], [ @.str.104, %184 ]
+  %.str.104.sink = phi ptr [ @.str.105, %192 ], [ @.str.103, %172 ], [ @.str.104, %184 ]
   %194 = load i32, ptr %3, align 4, !tbaa !43
   %195 = load i32, ptr %4, align 4, !tbaa !43
   %196 = load i32, ptr %5, align 4, !tbaa !43
@@ -5660,7 +5660,7 @@ define internal void @_popup_date_ok_clicked(ptr readnone captures(none) %0, ptr
   br label %23
 
 23:                                               ; preds = %16, %8
-  %.0 = phi i32 [ %spec.select, %16 ], [ 2, %8 ]
+  %.0 = phi i32 [ 2, %8 ], [ %spec.select, %16 ]
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %25 = load ptr, ptr %24, align 8, !tbaa !85
   %26 = tail call i64 @gtk_entry_get_type() #18

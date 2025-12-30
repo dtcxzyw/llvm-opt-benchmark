@@ -309,8 +309,8 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %146, %.loopexit255.loopexit, %142, %144
-  %.1241 = phi i32 [ %.0235261, %142 ], [ %108, %144 ], [ %.pre, %.loopexit255.loopexit ], [ %148, %146 ]
-  %.1236 = phi i32 [ %108, %142 ], [ %110, %144 ], [ %.pre282, %.loopexit255.loopexit ], [ %150, %146 ]
+  %.1241 = phi i32 [ %108, %144 ], [ %.0235261, %142 ], [ %.pre, %.loopexit255.loopexit ], [ %148, %146 ]
+  %.1236 = phi i32 [ %110, %144 ], [ %108, %142 ], [ %.pre282, %.loopexit255.loopexit ], [ %150, %146 ]
   %.not251 = icmp ult i64 %59, %41
   br i1 %.not251, label %.loopexit253, label %58, !llvm.loop !10
 
@@ -465,8 +465,8 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %212, %.loopexit.loopexit, %208, %210
-  %.4244 = phi i32 [ %.3238269, %208 ], [ %.4213, %210 ], [ %.pre283, %.loopexit.loopexit ], [ %214, %212 ]
-  %.4239 = phi i32 [ %.4213, %208 ], [ %.8225, %210 ], [ %.pre284, %.loopexit.loopexit ], [ %216, %212 ]
+  %.4244 = phi i32 [ %.4213, %210 ], [ %.3238269, %208 ], [ %.pre283, %.loopexit.loopexit ], [ %214, %212 ]
+  %.4239 = phi i32 [ %.8225, %210 ], [ %.4213, %208 ], [ %.pre284, %.loopexit.loopexit ], [ %216, %212 ]
   %227 = load i32, ptr %8, align 4, !tbaa !6
   %228 = xor i32 %227, %.4213
   %229 = load i32, ptr %50, align 4, !tbaa !6
@@ -551,8 +551,8 @@ define void @DES_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %.not250, label %.loopexit253, label %161, !llvm.loop !12
 
 .loopexit253:                                     ; preds = %.loopexit255, %262, %.preheader256, %.preheader252
-  %.2242 = phi i32 [ %.4244, %262 ], [ %28, %.preheader252 ], [ %28, %.preheader256 ], [ %.1241, %.loopexit255 ]
-  %.2237 = phi i32 [ %.4239, %262 ], [ %40, %.preheader252 ], [ %40, %.preheader256 ], [ %.1236, %.loopexit255 ]
+  %.2242 = phi i32 [ %28, %.preheader252 ], [ %28, %.preheader256 ], [ %.4244, %262 ], [ %.1241, %.loopexit255 ]
+  %.2237 = phi i32 [ %40, %.preheader252 ], [ %40, %.preheader256 ], [ %.4239, %262 ], [ %.1236, %.loopexit255 ]
   store i32 %.2242, ptr %5, align 1
   store i32 %.2237, ptr %24, align 1
   br label %264

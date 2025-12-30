@@ -1631,8 +1631,8 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %62, %.thread.i
   br i1 %76, label %thread-pre-split.thread.sink.split.i, label %trap_handler.exit
 
 thread-pre-split.thread.sink.split.i:             ; preds = %75, %73, %67, %65, %63, %rbimpl_rstring_getmem.exit.i
-  %.sink.i = phi i64 [ 0, %65 ], [ 0, %63 ], [ 20, %rbimpl_rstring_getmem.exit.i ], [ 20, %73 ], [ 20, %67 ], [ 36, %75 ]
-  %.0.ph.i = phi ptr [ null, %65 ], [ %64, %63 ], [ inttoptr (i64 1 to ptr), %rbimpl_rstring_getmem.exit.i ], [ inttoptr (i64 1 to ptr), %73 ], [ inttoptr (i64 1 to ptr), %67 ], [ @sighandler, %75 ]
+  %.sink.i = phi i64 [ 0, %63 ], [ 20, %73 ], [ 20, %67 ], [ 20, %rbimpl_rstring_getmem.exit.i ], [ 0, %65 ], [ 36, %75 ]
+  %.0.ph.i = phi ptr [ %64, %63 ], [ inttoptr (i64 1 to ptr), %73 ], [ inttoptr (i64 1 to ptr), %67 ], [ inttoptr (i64 1 to ptr), %rbimpl_rstring_getmem.exit.i ], [ null, %65 ], [ @sighandler, %75 ]
   br label %trap_handler.exit
 
 trap_handler.exit:                                ; preds = %34, %44, %RB_SYMBOL_P.exit.i, %RB_SYMBOL_P.exit.thread.i, %rbimpl_rstring_getmem.exit.i, %65, %71, %73, %75, %thread-pre-split.thread.sink.split.i
@@ -1678,7 +1678,7 @@ rb_ractor_shareable_p.exit:                       ; preds = %86
   br label %rb_ractor_main_p.exit.thread
 
 rb_ractor_main_p.exit.thread:                     ; preds = %86, %81, %91, %rb_ractor_shareable_p.exit, %rb_ractor_main_p.exit, %77
-  %.1 = phi i64 [ %.026, %77 ], [ %.026, %rb_ractor_main_p.exit ], [ %.026, %rb_ractor_shareable_p.exit ], [ %92, %91 ], [ %.026, %86 ], [ %.026, %81 ]
+  %.1 = phi i64 [ %.026, %77 ], [ %.026, %rb_ractor_main_p.exit ], [ %.026, %rb_ractor_shareable_p.exit ], [ %92, %91 ], [ %.026, %81 ], [ %.026, %86 ]
   %93 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !14
   %94 = icmp eq i32 %.0.i, 0
   br i1 %94, label %117, label %95
@@ -2137,7 +2137,7 @@ ruby_signal.exit19:                               ; preds = %39, %34
   br label %49
 
 49:                                               ; preds = %ruby_signal.exit.thread, %30, %ruby_signal.exit19, %33
-  %.0 = phi i32 [ -1, %ruby_signal.exit.thread ], [ 0, %33 ], [ 0, %ruby_signal.exit19 ], [ 0, %30 ]
+  %.0 = phi i32 [ 0, %33 ], [ 0, %ruby_signal.exit19 ], [ 0, %30 ], [ -1, %ruby_signal.exit.thread ]
   ret i32 %.0
 }
 
@@ -2530,7 +2530,7 @@ define internal fastcc noundef ptr @default_handler(i32 noundef %0) unnamed_addr
   br label %6
 
 6:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %5, %4, %3, %2
-  %.0 = phi ptr [ null, %5 ], [ @sighandler, %1 ], [ @sigbus, %2 ], [ @sigsegv, %3 ], [ @sig_do_nothing, %4 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ]
+  %.0 = phi ptr [ null, %5 ], [ @sigbus, %2 ], [ @sigsegv, %3 ], [ @sig_do_nothing, %4 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ], [ @sighandler, %1 ]
   ret ptr %.0
 }
 

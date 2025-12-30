@@ -509,8 +509,8 @@ list_length.exit.thread:                          ; preds = %1
   br i1 %.not20, label %29, label %23
 
 .critedge:                                        ; preds = %29, %list_length.exit.thread, %.lr.ph
-  %20 = phi ptr [ %6, %list_length.exit.thread ], [ %11, %.lr.ph ], [ %11, %29 ]
-  %.016.lcssa = phi i32 [ 0, %list_length.exit.thread ], [ 0, %.lr.ph ], [ %.1, %29 ]
+  %20 = phi ptr [ %11, %.lr.ph ], [ %6, %list_length.exit.thread ], [ %11, %29 ]
+  %.016.lcssa = phi i32 [ 0, %.lr.ph ], [ 0, %list_length.exit.thread ], [ %.1, %29 ]
   tail call void @list_free(ptr noundef %5) #10
   %21 = tail call ptr @construct_array_builtin(ptr noundef %20, i32 noundef %.016.lcssa, i32 noundef 19) #10
   %22 = ptrtoint ptr %21 to i64

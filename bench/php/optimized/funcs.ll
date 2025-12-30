@@ -152,9 +152,9 @@ define hidden range(i32 -1, 1) i32 @file_checkfmt(ptr noundef %0, i64 noundef %1
   br i1 %.not.i, label %.critedge.i, label %22
 
 .critedge.i:                                      ; preds = %28, %22
-  %35 = phi i8 [ 0, %28 ], [ %23, %22 ]
-  %.013.lcssa.i = phi ptr [ %31, %28 ], [ %.01320.i, %22 ]
-  %.0.lcssa.i = phi i32 [ %33, %28 ], [ %.021.i, %22 ]
+  %35 = phi i8 [ %23, %22 ], [ 0, %28 ]
+  %.013.lcssa.i = phi ptr [ %.01320.i, %22 ], [ %31, %28 ]
+  %.0.lcssa.i = phi i32 [ %.021.i, %22 ], [ %33, %28 ]
   %36 = icmp slt i32 %.0.lcssa.i, 1024
   br i1 %36, label %file_checkfield.exit, label %37
 
@@ -203,9 +203,9 @@ file_checkfield.exit:                             ; preds = %.critedge.i
   br i1 %.not.i26, label %.critedge.i27, label %46
 
 .critedge.i27:                                    ; preds = %52, %46
-  %59 = phi i8 [ 0, %52 ], [ %47, %46 ]
-  %.013.lcssa.i28 = phi ptr [ %55, %52 ], [ %.01320.i24, %46 ]
-  %.0.lcssa.i29 = phi i32 [ %57, %52 ], [ %.021.i23, %46 ]
+  %59 = phi i8 [ %47, %46 ], [ 0, %52 ]
+  %.013.lcssa.i28 = phi ptr [ %.01320.i24, %46 ], [ %55, %52 ]
+  %.0.lcssa.i29 = phi i32 [ %.021.i23, %46 ], [ %57, %52 ]
   %60 = icmp slt i32 %.0.lcssa.i29, 1024
   br i1 %60, label %file_checkfield.exit32, label %61
 
@@ -244,7 +244,7 @@ file_checkfield.exit32:                           ; preds = %._crit_edge, %.crit
   br label %4
 
 file_checkfield.exit.thread:                      ; preds = %4, %61, %62, %37, %38, %71, %72, %17, %18
-  %.0 = phi i32 [ -1, %71 ], [ -1, %37 ], [ -1, %61 ], [ -1, %17 ], [ -1, %18 ], [ -1, %72 ], [ -1, %38 ], [ -1, %62 ], [ 0, %4 ]
+  %.0 = phi i32 [ -1, %18 ], [ -1, %17 ], [ -1, %72 ], [ -1, %71 ], [ -1, %38 ], [ -1, %37 ], [ -1, %62 ], [ -1, %61 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -339,7 +339,7 @@ define hidden range(i32 -1, 1) i32 @file_vprintf(ptr noundef captures(none) %0, 
   br label %40
 
 40:                                               ; preds = %3, %38, %28, %12
-  %.0 = phi i32 [ 0, %38 ], [ -1, %12 ], [ -1, %28 ], [ 0, %3 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %28 ], [ 0, %38 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -553,7 +553,7 @@ define hidden range(i32 -1, 2) i32 @file_default(ptr noundef captures(none) %0, 
   br label %23
 
 23:                                               ; preds = %18, %20, %15, %8, %12
-  %.0 = phi i32 [ %.12, %20 ], [ 1, %12 ], [ %., %15 ], [ -1, %8 ], [ 0, %18 ]
+  %.0 = phi i32 [ 1, %12 ], [ -1, %8 ], [ %., %15 ], [ %.12, %20 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -839,9 +839,9 @@ checkdone.exit127.thread:                         ; preds = %112, %108, %checkdo
   br label %checkdone.exit129.thread
 
 checkdone.exit129.thread:                         ; preds = %129, %checkdone.exit127.thread
-  %132 = phi i32 [ %.pre181, %129 ], [ %115, %checkdone.exit127.thread ]
-  %.7137 = phi i32 [ %spec.select166, %129 ], [ %.6136, %checkdone.exit127.thread ]
-  %.7 = phi i32 [ %119, %129 ], [ %.6, %checkdone.exit127.thread ]
+  %132 = phi i32 [ %115, %checkdone.exit127.thread ], [ %.pre181, %129 ]
+  %.7137 = phi i32 [ %.6136, %checkdone.exit127.thread ], [ %spec.select166, %129 ]
+  %.7 = phi i32 [ %.6, %checkdone.exit127.thread ], [ %119, %129 ]
   %133 = and i32 %132, 131072
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %137, label %146
@@ -923,9 +923,9 @@ file_default.exit:                                ; preds = %162
   %spec.select167 = sext i1 %168 to i32
   br label %checkdone.exit
 
-checkdone.exit:                                   ; preds = %file_default.exit, %152, %159, %156, %164, %126, %109, %92, %75, %57, %40, %146, %144
-  %.2132 = phi i32 [ %.12.i, %164 ], [ %spec.select167, %file_default.exit ], [ %.6136, %126 ], [ %.7137199, %144 ], [ %.7137, %146 ], [ %.5135, %109 ], [ %.4134, %92 ], [ %.3133, %75 ], [ %.1, %57 ], [ 0, %40 ], [ -1, %152 ], [ %..i, %159 ], [ 1, %156 ]
-  %.2 = phi i32 [ 1, %164 ], [ 1, %file_default.exit ], [ %119, %126 ], [ %138, %144 ], [ %.7, %146 ], [ %102, %109 ], [ %85, %92 ], [ %68, %75 ], [ %50, %57 ], [ %33, %40 ], [ 1, %152 ], [ 1, %159 ], [ 1, %156 ]
+checkdone.exit:                                   ; preds = %file_default.exit, %164, %159, %152, %156, %126, %109, %92, %75, %57, %40, %146, %144
+  %.2132 = phi i32 [ %.7137199, %144 ], [ %.7137, %146 ], [ 0, %40 ], [ %.1, %57 ], [ %.3133, %75 ], [ %.4134, %92 ], [ %.5135, %109 ], [ %.6136, %126 ], [ %.12.i, %164 ], [ %..i, %159 ], [ -1, %152 ], [ 1, %156 ], [ %spec.select167, %file_default.exit ]
+  %.2 = phi i32 [ %138, %144 ], [ %.7, %146 ], [ %33, %40 ], [ %50, %57 ], [ %68, %75 ], [ %85, %92 ], [ %102, %109 ], [ %119, %126 ], [ 1, %164 ], [ 1, %159 ], [ 1, %152 ], [ 1, %156 ], [ 1, %file_default.exit ]
   %169 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %169, align 8, !tbaa !21
   %170 = icmp eq ptr %.val, null
@@ -1164,7 +1164,7 @@ define hidden ptr @file_getbuffer(ptr noundef captures(none) %0) local_unnamed_a
   br label %59
 
 59:                                               ; preds = %5, %11, %1, %._crit_edge, %26, %16
-  %.0 = phi ptr [ %58, %._crit_edge ], [ null, %11 ], [ null, %1 ], [ null, %16 ], [ null, %26 ], [ %10, %5 ]
+  %.0 = phi ptr [ null, %16 ], [ null, %26 ], [ %58, %._crit_edge ], [ null, %1 ], [ null, %11 ], [ %10, %5 ]
   ret ptr %.0
 }
 

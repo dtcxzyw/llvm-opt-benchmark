@@ -173,7 +173,7 @@ select.unfold.i:                                  ; preds = %.sink.split.i.i, %6
   br label %6
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbe315ab391062d0dE.llvm.17982877770584496632.exit": ; preds = %.sink.split.i.i, %14, %.sink.split.i7.i
-  %.0.i = phi ptr [ %.0.ph.i9.i, %.sink.split.i7.i ], [ null, %14 ], [ %.sink.i16.i, %.sink.split.i.i ]
+  %.0.i = phi ptr [ null, %14 ], [ %.0.ph.i9.i, %.sink.split.i7.i ], [ %.sink.i16.i, %.sink.split.i.i ]
   ret ptr %.0.i
 }
 
@@ -209,7 +209,7 @@ select.unfold:                                    ; preds = %.sink.split.i, %6
   br i1 %or.cond.i, label %14, label %22
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h8acc63121a3e26d4E.exit: ; preds = %.sink.split.i, %.sink.split.i7, %14
-  %.0 = phi ptr [ %.0.ph.i9, %.sink.split.i7 ], [ null, %14 ], [ %.sink.i16, %.sink.split.i ]
+  %.0 = phi ptr [ null, %14 ], [ %.0.ph.i9, %.sink.split.i7 ], [ %.sink.i16, %.sink.split.i ]
   ret ptr %.0
 
 14:                                               ; preds = %select.unfold
@@ -1024,9 +1024,9 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit137:
   br i1 %trunc.i, label %146, label %143
 
 _ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit.thread: ; preds = %74, %68, %35, %29, %67, %148, %143
-  %.0 = phi i8 [ 1, %35 ], [ 1, %148 ], [ %spec.select245, %67 ], [ 2, %143 ], [ 1, %29 ], [ 2, %68 ], [ 2, %74 ]
-  %.2120 = phi i64 [ 0, %35 ], [ %150, %148 ], [ 0, %67 ], [ %145, %143 ], [ 0, %29 ], [ 0, %68 ], [ 0, %74 ]
-  %.2117 = phi i1 [ true, %35 ], [ false, %148 ], [ true, %67 ], [ false, %143 ], [ true, %29 ], [ true, %68 ], [ true, %74 ]
+  %.0 = phi i8 [ 1, %148 ], [ 2, %143 ], [ %spec.select245, %67 ], [ 1, %29 ], [ 1, %35 ], [ 2, %68 ], [ 2, %74 ]
+  %.2120 = phi i64 [ %150, %148 ], [ %145, %143 ], [ 0, %67 ], [ 0, %29 ], [ 0, %35 ], [ 0, %68 ], [ 0, %74 ]
+  %.2117 = phi i1 [ false, %148 ], [ false, %143 ], [ true, %67 ], [ true, %29 ], [ true, %35 ], [ true, %68 ], [ true, %74 ]
   %106 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hfa98a52554920eb3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 @anon.66d731aad004fadc267d2ec7cc952fb9.51.llvm.4295070668343094693, i64 noundef 13), !noalias !279
   %107 = icmp eq ptr %106, null
   br i1 %107, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit146.thread, label %108

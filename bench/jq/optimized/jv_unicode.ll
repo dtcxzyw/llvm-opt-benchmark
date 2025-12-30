@@ -53,7 +53,7 @@ define dso_local noundef ptr @jvp_utf8_backtrack(ptr noundef readonly captures(a
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %9, %.critedge, %.preheader, %14, %19, %18, %3
-  %.019 = phi ptr [ %1, %3 ], [ null, %14 ], [ null, %.preheader ], [ null, %.critedge ], [ %.02136, %19 ], [ %.02136, %18 ], [ null, %9 ]
+  %.019 = phi ptr [ %1, %3 ], [ null, %.critedge ], [ null, %14 ], [ %.02136, %19 ], [ %.02136, %18 ], [ null, %.preheader ], [ null, %9 ]
   ret ptr %.019
 }
 
@@ -144,8 +144,8 @@ define dso_local ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %47
 
 47:                                               ; preds = %14, %._crit_edge, %22, %12
-  %.042 = phi i32 [ %13, %12 ], [ %spec.store.select, %._crit_edge ], [ -1, %22 ], [ -1, %14 ]
-  %.041 = phi i32 [ 1, %12 ], [ %.2, %._crit_edge ], [ %26, %22 ], [ 1, %14 ]
+  %.042 = phi i32 [ %13, %12 ], [ -1, %22 ], [ %spec.store.select, %._crit_edge ], [ -1, %14 ]
+  %.041 = phi i32 [ 1, %12 ], [ %26, %22 ], [ %.2, %._crit_edge ], [ 1, %14 ]
   store i32 %.042, ptr %2, align 4, !tbaa !9
   %48 = sext i32 %.041 to i64
   %49 = getelementptr inbounds i8, ptr %0, i64 %48
@@ -241,7 +241,7 @@ jvp_utf8_next.exit:                               ; preds = %.lr.ph
   br label %.backedge
 
 jvp_utf8_next.exit.thread:                        ; preds = %10, %14, %._crit_edge.i, %.backedge, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %10 ], [ 1, %.backedge ], [ 0, %14 ], [ 0, %._crit_edge.i ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %10 ], [ 0, %14 ], [ 0, %._crit_edge.i ], [ 1, %.backedge ]
   ret i32 %.0
 }
 
@@ -263,7 +263,7 @@ define dso_local range(i32 1, 5) i32 @jvp_utf8_decode_length(i8 noundef signext 
   br label %10
 
 10:                                               ; preds = %7, %4, %1
-  %.0 = phi i32 [ 2, %4 ], [ 1, %1 ], [ %., %7 ]
+  %.0 = phi i32 [ 1, %1 ], [ 2, %4 ], [ %., %7 ]
   ret i32 %.0
 }
 
@@ -282,7 +282,7 @@ define dso_local range(i32 1, 5) i32 @jvp_utf8_encode_length(i32 noundef %0) loc
   br label %7
 
 7:                                                ; preds = %5, %3, %1
-  %.0 = phi i32 [ 2, %3 ], [ 1, %1 ], [ %., %5 ]
+  %.0 = phi i32 [ 1, %1 ], [ 2, %3 ], [ %., %5 ]
   ret i32 %.0
 }
 
@@ -405,7 +405,7 @@ switch.early.test:                                ; preds = %2
   br label %7
 
 7:                                                ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %2, %1, %1, %1, %1, %1, %1, %1, %1, %1, %4
-  %8 = phi i32 [ %6, %4 ], [ 1, %switch.early.test ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %2 ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ]
+  %8 = phi i32 [ %6, %4 ], [ 1, %1 ], [ 1, %switch.early.test ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %2 ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ]
   ret i32 %8
 }
 

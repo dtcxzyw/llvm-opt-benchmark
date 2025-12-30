@@ -187,7 +187,7 @@ define internal range(i32 0, 2) i32 @dissect_etch(ptr noundef %0, ptr noundef %1
   br label %17
 
 17:                                               ; preds = %10, %13, %7, %4
-  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 1, %13 ], [ 1, %10 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 1, %13 ], [ 1, %10 ]
   ret i32 %.0
 }
 
@@ -502,7 +502,7 @@ define internal noundef zeroext i1 @dissect_etch_heur(ptr noundef %0, ptr nounde
   br label %dissect_etch.exit
 
 dissect_etch.exit:                                ; preds = %4, %7, %10, %13
-  %17 = phi i1 [ false, %7 ], [ false, %4 ], [ true, %13 ], [ true, %10 ]
+  %17 = phi i1 [ false, %4 ], [ false, %7 ], [ true, %13 ], [ true, %10 ]
   ret i1 %17
 }
 
@@ -1007,9 +1007,9 @@ define internal fastcc void @read_number(ptr noundef captures(none) %0, ptr noun
 15:                                               ; preds = %5, %5
   br label %16
 
-16:                                               ; preds = %5, %15, %13, %14
-  %17 = phi i1 [ false, %5 ], [ true, %14 ], [ false, %13 ], [ false, %15 ]
-  %.0.i.ph = phi i32 [ 1, %5 ], [ 4, %14 ], [ 2, %13 ], [ 8, %15 ]
+16:                                               ; preds = %5, %13, %14, %15
+  %17 = phi i1 [ false, %5 ], [ false, %15 ], [ true, %14 ], [ false, %13 ]
+  %.0.i.ph = phi i32 [ 1, %5 ], [ 8, %15 ], [ 4, %14 ], [ 2, %13 ]
   %18 = tail call ptr @wmem_packet_scope()
   %19 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %18, ptr noundef nonnull @.str.70)
   store ptr %19, ptr @gbl_symbol_buffer, align 8
@@ -1112,7 +1112,7 @@ get_byte_length.exit:                             ; preds = %8, %8
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %23, %31
-  %.1 = phi i32 [ %.032, %23 ], [ %32, %31 ], [ 0, %8 ]
+  %.1 = phi i32 [ %32, %31 ], [ %.032, %23 ], [ 0, %8 ]
   ret i32 %.1
 }
 

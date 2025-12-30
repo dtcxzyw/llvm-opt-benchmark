@@ -8586,7 +8586,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %_ZN
   br label %.body
 
 .body:                                            ; preds = %240, %237, %308
-  %.pn60.pn = phi { ptr, i32 } [ %309, %308 ], [ %238, %237 ], [ %238, %240 ]
+  %.pn60.pn = phi { ptr, i32 } [ %309, %308 ], [ %238, %240 ], [ %238, %237 ]
   %310 = load ptr, ptr %30, align 8, !tbaa !47
   %311 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %312 = icmp eq ptr %310, %311

@@ -43,7 +43,7 @@ define internal range(i32 0, 67) i32 @wady_probe(ptr noundef readonly captures(n
   br label %19
 
 19:                                               ; preds = %16, %5, %8, %12, %1
-  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %spec.select, %16 ], [ 0, %12 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %12 ], [ 0, %8 ], [ 0, %5 ], [ %spec.select, %16 ]
   ret i32 %.0
 }
 
@@ -96,7 +96,7 @@ define internal range(i32 -2147483648, 1) i32 @wady_read_header(ptr noundef %0) 
   br label %29
 
 29:                                               ; preds = %16, %13, %6, %1, %21
-  %.0 = phi i32 [ -12, %1 ], [ %11, %6 ], [ -1094995529, %13 ], [ 0, %21 ], [ -1094995529, %16 ]
+  %.0 = phi i32 [ 0, %21 ], [ -12, %1 ], [ %11, %6 ], [ -1094995529, %13 ], [ -1094995529, %16 ]
   ret i32 %.0
 }
 

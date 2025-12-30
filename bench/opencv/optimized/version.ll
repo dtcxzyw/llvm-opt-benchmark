@@ -15886,7 +15886,7 @@ _ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit58: ; pre
   br label %.body
 
 ._crit_edge.thread:                               ; preds = %1, %.thread65, %._crit_edge, %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit58
-  %.4 = phi ptr [ %.46, %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit58 ], [ %., %.thread65 ], [ null, %._crit_edge ], [ null, %1 ]
+  %.4 = phi ptr [ %.46, %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit58 ], [ null, %._crit_edge ], [ %., %.thread65 ], [ null, %1 ]
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8, !tbaa !34
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %76 = load ptr, ptr %75, align 8, !tbaa !61
@@ -15903,7 +15903,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %._crit_edge.thread,
   ret ptr %.4
 
 .body:                                            ; preds = %73, %_ZN5zxing12ErrorHandlerD2Ev.exit10.i50, %35, %_ZN5zxing12ErrorHandlerD2Ev.exit10.i, %39
-  %.pn43 = phi { ptr, i32 } [ %22, %_ZN5zxing12ErrorHandlerD2Ev.exit10.i ], [ %40, %39 ], [ %36, %35 ], [ %74, %73 ], [ %61, %_ZN5zxing12ErrorHandlerD2Ev.exit10.i50 ]
+  %.pn43 = phi { ptr, i32 } [ %40, %39 ], [ %36, %35 ], [ %22, %_ZN5zxing12ErrorHandlerD2Ev.exit10.i ], [ %74, %73 ], [ %61, %_ZN5zxing12ErrorHandlerD2Ev.exit10.i50 ]
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8, !tbaa !34
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %80 = load ptr, ptr %79, align 8, !tbaa !61
@@ -16329,7 +16329,7 @@ _ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit:       ; preds = %.critedge, %104
   br label %.split128.us
 
 .split128.us:                                     ; preds = %173, %147, %103, %42, %_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit
-  %.sink = phi ptr [ null, %103 ], [ null, %42 ], [ %33, %_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit ], [ null, %147 ], [ null, %173 ]
+  %.sink = phi ptr [ %33, %_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit ], [ null, %42 ], [ null, %103 ], [ null, %147 ], [ null, %173 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !69
   %180 = load i32, ptr %35, align 8, !tbaa !32
   %181 = add i32 %180, -1

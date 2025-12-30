@@ -48,9 +48,9 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
-  %13 = phi i1 [ false, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ false, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ true, %.lr.ph ]
-  %.sroa.047.083 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %8, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %8, %.lr.ph ]
-  %.sroa.18.082 = phi i64 [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %11, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ %11, %.lr.ph ]
+  %13 = phi i1 [ false, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ false, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ true, %.lr.ph ]
+  %.sroa.047.083 = phi ptr [ %8, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %8, %.lr.ph ]
+  %.sroa.18.082 = phi i64 [ %11, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ], [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %11, %.lr.ph ]
   invoke void @_ZN19OpenColorIO_v2_5dev10OpRcPtrVec8finalizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3)
           to label %25 unwind label %55
 
@@ -165,7 +165,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge74, %._c
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit46
 
 _ZNSt6vectorIfSaIfEED2Ev.exit46:                  ; preds = %57, %55
-  %.pn.pn = phi { ptr, i32 } [ %.pn64, %57 ], [ %56, %55 ]
+  %.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %.pn64, %57 ]
   resume { ptr, i32 } %.pn.pn
 }
 

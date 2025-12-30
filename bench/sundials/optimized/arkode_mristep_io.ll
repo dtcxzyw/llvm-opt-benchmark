@@ -192,7 +192,7 @@ define i32 @MRIStepSetCoupling(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %58
 
 58:                                               ; preds = %2, %48, %46, %10
-  %.0 = phi i32 [ 0, %48 ], [ -22, %10 ], [ -21, %46 ], [ %7, %2 ]
+  %.0 = phi i32 [ -22, %10 ], [ -21, %46 ], [ 0, %48 ], [ %7, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -308,7 +308,7 @@ define i32 @mriStep_GetNumRhsEvals(ptr noundef %0, i32 noundef %1, ptr noundef w
   br label %26
 
 26:                                               ; preds = %14, %17, %20, %3, %11, %8
-  %.0 = phi i32 [ %5, %3 ], [ -22, %8 ], [ -22, %11 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ]
+  %.0 = phi i32 [ -22, %8 ], [ -22, %11 ], [ %5, %3 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -636,7 +636,7 @@ define i32 @mriStep_SetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   br label %100
 
 100:                                              ; preds = %87, %91, %1, %86, %79
-  %.0 = phi i32 [ %7, %1 ], [ -20, %79 ], [ -20, %86 ], [ 0, %91 ], [ 0, %87 ]
+  %.0 = phi i32 [ -20, %79 ], [ -20, %86 ], [ %7, %1 ], [ 0, %91 ], [ 0, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -888,7 +888,7 @@ define i32 @mriStep_SetMaxNonlinIters(ptr noundef %0, i32 noundef %1) local_unna
   br label %16
 
 16:                                               ; preds = %11, %2, %15, %10
-  %.0 = phi i32 [ %4, %2 ], [ -22, %10 ], [ -32, %15 ], [ 0, %11 ]
+  %.0 = phi i32 [ -22, %10 ], [ -32, %15 ], [ %4, %2 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1339,7 +1339,7 @@ define i32 @mriStep_PrintAllStats(ptr noundef %0, ptr noundef captures(none) %1,
   br label %201
 
 201:                                              ; preds = %199, %47, %78, %39, %3, %200
-  %.0 = phi i32 [ %5, %3 ], [ -22, %200 ], [ 0, %39 ], [ 0, %78 ], [ 0, %47 ], [ 0, %199 ]
+  %.0 = phi i32 [ -22, %200 ], [ %5, %3 ], [ 0, %39 ], [ 0, %78 ], [ 0, %47 ], [ 0, %199 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1990,7 +1990,7 @@ define i32 @MRIStepWriteCoupling(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %18
 
 18:                                               ; preds = %2, %13, %11
-  %.0 = phi i32 [ 0, %13 ], [ -21, %11 ], [ %5, %2 ]
+  %.0 = phi i32 [ -21, %11 ], [ 0, %13 ], [ %5, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

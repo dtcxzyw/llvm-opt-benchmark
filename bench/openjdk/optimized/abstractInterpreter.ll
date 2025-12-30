@@ -379,7 +379,7 @@ _ZNK6Method15is_empty_methodEv.exit.thread:       ; preds = %58, %_ZNK6Method15i
   br label %71
 
 71:                                               ; preds = %68, %_ZNK6Method15is_empty_methodEv.exit.thread, %_ZNK6Method15is_empty_methodEv.exit, %56, %49, %38, %13, %1, %53, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %11
-  %.0 = phi i32 [ 28, %13 ], [ %12, %11 ], [ 0, %38 ], [ %55, %53 ], [ 7, %49 ], [ 1, %56 ], [ 4, %_ZNK6Method15is_empty_methodEv.exit ], [ %., %68 ], [ 5, %_ZNK6Method15is_empty_methodEv.exit.thread ], [ 7, %1 ], [ 29, %14 ], [ 30, %15 ], [ 31, %16 ], [ 32, %17 ], [ 33, %18 ], [ 34, %19 ], [ 37, %20 ], [ 38, %21 ], [ 35, %22 ], [ 36, %23 ], [ 39, %24 ], [ 15, %25 ], [ 16, %26 ], [ 17, %27 ], [ 18, %28 ], [ 21, %29 ], [ 22, %30 ], [ 23, %31 ], [ 24, %32 ], [ 26, %33 ], [ 25, %34 ], [ 19, %35 ], [ 20, %36 ], [ 27, %37 ]
+  %.0 = phi i32 [ %12, %11 ], [ %55, %53 ], [ 29, %14 ], [ 30, %15 ], [ 31, %16 ], [ 32, %17 ], [ 33, %18 ], [ 34, %19 ], [ 37, %20 ], [ 38, %21 ], [ 35, %22 ], [ 36, %23 ], [ 39, %24 ], [ 15, %25 ], [ 16, %26 ], [ 17, %27 ], [ 18, %28 ], [ 21, %29 ], [ 22, %30 ], [ 23, %31 ], [ 24, %32 ], [ 26, %33 ], [ 25, %34 ], [ 19, %35 ], [ 20, %36 ], [ 27, %37 ], [ 7, %1 ], [ 28, %13 ], [ 0, %38 ], [ 7, %49 ], [ 1, %56 ], [ 4, %_ZNK6Method15is_empty_methodEv.exit ], [ 5, %_ZNK6Method15is_empty_methodEv.exit.thread ], [ %., %68 ]
   ret i32 %.0
 }
 
@@ -565,7 +565,7 @@ _ZN9Bytecodes12must_rewriteENS_4CodeE.exit:       ; preds = %83
   br label %_ZN9Bytecodes12must_rewriteENS_4CodeE.exit.thread
 
 _ZN9Bytecodes12must_rewriteENS_4CodeE.exit.thread: ; preds = %89, %83, %_ZN9Bytecodes12must_rewriteENS_4CodeE.exit, %46, %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %35
-  %.0 = phi i1 [ %45, %35 ], [ false, %46 ], [ %82, %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit ], [ false, %_ZN9Bytecodes12must_rewriteENS_4CodeE.exit ], [ false, %83 ], [ %or.cond, %89 ]
+  %.0 = phi i1 [ %45, %35 ], [ %82, %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit ], [ false, %46 ], [ false, %_ZN9Bytecodes12must_rewriteENS_4CodeE.exit ], [ false, %83 ], [ %or.cond, %89 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
   ret i1 %.0
 }
@@ -675,8 +675,8 @@ _ZN9Bytecodes9length_atEP6MethodPh.exit.thread:   ; preds = %_ZN9Bytecodes10leng
   br label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22
 
 _ZN9Bytecodes9length_atEP6MethodPh.exit.thread22: ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread, %49, %1, %56, %52
-  %.015 = phi i32 [ %22, %52 ], [ -1, %1 ], [ %59, %56 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
-  %.014 = phi i32 [ %19, %52 ], [ -1, %1 ], [ %59, %56 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
+  %.015 = phi i32 [ %59, %56 ], [ %22, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
+  %.014 = phi i32 [ %59, %56 ], [ %19, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.014, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1070,7 +1070,7 @@ _ZN21Bytecode_loadconstantC2ERK12methodHandlei.exit: ; preds = %_ZN12methodHandl
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %210, %208, %162, %160, %95, %93, %211
-  %.0 = phi i8 [ %214, %211 ], [ %138, %162 ], [ %75, %95 ], [ %75, %93 ], [ %138, %160 ], [ %205, %208 ], [ %205, %210 ]
+  %.0 = phi i8 [ %214, %211 ], [ %75, %93 ], [ %75, %95 ], [ %138, %160 ], [ %138, %162 ], [ %205, %208 ], [ %205, %210 ]
   %switch.tableidx = add i8 %.0, -4
   %215 = icmp ult i8 %switch.tableidx, 11
   br i1 %3, label %216, label %219

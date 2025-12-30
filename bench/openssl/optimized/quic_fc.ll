@@ -393,7 +393,7 @@ on_rx_controlled_bytes.exit37:                    ; preds = %36, %42
   br label %49
 
 49:                                               ; preds = %on_rx_controlled_bytes.exit37, %on_rx_controlled_bytes.exit, %45, %6, %47, %17
-  %.0 = phi i32 [ 1, %17 ], [ 0, %6 ], [ 1, %47 ], [ 1, %45 ], [ 1, %on_rx_controlled_bytes.exit ], [ 1, %on_rx_controlled_bytes.exit37 ]
+  %.0 = phi i32 [ 1, %17 ], [ 1, %47 ], [ 0, %6 ], [ 1, %45 ], [ 1, %on_rx_controlled_bytes.exit ], [ 1, %on_rx_controlled_bytes.exit37 ]
   ret i32 %.0
 }
 
@@ -494,7 +494,7 @@ safe_mul_uint64_t.exit33.i.i.i:                   ; preds = %16
   br label %rxfc_cwm_bump_desired.exit.i
 
 rxfc_cwm_bump_desired.exit.i:                     ; preds = %safe_mul_uint64_t.exit33.i.i.i, %25
-  %.0.i.i = phi i64 [ %33, %safe_mul_uint64_t.exit33.i.i.i ], [ %27, %25 ]
+  %.0.i.i = phi i64 [ %27, %25 ], [ %33, %safe_mul_uint64_t.exit33.i.i.i ]
   %34 = sub i64 %20, %19
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 90
   %36 = load i8, ptr %35, align 2, !tbaa !26
@@ -556,7 +556,7 @@ safe_muldiv_time.exit.thread17.i.i.i.i:           ; preds = %safe_mul_time.exit3
   br label %rxfc_should_bump_window_size.exit.i.i
 
 rxfc_should_bump_window_size.exit.i.i:            ; preds = %safe_muldiv_time.exit.thread17.i.i.i.i, %safe_mul_time.exit35.i.i.i.i.i, %safe_muldiv_time.exit.thread.i.i.i.i
-  %.sroa.03.0.i.i.i.i = phi i64 [ 0, %safe_muldiv_time.exit.thread17.i.i.i.i ], [ %67, %safe_mul_time.exit35.i.i.i.i.i ], [ %54, %safe_muldiv_time.exit.thread.i.i.i.i ]
+  %.sroa.03.0.i.i.i.i = phi i64 [ 0, %safe_muldiv_time.exit.thread17.i.i.i.i ], [ %54, %safe_muldiv_time.exit.thread.i.i.i.i ], [ %67, %safe_mul_time.exit35.i.i.i.i.i ]
   %69 = icmp ugt i64 %.fr.i.i, 4611686018427387903
   %70 = shl nuw i64 %.fr.i.i, 2
   %.sroa.02.0.i.i.i.i = select i1 %69, i64 -1, i64 %70

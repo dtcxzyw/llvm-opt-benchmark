@@ -89,7 +89,7 @@ finish_lo_xact.exit.thread:                       ; preds = %19, %finish_lo_xact
   br label %fail_lo_xact.exit
 
 fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit, %17, %10, %2, %finish_lo_xact.exit.thread
-  %.0 = phi i1 [ false, %finish_lo_xact.exit ], [ true, %finish_lo_xact.exit.thread ], [ false, %2 ], [ false, %10 ], [ false, %17 ]
+  %.0 = phi i1 [ true, %finish_lo_xact.exit.thread ], [ false, %2 ], [ false, %finish_lo_xact.exit ], [ false, %10 ], [ false, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -132,7 +132,7 @@ define internal fastcc noundef zeroext i1 @start_lo_xact(ptr noundef %0, ptr nou
   br label %12
 
 12:                                               ; preds = %5, %9, %7, %11, %10, %4
-  %.0 = phi i1 [ false, %11 ], [ false, %7 ], [ false, %4 ], [ false, %10 ], [ true, %9 ], [ true, %5 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %10 ], [ false, %4 ], [ false, %7 ], [ true, %9 ], [ true, %5 ]
   ret i1 %.0
 }
 
@@ -323,7 +323,7 @@ finish_lo_xact.exit.thread:                       ; preds = %47, %finish_lo_xact
   br label %fail_lo_xact.exit
 
 fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit, %45, %40, %30, %25, %17, %10, %2, %finish_lo_xact.exit.thread
-  %.0 = phi i1 [ false, %finish_lo_xact.exit ], [ true, %finish_lo_xact.exit.thread ], [ false, %17 ], [ false, %2 ], [ false, %30 ], [ false, %10 ], [ false, %25 ], [ false, %40 ], [ false, %45 ]
+  %.0 = phi i1 [ true, %finish_lo_xact.exit.thread ], [ false, %2 ], [ false, %finish_lo_xact.exit ], [ false, %10 ], [ false, %17 ], [ false, %25 ], [ false, %30 ], [ false, %40 ], [ false, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
@@ -409,7 +409,7 @@ finish_lo_xact.exit.thread:                       ; preds = %19, %finish_lo_xact
   br label %fail_lo_xact.exit
 
 fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit, %17, %10, %1, %finish_lo_xact.exit.thread
-  %.0 = phi i1 [ false, %finish_lo_xact.exit ], [ true, %finish_lo_xact.exit.thread ], [ false, %1 ], [ false, %10 ], [ false, %17 ]
+  %.0 = phi i1 [ true, %finish_lo_xact.exit.thread ], [ false, %1 ], [ false, %finish_lo_xact.exit ], [ false, %10 ], [ false, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }

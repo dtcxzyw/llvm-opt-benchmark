@@ -166,7 +166,7 @@ define internal range(i32 -2, 2) i32 @ecxkem_encapsulate_init(ptr noundef captur
   br label %ecxkem_init.exit
 
 ecxkem_init.exit:                                 ; preds = %3, %5, %12, %15
-  %.0.i = phi i32 [ 0, %12 ], [ %17, %15 ], [ -2, %5 ], [ 0, %3 ]
+  %.0.i = phi i32 [ %17, %15 ], [ 0, %3 ], [ 0, %12 ], [ -2, %5 ]
   ret i32 %.0.i
 }
 
@@ -394,7 +394,7 @@ ecx_pubkey.exit53.i:                              ; preds = %87
   br label %dhkem_encap.exit
 
 dhkem_encap.exit:                                 ; preds = %101, %35, %29, %21, %20, %13, %102
-  %.0 = phi i32 [ -2, %102 ], [ %.041.i, %101 ], [ 0, %13 ], [ 0, %29 ], [ 0, %35 ], [ 1, %21 ], [ 1, %20 ]
+  %.0 = phi i32 [ -2, %102 ], [ 0, %29 ], [ 0, %35 ], [ %.041.i, %101 ], [ 0, %13 ], [ 1, %21 ], [ 1, %20 ]
   ret i32 %.0
 }
 
@@ -439,7 +439,7 @@ define internal range(i32 -2, 2) i32 @ecxkem_decapsulate_init(ptr noundef captur
   br label %ecxkem_init.exit
 
 ecxkem_init.exit:                                 ; preds = %3, %5, %8, %15, %18
-  %.0.i = phi i32 [ 0, %5 ], [ %20, %18 ], [ -2, %8 ], [ 0, %3 ], [ 0, %15 ]
+  %.0.i = phi i32 [ %20, %18 ], [ 0, %3 ], [ 0, %5 ], [ 0, %15 ], [ -2, %8 ]
   ret i32 %.0.i
 }
 
@@ -555,8 +555,8 @@ ecx_pubkey.exit.thread.i:                         ; preds = %45, %43
   br label %57
 
 57:                                               ; preds = %55, %49, %ecx_pubkey.exit.thread.i, %ecxkey_pubfromdata.exit.thread.i
-  %.0.i35.i = phi ptr [ null, %ecxkey_pubfromdata.exit.thread.i ], [ %37, %ecx_pubkey.exit.thread.i ], [ %37, %55 ], [ %37, %49 ]
-  %.027.i = phi i32 [ 0, %ecxkey_pubfromdata.exit.thread.i ], [ 0, %ecx_pubkey.exit.thread.i ], [ 1, %55 ], [ 0, %49 ]
+  %.0.i35.i = phi ptr [ %37, %55 ], [ %37, %49 ], [ null, %ecxkey_pubfromdata.exit.thread.i ], [ %37, %ecx_pubkey.exit.thread.i ]
+  %.027.i = phi i32 [ 1, %55 ], [ 0, %49 ], [ 0, %ecxkey_pubfromdata.exit.thread.i ], [ 0, %ecx_pubkey.exit.thread.i ]
   call void @ossl_ecx_key_free(ptr noundef %.0.i35.i) #5
   br label %dhkem_decap.exit
 
@@ -784,7 +784,7 @@ sender_authkey_set.exit:                          ; preds = %35
   br label %recipient_key_set.exit.thread
 
 recipient_key_set.exit.thread:                    ; preds = %35, %22, %18, %11, %ecx_match_params.exit, %31, %7, %5, %39
-  %.0 = phi i32 [ 0, %7 ], [ %41, %39 ], [ -2, %11 ], [ 0, %5 ], [ 0, %22 ], [ 0, %31 ], [ 0, %ecx_match_params.exit ], [ 0, %18 ], [ 0, %35 ]
+  %.0 = phi i32 [ %41, %39 ], [ 0, %5 ], [ 0, %7 ], [ 0, %31 ], [ 0, %ecx_match_params.exit ], [ 0, %18 ], [ -2, %11 ], [ 0, %22 ], [ 0, %35 ]
   ret i32 %.0
 }
 
@@ -935,9 +935,9 @@ dhkem_extract_and_expand.exit:                    ; preds = %66
   br label %74
 
 74:                                               ; preds = %73, %dhkem_extract_and_expand.exit, %.thread, %ecx_pubkey.exit.thread, %48, %38, %25, %8
-  %.044 = phi i64 [ %20, %ecx_pubkey.exit.thread ], [ %20, %38 ], [ %.sink78, %48 ], [ 0, %8 ], [ %41, %.thread ], [ %20, %25 ], [ %.sink78, %dhkem_extract_and_expand.exit ], [ %.sink78, %73 ]
-  %.042 = phi ptr [ null, %ecx_pubkey.exit.thread ], [ null, %38 ], [ null, %48 ], [ null, %8 ], [ null, %.thread ], [ null, %25 ], [ %59, %dhkem_extract_and_expand.exit ], [ %59, %73 ]
-  %.0 = phi i32 [ 0, %ecx_pubkey.exit.thread ], [ 0, %38 ], [ 0, %48 ], [ 0, %8 ], [ 0, %.thread ], [ 0, %25 ], [ 1, %dhkem_extract_and_expand.exit ], [ 0, %73 ]
+  %.044 = phi i64 [ %20, %38 ], [ %.sink78, %48 ], [ %20, %25 ], [ 0, %8 ], [ %20, %ecx_pubkey.exit.thread ], [ %41, %.thread ], [ %.sink78, %dhkem_extract_and_expand.exit ], [ %.sink78, %73 ]
+  %.042 = phi ptr [ null, %38 ], [ null, %48 ], [ null, %25 ], [ null, %8 ], [ null, %ecx_pubkey.exit.thread ], [ null, %.thread ], [ %59, %dhkem_extract_and_expand.exit ], [ %59, %73 ]
+  %.0 = phi i32 [ 0, %38 ], [ 0, %48 ], [ 0, %25 ], [ 0, %8 ], [ 0, %ecx_pubkey.exit.thread ], [ 0, %.thread ], [ 1, %dhkem_extract_and_expand.exit ], [ 0, %73 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %13, i64 noundef %.044) #5
   call void @EVP_KDF_CTX_free(ptr noundef %.042) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

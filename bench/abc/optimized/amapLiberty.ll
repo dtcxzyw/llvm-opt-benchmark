@@ -640,7 +640,7 @@ Amap_LibertyItem.exit14:                          ; preds = %Amap_LibertyPinFunc
   br i1 %.not, label %Amap_LibertyPinFunction.exit, label %12, !llvm.loop !26
 
 Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyPinFunction.exit.thread, %Amap_LibertyItem.exit14, %.lr.ph.i, %2, %Amap_LibertyItem.exit
-  %.019 = phi ptr [ null, %2 ], [ null, %Amap_LibertyItem.exit ], [ %.021, %.lr.ph.i ], [ null, %Amap_LibertyItem.exit14 ], [ null, %Amap_LibertyPinFunction.exit.thread ]
+  %.019 = phi ptr [ null, %Amap_LibertyItem.exit ], [ null, %2 ], [ %.021, %.lr.ph.i ], [ null, %Amap_LibertyItem.exit14 ], [ null, %Amap_LibertyPinFunction.exit.thread ]
   ret ptr %.019
 }
 
@@ -783,8 +783,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %Amap_LibertyPinFunction.exit.thread
 
 Amap_LibertyPinFunction.exit.thread:              ; preds = %36, %25, %Amap_LibertyItem.exit.i, %Vec_PtrPush.exit, %16
-  %66 = phi i32 [ %17, %16 ], [ %17, %25 ], [ %17, %Amap_LibertyItem.exit.i ], [ %61, %Vec_PtrPush.exit ], [ %17, %36 ]
-  %67 = phi i32 [ %18, %16 ], [ %18, %25 ], [ %18, %Amap_LibertyItem.exit.i ], [ %63, %Vec_PtrPush.exit ], [ %18, %36 ]
+  %66 = phi i32 [ %17, %25 ], [ %17, %Amap_LibertyItem.exit.i ], [ %61, %Vec_PtrPush.exit ], [ %17, %16 ], [ %17, %36 ]
+  %67 = phi i32 [ %18, %25 ], [ %18, %Amap_LibertyItem.exit.i ], [ %63, %Vec_PtrPush.exit ], [ %18, %16 ], [ %18, %36 ]
   %68 = getelementptr inbounds nuw i8, ptr %.018, i64 32
   %69 = load i32, ptr %68, align 4, !tbaa !20
   %70 = icmp slt i32 %69, 0
@@ -1202,7 +1202,7 @@ Amap_LibertyCellIsDontUse.exit:                   ; preds = %.lr.ph.i126
   br i1 %119, label %Amap_LibertyPinFunction.exit.i, label %.lr.ph.i.i, !llvm.loop !25
 
 Amap_LibertyPinFunction.exit.i:                   ; preds = %116, %.lr.ph.i.i, %106
-  %not..0.lcssa.i.i = phi i32 [ 0, %106 ], [ 1, %.lr.ph.i.i ], [ 0, %116 ]
+  %not..0.lcssa.i.i = phi i32 [ 0, %106 ], [ 0, %116 ], [ 1, %.lr.ph.i.i ]
   %spec.select.i = add nsw i32 %not..0.lcssa.i.i, %.016.i
   br label %120
 
@@ -1854,7 +1854,7 @@ Amap_LibertyCellIsDontUse.exit:                   ; preds = %.lr.ph.i121
   br i1 %144, label %Amap_LibertyPinFunction.exit.i, label %.lr.ph.i.i, !llvm.loop !25
 
 Amap_LibertyPinFunction.exit.i:                   ; preds = %141, %.lr.ph.i.i, %131
-  %not..0.lcssa.i.i = phi i32 [ 0, %131 ], [ 1, %.lr.ph.i.i ], [ 0, %141 ]
+  %not..0.lcssa.i.i = phi i32 [ 0, %131 ], [ 0, %141 ], [ 1, %.lr.ph.i.i ]
   %spec.select.i = add nsw i32 %not..0.lcssa.i.i, %.016.i
   br label %145
 
@@ -3315,7 +3315,7 @@ define void @Amap_LibertyWipeOutComments(ptr noundef captures(address) %0, ptr n
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
 
 .loopexit:                                        ; preds = %25, %23, %.preheader, %.lr.ph26, %7
-  %.2 = phi ptr [ %.01725, %.lr.ph26 ], [ %.122, %.preheader ], [ %.01725, %7 ], [ %.122, %23 ], [ %scevgep30, %25 ]
+  %.2 = phi ptr [ %.01725, %7 ], [ %.01725, %.lr.ph26 ], [ %.122, %.preheader ], [ %.122, %23 ], [ %scevgep30, %25 ]
   %27 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %28 = icmp ult ptr %27, %1
   br i1 %28, label %.lr.ph26, label %._crit_edge, !llvm.loop !53
@@ -3367,7 +3367,7 @@ Amap_LibertyCharIsSpace.exit.thread.us.i:         ; preds = %14, %14, %14, %14, 
   br i1 %exitcond26.not.i, label %Amap_LibertySkipSpaces.exit, label %.lr.ph.split.us.i, !llvm.loop !56
 
 Amap_LibertySkipSpaces.exit:                      ; preds = %14, %Amap_LibertyCharIsSpace.exit.thread.us.i, %3
-  %.0.lcssa.i = phi ptr [ %4, %3 ], [ %.014.us.i, %14 ], [ %scevgep25.i, %Amap_LibertyCharIsSpace.exit.thread.us.i ]
+  %.0.lcssa.i = phi ptr [ %4, %3 ], [ %scevgep25.i, %Amap_LibertyCharIsSpace.exit.thread.us.i ], [ %.014.us.i, %14 ]
   store ptr %.0.lcssa.i, ptr %1, align 8, !tbaa !54
   %.not = icmp eq ptr %.0.lcssa.i, %2
   br i1 %.not, label %213, label %17
@@ -3430,7 +3430,7 @@ Amap_LibertySkipSpaces.exit:                      ; preds = %14, %Amap_LibertyCh
   br i1 %exitcond.not.i, label %Amap_LibertySkipEntry.exit, label %.lr.ph.i168, !llvm.loop !58
 
 Amap_LibertySkipEntry.exit:                       ; preds = %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %.lr.ph.i168, %36, %.preheader.i, %.preheader26.i, %33
-  %.1.i = phi ptr [ %34, %33 ], [ %.0.i, %.preheader.i ], [ %.0.lcssa.i, %.preheader26.i ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %scevgep.i, %36 ], [ %.230.i, %.lr.ph.i168 ]
+  %.1.i = phi ptr [ %34, %33 ], [ %.0.lcssa.i, %.preheader26.i ], [ %.0.i, %.preheader.i ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %.230.i, %.lr.ph.i168 ], [ %scevgep.i, %36 ]
   store ptr %.1.i, ptr %1, align 8, !tbaa !54
   %.not179 = icmp eq ptr %.1.i, %2
   br i1 %.not179, label %198, label %38
@@ -3478,7 +3478,7 @@ Amap_LibertyCharIsSpace.exit.thread.us.i174:      ; preds = %50, %50, %50, %50, 
   br i1 %exitcond26.not.i175, label %Amap_LibertySkipSpaces.exit178, label %.lr.ph.split.us.i172, !llvm.loop !56
 
 Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCharIsSpace.exit.thread.us.i174, %38
-  %.0.lcssa.i169 = phi ptr [ %.1.i, %38 ], [ %.014.us.i173, %50 ], [ %scevgep25.i171, %Amap_LibertyCharIsSpace.exit.thread.us.i174 ]
+  %.0.lcssa.i169 = phi ptr [ %.1.i, %38 ], [ %scevgep25.i171, %Amap_LibertyCharIsSpace.exit.thread.us.i174 ], [ %.014.us.i173, %50 ]
   store ptr %.0.lcssa.i169, ptr %1, align 8, !tbaa !54
   %.not180 = icmp eq ptr %.0.lcssa.i169, %2
   br i1 %.not180, label %198, label %53
@@ -3739,7 +3739,7 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
   br label %213
 
 198:                                              ; preds = %53, %72, %175, %163, %134, %75, %65, %58, %55, %Amap_LibertySkipSpaces.exit178, %Amap_LibertySkipEntry.exit
-  %.sroa.855.0 = phi i64 [ 0, %Amap_LibertySkipEntry.exit ], [ %42, %Amap_LibertySkipSpaces.exit178 ], [ %42, %55 ], [ %42, %58 ], [ %42, %65 ], [ %42, %72 ], [ %42, %75 ], [ %42, %134 ], [ %42, %163 ], [ %42, %175 ], [ %42, %53 ]
+  %.sroa.855.0 = phi i64 [ 0, %Amap_LibertySkipEntry.exit ], [ %42, %Amap_LibertySkipSpaces.exit178 ], [ %42, %55 ], [ %42, %58 ], [ %42, %65 ], [ %42, %75 ], [ %42, %134 ], [ %42, %163 ], [ %42, %175 ], [ %42, %72 ], [ %42, %53 ]
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %200 = load ptr, ptr %199, align 8, !tbaa !62
   %201 = icmp eq ptr %200, null
@@ -3766,7 +3766,7 @@ Amap_LibertySkipSpaces.exit178:                   ; preds = %50, %Amap_LibertyCh
   br label %213
 
 213:                                              ; preds = %198, %202, %Amap_LibertySkipSpaces.exit, %192, %167, %111, %93
-  %.0 = phi i32 [ %197, %192 ], [ -2, %Amap_LibertySkipSpaces.exit ], [ %98, %93 ], [ %130, %111 ], [ %172, %167 ], [ -1, %202 ], [ -1, %198 ]
+  %.0 = phi i32 [ %98, %93 ], [ %130, %111 ], [ %172, %167 ], [ %197, %192 ], [ -2, %Amap_LibertySkipSpaces.exit ], [ -1, %202 ], [ -1, %198 ]
   ret i32 %.0
 }
 
@@ -3836,7 +3836,7 @@ Amap_LibertyCharIsSpace.exit.thread:              ; preds = %.lr.ph.split, %.lr.
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %Amap_LibertyCharIsSpace.exit.thread, %.lr.ph.split, %Amap_LibertyCharIsSpace.exit.thread.us, %15, %._crit_edge15, %4
-  %.0.lcssa = phi ptr [ %5, %4 ], [ %.014, %._crit_edge15 ], [ %.014.us, %15 ], [ %scevgep25, %Amap_LibertyCharIsSpace.exit.thread.us ], [ %.014, %.lr.ph.split ], [ %scevgep25, %Amap_LibertyCharIsSpace.exit.thread ]
+  %.0.lcssa = phi ptr [ %.014, %._crit_edge15 ], [ %5, %4 ], [ %.014.us, %15 ], [ %scevgep25, %Amap_LibertyCharIsSpace.exit.thread.us ], [ %.014, %.lr.ph.split ], [ %scevgep25, %Amap_LibertyCharIsSpace.exit.thread ]
   store ptr %.0.lcssa, ptr %1, align 8, !tbaa !54
   %22 = icmp eq ptr %.0.lcssa, %2
   %23 = zext i1 %22 to i32
@@ -3898,7 +3898,7 @@ define internal fastcc range(i32 0, 2) i32 @Amap_LibertySkipEntry(ptr noundef ca
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !58
 
 .loopexit:                                        ; preds = %17, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.preheader, %.preheader26, %14
-  %.1 = phi ptr [ %15, %14 ], [ %.0, %.preheader ], [ %4, %.preheader26 ], [ %scevgep, %17 ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ]
+  %.1 = phi ptr [ %15, %14 ], [ %4, %.preheader26 ], [ %.0, %.preheader ], [ %scevgep, %17 ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ], [ %.230, %.lr.ph ]
   store ptr %.1, ptr %0, align 8, !tbaa !54
   %19 = icmp eq ptr %.1, %1
   %20 = zext i1 %19 to i32
@@ -4042,7 +4042,7 @@ define internal fastcc noundef ptr @Amap_LibertyFindMatch(ptr noundef readonly c
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !65
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %.lr.ph29, %16, %.preheader21, %.preheader
-  %.118 = phi ptr [ %0, %.preheader21 ], [ %0, %.preheader ], [ %scevgep35, %16 ], [ %.01727, %.lr.ph29 ], [ %.21923, %.lr.ph ], [ %scevgep, %24 ]
+  %.118 = phi ptr [ %0, %.preheader ], [ %0, %.preheader21 ], [ %.01727, %.lr.ph29 ], [ %scevgep35, %16 ], [ %.21923, %.lr.ph ], [ %scevgep, %24 ]
   ret ptr %.118
 }
 
@@ -4316,7 +4316,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !52
 
 .loopexit.i:                                      ; preds = %43, %41, %.preheader.i, %25, %.lr.ph26.i
-  %.2.i = phi ptr [ %.01725.i, %.lr.ph26.i ], [ %.122.i, %.preheader.i ], [ %.01725.i, %25 ], [ %.122.i, %41 ], [ %scevgep30.i, %43 ]
+  %.2.i = phi ptr [ %.01725.i, %25 ], [ %.01725.i, %.lr.ph26.i ], [ %.122.i, %.preheader.i ], [ %.122.i, %41 ], [ %scevgep30.i, %43 ]
   %45 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %46 = icmp ult ptr %45, %20
   br i1 %46, label %.lr.ph26.i, label %Amap_LibertyWipeOutComments.exit.loopexit, !llvm.loop !53
@@ -4597,7 +4597,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !52
 
 .loopexit.i:                                      ; preds = %43, %41, %.preheader.i, %25, %.lr.ph26.i
-  %.2.i = phi ptr [ %.01725.i, %.lr.ph26.i ], [ %.122.i, %.preheader.i ], [ %.01725.i, %25 ], [ %.122.i, %41 ], [ %scevgep30.i, %43 ]
+  %.2.i = phi ptr [ %.01725.i, %25 ], [ %.01725.i, %.lr.ph26.i ], [ %.122.i, %.preheader.i ], [ %.122.i, %41 ], [ %scevgep30.i, %43 ]
   %45 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %46 = icmp ult ptr %45, %20
   br i1 %46, label %.lr.ph26.i, label %Amap_LibertyWipeOutComments.exit.loopexit, !llvm.loop !53

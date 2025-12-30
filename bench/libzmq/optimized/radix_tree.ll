@@ -747,11 +747,11 @@ _ZN6node_t13first_byte_atEm.exit:                 ; preds = %42, %44
   %71 = icmp eq ptr %70, %.sroa.070.0
   br i1 %71, label %.thread83, label %15
 
-.thread83:                                        ; preds = %64, %34, %35, %17, %37, %62
-  %.149 = phi i64 [ %.048, %62 ], [ %.048, %37 ], [ %.048, %34 ], [ %.044, %64 ], [ %.048, %35 ], [ %.048, %17 ]
-  %.145 = phi i64 [ %.044, %62 ], [ %.044, %37 ], [ %.044, %34 ], [ %.052107, %64 ], [ %.044, %35 ], [ %.044, %17 ]
-  %.142 = phi i64 [ %32, %62 ], [ %32, %37 ], [ %32, %34 ], [ %32, %64 ], [ %.243.lcssa, %35 ], [ %.041, %17 ]
-  %.1 = phi i64 [ %.2.lcssa, %62 ], [ %.2.lcssa, %37 ], [ %3, %34 ], [ %.2.lcssa, %64 ], [ %.2.lcssa, %35 ], [ %.0, %17 ]
+.thread83:                                        ; preds = %64, %35, %34, %17, %37, %62
+  %.149 = phi i64 [ %.048, %62 ], [ %.048, %37 ], [ %.048, %34 ], [ %.048, %35 ], [ %.044, %64 ], [ %.048, %17 ]
+  %.145 = phi i64 [ %.044, %62 ], [ %.044, %37 ], [ %.044, %34 ], [ %.044, %35 ], [ %.052107, %64 ], [ %.044, %17 ]
+  %.142 = phi i64 [ %32, %62 ], [ %32, %37 ], [ %32, %34 ], [ %.243.lcssa, %35 ], [ %32, %64 ], [ %.041, %17 ]
+  %.1 = phi i64 [ %.2.lcssa, %62 ], [ %.2.lcssa, %37 ], [ %3, %34 ], [ %.2.lcssa, %35 ], [ %.2.lcssa, %64 ], [ %.0, %17 ]
   %72 = ptrtoint ptr %.sroa.031.0 to i64
   %73 = ptrtoint ptr %.sroa.029.0 to i64
   call void @_ZN14match_result_tC1Emmmm6node_tS0_S0_(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.1, i64 noundef %.142, i64 noundef %.145, i64 noundef %.149, ptr %.sroa.070.0, i64 %72, i64 %73)
@@ -1412,7 +1412,7 @@ define noundef zeroext i1 @_ZN3zmq12radix_tree_t2rmEPKhm(ptr noundef nonnull ali
   br label %129
 
 129:                                              ; preds = %39, %80, %34, %128, %127, %32, %27, %3, %22, %25
-  %.0 = phi i1 [ true, %32 ], [ false, %3 ], [ false, %27 ], [ false, %25 ], [ false, %22 ], [ true, %127 ], [ true, %128 ], [ true, %34 ], [ true, %80 ], [ true, %39 ]
+  %.0 = phi i1 [ false, %25 ], [ false, %22 ], [ false, %3 ], [ false, %27 ], [ true, %32 ], [ true, %127 ], [ true, %128 ], [ true, %34 ], [ true, %80 ], [ true, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1818,7 +1818,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
+  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !35
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 

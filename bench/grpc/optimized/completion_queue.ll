@@ -2640,7 +2640,7 @@ _ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.
   br label %common.resume
 
 common.resume:                                    ; preds = %38, %329, %68, %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %69, %68 ], [ %69, %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i.i ], [ %.pn83.pn, %329 ], [ %39, %38 ]
+  %common.resume.op = phi { ptr, i32 } [ %69, %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i.i ], [ %69, %68 ], [ %.pn83.pn, %329 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9grpc_core4Fork15IncExecCtxCountEv.exit.i.i:   ; preds = %67, %63
@@ -2951,7 +2951,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit105:        ; preds = %162
   br i1 %.not, label %101, label %.critedge134._crit_edge, !llvm.loop !144
 
 200:                                              ; preds = %190, %175
-  %.pn70.pn = phi { ptr, i32 } [ %176, %175 ], [ %.pn.pn.pn, %190 ]
+  %.pn70.pn = phi { ptr, i32 } [ %.pn.pn.pn, %190 ], [ %176, %175 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #37
   br label %201
 
@@ -2964,7 +2964,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit105:        ; preds = %162
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.thread
 
-.thread:                                          ; preds = %.thread.loopexit, %127, %106, %137, %.critedge134._crit_edge
+.thread:                                          ; preds = %.thread.loopexit, %106, %137, %127, %.critedge134._crit_edge
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %203 = load atomic i64, ptr %202 monotonic, align 8
   %204 = icmp sgt i64 %203, 0
@@ -3266,7 +3266,7 @@ _ZN4absl12lts_2024072212log_internal12Check_EQImplIP18grpc_cq_completionDnEEPNSt
   br label %329
 
 329:                                              ; preds = %.loopexit, %.loopexit.split-lp, %321, %327, %99, %201, %138, %272, %236
-  %.pn83.pn = phi { ptr, i32 } [ %322, %321 ], [ %237, %236 ], [ %.pn78.pn.pn, %272 ], [ %100, %99 ], [ %328, %327 ], [ %.pn70.pn.pn, %201 ], [ %139, %138 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn83.pn = phi { ptr, i32 } [ %237, %236 ], [ %.pn78.pn.pn, %272 ], [ %100, %99 ], [ %.pn70.pn.pn, %201 ], [ %139, %138 ], [ %328, %327 ], [ %322, %321 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN9grpc_core7ExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %15) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -4808,7 +4808,7 @@ _ZN4absl12lts_2024072212log_internal12Check_EQImplIP18grpc_cq_completionDnEEPNSt
   br label %353
 
 353:                                              ; preds = %161, %167, %345, %351, %297, %263, %188, %104
-  %.pn98.pn = phi { ptr, i32 } [ %346, %345 ], [ %105, %104 ], [ %.pn93.pn.pn, %297 ], [ %.pn90.pn, %263 ], [ %189, %188 ], [ %352, %351 ], [ %.pn, %167 ], [ %162, %161 ]
+  %.pn98.pn = phi { ptr, i32 } [ %105, %104 ], [ %.pn93.pn.pn, %297 ], [ %.pn90.pn, %263 ], [ %189, %188 ], [ %352, %351 ], [ %346, %345 ], [ %.pn, %167 ], [ %162, %161 ]
   call void @_ZN9grpc_core7ExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %19) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)

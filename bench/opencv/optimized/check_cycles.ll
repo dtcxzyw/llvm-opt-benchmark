@@ -214,7 +214,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %62, %60
   br label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit
 
 _ZNK3ade6HandleINS_4NodeEE3getEv.exit:            ; preds = %41, %26, %51, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %65
-  %66 = phi ptr [ %spec.select.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %spec.select.i, %65 ], [ %spec.select.i, %51 ], [ null, %26 ], [ null, %41 ]
+  %66 = phi ptr [ %spec.select.i, %51 ], [ %spec.select.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %spec.select.i, %65 ], [ null, %26 ], [ null, %41 ]
   %67 = load i64, ptr %15, align 8, !tbaa !57
   %.not.not.i.i = icmp eq i64 %67, 0
   br i1 %.not.not.i.i, label %.preheader, label %72
@@ -269,7 +269,7 @@ _ZNK3ade6HandleINS_4NodeEE3getEv.exit:            ; preds = %41, %26, %51, %_ZN9
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %87
   br label %_ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.thread, !llvm.loop !61
 
-_ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.thread: ; preds = %.lr.ph.i.i.i.i15, %.preheader, %72, %..loopexit_crit_edge21.i.i.i.i
+_ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.thread: ; preds = %.lr.ph.i.i.i.i15, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %72
   invoke fastcc void @_ZN3ade6passesL5visitERSt13unordered_mapIPNS_4NodeENS0_13TraverseStateESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEERKNS_6HandleIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit unwind label %92
 
@@ -437,7 +437,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %36, %34
   br label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit
 
 _ZNK3ade6HandleINS_4NodeEE3getEv.exit:            ; preds = %13, %2, %24, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %39
-  %40 = phi ptr [ %spec.select.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %spec.select.i, %39 ], [ %spec.select.i, %24 ], [ null, %2 ], [ null, %13 ]
+  %40 = phi ptr [ %spec.select.i, %24 ], [ %spec.select.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %spec.select.i, %39 ], [ null, %2 ], [ null, %13 ]
   %41 = ptrtoint ptr %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !15
@@ -497,7 +497,7 @@ _ZNSt10_HashtableIPN3ade4NodeESt4pairIKS2_NS0_6passes13TraverseStateEESaIS7_ENSt
   br label %common.resume
 
 _ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEixEOS2_.exit: ; preds = %53, %48, %.loopexit.i.i
-  %.pn.i.i = phi ptr [ %64, %.loopexit.i.i ], [ %49, %48 ], [ %55, %53 ]
+  %.pn.i.i = phi ptr [ %49, %48 ], [ %64, %.loopexit.i.i ], [ %55, %53 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   store i32 0, ptr %.1.i.i, align 4, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -661,7 +661,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23: ; preds = %130, %
   br label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit25
 
 _ZNK3ade6HandleINS_4NodeEE3getEv.exit25:          ; preds = %107, %._crit_edge, %118, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23, %133
-  %134 = phi ptr [ %spec.select.i21, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23 ], [ %spec.select.i21, %133 ], [ %spec.select.i21, %118 ], [ null, %._crit_edge ], [ null, %107 ]
+  %134 = phi ptr [ %spec.select.i21, %118 ], [ %spec.select.i21, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23 ], [ %spec.select.i21, %133 ], [ null, %._crit_edge ], [ null, %107 ]
   %135 = ptrtoint ptr %134 to i64
   %136 = load i64, ptr %42, align 8, !tbaa !15
   %137 = urem i64 %135, %136
@@ -716,7 +716,7 @@ _ZNSt10_HashtableIPN3ade4NodeESt4pairIKS2_NS0_6passes13TraverseStateEESaIS7_ENSt
   br label %common.resume
 
 _ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEixEOS2_.exit36: ; preds = %146, %141, %.loopexit.i.i32
-  %.pn.i.i34 = phi ptr [ %157, %.loopexit.i.i32 ], [ %142, %141 ], [ %148, %146 ]
+  %.pn.i.i34 = phi ptr [ %142, %141 ], [ %157, %.loopexit.i.i32 ], [ %148, %146 ]
   %.1.i.i35 = getelementptr inbounds nuw i8, ptr %.pn.i.i34, i64 16
   store i32 1, ptr %.1.i.i35, align 4, !tbaa !69
   ret void
@@ -937,7 +937,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i47: ; preds = %247, %
   br label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit49
 
 _ZNK3ade6HandleINS_4NodeEE3getEv.exit49:          ; preds = %224, %"_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEZNS_6passesL5visitERSt13unordered_mapIPSF_NSI_13TraverseStateESt4hashISK_ESt8equal_toISK_ESaISt4pairIKSK_SL_EEERKNS_6HandleISF_EEE3$_0EEE8iteratordeEv.exit", %235, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i47, %250
-  %251 = phi ptr [ %spec.select.i45, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i47 ], [ %spec.select.i45, %250 ], [ %spec.select.i45, %235 ], [ null, %"_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEZNS_6passesL5visitERSt13unordered_mapIPSF_NSI_13TraverseStateESt4hashISK_ESt8equal_toISK_ESaISt4pairIKSK_SL_EEERKNS_6HandleISF_EEE3$_0EEE8iteratordeEv.exit" ], [ null, %224 ]
+  %251 = phi ptr [ %spec.select.i45, %235 ], [ %spec.select.i45, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i47 ], [ %spec.select.i45, %250 ], [ null, %"_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEZNS_6passesL5visitERSt13unordered_mapIPSF_NSI_13TraverseStateESt4hashISK_ESt8equal_toISK_ESaISt4pairIKSK_SL_EEERKNS_6HandleISF_EEE3$_0EEE8iteratordeEv.exit" ], [ null, %224 ]
   %252 = load i64, ptr %101, align 8, !tbaa !57
   %.not.not.i.i = icmp eq i64 %252, 0
   br i1 %.not.not.i.i, label %.preheader, label %257
@@ -992,7 +992,7 @@ _ZNK3ade6HandleINS_4NodeEE3getEv.exit49:          ; preds = %224, %"_ZN3ade4util
 ..loopexit_crit_edge21.i.i.i.i55:                 ; preds = %272
   br label %_ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.thread, !llvm.loop !61
 
-_ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.thread: ; preds = %.lr.ph.i.i.i.i51, %.preheader, %257, %..loopexit_crit_edge21.i.i.i.i55
+_ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit.thread: ; preds = %.lr.ph.i.i.i.i51, %.preheader, %..loopexit_crit_edge21.i.i.i.i55, %257
   invoke fastcc void @_ZN3ade6passesL5visitERSt13unordered_mapIPNS_4NodeENS0_13TraverseStateESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEERKNS_6HandleIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %286 unwind label %277
 
@@ -1002,7 +1002,7 @@ _ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal
   br label %304
 
 _ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit: ; preds = %269, %253, %264
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %253 ], [ %265, %264 ], [ %271, %269 ]
+  %.sroa.06.1.i.i = phi ptr [ %265, %264 ], [ %.sroa.06.0.i.i, %253 ], [ %271, %269 ]
   %279 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %280 = load i32, ptr %279, align 8, !tbaa !68
   %281 = icmp eq i32 %280, 0

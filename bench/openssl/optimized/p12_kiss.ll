@@ -75,7 +75,7 @@ define range(i32 0, 2) i32 @PKCS12_parse(ptr noundef %0, ptr noundef %1, ptr nou
   br label %31
 
 31:                                               ; preds = %22, %20, %27, %30, %24
-  %.050 = phi ptr [ %1, %27 ], [ null, %20 ], [ %1, %24 ], [ null, %30 ], [ @.str.1, %22 ]
+  %.050 = phi ptr [ %1, %24 ], [ null, %30 ], [ %1, %27 ], [ null, %20 ], [ @.str.1, %22 ]
   %32 = icmp ne ptr %4, null
   %or.cond = or i1 %8, %32
   br i1 %or.cond, label %33, label %36
@@ -283,17 +283,17 @@ parse_pk12.exit.thread:                           ; preds = %36, %parse_pk12.exi
   br label %105
 
 .loopexit.sink.split:                             ; preds = %87, %33, %24, %22
-  %.sink156 = phi i32 [ 81, %33 ], [ 71, %24 ], [ 67, %22 ], [ 90, %87 ]
-  %.sink = phi i32 [ 524303, %33 ], [ 113, %24 ], [ 113, %22 ], [ 114, %87 ]
-  %.053.ph = phi ptr [ null, %33 ], [ null, %24 ], [ null, %22 ], [ %.1, %87 ]
+  %.sink156 = phi i32 [ 67, %22 ], [ 71, %24 ], [ 81, %33 ], [ 90, %87 ]
+  %.sink = phi i32 [ 113, %22 ], [ 113, %24 ], [ 524303, %33 ], [ 114, %87 ]
+  %.053.ph = phi ptr [ null, %22 ], [ null, %24 ], [ null, %33 ], [ %.1, %87 ]
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink156, ptr noundef nonnull @__func__.PKCS12_parse) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 35, i32 noundef %.sink, ptr noundef null) #3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread.us90.us, %.thread.us.us, %.loopexit.sink.split, %parse_pk12.exit.thread, %87
-  %.053 = phi ptr [ %.1, %.thread.us.us ], [ %.1, %parse_pk12.exit.thread ], [ %.1, %87 ], [ %.053.ph, %.loopexit.sink.split ], [ %.1, %.thread.us90.us ]
-  %.052 = phi ptr [ %61, %.thread.us.us ], [ null, %parse_pk12.exit.thread ], [ null, %87 ], [ null, %.loopexit.sink.split ], [ %66, %.thread.us90.us ]
+  %.053 = phi ptr [ %.1, %87 ], [ %.1, %parse_pk12.exit.thread ], [ %.053.ph, %.loopexit.sink.split ], [ %.1, %.thread.us.us ], [ %.1, %.thread.us90.us ]
+  %.052 = phi ptr [ null, %87 ], [ null, %parse_pk12.exit.thread ], [ null, %.loopexit.sink.split ], [ %61, %.thread.us.us ], [ %66, %.thread.us90.us ]
   br i1 %.not, label %101, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.thread.us96, %.loopexit
@@ -525,14 +525,14 @@ parse_bag.exit:                                   ; preds = %23
   %.not = icmp eq i32 %67, 0
   br i1 %.not, label %parse_bag.exit.thread15, label %parse_bag.exit.thread
 
-parse_bag.exit.thread:                            ; preds = %28, %38, %63, %23, %42, %33, %26, %41, %32, %25, %parse_bag.exit
+parse_bag.exit.thread:                            ; preds = %28, %38, %63, %23, %41, %42, %32, %33, %25, %26, %parse_bag.exit
   %68 = add nuw nsw i32 %.020, 1
   %69 = call i32 @OPENSSL_sk_num(ptr noundef %0) #3
   %70 = icmp slt i32 %68, %69
   br i1 %70, label %12, label %parse_bag.exit.thread15, !llvm.loop !28
 
-parse_bag.exit.thread15:                          ; preds = %parse_bag.exit, %parse_bag.exit.thread, %44, %28, %35, %38, %6, %.critedge.i, %65, %53
-  %.011 = phi i32 [ 0, %53 ], [ 0, %65 ], [ 0, %.critedge.i ], [ 1, %6 ], [ 0, %35 ], [ 0, %28 ], [ 0, %44 ], [ 1, %parse_bag.exit.thread ], [ 0, %parse_bag.exit ], [ 0, %38 ]
+parse_bag.exit.thread15:                          ; preds = %parse_bag.exit, %parse_bag.exit.thread, %28, %35, %38, %44, %6, %.critedge.i, %53, %65
+  %.011 = phi i32 [ 0, %65 ], [ 0, %53 ], [ 0, %.critedge.i ], [ 1, %6 ], [ 0, %parse_bag.exit ], [ 1, %parse_bag.exit.thread ], [ 0, %28 ], [ 0, %35 ], [ 0, %38 ], [ 0, %44 ]
   ret i32 %.011
 }
 

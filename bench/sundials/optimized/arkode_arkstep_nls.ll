@@ -138,7 +138,7 @@ define i32 @arkStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unn
   br label %52
 
 52:                                               ; preds = %2, %50, %49, %44, %36, %21, %7
-  %.0 = phi i32 [ -22, %49 ], [ -22, %7 ], [ -22, %21 ], [ -22, %36 ], [ -22, %44 ], [ 0, %50 ], [ %4, %2 ]
+  %.0 = phi i32 [ -22, %7 ], [ -22, %21 ], [ -22, %36 ], [ -22, %44 ], [ 0, %50 ], [ -22, %49 ], [ %4, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -380,8 +380,8 @@ define i32 @arkStep_SetNlsSysFn(ptr noundef %0) local_unnamed_addr #0 {
   br label %63
 
 58:                                               ; preds = %36, %52, %44, %11, %26, %18, %55, %47, %21, %29
-  %.sink = phi ptr [ %37, %52 ], [ %37, %55 ], [ %37, %44 ], [ %10, %11 ], [ %37, %47 ], [ %10, %21 ], [ %10, %26 ], [ %10, %18 ], [ %10, %29 ], [ %37, %36 ]
-  %arkStep_NlsFPFunction_MassTDep.sink = phi ptr [ @arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous, %52 ], [ @arkStep_NlsFPFunction_MassFixed, %55 ], [ @arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous, %44 ], [ @arkStep_NlsResidual_MassTDep, %11 ], [ @arkStep_NlsFPFunction_MassIdent, %47 ], [ @arkStep_NlsResidual_MassIdent, %21 ], [ @arkStep_NlsResidual_MassFixed_TrivialPredAutonomous, %26 ], [ @arkStep_NlsResidual_MassIdent_TrivialPredAutonomous, %18 ], [ @arkStep_NlsResidual_MassFixed, %29 ], [ @arkStep_NlsFPFunction_MassTDep, %36 ]
+  %.sink = phi ptr [ %37, %55 ], [ %37, %47 ], [ %10, %21 ], [ %10, %29 ], [ %10, %18 ], [ %10, %26 ], [ %10, %11 ], [ %37, %44 ], [ %37, %52 ], [ %37, %36 ]
+  %arkStep_NlsFPFunction_MassTDep.sink = phi ptr [ @arkStep_NlsFPFunction_MassFixed, %55 ], [ @arkStep_NlsFPFunction_MassIdent, %47 ], [ @arkStep_NlsResidual_MassIdent, %21 ], [ @arkStep_NlsResidual_MassFixed, %29 ], [ @arkStep_NlsResidual_MassIdent_TrivialPredAutonomous, %18 ], [ @arkStep_NlsResidual_MassFixed_TrivialPredAutonomous, %26 ], [ @arkStep_NlsResidual_MassTDep, %11 ], [ @arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous, %44 ], [ @arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous, %52 ], [ @arkStep_NlsFPFunction_MassTDep, %36 ]
   %59 = getelementptr inbounds nuw i8, ptr %.sink, i64 128
   %60 = load ptr, ptr %59, align 8, !tbaa !16
   %61 = call i32 @SUNNonlinSolSetSysFn(ptr noundef %60, ptr noundef nonnull %arkStep_NlsFPFunction_MassTDep.sink) #6
@@ -393,7 +393,7 @@ define i32 @arkStep_SetNlsSysFn(ptr noundef %0) local_unnamed_addr #0 {
   br label %63
 
 63:                                               ; preds = %58, %1, %62, %57, %56, %30
-  %.08 = phi i32 [ -22, %57 ], [ -22, %62 ], [ %3, %1 ], [ -22, %30 ], [ -22, %56 ], [ 0, %58 ]
+  %.08 = phi i32 [ -22, %62 ], [ -22, %30 ], [ -22, %56 ], [ -22, %57 ], [ %3, %1 ], [ 0, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.08
 }
@@ -517,7 +517,7 @@ define i32 @arkStep_NlsResidual_MassIdent_TrivialPredAutonomous(ptr noundef %0, 
   br label %78
 
 78:                                               ; preds = %59, %58, %35, %10, %3
-  %.0 = phi i32 [ -8, %35 ], [ %9, %3 ], [ %., %59 ], [ 9, %58 ], [ -32, %10 ]
+  %.0 = phi i32 [ %9, %3 ], [ -32, %10 ], [ -8, %35 ], [ 9, %58 ], [ %., %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -607,7 +607,7 @@ define i32 @arkStep_NlsResidual_MassIdent(ptr noundef %0, ptr noundef %1, ptr no
   br label %58
 
 58:                                               ; preds = %40, %39, %9, %3
-  %.0 = phi i32 [ 9, %39 ], [ %8, %3 ], [ -8, %9 ], [ %., %40 ]
+  %.0 = phi i32 [ %8, %3 ], [ -8, %9 ], [ 9, %39 ], [ %., %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -739,7 +739,7 @@ define i32 @arkStep_NlsResidual_MassFixed_TrivialPredAutonomous(ptr noundef %0, 
   br label %84
 
 84:                                               ; preds = %65, %59, %58, %35, %10, %3
-  %.0 = phi i32 [ -8, %35 ], [ %9, %3 ], [ 9, %58 ], [ %., %65 ], [ -18, %59 ], [ -32, %10 ]
+  %.0 = phi i32 [ %9, %3 ], [ -32, %10 ], [ -8, %35 ], [ 9, %58 ], [ -18, %59 ], [ %., %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -838,7 +838,7 @@ define i32 @arkStep_NlsResidual_MassFixed(ptr noundef %0, ptr noundef %1, ptr no
   br label %64
 
 64:                                               ; preds = %45, %40, %39, %9, %3
-  %.0 = phi i32 [ -18, %40 ], [ %8, %3 ], [ -8, %9 ], [ 9, %39 ], [ %., %45 ]
+  %.0 = phi i32 [ %8, %3 ], [ -8, %9 ], [ 9, %39 ], [ -18, %40 ], [ %., %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1040,7 +1040,7 @@ define i32 @arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous(ptr noundef %0
   br label %70
 
 70:                                               ; preds = %56, %33, %8, %3, %57
-  %.0 = phi i32 [ -8, %33 ], [ %7, %3 ], [ 0, %57 ], [ -32, %8 ], [ 9, %56 ]
+  %.0 = phi i32 [ 0, %57 ], [ %7, %3 ], [ -32, %8 ], [ -8, %33 ], [ 9, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1228,7 +1228,7 @@ define i32 @arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous(ptr noundef %0
   br label %79
 
 79:                                               ; preds = %78, %57, %56, %33, %8, %3
-  %.0 = phi i32 [ -8, %33 ], [ %7, %3 ], [ 9, %56 ], [ %., %78 ], [ -8, %57 ], [ -32, %8 ]
+  %.0 = phi i32 [ %7, %3 ], [ -32, %8 ], [ -8, %33 ], [ 9, %56 ], [ -8, %57 ], [ %., %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1312,7 +1312,7 @@ define i32 @arkStep_NlsFPFunction_MassFixed(ptr noundef %0, ptr noundef %1, ptr 
   br label %59
 
 59:                                               ; preds = %58, %38, %37, %7, %3
-  %.0 = phi i32 [ -8, %38 ], [ %6, %3 ], [ -8, %7 ], [ 9, %37 ], [ %., %58 ]
+  %.0 = phi i32 [ %6, %3 ], [ -8, %7 ], [ 9, %37 ], [ -8, %38 ], [ %., %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1598,7 +1598,7 @@ define i32 @arkStep_NlsLSetup(i32 noundef %0, ptr noundef writeonly captures(non
   br label %51
 
 51:                                               ; preds = %50, %9, %3
-  %.0 = phi i32 [ -6, %9 ], [ %6, %3 ], [ %., %50 ]
+  %.0 = phi i32 [ %6, %3 ], [ -6, %9 ], [ %., %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1655,7 +1655,7 @@ define i32 @arkStep_NlsLSolve(ptr noundef %0, ptr noundef %1) #0 {
   br label %34
 
 34:                                               ; preds = %33, %12, %7, %2
-  %.0 = phi i32 [ -7, %12 ], [ %6, %2 ], [ -32, %7 ], [ %., %33 ]
+  %.0 = phi i32 [ %6, %2 ], [ -32, %7 ], [ -7, %12 ], [ %., %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1763,7 +1763,7 @@ define range(i32 903, 902) i32 @arkStep_Nls(ptr noundef %0, i32 noundef %1) loca
   br label %59
 
 59:                                               ; preds = %43, %46, %38, %39, %57
-  %.048.shrunk = phi i1 [ false, %57 ], [ %42, %39 ], [ true, %38 ], [ true, %43 ], [ %56, %46 ]
+  %.048.shrunk = phi i1 [ false, %57 ], [ true, %38 ], [ %42, %39 ], [ true, %43 ], [ %56, %46 ]
   %.048 = zext i1 %.048.shrunk to i32
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %61 = load ptr, ptr %60, align 8, !tbaa !81

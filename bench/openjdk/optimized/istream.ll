@@ -105,7 +105,7 @@ _ZN11inputStream18set_buffer_contentEmm.exit.thread: ; preds = %27, %18, %_ZN11i
   br label %50
 
 50:                                               ; preds = %_ZN11inputStream18set_buffer_contentEmm.exit.thread8, %_ZN11inputStream18set_buffer_contentEmm.exit, %_ZNK11inputStream7preloadEv.exit, %_ZN11inputStream18set_buffer_contentEmm.exit.thread
-  %.0 = phi i1 [ false, %_ZNK11inputStream7preloadEv.exit ], [ %49, %_ZN11inputStream18set_buffer_contentEmm.exit.thread ], [ true, %_ZN11inputStream18set_buffer_contentEmm.exit ], [ true, %_ZN11inputStream18set_buffer_contentEmm.exit.thread8 ]
+  %.0 = phi i1 [ %49, %_ZN11inputStream18set_buffer_contentEmm.exit.thread ], [ false, %_ZNK11inputStream7preloadEv.exit ], [ true, %_ZN11inputStream18set_buffer_contentEmm.exit ], [ true, %_ZN11inputStream18set_buffer_contentEmm.exit.thread8 ]
   ret i1 %.0
 }
 
@@ -501,7 +501,7 @@ define hidden void @_ZN11inputStream22prepare_to_fill_bufferERmS0_(ptr noundef n
   br label %35
 
 35:                                               ; preds = %14, %20, %13
-  %.0 = phi i64 [ %34, %20 ], [ %5, %14 ], [ %5, %13 ]
+  %.0 = phi i64 [ %34, %20 ], [ %5, %13 ], [ %5, %14 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load i64, ptr %36, align 8
   %38 = icmp ult i64 %.0, %37

@@ -579,7 +579,7 @@ define internal void @_ZN6google12_GLOBAL__N_112HandleSignalEiP9siginfo_tPv(i32 
   br i1 %.not.i.i, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i.preheader, label %11, !llvm.loop !48
 
 _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i.preheader: ; preds = %11
-  %.0.lcssa.i.sroa.gep65.i = getelementptr inbounds nuw i8, ptr %8, i64 15
+  %.0.lcssa.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 15
   br label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i
 
 _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i: ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i.preheader, %17
@@ -589,7 +589,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i: ; preds = %
   br i1 %exitcond.not, label %.lr.ph.i.i.preheader.i.i, label %17
 
 17:                                               ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i
-  %18 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.sroa.gep65.i, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.sroa.gep.i, i64 %indvars.iv
   %19 = urem i64 %.014.i.i, 10
   %20 = udiv i64 %.014.i.i, 10
   %21 = trunc nuw nsw i64 %19 to i8
@@ -606,13 +606,13 @@ split.i.i:                                        ; preds = %17
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i, %split.i.i
   %.pre-phi.i71.i = phi i64 [ %.pre19.i.i, %split.i.i ], [ 241, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i ]
-  %24 = getelementptr i8, ptr %.0.lcssa.i.sroa.gep65.i, i64 %.pre-phi.i71.i
+  %24 = getelementptr i8, ptr %.0.lcssa.i.sroa.gep.i, i64 %.pre-phi.i71.i
   %.012.i.i.i.i = getelementptr i8, ptr %24, i64 -1
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.preheader.i.i
   %.014.i.i.i.i = phi ptr [ %.0.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.012.i.i.i.i, %.lr.ph.i.i.preheader.i.i ]
-  %.0913.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i ], [ %.0.lcssa.i.sroa.gep65.i, %.lr.ph.i.i.preheader.i.i ]
+  %.0913.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i ], [ %.0.lcssa.i.sroa.gep.i, %.lr.ph.i.i.preheader.i.i ]
   %25 = load i8, ptr %.0913.i.i.i.i, align 1, !tbaa !39
   %26 = load i8, ptr %.014.i.i.i.i, align 1, !tbaa !39
   store i8 %26, ptr %.0913.i.i.i.i, align 1, !tbaa !39
@@ -778,17 +778,17 @@ _ZN6google12_GLOBAL__N_15GetPCEPv.exit:           ; preds = %_ZN6google12_GLOBAL
 
 85:                                               ; preds = %85, %84
   %86 = phi i8 [ 42, %84 ], [ %90, %85 ]
-  %.010.i.i10 = phi i64 [ 0, %84 ], [ %88, %85 ]
-  %87 = getelementptr inbounds nuw i8, ptr %5, i64 %.010.i.i10
+  %.010.i.i11 = phi i64 [ 0, %84 ], [ %88, %85 ]
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 %.010.i.i11
   store i8 %86, ptr %87, align 1, !tbaa !39
-  %88 = add nuw nsw i64 %.010.i.i10, 1
+  %88 = add nuw nsw i64 %.010.i.i11, 1
   %89 = getelementptr inbounds nuw i8, ptr @.str.13, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !39
-  %.not.i.i11 = icmp eq i64 %88, 4
-  br i1 %.not.i.i11, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i12, label %85, !llvm.loop !48
+  %.not.i.i12 = icmp eq i64 %88, 4
+  br i1 %.not.i.i12, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i13, label %85, !llvm.loop !48
 
-_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i12: ; preds = %85
-  %.0.lcssa.i.sroa.gep274.i = getelementptr inbounds nuw i8, ptr %5, i64 4
+_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i13: ; preds = %85
+  %.0.lcssa.i.sroa.gep.i9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.not17.i = icmp eq ptr %.1.i, null
   br i1 %.not17.i, label %.preheader.preheader.i, label %95
 
@@ -808,10 +808,10 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i12: ; preds =
 94:                                               ; preds = %93, %91
   %.1.i = phi ptr [ %.sroa.43.0.copyload.i, %93 ], [ %.0252.i, %91 ]
   %.014.add.i = add nuw nsw i64 %.014.idx251.i, 16
-  %.not.i9 = icmp eq i64 %.014.add.i, 96
-  br i1 %.not.i9, label %84, label %91
+  %.not.i10 = icmp eq i64 %.014.add.i, 96
+  br i1 %.not.i10, label %84, label %91
 
-95:                                               ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i12
+95:                                               ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i13
   %96 = load i8, ptr %.1.i, align 1, !tbaa !39
   %.not9.i.i = icmp eq i8 %96, 0
   br i1 %.not9.i.i, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit23.i, label %.lr.ph.i.i
@@ -823,7 +823,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i12: ; preds =
   br i1 %exitcond.not.i, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit23.loopexit.i, label %98
 
 98:                                               ; preds = %.lr.ph.i.i
-  %99 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.sroa.gep274.i, i64 %.010.i20.i
+  %99 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.sroa.gep.i9, i64 %.010.i20.i
   store i8 %97, ptr %99, align 1, !tbaa !39
   %100 = add nuw nsw i64 %.010.i20.i, 1
   %101 = getelementptr inbounds nuw i8, ptr %.1.i, i64 %100
@@ -836,10 +836,10 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit23.loopexit.i: 
   %103 = add nuw nsw i64 %.0.lcssa.i21.ph.i, 4
   br label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit23.i
 
-.preheader.preheader.i:                           ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i12, %.preheader.preheader.i
-  %104 = phi i8 [ %108, %.preheader.preheader.i ], [ 83, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i12 ]
-  %.010.i25.i = phi i64 [ %106, %.preheader.preheader.i ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i12 ]
-  %105 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.sroa.gep274.i, i64 %.010.i25.i
+.preheader.preheader.i:                           ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i13, %.preheader.preheader.i
+  %104 = phi i8 [ %108, %.preheader.preheader.i ], [ 83, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i13 ]
+  %.010.i25.i = phi i64 [ %106, %.preheader.preheader.i ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i13 ]
+  %105 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.sroa.gep.i9, i64 %.010.i25.i
   store i8 %104, ptr %105, align 1, !tbaa !39
   %106 = add nuw nsw i64 %.010.i25.i, 1
   %107 = getelementptr inbounds nuw i8, ptr @.str.14, i64 %106
@@ -854,51 +854,51 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit28.i: ; preds =
 
 110:                                              ; preds = %111, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit28.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %111 ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit28.i ]
-  %.014.i.i13 = phi i64 [ %114, %111 ], [ %109, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit28.i ]
-  %exitcond92.not = icmp eq i64 %indvars.iv.i, 245
-  br i1 %exitcond92.not, label %.lr.ph.i.i.preheader.i.i15, label %111
+  %.014.i.i14 = phi i64 [ %114, %111 ], [ %109, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit28.i ]
+  %exitcond93.not = icmp eq i64 %indvars.iv.i, 245
+  br i1 %exitcond93.not, label %.lr.ph.i.i.preheader.i.i16, label %111
 
 111:                                              ; preds = %110
   %112 = getelementptr inbounds nuw i8, ptr %.ptr201.i, i64 %indvars.iv.i
-  %113 = urem i64 %.014.i.i13, 10
-  %114 = udiv i64 %.014.i.i13, 10
+  %113 = urem i64 %.014.i.i14, 10
+  %114 = udiv i64 %.014.i.i14, 10
   %115 = trunc nuw nsw i64 %113 to i8
   %116 = or disjoint i8 %115, 48
   store i8 %116, ptr %112, align 1, !tbaa !39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %117 = icmp ult i64 %.014.i.i13, 10
-  br i1 %117, label %split.i.i14, label %110
+  %117 = icmp ult i64 %.014.i.i14, 10
+  br i1 %117, label %split.i.i15, label %110
 
-split.i.i14:                                      ; preds = %111
+split.i.i15:                                      ; preds = %111
   %118 = and i64 %indvars.iv.next.i, 4294967294
   %.not295.i = icmp eq i64 %118, 0
-  br i1 %.not295.i, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i21, label %.lr.ph.i.i.preheader.i.i15
+  br i1 %.not295.i, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i22, label %.lr.ph.i.i.preheader.i.i16
 
-.lr.ph.i.i.preheader.i.i15:                       ; preds = %110, %split.i.i14
-  %.pre-phi.i.i122 = phi i64 [ %indvars.iv.next.i, %split.i.i14 ], [ 245, %110 ]
-  %119 = getelementptr i8, ptr %.ptr201.i, i64 %.pre-phi.i.i122
-  %.012.i.i.i.i16 = getelementptr i8, ptr %119, i64 -1
-  br label %.lr.ph.i.i.i.i17
+.lr.ph.i.i.preheader.i.i16:                       ; preds = %110, %split.i.i15
+  %.pre-phi.i.i123 = phi i64 [ %indvars.iv.next.i, %split.i.i15 ], [ 245, %110 ]
+  %119 = getelementptr i8, ptr %.ptr201.i, i64 %.pre-phi.i.i123
+  %.012.i.i.i.i17 = getelementptr i8, ptr %119, i64 -1
+  br label %.lr.ph.i.i.i.i18
 
-.lr.ph.i.i.i.i17:                                 ; preds = %.lr.ph.i.i.i.i17, %.lr.ph.i.i.preheader.i.i15
-  %.014.i.i.i.i18 = phi ptr [ %.0.i.i.i.i20, %.lr.ph.i.i.i.i17 ], [ %.012.i.i.i.i16, %.lr.ph.i.i.preheader.i.i15 ]
-  %.0913.i.i.i.i19 = phi ptr [ %122, %.lr.ph.i.i.i.i17 ], [ %.ptr201.i, %.lr.ph.i.i.preheader.i.i15 ]
-  %120 = load i8, ptr %.0913.i.i.i.i19, align 1, !tbaa !39
-  %121 = load i8, ptr %.014.i.i.i.i18, align 1, !tbaa !39
-  store i8 %121, ptr %.0913.i.i.i.i19, align 1, !tbaa !39
-  store i8 %120, ptr %.014.i.i.i.i18, align 1, !tbaa !39
-  %122 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i19, i64 1
-  %.0.i.i.i.i20 = getelementptr inbounds i8, ptr %.014.i.i.i.i18, i64 -1
-  %123 = icmp ult ptr %122, %.0.i.i.i.i20
-  br i1 %123, label %.lr.ph.i.i.i.i17, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i21, !llvm.loop !50
+.lr.ph.i.i.i.i18:                                 ; preds = %.lr.ph.i.i.i.i18, %.lr.ph.i.i.preheader.i.i16
+  %.014.i.i.i.i19 = phi ptr [ %.0.i.i.i.i21, %.lr.ph.i.i.i.i18 ], [ %.012.i.i.i.i17, %.lr.ph.i.i.preheader.i.i16 ]
+  %.0913.i.i.i.i20 = phi ptr [ %122, %.lr.ph.i.i.i.i18 ], [ %.ptr201.i, %.lr.ph.i.i.preheader.i.i16 ]
+  %120 = load i8, ptr %.0913.i.i.i.i20, align 1, !tbaa !39
+  %121 = load i8, ptr %.014.i.i.i.i19, align 1, !tbaa !39
+  store i8 %121, ptr %.0913.i.i.i.i20, align 1, !tbaa !39
+  store i8 %120, ptr %.014.i.i.i.i19, align 1, !tbaa !39
+  %122 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i20, i64 1
+  %.0.i.i.i.i21 = getelementptr inbounds i8, ptr %.014.i.i.i.i19, i64 -1
+  %123 = icmp ult ptr %122, %.0.i.i.i.i21
+  br i1 %123, label %.lr.ph.i.i.i.i18, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i22, !llvm.loop !50
 
-_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i21: ; preds = %.lr.ph.i.i.i.i17, %split.i.i14
-  %.pre-phi.i.i123 = phi i64 [ %indvars.iv.next.i, %split.i.i14 ], [ %.pre-phi.i.i122, %.lr.ph.i.i.i.i17 ]
-  %.add198.i = add nuw nsw i64 %.pre-phi.i.i123, 11
+_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i22: ; preds = %.lr.ph.i.i.i.i18, %split.i.i15
+  %.pre-phi.i.i124 = phi i64 [ %indvars.iv.next.i, %split.i.i15 ], [ %.pre-phi.i.i123, %.lr.ph.i.i.i.i18 ]
+  %.add198.i = add nuw nsw i64 %.pre-phi.i.i124, 11
   br label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit23.i
 
-_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit23.i: ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i21, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit23.loopexit.i, %95
-  %.sroa.5.0.idx.i = phi i64 [ %.add198.i, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i21 ], [ 4, %95 ], [ %103, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit23.loopexit.i ]
+_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit23.i: ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i22, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit23.loopexit.i, %95
+  %.sroa.5.0.idx.i = phi i64 [ %.add198.i, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i22 ], [ 4, %95 ], [ %103, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit23.loopexit.i ]
   br label %124
 
 124:                                              ; preds = %127, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit23.i
@@ -930,14 +930,14 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit33.i: ; preds =
   br label %135
 
 135:                                              ; preds = %138, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit33.i
-  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %138 ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit33.i ]
+  %indvars.iv94 = phi i64 [ %indvars.iv.next95, %138 ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit33.i ]
   %.014.i35.i = phi i64 [ %141, %138 ], [ %134, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit33.i ]
-  %136 = add nuw nsw i64 %131, %indvars.iv93
+  %136 = add nuw nsw i64 %131, %indvars.iv94
   %137 = icmp samesign ult i64 %136, 256
   br i1 %137, label %138, label %split.i36.i
 
 138:                                              ; preds = %135
-  %139 = getelementptr inbounds nuw i8, ptr %.ptr206.i, i64 %indvars.iv93
+  %139 = getelementptr inbounds nuw i8, ptr %.ptr206.i, i64 %indvars.iv94
   %140 = and i64 %.014.i35.i, 15
   %141 = lshr i64 %.014.i35.i, 4
   %142 = icmp samesign ult i64 %140, 10
@@ -946,12 +946,12 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit33.i: ; preds =
   %145 = select i1 %142, i64 %143, i64 %144
   %146 = trunc nuw nsw i64 %145 to i8
   store i8 %146, ptr %139, align 1, !tbaa !39
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
+  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %147 = icmp ult i64 %.014.i35.i, 16
   br i1 %147, label %split.i36.i, label %135
 
 split.i36.i:                                      ; preds = %135, %138
-  %.pre-phi.i37.i = phi i64 [ %indvars.iv.next94, %138 ], [ %indvars.iv93, %135 ]
+  %.pre-phi.i37.i = phi i64 [ %indvars.iv.next95, %138 ], [ %indvars.iv94, %135 ]
   %148 = and i64 %.pre-phi.i37.i, 4294967294
   %.not = icmp eq i64 %148, 0
   br i1 %.not, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit50.i, label %.lr.ph.i.i.preheader.i39.i
@@ -984,7 +984,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit50.i: ; preds = 
   br label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit55.i, !llvm.loop !48
 
 _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit55.i: ; preds = %155, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit50.i
-  %.0.lcssa.i53.i = phi i64 [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit50.i ], [ 1, %155 ]
+  %.0.lcssa.i53.i = phi i64 [ 1, %155 ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit50.i ]
   %.add204.i = add nuw nsw i64 %.0.lcssa.i53.i, %.add203.i
   br label %156
 
@@ -1507,13 +1507,13 @@ _ZN6google12_GLOBAL__N_114DumpSignalInfoEiP9siginfo_t.exit: ; preds = %332, %_ZN
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv96 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next97, %.lr.ph ]
-  %358 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv96
+  %indvars.iv97 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next98, %.lr.ph ]
+  %358 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv97
   %359 = load ptr, ptr %358, align 8, !tbaa !41
   call fastcc void @_ZN6google12_GLOBAL__N_118DumpStackFrameInfoEPKcPv(ptr noundef nonnull @.str.3, ptr noundef %359)
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %exitcond99.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count
-  br i1 %exitcond99.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %exitcond100.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count
+  br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
 }
 
 declare void @__once_proxy() #1
@@ -1705,7 +1705,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter20AppendHexWithPaddingEmi.exit: ; pred
   br label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit14, !llvm.loop !48
 
 _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit14: ; preds = %56, %_ZN6google12_GLOBAL__N_116MinimalFormatter20AppendHexWithPaddingEmi.exit
-  %.0.lcssa.i12 = phi i64 [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter20AppendHexWithPaddingEmi.exit ], [ 1, %56 ]
+  %.0.lcssa.i12 = phi i64 [ 1, %56 ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter20AppendHexWithPaddingEmi.exit ]
   %57 = add nuw nsw i64 %.0.lcssa.i12, %.sroa.4.0.idx
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 %57
   %59 = load i8, ptr %spec.select, align 1, !tbaa !39
@@ -1740,7 +1740,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit20: ; preds = %
   br label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit25, !llvm.loop !48
 
 _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit25: ; preds = %70, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit20
-  %.0.lcssa.i23 = phi i64 [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit20 ], [ 1, %70 ]
+  %.0.lcssa.i23 = phi i64 [ 1, %70 ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit20 ]
   %72 = load ptr, ptr @_ZN6google12_GLOBAL__N_116g_failure_writerE, align 8, !tbaa !41
   %73 = add nuw nsw i64 %68, %.0.lcssa.i23
   call void %72(ptr noundef nonnull %4, i64 noundef %73)

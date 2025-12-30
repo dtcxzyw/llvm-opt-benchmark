@@ -1129,7 +1129,7 @@ define internal fastcc range(i32 0, 2) i32 @chkflevel(ptr noundef nonnull %0) un
   br label %30
 
 30:                                               ; preds = %12, %26, %1, %16, %25, %11
-  %.0 = phi i32 [ 1, %1 ], [ %., %26 ], [ 0, %11 ], [ 0, %25 ], [ 1, %16 ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %25 ], [ 0, %11 ], [ 1, %16 ], [ 1, %1 ], [ %., %26 ], [ 0, %12 ]
   ret i32 %.0
 }
 

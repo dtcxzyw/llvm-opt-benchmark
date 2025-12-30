@@ -141,7 +141,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread23:       ; preds = %_ZN4llvmneENS_9Stri
   br label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %48, %6, %51, %_ZN4llvmneENS_9StringRefES0_.exit.thread23, %_ZN4llvmneENS_9StringRefES0_.exit, %63
-  %.0 = phi i1 [ false, %_ZN4llvmneENS_9StringRefES0_.exit ], [ true, %63 ], [ false, %_ZN4llvmneENS_9StringRefES0_.exit.thread23 ], [ false, %48 ], [ false, %51 ], [ false, %6 ]
+  %.0 = phi i1 [ true, %63 ], [ false, %_ZN4llvmneENS_9StringRefES0_.exit ], [ false, %_ZN4llvmneENS_9StringRefES0_.exit.thread23 ], [ false, %51 ], [ false, %6 ], [ false, %48 ]
   ret i1 %.0
 }
 
@@ -450,7 +450,7 @@ _ZN4llvm8dyn_castINS_15MemTransferInstENS_12MemIntrinsicEEEDcPT0_.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
-.critedge:                                        ; preds = %148, %122, %108, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %106, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %111, %_ZN4llvm8dyn_castINS_15MemTransferInstENS_12MemIntrinsicEEEDcPT0_.exit, %164, %101, %90, %69, %80
+.critedge:                                        ; preds = %148, %122, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %108, %111, %106, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %_ZN4llvm8dyn_castINS_15MemTransferInstENS_12MemIntrinsicEEEDcPT0_.exit, %164, %101, %90, %69, %80
   %171 = load i8, ptr %23, align 4, !tbaa !56, !range !98, !noalias !99, !noundef !97
   %172 = trunc nuw i8 %171 to i1
   br i1 %172, label %173, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
@@ -617,7 +617,7 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZN4llvm11SmallVect
   br label %235
 
 235:                                              ; preds = %12, %3, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
-  %.0 = phi i1 [ false, %3 ], [ true, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit ], [ false, %12 ]
+  %.0 = phi i1 [ true, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit ], [ false, %3 ], [ false, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -802,8 +802,8 @@ _ZN4llvm13isPowerOf2_64Em.exit.i40:               ; preds = %_ZNK4llvm11Constant
   br label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit49
 
 _ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit49: ; preds = %61, %.critedge.i44, %_ZN4llvm13isPowerOf2_64Em.exit.i40, %100
-  %.sroa.018.2.i41 = phi i16 [ %103, %100 ], [ %.sroa.0.0.i.i.i.i48, %.critedge.i44 ], [ 0, %61 ], [ 0, %_ZN4llvm13isPowerOf2_64Em.exit.i40 ]
-  %104 = phi i1 [ true, %100 ], [ true, %.critedge.i44 ], [ false, %61 ], [ false, %_ZN4llvm13isPowerOf2_64Em.exit.i40 ]
+  %.sroa.018.2.i41 = phi i16 [ %.sroa.0.0.i.i.i.i48, %.critedge.i44 ], [ %103, %100 ], [ 0, %61 ], [ 0, %_ZN4llvm13isPowerOf2_64Em.exit.i40 ]
+  %104 = phi i1 [ true, %.critedge.i44 ], [ true, %100 ], [ false, %61 ], [ false, %_ZN4llvm13isPowerOf2_64Em.exit.i40 ]
   %105 = call noundef ptr @_ZN4llvm15ScalarEvolution11getURemExprEPKNS_4SCEVES3_(ptr noundef nonnull align 8 dereferenceable(1344) %4, ptr noundef %65, ptr noundef %1) #9
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %107 = load i16, ptr %106, align 8, !tbaa !34
@@ -870,7 +870,7 @@ _ZN4llvm13isPowerOf2_64Em.exit.i55:               ; preds = %_ZNK4llvm11Constant
   br label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64
 
 _ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64: ; preds = %.critedge.i59, %139
-  %.sroa.018.2.i56 = phi i16 [ %142, %139 ], [ %.sroa.0.0.i.i.i.i63, %.critedge.i59 ]
+  %.sroa.018.2.i56 = phi i16 [ %.sroa.0.0.i.i.i.i63, %.critedge.i59 ], [ %142, %139 ]
   br i1 %104, label %143, label %.critedge34
 
 143:                                              ; preds = %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64
@@ -879,7 +879,7 @@ _ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64: ; preds 
   br label %.critedge34
 
 .critedge34:                                      ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.i55, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit49, %54, %.critedge.i, %143, %.critedge, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64, %5
-  %.sroa.070.0 = phi i8 [ 0, %.critedge ], [ 0, %5 ], [ %spec.select, %143 ], [ 0, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64 ], [ %57, %54 ], [ %.sroa.0.0.i.i.i.i, %.critedge.i ], [ 0, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit49 ], [ 0, %_ZN4llvm13isPowerOf2_64Em.exit.i55 ]
+  %.sroa.070.0 = phi i8 [ 0, %5 ], [ 0, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit64 ], [ 0, %.critedge ], [ %spec.select, %143 ], [ %.sroa.0.0.i.i.i.i, %.critedge.i ], [ %57, %54 ], [ 0, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit49 ], [ 0, %_ZN4llvm13isPowerOf2_64Em.exit.i55 ]
   ret i8 %.sroa.070.0
 }
 

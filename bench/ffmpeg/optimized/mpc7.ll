@@ -650,8 +650,8 @@ get_scale_idx.exit225:                            ; preds = %281, %292
   br label %.sink.split
 
 .sink.split:                                      ; preds = %326, %315, %260, %249, %get_scale_idx.exit225, %329
-  %.0.i.sink = phi i32 [ %.0.i, %329 ], [ %262, %260 ], [ %.0.i224, %get_scale_idx.exit225 ], [ %257, %249 ], [ %323, %315 ], [ %328, %326 ]
-  %.sroa.17.10.ph = phi i32 [ %.sroa.17.14, %329 ], [ %247, %260 ], [ %.sroa.17.17, %get_scale_idx.exit225 ], [ %259, %249 ], [ %325, %315 ], [ %313, %326 ]
+  %.0.i.sink = phi i32 [ %.0.i, %329 ], [ %.0.i224, %get_scale_idx.exit225 ], [ %257, %249 ], [ %262, %260 ], [ %323, %315 ], [ %328, %326 ]
+  %.sroa.17.10.ph = phi i32 [ %.sroa.17.14, %329 ], [ %.sroa.17.17, %get_scale_idx.exit225 ], [ %259, %249 ], [ %247, %260 ], [ %325, %315 ], [ %313, %326 ]
   store i32 %.0.i.sink, ptr %165, align 4, !tbaa !43
   br label %331
 
@@ -808,9 +808,9 @@ get_scale_idx.exit225:                            ; preds = %281, %292
   br label %get_vlc2.exit50.i
 
 get_vlc2.exit50.i:                                ; preds = %396, %379
-  %.064.i47.i = phi i32 [ %.sroa.17.22, %379 ], [ %398, %396 ]
-  %.062.i48.i = phi i32 [ %391, %379 ], [ %412, %396 ]
-  %.0.i49.i = phi i32 [ %394, %379 ], [ %415, %396 ]
+  %.064.i47.i = phi i32 [ %398, %396 ], [ %.sroa.17.22, %379 ]
+  %.062.i48.i = phi i32 [ %412, %396 ], [ %391, %379 ]
+  %.0.i49.i = phi i32 [ %415, %396 ], [ %394, %379 ]
   %416 = add i32 %.0.i49.i, %.064.i47.i
   %417 = tail call i32 @llvm.umin.i32(i32 %45, i32 %416)
   %418 = sext i32 %.062.i48.i to i64
@@ -896,9 +896,9 @@ get_vlc2.exit50.i:                                ; preds = %396, %379
   br label %get_vlc2.exit46.i
 
 get_vlc2.exit46.i:                                ; preds = %464, %447
-  %.064.i43.i = phi i32 [ %.sroa.17.21, %447 ], [ %466, %464 ]
-  %.062.i44.i = phi i32 [ %459, %447 ], [ %480, %464 ]
-  %.0.i45.i = phi i32 [ %462, %447 ], [ %483, %464 ]
+  %.064.i43.i = phi i32 [ %466, %464 ], [ %.sroa.17.21, %447 ]
+  %.062.i44.i = phi i32 [ %480, %464 ], [ %459, %447 ]
+  %.0.i45.i = phi i32 [ %483, %464 ], [ %462, %447 ]
   %484 = add i32 %.0.i45.i, %.064.i43.i
   %485 = tail call i32 @llvm.umin.i32(i32 %45, i32 %484)
   %486 = sext i32 %.062.i44.i to i64
@@ -982,9 +982,9 @@ get_vlc2.exit46.i:                                ; preds = %464, %447
   br label %get_vlc2.exit.i
 
 get_vlc2.exit.i:                                  ; preds = %531, %514
-  %.064.i.i = phi i32 [ %.sroa.17.20, %514 ], [ %533, %531 ]
-  %.062.i.i = phi i32 [ %526, %514 ], [ %547, %531 ]
-  %.0.i.i228 = phi i32 [ %529, %514 ], [ %550, %531 ]
+  %.064.i.i = phi i32 [ %533, %531 ], [ %.sroa.17.20, %514 ]
+  %.062.i.i = phi i32 [ %547, %531 ], [ %526, %514 ]
+  %.0.i.i228 = phi i32 [ %550, %531 ], [ %529, %514 ]
   %551 = add i32 %.0.i.i228, %.064.i.i
   %552 = tail call i32 @llvm.umin.i32(i32 %45, i32 %551)
   %553 = getelementptr inbounds nuw i8, ptr %.34159.i, i64 4
@@ -1023,7 +1023,7 @@ get_vlc2.exit.i:                                  ; preds = %531, %514
   br i1 %exitcond.not.i, label %idx_to_quant.exit, label %559, !llvm.loop !70
 
 idx_to_quant.exit:                                ; preds = %559, %get_vlc2.exit.i, %get_vlc2.exit46.i, %get_vlc2.exit50.i, %.preheader.i, %340
-  %.sroa.17.23 = phi i32 [ %.sroa.17.13314, %340 ], [ %485, %get_vlc2.exit46.i ], [ %552, %get_vlc2.exit.i ], [ %.sroa.17.13314, %.preheader.i ], [ %417, %get_vlc2.exit50.i ], [ %569, %559 ]
+  %.sroa.17.23 = phi i32 [ %.sroa.17.13314, %340 ], [ %.sroa.17.13314, %.preheader.i ], [ %417, %get_vlc2.exit50.i ], [ %485, %get_vlc2.exit46.i ], [ %552, %get_vlc2.exit.i ], [ %569, %559 ]
   br i1 %341, label %340, label %573, !llvm.loop !71
 
 573:                                              ; preds = %idx_to_quant.exit
@@ -1075,7 +1075,7 @@ idx_to_quant.exit:                                ; preds = %559, %get_vlc2.exit
   br label %592
 
 592:                                              ; preds = %.critedge, %37, %32, %22, %590, %587, %583, %19
-  %.0 = phi i32 [ -1094995529, %19 ], [ %30, %22 ], [ -12, %32 ], [ -1094995529, %.critedge ], [ %589, %587 ], [ %591, %590 ], [ -1094995529, %583 ], [ -1094995529, %37 ]
+  %.0 = phi i32 [ -1094995529, %19 ], [ %589, %587 ], [ %591, %590 ], [ -1094995529, %583 ], [ %30, %22 ], [ -12, %32 ], [ -1094995529, %37 ], [ -1094995529, %.critedge ]
   ret i32 %.0
 }
 

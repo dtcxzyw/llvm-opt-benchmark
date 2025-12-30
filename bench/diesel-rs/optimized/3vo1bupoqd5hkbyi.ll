@@ -839,7 +839,7 @@ default.unreachable:                              ; preds = %3
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h6c627f850c38b860E.exit66"
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h6c627f850c38b860E.exit66": ; preds = %34, %.thread102, %.thread101, %36
-  %.sroa.11.0.i60 = phi ptr [ %44, %.thread101 ], [ %38, %36 ], [ undef, %.thread102 ], [ undef, %34 ]
+  %.sroa.11.0.i60 = phi ptr [ %44, %.thread101 ], [ %38, %36 ], [ undef, %34 ], [ undef, %.thread102 ]
   store i64 %11, ptr %8, align 8, !alias.scope !239, !noalias !242
   %.sroa.6.0..sroa_idx.i63 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.sroa.6.0.i62, ptr %.sroa.6.0..sroa_idx.i63, align 8, !alias.scope !239, !noalias !242

@@ -710,7 +710,7 @@ define dso_local ptr @snd_hda_jack_detect_enable_callback_mst(ptr noundef %0, i1
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %7, %24
-  %32 = phi ptr [ null, %7 ], [ %22, %24 ], [ %13, %.preheader ]
+  %32 = phi ptr [ %22, %24 ], [ null, %7 ], [ %13, %.preheader ]
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %34 = load i8, ptr %33, align 4
   %35 = and i8 %34, 1
@@ -1803,7 +1803,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %.preheader, %66, %85, %98, %113, %.loopexit13
-  %118 = phi i32 [ %111, %.loopexit13 ], [ %117, %113 ], [ %67, %66 ], [ %48, %.preheader ], [ %102, %98 ], [ %86, %85 ], [ %40, %39 ]
+  %118 = phi i32 [ %111, %.loopexit13 ], [ %117, %113 ], [ %102, %98 ], [ %86, %85 ], [ %67, %66 ], [ %48, %.preheader ], [ %40, %39 ]
   ret i32 %118
 }
 
@@ -2403,7 +2403,7 @@ define dso_local void @snd_hda_jack_poll_all(ptr noundef %0) #0 align 16 {
   br i1 %73, label %.thread, label %.preheader, !llvm.loop !42
 
 .thread:                                          ; preds = %56, %.preheader, %45, %40, %62, %60, %.loopexit, %19, %14, %8
-  %74 = phi i32 [ %9, %14 ], [ %9, %8 ], [ %9, %19 ], [ 1, %.loopexit ], [ 1, %60 ], [ 1, %62 ], [ 1, %.preheader ], [ 1, %40 ], [ 1, %45 ], [ 1, %56 ]
+  %74 = phi i32 [ %9, %14 ], [ %9, %8 ], [ %9, %19 ], [ 1, %.loopexit ], [ 1, %60 ], [ 1, %62 ], [ 1, %40 ], [ 1, %45 ], [ 1, %.preheader ], [ 1, %56 ]
   %75 = add nuw i32 %10, 1
   %76 = getelementptr i8, ptr %11, i64 56
   %77 = load i32, ptr %2, align 8

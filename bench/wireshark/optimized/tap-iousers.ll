@@ -463,8 +463,8 @@ switch.lookup:                                    ; preds = %16
   br i1 %.not145, label %.critedge2, label %.lr.ph168, !llvm.loop !7
 
 .critedge2:                                       ; preds = %.lr.ph168, %216
-  %218 = phi ptr [ %48, %.lr.ph168 ], [ null, %216 ]
-  %219 = phi ptr [ %49, %.lr.ph168 ], [ null, %216 ]
+  %218 = phi ptr [ null, %216 ], [ %48, %.lr.ph168 ]
+  %219 = phi ptr [ null, %216 ], [ %49, %.lr.ph168 ]
   %.not146 = icmp eq i64 %.0.lcssa.ph, 0
   br i1 %.not146, label %.critedge2.thread, label %33, !llvm.loop !9
 

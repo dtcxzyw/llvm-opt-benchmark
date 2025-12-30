@@ -108,8 +108,8 @@ define hidden zeroext i1 @OFFSCREEN_Vulkan_LoadLibrary(ptr noundef %0, ptr nound
   br label %35
 
 35:                                               ; preds = %32, %.lr.ph
-  %.138 = phi i1 [ %.03751, %32 ], [ true, %.lr.ph ]
-  %.136 = phi i1 [ %spec.select, %32 ], [ %.03552, %.lr.ph ]
+  %.138 = phi i1 [ true, %.lr.ph ], [ %.03751, %32 ]
+  %.136 = phi i1 [ %.03552, %.lr.ph ], [ %spec.select, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = load i32, ptr %3, align 4
   %37 = zext i32 %36 to i64

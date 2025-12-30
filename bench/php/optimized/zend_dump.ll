@@ -1278,7 +1278,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
   br label %327
 
 327:                                              ; preds = %282, %323, %310, %306, %289, %293, %256
-  %.0 = phi i32 [ 0, %256 ], [ 0, %289 ], [ 0, %282 ], [ 0, %293 ], [ 1, %306 ], [ 0, %310 ], [ 0, %323 ]
+  %.0 = phi i32 [ 0, %256 ], [ 0, %282 ], [ 0, %293 ], [ 0, %289 ], [ 1, %306 ], [ 0, %310 ], [ 0, %323 ]
   %328 = getelementptr inbounds nuw i8, ptr %2, i64 30
   %329 = load i8, ptr %328, align 2, !tbaa !81
   %330 = icmp eq i8 %329, 1
@@ -1584,7 +1584,7 @@ define dso_local void @zend_dump_op(ptr noundef readonly captures(none) %0, ptr 
   br label %498
 
 498:                                              ; preds = %456, %493, %486, %480, %463, %467, %._crit_edge, %430
-  %.6 = phi i32 [ %.0, %463 ], [ %.0, %430 ], [ %.0, %456 ], [ %.2.lcssa, %._crit_edge ], [ %.0, %467 ], [ %488, %486 ], [ %.0, %493 ], [ %.0, %480 ]
+  %.6 = phi i32 [ %.0, %456 ], [ %.2.lcssa, %._crit_edge ], [ %.0, %430 ], [ %.0, %467 ], [ %.0, %463 ], [ %488, %486 ], [ %.0, %480 ], [ %.0, %493 ]
   %499 = icmp eq i32 %65, 50331648
   br i1 %499, label %513, label %534
 
@@ -2676,8 +2676,8 @@ define dso_local void @zend_dump_op_array(ptr noundef readonly captures(none) %0
   br label %9
 
 9:                                                ; preds = %6, %4
-  %.0149 = phi ptr [ %spec.select, %6 ], [ null, %4 ]
-  %.0145 = phi ptr [ %spec.select, %6 ], [ %3, %4 ]
+  %.0149 = phi ptr [ null, %4 ], [ %spec.select, %6 ]
+  %.0145 = phi ptr [ %3, %4 ], [ %spec.select, %6 ]
   %10 = and i32 %1, 8
   %.not164 = icmp eq i32 %10, 0
   %spec.select195 = select i1 %.not164, ptr null, ptr %.0145

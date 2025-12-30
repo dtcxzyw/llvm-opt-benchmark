@@ -1332,7 +1332,7 @@ define range(i32 0, 2) i32 @Maj_ManAddCnfStart(ptr noundef readonly captures(non
   br i1 %.not.not, label %.thread, label %81
 
 .thread:                                          ; preds = %._crit_edge, %39, %61, %86, %81, %.preheader
-  %.3 = phi i32 [ 0, %61 ], [ 1, %81 ], [ 0, %39 ], [ 1, %.preheader ], [ 0, %86 ], [ 0, %._crit_edge ]
+  %.3 = phi i32 [ 1, %.preheader ], [ 0, %86 ], [ 1, %81 ], [ 0, %61 ], [ 0, %39 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.3
@@ -2870,7 +2870,7 @@ Exa_ManFindFanin.exit:                            ; preds = %78
   br label %90
 
 Exa_ManFindFanin.exit.thread:                     ; preds = %66, %83, %Exa_ManFindFanin.exit
-  %.0.lcssa.i89 = phi i32 [ %.1.i, %Exa_ManFindFanin.exit ], [ %.1.i, %83 ], [ -1, %66 ]
+  %.0.lcssa.i89 = phi i32 [ %.1.i, %83 ], [ %.1.i, %Exa_ManFindFanin.exit ], [ -1, %66 ]
   %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.5, i32 noundef %.0.lcssa.i89) #44
   br label %90
 
@@ -3072,7 +3072,7 @@ Exa_ManFindFanin.exit:                            ; preds = %53
   br label %65
 
 Exa_ManFindFanin.exit.thread:                     ; preds = %41, %58, %Exa_ManFindFanin.exit
-  %.0.lcssa.i41 = phi i32 [ %.1.i, %Exa_ManFindFanin.exit ], [ %.1.i, %58 ], [ -1, %41 ]
+  %.0.lcssa.i41 = phi i32 [ %.1.i, %58 ], [ %.1.i, %Exa_ManFindFanin.exit ], [ -1, %41 ]
   %64 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.0.lcssa.i41)
   br label %65
 
@@ -3344,7 +3344,7 @@ Exa_ManAddClause.exit99:                          ; preds = %83, %._crit_edge.lo
   br i1 %109, label %76, label %.loopexit, !llvm.loop !116
 
 .loopexit:                                        ; preds = %106, %.lr.ph120, %70
-  %110 = phi i32 [ %.pre, %70 ], [ %67, %.lr.ph120 ], [ %107, %106 ]
+  %110 = phi i32 [ %67, %.lr.ph120 ], [ %.pre, %70 ], [ %107, %106 ]
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %111 = sext i32 %110 to i64
   %112 = icmp slt i64 %indvars.iv.next138, %111
@@ -3357,7 +3357,7 @@ split:                                            ; preds = %._crit_edge
   br i1 %114, label %.preheader108, label %.thread, !llvm.loop !118
 
 .thread:                                          ; preds = %split, %Exa_ManAddClause.exit, %Exa_ManAddClause.exit99, %2
-  %.3 = phi i32 [ 1, %2 ], [ 0, %Exa_ManAddClause.exit ], [ 0, %Exa_ManAddClause.exit99 ], [ 1, %split ]
+  %.3 = phi i32 [ 1, %2 ], [ 0, %Exa_ManAddClause.exit99 ], [ 0, %Exa_ManAddClause.exit ], [ 1, %split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.3
@@ -4009,7 +4009,7 @@ Exa_ManAddClause.exit225:                         ; preds = %239, %._crit_edge.i
   br i1 %.not.not, label %.thread231, label %234
 
 .thread231:                                       ; preds = %Exa_ManAddClause.exit213, %Exa_ManAddClause.exit, %Exa_ManAddClause.exit202, %Exa_ManAddClause.exit169, %Exa_ManAddClause.exit180, %Exa_ManAddClause.exit191, %Exa_ManAddClause.exit225, %234, %.preheader
-  %.5 = phi i32 [ 0, %Exa_ManAddClause.exit202 ], [ 0, %Exa_ManAddClause.exit191 ], [ 1, %234 ], [ 0, %Exa_ManAddClause.exit169 ], [ 0, %Exa_ManAddClause.exit180 ], [ 0, %Exa_ManAddClause.exit ], [ 1, %.preheader ], [ 0, %Exa_ManAddClause.exit225 ], [ 0, %Exa_ManAddClause.exit213 ]
+  %.5 = phi i32 [ 1, %.preheader ], [ 0, %Exa_ManAddClause.exit225 ], [ 1, %234 ], [ 0, %Exa_ManAddClause.exit191 ], [ 0, %Exa_ManAddClause.exit180 ], [ 0, %Exa_ManAddClause.exit169 ], [ 0, %Exa_ManAddClause.exit202 ], [ 0, %Exa_ManAddClause.exit ], [ 0, %Exa_ManAddClause.exit213 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.5
@@ -4213,7 +4213,7 @@ Exa_ManAddClause.exit.sink.split:                 ; preds = %.lr.ph.i, %.lr.ph.i
   br label %Exa_ManAddClause.exit
 
 Exa_ManAddClause.exit:                            ; preds = %Exa_ManAddClause.exit.sink.split, %.split, %.split105
-  %.sink181 = phi i32 [ 2, %.split ], [ 3, %.split105 ], [ %.sink181.ph, %Exa_ManAddClause.exit.sink.split ]
+  %.sink181 = phi i32 [ 3, %.split105 ], [ 2, %.split ], [ %.sink181.ph, %Exa_ManAddClause.exit.sink.split ]
   %115 = load ptr, ptr %25, align 8, !tbaa !99
   %116 = call i32 @bmcg_sat_solver_addclause(ptr noundef %115, ptr noundef nonnull %3, i32 noundef %.sink181) #44
   %.not112 = icmp eq i32 %116, 0
@@ -4338,7 +4338,7 @@ Exa_ManAddClause.exit132:                         ; preds = %150, %._crit_edge.l
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread142
 
-166:                                              ; preds = %Exa_ManAddClause.exit132, %132
+166:                                              ; preds = %132, %Exa_ManAddClause.exit132
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %167 = add nuw nsw i32 %.1100155, 1
   %exitcond171.not = icmp eq i32 %167, 4
@@ -4767,7 +4767,7 @@ Abc_TtConst0.exit.i:                              ; preds = %.lr.ph.preheader.i.
   br i1 %exitcond71.not.i.i, label %.lr.ph.preheader.i65.i, label %.lr.ph52.i.i, !llvm.loop !146
 
 .lr.ph.preheader.i65.i:                           ; preds = %.lr.ph50.i.i, %.lr.ph52.i.i, %.lr.ph.i62.i, %.lr.ph48.i.i
-  %.pre-phi = phi i64 [ %wide.trip.count70.i.i, %.lr.ph52.i.i ], [ %wide.trip.count.i.i, %.lr.ph.i62.i ], [ %wide.trip.count60.i.i, %.lr.ph48.i.i ], [ %wide.trip.count65.i.i, %.lr.ph50.i.i ]
+  %.pre-phi = phi i64 [ %wide.trip.count60.i.i, %.lr.ph48.i.i ], [ %wide.trip.count.i.i, %.lr.ph.i62.i ], [ %wide.trip.count70.i.i, %.lr.ph52.i.i ], [ %wide.trip.count65.i.i, %.lr.ph50.i.i ]
   %169 = mul nsw i64 %indvars.iv104.i, %.pre-phi
   %170 = getelementptr inbounds i64, ptr %.val55.val.i, i64 %169
   br label %.lr.ph.i67.i
@@ -5001,9 +5001,9 @@ define internal fastcc void @Abc_TtReadHex(ptr noundef nonnull captures(none) %0
   br label %.sink.split
 
 .lr.ph57.preheader:                               ; preds = %21, %.lr.ph.preheader.i
-  %.0.lcssa74 = phi i32 [ %indvars, %.lr.ph.preheader.i ], [ 1, %21 ]
-  %.fr = phi i32 [ %31, %.lr.ph.preheader.i ], [ 2, %21 ]
-  %37 = phi i64 [ %36, %.lr.ph.preheader.i ], [ 8, %21 ]
+  %.0.lcssa74 = phi i32 [ 1, %21 ], [ %indvars, %.lr.ph.preheader.i ]
+  %.fr = phi i32 [ 2, %21 ], [ %31, %.lr.ph.preheader.i ]
+  %37 = phi i64 [ 8, %21 ], [ %36, %.lr.ph.preheader.i ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %0, i8 0, i64 %37, i1 false), !tbaa !21
   %38 = sext i32 %.0.lcssa74 to i64
   %wide.trip.count = zext i32 %.0.lcssa74 to i64
@@ -5078,7 +5078,7 @@ Abc_TtReadHexDigit.exit:                          ; preds = %45, %49, %51
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread83, %63, %22, %25
-  %.sink = phi i64 [ %24, %22 ], [ %27, %25 ], [ 0, %.thread83 ], [ %75, %63 ]
+  %.sink = phi i64 [ %27, %25 ], [ %24, %22 ], [ 0, %.thread83 ], [ %75, %63 ]
   store i64 %.sink, ptr %0, align 8, !tbaa !21
   br label %76
 
@@ -5844,8 +5844,8 @@ Vec_WecPush.exit99.i.i:                           ; preds = %368, %Vec_IntGrow.e
   br i1 %381, label %236, label %.loopexit101.i.i, !llvm.loop !176
 
 .loopexit101.i.i:                                 ; preds = %._crit_edge.i.i, %.loopexit.i.i, %139, %.preheader100.i.i
-  %382 = phi i32 [ %379, %.loopexit.i.i ], [ %120, %.preheader100.i.i ], [ %140, %139 ], [ %230, %._crit_edge.i.i ]
-  %383 = phi i32 [ %379, %.loopexit.i.i ], [ %120, %.preheader100.i.i ], [ %141, %139 ], [ %231, %._crit_edge.i.i ]
+  %382 = phi i32 [ %140, %139 ], [ %120, %.preheader100.i.i ], [ %379, %.loopexit.i.i ], [ %230, %._crit_edge.i.i ]
+  %383 = phi i32 [ %141, %139 ], [ %120, %.preheader100.i.i ], [ %379, %.loopexit.i.i ], [ %231, %._crit_edge.i.i ]
   %indvars.iv.next127.i.i = add nsw i64 %indvars.iv126.i.i, 1
   %384 = load i32, ptr %95, align 8, !tbaa !167
   %385 = sext i32 %384 to i64
@@ -6399,7 +6399,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %492, %Ex
   br label %.loopexit163.i
 
 .loopexit163.i:                                   ; preds = %.loopexit163.loopexit.i, %.preheader157.lr.ph.i, %587, %._crit_edge191.i
-  %627 = phi i32 [ %583, %._crit_edge191.i ], [ %.pre267.i, %.loopexit163.loopexit.i ], [ %583, %587 ], [ %583, %.preheader157.lr.ph.i ]
+  %627 = phi i32 [ %.pre267.i, %.loopexit163.loopexit.i ], [ %583, %587 ], [ %583, %._crit_edge191.i ], [ %583, %.preheader157.lr.ph.i ]
   %.not134.i = icmp eq i32 %627, 2
   br i1 %.not134.i, label %.preheader161.i, label %653
 
@@ -6480,7 +6480,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %492, %Ex
   br i1 %.not.not.i, label %Exa3_ManAddCnfStart.exit, label %657
 
 Exa3_ManAddCnfStart.exit:                         ; preds = %648, %._crit_edge.i, %635, %538, %564, %609, %657, %.lr.ph210.i, %.preheader.i
-  %.5.i = phi i32 [ 0, %._crit_edge.i ], [ 0, %635 ], [ 1, %657 ], [ 0, %538 ], [ 0, %564 ], [ 0, %609 ], [ 1, %.preheader.i ], [ 0, %.lr.ph210.i ], [ 0, %648 ]
+  %.5.i = phi i32 [ 1, %.preheader.i ], [ 1, %657 ], [ 0, %.lr.ph210.i ], [ 0, %609 ], [ 0, %564 ], [ 0, %538 ], [ 0, %635 ], [ 0, %._crit_edge.i ], [ 0, %648 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %669 = load i32, ptr %85, align 8, !tbaa !155
@@ -7578,10 +7578,10 @@ Exa3_ManEval.exit:                                ; preds = %.lr.ph.i84.i
   br i1 %.not84, label %Exa3_ManAddCnf.exit.thread, label %697, !llvm.loop !221
 
 Exa3_ManAddCnf.exit.thread:                       ; preds = %1068, %Exa3_ManEval.exit, %Exa3_ManEval.exit.thread, %1037, %990, %Exa3_ManAddCnf2.exit
-  %.072252 = phi i32 [ %.072264, %990 ], [ %.072264, %Exa3_ManAddCnf2.exit ], [ %.072264, %1037 ], [ -1, %Exa3_ManEval.exit.thread ], [ -1, %Exa3_ManEval.exit ], [ %.072264, %1068 ]
-  %.070245 = phi i32 [ %.070266, %990 ], [ %.070266, %Exa3_ManAddCnf2.exit ], [ %.070266, %1037 ], [ %1190, %Exa3_ManEval.exit.thread ], [ %1217, %Exa3_ManEval.exit ], [ %.070266, %1068 ]
-  %.not84241 = phi i1 [ false, %990 ], [ false, %Exa3_ManAddCnf2.exit ], [ false, %1037 ], [ true, %Exa3_ManEval.exit.thread ], [ %or.cond, %Exa3_ManEval.exit ], [ %or.cond, %1068 ]
-  %.2 = phi i32 [ %.1265, %990 ], [ %.1265, %Exa3_ManAddCnf2.exit ], [ %.1265, %1037 ], [ %1052, %Exa3_ManEval.exit.thread ], [ %1052, %Exa3_ManEval.exit ], [ %1052, %1068 ]
+  %.072252 = phi i32 [ %.072264, %Exa3_ManAddCnf2.exit ], [ %.072264, %990 ], [ %.072264, %1037 ], [ -1, %Exa3_ManEval.exit.thread ], [ -1, %Exa3_ManEval.exit ], [ %.072264, %1068 ]
+  %.070245 = phi i32 [ %.070266, %Exa3_ManAddCnf2.exit ], [ %.070266, %990 ], [ %.070266, %1037 ], [ %1190, %Exa3_ManEval.exit.thread ], [ %1217, %Exa3_ManEval.exit ], [ %.070266, %1068 ]
+  %.not84241 = phi i1 [ false, %Exa3_ManAddCnf2.exit ], [ false, %990 ], [ false, %1037 ], [ true, %Exa3_ManEval.exit.thread ], [ %or.cond, %Exa3_ManEval.exit ], [ %or.cond, %1068 ]
+  %.2 = phi i32 [ %.1265, %Exa3_ManAddCnf2.exit ], [ %.1265, %990 ], [ %.1265, %1037 ], [ %1052, %Exa3_ManEval.exit.thread ], [ %1052, %Exa3_ManEval.exit ], [ %1052, %1068 ]
   %1218 = load i32, ptr %695, align 4, !tbaa !141
   %1219 = icmp ne i32 %1218, 0
   %1220 = icmp ne i32 %.2, 0
@@ -7755,7 +7755,7 @@ Exa3_ManFindFanin.exit.i171:                      ; preds = %1284
   br label %1296
 
 Exa3_ManFindFanin.exit.thread.i:                  ; preds = %1289, %Exa3_ManFindFanin.exit.i171, %1272
-  %.0.lcssa.i43.i = phi i32 [ %.1.i.i169, %Exa3_ManFindFanin.exit.i171 ], [ %.1.i.i169, %1289 ], [ -1, %1272 ]
+  %.0.lcssa.i43.i = phi i32 [ %.1.i.i169, %1289 ], [ %.1.i.i169, %Exa3_ManFindFanin.exit.i171 ], [ -1, %1272 ]
   %1295 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.0.lcssa.i43.i)
   br label %1296
 
@@ -7784,7 +7784,7 @@ Exa3_ManFindFanin.exit.thread.i:                  ; preds = %1289, %Exa3_ManFind
   br label %Exa3_ManPrintSolution.exit
 
 Exa3_ManPrintSolution.exit:                       ; preds = %._crit_edge51.i, %1233, %1302, %1305
-  %.073 = phi i32 [ 0, %1305 ], [ 0, %1302 ], [ 1, %1233 ], [ 1, %._crit_edge51.i ]
+  %.073 = phi i32 [ 0, %1302 ], [ 0, %1305 ], [ 1, %1233 ], [ 1, %._crit_edge51.i ]
   %1306 = load i32, ptr %690, align 4, !tbaa !29
   %1307 = load i32, ptr %688, align 8, !tbaa !29
   %1308 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i32 noundef %1306, i32 noundef %1307)
@@ -7930,7 +7930,7 @@ Exa3_ManFindFanin.exit.i197:                      ; preds = %1369
   br label %1381
 
 Exa3_ManFindFanin.exit.thread.i186:               ; preds = %1374, %Exa3_ManFindFanin.exit.i197, %1357
-  %.0.lcssa.i64.i = phi i32 [ %.1.i.i195, %Exa3_ManFindFanin.exit.i197 ], [ %.1.i.i195, %1374 ], [ -1, %1357 ]
+  %.0.lcssa.i64.i = phi i32 [ %.1.i.i195, %1374 ], [ %.1.i.i195, %Exa3_ManFindFanin.exit.i197 ], [ -1, %1357 ]
   %1380 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1326, ptr noundef nonnull @.str.5, i32 noundef %.0.lcssa.i64.i) #44
   br label %1381
 
@@ -9281,8 +9281,8 @@ define noalias ptr @Exa4_ManParse(ptr noundef %0) local_unnamed_addr #2 {
   br label %Vec_IntGrow.exit.sink.split.i.i
 
 Vec_IntGrow.exit.sink.split.i.i:                  ; preds = %47, %49, %38, %40
-  %storemerge = phi ptr [ %41, %40 ], [ %39, %38 ], [ %48, %47 ], [ %50, %49 ]
-  %.sink.i.i = phi i32 [ %29, %40 ], [ %29, %38 ], [ %33, %47 ], [ %33, %49 ]
+  %storemerge = phi ptr [ %39, %38 ], [ %41, %40 ], [ %48, %47 ], [ %50, %49 ]
+  %.sink.i.i = phi i32 [ %29, %38 ], [ %29, %40 ], [ %33, %47 ], [ %33, %49 ]
   store ptr %storemerge, ptr %20, align 8, !tbaa !41
   store i32 %.sink.i.i, ptr %.01528, align 8, !tbaa !40
   %.pre.i = load i32, ptr %19, align 4, !tbaa !37
@@ -9866,7 +9866,7 @@ define noundef i32 @Exa4_ManGenStart(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %92
 
 92:                                               ; preds = %88, %85, %82
-  %.1.i = phi i32 [ %.034.i, %82 ], [ %89, %88 ], [ %.034.i, %85 ]
+  %.1.i = phi i32 [ %89, %88 ], [ %.034.i, %85 ], [ %.034.i, %82 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %82, !llvm.loop !273
@@ -9981,7 +9981,7 @@ define noundef i32 @Exa4_ManGenStart(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %129
 
 129:                                              ; preds = %125, %122, %119
-  %.1.i.i = phi i32 [ %.034.i.i, %119 ], [ %126, %125 ], [ %.034.i.i, %122 ]
+  %.1.i.i = phi i32 [ %126, %125 ], [ %.034.i.i, %122 ], [ %.034.i.i, %119 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %119, !llvm.loop !273
@@ -10098,7 +10098,7 @@ Exa4_ManAddClause4.exit:                          ; preds = %119, %._crit_edge.i
   br label %171
 
 171:                                              ; preds = %167, %164, %161
-  %.1.i.i255 = phi i32 [ %.034.i.i254, %161 ], [ %168, %167 ], [ %.034.i.i254, %164 ]
+  %.1.i.i255 = phi i32 [ %168, %167 ], [ %.034.i.i254, %164 ], [ %.034.i.i254, %161 ]
   %indvars.iv.next.i.i256 = add nuw nsw i64 %indvars.iv.i.i253, 1
   %exitcond.not.i.i257 = icmp eq i64 %indvars.iv.next.i.i256, 4
   br i1 %exitcond.not.i.i257, label %._crit_edge.i.i258, label %161, !llvm.loop !273
@@ -10144,7 +10144,7 @@ Exa4_ManAddClause4.exit:                          ; preds = %119, %._crit_edge.i
   br label %Exa4_ManAddClause4.exit272
 
 Exa4_ManAddClause4.exit272:                       ; preds = %161, %._crit_edge.i.i258, %._crit_edge38.i.i260
-  %.pre714 = phi i32 [ %.pre714.pre, %._crit_edge38.i.i260 ], [ %.pre714722, %._crit_edge.i.i258 ], [ %.pre714722, %161 ]
+  %.pre714 = phi i32 [ %.pre714722, %._crit_edge.i.i258 ], [ %.pre714.pre, %._crit_edge38.i.i260 ], [ %.pre714722, %161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %186
 
@@ -10256,7 +10256,7 @@ Exa4_ManAddClause4.exit272:                       ; preds = %161, %._crit_edge.i
   br label %233
 
 233:                                              ; preds = %229, %226, %223
-  %.1.i.i275 = phi i32 [ %.034.i.i274, %223 ], [ %230, %229 ], [ %.034.i.i274, %226 ]
+  %.1.i.i275 = phi i32 [ %230, %229 ], [ %.034.i.i274, %226 ], [ %.034.i.i274, %223 ]
   %indvars.iv.next.i.i276 = add nuw nsw i64 %indvars.iv.i.i273, 1
   %exitcond.not.i.i277 = icmp eq i64 %indvars.iv.next.i.i276, 4
   br i1 %exitcond.not.i.i277, label %._crit_edge.i.i278, label %223, !llvm.loop !273
@@ -10302,7 +10302,7 @@ Exa4_ManAddClause4.exit272:                       ; preds = %161, %._crit_edge.i
   br label %Exa4_ManAddClause4.exit292
 
 Exa4_ManAddClause4.exit292:                       ; preds = %223, %._crit_edge.i.i278, %._crit_edge38.i.i280
-  %.pre716 = phi i32 [ %.pre716.pre, %._crit_edge38.i.i280 ], [ %.pre716729, %._crit_edge.i.i278 ], [ %.pre716729, %223 ]
+  %.pre716 = phi i32 [ %.pre716729, %._crit_edge.i.i278 ], [ %.pre716.pre, %._crit_edge38.i.i280 ], [ %.pre716729, %223 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %248
 
@@ -10426,7 +10426,7 @@ Exa4_ManAddClause4.exit292:                       ; preds = %223, %._crit_edge.i
   br label %295
 
 295:                                              ; preds = %291, %288, %285
-  %.1.i.i295 = phi i32 [ %.034.i.i294, %285 ], [ %292, %291 ], [ %.034.i.i294, %288 ]
+  %.1.i.i295 = phi i32 [ %292, %291 ], [ %.034.i.i294, %288 ], [ %.034.i.i294, %285 ]
   %indvars.iv.next.i.i296 = add nuw nsw i64 %indvars.iv.i.i293, 1
   %exitcond.not.i.i297 = icmp eq i64 %indvars.iv.next.i.i296, 4
   br i1 %exitcond.not.i.i297, label %._crit_edge.i.i298, label %285, !llvm.loop !273
@@ -10544,7 +10544,7 @@ Exa4_ManAddClause4.exit312:                       ; preds = %285, %._crit_edge.i
   br label %331
 
 331:                                              ; preds = %327, %324, %.lr.ph.i318
-  %.1.i322 = phi i32 [ %.034.i321, %.lr.ph.i318 ], [ %328, %327 ], [ %.034.i321, %324 ]
+  %.1.i322 = phi i32 [ %328, %327 ], [ %.034.i321, %324 ], [ %.034.i321, %.lr.ph.i318 ]
   %indvars.iv.next.i323 = add nuw nsw i64 %indvars.iv.i320, 1
   %exitcond.not.i324 = icmp eq i64 %indvars.iv.next.i323, %wide.trip.count.i319
   br i1 %exitcond.not.i324, label %._crit_edge.i325, label %.lr.ph.i318, !llvm.loop !273
@@ -10657,7 +10657,7 @@ Exa4_ManAddClause.exit337:                        ; preds = %._crit_edge.thread.
   br label %367
 
 367:                                              ; preds = %363, %360, %357
-  %.1.i.i340 = phi i32 [ %.034.i.i339, %357 ], [ %364, %363 ], [ %.034.i.i339, %360 ]
+  %.1.i.i340 = phi i32 [ %364, %363 ], [ %.034.i.i339, %360 ], [ %.034.i.i339, %357 ]
   %indvars.iv.next.i.i341 = add nuw nsw i64 %indvars.iv.i.i338, 1
   %exitcond.not.i.i342 = icmp eq i64 %indvars.iv.next.i.i341, 4
   br i1 %exitcond.not.i.i342, label %._crit_edge.i.i343, label %357, !llvm.loop !273
@@ -10749,7 +10749,7 @@ Exa4_ManAddClause4.exit357:                       ; preds = %357, %._crit_edge.i
   br label %402
 
 402:                                              ; preds = %398, %395, %392
-  %.1.i.i360 = phi i32 [ %.034.i.i359, %392 ], [ %399, %398 ], [ %.034.i.i359, %395 ]
+  %.1.i.i360 = phi i32 [ %399, %398 ], [ %.034.i.i359, %395 ], [ %.034.i.i359, %392 ]
   %indvars.iv.next.i.i361 = add nuw nsw i64 %indvars.iv.i.i358, 1
   %exitcond.not.i.i362 = icmp eq i64 %indvars.iv.next.i.i361, 4
   br i1 %exitcond.not.i.i362, label %._crit_edge.i.i363, label %392, !llvm.loop !273
@@ -10836,7 +10836,7 @@ Exa4_ManAddClause4.exit377:                       ; preds = %392, %._crit_edge.i
   br label %432
 
 432:                                              ; preds = %428, %425, %422
-  %.1.i.i380 = phi i32 [ %.034.i.i379, %422 ], [ %429, %428 ], [ %.034.i.i379, %425 ]
+  %.1.i.i380 = phi i32 [ %429, %428 ], [ %.034.i.i379, %425 ], [ %.034.i.i379, %422 ]
   %indvars.iv.next.i.i381 = add nuw nsw i64 %indvars.iv.i.i378, 1
   %exitcond.not.i.i382 = icmp eq i64 %indvars.iv.next.i.i381, 4
   br i1 %exitcond.not.i.i382, label %._crit_edge.i.i383, label %422, !llvm.loop !273
@@ -10987,7 +10987,7 @@ Exa4_ManAddClause4.exit397:                       ; preds = %422, %._crit_edge.i
   br label %486
 
 486:                                              ; preds = %482, %479, %476
-  %.1.i407 = phi i32 [ %.034.i406, %476 ], [ %483, %482 ], [ %.034.i406, %479 ]
+  %.1.i407 = phi i32 [ %483, %482 ], [ %.034.i406, %479 ], [ %.034.i406, %476 ]
   %indvars.iv.next.i408 = add nuw nsw i64 %indvars.iv.i405, 1
   %exitcond.not.i409 = icmp eq i64 %indvars.iv.next.i408, %wide.trip.count.i404
   br i1 %exitcond.not.i409, label %._crit_edge.i410, label %476, !llvm.loop !273
@@ -11046,8 +11046,8 @@ Exa4_ManAddClause4.exit397:                       ; preds = %422, %._crit_edge.i
   br label %Exa4_ManAddClause.exit422
 
 Exa4_ManAddClause.exit422:                        ; preds = %476, %._crit_edge.i410, %._crit_edge38.i401
-  %505 = phi i1 [ %502, %._crit_edge38.i401 ], [ true, %._crit_edge.i410 ], [ true, %476 ]
-  %.us-phi811 = phi i32 [ %.us-phi810, %._crit_edge38.i401 ], [ %.5.us, %._crit_edge.i410 ], [ %.5.us, %476 ]
+  %505 = phi i1 [ true, %._crit_edge.i410 ], [ %502, %._crit_edge38.i401 ], [ true, %476 ]
+  %.us-phi811 = phi i32 [ %.5.us, %._crit_edge.i410 ], [ %.us-phi810, %._crit_edge38.i401 ], [ %.5.us, %476 ]
   %or.cond = and i1 %.not239, %505
   br i1 %or.cond, label %.lr.ph579.preheader, label %.loopexit493
 
@@ -11110,7 +11110,7 @@ Exa4_ManAddClause.exit422:                        ; preds = %476, %._crit_edge.i
   br label %525
 
 525:                                              ; preds = %521, %518, %515
-  %.1.i.i425 = phi i32 [ %.034.i.i424, %515 ], [ %522, %521 ], [ %.034.i.i424, %518 ]
+  %.1.i.i425 = phi i32 [ %522, %521 ], [ %.034.i.i424, %518 ], [ %.034.i.i424, %515 ]
   %indvars.iv.next.i.i426 = add nuw nsw i64 %indvars.iv.i.i423, 1
   %exitcond.not.i.i427 = icmp eq i64 %indvars.iv.next.i.i426, 4
   br i1 %exitcond.not.i.i427, label %._crit_edge.i.i428, label %515, !llvm.loop !273
@@ -11235,7 +11235,7 @@ Exa4_ManAddClause4.exit442:                       ; preds = %515, %._crit_edge.i
   br label %570
 
 570:                                              ; preds = %566, %563, %560
-  %.1.i452 = phi i32 [ %.034.i451, %560 ], [ %567, %566 ], [ %.034.i451, %563 ]
+  %.1.i452 = phi i32 [ %567, %566 ], [ %.034.i451, %563 ], [ %.034.i451, %560 ]
   %indvars.iv.next.i453 = add nuw nsw i64 %indvars.iv.i450, 1
   %exitcond.not.i454 = icmp eq i64 %indvars.iv.next.i453, %wide.trip.count.i449
   br i1 %exitcond.not.i454, label %._crit_edge.i455, label %560, !llvm.loop !273
@@ -11350,7 +11350,7 @@ Exa4_ManAddClause4.exit442:                       ; preds = %515, %._crit_edge.i
   br label %607
 
 607:                                              ; preds = %603, %600, %597
-  %.1.i.i470 = phi i32 [ %.034.i.i469, %597 ], [ %604, %603 ], [ %.034.i.i469, %600 ]
+  %.1.i.i470 = phi i32 [ %604, %603 ], [ %.034.i.i469, %600 ], [ %.034.i.i469, %597 ]
   %indvars.iv.next.i.i471 = add nuw nsw i64 %indvars.iv.i.i468, 1
   %exitcond.not.i.i472 = icmp eq i64 %indvars.iv.next.i.i471, 4
   br i1 %exitcond.not.i.i472, label %._crit_edge.i.i473, label %597, !llvm.loop !273
@@ -11727,7 +11727,7 @@ Abc_Tt6FirstBit.exit:                             ; preds = %4, %42
   br label %198
 
 198:                                              ; preds = %194, %191, %188
-  %.1.i.i = phi i32 [ %.034.i.i, %188 ], [ %195, %194 ], [ %.034.i.i, %191 ]
+  %.1.i.i = phi i32 [ %195, %194 ], [ %.034.i.i, %191 ], [ %.034.i.i, %188 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %188, !llvm.loop !273
@@ -11830,7 +11830,7 @@ Exa4_ManAddClause4.exit:                          ; preds = %188, %._crit_edge.i
   br label %234
 
 234:                                              ; preds = %230, %227, %224
-  %.1.i.i188 = phi i32 [ %.034.i.i187, %224 ], [ %231, %230 ], [ %.034.i.i187, %227 ]
+  %.1.i.i188 = phi i32 [ %231, %230 ], [ %.034.i.i187, %227 ], [ %.034.i.i187, %224 ]
   %indvars.iv.next.i.i189 = add nuw nsw i64 %indvars.iv.i.i186, 1
   %exitcond.not.i.i190 = icmp eq i64 %indvars.iv.next.i.i189, 4
   br i1 %exitcond.not.i.i190, label %._crit_edge.i.i191, label %224, !llvm.loop !273
@@ -11908,7 +11908,7 @@ Exa4_ManAddClause4.exit205:                       ; preds = %224, %._crit_edge.i
   br label %260
 
 260:                                              ; preds = %256, %253, %250
-  %.1.i.i208 = phi i32 [ %.034.i.i207, %250 ], [ %257, %256 ], [ %.034.i.i207, %253 ]
+  %.1.i.i208 = phi i32 [ %257, %256 ], [ %.034.i.i207, %253 ], [ %.034.i.i207, %250 ]
   %indvars.iv.next.i.i209 = add nuw nsw i64 %indvars.iv.i.i206, 1
   %exitcond.not.i.i210 = icmp eq i64 %indvars.iv.next.i.i209, 4
   br i1 %exitcond.not.i.i210, label %._crit_edge.i.i211, label %250, !llvm.loop !273
@@ -11987,7 +11987,7 @@ Exa4_ManAddClause4.exit225:                       ; preds = %250, %._crit_edge.i
   br label %287
 
 287:                                              ; preds = %283, %280, %277
-  %.1.i.i228 = phi i32 [ %.034.i.i227, %277 ], [ %284, %283 ], [ %.034.i.i227, %280 ]
+  %.1.i.i228 = phi i32 [ %284, %283 ], [ %.034.i.i227, %280 ], [ %.034.i.i227, %277 ]
   %indvars.iv.next.i.i229 = add nuw nsw i64 %indvars.iv.i.i226, 1
   %exitcond.not.i.i230 = icmp eq i64 %indvars.iv.next.i.i229, 4
   br i1 %exitcond.not.i.i230, label %._crit_edge.i.i231, label %277, !llvm.loop !273
@@ -12065,7 +12065,7 @@ Exa4_ManAddClause4.exit245:                       ; preds = %277, %._crit_edge.i
   br label %313
 
 313:                                              ; preds = %309, %306, %303
-  %.1.i.i248 = phi i32 [ %.034.i.i247, %303 ], [ %310, %309 ], [ %.034.i.i247, %306 ]
+  %.1.i.i248 = phi i32 [ %310, %309 ], [ %.034.i.i247, %306 ], [ %.034.i.i247, %303 ]
   %indvars.iv.next.i.i249 = add nuw nsw i64 %indvars.iv.i.i246, 1
   %exitcond.not.i.i250 = icmp eq i64 %indvars.iv.next.i.i249, 4
   br i1 %exitcond.not.i.i250, label %._crit_edge.i.i251, label %303, !llvm.loop !273
@@ -12142,7 +12142,7 @@ Exa4_ManAddClause4.exit265:                       ; preds = %303, %._crit_edge.i
   br label %338
 
 338:                                              ; preds = %334, %331, %328
-  %.1.i.i268 = phi i32 [ %.034.i.i267, %328 ], [ %335, %334 ], [ %.034.i.i267, %331 ]
+  %.1.i.i268 = phi i32 [ %335, %334 ], [ %.034.i.i267, %331 ], [ %.034.i.i267, %328 ]
   %indvars.iv.next.i.i269 = add nuw nsw i64 %indvars.iv.i.i266, 1
   %exitcond.not.i.i270 = icmp eq i64 %indvars.iv.next.i.i269, 4
   br i1 %exitcond.not.i.i270, label %._crit_edge.i.i271, label %328, !llvm.loop !273
@@ -12219,7 +12219,7 @@ Exa4_ManAddClause4.exit285:                       ; preds = %328, %._crit_edge.i
   br label %363
 
 363:                                              ; preds = %359, %356, %353
-  %.1.i.i288 = phi i32 [ %.034.i.i287, %353 ], [ %360, %359 ], [ %.034.i.i287, %356 ]
+  %.1.i.i288 = phi i32 [ %360, %359 ], [ %.034.i.i287, %356 ], [ %.034.i.i287, %353 ]
   %indvars.iv.next.i.i289 = add nuw nsw i64 %indvars.iv.i.i286, 1
   %exitcond.not.i.i290 = icmp eq i64 %indvars.iv.next.i.i289, 4
   br i1 %exitcond.not.i.i290, label %._crit_edge.i.i291, label %353, !llvm.loop !273
@@ -12297,7 +12297,7 @@ Exa4_ManAddClause4.exit305:                       ; preds = %353, %._crit_edge.i
   br label %389
 
 389:                                              ; preds = %385, %382, %379
-  %.1.i.i308 = phi i32 [ %.034.i.i307, %379 ], [ %386, %385 ], [ %.034.i.i307, %382 ]
+  %.1.i.i308 = phi i32 [ %386, %385 ], [ %.034.i.i307, %382 ], [ %.034.i.i307, %379 ]
   %indvars.iv.next.i.i309 = add nuw nsw i64 %indvars.iv.i.i306, 1
   %exitcond.not.i.i310 = icmp eq i64 %indvars.iv.next.i.i309, 4
   br i1 %exitcond.not.i.i310, label %._crit_edge.i.i311, label %379, !llvm.loop !273
@@ -12374,7 +12374,7 @@ Exa4_ManAddClause4.exit325:                       ; preds = %379, %._crit_edge.i
   br label %414
 
 414:                                              ; preds = %410, %407, %404
-  %.1.i.i328 = phi i32 [ %.034.i.i327, %404 ], [ %411, %410 ], [ %.034.i.i327, %407 ]
+  %.1.i.i328 = phi i32 [ %411, %410 ], [ %.034.i.i327, %407 ], [ %.034.i.i327, %404 ]
   %indvars.iv.next.i.i329 = add nuw nsw i64 %indvars.iv.i.i326, 1
   %exitcond.not.i.i330 = icmp eq i64 %indvars.iv.next.i.i329, 4
   br i1 %exitcond.not.i.i330, label %._crit_edge.i.i331, label %404, !llvm.loop !273
@@ -12451,7 +12451,7 @@ Exa4_ManAddClause4.exit345:                       ; preds = %404, %._crit_edge.i
   br label %439
 
 439:                                              ; preds = %435, %432, %429
-  %.1.i.i348 = phi i32 [ %.034.i.i347, %429 ], [ %436, %435 ], [ %.034.i.i347, %432 ]
+  %.1.i.i348 = phi i32 [ %436, %435 ], [ %.034.i.i347, %432 ], [ %.034.i.i347, %429 ]
   %indvars.iv.next.i.i349 = add nuw nsw i64 %indvars.iv.i.i346, 1
   %exitcond.not.i.i350 = icmp eq i64 %indvars.iv.next.i.i349, 4
   br i1 %exitcond.not.i.i350, label %._crit_edge.i.i351, label %429, !llvm.loop !273
@@ -12529,7 +12529,7 @@ Exa4_ManAddClause4.exit365:                       ; preds = %429, %._crit_edge.i
   br label %465
 
 465:                                              ; preds = %461, %458, %455
-  %.1.i.i368 = phi i32 [ %.034.i.i367, %455 ], [ %462, %461 ], [ %.034.i.i367, %458 ]
+  %.1.i.i368 = phi i32 [ %462, %461 ], [ %.034.i.i367, %458 ], [ %.034.i.i367, %455 ]
   %indvars.iv.next.i.i369 = add nuw nsw i64 %indvars.iv.i.i366, 1
   %exitcond.not.i.i370 = icmp eq i64 %indvars.iv.next.i.i369, 4
   br i1 %exitcond.not.i.i370, label %._crit_edge.i.i371, label %455, !llvm.loop !273
@@ -12606,7 +12606,7 @@ Exa4_ManAddClause4.exit385:                       ; preds = %455, %._crit_edge.i
   br label %490
 
 490:                                              ; preds = %486, %483, %480
-  %.1.i.i388 = phi i32 [ %.034.i.i387, %480 ], [ %487, %486 ], [ %.034.i.i387, %483 ]
+  %.1.i.i388 = phi i32 [ %487, %486 ], [ %.034.i.i387, %483 ], [ %.034.i.i387, %480 ]
   %indvars.iv.next.i.i389 = add nuw nsw i64 %indvars.iv.i.i386, 1
   %exitcond.not.i.i390 = icmp eq i64 %indvars.iv.next.i.i389, 4
   br i1 %exitcond.not.i.i390, label %._crit_edge.i.i391, label %480, !llvm.loop !273
@@ -12683,7 +12683,7 @@ Exa4_ManAddClause4.exit405:                       ; preds = %480, %._crit_edge.i
   br label %515
 
 515:                                              ; preds = %511, %508, %505
-  %.1.i.i408 = phi i32 [ %.034.i.i407, %505 ], [ %512, %511 ], [ %.034.i.i407, %508 ]
+  %.1.i.i408 = phi i32 [ %512, %511 ], [ %.034.i.i407, %508 ], [ %.034.i.i407, %505 ]
   %indvars.iv.next.i.i409 = add nuw nsw i64 %indvars.iv.i.i406, 1
   %exitcond.not.i.i410 = icmp eq i64 %indvars.iv.next.i.i409, 4
   br i1 %exitcond.not.i.i410, label %._crit_edge.i.i411, label %505, !llvm.loop !273
@@ -12764,7 +12764,7 @@ Exa4_ManAddClause4.exit425:                       ; preds = %505, %._crit_edge.i
   br label %542
 
 542:                                              ; preds = %538, %535, %532
-  %.1.i.i428 = phi i32 [ %.034.i.i427, %532 ], [ %539, %538 ], [ %.034.i.i427, %535 ]
+  %.1.i.i428 = phi i32 [ %539, %538 ], [ %.034.i.i427, %535 ], [ %.034.i.i427, %532 ]
   %indvars.iv.next.i.i429 = add nuw nsw i64 %indvars.iv.i.i426, 1
   %exitcond.not.i.i430 = icmp eq i64 %indvars.iv.next.i.i429, 4
   br i1 %exitcond.not.i.i430, label %._crit_edge.i.i431, label %532, !llvm.loop !273
@@ -12841,7 +12841,7 @@ Exa4_ManAddClause4.exit445:                       ; preds = %532, %._crit_edge.i
   br label %567
 
 567:                                              ; preds = %563, %560, %557
-  %.1.i.i448 = phi i32 [ %.034.i.i447, %557 ], [ %564, %563 ], [ %.034.i.i447, %560 ]
+  %.1.i.i448 = phi i32 [ %564, %563 ], [ %.034.i.i447, %560 ], [ %.034.i.i447, %557 ]
   %indvars.iv.next.i.i449 = add nuw nsw i64 %indvars.iv.i.i446, 1
   %exitcond.not.i.i450 = icmp eq i64 %indvars.iv.next.i.i449, 4
   br i1 %exitcond.not.i.i450, label %._crit_edge.i.i451, label %557, !llvm.loop !273
@@ -12918,7 +12918,7 @@ Exa4_ManAddClause4.exit465:                       ; preds = %557, %._crit_edge.i
   br label %592
 
 592:                                              ; preds = %588, %585, %582
-  %.1.i.i468 = phi i32 [ %.034.i.i467, %582 ], [ %589, %588 ], [ %.034.i.i467, %585 ]
+  %.1.i.i468 = phi i32 [ %589, %588 ], [ %.034.i.i467, %585 ], [ %.034.i.i467, %582 ]
   %indvars.iv.next.i.i469 = add nuw nsw i64 %indvars.iv.i.i466, 1
   %exitcond.not.i.i470 = icmp eq i64 %indvars.iv.next.i.i469, 4
   br i1 %exitcond.not.i.i470, label %._crit_edge.i.i471, label %582, !llvm.loop !273
@@ -12995,7 +12995,7 @@ Exa4_ManAddClause4.exit485:                       ; preds = %582, %._crit_edge.i
   br label %617
 
 617:                                              ; preds = %613, %610, %607
-  %.1.i.i488 = phi i32 [ %.034.i.i487, %607 ], [ %614, %613 ], [ %.034.i.i487, %610 ]
+  %.1.i.i488 = phi i32 [ %614, %613 ], [ %.034.i.i487, %610 ], [ %.034.i.i487, %607 ]
   %indvars.iv.next.i.i489 = add nuw nsw i64 %indvars.iv.i.i486, 1
   %exitcond.not.i.i490 = icmp eq i64 %indvars.iv.next.i.i489, 4
   br i1 %exitcond.not.i.i490, label %._crit_edge.i.i491, label %607, !llvm.loop !273
@@ -13092,7 +13092,7 @@ Exa4_ManAddClause4.exit505:                       ; preds = %607, %._crit_edge.i
   br label %654
 
 654:                                              ; preds = %650, %647, %644
-  %.1.i.i508 = phi i32 [ %.034.i.i507, %644 ], [ %651, %650 ], [ %.034.i.i507, %647 ]
+  %.1.i.i508 = phi i32 [ %651, %650 ], [ %.034.i.i507, %647 ], [ %.034.i.i507, %644 ]
   %indvars.iv.next.i.i509 = add nuw nsw i64 %indvars.iv.i.i506, 1
   %exitcond.not.i.i510 = icmp eq i64 %indvars.iv.next.i.i509, 4
   br i1 %exitcond.not.i.i510, label %._crit_edge.i.i511, label %644, !llvm.loop !273
@@ -13225,7 +13225,7 @@ Exa4_ManAddClause4.exit525:                       ; preds = %644, %._crit_edge.i
   br label %711
 
 711:                                              ; preds = %707, %704, %701
-  %.1.i.i528 = phi i32 [ %.034.i.i527, %701 ], [ %708, %707 ], [ %.034.i.i527, %704 ]
+  %.1.i.i528 = phi i32 [ %708, %707 ], [ %.034.i.i527, %704 ], [ %.034.i.i527, %701 ]
   %indvars.iv.next.i.i529 = add nuw nsw i64 %indvars.iv.i.i526, 1
   %exitcond.not.i.i530 = icmp eq i64 %indvars.iv.next.i.i529, 4
   br i1 %exitcond.not.i.i530, label %._crit_edge.i.i531, label %701, !llvm.loop !273
@@ -14248,9 +14248,9 @@ Mini_AigGrow.exit.i16:                            ; preds = %41, %39
   br label %Mini_AigPush.exit
 
 Mini_AigPush.exit:                                ; preds = %54, %Mini_AigGrow.exit.i16, %.Mini_AigGrow.exit13_crit_edge.i11, %31, %Mini_AigGrow.exit.i, %.Mini_AigGrow.exit13_crit_edge.i
-  %.sink34 = phi ptr [ %20, %Mini_AigGrow.exit.i ], [ %.pre.i, %.Mini_AigGrow.exit13_crit_edge.i ], [ %32, %31 ], [ %.pre.i13, %.Mini_AigGrow.exit13_crit_edge.i11 ], [ %55, %54 ], [ %43, %Mini_AigGrow.exit.i16 ]
-  %.sink32 = phi i32 [ %1, %Mini_AigGrow.exit.i ], [ %1, %.Mini_AigGrow.exit13_crit_edge.i ], [ %1, %31 ], [ %2, %.Mini_AigGrow.exit13_crit_edge.i11 ], [ %2, %54 ], [ %2, %Mini_AigGrow.exit.i16 ]
-  %.sink = phi i32 [ %2, %Mini_AigGrow.exit.i ], [ %2, %.Mini_AigGrow.exit13_crit_edge.i ], [ %2, %31 ], [ %1, %.Mini_AigGrow.exit13_crit_edge.i11 ], [ %1, %54 ], [ %1, %Mini_AigGrow.exit.i16 ]
+  %.sink34 = phi ptr [ %.pre.i, %.Mini_AigGrow.exit13_crit_edge.i ], [ %32, %31 ], [ %20, %Mini_AigGrow.exit.i ], [ %.pre.i13, %.Mini_AigGrow.exit13_crit_edge.i11 ], [ %55, %54 ], [ %43, %Mini_AigGrow.exit.i16 ]
+  %.sink32 = phi i32 [ %1, %.Mini_AigGrow.exit13_crit_edge.i ], [ %1, %31 ], [ %1, %Mini_AigGrow.exit.i ], [ %2, %.Mini_AigGrow.exit13_crit_edge.i11 ], [ %2, %54 ], [ %2, %Mini_AigGrow.exit.i16 ]
+  %.sink = phi i32 [ %2, %.Mini_AigGrow.exit13_crit_edge.i ], [ %2, %31 ], [ %2, %Mini_AigGrow.exit.i ], [ %1, %.Mini_AigGrow.exit13_crit_edge.i11 ], [ %1, %54 ], [ %1, %Mini_AigGrow.exit.i16 ]
   %56 = load i32, ptr %4, align 4, !tbaa !237
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %4, align 4, !tbaa !237
@@ -14387,9 +14387,9 @@ Mini_AigGrow.exit.i16:                            ; preds = %41, %39
   br label %Mini_AigPush.exit
 
 Mini_AigPush.exit:                                ; preds = %54, %Mini_AigGrow.exit.i16, %.Mini_AigGrow.exit13_crit_edge.i11, %31, %Mini_AigGrow.exit.i, %.Mini_AigGrow.exit13_crit_edge.i
-  %.sink34 = phi ptr [ %20, %Mini_AigGrow.exit.i ], [ %.pre.i, %.Mini_AigGrow.exit13_crit_edge.i ], [ %32, %31 ], [ %.pre.i13, %.Mini_AigGrow.exit13_crit_edge.i11 ], [ %55, %54 ], [ %43, %Mini_AigGrow.exit.i16 ]
-  %.sink32 = phi i32 [ %1, %Mini_AigGrow.exit.i ], [ %1, %.Mini_AigGrow.exit13_crit_edge.i ], [ %1, %31 ], [ %2, %.Mini_AigGrow.exit13_crit_edge.i11 ], [ %2, %54 ], [ %2, %Mini_AigGrow.exit.i16 ]
-  %.sink = phi i32 [ %2, %Mini_AigGrow.exit.i ], [ %2, %.Mini_AigGrow.exit13_crit_edge.i ], [ %2, %31 ], [ %1, %.Mini_AigGrow.exit13_crit_edge.i11 ], [ %1, %54 ], [ %1, %Mini_AigGrow.exit.i16 ]
+  %.sink34 = phi ptr [ %.pre.i, %.Mini_AigGrow.exit13_crit_edge.i ], [ %32, %31 ], [ %20, %Mini_AigGrow.exit.i ], [ %.pre.i13, %.Mini_AigGrow.exit13_crit_edge.i11 ], [ %55, %54 ], [ %43, %Mini_AigGrow.exit.i16 ]
+  %.sink32 = phi i32 [ %1, %.Mini_AigGrow.exit13_crit_edge.i ], [ %1, %31 ], [ %1, %Mini_AigGrow.exit.i ], [ %2, %.Mini_AigGrow.exit13_crit_edge.i11 ], [ %2, %54 ], [ %2, %Mini_AigGrow.exit.i16 ]
+  %.sink = phi i32 [ %2, %.Mini_AigGrow.exit13_crit_edge.i ], [ %2, %31 ], [ %2, %Mini_AigGrow.exit.i ], [ %1, %.Mini_AigGrow.exit13_crit_edge.i11 ], [ %1, %54 ], [ %1, %Mini_AigGrow.exit.i16 ]
   %56 = load i32, ptr %4, align 4, !tbaa !237
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %4, align 4, !tbaa !237
@@ -15505,7 +15505,7 @@ define noundef i32 @Exa5_ManGenStart(ptr noundef %0, i32 noundef %1, i32 %2, i32
   br label %89
 
 89:                                               ; preds = %85, %82, %.lr.ph.i.i
-  %.1.i.i = phi i32 [ %.034.i.i, %.lr.ph.i.i ], [ %86, %85 ], [ %.034.i.i, %82 ]
+  %.1.i.i = phi i32 [ %86, %85 ], [ %.034.i.i, %82 ], [ %.034.i.i, %.lr.ph.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %indvars.iv
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !349
@@ -15624,7 +15624,7 @@ Exa5_ManAddClause.exit.i:                         ; preds = %.lr.ph.i.i, %._crit
   br label %127
 
 127:                                              ; preds = %123, %120, %117
-  %.1.i.i.i348 = phi i32 [ %.034.i.i.i347, %117 ], [ %124, %123 ], [ %.034.i.i.i347, %120 ]
+  %.1.i.i.i348 = phi i32 [ %124, %123 ], [ %.034.i.i.i347, %120 ], [ %.034.i.i.i347, %117 ]
   %indvars.iv.next.i.i.i349 = add nuw nsw i64 %indvars.iv.i.i.i346, 1
   %exitcond.not.i.i.i350 = icmp eq i64 %indvars.iv.next.i.i.i349, 5
   br i1 %exitcond.not.i.i.i350, label %._crit_edge.i.i.i351, label %117, !llvm.loop !349
@@ -15716,7 +15716,7 @@ Exa5_ManAddOneHot.exit:                           ; preds = %.loopexit.i
   br label %158
 
 158:                                              ; preds = %154, %151, %148
-  %.1.i.i.i = phi i32 [ %.034.i.i.i, %148 ], [ %155, %154 ], [ %.034.i.i.i, %151 ]
+  %.1.i.i.i = phi i32 [ %155, %154 ], [ %.034.i.i.i, %151 ], [ %.034.i.i.i, %148 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 5
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %148, !llvm.loop !349
@@ -15814,7 +15814,7 @@ Exa5_ManAddGroup.exit:                            ; preds = %Exa5_ManAddClause4.
   br label %190
 
 190:                                              ; preds = %186, %183, %180
-  %.1.i = phi i32 [ %.034.i, %180 ], [ %187, %186 ], [ %.034.i, %183 ]
+  %.1.i = phi i32 [ %187, %186 ], [ %.034.i, %183 ], [ %.034.i, %180 ]
   %indvars.iv.next.i198 = add nuw nsw i64 %indvars.iv.i197, 1
   %exitcond.not.i199 = icmp eq i64 %indvars.iv.next.i198, %wide.trip.count.i196
   br i1 %exitcond.not.i199, label %._crit_edge.i200, label %180, !llvm.loop !349
@@ -15872,7 +15872,7 @@ Exa5_ManAddGroup.exit:                            ; preds = %Exa5_ManAddClause4.
   br label %Exa5_ManAddClause.exit
 
 Exa5_ManAddClause.exit:                           ; preds = %180, %._crit_edge.i200, %._crit_edge.thread.i, %._crit_edge38.i
-  %.0170.lcssa548 = phi i32 [ %.0170.lcssa547, %._crit_edge38.i ], [ %.1171, %._crit_edge.i200 ], [ %.0170.lcssa549, %._crit_edge.thread.i ], [ %.1171, %180 ]
+  %.0170.lcssa548 = phi i32 [ %.1171, %._crit_edge.i200 ], [ %.0170.lcssa549, %._crit_edge.thread.i ], [ %.0170.lcssa547, %._crit_edge38.i ], [ %.1171, %180 ]
   call fastcc void @Exa5_ManAddOneHot(ptr noundef %0, ptr noundef nonnull %13, i32 noundef %.0170.lcssa548)
   %.pre473 = load i32, ptr %18, align 8, !tbaa !336
   br i1 %.not182, label %.loopexit372, label %208
@@ -15963,7 +15963,7 @@ Exa5_ManAddClause.exit:                           ; preds = %180, %._crit_edge.i
   br label %245
 
 245:                                              ; preds = %241, %238, %235
-  %.1.i.i203 = phi i32 [ %.034.i.i202, %235 ], [ %242, %241 ], [ %.034.i.i202, %238 ]
+  %.1.i.i203 = phi i32 [ %242, %241 ], [ %.034.i.i202, %238 ], [ %.034.i.i202, %235 ]
   %indvars.iv.next.i.i204 = add nuw nsw i64 %indvars.iv.i.i201, 1
   %exitcond.not.i.i205 = icmp eq i64 %indvars.iv.next.i.i204, 5
   br i1 %exitcond.not.i.i205, label %._crit_edge.i.i206, label %235, !llvm.loop !349
@@ -16009,7 +16009,7 @@ Exa5_ManAddClause.exit:                           ; preds = %180, %._crit_edge.i
   br label %Exa5_ManAddClause4.exit
 
 Exa5_ManAddClause4.exit:                          ; preds = %235, %._crit_edge.i.i206, %._crit_edge38.i.i208
-  %.pre = phi i32 [ %.pre.pre, %._crit_edge38.i.i208 ], [ %.pre486, %._crit_edge.i.i206 ], [ %.pre486, %235 ]
+  %.pre = phi i32 [ %.pre486, %._crit_edge.i.i206 ], [ %.pre.pre, %._crit_edge38.i.i208 ], [ %.pre486, %235 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %260
 
@@ -16044,7 +16044,7 @@ Exa5_ManAddClause4.exit:                          ; preds = %235, %._crit_edge.i
   br label %.loopexit372
 
 .loopexit372:                                     ; preds = %.preheader370.lr.ph, %.loopexit372.loopexit, %208, %Exa5_ManAddClause.exit
-  %270 = phi i32 [ %.pre473, %Exa5_ManAddClause.exit ], [ %.pre472, %.loopexit372.loopexit ], [ %.pre473, %208 ], [ %.pre473, %.preheader370.lr.ph ]
+  %270 = phi i32 [ %.pre472, %.loopexit372.loopexit ], [ %.pre473, %208 ], [ %.pre473, %Exa5_ManAddClause.exit ], [ %.pre473, %.preheader370.lr.ph ]
   %271 = sext i32 %270 to i64
   %272 = icmp sgt i64 %indvars.iv452, %271
   br i1 %272, label %.lr.ph394, label %.preheader371
@@ -16161,7 +16161,7 @@ Exa5_ManAddClause4.exit:                          ; preds = %235, %._crit_edge.i
   br label %330
 
 330:                                              ; preds = %326, %323, %320
-  %.1.i.i222 = phi i32 [ %.034.i.i221, %320 ], [ %327, %326 ], [ %.034.i.i221, %323 ]
+  %.1.i.i222 = phi i32 [ %327, %326 ], [ %.034.i.i221, %323 ], [ %.034.i.i221, %320 ]
   %indvars.iv.next.i.i223 = add nuw nsw i64 %indvars.iv.i.i220, 1
   %exitcond.not.i.i224 = icmp eq i64 %indvars.iv.next.i.i223, 5
   br i1 %exitcond.not.i.i224, label %._crit_edge.i.i225, label %320, !llvm.loop !349
@@ -16207,7 +16207,7 @@ Exa5_ManAddClause4.exit:                          ; preds = %235, %._crit_edge.i
   br label %Exa5_ManAddClause4.exit240
 
 Exa5_ManAddClause4.exit240:                       ; preds = %320, %._crit_edge.i.i225, %._crit_edge38.i.i227
-  %.pre475 = phi i32 [ %.pre475.pre, %._crit_edge38.i.i227 ], [ %.pre475491, %._crit_edge.i.i225 ], [ %.pre475491, %320 ]
+  %.pre475 = phi i32 [ %.pre475491, %._crit_edge.i.i225 ], [ %.pre475.pre, %._crit_edge38.i.i227 ], [ %.pre475491, %320 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %345
 
@@ -16276,7 +16276,7 @@ Exa5_ManAddClause4.exit240:                       ; preds = %320, %._crit_edge.i
   br label %372
 
 372:                                              ; preds = %368, %365, %362
-  %.1.i.i243 = phi i32 [ %.034.i.i242, %362 ], [ %369, %368 ], [ %.034.i.i242, %365 ]
+  %.1.i.i243 = phi i32 [ %369, %368 ], [ %.034.i.i242, %365 ], [ %.034.i.i242, %362 ]
   %indvars.iv.next.i.i244 = add nuw nsw i64 %indvars.iv.i.i241, 1
   %exitcond.not.i.i245 = icmp eq i64 %indvars.iv.next.i.i244, 5
   br i1 %exitcond.not.i.i245, label %._crit_edge.i.i246, label %362, !llvm.loop !349
@@ -16364,7 +16364,7 @@ Exa5_ManAddClause4.exit261:                       ; preds = %362, %._crit_edge.i
   br label %402
 
 402:                                              ; preds = %398, %395, %392
-  %.1.i.i264 = phi i32 [ %.034.i.i263, %392 ], [ %399, %398 ], [ %.034.i.i263, %395 ]
+  %.1.i.i264 = phi i32 [ %399, %398 ], [ %.034.i.i263, %395 ], [ %.034.i.i263, %392 ]
   %indvars.iv.next.i.i265 = add nuw nsw i64 %indvars.iv.i.i262, 1
   %exitcond.not.i.i266 = icmp eq i64 %indvars.iv.next.i.i265, 5
   br i1 %exitcond.not.i.i266, label %._crit_edge.i.i267, label %392, !llvm.loop !349
@@ -16497,8 +16497,8 @@ Exa5_ManAddClause4.exit282:                       ; preds = %392, %._crit_edge.i
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %456, %458, %448, %450
-  %.sink = phi i32 [ 16, %448 ], [ 16, %450 ], [ %453, %458 ], [ %453, %456 ]
-  %.val188415.ph = phi ptr [ %449, %448 ], [ %451, %450 ], [ %459, %458 ], [ %457, %456 ]
+  %.sink = phi i32 [ 16, %450 ], [ 16, %448 ], [ %453, %458 ], [ %453, %456 ]
+  %.val188415.ph = phi ptr [ %451, %450 ], [ %449, %448 ], [ %459, %458 ], [ %457, %456 ]
   store i32 %.sink, ptr %14, align 8, !tbaa !40
   br label %Vec_IntPush.exit
 
@@ -16593,8 +16593,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit290.sink.split
 
 Vec_IntPush.exit290.sink.split:                   ; preds = %496, %498, %488, %490
-  %.sink562 = phi i32 [ 16, %488 ], [ 16, %490 ], [ %493, %498 ], [ %493, %496 ]
-  %.val188411.ph = phi ptr [ %489, %488 ], [ %491, %490 ], [ %499, %498 ], [ %497, %496 ]
+  %.sink562 = phi i32 [ 16, %490 ], [ 16, %488 ], [ %493, %498 ], [ %493, %496 ]
+  %.val188411.ph = phi ptr [ %491, %490 ], [ %489, %488 ], [ %499, %498 ], [ %497, %496 ]
   store i32 %.sink562, ptr %14, align 8, !tbaa !40
   br label %Vec_IntPush.exit290
 
@@ -16650,7 +16650,7 @@ Vec_IntPush.exit290:                              ; preds = %Vec_IntPush.exit290
   br label %518
 
 518:                                              ; preds = %514, %511, %508
-  %.1.i300 = phi i32 [ %.034.i299, %508 ], [ %515, %514 ], [ %.034.i299, %511 ]
+  %.1.i300 = phi i32 [ %515, %514 ], [ %.034.i299, %511 ], [ %.034.i299, %508 ]
   %indvars.iv.next.i301 = add nuw nsw i64 %indvars.iv.i298, 1
   %exitcond.not.i302 = icmp eq i64 %indvars.iv.next.i301, %wide.trip.count.i297
   br i1 %exitcond.not.i302, label %._crit_edge.i303, label %508, !llvm.loop !349
@@ -16825,7 +16825,7 @@ Vec_IntFree.exit:                                 ; preds = %.preheader366.threa
   br label %585
 
 585:                                              ; preds = %581, %578, %575
-  %.1.i326 = phi i32 [ %.034.i325, %575 ], [ %582, %581 ], [ %.034.i325, %578 ]
+  %.1.i326 = phi i32 [ %582, %581 ], [ %.034.i325, %578 ], [ %.034.i325, %575 ]
   %indvars.iv.next.i327 = add nuw nsw i64 %indvars.iv.i324, 1
   %exitcond.not.i328 = icmp eq i64 %indvars.iv.next.i327, %wide.trip.count.i323
   br i1 %exitcond.not.i328, label %._crit_edge.i329, label %575, !llvm.loop !349
@@ -16883,7 +16883,7 @@ Vec_IntFree.exit:                                 ; preds = %.preheader366.threa
   br label %Exa5_ManAddClause.exit341
 
 Exa5_ManAddClause.exit341:                        ; preds = %575, %._crit_edge.i329, %._crit_edge.thread.i317, %._crit_edge38.i320
-  %.2172.lcssa552 = phi i32 [ %.2172.lcssa551, %._crit_edge38.i320 ], [ %.3173, %._crit_edge.i329 ], [ %.2172.lcssa553, %._crit_edge.thread.i317 ], [ %.3173, %575 ]
+  %.2172.lcssa552 = phi i32 [ %.3173, %._crit_edge.i329 ], [ %.2172.lcssa553, %._crit_edge.thread.i317 ], [ %.2172.lcssa551, %._crit_edge38.i320 ], [ %.3173, %575 ]
   call fastcc void @Exa5_ManAddOneHot(ptr noundef %0, ptr noundef nonnull %13, i32 noundef %.2172.lcssa552)
   %indvars.iv.next470 = add nsw i64 %indvars.iv469, 1
   %603 = load i32, ptr %550, align 4, !tbaa !337
@@ -16969,7 +16969,7 @@ define internal fastcc void @Exa5_ManAddOneHot(ptr noundef captures(none) %0, pt
   br label %33
 
 33:                                               ; preds = %29, %26, %23
-  %.1.i.i = phi i32 [ %.034.i.i, %23 ], [ %30, %29 ], [ %.034.i.i, %26 ]
+  %.1.i.i = phi i32 [ %30, %29 ], [ %.034.i.i, %26 ], [ %.034.i.i, %23 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %23, !llvm.loop !349
@@ -17257,7 +17257,7 @@ Abc_Tt6FirstBit.exit:                             ; preds = %4, %24
   br label %130
 
 130:                                              ; preds = %126, %123, %120
-  %.1.i.i = phi i32 [ %.034.i.i, %120 ], [ %127, %126 ], [ %.034.i.i, %123 ]
+  %.1.i.i = phi i32 [ %127, %126 ], [ %.034.i.i, %123 ], [ %.034.i.i, %120 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %120, !llvm.loop !349
@@ -17422,7 +17422,7 @@ Exa5_ManAddClause4.exit:                          ; preds = %120, %._crit_edge.i
   br label %202
 
 202:                                              ; preds = %198, %195, %192
-  %.1.i.i87 = phi i32 [ %.034.i.i86, %192 ], [ %199, %198 ], [ %.034.i.i86, %195 ]
+  %.1.i.i87 = phi i32 [ %199, %198 ], [ %.034.i.i86, %195 ], [ %.034.i.i86, %192 ]
   %indvars.iv.next.i.i88 = add nuw nsw i64 %indvars.iv.i.i85, 1
   %exitcond.not.i.i89 = icmp eq i64 %indvars.iv.next.i.i88, 5
   br i1 %exitcond.not.i.i89, label %._crit_edge.i.i90, label %192, !llvm.loop !349
@@ -19093,8 +19093,8 @@ Vec_WrdPush.exit:
   br label %Vec_WrdPush.exit24
 
 Vec_WrdPush.exit24:                               ; preds = %22, %24, %14, %16, %9
-  %26 = phi ptr [ %2, %9 ], [ %17, %16 ], [ %15, %14 ], [ %23, %22 ], [ %25, %24 ]
-  %27 = phi i32 [ %3, %9 ], [ 16, %16 ], [ 16, %14 ], [ %19, %22 ], [ %19, %24 ]
+  %26 = phi ptr [ %2, %9 ], [ %15, %14 ], [ %17, %16 ], [ %23, %22 ], [ %25, %24 ]
+  %27 = phi i32 [ %3, %9 ], [ 16, %14 ], [ 16, %16 ], [ %19, %22 ], [ %19, %24 ]
   %28 = add nuw nsw i32 %4, 1
   %29 = zext nneg i32 %4 to i64
   %30 = getelementptr inbounds nuw i64, ptr %26, i64 %29
@@ -20911,8 +20911,8 @@ Mini_AigNodeIsPo.exit.thread:                     ; preds = %233, %238, %Mini_Ai
   br label %.critedge6, !llvm.loop !455
 
 .critedge6:                                       ; preds = %.lr.ph196, %..critedge6_crit_edge, %.lr.ph196.preheader
-  %.val198.pre = phi i32 [ %.val119194, %.lr.ph196.preheader ], [ %.val119, %..critedge6_crit_edge ], [ %.val119, %.lr.ph196 ]
-  %267 = phi ptr [ %230, %.lr.ph196.preheader ], [ %263, %..critedge6_crit_edge ], [ %263, %.lr.ph196 ]
+  %.val198.pre = phi i32 [ %.val119, %..critedge6_crit_edge ], [ %.val119194, %.lr.ph196.preheader ], [ %.val119, %.lr.ph196 ]
+  %267 = phi ptr [ %263, %..critedge6_crit_edge ], [ %230, %.lr.ph196.preheader ], [ %263, %.lr.ph196 ]
   %268 = icmp sgt i32 %.val198.pre, 0
   br i1 %268, label %.lr.ph200, label %Vec_IntFree.exit
 
@@ -21483,7 +21483,7 @@ define noundef i32 @Exa6_ManGenStart(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %112
 
 112:                                              ; preds = %108, %103, %100
-  %.1.i = phi i32 [ %.035.i, %100 ], [ %109, %108 ], [ %.035.i, %103 ]
+  %.1.i = phi i32 [ %109, %108 ], [ %.035.i, %103 ], [ %.035.i, %100 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %100, !llvm.loop !479
@@ -21600,7 +21600,7 @@ define noundef i32 @Exa6_ManGenStart(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %151
 
 151:                                              ; preds = %147, %142, %139
-  %.1.i.i = phi i32 [ %.035.i.i, %139 ], [ %148, %147 ], [ %.035.i.i, %142 ]
+  %.1.i.i = phi i32 [ %148, %147 ], [ %.035.i.i, %142 ], [ %.035.i.i, %139 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %139, !llvm.loop !479
@@ -21719,7 +21719,7 @@ Exa6_ManAddClause4.exit:                          ; preds = %139, %._crit_edge.i
   br label %195
 
 195:                                              ; preds = %191, %186, %183
-  %.1.i.i253 = phi i32 [ %.035.i.i252, %183 ], [ %192, %191 ], [ %.035.i.i252, %186 ]
+  %.1.i.i253 = phi i32 [ %192, %191 ], [ %.035.i.i252, %186 ], [ %.035.i.i252, %183 ]
   %indvars.iv.next.i.i254 = add nuw nsw i64 %indvars.iv.i.i251, 1
   %exitcond.not.i.i255 = icmp eq i64 %indvars.iv.next.i.i254, 4
   br i1 %exitcond.not.i.i255, label %._crit_edge.i.i256, label %183, !llvm.loop !479
@@ -21765,7 +21765,7 @@ Exa6_ManAddClause4.exit:                          ; preds = %139, %._crit_edge.i
   br label %Exa6_ManAddClause4.exit270
 
 Exa6_ManAddClause4.exit270:                       ; preds = %183, %._crit_edge.i.i256, %._crit_edge39.i.i258
-  %.pre707 = phi i32 [ %.pre707.pre, %._crit_edge39.i.i258 ], [ %.pre707717, %._crit_edge.i.i256 ], [ %.pre707717, %183 ]
+  %.pre707 = phi i32 [ %.pre707717, %._crit_edge.i.i256 ], [ %.pre707.pre, %._crit_edge39.i.i258 ], [ %.pre707717, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %210
 
@@ -21879,7 +21879,7 @@ Exa6_ManAddClause4.exit270:                       ; preds = %183, %._crit_edge.i
   br label %259
 
 259:                                              ; preds = %255, %250, %247
-  %.1.i.i273 = phi i32 [ %.035.i.i272, %247 ], [ %256, %255 ], [ %.035.i.i272, %250 ]
+  %.1.i.i273 = phi i32 [ %256, %255 ], [ %.035.i.i272, %250 ], [ %.035.i.i272, %247 ]
   %indvars.iv.next.i.i274 = add nuw nsw i64 %indvars.iv.i.i271, 1
   %exitcond.not.i.i275 = icmp eq i64 %indvars.iv.next.i.i274, 4
   br i1 %exitcond.not.i.i275, label %._crit_edge.i.i276, label %247, !llvm.loop !479
@@ -21925,7 +21925,7 @@ Exa6_ManAddClause4.exit270:                       ; preds = %183, %._crit_edge.i
   br label %Exa6_ManAddClause4.exit290
 
 Exa6_ManAddClause4.exit290:                       ; preds = %247, %._crit_edge.i.i276, %._crit_edge39.i.i278
-  %.pre709 = phi i32 [ %.pre709.pre, %._crit_edge39.i.i278 ], [ %.pre709724, %._crit_edge.i.i276 ], [ %.pre709724, %247 ]
+  %.pre709 = phi i32 [ %.pre709724, %._crit_edge.i.i276 ], [ %.pre709.pre, %._crit_edge39.i.i278 ], [ %.pre709724, %247 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %274
 
@@ -22051,7 +22051,7 @@ Exa6_ManAddClause4.exit290:                       ; preds = %247, %._crit_edge.i
   br label %323
 
 323:                                              ; preds = %319, %314, %311
-  %.1.i.i293 = phi i32 [ %.035.i.i292, %311 ], [ %320, %319 ], [ %.035.i.i292, %314 ]
+  %.1.i.i293 = phi i32 [ %320, %319 ], [ %.035.i.i292, %314 ], [ %.035.i.i292, %311 ]
   %indvars.iv.next.i.i294 = add nuw nsw i64 %indvars.iv.i.i291, 1
   %exitcond.not.i.i295 = icmp eq i64 %indvars.iv.next.i.i294, 4
   br i1 %exitcond.not.i.i295, label %._crit_edge.i.i296, label %311, !llvm.loop !479
@@ -22171,7 +22171,7 @@ Exa6_ManAddClause4.exit310:                       ; preds = %311, %._crit_edge.i
   br label %361
 
 361:                                              ; preds = %357, %352, %.lr.ph.i316
-  %.1.i320 = phi i32 [ %.035.i319, %.lr.ph.i316 ], [ %358, %357 ], [ %.035.i319, %352 ]
+  %.1.i320 = phi i32 [ %358, %357 ], [ %.035.i319, %352 ], [ %.035.i319, %.lr.ph.i316 ]
   %indvars.iv.next.i321 = add nuw nsw i64 %indvars.iv.i318, 1
   %exitcond.not.i322 = icmp eq i64 %indvars.iv.next.i321, %wide.trip.count.i317
   br i1 %exitcond.not.i322, label %._crit_edge.i323, label %.lr.ph.i316, !llvm.loop !479
@@ -22286,7 +22286,7 @@ Exa6_ManAddClause.exit335:                        ; preds = %._crit_edge.thread.
   br label %399
 
 399:                                              ; preds = %395, %390, %387
-  %.1.i.i338 = phi i32 [ %.035.i.i337, %387 ], [ %396, %395 ], [ %.035.i.i337, %390 ]
+  %.1.i.i338 = phi i32 [ %396, %395 ], [ %.035.i.i337, %390 ], [ %.035.i.i337, %387 ]
   %indvars.iv.next.i.i339 = add nuw nsw i64 %indvars.iv.i.i336, 1
   %exitcond.not.i.i340 = icmp eq i64 %indvars.iv.next.i.i339, 4
   br i1 %exitcond.not.i.i340, label %._crit_edge.i.i341, label %387, !llvm.loop !479
@@ -22380,7 +22380,7 @@ Exa6_ManAddClause4.exit355:                       ; preds = %387, %._crit_edge.i
   br label %436
 
 436:                                              ; preds = %432, %427, %424
-  %.1.i.i358 = phi i32 [ %.035.i.i357, %424 ], [ %433, %432 ], [ %.035.i.i357, %427 ]
+  %.1.i.i358 = phi i32 [ %433, %432 ], [ %.035.i.i357, %427 ], [ %.035.i.i357, %424 ]
   %indvars.iv.next.i.i359 = add nuw nsw i64 %indvars.iv.i.i356, 1
   %exitcond.not.i.i360 = icmp eq i64 %indvars.iv.next.i.i359, 4
   br i1 %exitcond.not.i.i360, label %._crit_edge.i.i361, label %424, !llvm.loop !479
@@ -22469,7 +22469,7 @@ Exa6_ManAddClause4.exit375:                       ; preds = %424, %._crit_edge.i
   br label %468
 
 468:                                              ; preds = %464, %459, %456
-  %.1.i.i378 = phi i32 [ %.035.i.i377, %456 ], [ %465, %464 ], [ %.035.i.i377, %459 ]
+  %.1.i.i378 = phi i32 [ %465, %464 ], [ %.035.i.i377, %459 ], [ %.035.i.i377, %456 ]
   %indvars.iv.next.i.i379 = add nuw nsw i64 %indvars.iv.i.i376, 1
   %exitcond.not.i.i380 = icmp eq i64 %indvars.iv.next.i.i379, 4
   br i1 %exitcond.not.i.i380, label %._crit_edge.i.i381, label %456, !llvm.loop !479
@@ -22656,7 +22656,7 @@ Exa6_ManAddClause4.exit395:                       ; preds = %456, %._crit_edge.i
   br label %536
 
 536:                                              ; preds = %532, %527, %524
-  %.1.i.i398 = phi i32 [ %.035.i.i397, %524 ], [ %533, %532 ], [ %.035.i.i397, %527 ]
+  %.1.i.i398 = phi i32 [ %533, %532 ], [ %.035.i.i397, %527 ], [ %.035.i.i397, %524 ]
   %indvars.iv.next.i.i399 = add nuw nsw i64 %indvars.iv.i.i396, 1
   %exitcond.not.i.i400 = icmp eq i64 %indvars.iv.next.i.i399, 4
   br i1 %exitcond.not.i.i400, label %._crit_edge.i.i401, label %524, !llvm.loop !479
@@ -22788,7 +22788,7 @@ Exa6_ManAddClause4.exit415:                       ; preds = %524, %._crit_edge.i
   br label %583
 
 583:                                              ; preds = %579, %574, %571
-  %.1.i425 = phi i32 [ %.035.i424, %571 ], [ %580, %579 ], [ %.035.i424, %574 ]
+  %.1.i425 = phi i32 [ %580, %579 ], [ %.035.i424, %574 ], [ %.035.i424, %571 ]
   %indvars.iv.next.i426 = add nuw nsw i64 %indvars.iv.i423, 1
   %exitcond.not.i427 = icmp eq i64 %indvars.iv.next.i426, %wide.trip.count.i422
   br i1 %exitcond.not.i427, label %._crit_edge.i428, label %571, !llvm.loop !479
@@ -22905,7 +22905,7 @@ Exa6_ManAddClause4.exit415:                       ; preds = %524, %._crit_edge.i
   br label %622
 
 622:                                              ; preds = %618, %613, %610
-  %.1.i.i443 = phi i32 [ %.035.i.i442, %610 ], [ %619, %618 ], [ %.035.i.i442, %613 ]
+  %.1.i.i443 = phi i32 [ %619, %618 ], [ %.035.i.i442, %613 ], [ %.035.i.i442, %610 ]
   %indvars.iv.next.i.i444 = add nuw nsw i64 %indvars.iv.i.i441, 1
   %exitcond.not.i.i445 = icmp eq i64 %indvars.iv.next.i.i444, 4
   br i1 %exitcond.not.i.i445, label %._crit_edge.i.i446, label %610, !llvm.loop !479
@@ -23286,7 +23286,7 @@ Abc_TtSuppOnlyOne.exit:                           ; preds = %4, %Abc_Tt6FirstBit
   br label %174
 
 174:                                              ; preds = %170, %165, %162
-  %.1.i165 = phi i32 [ %.035.i, %162 ], [ %171, %170 ], [ %.035.i, %165 ]
+  %.1.i165 = phi i32 [ %171, %170 ], [ %.035.i, %165 ], [ %.035.i, %162 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %162, !llvm.loop !479
@@ -23343,7 +23343,7 @@ Abc_TtSuppOnlyOne.exit:                           ; preds = %4, %Abc_Tt6FirstBit
   br label %Exa6_ManAddClause.exit
 
 Exa6_ManAddClause.exit:                           ; preds = %162, %._crit_edge.i, %._crit_edge.thread.i, %._crit_edge39.i
-  %192 = phi i32 [ %.pre, %._crit_edge39.i ], [ %140, %._crit_edge.i ], [ %140, %._crit_edge.thread.i ], [ %140, %162 ]
+  %192 = phi i32 [ %140, %._crit_edge.i ], [ %140, %._crit_edge.thread.i ], [ %.pre, %._crit_edge39.i ], [ %140, %162 ]
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %193 = sext i32 %192 to i64
   %194 = icmp slt i64 %indvars.iv.next275, %193
@@ -23363,8 +23363,8 @@ Exa6_ManAddClause.exit:                           ; preds = %162, %._crit_edge.i
   br label %.loopexit219
 
 .loopexit219:                                     ; preds = %99, %.preheader218, %.loopexit217
-  %195 = phi i32 [ %.pre296, %.loopexit217 ], [ %15, %.preheader218 ], [ %15, %99 ]
-  %196 = phi i32 [ %.pre295, %.loopexit217 ], [ %79, %.preheader218 ], [ %79, %99 ]
+  %195 = phi i32 [ %15, %.preheader218 ], [ %.pre296, %.loopexit217 ], [ %15, %99 ]
+  %196 = phi i32 [ %79, %.preheader218 ], [ %.pre295, %.loopexit217 ], [ %79, %99 ]
   %197 = add nsw i32 %195, %196
   %198 = icmp sgt i32 %195, 0
   br i1 %198, label %.lr.ph248, label %.preheader209
@@ -23476,7 +23476,7 @@ Exa6_ManAddClause.exit:                           ; preds = %162, %._crit_edge.i
   br label %258
 
 258:                                              ; preds = %254, %249, %246
-  %.1.i.i.us = phi i32 [ %.035.i.i.us, %246 ], [ %255, %254 ], [ %.035.i.i.us, %249 ]
+  %.1.i.i.us = phi i32 [ %255, %254 ], [ %.035.i.i.us, %249 ], [ %.035.i.i.us, %246 ]
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 4
   br i1 %exitcond.not.i.i.us, label %._crit_edge.i.i.us, label %246, !llvm.loop !479
@@ -23594,7 +23594,7 @@ Exa6_ManAddClause4.exit.us:                       ; preds = %246, %._crit_edge39
   br label %302
 
 302:                                              ; preds = %298, %293, %290
-  %.1.i.i168 = phi i32 [ %.035.i.i167, %290 ], [ %299, %298 ], [ %.035.i.i167, %293 ]
+  %.1.i.i168 = phi i32 [ %299, %298 ], [ %.035.i.i167, %293 ], [ %.035.i.i167, %290 ]
   %indvars.iv.next.i.i169 = add nuw nsw i64 %indvars.iv.i.i166, 1
   %exitcond.not.i.i170 = icmp eq i64 %indvars.iv.next.i.i169, 4
   br i1 %exitcond.not.i.i170, label %._crit_edge.i.i171, label %290, !llvm.loop !479
@@ -23729,7 +23729,7 @@ Exa6_ManAddClause4.exit185:                       ; preds = %290, %._crit_edge.i
   br label %362
 
 362:                                              ; preds = %358, %353, %350
-  %.1.i.i188 = phi i32 [ %.035.i.i187, %350 ], [ %359, %358 ], [ %.035.i.i187, %353 ]
+  %.1.i.i188 = phi i32 [ %359, %358 ], [ %.035.i.i187, %353 ], [ %.035.i.i187, %350 ]
   %indvars.iv.next.i.i189 = add nuw nsw i64 %indvars.iv.i.i186, 1
   %exitcond.not.i.i190 = icmp eq i64 %indvars.iv.next.i.i189, 4
   br i1 %exitcond.not.i.i190, label %._crit_edge.i.i191, label %350, !llvm.loop !479
@@ -23949,7 +23949,7 @@ split:                                            ; preds = %18, %27, %.preheade
   br i1 %exitcond84.not, label %.loopexit, label %80, !llvm.loop !522
 
 .loopexit:                                        ; preds = %80, %.preheader, %5, %11
-  %.0 = phi i64 [ 0, %5 ], [ -1, %11 ], [ %67, %.preheader ], [ %67, %80 ]
+  %.0 = phi i64 [ -1, %11 ], [ 0, %5 ], [ %67, %.preheader ], [ %67, %80 ]
   ret i64 %.0
 }
 
@@ -25040,7 +25040,7 @@ Exa6_ManPolarMinterm.exit.thread.i:               ; preds = %Exa6_ManPolarMinter
   br i1 %exitcond.not.i, label %Exa6_ManFindPolar.exit, label %.lr.ph.preheader.i.i, !llvm.loop !535
 
 Exa6_ManFindPolar.exit:                           ; preds = %Exa6_ManPolarMinterm.exit.i, %Exa6_ManPolarMinterm.exit.thread.i
-  %.08.i = phi i32 [ %.011.i, %Exa6_ManPolarMinterm.exit.i ], [ -1, %Exa6_ManPolarMinterm.exit.thread.i ]
+  %.08.i = phi i32 [ -1, %Exa6_ManPolarMinterm.exit.thread.i ], [ %.011.i, %Exa6_ManPolarMinterm.exit.i ]
   %25 = icmp sgt i32 %.val12, 0
   br i1 %25, label %.lr.ph, label %.critedge
 
@@ -25103,8 +25103,8 @@ Vec_WrdGrow.exit.i.us:                            ; preds = %46, %44
   br label %Vec_WrdPush.exit.us
 
 Vec_WrdPush.exit.us:                              ; preds = %Exa6_ManPolarMinterm.exit.us, %Vec_WrdGrow.exit.i.us, %40
-  %.pre.i.us39 = phi ptr [ %48, %Vec_WrdGrow.exit.i.us ], [ %41, %40 ], [ %28, %Exa6_ManPolarMinterm.exit.us ]
-  %49 = phi i32 [ 16, %Vec_WrdGrow.exit.i.us ], [ %42, %40 ], [ %29, %Exa6_ManPolarMinterm.exit.us ]
+  %.pre.i.us39 = phi ptr [ %41, %40 ], [ %48, %Vec_WrdGrow.exit.i.us ], [ %28, %Exa6_ManPolarMinterm.exit.us ]
+  %49 = phi i32 [ %42, %40 ], [ 16, %Vec_WrdGrow.exit.i.us ], [ %29, %Exa6_ManPolarMinterm.exit.us ]
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %50 = getelementptr inbounds nuw i64, ptr %.pre.i.us39, i64 %indvars.iv33
   store i64 0, ptr %50, align 8, !tbaa !21
@@ -25185,8 +25185,8 @@ Vec_WrdGrow.exit.i:                               ; preds = %71, %69
   br label %Vec_WrdPush.exit
 
 Vec_WrdPush.exit:                                 ; preds = %Exa6_ManPolarMinterm.exit.loopexit, %Vec_WrdGrow.exit.i, %80
-  %.pre.i37 = phi ptr [ %73, %Vec_WrdGrow.exit.i ], [ %81, %80 ], [ %53, %Exa6_ManPolarMinterm.exit.loopexit ]
-  %83 = phi i32 [ 16, %Vec_WrdGrow.exit.i ], [ %82, %80 ], [ %54, %Exa6_ManPolarMinterm.exit.loopexit ]
+  %.pre.i37 = phi ptr [ %81, %80 ], [ %73, %Vec_WrdGrow.exit.i ], [ %53, %Exa6_ManPolarMinterm.exit.loopexit ]
+  %83 = phi i32 [ %82, %80 ], [ 16, %Vec_WrdGrow.exit.i ], [ %54, %Exa6_ManPolarMinterm.exit.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = getelementptr inbounds nuw i64, ptr %.pre.i37, i64 %indvars.iv
   store i64 %.1.i, ptr %84, align 8, !tbaa !21
@@ -25292,8 +25292,8 @@ Vec_WrdGrow.exit.i:                               ; preds = %27, %25
   br label %Vec_WrdPush.exit
 
 Vec_WrdPush.exit:                                 ; preds = %.lr.ph, %Vec_WrdGrow.exit.i, %36
-  %.pre.i24 = phi ptr [ %29, %Vec_WrdGrow.exit.i ], [ %37, %36 ], [ %15, %.lr.ph ]
-  %39 = phi i32 [ 16, %Vec_WrdGrow.exit.i ], [ %38, %36 ], [ %16, %.lr.ph ]
+  %.pre.i24 = phi ptr [ %37, %36 ], [ %29, %Vec_WrdGrow.exit.i ], [ %15, %.lr.ph ]
+  %39 = phi i32 [ %38, %36 ], [ 16, %Vec_WrdGrow.exit.i ], [ %16, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = getelementptr inbounds nuw i64, ptr %.pre.i24, i64 %indvars.iv
   store i64 %19, ptr %40, align 8, !tbaa !21
@@ -25830,7 +25830,7 @@ Abc_ReadPla.exit.thread:                          ; preds = %18
   br label %.backedge.sink.split.i.i
 
 .backedge.sink.split.i.i:                         ; preds = %36, %35, %33
-  %.sink47.i.i = phi ptr [ %4, %35 ], [ %5, %36 ], [ %3, %33 ]
+  %.sink47.i.i = phi ptr [ %5, %36 ], [ %4, %35 ], [ %3, %33 ]
   %37 = tail call i64 @strtol(ptr noundef nonnull captures(none) %26, ptr noundef null, i32 noundef 10) #44
   %38 = trunc i64 %37 to i32
   store i32 %38, ptr %.sink47.i.i, align 4, !tbaa !29
@@ -25853,7 +25853,7 @@ Abc_ReadPla.exit.thread:                          ; preds = %18
   br label %._crit_edge.i.thread.i
 
 ._crit_edge.i.thread.i:                           ; preds = %41, %._crit_edge.i.i, %22
-  %.0..0..i = phi i32 [ %.0..0..0..0..0.13.pr.i, %41 ], [ 0, %22 ], [ %32, %._crit_edge.i.i ]
+  %.0..0..i = phi i32 [ %.0..0..0..0..0.13.pr.i, %41 ], [ %32, %._crit_edge.i.i ], [ 0, %22 ]
   %43 = tail call i32 @fclose(ptr noundef nonnull %19)
   tail call void @free(ptr noundef %23) #44
   %.0..0..0..0..0.15.i = load i32, ptr %3, align 4, !tbaa !29
@@ -25963,8 +25963,8 @@ Abc_ReadPla.exit.thread:                          ; preds = %18
   br label %99
 
 99:                                               ; preds = %.sink.split.i.i, %81, %73
-  %100 = phi i8 [ %71, %81 ], [ %71, %73 ], [ %.pre.i, %.sink.split.i.i ]
-  %.3.i.i = phi i32 [ %.283.i.i, %81 ], [ %76, %73 ], [ %.3.ph.i.i, %.sink.split.i.i ]
+  %100 = phi i8 [ %71, %73 ], [ %71, %81 ], [ %.pre.i, %.sink.split.i.i ]
+  %.3.i.i = phi i32 [ %76, %73 ], [ %.283.i.i, %81 ], [ %.3.ph.i.i, %.sink.split.i.i ]
   %101 = and i8 %100, -2
   %switch.i6.i = icmp eq i8 %101, 48
   %102 = icmp eq i8 %100, 45
@@ -26663,7 +26663,7 @@ Vec_WrdStart.exit72:                              ; preds = %._crit_edge96, %346
   br label %.critedge
 
 380:                                              ; preds = %._crit_edge99, %14
-  %.049 = phi i32 [ %15, %14 ], [ %305, %._crit_edge99 ]
+  %.049 = phi i32 [ %305, %._crit_edge99 ], [ %15, %14 ]
   %381 = icmp eq i32 %.049, 0
   br i1 %381, label %.critedge, label %382
 
@@ -26980,7 +26980,7 @@ define i32 @Exa7_ManGenCnf(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %57
 
 57:                                               ; preds = %53, %.lr.ph.i.i
-  %.1.i.i = phi i32 [ %.030.i.i, %.lr.ph.i.i ], [ %54, %53 ]
+  %.1.i.i = phi i32 [ %54, %53 ], [ %.030.i.i, %.lr.ph.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !571
@@ -27014,7 +27014,7 @@ define i32 @Exa7_ManGenCnf(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %Exa7_AddClause4.exit
 
 Exa7_AddClause4.exit:                             ; preds = %.lr.ph.i.i, %._crit_edge.i.i, %._crit_edge33.i.i
-  %.024.i.i = phi i32 [ 1, %._crit_edge.i.i ], [ 1, %._crit_edge33.i.i ], [ 0, %.lr.ph.i.i ]
+  %.024.i.i = phi i32 [ 1, %._crit_edge33.i.i ], [ 1, %._crit_edge.i.i ], [ 0, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %66 = add nsw i32 %.024.i.i, %.1122293
   %exitcond.not = icmp eq i32 %45, %2
@@ -27055,7 +27055,7 @@ Exa7_AddClause4.exit:                             ; preds = %.lr.ph.i.i, %._crit
   br label %80
 
 80:                                               ; preds = %76, %.lr.ph.i.i136
-  %.1.i.i139 = phi i32 [ %.030.i.i138, %.lr.ph.i.i136 ], [ %77, %76 ]
+  %.1.i.i139 = phi i32 [ %77, %76 ], [ %.030.i.i138, %.lr.ph.i.i136 ]
   %indvars.iv.next.i.i140 = add nuw nsw i64 %indvars.iv.i.i137, 1
   %exitcond.not.i.i141 = icmp eq i64 %indvars.iv.next.i.i140, 4
   br i1 %exitcond.not.i.i141, label %._crit_edge.i.i142, label %.lr.ph.i.i136, !llvm.loop !571
@@ -27089,7 +27089,7 @@ Exa7_AddClause4.exit:                             ; preds = %.lr.ph.i.i, %._crit
   br label %Exa7_AddClause4.exit154
 
 Exa7_AddClause4.exit154:                          ; preds = %.lr.ph.i.i136, %._crit_edge.i.i142, %._crit_edge33.i.i145
-  %.024.i.i146 = phi i32 [ 1, %._crit_edge.i.i142 ], [ 1, %._crit_edge33.i.i145 ], [ 0, %.lr.ph.i.i136 ]
+  %.024.i.i146 = phi i32 [ 1, %._crit_edge33.i.i145 ], [ 1, %._crit_edge.i.i142 ], [ 0, %.lr.ph.i.i136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %89 = add nsw i32 %.024.i.i146, %.1122.lcssa
   br i1 %25, label %.lr.ph304, label %._crit_edge305
@@ -27151,7 +27151,7 @@ Exa7_AddClause4.exit154:                          ; preds = %.lr.ph.i.i136, %._c
   br label %111
 
 111:                                              ; preds = %107, %.lr.ph.i.i163
-  %.1.i.i166 = phi i32 [ %.030.i.i165, %.lr.ph.i.i163 ], [ %108, %107 ]
+  %.1.i.i166 = phi i32 [ %108, %107 ], [ %.030.i.i165, %.lr.ph.i.i163 ]
   %indvars.iv.next.i.i167 = add nuw nsw i64 %indvars.iv.i.i164, 1
   %exitcond.not.i.i168 = icmp eq i64 %indvars.iv.next.i.i167, 4
   br i1 %exitcond.not.i.i168, label %._crit_edge.i.i169, label %.lr.ph.i.i163, !llvm.loop !571
@@ -27185,7 +27185,7 @@ Exa7_AddClause4.exit154:                          ; preds = %.lr.ph.i.i136, %._c
   br label %Exa7_AddClause4.exit181
 
 Exa7_AddClause4.exit181:                          ; preds = %.lr.ph.i.i163, %._crit_edge.i.i169, %._crit_edge33.i.i172
-  %.024.i.i173 = phi i32 [ 1, %._crit_edge.i.i169 ], [ 1, %._crit_edge33.i.i172 ], [ 0, %.lr.ph.i.i163 ]
+  %.024.i.i173 = phi i32 [ 1, %._crit_edge33.i.i172 ], [ 1, %._crit_edge.i.i169 ], [ 0, %.lr.ph.i.i163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %120 = add nsw i32 %.024.i.i173, %.3124295
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -27213,7 +27213,7 @@ Exa7_AddClause4.exit181:                          ; preds = %.lr.ph.i.i163, %._c
   br label %127
 
 127:                                              ; preds = %123, %.lr.ph.i.i182
-  %.1.i.i185 = phi i32 [ %.030.i.i184, %.lr.ph.i.i182 ], [ %124, %123 ]
+  %.1.i.i185 = phi i32 [ %124, %123 ], [ %.030.i.i184, %.lr.ph.i.i182 ]
   %indvars.iv.next.i.i186 = add nuw nsw i64 %indvars.iv.i.i183, 1
   %exitcond.not.i.i187 = icmp eq i64 %indvars.iv.next.i.i186, 4
   br i1 %exitcond.not.i.i187, label %._crit_edge.i.i188, label %.lr.ph.i.i182, !llvm.loop !571
@@ -27247,7 +27247,7 @@ Exa7_AddClause4.exit181:                          ; preds = %.lr.ph.i.i163, %._c
   br label %Exa7_AddClause4.exit200
 
 Exa7_AddClause4.exit200:                          ; preds = %.lr.ph.i.i182, %._crit_edge.i.i188, %._crit_edge33.i.i191
-  %.024.i.i192 = phi i32 [ 1, %._crit_edge.i.i188 ], [ 1, %._crit_edge33.i.i191 ], [ 0, %.lr.ph.i.i182 ]
+  %.024.i.i192 = phi i32 [ 1, %._crit_edge33.i.i191 ], [ 1, %._crit_edge.i.i188 ], [ 0, %.lr.ph.i.i182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %136 = add nsw i32 %120, %.024.i.i192
   %137 = or disjoint i32 %104, 1
@@ -27276,7 +27276,7 @@ Exa7_AddClause4.exit200:                          ; preds = %.lr.ph.i.i182, %._c
   br label %144
 
 144:                                              ; preds = %140, %.lr.ph.i.i201
-  %.1.i.i204 = phi i32 [ %.030.i.i203, %.lr.ph.i.i201 ], [ %141, %140 ]
+  %.1.i.i204 = phi i32 [ %141, %140 ], [ %.030.i.i203, %.lr.ph.i.i201 ]
   %indvars.iv.next.i.i205 = add nuw nsw i64 %indvars.iv.i.i202, 1
   %exitcond.not.i.i206 = icmp eq i64 %indvars.iv.next.i.i205, 4
   br i1 %exitcond.not.i.i206, label %._crit_edge.i.i207, label %.lr.ph.i.i201, !llvm.loop !571
@@ -27310,7 +27310,7 @@ Exa7_AddClause4.exit200:                          ; preds = %.lr.ph.i.i182, %._c
   br label %Exa7_AddClause4.exit219
 
 Exa7_AddClause4.exit219:                          ; preds = %.lr.ph.i.i201, %._crit_edge.i.i207, %._crit_edge33.i.i210
-  %.024.i.i211 = phi i32 [ 1, %._crit_edge.i.i207 ], [ 1, %._crit_edge33.i.i210 ], [ 0, %.lr.ph.i.i201 ]
+  %.024.i.i211 = phi i32 [ 1, %._crit_edge33.i.i210 ], [ 1, %._crit_edge.i.i207 ], [ 0, %.lr.ph.i.i201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %153 = add nsw i32 %136, %.024.i.i211
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -27338,7 +27338,7 @@ Exa7_AddClause4.exit219:                          ; preds = %.lr.ph.i.i201, %._c
   br label %160
 
 160:                                              ; preds = %156, %.lr.ph.i.i220
-  %.1.i.i223 = phi i32 [ %.030.i.i222, %.lr.ph.i.i220 ], [ %157, %156 ]
+  %.1.i.i223 = phi i32 [ %157, %156 ], [ %.030.i.i222, %.lr.ph.i.i220 ]
   %indvars.iv.next.i.i224 = add nuw nsw i64 %indvars.iv.i.i221, 1
   %exitcond.not.i.i225 = icmp eq i64 %indvars.iv.next.i.i224, 4
   br i1 %exitcond.not.i.i225, label %._crit_edge.i.i226, label %.lr.ph.i.i220, !llvm.loop !571
@@ -27372,7 +27372,7 @@ Exa7_AddClause4.exit219:                          ; preds = %.lr.ph.i.i201, %._c
   br label %Exa7_AddClause4.exit238
 
 Exa7_AddClause4.exit238:                          ; preds = %.lr.ph.i.i220, %._crit_edge.i.i226, %._crit_edge33.i.i229
-  %.024.i.i230 = phi i32 [ 1, %._crit_edge.i.i226 ], [ 1, %._crit_edge33.i.i229 ], [ 0, %.lr.ph.i.i220 ]
+  %.024.i.i230 = phi i32 [ 1, %._crit_edge33.i.i229 ], [ 1, %._crit_edge.i.i226 ], [ 0, %.lr.ph.i.i220 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %169 = add nsw i32 %153, %.024.i.i230
   %170 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
@@ -27415,7 +27415,7 @@ Exa7_AddClause4.exit238:                          ; preds = %.lr.ph.i.i220, %._c
   br label %181
 
 181:                                              ; preds = %177, %.lr.ph.i
-  %.1.i = phi i32 [ %.030.i, %.lr.ph.i ], [ %178, %177 ]
+  %.1.i = phi i32 [ %178, %177 ], [ %.030.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !571
@@ -27452,7 +27452,7 @@ Exa7_AddClause4.exit238:                          ; preds = %.lr.ph.i.i220, %._c
   br label %Exa7_AddClause.exit
 
 Exa7_AddClause.exit:                              ; preds = %.lr.ph.i, %._crit_edge.i, %._crit_edge.thread.i, %._crit_edge33.i
-  %.024.i = phi i32 [ 1, %._crit_edge.i ], [ 1, %._crit_edge33.i ], [ 1, %._crit_edge.thread.i ], [ 0, %.lr.ph.i ]
+  %.024.i = phi i32 [ 1, %._crit_edge33.i ], [ 1, %._crit_edge.i ], [ 1, %._crit_edge.thread.i ], [ 0, %.lr.ph.i ]
   %190 = add nsw i32 %.024.i, %.3124.lcssa
   %191 = icmp slt i32 %90, %13
   br i1 %191, label %.lr.ph304, label %._crit_edge305, !llvm.loop !575
@@ -27508,7 +27508,7 @@ Exa7_AddClause.exit:                              ; preds = %.lr.ph.i, %._crit_e
   br label %205
 
 205:                                              ; preds = %201, %.lr.ph.i247
-  %.1.i250 = phi i32 [ %.030.i249, %.lr.ph.i247 ], [ %202, %201 ]
+  %.1.i250 = phi i32 [ %202, %201 ], [ %.030.i249, %.lr.ph.i247 ]
   %indvars.iv.next.i251 = add nuw nsw i64 %indvars.iv.i248, 1
   %exitcond.not.i252 = icmp eq i64 %indvars.iv.next.i251, %wide.trip.count.i246
   br i1 %exitcond.not.i252, label %._crit_edge.i253, label %.lr.ph.i247, !llvm.loop !571
@@ -27545,7 +27545,7 @@ Exa7_AddClause.exit:                              ; preds = %.lr.ph.i, %._crit_e
   br label %Exa7_AddClause.exit263
 
 Exa7_AddClause.exit263:                           ; preds = %.lr.ph.i247, %._crit_edge.i253, %._crit_edge.thread.i241, %._crit_edge33.i243
-  %.024.i244 = phi i32 [ 1, %._crit_edge.i253 ], [ 1, %._crit_edge33.i243 ], [ 1, %._crit_edge.thread.i241 ], [ 0, %.lr.ph.i247 ]
+  %.024.i244 = phi i32 [ 1, %._crit_edge33.i243 ], [ 1, %._crit_edge.i253 ], [ 1, %._crit_edge.thread.i241 ], [ 0, %.lr.ph.i247 ]
   %214 = add nsw i32 %.024.i244, %.4323
   %.not329 = icmp eq i32 %.1116324, 31
   %or.cond = or i1 %.not, %.not329
@@ -27634,7 +27634,7 @@ Exa7_AddClause.exit263:                           ; preds = %.lr.ph.i247, %._cri
   br label %254
 
 254:                                              ; preds = %250, %.lr.ph.i272
-  %.1.i275 = phi i32 [ %.030.i274, %.lr.ph.i272 ], [ %251, %250 ]
+  %.1.i275 = phi i32 [ %251, %250 ], [ %.030.i274, %.lr.ph.i272 ]
   %indvars.iv.next.i276 = add nuw nsw i64 %indvars.iv.i273, 1
   %exitcond.not.i277 = icmp eq i64 %indvars.iv.next.i276, %wide.trip.count.i271
   br i1 %exitcond.not.i277, label %._crit_edge.i278, label %.lr.ph.i272, !llvm.loop !571
@@ -27671,7 +27671,7 @@ Exa7_AddClause.exit263:                           ; preds = %.lr.ph.i247, %._cri
   br label %Exa7_AddClause.exit288
 
 Exa7_AddClause.exit288:                           ; preds = %.lr.ph.i272, %._crit_edge.i278, %._crit_edge.thread.i266, %._crit_edge33.i268
-  %.024.i269 = phi i32 [ 1, %._crit_edge.i278 ], [ 1, %._crit_edge33.i268 ], [ 1, %._crit_edge.thread.i266 ], [ 0, %.lr.ph.i272 ]
+  %.024.i269 = phi i32 [ 1, %._crit_edge33.i268 ], [ 1, %._crit_edge.i278 ], [ 1, %._crit_edge.thread.i266 ], [ 0, %.lr.ph.i272 ]
   %263 = add nsw i32 %.024.i269, %.5317
   br label %264
 

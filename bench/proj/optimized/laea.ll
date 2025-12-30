@@ -398,9 +398,9 @@ define internal { double, double } @_ZL14laea_e_inverse5PJ_XYP8PJconsts(double %
   br label %.thread
 
 .thread:                                          ; preds = %44, %31, %59, %65, %3
-  %.sroa.0.0 = phi double [ %0, %3 ], [ %0, %59 ], [ %0, %65 ], [ %29, %31 ], [ %29, %44 ]
-  %.sroa.9.0 = phi double [ %1, %3 ], [ %.sroa.9.1, %59 ], [ %.sroa.9.1, %65 ], [ %43, %31 ], [ %47, %44 ]
-  %.051 = phi double [ 0.000000e+00, %3 ], [ %63, %59 ], [ %66, %65 ], [ %38, %31 ], [ %46, %44 ]
+  %.sroa.0.0 = phi double [ %0, %3 ], [ %0, %65 ], [ %0, %59 ], [ %29, %31 ], [ %29, %44 ]
+  %.sroa.9.0 = phi double [ %1, %3 ], [ %.sroa.9.1, %65 ], [ %.sroa.9.1, %59 ], [ %43, %31 ], [ %47, %44 ]
+  %.051 = phi double [ 0.000000e+00, %3 ], [ %66, %65 ], [ %63, %59 ], [ %38, %31 ], [ %46, %44 ]
   %67 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.9.0) #7, !tbaa !49
   %68 = tail call double @asin(double noundef %.051) #7, !tbaa !49
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -781,8 +781,8 @@ define internal { double, double } @_ZL14laea_s_forward5PJ_LPP8PJconsts(double %
   br label %66
 
 66:                                               ; preds = %3, %39, %60, %50, %22
-  %.sroa.429.2 = phi double [ 0.000000e+00, %50 ], [ %.sroa.429.1, %22 ], [ 0.000000e+00, %3 ], [ %41, %39 ], [ %65, %60 ]
-  %.sroa.028.1 = phi double [ 0.000000e+00, %50 ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %3 ], [ %29, %39 ], [ %64, %60 ]
+  %.sroa.429.2 = phi double [ %.sroa.429.1, %22 ], [ 0.000000e+00, %50 ], [ 0.000000e+00, %3 ], [ %41, %39 ], [ %65, %60 ]
+  %.sroa.028.1 = phi double [ 0.000000e+00, %22 ], [ 0.000000e+00, %50 ], [ 0.000000e+00, %3 ], [ %29, %39 ], [ %64, %60 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.028.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.429.2, 1
   ret { double, double } %.fca.1.insert

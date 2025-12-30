@@ -411,7 +411,7 @@ syrk_beta.exit:                                   ; preds = %48, %41, %38, %37
   br label %97
 
 97:                                               ; preds = %89, %92, %94
-  %.0267 = phi i64 [ %90, %92 ], [ %96, %94 ], [ 384, %89 ]
+  %.0267 = phi i64 [ %96, %94 ], [ %90, %92 ], [ 384, %89 ]
   %98 = getelementptr double, ptr %12, i64 %.0268361
   %99 = getelementptr double, ptr %98, i64 %75
   %100 = tail call i32 @dgemm_incopy(i64 noundef %.0267, i64 noundef %.0262, ptr noundef %99, i64 noundef %16, ptr noundef %3) #7
@@ -512,7 +512,7 @@ syrk_beta.exit:                                   ; preds = %48, %41, %38, %37
   br label %136
 
 .loopexit317:                                     ; preds = %._crit_edge338, %._crit_edge338.us, %136
-  %133 = phi i64 [ %163, %._crit_edge338.us ], [ %140, %136 ], [ %183, %._crit_edge338 ]
+  %133 = phi i64 [ %140, %136 ], [ %163, %._crit_edge338.us ], [ %183, %._crit_edge338 ]
   %134 = load i64, ptr %81, align 8, !tbaa !3
   %135 = icmp slt i64 %138, %134
   br i1 %135, label %136, label %._crit_edge347, !llvm.loop !52
@@ -623,7 +623,7 @@ syrk_beta.exit:                                   ; preds = %48, %41, %38, %37
   br label %195
 
 195:                                              ; preds = %.lr.ph359, %188, %190
-  %.1263 = phi i64 [ %186, %188 ], [ %194, %190 ], [ 192, %.lr.ph359 ]
+  %.1263 = phi i64 [ %194, %190 ], [ %186, %188 ], [ 192, %.lr.ph359 ]
   %196 = mul nsw i64 %.0264357, %16
   %197 = getelementptr double, ptr %98, i64 %196
   %198 = tail call i32 @dgemm_incopy(i64 noundef %.0267, i64 noundef %.1263, ptr noundef %197, i64 noundef %16, ptr noundef %3) #7

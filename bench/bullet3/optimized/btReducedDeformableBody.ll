@@ -5961,7 +5961,7 @@ define dso_local void @_ZN23btReducedDeformableBody16getImpulseFactorEi(ptr dead
   br i1 %exitcond408.not, label %.split373.us, label %.preheader345.us, !llvm.loop !243
 
 .split373.us:                                     ; preds = %.split369.us.us, %._crit_edge361, %._crit_edge361.thread
-  %363 = phi ptr [ %.pre425, %._crit_edge361 ], [ %.ph, %._crit_edge361.thread ], [ %.pre425, %.split369.us.us ]
+  %363 = phi ptr [ %.ph, %._crit_edge361.thread ], [ %.pre425, %._crit_edge361 ], [ %.pre425, %.split369.us.us ]
   %364 = getelementptr inbounds nuw i8, ptr %1, i64 2064
   %365 = load i8, ptr %364, align 8, !tbaa !7, !range !145, !noundef !148
   %366 = trunc nuw i8 %365 to i1

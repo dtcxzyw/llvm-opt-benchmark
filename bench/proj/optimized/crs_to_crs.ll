@@ -512,7 +512,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
   call void @__cxa_end_catch()
   br label %125
 
-.critedge:                                        ; preds = %61, %90
+.critedge:                                        ; preds = %90, %61
   %115 = load ptr, ptr %9, align 8, !tbaa !9
   %116 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %117 = icmp eq ptr %115, %116
@@ -542,7 +542,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %_ZN
   br label %125
 
 125:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65, %113
-  %.1 = phi ptr [ %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74 ], [ null, %113 ]
+  %.1 = phi ptr [ %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65 ], [ null, %113 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74 ]
   ret ptr %.1
 
 126:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68
@@ -760,13 +760,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376: ; preds = %78
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %324
 
-.lr.ph:                                           ; preds = %_ZL14getOptionValuePKcS0_.exit, %_ZL14getOptionValuePKcS0_.exit371, %42, %_ZL14getOptionValuePKcS0_.exit369, %31, %_ZL14getOptionValuePKcS0_.exit367, %_ZL14getOptionValuePKcS0_.exit365
-  %.3286.ph = phi i8 [ 0, %42 ], [ 1, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0283470600, %31 ], [ %.0283470600, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0283470600, %_ZL14getOptionValuePKcS0_.exit ], [ %.0283470600, %_ZL14getOptionValuePKcS0_.exit365 ], [ %.0283470600, %_ZL14getOptionValuePKcS0_.exit371 ]
-  %.3280.ph = phi i8 [ 0, %42 ], [ 0, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0277471599, %31 ], [ %.0277471599, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0277471599, %_ZL14getOptionValuePKcS0_.exit ], [ %.0277471599, %_ZL14getOptionValuePKcS0_.exit365 ], [ %.0277471599, %_ZL14getOptionValuePKcS0_.exit371 ]
-  %.3276.ph = phi i8 [ %.0273472598, %42 ], [ %.0273472598, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0273472598, %31 ], [ %.0273472598, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0273472598, %_ZL14getOptionValuePKcS0_.exit ], [ %.0273472598, %_ZL14getOptionValuePKcS0_.exit365 ], [ %spec.select, %_ZL14getOptionValuePKcS0_.exit371 ]
-  %.3272.ph = phi i8 [ %.0269473597, %42 ], [ %.0269473597, %_ZL14getOptionValuePKcS0_.exit369 ], [ 0, %31 ], [ 1, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0269473597, %_ZL14getOptionValuePKcS0_.exit ], [ %.0269473597, %_ZL14getOptionValuePKcS0_.exit365 ], [ %.0269473597, %_ZL14getOptionValuePKcS0_.exit371 ]
-  %.3268.ph = phi double [ %.0265474596, %42 ], [ %.0265474596, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0265474596, %31 ], [ %.0265474596, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0265474596, %_ZL14getOptionValuePKcS0_.exit ], [ %26, %_ZL14getOptionValuePKcS0_.exit365 ], [ %.0265474596, %_ZL14getOptionValuePKcS0_.exit371 ]
-  %.3264.ph = phi ptr [ %.0261475595, %42 ], [ %.0261475595, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0261475595, %31 ], [ %.0261475595, %_ZL14getOptionValuePKcS0_.exit367 ], [ %22, %_ZL14getOptionValuePKcS0_.exit ], [ %.0261475595, %_ZL14getOptionValuePKcS0_.exit365 ], [ %.0261475595, %_ZL14getOptionValuePKcS0_.exit371 ]
+.lr.ph:                                           ; preds = %_ZL14getOptionValuePKcS0_.exit, %42, %_ZL14getOptionValuePKcS0_.exit369, %31, %_ZL14getOptionValuePKcS0_.exit367, %_ZL14getOptionValuePKcS0_.exit365, %_ZL14getOptionValuePKcS0_.exit371
+  %.3286.ph = phi i8 [ %.0283470600, %_ZL14getOptionValuePKcS0_.exit371 ], [ 0, %42 ], [ 1, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0283470600, %31 ], [ %.0283470600, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0283470600, %_ZL14getOptionValuePKcS0_.exit ], [ %.0283470600, %_ZL14getOptionValuePKcS0_.exit365 ]
+  %.3280.ph = phi i8 [ %.0277471599, %_ZL14getOptionValuePKcS0_.exit371 ], [ 0, %42 ], [ 0, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0277471599, %31 ], [ %.0277471599, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0277471599, %_ZL14getOptionValuePKcS0_.exit ], [ %.0277471599, %_ZL14getOptionValuePKcS0_.exit365 ]
+  %.3276.ph = phi i8 [ %spec.select, %_ZL14getOptionValuePKcS0_.exit371 ], [ %.0273472598, %42 ], [ %.0273472598, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0273472598, %31 ], [ %.0273472598, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0273472598, %_ZL14getOptionValuePKcS0_.exit ], [ %.0273472598, %_ZL14getOptionValuePKcS0_.exit365 ]
+  %.3272.ph = phi i8 [ %.0269473597, %_ZL14getOptionValuePKcS0_.exit371 ], [ %.0269473597, %42 ], [ %.0269473597, %_ZL14getOptionValuePKcS0_.exit369 ], [ 0, %31 ], [ 1, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0269473597, %_ZL14getOptionValuePKcS0_.exit ], [ %.0269473597, %_ZL14getOptionValuePKcS0_.exit365 ]
+  %.3268.ph = phi double [ %.0265474596, %_ZL14getOptionValuePKcS0_.exit371 ], [ %.0265474596, %42 ], [ %.0265474596, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0265474596, %31 ], [ %.0265474596, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0265474596, %_ZL14getOptionValuePKcS0_.exit ], [ %26, %_ZL14getOptionValuePKcS0_.exit365 ]
+  %.3264.ph = phi ptr [ %.0261475595, %_ZL14getOptionValuePKcS0_.exit371 ], [ %.0261475595, %42 ], [ %.0261475595, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0261475595, %31 ], [ %.0261475595, %_ZL14getOptionValuePKcS0_.exit367 ], [ %22, %_ZL14getOptionValuePKcS0_.exit ], [ %.0261475595, %_ZL14getOptionValuePKcS0_.exit365 ]
   %84 = getelementptr inbounds nuw i8, ptr %.0290469601, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !44
   %.not329 = icmp eq ptr %85, null
@@ -840,7 +840,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376: ; preds = %78
   br label %116
 
 116:                                              ; preds = %113, %110
-  %117 = phi i32 [ %115, %113 ], [ 3, %110 ]
+  %117 = phi i32 [ 3, %110 ], [ %115, %113 ]
   tail call void @proj_operation_factory_context_set_grid_availability_use(ptr noundef %.0260, ptr noundef nonnull %87, i32 noundef %117)
   %118 = tail call ptr @proj_create_operations(ptr noundef %.0260, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %87)
   tail call void @proj_operation_factory_context_destroy(ptr noundef nonnull %87)
@@ -899,8 +899,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376: ; preds = %78
   br i1 %or.cond11, label %146, label %140
 
 140:                                              ; preds = %.thread424, %137
-  %141 = phi i1 [ %136, %.thread424 ], [ %139, %137 ]
-  %142 = phi i1 [ false, %.thread424 ], [ %.not340, %137 ]
+  %141 = phi i1 [ %139, %137 ], [ %136, %.thread424 ]
+  %142 = phi i1 [ %.not340, %137 ], [ false, %.thread424 ]
   %143 = tail call i32 @proj_context_errno(ptr noundef nonnull %.0260)
   %144 = icmp eq ptr %129, null
   br i1 %144, label %159, label %145
@@ -968,7 +968,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376: ; preds = %78
   br label %.thread438
 
 .thread438:                                       ; preds = %.thread541, %145, %162, %164
-  %165 = phi i1 [ true, %164 ], [ true, %162 ], [ %142, %145 ], [ true, %.thread541 ]
+  %165 = phi i1 [ true, %162 ], [ true, %164 ], [ %142, %145 ], [ true, %.thread541 ]
   %.fr = freeze i1 %165
   br i1 %or.cond, label %166, label %167
 
@@ -1340,7 +1340,7 @@ _ZNSt6vectorI16PJCoordOperationSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit381: 
   br label %312
 
 312:                                              ; preds = %304, %298, %180
-  %.8 = phi ptr [ null, %180 ], [ %300, %298 ], [ %129, %304 ]
+  %.8 = phi ptr [ null, %180 ], [ %129, %304 ], [ %300, %298 ]
   %313 = load ptr, ptr %8, align 8, !tbaa !88
   %314 = load ptr, ptr %170, align 8, !tbaa !86
   %.not4.i.i.i.i = icmp eq ptr %313, %314
@@ -1382,7 +1382,7 @@ _ZNSt6vectorI16PJCoordOperationSaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP16PJ
   br label %324
 
 .critedge.thread:                                 ; preds = %159, %33, %44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.critedge, %122, %.thread434, %_ZNSt6vectorI16PJCoordOperationSaIS0_EED2Ev.exit, %157, %116
-  %.3 = phi ptr [ null, %159 ], [ null, %.critedge ], [ null, %116 ], [ null, %122 ], [ %.8, %_ZNSt6vectorI16PJCoordOperationSaIS0_EED2Ev.exit ], [ null, %157 ], [ %129, %.thread434 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ null, %44 ], [ null, %33 ]
+  %.3 = phi ptr [ null, %.critedge ], [ null, %116 ], [ null, %122 ], [ null, %157 ], [ %.8, %_ZNSt6vectorI16PJCoordOperationSaIS0_EED2Ev.exit ], [ %129, %.thread434 ], [ null, %159 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ null, %44 ], [ null, %33 ]
   ret ptr %.3
 
 324:                                              ; preds = %323, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376
@@ -2015,7 +2015,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_112ObjectKeeperESt14default_deleteIS1_EED2Ev.exi
   ret ptr %.0
 
 117:                                              ; preds = %22, %88, %92, %100, %108, %94, %90, %53, %57, %63, %55, %51, %15, %13
-  %.pn113.pn.pn = phi { ptr, i32 } [ %14, %13 ], [ %16, %15 ], [ %23, %22 ], [ %52, %51 ], [ %58, %57 ], [ %54, %53 ], [ %56, %55 ], [ %.pn, %63 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %109, %108 ], [ %101, %100 ]
+  %.pn113.pn.pn = phi { ptr, i32 } [ %16, %15 ], [ %14, %13 ], [ %23, %22 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %.pn, %63 ], [ %58, %57 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %109, %108 ], [ %101, %100 ]
   call fastcc void @_ZNSt10unique_ptrIN12_GLOBAL__N_112ObjectKeeperESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn113.pn.pn

@@ -1635,7 +1635,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDe
           to label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit104 unwind label %419
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit104: ; preds = %299, %297, %183, %181, %414, %364, %359, %296, %291, %180, %175, %68
-  %.merged54 = phi { ptr, i32 } [ %69, %68 ], [ %.pn49.pn.pn, %414 ], [ %.pn47, %364 ], [ %.pn44.pn, %359 ], [ %182, %183 ], [ %.pn42, %296 ], [ %.pn39.pn, %291 ], [ %.pn34.pn, %175 ], [ %.pn37, %180 ], [ %182, %181 ], [ %298, %297 ], [ %298, %299 ]
+  %.merged54 = phi { ptr, i32 } [ %69, %68 ], [ %.pn49.pn.pn, %414 ], [ %.pn47, %364 ], [ %.pn44.pn, %359 ], [ %.pn42, %296 ], [ %.pn39.pn, %291 ], [ %.pn37, %180 ], [ %.pn34.pn, %175 ], [ %182, %181 ], [ %182, %183 ], [ %298, %297 ], [ %298, %299 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit64
 
@@ -1771,7 +1771,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i: ; preds = %.no
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit.i
 
 common.resume:                                    ; preds = %176, %214, %161, %157, %174, %138, %142, %198, %194, %53
-  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %177, %176 ], [ %215, %214 ], [ %139, %138 ], [ %139, %142 ], [ %158, %157 ], [ %158, %161 ], [ %175, %174 ], [ %195, %198 ], [ %195, %194 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %215, %214 ], [ %177, %176 ], [ %139, %142 ], [ %139, %138 ], [ %158, %161 ], [ %158, %157 ], [ %175, %174 ], [ %195, %198 ], [ %195, %194 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #26
   resume { ptr, i32 } %common.resume.op
 
@@ -3955,8 +3955,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %61, %67, %31, %37
-  %.sink = phi ptr [ %6, %31 ], [ %6, %37 ], [ %3, %67 ], [ %3, %61 ]
-  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %.pn.pn.i, %37 ], [ %.pn.i, %67 ], [ %62, %61 ]
+  %.sink = phi ptr [ %6, %37 ], [ %6, %31 ], [ %3, %67 ], [ %3, %61 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %37 ], [ %32, %31 ], [ %.pn.i, %67 ], [ %62, %61 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #26
   resume { ptr, i32 } %common.resume.op
 

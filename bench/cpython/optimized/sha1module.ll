@@ -324,7 +324,7 @@ update.exit29.i:                                  ; preds = %65
   br label %_sha1_sha1_impl.exit
 
 _sha1_sha1_impl.exit:                             ; preds = %30, %34, %36, %43, %49, %50, %Py_DECREF.exit.i, %63, %64, %85
-  %.0.i = phi ptr [ null, %30 ], [ null, %34 ], [ null, %43 ], [ null, %36 ], [ null, %Py_DECREF.exit.i ], [ null, %49 ], [ null, %50 ], [ null, %63 ], [ %47, %85 ], [ %47, %64 ]
+  %.0.i = phi ptr [ null, %30 ], [ null, %43 ], [ null, %34 ], [ null, %36 ], [ null, %50 ], [ null, %49 ], [ null, %63 ], [ null, %Py_DECREF.exit.i ], [ %47, %85 ], [ %47, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %86
 
@@ -728,7 +728,7 @@ update.exit23:                                    ; preds = %.lr.ph.i20, %51
   br label %63
 
 63:                                               ; preds = %13, %62, %20, %11, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %11 ], [ null, %20 ], [ @_Py_NoneStruct, %62 ], [ null, %13 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %20 ], [ @_Py_NoneStruct, %62 ], [ null, %11 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

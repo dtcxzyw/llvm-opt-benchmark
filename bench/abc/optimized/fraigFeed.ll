@@ -872,7 +872,7 @@ Fraig_FeedBackCoveringStart.exit.i:               ; preds = %._crit_edge180.i.i,
   br i1 %exitcond.not.i57.i, label %Fraig_GetSmallestColumn.exit.i, label %.lr.ph.i54.i, !llvm.loop !74
 
 Fraig_GetSmallestColumn.exit.i:                   ; preds = %218, %.lr.ph.i54.i
-  %.018.i.i = phi i32 [ %215, %.lr.ph.i54.i ], [ %.116.i.i, %218 ]
+  %.018.i.i = phi i32 [ %.116.i.i, %218 ], [ %215, %.lr.ph.i54.i ]
   %.not.i = icmp eq i32 %.018.i.i, -1
   br i1 %.not.i, label %.preheader.i, label %220
 
@@ -1892,7 +1892,7 @@ define noalias noundef ptr @Fraig_ManSaveCounterExample(ptr noundef readonly cap
   br label %.loopexit
 
 .loopexit:                                        ; preds = %67, %40, %.preheader41, %.preheader, %69, %68
-  %.035 = phi ptr [ %calloc.i, %.preheader ], [ null, %69 ], [ null, %68 ], [ %calloc.i, %.preheader41 ], [ %calloc.i, %40 ], [ %calloc.i, %67 ]
+  %.035 = phi ptr [ null, %68 ], [ null, %69 ], [ %calloc.i, %.preheader ], [ %calloc.i, %.preheader41 ], [ %calloc.i, %40 ], [ %calloc.i, %67 ]
   ret ptr %.035
 }
 

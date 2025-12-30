@@ -93,8 +93,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   br label %195
 
 29:                                               ; preds = %23, %20, %17, %14, %9
-  %.sink = phi i32 [ 0, %9 ], [ 2, %17 ], [ 3, %20 ], [ 1, %14 ], [ 4, %23 ]
-  %30 = phi i1 [ false, %9 ], [ false, %17 ], [ false, %20 ], [ true, %14 ], [ false, %23 ]
+  %.sink = phi i32 [ 0, %9 ], [ 1, %14 ], [ 2, %17 ], [ 3, %20 ], [ 4, %23 ]
+  %30 = phi i1 [ false, %9 ], [ true, %14 ], [ false, %17 ], [ false, %20 ], [ false, %23 ]
   store i32 %.sink, ptr @test_type, align 4, !tbaa !11
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !9
@@ -408,7 +408,7 @@ thread-pre-split.i:                               ; preds = %58
   br label %.thread.i
 
 .thread.i:                                        ; preds = %189, %186, %178, %170, %162, %150, %144, %132, %126, %103, %93, %76, %70, %61, %53, %45
-  %.025.ph.i = phi i32 [ 1, %189 ], [ 0, %53 ], [ 0, %61 ], [ 0, %103 ], [ 0, %93 ], [ 0, %126 ], [ 0, %150 ], [ 0, %76 ], [ 0, %178 ], [ 0, %186 ], [ 0, %45 ], [ 0, %144 ], [ 0, %132 ], [ 0, %70 ], [ 0, %162 ], [ 0, %170 ]
+  %.025.ph.i = phi i32 [ 1, %189 ], [ 0, %45 ], [ 0, %53 ], [ 0, %61 ], [ 0, %93 ], [ 0, %126 ], [ 0, %150 ], [ 0, %178 ], [ 0, %186 ], [ 0, %144 ], [ 0, %132 ], [ 0, %103 ], [ 0, %76 ], [ 0, %70 ], [ 0, %162 ], [ 0, %170 ]
   %.pr64.i = load ptr, ptr %4, align 8, !tbaa !13
   %.not54.i = icmp eq ptr %.pr64.i, null
   br i1 %.not54.i, label %.thread65.i, label %190
@@ -418,7 +418,7 @@ thread-pre-split.i:                               ; preds = %58
   br label %.thread65.i
 
 .thread65.i:                                      ; preds = %190, %.thread.i, %181
-  %.02568.i = phi i32 [ %.025.ph.i, %.thread.i ], [ %.025.ph.i, %190 ], [ 1, %181 ]
+  %.02568.i = phi i32 [ %.025.ph.i, %190 ], [ %.025.ph.i, %.thread.i ], [ 1, %181 ]
   %192 = load ptr, ptr %3, align 8, !tbaa !13
   %.not55.i = icmp eq ptr %192, null
   br i1 %.not55.i, label %test_lib.exit, label %193

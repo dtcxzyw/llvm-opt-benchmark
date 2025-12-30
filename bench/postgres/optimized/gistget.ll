@@ -481,7 +481,7 @@ getNextGISTSearchItem.exit:                       ; preds = %gistkillitems.exit
   br i1 %244, label %177, label %.loopexit, !llvm.loop !10
 
 .critedge:                                        ; preds = %gistkillitems.exit, %getNextGISTSearchItem.exit, %93, %getNextGISTSearchItem.exit.i, %.thread35.i, %62, %9, %147
-  %.0 = phi i1 [ false, %62 ], [ true, %147 ], [ false, %93 ], [ false, %9 ], [ true, %.thread35.i ], [ false, %getNextGISTSearchItem.exit.i ], [ false, %getNextGISTSearchItem.exit ], [ false, %gistkillitems.exit ]
+  %.0 = phi i1 [ true, %147 ], [ false, %9 ], [ true, %.thread35.i ], [ false, %62 ], [ false, %getNextGISTSearchItem.exit.i ], [ false, %93 ], [ false, %getNextGISTSearchItem.exit ], [ false, %gistkillitems.exit ]
   ret i1 %.0
 }
 
@@ -836,7 +836,7 @@ BufferGetPage.exit:                               ; preds = %23, %29
   br label %index_getattr.exit139
 
 index_getattr.exit139:                            ; preds = %183, %186, %189, %192, %197, %199, %211
-  %.1.i136 = phi i64 [ %200, %199 ], [ %212, %211 ], [ %185, %183 ], [ %188, %186 ], [ %191, %189 ], [ %193, %192 ], [ %198, %197 ]
+  %.1.i136 = phi i64 [ %212, %211 ], [ %185, %183 ], [ %188, %186 ], [ %191, %189 ], [ %193, %192 ], [ %198, %197 ], [ %200, %199 ]
   %213 = load i32, ptr %.07694.i, align 8
   %214 = and i32 %213, 1
   %.not.i = icmp eq i32 %214, 0
@@ -1017,7 +1017,7 @@ index_getattr.exit139.thread:                     ; preds = %201
   br label %index_getattr.exit
 
 index_getattr.exit:                               ; preds = %281, %284, %287, %290, %295, %297, %309
-  %.1.i = phi i64 [ %296, %295 ], [ %310, %309 ], [ %298, %297 ], [ %283, %281 ], [ %286, %284 ], [ %289, %287 ], [ %291, %290 ]
+  %.1.i = phi i64 [ %310, %309 ], [ %298, %297 ], [ %283, %281 ], [ %286, %284 ], [ %289, %287 ], [ %291, %290 ], [ %296, %295 ]
   %311 = load i32, ptr %.27897.i, align 8
   %312 = and i32 %311, 1
   %.not158 = icmp eq i32 %312, 0
@@ -1067,8 +1067,8 @@ index_getattr.exit.thread:                        ; preds = %299, %index_getattr
   br i1 %337, label %256, label %gistindex_keytest.exit, !llvm.loop !14
 
 gistindex_keytest.exit:                           ; preds = %333, %149, %.preheader.i, %._crit_edge.i
-  %.3 = phi i8 [ 0, %149 ], [ 0, %.preheader.i ], [ %.0150, %._crit_edge.i ], [ %.0150, %333 ]
-  %.2 = phi i8 [ 0, %149 ], [ 0, %.preheader.i ], [ 0, %._crit_edge.i ], [ %.1, %333 ]
+  %.3 = phi i8 [ 0, %.preheader.i ], [ %.0150, %._crit_edge.i ], [ 0, %149 ], [ %.0150, %333 ]
+  %.2 = phi i8 [ 0, %.preheader.i ], [ 0, %._crit_edge.i ], [ 0, %149 ], [ %.1, %333 ]
   store ptr %124, ptr @CurrentMemoryContext, align 8
   %338 = load ptr, ptr %11, align 8
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 8
@@ -1364,7 +1364,7 @@ define dso_local zeroext i1 @gistcanreturn(ptr noundef %0, i32 noundef %1) local
   br label %14
 
 14:                                               ; preds = %12, %2, %9
-  %.0 = phi i1 [ true, %2 ], [ %.not7, %12 ], [ true, %9 ]
+  %.0 = phi i1 [ true, %9 ], [ true, %2 ], [ %.not7, %12 ]
   ret i1 %.0
 }
 

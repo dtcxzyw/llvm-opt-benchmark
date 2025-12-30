@@ -285,12 +285,6 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %.not563 = icmp eq i16 %131, 332
   br i1 %.not563, label %.preheader.outer, label %90, !llvm.loop !45
 
-.preheader.outer.backedge:                        ; preds = %._crit_edge.i602, %yy_get_next_buffer.exit.thread607, %yy_try_NUL_trans.exit
-  %.1543.ph.be = phi ptr [ %561, %yy_try_NUL_trans.exit ], [ %874, %yy_get_next_buffer.exit.thread607 ], [ %874, %._crit_edge.i602 ]
-  %.2537.ph.be = phi ptr [ %564, %yy_try_NUL_trans.exit ], [ %876, %yy_get_next_buffer.exit.thread607 ], [ %876, %._crit_edge.i602 ]
-  %.3.ph.be = phi i32 [ %.021.lcssa.i, %yy_try_NUL_trans.exit ], [ %877, %yy_get_next_buffer.exit.thread607 ], [ %918, %._crit_edge.i602 ]
-  br label %.preheader.outer
-
 .preheader.outer:                                 ; preds = %._crit_edge, %.preheader.outer.backedge
   %.1543.ph = phi ptr [ %.1543.ph.be, %.preheader.outer.backedge ], [ %.0542, %._crit_edge ]
   %.2537.ph = phi ptr [ %.2537.ph.be, %.preheader.outer.backedge ], [ %128, %._crit_edge ]
@@ -1263,9 +1257,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i569, %612
   br label %.loopexit611.backedge
 
 .loopexit611.backedge:                            ; preds = %._crit_edge.i587, %633, %823
-  %.0542.be = phi ptr [ %561, %633 ], [ %822, %823 ], [ %822, %._crit_edge.i587 ]
-  %.0535.be = phi ptr [ %635, %633 ], [ %830, %823 ], [ %830, %._crit_edge.i587 ]
-  %.0534.be = phi i32 [ %634, %633 ], [ %831, %823 ], [ %872, %._crit_edge.i587 ]
+  %.0542.be = phi ptr [ %822, %823 ], [ %561, %633 ], [ %822, %._crit_edge.i587 ]
+  %.0535.be = phi ptr [ %830, %823 ], [ %635, %633 ], [ %830, %._crit_edge.i587 ]
+  %.0534.be = phi i32 [ %831, %823 ], [ %634, %633 ], [ %872, %._crit_edge.i587 ]
   br label %.loopexit611
 
 636:                                              ; preds = %548
@@ -1754,6 +1748,12 @@ yy_get_next_buffer.exit.thread607:                ; preds = %647, %yy_get_next_b
   %878 = icmp ult ptr %874, %876
   br i1 %878, label %.lr.ph31.i592, label %.preheader.outer.backedge
 
+.preheader.outer.backedge:                        ; preds = %._crit_edge.i602, %yy_get_next_buffer.exit.thread607, %yy_try_NUL_trans.exit
+  %.1543.ph.be = phi ptr [ %561, %yy_try_NUL_trans.exit ], [ %874, %yy_get_next_buffer.exit.thread607 ], [ %874, %._crit_edge.i602 ]
+  %.2537.ph.be = phi ptr [ %564, %yy_try_NUL_trans.exit ], [ %876, %yy_get_next_buffer.exit.thread607 ], [ %876, %._crit_edge.i602 ]
+  %.3.ph.be = phi i32 [ %.021.lcssa.i, %yy_try_NUL_trans.exit ], [ %877, %yy_get_next_buffer.exit.thread607 ], [ %918, %._crit_edge.i602 ]
+  br label %.preheader.outer
+
 .lr.ph31.i592:                                    ; preds = %yy_get_next_buffer.exit.thread607, %._crit_edge.i602
   %.02129.i593 = phi i32 [ %918, %._crit_edge.i602 ], [ %877, %yy_get_next_buffer.exit.thread607 ]
   %.02328.i594 = phi ptr [ %919, %._crit_edge.i602 ], [ %874, %yy_get_next_buffer.exit.thread607 ]
@@ -2108,7 +2108,7 @@ yy_pop_state.exit:                                ; preds = %8
   br label %22
 
 22:                                               ; preds = %3, %switch.lookup, %yy_pop_state.exit
-  %.06 = phi i32 [ 258, %3 ], [ %switch.load8, %yy_pop_state.exit ], [ 258, %switch.lookup ]
+  %.06 = phi i32 [ %switch.load8, %yy_pop_state.exit ], [ 258, %3 ], [ 258, %switch.lookup ]
   ret i32 %.06
 }
 
@@ -2463,8 +2463,8 @@ jq_yyensure_buffer_stack.exit:                    ; preds = %8, %11, %22
   br label %48
 
 48:                                               ; preds = %34, %33
-  %49 = phi i64 [ %29, %33 ], [ %41, %34 ]
-  %50 = phi ptr [ %25, %33 ], [ %40, %34 ]
+  %49 = phi i64 [ %41, %34 ], [ %29, %33 ]
+  %50 = phi ptr [ %40, %34 ], [ %25, %33 ]
   %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %49
   store ptr %0, ptr %51, align 8, !tbaa !24
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 28

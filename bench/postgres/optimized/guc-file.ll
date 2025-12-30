@@ -558,7 +558,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i140, %236
   br i1 %.not137, label %.backedge.sink.split606.backedge, label %258
 
 .backedge.sink.split606.backedge:                 ; preds = %yy_try_NUL_trans.exit, %139
-  %.1122.ph.be = phi ptr [ %184, %yy_try_NUL_trans.exit ], [ %.1122, %139 ]
+  %.1122.ph.be = phi ptr [ %.1122, %139 ], [ %184, %yy_try_NUL_trans.exit ]
   br label %.backedge.sink.split606
 
 258:                                              ; preds = %yy_try_NUL_trans.exit
@@ -568,9 +568,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i140, %236
   br label %.loopexit185.backedge
 
 .loopexit185.backedge:                            ; preds = %._crit_edge.i160, %258, %468
-  %.0121.be = phi ptr [ %184, %258 ], [ %466, %468 ], [ %466, %._crit_edge.i160 ]
-  %.0113.be = phi ptr [ %260, %258 ], [ %475, %468 ], [ %475, %._crit_edge.i160 ]
-  %.0108.be = phi i32 [ %259, %258 ], [ %476, %468 ], [ %519, %._crit_edge.i160 ]
+  %.0121.be = phi ptr [ %466, %468 ], [ %184, %258 ], [ %466, %._crit_edge.i160 ]
+  %.0113.be = phi ptr [ %475, %468 ], [ %260, %258 ], [ %475, %._crit_edge.i160 ]
+  %.0108.be = phi i32 [ %476, %468 ], [ %259, %258 ], [ %519, %._crit_edge.i160 ]
   br label %.loopexit185
 
 261:                                              ; preds = %168
@@ -841,7 +841,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i140, %236
   br i1 %392, label %.lr.ph172.i, label %.critedge2.i, !llvm.loop !13
 
 .critedge2.i:                                     ; preds = %380, %.lr.ph172.i, %360, %359
-  %393 = phi i32 [ %.1156.i, %359 ], [ %373, %360 ], [ 0, %.lr.ph172.i ], [ %391, %380 ]
+  %393 = phi i32 [ %373, %360 ], [ %.1156.i, %359 ], [ 0, %.lr.ph172.i ], [ %391, %380 ]
   %394 = load ptr, ptr %76, align 8
   %395 = load i64, ptr %77, align 8
   %396 = getelementptr inbounds nuw ptr, ptr %394, i64 %395
@@ -1183,7 +1183,7 @@ yy_get_previous_state.exit163:                    ; preds = %yy_get_next_buffer.
   br label %575
 
 575:                                              ; preds = %137, %.loopexit608, %.loopexit489, %.loopexit384, %.loopexit256, %.loopexit, %147, %145, %144, %141
-  %.0 = phi i32 [ 99, %141 ], [ 0, %147 ], [ 1, %.loopexit ], [ 7, %.loopexit256 ], [ 2, %.loopexit384 ], [ 6, %.loopexit489 ], [ 3, %.loopexit608 ], [ 5, %144 ], [ 100, %145 ], [ 4, %137 ]
+  %.0 = phi i32 [ 99, %141 ], [ 5, %144 ], [ 100, %145 ], [ 0, %147 ], [ 1, %.loopexit ], [ 7, %.loopexit256 ], [ 2, %.loopexit384 ], [ 6, %.loopexit489 ], [ 3, %.loopexit608 ], [ 4, %137 ]
   ret i32 %.0
 }
 
@@ -1582,7 +1582,7 @@ define dso_local void @GUC_yy_switch_to_buffer(ptr noundef %0, ptr noundef captu
   br label %50
 
 50:                                               ; preds = %32, %31
-  %51 = phi ptr [ %25, %31 ], [ %.pre, %32 ]
+  %51 = phi ptr [ %.pre, %32 ], [ %25, %31 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds nuw ptr, ptr %51, i64 %53
@@ -2445,7 +2445,7 @@ GUC_yy_delete_buffer.exit.i:                      ; preds = %32, %.critedge.i.i
   br label %GUC_yypop_buffer_state.exit
 
 GUC_yypop_buffer_state.exit:                      ; preds = %26, %44, %47
-  %56 = phi ptr [ %43, %44 ], [ %25, %26 ], [ %43, %47 ]
+  %56 = phi ptr [ %25, %26 ], [ %43, %44 ], [ %43, %47 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
@@ -3172,8 +3172,8 @@ ParseConfigDirectory.exit:                        ; preds = %.lr.ph, %ParseConfi
   br label %.loopexit
 
 148:                                              ; preds = %69, %62
-  %.0163 = phi i32 [ %70, %69 ], [ %.1164, %62 ]
-  %.0160 = phi ptr [ %.1161, %69 ], [ null, %62 ]
+  %.0163 = phi i32 [ %.1164, %62 ], [ %70, %69 ]
+  %.0160 = phi ptr [ null, %62 ], [ %.1161, %69 ]
   %.not174 = icmp eq ptr %57, null
   br i1 %.not174, label %150, label %149
 
@@ -3190,7 +3190,7 @@ ParseConfigDirectory.exit:                        ; preds = %.lr.ph, %ParseConfi
   br label %.thread208
 
 .thread208:                                       ; preds = %.loopexit, %151, %150
-  %.0163206212 = phi i32 [ %.0163, %150 ], [ %.0163, %151 ], [ %54, %.loopexit ]
+  %.0163206212 = phi i32 [ %.0163, %151 ], [ %.0163, %150 ], [ %54, %.loopexit ]
   %152 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #29
   switch i32 %.0163206212, label %180 [
     i32 99, label %153
@@ -3299,7 +3299,7 @@ ParseConfigDirectory.exit:                        ; preds = %.lr.ph, %ParseConfi
   br label %record_config_file_error.exit179
 
 record_config_file_error.exit179:                 ; preds = %203, %202, %177, %176
-  %storemerge = phi ptr [ %162, %177 ], [ %162, %176 ], [ %188, %202 ], [ %188, %203 ]
+  %storemerge = phi ptr [ %162, %176 ], [ %162, %177 ], [ %188, %202 ], [ %188, %203 ]
   store ptr %storemerge, ptr %5, align 8
   store volatile i8 0, ptr %9, align 1
   %206 = add i32 %.0159.ph, 1
@@ -3329,7 +3329,7 @@ record_config_file_error.exit179:                 ; preds = %203, %202, %177, %1
   br label %.preheader, !llvm.loop !18
 
 .thread213:                                       ; preds = %146, %.loopexit, %.preheader, %208, %210, %record_config_file_error.exit
-  %.0196 = phi ptr [ undef, %record_config_file_error.exit ], [ %calloc.i, %208 ], [ %calloc.i, %.preheader ], [ %calloc.i, %210 ], [ %calloc.i, %.loopexit ], [ %calloc.i, %146 ]
+  %.0196 = phi ptr [ undef, %record_config_file_error.exit ], [ %calloc.i, %210 ], [ %calloc.i, %208 ], [ %calloc.i, %.preheader ], [ %calloc.i, %.loopexit ], [ %calloc.i, %146 ]
   %.0..0..0..0.86 = load volatile ptr, ptr %11, align 8
   %.not.i182 = icmp eq ptr %.0..0..0..0.86, null
   br i1 %.not.i182, label %GUC_yy_delete_buffer.exit, label %215
@@ -3498,8 +3498,8 @@ define dso_local ptr @DeescapeQuotedString(ptr noundef readonly captures(none) %
   br label %44
 
 44:                                               ; preds = %37, %12, %43, %17, %18, %19, %20, %.critedge, %36
-  %.sink = phi i8 [ 8, %12 ], [ %11, %43 ], [ %16, %36 ], [ 12, %17 ], [ 10, %18 ], [ 13, %19 ], [ 9, %20 ], [ %.0.lcssa.ph, %.critedge ], [ 39, %37 ]
-  %.1 = phi i32 [ %13, %12 ], [ %.06170, %43 ], [ %13, %36 ], [ %13, %17 ], [ %13, %18 ], [ %13, %19 ], [ %13, %20 ], [ %35, %.critedge ], [ %38, %37 ]
+  %.sink = phi i8 [ %11, %43 ], [ 12, %17 ], [ 10, %18 ], [ 13, %19 ], [ 9, %20 ], [ %.0.lcssa.ph, %.critedge ], [ %16, %36 ], [ 8, %12 ], [ 39, %37 ]
+  %.1 = phi i32 [ %.06170, %43 ], [ %13, %17 ], [ %13, %18 ], [ %13, %19 ], [ %13, %20 ], [ %35, %.critedge ], [ %13, %36 ], [ %13, %12 ], [ %38, %37 ]
   %45 = sext i32 %.06071 to i64
   %46 = getelementptr inbounds i8, ptr %7, i64 %45
   store i8 %.sink, ptr %46, align 1

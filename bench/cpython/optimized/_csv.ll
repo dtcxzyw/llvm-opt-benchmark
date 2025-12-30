@@ -905,7 +905,7 @@ _set_bool.exit:                                   ; preds = %_set_bool.exitthrea
   br label %Py_DECREF.exit149
 
 Py_DECREF.exit149:                                ; preds = %338, %_set_bool.exit, %344, %347
-  %.071291 = phi ptr [ %.071, %347 ], [ %.071, %_set_bool.exit ], [ %.071, %344 ], [ %72, %338 ]
+  %.071291 = phi ptr [ %.071, %_set_bool.exit ], [ %.071, %344 ], [ %.071, %347 ], [ %72, %338 ]
   %348 = load ptr, ptr %5, align 8, !tbaa !3
   %.not138 = icmp eq ptr %348, null
   br i1 %.not138, label %Py_DECREF.exit151, label %349
@@ -1095,7 +1095,7 @@ Py_DECREF.exit165:                                ; preds = %403, %400, %398, %P
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %21, %15, %410, %407, %405, %81, %78, %76, %67, %get_dialect_from_registry.exit, %74, %Py_DECREF.exit165, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %74 ], [ %.071291, %410 ], [ %68, %67 ], [ null, %get_dialect_from_registry.exit ], [ %.071291, %Py_DECREF.exit165 ], [ null, %81 ], [ null, %76 ], [ null, %78 ], [ %.071291, %405 ], [ %.071291, %407 ], [ null, %15 ], [ null, %21 ]
+  %.0 = phi ptr [ null, %3 ], [ %68, %67 ], [ null, %get_dialect_from_registry.exit ], [ null, %74 ], [ %.071291, %Py_DECREF.exit165 ], [ null, %76 ], [ null, %78 ], [ null, %81 ], [ %.071291, %405 ], [ %.071291, %407 ], [ %.071291, %410 ], [ null, %15 ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1404,7 +1404,7 @@ _PyUnicode_DATA.exit25.i:                         ; preds = %46, %44
   br label %.thread
 
 .thread:                                          ; preds = %17, %21, %6, %7, %49, %12
-  %.015 = phi i32 [ -1, %12 ], [ 0, %6 ], [ 0, %49 ], [ 0, %7 ], [ -1, %21 ], [ -1, %17 ]
+  %.015 = phi i32 [ -1, %12 ], [ 0, %49 ], [ 0, %7 ], [ 0, %6 ], [ -1, %21 ], [ -1, %17 ]
   ret i32 %.015
 }
 
@@ -1511,7 +1511,7 @@ define internal fastcc range(i32 -1, 1) i32 @_set_int(ptr noundef nonnull writeo
   br label %.thread
 
 .thread:                                          ; preds = %13, %7, %4, %15
-  %.1 = phi i32 [ 0, %4 ], [ 0, %15 ], [ -1, %7 ], [ -1, %13 ]
+  %.1 = phi i32 [ 0, %15 ], [ 0, %4 ], [ -1, %7 ], [ -1, %13 ]
   ret i32 %.1
 }
 
@@ -1539,7 +1539,7 @@ define internal fastcc range(i32 -1, 1) i32 @dialect_check_char(ptr noundef %0, 
   br i1 %12, label %.sink.split, label %15
 
 .sink.split:                                      ; preds = %7, %5, %4, %4
-  %.str.37.sink = phi ptr [ @.str.36, %5 ], [ @.str.36, %4 ], [ @.str.36, %4 ], [ @.str.37, %7 ]
+  %.str.37.sink = phi ptr [ @.str.36, %4 ], [ @.str.36, %4 ], [ @.str.36, %5 ], [ @.str.37, %7 ]
   %13 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !3
   %14 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %13, ptr noundef nonnull %.str.37.sink, ptr noundef %0) #5
   br label %15
@@ -1902,7 +1902,7 @@ Py_DECREF.exit:                                   ; preds = %._crit_edge, %107, 
   br label %Py_DECREF.exit48
 
 Py_DECREF.exit48:                                 ; preds = %Py_DECREF.exit, %Py_XDECREF.exit.i, %8, %1, %105, %102, %.split.us, %61, %58, %52, %.loopexit, %31, %35, %45, %43
-  %.0 = phi ptr [ null, %Py_XDECREF.exit.i ], [ null, %105 ], [ null, %8 ], [ null, %31 ], [ null, %43 ], [ null, %45 ], [ null, %35 ], [ %115, %.loopexit ], [ null, %61 ], [ null, %52 ], [ null, %58 ], [ null, %.split.us ], [ null, %102 ], [ null, %1 ], [ null, %Py_DECREF.exit ]
+  %.0 = phi ptr [ null, %43 ], [ null, %45 ], [ null, %35 ], [ null, %31 ], [ %115, %.loopexit ], [ null, %52 ], [ null, %58 ], [ null, %61 ], [ null, %.split.us ], [ null, %102 ], [ null, %105 ], [ null, %1 ], [ null, %8 ], [ null, %Py_XDECREF.exit.i ], [ null, %Py_DECREF.exit ]
   ret ptr %.0
 }
 
@@ -2120,7 +2120,7 @@ Py_DECREF.exit:                                   ; preds = %_Py_NewRef.exit, %4
   br label %46
 
 46:                                               ; preds = %Py_DECREF.exit, %._crit_edge, %Py_DECREF.exit34
-  %.0 = phi i32 [ %.lobit, %Py_DECREF.exit ], [ -1, %._crit_edge ], [ -1, %Py_DECREF.exit34 ]
+  %.0 = phi i32 [ -1, %Py_DECREF.exit34 ], [ -1, %._crit_edge ], [ %.lobit, %Py_DECREF.exit ]
   ret i32 %.0
 }
 
@@ -2610,7 +2610,7 @@ parse_grow_buff.exit.i161:                        ; preds = %194
   br label %parse_add_char.exit.thread
 
 .sink.split:                                      ; preds = %230, %222, %209, %137, %126, %118, %110, %42, %26, %8, %8, %68, %96, %166, %25, %16, %108, %217, %200
-  %.sink = phi i32 [ 3, %222 ], [ 4, %200 ], [ %218, %217 ], [ 1, %209 ], [ 7, %8 ], [ 5, %126 ], [ %., %137 ], [ 1, %118 ], [ %109, %108 ], [ 2, %110 ], [ 3, %42 ], [ %17, %16 ], [ 7, %8 ], [ 2, %26 ], [ 4, %25 ], [ 4, %166 ], [ 3, %96 ], [ 8, %68 ], [ 0, %230 ]
+  %.sink = phi i32 [ 4, %200 ], [ %218, %217 ], [ %109, %108 ], [ %17, %16 ], [ 4, %25 ], [ 4, %166 ], [ 3, %96 ], [ 8, %68 ], [ 7, %8 ], [ 7, %8 ], [ 2, %26 ], [ 3, %42 ], [ 2, %110 ], [ 1, %118 ], [ 5, %126 ], [ %., %137 ], [ 1, %209 ], [ 3, %222 ], [ 0, %230 ]
   store i32 %.sink, ptr %6, align 8, !tbaa !53
   br label %234
 
@@ -2618,7 +2618,7 @@ parse_grow_buff.exit.i161:                        ; preds = %194
   br label %parse_add_char.exit.thread
 
 parse_add_char.exit.thread:                       ; preds = %parse_grow_buff.exit.thread.i163, %183, %parse_grow_buff.exit.thread.i152, %149, %parse_grow_buff.exit.thread.i141, %79, %parse_grow_buff.exit.thread.i, %51, %222, %214, %209, %140, %121, %118, %105, %42, %39, %13, %234, %231, %225
-  %.0 = phi i32 [ 0, %234 ], [ -1, %231 ], [ -1, %13 ], [ -1, %39 ], [ -1, %42 ], [ -1, %222 ], [ -1, %parse_grow_buff.exit.thread.i ], [ -1, %105 ], [ -1, %118 ], [ -1, %121 ], [ -1, %140 ], [ -1, %parse_grow_buff.exit.thread.i141 ], [ -1, %parse_grow_buff.exit.thread.i152 ], [ -1, %209 ], [ -1, %225 ], [ -1, %214 ], [ -1, %51 ], [ -1, %79 ], [ -1, %149 ], [ -1, %183 ], [ -1, %parse_grow_buff.exit.thread.i163 ]
+  %.0 = phi i32 [ 0, %234 ], [ -1, %225 ], [ -1, %231 ], [ -1, %13 ], [ -1, %39 ], [ -1, %42 ], [ -1, %105 ], [ -1, %118 ], [ -1, %121 ], [ -1, %140 ], [ -1, %209 ], [ -1, %214 ], [ -1, %222 ], [ -1, %51 ], [ -1, %parse_grow_buff.exit.thread.i ], [ -1, %79 ], [ -1, %parse_grow_buff.exit.thread.i141 ], [ -1, %149 ], [ -1, %parse_grow_buff.exit.thread.i152 ], [ -1, %183 ], [ -1, %parse_grow_buff.exit.thread.i163 ]
   ret i32 %.0
 }
 
@@ -2938,7 +2938,7 @@ define internal ptr @csv_writerow(ptr noundef captures(none) %0, ptr noundef %1)
   br label %40
 
 40:                                               ; preds = %24, %39, %36, %30, %27
-  %.053 = phi i32 [ 0, %39 ], [ %29, %27 ], [ %38, %36 ], [ %35, %30 ], [ %26, %24 ]
+  %.053 = phi i32 [ 0, %39 ], [ %29, %27 ], [ %35, %30 ], [ %38, %36 ], [ %26, %24 ]
   %41 = icmp eq ptr %25, @_Py_NoneStruct
   %42 = getelementptr i8, ptr %25, i64 8
   %.val = load ptr, ptr %42, align 8, !tbaa !8
@@ -3023,13 +3023,13 @@ Py_DECREF.exit83:                                 ; preds = %58, %61, %64
   br i1 %76, label %Py_DECREF.exit87.sink.split, label %Py_DECREF.exit87
 
 Py_DECREF.exit87.sink.split:                      ; preds = %74, %55, %48
-  %.sink = phi ptr [ @_Py_NoneStruct, %55 ], [ %25, %48 ], [ %59, %74 ]
-  %.155.ph = phi i32 [ %53, %55 ], [ %46, %48 ], [ %72, %74 ]
+  %.sink = phi ptr [ %25, %48 ], [ @_Py_NoneStruct, %55 ], [ %59, %74 ]
+  %.155.ph = phi i32 [ %46, %48 ], [ %53, %55 ], [ %72, %74 ]
   tail call void @_Py_Dealloc(ptr noundef nonnull %.sink) #5
   br label %Py_DECREF.exit87
 
 Py_DECREF.exit87:                                 ; preds = %Py_DECREF.exit87.sink.split, %71, %74, %55, %52, %48, %45
-  %.155 = phi i32 [ %72, %71 ], [ %72, %74 ], [ %46, %45 ], [ %46, %48 ], [ %53, %52 ], [ %53, %55 ], [ %.155.ph, %Py_DECREF.exit87.sink.split ]
+  %.155 = phi i32 [ %46, %45 ], [ %46, %48 ], [ %53, %52 ], [ %53, %55 ], [ %72, %71 ], [ %72, %74 ], [ %.155.ph, %Py_DECREF.exit87.sink.split ]
   %.not72 = icmp eq i32 %.155, 0
   br i1 %.not72, label %77, label %22, !llvm.loop !73
 
@@ -3242,7 +3242,7 @@ PyUnicode_READ.exit.i:                            ; preds = %.lr.ph.i, %PyUnicod
   br label %.critedge
 
 .critedge:                                        ; preds = %join_check_rec_size.exit.i, %108, %65, %67, %70, %171, %168, %163, %82, %79, %77, %.loopexit, %105, %Py_DECREF.exit75, %7, %10, %101
-  %.0 = phi ptr [ null, %Py_DECREF.exit75 ], [ null, %.loopexit ], [ null, %7 ], [ null, %101 ], [ null, %65 ], [ null, %82 ], [ null, %105 ], [ null, %10 ], [ %166, %171 ], [ null, %77 ], [ null, %79 ], [ %166, %163 ], [ %166, %168 ], [ null, %70 ], [ null, %67 ], [ null, %108 ], [ null, %join_check_rec_size.exit.i ]
+  %.0 = phi ptr [ null, %101 ], [ null, %10 ], [ null, %7 ], [ null, %Py_DECREF.exit75 ], [ null, %105 ], [ null, %.loopexit ], [ null, %77 ], [ null, %79 ], [ null, %82 ], [ %166, %163 ], [ %166, %168 ], [ %166, %171 ], [ null, %70 ], [ null, %67 ], [ null, %65 ], [ null, %108 ], [ null, %join_check_rec_size.exit.i ]
   ret ptr %.0
 }
 
@@ -3466,7 +3466,7 @@ join_check_rec_size.exit:                         ; preds = %43, %48
   br label %60
 
 60:                                               ; preds = %join_check_rec_size.exit, %36, %54, %31
-  %.0 = phi i32 [ 0, %31 ], [ 1, %54 ], [ 0, %36 ], [ 0, %join_check_rec_size.exit ]
+  %.0 = phi i32 [ 1, %54 ], [ 0, %31 ], [ 0, %36 ], [ 0, %join_check_rec_size.exit ]
   ret i32 %.0
 }
 
@@ -3726,7 +3726,7 @@ switch.early.test:                                ; preds = %62
   br label %120
 
 120:                                              ; preds = %.thread146, %._crit_edge, %117, %109, %.thread143
-  %.2 = phi i64 [ -1, %.thread143 ], [ -1, %.thread146 ], [ %115, %109 ], [ %118, %117 ], [ %.2110.lcssa, %._crit_edge ]
+  %.2 = phi i64 [ -1, %.thread143 ], [ %115, %109 ], [ %118, %117 ], [ %.2110.lcssa, %._crit_edge ], [ -1, %.thread146 ]
   ret i64 %.2
 }
 
@@ -4073,7 +4073,7 @@ _call_dialect.exit:                               ; preds = %48, %50
   br label %Py_DECREF.exit31
 
 Py_DECREF.exit31:                                 ; preds = %58, %55, %53, %44, %41, %39, %34, %31, %29, %23, %20, %18, %3, %59
-  %.0 = phi ptr [ null, %3 ], [ null, %34 ], [ null, %44 ], [ %10, %59 ], [ null, %23 ], [ null, %18 ], [ null, %20 ], [ null, %29 ], [ null, %31 ], [ null, %39 ], [ null, %41 ], [ null, %53 ], [ null, %55 ], [ null, %58 ]
+  %.0 = phi ptr [ %10, %59 ], [ null, %3 ], [ null, %18 ], [ null, %20 ], [ null, %23 ], [ null, %29 ], [ null, %31 ], [ null, %34 ], [ null, %39 ], [ null, %41 ], [ null, %44 ], [ null, %53 ], [ null, %55 ], [ null, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -4224,7 +4224,7 @@ _call_dialect.exit:                               ; preds = %54, %56
   br label %Py_DECREF.exit36
 
 Py_DECREF.exit36:                                 ; preds = %64, %61, %59, %50, %47, %44, %38, %35, %33, %26, %23, %21, %3, %65
-  %.0 = phi ptr [ null, %26 ], [ null, %38 ], [ null, %50 ], [ %10, %65 ], [ null, %3 ], [ null, %21 ], [ null, %23 ], [ null, %33 ], [ null, %35 ], [ null, %44 ], [ null, %47 ], [ null, %59 ], [ null, %61 ], [ null, %64 ]
+  %.0 = phi ptr [ %10, %65 ], [ null, %3 ], [ null, %21 ], [ null, %23 ], [ null, %26 ], [ null, %33 ], [ null, %35 ], [ null, %38 ], [ null, %44 ], [ null, %47 ], [ null, %50 ], [ null, %59 ], [ null, %61 ], [ null, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -4306,7 +4306,7 @@ Py_DECREF.exit:                                   ; preds = %24, %31, %34
   br label %35
 
 35:                                               ; preds = %Py_DECREF.exit, %_call_dialect.exit, %3, %14
-  %.0 = phi ptr [ null, %3 ], [ %._Py_NoneStruct, %Py_DECREF.exit ], [ null, %_call_dialect.exit ], [ null, %14 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %3 ], [ null, %_call_dialect.exit ], [ %._Py_NoneStruct, %Py_DECREF.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -4357,7 +4357,7 @@ define internal noundef ptr @_csv_unregister_dialect(ptr noundef %0, ptr noundef
   br label %_csv_unregister_dialect_impl.exit
 
 _csv_unregister_dialect_impl.exit:                ; preds = %20, %18, %.thread, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %.thread ], [ null, %20 ], [ @_Py_NoneStruct, %18 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %20 ], [ null, %.thread ], [ @_Py_NoneStruct, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -4609,7 +4609,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exitthrea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %32, %Py_DECREF.exit, %45, %47, %17, %12, %7, %1
-  %.0 = phi i32 [ %., %47 ], [ -1, %1 ], [ -1, %7 ], [ -1, %12 ], [ -1, %17 ], [ -1, %45 ], [ -1, %32 ], [ -1, %Py_DECREF.exit ], [ -1, %.preheader ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %7 ], [ -1, %12 ], [ -1, %17 ], [ -1, %32 ], [ -1, %Py_DECREF.exit ], [ -1, %45 ], [ %., %47 ], [ -1, %.preheader ]
   ret i32 %.0
 }
 

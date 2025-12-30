@@ -546,7 +546,7 @@ default.unreachable34:                            ; preds = %64, %50, %34
   unreachable
 
 69:                                               ; preds = %22, %39, %38, %37, %36, %68, %67, %66, %65, %52, %53, %54, %55, %._crit_edge, %12, %17, %4
-  %.025 = phi i32 [ 0, %12 ], [ -38, %22 ], [ -38, %4 ], [ 0, %17 ], [ %63, %._crit_edge ], [ 0, %55 ], [ 0, %54 ], [ 0, %53 ], [ 0, %52 ], [ 0, %65 ], [ 0, %66 ], [ 0, %67 ], [ 0, %68 ], [ 0, %36 ], [ 0, %37 ], [ 0, %38 ], [ 0, %39 ]
+  %.025 = phi i32 [ -38, %4 ], [ 0, %17 ], [ 0, %12 ], [ -38, %22 ], [ %63, %._crit_edge ], [ 0, %55 ], [ 0, %54 ], [ 0, %53 ], [ 0, %52 ], [ 0, %65 ], [ 0, %66 ], [ 0, %67 ], [ 0, %68 ], [ 0, %36 ], [ 0, %37 ], [ 0, %38 ], [ 0, %39 ]
   ret i32 %.025
 }
 
@@ -767,8 +767,8 @@ define i32 @ff_alsa_get_device_list(ptr noundef %0, i32 noundef %1) local_unname
   br label %45
 
 45:                                               ; preds = %39, %42, %31, %34, %22, %20, %36
-  %.137 = phi i32 [ 0, %20 ], [ %37, %36 ], [ -12, %31 ], [ -12, %22 ], [ -12, %34 ], [ %37, %42 ], [ %37, %39 ]
-  %.1 = phi ptr [ %.03556, %20 ], [ %23, %36 ], [ %23, %31 ], [ null, %22 ], [ %23, %34 ], [ null, %42 ], [ null, %39 ]
+  %.137 = phi i32 [ 0, %20 ], [ %37, %36 ], [ -12, %22 ], [ -12, %34 ], [ -12, %31 ], [ %37, %42 ], [ %37, %39 ]
+  %.1 = phi ptr [ %.03556, %20 ], [ %23, %36 ], [ null, %22 ], [ %23, %34 ], [ %23, %31 ], [ null, %42 ], [ null, %39 ]
   call void @free(ptr noundef %19) #11
   call void @free(ptr noundef %15) #11
   call void @free(ptr noundef %17) #11
@@ -793,7 +793,7 @@ define i32 @ff_alsa_get_device_list(ptr noundef %0, i32 noundef %1) local_unname
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %8, %50, %._crit_edge
-  %.036.lcssa69 = phi i32 [ %.137, %._crit_edge ], [ %.137, %50 ], [ 0, %8 ]
+  %.036.lcssa69 = phi i32 [ %.137, %50 ], [ %.137, %._crit_edge ], [ 0, %8 ]
   %54 = load ptr, ptr %3, align 8, !tbaa !50
   %55 = call i32 @snd_device_name_free_hint(ptr noundef %54) #11
   br label %56

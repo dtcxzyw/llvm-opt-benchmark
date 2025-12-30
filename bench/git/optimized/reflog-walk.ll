@@ -814,8 +814,8 @@ next_reflog_commit.exit:                          ; preds = %19
   br label %next_reflog_commit.exit.thread
 
 next_reflog_commit.exit.thread:                   ; preds = %23, %.lr.ph, %27, %40
-  %.120 = phi ptr [ %.01930, %27 ], [ %18, %40 ], [ %.01930, %.lr.ph ], [ %.01930, %23 ]
-  %.1 = phi ptr [ %.01732, %27 ], [ %6, %40 ], [ %.01732, %.lr.ph ], [ %.01732, %23 ]
+  %.120 = phi ptr [ %18, %40 ], [ %.01930, %27 ], [ %.01930, %.lr.ph ], [ %.01930, %23 ]
+  %.1 = phi ptr [ %6, %40 ], [ %.01732, %27 ], [ %.01732, %.lr.ph ], [ %.01732, %23 ]
   %41 = add nuw i64 %.01831, 1
   %42 = load i64, ptr %2, align 8, !tbaa !9
   %43 = icmp ult i64 %41, %42

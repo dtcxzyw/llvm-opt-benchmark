@@ -733,7 +733,7 @@ lbttcp_tag_find.exit.thread.sink.split:           ; preds = %68, %lbttcp_tag_fin
   br label %lbttcp_tag_find.exit.thread
 
 lbttcp_tag_find.exit.thread:                      ; preds = %50, %lbttcp_tag_find.exit.thread.sink.split, %.preheader.i.i, %lbttcp_tag_locate.exit.i, %68, %67, %lbttcp_tag_find.exit, %4, %7
-  %.0 = phi i1 [ false, %lbttcp_tag_find.exit ], [ false, %lbttcp_tag_locate.exit.i ], [ false, %4 ], [ true, %lbttcp_tag_find.exit.thread.sink.split ], [ false, %67 ], [ false, %7 ], [ false, %68 ], [ false, %.preheader.i.i ], [ false, %50 ]
+  %.0 = phi i1 [ false, %7 ], [ false, %4 ], [ false, %lbttcp_tag_find.exit ], [ false, %67 ], [ false, %68 ], [ false, %lbttcp_tag_locate.exit.i ], [ false, %.preheader.i.i ], [ true, %lbttcp_tag_find.exit.thread.sink.split ], [ false, %50 ]
   ret i1 %.0
 }
 
@@ -991,7 +991,7 @@ define internal i32 @dissect_lbttcp_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %exitcond.not.i, label %.lr.ph.i.i, label %14, !llvm.loop !8
 
 .lr.ph.i.i:                                       ; preds = %18, %23, %29, %33, %39, %43, %46
-  %.028.i.ph = phi ptr [ %15, %23 ], [ %15, %43 ], [ %15, %39 ], [ %15, %33 ], [ %15, %29 ], [ %15, %18 ], [ null, %46 ]
+  %.028.i.ph = phi ptr [ null, %46 ], [ %15, %18 ], [ %15, %23 ], [ %15, %29 ], [ %15, %33 ], [ %15, %39 ], [ %15, %43 ]
   br label %47
 
 47:                                               ; preds = %79, %.lr.ph.i.i
@@ -1078,7 +1078,7 @@ lbttcp_tag_find.exit:                             ; preds = %lbttcp_tag_locate.e
   br i1 %.not, label %.thread, label %85
 
 .thread:                                          ; preds = %79, %lbttcp_tag_find.exit, %4, %lbttcp_tag_locate.exit.i, %.preheader.i
-  %.085136 = phi ptr [ %.028.i.ph, %lbttcp_tag_find.exit ], [ null, %4 ], [ null, %.preheader.i ], [ %.028.i.ph, %lbttcp_tag_locate.exit.i ], [ %.028.i.ph, %79 ]
+  %.085136 = phi ptr [ %.028.i.ph, %lbttcp_tag_find.exit ], [ %.028.i.ph, %lbttcp_tag_locate.exit.i ], [ null, %4 ], [ null, %.preheader.i ], [ %.028.i.ph, %79 ]
   %81 = load i32, ptr @proto_lbttcp, align 4
   %82 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %81, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.46)
   %83 = load i32, ptr @ett_lbttcp, align 4

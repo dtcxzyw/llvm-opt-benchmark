@@ -547,7 +547,7 @@ _ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit.thread: ; preds = %_ZNKSt9t
   br label %_ZNKSt9type_infoneERKS_.exit.thread
 
 _ZNKSt9type_infoneERKS_.exit.thread:              ; preds = %16, %_ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit.thread, %_ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit, %_ZNKSt9type_infoneERKS_.exit, %2
-  %.0 = phi i8 [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 1, %2 ], [ 1, %_ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit ], [ 0, %_ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit.thread ], [ 0, %16 ]
+  %.0 = phi i8 [ 1, %2 ], [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 0, %_ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit.thread ], [ 1, %_ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit ], [ 0, %16 ]
   ret i8 %.0
 }
 
@@ -878,7 +878,7 @@ _ZNKSt9type_infoneERKS_.exit.thread11:            ; preds = %4, %_ZNKSt9type_inf
   br label %_ZNKSt9type_infoneERKS_.exit.thread
 
 _ZNKSt9type_infoneERKS_.exit.thread:              ; preds = %16, %_ZNKSt9type_infoneERKS_.exit.thread11, %27, %33, %_ZNKSt9type_infoneERKS_.exit, %2
-  %.0 = phi i1 [ false, %_ZNKSt9type_infoneERKS_.exit ], [ true, %2 ], [ false, %27 ], [ false, %_ZNKSt9type_infoneERKS_.exit.thread11 ], [ %38, %33 ], [ false, %16 ]
+  %.0 = phi i1 [ true, %2 ], [ false, %_ZNKSt9type_infoneERKS_.exit ], [ false, %27 ], [ false, %_ZNKSt9type_infoneERKS_.exit.thread11 ], [ %38, %33 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -1179,7 +1179,7 @@ _ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit: ; preds = %_ZNKSt9type_inf
   br label %_ZNKSt9type_infoneERKS_.exit.thread
 
 _ZNKSt9type_infoneERKS_.exit.thread:              ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread.i, %16, %31, %37, %43, %_ZNKSt9type_infoneERKS_.exit, %_ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit, %2
-  %.0 = phi i8 [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 1, %2 ], [ 0, %_ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit ], [ 0, %37 ], [ 0, %31 ], [ %49, %43 ], [ 0, %16 ], [ 0, %_ZNKSt9type_infoeqERKS_.exit.thread.i ]
+  %.0 = phi i8 [ 1, %2 ], [ 0, %_ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit ], [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 0, %37 ], [ 0, %31 ], [ %49, %43 ], [ 0, %16 ], [ 0, %_ZNKSt9type_infoeqERKS_.exit.thread.i ]
   ret i8 %.0
 }
 
@@ -1689,7 +1689,7 @@ _ZNKSt9type_infoneERKS_.exit.thread19:            ; preds = %4, %_ZNKSt9type_inf
   br i1 %or.cond.not, label %37, label %_ZNKSt9type_infoneERKS_.exit.thread, !llvm.loop !34
 
 _ZNKSt9type_infoneERKS_.exit.thread:              ; preds = %37, %.preheader, %16, %28, %23, %_ZNKSt9type_infoneERKS_.exit, %_ZNKSt9type_infoneERKS_.exit.thread19, %2
-  %.014 = phi i1 [ false, %_ZNKSt9type_infoneERKS_.exit ], [ true, %2 ], [ false, %_ZNKSt9type_infoneERKS_.exit.thread19 ], [ false, %23 ], [ false, %28 ], [ false, %16 ], [ true, %.preheader ], [ %42, %37 ]
+  %.014 = phi i1 [ true, %2 ], [ false, %_ZNKSt9type_infoneERKS_.exit.thread19 ], [ false, %_ZNKSt9type_infoneERKS_.exit ], [ false, %28 ], [ false, %23 ], [ false, %16 ], [ true, %.preheader ], [ %42, %37 ]
   ret i1 %.014
 }
 
@@ -1832,7 +1832,7 @@ _ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit: ; preds = %_ZNKSt9type_inf
   br i1 %52, label %_ZNKSt9type_infoneERKS_.exit.thread, label %46
 
 _ZNKSt9type_infoneERKS_.exit.thread:              ; preds = %46, %47, %.preheader, %_ZNKSt9type_infoeqERKS_.exit.thread.i, %16, %36, %31, %_ZNKSt9type_infoneERKS_.exit, %_ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit, %2
-  %.014 = phi i8 [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 1, %2 ], [ 0, %_ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit ], [ 0, %31 ], [ 0, %36 ], [ 0, %_ZNKSt9type_infoeqERKS_.exit.thread.i ], [ 1, %.preheader ], [ 0, %16 ], [ 1, %46 ], [ 0, %47 ]
+  %.014 = phi i8 [ 1, %2 ], [ 0, %_ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit ], [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 0, %36 ], [ 0, %31 ], [ 0, %16 ], [ 0, %_ZNKSt9type_infoeqERKS_.exit.thread.i ], [ 1, %.preheader ], [ 1, %46 ], [ 0, %47 ]
   ret i8 %.014
 }
 
@@ -2111,7 +2111,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
   br label %.thread, !llvm.loop !37
 
 .thread:                                          ; preds = %.lr.ph49, %.lr.ph54, %.lr.ph70.split, %.lr.ph.split.split.split.preheader, %.lr.ph.split.split.split..thread.loopexit143_crit_edge, %..thread.loopexit143_crit_edge, %.lr.ph.split.split.us.split.preheader, %.lr.ph.split.split.us.split..thread.loopexit140_crit_edge, %..thread.loopexit140_crit_edge, %.lr.ph.split.us.split.split.preheader, %.lr.ph.split.us.split.split..thread.loopexit_crit_edge, %..thread.loopexit_crit_edge, %.thread.loopexit131.split.loop.exit, %.thread.loopexit127.split.loop.exit, %.thread.loopexit123.split.loop.exit, %.lr.ph.split.us.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split.us, %6
-  %.016.in.lcssa = phi i32 [ %8, %6 ], [ %8, %.lr.ph.split.split.split.us ], [ %63, %.thread.loopexit131.split.loop.exit ], [ %8, %.lr.ph.split.split.split.preheader ], [ %62, %.thread.loopexit127.split.loop.exit ], [ %8, %.lr.ph.split.us.split.us ], [ %8, %.lr.ph.split.split.us.split.preheader ], [ %8, %.lr.ph.split.split.us.split.us ], [ 0, %.lr.ph70.split ], [ 0, %.lr.ph54 ], [ %61, %.thread.loopexit123.split.loop.exit ], [ %8, %.lr.ph.split.us.split.split.preheader ], [ 0, %..thread.loopexit_crit_edge ], [ %64, %.lr.ph.split.us.split.split..thread.loopexit_crit_edge ], [ %65, %.lr.ph.split.split.us.split..thread.loopexit140_crit_edge ], [ 0, %..thread.loopexit140_crit_edge ], [ %66, %.lr.ph.split.split.split..thread.loopexit143_crit_edge ], [ 0, %..thread.loopexit143_crit_edge ], [ 0, %.lr.ph49 ]
+  %.016.in.lcssa = phi i32 [ %8, %6 ], [ %8, %.lr.ph.split.us.split.us ], [ %8, %.lr.ph.split.split.us.split.us ], [ %8, %.lr.ph.split.split.split.us ], [ %61, %.thread.loopexit123.split.loop.exit ], [ %62, %.thread.loopexit127.split.loop.exit ], [ %63, %.thread.loopexit131.split.loop.exit ], [ 0, %..thread.loopexit_crit_edge ], [ %64, %.lr.ph.split.us.split.split..thread.loopexit_crit_edge ], [ %8, %.lr.ph.split.us.split.split.preheader ], [ 0, %..thread.loopexit140_crit_edge ], [ %65, %.lr.ph.split.split.us.split..thread.loopexit140_crit_edge ], [ %8, %.lr.ph.split.split.us.split.preheader ], [ 0, %..thread.loopexit143_crit_edge ], [ %66, %.lr.ph.split.split.split..thread.loopexit143_crit_edge ], [ %8, %.lr.ph.split.split.split.preheader ], [ 0, %.lr.ph70.split ], [ 0, %.lr.ph54 ], [ 0, %.lr.ph49 ]
   %67 = icmp ne i32 %.016.in.lcssa, %8
   %. = zext i1 %67 to i8
   ret i8 %.
@@ -2262,12 +2262,12 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule16ge
   br i1 %or.cond48, label %.split.split.split, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %41, %.lr.ph34, %25, %.lr.ph43.split, %58, %.lr.ph
-  %.us-phi = phi double [ %62, %58 ], [ %54, %.lr.ph ], [ %37, %.lr.ph34 ], [ %28, %25 ], [ %20, %.lr.ph43.split ], [ %46, %41 ]
+  %.us-phi = phi double [ %54, %.lr.ph ], [ %62, %58 ], [ %20, %.lr.ph43.split ], [ %28, %25 ], [ %37, %.lr.ph34 ], [ %46, %41 ]
   store double %.us-phi, ptr %5, align 8, !tbaa !24
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split.split.us.split, %32, %.split.us.split.split, %17, %.split.split.split, %50, %.split.us.split.us, %.split.split.split.us, %.split.split.us.split.us, %.critedge
-  %.2 = phi i8 [ 1, %.critedge ], [ 0, %17 ], [ 0, %.split.split.us.split.us ], [ 0, %.split.us.split.us ], [ 0, %32 ], [ 0, %.split.split.split.us ], [ 0, %.split.us.split.split ], [ 0, %.split.split.split ], [ 0, %50 ], [ 0, %.split.split.us.split ]
+  %.2 = phi i8 [ 1, %.critedge ], [ 0, %.split.split.us.split.us ], [ 0, %.split.split.split.us ], [ 0, %.split.us.split.us ], [ 0, %50 ], [ 0, %.split.split.split ], [ 0, %17 ], [ 0, %.split.us.split.split ], [ 0, %32 ], [ 0, %.split.split.us.split ]
   ret i8 %.2
 }
 

@@ -1587,7 +1587,7 @@ _ZN5uu_dd11BlockWriter4sync17h81da5c6b44c60156E.exit: ; preds = %21
           to label %"_ZN4core3ptr60drop_in_place$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$17hf022b4fa9af23ac3E.exit" unwind label %66
 
 .body.thread:                                     ; preds = %68, %59, %.body, %66
-  %.pn = phi { ptr, i32 } [ %60, %59 ], [ %lpad.thr_comm.split-lp, %.body ], [ %67, %66 ], [ %lpad.thr_comm, %68 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body ], [ %67, %66 ], [ %60, %59 ], [ %lpad.thr_comm, %68 ]
   invoke fastcc void @"_ZN4core3ptr39drop_in_place$LT$uu_dd..BlockWriter$GT$17h82d211ba3ce28b5fE"(ptr noalias noundef align 8 dereferenceable(48) %0) #27
           to label %71 unwind label %69
 
@@ -1600,7 +1600,7 @@ _ZN5uu_dd11BlockWriter4sync17h81da5c6b44c60156E.exit: ; preds = %21
   tail call fastcc void @"_ZN4core3ptr39drop_in_place$LT$uu_dd..BlockWriter$GT$17h82d211ba3ce28b5fE"(ptr noalias noundef align 8 dereferenceable(48) %0)
   br label %64
 
-68:                                               ; preds = %32, %40, %21, %33, %18
+68:                                               ; preds = %40, %33, %32, %18, %21
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17h7ca3b95c91f05aedE.llvm.4233002952263615725"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)

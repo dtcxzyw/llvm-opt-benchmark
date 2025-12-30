@@ -1378,8 +1378,8 @@ Abc_NodeSetTravIdPrevious.exit89.i:               ; preds = %._crit_edge.i.i.i.i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge2.i27, %553, %.critedge6.i39, %.critedge2.preheader.i24
-  %.sink = phi i32 [ 1, %.critedge2.preheader.i24 ], [ 0, %553 ], [ 0, %.critedge6.i39 ], [ 1, %.critedge2.i27 ]
-  %.0.ph = phi ptr [ inttoptr (i64 1 to ptr), %.critedge2.preheader.i24 ], [ %337, %553 ], [ %337, %.critedge6.i39 ], [ inttoptr (i64 1 to ptr), %.critedge2.i27 ]
+  %.sink = phi i32 [ 1, %.critedge2.preheader.i24 ], [ 0, %.critedge6.i39 ], [ 0, %553 ], [ 1, %.critedge2.i27 ]
+  %.0.ph = phi ptr [ inttoptr (i64 1 to ptr), %.critedge2.preheader.i24 ], [ %337, %.critedge6.i39 ], [ %337, %553 ], [ inttoptr (i64 1 to ptr), %.critedge2.i27 ]
   tail call fastcc void @Abc_NtkRetimeMinAreaUpdateLatches(ptr noundef %0, ptr noundef %176, i32 noundef %.sink, i32 noundef %2)
   br label %556
 
@@ -1703,7 +1703,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   br label %71
 
 common.ret33:                                     ; preds = %.critedge, %3, %60
-  %common.ret33.op = phi i32 [ %67, %60 ], [ %82, %.critedge ], [ %7, %3 ]
+  %common.ret33.op = phi i32 [ %67, %60 ], [ %7, %3 ], [ %82, %.critedge ]
   ret i32 %common.ret33.op
 
 60:                                               ; preds = %Abc_NodeSetTravIdCurrent.exit
@@ -1996,7 +1996,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %7, %._crit_edge.i.i
   br label %68
 
 common.ret53:                                     ; preds = %.critedge2, %4, %59
-  %common.ret53.op = phi ptr [ %66, %59 ], [ %97, %.critedge2 ], [ %6, %4 ]
+  %common.ret53.op = phi ptr [ %66, %59 ], [ %6, %4 ], [ %97, %.critedge2 ]
   ret ptr %common.ret53.op
 
 59:                                               ; preds = %Abc_NodeSetTravIdCurrent.exit
@@ -2746,11 +2746,11 @@ Abc_NodeSetTravIdCurrent.exit250:                 ; preds = %214, %._crit_edge.i
   br label %.critedge7
 
 .critedge7:                                       ; preds = %151, %209, %Abc_NodeSetTravIdCurrent.exit, %Vec_PtrPush.exit234, %Abc_NodeSetTravIdCurrent.exit250, %.critedge11
-  %307 = phi i32 [ %197, %Vec_PtrPush.exit234 ], [ %79, %Abc_NodeSetTravIdCurrent.exit250 ], [ %79, %.critedge11 ], [ %79, %Abc_NodeSetTravIdCurrent.exit ], [ %197, %209 ], [ %79, %151 ]
-  %308 = phi i32 [ %199, %Vec_PtrPush.exit234 ], [ %80, %Abc_NodeSetTravIdCurrent.exit250 ], [ %80, %.critedge11 ], [ %80, %Abc_NodeSetTravIdCurrent.exit ], [ %199, %209 ], [ %80, %151 ]
-  %.0169 = phi ptr [ %93, %Vec_PtrPush.exit234 ], [ %220, %Abc_NodeSetTravIdCurrent.exit250 ], [ %275, %.critedge11 ], [ %93, %Abc_NodeSetTravIdCurrent.exit ], [ %93, %209 ], [ %93, %151 ]
-  %.0168 = phi ptr [ %99, %Vec_PtrPush.exit234 ], [ %82, %Abc_NodeSetTravIdCurrent.exit250 ], [ %276, %.critedge11 ], [ %99, %Abc_NodeSetTravIdCurrent.exit ], [ %99, %209 ], [ %99, %151 ]
-  %.0167 = phi ptr [ %82, %Vec_PtrPush.exit234 ], [ %226, %Abc_NodeSetTravIdCurrent.exit250 ], [ %274, %.critedge11 ], [ %82, %Abc_NodeSetTravIdCurrent.exit ], [ %82, %209 ], [ %82, %151 ]
+  %307 = phi i32 [ %79, %.critedge11 ], [ %79, %Abc_NodeSetTravIdCurrent.exit250 ], [ %197, %Vec_PtrPush.exit234 ], [ %79, %Abc_NodeSetTravIdCurrent.exit ], [ %197, %209 ], [ %79, %151 ]
+  %308 = phi i32 [ %80, %.critedge11 ], [ %80, %Abc_NodeSetTravIdCurrent.exit250 ], [ %199, %Vec_PtrPush.exit234 ], [ %80, %Abc_NodeSetTravIdCurrent.exit ], [ %199, %209 ], [ %80, %151 ]
+  %.0169 = phi ptr [ %275, %.critedge11 ], [ %220, %Abc_NodeSetTravIdCurrent.exit250 ], [ %93, %Vec_PtrPush.exit234 ], [ %93, %Abc_NodeSetTravIdCurrent.exit ], [ %93, %209 ], [ %93, %151 ]
+  %.0168 = phi ptr [ %276, %.critedge11 ], [ %82, %Abc_NodeSetTravIdCurrent.exit250 ], [ %99, %Vec_PtrPush.exit234 ], [ %99, %Abc_NodeSetTravIdCurrent.exit ], [ %99, %209 ], [ %99, %151 ]
+  %.0167 = phi ptr [ %274, %.critedge11 ], [ %226, %Abc_NodeSetTravIdCurrent.exit250 ], [ %82, %Vec_PtrPush.exit234 ], [ %82, %Abc_NodeSetTravIdCurrent.exit ], [ %82, %209 ], [ %82, %151 ]
   %309 = load i32, ptr %7, align 4, !tbaa !31
   %310 = load i32, ptr %6, align 8, !tbaa !45
   %311 = icmp eq i32 %309, %310

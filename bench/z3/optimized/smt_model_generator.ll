@@ -1690,7 +1690,7 @@ define hidden noundef zeroext i1 @_ZN3smt15model_generator14visit_childrenERKNS_
   br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %49, %46
-  %.137.i.i.be = phi ptr [ %48, %46 ], [ %.old.i.i, %49 ]
+  %.137.i.i.be = phi ptr [ %.old.i.i, %49 ], [ %48, %46 ]
   br label %.lr.ph38.i.i, !llvm.loop !232
 
 .loopexit:                                        ; preds = %35, %49, %46, %.preheader.i.i
@@ -2603,7 +2603,7 @@ _ZN6vectorIN3smt22model_value_dependencyELb0EjED2Ev.exit: ; preds = %_ZN9table2m
   br label %140
 
 140:                                              ; preds = %138, %110, %108, %52
-  %.pn52.pn = phi { ptr, i32 } [ %109, %108 ], [ %111, %110 ], [ %53, %52 ], [ %139, %138 ]
+  %.pn52.pn = phi { ptr, i32 } [ %53, %52 ], [ %111, %110 ], [ %109, %108 ], [ %139, %138 ]
   call void @_ZN14core_hashtableI14obj_hash_entryI4sortE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %7) #20
   br label %141
 
@@ -3407,8 +3407,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i150: ; pr
   br label %.body
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.sink.split: ; preds = %.noexc153, %.noexc156, %.noexc141, %.noexc142
-  %.pre.i.i100.sink = phi ptr [ %191, %.noexc141 ], [ %229, %.noexc142 ], [ %324, %.noexc156 ], [ %286, %.noexc153 ]
-  %.sink.ph = phi ptr [ %175, %.noexc141 ], [ %175, %.noexc142 ], [ %270, %.noexc156 ], [ %270, %.noexc153 ]
+  %.pre.i.i100.sink = phi ptr [ %229, %.noexc142 ], [ %191, %.noexc141 ], [ %324, %.noexc156 ], [ %286, %.noexc153 ]
+  %.sink.ph = phi ptr [ %175, %.noexc142 ], [ %175, %.noexc141 ], [ %270, %.noexc156 ], [ %270, %.noexc153 ]
   %.phi.trans.insert.i.i101 = getelementptr inbounds i8, ptr %.pre.i.i100.sink, i64 -4
   %.pre2.i.i102 = load i32, ptr %.phi.trans.insert.i.i101, align 4, !tbaa !41
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
@@ -3860,7 +3860,7 @@ _ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread: ; preds = %.noexc132, %_Z
   br i1 %.not27.old.i.i, label %.loopexit165, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %501, %498
-  %.137.i.i.be = phi ptr [ %500, %498 ], [ %.old.i.i, %501 ]
+  %.137.i.i.be = phi ptr [ %.old.i.i, %501 ], [ %500, %498 ]
   br label %.lr.ph38.i.i, !llvm.loop !281
 
 502:                                              ; preds = %461, %_Z17is_uninterp_constPK4expr.exit.thread162
@@ -3960,7 +3960,7 @@ _ZNK3smt7context11is_relevantEPNS_5enodeE.exit.thread: ; preds = %.noexc132, %_Z
   br i1 %.not59, label %._crit_edge185, label %440
 
 .body:                                            ; preds = %.loopexit172, %.loopexit.split-lp, %542, %167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %224, %231, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i150, %319, %326, %502, %91, %54
-  %.pn70.pn = phi { ptr, i32 } [ %55, %54 ], [ %503, %502 ], [ %92, %91 ], [ %543, %542 ], [ %320, %319 ], [ %327, %326 ], [ %168, %167 ], [ %314, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i150 ], [ %225, %224 ], [ %232, %231 ], [ %219, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %lpad.loopexit, %.loopexit172 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn70.pn = phi { ptr, i32 } [ %55, %54 ], [ %92, %91 ], [ %503, %502 ], [ %168, %167 ], [ %232, %231 ], [ %219, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %225, %224 ], [ %327, %326 ], [ %314, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i150 ], [ %320, %319 ], [ %543, %542 ], [ %lpad.loopexit, %.loopexit172 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN6bufferIN3smt22model_value_dependencyELb1ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %12) #20
@@ -4396,7 +4396,7 @@ _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %_ZNK4decl13get_fami
   br i1 %.not27.old.i.i, label %_ZNK3smt7context10get_theoryEi.exit.thread, label %.lr.ph38.i.i.backedge
 
 .lr.ph38.i.i.backedge:                            ; preds = %39, %36
-  %.137.i.i.be = phi ptr [ %38, %36 ], [ %.old.i.i, %39 ]
+  %.137.i.i.be = phi ptr [ %.old.i.i, %39 ], [ %38, %36 ]
   br label %.lr.ph38.i.i, !llvm.loop !281
 
 40:                                               ; preds = %_ZNK4decl13get_family_idEv.exit
@@ -4428,8 +4428,8 @@ _ZNK3smt7context10get_theoryEi.exit:              ; preds = %_ZNK6vectorIPN3smt6
   %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(53) %.pre.i.then.val.i, ptr noundef nonnull %1)
   br label %_ZNK3smt7context10get_theoryEi.exit.thread
 
-_ZNK3smt7context10get_theoryEi.exit.thread:       ; preds = %25, %20, %39, %36, %31, %.preheader.i.i, %_ZNK4decl13get_family_idEv.exit, %40, %_ZNK6vectorIPN3smt6theoryELb0EjE4sizeEv.exit.i.i.i, %_ZNK3smt7context10get_theoryEi.exit, %51
-  %.0 = phi i1 [ true, %40 ], [ false, %_ZNK4decl13get_family_idEv.exit ], [ true, %_ZNK3smt7context10get_theoryEi.exit ], [ %55, %51 ], [ true, %_ZNK6vectorIPN3smt6theoryELb0EjE4sizeEv.exit.i.i.i ], [ true, %.preheader.i.i ], [ false, %31 ], [ true, %36 ], [ true, %39 ], [ %.not.i, %20 ], [ %.not.i, %25 ]
+_ZNK3smt7context10get_theoryEi.exit.thread:       ; preds = %25, %20, %39, %36, %31, %.preheader.i.i, %_ZNK4decl13get_family_idEv.exit, %_ZNK6vectorIPN3smt6theoryELb0EjE4sizeEv.exit.i.i.i, %40, %_ZNK3smt7context10get_theoryEi.exit, %51
+  %.0 = phi i1 [ true, %_ZNK3smt7context10get_theoryEi.exit ], [ %55, %51 ], [ true, %40 ], [ true, %_ZNK6vectorIPN3smt6theoryELb0EjE4sizeEv.exit.i.i.i ], [ false, %_ZNK4decl13get_family_idEv.exit ], [ true, %.preheader.i.i ], [ true, %36 ], [ true, %39 ], [ false, %31 ], [ %.not.i, %20 ], [ %.not.i, %25 ]
   ret i1 %.0
 }
 
@@ -4763,7 +4763,7 @@ _ZNK3smt15model_generator9get_valueEPNS_5enodeE.exit60: ; preds = %110, %122
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core15get_func_interpEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %168, %165
-  %.137.i.i.i.i.be = phi ptr [ %167, %165 ], [ %.old.i.i.i.i, %168 ]
+  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %168 ], [ %167, %165 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !298
 
 169:                                              ; preds = %_ZNK3smt15model_generator9get_valueEPNS_5enodeE.exit60, %._crit_edge.i
@@ -4987,7 +4987,7 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit:             ; preds = %249, %252
   br label %257
 
 256:                                              ; preds = %228, %240
-  %.pn.pn = phi { ptr, i32 } [ %229, %228 ], [ %241, %240 ]
+  %.pn.pn = phi { ptr, i32 } [ %241, %240 ], [ %229, %228 ]
   call void @_ZN6bufferIP4exprLb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn
@@ -5231,7 +5231,7 @@ _ZNK6vectorIP13value_factoryLb0EjE8capacityEv.exit.thread.i.i.i.i: ; preds = %_Z
   br label %_ZN6vectorIP13value_factoryLb0EjE4setxEjRKS1_S4_.exit.i.i
 
 _ZN6vectorIP13value_factoryLb0EjE4setxEjRKS1_S4_.exit.i.i: ; preds = %.lr.ph.preheader.i.i.i.i, %20, %14, %_ZNK6vectorIP13value_factoryLb0EjE4sizeEv.exit.i.i.i
-  %27 = phi ptr [ %8, %_ZNK6vectorIP13value_factoryLb0EjE4sizeEv.exit.i.i.i ], [ %15, %20 ], [ %8, %14 ], [ %15, %.lr.ph.preheader.i.i.i.i ]
+  %27 = phi ptr [ %15, %20 ], [ %8, %14 ], [ %8, %_ZNK6vectorIP13value_factoryLb0EjE4sizeEv.exit.i.i.i ], [ %15, %.lr.ph.preheader.i.i.i.i ]
   %28 = zext i32 %7 to i64
   %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   store ptr %1, ptr %29, align 8, !tbaa !311
@@ -5681,17 +5681,17 @@ _ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %.036, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !19
-  br i1 %4, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit, label %60
+  br i1 %4, label %60, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit
 
 60:                                               ; preds = %57
-  %61 = icmp eq ptr %59, %6
-  br i1 %61, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit.thread
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %62 = load i32, ptr %61, align 8, !tbaa !212
+  %63 = load i32, ptr %46, align 8, !tbaa !212
+  %64 = icmp eq i32 %62, %63
+  br i1 %64, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit.thread
 
 _ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit: ; preds = %57
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %63 = load i32, ptr %62, align 8, !tbaa !212
-  %64 = load i32, ptr %46, align 8, !tbaa !212
-  %65 = icmp eq i32 %63, %64
+  %65 = icmp eq ptr %59, %6
   br i1 %65, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit.thread
 
 _ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit.thread: ; preds = %48, %54, %60, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit, %51
@@ -5722,17 +5722,17 @@ _ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %.138, i64 16
   %78 = load ptr, ptr %77, align 8, !tbaa !19
-  br i1 %4, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit30, label %79
+  br i1 %4, label %79, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit30
 
 79:                                               ; preds = %76
-  %80 = icmp eq ptr %78, %6
-  br i1 %80, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit30.thread
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %81 = load i32, ptr %80, align 8, !tbaa !212
+  %82 = load i32, ptr %47, align 8, !tbaa !212
+  %83 = icmp eq i32 %81, %82
+  br i1 %83, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit30.thread
 
 _ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit30: ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %82 = load i32, ptr %81, align 8, !tbaa !212
-  %83 = load i32, ptr %47, align 8, !tbaa !212
-  %84 = icmp eq i32 %82, %83
+  %84 = icmp eq ptr %78, %6
   br i1 %84, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit30.thread
 
 _ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit30.thread: ; preds = %67, %73, %79, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit30, %70
@@ -5741,7 +5741,7 @@ _ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table
   br i1 %.not27, label %.loopexit, label %67, !llvm.loop !319
 
 .loopexit:                                        ; preds = %48, %60, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit30, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit30.thread, %79, %67, %.preheader
-  %.026 = phi ptr [ null, %67 ], [ null, %.preheader ], [ null, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit30.thread ], [ %.138, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit30 ], [ %.138, %79 ], [ null, %48 ], [ %.036, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit ], [ %.036, %60 ]
+  %.026 = phi ptr [ null, %.preheader ], [ %.138, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit30 ], [ null, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit30.thread ], [ %.138, %79 ], [ null, %67 ], [ null, %48 ], [ %.036, %60 ], [ %.036, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit ]
   ret ptr %.026
 }
 
@@ -5859,17 +5859,17 @@ _ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table
 68:                                               ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %.04569, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !19
-  br i1 %16, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit, label %71
+  br i1 %16, label %71, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit
 
 71:                                               ; preds = %68
-  %72 = icmp eq ptr %70, %18
-  br i1 %72, label %77, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit.thread
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %73 = load i32, ptr %72, align 8, !tbaa !212
+  %74 = load i32, ptr %57, align 8, !tbaa !212
+  %75 = icmp eq i32 %73, %74
+  br i1 %75, label %77, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit.thread
 
 _ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit: ; preds = %68
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %74 = load i32, ptr %73, align 8, !tbaa !212
-  %75 = load i32, ptr %57, align 8, !tbaa !212
-  %76 = icmp eq i32 %74, %75
+  %76 = icmp eq ptr %70, %18
   br i1 %76, label %77, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit.thread
 
 77:                                               ; preds = %71, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit
@@ -5902,7 +5902,7 @@ _ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table
   br label %121
 
 _ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit.thread: ; preds = %59, %65, %71, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit, %62
-  %.1 = phi ptr [ %.04470, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit ], [ %.04470, %62 ], [ %.04569, %59 ], [ %.04470, %71 ], [ %.04470, %65 ]
+  %.1 = phi ptr [ %.04470, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit ], [ %.04470, %62 ], [ %.04470, %71 ], [ %.04470, %65 ], [ %.04569, %59 ]
   %89 = getelementptr inbounds nuw i8, ptr %.04569, i64 32
   %.not = icmp eq ptr %89, %56
   br i1 %.not, label %.preheader, label %59, !llvm.loop !321
@@ -5931,17 +5931,17 @@ _ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %.14673, i64 16
   %101 = load ptr, ptr %100, align 8, !tbaa !19
-  br i1 %16, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit52, label %102
+  br i1 %16, label %102, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit52
 
 102:                                              ; preds = %99
-  %103 = icmp eq ptr %101, %18
-  br i1 %103, label %108, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit52.thread
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %104 = load i32, ptr %103, align 8, !tbaa !212
+  %105 = load i32, ptr %58, align 8, !tbaa !212
+  %106 = icmp eq i32 %104, %105
+  br i1 %106, label %108, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit52.thread
 
 _ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit52: ; preds = %99
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %105 = load i32, ptr %104, align 8, !tbaa !212
-  %106 = load i32, ptr %58, align 8, !tbaa !212
-  %107 = icmp eq i32 %105, %106
+  %107 = icmp eq ptr %101, %18
   br i1 %107, label %108, label %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit52.thread
 
 108:                                              ; preds = %102, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit52
@@ -5974,7 +5974,7 @@ _ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table
   br label %121
 
 _ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit52.thread: ; preds = %90, %96, %102, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit52, %93
-  %.3 = phi ptr [ %.274, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit52 ], [ %.274, %93 ], [ %.14673, %90 ], [ %.274, %102 ], [ %.274, %96 ]
+  %.3 = phi ptr [ %.274, %_ZNK14core_hashtableI17default_map_entryIN3smt22model_value_dependencyEiEN9table2mapIS3_NS1_16source_hash_procENS1_14source_eq_procEE15entry_hash_procENS7_13entry_eq_procEE6equalsERK9_key_dataIS2_iESE_.exit52 ], [ %.274, %93 ], [ %.274, %102 ], [ %.274, %96 ], [ %.14673, %90 ]
   %120 = getelementptr inbounds nuw i8, ptr %.14673, i64 32
   %.not47 = icmp eq ptr %120, %54
   br i1 %.not47, label %._crit_edge, label %90, !llvm.loop !322
@@ -6804,7 +6804,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapIN3smt5enodeEPNS1_
   br label %67
 
 45:                                               ; preds = %36, %29
-  %.1 = phi ptr [ %.04563, %36 ], [ %.04464, %29 ]
+  %.1 = phi ptr [ %.04464, %29 ], [ %.04563, %36 ]
   %46 = getelementptr inbounds nuw i8, ptr %.04563, i64 16
   %.not = icmp eq ptr %46, %26
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !328
@@ -6852,7 +6852,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapIN3smt5enodeEPNS1_
   br label %67
 
 65:                                               ; preds = %56, %49
-  %.3 = phi ptr [ %.14666, %56 ], [ %.267, %49 ]
+  %.3 = phi ptr [ %.267, %49 ], [ %.14666, %56 ]
   %66 = getelementptr inbounds nuw i8, ptr %.14666, i64 16
   %.not47 = icmp eq ptr %66, %24
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !329
@@ -7177,7 +7177,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI4sortE12ob
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
+  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 8
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !333
@@ -7224,7 +7224,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI4sortE12ob
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
+  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 8
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !334
@@ -7430,7 +7430,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP3app
   br label %67
 
 45:                                               ; preds = %36, %29
-  %.1 = phi ptr [ %.04563, %36 ], [ %.04464, %29 ]
+  %.1 = phi ptr [ %.04464, %29 ], [ %.04563, %36 ]
   %46 = getelementptr inbounds nuw i8, ptr %.04563, i64 16
   %.not = icmp eq ptr %46, %26
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !339
@@ -7478,7 +7478,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP3app
   br label %67
 
 65:                                               ; preds = %56, %49
-  %.3 = phi ptr [ %.14666, %56 ], [ %.267, %49 ]
+  %.3 = phi ptr [ %.267, %49 ], [ %.14666, %56 ]
   %66 = getelementptr inbounds nuw i8, ptr %.14666, i64 16
   %.not47 = icmp eq ptr %66, %24
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !340

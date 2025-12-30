@@ -376,7 +376,7 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   br label %230
 
 172:                                              ; preds = %.thread, %127, %133, %151, %145, %88, %108
-  %.076 = phi i32 [ -1, %108 ], [ -1, %88 ], [ %138, %.thread ], [ %138, %151 ], [ 0, %145 ], [ -1, %133 ], [ -1, %127 ]
+  %.076 = phi i32 [ -1, %108 ], [ -1, %88 ], [ %138, %151 ], [ 0, %145 ], [ -1, %133 ], [ -1, %127 ], [ %138, %.thread ]
   %173 = call i32 @H5F_get_intent(ptr noundef nonnull %0) #6
   %174 = and i32 %173, 1
   %175 = icmp ne i32 %174, 0
@@ -462,7 +462,7 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   br label %230
 
 220:                                              ; preds = %.thread104, %183, %177, %172
-  %.273 = phi i1 [ %.374.ph, %.thread104 ], [ %1, %183 ], [ %1, %177 ], [ %1, %172 ]
+  %.273 = phi i1 [ %1, %183 ], [ %1, %177 ], [ %1, %172 ], [ %.374.ph, %.thread104 ]
   %221 = load ptr, ptr %59, align 8, !tbaa !55
   %222 = call i32 @H5G__name_init(ptr noundef %221, ptr noundef nonnull @.str.12) #6
   %223 = load ptr, ptr %23, align 8, !tbaa !10
@@ -481,8 +481,8 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   %.pre124 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !60
   br label %260
 
-230:                                              ; preds = %15, %168, %30, %39, %49, %69, %76, %84, %99, %219, %123, %140
-  %.071.ph = phi i1 [ false, %140 ], [ false, %123 ], [ %1, %219 ], [ true, %99 ], [ false, %84 ], [ false, %76 ], [ false, %69 ], [ false, %49 ], [ false, %39 ], [ false, %30 ], [ false, %168 ], [ false, %15 ]
+230:                                              ; preds = %15, %30, %39, %49, %69, %76, %84, %99, %219, %123, %140, %168
+  %.071.ph = phi i1 [ false, %168 ], [ false, %140 ], [ false, %123 ], [ %1, %219 ], [ true, %99 ], [ false, %84 ], [ false, %76 ], [ false, %69 ], [ false, %49 ], [ false, %39 ], [ false, %30 ], [ false, %15 ]
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %232 = load ptr, ptr %231, align 8, !tbaa !10
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 1456
@@ -546,7 +546,7 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   br label %.thread118
 
 .thread118:                                       ; preds = %22, %220, %251, %19, %260, %264, %259
-  %.169 = phi i32 [ -1, %264 ], [ %.068116121, %260 ], [ -1, %259 ], [ 0, %19 ], [ 0, %220 ], [ -1, %251 ], [ 0, %22 ]
+  %.169 = phi i32 [ -1, %264 ], [ %.068116121, %260 ], [ -1, %259 ], [ 0, %19 ], [ -1, %251 ], [ 0, %220 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.169

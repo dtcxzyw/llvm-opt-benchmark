@@ -196,7 +196,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -770,10 +770,10 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit21:    ; preds = %45
   br label %.invoke
 
 .invoke:                                          ; preds = %76, %84, %86, %63, %71, %73
-  %.sink38 = phi i16 [ %67, %63 ], [ %67, %73 ], [ %67, %71 ], [ %80, %86 ], [ %80, %84 ], [ %80, %76 ]
-  %.sink = phi ptr [ %65, %63 ], [ %65, %73 ], [ %65, %71 ], [ %78, %86 ], [ %78, %84 ], [ %78, %76 ]
-  %.sink30 = phi i64 [ 32, %63 ], [ 32, %73 ], [ 32, %71 ], [ 16, %86 ], [ 16, %84 ], [ 16, %76 ]
-  %89 = phi ptr [ null, %63 ], [ %75, %73 ], [ %72, %71 ], [ %88, %86 ], [ %85, %84 ], [ null, %76 ]
+  %.sink38 = phi i16 [ %67, %73 ], [ %67, %71 ], [ %67, %63 ], [ %80, %86 ], [ %80, %84 ], [ %80, %76 ]
+  %.sink = phi ptr [ %65, %73 ], [ %65, %71 ], [ %65, %63 ], [ %78, %86 ], [ %78, %84 ], [ %78, %76 ]
+  %.sink30 = phi i64 [ 32, %73 ], [ 32, %71 ], [ 32, %63 ], [ 16, %86 ], [ 16, %84 ], [ 16, %76 ]
+  %89 = phi ptr [ %75, %73 ], [ %72, %71 ], [ null, %63 ], [ %88, %86 ], [ %85, %84 ], [ null, %76 ]
   %90 = icmp slt i16 %.sink38, 0
   %91 = ashr i16 %.sink38, 5
   %92 = sext i16 %91 to i32
@@ -1012,7 +1012,7 @@ _ZN6icu_7713UnicodeStringC2IA11_DsvEERKT_.exit:   ; preds = %8
   br label %27
 
 27:                                               ; preds = %24, %22, %16
-  %.0.i.i = phi ptr [ %26, %24 ], [ %23, %22 ], [ null, %16 ]
+  %.0.i.i = phi ptr [ %23, %22 ], [ %26, %24 ], [ null, %16 ]
   %28 = icmp slt i16 %18, 0
   %29 = ashr i16 %18, 5
   %30 = sext i16 %29 to i32
@@ -1148,7 +1148,7 @@ _ZN6icu_7713UnicodeStringC2IA11_DsvEERKT_.exit:   ; preds = %11
   br label %31
 
 31:                                               ; preds = %28, %26, %20
-  %.0.i.i = phi ptr [ %30, %28 ], [ %27, %26 ], [ null, %20 ]
+  %.0.i.i = phi ptr [ %27, %26 ], [ %30, %28 ], [ null, %20 ]
   %32 = icmp slt i16 %22, 0
   %33 = ashr i16 %22, 5
   %34 = sext i16 %33 to i32
@@ -1237,7 +1237,7 @@ define void @_ZN16IcuTestErrorCode8setScopeEPKc(ptr noundef nonnull align 8 dere
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6assignIN6icu_7713UnicodeStringEEENSt9enable_ifIXsr6__and_ISt14is_convertibleIRKT_St17basic_string_viewIDsS2_EESt6__not_IS9_IPSB_PKS4_EESG_IS9_ISC_PKDsEEEE5valueERS4_E4typeESC_.exit.i
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6assignIN6icu_7713UnicodeStringEEENSt9enable_ifIXsr6__and_ISt14is_convertibleIRKT_St17basic_string_viewIDsS2_EESt6__not_IS9_IPSB_PKS4_EESG_IS9_ISC_PKDsEEEE5valueERS4_E4typeESC_.exit.i: ; preds = %12, %10, %2
-  %.0.i.i.i.i = phi ptr [ %14, %12 ], [ %11, %10 ], [ null, %2 ]
+  %.0.i.i.i.i = phi ptr [ %11, %10 ], [ %14, %12 ], [ null, %2 ]
   %15 = icmp slt i16 %6, 0
   %16 = ashr i16 %6, 5
   %17 = sext i16 %16 to i32
@@ -1501,7 +1501,7 @@ define void @_ZN16RBTestDataModuleC2EPKcR7TestLogR10UErrorCode(ptr noundef nonnu
   br label %40
 
 40:                                               ; preds = %37, %35, %29
-  %.0.i.i = phi ptr [ %39, %37 ], [ %36, %35 ], [ null, %29 ]
+  %.0.i.i = phi ptr [ %36, %35 ], [ %39, %37 ], [ null, %29 ]
   %41 = icmp slt i16 %31, 0
   %42 = ashr i16 %31, 5
   %43 = sext i16 %42 to i32
@@ -1646,7 +1646,7 @@ define noundef ptr @_ZN16RBTestDataModule13getTestBundleEPKcR10UErrorCode(ptr no
   br label %34
 
 34:                                               ; preds = %31, %29, %23
-  %.0.i.i = phi ptr [ %33, %31 ], [ %30, %29 ], [ null, %23 ]
+  %.0.i.i = phi ptr [ %30, %29 ], [ %33, %31 ], [ null, %23 ]
   %35 = icmp slt i16 %25, 0
   %36 = ashr i16 %25, 5
   %37 = sext i16 %36 to i32
@@ -1714,7 +1714,7 @@ define noundef ptr @_ZN16RBTestDataModule13getTestBundleEPKcR10UErrorCode(ptr no
   resume { ptr, i32 } %.pn.pn.pn
 
 60:                                               ; preds = %3, %45, %10
-  %.015 = phi ptr [ %17, %45 ], [ %17, %10 ], [ null, %3 ]
+  %.015 = phi ptr [ %17, %10 ], [ %17, %45 ], [ null, %3 ]
   ret ptr %.015
 }
 

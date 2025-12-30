@@ -100,45 +100,45 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readnone captures
   %.sink204.i.sroa.gep14 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %.sink204.i.sroa.gep16 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %.sink204.i.sroa.gep17 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %.sink194.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink194.i.sroa.gep18 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink194.i.sroa.gep19 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink194.i.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink194.i.sroa.gep18 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink194.i.sroa.gep19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sink194.i.sroa.gep20 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink194.i.sroa.gep22 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sink194.i.sroa.gep23 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink194.i.sroa.gep24 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sink194.i.sroa.gep22 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink194.i.sroa.gep23 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sink194.i.sroa.gep24 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sink194.i.sroa.gep25 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sink194.i.sroa.gep27 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sink194.i.sroa.gep28 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.sink194.i.sroa.gep29 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.sink194.i.sroa.gep27 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sink194.i.sroa.gep28 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.sink194.i.sroa.gep29 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sink194.i.sroa.gep30 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.sink194.i.sroa.gep32 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.sink194.i.sroa.gep33 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sink194.i.sroa.gep34 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sink194.i.sroa.gep32 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sink194.i.sroa.gep33 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sink194.i.sroa.gep34 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.sink194.i.sroa.gep35 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sink194.i.sroa.gep37 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %.sink194.i.sroa.gep38 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %.sink194.i.sroa.gep39 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %.sink194.i.sroa.gep37 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %.sink194.i.sroa.gep38 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %.sink194.i.sroa.gep39 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %.sink194.i.sroa.gep40 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.sink210.i.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink210.i.sroa.gep41 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink210.i.sroa.gep42 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink210.i.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink210.i.sroa.gep41 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink210.i.sroa.gep42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sink210.i.sroa.gep43 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink210.i.sroa.gep45 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink210.i.sroa.gep46 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sink210.i.sroa.gep47 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink210.i.sroa.gep45 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink210.i.sroa.gep46 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink210.i.sroa.gep47 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sink210.i.sroa.gep48 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink210.i.sroa.gep50 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink210.i.sroa.gep51 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sink210.i.sroa.gep52 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink210.i.sroa.gep50 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink210.i.sroa.gep51 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink210.i.sroa.gep52 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sink210.i.sroa.gep53 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sink210.i.sroa.gep55 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink210.i.sroa.gep56 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sink210.i.sroa.gep57 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink210.i.sroa.gep55 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink210.i.sroa.gep56 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink210.i.sroa.gep57 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sink210.i.sroa.gep58 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sink210.i.sroa.gep60 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.sink210.i.sroa.gep61 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %.sink210.i.sroa.gep62 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.sink210.i.sroa.gep60 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %.sink210.i.sroa.gep61 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.sink210.i.sroa.gep62 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %.sink210.i.sroa.gep63 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %35 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %33)
           to label %.noexc unwind label %274
@@ -368,14 +368,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__14ArResolvedPathC2ERKNSt7__cxx1112basic_str
   br i1 %87, label %89, label %.invoke187.i
 
 .invoke187.i:                                     ; preds = %85, %83, %73, %57
-  %.sink194.i.sroa.phi = phi ptr [ %.sink194.i.sroa.gep, %83 ], [ %.sink194.i.sroa.gep18, %57 ], [ %.sink194.i.sroa.gep19, %73 ], [ %.sink194.i.sroa.gep20, %85 ]
-  %.sink194.i.sroa.phi21 = phi ptr [ %.sink194.i.sroa.gep22, %83 ], [ %.sink194.i.sroa.gep23, %57 ], [ %.sink194.i.sroa.gep24, %73 ], [ %.sink194.i.sroa.gep25, %85 ]
-  %.sink194.i.sroa.phi26 = phi ptr [ %.sink194.i.sroa.gep27, %83 ], [ %.sink194.i.sroa.gep28, %57 ], [ %.sink194.i.sroa.gep29, %73 ], [ %.sink194.i.sroa.gep30, %85 ]
-  %.sink194.i.sroa.phi31 = phi ptr [ %.sink194.i.sroa.gep32, %83 ], [ %.sink194.i.sroa.gep33, %57 ], [ %.sink194.i.sroa.gep34, %73 ], [ %.sink194.i.sroa.gep35, %85 ]
-  %.sink194.i.sroa.phi36 = phi ptr [ %.sink194.i.sroa.gep37, %83 ], [ %.sink194.i.sroa.gep38, %57 ], [ %.sink194.i.sroa.gep39, %73 ], [ %.sink194.i.sroa.gep40, %85 ]
-  %.sink194.i = phi ptr [ %12, %83 ], [ %14, %57 ], [ %13, %73 ], [ %11, %85 ]
-  %.sink191.i = phi i64 [ 46, %83 ], [ 41, %57 ], [ 42, %73 ], [ 47, %85 ]
-  %88 = phi ptr [ @.str.11, %83 ], [ @.str.9, %57 ], [ @.str.10, %73 ], [ @.str.12, %85 ]
+  %.sink194.i.sroa.phi = phi ptr [ %.sink194.i.sroa.gep, %57 ], [ %.sink194.i.sroa.gep18, %73 ], [ %.sink194.i.sroa.gep19, %83 ], [ %.sink194.i.sroa.gep20, %85 ]
+  %.sink194.i.sroa.phi21 = phi ptr [ %.sink194.i.sroa.gep22, %57 ], [ %.sink194.i.sroa.gep23, %73 ], [ %.sink194.i.sroa.gep24, %83 ], [ %.sink194.i.sroa.gep25, %85 ]
+  %.sink194.i.sroa.phi26 = phi ptr [ %.sink194.i.sroa.gep27, %57 ], [ %.sink194.i.sroa.gep28, %73 ], [ %.sink194.i.sroa.gep29, %83 ], [ %.sink194.i.sroa.gep30, %85 ]
+  %.sink194.i.sroa.phi31 = phi ptr [ %.sink194.i.sroa.gep32, %57 ], [ %.sink194.i.sroa.gep33, %73 ], [ %.sink194.i.sroa.gep34, %83 ], [ %.sink194.i.sroa.gep35, %85 ]
+  %.sink194.i.sroa.phi36 = phi ptr [ %.sink194.i.sroa.gep37, %57 ], [ %.sink194.i.sroa.gep38, %73 ], [ %.sink194.i.sroa.gep39, %83 ], [ %.sink194.i.sroa.gep40, %85 ]
+  %.sink194.i = phi ptr [ %14, %57 ], [ %13, %73 ], [ %12, %83 ], [ %11, %85 ]
+  %.sink191.i = phi i64 [ 41, %57 ], [ 42, %73 ], [ 46, %83 ], [ 47, %85 ]
+  %88 = phi ptr [ @.str.9, %57 ], [ @.str.10, %73 ], [ @.str.11, %83 ], [ @.str.12, %85 ]
   store ptr @.str.4, ptr %.sink194.i, align 8
   store ptr @__func__._ZL13TestOpenAssetv, ptr %.sink194.i.sroa.phi, align 8
   store i64 %.sink191.i, ptr %.sink194.i.sroa.phi21, align 8
@@ -648,14 +648,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %172, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i, label %.invoke195.i
 
 .invoke195.i:                                     ; preds = %170, %162, %140, %119
-  %.sink210.i.sroa.phi = phi ptr [ %.sink210.i.sroa.gep, %162 ], [ %.sink210.i.sroa.gep41, %119 ], [ %.sink210.i.sroa.gep42, %140 ], [ %.sink210.i.sroa.gep43, %170 ]
-  %.sink210.i.sroa.phi44 = phi ptr [ %.sink210.i.sroa.gep45, %162 ], [ %.sink210.i.sroa.gep46, %119 ], [ %.sink210.i.sroa.gep47, %140 ], [ %.sink210.i.sroa.gep48, %170 ]
-  %.sink210.i.sroa.phi49 = phi ptr [ %.sink210.i.sroa.gep50, %162 ], [ %.sink210.i.sroa.gep51, %119 ], [ %.sink210.i.sroa.gep52, %140 ], [ %.sink210.i.sroa.gep53, %170 ]
-  %.sink210.i.sroa.phi54 = phi ptr [ %.sink210.i.sroa.gep55, %162 ], [ %.sink210.i.sroa.gep56, %119 ], [ %.sink210.i.sroa.gep57, %140 ], [ %.sink210.i.sroa.gep58, %170 ]
-  %.sink210.i.sroa.phi59 = phi ptr [ %.sink210.i.sroa.gep60, %162 ], [ %.sink210.i.sroa.gep61, %119 ], [ %.sink210.i.sroa.gep62, %140 ], [ %.sink210.i.sroa.gep63, %170 ]
-  %.sink210.i = phi ptr [ %4, %162 ], [ %8, %119 ], [ %6, %140 ], [ %3, %170 ]
-  %.sink207.i = phi i64 [ 60, %162 ], [ 54, %119 ], [ 57, %140 ], [ 61, %170 ]
-  %173 = phi ptr [ @.str.19, %162 ], [ @.str.15, %119 ], [ @.str.17, %140 ], [ @.str.20, %170 ]
+  %.sink210.i.sroa.phi = phi ptr [ %.sink210.i.sroa.gep, %119 ], [ %.sink210.i.sroa.gep41, %140 ], [ %.sink210.i.sroa.gep42, %162 ], [ %.sink210.i.sroa.gep43, %170 ]
+  %.sink210.i.sroa.phi44 = phi ptr [ %.sink210.i.sroa.gep45, %119 ], [ %.sink210.i.sroa.gep46, %140 ], [ %.sink210.i.sroa.gep47, %162 ], [ %.sink210.i.sroa.gep48, %170 ]
+  %.sink210.i.sroa.phi49 = phi ptr [ %.sink210.i.sroa.gep50, %119 ], [ %.sink210.i.sroa.gep51, %140 ], [ %.sink210.i.sroa.gep52, %162 ], [ %.sink210.i.sroa.gep53, %170 ]
+  %.sink210.i.sroa.phi54 = phi ptr [ %.sink210.i.sroa.gep55, %119 ], [ %.sink210.i.sroa.gep56, %140 ], [ %.sink210.i.sroa.gep57, %162 ], [ %.sink210.i.sroa.gep58, %170 ]
+  %.sink210.i.sroa.phi59 = phi ptr [ %.sink210.i.sroa.gep60, %119 ], [ %.sink210.i.sroa.gep61, %140 ], [ %.sink210.i.sroa.gep62, %162 ], [ %.sink210.i.sroa.gep63, %170 ]
+  %.sink210.i = phi ptr [ %8, %119 ], [ %6, %140 ], [ %4, %162 ], [ %3, %170 ]
+  %.sink207.i = phi i64 [ 54, %119 ], [ 57, %140 ], [ 60, %162 ], [ 61, %170 ]
+  %173 = phi ptr [ @.str.15, %119 ], [ @.str.17, %140 ], [ @.str.19, %162 ], [ @.str.20, %170 ]
   store ptr @.str.4, ptr %.sink210.i, align 8
   store ptr @__func__._ZL13TestOpenAssetv, ptr %.sink210.i.sroa.phi, align 8
   store i64 %.sink207.i, ptr %.sink210.i.sroa.phi44, align 8

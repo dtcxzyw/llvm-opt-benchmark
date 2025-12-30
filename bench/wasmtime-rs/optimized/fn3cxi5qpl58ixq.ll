@@ -799,7 +799,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN3std10sys_common4once5futex4Once5sta
   br label %12
 
 12:                                               ; preds = %1, %11, %10
-  %.0 = phi i8 [ 2, %11 ], [ 1, %10 ], [ 0, %1 ]
+  %.0 = phi i8 [ 1, %10 ], [ 2, %11 ], [ 0, %1 ]
   ret i8 %.0
 }
 
@@ -8541,7 +8541,7 @@ define hidden void @"_ZN4core3ptr131drop_in_place$LT$wasmtime_cranelift..debug..
   br label %"_ZN4core3ptr244drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$$LP$wasmtime_types..DefinedFuncIndex$C$usize$C$usize$C$alloc..vec..Vec$LT$u8$GT$$RP$$C$anyhow..Error$GT$$GT$$GT$17h7cb5150a3e4278edE.llvm.3191862155771161713.exit"
 
 common.resume:                                    ; preds = %.body, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i1.i", %12, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %13, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i" ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i1.i" ], [ %34, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i" ], [ %13, %12 ], [ %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i1.i" ], [ %34, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr244drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$$LP$wasmtime_types..DefinedFuncIndex$C$usize$C$usize$C$alloc..vec..Vec$LT$u8$GT$$RP$$C$anyhow..Error$GT$$GT$$GT$17h7cb5150a3e4278edE.llvm.3191862155771161713.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i1.i3", %"_ZN4core3ptr151drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$LP$gimli..write..Address$C$u64$RP$$GT$$GT$17h1e0a6cc4010e0711E.llvm.3191862155771161713.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i1.i", %20, %1
@@ -13985,7 +13985,7 @@ define hidden void @"_ZN4core3ptr395drop_in_place$LT$core..iter..adapters..flatt
   br label %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$wasmtime_cranelift..debug..transform..address_transform..AddressTransform..translate_ranges..TranslateRangesResult$GT$$GT$17h860f1e9e991283bbE.llvm.3191862155771161713.exit4"
 
 common.resume:                                    ; preds = %.body, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i.i.i1"
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %40, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i.i.i1" ], [ %13, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i.i.i1" ], [ %40, %39 ], [ %13, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$wasmtime_cranelift..debug..transform..address_transform..AddressTransform..translate_ranges..TranslateRangesResult$GT$$GT$17h860f1e9e991283bbE.llvm.3191862155771161713.exit4": ; preds = %"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$wasmtime_cranelift..debug..transform..address_transform..AddressTransform..translate_ranges..TranslateRangesResult$GT$$GT$17h860f1e9e991283bbE.llvm.3191862155771161713.exit", %31, %47, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i1.i.i.i3"
@@ -14621,7 +14621,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$gimli..write..loc..Location$
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1, %3, %6
-  %.sink1 = phi i64 [ 16, %6 ], [ 24, %1 ], [ 8, %3 ]
+  %.sink1 = phi i64 [ 16, %6 ], [ 8, %3 ], [ 24, %1 ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink1
   tail call void @"_ZN4core3ptr49drop_in_place$LT$gimli..write..op..Expression$GT$17hf44cac275bbc8133E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %5
@@ -15440,8 +15440,8 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmE
   br i1 %15, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfcd9ecc19a470dd9E.exit", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfcd9ecc19a470dd9E.exit.sink.split"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfcd9ecc19a470dd9E.exit.sink.split": ; preds = %12, %10, %6
-  %.sink = phi i64 [ 8, %10 ], [ 16, %6 ], [ 16, %12 ]
-  %.sink7 = phi i64 [ %2, %10 ], [ %8, %6 ], [ %14, %12 ]
+  %.sink = phi i64 [ 16, %6 ], [ 8, %10 ], [ 16, %12 ]
+  %.sink7 = phi i64 [ %8, %6 ], [ %2, %10 ], [ %14, %12 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %17 = load ptr, ptr %16, align 8, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %.sink7, i64 noundef 1) #24, !noalias !4
@@ -16925,7 +16925,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$$u5b$gimli..write..loc..Loca
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %9, %7, %.lr.ph
-  %.sink1.i = phi i64 [ 16, %9 ], [ 24, %.lr.ph ], [ 8, %7 ]
+  %.sink1.i = phi i64 [ 16, %9 ], [ 8, %7 ], [ 24, %.lr.ph ]
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink1.i
   invoke void @"_ZN4core3ptr49drop_in_place$LT$gimli..write..op..Expression$GT$17hf44cac275bbc8133E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %"_ZN4core3ptr48drop_in_place$LT$gimli..write..loc..Location$GT$17hf14cf6046f16a6d9E.llvm.3191862155771161713.exit" unwind label %11
@@ -16961,7 +16961,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$$u5b$gimli..write..loc..Loca
   br label %.sink.split.i7
 
 .sink.split.i7:                                   ; preds = %19, %17, %.lr.ph14
-  %.sink1.i8 = phi i64 [ 16, %19 ], [ 24, %.lr.ph14 ], [ 8, %17 ]
+  %.sink1.i8 = phi i64 [ 16, %19 ], [ 8, %17 ], [ 24, %.lr.ph14 ]
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink1.i8
   invoke void @"_ZN4core3ptr49drop_in_place$LT$gimli..write..op..Expression$GT$17hf44cac275bbc8133E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
           to label %"_ZN4core3ptr48drop_in_place$LT$gimli..write..loc..Location$GT$17hf14cf6046f16a6d9E.llvm.3191862155771161713.exit10" unwind label %21
@@ -17886,8 +17886,8 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$wasmtime_environ..compile..C
   ]
 
 "_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split": ; preds = %20, %10, %14, %16
-  %.sink = phi i64 [ 16, %16 ], [ 8, %14 ], [ 16, %10 ], [ 16, %20 ]
-  %.sink4 = phi i64 [ %18, %16 ], [ %2, %14 ], [ %12, %10 ], [ %22, %20 ]
+  %.sink = phi i64 [ 16, %10 ], [ 8, %14 ], [ 16, %16 ], [ 16, %20 ]
+  %.sink4 = phi i64 [ %12, %10 ], [ %2, %14 ], [ %18, %16 ], [ %22, %20 ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %5 = load ptr, ptr %4, align 8, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %.sink4, i64 noundef 1) #24, !noalias !4
@@ -21574,7 +21574,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$gimli..wr
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %12, %10, %.lr.ph.i.i
-  %.sink1.i.i.i = phi i64 [ 16, %12 ], [ 24, %.lr.ph.i.i ], [ 8, %10 ]
+  %.sink1.i.i.i = phi i64 [ 16, %12 ], [ 8, %10 ], [ 24, %.lr.ph.i.i ]
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink1.i.i.i
   invoke void @"_ZN4core3ptr49drop_in_place$LT$gimli..write..op..Expression$GT$17hf44cac275bbc8133E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %"_ZN4core3ptr48drop_in_place$LT$gimli..write..loc..Location$GT$17hf14cf6046f16a6d9E.llvm.3191862155771161713.exit.i.i" unwind label %14, !noalias !9951
@@ -21607,7 +21607,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$gimli..wr
   br label %.sink.split.i7.i.i
 
 .sink.split.i7.i.i:                               ; preds = %22, %20, %.lr.ph14.i.i
-  %.sink1.i8.i.i = phi i64 [ 16, %22 ], [ 24, %.lr.ph14.i.i ], [ 8, %20 ]
+  %.sink1.i8.i.i = phi i64 [ 16, %22 ], [ 8, %20 ], [ 24, %.lr.ph14.i.i ]
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink1.i8.i.i
   invoke void @"_ZN4core3ptr49drop_in_place$LT$gimli..write..op..Expression$GT$17hf44cac275bbc8133E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21)
           to label %"_ZN4core3ptr48drop_in_place$LT$gimli..write..loc..Location$GT$17hf14cf6046f16a6d9E.llvm.3191862155771161713.exit10.i.i" unwind label %24, !noalias !9951
@@ -27715,8 +27715,8 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.3191862155771
   ]
 
 "_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split.i": ; preds = %39, %35, %33, %29
-  %.sink.i = phi i64 [ 16, %35 ], [ 8, %33 ], [ 16, %29 ], [ 16, %39 ]
-  %.sink4.i = phi i64 [ %37, %35 ], [ %21, %33 ], [ %31, %29 ], [ %41, %39 ]
+  %.sink.i = phi i64 [ 16, %29 ], [ 8, %33 ], [ 16, %35 ], [ 16, %39 ]
+  %.sink4.i = phi i64 [ %31, %29 ], [ %21, %33 ], [ %37, %35 ], [ %41, %39 ]
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink.i
   %24 = load ptr, ptr %23, align 8, !alias.scope !13152, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %.sink4.i, i64 noundef 1) #24, !noalias !13152
@@ -33061,7 +33061,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %12, %10, %.lr.ph.i
-  %.sink1.i.i = phi i64 [ 16, %12 ], [ 24, %.lr.ph.i ], [ 8, %10 ]
+  %.sink1.i.i = phi i64 [ 16, %12 ], [ 8, %10 ], [ 24, %.lr.ph.i ]
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink1.i.i
   invoke void @"_ZN4core3ptr49drop_in_place$LT$gimli..write..op..Expression$GT$17hf44cac275bbc8133E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %"_ZN4core3ptr48drop_in_place$LT$gimli..write..loc..Location$GT$17hf14cf6046f16a6d9E.llvm.3191862155771161713.exit.i" unwind label %14
@@ -33094,7 +33094,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br label %.sink.split.i7.i
 
 .sink.split.i7.i:                                 ; preds = %22, %20, %.lr.ph14.i
-  %.sink1.i8.i = phi i64 [ 16, %22 ], [ 24, %.lr.ph14.i ], [ 8, %20 ]
+  %.sink1.i8.i = phi i64 [ 16, %22 ], [ 8, %20 ], [ 24, %.lr.ph14.i ]
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink1.i8.i
   invoke void @"_ZN4core3ptr49drop_in_place$LT$gimli..write..op..Expression$GT$17hf44cac275bbc8133E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21)
           to label %"_ZN4core3ptr48drop_in_place$LT$gimli..write..loc..Location$GT$17hf14cf6046f16a6d9E.llvm.3191862155771161713.exit10.i" unwind label %24
@@ -38706,7 +38706,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %22, %20, %.lr.ph.i
-  %.sink1.i.i = phi i64 [ 16, %22 ], [ 24, %.lr.ph.i ], [ 8, %20 ]
+  %.sink1.i.i = phi i64 [ 16, %22 ], [ 8, %20 ], [ 24, %.lr.ph.i ]
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink1.i.i
   invoke void @"_ZN4core3ptr49drop_in_place$LT$gimli..write..op..Expression$GT$17hf44cac275bbc8133E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21)
           to label %"_ZN4core3ptr48drop_in_place$LT$gimli..write..loc..Location$GT$17hf14cf6046f16a6d9E.llvm.3191862155771161713.exit.i" unwind label %24
@@ -38739,7 +38739,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
   br label %.sink.split.i7.i
 
 .sink.split.i7.i:                                 ; preds = %32, %30, %.lr.ph14.i
-  %.sink1.i8.i = phi i64 [ 16, %32 ], [ 24, %.lr.ph14.i ], [ 8, %30 ]
+  %.sink1.i8.i = phi i64 [ 16, %32 ], [ 8, %30 ], [ 24, %.lr.ph14.i ]
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink1.i8.i
   invoke void @"_ZN4core3ptr49drop_in_place$LT$gimli..write..op..Expression$GT$17hf44cac275bbc8133E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31)
           to label %"_ZN4core3ptr48drop_in_place$LT$gimli..write..loc..Location$GT$17hf14cf6046f16a6d9E.llvm.3191862155771161713.exit10.i" unwind label %34

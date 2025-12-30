@@ -163,7 +163,7 @@ define i32 @OBJ_NAME_new_index(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %38, %39, %12, %31
-  %.020 = phi i32 [ 0, %12 ], [ %16, %38 ], [ 0, %31 ], [ %16, %39 ], [ 0, %.lr.ph ]
+  %.020 = phi i32 [ 0, %12 ], [ 0, %31 ], [ %16, %39 ], [ %16, %38 ], [ 0, %.lr.ph ]
   %41 = load ptr, ptr @obj_lock, align 8, !tbaa !8
   %42 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %41) #8
   br label %43
@@ -262,7 +262,7 @@ define ptr @OBJ_NAME_get(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %34
 
 34:                                               ; preds = %8, %5, %2, %.loopexit
-  %.013 = phi ptr [ null, %2 ], [ %.0, %.loopexit ], [ null, %5 ], [ null, %8 ]
+  %.013 = phi ptr [ %.0, %.loopexit ], [ null, %2 ], [ null, %5 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.013
 }
@@ -353,7 +353,7 @@ define range(i32 0, 2) i32 @OBJ_NAME_add(ptr noundef %0, i32 noundef %1, ptr nou
   br label %45
 
 45:                                               ; preds = %6, %3, %42, %17
-  %.022 = phi i32 [ 0, %3 ], [ %.0, %42 ], [ 0, %17 ], [ 0, %6 ]
+  %.022 = phi i32 [ %.0, %42 ], [ 0, %17 ], [ 0, %3 ], [ 0, %6 ]
   ret i32 %.022
 }
 

@@ -74,7 +74,7 @@ define void @Gia_ParComputeSignature(ptr noundef readonly captures(none) %0, i32
   br i1 %exitcond37.not, label %.critedge, label %.lr.ph.us, !llvm.loop !37
 
 .critedge:                                        ; preds = %._crit_edge.us, %.lr.ph25.split, %.lr.ph25, %2
-  %.lcssa21.lcssa = phi i64 [ 0, %2 ], [ 0, %.lr.ph25.split ], [ 0, %.lr.ph25 ], [ %21, %._crit_edge.us ]
+  %.lcssa21.lcssa = phi i64 [ 0, %2 ], [ 0, %.lr.ph25 ], [ 0, %.lr.ph25.split ], [ %21, %._crit_edge.us ]
   %22 = load ptr, ptr @stdout, align 8, !tbaa !38
   br label %23
 
@@ -647,10 +647,10 @@ Vec_IntAlloc.exit:                                ; preds = %1, %6
   br label %Vec_IntPush.exit.sink.split67
 
 Vec_IntPush.exit.sink.split67:                    ; preds = %67, %65, %75, %73, %51, %49, %59, %57, %31, %29, %39, %37
-  %.sink60.sink = phi ptr [ %60, %59 ], [ %40, %39 ], [ %32, %31 ], [ %30, %29 ], [ %38, %37 ], [ %52, %51 ], [ %50, %49 ], [ %58, %57 ], [ %68, %67 ], [ %66, %65 ], [ %74, %73 ], [ %76, %75 ]
-  %.sink59.sink = phi i32 [ %54, %59 ], [ %34, %39 ], [ 16, %31 ], [ 16, %29 ], [ %34, %37 ], [ 16, %51 ], [ 16, %49 ], [ %54, %57 ], [ 16, %67 ], [ 16, %65 ], [ %70, %73 ], [ %70, %75 ]
-  %.sink66.ph = phi i32 [ %42, %59 ], [ %23, %39 ], [ %23, %31 ], [ %23, %29 ], [ %23, %37 ], [ %42, %51 ], [ %42, %49 ], [ %42, %57 ], [ %42, %67 ], [ %42, %65 ], [ %42, %73 ], [ %42, %75 ]
-  %.sink61.ph = phi i32 [ 1, %59 ], [ 2, %39 ], [ 2, %31 ], [ 2, %29 ], [ 2, %37 ], [ 1, %51 ], [ 1, %49 ], [ 1, %57 ], [ 0, %67 ], [ 0, %65 ], [ 0, %73 ], [ 0, %75 ]
+  %.sink60.sink = phi ptr [ %30, %29 ], [ %32, %31 ], [ %38, %37 ], [ %40, %39 ], [ %50, %49 ], [ %52, %51 ], [ %58, %57 ], [ %60, %59 ], [ %66, %65 ], [ %68, %67 ], [ %74, %73 ], [ %76, %75 ]
+  %.sink59.sink = phi i32 [ 16, %29 ], [ 16, %31 ], [ %34, %37 ], [ %34, %39 ], [ 16, %49 ], [ 16, %51 ], [ %54, %57 ], [ %54, %59 ], [ 16, %65 ], [ 16, %67 ], [ %70, %73 ], [ %70, %75 ]
+  %.sink66.ph = phi i32 [ %23, %29 ], [ %23, %31 ], [ %23, %37 ], [ %23, %39 ], [ %42, %49 ], [ %42, %51 ], [ %42, %57 ], [ %42, %59 ], [ %42, %65 ], [ %42, %67 ], [ %42, %73 ], [ %42, %75 ]
+  %.sink61.ph = phi i32 [ 2, %29 ], [ 2, %31 ], [ 2, %37 ], [ 2, %39 ], [ 1, %49 ], [ 1, %51 ], [ 1, %57 ], [ 1, %59 ], [ 0, %65 ], [ 0, %67 ], [ 0, %73 ], [ 0, %75 ]
   store ptr %.sink60.sink, ptr %11, align 8, !tbaa !30
   store i32 %.sink59.sink, ptr %3, align 8, !tbaa !52
   br label %Vec_IntPush.exit
@@ -1057,8 +1057,8 @@ Gia_ParTestSimulateInit.exit:                     ; preds = %.lr.ph23.i, %._crit
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %64, %66, %56, %58
-  %.sink221 = phi ptr [ %59, %58 ], [ %57, %56 ], [ %65, %64 ], [ %67, %66 ]
-  %.sink = phi i32 [ 16, %58 ], [ 16, %56 ], [ %61, %64 ], [ %61, %66 ]
+  %.sink221 = phi ptr [ %57, %56 ], [ %59, %58 ], [ %65, %64 ], [ %67, %66 ]
+  %.sink = phi i32 [ 16, %56 ], [ 16, %58 ], [ %61, %64 ], [ %61, %66 ]
   store ptr %.sink221, ptr %41, align 8, !tbaa !30
   store i32 %.sink, ptr %38, align 8, !tbaa !52
   br label %Vec_IntPush.exit
@@ -1275,8 +1275,8 @@ Vec_IntSum.exit.thread:                           ; preds = %Vec_IntPush.exit106
   br label %Vec_IntPush.exit117.us.sink.split
 
 Vec_IntPush.exit117.us.sink.split:                ; preds = %158, %160, %153, %155
-  %.sink226 = phi ptr [ %156, %155 ], [ %154, %153 ], [ %159, %158 ], [ %161, %160 ]
-  %.sink225 = phi i32 [ %150, %155 ], [ %150, %153 ], [ 16, %158 ], [ 16, %160 ]
+  %.sink226 = phi ptr [ %154, %153 ], [ %156, %155 ], [ %159, %158 ], [ %161, %160 ]
+  %.sink225 = phi i32 [ %150, %153 ], [ %150, %155 ], [ 16, %158 ], [ 16, %160 ]
   store ptr %.sink226, ptr %41, align 8, !tbaa !30
   store i32 %.sink225, ptr %38, align 8, !tbaa !52
   br label %Vec_IntPush.exit117.us

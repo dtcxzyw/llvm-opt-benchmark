@@ -1746,8 +1746,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit182
 
 37:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i100, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i84, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %75
-  %.sroa.31.1 = phi ptr [ null, %75 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %135, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i84 ], [ %140, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i100 ]
-  %.sroa.0.1 = phi ptr [ null, %75 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %133, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i84 ], [ %136, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i100 ]
+  %.sroa.31.1 = phi ptr [ %140, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i100 ], [ %135, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i84 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ null, %75 ]
+  %.sroa.0.1 = phi ptr [ %136, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i100 ], [ %133, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i84 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ null, %75 ]
   %38 = landingpad { ptr, i32 }
           cleanup
   br label %231
@@ -2435,7 +2435,7 @@ _ZN7testing15AssertionResultD2Ev.exit176:         ; preds = %.thread, %265, %_ZN
   call void %276(ptr noundef nonnull %30) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-277:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit176, %190, %_ZN7testing15AssertionResultD2Ev.exit127
+277:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit176, %_ZN7testing15AssertionResultD2Ev.exit127, %190
   call void @_ZdlPvm(ptr noundef nonnull %141, i64 noundef 32) #26
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
@@ -2654,15 +2654,15 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
           to label %83 unwind label %81
 
 35:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i98, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %28, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i98 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %25, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i98 ]
+  %.sroa.19.0 = phi ptr [ %28, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i98 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %25, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i98 ], [ null, %1 ]
   %36 = landingpad { ptr, i32 }
           cleanup
   br label %248
 
 37:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %77
-  %.sroa.19.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %28, %77 ]
-  %.sroa.0.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %25, %77 ]
+  %.sroa.19.1 = phi ptr [ %28, %77 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0.1 = phi ptr [ %25, %77 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %38 = landingpad { ptr, i32 }
           cleanup
   br label %200
@@ -3377,8 +3377,8 @@ define dso_local void @_ZN51ProxyLifetimeTests_TestPolyConstrction_InPlace_Test8
           to label %_ZNK5utils4spec8ToString8accessorIN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEEE8ToStringIJEEEDcDpOT_QrqXclptscNS3_7details9dependentIPKT_JDpTL0__EE4typeEfpT6invokeIS1_Espclgssr3stdE7forwardISI_Efp_EEE.exit unwind label %24
 
 22:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %84, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %81, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109 ]
+  %.sroa.19.0 = phi ptr [ %84, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %81, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109 ], [ null, %1 ]
   %23 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131
@@ -3929,9 +3929,9 @@ _ZN7testing15AssertionResultD2Ev.exit145:         ; preds = %.thread, %209, %_ZN
   call void %219(ptr noundef nonnull %18) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-220:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit145, %130, %_ZN7testing15AssertionResultD2Ev.exit96
-  %.sroa.19.3.ph = phi ptr [ %84, %_ZN7testing15AssertionResultD2Ev.exit96 ], [ %84, %130 ], [ %154, %_ZN7testing15AssertionResultD2Ev.exit145 ]
-  %.sroa.0.3.ph = phi ptr [ %81, %_ZN7testing15AssertionResultD2Ev.exit96 ], [ %81, %130 ], [ %150, %_ZN7testing15AssertionResultD2Ev.exit145 ]
+220:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit145, %_ZN7testing15AssertionResultD2Ev.exit96, %130
+  %.sroa.19.3.ph = phi ptr [ %84, %130 ], [ %84, %_ZN7testing15AssertionResultD2Ev.exit96 ], [ %154, %_ZN7testing15AssertionResultD2Ev.exit145 ]
+  %.sroa.0.3.ph = phi ptr [ %81, %130 ], [ %81, %_ZN7testing15AssertionResultD2Ev.exit96 ], [ %150, %_ZN7testing15AssertionResultD2Ev.exit145 ]
   %221 = ptrtoint ptr %.sroa.19.3.ph to i64
   %222 = ptrtoint ptr %.sroa.0.3.ph to i64
   %223 = sub i64 %221, %222
@@ -3961,9 +3961,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131._crit_edge
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131: ; preds = %177, %175, %22
-  %.sroa.19.1 = phi ptr [ %.sroa.19.2, %177 ], [ %.sroa.19.0, %22 ], [ %.sroa.19.2, %175 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %177 ], [ %.sroa.0.0, %22 ], [ %.sroa.0.2, %175 ]
-  %.pn40.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn.pn, %177 ], [ %23, %22 ], [ %.pn35.pn.pn.pn, %175 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.0, %22 ], [ %.sroa.19.2, %175 ], [ %.sroa.19.2, %177 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %22 ], [ %.sroa.0.2, %175 ], [ %.sroa.0.2, %177 ]
+  %.pn40.pn.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %.pn35.pn.pn.pn, %175 ], [ %.pn35.pn.pn.pn, %177 ]
   %.not.i.i.i150 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i150, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit151, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131._crit_edge
 
@@ -4425,7 +4425,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
   ret void
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit105: ; preds = %23, %25, %109, %146, %66
-  %.merged = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ], [ %.pn39.pn.pn, %146 ], [ %.pn35.pn.pn, %109 ], [ %.pn.pn.pn, %66 ]
+  %.merged = phi { ptr, i32 } [ %24, %23 ], [ %.pn39.pn.pn, %146 ], [ %.pn35.pn.pn, %109 ], [ %.pn.pn.pn, %66 ], [ %26, %25 ]
   %154 = load ptr, ptr %17, align 8
   %.not.i.i.i.i106 = icmp eq ptr %154, null
   br i1 %.not.i.i.i.i106, label %_ZN5utils15LifetimeTrackerD2Ev.exit107, label %155
@@ -4485,8 +4485,8 @@ define dso_local void @_ZN66ProxyLifetimeTests_TestPolyConstrction_InPlaceInitia
           to label %_ZNK5utils4spec8ToString8accessorIN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEEE8ToStringIJEEEDcDpOT_QrqXclptscNS3_7details9dependentIPKT_JDpTL0__EE4typeEfpT6invokeIS1_Espclgssr3stdE7forwardISI_Efp_EEE.exit unwind label %24
 
 22:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %84, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109 ]
-  %.sroa.0164.0 = phi ptr [ null, %1 ], [ %81, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109 ]
+  %.sroa.19.0 = phi ptr [ %84, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109 ], [ null, %1 ]
+  %.sroa.0164.0 = phi ptr [ %81, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109 ], [ null, %1 ]
   %23 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131
@@ -5037,9 +5037,9 @@ _ZN7testing15AssertionResultD2Ev.exit145:         ; preds = %.thread, %209, %_ZN
   call void %219(ptr noundef nonnull %18) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-220:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit145, %130, %_ZN7testing15AssertionResultD2Ev.exit96
-  %.sroa.19.3.ph = phi ptr [ %84, %_ZN7testing15AssertionResultD2Ev.exit96 ], [ %84, %130 ], [ %154, %_ZN7testing15AssertionResultD2Ev.exit145 ]
-  %.sroa.0164.3.ph = phi ptr [ %81, %_ZN7testing15AssertionResultD2Ev.exit96 ], [ %81, %130 ], [ %150, %_ZN7testing15AssertionResultD2Ev.exit145 ]
+220:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit145, %_ZN7testing15AssertionResultD2Ev.exit96, %130
+  %.sroa.19.3.ph = phi ptr [ %84, %130 ], [ %84, %_ZN7testing15AssertionResultD2Ev.exit96 ], [ %154, %_ZN7testing15AssertionResultD2Ev.exit145 ]
+  %.sroa.0164.3.ph = phi ptr [ %81, %130 ], [ %81, %_ZN7testing15AssertionResultD2Ev.exit96 ], [ %150, %_ZN7testing15AssertionResultD2Ev.exit145 ]
   %221 = ptrtoint ptr %.sroa.19.3.ph to i64
   %222 = ptrtoint ptr %.sroa.0164.3.ph to i64
   %223 = sub i64 %221, %222
@@ -5069,9 +5069,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131._crit_edge
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131: ; preds = %177, %175, %22
-  %.sroa.19.1 = phi ptr [ %.sroa.19.2, %177 ], [ %.sroa.19.0, %22 ], [ %.sroa.19.2, %175 ]
-  %.sroa.0164.1 = phi ptr [ %.sroa.0164.2, %177 ], [ %.sroa.0164.0, %22 ], [ %.sroa.0164.2, %175 ]
-  %.pn40.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn.pn, %177 ], [ %23, %22 ], [ %.pn35.pn.pn.pn, %175 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.0, %22 ], [ %.sroa.19.2, %175 ], [ %.sroa.19.2, %177 ]
+  %.sroa.0164.1 = phi ptr [ %.sroa.0164.0, %22 ], [ %.sroa.0164.2, %175 ], [ %.sroa.0164.2, %177 ]
+  %.pn40.pn.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %.pn35.pn.pn.pn, %175 ], [ %.pn35.pn.pn.pn, %177 ]
   %.not.i.i.i150 = icmp eq ptr %.sroa.0164.1, null
   br i1 %.not.i.i.i150, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit151, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131._crit_edge
 
@@ -5533,7 +5533,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
   ret void
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit105: ; preds = %23, %25, %109, %146, %66
-  %.merged = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ], [ %.pn39.pn.pn, %146 ], [ %.pn35.pn.pn, %109 ], [ %.pn.pn.pn, %66 ]
+  %.merged = phi { ptr, i32 } [ %24, %23 ], [ %.pn39.pn.pn, %146 ], [ %.pn35.pn.pn, %109 ], [ %.pn.pn.pn, %66 ], [ %26, %25 ]
   %154 = load ptr, ptr %17, align 8
   %.not.i.i.i.i106 = icmp eq ptr %154, null
   br i1 %.not.i.i.i.i106, label %_ZN5utils15LifetimeTrackerD2Ev.exit107, label %155
@@ -5631,8 +5631,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
   br i1 %45, label %90, label %56
 
 48:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i210, %1
-  %.sroa.31.0 = phi ptr [ null, %1 ], [ %251, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i210 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %247, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i210 ]
+  %.sroa.31.0 = phi ptr [ %251, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i210 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %247, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i210 ], [ null, %1 ]
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit250
@@ -6677,8 +6677,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %401, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit266, %301, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit264
-  %.sroa.31.5 = phi ptr [ %328, %_ZN7testing15AssertionResultD2Ev.exit264 ], [ %251, %301 ], [ %251, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %37, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit266 ], [ %37, %401 ]
-  %.sroa.0.5 = phi ptr [ %325, %_ZN7testing15AssertionResultD2Ev.exit264 ], [ %247, %301 ], [ %247, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %34, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit266 ], [ %34, %401 ]
+  %.sroa.31.5 = phi ptr [ %328, %_ZN7testing15AssertionResultD2Ev.exit264 ], [ %251, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %251, %301 ], [ %37, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit266 ], [ %37, %401 ]
+  %.sroa.0.5 = phi ptr [ %325, %_ZN7testing15AssertionResultD2Ev.exit264 ], [ %247, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %247, %301 ], [ %34, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit266 ], [ %34, %401 ]
   %404 = ptrtoint ptr %.sroa.31.5 to i64
   %405 = ptrtoint ptr %.sroa.0.5 to i64
   %406 = sub i64 %404, %405
@@ -6705,9 +6705,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit250._crit_edge
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit250: ; preds = %356, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit248, %48
-  %.sroa.31.2 = phi ptr [ %.sroa.31.3, %356 ], [ %.sroa.31.0, %48 ], [ %.sroa.31.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit248 ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.3, %356 ], [ %.sroa.0.0, %48 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit248 ]
-  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %.pn54.pn.pn.pn.pn, %356 ], [ %49, %48 ], [ %.pn54.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit248 ]
+  %.sroa.31.2 = phi ptr [ %.sroa.31.0, %48 ], [ %.sroa.31.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit248 ], [ %.sroa.31.3, %356 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %48 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit248 ], [ %.sroa.0.3, %356 ]
+  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %.pn54.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit248 ], [ %.pn54.pn.pn.pn.pn, %356 ]
   %.not.i.i.i271 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i271, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit272, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit250._crit_edge
 
@@ -6816,15 +6816,15 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
   br label %96
 
 48:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i169, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %37, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i169 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %34, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i169 ]
+  %.sroa.19.0 = phi ptr [ %37, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i169 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %34, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i169 ], [ null, %1 ]
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit191
 
 50:                                               ; preds = %173, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %90
-  %.sroa.19.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %37, %173 ], [ %37, %90 ]
-  %.sroa.0.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %34, %173 ], [ %34, %90 ]
+  %.sroa.19.1 = phi ptr [ %37, %173 ], [ %37, %90 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0.1 = phi ptr [ %34, %173 ], [ %34, %90 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %51 = landingpad { ptr, i32 }
           cleanup
   br label %322
@@ -7741,8 +7741,8 @@ _ZN7testing15AssertionResultD2Ev.exit205:         ; preds = %.thread241, %356, %
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %365, %.critedge76, %277, %_ZN7testing15AssertionResultD2Ev.exit155, %_ZN7testing15AssertionResultD2Ev.exit205
-  %.sroa.19.4 = phi ptr [ %301, %_ZN7testing15AssertionResultD2Ev.exit205 ], [ %37, %277 ], [ %37, %_ZN7testing15AssertionResultD2Ev.exit155 ], [ %37, %.critedge76 ], [ %37, %365 ]
-  %.sroa.0.4 = phi ptr [ %297, %_ZN7testing15AssertionResultD2Ev.exit205 ], [ %34, %277 ], [ %34, %_ZN7testing15AssertionResultD2Ev.exit155 ], [ %34, %.critedge76 ], [ %34, %365 ]
+  %.sroa.19.4 = phi ptr [ %301, %_ZN7testing15AssertionResultD2Ev.exit205 ], [ %37, %_ZN7testing15AssertionResultD2Ev.exit155 ], [ %37, %277 ], [ %37, %.critedge76 ], [ %37, %365 ]
+  %.sroa.0.4 = phi ptr [ %297, %_ZN7testing15AssertionResultD2Ev.exit205 ], [ %34, %_ZN7testing15AssertionResultD2Ev.exit155 ], [ %34, %277 ], [ %34, %.critedge76 ], [ %34, %365 ]
   %368 = ptrtoint ptr %.sroa.19.4 to i64
   %369 = ptrtoint ptr %.sroa.0.4 to i64
   %370 = sub i64 %368, %369
@@ -7769,9 +7769,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit191._crit_edge
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit191: ; preds = %324, %322, %48
-  %.sroa.19.2 = phi ptr [ %.sroa.19.3, %324 ], [ %.sroa.19.0, %48 ], [ %.sroa.19.3, %322 ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.3, %324 ], [ %.sroa.0.0, %48 ], [ %.sroa.0.3, %322 ]
-  %.merged = phi { ptr, i32 } [ %.merged70, %324 ], [ %49, %48 ], [ %.merged70, %322 ]
+  %.sroa.19.2 = phi ptr [ %.sroa.19.0, %48 ], [ %.sroa.19.3, %322 ], [ %.sroa.19.3, %324 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %48 ], [ %.sroa.0.3, %322 ], [ %.sroa.0.3, %324 ]
+  %.merged = phi { ptr, i32 } [ %49, %48 ], [ %.merged70, %322 ], [ %.merged70, %324 ]
   %.not.i.i.i210 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i210, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit211, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit191._crit_edge
 
@@ -7868,8 +7868,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit227
 
 29:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i137, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i121, %81
-  %.sroa.31.1 = phi ptr [ %33, %81 ], [ %33, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i121 ], [ %144, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i137 ]
-  %.sroa.0.1 = phi ptr [ %26, %81 ], [ %26, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i121 ], [ %140, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i137 ]
+  %.sroa.31.1 = phi ptr [ %144, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i137 ], [ %33, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i121 ], [ %33, %81 ]
+  %.sroa.0.1 = phi ptr [ %140, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i137 ], [ %26, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i121 ], [ %26, %81 ]
   %30 = landingpad { ptr, i32 }
           cleanup
   br label %243
@@ -8622,8 +8622,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %290, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221, %198, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit219
-  %.sroa.31.5 = phi ptr [ %148, %_ZN7testing15AssertionResultD2Ev.exit219 ], [ %148, %198 ], [ %148, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %33, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221 ], [ %33, %290 ]
-  %.sroa.0.5 = phi ptr [ %145, %_ZN7testing15AssertionResultD2Ev.exit219 ], [ %145, %198 ], [ %145, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %26, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221 ], [ %26, %290 ]
+  %.sroa.31.5 = phi ptr [ %148, %_ZN7testing15AssertionResultD2Ev.exit219 ], [ %148, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %148, %198 ], [ %33, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221 ], [ %33, %290 ]
+  %.sroa.0.5 = phi ptr [ %145, %_ZN7testing15AssertionResultD2Ev.exit219 ], [ %145, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %145, %198 ], [ %26, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221 ], [ %26, %290 ]
   %293 = ptrtoint ptr %.sroa.31.5 to i64
   %294 = ptrtoint ptr %.sroa.0.5 to i64
   %295 = sub i64 %293, %294
@@ -8666,7 +8666,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit227
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit227: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit205.thread365, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit205.thread360, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit205.thread
-  %.pn52.pn.pn.pn296 = phi { ptr, i32 } [ %28, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit205.thread365 ], [ %.pn52.pn.pn.pn295, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit205.thread ], [ %27, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit205.thread360 ]
+  %.pn52.pn.pn.pn296 = phi { ptr, i32 } [ %.pn52.pn.pn.pn295, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit205.thread ], [ %27, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit205.thread360 ], [ %28, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit205.thread365 ]
   %309 = load ptr, ptr %22, align 8
   %.not.i.i.i.i228 = icmp eq ptr %309, null
   br i1 %.not.i.i.i.i228, label %_ZN5utils15LifetimeTrackerD2Ev.exit229, label %310
@@ -8716,8 +8716,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
           to label %25 unwind label %23
 
 21:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i172, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %27, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i172 ]
-  %.sroa.0225.0 = phi ptr [ null, %1 ], [ %20, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i172 ]
+  %.sroa.19.0 = phi ptr [ %27, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i172 ], [ null, %1 ]
+  %.sroa.0225.0 = phi ptr [ %20, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i172 ], [ null, %1 ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %213
@@ -9355,9 +9355,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit119
 
 22:                                               ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSEDnQL_ZNS_5proxy13HasDestructorEE.exit, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %23 = phi ptr [ @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_25copyability_meta_providerILb0EEEEENS3_INS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEE13meta_providerIN5utils4spec8ToStringEEEEEEEEEEEE7storageINSM_15LifetimeTracker7SessionEEE, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ null, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSEDnQL_ZNS_5proxy13HasDestructorEE.exit ]
-  %.sroa.19.0 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %19, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSEDnQL_ZNS_5proxy13HasDestructorEE.exit ]
-  %.sroa.0.0 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %17, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSEDnQL_ZNS_5proxy13HasDestructorEE.exit ]
+  %23 = phi ptr [ null, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSEDnQL_ZNS_5proxy13HasDestructorEE.exit ], [ @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_25copyability_meta_providerILb0EEEEENS3_INS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEE13meta_providerIN5utils4spec8ToStringEEEEEEEEEEEE7storageINSM_15LifetimeTracker7SessionEEE, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.19.0 = phi ptr [ %19, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSEDnQL_ZNS_5proxy13HasDestructorEE.exit ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0.0 = phi ptr [ %17, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSEDnQL_ZNS_5proxy13HasDestructorEE.exit ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %24 = landingpad { ptr, i32 }
           cleanup
   br label %111
@@ -9874,8 +9874,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSIN5utils15LifetimeTracker7SessionEE
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit198
 
 48:                                               ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit134, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i104, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i88, %86, %27, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.43.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %29, %27 ], [ %29, %86 ], [ %29, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i88 ], [ %148, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i104 ], [ %153, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit134 ]
-  %.sroa.0.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %26, %27 ], [ %26, %86 ], [ %26, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i88 ], [ %144, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i104 ], [ %149, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit134 ]
+  %.sroa.43.1 = phi ptr [ %153, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit134 ], [ %148, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i104 ], [ %29, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i88 ], [ %29, %86 ], [ %29, %27 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0.1 = phi ptr [ %149, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit134 ], [ %144, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i104 ], [ %26, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i88 ], [ %26, %86 ], [ %26, %27 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %266
@@ -10658,9 +10658,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   store ptr null, ptr %311, align 8
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %205, %_ZN7testing15AssertionResultD2Ev.exit163, %.critedge48, %308, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit
-  %.sroa.0.4288 = phi ptr [ %.sroa.0.10, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %26, %308 ], [ %26, %.critedge48 ], [ %154, %_ZN7testing15AssertionResultD2Ev.exit163 ], [ %154, %205 ]
-  %.sroa.43.4287 = phi ptr [ %.sroa.43.10, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %29, %308 ], [ %29, %.critedge48 ], [ %158, %_ZN7testing15AssertionResultD2Ev.exit163 ], [ %158, %205 ]
+_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit163, %205, %.critedge48, %308, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit
+  %.sroa.0.4288 = phi ptr [ %.sroa.0.10, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %26, %308 ], [ %26, %.critedge48 ], [ %154, %205 ], [ %154, %_ZN7testing15AssertionResultD2Ev.exit163 ]
+  %.sroa.43.4287 = phi ptr [ %.sroa.43.10, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %29, %308 ], [ %29, %.critedge48 ], [ %158, %205 ], [ %158, %_ZN7testing15AssertionResultD2Ev.exit163 ]
   %312 = ptrtoint ptr %.sroa.43.4287 to i64
   %313 = ptrtoint ptr %.sroa.0.4288 to i64
   %314 = sub i64 %312, %313
@@ -10687,9 +10687,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %322
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit198: ; preds = %268, %266, %46
-  %.sroa.43.2 = phi ptr [ %.sroa.43.3, %268 ], [ %.sroa.43.0, %46 ], [ %.sroa.43.3, %266 ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.3, %268 ], [ %.sroa.0.0, %46 ], [ %.sroa.0.3, %266 ]
-  %.pn40.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn.pn, %268 ], [ %47, %46 ], [ %.pn35.pn.pn.pn, %266 ]
+  %.sroa.43.2 = phi ptr [ %.sroa.43.0, %46 ], [ %.sroa.43.3, %266 ], [ %.sroa.43.3, %268 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %46 ], [ %.sroa.0.3, %266 ], [ %.sroa.0.3, %268 ]
+  %.pn40.pn.pn.pn = phi { ptr, i32 } [ %47, %46 ], [ %.pn35.pn.pn.pn, %266 ], [ %.pn35.pn.pn.pn, %268 ]
   %.not.i.i.i217 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i217, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit218, label %322
 
@@ -10832,22 +10832,22 @@ _ZSt10destroy_atIN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEEEvPT_.exit.i.thread.i
   br label %108
 
 58:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i186, %1
-  %.sroa.31.0 = phi ptr [ null, %1 ], [ %45, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i186 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %41, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i186 ]
+  %.sroa.31.0 = phi ptr [ %45, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i186 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %41, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i186 ], [ null, %1 ]
   %59 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit224
 
 60:                                               ; preds = %36, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.31.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %38, %36 ]
-  %.sroa.0.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %35, %36 ]
+  %.sroa.31.1 = phi ptr [ %38, %36 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0.1 = phi ptr [ %35, %36 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %61 = landingpad { ptr, i32 }
           cleanup
   br label %335
 
 62:                                               ; preds = %185, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i85, %102
-  %.sroa.31.2 = phi ptr [ %38, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i85 ], [ %45, %185 ], [ %45, %102 ]
-  %.sroa.0.2 = phi ptr [ %35, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i85 ], [ %41, %185 ], [ %41, %102 ]
+  %.sroa.31.2 = phi ptr [ %45, %185 ], [ %45, %102 ], [ %38, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i85 ]
+  %.sroa.0.2 = phi ptr [ %41, %185 ], [ %41, %102 ], [ %35, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i85 ]
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %334
@@ -11776,8 +11776,8 @@ _ZN7testing15AssertionResultD2Ev.exit238:         ; preds = %.thread288, %369, %
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %378, %.critedge78, %289, %_ZN7testing15AssertionResultD2Ev.exit173, %_ZN7testing15AssertionResultD2Ev.exit238
-  %.sroa.31.6 = phi ptr [ %312, %_ZN7testing15AssertionResultD2Ev.exit238 ], [ %45, %289 ], [ %45, %_ZN7testing15AssertionResultD2Ev.exit173 ], [ %45, %.critedge78 ], [ %45, %378 ]
-  %.sroa.0.6 = phi ptr [ %309, %_ZN7testing15AssertionResultD2Ev.exit238 ], [ %41, %289 ], [ %41, %_ZN7testing15AssertionResultD2Ev.exit173 ], [ %41, %.critedge78 ], [ %41, %378 ]
+  %.sroa.31.6 = phi ptr [ %312, %_ZN7testing15AssertionResultD2Ev.exit238 ], [ %45, %_ZN7testing15AssertionResultD2Ev.exit173 ], [ %45, %289 ], [ %45, %.critedge78 ], [ %45, %378 ]
+  %.sroa.0.6 = phi ptr [ %309, %_ZN7testing15AssertionResultD2Ev.exit238 ], [ %41, %_ZN7testing15AssertionResultD2Ev.exit173 ], [ %41, %289 ], [ %41, %.critedge78 ], [ %41, %378 ]
   %381 = ptrtoint ptr %.sroa.31.6 to i64
   %382 = ptrtoint ptr %.sroa.0.6 to i64
   %383 = sub i64 %381, %382
@@ -11804,9 +11804,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit224._crit_edge
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit224: ; preds = %337, %335, %58
-  %.sroa.31.3 = phi ptr [ %.sroa.31.4, %337 ], [ %.sroa.31.0, %58 ], [ %.sroa.31.4, %335 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.4, %337 ], [ %.sroa.0.0, %58 ], [ %.sroa.0.4, %335 ]
-  %.merged = phi { ptr, i32 } [ %.merged71, %337 ], [ %59, %58 ], [ %.merged71, %335 ]
+  %.sroa.31.3 = phi ptr [ %.sroa.31.0, %58 ], [ %.sroa.31.4, %335 ], [ %.sroa.31.4, %337 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.0, %58 ], [ %.sroa.0.4, %335 ], [ %.sroa.0.4, %337 ]
+  %.merged = phi { ptr, i32 } [ %59, %58 ], [ %.merged71, %335 ], [ %.merged71, %337 ]
   %.not.i.i.i243 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i243, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit244, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit224._crit_edge
 
@@ -11921,8 +11921,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSIN5utils15LifetimeTracker7SessionEE
   br i1 %39, label %80, label %46
 
 42:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i101, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i85, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %80, %1
-  %.sroa.31.0 = phi ptr [ null, %1 ], [ null, %80 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %145, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i101 ], [ %140, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i85 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %80 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %141, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i101 ], [ %138, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i85 ]
+  %.sroa.31.0 = phi ptr [ %145, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i101 ], [ %140, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i85 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ null, %80 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %141, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i101 ], [ %138, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i85 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ null, %80 ], [ null, %1 ]
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %236
@@ -12611,7 +12611,7 @@ _ZN7testing15AssertionResultD2Ev.exit177:         ; preds = %.thread, %271, %_ZN
   call void %282(ptr noundef nonnull %36) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-283:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit177, %195, %_ZN7testing15AssertionResultD2Ev.exit128
+283:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit177, %_ZN7testing15AssertionResultD2Ev.exit128, %195
   call void @_ZdlPvm(ptr noundef nonnull %146, i64 noundef 32) #26
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
@@ -12754,8 +12754,8 @@ _ZSt10destroy_atIN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEEEvPT_.exit.i.thread.i
   br label %97
 
 47:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i133, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %33, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i133 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i133 ]
+  %.sroa.19.0 = phi ptr [ %33, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i133 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i133 ], [ null, %1 ]
   %48 = landingpad { ptr, i32 }
           cleanup
   br label %319
@@ -13638,8 +13638,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit187
 
 27:                                               ; preds = %25, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i105, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i89, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEE5resetEvQL_ZNS_5proxy13HasDestructorEE.exit.i, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.31.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %23, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEE5resetEvQL_ZNS_5proxy13HasDestructorEE.exit.i ], [ %23, %25 ], [ %88, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i105 ], [ %23, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i89 ]
-  %.sroa.0.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %21, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEE5resetEvQL_ZNS_5proxy13HasDestructorEE.exit.i ], [ %21, %25 ], [ %84, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i105 ], [ %21, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i89 ]
+  %.sroa.31.1 = phi ptr [ %88, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i105 ], [ %23, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i89 ], [ %23, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEE5resetEvQL_ZNS_5proxy13HasDestructorEE.exit.i ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %23, %25 ]
+  %.sroa.0.1 = phi ptr [ %84, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i105 ], [ %21, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i89 ], [ %21, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEE5resetEvQL_ZNS_5proxy13HasDestructorEE.exit.i ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %21, %25 ]
   %28 = landingpad { ptr, i32 }
           cleanup
   br label %177
@@ -14197,8 +14197,8 @@ _ZN7testing15AssertionResultD2Ev.exit181:         ; preds = %.thread, %211, %_ZN
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %219, %_ZN7testing15AssertionResultD2Ev.exit79, %138, %_ZN7testing15AssertionResultD2Ev.exit132, %_ZN7testing15AssertionResultD2Ev.exit181
-  %.sroa.31.4 = phi ptr [ %92, %_ZN7testing15AssertionResultD2Ev.exit181 ], [ %92, %138 ], [ %92, %_ZN7testing15AssertionResultD2Ev.exit132 ], [ %23, %_ZN7testing15AssertionResultD2Ev.exit79 ], [ %23, %219 ]
-  %.sroa.0.4 = phi ptr [ %89, %_ZN7testing15AssertionResultD2Ev.exit181 ], [ %89, %138 ], [ %89, %_ZN7testing15AssertionResultD2Ev.exit132 ], [ %21, %_ZN7testing15AssertionResultD2Ev.exit79 ], [ %21, %219 ]
+  %.sroa.31.4 = phi ptr [ %92, %_ZN7testing15AssertionResultD2Ev.exit181 ], [ %92, %_ZN7testing15AssertionResultD2Ev.exit132 ], [ %92, %138 ], [ %23, %_ZN7testing15AssertionResultD2Ev.exit79 ], [ %23, %219 ]
+  %.sroa.0.4 = phi ptr [ %89, %_ZN7testing15AssertionResultD2Ev.exit181 ], [ %89, %_ZN7testing15AssertionResultD2Ev.exit132 ], [ %89, %138 ], [ %21, %_ZN7testing15AssertionResultD2Ev.exit79 ], [ %21, %219 ]
   %222 = ptrtoint ptr %.sroa.31.4 to i64
   %223 = ptrtoint ptr %.sroa.0.4 to i64
   %224 = sub i64 %222, %223
@@ -14316,8 +14316,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit175
 
 34:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %74
-  %.sroa.19.0 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %31, %74 ], [ %31, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109 ]
-  %.sroa.0.0 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %29, %74 ], [ %29, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109 ]
+  %.sroa.19.0 = phi ptr [ %31, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109 ], [ %31, %74 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0.0 = phi ptr [ %29, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109 ], [ %29, %74 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %244
@@ -15063,8 +15063,8 @@ _ZN7testing15AssertionResultD2Ev.exit169:         ; preds = %.thread203, %278, %
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %287, %.critedge66, %206, %_ZN7testing15AssertionResultD2Ev.exit136, %_ZN7testing15AssertionResultD2Ev.exit169
-  %.sroa.19.3 = phi ptr [ %160, %_ZN7testing15AssertionResultD2Ev.exit169 ], [ %160, %206 ], [ %160, %_ZN7testing15AssertionResultD2Ev.exit136 ], [ %31, %.critedge66 ], [ %31, %287 ]
-  %.sroa.0.3 = phi ptr [ %156, %_ZN7testing15AssertionResultD2Ev.exit169 ], [ %156, %206 ], [ %156, %_ZN7testing15AssertionResultD2Ev.exit136 ], [ %29, %.critedge66 ], [ %29, %287 ]
+  %.sroa.19.3 = phi ptr [ %160, %_ZN7testing15AssertionResultD2Ev.exit169 ], [ %160, %_ZN7testing15AssertionResultD2Ev.exit136 ], [ %160, %206 ], [ %31, %.critedge66 ], [ %31, %287 ]
+  %.sroa.0.3 = phi ptr [ %156, %_ZN7testing15AssertionResultD2Ev.exit169 ], [ %156, %_ZN7testing15AssertionResultD2Ev.exit136 ], [ %156, %206 ], [ %29, %.critedge66 ], [ %29, %287 ]
   %290 = ptrtoint ptr %.sroa.19.3 to i64
   %291 = ptrtoint ptr %.sroa.0.3 to i64
   %292 = sub i64 %290, %291
@@ -15716,9 +15716,9 @@ _ZN7testing15AssertionResultD2Ev.exit146:         ; preds = %.thread, %208, %_ZN
   call void %218(ptr noundef nonnull %17) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-219:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit146, %127, %_ZN7testing15AssertionResultD2Ev.exit97
-  %.sroa.19.1.ph = phi ptr [ %81, %_ZN7testing15AssertionResultD2Ev.exit97 ], [ %81, %127 ], [ %151, %_ZN7testing15AssertionResultD2Ev.exit146 ]
-  %.sroa.0.1.ph = phi ptr [ %78, %_ZN7testing15AssertionResultD2Ev.exit97 ], [ %78, %127 ], [ %147, %_ZN7testing15AssertionResultD2Ev.exit146 ]
+219:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit146, %_ZN7testing15AssertionResultD2Ev.exit97, %127
+  %.sroa.19.1.ph = phi ptr [ %81, %127 ], [ %81, %_ZN7testing15AssertionResultD2Ev.exit97 ], [ %151, %_ZN7testing15AssertionResultD2Ev.exit146 ]
+  %.sroa.0.1.ph = phi ptr [ %78, %127 ], [ %78, %_ZN7testing15AssertionResultD2Ev.exit97 ], [ %147, %_ZN7testing15AssertionResultD2Ev.exit146 ]
   %220 = ptrtoint ptr %.sroa.19.1.ph to i64
   %221 = ptrtoint ptr %.sroa.0.1.ph to i64
   %222 = sub i64 %220, %221
@@ -15751,7 +15751,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   %.not.i.i.i151 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i.i.i151, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit152, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit132.thread
 
-_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit132.thread: ; preds = %177, %230, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit132
+_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit132.thread: ; preds = %230, %177, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit132
   %.pn40.pn.pn.pn190 = phi { ptr, i32 } [ %.pn35.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit132 ], [ %178, %177 ], [ %.pn40.pn.pn, %230 ]
   %.sroa.0.2189 = phi ptr [ %.sroa.0.0, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit132 ], [ %78, %177 ], [ %147, %230 ]
   %.sroa.19.2188 = phi ptr [ %.sroa.19.0, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit132 ], [ %81, %177 ], [ %151, %230 ]
@@ -16452,8 +16452,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit187
 
 27:                                               ; preds = %25, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i105, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i89, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEE5resetEvQL_ZNS_5proxy13HasDestructorEE.exit.i, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.31.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %23, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEE5resetEvQL_ZNS_5proxy13HasDestructorEE.exit.i ], [ %23, %25 ], [ %88, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i105 ], [ %23, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i89 ]
-  %.sroa.0208.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %21, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEE5resetEvQL_ZNS_5proxy13HasDestructorEE.exit.i ], [ %21, %25 ], [ %84, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i105 ], [ %21, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i89 ]
+  %.sroa.31.1 = phi ptr [ %88, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i105 ], [ %23, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i89 ], [ %23, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEE5resetEvQL_ZNS_5proxy13HasDestructorEE.exit.i ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %23, %25 ]
+  %.sroa.0208.1 = phi ptr [ %84, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i105 ], [ %21, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i89 ], [ %21, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEE5resetEvQL_ZNS_5proxy13HasDestructorEE.exit.i ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %21, %25 ]
   %28 = landingpad { ptr, i32 }
           cleanup
   br label %177
@@ -17011,8 +17011,8 @@ _ZN7testing15AssertionResultD2Ev.exit181:         ; preds = %.thread, %211, %_ZN
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %219, %_ZN7testing15AssertionResultD2Ev.exit79, %138, %_ZN7testing15AssertionResultD2Ev.exit132, %_ZN7testing15AssertionResultD2Ev.exit181
-  %.sroa.31.4 = phi ptr [ %92, %_ZN7testing15AssertionResultD2Ev.exit181 ], [ %92, %138 ], [ %92, %_ZN7testing15AssertionResultD2Ev.exit132 ], [ %23, %_ZN7testing15AssertionResultD2Ev.exit79 ], [ %23, %219 ]
-  %.sroa.0208.4 = phi ptr [ %89, %_ZN7testing15AssertionResultD2Ev.exit181 ], [ %89, %138 ], [ %89, %_ZN7testing15AssertionResultD2Ev.exit132 ], [ %21, %_ZN7testing15AssertionResultD2Ev.exit79 ], [ %21, %219 ]
+  %.sroa.31.4 = phi ptr [ %92, %_ZN7testing15AssertionResultD2Ev.exit181 ], [ %92, %_ZN7testing15AssertionResultD2Ev.exit132 ], [ %92, %138 ], [ %23, %_ZN7testing15AssertionResultD2Ev.exit79 ], [ %23, %219 ]
+  %.sroa.0208.4 = phi ptr [ %89, %_ZN7testing15AssertionResultD2Ev.exit181 ], [ %89, %_ZN7testing15AssertionResultD2Ev.exit132 ], [ %89, %138 ], [ %21, %_ZN7testing15AssertionResultD2Ev.exit79 ], [ %21, %219 ]
   %222 = ptrtoint ptr %.sroa.31.4 to i64
   %223 = ptrtoint ptr %.sroa.0208.4 to i64
   %224 = sub i64 %222, %223
@@ -17130,8 +17130,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit175
 
 34:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %74
-  %.sroa.19.0 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %31, %74 ], [ %31, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109 ]
-  %.sroa.0189.0 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %29, %74 ], [ %29, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109 ]
+  %.sroa.19.0 = phi ptr [ %31, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109 ], [ %31, %74 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0189.0 = phi ptr [ %29, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i109 ], [ %29, %74 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %244
@@ -17877,8 +17877,8 @@ _ZN7testing15AssertionResultD2Ev.exit169:         ; preds = %.thread204, %278, %
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %287, %.critedge66, %206, %_ZN7testing15AssertionResultD2Ev.exit136, %_ZN7testing15AssertionResultD2Ev.exit169
-  %.sroa.19.3 = phi ptr [ %160, %_ZN7testing15AssertionResultD2Ev.exit169 ], [ %160, %206 ], [ %160, %_ZN7testing15AssertionResultD2Ev.exit136 ], [ %31, %.critedge66 ], [ %31, %287 ]
-  %.sroa.0189.3 = phi ptr [ %156, %_ZN7testing15AssertionResultD2Ev.exit169 ], [ %156, %206 ], [ %156, %_ZN7testing15AssertionResultD2Ev.exit136 ], [ %29, %.critedge66 ], [ %29, %287 ]
+  %.sroa.19.3 = phi ptr [ %160, %_ZN7testing15AssertionResultD2Ev.exit169 ], [ %160, %_ZN7testing15AssertionResultD2Ev.exit136 ], [ %160, %206 ], [ %31, %.critedge66 ], [ %31, %287 ]
+  %.sroa.0189.3 = phi ptr [ %156, %_ZN7testing15AssertionResultD2Ev.exit169 ], [ %156, %_ZN7testing15AssertionResultD2Ev.exit136 ], [ %156, %206 ], [ %29, %.critedge66 ], [ %29, %287 ]
   %290 = ptrtoint ptr %.sroa.19.3 to i64
   %291 = ptrtoint ptr %.sroa.0189.3 to i64
   %292 = sub i64 %290, %291
@@ -18530,9 +18530,9 @@ _ZN7testing15AssertionResultD2Ev.exit146:         ; preds = %.thread, %208, %_ZN
   call void %218(ptr noundef nonnull %17) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-219:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit146, %127, %_ZN7testing15AssertionResultD2Ev.exit97
-  %.sroa.19.1.ph = phi ptr [ %81, %_ZN7testing15AssertionResultD2Ev.exit97 ], [ %81, %127 ], [ %151, %_ZN7testing15AssertionResultD2Ev.exit146 ]
-  %.sroa.0165.1.ph = phi ptr [ %78, %_ZN7testing15AssertionResultD2Ev.exit97 ], [ %78, %127 ], [ %147, %_ZN7testing15AssertionResultD2Ev.exit146 ]
+219:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit146, %_ZN7testing15AssertionResultD2Ev.exit97, %127
+  %.sroa.19.1.ph = phi ptr [ %81, %127 ], [ %81, %_ZN7testing15AssertionResultD2Ev.exit97 ], [ %151, %_ZN7testing15AssertionResultD2Ev.exit146 ]
+  %.sroa.0165.1.ph = phi ptr [ %78, %127 ], [ %78, %_ZN7testing15AssertionResultD2Ev.exit97 ], [ %147, %_ZN7testing15AssertionResultD2Ev.exit146 ]
   %220 = ptrtoint ptr %.sroa.19.1.ph to i64
   %221 = ptrtoint ptr %.sroa.0165.1.ph to i64
   %222 = sub i64 %220, %221
@@ -18565,7 +18565,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   %.not.i.i.i151 = icmp eq ptr %.sroa.0165.0, null
   br i1 %.not.i.i.i151, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit152, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit132.thread
 
-_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit132.thread: ; preds = %177, %230, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit132
+_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit132.thread: ; preds = %230, %177, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit132
   %.pn40.pn.pn.pn191 = phi { ptr, i32 } [ %.pn35.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit132 ], [ %178, %177 ], [ %.pn40.pn.pn, %230 ]
   %.sroa.0165.2190 = phi ptr [ %.sroa.0165.0, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit132 ], [ %78, %177 ], [ %147, %230 ]
   %.sroa.19.2189 = phi ptr [ %.sroa.19.0, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit132 ], [ %81, %177 ], [ %151, %230 ]
@@ -19353,15 +19353,15 @@ _ZSt10destroy_atIN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEEEvPT_.exit.i.i: ; pre
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit318
 
 68:                                               ; preds = %36, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.55.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %38, %36 ]
-  %.sroa.0.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %35, %36 ]
+  %.sroa.55.1 = phi ptr [ %38, %36 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0.1 = phi ptr [ %35, %36 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %69 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit316
 
 70:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i234, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit216, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i186, %209, %109, %48, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i82
-  %.sroa.55.2 = phi ptr [ %38, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i82 ], [ %46, %48 ], [ %46, %109 ], [ %46, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i186 ], [ %46, %209 ], [ %276, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i234 ], [ %271, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit216 ]
-  %.sroa.0.2 = phi ptr [ %35, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i82 ], [ %42, %48 ], [ %42, %109 ], [ %42, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i186 ], [ %42, %209 ], [ %272, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i234 ], [ %267, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit216 ]
+  %.sroa.55.2 = phi ptr [ %276, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i234 ], [ %271, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit216 ], [ %46, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i186 ], [ %46, %209 ], [ %46, %109 ], [ %46, %48 ], [ %38, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i82 ]
+  %.sroa.0.2 = phi ptr [ %272, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i234 ], [ %267, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit216 ], [ %42, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i186 ], [ %42, %209 ], [ %42, %109 ], [ %42, %48 ], [ %35, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i82 ]
   %71 = landingpad { ptr, i32 }
           cleanup
   br label %428
@@ -20600,8 +20600,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit334, %479, %339, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit332
-  %.sroa.0.6420 = phi ptr [ %42, %479 ], [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit334 ], [ %.sroa.0.14, %_ZN7testing15AssertionResultD2Ev.exit332 ], [ %.sroa.0.12, %339 ], [ %.sroa.0.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ]
-  %.sroa.55.6419 = phi ptr [ %46, %479 ], [ %46, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit334 ], [ %.sroa.55.14, %_ZN7testing15AssertionResultD2Ev.exit332 ], [ %.sroa.55.12, %339 ], [ %.sroa.55.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ]
+  %.sroa.0.6420 = phi ptr [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit334 ], [ %42, %479 ], [ %.sroa.0.14, %_ZN7testing15AssertionResultD2Ev.exit332 ], [ %.sroa.0.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %.sroa.0.12, %339 ]
+  %.sroa.55.6419 = phi ptr [ %46, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit334 ], [ %46, %479 ], [ %.sroa.55.14, %_ZN7testing15AssertionResultD2Ev.exit332 ], [ %.sroa.55.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %.sroa.55.12, %339 ]
   %482 = ptrtoint ptr %.sroa.55.6419 to i64
   %483 = ptrtoint ptr %.sroa.0.6420 to i64
   %484 = sub i64 %482, %483
@@ -20628,9 +20628,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %492
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit318: ; preds = %434, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit316, %66
-  %.sroa.55.3 = phi ptr [ %.sroa.55.4, %434 ], [ %.sroa.55.0, %66 ], [ %.sroa.55.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit316 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.4, %434 ], [ %.sroa.0.0, %66 ], [ %.sroa.0.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit316 ]
-  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %.pn54.pn.pn.pn.pn, %434 ], [ %67, %66 ], [ %.pn54.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit316 ]
+  %.sroa.55.3 = phi ptr [ %.sroa.55.0, %66 ], [ %.sroa.55.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit316 ], [ %.sroa.55.4, %434 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.0, %66 ], [ %.sroa.0.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit316 ], [ %.sroa.0.4, %434 ]
+  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %67, %66 ], [ %.pn54.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit316 ], [ %.pn54.pn.pn.pn.pn, %434 ]
   %.not.i.i.i339 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i339, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit340, label %492
 
@@ -20796,22 +20796,22 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSEOS3_QL_ZNS_5proxy17HasMoveAssignme
   br label %119
 
 69:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i269, %1
-  %.sroa.31.0 = phi ptr [ null, %1 ], [ %54, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i269 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %50, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i269 ]
+  %.sroa.31.0 = phi ptr [ %54, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i269 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %50, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i269 ], [ null, %1 ]
   %70 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit309
 
 71:                                               ; preds = %44, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.31.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %46, %44 ]
-  %.sroa.0.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %43, %44 ]
+  %.sroa.31.1 = phi ptr [ %46, %44 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0.1 = phi ptr [ %43, %44 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %72 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit307
 
 73:                                               ; preds = %295, %196, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i110, %113
-  %.sroa.31.2 = phi ptr [ %46, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i110 ], [ %54, %295 ], [ %54, %196 ], [ %54, %113 ]
-  %.sroa.0.2 = phi ptr [ %43, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i110 ], [ %50, %295 ], [ %50, %196 ], [ %50, %113 ]
+  %.sroa.31.2 = phi ptr [ %54, %295 ], [ %54, %196 ], [ %54, %113 ], [ %46, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i110 ]
+  %.sroa.0.2 = phi ptr [ %50, %295 ], [ %50, %196 ], [ %50, %113 ], [ %43, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i110 ]
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %452
@@ -22082,8 +22082,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %503, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit325, %403, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit323
-  %.sroa.31.6 = phi ptr [ %430, %_ZN7testing15AssertionResultD2Ev.exit323 ], [ %54, %403 ], [ %54, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %54, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit325 ], [ %54, %503 ]
-  %.sroa.0.6 = phi ptr [ %427, %_ZN7testing15AssertionResultD2Ev.exit323 ], [ %50, %403 ], [ %50, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %50, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit325 ], [ %50, %503 ]
+  %.sroa.31.6 = phi ptr [ %430, %_ZN7testing15AssertionResultD2Ev.exit323 ], [ %54, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %54, %403 ], [ %54, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit325 ], [ %54, %503 ]
+  %.sroa.0.6 = phi ptr [ %427, %_ZN7testing15AssertionResultD2Ev.exit323 ], [ %50, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %50, %403 ], [ %50, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit325 ], [ %50, %503 ]
   %506 = ptrtoint ptr %.sroa.31.6 to i64
   %507 = ptrtoint ptr %.sroa.0.6 to i64
   %508 = sub i64 %506, %507
@@ -22110,9 +22110,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit309._crit_edge
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit309: ; preds = %458, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit307, %69
-  %.sroa.31.3 = phi ptr [ %.sroa.31.4, %458 ], [ %.sroa.31.0, %69 ], [ %.sroa.31.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit307 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.4, %458 ], [ %.sroa.0.0, %69 ], [ %.sroa.0.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit307 ]
-  %.merged = phi { ptr, i32 } [ %.merged89, %458 ], [ %70, %69 ], [ %.merged89, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit307 ]
+  %.sroa.31.3 = phi ptr [ %.sroa.31.0, %69 ], [ %.sroa.31.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit307 ], [ %.sroa.31.4, %458 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.0, %69 ], [ %.sroa.0.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit307 ], [ %.sroa.0.4, %458 ]
+  %.merged = phi { ptr, i32 } [ %70, %69 ], [ %.merged89, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit307 ], [ %.merged89, %458 ]
   %.not.i.i.i330 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i330, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit331, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit309._crit_edge
 
@@ -22253,8 +22253,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit219
 
 48:                                               ; preds = %27, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i137, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i105, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i89, %87, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.43.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %29, %27 ], [ %29, %87 ], [ %29, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i89 ], [ %150, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i105 ], [ %155, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i137 ]
-  %.sroa.0.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %26, %27 ], [ %26, %87 ], [ %26, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i89 ], [ %146, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i105 ], [ %151, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i137 ]
+  %.sroa.43.1 = phi ptr [ %155, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i137 ], [ %150, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i105 ], [ %29, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i89 ], [ %29, %87 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %29, %27 ]
+  %.sroa.0.1 = phi ptr [ %151, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i137 ], [ %146, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i105 ], [ %26, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i89 ], [ %26, %87 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %26, %27 ]
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %242
@@ -22951,9 +22951,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   store ptr null, ptr %287, align 8
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %205, %_ZN7testing15AssertionResultD2Ev.exit164, %.critedge48, %284, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit
-  %.sroa.0.4293 = phi ptr [ %156, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %26, %284 ], [ %26, %.critedge48 ], [ %156, %_ZN7testing15AssertionResultD2Ev.exit164 ], [ %156, %205 ]
-  %.sroa.43.4292 = phi ptr [ %159, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %29, %284 ], [ %29, %.critedge48 ], [ %159, %_ZN7testing15AssertionResultD2Ev.exit164 ], [ %159, %205 ]
+_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit164, %205, %.critedge48, %284, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit
+  %.sroa.0.4293 = phi ptr [ %156, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %26, %284 ], [ %26, %.critedge48 ], [ %156, %205 ], [ %156, %_ZN7testing15AssertionResultD2Ev.exit164 ]
+  %.sroa.43.4292 = phi ptr [ %159, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %29, %284 ], [ %29, %.critedge48 ], [ %159, %205 ], [ %159, %_ZN7testing15AssertionResultD2Ev.exit164 ]
   %288 = ptrtoint ptr %.sroa.43.4292 to i64
   %289 = ptrtoint ptr %.sroa.0.4293 to i64
   %290 = sub i64 %288, %289
@@ -23126,8 +23126,8 @@ _ZSt10destroy_atIN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEEEvPT_.exit.i.i: ; pre
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit281
 
 61:                                               ; preds = %36, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i183, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i167, %200, %100, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.43.0 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %38, %36 ], [ %38, %100 ], [ %38, %200 ], [ %38, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i167 ], [ %262, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i183 ]
-  %.sroa.0.0 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %35, %36 ], [ %35, %100 ], [ %35, %200 ], [ %35, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i167 ], [ %258, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i183 ]
+  %.sroa.43.0 = phi ptr [ %262, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i183 ], [ %38, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i167 ], [ %38, %200 ], [ %38, %100 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %38, %36 ]
+  %.sroa.0.0 = phi ptr [ %258, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i183 ], [ %35, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i167 ], [ %35, %200 ], [ %35, %100 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %35, %36 ]
   %62 = landingpad { ptr, i32 }
           cleanup
   br label %364
@@ -24183,9 +24183,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   store ptr null, ptr %421, align 8
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %317, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit299, %417, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit229
-  %.sroa.0.3376 = phi ptr [ %341, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit229 ], [ %35, %417 ], [ %35, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit299 ], [ %263, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %263, %317 ]
-  %.sroa.43.3375 = phi ptr [ %344, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit229 ], [ %38, %417 ], [ %38, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit299 ], [ %266, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %266, %317 ]
+_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %317, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit299, %417, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit229
+  %.sroa.0.3376 = phi ptr [ %341, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit229 ], [ %35, %417 ], [ %35, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit299 ], [ %263, %317 ], [ %263, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ]
+  %.sroa.43.3375 = phi ptr [ %344, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit229 ], [ %38, %417 ], [ %38, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit299 ], [ %266, %317 ], [ %266, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ]
   %422 = ptrtoint ptr %.sroa.43.3375 to i64
   %423 = ptrtoint ptr %.sroa.0.3376 to i64
   %424 = sub i64 %422, %423
@@ -24215,10 +24215,10 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   %.not.i.i.i304 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i304, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit305, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit283.thread
 
-_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit283.thread: ; preds = %374, %432, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit283
-  %.pn60.pn.pn.pn466 = phi { ptr, i32 } [ %.pn54.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit283 ], [ %375, %374 ], [ %.pn60.pn.pn, %432 ]
-  %.sroa.0.5465 = phi ptr [ %.sroa.0.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit283 ], [ %263, %374 ], [ %341, %432 ]
-  %.sroa.43.5464 = phi ptr [ %.sroa.43.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit283 ], [ %266, %374 ], [ %344, %432 ]
+_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit283.thread: ; preds = %432, %374, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit283
+  %.pn60.pn.pn.pn466 = phi { ptr, i32 } [ %.pn54.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit283 ], [ %.pn60.pn.pn, %432 ], [ %375, %374 ]
+  %.sroa.0.5465 = phi ptr [ %.sroa.0.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit283 ], [ %341, %432 ], [ %263, %374 ]
+  %.sroa.43.5464 = phi ptr [ %.sroa.43.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit283 ], [ %344, %432 ], [ %266, %374 ]
   %433 = ptrtoint ptr %.sroa.43.5464 to i64
   %434 = ptrtoint ptr %.sroa.0.5465 to i64
   %435 = sub i64 %433, %434
@@ -24350,8 +24350,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSEOS3_QL_ZNS_5proxy17HasMoveAssignme
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit228
 
 60:                                               ; preds = %223, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %100
-  %.sroa.19.0 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %42, %223 ], [ %42, %100 ]
-  %.sroa.0.0 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %39, %223 ], [ %39, %100 ]
+  %.sroa.19.0 = phi ptr [ %42, %223 ], [ %42, %100 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0.0 = phi ptr [ %39, %223 ], [ %39, %100 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %61 = landingpad { ptr, i32 }
           cleanup
   br label %382
@@ -25452,8 +25452,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %436, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit246, %331, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit244
-  %.sroa.19.3 = phi ptr [ %361, %_ZN7testing15AssertionResultD2Ev.exit244 ], [ %42, %331 ], [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit246 ], [ %42, %436 ]
-  %.sroa.0.3 = phi ptr [ %357, %_ZN7testing15AssertionResultD2Ev.exit244 ], [ %39, %331 ], [ %39, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %39, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit246 ], [ %39, %436 ]
+  %.sroa.19.3 = phi ptr [ %361, %_ZN7testing15AssertionResultD2Ev.exit244 ], [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %42, %331 ], [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit246 ], [ %42, %436 ]
+  %.sroa.0.3 = phi ptr [ %357, %_ZN7testing15AssertionResultD2Ev.exit244 ], [ %39, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %39, %331 ], [ %39, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit246 ], [ %39, %436 ]
   %440 = ptrtoint ptr %.sroa.19.3 to i64
   %441 = ptrtoint ptr %.sroa.0.3 to i64
   %442 = sub i64 %440, %441
@@ -25483,7 +25483,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   %.not.i.i.i251 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i251, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit252, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit230.thread
 
-_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit230.thread: ; preds = %392, %450, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit230
+_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit230.thread: ; preds = %450, %392, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit230
   %.merged289 = phi { ptr, i32 } [ %.merged81, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit230 ], [ %393, %392 ], [ %.pn77.pn.pn, %450 ]
   %.sroa.0.4288 = phi ptr [ %.sroa.0.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit230 ], [ %39, %392 ], [ %357, %450 ]
   %.sroa.19.4287 = phi ptr [ %.sroa.19.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit230 ], [ %42, %392 ], [ %361, %450 ]
@@ -26014,7 +26014,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit92
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit92: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread144, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread139, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread
-  %.pn23.pn.pn.pn138 = phi { ptr, i32 } [ %51, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread144 ], [ %.pn23.pn.pn.pn137, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread ], [ %50, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread139 ]
+  %.pn23.pn.pn.pn138 = phi { ptr, i32 } [ %.pn23.pn.pn.pn137, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread ], [ %50, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread139 ], [ %51, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread144 ]
   %185 = load ptr, ptr %15, align 8
   %.not.i.i.i.i93 = icmp eq ptr %185, null
   br i1 %.not.i.i.i.i93, label %_ZN5utils15LifetimeTrackerD2Ev.exit94, label %186
@@ -26160,15 +26160,15 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSEOS3_QL_ZNS_5proxy17HasMoveAssignme
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit241
 
 56:                                               ; preds = %31, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.43.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %33, %31 ]
-  %.sroa.0.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %30, %31 ]
+  %.sroa.43.1 = phi ptr [ %33, %31 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0.1 = phi ptr [ %30, %31 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %57 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit239
 
 58:                                               ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit171, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i141, %97, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i72
-  %.sroa.43.2 = phi ptr [ %33, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i72 ], [ %41, %97 ], [ %41, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i141 ], [ %200, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit171 ]
-  %.sroa.0.2 = phi ptr [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i72 ], [ %37, %97 ], [ %37, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i141 ], [ %196, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit171 ]
+  %.sroa.43.2 = phi ptr [ %200, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit171 ], [ %41, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i141 ], [ %41, %97 ], [ %33, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i72 ]
+  %.sroa.0.2 = phi ptr [ %196, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit171 ], [ %37, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i141 ], [ %37, %97 ], [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i72 ]
   %59 = landingpad { ptr, i32 }
           cleanup
   br label %321
@@ -27113,9 +27113,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   store ptr null, ptr %374, align 8
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %256, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit257, %371, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit203
-  %.sroa.0.6327 = phi ptr [ %.sroa.0.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit203 ], [ %37, %371 ], [ %37, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit257 ], [ %201, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %201, %256 ]
-  %.sroa.43.6326 = phi ptr [ %.sroa.43.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit203 ], [ %41, %371 ], [ %41, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit257 ], [ %205, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %205, %256 ]
+_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %256, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit257, %371, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit203
+  %.sroa.0.6327 = phi ptr [ %.sroa.0.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit203 ], [ %37, %371 ], [ %37, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit257 ], [ %201, %256 ], [ %201, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ]
+  %.sroa.43.6326 = phi ptr [ %.sroa.43.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit203 ], [ %41, %371 ], [ %41, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit257 ], [ %205, %256 ], [ %205, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ]
   %375 = ptrtoint ptr %.sroa.43.6326 to i64
   %376 = ptrtoint ptr %.sroa.0.6327 to i64
   %377 = sub i64 %375, %376
@@ -27142,9 +27142,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %385
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit241: ; preds = %327, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit239, %54
-  %.sroa.43.3 = phi ptr [ %.sroa.43.4, %327 ], [ %.sroa.43.0, %54 ], [ %.sroa.43.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit239 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.4, %327 ], [ %.sroa.0.0, %54 ], [ %.sroa.0.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit239 ]
-  %.pn52.pn.pn.pn = phi { ptr, i32 } [ %.pn46.pn.pn.pn.pn, %327 ], [ %55, %54 ], [ %.pn46.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit239 ]
+  %.sroa.43.3 = phi ptr [ %.sroa.43.0, %54 ], [ %.sroa.43.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit239 ], [ %.sroa.43.4, %327 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.0, %54 ], [ %.sroa.0.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit239 ], [ %.sroa.0.4, %327 ]
+  %.pn52.pn.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %.pn46.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit239 ], [ %.pn46.pn.pn.pn.pn, %327 ]
   %.not.i.i.i262 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i262, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit263, label %385
 
@@ -27208,8 +27208,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
           to label %21 unwind label %.thread
 
 18:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i79, %1
-  %.sroa.19.0 = phi ptr [ null, %1 ], [ %23, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i79 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %17, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i79 ]
+  %.sroa.19.0 = phi ptr [ %23, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i79 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %17, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i79 ], [ null, %1 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit101
@@ -27565,8 +27565,8 @@ _ZN7testing15AssertionResultD2Ev.exit115:         ; preds = %.thread157, %142, %
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %68, %_ZN7testing15AssertionResultD2Ev.exit66, %_ZN7testing15AssertionResultD2Ev.exit115
-  %.sroa.19.3 = phi ptr [ %88, %_ZN7testing15AssertionResultD2Ev.exit115 ], [ %23, %68 ], [ %23, %_ZN7testing15AssertionResultD2Ev.exit66 ]
-  %.sroa.0.3 = phi ptr [ %84, %_ZN7testing15AssertionResultD2Ev.exit115 ], [ %17, %68 ], [ %17, %_ZN7testing15AssertionResultD2Ev.exit66 ]
+  %.sroa.19.3 = phi ptr [ %88, %_ZN7testing15AssertionResultD2Ev.exit115 ], [ %23, %_ZN7testing15AssertionResultD2Ev.exit66 ], [ %23, %68 ]
+  %.sroa.0.3 = phi ptr [ %84, %_ZN7testing15AssertionResultD2Ev.exit115 ], [ %17, %_ZN7testing15AssertionResultD2Ev.exit66 ], [ %17, %68 ]
   %150 = ptrtoint ptr %.sroa.19.3 to i64
   %151 = ptrtoint ptr %.sroa.0.3 to i64
   %152 = sub i64 %150, %151
@@ -27593,9 +27593,9 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit101.thread
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit101: ; preds = %109, %18
-  %.sroa.19.1 = phi ptr [ %.sroa.19.2150, %109 ], [ %.sroa.19.0, %18 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.2152, %109 ], [ %.sroa.0.0, %18 ]
-  %.pn32.pn.pn.pn = phi { ptr, i32 } [ %.pn27.pn.pn.pn154, %109 ], [ %19, %18 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.0, %18 ], [ %.sroa.19.2150, %109 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %18 ], [ %.sroa.0.2152, %109 ]
+  %.pn32.pn.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %.pn27.pn.pn.pn154, %109 ]
   %.not.i.i.i119 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i119, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit120, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit101.thread
 
@@ -27719,8 +27719,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSEOS3_QL_ZNS_5proxy17HasMoveAssignme
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit204
 
 49:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i138, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i122, %88, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.31.0 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %33, %88 ], [ %33, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i122 ], [ %192, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i138 ]
-  %.sroa.0.0 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %30, %88 ], [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i122 ], [ %188, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i138 ]
+  %.sroa.31.0 = phi ptr [ %192, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i138 ], [ %33, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i122 ], [ %33, %88 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0.0 = phi ptr [ %188, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i138 ], [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i122 ], [ %30, %88 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %50 = landingpad { ptr, i32 }
           cleanup
   br label %291
@@ -28580,8 +28580,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %343, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit222, %246, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit220
-  %.sroa.31.3 = phi ptr [ %196, %_ZN7testing15AssertionResultD2Ev.exit220 ], [ %196, %246 ], [ %196, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %33, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit222 ], [ %33, %343 ]
-  %.sroa.0.3 = phi ptr [ %193, %_ZN7testing15AssertionResultD2Ev.exit220 ], [ %193, %246 ], [ %193, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %30, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit222 ], [ %30, %343 ]
+  %.sroa.31.3 = phi ptr [ %196, %_ZN7testing15AssertionResultD2Ev.exit220 ], [ %196, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %196, %246 ], [ %33, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit222 ], [ %33, %343 ]
+  %.sroa.0.3 = phi ptr [ %193, %_ZN7testing15AssertionResultD2Ev.exit220 ], [ %193, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %193, %246 ], [ %30, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit222 ], [ %30, %343 ]
   %347 = ptrtoint ptr %.sroa.31.3 to i64
   %348 = ptrtoint ptr %.sroa.0.3 to i64
   %349 = sub i64 %347, %348
@@ -29129,7 +29129,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit91
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit91: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread143, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread138, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread
-  %.pn23.pn.pn.pn137 = phi { ptr, i32 } [ %51, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread143 ], [ %.pn23.pn.pn.pn136, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread ], [ %50, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread138 ]
+  %.pn23.pn.pn.pn137 = phi { ptr, i32 } [ %.pn23.pn.pn.pn136, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread ], [ %50, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread138 ], [ %51, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit74.thread143 ]
   %182 = load ptr, ptr %14, align 8
   %.not.i.i.i.i92 = icmp eq ptr %182, null
   br i1 %.not.i.i.i.i92, label %_ZN5utils15LifetimeTrackerD2Ev.exit93, label %183
@@ -29387,9 +29387,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit119
 
 19:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i54, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %20 = phi ptr [ @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_25copyability_meta_providerILb0EEEEENS3_INS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEE13meta_providerIN5utils4spec8ToStringEEEEEEEEEEEE7storageINSM_15LifetimeTracker7SessionEEE, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i54 ]
-  %.sroa.19.0 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %23, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i54 ]
-  %.sroa.0.0 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %17, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i54 ]
+  %20 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i54 ], [ @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_25copyability_meta_providerILb0EEEEENS3_INS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEE13meta_providerIN5utils4spec8ToStringEEEEEEEEEEEE7storageINSM_15LifetimeTracker7SessionEEE, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.19.0 = phi ptr [ %23, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i54 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0.0 = phi ptr [ %17, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i54 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %21 = landingpad { ptr, i32 }
           cleanup
   br label %111
@@ -29995,15 +29995,15 @@ _ZN3pro4swapERNS_5proxyIN12_GLOBAL__N_110TestFacadeEEES4_.exit: ; preds = %_ZSt1
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit349
 
 82:                                               ; preds = %36, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.67.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %38, %36 ]
-  %.sroa.0.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %35, %36 ]
+  %.sroa.67.1 = phi ptr [ %38, %36 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0.1 = phi ptr [ %35, %36 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %83 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit347
 
 84:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i265, %328, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i249, %306, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i233, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit215, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i185, %222, %123, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i82
-  %.sroa.67.2 = phi ptr [ %38, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i82 ], [ %46, %123 ], [ %46, %222 ], [ %46, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i185 ], [ %284, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit215 ], [ %.sroa.67.12, %306 ], [ %.sroa.67.13, %328 ], [ %.sroa.67.13, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i265 ], [ %.sroa.67.12, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i249 ], [ %289, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i233 ]
-  %.sroa.0.2 = phi ptr [ %35, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i82 ], [ %42, %123 ], [ %42, %222 ], [ %42, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i185 ], [ %280, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit215 ], [ %.sroa.0.12, %306 ], [ %.sroa.0.13, %328 ], [ %.sroa.0.13, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i265 ], [ %.sroa.0.12, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i249 ], [ %285, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i233 ]
+  %.sroa.67.2 = phi ptr [ %.sroa.67.12, %306 ], [ %.sroa.67.13, %328 ], [ %.sroa.67.13, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i265 ], [ %.sroa.67.12, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i249 ], [ %289, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i233 ], [ %284, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit215 ], [ %46, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i185 ], [ %46, %222 ], [ %46, %123 ], [ %38, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i82 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.12, %306 ], [ %.sroa.0.13, %328 ], [ %.sroa.0.13, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i265 ], [ %.sroa.0.12, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i249 ], [ %285, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i233 ], [ %280, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit215 ], [ %42, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i185 ], [ %42, %222 ], [ %42, %123 ], [ %35, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i82 ]
   %85 = landingpad { ptr, i32 }
           cleanup
   br label %485
@@ -31376,8 +31376,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit365, %536, %396, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit363
-  %.sroa.0.6467 = phi ptr [ %42, %536 ], [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit365 ], [ %.sroa.0.16, %_ZN7testing15AssertionResultD2Ev.exit363 ], [ %.sroa.0.14, %396 ], [ %.sroa.0.14, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ]
-  %.sroa.67.6466 = phi ptr [ %46, %536 ], [ %46, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit365 ], [ %.sroa.67.16, %_ZN7testing15AssertionResultD2Ev.exit363 ], [ %.sroa.67.14, %396 ], [ %.sroa.67.14, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ]
+  %.sroa.0.6467 = phi ptr [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit365 ], [ %42, %536 ], [ %.sroa.0.16, %_ZN7testing15AssertionResultD2Ev.exit363 ], [ %.sroa.0.14, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %.sroa.0.14, %396 ]
+  %.sroa.67.6466 = phi ptr [ %46, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit365 ], [ %46, %536 ], [ %.sroa.67.16, %_ZN7testing15AssertionResultD2Ev.exit363 ], [ %.sroa.67.14, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %.sroa.67.14, %396 ]
   %539 = ptrtoint ptr %.sroa.67.6466 to i64
   %540 = ptrtoint ptr %.sroa.0.6467 to i64
   %541 = sub i64 %539, %540
@@ -31404,9 +31404,9 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit349
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit349: ; preds = %491, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit347, %549, %80
-  %.sroa.67.3 = phi ptr [ %.sroa.67.16, %549 ], [ %.sroa.67.0, %80 ], [ %.sroa.67.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit347 ], [ %.sroa.67.4, %491 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.16, %549 ], [ %.sroa.0.0, %80 ], [ %.sroa.0.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit347 ], [ %.sroa.0.4, %491 ]
-  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %.pn60.pn.pn, %549 ], [ %81, %80 ], [ %.pn54.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit347 ], [ %.pn54.pn.pn.pn.pn, %491 ]
+  %.sroa.67.3 = phi ptr [ %.sroa.67.0, %80 ], [ %.sroa.67.16, %549 ], [ %.sroa.67.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit347 ], [ %.sroa.67.4, %491 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.0, %80 ], [ %.sroa.0.16, %549 ], [ %.sroa.0.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit347 ], [ %.sroa.0.4, %491 ]
+  %.pn60.pn.pn.pn = phi { ptr, i32 } [ %81, %80 ], [ %.pn60.pn.pn, %549 ], [ %.pn54.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit347 ], [ %.pn54.pn.pn.pn.pn, %491 ]
   %.not.i.i.i370 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i370, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit371, label %550
 
@@ -31532,8 +31532,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit218
 
 46:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i136, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i104, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i88, %85, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.43.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %28, %85 ], [ %28, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i88 ], [ %148, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i104 ], [ %153, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i136 ]
-  %.sroa.0.1 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %26, %85 ], [ %26, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i88 ], [ %144, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i104 ], [ %149, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i136 ]
+  %.sroa.43.1 = phi ptr [ %153, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i136 ], [ %148, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i104 ], [ %28, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i88 ], [ %28, %85 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0.1 = phi ptr [ %149, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i136 ], [ %144, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i104 ], [ %26, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i88 ], [ %26, %85 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %47 = landingpad { ptr, i32 }
           cleanup
   br label %240
@@ -32230,9 +32230,9 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   store ptr null, ptr %285, align 8
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %203, %_ZN7testing15AssertionResultD2Ev.exit163, %.critedge48, %282, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit
-  %.sroa.0.4288 = phi ptr [ %154, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %26, %282 ], [ %26, %.critedge48 ], [ %154, %_ZN7testing15AssertionResultD2Ev.exit163 ], [ %154, %203 ]
-  %.sroa.43.4287 = phi ptr [ %157, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %28, %282 ], [ %28, %.critedge48 ], [ %157, %_ZN7testing15AssertionResultD2Ev.exit163 ], [ %157, %203 ]
+_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit163, %203, %.critedge48, %282, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit
+  %.sroa.0.4288 = phi ptr [ %154, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %26, %282 ], [ %26, %.critedge48 ], [ %154, %203 ], [ %154, %_ZN7testing15AssertionResultD2Ev.exit163 ]
+  %.sroa.43.4287 = phi ptr [ %157, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %28, %282 ], [ %28, %.critedge48 ], [ %157, %203 ], [ %157, %_ZN7testing15AssertionResultD2Ev.exit163 ]
   %286 = ptrtoint ptr %.sroa.43.4287 to i64
   %287 = ptrtoint ptr %.sroa.0.4288 to i64
   %288 = sub i64 %286, %287
@@ -32338,8 +32338,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit187
 
 25:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i126, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i110, %77
-  %.sroa.29.1 = phi ptr [ %29, %77 ], [ %29, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i110 ], [ %140, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i126 ]
-  %.sroa.0.1 = phi ptr [ %22, %77 ], [ %22, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i110 ], [ %136, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i126 ]
+  %.sroa.29.1 = phi ptr [ %140, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i126 ], [ %29, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i110 ], [ %29, %77 ]
+  %.sroa.0.1 = phi ptr [ %136, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i126 ], [ %22, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i110 ], [ %22, %77 ]
   %26 = landingpad { ptr, i32 }
           cleanup
   br label %175
@@ -32964,7 +32964,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit187
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit187: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165.thread309, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165.thread304, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165.thread
-  %.pn42.pn.pn.pn253 = phi { ptr, i32 } [ %24, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165.thread309 ], [ %.pn42.pn.pn.pn252, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165.thread ], [ %23, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165.thread304 ]
+  %.pn42.pn.pn.pn253 = phi { ptr, i32 } [ %.pn42.pn.pn.pn252, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165.thread ], [ %23, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165.thread304 ], [ %24, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165.thread309 ]
   %241 = load ptr, ptr %18, align 8
   %.not.i.i.i.i188 = icmp eq ptr %241, null
   br i1 %.not.i.i.i.i188, label %_ZN5utils15LifetimeTrackerD2Ev.exit189, label %242
@@ -33099,7 +33099,7 @@ _ZN3pro7details21relocation_dispatcherIN5utils15LifetimeTracker7SessionEEEvPSt4b
   br label %_ZN3pro4swapERNS_5proxyIN12_GLOBAL__N_110TestFacadeEEES4_.exit
 
 _ZN3pro4swapERNS_5proxyIN12_GLOBAL__N_110TestFacadeEEES4_.exit: ; preds = %_ZSt12construct_atIN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEEJS4_EEDTgsnwcvPvLi0E_T_pispclsr3stdE7declvalIT0_EEEEPS6_DpOS7_.exit.i.i, %_ZSt12construct_atIN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEEJS4_EEDTgsnwcvPvLi0E_T_pispclsr3stdE7declvalIT0_EEEEPS6_DpOS7_.exit8.thread.i.i, %_ZN3pro7details21relocation_dispatcherIN5utils15LifetimeTracker7SessionEEEvPSt4bytePKS5_.exit
-  %58 = phi ptr [ %57, %_ZN3pro7details21relocation_dispatcherIN5utils15LifetimeTracker7SessionEEEvPSt4bytePKS5_.exit ], [ %44, %_ZSt12construct_atIN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEEJS4_EEDTgsnwcvPvLi0E_T_pispclsr3stdE7declvalIT0_EEEEPS6_DpOS7_.exit.i.i ], [ %.val53.pre, %_ZSt12construct_atIN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEEJS4_EEDTgsnwcvPvLi0E_T_pispclsr3stdE7declvalIT0_EEEEPS6_DpOS7_.exit8.thread.i.i ]
+  %58 = phi ptr [ %44, %_ZSt12construct_atIN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEEJS4_EEDTgsnwcvPvLi0E_T_pispclsr3stdE7declvalIT0_EEEEPS6_DpOS7_.exit.i.i ], [ %.val53.pre, %_ZSt12construct_atIN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEEJS4_EEDTgsnwcvPvLi0E_T_pispclsr3stdE7declvalIT0_EEEEPS6_DpOS7_.exit8.thread.i.i ], [ %57, %_ZN3pro7details21relocation_dispatcherIN5utils15LifetimeTracker7SessionEEEvPSt4bytePKS5_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %59 = icmp ne ptr %58, null
   %60 = zext i1 %59 to i8
@@ -33114,8 +33114,8 @@ _ZN3pro4swapERNS_5proxyIN12_GLOBAL__N_110TestFacadeEEES4_.exit: ; preds = %_ZSt1
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit163
 
 64:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i126, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i110, %102, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.29.0 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %30, %102 ], [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i110 ], [ %205, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i126 ]
-  %.sroa.0.0 = phi ptr [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %27, %102 ], [ %27, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i110 ], [ %201, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i126 ]
+  %.sroa.29.0 = phi ptr [ %205, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i126 ], [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i110 ], [ %30, %102 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.0.0 = phi ptr [ %201, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i126 ], [ %27, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i110 ], [ %27, %102 ], [ null, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %65 = landingpad { ptr, i32 }
           cleanup
   br label %240
@@ -36373,7 +36373,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !619
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %16, %15 ], [ %8, %7 ], [ %12, %11 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
   %21 = add i32 %.0.i, %.lobit
   %22 = zext i32 %21 to i64
@@ -37458,8 +37458,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %1678, %1684, %1648, %1654, %1618, %1624, %1588, %1594, %1558, %1564, %1528, %1534, %1498, %1504, %1468, %1474, %1438, %1444, %1408, %1414, %1378, %1384, %1348, %1354, %1318, %1324, %1288, %1294, %1258, %1264, %1228, %1234, %1198, %1204, %1168, %1174, %1138, %1144, %1108, %1114, %1078, %1084, %1048, %1054, %1018, %1024, %988, %994, %958, %964, %928, %934, %898, %904, %868, %874, %838, %844, %808, %814, %778, %784, %748, %754, %718, %724, %688, %694, %658, %664, %628, %634, %598, %604, %568, %574, %538, %544, %508, %514, %478, %484, %448, %454, %418, %424, %388, %394, %358, %364, %328, %334, %298, %304, %268, %274, %238, %244, %208, %214, %178, %184
-  %.sink = phi ptr [ %6, %1648 ], [ %9, %1618 ], [ %12, %1588 ], [ %15, %1558 ], [ %18, %1528 ], [ %21, %1498 ], [ %24, %1468 ], [ %27, %1438 ], [ %30, %1408 ], [ %33, %1378 ], [ %36, %1348 ], [ %39, %1318 ], [ %42, %1288 ], [ %45, %1258 ], [ %48, %1228 ], [ %51, %1198 ], [ %54, %1168 ], [ %57, %1138 ], [ %60, %1108 ], [ %63, %1078 ], [ %66, %1048 ], [ %69, %1018 ], [ %72, %988 ], [ %75, %958 ], [ %78, %928 ], [ %81, %898 ], [ %84, %868 ], [ %87, %838 ], [ %90, %808 ], [ %93, %778 ], [ %96, %748 ], [ %99, %718 ], [ %102, %688 ], [ %105, %658 ], [ %108, %628 ], [ %111, %598 ], [ %114, %568 ], [ %117, %538 ], [ %120, %508 ], [ %123, %478 ], [ %126, %448 ], [ %129, %418 ], [ %132, %388 ], [ %135, %358 ], [ %138, %328 ], [ %141, %298 ], [ %144, %268 ], [ %147, %238 ], [ %150, %208 ], [ %153, %178 ], [ %153, %184 ], [ %150, %214 ], [ %147, %244 ], [ %144, %274 ], [ %141, %304 ], [ %138, %334 ], [ %135, %364 ], [ %132, %394 ], [ %129, %424 ], [ %126, %454 ], [ %123, %484 ], [ %120, %514 ], [ %117, %544 ], [ %114, %574 ], [ %111, %604 ], [ %108, %634 ], [ %105, %664 ], [ %102, %694 ], [ %99, %724 ], [ %96, %754 ], [ %93, %784 ], [ %90, %814 ], [ %87, %844 ], [ %84, %874 ], [ %81, %904 ], [ %78, %934 ], [ %75, %964 ], [ %72, %994 ], [ %69, %1024 ], [ %66, %1054 ], [ %63, %1084 ], [ %60, %1114 ], [ %57, %1144 ], [ %54, %1174 ], [ %51, %1204 ], [ %48, %1234 ], [ %45, %1264 ], [ %42, %1294 ], [ %39, %1324 ], [ %36, %1354 ], [ %33, %1384 ], [ %30, %1414 ], [ %27, %1444 ], [ %24, %1474 ], [ %21, %1504 ], [ %18, %1534 ], [ %15, %1564 ], [ %12, %1594 ], [ %9, %1624 ], [ %6, %1654 ], [ %3, %1684 ], [ %3, %1678 ]
-  %common.resume.op = phi { ptr, i32 } [ %1649, %1648 ], [ %1619, %1618 ], [ %1589, %1588 ], [ %1559, %1558 ], [ %1529, %1528 ], [ %1499, %1498 ], [ %1469, %1468 ], [ %1439, %1438 ], [ %1409, %1408 ], [ %1379, %1378 ], [ %1349, %1348 ], [ %1319, %1318 ], [ %1289, %1288 ], [ %1259, %1258 ], [ %1229, %1228 ], [ %1199, %1198 ], [ %1169, %1168 ], [ %1139, %1138 ], [ %1109, %1108 ], [ %1079, %1078 ], [ %1049, %1048 ], [ %1019, %1018 ], [ %989, %988 ], [ %959, %958 ], [ %929, %928 ], [ %899, %898 ], [ %869, %868 ], [ %839, %838 ], [ %809, %808 ], [ %779, %778 ], [ %749, %748 ], [ %719, %718 ], [ %689, %688 ], [ %659, %658 ], [ %629, %628 ], [ %599, %598 ], [ %569, %568 ], [ %539, %538 ], [ %509, %508 ], [ %479, %478 ], [ %449, %448 ], [ %419, %418 ], [ %389, %388 ], [ %359, %358 ], [ %329, %328 ], [ %299, %298 ], [ %269, %268 ], [ %239, %238 ], [ %209, %208 ], [ %179, %178 ], [ %.pn.pn.i, %184 ], [ %.pn.i, %214 ], [ %.pn.i8, %244 ], [ %.pn.i15, %274 ], [ %.pn.i22, %304 ], [ %.pn.i29, %334 ], [ %.pn.i36, %364 ], [ %.pn.i43, %394 ], [ %.pn.i50, %424 ], [ %.pn.i57, %454 ], [ %.pn.i64, %484 ], [ %.pn.i71, %514 ], [ %.pn.i78, %544 ], [ %.pn.i85, %574 ], [ %.pn.i92, %604 ], [ %.pn.i99, %634 ], [ %.pn.i106, %664 ], [ %.pn.i113, %694 ], [ %.pn.i120, %724 ], [ %.pn.i127, %754 ], [ %.pn.i134, %784 ], [ %.pn.i141, %814 ], [ %.pn.i148, %844 ], [ %.pn.i155, %874 ], [ %.pn.i162, %904 ], [ %.pn.i169, %934 ], [ %.pn.i176, %964 ], [ %.pn.i183, %994 ], [ %.pn.i190, %1024 ], [ %.pn.i197, %1054 ], [ %.pn.i204, %1084 ], [ %.pn.i211, %1114 ], [ %.pn.i218, %1144 ], [ %.pn.i225, %1174 ], [ %.pn.i232, %1204 ], [ %.pn.i239, %1234 ], [ %.pn.i246, %1264 ], [ %.pn.i253, %1294 ], [ %.pn.i260, %1324 ], [ %.pn.i267, %1354 ], [ %.pn.i274, %1384 ], [ %.pn.i281, %1414 ], [ %.pn.i288, %1444 ], [ %.pn.i295, %1474 ], [ %.pn.i302, %1504 ], [ %.pn.i309, %1534 ], [ %.pn.i316, %1564 ], [ %.pn.i323, %1594 ], [ %.pn.i330, %1624 ], [ %.pn.i337, %1654 ], [ %.pn.i344, %1684 ], [ %1679, %1678 ]
+  %.sink = phi ptr [ %153, %184 ], [ %153, %178 ], [ %150, %214 ], [ %150, %208 ], [ %147, %244 ], [ %147, %238 ], [ %144, %274 ], [ %144, %268 ], [ %141, %304 ], [ %141, %298 ], [ %138, %334 ], [ %138, %328 ], [ %135, %364 ], [ %135, %358 ], [ %132, %394 ], [ %132, %388 ], [ %129, %424 ], [ %129, %418 ], [ %126, %454 ], [ %126, %448 ], [ %123, %484 ], [ %123, %478 ], [ %120, %514 ], [ %120, %508 ], [ %117, %544 ], [ %117, %538 ], [ %114, %574 ], [ %114, %568 ], [ %111, %604 ], [ %111, %598 ], [ %108, %634 ], [ %108, %628 ], [ %105, %664 ], [ %105, %658 ], [ %102, %694 ], [ %102, %688 ], [ %99, %724 ], [ %99, %718 ], [ %96, %754 ], [ %96, %748 ], [ %93, %784 ], [ %93, %778 ], [ %90, %814 ], [ %90, %808 ], [ %87, %844 ], [ %87, %838 ], [ %84, %874 ], [ %84, %868 ], [ %81, %904 ], [ %81, %898 ], [ %78, %934 ], [ %78, %928 ], [ %75, %964 ], [ %75, %958 ], [ %72, %994 ], [ %72, %988 ], [ %69, %1024 ], [ %69, %1018 ], [ %66, %1054 ], [ %66, %1048 ], [ %63, %1084 ], [ %63, %1078 ], [ %60, %1114 ], [ %60, %1108 ], [ %57, %1144 ], [ %57, %1138 ], [ %54, %1174 ], [ %54, %1168 ], [ %51, %1204 ], [ %51, %1198 ], [ %48, %1234 ], [ %48, %1228 ], [ %45, %1264 ], [ %45, %1258 ], [ %42, %1294 ], [ %42, %1288 ], [ %39, %1324 ], [ %39, %1318 ], [ %36, %1354 ], [ %36, %1348 ], [ %33, %1384 ], [ %33, %1378 ], [ %30, %1414 ], [ %30, %1408 ], [ %27, %1444 ], [ %27, %1438 ], [ %24, %1474 ], [ %24, %1468 ], [ %21, %1504 ], [ %21, %1498 ], [ %18, %1534 ], [ %18, %1528 ], [ %15, %1564 ], [ %15, %1558 ], [ %12, %1594 ], [ %12, %1588 ], [ %9, %1624 ], [ %9, %1618 ], [ %6, %1654 ], [ %6, %1648 ], [ %3, %1684 ], [ %3, %1678 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %184 ], [ %179, %178 ], [ %.pn.i, %214 ], [ %209, %208 ], [ %.pn.i8, %244 ], [ %239, %238 ], [ %.pn.i15, %274 ], [ %269, %268 ], [ %.pn.i22, %304 ], [ %299, %298 ], [ %.pn.i29, %334 ], [ %329, %328 ], [ %.pn.i36, %364 ], [ %359, %358 ], [ %.pn.i43, %394 ], [ %389, %388 ], [ %.pn.i50, %424 ], [ %419, %418 ], [ %.pn.i57, %454 ], [ %449, %448 ], [ %.pn.i64, %484 ], [ %479, %478 ], [ %.pn.i71, %514 ], [ %509, %508 ], [ %.pn.i78, %544 ], [ %539, %538 ], [ %.pn.i85, %574 ], [ %569, %568 ], [ %.pn.i92, %604 ], [ %599, %598 ], [ %.pn.i99, %634 ], [ %629, %628 ], [ %.pn.i106, %664 ], [ %659, %658 ], [ %.pn.i113, %694 ], [ %689, %688 ], [ %.pn.i120, %724 ], [ %719, %718 ], [ %.pn.i127, %754 ], [ %749, %748 ], [ %.pn.i134, %784 ], [ %779, %778 ], [ %.pn.i141, %814 ], [ %809, %808 ], [ %.pn.i148, %844 ], [ %839, %838 ], [ %.pn.i155, %874 ], [ %869, %868 ], [ %.pn.i162, %904 ], [ %899, %898 ], [ %.pn.i169, %934 ], [ %929, %928 ], [ %.pn.i176, %964 ], [ %959, %958 ], [ %.pn.i183, %994 ], [ %989, %988 ], [ %.pn.i190, %1024 ], [ %1019, %1018 ], [ %.pn.i197, %1054 ], [ %1049, %1048 ], [ %.pn.i204, %1084 ], [ %1079, %1078 ], [ %.pn.i211, %1114 ], [ %1109, %1108 ], [ %.pn.i218, %1144 ], [ %1139, %1138 ], [ %.pn.i225, %1174 ], [ %1169, %1168 ], [ %.pn.i232, %1204 ], [ %1199, %1198 ], [ %.pn.i239, %1234 ], [ %1229, %1228 ], [ %.pn.i246, %1264 ], [ %1259, %1258 ], [ %.pn.i253, %1294 ], [ %1289, %1288 ], [ %.pn.i260, %1324 ], [ %1319, %1318 ], [ %.pn.i267, %1354 ], [ %1349, %1348 ], [ %.pn.i274, %1384 ], [ %1379, %1378 ], [ %.pn.i281, %1414 ], [ %1409, %1408 ], [ %.pn.i288, %1444 ], [ %1439, %1438 ], [ %.pn.i295, %1474 ], [ %1469, %1468 ], [ %.pn.i302, %1504 ], [ %1499, %1498 ], [ %.pn.i309, %1534 ], [ %1529, %1528 ], [ %.pn.i316, %1564 ], [ %1559, %1558 ], [ %.pn.i323, %1594 ], [ %1589, %1588 ], [ %.pn.i330, %1624 ], [ %1619, %1618 ], [ %.pn.i337, %1654 ], [ %1649, %1648 ], [ %.pn.i344, %1684 ], [ %1679, %1678 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
   resume { ptr, i32 } %common.resume.op
 

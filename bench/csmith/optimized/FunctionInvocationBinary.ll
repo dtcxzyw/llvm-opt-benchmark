@@ -1018,7 +1018,7 @@ define dso_local noundef zeroext i1 @_ZNK24FunctionInvocationBinary6equalsEi(ptr
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %33, %12, %53, %42, %24, %24, %24, %54
-  %.0 = phi i1 [ false, %54 ], [ true, %24 ], [ true, %24 ], [ true, %12 ], [ true, %53 ], [ true, %42 ], [ true, %24 ], [ true, %33 ]
+  %.0 = phi i1 [ false, %54 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %42 ], [ true, %53 ], [ true, %12 ], [ true, %33 ]
   ret i1 %.0
 }
 
@@ -1105,7 +1105,7 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZNK24Functio
   br label %38
 
 38:                                               ; preds = %7, %29, %26, %1, %28
-  %.sink = phi i32 [ %., %29 ], [ 2, %26 ], [ 10, %1 ], [ 7, %28 ], [ 2, %7 ]
+  %.sink = phi i32 [ 7, %28 ], [ 10, %1 ], [ 2, %26 ], [ %., %29 ], [ 2, %7 ]
   %39 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get_simple_typeE11eSimpleType(i32 noundef %.sink)
   ret ptr %39
 }

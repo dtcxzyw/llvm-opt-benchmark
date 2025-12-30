@@ -1493,7 +1493,7 @@ common.resume.i:                                  ; preds = %260, %.body.i.i
           to label %287 unwind label %285, !noalias !314
 
 "_ZN5yansi5paint16Painted$LT$T$GT$15color_fmt_value17h52d3e05c2250fd68E.exit.i.i": ; preds = %591, %273, %.noexc33.i.i, %.noexc32.i.i
-  %.sroa.0.0.i16.i = phi i1 [ true, %591 ], [ true, %.noexc33.i.i ], [ true, %.noexc32.i.i ], [ %274, %273 ]
+  %.sroa.0.0.i16.i = phi i1 [ true, %591 ], [ true, %.noexc32.i.i ], [ true, %.noexc33.i.i ], [ %274, %273 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !338)
   %275 = load i64, ptr %17, align 8, !range !92, !alias.scope !338, !noalias !302, !noundef !7
   %276 = icmp eq i64 %275, -9223372036854775808
@@ -1789,8 +1789,8 @@ common.resume.i:                                  ; preds = %260, %.body.i.i
   br i1 %.not71.us.i.i.i, label %.loopexit.i.us.i.i.i, label %.split138.us.invoke.i.i.i
 
 .loopexit.i.us.i.i.i:                             ; preds = %.preheader74.us.i.i.i, %.preheader.us.i.us.i.i, %.preheader.us.i.preheader.split.i.i
-  %.sroa.3017.3.us.i.i.i = phi i64 [ -1, %.preheader.us.i.us.i.i ], [ -1, %.preheader.us.i.preheader.split.i.i ], [ 0, %.preheader74.us.i.i.i ]
-  %.sroa.756.4.us.i.i.i = phi i64 [ %368, %.preheader.us.i.us.i.i ], [ %368, %.preheader.us.i.preheader.split.i.i ], [ %325, %.preheader74.us.i.i.i ]
+  %.sroa.3017.3.us.i.i.i = phi i64 [ -1, %.preheader.us.i.preheader.split.i.i ], [ -1, %.preheader.us.i.us.i.i ], [ 0, %.preheader74.us.i.i.i ]
+  %.sroa.756.4.us.i.i.i = phi i64 [ %368, %.preheader.us.i.preheader.split.i.i ], [ %368, %.preheader.us.i.us.i.i ], [ %325, %.preheader74.us.i.i.i ]
   %.sroa.18.3.us.i.i.i = add i64 %.sroa.756.4.us.i.i.i, %.sroa.15.0.copyload.i.fr.i.i
   %387 = getelementptr inbounds i8, ptr %299, i64 %.sroa.07.0.us.i.i.i
   %gepdiff.us.i.i.i = sub nsw i64 %.sroa.756.4.us.i.i.i, %.sroa.07.0.us.i.i.i
@@ -1984,7 +1984,7 @@ common.resume.i:                                  ; preds = %260, %.body.i.i
   br i1 %432, label %.loopexit.i.i.i.i, label %.critedge.i.i.i
 
 484:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h893346968c7ed265E.exit16.i.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h893346968c7ed265E.exit14.i.i.i.i.i.i", %459, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h893346968c7ed265E.exit12.i.i.i.i.i.i"
-  %.sroa.4.0.i.ph.i.i.i.i.i = phi i32 [ %470, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h893346968c7ed265E.exit14.i.i.i.i.i.i" ], [ %482, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h893346968c7ed265E.exit16.i.i.i.i.i.i" ], [ %460, %459 ], [ %457, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h893346968c7ed265E.exit12.i.i.i.i.i.i" ]
+  %.sroa.4.0.i.ph.i.i.i.i.i = phi i32 [ %457, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h893346968c7ed265E.exit12.i.i.i.i.i.i" ], [ %470, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h893346968c7ed265E.exit14.i.i.i.i.i.i" ], [ %482, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h893346968c7ed265E.exit16.i.i.i.i.i.i" ], [ %460, %459 ]
   %485 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 1114112
   call void @llvm.assume(i1 %485)
   br i1 %432, label %.loopexit.i.i.i.i, label %486
@@ -2003,7 +2003,7 @@ common.resume.i:                                  ; preds = %260, %.body.i.i
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h151bd38c2d968d0fE.exit.i.i.i.i"
 
 "_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h151bd38c2d968d0fE.exit.i.i.i.i": ; preds = %490, %488, %486
-  %.sroa.01.0.i.i.i.i.i = phi i64 [ 2, %488 ], [ %..i.i.i.i.i, %490 ], [ 1, %486 ]
+  %.sroa.01.0.i.i.i.i.i = phi i64 [ 1, %486 ], [ %..i.i.i.i.i, %490 ], [ 2, %488 ]
   %492 = add i64 %.sroa.01.0.i.i.i.i.i, %.sroa.49.1.i.i.i
   br label %431
 
@@ -2013,9 +2013,9 @@ common.resume.i:                                  ; preds = %260, %.body.i.i
   br label %.split138.us.invoke.i.i.i
 
 .split138.us.invoke.i.i.i:                        ; preds = %.preheader.us.i.preheader.split.i.i, %340, %337, %377, %.split145.us.i.i.i, %.split133.us.i.i.i
-  %494 = phi i64 [ %umax.i61.i.i.i, %.split133.us.i.i.i ], [ %379, %377 ], [ %umax.i.i.i.i, %.split145.us.i.i.i ], [ %341, %340 ], [ %338, %337 ], [ %317, %.preheader.us.i.preheader.split.i.i ]
-  %495 = phi i64 [ %.sroa.1354.0.copyload.i.i.i, %.split133.us.i.i.i ], [ %.sroa.1354.0.copyload.i.i.i, %377 ], [ %.sroa.1354.0.copyload.i.i.i, %.split145.us.i.i.i ], [ %.sroa.1354.0.copyload.i.i.i, %340 ], [ %.sroa.15.0.copyload.i.fr.i.i, %337 ], [ %.sroa.15.0.copyload.i.fr.i.i, %.preheader.us.i.preheader.split.i.i ]
-  %496 = phi ptr [ @anon.b1a593b580c1f9921ff48b9a7a9ecc6f.33, %.split133.us.i.i.i ], [ @anon.b1a593b580c1f9921ff48b9a7a9ecc6f.31, %377 ], [ @anon.b1a593b580c1f9921ff48b9a7a9ecc6f.33, %.split145.us.i.i.i ], [ @anon.b1a593b580c1f9921ff48b9a7a9ecc6f.31, %340 ], [ @anon.b1a593b580c1f9921ff48b9a7a9ecc6f.30, %337 ], [ @anon.b1a593b580c1f9921ff48b9a7a9ecc6f.30, %.preheader.us.i.preheader.split.i.i ]
+  %494 = phi i64 [ %umax.i.i.i.i, %.split145.us.i.i.i ], [ %umax.i61.i.i.i, %.split133.us.i.i.i ], [ %379, %377 ], [ %341, %340 ], [ %338, %337 ], [ %317, %.preheader.us.i.preheader.split.i.i ]
+  %495 = phi i64 [ %.sroa.1354.0.copyload.i.i.i, %.split145.us.i.i.i ], [ %.sroa.1354.0.copyload.i.i.i, %.split133.us.i.i.i ], [ %.sroa.1354.0.copyload.i.i.i, %377 ], [ %.sroa.1354.0.copyload.i.i.i, %340 ], [ %.sroa.15.0.copyload.i.fr.i.i, %337 ], [ %.sroa.15.0.copyload.i.fr.i.i, %.preheader.us.i.preheader.split.i.i ]
+  %496 = phi ptr [ @anon.b1a593b580c1f9921ff48b9a7a9ecc6f.33, %.split145.us.i.i.i ], [ @anon.b1a593b580c1f9921ff48b9a7a9ecc6f.33, %.split133.us.i.i.i ], [ @anon.b1a593b580c1f9921ff48b9a7a9ecc6f.31, %377 ], [ @anon.b1a593b580c1f9921ff48b9a7a9ecc6f.31, %340 ], [ @anon.b1a593b580c1f9921ff48b9a7a9ecc6f.30, %337 ], [ @anon.b1a593b580c1f9921ff48b9a7a9ecc6f.30, %.preheader.us.i.preheader.split.i.i ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %494, i64 noundef %495, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %496) #20
           to label %.split138.us.cont.i.i.i unwind label %.loopexit.split-lp.i.i.i, !noalias !365
 
@@ -2038,7 +2038,7 @@ common.resume.i:                                  ; preds = %260, %.body.i.i
   br label %.loopexit.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %483, %366, %322, %.sink.split.i.us.i.i.i, %425, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17hba17f5cd1071aaf8E.exit.split.i.i.i"
-  %.sroa.07.0117.i.i.i = phi i64 [ %.sroa.07.0.us.i.i.i, %366 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17hba17f5cd1071aaf8E.exit.split.i.i.i" ], [ %.sroa.07.0.us.i.i.i, %.sink.split.i.us.i.i.i ], [ %.sroa.07.0.us.i.i.i, %425 ], [ %.sroa.07.0.us.i.i.i, %322 ], [ %.sroa.07.0153.i.i.i, %483 ]
+  %.sroa.07.0117.i.i.i = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17hba17f5cd1071aaf8E.exit.split.i.i.i" ], [ %.sroa.07.0.us.i.i.i, %425 ], [ %.sroa.07.0.us.i.i.i, %.sink.split.i.us.i.i.i ], [ %.sroa.07.0.us.i.i.i, %322 ], [ %.sroa.07.0.us.i.i.i, %366 ], [ %.sroa.07.0153.i.i.i, %483 ]
   %gepdiff72.i.i.i = sub nsw i64 %300, %.sroa.07.0117.i.i.i
   %498 = load i64, ptr %.sroa.515.0..sroa_idx.i.i22.i, align 8, !alias.scope !414, !noalias !357, !noundef !7
   %499 = load i64, ptr %11, align 8, !range !55, !alias.scope !414, !noalias !357, !noundef !7
@@ -2282,12 +2282,12 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit.i.i: ; preds = %528
   br label %"_ZN5yansi5paint16Painted$LT$T$GT$15color_fmt_value17h52d3e05c2250fd68E.exit.i.i"
 
 "_ZN5yansi5paint16Painted$LT$T$GT$19color_wrap_fmt_args17hba7ad79d153ec3fbE.exit.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a41b4edf5cc63afE.exit.i50.i.i", %569, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a41b4edf5cc63afE.exit.i.i17.i", %"_ZN5yansi5paint16Painted$LT$T$GT$15color_fmt_value17h52d3e05c2250fd68E.exit.i.i"
-  %.sroa.0.1.i.i = phi i1 [ %.sroa.0.0.i16.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a41b4edf5cc63afE.exit.i.i17.i" ], [ %.sroa.0.0.i16.i, %"_ZN5yansi5paint16Painted$LT$T$GT$15color_fmt_value17h52d3e05c2250fd68E.exit.i.i" ], [ %560, %569 ], [ %560, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a41b4edf5cc63afE.exit.i50.i.i" ]
+  %.sroa.0.1.i.i = phi i1 [ %.sroa.0.0.i16.i, %"_ZN5yansi5paint16Painted$LT$T$GT$15color_fmt_value17h52d3e05c2250fd68E.exit.i.i" ], [ %.sroa.0.0.i16.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a41b4edf5cc63afE.exit.i.i17.i" ], [ %560, %569 ], [ %560, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a41b4edf5cc63afE.exit.i50.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !302
   br label %"_ZN5yansi5paint16Painted$LT$T$GT$8fmt_args17h89f950d90355f3e3E.exit"
 
 "_ZN5yansi5paint16Painted$LT$T$GT$8fmt_args17h89f950d90355f3e3E.exit": ; preds = %28, %46, %50, %"_ZN5yansi5paint16Painted$LT$T$GT$14reset_fmt_args17he0d39cb147d61899E.exit.i", %240, %242, %249, %"_ZN5yansi5paint16Painted$LT$T$GT$19color_wrap_fmt_args17hba7ad79d153ec3fbE.exit.i"
-  %.sroa.0.0.shrunk.i = phi i1 [ %.sroa.0.1.i.i, %"_ZN5yansi5paint16Painted$LT$T$GT$19color_wrap_fmt_args17hba7ad79d153ec3fbE.exit.i" ], [ false, %28 ], [ %56, %50 ], [ %.sroa.0.0.in.i.i, %"_ZN5yansi5paint16Painted$LT$T$GT$14reset_fmt_args17he0d39cb147d61899E.exit.i" ], [ false, %46 ], [ %250, %249 ], [ true, %240 ], [ true, %242 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %.sroa.0.1.i.i, %"_ZN5yansi5paint16Painted$LT$T$GT$19color_wrap_fmt_args17hba7ad79d153ec3fbE.exit.i" ], [ %.sroa.0.0.in.i.i, %"_ZN5yansi5paint16Painted$LT$T$GT$14reset_fmt_args17he0d39cb147d61899E.exit.i" ], [ %56, %50 ], [ false, %46 ], [ false, %28 ], [ %250, %249 ], [ true, %240 ], [ true, %242 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   ret i1 %.sroa.0.0.shrunk.i
 }

@@ -780,7 +780,7 @@ Gia_ManFrontFindNext.exit168:                     ; preds = %.lr.ph.i163, %237
   br label %310
 
 310:                                              ; preds = %.sink.split, %305, %Gia_ManAppendCo.exit, %Gia_ManFrontFindNext.exit151
-  %.1 = phi i32 [ %.0177, %Gia_ManAppendCo.exit ], [ %.0.lcssa.i150, %Gia_ManFrontFindNext.exit151 ], [ %.0.lcssa.i167, %305 ], [ %.1.ph, %.sink.split ]
+  %.1 = phi i32 [ %.0.lcssa.i150, %Gia_ManFrontFindNext.exit151 ], [ %.0177, %Gia_ManAppendCo.exit ], [ %.0.lcssa.i167, %305 ], [ %.1.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %311 = load i32, ptr %2, align 8, !tbaa !28
   %312 = sext i32 %311 to i64

@@ -532,7 +532,7 @@ define internal range(i32 -5, 1) i32 @rtp_open(ptr noundef %0, ptr noundef %1, i
   br label %211
 
 .loopexit148:                                     ; preds = %151, %185, %175, %106, %133, %123, %120
-  %.0116 = phi ptr [ %119, %123 ], [ %119, %133 ], [ null, %106 ], [ %.1117, %185 ], [ %.1117, %175 ], [ null, %120 ], [ %.1117, %151 ]
+  %.0116 = phi ptr [ %119, %123 ], [ %119, %133 ], [ %.1117, %185 ], [ %.1117, %175 ], [ null, %120 ], [ null, %106 ], [ %.1117, %151 ]
   %204 = getelementptr inbounds nuw i8, ptr %13, i64 40
   call void @ff_ip_reset_filters(ptr noundef nonnull %204) #12
   %205 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -682,14 +682,14 @@ define internal range(i32 -110, -1414092868) i32 @rtp_read(ptr noundef %0, ptr n
   br i1 %70, label %35, label %.loopexit
 
 .thread:                                          ; preds = %58, %61, %64
-  %.1 = phi i32 [ %65, %64 ], [ %.0.ph, %61 ], [ %.0.ph, %58 ]
+  %.1 = phi i32 [ %.0.ph, %61 ], [ %65, %64 ], [ %.0.ph, %58 ]
   %71 = load i32, ptr %18, align 8, !tbaa !56
   %72 = and i32 %71, 8
   %.not37 = icmp eq i32 %72, 0
   br i1 %.not37, label %.outer, label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %64, %67, %35, %56, %53
-  %.030 = phi i32 [ -5, %67 ], [ -5, %53 ], [ %51, %56 ], [ -1414092869, %35 ], [ -11, %.thread ], [ -110, %64 ]
+  %.030 = phi i32 [ %51, %56 ], [ -5, %53 ], [ -1414092869, %35 ], [ -5, %67 ], [ -110, %64 ], [ -11, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -811,8 +811,8 @@ define internal i32 @rtp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %.thread118, %.thread118.thread
-  %.str.36.sink = phi ptr [ @.str.37, %.thread118 ], [ @.str.36, %.thread118.thread ], [ %.str.36.sink.ph, %.sink.split.sink.split ]
-  %.068116.ph = phi i32 [ %.068114, %.thread118 ], [ %.068117121, %.thread118.thread ], [ %.068116.ph.ph, %.sink.split.sink.split ]
+  %.str.36.sink = phi ptr [ @.str.36, %.thread118.thread ], [ @.str.37, %.thread118 ], [ %.str.36.sink.ph, %.sink.split.sink.split ]
+  %.068116.ph = phi i32 [ %.068117121, %.thread118.thread ], [ %.068114, %.thread118 ], [ %.068116.ph.ph, %.sink.split.sink.split ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull %.str.36.sink) #12
   br label %46
 
@@ -846,7 +846,7 @@ define internal i32 @rtp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br label %63
 
 63:                                               ; preds = %59, %53, %50, %21
-  %.171 = phi i32 [ %51, %50 ], [ %2, %21 ], [ %62, %59 ], [ %57, %53 ]
+  %.171 = phi i32 [ %2, %21 ], [ %51, %50 ], [ %62, %59 ], [ %57, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %82
@@ -891,7 +891,7 @@ define internal i32 @rtp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br label %82
 
 82:                                               ; preds = %71, %78, %74, %64, %3, %81, %63
-  %.070 = phi i32 [ %79, %81 ], [ %.171, %63 ], [ -22, %3 ], [ %69, %64 ], [ %69, %71 ], [ %69, %74 ], [ %69, %78 ]
+  %.070 = phi i32 [ %.171, %63 ], [ %79, %81 ], [ -22, %3 ], [ %69, %64 ], [ %69, %74 ], [ %69, %78 ], [ %69, %71 ]
   ret i32 %.070
 }
 

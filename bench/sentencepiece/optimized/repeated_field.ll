@@ -1156,7 +1156,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIbE7ReserveEi(ptr nounde
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
-  %.0.i = phi i32 [ 4, %5 ], [ %.sroa.speculated.i, %15 ], [ 2147483647, %13 ]
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
   %17 = zext nneg i32 %.0.i to i64
   %18 = icmp eq ptr %11, null
   br i1 %18, label %19, label %_ZN6google8protobuf5Arena22CreateInternalRawArrayIcEEPT_m.exit
@@ -2485,7 +2485,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr nounde
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
-  %.0.i = phi i32 [ 4, %5 ], [ %.sroa.speculated.i, %15 ], [ 2147483647, %13 ]
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
   %17 = zext nneg i32 %.0.i to i64
   %18 = shl nuw nsw i64 %17, 2
   %19 = icmp eq ptr %11, null
@@ -3811,7 +3811,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi(ptr nounde
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
-  %.0.i = phi i32 [ 4, %5 ], [ %.sroa.speculated.i, %15 ], [ 2147483647, %13 ]
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
   %17 = zext nneg i32 %.0.i to i64
   %18 = shl nuw nsw i64 %17, 2
   %19 = icmp eq ptr %11, null
@@ -5137,7 +5137,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi(ptr nounde
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
-  %.0.i = phi i32 [ 4, %5 ], [ %.sroa.speculated.i, %15 ], [ 2147483647, %13 ]
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
   %17 = zext nneg i32 %.0.i to i64
   %18 = shl nuw nsw i64 %17, 3
   %19 = icmp eq ptr %11, null
@@ -6461,7 +6461,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE7ReserveEi(ptr nounde
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
-  %.0.i = phi i32 [ 4, %5 ], [ %.sroa.speculated.i, %15 ], [ 2147483647, %13 ]
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
   %17 = zext nneg i32 %.0.i to i64
   %18 = shl nuw nsw i64 %17, 3
   %19 = icmp eq ptr %11, null
@@ -7785,7 +7785,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi(ptr nounde
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
-  %.0.i = phi i32 [ 4, %5 ], [ %.sroa.speculated.i, %15 ], [ 2147483647, %13 ]
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
   %17 = zext nneg i32 %.0.i to i64
   %18 = shl nuw nsw i64 %17, 2
   %19 = icmp eq ptr %11, null
@@ -9109,7 +9109,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi(ptr nounde
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
-  %.0.i = phi i32 [ 4, %5 ], [ %.sroa.speculated.i, %15 ], [ 2147483647, %13 ]
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
   %17 = zext nneg i32 %.0.i to i64
   %18 = shl nuw nsw i64 %17, 3
   %19 = icmp eq ptr %11, null
@@ -12743,7 +12743,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrField
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %39, !llvm.loop !150
 
 _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5eraseENS0_8internal19RepeatedPtrIteratorIKS7_EESC_.exit: ; preds = %2, %._crit_edge.i.i, %._crit_edge.i.i.i.i.i
-  %54 = phi ptr [ %.lcssa9.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ null, %._crit_edge.i.i ], [ %5, %2 ]
+  %54 = phi ptr [ null, %._crit_edge.i.i ], [ %.lcssa9.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %5, %2 ]
   %.not.i.i.i = icmp eq ptr %54, null
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %55
@@ -12855,7 +12855,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS0_16RepeatedPtrField
   br i1 %exitcond.not.i, label %._crit_edge.i, label %39, !llvm.loop !150
 
 _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14DeleteSubrangeEii.exit: ; preds = %3, %._crit_edge.i, %._crit_edge.i.i.i.i
-  %54 = phi ptr [ %.lcssa9.i.i.i.i, %._crit_edge.i.i.i.i ], [ null, %._crit_edge.i ], [ %5, %3 ]
+  %54 = phi ptr [ null, %._crit_edge.i ], [ %.lcssa9.i.i.i.i, %._crit_edge.i.i.i.i ], [ %5, %3 ]
   %.not.i.i = icmp eq ptr %54, null
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %55

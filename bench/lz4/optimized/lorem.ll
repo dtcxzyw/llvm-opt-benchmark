@@ -566,7 +566,7 @@ writeLastCharacters.exit.sink.split.sink.split.i.i14.i: ; preds = %writeLastChar
   br label %generateFirstSentence.exit
 
 generateFirstSentence.exit:                       ; preds = %128, %137, %writeLastCharacters.exit.sink.split.sink.split.i.i14.i, %143, %130, %122, %init_word_distrib.exit
-  %g_nbChars.promoted = phi i64 [ 0, %init_word_distrib.exit ], [ %1, %130 ], [ %g_nbChars.promoted33, %122 ], [ %147, %143 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i14.i ], [ %1, %137 ], [ %1, %128 ]
+  %g_nbChars.promoted = phi i64 [ %1, %130 ], [ %g_nbChars.promoted33, %122 ], [ 0, %init_word_distrib.exit ], [ %147, %143 ], [ %1, %writeLastCharacters.exit.sink.split.sink.split.i.i14.i ], [ %1, %137 ], [ %1, %128 ]
   %148 = zext i32 %50 to i64
   %149 = getelementptr i8, ptr %0, i64 %1
   %150 = getelementptr i8, ptr %149, i64 -1

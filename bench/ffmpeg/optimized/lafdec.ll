@@ -122,7 +122,7 @@ define internal range(i32 -1094995529, 1) i32 @laf_read_header(ptr noundef %0) #
   br label %46
 
 46:                                               ; preds = %43, %41, %39, %37, %34, %23, %45
-  %.sink = phi i64 [ 8, %23 ], [ 1, %37 ], [ 512, %41 ], [ 4, %45 ], [ 2, %39 ], [ 4, %34 ], [ 1024, %43 ]
+  %.sink = phi i64 [ 4, %45 ], [ 8, %23 ], [ 4, %34 ], [ 1, %37 ], [ 2, %39 ], [ 512, %41 ], [ 1024, %43 ]
   store i32 1, ptr %24, align 8, !tbaa !33
   %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 1, ptr %.sroa.232.0..sroa_idx, align 4, !tbaa !33
@@ -207,7 +207,7 @@ switch.lookup:                                    ; preds = %._crit_edge
   br label %.critedge
 
 .critedge:                                        ; preds = %63, %58, %switch.lookup, %._crit_edge, %14, %11, %8, %1, %.critedge126
-  %.0 = phi i32 [ -1094995529, %switch.lookup ], [ -1094995529, %1 ], [ -1094995529, %8 ], [ -1094995529, %11 ], [ -1094995529, %14 ], [ -1094995529, %._crit_edge ], [ -12, %58 ], [ 0, %.critedge126 ], [ -12, %63 ]
+  %.0 = phi i32 [ 0, %.critedge126 ], [ -1094995529, %1 ], [ -1094995529, %8 ], [ -1094995529, %11 ], [ -1094995529, %14 ], [ -1094995529, %._crit_edge ], [ -1094995529, %switch.lookup ], [ -12, %58 ], [ -12, %63 ]
   ret i32 %.0
 }
 
@@ -593,7 +593,7 @@ define internal range(i32 -2147483648, 1) i32 @laf_read_packet(ptr noundef reado
   br label %.thread
 
 .thread:                                          ; preds = %49, %.loopexit174, %24, %._crit_edge, %._crit_edge.thread, %2, %._crit_edge190, %.loopexit
-  %.1 = phi i32 [ 0, %.loopexit ], [ %81, %._crit_edge190 ], [ -541478725, %2 ], [ -1094995529, %._crit_edge.thread ], [ -541478725, %.loopexit174 ], [ %26, %24 ], [ %57, %49 ], [ -1094995529, %._crit_edge ]
+  %.1 = phi i32 [ 0, %.loopexit ], [ %81, %._crit_edge190 ], [ -541478725, %2 ], [ -1094995529, %._crit_edge.thread ], [ %57, %49 ], [ -541478725, %.loopexit174 ], [ %26, %24 ], [ -1094995529, %._crit_edge ]
   ret i32 %.1
 }
 

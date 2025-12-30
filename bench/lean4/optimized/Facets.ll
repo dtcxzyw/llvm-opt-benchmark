@@ -641,7 +641,7 @@ lean_dec.exit:                                    ; preds = %83, %82, %80, %lean
   br label %lean_dec.exit25
 
 lean_dec.exit25:                                  ; preds = %12, %18, %20, %21, %lean_dec.exit23, %lean_dec.exit
-  %.0 = phi ptr [ %85, %lean_dec.exit ], [ %66, %lean_dec.exit23 ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
+  %.0 = phi ptr [ %66, %lean_dec.exit23 ], [ %85, %lean_dec.exit ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
   ret ptr %.0
 }
 
@@ -1756,7 +1756,7 @@ _init_l_Array_Array_repr___at___private_Lake_Build_Facets_0__Lake_reprModuleDeps
   br label %_init_l_Array_Array_repr___at___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____spec__1___closed__6.exit
 
 _init_l_Array_Array_repr___at___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____spec__1___closed__6.exit: ; preds = %_init_l_Array_Array_repr___at___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____spec__1___closed__3.exit, %76
-  %.1.i.i = phi ptr [ %72, %_init_l_Array_Array_repr___at___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____spec__1___closed__3.exit ], [ %78, %76 ]
+  %.1.i.i = phi ptr [ %78, %76 ], [ %72, %_init_l_Array_Array_repr___at___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____spec__1___closed__3.exit ]
   store ptr %.1.i.i, ptr @l_Array_Array_repr___at___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____spec__1___closed__6, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #5
   %79 = load ptr, ptr @l_Array_Array_repr___at___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____spec__1___closed__4, align 8, !tbaa !10
@@ -1950,7 +1950,7 @@ _init_l___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Fac
   br label %_init_l___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____closed__12.exit
 
 _init_l___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____closed__12.exit: ; preds = %_init_l___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____closed__9.exit, %145
-  %.1.i.i23 = phi ptr [ %141, %_init_l___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____closed__9.exit ], [ %147, %145 ]
+  %.1.i.i23 = phi ptr [ %147, %145 ], [ %141, %_init_l___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____closed__9.exit ]
   store ptr %.1.i.i23, ptr @l___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____closed__12, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i23) #5
   %148 = load ptr, ptr @l___private_Lake_Build_Facets_0__Lake_reprModuleDeps____x40_Lake_Build_Facets___hyg_51____closed__10, align 8, !tbaa !10
@@ -2529,7 +2529,7 @@ _init_l_Lake_instReprModuleFacet___closed__1.exit: ; preds = %_init_l___private_
   br label %391
 
 391:                                              ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %8, %7 ], [ %.sink55, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %.sink55, %.sink.split ]
   ret ptr %.0
 }
 

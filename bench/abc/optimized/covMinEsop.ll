@@ -506,10 +506,10 @@ Min_EsopAddCube.exit234.i.backedge:               ; preds = %Min_EsopAddCube.exi
   br label %Min_EsopAddCube.exit234.i
 
 .thread300.i:                                     ; preds = %._crit_edge.i.i, %._crit_edge.i192.i, %._crit_edge.i220.i
-  %.3308.i = phi ptr [ %.2335.i, %._crit_edge.i192.i ], [ %.4341.i, %._crit_edge.i220.i ], [ %.0146331.i, %._crit_edge.i.i ]
-  %.3151307.i = phi ptr [ %.2150334.i, %._crit_edge.i192.i ], [ %.4152340.i, %._crit_edge.i220.i ], [ %.0148330.i, %._crit_edge.i.i ]
-  %.5306.i = phi i32 [ %.1.i189.i, %._crit_edge.i192.i ], [ %.1.i217.i, %._crit_edge.i220.i ], [ %.1.i.i, %._crit_edge.i.i ]
-  %.5254305.i = phi i32 [ %.144.i188.i, %._crit_edge.i192.i ], [ %.144.i216.i, %._crit_edge.i220.i ], [ %.144.i.i, %._crit_edge.i.i ]
+  %.3308.i = phi ptr [ %.4341.i, %._crit_edge.i220.i ], [ %.2335.i, %._crit_edge.i192.i ], [ %.0146331.i, %._crit_edge.i.i ]
+  %.3151307.i = phi ptr [ %.4152340.i, %._crit_edge.i220.i ], [ %.2150334.i, %._crit_edge.i192.i ], [ %.0148330.i, %._crit_edge.i.i ]
+  %.5306.i = phi i32 [ %.1.i217.i, %._crit_edge.i220.i ], [ %.1.i189.i, %._crit_edge.i192.i ], [ %.1.i.i, %._crit_edge.i.i ]
+  %.5254305.i = phi i32 [ %.144.i216.i, %._crit_edge.i220.i ], [ %.144.i188.i, %._crit_edge.i192.i ], [ %.144.i.i, %._crit_edge.i.i ]
   %205 = load ptr, ptr %.3308.i, align 8, !tbaa !15
   store ptr %205, ptr %.3151307.i, align 8, !tbaa !14
   %206 = load ptr, ptr %6, align 8, !tbaa !13
@@ -1077,7 +1077,7 @@ define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %33, %19, %20, %._crit_edge, %._crit_edge.thread
-  %.025 = phi i32 [ 1, %._crit_edge.thread ], [ 1, %._crit_edge ], [ 0, %19 ], [ 0, %20 ], [ 0, %33 ], [ 0, %34 ]
+  %.025 = phi i32 [ 1, %._crit_edge.thread ], [ 1, %._crit_edge ], [ 0, %20 ], [ 0, %19 ], [ 0, %33 ], [ 0, %34 ]
   ret i32 %.025
 }
 

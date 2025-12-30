@@ -89,7 +89,7 @@ define hidden range(i32 0, 2) i32 @jResyncRestart(ptr noundef %0, i32 noundef %1
   store i32 0, ptr %3, align 4
   br label %.loopexit
 
-select.unfold:                                    ; preds = %32, %26
+select.unfold:                                    ; preds = %26, %32
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
   store i32 97, ptr %55, align 8
@@ -267,7 +267,7 @@ define internal fastcc range(i32 0, 2) i32 @next_marker(ptr noundef %0) unnamed_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %23, %31, %66
-  %.058 = phi i32 [ 0, %31 ], [ 1, %66 ], [ 0, %23 ], [ 0, %11 ]
+  %.058 = phi i32 [ 1, %66 ], [ 0, %31 ], [ 0, %23 ], [ 0, %11 ]
   ret i32 %.058
 }
 
@@ -1411,7 +1411,7 @@ get_soi.exit:                                     ; preds = %91, %100
   tail call void %557(ptr noundef nonnull %0) #7
   br label %get_dht.exit
 
-get_dht.exit.thread:                              ; preds = %399, %386, %417, %435, %517
+get_dht.exit.thread:                              ; preds = %386, %399, %417, %435, %517
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %first_marker.exit.thread
@@ -1983,8 +1983,8 @@ skip_variable.exit:                               ; preds = %857, %839, %get_dri
   store i32 0, ptr %4, align 4
   br label %40
 
-first_marker.exit.thread:                         ; preds = %819, %832, %774, %727, %740, %760, %576, %563, %338, %351, %64, %52, %800, %793, %113, %111, %109, %107, %87, %594, %659, %646, %632, %213, %201, %152, %292, %264, %278, %166, %138, %get_dht.exit.thread, %327, %299
-  %.0 = phi i32 [ 0, %659 ], [ 0, %213 ], [ 0, %594 ], [ 0, %138 ], [ 0, %166 ], [ 1, %299 ], [ 0, %278 ], [ 2, %327 ], [ 0, %264 ], [ 0, %292 ], [ 0, %get_dht.exit.thread ], [ 0, %152 ], [ 0, %632 ], [ 0, %201 ], [ 0, %646 ], [ 0, %87 ], [ 0, %107 ], [ 0, %109 ], [ 0, %111 ], [ 0, %113 ], [ 0, %793 ], [ 0, %800 ], [ 0, %52 ], [ 0, %64 ], [ 0, %351 ], [ 0, %338 ], [ 0, %563 ], [ 0, %576 ], [ 0, %760 ], [ 0, %740 ], [ 0, %727 ], [ 0, %774 ], [ 0, %832 ], [ 0, %819 ]
+first_marker.exit.thread:                         ; preds = %832, %819, %774, %760, %740, %727, %576, %563, %351, %338, %64, %52, %800, %793, %113, %111, %109, %107, %87, %594, %646, %659, %632, %213, %201, %292, %278, %264, %166, %152, %138, %get_dht.exit.thread, %327, %299
+  %.0 = phi i32 [ 1, %299 ], [ 2, %327 ], [ 0, %get_dht.exit.thread ], [ 0, %138 ], [ 0, %152 ], [ 0, %166 ], [ 0, %264 ], [ 0, %278 ], [ 0, %292 ], [ 0, %201 ], [ 0, %213 ], [ 0, %632 ], [ 0, %659 ], [ 0, %646 ], [ 0, %594 ], [ 0, %87 ], [ 0, %107 ], [ 0, %109 ], [ 0, %111 ], [ 0, %113 ], [ 0, %793 ], [ 0, %800 ], [ 0, %52 ], [ 0, %64 ], [ 0, %338 ], [ 0, %351 ], [ 0, %563 ], [ 0, %576 ], [ 0, %727 ], [ 0, %740 ], [ 0, %760 ], [ 0, %774 ], [ 0, %819 ], [ 0, %832 ]
   ret i32 %.0
 }
 
@@ -2135,7 +2135,7 @@ define internal range(i32 0, 2) i32 @skip_variable(ptr noundef %0) #0 {
   br label %51
 
 51:                                               ; preds = %27, %46, %20, %7
-  %.036 = phi i32 [ 0, %20 ], [ 0, %7 ], [ 1, %46 ], [ 1, %27 ]
+  %.036 = phi i32 [ 0, %7 ], [ 0, %20 ], [ 1, %46 ], [ 1, %27 ]
   ret i32 %.036
 }
 
@@ -2362,7 +2362,7 @@ examine_app14.exit:                               ; preds = %106, %66, %114, %49
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %examine_app14.exit, %123, %21, %8
-  %.059 = phi i32 [ 0, %21 ], [ 1, %examine_app14.exit ], [ 0, %8 ], [ 1, %123 ], [ 0, %37 ]
+  %.059 = phi i32 [ 0, %8 ], [ 0, %21 ], [ 1, %123 ], [ 1, %examine_app14.exit ], [ 0, %37 ]
   ret i32 %.059
 }
 
@@ -2724,7 +2724,7 @@ examine_app14.exit:                               ; preds = %176, %136, %185, %1
   br label %.loopexit142
 
 .loopexit142:                                     ; preds = %82, %examine_app14.exit, %198, %28, %14
-  %.0117 = phi i32 [ 0, %28 ], [ 1, %examine_app14.exit ], [ 0, %14 ], [ 1, %198 ], [ 0, %82 ]
+  %.0117 = phi i32 [ 0, %14 ], [ 0, %28 ], [ 1, %198 ], [ 1, %examine_app14.exit ], [ 0, %82 ]
   ret i32 %.0117
 }
 
@@ -2762,8 +2762,8 @@ define hidden void @jSaveMarkers(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %20
 
 20:                                               ; preds = %18, %15
-  %.1 = phi i32 [ 0, %18 ], [ %spec.store.select, %15 ]
-  %.0 = phi ptr [ %spec.store.select8, %18 ], [ @save_marker, %15 ]
+  %.1 = phi i32 [ %spec.store.select, %15 ], [ 0, %18 ]
+  %.0 = phi ptr [ @save_marker, %15 ], [ %spec.store.select8, %18 ]
   %21 = icmp eq i32 %1, 254
   br i1 %21, label %22, label %25
 
@@ -3282,7 +3282,7 @@ define internal fastcc range(i32 0, 2) i32 @get_sof(ptr noundef initializes((312
   br label %.loopexit
 
 .loopexit:                                        ; preds = %222, %206, %194, %114, %99, %84, %69, %54, %40, %26, %12, %._crit_edge
-  %.0 = phi i32 [ 0, %26 ], [ 0, %12 ], [ 0, %114 ], [ 1, %._crit_edge ], [ 0, %99 ], [ 0, %84 ], [ 0, %69 ], [ 0, %54 ], [ 0, %40 ], [ 0, %194 ], [ 0, %206 ], [ 0, %222 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %12 ], [ 0, %26 ], [ 0, %40 ], [ 0, %54 ], [ 0, %69 ], [ 0, %84 ], [ 0, %99 ], [ 0, %114 ], [ 0, %194 ], [ 0, %206 ], [ 0, %222 ]
   ret i32 %.0
 }
 

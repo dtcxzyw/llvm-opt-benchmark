@@ -155,9 +155,9 @@ define noalias ptr @ws_find_media_type_parameter(ptr noundef %0, ptr noundef %1,
   br label %ws_get_next_media_type_parameter.exit
 
 ws_get_next_media_type_parameter.exit:            ; preds = %.loopexit.i, %27, %37, %.critedge4.i
-  %.4 = phi ptr [ %.1.i, %.critedge4.i ], [ %spec.select, %.loopexit.i ], [ %28, %27 ], [ %.2.i, %37 ]
-  %.2115 = phi ptr [ null, %.critedge4.i ], [ %30, %.loopexit.i ], [ null, %27 ], [ %30, %37 ]
-  %.2110 = phi i64 [ 0, %.critedge4.i ], [ %58, %.loopexit.i ], [ 0, %27 ], [ %40, %37 ]
+  %.4 = phi ptr [ %28, %27 ], [ %.2.i, %37 ], [ %.1.i, %.critedge4.i ], [ %spec.select, %.loopexit.i ]
+  %.2115 = phi ptr [ null, %27 ], [ %30, %37 ], [ null, %.critedge4.i ], [ %30, %.loopexit.i ]
+  %.2110 = phi i64 [ 0, %27 ], [ %40, %37 ], [ 0, %.critedge4.i ], [ %58, %.loopexit.i ]
   %59 = icmp eq ptr %.080110.i, null
   br i1 %59, label %ws_get_next_media_type_parameter.exit.thread, label %60
 
@@ -254,12 +254,12 @@ switch.early.test:                                ; preds = %.lr.ph
   br i1 %.not99, label %ws_get_next_media_type_parameter.exit.thread.sink.split, label %.lr.ph, !llvm.loop !11
 
 ws_get_next_media_type_parameter.exit.thread.sink.split: ; preds = %74, %.preheader, %.preheader, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph, %86, %69
-  %.1.sink = phi ptr [ %87, %86 ], [ %71, %69 ], [ %.2142, %.lr.ph ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.0, %.preheader ], [ %.0, %.preheader ], [ %.0, %74 ]
+  %.1.sink = phi ptr [ %71, %69 ], [ %87, %86 ], [ %.2142, %.lr.ph ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.2142, %switch.early.test ], [ %.0, %.preheader ], [ %.0, %.preheader ], [ %.0, %74 ]
   store i8 0, ptr %.1.sink, align 1
   br label %ws_get_next_media_type_parameter.exit.thread
 
 ws_get_next_media_type_parameter.exit.thread:     ; preds = %ws_get_next_media_type_parameter.exit, %18, %ws_get_next_media_type_parameter.exit.thread.sink.split, %67, %9, %6, %3
-  %.092 = phi ptr [ null, %67 ], [ null, %3 ], [ null, %6 ], [ null, %9 ], [ %71, %ws_get_next_media_type_parameter.exit.thread.sink.split ], [ null, %18 ], [ null, %ws_get_next_media_type_parameter.exit ]
+  %.092 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %9 ], [ null, %67 ], [ %71, %ws_get_next_media_type_parameter.exit.thread.sink.split ], [ null, %18 ], [ null, %ws_get_next_media_type_parameter.exit ]
   ret ptr %.092
 }
 

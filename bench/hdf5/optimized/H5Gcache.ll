@@ -237,7 +237,7 @@ define internal ptr @H5G__cache_node_deserialize(ptr noundef %0, i64 noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %17, %93, %112, %109, %4
-  %.0 = phi ptr [ null, %112 ], [ null, %109 ], [ null, %17 ], [ null, %4 ], [ %15, %93 ]
+  %.0 = phi ptr [ null, %112 ], [ null, %109 ], [ null, %4 ], [ %15, %93 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

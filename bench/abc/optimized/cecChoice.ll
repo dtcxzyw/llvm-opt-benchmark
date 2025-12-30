@@ -744,8 +744,8 @@ Vec_IntPush.exit243:                              ; preds = %.Vec_IntGrow.exit10
   br label %Vec_IntPush.exit250.sink.split
 
 Vec_IntPush.exit250.sink.split:                   ; preds = %395, %397, %387, %389
-  %.sink415 = phi ptr [ %390, %389 ], [ %388, %387 ], [ %396, %395 ], [ %398, %397 ]
-  %.sink414 = phi i32 [ 16, %389 ], [ 16, %387 ], [ %392, %395 ], [ %392, %397 ]
+  %.sink415 = phi ptr [ %388, %387 ], [ %390, %389 ], [ %396, %395 ], [ %398, %397 ]
+  %.sink414 = phi i32 [ 16, %387 ], [ 16, %389 ], [ %392, %395 ], [ %392, %397 ]
   store ptr %.sink415, ptr %102, align 8, !tbaa !35
   store i32 %.sink414, ptr %99, align 8, !tbaa !37
   br label %Vec_IntPush.exit250
@@ -1036,10 +1036,10 @@ Vec_IntPush.exit264:                              ; preds = %.Vec_IntGrow.exit10
   br label %Gia_ObjIsHead.exit.thread.sink.split.sink.split
 
 Gia_ObjIsHead.exit.thread.sink.split.sink.split:  ; preds = %556, %554, %564, %562, %222, %220, %230, %228
-  %.sink417.sink = phi ptr [ %231, %230 ], [ %223, %222 ], [ %221, %220 ], [ %229, %228 ], [ %557, %556 ], [ %555, %554 ], [ %563, %562 ], [ %565, %564 ]
-  %.sink416.sink = phi i32 [ %225, %230 ], [ 16, %222 ], [ 16, %220 ], [ %225, %228 ], [ 16, %556 ], [ 16, %554 ], [ %559, %562 ], [ %559, %564 ]
-  %.sink423.ph = phi i32 [ %214, %230 ], [ %214, %222 ], [ %214, %220 ], [ %214, %228 ], [ %548, %556 ], [ %548, %554 ], [ %548, %562 ], [ %548, %564 ]
-  %.sink418.ph = phi i32 [ %147, %230 ], [ %147, %222 ], [ %147, %220 ], [ %147, %228 ], [ %547, %556 ], [ %547, %554 ], [ %547, %562 ], [ %547, %564 ]
+  %.sink417.sink = phi ptr [ %221, %220 ], [ %223, %222 ], [ %229, %228 ], [ %231, %230 ], [ %555, %554 ], [ %557, %556 ], [ %563, %562 ], [ %565, %564 ]
+  %.sink416.sink = phi i32 [ 16, %220 ], [ 16, %222 ], [ %225, %228 ], [ %225, %230 ], [ 16, %554 ], [ 16, %556 ], [ %559, %562 ], [ %559, %564 ]
+  %.sink423.ph = phi i32 [ %214, %220 ], [ %214, %222 ], [ %214, %228 ], [ %214, %230 ], [ %548, %554 ], [ %548, %556 ], [ %548, %562 ], [ %548, %564 ]
+  %.sink418.ph = phi i32 [ %147, %220 ], [ %147, %222 ], [ %147, %228 ], [ %147, %230 ], [ %547, %554 ], [ %547, %556 ], [ %547, %562 ], [ %547, %564 ]
   store ptr %.sink417.sink, ptr %102, align 8, !tbaa !35
   store i32 %.sink416.sink, ptr %99, align 8, !tbaa !37
   br label %Gia_ObjIsHead.exit.thread.sink.split
@@ -1057,9 +1057,9 @@ Gia_ObjIsHead.exit.thread.sink.split:             ; preds = %Gia_ObjIsHead.exit.
   br label %Gia_ObjIsHead.exit.thread
 
 Gia_ObjIsHead.exit.thread:                        ; preds = %Gia_ObjIsHead.exit.thread.sink.split, %108, %114, %._crit_edge, %Gia_ObjIsHead.exit
-  %.pre.i224353 = phi ptr [ %109, %108 ], [ %109, %Gia_ObjIsHead.exit ], [ %109, %114 ], [ %.pre.i224348, %._crit_edge ], [ %.pre.i224353.ph, %Gia_ObjIsHead.exit.thread.sink.split ]
-  %.pre.i267345 = phi ptr [ %.pre.i267344, %108 ], [ %.pre.i267344, %Gia_ObjIsHead.exit ], [ %.pre.i267344, %114 ], [ %.pre.i267341, %._crit_edge ], [ %.pre.i224351.sink, %Gia_ObjIsHead.exit.thread.sink.split ]
-  %.pre.i246338 = phi ptr [ %.pre.i246337, %108 ], [ %.pre.i246337, %Gia_ObjIsHead.exit ], [ %.pre.i246337, %114 ], [ %.pre.i246334, %._crit_edge ], [ %.pre.i224351.sink, %Gia_ObjIsHead.exit.thread.sink.split ]
+  %.pre.i224353 = phi ptr [ %109, %108 ], [ %109, %114 ], [ %.pre.i224348, %._crit_edge ], [ %109, %Gia_ObjIsHead.exit ], [ %.pre.i224353.ph, %Gia_ObjIsHead.exit.thread.sink.split ]
+  %.pre.i267345 = phi ptr [ %.pre.i267344, %108 ], [ %.pre.i267344, %114 ], [ %.pre.i267341, %._crit_edge ], [ %.pre.i267344, %Gia_ObjIsHead.exit ], [ %.pre.i224351.sink, %Gia_ObjIsHead.exit.thread.sink.split ]
+  %.pre.i246338 = phi ptr [ %.pre.i246337, %108 ], [ %.pre.i246337, %114 ], [ %.pre.i246334, %._crit_edge ], [ %.pre.i246337, %Gia_ObjIsHead.exit ], [ %.pre.i224351.sink, %Gia_ObjIsHead.exit.thread.sink.split ]
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
   %569 = load i32, ptr %4, align 8, !tbaa !3
   %570 = sext i32 %569 to i64
@@ -1351,8 +1351,8 @@ Vec_IntPush.exit286:                              ; preds = %.Vec_IntGrow.exit10
   br label %Vec_IntPush.exit293.sink.split
 
 Vec_IntPush.exit293.sink.split:                   ; preds = %741, %743, %733, %735
-  %.sink425 = phi ptr [ %736, %735 ], [ %734, %733 ], [ %742, %741 ], [ %744, %743 ]
-  %.sink424 = phi i32 [ 16, %735 ], [ 16, %733 ], [ %738, %741 ], [ %738, %743 ]
+  %.sink425 = phi ptr [ %734, %733 ], [ %736, %735 ], [ %742, %741 ], [ %744, %743 ]
+  %.sink424 = phi i32 [ 16, %733 ], [ 16, %735 ], [ %738, %741 ], [ %738, %743 ]
   store ptr %.sink425, ptr %102, align 8, !tbaa !35
   store i32 %.sink424, ptr %99, align 8, !tbaa !37
   br label %Vec_IntPush.exit293
@@ -1375,7 +1375,7 @@ Gia_ObjReprObj.exit.thread:                       ; preds = %572, %616, %Vec_Int
   br i1 %750, label %572, label %.critedge2, !llvm.loop !45
 
 .critedge2:                                       ; preds = %Gia_ObjIsHead.exit.thread, %Gia_ObjReprObj.exit.thread, %.preheader306, %.preheader
-  %751 = phi ptr [ %.pre.i289356, %Gia_ObjReprObj.exit.thread ], [ %101, %.preheader ], [ %101, %.preheader306 ], [ %.pre.i224353, %Gia_ObjIsHead.exit.thread ]
+  %751 = phi ptr [ %101, %.preheader306 ], [ %101, %.preheader ], [ %.pre.i289356, %Gia_ObjReprObj.exit.thread ], [ %.pre.i224353, %Gia_ObjIsHead.exit.thread ]
   %.val181319 = load i32, ptr %100, align 4, !tbaa !34
   %752 = icmp sgt i32 %.val181319, 0
   br i1 %752, label %.lr.ph321, label %.critedge13
@@ -2050,8 +2050,8 @@ Vec_IntFree.exit136:                              ; preds = %Vec_StrFree.exit134
   br label %.thread
 
 .thread:                                          ; preds = %Vec_IntFree.exit, %Vec_IntFree.exit124, %241
-  %.087167 = phi i64 [ %.087179, %Vec_IntFree.exit ], [ %214, %241 ], [ %.087179, %Vec_IntFree.exit124 ]
-  %.189145 = phi i64 [ %.088178, %Vec_IntFree.exit ], [ %165, %241 ], [ %165, %Vec_IntFree.exit124 ]
+  %.087167 = phi i64 [ %214, %241 ], [ %.087179, %Vec_IntFree.exit124 ], [ %.087179, %Vec_IntFree.exit ]
+  %.189145 = phi i64 [ %165, %241 ], [ %165, %Vec_IntFree.exit124 ], [ %.088178, %Vec_IntFree.exit ]
   call void @Cec_ManSimStop(ptr noundef %51) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %242 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #16

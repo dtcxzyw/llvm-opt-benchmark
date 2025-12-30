@@ -1218,7 +1218,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33: ; preds = %
   br i1 %exitcond.not.i.i.i43, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35, label %110, !llvm.loop !96
 
 _ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35: ; preds = %110, %104, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33
-  %.0.i.i.i3464 = phi ptr [ null, %104 ], [ %107, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33 ], [ %107, %110 ]
+  %.0.i.i.i3464 = phi ptr [ %107, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33 ], [ null, %104 ], [ %107, %110 ]
   %114 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %115 = load ptr, ptr %114, align 8, !tbaa !91
   %.not.i5.i.i36 = icmp ne ptr %115, null
@@ -1254,7 +1254,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i38: ; preds 
   br i1 %exitcond.not.i30, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44, label %122, !llvm.loop !97
 
 _ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44: ; preds = %122, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
-  %125 = phi i32 [ %25, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit ], [ %98, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25 ], [ %98, %122 ]
+  %125 = phi i32 [ %98, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25 ], [ %25, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit ], [ %98, %122 ]
   store i32 %125, ptr %17, align 4, !tbaa !30
   store i32 0, ptr %23, align 4, !tbaa !24
   br label %126
@@ -1951,7 +1951,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33: ; preds = %
   br i1 %exitcond.not.i.i.i43, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35, label %110, !llvm.loop !96
 
 _ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35: ; preds = %110, %104, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33
-  %.0.i.i.i3464 = phi ptr [ null, %104 ], [ %107, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33 ], [ %107, %110 ]
+  %.0.i.i.i3464 = phi ptr [ %107, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33 ], [ null, %104 ], [ %107, %110 ]
   %114 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %115 = load ptr, ptr %114, align 8, !tbaa !91
   %.not.i5.i.i36 = icmp ne ptr %115, null
@@ -1987,7 +1987,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i38: ; preds 
   br i1 %exitcond.not.i30, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44, label %122, !llvm.loop !97
 
 _ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44: ; preds = %122, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
-  %125 = phi i32 [ %25, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit ], [ %98, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25 ], [ %98, %122 ]
+  %125 = phi i32 [ %98, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25 ], [ %25, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit ], [ %98, %122 ]
   store i32 %125, ptr %17, align 4, !tbaa !30
   store i32 0, ptr %23, align 4, !tbaa !65
   br label %126
@@ -2344,7 +2344,7 @@ define linkonce_odr dso_local noundef zeroext i16 @_ZN20btAxisSweep3InternalItE9
   br label %48
 
 48:                                               ; preds = %7, %43, %39
-  %49 = phi i16 [ %47, %43 ], [ %42, %39 ], [ 0, %7 ]
+  %49 = phi i16 [ %42, %39 ], [ %47, %43 ], [ 0, %7 ]
   store i16 %49, ptr %8, align 2, !tbaa !47
   %50 = fcmp ugt float %29, 0.000000e+00
   br i1 %50, label %51, label %65
@@ -2370,7 +2370,7 @@ define linkonce_odr dso_local noundef zeroext i16 @_ZN20btAxisSweep3InternalItE9
   br label %65
 
 65:                                               ; preds = %48, %60, %56
-  %66 = phi i16 [ %64, %60 ], [ %59, %56 ], [ 0, %48 ]
+  %66 = phi i16 [ %59, %56 ], [ %64, %60 ], [ 0, %48 ]
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i16 %66, ptr %67, align 2, !tbaa !47
   %68 = fcmp ugt float %32, 0.000000e+00
@@ -2397,7 +2397,7 @@ define linkonce_odr dso_local noundef zeroext i16 @_ZN20btAxisSweep3InternalItE9
   br label %_ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit
 
 _ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit: ; preds = %65, %74, %78
-  %83 = phi i16 [ %82, %78 ], [ %77, %74 ], [ 0, %65 ]
+  %83 = phi i16 [ %77, %74 ], [ %82, %78 ], [ 0, %65 ]
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i16 %83, ptr %84, align 2, !tbaa !47
   %85 = load float, ptr %2, align 4, !tbaa !40
@@ -2437,7 +2437,7 @@ _ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit: ; preds = %65, %74,
   br label %113
 
 113:                                              ; preds = %_ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit, %107, %102
-  %114 = phi i16 [ %112, %107 ], [ %106, %102 ], [ 1, %_ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit ]
+  %114 = phi i16 [ %106, %102 ], [ %112, %107 ], [ 1, %_ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit ]
   store i16 %114, ptr %9, align 2, !tbaa !47
   %115 = fcmp ugt float %94, 0.000000e+00
   br i1 %115, label %116, label %132
@@ -2465,7 +2465,7 @@ _ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit: ; preds = %65, %74,
   br label %132
 
 132:                                              ; preds = %113, %126, %121
-  %133 = phi i16 [ %131, %126 ], [ %125, %121 ], [ 1, %113 ]
+  %133 = phi i16 [ %125, %121 ], [ %131, %126 ], [ 1, %113 ]
   %134 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i16 %133, ptr %134, align 2, !tbaa !47
   %135 = fcmp ugt float %95, 0.000000e+00
@@ -2494,7 +2494,7 @@ _ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit: ; preds = %65, %74,
   br label %_ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit49
 
 _ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit49: ; preds = %132, %141, %146
-  %152 = phi i16 [ %151, %146 ], [ %145, %141 ], [ 1, %132 ]
+  %152 = phi i16 [ %145, %141 ], [ %151, %146 ], [ 1, %132 ]
   %153 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i16 %152, ptr %153, align 2, !tbaa !47
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2888,7 +2888,7 @@ _ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us: ; preds
   br label %_ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us
 
 _ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us: ; preds = %.lr.ph.split.us, %43, %49, %55, %_ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us, %63, %70
-  %.sink = phi i64 [ 58, %43 ], [ 58, %70 ], [ 58, %63 ], [ 58, %_ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us ], [ 58, %55 ], [ 58, %49 ], [ 52, %.lr.ph.split.us ]
+  %.sink = phi i64 [ 58, %70 ], [ 58, %63 ], [ 58, %_ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us ], [ 58, %55 ], [ 58, %49 ], [ 58, %43 ], [ 52, %.lr.ph.split.us ]
   %75 = getelementptr inbounds nuw i8, ptr %41, i64 %.sink
   %76 = getelementptr inbounds i16, ptr %75, i64 %7
   %77 = load i16, ptr %76, align 2, !tbaa !47
@@ -3583,7 +3583,7 @@ _ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us: ; preds
   br label %_ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us
 
 _ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us: ; preds = %33, %38, %50, %58, %_ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us, %68, %75
-  %.sink = phi i64 [ 58, %38 ], [ 58, %75 ], [ 58, %68 ], [ 58, %_ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us ], [ 58, %58 ], [ 58, %50 ], [ 52, %33 ]
+  %.sink = phi i64 [ 58, %75 ], [ 58, %68 ], [ 58, %_ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us ], [ 58, %58 ], [ 58, %50 ], [ 58, %38 ], [ 52, %33 ]
   %80 = getelementptr inbounds nuw i8, ptr %36, i64 %.sink
   %81 = getelementptr inbounds i16, ptr %80, i64 %7
   %82 = load i16, ptr %81, align 2, !tbaa !47
@@ -3699,7 +3699,7 @@ define linkonce_odr dso_local void @_ZN20btAxisSweep3InternalItE12updateHandleEt
   br label %50
 
 50:                                               ; preds = %5, %45, %41
-  %51 = phi i16 [ %49, %45 ], [ %44, %41 ], [ 0, %5 ]
+  %51 = phi i16 [ %44, %41 ], [ %49, %45 ], [ 0, %5 ]
   store i16 %51, ptr %6, align 2, !tbaa !47
   %52 = fcmp ugt float %31, 0.000000e+00
   br i1 %52, label %53, label %67
@@ -3725,7 +3725,7 @@ define linkonce_odr dso_local void @_ZN20btAxisSweep3InternalItE12updateHandleEt
   br label %67
 
 67:                                               ; preds = %50, %62, %58
-  %68 = phi i16 [ %66, %62 ], [ %61, %58 ], [ 0, %50 ]
+  %68 = phi i16 [ %61, %58 ], [ %66, %62 ], [ 0, %50 ]
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %68, ptr %69, align 2, !tbaa !47
   %70 = fcmp ugt float %34, 0.000000e+00
@@ -3752,7 +3752,7 @@ define linkonce_odr dso_local void @_ZN20btAxisSweep3InternalItE12updateHandleEt
   br label %_ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit
 
 _ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit: ; preds = %67, %76, %80
-  %85 = phi i16 [ %84, %80 ], [ %79, %76 ], [ 0, %67 ]
+  %85 = phi i16 [ %79, %76 ], [ %84, %80 ], [ 0, %67 ]
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 %85, ptr %86, align 2, !tbaa !47
   %87 = load float, ptr %3, align 4, !tbaa !40
@@ -3792,7 +3792,7 @@ _ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit: ; preds = %67, %76,
   br label %115
 
 115:                                              ; preds = %_ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit, %109, %104
-  %116 = phi i16 [ %114, %109 ], [ %108, %104 ], [ 1, %_ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit ]
+  %116 = phi i16 [ %108, %104 ], [ %114, %109 ], [ 1, %_ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit ]
   store i16 %116, ptr %7, align 2, !tbaa !47
   %117 = fcmp ugt float %96, 0.000000e+00
   br i1 %117, label %118, label %134
@@ -3820,7 +3820,7 @@ _ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit: ; preds = %67, %76,
   br label %134
 
 134:                                              ; preds = %115, %128, %123
-  %135 = phi i16 [ %133, %128 ], [ %127, %123 ], [ 1, %115 ]
+  %135 = phi i16 [ %127, %123 ], [ %133, %128 ], [ 1, %115 ]
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 %135, ptr %136, align 2, !tbaa !47
   %137 = fcmp ugt float %97, 0.000000e+00
@@ -3849,7 +3849,7 @@ _ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit: ; preds = %67, %76,
   br label %_ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit37
 
 _ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit37: ; preds = %134, %143, %148
-  %154 = phi i16 [ %153, %148 ], [ %147, %143 ], [ 1, %134 ]
+  %154 = phi i16 [ %147, %143 ], [ %153, %148 ], [ 1, %134 ]
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i16 %154, ptr %155, align 2, !tbaa !47
   %156 = getelementptr inbounds nuw i8, ptr %11, i64 52
@@ -4197,7 +4197,7 @@ define linkonce_odr dso_local noundef i32 @_ZN20btAxisSweep3InternalIjE9addHandl
   br label %48
 
 48:                                               ; preds = %43, %39, %7
-  %49 = phi i32 [ %47, %43 ], [ %42, %39 ], [ 0, %7 ]
+  %49 = phi i32 [ %42, %39 ], [ %47, %43 ], [ 0, %7 ]
   store i32 %49, ptr %8, align 4, !tbaa !72
   %50 = fcmp ugt float %29, 0.000000e+00
   br i1 %50, label %51, label %65
@@ -4223,7 +4223,7 @@ define linkonce_odr dso_local noundef i32 @_ZN20btAxisSweep3InternalIjE9addHandl
   br label %65
 
 65:                                               ; preds = %60, %56, %48
-  %66 = phi i32 [ %64, %60 ], [ %59, %56 ], [ 0, %48 ]
+  %66 = phi i32 [ %59, %56 ], [ %64, %60 ], [ 0, %48 ]
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %66, ptr %67, align 4, !tbaa !72
   %68 = fcmp ugt float %32, 0.000000e+00
@@ -4250,7 +4250,7 @@ define linkonce_odr dso_local noundef i32 @_ZN20btAxisSweep3InternalIjE9addHandl
   br label %_ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit
 
 _ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit: ; preds = %65, %74, %78
-  %83 = phi i32 [ %82, %78 ], [ %77, %74 ], [ 0, %65 ]
+  %83 = phi i32 [ %77, %74 ], [ %82, %78 ], [ 0, %65 ]
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %83, ptr %84, align 4, !tbaa !72
   %85 = load float, ptr %2, align 4, !tbaa !40
@@ -4290,7 +4290,7 @@ _ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit: ; preds = %65, %74,
   br label %113
 
 113:                                              ; preds = %107, %102, %_ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit
-  %114 = phi i32 [ %112, %107 ], [ %106, %102 ], [ 1, %_ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit ]
+  %114 = phi i32 [ %106, %102 ], [ %112, %107 ], [ 1, %_ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit ]
   store i32 %114, ptr %9, align 4, !tbaa !72
   %115 = fcmp ugt float %94, 0.000000e+00
   br i1 %115, label %116, label %132
@@ -4318,7 +4318,7 @@ _ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit: ; preds = %65, %74,
   br label %132
 
 132:                                              ; preds = %126, %121, %113
-  %133 = phi i32 [ %131, %126 ], [ %125, %121 ], [ 1, %113 ]
+  %133 = phi i32 [ %125, %121 ], [ %131, %126 ], [ 1, %113 ]
   %134 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %133, ptr %134, align 4, !tbaa !72
   %135 = fcmp ugt float %95, 0.000000e+00
@@ -4347,7 +4347,7 @@ _ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit: ; preds = %65, %74,
   br label %_ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit49
 
 _ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit49: ; preds = %132, %141, %146
-  %152 = phi i32 [ %151, %146 ], [ %145, %141 ], [ 1, %132 ]
+  %152 = phi i32 [ %145, %141 ], [ %151, %146 ], [ 1, %132 ]
   %153 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %152, ptr %153, align 4, !tbaa !72
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4680,7 +4680,7 @@ _ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us.i: ; pre
   br label %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us.i
 
 _ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us.i: ; preds = %359, %352, %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us.i, %344, %339, %334, %.lr.ph.split.us.i
-  %.sink.i = phi i64 [ 64, %334 ], [ 64, %359 ], [ 64, %352 ], [ 64, %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us.i ], [ 64, %344 ], [ 64, %339 ], [ 52, %.lr.ph.split.us.i ]
+  %.sink.i = phi i64 [ 64, %359 ], [ 64, %352 ], [ 64, %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us.i ], [ 64, %344 ], [ 64, %339 ], [ 64, %334 ], [ 52, %.lr.ph.split.us.i ]
   %364 = getelementptr inbounds nuw i8, ptr %332, i64 %.sink.i
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
   %366 = load i32, ptr %365, align 4, !tbaa !72
@@ -4843,7 +4843,7 @@ _ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us: ; preds
   br label %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us
 
 _ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us: ; preds = %.lr.ph.split.us, %43, %49, %55, %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us, %63, %70
-  %.sink = phi i64 [ 64, %43 ], [ 64, %70 ], [ 64, %63 ], [ 64, %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us ], [ 64, %55 ], [ 64, %49 ], [ 52, %.lr.ph.split.us ]
+  %.sink = phi i64 [ 64, %70 ], [ 64, %63 ], [ 64, %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us ], [ 64, %55 ], [ 64, %49 ], [ 64, %43 ], [ 52, %.lr.ph.split.us ]
   %75 = getelementptr inbounds nuw i8, ptr %41, i64 %.sink
   %76 = getelementptr inbounds i32, ptr %75, i64 %7
   %77 = load i32, ptr %76, align 4, !tbaa !72
@@ -5538,7 +5538,7 @@ _ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us: ; preds
   br label %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us
 
 _ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us: ; preds = %33, %38, %50, %58, %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us, %68, %75
-  %.sink = phi i64 [ 64, %38 ], [ 64, %75 ], [ 64, %68 ], [ 64, %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us ], [ 64, %58 ], [ 64, %50 ], [ 52, %33 ]
+  %.sink = phi i64 [ 64, %75 ], [ 64, %68 ], [ 64, %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us ], [ 64, %58 ], [ 64, %50 ], [ 64, %38 ], [ 52, %33 ]
   %80 = getelementptr inbounds nuw i8, ptr %36, i64 %.sink
   %81 = getelementptr inbounds i32, ptr %80, i64 %7
   %82 = load i32, ptr %81, align 4, !tbaa !72
@@ -5654,7 +5654,7 @@ define linkonce_odr dso_local void @_ZN20btAxisSweep3InternalIjE12updateHandleEj
   br label %50
 
 50:                                               ; preds = %45, %41, %5
-  %51 = phi i32 [ %49, %45 ], [ %44, %41 ], [ 0, %5 ]
+  %51 = phi i32 [ %44, %41 ], [ %49, %45 ], [ 0, %5 ]
   store i32 %51, ptr %6, align 4, !tbaa !72
   %52 = fcmp ugt float %31, 0.000000e+00
   br i1 %52, label %53, label %67
@@ -5680,7 +5680,7 @@ define linkonce_odr dso_local void @_ZN20btAxisSweep3InternalIjE12updateHandleEj
   br label %67
 
 67:                                               ; preds = %62, %58, %50
-  %68 = phi i32 [ %66, %62 ], [ %61, %58 ], [ 0, %50 ]
+  %68 = phi i32 [ %61, %58 ], [ %66, %62 ], [ 0, %50 ]
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %68, ptr %69, align 4, !tbaa !72
   %70 = fcmp ugt float %34, 0.000000e+00
@@ -5707,7 +5707,7 @@ define linkonce_odr dso_local void @_ZN20btAxisSweep3InternalIjE12updateHandleEj
   br label %_ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit
 
 _ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit: ; preds = %67, %76, %80
-  %85 = phi i32 [ %84, %80 ], [ %79, %76 ], [ 0, %67 ]
+  %85 = phi i32 [ %79, %76 ], [ %84, %80 ], [ 0, %67 ]
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %85, ptr %86, align 4, !tbaa !72
   %87 = load float, ptr %3, align 4, !tbaa !40
@@ -5747,7 +5747,7 @@ _ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit: ; preds = %67, %76,
   br label %115
 
 115:                                              ; preds = %109, %104, %_ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit
-  %116 = phi i32 [ %114, %109 ], [ %108, %104 ], [ 1, %_ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit ]
+  %116 = phi i32 [ %108, %104 ], [ %114, %109 ], [ 1, %_ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit ]
   store i32 %116, ptr %7, align 4, !tbaa !72
   %117 = fcmp ugt float %96, 0.000000e+00
   br i1 %117, label %118, label %134
@@ -5775,7 +5775,7 @@ _ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit: ; preds = %67, %76,
   br label %134
 
 134:                                              ; preds = %128, %123, %115
-  %135 = phi i32 [ %133, %128 ], [ %127, %123 ], [ 1, %115 ]
+  %135 = phi i32 [ %127, %123 ], [ %133, %128 ], [ 1, %115 ]
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %135, ptr %136, align 4, !tbaa !72
   %137 = fcmp ugt float %97, 0.000000e+00
@@ -5804,7 +5804,7 @@ _ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit: ; preds = %67, %76,
   br label %_ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit37
 
 _ZNK20btAxisSweep3InternalIjE8quantizeEPjRK9btVector3i.exit37: ; preds = %134, %143, %148
-  %154 = phi i32 [ %153, %148 ], [ %147, %143 ], [ 1, %134 ]
+  %154 = phi i32 [ %147, %143 ], [ %153, %148 ], [ 1, %134 ]
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %154, ptr %155, align 4, !tbaa !72
   %156 = getelementptr inbounds nuw i8, ptr %11, i64 52

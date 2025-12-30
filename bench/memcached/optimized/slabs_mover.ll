@@ -163,7 +163,7 @@ define dso_local noundef ptr @start_slab_maintenance_thread(ptr noundef %0) loca
   br label %29
 
 29:                                               ; preds = %1, %27, %23, %17
-  %.0 = phi ptr [ %2, %27 ], [ null, %17 ], [ null, %23 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %17 ], [ null, %23 ], [ %2, %27 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -476,7 +476,7 @@ slab_rebalance_finish.exit:                       ; preds = %75, %77
   br i1 %exitcond.not.i, label %slab_rebalance_prep.exit, label %.preheader.i, !llvm.loop !64
 
 .loopexit23.sink.split.i:                         ; preds = %112, %.lr.ph.i.i, %135, %.lr.ph.i16.i
-  %.lcssa.sink.i = phi ptr [ %133, %135 ], [ %133, %.lr.ph.i16.i ], [ %110, %.lr.ph.i.i ], [ %110, %112 ]
+  %.lcssa.sink.i = phi ptr [ %133, %.lr.ph.i16.i ], [ %133, %135 ], [ %110, %.lr.ph.i.i ], [ %110, %112 ]
   store ptr %.lcssa.sink.i, ptr %24, align 8, !tbaa !48
   br label %slab_rebalance_prep.exit
 
@@ -1038,7 +1038,7 @@ slab_rebalance_check_automove.exit:               ; preds = %423, %425
   br label %.outer
 
 .outer:                                           ; preds = %368, %slab_rebalance_move.exit, %slab_rebalance_finish.exit, %431
-  %.1 = phi i32 [ %.0.ph52, %slab_rebalance_finish.exit ], [ %.0.ph52, %431 ], [ 1, %slab_rebalance_move.exit ], [ %spec.select, %368 ]
+  %.1 = phi i32 [ %.0.ph52, %slab_rebalance_finish.exit ], [ %.0.ph52, %431 ], [ %spec.select, %368 ], [ 1, %slab_rebalance_move.exit ]
   %432 = load i8, ptr %0, align 8, !tbaa !19, !range !29, !noundef !30
   %433 = trunc nuw i8 %432 to i1
   br i1 %433, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !37
@@ -1226,7 +1226,7 @@ define internal range(i32 0, 8) i32 @_slabs_locked_cb(ptr noundef captures(none)
   br label %45
 
 45:                                               ; preds = %16, %36, %21, %19, %10
-  %.0 = phi i32 [ 0, %10 ], [ 1, %16 ], [ 7, %21 ], [ %.2, %36 ], [ 6, %19 ]
+  %.0 = phi i32 [ 0, %10 ], [ 1, %16 ], [ %.2, %36 ], [ 7, %21 ], [ 6, %19 ]
   ret i32 %.0
 }
 

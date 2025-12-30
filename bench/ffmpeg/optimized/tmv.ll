@@ -107,7 +107,7 @@ define internal i32 @tmv_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %48
 
 48:                                               ; preds = %4, %._crit_edge43, %21
-  %.0 = phi i32 [ %47, %._crit_edge43 ], [ -1094995529, %21 ], [ %13, %4 ]
+  %.0 = phi i32 [ -1094995529, %21 ], [ %47, %._crit_edge43 ], [ %13, %4 ]
   ret i32 %.0
 }
 

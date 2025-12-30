@@ -337,7 +337,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   br i1 %165, label %.preheader, label %.thread, !llvm.loop !63
 
 .thread:                                          ; preds = %13, %45, %178, %.preheader124, %78, %.loopexit, %.loopexit120, %174, %157
-  %.1 = phi i32 [ -12, %78 ], [ 0, %174 ], [ 0, %178 ], [ 0, %157 ], [ %148, %.loopexit120 ], [ 0, %.preheader124 ], [ 0, %.loopexit ], [ %49, %45 ], [ 0, %13 ]
+  %.1 = phi i32 [ 0, %174 ], [ 0, %157 ], [ %148, %.loopexit120 ], [ 0, %.loopexit ], [ -12, %78 ], [ 0, %.preheader124 ], [ 0, %178 ], [ %49, %45 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1

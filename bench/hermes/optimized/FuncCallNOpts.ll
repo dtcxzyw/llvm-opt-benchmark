@@ -248,7 +248,7 @@ if.then.i.i.i24:                                  ; preds = %for.end.i
   br label %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit
 
 _ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit: ; preds = %entry, %for.end.i, %if.then.i.i.i24
-  %changed.0.lcssa5053 = phi i1 [ %changed.1.lcssa, %if.then.i.i.i24 ], [ %changed.1.lcssa, %for.end.i ], [ false, %entry ]
+  %changed.0.lcssa5053 = phi i1 [ %changed.1.lcssa, %for.end.i ], [ %changed.1.lcssa, %if.then.i.i.i24 ], [ false, %entry ]
   ret i1 %changed.0.lcssa5053
 }
 

@@ -206,8 +206,8 @@ do_getc.exit64.thread.sink.split.i:               ; preds = %71, %64
   br label %do_getc.exit64.thread.i
 
 do_getc.exit64.thread.i:                          ; preds = %do_getc.exit64.thread.sink.split.i, %do_getc.exit64.i, %71, %64
-  %.079.i = phi i32 [ %.0.i, %do_getc.exit64.i ], [ -1, %64 ], [ -1, %71 ], [ -1, %do_getc.exit64.thread.sink.split.i ]
-  %.not.not7377.i = phi i1 [ %.not.not73.i, %do_getc.exit64.i ], [ false, %64 ], [ true, %71 ], [ %.not.not7377.ph.i, %do_getc.exit64.thread.sink.split.i ]
+  %.079.i = phi i32 [ %.0.i, %do_getc.exit64.i ], [ -1, %71 ], [ -1, %64 ], [ -1, %do_getc.exit64.thread.sink.split.i ]
+  %.not.not7377.i = phi i1 [ %.not.not73.i, %do_getc.exit64.i ], [ true, %71 ], [ false, %64 ], [ %.not.not7377.ph.i, %do_getc.exit64.thread.sink.split.i ]
   %76 = add i32 %.079.i, -97
   %or.cond3.i = icmp ult i32 %76, 26
   %77 = icmp eq i32 %.079.i, 95
@@ -225,21 +225,21 @@ do_getc.exit64.thread.i:                          ; preds = %do_getc.exit64.thre
   %.1.i = phi i32 [ %.080.i, %78 ], [ %92, %.critedge.backedge.i ]
   %80 = load i64, ptr @subst_from_stdin.bufmax, align 8, !tbaa !21
   %.not50.i = icmp ult i64 %79, %80
-  %.pre92.i = load ptr, ptr @subst_from_stdin.buffer, align 8, !tbaa !4
+  %.pre94.i = load ptr, ptr @subst_from_stdin.buffer, align 8, !tbaa !4
   br i1 %.not50.i, label %85, label %81
 
 81:                                               ; preds = %.critedge.i
   %82 = shl i64 %80, 1
   %83 = add i64 %82, 10
   store i64 %83, ptr @subst_from_stdin.bufmax, align 8, !tbaa !21
-  %84 = tail call ptr @xrealloc(ptr noundef %.pre92.i, i64 noundef %83) #10
+  %84 = tail call ptr @xrealloc(ptr noundef %.pre94.i, i64 noundef %83) #10
   store ptr %84, ptr @subst_from_stdin.buffer, align 8, !tbaa !4
-  %.pre93.i = load i64, ptr @subst_from_stdin.buflen, align 8, !tbaa !21
+  %.pre95.i = load i64, ptr @subst_from_stdin.buflen, align 8, !tbaa !21
   br label %85
 
 85:                                               ; preds = %81, %.critedge.i
-  %86 = phi i64 [ %.pre93.i, %81 ], [ %79, %.critedge.i ]
-  %87 = phi ptr [ %84, %81 ], [ %.pre92.i, %.critedge.i ]
+  %86 = phi i64 [ %.pre95.i, %81 ], [ %79, %.critedge.i ]
+  %87 = phi ptr [ %84, %81 ], [ %.pre94.i, %.critedge.i ]
   %88 = trunc nuw nsw i32 %.1.i to i8
   %89 = add i64 %86, 1
   store i64 %89, ptr @subst_from_stdin.buflen, align 8, !tbaa !21
@@ -268,8 +268,8 @@ do_getc.exit66.i:                                 ; preds = %97, %94, %85
   %or.cond11.i = icmp ult i32 %101, 10
   %or.cond58.i = or i1 %or.cond11.i, %or.cond57.i
   %102 = icmp eq i32 %92, 95
-  %or.cond106.i = or i1 %102, %or.cond58.i
-  br i1 %or.cond106.i, label %.critedge.backedge.i, label %103
+  %or.cond108.i = or i1 %102, %or.cond58.i
+  br i1 %or.cond108.i, label %.critedge.backedge.i, label %103
 
 .critedge.backedge.i:                             ; preds = %do_getc.exit66.i
   %.pre.i = load i64, ptr @subst_from_stdin.buflen, align 8, !tbaa !21
@@ -283,12 +283,12 @@ do_getc.exit66.i:                                 ; preds = %97, %94, %85
   br i1 %105, label %114, label %106
 
 106:                                              ; preds = %104
-  br i1 %93, label %.critedge60.thread.i, label %107
+  br i1 %93, label %do_ungetc.exit.thread88.i, label %107
 
 107:                                              ; preds = %106
   %108 = load ptr, ptr @stdin, align 8, !tbaa !19
   %109 = tail call i32 @ungetc(i32 noundef %92, ptr noundef %108)
-  br label %.critedge60.thread.i
+  br label %do_ungetc.exit.thread88.i
 
 110:                                              ; preds = %103
   br i1 %93, label %114, label %111
@@ -302,31 +302,31 @@ do_getc.exit66.i:                                 ; preds = %97, %94, %85
   %115 = load i64, ptr @subst_from_stdin.buflen, align 8, !tbaa !21
   %116 = load i64, ptr @subst_from_stdin.bufmax, align 8, !tbaa !21
   %.not52.i = icmp ult i64 %115, %116
-  %.pre94.i = load ptr, ptr @subst_from_stdin.buffer, align 8, !tbaa !4
+  %.pre96.i = load ptr, ptr @subst_from_stdin.buffer, align 8, !tbaa !4
   br i1 %.not52.i, label %121, label %117
 
 117:                                              ; preds = %114
   %118 = shl i64 %116, 1
   %119 = add i64 %118, 10
   store i64 %119, ptr @subst_from_stdin.bufmax, align 8, !tbaa !21
-  %120 = tail call ptr @xrealloc(ptr noundef %.pre94.i, i64 noundef %119) #10
+  %120 = tail call ptr @xrealloc(ptr noundef %.pre96.i, i64 noundef %119) #10
   store ptr %120, ptr @subst_from_stdin.buffer, align 8, !tbaa !4
-  %.pre95.i = load i64, ptr @subst_from_stdin.buflen, align 8, !tbaa !21
+  %.pre97.i = load i64, ptr @subst_from_stdin.buflen, align 8, !tbaa !21
   br label %121
 
 121:                                              ; preds = %117, %114
-  %122 = phi i64 [ %.pre95.i, %117 ], [ %115, %114 ]
-  %123 = phi ptr [ %120, %117 ], [ %.pre94.i, %114 ]
+  %122 = phi i64 [ %.pre97.i, %117 ], [ %115, %114 ]
+  %123 = phi ptr [ %120, %117 ], [ %.pre96.i, %114 ]
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 %122
   store i8 0, ptr %124, align 1, !tbaa !9
   %125 = load i64, ptr getelementptr inbounds nuw (i8, ptr @variables_set, i64 8), align 8, !tbaa !12
   switch i64 %125, label %.lr.ph.i.i8 [
-    i64 0, label %.critedge60.i
+    i64 0, label %do_ungetc.exit.i
     i64 1, label %.._crit_edge.thread.i_crit_edge.i
   ]
 
 .._crit_edge.thread.i_crit_edge.i:                ; preds = %121
-  %.pre96.i = load ptr, ptr @variables_set, align 8, !tbaa !17
+  %.pre98.i = load ptr, ptr @variables_set, align 8, !tbaa !17
   br label %._crit_edge.thread.i.i
 
 .lr.ph.i.i8:                                      ; preds = %121
@@ -347,43 +347,43 @@ do_getc.exit66.i:                                 ; preds = %97, %94, %85
 
 135:                                              ; preds = %127
   %136 = icmp eq i32 %133, 0
-  br i1 %136, label %.loopexit.i, label %137
+  br i1 %136, label %.critedge60.i, label %137
 
 137:                                              ; preds = %135
   %138 = add i64 %130, 1
   br label %139
 
 139:                                              ; preds = %137, %127
-  %.226.i.i = phi i64 [ %130, %127 ], [ %.0243.i.i, %137 ]
-  %.223.i.i = phi i64 [ %.0214.i.i, %127 ], [ %138, %137 ]
+  %.226.i.i = phi i64 [ %.0243.i.i, %137 ], [ %130, %127 ]
+  %.223.i.i = phi i64 [ %138, %137 ], [ %.0214.i.i, %127 ]
   %140 = sub i64 %.226.i.i, %.223.i.i
   %141 = icmp ugt i64 %140, 1
   br i1 %141, label %127, label %._crit_edge.i.i, !llvm.loop !23
 
 ._crit_edge.i.i:                                  ; preds = %139
   %142 = icmp ugt i64 %.226.i.i, %.223.i.i
-  br i1 %142, label %._crit_edge.thread.i.i, label %.critedge60.i
+  br i1 %142, label %._crit_edge.thread.i.i, label %do_ungetc.exit.i
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %.._crit_edge.thread.i_crit_edge.i
-  %143 = phi ptr [ %126, %._crit_edge.i.i ], [ %.pre96.i, %.._crit_edge.thread.i_crit_edge.i ]
+  %143 = phi ptr [ %126, %._crit_edge.i.i ], [ %.pre98.i, %.._crit_edge.thread.i_crit_edge.i ]
   %.021.lcssa11.i.i = phi i64 [ %.223.i.i, %._crit_edge.i.i ], [ 0, %.._crit_edge.thread.i_crit_edge.i ]
   %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %.021.lcssa11.i.i
   %145 = load ptr, ptr %144, align 8, !tbaa !4
   %146 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %145, ptr noundef nonnull readonly dereferenceable(1) %123) #12
   %147 = icmp eq i32 %146, 0
-  br i1 %147, label %.loopexit.i, label %.critedge60.i
+  br i1 %147, label %.critedge60.i, label %do_ungetc.exit.i
 
-.loopexit.i:                                      ; preds = %135, %._crit_edge.thread.i.i
+.critedge60.i:                                    ; preds = %135, %._crit_edge.thread.i.i
   %148 = tail call ptr @getenv(ptr noundef nonnull %123) #10
   %.not56.i = icmp eq ptr %148, null
   br i1 %.not56.i, label %note_variables.exit.backedge, label %149
 
-149:                                              ; preds = %.loopexit.i
+149:                                              ; preds = %.critedge60.i
   %150 = load ptr, ptr @stdout, align 8, !tbaa !19
   %151 = tail call i32 @fputs(ptr noundef nonnull %148, ptr noundef %150)
   br label %note_variables.exit.backedge
 
-.critedge60.thread.i:                             ; preds = %107, %106
+do_ungetc.exit.thread88.i:                        ; preds = %107, %106
   %152 = load ptr, ptr @stdout, align 8, !tbaa !19
   %153 = tail call i32 @putc(i32 noundef 36, ptr noundef %152)
   %154 = load ptr, ptr @stdout, align 8, !tbaa !19
@@ -394,12 +394,12 @@ do_getc.exit66.i:                                 ; preds = %97, %94, %85
   %159 = tail call i64 @fwrite(ptr noundef %156, i64 noundef %157, i64 noundef 1, ptr noundef %158)
   br label %note_variables.exit.backedge
 
-.critedge60.i:                                    ; preds = %._crit_edge.thread.i.i, %._crit_edge.i.i, %121
+do_ungetc.exit.i:                                 ; preds = %._crit_edge.thread.i.i, %._crit_edge.i.i, %121
   %160 = load ptr, ptr @stdout, align 8, !tbaa !19
   %161 = tail call i32 @putc(i32 noundef 36, ptr noundef %160)
-  br i1 %.not.not7378.i, label %162, label %.critedge109.i
+  br i1 %.not.not7378.i, label %162, label %.critedge111.i
 
-162:                                              ; preds = %.critedge60.i
+162:                                              ; preds = %do_ungetc.exit.i
   %163 = load ptr, ptr @stdout, align 8, !tbaa !19
   %164 = tail call i32 @putc(i32 noundef 123, ptr noundef %163)
   %165 = load ptr, ptr @subst_from_stdin.buffer, align 8, !tbaa !4
@@ -434,14 +434,14 @@ do_ungetc.exit71.i:                               ; preds = %172, %171
   %182 = tail call i32 @putc(i32 noundef %57, ptr noundef %181)
   br label %note_variables.exit.backedge
 
-.critedge109.i:                                   ; preds = %.critedge60.i
+.critedge111.i:                                   ; preds = %do_ungetc.exit.i
   %183 = load ptr, ptr @subst_from_stdin.buffer, align 8, !tbaa !4
   %184 = load i64, ptr @subst_from_stdin.buflen, align 8, !tbaa !21
   %185 = load ptr, ptr @stdout, align 8, !tbaa !19
   %186 = tail call i64 @fwrite(ptr noundef %183, i64 noundef %184, i64 noundef 1, ptr noundef %185)
   br label %note_variables.exit.backedge
 
-note_variables.exit.backedge:                     ; preds = %.critedge109.i, %180, %177, %do_ungetc.exit71.i, %162, %.critedge60.thread.i, %149, %.loopexit.i
+note_variables.exit.backedge:                     ; preds = %.critedge111.i, %180, %177, %do_ungetc.exit71.i, %162, %do_ungetc.exit.thread88.i, %149, %.critedge60.i
   br label %note_variables.exit
 
 187:                                              ; preds = %2
@@ -534,7 +534,7 @@ note_variables.exit.backedge:                     ; preds = %.critedge109.i, %18
   br label %subst_from_stdin.exit.sink.split
 
 subst_from_stdin.exit.sink.split:                 ; preds = %58, %2, %231
-  %.str.7.sink = phi ptr [ @.str.2, %2 ], [ @.str.5, %231 ], [ @.str.7, %58 ]
+  %.str.7.sink = phi ptr [ @.str.5, %231 ], [ @.str.2, %2 ], [ @.str.7, %58 ]
   %232 = tail call i32 (ptr, ...) @error(ptr noundef nonnull %.str.7.sink) #10
   br label %subst_from_stdin.exit
 

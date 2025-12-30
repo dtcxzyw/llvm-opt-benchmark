@@ -174,7 +174,7 @@ define internal range(i32 -2147483648, 1) i32 @rawvideo_read_header(ptr noundef 
   br label %79
 
 79:                                               ; preds = %68, %65, %.critedge, %20, %1, %70, %18
-  %.0 = phi i32 [ -22, %18 ], [ -12, %1 ], [ %66, %65 ], [ 0, %70 ], [ -22, %.critedge ], [ %29, %20 ], [ -22, %68 ]
+  %.0 = phi i32 [ -22, %18 ], [ 0, %70 ], [ -12, %1 ], [ %29, %20 ], [ -22, %.critedge ], [ %66, %65 ], [ -22, %68 ]
   ret i32 %.0
 }
 

@@ -443,7 +443,7 @@ get_opfamily_member.exit:                         ; preds = %23
   %.not22 = icmp eq i32 %.fr, 0
   br i1 %.not22, label %get_opfamily_member.exit.thread, label %get_opfamily_member.exit._crit_edge
 
-get_opfamily_member.exit.thread:                  ; preds = %get_opfamily_member.exit, %23, %19, %9
+get_opfamily_member.exit.thread:                  ; preds = %get_opfamily_member.exit, %23, %9, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %5, align 8
   %38 = sext i32 %37 to i64
@@ -823,8 +823,8 @@ get_opfamily_member.exit56:                       ; preds = %.critedge
   %158 = icmp slt i64 %indvars.iv.next, %157
   br i1 %158, label %.lr.ph.split.split, label %.thread66, !llvm.loop !8
 
-.thread66:                                        ; preds = %get_opfamily_member.exit56, %.thread, %.thread.us79, %get_opfamily_member.exit.us, %.thread.us, %get_opfamily_member.exit56.us, %.thread.us.us, %7, %130, %129
-  %.1 = phi i1 [ true, %129 ], [ true, %130 ], [ false, %7 ], [ true, %get_opfamily_member.exit.us ], [ false, %.thread.us.us ], [ false, %.thread.us ], [ true, %get_opfamily_member.exit56.us ], [ false, %.thread.us79 ], [ false, %.thread ], [ true, %get_opfamily_member.exit56 ]
+.thread66:                                        ; preds = %get_opfamily_member.exit56, %.thread, %.thread.us79, %get_opfamily_member.exit.us, %.thread.us, %get_opfamily_member.exit56.us, %.thread.us.us, %7, %129, %130
+  %.1 = phi i1 [ true, %130 ], [ true, %129 ], [ false, %7 ], [ false, %.thread.us.us ], [ false, %.thread.us ], [ true, %get_opfamily_member.exit56.us ], [ false, %.thread.us79 ], [ true, %get_opfamily_member.exit.us ], [ true, %get_opfamily_member.exit56 ], [ false, %.thread ]
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %9) #7
   ret i1 %.1
 }
@@ -1078,7 +1078,7 @@ get_opfamily_proc.exit52:                         ; preds = %.thread
   br i1 %125, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %get_opfamily_proc.exit52, %.thread58, %.thread58.us75, %get_opfamily_proc.exit.us, %.thread58.us, %get_opfamily_proc.exit52.us, %.lr.ph.split.us, %7, %.thread62
-  %.1 = phi i1 [ true, %.thread62 ], [ false, %7 ], [ false, %.lr.ph.split.us ], [ true, %get_opfamily_proc.exit.us ], [ false, %.thread58.us ], [ true, %get_opfamily_proc.exit52.us ], [ false, %.thread58.us75 ], [ true, %get_opfamily_proc.exit52 ], [ false, %.thread58 ]
+  %.1 = phi i1 [ true, %.thread62 ], [ false, %7 ], [ false, %.lr.ph.split.us ], [ false, %.thread58.us ], [ true, %get_opfamily_proc.exit52.us ], [ false, %.thread58.us75 ], [ true, %get_opfamily_proc.exit.us ], [ true, %get_opfamily_proc.exit52 ], [ false, %.thread58 ]
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %9) #7
   ret i1 %.1
 }
@@ -2097,7 +2097,7 @@ define dso_local zeroext i1 @op_mergejoinable(i32 noundef %0, i32 noundef %1) lo
   br label %25
 
 25:                                               ; preds = %8, %3, %16, %13
-  %.0 = phi i1 [ false, %13 ], [ %24, %16 ], [ %7, %3 ], [ %12, %8 ]
+  %.0 = phi i1 [ %24, %16 ], [ false, %13 ], [ %7, %3 ], [ %12, %8 ]
   ret i1 %.0
 }
 
@@ -2144,7 +2144,7 @@ define dso_local zeroext i1 @op_hashjoinable(i32 noundef %0, i32 noundef %1) loc
   br label %25
 
 25:                                               ; preds = %8, %3, %16, %13
-  %.0 = phi i1 [ false, %13 ], [ %24, %16 ], [ %7, %3 ], [ %12, %8 ]
+  %.0 = phi i1 [ %24, %16 ], [ false, %13 ], [ %7, %3 ], [ %12, %8 ]
   ret i1 %.0
 }
 
@@ -3301,7 +3301,7 @@ getTypeIOParam.exit:                              ; preds = %25, %36
   br label %48
 
 48:                                               ; preds = %21, %getTypeIOParam.exit, %17
-  %.0 = phi ptr [ %20, %17 ], [ %47, %getTypeIOParam.exit ], [ null, %21 ]
+  %.0 = phi ptr [ %47, %getTypeIOParam.exit ], [ %20, %17 ], [ null, %21 ]
   call void @ReleaseSysCache(ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
@@ -3431,7 +3431,7 @@ get_typlen.exit.thread:                           ; preds = %2, %get_typlen.exit
   br label %26
 
 26:                                               ; preds = %get_typlen.exit.thread, %20, %17, %22, %13
-  %.0 = phi i32 [ %14, %13 ], [ 516, %20 ], [ %15, %17 ], [ %25, %22 ], [ 32, %get_typlen.exit.thread ]
+  %.0 = phi i32 [ %14, %13 ], [ %25, %22 ], [ %15, %17 ], [ 516, %20 ], [ 32, %get_typlen.exit.thread ]
   ret i32 %.0
 }
 
@@ -3514,7 +3514,7 @@ get_typtype.exit.thread:                          ; preds = %14, %4, %get_typtyp
   br label %26
 
 26:                                               ; preds = %get_typtype.exit7, %get_typtype.exit, %1, %get_typtype.exit.thread
-  %.0 = phi i1 [ true, %get_typtype.exit ], [ false, %get_typtype.exit.thread ], [ true, %1 ], [ true, %get_typtype.exit7 ]
+  %.0 = phi i1 [ false, %get_typtype.exit.thread ], [ true, %1 ], [ true, %get_typtype.exit ], [ true, %get_typtype.exit7 ]
   ret i1 %.0
 }
 
@@ -3754,7 +3754,7 @@ get_array_type.exit.thread:                       ; preds = %1, %get_array_type.
   br label %get_element_type.exit.thread.sink.split
 
 get_element_type.exit.thread.sink.split:          ; preds = %20, %12
-  %.0.ph = phi i32 [ %spec.select, %20 ], [ 0, %12 ]
+  %.0.ph = phi i32 [ 0, %12 ], [ %spec.select, %20 ]
   tail call void @ReleaseSysCache(ptr noundef nonnull %11) #7
   br label %get_element_type.exit.thread
 
@@ -4358,7 +4358,7 @@ define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0
   br label %.split74.us
 
 .split74.us:                                      ; preds = %.split74.us.loopexit82, %.split74.us.loopexit, %.split.us
-  %.us-phi = phi i32 [ %31, %.split74.us.loopexit ], [ 0, %.split.us ], [ %32, %.split74.us.loopexit82 ]
+  %.us-phi = phi i32 [ 0, %.split.us ], [ %31, %.split74.us.loopexit ], [ %32, %.split74.us.loopexit82 ]
   %33 = zext nneg i32 %.us-phi to i64
   %34 = getelementptr inbounds nuw i32, ptr %13, i64 %33
   %35 = load i32, ptr %34, align 4
@@ -4477,7 +4477,7 @@ define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %.lr.ph, %77, %100
-  %105 = phi i1 [ true, %100 ], [ true, %77 ], [ false, %.lr.ph ], [ false, %30 ]
+  %105 = phi i1 [ true, %77 ], [ true, %100 ], [ false, %.lr.ph ], [ false, %30 ]
   ret i1 %105
 }
 

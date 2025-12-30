@@ -252,8 +252,8 @@ define internal i32 @dissect_hdfsdata(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %60
 
 60:                                               ; preds = %56, %44, %51, %54, %42
-  %.04247 = phi i1 [ %.04248, %42 ], [ %.042.ph, %56 ], [ %.042.ph, %44 ], [ %.042.ph, %54 ], [ %.042.ph, %51 ]
-  %.0 = phi i32 [ %43, %42 ], [ %spec.select, %56 ], [ 19, %44 ], [ 19, %54 ], [ 19, %51 ]
+  %.04247 = phi i1 [ %.04248, %42 ], [ %.042.ph, %54 ], [ %.042.ph, %51 ], [ %.042.ph, %44 ], [ %.042.ph, %56 ]
+  %.0 = phi i32 [ %43, %42 ], [ 19, %54 ], [ 19, %51 ], [ 19, %44 ], [ %spec.select, %56 ]
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %.04247, i32 noundef %.0, ptr noundef nonnull @get_hdfsdata_message_len, ptr noundef nonnull @dissect_hdfsdata_message, ptr noundef %3)
   %61 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %61

@@ -1322,7 +1322,7 @@ _ZNK5Yosys14DriveChunkWire10can_appendERKNS_12DriveBitWireE.exit: ; preds = %2
   br label %_ZNK5Yosys14DriveChunkWire10can_appendERKNS_12DriveBitWireE.exit.thread
 
 _ZNK5Yosys14DriveChunkWire10can_appendERKNS_12DriveBitWireE.exit.thread: ; preds = %2, %_ZNK5Yosys14DriveChunkWire10can_appendERKNS_12DriveBitWireE.exit, %14
-  %16 = phi i1 [ true, %14 ], [ false, %_ZNK5Yosys14DriveChunkWire10can_appendERKNS_12DriveBitWireE.exit ], [ false, %2 ]
+  %16 = phi i1 [ false, %_ZNK5Yosys14DriveChunkWire10can_appendERKNS_12DriveBitWireE.exit ], [ true, %14 ], [ false, %2 ]
   ret i1 %16
 }
 
@@ -1419,7 +1419,7 @@ _ZNK5Yosys14DriveChunkPort10can_appendERKNS_12DriveBitPortE.exit: ; preds = %6
   br label %_ZNK5Yosys14DriveChunkPort10can_appendERKNS_12DriveBitPortE.exit.thread
 
 _ZNK5Yosys14DriveChunkPort10can_appendERKNS_12DriveBitPortE.exit.thread: ; preds = %2, %6, %_ZNK5Yosys14DriveChunkPort10can_appendERKNS_12DriveBitPortE.exit, %20
-  %22 = phi i1 [ true, %20 ], [ false, %_ZNK5Yosys14DriveChunkPort10can_appendERKNS_12DriveBitPortE.exit ], [ false, %6 ], [ false, %2 ]
+  %22 = phi i1 [ false, %_ZNK5Yosys14DriveChunkPort10can_appendERKNS_12DriveBitPortE.exit ], [ true, %20 ], [ false, %6 ], [ false, %2 ]
   ret i1 %22
 }
 
@@ -1508,7 +1508,7 @@ _ZNK5Yosys16DriveChunkMarker10can_appendERKNS_14DriveBitMarkerE.exit: ; preds = 
   br label %_ZNK5Yosys16DriveChunkMarker10can_appendERKNS_14DriveBitMarkerE.exit.thread
 
 _ZNK5Yosys16DriveChunkMarker10can_appendERKNS_14DriveBitMarkerE.exit.thread: ; preds = %2, %_ZNK5Yosys16DriveChunkMarker10can_appendERKNS_14DriveBitMarkerE.exit, %14
-  %16 = phi i1 [ true, %14 ], [ false, %_ZNK5Yosys16DriveChunkMarker10can_appendERKNS_14DriveBitMarkerE.exit ], [ false, %2 ]
+  %16 = phi i1 [ false, %_ZNK5Yosys16DriveChunkMarker10can_appendERKNS_14DriveBitMarkerE.exit ], [ true, %14 ], [ false, %2 ]
   ret i1 %16
 }
 
@@ -1564,13 +1564,13 @@ define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKNS_16Dri
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 80
   %.not = icmp eq i64 %13, %21
-  br i1 %.not, label %22, label %.critedge
+  br i1 %.not, label %22, label %.loopexit
 
 22:                                               ; preds = %2
   %23 = trunc i64 %13 to i32
   %24 = add i32 %23, -1
   %.not128136 = icmp eq i32 %23, 0
-  br i1 %.not128136, label %.critedge, label %.lr.ph.preheader
+  br i1 %.not128136, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %22
   %25 = sext i32 %24 to i64
@@ -1578,7 +1578,7 @@ define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKNS_16Dri
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %26 = icmp samesign ugt i32 %spec.select, 1
-  br i1 %26, label %.critedge, label %.lr.ph143.preheader
+  br i1 %26, label %.loopexit, label %.lr.ph143.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %25, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -1599,7 +1599,7 @@ define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKNS_16Dri
 
 ._crit_edge144:                                   ; preds = %.lr.ph143
   %.not83 = icmp eq i32 %spec.select92, 0
-  br i1 %.not83, label %.lr.ph153, label %.critedge
+  br i1 %.not83, label %.lr.ph153, label %.loopexit
 
 .lr.ph153:                                        ; preds = %._crit_edge144
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1623,13 +1623,13 @@ define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKNS_16Dri
   %.not129 = icmp eq i64 %indvars.iv.next178, 0
   br i1 %.not129, label %._crit_edge144, label %.lr.ph143
 
-43:                                               ; preds = %.lr.ph153, %129
-  %indvars.iv180 = phi i64 [ %38, %.lr.ph153 ], [ %indvars.iv.next181, %129 ]
+43:                                               ; preds = %.lr.ph153, %.critedge
+  %indvars.iv180 = phi i64 [ %38, %.lr.ph153 ], [ %indvars.iv.next181, %.critedge ]
   %44 = load ptr, ptr %14, align 8, !tbaa !50
   %45 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<Yosys::DriveChunk>::entry_t", ptr %44, i64 %indvars.iv180
   %46 = load i8, ptr %45, align 8, !tbaa !51
-  switch i8 %46, label %.critedge [
-    i8 1, label %129
+  switch i8 %46, label %.loopexit [
+    i8 1, label %.critedge
     i8 2, label %47
     i8 3, label %59
     i8 5, label %117
@@ -1656,14 +1656,14 @@ define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKNS_16Dri
   %.not91.not = icmp eq i32 %55, 0
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not91.not, label %.critedge, label %129
+  br i1 %.not91.not, label %.loopexit, label %.critedge
 
 57:                                               ; preds = %47
   %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %131
+  br label %130
 
 59:                                               ; preds = %43
   %60 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -1779,14 +1779,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys12DriveBit
   %.not88.not = icmp eq i32 %113, 0
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not88.not, label %.critedge, label %129
+  br i1 %.not88.not, label %.loopexit, label %.critedge
 
 115:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %116 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %131
+  br label %130
 
 117:                                              ; preds = %43
   %118 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -1812,26 +1812,26 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys12DriveBit
   %.not84.not = icmp eq i32 %125, 0
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not84.not, label %.critedge, label %129
+  br i1 %.not84.not, label %.loopexit, label %.critedge
 
 127:                                              ; preds = %117
   %128 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %131
+  br label %130
 
-129:                                              ; preds = %126, %114, %56, %43
+.critedge:                                        ; preds = %126, %114, %56, %43
   %indvars.iv.next181 = add nsw i64 %indvars.iv180, -1
-  %130 = icmp eq i64 %indvars.iv180, 0
-  br i1 %130, label %.critedge, label %43
+  %129 = icmp eq i64 %indvars.iv180, 0
+  br i1 %129, label %.loopexit, label %43
 
-131:                                              ; preds = %127, %115, %57
+130:                                              ; preds = %127, %115, %57
   %.pn89 = phi { ptr, i32 } [ %58, %57 ], [ %116, %115 ], [ %128, %127 ]
   resume { ptr, i32 } %.pn89
 
-.critedge:                                        ; preds = %126, %56, %114, %43, %129, %22, %._crit_edge, %._crit_edge144, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %._crit_edge144 ], [ false, %._crit_edge ], [ true, %22 ], [ false, %56 ], [ false, %114 ], [ false, %43 ], [ true, %129 ], [ false, %126 ]
+.loopexit:                                        ; preds = %126, %114, %56, %43, %.critedge, %22, %._crit_edge, %._crit_edge144, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %._crit_edge ], [ false, %._crit_edge144 ], [ true, %22 ], [ false, %126 ], [ false, %114 ], [ false, %56 ], [ false, %43 ], [ true, %.critedge ]
   ret i1 %.0
 }
 
@@ -2021,14 +2021,14 @@ define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKS0_(ptr 
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %.not = icmp eq i64 %12, %19
-  br i1 %.not, label %20, label %.critedge
+  br i1 %.not, label %20, label %.loopexit
 
 20:                                               ; preds = %2
   %21 = sdiv exact i64 %12, 80
   %22 = trunc i64 %21 to i32
   %23 = add i32 %22, -1
   %.not132140 = icmp eq i32 %22, 0
-  br i1 %.not132140, label %.critedge, label %.lr.ph.preheader
+  br i1 %.not132140, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %20
   %24 = sext i32 %23 to i64
@@ -2036,7 +2036,7 @@ define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKS0_(ptr 
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %25 = icmp samesign ugt i32 %spec.select, 1
-  br i1 %25, label %.critedge, label %.lr.ph147.preheader
+  br i1 %25, label %.loopexit, label %.lr.ph147.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %24, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -2057,7 +2057,7 @@ define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKS0_(ptr 
 
 ._crit_edge148:                                   ; preds = %.lr.ph147
   %.not86 = icmp eq i32 %spec.select95, 0
-  br i1 %.not86, label %.lr.ph157, label %.critedge
+  br i1 %.not86, label %.lr.ph157, label %.loopexit
 
 .lr.ph157:                                        ; preds = %._crit_edge148
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -2085,13 +2085,13 @@ define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKS0_(ptr 
   %.not133 = icmp eq i64 %indvars.iv.next182, 0
   br i1 %.not133, label %._crit_edge148, label %.lr.ph147
 
-43:                                               ; preds = %.lr.ph157, %136
-  %indvars.iv184 = phi i64 [ %38, %.lr.ph157 ], [ %indvars.iv.next185, %136 ]
+43:                                               ; preds = %.lr.ph157, %.critedge
+  %indvars.iv184 = phi i64 [ %38, %.lr.ph157 ], [ %indvars.iv.next185, %.critedge ]
   %44 = load ptr, ptr %13, align 8, !tbaa !50
   %45 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<Yosys::DriveChunk>::entry_t", ptr %44, i64 %indvars.iv184
   %46 = load i8, ptr %45, align 8, !tbaa !51
-  switch i8 %46, label %.critedge [
-    i8 1, label %136
+  switch i8 %46, label %.loopexit [
+    i8 1, label %.critedge
     i8 2, label %47
     i8 3, label %60
     i8 5, label %123
@@ -2120,14 +2120,14 @@ define noundef zeroext i1 @_ZNK5Yosys18DriveChunkMultiple10can_appendERKS0_(ptr 
   %.not94.not = icmp eq i32 %56, 0
   call void @_ZN5Yosys10DriveChunk8set_noneEi(ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not94.not, label %.critedge, label %136
+  br i1 %.not94.not, label %.loopexit, label %.critedge
 
 58:                                               ; preds = %47
   %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys10DriveChunk8set_noneEi(ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %138
+  br label %137
 
 60:                                               ; preds = %43
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -2255,14 +2255,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys14DriveChu
   %.not91.not = icmp eq i32 %119, 0
   call void @_ZN5Yosys10DriveChunk8set_noneEi(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not91.not, label %.critedge, label %136
+  br i1 %.not91.not, label %.loopexit, label %.critedge
 
 121:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %122 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys10DriveChunk8set_noneEi(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %138
+  br label %137
 
 123:                                              ; preds = %43
   %124 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -2287,26 +2287,26 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys14DriveChu
   %.not87.not = icmp eq i32 %132, 0
   call void @_ZN5Yosys10DriveChunk8set_noneEi(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not87.not, label %.critedge, label %136
+  br i1 %.not87.not, label %.loopexit, label %.critedge
 
 134:                                              ; preds = %123
   %135 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys10DriveChunk8set_noneEi(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %138
+  br label %137
 
-136:                                              ; preds = %133, %120, %57, %43
+.critedge:                                        ; preds = %133, %120, %57, %43
   %indvars.iv.next185 = add nsw i64 %indvars.iv184, -1
-  %137 = icmp eq i64 %indvars.iv184, 0
-  br i1 %137, label %.critedge, label %43
+  %136 = icmp eq i64 %indvars.iv184, 0
+  br i1 %136, label %.loopexit, label %43
 
-138:                                              ; preds = %134, %121, %58
+137:                                              ; preds = %134, %121, %58
   %.pn92 = phi { ptr, i32 } [ %59, %58 ], [ %122, %121 ], [ %135, %134 ]
   resume { ptr, i32 } %.pn92
 
-.critedge:                                        ; preds = %133, %57, %120, %43, %136, %20, %._crit_edge, %._crit_edge148, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %._crit_edge148 ], [ false, %._crit_edge ], [ true, %20 ], [ false, %57 ], [ false, %120 ], [ false, %43 ], [ true, %136 ], [ false, %133 ]
+.loopexit:                                        ; preds = %133, %120, %57, %43, %.critedge, %20, %._crit_edge, %._crit_edge148, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %._crit_edge ], [ false, %._crit_edge148 ], [ true, %20 ], [ false, %133 ], [ false, %120 ], [ false, %57 ], [ false, %43 ], [ true, %.critedge ]
   ret i1 %.0
 }
 
@@ -2796,7 +2796,7 @@ define noundef zeroext i1 @_ZN5Yosys18DriveChunkMultiple10try_appendERKS0_(ptr n
   br i1 %.not79, label %._crit_edge88, label %.lr.ph87
 
 85:                                               ; preds = %46, %68, %66, %30
-  %.pn54.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %67, %66 ], [ %31, %30 ], [ %47, %46 ]
+  %.pn54.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %47, %46 ], [ %69, %68 ], [ %67, %66 ]
   call void @_ZN5Yosys5RTLIL5ConstD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn54.pn.pn
@@ -2933,7 +2933,7 @@ _ZNK5Yosys10DriveChunk4sizeEv.exit:               ; preds = %4, %7, %10, %13, %1
   unreachable
 
 _ZNK5Yosys14DriveChunkWire10can_appendERKNS_12DriveBitWireE.exit: ; preds = %55, %49, %43, %34, %28, %27, %27, %24, %_ZNK5Yosys10DriveChunk4sizeEv.exit, %64
-  %.0 = phi i1 [ %67, %64 ], [ true, %_ZNK5Yosys10DriveChunk4sizeEv.exit ], [ false, %24 ], [ true, %27 ], [ true, %27 ], [ %42, %34 ], [ false, %28 ], [ false, %49 ], [ false, %43 ], [ %63, %55 ]
+  %.0 = phi i1 [ %67, %64 ], [ true, %_ZNK5Yosys10DriveChunk4sizeEv.exit ], [ false, %24 ], [ true, %27 ], [ true, %27 ], [ false, %28 ], [ %42, %34 ], [ false, %49 ], [ false, %43 ], [ %63, %55 ]
   ret i1 %.0
 }
 
@@ -3152,7 +3152,7 @@ _ZNK5Yosys14DriveChunkPort10can_appendERKNS_12DriveBitPortE.exit.i: ; preds = %8
   unreachable
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit: ; preds = %102, %_ZNK5Yosys14DriveChunkPort10can_appendERKNS_12DriveBitPortE.exit.i, %88, %82, %80, %_ZNK5Yosys14DriveChunkWire10can_appendERKNS_12DriveBitWireE.exit.i, %66, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %42, %26, %104, %30
-  %.0 = phi i1 [ %107, %104 ], [ true, %30 ], [ false, %26 ], [ true, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ false, %66 ], [ true, %42 ], [ true, %80 ], [ false, %_ZNK5Yosys14DriveChunkWire10can_appendERKNS_12DriveBitWireE.exit.i ], [ true, %102 ], [ false, %_ZNK5Yosys14DriveChunkPort10can_appendERKNS_12DriveBitPortE.exit.i ], [ false, %88 ], [ false, %82 ]
+  %.0 = phi i1 [ true, %30 ], [ %107, %104 ], [ false, %26 ], [ true, %42 ], [ true, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ false, %_ZNK5Yosys14DriveChunkWire10can_appendERKNS_12DriveBitWireE.exit.i ], [ true, %80 ], [ false, %66 ], [ false, %_ZNK5Yosys14DriveChunkPort10can_appendERKNS_12DriveBitPortE.exit.i ], [ true, %102 ], [ false, %88 ], [ false, %82 ]
   ret i1 %.0
 }
 
@@ -3662,7 +3662,7 @@ _ZNK5Yosys10DriveChunk4sizeEv.exit:               ; preds = %4, %7, %10, %13, %1
   unreachable
 
 _ZN5Yosys14DriveChunkWire10try_appendERKS0_.exit: ; preds = %102, %94, %89, %85, %77, %72, %67, %63, %55, %50, %26, %106, %36, %30
-  %.0 = phi i1 [ %109, %106 ], [ true, %30 ], [ true, %36 ], [ false, %26 ], [ false, %50 ], [ false, %67 ], [ true, %63 ], [ false, %55 ], [ true, %85 ], [ false, %77 ], [ false, %72 ], [ true, %102 ], [ false, %94 ], [ false, %89 ]
+  %.0 = phi i1 [ true, %30 ], [ true, %36 ], [ %109, %106 ], [ false, %26 ], [ true, %63 ], [ false, %55 ], [ false, %50 ], [ true, %85 ], [ false, %77 ], [ false, %72 ], [ false, %67 ], [ true, %102 ], [ false, %94 ], [ false, %89 ]
   ret i1 %.0
 }
 
@@ -4466,7 +4466,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_has
   %76 = icmp sgt i32 %75, -1
   br i1 %76, label %68, label %.loopexit, !llvm.loop !161
 
-.loopexit:                                        ; preds = %73, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread, %._crit_edge.i
+.loopexit:                                        ; preds = %73, %._crit_edge.i, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread
   %77 = phi i32 [ %.pre15, %._crit_edge.i ], [ %.pre, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread ], [ %.pre15, %73 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %78 = load i32, ptr %3, align 4, !tbaa !17
@@ -4600,7 +4600,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_
   %75 = icmp sgt i32 %74, -1
   br i1 %75, label %67, label %.loopexit, !llvm.loop !179
 
-.loopexit:                                        ; preds = %72, %._crit_edge.i, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E7do_hashERKS3_.exit.thread
+.loopexit:                                        ; preds = %72, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E7do_hashERKS3_.exit.thread, %._crit_edge.i
   %76 = phi i32 [ %.pre, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E7do_hashERKS3_.exit.thread ], [ %.pre15, %._crit_edge.i ], [ %.pre15, %72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5387,13 +5387,13 @@ define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBit
   br i1 %74, label %66, label %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit.loopexit, !llvm.loop !161
 
 _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit.loopexit: ; preds = %71, %66
-  %.011.i.ph = phi i32 [ %.013.i, %66 ], [ %73, %71 ]
+  %.011.i.ph = phi i32 [ %73, %71 ], [ %.013.i, %66 ]
   %75 = icmp sgt i32 %.011.i.ph, -1
   %76 = zext i1 %75 to i32
   br label %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit
 
 _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit: ; preds = %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit.loopexit, %2, %._crit_edge.i
-  %.011.i = phi i32 [ 0, %2 ], [ 0, %._crit_edge.i ], [ %76, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit.loopexit ]
+  %.011.i = phi i32 [ 0, %._crit_edge.i ], [ 0, %2 ], [ %76, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit.loopexit ]
   ret i32 %.011.i
 }
 
@@ -5437,7 +5437,7 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_ZN5Yosys9DriverMap13Dri
   br label %27
 
 27:                                               ; preds = %12, %8, %5, %2
-  %.0 = phi i32 [ 1, %5 ], [ 0, %2 ], [ %26, %12 ], [ 2, %8 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %5 ], [ %26, %12 ], [ 2, %8 ]
   ret i32 %.0
 }
 
@@ -5995,7 +5995,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit57:              ; preds = %_ZN5Yosys5RTLIL8IdS
   unreachable
 
 136:                                              ; preds = %25, %13, %22, %23, %2, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit57, %8
-  %.0 = phi i32 [ %.2, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit57 ], [ %12, %8 ], [ 0, %2 ], [ 1, %22 ], [ %27, %25 ], [ 5, %13 ], [ 4, %23 ]
+  %.0 = phi i32 [ %12, %8 ], [ %.2, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit57 ], [ 0, %2 ], [ %27, %25 ], [ 5, %13 ], [ 1, %22 ], [ 4, %23 ]
   ret i32 %.0
 }
 
@@ -6693,7 +6693,7 @@ _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit: ; preds = %145, %162, %
   unreachable
 
 175:                                              ; preds = %2, %_ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit, %47, %18
-  %.sroa.0.0 = phi i32 [ %157, %_ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit ], [ %21, %18 ], [ %59, %47 ], [ -1, %2 ]
+  %.sroa.0.0 = phi i32 [ %21, %18 ], [ %59, %47 ], [ %157, %_ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit ], [ -1, %2 ]
   ret i32 %.sroa.0.0
 }
 
@@ -6833,7 +6833,7 @@ _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsI
   %87 = icmp sgt i32 %86, -1
   br i1 %87, label %79, label %.loopexit, !llvm.loop !297
 
-.loopexit:                                        ; preds = %84, %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread, %._crit_edge.i
+.loopexit:                                        ; preds = %84, %._crit_edge.i, %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread
   %88 = phi ptr [ %.pre15, %._crit_edge.i ], [ %.pre, %_ZNK5Yosys7hashlib4dictIPNS_5RTLIL4WireENS_9DriverMap10DriveBitIdENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.thread ], [ %.pre15, %84 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %89 = load i32, ptr %3, align 4, !tbaa !17
@@ -6964,7 +6964,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_
   %76 = icmp sgt i32 %75, -1
   br i1 %76, label %68, label %.loopexit, !llvm.loop !307
 
-.loopexit:                                        ; preds = %73, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread, %._crit_edge.i
+.loopexit:                                        ; preds = %73, %._crit_edge.i, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread
   %77 = phi i32 [ %.pre17, %._crit_edge.i ], [ %.pre, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS_8DriveBitENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread ], [ %.pre17, %73 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !299)
@@ -8054,7 +8054,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %97, %90, %_ZN5Yosys
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit41
 
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit41: ; preds = %47, %104, %106
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %105, %104 ], [ %107, %106 ], [ %48, %47 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %48, %47 ], [ %107, %106 ], [ %105, %104 ]
   %108 = load i32, ptr %14, align 4, !tbaa !17
   %109 = add nsw i32 %108, -1
   store i32 %109, ptr %14, align 4, !tbaa !17
@@ -10325,9 +10325,9 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_
           to label %.invoke unwind label %624
 
 .invoke:                                          ; preds = %._crit_edge.i734, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E7do_hashERKS3_.exit.thread.i, %._crit_edge.i578, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i, %._crit_edge.i630, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i169, %._crit_edge.i682
-  %621 = phi ptr [ %517, %._crit_edge.i578 ], [ %360, %._crit_edge.i630 ], [ %203, %._crit_edge.i682 ], [ %463, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i ], [ %306, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i169 ], [ %620, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E7do_hashERKS3_.exit.thread.i ], [ %688, %._crit_edge.i734 ]
-  %622 = phi ptr [ @_ZTISt12length_error, %._crit_edge.i578 ], [ @_ZTISt12length_error, %._crit_edge.i630 ], [ @_ZTISt12length_error, %._crit_edge.i682 ], [ @_ZTISt12out_of_range, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i ], [ @_ZTISt12out_of_range, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i169 ], [ @_ZTISt12out_of_range, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E7do_hashERKS3_.exit.thread.i ], [ @_ZTISt12length_error, %._crit_edge.i734 ]
-  %623 = phi ptr [ @_ZNSt12length_errorD1Ev, %._crit_edge.i578 ], [ @_ZNSt12length_errorD1Ev, %._crit_edge.i630 ], [ @_ZNSt12length_errorD1Ev, %._crit_edge.i682 ], [ @_ZNSt12out_of_rangeD1Ev, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i ], [ @_ZNSt12out_of_rangeD1Ev, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i169 ], [ @_ZNSt12out_of_rangeD1Ev, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E7do_hashERKS3_.exit.thread.i ], [ @_ZNSt12length_errorD1Ev, %._crit_edge.i734 ]
+  %621 = phi ptr [ %203, %._crit_edge.i682 ], [ %306, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i169 ], [ %360, %._crit_edge.i630 ], [ %463, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i ], [ %517, %._crit_edge.i578 ], [ %620, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E7do_hashERKS3_.exit.thread.i ], [ %688, %._crit_edge.i734 ]
+  %622 = phi ptr [ @_ZTISt12length_error, %._crit_edge.i682 ], [ @_ZTISt12out_of_range, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i169 ], [ @_ZTISt12length_error, %._crit_edge.i630 ], [ @_ZTISt12out_of_range, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i ], [ @_ZTISt12length_error, %._crit_edge.i578 ], [ @_ZTISt12out_of_range, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E7do_hashERKS3_.exit.thread.i ], [ @_ZTISt12length_error, %._crit_edge.i734 ]
+  %623 = phi ptr [ @_ZNSt12length_errorD1Ev, %._crit_edge.i682 ], [ @_ZNSt12out_of_rangeD1Ev, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i169 ], [ @_ZNSt12length_errorD1Ev, %._crit_edge.i630 ], [ @_ZNSt12out_of_rangeD1Ev, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i ], [ @_ZNSt12length_errorD1Ev, %._crit_edge.i578 ], [ @_ZNSt12out_of_rangeD1Ev, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdENS0_4poolIS3_NS0_8hash_opsIS3_EEEES6_E7do_hashERKS3_.exit.thread.i ], [ @_ZNSt12length_errorD1Ev, %._crit_edge.i734 ]
   invoke void @__cxa_throw(ptr nonnull %621, ptr nonnull %622, ptr nonnull %623) #31
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -11041,16 +11041,16 @@ _ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE7do_hashER
   br label %.body
 
 .body:                                            ; preds = %.loopexit1420, %.loopexit.split-lp1421, %.loopexit1413, %.loopexit.split-lp, %862, %857, %624, %307, %361, %357, %689, %685, %200, %204, %514, %518, %464
-  %.pn = phi { ptr, i32 } [ %686, %685 ], [ %625, %624 ], [ %465, %464 ], [ %308, %307 ], [ %515, %514 ], [ %519, %518 ], [ %358, %357 ], [ %362, %361 ], [ %201, %200 ], [ %205, %204 ], [ %858, %857 ], [ %690, %689 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %863, %862 ], [ %lpad.loopexit, %.loopexit1413 ], [ %lpad.loopexit1422, %.loopexit1420 ], [ %lpad.loopexit.split-lp1423, %.loopexit.split-lp1421 ]
+  %.pn = phi { ptr, i32 } [ %625, %624 ], [ %465, %464 ], [ %308, %307 ], [ %519, %518 ], [ %515, %514 ], [ %362, %361 ], [ %358, %357 ], [ %205, %204 ], [ %201, %200 ], [ %690, %689 ], [ %686, %685 ], [ %863, %862 ], [ %858, %857 ], [ %lpad.loopexit, %.loopexit1413 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit1422, %.loopexit1420 ], [ %lpad.loopexit.split-lp1423, %.loopexit.split-lp1421 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.01271)
   br label %972
 
 common.resume:                                    ; preds = %2751, %2756, %2584, %2589, %2415, %2420, %2244, %2249, %2067, %2072, %1898, %1903, %1739, %1744, %1580, %1585, %1419, %1424, %1261, %1266, %1103, %1108, %2007, %1848, %1689, %972
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn, %972 ], [ %2585, %2584 ], [ %1104, %1103 ], [ %1262, %1261 ], [ %1420, %1419 ], [ %1690, %1689 ], [ %1581, %1580 ], [ %1849, %1848 ], [ %1740, %1739 ], [ %2008, %2007 ], [ %1899, %1898 ], [ %2068, %2067 ], [ %2245, %2244 ], [ %2416, %2415 ], [ %1109, %1108 ], [ %1267, %1266 ], [ %1425, %1424 ], [ %1586, %1585 ], [ %1745, %1744 ], [ %1904, %1903 ], [ %2073, %2072 ], [ %2250, %2249 ], [ %2421, %2420 ], [ %2590, %2589 ], [ %2757, %2756 ], [ %2752, %2751 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn, %972 ], [ %1690, %1689 ], [ %1849, %1848 ], [ %2008, %2007 ], [ %1109, %1108 ], [ %1104, %1103 ], [ %1267, %1266 ], [ %1262, %1261 ], [ %1425, %1424 ], [ %1420, %1419 ], [ %1586, %1585 ], [ %1581, %1580 ], [ %1745, %1744 ], [ %1740, %1739 ], [ %1904, %1903 ], [ %1899, %1898 ], [ %2073, %2072 ], [ %2068, %2067 ], [ %2250, %2249 ], [ %2245, %2244 ], [ %2421, %2420 ], [ %2416, %2415 ], [ %2590, %2589 ], [ %2585, %2584 ], [ %2757, %2756 ], [ %2752, %2751 ]
   resume { ptr, i32 } %common.resume.op
 
 972:                                              ; preds = %150, %.body, %117, %110, %108
-  %.pn.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %118, %117 ], [ %109, %108 ], [ %.pn, %.body ], [ %151, %150 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %118, %117 ], [ %109, %108 ], [ %111, %110 ], [ %.pn, %.body ], [ %151, %150 ]
   call void @_ZN5Yosys8DriveBit8set_noneEv(ptr noundef nonnull align 8 dereferenceable(64) %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %common.resume
@@ -12042,7 +12042,7 @@ _ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit135: ; preds = %.
   br i1 %.not1515, label %._crit_edge1518, label %.lr.ph1517
 
 .lr.ph1517:                                       ; preds = %1366, %1509, %1370, %._crit_edge.i.i190, %1212, %._crit_edge.i.i195, %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit135
-  %.0.i1342028 = phi i32 [ %1522, %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit135 ], [ 2, %1370 ], [ 2, %._crit_edge.i.i190 ], [ 1, %1212 ], [ 2, %1509 ], [ 1, %._crit_edge.i.i195 ], [ 1, %1366 ]
+  %.0.i1342028 = phi i32 [ %1522, %_ZN5Yosys9DriverMap13DriveBitGraph5countENS0_10DriveBitIdE.exit135 ], [ 2, %1370 ], [ 2, %._crit_edge.i.i190 ], [ 1, %1212 ], [ 1, %._crit_edge.i.i195 ], [ 2, %1509 ], [ 1, %1366 ]
   %1523 = mul i32 %.sroa.017.0.copyload, 33
   %.sroa.2.0.insert.ext.i.i257 = zext i32 %.sroa.017.0.copyload to i64
   %.sroa.2.0.insert.shift.i.i258 = shl nuw i64 %.sroa.2.0.insert.ext.i.i257, 32
@@ -14774,7 +14774,7 @@ _ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7do_hashE
   %76 = icmp sgt i32 %75, -1
   br i1 %76, label %68, label %.loopexit, !llvm.loop !400
 
-.loopexit:                                        ; preds = %73, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread, %._crit_edge.i
+.loopexit:                                        ; preds = %73, %._crit_edge.i, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread
   %77 = phi i32 [ %.pre15, %._crit_edge.i ], [ %.pre, %_ZNK5Yosys7hashlib4dictINS_9DriverMap10DriveBitIdEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread ], [ %.pre15, %73 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %78 = load i32, ptr %3, align 4, !tbaa !17
@@ -15085,7 +15085,7 @@ _ZNK5Yosys7hashlib3mfpINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE4findERKS3_
   br label %155
 
 155:                                              ; preds = %140, %.noexc70, %.noexc69, %.noexc
-  %.0.i68 = phi i32 [ 1, %.noexc69 ], [ 0, %.noexc ], [ %154, %140 ], [ 2, %.noexc70 ]
+  %.0.i68 = phi i32 [ 0, %.noexc ], [ 1, %.noexc69 ], [ %154, %140 ], [ 2, %.noexc70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 528
   %.sroa.013.0.copyload = load i32, ptr %10, align 4, !tbaa !17
@@ -15477,13 +15477,13 @@ define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBit
   br i1 %71, label %63, label %_ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit.loopexit, !llvm.loop !353
 
 _ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit.loopexit: ; preds = %68, %63
-  %.011.i.ph = phi i32 [ %.013.i, %63 ], [ %70, %68 ]
+  %.011.i.ph = phi i32 [ %70, %68 ], [ %.013.i, %63 ]
   %72 = icmp sgt i32 %.011.i.ph, -1
   %73 = zext i1 %72 to i32
   br label %_ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit
 
 _ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit: ; preds = %_ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit.loopexit, %2, %._crit_edge.i
-  %.011.i = phi i32 [ 0, %2 ], [ 0, %._crit_edge.i ], [ %73, %_ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit.loopexit ]
+  %.011.i = phi i32 [ 0, %._crit_edge.i ], [ 0, %2 ], [ %73, %_ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit.loopexit ]
   ret i32 %.011.i
 }
 
@@ -15725,7 +15725,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %42,
   br label %50
 
 49:                                               ; preds = %_ZNK5Yosys14DriveChunkWire8is_wholeEv.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.013 = phi ptr [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ], [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %6, %_ZNK5Yosys14DriveChunkWire8is_wholeEv.exit ]
+  %.013 = phi ptr [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ], [ %6, %_ZNK5Yosys14DriveChunkWire8is_wholeEv.exit ]
   ret ptr %.013
 
 50:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
@@ -16496,7 +16496,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %46,
   resume { ptr, i32 } %.pn
 
 51:                                               ; preds = %1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %13
-  %.011 = phi ptr [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %14, %13 ], [ @.str.14, %1 ]
+  %.011 = phi ptr [ %14, %13 ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ @.str.14, %1 ]
   ret ptr %.011
 }
 
@@ -19715,7 +19715,7 @@ _ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE5countERKS2_.exit.i:
   unreachable
 
 _ZNK5Yosys14DriveChunkWireeqERKS0_.exit:          ; preds = %95, %._crit_edge.i, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE5countERKS2_.exit.i, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit, %146, %92, %70, %77, %64, %58, %52, %46, %40, %34, %28, %22, %16, %10, %5, %2, %6
-  %.0 = phi i1 [ %69, %64 ], [ false, %2 ], [ %9, %6 ], [ true, %5 ], [ %27, %22 ], [ %51, %46 ], [ false, %16 ], [ false, %10 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %58 ], [ false, %52 ], [ false, %70 ], [ false, %77 ], [ true, %92 ], [ false, %146 ], [ true, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit ], [ false, %._crit_edge.i ], [ false, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE5countERKS2_.exit.i ], [ false, %95 ]
+  %.0 = phi i1 [ %9, %6 ], [ false, %2 ], [ true, %5 ], [ false, %16 ], [ false, %10 ], [ %27, %22 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ %51, %46 ], [ false, %58 ], [ false, %52 ], [ %69, %64 ], [ false, %70 ], [ false, %77 ], [ true, %92 ], [ false, %146 ], [ false, %95 ], [ false, %._crit_edge.i ], [ false, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE5countERKS2_.exit.i ], [ true, %_ZNK5Yosys7hashlib4poolINS_10DriveChunkENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit ]
   ret i1 %.0
 }
 
@@ -23086,7 +23086,7 @@ _ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit: ; 
   unreachable
 
 _ZNK5Yosys12DriveBitPorteqERKS0_.exit:            ; preds = %73, %._crit_edge.i, %_ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit, %_ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit, %124, %70, %54, %36, %30, %24, %5, %2, %42, %12, %6
-  %.0 = phi i1 [ %41, %36 ], [ false, %2 ], [ %11, %6 ], [ %23, %12 ], [ true, %5 ], [ %53, %42 ], [ false, %30 ], [ false, %24 ], [ false, %54 ], [ true, %70 ], [ false, %124 ], [ true, %_ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit ], [ false, %._crit_edge.i ], [ false, %_ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit ], [ false, %73 ]
+  %.0 = phi i1 [ %11, %6 ], [ %23, %12 ], [ %53, %42 ], [ false, %2 ], [ true, %5 ], [ false, %30 ], [ false, %24 ], [ %41, %36 ], [ false, %54 ], [ true, %70 ], [ false, %124 ], [ false, %73 ], [ false, %._crit_edge.i ], [ false, %_ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE7do_hashERKS2_.exit ], [ true, %_ZNK5Yosys7hashlib4poolINS_8DriveBitENS0_8hash_opsIS2_EEE9do_lookupERKS2_Rj.exit ]
   ret i1 %.0
 }
 
@@ -26781,7 +26781,7 @@ _ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE7do_hashER
   %73 = icmp sgt i32 %72, -1
   br i1 %73, label %65, label %.loopexit, !llvm.loop !353
 
-.loopexit:                                        ; preds = %70, %_ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread, %._crit_edge.i
+.loopexit:                                        ; preds = %70, %._crit_edge.i, %_ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread
   %74 = call noundef i32 @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_insertEOS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit
 
@@ -28726,7 +28726,7 @@ select.unfold:                                    ; preds = %21, %._crit_edge.th
   br label %.thread19
 
 .thread19:                                        ; preds = %select.unfold, %26
-  %31 = phi i1 [ %30, %26 ], [ true, %select.unfold ]
+  %31 = phi i1 [ true, %select.unfold ], [ %30, %26 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %31, ptr noundef nonnull %4, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %10) #28
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i64, ptr %32, align 8, !tbaa !582
@@ -29312,7 +29312,7 @@ _ZN5Yosys7hashlib12hash_obj_ops9hash_intoINS_5RTLIL4CellEEENS0_11HasherDJB32EPKT
   unreachable
 
 _ZNSt4pairIPN5Yosys5RTLIL4CellENS1_8IdStringEED2Ev.exit: ; preds = %20, %_ZN5Yosys7hashlib12hash_obj_ops9hash_intoINS_5RTLIL4CellEEENS0_11HasherDJB32EPKT_S5_.exit.i, %._crit_edge, %.critedge, %40
-  %44 = phi i32 [ %.pre.i, %40 ], [ %.pre.i, %._crit_edge ], [ %.pre.i, %.critedge ], [ %19, %_ZN5Yosys7hashlib12hash_obj_ops9hash_intoINS_5RTLIL4CellEEENS0_11HasherDJB32EPKT_S5_.exit.i ], [ %.pre.i, %20 ]
+  %44 = phi i32 [ %.pre.i, %._crit_edge ], [ %.pre.i, %.critedge ], [ %.pre.i, %40 ], [ %19, %_ZN5Yosys7hashlib12hash_obj_ops9hash_intoINS_5RTLIL4CellEEENS0_11HasherDJB32EPKT_S5_.exit.i ], [ %.pre.i, %20 ]
   %45 = mul i32 %4, 33
   %46 = xor i32 %.sink.i.i, 5381
   %47 = shl i32 %46, 13
@@ -29900,7 +29900,7 @@ select.unfold:                                    ; preds = %35, %._crit_edge.th
   br label %.thread19
 
 .thread19:                                        ; preds = %select.unfold, %40
-  %45 = phi i1 [ %44, %40 ], [ true, %select.unfold ]
+  %45 = phi i1 [ true, %select.unfold ], [ %44, %40 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %45, ptr noundef nonnull %4, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %24) #28
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load i64, ptr %46, align 8, !tbaa !582
@@ -30027,7 +30027,7 @@ _ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE7do_hashER
   %72 = icmp sgt i32 %71, -1
   br i1 %72, label %64, label %.loopexit, !llvm.loop !353
 
-.loopexit:                                        ; preds = %69, %_ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread, %._crit_edge.i
+.loopexit:                                        ; preds = %69, %._crit_edge.i, %_ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread
   %73 = call noundef i32 @_ZN5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_insertERKS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZNK5Yosys7hashlib4poolINS_9DriverMap10DriveBitIdENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit
 

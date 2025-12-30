@@ -354,8 +354,8 @@ unescape_word.exit:                               ; preds = %57, %55
   br label %128
 
 128:                                              ; preds = %unescape_word.exit.thread, %126, %127, %108, %unescape_word.exit, %68, %114, %113, %112, %67
-  %.082 = phi ptr [ %64, %67 ], [ %64, %68 ], [ null, %114 ], [ %109, %112 ], [ %109, %113 ], [ null, %unescape_word.exit ], [ null, %108 ], [ null, %127 ], [ null, %126 ], [ null, %unescape_word.exit.thread ]
-  %.078 = phi i32 [ %66, %67 ], [ 0, %68 ], [ 0, %114 ], [ %111, %112 ], [ 0, %113 ], [ 27, %unescape_word.exit ], [ 27, %108 ], [ 0, %127 ], [ %125, %126 ], [ 27, %unescape_word.exit.thread ]
+  %.082 = phi ptr [ %64, %67 ], [ %64, %68 ], [ %109, %112 ], [ %109, %113 ], [ null, %114 ], [ null, %unescape_word.exit ], [ null, %108 ], [ null, %127 ], [ null, %126 ], [ null, %unescape_word.exit.thread ]
+  %.078 = phi i32 [ %66, %67 ], [ 0, %68 ], [ %111, %112 ], [ 0, %113 ], [ 0, %114 ], [ 27, %unescape_word.exit ], [ 27, %108 ], [ 0, %127 ], [ %125, %126 ], [ 27, %unescape_word.exit.thread ]
   %129 = load ptr, ptr @Curl_cfree, align 8, !tbaa !85
   call void %129(ptr noundef %.082) #5
   %130 = load ptr, ptr @Curl_cfree, align 8, !tbaa !85
@@ -364,7 +364,7 @@ unescape_word.exit:                               ; preds = %57, %55
   br label %132
 
 132:                                              ; preds = %2, %128
-  %.087 = phi i32 [ %7, %2 ], [ %.078, %128 ]
+  %.087 = phi i32 [ %.078, %128 ], [ %7, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.087
 }

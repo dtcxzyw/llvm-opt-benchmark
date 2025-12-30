@@ -898,7 +898,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds
   ret void
 
 198:                                              ; preds = %123, %147, %121, %75, %88, %45, %43
-  %.pn111.pn.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %44, %43 ], [ %124, %123 ], [ %89, %88 ], [ %76, %75 ], [ %122, %121 ], [ %148, %147 ]
+  %.pn111.pn.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %46, %45 ], [ %76, %75 ], [ %89, %88 ], [ %122, %121 ], [ %148, %147 ], [ %124, %123 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn111.pn.pn.pn
@@ -1322,7 +1322,7 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i85: ; pred
   ret void
 
 179:                                              ; preds = %46, %51, %161, %177, %115, %31, %33
-  %.pn72.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %34, %33 ], [ %52, %51 ], [ %47, %46 ], [ %116, %115 ], [ %178, %177 ], [ %162, %161 ]
+  %.pn72.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ], [ %47, %46 ], [ %52, %51 ], [ %116, %115 ], [ %178, %177 ], [ %162, %161 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn72.pn.pn
@@ -1626,7 +1626,7 @@ _ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, -1
   br label %101, !llvm.loop !94
 
-_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42.thread44: ; preds = %156, %_Z11getIslandIdPK20btPersistentManifold.exit16.i41, %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42
+_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42.thread44: ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit16.i41, %156, %_ZNK46btPersistentManifoldSortPredicateDeterministicclEPK20btPersistentManifoldS2_.exit42
   %177 = trunc nsw i64 %indvars.iv72 to i32
   %.not = icmp sgt i64 %indvars.iv, %indvars.iv72
   br i1 %.not, label %182, label %178

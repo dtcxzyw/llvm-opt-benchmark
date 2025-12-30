@@ -604,7 +604,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeBuildCutLevelOne_int(ptr nou
   br label %Abc_NodeGetLeafCostOne.exit
 
 Abc_NodeGetLeafCostOne.exit:                      ; preds = %8, %8, %13, %34
-  %.0.i = phi i32 [ %32, %13 ], [ 999, %8 ], [ %..i, %34 ], [ 999, %8 ]
+  %.0.i = phi i32 [ 999, %8 ], [ %32, %13 ], [ %..i, %34 ], [ 999, %8 ]
   %37 = icmp sgt i32 %.03783, %.0.i
   br i1 %37, label %46, label %38
 
@@ -989,7 +989,7 @@ Vec_PtrPush.exit67:                               ; preds = %.Vec_PtrGrow.exit11
   br label %.critedge.thread107
 
 .critedge.thread107:                              ; preds = %4, %142, %Vec_PtrPush.exit67, %.critedge.thread, %.critedge
-  %.036 = phi i32 [ 0, %.critedge.thread ], [ 0, %.critedge ], [ 1, %Vec_PtrPush.exit67 ], [ 1, %142 ], [ 0, %4 ]
+  %.036 = phi i32 [ 0, %.critedge ], [ 0, %.critedge.thread ], [ 1, %Vec_PtrPush.exit67 ], [ 1, %142 ], [ 0, %4 ]
   ret i32 %.036
 }
 

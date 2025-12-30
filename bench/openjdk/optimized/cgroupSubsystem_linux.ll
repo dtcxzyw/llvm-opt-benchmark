@@ -1363,8 +1363,8 @@ _ZL11find_ro_optPc.exit208:                       ; preds = %sub_2.i207, %.backe
   br label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit
 
 _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %127, %319, %215, %152, %365, %366, %369, %371, %329, %43, %41, %364, %357, %350, %343, %333
-  %.sink = phi i8 [ 2, %329 ], [ 4, %364 ], [ 4, %357 ], [ 4, %350 ], [ 4, %343 ], [ 6, %215 ], [ 3, %333 ], [ 6, %152 ], [ 1, %365 ], [ 5, %319 ], [ 6, %43 ], [ 6, %41 ], [ 1, %371 ], [ 1, %369 ], [ 1, %366 ], [ 6, %127 ]
-  %.0 = phi i1 [ true, %329 ], [ false, %364 ], [ false, %357 ], [ false, %350 ], [ false, %343 ], [ false, %215 ], [ false, %333 ], [ false, %152 ], [ true, %365 ], [ false, %319 ], [ false, %43 ], [ false, %41 ], [ true, %371 ], [ true, %369 ], [ true, %366 ], [ false, %127 ]
+  %.sink = phi i8 [ 4, %364 ], [ 4, %357 ], [ 4, %350 ], [ 4, %343 ], [ 3, %333 ], [ 6, %41 ], [ 6, %43 ], [ 2, %329 ], [ 1, %371 ], [ 1, %369 ], [ 1, %366 ], [ 1, %365 ], [ 6, %152 ], [ 6, %215 ], [ 5, %319 ], [ 6, %127 ]
+  %.0 = phi i1 [ false, %364 ], [ false, %357 ], [ false, %350 ], [ false, %343 ], [ false, %333 ], [ false, %41 ], [ false, %43 ], [ true, %329 ], [ true, %371 ], [ true, %369 ], [ true, %366 ], [ true, %365 ], [ false, %152 ], [ false, %215 ], [ false, %319 ], [ false, %127 ]
   store i8 %.sink, ptr %4, align 1
   ret i1 %.0
 }
@@ -1692,7 +1692,7 @@ define hidden noundef zeroext i1 @_ZN16CgroupController11read_stringEPKcPcm(ptr 
   br label %53
 
 53:                                               ; preds = %46, %52, %45, %43, %34, %32, %21, %19
-  %.1 = phi i1 [ false, %45 ], [ false, %21 ], [ false, %34 ], [ false, %19 ], [ false, %32 ], [ false, %43 ], [ true, %52 ], [ true, %46 ]
+  %.1 = phi i1 [ false, %19 ], [ false, %21 ], [ false, %32 ], [ false, %34 ], [ false, %43 ], [ false, %45 ], [ true, %52 ], [ true, %46 ]
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %5) #14
   br label %54
 
@@ -1721,7 +1721,7 @@ define hidden noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr n
   br label %9
 
 9:                                                ; preds = %6, %3
-  %.0 = phi i1 [ %8, %6 ], [ false, %3 ]
+  %.0 = phi i1 [ false, %3 ], [ %8, %6 ]
   ret i1 %.0
 }
 
@@ -1763,7 +1763,7 @@ _ZN16CgroupController14limit_from_strEPc.exit:    ; preds = %8
   br label %13
 
 13:                                               ; preds = %_ZN16CgroupController14limit_from_strEPc.exit.thread, %_ZN16CgroupController14limit_from_strEPc.exit, %3, %12
-  %.0 = phi i1 [ false, %3 ], [ true, %12 ], [ false, %_ZN16CgroupController14limit_from_strEPc.exit ], [ false, %_ZN16CgroupController14limit_from_strEPc.exit.thread ]
+  %.0 = phi i1 [ true, %12 ], [ false, %3 ], [ false, %_ZN16CgroupController14limit_from_strEPc.exit ], [ false, %_ZN16CgroupController14limit_from_strEPc.exit.thread ]
   ret i1 %.0
 }
 
@@ -1786,7 +1786,7 @@ define hidden noundef i64 @_ZN16CgroupController14limit_from_strEPc(ptr noundef 
   br label %10
 
 10:                                               ; preds = %7, %4, %1
-  %.0 = phi i64 [ %spec.select, %7 ], [ -2, %1 ], [ -1, %4 ]
+  %.0 = phi i64 [ -2, %1 ], [ -1, %4 ], [ %spec.select, %7 ]
   ret i64 %.0
 }
 
@@ -1907,7 +1907,7 @@ define hidden noundef zeroext i1 @_ZN16CgroupController24read_numerical_key_valu
   br label %61
 
 61:                                               ; preds = %.thread, %60, %._crit_edge, %35, %33, %22, %20
-  %.1 = phi i1 [ true, %.thread ], [ false, %22 ], [ false, %35 ], [ false, %20 ], [ false, %33 ], [ false, %._crit_edge ], [ false, %60 ]
+  %.1 = phi i1 [ false, %20 ], [ false, %22 ], [ false, %33 ], [ false, %35 ], [ false, %._crit_edge ], [ false, %60 ], [ true, %.thread ]
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %5) #14
   br label %62
 
@@ -1967,7 +1967,7 @@ _ZN16CgroupController14limit_from_strEPc.exit:    ; preds = %12
   br label %17
 
 17:                                               ; preds = %_ZN16CgroupController14limit_from_strEPc.exit.thread, %_ZN16CgroupController14limit_from_strEPc.exit, %9, %4, %16
-  %.0 = phi i1 [ false, %4 ], [ false, %9 ], [ true, %16 ], [ false, %_ZN16CgroupController14limit_from_strEPc.exit ], [ false, %_ZN16CgroupController14limit_from_strEPc.exit.thread ]
+  %.0 = phi i1 [ true, %16 ], [ false, %4 ], [ false, %9 ], [ false, %_ZN16CgroupController14limit_from_strEPc.exit ], [ false, %_ZN16CgroupController14limit_from_strEPc.exit.thread ]
   ret i1 %.0
 }
 

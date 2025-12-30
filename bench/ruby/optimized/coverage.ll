@@ -640,7 +640,7 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i13, %.lr.ph.i7, %.lr.ph.i, %7, %5, %3
-  %.lcssa.i12.sink = phi i64 [ %6, %.lr.ph.i7 ], [ %4, %.lr.ph.i ], [ %.pr.i, %3 ], [ %.pr.i4, %5 ], [ %.pr.i10, %7 ], [ %8, %.lr.ph.i13 ]
+  %.lcssa.i12.sink = phi i64 [ %.pr.i, %3 ], [ %.pr.i4, %5 ], [ %.pr.i10, %7 ], [ %4, %.lr.ph.i ], [ %6, %.lr.ph.i7 ], [ %8, %.lr.ph.i13 ]
   %9 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i12.sink) #9
   ret i64 %9
 }

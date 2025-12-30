@@ -178,7 +178,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -783,7 +783,7 @@ define noundef ptr @_ZN6icu_774IDNA19createUTS46InstanceEjR10UErrorCode(i32 noun
   br label %19
 
 19:                                               ; preds = %2, %9, %15, %12
-  %.0 = phi ptr [ %6, %12 ], [ null, %9 ], [ null, %15 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %15 ], [ %6, %12 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -848,10 +848,10 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_775UTS467proces
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %11
   %15 = and i16 %13, 2
   %.not2.i = icmp eq i16 %15, 0
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %.0.i = select i1 %.not2.i, ptr %17, ptr %18
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %.0.i = select i1 %.not2.i, ptr %18, ptr %16
   %19 = icmp eq ptr %4, %1
   %20 = icmp eq ptr %.0.i, null
   %or.cond = or i1 %19, %20
@@ -1086,14 +1086,14 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.thread: ; preds = %11, %_ZNK6icu_771
   br label %137
 
 137:                                              ; preds = %134, %132, %128, %112
-  %138 = phi i32 [ %105, %112 ], [ %105, %134 ], [ %125, %128 ], [ %133, %132 ]
+  %138 = phi i32 [ %105, %112 ], [ %125, %128 ], [ %133, %132 ], [ %105, %134 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %139 = icmp eq i64 %indvars.iv.next, %104
   br i1 %139, label %.split165.us, label %.split.split.us, !llvm.loop !30
 
 .split165.us:                                     ; preds = %137, %200, %100
-  %140 = phi i32 [ %201, %200 ], [ %101, %100 ], [ %138, %137 ]
-  %.us-phi166 = phi i32 [ 0, %200 ], [ %.1114.ph.us, %100 ], [ 0, %137 ]
+  %140 = phi i32 [ %101, %100 ], [ %201, %200 ], [ %138, %137 ]
+  %.us-phi166 = phi i32 [ %.1114.ph.us, %100 ], [ 0, %200 ], [ 0, %137 ]
   %.not130 = icmp eq i8 %3, 0
   br i1 %.not130, label %155, label %141
 
@@ -1221,7 +1221,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.thread: ; preds = %11, %_ZNK6icu_771
   br label %.loopexit
 
 200:                                              ; preds = %175, %191, %195, %167
-  %201 = phi i32 [ %159, %175 ], [ %159, %167 ], [ %188, %191 ], [ %196, %195 ]
+  %201 = phi i32 [ %159, %175 ], [ %188, %191 ], [ %196, %195 ], [ %159, %167 ]
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %202 = icmp eq i64 %indvars.iv.next214, %104
   br i1 %202, label %.split165.us, label %.split.split, !llvm.loop !30
@@ -1231,9 +1231,9 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.thread: ; preds = %11, %_ZNK6icu_771
   br label %.loopexit
 
 .loopexit:                                        ; preds = %116, %.split.split, %170, %178, %56, %.split.us, %.split161.us.loopexit, %.loopexit.loopexit196, %.split181.us
-  %204 = phi i32 [ %198, %.split181.us ], [ %105, %.loopexit.loopexit196 ], [ %47, %56 ], [ %159, %.split.split ], [ %47, %.split161.us.loopexit ], [ %47, %.split.us ], [ %159, %178 ], [ %159, %170 ], [ %105, %116 ]
-  %.0113154 = phi i32 [ 0, %.split181.us ], [ 0, %.loopexit.loopexit196 ], [ %.0113155.us, %56 ], [ 0, %.split.split ], [ %.0113155.us, %.split161.us.loopexit ], [ %.0113155.us, %.split.us ], [ 0, %178 ], [ 0, %170 ], [ 0, %116 ]
-  %.1111 = phi i32 [ %199, %.split181.us ], [ %203, %.loopexit.loopexit196 ], [ %52, %56 ], [ %163, %170 ], [ %182, %.split161.us.loopexit ], [ %52, %.split.us ], [ 4, %178 ], [ %163, %.split.split ], [ 4, %116 ]
+  %204 = phi i32 [ %198, %.split181.us ], [ %105, %.loopexit.loopexit196 ], [ %47, %.split161.us.loopexit ], [ %47, %.split.us ], [ %47, %56 ], [ %159, %178 ], [ %159, %170 ], [ %159, %.split.split ], [ %105, %116 ]
+  %.0113154 = phi i32 [ 0, %.split181.us ], [ 0, %.loopexit.loopexit196 ], [ %.0113155.us, %.split161.us.loopexit ], [ %.0113155.us, %.split.us ], [ %.0113155.us, %56 ], [ 0, %178 ], [ 0, %170 ], [ 0, %.split.split ], [ 0, %116 ]
+  %.1111 = phi i32 [ %199, %.split181.us ], [ %203, %.loopexit.loopexit196 ], [ %182, %.split161.us.loopexit ], [ %52, %.split.us ], [ %52, %56 ], [ %163, %.split.split ], [ %163, %170 ], [ 4, %178 ], [ 4, %116 ]
   %205 = load i32, ptr %5, align 4, !tbaa !26
   %206 = or i32 %205, %204
   store i32 %206, ptr %5, align 4, !tbaa !26
@@ -1283,7 +1283,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.thread: ; preds = %11, %_ZNK6icu_771
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit138
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit138:   ; preds = %220, %225, %227
-  %.0.i136 = phi ptr [ %229, %227 ], [ %226, %225 ], [ null, %220 ]
+  %.0.i136 = phi ptr [ %226, %225 ], [ %229, %227 ], [ null, %220 ]
   %230 = tail call fastcc noundef signext i8 @_ZN6icu_77L13isASCIIOkBiDiEPKDsi(ptr noundef %.0.i136, i32 noundef %.0113154)
   %.not129 = icmp eq i8 %230, 0
   br i1 %.not129, label %231, label %233
@@ -1343,7 +1343,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_775UTS4611nameT
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %26, %24, %20
-  %.0.i.i = phi ptr [ %28, %26 ], [ %25, %24 ], [ null, %20 ]
+  %.0.i.i = phi ptr [ %25, %24 ], [ %28, %26 ], [ null, %20 ]
   %29 = zext nneg i32 %14 to i64
   %30 = getelementptr inbounds nuw i16, ptr %.0.i.i, i64 %29
   br label %31
@@ -1653,7 +1653,7 @@ define void @_ZNK6icu_775UTS4611processUTF8ENS_11StringPieceEaaRNS_8ByteSinkERNS
   br i1 %.not149.us192, label %.split183.us, label %.split.split.us, !llvm.loop !34
 
 .split183.us:                                     ; preds = %136, %204, %104
-  %.us-phi185 = phi i32 [ 0, %204 ], [ %.2120.ph.us, %104 ], [ 0, %136 ]
+  %.us-phi185 = phi i32 [ %.2120.ph.us, %104 ], [ 0, %204 ], [ 0, %136 ]
   %.not145 = icmp eq i8 %4, 0
   br i1 %.not145, label %153, label %137
 
@@ -1798,8 +1798,8 @@ define void @_ZNK6icu_775UTS4611processUTF8ENS_11StringPieceEaaRNS_8ByteSinkERNS
   br i1 %.not149, label %.split183.us, label %.split.split, !llvm.loop !34
 
 .split180.us:                                     ; preds = %111, %.split.split.us, %114, %182, %.split.split, %185, %177, %.split.us, %55, %81
-  %.us-phi = phi i32 [ %51, %.split.us ], [ %170, %182 ], [ %51, %81 ], [ %51, %55 ], [ %170, %.split.split ], [ 3, %185 ], [ %170, %177 ], [ %108, %111 ], [ %108, %.split.split.us ], [ 3, %114 ]
-  %.us-phi181 = phi i32 [ %.0118178.us, %.split.us ], [ 0, %182 ], [ %.0118178.us, %81 ], [ %.0118178.us, %55 ], [ 0, %177 ], [ 0, %185 ], [ 0, %.split.split ], [ 0, %114 ], [ 0, %.split.split.us ], [ 0, %111 ]
+  %.us-phi = phi i32 [ %51, %81 ], [ %51, %55 ], [ %51, %.split.us ], [ %170, %182 ], [ %170, %.split.split ], [ 3, %185 ], [ %170, %177 ], [ %108, %111 ], [ %108, %.split.split.us ], [ 3, %114 ]
+  %.us-phi181 = phi i32 [ %.0118178.us, %81 ], [ %.0118178.us, %55 ], [ %.0118178.us, %.split.us ], [ 0, %177 ], [ 0, %185 ], [ 0, %.split.split ], [ 0, %182 ], [ 0, %114 ], [ 0, %.split.split.us ], [ 0, %111 ]
   %205 = load i32, ptr %45, align 4, !tbaa !29
   %206 = load i32, ptr %6, align 4, !tbaa !26
   %207 = or i32 %206, %205
@@ -1950,7 +1950,7 @@ define void @_ZNK6icu_775UTS4611processUTF8ENS_11StringPieceEaaRNS_8ByteSinkERNS
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %263, %261, %257
-  %.0.i.i = phi ptr [ %265, %263 ], [ %262, %261 ], [ null, %257 ]
+  %.0.i.i = phi ptr [ %262, %261 ], [ %265, %263 ], [ null, %257 ]
   %266 = sext i32 %254 to i64
   %267 = getelementptr inbounds i16, ptr %.0.i.i, i64 %266
   br label %268
@@ -2046,7 +2046,7 @@ _ZN6icu_77L13isASCIIStringERKNS_13UnicodeStringE.exit.thread: ; preds = %270, %2
   ret void
 
 309:                                              ; preds = %289, %242, %233
-  %.pn152 = phi { ptr, i32 } [ %.pn, %242 ], [ %290, %289 ], [ %.pn146.pn, %233 ]
+  %.pn152 = phi { ptr, i32 } [ %290, %289 ], [ %.pn146.pn, %233 ], [ %.pn, %242 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn152
@@ -2146,7 +2146,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_775UTS4614proce
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %30, %40, %42
-  %.0.i = phi ptr [ %44, %42 ], [ %41, %40 ], [ null, %30 ]
+  %.0.i = phi ptr [ %41, %40 ], [ %44, %42 ], [ null, %30 ]
   %45 = icmp slt i16 %36, 0
   %46 = ashr i16 %36, 5
   %47 = sext i16 %46 to i32
@@ -2300,16 +2300,16 @@ switch.early.test:                                ; preds = %83
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit128
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit128:   ; preds = %124, %118, %79, %96, %113, %105, %85
-  %.3108 = phi ptr [ %.0105138, %79 ], [ %.0105138, %85 ], [ %.0105138, %96 ], [ %.0105138, %105 ], [ %.0105138, %113 ], [ %spec.select147, %124 ], [ null, %118 ]
+  %.3108 = phi ptr [ %.0105138, %79 ], [ %.0105138, %85 ], [ %.0105138, %105 ], [ %.0105138, %113 ], [ %.0105138, %96 ], [ null, %118 ], [ %spec.select147, %124 ]
   %127 = add nsw i32 %.099140, 1
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit124
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit124:   ; preds = %93, %90, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128
-  %.2107 = phi ptr [ %.3108, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ %spec.select146, %93 ], [ null, %90 ], [ %.0.i118, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ]
-  %.2104 = phi i32 [ %.0102139, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ %87, %93 ], [ %87, %90 ], [ %76, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ]
-  %.2101 = phi i32 [ %127, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ %.099140, %93 ], [ %.099140, %90 ], [ %78, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ]
-  %.198 = phi i8 [ %.097142, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ 0, %93 ], [ 0, %90 ], [ %.097142, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ]
-  %.296 = phi i32 [ %.094143, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ %.094143, %93 ], [ %.094143, %90 ], [ %78, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ]
+  %.2107 = phi ptr [ %.3108, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ %.0.i118, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ], [ null, %90 ], [ %spec.select146, %93 ]
+  %.2104 = phi i32 [ %.0102139, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ %76, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ], [ %87, %90 ], [ %87, %93 ]
+  %.2101 = phi i32 [ %127, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ %78, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ], [ %.099140, %90 ], [ %.099140, %93 ]
+  %.198 = phi i8 [ %.097142, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ %.097142, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ], [ 0, %90 ], [ 0, %93 ]
+  %.296 = phi i32 [ %.094143, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ %78, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ], [ %.094143, %90 ], [ %.094143, %93 ]
   %128 = icmp slt i32 %.2101, %.2104
   br i1 %128, label %57, label %._crit_edge
 
@@ -2390,13 +2390,13 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L13isASCIIOk
   br i1 %or.cond45, label %.critedge, label %28
 
 28:                                               ; preds = %25, %21, %23, %15
-  %.2 = phi i32 [ %17, %15 ], [ %.03846, %21 ], [ %.03846, %25 ], [ %.03846, %23 ]
+  %.2 = phi i32 [ %17, %15 ], [ %.03846, %21 ], [ %.03846, %23 ], [ %.03846, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %3, !llvm.loop !38
 
-.critedge:                                        ; preds = %21, %10, %25, %28
-  %.not.lcssa = phi i8 [ 0, %21 ], [ 0, %10 ], [ 0, %25 ], [ 1, %28 ]
+.critedge:                                        ; preds = %10, %21, %25, %28
+  %.not.lcssa = phi i8 [ 0, %10 ], [ 0, %21 ], [ 0, %25 ], [ 1, %28 ]
   ret i8 %.not.lcssa
 }
 
@@ -2467,8 +2467,8 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L13isASCIIOk
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %3, !llvm.loop !39
 
-.critedge:                                        ; preds = %22, %10, %27, %30
-  %.not.lcssa = phi i8 [ 0, %22 ], [ 0, %10 ], [ 0, %27 ], [ 1, %30 ]
+.critedge:                                        ; preds = %10, %22, %27, %30
+  %.not.lcssa = phi i8 [ 0, %10 ], [ 0, %22 ], [ 0, %27 ], [ 1, %30 ]
   ret i8 %.not.lcssa
 }
 
@@ -2726,8 +2726,8 @@ _ZN6icu_7713UnicodeString13readOnlyAliasIA5_DsvEES0_RKT_.exit: ; preds = %_ZNSt1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %129
 
-.thread344:                                       ; preds = %77, %90, %.critedge.thread, %102
-  %.3.ph = phi i32 [ %3, %102 ], [ %112, %.critedge.thread ], [ %94, %90 ], [ %3, %77 ]
+.thread344:                                       ; preds = %77, %90, %102, %.critedge.thread
+  %.3.ph = phi i32 [ %112, %.critedge.thread ], [ %3, %102 ], [ %94, %90 ], [ %3, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN6icu_77L12replaceLabelERNS_13UnicodeStringEiiRKS0_iR10UErrorCode.exit
 
@@ -2934,8 +2934,8 @@ _ZN6icu_7713UnicodeString13readOnlyAliasIA5_DsvEES0_RKT_.exit: ; preds = %_ZNSt1
   br label %217
 
 217:                                              ; preds = %212, %215, %203, %210, %205
-  %218 = phi i32 [ %204, %203 ], [ %211, %210 ], [ %198, %205 ], [ %198, %212 ], [ %216, %215 ]
-  %.1194 = phi i16 [ %.0193, %203 ], [ %.0193, %210 ], [ %.0193, %205 ], [ %213, %212 ], [ %213, %215 ]
+  %218 = phi i32 [ %204, %203 ], [ %211, %210 ], [ %198, %205 ], [ %216, %215 ], [ %198, %212 ]
+  %.1194 = phi i16 [ %.0193, %203 ], [ %.0193, %210 ], [ %.0193, %205 ], [ %213, %215 ], [ %213, %212 ]
   %219 = getelementptr inbounds nuw i8, ptr %.0200, i64 2
   %220 = icmp ult ptr %219, %170
   br i1 %220, label %.split, label %.split409.us, !llvm.loop !40
@@ -3260,13 +3260,13 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit283:   ; preds = %245, %242, %247
   br label %_ZN6icu_77L12replaceLabelERNS_13UnicodeStringEiiRKS0_iR10UErrorCode.exit
 
 _ZN6icu_77L12replaceLabelERNS_13UnicodeStringEiiRKS0_iR10UErrorCode.exit: ; preds = %369, %.noexc289, %358, %355, %147, %.noexc, %131, %.thread344, %.thread338, %344, %289, %287, %352, %47
-  %.1 = phi i32 [ %.3.ph, %.thread344 ], [ %51, %47 ], [ %3, %.thread338 ], [ %.0212, %287 ], [ %.6, %344 ], [ %354, %352 ], [ %.0212, %289 ], [ 0, %147 ], [ 0, %131 ], [ %.4199, %358 ], [ 0, %.noexc ], [ 0, %355 ], [ 0, %369 ], [ %.4199, %.noexc289 ]
+  %.1 = phi i32 [ %51, %47 ], [ %.6, %344 ], [ %.0212, %289 ], [ %.0212, %287 ], [ %354, %352 ], [ %3, %.thread338 ], [ %.3.ph, %.thread344 ], [ 0, %131 ], [ 0, %.noexc ], [ 0, %147 ], [ 0, %369 ], [ 0, %355 ], [ %.4199, %.noexc289 ], [ %.4199, %358 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %371
 
 370:                                              ; preds = %253, %345, %58, %128, %52
-  %.pn266 = phi { ptr, i32 } [ %53, %52 ], [ %59, %58 ], [ %.pn248, %128 ], [ %.pn262, %345 ], [ %254, %253 ]
+  %.pn266 = phi { ptr, i32 } [ %53, %52 ], [ %.pn248, %128 ], [ %59, %58 ], [ %.pn262, %345 ], [ %254, %253 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn266
@@ -3529,7 +3529,7 @@ _ZN6icu_7713UnicodeString7replaceEiiRKS0_.exit:   ; preds = %99
   resume { ptr, i32 } %.pn106
 
 126:                                              ; preds = %86, %.thread124, %118, %83, %34, %5
-  %.069 = phi i32 [ 0, %5 ], [ %18, %34 ], [ %.093, %83 ], [ %124, %118 ], [ %.194.ph, %.thread124 ], [ %.194.ph, %86 ]
+  %.069 = phi i32 [ 0, %5 ], [ %18, %34 ], [ %124, %118 ], [ %.093, %83 ], [ %.194.ph, %.thread124 ], [ %.194.ph, %86 ]
   ret i32 %.069
 }
 
@@ -3571,7 +3571,7 @@ define noundef i32 @_ZNK6icu_775UTS4615markBadACELabelERNS_13UnicodeStringEiiaRN
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %11, %20, %22
-  %.0.i = phi ptr [ %24, %22 ], [ %21, %20 ], [ null, %11 ]
+  %.0.i = phi ptr [ %21, %20 ], [ %24, %22 ], [ null, %11 ]
   %25 = sext i32 %2 to i64
   %26 = getelementptr inbounds i16, ptr %.0.i, i64 %25
   %27 = sext i32 %3 to i64
@@ -3614,9 +3614,9 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %11, %20, %22
   br label %43
 
 43:                                               ; preds = %37, %41, %.lr.ph.split.us
-  %44 = phi i32 [ %42, %41 ], [ %32, %.lr.ph.split.us ], [ %32, %37 ]
-  %.138.us = phi i8 [ 0, %41 ], [ 0, %.lr.ph.split.us ], [ %.037.mux.us, %37 ]
-  %.136.us = phi i8 [ 0, %41 ], [ 0, %.lr.ph.split.us ], [ %.03546.us, %37 ]
+  %44 = phi i32 [ %42, %41 ], [ %32, %37 ], [ %32, %.lr.ph.split.us ]
+  %.138.us = phi i8 [ 0, %41 ], [ %.037.mux.us, %37 ], [ 0, %.lr.ph.split.us ]
+  %.136.us = phi i8 [ 0, %41 ], [ %.03546.us, %37 ], [ 0, %.lr.ph.split.us ]
   %45 = getelementptr inbounds nuw i8, ptr %.03347.us, i64 2
   %46 = icmp ult ptr %45, %28
   br i1 %46, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !42
@@ -3782,7 +3782,7 @@ define internal fastcc noundef i32 @_ZN6icu_77L12replaceLabelERNS_13UnicodeStrin
   br label %24
 
 24:                                               ; preds = %9, %10, %6, %23
-  %.0 = phi i32 [ 0, %6 ], [ 0, %23 ], [ %4, %10 ], [ %4, %9 ]
+  %.0 = phi i32 [ 0, %23 ], [ 0, %6 ], [ %4, %10 ], [ %4, %9 ]
   ret i32 %.0
 }
 
@@ -4054,8 +4054,8 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_775UTS4617isLabelOkContextJEP
   br i1 %or.cond, label %59, label %.thread98
 
 56:                                               ; preds = %46, %38
-  %.268 = phi i32 [ %43, %38 ], [ %54, %46 ]
-  %.262 = phi i32 [ %39, %38 ], [ %47, %46 ]
+  %.268 = phi i32 [ %54, %46 ], [ %43, %38 ]
+  %.262 = phi i32 [ %47, %46 ], [ %39, %38 ]
   %57 = tail call i32 @ubidi_getJoiningType_77(i32 noundef %.268)
   %58 = icmp eq i32 %57, 5
   br i1 %58, label %.lr.ph, label %._crit_edge
@@ -4137,8 +4137,8 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_775UTS4617isLabelOkContextJEP
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread98, label %6, !llvm.loop !44
 
-.thread98:                                        ; preds = %.thread95, %9, %98, %83, %._crit_edge, %.lr.ph, %81, %62, %3
-  %104 = phi i8 [ 1, %3 ], [ 0, %.lr.ph ], [ 0, %81 ], [ 0, %62 ], [ 0, %98 ], [ 0, %9 ], [ 1, %.thread95 ], [ 0, %._crit_edge ], [ 0, %83 ]
+.thread98:                                        ; preds = %.thread95, %98, %9, %83, %._crit_edge, %.lr.ph, %81, %62, %3
+  %104 = phi i8 [ 1, %3 ], [ 0, %62 ], [ 0, %81 ], [ 0, %.lr.ph ], [ 1, %.thread95 ], [ 0, %98 ], [ 0, %9 ], [ 0, %83 ], [ 0, %._crit_edge ]
   ret i8 %104
 }
 
@@ -4389,7 +4389,7 @@ define void @_ZNK6icu_775UTS4618checkLabelContextOEPKDsiRNS_8IDNAInfoE(ptr nonnu
   br label %125
 
 125:                                              ; preds = %91, %93, %84, %86, %75, %.critedge105, %51, %.critedge, %80, %89, %25, %29, %.loopexit, %96, %12
-  %.1 = phi i32 [ %.0112, %12 ], [ %.0112, %25 ], [ %.0112, %29 ], [ %.0112, %96 ], [ %.0112, %51 ], [ %.0112, %75 ], [ -1, %84 ], [ %.0112, %89 ], [ %.0112, %80 ], [ %.0112, %.loopexit ], [ %.0112, %.critedge ], [ %.0112, %.critedge105 ], [ -1, %86 ], [ 1, %93 ], [ 1, %91 ]
+  %.1 = phi i32 [ %.0112, %12 ], [ %.0112, %25 ], [ %.0112, %29 ], [ %.0112, %89 ], [ %.0112, %80 ], [ %.0112, %.loopexit ], [ %.0112, %96 ], [ %.0112, %.critedge ], [ %.0112, %51 ], [ %.0112, %.critedge105 ], [ %.0112, %75 ], [ -1, %86 ], [ -1, %84 ], [ 1, %93 ], [ 1, %91 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %11
   br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !45
@@ -4441,7 +4441,7 @@ define noundef ptr @uidna_openUTS46_77(i32 noundef %0, ptr noundef %1) local_unn
   br label %_ZN6icu_774IDNA19createUTS46InstanceEjR10UErrorCode.exit
 
 _ZN6icu_774IDNA19createUTS46InstanceEjR10UErrorCode.exit: ; preds = %2, %9, %12, %15
-  %.0.i = phi ptr [ %6, %12 ], [ null, %9 ], [ null, %15 ], [ null, %2 ]
+  %.0.i = phi ptr [ null, %9 ], [ null, %15 ], [ %6, %12 ], [ null, %2 ]
   ret ptr %.0.i
 }
 
@@ -5225,7 +5225,7 @@ define i32 @uidna_labelToASCII_UTF8_77(ptr noundef %0, ptr noundef %1, i32 nound
   resume { ptr, i32 } %.pn.i
 
 "_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ26uidna_labelToASCII_UTF8_77E3$_0vEEiPciOT_R10UErrorCode.exit": ; preds = %7, %31, %17, %66, %40
-  %.0 = phi i32 [ 0, %40 ], [ %.1.i, %66 ], [ 0, %17 ], [ 0, %31 ], [ 0, %7 ]
+  %.0 = phi i32 [ %.1.i, %66 ], [ 0, %40 ], [ 0, %17 ], [ 0, %31 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -5370,7 +5370,7 @@ define i32 @uidna_labelToUnicodeUTF8_77(ptr noundef %0, ptr noundef %1, i32 noun
   resume { ptr, i32 } %.pn.i
 
 "_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ27uidna_labelToUnicodeUTF8_77E3$_0vEEiPciOT_R10UErrorCode.exit": ; preds = %7, %31, %17, %66, %40
-  %.0 = phi i32 [ 0, %40 ], [ %.1.i, %66 ], [ 0, %17 ], [ 0, %31 ], [ 0, %7 ]
+  %.0 = phi i32 [ %.1.i, %66 ], [ 0, %40 ], [ 0, %17 ], [ 0, %31 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -5512,7 +5512,7 @@ define i32 @uidna_nameToASCII_UTF8_77(ptr noundef %0, ptr noundef %1, i32 nounde
   resume { ptr, i32 } %.pn.i
 
 "_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ25uidna_nameToASCII_UTF8_77E3$_0vEEiPciOT_R10UErrorCode.exit": ; preds = %7, %31, %17, %66, %40
-  %.0 = phi i32 [ 0, %40 ], [ %.1.i, %66 ], [ 0, %17 ], [ 0, %31 ], [ 0, %7 ]
+  %.0 = phi i32 [ %.1.i, %66 ], [ 0, %40 ], [ 0, %17 ], [ 0, %31 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -5654,7 +5654,7 @@ define i32 @uidna_nameToUnicodeUTF8_77(ptr noundef %0, ptr noundef %1, i32 nound
   resume { ptr, i32 } %.pn.i
 
 "_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ26uidna_nameToUnicodeUTF8_77E3$_0vEEiPciOT_R10UErrorCode.exit": ; preds = %7, %31, %17, %66, %40
-  %.0 = phi i32 [ 0, %40 ], [ %.1.i, %66 ], [ 0, %17 ], [ 0, %31 ], [ 0, %7 ]
+  %.0 = phi i32 [ %.1.i, %66 ], [ 0, %40 ], [ 0, %17 ], [ 0, %31 ], [ 0, %7 ]
   ret i32 %.0
 }
 

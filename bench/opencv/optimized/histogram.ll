@@ -2051,9 +2051,9 @@ _ZN2cv4Mat_INS_3VecIhLi3EEEEC2ERKNS_3MatE.exit166: ; preds = %548
   br label %595
 
 595:                                              ; preds = %534, %570, %594
-  %cond1 = phi i1 [ false, %570 ], [ true, %594 ], [ false, %534 ]
-  %cond = phi i1 [ true, %570 ], [ false, %594 ], [ false, %534 ]
-  %.278 = phi float [ %558, %570 ], [ %558, %594 ], [ %.076195, %534 ]
+  %cond1 = phi i1 [ true, %594 ], [ false, %570 ], [ false, %534 ]
+  %cond = phi i1 [ false, %594 ], [ true, %570 ], [ false, %534 ]
+  %.278 = phi float [ %558, %594 ], [ %558, %570 ], [ %.076195, %534 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #18
@@ -2115,7 +2115,7 @@ _ZN2cv4Mat_INS_3VecIhLi3EEEEC2ERKNS_3MatE.exit166: ; preds = %548
   br label %.thread175
 
 .thread175:                                       ; preds = %182, %175, %603, %604
-  %605 = phi float [ %.278, %604 ], [ 0.000000e+00, %603 ], [ 0.000000e+00, %182 ], [ %.278, %175 ]
+  %605 = phi float [ 0.000000e+00, %603 ], [ %.278, %604 ], [ 0.000000e+00, %182 ], [ %.278, %175 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #18
@@ -3038,7 +3038,7 @@ _ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit62: ; preds = %.lr.ph.i56, %
   br i1 %203, label %61, label %._crit_edge.loopexit, !llvm.loop !121
 
 204:                                              ; preds = %185, %187, %189, %184, %180
-  %.pn39 = phi { ptr, i32 } [ %190, %189 ], [ %181, %180 ], [ %.pn.pn, %184 ], [ %188, %187 ], [ %186, %185 ]
+  %.pn39 = phi { ptr, i32 } [ %190, %189 ], [ %.pn.pn, %184 ], [ %181, %180 ], [ %188, %187 ], [ %186, %185 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn39
@@ -3485,7 +3485,7 @@ _ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit63: ; preds = %.lr.ph.i57, %
   br i1 %197, label %59, label %._crit_edge.loopexit, !llvm.loop !126
 
 198:                                              ; preds = %182, %184, %186, %181, %177
-  %.pn40 = phi { ptr, i32 } [ %187, %186 ], [ %178, %177 ], [ %.pn.pn, %181 ], [ %185, %184 ], [ %183, %182 ]
+  %.pn40 = phi { ptr, i32 } [ %187, %186 ], [ %.pn.pn, %181 ], [ %178, %177 ], [ %185, %184 ], [ %183, %182 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn40

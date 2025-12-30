@@ -1687,7 +1687,7 @@ define i32 @ARKodeSetFixedStep(ptr noundef %0, double noundef %1) local_unnamed_
   br label %ARKodeSetInitStep.exit
 
 ARKodeSetInitStep.exit:                           ; preds = %48, %40, %41, %31, %10, %4
-  %.0 = phi i32 [ -21, %4 ], [ %.024, %31 ], [ -48, %10 ], [ 0, %41 ], [ 0, %48 ], [ 0, %40 ]
+  %.0 = phi i32 [ -21, %4 ], [ -48, %10 ], [ %.024, %31 ], [ 0, %41 ], [ 0, %40 ], [ 0, %48 ]
   ret i32 %.0
 }
 
@@ -1786,7 +1786,7 @@ ARKodeGetStepDirection.exit:                      ; preds = %18, %14
   br label %44
 
 44:                                               ; preds = %39, %.critedge, %42, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %.critedge ], [ %43, %42 ], [ -52, %8 ], [ -47, %39 ]
+  %.0 = phi i32 [ -21, %4 ], [ %43, %42 ], [ -47, %39 ], [ -52, %8 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -2146,7 +2146,7 @@ define i32 @ARKodeSetCFLFraction(ptr noundef %0, double noundef %1) local_unname
   br label %20
 
 20:                                               ; preds = %18, %19, %2, %13, %10
-  %.0 = phi i32 [ -48, %10 ], [ -22, %13 ], [ %5, %2 ], [ 0, %19 ], [ 0, %18 ]
+  %.0 = phi i32 [ -22, %13 ], [ -48, %10 ], [ %5, %2 ], [ 0, %19 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -2182,7 +2182,7 @@ define i32 @ARKodeSetAdaptivityAdjustment(ptr noundef %0, i32 noundef %1) local_
   br label %14
 
 14:                                               ; preds = %2, %11, %10
-  %.0 = phi i32 [ -48, %10 ], [ 0, %11 ], [ %5, %2 ]
+  %.0 = phi i32 [ 0, %11 ], [ -48, %10 ], [ %5, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -2232,7 +2232,7 @@ define i32 @ARKodeSetSafetyFactor(ptr noundef %0, double noundef %1) local_unnam
   br label %20
 
 20:                                               ; preds = %18, %19, %2, %13, %10
-  %.0 = phi i32 [ -48, %10 ], [ -22, %13 ], [ %5, %2 ], [ 0, %19 ], [ 0, %18 ]
+  %.0 = phi i32 [ -22, %13 ], [ -48, %10 ], [ %5, %2 ], [ 0, %19 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -2287,7 +2287,7 @@ define i32 @ARKodeSetErrorBias(ptr noundef %0, double noundef %1) local_unnamed_
   br label %26
 
 26:                                               ; preds = %18, %2, %24, %17, %10
-  %.06 = phi i32 [ -48, %10 ], [ -21, %17 ], [ -47, %24 ], [ %5, %2 ], [ 0, %18 ]
+  %.06 = phi i32 [ -21, %17 ], [ -47, %24 ], [ -48, %10 ], [ %5, %2 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.06
@@ -3771,7 +3771,7 @@ define i32 @ARKodePrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   br label %99
 
 99:                                               ; preds = %94, %92, %97, %85, %5
-  %.0 = phi i32 [ -21, %5 ], [ -22, %85 ], [ %93, %92 ], [ %98, %97 ], [ 0, %94 ]
+  %.0 = phi i32 [ -21, %5 ], [ -22, %85 ], [ %98, %97 ], [ %93, %92 ], [ 0, %94 ]
   ret i32 %.0
 }
 

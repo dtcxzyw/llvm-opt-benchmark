@@ -537,7 +537,7 @@ define dso_local range(i32 -512, 1) i32 @nfs_writepages(ptr noundef %0, ptr noun
   ], !llvm.loop !21
 
 .split5.us:                                       ; preds = %.split, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %54, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56
-  %.us-phi = phi i32 [ %53, %54 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %.split ]
+  %.us-phi = phi i32 [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %56 ], [ %53, %54 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %66 ], [ %63, %.split ]
   %67 = icmp eq ptr %41, null
   br i1 %67, label %.thread, label %68
 
@@ -1302,7 +1302,7 @@ define internal fastcc ptr @nfs_folio_find_head_request(ptr noundef %0) unnamed_
   br label %109
 
 109:                                              ; preds = %.thread6, %.thread7, %58, %52
-  %110 = phi ptr [ %22, %.thread6 ], [ %108, %.thread7 ], [ null, %58 ], [ null, %52 ]
+  %110 = phi ptr [ %108, %.thread7 ], [ null, %58 ], [ null, %52 ], [ %22, %.thread6 ]
   ret ptr %110
 }
 
@@ -1879,7 +1879,7 @@ define dso_local i32 @nfs_update_folio(ptr noundef readonly captures(none) %0, p
   tail call void @_raw_spin_unlock(ptr noundef nonnull %36) #16
   br i1 %.not, label %142, label %.thread33
 
-.thread35:                                        ; preds = %91, %117
+.thread35:                                        ; preds = %117, %91
   %140 = add i32 %3, %2
   %141 = tail call i32 @llvm.umax.i32(i32 %140, i32 %23)
   br label %.thread33
@@ -1894,8 +1894,8 @@ define dso_local i32 @nfs_update_folio(ptr noundef readonly captures(none) %0, p
   br label %.thread33
 
 .thread33:                                        ; preds = %.thread33.critedge, %142, %87, %68, %73, %80, %32, %136, %.thread35
-  %145 = phi i32 [ %141, %.thread35 ], [ %144, %142 ], [ %3, %32 ], [ %3, %87 ], [ %3, %68 ], [ %3, %73 ], [ %3, %80 ], [ %3, %136 ], [ %3, %.thread33.critedge ]
-  %146 = phi i32 [ 0, %.thread35 ], [ 0, %142 ], [ %2, %32 ], [ %2, %87 ], [ %2, %68 ], [ %2, %73 ], [ %2, %80 ], [ %2, %136 ], [ %2, %.thread33.critedge ]
+  %145 = phi i32 [ %141, %.thread35 ], [ %3, %87 ], [ %3, %68 ], [ %3, %73 ], [ %3, %80 ], [ %3, %32 ], [ %3, %136 ], [ %144, %142 ], [ %3, %.thread33.critedge ]
+  %146 = phi i32 [ 0, %.thread35 ], [ %2, %87 ], [ %2, %68 ], [ %2, %73 ], [ %2, %80 ], [ %2, %32 ], [ %2, %136 ], [ 0, %142 ], [ %2, %.thread33.critedge ]
   %147 = add i32 %146, %145
   %148 = tail call fastcc ptr @nfs_lock_and_join_requests(ptr noundef %1)
   %149 = icmp eq ptr %148, null
@@ -1986,7 +1986,7 @@ define dso_local i32 @nfs_update_folio(ptr noundef readonly captures(none) %0, p
   br label %201
 
 201:                                              ; preds = %198, %.thread33
-  %202 = phi ptr [ %200, %198 ], [ %148, %.thread33 ]
+  %202 = phi ptr [ %148, %.thread33 ], [ %200, %198 ]
   %203 = icmp eq ptr %202, null
   br i1 %203, label %.thread39, label %264
 
@@ -2570,7 +2570,7 @@ define internal fastcc i64 @nfs_folio_length(ptr noundef %0) unnamed_addr #5 ali
   br label %.thread
 
 .thread:                                          ; preds = %79, %66, %14, %69
-  %85 = phi i64 [ 0, %14 ], [ 0, %69 ], [ %84, %79 ], [ %68, %66 ]
+  %85 = phi i64 [ 0, %69 ], [ 0, %14 ], [ %84, %79 ], [ %68, %66 ]
   ret i64 %85
 }
 
@@ -3375,7 +3375,7 @@ define internal fastcc i32 @__nfs_commit_inode(ptr noundef %0, i32 noundef %1, p
   br i1 %57, label %.thread, label %.lr.ph.split, !llvm.loop !79
 
 .thread:                                          ; preds = %37, %40, %52, %54, %23, %26, %29, %31, %3, %.thread4
-  %58 = phi i32 [ 0, %.thread4 ], [ %24, %23 ], [ 0, %3 ], [ %27, %26 ], [ 0, %29 ], [ 0, %31 ], [ 0, %52 ], [ %41, %40 ], [ %38, %37 ], [ 0, %54 ]
+  %58 = phi i32 [ 0, %.thread4 ], [ 0, %3 ], [ %24, %23 ], [ %27, %26 ], [ 0, %29 ], [ 0, %31 ], [ %38, %37 ], [ %41, %40 ], [ 0, %52 ], [ 0, %54 ]
   %59 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, ptr elementtype(i32) %10) #16, !srcloc !71
   %60 = icmp ult i8 %59, 2
   call void @llvm.assume(i1 %60)
@@ -3493,7 +3493,7 @@ define dso_local i32 @nfs_write_inode(ptr noundef %0, ptr noundef captures(addre
   br label %.thread4
 
 .thread4:                                         ; preds = %.thread, %31, %26
-  %33 = phi i32 [ %32, %31 ], [ 0, %.thread ], [ %27, %26 ]
+  %33 = phi i32 [ %32, %31 ], [ %27, %26 ], [ 0, %.thread ]
   ret i32 %33
 }
 

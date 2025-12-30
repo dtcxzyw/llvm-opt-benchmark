@@ -279,7 +279,7 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr noundef captures(none) %0, 
   br label %142
 
 142:                                              ; preds = %26, %34, %.thread, %._crit_edge, %._crit_edge97, %47, %14
-  %.0 = phi i32 [ -1, %14 ], [ 0, %._crit_edge ], [ -1, %47 ], [ -1, %._crit_edge97 ], [ -2, %26 ], [ 0, %34 ], [ -1, %.thread ]
+  %.0 = phi i32 [ -1, %14 ], [ -1, %47 ], [ -1, %._crit_edge97 ], [ 0, %._crit_edge ], [ -2, %26 ], [ 0, %34 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

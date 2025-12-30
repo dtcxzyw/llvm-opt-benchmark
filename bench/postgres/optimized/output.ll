@@ -240,7 +240,7 @@ define internal fastcc void @output_escaped_str(ptr noundef readonly captures(no
   br label %.loopexit44
 
 .loopexit44:                                      ; preds = %.critedge, %32, %.loopexit, %22, %48, %45, %25
-  %.2 = phi i32 [ %.147, %22 ], [ %.147, %25 ], [ %.147, %48 ], [ %40, %45 ], [ %.147, %32 ], [ %.147, %.loopexit ], [ %.147, %.critedge ]
+  %.2 = phi i32 [ %.147, %22 ], [ %.147, %25 ], [ %40, %45 ], [ %.147, %48 ], [ %.147, %.loopexit ], [ %.147, %32 ], [ %.147, %.critedge ]
   %52 = add i32 %.2, 1
   %53 = icmp slt i32 %52, %.037
   br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !6

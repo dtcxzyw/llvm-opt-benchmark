@@ -133,7 +133,7 @@ define internal fastcc noundef zeroext i1 @candump_parse(ptr noundef %0, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %31, %32, %28, %18
-  %.0 = phi i1 [ true, %31 ], [ false, %18 ], [ false, %28 ], [ true, %32 ], [ false, %9 ]
+  %.0 = phi i1 [ false, %18 ], [ false, %28 ], [ true, %32 ], [ true, %31 ], [ false, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }

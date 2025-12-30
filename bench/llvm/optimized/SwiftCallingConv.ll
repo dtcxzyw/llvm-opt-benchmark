@@ -1243,7 +1243,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit62: ; preds 
   br i1 %.not90, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !791
 
 .outer._crit_edge:                                ; preds = %.outer, %54, %32
-  %.0.ph.lcssa89 = phi i32 [ %.0.ph99, %54 ], [ %33, %32 ], [ %78, %.outer ]
+  %.0.ph.lcssa89 = phi i32 [ %33, %32 ], [ %.0.ph99, %54 ], [ %78, %.outer ]
   %113 = zext i32 %.0.ph.lcssa89 to i64
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %115 = load i32, ptr %114, align 8, !tbaa !362
@@ -1730,9 +1730,9 @@ _ZN4llvm16dyn_cast_or_nullINS_10VectorTypeENS_4TypeEEEDaPT0_.exit: ; preds = %86
   br label %.preheader.split
 
 .split106.us:                                     ; preds = %.critedge63, %101, %.critedge63.us, %56
-  %107 = phi ptr [ %46, %.critedge63.us ], [ %46, %56 ], [ %67, %101 ], [ %67, %.critedge63 ]
-  %108 = phi i64 [ %48, %.critedge63.us ], [ %48, %56 ], [ %69, %101 ], [ %69, %.critedge63 ]
-  %.us-phi107 = phi ptr [ %47, %.critedge63.us ], [ %47, %56 ], [ %68, %101 ], [ %68, %.critedge63 ]
+  %107 = phi ptr [ %46, %56 ], [ %46, %.critedge63.us ], [ %67, %101 ], [ %67, %.critedge63 ]
+  %108 = phi i64 [ %48, %56 ], [ %48, %.critedge63.us ], [ %69, %101 ], [ %69, %.critedge63 ]
+  %.us-phi107 = phi ptr [ %47, %56 ], [ %47, %.critedge63.us ], [ %68, %101 ], [ %68, %.critedge63 ]
   %109 = getelementptr inbounds nuw i8, ptr %.us-phi107, i64 16
   store ptr null, ptr %109, align 8, !tbaa !796
   %110 = icmp slt i64 %2, %108
@@ -1879,7 +1879,7 @@ define internal fastcc noundef ptr @_ZL13getCommonTypePN4llvm4TypeES1_(ptr nound
   br label %30
 
 30:                                               ; preds = %10, %.fold.split, %27, %5, %.thread39
-  %.023 = phi ptr [ %29, %27 ], [ null, %.thread39 ], [ %0, %5 ], [ %1, %10 ], [ %0, %.fold.split ]
+  %.023 = phi ptr [ null, %.thread39 ], [ %29, %27 ], [ %0, %5 ], [ %1, %10 ], [ %0, %.fold.split ]
   ret ptr %.023
 }
 
@@ -2241,7 +2241,7 @@ _ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6
   br i1 %.not.i.i.i63, label %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit, label %.lr.ph.i.i.i, !llvm.loop !803
 
 _ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit: ; preds = %.lr.ph.i.i.i.i54, %.lr.ph.i.i.i, %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit62, %84, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendEmRKS5_.exit
-  %.0 = phi ptr [ %39, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendEmRKS5_.exit ], [ %52, %.lr.ph.i.i.i ], [ %52, %84 ], [ %52, %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit62 ], [ %52, %.lr.ph.i.i.i.i54 ]
+  %.0 = phi ptr [ %39, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendEmRKS5_.exit ], [ %52, %84 ], [ %52, %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit62 ], [ %52, %.lr.ph.i.i.i ], [ %52, %.lr.ph.i.i.i.i54 ]
   ret ptr %.0
 }
 
@@ -2311,7 +2311,7 @@ _ZL20isMergeableEntryTypePN4llvm4TypeE.exit.thread15: ; preds = %11, %_ZL20isMer
   br label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13
 
 _ZL20isMergeableEntryTypePN4llvm4TypeE.exit13:    ; preds = %25, %15, %30, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit.thread15, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit ], [ false, %15 ], [ true, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit.thread15 ], [ false, %25 ], [ %spec.select.i5.i12, %30 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit ], [ true, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit.thread15 ], [ %spec.select.i5.i12, %30 ], [ false, %15 ], [ false, %25 ]
   ret i1 %.0
 }
 
@@ -2440,7 +2440,7 @@ _ZN5clang7CodeGen9swiftcall16SwiftAggLowering18shouldMergeEntriesERKNS2_12Storag
   %spec.select.i5.i12.i = icmp ult i32 %54, -2
   br i1 %spec.select.i5.i12.i, label %.thread94, label %55
 
-55:                                               ; preds = %_ZN5clang7CodeGen9swiftcall16SwiftAggLowering18shouldMergeEntriesERKNS2_12StorageEntryES5_NS_9CharUnitsE.exit, %.backedge, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit.i, %49, %49, %49, %49, %49, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i10.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i, %40, %40, %40, %40, %40
+55:                                               ; preds = %_ZN5clang7CodeGen9swiftcall16SwiftAggLowering18shouldMergeEntriesERKNS2_12StorageEntryES5_NS_9CharUnitsE.exit, %.backedge, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i10.i, %49, %49, %49, %49, %49, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i, %40, %40, %40, %40, %40
   %56 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !796
   %58 = icmp eq ptr %57, null
@@ -2498,7 +2498,7 @@ _ZN4llvm11SmallVectorIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryE
   br label %82
 
 ._crit_edge81:                                    ; preds = %.loopexit, %._crit_edge.thread98, %_ZN4llvm11SmallVectorIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELj4EEC2EOS6_.exit
-  %77 = phi ptr [ %63, %._crit_edge.thread98 ], [ %67, %_ZN4llvm11SmallVectorIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELj4EEC2EOS6_.exit ], [ %67, %.loopexit ]
+  %77 = phi ptr [ %67, %_ZN4llvm11SmallVectorIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELj4EEC2EOS6_.exit ], [ %63, %._crit_edge.thread98 ], [ %67, %.loopexit ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 1, ptr %78, align 8, !tbaa !806
   %79 = load ptr, ptr %2, align 8, !tbaa !361
@@ -3090,7 +3090,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 65:                                               ; preds = %2, %_ZN4llvm11SmallVectorIPNS_4TypeELj8EED2Ev.exit, %10
-  %.0 = phi i1 [ %46, %_ZN4llvm11SmallVectorIPNS_4TypeELj8EED2Ev.exit ], [ %23, %10 ], [ false, %2 ]
+  %.0 = phi i1 [ %23, %10 ], [ %46, %_ZN4llvm11SmallVectorIPNS_4TypeELj8EED2Ev.exit ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -4481,8 +4481,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ %.fca.0.extract, %54 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ %.fca.1.extract, %54 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert

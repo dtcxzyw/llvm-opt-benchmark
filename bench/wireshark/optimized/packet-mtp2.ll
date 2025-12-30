@@ -857,12 +857,12 @@ new_byte.exit.i:                                  ; preds = %._crit_edge.i.i, %2
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %335, %._crit_edge.i, %232
-  %.1.lcssa199.i = phi i8 [ %276, %._crit_edge.i ], [ %276, %335 ], [ %.0.i167, %232 ]
-  %.096.lcssa198.i = phi i8 [ %.5.i, %._crit_edge.i ], [ %.5.i, %335 ], [ %236, %232 ]
-  %.099.lcssa197.i = phi i8 [ %.5104.i, %._crit_edge.i ], [ %.5104.i, %335 ], [ %238, %232 ]
-  %.0108.lcssa196.i = phi i32 [ %.4112.i, %._crit_edge.i ], [ %.4112.i, %335 ], [ %240, %232 ]
-  %.0113.lcssa195.i = phi i8 [ %.3116.i, %._crit_edge.i ], [ %.3116.i, %335 ], [ %242, %232 ]
-  %.0145.lcssa194.i = phi ptr [ %.4149.i, %._crit_edge.i ], [ %.4149.i, %335 ], [ null, %232 ]
+  %.1.lcssa199.i = phi i8 [ %276, %335 ], [ %276, %._crit_edge.i ], [ %.0.i167, %232 ]
+  %.096.lcssa198.i = phi i8 [ %.5.i, %335 ], [ %.5.i, %._crit_edge.i ], [ %236, %232 ]
+  %.099.lcssa197.i = phi i8 [ %.5104.i, %335 ], [ %.5104.i, %._crit_edge.i ], [ %238, %232 ]
+  %.0108.lcssa196.i = phi i32 [ %.4112.i, %335 ], [ %.4112.i, %._crit_edge.i ], [ %240, %232 ]
+  %.0113.lcssa195.i = phi i8 [ %.3116.i, %335 ], [ %.3116.i, %._crit_edge.i ], [ %242, %232 ]
+  %.0145.lcssa194.i = phi ptr [ %.4149.i, %335 ], [ %.4149.i, %._crit_edge.i ], [ null, %232 ]
   %341 = load ptr, ptr %245, align 8
   %342 = icmp eq ptr %341, null
   br i1 %342, label %343, label %347

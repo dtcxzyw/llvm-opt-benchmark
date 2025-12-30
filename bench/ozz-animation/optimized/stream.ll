@@ -456,7 +456,7 @@ _ZN3ozz2io12MemoryStream6ResizeEm.exit18:         ; preds = %._crit_edge.i14, %6
   br label %87
 
 87:                                               ; preds = %79, %_ZN3ozz2io12MemoryStream6ResizeEm.exit18, %_ZN3ozz2io12MemoryStream6ResizeEm.exit, %3, %5
-  %.0 = phi i64 [ 0, %3 ], [ 0, %_ZN3ozz2io12MemoryStream6ResizeEm.exit ], [ 0, %5 ], [ %2, %79 ], [ 0, %_ZN3ozz2io12MemoryStream6ResizeEm.exit18 ]
+  %.0 = phi i64 [ 0, %5 ], [ 0, %3 ], [ 0, %_ZN3ozz2io12MemoryStream6ResizeEm.exit ], [ %2, %79 ], [ 0, %_ZN3ozz2io12MemoryStream6ResizeEm.exit18 ]
   ret i64 %.0
 }
 

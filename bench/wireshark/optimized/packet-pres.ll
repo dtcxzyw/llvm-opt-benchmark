@@ -917,7 +917,7 @@ dissect_ppdu.exit.us:                             ; preds = %.split.us
   br label %dissect_ppdu.exit
 
 dissect_ppdu.exit:                                ; preds = %82, %93, %97, %101, %105, %109, %113, %116, %119, %123
-  %.0.i70 = phi i32 [ %122, %119 ], [ 0, %82 ], [ %126, %123 ], [ %96, %93 ], [ %100, %97 ], [ %104, %101 ], [ %108, %105 ], [ %112, %109 ], [ %115, %113 ], [ %118, %116 ]
+  %.0.i70 = phi i32 [ 0, %82 ], [ %126, %123 ], [ %96, %93 ], [ %100, %97 ], [ %104, %101 ], [ %108, %105 ], [ %112, %109 ], [ %115, %113 ], [ %118, %116 ], [ %122, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not67 = icmp sgt i32 %.0.i70, %.059
   br i1 %.not67, label %.split, label %.split75, !llvm.loop !8

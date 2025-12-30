@@ -188,7 +188,7 @@ define internal i32 @ml_kem_encapsulate(ptr noundef captures(none) %0, ptr nound
   br label %50
 
 50:                                               ; preds = %46, %49, %20, %21, %15
-  %.042 = phi i32 [ 1, %20 ], [ 0, %15 ], [ 1, %21 ], [ %.0, %49 ], [ %.0, %46 ]
+  %.042 = phi i32 [ 0, %15 ], [ 1, %21 ], [ 1, %20 ], [ %.0, %49 ], [ %.0, %46 ]
   ret i32 %.042
 }
 
@@ -271,7 +271,7 @@ define internal i32 @ml_kem_decapsulate(ptr noundef readonly captures(none) %0, 
   br label %23
 
 23:                                               ; preds = %13, %21, %19, %14, %9
-  %.0 = phi i32 [ 0, %9 ], [ 1, %14 ], [ %22, %21 ], [ 0, %19 ], [ 0, %13 ]
+  %.0 = phi i32 [ 1, %14 ], [ %22, %21 ], [ 0, %19 ], [ 0, %9 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -359,7 +359,7 @@ ossl_param_is_empty.exit:                         ; preds = %13
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %13, %16, %19, %ossl_param_is_empty.exit, %2, %29
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %2 ], [ %.1, %29 ], [ 1, %19 ], [ 1, %16 ], [ 1, %13 ]
+  %.0 = phi i32 [ %.1, %29 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %19 ], [ 1, %16 ], [ 1, %13 ]
   ret i32 %.0
 }
 

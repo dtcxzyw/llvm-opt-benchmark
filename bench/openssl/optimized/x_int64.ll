@@ -337,7 +337,7 @@ define internal range(i32 0, 2) i32 @uint64_c2i(ptr noundef captures(none) %0, p
   br label %34
 
 34:                                               ; preds = %32, %14
-  %35 = phi i64 [ %spec.select, %32 ], [ 0, %14 ]
+  %35 = phi i64 [ 0, %14 ], [ %spec.select, %32 ]
   store i64 %35, ptr %15, align 1
   br label %36
 

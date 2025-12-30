@@ -294,7 +294,7 @@ define internal i32 @cyuv_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br label %178
 
 178:                                              ; preds = %29, %.loopexit, %28
-  %.0 = phi i32 [ -1094995529, %28 ], [ %8, %.loopexit ], [ %31, %29 ]
+  %.0 = phi i32 [ %8, %.loopexit ], [ -1094995529, %28 ], [ %31, %29 ]
   ret i32 %.0
 }
 

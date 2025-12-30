@@ -279,7 +279,7 @@ for.inc70:                                        ; preds = %for.cond23, %if.end
   br i1 %exitcond.not, label %return, label %for.body17, !llvm.loop !8
 
 return:                                           ; preds = %for.inc70, %for.inc70.us, %if.then53, %if.then62, %if.then57, %for.end
-  %retval.0 = phi i32 [ %.us-phi49, %if.then53 ], [ -1, %for.end ], [ %.us-phi49, %if.then57 ], [ %.us-phi49, %if.then62 ], [ -1, %for.inc70.us ], [ -1, %for.inc70 ]
+  %retval.0 = phi i32 [ -1, %for.end ], [ %.us-phi49, %if.then57 ], [ %.us-phi49, %if.then62 ], [ %.us-phi49, %if.then53 ], [ -1, %for.inc70.us ], [ -1, %for.inc70 ]
   ret i32 %retval.0
 }
 
@@ -771,7 +771,7 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false
   br label %return
 
 return:                                           ; preds = %lor.lhs.false4, %entry, %lor.lhs.false
-  %retval.0 = phi i1 [ true, %entry ], [ %cmp6, %lor.lhs.false4 ], [ true, %lor.lhs.false ]
+  %retval.0 = phi i1 [ true, %lor.lhs.false ], [ true, %entry ], [ %cmp6, %lor.lhs.false4 ]
   ret i1 %retval.0
 }
 

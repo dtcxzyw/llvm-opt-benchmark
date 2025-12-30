@@ -265,7 +265,7 @@ define dso_local i32 @acpi_ps_get_next_namepath(ptr noundef %0, ptr noundef capt
   br label %.thread8
 
 .thread8:                                         ; preds = %64, %79, %34, %70, %65, %89, %.thread10
-  %91 = phi i32 [ %90, %89 ], [ %30, %.thread10 ], [ %30, %64 ], [ 0, %65 ], [ 0, %70 ], [ 0, %34 ], [ 0, %79 ]
+  %91 = phi i32 [ %90, %89 ], [ %30, %.thread10 ], [ 0, %65 ], [ 0, %70 ], [ 0, %34 ], [ 0, %79 ], [ %30, %64 ]
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %7, ptr %92, align 8
   br label %93
@@ -965,7 +965,7 @@ switch.lookup:                                    ; preds = %.preheader
   br label %.thread17
 
 .thread17:                                        ; preds = %57, %210, %184, %316, %289, %270, %246, %5
-  %319 = phi i32 [ %318, %316 ], [ 4, %5 ], [ 4, %246 ], [ 4, %270 ], [ 4, %289 ], [ 4, %210 ], [ 4, %184 ], [ 4, %57 ]
+  %319 = phi i32 [ %318, %316 ], [ 4, %5 ], [ 4, %246 ], [ 4, %270 ], [ 4, %289 ], [ 4, %184 ], [ 4, %210 ], [ 4, %57 ]
   ret i32 %319
 }
 

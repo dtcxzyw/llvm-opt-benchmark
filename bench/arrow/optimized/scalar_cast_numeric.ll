@@ -10289,7 +10289,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3.i224.i: ; preds = %26
   br label %2622
 
 2622:                                             ; preds = %.loopexit.i, %.loopexit264.i, %.body102.i, %2072, %.body.i, %1817, %1815, %1813
-  %.pn54.pn.pn.pn.i = phi { ptr, i32 } [ %1814, %1813 ], [ %1818, %1817 ], [ %.pn46.pn.pn.i, %.loopexit.i ], [ %.pn.pn.pn.i, %.loopexit264.i ], [ %1816, %1815 ], [ %.pn54.pn.i, %.body.i ], [ %.pn50.pn.i, %.body102.i ], [ %2073, %2072 ]
+  %.pn54.pn.pn.pn.i = phi { ptr, i32 } [ %.pn46.pn.pn.i, %.loopexit.i ], [ %.pn.pn.pn.i, %.loopexit264.i ], [ %1816, %1815 ], [ %1814, %1813 ], [ %.pn54.pn.i, %.body.i ], [ %1818, %1817 ], [ %.pn50.pn.i, %.body102.i ], [ %2073, %2072 ]
   call void @_ZNSt12__shared_ptrIN5arrow7compute8internal12CastFunctionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %275) #27
   br label %.body478
 
@@ -14221,7 +14221,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i471.i: ; preds = %419
   br label %4202
 
 4202:                                             ; preds = %.loopexit.i570, %.loopexit544.i, %.loopexit545.i, %.loopexit546.i, %.body295.i, %3502, %.body252.i, %3282, %.body210.i, %3062, %3047, %2896, %2887, %2885
-  %.pn134.pn.pn.pn.i = phi { ptr, i32 } [ %2886, %2885 ], [ %3063, %3062 ], [ %3283, %3282 ], [ %3503, %3502 ], [ %.pn105.pn.pn.i, %3047 ], [ %.pn.pn.pn.i525, %2896 ], [ %2888, %2887 ], [ %.pn134.pn.i, %.body210.i ], [ %.pn130.pn.i, %.body252.i ], [ %.pn126.pn.i, %.body295.i ], [ %.pn121.pn.pn.i, %.loopexit.i570 ], [ %.pn117.pn.pn.i, %.loopexit544.i ], [ %.pn113.pn.pn.i, %.loopexit545.i ], [ %.pn109.pn.pn.i, %.loopexit546.i ]
+  %.pn134.pn.pn.pn.i = phi { ptr, i32 } [ %.pn105.pn.pn.i, %3047 ], [ %.pn.pn.pn.i525, %2896 ], [ %2888, %2887 ], [ %2886, %2885 ], [ %.pn134.pn.i, %.body210.i ], [ %3063, %3062 ], [ %.pn130.pn.i, %.body252.i ], [ %3283, %3282 ], [ %.pn126.pn.i, %.body295.i ], [ %3503, %3502 ], [ %.pn121.pn.pn.i, %.loopexit.i570 ], [ %.pn117.pn.pn.i, %.loopexit544.i ], [ %.pn113.pn.pn.i, %.loopexit545.i ], [ %.pn109.pn.pn.i, %.loopexit546.i ]
   call void @_ZNSt12__shared_ptrIN5arrow7compute8internal12CastFunctionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %280) #27
   br label %4203
 
@@ -18071,7 +18071,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i471.i967: ; preds = %
   br label %5744
 
 5744:                                             ; preds = %.loopexit.i935, %.loopexit544.i907, %.loopexit545.i879, %.loopexit546.i851, %.body295.i800, %5044, %.body252.i740, %4824, %.body210.i681, %4604, %4589, %4438, %4429, %4427
-  %.pn134.pn.pn.pn.i595 = phi { ptr, i32 } [ %4428, %4427 ], [ %4605, %4604 ], [ %4825, %4824 ], [ %5045, %5044 ], [ %.pn105.pn.pn.i638, %4589 ], [ %.pn.pn.pn.i603, %4438 ], [ %4430, %4429 ], [ %.pn134.pn.i682, %.body210.i681 ], [ %.pn130.pn.i741, %.body252.i740 ], [ %.pn126.pn.i801, %.body295.i800 ], [ %.pn121.pn.pn.i936, %.loopexit.i935 ], [ %.pn117.pn.pn.i908, %.loopexit544.i907 ], [ %.pn113.pn.pn.i880, %.loopexit545.i879 ], [ %.pn109.pn.pn.i852, %.loopexit546.i851 ]
+  %.pn134.pn.pn.pn.i595 = phi { ptr, i32 } [ %.pn105.pn.pn.i638, %4589 ], [ %.pn.pn.pn.i603, %4438 ], [ %4430, %4429 ], [ %4428, %4427 ], [ %.pn134.pn.i682, %.body210.i681 ], [ %4605, %4604 ], [ %.pn130.pn.i741, %.body252.i740 ], [ %4825, %4824 ], [ %.pn126.pn.i801, %.body295.i800 ], [ %5045, %5044 ], [ %.pn121.pn.pn.i936, %.loopexit.i935 ], [ %.pn117.pn.pn.i908, %.loopexit544.i907 ], [ %.pn113.pn.pn.i880, %.loopexit545.i879 ], [ %.pn109.pn.pn.i852, %.loopexit546.i851 ]
   call void @_ZNSt12__shared_ptrIN5arrow7compute8internal12CastFunctionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %281) #27
   br label %5745
 
@@ -21921,7 +21921,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i471.i1390: ; preds = 
   br label %7286
 
 7286:                                             ; preds = %.loopexit.i1358, %.loopexit544.i1330, %.loopexit545.i1302, %.loopexit546.i1274, %.body295.i1223, %6586, %.body252.i1163, %6366, %.body210.i1104, %6146, %6131, %5980, %5971, %5969
-  %.pn134.pn.pn.pn.i1018 = phi { ptr, i32 } [ %5970, %5969 ], [ %6147, %6146 ], [ %6367, %6366 ], [ %6587, %6586 ], [ %.pn105.pn.pn.i1061, %6131 ], [ %.pn.pn.pn.i1026, %5980 ], [ %5972, %5971 ], [ %.pn134.pn.i1105, %.body210.i1104 ], [ %.pn130.pn.i1164, %.body252.i1163 ], [ %.pn126.pn.i1224, %.body295.i1223 ], [ %.pn121.pn.pn.i1359, %.loopexit.i1358 ], [ %.pn117.pn.pn.i1331, %.loopexit544.i1330 ], [ %.pn113.pn.pn.i1303, %.loopexit545.i1302 ], [ %.pn109.pn.pn.i1275, %.loopexit546.i1274 ]
+  %.pn134.pn.pn.pn.i1018 = phi { ptr, i32 } [ %.pn105.pn.pn.i1061, %6131 ], [ %.pn.pn.pn.i1026, %5980 ], [ %5972, %5971 ], [ %5970, %5969 ], [ %.pn134.pn.i1105, %.body210.i1104 ], [ %6147, %6146 ], [ %.pn130.pn.i1164, %.body252.i1163 ], [ %6367, %6366 ], [ %.pn126.pn.i1224, %.body295.i1223 ], [ %6587, %6586 ], [ %.pn121.pn.pn.i1359, %.loopexit.i1358 ], [ %.pn117.pn.pn.i1331, %.loopexit544.i1330 ], [ %.pn113.pn.pn.i1303, %.loopexit545.i1302 ], [ %.pn109.pn.pn.i1275, %.loopexit546.i1274 ]
   call void @_ZNSt12__shared_ptrIN5arrow7compute8internal12CastFunctionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %282) #27
   br label %7287
 
@@ -25771,7 +25771,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i471.i1813: ; preds = 
   br label %8828
 
 8828:                                             ; preds = %.loopexit.i1781, %.loopexit544.i1753, %.loopexit545.i1725, %.loopexit546.i1697, %.body295.i1646, %8128, %.body252.i1586, %7908, %.body210.i1527, %7688, %7673, %7522, %7513, %7511
-  %.pn134.pn.pn.pn.i1441 = phi { ptr, i32 } [ %7512, %7511 ], [ %7689, %7688 ], [ %7909, %7908 ], [ %8129, %8128 ], [ %.pn105.pn.pn.i1484, %7673 ], [ %.pn.pn.pn.i1449, %7522 ], [ %7514, %7513 ], [ %.pn134.pn.i1528, %.body210.i1527 ], [ %.pn130.pn.i1587, %.body252.i1586 ], [ %.pn126.pn.i1647, %.body295.i1646 ], [ %.pn121.pn.pn.i1782, %.loopexit.i1781 ], [ %.pn117.pn.pn.i1754, %.loopexit544.i1753 ], [ %.pn113.pn.pn.i1726, %.loopexit545.i1725 ], [ %.pn109.pn.pn.i1698, %.loopexit546.i1697 ]
+  %.pn134.pn.pn.pn.i1441 = phi { ptr, i32 } [ %.pn105.pn.pn.i1484, %7673 ], [ %.pn.pn.pn.i1449, %7522 ], [ %7514, %7513 ], [ %7512, %7511 ], [ %.pn134.pn.i1528, %.body210.i1527 ], [ %7689, %7688 ], [ %.pn130.pn.i1587, %.body252.i1586 ], [ %7909, %7908 ], [ %.pn126.pn.i1647, %.body295.i1646 ], [ %8129, %8128 ], [ %.pn121.pn.pn.i1782, %.loopexit.i1781 ], [ %.pn117.pn.pn.i1754, %.loopexit544.i1753 ], [ %.pn113.pn.pn.i1726, %.loopexit545.i1725 ], [ %.pn109.pn.pn.i1698, %.loopexit546.i1697 ]
   call void @_ZNSt12__shared_ptrIN5arrow7compute8internal12CastFunctionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %283) #27
   br label %8829
 
@@ -32072,7 +32072,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit386:
   br label %.body196
 
 .body196:                                         ; preds = %1638, %.body146.i, %.body97.i, %1007, %1001, %356, %.body106, %102, %.body, %.loopexit, %.loopexit428, %.loopexit429, %.loopexit430, %.loopexit432
-  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit432 ], [ %103, %102 ], [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %357, %356 ], [ %.pn70, %.body ], [ %.pn67, %.body106 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
+  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %.pn.pn, %.loopexit432 ], [ %.pn70, %.body ], [ %103, %102 ], [ %.pn67, %.body106 ], [ %357, %356 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
   call void @_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #27
   br label %2115
 
@@ -37230,7 +37230,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit386:
   br label %.body196
 
 .body196:                                         ; preds = %1638, %.body146.i, %.body97.i, %1007, %1001, %356, %.body106, %102, %.body, %.loopexit, %.loopexit428, %.loopexit429, %.loopexit430, %.loopexit432
-  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit432 ], [ %103, %102 ], [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %357, %356 ], [ %.pn70, %.body ], [ %.pn67, %.body106 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
+  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %.pn.pn, %.loopexit432 ], [ %.pn70, %.body ], [ %103, %102 ], [ %.pn67, %.body106 ], [ %357, %356 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
   call void @_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #27
   br label %2115
 
@@ -42280,7 +42280,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit386:
   br label %.body196
 
 .body196:                                         ; preds = %1638, %.body146.i, %.body97.i, %1007, %1001, %356, %.body106, %102, %.body, %.loopexit, %.loopexit428, %.loopexit429, %.loopexit430, %.loopexit432
-  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit432 ], [ %103, %102 ], [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %357, %356 ], [ %.pn70, %.body ], [ %.pn67, %.body106 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
+  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %.pn.pn, %.loopexit432 ], [ %.pn70, %.body ], [ %103, %102 ], [ %.pn67, %.body106 ], [ %357, %356 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
   call void @_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #27
   br label %2115
 
@@ -47336,7 +47336,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit386:
   br label %.body196
 
 .body196:                                         ; preds = %1638, %.body146.i, %.body97.i, %1007, %1001, %356, %.body106, %102, %.body, %.loopexit, %.loopexit428, %.loopexit429, %.loopexit430, %.loopexit432
-  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit432 ], [ %103, %102 ], [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %357, %356 ], [ %.pn70, %.body ], [ %.pn67, %.body106 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
+  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %.pn.pn, %.loopexit432 ], [ %.pn70, %.body ], [ %103, %102 ], [ %.pn67, %.body106 ], [ %357, %356 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
   call void @_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #27
   br label %2115
 
@@ -52388,7 +52388,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit386:
   br label %.body196
 
 .body196:                                         ; preds = %1638, %.body146.i, %.body97.i, %1007, %1001, %356, %.body106, %102, %.body, %.loopexit, %.loopexit428, %.loopexit429, %.loopexit430, %.loopexit432
-  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit432 ], [ %103, %102 ], [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %357, %356 ], [ %.pn70, %.body ], [ %.pn67, %.body106 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
+  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %.pn.pn, %.loopexit432 ], [ %.pn70, %.body ], [ %103, %102 ], [ %.pn67, %.body106 ], [ %357, %356 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
   call void @_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #27
   br label %2115
 
@@ -57438,7 +57438,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit386:
   br label %.body196
 
 .body196:                                         ; preds = %1638, %.body146.i, %.body97.i, %1007, %1001, %356, %.body106, %102, %.body, %.loopexit, %.loopexit428, %.loopexit429, %.loopexit430, %.loopexit432
-  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit432 ], [ %103, %102 ], [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %357, %356 ], [ %.pn70, %.body ], [ %.pn67, %.body106 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
+  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %.pn.pn, %.loopexit432 ], [ %.pn70, %.body ], [ %103, %102 ], [ %.pn67, %.body106 ], [ %357, %356 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
   call void @_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #27
   br label %2115
 
@@ -62488,7 +62488,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit386:
   br label %.body196
 
 .body196:                                         ; preds = %1638, %.body146.i, %.body97.i, %1007, %1001, %356, %.body106, %102, %.body, %.loopexit, %.loopexit428, %.loopexit429, %.loopexit430, %.loopexit432
-  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit432 ], [ %103, %102 ], [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %357, %356 ], [ %.pn70, %.body ], [ %.pn67, %.body106 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
+  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %.pn.pn, %.loopexit432 ], [ %.pn70, %.body ], [ %103, %102 ], [ %.pn67, %.body106 ], [ %357, %356 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
   call void @_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #27
   br label %2115
 
@@ -67538,7 +67538,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit386:
   br label %.body196
 
 .body196:                                         ; preds = %1638, %.body146.i, %.body97.i, %1007, %1001, %356, %.body106, %102, %.body, %.loopexit, %.loopexit428, %.loopexit429, %.loopexit430, %.loopexit432
-  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit432 ], [ %103, %102 ], [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %357, %356 ], [ %.pn70, %.body ], [ %.pn67, %.body106 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
+  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %.pn.pn, %.loopexit432 ], [ %.pn70, %.body ], [ %103, %102 ], [ %.pn67, %.body106 ], [ %357, %356 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
   call void @_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #27
   br label %2115
 
@@ -72588,7 +72588,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit386:
   br label %.body196
 
 .body196:                                         ; preds = %1638, %.body146.i, %.body97.i, %1007, %1001, %356, %.body106, %102, %.body, %.loopexit, %.loopexit428, %.loopexit429, %.loopexit430, %.loopexit432
-  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit432 ], [ %103, %102 ], [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %357, %356 ], [ %.pn70, %.body ], [ %.pn67, %.body106 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
+  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %.pn.pn, %.loopexit432 ], [ %.pn70, %.body ], [ %103, %102 ], [ %.pn67, %.body106 ], [ %357, %356 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
   call void @_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #27
   br label %2115
 
@@ -77638,7 +77638,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit386:
   br label %.body196
 
 .body196:                                         ; preds = %1638, %.body146.i, %.body97.i, %1007, %1001, %356, %.body106, %102, %.body, %.loopexit, %.loopexit428, %.loopexit429, %.loopexit430, %.loopexit432
-  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit432 ], [ %103, %102 ], [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %357, %356 ], [ %.pn70, %.body ], [ %.pn67, %.body106 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
+  %.pn70.pn.pn = phi { ptr, i32 } [ %.pn64.pn, %.loopexit ], [ %.pn61.pn, %.loopexit428 ], [ %.pn58.pn, %.loopexit429 ], [ %.pn55.pn, %.loopexit430 ], [ %.pn.pn, %.loopexit432 ], [ %.pn70, %.body ], [ %103, %102 ], [ %.pn67, %.body106 ], [ %357, %356 ], [ %1639, %1638 ], [ %.pn51.i, %.body97.i ], [ %.pn49.i, %.body146.i ], [ %.pn.pn.i, %1007 ], [ %1002, %1001 ]
   call void @_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #27
   br label %2115
 
@@ -78256,8 +78256,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !382
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
   %77 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %77, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_13HalfFloatTypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !383
 
@@ -78824,8 +78824,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !411
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
   %73 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %73, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_13HalfFloatTypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !412
 
@@ -80071,8 +80071,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7comp
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !445
 
 .loopexit.i.i.i.i:                                ; preds = %164, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %91, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %165, %164 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %100, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %93, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %97, %164 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %91, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %165, %164 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %100, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %93, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %97, %164 ]
   %167 = icmp slt i64 %.2.i.i.i.i, %27
   br i1 %167, label %33, label %.loopexit24, !llvm.loop !446
 
@@ -80106,7 +80106,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7comp
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i30.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i.i.i.i, %168
-  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %118, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i30.i.i.i.i ], [ %45, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit18, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %45, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i.i.i.i ], [ %118, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i30.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit18, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %170 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %170, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %171, !prof !225
@@ -80531,8 +80531,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7co
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !453
 
 .loopexit.i.i.i.i:                                ; preds = %164, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %91, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %165, %164 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %100, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %93, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %97, %164 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %91, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %165, %164 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %100, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %93, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %97, %164 ]
   %167 = icmp slt i64 %.2.i.i.i.i, %27
   br i1 %167, label %33, label %.loopexit24, !llvm.loop !454
 
@@ -80566,7 +80566,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7co
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i30.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i.i.i.i, %168
-  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %123, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i30.i.i.i.i ], [ %50, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit18, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %50, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i.i.i.i ], [ %123, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i30.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit18, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %170 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %170, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %171, !prof !225
@@ -82159,7 +82159,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.011.i.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %103 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   store i32 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 4
@@ -82379,7 +82379,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.011.i38.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.011.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %184
 
@@ -82392,8 +82392,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13Ker
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !531
 
 .loopexit.i.i.i.i:                                ; preds = %184, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
   %187 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %187, label %37, label %.loopexit25, !llvm.loop !532
 
@@ -82427,7 +82427,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EaEET_PNS0_13Ker
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i, %188
-  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %143, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i ], [ %62, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %62, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i ], [ %143, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %190 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %190, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %191, !prof !225
@@ -82796,7 +82796,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.011.i.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %103 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   store i32 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 4
@@ -83016,7 +83016,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.011.i38.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.011.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %184
 
@@ -83029,8 +83029,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13Ker
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !551
 
 .loopexit.i.i.i.i:                                ; preds = %184, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
   %187 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %187, label %37, label %.loopexit25, !llvm.loop !552
 
@@ -83064,7 +83064,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EsEET_PNS0_13Ker
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i, %188
-  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %143, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i ], [ %62, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %62, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i ], [ %143, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %190 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %190, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %191, !prof !225
@@ -83339,7 +83339,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.011.i.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %55, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %55, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %102 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   store i32 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 4
@@ -83558,7 +83558,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.011.i38.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %135, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.011.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %135, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %182
 
@@ -83571,8 +83571,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13Ker
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !571
 
 .loopexit.i.i.i.i:                                ; preds = %182, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %102, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %183, %182 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %111, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %104, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %108, %182 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %102, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %183, %182 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %111, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %104, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %108, %182 ]
   %185 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %185, label %37, label %.loopexit25, !llvm.loop !572
 
@@ -83606,7 +83606,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EiEET_PNS0_13Ker
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i, %186
-  %.pn = phi { ptr, i32 } [ %187, %186 ], [ %141, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i ], [ %61, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %187, %186 ], [ %61, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i ], [ %141, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %188 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %188, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %189, !prof !225
@@ -83882,7 +83882,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.011.i.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %103 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   store i32 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 4
@@ -84102,7 +84102,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.011.i38.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.011.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %184
 
@@ -84115,8 +84115,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13Ker
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !591
 
 .loopexit.i.i.i.i:                                ; preds = %184, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
   %187 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %187, label %37, label %.loopexit25, !llvm.loop !592
 
@@ -84150,7 +84150,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32ElEET_PNS0_13Ker
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i, %188
-  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %143, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i ], [ %62, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %62, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i ], [ %143, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %190 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %190, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %191, !prof !225
@@ -84426,7 +84426,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.011.i.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %103 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   store i32 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 4
@@ -84646,7 +84646,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.011.i38.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.011.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %184
 
@@ -84659,8 +84659,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13Ker
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !611
 
 .loopexit.i.i.i.i:                                ; preds = %184, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
   %187 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %187, label %37, label %.loopexit25, !llvm.loop !612
 
@@ -84694,7 +84694,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EhEET_PNS0_13Ker
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i, %188
-  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %143, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i ], [ %62, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %62, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i ], [ %143, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %190 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %190, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %191, !prof !225
@@ -84970,7 +84970,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.011.i.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %103 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   store i32 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 4
@@ -85190,7 +85190,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.011.i38.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.011.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %184
 
@@ -85203,8 +85203,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13Ker
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !631
 
 .loopexit.i.i.i.i:                                ; preds = %184, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
   %187 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %187, label %37, label %.loopexit25, !llvm.loop !632
 
@@ -85238,7 +85238,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EtEET_PNS0_13Ker
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i, %188
-  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %143, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i ], [ %62, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %62, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i ], [ %143, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %190 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %190, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %191, !prof !225
@@ -85513,7 +85513,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.011.i.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %55, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %55, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %102 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   store i32 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 4
@@ -85732,7 +85732,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.011.i38.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %135, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.011.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %135, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %182
 
@@ -85745,8 +85745,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13Ker
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !651
 
 .loopexit.i.i.i.i:                                ; preds = %182, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %102, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %183, %182 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %111, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %104, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %108, %182 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %102, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %183, %182 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %111, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %104, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %108, %182 ]
   %185 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %185, label %37, label %.loopexit25, !llvm.loop !652
 
@@ -85780,7 +85780,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EjEET_PNS0_13Ker
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i, %186
-  %.pn = phi { ptr, i32 } [ %187, %186 ], [ %141, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i ], [ %61, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %187, %186 ], [ %61, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i ], [ %141, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %188 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %188, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %189, !prof !225
@@ -86056,7 +86056,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.011.i.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %103 = getelementptr inbounds nuw i8, ptr %.4, i64 4
   store i32 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 4
@@ -86276,7 +86276,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.011.i38.i.i.i.i = phi i32 [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.011.i38.i.i.i.i = phi i32 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal327RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal327RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %184
 
@@ -86289,8 +86289,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13Ker
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !671
 
 .loopexit.i.i.i.i:                                ; preds = %184, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
   %187 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %187, label %37, label %.loopexit25, !llvm.loop !672
 
@@ -86324,7 +86324,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal32EmEET_PNS0_13Ker
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i, %188
-  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %143, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i ], [ %62, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %62, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i.i.i.i.i ], [ %143, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %190 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %190, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %191, !prof !225
@@ -86618,8 +86618,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !683
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i.preheader, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
   %77 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %77, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES3_NS7_15StringToDecimalEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, !llvm.loop !684
 
@@ -86901,7 +86901,7 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit23:      ; preds = %86, %82, %80, %53
   br label %97
 
 _ZN5arrow6StatusaSERKS0_.exit26:                  ; preds = %89, %25, %28, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit
-  %.sroa.034.0.ph = phi i32 [ 0, %89 ], [ %27, %25 ], [ %.sroa.034.1, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit ], [ %30, %28 ]
+  %.sroa.034.0.ph = phi i32 [ 0, %89 ], [ %30, %28 ], [ %27, %25 ], [ %.sroa.034.1, %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit ]
   %.pr35 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i27 = icmp eq ptr %.pr35, null
   br i1 %.not.i27, label %_ZN5arrow6StatusD2Ev.exit28, label %_ZN5arrow6StatusaSERKS0_.exit26.thread, !prof !696
@@ -87189,8 +87189,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !704
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i.preheader, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
   %73 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %73, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES3_NS7_15StringToDecimalEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, !llvm.loop !705
 
@@ -87509,8 +87509,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !723
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc12, %.noexc11, %.lr.ph39.i.i.i.i.preheader, %.preheader31.i.i.i.i, %.preheader33.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader33.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph39.i.i.i.i.preheader ], [ %.0, %.preheader31.i.i.i.i ], [ %61, %.noexc11 ], [ %105, %.noexc12 ]
-  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %70, %.lr.ph39.i.i.i.i.preheader ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph39.i.i.i.i.preheader ], [ %.0, %.preheader31.i.i.i.i ], [ %.0, %.preheader33.i.i.i.i ], [ %61, %.noexc11 ], [ %105, %.noexc12 ]
+  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %70, %.lr.ph39.i.i.i.i.preheader ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
   %107 = icmp slt i64 %.2.i.i.i.i, %31
   br i1 %107, label %.lr.ph46.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal32TypeES3_NS7_15StringToDecimalEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, !llvm.loop !724
 
@@ -91816,8 +91816,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7comp
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !843
 
 .loopexit.i.i.i.i:                                ; preds = %164, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %91, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %165, %164 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %100, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %93, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %97, %164 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %91, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %165, %164 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %100, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %93, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %97, %164 ]
   %167 = icmp slt i64 %.2.i.i.i.i, %27
   br i1 %167, label %33, label %.loopexit24, !llvm.loop !844
 
@@ -91851,7 +91851,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7comp
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i30.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i.i.i.i, %168
-  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %118, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i30.i.i.i.i ], [ %45, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit18, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %45, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i.i.i.i ], [ %118, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i30.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit18, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %170 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %170, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %171, !prof !225
@@ -92274,8 +92274,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7co
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !849
 
 .loopexit.i.i.i.i:                                ; preds = %164, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %91, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %165, %164 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %100, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %93, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %97, %164 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %91, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %165, %164 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %100, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %93, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %97, %164 ]
   %167 = icmp slt i64 %.2.i.i.i.i, %27
   br i1 %167, label %33, label %.loopexit24, !llvm.loop !850
 
@@ -92309,7 +92309,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7co
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i30.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i.i.i.i, %168
-  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %123, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i30.i.i.i.i ], [ %50, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit18, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %50, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i.i.i.i ], [ %123, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i30.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit18, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %170 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %170, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %171, !prof !225
@@ -93627,7 +93627,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.011.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %103 = getelementptr inbounds nuw i8, ptr %.4, i64 8
   store i64 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 8
@@ -93847,7 +93847,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.011.i38.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.011.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %184
 
@@ -93860,8 +93860,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13Ker
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !919
 
 .loopexit.i.i.i.i:                                ; preds = %184, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
   %187 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %187, label %37, label %.loopexit25, !llvm.loop !920
 
@@ -93895,7 +93895,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EaEET_PNS0_13Ker
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i, %188
-  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %143, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i ], [ %62, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %62, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i ], [ %143, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %190 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %190, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %191, !prof !225
@@ -94264,7 +94264,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.011.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %103 = getelementptr inbounds nuw i8, ptr %.4, i64 8
   store i64 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 8
@@ -94484,7 +94484,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.011.i38.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.011.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %184
 
@@ -94497,8 +94497,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13Ker
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !939
 
 .loopexit.i.i.i.i:                                ; preds = %184, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
   %187 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %187, label %37, label %.loopexit25, !llvm.loop !940
 
@@ -94532,7 +94532,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EsEET_PNS0_13Ker
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i, %188
-  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %143, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i ], [ %62, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %62, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i ], [ %143, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %190 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %190, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %191, !prof !225
@@ -94808,7 +94808,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.011.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %103 = getelementptr inbounds nuw i8, ptr %.4, i64 8
   store i64 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 8
@@ -95028,7 +95028,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.011.i38.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.011.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %184
 
@@ -95041,8 +95041,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13Ker
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !959
 
 .loopexit.i.i.i.i:                                ; preds = %184, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
   %187 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %187, label %37, label %.loopexit25, !llvm.loop !960
 
@@ -95076,7 +95076,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EiEET_PNS0_13Ker
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i, %188
-  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %143, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i ], [ %62, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %62, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i ], [ %143, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %190 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %190, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %191, !prof !225
@@ -95351,7 +95351,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.011.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %55, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %55, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %102 = getelementptr inbounds nuw i8, ptr %.4, i64 8
   store i64 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 8
@@ -95570,7 +95570,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.011.i38.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %135, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.011.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %135, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %182
 
@@ -95583,8 +95583,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13Ker
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !979
 
 .loopexit.i.i.i.i:                                ; preds = %182, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %102, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %183, %182 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %111, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %104, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %108, %182 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %102, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %183, %182 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %111, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %104, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %108, %182 ]
   %185 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %185, label %37, label %.loopexit25, !llvm.loop !980
 
@@ -95618,7 +95618,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64ElEET_PNS0_13Ker
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i, %186
-  %.pn = phi { ptr, i32 } [ %187, %186 ], [ %141, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i ], [ %61, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %187, %186 ], [ %61, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i ], [ %141, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %188 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %188, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %189, !prof !225
@@ -95894,7 +95894,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.011.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %103 = getelementptr inbounds nuw i8, ptr %.4, i64 8
   store i64 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 8
@@ -96114,7 +96114,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.011.i38.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.011.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %184
 
@@ -96127,8 +96127,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13Ker
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !999
 
 .loopexit.i.i.i.i:                                ; preds = %184, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
   %187 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %187, label %37, label %.loopexit25, !llvm.loop !1000
 
@@ -96162,7 +96162,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EhEET_PNS0_13Ker
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i, %188
-  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %143, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i ], [ %62, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %62, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i ], [ %143, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %190 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %190, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %191, !prof !225
@@ -96438,7 +96438,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.011.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %103 = getelementptr inbounds nuw i8, ptr %.4, i64 8
   store i64 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 8
@@ -96658,7 +96658,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.011.i38.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.011.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %184
 
@@ -96671,8 +96671,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13Ker
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1019
 
 .loopexit.i.i.i.i:                                ; preds = %184, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
   %187 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %187, label %37, label %.loopexit25, !llvm.loop !1020
 
@@ -96706,7 +96706,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EtEET_PNS0_13Ker
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i, %188
-  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %143, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i ], [ %62, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %62, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i ], [ %143, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %190 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %190, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %191, !prof !225
@@ -96982,7 +96982,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.011.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %56, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %103 = getelementptr inbounds nuw i8, ptr %.4, i64 8
   store i64 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 8
@@ -97202,7 +97202,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.011.i38.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.011.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %137, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %184
 
@@ -97215,8 +97215,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13Ker
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1039
 
 .loopexit.i.i.i.i:                                ; preds = %184, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %103, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %185, %184 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %112, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %109, %184 ]
   %187 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %187, label %37, label %.loopexit25, !llvm.loop !1040
 
@@ -97250,7 +97250,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EjEET_PNS0_13Ker
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i, %188
-  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %143, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i ], [ %62, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %62, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i ], [ %143, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %190 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %190, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %191, !prof !225
@@ -97525,7 +97525,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i:        ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i
-  %.sroa.0.011.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %55, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i.i.i.i.i ], [ %55, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %102 = getelementptr inbounds nuw i8, ptr %.4, i64 8
   store i64 %.sroa.0.011.i.i.i.i.i, ptr %.4, align 8
@@ -97744,7 +97744,7 @@ _ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i:      ; preds = %_ZNSt12__shared_ptr
   br label %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i
 
 _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit43.i.i.i.i: ; preds = %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i
-  %.sroa.0.011.i38.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %135, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
+  %.sroa.0.011.i38.i.i.i.i = phi i64 [ 0, %_ZN5arrow6StatusaSERKS0_.exit.i34.i.i.i.i ], [ 0, %_ZN5arrow6StatusaSERKS0_.exit.thread12.i37.i.i.i.i ], [ %135, %_ZNK5arrow9Decimal647RescaleEii.exit.thread.i42.i.i.i.i ], [ %.sroa.0.0.copyload.i.pre.i41.i.i.i.i, %_ZNK5arrow9Decimal647RescaleEii.exit._crit_edge.i39.i.i.i.i ], [ 0, %_ZN5arrow6Status5StateD2Ev.exit.i50.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %182
 
@@ -97757,8 +97757,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13Ker
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1059
 
 .loopexit.i.i.i.i:                                ; preds = %182, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %102, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %183, %182 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %111, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %104, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %108, %182 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %102, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %183, %182 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %111, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %104, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %108, %182 ]
   %185 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %185, label %37, label %.loopexit25, !llvm.loop !1060
 
@@ -97792,7 +97792,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_9Decimal64EmEET_PNS0_13Ker
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i, %186
-  %.pn = phi { ptr, i32 } [ %187, %186 ], [ %141, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i ], [ %61, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %187, %186 ], [ %61, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i.i.i.i.i ], [ %141, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %188 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %188, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %189, !prof !225
@@ -98086,8 +98086,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1071
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i.preheader, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
   %77 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %77, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES3_NS7_15StringToDecimalEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, !llvm.loop !1072
 
@@ -98369,7 +98369,7 @@ _ZN5arrow6ResultINS_9Decimal64EED2Ev.exit23:      ; preds = %86, %82, %80, %53
   br label %97
 
 _ZN5arrow6StatusaSERKS0_.exit26:                  ; preds = %89, %25, %28, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit
-  %.sroa.034.0.ph = phi i64 [ 0, %89 ], [ %27, %25 ], [ %.sroa.034.1, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit ], [ %30, %28 ]
+  %.sroa.034.0.ph = phi i64 [ 0, %89 ], [ %30, %28 ], [ %27, %25 ], [ %.sroa.034.1, %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit ]
   %.pr35 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i27 = icmp eq ptr %.pr35, null
   br i1 %.not.i27, label %_ZN5arrow6StatusD2Ev.exit28, label %_ZN5arrow6StatusaSERKS0_.exit26.thread, !prof !696
@@ -98583,8 +98583,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1084
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i.preheader, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
   %73 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %73, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES3_NS7_15StringToDecimalEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, !llvm.loop !1085
 
@@ -98903,8 +98903,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1093
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc12, %.noexc11, %.lr.ph39.i.i.i.i.preheader, %.preheader31.i.i.i.i, %.preheader33.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader33.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph39.i.i.i.i.preheader ], [ %.0, %.preheader31.i.i.i.i ], [ %61, %.noexc11 ], [ %105, %.noexc12 ]
-  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %70, %.lr.ph39.i.i.i.i.preheader ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph39.i.i.i.i.preheader ], [ %.0, %.preheader31.i.i.i.i ], [ %.0, %.preheader33.i.i.i.i ], [ %61, %.noexc11 ], [ %105, %.noexc12 ]
+  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %70, %.lr.ph39.i.i.i.i.preheader ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
   %107 = icmp slt i64 %.2.i.i.i.i, %31
   br i1 %107, label %.lr.ph46.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_13Decimal64TypeES3_NS7_15StringToDecimalEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, !llvm.loop !1094
 
@@ -103550,8 +103550,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7comp
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1205
 
 .loopexit.i.i.i.i:                                ; preds = %165, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %91, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %.3, %165 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %100, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %93, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %97, %165 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %91, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %.3, %165 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %100, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %93, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %97, %165 ]
   %167 = icmp slt i64 %.2.i.i.i.i, %27
   br i1 %167, label %33, label %.loopexit26, !llvm.loop !1206
 
@@ -103585,7 +103585,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7comp
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i30.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i.i.i.i, %168
-  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %123, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i30.i.i.i.i ], [ %50, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit20, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %50, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i.i.i.i ], [ %123, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i30.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit20, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %170 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %170, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %171, !prof !225
@@ -104021,8 +104021,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7co
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1211
 
 .loopexit.i.i.i.i:                                ; preds = %165, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %91, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %.3, %165 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %100, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %93, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %97, %165 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %91, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %.3, %165 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %100, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %93, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %97, %165 ]
   %167 = icmp slt i64 %.2.i.i.i.i, %27
   br i1 %167, label %33, label %.loopexit26, !llvm.loop !1212
 
@@ -104056,7 +104056,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7co
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i30.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i.i.i.i, %168
-  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %123, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i30.i.i.i.i ], [ %50, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit20, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %50, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i.i.i.i ], [ %123, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i30.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit20, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %170 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %170, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %171, !prof !225
@@ -105628,8 +105628,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13K
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1279
 
 .loopexit.i.i.i.i:                                ; preds = %187, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %106, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %187 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %115, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %112, %187 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %106, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %187 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %115, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %112, %187 ]
   %189 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %189, label %41, label %.loopexit27, !llvm.loop !1280
 
@@ -105663,7 +105663,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EaEET_PNS0_13K
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i36.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i, %190
-  %.pn = phi { ptr, i32 } [ %191, %190 ], [ %145, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i36.i.i.i.i ], [ %65, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %191, %190 ], [ %65, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i ], [ %145, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i36.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %192 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %192, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %193, !prof !225
@@ -106193,8 +106193,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13K
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1299
 
 .loopexit.i.i.i.i:                                ; preds = %187, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %106, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %187 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %115, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %112, %187 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %106, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %187 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %115, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %112, %187 ]
   %189 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %189, label %41, label %.loopexit27, !llvm.loop !1300
 
@@ -106228,7 +106228,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EsEET_PNS0_13K
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i36.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i, %190
-  %.pn = phi { ptr, i32 } [ %191, %190 ], [ %145, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i36.i.i.i.i ], [ %65, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %191, %190 ], [ %65, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i ], [ %145, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i36.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %192 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %192, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %193, !prof !225
@@ -106758,8 +106758,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13K
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1319
 
 .loopexit.i.i.i.i:                                ; preds = %187, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %106, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %187 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %115, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %112, %187 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %106, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %187 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %115, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %112, %187 ]
   %189 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %189, label %41, label %.loopexit27, !llvm.loop !1320
 
@@ -106793,7 +106793,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EiEET_PNS0_13K
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i36.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i, %190
-  %.pn = phi { ptr, i32 } [ %191, %190 ], [ %145, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i36.i.i.i.i ], [ %65, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %191, %190 ], [ %65, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i ], [ %145, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i36.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %192 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %192, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %193, !prof !225
@@ -107319,8 +107319,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13K
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1339
 
 .loopexit.i.i.i.i:                                ; preds = %185, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %185 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %114, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %107, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %111, %185 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %185 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %114, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %107, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %111, %185 ]
   %187 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %187, label %41, label %.loopexit27, !llvm.loop !1340
 
@@ -107354,7 +107354,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128ElEET_PNS0_13K
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i35.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i, %188
-  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %143, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i35.i.i.i.i ], [ %64, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %64, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i ], [ %143, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i35.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %190 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %190, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %191, !prof !225
@@ -107880,8 +107880,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13K
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1359
 
 .loopexit.i.i.i.i:                                ; preds = %187, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %106, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %187 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %115, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %112, %187 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %106, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %187 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %115, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %112, %187 ]
   %189 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %189, label %41, label %.loopexit27, !llvm.loop !1360
 
@@ -107915,7 +107915,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EhEET_PNS0_13K
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i34.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i, %190
-  %.pn = phi { ptr, i32 } [ %191, %190 ], [ %145, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i34.i.i.i.i ], [ %65, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %191, %190 ], [ %65, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i ], [ %145, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i34.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %192 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %192, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %193, !prof !225
@@ -108441,8 +108441,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13K
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1379
 
 .loopexit.i.i.i.i:                                ; preds = %187, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %106, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %187 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %115, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %112, %187 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %106, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %187 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %115, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %112, %187 ]
   %189 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %189, label %41, label %.loopexit27, !llvm.loop !1380
 
@@ -108476,7 +108476,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EtEET_PNS0_13K
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i34.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i, %190
-  %.pn = phi { ptr, i32 } [ %191, %190 ], [ %145, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i34.i.i.i.i ], [ %65, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %191, %190 ], [ %65, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i ], [ %145, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i34.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %192 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %192, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %193, !prof !225
@@ -109002,8 +109002,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13K
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1399
 
 .loopexit.i.i.i.i:                                ; preds = %187, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %106, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %187 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %115, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %112, %187 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %106, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %187 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %115, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %112, %187 ]
   %189 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %189, label %41, label %.loopexit27, !llvm.loop !1400
 
@@ -109037,7 +109037,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EjEET_PNS0_13K
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i34.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i, %190
-  %.pn = phi { ptr, i32 } [ %191, %190 ], [ %145, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i34.i.i.i.i ], [ %65, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %191, %190 ], [ %65, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i ], [ %145, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i34.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %192 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %192, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %193, !prof !225
@@ -109561,8 +109561,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13K
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1419
 
 .loopexit.i.i.i.i:                                ; preds = %185, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %185 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %114, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %107, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %111, %185 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %105, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %185 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %114, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %107, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %111, %185 ]
   %187 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %187, label %41, label %.loopexit27, !llvm.loop !1420
 
@@ -109596,7 +109596,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal128EmEET_PNS0_13K
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i34.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i, %188
-  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %143, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i34.i.i.i.i ], [ %64, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %64, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i.i.i.i.i ], [ %143, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit.i34.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %190 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %190, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %191, !prof !225
@@ -109904,8 +109904,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1431
 
 .loopexit.i.i.i.i:                                ; preds = %80, %.noexc10, %.lr.ph39.i.i.i.i.preheader, %.preheader31.i.i.i.i, %.preheader33.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader33.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph39.i.i.i.i.preheader ], [ %.0, %.preheader31.i.i.i.i ], [ %48, %.noexc10 ], [ %.3, %80 ]
-  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %57, %.lr.ph39.i.i.i.i.preheader ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %50, %.noexc10 ], [ %54, %80 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph39.i.i.i.i.preheader ], [ %.0, %.preheader31.i.i.i.i ], [ %.0, %.preheader33.i.i.i.i ], [ %48, %.noexc10 ], [ %.3, %80 ]
+  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %57, %.lr.ph39.i.i.i.i.preheader ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %50, %.noexc10 ], [ %54, %80 ]
   %82 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %82, label %.lr.ph46.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES3_NS7_15StringToDecimalEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, !llvm.loop !1432
 
@@ -110199,8 +110199,8 @@ _ZN5arrow6ResultINS_10Decimal128EED2Ev.exit23:    ; preds = %91, %87, %85, %58
   br label %102
 
 _ZN5arrow6StatusaSERKS0_.exit26:                  ; preds = %94, %28, %34, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit
-  %.sroa.635.0.ph = phi i64 [ 0, %94 ], [ %30, %28 ], [ %.sroa.635.1, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit ], [ %36, %34 ]
-  %.sroa.034.0.ph = phi i64 [ 0, %94 ], [ %29, %28 ], [ %.sroa.034.1, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit ], [ %35, %34 ]
+  %.sroa.635.0.ph = phi i64 [ 0, %94 ], [ %36, %34 ], [ %30, %28 ], [ %.sroa.635.1, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit ]
+  %.sroa.034.0.ph = phi i64 [ 0, %94 ], [ %35, %34 ], [ %29, %28 ], [ %.sroa.034.1, %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit ]
   %.pr40 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i27 = icmp eq ptr %.pr40, null
   br i1 %.not.i27, label %_ZN5arrow6StatusD2Ev.exit28, label %_ZN5arrow6StatusaSERKS0_.exit26.thread, !prof !696
@@ -110426,8 +110426,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1444
 
 .loopexit.i.i.i.i:                                ; preds = %76, %.noexc10, %.lr.ph39.i.i.i.i.preheader, %.preheader31.i.i.i.i, %.preheader33.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader33.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph39.i.i.i.i.preheader ], [ %.0, %.preheader31.i.i.i.i ], [ %46, %.noexc10 ], [ %.3, %76 ]
-  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph39.i.i.i.i.preheader ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %76 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph39.i.i.i.i.preheader ], [ %.0, %.preheader31.i.i.i.i ], [ %.0, %.preheader33.i.i.i.i ], [ %46, %.noexc10 ], [ %.3, %76 ]
+  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph39.i.i.i.i.preheader ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %76 ]
   %78 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %78, label %.lr.ph46.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES3_NS7_15StringToDecimalEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, !llvm.loop !1445
 
@@ -110760,8 +110760,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1453
 
 .loopexit.i.i.i.i:                                ; preds = %110, %.noexc11, %.lr.ph40.i.i.i.i.preheader, %.preheader32.i.i.i.i, %.preheader34.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader34.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph40.i.i.i.i.preheader ], [ %.0, %.preheader32.i.i.i.i ], [ %63, %.noexc11 ], [ %.3, %110 ]
-  %.2.i.i.i.i = phi i64 [ %.02446.i.i.i.i, %.preheader34.i.i.i.i ], [ %.02446.i.i.i.i, %.preheader.i.i.i.i ], [ %72, %.lr.ph40.i.i.i.i.preheader ], [ %.02446.i.i.i.i, %.preheader32.i.i.i.i ], [ %65, %.noexc11 ], [ %69, %110 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph40.i.i.i.i.preheader ], [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader34.i.i.i.i ], [ %63, %.noexc11 ], [ %.3, %110 ]
+  %.2.i.i.i.i = phi i64 [ %.02446.i.i.i.i, %.preheader.i.i.i.i ], [ %72, %.lr.ph40.i.i.i.i.preheader ], [ %.02446.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02446.i.i.i.i, %.preheader34.i.i.i.i ], [ %65, %.noexc11 ], [ %69, %110 ]
   %112 = icmp slt i64 %.2.i.i.i.i, %31
   br i1 %112, label %.lr.ph47.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeES3_NS7_15StringToDecimalEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, !llvm.loop !1454
 
@@ -115370,8 +115370,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7comp
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1571
 
 .loopexit.i.i.i.i:                                ; preds = %169, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal256TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %93, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal256TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %.3, %169 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %102, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %95, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal256TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %99, %169 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %93, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal256TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %.3, %169 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %102, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %95, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal256TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlfE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUlfE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %99, %169 ]
   %171 = icmp slt i64 %.2.i.i.i.i, %27
   br i1 %171, label %33, label %.loopexit26, !llvm.loop !1572
 
@@ -115405,7 +115405,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7comp
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i31.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i.i.i.i, %172
-  %.pn = phi { ptr, i32 } [ %173, %172 ], [ %125, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i31.i.i.i.i ], [ %50, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit20, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %173, %172 ], [ %50, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i.i.i.i ], [ %125, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i31.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit20, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %174 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %174, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %175, !prof !225
@@ -115847,8 +115847,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7co
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1583
 
 .loopexit.i.i.i.i:                                ; preds = %169, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal256TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i, %.lr.ph15.i.i.i.i.preheader, %.preheader5.i.i.i.i, %.preheader7.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %93, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal256TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %.3, %169 ]
-  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %102, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %95, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal256TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %99, %169 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph15.i.i.i.i.preheader ], [ %.0, %.preheader5.i.i.i.i ], [ %.0, %.preheader7.i.i.i.i ], [ %93, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal256TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %.3, %169 ]
+  %.2.i.i.i.i = phi i64 [ %.02421.i.i.i.i, %.preheader.i.i.i.i ], [ %102, %.lr.ph15.i.i.i.i.preheader ], [ %.02421.i.i.i.i, %.preheader5.i.i.i.i ], [ %.02421.i.i.i.i, %.preheader7.i.i.i.i ], [ %95, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal256TypeES2_NS6_13RealToDecimalEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUldE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSR_OT1_EUldE_SP_EEvSL_OT_SV_ENKUllE_clEl.exit.i.i.i.i ], [ %99, %169 ]
   %171 = icmp slt i64 %.2.i.i.i.i, %27
   br i1 %171, label %33, label %.loopexit26, !llvm.loop !1584
 
@@ -115882,7 +115882,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7co
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i31.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i.i.i.i, %172
-  %.pn = phi { ptr, i32 } [ %173, %172 ], [ %125, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i31.i.i.i.i ], [ %50, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit20, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %173, %172 ], [ %50, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i.i.i.i ], [ %125, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i31.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit20, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %174 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %174, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %175, !prof !225
@@ -117472,8 +117472,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EaEET_PNS0_13K
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1663
 
 .loopexit.i.i.i.i:                                ; preds = %193, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph17.i.i.i.i.preheader, %.preheader7.i.i.i.i, %.preheader9.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader9.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph17.i.i.i.i.preheader ], [ %.0, %.preheader7.i.i.i.i ], [ %109, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %193 ]
-  %.2.i.i.i.i = phi i64 [ %.02423.i.i.i.i, %.preheader9.i.i.i.i ], [ %.02423.i.i.i.i, %.preheader.i.i.i.i ], [ %118, %.lr.ph17.i.i.i.i.preheader ], [ %.02423.i.i.i.i, %.preheader7.i.i.i.i ], [ %111, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %115, %193 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph17.i.i.i.i.preheader ], [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader9.i.i.i.i ], [ %109, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %193 ]
+  %.2.i.i.i.i = phi i64 [ %.02423.i.i.i.i, %.preheader.i.i.i.i ], [ %118, %.lr.ph17.i.i.i.i.preheader ], [ %.02423.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02423.i.i.i.i, %.preheader9.i.i.i.i ], [ %111, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EaEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %115, %193 ]
   %195 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %195, label %41, label %.loopexit27, !llvm.loop !1664
 
@@ -117507,7 +117507,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EaEET_PNS0_13K
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i34.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i, %196
-  %.pn = phi { ptr, i32 } [ %197, %196 ], [ %149, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i34.i.i.i.i ], [ %66, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %197, %196 ], [ %66, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i ], [ %149, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i34.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %198 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %198, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %199, !prof !225
@@ -118055,8 +118055,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EsEET_PNS0_13K
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1695
 
 .loopexit.i.i.i.i:                                ; preds = %193, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph17.i.i.i.i.preheader, %.preheader7.i.i.i.i, %.preheader9.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader9.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph17.i.i.i.i.preheader ], [ %.0, %.preheader7.i.i.i.i ], [ %109, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %193 ]
-  %.2.i.i.i.i = phi i64 [ %.02423.i.i.i.i, %.preheader9.i.i.i.i ], [ %.02423.i.i.i.i, %.preheader.i.i.i.i ], [ %118, %.lr.ph17.i.i.i.i.preheader ], [ %.02423.i.i.i.i, %.preheader7.i.i.i.i ], [ %111, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %115, %193 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph17.i.i.i.i.preheader ], [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader9.i.i.i.i ], [ %109, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %193 ]
+  %.2.i.i.i.i = phi i64 [ %.02423.i.i.i.i, %.preheader.i.i.i.i ], [ %118, %.lr.ph17.i.i.i.i.preheader ], [ %.02423.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02423.i.i.i.i, %.preheader9.i.i.i.i ], [ %111, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EsEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %115, %193 ]
   %195 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %195, label %41, label %.loopexit27, !llvm.loop !1696
 
@@ -118090,7 +118090,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EsEET_PNS0_13K
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i34.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i, %196
-  %.pn = phi { ptr, i32 } [ %197, %196 ], [ %149, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i34.i.i.i.i ], [ %66, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %197, %196 ], [ %66, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i ], [ %149, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i34.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %198 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %198, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %199, !prof !225
@@ -118638,8 +118638,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EiEET_PNS0_13K
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1727
 
 .loopexit.i.i.i.i:                                ; preds = %193, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph17.i.i.i.i.preheader, %.preheader7.i.i.i.i, %.preheader9.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader9.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph17.i.i.i.i.preheader ], [ %.0, %.preheader7.i.i.i.i ], [ %109, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %193 ]
-  %.2.i.i.i.i = phi i64 [ %.02423.i.i.i.i, %.preheader9.i.i.i.i ], [ %.02423.i.i.i.i, %.preheader.i.i.i.i ], [ %118, %.lr.ph17.i.i.i.i.preheader ], [ %.02423.i.i.i.i, %.preheader7.i.i.i.i ], [ %111, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %115, %193 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph17.i.i.i.i.preheader ], [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader9.i.i.i.i ], [ %109, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %193 ]
+  %.2.i.i.i.i = phi i64 [ %.02423.i.i.i.i, %.preheader.i.i.i.i ], [ %118, %.lr.ph17.i.i.i.i.preheader ], [ %.02423.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02423.i.i.i.i, %.preheader9.i.i.i.i ], [ %111, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EiEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %115, %193 ]
   %195 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %195, label %41, label %.loopexit27, !llvm.loop !1728
 
@@ -118673,7 +118673,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EiEET_PNS0_13K
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i34.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i, %196
-  %.pn = phi { ptr, i32 } [ %197, %196 ], [ %149, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i34.i.i.i.i ], [ %66, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %197, %196 ], [ %66, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i ], [ %149, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i34.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %198 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %198, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %199, !prof !225
@@ -119219,8 +119219,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256ElEET_PNS0_13K
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1759
 
 .loopexit.i.i.i.i:                                ; preds = %191, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph17.i.i.i.i.preheader, %.preheader7.i.i.i.i, %.preheader9.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader9.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph17.i.i.i.i.preheader ], [ %.0, %.preheader7.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %191 ]
-  %.2.i.i.i.i = phi i64 [ %.02423.i.i.i.i, %.preheader9.i.i.i.i ], [ %.02423.i.i.i.i, %.preheader.i.i.i.i ], [ %117, %.lr.ph17.i.i.i.i.preheader ], [ %.02423.i.i.i.i, %.preheader7.i.i.i.i ], [ %110, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %114, %191 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph17.i.i.i.i.preheader ], [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader9.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %191 ]
+  %.2.i.i.i.i = phi i64 [ %.02423.i.i.i.i, %.preheader.i.i.i.i ], [ %117, %.lr.ph17.i.i.i.i.preheader ], [ %.02423.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02423.i.i.i.i, %.preheader9.i.i.i.i ], [ %110, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256ElEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %114, %191 ]
   %193 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %193, label %41, label %.loopexit27, !llvm.loop !1760
 
@@ -119254,7 +119254,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256ElEET_PNS0_13K
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i34.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i, %194
-  %.pn = phi { ptr, i32 } [ %195, %194 ], [ %147, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i34.i.i.i.i ], [ %65, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %195, %194 ], [ %65, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i ], [ %147, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i34.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %196 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %196, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %197, !prof !225
@@ -119786,8 +119786,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EhEET_PNS0_13K
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1791
 
 .loopexit.i.i.i.i:                                ; preds = %191, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph17.i.i.i.i.preheader, %.preheader7.i.i.i.i, %.preheader9.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader9.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph17.i.i.i.i.preheader ], [ %.0, %.preheader7.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %191 ]
-  %.2.i.i.i.i = phi i64 [ %.02423.i.i.i.i, %.preheader9.i.i.i.i ], [ %.02423.i.i.i.i, %.preheader.i.i.i.i ], [ %117, %.lr.ph17.i.i.i.i.preheader ], [ %.02423.i.i.i.i, %.preheader7.i.i.i.i ], [ %110, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %114, %191 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph17.i.i.i.i.preheader ], [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader9.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %191 ]
+  %.2.i.i.i.i = phi i64 [ %.02423.i.i.i.i, %.preheader.i.i.i.i ], [ %117, %.lr.ph17.i.i.i.i.preheader ], [ %.02423.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02423.i.i.i.i, %.preheader9.i.i.i.i ], [ %110, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EhEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %114, %191 ]
   %193 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %193, label %41, label %.loopexit27, !llvm.loop !1792
 
@@ -119821,7 +119821,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EhEET_PNS0_13K
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i, %194
-  %.pn = phi { ptr, i32 } [ %195, %194 ], [ %147, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i33.i.i.i.i ], [ %65, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %195, %194 ], [ %65, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i ], [ %147, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %196 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %196, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %197, !prof !225
@@ -120353,8 +120353,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EtEET_PNS0_13K
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1823
 
 .loopexit.i.i.i.i:                                ; preds = %191, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph17.i.i.i.i.preheader, %.preheader7.i.i.i.i, %.preheader9.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader9.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph17.i.i.i.i.preheader ], [ %.0, %.preheader7.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %191 ]
-  %.2.i.i.i.i = phi i64 [ %.02423.i.i.i.i, %.preheader9.i.i.i.i ], [ %.02423.i.i.i.i, %.preheader.i.i.i.i ], [ %117, %.lr.ph17.i.i.i.i.preheader ], [ %.02423.i.i.i.i, %.preheader7.i.i.i.i ], [ %110, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %114, %191 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph17.i.i.i.i.preheader ], [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader9.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %191 ]
+  %.2.i.i.i.i = phi i64 [ %.02423.i.i.i.i, %.preheader.i.i.i.i ], [ %117, %.lr.ph17.i.i.i.i.preheader ], [ %.02423.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02423.i.i.i.i, %.preheader9.i.i.i.i ], [ %110, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EtEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %114, %191 ]
   %193 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %193, label %41, label %.loopexit27, !llvm.loop !1824
 
@@ -120388,7 +120388,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EtEET_PNS0_13K
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i, %194
-  %.pn = phi { ptr, i32 } [ %195, %194 ], [ %147, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i33.i.i.i.i ], [ %65, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %195, %194 ], [ %65, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i ], [ %147, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %196 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %196, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %197, !prof !225
@@ -120920,8 +120920,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EjEET_PNS0_13K
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1855
 
 .loopexit.i.i.i.i:                                ; preds = %191, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph17.i.i.i.i.preheader, %.preheader7.i.i.i.i, %.preheader9.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader9.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph17.i.i.i.i.preheader ], [ %.0, %.preheader7.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %191 ]
-  %.2.i.i.i.i = phi i64 [ %.02423.i.i.i.i, %.preheader9.i.i.i.i ], [ %.02423.i.i.i.i, %.preheader.i.i.i.i ], [ %117, %.lr.ph17.i.i.i.i.preheader ], [ %.02423.i.i.i.i, %.preheader7.i.i.i.i ], [ %110, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %114, %191 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph17.i.i.i.i.preheader ], [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader9.i.i.i.i ], [ %108, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %191 ]
+  %.2.i.i.i.i = phi i64 [ %.02423.i.i.i.i, %.preheader.i.i.i.i ], [ %117, %.lr.ph17.i.i.i.i.preheader ], [ %.02423.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02423.i.i.i.i, %.preheader9.i.i.i.i ], [ %110, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EjEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %114, %191 ]
   %193 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %193, label %41, label %.loopexit27, !llvm.loop !1856
 
@@ -120955,7 +120955,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EjEET_PNS0_13K
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i, %194
-  %.pn = phi { ptr, i32 } [ %195, %194 ], [ %147, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i33.i.i.i.i ], [ %65, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %195, %194 ], [ %65, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i ], [ %147, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %196 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %196, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %197, !prof !225
@@ -121485,8 +121485,8 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EmEET_PNS0_13K
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1887
 
 .loopexit.i.i.i.i:                                ; preds = %189, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph17.i.i.i.i.preheader, %.preheader7.i.i.i.i, %.preheader9.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader9.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph17.i.i.i.i.preheader ], [ %.0, %.preheader7.i.i.i.i ], [ %107, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %189 ]
-  %.2.i.i.i.i = phi i64 [ %.02423.i.i.i.i, %.preheader9.i.i.i.i ], [ %.02423.i.i.i.i, %.preheader.i.i.i.i ], [ %116, %.lr.ph17.i.i.i.i.preheader ], [ %.02423.i.i.i.i, %.preheader7.i.i.i.i ], [ %109, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %113, %189 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph17.i.i.i.i.preheader ], [ %.0, %.preheader7.i.i.i.i ], [ %.0, %.preheader9.i.i.i.i ], [ %107, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %.3, %189 ]
+  %.2.i.i.i.i = phi i64 [ %.02423.i.i.i.i, %.preheader.i.i.i.i ], [ %116, %.lr.ph17.i.i.i.i.preheader ], [ %.02423.i.i.i.i, %.preheader7.i.i.i.i ], [ %.02423.i.i.i.i, %.preheader9.i.i.i.i ], [ %109, %_ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EmEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %113, %189 ]
   %191 = icmp slt i64 %.2.i.i.i.i, %35
   br i1 %191, label %41, label %.loopexit27, !llvm.loop !1888
 
@@ -121520,7 +121520,7 @@ _ZNK5arrow7compute8internal16IntegerToDecimal4CallINS_10Decimal256EmEET_PNS0_13K
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i33.i.i.i.i, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i, %192
-  %.pn = phi { ptr, i32 } [ %193, %192 ], [ %145, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i33.i.i.i.i ], [ %64, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %193, %192 ], [ %64, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i.i.i.i.i ], [ %145, %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit.i33.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %194 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %194, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %195, !prof !225
@@ -121826,8 +121826,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1899
 
 .loopexit.i.i.i.i:                                ; preds = %76, %.noexc10, %.lr.ph38.i.i.i.i.preheader, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %47, %.noexc10 ], [ %.3, %76 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %56, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %49, %.noexc10 ], [ %53, %76 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %47, %.noexc10 ], [ %.3, %76 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %56, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %49, %.noexc10 ], [ %53, %76 ]
   %78 = icmp slt i64 %.2.i.i.i.i, %21
   br i1 %78, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal256TypeES3_NS7_15StringToDecimalEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, !llvm.loop !1900
 
@@ -122340,8 +122340,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1912
 
 .loopexit.i.i.i.i:                                ; preds = %72, %.noexc10, %.lr.ph38.i.i.i.i.preheader, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %45, %.noexc10 ], [ %.3, %72 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %54, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %47, %.noexc10 ], [ %51, %72 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %45, %.noexc10 ], [ %.3, %72 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %54, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %47, %.noexc10 ], [ %51, %72 ]
   %74 = icmp slt i64 %.2.i.i.i.i, %21
   br i1 %74, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal256TypeES3_NS7_15StringToDecimalEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, !llvm.loop !1913
 
@@ -122672,8 +122672,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1921
 
 .loopexit.i.i.i.i:                                ; preds = %106, %.noexc11, %.lr.ph39.i.i.i.i.preheader, %.preheader31.i.i.i.i, %.preheader33.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader33.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph39.i.i.i.i.preheader ], [ %.0, %.preheader31.i.i.i.i ], [ %62, %.noexc11 ], [ %.3, %106 ]
-  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %71, %.lr.ph39.i.i.i.i.preheader ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %64, %.noexc11 ], [ %68, %106 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph39.i.i.i.i.preheader ], [ %.0, %.preheader31.i.i.i.i ], [ %.0, %.preheader33.i.i.i.i ], [ %62, %.noexc11 ], [ %.3, %106 ]
+  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %71, %.lr.ph39.i.i.i.i.preheader ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %64, %.noexc11 ], [ %68, %106 ]
   %108 = icmp slt i64 %.2.i.i.i.i, %33
   br i1 %108, label %.lr.ph46.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_14Decimal256TypeES3_NS7_15StringToDecimalEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, !llvm.loop !1922
 
@@ -133688,8 +133688,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !2503
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i.preheader, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %74, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %54, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %74, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %54, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
   %76 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %76, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_8Int8TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !2504
 
@@ -133925,7 +133925,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal31StringToSignedIntCon
   br label %30
 
 30:                                               ; preds = %28, %24, %.lr.ph.i
-  %narrow.pn.i = phi i8 [ %29, %28 ], [ %25, %24 ], [ %21, %.lr.ph.i ]
+  %narrow.pn.i = phi i8 [ %25, %24 ], [ %29, %28 ], [ %21, %.lr.ph.i ]
   %.2.i = or i8 %narrow.pn.i, %18
   %31 = add nuw nsw i64 %.03046.i, 1
   %exitcond.not.i = icmp eq i64 %.03046.i, %16
@@ -134004,7 +134004,7 @@ thread-pre-split:                                 ; preds = %7
   br i1 %.not48.i, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit, !prof !2509
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit:    ; preds = %62, %55, %47
-  %.133 = phi i8 [ %45, %47 ], [ %54, %55 ], [ %.46.i, %62 ]
+  %.133 = phi i8 [ %54, %55 ], [ %45, %47 ], [ %.46.i, %62 ]
   br i1 %37, label %65, label %68
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38: ; preds = %41
@@ -134024,12 +134024,12 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38: ; preds = %41
   br i1 %69, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split, !prof !2510
 
 _ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split: ; preds = %30, %.thread42, %68, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38
-  %storemerge.sink = phi i8 [ 0, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38 ], [ %67, %.thread42 ], [ %.133, %68 ], [ %.2.i, %30 ]
+  %storemerge.sink = phi i8 [ %67, %.thread42 ], [ %.133, %68 ], [ 0, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38 ], [ %.2.i, %30 ]
   store i8 %storemerge.sink, ptr %4, align 1, !tbaa !142
   br label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread
 
-_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread: ; preds = %26, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split, %56, %48, %62, %58, %.critedge, %14, %68, %65, %33, %5
-  %.022 = phi i1 [ false, %33 ], [ false, %48 ], [ false, %5 ], [ false, %68 ], [ false, %56 ], [ true, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split ], [ false, %65 ], [ false, %14 ], [ false, %.critedge ], [ false, %58 ], [ false, %62 ], [ false, %26 ]
+_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread: ; preds = %26, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split, %58, %56, %.critedge, %48, %62, %14, %68, %65, %33, %5
+  %.022 = phi i1 [ false, %5 ], [ false, %33 ], [ false, %65 ], [ false, %68 ], [ false, %14 ], [ false, %62 ], [ false, %48 ], [ false, %.critedge ], [ false, %56 ], [ false, %58 ], [ true, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split ], [ false, %26 ]
   ret i1 %.022
 }
 
@@ -134189,8 +134189,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !2515
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i.preheader, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %44, %.noexc10 ], [ %70, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %52, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %44, %.noexc10 ], [ %70, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %52, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
   %72 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %72, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_8Int8TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !2516
 
@@ -134462,8 +134462,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !2527
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc12, %.noexc11, %.lr.ph39.i.i.i.i.preheader, %.preheader31.i.i.i.i, %.preheader33.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader33.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph39.i.i.i.i.preheader ], [ %.0, %.preheader31.i.i.i.i ], [ %61, %.noexc11 ], [ %104, %.noexc12 ]
-  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %69, %.lr.ph39.i.i.i.i.preheader ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph39.i.i.i.i.preheader ], [ %.0, %.preheader31.i.i.i.i ], [ %.0, %.preheader33.i.i.i.i ], [ %61, %.noexc11 ], [ %104, %.noexc12 ]
+  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %69, %.lr.ph39.i.i.i.i.preheader ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
   %106 = icmp slt i64 %.2.i.i.i.i, %31
   br i1 %106, label %.lr.ph46.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_8Int8TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !2528
 
@@ -134993,9 +134993,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_10Decimal128
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph51.i.i.i.i.preheader, %.preheader41.i.i.i.i, %.preheader43.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader43.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph51.i.i.i.i.preheader ], [ %.0, %.preheader41.i.i.i.i ], [ %173, %.loopexit.loopexit60.i.i.i.i ], [ %130, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph51.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %131, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02457.i.i.i.i, %.preheader43.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader.i.i.i.i ], [ %138, %.lr.ph51.i.i.i.i.preheader ], [ %.02457.i.i.i.i, %.preheader41.i.i.i.i ], [ %176, %.loopexit.loopexit60.i.i.i.i ], [ %62, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph51.i.i.i.i.preheader ], [ %.0, %.preheader41.i.i.i.i ], [ %173, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader43.i.i.i.i ], [ %130, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph51.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %131, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02457.i.i.i.i, %.preheader.i.i.i.i ], [ %138, %.lr.ph51.i.i.i.i.preheader ], [ %.02457.i.i.i.i, %.preheader41.i.i.i.i ], [ %176, %.loopexit.loopexit60.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader43.i.i.i.i ], [ %62, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %177 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %177, label %57, label %.loopexit29, !llvm.loop !2543
 
@@ -135029,7 +135029,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_10Decimal128
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %78, %178
-  %.pn = phi { ptr, i32 } [ %179, %178 ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %79, %78 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %179, %178 ], [ %79, %78 ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %180 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %180, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %181, !prof !225
@@ -135593,9 +135593,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_10Decimal1
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph51.i.i.i.i.preheader, %.preheader41.i.i.i.i, %.preheader43.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader43.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph51.i.i.i.i.preheader ], [ %.0, %.preheader41.i.i.i.i ], [ %171, %.loopexit.loopexit60.i.i.i.i ], [ %129, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph51.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %130, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02457.i.i.i.i, %.preheader43.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader.i.i.i.i ], [ %137, %.lr.ph51.i.i.i.i.preheader ], [ %.02457.i.i.i.i, %.preheader41.i.i.i.i ], [ %174, %.loopexit.loopexit60.i.i.i.i ], [ %62, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph51.i.i.i.i.preheader ], [ %.0, %.preheader41.i.i.i.i ], [ %171, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader43.i.i.i.i ], [ %129, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph51.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %130, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02457.i.i.i.i, %.preheader.i.i.i.i ], [ %137, %.lr.ph51.i.i.i.i.preheader ], [ %.02457.i.i.i.i, %.preheader41.i.i.i.i ], [ %174, %.loopexit.loopexit60.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader43.i.i.i.i ], [ %62, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %175 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %175, label %57, label %.loopexit29, !llvm.loop !2558
 
@@ -135629,7 +135629,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_10Decimal1
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %77, %176
-  %.pn = phi { ptr, i32 } [ %177, %176 ], [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %78, %77 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %177, %176 ], [ %78, %77 ], [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %178 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %178, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %179, !prof !225
@@ -136028,7 +136028,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %56, %52, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %58, %_ZN5arrow6StatusD2Ev.exit.i, %28, %30
-  %.0 = phi i8 [ 0, %28 ], [ 0, %30 ], [ %60, %58 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i8 [ 0, %30 ], [ 0, %28 ], [ %60, %58 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %61 = load ptr, ptr %13, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %61, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit12, label %62, !prof !225
@@ -136498,9 +136498,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal32EE
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit59.i.i.i.i, %.lr.ph50.i.i.i.i.preheader, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph50.i.i.i.i.preheader ], [ %.0, %.preheader40.i.i.i.i ], [ %159, %.loopexit.loopexit59.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph50.i.i.i.i.preheader ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit59.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph50.i.i.i.i.preheader ], [ %.0, %.preheader40.i.i.i.i ], [ %159, %.loopexit.loopexit59.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph50.i.i.i.i.preheader ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit59.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %163 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %163, label %49, label %.loopexit29, !llvm.loop !2583
 
@@ -136534,7 +136534,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal32EE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %164
-  %.pn = phi { ptr, i32 } [ %165, %164 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %165, %164 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %166 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %166, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %167, !prof !225
@@ -137005,9 +137005,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal32
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit59.i.i.i.i, %.lr.ph50.i.i.i.i.preheader, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph50.i.i.i.i.preheader ], [ %.0, %.preheader40.i.i.i.i ], [ %157, %.loopexit.loopexit59.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %126, %.lr.ph50.i.i.i.i.preheader ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit59.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph50.i.i.i.i.preheader ], [ %.0, %.preheader40.i.i.i.i ], [ %157, %.loopexit.loopexit59.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %126, %.lr.ph50.i.i.i.i.preheader ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit59.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %161 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %161, label %49, label %.loopexit29, !llvm.loop !2595
 
@@ -137041,7 +137041,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal32
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %66, %162
-  %.pn = phi { ptr, i32 } [ %163, %162 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %163, %162 ], [ %67, %66 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %164 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %164, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %165, !prof !225
@@ -137431,7 +137431,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %27, %29
-  %.0 = phi i8 [ 0, %27 ], [ 0, %29 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i8 [ 0, %29 ], [ 0, %27 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %58 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %58, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit12, label %59, !prof !225
@@ -137901,9 +137901,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal64EE
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit59.i.i.i.i, %.lr.ph50.i.i.i.i.preheader, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph50.i.i.i.i.preheader ], [ %.0, %.preheader40.i.i.i.i ], [ %159, %.loopexit.loopexit59.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph50.i.i.i.i.preheader ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit59.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph50.i.i.i.i.preheader ], [ %.0, %.preheader40.i.i.i.i ], [ %159, %.loopexit.loopexit59.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph50.i.i.i.i.preheader ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit59.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %163 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %163, label %49, label %.loopexit29, !llvm.loop !2620
 
@@ -137937,7 +137937,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIaNS_9Decimal64EE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %164
-  %.pn = phi { ptr, i32 } [ %165, %164 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %165, %164 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %166 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %166, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %167, !prof !225
@@ -138408,9 +138408,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal64
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit59.i.i.i.i, %.lr.ph50.i.i.i.i.preheader, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph50.i.i.i.i.preheader ], [ %.0, %.preheader40.i.i.i.i ], [ %157, %.loopexit.loopexit59.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %126, %.lr.ph50.i.i.i.i.preheader ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit59.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph50.i.i.i.i.preheader ], [ %.0, %.preheader40.i.i.i.i ], [ %157, %.loopexit.loopexit59.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %126, %.lr.ph50.i.i.i.i.preheader ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit59.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %161 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %161, label %49, label %.loopexit29, !llvm.loop !2632
 
@@ -138444,7 +138444,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIaNS_9Decimal64
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %66, %162
-  %.pn = phi { ptr, i32 } [ %163, %162 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %163, %162 ], [ %67, %66 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %164 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %164, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %165, !prof !225
@@ -138834,7 +138834,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %27, %29
-  %.0 = phi i8 [ 0, %27 ], [ 0, %29 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i8 [ 0, %29 ], [ 0, %27 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %58 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %58, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit12, label %59, !prof !225
@@ -139300,9 +139300,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_8Int8TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i, %.loopexit.loopexit55.i.i.i.i, %.lr.ph46.i.i.i.i.preheader, %.preheader36.i.i.i.i, %.preheader38.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader38.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph46.i.i.i.i.preheader ], [ %.0, %.preheader36.i.i.i.i ], [ %161, %.loopexit.loopexit55.i.i.i.i ], [ %122, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_8Int8TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph46.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit55.i.i.i.i ], [ %123, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_8Int8TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02452.i.i.i.i, %.preheader38.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph46.i.i.i.i.preheader ], [ %.02452.i.i.i.i, %.preheader36.i.i.i.i ], [ %164, %.loopexit.loopexit55.i.i.i.i ], [ %58, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_8Int8TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph46.i.i.i.i.preheader ], [ %.0, %.preheader36.i.i.i.i ], [ %161, %.loopexit.loopexit55.i.i.i.i ], [ %.0, %.preheader38.i.i.i.i ], [ %122, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_8Int8TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph46.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit55.i.i.i.i ], [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %123, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_8Int8TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02452.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph46.i.i.i.i.preheader ], [ %.02452.i.i.i.i, %.preheader36.i.i.i.i ], [ %164, %.loopexit.loopexit55.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader38.i.i.i.i ], [ %58, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_8Int8TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
   %165 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %165, label %53, label %.loopexit29, !llvm.loop !2669
 
@@ -139336,7 +139336,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %70, %166
-  %.pn = phi { ptr, i32 } [ %167, %166 ], [ %78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %71, %70 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %167, %166 ], [ %71, %70 ], [ %78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %168 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %168, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %169, !prof !225
@@ -139801,9 +139801,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_8Int8TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i, %.loopexit.loopexit55.i.i.i.i, %.lr.ph46.i.i.i.i.preheader, %.preheader36.i.i.i.i, %.preheader38.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader38.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph46.i.i.i.i.preheader ], [ %.0, %.preheader36.i.i.i.i ], [ %159, %.loopexit.loopexit55.i.i.i.i ], [ %121, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_8Int8TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph46.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit55.i.i.i.i ], [ %122, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_8Int8TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02452.i.i.i.i, %.preheader38.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph46.i.i.i.i.preheader ], [ %.02452.i.i.i.i, %.preheader36.i.i.i.i ], [ %162, %.loopexit.loopexit55.i.i.i.i ], [ %58, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_8Int8TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph46.i.i.i.i.preheader ], [ %.0, %.preheader36.i.i.i.i ], [ %159, %.loopexit.loopexit55.i.i.i.i ], [ %.0, %.preheader38.i.i.i.i ], [ %121, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_8Int8TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph46.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit55.i.i.i.i ], [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %122, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_8Int8TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02452.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph46.i.i.i.i.preheader ], [ %.02452.i.i.i.i, %.preheader36.i.i.i.i ], [ %162, %.loopexit.loopexit55.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader38.i.i.i.i ], [ %58, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_8Int8TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
   %163 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %163, label %53, label %.loopexit29, !llvm.loop !2693
 
@@ -139837,7 +139837,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %69, %164
-  %.pn = phi { ptr, i32 } [ %165, %164 ], [ %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %70, %69 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %165, %164 ], [ %70, %69 ], [ %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %166 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %166, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %167, !prof !225
@@ -140240,7 +140240,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %25, %27
-  %.0 = phi i8 [ 0, %25 ], [ 0, %27 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i8 [ 0, %27 ], [ 0, %25 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %58 = load ptr, ptr %11, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %58, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit12, label %59, !prof !225
@@ -140940,8 +140940,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !2746
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
   %77 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %77, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_9Int16TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !2747
 
@@ -141295,7 +141295,7 @@ thread-pre-split:                                 ; preds = %7
   br i1 %.not76.i, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread, label %_ZN5arrow8internal13ParseUnsignedEPKcmPt.exit, !prof !2509
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPt.exit:    ; preds = %89, %82, %72, %63, %55
-  %.133 = phi i16 [ %54, %55 ], [ %81, %82 ], [ %71, %72 ], [ %62, %63 ], [ %.75.i, %89 ]
+  %.133 = phi i16 [ %81, %82 ], [ %71, %72 ], [ %62, %63 ], [ %54, %55 ], [ %.75.i, %89 ]
   br i1 %44, label %93, label %96
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPt.exit.thread38: ; preds = %48
@@ -141315,12 +141315,12 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPt.exit.thread38: ; preds = %48
   br i1 %97, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread.sink.split, !prof !2510
 
 _ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread.sink.split: ; preds = %37, %.thread42, %96, %_ZN5arrow8internal13ParseUnsignedEPKcmPt.exit.thread38
-  %storemerge.sink = phi i16 [ 0, %_ZN5arrow8internal13ParseUnsignedEPKcmPt.exit.thread38 ], [ %95, %.thread42 ], [ %.133, %96 ], [ %.2.i, %37 ]
+  %storemerge.sink = phi i16 [ %95, %.thread42 ], [ %.133, %96 ], [ 0, %_ZN5arrow8internal13ParseUnsignedEPKcmPt.exit.thread38 ], [ %.2.i, %37 ]
   store i16 %storemerge.sink, ptr %4, align 2, !tbaa !380
   br label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread
 
-_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread: ; preds = %31, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread.sink.split, %83, %56, %64, %73, %89, %85, %.critedge, %14, %96, %93, %40, %5
-  %.022 = phi i1 [ false, %40 ], [ false, %56 ], [ false, %5 ], [ false, %96 ], [ false, %83 ], [ true, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread.sink.split ], [ false, %93 ], [ false, %14 ], [ false, %.critedge ], [ false, %85 ], [ false, %89 ], [ false, %73 ], [ false, %64 ], [ false, %31 ]
+_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread: ; preds = %31, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread.sink.split, %85, %83, %.critedge, %56, %64, %73, %89, %14, %96, %93, %40, %5
+  %.022 = phi i1 [ false, %5 ], [ false, %40 ], [ false, %93 ], [ false, %96 ], [ false, %14 ], [ false, %89 ], [ false, %73 ], [ false, %64 ], [ false, %56 ], [ false, %.critedge ], [ false, %83 ], [ false, %85 ], [ true, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread.sink.split ], [ false, %31 ]
   ret i1 %.022
 }
 
@@ -141481,8 +141481,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !2754
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
   %73 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %73, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_9Int16TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !2755
 
@@ -141755,8 +141755,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !2766
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc12, %.noexc11, %.lr.ph39.i.i.i.i, %.preheader31.i.i.i.i, %.preheader33.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader33.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph39.i.i.i.i ], [ %.0, %.preheader31.i.i.i.i ], [ %61, %.noexc11 ], [ %105, %.noexc12 ]
-  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %70, %.lr.ph39.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph39.i.i.i.i ], [ %.0, %.preheader31.i.i.i.i ], [ %.0, %.preheader33.i.i.i.i ], [ %61, %.noexc11 ], [ %105, %.noexc12 ]
+  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %70, %.lr.ph39.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
   %107 = icmp slt i64 %.2.i.i.i.i, %31
   br i1 %107, label %.lr.ph46.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_9Int16TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !2767
 
@@ -142289,9 +142289,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_10Decimal128
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit61.i.i.i.i, %.lr.ph51.i.i.i.i, %.preheader41.i.i.i.i, %.preheader43.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader43.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep66.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %176, %.loopexit.loopexit61.i.i.i.i ], [ %130, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit61.i.i.i.i ], [ %131, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02459.i.i.i.i, %.preheader43.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader.i.i.i.i ], [ %141, %.lr.ph51.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader41.i.i.i.i ], [ %179, %.loopexit.loopexit61.i.i.i.i ], [ %62, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep66.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %176, %.loopexit.loopexit61.i.i.i.i ], [ %.0, %.preheader43.i.i.i.i ], [ %130, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit61.i.i.i.i ], [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %131, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02459.i.i.i.i, %.preheader.i.i.i.i ], [ %141, %.lr.ph51.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader41.i.i.i.i ], [ %179, %.loopexit.loopexit61.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader43.i.i.i.i ], [ %62, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %180 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %180, label %57, label %.loopexit28, !llvm.loop !2779
 
@@ -142325,7 +142325,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_10Decimal128
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %78, %181
-  %.pn = phi { ptr, i32 } [ %182, %181 ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %79, %78 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %182, %181 ], [ %79, %78 ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %183 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %183, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %184, !prof !225
@@ -142819,9 +142819,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_10Decimal1
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit61.i.i.i.i, %.lr.ph51.i.i.i.i, %.preheader41.i.i.i.i, %.preheader43.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader43.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep66.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %174, %.loopexit.loopexit61.i.i.i.i ], [ %129, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit61.i.i.i.i ], [ %130, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02459.i.i.i.i, %.preheader43.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader.i.i.i.i ], [ %140, %.lr.ph51.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader41.i.i.i.i ], [ %177, %.loopexit.loopexit61.i.i.i.i ], [ %62, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep66.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %174, %.loopexit.loopexit61.i.i.i.i ], [ %.0, %.preheader43.i.i.i.i ], [ %129, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit61.i.i.i.i ], [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %130, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02459.i.i.i.i, %.preheader.i.i.i.i ], [ %140, %.lr.ph51.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader41.i.i.i.i ], [ %177, %.loopexit.loopexit61.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader43.i.i.i.i ], [ %62, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %178 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %178, label %57, label %.loopexit28, !llvm.loop !2791
 
@@ -142855,7 +142855,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_10Decimal1
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %77, %179
-  %.pn = phi { ptr, i32 } [ %180, %179 ], [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %78, %77 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %180, %179 ], [ %78, %77 ], [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %181 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %181, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %182, !prof !225
@@ -143257,7 +143257,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %56, %52, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %58, %_ZN5arrow6StatusD2Ev.exit.i, %28, %30
-  %.0 = phi i16 [ 0, %28 ], [ 0, %30 ], [ %60, %58 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i16 [ 0, %30 ], [ 0, %28 ], [ %60, %58 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %61 = load ptr, ptr %13, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %61, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit12, label %62, !prof !225
@@ -143730,9 +143730,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal32EE
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit60.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %165, %.loopexit.loopexit60.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %165, %.loopexit.loopexit60.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %166 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %166, label %49, label %.loopexit28, !llvm.loop !2816
 
@@ -143766,7 +143766,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal32EE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %167
-  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %169 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %169, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %170, !prof !225
@@ -144236,9 +144236,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal32
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit60.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %163, %.loopexit.loopexit60.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %163, %.loopexit.loopexit60.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %164 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %164, label %49, label %.loopexit28, !llvm.loop !2828
 
@@ -144272,7 +144272,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal32
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %66, %165
-  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %67, %66 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %167 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %167, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %168, !prof !225
@@ -144665,7 +144665,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %27, %29
-  %.0 = phi i16 [ 0, %27 ], [ 0, %29 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i16 [ 0, %29 ], [ 0, %27 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %58 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %58, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit12, label %59, !prof !225
@@ -145138,9 +145138,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal64EE
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit60.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %165, %.loopexit.loopexit60.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %165, %.loopexit.loopexit60.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %166 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %166, label %49, label %.loopexit28, !llvm.loop !2853
 
@@ -145174,7 +145174,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal64EE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %167
-  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %169 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %169, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %170, !prof !225
@@ -145644,9 +145644,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal64
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit60.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %163, %.loopexit.loopexit60.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %163, %.loopexit.loopexit60.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %164 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %164, label %49, label %.loopexit28, !llvm.loop !2865
 
@@ -145680,7 +145680,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal64
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %66, %165
-  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %67, %66 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %167 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %167, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %168, !prof !225
@@ -146073,7 +146073,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %27, %29
-  %.0 = phi i16 [ 0, %27 ], [ 0, %29 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i16 [ 0, %29 ], [ 0, %27 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %58 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %58, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit12, label %59, !prof !225
@@ -146542,9 +146542,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int16TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i, %.loopexit.loopexit56.i.i.i.i, %.lr.ph46.i.i.i.i, %.preheader36.i.i.i.i, %.preheader38.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader38.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep61.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %164, %.loopexit.loopexit56.i.i.i.i ], [ %122, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int16TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit56.i.i.i.i ], [ %123, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int16TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02454.i.i.i.i, %.preheader38.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader.i.i.i.i ], [ %133, %.lr.ph46.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader36.i.i.i.i ], [ %167, %.loopexit.loopexit56.i.i.i.i ], [ %58, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int16TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep61.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %164, %.loopexit.loopexit56.i.i.i.i ], [ %.0, %.preheader38.i.i.i.i ], [ %122, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int16TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit56.i.i.i.i ], [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %123, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int16TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02454.i.i.i.i, %.preheader.i.i.i.i ], [ %133, %.lr.ph46.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader36.i.i.i.i ], [ %167, %.loopexit.loopexit56.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader38.i.i.i.i ], [ %58, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int16TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
   %168 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %168, label %53, label %.loopexit28, !llvm.loop !2902
 
@@ -146578,7 +146578,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %70, %169
-  %.pn = phi { ptr, i32 } [ %170, %169 ], [ %78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %71, %70 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %170, %169 ], [ %71, %70 ], [ %78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %171 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %171, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %172, !prof !225
@@ -147044,9 +147044,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int16TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i, %.loopexit.loopexit56.i.i.i.i, %.lr.ph46.i.i.i.i, %.preheader36.i.i.i.i, %.preheader38.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader38.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep61.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %162, %.loopexit.loopexit56.i.i.i.i ], [ %121, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int16TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit56.i.i.i.i ], [ %122, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int16TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02454.i.i.i.i, %.preheader38.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader.i.i.i.i ], [ %132, %.lr.ph46.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader36.i.i.i.i ], [ %165, %.loopexit.loopexit56.i.i.i.i ], [ %58, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int16TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep61.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %162, %.loopexit.loopexit56.i.i.i.i ], [ %.0, %.preheader38.i.i.i.i ], [ %121, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int16TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit56.i.i.i.i ], [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %122, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int16TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02454.i.i.i.i, %.preheader.i.i.i.i ], [ %132, %.lr.ph46.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader36.i.i.i.i ], [ %165, %.loopexit.loopexit56.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader38.i.i.i.i ], [ %58, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int16TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
   %166 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %166, label %53, label %.loopexit28, !llvm.loop !2926
 
@@ -147080,7 +147080,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %69, %167
-  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %70, %69 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %70, %69 ], [ %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %169 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %169, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %170, !prof !225
@@ -147486,7 +147486,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %25, %27
-  %.0 = phi i16 [ 0, %25 ], [ 0, %27 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i16 [ 0, %27 ], [ 0, %25 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %58 = load ptr, ptr %11, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %58, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit12, label %59, !prof !225
@@ -148048,8 +148048,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !2969
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
   %77 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %77, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_9Int32TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !2970
 
@@ -148353,12 +148353,12 @@ thread-pre-split:                                 ; preds = %8
   br i1 %57, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split, !prof !158
 
 _ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split: ; preds = %35, %54, %56
-  %storemerge.sink = phi i32 [ %51, %56 ], [ %55, %54 ], [ %.2.i, %35 ]
+  %storemerge.sink = phi i32 [ %55, %54 ], [ %51, %56 ], [ %.2.i, %35 ]
   store i32 %storemerge.sink, ptr %4, align 4, !tbaa !143
   br label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread
 
 _ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread: ; preds = %30, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split, %15, %56, %52, %.critedge, %38, %5
-  %.022 = phi i1 [ false, %38 ], [ false, %15 ], [ false, %5 ], [ false, %56 ], [ false, %.critedge ], [ true, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split ], [ false, %52 ], [ false, %30 ]
+  %.022 = phi i1 [ false, %5 ], [ false, %38 ], [ false, %.critedge ], [ false, %52 ], [ false, %56 ], [ false, %15 ], [ true, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split ], [ false, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.022
 }
@@ -148519,7 +148519,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   br label %.critedge
 
 .critedge:                                        ; preds = %86, %84, %90, %74, %65, %56, %47, %38, %29, %20, %11, %4, %94
-  %.1 = phi i1 [ false, %4 ], [ true, %94 ], [ false, %90 ], [ false, %74 ], [ false, %65 ], [ false, %56 ], [ false, %47 ], [ false, %38 ], [ false, %29 ], [ false, %20 ], [ false, %11 ], [ false, %84 ], [ false, %86 ]
+  %.1 = phi i1 [ true, %94 ], [ false, %90 ], [ false, %74 ], [ false, %65 ], [ false, %56 ], [ false, %47 ], [ false, %38 ], [ false, %29 ], [ false, %20 ], [ false, %11 ], [ false, %4 ], [ false, %84 ], [ false, %86 ]
   ret i1 %.1
 }
 
@@ -148680,8 +148680,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !2977
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
   %73 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %73, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_9Int32TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !2978
 
@@ -148954,8 +148954,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !2989
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc12, %.noexc11, %.lr.ph39.i.i.i.i, %.preheader31.i.i.i.i, %.preheader33.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader33.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph39.i.i.i.i ], [ %.0, %.preheader31.i.i.i.i ], [ %61, %.noexc11 ], [ %105, %.noexc12 ]
-  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %70, %.lr.ph39.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph39.i.i.i.i ], [ %.0, %.preheader31.i.i.i.i ], [ %.0, %.preheader33.i.i.i.i ], [ %61, %.noexc11 ], [ %105, %.noexc12 ]
+  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %70, %.lr.ph39.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
   %107 = icmp slt i64 %.2.i.i.i.i, %31
   br i1 %107, label %.lr.ph46.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_9Int32TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !2990
 
@@ -149486,9 +149486,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_10Decimal128
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit59.i.i.i.i, %.lr.ph51.i.i.i.i, %.preheader41.i.i.i.i, %.preheader43.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader43.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %174, %.loopexit.loopexit59.i.i.i.i ], [ %130, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %131, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02457.i.i.i.i, %.preheader43.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader.i.i.i.i ], [ %139, %.lr.ph51.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader41.i.i.i.i ], [ %177, %.loopexit.loopexit59.i.i.i.i ], [ %62, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %174, %.loopexit.loopexit59.i.i.i.i ], [ %.0, %.preheader43.i.i.i.i ], [ %130, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %131, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02457.i.i.i.i, %.preheader.i.i.i.i ], [ %139, %.lr.ph51.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader41.i.i.i.i ], [ %177, %.loopexit.loopexit59.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader43.i.i.i.i ], [ %62, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %178 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %178, label %57, label %.loopexit28, !llvm.loop !3002
 
@@ -149522,7 +149522,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_10Decimal128
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %78, %179
-  %.pn = phi { ptr, i32 } [ %180, %179 ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %79, %78 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %180, %179 ], [ %79, %78 ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %181 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %181, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %182, !prof !225
@@ -150014,9 +150014,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_10Decimal1
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit59.i.i.i.i, %.lr.ph51.i.i.i.i, %.preheader41.i.i.i.i, %.preheader43.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader43.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %172, %.loopexit.loopexit59.i.i.i.i ], [ %129, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %130, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02457.i.i.i.i, %.preheader43.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader.i.i.i.i ], [ %138, %.lr.ph51.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader41.i.i.i.i ], [ %175, %.loopexit.loopexit59.i.i.i.i ], [ %62, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %172, %.loopexit.loopexit59.i.i.i.i ], [ %.0, %.preheader43.i.i.i.i ], [ %129, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %130, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02457.i.i.i.i, %.preheader.i.i.i.i ], [ %138, %.lr.ph51.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader41.i.i.i.i ], [ %175, %.loopexit.loopexit59.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader43.i.i.i.i ], [ %62, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %176 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %176, label %57, label %.loopexit28, !llvm.loop !3014
 
@@ -150050,7 +150050,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_10Decimal1
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %77, %177
-  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %78, %77 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %78, %77 ], [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %179 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %179, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %180, !prof !225
@@ -150450,7 +150450,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %56, %52, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %58, %_ZN5arrow6StatusD2Ev.exit.i, %28, %30
-  %.0 = phi i32 [ 0, %28 ], [ 0, %30 ], [ %60, %58 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i32 [ 0, %30 ], [ 0, %28 ], [ %60, %58 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %61 = load ptr, ptr %13, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %61, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit12, label %62, !prof !225
@@ -150911,9 +150911,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal32EE
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit58.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %154, %.loopexit.loopexit58.i.i.i.i ], [ %116, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit58.i.i.i.i ], [ %117, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %125, %.lr.ph50.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %157, %.loopexit.loopexit58.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %154, %.loopexit.loopexit58.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %116, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit58.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %117, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %125, %.lr.ph50.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %157, %.loopexit.loopexit58.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %158 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %158, label %49, label %.loopexit28, !llvm.loop !3039
 
@@ -150947,7 +150947,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal32EE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %159
-  %.pn = phi { ptr, i32 } [ %160, %159 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %160, %159 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %161 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %161, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %162, !prof !225
@@ -151405,9 +151405,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal32
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit58.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %152, %.loopexit.loopexit58.i.i.i.i ], [ %115, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit58.i.i.i.i ], [ %116, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %124, %.lr.ph50.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %155, %.loopexit.loopexit58.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %152, %.loopexit.loopexit58.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %115, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit58.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %116, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %124, %.lr.ph50.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %155, %.loopexit.loopexit58.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %156 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %156, label %49, label %.loopexit28, !llvm.loop !3051
 
@@ -151441,7 +151441,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal32
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %66, %157
-  %.pn = phi { ptr, i32 } [ %158, %157 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %158, %157 ], [ %67, %66 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %159 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %159, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %160, !prof !225
@@ -151831,7 +151831,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %27, %29
-  %.0 = phi i32 [ 0, %27 ], [ 0, %29 ], [ %56, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i32 [ 0, %29 ], [ 0, %27 ], [ %56, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %57 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %57, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit12, label %58, !prof !225
@@ -152302,9 +152302,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal64EE
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit58.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit58.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit58.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %128, %.lr.ph50.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %163, %.loopexit.loopexit58.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit58.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit58.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %128, %.lr.ph50.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %163, %.loopexit.loopexit58.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %164 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %164, label %49, label %.loopexit28, !llvm.loop !3076
 
@@ -152338,7 +152338,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIiNS_9Decimal64EE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %165
-  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %167 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %167, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %168, !prof !225
@@ -152806,9 +152806,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal64
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit58.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %158, %.loopexit.loopexit58.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit58.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph50.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %161, %.loopexit.loopexit58.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %158, %.loopexit.loopexit58.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit58.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph50.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %161, %.loopexit.loopexit58.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %162 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %162, label %49, label %.loopexit28, !llvm.loop !3088
 
@@ -152842,7 +152842,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIiNS_9Decimal64
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %66, %163
-  %.pn = phi { ptr, i32 } [ %164, %163 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %164, %163 ], [ %67, %66 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %165 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %165, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %166, !prof !225
@@ -153233,7 +153233,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %27, %29
-  %.0 = phi i32 [ 0, %27 ], [ 0, %29 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i32 [ 0, %29 ], [ 0, %27 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %58 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %58, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit12, label %59, !prof !225
@@ -153700,9 +153700,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int32TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i, %.loopexit.loopexit54.i.i.i.i, %.lr.ph46.i.i.i.i, %.preheader36.i.i.i.i, %.preheader38.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader38.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %162, %.loopexit.loopexit54.i.i.i.i ], [ %122, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int32TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit54.i.i.i.i ], [ %123, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int32TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02452.i.i.i.i, %.preheader38.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader.i.i.i.i ], [ %131, %.lr.ph46.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader36.i.i.i.i ], [ %165, %.loopexit.loopexit54.i.i.i.i ], [ %58, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int32TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %162, %.loopexit.loopexit54.i.i.i.i ], [ %.0, %.preheader38.i.i.i.i ], [ %122, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int32TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit54.i.i.i.i ], [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %123, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int32TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02452.i.i.i.i, %.preheader.i.i.i.i ], [ %131, %.lr.ph46.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader36.i.i.i.i ], [ %165, %.loopexit.loopexit54.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader38.i.i.i.i ], [ %58, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int32TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
   %166 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %166, label %53, label %.loopexit28, !llvm.loop !3125
 
@@ -153736,7 +153736,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %70, %167
-  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %71, %70 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %71, %70 ], [ %78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %169 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %169, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %170, !prof !225
@@ -154200,9 +154200,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int32TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i, %.loopexit.loopexit54.i.i.i.i, %.lr.ph46.i.i.i.i, %.preheader36.i.i.i.i, %.preheader38.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader38.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %160, %.loopexit.loopexit54.i.i.i.i ], [ %121, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int32TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit54.i.i.i.i ], [ %122, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int32TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02452.i.i.i.i, %.preheader38.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph46.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader36.i.i.i.i ], [ %163, %.loopexit.loopexit54.i.i.i.i ], [ %58, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int32TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %160, %.loopexit.loopexit54.i.i.i.i ], [ %.0, %.preheader38.i.i.i.i ], [ %121, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int32TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit54.i.i.i.i ], [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %122, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int32TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02452.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph46.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader36.i.i.i.i ], [ %163, %.loopexit.loopexit54.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader38.i.i.i.i ], [ %58, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int32TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
   %164 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %164, label %53, label %.loopexit28, !llvm.loop !3149
 
@@ -154236,7 +154236,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %69, %165
-  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %70, %69 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %70, %69 ], [ %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %167 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %167, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %168, !prof !225
@@ -154640,7 +154640,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %25, %27
-  %.0 = phi i32 [ 0, %25 ], [ 0, %27 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %25 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %58 = load ptr, ptr %11, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %58, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit12, label %59, !prof !225
@@ -155204,8 +155204,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !3192
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
   %77 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %77, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_9Int64TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !3193
 
@@ -155446,7 +155446,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal31StringToSignedIntCon
   br label %31
 
 31:                                               ; preds = %29, %25, %.lr.ph.i
-  %.pn.in.i = phi i8 [ %30, %29 ], [ %26, %25 ], [ %22, %.lr.ph.i ]
+  %.pn.in.i = phi i8 [ %26, %25 ], [ %30, %29 ], [ %22, %.lr.ph.i ]
   %.pn.i = zext nneg i8 %.pn.in.i to i64
   %.2.i = or i64 %19, %.pn.i
   %32 = add nuw nsw i64 %.03049.i, 1
@@ -155506,12 +155506,12 @@ thread-pre-split:                                 ; preds = %8
   br i1 %53, label %_ZN5arrow8internal8ParseHexImEEbPKcmPT_.exit.thread, label %_ZN5arrow8internal8ParseHexImEEbPKcmPT_.exit.thread.sink.split, !prof !158
 
 _ZN5arrow8internal8ParseHexImEEbPKcmPT_.exit.thread.sink.split: ; preds = %31, %50, %52
-  %storemerge.sink = phi i64 [ %47, %52 ], [ %51, %50 ], [ %.2.i, %31 ]
+  %storemerge.sink = phi i64 [ %51, %50 ], [ %47, %52 ], [ %.2.i, %31 ]
   store i64 %storemerge.sink, ptr %4, align 8, !tbaa !300
   br label %_ZN5arrow8internal8ParseHexImEEbPKcmPT_.exit.thread
 
 _ZN5arrow8internal8ParseHexImEEbPKcmPT_.exit.thread: ; preds = %27, %_ZN5arrow8internal8ParseHexImEEbPKcmPT_.exit.thread.sink.split, %15, %52, %48, %.critedge, %34, %5
-  %.022 = phi i1 [ false, %34 ], [ false, %15 ], [ false, %5 ], [ false, %52 ], [ false, %.critedge ], [ true, %_ZN5arrow8internal8ParseHexImEEbPKcmPT_.exit.thread.sink.split ], [ false, %48 ], [ false, %27 ]
+  %.022 = phi i1 [ false, %5 ], [ false, %34 ], [ false, %.critedge ], [ false, %48 ], [ false, %52 ], [ false, %15 ], [ true, %_ZN5arrow8internal8ParseHexImEEbPKcmPT_.exit.thread.sink.split ], [ false, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.022
 }
@@ -155812,7 +155812,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
   br label %.thread
 
 .thread:                                          ; preds = %176, %174, %180, %164, %155, %146, %137, %128, %119, %110, %101, %92, %83, %74, %65, %56, %47, %38, %29, %20, %11, %4, %184
-  %.1 = phi i1 [ false, %4 ], [ true, %184 ], [ false, %180 ], [ false, %164 ], [ false, %155 ], [ false, %146 ], [ false, %137 ], [ false, %128 ], [ false, %119 ], [ false, %110 ], [ false, %101 ], [ false, %92 ], [ false, %83 ], [ false, %74 ], [ false, %65 ], [ false, %56 ], [ false, %47 ], [ false, %38 ], [ false, %29 ], [ false, %20 ], [ false, %11 ], [ false, %174 ], [ false, %176 ]
+  %.1 = phi i1 [ true, %184 ], [ false, %180 ], [ false, %164 ], [ false, %155 ], [ false, %146 ], [ false, %137 ], [ false, %128 ], [ false, %119 ], [ false, %110 ], [ false, %101 ], [ false, %92 ], [ false, %83 ], [ false, %74 ], [ false, %65 ], [ false, %56 ], [ false, %47 ], [ false, %38 ], [ false, %29 ], [ false, %20 ], [ false, %11 ], [ false, %4 ], [ false, %174 ], [ false, %176 ]
   ret i1 %.1
 }
 
@@ -155973,8 +155973,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !3200
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
   %73 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %73, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_9Int64TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !3201
 
@@ -156247,8 +156247,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !3212
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc12, %.noexc11, %.lr.ph39.i.i.i.i, %.preheader31.i.i.i.i, %.preheader33.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader33.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph39.i.i.i.i ], [ %.0, %.preheader31.i.i.i.i ], [ %61, %.noexc11 ], [ %105, %.noexc12 ]
-  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %70, %.lr.ph39.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph39.i.i.i.i ], [ %.0, %.preheader31.i.i.i.i ], [ %.0, %.preheader33.i.i.i.i ], [ %61, %.noexc11 ], [ %105, %.noexc12 ]
+  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %70, %.lr.ph39.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
   %107 = icmp slt i64 %.2.i.i.i.i, %31
   br i1 %107, label %.lr.ph46.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_9Int64TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !3213
 
@@ -156771,9 +156771,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_10Decimal128
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit61.i.i.i.i, %.lr.ph51.i.i.i.i, %.preheader41.i.i.i.i, %.preheader43.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader43.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep66.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %170, %.loopexit.loopexit61.i.i.i.i ], [ %127, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit61.i.i.i.i ], [ %128, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02459.i.i.i.i, %.preheader43.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader.i.i.i.i ], [ %138, %.lr.ph51.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader41.i.i.i.i ], [ %173, %.loopexit.loopexit61.i.i.i.i ], [ %62, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep66.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %170, %.loopexit.loopexit61.i.i.i.i ], [ %.0, %.preheader43.i.i.i.i ], [ %127, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit61.i.i.i.i ], [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %128, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02459.i.i.i.i, %.preheader.i.i.i.i ], [ %138, %.lr.ph51.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader41.i.i.i.i ], [ %173, %.loopexit.loopexit61.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader43.i.i.i.i ], [ %62, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %174 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %174, label %57, label %.loopexit28, !llvm.loop !3225
 
@@ -156807,7 +156807,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_10Decimal128
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %78, %175
-  %.pn = phi { ptr, i32 } [ %176, %175 ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %79, %78 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %176, %175 ], [ %79, %78 ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %177 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %177, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %178, !prof !225
@@ -157291,9 +157291,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_10Decimal1
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit61.i.i.i.i, %.lr.ph51.i.i.i.i, %.preheader41.i.i.i.i, %.preheader43.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader43.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep66.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %168, %.loopexit.loopexit61.i.i.i.i ], [ %126, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit61.i.i.i.i ], [ %127, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02459.i.i.i.i, %.preheader43.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader.i.i.i.i ], [ %137, %.lr.ph51.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader41.i.i.i.i ], [ %171, %.loopexit.loopexit61.i.i.i.i ], [ %62, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep66.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %168, %.loopexit.loopexit61.i.i.i.i ], [ %.0, %.preheader43.i.i.i.i ], [ %126, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit61.i.i.i.i ], [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %127, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02459.i.i.i.i, %.preheader.i.i.i.i ], [ %137, %.lr.ph51.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader41.i.i.i.i ], [ %171, %.loopexit.loopexit61.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader43.i.i.i.i ], [ %62, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %172 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %172, label %57, label %.loopexit28, !llvm.loop !3237
 
@@ -157327,7 +157327,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_10Decimal1
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %77, %173
-  %.pn = phi { ptr, i32 } [ %174, %173 ], [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %78, %77 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %174, %173 ], [ %78, %77 ], [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %175 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %175, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %176, !prof !225
@@ -157728,7 +157728,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %56, %52, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %58, %_ZN5arrow6StatusD2Ev.exit.i, %28, %30
-  %.0 = phi i64 [ 0, %28 ], [ 0, %30 ], [ %59, %58 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i64 [ 0, %30 ], [ 0, %28 ], [ %59, %58 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %60 = load ptr, ptr %13, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %60, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit12, label %61, !prof !225
@@ -158201,9 +158201,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal32EE
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit60.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %165, %.loopexit.loopexit60.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %165, %.loopexit.loopexit60.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %166 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %166, label %49, label %.loopexit28, !llvm.loop !3262
 
@@ -158237,7 +158237,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal32EE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %167
-  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %169 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %169, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %170, !prof !225
@@ -158707,9 +158707,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal32
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit60.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %163, %.loopexit.loopexit60.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %163, %.loopexit.loopexit60.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %164 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %164, label %49, label %.loopexit28, !llvm.loop !3274
 
@@ -158743,7 +158743,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal32
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %66, %165
-  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %67, %66 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %167 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %167, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %168, !prof !225
@@ -159136,7 +159136,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %27, %29
-  %.0 = phi i64 [ 0, %27 ], [ 0, %29 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i64 [ 0, %29 ], [ 0, %27 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %58 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %58, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit12, label %59, !prof !225
@@ -159599,9 +159599,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal64EE
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %156, %.loopexit.loopexit60.i.i.i.i ], [ %116, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %117, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %159, %.loopexit.loopexit60.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %156, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %116, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %117, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %159, %.loopexit.loopexit60.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %160 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %160, label %49, label %.loopexit28, !llvm.loop !3299
 
@@ -159635,7 +159635,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal64EE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %161
-  %.pn = phi { ptr, i32 } [ %162, %161 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %162, %161 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %163 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %163, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %164, !prof !225
@@ -160095,9 +160095,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal64
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %154, %.loopexit.loopexit60.i.i.i.i ], [ %115, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %116, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %126, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %157, %.loopexit.loopexit60.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %154, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %115, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %116, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %126, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %157, %.loopexit.loopexit60.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %158 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %158, label %49, label %.loopexit28, !llvm.loop !3311
 
@@ -160131,7 +160131,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal64
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %66, %159
-  %.pn = phi { ptr, i32 } [ %160, %159 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %160, %159 ], [ %67, %66 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %161 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %161, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %162, !prof !225
@@ -160523,7 +160523,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %27, %29
-  %.0 = phi i64 [ 0, %27 ], [ 0, %29 ], [ %56, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i64 [ 0, %29 ], [ 0, %27 ], [ %56, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %57 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %57, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit12, label %58, !prof !225
@@ -160990,9 +160990,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int64TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i, %.loopexit.loopexit56.i.i.i.i, %.lr.ph46.i.i.i.i, %.preheader36.i.i.i.i, %.preheader38.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader38.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep61.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %162, %.loopexit.loopexit56.i.i.i.i ], [ %121, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int64TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit56.i.i.i.i ], [ %122, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int64TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02454.i.i.i.i, %.preheader38.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader.i.i.i.i ], [ %132, %.lr.ph46.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader36.i.i.i.i ], [ %165, %.loopexit.loopexit56.i.i.i.i ], [ %58, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int64TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep61.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %162, %.loopexit.loopexit56.i.i.i.i ], [ %.0, %.preheader38.i.i.i.i ], [ %121, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int64TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit56.i.i.i.i ], [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %122, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int64TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02454.i.i.i.i, %.preheader.i.i.i.i ], [ %132, %.lr.ph46.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader36.i.i.i.i ], [ %165, %.loopexit.loopexit56.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader38.i.i.i.i ], [ %58, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int64TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
   %166 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %166, label %53, label %.loopexit28, !llvm.loop !3348
 
@@ -161026,7 +161026,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %70, %167
-  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %71, %70 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %71, %70 ], [ %78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %169 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %169, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %170, !prof !225
@@ -161490,9 +161490,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int64TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i, %.loopexit.loopexit56.i.i.i.i, %.lr.ph46.i.i.i.i, %.preheader36.i.i.i.i, %.preheader38.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader38.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep61.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %160, %.loopexit.loopexit56.i.i.i.i ], [ %120, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int64TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit56.i.i.i.i ], [ %121, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int64TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02454.i.i.i.i, %.preheader38.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader.i.i.i.i ], [ %131, %.lr.ph46.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader36.i.i.i.i ], [ %163, %.loopexit.loopexit56.i.i.i.i ], [ %58, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int64TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep61.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %160, %.loopexit.loopexit56.i.i.i.i ], [ %.0, %.preheader38.i.i.i.i ], [ %120, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int64TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit56.i.i.i.i ], [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %121, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int64TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02454.i.i.i.i, %.preheader.i.i.i.i ], [ %131, %.lr.ph46.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader36.i.i.i.i ], [ %163, %.loopexit.loopexit56.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader38.i.i.i.i ], [ %58, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9Int64TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
   %164 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %164, label %53, label %.loopexit28, !llvm.loop !3372
 
@@ -161526,7 +161526,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %69, %165
-  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %70, %69 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %70, %69 ], [ %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %167 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %167, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %168, !prof !225
@@ -161931,7 +161931,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %25, %27
-  %.0 = phi i64 [ 0, %25 ], [ 0, %27 ], [ %56, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i64 [ 0, %27 ], [ 0, %25 ], [ %56, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %57 = load ptr, ptr %11, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %57, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit12, label %58, !prof !225
@@ -162528,8 +162528,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !3415
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i.preheader, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %74, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %54, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %74, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %54, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
   %76 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %76, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_9UInt8TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !3416
 
@@ -162770,7 +162770,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal33StringToUnsignedIntC
   br label %31
 
 31:                                               ; preds = %29, %25, %.lr.ph.i
-  %narrow.pn.i = phi i8 [ %30, %29 ], [ %26, %25 ], [ %22, %.lr.ph.i ]
+  %narrow.pn.i = phi i8 [ %26, %25 ], [ %30, %29 ], [ %22, %.lr.ph.i ]
   %.2.i = or i8 %narrow.pn.i, %19
   %32 = add nuw nsw i64 %.03046.i, 1
   %exitcond.not.i = icmp eq i64 %.03046.i, %17
@@ -162833,12 +162833,12 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal33StringToUnsignedIntC
   br i1 %.not48.i, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.sink.split
 
 _ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.sink.split: ; preds = %31, %36, %42, %50, %57
-  %.136.i.sink = phi i8 [ 0, %36 ], [ %.46.i, %57 ], [ %49, %50 ], [ %40, %42 ], [ %.2.i, %31 ]
+  %.136.i.sink = phi i8 [ %.46.i, %57 ], [ %49, %50 ], [ %40, %42 ], [ 0, %36 ], [ %.2.i, %31 ]
   store i8 %.136.i.sink, ptr %4, align 1, !tbaa !142
   br label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit
 
 _ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit:     ; preds = %27, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.sink.split, %57, %53, %51, %43, %.critedge, %15, %5
-  %.0 = phi i1 [ false, %53 ], [ false, %5 ], [ false, %15 ], [ false, %51 ], [ false, %.critedge ], [ true, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.sink.split ], [ false, %57 ], [ false, %43 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %15 ], [ false, %57 ], [ false, %43 ], [ false, %.critedge ], [ false, %51 ], [ false, %53 ], [ true, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.sink.split ], [ false, %27 ]
   ret i1 %.0
 }
 
@@ -162998,8 +162998,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !3422
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i.preheader, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %44, %.noexc10 ], [ %70, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %52, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph38.i.i.i.i.preheader ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %44, %.noexc10 ], [ %70, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %52, %.lr.ph38.i.i.i.i.preheader ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
   %72 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %72, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_9UInt8TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !3423
 
@@ -163271,8 +163271,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !3434
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc12, %.noexc11, %.lr.ph39.i.i.i.i.preheader, %.preheader31.i.i.i.i, %.preheader33.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader33.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph39.i.i.i.i.preheader ], [ %.0, %.preheader31.i.i.i.i ], [ %61, %.noexc11 ], [ %104, %.noexc12 ]
-  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %69, %.lr.ph39.i.i.i.i.preheader ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph39.i.i.i.i.preheader ], [ %.0, %.preheader31.i.i.i.i ], [ %.0, %.preheader33.i.i.i.i ], [ %61, %.noexc11 ], [ %104, %.noexc12 ]
+  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %69, %.lr.ph39.i.i.i.i.preheader ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
   %106 = icmp slt i64 %.2.i.i.i.i, %31
   br i1 %106, label %.lr.ph46.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_9UInt8TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !3435
 
@@ -163798,9 +163798,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_10Decimal128
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph51.i.i.i.i.preheader, %.preheader41.i.i.i.i, %.preheader43.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader43.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph51.i.i.i.i.preheader ], [ %.0, %.preheader41.i.i.i.i ], [ %171, %.loopexit.loopexit60.i.i.i.i ], [ %128, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph51.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %129, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02457.i.i.i.i, %.preheader43.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader.i.i.i.i ], [ %136, %.lr.ph51.i.i.i.i.preheader ], [ %.02457.i.i.i.i, %.preheader41.i.i.i.i ], [ %174, %.loopexit.loopexit60.i.i.i.i ], [ %60, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph51.i.i.i.i.preheader ], [ %.0, %.preheader41.i.i.i.i ], [ %171, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader43.i.i.i.i ], [ %128, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph51.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %129, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02457.i.i.i.i, %.preheader.i.i.i.i ], [ %136, %.lr.ph51.i.i.i.i.preheader ], [ %.02457.i.i.i.i, %.preheader41.i.i.i.i ], [ %174, %.loopexit.loopexit60.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader43.i.i.i.i ], [ %60, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %175 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %175, label %55, label %.loopexit29, !llvm.loop !3447
 
@@ -163834,7 +163834,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_10Decimal128
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %76, %176
-  %.pn = phi { ptr, i32 } [ %177, %176 ], [ %84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %77, %76 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %177, %176 ], [ %77, %76 ], [ %84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %178 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %178, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %179, !prof !225
@@ -164321,9 +164321,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_10Decimal1
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph51.i.i.i.i.preheader, %.preheader41.i.i.i.i, %.preheader43.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader43.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph51.i.i.i.i.preheader ], [ %.0, %.preheader41.i.i.i.i ], [ %169, %.loopexit.loopexit60.i.i.i.i ], [ %127, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph51.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %128, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02457.i.i.i.i, %.preheader43.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader.i.i.i.i ], [ %135, %.lr.ph51.i.i.i.i.preheader ], [ %.02457.i.i.i.i, %.preheader41.i.i.i.i ], [ %172, %.loopexit.loopexit60.i.i.i.i ], [ %60, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph51.i.i.i.i.preheader ], [ %.0, %.preheader41.i.i.i.i ], [ %169, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader43.i.i.i.i ], [ %127, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph51.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %128, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02457.i.i.i.i, %.preheader.i.i.i.i ], [ %135, %.lr.ph51.i.i.i.i.preheader ], [ %.02457.i.i.i.i, %.preheader41.i.i.i.i ], [ %172, %.loopexit.loopexit60.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader43.i.i.i.i ], [ %60, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %173 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %173, label %55, label %.loopexit29, !llvm.loop !3459
 
@@ -164357,7 +164357,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_10Decimal1
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %75, %174
-  %.pn = phi { ptr, i32 } [ %175, %174 ], [ %83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %76, %75 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %175, %174 ], [ %76, %75 ], [ %83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %176 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %176, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %177, !prof !225
@@ -164754,7 +164754,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %55, %51, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %57, %_ZN5arrow6StatusD2Ev.exit.i, %28, %30
-  %.0 = phi i8 [ 0, %28 ], [ 0, %30 ], [ %59, %57 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i8 [ 0, %30 ], [ 0, %28 ], [ %59, %57 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %60 = load ptr, ptr %13, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %60, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit12, label %61, !prof !225
@@ -165224,9 +165224,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal32EE
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit59.i.i.i.i, %.lr.ph50.i.i.i.i.preheader, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph50.i.i.i.i.preheader ], [ %.0, %.preheader40.i.i.i.i ], [ %159, %.loopexit.loopexit59.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph50.i.i.i.i.preheader ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit59.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph50.i.i.i.i.preheader ], [ %.0, %.preheader40.i.i.i.i ], [ %159, %.loopexit.loopexit59.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph50.i.i.i.i.preheader ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit59.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %163 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %163, label %49, label %.loopexit29, !llvm.loop !3484
 
@@ -165260,7 +165260,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal32EE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %164
-  %.pn = phi { ptr, i32 } [ %165, %164 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %165, %164 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %166 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %166, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %167, !prof !225
@@ -165727,9 +165727,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal32
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit59.i.i.i.i, %.lr.ph50.i.i.i.i.preheader, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph50.i.i.i.i.preheader ], [ %.0, %.preheader40.i.i.i.i ], [ %157, %.loopexit.loopexit59.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %126, %.lr.ph50.i.i.i.i.preheader ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit59.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph50.i.i.i.i.preheader ], [ %.0, %.preheader40.i.i.i.i ], [ %157, %.loopexit.loopexit59.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %126, %.lr.ph50.i.i.i.i.preheader ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit59.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %161 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %161, label %49, label %.loopexit29, !llvm.loop !3496
 
@@ -165763,7 +165763,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal32
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %66, %162
-  %.pn = phi { ptr, i32 } [ %163, %162 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %163, %162 ], [ %67, %66 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %164 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %164, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %165, !prof !225
@@ -166153,7 +166153,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %27, %29
-  %.0 = phi i8 [ 0, %27 ], [ 0, %29 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i8 [ 0, %29 ], [ 0, %27 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %58 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %58, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit12, label %59, !prof !225
@@ -166623,9 +166623,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal64EE
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit59.i.i.i.i, %.lr.ph50.i.i.i.i.preheader, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph50.i.i.i.i.preheader ], [ %.0, %.preheader40.i.i.i.i ], [ %159, %.loopexit.loopexit59.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph50.i.i.i.i.preheader ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit59.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph50.i.i.i.i.preheader ], [ %.0, %.preheader40.i.i.i.i ], [ %159, %.loopexit.loopexit59.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph50.i.i.i.i.preheader ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit59.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %163 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %163, label %49, label %.loopexit29, !llvm.loop !3521
 
@@ -166659,7 +166659,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIhNS_9Decimal64EE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %164
-  %.pn = phi { ptr, i32 } [ %165, %164 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %165, %164 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %166 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %166, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %167, !prof !225
@@ -167126,9 +167126,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal64
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit59.i.i.i.i, %.lr.ph50.i.i.i.i.preheader, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph50.i.i.i.i.preheader ], [ %.0, %.preheader40.i.i.i.i ], [ %157, %.loopexit.loopexit59.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %126, %.lr.ph50.i.i.i.i.preheader ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit59.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph50.i.i.i.i.preheader ], [ %.0, %.preheader40.i.i.i.i ], [ %157, %.loopexit.loopexit59.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %126, %.lr.ph50.i.i.i.i.preheader ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit59.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %161 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %161, label %49, label %.loopexit29, !llvm.loop !3533
 
@@ -167162,7 +167162,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIhNS_9Decimal64
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %66, %162
-  %.pn = phi { ptr, i32 } [ %163, %162 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %163, %162 ], [ %67, %66 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %164 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %164, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %165, !prof !225
@@ -167552,7 +167552,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %27, %29
-  %.0 = phi i8 [ 0, %27 ], [ 0, %29 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i8 [ 0, %29 ], [ 0, %27 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %58 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %58, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit12, label %59, !prof !225
@@ -168014,9 +168014,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9UInt8TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i, %.loopexit.loopexit55.i.i.i.i, %.lr.ph46.i.i.i.i.preheader, %.preheader36.i.i.i.i, %.preheader38.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader38.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph46.i.i.i.i.preheader ], [ %.0, %.preheader36.i.i.i.i ], [ %159, %.loopexit.loopexit55.i.i.i.i ], [ %120, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9UInt8TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph46.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit55.i.i.i.i ], [ %121, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9UInt8TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02452.i.i.i.i, %.preheader38.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader.i.i.i.i ], [ %128, %.lr.ph46.i.i.i.i.preheader ], [ %.02452.i.i.i.i, %.preheader36.i.i.i.i ], [ %162, %.loopexit.loopexit55.i.i.i.i ], [ %56, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9UInt8TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph46.i.i.i.i.preheader ], [ %.0, %.preheader36.i.i.i.i ], [ %159, %.loopexit.loopexit55.i.i.i.i ], [ %.0, %.preheader38.i.i.i.i ], [ %120, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9UInt8TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph46.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit55.i.i.i.i ], [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %121, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9UInt8TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02452.i.i.i.i, %.preheader.i.i.i.i ], [ %128, %.lr.ph46.i.i.i.i.preheader ], [ %.02452.i.i.i.i, %.preheader36.i.i.i.i ], [ %162, %.loopexit.loopexit55.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader38.i.i.i.i ], [ %56, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9UInt8TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
   %163 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %163, label %51, label %.loopexit29, !llvm.loop !3564
 
@@ -168050,7 +168050,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %68, %164
-  %.pn = phi { ptr, i32 } [ %165, %164 ], [ %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %69, %68 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %165, %164 ], [ %69, %68 ], [ %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %166 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %166, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %167, !prof !225
@@ -168509,9 +168509,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9UInt8TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i, %.loopexit.loopexit55.i.i.i.i, %.lr.ph46.i.i.i.i.preheader, %.preheader36.i.i.i.i, %.preheader38.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader38.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph46.i.i.i.i.preheader ], [ %.0, %.preheader36.i.i.i.i ], [ %157, %.loopexit.loopexit55.i.i.i.i ], [ %119, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9UInt8TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph46.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit55.i.i.i.i ], [ %120, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9UInt8TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02452.i.i.i.i, %.preheader38.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph46.i.i.i.i.preheader ], [ %.02452.i.i.i.i, %.preheader36.i.i.i.i ], [ %160, %.loopexit.loopexit55.i.i.i.i ], [ %56, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9UInt8TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep, %.lr.ph46.i.i.i.i.preheader ], [ %.0, %.preheader36.i.i.i.i ], [ %157, %.loopexit.loopexit55.i.i.i.i ], [ %.0, %.preheader38.i.i.i.i ], [ %119, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9UInt8TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph46.i.i.i.i.preheader ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit55.i.i.i.i ], [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %120, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9UInt8TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02452.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph46.i.i.i.i.preheader ], [ %.02452.i.i.i.i, %.preheader36.i.i.i.i ], [ %160, %.loopexit.loopexit55.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader38.i.i.i.i ], [ %56, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_9UInt8TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
   %161 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %161, label %51, label %.loopexit29, !llvm.loop !3582
 
@@ -168545,7 +168545,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %162
-  %.pn = phi { ptr, i32 } [ %163, %162 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %163, %162 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit24, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit27, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %164 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %164, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %165, !prof !225
@@ -168946,7 +168946,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %52, %48, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %54, %_ZN5arrow6StatusD2Ev.exit.i, %25, %27
-  %.0 = phi i8 [ 0, %25 ], [ 0, %27 ], [ %56, %54 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i8 [ 0, %27 ], [ 0, %25 ], [ %56, %54 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %57 = load ptr, ptr %11, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %57, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit12, label %58, !prof !225
@@ -169543,8 +169543,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !3622
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
   %77 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %77, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10UInt16TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !3623
 
@@ -169887,12 +169887,12 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal33StringToUnsignedIntC
   br i1 %.not76.i, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split
 
 _ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split: ; preds = %38, %43, %50, %58, %67, %77, %84
-  %.151.i.sink = phi i16 [ 0, %43 ], [ %.75.i, %84 ], [ %76, %77 ], [ %66, %67 ], [ %57, %58 ], [ %49, %50 ], [ %.2.i, %38 ]
+  %.151.i.sink = phi i16 [ %.75.i, %84 ], [ %76, %77 ], [ %66, %67 ], [ %57, %58 ], [ %49, %50 ], [ 0, %43 ], [ %.2.i, %38 ]
   store i16 %.151.i.sink, ptr %4, align 2, !tbaa !380
   br label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit
 
 _ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit:     ; preds = %32, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split, %84, %80, %78, %68, %59, %51, %.critedge, %15, %5
-  %.0 = phi i1 [ false, %80 ], [ false, %5 ], [ false, %15 ], [ false, %78 ], [ false, %.critedge ], [ true, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split ], [ false, %84 ], [ false, %68 ], [ false, %59 ], [ false, %51 ], [ false, %32 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %15 ], [ false, %84 ], [ false, %68 ], [ false, %59 ], [ false, %51 ], [ false, %.critedge ], [ false, %78 ], [ false, %80 ], [ true, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split ], [ false, %32 ]
   ret i1 %.0
 }
 
@@ -170053,8 +170053,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !3629
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
   %73 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %73, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10UInt16TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !3630
 
@@ -170327,8 +170327,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !3641
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc12, %.noexc11, %.lr.ph39.i.i.i.i, %.preheader31.i.i.i.i, %.preheader33.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader33.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph39.i.i.i.i ], [ %.0, %.preheader31.i.i.i.i ], [ %61, %.noexc11 ], [ %105, %.noexc12 ]
-  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %70, %.lr.ph39.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph39.i.i.i.i ], [ %.0, %.preheader31.i.i.i.i ], [ %.0, %.preheader33.i.i.i.i ], [ %61, %.noexc11 ], [ %105, %.noexc12 ]
+  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %70, %.lr.ph39.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
   %107 = icmp slt i64 %.2.i.i.i.i, %31
   br i1 %107, label %.lr.ph46.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10UInt16TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !3642
 
@@ -170857,9 +170857,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_10Decimal128
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit61.i.i.i.i, %.lr.ph51.i.i.i.i, %.preheader41.i.i.i.i, %.preheader43.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader43.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep66.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %174, %.loopexit.loopexit61.i.i.i.i ], [ %128, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit61.i.i.i.i ], [ %129, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02459.i.i.i.i, %.preheader43.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader.i.i.i.i ], [ %139, %.lr.ph51.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader41.i.i.i.i ], [ %177, %.loopexit.loopexit61.i.i.i.i ], [ %60, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep66.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %174, %.loopexit.loopexit61.i.i.i.i ], [ %.0, %.preheader43.i.i.i.i ], [ %128, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit61.i.i.i.i ], [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %129, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02459.i.i.i.i, %.preheader.i.i.i.i ], [ %139, %.lr.ph51.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader41.i.i.i.i ], [ %177, %.loopexit.loopexit61.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader43.i.i.i.i ], [ %60, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %178 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %178, label %55, label %.loopexit28, !llvm.loop !3654
 
@@ -170893,7 +170893,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_10Decimal128
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %76, %179
-  %.pn = phi { ptr, i32 } [ %180, %179 ], [ %84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %77, %76 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %180, %179 ], [ %77, %76 ], [ %84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %181 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %181, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %182, !prof !225
@@ -171383,9 +171383,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_10Decimal1
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit61.i.i.i.i, %.lr.ph51.i.i.i.i, %.preheader41.i.i.i.i, %.preheader43.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader43.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep66.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %172, %.loopexit.loopexit61.i.i.i.i ], [ %127, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit61.i.i.i.i ], [ %128, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02459.i.i.i.i, %.preheader43.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader.i.i.i.i ], [ %138, %.lr.ph51.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader41.i.i.i.i ], [ %175, %.loopexit.loopexit61.i.i.i.i ], [ %60, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep66.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %172, %.loopexit.loopexit61.i.i.i.i ], [ %.0, %.preheader43.i.i.i.i ], [ %127, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit61.i.i.i.i ], [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %128, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02459.i.i.i.i, %.preheader.i.i.i.i ], [ %138, %.lr.ph51.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader41.i.i.i.i ], [ %175, %.loopexit.loopexit61.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader43.i.i.i.i ], [ %60, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %176 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %176, label %55, label %.loopexit28, !llvm.loop !3666
 
@@ -171419,7 +171419,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_10Decimal1
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %75, %177
-  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %76, %75 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %76, %75 ], [ %83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %179 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %179, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %180, !prof !225
@@ -171819,7 +171819,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %55, %51, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %57, %_ZN5arrow6StatusD2Ev.exit.i, %28, %30
-  %.0 = phi i16 [ 0, %28 ], [ 0, %30 ], [ %59, %57 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i16 [ 0, %30 ], [ 0, %28 ], [ %59, %57 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %60 = load ptr, ptr %13, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %60, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit12, label %61, !prof !225
@@ -172292,9 +172292,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal32EE
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit60.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %165, %.loopexit.loopexit60.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %165, %.loopexit.loopexit60.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %166 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %166, label %49, label %.loopexit28, !llvm.loop !3691
 
@@ -172328,7 +172328,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal32EE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %167
-  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %169 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %169, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %170, !prof !225
@@ -172798,9 +172798,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal32
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit60.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %163, %.loopexit.loopexit60.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %163, %.loopexit.loopexit60.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %164 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %164, label %49, label %.loopexit28, !llvm.loop !3703
 
@@ -172834,7 +172834,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal32
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %66, %165
-  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %67, %66 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %167 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %167, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %168, !prof !225
@@ -173227,7 +173227,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %27, %29
-  %.0 = phi i16 [ 0, %27 ], [ 0, %29 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i16 [ 0, %29 ], [ 0, %27 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %58 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %58, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit12, label %59, !prof !225
@@ -173700,9 +173700,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal64EE
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit60.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %165, %.loopexit.loopexit60.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %165, %.loopexit.loopexit60.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %166 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %166, label %49, label %.loopexit28, !llvm.loop !3728
 
@@ -173736,7 +173736,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal64EE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %167
-  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %169 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %169, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %170, !prof !225
@@ -174206,9 +174206,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal64
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit60.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %163, %.loopexit.loopexit60.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %163, %.loopexit.loopexit60.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %164 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %164, label %49, label %.loopexit28, !llvm.loop !3740
 
@@ -174242,7 +174242,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal64
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %66, %165
-  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %67, %66 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %167 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %167, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %168, !prof !225
@@ -174635,7 +174635,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %27, %29
-  %.0 = phi i16 [ 0, %27 ], [ 0, %29 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i16 [ 0, %29 ], [ 0, %27 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %58 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %58, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit12, label %59, !prof !225
@@ -175100,9 +175100,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt16TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i, %.loopexit.loopexit56.i.i.i.i, %.lr.ph46.i.i.i.i, %.preheader36.i.i.i.i, %.preheader38.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader38.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep61.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %162, %.loopexit.loopexit56.i.i.i.i ], [ %120, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt16TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit56.i.i.i.i ], [ %121, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt16TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02454.i.i.i.i, %.preheader38.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader.i.i.i.i ], [ %131, %.lr.ph46.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader36.i.i.i.i ], [ %165, %.loopexit.loopexit56.i.i.i.i ], [ %56, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt16TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep61.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %162, %.loopexit.loopexit56.i.i.i.i ], [ %.0, %.preheader38.i.i.i.i ], [ %120, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt16TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit56.i.i.i.i ], [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %121, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt16TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02454.i.i.i.i, %.preheader.i.i.i.i ], [ %131, %.lr.ph46.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader36.i.i.i.i ], [ %165, %.loopexit.loopexit56.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader38.i.i.i.i ], [ %56, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt16TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
   %166 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %166, label %51, label %.loopexit28, !llvm.loop !3771
 
@@ -175136,7 +175136,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %68, %167
-  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %69, %68 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %69, %68 ], [ %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %169 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %169, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %170, !prof !225
@@ -175598,9 +175598,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt16TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i, %.loopexit.loopexit56.i.i.i.i, %.lr.ph46.i.i.i.i, %.preheader36.i.i.i.i, %.preheader38.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader38.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep61.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %160, %.loopexit.loopexit56.i.i.i.i ], [ %119, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt16TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit56.i.i.i.i ], [ %120, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt16TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02454.i.i.i.i, %.preheader38.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph46.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader36.i.i.i.i ], [ %163, %.loopexit.loopexit56.i.i.i.i ], [ %56, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt16TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep61.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %160, %.loopexit.loopexit56.i.i.i.i ], [ %.0, %.preheader38.i.i.i.i ], [ %119, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt16TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit56.i.i.i.i ], [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %120, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt16TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02454.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph46.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader36.i.i.i.i ], [ %163, %.loopexit.loopexit56.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader38.i.i.i.i ], [ %56, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt16TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
   %164 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %164, label %51, label %.loopexit28, !llvm.loop !3789
 
@@ -175634,7 +175634,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %165
-  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %167 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %167, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %168, !prof !225
@@ -176038,7 +176038,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %52, %48, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %54, %_ZN5arrow6StatusD2Ev.exit.i, %25, %27
-  %.0 = phi i16 [ 0, %25 ], [ 0, %27 ], [ %56, %54 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i16 [ 0, %27 ], [ 0, %25 ], [ %56, %54 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %57 = load ptr, ptr %11, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %57, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit12, label %58, !prof !225
@@ -176998,7 +176998,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i: ; pre
   br label %.body
 
 _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %100, %105, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i, %193, %186, %176, %167, %158, %149, %140, %131, %122, %113, %.critedge.i.i.i.i.i.i
-  %.0100108.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i ], [ 0, %.critedge.i.i.i.i.i.i ], [ 0, %105 ], [ %112, %113 ], [ %.146.i.i.i.i.i, %193 ], [ %185, %186 ], [ %175, %176 ], [ %166, %167 ], [ %157, %158 ], [ %148, %149 ], [ %139, %140 ], [ %130, %131 ], [ %121, %122 ], [ %.2.i.i.i.i.i.i.i, %100 ]
+  %.0100108.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i ], [ %185, %186 ], [ %175, %176 ], [ %166, %167 ], [ %157, %158 ], [ %148, %149 ], [ %139, %140 ], [ %130, %131 ], [ %121, %122 ], [ %112, %113 ], [ 0, %.critedge.i.i.i.i.i.i ], [ %.146.i.i.i.i.i, %193 ], [ 0, %105 ], [ %.2.i.i.i.i.i.i.i, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %266 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   store i32 %.0100108.i.i.i.i, ptr %.3, align 4, !tbaa !143
@@ -177503,7 +177503,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i26.i.i.i.i: ; p
   br label %.body
 
 _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit35.i.i.i.i: ; preds = %330, %335, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit42.i.i.i.i, %423, %416, %406, %397, %388, %379, %370, %361, %352, %343, %.critedge.i.i58.i.i.i.i
-  %.098115.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit42.i.i.i.i ], [ 0, %.critedge.i.i58.i.i.i.i ], [ 0, %335 ], [ %342, %343 ], [ %.146.i90.i.i.i.i, %423 ], [ %415, %416 ], [ %405, %406 ], [ %396, %397 ], [ %387, %388 ], [ %378, %379 ], [ %369, %370 ], [ %360, %361 ], [ %351, %352 ], [ %.2.i.i.i70.i.i.i.i, %330 ]
+  %.098115.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit42.i.i.i.i ], [ %415, %416 ], [ %405, %406 ], [ %396, %397 ], [ %387, %388 ], [ %378, %379 ], [ %369, %370 ], [ %360, %361 ], [ %351, %352 ], [ %342, %343 ], [ 0, %.critedge.i.i58.i.i.i.i ], [ %.146.i90.i.i.i.i, %423 ], [ 0, %335 ], [ %.2.i.i.i70.i.i.i.i, %330 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %496
 
@@ -177516,8 +177516,8 @@ _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_strin
   br i1 %exitcond.not.i.i.i.i, label %.loopexit119.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !3846
 
 .loopexit119.i.i.i.i:                             ; preds = %496, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph138.i.i.i.i, %.preheader120.i.i.i.i, %.preheader122.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader122.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph138.i.i.i.i ], [ %.0, %.preheader120.i.i.i.i ], [ %266, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %497, %496 ]
-  %.2.i.i.i.i = phi i64 [ %.024144.i.i.i.i, %.preheader122.i.i.i.i ], [ %.024144.i.i.i.i, %.preheader.i.i.i.i ], [ %275, %.lr.ph138.i.i.i.i ], [ %.024144.i.i.i.i, %.preheader120.i.i.i.i ], [ %268, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %272, %496 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph138.i.i.i.i ], [ %.0, %.preheader120.i.i.i.i ], [ %.0, %.preheader122.i.i.i.i ], [ %266, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %497, %496 ]
+  %.2.i.i.i.i = phi i64 [ %.024144.i.i.i.i, %.preheader.i.i.i.i ], [ %275, %.lr.ph138.i.i.i.i ], [ %.024144.i.i.i.i, %.preheader120.i.i.i.i ], [ %.024144.i.i.i.i, %.preheader122.i.i.i.i ], [ %268, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %272, %496 ]
   %499 = icmp slt i64 %.2.i.i.i.i, %29
   br i1 %499, label %51, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10UInt32TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !3847
 
@@ -177555,7 +177555,7 @@ _ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10Binar
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i26.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i, %501
-  %.pn = phi { ptr, i32 } [ %502, %501 ], [ %.pn.i27.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i26.i.i.i.i ], [ %.pn.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit17, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %502, %501 ], [ %.pn.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i ], [ %.pn.i27.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i26.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit17, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %503 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %503, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %504, !prof !225
@@ -178127,7 +178127,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i: ; pre
   br label %.body
 
 _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %98, %103, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i, %190, %183, %173, %164, %155, %146, %137, %128, %119, %110
-  %.0100108.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i ], [ %118, %119 ], [ 0, %103 ], [ %109, %110 ], [ %127, %128 ], [ %.146.i.i.i.i.i, %190 ], [ %182, %183 ], [ %172, %173 ], [ %163, %164 ], [ %154, %155 ], [ %145, %146 ], [ %136, %137 ], [ %.2.i.i.i.i.i.i.i, %98 ]
+  %.0100108.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i ], [ %182, %183 ], [ %172, %173 ], [ %163, %164 ], [ %154, %155 ], [ %145, %146 ], [ %136, %137 ], [ %127, %128 ], [ %118, %119 ], [ %109, %110 ], [ %.146.i.i.i.i.i, %190 ], [ 0, %103 ], [ %.2.i.i.i.i.i.i.i, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %263 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   store i32 %.0100108.i.i.i.i, ptr %.3, align 4, !tbaa !143
@@ -178626,7 +178626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i26.i.i.i.i: ; p
   br label %.body
 
 _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit35.i.i.i.i: ; preds = %325, %330, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit42.i.i.i.i, %417, %410, %400, %391, %382, %373, %364, %355, %346, %337
-  %.098115.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit42.i.i.i.i ], [ %345, %346 ], [ 0, %330 ], [ %336, %337 ], [ %354, %355 ], [ %.146.i90.i.i.i.i, %417 ], [ %409, %410 ], [ %399, %400 ], [ %390, %391 ], [ %381, %382 ], [ %372, %373 ], [ %363, %364 ], [ %.2.i.i.i70.i.i.i.i, %325 ]
+  %.098115.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit42.i.i.i.i ], [ %409, %410 ], [ %399, %400 ], [ %390, %391 ], [ %381, %382 ], [ %372, %373 ], [ %363, %364 ], [ %354, %355 ], [ %345, %346 ], [ %336, %337 ], [ %.146.i90.i.i.i.i, %417 ], [ 0, %330 ], [ %.2.i.i.i70.i.i.i.i, %325 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %490
 
@@ -178639,8 +178639,8 @@ _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_strin
   br i1 %exitcond.not.i.i.i.i, label %.loopexit119.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !3868
 
 .loopexit119.i.i.i.i:                             ; preds = %490, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph138.i.i.i.i, %.preheader120.i.i.i.i, %.preheader122.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader122.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph138.i.i.i.i ], [ %.0, %.preheader120.i.i.i.i ], [ %263, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %491, %490 ]
-  %.2.i.i.i.i = phi i64 [ %.024144.i.i.i.i, %.preheader122.i.i.i.i ], [ %.024144.i.i.i.i, %.preheader.i.i.i.i ], [ %272, %.lr.ph138.i.i.i.i ], [ %.024144.i.i.i.i, %.preheader120.i.i.i.i ], [ %265, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %269, %490 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph138.i.i.i.i ], [ %.0, %.preheader120.i.i.i.i ], [ %.0, %.preheader122.i.i.i.i ], [ %263, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %491, %490 ]
+  %.2.i.i.i.i = phi i64 [ %.024144.i.i.i.i, %.preheader.i.i.i.i ], [ %272, %.lr.ph138.i.i.i.i ], [ %.024144.i.i.i.i, %.preheader120.i.i.i.i ], [ %.024144.i.i.i.i, %.preheader122.i.i.i.i ], [ %265, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %269, %490 ]
   %493 = icmp slt i64 %.2.i.i.i.i, %29
   br i1 %493, label %51, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10UInt32TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !3869
 
@@ -178678,7 +178678,7 @@ _ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15Large
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i26.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i, %495
-  %.pn = phi { ptr, i32 } [ %496, %495 ], [ %.pn.i27.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i26.i.i.i.i ], [ %.pn.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit17, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %496, %495 ], [ %.pn.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i ], [ %.pn.i27.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i26.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit17, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %497 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %497, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %498, !prof !225
@@ -179289,7 +179289,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i: ; pre
   br label %.body
 
 _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %115, %120, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i, %208, %201, %191, %182, %173, %164, %155, %146, %137, %128, %.critedge.i.i.i.i.i.i
-  %.0101109.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i ], [ 0, %.critedge.i.i.i.i.i.i ], [ 0, %120 ], [ %127, %128 ], [ %.146.i.i.i.i.i, %208 ], [ %200, %201 ], [ %190, %191 ], [ %181, %182 ], [ %172, %173 ], [ %163, %164 ], [ %154, %155 ], [ %145, %146 ], [ %136, %137 ], [ %.2.i.i.i.i.i.i.i, %115 ]
+  %.0101109.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i ], [ %200, %201 ], [ %190, %191 ], [ %181, %182 ], [ %172, %173 ], [ %163, %164 ], [ %154, %155 ], [ %145, %146 ], [ %136, %137 ], [ %127, %128 ], [ 0, %.critedge.i.i.i.i.i.i ], [ %.146.i.i.i.i.i, %208 ], [ 0, %120 ], [ %.2.i.i.i.i.i.i.i, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %281 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   store i32 %.0101109.i.i.i.i, ptr %.3, align 4, !tbaa !143
@@ -179816,7 +179816,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i27.i.i.i.i: ; p
   br label %.body
 
 _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit36.i.i.i.i: ; preds = %360, %365, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit43.i.i.i.i, %453, %446, %436, %427, %418, %409, %400, %391, %382, %373, %.critedge.i.i59.i.i.i.i
-  %.099116.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit43.i.i.i.i ], [ 0, %.critedge.i.i59.i.i.i.i ], [ 0, %365 ], [ %372, %373 ], [ %.146.i91.i.i.i.i, %453 ], [ %445, %446 ], [ %435, %436 ], [ %426, %427 ], [ %417, %418 ], [ %408, %409 ], [ %399, %400 ], [ %390, %391 ], [ %381, %382 ], [ %.2.i.i.i71.i.i.i.i, %360 ]
+  %.099116.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit43.i.i.i.i ], [ %445, %446 ], [ %435, %436 ], [ %426, %427 ], [ %417, %418 ], [ %408, %409 ], [ %399, %400 ], [ %390, %391 ], [ %381, %382 ], [ %372, %373 ], [ 0, %.critedge.i.i59.i.i.i.i ], [ %.146.i91.i.i.i.i, %453 ], [ 0, %365 ], [ %.2.i.i.i71.i.i.i.i, %360 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %526
 
@@ -179829,8 +179829,8 @@ _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_strin
   br i1 %exitcond.not.i.i.i.i, label %.loopexit120.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !3896
 
 .loopexit120.i.i.i.i:                             ; preds = %526, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph139.i.i.i.i, %.preheader121.i.i.i.i, %.preheader123.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader123.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph139.i.i.i.i ], [ %.0, %.preheader121.i.i.i.i ], [ %281, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %527, %526 ]
-  %.2.i.i.i.i = phi i64 [ %.024145.i.i.i.i, %.preheader123.i.i.i.i ], [ %.024145.i.i.i.i, %.preheader.i.i.i.i ], [ %290, %.lr.ph139.i.i.i.i ], [ %.024145.i.i.i.i, %.preheader121.i.i.i.i ], [ %283, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %287, %526 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph139.i.i.i.i ], [ %.0, %.preheader121.i.i.i.i ], [ %.0, %.preheader123.i.i.i.i ], [ %281, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %527, %526 ]
+  %.2.i.i.i.i = phi i64 [ %.024145.i.i.i.i, %.preheader.i.i.i.i ], [ %290, %.lr.ph139.i.i.i.i ], [ %.024145.i.i.i.i, %.preheader121.i.i.i.i ], [ %.024145.i.i.i.i, %.preheader123.i.i.i.i ], [ %283, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %287, %526 ]
   %529 = icmp slt i64 %.2.i.i.i.i, %41
   br i1 %529, label %51, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10UInt32TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !3897
 
@@ -179867,7 +179867,7 @@ _ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_14BinaryViewTypeEZNS1_10a
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i27.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i, %530
-  %.pn = phi { ptr, i32 } [ %531, %530 ], [ %.pn.i28.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i27.i.i.i.i ], [ %.pn.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit18, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %531, %530 ], [ %.pn.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i ], [ %.pn.i28.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i27.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit18, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %532 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %532, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %533, !prof !225
@@ -180357,9 +180357,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_10Decimal128
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit59.i.i.i.i, %.lr.ph51.i.i.i.i, %.preheader41.i.i.i.i, %.preheader43.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader43.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %172, %.loopexit.loopexit59.i.i.i.i ], [ %128, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %129, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02457.i.i.i.i, %.preheader43.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader.i.i.i.i ], [ %137, %.lr.ph51.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader41.i.i.i.i ], [ %175, %.loopexit.loopexit59.i.i.i.i ], [ %60, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %172, %.loopexit.loopexit59.i.i.i.i ], [ %.0, %.preheader43.i.i.i.i ], [ %128, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %129, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02457.i.i.i.i, %.preheader.i.i.i.i ], [ %137, %.lr.ph51.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader41.i.i.i.i ], [ %175, %.loopexit.loopexit59.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader43.i.i.i.i ], [ %60, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %176 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %176, label %55, label %.loopexit28, !llvm.loop !3909
 
@@ -180393,7 +180393,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_10Decimal128
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %76, %177
-  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %77, %76 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %77, %76 ], [ %84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %179 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %179, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %180, !prof !225
@@ -180881,9 +180881,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_10Decimal1
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit59.i.i.i.i, %.lr.ph51.i.i.i.i, %.preheader41.i.i.i.i, %.preheader43.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader43.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %170, %.loopexit.loopexit59.i.i.i.i ], [ %127, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %128, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02457.i.i.i.i, %.preheader43.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader.i.i.i.i ], [ %136, %.lr.ph51.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader41.i.i.i.i ], [ %173, %.loopexit.loopexit59.i.i.i.i ], [ %60, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %170, %.loopexit.loopexit59.i.i.i.i ], [ %.0, %.preheader43.i.i.i.i ], [ %127, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit59.i.i.i.i ], [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %128, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02457.i.i.i.i, %.preheader.i.i.i.i ], [ %136, %.lr.ph51.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader41.i.i.i.i ], [ %173, %.loopexit.loopexit59.i.i.i.i ], [ %.02457.i.i.i.i, %.preheader43.i.i.i.i ], [ %60, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %174 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %174, label %55, label %.loopexit28, !llvm.loop !3921
 
@@ -180917,7 +180917,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_10Decimal1
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %75, %175
-  %.pn = phi { ptr, i32 } [ %176, %175 ], [ %83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %76, %75 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %176, %175 ], [ %76, %75 ], [ %83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %177 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %177, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %178, !prof !225
@@ -181315,7 +181315,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %55, %51, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %57, %_ZN5arrow6StatusD2Ev.exit.i, %28, %30
-  %.0 = phi i32 [ 0, %28 ], [ 0, %30 ], [ %59, %57 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i32 [ 0, %30 ], [ 0, %28 ], [ %59, %57 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %60 = load ptr, ptr %13, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %60, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit12, label %61, !prof !225
@@ -181776,9 +181776,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal32EE
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit58.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %154, %.loopexit.loopexit58.i.i.i.i ], [ %116, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit58.i.i.i.i ], [ %117, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %125, %.lr.ph50.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %157, %.loopexit.loopexit58.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %154, %.loopexit.loopexit58.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %116, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit58.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %117, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %125, %.lr.ph50.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %157, %.loopexit.loopexit58.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %158 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %158, label %49, label %.loopexit28, !llvm.loop !3946
 
@@ -181812,7 +181812,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal32EE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %159
-  %.pn = phi { ptr, i32 } [ %160, %159 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %160, %159 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %161 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %161, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %162, !prof !225
@@ -182270,9 +182270,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal32
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit58.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %152, %.loopexit.loopexit58.i.i.i.i ], [ %115, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit58.i.i.i.i ], [ %116, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %124, %.lr.ph50.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %155, %.loopexit.loopexit58.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %152, %.loopexit.loopexit58.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %115, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit58.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %116, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %124, %.lr.ph50.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %155, %.loopexit.loopexit58.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %156 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %156, label %49, label %.loopexit28, !llvm.loop !3958
 
@@ -182306,7 +182306,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal32
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %66, %157
-  %.pn = phi { ptr, i32 } [ %158, %157 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %158, %157 ], [ %67, %66 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %159 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %159, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %160, !prof !225
@@ -182696,7 +182696,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %27, %29
-  %.0 = phi i32 [ 0, %27 ], [ 0, %29 ], [ %56, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i32 [ 0, %29 ], [ 0, %27 ], [ %56, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %57 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %57, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit12, label %58, !prof !225
@@ -183167,9 +183167,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal64EE
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit58.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit58.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit58.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %128, %.lr.ph50.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %163, %.loopexit.loopexit58.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit58.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit58.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %128, %.lr.ph50.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %163, %.loopexit.loopexit58.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %164 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %164, label %49, label %.loopexit28, !llvm.loop !3983
 
@@ -183203,7 +183203,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIjNS_9Decimal64EE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %165
-  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %167 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %167, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %168, !prof !225
@@ -183671,9 +183671,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal64
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit58.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %158, %.loopexit.loopexit58.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit58.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph50.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %161, %.loopexit.loopexit58.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %158, %.loopexit.loopexit58.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit58.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02456.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph50.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader40.i.i.i.i ], [ %161, %.loopexit.loopexit58.i.i.i.i ], [ %.02456.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %162 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %162, label %49, label %.loopexit28, !llvm.loop !3995
 
@@ -183707,7 +183707,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIjNS_9Decimal64
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %66, %163
-  %.pn = phi { ptr, i32 } [ %164, %163 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %164, %163 ], [ %67, %66 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %165 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %165, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %166, !prof !225
@@ -184098,7 +184098,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %27, %29
-  %.0 = phi i32 [ 0, %27 ], [ 0, %29 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i32 [ 0, %29 ], [ 0, %27 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %58 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %58, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit12, label %59, !prof !225
@@ -184561,9 +184561,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt32TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i, %.loopexit.loopexit54.i.i.i.i, %.lr.ph46.i.i.i.i, %.preheader36.i.i.i.i, %.preheader38.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader38.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %160, %.loopexit.loopexit54.i.i.i.i ], [ %120, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt32TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit54.i.i.i.i ], [ %121, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt32TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02452.i.i.i.i, %.preheader38.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph46.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader36.i.i.i.i ], [ %163, %.loopexit.loopexit54.i.i.i.i ], [ %56, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt32TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %160, %.loopexit.loopexit54.i.i.i.i ], [ %.0, %.preheader38.i.i.i.i ], [ %120, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt32TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit54.i.i.i.i ], [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %121, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt32TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02452.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph46.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader36.i.i.i.i ], [ %163, %.loopexit.loopexit54.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader38.i.i.i.i ], [ %56, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt32TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
   %164 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %164, label %51, label %.loopexit28, !llvm.loop !4026
 
@@ -184597,7 +184597,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %68, %165
-  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %69, %68 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %69, %68 ], [ %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %167 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %167, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %168, !prof !225
@@ -185057,9 +185057,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt32TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i, %.loopexit.loopexit54.i.i.i.i, %.lr.ph46.i.i.i.i, %.preheader36.i.i.i.i, %.preheader38.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader38.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %158, %.loopexit.loopexit54.i.i.i.i ], [ %119, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt32TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit54.i.i.i.i ], [ %120, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt32TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02452.i.i.i.i, %.preheader38.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader.i.i.i.i ], [ %128, %.lr.ph46.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader36.i.i.i.i ], [ %161, %.loopexit.loopexit54.i.i.i.i ], [ %56, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt32TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep27.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %158, %.loopexit.loopexit54.i.i.i.i ], [ %.0, %.preheader38.i.i.i.i ], [ %119, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt32TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit54.i.i.i.i ], [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %120, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt32TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02452.i.i.i.i, %.preheader.i.i.i.i ], [ %128, %.lr.ph46.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader36.i.i.i.i ], [ %161, %.loopexit.loopexit54.i.i.i.i ], [ %.02452.i.i.i.i, %.preheader38.i.i.i.i ], [ %56, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt32TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
   %162 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %162, label %51, label %.loopexit28, !llvm.loop !4044
 
@@ -185093,7 +185093,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %163
-  %.pn = phi { ptr, i32 } [ %164, %163 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %164, %163 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %165 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %165, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %166, !prof !225
@@ -185495,7 +185495,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %52, %48, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %54, %_ZN5arrow6StatusD2Ev.exit.i, %25, %27
-  %.0 = phi i32 [ 0, %25 ], [ 0, %27 ], [ %56, %54 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %25 ], [ %56, %54 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %57 = load ptr, ptr %11, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %57, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit12, label %58, !prof !225
@@ -186092,7 +186092,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br label %98
 
 98:                                               ; preds = %96, %92, %.lr.ph.i.i.i.i.i.i.i
-  %.pn.in.i.i.i.i.i.i.i = phi i8 [ %97, %96 ], [ %93, %92 ], [ %89, %.lr.ph.i.i.i.i.i.i.i ]
+  %.pn.in.i.i.i.i.i.i.i = phi i8 [ %93, %92 ], [ %97, %96 ], [ %89, %.lr.ph.i.i.i.i.i.i.i ]
   %.pn.i.i.i.i.i.i.i = zext nneg i8 %.pn.in.i.i.i.i.i.i.i to i64
   %.2.i.i.i.i.i.i.i = or i64 %86, %.pn.i.i.i.i.i.i.i
   %99 = add nuw nsw i64 %.03049.i.i.i.i.i.i.i, 1
@@ -186461,7 +186461,7 @@ _ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_strin
   br label %238
 
 238:                                              ; preds = %236, %232, %.lr.ph.i.i.i63.i.i.i.i
-  %.pn.in.i.i.i70.i.i.i.i = phi i8 [ %237, %236 ], [ %233, %232 ], [ %229, %.lr.ph.i.i.i63.i.i.i.i ]
+  %.pn.in.i.i.i70.i.i.i.i = phi i8 [ %233, %232 ], [ %237, %236 ], [ %229, %.lr.ph.i.i.i63.i.i.i.i ]
   %.pn.i.i.i71.i.i.i.i = zext nneg i8 %.pn.in.i.i.i70.i.i.i.i to i64
   %.2.i.i.i72.i.i.i.i = or i64 %226, %.pn.i.i.i71.i.i.i.i
   %239 = add nuw nsw i64 %.03049.i.i.i64.i.i.i.i, 1
@@ -186705,8 +186705,8 @@ _ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_strin
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !4102
 
 .loopexit.i.i.i.i:                                ; preds = %318, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph102.i.i.i.i, %.preheader88.i.i.i.i, %.preheader90.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader90.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph102.i.i.i.i ], [ %.0, %.preheader88.i.i.i.i ], [ %178, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %319, %318 ]
-  %.2.i.i.i.i = phi i64 [ %.024108.i.i.i.i, %.preheader90.i.i.i.i ], [ %.024108.i.i.i.i, %.preheader.i.i.i.i ], [ %187, %.lr.ph102.i.i.i.i ], [ %.024108.i.i.i.i, %.preheader88.i.i.i.i ], [ %180, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %184, %318 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph102.i.i.i.i ], [ %.0, %.preheader88.i.i.i.i ], [ %.0, %.preheader90.i.i.i.i ], [ %178, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %319, %318 ]
+  %.2.i.i.i.i = phi i64 [ %.024108.i.i.i.i, %.preheader.i.i.i.i ], [ %187, %.lr.ph102.i.i.i.i ], [ %.024108.i.i.i.i, %.preheader88.i.i.i.i ], [ %.024108.i.i.i.i, %.preheader90.i.i.i.i ], [ %180, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %184, %318 ]
   %321 = icmp slt i64 %.2.i.i.i.i, %31
   br i1 %321, label %53, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10UInt64TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !4103
 
@@ -186744,7 +186744,7 @@ _ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10Binar
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i26.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i, %323
-  %.pn = phi { ptr, i32 } [ %324, %323 ], [ %.pn.i27.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i26.i.i.i.i ], [ %.pn.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit15, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %324, %323 ], [ %.pn.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i ], [ %.pn.i27.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i26.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit15, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %325 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %325, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %326, !prof !225
@@ -186958,7 +186958,7 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br label %96
 
 96:                                               ; preds = %94, %90, %.lr.ph.i.i.i.i.i.i.i
-  %.pn.in.i.i.i.i.i.i.i = phi i8 [ %95, %94 ], [ %91, %90 ], [ %87, %.lr.ph.i.i.i.i.i.i.i ]
+  %.pn.in.i.i.i.i.i.i.i = phi i8 [ %91, %90 ], [ %95, %94 ], [ %87, %.lr.ph.i.i.i.i.i.i.i ]
   %.pn.i.i.i.i.i.i.i = zext nneg i8 %.pn.in.i.i.i.i.i.i.i to i64
   %.2.i.i.i.i.i.i.i = or i64 %84, %.pn.i.i.i.i.i.i.i
   %97 = add nuw nsw i64 %.03049.i.i.i.i.i.i.i, 1
@@ -187325,7 +187325,7 @@ _ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_strin
   br label %234
 
 234:                                              ; preds = %232, %228, %.lr.ph.i.i.i63.i.i.i.i
-  %.pn.in.i.i.i70.i.i.i.i = phi i8 [ %233, %232 ], [ %229, %228 ], [ %225, %.lr.ph.i.i.i63.i.i.i.i ]
+  %.pn.in.i.i.i70.i.i.i.i = phi i8 [ %229, %228 ], [ %233, %232 ], [ %225, %.lr.ph.i.i.i63.i.i.i.i ]
   %.pn.i.i.i71.i.i.i.i = zext nneg i8 %.pn.in.i.i.i70.i.i.i.i to i64
   %.2.i.i.i72.i.i.i.i = or i64 %222, %.pn.i.i.i71.i.i.i.i
   %235 = add nuw nsw i64 %.03049.i.i.i64.i.i.i.i, 1
@@ -187569,8 +187569,8 @@ _ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_strin
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !4124
 
 .loopexit.i.i.i.i:                                ; preds = %314, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph102.i.i.i.i, %.preheader88.i.i.i.i, %.preheader90.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader90.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph102.i.i.i.i ], [ %.0, %.preheader88.i.i.i.i ], [ %176, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %315, %314 ]
-  %.2.i.i.i.i = phi i64 [ %.024108.i.i.i.i, %.preheader90.i.i.i.i ], [ %.024108.i.i.i.i, %.preheader.i.i.i.i ], [ %185, %.lr.ph102.i.i.i.i ], [ %.024108.i.i.i.i, %.preheader88.i.i.i.i ], [ %178, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %182, %314 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph102.i.i.i.i ], [ %.0, %.preheader88.i.i.i.i ], [ %.0, %.preheader90.i.i.i.i ], [ %176, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %315, %314 ]
+  %.2.i.i.i.i = phi i64 [ %.024108.i.i.i.i, %.preheader.i.i.i.i ], [ %185, %.lr.ph102.i.i.i.i ], [ %.024108.i.i.i.i, %.preheader88.i.i.i.i ], [ %.024108.i.i.i.i, %.preheader90.i.i.i.i ], [ %178, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %182, %314 ]
   %317 = icmp slt i64 %.2.i.i.i.i, %31
   br i1 %317, label %53, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10UInt64TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !4125
 
@@ -187608,7 +187608,7 @@ _ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15Large
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i26.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i, %319
-  %.pn = phi { ptr, i32 } [ %320, %319 ], [ %.pn.i27.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i26.i.i.i.i ], [ %.pn.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit15, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %320, %319 ], [ %.pn.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i ], [ %.pn.i27.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i26.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit15, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %321 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %321, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %322, !prof !225
@@ -187854,7 +187854,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS
   br label %113
 
 113:                                              ; preds = %111, %107, %.lr.ph.i.i.i.i.i.i.i
-  %.pn.in.i.i.i.i.i.i.i = phi i8 [ %112, %111 ], [ %108, %107 ], [ %104, %.lr.ph.i.i.i.i.i.i.i ]
+  %.pn.in.i.i.i.i.i.i.i = phi i8 [ %108, %107 ], [ %112, %111 ], [ %104, %.lr.ph.i.i.i.i.i.i.i ]
   %.pn.i.i.i.i.i.i.i = zext nneg i8 %.pn.in.i.i.i.i.i.i.i to i64
   %.2.i.i.i.i.i.i.i = or i64 %101, %.pn.i.i.i.i.i.i.i
   %114 = add nuw nsw i64 %.03049.i.i.i.i.i.i.i, 1
@@ -188245,7 +188245,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS
   br label %268
 
 268:                                              ; preds = %266, %262, %.lr.ph.i.i.i64.i.i.i.i
-  %.pn.in.i.i.i71.i.i.i.i = phi i8 [ %267, %266 ], [ %263, %262 ], [ %259, %.lr.ph.i.i.i64.i.i.i.i ]
+  %.pn.in.i.i.i71.i.i.i.i = phi i8 [ %263, %262 ], [ %267, %266 ], [ %259, %.lr.ph.i.i.i64.i.i.i.i ]
   %.pn.i.i.i72.i.i.i.i = zext nneg i8 %.pn.in.i.i.i71.i.i.i.i to i64
   %.2.i.i.i73.i.i.i.i = or i64 %256, %.pn.i.i.i72.i.i.i.i
   %269 = add nuw nsw i64 %.03049.i.i.i65.i.i.i.i, 1
@@ -188489,8 +188489,8 @@ _ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_strin
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !4152
 
 .loopexit.i.i.i.i:                                ; preds = %348, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.lr.ph103.i.i.i.i, %.preheader89.i.i.i.i, %.preheader91.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader91.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph103.i.i.i.i ], [ %.0, %.preheader89.i.i.i.i ], [ %193, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %349, %348 ]
-  %.2.i.i.i.i = phi i64 [ %.024109.i.i.i.i, %.preheader91.i.i.i.i ], [ %.024109.i.i.i.i, %.preheader.i.i.i.i ], [ %202, %.lr.ph103.i.i.i.i ], [ %.024109.i.i.i.i, %.preheader89.i.i.i.i ], [ %195, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %199, %348 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph103.i.i.i.i ], [ %.0, %.preheader89.i.i.i.i ], [ %.0, %.preheader91.i.i.i.i ], [ %193, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %349, %348 ]
+  %.2.i.i.i.i = phi i64 [ %.024109.i.i.i.i, %.preheader.i.i.i.i ], [ %202, %.lr.ph103.i.i.i.i ], [ %.024109.i.i.i.i, %.preheader89.i.i.i.i ], [ %.024109.i.i.i.i, %.preheader91.i.i.i.i ], [ %195, %_ZNK5arrow7compute8internal11ParseStringINS_10UInt64TypeEE4CallImSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %199, %348 ]
   %351 = icmp slt i64 %.2.i.i.i.i, %43
   br i1 %351, label %53, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10UInt64TypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !4153
 
@@ -188527,7 +188527,7 @@ _ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_14BinaryViewTypeEZNS1_10a
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i27.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i, %352
-  %.pn = phi { ptr, i32 } [ %353, %352 ], [ %.pn.i28.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i27.i.i.i.i ], [ %.pn.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit16, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit20, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %353, %352 ], [ %.pn.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i ], [ %.pn.i28.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i27.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit16, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit20, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %354 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %354, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %355, !prof !225
@@ -189009,9 +189009,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_10Decimal128
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit61.i.i.i.i, %.lr.ph51.i.i.i.i, %.preheader41.i.i.i.i, %.preheader43.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader43.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep66.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %168, %.loopexit.loopexit61.i.i.i.i ], [ %125, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit61.i.i.i.i ], [ %126, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02459.i.i.i.i, %.preheader43.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader.i.i.i.i ], [ %136, %.lr.ph51.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader41.i.i.i.i ], [ %171, %.loopexit.loopexit61.i.i.i.i ], [ %60, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep66.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %168, %.loopexit.loopexit61.i.i.i.i ], [ %.0, %.preheader43.i.i.i.i ], [ %125, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit61.i.i.i.i ], [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %126, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02459.i.i.i.i, %.preheader.i.i.i.i ], [ %136, %.lr.ph51.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader41.i.i.i.i ], [ %171, %.loopexit.loopexit61.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader43.i.i.i.i ], [ %60, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %172 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %172, label %55, label %.loopexit28, !llvm.loop !4165
 
@@ -189045,7 +189045,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_10Decimal128
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %76, %173
-  %.pn = phi { ptr, i32 } [ %174, %173 ], [ %84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %77, %76 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %174, %173 ], [ %77, %76 ], [ %84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %175 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %175, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %176, !prof !225
@@ -189525,9 +189525,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_10Decimal1
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit61.i.i.i.i, %.lr.ph51.i.i.i.i, %.preheader41.i.i.i.i, %.preheader43.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader43.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep66.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %166, %.loopexit.loopexit61.i.i.i.i ], [ %124, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit61.i.i.i.i ], [ %125, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02459.i.i.i.i, %.preheader43.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader.i.i.i.i ], [ %135, %.lr.ph51.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader41.i.i.i.i ], [ %169, %.loopexit.loopexit61.i.i.i.i ], [ %60, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep66.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0, %.preheader41.i.i.i.i ], [ %166, %.loopexit.loopexit61.i.i.i.i ], [ %.0, %.preheader43.i.i.i.i ], [ %124, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph51.i.i.i.i ], [ %.0.i.i.i, %.preheader41.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit61.i.i.i.i ], [ %.0.i.i.i, %.preheader43.i.i.i.i ], [ %125, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02459.i.i.i.i, %.preheader.i.i.i.i ], [ %135, %.lr.ph51.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader41.i.i.i.i ], [ %169, %.loopexit.loopexit61.i.i.i.i ], [ %.02459.i.i.i.i, %.preheader43.i.i.i.i ], [ %60, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_10Decimal128EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %170 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %170, label %55, label %.loopexit28, !llvm.loop !4177
 
@@ -189561,7 +189561,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_10Decimal1
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %75, %171
-  %.pn = phi { ptr, i32 } [ %172, %171 ], [ %83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %76, %75 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %172, %171 ], [ %76, %75 ], [ %83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %173 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %173, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %174, !prof !225
@@ -189960,7 +189960,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %55, %51, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %57, %_ZN5arrow6StatusD2Ev.exit.i, %28, %30
-  %.0 = phi i64 [ 0, %28 ], [ 0, %30 ], [ %58, %57 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i64 [ 0, %30 ], [ 0, %28 ], [ %58, %57 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %59 = load ptr, ptr %13, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %59, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit12, label %60, !prof !225
@@ -190433,9 +190433,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal32EE
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit60.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %165, %.loopexit.loopexit60.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %162, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %120, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %165, %.loopexit.loopexit60.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %166 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %166, label %49, label %.loopexit28, !llvm.loop !4202
 
@@ -190469,7 +190469,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal32EE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %167
-  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %169 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %169, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %170, !prof !225
@@ -190939,9 +190939,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal32
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit60.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %163, %.loopexit.loopexit60.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %160, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %118, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %119, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %163, %.loopexit.loopexit60.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal32EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %164 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %164, label %49, label %.loopexit28, !llvm.loop !4214
 
@@ -190975,7 +190975,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal32
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %66, %165
-  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %67, %66 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %167 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %167, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %168, !prof !225
@@ -191368,7 +191368,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %27, %29
-  %.0 = phi i64 [ 0, %27 ], [ 0, %29 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i64 [ 0, %29 ], [ 0, %27 ], [ %57, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %58 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %58, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_9Decimal32EED2Ev.exit12, label %59, !prof !225
@@ -191831,9 +191831,9 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal64EE
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %156, %.loopexit.loopexit60.i.i.i.i ], [ %116, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %117, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %159, %.loopexit.loopexit60.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %156, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %116, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %117, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %127, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %159, %.loopexit.loopexit60.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %160 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %160, label %49, label %.loopexit28, !llvm.loop !4239
 
@@ -191867,7 +191867,7 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal64EE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %161
-  %.pn = phi { ptr, i32 } [ %162, %161 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %162, %161 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %163 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %163, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %164, !prof !225
@@ -192327,9 +192327,9 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal64
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %.loopexit.loopexit60.i.i.i.i, %.lr.ph50.i.i.i.i, %.preheader40.i.i.i.i, %.preheader42.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader42.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %154, %.loopexit.loopexit60.i.i.i.i ], [ %115, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %116, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %126, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %157, %.loopexit.loopexit60.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep65.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0, %.preheader40.i.i.i.i ], [ %154, %.loopexit.loopexit60.i.i.i.i ], [ %.0, %.preheader42.i.i.i.i ], [ %115, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph50.i.i.i.i ], [ %.0.i.i.i, %.preheader40.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit60.i.i.i.i ], [ %.0.i.i.i, %.preheader42.i.i.i.i ], [ %116, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02458.i.i.i.i, %.preheader.i.i.i.i ], [ %126, %.lr.ph50.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader40.i.i.i.i ], [ %157, %.loopexit.loopexit60.i.i.i.i ], [ %.02458.i.i.i.i, %.preheader42.i.i.i.i ], [ %54, %_ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal64EEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ]
   %158 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %158, label %49, label %.loopexit28, !llvm.loop !4251
 
@@ -192363,7 +192363,7 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal64
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %66, %159
-  %.pn = phi { ptr, i32 } [ %160, %159 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %160, %159 ], [ %67, %66 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %161 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %161, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %162, !prof !225
@@ -192755,7 +192755,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %53, %49, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %55, %_ZN5arrow6StatusD2Ev.exit.i, %27, %29
-  %.0 = phi i64 [ 0, %27 ], [ 0, %29 ], [ %56, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i64 [ 0, %29 ], [ 0, %27 ], [ %56, %55 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %57 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %57, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_9Decimal64EED2Ev.exit12, label %58, !prof !225
@@ -193218,9 +193218,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt64TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i, %.loopexit.loopexit56.i.i.i.i, %.lr.ph46.i.i.i.i, %.preheader36.i.i.i.i, %.preheader38.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader38.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep61.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %160, %.loopexit.loopexit56.i.i.i.i ], [ %119, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt64TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit56.i.i.i.i ], [ %120, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt64TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02454.i.i.i.i, %.preheader38.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph46.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader36.i.i.i.i ], [ %163, %.loopexit.loopexit56.i.i.i.i ], [ %56, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt64TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep61.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %160, %.loopexit.loopexit56.i.i.i.i ], [ %.0, %.preheader38.i.i.i.i ], [ %119, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt64TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit56.i.i.i.i ], [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %120, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt64TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02454.i.i.i.i, %.preheader.i.i.i.i ], [ %130, %.lr.ph46.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader36.i.i.i.i ], [ %163, %.loopexit.loopexit56.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader38.i.i.i.i ], [ %56, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt64TypeES2_NS6_29UnsafeUpscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
   %164 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %164, label %51, label %.loopexit28, !llvm.loop !4282
 
@@ -193254,7 +193254,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %68, %165
-  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %69, %68 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %166, %165 ], [ %69, %68 ], [ %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %167 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %167, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %168, !prof !225
@@ -193714,9 +193714,9 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt64TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i, %.loopexit.loopexit56.i.i.i.i, %.lr.ph46.i.i.i.i, %.preheader36.i.i.i.i, %.preheader38.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader38.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep61.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %158, %.loopexit.loopexit56.i.i.i.i ], [ %118, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt64TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit56.i.i.i.i ], [ %119, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt64TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
-  %.2.i.i.i.i = phi i64 [ %.02454.i.i.i.i, %.preheader38.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph46.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader36.i.i.i.i ], [ %161, %.loopexit.loopexit56.i.i.i.i ], [ %56, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt64TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep61.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0, %.preheader36.i.i.i.i ], [ %158, %.loopexit.loopexit56.i.i.i.i ], [ %.0, %.preheader38.i.i.i.i ], [ %118, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt64TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph46.i.i.i.i ], [ %.0.i.i.i, %.preheader36.i.i.i.i ], [ %.3.i.i.i, %.loopexit.loopexit56.i.i.i.i ], [ %.0.i.i.i, %.preheader38.i.i.i.i ], [ %119, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt64TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
+  %.2.i.i.i.i = phi i64 [ %.02454.i.i.i.i, %.preheader.i.i.i.i ], [ %129, %.lr.ph46.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader36.i.i.i.i ], [ %161, %.loopexit.loopexit56.i.i.i.i ], [ %.02454.i.i.i.i, %.preheader38.i.i.i.i ], [ %56, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_10UInt64TypeES2_NS6_31UnsafeDownscaleDecimalToIntegerEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlNS_10Decimal256EE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSS_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SQ_EEvSL_OT_SW_ENKUllE_clEl.exit.i.i.i.i ]
   %162 = icmp slt i64 %.2.i.i.i.i, %42
   br i1 %162, label %51, label %.loopexit28, !llvm.loop !4300
 
@@ -193750,7 +193750,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i, %67, %163
-  %.pn = phi { ptr, i32 } [ %164, %163 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %164, %163 ], [ %68, %67 ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i.i.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit23, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %165 = load ptr, ptr %0, align 8, !tbaa !70
   %.not.i = icmp eq ptr %165, null
   br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %166, !prof !225
@@ -194153,7 +194153,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %52, %48, %.noexc9
   br label %_ZN5arrow6StatusaSERKS0_.exit
 
 _ZN5arrow6StatusaSERKS0_.exit:                    ; preds = %54, %_ZN5arrow6StatusD2Ev.exit.i, %25, %27
-  %.0 = phi i64 [ 0, %25 ], [ 0, %27 ], [ %55, %54 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
+  %.0 = phi i64 [ 0, %27 ], [ 0, %25 ], [ %55, %54 ], [ 0, %_ZN5arrow6StatusD2Ev.exit.i ]
   %56 = load ptr, ptr %11, align 8, !tbaa !70
   %.not.i.i10 = icmp eq ptr %56, null
   br i1 %.not.i.i10, label %_ZN5arrow6ResultINS_10Decimal256EED2Ev.exit12, label %57, !prof !225
@@ -194565,8 +194565,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !4340
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
   %77 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %77, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_9FloatTypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !4341
 
@@ -194903,8 +194903,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !4346
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
   %73 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %73, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_9FloatTypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !4347
 
@@ -195177,8 +195177,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !4358
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc12, %.noexc11, %.lr.ph39.i.i.i.i, %.preheader31.i.i.i.i, %.preheader33.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader33.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph39.i.i.i.i ], [ %.0, %.preheader31.i.i.i.i ], [ %61, %.noexc11 ], [ %105, %.noexc12 ]
-  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %70, %.lr.ph39.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph39.i.i.i.i ], [ %.0, %.preheader31.i.i.i.i ], [ %.0, %.preheader33.i.i.i.i ], [ %61, %.noexc11 ], [ %105, %.noexc12 ]
+  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %70, %.lr.ph39.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
   %107 = icmp slt i64 %.2.i.i.i.i, %31
   br i1 %107, label %.lr.ph46.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_9FloatTypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !4359
 
@@ -196320,8 +196320,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !4409
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %75, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %55, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %48, %.noexc10 ], [ %52, %.noexc11 ]
   %77 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %77, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10DoubleTypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !4410
 
@@ -196661,8 +196661,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !4415
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc11, %.noexc10, %.lr.ph38.i.i.i.i, %.preheader30.i.i.i.i, %.preheader32.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader32.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
-  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph38.i.i.i.i ], [ %.0, %.preheader30.i.i.i.i ], [ %.0, %.preheader32.i.i.i.i ], [ %44, %.noexc10 ], [ %71, %.noexc11 ]
+  %.2.i.i.i.i = phi i64 [ %.02444.i.i.i.i, %.preheader.i.i.i.i ], [ %53, %.lr.ph38.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader30.i.i.i.i ], [ %.02444.i.i.i.i, %.preheader32.i.i.i.i ], [ %46, %.noexc10 ], [ %50, %.noexc11 ]
   %73 = icmp slt i64 %.2.i.i.i.i, %19
   br i1 %73, label %.lr.ph45.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10DoubleTypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !4416
 
@@ -196935,8 +196935,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !4427
 
 .loopexit.i.i.i.i:                                ; preds = %.noexc12, %.noexc11, %.lr.ph39.i.i.i.i, %.preheader31.i.i.i.i, %.preheader33.i.i.i.i, %.preheader.i.i.i.i
-  %.1 = phi ptr [ %.0, %.preheader33.i.i.i.i ], [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph39.i.i.i.i ], [ %.0, %.preheader31.i.i.i.i ], [ %61, %.noexc11 ], [ %105, %.noexc12 ]
-  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %70, %.lr.ph39.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
+  %.1 = phi ptr [ %.0, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %.lr.ph39.i.i.i.i ], [ %.0, %.preheader31.i.i.i.i ], [ %.0, %.preheader33.i.i.i.i ], [ %61, %.noexc11 ], [ %105, %.noexc12 ]
+  %.2.i.i.i.i = phi i64 [ %.02445.i.i.i.i, %.preheader.i.i.i.i ], [ %70, %.lr.ph39.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader31.i.i.i.i ], [ %.02445.i.i.i.i, %.preheader33.i.i.i.i ], [ %63, %.noexc11 ], [ %67, %.noexc12 ]
   %107 = icmp slt i64 %.2.i.i.i.i, %31
   br i1 %107, label %.lr.ph46.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_14BinaryViewTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10DoubleTypeES3_NS7_11ParseStringISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !4428
 

@@ -97,8 +97,8 @@ define hidden ptr @AccelGlyphCache_AddGlyph(ptr noundef %0, ptr noundef %1) loca
   br label %.preheader
 
 .thread:                                          ; preds = %34, %22, %19
-  %.088105 = phi i32 [ 0, %19 ], [ %35, %34 ], [ %29, %22 ]
-  %.089104 = phi i32 [ 0, %19 ], [ 0, %34 ], [ %27, %22 ]
+  %.088105 = phi i32 [ 0, %19 ], [ %29, %22 ], [ %35, %34 ]
+  %.089104 = phi i32 [ 0, %19 ], [ %27, %22 ], [ 0, %34 ]
   %40 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %145, label %42
@@ -295,7 +295,7 @@ AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %116, %96
   br label %145
 
 145:                                              ; preds = %.thread, %2, %11, %139
-  %.0 = phi ptr [ null, %2 ], [ %.1, %139 ], [ null, %11 ], [ null, %.thread ]
+  %.0 = phi ptr [ %.1, %139 ], [ null, %11 ], [ null, %2 ], [ null, %.thread ]
   ret ptr %.0
 }
 

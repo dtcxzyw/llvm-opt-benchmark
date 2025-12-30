@@ -3634,7 +3634,7 @@ define hidden noundef zeroext i16 @_ZN27JvmtiClassFileReconstituter30inner_class
   br label %_ZN20InnerClassesIteratorC2EPK13InstanceKlass.exit
 
 _ZN20InnerClassesIteratorC2EPK13InstanceKlass.exit: ; preds = %6, %1
-  %.sroa.1.0 = phi i16 [ %11, %6 ], [ 0, %1 ]
+  %.sroa.1.0 = phi i16 [ 0, %1 ], [ %11, %6 ]
   ret i16 %.sroa.1.0
 }
 
@@ -5520,7 +5520,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter22write_class_attributesEv(p
   br label %_ZN27JvmtiClassFileReconstituter30inner_classes_attribute_lengthEv.exit
 
 _ZN27JvmtiClassFileReconstituter30inner_classes_attribute_lengthEv.exit: ; preds = %1, %8
-  %.sroa.1.0.i = phi i16 [ %13, %8 ], [ 0, %1 ]
+  %.sroa.1.0.i = phi i16 [ 0, %1 ], [ %13, %8 ]
   %14 = tail call noundef ptr @_ZNK13InstanceKlass17generic_signatureEv(ptr noundef nonnull align 8 dereferenceable(464) %5) #13
   %15 = load ptr, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 200
@@ -6840,8 +6840,8 @@ _ZN9Bytecodes9length_atEP6MethodPh.exit.thread:   ; preds = %_ZN9Bytecodes10leng
   br label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22
 
 _ZN9Bytecodes9length_atEP6MethodPh.exit.thread22: ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread, %49, %1, %56, %52
-  %.015 = phi i32 [ %22, %52 ], [ -1, %1 ], [ %59, %56 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
-  %.014 = phi i32 [ %19, %52 ], [ -1, %1 ], [ %59, %56 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
+  %.015 = phi i32 [ %59, %56 ], [ %22, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
+  %.014 = phi i32 [ %59, %56 ], [ %19, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.014, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 44

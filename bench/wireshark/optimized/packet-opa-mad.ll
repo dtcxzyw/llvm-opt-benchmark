@@ -5078,8 +5078,8 @@ define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef %1, ptr 
   br label %88
 
 88:                                               ; preds = %87, %59, %56
-  %89 = phi i32 [ %35, %56 ], [ 0, %87 ], [ %35, %59 ]
-  %.0 = phi ptr [ %2, %56 ], [ %85, %87 ], [ %2, %59 ]
+  %89 = phi i32 [ 0, %87 ], [ %35, %59 ], [ %35, %56 ]
+  %.0 = phi ptr [ %85, %87 ], [ %2, %59 ], [ %2, %56 ]
   %90 = call i32 @tvb_captured_length_remaining(ptr noundef %.0, i32 noundef %89)
   %.not73 = icmp eq i16 %24, 0
   br i1 %.not73, label %.loopexit, label %91
@@ -5636,7 +5636,7 @@ parse_RID.exit.i:                                 ; preds = %285, %116
   %404 = call i32 @tvb_captured_length_remaining(ptr noundef %.0, i32 noundef %403)
   br label %.loopexit.sink.split
 
-405:                                              ; preds = %287, %289, %291, %292, %298, %302, %307, %312, %317, %322, %327, %329, %331, %336, %341, %346, %350, %351, %352, %353, %354, %355, %356, %357, %358, %359, %361, %362, %363, %368, %369, %374, %379, %384, %389, %394, %399, %112, %.lr.ph.split, %108
+405:                                              ; preds = %287, %289, %291, %292, %298, %302, %307, %312, %317, %322, %327, %329, %331, %336, %341, %346, %350, %351, %352, %353, %354, %355, %356, %357, %358, %359, %361, %362, %363, %368, %369, %374, %379, %384, %389, %394, %399, %112, %108, %.lr.ph.split
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %406 = add i32 %99, %96
   store i32 %406, ptr %3, align 4
@@ -5784,8 +5784,8 @@ define internal fastcc void @parse_PERFADMN(ptr noundef %0, ptr noundef %1, ptr 
   br label %87
 
 87:                                               ; preds = %86, %58, %55
-  %.val = phi i8 [ %51, %55 ], [ %.val.pre, %86 ], [ %51, %58 ]
-  %.0 = phi ptr [ %2, %55 ], [ %84, %86 ], [ %2, %58 ]
+  %.val = phi i8 [ %.val.pre, %86 ], [ %51, %58 ], [ %51, %55 ]
+  %.0 = phi ptr [ %84, %86 ], [ %2, %58 ], [ %2, %55 ]
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.val58 = load i32, ptr %88, align 4
   %89 = call fastcc zeroext i1 @parse_PA_Attribute(ptr noundef %0, ptr noundef %.0, ptr noundef %3, ptr noundef nonnull %5, i8 %.val, i32 %.val58, i16 %23)
@@ -6750,7 +6750,7 @@ parse_PM_Attribute.exit:                          ; preds = %33
   br label %.sink.split
 
 .sink.split:                                      ; preds = %678, %._crit_edge151.i.i, %._crit_edge218.i.i, %203, %505, %502, %498, %488, %484, %403, %._crit_edge.i33.i, %379, %248, %._crit_edge.i28.i, %224, %211, %210, %209, %64, %50, %._crit_edge.i.i, %36, %34, %29, %parse_PM_Attribute.exit
-  %.053.i.sink = phi i32 [ %32, %29 ], [ %689, %parse_PM_Attribute.exit ], [ %35, %34 ], [ %28, %._crit_edge.i33.i ], [ %28, %._crit_edge.i.i ], [ %28, %210 ], [ %28, %._crit_edge.i28.i ], [ %28, %36 ], [ %62, %50 ], [ %.1139.lcssa.i.i, %._crit_edge151.i.i ], [ %156, %64 ], [ %223, %211 ], [ %28, %209 ], [ %28, %224 ], [ %263, %248 ], [ %.1232.i.i, %203 ], [ %28, %379 ], [ %414, %403 ], [ %.1206.lcssa.i.i, %._crit_edge218.i.i ], [ %28, %484 ], [ %496, %488 ], [ %499, %498 ], [ %499, %502 ], [ %508, %505 ], [ %683, %678 ]
+  %.053.i.sink = phi i32 [ %689, %parse_PM_Attribute.exit ], [ %32, %29 ], [ %35, %34 ], [ %28, %36 ], [ %62, %50 ], [ %156, %64 ], [ %28, %._crit_edge.i.i ], [ %223, %211 ], [ %28, %209 ], [ %28, %210 ], [ %28, %224 ], [ %263, %248 ], [ %28, %._crit_edge.i28.i ], [ %28, %379 ], [ %414, %403 ], [ %28, %._crit_edge.i33.i ], [ %28, %484 ], [ %496, %488 ], [ %499, %502 ], [ %499, %498 ], [ %508, %505 ], [ %.1232.i.i, %203 ], [ %.1206.lcssa.i.i, %._crit_edge218.i.i ], [ %.1139.lcssa.i.i, %._crit_edge151.i.i ], [ %683, %678 ]
   store i32 %.053.i.sink, ptr %3, align 4
   br label %690
 
@@ -7605,7 +7605,7 @@ define internal fastcc noundef zeroext i1 @call_SUBM_Parser(ptr noundef %0, ptr 
   br label %66
 
 66:                                               ; preds = %8, %5, %65
-  %.0118 = phi i1 [ true, %5 ], [ true, %65 ], [ false, %8 ]
+  %.0118 = phi i1 [ true, %65 ], [ true, %5 ], [ false, %8 ]
   ret i1 %.0118
 }
 
@@ -8739,7 +8739,7 @@ define internal fastcc i32 @parse_P_KeyTable(ptr noundef %0, ptr noundef %1, i32
   br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %36, %20, %3, %4, %4
-  %.040 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %20 ], [ %34, %36 ]
+  %.040 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %20 ], [ %34, %36 ]
   ret i32 %.040
 }
 
@@ -8778,7 +8778,7 @@ define internal fastcc i32 @parse_SLtoSCMappingTable(ptr noundef %0, ptr noundef
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !26
 
 .loopexit:                                        ; preds = %12, %3, %4, %4
-  %.022 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %17, %12 ]
+  %.022 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %17, %12 ]
   ret i32 %.022
 }
 
@@ -8906,7 +8906,7 @@ define internal fastcc i32 @parse_VLArbitrationTable(ptr noundef %0, ptr noundef
   br i1 %64, label %.lr.ph.split.split, label %.loopexit2, !llvm.loop !28
 
 .loopexit2:                                       ; preds = %.lr.ph.split.split, %51, %.loopexit.us, %25, %3, %4, %4
-  %.0 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %25 ], [ %44, %.loopexit.us ], [ %52, %51 ], [ %62, %.lr.ph.split.split ]
+  %.0 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %25 ], [ %44, %.loopexit.us ], [ %52, %51 ], [ %62, %.lr.ph.split.split ]
   ret i32 %.0
 }
 
@@ -8977,7 +8977,7 @@ define internal fastcc i32 @parse_LinearForwardingTable(ptr noundef %0, ptr noun
   br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %32, %18, %3, %4, %4
-  %.036 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %18 ], [ %30, %32 ]
+  %.036 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %18 ], [ %30, %32 ]
   ret i32 %.036
 }
 
@@ -9053,7 +9053,7 @@ define internal fastcc i32 @parse_MulticastForwardingTable(ptr noundef %0, ptr n
   br i1 %39, label %.lr.ph, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %37, %22, %3, %4, %4
-  %.0 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %22 ], [ %35, %37 ]
+  %.0 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %22 ], [ %35, %37 ]
   ret i32 %.0
 }
 
@@ -9148,7 +9148,7 @@ define internal fastcc i32 @parse_LedInfo(ptr noundef %0, ptr noundef %1, i32 %.
   br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %3, %4, %4
-  %.0 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %7 ], [ %25, %.lr.ph ]
+  %.0 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %7 ], [ %25, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -9196,7 +9196,7 @@ define internal fastcc i32 @parse_CableInfo(ptr noundef %0, ptr noundef %1, i32 
   br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !35
 
 .loopexit:                                        ; preds = %22, %3, %4, %4
-  %.0 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %26, %22 ]
+  %.0 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %26, %22 ]
   ret i32 %.0
 }
 
@@ -9313,7 +9313,7 @@ define internal fastcc i32 @parse_SCtoSCMappingTable(ptr noundef %0, ptr noundef
   br i1 %58, label %.lr.ph.split, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %56, %37, %28, %3, %4, %4
-  %.056 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %28 ], [ %45, %37 ], [ %54, %56 ]
+  %.056 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %28 ], [ %45, %37 ], [ %54, %56 ]
   ret i32 %.056
 }
 
@@ -9352,7 +9352,7 @@ define internal fastcc i32 @parse_SCtoSLMappingTable(ptr noundef %0, ptr noundef
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !38
 
 .loopexit:                                        ; preds = %12, %3, %4, %4
-  %.022 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %17, %12 ]
+  %.022 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %17, %12 ]
   ret i32 %.022
 }
 
@@ -9433,7 +9433,7 @@ define internal fastcc i32 @parse_SCtoVLxMappingTable(ptr noundef %0, ptr nounde
   br i1 %42, label %.lr.ph, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %40, %20, %3, %4, %4
-  %.046 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %20 ], [ %38, %40 ]
+  %.046 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %20 ], [ %38, %40 ]
   ret i32 %.046
 }
 
@@ -9480,7 +9480,7 @@ define internal fastcc i32 @parse_PortStateInfo(ptr noundef %0, ptr noundef %1, 
   br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %3, %4, %4
-  %.0 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %7 ], [ %23, %.lr.ph ]
+  %.0 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %7 ], [ %23, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -9551,7 +9551,7 @@ define internal fastcc i32 @parse_PortGroupForwardingTable(ptr noundef %0, ptr n
   br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %32, %18, %3, %4, %4
-  %.036 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %18 ], [ %30, %32 ]
+  %.036 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %18 ], [ %30, %32 ]
   ret i32 %.036
 }
 
@@ -9628,7 +9628,7 @@ define internal fastcc i32 @parse_PortGroupTable(ptr noundef %0, ptr noundef %1,
   br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %38, %23, %3, %4, %4
-  %.0 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %23 ], [ %36, %38 ]
+  %.0 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %23 ], [ %36, %38 ]
   ret i32 %.0
 }
 
@@ -9711,7 +9711,7 @@ define internal fastcc i32 @parse_BufferControlTable(ptr noundef %0, ptr noundef
   br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %38, %15, %3, %4, %4
-  %.0 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %15 ], [ %.1, %38 ]
+  %.0 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %15 ], [ %.1, %38 ]
   ret i32 %.0
 }
 
@@ -9811,7 +9811,7 @@ define internal fastcc i32 @parse_SwitchCongestionLog(ptr noundef %0, ptr nounde
   br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !48
 
 .loopexit:                                        ; preds = %27, %3, %4, %4
-  %.059 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %46, %27 ]
+  %.059 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %46, %27 ]
   ret i32 %.059
 }
 
@@ -9940,7 +9940,7 @@ define internal fastcc i32 @parse_SwitchPortCongestionSetting(ptr noundef %0, pt
   br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %3, %4, %4
-  %.048 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %20 ], [ %43, %.lr.ph ]
+  %.048 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.0.val, %20 ], [ %43, %.lr.ph ]
   ret i32 %.048
 }
 
@@ -10009,7 +10009,7 @@ define internal fastcc i32 @parse_HFICongestionLog(ptr noundef %0, ptr noundef %
   br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !50
 
 .loopexit:                                        ; preds = %27, %3, %4, %4
-  %.063 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %49, %27 ]
+  %.063 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %49, %27 ]
   ret i32 %.063
 }
 
@@ -10068,7 +10068,7 @@ define internal fastcc i32 @parse_HFICongestionSetting(ptr noundef %0, ptr nound
   br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !51
 
 .loopexit:                                        ; preds = %17, %3, %4, %4
-  %.0 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.047, %17 ]
+  %.0 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %.047, %17 ]
   ret i32 %.0
 }
 
@@ -10147,7 +10147,7 @@ define internal fastcc i32 @parse_HFICongestionControlTable(ptr noundef %0, ptr 
   br i1 %42, label %.lr.ph, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %40, %20, %3, %4, %4
-  %.044 = phi i32 [ %.0.val, %3 ], [ %.0.val, %4 ], [ %.0.val, %4 ], [ %29, %20 ], [ %38, %40 ]
+  %.044 = phi i32 [ %.0.val, %4 ], [ %.0.val, %4 ], [ %.0.val, %3 ], [ %29, %20 ], [ %38, %40 ]
   ret i32 %.044
 }
 
@@ -11839,7 +11839,7 @@ parse_Image.exit58.i:                             ; preds = %439, %.lr.ph.i87
   br i1 %exitcond.not.i88, label %parse_GetGroupConfig.exit, label %.lr.ph.i87, !llvm.loop !68
 
 parse_GetGroupConfig.exit:                        ; preds = %parse_Image.exit58.i, %401, %408, %418, %428, %399, %405
-  %.0.in.i.sroa.speculated = phi i32 [ %8, %399 ], [ %8, %401 ], [ %8, %405 ], [ %417, %408 ], [ %427, %418 ], [ %8, %428 ], [ %467, %parse_Image.exit58.i ]
+  %.0.in.i.sroa.speculated = phi i32 [ %8, %399 ], [ %8, %405 ], [ %427, %418 ], [ %417, %408 ], [ %8, %428 ], [ %8, %401 ], [ %467, %parse_Image.exit58.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %parse_GetGroupList.exit
 
@@ -12384,7 +12384,7 @@ parse_Image.exit83.i:                             ; preds = %851, %.lr.ph.i109
   br i1 %exitcond.not.i110, label %parse_GetFocusPorts.exit, label %.lr.ph.i109, !llvm.loop !69
 
 parse_GetFocusPorts.exit:                         ; preds = %parse_Image.exit83.i, %804, %parse_Image.exit.i116, %840, %802, %808
-  %.0.in.i113.sroa.speculated = phi i32 [ %8, %802 ], [ %8, %804 ], [ %8, %808 ], [ %839, %parse_Image.exit.i116 ], [ %8, %840 ], [ %908, %parse_Image.exit83.i ]
+  %.0.in.i113.sroa.speculated = phi i32 [ %8, %802 ], [ %8, %808 ], [ %839, %parse_Image.exit.i116 ], [ %8, %840 ], [ %8, %804 ], [ %908, %parse_Image.exit83.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %parse_GetGroupList.exit
 
@@ -12982,7 +12982,7 @@ parse_Image.exit59.i:                             ; preds = %1308, %.lr.ph.i146
   br i1 %exitcond.not.i147, label %parse_GetVFConfig.exit, label %.lr.ph.i146, !llvm.loop !74
 
 parse_GetVFConfig.exit:                           ; preds = %parse_Image.exit59.i, %1269, %1276, %1287, %1297, %1267, %1273
-  %.0.in.i150.sroa.speculated = phi i32 [ %8, %1267 ], [ %8, %1269 ], [ %8, %1273 ], [ %1286, %1276 ], [ %1296, %1287 ], [ %8, %1297 ], [ %1336, %parse_Image.exit59.i ]
+  %.0.in.i150.sroa.speculated = phi i32 [ %8, %1267 ], [ %8, %1273 ], [ %1296, %1287 ], [ %1286, %1276 ], [ %8, %1297 ], [ %8, %1269 ], [ %1336, %parse_Image.exit59.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %parse_GetGroupList.exit
 
@@ -13267,7 +13267,7 @@ parse_Image.exit.i168:                            ; preds = %1479, %1468
   br i1 %exitcond.not.i162, label %parse_GetGroupList.exit, label %.lr.ph.i161, !llvm.loop !75
 
 parse_GetGroupList.exit:                          ; preds = %.lr.ph.i161, %1251, %.lr.ph.i133, %373, %.lr.ph.i, %1461, %1077, %43, %1465, %1459, %1498, %parse_Image.exit.i168, %1426, %1425, %1423, %1380, %1338, %1100, %1087, %.preheader.i141, %1075, %1058, %1055, %1053, %1037, %parse_Image.exit.i125, %1017, %1014, %992, %910, %786, %785, %775, %774, %764, %763, %641, %640, %631, %630, %606, %605, %603, %508, %469, %60, %50, %.preheader.i, %41, %24, %21, %19, %parse_GetVFConfig.exit, %parse_GetFocusPorts.exit, %parse_GetGroupConfig.exit, %11
-  %.061 = phi i32 [ %12, %11 ], [ %8, %1425 ], [ %8, %19 ], [ %.0.in.i.sroa.speculated, %parse_GetGroupConfig.exit ], [ %8, %41 ], [ %602, %508 ], [ %8, %605 ], [ %8, %630 ], [ %8, %640 ], [ %8, %763 ], [ %8, %774 ], [ %.0.in.i113.sroa.speculated, %parse_GetFocusPorts.exit ], [ %8, %785 ], [ %1013, %992 ], [ %.0.i.i126, %parse_Image.exit.i125 ], [ %8, %1053 ], [ %.0.in.i150.sroa.speculated, %parse_GetVFConfig.exit ], [ %8, %1075 ], [ %1422, %1380 ], [ %1497, %parse_Image.exit.i168 ], [ %8, %24 ], [ %8, %21 ], [ %1067, %.lr.ph.i133 ], [ %1260, %1251 ], [ %59, %50 ], [ %69, %60 ], [ %8, %.preheader.i ], [ %8, %43 ], [ %8, %469 ], [ %604, %603 ], [ %629, %606 ], [ %639, %631 ], [ %762, %641 ], [ %773, %764 ], [ %784, %775 ], [ %795, %786 ], [ %8, %910 ], [ %1016, %1014 ], [ %8, %1017 ], [ %1046, %1037 ], [ %33, %.lr.ph.i ], [ %8, %1058 ], [ %8, %1055 ], [ %8, %1498 ], [ %391, %373 ], [ %1099, %1087 ], [ %1109, %1100 ], [ %8, %.preheader.i141 ], [ %8, %1077 ], [ %8, %1338 ], [ %1424, %1423 ], [ %1452, %1426 ], [ %8, %1459 ], [ %8, %1461 ], [ %8, %1465 ], [ %1555, %.lr.ph.i161 ]
+  %.061 = phi i32 [ %12, %11 ], [ %.0.in.i.sroa.speculated, %parse_GetGroupConfig.exit ], [ %.0.in.i113.sroa.speculated, %parse_GetFocusPorts.exit ], [ %.0.in.i150.sroa.speculated, %parse_GetVFConfig.exit ], [ %8, %24 ], [ %8, %21 ], [ %8, %19 ], [ %69, %60 ], [ %59, %50 ], [ %8, %.preheader.i ], [ %8, %41 ], [ %8, %469 ], [ %604, %603 ], [ %602, %508 ], [ %629, %606 ], [ %8, %605 ], [ %639, %631 ], [ %8, %630 ], [ %762, %641 ], [ %8, %640 ], [ %773, %764 ], [ %8, %763 ], [ %784, %775 ], [ %8, %774 ], [ %795, %786 ], [ %8, %785 ], [ %8, %910 ], [ %1016, %1014 ], [ %1013, %992 ], [ %8, %1017 ], [ %1046, %1037 ], [ %.0.i.i126, %parse_Image.exit.i125 ], [ %8, %1058 ], [ %8, %1055 ], [ %8, %1053 ], [ %1109, %1100 ], [ %1099, %1087 ], [ %8, %.preheader.i141 ], [ %8, %1075 ], [ %8, %1338 ], [ %1424, %1423 ], [ %1422, %1380 ], [ %1452, %1426 ], [ %8, %1425 ], [ %8, %1459 ], [ %8, %1465 ], [ %1497, %parse_Image.exit.i168 ], [ %8, %1498 ], [ %8, %43 ], [ %8, %1077 ], [ %8, %1461 ], [ %33, %.lr.ph.i ], [ %391, %373 ], [ %1067, %.lr.ph.i133 ], [ %1260, %1251 ], [ %1555, %.lr.ph.i161 ]
   store i32 %.061, ptr %2, align 4
   br label %1557
 

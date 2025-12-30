@@ -231,7 +231,7 @@ define dso_local noundef zeroext i1 @is_ident2(i32 noundef %0) local_unnamed_add
   br i1 %.not.not.i, label %is_ident1.exit, label %.lr.ph.i, !llvm.loop !17
 
 is_ident1.exit:                                   ; preds = %2, %14, %10
-  %17 = phi i1 [ false, %14 ], [ true, %10 ], [ true, %2 ]
+  %17 = phi i1 [ true, %10 ], [ false, %14 ], [ true, %2 ]
   ret i1 %17
 }
 

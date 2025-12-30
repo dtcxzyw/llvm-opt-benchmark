@@ -1927,7 +1927,7 @@ define void @write_ek_proto_tree(ptr noundef %0, i1 noundef zeroext %1, i1 nound
   br i1 %42, label %26, label %write_ek_summary.exit, !llvm.loop !21
 
 write_ek_summary.exit:                            ; preds = %38, %19, %6
-  %43 = phi ptr [ %8, %6 ], [ %8, %19 ], [ %39, %38 ]
+  %43 = phi ptr [ %8, %19 ], [ %8, %6 ], [ %39, %38 ]
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %45 = load ptr, ptr %44, align 8
   %.not = icmp eq ptr %45, null
@@ -2566,8 +2566,8 @@ ek_check_protocolfilter.exit:                     ; preds = %131
   call void @g_free(ptr noundef nonnull %121)
   br label %ek_check_protocolfilter.exit.thread
 
-133:                                              ; preds = %129, %.thread39.i, %131
-  %.01937.i.ph = phi ptr [ %121, %131 ], [ null, %.thread39.i ], [ null, %129 ]
+133:                                              ; preds = %129, %131, %.thread39.i
+  %.01937.i.ph = phi ptr [ null, %.thread39.i ], [ %121, %131 ], [ null, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @g_free(ptr noundef %.01937.i.ph)
   %134 = load ptr, ptr %96, align 8
@@ -2785,8 +2785,8 @@ ek_check_protocolfilter.exit74:                   ; preds = %210
   store ptr %216, ptr %103, align 8
   br label %224
 
-217:                                              ; preds = %208, %.thread39.i69, %210
-  %.01937.i65.ph = phi ptr [ %200, %210 ], [ null, %.thread39.i69 ], [ null, %208 ]
+217:                                              ; preds = %208, %210, %.thread39.i69
+  %.01937.i65.ph = phi ptr [ null, %.thread39.i69 ], [ %200, %210 ], [ null, %208 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @g_free(ptr noundef %.01937.i65.ph)
   %218 = load ptr, ptr %96, align 8
@@ -3416,7 +3416,7 @@ define zeroext i1 @print_hex_data(ptr noundef %0, ptr noundef readonly captures(
   br i1 %.not31, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %61, %53, %.lr.ph.split.us.split, %35, %27, %.lr.ph.split.split.us, %._crit_edge.split.split.us, %11
-  %.0 = phi i1 [ true, %.lr.ph.split.split.us ], [ true, %11 ], [ %48, %._crit_edge.split.split.us ], [ false, %27 ], [ true, %35 ], [ true, %.lr.ph.split.us.split ], [ false, %53 ], [ true, %61 ], [ true, %.lr.ph.split.split ]
+  %.0 = phi i1 [ true, %11 ], [ %48, %._crit_edge.split.split.us ], [ true, %.lr.ph.split.split.us ], [ false, %27 ], [ true, %35 ], [ true, %.lr.ph.split.us.split ], [ false, %53 ], [ true, %61 ], [ true, %.lr.ph.split.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -3897,7 +3897,7 @@ define noundef zeroext i1 @output_fields_set_option(ptr noundef writeonly captur
   br label %75
 
 75:                                               ; preds = %67, %71, %73, %70, %64, %57, %58, %59, %50, %49, %48, %37, %32, %31, %30, %29, %17, %19, %16, %7, %5, %2, %66, %60, %38
-  %.0 = phi i1 [ false, %2 ], [ false, %5 ], [ false, %7 ], [ false, %16 ], [ true, %17 ], [ true, %32 ], [ true, %38 ], [ false, %37 ], [ false, %60 ], [ true, %50 ], [ true, %57 ], [ true, %66 ], [ false, %64 ], [ false, %70 ], [ true, %71 ], [ true, %19 ], [ true, %29 ], [ true, %30 ], [ true, %31 ], [ true, %48 ], [ true, %49 ], [ true, %59 ], [ true, %58 ], [ true, %73 ], [ false, %67 ]
+  %.0 = phi i1 [ true, %38 ], [ false, %60 ], [ true, %66 ], [ false, %2 ], [ false, %5 ], [ false, %7 ], [ false, %16 ], [ true, %19 ], [ true, %17 ], [ true, %29 ], [ true, %30 ], [ true, %31 ], [ true, %32 ], [ false, %37 ], [ true, %48 ], [ true, %49 ], [ true, %50 ], [ true, %59 ], [ true, %58 ], [ true, %57 ], [ false, %64 ], [ false, %70 ], [ true, %73 ], [ true, %71 ], [ false, %67 ]
   ret i1 %.0
 }
 
@@ -4380,7 +4380,7 @@ get_field_data.exit:                              ; preds = %19
   br i1 %50, label %.lr.ph, label %get_field_data.exit.thread, !llvm.loop !43
 
 get_field_data.exit.thread:                       ; preds = %23, %.lr.ph, %29, %14, %19, %get_field_data.exit, %2, %12
-  %.0 = phi ptr [ %13, %12 ], [ null, %2 ], [ %34, %29 ], [ null, %get_field_data.exit ], [ null, %19 ], [ null, %14 ], [ %34, %.lr.ph ], [ null, %23 ]
+  %.0 = phi ptr [ %13, %12 ], [ null, %2 ], [ null, %get_field_data.exit ], [ null, %19 ], [ null, %14 ], [ %34, %29 ], [ %34, %.lr.ph ], [ null, %23 ]
   ret ptr %.0
 }
 
@@ -4713,7 +4713,7 @@ any_has_children.exit:                            ; preds = %.lr.ph.i, %47, %36
   br label %66
 
 66:                                               ; preds = %65, %60, %any_has_children.exit
-  %67 = phi i8 [ %.pre87, %65 ], [ %.pre88, %any_has_children.exit ], [ 1, %60 ]
+  %67 = phi i8 [ %.pre87, %65 ], [ 1, %60 ], [ %.pre88, %any_has_children.exit ]
   %68 = trunc nuw i8 %67 to i1
   %or.cond4 = select i1 %68, i1 %50, i1 false
   br i1 %or.cond4, label %69, label %write_json_proto_node.exit
@@ -5459,8 +5459,8 @@ check_protocolfilter.exit:                        ; preds = %10
   br label %check_protocolfilter.exit29
 
 check_protocolfilter.exit29:                      ; preds = %.thread39, %27, %29, %.sink.split.i26
-  %.01937 = phi ptr [ null, %27 ], [ null, %.thread39 ], [ %19, %29 ], [ %19, %.sink.split.i26 ]
-  %.0.i25 = phi i1 [ false, %27 ], [ false, %.thread39 ], [ %30, %29 ], [ true, %.sink.split.i26 ]
+  %.01937 = phi ptr [ null, %27 ], [ %19, %29 ], [ %19, %.sink.split.i26 ], [ null, %.thread39 ]
+  %.0.i25 = phi i1 [ false, %27 ], [ %30, %29 ], [ true, %.sink.split.i26 ], [ false, %.thread39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @g_free(ptr noundef %.01937)
   br label %34

@@ -711,8 +711,8 @@ define hidden ptr @dissect_zbee_secure(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %136, label %.thread304, label %.thread300
 
 .thread304:                                       ; preds = %98, %102, %.thread308, %134
-  %.0201306 = phi i32 [ %132, %.thread308 ], [ %135, %134 ], [ %47, %102 ], [ %47, %98 ]
-  %137 = phi i64 [ %49, %.thread308 ], [ %49, %134 ], [ 0, %102 ], [ %100, %98 ]
+  %.0201306 = phi i32 [ %135, %134 ], [ %132, %.thread308 ], [ %47, %102 ], [ %47, %98 ]
+  %137 = phi i64 [ %49, %134 ], [ %49, %.thread308 ], [ 0, %102 ], [ %100, %98 ]
   %138 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0201306)
   %139 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 %138, ptr %139, align 8
@@ -745,8 +745,8 @@ define hidden ptr @dissect_zbee_secure(ptr noundef %0, ptr noundef %1, ptr nound
   br label %149
 
 149:                                              ; preds = %.thread300, %148, %147, %146
-  %.not242 = phi i1 [ false, %147 ], [ false, %148 ], [ false, %146 ], [ true, %.thread300 ]
-  %.0208 = phi i32 [ 8, %147 ], [ 16, %148 ], [ 4, %146 ], [ 0, %.thread300 ]
+  %.not242 = phi i1 [ false, %148 ], [ false, %146 ], [ false, %147 ], [ true, %.thread300 ]
+  %.0208 = phi i32 [ 16, %148 ], [ 4, %146 ], [ 8, %147 ], [ 0, %.thread300 ]
   %150 = add i32 %.0208, %.1
   %151 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %150)
   %or.cond16 = icmp ult i8 %30, 4
@@ -935,7 +935,7 @@ define hidden ptr @dissect_zbee_secure(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %241, label %.loopexit.thread, label %.thread
 
 .loopexit.thread:                                 ; preds = %.thread316, %.thread311, %.thread329, %.thread324, %185, %.loopexit
-  %.0202336 = phi ptr [ %184, %185 ], [ %191, %.loopexit ], [ %234, %.thread329 ], [ %226, %.thread324 ], [ %213, %.thread316 ], [ %205, %.thread311 ]
+  %.0202336 = phi ptr [ %191, %.loopexit ], [ %184, %185 ], [ %234, %.thread329 ], [ %226, %.thread324 ], [ %213, %.thread316 ], [ %205, %.thread311 ]
   %242 = icmp ne ptr %2, null
   %243 = icmp ne ptr %.0202336, null
   %or.cond18 = select i1 %242, i1 %243, i1 false
@@ -1454,7 +1454,7 @@ define hidden zeroext i1 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noundef reado
   br label %114
 
 114:                                              ; preds = %._crit_edge, %36, %41, %39, %15, %8, %112, %98, %80, %62, %46, %35, %25, %22
-  %.060 = phi i1 [ %113, %112 ], [ false, %8 ], [ false, %41 ], [ false, %22 ], [ false, %25 ], [ false, %35 ], [ false, %36 ], [ false, %15 ], [ true, %39 ], [ false, %46 ], [ false, %62 ], [ false, %80 ], [ false, %98 ], [ false, %._crit_edge ]
+  %.060 = phi i1 [ false, %22 ], [ false, %25 ], [ false, %35 ], [ false, %46 ], [ false, %62 ], [ false, %80 ], [ false, %98 ], [ %113, %112 ], [ false, %8 ], [ false, %15 ], [ true, %39 ], [ false, %41 ], [ false, %36 ], [ false, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1675,7 +1675,7 @@ define internal fastcc noundef zeroext i1 @zbee_security_parse_key(ptr noundef r
   br i1 %.not56, label %.loopexit, label %.split, !llvm.loop !20
 
 .loopexit:                                        ; preds = %27, %32, %41, %20, %.split.us, %3
-  %.039 = phi i1 [ false, %3 ], [ %.not46.us.not.not, %20 ], [ %.not46.us.not.not, %.split.us ], [ true, %41 ], [ false, %32 ], [ false, %27 ]
+  %.039 = phi i1 [ false, %3 ], [ %.not46.us.not.not, %.split.us ], [ %.not46.us.not.not, %20 ], [ true, %41 ], [ false, %32 ], [ false, %27 ]
   ret i1 %.039
 }
 

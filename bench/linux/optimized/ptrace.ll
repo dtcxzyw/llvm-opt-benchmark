@@ -612,7 +612,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @putreg(ptr noundef %0, i64 
   br label %set_segment_reg.exit
 
 set_segment_reg.exit:                             ; preds = %38, %36, %28, %26, %24, %22, %20, %18, %17, %12, %11, %76, %75, %72, %71, %68, %58
-  %85 = phi i32 [ 0, %76 ], [ 0, %75 ], [ 0, %71 ], [ 0, %58 ], [ -5, %72 ], [ -5, %68 ], [ -5, %11 ], [ -5, %12 ], [ -5, %26 ], [ -5, %36 ], [ 0, %17 ], [ 0, %38 ], [ 0, %28 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ], [ 0, %18 ]
+  %85 = phi i32 [ 0, %76 ], [ 0, %75 ], [ 0, %71 ], [ 0, %58 ], [ -5, %68 ], [ -5, %72 ], [ -5, %11 ], [ -5, %12 ], [ -5, %26 ], [ -5, %36 ], [ 0, %17 ], [ 0, %38 ], [ 0, %28 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ], [ 0, %18 ]
   ret i32 %85
 }
 
@@ -892,8 +892,8 @@ define internal fastcc i32 @ptrace_set_debugreg(ptr noundef %0, i32 noundef rang
   br label %150
 
 150:                                              ; preds = %147, %130, %109
-  %151 = phi i32 [ %148, %147 ], [ %102, %130 ], [ %102, %109 ]
-  %152 = phi i1 [ %149, %147 ], [ true, %130 ], [ true, %109 ]
+  %151 = phi i32 [ %102, %130 ], [ %102, %109 ], [ %148, %147 ]
+  %152 = phi i1 [ true, %130 ], [ true, %109 ], [ %149, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %153 = add nuw nsw i64 %101, 1
@@ -1806,7 +1806,7 @@ define internal fastcc i32 @putreg32(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %.thread
 
 .thread:                                          ; preds = %68, %67, %53, %52, %152, %147, %142, %135, %85, %82, %81, %73, %58, %45, %40, %39, %32, %27, %26, %17, %14, %13
-  %153 = phi i32 [ 0, %152 ], [ %146, %142 ], [ 0, %135 ], [ 0, %58 ], [ 0, %85 ], [ 0, %73 ], [ -5, %53 ], [ -5, %147 ], [ -5, %13 ], [ -5, %14 ], [ 0, %17 ], [ -5, %26 ], [ -5, %27 ], [ 0, %32 ], [ -5, %39 ], [ -5, %40 ], [ 0, %45 ], [ -5, %81 ], [ -5, %82 ], [ -5, %52 ], [ -5, %67 ], [ -5, %68 ]
+  %153 = phi i32 [ 0, %152 ], [ %146, %142 ], [ 0, %135 ], [ 0, %58 ], [ 0, %73 ], [ -5, %147 ], [ -5, %13 ], [ -5, %14 ], [ 0, %17 ], [ -5, %26 ], [ -5, %27 ], [ 0, %32 ], [ -5, %39 ], [ -5, %40 ], [ 0, %45 ], [ -5, %81 ], [ -5, %82 ], [ 0, %85 ], [ -5, %52 ], [ -5, %53 ], [ -5, %67 ], [ -5, %68 ]
   ret i32 %153
 }
 
@@ -1909,7 +1909,7 @@ define internal i32 @genregs_set(ptr noundef %0, ptr readnone captures(none) %1,
   br i1 %41, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %.preheader4, %32, %.lr.ph, %.preheader, %9
-  %42 = phi i32 [ 0, %9 ], [ 0, %.preheader ], [ %30, %.lr.ph ], [ %36, %32 ], [ %16, %.preheader4 ]
+  %42 = phi i32 [ 0, %9 ], [ 0, %.preheader ], [ %36, %32 ], [ %30, %.lr.ph ], [ %16, %.preheader4 ]
   ret i32 %42
 }
 
@@ -2072,7 +2072,7 @@ define internal i32 @genregs32_set(ptr noundef %0, ptr readnone captures(none) %
   br i1 %39, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %.preheader4, %31, %.lr.ph, %.preheader, %9
-  %40 = phi i32 [ 0, %9 ], [ 0, %.preheader ], [ %29, %.lr.ph ], [ %34, %31 ], [ %15, %.preheader4 ]
+  %40 = phi i32 [ 0, %9 ], [ 0, %.preheader ], [ %34, %31 ], [ %29, %.lr.ph ], [ %15, %.preheader4 ]
   ret i32 %40
 }
 

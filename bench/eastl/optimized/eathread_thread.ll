@@ -1198,7 +1198,7 @@ if.end39.thread:                                  ; preds = %if.then14
   br label %if.then41
 
 if.end39:                                         ; preds = %_ZNK2EA6Thread6Thread9GetStatusEPl.exit, %if.then2
-  %8 = phi ptr [ %1, %_ZNK2EA6Thread6Thread9GetStatusEPl.exit ], [ %.pre27, %if.then2 ]
+  %8 = phi ptr [ %.pre27, %if.then2 ], [ %1, %_ZNK2EA6Thread6Thread9GetStatusEPl.exit ]
   %9 = load i64, ptr %8, align 8
   %call35 = tail call i32 @pthread_join(i64 noundef %9, ptr noundef null)
   %10 = load ptr, ptr %this, align 8
@@ -1268,7 +1268,7 @@ if.then59:                                        ; preds = %lor.lhs.false, %whi
   br label %return
 
 return:                                           ; preds = %if.then14, %if.then5.i, %if.then.i8, %if.then41, %while.end, %if.end39, %if.then59
-  %retval.0 = phi i32 [ %2, %if.end39 ], [ %call60, %if.then59 ], [ 0, %if.then41 ], [ 0, %while.end ], [ %13, %if.then.i8 ], [ 2, %if.then5.i ], [ 1, %if.then14 ]
+  %retval.0 = phi i32 [ %call60, %if.then59 ], [ %2, %if.end39 ], [ 0, %while.end ], [ 2, %if.then5.i ], [ %13, %if.then.i8 ], [ 0, %if.then41 ], [ 1, %if.then14 ]
   ret i32 %retval.0
 }
 
@@ -1296,7 +1296,7 @@ if.then5:                                         ; preds = %if.then
   br label %return
 
 return:                                           ; preds = %entry, %if.then, %if.then5
-  %retval.0 = phi i32 [ %2, %if.then ], [ 2, %if.then5 ], [ 0, %entry ]
+  %retval.0 = phi i32 [ 2, %if.then5 ], [ %2, %if.then ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -1380,7 +1380,7 @@ if.then4:                                         ; preds = %if.then
   br label %return
 
 return:                                           ; preds = %entry, %if.then, %if.then4
-  %retval.0 = phi i1 [ false, %if.then ], [ %4, %if.then4 ], [ false, %entry ]
+  %retval.0 = phi i1 [ %4, %if.then4 ], [ false, %if.then ], [ false, %entry ]
   ret i1 %retval.0
 }
 

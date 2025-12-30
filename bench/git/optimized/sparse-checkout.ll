@@ -464,7 +464,7 @@ define internal i32 @sparse_checkout_init(i32 noundef %0, ptr noundef %1, ptr no
   br label %35
 
 35:                                               ; preds = %4, %31, %28, %15
-  %.0 = phi i32 [ %34, %31 ], [ %16, %15 ], [ 0, %28 ], [ 1, %4 ]
+  %.0 = phi i32 [ %16, %15 ], [ 0, %28 ], [ %34, %31 ], [ 1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -768,7 +768,7 @@ strbuf_setlen.exit.us.i:                          ; preds = %50, %48
   br label %55
 
 55:                                               ; preds = %53, %.lr.ph.split.us.i
-  %.0.us.i = phi ptr [ %45, %.lr.ph.split.us.i ], [ %54, %53 ]
+  %.0.us.i = phi ptr [ %54, %53 ], [ %45, %.lr.ph.split.us.i ]
   %56 = load ptr, ptr @the_repository, align 8, !tbaa !17
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 384
   %58 = load ptr, ptr %57, align 8, !tbaa !83
@@ -1583,7 +1583,7 @@ _.exit:                                           ; preds = %4, %6
   br label %22
 
 22:                                               ; preds = %13, %9, %19, %_.exit
-  %.0 = phi i32 [ 1, %_.exit ], [ 1, %9 ], [ %21, %19 ], [ %.mux, %13 ]
+  %.0 = phi i32 [ 1, %_.exit ], [ %21, %19 ], [ %.mux, %13 ], [ 1, %9 ]
   ret i32 %.0
 }
 
@@ -2375,7 +2375,7 @@ define internal fastcc void @insert_recursive_pattern(ptr noundef %0, ptr nounde
   br label %33
 
 33:                                               ; preds = %30, %31
-  %.1 = phi ptr [ %23, %30 ], [ %29, %31 ]
+  %.1 = phi ptr [ %29, %31 ], [ %23, %30 ]
   %34 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %35 = load i64, ptr %34, align 8, !tbaa !149
   %.not = icmp eq i64 %35, 0

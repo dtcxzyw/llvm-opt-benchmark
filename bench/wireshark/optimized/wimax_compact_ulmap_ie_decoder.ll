@@ -359,8 +359,8 @@ define hidden range(i32 0, 72) i32 @wimax_compact_ulmap_ie_decoder(ptr noundef %
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %29, %28, %20, %.split574
-  %hf_rcid_ie_normal_cid.sink.i = phi ptr [ @hf_rcid_ie_cid7, %28 ], [ @hf_rcid_ie_cid3, %29 ], [ @hf_rcid_ie_cid11_2, %20 ], [ @hf_rcid_ie_normal_cid, %.split574 ]
-  %.0.ph.i = phi i32 [ %26, %28 ], [ 1, %29 ], [ 3, %20 ], [ 4, %.split574 ]
+  %hf_rcid_ie_normal_cid.sink.i = phi ptr [ @hf_rcid_ie_cid3, %29 ], [ @hf_rcid_ie_normal_cid, %.split574 ], [ @hf_rcid_ie_cid11_2, %20 ], [ @hf_rcid_ie_cid7, %28 ]
+  %.0.ph.i = phi i32 [ 1, %29 ], [ 4, %.split574 ], [ 3, %20 ], [ %26, %28 ]
   %30 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %30, ptr noundef %2, i32 noundef %17, i32 noundef 2, i32 noundef 0)
   br label %wimax_compact_ulmap_rcid_ie_decoder.exit
@@ -396,16 +396,16 @@ switch.lookup:                                    ; preds = %43
   br label %.sink.split.i616
 
 .sink.split.i616:                                 ; preds = %switch.lookup, %38, %.split
-  %hf_rcid_ie_normal_cid.sink.i617 = phi ptr [ %switch.load, %switch.lookup ], [ @hf_rcid_ie_cid11_3, %38 ], [ @hf_rcid_ie_normal_cid_1, %.split ]
-  %.sink2.i = phi i32 [ 2, %switch.lookup ], [ 2, %38 ], [ 3, %.split ]
-  %.0.ph.i618 = phi i32 [ %switch.offset, %switch.lookup ], [ 3, %38 ], [ 4, %.split ]
+  %hf_rcid_ie_normal_cid.sink.i617 = phi ptr [ @hf_rcid_ie_normal_cid_1, %.split ], [ @hf_rcid_ie_cid11_3, %38 ], [ %switch.load, %switch.lookup ]
+  %.sink2.i = phi i32 [ 3, %.split ], [ 2, %38 ], [ 2, %switch.lookup ]
+  %.0.ph.i618 = phi i32 [ 4, %.split ], [ 3, %38 ], [ %switch.offset, %switch.lookup ]
   %47 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i617, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %47, ptr noundef %2, i32 noundef %3, i32 noundef %.sink2.i, i32 noundef 0)
   br label %wimax_compact_ulmap_rcid_ie_decoder.exit
 
 wimax_compact_ulmap_rcid_ie_decoder.exit:         ; preds = %43, %.sink.split.i616, %.sink.split.i, %28
-  %phi.call = phi i32 [ %.0.ph.i, %.sink.split.i ], [ 0, %28 ], [ %.0.ph.i618, %.sink.split.i616 ], [ 0, %43 ]
-  %.0549 = phi i32 [ %17, %.sink.split.i ], [ %17, %28 ], [ %3, %.sink.split.i616 ], [ %3, %43 ]
+  %phi.call = phi i32 [ 0, %28 ], [ %.0.ph.i, %.sink.split.i ], [ 0, %43 ], [ %.0.ph.i618, %.sink.split.i616 ]
+  %.0549 = phi i32 [ %17, %28 ], [ %17, %.sink.split.i ], [ %3, %43 ], [ %3, %.sink.split.i616 ]
   %49 = lshr i32 %phi.call, 1
   %50 = add i32 %.0549, %49
   %51 = and i32 %phi.call, 1
@@ -499,8 +499,8 @@ wimax_compact_ulmap_rcid_ie_decoder.exit:         ; preds = %43, %.sink.split.i6
   br label %.sink.split.i622
 
 .sink.split.i622:                                 ; preds = %98, %97, %89, %.split578
-  %hf_rcid_ie_normal_cid.sink.i623 = phi ptr [ @hf_rcid_ie_cid7, %97 ], [ @hf_rcid_ie_cid3, %98 ], [ @hf_rcid_ie_cid11_2, %89 ], [ @hf_rcid_ie_normal_cid, %.split578 ]
-  %.0.ph.i625 = phi i32 [ %95, %97 ], [ 1, %98 ], [ 3, %89 ], [ 4, %.split578 ]
+  %hf_rcid_ie_normal_cid.sink.i623 = phi ptr [ @hf_rcid_ie_cid3, %98 ], [ @hf_rcid_ie_normal_cid, %.split578 ], [ @hf_rcid_ie_cid11_2, %89 ], [ @hf_rcid_ie_cid7, %97 ]
+  %.0.ph.i625 = phi i32 [ 1, %98 ], [ 4, %.split578 ], [ 3, %89 ], [ %95, %97 ]
   %99 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i623, align 4
   %100 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %99, ptr noundef %2, i32 noundef %86, i32 noundef 2, i32 noundef 0)
   br label %wimax_compact_ulmap_rcid_ie_decoder.exit627
@@ -536,16 +536,16 @@ switch.lookup742:                                 ; preds = %112
   br label %.sink.split.i629
 
 .sink.split.i629:                                 ; preds = %switch.lookup742, %107, %.split576
-  %hf_rcid_ie_normal_cid.sink.i630 = phi ptr [ %switch.load744, %switch.lookup742 ], [ @hf_rcid_ie_cid11_3, %107 ], [ @hf_rcid_ie_normal_cid_1, %.split576 ]
-  %.sink2.i631 = phi i32 [ 2, %switch.lookup742 ], [ 2, %107 ], [ 3, %.split576 ]
-  %.0.ph.i632 = phi i32 [ %switch.offset746, %switch.lookup742 ], [ 3, %107 ], [ 4, %.split576 ]
+  %hf_rcid_ie_normal_cid.sink.i630 = phi ptr [ @hf_rcid_ie_normal_cid_1, %.split576 ], [ @hf_rcid_ie_cid11_3, %107 ], [ %switch.load744, %switch.lookup742 ]
+  %.sink2.i631 = phi i32 [ 3, %.split576 ], [ 2, %107 ], [ 2, %switch.lookup742 ]
+  %.0.ph.i632 = phi i32 [ 4, %.split576 ], [ 3, %107 ], [ %switch.offset746, %switch.lookup742 ]
   %116 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i630, align 4
   %117 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %116, ptr noundef %2, i32 noundef %3, i32 noundef %.sink2.i631, i32 noundef 0)
   br label %wimax_compact_ulmap_rcid_ie_decoder.exit627
 
 wimax_compact_ulmap_rcid_ie_decoder.exit627:      ; preds = %112, %.sink.split.i629, %.sink.split.i622, %97
-  %phi.call579 = phi i32 [ %.0.ph.i625, %.sink.split.i622 ], [ 0, %97 ], [ %.0.ph.i632, %.sink.split.i629 ], [ 0, %112 ]
-  %.3 = phi i32 [ %86, %.sink.split.i622 ], [ %86, %97 ], [ %3, %.sink.split.i629 ], [ %3, %112 ]
+  %phi.call579 = phi i32 [ 0, %97 ], [ %.0.ph.i625, %.sink.split.i622 ], [ 0, %112 ], [ %.0.ph.i632, %.sink.split.i629 ]
+  %.3 = phi i32 [ %86, %97 ], [ %86, %.sink.split.i622 ], [ %3, %112 ], [ %3, %.sink.split.i629 ]
   %118 = lshr i32 %phi.call579, 1
   %119 = add i32 %.3, %118
   %120 = and i32 %phi.call579, 1
@@ -775,8 +775,8 @@ wimax_compact_ulmap_rcid_ie_decoder.exit627:      ; preds = %112, %.sink.split.i
   br label %236
 
 236:                                              ; preds = %219, %._crit_edge, %225
-  %.5558 = phi i32 [ %235, %._crit_edge ], [ %220, %219 ], [ %229, %225 ]
-  %.10 = phi i32 [ %.11.lcssa, %._crit_edge ], [ %.9, %219 ], [ %228, %225 ]
+  %.5558 = phi i32 [ %235, %._crit_edge ], [ %229, %225 ], [ %220, %219 ]
+  %.10 = phi i32 [ %.11.lcssa, %._crit_edge ], [ %228, %225 ], [ %.9, %219 ]
   %237 = tail call fastcc i32 @wimax_compact_ulmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %2, i32 noundef %.10, i32 noundef %.5567)
   %238 = add nuw nsw i32 %237, %.5558
   br label %wimax_culmap_extension_ie_decoder.exit
@@ -815,8 +815,8 @@ wimax_compact_ulmap_rcid_ie_decoder.exit627:      ; preds = %112, %.sink.split.i
   br label %.sink.split.i636
 
 .sink.split.i636:                                 ; preds = %256, %255, %247, %.split583
-  %hf_rcid_ie_normal_cid.sink.i637 = phi ptr [ @hf_rcid_ie_cid7, %255 ], [ @hf_rcid_ie_cid3, %256 ], [ @hf_rcid_ie_cid11_2, %247 ], [ @hf_rcid_ie_normal_cid, %.split583 ]
-  %.0.ph.i639 = phi i32 [ %253, %255 ], [ 1, %256 ], [ 3, %247 ], [ 4, %.split583 ]
+  %hf_rcid_ie_normal_cid.sink.i637 = phi ptr [ @hf_rcid_ie_cid3, %256 ], [ @hf_rcid_ie_normal_cid, %.split583 ], [ @hf_rcid_ie_cid11_2, %247 ], [ @hf_rcid_ie_cid7, %255 ]
+  %.0.ph.i639 = phi i32 [ 1, %256 ], [ 4, %.split583 ], [ 3, %247 ], [ %253, %255 ]
   %257 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i637, align 4
   %258 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %257, ptr noundef %2, i32 noundef %244, i32 noundef 2, i32 noundef 0)
   br label %wimax_compact_ulmap_rcid_ie_decoder.exit641
@@ -852,16 +852,16 @@ switch.lookup748:                                 ; preds = %270
   br label %.sink.split.i643
 
 .sink.split.i643:                                 ; preds = %switch.lookup748, %265, %.split581
-  %hf_rcid_ie_normal_cid.sink.i644 = phi ptr [ %switch.load750, %switch.lookup748 ], [ @hf_rcid_ie_cid11_3, %265 ], [ @hf_rcid_ie_normal_cid_1, %.split581 ]
-  %.sink2.i645 = phi i32 [ 2, %switch.lookup748 ], [ 2, %265 ], [ 3, %.split581 ]
-  %.0.ph.i646 = phi i32 [ %switch.offset752, %switch.lookup748 ], [ 3, %265 ], [ 4, %.split581 ]
+  %hf_rcid_ie_normal_cid.sink.i644 = phi ptr [ @hf_rcid_ie_normal_cid_1, %.split581 ], [ @hf_rcid_ie_cid11_3, %265 ], [ %switch.load750, %switch.lookup748 ]
+  %.sink2.i645 = phi i32 [ 3, %.split581 ], [ 2, %265 ], [ 2, %switch.lookup748 ]
+  %.0.ph.i646 = phi i32 [ 4, %.split581 ], [ 3, %265 ], [ %switch.offset752, %switch.lookup748 ]
   %274 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i644, align 4
   %275 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %274, ptr noundef %2, i32 noundef %3, i32 noundef %.sink2.i645, i32 noundef 0)
   br label %wimax_compact_ulmap_rcid_ie_decoder.exit641
 
 wimax_compact_ulmap_rcid_ie_decoder.exit641:      ; preds = %270, %.sink.split.i643, %.sink.split.i636, %255
-  %phi.call584 = phi i32 [ %.0.ph.i639, %.sink.split.i636 ], [ 0, %255 ], [ %.0.ph.i646, %.sink.split.i643 ], [ 0, %270 ]
-  %.12 = phi i32 [ %244, %.sink.split.i636 ], [ %244, %255 ], [ %3, %.sink.split.i643 ], [ %3, %270 ]
+  %phi.call584 = phi i32 [ 0, %255 ], [ %.0.ph.i639, %.sink.split.i636 ], [ 0, %270 ], [ %.0.ph.i646, %.sink.split.i643 ]
+  %.12 = phi i32 [ %244, %255 ], [ %244, %.sink.split.i636 ], [ %3, %270 ], [ %3, %.sink.split.i643 ]
   %276 = lshr i32 %phi.call584, 1
   %277 = add i32 %.12, %276
   %278 = and i32 %phi.call584, 1
@@ -1002,19 +1002,19 @@ wimax_compact_ulmap_rcid_ie_decoder.exit641:      ; preds = %270, %.sink.split.i
   br label %.sink.split.i650
 
 .sink.split.i650:                                 ; preds = %354, %353, %345, %335, %334, %333, %331, %326, %313
-  %.16665 = phi i32 [ %318, %331 ], [ %3, %354 ], [ %3, %345 ], [ %3, %335 ], [ %318, %313 ], [ %318, %326 ], [ %318, %334 ], [ %318, %333 ], [ %3, %353 ]
-  %.0561662 = phi i32 [ %321, %331 ], [ %340, %354 ], [ %340, %345 ], [ %340, %335 ], [ %321, %313 ], [ %321, %326 ], [ %321, %334 ], [ %321, %333 ], [ %340, %353 ]
-  %hf_rcid_ie_normal_cid.sink.i651 = phi ptr [ @hf_rcid_ie_cid11_1, %331 ], [ @hf_rcid_ie_cid3, %354 ], [ @hf_rcid_ie_cid11_2, %345 ], [ @hf_rcid_ie_normal_cid, %335 ], [ @hf_rcid_ie_normal_cid_1, %313 ], [ @hf_rcid_ie_cid11_3, %326 ], [ @hf_rcid_ie_cid3_1, %334 ], [ @hf_rcid_ie_cid7_1, %333 ], [ @hf_rcid_ie_cid7, %353 ]
-  %.sink2.i652 = phi i32 [ 2, %331 ], [ 2, %354 ], [ 2, %345 ], [ 2, %335 ], [ 3, %313 ], [ 2, %326 ], [ 2, %334 ], [ 2, %333 ], [ %351, %353 ]
-  %.0.ph.i653 = phi i32 [ 3, %331 ], [ 1, %354 ], [ 3, %345 ], [ 4, %335 ], [ 4, %313 ], [ 3, %326 ], [ 1, %334 ], [ 2, %333 ], [ %351, %353 ]
+  %.16665 = phi i32 [ %3, %354 ], [ %318, %334 ], [ %318, %333 ], [ %318, %313 ], [ %318, %326 ], [ %318, %331 ], [ %3, %335 ], [ %3, %345 ], [ %3, %353 ]
+  %.0561662 = phi i32 [ %340, %354 ], [ %321, %334 ], [ %321, %333 ], [ %321, %313 ], [ %321, %326 ], [ %321, %331 ], [ %340, %335 ], [ %340, %345 ], [ %340, %353 ]
+  %hf_rcid_ie_normal_cid.sink.i651 = phi ptr [ @hf_rcid_ie_cid3, %354 ], [ @hf_rcid_ie_cid3_1, %334 ], [ @hf_rcid_ie_cid7_1, %333 ], [ @hf_rcid_ie_normal_cid_1, %313 ], [ @hf_rcid_ie_cid11_3, %326 ], [ @hf_rcid_ie_cid11_1, %331 ], [ @hf_rcid_ie_normal_cid, %335 ], [ @hf_rcid_ie_cid11_2, %345 ], [ @hf_rcid_ie_cid7, %353 ]
+  %.sink2.i652 = phi i32 [ 2, %354 ], [ 2, %334 ], [ 2, %333 ], [ 3, %313 ], [ 2, %326 ], [ 2, %331 ], [ 2, %335 ], [ 2, %345 ], [ %351, %353 ]
+  %.0.ph.i653 = phi i32 [ 1, %354 ], [ 1, %334 ], [ 2, %333 ], [ 4, %313 ], [ 3, %326 ], [ 3, %331 ], [ 4, %335 ], [ 3, %345 ], [ %351, %353 ]
   %355 = load i32, ptr %hf_rcid_ie_normal_cid.sink.i651, align 4
   %356 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %355, ptr noundef %2, i32 noundef %.16665, i32 noundef %.sink2.i652, i32 noundef 0)
   br label %wimax_compact_ulmap_rcid_ie_decoder.exit656
 
 wimax_compact_ulmap_rcid_ie_decoder.exit656:      ; preds = %331, %353, %.sink.split.i650
-  %.16664 = phi i32 [ %3, %353 ], [ %318, %331 ], [ %.16665, %.sink.split.i650 ]
-  %.0561661 = phi i32 [ %340, %353 ], [ %321, %331 ], [ %.0561662, %.sink.split.i650 ]
-  %.0.i654 = phi i32 [ 0, %353 ], [ 0, %331 ], [ %.0.ph.i653, %.sink.split.i650 ]
+  %.16664 = phi i32 [ %318, %331 ], [ %3, %353 ], [ %.16665, %.sink.split.i650 ]
+  %.0561661 = phi i32 [ %321, %331 ], [ %340, %353 ], [ %.0561662, %.sink.split.i650 ]
+  %.0.i654 = phi i32 [ 0, %331 ], [ 0, %353 ], [ %.0.ph.i653, %.sink.split.i650 ]
   %357 = lshr i32 %.0.i654, 1
   %358 = add i32 %357, %.16664
   %359 = and i32 %.0.i654, 1
@@ -1251,7 +1251,7 @@ default.unreachable:                              ; preds = %5
   br label %wimax_culmap_extension_ie_decoder.exit
 
 wimax_culmap_extension_ie_decoder.exit:           ; preds = %490, %470, %448, %432, %.critedge615, %408, %.critedge, %422, %398, %492, %394, %305, %236, %78
-  %.1554 = phi i32 [ 1, %492 ], [ %80, %78 ], [ %238, %236 ], [ %311, %305 ], [ %396, %394 ], [ 1, %.critedge ], [ 1, %398 ], [ 1, %.critedge615 ], [ 1, %422 ], [ 9, %432 ], [ 9, %408 ], [ 0, %448 ], [ %491, %490 ], [ 0, %470 ]
+  %.1554 = phi i32 [ 1, %492 ], [ %80, %78 ], [ %238, %236 ], [ %311, %305 ], [ %396, %394 ], [ 1, %398 ], [ 1, %422 ], [ 1, %.critedge ], [ 9, %408 ], [ 1, %.critedge615 ], [ 9, %432 ], [ %491, %490 ], [ 0, %448 ], [ 0, %470 ]
   ret i32 %.1554
 }
 
@@ -1292,9 +1292,9 @@ define internal fastcc range(i32 1, 3) i32 @wimax_compact_ulmap_harq_control_ie_
   br label %17
 
 17:                                               ; preds = %.sink.split, %10, %6
-  %hf_harq_control_ie_acid.sink = phi ptr [ @hf_harq_control_ie_reserved, %10 ], [ @hf_harq_control_ie_reserved_1, %6 ], [ %hf_harq_control_ie_acid.sink.ph, %.sink.split ]
-  %.sink1 = phi i32 [ 1, %10 ], [ 2, %6 ], [ %.sink3, %.sink.split ]
-  %.0 = phi i32 [ 1, %10 ], [ 1, %6 ], [ 2, %.sink.split ]
+  %hf_harq_control_ie_acid.sink = phi ptr [ @hf_harq_control_ie_reserved_1, %6 ], [ @hf_harq_control_ie_reserved, %10 ], [ %hf_harq_control_ie_acid.sink.ph, %.sink.split ]
+  %.sink1 = phi i32 [ 2, %6 ], [ 1, %10 ], [ %.sink3, %.sink.split ]
+  %.0 = phi i32 [ 1, %6 ], [ 1, %10 ], [ 2, %.sink.split ]
   %18 = load i32, ptr %hf_harq_control_ie_acid.sink, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %18, ptr noundef %1, i32 noundef %2, i32 noundef %.sink1, i32 noundef 0)
   ret i32 %.0

@@ -1443,7 +1443,7 @@ define hidden void @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !256
   br label %34
 
-34:                                               ; preds = %31, %33, %11, %29
+34:                                               ; preds = %29, %31, %33, %11
   %35 = icmp eq ptr %6, %13
   br i1 %35, label %._crit_edge, label %11
 
@@ -3047,8 +3047,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   ret { ptr, ptr } %63
 
 64:                                               ; preds = %45, %49
-  %65 = phi i8 [ %47, %45 ], [ %.pre, %49 ]
-  %.sroa.411.0.ph = phi i64 [ %.sroa.6.1.i.i, %45 ], [ %55, %49 ]
+  %65 = phi i8 [ %.pre, %49 ], [ %47, %45 ]
+  %.sroa.411.0.ph = phi i64 [ %55, %49 ], [ %.sroa.6.1.i.i, %45 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !710)
   %66 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.411.0.ph
   %67 = and i8 %65, 1
@@ -3279,8 +3279,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hf7
   ret void
 
 91:                                               ; preds = %77, %81
-  %92 = phi i8 [ %79, %77 ], [ %.pre, %81 ]
-  %.sroa.4.0.ph = phi i64 [ %.sroa.6.1.i.i, %77 ], [ %87, %81 ]
+  %92 = phi i8 [ %.pre, %81 ], [ %79, %77 ]
+  %.sroa.4.0.ph = phi i64 [ %87, %81 ], [ %.sroa.6.1.i.i, %77 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !775)
   %93 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.4.0.ph
   %94 = and i8 %92, 1

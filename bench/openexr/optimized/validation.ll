@@ -113,7 +113,7 @@ define hidden i32 @internal_exr_validate_read_part(ptr noundef %0, ptr noundef %
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %9, %7, %2
-  %.0 = phi i32 [ %14, %13 ], [ %6, %2 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %16, %15 ]
+  %.0 = phi i32 [ %6, %2 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ]
   ret i32 %.0
 }
 
@@ -556,7 +556,7 @@ define internal fastcc i32 @validate_req_attr(ptr noundef %0, ptr noundef %1, i3
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread245, %.thread209, %.thread200, %173, %222, %219, %.thread255, %.thread235, %.thread223, %7, %225, %215, %199, %192, %186, %179, %166, %158, %139, %131, %116, %108, %92, %84, %67, %59, %41, %33, %17, %10
-  %.0134 = phi i32 [ %20, %17 ], [ %44, %41 ], [ %70, %67 ], [ %95, %92 ], [ %119, %116 ], [ %142, %139 ], [ %169, %166 ], [ %189, %186 ], [ %202, %199 ], [ %154, %.thread255 ], [ %228, %225 ], [ %218, %215 ], [ %195, %192 ], [ %182, %179 ], [ %107, %.thread235 ], [ %161, %158 ], [ %58, %.thread209 ], [ %134, %131 ], [ %83, %.thread223 ], [ %111, %108 ], [ %.7, %173 ], [ %87, %84 ], [ %.9, %219 ], [ %62, %59 ], [ %32, %.thread200 ], [ %36, %33 ], [ %13, %10 ], [ %9, %7 ], [ %.9, %222 ], [ %130, %.thread245 ]
+  %.0134 = phi i32 [ %20, %17 ], [ %44, %41 ], [ %70, %67 ], [ %95, %92 ], [ %119, %116 ], [ %142, %139 ], [ %169, %166 ], [ %189, %186 ], [ %202, %199 ], [ %228, %225 ], [ %218, %215 ], [ %195, %192 ], [ %182, %179 ], [ %161, %158 ], [ %134, %131 ], [ %111, %108 ], [ %87, %84 ], [ %62, %59 ], [ %36, %33 ], [ %13, %10 ], [ %9, %7 ], [ %83, %.thread223 ], [ %107, %.thread235 ], [ %154, %.thread255 ], [ %.9, %222 ], [ %.9, %219 ], [ %.7, %173 ], [ %32, %.thread200 ], [ %58, %.thread209 ], [ %130, %.thread245 ]
   ret i32 %.0134
 }
 
@@ -884,7 +884,7 @@ define internal fastcc i32 @validate_channels(ptr noundef %0, ptr noundef readon
   br label %.thread
 
 .thread:                                          ; preds = %43, %51, %59, %67, %75, %84, %93, %28, %21, %12, %5
-  %.0 = phi i32 [ %15, %12 ], [ %31, %28 ], [ %8, %5 ], [ %24, %21 ], [ %56, %51 ], [ %98, %93 ], [ %89, %84 ], [ %80, %75 ], [ %72, %67 ], [ %64, %59 ], [ 0, %43 ]
+  %.0 = phi i32 [ %15, %12 ], [ %31, %28 ], [ %24, %21 ], [ %8, %5 ], [ %98, %93 ], [ %89, %84 ], [ %80, %75 ], [ %72, %67 ], [ %64, %59 ], [ %56, %51 ], [ 0, %43 ]
   ret i32 %.0
 }
 
@@ -1000,8 +1000,8 @@ switch.lookup:                                    ; preds = %29
   %59 = tail call i32 (ptr, i32, ptr, ...) %58(ptr noundef %0, i32 noundef 14, ptr noundef nonnull @.str.56) #7
   br label %.fold.split.thread
 
-.fold.split.thread:                               ; preds = %49, %43, %37, %25, %15, %.fold.split, %56
-  %.1 = phi i32 [ %59, %56 ], [ 0, %.fold.split ], [ %52, %49 ], [ %46, %43 ], [ 14, %37 ], [ %28, %25 ], [ %18, %15 ]
+.fold.split.thread:                               ; preds = %37, %49, %43, %25, %15, %.fold.split, %56
+  %.1 = phi i32 [ %59, %56 ], [ 0, %.fold.split ], [ 14, %37 ], [ %52, %49 ], [ %46, %43 ], [ %28, %25 ], [ %18, %15 ]
   ret i32 %.1
 }
 
@@ -1164,7 +1164,7 @@ define internal fastcc i32 @validate_tile_data(ptr noundef %0, ptr noundef reado
   br label %.thread
 
 .thread:                                          ; preds = %73, %.preheader, %87, %78, %16, %69, %60, %54, %47, %._crit_edge, %23, %2
-  %.2 = phi i32 [ 0, %2 ], [ %26, %23 ], [ %92, %87 ], [ %83, %78 ], [ %19, %16 ], [ %72, %69 ], [ %63, %60 ], [ %57, %54 ], [ %50, %47 ], [ %43, %._crit_edge ], [ 0, %.preheader ], [ 0, %73 ]
+  %.2 = phi i32 [ 0, %2 ], [ %92, %87 ], [ %83, %78 ], [ %19, %16 ], [ %72, %69 ], [ %63, %60 ], [ %57, %54 ], [ %50, %47 ], [ %43, %._crit_edge ], [ %26, %23 ], [ 0, %.preheader ], [ 0, %73 ]
   ret i32 %.2
 }
 
@@ -1239,7 +1239,7 @@ define internal fastcc i32 @validate_deep_data(ptr noundef %0, ptr noundef reado
   br label %.thread
 
 .thread:                                          ; preds = %20, %.preheader, %34, %25, %16, %2
-  %.2 = phi i32 [ 0, %2 ], [ %19, %16 ], [ %39, %34 ], [ %30, %25 ], [ 0, %.preheader ], [ 0, %20 ]
+  %.2 = phi i32 [ 0, %2 ], [ %39, %34 ], [ %30, %25 ], [ %19, %16 ], [ 0, %.preheader ], [ 0, %20 ]
   ret i32 %.2
 }
 
@@ -1284,7 +1284,7 @@ define hidden range(i32 0, 17) i32 @internal_exr_validate_shared_attrs(ptr nound
 25:                                               ; preds = %6
   br i1 %.not58, label %26, label %.critedge
 
-.critedge:                                        ; preds = %20, %14, %13, %17, %25
+.critedge:                                        ; preds = %20, %17, %14, %13, %25
   store ptr @.str, ptr %4, align 8, !tbaa !71
   br label %26
 
@@ -1323,7 +1323,7 @@ define hidden range(i32 0, 17) i32 @internal_exr_validate_shared_attrs(ptr nound
 41:                                               ; preds = %26
   br i1 %.not65, label %45, label %.critedge86
 
-.critedge86:                                      ; preds = %38, %32, %31, %35, %41
+.critedge86:                                      ; preds = %38, %35, %32, %31, %41
   %42 = add nuw nsw i32 %.0, 1
   %43 = zext nneg i32 %.0 to i64
   %44 = getelementptr inbounds nuw ptr, ptr %4, i64 %43
@@ -1337,7 +1337,7 @@ define hidden range(i32 0, 17) i32 @internal_exr_validate_shared_attrs(ptr nound
   %48 = icmp eq i32 %46, 0
   %49 = icmp eq i32 %47, 0
   %or.cond = select i1 %48, i1 %49, i1 false
-  br i1 %or.cond, label %50, label %58
+  br i1 %or.cond, label %50, label %63
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %7, align 8, !tbaa !72
@@ -1351,35 +1351,35 @@ define hidden range(i32 0, 17) i32 @internal_exr_validate_shared_attrs(ptr nound
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 20
   %57 = load i32, ptr %56, align 4, !tbaa !24
   %.not73 = icmp eq i32 %57, 22
-  br i1 %.not73, label %59, label %.critedge89
+  br i1 %.not73, label %58, label %.critedge89
 
-58:                                               ; preds = %45
-  br i1 %49, label %.critedge89, label %67
-
-59:                                               ; preds = %54
-  %60 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !27
-  %62 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %63 = load ptr, ptr %62, align 8, !tbaa !27
-  %bcmp74 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %61, ptr noundef nonnull dereferenceable(8) %63, i64 8)
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %60 = load ptr, ptr %59, align 8, !tbaa !27
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %62 = load ptr, ptr %61, align 8, !tbaa !27
+  %bcmp74 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %60, ptr noundef nonnull dereferenceable(8) %62, i64 8)
   %.not75 = icmp eq i32 %bcmp74, 0
   br i1 %.not75, label %67, label %.critedge89
 
-.critedge89:                                      ; preds = %58, %54, %50, %59
+63:                                               ; preds = %45
+  br i1 %49, label %.critedge89, label %67
+
+.critedge89:                                      ; preds = %58, %54, %50, %63
   %64 = add nuw nsw i32 %.1, 1
   %65 = zext nneg i32 %.1 to i64
   %66 = getelementptr inbounds nuw ptr, ptr %4, i64 %65
   store ptr @.str.2, ptr %66, align 8, !tbaa !71
   br label %67
 
-67:                                               ; preds = %58, %.critedge89, %59
-  %.2 = phi i32 [ %64, %.critedge89 ], [ %.1, %59 ], [ %.1, %58 ]
+67:                                               ; preds = %58, %.critedge89, %63
+  %.2 = phi i32 [ %64, %.critedge89 ], [ %.1, %63 ], [ %.1, %58 ]
   %68 = call i32 @exr_get_attribute_by_name(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #7
   %69 = call i32 @exr_get_attribute_by_name(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %8) #7
   %70 = icmp eq i32 %68, 0
   %71 = icmp eq i32 %69, 0
   %or.cond90 = select i1 %70, i1 %71, i1 false
-  br i1 %or.cond90, label %72, label %80
+  br i1 %or.cond90, label %72, label %85
 
 72:                                               ; preds = %67
   %73 = load ptr, ptr %7, align 8, !tbaa !72
@@ -1393,29 +1393,29 @@ define hidden range(i32 0, 17) i32 @internal_exr_validate_shared_attrs(ptr nound
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 20
   %79 = load i32, ptr %78, align 4, !tbaa !24
   %.not78 = icmp eq i32 %79, 4
-  br i1 %.not78, label %81, label %.critedge94
+  br i1 %.not78, label %80, label %.critedge94
 
-80:                                               ; preds = %67
-  br i1 %71, label %.critedge94, label %89
-
-81:                                               ; preds = %76
-  %82 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %83 = load ptr, ptr %82, align 8, !tbaa !27
-  %84 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %85 = load ptr, ptr %84, align 8, !tbaa !27
-  %bcmp79 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %83, ptr noundef nonnull dereferenceable(32) %85, i64 32)
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  %82 = load ptr, ptr %81, align 8, !tbaa !27
+  %83 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %84 = load ptr, ptr %83, align 8, !tbaa !27
+  %bcmp79 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %82, ptr noundef nonnull dereferenceable(32) %84, i64 32)
   %.not80 = icmp eq i32 %bcmp79, 0
   br i1 %.not80, label %89, label %.critedge94
 
-.critedge94:                                      ; preds = %80, %76, %72, %81
+85:                                               ; preds = %67
+  br i1 %71, label %.critedge94, label %89
+
+.critedge94:                                      ; preds = %80, %76, %72, %85
   %86 = add nuw nsw i32 %.2, 1
   %87 = zext nneg i32 %.2 to i64
   %88 = getelementptr inbounds nuw ptr, ptr %4, i64 %87
   store ptr @.str.3, ptr %88, align 8, !tbaa !71
   br label %89
 
-89:                                               ; preds = %80, %.critedge94, %81
-  %.3 = phi i32 [ %86, %.critedge94 ], [ %.2, %81 ], [ %.2, %80 ]
+89:                                               ; preds = %80, %.critedge94, %85
+  %.3 = phi i32 [ %86, %.critedge94 ], [ %.2, %85 ], [ %.2, %80 ]
   store i32 %.3, ptr %5, align 4, !tbaa !31
   %90 = icmp eq i32 %.3, 0
   %91 = select i1 %90, i32 0, i32 16
@@ -1457,7 +1457,7 @@ define hidden i32 @internal_exr_validate_write_part(ptr noundef %0, ptr noundef 
   br label %14
 
 14:                                               ; preds = %12, %10, %8, %6, %4, %2
-  %.0 = phi i32 [ %11, %10 ], [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %13, %12 ]
+  %.0 = phi i32 [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i32 %.0
 }
 

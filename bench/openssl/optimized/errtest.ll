@@ -148,7 +148,7 @@ define internal range(i32 0, 2) i32 @raised_error() #0 {
   br label %19
 
 19:                                               ; preds = %16, %0, %6, %10, %13
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %10 ], [ 0, %6 ], [ 0, %0 ], [ %spec.select, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -224,7 +224,7 @@ define internal range(i32 0, 2) i32 @test_print_error_format() #0 {
   br label %31
 
 31:                                               ; preds = %24, %26, %28
-  %32 = phi i32 [ 1, %24 ], [ 0, %26 ], [ %30, %28 ]
+  %32 = phi i32 [ 0, %26 ], [ %30, %28 ], [ 1, %24 ]
   %33 = call i32 @test_true(ptr noundef nonnull @.str.7, i32 noundef 102, ptr noundef nonnull @.str.31, i32 noundef %32) #6
   %.not31 = icmp eq i32 %33, 0
   br i1 %.not31, label %.loopexit, label %34
@@ -248,8 +248,8 @@ define internal range(i32 0, 2) i32 @test_print_error_format() #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %39, %.critedge, %16, %10, %8
-  %.022 = phi ptr [ %14, %10 ], [ null, %8 ], [ %14, %39 ], [ %14, %.critedge ], [ %14, %16 ], [ %14, %31 ]
-  %.021 = phi i32 [ 0, %10 ], [ 0, %8 ], [ %spec.select, %39 ], [ 0, %.critedge ], [ 0, %16 ], [ 0, %31 ]
+  %.022 = phi ptr [ %14, %.critedge ], [ %14, %16 ], [ %14, %10 ], [ null, %8 ], [ %14, %39 ], [ %14, %31 ]
+  %.021 = phi i32 [ 0, %.critedge ], [ 0, %16 ], [ 0, %10 ], [ 0, %8 ], [ %spec.select, %39 ], [ 0, %31 ]
   %42 = call i32 @BIO_free(ptr noundef %.022) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -584,7 +584,7 @@ define internal range(i32 0, 2) i32 @test_marks() #0 {
   br label %167
 
 167:                                              ; preds = %158, %163, %153, %145, %150, %140, %135, %124, %129, %132, %116, %121, %108, %113, %103, %84, %87, %92, %95, %100, %76, %79, %71, %55, %58, %63, %68, %45, %50, %34, %37, %42, %29, %3, %8, %13, %16, %21, %26, %0, %166
-  %.0 = phi i32 [ 1, %166 ], [ 0, %153 ], [ 0, %145 ], [ 0, %140 ], [ 0, %135 ], [ 0, %124 ], [ 0, %116 ], [ 0, %108 ], [ 0, %103 ], [ 0, %84 ], [ 0, %76 ], [ 0, %71 ], [ 0, %55 ], [ 0, %45 ], [ 0, %34 ], [ 0, %29 ], [ 0, %3 ], [ 0, %0 ], [ 0, %26 ], [ 0, %21 ], [ 0, %16 ], [ 0, %13 ], [ 0, %8 ], [ 0, %42 ], [ 0, %37 ], [ 0, %50 ], [ 0, %68 ], [ 0, %63 ], [ 0, %58 ], [ 0, %79 ], [ 0, %100 ], [ 0, %95 ], [ 0, %92 ], [ 0, %87 ], [ 0, %113 ], [ 0, %121 ], [ 0, %132 ], [ 0, %129 ], [ 0, %150 ], [ 0, %163 ], [ 0, %158 ]
+  %.0 = phi i32 [ 1, %166 ], [ 0, %0 ], [ 0, %26 ], [ 0, %21 ], [ 0, %16 ], [ 0, %13 ], [ 0, %8 ], [ 0, %3 ], [ 0, %29 ], [ 0, %42 ], [ 0, %37 ], [ 0, %34 ], [ 0, %50 ], [ 0, %45 ], [ 0, %68 ], [ 0, %63 ], [ 0, %58 ], [ 0, %55 ], [ 0, %71 ], [ 0, %79 ], [ 0, %76 ], [ 0, %100 ], [ 0, %95 ], [ 0, %92 ], [ 0, %87 ], [ 0, %84 ], [ 0, %103 ], [ 0, %113 ], [ 0, %108 ], [ 0, %121 ], [ 0, %116 ], [ 0, %132 ], [ 0, %129 ], [ 0, %124 ], [ 0, %135 ], [ 0, %140 ], [ 0, %150 ], [ 0, %145 ], [ 0, %153 ], [ 0, %163 ], [ 0, %158 ]
   ret i32 %.0
 }
 
@@ -754,7 +754,7 @@ define internal range(i32 0, 2) i32 @test_save_restore(i32 noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit.split.loop.exit, %26, %34, %30, %41, %38, %50, %47, %44, %57, %54, %66, %63, %60, %23, %20, %14, %11, %6, %1
-  %.0 = phi i32 [ 0, %11 ], [ 0, %6 ], [ 0, %1 ], [ 0, %20 ], [ 0, %23 ], [ 0, %14 ], [ 0, %57 ], [ %.mux.le, %.loopexit.loopexit.split.loop.exit ], [ 0, %26 ], [ 0, %63 ], [ 0, %30 ], [ 0, %34 ], [ 0, %50 ], [ 0, %38 ], [ 0, %41 ], [ 0, %44 ], [ 0, %47 ], [ 0, %66 ], [ 0, %54 ], [ 0, %60 ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %23 ], [ 0, %14 ], [ 0, %11 ], [ 0, %6 ], [ 0, %1 ], [ %.mux.le, %.loopexit.loopexit.split.loop.exit ], [ 0, %26 ], [ 0, %34 ], [ 0, %30 ], [ 0, %41 ], [ 0, %38 ], [ 0, %50 ], [ 0, %47 ], [ 0, %44 ], [ 0, %57 ], [ 0, %54 ], [ 0, %66 ], [ 0, %63 ], [ 0, %60 ]
   call void @OSSL_ERR_STATE_free(ptr noundef %4) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

@@ -780,7 +780,7 @@ _ZN6icu_775MutexD2Ev.exit52:                      ; preds = %87
   br label %97
 
 _ZN6icu_775MutexD2Ev.exit51:                      ; preds = %80, %82, %70, %68
-  %.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %69, %68 ], [ %81, %80 ], [ %83, %82 ]
+  %.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %71, %70 ], [ %81, %80 ], [ %83, %82 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #10
   br label %96
 
@@ -1023,7 +1023,7 @@ _ZN6icu_779Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit: ; preds = %6
   %.pre.i = load i32, ptr %2, align 4
   br i1 %or.cond.i, label %88, label %.thread
 
-.thread:                                          ; preds = %.noexc59, %.noexc
+.thread:                                          ; preds = %.noexc, %.noexc59
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -1208,7 +1208,7 @@ _ZN6icu_779Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit: ; preds = %6
   br i1 %exitcond102.not, label %.loopexit68, label %.lr.ph85, !llvm.loop !52
 
 .body:                                            ; preds = %62, %71, %90, %139, %95
-  %.pn42.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %96, %95 ], [ %91, %90 ], [ %.pn42.pn.pn.pn.pn, %139 ], [ %63, %62 ], [ %72, %71 ]
+  %.pn42.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %91, %90 ], [ %.pn42.pn.pn.pn.pn, %139 ], [ %96, %95 ], [ %63, %62 ], [ %72, %71 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %142
@@ -1221,7 +1221,7 @@ _ZN6icu_779Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit: ; preds = %6
   br i1 %exitcond103.not, label %._crit_edge, label %38, !llvm.loop !53
 
 142:                                              ; preds = %56, %.body, %51, %49
-  %.pn42.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %52, %51 ], [ %.pn42.pn.pn.pn.pn.pn.pn.pn.pn, %.body ], [ %57, %56 ]
+  %.pn42.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ], [ %.pn42.pn.pn.pn.pn.pn.pn.pn.pn, %.body ], [ %57, %56 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %143

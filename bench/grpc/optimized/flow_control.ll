@@ -885,7 +885,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   ret void
 
 .body:                                            ; preds = %248, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %221, %163, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38
-  %.pn33 = phi { ptr, i32 } [ %249, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ], [ %.pn28.pn.pn, %221 ], [ %.pn22.pn.pn, %163 ], [ %.pn18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53 ], [ %249, %248 ]
+  %.pn33 = phi { ptr, i32 } [ %.pn28.pn.pn, %221 ], [ %.pn22.pn.pn, %163 ], [ %.pn18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ], [ %249, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i ], [ %249, %248 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn33
@@ -1274,7 +1274,7 @@ _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit: ; preds = %1
   br label %30
 
 30:                                               ; preds = %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread, %22, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit, %24, %16
-  %.0 = phi double [ %.sroa.speculated, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit ], [ %21, %16 ], [ %29, %24 ], [ 0.000000e+00, %22 ], [ %.sroa.speculated14, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread ]
+  %.0 = phi double [ %21, %16 ], [ %29, %24 ], [ %.sroa.speculated, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit ], [ 0.000000e+00, %22 ], [ %.sroa.speculated14, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread ]
   ret double %.0
 }
 
@@ -1497,7 +1497,7 @@ _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i: ; preds = %14
   br label %_ZNK9grpc_core6chttp220TransportFlowControl50TargetInitialWindowSizeBasedOnMemoryPressureAndBdpEv.exit
 
 _ZNK9grpc_core6chttp220TransportFlowControl50TargetInitialWindowSizeBasedOnMemoryPressureAndBdpEv.exit: ; preds = %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread.i, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i, %28, %34, %36
-  %.0.i = phi double [ %.sroa.speculated.i, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i ], [ %33, %28 ], [ %41, %36 ], [ 0.000000e+00, %34 ], [ %.sroa.speculated14.i, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread.i ]
+  %.0.i = phi double [ %33, %28 ], [ %41, %36 ], [ %.sroa.speculated.i, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i ], [ 0.000000e+00, %34 ], [ %.sroa.speculated14.i, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread.i ]
   %42 = fcmp olt double %.0.i, 0.000000e+00
   %43 = fcmp ogt double %.0.i, 0x41D0000000000000
   %..i = select i1 %43, double 0x41D0000000000000, double %.0.i
@@ -2033,7 +2033,7 @@ _ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContextD2Ev.exit: ; pr
   ret void
 
 48:                                               ; preds = %40, %46
-  %.pn10.pn = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
+  %.pn10.pn = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
   call void @_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn10.pn
@@ -2073,8 +2073,8 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK9grpc_core6chttp217StreamFlowC
   br label %"_ZZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEvENK3$_0clEv.exit"
 
 "_ZZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEvENK3$_0clEv.exit": ; preds = %._crit_edge.i, %9, %15
-  %17 = phi i64 [ %.pre, %15 ], [ %12, %9 ], [ %.pre.i, %._crit_edge.i ]
-  %.0.i = phi i64 [ %16, %15 ], [ %spec.select.i, %9 ], [ %.pre.i, %._crit_edge.i ]
+  %17 = phi i64 [ %.pre, %15 ], [ %.pre.i, %._crit_edge.i ], [ %12, %9 ]
+  %.0.i = phi i64 [ %16, %15 ], [ %.pre.i, %._crit_edge.i ], [ %spec.select.i, %9 ]
   %18 = sub nsw i64 %.0.i, %17
   %19 = tail call i64 @llvm.smax.i64(i64 %18, i64 0)
   %20 = tail call i64 @llvm.umin.i64(i64 %19, i64 2147483647)
@@ -2156,8 +2156,8 @@ define void @_ZN9grpc_core6chttp217StreamFlowControl12UpdateActionENS0_17FlowCon
   br label %_ZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEv.exit
 
 _ZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEv.exit: ; preds = %._crit_edge.i.i, %11, %17
-  %19 = phi i64 [ %.pre.i, %17 ], [ %14, %11 ], [ %.pre.i.i, %._crit_edge.i.i ]
-  %.0.i.i = phi i64 [ %18, %17 ], [ %spec.select.i.i, %11 ], [ %.pre.i.i, %._crit_edge.i.i ]
+  %19 = phi i64 [ %.pre.i, %17 ], [ %.pre.i.i, %._crit_edge.i.i ], [ %14, %11 ]
+  %.0.i.i = phi i64 [ %18, %17 ], [ %.pre.i.i, %._crit_edge.i.i ], [ %spec.select.i.i, %11 ]
   %20 = sub nsw i64 %.0.i.i, %19
   %.not = icmp slt i64 %20, 1
   br i1 %.not, label %37, label %21

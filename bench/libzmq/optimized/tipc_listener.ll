@@ -398,7 +398,7 @@ _ZN3zmq19endpoint_uri_pair_tD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   br label %60
 
 60:                                               ; preds = %15, %_ZN3zmq19endpoint_uri_pair_tD2Ev.exit, %56, %17, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %15 ], [ -1, %17 ], [ -1, %56 ], [ 0, %_ZN3zmq19endpoint_uri_pair_tD2Ev.exit ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %56 ], [ 0, %_ZN3zmq19endpoint_uri_pair_tD2Ev.exit ], [ -1, %15 ], [ -1, %17 ]
   ret i32 %.0
 }
 

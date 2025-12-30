@@ -207,11 +207,11 @@ _ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread: ; preds = %43, %_ZN12_GLOB
   br label %165
 
 .thread115:                                       ; preds = %sub_0, %sub_1122, %.thread, %.tail120
-  %.071178 = phi i32 [ %0, %sub_0 ], [ %0, %.tail120 ], [ %22, %.thread ], [ %0, %sub_1122 ]
-  %.073174 = phi ptr [ %1, %sub_0 ], [ %1, %.tail120 ], [ %23, %.thread ], [ %1, %sub_1122 ]
-  %86 = phi i32 [ 0, %sub_0 ], [ 0, %.tail120 ], [ -1, %.thread ], [ 0, %sub_1122 ]
-  %87 = phi i1 [ false, %sub_0 ], [ %37, %.tail120 ], [ false, %.thread ], [ %37, %sub_1122 ]
-  %.079108112118 = phi i32 [ 0, %sub_0 ], [ %36, %.tail120 ], [ 0, %.thread ], [ %36, %sub_1122 ]
+  %.071178 = phi i32 [ %0, %.tail120 ], [ %22, %.thread ], [ %0, %sub_1122 ], [ %0, %sub_0 ]
+  %.073174 = phi ptr [ %1, %.tail120 ], [ %23, %.thread ], [ %1, %sub_1122 ], [ %1, %sub_0 ]
+  %86 = phi i32 [ 0, %.tail120 ], [ -1, %.thread ], [ 0, %sub_1122 ], [ 0, %sub_0 ]
+  %87 = phi i1 [ %37, %.tail120 ], [ false, %.thread ], [ %37, %sub_1122 ], [ false, %sub_0 ]
+  %.079108112118 = phi i32 [ %36, %.tail120 ], [ 0, %.thread ], [ %36, %sub_1122 ], [ 0, %sub_0 ]
   %88 = zext nneg i32 %.079108112118 to i64
   %89 = getelementptr inbounds nuw ptr, ptr %.073174, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8

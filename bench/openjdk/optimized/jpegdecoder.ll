@@ -1457,7 +1457,7 @@ RELEASE_ARRAYS.exit107.sink.split:                ; preds = %241, %205
   br label %RELEASE_ARRAYS.exit107
 
 RELEASE_ARRAYS.exit107:                           ; preds = %RELEASE_ARRAYS.exit107.sink.split, %241, %205
-  %sendPixelsIntID.sink = phi ptr [ @sendPixelsIntID, %241 ], [ @sendPixelsByteID, %205 ], [ %sendPixelsIntID.sink.ph, %RELEASE_ARRAYS.exit107.sink.split ]
+  %sendPixelsIntID.sink = phi ptr [ @sendPixelsByteID, %205 ], [ @sendPixelsIntID, %241 ], [ %sendPixelsIntID.sink.ph, %RELEASE_ARRAYS.exit107.sink.split ]
   %247 = load ptr, ptr %0, align 8
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 296
   %249 = load ptr, ptr %248, align 8

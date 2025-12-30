@@ -1139,13 +1139,13 @@ switch.lookup:                                    ; preds = %.split1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %49, %37, %40, %43, %46, %72
-  %.sink = phi i8 [ %82, %72 ], [ %45, %43 ], [ %42, %40 ], [ 50, %49 ], [ %switch.offset, %switch.lookup ], [ %39, %37 ], [ %48, %46 ]
-  %.ph = phi i8 [ %82, %72 ], [ %45, %43 ], [ %42, %40 ], [ 50, %49 ], [ %switch.offset10, %switch.lookup ], [ %39, %37 ], [ %48, %46 ]
+  %.sink = phi i8 [ %82, %72 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ 50, %49 ], [ %switch.offset, %switch.lookup ]
+  %.ph = phi i8 [ %82, %72 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ 50, %49 ], [ %switch.offset10, %switch.lookup ]
   store i8 %.sink, ptr %6, align 1, !tbaa !110
   br label %83
 
 83:                                               ; preds = %.sink.split, %67, %14
-  %84 = phi i8 [ %68, %67 ], [ %21, %14 ], [ %.ph, %.sink.split ]
+  %84 = phi i8 [ %21, %14 ], [ %68, %67 ], [ %.ph, %.sink.split ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %86 = load i8, ptr %85, align 8, !tbaa !111
   %87 = call noundef i32 @_ZN6asmjit9_abi_1_109ArchUtils20typeIdToRegSignatureENS0_4ArchENS0_6TypeIdEPS3_PNS0_16OperandSignatureE(i8 noundef zeroext %86, i8 noundef zeroext %84, ptr noundef nonnull %6, ptr noundef nonnull %5) #17

@@ -411,9 +411,9 @@ OSSL_ENCODER_INSTANCE_get_output_structure.exit134: ; preds = %97, %99
   br label %.thread149
 
 .thread149:                                       ; preds = %select.unfold, %17, %86, %96, %.thread170
-  %.3 = phi i32 [ 0, %96 ], [ %.7, %.thread170 ], [ 0, %86 ], [ -1, %17 ], [ -1, %select.unfold ]
-  %.092 = phi i1 [ true, %96 ], [ %129, %.thread170 ], [ true, %86 ], [ true, %17 ], [ true, %select.unfold ]
-  %.090 = phi ptr [ null, %96 ], [ %.191168174, %.thread170 ], [ null, %86 ], [ null, %17 ], [ null, %select.unfold ]
+  %.3 = phi i32 [ %.7, %.thread170 ], [ 0, %96 ], [ 0, %86 ], [ -1, %17 ], [ -1, %select.unfold ]
+  %.092 = phi i1 [ %129, %.thread170 ], [ true, %96 ], [ true, %86 ], [ true, %17 ], [ true, %select.unfold ]
+  %.090 = phi ptr [ %.191168174, %.thread170 ], [ null, %96 ], [ null, %86 ], [ null, %17 ], [ null, %select.unfold ]
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %131 = load ptr, ptr %130, align 8, !tbaa !36
   call void @CRYPTO_free(ptr noundef %131, ptr noundef nonnull @.str, i32 noundef 680) #8
@@ -843,7 +843,7 @@ ossl_encoder_instance_free.exit:                  ; preds = %11, %ossl_encoder_i
   br label %ossl_encoder_instance_free.exit.thread35
 
 ossl_encoder_instance_free.exit.thread35:         ; preds = %4, %ossl_encoder_instance_free.exit.thread, %ossl_encoder_instance_free.exit, %ossl_encoder_ctx_add_encoder_inst.exit, %3
-  %.015 = phi i32 [ 1, %ossl_encoder_ctx_add_encoder_inst.exit ], [ 0, %3 ], [ 0, %ossl_encoder_instance_free.exit ], [ 0, %ossl_encoder_instance_free.exit.thread ], [ 0, %4 ]
+  %.015 = phi i32 [ 0, %3 ], [ 1, %ossl_encoder_ctx_add_encoder_inst.exit ], [ 0, %ossl_encoder_instance_free.exit ], [ 0, %ossl_encoder_instance_free.exit.thread ], [ 0, %4 ]
   ret i32 %.015
 }
 
@@ -1112,7 +1112,7 @@ define i32 @ossl_bio_print_labeled_bignum(ptr noundef %0, ptr noundef %1, ptr no
   br label %66
 
 66:                                               ; preds = %19, %3, %.loopexit, %14, %9
-  %.0 = phi i32 [ %.047, %.loopexit ], [ %10, %9 ], [ %18, %14 ], [ 0, %3 ], [ 0, %19 ]
+  %.0 = phi i32 [ %10, %9 ], [ %18, %14 ], [ %.047, %.loopexit ], [ 0, %3 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1188,7 +1188,7 @@ define range(i32 0, 2) i32 @ossl_bio_print_labeled_buf(ptr noundef %0, ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %17, %14, %._crit_edge, %4
-  %.015 = phi i32 [ %., %._crit_edge ], [ 0, %4 ], [ 0, %14 ], [ 0, %17 ], [ 0, %20 ]
+  %.015 = phi i32 [ 0, %4 ], [ %., %._crit_edge ], [ 0, %14 ], [ 0, %17 ], [ 0, %20 ]
   ret i32 %.015
 }
 
@@ -1295,7 +1295,7 @@ define range(i32 0, 2) i32 @ossl_bio_print_ffc_params(ptr noundef %0, ptr nounde
   br label %54
 
 54:                                               ; preds = %9, %48, %51, %.thread
-  %.1 = phi i32 [ 1, %48 ], [ 0, %.thread ], [ 1, %51 ], [ 1, %9 ]
+  %.1 = phi i32 [ 0, %.thread ], [ 1, %51 ], [ 1, %48 ], [ 1, %9 ]
   ret i32 %.1
 }
 

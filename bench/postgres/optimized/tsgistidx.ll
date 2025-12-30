@@ -428,7 +428,7 @@ thread-pre-split:                                 ; preds = %._crit_edge112, %qu
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %128, %.sink.split
-  %.1 = phi i64 [ %151, %.sink.split ], [ %3, %128 ], [ %3, %.lr.ph ]
+  %.1 = phi i64 [ %3, %128 ], [ %151, %.sink.split ], [ %3, %.lr.ph ]
   ret i64 %.1
 }
 
@@ -544,7 +544,7 @@ define dso_local range(i64 0, 2) i64 @gtsvector_consistent(ptr noundef readonly 
   br label %36
 
 36:                                               ; preds = %20, %1, %25, %22
-  %.0.shrunk = phi i1 [ false, %1 ], [ %24, %22 ], [ %35, %25 ], [ true, %20 ]
+  %.0.shrunk = phi i1 [ %24, %22 ], [ %35, %25 ], [ false, %1 ], [ true, %20 ]
   %.0 = zext i1 %.0.shrunk to i64
   ret i64 %.0
 }
@@ -806,7 +806,7 @@ unionkey.exit:                                    ; preds = %76, %35
   br i1 %103, label %.lr.ph.split, label %.loopexit27, !llvm.loop !16
 
 .loopexit27:                                      ; preds = %.preheader.i, %.loopexit.us, %15, %unionkey.exit
-  %104 = phi i32 [ %19, %.loopexit.us ], [ 32, %unionkey.exit ], [ %19, %15 ], [ %19, %.preheader.i ]
+  %104 = phi i32 [ %19, %15 ], [ 32, %unionkey.exit ], [ %19, %.loopexit.us ], [ %19, %.preheader.i ]
   %105 = inttoptr i64 %6 to ptr
   %106 = lshr exact i32 %104, 2
   store i32 %106, ptr %105, align 4
@@ -931,7 +931,7 @@ define dso_local i64 @gtsvector_same(ptr noundef readonly captures(none) %0) loc
   br i1 %.not43, label %56, label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %.lr.ph52, %39, %29, %28
-  %.sink = phi i8 [ 0, %.lr.ph52 ], [ 0, %39 ], [ 0, %29 ], [ %., %28 ], [ 0, %.lr.ph ]
+  %.sink = phi i8 [ %., %28 ], [ 0, %29 ], [ 0, %39 ], [ 0, %.lr.ph52 ], [ 0, %.lr.ph ]
   store i8 %.sink, ptr %10, align 1
   br label %.loopexit
 
@@ -1243,7 +1243,7 @@ sizebitvec.exit24.i:                              ; preds = %.lr.ph.i.i19.i, %14
   br i1 %exitcond.not.i.i, label %hemdist.exit, label %.lr.ph.i.i36, !llvm.loop !19
 
 hemdist.exit:                                     ; preds = %.lr.ph.i.i36, %113, %sizebitvec.exit.i, %sizebitvec.exit24.i, %148
-  %.0.i = phi i32 [ 0, %113 ], [ %130, %sizebitvec.exit.i ], [ %147, %sizebitvec.exit24.i ], [ 0, %148 ], [ %160, %.lr.ph.i.i36 ]
+  %.0.i = phi i32 [ %130, %sizebitvec.exit.i ], [ %147, %sizebitvec.exit24.i ], [ 0, %113 ], [ 0, %148 ], [ %160, %.lr.ph.i.i36 ]
   %161 = sitofp i32 %.0.i to float
   store float %161, ptr %10, align 4
   br label %162
@@ -1641,7 +1641,7 @@ sizebitvec.exit20.i:                              ; preds = %.lr.ph.i.i15.i, %19
   br i1 %exitcond.not.i.i253, label %hemdistcache.exit, label %.lr.ph.i.i, !llvm.loop !19
 
 hemdistcache.exit:                                ; preds = %.lr.ph.i.i, %168, %sizebitvec.exit.i, %sizebitvec.exit20.i, %201
-  %.0.i = phi i32 [ 0, %168 ], [ %183, %sizebitvec.exit.i ], [ %200, %sizebitvec.exit20.i ], [ 0, %201 ], [ %212, %.lr.ph.i.i ]
+  %.0.i = phi i32 [ %183, %sizebitvec.exit.i ], [ %200, %sizebitvec.exit20.i ], [ 0, %168 ], [ 0, %201 ], [ %212, %.lr.ph.i.i ]
   %213 = icmp sgt i32 %.0.i, %.1213368
   %.2214 = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 %.1213368)
   %.2209 = select i1 %213, i16 %112, i16 %.1208369
@@ -1948,7 +1948,7 @@ sizebitvec.exit20.i282:                           ; preds = %.lr.ph.i.i15.i286, 
   br i1 %exitcond.not.i.i281, label %hemdistcache.exit300, label %.lr.ph.i.i277, !llvm.loop !19
 
 hemdistcache.exit300:                             ; preds = %.lr.ph.i.i277, %329, %sizebitvec.exit.i291, %sizebitvec.exit20.i282, %362
-  %.0.i274 = phi i32 [ 0, %329 ], [ %345, %sizebitvec.exit.i291 ], [ %361, %sizebitvec.exit20.i282 ], [ 0, %362 ], [ %374, %.lr.ph.i.i277 ]
+  %.0.i274 = phi i32 [ %345, %sizebitvec.exit.i291 ], [ %361, %sizebitvec.exit20.i282 ], [ 0, %329 ], [ 0, %362 ], [ %374, %.lr.ph.i.i277 ]
   %375 = load i8, ptr %240, align 8, !range !6, !noundef !7
   %376 = trunc nuw i8 %375 to i1
   %377 = load i8, ptr %324, align 8, !range !6, !noundef !7
@@ -2051,7 +2051,7 @@ sizebitvec.exit20.i309:                           ; preds = %.lr.ph.i.i15.i313, 
   br i1 %exitcond.not.i.i308, label %hemdistcache.exit327, label %.lr.ph.i.i304, !llvm.loop !19
 
 hemdistcache.exit327:                             ; preds = %.lr.ph.i.i304, %379, %sizebitvec.exit.i318, %sizebitvec.exit20.i309, %412
-  %.0.i301 = phi i32 [ 0, %379 ], [ %395, %sizebitvec.exit.i318 ], [ %411, %sizebitvec.exit20.i309 ], [ 0, %412 ], [ %424, %.lr.ph.i.i304 ]
+  %.0.i301 = phi i32 [ %395, %sizebitvec.exit.i318 ], [ %411, %sizebitvec.exit20.i309 ], [ 0, %379 ], [ 0, %412 ], [ %424, %.lr.ph.i.i304 ]
   %425 = sub i32 %.0.i274, %.0.i301
   %426 = tail call i32 @llvm.abs.i32(i32 %425, i1 false)
   %427 = getelementptr i8, ptr %322, i64 -4
@@ -2177,7 +2177,7 @@ sizebitvec.exit:                                  ; preds = %.lr.ph.i.i328, %.pr
   br i1 %exitcond.not.i, label %hemdistsign.exit, label %.lr.ph.i, !llvm.loop !19
 
 hemdistsign.exit:                                 ; preds = %.lr.ph.i, %473, %455, %sizebitvec.exit
-  %.0197 = phi i32 [ 0, %455 ], [ %472, %sizebitvec.exit ], [ 0, %473 ], [ %485, %.lr.ph.i ]
+  %.0197 = phi i32 [ %472, %sizebitvec.exit ], [ 0, %455 ], [ 0, %473 ], [ %485, %.lr.ph.i ]
   %486 = load i32, ptr %251, align 4
   %487 = and i32 %486, 4
   %.not226 = icmp eq i32 %487, 0
@@ -2255,7 +2255,7 @@ sizebitvec.exit338:                               ; preds = %.lr.ph.i.i333, %.pr
   br i1 %exitcond.not.i346, label %hemdistsign.exit347, label %.lr.ph.i342, !llvm.loop !19
 
 hemdistsign.exit347:                              ; preds = %.lr.ph.i342, %511, %493, %sizebitvec.exit338
-  %.0211 = phi i32 [ 0, %493 ], [ %510, %sizebitvec.exit338 ], [ 0, %511 ], [ %523, %.lr.ph.i342 ]
+  %.0211 = phi i32 [ %510, %sizebitvec.exit338 ], [ 0, %493 ], [ 0, %511 ], [ %523, %.lr.ph.i342 ]
   %524 = sitofp i32 %.0197 to double
   %525 = sitofp i32 %.0211 to double
   %526 = load i32, ptr %216, align 8
@@ -2445,7 +2445,7 @@ define dso_local range(i64 0, 2) i64 @gtsvector_consistent_oldsig(ptr noundef re
   br label %gtsvector_consistent.exit
 
 gtsvector_consistent.exit:                        ; preds = %1, %20, %22, %25
-  %.0.shrunk.i = phi i1 [ false, %1 ], [ %24, %22 ], [ %35, %25 ], [ true, %20 ]
+  %.0.shrunk.i = phi i1 [ %24, %22 ], [ %35, %25 ], [ false, %1 ], [ true, %20 ]
   %.0.i = zext i1 %.0.shrunk.i to i64
   ret i64 %.0.i
 }

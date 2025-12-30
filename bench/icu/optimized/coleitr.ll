@@ -123,7 +123,7 @@ define noundef nonnull align 8 dereferenceable(104) ptr @_ZN6icu_7724CollationEl
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %14, %20, %22
-  %.0.i = phi ptr [ %24, %22 ], [ %21, %20 ], [ null, %14 ]
+  %.0.i = phi ptr [ %21, %20 ], [ %24, %22 ], [ null, %14 ]
   invoke void @_ZN6icu_7725FCDUTF16CollationIteratorC1ERKS0_PKDs(ptr noundef nonnull align 8 dereferenceable(521) %12, ptr noundef nonnull align 8 dereferenceable(521) %10, ptr noundef %.0.i)
           to label %45 unwind label %25
 
@@ -165,7 +165,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %14, %20, %22
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit50
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit50:    ; preds = %32, %38, %40
-  %.0.i48 = phi ptr [ %42, %40 ], [ %39, %38 ], [ null, %32 ]
+  %.0.i48 = phi ptr [ %39, %38 ], [ %42, %40 ], [ null, %32 ]
   invoke void @_ZN6icu_7722UTF16CollationIteratorC1ERKS0_PKDs(ptr noundef nonnull align 8 dereferenceable(416) %30, ptr noundef nonnull align 8 dereferenceable(416) %28, ptr noundef %.0.i48)
           to label %45 unwind label %43
 
@@ -466,7 +466,7 @@ _ZN6icu_7717CollationIterator23clearCEsIfNoneRemainingEv.exit: ; preds = %15, %2
   br label %45
 
 45:                                               ; preds = %_ZN6icu_7717CollationIterator23clearCEsIfNoneRemainingEv.exit, %42, %26, %2, %14, %12
-  %.0 = phi i32 [ -1, %14 ], [ %11, %12 ], [ -1, %2 ], [ -1, %_ZN6icu_7717CollationIterator23clearCEsIfNoneRemainingEv.exit ], [ %36, %42 ], [ %36, %26 ]
+  %.0 = phi i32 [ %11, %12 ], [ -1, %14 ], [ -1, %2 ], [ -1, %_ZN6icu_7717CollationIterator23clearCEsIfNoneRemainingEv.exit ], [ %36, %42 ], [ %36, %26 ]
   ret i32 %.0
 }
 
@@ -1026,7 +1026,7 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit40: ; preds = %_ZN6icu_779UV
   br label %115
 
 115:                                              ; preds = %53, %59, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit40, %2, %38, %28, %12
-  %.0 = phi i32 [ -1, %28 ], [ %11, %12 ], [ -1, %38 ], [ -1, %2 ], [ -1, %53 ], [ %114, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit40 ], [ %69, %59 ]
+  %.0 = phi i32 [ %11, %12 ], [ -1, %38 ], [ -1, %28 ], [ -1, %2 ], [ -1, %53 ], [ %114, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit40 ], [ %69, %59 ]
   ret i32 %.0
 }
 
@@ -1171,7 +1171,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %23, %32
   br i1 %71, label %53, label %.thread48, !llvm.loop !64
 
 .thread48:                                        ; preds = %70, %.thread, %8, %6
-  %.029 = phi i32 [ %1, %6 ], [ %1, %8 ], [ %1, %.thread ], [ %spec.select, %70 ]
+  %.029 = phi i32 [ %1, %8 ], [ %1, %6 ], [ %1, %.thread ], [ %spec.select, %70 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !18
   %74 = load ptr, ptr %73, align 8, !tbaa !3
@@ -1222,7 +1222,7 @@ define void @_ZN6icu_7724CollationElementIterator7setTextERKNS_13UnicodeStringER
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %6, %14, %16
-  %.0.i = phi ptr [ %18, %16 ], [ %15, %14 ], [ null, %6 ]
+  %.0.i = phi ptr [ %15, %14 ], [ %18, %16 ], [ null, %6 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16

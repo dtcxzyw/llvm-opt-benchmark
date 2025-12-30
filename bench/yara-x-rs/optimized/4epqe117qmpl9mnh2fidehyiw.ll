@@ -588,7 +588,7 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   br i1 %16, label %"_ZN87_$LT$I$u20$as$u20$core..iter..traits..iterator..Iterator..advance_by..SpecAdvanceBy$GT$15spec_advance_by17h889546e248cd4c48E.exit", label %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h305e492a6b8dc498E.exit.i.i.i"
 
 "_ZN87_$LT$I$u20$as$u20$core..iter..traits..iterator..Iterator..advance_by..SpecAdvanceBy$GT$15spec_advance_by17h889546e248cd4c48E.exit": ; preds = %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h305e492a6b8dc498E.exit.i.i.i", %12, %15, %2, %5
-  %.sroa.0.0.i = phi i64 [ 0, %2 ], [ %1, %5 ], [ 0, %12 ], [ %.sroa.01.012.i.i.i, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h305e492a6b8dc498E.exit.i.i.i" ], [ %13, %15 ]
+  %.sroa.0.0.i = phi i64 [ 0, %2 ], [ %1, %5 ], [ 0, %12 ], [ %13, %15 ], [ %.sroa.01.012.i.i.i, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h305e492a6b8dc498E.exit.i.i.i" ]
   ret i64 %.sroa.0.0.i
 }
 
@@ -644,7 +644,7 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   br i1 %16, label %"_ZN87_$LT$I$u20$as$u20$core..iter..traits..iterator..Iterator..advance_by..SpecAdvanceBy$GT$15spec_advance_by17h1c6ee924657264f5E.exit", label %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdcc64bf5348839c5E.exit.i.i.i"
 
 "_ZN87_$LT$I$u20$as$u20$core..iter..traits..iterator..Iterator..advance_by..SpecAdvanceBy$GT$15spec_advance_by17h1c6ee924657264f5E.exit": ; preds = %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdcc64bf5348839c5E.exit.i.i.i", %12, %15, %2, %5
-  %.sroa.0.0.i = phi i64 [ 0, %2 ], [ %1, %5 ], [ 0, %12 ], [ %.sroa.01.012.i.i.i, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdcc64bf5348839c5E.exit.i.i.i" ], [ %13, %15 ]
+  %.sroa.0.0.i = phi i64 [ 0, %2 ], [ %1, %5 ], [ 0, %12 ], [ %13, %15 ], [ %.sroa.01.012.i.i.i, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdcc64bf5348839c5E.exit.i.i.i" ]
   ret i64 %.sroa.0.0.i
 }
 
@@ -698,7 +698,7 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   br i1 %15, label %"_ZN87_$LT$I$u20$as$u20$core..iter..traits..iterator..Iterator..advance_by..SpecAdvanceBy$GT$15spec_advance_by17hdfa52e8df56facedE.exit", label %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae07e6270d0ce388E.exit.i.i.i"
 
 "_ZN87_$LT$I$u20$as$u20$core..iter..traits..iterator..Iterator..advance_by..SpecAdvanceBy$GT$15spec_advance_by17hdfa52e8df56facedE.exit": ; preds = %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae07e6270d0ce388E.exit.i.i.i", %11, %14, %2, %4
-  %.sroa.0.0.i = phi i64 [ 0, %2 ], [ %1, %4 ], [ 0, %11 ], [ %.sroa.01.012.i.i.i, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae07e6270d0ce388E.exit.i.i.i" ], [ %12, %14 ]
+  %.sroa.0.0.i = phi i64 [ 0, %2 ], [ %1, %4 ], [ 0, %11 ], [ %12, %14 ], [ %.sroa.01.012.i.i.i, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae07e6270d0ce388E.exit.i.i.i" ]
   ret i64 %.sroa.0.0.i
 }
 
@@ -790,7 +790,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h789bb176308506c5E.exit: ; p
   store i64 13, ptr %0, align 8, !alias.scope !156, !noalias !157
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64a98e20e922eaceE.exit"
 
-.loopexit:                                        ; preds = %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdcc64bf5348839c5E.exit.i.i.i.i", %17, %7
+.loopexit:                                        ; preds = %17, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdcc64bf5348839c5E.exit.i.i.i.i", %7
   store i64 13, ptr %0, align 8
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64a98e20e922eaceE.exit"
 
@@ -882,7 +882,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hd607b6c41b843ebfE.exit: ; p
   store i64 13, ptr %0, align 8, !alias.scope !199, !noalias !200
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7607e5195849ffa2E.exit"
 
-.loopexit:                                        ; preds = %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae07e6270d0ce388E.exit.i.i.i.i", %15, %5
+.loopexit:                                        ; preds = %15, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae07e6270d0ce388E.exit.i.i.i.i", %5
   store i64 13, ptr %0, align 8
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7607e5195849ffa2E.exit"
 
@@ -978,7 +978,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h0540ac2a7d978949E.exit: ; p
   store i64 13, ptr %0, align 8, !alias.scope !241, !noalias !242
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h23c863883372982fE.exit"
 
-.loopexit:                                        ; preds = %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h305e492a6b8dc498E.exit.i.i.i.i", %17, %7
+.loopexit:                                        ; preds = %17, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h305e492a6b8dc498E.exit.i.i.i.i", %7
   store i64 13, ptr %0, align 8
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h23c863883372982fE.exit"
 

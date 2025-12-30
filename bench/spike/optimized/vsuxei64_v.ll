@@ -610,19 +610,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_vsuxei64_v
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %297, %293, %290, %266, %262, %259, %235, %231, %228, %204, %200, %197
-  %.sroa.020.3 = phi i8 [ %.sroa.020.2235, %266 ], [ %.sroa.020.2235, %235 ], [ %184, %204 ], [ %184, %197 ], [ %184, %200 ], [ %.sroa.020.2235, %228 ], [ %.sroa.020.2235, %231 ], [ %.sroa.020.2235, %259 ], [ %.sroa.020.2235, %262 ], [ %.sroa.020.2235, %290 ], [ %.sroa.020.2235, %293 ], [ %.sroa.020.2235, %297 ]
-  %.sroa.014.3 = phi i8 [ %.sroa.014.2236, %266 ], [ %214, %235 ], [ %.sroa.014.2236, %204 ], [ %.sroa.014.2236, %197 ], [ %.sroa.014.2236, %200 ], [ %214, %228 ], [ %214, %231 ], [ %.sroa.014.2236, %259 ], [ %.sroa.014.2236, %262 ], [ %.sroa.014.2236, %290 ], [ %.sroa.014.2236, %293 ], [ %.sroa.014.2236, %297 ]
-  %.sroa.08.3 = phi i8 [ %245, %266 ], [ %.sroa.08.2237, %235 ], [ %.sroa.08.2237, %204 ], [ %.sroa.08.2237, %197 ], [ %.sroa.08.2237, %200 ], [ %.sroa.08.2237, %228 ], [ %.sroa.08.2237, %231 ], [ %245, %259 ], [ %245, %262 ], [ %.sroa.08.2237, %290 ], [ %.sroa.08.2237, %293 ], [ %.sroa.08.2237, %297 ]
-  %.sroa.02.3 = phi i8 [ %.sroa.02.2238, %266 ], [ %.sroa.02.2238, %235 ], [ %.sroa.02.2238, %204 ], [ %.sroa.02.2238, %197 ], [ %.sroa.02.2238, %200 ], [ %.sroa.02.2238, %228 ], [ %.sroa.02.2238, %231 ], [ %.sroa.02.2238, %259 ], [ %.sroa.02.2238, %262 ], [ %276, %290 ], [ %276, %293 ], [ %276, %297 ]
+  %.sroa.020.3 = phi i8 [ %184, %197 ], [ %184, %200 ], [ %184, %204 ], [ %.sroa.020.2235, %228 ], [ %.sroa.020.2235, %231 ], [ %.sroa.020.2235, %235 ], [ %.sroa.020.2235, %259 ], [ %.sroa.020.2235, %262 ], [ %.sroa.020.2235, %266 ], [ %.sroa.020.2235, %290 ], [ %.sroa.020.2235, %293 ], [ %.sroa.020.2235, %297 ]
+  %.sroa.014.3 = phi i8 [ %.sroa.014.2236, %197 ], [ %.sroa.014.2236, %200 ], [ %.sroa.014.2236, %204 ], [ %214, %228 ], [ %214, %231 ], [ %214, %235 ], [ %.sroa.014.2236, %259 ], [ %.sroa.014.2236, %262 ], [ %.sroa.014.2236, %266 ], [ %.sroa.014.2236, %290 ], [ %.sroa.014.2236, %293 ], [ %.sroa.014.2236, %297 ]
+  %.sroa.08.3 = phi i8 [ %.sroa.08.2237, %197 ], [ %.sroa.08.2237, %200 ], [ %.sroa.08.2237, %204 ], [ %.sroa.08.2237, %228 ], [ %.sroa.08.2237, %231 ], [ %.sroa.08.2237, %235 ], [ %245, %259 ], [ %245, %262 ], [ %245, %266 ], [ %.sroa.08.2237, %290 ], [ %.sroa.08.2237, %293 ], [ %.sroa.08.2237, %297 ]
+  %.sroa.02.3 = phi i8 [ %.sroa.02.2238, %197 ], [ %.sroa.02.2238, %200 ], [ %.sroa.02.2238, %204 ], [ %.sroa.02.2238, %228 ], [ %.sroa.02.2238, %231 ], [ %.sroa.02.2238, %235 ], [ %.sroa.02.2238, %259 ], [ %.sroa.02.2238, %262 ], [ %.sroa.02.2238, %266 ], [ %276, %290 ], [ %276, %293 ], [ %276, %297 ]
   %299 = add nuw nsw i64 %.0234, 1
   %exitcond.not = icmp eq i64 %.0234, %14
   br i1 %exitcond.not, label %.loopexit, label %176, !llvm.loop !186
 
 .loopexit:                                        ; preds = %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit, %156, %148
-  %.sroa.020.1 = phi i8 [ %.sroa.020.0240, %156 ], [ %.sroa.020.0240, %148 ], [ %.sroa.020.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.014.1 = phi i8 [ %.sroa.014.0241, %156 ], [ %.sroa.014.0241, %148 ], [ %.sroa.014.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.08.1 = phi i8 [ %.sroa.08.0242, %156 ], [ %.sroa.08.0242, %148 ], [ %.sroa.08.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.02.1 = phi i8 [ %.sroa.02.0243, %156 ], [ %.sroa.02.0243, %148 ], [ %.sroa.02.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.020.1 = phi i8 [ %.sroa.020.0240, %148 ], [ %.sroa.020.0240, %156 ], [ %.sroa.020.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.014.1 = phi i8 [ %.sroa.014.0241, %148 ], [ %.sroa.014.0241, %156 ], [ %.sroa.014.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.08.1 = phi i8 [ %.sroa.08.0242, %148 ], [ %.sroa.08.0242, %156 ], [ %.sroa.08.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.02.1 = phi i8 [ %.sroa.02.0243, %148 ], [ %.sroa.02.0243, %156 ], [ %.sroa.02.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
   %300 = add nuw i64 %.0140239, 1
   %exitcond247.not = icmp eq i64 %300, %110
   br i1 %exitcond247.not, label %._crit_edge, label %148, !llvm.loop !187
@@ -704,7 +704,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
+  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !194
@@ -1263,19 +1263,19 @@ define noundef i64 @_Z21fast_rv64i_vsuxei64_vP11processor_t6insn_tm(ptr noundef 
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %295, %291, %288, %264, %260, %257, %233, %229, %226, %202, %198, %195
-  %.sroa.020.3 = phi i8 [ %.sroa.020.2235, %264 ], [ %.sroa.020.2235, %233 ], [ %182, %202 ], [ %182, %195 ], [ %182, %198 ], [ %.sroa.020.2235, %226 ], [ %.sroa.020.2235, %229 ], [ %.sroa.020.2235, %257 ], [ %.sroa.020.2235, %260 ], [ %.sroa.020.2235, %288 ], [ %.sroa.020.2235, %291 ], [ %.sroa.020.2235, %295 ]
-  %.sroa.014.3 = phi i8 [ %.sroa.014.2236, %264 ], [ %212, %233 ], [ %.sroa.014.2236, %202 ], [ %.sroa.014.2236, %195 ], [ %.sroa.014.2236, %198 ], [ %212, %226 ], [ %212, %229 ], [ %.sroa.014.2236, %257 ], [ %.sroa.014.2236, %260 ], [ %.sroa.014.2236, %288 ], [ %.sroa.014.2236, %291 ], [ %.sroa.014.2236, %295 ]
-  %.sroa.08.3 = phi i8 [ %243, %264 ], [ %.sroa.08.2237, %233 ], [ %.sroa.08.2237, %202 ], [ %.sroa.08.2237, %195 ], [ %.sroa.08.2237, %198 ], [ %.sroa.08.2237, %226 ], [ %.sroa.08.2237, %229 ], [ %243, %257 ], [ %243, %260 ], [ %.sroa.08.2237, %288 ], [ %.sroa.08.2237, %291 ], [ %.sroa.08.2237, %295 ]
-  %.sroa.02.3 = phi i8 [ %.sroa.02.2238, %264 ], [ %.sroa.02.2238, %233 ], [ %.sroa.02.2238, %202 ], [ %.sroa.02.2238, %195 ], [ %.sroa.02.2238, %198 ], [ %.sroa.02.2238, %226 ], [ %.sroa.02.2238, %229 ], [ %.sroa.02.2238, %257 ], [ %.sroa.02.2238, %260 ], [ %274, %288 ], [ %274, %291 ], [ %274, %295 ]
+  %.sroa.020.3 = phi i8 [ %182, %195 ], [ %182, %198 ], [ %182, %202 ], [ %.sroa.020.2235, %226 ], [ %.sroa.020.2235, %229 ], [ %.sroa.020.2235, %233 ], [ %.sroa.020.2235, %257 ], [ %.sroa.020.2235, %260 ], [ %.sroa.020.2235, %264 ], [ %.sroa.020.2235, %288 ], [ %.sroa.020.2235, %291 ], [ %.sroa.020.2235, %295 ]
+  %.sroa.014.3 = phi i8 [ %.sroa.014.2236, %195 ], [ %.sroa.014.2236, %198 ], [ %.sroa.014.2236, %202 ], [ %212, %226 ], [ %212, %229 ], [ %212, %233 ], [ %.sroa.014.2236, %257 ], [ %.sroa.014.2236, %260 ], [ %.sroa.014.2236, %264 ], [ %.sroa.014.2236, %288 ], [ %.sroa.014.2236, %291 ], [ %.sroa.014.2236, %295 ]
+  %.sroa.08.3 = phi i8 [ %.sroa.08.2237, %195 ], [ %.sroa.08.2237, %198 ], [ %.sroa.08.2237, %202 ], [ %.sroa.08.2237, %226 ], [ %.sroa.08.2237, %229 ], [ %.sroa.08.2237, %233 ], [ %243, %257 ], [ %243, %260 ], [ %243, %264 ], [ %.sroa.08.2237, %288 ], [ %.sroa.08.2237, %291 ], [ %.sroa.08.2237, %295 ]
+  %.sroa.02.3 = phi i8 [ %.sroa.02.2238, %195 ], [ %.sroa.02.2238, %198 ], [ %.sroa.02.2238, %202 ], [ %.sroa.02.2238, %226 ], [ %.sroa.02.2238, %229 ], [ %.sroa.02.2238, %233 ], [ %.sroa.02.2238, %257 ], [ %.sroa.02.2238, %260 ], [ %.sroa.02.2238, %264 ], [ %274, %288 ], [ %274, %291 ], [ %274, %295 ]
   %297 = add nuw nsw i64 %.0234, 1
   %exitcond.not = icmp eq i64 %.0234, %14
   br i1 %exitcond.not, label %.loopexit, label %174, !llvm.loop !196
 
 .loopexit:                                        ; preds = %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit, %154, %146
-  %.sroa.020.1 = phi i8 [ %.sroa.020.0240, %154 ], [ %.sroa.020.0240, %146 ], [ %.sroa.020.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.014.1 = phi i8 [ %.sroa.014.0241, %154 ], [ %.sroa.014.0241, %146 ], [ %.sroa.014.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.08.1 = phi i8 [ %.sroa.08.0242, %154 ], [ %.sroa.08.0242, %146 ], [ %.sroa.08.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.02.1 = phi i8 [ %.sroa.02.0243, %154 ], [ %.sroa.02.0243, %146 ], [ %.sroa.02.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.020.1 = phi i8 [ %.sroa.020.0240, %146 ], [ %.sroa.020.0240, %154 ], [ %.sroa.020.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.014.1 = phi i8 [ %.sroa.014.0241, %146 ], [ %.sroa.014.0241, %154 ], [ %.sroa.014.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.08.1 = phi i8 [ %.sroa.08.0242, %146 ], [ %.sroa.08.0242, %154 ], [ %.sroa.08.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.02.1 = phi i8 [ %.sroa.02.0243, %146 ], [ %.sroa.02.0243, %154 ], [ %.sroa.02.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
   %298 = add nuw i64 %.0140239, 1
   %exitcond247.not = icmp eq i64 %298, %110
   br i1 %exitcond247.not, label %._crit_edge, label %146, !llvm.loop !197
@@ -1802,19 +1802,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_vsuxei64
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %297, %293, %290, %266, %262, %259, %235, %231, %228, %204, %200, %197
-  %.sroa.020.3 = phi i8 [ %.sroa.020.2235, %266 ], [ %.sroa.020.2235, %235 ], [ %184, %204 ], [ %184, %197 ], [ %184, %200 ], [ %.sroa.020.2235, %228 ], [ %.sroa.020.2235, %231 ], [ %.sroa.020.2235, %259 ], [ %.sroa.020.2235, %262 ], [ %.sroa.020.2235, %290 ], [ %.sroa.020.2235, %293 ], [ %.sroa.020.2235, %297 ]
-  %.sroa.014.3 = phi i8 [ %.sroa.014.2236, %266 ], [ %214, %235 ], [ %.sroa.014.2236, %204 ], [ %.sroa.014.2236, %197 ], [ %.sroa.014.2236, %200 ], [ %214, %228 ], [ %214, %231 ], [ %.sroa.014.2236, %259 ], [ %.sroa.014.2236, %262 ], [ %.sroa.014.2236, %290 ], [ %.sroa.014.2236, %293 ], [ %.sroa.014.2236, %297 ]
-  %.sroa.08.3 = phi i8 [ %245, %266 ], [ %.sroa.08.2237, %235 ], [ %.sroa.08.2237, %204 ], [ %.sroa.08.2237, %197 ], [ %.sroa.08.2237, %200 ], [ %.sroa.08.2237, %228 ], [ %.sroa.08.2237, %231 ], [ %245, %259 ], [ %245, %262 ], [ %.sroa.08.2237, %290 ], [ %.sroa.08.2237, %293 ], [ %.sroa.08.2237, %297 ]
-  %.sroa.02.3 = phi i8 [ %.sroa.02.2238, %266 ], [ %.sroa.02.2238, %235 ], [ %.sroa.02.2238, %204 ], [ %.sroa.02.2238, %197 ], [ %.sroa.02.2238, %200 ], [ %.sroa.02.2238, %228 ], [ %.sroa.02.2238, %231 ], [ %.sroa.02.2238, %259 ], [ %.sroa.02.2238, %262 ], [ %276, %290 ], [ %276, %293 ], [ %276, %297 ]
+  %.sroa.020.3 = phi i8 [ %184, %197 ], [ %184, %200 ], [ %184, %204 ], [ %.sroa.020.2235, %228 ], [ %.sroa.020.2235, %231 ], [ %.sroa.020.2235, %235 ], [ %.sroa.020.2235, %259 ], [ %.sroa.020.2235, %262 ], [ %.sroa.020.2235, %266 ], [ %.sroa.020.2235, %290 ], [ %.sroa.020.2235, %293 ], [ %.sroa.020.2235, %297 ]
+  %.sroa.014.3 = phi i8 [ %.sroa.014.2236, %197 ], [ %.sroa.014.2236, %200 ], [ %.sroa.014.2236, %204 ], [ %214, %228 ], [ %214, %231 ], [ %214, %235 ], [ %.sroa.014.2236, %259 ], [ %.sroa.014.2236, %262 ], [ %.sroa.014.2236, %266 ], [ %.sroa.014.2236, %290 ], [ %.sroa.014.2236, %293 ], [ %.sroa.014.2236, %297 ]
+  %.sroa.08.3 = phi i8 [ %.sroa.08.2237, %197 ], [ %.sroa.08.2237, %200 ], [ %.sroa.08.2237, %204 ], [ %.sroa.08.2237, %228 ], [ %.sroa.08.2237, %231 ], [ %.sroa.08.2237, %235 ], [ %245, %259 ], [ %245, %262 ], [ %245, %266 ], [ %.sroa.08.2237, %290 ], [ %.sroa.08.2237, %293 ], [ %.sroa.08.2237, %297 ]
+  %.sroa.02.3 = phi i8 [ %.sroa.02.2238, %197 ], [ %.sroa.02.2238, %200 ], [ %.sroa.02.2238, %204 ], [ %.sroa.02.2238, %228 ], [ %.sroa.02.2238, %231 ], [ %.sroa.02.2238, %235 ], [ %.sroa.02.2238, %259 ], [ %.sroa.02.2238, %262 ], [ %.sroa.02.2238, %266 ], [ %276, %290 ], [ %276, %293 ], [ %276, %297 ]
   %299 = add nuw nsw i64 %.0234, 1
   %exitcond.not = icmp eq i64 %.0234, %14
   br i1 %exitcond.not, label %.loopexit, label %176, !llvm.loop !199
 
 .loopexit:                                        ; preds = %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit, %156, %148
-  %.sroa.020.1 = phi i8 [ %.sroa.020.0240, %156 ], [ %.sroa.020.0240, %148 ], [ %.sroa.020.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.014.1 = phi i8 [ %.sroa.014.0241, %156 ], [ %.sroa.014.0241, %148 ], [ %.sroa.014.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.08.1 = phi i8 [ %.sroa.08.0242, %156 ], [ %.sroa.08.0242, %148 ], [ %.sroa.08.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.02.1 = phi i8 [ %.sroa.02.0243, %156 ], [ %.sroa.02.0243, %148 ], [ %.sroa.02.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.020.1 = phi i8 [ %.sroa.020.0240, %148 ], [ %.sroa.020.0240, %156 ], [ %.sroa.020.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.014.1 = phi i8 [ %.sroa.014.0241, %148 ], [ %.sroa.014.0241, %156 ], [ %.sroa.014.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.08.1 = phi i8 [ %.sroa.08.0242, %148 ], [ %.sroa.08.0242, %156 ], [ %.sroa.08.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.02.1 = phi i8 [ %.sroa.02.0243, %148 ], [ %.sroa.02.0243, %156 ], [ %.sroa.02.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
   %300 = add nuw i64 %.0140239, 1
   %exitcond247.not = icmp eq i64 %300, %110
   br i1 %exitcond247.not, label %._crit_edge, label %148, !llvm.loop !200
@@ -2339,19 +2339,19 @@ define noundef i64 @_Z23logged_rv64i_vsuxei64_vP11processor_t6insn_tm(ptr nounde
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %295, %291, %288, %264, %260, %257, %233, %229, %226, %202, %198, %195
-  %.sroa.020.3 = phi i8 [ %.sroa.020.2235, %264 ], [ %.sroa.020.2235, %233 ], [ %182, %202 ], [ %182, %195 ], [ %182, %198 ], [ %.sroa.020.2235, %226 ], [ %.sroa.020.2235, %229 ], [ %.sroa.020.2235, %257 ], [ %.sroa.020.2235, %260 ], [ %.sroa.020.2235, %288 ], [ %.sroa.020.2235, %291 ], [ %.sroa.020.2235, %295 ]
-  %.sroa.014.3 = phi i8 [ %.sroa.014.2236, %264 ], [ %212, %233 ], [ %.sroa.014.2236, %202 ], [ %.sroa.014.2236, %195 ], [ %.sroa.014.2236, %198 ], [ %212, %226 ], [ %212, %229 ], [ %.sroa.014.2236, %257 ], [ %.sroa.014.2236, %260 ], [ %.sroa.014.2236, %288 ], [ %.sroa.014.2236, %291 ], [ %.sroa.014.2236, %295 ]
-  %.sroa.08.3 = phi i8 [ %243, %264 ], [ %.sroa.08.2237, %233 ], [ %.sroa.08.2237, %202 ], [ %.sroa.08.2237, %195 ], [ %.sroa.08.2237, %198 ], [ %.sroa.08.2237, %226 ], [ %.sroa.08.2237, %229 ], [ %243, %257 ], [ %243, %260 ], [ %.sroa.08.2237, %288 ], [ %.sroa.08.2237, %291 ], [ %.sroa.08.2237, %295 ]
-  %.sroa.02.3 = phi i8 [ %.sroa.02.2238, %264 ], [ %.sroa.02.2238, %233 ], [ %.sroa.02.2238, %202 ], [ %.sroa.02.2238, %195 ], [ %.sroa.02.2238, %198 ], [ %.sroa.02.2238, %226 ], [ %.sroa.02.2238, %229 ], [ %.sroa.02.2238, %257 ], [ %.sroa.02.2238, %260 ], [ %274, %288 ], [ %274, %291 ], [ %274, %295 ]
+  %.sroa.020.3 = phi i8 [ %182, %195 ], [ %182, %198 ], [ %182, %202 ], [ %.sroa.020.2235, %226 ], [ %.sroa.020.2235, %229 ], [ %.sroa.020.2235, %233 ], [ %.sroa.020.2235, %257 ], [ %.sroa.020.2235, %260 ], [ %.sroa.020.2235, %264 ], [ %.sroa.020.2235, %288 ], [ %.sroa.020.2235, %291 ], [ %.sroa.020.2235, %295 ]
+  %.sroa.014.3 = phi i8 [ %.sroa.014.2236, %195 ], [ %.sroa.014.2236, %198 ], [ %.sroa.014.2236, %202 ], [ %212, %226 ], [ %212, %229 ], [ %212, %233 ], [ %.sroa.014.2236, %257 ], [ %.sroa.014.2236, %260 ], [ %.sroa.014.2236, %264 ], [ %.sroa.014.2236, %288 ], [ %.sroa.014.2236, %291 ], [ %.sroa.014.2236, %295 ]
+  %.sroa.08.3 = phi i8 [ %.sroa.08.2237, %195 ], [ %.sroa.08.2237, %198 ], [ %.sroa.08.2237, %202 ], [ %.sroa.08.2237, %226 ], [ %.sroa.08.2237, %229 ], [ %.sroa.08.2237, %233 ], [ %243, %257 ], [ %243, %260 ], [ %243, %264 ], [ %.sroa.08.2237, %288 ], [ %.sroa.08.2237, %291 ], [ %.sroa.08.2237, %295 ]
+  %.sroa.02.3 = phi i8 [ %.sroa.02.2238, %195 ], [ %.sroa.02.2238, %198 ], [ %.sroa.02.2238, %202 ], [ %.sroa.02.2238, %226 ], [ %.sroa.02.2238, %229 ], [ %.sroa.02.2238, %233 ], [ %.sroa.02.2238, %257 ], [ %.sroa.02.2238, %260 ], [ %.sroa.02.2238, %264 ], [ %274, %288 ], [ %274, %291 ], [ %274, %295 ]
   %297 = add nuw nsw i64 %.0234, 1
   %exitcond.not = icmp eq i64 %.0234, %14
   br i1 %exitcond.not, label %.loopexit, label %174, !llvm.loop !202
 
 .loopexit:                                        ; preds = %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit, %154, %146
-  %.sroa.020.1 = phi i8 [ %.sroa.020.0240, %154 ], [ %.sroa.020.0240, %146 ], [ %.sroa.020.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.014.1 = phi i8 [ %.sroa.014.0241, %154 ], [ %.sroa.014.0241, %146 ], [ %.sroa.014.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.08.1 = phi i8 [ %.sroa.08.0242, %154 ], [ %.sroa.08.0242, %146 ], [ %.sroa.08.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.02.1 = phi i8 [ %.sroa.02.0243, %154 ], [ %.sroa.02.0243, %146 ], [ %.sroa.02.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.020.1 = phi i8 [ %.sroa.020.0240, %146 ], [ %.sroa.020.0240, %154 ], [ %.sroa.020.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.014.1 = phi i8 [ %.sroa.014.0241, %146 ], [ %.sroa.014.0241, %154 ], [ %.sroa.014.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.08.1 = phi i8 [ %.sroa.08.0242, %146 ], [ %.sroa.08.0242, %154 ], [ %.sroa.08.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.02.1 = phi i8 [ %.sroa.02.0243, %146 ], [ %.sroa.02.0243, %154 ], [ %.sroa.02.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
   %298 = add nuw i64 %.0140239, 1
   %exitcond247.not = icmp eq i64 %298, %110
   br i1 %exitcond247.not, label %._crit_edge, label %146, !llvm.loop !203
@@ -2894,19 +2894,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_vsuxei64_v
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %304, %300, %297, %273, %269, %266, %242, %238, %235, %211, %207, %204
-  %.sroa.020.3 = phi i8 [ %.sroa.020.2239, %273 ], [ %.sroa.020.2239, %242 ], [ %191, %211 ], [ %191, %204 ], [ %191, %207 ], [ %.sroa.020.2239, %235 ], [ %.sroa.020.2239, %238 ], [ %.sroa.020.2239, %266 ], [ %.sroa.020.2239, %269 ], [ %.sroa.020.2239, %297 ], [ %.sroa.020.2239, %300 ], [ %.sroa.020.2239, %304 ]
-  %.sroa.014.3 = phi i8 [ %.sroa.014.2240, %273 ], [ %221, %242 ], [ %.sroa.014.2240, %211 ], [ %.sroa.014.2240, %204 ], [ %.sroa.014.2240, %207 ], [ %221, %235 ], [ %221, %238 ], [ %.sroa.014.2240, %266 ], [ %.sroa.014.2240, %269 ], [ %.sroa.014.2240, %297 ], [ %.sroa.014.2240, %300 ], [ %.sroa.014.2240, %304 ]
-  %.sroa.08.3 = phi i8 [ %252, %273 ], [ %.sroa.08.2241, %242 ], [ %.sroa.08.2241, %211 ], [ %.sroa.08.2241, %204 ], [ %.sroa.08.2241, %207 ], [ %.sroa.08.2241, %235 ], [ %.sroa.08.2241, %238 ], [ %252, %266 ], [ %252, %269 ], [ %.sroa.08.2241, %297 ], [ %.sroa.08.2241, %300 ], [ %.sroa.08.2241, %304 ]
-  %.sroa.02.3 = phi i8 [ %.sroa.02.2242, %273 ], [ %.sroa.02.2242, %242 ], [ %.sroa.02.2242, %211 ], [ %.sroa.02.2242, %204 ], [ %.sroa.02.2242, %207 ], [ %.sroa.02.2242, %235 ], [ %.sroa.02.2242, %238 ], [ %.sroa.02.2242, %266 ], [ %.sroa.02.2242, %269 ], [ %283, %297 ], [ %283, %300 ], [ %283, %304 ]
+  %.sroa.020.3 = phi i8 [ %191, %204 ], [ %191, %207 ], [ %191, %211 ], [ %.sroa.020.2239, %235 ], [ %.sroa.020.2239, %238 ], [ %.sroa.020.2239, %242 ], [ %.sroa.020.2239, %266 ], [ %.sroa.020.2239, %269 ], [ %.sroa.020.2239, %273 ], [ %.sroa.020.2239, %297 ], [ %.sroa.020.2239, %300 ], [ %.sroa.020.2239, %304 ]
+  %.sroa.014.3 = phi i8 [ %.sroa.014.2240, %204 ], [ %.sroa.014.2240, %207 ], [ %.sroa.014.2240, %211 ], [ %221, %235 ], [ %221, %238 ], [ %221, %242 ], [ %.sroa.014.2240, %266 ], [ %.sroa.014.2240, %269 ], [ %.sroa.014.2240, %273 ], [ %.sroa.014.2240, %297 ], [ %.sroa.014.2240, %300 ], [ %.sroa.014.2240, %304 ]
+  %.sroa.08.3 = phi i8 [ %.sroa.08.2241, %204 ], [ %.sroa.08.2241, %207 ], [ %.sroa.08.2241, %211 ], [ %.sroa.08.2241, %235 ], [ %.sroa.08.2241, %238 ], [ %.sroa.08.2241, %242 ], [ %252, %266 ], [ %252, %269 ], [ %252, %273 ], [ %.sroa.08.2241, %297 ], [ %.sroa.08.2241, %300 ], [ %.sroa.08.2241, %304 ]
+  %.sroa.02.3 = phi i8 [ %.sroa.02.2242, %204 ], [ %.sroa.02.2242, %207 ], [ %.sroa.02.2242, %211 ], [ %.sroa.02.2242, %235 ], [ %.sroa.02.2242, %238 ], [ %.sroa.02.2242, %242 ], [ %.sroa.02.2242, %266 ], [ %.sroa.02.2242, %269 ], [ %.sroa.02.2242, %273 ], [ %283, %297 ], [ %283, %300 ], [ %283, %304 ]
   %306 = add nuw nsw i64 %.0238, 1
   %exitcond.not = icmp eq i64 %.0238, %14
   br i1 %exitcond.not, label %.loopexit, label %183, !llvm.loop !205
 
 .loopexit:                                        ; preds = %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit, %163, %155
-  %.sroa.020.1 = phi i8 [ %.sroa.020.0244, %163 ], [ %.sroa.020.0244, %155 ], [ %.sroa.020.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.014.1 = phi i8 [ %.sroa.014.0245, %163 ], [ %.sroa.014.0245, %155 ], [ %.sroa.014.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.08.1 = phi i8 [ %.sroa.08.0246, %163 ], [ %.sroa.08.0246, %155 ], [ %.sroa.08.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.02.1 = phi i8 [ %.sroa.02.0247, %163 ], [ %.sroa.02.0247, %155 ], [ %.sroa.02.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.020.1 = phi i8 [ %.sroa.020.0244, %155 ], [ %.sroa.020.0244, %163 ], [ %.sroa.020.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.014.1 = phi i8 [ %.sroa.014.0245, %155 ], [ %.sroa.014.0245, %163 ], [ %.sroa.014.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.08.1 = phi i8 [ %.sroa.08.0246, %155 ], [ %.sroa.08.0246, %163 ], [ %.sroa.08.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.02.1 = phi i8 [ %.sroa.02.0247, %155 ], [ %.sroa.02.0247, %163 ], [ %.sroa.02.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
   %307 = add nuw i64 %.0142243, 1
   %exitcond251.not = icmp eq i64 %307, %110
   br i1 %exitcond251.not, label %._crit_edge, label %155, !llvm.loop !206
@@ -3447,19 +3447,19 @@ define noundef i64 @_Z21fast_rv64e_vsuxei64_vP11processor_t6insn_tm(ptr noundef 
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %302, %298, %295, %271, %267, %264, %240, %236, %233, %209, %205, %202
-  %.sroa.020.3 = phi i8 [ %.sroa.020.2239, %271 ], [ %.sroa.020.2239, %240 ], [ %189, %209 ], [ %189, %202 ], [ %189, %205 ], [ %.sroa.020.2239, %233 ], [ %.sroa.020.2239, %236 ], [ %.sroa.020.2239, %264 ], [ %.sroa.020.2239, %267 ], [ %.sroa.020.2239, %295 ], [ %.sroa.020.2239, %298 ], [ %.sroa.020.2239, %302 ]
-  %.sroa.014.3 = phi i8 [ %.sroa.014.2240, %271 ], [ %219, %240 ], [ %.sroa.014.2240, %209 ], [ %.sroa.014.2240, %202 ], [ %.sroa.014.2240, %205 ], [ %219, %233 ], [ %219, %236 ], [ %.sroa.014.2240, %264 ], [ %.sroa.014.2240, %267 ], [ %.sroa.014.2240, %295 ], [ %.sroa.014.2240, %298 ], [ %.sroa.014.2240, %302 ]
-  %.sroa.08.3 = phi i8 [ %250, %271 ], [ %.sroa.08.2241, %240 ], [ %.sroa.08.2241, %209 ], [ %.sroa.08.2241, %202 ], [ %.sroa.08.2241, %205 ], [ %.sroa.08.2241, %233 ], [ %.sroa.08.2241, %236 ], [ %250, %264 ], [ %250, %267 ], [ %.sroa.08.2241, %295 ], [ %.sroa.08.2241, %298 ], [ %.sroa.08.2241, %302 ]
-  %.sroa.02.3 = phi i8 [ %.sroa.02.2242, %271 ], [ %.sroa.02.2242, %240 ], [ %.sroa.02.2242, %209 ], [ %.sroa.02.2242, %202 ], [ %.sroa.02.2242, %205 ], [ %.sroa.02.2242, %233 ], [ %.sroa.02.2242, %236 ], [ %.sroa.02.2242, %264 ], [ %.sroa.02.2242, %267 ], [ %281, %295 ], [ %281, %298 ], [ %281, %302 ]
+  %.sroa.020.3 = phi i8 [ %189, %202 ], [ %189, %205 ], [ %189, %209 ], [ %.sroa.020.2239, %233 ], [ %.sroa.020.2239, %236 ], [ %.sroa.020.2239, %240 ], [ %.sroa.020.2239, %264 ], [ %.sroa.020.2239, %267 ], [ %.sroa.020.2239, %271 ], [ %.sroa.020.2239, %295 ], [ %.sroa.020.2239, %298 ], [ %.sroa.020.2239, %302 ]
+  %.sroa.014.3 = phi i8 [ %.sroa.014.2240, %202 ], [ %.sroa.014.2240, %205 ], [ %.sroa.014.2240, %209 ], [ %219, %233 ], [ %219, %236 ], [ %219, %240 ], [ %.sroa.014.2240, %264 ], [ %.sroa.014.2240, %267 ], [ %.sroa.014.2240, %271 ], [ %.sroa.014.2240, %295 ], [ %.sroa.014.2240, %298 ], [ %.sroa.014.2240, %302 ]
+  %.sroa.08.3 = phi i8 [ %.sroa.08.2241, %202 ], [ %.sroa.08.2241, %205 ], [ %.sroa.08.2241, %209 ], [ %.sroa.08.2241, %233 ], [ %.sroa.08.2241, %236 ], [ %.sroa.08.2241, %240 ], [ %250, %264 ], [ %250, %267 ], [ %250, %271 ], [ %.sroa.08.2241, %295 ], [ %.sroa.08.2241, %298 ], [ %.sroa.08.2241, %302 ]
+  %.sroa.02.3 = phi i8 [ %.sroa.02.2242, %202 ], [ %.sroa.02.2242, %205 ], [ %.sroa.02.2242, %209 ], [ %.sroa.02.2242, %233 ], [ %.sroa.02.2242, %236 ], [ %.sroa.02.2242, %240 ], [ %.sroa.02.2242, %264 ], [ %.sroa.02.2242, %267 ], [ %.sroa.02.2242, %271 ], [ %281, %295 ], [ %281, %298 ], [ %281, %302 ]
   %304 = add nuw nsw i64 %.0238, 1
   %exitcond.not = icmp eq i64 %.0238, %14
   br i1 %exitcond.not, label %.loopexit, label %181, !llvm.loop !208
 
 .loopexit:                                        ; preds = %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit, %161, %153
-  %.sroa.020.1 = phi i8 [ %.sroa.020.0244, %161 ], [ %.sroa.020.0244, %153 ], [ %.sroa.020.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.014.1 = phi i8 [ %.sroa.014.0245, %161 ], [ %.sroa.014.0245, %153 ], [ %.sroa.014.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.08.1 = phi i8 [ %.sroa.08.0246, %161 ], [ %.sroa.08.0246, %153 ], [ %.sroa.08.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.02.1 = phi i8 [ %.sroa.02.0247, %161 ], [ %.sroa.02.0247, %153 ], [ %.sroa.02.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.020.1 = phi i8 [ %.sroa.020.0244, %153 ], [ %.sroa.020.0244, %161 ], [ %.sroa.020.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.014.1 = phi i8 [ %.sroa.014.0245, %153 ], [ %.sroa.014.0245, %161 ], [ %.sroa.014.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.08.1 = phi i8 [ %.sroa.08.0246, %153 ], [ %.sroa.08.0246, %161 ], [ %.sroa.08.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.02.1 = phi i8 [ %.sroa.02.0247, %153 ], [ %.sroa.02.0247, %161 ], [ %.sroa.02.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
   %305 = add nuw i64 %.0142243, 1
   %exitcond251.not = icmp eq i64 %305, %110
   br i1 %exitcond251.not, label %._crit_edge, label %153, !llvm.loop !209
@@ -4002,19 +4002,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_vsuxei64
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %304, %300, %297, %273, %269, %266, %242, %238, %235, %211, %207, %204
-  %.sroa.020.3 = phi i8 [ %.sroa.020.2239, %273 ], [ %.sroa.020.2239, %242 ], [ %191, %211 ], [ %191, %204 ], [ %191, %207 ], [ %.sroa.020.2239, %235 ], [ %.sroa.020.2239, %238 ], [ %.sroa.020.2239, %266 ], [ %.sroa.020.2239, %269 ], [ %.sroa.020.2239, %297 ], [ %.sroa.020.2239, %300 ], [ %.sroa.020.2239, %304 ]
-  %.sroa.014.3 = phi i8 [ %.sroa.014.2240, %273 ], [ %221, %242 ], [ %.sroa.014.2240, %211 ], [ %.sroa.014.2240, %204 ], [ %.sroa.014.2240, %207 ], [ %221, %235 ], [ %221, %238 ], [ %.sroa.014.2240, %266 ], [ %.sroa.014.2240, %269 ], [ %.sroa.014.2240, %297 ], [ %.sroa.014.2240, %300 ], [ %.sroa.014.2240, %304 ]
-  %.sroa.08.3 = phi i8 [ %252, %273 ], [ %.sroa.08.2241, %242 ], [ %.sroa.08.2241, %211 ], [ %.sroa.08.2241, %204 ], [ %.sroa.08.2241, %207 ], [ %.sroa.08.2241, %235 ], [ %.sroa.08.2241, %238 ], [ %252, %266 ], [ %252, %269 ], [ %.sroa.08.2241, %297 ], [ %.sroa.08.2241, %300 ], [ %.sroa.08.2241, %304 ]
-  %.sroa.02.3 = phi i8 [ %.sroa.02.2242, %273 ], [ %.sroa.02.2242, %242 ], [ %.sroa.02.2242, %211 ], [ %.sroa.02.2242, %204 ], [ %.sroa.02.2242, %207 ], [ %.sroa.02.2242, %235 ], [ %.sroa.02.2242, %238 ], [ %.sroa.02.2242, %266 ], [ %.sroa.02.2242, %269 ], [ %283, %297 ], [ %283, %300 ], [ %283, %304 ]
+  %.sroa.020.3 = phi i8 [ %191, %204 ], [ %191, %207 ], [ %191, %211 ], [ %.sroa.020.2239, %235 ], [ %.sroa.020.2239, %238 ], [ %.sroa.020.2239, %242 ], [ %.sroa.020.2239, %266 ], [ %.sroa.020.2239, %269 ], [ %.sroa.020.2239, %273 ], [ %.sroa.020.2239, %297 ], [ %.sroa.020.2239, %300 ], [ %.sroa.020.2239, %304 ]
+  %.sroa.014.3 = phi i8 [ %.sroa.014.2240, %204 ], [ %.sroa.014.2240, %207 ], [ %.sroa.014.2240, %211 ], [ %221, %235 ], [ %221, %238 ], [ %221, %242 ], [ %.sroa.014.2240, %266 ], [ %.sroa.014.2240, %269 ], [ %.sroa.014.2240, %273 ], [ %.sroa.014.2240, %297 ], [ %.sroa.014.2240, %300 ], [ %.sroa.014.2240, %304 ]
+  %.sroa.08.3 = phi i8 [ %.sroa.08.2241, %204 ], [ %.sroa.08.2241, %207 ], [ %.sroa.08.2241, %211 ], [ %.sroa.08.2241, %235 ], [ %.sroa.08.2241, %238 ], [ %.sroa.08.2241, %242 ], [ %252, %266 ], [ %252, %269 ], [ %252, %273 ], [ %.sroa.08.2241, %297 ], [ %.sroa.08.2241, %300 ], [ %.sroa.08.2241, %304 ]
+  %.sroa.02.3 = phi i8 [ %.sroa.02.2242, %204 ], [ %.sroa.02.2242, %207 ], [ %.sroa.02.2242, %211 ], [ %.sroa.02.2242, %235 ], [ %.sroa.02.2242, %238 ], [ %.sroa.02.2242, %242 ], [ %.sroa.02.2242, %266 ], [ %.sroa.02.2242, %269 ], [ %.sroa.02.2242, %273 ], [ %283, %297 ], [ %283, %300 ], [ %283, %304 ]
   %306 = add nuw nsw i64 %.0238, 1
   %exitcond.not = icmp eq i64 %.0238, %14
   br i1 %exitcond.not, label %.loopexit, label %183, !llvm.loop !211
 
 .loopexit:                                        ; preds = %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit, %163, %155
-  %.sroa.020.1 = phi i8 [ %.sroa.020.0244, %163 ], [ %.sroa.020.0244, %155 ], [ %.sroa.020.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.014.1 = phi i8 [ %.sroa.014.0245, %163 ], [ %.sroa.014.0245, %155 ], [ %.sroa.014.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.08.1 = phi i8 [ %.sroa.08.0246, %163 ], [ %.sroa.08.0246, %155 ], [ %.sroa.08.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.02.1 = phi i8 [ %.sroa.02.0247, %163 ], [ %.sroa.02.0247, %155 ], [ %.sroa.02.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.020.1 = phi i8 [ %.sroa.020.0244, %155 ], [ %.sroa.020.0244, %163 ], [ %.sroa.020.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.014.1 = phi i8 [ %.sroa.014.0245, %155 ], [ %.sroa.014.0245, %163 ], [ %.sroa.014.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.08.1 = phi i8 [ %.sroa.08.0246, %155 ], [ %.sroa.08.0246, %163 ], [ %.sroa.08.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.02.1 = phi i8 [ %.sroa.02.0247, %155 ], [ %.sroa.02.0247, %163 ], [ %.sroa.02.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
   %307 = add nuw i64 %.0142243, 1
   %exitcond251.not = icmp eq i64 %307, %110
   br i1 %exitcond251.not, label %._crit_edge, label %155, !llvm.loop !212
@@ -4555,19 +4555,19 @@ define noundef i64 @_Z23logged_rv64e_vsuxei64_vP11processor_t6insn_tm(ptr nounde
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %302, %298, %295, %271, %267, %264, %240, %236, %233, %209, %205, %202
-  %.sroa.020.3 = phi i8 [ %.sroa.020.2239, %271 ], [ %.sroa.020.2239, %240 ], [ %189, %209 ], [ %189, %202 ], [ %189, %205 ], [ %.sroa.020.2239, %233 ], [ %.sroa.020.2239, %236 ], [ %.sroa.020.2239, %264 ], [ %.sroa.020.2239, %267 ], [ %.sroa.020.2239, %295 ], [ %.sroa.020.2239, %298 ], [ %.sroa.020.2239, %302 ]
-  %.sroa.014.3 = phi i8 [ %.sroa.014.2240, %271 ], [ %219, %240 ], [ %.sroa.014.2240, %209 ], [ %.sroa.014.2240, %202 ], [ %.sroa.014.2240, %205 ], [ %219, %233 ], [ %219, %236 ], [ %.sroa.014.2240, %264 ], [ %.sroa.014.2240, %267 ], [ %.sroa.014.2240, %295 ], [ %.sroa.014.2240, %298 ], [ %.sroa.014.2240, %302 ]
-  %.sroa.08.3 = phi i8 [ %250, %271 ], [ %.sroa.08.2241, %240 ], [ %.sroa.08.2241, %209 ], [ %.sroa.08.2241, %202 ], [ %.sroa.08.2241, %205 ], [ %.sroa.08.2241, %233 ], [ %.sroa.08.2241, %236 ], [ %250, %264 ], [ %250, %267 ], [ %.sroa.08.2241, %295 ], [ %.sroa.08.2241, %298 ], [ %.sroa.08.2241, %302 ]
-  %.sroa.02.3 = phi i8 [ %.sroa.02.2242, %271 ], [ %.sroa.02.2242, %240 ], [ %.sroa.02.2242, %209 ], [ %.sroa.02.2242, %202 ], [ %.sroa.02.2242, %205 ], [ %.sroa.02.2242, %233 ], [ %.sroa.02.2242, %236 ], [ %.sroa.02.2242, %264 ], [ %.sroa.02.2242, %267 ], [ %281, %295 ], [ %281, %298 ], [ %281, %302 ]
+  %.sroa.020.3 = phi i8 [ %189, %202 ], [ %189, %205 ], [ %189, %209 ], [ %.sroa.020.2239, %233 ], [ %.sroa.020.2239, %236 ], [ %.sroa.020.2239, %240 ], [ %.sroa.020.2239, %264 ], [ %.sroa.020.2239, %267 ], [ %.sroa.020.2239, %271 ], [ %.sroa.020.2239, %295 ], [ %.sroa.020.2239, %298 ], [ %.sroa.020.2239, %302 ]
+  %.sroa.014.3 = phi i8 [ %.sroa.014.2240, %202 ], [ %.sroa.014.2240, %205 ], [ %.sroa.014.2240, %209 ], [ %219, %233 ], [ %219, %236 ], [ %219, %240 ], [ %.sroa.014.2240, %264 ], [ %.sroa.014.2240, %267 ], [ %.sroa.014.2240, %271 ], [ %.sroa.014.2240, %295 ], [ %.sroa.014.2240, %298 ], [ %.sroa.014.2240, %302 ]
+  %.sroa.08.3 = phi i8 [ %.sroa.08.2241, %202 ], [ %.sroa.08.2241, %205 ], [ %.sroa.08.2241, %209 ], [ %.sroa.08.2241, %233 ], [ %.sroa.08.2241, %236 ], [ %.sroa.08.2241, %240 ], [ %250, %264 ], [ %250, %267 ], [ %250, %271 ], [ %.sroa.08.2241, %295 ], [ %.sroa.08.2241, %298 ], [ %.sroa.08.2241, %302 ]
+  %.sroa.02.3 = phi i8 [ %.sroa.02.2242, %202 ], [ %.sroa.02.2242, %205 ], [ %.sroa.02.2242, %209 ], [ %.sroa.02.2242, %233 ], [ %.sroa.02.2242, %236 ], [ %.sroa.02.2242, %240 ], [ %.sroa.02.2242, %264 ], [ %.sroa.02.2242, %267 ], [ %.sroa.02.2242, %271 ], [ %281, %295 ], [ %281, %298 ], [ %281, %302 ]
   %304 = add nuw nsw i64 %.0238, 1
   %exitcond.not = icmp eq i64 %.0238, %14
   br i1 %exitcond.not, label %.loopexit, label %181, !llvm.loop !214
 
 .loopexit:                                        ; preds = %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit, %161, %153
-  %.sroa.020.1 = phi i8 [ %.sroa.020.0244, %161 ], [ %.sroa.020.0244, %153 ], [ %.sroa.020.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.014.1 = phi i8 [ %.sroa.014.0245, %161 ], [ %.sroa.014.0245, %153 ], [ %.sroa.014.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.08.1 = phi i8 [ %.sroa.08.0246, %161 ], [ %.sroa.08.0246, %153 ], [ %.sroa.08.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
-  %.sroa.02.1 = phi i8 [ %.sroa.02.0247, %161 ], [ %.sroa.02.0247, %153 ], [ %.sroa.02.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.020.1 = phi i8 [ %.sroa.020.0244, %153 ], [ %.sroa.020.0244, %161 ], [ %.sroa.020.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.014.1 = phi i8 [ %.sroa.014.0245, %153 ], [ %.sroa.014.0245, %161 ], [ %.sroa.014.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.08.1 = phi i8 [ %.sroa.08.0246, %153 ], [ %.sroa.08.0246, %161 ], [ %.sroa.08.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
+  %.sroa.02.1 = phi i8 [ %.sroa.02.0247, %153 ], [ %.sroa.02.0247, %161 ], [ %.sroa.02.3, %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit ]
   %305 = add nuw i64 %.0142243, 1
   %exitcond251.not = icmp eq i64 %305, %110
   br i1 %exitcond251.not, label %._crit_edge, label %153, !llvm.loop !215
@@ -4995,8 +4995,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

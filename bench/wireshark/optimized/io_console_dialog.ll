@@ -815,7 +815,7 @@ _ZN7QStringD2Ev.exit143:                          ; preds = %233, %_ZN17QArrayDa
   br label %247
 
 247:                                              ; preds = %_ZN7QStringD2Ev.exit123, %184, %_ZN7QStringD2Ev.exit127, %244, %245, %239, %_ZN7QStringD2Ev.exit143, %211, %205, %_ZN7QStringD2Ev.exit131, %_ZN7QStringD2Ev.exit119, %47
-  %.pn57.pn.pn.pn = phi { ptr, i32 } [ %48, %47 ], [ %.pn, %_ZN7QStringD2Ev.exit119 ], [ %.pn39, %_ZN7QStringD2Ev.exit123 ], [ %185, %184 ], [ %.pn41.pn, %_ZN7QStringD2Ev.exit127 ], [ %.pn44, %_ZN7QStringD2Ev.exit131 ], [ %206, %205 ], [ %.pn53, %239 ], [ %.pn48.pn.pn.pn, %_ZN7QStringD2Ev.exit143 ], [ %.pn46, %211 ], [ %246, %245 ], [ %.pn55, %244 ]
+  %.pn57.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7QStringD2Ev.exit119 ], [ %48, %47 ], [ %185, %184 ], [ %.pn41.pn, %_ZN7QStringD2Ev.exit127 ], [ %.pn39, %_ZN7QStringD2Ev.exit123 ], [ %206, %205 ], [ %.pn53, %239 ], [ %.pn48.pn.pn.pn, %_ZN7QStringD2Ev.exit143 ], [ %.pn46, %211 ], [ %.pn44, %_ZN7QStringD2Ev.exit131 ], [ %246, %245 ], [ %.pn55, %244 ]
   call void @_ZN19GeometryStateDialogD2Ev(ptr noundef align 8 dereferenceable_or_null(72) %0) #20
   resume { ptr, i32 } %.pn57.pn.pn.pn
 }
@@ -1859,7 +1859,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i54:    ; preds = %97
   br label %.body
 
 .body:                                            ; preds = %101, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i54, %97, %95, %62, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i130, %66
-  %.pn26 = phi { ptr, i32 } [ %63, %66 ], [ %96, %95 ], [ %63, %62 ], [ %63, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i130 ], [ %98, %97 ], [ %98, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i54 ], [ %98, %101 ]
+  %.pn26 = phi { ptr, i32 } [ %96, %95 ], [ %63, %62 ], [ %63, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i130 ], [ %63, %66 ], [ %98, %97 ], [ %98, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i54 ], [ %98, %101 ]
   %103 = load ptr, ptr %15, align 8
   %.not.i.i.i57 = icmp eq ptr %103, null
   br i1 %.not.i.i.i57, label %_ZN7QStringD2Ev.exit60, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i58

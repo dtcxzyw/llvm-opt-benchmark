@@ -78,7 +78,7 @@ _ZL15is_nonempty_seth.exit:                       ; preds = %5, %7
   tail call void @qsort(ptr noundef nonnull %13, i64 noundef %17, i64 noundef 8, ptr noundef nonnull @_Z12sort_traceidPmS_) #9
   br label %_ZL8sort_setP13GrowableArrayImE.exit
 
-_ZL8sort_setP13GrowableArrayImE.exit:             ; preds = %5, %7, %15, %10, %_ZL15is_nonempty_seth.exit
+_ZL8sort_setP13GrowableArrayImE.exit:             ; preds = %7, %5, %15, %10, %_ZL15is_nonempty_seth.exit
   br i1 %0, label %18, label %_ZL8sort_setP13GrowableArrayImE.exit7
 
 18:                                               ; preds = %_ZL8sort_setP13GrowableArrayImE.exit
@@ -117,7 +117,7 @@ _ZL15is_nonempty_seth.exit6:                      ; preds = %21, %23
   tail call void @qsort(ptr noundef nonnull %29, i64 noundef %33, i64 noundef 8, ptr noundef nonnull @_Z12sort_traceidPmS_) #9
   br label %_ZL8sort_setP13GrowableArrayImE.exit7
 
-_ZL8sort_setP13GrowableArrayImE.exit7:            ; preds = %21, %23, %31, %26, %_ZL15is_nonempty_seth.exit6, %_ZL8sort_setP13GrowableArrayImE.exit
+_ZL8sort_setP13GrowableArrayImE.exit7:            ; preds = %23, %21, %31, %26, %_ZL15is_nonempty_seth.exit6, %_ZL8sort_setP13GrowableArrayImE.exit
   ret void
 }
 
@@ -150,7 +150,7 @@ _ZL15is_nonempty_seth.exit:                       ; preds = %3, %5
   store i32 0, ptr %9, align 4
   br label %_ZL15is_nonempty_seth.exit.thread
 
-_ZL15is_nonempty_seth.exit.thread:                ; preds = %3, %5, %8, %_ZL15is_nonempty_seth.exit
+_ZL15is_nonempty_seth.exit.thread:                ; preds = %5, %3, %8, %_ZL15is_nonempty_seth.exit
   ret void
 }
 
@@ -322,7 +322,7 @@ _ZN12JfrPredicateImXadL_Z15compare_traceidRKmS1_EEE4testEP13GrowableArrayImEm.ex
   br i1 %.not.i.i10, label %_ZN12JfrPredicateImXadL_Z15compare_traceidRKmS1_EEE4testEP13GrowableArrayImEm.exit, label %32, !llvm.loop !6
 
 _ZN12JfrPredicateImXadL_Z15compare_traceidRKmS1_EEE4testEP13GrowableArrayImEm.exit: ; preds = %20, %45, %41, %_ZN12JfrPredicateImXadL_Z15compare_traceidRKmS1_EEE4testEP13GrowableArrayImEm.exit.thread
-  %.0 = phi i1 [ true, %41 ], [ false, %_ZN12JfrPredicateImXadL_Z15compare_traceidRKmS1_EEE4testEP13GrowableArrayImEm.exit.thread ], [ false, %45 ], [ true, %20 ]
+  %.0 = phi i1 [ false, %_ZN12JfrPredicateImXadL_Z15compare_traceidRKmS1_EEE4testEP13GrowableArrayImEm.exit.thread ], [ false, %45 ], [ true, %41 ], [ true, %20 ]
   ret i1 %.0
 }
 
@@ -487,7 +487,7 @@ _ZL21c_heap_allocate_arrayImEP13GrowableArrayIT_Ei.exit.i1: ; preds = %20, %17
   br label %_ZL18unload_set_epoch_0v.exit
 
 _ZL18unload_set_epoch_0v.exit:                    ; preds = %_ZL21c_heap_allocate_arrayImEP13GrowableArrayIT_Ei.exit.i1, %14, %_ZL21c_heap_allocate_arrayImEP13GrowableArrayIT_Ei.exit.i, %3
-  %25 = phi ptr [ %4, %3 ], [ %7, %_ZL21c_heap_allocate_arrayImEP13GrowableArrayIT_Ei.exit.i ], [ %18, %_ZL21c_heap_allocate_arrayImEP13GrowableArrayIT_Ei.exit.i1 ], [ %15, %14 ]
+  %25 = phi ptr [ %7, %_ZL21c_heap_allocate_arrayImEP13GrowableArrayIT_Ei.exit.i ], [ %4, %3 ], [ %18, %_ZL21c_heap_allocate_arrayImEP13GrowableArrayIT_Ei.exit.i1 ], [ %15, %14 ]
   ret ptr %25
 }
 

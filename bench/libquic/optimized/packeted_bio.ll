@@ -314,7 +314,7 @@ _ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm.exit64:     ; preds = %121
   br label %134
 
 134:                                              ; preds = %130, %_ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm.exit64, %_ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm.exit58, %98
-  %.4 = phi i32 [ %93, %98 ], [ %spec.select, %_ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm.exit64 ], [ -1, %130 ], [ -1, %_ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm.exit58 ]
+  %.4 = phi i32 [ %93, %98 ], [ -1, %130 ], [ %spec.select, %_ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm.exit64 ], [ -1, %_ZN12_GLOBAL__N_17ReadAllEP6bio_stPhm.exit58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %135
 

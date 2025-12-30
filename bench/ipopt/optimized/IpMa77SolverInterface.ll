@@ -4293,7 +4293,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %120, %116, %.crited
   br label %155
 
 155:                                              ; preds = %112, %147, %97, %86, %77
-  %.061 = phi i32 [ 4, %86 ], [ 4, %97 ], [ %., %147 ], [ 4, %77 ], [ 4, %112 ]
+  %.061 = phi i32 [ 4, %86 ], [ 4, %97 ], [ 4, %112 ], [ 4, %77 ], [ %., %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4524,7 +4524,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit29:               ; preds = %98, %94, %91
   br label %_ZN5Ipopt9TimedTask3EndEv.exit30
 
 _ZN5Ipopt9TimedTask3EndEv.exit30:                 ; preds = %22, %118, %114, %89, %_ZN5Ipopt9TimedTask5StartEv.exit29, %86, %84, %_ZN5Ipopt9TimedTask3EndEv.exit, %_ZN5Ipopt9TimedTask3EndEv.exit
-  %.1 = phi i32 [ 0, %89 ], [ 1, %_ZN5Ipopt9TimedTask3EndEv.exit ], [ 4, %84 ], [ 2, %86 ], [ 1, %_ZN5Ipopt9TimedTask3EndEv.exit ], [ 0, %_ZN5Ipopt9TimedTask5StartEv.exit29 ], [ 0, %118 ], [ 0, %114 ], [ 4, %22 ]
+  %.1 = phi i32 [ 1, %_ZN5Ipopt9TimedTask3EndEv.exit ], [ 1, %_ZN5Ipopt9TimedTask3EndEv.exit ], [ 4, %84 ], [ 2, %86 ], [ 0, %_ZN5Ipopt9TimedTask5StartEv.exit29 ], [ 0, %89 ], [ 0, %114 ], [ 0, %118 ], [ 4, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.1
 }

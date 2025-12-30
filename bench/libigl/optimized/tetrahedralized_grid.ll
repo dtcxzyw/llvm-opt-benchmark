@@ -101,7 +101,7 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1E
   br label %._crit_edge.us.us.us
 
 ._crit_edge.us.us.us:                             ; preds = %._crit_edge.us.us.us.loopexit658, %._crit_edge.us.us.us.loopexit657, %.lr.ph.split.us647.us.us.preheader
-  %.us-phi.us.us.us = phi i32 [ %43, %._crit_edge.us.us.us.loopexit657 ], [ %42, %.lr.ph.split.us647.us.us.preheader ], [ %44, %._crit_edge.us.us.us.loopexit658 ]
+  %.us-phi.us.us.us = phi i32 [ %42, %.lr.ph.split.us647.us.us.preheader ], [ %43, %._crit_edge.us.us.us.loopexit657 ], [ %44, %._crit_edge.us.us.us.loopexit658 ]
   %exitcond668.not = icmp eq i32 %23, %9
   br i1 %exitcond668.not, label %._crit_edge641.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !8
 

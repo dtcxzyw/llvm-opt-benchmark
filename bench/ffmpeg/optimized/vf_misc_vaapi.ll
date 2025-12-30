@@ -190,7 +190,7 @@ define internal i32 @misc_vaapi_filter_frame(ptr noundef readonly captures(none)
   br label %64
 
 64:                                               ; preds = %26, %63, %52, %24
-  %.021 = phi i32 [ %25, %24 ], [ %62, %52 ], [ %.0, %63 ], [ -22, %26 ]
+  %.021 = phi i32 [ %25, %24 ], [ %.0, %63 ], [ %62, %52 ], [ -22, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.021

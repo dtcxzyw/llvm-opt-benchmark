@@ -982,7 +982,7 @@ _ZNKSt14default_deleteIN8rawspeed7TiffIFDEEclEPS1_.exit.i165: ; preds = %278
   call void %283(ptr noundef nonnull align 8 dereferenceable(104) %280) #23
   br label %common.resume
 
-_ZNKSt14default_deleteIN8rawspeed7TiffIFDEEclEPS1_.exit.i168: ; preds = %148, %197, %199, %236, %270, %238, %217
+_ZNKSt14default_deleteIN8rawspeed7TiffIFDEEclEPS1_.exit.i168: ; preds = %197, %199, %148, %236, %270, %238, %217
   %.merged.ph = phi { ptr, i32 } [ %239, %238 ], [ %.pn68, %270 ], [ %237, %236 ], [ %218, %217 ], [ %198, %197 ], [ %.pn65, %199 ], [ %.pn, %148 ]
   %284 = load ptr, ptr %97, align 8, !tbaa !13
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 16

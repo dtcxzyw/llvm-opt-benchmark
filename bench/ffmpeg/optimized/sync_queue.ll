@@ -229,7 +229,7 @@ frame_end.exit:                                   ; preds = %52, %frame_samples.
   br label %92
 
 92:                                               ; preds = %86, %90, %frame_end.exit, %17, %14
-  %.0 = phi i32 [ 0, %14 ], [ %67, %frame_end.exit ], [ -541478725, %17 ], [ 0, %90 ], [ 0, %86 ]
+  %.0 = phi i32 [ 0, %14 ], [ -541478725, %17 ], [ %67, %frame_end.exit ], [ 0, %90 ], [ 0, %86 ]
   ret i32 %.0
 }
 
@@ -513,7 +513,7 @@ define internal fastcc void @stream_update_ts(ptr noundef captures(none) %0, i32
   br label %55
 
 55:                                               ; preds = %52, %44
-  %.2.ph.i = phi i32 [ %spec.select.i, %52 ], [ %.054.i, %44 ]
+  %.2.ph.i = phi i32 [ %.054.i, %44 ], [ %spec.select.i, %52 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %44, !llvm.loop !49
@@ -873,7 +873,7 @@ overflow_heartbeat.exit.thread:                   ; preds = %57, %._crit_edge.i,
   br label %receive_internal.exit22
 
 receive_internal.exit22:                          ; preds = %.loopexit.thread, %._crit_edge.loopexit.i, %.preheader.i, %10, %._crit_edge.loopexit.i18, %.thread.i21, %117, %.preheader.i12, %overflow_heartbeat.exit.thread, %receive_internal.exit
-  %.0 = phi i32 [ %131, %._crit_edge.loopexit.i18 ], [ -11, %overflow_heartbeat.exit.thread ], [ %.025.i, %receive_internal.exit ], [ %120, %117 ], [ %129, %.thread.i21 ], [ -541478725, %.preheader.i12 ], [ %1, %10 ], [ -541478725, %.preheader.i ], [ -541478725, %._crit_edge.loopexit.i ], [ -541478725, %.loopexit.thread ]
+  %.0 = phi i32 [ %.025.i, %receive_internal.exit ], [ -11, %overflow_heartbeat.exit.thread ], [ %120, %117 ], [ %129, %.thread.i21 ], [ -541478725, %.preheader.i12 ], [ %131, %._crit_edge.loopexit.i18 ], [ -541478725, %.preheader.i ], [ %1, %10 ], [ -541478725, %._crit_edge.loopexit.i ], [ -541478725, %.loopexit.thread ]
   ret i32 %.0
 }
 
@@ -1558,7 +1558,7 @@ frame_end.exit97:                                 ; preds = %receive_samples.exi
   br label %238
 
 238:                                              ; preds = %.thread102, %228, %234, %231
-  %.2 = phi i32 [ %.1.ph, %.thread102 ], [ -541478725, %228 ], [ -11, %231 ], [ %237, %234 ]
+  %.2 = phi i32 [ -541478725, %228 ], [ -11, %231 ], [ %237, %234 ], [ %.1.ph, %.thread102 ]
   ret i32 %.2
 }
 

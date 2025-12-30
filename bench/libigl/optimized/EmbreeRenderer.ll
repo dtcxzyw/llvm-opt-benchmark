@@ -1813,8 +1813,8 @@ define weak_odr dso_local void @_ZN3igl6embree14EmbreeRenderer8set_dataIN5Eigen6
   br label %_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit
 
 _ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph82.i.i.i.i12, %60, %68
-  %.2.i.i.i.i26 = phi double [ %.2.i.i.i.i.ph, %60 ], [ %69, %68 ], [ %.2.i.i.i.i.ph, %.lr.ph82.i.i.i.i12 ]
-  %.2.i.i.i.i11 = phi double [ %62, %60 ], [ %69, %68 ], [ %66, %.lr.ph82.i.i.i.i12 ]
+  %.2.i.i.i.i26 = phi double [ %69, %68 ], [ %.2.i.i.i.i.ph, %60 ], [ %.2.i.i.i.i.ph, %.lr.ph82.i.i.i.i12 ]
+  %.2.i.i.i.i11 = phi double [ %69, %68 ], [ %62, %60 ], [ %66, %.lr.ph82.i.i.i.i12 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS2_IdLin1ELin1ELi0ELin1ELin1EEEEEvNS_12ColorMapTypeERKNS1_10MatrixBaseIT_EEddRNS1_15PlainObjectBaseIT0_EE(i32 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %1, double noundef %.2.i.i.i.i26, double noundef %.2.i.i.i.i11, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -2195,7 +2195,7 @@ thread-pre-split.i.i.i.i.i.i.i10:                 ; preds = %31
   br label %_ZN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEaSINS_12CwiseUnaryOpINS_8internal14scalar_cast_opIdfEEKNS0_IdLin1ELin1ELi0ELin1ELin1EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit
 
 _ZN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEaSINS_12CwiseUnaryOpINS_8internal14scalar_cast_opIdfEEKNS0_IdLin1ELin1ELi0ELin1ELin1EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit: ; preds = %44, %21, %50, %39, %16, %52
-  %.sink = phi i8 [ 0, %16 ], [ 0, %39 ], [ 1, %52 ], [ 1, %50 ], [ 0, %21 ], [ 0, %44 ]
+  %.sink = phi i8 [ 1, %52 ], [ 0, %16 ], [ 0, %39 ], [ 1, %50 ], [ 0, %21 ], [ 0, %44 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 69
   store i8 %.sink, ptr %66, align 1, !tbaa !159
   ret void
@@ -2498,7 +2498,7 @@ _ZNK5Eigen8internal13scalar_min_opIffLi0EE6preduxIDv4_fEEfRKT_.exit.i.i.i.i.i.i:
   br i1 %exitcond102.not.i.i.i.i.i.i, label %_ZNK5Eigen8internal9evaluatorINS_16PartialReduxExprINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEENS0_15member_minCoeffIffEELi0EEEE5coeffEl.exit, label %.lr.ph95.i.i.i.i.i.i, !llvm.loop !212
 
 _ZNK5Eigen8internal9evaluatorINS_16PartialReduxExprINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEENS0_15member_minCoeffIffEELi0EEEE5coeffEl.exit: ; preds = %.lr.ph90.i.i.i.i.i.i, %.lr.ph95.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i, %72
-  %.2.i.i.i.i.i.i = phi float [ %78, %.lr.ph95.i.i.i.i.i.i ], [ %73, %72 ], [ %.072.lcssa.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ], [ %69, %.lr.ph90.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i = phi float [ %73, %72 ], [ %.072.lcssa.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ], [ %78, %.lr.ph95.i.i.i.i.i.i ], [ %69, %.lr.ph90.i.i.i.i.i.i ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %81 = load ptr, ptr %80, align 8, !tbaa !213
   %82 = load ptr, ptr %81, align 8, !tbaa !71, !noalias !216
@@ -2653,7 +2653,7 @@ _ZNK5Eigen8internal13scalar_max_opIffLi0EE6preduxIDv4_fEEfRKT_.exit.i.i.i.i.i.i:
   br i1 %exitcond102.not.i.i.i.i.i.i37, label %_ZNK5Eigen8internal9evaluatorINS_16PartialReduxExprINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEENS0_15member_maxCoeffIffEELi0EEEE5coeffEl.exit, label %.lr.ph95.i.i.i.i.i.i34, !llvm.loop !223
 
 _ZNK5Eigen8internal9evaluatorINS_16PartialReduxExprINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEENS0_15member_maxCoeffIffEELi0EEEE5coeffEl.exit: ; preds = %.lr.ph90.i.i.i.i.i.i16, %.lr.ph95.i.i.i.i.i.i34, %.preheader.i.i.i.i.i.i13, %147
-  %.2.i.i.i.i.i.i15 = phi float [ %153, %.lr.ph95.i.i.i.i.i.i34 ], [ %148, %147 ], [ %.072.lcssa.i.i.i.i.i.i14, %.preheader.i.i.i.i.i.i13 ], [ %144, %.lr.ph90.i.i.i.i.i.i16 ]
+  %.2.i.i.i.i.i.i15 = phi float [ %148, %147 ], [ %.072.lcssa.i.i.i.i.i.i14, %.preheader.i.i.i.i.i.i13 ], [ %153, %.lr.ph95.i.i.i.i.i.i34 ], [ %144, %.lr.ph90.i.i.i.i.i.i16 ]
   %155 = fadd float %.2.i.i.i.i.i.i, %.2.i.i.i.i.i.i15
   ret float %155
 }
@@ -2819,7 +2819,7 @@ _ZNK5Eigen8internal13scalar_max_opIffLi0EE6preduxIDv4_fEEfRKT_.exit.i.i.i.i.i.i.
   br i1 %exitcond102.not.i.i.i.i.i.i.i, label %_ZNK5Eigen8internal9evaluatorINS_16PartialReduxExprINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEENS0_15member_maxCoeffIffEELi0EEEE5coeffEll.exit, label %.lr.ph95.i.i.i.i.i.i.i, !llvm.loop !223
 
 _ZNK5Eigen8internal9evaluatorINS_16PartialReduxExprINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEENS0_15member_maxCoeffIffEELi0EEEE5coeffEll.exit: ; preds = %.lr.ph90.i.i.i.i.i.i.i, %.lr.ph95.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i, %73
-  %.2.i.i.i.i.i.i.i = phi float [ %79, %.lr.ph95.i.i.i.i.i.i.i ], [ %74, %73 ], [ %.072.lcssa.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i ], [ %70, %.lr.ph90.i.i.i.i.i.i.i ]
+  %.2.i.i.i.i.i.i.i = phi float [ %74, %73 ], [ %.072.lcssa.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i ], [ %79, %.lr.ph95.i.i.i.i.i.i.i ], [ %70, %.lr.ph90.i.i.i.i.i.i.i ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !200
   %83 = load ptr, ptr %82, align 8, !tbaa !71, !noalias !227
@@ -2974,7 +2974,7 @@ _ZNK5Eigen8internal13scalar_min_opIffLi0EE6preduxIDv4_fEEfRKT_.exit.i.i.i.i.i.i.
   br i1 %exitcond102.not.i.i.i.i.i.i.i39, label %_ZNK5Eigen8internal9evaluatorINS_16PartialReduxExprINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEENS0_15member_minCoeffIffEELi0EEEE5coeffEll.exit, label %.lr.ph95.i.i.i.i.i.i.i36, !llvm.loop !212
 
 _ZNK5Eigen8internal9evaluatorINS_16PartialReduxExprINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEENS0_15member_minCoeffIffEELi0EEEE5coeffEll.exit: ; preds = %.lr.ph90.i.i.i.i.i.i.i18, %.lr.ph95.i.i.i.i.i.i.i36, %.preheader.i.i.i.i.i.i.i15, %148
-  %.2.i.i.i.i.i.i.i17 = phi float [ %154, %.lr.ph95.i.i.i.i.i.i.i36 ], [ %149, %148 ], [ %.072.lcssa.i.i.i.i.i.i.i16, %.preheader.i.i.i.i.i.i.i15 ], [ %145, %.lr.ph90.i.i.i.i.i.i.i18 ]
+  %.2.i.i.i.i.i.i.i17 = phi float [ %149, %148 ], [ %.072.lcssa.i.i.i.i.i.i.i16, %.preheader.i.i.i.i.i.i.i15 ], [ %154, %.lr.ph95.i.i.i.i.i.i.i36 ], [ %145, %.lr.ph90.i.i.i.i.i.i.i18 ]
   %156 = fsub float %.2.i.i.i.i.i.i.i, %.2.i.i.i.i.i.i.i17
   ret float %156
 }

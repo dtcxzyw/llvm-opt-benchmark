@@ -1194,7 +1194,7 @@ define hidden void @_ZN3std3sys9backtrace28__rust_begin_short_backtrace17hb2fb34
           to label %24 unwind label %18
 
 18:                                               ; preds = %40, %27, %"_ZN11signal_hook8iterator7backend28SignalIterator$LT$SD$C$E$GT$3new17ha9a0e3817e606a42E.exit.i"
-  %.sroa.01.2.i = phi i1 [ false, %40 ], [ false, %27 ], [ true, %"_ZN11signal_hook8iterator7backend28SignalIterator$LT$SD$C$E$GT$3new17ha9a0e3817e606a42E.exit.i" ]
+  %.sroa.01.2.i = phi i1 [ false, %27 ], [ true, %"_ZN11signal_hook8iterator7backend28SignalIterator$LT$SD$C$E$GT$3new17ha9a0e3817e606a42E.exit.i" ], [ false, %40 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !290)
@@ -1319,7 +1319,7 @@ define hidden void @_ZN3std3sys9backtrace28__rust_begin_short_backtrace17hb2fb34
   unreachable
 
 common.resume.i:                                  ; preds = %64, %"_ZN4core3ptr55drop_in_place$LT$signal_hook..iterator..SignalsInfo$GT$17h8b2501c364747385E.exit.i", %59, %53, %49
-  %common.resume.op.i = phi { ptr, i32 } [ %50, %49 ], [ %50, %53 ], [ %60, %59 ], [ %.pn.i, %"_ZN4core3ptr55drop_in_place$LT$signal_hook..iterator..SignalsInfo$GT$17h8b2501c364747385E.exit.i" ], [ %.pn.i, %64 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %50, %53 ], [ %50, %49 ], [ %60, %59 ], [ %.pn.i, %64 ], [ %.pn.i, %"_ZN4core3ptr55drop_in_place$LT$signal_hook..iterator..SignalsInfo$GT$17h8b2501c364747385E.exit.i" ]
   resume { ptr, i32 } %common.resume.op.i
 
 59:                                               ; preds = %"_ZN4core3ptr105drop_in_place$LT$signal_hook..iterator..Forever$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$17h7787241349320e93E.exit9.i"
@@ -2495,14 +2495,14 @@ define hidden void @"_ZN4gpui12subscription42SubscriberSet$LT$EmitterKey$C$Callb
   br label %.thread29
 
 26:                                               ; preds = %39, %_ZN5alloc2rc10RcInnerPtr10inc_strong17h973c93ea96cbcb46E.exit, %31
-  %.sroa.02.3 = phi i1 [ true, %31 ], [ true, %39 ], [ false, %_ZN5alloc2rc10RcInnerPtr10inc_strong17h973c93ea96cbcb46E.exit ]
+  %.sroa.02.3 = phi i1 [ false, %_ZN5alloc2rc10RcInnerPtr10inc_strong17h973c93ea96cbcb46E.exit ], [ true, %31 ], [ true, %39 ]
   %27 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %98, %94, %78, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11880408977092959598.exit.i1.i.i.i", %26
-  %.sroa.02.3.lpad-body = phi i1 [ false, %78 ], [ %.sroa.02.3, %26 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11880408977092959598.exit.i1.i.i.i" ], [ false, %94 ], [ false, %98 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %79, %78 ], [ %27, %26 ], [ %79, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11880408977092959598.exit.i1.i.i.i" ], [ %95, %94 ], [ %95, %98 ]
+  %.sroa.02.3.lpad-body = phi i1 [ %.sroa.02.3, %26 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11880408977092959598.exit.i1.i.i.i" ], [ false, %78 ], [ false, %94 ], [ false, %98 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %79, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11880408977092959598.exit.i1.i.i.i" ], [ %79, %78 ], [ %95, %94 ], [ %95, %98 ]
   %28 = cmpxchg ptr %20, i8 1, i8 0 release monotonic, align 1
   %29 = extractvalue { i8, i1 } %28, 1
   br i1 %29, label %.thread29, label %30
@@ -2804,14 +2804,14 @@ define hidden void @"_ZN4gpui12subscription42SubscriberSet$LT$EmitterKey$C$Callb
   br label %.thread34
 
 28:                                               ; preds = %41, %_ZN5alloc2rc10RcInnerPtr10inc_strong17h973c93ea96cbcb46E.exit, %33
-  %.sroa.02.3 = phi i1 [ true, %33 ], [ true, %41 ], [ false, %_ZN5alloc2rc10RcInnerPtr10inc_strong17h973c93ea96cbcb46E.exit ]
+  %.sroa.02.3 = phi i1 [ false, %_ZN5alloc2rc10RcInnerPtr10inc_strong17h973c93ea96cbcb46E.exit ], [ true, %33 ], [ true, %41 ]
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %103, %99, %81, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11880408977092959598.exit.i1.i.i.i", %28
-  %.sroa.02.3.lpad-body = phi i1 [ false, %81 ], [ %.sroa.02.3, %28 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11880408977092959598.exit.i1.i.i.i" ], [ false, %99 ], [ false, %103 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %82, %81 ], [ %29, %28 ], [ %82, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11880408977092959598.exit.i1.i.i.i" ], [ %100, %99 ], [ %100, %103 ]
+  %.sroa.02.3.lpad-body = phi i1 [ %.sroa.02.3, %28 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11880408977092959598.exit.i1.i.i.i" ], [ false, %81 ], [ false, %99 ], [ false, %103 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %29, %28 ], [ %82, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11880408977092959598.exit.i1.i.i.i" ], [ %82, %81 ], [ %100, %99 ], [ %100, %103 ]
   %30 = cmpxchg ptr %22, i8 1, i8 0 release monotonic, align 1
   %31 = extractvalue { i8, i1 } %30, 1
   br i1 %31, label %.thread34, label %32

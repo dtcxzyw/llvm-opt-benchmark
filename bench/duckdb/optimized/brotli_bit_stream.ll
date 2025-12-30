@@ -911,8 +911,8 @@ _ZN13duckdb_brotliL20SortHuffmanTreeItemsEPNS_11HuffmanTreeEmPFiPKS0_S3_E.exit: 
   br label %.loopexit256.sink.split
 
 .loopexit256.sink.split:                          ; preds = %308, %267, %319
-  %.lcssa.sink = phi i64 [ %280, %267 ], [ %333, %319 ], [ %318, %308 ]
-  %.1183.ph = phi i8 [ %.0182303, %267 ], [ %258, %319 ], [ %258, %308 ]
+  %.lcssa.sink = phi i64 [ %333, %319 ], [ %280, %267 ], [ %318, %308 ]
+  %.1183.ph = phi i8 [ %258, %319 ], [ %.0182303, %267 ], [ %258, %308 ]
   store i64 %.lcssa.sink, ptr %6, align 8, !tbaa !3, !noalias !151
   br label %.loopexit256
 
@@ -1387,7 +1387,7 @@ _ZL33BuildAndStoreEntropyCodesDistancePN13duckdb_brotli13MemoryManagerEP12BlockE
   br label %_ZN13duckdb_brotliL19GetInsertLengthCodeEm.exit
 
 _ZN13duckdb_brotliL19GetInsertLengthCodeEm.exit:  ; preds = %245, %259, %271, %275, %277
-  %.0.i = phi i64 [ %..i195, %277 ], [ %268, %259 ], [ %274, %271 ], [ 21, %275 ], [ %255, %245 ]
+  %.0.i = phi i64 [ %268, %259 ], [ %274, %271 ], [ 21, %275 ], [ %..i195, %277 ], [ %255, %245 ]
   %279 = zext i32 %254 to i64
   %280 = icmp ult i32 %254, 10
   br i1 %280, label %281, label %283
@@ -1802,9 +1802,9 @@ _ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit: ; preds = %.lr.ph244,
   br i1 %.not192, label %.loopexit, label %.lr.ph244, !llvm.loop !287
 
 .loopexit:                                        ; preds = %_ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit, %_ZL11StoreSymbolP12BlockEncodermPmPh.exit, %.preheader236, %.preheader
-  %.2184 = phi i64 [ %436, %_ZL11StoreSymbolP12BlockEncodermPmPh.exit ], [ %.0182253, %.preheader ], [ %.0182253, %.preheader236 ], [ %558, %_ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit ]
-  %.1179 = phi i8 [ %.0178254, %_ZL11StoreSymbolP12BlockEncodermPmPh.exit ], [ %.0178254, %.preheader ], [ %.0178254, %.preheader236 ], [ %.2243, %_ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit ]
-  %.1 = phi i8 [ %.0255, %_ZL11StoreSymbolP12BlockEncodermPmPh.exit ], [ %.0255, %.preheader ], [ %.0255, %.preheader236 ], [ %448, %_ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit ]
+  %.2184 = phi i64 [ %.0182253, %.preheader ], [ %.0182253, %.preheader236 ], [ %436, %_ZL11StoreSymbolP12BlockEncodermPmPh.exit ], [ %558, %_ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit ]
+  %.1179 = phi i8 [ %.0178254, %.preheader ], [ %.0178254, %.preheader236 ], [ %.0178254, %_ZL11StoreSymbolP12BlockEncodermPmPh.exit ], [ %.2243, %_ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit ]
+  %.1 = phi i8 [ %.0255, %.preheader ], [ %.0255, %.preheader236 ], [ %.0255, %_ZL11StoreSymbolP12BlockEncodermPmPh.exit ], [ %448, %_ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit ]
   %560 = zext nneg i32 %253 to i64
   %561 = add i64 %.2184, %560
   %.not194 = icmp eq i32 %253, 0
@@ -2776,7 +2776,7 @@ _ZL7IndexOfPKhmh.exit.i:                          ; preds = %.lr.ph.i.i
   br label %_ZL11MoveToFrontPhm.exit.i
 
 _ZL11MoveToFrontPhm.exit.i:                       ; preds = %.lr.ph.preheader.i.i, %_ZL7IndexOfPKhmh.exit.i
-  %80 = phi i8 [ %79, %.lr.ph.preheader.i.i ], [ %69, %_ZL7IndexOfPKhmh.exit.i ]
+  %80 = phi i8 [ %69, %_ZL7IndexOfPKhmh.exit.i ], [ %79, %.lr.ph.preheader.i.i ]
   store i8 %80, ptr %9, align 16, !tbaa !7, !noalias !452
   %81 = add nuw i64 %.239.i, 1
   %exitcond46.not.i = icmp eq i64 %81, %3
@@ -2898,7 +2898,7 @@ _ZL20MoveToFrontTransformPKjmPj.exit:             ; preds = %_ZL11MoveToFrontPhm
   br i1 %exitcond102.not.i, label %.critedge4.i, label %.lr.ph92.i, !llvm.loop !468
 
 .critedge4.i:                                     ; preds = %122, %.lr.ph92.i
-  %.066.lcssa.i = phi i32 [ %114, %122 ], [ %.06690.i, %.lr.ph92.i ]
+  %.066.lcssa.i = phi i32 [ %.06690.i, %.lr.ph92.i ], [ %114, %122 ]
   %124 = zext i32 %.066.lcssa.i to i64
   %125 = add i64 %.399.i, %124
   %.not7496.i = icmp eq i32 %.066.lcssa.i, 0
@@ -3779,7 +3779,7 @@ define internal fastcc void @_ZL25StoreDataWithHuffmanCodesPKhmmPKN13duckdb_brot
   br label %_ZN13duckdb_brotliL19GetInsertLengthCodeEm.exit
 
 _ZN13duckdb_brotliL19GetInsertLengthCodeEm.exit:  ; preds = %.lr.ph55, %42, %54, %58, %60
-  %.0.i = phi i64 [ %..i, %60 ], [ %51, %42 ], [ %57, %54 ], [ 21, %58 ], [ %38, %.lr.ph55 ]
+  %.0.i = phi i64 [ %51, %42 ], [ %57, %54 ], [ 21, %58 ], [ %..i, %60 ], [ %38, %.lr.ph55 ]
   %62 = zext i32 %37 to i64
   %63 = icmp ult i32 %37, 10
   br i1 %63, label %64, label %66

@@ -2994,7 +2994,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   br label %214
 
 .body:                                            ; preds = %.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.body430, %1315, %1288, %1259, %1210, %1181, %1157, %224
-  %.pn = phi { ptr, i32 } [ %225, %224 ], [ %1316, %1315 ], [ %1289, %1288 ], [ %1260, %1259 ], [ %1211, %1210 ], [ %1182, %1181 ], [ %1158, %1157 ], [ %.pn.i, %.body430 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp525, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit691, %.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp692, %.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %1316, %1315 ], [ %1289, %1288 ], [ %1260, %1259 ], [ %1211, %1210 ], [ %1182, %1181 ], [ %1158, %1157 ], [ %225, %224 ], [ %.pn.i, %.body430 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp525, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit691, %.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp692, %.loopexit.split-lp.loopexit.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hb2de949c6b72afc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %201) #9
           to label %1348 unwind label %1247
 
@@ -3383,7 +3383,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   br label %384
 
 .body430:                                         ; preds = %.loopexit527.loopexit, %.loopexit527.loopexit.split-lp, %.loopexit.split-lp528, %.loopexit.split-lp.i, %1116, %1093, %1069, %1043, %1005, %964, %472, %434, %395
-  %.pn.i = phi { ptr, i32 } [ %396, %395 ], [ %1117, %1116 ], [ %1094, %1093 ], [ %1070, %1069 ], [ %1044, %1043 ], [ %1006, %1005 ], [ %965, %964 ], [ %473, %472 ], [ %435, %434 ], [ %.pn.i415, %.loopexit.split-lp.i ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp528 ], [ %lpad.loopexit693, %.loopexit527.loopexit ], [ %lpad.loopexit.split-lp694, %.loopexit527.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %1117, %1116 ], [ %1094, %1093 ], [ %1070, %1069 ], [ %1044, %1043 ], [ %1006, %1005 ], [ %965, %964 ], [ %473, %472 ], [ %435, %434 ], [ %396, %395 ], [ %.pn.i415, %.loopexit.split-lp.i ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp528 ], [ %lpad.loopexit693, %.loopexit527.loopexit ], [ %lpad.loopexit.split-lp694, %.loopexit527.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hb2de949c6b72afc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %167) #9
           to label %.body unwind label %431, !noalias !785
 
@@ -3842,7 +3842,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   br label %502
 
 .loopexit.split-lp.i:                             ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp, %903, %879, %842, %818, %794, %768, %740, %702, %677, %656, %635, %614, %586, %547, %509, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i
-  %.pn.i415 = phi { ptr, i32 } [ %510, %509 ], [ %904, %903 ], [ %880, %879 ], [ %843, %842 ], [ %819, %818 ], [ %795, %794 ], [ %769, %768 ], [ %741, %740 ], [ %703, %702 ], [ %678, %677 ], [ %657, %656 ], [ %636, %635 ], [ %615, %614 ], [ %587, %586 ], [ %548, %547 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit933.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit936.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit938.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit531, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp532, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp ]
+  %.pn.i415 = phi { ptr, i32 } [ %904, %903 ], [ %880, %879 ], [ %843, %842 ], [ %819, %818 ], [ %795, %794 ], [ %769, %768 ], [ %741, %740 ], [ %703, %702 ], [ %678, %677 ], [ %657, %656 ], [ %636, %635 ], [ %615, %614 ], [ %587, %586 ], [ %548, %547 ], [ %510, %509 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit933.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit936.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit938.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit531, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp532, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hb2de949c6b72afc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %93) #9
           to label %.body430 unwind label %737, !noalias !954
 
@@ -7421,7 +7421,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$par
   br label %69
 
 .body:                                            ; preds = %310, %219, %118, %67, %274, %183, %82
-  %.pn = phi { ptr, i32 } [ %275, %274 ], [ %83, %82 ], [ %184, %183 ], [ %220, %219 ], [ %119, %118 ], [ %68, %67 ], [ %311, %310 ]
+  %.pn = phi { ptr, i32 } [ %83, %82 ], [ %184, %183 ], [ %275, %274 ], [ %68, %67 ], [ %119, %118 ], [ %220, %219 ], [ %311, %310 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hb2de949c6b72afc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %54) #9
           to label %387 unwind label %177
 
@@ -11234,7 +11234,7 @@ define hidden void @"_ZN79_$LT$parquet..format..ColumnIndex$u20$as$u20$parquet..
   br label %52
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %205, %177, %146, %115, %62
-  %.pn = phi { ptr, i32 } [ %63, %62 ], [ %206, %205 ], [ %178, %177 ], [ %147, %146 ], [ %116, %115 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit451, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit454, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit456, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp457, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %206, %205 ], [ %178, %177 ], [ %147, %146 ], [ %116, %115 ], [ %63, %62 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit451, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit454, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit456, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp457, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hb2de949c6b72afc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %39) #9
           to label %273 unwind label %243
 
@@ -15100,7 +15100,7 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
   br label %141
 
 .loopexit142:                                     ; preds = %.loopexit142.loopexit, %.loopexit142.loopexit.split-lp, %.loopexit.split-lp143, %212, %180, %148
-  %.pn.i = phi { ptr, i32 } [ %149, %148 ], [ %213, %212 ], [ %181, %180 ], [ %lpad.loopexit.split-lp145, %.loopexit.split-lp143 ], [ %lpad.loopexit, %.loopexit142.loopexit ], [ %lpad.loopexit.split-lp177, %.loopexit142.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %213, %212 ], [ %181, %180 ], [ %149, %148 ], [ %lpad.loopexit.split-lp145, %.loopexit.split-lp143 ], [ %lpad.loopexit, %.loopexit142.loopexit ], [ %lpad.loopexit.split-lp177, %.loopexit142.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hb2de949c6b72afc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #9
           to label %.body unwind label %257, !noalias !2961
 
@@ -15883,7 +15883,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   br label %139
 
 .body:                                            ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit677, %818, %793, %756, %729, %682, %648, %624, %197, %149
-  %.pn = phi { ptr, i32 } [ %150, %149 ], [ %819, %818 ], [ %794, %793 ], [ %757, %756 ], [ %730, %729 ], [ %683, %682 ], [ %649, %648 ], [ %625, %624 ], [ %198, %197 ], [ %.pn.i, %.loopexit677 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit669, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit672, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp675, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit788, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp789, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %819, %818 ], [ %794, %793 ], [ %757, %756 ], [ %730, %729 ], [ %683, %682 ], [ %649, %648 ], [ %625, %624 ], [ %198, %197 ], [ %150, %149 ], [ %.pn.i, %.loopexit677 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit669, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit672, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp675, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit788, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp789, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hb2de949c6b72afc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %126) #9
           to label %859 unwind label %719
 
@@ -16329,7 +16329,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   br label %297
 
 .loopexit677:                                     ; preds = %.loopexit677.loopexit, %.loopexit677.loopexit.split-lp, %.loopexit.split-lp678, %590, %568, %542, %516, %488, %464, %421, %387, %355, %309
-  %.pn.i = phi { ptr, i32 } [ %310, %309 ], [ %591, %590 ], [ %569, %568 ], [ %543, %542 ], [ %517, %516 ], [ %489, %488 ], [ %465, %464 ], [ %422, %421 ], [ %388, %387 ], [ %356, %355 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp678 ], [ %lpad.loopexit790, %.loopexit677.loopexit ], [ %lpad.loopexit.split-lp791, %.loopexit677.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %591, %590 ], [ %569, %568 ], [ %543, %542 ], [ %517, %516 ], [ %489, %488 ], [ %465, %464 ], [ %422, %421 ], [ %388, %387 ], [ %356, %355 ], [ %310, %309 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp678 ], [ %lpad.loopexit790, %.loopexit677.loopexit ], [ %lpad.loopexit.split-lp791, %.loopexit677.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hb2de949c6b72afc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #9
           to label %.body unwind label %346, !noalias !3259
 
@@ -19509,7 +19509,7 @@ define hidden void @"_ZN82_$LT$parquet..format..ColumnMetaData$u20$as$u20$parque
   br label %104
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %565, %538, %498, %471, %444, %415, %384, %341, %313, %289, %265, %241, %210, %162, %114
-  %.pn = phi { ptr, i32 } [ %115, %114 ], [ %566, %565 ], [ %539, %538 ], [ %499, %498 ], [ %472, %471 ], [ %445, %444 ], [ %416, %415 ], [ %385, %384 ], [ %342, %341 ], [ %314, %313 ], [ %290, %289 ], [ %266, %265 ], [ %242, %241 ], [ %211, %210 ], [ %163, %162 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit933, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit936, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit938, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp939, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %566, %565 ], [ %539, %538 ], [ %499, %498 ], [ %472, %471 ], [ %445, %444 ], [ %416, %415 ], [ %385, %384 ], [ %342, %341 ], [ %314, %313 ], [ %290, %289 ], [ %266, %265 ], [ %242, %241 ], [ %211, %210 ], [ %163, %162 ], [ %115, %114 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit933, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit936, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit938, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp939, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hb2de949c6b72afc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %91) #9
           to label %608 unwind label %378
 
@@ -21929,7 +21929,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
   br label %68
 
 .body:                                            ; preds = %.body.i, %66, %326, %304, %125, %78
-  %.pn = phi { ptr, i32 } [ %79, %78 ], [ %327, %326 ], [ %305, %304 ], [ %126, %125 ], [ %67, %66 ], [ %.pn.i, %.body.i ]
+  %.pn = phi { ptr, i32 } [ %327, %326 ], [ %305, %304 ], [ %126, %125 ], [ %79, %78 ], [ %67, %66 ], [ %.pn.i, %.body.i ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hb2de949c6b72afc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53) #9
           to label %362 unwind label %359
 
@@ -24175,7 +24175,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   br label %105
 
 .body:                                            ; preds = %391, %155, %103, %354, %118
-  %.pn = phi { ptr, i32 } [ %355, %354 ], [ %119, %118 ], [ %.pn.i, %155 ], [ %104, %103 ], [ %.pn.i141, %391 ]
+  %.pn = phi { ptr, i32 } [ %119, %118 ], [ %355, %354 ], [ %104, %103 ], [ %.pn.i, %155 ], [ %.pn.i141, %391 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hb2de949c6b72afc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %90) #9
           to label %602 unwind label %348
 
@@ -25892,7 +25892,7 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
   br label %67
 
 .body:                                            ; preds = %218, %117, %65, %182, %81
-  %.pn = phi { ptr, i32 } [ %183, %182 ], [ %82, %81 ], [ %118, %117 ], [ %66, %65 ], [ %.pn.i, %218 ]
+  %.pn = phi { ptr, i32 } [ %82, %81 ], [ %183, %182 ], [ %66, %65 ], [ %118, %117 ], [ %.pn.i, %218 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hb2de949c6b72afc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52) #9
           to label %364 unwind label %176
 
@@ -26365,7 +26365,7 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
   br label %219
 
 218:                                              ; preds = %287, %229, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn.i = phi { ptr, i32 } [ %230, %229 ], [ %288, %287 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.i = phi { ptr, i32 } [ %288, %287 ], [ %230, %229 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hb2de949c6b72afc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #9
           to label %.body unwind label %316, !noalias !5385
 

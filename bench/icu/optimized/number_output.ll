@@ -191,7 +191,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -718,7 +718,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6icu_776number15Forma
   br label %18
 
 18:                                               ; preds = %3, %13, %10
-  %.0 = phi ptr [ %17, %13 ], [ %1, %10 ], [ %1, %3 ]
+  %.0 = phi ptr [ %1, %10 ], [ %17, %13 ], [ %1, %3 ]
   ret ptr %.0
 }
 
@@ -748,7 +748,7 @@ define noundef signext i8 @_ZNK6icu_776number15FormattedNumber12nextPositionERNS
   br label %18
 
 18:                                               ; preds = %3, %13, %10
-  %.0 = phi i8 [ %17, %13 ], [ 0, %10 ], [ 0, %3 ]
+  %.0 = phi i8 [ 0, %10 ], [ %17, %13 ], [ 0, %3 ]
   ret i8 %.0
 }
 
@@ -934,7 +934,7 @@ define noundef i32 @_ZNK6icu_776number15FormattedNumber12getNounClassER10UErrorC
   br label %16
 
 16:                                               ; preds = %2, %12, %9
-  %.0 = phi i32 [ %15, %12 ], [ 0, %9 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %9 ], [ %15, %12 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -1203,7 +1203,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6icu_776number20Forma
   br label %18
 
 18:                                               ; preds = %3, %13, %10
-  %.0 = phi ptr [ %17, %13 ], [ %1, %10 ], [ %1, %3 ]
+  %.0 = phi ptr [ %1, %10 ], [ %17, %13 ], [ %1, %3 ]
   ret ptr %.0
 }
 
@@ -1233,7 +1233,7 @@ define noundef signext i8 @_ZNK6icu_776number20FormattedNumberRange12nextPositio
   br label %18
 
 18:                                               ; preds = %3, %13, %10
-  %.0 = phi i8 [ %17, %13 ], [ 0, %10 ], [ 0, %3 ]
+  %.0 = phi i8 [ 0, %10 ], [ %17, %13 ], [ 0, %3 ]
   ret i8 %.0
 }
 
@@ -1371,7 +1371,7 @@ define noundef i32 @_ZNK6icu_776number20FormattedNumberRange17getIdentityResultE
   br label %15
 
 15:                                               ; preds = %2, %12, %9
-  %.0 = phi i32 [ %14, %12 ], [ 2, %9 ], [ 2, %2 ]
+  %.0 = phi i32 [ 2, %9 ], [ %14, %12 ], [ 2, %2 ]
   ret i32 %.0
 }
 
@@ -1394,7 +1394,7 @@ define noundef ptr @_ZNK6icu_776number20FormattedNumberRange7getDataER10UErrorCo
   br label %12
 
 12:                                               ; preds = %5, %2, %9
-  %.0 = phi ptr [ null, %2 ], [ null, %9 ], [ %7, %5 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %2 ], [ %7, %5 ]
   ret ptr %.0
 }
 

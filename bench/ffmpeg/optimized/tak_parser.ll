@@ -159,12 +159,12 @@ bits_init8_le.exit.thread:                        ; preds = %32, %bits_init8_le.
   br label %154
 
 .critedge.thread:                                 ; preds = %62, %.thread, %.critedge
-  %75 = phi i32 [ %.pre136, %.thread ], [ %61, %.critedge ], [ %61, %62 ]
-  %76 = phi i32 [ %.pre, %.thread ], [ %60, %.critedge ], [ %60, %62 ]
-  %77 = phi i32 [ %73, %.thread ], [ %57, %.critedge ], [ %57, %62 ]
-  %78 = phi ptr [ %72, %.thread ], [ %58, %.critedge ], [ %58, %62 ]
-  %79 = phi i32 [ %73, %.thread ], [ %59, %.critedge ], [ 0, %62 ]
-  %.170 = phi i32 [ %70, %.thread ], [ %.069, %.critedge ], [ %.069, %62 ]
+  %75 = phi i32 [ %61, %.critedge ], [ %.pre136, %.thread ], [ %61, %62 ]
+  %76 = phi i32 [ %60, %.critedge ], [ %.pre, %.thread ], [ %60, %62 ]
+  %77 = phi i32 [ %57, %.critedge ], [ %73, %.thread ], [ %57, %62 ]
+  %78 = phi ptr [ %58, %.critedge ], [ %72, %.thread ], [ %58, %62 ]
+  %79 = phi i32 [ %59, %.critedge ], [ %73, %.thread ], [ 0, %62 ]
+  %.170 = phi i32 [ %.069, %.critedge ], [ %70, %.thread ], [ %.069, %62 ]
   %80 = add nsw i32 %76, %15
   %.not83128 = icmp sgt i32 %80, %75
   br i1 %.not83128, label %.loopexit, label %.lr.ph
@@ -339,7 +339,7 @@ bits_init8_le.exit100:                            ; preds = %99, %95
   br label %157
 
 157:                                              ; preds = %154, %151, %bits_init8_le.exit.thread
-  %.168 = phi i32 [ %5, %bits_init8_le.exit.thread ], [ %.5, %151 ], [ %156, %154 ]
+  %.168 = phi i32 [ %5, %bits_init8_le.exit.thread ], [ %156, %154 ], [ %.5, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.168
 }

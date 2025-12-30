@@ -323,7 +323,7 @@ pt.exit20:                                        ; preds = %60
   br label %76
 
 76:                                               ; preds = %44, %pt.exit20, %pt.exit12
-  %.0 = phi i32 [ 0, %pt.exit12 ], [ 0, %pt.exit20 ], [ 1, %44 ]
+  %.0 = phi i32 [ 0, %pt.exit20 ], [ 0, %pt.exit12 ], [ 1, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -434,7 +434,7 @@ define internal i32 @test_ede_cbc() #0 {
   br label %27
 
 27:                                               ; preds = %19, %16, %13, %0, %24
-  %.0 = phi i32 [ %26, %24 ], [ 0, %16 ], [ 0, %13 ], [ 0, %0 ], [ 0, %19 ]
+  %.0 = phi i32 [ %26, %24 ], [ 0, %0 ], [ 0, %13 ], [ 0, %16 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -595,7 +595,7 @@ pt.exit22:                                        ; preds = %65
   br label %80
 
 80:                                               ; preds = %49, %pt.exit22, %pt.exit14
-  %.0 = phi i32 [ 0, %pt.exit14 ], [ 0, %pt.exit22 ], [ 1, %49 ]
+  %.0 = phi i32 [ 0, %pt.exit22 ], [ 0, %pt.exit14 ], [ 1, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -777,7 +777,7 @@ define internal i32 @test_des_cfb64() #0 {
   br label %23
 
 23:                                               ; preds = %14, %7, %4, %0, %21
-  %.09 = phi i32 [ %22, %21 ], [ 0, %7 ], [ 0, %4 ], [ 0, %0 ], [ 0, %14 ]
+  %.09 = phi i32 [ %22, %21 ], [ 0, %0 ], [ 0, %4 ], [ 0, %7 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.09
@@ -981,7 +981,7 @@ define internal range(i32 0, 2) i32 @test_des_quad_cksum() #0 {
   br label %20
 
 20:                                               ; preds = %16, %12, %8, %5, %0
-  %.0 = phi i32 [ 0, %12 ], [ %., %16 ], [ 0, %8 ], [ 0, %5 ], [ 0, %0 ]
+  %.0 = phi i32 [ 0, %0 ], [ 0, %5 ], [ 0, %8 ], [ 0, %12 ], [ %., %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -1019,7 +1019,7 @@ define internal range(i32 0, 2) i32 @test_des_crypt() #0 {
   br label %15
 
 15:                                               ; preds = %12, %9, %6, %3, %0
-  %.0 = phi i32 [ 0, %9 ], [ %., %12 ], [ 0, %6 ], [ 0, %3 ], [ 0, %0 ]
+  %.0 = phi i32 [ 0, %0 ], [ 0, %3 ], [ 0, %6 ], [ 0, %9 ], [ %., %12 ]
   ret i32 %.0
 }
 
@@ -1264,9 +1264,9 @@ define internal range(i32 0, 2) i32 @test_des_key_wrap(i32 noundef %0) #0 {
   br label %99
 
 99:                                               ; preds = %93, %84, %71, %78, %59, %68, %50, %._crit_edge, %45, %1, %15, %18, %21, %25, %30
-  %.031 = phi ptr [ null, %1 ], [ %16, %93 ], [ %16, %84 ], [ %16, %78 ], [ %16, %71 ], [ %16, %68 ], [ %16, %59 ], [ %16, %50 ], [ %16, %45 ], [ %16, %._crit_edge ], [ %16, %30 ], [ %16, %25 ], [ %16, %21 ], [ %16, %18 ], [ %16, %15 ]
-  %.030 = phi ptr [ null, %1 ], [ %31, %93 ], [ %31, %84 ], [ %31, %78 ], [ %31, %71 ], [ %31, %68 ], [ %31, %59 ], [ %31, %50 ], [ %31, %45 ], [ %31, %._crit_edge ], [ %31, %30 ], [ null, %25 ], [ null, %21 ], [ null, %18 ], [ null, %15 ]
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %93 ], [ 0, %84 ], [ 0, %78 ], [ 0, %71 ], [ 0, %68 ], [ 0, %59 ], [ 0, %50 ], [ 0, %45 ], [ 0, %._crit_edge ], [ 0, %30 ], [ 0, %25 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ]
+  %.031 = phi ptr [ %16, %84 ], [ %16, %78 ], [ %16, %71 ], [ %16, %68 ], [ %16, %59 ], [ %16, %50 ], [ %16, %45 ], [ %16, %._crit_edge ], [ %16, %30 ], [ %16, %25 ], [ %16, %21 ], [ %16, %18 ], [ %16, %15 ], [ null, %1 ], [ %16, %93 ]
+  %.030 = phi ptr [ %31, %84 ], [ %31, %78 ], [ %31, %71 ], [ %31, %68 ], [ %31, %59 ], [ %31, %50 ], [ %31, %45 ], [ %31, %._crit_edge ], [ %31, %30 ], [ null, %25 ], [ null, %21 ], [ null, %18 ], [ null, %15 ], [ null, %1 ], [ %31, %93 ]
+  %.0 = phi i32 [ 0, %84 ], [ 0, %78 ], [ 0, %71 ], [ 0, %68 ], [ 0, %59 ], [ 0, %50 ], [ 0, %45 ], [ 0, %._crit_edge ], [ 0, %30 ], [ 0, %25 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ], [ 0, %1 ], [ %spec.select, %93 ]
   call void @EVP_CIPHER_free(ptr noundef %.031) #5
   call void @EVP_CIPHER_CTX_free(ptr noundef %.030) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1334,8 +1334,8 @@ define internal range(i32 0, 2) i32 @test_des_two_key() #0 {
   br label %13
 
 13:                                               ; preds = %11, %0, %4, %7, %9
-  %.06 = phi i32 [ 0, %0 ], [ %spec.select, %11 ], [ 0, %9 ], [ 0, %7 ], [ 0, %4 ]
-  %.0 = phi ptr [ null, %0 ], [ %5, %11 ], [ %5, %9 ], [ %5, %7 ], [ %5, %4 ]
+  %.06 = phi i32 [ 0, %9 ], [ 0, %7 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %11 ]
+  %.0 = phi ptr [ %5, %9 ], [ %5, %7 ], [ %5, %4 ], [ null, %0 ], [ %5, %11 ]
   call void @EVP_CIPHER_free(ptr noundef %2) #5
   call void @EVP_CIPHER_CTX_free(ptr noundef %.0) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %1)

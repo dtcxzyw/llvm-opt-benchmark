@@ -298,7 +298,7 @@ define dso_local i32 @GetCommandTagEnum(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %19, %1, %3, %14
-  %.0 = phi i32 [ 0, %1 ], [ %18, %14 ], [ 0, %3 ], [ 0, %19 ]
+  %.0 = phi i32 [ %18, %14 ], [ 0, %3 ], [ 0, %1 ], [ 0, %19 ]
   ret i32 %.0
 }
 

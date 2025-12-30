@@ -471,9 +471,9 @@ define internal noundef i32 @run_zenity_thread(ptr noundef %0) #0 {
   br label %run_zenity.exit
 
 .critedge.i:                                      ; preds = %39, %26, %24, %10, %1
-  %.063.ph.i = phi ptr [ null, %10 ], [ null, %24 ], [ %25, %26 ], [ null, %1 ], [ %25, %39 ]
-  %.059.ph.i = phi ptr [ null, %10 ], [ null, %24 ], [ null, %26 ], [ null, %1 ], [ %.16084.i, %39 ]
-  %.0.ph.i = phi ptr [ null, %10 ], [ %23, %24 ], [ %23, %26 ], [ null, %1 ], [ %23, %39 ]
+  %.063.ph.i = phi ptr [ null, %1 ], [ null, %10 ], [ null, %24 ], [ %25, %26 ], [ %25, %39 ]
+  %.059.ph.i = phi ptr [ null, %1 ], [ null, %10 ], [ null, %24 ], [ null, %26 ], [ %.16084.i, %39 ]
+  %.0.ph.i = phi ptr [ null, %1 ], [ null, %10 ], [ %23, %24 ], [ %23, %26 ], [ %23, %39 ]
   call void @SDL_free_REAL(ptr noundef %.059.ph.i) #7
   call void @SDL_free_REAL(ptr noundef %.063.ph.i) #7
   call void @SDL_DestroyEnvironment_REAL(ptr noundef %9) #7

@@ -88,7 +88,7 @@ _ZN6vectorISt4pairIP4exprS2_ELb0EjE4backEv.exit.lr.ph: ; preds = %_ZNK6vectorISt
   br label %_ZN6vectorISt4pairIP4exprS2_ELb0EjE4backEv.exit
 
 thread-pre-split:                                 ; preds = %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit38, %116, %97
-  %.pr = phi ptr [ %.pr66, %97 ], [ %.pr6480, %116 ], [ %137, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit38 ]
+  %.pr = phi ptr [ %.pr6480, %116 ], [ %.pr66, %97 ], [ %137, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit38 ]
   %23 = getelementptr inbounds i8, ptr %.pr, i64 -4
   %24 = load i32, ptr %23, align 4, !tbaa !13
   %25 = icmp eq i32 %24, 0

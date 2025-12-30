@@ -1904,7 +1904,7 @@ _ZNK2cv11_InputArray6getMatEi.exit54:             ; preds = %28, %31
   br label %48
 
 48:                                               ; preds = %47, %44
-  %.pn42.pn = phi { ptr, i32 } [ %45, %44 ], [ %.pn42.ph, %47 ]
+  %.pn42.pn = phi { ptr, i32 } [ %.pn42.ph, %47 ], [ %45, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #16
   br label %49
@@ -1991,7 +1991,7 @@ _ZNK2cv11_InputArray6getMatEi.exit54:             ; preds = %28, %31
   br label %74
 
 74:                                               ; preds = %73, %70
-  %.pn37.pn = phi { ptr, i32 } [ %71, %70 ], [ %.pn37.ph, %73 ]
+  %.pn37.pn = phi { ptr, i32 } [ %.pn37.ph, %73 ], [ %71, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #16
   br label %75

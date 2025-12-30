@@ -225,42 +225,43 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %.outer
 
-.outer:                                           ; preds = %24, %.preheader28
-  %.032.ph = phi i1 [ true, %24 ], [ false, %.preheader28 ]
-  %.02231.ph = phi i32 [ %27, %24 ], [ 0, %.preheader28 ]
-  br label %18
+.outer:                                           ; preds = %23, %.preheader28
+  %.032.ph = phi i1 [ false, %.preheader28 ], [ true, %23 ]
+  %.02231.ph = phi i32 [ 0, %.preheader28 ], [ %26, %23 ]
+  br label %17
 
-17:                                               ; preds = %28
-  br i1 %.032.ph, label %.thread, label %.critedge
-
-18:                                               ; preds = %.outer, %28
+17:                                               ; preds = %.outer, %28
   %.02231 = phi i32 [ %29, %28 ], [ %.02231.ph, %.outer ]
   call void @_ZN10ConvexHull8GenerateEv(ptr noundef nonnull align 8 dereferenceable(322) %0)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %19 = load i32, ptr %15, align 8, !tbaa !34
-  call void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %4, ptr noundef nonnull %14, i32 noundef %19)
+  %18 = load i32, ptr %15, align 8, !tbaa !34
+  call void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %4, ptr noundef nonnull %14, i32 noundef %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %3, ptr noundef nonnull align 4 dereferenceable(68) %4, i64 68, i1 false), !tbaa.struct !39
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %20 = load i32, ptr %16, align 4, !tbaa !41
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %28, label %22
+  %19 = load i32, ptr %16, align 4, !tbaa !41
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %28, label %21
 
-22:                                               ; preds = %18
-  %23 = call zeroext i1 @b2ValidateHull(ptr noundef nonnull %3)
-  br i1 %23, label %24, label %44
+21:                                               ; preds = %17
+  %22 = call zeroext i1 @b2ValidateHull(ptr noundef nonnull %3)
+  br i1 %22, label %23, label %27
 
-24:                                               ; preds = %22
-  %25 = load i8, ptr %11, align 1, !tbaa !32, !range !13, !noundef !14
-  %26 = icmp eq i8 %25, 0
-  %27 = add nuw nsw i32 %.02231, 1
-  %exitcond.not42 = icmp eq i32 %27, 10000
-  %or.cond = select i1 %26, i1 true, i1 %exitcond.not42
+23:                                               ; preds = %21
+  %24 = load i8, ptr %11, align 1, !tbaa !32, !range !13, !noundef !14
+  %25 = icmp eq i8 %24, 0
+  %26 = add nuw nsw i32 %.02231, 1
+  %exitcond.not42 = icmp eq i32 %26, 10000
+  %or.cond = select i1 %25, i1 true, i1 %exitcond.not42
   br i1 %or.cond, label %.thread, label %.outer, !llvm.loop !43
 
-28:                                               ; preds = %18
+27:                                               ; preds = %21
+  store i8 0, ptr %11, align 1, !tbaa !32
+  br label %.critedge
+
+28:                                               ; preds = %17
   %29 = add nuw nsw i32 %.02231, 1
   %exitcond.not = icmp eq i32 %29, 10000
-  br i1 %exitcond.not, label %17, label %18, !llvm.loop !43
+  br i1 %exitcond.not, label %44, label %17, !llvm.loop !43
 
 30:                                               ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -290,18 +291,17 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
   store i8 0, ptr %31, align 8, !tbaa !31
   br label %.critedge
 
-44:                                               ; preds = %22
-  store i8 0, ptr %11, align 1, !tbaa !32
-  br label %.critedge
+44:                                               ; preds = %28
+  br i1 %.032.ph, label %.thread, label %.critedge
 
-.critedge:                                        ; preds = %44, %17, %.thread25, %35
+.critedge:                                        ; preds = %27, %.thread25, %35, %44
   %45 = load i32, ptr %5, align 8, !tbaa !37
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %47 = load i32, ptr %46, align 4, !tbaa !19
   call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %45, ptr noundef nonnull @.str.3, i32 noundef %47)
   br label %53
 
-.thread:                                          ; preds = %24, %42, %17
+.thread:                                          ; preds = %23, %42, %44
   %48 = load i32, ptr %5, align 8, !tbaa !37
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %50 = load i32, ptr %49, align 4, !tbaa !19

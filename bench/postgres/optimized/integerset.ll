@@ -601,7 +601,7 @@ intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i55
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %intset_binsrch_uint64.exit54, %89, %._crit_edge, %.split.loop.exit39.i, %79, %68, %62, %intset_binsrch_leaf.exit, %23, %intset_binsrch_uint64.exit, %18
-  %.0 = phi i1 [ false, %intset_binsrch_uint64.exit ], [ %22, %18 ], [ %92, %.split.loop.exit39.i ], [ false, %23 ], [ false, %intset_binsrch_leaf.exit ], [ false, %89 ], [ true, %62 ], [ false, %._crit_edge ], [ false, %68 ], [ %82, %79 ], [ false, %intset_binsrch_uint64.exit54 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %22, %18 ], [ false, %intset_binsrch_uint64.exit ], [ false, %23 ], [ false, %intset_binsrch_leaf.exit ], [ true, %62 ], [ %82, %79 ], [ false, %68 ], [ %92, %.split.loop.exit39.i ], [ false, %._crit_edge ], [ false, %89 ], [ false, %intset_binsrch_uint64.exit54 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -722,9 +722,9 @@ simple8b_decode.exit.loopexit:                    ; preds = %.lr.ph.i
   br label %._crit_edge
 
 .backedge:                                        ; preds = %56, %62
-  %52 = phi ptr [ null, %62 ], [ %58, %56 ]
-  %53 = phi i32 [ %63, %62 ], [ %22, %56 ]
-  %54 = phi i32 [ 0, %62 ], [ %21, %56 ]
+  %52 = phi ptr [ %58, %56 ], [ null, %62 ]
+  %53 = phi i32 [ %22, %56 ], [ %63, %62 ]
+  %54 = phi i32 [ %21, %56 ], [ 0, %62 ]
   %55 = icmp slt i32 %54, %53
   br i1 %55, label %._crit_edge, label %19
 

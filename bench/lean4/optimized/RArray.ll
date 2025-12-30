@@ -85,7 +85,7 @@ lean_nat_eq.exit.thread:                          ; preds = %22
 lean_dec.exit:                                    ; preds = %33
   br i1 %28, label %89, label %35
 
-35:                                               ; preds = %31, %lean_nat_eq.exit.thread53, %34, %lean_nat_eq.exit.thread, %lean_dec.exit
+35:                                               ; preds = %34, %31, %lean_nat_eq.exit.thread53, %lean_nat_eq.exit.thread, %lean_dec.exit
   br i1 %.not, label %.critedge.i, label %36, !prof !4
 
 36:                                               ; preds = %35
@@ -220,7 +220,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit37
   store ptr %81, ptr %88, align 8, !tbaa !11
   br label %96
 
-89:                                               ; preds = %31, %lean_nat_eq.exit.thread53, %34, %lean_nat_eq.exit.thread, %lean_dec.exit
+89:                                               ; preds = %34, %31, %lean_nat_eq.exit.thread53, %lean_nat_eq.exit.thread, %lean_dec.exit
   %90 = tail call ptr @lean_apply_1(ptr noundef %1, ptr noundef %2) #3
   tail call void @lean_inc_heartbeat() #3
   %91 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
@@ -2064,7 +2064,7 @@ lean_alloc_ctor.exit136:                          ; preds = %lean_dec.exit
   br label %lean_dec.exit68
 
 lean_dec.exit68:                                  ; preds = %lean_dec.exit69, %122, %124, %125, %lean_alloc_ctor.exit136, %lean_dec.exit61
-  %.0 = phi ptr [ %49, %lean_dec.exit61 ], [ %209, %lean_alloc_ctor.exit136 ], [ %97, %125 ], [ %97, %124 ], [ %97, %122 ], [ %97, %lean_dec.exit69 ]
+  %.0 = phi ptr [ %209, %lean_alloc_ctor.exit136 ], [ %49, %lean_dec.exit61 ], [ %97, %125 ], [ %97, %124 ], [ %97, %122 ], [ %97, %lean_dec.exit69 ]
   ret ptr %.0
 }
 
@@ -2262,7 +2262,7 @@ lean_dec_ref.exit21:                              ; preds = %44, %46, %47
   br label %66
 
 66:                                               ; preds = %.sink.split, %lean_dec_ref.exit19, %lean_dec_ref.exit17, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink41, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %.sink41, %.sink.split ]
   ret ptr %.0
 }
 

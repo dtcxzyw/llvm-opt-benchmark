@@ -739,7 +739,7 @@ je_pages_purge_lazy.exit.thread:                  ; preds = %87, %je_pages_purge
   br label %os_pages_unmap.exit
 
 os_pages_unmap.exit:                              ; preds = %init_thp_state.exit, %89, %99, %7
-  %.04 = phi i1 [ true, %7 ], [ true, %init_thp_state.exit ], [ false, %99 ], [ false, %89 ]
+  %.04 = phi i1 [ true, %7 ], [ false, %89 ], [ false, %99 ], [ true, %init_thp_state.exit ]
   ret i1 %.04
 }
 

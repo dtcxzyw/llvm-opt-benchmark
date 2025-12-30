@@ -808,7 +808,7 @@ lean_dec.exit216:                                 ; preds = %72, %71, %69, %lean
   br label %lean_dec.exit215
 
 lean_dec.exit215:                                 ; preds = %83, %82, %80, %.thread341
-  %84 = phi ptr [ %49, %.thread341 ], [ %77, %83 ], [ %77, %80 ], [ %77, %82 ]
+  %84 = phi ptr [ %49, %.thread341 ], [ %77, %80 ], [ %77, %82 ], [ %77, %83 ]
   %85 = tail call ptr @l_Lean_Syntax_getArg(ptr noundef %0, ptr noundef nonnull inttoptr (i64 5 to ptr)) #3
   br i1 %.not, label %86, label %lean_dec.exit214
 

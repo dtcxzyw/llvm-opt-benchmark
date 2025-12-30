@@ -5261,7 +5261,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev.exit
 
 .body29:                                          ; preds = %156, %151, %149, %98, %160
-  %.pn = phi { ptr, i32 } [ %161, %160 ], [ %99, %98 ], [ %150, %149 ], [ %152, %151 ], [ %152, %156 ]
+  %.pn = phi { ptr, i32 } [ %161, %160 ], [ %150, %149 ], [ %99, %98 ], [ %152, %151 ], [ %152, %156 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   br label %.body
 
@@ -5345,7 +5345,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev
   br i1 %271, label %272, label %273
 
 .body:                                            ; preds = %145, %140, %138, %64, %.body29
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body29 ], [ %65, %64 ], [ %139, %138 ], [ %141, %140 ], [ %141, %145 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body29 ], [ %139, %138 ], [ %65, %64 ], [ %141, %140 ], [ %141, %145 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   br label %common.resume
 
@@ -6106,7 +6106,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15HdPrimvarSchema22GetIndexedP
           to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_37HdPrimvarSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i unwind label %11
 
 common.resume:                                    ; preds = %33, %38, %66, %71, %45, %11
-  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %46, %45 ], [ %34, %38 ], [ %34, %33 ], [ %67, %66 ], [ %67, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %46, %45 ], [ %34, %33 ], [ %34, %38 ], [ %67, %66 ], [ %67, %71 ]
   resume { ptr, i32 } %common.resume.op
 
 11:                                               ; preds = %9
@@ -6762,7 +6762,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev.exit
 
 .body27:                                          ; preds = %152, %147, %145, %113, %162
-  %.pn = phi { ptr, i32 } [ %163, %162 ], [ %114, %113 ], [ %146, %145 ], [ %148, %147 ], [ %148, %152 ]
+  %.pn = phi { ptr, i32 } [ %163, %162 ], [ %146, %145 ], [ %114, %113 ], [ %148, %147 ], [ %148, %152 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
   br label %.body
 
@@ -6841,7 +6841,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev.exit55
 
 .body:                                            ; preds = %104, %99, %97, %65, %.body27
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body27 ], [ %66, %65 ], [ %98, %97 ], [ %100, %99 ], [ %100, %104 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body27 ], [ %98, %97 ], [ %66, %65 ], [ %100, %99 ], [ %100, %104 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   br label %common.resume
 
@@ -11470,7 +11470,7 @@ define linkonce_odr noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue2
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %19, %13, %30, %29
-  %.0 = phi i32 [ -1, %29 ], [ %34, %30 ], [ %12, %13 ], [ %12, %19 ]
+  %.0 = phi i32 [ %34, %30 ], [ -1, %29 ], [ %12, %13 ], [ %12, %19 ]
   ret i32 %.0
 }
 
@@ -20076,7 +20076,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit30.i.i: ; preds = %69
   br label %.body.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i25.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i, %46
-  %.1.i.i = phi i1 [ %.0.i.i2, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i ], [ %.0.i.i2, %46 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i25.i.i ]
+  %.1.i.i = phi i1 [ %.0.i.i2, %46 ], [ %.0.i.i2, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i25.i.i ]
   %80 = add nuw i64 %.019.i.i, 1
   br label %28, !llvm.loop !449
 

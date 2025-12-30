@@ -196,7 +196,7 @@ getsigctxno.exit.thread:                          ; preds = %29, %30, %getsigctx
   br label %.loopexit
 
 getsigctxno.exit:                                 ; preds = %25, %28, %23, %26, %27, %33
-  %.0.i = phi i8 [ 4, %26 ], [ 8, %23 ], [ %.mux, %28 ], [ 0, %33 ], [ %spec.select, %25 ], [ 3, %27 ]
+  %.0.i = phi i8 [ 3, %27 ], [ 0, %33 ], [ 8, %23 ], [ 4, %26 ], [ %.mux, %28 ], [ %spec.select, %25 ]
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
   store i8 %.0.i, ptr %35, align 1, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -648,8 +648,8 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %191, %189, %186
-  %193 = phi float [ %192, %191 ], [ %190, %189 ], [ %.pre.i.i, %186 ]
-  %.0.i.i = phi i32 [ -2, %191 ], [ -1, %189 ], [ -2, %186 ]
+  %193 = phi float [ %190, %189 ], [ %192, %191 ], [ %.pre.i.i, %186 ]
+  %.0.i.i = phi i32 [ -1, %189 ], [ -2, %191 ], [ -2, %186 ]
   %194 = load i32, ptr %8, align 4, !tbaa !28
   %195 = sub nsw i32 %194, %76
   %196 = shl nsw i32 %195, 1
@@ -1077,8 +1077,8 @@ init_band.exit:                                   ; preds = %init_prec.exit.i, %
   %471 = icmp slt i64 %indvars.iv.next185, %470
   br i1 %471, label %72, label %.thread, !llvm.loop !99
 
-.thread:                                          ; preds = %._crit_edge, %137, %142, %295, %371, %385, %312, %460, %.preheader134, %383, %293, %55, %51, %47, %20, %12, %40, %11
-  %.0 = phi i32 [ -1094995529, %11 ], [ -12, %47 ], [ %19, %12 ], [ -1163346256, %40 ], [ -12, %383 ], [ -12, %55 ], [ -12, %51 ], [ -1094995529, %20 ], [ -12, %371 ], [ -12, %460 ], [ -12, %293 ], [ -12, %295 ], [ 0, %.preheader134 ], [ -12, %312 ], [ -12, %385 ], [ 0, %._crit_edge ], [ -12, %142 ], [ -12, %137 ]
+.thread:                                          ; preds = %._crit_edge, %137, %142, %295, %385, %371, %312, %460, %.preheader134, %383, %293, %55, %51, %47, %20, %12, %40, %11
+  %.0 = phi i32 [ -1094995529, %11 ], [ -1163346256, %40 ], [ %19, %12 ], [ -1094995529, %20 ], [ -12, %47 ], [ -12, %51 ], [ -12, %55 ], [ -12, %293 ], [ -12, %383 ], [ 0, %.preheader134 ], [ -12, %460 ], [ -12, %312 ], [ -12, %371 ], [ -12, %385 ], [ -12, %295 ], [ 0, %._crit_edge ], [ -12, %137 ], [ -12, %142 ]
   ret i32 %.0
 }
 

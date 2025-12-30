@@ -803,7 +803,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
   br label %212
 
 154:                                              ; preds = %145, %144, %.lr.ph605.i
-  %.sink637.i = phi i32 [ 8, %.lr.ph605.i ], [ 20, %145 ], [ 12, %144 ]
+  %.sink637.i = phi i32 [ 20, %145 ], [ 8, %.lr.ph605.i ], [ 12, %144 ]
   %155 = load i32, ptr @hf_hip_tlv_locator_address, align 4
   %156 = add i32 %.sink637.i, %.0529603.i
   %157 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %155, ptr noundef %0, i32 noundef %156, i32 noundef 16, i32 noundef 0)
@@ -1228,10 +1228,10 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
   br label %460
 
 460:                                              ; preds = %459, %455, %.lr.ph
-  %hf_hip_tlv_reg_failtype.sink.i = phi ptr [ @hf_hip_tlv_reg_ltmax, %455 ], [ @hf_hip_tlv_reg_lt, %459 ], [ @hf_hip_tlv_reg_failtype, %.lr.ph ]
-  %.sink640.i = phi i32 [ %458, %455 ], [ %117, %459 ], [ %117, %.lr.ph ]
-  %.sink638.i = phi i32 [ 6, %455 ], [ 5, %459 ], [ 5, %.lr.ph ]
-  %.sink.i = phi i32 [ -2, %455 ], [ -1, %459 ], [ -1, %.lr.ph ]
+  %hf_hip_tlv_reg_failtype.sink.i = phi ptr [ @hf_hip_tlv_reg_lt, %459 ], [ @hf_hip_tlv_reg_ltmax, %455 ], [ @hf_hip_tlv_reg_failtype, %.lr.ph ]
+  %.sink640.i = phi i32 [ %117, %459 ], [ %458, %455 ], [ %117, %.lr.ph ]
+  %.sink638.i = phi i32 [ 5, %459 ], [ 6, %455 ], [ 5, %.lr.ph ]
+  %.sink.i = phi i32 [ -1, %459 ], [ -2, %455 ], [ -1, %.lr.ph ]
   %461 = load i32, ptr %hf_hip_tlv_reg_failtype.sink.i, align 4
   %462 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %461, ptr noundef %0, i32 noundef %.sink640.i, i32 noundef 1, i32 noundef 0)
   %463 = add nsw i32 %.sink.i, %112

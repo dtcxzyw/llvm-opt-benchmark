@@ -596,7 +596,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit15.i:                ; preds = %1
   br i1 %.not.i.i, label %common.resume, label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit15.thread.i, %_ZNSt6vectorIfSaIfEED2Ev.exit15.i, %148, %_ZNSt6vectorIfSaIfEED2Ev.exit56
-  %common.resume.op.ph = phi { ptr, i32 } [ %149, %148 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit56 ], [ %.pn.pn.pn.i, %_ZNSt6vectorIfSaIfEED2Ev.exit15.thread.i ], [ %77, %_ZNSt6vectorIfSaIfEED2Ev.exit15.i ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit56 ], [ %149, %148 ], [ %.pn.pn.pn.i, %_ZNSt6vectorIfSaIfEED2Ev.exit15.thread.i ], [ %77, %_ZNSt6vectorIfSaIfEED2Ev.exit15.i ]
   %78 = load ptr, ptr %13, align 8, !tbaa !5
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
@@ -1012,7 +1012,7 @@ _ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EED2Ev.exit: ; preds = %_Z
   br label %.body33
 
 .body33:                                          ; preds = %228, %226, %162, %_ZNSt6vectorIlSaIlEED2Ev.exit.i29
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.i30, %_ZNSt6vectorIlSaIlEED2Ev.exit.i29 ], [ %163, %162 ], [ %.pn.pn.pn, %226 ], [ %.pn.pn.pn, %228 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %163, %162 ], [ %.pn.i30, %_ZNSt6vectorIlSaIlEED2Ev.exit.i29 ], [ %.pn.pn.pn, %226 ], [ %.pn.pn.pn, %228 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %233
 

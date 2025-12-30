@@ -771,7 +771,7 @@ tailrecurse.i.i:                                  ; preds = %32, %tailrecurse.i.
   ret void
 
 "_ZN4core3ptr213drop_in_place$LT$rodio..source..buffered..Buffered$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$$GT$17hb5635259966fa31fE.exit": ; preds = %101, %56, %61, %79, %84, %109, %113
-  %eh.lpad-body24 = phi { ptr, i32 } [ %110, %109 ], [ %110, %113 ], [ %.pn.ph.i, %79 ], [ %63, %61 ], [ %63, %56 ], [ %.pn.ph.i, %84 ], [ %102, %101 ]
+  %eh.lpad-body24 = phi { ptr, i32 } [ %110, %113 ], [ %110, %109 ], [ %63, %56 ], [ %63, %61 ], [ %.pn.ph.i, %84 ], [ %.pn.ph.i, %79 ], [ %102, %101 ]
   resume { ptr, i32 } %eh.lpad-body24
 
 109:                                              ; preds = %14
@@ -968,7 +968,7 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.2275879227513204832.exit
   unreachable
 
 .body3.i:                                         ; preds = %70, %60, %56
-  %eh.lpad-body4.i = phi { ptr, i32 } [ %57, %60 ], [ %57, %56 ], [ %71, %70 ]
+  %eh.lpad-body4.i = phi { ptr, i32 } [ %57, %56 ], [ %57, %60 ], [ %71, %70 ]
   invoke fastcc void @"_ZN4core3ptr184drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$rodio..source..Source$u2b$Item$u20$$u3d$$u20$f32$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h52a90d23372b218eE"(ptr nonnull align 8 %20, i8 %.sroa.01.0.i.i.i) #20
           to label %.body unwind label %89, !noalias !148
 
@@ -1061,7 +1061,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i: ; preds = %85, %.n
   br label %.body
 
 .body:                                            ; preds = %.body3.i, %.thread27.i, %93, %94
-  %eh.lpad-body = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body30.i, %.thread27.i ], [ %eh.lpad-body4.i, %.body3.i ], [ %eh.lpad-body30.i, %93 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %95, %94 ], [ %eh.lpad-body4.i, %.body3.i ], [ %eh.lpad-body30.i, %93 ], [ %eh.lpad-body30.i, %.thread27.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !170)
   call void @llvm.experimental.noalias.scope.decl(metadata !173)
   %96 = load ptr, ptr %7, align 8, !alias.scope !176, !nonnull !4, !noundef !4
@@ -1101,7 +1101,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i: ; preds = %85, %.n
   unreachable
 
 .thread:                                          ; preds = %108, %114, %99, %.body
-  %.pn30 = phi { ptr, i32 } [ %109, %108 ], [ %eh.lpad-body, %99 ], [ %eh.lpad-body, %.body ], [ %109, %114 ]
+  %.pn30 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %99 ], [ %109, %114 ], [ %109, %108 ]
   resume { ptr, i32 } %.pn30
 
 108:                                              ; preds = %10

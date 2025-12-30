@@ -449,13 +449,13 @@ alloc_large_chunk.exit:                           ; preds = %41
   br i1 %exitcond.not, label %.split59.us.loopexit60, label %.split, !llvm.loop !39
 
 .split59.us.loopexit60:                           ; preds = %.split, %96
-  %.us-phi.ph61 = phi i32 [ %85, %.split ], [ 63, %96 ]
+  %.us-phi.ph61 = phi i32 [ 63, %96 ], [ %85, %.split ]
   %.pre73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 120), align 8, !tbaa !36
   br label %.split59.us
 
 .split59.us:                                      ; preds = %.split.us, %80, %.split59.us.loopexit60
-  %97 = phi i32 [ %.pre73, %.split59.us.loopexit60 ], [ %81, %80 ], [ %61, %.split.us ]
-  %.us-phi = phi i32 [ %.us-phi.ph61, %.split59.us.loopexit60 ], [ 63, %80 ], [ %66, %.split.us ]
+  %97 = phi i32 [ %.pre73, %.split59.us.loopexit60 ], [ %61, %.split.us ], [ %81, %80 ]
+  %.us-phi = phi i32 [ %.us-phi.ph61, %.split59.us.loopexit60 ], [ %66, %.split.us ], [ 63, %80 ]
   store i32 %.us-phi, ptr @power_largest, align 4, !tbaa !17
   %98 = zext nneg i32 %.us-phi to i64
   %99 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %98
@@ -1684,7 +1684,7 @@ split_slab_page_into_freelist.exit:               ; preds = %.lr.ph.i, %68
   br label %do_grow_slab_list.exit.thread
 
 do_grow_slab_list.exit.thread:                    ; preds = %55, %34, %27, %memory_allocate.exit, %20, %split_slab_page_into_freelist.exit
-  %.015 = phi i32 [ 1, %split_slab_page_into_freelist.exit ], [ 0, %20 ], [ 0, %memory_allocate.exit ], [ 0, %34 ], [ 0, %27 ], [ 0, %55 ]
+  %.015 = phi i32 [ 1, %split_slab_page_into_freelist.exit ], [ 0, %20 ], [ 0, %memory_allocate.exit ], [ 0, %27 ], [ 0, %34 ], [ 0, %55 ]
   ret i32 %.015
 }
 

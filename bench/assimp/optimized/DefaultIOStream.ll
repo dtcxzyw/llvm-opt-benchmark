@@ -186,7 +186,7 @@ define noundef i64 @_ZNK6Assimp15DefaultIOStream8FileSizeEv(ptr noundef nonnull 
   br label %19
 
 19:                                               ; preds = %.sink.split, %10, %1, %5
-  %.0 = phi i64 [ %12, %10 ], [ 0, %1 ], [ 0, %5 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i64 [ 0, %5 ], [ 0, %1 ], [ %12, %10 ], [ %.0.ph, %.sink.split ]
   ret i64 %.0
 }
 

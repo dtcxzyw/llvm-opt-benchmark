@@ -90,7 +90,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %32
   br label %.loopexit, !llvm.loop !23
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %12, %..loopexit_crit_edge21.i.i.i.i, %17
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %12, %17, %..loopexit_crit_edge21.i.i.i.i
   %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEEixERS5_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %37 unwind label %38
 
@@ -105,7 +105,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   resume { ptr, i32 } %39
 
 _ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit: ; preds = %29, %13, %24
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %13 ], [ %25, %24 ], [ %31, %29 ]
+  %.sroa.06.1.i.i = phi ptr [ %25, %24 ], [ %.sroa.06.0.i.i, %13 ], [ %31, %29 ]
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %42 = load i64, ptr %41, align 8, !tbaa !24
   %43 = add i64 %42, 1
@@ -175,7 +175,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   resume { ptr, i32 } %26
 
 _ZNSt8__detail9_Map_baseImSt4pairIKmmESaIS3_ENS_10_Select1stESt8equal_toImESt4hashImENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_.exit: ; preds = %15, %10, %.loopexit.i
-  %.pn.i = phi ptr [ %25, %.loopexit.i ], [ %11, %10 ], [ %17, %15 ]
+  %.pn.i = phi ptr [ %11, %10 ], [ %25, %.loopexit.i ], [ %17, %15 ]
   %.1.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 16
   ret ptr %.1.i
 }
@@ -338,7 +338,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit20:        ; preds = %13
   br label %.critedge18, !llvm.loop !23
 
 _ZNSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE4findERS5_.exit: ; preds = %33, %18, %28
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %18 ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.06.1.i.i = phi ptr [ %29, %28 ], [ %.sroa.06.0.i.i, %18 ], [ %35, %33 ]
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %41 = load i64, ptr %40, align 8, !tbaa !24
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.033.064, i64 8

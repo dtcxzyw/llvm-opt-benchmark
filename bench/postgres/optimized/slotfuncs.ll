@@ -731,7 +731,7 @@ define dso_local i64 @pg_replication_slot_advance(ptr noundef %0) local_unnamed_
   br label %32
 
 32:                                               ; preds = %30, %27, %25, %22
-  %.0 = phi i64 [ %9, %22 ], [ %26, %25 ], [ %31, %30 ], [ %9, %27 ]
+  %.0 = phi i64 [ %26, %25 ], [ %9, %22 ], [ %31, %30 ], [ %9, %27 ]
   call void @ReplicationSlotAcquire(ptr noundef %7, i1 noundef zeroext true, i1 noundef zeroext true) #8
   %33 = load ptr, ptr @MyReplicationSlot, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 104

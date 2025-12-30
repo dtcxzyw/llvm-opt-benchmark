@@ -371,7 +371,7 @@ define dso_local noundef range(i32 -12, 1) i32 @snd_info_card_create(ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %4, %16, %22, %17, %1
-  %25 = phi i32 [ -6, %1 ], [ 0, %22 ], [ -12, %17 ], [ -12, %16 ], [ -12, %4 ]
+  %25 = phi i32 [ -6, %1 ], [ -12, %17 ], [ 0, %22 ], [ -12, %16 ], [ -12, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %25
 }
@@ -520,7 +520,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_info_register(ptr noundef %0
   br label %.thread6
 
 .thread6:                                         ; preds = %47, %43, %.thread6.sink.split, %5
-  %51 = phi i32 [ -12, %.thread6.sink.split ], [ -6, %5 ], [ 0, %43 ], [ %49, %47 ]
+  %51 = phi i32 [ -6, %5 ], [ -12, %.thread6.sink.split ], [ 0, %43 ], [ %49, %47 ]
   ret i32 %51
 }
 
@@ -728,7 +728,7 @@ define dso_local noundef range(i32 0, 2) i32 @snd_info_get_line(ptr noundef capt
   br i1 %46, label %21, label %47, !llvm.loop !13
 
 47:                                               ; preds = %41, %33
-  %48 = phi ptr [ %23, %33 ], [ %45, %41 ]
+  %48 = phi ptr [ %45, %41 ], [ %23, %33 ]
   store i8 0, ptr %48, align 1
   br label %49
 
@@ -1365,7 +1365,7 @@ define internal range(i32 -2147483648, 1) i32 @snd_info_text_entry_open(ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %10, %6, %2, %31
-  %38 = phi i32 [ 0, %31 ], [ -19, %6 ], [ -14, %10 ], [ -19, %2 ], [ %.ph, %.thread.sink.split ]
+  %38 = phi i32 [ 0, %31 ], [ -14, %10 ], [ -19, %6 ], [ -19, %2 ], [ %.ph, %.thread.sink.split ]
   tail call void @mutex_unlock(ptr noundef nonnull @info_mutex) #13
   ret i32 %38
 }

@@ -153,9 +153,9 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %setup_cipher_list.exit
 
 setup_cipher_list.exit:                           ; preds = %._crit_edge.i, %9, %13, %16, %19
-  %.019.i = phi ptr [ null, %9 ], [ %14, %._crit_edge.i ], [ %14, %19 ], [ %14, %16 ], [ %14, %13 ]
-  %.018.i = phi ptr [ null, %9 ], [ %17, %._crit_edge.i ], [ %17, %19 ], [ %17, %16 ], [ null, %13 ]
-  %.0.i = phi i32 [ 0, %9 ], [ %spec.select, %._crit_edge.i ], [ 0, %19 ], [ 0, %16 ], [ 0, %13 ]
+  %.019.i = phi ptr [ %14, %19 ], [ %14, %16 ], [ %14, %13 ], [ null, %9 ], [ %14, %._crit_edge.i ]
+  %.018.i = phi ptr [ %17, %19 ], [ %17, %16 ], [ null, %13 ], [ null, %9 ], [ %17, %._crit_edge.i ]
+  %.0.i = phi i32 [ 0, %19 ], [ 0, %16 ], [ 0, %13 ], [ 0, %9 ], [ %spec.select, %._crit_edge.i ]
   tail call void @OPENSSL_sk_free(ptr noundef %.018.i) #4
   tail call void @SSL_free(ptr noundef %.019.i) #4
   tail call void @SSL_CTX_free(ptr noundef %11) #4
@@ -167,7 +167,7 @@ setup_cipher_list.exit:                           ; preds = %._crit_edge.i, %9, 
   br label %43
 
 43:                                               ; preds = %setup_cipher_list.exit, %42, %3, %6, %2
-  %.0 = phi i32 [ 0, %3 ], [ 0, %2 ], [ 0, %6 ], [ 1, %42 ], [ 1, %setup_cipher_list.exit ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %6 ], [ 0, %3 ], [ 1, %42 ], [ 1, %setup_cipher_list.exit ]
   ret i32 %.0
 }
 
@@ -325,7 +325,7 @@ define internal range(i32 0, 2) i32 @test_ssl_corrupt(i32 noundef %0) #1 {
   br label %bio_f_tls_corrupt_filter.exit
 
 bio_f_tls_corrupt_filter.exit:                    ; preds = %55, %58, %61, %63, %66, %69, %72, %75, %78
-  %.0.i = phi ptr [ null, %58 ], [ %spec.select.i, %78 ], [ null, %75 ], [ null, %72 ], [ null, %69 ], [ null, %66 ], [ null, %63 ], [ null, %61 ], [ %56, %55 ]
+  %.0.i = phi ptr [ null, %75 ], [ null, %72 ], [ null, %69 ], [ null, %66 ], [ null, %63 ], [ null, %61 ], [ null, %58 ], [ %56, %55 ], [ %spec.select.i, %78 ]
   %81 = call ptr @BIO_new(ptr noundef %.0.i) #4
   %82 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 218, ptr noundef nonnull @.str.36, ptr noundef %81) #4
   %.not18 = icmp eq i32 %82, 0
@@ -386,7 +386,7 @@ bio_f_tls_corrupt_filter.exit:                    ; preds = %55, %58, %61, %63, 
   br i1 %.not23, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %109, %101, %97, %90, %83, %bio_f_tls_corrupt_filter.exit, %49, %18, %24, %33, %39, %43, %46, %108
-  %.09 = phi i32 [ 0, %108 ], [ 0, %18 ], [ 0, %101 ], [ 0, %97 ], [ 0, %90 ], [ 0, %83 ], [ 0, %bio_f_tls_corrupt_filter.exit ], [ 0, %49 ], [ 0, %46 ], [ 0, %43 ], [ 0, %39 ], [ 0, %33 ], [ 0, %24 ], [ 1, %109 ]
+  %.09 = phi i32 [ 0, %108 ], [ 0, %101 ], [ 0, %97 ], [ 0, %90 ], [ 0, %83 ], [ 0, %bio_f_tls_corrupt_filter.exit ], [ 0, %49 ], [ 0, %46 ], [ 0, %43 ], [ 0, %39 ], [ 0, %33 ], [ 0, %24 ], [ 0, %18 ], [ 1, %109 ]
   %112 = load ptr, ptr %4, align 8, !tbaa !15
   call void @SSL_free(ptr noundef %112) #4
   %113 = load ptr, ptr %5, align 8, !tbaa !15

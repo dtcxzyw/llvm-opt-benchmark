@@ -46,7 +46,7 @@ define dso_local range(i32 0, 2) i32 @curlx_get_line(ptr noundef %0, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %10, %8, %4, %6, %17
-  %.3 = phi i32 [ %., %17 ], [ 0, %8 ], [ 1, %10 ], [ 0, %6 ], [ 0, %4 ]
+  %.3 = phi i32 [ %., %17 ], [ 0, %8 ], [ 1, %10 ], [ 0, %4 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.3
 }

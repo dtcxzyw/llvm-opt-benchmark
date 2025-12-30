@@ -931,7 +931,7 @@ define internal noundef i32 @preload_image(ptr noundef %0, ptr noundef initializ
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge.thread38, %._crit_edge
-  %.lcssa37 = phi i32 [ 0, %._crit_edge ], [ %.lcssa41, %._crit_edge.thread38 ], [ %21, %.lr.ph.split.us ]
+  %.lcssa37 = phi i32 [ %.lcssa41, %._crit_edge.thread38 ], [ 0, %._crit_edge ], [ %21, %.lr.ph.split.us ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @get_memory_row, ptr %40, align 8, !tbaa !63
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 88

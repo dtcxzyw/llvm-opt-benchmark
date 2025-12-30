@@ -299,7 +299,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_prioq_cell_in(ptr nounde
   br label %89
 
 89:                                               ; preds = %86, %81, %.lr.ph.split
-  %90 = phi i32 [ 1, %81 ], [ %88, %86 ], [ 1, %.lr.ph.split ]
+  %90 = phi i32 [ 1, %.lr.ph.split ], [ 1, %81 ], [ %88, %86 ]
   %91 = icmp slt i32 %90, 0
   %92 = icmp eq i32 %90, 0
   %93 = select i1 %92, i1 %15, i1 false
@@ -317,8 +317,8 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_prioq_cell_in(ptr nounde
   br label %112
 
 .thread13:                                        ; preds = %89, %79, %.lr.ph.split.us, %.lr.ph.split.us.preheader
-  %.lcssa16 = phi ptr [ %66, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ], [ %74, %79 ], [ %74, %89 ]
-  %.lcssa = phi ptr [ %63, %.lr.ph.split.us ], [ %42, %.lr.ph.split.us.preheader ], [ %73, %79 ], [ %73, %89 ]
+  %.lcssa16 = phi ptr [ null, %.lr.ph.split.us.preheader ], [ %66, %.lr.ph.split.us ], [ %74, %79 ], [ %74, %89 ]
+  %.lcssa = phi ptr [ %42, %.lr.ph.split.us.preheader ], [ %63, %.lr.ph.split.us ], [ %73, %79 ], [ %73, %89 ]
   %99 = icmp eq ptr %.lcssa16, null
   br i1 %99, label %.thread13.thread50, label %.thread13.thread
 
@@ -527,9 +527,9 @@ define dso_local void @snd_seq_prioq_leave(ptr noundef %0, i32 noundef %1, i32 n
   br label %91
 
 91:                                               ; preds = %89, %85, %72, %70
-  %92 = phi ptr [ %50, %85 ], [ %50, %89 ], [ %47, %70 ], [ %47, %72 ]
-  %93 = phi ptr [ %47, %85 ], [ %49, %89 ], [ %49, %70 ], [ %49, %72 ]
-  %94 = phi ptr [ %47, %85 ], [ %47, %89 ], [ %48, %70 ], [ %48, %72 ]
+  %92 = phi ptr [ %50, %85 ], [ %50, %89 ], [ %47, %72 ], [ %47, %70 ]
+  %93 = phi ptr [ %47, %85 ], [ %49, %89 ], [ %49, %72 ], [ %49, %70 ]
+  %94 = phi ptr [ %47, %85 ], [ %47, %89 ], [ %48, %72 ], [ %48, %70 ]
   %95 = icmp eq ptr %52, null
   br i1 %95, label %.split6.us, label %.split, !llvm.loop !8
 

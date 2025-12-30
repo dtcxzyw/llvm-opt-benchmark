@@ -1596,7 +1596,7 @@ define internal fastcc void @ieee80211_color_change_finalize(ptr noundef initial
   br i1 %61, label %.thread, label %.preheader, !llvm.loop !64
 
 .thread:                                          ; preds = %57, %7, %23, %41, %37, %26, %24
-  %62 = phi i32 [ 144, %24 ], [ 145, %26 ], [ 145, %37 ], [ 145, %41 ], [ 144, %7 ], [ 144, %23 ], [ 145, %57 ]
+  %62 = phi i32 [ 144, %24 ], [ 145, %26 ], [ 145, %37 ], [ 145, %41 ], [ 144, %23 ], [ 144, %7 ], [ 145, %57 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 @cfg80211_bss_color_notify(ptr noundef %64, i32 noundef %62, i8 noundef zeroext 0, i64 noundef 0) #16
@@ -1986,7 +1986,7 @@ define internal i32 @ieee80211_change_iface(ptr readnone captures(none) %0, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %30, %26, %21, %55, %52, %4
-  %56 = phi i32 [ 0, %55 ], [ %53, %52 ], [ %8, %4 ], [ 0, %30 ], [ -95, %26 ], [ 0, %21 ]
+  %56 = phi i32 [ 0, %55 ], [ %8, %4 ], [ %53, %52 ], [ 0, %30 ], [ -95, %26 ], [ 0, %21 ]
   ret i32 %56
 }
 
@@ -3374,7 +3374,7 @@ define internal i32 @ieee80211_start_ap(ptr readnone captures(none) %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %178, %189, %336, %327, %219, %137, %22, %16, %3
-  %338 = phi i32 [ %201, %219 ], [ %337, %336 ], [ -67, %3 ], [ -114, %16 ], [ -95, %22 ], [ -95, %137 ], [ -22, %189 ], [ 0, %327 ], [ -22, %178 ], [ 0, %.preheader ]
+  %338 = phi i32 [ %201, %219 ], [ %337, %336 ], [ -67, %3 ], [ -114, %16 ], [ -95, %22 ], [ -95, %137 ], [ 0, %327 ], [ -22, %178 ], [ -22, %189 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %338
 }
@@ -8900,7 +8900,7 @@ define internal noundef range(i32 -95, 1) i32 @ieee80211_color_change(ptr readno
   br label %64
 
 64:                                               ; preds = %.thread, %63, %62, %14, %10, %3
-  %65 = phi i32 [ -22, %3 ], [ %.ph, %.thread ], [ 0, %62 ], [ 0, %63 ], [ -16, %14 ], [ -16, %10 ]
+  %65 = phi i32 [ -22, %3 ], [ 0, %62 ], [ 0, %63 ], [ -16, %14 ], [ -16, %10 ], [ %.ph, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %65
 }
@@ -10578,7 +10578,7 @@ define internal fastcc range(i32 0, 4) i32 @cfg80211_get_chandef_type(ptr nounde
   br label %13
 
 13:                                               ; preds = %1, %12, %4, %1
-  %14 = phi i32 [ 0, %12 ], [ %11, %4 ], [ %3, %1 ], [ %3, %1 ]
+  %14 = phi i32 [ 0, %12 ], [ %3, %1 ], [ %11, %4 ], [ %3, %1 ]
   ret i32 %14
 }
 

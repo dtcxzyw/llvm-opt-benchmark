@@ -1246,8 +1246,8 @@ define internal zeroext i8 @sd_init_command(ptr noundef %0) #2 align 16 {
   br label %.thread8
 
 .thread:                                          ; preds = %217, %224, %221
-  %246 = phi i1 [ false, %221 ], [ true, %224 ], [ false, %217 ]
-  %247 = phi i32 [ 0, %221 ], [ %225, %224 ], [ 0, %217 ]
+  %246 = phi i1 [ true, %224 ], [ false, %221 ], [ false, %217 ]
+  %247 = phi i32 [ %225, %224 ], [ 0, %221 ], [ 0, %217 ]
   %248 = load i64, ptr %129, align 4
   %249 = and i64 %248, 33554432
   %250 = icmp ne i64 %249, 0
@@ -2271,7 +2271,7 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #2 
   br label %.sink.split
 
 .thread70:                                        ; preds = %246, %.thread71, %255, %248
-  %275 = phi i32 [ %249, %248 ], [ %264, %.thread71 ], [ %251, %255 ], [ %245, %246 ]
+  %275 = phi i32 [ %249, %248 ], [ %251, %255 ], [ %264, %.thread71 ], [ %245, %246 ]
   %276 = getelementptr inbounds nuw i8, ptr %219, i64 332
   %277 = load i64, ptr %276, align 4
   %278 = and i64 %277, 137438953472

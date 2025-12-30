@@ -4326,7 +4326,7 @@ lean_alloc_ctor.exit131:                          ; preds = %lean_alloc_ctor.exi
   br label %223
 
 223:                                              ; preds = %lean_alloc_ctor.exit120, %lean_alloc_ctor.exit131, %lean_dec.exit78, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %111, %lean_alloc_ctor.exit ], [ %51, %lean_dec.exit78 ], [ %158, %lean_alloc_ctor.exit120 ], [ %222, %lean_alloc_ctor.exit131 ]
+  %.1 = phi ptr [ %51, %lean_dec.exit78 ], [ %111, %lean_alloc_ctor.exit ], [ %158, %lean_alloc_ctor.exit120 ], [ %222, %lean_alloc_ctor.exit131 ]
   ret ptr %.1
 }
 
@@ -7547,7 +7547,7 @@ _init_l_StateT_run_x27___rarg___closed__1.exit:   ; preds = %lean_dec_ref.exit
   br label %51
 
 51:                                               ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit15, %7
-  %.0 = phi ptr [ %18, %lean_dec_ref.exit15 ], [ %28, %lean_dec_ref.exit13 ], [ %8, %7 ], [ %.sink32, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit15 ], [ %28, %lean_dec_ref.exit13 ], [ %.sink32, %.sink.split ]
   ret ptr %.0
 }
 

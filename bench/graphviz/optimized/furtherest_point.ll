@@ -164,10 +164,10 @@ dist.exit47.i:                                    ; preds = %.lr.ph.i, %60
   br i1 %exitcond.not.i, label %distance_to_group.exit, label %dist.exit47.i, !llvm.loop !10
 
 distance_to_group.exit:                           ; preds = %60, %33, %dist.exit.loopexit.us.i, %.lr.ph55.i, %.preheader48.i, %.preheader.i
-  %61 = phi i1 [ true, %.lr.ph55.i ], [ false, %.preheader.i ], [ true, %dist.exit.loopexit.us.i ], [ false, %.preheader48.i ], [ true, %33 ], [ true, %60 ]
-  %62 = phi ptr [ %36, %.lr.ph55.i ], [ %36, %.preheader.i ], [ %36, %dist.exit.loopexit.us.i ], [ %14, %.preheader48.i ], [ %15, %33 ], [ %15, %60 ]
-  %.1207 = phi double [ 1.000000e+00, %.lr.ph55.i ], [ 1.000000e+00, %.preheader.i ], [ 1.000000e+00, %dist.exit.loopexit.us.i ], [ 0.000000e+00, %.preheader48.i ], [ %..093, %33 ], [ %..093, %60 ]
-  %.2.i = phi double [ 0.000000e+00, %.lr.ph55.i ], [ 0.000000e+00, %.preheader.i ], [ %.1.us.i, %dist.exit.loopexit.us.i ], [ 0.000000e+00, %.preheader48.i ], [ %.4.us.i, %33 ], [ %.4.i, %60 ]
+  %61 = phi i1 [ false, %.preheader.i ], [ false, %.preheader48.i ], [ true, %.lr.ph55.i ], [ true, %dist.exit.loopexit.us.i ], [ true, %33 ], [ true, %60 ]
+  %62 = phi ptr [ %36, %.preheader.i ], [ %14, %.preheader48.i ], [ %36, %.lr.ph55.i ], [ %36, %dist.exit.loopexit.us.i ], [ %15, %33 ], [ %15, %60 ]
+  %.1207 = phi double [ 1.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader48.i ], [ 1.000000e+00, %.lr.ph55.i ], [ 1.000000e+00, %dist.exit.loopexit.us.i ], [ %..093, %33 ], [ %..093, %60 ]
+  %.2.i = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader48.i ], [ 0.000000e+00, %.lr.ph55.i ], [ %.1.us.i, %dist.exit.loopexit.us.i ], [ %.4.us.i, %33 ], [ %.4.i, %60 ]
   store double %.2.i, ptr %7, align 8, !tbaa !3
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store double %.2.i, ptr %63, align 8, !tbaa !14
@@ -603,7 +603,7 @@ dist.exit47.i113:                                 ; preds = %.lr.ph.i110, %262
   br i1 %exitcond.not.i119, label %distance_to_group.exit153, label %dist.exit47.i113, !llvm.loop !10
 
 distance_to_group.exit153:                        ; preds = %262, %238, %dist.exit.loopexit.us.i149, %.preheader.i133, %.preheader48.i108
-  %.2.i109 = phi double [ %.1.us.i150, %dist.exit.loopexit.us.i149 ], [ 0.000000e+00, %.preheader.i133 ], [ %.4.us.i130, %238 ], [ 0.000000e+00, %.preheader48.i108 ], [ %.4.i117, %262 ]
+  %.2.i109 = phi double [ 0.000000e+00, %.preheader.i133 ], [ 0.000000e+00, %.preheader48.i108 ], [ %.1.us.i150, %dist.exit.loopexit.us.i149 ], [ %.4.us.i130, %238 ], [ %.4.i117, %262 ]
   %263 = getelementptr inbounds nuw i8, ptr %217, i64 8
   store double %.2.i109, ptr %263, align 8, !tbaa !14
   %264 = load double, ptr %7, align 8, !tbaa !3
@@ -739,8 +739,8 @@ qt_list_append.exit161:                           ; preds = %303, %309, %.crited
   br i1 %exitcond338.not, label %.loopexit214, label %.lr.ph273, !llvm.loop !34
 
 ._crit_edge292:                                   ; preds = %.loopexit214, %.loopexit214.us, %.loopexit214.us.us, %qt_list_append.exit
-  %.sroa.0185.0.lcssa = phi ptr [ %malloc, %qt_list_append.exit ], [ %.sroa.0.0289.us, %.loopexit214.us ], [ %.sroa.0.0289.us.us, %.loopexit214.us.us ], [ %.sroa.0.1.lcssa, %.loopexit214 ]
-  %.sroa.0.0.lcssa = phi ptr [ null, %qt_list_append.exit ], [ %.sroa.0185.0288.us, %.loopexit214.us ], [ %.sroa.0185.0288.us.us, %.loopexit214.us.us ], [ %.sroa.0185.0288, %.loopexit214 ]
+  %.sroa.0185.0.lcssa = phi ptr [ %malloc, %qt_list_append.exit ], [ %.sroa.0.0289.us.us, %.loopexit214.us.us ], [ %.sroa.0.0289.us, %.loopexit214.us ], [ %.sroa.0.1.lcssa, %.loopexit214 ]
+  %.sroa.0.0.lcssa = phi ptr [ null, %qt_list_append.exit ], [ %.sroa.0185.0288.us.us, %.loopexit214.us.us ], [ %.sroa.0185.0288.us, %.loopexit214.us ], [ %.sroa.0185.0288, %.loopexit214 ]
   tail call void @QuadTree_delete(ptr noundef %62) #16
   tail call void @free(ptr noundef %.sroa.0185.0.lcssa) #16
   tail call void @free(ptr noundef %.sroa.0.0.lcssa) #16
@@ -920,9 +920,9 @@ dist.exit.loopexit.us.i117:                       ; preds = %.lr.ph.i.us.i112
   br i1 %exitcond73.not.i120, label %distance_to_group.exit, label %.lr.ph.preheader.i.us.i109, !llvm.loop !13
 
 distance_to_group.exit:                           ; preds = %43, %31, %dist.exit.loopexit.us.i117, %.lr.ph55.i102, %.preheader48.i, %.split90
-  %63 = phi ptr [ %48, %.lr.ph55.i102 ], [ %11, %.preheader48.i ], [ %48, %dist.exit.loopexit.us.i117 ], [ %13, %31 ], [ %48, %.split90 ], [ %13, %43 ]
-  %phi.call = phi double [ 0.000000e+00, %.lr.ph55.i102 ], [ 0.000000e+00, %.preheader48.i ], [ %.1.us.i118, %dist.exit.loopexit.us.i117 ], [ %.4.us.i, %31 ], [ 0.000000e+00, %.split90 ], [ %.4.i, %43 ]
-  %.1 = phi double [ 1.000000e+00, %.lr.ph55.i102 ], [ 0.000000e+00, %.preheader48.i ], [ 1.000000e+00, %dist.exit.loopexit.us.i117 ], [ %..084, %31 ], [ 1.000000e+00, %.split90 ], [ %..084, %43 ]
+  %63 = phi ptr [ %11, %.preheader48.i ], [ %48, %.split90 ], [ %48, %.lr.ph55.i102 ], [ %48, %dist.exit.loopexit.us.i117 ], [ %13, %31 ], [ %13, %43 ]
+  %phi.call = phi double [ 0.000000e+00, %.preheader48.i ], [ 0.000000e+00, %.split90 ], [ 0.000000e+00, %.lr.ph55.i102 ], [ %.1.us.i118, %dist.exit.loopexit.us.i117 ], [ %.4.us.i, %31 ], [ %.4.i, %43 ]
+  %.1 = phi double [ 0.000000e+00, %.preheader48.i ], [ 1.000000e+00, %.split90 ], [ 1.000000e+00, %.lr.ph55.i102 ], [ 1.000000e+00, %dist.exit.loopexit.us.i117 ], [ %..084, %31 ], [ %..084, %43 ]
   store double %phi.call, ptr %6, align 8, !tbaa !3
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %phi.call, ptr %64, align 8, !tbaa !14
@@ -1218,7 +1218,7 @@ dist.exit47.i128:                                 ; preds = %.lr.ph.i125, %185
   br i1 %exitcond.not.i134, label %distance_to_group.exit168, label %dist.exit47.i128, !llvm.loop !10
 
 distance_to_group.exit168:                        ; preds = %161, %185, %dist.exit.loopexit.us.i164, %.preheader.i148, %.preheader48.i123
-  %.2.i124 = phi double [ %.1.us.i165, %dist.exit.loopexit.us.i164 ], [ 0.000000e+00, %.preheader.i148 ], [ %.4.i132, %185 ], [ 0.000000e+00, %.preheader48.i123 ], [ %.4.us.i145, %161 ]
+  %.2.i124 = phi double [ 0.000000e+00, %.preheader.i148 ], [ 0.000000e+00, %.preheader48.i123 ], [ %.1.us.i165, %dist.exit.loopexit.us.i164 ], [ %.4.i132, %185 ], [ %.4.us.i145, %161 ]
   %186 = getelementptr inbounds nuw i8, ptr %141, i64 8
   store double %.2.i124, ptr %186, align 8, !tbaa !14
   %187 = load double, ptr %6, align 8, !tbaa !3

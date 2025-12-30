@@ -807,7 +807,7 @@ handleAbsEvent.exit:                              ; preds = %84, %60, %.thread, 
   %87 = icmp slt i64 %86, 0
   br i1 %87, label %._crit_edge, label %20
 
-88:                                               ; preds = %._crit_edge, %17
+88:                                               ; preds = %17, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %90 = load i32, ptr %89, align 4, !tbaa !98

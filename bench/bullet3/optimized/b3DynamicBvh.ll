@@ -1179,7 +1179,7 @@ _Z7b3MergeRK12b3DbvtAabbMmS1_RS_.exit.i:          ; preds = %24
   br label %_ZL7b3SplitPP10b3DbvtNodeiRK9b3Vector3S4_.exit
 
 _ZL7b3SplitPP10b3DbvtNodeiRK9b3Vector3S4_.exit:   ; preds = %.critedge2.i, %.critedge.preheader.i, %133, %.critedge.i, %171
-  %.055 = phi i32 [ %173, %171 ], [ %.03248.i, %133 ], [ %131, %.critedge.i ], [ %163, %.critedge2.i ], [ %.03248.i, %.critedge.preheader.i ]
+  %.055 = phi i32 [ %173, %171 ], [ %131, %.critedge.i ], [ %.03248.i, %133 ], [ %163, %.critedge2.i ], [ %.03248.i, %.critedge.preheader.i ]
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %175 = load ptr, ptr %174, align 8, !tbaa !29
   %.not.i.i = icmp eq ptr %175, null
@@ -1401,7 +1401,7 @@ define dso_local void @_ZN12b3DynamicBvh6updateEP10b3DbvtNodei(ptr noundef nonnu
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %.lr.ph, %.preheader, %11, %3
-  %.010 = phi ptr [ null, %3 ], [ %12, %11 ], [ %4, %.preheader ], [ %10, %7 ], [ %.116, %.lr.ph ]
+  %.010 = phi ptr [ %12, %11 ], [ null, %3 ], [ %4, %.preheader ], [ %10, %7 ], [ %.116, %.lr.ph ]
   tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef %0, ptr noundef %.010, ptr noundef %1)
   ret void
 }
@@ -1879,7 +1879,7 @@ define dso_local void @_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm(ptr
   br label %.critedge
 
 .critedge:                                        ; preds = %9, %.lr.ph, %.preheader, %13, %3
-  %.010 = phi ptr [ null, %3 ], [ %14, %13 ], [ %4, %.preheader ], [ %12, %9 ], [ %.115, %.lr.ph ]
+  %.010 = phi ptr [ %14, %13 ], [ null, %3 ], [ %4, %.preheader ], [ %12, %9 ], [ %.115, %.lr.ph ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !58
   tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef %0, ptr noundef %.010, ptr noundef nonnull %1)
   ret void
@@ -2026,7 +2026,7 @@ _ZN12b3DbvtAabbMm12SignedExpandERK9b3Vector3.exit: ; preds = %56, %58
   br label %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit
 
 _ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit: ; preds = %77, %.lr.ph.i, %_ZN12b3DbvtAabbMm12SignedExpandERK9b3Vector3.exit, %.preheader.i, %81
-  %.010.i = phi ptr [ null, %_ZN12b3DbvtAabbMm12SignedExpandERK9b3Vector3.exit ], [ %82, %81 ], [ %72, %.preheader.i ], [ %.115.i, %.lr.ph.i ], [ %80, %77 ]
+  %.010.i = phi ptr [ %82, %81 ], [ null, %_ZN12b3DbvtAabbMm12SignedExpandERK9b3Vector3.exit ], [ %72, %.preheader.i ], [ %.115.i, %.lr.ph.i ], [ %80, %77 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull readonly align 16 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !58
   tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %.010.i, ptr noundef nonnull %1)
   br label %83
@@ -2149,7 +2149,7 @@ _ZN12b3DbvtAabbMm12SignedExpandERK9b3Vector3.exit: ; preds = %39, %43
   br label %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit
 
 _ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit: ; preds = %62, %.lr.ph.i, %_ZN12b3DbvtAabbMm12SignedExpandERK9b3Vector3.exit, %.preheader.i, %66
-  %.010.i = phi ptr [ null, %_ZN12b3DbvtAabbMm12SignedExpandERK9b3Vector3.exit ], [ %67, %66 ], [ %57, %.preheader.i ], [ %.115.i, %.lr.ph.i ], [ %65, %62 ]
+  %.010.i = phi ptr [ %67, %66 ], [ null, %_ZN12b3DbvtAabbMm12SignedExpandERK9b3Vector3.exit ], [ %57, %.preheader.i ], [ %.115.i, %.lr.ph.i ], [ %65, %62 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull readonly align 16 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !58
   tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %.010.i, ptr noundef nonnull %1)
   br label %68
@@ -2266,7 +2266,7 @@ _ZNK12b3DbvtAabbMm7ContainERKS_.exit.thread:      ; preds = %._ZNK12b3DbvtAabbMm
   br label %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit
 
 _ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit: ; preds = %58, %.lr.ph.i, %_ZNK12b3DbvtAabbMm7ContainERKS_.exit.thread, %.preheader.i, %62
-  %.010.i = phi ptr [ null, %_ZNK12b3DbvtAabbMm7ContainERKS_.exit.thread ], [ %63, %62 ], [ %53, %.preheader.i ], [ %.115.i, %.lr.ph.i ], [ %61, %58 ]
+  %.010.i = phi ptr [ %63, %62 ], [ null, %_ZNK12b3DbvtAabbMm7ContainERKS_.exit.thread ], [ %53, %.preheader.i ], [ %.115.i, %.lr.ph.i ], [ %61, %58 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull readonly align 16 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !58
   tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %.010.i, ptr noundef nonnull %1)
   br label %64
@@ -2513,8 +2513,8 @@ _ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit: ; preds
   br label %_ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit45
 
 _ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit45: ; preds = %76, %62, %._crit_edge.loopexit.split.loop.exit.i44
-  %.06.i3047 = phi i32 [ %44, %62 ], [ %.06.i30, %._crit_edge.loopexit.split.loop.exit.i44 ], [ %.06.i30, %76 ]
-  %.06.i38 = phi i32 [ %44, %62 ], [ %77, %._crit_edge.loopexit.split.loop.exit.i44 ], [ %44, %76 ]
+  %.06.i3047 = phi i32 [ %.06.i30, %._crit_edge.loopexit.split.loop.exit.i44 ], [ %44, %62 ], [ %.06.i30, %76 ]
+  %.06.i38 = phi i32 [ %77, %._crit_edge.loopexit.split.loop.exit.i44 ], [ %44, %62 ], [ %44, %76 ]
   %78 = load ptr, ptr %1, align 8, !tbaa !73
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %80 = load ptr, ptr %79, align 8
@@ -3032,7 +3032,7 @@ _ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEED2Ev.exit: ; preds = %136, %1
   br label %144
 
 143:                                              ; preds = %65, %122, %124, %63, %61
-  %.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %64, %63 ], [ %125, %124 ], [ %123, %122 ], [ %66, %65 ]
+  %.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ], [ %125, %124 ], [ %123, %122 ], [ %66, %65 ]
   call void @_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn

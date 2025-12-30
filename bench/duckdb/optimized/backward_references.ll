@@ -614,11 +614,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit285: ; preds = %245, %
   br label %278
 
 278:                                              ; preds = %277, %269, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit285, %238, %235, %231
-  %.sroa.29430.5 = phi i64 [ %.sroa.29430.3650, %238 ], [ %.sroa.29430.3650, %231 ], [ %.sroa.29430.3650, %235 ], [ %275, %277 ], [ %.sroa.29430.3650, %269 ], [ %.sroa.29430.3650, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit285 ]
-  %.sroa.18426.5 = phi i64 [ %.sroa.18426.3651, %238 ], [ %.sroa.18426.3651, %231 ], [ %.sroa.18426.3651, %235 ], [ %229, %277 ], [ %.sroa.18426.3651, %269 ], [ %.sroa.18426.3651, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit285 ]
-  %.sroa.0418.5 = phi i64 [ %.sroa.0418.3652, %238 ], [ %.sroa.0418.3652, %231 ], [ %.sroa.0418.3652, %235 ], [ %.2.i281, %277 ], [ %.sroa.0418.3652, %269 ], [ %.sroa.0418.3652, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit285 ]
-  %.5136.i = phi i64 [ %.4135.i654, %238 ], [ %.4135.i654, %231 ], [ %.4135.i654, %235 ], [ %.2.i281, %277 ], [ %.4135.i654, %269 ], [ %.4135.i654, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit285 ]
-  %.5.i = phi i64 [ %.4.i655, %238 ], [ %.4.i655, %231 ], [ %.4.i655, %235 ], [ %275, %277 ], [ %.4.i655, %269 ], [ %.4.i655, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit285 ]
+  %.sroa.29430.5 = phi i64 [ %.sroa.29430.3650, %231 ], [ %.sroa.29430.3650, %235 ], [ %275, %277 ], [ %.sroa.29430.3650, %269 ], [ %.sroa.29430.3650, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit285 ], [ %.sroa.29430.3650, %238 ]
+  %.sroa.18426.5 = phi i64 [ %.sroa.18426.3651, %231 ], [ %.sroa.18426.3651, %235 ], [ %229, %277 ], [ %.sroa.18426.3651, %269 ], [ %.sroa.18426.3651, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit285 ], [ %.sroa.18426.3651, %238 ]
+  %.sroa.0418.5 = phi i64 [ %.sroa.0418.3652, %231 ], [ %.sroa.0418.3652, %235 ], [ %.2.i281, %277 ], [ %.sroa.0418.3652, %269 ], [ %.sroa.0418.3652, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit285 ], [ %.sroa.0418.3652, %238 ]
+  %.5136.i = phi i64 [ %.4135.i654, %231 ], [ %.4135.i654, %235 ], [ %.2.i281, %277 ], [ %.4135.i654, %269 ], [ %.4135.i654, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit285 ], [ %.4135.i654, %238 ]
+  %.5.i = phi i64 [ %.4.i655, %231 ], [ %.4.i655, %235 ], [ %275, %277 ], [ %.4.i655, %269 ], [ %.4.i655, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit285 ], [ %.4.i655, %238 ]
   %279 = icmp ugt i64 %224, %spec.select.i
   br i1 %279, label %223, label %.thread446
 
@@ -1540,11 +1540,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit257: ; preds = %694, %
   br label %727
 
 727:                                              ; preds = %726, %718, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit257, %687, %684, %680
-  %.sroa.18.3 = phi i64 [ %.sroa.18.1809, %687 ], [ %.sroa.18.1809, %680 ], [ %.sroa.18.1809, %684 ], [ %724, %726 ], [ %.sroa.18.1809, %718 ], [ %.sroa.18.1809, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit257 ]
-  %.sroa.12.3 = phi i64 [ %.sroa.12.1810, %687 ], [ %.sroa.12.1810, %680 ], [ %.sroa.12.1810, %684 ], [ %678, %726 ], [ %.sroa.12.1810, %718 ], [ %.sroa.12.1810, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit257 ]
-  %.sroa.0.3 = phi i64 [ %.sroa.0.1811, %687 ], [ %.sroa.0.1811, %680 ], [ %.sroa.0.1811, %684 ], [ %.2.i253, %726 ], [ %.sroa.0.1811, %718 ], [ %.sroa.0.1811, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit257 ]
-  %.5136.i222 = phi i64 [ %.4135.i218813, %687 ], [ %.4135.i218813, %680 ], [ %.4135.i218813, %684 ], [ %.2.i253, %726 ], [ %.4135.i218813, %718 ], [ %.4135.i218813, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit257 ]
-  %.5.i223 = phi i64 [ %.4.i219814, %687 ], [ %.4.i219814, %680 ], [ %.4.i219814, %684 ], [ %724, %726 ], [ %.4.i219814, %718 ], [ %.4.i219814, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit257 ]
+  %.sroa.18.3 = phi i64 [ %.sroa.18.1809, %680 ], [ %.sroa.18.1809, %684 ], [ %724, %726 ], [ %.sroa.18.1809, %718 ], [ %.sroa.18.1809, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit257 ], [ %.sroa.18.1809, %687 ]
+  %.sroa.12.3 = phi i64 [ %.sroa.12.1810, %680 ], [ %.sroa.12.1810, %684 ], [ %678, %726 ], [ %.sroa.12.1810, %718 ], [ %.sroa.12.1810, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit257 ], [ %.sroa.12.1810, %687 ]
+  %.sroa.0.3 = phi i64 [ %.sroa.0.1811, %680 ], [ %.sroa.0.1811, %684 ], [ %.2.i253, %726 ], [ %.sroa.0.1811, %718 ], [ %.sroa.0.1811, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit257 ], [ %.sroa.0.1811, %687 ]
+  %.5136.i222 = phi i64 [ %.4135.i218813, %680 ], [ %.4135.i218813, %684 ], [ %.2.i253, %726 ], [ %.4135.i218813, %718 ], [ %.4135.i218813, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit257 ], [ %.4135.i218813, %687 ]
+  %.5.i223 = phi i64 [ %.4.i219814, %680 ], [ %.4.i219814, %684 ], [ %724, %726 ], [ %.4.i219814, %718 ], [ %.4.i219814, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit257 ], [ %.4.i219814, %687 ]
   %728 = icmp ugt i64 %673, %spec.select.i216
   br i1 %728, label %672, label %.thread484
 
@@ -2184,8 +2184,8 @@ split:                                            ; preds = %1003, %_ZN13duckdb_
   %1046 = add i64 %.sroa.18426.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %1022, %1033, %1026, %1038, %1042, %1045
-  %.1.i238 = phi i64 [ %1046, %1045 ], [ 3, %1042 ], [ 1, %1022 ], [ %1037, %1033 ], [ %1030, %1026 ], [ 2, %1038 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %1038, %1022, %1033, %1026, %1042, %1045
+  %.1.i238 = phi i64 [ %1046, %1045 ], [ 3, %1042 ], [ 2, %1038 ], [ 1, %1022 ], [ %1037, %1033 ], [ %1030, %1026 ]
   %1047 = icmp ule i64 %.sroa.18426.1.ph, %1012
   %1048 = icmp ne i64 %.1.i238, 0
   %or.cond = and i1 %1047, %1048
@@ -2237,7 +2237,7 @@ _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %1022, %1033, %1026,
   br label %_ZN13duckdb_brotliL20PrepareDistanceCacheEPii.exit
 
 _ZN13duckdb_brotliL20PrepareDistanceCacheEPii.exit: ; preds = %1013, %1064, %1056, %1049, %_ZL19ComputeDistanceCodemmPKi.exit
-  %.1.i238541 = phi i64 [ %.1.i238, %_ZL19ComputeDistanceCodemmPKi.exit ], [ %.1.i238, %1064 ], [ %.1.i238, %1056 ], [ %.1.i238, %1049 ], [ 0, %1013 ]
+  %.1.i238541 = phi i64 [ %.1.i238, %1064 ], [ %.1.i238, %1056 ], [ %.1.i238, %1049 ], [ %.1.i238, %_ZL19ComputeDistanceCodemmPKi.exit ], [ 0, %1013 ]
   %1071 = getelementptr inbounds nuw i8, ptr %.0180914, i64 16
   %1072 = trunc i64 %.3185.ph to i32
   store i32 %1072, ptr %.0180914, align 4, !tbaa !148
@@ -2558,10 +2558,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1164, %_ZN13duckdb_
   br i1 %1276, label %1257, label %_ZN13duckdb_brotliL12StoreRangeH5EPNS_2H5EPKhmmm.exit, !llvm.loop !170
 
 _ZN13duckdb_brotliL12StoreRangeH5EPNS_2H5EPKhmmm.exit: ; preds = %1257, %1230, %1198, %1250, %1223, %1193, %1216
-  %.1190 = phi i64 [ %1011, %1193 ], [ %.0189912, %1216 ], [ %.0189912, %1223 ], [ %.0189912, %1250 ], [ %.0189912, %1230 ], [ %1011, %1198 ], [ %.0189912, %1257 ]
-  %.4186 = phi i64 [ 0, %1193 ], [ %1217, %1216 ], [ %1217, %1223 ], [ %1217, %1250 ], [ %1247, %1230 ], [ 0, %1198 ], [ %1274, %1257 ]
-  %.1181 = phi ptr [ %1071, %1193 ], [ %.0180914, %1216 ], [ %.0180914, %1223 ], [ %.0180914, %1250 ], [ %.0180914, %1230 ], [ %1071, %1198 ], [ %.0180914, %1257 ]
-  %.4 = phi i64 [ %1184, %1193 ], [ %1218, %1216 ], [ %1218, %1223 ], [ %1218, %1250 ], [ %1248, %1230 ], [ %1184, %1198 ], [ %1275, %1257 ]
+  %.1190 = phi i64 [ %.0189912, %1216 ], [ %1011, %1193 ], [ %.0189912, %1223 ], [ %.0189912, %1250 ], [ %1011, %1198 ], [ %.0189912, %1230 ], [ %.0189912, %1257 ]
+  %.4186 = phi i64 [ %1217, %1216 ], [ 0, %1193 ], [ %1217, %1223 ], [ %1217, %1250 ], [ 0, %1198 ], [ %1247, %1230 ], [ %1274, %1257 ]
+  %.1181 = phi ptr [ %.0180914, %1216 ], [ %1071, %1193 ], [ %.0180914, %1223 ], [ %.0180914, %1250 ], [ %1071, %1198 ], [ %.0180914, %1230 ], [ %.0180914, %1257 ]
+  %.4 = phi i64 [ %1218, %1216 ], [ %1184, %1193 ], [ %1218, %1223 ], [ %1218, %1250 ], [ %1184, %1198 ], [ %1248, %1230 ], [ %1275, %1257 ]
   %1277 = add i64 %.4, 4
   %1278 = icmp ult i64 %1277, %21
   br i1 %1278, label %103, label %._crit_edge917, !llvm.loop !171
@@ -3073,11 +3073,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i294: ; preds = %248,
   br label %280
 
 280:                                              ; preds = %279, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i294, %244, %239, %236, %232
-  %.sroa.29407.14 = phi i64 [ %.sroa.29407.8627, %239 ], [ %.sroa.29407.8627, %232 ], [ %.sroa.29407.8627, %236 ], [ %277, %279 ], [ %.sroa.29407.8627, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i294 ], [ %.sroa.29407.8627, %244 ]
-  %.sroa.18403.14 = phi i64 [ %.sroa.18403.8628, %239 ], [ %.sroa.18403.8628, %232 ], [ %.sroa.18403.8628, %236 ], [ %230, %279 ], [ %.sroa.18403.8628, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i294 ], [ %.sroa.18403.8628, %244 ]
-  %.sroa.0395.14 = phi i64 [ %.sroa.0395.8629, %239 ], [ %.sroa.0395.8629, %232 ], [ %.sroa.0395.8629, %236 ], [ %271, %279 ], [ %.sroa.0395.8629, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i294 ], [ %.sroa.0395.8629, %244 ]
-  %.5142.i = phi i64 [ %.4141.i631, %239 ], [ %.4141.i631, %232 ], [ %.4141.i631, %236 ], [ %271, %279 ], [ %.4141.i631, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i294 ], [ %.4141.i631, %244 ]
-  %.5.i284 = phi i64 [ %.4.i282632, %239 ], [ %.4.i282632, %232 ], [ %.4.i282632, %236 ], [ %277, %279 ], [ %.4.i282632, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i294 ], [ %.4.i282632, %244 ]
+  %.sroa.29407.14 = phi i64 [ %.sroa.29407.8627, %232 ], [ %.sroa.29407.8627, %236 ], [ %277, %279 ], [ %.sroa.29407.8627, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i294 ], [ %.sroa.29407.8627, %244 ], [ %.sroa.29407.8627, %239 ]
+  %.sroa.18403.14 = phi i64 [ %.sroa.18403.8628, %232 ], [ %.sroa.18403.8628, %236 ], [ %230, %279 ], [ %.sroa.18403.8628, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i294 ], [ %.sroa.18403.8628, %244 ], [ %.sroa.18403.8628, %239 ]
+  %.sroa.0395.14 = phi i64 [ %.sroa.0395.8629, %232 ], [ %.sroa.0395.8629, %236 ], [ %271, %279 ], [ %.sroa.0395.8629, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i294 ], [ %.sroa.0395.8629, %244 ], [ %.sroa.0395.8629, %239 ]
+  %.5142.i = phi i64 [ %.4141.i631, %232 ], [ %.4141.i631, %236 ], [ %271, %279 ], [ %.4141.i631, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i294 ], [ %.4141.i631, %244 ], [ %.4141.i631, %239 ]
+  %.5.i284 = phi i64 [ %.4.i282632, %232 ], [ %.4.i282632, %236 ], [ %277, %279 ], [ %.4.i282632, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i294 ], [ %.4.i282632, %244 ], [ %.4.i282632, %239 ]
   %281 = icmp ugt i64 %225, %spec.select.i281
   br i1 %281, label %224, label %.thread423
 
@@ -4003,11 +4003,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i351: ; preds = %699,
   br label %731
 
 731:                                              ; preds = %730, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i351, %695, %690, %687, %683
-  %.sroa.18.12 = phi i64 [ %.sroa.18.6786, %690 ], [ %.sroa.18.6786, %683 ], [ %.sroa.18.6786, %687 ], [ %728, %730 ], [ %.sroa.18.6786, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i351 ], [ %.sroa.18.6786, %695 ]
-  %.sroa.12.12 = phi i64 [ %.sroa.12.6787, %690 ], [ %.sroa.12.6787, %683 ], [ %.sroa.12.6787, %687 ], [ %681, %730 ], [ %.sroa.12.6787, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i351 ], [ %.sroa.12.6787, %695 ]
-  %.sroa.0.12 = phi i64 [ %.sroa.0.6788, %690 ], [ %.sroa.0.6788, %683 ], [ %.sroa.0.6788, %687 ], [ %722, %730 ], [ %.sroa.0.6788, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i351 ], [ %.sroa.0.6788, %695 ]
-  %.5142.i338 = phi i64 [ %.4141.i309790, %690 ], [ %.4141.i309790, %683 ], [ %.4141.i309790, %687 ], [ %722, %730 ], [ %.4141.i309790, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i351 ], [ %.4141.i309790, %695 ]
-  %.5.i339 = phi i64 [ %.4.i310791, %690 ], [ %.4.i310791, %683 ], [ %.4.i310791, %687 ], [ %728, %730 ], [ %.4.i310791, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i351 ], [ %.4.i310791, %695 ]
+  %.sroa.18.12 = phi i64 [ %.sroa.18.6786, %683 ], [ %.sroa.18.6786, %687 ], [ %728, %730 ], [ %.sroa.18.6786, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i351 ], [ %.sroa.18.6786, %695 ], [ %.sroa.18.6786, %690 ]
+  %.sroa.12.12 = phi i64 [ %.sroa.12.6787, %683 ], [ %.sroa.12.6787, %687 ], [ %681, %730 ], [ %.sroa.12.6787, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i351 ], [ %.sroa.12.6787, %695 ], [ %.sroa.12.6787, %690 ]
+  %.sroa.0.12 = phi i64 [ %.sroa.0.6788, %683 ], [ %.sroa.0.6788, %687 ], [ %722, %730 ], [ %.sroa.0.6788, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i351 ], [ %.sroa.0.6788, %695 ], [ %.sroa.0.6788, %690 ]
+  %.5142.i338 = phi i64 [ %.4141.i309790, %683 ], [ %.4141.i309790, %687 ], [ %722, %730 ], [ %.4141.i309790, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i351 ], [ %.4141.i309790, %695 ], [ %.4141.i309790, %690 ]
+  %.5.i339 = phi i64 [ %.4.i310791, %683 ], [ %.4.i310791, %687 ], [ %728, %730 ], [ %.4.i310791, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i351 ], [ %.4.i310791, %695 ], [ %.4.i310791, %690 ]
   %732 = icmp ugt i64 %676, %spec.select.i306
   br i1 %732, label %675, label %.thread461
 
@@ -4647,8 +4647,8 @@ split:                                            ; preds = %1007, %_ZN13duckdb_
   %1050 = add i64 %.sroa.18403.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %1026, %1037, %1030, %1042, %1046, %1049
-  %.1.i = phi i64 [ %1050, %1049 ], [ 3, %1046 ], [ 1, %1026 ], [ %1041, %1037 ], [ %1034, %1030 ], [ 2, %1042 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %1042, %1026, %1037, %1030, %1046, %1049
+  %.1.i = phi i64 [ %1050, %1049 ], [ 3, %1046 ], [ 2, %1042 ], [ 1, %1026 ], [ %1041, %1037 ], [ %1034, %1030 ]
   %1051 = icmp ule i64 %.sroa.18403.1.ph, %1016
   %1052 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %1051, %1052
@@ -4701,7 +4701,7 @@ _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %1026, %1037, %1030,
   br label %_ZN13duckdb_brotliL22PrepareDistanceCacheH6EPNS_2H6EPi.exit279
 
 _ZN13duckdb_brotliL22PrepareDistanceCacheH6EPNS_2H6EPi.exit279: ; preds = %1017, %1068, %1060, %1053, %_ZL19ComputeDistanceCodemmPKi.exit
-  %.1.i518 = phi i64 [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ %.1.i, %1068 ], [ %.1.i, %1060 ], [ %.1.i, %1053 ], [ 0, %1017 ]
+  %.1.i518 = phi i64 [ %.1.i, %1068 ], [ %.1.i, %1060 ], [ %.1.i, %1053 ], [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ 0, %1017 ]
   %1075 = getelementptr inbounds nuw i8, ptr %.0180891, i64 16
   %1076 = trunc i64 %.3185.ph to i32
   store i32 %1076, ptr %.0180891, align 4, !tbaa !148
@@ -5017,10 +5017,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1168, %_ZN13duckdb_
   br i1 %1275, label %1258, label %_ZN13duckdb_brotliL12StoreRangeH6EPNS_2H6EPKhmmm.exit, !llvm.loop !276
 
 _ZN13duckdb_brotliL12StoreRangeH6EPNS_2H6EPKhmmm.exit: ; preds = %1258, %1233, %1203, %1251, %1226, %1197, %1219
-  %.1190 = phi i64 [ %1015, %1197 ], [ %.0189889, %1219 ], [ %.0189889, %1226 ], [ %.0189889, %1251 ], [ %.0189889, %1233 ], [ %1015, %1203 ], [ %.0189889, %1258 ]
-  %.4186 = phi i64 [ 0, %1197 ], [ %1220, %1219 ], [ %1220, %1226 ], [ %1220, %1251 ], [ %1248, %1233 ], [ 0, %1203 ], [ %1273, %1258 ]
-  %.1181 = phi ptr [ %1075, %1197 ], [ %.0180891, %1219 ], [ %.0180891, %1226 ], [ %.0180891, %1251 ], [ %.0180891, %1233 ], [ %1075, %1203 ], [ %.0180891, %1258 ]
-  %.4 = phi i64 [ %1188, %1197 ], [ %1221, %1219 ], [ %1221, %1226 ], [ %1221, %1251 ], [ %1249, %1233 ], [ %1188, %1203 ], [ %1274, %1258 ]
+  %.1190 = phi i64 [ %.0189889, %1219 ], [ %1015, %1197 ], [ %.0189889, %1226 ], [ %.0189889, %1251 ], [ %1015, %1203 ], [ %.0189889, %1233 ], [ %.0189889, %1258 ]
+  %.4186 = phi i64 [ %1220, %1219 ], [ 0, %1197 ], [ %1220, %1226 ], [ %1220, %1251 ], [ 0, %1203 ], [ %1248, %1233 ], [ %1273, %1258 ]
+  %.1181 = phi ptr [ %.0180891, %1219 ], [ %1075, %1197 ], [ %.0180891, %1226 ], [ %.0180891, %1251 ], [ %1075, %1203 ], [ %.0180891, %1233 ], [ %.0180891, %1258 ]
+  %.4 = phi i64 [ %1221, %1219 ], [ %1188, %1197 ], [ %1221, %1226 ], [ %1221, %1251 ], [ %1188, %1203 ], [ %1249, %1233 ], [ %1274, %1258 ]
   %1276 = add i64 %.4, 8
   %1277 = icmp ult i64 %1276, %21
   br i1 %1277, label %102, label %._crit_edge894, !llvm.loop !277
@@ -5437,11 +5437,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296: ; preds = %187,
   br label %220
 
 220:                                              ; preds = %219, %211, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296, %180, %177, %167
-  %.sroa.29420.9 = phi i64 [ %.sroa.29420.8639, %180 ], [ %.sroa.29420.8639, %167 ], [ %.sroa.29420.8639, %177 ], [ %217, %219 ], [ %.sroa.29420.8639, %211 ], [ %.sroa.29420.8639, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ]
-  %.sroa.18416.9 = phi i64 [ %.sroa.18416.8640, %180 ], [ %.sroa.18416.8640, %167 ], [ %.sroa.18416.8640, %177 ], [ %165, %219 ], [ %.sroa.18416.8640, %211 ], [ %.sroa.18416.8640, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ]
-  %.sroa.0408.9 = phi i64 [ %.sroa.0408.8641, %180 ], [ %.sroa.0408.8641, %167 ], [ %.sroa.0408.8641, %177 ], [ %.2.i.i297, %219 ], [ %.sroa.0408.8641, %211 ], [ %.sroa.0408.8641, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ]
-  %.5123.i = phi i64 [ %.4122.i644, %180 ], [ %.4122.i644, %167 ], [ %.4122.i644, %177 ], [ %.2.i.i297, %219 ], [ %.4122.i644, %211 ], [ %.4122.i644, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ]
-  %.5.i286 = phi i64 [ %.4.i282645, %180 ], [ %.4.i282645, %167 ], [ %.4.i282645, %177 ], [ %217, %219 ], [ %.4.i282645, %211 ], [ %.4.i282645, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ]
+  %.sroa.29420.9 = phi i64 [ %.sroa.29420.8639, %167 ], [ %.sroa.29420.8639, %177 ], [ %217, %219 ], [ %.sroa.29420.8639, %211 ], [ %.sroa.29420.8639, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ], [ %.sroa.29420.8639, %180 ]
+  %.sroa.18416.9 = phi i64 [ %.sroa.18416.8640, %167 ], [ %.sroa.18416.8640, %177 ], [ %165, %219 ], [ %.sroa.18416.8640, %211 ], [ %.sroa.18416.8640, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ], [ %.sroa.18416.8640, %180 ]
+  %.sroa.0408.9 = phi i64 [ %.sroa.0408.8641, %167 ], [ %.sroa.0408.8641, %177 ], [ %.2.i.i297, %219 ], [ %.sroa.0408.8641, %211 ], [ %.sroa.0408.8641, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ], [ %.sroa.0408.8641, %180 ]
+  %.5123.i = phi i64 [ %.4122.i644, %167 ], [ %.4122.i644, %177 ], [ %.2.i.i297, %219 ], [ %.4122.i644, %211 ], [ %.4122.i644, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ], [ %.4122.i644, %180 ]
+  %.5.i286 = phi i64 [ %.4.i282645, %167 ], [ %.4.i282645, %177 ], [ %217, %219 ], [ %.4.i282645, %211 ], [ %.4.i282645, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ], [ %.4.i282645, %180 ]
   %.not.i283 = icmp eq i64 %164, 0
   br i1 %.not.i283, label %.thread436, label %163
 
@@ -6356,11 +6356,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358: ; preds = %632,
   br label %665
 
 665:                                              ; preds = %664, %656, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358, %625, %622, %612
-  %.sroa.18.7 = phi i64 [ %.sroa.18.6788, %625 ], [ %.sroa.18.6788, %612 ], [ %.sroa.18.6788, %622 ], [ %662, %664 ], [ %.sroa.18.6788, %656 ], [ %.sroa.18.6788, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ]
-  %.sroa.12.7 = phi i64 [ %.sroa.12.6789, %625 ], [ %.sroa.12.6789, %612 ], [ %.sroa.12.6789, %622 ], [ %610, %664 ], [ %.sroa.12.6789, %656 ], [ %.sroa.12.6789, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ]
-  %.sroa.0.7 = phi i64 [ %.sroa.0.6790, %625 ], [ %.sroa.0.6790, %612 ], [ %.sroa.0.6790, %622 ], [ %.2.i.i359, %664 ], [ %.sroa.0.6790, %656 ], [ %.sroa.0.6790, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ]
-  %.5123.i322 = phi i64 [ %.4122.i315793, %625 ], [ %.4122.i315793, %612 ], [ %.4122.i315793, %622 ], [ %.2.i.i359, %664 ], [ %.4122.i315793, %656 ], [ %.4122.i315793, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ]
-  %.5.i323 = phi i64 [ %.4.i316794, %625 ], [ %.4.i316794, %612 ], [ %.4.i316794, %622 ], [ %662, %664 ], [ %.4.i316794, %656 ], [ %.4.i316794, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ]
+  %.sroa.18.7 = phi i64 [ %.sroa.18.6788, %612 ], [ %.sroa.18.6788, %622 ], [ %662, %664 ], [ %.sroa.18.6788, %656 ], [ %.sroa.18.6788, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ], [ %.sroa.18.6788, %625 ]
+  %.sroa.12.7 = phi i64 [ %.sroa.12.6789, %612 ], [ %.sroa.12.6789, %622 ], [ %610, %664 ], [ %.sroa.12.6789, %656 ], [ %.sroa.12.6789, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ], [ %.sroa.12.6789, %625 ]
+  %.sroa.0.7 = phi i64 [ %.sroa.0.6790, %612 ], [ %.sroa.0.6790, %622 ], [ %.2.i.i359, %664 ], [ %.sroa.0.6790, %656 ], [ %.sroa.0.6790, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ], [ %.sroa.0.6790, %625 ]
+  %.5123.i322 = phi i64 [ %.4122.i315793, %612 ], [ %.4122.i315793, %622 ], [ %.2.i.i359, %664 ], [ %.4122.i315793, %656 ], [ %.4122.i315793, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ], [ %.4122.i315793, %625 ]
+  %.5.i323 = phi i64 [ %.4.i316794, %612 ], [ %.4.i316794, %622 ], [ %662, %664 ], [ %.4.i316794, %656 ], [ %.4.i316794, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ], [ %.4.i316794, %625 ]
   %.not.i317 = icmp eq i64 %609, 0
   br i1 %.not.i317, label %.thread476, label %608
 
@@ -7013,8 +7013,8 @@ split:                                            ; preds = %946, %_ZN13duckdb_b
   %989 = add i64 %.sroa.18416.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %965, %976, %969, %981, %985, %988
-  %.1.i = phi i64 [ %989, %988 ], [ 3, %985 ], [ 1, %965 ], [ %980, %976 ], [ %973, %969 ], [ 2, %981 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %981, %965, %976, %969, %985, %988
+  %.1.i = phi i64 [ %989, %988 ], [ 3, %985 ], [ 2, %981 ], [ 1, %965 ], [ %980, %976 ], [ %973, %969 ]
   %990 = icmp ule i64 %.sroa.18416.1.ph, %955
   %991 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %990, %991
@@ -7032,7 +7032,7 @@ _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %965, %976, %969, %9
   br label %_ZL19ComputeDistanceCodemmPKi.exit.thread
 
 _ZL19ComputeDistanceCodemmPKi.exit.thread:        ; preds = %956, %992, %_ZL19ComputeDistanceCodemmPKi.exit
-  %.1.i535 = phi i64 [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ %.1.i, %992 ], [ 0, %956 ]
+  %.1.i535 = phi i64 [ %.1.i, %992 ], [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ 0, %956 ]
   %997 = getelementptr inbounds nuw i8, ptr %.0180893, i64 16
   %998 = trunc i64 %.3185.ph to i32
   store i32 %998, ptr %.0180893, align 4, !tbaa !148
@@ -7386,19 +7386,19 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1090, %_ZN13duckdb_
   br i1 %1220, label %1196, label %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split, !llvm.loop !384
 
 _ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split: ; preds = %1196, %1163, %1125
-  %.lcssa1157.sink = phi i16 [ %1170, %1163 ], [ %1132, %1125 ], [ %1203, %1196 ]
-  %.1190.ph = phi i64 [ %.0189891, %1163 ], [ %954, %1125 ], [ %.0189891, %1196 ]
-  %.4186.ph = phi i64 [ %1185, %1163 ], [ 0, %1125 ], [ %1218, %1196 ]
-  %.1181.ph = phi ptr [ %.0180893, %1163 ], [ %997, %1125 ], [ %.0180893, %1196 ]
-  %.4.ph = phi i64 [ %1186, %1163 ], [ %1110, %1125 ], [ %1219, %1196 ]
+  %.lcssa1157.sink = phi i16 [ %1132, %1125 ], [ %1170, %1163 ], [ %1203, %1196 ]
+  %.1190.ph = phi i64 [ %954, %1125 ], [ %.0189891, %1163 ], [ %.0189891, %1196 ]
+  %.4186.ph = phi i64 [ 0, %1125 ], [ %1185, %1163 ], [ %1218, %1196 ]
+  %.1181.ph = phi ptr [ %997, %1125 ], [ %.0180893, %1163 ], [ %.0180893, %1196 ]
+  %.4.ph = phi i64 [ %1110, %1125 ], [ %1186, %1163 ], [ %1219, %1196 ]
   store i16 %.lcssa1157.sink, ptr %13, align 2, !tbaa !68, !noalias !385
   br label %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit
 
 _ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit: ; preds = %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split, %1188, %1155, %1119, %1148
-  %.1190 = phi i64 [ %954, %1119 ], [ %.0189891, %1148 ], [ %.0189891, %1155 ], [ %.0189891, %1188 ], [ %.1190.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
-  %.4186 = phi i64 [ 0, %1119 ], [ %1149, %1148 ], [ %1149, %1155 ], [ %1149, %1188 ], [ %.4186.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
-  %.1181 = phi ptr [ %997, %1119 ], [ %.0180893, %1148 ], [ %.0180893, %1155 ], [ %.0180893, %1188 ], [ %.1181.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
-  %.4 = phi i64 [ %1110, %1119 ], [ %1150, %1148 ], [ %1150, %1155 ], [ %1150, %1188 ], [ %.4.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
+  %.1190 = phi i64 [ %.0189891, %1148 ], [ %954, %1119 ], [ %.0189891, %1155 ], [ %.0189891, %1188 ], [ %.1190.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
+  %.4186 = phi i64 [ %1149, %1148 ], [ 0, %1119 ], [ %1149, %1155 ], [ %1149, %1188 ], [ %.4186.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
+  %.1181 = phi ptr [ %.0180893, %1148 ], [ %997, %1119 ], [ %.0180893, %1155 ], [ %.0180893, %1188 ], [ %.1181.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
+  %.4 = phi i64 [ %1150, %1148 ], [ %1110, %1119 ], [ %1150, %1155 ], [ %1150, %1188 ], [ %.4.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
   %1221 = add i64 %.4, 4
   %1222 = icmp ult i64 %1221, %22
   br i1 %1222, label %54, label %._crit_edge, !llvm.loop !386
@@ -7834,11 +7834,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296: ; preds = %200,
   br label %233
 
 233:                                              ; preds = %232, %224, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296, %193, %190, %180
-  %.sroa.29420.9 = phi i64 [ %.sroa.29420.8639, %193 ], [ %.sroa.29420.8639, %180 ], [ %.sroa.29420.8639, %190 ], [ %230, %232 ], [ %.sroa.29420.8639, %224 ], [ %.sroa.29420.8639, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ]
-  %.sroa.18416.9 = phi i64 [ %.sroa.18416.8640, %193 ], [ %.sroa.18416.8640, %180 ], [ %.sroa.18416.8640, %190 ], [ %178, %232 ], [ %.sroa.18416.8640, %224 ], [ %.sroa.18416.8640, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ]
-  %.sroa.0408.9 = phi i64 [ %.sroa.0408.8641, %193 ], [ %.sroa.0408.8641, %180 ], [ %.sroa.0408.8641, %190 ], [ %.2.i.i297, %232 ], [ %.sroa.0408.8641, %224 ], [ %.sroa.0408.8641, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ]
-  %.5123.i = phi i64 [ %.4122.i644, %193 ], [ %.4122.i644, %180 ], [ %.4122.i644, %190 ], [ %.2.i.i297, %232 ], [ %.4122.i644, %224 ], [ %.4122.i644, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ]
-  %.5.i286 = phi i64 [ %.4.i282645, %193 ], [ %.4.i282645, %180 ], [ %.4.i282645, %190 ], [ %230, %232 ], [ %.4.i282645, %224 ], [ %.4.i282645, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ]
+  %.sroa.29420.9 = phi i64 [ %.sroa.29420.8639, %180 ], [ %.sroa.29420.8639, %190 ], [ %230, %232 ], [ %.sroa.29420.8639, %224 ], [ %.sroa.29420.8639, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ], [ %.sroa.29420.8639, %193 ]
+  %.sroa.18416.9 = phi i64 [ %.sroa.18416.8640, %180 ], [ %.sroa.18416.8640, %190 ], [ %178, %232 ], [ %.sroa.18416.8640, %224 ], [ %.sroa.18416.8640, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ], [ %.sroa.18416.8640, %193 ]
+  %.sroa.0408.9 = phi i64 [ %.sroa.0408.8641, %180 ], [ %.sroa.0408.8641, %190 ], [ %.2.i.i297, %232 ], [ %.sroa.0408.8641, %224 ], [ %.sroa.0408.8641, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ], [ %.sroa.0408.8641, %193 ]
+  %.5123.i = phi i64 [ %.4122.i644, %180 ], [ %.4122.i644, %190 ], [ %.2.i.i297, %232 ], [ %.4122.i644, %224 ], [ %.4122.i644, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ], [ %.4122.i644, %193 ]
+  %.5.i286 = phi i64 [ %.4.i282645, %180 ], [ %.4.i282645, %190 ], [ %230, %232 ], [ %.4.i282645, %224 ], [ %.4.i282645, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ], [ %.4.i282645, %193 ]
   %.not.i283 = icmp eq i64 %177, 0
   br i1 %.not.i283, label %.thread436, label %176
 
@@ -8753,11 +8753,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358: ; preds = %645,
   br label %678
 
 678:                                              ; preds = %677, %669, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358, %638, %635, %625
-  %.sroa.18.7 = phi i64 [ %.sroa.18.6788, %638 ], [ %.sroa.18.6788, %625 ], [ %.sroa.18.6788, %635 ], [ %675, %677 ], [ %.sroa.18.6788, %669 ], [ %.sroa.18.6788, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ]
-  %.sroa.12.7 = phi i64 [ %.sroa.12.6789, %638 ], [ %.sroa.12.6789, %625 ], [ %.sroa.12.6789, %635 ], [ %623, %677 ], [ %.sroa.12.6789, %669 ], [ %.sroa.12.6789, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ]
-  %.sroa.0.7 = phi i64 [ %.sroa.0.6790, %638 ], [ %.sroa.0.6790, %625 ], [ %.sroa.0.6790, %635 ], [ %.2.i.i359, %677 ], [ %.sroa.0.6790, %669 ], [ %.sroa.0.6790, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ]
-  %.5123.i322 = phi i64 [ %.4122.i315793, %638 ], [ %.4122.i315793, %625 ], [ %.4122.i315793, %635 ], [ %.2.i.i359, %677 ], [ %.4122.i315793, %669 ], [ %.4122.i315793, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ]
-  %.5.i323 = phi i64 [ %.4.i316794, %638 ], [ %.4.i316794, %625 ], [ %.4.i316794, %635 ], [ %675, %677 ], [ %.4.i316794, %669 ], [ %.4.i316794, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ]
+  %.sroa.18.7 = phi i64 [ %.sroa.18.6788, %625 ], [ %.sroa.18.6788, %635 ], [ %675, %677 ], [ %.sroa.18.6788, %669 ], [ %.sroa.18.6788, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ], [ %.sroa.18.6788, %638 ]
+  %.sroa.12.7 = phi i64 [ %.sroa.12.6789, %625 ], [ %.sroa.12.6789, %635 ], [ %623, %677 ], [ %.sroa.12.6789, %669 ], [ %.sroa.12.6789, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ], [ %.sroa.12.6789, %638 ]
+  %.sroa.0.7 = phi i64 [ %.sroa.0.6790, %625 ], [ %.sroa.0.6790, %635 ], [ %.2.i.i359, %677 ], [ %.sroa.0.6790, %669 ], [ %.sroa.0.6790, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ], [ %.sroa.0.6790, %638 ]
+  %.5123.i322 = phi i64 [ %.4122.i315793, %625 ], [ %.4122.i315793, %635 ], [ %.2.i.i359, %677 ], [ %.4122.i315793, %669 ], [ %.4122.i315793, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ], [ %.4122.i315793, %638 ]
+  %.5.i323 = phi i64 [ %.4.i316794, %625 ], [ %.4.i316794, %635 ], [ %675, %677 ], [ %.4.i316794, %669 ], [ %.4.i316794, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ], [ %.4.i316794, %638 ]
   %.not.i317 = icmp eq i64 %622, 0
   br i1 %.not.i317, label %.thread476, label %621
 
@@ -9410,8 +9410,8 @@ split:                                            ; preds = %959, %_ZN13duckdb_b
   %1002 = add i64 %.sroa.18416.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %978, %989, %982, %994, %998, %1001
-  %.1.i = phi i64 [ %1002, %1001 ], [ 3, %998 ], [ 1, %978 ], [ %993, %989 ], [ %986, %982 ], [ 2, %994 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %994, %978, %989, %982, %998, %1001
+  %.1.i = phi i64 [ %1002, %1001 ], [ 3, %998 ], [ 2, %994 ], [ 1, %978 ], [ %993, %989 ], [ %986, %982 ]
   %1003 = icmp ule i64 %.sroa.18416.1.ph, %968
   %1004 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %1003, %1004
@@ -9441,7 +9441,7 @@ _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %978, %989, %982, %9
   br label %_ZL19ComputeDistanceCodemmPKi.exit.thread
 
 _ZL19ComputeDistanceCodemmPKi.exit.thread:        ; preds = %969, %1005, %_ZL19ComputeDistanceCodemmPKi.exit
-  %.1.i535 = phi i64 [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ %.1.i, %1005 ], [ 0, %969 ]
+  %.1.i535 = phi i64 [ %.1.i, %1005 ], [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ 0, %969 ]
   %1016 = getelementptr inbounds nuw i8, ptr %.0180893, i64 16
   %1017 = trunc i64 %.3185.ph to i32
   store i32 %1017, ptr %.0180893, align 4, !tbaa !148
@@ -9795,19 +9795,19 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1109, %_ZN13duckdb_
   br i1 %1239, label %1215, label %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split, !llvm.loop !502
 
 _ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split: ; preds = %1215, %1182, %1144
-  %.lcssa1157.sink = phi i16 [ %1189, %1182 ], [ %1151, %1144 ], [ %1222, %1215 ]
-  %.1190.ph = phi i64 [ %.0189891, %1182 ], [ %967, %1144 ], [ %.0189891, %1215 ]
-  %.4186.ph = phi i64 [ %1204, %1182 ], [ 0, %1144 ], [ %1237, %1215 ]
-  %.1181.ph = phi ptr [ %.0180893, %1182 ], [ %1016, %1144 ], [ %.0180893, %1215 ]
-  %.4.ph = phi i64 [ %1205, %1182 ], [ %1129, %1144 ], [ %1238, %1215 ]
+  %.lcssa1157.sink = phi i16 [ %1151, %1144 ], [ %1189, %1182 ], [ %1222, %1215 ]
+  %.1190.ph = phi i64 [ %967, %1144 ], [ %.0189891, %1182 ], [ %.0189891, %1215 ]
+  %.4186.ph = phi i64 [ 0, %1144 ], [ %1204, %1182 ], [ %1237, %1215 ]
+  %.1181.ph = phi ptr [ %1016, %1144 ], [ %.0180893, %1182 ], [ %.0180893, %1215 ]
+  %.4.ph = phi i64 [ %1129, %1144 ], [ %1205, %1182 ], [ %1238, %1215 ]
   store i16 %.lcssa1157.sink, ptr %13, align 2, !tbaa !68, !noalias !385
   br label %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit
 
 _ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit: ; preds = %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split, %1207, %1174, %1138, %1167
-  %.1190 = phi i64 [ %967, %1138 ], [ %.0189891, %1167 ], [ %.0189891, %1174 ], [ %.0189891, %1207 ], [ %.1190.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
-  %.4186 = phi i64 [ 0, %1138 ], [ %1168, %1167 ], [ %1168, %1174 ], [ %1168, %1207 ], [ %.4186.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
-  %.1181 = phi ptr [ %1016, %1138 ], [ %.0180893, %1167 ], [ %.0180893, %1174 ], [ %.0180893, %1207 ], [ %.1181.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
-  %.4 = phi i64 [ %1129, %1138 ], [ %1169, %1167 ], [ %1169, %1174 ], [ %1169, %1207 ], [ %.4.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
+  %.1190 = phi i64 [ %.0189891, %1167 ], [ %967, %1138 ], [ %.0189891, %1174 ], [ %.0189891, %1207 ], [ %.1190.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
+  %.4186 = phi i64 [ %1168, %1167 ], [ 0, %1138 ], [ %1168, %1174 ], [ %1168, %1207 ], [ %.4186.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
+  %.1181 = phi ptr [ %.0180893, %1167 ], [ %1016, %1138 ], [ %.0180893, %1174 ], [ %.0180893, %1207 ], [ %.1181.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
+  %.4 = phi i64 [ %1169, %1167 ], [ %1129, %1138 ], [ %1169, %1174 ], [ %1169, %1207 ], [ %.4.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
   %1240 = add i64 %.4, 4
   %1241 = icmp ult i64 %1240, %22
   br i1 %1241, label %67, label %._crit_edge, !llvm.loop !503
@@ -10264,11 +10264,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296: ; preds = %215,
   br label %248
 
 248:                                              ; preds = %247, %239, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296, %208, %205, %195
-  %.sroa.29420.9 = phi i64 [ %.sroa.29420.8639, %208 ], [ %.sroa.29420.8639, %195 ], [ %.sroa.29420.8639, %205 ], [ %245, %247 ], [ %.sroa.29420.8639, %239 ], [ %.sroa.29420.8639, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ]
-  %.sroa.18416.9 = phi i64 [ %.sroa.18416.8640, %208 ], [ %.sroa.18416.8640, %195 ], [ %.sroa.18416.8640, %205 ], [ %193, %247 ], [ %.sroa.18416.8640, %239 ], [ %.sroa.18416.8640, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ]
-  %.sroa.0408.9 = phi i64 [ %.sroa.0408.8641, %208 ], [ %.sroa.0408.8641, %195 ], [ %.sroa.0408.8641, %205 ], [ %.2.i.i297, %247 ], [ %.sroa.0408.8641, %239 ], [ %.sroa.0408.8641, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ]
-  %.5123.i = phi i64 [ %.4122.i644, %208 ], [ %.4122.i644, %195 ], [ %.4122.i644, %205 ], [ %.2.i.i297, %247 ], [ %.4122.i644, %239 ], [ %.4122.i644, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ]
-  %.5.i286 = phi i64 [ %.4.i282645, %208 ], [ %.4.i282645, %195 ], [ %.4.i282645, %205 ], [ %245, %247 ], [ %.4.i282645, %239 ], [ %.4.i282645, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ]
+  %.sroa.29420.9 = phi i64 [ %.sroa.29420.8639, %195 ], [ %.sroa.29420.8639, %205 ], [ %245, %247 ], [ %.sroa.29420.8639, %239 ], [ %.sroa.29420.8639, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ], [ %.sroa.29420.8639, %208 ]
+  %.sroa.18416.9 = phi i64 [ %.sroa.18416.8640, %195 ], [ %.sroa.18416.8640, %205 ], [ %193, %247 ], [ %.sroa.18416.8640, %239 ], [ %.sroa.18416.8640, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ], [ %.sroa.18416.8640, %208 ]
+  %.sroa.0408.9 = phi i64 [ %.sroa.0408.8641, %195 ], [ %.sroa.0408.8641, %205 ], [ %.2.i.i297, %247 ], [ %.sroa.0408.8641, %239 ], [ %.sroa.0408.8641, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ], [ %.sroa.0408.8641, %208 ]
+  %.5123.i = phi i64 [ %.4122.i644, %195 ], [ %.4122.i644, %205 ], [ %.2.i.i297, %247 ], [ %.4122.i644, %239 ], [ %.4122.i644, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ], [ %.4122.i644, %208 ]
+  %.5.i286 = phi i64 [ %.4.i282645, %195 ], [ %.4.i282645, %205 ], [ %245, %247 ], [ %.4.i282645, %239 ], [ %.4.i282645, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296 ], [ %.4.i282645, %208 ]
   %.not.i283 = icmp eq i64 %192, 0
   br i1 %.not.i283, label %.thread436, label %191
 
@@ -11183,11 +11183,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358: ; preds = %663,
   br label %696
 
 696:                                              ; preds = %695, %687, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358, %656, %653, %643
-  %.sroa.18.7 = phi i64 [ %.sroa.18.6785, %656 ], [ %.sroa.18.6785, %643 ], [ %.sroa.18.6785, %653 ], [ %693, %695 ], [ %.sroa.18.6785, %687 ], [ %.sroa.18.6785, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ]
-  %.sroa.12.7 = phi i64 [ %.sroa.12.6786, %656 ], [ %.sroa.12.6786, %643 ], [ %.sroa.12.6786, %653 ], [ %641, %695 ], [ %.sroa.12.6786, %687 ], [ %.sroa.12.6786, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ]
-  %.sroa.0.7 = phi i64 [ %.sroa.0.6787, %656 ], [ %.sroa.0.6787, %643 ], [ %.sroa.0.6787, %653 ], [ %.2.i.i359, %695 ], [ %.sroa.0.6787, %687 ], [ %.sroa.0.6787, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ]
-  %.5123.i322 = phi i64 [ %.4122.i315790, %656 ], [ %.4122.i315790, %643 ], [ %.4122.i315790, %653 ], [ %.2.i.i359, %695 ], [ %.4122.i315790, %687 ], [ %.4122.i315790, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ]
-  %.5.i323 = phi i64 [ %.4.i316791, %656 ], [ %.4.i316791, %643 ], [ %.4.i316791, %653 ], [ %693, %695 ], [ %.4.i316791, %687 ], [ %.4.i316791, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ]
+  %.sroa.18.7 = phi i64 [ %.sroa.18.6785, %643 ], [ %.sroa.18.6785, %653 ], [ %693, %695 ], [ %.sroa.18.6785, %687 ], [ %.sroa.18.6785, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ], [ %.sroa.18.6785, %656 ]
+  %.sroa.12.7 = phi i64 [ %.sroa.12.6786, %643 ], [ %.sroa.12.6786, %653 ], [ %641, %695 ], [ %.sroa.12.6786, %687 ], [ %.sroa.12.6786, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ], [ %.sroa.12.6786, %656 ]
+  %.sroa.0.7 = phi i64 [ %.sroa.0.6787, %643 ], [ %.sroa.0.6787, %653 ], [ %.2.i.i359, %695 ], [ %.sroa.0.6787, %687 ], [ %.sroa.0.6787, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ], [ %.sroa.0.6787, %656 ]
+  %.5123.i322 = phi i64 [ %.4122.i315790, %643 ], [ %.4122.i315790, %653 ], [ %.2.i.i359, %695 ], [ %.4122.i315790, %687 ], [ %.4122.i315790, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ], [ %.4122.i315790, %656 ]
+  %.5.i323 = phi i64 [ %.4.i316791, %643 ], [ %.4.i316791, %653 ], [ %693, %695 ], [ %.4.i316791, %687 ], [ %.4.i316791, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358 ], [ %.4.i316791, %656 ]
   %.not.i317 = icmp eq i64 %640, 0
   br i1 %.not.i317, label %.thread476, label %639
 
@@ -11844,8 +11844,8 @@ split:                                            ; preds = %981, %_ZN13duckdb_b
   %1024 = add i64 %.sroa.18416.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %1000, %1011, %1004, %1016, %1020, %1023
-  %.1.i = phi i64 [ %1024, %1023 ], [ 3, %1020 ], [ 1, %1000 ], [ %1015, %1011 ], [ %1008, %1004 ], [ 2, %1016 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %1016, %1000, %1011, %1004, %1020, %1023
+  %.1.i = phi i64 [ %1024, %1023 ], [ 3, %1020 ], [ 2, %1016 ], [ 1, %1000 ], [ %1015, %1011 ], [ %1008, %1004 ]
   %1025 = icmp ule i64 %.sroa.18416.1.ph, %990
   %1026 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %1025, %1026
@@ -11887,7 +11887,7 @@ _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %1000, %1011, %1004,
   br label %_ZL19ComputeDistanceCodemmPKi.exit.thread
 
 _ZL19ComputeDistanceCodemmPKi.exit.thread:        ; preds = %991, %1027, %_ZL19ComputeDistanceCodemmPKi.exit
-  %.1.i535 = phi i64 [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ %.1.i, %1027 ], [ 0, %991 ]
+  %.1.i535 = phi i64 [ %.1.i, %1027 ], [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ 0, %991 ]
   %1044 = getelementptr inbounds nuw i8, ptr %.0180887, i64 16
   %1045 = trunc i64 %.3185.ph to i32
   store i32 %1045, ptr %.0180887, align 4, !tbaa !148
@@ -12253,10 +12253,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1137, %_ZN13duckdb_
   br i1 %1279, label %1251, label %_ZN13duckdb_brotliL13StoreRangeH42EPNS_3H42EPKhmmm.exit, !llvm.loop !619
 
 _ZN13duckdb_brotliL13StoreRangeH42EPNS_3H42EPKhmmm.exit: ; preds = %1251, %1214, %1172, %1243, %1206, %1166, %1199
-  %.1190 = phi i64 [ %989, %1166 ], [ %.0189885, %1199 ], [ %.0189885, %1206 ], [ %.0189885, %1243 ], [ %.0189885, %1214 ], [ %989, %1172 ], [ %.0189885, %1251 ]
-  %.4186 = phi i64 [ 0, %1166 ], [ %1200, %1199 ], [ %1200, %1206 ], [ %1200, %1243 ], [ %1240, %1214 ], [ 0, %1172 ], [ %1277, %1251 ]
-  %.1181 = phi ptr [ %1044, %1166 ], [ %.0180887, %1199 ], [ %.0180887, %1206 ], [ %.0180887, %1243 ], [ %.0180887, %1214 ], [ %1044, %1172 ], [ %.0180887, %1251 ]
-  %.4 = phi i64 [ %1157, %1166 ], [ %1201, %1199 ], [ %1201, %1206 ], [ %1201, %1243 ], [ %1241, %1214 ], [ %1157, %1172 ], [ %1278, %1251 ]
+  %.1190 = phi i64 [ %.0189885, %1199 ], [ %989, %1166 ], [ %.0189885, %1206 ], [ %.0189885, %1243 ], [ %989, %1172 ], [ %.0189885, %1214 ], [ %.0189885, %1251 ]
+  %.4186 = phi i64 [ %1200, %1199 ], [ 0, %1166 ], [ %1200, %1206 ], [ %1200, %1243 ], [ 0, %1172 ], [ %1240, %1214 ], [ %1277, %1251 ]
+  %.1181 = phi ptr [ %.0180887, %1199 ], [ %1044, %1166 ], [ %.0180887, %1206 ], [ %.0180887, %1243 ], [ %1044, %1172 ], [ %.0180887, %1214 ], [ %.0180887, %1251 ]
+  %.4 = phi i64 [ %1201, %1199 ], [ %1157, %1166 ], [ %1201, %1206 ], [ %1201, %1243 ], [ %1157, %1172 ], [ %1241, %1214 ], [ %1278, %1251 ]
   %1280 = add i64 %.4, 4
   %1281 = icmp ult i64 %1280, %22
   br i1 %1281, label %80, label %._crit_edge, !llvm.loop !620
@@ -12745,9 +12745,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i375: ; preds = %209,
   br label %242
 
 242:                                              ; preds = %241, %234, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i375, %203, %194, %177
-  %.sroa.29.11 = phi i64 [ %.sroa.29.10616, %203 ], [ %239, %241 ], [ %.sroa.29.10616, %234 ], [ %.sroa.29.10616, %177 ], [ %.sroa.29.10616, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i375 ], [ %.sroa.29.10616, %194 ]
-  %.sroa.18404.11 = phi i64 [ %.sroa.18404.10617, %203 ], [ %205, %241 ], [ %.sroa.18404.10617, %234 ], [ %.sroa.18404.10617, %177 ], [ %.sroa.18404.10617, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i375 ], [ %.sroa.18404.10617, %194 ]
-  %.sroa.0395.11 = phi i64 [ %.sroa.0395.10618, %203 ], [ %.2.i.i376, %241 ], [ %.sroa.0395.10618, %234 ], [ %.sroa.0395.10618, %177 ], [ %.sroa.0395.10618, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i375 ], [ %.sroa.0395.10618, %194 ]
+  %.sroa.29.11 = phi i64 [ %.sroa.29.10616, %203 ], [ %239, %241 ], [ %.sroa.29.10616, %234 ], [ %.sroa.29.10616, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i375 ], [ %.sroa.29.10616, %194 ], [ %.sroa.29.10616, %177 ]
+  %.sroa.18404.11 = phi i64 [ %.sroa.18404.10617, %203 ], [ %205, %241 ], [ %.sroa.18404.10617, %234 ], [ %.sroa.18404.10617, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i375 ], [ %.sroa.18404.10617, %194 ], [ %.sroa.18404.10617, %177 ]
+  %.sroa.0395.11 = phi i64 [ %.sroa.0395.10618, %203 ], [ %.2.i.i376, %241 ], [ %.sroa.0395.10618, %234 ], [ %.sroa.0395.10618, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i375 ], [ %.sroa.0395.10618, %194 ], [ %.sroa.0395.10618, %177 ]
   %243 = add i64 %.0.i362619, 4
   %.not64.i363 = icmp ugt i64 %243, %.0825
   br i1 %.not64.i363, label %._crit_edge, label %177, !llvm.loop !651
@@ -13545,9 +13545,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i354: ; preds = %575,
   br label %608
 
 608:                                              ; preds = %607, %600, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i354, %570, %561, %544
-  %.sroa.18.9 = phi i64 [ %.sroa.18.8750, %570 ], [ %605, %607 ], [ %.sroa.18.8750, %600 ], [ %.sroa.18.8750, %544 ], [ %.sroa.18.8750, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i354 ], [ %.sroa.18.8750, %561 ]
-  %.sroa.12.9 = phi i64 [ %.sroa.12.8751, %570 ], [ %572, %607 ], [ %.sroa.12.8751, %600 ], [ %.sroa.12.8751, %544 ], [ %.sroa.12.8751, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i354 ], [ %.sroa.12.8751, %561 ]
-  %.sroa.0.9 = phi i64 [ %.sroa.0.8752, %570 ], [ %.2.i.i355, %607 ], [ %.sroa.0.8752, %600 ], [ %.sroa.0.8752, %544 ], [ %.sroa.0.8752, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i354 ], [ %.sroa.0.8752, %561 ]
+  %.sroa.18.9 = phi i64 [ %.sroa.18.8750, %570 ], [ %605, %607 ], [ %.sroa.18.8750, %600 ], [ %.sroa.18.8750, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i354 ], [ %.sroa.18.8750, %561 ], [ %.sroa.18.8750, %544 ]
+  %.sroa.12.9 = phi i64 [ %.sroa.12.8751, %570 ], [ %572, %607 ], [ %.sroa.12.8751, %600 ], [ %.sroa.12.8751, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i354 ], [ %.sroa.12.8751, %561 ], [ %.sroa.12.8751, %544 ]
+  %.sroa.0.9 = phi i64 [ %.sroa.0.8752, %570 ], [ %.2.i.i355, %607 ], [ %.sroa.0.8752, %600 ], [ %.sroa.0.8752, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i354 ], [ %.sroa.0.8752, %561 ], [ %.sroa.0.8752, %544 ]
   %609 = add i64 %.0.i343753, 4
   %.not64.i = icmp ugt i64 %609, %417
   br i1 %.not64.i, label %._crit_edge756, label %544, !llvm.loop !651
@@ -14006,8 +14006,8 @@ _ZL19ComputeDistanceCodemmPKi.exit.thread.thread: ; preds = %785
   %821 = add i64 %.sroa.18404.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %797, %808, %801, %813, %817, %820
-  %.1.i = phi i64 [ %821, %820 ], [ 3, %817 ], [ 1, %797 ], [ %812, %808 ], [ %805, %801 ], [ 2, %813 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %813, %797, %808, %801, %817, %820
+  %.1.i = phi i64 [ %821, %820 ], [ 3, %817 ], [ 2, %813 ], [ 1, %797 ], [ %812, %808 ], [ %805, %801 ]
   %822 = icmp ule i64 %.sroa.18404.1.ph, %784
   %823 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %822, %823
@@ -14308,10 +14308,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %930, %_ZN13duckdb_b
   br i1 %1009, label %.lr.ph686, label %_ZN13duckdb_brotliL13StoreRangeH54EPNS_3H54EPKhmmm.exit, !llvm.loop !708
 
 _ZN13duckdb_brotliL13StoreRangeH54EPNS_3H54EPKhmmm.exit: ; preds = %.lr.ph686, %.lr.ph692, %.lr.ph821, %994, %978, %959, %971
-  %.1190 = phi i64 [ %783, %959 ], [ %.0189822, %971 ], [ %.0189822, %978 ], [ %.0189822, %994 ], [ %.0189822, %.lr.ph692 ], [ %783, %.lr.ph821 ], [ %.0189822, %.lr.ph686 ]
-  %.4186 = phi i64 [ 0, %959 ], [ %972, %971 ], [ %972, %978 ], [ %972, %994 ], [ %991, %.lr.ph692 ], [ 0, %.lr.ph821 ], [ %1007, %.lr.ph686 ]
-  %.1181 = phi ptr [ %868, %959 ], [ %.0180824, %971 ], [ %.0180824, %978 ], [ %.0180824, %994 ], [ %.0180824, %.lr.ph692 ], [ %868, %.lr.ph821 ], [ %.0180824, %.lr.ph686 ]
-  %.4 = phi i64 [ %950, %959 ], [ %973, %971 ], [ %973, %978 ], [ %973, %994 ], [ %992, %.lr.ph692 ], [ %950, %.lr.ph821 ], [ %1008, %.lr.ph686 ]
+  %.1190 = phi i64 [ %.0189822, %971 ], [ %783, %959 ], [ %.0189822, %978 ], [ %.0189822, %994 ], [ %783, %.lr.ph821 ], [ %.0189822, %.lr.ph692 ], [ %.0189822, %.lr.ph686 ]
+  %.4186 = phi i64 [ %972, %971 ], [ 0, %959 ], [ %972, %978 ], [ %972, %994 ], [ 0, %.lr.ph821 ], [ %991, %.lr.ph692 ], [ %1007, %.lr.ph686 ]
+  %.1181 = phi ptr [ %.0180824, %971 ], [ %868, %959 ], [ %.0180824, %978 ], [ %.0180824, %994 ], [ %868, %.lr.ph821 ], [ %.0180824, %.lr.ph692 ], [ %.0180824, %.lr.ph686 ]
+  %.4 = phi i64 [ %973, %971 ], [ %950, %959 ], [ %973, %978 ], [ %973, %994 ], [ %950, %.lr.ph821 ], [ %992, %.lr.ph692 ], [ %1008, %.lr.ph686 ]
   %1010 = add i64 %.4, 8
   %1011 = icmp ult i64 %1010, %22
   br i1 %1011, label %.thread, label %._crit_edge826, !llvm.loop !709
@@ -14833,11 +14833,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i: ; preds = %253, 
   br label %285
 
 285:                                              ; preds = %284, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i, %249, %244, %241, %237
-  %.sroa.32.14 = phi i64 [ %.sroa.32.8672, %244 ], [ %.sroa.32.8672, %237 ], [ %.sroa.32.8672, %241 ], [ %282, %284 ], [ %.sroa.32.8672, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.32.8672, %249 ]
-  %.sroa.20.14 = phi i64 [ %.sroa.20.8673, %244 ], [ %.sroa.20.8673, %237 ], [ %.sroa.20.8673, %241 ], [ %235, %284 ], [ %.sroa.20.8673, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.20.8673, %249 ]
-  %.sroa.0416.14 = phi i64 [ %.sroa.0416.8674, %244 ], [ %.sroa.0416.8674, %237 ], [ %.sroa.0416.8674, %241 ], [ %276, %284 ], [ %.sroa.0416.8674, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.0416.8674, %249 ]
-  %.5142.i.i = phi i64 [ %.4141.i.i676, %244 ], [ %.4141.i.i676, %237 ], [ %.4141.i.i676, %241 ], [ %276, %284 ], [ %.4141.i.i676, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.4141.i.i676, %249 ]
-  %.5.i.i = phi i64 [ %.4.i.i677, %244 ], [ %.4.i.i677, %237 ], [ %.4.i.i677, %241 ], [ %282, %284 ], [ %.4.i.i677, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.4.i.i677, %249 ]
+  %.sroa.32.14 = phi i64 [ %.sroa.32.8672, %237 ], [ %.sroa.32.8672, %241 ], [ %282, %284 ], [ %.sroa.32.8672, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.32.8672, %249 ], [ %.sroa.32.8672, %244 ]
+  %.sroa.20.14 = phi i64 [ %.sroa.20.8673, %237 ], [ %.sroa.20.8673, %241 ], [ %235, %284 ], [ %.sroa.20.8673, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.20.8673, %249 ], [ %.sroa.20.8673, %244 ]
+  %.sroa.0416.14 = phi i64 [ %.sroa.0416.8674, %237 ], [ %.sroa.0416.8674, %241 ], [ %276, %284 ], [ %.sroa.0416.8674, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.0416.8674, %249 ], [ %.sroa.0416.8674, %244 ]
+  %.5142.i.i = phi i64 [ %.4141.i.i676, %237 ], [ %.4141.i.i676, %241 ], [ %276, %284 ], [ %.4141.i.i676, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.4141.i.i676, %249 ], [ %.4141.i.i676, %244 ]
+  %.5.i.i = phi i64 [ %.4.i.i677, %237 ], [ %.4.i.i677, %241 ], [ %282, %284 ], [ %.4.i.i677, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.4.i.i677, %249 ], [ %.4.i.i677, %244 ]
   %286 = icmp ugt i64 %230, %spec.select.i.i
   br i1 %286, label %229, label %.thread444
 
@@ -15184,10 +15184,10 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i399: ; preds = %434,
   br label %467
 
 467:                                              ; preds = %466, %459, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i399, %429, %420, %403
-  %.sroa.32.18 = phi i64 [ %.sroa.32.17726, %429 ], [ %464, %466 ], [ %.sroa.32.17726, %459 ], [ %.sroa.32.17726, %403 ], [ %.sroa.32.17726, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i399 ], [ %.sroa.32.17726, %420 ]
-  %.sroa.20.18 = phi i64 [ %.sroa.20.17727, %429 ], [ %431, %466 ], [ %.sroa.20.17727, %459 ], [ %.sroa.20.17727, %403 ], [ %.sroa.20.17727, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i399 ], [ %.sroa.20.17727, %420 ]
-  %.sroa.0416.18 = phi i64 [ %.sroa.0416.17728, %429 ], [ %.2.i.i400, %466 ], [ %.sroa.0416.17728, %459 ], [ %.sroa.0416.17728, %403 ], [ %.sroa.0416.17728, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i399 ], [ %.sroa.0416.17728, %420 ]
-  %.sroa.47.13 = phi i32 [ %.sroa.47.12729, %429 ], [ 0, %466 ], [ %.sroa.47.12729, %459 ], [ %.sroa.47.12729, %403 ], [ %.sroa.47.12729, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i399 ], [ %.sroa.47.12729, %420 ]
+  %.sroa.32.18 = phi i64 [ %.sroa.32.17726, %429 ], [ %464, %466 ], [ %.sroa.32.17726, %459 ], [ %.sroa.32.17726, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i399 ], [ %.sroa.32.17726, %420 ], [ %.sroa.32.17726, %403 ]
+  %.sroa.20.18 = phi i64 [ %.sroa.20.17727, %429 ], [ %431, %466 ], [ %.sroa.20.17727, %459 ], [ %.sroa.20.17727, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i399 ], [ %.sroa.20.17727, %420 ], [ %.sroa.20.17727, %403 ]
+  %.sroa.0416.18 = phi i64 [ %.sroa.0416.17728, %429 ], [ %.2.i.i400, %466 ], [ %.sroa.0416.17728, %459 ], [ %.sroa.0416.17728, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i399 ], [ %.sroa.0416.17728, %420 ], [ %.sroa.0416.17728, %403 ]
+  %.sroa.47.13 = phi i32 [ %.sroa.47.12729, %429 ], [ 0, %466 ], [ %.sroa.47.12729, %459 ], [ %.sroa.47.12729, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i399 ], [ %.sroa.47.12729, %420 ], [ %.sroa.47.12729, %403 ]
   %468 = add i64 %.0.i386730, 1
   %.not.i387 = icmp ugt i64 %468, %.0999
   br i1 %.not.i387, label %._crit_edge733, label %403, !llvm.loop !762
@@ -15933,11 +15933,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i331: ; preds = %77
   br label %807
 
 807:                                              ; preds = %806, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i331, %771, %766, %763, %759
-  %.sroa.21.12 = phi i64 [ %.sroa.21.6862, %766 ], [ %.sroa.21.6862, %759 ], [ %.sroa.21.6862, %763 ], [ %804, %806 ], [ %.sroa.21.6862, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i331 ], [ %.sroa.21.6862, %771 ]
-  %.sroa.14.12 = phi i64 [ %.sroa.14.6863, %766 ], [ %.sroa.14.6863, %759 ], [ %.sroa.14.6863, %763 ], [ %757, %806 ], [ %.sroa.14.6863, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i331 ], [ %.sroa.14.6863, %771 ]
-  %.sroa.0.12 = phi i64 [ %.sroa.0.6864, %766 ], [ %.sroa.0.6864, %759 ], [ %.sroa.0.6864, %763 ], [ %798, %806 ], [ %.sroa.0.6864, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i331 ], [ %.sroa.0.6864, %771 ]
-  %.5142.i.i318 = phi i64 [ %.4141.i.i289866, %766 ], [ %.4141.i.i289866, %759 ], [ %.4141.i.i289866, %763 ], [ %798, %806 ], [ %.4141.i.i289866, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i331 ], [ %.4141.i.i289866, %771 ]
-  %.5.i.i319 = phi i64 [ %.4.i.i290867, %766 ], [ %.4.i.i290867, %759 ], [ %.4.i.i290867, %763 ], [ %804, %806 ], [ %.4.i.i290867, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i331 ], [ %.4.i.i290867, %771 ]
+  %.sroa.21.12 = phi i64 [ %.sroa.21.6862, %759 ], [ %.sroa.21.6862, %763 ], [ %804, %806 ], [ %.sroa.21.6862, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i331 ], [ %.sroa.21.6862, %771 ], [ %.sroa.21.6862, %766 ]
+  %.sroa.14.12 = phi i64 [ %.sroa.14.6863, %759 ], [ %.sroa.14.6863, %763 ], [ %757, %806 ], [ %.sroa.14.6863, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i331 ], [ %.sroa.14.6863, %771 ], [ %.sroa.14.6863, %766 ]
+  %.sroa.0.12 = phi i64 [ %.sroa.0.6864, %759 ], [ %.sroa.0.6864, %763 ], [ %798, %806 ], [ %.sroa.0.6864, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i331 ], [ %.sroa.0.6864, %771 ], [ %.sroa.0.6864, %766 ]
+  %.5142.i.i318 = phi i64 [ %.4141.i.i289866, %759 ], [ %.4141.i.i289866, %763 ], [ %798, %806 ], [ %.4141.i.i289866, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i331 ], [ %.4141.i.i289866, %771 ], [ %.4141.i.i289866, %766 ]
+  %.5.i.i319 = phi i64 [ %.4.i.i290867, %759 ], [ %.4.i.i290867, %763 ], [ %804, %806 ], [ %.4.i.i290867, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i331 ], [ %.4.i.i290867, %771 ], [ %.4.i.i290867, %766 ]
   %808 = icmp ugt i64 %752, %spec.select.i.i286
   br i1 %808, label %751, label %.thread487
 
@@ -16285,10 +16285,10 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i380: ; preds = %957,
   br label %990
 
 990:                                              ; preds = %989, %982, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i380, %952, %943, %926
-  %.sroa.34.11 = phi i32 [ %.sroa.34.10917, %952 ], [ 0, %989 ], [ %.sroa.34.10917, %982 ], [ %.sroa.34.10917, %926 ], [ %.sroa.34.10917, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i380 ], [ %.sroa.34.10917, %943 ]
-  %.sroa.21.16 = phi i64 [ %.sroa.21.15918, %952 ], [ %987, %989 ], [ %.sroa.21.15918, %982 ], [ %.sroa.21.15918, %926 ], [ %.sroa.21.15918, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i380 ], [ %.sroa.21.15918, %943 ]
-  %.sroa.14.16 = phi i64 [ %.sroa.14.15919, %952 ], [ %954, %989 ], [ %.sroa.14.15919, %982 ], [ %.sroa.14.15919, %926 ], [ %.sroa.14.15919, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i380 ], [ %.sroa.14.15919, %943 ]
-  %.sroa.0.16 = phi i64 [ %.sroa.0.15920, %952 ], [ %.2.i.i381, %989 ], [ %.sroa.0.15920, %982 ], [ %.sroa.0.15920, %926 ], [ %.sroa.0.15920, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i380 ], [ %.sroa.0.15920, %943 ]
+  %.sroa.34.11 = phi i32 [ %.sroa.34.10917, %952 ], [ 0, %989 ], [ %.sroa.34.10917, %982 ], [ %.sroa.34.10917, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i380 ], [ %.sroa.34.10917, %943 ], [ %.sroa.34.10917, %926 ]
+  %.sroa.21.16 = phi i64 [ %.sroa.21.15918, %952 ], [ %987, %989 ], [ %.sroa.21.15918, %982 ], [ %.sroa.21.15918, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i380 ], [ %.sroa.21.15918, %943 ], [ %.sroa.21.15918, %926 ]
+  %.sroa.14.16 = phi i64 [ %.sroa.14.15919, %952 ], [ %954, %989 ], [ %.sroa.14.15919, %982 ], [ %.sroa.14.15919, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i380 ], [ %.sroa.14.15919, %943 ], [ %.sroa.14.15919, %926 ]
+  %.sroa.0.16 = phi i64 [ %.sroa.0.15920, %952 ], [ %.2.i.i381, %989 ], [ %.sroa.0.15920, %982 ], [ %.sroa.0.15920, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i380 ], [ %.sroa.0.15920, %943 ], [ %.sroa.0.15920, %926 ]
   %991 = add i64 %.0.i368921, 1
   %.not.i369 = icmp ugt i64 %991, %641
   br i1 %.not.i369, label %._crit_edge924, label %926, !llvm.loop !762
@@ -16749,8 +16749,8 @@ split:                                            ; preds = %1157, %_ZN13duckdb_
   %1200 = add i64 %.sroa.20.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %1176, %1187, %1180, %1192, %1196, %1199
-  %.1.i = phi i64 [ %1200, %1199 ], [ 3, %1196 ], [ 1, %1176 ], [ %1191, %1187 ], [ %1184, %1180 ], [ 2, %1192 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %1192, %1176, %1187, %1180, %1196, %1199
+  %.1.i = phi i64 [ %1200, %1199 ], [ 3, %1196 ], [ 2, %1192 ], [ 1, %1176 ], [ %1191, %1187 ], [ %1184, %1180 ]
   %1201 = icmp ule i64 %.sroa.20.1.ph, %1166
   %1202 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %1201, %1202
@@ -16805,7 +16805,7 @@ _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %1176, %1187, %1180,
   br label %_ZN13duckdb_brotliL23PrepareDistanceCacheH65EPNS_3H65EPi.exit279
 
 _ZN13duckdb_brotliL23PrepareDistanceCacheH65EPNS_3H65EPi.exit279: ; preds = %1167, %1218, %1210, %1203, %_ZL19ComputeDistanceCodemmPKi.exit
-  %.1.i549 = phi i64 [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ %.1.i, %1218 ], [ %.1.i, %1210 ], [ %.1.i, %1203 ], [ 0, %1167 ]
+  %.1.i549 = phi i64 [ %.1.i, %1218 ], [ %.1.i, %1210 ], [ %.1.i, %1203 ], [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ 0, %1167 ]
   %1225 = getelementptr inbounds nuw i8, ptr %.0180998, i64 16
   %1226 = trunc i64 %.3185.ph to i32
   store i32 %1226, ptr %.0180998, align 4, !tbaa !148
@@ -17127,10 +17127,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1318, %_ZN13duckdb_
   br i1 %1425, label %1408, label %_ZN13duckdb_brotliL13StoreRangeH65EPNS_3H65EPKhmmm.exit, !llvm.loop !882
 
 _ZN13duckdb_brotliL13StoreRangeH65EPNS_3H65EPKhmmm.exit: ; preds = %1408, %1383, %1353, %1401, %1376, %1347, %1369
-  %.1190 = phi i64 [ %1165, %1347 ], [ %.0189996, %1369 ], [ %.0189996, %1376 ], [ %.0189996, %1401 ], [ %.0189996, %1383 ], [ %1165, %1353 ], [ %.0189996, %1408 ]
-  %.4186 = phi i64 [ 0, %1347 ], [ %1370, %1369 ], [ %1370, %1376 ], [ %1370, %1401 ], [ %1398, %1383 ], [ 0, %1353 ], [ %1423, %1408 ]
-  %.1181 = phi ptr [ %1225, %1347 ], [ %.0180998, %1369 ], [ %.0180998, %1376 ], [ %.0180998, %1401 ], [ %.0180998, %1383 ], [ %1225, %1353 ], [ %.0180998, %1408 ]
-  %.4 = phi i64 [ %1338, %1347 ], [ %1371, %1369 ], [ %1371, %1376 ], [ %1371, %1401 ], [ %1399, %1383 ], [ %1338, %1353 ], [ %1424, %1408 ]
+  %.1190 = phi i64 [ %.0189996, %1369 ], [ %1165, %1347 ], [ %.0189996, %1376 ], [ %.0189996, %1401 ], [ %1165, %1353 ], [ %.0189996, %1383 ], [ %.0189996, %1408 ]
+  %.4186 = phi i64 [ %1370, %1369 ], [ 0, %1347 ], [ %1370, %1376 ], [ %1370, %1401 ], [ 0, %1353 ], [ %1398, %1383 ], [ %1423, %1408 ]
+  %.1181 = phi ptr [ %.0180998, %1369 ], [ %1225, %1347 ], [ %.0180998, %1376 ], [ %.0180998, %1401 ], [ %1225, %1353 ], [ %.0180998, %1383 ], [ %.0180998, %1408 ]
+  %.4 = phi i64 [ %1371, %1369 ], [ %1338, %1347 ], [ %1371, %1376 ], [ %1371, %1401 ], [ %1338, %1353 ], [ %1399, %1383 ], [ %1424, %1408 ]
   %1426 = add i64 %.4, 8
   %1427 = icmp ult i64 %1426, %21
   br i1 %1427, label %107, label %._crit_edge1001, !llvm.loop !883
@@ -17440,7 +17440,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit118.i: ; preds = %99, 
 _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %142, %.critedge.i.i
   %.2.i.i = phi i64 [ %149, %142 ], [ %164, %.critedge.i.i ]
   %165 = icmp ugt i64 %.2.i.i, 3
-  br i1 %165, label %166, label %.critedge102.i
+  br i1 %165, label %166, label %.critedge104.i
 
 166:                                              ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i
   %167 = mul i64 %.2.i.i, 135
@@ -17452,9 +17452,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %142, %.
   %171 = zext nneg i32 %narrow526 to i64
   %172 = add i64 %167, %171
   %.not98.i = icmp ugt i64 %172, 2020
-  br i1 %.not98.i, label %.preheader382, label %.critedge102.i
+  br i1 %.not98.i, label %.preheader382, label %.critedge104.i
 
-.critedge102.i:                                   ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i, %166
+.critedge104.i:                                   ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i, %166
   %173 = load ptr, ptr %13, align 8, !tbaa !897, !alias.scope !886, !noalias !889
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 48
   %175 = load i64, ptr %174, align 8, !tbaa !75, !noalias !895
@@ -17464,7 +17464,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %142, %.
   %179 = icmp ult i64 %175, %178
   br i1 %179, label %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread, label %180
 
-180:                                              ; preds = %.critedge102.i
+180:                                              ; preds = %.critedge104.i
   %.0.copyload.i.i.i = load i32, ptr %85, align 1, !alias.scope !893, !noalias !895
   %181 = mul i32 %.0.copyload.i.i.i, 506832829
   %182 = lshr i32 %181, 17
@@ -17860,7 +17860,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit118.i255: ; preds = %3
 _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i212: ; preds = %360, %.critedge.i.i211
   %.2.i.i213 = phi i64 [ %367, %360 ], [ %382, %.critedge.i.i211 ]
   %383 = icmp ugt i64 %.2.i.i213, 3
-  br i1 %383, label %384, label %.critedge102.i214
+  br i1 %383, label %384, label %.critedge104.i214
 
 384:                                              ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i212
   %385 = mul i64 %.2.i.i213, 135
@@ -17872,9 +17872,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i212: ; preds = %360,
   %389 = zext nneg i32 %narrow527 to i64
   %390 = add i64 %385, %389
   %.not98.i240 = icmp ugt i64 %390, 2020
-  br i1 %.not98.i240, label %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit263, label %.critedge102.i214
+  br i1 %.not98.i240, label %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit263, label %.critedge104.i214
 
-.critedge102.i214:                                ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i212, %384
+.critedge104.i214:                                ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i212, %384
   %391 = load ptr, ptr %13, align 8, !tbaa !897, !alias.scope !906, !noalias !909
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 48
   %393 = load i64, ptr %392, align 8, !tbaa !75, !noalias !908
@@ -17884,7 +17884,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i212: ; preds = %360,
   %397 = icmp ult i64 %393, %396
   br i1 %397, label %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit263, label %398
 
-398:                                              ; preds = %.critedge102.i214
+398:                                              ; preds = %.critedge104.i214
   %.0.copyload.i.i.i215 = load i32, ptr %302, align 1, !alias.scope !907, !noalias !908
   %399 = mul i32 %.0.copyload.i.i.i215, 506832829
   %400 = lshr i32 %399, 17
@@ -18032,11 +18032,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i229: ; preds = %43
   store i64 %487, ptr %392, align 8, !tbaa !75, !noalias !908
   br label %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit263
 
-_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit263: ; preds = %398, %483, %412, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i229, %458, %473, %.critedge102.i214, %384, %343, %.critedge100.i201, %355
-  %.sroa.20.4 = phi i32 [ 0, %343 ], [ 0, %355 ], [ 0, %.critedge100.i201 ], [ 0, %384 ], [ 0, %.critedge102.i214 ], [ 0, %398 ], [ %486, %483 ], [ 0, %412 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i229 ], [ 0, %458 ], [ 0, %473 ]
-  %.sroa.12.4 = phi i64 [ %342, %343 ], [ 2020, %355 ], [ 2020, %.critedge100.i201 ], [ %390, %384 ], [ 2020, %.critedge102.i214 ], [ 2020, %398 ], [ %481, %483 ], [ 2020, %412 ], [ 2020, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i229 ], [ 2020, %458 ], [ 2020, %473 ]
-  %.sroa.8.4 = phi i64 [ %270, %343 ], [ 0, %355 ], [ 0, %.critedge100.i201 ], [ %350, %384 ], [ 0, %.critedge102.i214 ], [ 0, %398 ], [ %471, %483 ], [ 0, %412 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i229 ], [ 0, %458 ], [ 0, %473 ]
-  %.sroa.0.4 = phi i64 [ %.2.i114.i256, %343 ], [ %276, %355 ], [ %276, %.critedge100.i201 ], [ %.2.i.i213, %384 ], [ %276, %.critedge102.i214 ], [ %276, %398 ], [ %.2.i.i.i230, %483 ], [ %276, %412 ], [ %276, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i229 ], [ %276, %458 ], [ %276, %473 ]
+_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit263: ; preds = %398, %483, %412, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i229, %458, %473, %.critedge104.i214, %384, %343, %.critedge100.i201, %355
+  %.sroa.20.4 = phi i32 [ 0, %343 ], [ 0, %355 ], [ 0, %.critedge100.i201 ], [ 0, %384 ], [ 0, %.critedge104.i214 ], [ 0, %398 ], [ %486, %483 ], [ 0, %412 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i229 ], [ 0, %458 ], [ 0, %473 ]
+  %.sroa.12.4 = phi i64 [ %342, %343 ], [ 2020, %355 ], [ 2020, %.critedge100.i201 ], [ %390, %384 ], [ 2020, %.critedge104.i214 ], [ 2020, %398 ], [ %481, %483 ], [ 2020, %412 ], [ 2020, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i229 ], [ 2020, %458 ], [ 2020, %473 ]
+  %.sroa.8.4 = phi i64 [ %270, %343 ], [ 0, %355 ], [ 0, %.critedge100.i201 ], [ %350, %384 ], [ 0, %.critedge104.i214 ], [ 0, %398 ], [ %471, %483 ], [ 0, %412 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i229 ], [ 0, %458 ], [ 0, %473 ]
+  %.sroa.0.4 = phi i64 [ %.2.i114.i256, %343 ], [ %276, %355 ], [ %276, %.critedge100.i201 ], [ %.2.i.i213, %384 ], [ %276, %.critedge104.i214 ], [ %276, %398 ], [ %.2.i.i.i230, %483 ], [ %276, %412 ], [ %276, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i229 ], [ %276, %458 ], [ %276, %473 ]
   %488 = add i64 %.sroa.23282.0, 175
   %.not196 = icmp ult i64 %.sroa.12.4, %488
   br i1 %.not196, label %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit263._crit_edge, label %489
@@ -18124,8 +18124,8 @@ split:                                            ; preds = %489, %_ZN13duckdb_b
   %532 = add i64 %.sroa.14.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %508, %519, %512, %524, %528, %531
-  %.1.i = phi i64 [ %532, %531 ], [ 3, %528 ], [ 1, %508 ], [ %523, %519 ], [ %516, %512 ], [ 2, %524 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %524, %508, %519, %512, %528, %531
+  %.1.i = phi i64 [ %532, %531 ], [ 3, %528 ], [ 2, %524 ], [ 1, %508 ], [ %523, %519 ], [ %516, %512 ]
   %533 = icmp ule i64 %.sroa.14.1.ph, %498
   %534 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %533, %534
@@ -18143,7 +18143,7 @@ _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %508, %519, %512, %5
   br label %_ZL19ComputeDistanceCodemmPKi.exit.thread
 
 _ZL19ComputeDistanceCodemmPKi.exit.thread:        ; preds = %499, %535, %_ZL19ComputeDistanceCodemmPKi.exit
-  %.1.i362 = phi i64 [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ %.1.i, %535 ], [ 0, %499 ]
+  %.1.i362 = phi i64 [ %.1.i, %535 ], [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ 0, %499 ]
   %540 = getelementptr inbounds nuw i8, ptr %.0164520, i64 16
   %541 = trunc i64 %.3169.ph to i32
   store i32 %541, ptr %.0164520, align 4, !tbaa !148
@@ -18354,7 +18354,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %633, %_ZN13duckdb_b
   %exitcond.not = icmp eq i64 %670, %654
   br i1 %exitcond.not, label %_ZN13duckdb_brotliL12StoreRangeH2EPNS_2H2EPKhmmm.exit, label %.lr.ph517, !llvm.loop !915
 
-_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread: ; preds = %255, %240, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i, %194, %180, %.critedge102.i, %.critedge100.i, %137, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit
+_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread: ; preds = %255, %240, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i, %194, %180, %.critedge104.i, %.critedge100.i, %137, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit
   %671 = add i64 %.0166519, 1
   %672 = add i64 %.0521, 1
   %673 = icmp ugt i64 %672, %.0173518
@@ -18410,10 +18410,10 @@ _ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEP
   br i1 %702, label %.lr.ph457, label %_ZN13duckdb_brotliL12StoreRangeH2EPNS_2H2EPKhmmm.exit, !llvm.loop !923
 
 _ZN13duckdb_brotliL12StoreRangeH2EPNS_2H2EPKhmmm.exit: ; preds = %.lr.ph457, %.lr.ph462, %.lr.ph517, %690, %677, %662, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread
-  %.1174 = phi i64 [ %497, %662 ], [ %.0173518, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173518, %677 ], [ %.0173518, %690 ], [ %.0173518, %.lr.ph462 ], [ %497, %.lr.ph517 ], [ %.0173518, %.lr.ph457 ]
-  %.4170 = phi i64 [ 0, %662 ], [ %671, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %671, %677 ], [ %671, %690 ], [ %687, %.lr.ph462 ], [ 0, %.lr.ph517 ], [ %700, %.lr.ph457 ]
-  %.1165 = phi ptr [ %540, %662 ], [ %.0164520, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164520, %677 ], [ %.0164520, %690 ], [ %.0164520, %.lr.ph462 ], [ %540, %.lr.ph517 ], [ %.0164520, %.lr.ph457 ]
-  %.4 = phi i64 [ %653, %662 ], [ %672, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %672, %677 ], [ %672, %690 ], [ %688, %.lr.ph462 ], [ %653, %.lr.ph517 ], [ %701, %.lr.ph457 ]
+  %.1174 = phi i64 [ %.0173518, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %497, %662 ], [ %.0173518, %677 ], [ %.0173518, %690 ], [ %497, %.lr.ph517 ], [ %.0173518, %.lr.ph462 ], [ %.0173518, %.lr.ph457 ]
+  %.4170 = phi i64 [ %671, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ 0, %662 ], [ %671, %677 ], [ %671, %690 ], [ 0, %.lr.ph517 ], [ %687, %.lr.ph462 ], [ %700, %.lr.ph457 ]
+  %.1165 = phi ptr [ %.0164520, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %540, %662 ], [ %.0164520, %677 ], [ %.0164520, %690 ], [ %540, %.lr.ph517 ], [ %.0164520, %.lr.ph462 ], [ %.0164520, %.lr.ph457 ]
+  %.4 = phi i64 [ %672, %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %653, %662 ], [ %672, %677 ], [ %672, %690 ], [ %653, %.lr.ph517 ], [ %688, %.lr.ph462 ], [ %701, %.lr.ph457 ]
   %703 = add i64 %.4, 8
   %704 = icmp ult i64 %703, %22
   br i1 %704, label %49, label %._crit_edge, !llvm.loop !924
@@ -19094,8 +19094,8 @@ _ZL19ComputeDistanceCodemmPKi.exit.thread.thread: ; preds = %288
   %324 = add i64 %.sroa.13.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %300, %311, %304, %316, %320, %323
-  %.1.i = phi i64 [ %324, %323 ], [ 3, %320 ], [ 1, %300 ], [ %315, %311 ], [ %308, %304 ], [ 2, %316 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %316, %300, %311, %304, %320, %323
+  %.1.i = phi i64 [ %324, %323 ], [ 3, %320 ], [ 2, %316 ], [ 1, %300 ], [ %315, %311 ], [ %308, %304 ]
   %325 = icmp ule i64 %.sroa.13.1.ph, %287
   %326 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %325, %326
@@ -19396,10 +19396,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %433, %_ZN13duckdb_b
   br i1 %512, label %.lr.ph385, label %_ZN13duckdb_brotliL12StoreRangeH3EPNS_2H3EPKhmmm.exit, !llvm.loop !962
 
 _ZN13duckdb_brotliL12StoreRangeH3EPNS_2H3EPKhmmm.exit: ; preds = %.lr.ph385, %.lr.ph390, %.lr.ph432, %497, %481, %462, %474
-  %.1174 = phi i64 [ %284, %462 ], [ %.0173433, %474 ], [ %.0173433, %481 ], [ %.0173433, %497 ], [ %.0173433, %.lr.ph390 ], [ %284, %.lr.ph432 ], [ %.0173433, %.lr.ph385 ]
-  %.4170 = phi i64 [ 0, %462 ], [ %475, %474 ], [ %475, %481 ], [ %475, %497 ], [ %494, %.lr.ph390 ], [ 0, %.lr.ph432 ], [ %510, %.lr.ph385 ]
-  %.1165 = phi ptr [ %371, %462 ], [ %.0164435, %474 ], [ %.0164435, %481 ], [ %.0164435, %497 ], [ %.0164435, %.lr.ph390 ], [ %371, %.lr.ph432 ], [ %.0164435, %.lr.ph385 ]
-  %.4 = phi i64 [ %453, %462 ], [ %476, %474 ], [ %476, %481 ], [ %476, %497 ], [ %495, %.lr.ph390 ], [ %453, %.lr.ph432 ], [ %511, %.lr.ph385 ]
+  %.1174 = phi i64 [ %.0173433, %474 ], [ %284, %462 ], [ %.0173433, %481 ], [ %.0173433, %497 ], [ %284, %.lr.ph432 ], [ %.0173433, %.lr.ph390 ], [ %.0173433, %.lr.ph385 ]
+  %.4170 = phi i64 [ %475, %474 ], [ 0, %462 ], [ %475, %481 ], [ %475, %497 ], [ 0, %.lr.ph432 ], [ %494, %.lr.ph390 ], [ %510, %.lr.ph385 ]
+  %.1165 = phi ptr [ %.0164435, %474 ], [ %371, %462 ], [ %.0164435, %481 ], [ %.0164435, %497 ], [ %371, %.lr.ph432 ], [ %.0164435, %.lr.ph390 ], [ %.0164435, %.lr.ph385 ]
+  %.4 = phi i64 [ %476, %474 ], [ %453, %462 ], [ %476, %481 ], [ %476, %497 ], [ %453, %.lr.ph432 ], [ %495, %.lr.ph390 ], [ %511, %.lr.ph385 ]
   %513 = add i64 %.4, 8
   %514 = icmp ult i64 %513, %22
   br i1 %514, label %.thread, label %._crit_edge, !llvm.loop !963
@@ -20513,8 +20513,8 @@ split:                                            ; preds = %548, %_ZN13duckdb_b
   %591 = add i64 %.sroa.14.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %567, %578, %571, %583, %587, %590
-  %.1.i = phi i64 [ %591, %590 ], [ 3, %587 ], [ 1, %567 ], [ %582, %578 ], [ %575, %571 ], [ 2, %583 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %583, %567, %578, %571, %587, %590
+  %.1.i = phi i64 [ %591, %590 ], [ 3, %587 ], [ 2, %583 ], [ 1, %567 ], [ %582, %578 ], [ %575, %571 ]
   %592 = icmp ule i64 %.sroa.14.1.ph, %557
   %593 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %592, %593
@@ -20532,7 +20532,7 @@ _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %567, %578, %571, %5
   br label %_ZL19ComputeDistanceCodemmPKi.exit.thread
 
 _ZL19ComputeDistanceCodemmPKi.exit.thread:        ; preds = %558, %594, %_ZL19ComputeDistanceCodemmPKi.exit
-  %.1.i370 = phi i64 [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ %.1.i, %594 ], [ 0, %558 ]
+  %.1.i370 = phi i64 [ %.1.i, %594 ], [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ 0, %558 ]
   %599 = getelementptr inbounds nuw i8, ptr %.0164544, i64 16
   %600 = trunc i64 %.3169.ph to i32
   store i32 %600, ptr %.0164544, align 4, !tbaa !148
@@ -20814,10 +20814,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %692, %_ZN13duckdb_b
   br i1 %773, label %.lr.ph534, label %_ZN13duckdb_brotliL12StoreRangeH4EPNS_2H4EPKhmmm.exit, !llvm.loop !1005
 
 _ZN13duckdb_brotliL12StoreRangeH4EPNS_2H4EPKhmmm.exit: ; preds = %.lr.ph531, %.lr.ph534, %.lr.ph539, %721, %758, %742, %735
-  %.1174 = phi i64 [ %.0173542, %758 ], [ %.0173542, %735 ], [ %.0173542, %742 ], [ %556, %721 ], [ %.0173542, %.lr.ph534 ], [ %.0173542, %.lr.ph539 ], [ %556, %.lr.ph531 ]
-  %.4170 = phi i64 [ %736, %758 ], [ %736, %735 ], [ %736, %742 ], [ 0, %721 ], [ %771, %.lr.ph534 ], [ %755, %.lr.ph539 ], [ 0, %.lr.ph531 ]
-  %.1165 = phi ptr [ %.0164544, %758 ], [ %.0164544, %735 ], [ %.0164544, %742 ], [ %599, %721 ], [ %.0164544, %.lr.ph534 ], [ %.0164544, %.lr.ph539 ], [ %599, %.lr.ph531 ]
-  %.4 = phi i64 [ %737, %758 ], [ %737, %735 ], [ %737, %742 ], [ %712, %721 ], [ %772, %.lr.ph534 ], [ %756, %.lr.ph539 ], [ %712, %.lr.ph531 ]
+  %.1174 = phi i64 [ %.0173542, %735 ], [ %.0173542, %742 ], [ %.0173542, %758 ], [ %556, %721 ], [ %.0173542, %.lr.ph539 ], [ %.0173542, %.lr.ph534 ], [ %556, %.lr.ph531 ]
+  %.4170 = phi i64 [ %736, %735 ], [ %736, %742 ], [ %736, %758 ], [ 0, %721 ], [ %755, %.lr.ph539 ], [ %771, %.lr.ph534 ], [ 0, %.lr.ph531 ]
+  %.1165 = phi ptr [ %.0164544, %735 ], [ %.0164544, %742 ], [ %.0164544, %758 ], [ %599, %721 ], [ %.0164544, %.lr.ph539 ], [ %.0164544, %.lr.ph534 ], [ %599, %.lr.ph531 ]
+  %.4 = phi i64 [ %737, %735 ], [ %737, %742 ], [ %737, %758 ], [ %712, %721 ], [ %756, %.lr.ph539 ], [ %772, %.lr.ph534 ], [ %712, %.lr.ph531 ]
   %774 = add i64 %.4, 8
   %775 = icmp ult i64 %774, %24
   br i1 %775, label %51, label %._crit_edge, !llvm.loop !1006
@@ -21321,11 +21321,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit266: ; preds = %242, %
   br label %275
 
 275:                                              ; preds = %274, %266, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit266, %235, %232, %228
-  %.sroa.24327.5 = phi i64 [ %.sroa.24327.3504, %235 ], [ %.sroa.24327.3504, %228 ], [ %.sroa.24327.3504, %232 ], [ %272, %274 ], [ %.sroa.24327.3504, %266 ], [ %.sroa.24327.3504, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit266 ]
-  %.sroa.15.5 = phi i64 [ %.sroa.15.3505, %235 ], [ %.sroa.15.3505, %228 ], [ %.sroa.15.3505, %232 ], [ %226, %274 ], [ %.sroa.15.3505, %266 ], [ %.sroa.15.3505, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit266 ]
-  %.sroa.0317.5 = phi i64 [ %.sroa.0317.3506, %235 ], [ %.sroa.0317.3506, %228 ], [ %.sroa.0317.3506, %232 ], [ %.2.i262, %274 ], [ %.sroa.0317.3506, %266 ], [ %.sroa.0317.3506, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit266 ]
-  %.5136.i = phi i64 [ %.4135.i508, %235 ], [ %.4135.i508, %228 ], [ %.4135.i508, %232 ], [ %.2.i262, %274 ], [ %.4135.i508, %266 ], [ %.4135.i508, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit266 ]
-  %.5.i = phi i64 [ %.4.i509, %235 ], [ %.4.i509, %228 ], [ %.4.i509, %232 ], [ %272, %274 ], [ %.4.i509, %266 ], [ %.4.i509, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit266 ]
+  %.sroa.24327.5 = phi i64 [ %.sroa.24327.3504, %228 ], [ %.sroa.24327.3504, %232 ], [ %272, %274 ], [ %.sroa.24327.3504, %266 ], [ %.sroa.24327.3504, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit266 ], [ %.sroa.24327.3504, %235 ]
+  %.sroa.15.5 = phi i64 [ %.sroa.15.3505, %228 ], [ %.sroa.15.3505, %232 ], [ %226, %274 ], [ %.sroa.15.3505, %266 ], [ %.sroa.15.3505, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit266 ], [ %.sroa.15.3505, %235 ]
+  %.sroa.0317.5 = phi i64 [ %.sroa.0317.3506, %228 ], [ %.sroa.0317.3506, %232 ], [ %.2.i262, %274 ], [ %.sroa.0317.3506, %266 ], [ %.sroa.0317.3506, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit266 ], [ %.sroa.0317.3506, %235 ]
+  %.5136.i = phi i64 [ %.4135.i508, %228 ], [ %.4135.i508, %232 ], [ %.2.i262, %274 ], [ %.4135.i508, %266 ], [ %.4135.i508, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit266 ], [ %.4135.i508, %235 ]
+  %.5.i = phi i64 [ %.4.i509, %228 ], [ %.4.i509, %232 ], [ %272, %274 ], [ %.4.i509, %266 ], [ %.4.i509, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit266 ], [ %.4.i509, %235 ]
   %276 = icmp ugt i64 %221, %spec.select.i
   br i1 %276, label %220, label %.thread342
 
@@ -21892,11 +21892,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit238: ; preds = %526, %
   br label %559
 
 559:                                              ; preds = %558, %550, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit238, %519, %516, %512
-  %.sroa.13.3 = phi i64 [ %.sroa.13.1588, %519 ], [ %.sroa.13.1588, %512 ], [ %.sroa.13.1588, %516 ], [ %556, %558 ], [ %.sroa.13.1588, %550 ], [ %.sroa.13.1588, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit238 ]
-  %.sroa.9.3 = phi i64 [ %.sroa.9.1589, %519 ], [ %.sroa.9.1589, %512 ], [ %.sroa.9.1589, %516 ], [ %510, %558 ], [ %.sroa.9.1589, %550 ], [ %.sroa.9.1589, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit238 ]
-  %.sroa.0.3 = phi i64 [ %.sroa.0.1590, %519 ], [ %.sroa.0.1590, %512 ], [ %.sroa.0.1590, %516 ], [ %.2.i234, %558 ], [ %.sroa.0.1590, %550 ], [ %.sroa.0.1590, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit238 ]
-  %.5136.i206 = phi i64 [ %.4135.i202592, %519 ], [ %.4135.i202592, %512 ], [ %.4135.i202592, %516 ], [ %.2.i234, %558 ], [ %.4135.i202592, %550 ], [ %.4135.i202592, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit238 ]
-  %.5.i207 = phi i64 [ %.4.i203593, %519 ], [ %.4.i203593, %512 ], [ %.4.i203593, %516 ], [ %556, %558 ], [ %.4.i203593, %550 ], [ %.4.i203593, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit238 ]
+  %.sroa.13.3 = phi i64 [ %.sroa.13.1588, %512 ], [ %.sroa.13.1588, %516 ], [ %556, %558 ], [ %.sroa.13.1588, %550 ], [ %.sroa.13.1588, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit238 ], [ %.sroa.13.1588, %519 ]
+  %.sroa.9.3 = phi i64 [ %.sroa.9.1589, %512 ], [ %.sroa.9.1589, %516 ], [ %510, %558 ], [ %.sroa.9.1589, %550 ], [ %.sroa.9.1589, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit238 ], [ %.sroa.9.1589, %519 ]
+  %.sroa.0.3 = phi i64 [ %.sroa.0.1590, %512 ], [ %.sroa.0.1590, %516 ], [ %.2.i234, %558 ], [ %.sroa.0.1590, %550 ], [ %.sroa.0.1590, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit238 ], [ %.sroa.0.1590, %519 ]
+  %.5136.i206 = phi i64 [ %.4135.i202592, %512 ], [ %.4135.i202592, %516 ], [ %.2.i234, %558 ], [ %.4135.i202592, %550 ], [ %.4135.i202592, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit238 ], [ %.4135.i202592, %519 ]
+  %.5.i207 = phi i64 [ %.4.i203593, %512 ], [ %.4.i203593, %516 ], [ %556, %558 ], [ %.4.i203593, %550 ], [ %.4.i203593, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit238 ], [ %.4.i203593, %519 ]
   %560 = icmp ugt i64 %505, %spec.select.i200
   br i1 %560, label %504, label %.thread374
 
@@ -22185,8 +22185,8 @@ split:                                            ; preds = %673, %_ZN13duckdb_b
   %716 = add i64 %.sroa.15.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %692, %703, %696, %708, %712, %715
-  %.1.i219 = phi i64 [ %716, %715 ], [ 3, %712 ], [ 1, %692 ], [ %707, %703 ], [ %700, %696 ], [ 2, %708 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %708, %692, %703, %696, %712, %715
+  %.1.i219 = phi i64 [ %716, %715 ], [ 3, %712 ], [ 2, %708 ], [ 1, %692 ], [ %707, %703 ], [ %700, %696 ]
   %717 = icmp ule i64 %.sroa.15.1.ph, %682
   %718 = icmp ne i64 %.1.i219, 0
   %or.cond = and i1 %717, %718
@@ -22238,7 +22238,7 @@ _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %692, %703, %696, %7
   br label %_ZN13duckdb_brotliL20PrepareDistanceCacheEPii.exit
 
 _ZN13duckdb_brotliL20PrepareDistanceCacheEPii.exit: ; preds = %683, %734, %726, %719, %_ZL19ComputeDistanceCodemmPKi.exit
-  %.1.i219421 = phi i64 [ %.1.i219, %_ZL19ComputeDistanceCodemmPKi.exit ], [ %.1.i219, %734 ], [ %.1.i219, %726 ], [ %.1.i219, %719 ], [ 0, %683 ]
+  %.1.i219421 = phi i64 [ %.1.i219, %734 ], [ %.1.i219, %726 ], [ %.1.i219, %719 ], [ %.1.i219, %_ZL19ComputeDistanceCodemmPKi.exit ], [ 0, %683 ]
   %741 = getelementptr inbounds nuw i8, ptr %.0164643, i64 16
   %742 = trunc i64 %.3169.ph to i32
   store i32 %742, ptr %.0164643, align 4, !tbaa !148
@@ -22559,10 +22559,10 @@ _ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEP
   br i1 %945, label %926, label %_ZN13duckdb_brotliL12StoreRangeH5EPNS_2H5EPKhmmm.exit, !llvm.loop !1064
 
 _ZN13duckdb_brotliL12StoreRangeH5EPNS_2H5EPKhmmm.exit: ; preds = %868, %926, %899, %863, %919, %892, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread
-  %.1174 = phi i64 [ %.0173641, %919 ], [ %.0173641, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173641, %892 ], [ %681, %863 ], [ %.0173641, %926 ], [ %.0173641, %899 ], [ %681, %868 ]
-  %.4170 = phi i64 [ %886, %919 ], [ %886, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %886, %892 ], [ 0, %863 ], [ %943, %926 ], [ %916, %899 ], [ 0, %868 ]
-  %.1165 = phi ptr [ %.0164643, %919 ], [ %.0164643, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164643, %892 ], [ %741, %863 ], [ %.0164643, %926 ], [ %.0164643, %899 ], [ %741, %868 ]
-  %.4 = phi i64 [ %887, %919 ], [ %887, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %887, %892 ], [ %854, %863 ], [ %944, %926 ], [ %917, %899 ], [ %854, %868 ]
+  %.1174 = phi i64 [ %.0173641, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173641, %892 ], [ %.0173641, %919 ], [ %681, %863 ], [ %.0173641, %899 ], [ %.0173641, %926 ], [ %681, %868 ]
+  %.4170 = phi i64 [ %886, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %886, %892 ], [ %886, %919 ], [ 0, %863 ], [ %916, %899 ], [ %943, %926 ], [ 0, %868 ]
+  %.1165 = phi ptr [ %.0164643, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164643, %892 ], [ %.0164643, %919 ], [ %741, %863 ], [ %.0164643, %899 ], [ %.0164643, %926 ], [ %741, %868 ]
+  %.4 = phi i64 [ %887, %_ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %887, %892 ], [ %887, %919 ], [ %854, %863 ], [ %917, %899 ], [ %944, %926 ], [ %854, %868 ]
   %946 = add i64 %.4, 4
   %947 = icmp ult i64 %946, %21
   br i1 %947, label %100, label %._crit_edge646, !llvm.loop !1065
@@ -23071,11 +23071,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %245, %.
   br label %277
 
 277:                                              ; preds = %276, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i, %241, %236, %233, %229
-  %.sroa.24305.9 = phi i64 [ %.sroa.24305.3482, %236 ], [ %.sroa.24305.3482, %229 ], [ %.sroa.24305.3482, %233 ], [ %274, %276 ], [ %.sroa.24305.3482, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.24305.3482, %241 ]
-  %.sroa.15.9 = phi i64 [ %.sroa.15.3483, %236 ], [ %.sroa.15.3483, %229 ], [ %.sroa.15.3483, %233 ], [ %227, %276 ], [ %.sroa.15.3483, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.15.3483, %241 ]
-  %.sroa.0295.9 = phi i64 [ %.sroa.0295.3484, %236 ], [ %.sroa.0295.3484, %229 ], [ %.sroa.0295.3484, %233 ], [ %268, %276 ], [ %.sroa.0295.3484, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.0295.3484, %241 ]
-  %.5142.i = phi i64 [ %.4141.i486, %236 ], [ %.4141.i486, %229 ], [ %.4141.i486, %233 ], [ %268, %276 ], [ %.4141.i486, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.4141.i486, %241 ]
-  %.5.i = phi i64 [ %.4.i487, %236 ], [ %.4.i487, %229 ], [ %.4.i487, %233 ], [ %274, %276 ], [ %.4.i487, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.4.i487, %241 ]
+  %.sroa.24305.9 = phi i64 [ %.sroa.24305.3482, %229 ], [ %.sroa.24305.3482, %233 ], [ %274, %276 ], [ %.sroa.24305.3482, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.24305.3482, %241 ], [ %.sroa.24305.3482, %236 ]
+  %.sroa.15.9 = phi i64 [ %.sroa.15.3483, %229 ], [ %.sroa.15.3483, %233 ], [ %227, %276 ], [ %.sroa.15.3483, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.15.3483, %241 ], [ %.sroa.15.3483, %236 ]
+  %.sroa.0295.9 = phi i64 [ %.sroa.0295.3484, %229 ], [ %.sroa.0295.3484, %233 ], [ %268, %276 ], [ %.sroa.0295.3484, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.0295.3484, %241 ], [ %.sroa.0295.3484, %236 ]
+  %.5142.i = phi i64 [ %.4141.i486, %229 ], [ %.4141.i486, %233 ], [ %268, %276 ], [ %.4141.i486, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.4141.i486, %241 ], [ %.4141.i486, %236 ]
+  %.5.i = phi i64 [ %.4.i487, %229 ], [ %.4.i487, %233 ], [ %274, %276 ], [ %.4.i487, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.4.i487, %241 ], [ %.4.i487, %236 ]
   %278 = icmp ugt i64 %222, %spec.select.i
   br i1 %278, label %221, label %.thread320
 
@@ -23646,11 +23646,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i253: ; preds = %531,
   br label %563
 
 563:                                              ; preds = %562, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i253, %527, %522, %519, %515
-  %.sroa.13.7 = phi i64 [ %.sroa.13.1566, %522 ], [ %.sroa.13.1566, %515 ], [ %.sroa.13.1566, %519 ], [ %560, %562 ], [ %.sroa.13.1566, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i253 ], [ %.sroa.13.1566, %527 ]
-  %.sroa.9.7 = phi i64 [ %.sroa.9.1567, %522 ], [ %.sroa.9.1567, %515 ], [ %.sroa.9.1567, %519 ], [ %513, %562 ], [ %.sroa.9.1567, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i253 ], [ %.sroa.9.1567, %527 ]
-  %.sroa.0.7 = phi i64 [ %.sroa.0.1568, %522 ], [ %.sroa.0.1568, %515 ], [ %.sroa.0.1568, %519 ], [ %554, %562 ], [ %.sroa.0.1568, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i253 ], [ %.sroa.0.1568, %527 ]
-  %.5142.i240 = phi i64 [ %.4141.i211570, %522 ], [ %.4141.i211570, %515 ], [ %.4141.i211570, %519 ], [ %554, %562 ], [ %.4141.i211570, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i253 ], [ %.4141.i211570, %527 ]
-  %.5.i241 = phi i64 [ %.4.i212571, %522 ], [ %.4.i212571, %515 ], [ %.4.i212571, %519 ], [ %560, %562 ], [ %.4.i212571, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i253 ], [ %.4.i212571, %527 ]
+  %.sroa.13.7 = phi i64 [ %.sroa.13.1566, %515 ], [ %.sroa.13.1566, %519 ], [ %560, %562 ], [ %.sroa.13.1566, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i253 ], [ %.sroa.13.1566, %527 ], [ %.sroa.13.1566, %522 ]
+  %.sroa.9.7 = phi i64 [ %.sroa.9.1567, %515 ], [ %.sroa.9.1567, %519 ], [ %513, %562 ], [ %.sroa.9.1567, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i253 ], [ %.sroa.9.1567, %527 ], [ %.sroa.9.1567, %522 ]
+  %.sroa.0.7 = phi i64 [ %.sroa.0.1568, %515 ], [ %.sroa.0.1568, %519 ], [ %554, %562 ], [ %.sroa.0.1568, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i253 ], [ %.sroa.0.1568, %527 ], [ %.sroa.0.1568, %522 ]
+  %.5142.i240 = phi i64 [ %.4141.i211570, %515 ], [ %.4141.i211570, %519 ], [ %554, %562 ], [ %.4141.i211570, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i253 ], [ %.4141.i211570, %527 ], [ %.4141.i211570, %522 ]
+  %.5.i241 = phi i64 [ %.4.i212571, %515 ], [ %.4.i212571, %519 ], [ %560, %562 ], [ %.4.i212571, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i253 ], [ %.4.i212571, %527 ], [ %.4.i212571, %522 ]
   %564 = icmp ugt i64 %508, %spec.select.i208
   br i1 %564, label %507, label %.thread352
 
@@ -23939,8 +23939,8 @@ split:                                            ; preds = %677, %_ZN13duckdb_b
   %720 = add i64 %.sroa.15.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %696, %707, %700, %712, %716, %719
-  %.1.i = phi i64 [ %720, %719 ], [ 3, %716 ], [ 1, %696 ], [ %711, %707 ], [ %704, %700 ], [ 2, %712 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %712, %696, %707, %700, %716, %719
+  %.1.i = phi i64 [ %720, %719 ], [ 3, %716 ], [ 2, %712 ], [ 1, %696 ], [ %711, %707 ], [ %704, %700 ]
   %721 = icmp ule i64 %.sroa.15.1.ph, %686
   %722 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %721, %722
@@ -23993,7 +23993,7 @@ _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %696, %707, %700, %7
   br label %_ZN13duckdb_brotliL22PrepareDistanceCacheH6EPNS_2H6EPi.exit200
 
 _ZN13duckdb_brotliL22PrepareDistanceCacheH6EPNS_2H6EPi.exit200: ; preds = %687, %738, %730, %723, %_ZL19ComputeDistanceCodemmPKi.exit
-  %.1.i399 = phi i64 [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ %.1.i, %738 ], [ %.1.i, %730 ], [ %.1.i, %723 ], [ 0, %687 ]
+  %.1.i399 = phi i64 [ %.1.i, %738 ], [ %.1.i, %730 ], [ %.1.i, %723 ], [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ 0, %687 ]
   %745 = getelementptr inbounds nuw i8, ptr %.0164621, i64 16
   %746 = trunc i64 %.3169.ph to i32
   store i32 %746, ptr %.0164621, align 4, !tbaa !148
@@ -24309,10 +24309,10 @@ _ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEP
   br i1 %944, label %927, label %_ZN13duckdb_brotliL12StoreRangeH6EPNS_2H6EPKhmmm.exit, !llvm.loop !1132
 
 _ZN13duckdb_brotliL12StoreRangeH6EPNS_2H6EPKhmmm.exit: ; preds = %873, %927, %902, %867, %920, %895, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread
-  %.1174 = phi i64 [ %.0173619, %920 ], [ %.0173619, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173619, %895 ], [ %685, %867 ], [ %.0173619, %927 ], [ %.0173619, %902 ], [ %685, %873 ]
-  %.4170 = phi i64 [ %889, %920 ], [ %889, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %889, %895 ], [ 0, %867 ], [ %942, %927 ], [ %917, %902 ], [ 0, %873 ]
-  %.1165 = phi ptr [ %.0164621, %920 ], [ %.0164621, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164621, %895 ], [ %745, %867 ], [ %.0164621, %927 ], [ %.0164621, %902 ], [ %745, %873 ]
-  %.4 = phi i64 [ %890, %920 ], [ %890, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %890, %895 ], [ %858, %867 ], [ %943, %927 ], [ %918, %902 ], [ %858, %873 ]
+  %.1174 = phi i64 [ %.0173619, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173619, %895 ], [ %.0173619, %920 ], [ %685, %867 ], [ %.0173619, %902 ], [ %.0173619, %927 ], [ %685, %873 ]
+  %.4170 = phi i64 [ %889, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %889, %895 ], [ %889, %920 ], [ 0, %867 ], [ %917, %902 ], [ %942, %927 ], [ 0, %873 ]
+  %.1165 = phi ptr [ %.0164621, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164621, %895 ], [ %.0164621, %920 ], [ %745, %867 ], [ %.0164621, %902 ], [ %.0164621, %927 ], [ %745, %873 ]
+  %.4 = phi i64 [ %890, %_ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %890, %895 ], [ %890, %920 ], [ %858, %867 ], [ %918, %902 ], [ %943, %927 ], [ %858, %873 ]
   %945 = add i64 %.4, 8
   %946 = icmp ult i64 %945, %21
   br i1 %946, label %99, label %._crit_edge624, !llvm.loop !1133
@@ -24726,11 +24726,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %184, %.
   br label %217
 
 217:                                              ; preds = %216, %208, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i, %177, %174, %164
-  %.sroa.24312.4 = phi i64 [ %.sroa.24312.3488, %177 ], [ %.sroa.24312.3488, %164 ], [ %.sroa.24312.3488, %174 ], [ %214, %216 ], [ %.sroa.24312.3488, %208 ], [ %.sroa.24312.3488, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ]
-  %.sroa.15.4 = phi i64 [ %.sroa.15.3489, %177 ], [ %.sroa.15.3489, %164 ], [ %.sroa.15.3489, %174 ], [ %162, %216 ], [ %.sroa.15.3489, %208 ], [ %.sroa.15.3489, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ]
-  %.sroa.0302.4 = phi i64 [ %.sroa.0302.3490, %177 ], [ %.sroa.0302.3490, %164 ], [ %.sroa.0302.3490, %174 ], [ %.2.i.i, %216 ], [ %.sroa.0302.3490, %208 ], [ %.sroa.0302.3490, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ]
-  %.5123.i = phi i64 [ %.4122.i493, %177 ], [ %.4122.i493, %164 ], [ %.4122.i493, %174 ], [ %.2.i.i, %216 ], [ %.4122.i493, %208 ], [ %.4122.i493, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ]
-  %.5.i = phi i64 [ %.4.i494, %177 ], [ %.4.i494, %164 ], [ %.4.i494, %174 ], [ %214, %216 ], [ %.4.i494, %208 ], [ %.4.i494, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ]
+  %.sroa.24312.4 = phi i64 [ %.sroa.24312.3488, %164 ], [ %.sroa.24312.3488, %174 ], [ %214, %216 ], [ %.sroa.24312.3488, %208 ], [ %.sroa.24312.3488, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.24312.3488, %177 ]
+  %.sroa.15.4 = phi i64 [ %.sroa.15.3489, %164 ], [ %.sroa.15.3489, %174 ], [ %162, %216 ], [ %.sroa.15.3489, %208 ], [ %.sroa.15.3489, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.15.3489, %177 ]
+  %.sroa.0302.4 = phi i64 [ %.sroa.0302.3490, %164 ], [ %.sroa.0302.3490, %174 ], [ %.2.i.i, %216 ], [ %.sroa.0302.3490, %208 ], [ %.sroa.0302.3490, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.0302.3490, %177 ]
+  %.5123.i = phi i64 [ %.4122.i493, %164 ], [ %.4122.i493, %174 ], [ %.2.i.i, %216 ], [ %.4122.i493, %208 ], [ %.4122.i493, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.4122.i493, %177 ]
+  %.5.i = phi i64 [ %.4.i494, %164 ], [ %.4.i494, %174 ], [ %214, %216 ], [ %.4.i494, %208 ], [ %.4.i494, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.4.i494, %177 ]
   %.not.i201 = icmp eq i64 %161, 0
   br i1 %.not.i201, label %.thread327, label %160
 
@@ -25290,11 +25290,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254: ; preds = %464,
   br label %497
 
 497:                                              ; preds = %496, %488, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254, %457, %454, %444
-  %.sroa.13.2 = phi i64 [ %.sroa.13.1564, %457 ], [ %.sroa.13.1564, %444 ], [ %.sroa.13.1564, %454 ], [ %494, %496 ], [ %.sroa.13.1564, %488 ], [ %.sroa.13.1564, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ]
-  %.sroa.9.2 = phi i64 [ %.sroa.9.1565, %457 ], [ %.sroa.9.1565, %444 ], [ %.sroa.9.1565, %454 ], [ %442, %496 ], [ %.sroa.9.1565, %488 ], [ %.sroa.9.1565, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ]
-  %.sroa.0.2 = phi i64 [ %.sroa.0.1566, %457 ], [ %.sroa.0.1566, %444 ], [ %.sroa.0.1566, %454 ], [ %.2.i.i255, %496 ], [ %.sroa.0.1566, %488 ], [ %.sroa.0.1566, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ]
-  %.5123.i218 = phi i64 [ %.4122.i211569, %457 ], [ %.4122.i211569, %444 ], [ %.4122.i211569, %454 ], [ %.2.i.i255, %496 ], [ %.4122.i211569, %488 ], [ %.4122.i211569, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ]
-  %.5.i219 = phi i64 [ %.4.i212570, %457 ], [ %.4.i212570, %444 ], [ %.4.i212570, %454 ], [ %494, %496 ], [ %.4.i212570, %488 ], [ %.4.i212570, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ]
+  %.sroa.13.2 = phi i64 [ %.sroa.13.1564, %444 ], [ %.sroa.13.1564, %454 ], [ %494, %496 ], [ %.sroa.13.1564, %488 ], [ %.sroa.13.1564, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ], [ %.sroa.13.1564, %457 ]
+  %.sroa.9.2 = phi i64 [ %.sroa.9.1565, %444 ], [ %.sroa.9.1565, %454 ], [ %442, %496 ], [ %.sroa.9.1565, %488 ], [ %.sroa.9.1565, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ], [ %.sroa.9.1565, %457 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1566, %444 ], [ %.sroa.0.1566, %454 ], [ %.2.i.i255, %496 ], [ %.sroa.0.1566, %488 ], [ %.sroa.0.1566, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ], [ %.sroa.0.1566, %457 ]
+  %.5123.i218 = phi i64 [ %.4122.i211569, %444 ], [ %.4122.i211569, %454 ], [ %.2.i.i255, %496 ], [ %.4122.i211569, %488 ], [ %.4122.i211569, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ], [ %.4122.i211569, %457 ]
+  %.5.i219 = phi i64 [ %.4.i212570, %444 ], [ %.4.i212570, %454 ], [ %494, %496 ], [ %.4.i212570, %488 ], [ %.4.i212570, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ], [ %.4.i212570, %457 ]
   %.not.i213 = icmp eq i64 %441, 0
   br i1 %.not.i213, label %.thread361, label %440
 
@@ -25592,8 +25592,8 @@ split:                                            ; preds = %613, %_ZN13duckdb_b
   %656 = add i64 %.sroa.15.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %632, %643, %636, %648, %652, %655
-  %.1.i = phi i64 [ %656, %655 ], [ 3, %652 ], [ 1, %632 ], [ %647, %643 ], [ %640, %636 ], [ 2, %648 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %648, %632, %643, %636, %652, %655
+  %.1.i = phi i64 [ %656, %655 ], [ 3, %652 ], [ 2, %648 ], [ 1, %632 ], [ %647, %643 ], [ %640, %636 ]
   %657 = icmp ule i64 %.sroa.15.1.ph, %622
   %658 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %657, %658
@@ -25611,7 +25611,7 @@ _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %632, %643, %636, %6
   br label %_ZL19ComputeDistanceCodemmPKi.exit.thread
 
 _ZL19ComputeDistanceCodemmPKi.exit.thread:        ; preds = %623, %659, %_ZL19ComputeDistanceCodemmPKi.exit
-  %.1.i410 = phi i64 [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ %.1.i, %659 ], [ 0, %623 ]
+  %.1.i410 = phi i64 [ %.1.i, %659 ], [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ 0, %623 ]
   %664 = getelementptr inbounds nuw i8, ptr %.0164622, i64 16
   %665 = trunc i64 %.3169.ph to i32
   store i32 %665, ptr %.0164622, align 4, !tbaa !148
@@ -25965,19 +25965,19 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   br i1 %886, label %862, label %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split, !llvm.loop !1204
 
 _ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split: ; preds = %792, %862, %829
-  %.lcssa813.sink = phi i16 [ %869, %862 ], [ %836, %829 ], [ %799, %792 ]
-  %.1174.ph = phi i64 [ %.0173620, %862 ], [ %.0173620, %829 ], [ %621, %792 ]
-  %.4170.ph = phi i64 [ %884, %862 ], [ %851, %829 ], [ 0, %792 ]
-  %.1165.ph = phi ptr [ %.0164622, %862 ], [ %.0164622, %829 ], [ %664, %792 ]
-  %.4.ph = phi i64 [ %885, %862 ], [ %852, %829 ], [ %777, %792 ]
+  %.lcssa813.sink = phi i16 [ %836, %829 ], [ %869, %862 ], [ %799, %792 ]
+  %.1174.ph = phi i64 [ %.0173620, %829 ], [ %.0173620, %862 ], [ %621, %792 ]
+  %.4170.ph = phi i64 [ %851, %829 ], [ %884, %862 ], [ 0, %792 ]
+  %.1165.ph = phi ptr [ %.0164622, %829 ], [ %.0164622, %862 ], [ %664, %792 ]
+  %.4.ph = phi i64 [ %852, %829 ], [ %885, %862 ], [ %777, %792 ]
   store i16 %.lcssa813.sink, ptr %13, align 2, !tbaa !68, !noalias !385
   br label %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit
 
 _ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit: ; preds = %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split, %786, %854, %821, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread
-  %.1174 = phi i64 [ %.0173620, %854 ], [ %.0173620, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173620, %821 ], [ %621, %786 ], [ %.1174.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
-  %.4170 = phi i64 [ %815, %854 ], [ %815, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %815, %821 ], [ 0, %786 ], [ %.4170.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
-  %.1165 = phi ptr [ %.0164622, %854 ], [ %.0164622, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164622, %821 ], [ %664, %786 ], [ %.1165.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
-  %.4 = phi i64 [ %816, %854 ], [ %816, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %816, %821 ], [ %777, %786 ], [ %.4.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
+  %.1174 = phi i64 [ %.0173620, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173620, %821 ], [ %.0173620, %854 ], [ %621, %786 ], [ %.1174.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
+  %.4170 = phi i64 [ %815, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %815, %821 ], [ %815, %854 ], [ 0, %786 ], [ %.4170.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
+  %.1165 = phi ptr [ %.0164622, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164622, %821 ], [ %.0164622, %854 ], [ %664, %786 ], [ %.1165.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
+  %.4 = phi i64 [ %816, %_ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %816, %821 ], [ %816, %854 ], [ %777, %786 ], [ %.4.ph, %_ZN13duckdb_brotliL13StoreRangeH40EPNS_3H40EPKhmmm.exit.sink.split ]
   %887 = add i64 %.4, 4
   %888 = icmp ult i64 %887, %22
   br i1 %888, label %51, label %._crit_edge, !llvm.loop !1205
@@ -26410,11 +26410,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %197, %.
   br label %230
 
 230:                                              ; preds = %229, %221, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i, %190, %187, %177
-  %.sroa.24312.4 = phi i64 [ %.sroa.24312.3488, %190 ], [ %.sroa.24312.3488, %177 ], [ %.sroa.24312.3488, %187 ], [ %227, %229 ], [ %.sroa.24312.3488, %221 ], [ %.sroa.24312.3488, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ]
-  %.sroa.15.4 = phi i64 [ %.sroa.15.3489, %190 ], [ %.sroa.15.3489, %177 ], [ %.sroa.15.3489, %187 ], [ %175, %229 ], [ %.sroa.15.3489, %221 ], [ %.sroa.15.3489, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ]
-  %.sroa.0302.4 = phi i64 [ %.sroa.0302.3490, %190 ], [ %.sroa.0302.3490, %177 ], [ %.sroa.0302.3490, %187 ], [ %.2.i.i, %229 ], [ %.sroa.0302.3490, %221 ], [ %.sroa.0302.3490, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ]
-  %.5123.i = phi i64 [ %.4122.i493, %190 ], [ %.4122.i493, %177 ], [ %.4122.i493, %187 ], [ %.2.i.i, %229 ], [ %.4122.i493, %221 ], [ %.4122.i493, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ]
-  %.5.i = phi i64 [ %.4.i494, %190 ], [ %.4.i494, %177 ], [ %.4.i494, %187 ], [ %227, %229 ], [ %.4.i494, %221 ], [ %.4.i494, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ]
+  %.sroa.24312.4 = phi i64 [ %.sroa.24312.3488, %177 ], [ %.sroa.24312.3488, %187 ], [ %227, %229 ], [ %.sroa.24312.3488, %221 ], [ %.sroa.24312.3488, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.24312.3488, %190 ]
+  %.sroa.15.4 = phi i64 [ %.sroa.15.3489, %177 ], [ %.sroa.15.3489, %187 ], [ %175, %229 ], [ %.sroa.15.3489, %221 ], [ %.sroa.15.3489, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.15.3489, %190 ]
+  %.sroa.0302.4 = phi i64 [ %.sroa.0302.3490, %177 ], [ %.sroa.0302.3490, %187 ], [ %.2.i.i, %229 ], [ %.sroa.0302.3490, %221 ], [ %.sroa.0302.3490, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.0302.3490, %190 ]
+  %.5123.i = phi i64 [ %.4122.i493, %177 ], [ %.4122.i493, %187 ], [ %.2.i.i, %229 ], [ %.4122.i493, %221 ], [ %.4122.i493, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.4122.i493, %190 ]
+  %.5.i = phi i64 [ %.4.i494, %177 ], [ %.4.i494, %187 ], [ %227, %229 ], [ %.4.i494, %221 ], [ %.4.i494, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.4.i494, %190 ]
   %.not.i201 = icmp eq i64 %174, 0
   br i1 %.not.i201, label %.thread327, label %173
 
@@ -26974,11 +26974,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254: ; preds = %477,
   br label %510
 
 510:                                              ; preds = %509, %501, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254, %470, %467, %457
-  %.sroa.13.2 = phi i64 [ %.sroa.13.1564, %470 ], [ %.sroa.13.1564, %457 ], [ %.sroa.13.1564, %467 ], [ %507, %509 ], [ %.sroa.13.1564, %501 ], [ %.sroa.13.1564, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ]
-  %.sroa.9.2 = phi i64 [ %.sroa.9.1565, %470 ], [ %.sroa.9.1565, %457 ], [ %.sroa.9.1565, %467 ], [ %455, %509 ], [ %.sroa.9.1565, %501 ], [ %.sroa.9.1565, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ]
-  %.sroa.0.2 = phi i64 [ %.sroa.0.1566, %470 ], [ %.sroa.0.1566, %457 ], [ %.sroa.0.1566, %467 ], [ %.2.i.i255, %509 ], [ %.sroa.0.1566, %501 ], [ %.sroa.0.1566, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ]
-  %.5123.i218 = phi i64 [ %.4122.i211569, %470 ], [ %.4122.i211569, %457 ], [ %.4122.i211569, %467 ], [ %.2.i.i255, %509 ], [ %.4122.i211569, %501 ], [ %.4122.i211569, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ]
-  %.5.i219 = phi i64 [ %.4.i212570, %470 ], [ %.4.i212570, %457 ], [ %.4.i212570, %467 ], [ %507, %509 ], [ %.4.i212570, %501 ], [ %.4.i212570, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ]
+  %.sroa.13.2 = phi i64 [ %.sroa.13.1564, %457 ], [ %.sroa.13.1564, %467 ], [ %507, %509 ], [ %.sroa.13.1564, %501 ], [ %.sroa.13.1564, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ], [ %.sroa.13.1564, %470 ]
+  %.sroa.9.2 = phi i64 [ %.sroa.9.1565, %457 ], [ %.sroa.9.1565, %467 ], [ %455, %509 ], [ %.sroa.9.1565, %501 ], [ %.sroa.9.1565, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ], [ %.sroa.9.1565, %470 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1566, %457 ], [ %.sroa.0.1566, %467 ], [ %.2.i.i255, %509 ], [ %.sroa.0.1566, %501 ], [ %.sroa.0.1566, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ], [ %.sroa.0.1566, %470 ]
+  %.5123.i218 = phi i64 [ %.4122.i211569, %457 ], [ %.4122.i211569, %467 ], [ %.2.i.i255, %509 ], [ %.4122.i211569, %501 ], [ %.4122.i211569, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ], [ %.4122.i211569, %470 ]
+  %.5.i219 = phi i64 [ %.4.i212570, %457 ], [ %.4.i212570, %467 ], [ %507, %509 ], [ %.4.i212570, %501 ], [ %.4.i212570, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ], [ %.4.i212570, %470 ]
   %.not.i213 = icmp eq i64 %454, 0
   br i1 %.not.i213, label %.thread361, label %453
 
@@ -27276,8 +27276,8 @@ split:                                            ; preds = %626, %_ZN13duckdb_b
   %669 = add i64 %.sroa.15.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %645, %656, %649, %661, %665, %668
-  %.1.i = phi i64 [ %669, %668 ], [ 3, %665 ], [ 1, %645 ], [ %660, %656 ], [ %653, %649 ], [ 2, %661 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %661, %645, %656, %649, %665, %668
+  %.1.i = phi i64 [ %669, %668 ], [ 3, %665 ], [ 2, %661 ], [ 1, %645 ], [ %660, %656 ], [ %653, %649 ]
   %670 = icmp ule i64 %.sroa.15.1.ph, %635
   %671 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %670, %671
@@ -27307,7 +27307,7 @@ _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %645, %656, %649, %6
   br label %_ZL19ComputeDistanceCodemmPKi.exit.thread
 
 _ZL19ComputeDistanceCodemmPKi.exit.thread:        ; preds = %636, %672, %_ZL19ComputeDistanceCodemmPKi.exit
-  %.1.i410 = phi i64 [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ %.1.i, %672 ], [ 0, %636 ]
+  %.1.i410 = phi i64 [ %.1.i, %672 ], [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ 0, %636 ]
   %683 = getelementptr inbounds nuw i8, ptr %.0164622, i64 16
   %684 = trunc i64 %.3169.ph to i32
   store i32 %684, ptr %.0164622, align 4, !tbaa !148
@@ -27661,19 +27661,19 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   br i1 %905, label %881, label %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split, !llvm.loop !1286
 
 _ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split: ; preds = %811, %881, %848
-  %.lcssa813.sink = phi i16 [ %888, %881 ], [ %855, %848 ], [ %818, %811 ]
-  %.1174.ph = phi i64 [ %.0173620, %881 ], [ %.0173620, %848 ], [ %634, %811 ]
-  %.4170.ph = phi i64 [ %903, %881 ], [ %870, %848 ], [ 0, %811 ]
-  %.1165.ph = phi ptr [ %.0164622, %881 ], [ %.0164622, %848 ], [ %683, %811 ]
-  %.4.ph = phi i64 [ %904, %881 ], [ %871, %848 ], [ %796, %811 ]
+  %.lcssa813.sink = phi i16 [ %855, %848 ], [ %888, %881 ], [ %818, %811 ]
+  %.1174.ph = phi i64 [ %.0173620, %848 ], [ %.0173620, %881 ], [ %634, %811 ]
+  %.4170.ph = phi i64 [ %870, %848 ], [ %903, %881 ], [ 0, %811 ]
+  %.1165.ph = phi ptr [ %.0164622, %848 ], [ %.0164622, %881 ], [ %683, %811 ]
+  %.4.ph = phi i64 [ %871, %848 ], [ %904, %881 ], [ %796, %811 ]
   store i16 %.lcssa813.sink, ptr %13, align 2, !tbaa !68, !noalias !385
   br label %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit
 
 _ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit: ; preds = %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split, %805, %873, %840, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread
-  %.1174 = phi i64 [ %.0173620, %873 ], [ %.0173620, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173620, %840 ], [ %634, %805 ], [ %.1174.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
-  %.4170 = phi i64 [ %834, %873 ], [ %834, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %834, %840 ], [ 0, %805 ], [ %.4170.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
-  %.1165 = phi ptr [ %.0164622, %873 ], [ %.0164622, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164622, %840 ], [ %683, %805 ], [ %.1165.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
-  %.4 = phi i64 [ %835, %873 ], [ %835, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %835, %840 ], [ %796, %805 ], [ %.4.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
+  %.1174 = phi i64 [ %.0173620, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173620, %840 ], [ %.0173620, %873 ], [ %634, %805 ], [ %.1174.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
+  %.4170 = phi i64 [ %834, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %834, %840 ], [ %834, %873 ], [ 0, %805 ], [ %.4170.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
+  %.1165 = phi ptr [ %.0164622, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164622, %840 ], [ %.0164622, %873 ], [ %683, %805 ], [ %.1165.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
+  %.4 = phi i64 [ %835, %_ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %835, %840 ], [ %835, %873 ], [ %796, %805 ], [ %.4.ph, %_ZN13duckdb_brotliL13StoreRangeH41EPNS_3H41EPKhmmm.exit.sink.split ]
   %906 = add i64 %.4, 4
   %907 = icmp ult i64 %906, %22
   br i1 %907, label %64, label %._crit_edge, !llvm.loop !1287
@@ -28127,11 +28127,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %212, %.
   br label %245
 
 245:                                              ; preds = %244, %236, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i, %205, %202, %192
-  %.sroa.24312.4 = phi i64 [ %.sroa.24312.3488, %205 ], [ %.sroa.24312.3488, %192 ], [ %.sroa.24312.3488, %202 ], [ %242, %244 ], [ %.sroa.24312.3488, %236 ], [ %.sroa.24312.3488, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ]
-  %.sroa.15.4 = phi i64 [ %.sroa.15.3489, %205 ], [ %.sroa.15.3489, %192 ], [ %.sroa.15.3489, %202 ], [ %190, %244 ], [ %.sroa.15.3489, %236 ], [ %.sroa.15.3489, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ]
-  %.sroa.0302.4 = phi i64 [ %.sroa.0302.3490, %205 ], [ %.sroa.0302.3490, %192 ], [ %.sroa.0302.3490, %202 ], [ %.2.i.i, %244 ], [ %.sroa.0302.3490, %236 ], [ %.sroa.0302.3490, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ]
-  %.5123.i = phi i64 [ %.4122.i493, %205 ], [ %.4122.i493, %192 ], [ %.4122.i493, %202 ], [ %.2.i.i, %244 ], [ %.4122.i493, %236 ], [ %.4122.i493, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ]
-  %.5.i = phi i64 [ %.4.i494, %205 ], [ %.4.i494, %192 ], [ %.4.i494, %202 ], [ %242, %244 ], [ %.4.i494, %236 ], [ %.4.i494, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ]
+  %.sroa.24312.4 = phi i64 [ %.sroa.24312.3488, %192 ], [ %.sroa.24312.3488, %202 ], [ %242, %244 ], [ %.sroa.24312.3488, %236 ], [ %.sroa.24312.3488, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.24312.3488, %205 ]
+  %.sroa.15.4 = phi i64 [ %.sroa.15.3489, %192 ], [ %.sroa.15.3489, %202 ], [ %190, %244 ], [ %.sroa.15.3489, %236 ], [ %.sroa.15.3489, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.15.3489, %205 ]
+  %.sroa.0302.4 = phi i64 [ %.sroa.0302.3490, %192 ], [ %.sroa.0302.3490, %202 ], [ %.2.i.i, %244 ], [ %.sroa.0302.3490, %236 ], [ %.sroa.0302.3490, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.0302.3490, %205 ]
+  %.5123.i = phi i64 [ %.4122.i493, %192 ], [ %.4122.i493, %202 ], [ %.2.i.i, %244 ], [ %.4122.i493, %236 ], [ %.4122.i493, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.4122.i493, %205 ]
+  %.5.i = phi i64 [ %.4.i494, %192 ], [ %.4.i494, %202 ], [ %242, %244 ], [ %.4.i494, %236 ], [ %.4.i494, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.4.i494, %205 ]
   %.not.i201 = icmp eq i64 %189, 0
   br i1 %.not.i201, label %.thread327, label %188
 
@@ -28691,11 +28691,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254: ; preds = %495,
   br label %528
 
 528:                                              ; preds = %527, %519, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254, %488, %485, %475
-  %.sroa.13.2 = phi i64 [ %.sroa.13.1564, %488 ], [ %.sroa.13.1564, %475 ], [ %.sroa.13.1564, %485 ], [ %525, %527 ], [ %.sroa.13.1564, %519 ], [ %.sroa.13.1564, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ]
-  %.sroa.9.2 = phi i64 [ %.sroa.9.1565, %488 ], [ %.sroa.9.1565, %475 ], [ %.sroa.9.1565, %485 ], [ %473, %527 ], [ %.sroa.9.1565, %519 ], [ %.sroa.9.1565, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ]
-  %.sroa.0.2 = phi i64 [ %.sroa.0.1566, %488 ], [ %.sroa.0.1566, %475 ], [ %.sroa.0.1566, %485 ], [ %.2.i.i255, %527 ], [ %.sroa.0.1566, %519 ], [ %.sroa.0.1566, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ]
-  %.5123.i218 = phi i64 [ %.4122.i211569, %488 ], [ %.4122.i211569, %475 ], [ %.4122.i211569, %485 ], [ %.2.i.i255, %527 ], [ %.4122.i211569, %519 ], [ %.4122.i211569, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ]
-  %.5.i219 = phi i64 [ %.4.i212570, %488 ], [ %.4.i212570, %475 ], [ %.4.i212570, %485 ], [ %525, %527 ], [ %.4.i212570, %519 ], [ %.4.i212570, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ]
+  %.sroa.13.2 = phi i64 [ %.sroa.13.1564, %475 ], [ %.sroa.13.1564, %485 ], [ %525, %527 ], [ %.sroa.13.1564, %519 ], [ %.sroa.13.1564, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ], [ %.sroa.13.1564, %488 ]
+  %.sroa.9.2 = phi i64 [ %.sroa.9.1565, %475 ], [ %.sroa.9.1565, %485 ], [ %473, %527 ], [ %.sroa.9.1565, %519 ], [ %.sroa.9.1565, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ], [ %.sroa.9.1565, %488 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1566, %475 ], [ %.sroa.0.1566, %485 ], [ %.2.i.i255, %527 ], [ %.sroa.0.1566, %519 ], [ %.sroa.0.1566, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ], [ %.sroa.0.1566, %488 ]
+  %.5123.i218 = phi i64 [ %.4122.i211569, %475 ], [ %.4122.i211569, %485 ], [ %.2.i.i255, %527 ], [ %.4122.i211569, %519 ], [ %.4122.i211569, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ], [ %.4122.i211569, %488 ]
+  %.5.i219 = phi i64 [ %.4.i212570, %475 ], [ %.4.i212570, %485 ], [ %525, %527 ], [ %.4.i212570, %519 ], [ %.4.i212570, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254 ], [ %.4.i212570, %488 ]
   %.not.i213 = icmp eq i64 %472, 0
   br i1 %.not.i213, label %.thread361, label %471
 
@@ -28997,8 +28997,8 @@ split:                                            ; preds = %648, %_ZN13duckdb_b
   %691 = add i64 %.sroa.15.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %667, %678, %671, %683, %687, %690
-  %.1.i = phi i64 [ %691, %690 ], [ 3, %687 ], [ 1, %667 ], [ %682, %678 ], [ %675, %671 ], [ 2, %683 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %683, %667, %678, %671, %687, %690
+  %.1.i = phi i64 [ %691, %690 ], [ 3, %687 ], [ 2, %683 ], [ 1, %667 ], [ %682, %678 ], [ %675, %671 ]
   %692 = icmp ule i64 %.sroa.15.1.ph, %657
   %693 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %692, %693
@@ -29040,7 +29040,7 @@ _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %667, %678, %671, %6
   br label %_ZL19ComputeDistanceCodemmPKi.exit.thread
 
 _ZL19ComputeDistanceCodemmPKi.exit.thread:        ; preds = %658, %694, %_ZL19ComputeDistanceCodemmPKi.exit
-  %.1.i410 = phi i64 [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ %.1.i, %694 ], [ 0, %658 ]
+  %.1.i410 = phi i64 [ %.1.i, %694 ], [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ 0, %658 ]
   %711 = getelementptr inbounds nuw i8, ptr %.0164616, i64 16
   %712 = trunc i64 %.3169.ph to i32
   store i32 %712, ptr %.0164616, align 4, !tbaa !148
@@ -29406,10 +29406,10 @@ _ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionary
   br i1 %945, label %917, label %_ZN13duckdb_brotliL13StoreRangeH42EPNS_3H42EPKhmmm.exit, !llvm.loop !1368
 
 _ZN13duckdb_brotliL13StoreRangeH42EPNS_3H42EPKhmmm.exit: ; preds = %839, %917, %880, %833, %909, %872, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread
-  %.1174 = phi i64 [ %.0173614, %909 ], [ %.0173614, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173614, %872 ], [ %656, %833 ], [ %.0173614, %917 ], [ %.0173614, %880 ], [ %656, %839 ]
-  %.4170 = phi i64 [ %866, %909 ], [ %866, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %866, %872 ], [ 0, %833 ], [ %943, %917 ], [ %906, %880 ], [ 0, %839 ]
-  %.1165 = phi ptr [ %.0164616, %909 ], [ %.0164616, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164616, %872 ], [ %711, %833 ], [ %.0164616, %917 ], [ %.0164616, %880 ], [ %711, %839 ]
-  %.4 = phi i64 [ %867, %909 ], [ %867, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %867, %872 ], [ %824, %833 ], [ %944, %917 ], [ %907, %880 ], [ %824, %839 ]
+  %.1174 = phi i64 [ %.0173614, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0173614, %872 ], [ %.0173614, %909 ], [ %656, %833 ], [ %.0173614, %880 ], [ %.0173614, %917 ], [ %656, %839 ]
+  %.4170 = phi i64 [ %866, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %866, %872 ], [ %866, %909 ], [ 0, %833 ], [ %906, %880 ], [ %943, %917 ], [ 0, %839 ]
+  %.1165 = phi ptr [ %.0164616, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %.0164616, %872 ], [ %.0164616, %909 ], [ %711, %833 ], [ %.0164616, %880 ], [ %.0164616, %917 ], [ %711, %839 ]
+  %.4 = phi i64 [ %867, %_ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.thread ], [ %867, %872 ], [ %867, %909 ], [ %824, %833 ], [ %907, %880 ], [ %944, %917 ], [ %824, %839 ]
   %946 = add i64 %.4, 4
   %947 = icmp ult i64 %946, %22
   br i1 %947, label %77, label %._crit_edge, !llvm.loop !1369
@@ -30110,8 +30110,8 @@ _ZL19ComputeDistanceCodemmPKi.exit.thread.thread: ; preds = %300
   %336 = add i64 %.sroa.13.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %312, %323, %316, %328, %332, %335
-  %.1.i = phi i64 [ %336, %335 ], [ 3, %332 ], [ 1, %312 ], [ %327, %323 ], [ %320, %316 ], [ 2, %328 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %328, %312, %323, %316, %332, %335
+  %.1.i = phi i64 [ %336, %335 ], [ 3, %332 ], [ 2, %328 ], [ 1, %312 ], [ %327, %323 ], [ %320, %316 ]
   %337 = icmp ule i64 %.sroa.13.1.ph, %299
   %338 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %337, %338
@@ -30412,10 +30412,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %445, %_ZN13duckdb_b
   br i1 %524, label %.lr.ph385, label %_ZN13duckdb_brotliL13StoreRangeH54EPNS_3H54EPKhmmm.exit, !llvm.loop !1403
 
 _ZN13duckdb_brotliL13StoreRangeH54EPNS_3H54EPKhmmm.exit: ; preds = %.lr.ph385, %.lr.ph390, %.lr.ph432, %509, %493, %474, %486
-  %.1174 = phi i64 [ %296, %474 ], [ %.0173433, %486 ], [ %.0173433, %493 ], [ %.0173433, %509 ], [ %.0173433, %.lr.ph390 ], [ %296, %.lr.ph432 ], [ %.0173433, %.lr.ph385 ]
-  %.4170 = phi i64 [ 0, %474 ], [ %487, %486 ], [ %487, %493 ], [ %487, %509 ], [ %506, %.lr.ph390 ], [ 0, %.lr.ph432 ], [ %522, %.lr.ph385 ]
-  %.1165 = phi ptr [ %383, %474 ], [ %.0164435, %486 ], [ %.0164435, %493 ], [ %.0164435, %509 ], [ %.0164435, %.lr.ph390 ], [ %383, %.lr.ph432 ], [ %.0164435, %.lr.ph385 ]
-  %.4 = phi i64 [ %465, %474 ], [ %488, %486 ], [ %488, %493 ], [ %488, %509 ], [ %507, %.lr.ph390 ], [ %465, %.lr.ph432 ], [ %523, %.lr.ph385 ]
+  %.1174 = phi i64 [ %.0173433, %486 ], [ %296, %474 ], [ %.0173433, %493 ], [ %.0173433, %509 ], [ %296, %.lr.ph432 ], [ %.0173433, %.lr.ph390 ], [ %.0173433, %.lr.ph385 ]
+  %.4170 = phi i64 [ %487, %486 ], [ 0, %474 ], [ %487, %493 ], [ %487, %509 ], [ 0, %.lr.ph432 ], [ %506, %.lr.ph390 ], [ %522, %.lr.ph385 ]
+  %.1165 = phi ptr [ %.0164435, %486 ], [ %383, %474 ], [ %.0164435, %493 ], [ %.0164435, %509 ], [ %383, %.lr.ph432 ], [ %.0164435, %.lr.ph390 ], [ %.0164435, %.lr.ph385 ]
+  %.4 = phi i64 [ %488, %486 ], [ %465, %474 ], [ %488, %493 ], [ %488, %509 ], [ %465, %.lr.ph432 ], [ %507, %.lr.ph390 ], [ %523, %.lr.ph385 ]
   %525 = add i64 %.4, 8
   %526 = icmp ult i64 %525, %22
   br i1 %526, label %.thread, label %._crit_edge, !llvm.loop !1404
@@ -30893,9 +30893,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i: ; preds = %198, 
   br label %231
 
 231:                                              ; preds = %230, %223, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i, %192, %183, %166
-  %.sroa.24.5 = phi i64 [ %.sroa.24.4450, %192 ], [ %228, %230 ], [ %.sroa.24.4450, %223 ], [ %.sroa.24.4450, %166 ], [ %.sroa.24.4450, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.24.4450, %183 ]
-  %.sroa.15.5 = phi i64 [ %.sroa.15.4451, %192 ], [ %194, %230 ], [ %.sroa.15.4451, %223 ], [ %.sroa.15.4451, %166 ], [ %.sroa.15.4451, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.15.4451, %183 ]
-  %.sroa.0278.5 = phi i64 [ %.sroa.0278.4452, %192 ], [ %.2.i.i.i, %230 ], [ %.sroa.0278.4452, %223 ], [ %.sroa.0278.4452, %166 ], [ %.sroa.0278.4452, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.0278.4452, %183 ]
+  %.sroa.24.5 = phi i64 [ %.sroa.24.4450, %192 ], [ %228, %230 ], [ %.sroa.24.4450, %223 ], [ %.sroa.24.4450, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.24.4450, %183 ], [ %.sroa.24.4450, %166 ]
+  %.sroa.15.5 = phi i64 [ %.sroa.15.4451, %192 ], [ %194, %230 ], [ %.sroa.15.4451, %223 ], [ %.sroa.15.4451, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.15.4451, %183 ], [ %.sroa.15.4451, %166 ]
+  %.sroa.0278.5 = phi i64 [ %.sroa.0278.4452, %192 ], [ %.2.i.i.i, %230 ], [ %.sroa.0278.4452, %223 ], [ %.sroa.0278.4452, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.0278.4452, %183 ], [ %.sroa.0278.4452, %166 ]
   %232 = add i64 %.0.i.i453, 4
   %.not64.i.i = icmp ugt i64 %232, %.0543
   br i1 %.not64.i.i, label %._crit_edge, label %166, !llvm.loop !651
@@ -31337,9 +31337,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i224: ; preds = %39
   br label %424
 
 424:                                              ; preds = %423, %416, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i224, %386, %377, %360
-  %.sroa.13.3 = phi i64 [ %.sroa.13.2525, %386 ], [ %421, %423 ], [ %.sroa.13.2525, %416 ], [ %.sroa.13.2525, %360 ], [ %.sroa.13.2525, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i224 ], [ %.sroa.13.2525, %377 ]
-  %.sroa.9.3 = phi i64 [ %.sroa.9.2526, %386 ], [ %388, %423 ], [ %.sroa.9.2526, %416 ], [ %.sroa.9.2526, %360 ], [ %.sroa.9.2526, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i224 ], [ %.sroa.9.2526, %377 ]
-  %.sroa.0.3 = phi i64 [ %.sroa.0.2527, %386 ], [ %.2.i.i.i225, %423 ], [ %.sroa.0.2527, %416 ], [ %.sroa.0.2527, %360 ], [ %.sroa.0.2527, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i224 ], [ %.sroa.0.2527, %377 ]
+  %.sroa.13.3 = phi i64 [ %.sroa.13.2525, %386 ], [ %421, %423 ], [ %.sroa.13.2525, %416 ], [ %.sroa.13.2525, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i224 ], [ %.sroa.13.2525, %377 ], [ %.sroa.13.2525, %360 ]
+  %.sroa.9.3 = phi i64 [ %.sroa.9.2526, %386 ], [ %388, %423 ], [ %.sroa.9.2526, %416 ], [ %.sroa.9.2526, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i224 ], [ %.sroa.9.2526, %377 ], [ %.sroa.9.2526, %360 ]
+  %.sroa.0.3 = phi i64 [ %.sroa.0.2527, %386 ], [ %.2.i.i.i225, %423 ], [ %.sroa.0.2527, %416 ], [ %.sroa.0.2527, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i224 ], [ %.sroa.0.2527, %377 ], [ %.sroa.0.2527, %360 ]
   %425 = add i64 %.0.i.i211528, 4
   %.not64.i.i212 = icmp ugt i64 %425, %244
   br i1 %.not64.i.i212, label %._crit_edge531, label %360, !llvm.loop !651
@@ -31450,8 +31450,8 @@ _ZL19ComputeDistanceCodemmPKi.exit.thread.thread: ; preds = %442
   %478 = add i64 %.sroa.15.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %454, %465, %458, %470, %474, %477
-  %.1.i = phi i64 [ %478, %477 ], [ 3, %474 ], [ 1, %454 ], [ %469, %465 ], [ %462, %458 ], [ 2, %470 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %470, %454, %465, %458, %474, %477
+  %.1.i = phi i64 [ %478, %477 ], [ 3, %474 ], [ 2, %470 ], [ 1, %454 ], [ %469, %465 ], [ %462, %458 ]
   %479 = icmp ule i64 %.sroa.15.1.ph, %441
   %480 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %479, %480
@@ -31752,10 +31752,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %587, %_ZN13duckdb_b
   br i1 %666, label %.lr.ph461, label %_ZN13duckdb_brotliL13StoreRangeH35EPNS_3H35EPKhmmm.exit, !llvm.loop !1485
 
 _ZN13duckdb_brotliL13StoreRangeH35EPNS_3H35EPKhmmm.exit: ; preds = %.lr.ph461, %.lr.ph467, %.lr.ph539, %651, %635, %616, %628
-  %.1174 = phi i64 [ %438, %616 ], [ %.0173540, %628 ], [ %.0173540, %635 ], [ %.0173540, %651 ], [ %.0173540, %.lr.ph467 ], [ %438, %.lr.ph539 ], [ %.0173540, %.lr.ph461 ]
-  %.4170 = phi i64 [ 0, %616 ], [ %629, %628 ], [ %629, %635 ], [ %629, %651 ], [ %648, %.lr.ph467 ], [ 0, %.lr.ph539 ], [ %664, %.lr.ph461 ]
-  %.1165 = phi ptr [ %525, %616 ], [ %.0164542, %628 ], [ %.0164542, %635 ], [ %.0164542, %651 ], [ %.0164542, %.lr.ph467 ], [ %525, %.lr.ph539 ], [ %.0164542, %.lr.ph461 ]
-  %.4 = phi i64 [ %607, %616 ], [ %630, %628 ], [ %630, %635 ], [ %630, %651 ], [ %649, %.lr.ph467 ], [ %607, %.lr.ph539 ], [ %665, %.lr.ph461 ]
+  %.1174 = phi i64 [ %.0173540, %628 ], [ %438, %616 ], [ %.0173540, %635 ], [ %.0173540, %651 ], [ %438, %.lr.ph539 ], [ %.0173540, %.lr.ph467 ], [ %.0173540, %.lr.ph461 ]
+  %.4170 = phi i64 [ %629, %628 ], [ 0, %616 ], [ %629, %635 ], [ %629, %651 ], [ 0, %.lr.ph539 ], [ %648, %.lr.ph467 ], [ %664, %.lr.ph461 ]
+  %.1165 = phi ptr [ %.0164542, %628 ], [ %525, %616 ], [ %.0164542, %635 ], [ %.0164542, %651 ], [ %525, %.lr.ph539 ], [ %.0164542, %.lr.ph467 ], [ %.0164542, %.lr.ph461 ]
+  %.4 = phi i64 [ %630, %628 ], [ %607, %616 ], [ %630, %635 ], [ %630, %651 ], [ %607, %.lr.ph539 ], [ %649, %.lr.ph467 ], [ %665, %.lr.ph461 ]
   %667 = add i64 %.4, 8
   %668 = icmp ult i64 %667, %22
   br i1 %668, label %.thread, label %._crit_edge544, !llvm.loop !1486
@@ -32238,9 +32238,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i280: ; preds = %203,
   br label %236
 
 236:                                              ; preds = %235, %228, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i280, %197, %188, %171
-  %.sroa.24.6 = phi i64 [ %.sroa.24.5470, %197 ], [ %233, %235 ], [ %.sroa.24.5470, %228 ], [ %.sroa.24.5470, %171 ], [ %.sroa.24.5470, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i280 ], [ %.sroa.24.5470, %188 ]
-  %.sroa.15.6 = phi i64 [ %.sroa.15.5471, %197 ], [ %199, %235 ], [ %.sroa.15.5471, %228 ], [ %.sroa.15.5471, %171 ], [ %.sroa.15.5471, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i280 ], [ %.sroa.15.5471, %188 ]
-  %.sroa.0298.6 = phi i64 [ %.sroa.0298.5472, %197 ], [ %.2.i.i281, %235 ], [ %.sroa.0298.5472, %228 ], [ %.sroa.0298.5472, %171 ], [ %.sroa.0298.5472, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i280 ], [ %.sroa.0298.5472, %188 ]
+  %.sroa.24.6 = phi i64 [ %.sroa.24.5470, %197 ], [ %233, %235 ], [ %.sroa.24.5470, %228 ], [ %.sroa.24.5470, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i280 ], [ %.sroa.24.5470, %188 ], [ %.sroa.24.5470, %171 ]
+  %.sroa.15.6 = phi i64 [ %.sroa.15.5471, %197 ], [ %199, %235 ], [ %.sroa.15.5471, %228 ], [ %.sroa.15.5471, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i280 ], [ %.sroa.15.5471, %188 ], [ %.sroa.15.5471, %171 ]
+  %.sroa.0298.6 = phi i64 [ %.sroa.0298.5472, %197 ], [ %.2.i.i281, %235 ], [ %.sroa.0298.5472, %228 ], [ %.sroa.0298.5472, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i280 ], [ %.sroa.0298.5472, %188 ], [ %.sroa.0298.5472, %171 ]
   %237 = add i64 %.0.i267473, 4
   %.not64.i268 = icmp ugt i64 %237, %.0563
   br i1 %.not64.i268, label %._crit_edge, label %171, !llvm.loop !651
@@ -32688,9 +32688,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i259: ; preds = %402,
   br label %435
 
 435:                                              ; preds = %434, %427, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i259, %397, %388, %371
-  %.sroa.13.4 = phi i64 [ %.sroa.13.3545, %397 ], [ %432, %434 ], [ %.sroa.13.3545, %427 ], [ %.sroa.13.3545, %371 ], [ %.sroa.13.3545, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i259 ], [ %.sroa.13.3545, %388 ]
-  %.sroa.9.4 = phi i64 [ %.sroa.9.3546, %397 ], [ %399, %434 ], [ %.sroa.9.3546, %427 ], [ %.sroa.9.3546, %371 ], [ %.sroa.9.3546, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i259 ], [ %.sroa.9.3546, %388 ]
-  %.sroa.0.4 = phi i64 [ %.sroa.0.3547, %397 ], [ %.2.i.i260, %434 ], [ %.sroa.0.3547, %427 ], [ %.sroa.0.3547, %371 ], [ %.sroa.0.3547, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i259 ], [ %.sroa.0.3547, %388 ]
+  %.sroa.13.4 = phi i64 [ %.sroa.13.3545, %397 ], [ %432, %434 ], [ %.sroa.13.3545, %427 ], [ %.sroa.13.3545, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i259 ], [ %.sroa.13.3545, %388 ], [ %.sroa.13.3545, %371 ]
+  %.sroa.9.4 = phi i64 [ %.sroa.9.3546, %397 ], [ %399, %434 ], [ %.sroa.9.3546, %427 ], [ %.sroa.9.3546, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i259 ], [ %.sroa.9.3546, %388 ], [ %.sroa.9.3546, %371 ]
+  %.sroa.0.4 = phi i64 [ %.sroa.0.3547, %397 ], [ %.2.i.i260, %434 ], [ %.sroa.0.3547, %427 ], [ %.sroa.0.3547, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i259 ], [ %.sroa.0.3547, %388 ], [ %.sroa.0.3547, %371 ]
   %436 = add i64 %.0.i248548, 4
   %.not64.i = icmp ugt i64 %436, %246
   br i1 %.not64.i, label %._crit_edge551, label %371, !llvm.loop !651
@@ -32801,8 +32801,8 @@ _ZL19ComputeDistanceCodemmPKi.exit.thread.thread: ; preds = %453
   %489 = add i64 %.sroa.15.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %465, %476, %469, %481, %485, %488
-  %.1.i = phi i64 [ %489, %488 ], [ 3, %485 ], [ 1, %465 ], [ %480, %476 ], [ %473, %469 ], [ 2, %481 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %481, %465, %476, %469, %485, %488
+  %.1.i = phi i64 [ %489, %488 ], [ 3, %485 ], [ 2, %481 ], [ 1, %465 ], [ %480, %476 ], [ %473, %469 ]
   %490 = icmp ule i64 %.sroa.15.1.ph, %452
   %491 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %490, %491
@@ -33103,10 +33103,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %598, %_ZN13duckdb_b
   br i1 %677, label %.lr.ph481, label %_ZN13duckdb_brotliL13StoreRangeH54EPNS_3H54EPKhmmm.exit, !llvm.loop !1536
 
 _ZN13duckdb_brotliL13StoreRangeH54EPNS_3H54EPKhmmm.exit: ; preds = %.lr.ph481, %.lr.ph487, %.lr.ph559, %662, %646, %627, %639
-  %.1174 = phi i64 [ %449, %627 ], [ %.0173560, %639 ], [ %.0173560, %646 ], [ %.0173560, %662 ], [ %.0173560, %.lr.ph487 ], [ %449, %.lr.ph559 ], [ %.0173560, %.lr.ph481 ]
-  %.4170 = phi i64 [ 0, %627 ], [ %640, %639 ], [ %640, %646 ], [ %640, %662 ], [ %659, %.lr.ph487 ], [ 0, %.lr.ph559 ], [ %675, %.lr.ph481 ]
-  %.1165 = phi ptr [ %536, %627 ], [ %.0164562, %639 ], [ %.0164562, %646 ], [ %.0164562, %662 ], [ %.0164562, %.lr.ph487 ], [ %536, %.lr.ph559 ], [ %.0164562, %.lr.ph481 ]
-  %.4 = phi i64 [ %618, %627 ], [ %641, %639 ], [ %641, %646 ], [ %641, %662 ], [ %660, %.lr.ph487 ], [ %618, %.lr.ph559 ], [ %676, %.lr.ph481 ]
+  %.1174 = phi i64 [ %.0173560, %639 ], [ %449, %627 ], [ %.0173560, %646 ], [ %.0173560, %662 ], [ %449, %.lr.ph559 ], [ %.0173560, %.lr.ph487 ], [ %.0173560, %.lr.ph481 ]
+  %.4170 = phi i64 [ %640, %639 ], [ 0, %627 ], [ %640, %646 ], [ %640, %662 ], [ 0, %.lr.ph559 ], [ %659, %.lr.ph487 ], [ %675, %.lr.ph481 ]
+  %.1165 = phi ptr [ %.0164562, %639 ], [ %536, %627 ], [ %.0164562, %646 ], [ %.0164562, %662 ], [ %536, %.lr.ph559 ], [ %.0164562, %.lr.ph487 ], [ %.0164562, %.lr.ph481 ]
+  %.4 = phi i64 [ %641, %639 ], [ %618, %627 ], [ %641, %646 ], [ %641, %662 ], [ %618, %.lr.ph559 ], [ %660, %.lr.ph487 ], [ %676, %.lr.ph481 ]
   %678 = add i64 %.4, 8
   %679 = icmp ult i64 %678, %22
   br i1 %679, label %.thread, label %._crit_edge564, !llvm.loop !1537
@@ -33625,11 +33625,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i: ; preds = %250, 
   br label %282
 
 282:                                              ; preds = %281, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i, %246, %241, %238, %234
-  %.sroa.27.9 = phi i64 [ %.sroa.27.3528, %241 ], [ %.sroa.27.3528, %234 ], [ %.sroa.27.3528, %238 ], [ %279, %281 ], [ %.sroa.27.3528, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.27.3528, %246 ]
-  %.sroa.17.9 = phi i64 [ %.sroa.17.3529, %241 ], [ %.sroa.17.3529, %234 ], [ %.sroa.17.3529, %238 ], [ %232, %281 ], [ %.sroa.17.3529, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.17.3529, %246 ]
-  %.sroa.0320.9 = phi i64 [ %.sroa.0320.3530, %241 ], [ %.sroa.0320.3530, %234 ], [ %.sroa.0320.3530, %238 ], [ %273, %281 ], [ %.sroa.0320.3530, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.0320.3530, %246 ]
-  %.5142.i.i = phi i64 [ %.4141.i.i532, %241 ], [ %.4141.i.i532, %234 ], [ %.4141.i.i532, %238 ], [ %273, %281 ], [ %.4141.i.i532, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.4141.i.i532, %246 ]
-  %.5.i.i = phi i64 [ %.4.i.i533, %241 ], [ %.4.i.i533, %234 ], [ %.4.i.i533, %238 ], [ %279, %281 ], [ %.4.i.i533, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.4.i.i533, %246 ]
+  %.sroa.27.9 = phi i64 [ %.sroa.27.3528, %234 ], [ %.sroa.27.3528, %238 ], [ %279, %281 ], [ %.sroa.27.3528, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.27.3528, %246 ], [ %.sroa.27.3528, %241 ]
+  %.sroa.17.9 = phi i64 [ %.sroa.17.3529, %234 ], [ %.sroa.17.3529, %238 ], [ %232, %281 ], [ %.sroa.17.3529, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.17.3529, %246 ], [ %.sroa.17.3529, %241 ]
+  %.sroa.0320.9 = phi i64 [ %.sroa.0320.3530, %234 ], [ %.sroa.0320.3530, %238 ], [ %273, %281 ], [ %.sroa.0320.3530, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.sroa.0320.3530, %246 ], [ %.sroa.0320.3530, %241 ]
+  %.5142.i.i = phi i64 [ %.4141.i.i532, %234 ], [ %.4141.i.i532, %238 ], [ %273, %281 ], [ %.4141.i.i532, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.4141.i.i532, %246 ], [ %.4141.i.i532, %241 ]
+  %.5.i.i = phi i64 [ %.4.i.i533, %234 ], [ %.4.i.i533, %238 ], [ %279, %281 ], [ %.4.i.i533, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i ], [ %.4.i.i533, %246 ], [ %.4.i.i533, %241 ]
   %283 = icmp ugt i64 %227, %spec.select.i.i
   br i1 %283, label %226, label %.thread346
 
@@ -33976,10 +33976,10 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i305: ; preds = %431,
   br label %464
 
 464:                                              ; preds = %463, %456, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i305, %426, %417, %400
-  %.sroa.27.13 = phi i64 [ %.sroa.27.12582, %426 ], [ %461, %463 ], [ %.sroa.27.12582, %456 ], [ %.sroa.27.12582, %400 ], [ %.sroa.27.12582, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i305 ], [ %.sroa.27.12582, %417 ]
-  %.sroa.17.13 = phi i64 [ %.sroa.17.12583, %426 ], [ %428, %463 ], [ %.sroa.17.12583, %456 ], [ %.sroa.17.12583, %400 ], [ %.sroa.17.12583, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i305 ], [ %.sroa.17.12583, %417 ]
-  %.sroa.0320.13 = phi i64 [ %.sroa.0320.12584, %426 ], [ %.2.i.i306, %463 ], [ %.sroa.0320.12584, %456 ], [ %.sroa.0320.12584, %400 ], [ %.sroa.0320.12584, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i305 ], [ %.sroa.0320.12584, %417 ]
-  %.sroa.39.8 = phi i32 [ %.sroa.39.7585, %426 ], [ 0, %463 ], [ %.sroa.39.7585, %456 ], [ %.sroa.39.7585, %400 ], [ %.sroa.39.7585, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i305 ], [ %.sroa.39.7585, %417 ]
+  %.sroa.27.13 = phi i64 [ %.sroa.27.12582, %426 ], [ %461, %463 ], [ %.sroa.27.12582, %456 ], [ %.sroa.27.12582, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i305 ], [ %.sroa.27.12582, %417 ], [ %.sroa.27.12582, %400 ]
+  %.sroa.17.13 = phi i64 [ %.sroa.17.12583, %426 ], [ %428, %463 ], [ %.sroa.17.12583, %456 ], [ %.sroa.17.12583, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i305 ], [ %.sroa.17.12583, %417 ], [ %.sroa.17.12583, %400 ]
+  %.sroa.0320.13 = phi i64 [ %.sroa.0320.12584, %426 ], [ %.2.i.i306, %463 ], [ %.sroa.0320.12584, %456 ], [ %.sroa.0320.12584, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i305 ], [ %.sroa.0320.12584, %417 ], [ %.sroa.0320.12584, %400 ]
+  %.sroa.39.8 = phi i32 [ %.sroa.39.7585, %426 ], [ 0, %463 ], [ %.sroa.39.7585, %456 ], [ %.sroa.39.7585, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i305 ], [ %.sroa.39.7585, %417 ], [ %.sroa.39.7585, %400 ]
   %465 = add i64 %.0.i292586, 1
   %.not.i293 = icmp ugt i64 %465, %.0729
   br i1 %.not.i293, label %._crit_edge589, label %400, !llvm.loop !762
@@ -34371,11 +34371,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i250: ; preds = %60
   br label %639
 
 639:                                              ; preds = %638, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i250, %603, %598, %595, %591
-  %.sroa.16.7 = phi i64 [ %.sroa.16.1654, %598 ], [ %.sroa.16.1654, %591 ], [ %.sroa.16.1654, %595 ], [ %636, %638 ], [ %.sroa.16.1654, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i250 ], [ %.sroa.16.1654, %603 ]
-  %.sroa.11.7 = phi i64 [ %.sroa.11.1655, %598 ], [ %.sroa.11.1655, %591 ], [ %.sroa.11.1655, %595 ], [ %589, %638 ], [ %.sroa.11.1655, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i250 ], [ %.sroa.11.1655, %603 ]
-  %.sroa.0.7 = phi i64 [ %.sroa.0.1656, %598 ], [ %.sroa.0.1656, %591 ], [ %.sroa.0.1656, %595 ], [ %630, %638 ], [ %.sroa.0.1656, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i250 ], [ %.sroa.0.1656, %603 ]
-  %.5142.i.i237 = phi i64 [ %.4141.i.i208658, %598 ], [ %.4141.i.i208658, %591 ], [ %.4141.i.i208658, %595 ], [ %630, %638 ], [ %.4141.i.i208658, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i250 ], [ %.4141.i.i208658, %603 ]
-  %.5.i.i238 = phi i64 [ %.4.i.i209659, %598 ], [ %.4.i.i209659, %591 ], [ %.4.i.i209659, %595 ], [ %636, %638 ], [ %.4.i.i209659, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i250 ], [ %.4.i.i209659, %603 ]
+  %.sroa.16.7 = phi i64 [ %.sroa.16.1654, %591 ], [ %.sroa.16.1654, %595 ], [ %636, %638 ], [ %.sroa.16.1654, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i250 ], [ %.sroa.16.1654, %603 ], [ %.sroa.16.1654, %598 ]
+  %.sroa.11.7 = phi i64 [ %.sroa.11.1655, %591 ], [ %.sroa.11.1655, %595 ], [ %589, %638 ], [ %.sroa.11.1655, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i250 ], [ %.sroa.11.1655, %603 ], [ %.sroa.11.1655, %598 ]
+  %.sroa.0.7 = phi i64 [ %.sroa.0.1656, %591 ], [ %.sroa.0.1656, %595 ], [ %630, %638 ], [ %.sroa.0.1656, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i250 ], [ %.sroa.0.1656, %603 ], [ %.sroa.0.1656, %598 ]
+  %.5142.i.i237 = phi i64 [ %.4141.i.i208658, %591 ], [ %.4141.i.i208658, %595 ], [ %630, %638 ], [ %.4141.i.i208658, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i250 ], [ %.4141.i.i208658, %603 ], [ %.4141.i.i208658, %598 ]
+  %.5.i.i238 = phi i64 [ %.4.i.i209659, %591 ], [ %.4.i.i209659, %595 ], [ %636, %638 ], [ %.4.i.i209659, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i250 ], [ %.4.i.i209659, %603 ], [ %.4.i.i209659, %598 ]
   %640 = icmp ugt i64 %584, %spec.select.i.i205
   br i1 %640, label %583, label %.thread379
 
@@ -34722,10 +34722,10 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %788, %.
   br label %821
 
 821:                                              ; preds = %820, %813, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i, %783, %774, %757
-  %.sroa.26.6 = phi i32 [ %.sroa.26.5709, %783 ], [ 0, %820 ], [ %.sroa.26.5709, %813 ], [ %.sroa.26.5709, %757 ], [ %.sroa.26.5709, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.26.5709, %774 ]
-  %.sroa.16.11 = phi i64 [ %.sroa.16.10710, %783 ], [ %818, %820 ], [ %.sroa.16.10710, %813 ], [ %.sroa.16.10710, %757 ], [ %.sroa.16.10710, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.16.10710, %774 ]
-  %.sroa.11.11 = phi i64 [ %.sroa.11.10711, %783 ], [ %785, %820 ], [ %.sroa.11.10711, %813 ], [ %.sroa.11.10711, %757 ], [ %.sroa.11.10711, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.11.10711, %774 ]
-  %.sroa.0.11 = phi i64 [ %.sroa.0.10712, %783 ], [ %.2.i.i, %820 ], [ %.sroa.0.10712, %813 ], [ %.sroa.0.10712, %757 ], [ %.sroa.0.10712, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.0.10712, %774 ]
+  %.sroa.26.6 = phi i32 [ %.sroa.26.5709, %783 ], [ 0, %820 ], [ %.sroa.26.5709, %813 ], [ %.sroa.26.5709, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.26.5709, %774 ], [ %.sroa.26.5709, %757 ]
+  %.sroa.16.11 = phi i64 [ %.sroa.16.10710, %783 ], [ %818, %820 ], [ %.sroa.16.10710, %813 ], [ %.sroa.16.10710, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.16.10710, %774 ], [ %.sroa.16.10710, %757 ]
+  %.sroa.11.11 = phi i64 [ %.sroa.11.10711, %783 ], [ %785, %820 ], [ %.sroa.11.10711, %813 ], [ %.sroa.11.10711, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.11.10711, %774 ], [ %.sroa.11.10711, %757 ]
+  %.sroa.0.11 = phi i64 [ %.sroa.0.10712, %783 ], [ %.2.i.i, %820 ], [ %.sroa.0.10712, %813 ], [ %.sroa.0.10712, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i ], [ %.sroa.0.10712, %774 ], [ %.sroa.0.10712, %757 ]
   %822 = add i64 %.0.i287713, 1
   %.not.i288 = icmp ugt i64 %822, %474
   br i1 %.not.i288, label %._crit_edge716, label %757, !llvm.loop !762
@@ -34835,8 +34835,8 @@ split:                                            ; preds = %826, %_ZN13duckdb_b
   %869 = add i64 %.sroa.17.1.ph, 15
   br label %_ZL19ComputeDistanceCodemmPKi.exit
 
-_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %845, %856, %849, %861, %865, %868
-  %.1.i = phi i64 [ %869, %868 ], [ 3, %865 ], [ 1, %845 ], [ %860, %856 ], [ %853, %849 ], [ 2, %861 ]
+_ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %861, %845, %856, %849, %865, %868
+  %.1.i = phi i64 [ %869, %868 ], [ 3, %865 ], [ 2, %861 ], [ 1, %845 ], [ %860, %856 ], [ %853, %849 ]
   %870 = icmp ule i64 %.sroa.17.1.ph, %835
   %871 = icmp ne i64 %.1.i, 0
   %or.cond = and i1 %870, %871
@@ -34891,7 +34891,7 @@ _ZL19ComputeDistanceCodemmPKi.exit:               ; preds = %845, %856, %849, %8
   br label %_ZN13duckdb_brotliL23PrepareDistanceCacheH65EPNS_3H65EPi.exit200
 
 _ZN13duckdb_brotliL23PrepareDistanceCacheH65EPNS_3H65EPi.exit200: ; preds = %836, %887, %879, %872, %_ZL19ComputeDistanceCodemmPKi.exit
-  %.1.i431 = phi i64 [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ %.1.i, %887 ], [ %.1.i, %879 ], [ %.1.i, %872 ], [ 0, %836 ]
+  %.1.i431 = phi i64 [ %.1.i, %887 ], [ %.1.i, %879 ], [ %.1.i, %872 ], [ %.1.i, %_ZL19ComputeDistanceCodemmPKi.exit ], [ 0, %836 ]
   %894 = getelementptr inbounds nuw i8, ptr %.0164728, i64 16
   %895 = trunc i64 %.3169.ph to i32
   store i32 %895, ptr %.0164728, align 4, !tbaa !148
@@ -35213,10 +35213,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %987, %_ZN13duckdb_b
   br i1 %1094, label %1077, label %_ZN13duckdb_brotliL13StoreRangeH65EPNS_3H65EPKhmmm.exit, !llvm.loop !1677
 
 _ZN13duckdb_brotliL13StoreRangeH65EPNS_3H65EPKhmmm.exit: ; preds = %1077, %1052, %1022, %1070, %1045, %1016, %1038
-  %.1174 = phi i64 [ %834, %1016 ], [ %.0173726, %1038 ], [ %.0173726, %1045 ], [ %.0173726, %1070 ], [ %.0173726, %1052 ], [ %834, %1022 ], [ %.0173726, %1077 ]
-  %.4170 = phi i64 [ 0, %1016 ], [ %1039, %1038 ], [ %1039, %1045 ], [ %1039, %1070 ], [ %1067, %1052 ], [ 0, %1022 ], [ %1092, %1077 ]
-  %.1165 = phi ptr [ %894, %1016 ], [ %.0164728, %1038 ], [ %.0164728, %1045 ], [ %.0164728, %1070 ], [ %.0164728, %1052 ], [ %894, %1022 ], [ %.0164728, %1077 ]
-  %.4 = phi i64 [ %1007, %1016 ], [ %1040, %1038 ], [ %1040, %1045 ], [ %1040, %1070 ], [ %1068, %1052 ], [ %1007, %1022 ], [ %1093, %1077 ]
+  %.1174 = phi i64 [ %.0173726, %1038 ], [ %834, %1016 ], [ %.0173726, %1045 ], [ %.0173726, %1070 ], [ %834, %1022 ], [ %.0173726, %1052 ], [ %.0173726, %1077 ]
+  %.4170 = phi i64 [ %1039, %1038 ], [ 0, %1016 ], [ %1039, %1045 ], [ %1039, %1070 ], [ 0, %1022 ], [ %1067, %1052 ], [ %1092, %1077 ]
+  %.1165 = phi ptr [ %.0164728, %1038 ], [ %894, %1016 ], [ %.0164728, %1045 ], [ %.0164728, %1070 ], [ %894, %1022 ], [ %.0164728, %1052 ], [ %.0164728, %1077 ]
+  %.4 = phi i64 [ %1040, %1038 ], [ %1007, %1016 ], [ %1040, %1045 ], [ %1040, %1070 ], [ %1007, %1022 ], [ %1068, %1052 ], [ %1093, %1077 ]
   %1095 = add i64 %.4, 8
   %1096 = icmp ult i64 %1095, %21
   br i1 %1096, label %104, label %._crit_edge731, !llvm.loop !1678

@@ -180,7 +180,7 @@ _ZN2cvL28softfloat_normRoundPackToF32Eblm.exit:   ; preds = %41, %31, %45
   br label %_ZN2cvL11ui32_to_f32Ej.exit
 
 _ZN2cvL11ui32_to_f32Ej.exit:                      ; preds = %2, %_ZN2cvL28softfloat_normRoundPackToF32Eblm.exit, %5
-  %.sroa.0.0 = phi i32 [ %storemerge.i, %_ZN2cvL28softfloat_normRoundPackToF32Eblm.exit ], [ %12, %5 ], [ 0, %2 ]
+  %.sroa.0.0 = phi i32 [ %12, %5 ], [ %storemerge.i, %_ZN2cvL28softfloat_normRoundPackToF32Eblm.exit ], [ 0, %2 ]
   store i32 %.sroa.0.0, ptr %0, align 4, !tbaa !12
   ret void
 }
@@ -491,8 +491,8 @@ define void @_ZNK2cv9softfloatcvNS_10softdoubleEEv(ptr dead_on_unwind noalias wr
   br label %38
 
 38:                                               ; preds = %21, %2
-  %.017.i = phi i64 [ %7, %2 ], [ %36, %21 ]
-  %.0.i = phi i64 [ %6, %2 ], [ %37, %21 ]
+  %.017.i = phi i64 [ %36, %21 ], [ %7, %2 ]
+  %.0.i = phi i64 [ %37, %21 ], [ %6, %2 ]
   %.lobit22.i = lshr i32 %3, 31
   %39 = zext nneg i32 %.lobit22.i to i64
   %40 = shl nuw i64 %39, 63
@@ -729,9 +729,9 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i:   ; preds = %98, %89
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i
 
 109:                                              ; preds = %104, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i, %67
-  %.041.i.i = phi i64 [ %.052.i, %67 ], [ %102, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ], [ %.052.i, %104 ]
-  %.039.in.i.i = phi i8 [ %81, %67 ], [ %103, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ], [ %81, %104 ]
-  %.038.i.i = phi i64 [ %.053.i, %67 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ], [ 253, %104 ]
+  %.041.i.i = phi i64 [ %.052.i, %67 ], [ %.052.i, %104 ], [ %102, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ]
+  %.039.in.i.i = phi i8 [ %81, %67 ], [ %81, %104 ], [ %103, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ]
+  %.038.i.i = phi i64 [ %.053.i, %67 ], [ 253, %104 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ]
   %.039.i.i = and i8 %.039.in.i.i, 127
   %110 = add nuw nsw i64 %.041.i.i, 64
   %111 = lshr i64 %110, 7
@@ -868,8 +868,8 @@ define void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind noalias writable write
   br label %43
 
 43:                                               ; preds = %25, %20
-  %.053.i = phi i64 [ %13, %20 ], [ %42, %25 ]
-  %.052.i = phi i64 [ %12, %20 ], [ %40, %25 ]
+  %.053.i = phi i64 [ %42, %25 ], [ %13, %20 ]
+  %.052.i = phi i64 [ %40, %25 ], [ %12, %20 ]
   %.not67.i = icmp eq i64 %8, 0
   br i1 %.not67.i, label %44, label %63
 
@@ -973,9 +973,9 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i:   ; preds = %93, %84
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i
 
 104:                                              ; preds = %99, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i, %75
-  %.041.i.i = phi i64 [ %.055.i, %75 ], [ %97, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ], [ %.055.i, %99 ]
-  %.039.in.i.i = phi i8 [ %76, %75 ], [ %98, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ], [ %76, %99 ]
-  %.038.i.i = phi i64 [ %.057.i, %75 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ], [ 253, %99 ]
+  %.041.i.i = phi i64 [ %.055.i, %75 ], [ %.055.i, %99 ], [ %97, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ]
+  %.039.in.i.i = phi i8 [ %76, %75 ], [ %76, %99 ], [ %98, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ]
+  %.038.i.i = phi i64 [ %.057.i, %75 ], [ 253, %99 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ]
   %.039.i.i = and i8 %.039.in.i.i, 127
   %105 = add nuw nsw i64 %.041.i.i, 64
   %106 = lshr i64 %105, 7
@@ -1027,7 +1027,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %122, %116
   br label %_ZN2cvL7f32_divENS_9softfloatES0_.exit
 
 _ZN2cvL7f32_divENS_9softfloatES0_.exit:           ; preds = %19, %23, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, %126, %128
-  %storemerge.i = phi i32 [ %115, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i ], [ %.0.i80.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i ], [ %.lobit64.lobit.i, %128 ], [ %127, %126 ], [ -4194304, %23 ], [ -4194304, %19 ]
+  %storemerge.i = phi i32 [ %115, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i ], [ %.0.i80.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i ], [ %127, %126 ], [ %.lobit64.lobit.i, %128 ], [ -4194304, %23 ], [ -4194304, %19 ]
   store i32 %storemerge.i, ptr %0, align 4, !tbaa !12, !alias.scope !42
   ret void
 }
@@ -1102,8 +1102,8 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias writable write
   br label %41
 
 41:                                               ; preds = %23, %19
-  %.077.i = phi i64 [ %13, %19 ], [ %40, %23 ]
-  %.076.i = phi i64 [ %12, %19 ], [ %38, %23 ]
+  %.077.i = phi i64 [ %40, %23 ], [ %13, %19 ]
+  %.076.i = phi i64 [ %38, %23 ], [ %12, %19 ]
   %.not95.i = icmp eq i64 %8, 0
   br i1 %.not95.i, label %42, label %62
 
@@ -1402,7 +1402,7 @@ define noundef zeroext i1 @_ZNK2cv9softfloatgtERKS0_(ptr noundef nonnull readonl
   br label %_ZN2cvL6f32_ltENS_9softfloatES0_.exit
 
 _ZN2cvL6f32_ltENS_9softfloatES0_.exit:            ; preds = %2, %9, %15, %17, %20, %21
-  %.0.i = phi i1 [ %24, %21 ], [ %19, %17 ], [ false, %15 ], [ false, %20 ], [ false, %9 ], [ false, %2 ]
+  %.0.i = phi i1 [ false, %15 ], [ %19, %17 ], [ false, %20 ], [ %24, %21 ], [ false, %9 ], [ false, %2 ]
   ret i1 %.0.i
 }
 
@@ -1453,7 +1453,7 @@ define noundef zeroext i1 @_ZNK2cv9softfloatgeERKS0_(ptr noundef nonnull readonl
   br label %_ZN2cvL6f32_leENS_9softfloatES0_.exit
 
 _ZN2cvL6f32_leENS_9softfloatES0_.exit:            ; preds = %2, %9, %15, %17, %18, %20
-  %.0.i = phi i1 [ %23, %20 ], [ %.not22.i, %17 ], [ true, %15 ], [ true, %18 ], [ false, %9 ], [ false, %2 ]
+  %.0.i = phi i1 [ true, %15 ], [ %.not22.i, %17 ], [ true, %18 ], [ %23, %20 ], [ false, %9 ], [ false, %2 ]
   ret i1 %.0.i
 }
 
@@ -1504,7 +1504,7 @@ define noundef zeroext i1 @_ZNK2cv9softfloatltERKS0_(ptr noundef nonnull readonl
   br label %_ZN2cvL6f32_ltENS_9softfloatES0_.exit
 
 _ZN2cvL6f32_ltENS_9softfloatES0_.exit:            ; preds = %2, %9, %15, %17, %20, %21
-  %.0.i = phi i1 [ %24, %21 ], [ %19, %17 ], [ false, %15 ], [ false, %20 ], [ false, %9 ], [ false, %2 ]
+  %.0.i = phi i1 [ false, %15 ], [ %19, %17 ], [ false, %20 ], [ %24, %21 ], [ false, %9 ], [ false, %2 ]
   ret i1 %.0.i
 }
 
@@ -1555,7 +1555,7 @@ define noundef zeroext i1 @_ZNK2cv9softfloatleERKS0_(ptr noundef nonnull readonl
   br label %_ZN2cvL6f32_leENS_9softfloatES0_.exit
 
 _ZN2cvL6f32_leENS_9softfloatES0_.exit:            ; preds = %2, %9, %15, %17, %18, %20
-  %.0.i = phi i1 [ %23, %20 ], [ %.not22.i, %17 ], [ true, %15 ], [ true, %18 ], [ false, %9 ], [ false, %2 ]
+  %.0.i = phi i1 [ true, %15 ], [ %.not22.i, %17 ], [ true, %18 ], [ %23, %20 ], [ false, %9 ], [ false, %2 ]
   ret i1 %.0.i
 }
 
@@ -1738,7 +1738,7 @@ define noundef i32 @_Z7cvTruncRKN2cv9softfloatE(ptr noundef nonnull readonly ali
   br label %_ZN2cvL19f32_to_i32_r_minMagENS_9softfloatEb.exit
 
 _ZN2cvL19f32_to_i32_r_minMagENS_9softfloatEb.exit: ; preds = %1, %11, %13, %18
-  %.0.i = phi i64 [ %23, %18 ], [ 0, %1 ], [ %17, %13 ], [ -2147483648, %11 ]
+  %.0.i = phi i64 [ %17, %13 ], [ %23, %18 ], [ 0, %1 ], [ -2147483648, %11 ]
   %24 = trunc nsw i64 %.0.i to i32
   ret i32 %24
 }
@@ -1990,7 +1990,7 @@ define noundef i32 @_Z7cvTruncRKN2cv10softdoubleE(ptr noundef nonnull readonly a
   br label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit
 
 _ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit: ; preds = %1, %11, %14, %19
-  %.0.i = phi i64 [ %23, %19 ], [ 0, %1 ], [ %18, %14 ], [ -2147483648, %11 ]
+  %.0.i = phi i64 [ %18, %14 ], [ %23, %19 ], [ 0, %1 ], [ -2147483648, %11 ]
   %24 = trunc nsw i64 %.0.i to i32
   ret i32 %24
 }
@@ -2272,7 +2272,7 @@ _ZN2cvL20softfloat_roundToI64Ebmmhb.exit.i:       ; preds = %30, %24
   br label %_ZN2cvL10f64_to_i64ENS_10softdoubleEhb.exit
 
 _ZN2cvL10f64_to_i64ENS_10softdoubleEhb.exit:      ; preds = %14, %20, %22, %_ZN2cvL20softfloat_roundToI64Ebmmhb.exit.i
-  %.2.i = phi i64 [ %19, %14 ], [ %spec.select.i.i, %_ZN2cvL20softfloat_roundToI64Ebmmhb.exit.i ], [ %21, %20 ], [ 0, %22 ]
+  %.2.i = phi i64 [ %spec.select.i.i, %_ZN2cvL20softfloat_roundToI64Ebmmhb.exit.i ], [ %21, %20 ], [ %19, %14 ], [ 0, %22 ]
   ret i64 %.2.i
 }
 
@@ -2363,9 +2363,9 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i:   ; preds = %36, %34
   br label %_ZN2cvL10f64_to_f32ENS_10softdoubleE.exit
 
 54:                                               ; preds = %49, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i, %27
-  %.041.i.i = phi i64 [ %29, %27 ], [ %47, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ], [ %29, %49 ]
-  %.039.in.i.i = phi i8 [ %30, %27 ], [ %48, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ], [ %30, %49 ]
-  %.038.i.i = phi i64 [ %28, %27 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ], [ 253, %49 ]
+  %.041.i.i = phi i64 [ %29, %27 ], [ %29, %49 ], [ %47, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ]
+  %.039.in.i.i = phi i8 [ %30, %27 ], [ %30, %49 ], [ %48, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ]
+  %.038.i.i = phi i64 [ %28, %27 ], [ 253, %49 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i ]
   %.039.i.i = and i8 %.039.in.i.i, 127
   %55 = add nuw nsw i64 %.041.i.i, 64
   %56 = lshr i64 %55, 7
@@ -2382,7 +2382,7 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i:   ; preds = %36, %34
   br label %_ZN2cvL10f64_to_f32ENS_10softdoubleE.exit
 
 _ZN2cvL10f64_to_f32ENS_10softdoubleE.exit:        ; preds = %11, %16, %25, %52, %54
-  %storemerge.in.i = phi i64 [ %53, %52 ], [ %64, %54 ], [ %15, %11 ], [ %17, %16 ], [ %26, %25 ]
+  %storemerge.in.i = phi i64 [ %64, %54 ], [ %53, %52 ], [ %15, %11 ], [ %17, %16 ], [ %26, %25 ]
   %storemerge.i = trunc nuw i64 %storemerge.in.i to i32
   store i32 %storemerge.i, ptr %0, align 4, !tbaa !12, !alias.scope !66
   ret void
@@ -2674,7 +2674,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %135, %129
   br label %_ZN2cvL7f64_mulENS_10softdoubleES0_.exit
 
 _ZN2cvL7f64_mulENS_10softdoubleES0_.exit:         ; preds = %116, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %139, %140, %142
-  %storemerge.i = phi i64 [ %118, %116 ], [ %128, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %.0.i85.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %141, %140 ], [ %.lobit65.lobit.i, %142 ], [ -2251799813685248, %139 ]
+  %storemerge.i = phi i64 [ %128, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %118, %116 ], [ %.0.i85.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %141, %140 ], [ %.lobit65.lobit.i, %142 ], [ -2251799813685248, %139 ]
   store i64 %storemerge.i, ptr %0, align 8, !tbaa !27, !alias.scope !75
   ret void
 }
@@ -2755,8 +2755,8 @@ define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias writable wri
   br label %41
 
 41:                                               ; preds = %22, %17
-  %.073.i = phi i64 [ %11, %17 ], [ %40, %22 ]
-  %.072.i = phi i64 [ %10, %17 ], [ %38, %22 ]
+  %.073.i = phi i64 [ %40, %22 ], [ %11, %17 ]
+  %.072.i = phi i64 [ %38, %22 ], [ %10, %17 ]
   %.not87.i = icmp eq i64 %7, 0
   br i1 %.not87.i, label %42, label %62
 
@@ -2946,7 +2946,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %149, %143
   br label %_ZN2cvL7f64_divENS_10softdoubleES0_.exit
 
 _ZN2cvL7f64_divENS_10softdoubleES0_.exit:         ; preds = %16, %20, %130, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %153, %155
-  %storemerge.i = phi i64 [ %132, %130 ], [ %142, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %.0.i105.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %.lobit84.lobit.i, %155 ], [ %154, %153 ], [ -2251799813685248, %20 ], [ -2251799813685248, %16 ]
+  %storemerge.i = phi i64 [ %142, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %132, %130 ], [ %.0.i105.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %154, %153 ], [ %.lobit84.lobit.i, %155 ], [ -2251799813685248, %20 ], [ -2251799813685248, %16 ]
   store i64 %storemerge.i, ptr %0, align 8, !tbaa !27, !alias.scope !78
   ret void
 }
@@ -3345,7 +3345,7 @@ define noundef zeroext i1 @_ZNK2cv10softdoublegtERKS0_(ptr noundef nonnull reado
   br label %_ZN2cvL6f64_ltENS_10softdoubleES0_.exit
 
 _ZN2cvL6f64_ltENS_10softdoubleES0_.exit:          ; preds = %2, %8, %13, %15, %19, %20
-  %.0.i = phi i1 [ %23, %20 ], [ %18, %15 ], [ false, %13 ], [ false, %19 ], [ false, %8 ], [ false, %2 ]
+  %.0.i = phi i1 [ false, %13 ], [ %18, %15 ], [ false, %19 ], [ %23, %20 ], [ false, %8 ], [ false, %2 ]
   ret i1 %.0.i
 }
 
@@ -3394,7 +3394,7 @@ define noundef zeroext i1 @_ZNK2cv10softdoublegeERKS0_(ptr noundef nonnull reado
   br label %_ZN2cvL6f64_leENS_10softdoubleES0_.exit
 
 _ZN2cvL6f64_leENS_10softdoubleES0_.exit:          ; preds = %2, %8, %13, %15, %17, %19
-  %.0.i = phi i1 [ %22, %19 ], [ %.not22.i, %15 ], [ true, %13 ], [ true, %17 ], [ false, %8 ], [ false, %2 ]
+  %.0.i = phi i1 [ true, %13 ], [ %.not22.i, %15 ], [ true, %17 ], [ %22, %19 ], [ false, %8 ], [ false, %2 ]
   ret i1 %.0.i
 }
 
@@ -3443,7 +3443,7 @@ define noundef zeroext i1 @_ZNK2cv10softdoubleltERKS0_(ptr noundef nonnull reado
   br label %_ZN2cvL6f64_ltENS_10softdoubleES0_.exit
 
 _ZN2cvL6f64_ltENS_10softdoubleES0_.exit:          ; preds = %2, %8, %13, %15, %19, %20
-  %.0.i = phi i1 [ %23, %20 ], [ %18, %15 ], [ false, %13 ], [ false, %19 ], [ false, %8 ], [ false, %2 ]
+  %.0.i = phi i1 [ false, %13 ], [ %18, %15 ], [ false, %19 ], [ %23, %20 ], [ false, %8 ], [ false, %2 ]
   ret i1 %.0.i
 }
 
@@ -3492,7 +3492,7 @@ define noundef zeroext i1 @_ZNK2cv10softdoubleleERKS0_(ptr noundef nonnull reado
   br label %_ZN2cvL6f64_leENS_10softdoubleES0_.exit
 
 _ZN2cvL6f64_leENS_10softdoubleES0_.exit:          ; preds = %2, %8, %13, %15, %17, %19
-  %.0.i = phi i1 [ %22, %19 ], [ %.not22.i, %15 ], [ true, %13 ], [ true, %17 ], [ false, %8 ], [ false, %2 ]
+  %.0.i = phi i1 [ true, %13 ], [ %.not22.i, %15 ], [ true, %17 ], [ %22, %19 ], [ false, %8 ], [ false, %2 ]
   ret i1 %.0.i
 }
 
@@ -3905,9 +3905,9 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i: ; preds = %238, %229
   br label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit
 
 250:                                              ; preds = %244, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i, %220
-  %.041.i.i.i = phi i64 [ %.0130.i.i, %220 ], [ %242, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i ], [ %.0130.i.i, %244 ]
-  %.039.in.i.i.i = phi i8 [ %221, %220 ], [ %243, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i ], [ %221, %244 ]
-  %.038.i.i.i = phi i64 [ %.0132.i.i, %220 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i ], [ 253, %244 ]
+  %.041.i.i.i = phi i64 [ %.0130.i.i, %220 ], [ %.0130.i.i, %244 ], [ %242, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i ]
+  %.039.in.i.i.i = phi i8 [ %221, %220 ], [ %221, %244 ], [ %243, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i ]
+  %.038.i.i.i = phi i64 [ %.0132.i.i, %220 ], [ 253, %244 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i ]
   %.039.i.i.i = and i8 %.039.in.i.i.i, 127
   %251 = add i64 %.041.i.i.i, 64
   %252 = lshr i64 %251, 7
@@ -3997,7 +3997,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit190.i.i: ; preds = %.thread.i.i, %27
   br label %_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit
 
 _ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit:    ; preds = %37, %248, %250, %272, %275, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit190.i.i, %287, %290
-  %storemerge.in.i.i = phi i64 [ %249, %248 ], [ %260, %250 ], [ %.0.i189.i.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit190.i.i ], [ %273, %272 ], [ %273, %275 ], [ %10, %37 ], [ 0, %290 ], [ %10, %287 ]
+  %storemerge.in.i.i = phi i64 [ %260, %250 ], [ %249, %248 ], [ %.0.i189.i.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit190.i.i ], [ %273, %272 ], [ %273, %275 ], [ 0, %290 ], [ %10, %287 ], [ %10, %37 ]
   %storemerge.i.i = trunc i64 %storemerge.in.i.i to i32
   store i32 %storemerge.i.i, ptr %0, align 4, !tbaa !12, !alias.scope !92
   ret void
@@ -4293,11 +4293,11 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias w
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i
 
 _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %169, %167, %162, %159, %155, %152, %145
-  %.sroa.029.0.i.i = phi i64 [ 0, %159 ], [ 0, %155 ], [ 0, %152 ], [ 0, %145 ], [ %166, %162 ], [ %176, %169 ], [ 1, %167 ]
-  %.sroa.6.0.i.i = phi i64 [ 0, %159 ], [ 0, %155 ], [ 0, %152 ], [ 0, %145 ], [ %164, %162 ], [ 0, %169 ], [ 0, %167 ]
-  %.sroa.044.1.i.i = phi i64 [ %.sroa.044.0.i.i, %159 ], [ %158, %155 ], [ %.sroa.044.0.i.i, %152 ], [ %.sroa.044.0.i.i, %145 ], [ %.sroa.044.0.i.i, %162 ], [ %.sroa.044.0.i.i, %169 ], [ %.sroa.044.0.i.i, %167 ]
-  %.sroa.25.1.i.i = phi i64 [ %.sroa.25.0.i.i, %159 ], [ %156, %155 ], [ %154, %152 ], [ %151, %145 ], [ %.sroa.25.0.i.i, %162 ], [ %.sroa.25.0.i.i, %169 ], [ %.sroa.25.0.i.i, %167 ]
-  %.2.i.i = phi i64 [ %.0169.i.i, %159 ], [ %.0163.i.i, %155 ], [ %.0163.i.i, %152 ], [ %.0163.i.i, %145 ], [ %.0169.i.i, %162 ], [ %.0169.i.i, %169 ], [ %.0169.i.i, %167 ]
+  %.sroa.029.0.i.i = phi i64 [ 0, %155 ], [ 0, %159 ], [ 0, %145 ], [ 0, %152 ], [ %166, %162 ], [ %176, %169 ], [ 1, %167 ]
+  %.sroa.6.0.i.i = phi i64 [ 0, %155 ], [ 0, %159 ], [ 0, %145 ], [ 0, %152 ], [ %164, %162 ], [ 0, %169 ], [ 0, %167 ]
+  %.sroa.044.1.i.i = phi i64 [ %158, %155 ], [ %.sroa.044.0.i.i, %159 ], [ %.sroa.044.0.i.i, %145 ], [ %.sroa.044.0.i.i, %152 ], [ %.sroa.044.0.i.i, %162 ], [ %.sroa.044.0.i.i, %169 ], [ %.sroa.044.0.i.i, %167 ]
+  %.sroa.25.1.i.i = phi i64 [ %156, %155 ], [ %.sroa.25.0.i.i, %159 ], [ %151, %145 ], [ %154, %152 ], [ %.sroa.25.0.i.i, %162 ], [ %.sroa.25.0.i.i, %169 ], [ %.sroa.25.0.i.i, %167 ]
+  %.2.i.i = phi i64 [ %.0163.i.i, %155 ], [ %.0169.i.i, %159 ], [ %.0163.i.i, %145 ], [ %.0163.i.i, %152 ], [ %.0169.i.i, %162 ], [ %.0169.i.i, %169 ], [ %.0169.i.i, %167 ]
   %.unshifted203.i.i = xor i64 %.lobit186188.i.i, %7
   %177 = icmp sgt i64 %.unshifted203.i.i, -1
   br i1 %177, label %178, label %196
@@ -4575,7 +4575,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit264.i.i: ; preds = %.thread.i.i, %30
   br label %_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.exit
 
 _ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.exit:  ; preds = %34, %278, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i, %301, %304, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit264.i.i, %316, %318
-  %storemerge.i.i = phi i64 [ %279, %278 ], [ %289, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i ], [ %.0.i263.i.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit264.i.i ], [ %302, %301 ], [ %302, %304 ], [ %7, %34 ], [ 0, %318 ], [ %7, %316 ]
+  %storemerge.i.i = phi i64 [ %289, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i ], [ %279, %278 ], [ %.0.i263.i.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit264.i.i ], [ %302, %301 ], [ %302, %304 ], [ 0, %318 ], [ %7, %316 ], [ %7, %34 ]
   store i64 %storemerge.i.i, ptr %0, align 8, !tbaa !27, !alias.scope !99
   ret void
 }
@@ -4775,7 +4775,7 @@ _ZN2cvL24softfloat_roundPackToF32Eblm.exit.i:     ; preds = %_ZN2cvL25softfloat_
   br label %_ZN2cvL8f32_sqrtENS_9softfloatE.exit
 
 _ZN2cvL8f32_sqrtENS_9softfloatE.exit:             ; preds = %19, %21, %24, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i, %128
-  %.037.sink.i = phi i32 [ %.037.i, %128 ], [ %127, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i ], [ %3, %21 ], [ %3, %19 ], [ %3, %24 ]
+  %.037.sink.i = phi i32 [ %.037.i, %128 ], [ %127, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i ], [ %3, %19 ], [ %3, %21 ], [ %3, %24 ]
   store i32 %.037.sink.i, ptr %0, align 4, !tbaa !12, !alias.scope !100
   ret void
 }
@@ -4970,7 +4970,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %113, %111, %42
   br label %_ZN2cvL8f64_sqrtENS_10softdoubleE.exit
 
 _ZN2cvL8f64_sqrtENS_10softdoubleE.exit:           ; preds = %17, %19, %22, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, %126
-  %.048.sink.i = phi i64 [ %.048.i, %126 ], [ %125, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %3, %19 ], [ %3, %17 ], [ %3, %22 ]
+  %.048.sink.i = phi i64 [ %.048.i, %126 ], [ %125, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %3, %17 ], [ %3, %19 ], [ %3, %22 ]
   store i64 %.048.sink.i, ptr %0, align 8, !tbaa !27, !alias.scope !105
   ret void
 }
@@ -5186,8 +5186,8 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   br label %100
 
 100:                                              ; preds = %83, %65
-  %.017.i = phi i64 [ %69, %65 ], [ %98, %83 ]
-  %.0.i = phi i64 [ %68, %65 ], [ %99, %83 ]
+  %.017.i = phi i64 [ %98, %83 ], [ %69, %65 ]
+  %.0.i = phi i64 [ %99, %83 ], [ %68, %65 ]
   %.lobit22.i = lshr i32 %61, 31
   %101 = zext nneg i32 %.lobit22.i to i64
   %102 = shl nuw i64 %101, 63
@@ -5337,7 +5337,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %161
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
 _ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %152, %154, %161, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %170
-  %.0.sink.i = phi i64 [ %110, %161 ], [ %110, %152 ], [ %.0.i.i19, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %181, %170 ], [ %spec.select.i20, %154 ]
+  %.0.sink.i = phi i64 [ %110, %152 ], [ %110, %161 ], [ %.0.i.i19, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %181, %170 ], [ %spec.select.i20, %154 ]
   %.unshifted.i.i = xor i64 %.0.sink.i, %110
   %182 = icmp sgt i64 %.unshifted.i.i, -1
   br i1 %182, label %183, label %184
@@ -5785,7 +5785,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %135
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
 _ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %126, %128, %135, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %144
-  %.0.sink.i = phi i64 [ %.sink, %135 ], [ %.sink, %126 ], [ %.0.i.i16, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %155, %144 ], [ %spec.select.i, %128 ]
+  %.0.sink.i = phi i64 [ %.sink, %126 ], [ %.sink, %135 ], [ %.0.i.i16, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %155, %144 ], [ %spec.select.i, %128 ]
   %.unshifted.i.i = xor i64 %.0.sink.i, %.sink
   %156 = icmp sgt i64 %.unshifted.i.i, -1
   br i1 %156, label %157, label %158
@@ -5979,46 +5979,46 @@ define internal fastcc void @_ZN2cvL7f32_logENS_9softfloatE(ptr dead_on_unwind n
 
 31:                                               ; preds = %26
   %.not21.i.i = icmp sgt i32 %23, -1
-  br i1 %.not21.i.i, label %32, label %_ZNK2cv9softfloatltERKS0_.exit
+  br i1 %.not21.i.i, label %33, label %32
 
 32:                                               ; preds = %31
-  %cond = icmp eq i32 %23, 0
-  br i1 %cond, label %_ZNK2cv9softfloateqERKS0_.exit.thread21, label %_ZN2cv10softdoublemIERKS0_.exit
-
-_ZNK2cv9softfloatltERKS0_.exit:                   ; preds = %31
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %_ZNK2cv9softfloateqERKS0_.exit.thread21, label %.critedge
+  br i1 %.not, label %_ZNK2cv9softfloateqERKS0_.exit.thread25, label %.critedge
 
-.critedge:                                        ; preds = %2, %_ZNK2cv9softfloatltERKS0_.exit
+33:                                               ; preds = %31
+  %cond = icmp eq i32 %23, 0
+  br i1 %cond, label %_ZNK2cv9softfloateqERKS0_.exit.thread25, label %_ZN2cv10softdoublemIERKS0_.exit
+
+.critedge:                                        ; preds = %2, %32
   store i32 2147483647, ptr %0, align 4, !tbaa !12, !alias.scope !240
-  br label %82
+  br label %83
 
-_ZNK2cv9softfloateqERKS0_.exit.thread21:          ; preds = %32, %_ZNK2cv9softfloatltERKS0_.exit
+_ZNK2cv9softfloateqERKS0_.exit.thread25:          ; preds = %33, %32
   store i32 -8388608, ptr %0, align 4, !tbaa !12, !alias.scope !245
-  br label %82
+  br label %83
 
-_ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %32, %26
-  %33 = lshr i32 %23, 15
-  %34 = and i32 %33, 255
+_ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %33, %26
+  %34 = lshr i32 %23, 15
+  %35 = and i32 %34, 255
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %35 = shl nuw nsw i64 %27, 29
-  %36 = and i64 %35, 17591649173504
-  %37 = or disjoint i64 %36, 4607182418800017408
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %4, i64 noundef %37, i64 noundef 4607182418800017408, i1 noundef zeroext false)
-  %38 = shl nuw nsw i32 %34, 1
-  %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i64, ptr @_ZN2cvL9icvLogTabE, i64 %39
-  %41 = load i64, ptr %40, align 16, !tbaa !144
+  %36 = shl nuw nsw i64 %27, 29
+  %37 = and i64 %36, 17591649173504
+  %38 = or disjoint i64 %37, 4607182418800017408
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %4, i64 noundef %38, i64 noundef 4607182418800017408, i1 noundef zeroext false)
+  %39 = shl nuw nsw i32 %35, 1
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr inbounds nuw i64, ptr @_ZN2cvL9icvLogTabE, i64 %40
+  %42 = load i64, ptr %41, align 16, !tbaa !144
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %43 = load i64, ptr %42, align 8, !tbaa !144
-  store i64 %43, ptr %5, align 8, !tbaa !27, !alias.scope !248
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %44 = load i64, ptr %43, align 8, !tbaa !144
+  store i64 %44, ptr %5, align 8, !tbaa !27, !alias.scope !248
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %44 = icmp eq i32 %34, 255
-  br i1 %44, label %45, label %53
+  %45 = icmp eq i32 %35, 255
+  br i1 %45, label %46, label %54
 
-45:                                               ; preds = %_ZN2cv10softdoublemIERKS0_.exit
+46:                                               ; preds = %_ZN2cv10softdoublemIERKS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 -4616189618054758400, ptr %8, align 8, !tbaa !27, !alias.scope !251
@@ -6027,61 +6027,61 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %32, %26
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !254)
-  %46 = load i64, ptr %6, align 8, !tbaa !27, !noalias !254
-  %47 = load i64, ptr %7, align 8, !tbaa !27, !noalias !254
-  %48 = icmp slt i64 %46, 0
-  %.unshifted.i.i.i7 = xor i64 %47, %46
-  %49 = icmp sgt i64 %.unshifted.i.i.i7, -1
-  br i1 %49, label %50, label %51
+  %47 = load i64, ptr %6, align 8, !tbaa !27, !noalias !254
+  %48 = load i64, ptr %7, align 8, !tbaa !27, !noalias !254
+  %49 = icmp slt i64 %47, 0
+  %.unshifted.i.i.i7 = xor i64 %48, %47
+  %50 = icmp sgt i64 %.unshifted.i.i.i7, -1
+  br i1 %50, label %51, label %52
 
-50:                                               ; preds = %45
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %46, i64 noundef %47, i1 noundef zeroext %48), !alias.scope !257
+51:                                               ; preds = %46
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %47, i64 noundef %48, i1 noundef zeroext %49), !alias.scope !257
   br label %_ZN2cv10softdoublepLERKS0_.exit
 
-51:                                               ; preds = %45
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %46, i64 noundef %47, i1 noundef zeroext %48), !alias.scope !257
+52:                                               ; preds = %46
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %47, i64 noundef %48, i1 noundef zeroext %49), !alias.scope !257
   br label %_ZN2cv10softdoublepLERKS0_.exit
 
-_ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %50, %51
-  %52 = load i64, ptr %3, align 8, !tbaa !27
-  store i64 %52, ptr %6, align 8, !tbaa !27
+_ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %51, %52
+  %53 = load i64, ptr %3, align 8, !tbaa !27
+  store i64 %53, ptr %6, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load i32, ptr %1, align 4, !tbaa !12
-  br label %53
+  br label %54
 
-53:                                               ; preds = %_ZN2cv10softdoublepLERKS0_.exit, %_ZN2cv10softdoublemIERKS0_.exit
-  %54 = phi i32 [ %.pre, %_ZN2cv10softdoublepLERKS0_.exit ], [ %23, %_ZN2cv10softdoublemIERKS0_.exit ]
+54:                                               ; preds = %_ZN2cv10softdoublepLERKS0_.exit, %_ZN2cv10softdoublemIERKS0_.exit
+  %55 = phi i32 [ %.pre, %_ZN2cv10softdoublepLERKS0_.exit ], [ %23, %_ZN2cv10softdoublemIERKS0_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %55 = lshr i32 %54, 23
-  %56 = and i32 %55, 255
-  %57 = zext nneg i32 %56 to i64
-  %58 = add nsw i64 %57, -127
-  call void @_ZN2cv10softdoubleC1El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %58)
+  %56 = lshr i32 %55, 23
+  %57 = and i32 %56, 255
+  %58 = zext nneg i32 %57 to i64
+  %59 = add nsw i64 %58, -127
+  call void @_ZN2cv10softdoubleC1El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %59)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL4ln_2E, ptr noundef nonnull align 8 dereferenceable(8) %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !260)
-  %59 = load i64, ptr %14, align 8, !tbaa !27, !noalias !260
-  %60 = icmp slt i64 %59, 0
-  %.unshifted.i.i = xor i64 %59, %41
-  %61 = icmp sgt i64 %.unshifted.i.i, -1
-  br i1 %61, label %62, label %63
+  %60 = load i64, ptr %14, align 8, !tbaa !27, !noalias !260
+  %61 = icmp slt i64 %60, 0
+  %.unshifted.i.i = xor i64 %60, %42
+  %62 = icmp sgt i64 %.unshifted.i.i, -1
+  br i1 %62, label %63, label %64
 
-62:                                               ; preds = %53
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %13, i64 noundef %59, i64 noundef %41, i1 noundef zeroext %60), !alias.scope !263
+63:                                               ; preds = %54
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %13, i64 noundef %60, i64 noundef %42, i1 noundef zeroext %61), !alias.scope !263
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
-63:                                               ; preds = %53
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %13, i64 noundef %59, i64 noundef %41, i1 noundef zeroext %60), !alias.scope !263
+64:                                               ; preds = %54
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %13, i64 noundef %60, i64 noundef %42, i1 noundef zeroext %61), !alias.scope !263
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
-_ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %62, %63
+_ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %63, %64
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -6091,22 +6091,22 @@ _ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %62, %63
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef 3)
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %19)
   call void @llvm.experimental.noalias.scope.decl(metadata !266)
-  %64 = load i64, ptr %13, align 8, !tbaa !27, !noalias !266
-  %65 = load i64, ptr %16, align 8, !tbaa !27, !noalias !266
-  %66 = icmp slt i64 %64, 0
-  %.unshifted.i.i8 = xor i64 %65, %64
-  %67 = icmp sgt i64 %.unshifted.i.i8, -1
-  br i1 %67, label %68, label %69
-
-68:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %64, i64 noundef %65, i1 noundef zeroext %66), !alias.scope !269
-  br label %_ZNK2cv10softdoubleplERKS0_.exit9
+  %65 = load i64, ptr %13, align 8, !tbaa !27, !noalias !266
+  %66 = load i64, ptr %16, align 8, !tbaa !27, !noalias !266
+  %67 = icmp slt i64 %65, 0
+  %.unshifted.i.i8 = xor i64 %66, %65
+  %68 = icmp sgt i64 %.unshifted.i.i8, -1
+  br i1 %68, label %69, label %70
 
 69:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %64, i64 noundef %65, i1 noundef zeroext %66), !alias.scope !269
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %65, i64 noundef %66, i1 noundef zeroext %67), !alias.scope !269
   br label %_ZNK2cv10softdoubleplERKS0_.exit9
 
-_ZNK2cv10softdoubleplERKS0_.exit9:                ; preds = %68, %69
+70:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %65, i64 noundef %66, i1 noundef zeroext %67), !alias.scope !269
+  br label %_ZNK2cv10softdoubleplERKS0_.exit9
+
+_ZNK2cv10softdoubleplERKS0_.exit9:                ; preds = %69, %70
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -6114,39 +6114,39 @@ _ZNK2cv10softdoubleplERKS0_.exit9:                ; preds = %68, %69
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %22, i32 noundef 2)
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
   call void @llvm.experimental.noalias.scope.decl(metadata !272)
-  %70 = load i64, ptr %12, align 8, !tbaa !27, !noalias !272
-  %71 = load i64, ptr %20, align 8, !tbaa !27, !noalias !272
-  %72 = icmp slt i64 %70, 0
-  %.unshifted.i.i10 = xor i64 %71, %70
-  %73 = icmp sgt i64 %.unshifted.i.i10, -1
-  br i1 %73, label %74, label %75
-
-74:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit9
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %70, i64 noundef %71, i1 noundef zeroext %72), !alias.scope !275
-  br label %_ZNK2cv10softdoublemiERKS0_.exit
+  %71 = load i64, ptr %12, align 8, !tbaa !27, !noalias !272
+  %72 = load i64, ptr %20, align 8, !tbaa !27, !noalias !272
+  %73 = icmp slt i64 %71, 0
+  %.unshifted.i.i10 = xor i64 %72, %71
+  %74 = icmp sgt i64 %.unshifted.i.i10, -1
+  br i1 %74, label %75, label %76
 
 75:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit9
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %70, i64 noundef %71, i1 noundef zeroext %72), !alias.scope !275
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %71, i64 noundef %72, i1 noundef zeroext %73), !alias.scope !275
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
-_ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %74, %75
-  call void @llvm.experimental.noalias.scope.decl(metadata !278)
-  %76 = load i64, ptr %11, align 8, !tbaa !27, !noalias !278
-  %77 = load i64, ptr %6, align 8, !tbaa !27, !noalias !278
-  %78 = icmp slt i64 %76, 0
-  %.unshifted.i.i11 = xor i64 %77, %76
-  %79 = icmp sgt i64 %.unshifted.i.i11, -1
-  br i1 %79, label %80, label %81
+76:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit9
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %71, i64 noundef %72, i1 noundef zeroext %73), !alias.scope !275
+  br label %_ZNK2cv10softdoublemiERKS0_.exit
 
-80:                                               ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %76, i64 noundef %77, i1 noundef zeroext %78), !alias.scope !281
-  br label %_ZNK2cv10softdoubleplERKS0_.exit12
+_ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %75, %76
+  call void @llvm.experimental.noalias.scope.decl(metadata !278)
+  %77 = load i64, ptr %11, align 8, !tbaa !27, !noalias !278
+  %78 = load i64, ptr %6, align 8, !tbaa !27, !noalias !278
+  %79 = icmp slt i64 %77, 0
+  %.unshifted.i.i11 = xor i64 %78, %77
+  %80 = icmp sgt i64 %.unshifted.i.i11, -1
+  br i1 %80, label %81, label %82
 
 81:                                               ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %76, i64 noundef %77, i1 noundef zeroext %78), !alias.scope !281
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %77, i64 noundef %78, i1 noundef zeroext %79), !alias.scope !281
   br label %_ZNK2cv10softdoubleplERKS0_.exit12
 
-_ZNK2cv10softdoubleplERKS0_.exit12:               ; preds = %80, %81
+82:                                               ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %77, i64 noundef %78, i1 noundef zeroext %79), !alias.scope !281
+  br label %_ZNK2cv10softdoubleplERKS0_.exit12
+
+_ZNK2cv10softdoubleplERKS0_.exit12:               ; preds = %81, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -6164,9 +6164,9 @@ _ZNK2cv10softdoubleplERKS0_.exit12:               ; preds = %80, %81
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %82
+  br label %83
 
-82:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit12, %_ZNK2cv9softfloateqERKS0_.exit.thread21, %.critedge
+83:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit12, %_ZNK2cv9softfloateqERKS0_.exit.thread25, %.critedge
   ret void
 }
 
@@ -6236,241 +6236,241 @@ define internal fastcc void @_ZN2cvL7f64_logENS_10softdoubleE(ptr dead_on_unwind
 
 50:                                               ; preds = %46
   %.not21.i.i = icmp sgt i64 %43, -1
-  br i1 %.not21.i.i, label %51, label %_ZNK2cv10softdoubleltERKS0_.exit
+  br i1 %.not21.i.i, label %52, label %51
 
 51:                                               ; preds = %50
+  %.not71 = icmp eq i64 %44, 0
+  br i1 %.not71, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread69, label %.critedge
+
+52:                                               ; preds = %50
   %cond = icmp eq i64 %43, 0
-  br i1 %cond, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread65, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread
+  br i1 %cond, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread69, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread
 
-_ZNK2cv10softdoubleltERKS0_.exit:                 ; preds = %50
-  %.not69 = icmp eq i64 %44, 0
-  br i1 %.not69, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread65, label %.critedge
-
-.critedge:                                        ; preds = %2, %_ZNK2cv10softdoubleltERKS0_.exit
+.critedge:                                        ; preds = %2, %51
   store i64 9223372036854775807, ptr %0, align 8, !tbaa !27, !alias.scope !284
-  br label %210
+  br label %211
 
-_ZNK2cv10softdoubleeqERKS0_.exit.thread65:        ; preds = %51, %_ZNK2cv10softdoubleltERKS0_.exit
+_ZNK2cv10softdoubleeqERKS0_.exit.thread69:        ; preds = %52, %51
   store i64 -4503599627370496, ptr %0, align 8, !tbaa !27, !alias.scope !289
-  br label %210
+  br label %211
 
-_ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %51, %46
-  %52 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A7 acquire, align 8
-  %53 = icmp eq i8 %52, 0
-  br i1 %53, label %54, label %59, !prof !118
+_ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
+  %53 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A7 acquire, align 8
+  %54 = icmp eq i8 %53, 0
+  br i1 %54, label %55, label %60, !prof !118
 
-54:                                               ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.thread
-  %55 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A7) #15
-  %.not = icmp eq i32 %55, 0
-  br i1 %.not, label %59, label %56
+55:                                               ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.thread
+  %56 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A7) #15
+  %.not = icmp eq i32 %56, 0
+  br i1 %.not, label %60, label %57
 
-56:                                               ; preds = %54
+57:                                               ; preds = %55
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_logENS_10softdoubleEE2A7, i32 noundef 1)
-          to label %57 unwind label %136
+          to label %58 unwind label %137
 
-57:                                               ; preds = %56
-  %58 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A7)
+58:                                               ; preds = %57
+  %59 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A7)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A7) #15
-  br label %59
+  br label %60
 
-59:                                               ; preds = %57, %54, %_ZNK2cv10softdoubleeqERKS0_.exit.thread
-  %60 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A6 acquire, align 8
-  %61 = icmp eq i8 %60, 0
-  br i1 %61, label %62, label %67, !prof !118
+60:                                               ; preds = %58, %55, %_ZNK2cv10softdoubleeqERKS0_.exit.thread
+  %61 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A6 acquire, align 8
+  %62 = icmp eq i8 %61, 0
+  br i1 %62, label %63, label %68, !prof !118
 
-62:                                               ; preds = %59
-  %63 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A6) #15
-  %.not12 = icmp eq i32 %63, 0
-  br i1 %.not12, label %67, label %64
+63:                                               ; preds = %60
+  %64 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A6) #15
+  %.not12 = icmp eq i32 %64, 0
+  br i1 %.not12, label %68, label %65
 
-64:                                               ; preds = %62
+65:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 -4616189618054758400, ptr %4, align 8, !tbaa !27, !alias.scope !292
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 2)
-          to label %65 unwind label %138
+          to label %66 unwind label %139
 
-65:                                               ; preds = %64
+66:                                               ; preds = %65
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %66 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A6)
+  %67 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A6)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A6) #15
-  br label %67
+  br label %68
 
-67:                                               ; preds = %65, %62, %59
-  %68 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A5 acquire, align 8
-  %69 = icmp eq i8 %68, 0
-  br i1 %69, label %70, label %75, !prof !118
+68:                                               ; preds = %66, %63, %60
+  %69 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A5 acquire, align 8
+  %70 = icmp eq i8 %69, 0
+  br i1 %70, label %71, label %76, !prof !118
 
-70:                                               ; preds = %67
-  %71 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A5) #15
-  %.not14 = icmp eq i32 %71, 0
-  br i1 %.not14, label %75, label %72
+71:                                               ; preds = %68
+  %72 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A5) #15
+  %.not14 = icmp eq i32 %72, 0
+  br i1 %.not14, label %76, label %73
 
-72:                                               ; preds = %70
+73:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 4607182418800017408, ptr %6, align 8, !tbaa !27, !alias.scope !295
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 3)
-          to label %73 unwind label %140
+          to label %74 unwind label %141
 
-73:                                               ; preds = %72
+74:                                               ; preds = %73
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %74 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A5)
+  %75 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A5)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A5) #15
-  br label %75
+  br label %76
 
-75:                                               ; preds = %73, %70, %67
-  %76 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A4 acquire, align 8
-  %77 = icmp eq i8 %76, 0
-  br i1 %77, label %78, label %83, !prof !118
+76:                                               ; preds = %74, %71, %68
+  %77 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A4 acquire, align 8
+  %78 = icmp eq i8 %77, 0
+  br i1 %78, label %79, label %84, !prof !118
 
-78:                                               ; preds = %75
-  %79 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A4) #15
-  %.not17 = icmp eq i32 %79, 0
-  br i1 %.not17, label %83, label %80
+79:                                               ; preds = %76
+  %80 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A4) #15
+  %.not17 = icmp eq i32 %80, 0
+  br i1 %.not17, label %84, label %81
 
-80:                                               ; preds = %78
+81:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 -4616189618054758400, ptr %8, align 8, !tbaa !27, !alias.scope !300
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 4)
-          to label %81 unwind label %142
+          to label %82 unwind label %143
 
-81:                                               ; preds = %80
+82:                                               ; preds = %81
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A4, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %82 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A4)
+  %83 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A4)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A4) #15
-  br label %83
+  br label %84
 
-83:                                               ; preds = %81, %78, %75
-  %84 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A3 acquire, align 8
-  %85 = icmp eq i8 %84, 0
-  br i1 %85, label %86, label %91, !prof !118
+84:                                               ; preds = %82, %79, %76
+  %85 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A3 acquire, align 8
+  %86 = icmp eq i8 %85, 0
+  br i1 %86, label %87, label %92, !prof !118
 
-86:                                               ; preds = %83
-  %87 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A3) #15
-  %.not20 = icmp eq i32 %87, 0
-  br i1 %.not20, label %91, label %88
+87:                                               ; preds = %84
+  %88 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A3) #15
+  %.not20 = icmp eq i32 %88, 0
+  br i1 %.not20, label %92, label %89
 
-88:                                               ; preds = %86
+89:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 4607182418800017408, ptr %10, align 8, !tbaa !27, !alias.scope !303
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 5)
-          to label %89 unwind label %144
+          to label %90 unwind label %145
 
-89:                                               ; preds = %88
+90:                                               ; preds = %89
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A3, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %90 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A3)
+  %91 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A3)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A3) #15
-  br label %91
+  br label %92
 
-91:                                               ; preds = %89, %86, %83
-  %92 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A2 acquire, align 8
-  %93 = icmp eq i8 %92, 0
-  br i1 %93, label %94, label %99, !prof !118
+92:                                               ; preds = %90, %87, %84
+  %93 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A2 acquire, align 8
+  %94 = icmp eq i8 %93, 0
+  br i1 %94, label %95, label %100, !prof !118
 
-94:                                               ; preds = %91
-  %95 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A2) #15
-  %.not23 = icmp eq i32 %95, 0
-  br i1 %.not23, label %99, label %96
+95:                                               ; preds = %92
+  %96 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A2) #15
+  %.not23 = icmp eq i32 %96, 0
+  br i1 %.not23, label %100, label %97
 
-96:                                               ; preds = %94
+97:                                               ; preds = %95
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 -4616189618054758400, ptr %12, align 8, !tbaa !27, !alias.scope !308
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef 6)
-          to label %97 unwind label %146
+          to label %98 unwind label %147
 
-97:                                               ; preds = %96
+98:                                               ; preds = %97
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A2, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %98 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A2)
+  %99 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A2)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A2) #15
-  br label %99
+  br label %100
 
-99:                                               ; preds = %97, %94, %91
-  %100 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A1 acquire, align 8
-  %101 = icmp eq i8 %100, 0
-  br i1 %101, label %102, label %107, !prof !118
+100:                                              ; preds = %98, %95, %92
+  %101 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A1 acquire, align 8
+  %102 = icmp eq i8 %101, 0
+  br i1 %102, label %103, label %108, !prof !118
 
-102:                                              ; preds = %99
-  %103 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A1) #15
-  %.not26 = icmp eq i32 %103, 0
-  br i1 %.not26, label %107, label %104
+103:                                              ; preds = %100
+  %104 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A1) #15
+  %.not26 = icmp eq i32 %104, 0
+  br i1 %.not26, label %108, label %105
 
-104:                                              ; preds = %102
+105:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 4607182418800017408, ptr %14, align 8, !tbaa !27, !alias.scope !311
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef 7)
-          to label %105 unwind label %148
+          to label %106 unwind label %149
 
-105:                                              ; preds = %104
+106:                                              ; preds = %105
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A1, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %106 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A1)
+  %107 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A1)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A1) #15
-  br label %107
+  br label %108
 
-107:                                              ; preds = %105, %102, %99
-  %108 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A0 acquire, align 8
-  %109 = icmp eq i8 %108, 0
-  br i1 %109, label %110, label %_ZN2cv10softdoublemIERKS0_.exit, !prof !118
+108:                                              ; preds = %106, %103, %100
+  %109 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A0 acquire, align 8
+  %110 = icmp eq i8 %109, 0
+  br i1 %110, label %111, label %_ZN2cv10softdoublemIERKS0_.exit, !prof !118
 
-110:                                              ; preds = %107
-  %111 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A0) #15
-  %.not29 = icmp eq i32 %111, 0
-  br i1 %.not29, label %_ZN2cv10softdoublemIERKS0_.exit, label %112
+111:                                              ; preds = %108
+  %112 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A0) #15
+  %.not29 = icmp eq i32 %112, 0
+  br i1 %.not29, label %_ZN2cv10softdoublemIERKS0_.exit, label %113
 
-112:                                              ; preds = %110
+113:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 -4616189618054758400, ptr %16, align 8, !tbaa !27, !alias.scope !316
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 8)
-          to label %113 unwind label %150
+          to label %114 unwind label %151
 
-113:                                              ; preds = %112
+114:                                              ; preds = %113
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A0, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %114 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A0)
+  %115 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A0)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A0) #15
   br label %_ZN2cv10softdoublemIERKS0_.exit
 
-_ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %113, %110, %107
-  %115 = load i64, ptr %1, align 8, !tbaa !27
-  %116 = lshr i64 %115, 44
-  %117 = trunc nuw nsw i64 %116 to i32
-  %118 = and i32 %117, 255
+_ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %114, %111, %108
+  %116 = load i64, ptr %1, align 8, !tbaa !27
+  %117 = lshr i64 %116, 44
+  %118 = trunc nuw nsw i64 %117 to i32
+  %119 = and i32 %118, 255
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %119 = and i64 %115, 17592186044415
-  %120 = or disjoint i64 %119, 4607182418800017408
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 noundef %120, i64 noundef 4607182418800017408, i1 noundef zeroext false)
-  %121 = shl nuw nsw i32 %118, 1
-  %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds nuw i64, ptr @_ZN2cvL9icvLogTabE, i64 %122
-  %124 = load i64, ptr %123, align 16, !tbaa !144
+  %120 = and i64 %116, 17592186044415
+  %121 = or disjoint i64 %120, 4607182418800017408
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 noundef %121, i64 noundef 4607182418800017408, i1 noundef zeroext false)
+  %122 = shl nuw nsw i32 %119, 1
+  %123 = zext nneg i32 %122 to i64
+  %124 = getelementptr inbounds nuw i64, ptr @_ZN2cvL9icvLogTabE, i64 %123
+  %125 = load i64, ptr %124, align 16, !tbaa !144
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %126 = load i64, ptr %125, align 8, !tbaa !144
-  store i64 %126, ptr %19, align 8, !tbaa !27, !alias.scope !319
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  %127 = load i64, ptr %126, align 8, !tbaa !144
+  store i64 %127, ptr %19, align 8, !tbaa !27, !alias.scope !319
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
-  %127 = icmp eq i32 %118, 255
-  br i1 %127, label %128, label %152
+  %128 = icmp eq i32 %119, 255
+  br i1 %128, label %129, label %153
 
-128:                                              ; preds = %_ZN2cv10softdoublemIERKS0_.exit
+129:                                              ; preds = %_ZN2cv10softdoublemIERKS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 -4616189618054758400, ptr %22, align 8, !tbaa !27, !alias.scope !322
@@ -6479,122 +6479,122 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %113, %110, %107
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !325)
-  %129 = load i64, ptr %20, align 8, !tbaa !27, !noalias !325
-  %130 = load i64, ptr %21, align 8, !tbaa !27, !noalias !325
-  %131 = icmp slt i64 %129, 0
-  %.unshifted.i.i.i36 = xor i64 %130, %129
-  %132 = icmp sgt i64 %.unshifted.i.i.i36, -1
-  br i1 %132, label %133, label %134
+  %130 = load i64, ptr %20, align 8, !tbaa !27, !noalias !325
+  %131 = load i64, ptr %21, align 8, !tbaa !27, !noalias !325
+  %132 = icmp slt i64 %130, 0
+  %.unshifted.i.i.i36 = xor i64 %131, %130
+  %133 = icmp sgt i64 %.unshifted.i.i.i36, -1
+  br i1 %133, label %134, label %135
 
-133:                                              ; preds = %128
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %129, i64 noundef %130, i1 noundef zeroext %131), !alias.scope !328
+134:                                              ; preds = %129
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %130, i64 noundef %131, i1 noundef zeroext %132), !alias.scope !328
   br label %_ZN2cv10softdoublepLERKS0_.exit
 
-134:                                              ; preds = %128
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %129, i64 noundef %130, i1 noundef zeroext %131), !alias.scope !328
+135:                                              ; preds = %129
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %130, i64 noundef %131, i1 noundef zeroext %132), !alias.scope !328
   br label %_ZN2cv10softdoublepLERKS0_.exit
 
-_ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %133, %134
-  %135 = load i64, ptr %3, align 8, !tbaa !27
-  store i64 %135, ptr %20, align 8, !tbaa !27
+_ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %134, %135
+  %136 = load i64, ptr %3, align 8, !tbaa !27
+  store i64 %136, ptr %20, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %.pre = load i64, ptr %1, align 8, !tbaa !27
-  br label %152
+  br label %153
 
-136:                                              ; preds = %56
-  %137 = landingpad { ptr, i32 }
+137:                                              ; preds = %57
+  %138 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A7) #15
-  br label %211
+  br label %212
 
-138:                                              ; preds = %64
-  %139 = landingpad { ptr, i32 }
+139:                                              ; preds = %65
+  %140 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A6) #15
-  br label %211
+  br label %212
 
-140:                                              ; preds = %72
-  %141 = landingpad { ptr, i32 }
+141:                                              ; preds = %73
+  %142 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A5) #15
-  br label %211
+  br label %212
 
-142:                                              ; preds = %80
-  %143 = landingpad { ptr, i32 }
+143:                                              ; preds = %81
+  %144 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A4) #15
-  br label %211
+  br label %212
 
-144:                                              ; preds = %88
-  %145 = landingpad { ptr, i32 }
+145:                                              ; preds = %89
+  %146 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A3) #15
-  br label %211
+  br label %212
 
-146:                                              ; preds = %96
-  %147 = landingpad { ptr, i32 }
+147:                                              ; preds = %97
+  %148 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A2) #15
-  br label %211
+  br label %212
 
-148:                                              ; preds = %104
-  %149 = landingpad { ptr, i32 }
+149:                                              ; preds = %105
+  %150 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A1) #15
-  br label %211
+  br label %212
 
-150:                                              ; preds = %112
-  %151 = landingpad { ptr, i32 }
+151:                                              ; preds = %113
+  %152 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A0) #15
-  br label %211
+  br label %212
 
-152:                                              ; preds = %_ZN2cv10softdoublepLERKS0_.exit, %_ZN2cv10softdoublemIERKS0_.exit
-  %153 = phi i64 [ %.pre, %_ZN2cv10softdoublepLERKS0_.exit ], [ %115, %_ZN2cv10softdoublemIERKS0_.exit ]
+153:                                              ; preds = %_ZN2cv10softdoublepLERKS0_.exit, %_ZN2cv10softdoublemIERKS0_.exit
+  %154 = phi i64 [ %.pre, %_ZN2cv10softdoublepLERKS0_.exit ], [ %116, %_ZN2cv10softdoublemIERKS0_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %154 = lshr i64 %153, 52
-  %155 = and i64 %154, 2047
-  %156 = add nsw i64 %155, -1023
-  call void @_ZN2cv10softdoubleC1El(ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef %156)
+  %155 = lshr i64 %154, 52
+  %156 = and i64 %155, 2047
+  %157 = add nsw i64 %156, -1023
+  call void @_ZN2cv10softdoubleC1El(ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef %157)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %27, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL4ln_2E, ptr noundef nonnull align 8 dereferenceable(8) %28)
   call void @llvm.experimental.noalias.scope.decl(metadata !331)
-  %157 = load i64, ptr %27, align 8, !tbaa !27, !noalias !331
-  %158 = icmp slt i64 %157, 0
-  %.unshifted.i.i = xor i64 %157, %124
-  %159 = icmp sgt i64 %.unshifted.i.i, -1
-  br i1 %159, label %160, label %161
+  %158 = load i64, ptr %27, align 8, !tbaa !27, !noalias !331
+  %159 = icmp slt i64 %158, 0
+  %.unshifted.i.i = xor i64 %158, %125
+  %160 = icmp sgt i64 %.unshifted.i.i, -1
+  br i1 %160, label %161, label %162
 
-160:                                              ; preds = %152
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %26, i64 noundef %157, i64 noundef %124, i1 noundef zeroext %158), !alias.scope !334
+161:                                              ; preds = %153
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %26, i64 noundef %158, i64 noundef %125, i1 noundef zeroext %159), !alias.scope !334
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
-161:                                              ; preds = %152
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %26, i64 noundef %157, i64 noundef %124, i1 noundef zeroext %158), !alias.scope !334
+162:                                              ; preds = %153
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %26, i64 noundef %158, i64 noundef %125, i1 noundef zeroext %159), !alias.scope !334
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
-_ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %160, %161
+_ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %161, %162
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
@@ -6604,76 +6604,76 @@ _ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %160, %161
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %35, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_logENS_10softdoubleEE2A0, ptr noundef nonnull align 8 dereferenceable(8) %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !337)
-  %162 = load i64, ptr %35, align 8, !tbaa !27, !noalias !337
-  %163 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A2, align 8, !tbaa !27, !noalias !337
-  %164 = icmp slt i64 %162, 0
-  %.unshifted.i.i37 = xor i64 %163, %162
-  %165 = icmp sgt i64 %.unshifted.i.i37, -1
-  br i1 %165, label %166, label %167
-
-166:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %34, i64 noundef %162, i64 noundef %163, i1 noundef zeroext %164), !alias.scope !340
-  br label %_ZNK2cv10softdoubleplERKS0_.exit38
+  %163 = load i64, ptr %35, align 8, !tbaa !27, !noalias !337
+  %164 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A2, align 8, !tbaa !27, !noalias !337
+  %165 = icmp slt i64 %163, 0
+  %.unshifted.i.i37 = xor i64 %164, %163
+  %166 = icmp sgt i64 %.unshifted.i.i37, -1
+  br i1 %166, label %167, label %168
 
 167:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %34, i64 noundef %162, i64 noundef %163, i1 noundef zeroext %164), !alias.scope !340
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %34, i64 noundef %163, i64 noundef %164, i1 noundef zeroext %165), !alias.scope !340
   br label %_ZNK2cv10softdoubleplERKS0_.exit38
 
-_ZNK2cv10softdoubleplERKS0_.exit38:               ; preds = %166, %167
+168:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %34, i64 noundef %163, i64 noundef %164, i1 noundef zeroext %165), !alias.scope !340
+  br label %_ZNK2cv10softdoubleplERKS0_.exit38
+
+_ZNK2cv10softdoubleplERKS0_.exit38:               ; preds = %167, %168
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %33, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !343)
-  %168 = load i64, ptr %33, align 8, !tbaa !27, !noalias !343
-  %169 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A4, align 8, !tbaa !27, !noalias !343
-  %170 = icmp slt i64 %168, 0
-  %.unshifted.i.i39 = xor i64 %169, %168
-  %171 = icmp sgt i64 %.unshifted.i.i39, -1
-  br i1 %171, label %172, label %173
-
-172:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit38
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %32, i64 noundef %168, i64 noundef %169, i1 noundef zeroext %170), !alias.scope !346
-  br label %_ZNK2cv10softdoubleplERKS0_.exit40
+  %169 = load i64, ptr %33, align 8, !tbaa !27, !noalias !343
+  %170 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A4, align 8, !tbaa !27, !noalias !343
+  %171 = icmp slt i64 %169, 0
+  %.unshifted.i.i39 = xor i64 %170, %169
+  %172 = icmp sgt i64 %.unshifted.i.i39, -1
+  br i1 %172, label %173, label %174
 
 173:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit38
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %32, i64 noundef %168, i64 noundef %169, i1 noundef zeroext %170), !alias.scope !346
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %32, i64 noundef %169, i64 noundef %170, i1 noundef zeroext %171), !alias.scope !346
   br label %_ZNK2cv10softdoubleplERKS0_.exit40
 
-_ZNK2cv10softdoubleplERKS0_.exit40:               ; preds = %172, %173
+174:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit38
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %32, i64 noundef %169, i64 noundef %170, i1 noundef zeroext %171), !alias.scope !346
+  br label %_ZNK2cv10softdoubleplERKS0_.exit40
+
+_ZNK2cv10softdoubleplERKS0_.exit40:               ; preds = %173, %174
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %31, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !349)
-  %174 = load i64, ptr %31, align 8, !tbaa !27, !noalias !349
-  %175 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A6, align 8, !tbaa !27, !noalias !349
-  %176 = icmp slt i64 %174, 0
-  %.unshifted.i.i41 = xor i64 %175, %174
-  %177 = icmp sgt i64 %.unshifted.i.i41, -1
-  br i1 %177, label %178, label %179
-
-178:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit40
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %30, i64 noundef %174, i64 noundef %175, i1 noundef zeroext %176), !alias.scope !352
-  br label %_ZNK2cv10softdoubleplERKS0_.exit42
+  %175 = load i64, ptr %31, align 8, !tbaa !27, !noalias !349
+  %176 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A6, align 8, !tbaa !27, !noalias !349
+  %177 = icmp slt i64 %175, 0
+  %.unshifted.i.i41 = xor i64 %176, %175
+  %178 = icmp sgt i64 %.unshifted.i.i41, -1
+  br i1 %178, label %179, label %180
 
 179:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit40
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %30, i64 noundef %174, i64 noundef %175, i1 noundef zeroext %176), !alias.scope !352
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %30, i64 noundef %175, i64 noundef %176, i1 noundef zeroext %177), !alias.scope !352
   br label %_ZNK2cv10softdoubleplERKS0_.exit42
 
-_ZNK2cv10softdoubleplERKS0_.exit42:               ; preds = %178, %179
+180:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit40
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %30, i64 noundef %175, i64 noundef %176, i1 noundef zeroext %177), !alias.scope !352
+  br label %_ZNK2cv10softdoubleplERKS0_.exit42
+
+_ZNK2cv10softdoubleplERKS0_.exit42:               ; preds = %179, %180
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %29, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !355)
-  %180 = load i64, ptr %26, align 8, !tbaa !27, !noalias !355
-  %181 = load i64, ptr %29, align 8, !tbaa !27, !noalias !355
-  %182 = icmp slt i64 %180, 0
-  %.unshifted.i.i43 = xor i64 %181, %180
-  %183 = icmp sgt i64 %.unshifted.i.i43, -1
-  br i1 %183, label %184, label %185
-
-184:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit42
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %25, i64 noundef %180, i64 noundef %181, i1 noundef zeroext %182), !alias.scope !358
-  br label %_ZNK2cv10softdoubleplERKS0_.exit44
+  %181 = load i64, ptr %26, align 8, !tbaa !27, !noalias !355
+  %182 = load i64, ptr %29, align 8, !tbaa !27, !noalias !355
+  %183 = icmp slt i64 %181, 0
+  %.unshifted.i.i43 = xor i64 %182, %181
+  %184 = icmp sgt i64 %.unshifted.i.i43, -1
+  br i1 %184, label %185, label %186
 
 185:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit42
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %25, i64 noundef %180, i64 noundef %181, i1 noundef zeroext %182), !alias.scope !358
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %25, i64 noundef %181, i64 noundef %182, i1 noundef zeroext %183), !alias.scope !358
   br label %_ZNK2cv10softdoubleplERKS0_.exit44
 
-_ZNK2cv10softdoubleplERKS0_.exit44:               ; preds = %184, %185
+186:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit42
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %25, i64 noundef %181, i64 noundef %182, i1 noundef zeroext %183), !alias.scope !358
+  br label %_ZNK2cv10softdoubleplERKS0_.exit44
+
+_ZNK2cv10softdoubleplERKS0_.exit44:               ; preds = %185, %186
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
@@ -6683,76 +6683,76 @@ _ZNK2cv10softdoubleplERKS0_.exit44:               ; preds = %184, %185
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %42, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_logENS_10softdoubleEE2A1, ptr noundef nonnull align 8 dereferenceable(8) %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !361)
-  %186 = load i64, ptr %42, align 8, !tbaa !27, !noalias !361
-  %187 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A3, align 8, !tbaa !27, !noalias !361
-  %188 = icmp slt i64 %186, 0
-  %.unshifted.i.i45 = xor i64 %187, %186
-  %189 = icmp sgt i64 %.unshifted.i.i45, -1
-  br i1 %189, label %190, label %191
-
-190:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit44
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %41, i64 noundef %186, i64 noundef %187, i1 noundef zeroext %188), !alias.scope !364
-  br label %_ZNK2cv10softdoubleplERKS0_.exit46
+  %187 = load i64, ptr %42, align 8, !tbaa !27, !noalias !361
+  %188 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A3, align 8, !tbaa !27, !noalias !361
+  %189 = icmp slt i64 %187, 0
+  %.unshifted.i.i45 = xor i64 %188, %187
+  %190 = icmp sgt i64 %.unshifted.i.i45, -1
+  br i1 %190, label %191, label %192
 
 191:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit44
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %41, i64 noundef %186, i64 noundef %187, i1 noundef zeroext %188), !alias.scope !364
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %41, i64 noundef %187, i64 noundef %188, i1 noundef zeroext %189), !alias.scope !364
   br label %_ZNK2cv10softdoubleplERKS0_.exit46
 
-_ZNK2cv10softdoubleplERKS0_.exit46:               ; preds = %190, %191
+192:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit44
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %41, i64 noundef %187, i64 noundef %188, i1 noundef zeroext %189), !alias.scope !364
+  br label %_ZNK2cv10softdoubleplERKS0_.exit46
+
+_ZNK2cv10softdoubleplERKS0_.exit46:               ; preds = %191, %192
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %40, ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !367)
-  %192 = load i64, ptr %40, align 8, !tbaa !27, !noalias !367
-  %193 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A5, align 8, !tbaa !27, !noalias !367
-  %194 = icmp slt i64 %192, 0
-  %.unshifted.i.i47 = xor i64 %193, %192
-  %195 = icmp sgt i64 %.unshifted.i.i47, -1
-  br i1 %195, label %196, label %197
-
-196:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit46
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %39, i64 noundef %192, i64 noundef %193, i1 noundef zeroext %194), !alias.scope !370
-  br label %_ZNK2cv10softdoubleplERKS0_.exit48
+  %193 = load i64, ptr %40, align 8, !tbaa !27, !noalias !367
+  %194 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A5, align 8, !tbaa !27, !noalias !367
+  %195 = icmp slt i64 %193, 0
+  %.unshifted.i.i47 = xor i64 %194, %193
+  %196 = icmp sgt i64 %.unshifted.i.i47, -1
+  br i1 %196, label %197, label %198
 
 197:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit46
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %39, i64 noundef %192, i64 noundef %193, i1 noundef zeroext %194), !alias.scope !370
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %39, i64 noundef %193, i64 noundef %194, i1 noundef zeroext %195), !alias.scope !370
   br label %_ZNK2cv10softdoubleplERKS0_.exit48
 
-_ZNK2cv10softdoubleplERKS0_.exit48:               ; preds = %196, %197
+198:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit46
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %39, i64 noundef %193, i64 noundef %194, i1 noundef zeroext %195), !alias.scope !370
+  br label %_ZNK2cv10softdoubleplERKS0_.exit48
+
+_ZNK2cv10softdoubleplERKS0_.exit48:               ; preds = %197, %198
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %38, ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !373)
-  %198 = load i64, ptr %38, align 8, !tbaa !27, !noalias !373
-  %199 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A7, align 8, !tbaa !27, !noalias !373
-  %200 = icmp slt i64 %198, 0
-  %.unshifted.i.i49 = xor i64 %199, %198
-  %201 = icmp sgt i64 %.unshifted.i.i49, -1
-  br i1 %201, label %202, label %203
-
-202:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit48
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %37, i64 noundef %198, i64 noundef %199, i1 noundef zeroext %200), !alias.scope !376
-  br label %_ZNK2cv10softdoubleplERKS0_.exit50
+  %199 = load i64, ptr %38, align 8, !tbaa !27, !noalias !373
+  %200 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A7, align 8, !tbaa !27, !noalias !373
+  %201 = icmp slt i64 %199, 0
+  %.unshifted.i.i49 = xor i64 %200, %199
+  %202 = icmp sgt i64 %.unshifted.i.i49, -1
+  br i1 %202, label %203, label %204
 
 203:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit48
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %37, i64 noundef %198, i64 noundef %199, i1 noundef zeroext %200), !alias.scope !376
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %37, i64 noundef %199, i64 noundef %200, i1 noundef zeroext %201), !alias.scope !376
   br label %_ZNK2cv10softdoubleplERKS0_.exit50
 
-_ZNK2cv10softdoubleplERKS0_.exit50:               ; preds = %202, %203
+204:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit48
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %37, i64 noundef %199, i64 noundef %200, i1 noundef zeroext %201), !alias.scope !376
+  br label %_ZNK2cv10softdoubleplERKS0_.exit50
+
+_ZNK2cv10softdoubleplERKS0_.exit50:               ; preds = %203, %204
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %36, ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %20)
   call void @llvm.experimental.noalias.scope.decl(metadata !379)
-  %204 = load i64, ptr %25, align 8, !tbaa !27, !noalias !379
-  %205 = load i64, ptr %36, align 8, !tbaa !27, !noalias !379
-  %206 = icmp slt i64 %204, 0
-  %.unshifted.i.i51 = xor i64 %205, %204
-  %207 = icmp sgt i64 %.unshifted.i.i51, -1
-  br i1 %207, label %208, label %209
-
-208:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit50
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %204, i64 noundef %205, i1 noundef zeroext %206), !alias.scope !382
-  br label %_ZNK2cv10softdoubleplERKS0_.exit52
+  %205 = load i64, ptr %25, align 8, !tbaa !27, !noalias !379
+  %206 = load i64, ptr %36, align 8, !tbaa !27, !noalias !379
+  %207 = icmp slt i64 %205, 0
+  %.unshifted.i.i51 = xor i64 %206, %205
+  %208 = icmp sgt i64 %.unshifted.i.i51, -1
+  br i1 %208, label %209, label %210
 
 209:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit50
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %204, i64 noundef %205, i1 noundef zeroext %206), !alias.scope !382
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %205, i64 noundef %206, i1 noundef zeroext %207), !alias.scope !382
   br label %_ZNK2cv10softdoubleplERKS0_.exit52
 
-_ZNK2cv10softdoubleplERKS0_.exit52:               ; preds = %208, %209
+210:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit50
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %205, i64 noundef %206, i1 noundef zeroext %207), !alias.scope !382
+  br label %_ZNK2cv10softdoubleplERKS0_.exit52
+
+_ZNK2cv10softdoubleplERKS0_.exit52:               ; preds = %209, %210
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
@@ -6775,13 +6775,13 @@ _ZNK2cv10softdoubleplERKS0_.exit52:               ; preds = %208, %209
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %210
+  br label %211
 
-210:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit52, %_ZNK2cv10softdoubleeqERKS0_.exit.thread65, %.critedge
+211:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit52, %_ZNK2cv10softdoubleeqERKS0_.exit.thread69, %.critedge
   ret void
 
-211:                                              ; preds = %150, %148, %146, %144, %142, %140, %138, %136
-  %.pn30.pn = phi { ptr, i32 } [ %151, %150 ], [ %149, %148 ], [ %147, %146 ], [ %145, %144 ], [ %143, %142 ], [ %141, %140 ], [ %139, %138 ], [ %137, %136 ]
+212:                                              ; preds = %151, %149, %147, %145, %143, %141, %139, %137
+  %.pn30.pn = phi { ptr, i32 } [ %152, %151 ], [ %150, %149 ], [ %148, %147 ], [ %146, %145 ], [ %144, %143 ], [ %142, %141 ], [ %140, %139 ], [ %138, %137 ]
   resume { ptr, i32 } %.pn30.pn
 }
 
@@ -6922,7 +6922,7 @@ define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable 
   br label %_ZNK2cv9softfloatgtERKS0_.exit.i
 
 _ZNK2cv9softfloatgtERKS0_.exit.i:                 ; preds = %69, %68, %65, %63, %57, %45
-  %.0.i.i.i = phi i1 [ %72, %69 ], [ %67, %65 ], [ false, %63 ], [ false, %68 ], [ false, %57 ], [ false, %45 ]
+  %.0.i.i.i = phi i1 [ false, %63 ], [ %67, %65 ], [ false, %68 ], [ %72, %69 ], [ false, %57 ], [ false, %45 ]
   %73 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3one, align 4, !tbaa !12, !noalias !385
   %74 = zext i32 %73 to i64
   %75 = and i64 %74, 2139095040
@@ -6956,7 +6956,7 @@ _ZNK2cv9softfloatgtERKS0_.exit.i:                 ; preds = %69, %68, %65, %63, 
   br label %_ZNK2cv9softfloatgtERKS0_.exit24.i
 
 _ZNK2cv9softfloatgtERKS0_.exit24.i:               ; preds = %87, %84, %78, %_ZNK2cv9softfloatgtERKS0_.exit.i
-  %.0.i.i17.i = phi i1 [ false, %78 ], [ %86, %84 ], [ false, %_ZNK2cv9softfloatgtERKS0_.exit.i ], [ %88, %87 ]
+  %.0.i.i17.i = phi i1 [ %86, %84 ], [ false, %78 ], [ false, %_ZNK2cv9softfloatgtERKS0_.exit.i ], [ %88, %87 ]
   %89 = xor i1 %.0.i.i.i, %.0.i.i17.i
   store i32 0, ptr %0, align 4, !tbaa !12, !alias.scope !385
   br i1 %51, label %90, label %93
@@ -7070,33 +7070,33 @@ _ZNK2cv9softfloateqERKS0_.exit48.thread.i:        ; preds = %_ZNK2cv9softfloateq
 127:                                              ; preds = %126
   %.not21.unshifted.i.i26 = xor i32 %.fr, %.fr41
   %.not21.i.i27 = icmp sgt i32 %.not21.unshifted.i.i26, -1
-  br i1 %.not21.i.i27, label %130, label %128
+  br i1 %.not21.i.i27, label %132, label %128
 
 128:                                              ; preds = %127
   %129 = icmp slt i32 %.fr41, 0
-  br i1 %129, label %_ZNK2cv9softfloatltERKS0_.exit30, label %_ZNK2cv9softfloatltERKS0_.exit30.thread
+  br i1 %129, label %130, label %_ZNK2cv9softfloatltERKS0_.exit30.thread
 
-130:                                              ; preds = %127
-  %.not22.i.i29 = icmp eq i32 %.fr41, %.fr
-  br i1 %.not22.i.i29, label %_ZNK2cv9softfloatltERKS0_.exit30.thread, label %131
-
-131:                                              ; preds = %130
-  %132 = icmp ult i32 %.fr41, %.fr
-  %133 = icmp slt i32 %.fr41, 0
-  %134 = xor i1 %133, %132
-  br i1 %134, label %136, label %_ZNK2cv9softfloatltERKS0_.exit30.thread
-
-_ZNK2cv9softfloatltERKS0_.exit30:                 ; preds = %128
-  %135 = or i32 %.fr, %.fr41
-  %.mask.i.i28 = and i32 %135, 2147483647
+130:                                              ; preds = %128
+  %131 = or i32 %.fr, %.fr41
+  %.mask.i.i28 = and i32 %131, 2147483647
   %.not42 = icmp eq i32 %.mask.i.i28, 0
   br i1 %.not42, label %_ZNK2cv9softfloatltERKS0_.exit30.thread, label %136
 
-136:                                              ; preds = %131, %_ZNK2cv9softfloatltERKS0_.exit30
+132:                                              ; preds = %127
+  %.not22.i.i29 = icmp eq i32 %.fr41, %.fr
+  br i1 %.not22.i.i29, label %_ZNK2cv9softfloatltERKS0_.exit30.thread, label %_ZNK2cv9softfloatltERKS0_.exit30
+
+_ZNK2cv9softfloatltERKS0_.exit30:                 ; preds = %132
+  %133 = icmp ult i32 %.fr41, %.fr
+  %134 = icmp slt i32 %.fr41, 0
+  %135 = xor i1 %134, %133
+  br i1 %135, label %136, label %_ZNK2cv9softfloatltERKS0_.exit30.thread
+
+136:                                              ; preds = %130, %_ZNK2cv9softfloatltERKS0_.exit30
   br label %_ZNK2cv9softfloatltERKS0_.exit30.thread
 
-_ZNK2cv9softfloatltERKS0_.exit30.thread:          ; preds = %126, %130, %128, %131, %_ZNK2cv9softfloatltERKS0_.exit30, %136
-  %137 = phi ptr [ @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero, %136 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %_ZNK2cv9softfloatltERKS0_.exit30 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %131 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %128 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %130 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %126 ]
+_ZNK2cv9softfloatltERKS0_.exit30.thread:          ; preds = %126, %132, %128, %130, %_ZNK2cv9softfloatltERKS0_.exit30, %136
+  %137 = phi ptr [ @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero, %136 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %_ZNK2cv9softfloatltERKS0_.exit30 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %130 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %128 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %132 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %126 ]
   %.not.i53.i = icmp eq ptr %137, %0
   br i1 %.not.i53.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %138
 
@@ -7341,29 +7341,29 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZN2cvL14f32_roundT
 239:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit.thread
   %.not21.unshifted.i.i = xor i32 %.fr, %16
   %.not21.i.i = icmp sgt i32 %.not21.unshifted.i.i, -1
-  br i1 %.not21.i.i, label %242, label %240
+  br i1 %.not21.i.i, label %244, label %240
 
 240:                                              ; preds = %239
   %241 = icmp slt i32 %16, 0
-  br i1 %241, label %_ZNK2cv9softfloatltERKS0_.exit, label %_ZNK2cv9softfloatltERKS0_.exit.thread
+  br i1 %241, label %242, label %_ZNK2cv9softfloatltERKS0_.exit.thread
 
-242:                                              ; preds = %239
-  %.not22.i.i = icmp eq i32 %16, %.fr
-  br i1 %.not22.i.i, label %_ZNK2cv9softfloatltERKS0_.exit.thread, label %243
-
-243:                                              ; preds = %242
-  %244 = icmp ult i32 %16, %.fr
-  %245 = icmp slt i32 %16, 0
-  %246 = xor i1 %245, %244
-  br i1 %246, label %248, label %_ZNK2cv9softfloatltERKS0_.exit.thread
-
-_ZNK2cv9softfloatltERKS0_.exit:                   ; preds = %240
-  %247 = or i32 %.fr, %16
-  %.mask.i.i = and i32 %247, 2147483647
+242:                                              ; preds = %240
+  %243 = or i32 %.fr, %16
+  %.mask.i.i = and i32 %243, 2147483647
   %.not = icmp eq i32 %.mask.i.i, 0
   br i1 %.not, label %_ZNK2cv9softfloatltERKS0_.exit.thread, label %248
 
-248:                                              ; preds = %243, %_ZNK2cv9softfloatltERKS0_.exit
+244:                                              ; preds = %239
+  %.not22.i.i = icmp eq i32 %16, %.fr
+  br i1 %.not22.i.i, label %_ZNK2cv9softfloatltERKS0_.exit.thread, label %_ZNK2cv9softfloatltERKS0_.exit
+
+_ZNK2cv9softfloatltERKS0_.exit:                   ; preds = %244
+  %245 = icmp ult i32 %16, %.fr
+  %246 = icmp slt i32 %16, 0
+  %247 = xor i1 %246, %245
+  br i1 %247, label %248, label %_ZNK2cv9softfloatltERKS0_.exit.thread
+
+248:                                              ; preds = %242, %_ZNK2cv9softfloatltERKS0_.exit
   %.not.i57.i = icmp eq ptr %0, @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan
   br i1 %.not.i57.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %249
 
@@ -7372,7 +7372,7 @@ _ZNK2cv9softfloatltERKS0_.exit:                   ; preds = %240
   store i32 %250, ptr %0, align 4, !tbaa !12, !alias.scope !385
   br label %_ZN2cvL7f32_powENS_9softfloatES0_.exit
 
-_ZNK2cv9softfloatltERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateqERKS0_.exit.thread, %242, %240, %243, %_ZNK2cv9softfloatltERKS0_.exit
+_ZNK2cv9softfloatltERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateqERKS0_.exit.thread, %244, %240, %242, %_ZNK2cv9softfloatltERKS0_.exit
   %251 = call noundef zeroext i1 @_ZNK2cv9softfloateqERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero), !noalias !385
   br i1 %251, label %252, label %_ZN2cv9softfloataSERKS0_.exit62.i
 
@@ -7545,7 +7545,7 @@ define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writabl
   br label %_ZNK2cv10softdoublegtERKS0_.exit.i
 
 _ZNK2cv10softdoublegtERKS0_.exit.i:               ; preds = %68, %67, %63, %61, %56, %45
-  %.0.i.i.i = phi i1 [ %71, %68 ], [ %66, %63 ], [ false, %61 ], [ false, %67 ], [ false, %56 ], [ false, %45 ]
+  %.0.i.i.i = phi i1 [ false, %61 ], [ %66, %63 ], [ false, %67 ], [ %71, %68 ], [ false, %56 ], [ false, %45 ]
   %72 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3one, align 8, !tbaa !27, !noalias !422
   %73 = and i64 %72, 9218868437227405312
   %74 = icmp eq i64 %73, 9218868437227405312
@@ -7577,7 +7577,7 @@ _ZNK2cv10softdoublegtERKS0_.exit.i:               ; preds = %68, %67, %63, %61, 
   br label %_ZNK2cv10softdoublegtERKS0_.exit23.i
 
 _ZNK2cv10softdoublegtERKS0_.exit23.i:             ; preds = %85, %81, %76, %_ZNK2cv10softdoublegtERKS0_.exit.i
-  %.0.i.i17.i = phi i1 [ false, %76 ], [ %84, %81 ], [ false, %_ZNK2cv10softdoublegtERKS0_.exit.i ], [ %86, %85 ]
+  %.0.i.i17.i = phi i1 [ %84, %81 ], [ false, %76 ], [ false, %_ZNK2cv10softdoublegtERKS0_.exit.i ], [ %86, %85 ]
   %87 = xor i1 %.0.i.i.i, %.0.i.i17.i
   store i64 0, ptr %0, align 8, !tbaa !27, !alias.scope !422
   br i1 %51, label %88, label %91
@@ -7689,33 +7689,33 @@ _ZNK2cv10softdoubleeqERKS0_.exit44.thread.i:      ; preds = %_ZNK2cv10softdouble
 126:                                              ; preds = %125
   %.not21.unshifted.i.i24 = xor i64 %.fr, %.fr38
   %.not21.i.i25 = icmp sgt i64 %.not21.unshifted.i.i24, -1
-  br i1 %.not21.i.i25, label %129, label %127
+  br i1 %.not21.i.i25, label %132, label %127
 
 127:                                              ; preds = %126
   %128 = icmp slt i64 %.fr38, 0
-  br i1 %128, label %_ZNK2cv10softdoubleltERKS0_.exit27, label %_ZNK2cv10softdoubleltERKS0_.exit27.thread
+  br i1 %128, label %129, label %_ZNK2cv10softdoubleltERKS0_.exit27.thread
 
-129:                                              ; preds = %126
-  %.not22.i.i26 = icmp eq i64 %.fr38, %.fr
-  br i1 %.not22.i.i26, label %_ZNK2cv10softdoubleltERKS0_.exit27.thread, label %130
-
-130:                                              ; preds = %129
-  %131 = icmp ult i64 %.fr38, %.fr
-  %132 = icmp slt i64 %.fr38, 0
-  %133 = xor i1 %132, %131
-  br i1 %133, label %136, label %_ZNK2cv10softdoubleltERKS0_.exit27.thread
-
-_ZNK2cv10softdoubleltERKS0_.exit27:               ; preds = %127
-  %134 = or i64 %.fr, %.fr38
-  %135 = and i64 %134, 9223372036854775807
-  %.not39 = icmp eq i64 %135, 0
+129:                                              ; preds = %127
+  %130 = or i64 %.fr, %.fr38
+  %131 = and i64 %130, 9223372036854775807
+  %.not39 = icmp eq i64 %131, 0
   br i1 %.not39, label %_ZNK2cv10softdoubleltERKS0_.exit27.thread, label %136
 
-136:                                              ; preds = %130, %_ZNK2cv10softdoubleltERKS0_.exit27
+132:                                              ; preds = %126
+  %.not22.i.i26 = icmp eq i64 %.fr38, %.fr
+  br i1 %.not22.i.i26, label %_ZNK2cv10softdoubleltERKS0_.exit27.thread, label %_ZNK2cv10softdoubleltERKS0_.exit27
+
+_ZNK2cv10softdoubleltERKS0_.exit27:               ; preds = %132
+  %133 = icmp ult i64 %.fr38, %.fr
+  %134 = icmp slt i64 %.fr38, 0
+  %135 = xor i1 %134, %133
+  br i1 %135, label %136, label %_ZNK2cv10softdoubleltERKS0_.exit27.thread
+
+136:                                              ; preds = %129, %_ZNK2cv10softdoubleltERKS0_.exit27
   br label %_ZNK2cv10softdoubleltERKS0_.exit27.thread
 
-_ZNK2cv10softdoubleltERKS0_.exit27.thread:        ; preds = %125, %129, %127, %130, %_ZNK2cv10softdoubleltERKS0_.exit27, %136
-  %137 = phi ptr [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero, %136 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %_ZNK2cv10softdoubleltERKS0_.exit27 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %130 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %127 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %129 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %125 ]
+_ZNK2cv10softdoubleltERKS0_.exit27.thread:        ; preds = %125, %132, %127, %129, %_ZNK2cv10softdoubleltERKS0_.exit27, %136
+  %137 = phi ptr [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero, %136 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %_ZNK2cv10softdoubleltERKS0_.exit27 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %129 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %127 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %132 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %125 ]
   %.not.i49.i = icmp eq ptr %137, %0
   br i1 %.not.i49.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %138
 
@@ -7780,7 +7780,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %152
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
 _ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %144, %145, %152, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %161
-  %.0.sink.i = phi i64 [ %.fr38, %152 ], [ %.fr38, %144 ], [ %.0.i.i16, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %172, %161 ], [ %spec.select.i18, %145 ]
+  %.0.sink.i = phi i64 [ %.fr38, %144 ], [ %.fr38, %152 ], [ %.0.i.i16, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %172, %161 ], [ %spec.select.i18, %145 ]
   br i1 %or.cond.i.i30.i, label %173, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread
 
 173:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
@@ -7951,29 +7951,29 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZN2cvL14f64_roundT
 233:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.thread
   %.not21.unshifted.i.i = xor i64 %.fr, %16
   %.not21.i.i = icmp sgt i64 %.not21.unshifted.i.i, -1
-  br i1 %.not21.i.i, label %236, label %234
+  br i1 %.not21.i.i, label %239, label %234
 
 234:                                              ; preds = %233
   %235 = icmp slt i64 %16, 0
-  br i1 %235, label %_ZNK2cv10softdoubleltERKS0_.exit, label %_ZNK2cv10softdoubleltERKS0_.exit.thread
+  br i1 %235, label %236, label %_ZNK2cv10softdoubleltERKS0_.exit.thread
 
-236:                                              ; preds = %233
-  %.not22.i.i = icmp eq i64 %16, %.fr
-  br i1 %.not22.i.i, label %_ZNK2cv10softdoubleltERKS0_.exit.thread, label %237
-
-237:                                              ; preds = %236
-  %238 = icmp ult i64 %16, %.fr
-  %239 = icmp slt i64 %16, 0
-  %240 = xor i1 %239, %238
-  br i1 %240, label %243, label %_ZNK2cv10softdoubleltERKS0_.exit.thread
-
-_ZNK2cv10softdoubleltERKS0_.exit:                 ; preds = %234
-  %241 = or i64 %.fr, %16
-  %242 = and i64 %241, 9223372036854775807
-  %.not = icmp eq i64 %242, 0
+236:                                              ; preds = %234
+  %237 = or i64 %.fr, %16
+  %238 = and i64 %237, 9223372036854775807
+  %.not = icmp eq i64 %238, 0
   br i1 %.not, label %_ZNK2cv10softdoubleltERKS0_.exit.thread, label %243
 
-243:                                              ; preds = %237, %_ZNK2cv10softdoubleltERKS0_.exit
+239:                                              ; preds = %233
+  %.not22.i.i = icmp eq i64 %16, %.fr
+  br i1 %.not22.i.i, label %_ZNK2cv10softdoubleltERKS0_.exit.thread, label %_ZNK2cv10softdoubleltERKS0_.exit
+
+_ZNK2cv10softdoubleltERKS0_.exit:                 ; preds = %239
+  %240 = icmp ult i64 %16, %.fr
+  %241 = icmp slt i64 %16, 0
+  %242 = xor i1 %241, %240
+  br i1 %242, label %243, label %_ZNK2cv10softdoubleltERKS0_.exit.thread
+
+243:                                              ; preds = %236, %_ZNK2cv10softdoubleltERKS0_.exit
   %.not.i53.i = icmp eq ptr %0, @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan
   br i1 %.not.i53.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %244
 
@@ -7982,7 +7982,7 @@ _ZNK2cv10softdoubleltERKS0_.exit:                 ; preds = %234
   store i64 %245, ptr %0, align 8, !tbaa !27, !alias.scope !422
   br label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit
 
-_ZNK2cv10softdoubleltERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.thread, %236, %234, %237, %_ZNK2cv10softdoubleltERKS0_.exit
+_ZNK2cv10softdoubleltERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.thread, %239, %234, %236, %_ZNK2cv10softdoubleltERKS0_.exit
   %246 = call noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero), !noalias !422
   br i1 %246, label %247, label %_ZN2cv10softdoubleaSERKS0_.exit58.i
 
@@ -8608,7 +8608,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit:     ; preds = %83, %89
   br label %93
 
 93:                                               ; preds = %13, %61, %15, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit, %52, %16
-  %.064 = phi i64 [ %.0.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit ], [ %53, %52 ], [ 0, %15 ], [ %1, %61 ], [ %43, %16 ], [ 4290772992, %13 ]
+  %.064 = phi i64 [ %.0.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit ], [ %53, %52 ], [ %43, %16 ], [ 0, %15 ], [ %1, %61 ], [ 4290772992, %13 ]
   %94 = trunc i64 %.064 to i32
   store i32 %94, ptr %0, align 4, !tbaa !12, !alias.scope !562
   br label %95
@@ -8800,9 +8800,9 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i:     ; preds = %93
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit
 
 106:                                              ; preds = %100, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i, %90
-  %.041.i = phi i64 [ %.0, %90 ], [ %98, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ], [ %.0, %100 ]
-  %.039.in.i = phi i8 [ %91, %90 ], [ %99, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ], [ %91, %100 ]
-  %.038.i = phi i64 [ %.058, %90 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ], [ 253, %100 ]
+  %.041.i = phi i64 [ %.0, %90 ], [ %.0, %100 ], [ %98, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
+  %.039.in.i = phi i8 [ %91, %90 ], [ %91, %100 ], [ %99, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
+  %.038.i = phi i64 [ %.058, %90 ], [ 253, %100 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
   %.039.i = and i8 %.039.in.i, 127
   %107 = add nuw nsw i64 %.041.i, 64
   %108 = lshr i64 %107, 7
@@ -8838,7 +8838,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit:     ; preds = %116, %122
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit
 
 _ZN2cvL24softfloat_roundPackToF32Eblm.exit:       ; preds = %12, %22, %39, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit, %14, %63, %106, %104
-  %storemerge.in = phi i64 [ %105, %104 ], [ %115, %106 ], [ %.0.i76, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit ], [ %40, %39 ], [ %1, %14 ], [ %13, %12 ], [ %27, %22 ], [ %1, %63 ]
+  %storemerge.in = phi i64 [ %115, %106 ], [ %105, %104 ], [ %.0.i76, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit ], [ %40, %39 ], [ %27, %22 ], [ %13, %12 ], [ %1, %14 ], [ %1, %63 ]
   %storemerge = trunc i64 %storemerge.in to i32
   store i32 %storemerge, ptr %0, align 4, !tbaa !12
   ret void
@@ -8933,9 +8933,9 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i:     ; preds = %51, %42
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit
 
 63:                                               ; preds = %57, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i, %31
-  %.041.i = phi i64 [ %33, %31 ], [ %55, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ], [ %33, %57 ]
-  %.039.in.i = phi i8 [ %34, %31 ], [ %56, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ], [ %34, %57 ]
-  %.038.i = phi i64 [ %18, %31 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ], [ 253, %57 ]
+  %.041.i = phi i64 [ %33, %31 ], [ %33, %57 ], [ %55, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
+  %.039.in.i = phi i8 [ %34, %31 ], [ %34, %57 ], [ %56, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
+  %.038.i = phi i64 [ %18, %31 ], [ 253, %57 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
   %.039.i = and i8 %.039.in.i, 127
   %64 = add i64 %.041.i, 64
   %65 = lshr i64 %64, 7
@@ -9064,9 +9064,9 @@ define internal fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwin
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit
 
 _ZN2cvL25softfloat_shiftRightJam64Emm.exit:       ; preds = %60, %52, %42, %35
-  %.054 = phi i64 [ %23, %42 ], [ %23, %35 ], [ %59, %52 ], [ %62, %60 ]
-  %.153 = phi i64 [ %44, %42 ], [ %41, %35 ], [ %22, %52 ], [ %22, %60 ]
-  %.1 = phi i64 [ %9, %42 ], [ %9, %35 ], [ %6, %52 ], [ %6, %60 ]
+  %.054 = phi i64 [ %23, %35 ], [ %23, %42 ], [ %59, %52 ], [ %62, %60 ]
+  %.153 = phi i64 [ %41, %35 ], [ %44, %42 ], [ %22, %52 ], [ %22, %60 ]
+  %.1 = phi i64 [ %9, %35 ], [ %9, %42 ], [ %6, %52 ], [ %6, %60 ]
   %63 = add nuw nsw i64 %.054, 2305843009213693952
   %64 = add nuw nsw i64 %63, %.153
   %65 = icmp samesign ult i64 %64, 4611686018427387904
@@ -9143,7 +9143,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit:     ; preds = %92, %98
   br label %_ZN2cvL24softfloat_roundPackToF64Eblm.exit
 
 _ZN2cvL24softfloat_roundPackToF64Eblm.exit:       ; preds = %13, %28, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit, %15, %47, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i, %81
-  %storemerge = phi i64 [ %82, %81 ], [ %91, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i ], [ %.0.i69, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit ], [ %29, %28 ], [ %1, %15 ], [ %14, %13 ], [ %1, %47 ]
+  %storemerge = phi i64 [ %91, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i ], [ %82, %81 ], [ %.0.i69, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit ], [ %29, %28 ], [ %14, %13 ], [ %1, %15 ], [ %1, %47 ]
   store i64 %storemerge, ptr %0, align 8, !tbaa !27
   ret void
 }
@@ -9295,10 +9295,10 @@ define internal fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwin
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit
 
 _ZN2cvL25softfloat_shiftRightJam64Emm.exit:       ; preds = %88, %80, %70, %63
-  %.sink93 = phi i64 [ %50, %70 ], [ %50, %63 ], [ %49, %80 ], [ %49, %88 ]
-  %.sink92 = phi i64 [ %72, %70 ], [ %69, %63 ], [ %87, %80 ], [ %90, %88 ]
-  %.166.in = phi i1 [ %58, %70 ], [ %58, %63 ], [ %3, %80 ], [ %3, %88 ]
-  %.1 = phi i64 [ %9, %70 ], [ %9, %63 ], [ %6, %80 ], [ %6, %88 ]
+  %.sink93 = phi i64 [ %50, %63 ], [ %50, %70 ], [ %49, %80 ], [ %49, %88 ]
+  %.sink92 = phi i64 [ %69, %63 ], [ %72, %70 ], [ %87, %80 ], [ %90, %88 ]
+  %.166.in = phi i1 [ %58, %63 ], [ %58, %70 ], [ %3, %80 ], [ %3, %88 ]
+  %.1 = phi i64 [ %9, %63 ], [ %9, %70 ], [ %6, %80 ], [ %6, %88 ]
   %91 = or disjoint i64 %.sink93, 4611686018427387904
   %92 = sub nsw i64 %91, %.sink92
   %93 = add nsw i64 %.1, -1
@@ -9327,7 +9327,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit:     ; preds = %94, %100
   br label %104
 
 104:                                              ; preds = %14, %75, %16, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit, %55, %23
-  %.064 = phi i64 [ %.0.i84, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit ], [ %56, %55 ], [ 0, %16 ], [ %1, %75 ], [ %47, %23 ], [ -2251799813685248, %14 ]
+  %.064 = phi i64 [ %.0.i84, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit ], [ %56, %55 ], [ %47, %23 ], [ 0, %16 ], [ %1, %75 ], [ -2251799813685248, %14 ]
   store i64 %.064, ptr %0, align 8, !tbaa !27, !alias.scope !565
   br label %105
 
@@ -9537,22 +9537,24 @@ _ZNK2cv10softdoubleleERKS0_.exit.thread:          ; preds = %29
 
 34:                                               ; preds = %_ZNK2cv10softdoubleleERKS0_.exit.thread
   %.not21.i.i28 = icmp sgt i64 %30, -1
-  br i1 %.not21.i.i28, label %35, label %_ZNK2cv10softdoubleleERKS0_.exit30
+  br i1 %.not21.i.i28, label %37, label %35
 
 35:                                               ; preds = %34
-  %36 = icmp eq i64 %25, %30
-  br i1 %36, label %_ZNK2cv10softdoubleleERKS0_.exit30.thread66, label %37
+  %.masked.i.i69 = or i64 %30, %24
+  %36 = and i64 %.masked.i.i69, 9223372036854775807
+  %.not22.i.i29 = icmp eq i64 %36, 0
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br i1 %.not22.i.i29, label %40, label %50
 
-_ZNK2cv10softdoubleleERKS0_.exit30.thread66:      ; preds = %35
+37:                                               ; preds = %34
+  %38 = icmp eq i64 %25, %30
+  br i1 %38, label %_ZNK2cv10softdoubleleERKS0_.exit30.thread66, label %_ZNK2cv10softdoubleleERKS0_.exit30
+
+_ZNK2cv10softdoubleleERKS0_.exit30.thread66:      ; preds = %37
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %40
-
-37:                                               ; preds = %35
-  %38 = icmp samesign ult i64 %25, %30
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %38, label %40, label %50
 
 _ZNK2cv10softdoubleleERKS0_.exit30.thread.critedge: ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -9566,15 +9568,13 @@ _ZNK2cv10softdoubleleERKS0_.exit30.thread:        ; preds = %_ZNK2cv10softdouble
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %50
 
-_ZNK2cv10softdoubleleERKS0_.exit30:               ; preds = %34
-  %.masked.i.i69 = or i64 %30, %24
-  %39 = and i64 %.masked.i.i69, 9223372036854775807
-  %.not22.i.i29 = icmp eq i64 %39, 0
+_ZNK2cv10softdoubleleERKS0_.exit30:               ; preds = %37
+  %39 = icmp samesign ult i64 %25, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not22.i.i29, label %40, label %50
+  br i1 %39, label %40, label %50
 
-40:                                               ; preds = %37, %_ZNK2cv10softdoubleleERKS0_.exit30.thread66, %_ZNK2cv10softdoubleleERKS0_.exit30
+40:                                               ; preds = %35, %_ZNK2cv10softdoubleleERKS0_.exit30.thread66, %_ZNK2cv10softdoubleleERKS0_.exit30
   %41 = fcmp ogt double %21, 0.000000e+00
   br i1 %41, label %42, label %43
 
@@ -9616,7 +9616,7 @@ _ZNK2cv10softdoubleplERKS0_.exit41:               ; preds = %48, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN2cv10softdoubleaSERKS0_.exit23
 
-50:                                               ; preds = %37, %_ZNK2cv10softdoubleleERKS0_.exit30.thread, %_ZNK2cv10softdoubleleERKS0_.exit30
+50:                                               ; preds = %35, %_ZNK2cv10softdoubleleERKS0_.exit30.thread, %_ZNK2cv10softdoubleleERKS0_.exit30
   store i32 2, ptr %2, align 4, !tbaa !537
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %51 = fcmp ogt double %21, 0.000000e+00

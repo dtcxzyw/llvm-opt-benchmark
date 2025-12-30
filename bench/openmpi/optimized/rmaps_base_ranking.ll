@@ -1064,7 +1064,7 @@ pmix_obj_run_destructors.exit319:                 ; preds = %.lr.ph.i316, %486
   br label %compute_app_rank.exit
 
 compute_app_rank.exit:                            ; preds = %.loopexit.i, %._crit_edge411, %118, %pmix_obj_update.exit270, %499, %497, %pmix_obj_update.exit268, %387, %385, %pmix_obj_update.exit266, %296, %294, %pmix_obj_update.exit264, %220, %218, %pmix_obj_update.exit262, %73, %71, %._crit_edge, %._crit_edge391, %._crit_edge398, %._crit_edge406
-  %.0 = phi i32 [ %475, %pmix_obj_update.exit270 ], [ -7, %118 ], [ %49, %pmix_obj_update.exit262 ], [ 0, %._crit_edge406 ], [ %196, %pmix_obj_update.exit264 ], [ 0, %._crit_edge398 ], [ %272, %pmix_obj_update.exit266 ], [ 0, %._crit_edge391 ], [ %363, %pmix_obj_update.exit268 ], [ 0, %._crit_edge ], [ %49, %71 ], [ %49, %73 ], [ %196, %218 ], [ %196, %220 ], [ %272, %294 ], [ %272, %296 ], [ %363, %385 ], [ %363, %387 ], [ %475, %497 ], [ %475, %499 ], [ 0, %._crit_edge411 ], [ 0, %.loopexit.i ]
+  %.0 = phi i32 [ 0, %._crit_edge406 ], [ 0, %._crit_edge398 ], [ 0, %._crit_edge391 ], [ 0, %._crit_edge ], [ %49, %71 ], [ %49, %73 ], [ %49, %pmix_obj_update.exit262 ], [ %196, %218 ], [ %196, %220 ], [ %196, %pmix_obj_update.exit264 ], [ %272, %294 ], [ %272, %296 ], [ %272, %pmix_obj_update.exit266 ], [ %363, %385 ], [ %363, %387 ], [ %363, %pmix_obj_update.exit268 ], [ %475, %497 ], [ %475, %499 ], [ %475, %pmix_obj_update.exit270 ], [ -7, %118 ], [ 0, %._crit_edge411 ], [ 0, %.loopexit.i ]
   ret i32 %.0
 }
 

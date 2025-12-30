@@ -516,12 +516,12 @@ safe_realloc_nofree_muladd2_.exit.thread.i125.i:  ; preds = %safe_realloc_nofree
   br i1 %.not103.i, label %read_from_aiff_.exit, label %append_block_.exit.thread.sink.split.i
 
 append_block_.exit.thread.sink.split.i:           ; preds = %161, %158, %155, %153, %safe_realloc_nofree_muladd2_.exit.thread.i125.i, %138, %130, %112, %108, %105, %99, %96, %77, %69, %safe_realloc_nofree_muladd2_.exit.thread.i.i, %25, %18, %11
-  %.str.37.sink.i = phi ptr [ @.str.36, %138 ], [ @.str.31, %130 ], [ @.str.37, %safe_realloc_nofree_muladd2_.exit.thread.i125.i ], [ @.str.30, %112 ], [ @.str.29, %108 ], [ @.str.28, %105 ], [ @.str.26, %99 ], [ @.str.25, %96 ], [ @.str.23, %77 ], [ @.str.22, %69 ], [ @.str.37, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ @.str.36, %25 ], [ @.str.21, %18 ], [ @.str.34, %158 ], [ @.str.33, %155 ], [ @.str.32, %153 ], [ @.str.17, %11 ], [ @.str.35, %161 ]
+  %.str.37.sink.i = phi ptr [ @.str.17, %11 ], [ @.str.21, %18 ], [ @.str.36, %25 ], [ @.str.37, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ @.str.22, %69 ], [ @.str.23, %77 ], [ @.str.25, %96 ], [ @.str.26, %99 ], [ @.str.28, %105 ], [ @.str.29, %108 ], [ @.str.30, %112 ], [ @.str.31, %130 ], [ @.str.36, %138 ], [ @.str.37, %safe_realloc_nofree_muladd2_.exit.thread.i125.i ], [ @.str.32, %153 ], [ @.str.33, %155 ], [ @.str.34, %158 ], [ @.str.35, %161 ]
   store ptr %.str.37.sink.i, ptr %2, align 8, !tbaa !12
   br label %read_from_aiff_.exit
 
 read_from_aiff_.exit:                             ; preds = %11, %18, %25, %safe_realloc_nofree_muladd2_.exit.thread.i.i, %69, %77, %96, %99, %105, %108, %112, %130, %138, %safe_realloc_nofree_muladd2_.exit.thread.i125.i, %153, %155, %158, %159, %161, %append_block_.exit.thread.sink.split.i
-  %.064.i = phi i32 [ 0, %18 ], [ 0, %11 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ 1, %159 ], [ 0, %161 ], [ 0, %158 ], [ 0, %155 ], [ 0, %99 ], [ 0, %108 ], [ 0, %112 ], [ 0, %105 ], [ 0, %77 ], [ 0, %25 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i125.i ], [ 0, %138 ], [ 0, %96 ], [ 0, %69 ], [ 0, %153 ], [ 0, %130 ], [ 0, %append_block_.exit.thread.sink.split.i ]
+  %.064.i = phi i32 [ 0, %11 ], [ 0, %18 ], [ 0, %155 ], [ 0, %158 ], [ 0, %161 ], [ 1, %159 ], [ 0, %25 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ 0, %69 ], [ 0, %77 ], [ 0, %96 ], [ 0, %99 ], [ 0, %105 ], [ 0, %108 ], [ 0, %112 ], [ 0, %130 ], [ 0, %153 ], [ 0, %138 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i125.i ], [ 0, %append_block_.exit.thread.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %162 = call i32 @fclose(ptr noundef nonnull %5)
   br label %163
@@ -961,7 +961,7 @@ fread.inline.exit201.i:                           ; preds = %132
   br i1 %.not169.i, label %.thread.i, label %.thread.sink.split.i
 
 .thread.sink.split.i:                             ; preds = %174, %152, %149, %145, %136, %133, %131, %127
-  %.str.52.sink.i = phi ptr [ @.str.58, %152 ], [ @.str.52, %127 ], [ @.str.53, %131 ], [ @.str.54, %133 ], [ @.str.55, %136 ], [ @.str.56, %145 ], [ @.str.57, %149 ], [ @.str.59, %174 ]
+  %.str.52.sink.i = phi ptr [ @.str.52, %127 ], [ @.str.53, %131 ], [ @.str.54, %133 ], [ @.str.55, %136 ], [ @.str.56, %145 ], [ @.str.57, %149 ], [ @.str.58, %152 ], [ @.str.59, %174 ]
   store ptr %.str.52.sink.i, ptr %2, align 8, !tbaa !12
   br label %.thread.i
 
@@ -1009,8 +1009,8 @@ fread.inline.exit201.i:                           ; preds = %132
   br label %read_from_wave_.exit
 
 189:                                              ; preds = %.thread222.i, %180, %175
-  %.3109.i = phi i64 [ %.1107275.i, %180 ], [ %.1107275.i, %.thread222.i ], [ %176, %175 ]
-  %.1105.i = phi i64 [ %.0104276.i, %180 ], [ %.0104276.i, %.thread222.i ], [ %spec.select190.i, %175 ]
+  %.3109.i = phi i64 [ %.1107275.i, %.thread222.i ], [ %.1107275.i, %180 ], [ %176, %175 ]
+  %.1105.i = phi i64 [ %.0104276.i, %.thread222.i ], [ %.0104276.i, %180 ], [ %spec.select190.i, %175 ]
   %190 = call i32 @feof(ptr noundef nonnull %6) #14
   %.not139.i = icmp eq i32 %190, 0
   br i1 %.not139.i, label %63, label %.thread228.i
@@ -1073,7 +1073,7 @@ fread.inline.exit201.i:                           ; preds = %132
   br label %read_from_wave_.exit
 
 read_from_wave_.exit:                             ; preds = %12, %13, %20, %21, %32, %33, %safe_realloc_nofree_muladd2_.exit.thread.i.i, %42, %66, %67, %74, %75, %82, %83, %86, %87, %93, %94, %97, %98, %103, %104, %109, %110, %safe_realloc_nofree_muladd2_.exit.thread.i210.i, %117, %.thread.i, %183, %184, %187, %188, %194, %195, %198, %199, %203, %204, %205, %208, %209
-  %.0111.i = phi i32 [ 0, %20 ], [ 0, %12 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ 1, %205 ], [ 0, %194 ], [ 0, %208 ], [ 0, %203 ], [ 0, %198 ], [ 0, %13 ], [ 0, %21 ], [ 0, %195 ], [ 0, %199 ], [ 0, %204 ], [ 0, %209 ], [ 0, %32 ], [ 0, %33 ], [ 0, %42 ], [ 0, %82 ], [ 0, %66 ], [ 0, %187 ], [ 0, %183 ], [ 0, %103 ], [ 0, %86 ], [ 0, %97 ], [ 0, %93 ], [ 0, %74 ], [ 0, %67 ], [ 0, %75 ], [ 0, %83 ], [ 0, %87 ], [ 0, %94 ], [ 0, %98 ], [ 0, %104 ], [ 0, %184 ], [ 0, %188 ], [ 0, %.thread.i ], [ 0, %109 ], [ 0, %110 ], [ 0, %117 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i210.i ]
+  %.0111.i = phi i32 [ 0, %13 ], [ 0, %12 ], [ 0, %21 ], [ 0, %20 ], [ 0, %195 ], [ 0, %194 ], [ 0, %199 ], [ 0, %198 ], [ 0, %204 ], [ 0, %203 ], [ 0, %209 ], [ 0, %208 ], [ 1, %205 ], [ 0, %33 ], [ 0, %32 ], [ 0, %42 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ 0, %67 ], [ 0, %66 ], [ 0, %75 ], [ 0, %74 ], [ 0, %83 ], [ 0, %82 ], [ 0, %87 ], [ 0, %86 ], [ 0, %94 ], [ 0, %93 ], [ 0, %98 ], [ 0, %97 ], [ 0, %104 ], [ 0, %103 ], [ 0, %184 ], [ 0, %183 ], [ 0, %188 ], [ 0, %187 ], [ 0, %.thread.i ], [ 0, %110 ], [ 0, %109 ], [ 0, %117 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i210.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %210 = call i32 @fclose(ptr noundef nonnull %6)
   br label %211
@@ -1358,12 +1358,12 @@ safe_realloc_nofree_muladd2_.exit.thread.i112.i:  ; preds = %safe_realloc_nofree
   br i1 %.not95.i, label %read_from_wave64_.exit, label %append_block_.exit.thread.sink.split.i
 
 append_block_.exit.thread.sink.split.i:           ; preds = %112, %109, %106, %104, %safe_realloc_nofree_muladd2_.exit.thread.i112.i, %89, %83, %80, %74, %71, %67, %55, %48, %safe_realloc_nofree_muladd2_.exit.thread.i.i, %24, %17, %11
-  %.str.37.sink.i = phi ptr [ @.str.36, %89 ], [ @.str.76, %83 ], [ @.str.37, %safe_realloc_nofree_muladd2_.exit.thread.i112.i ], [ @.str.75, %80 ], [ @.str.73, %74 ], [ @.str.72, %71 ], [ @.str.70, %67 ], [ @.str.69, %55 ], [ @.str.22, %48 ], [ @.str.37, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ @.str.36, %24 ], [ @.str.68, %17 ], [ @.str.79, %109 ], [ @.str.78, %106 ], [ @.str.77, %104 ], [ @.str.17, %11 ], [ @.str.80, %112 ]
+  %.str.37.sink.i = phi ptr [ @.str.17, %11 ], [ @.str.68, %17 ], [ @.str.36, %24 ], [ @.str.37, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ @.str.22, %48 ], [ @.str.69, %55 ], [ @.str.70, %67 ], [ @.str.72, %71 ], [ @.str.73, %74 ], [ @.str.75, %80 ], [ @.str.76, %83 ], [ @.str.36, %89 ], [ @.str.37, %safe_realloc_nofree_muladd2_.exit.thread.i112.i ], [ @.str.77, %104 ], [ @.str.78, %106 ], [ @.str.79, %109 ], [ @.str.80, %112 ]
   store ptr %.str.37.sink.i, ptr %2, align 8, !tbaa !12
   br label %read_from_wave64_.exit
 
 read_from_wave64_.exit:                           ; preds = %11, %17, %24, %safe_realloc_nofree_muladd2_.exit.thread.i.i, %48, %55, %67, %71, %74, %80, %83, %89, %safe_realloc_nofree_muladd2_.exit.thread.i112.i, %104, %106, %109, %110, %112, %append_block_.exit.thread.sink.split.i
-  %.059.i = phi i32 [ 0, %17 ], [ 0, %11 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ 1, %110 ], [ 0, %112 ], [ 0, %109 ], [ 0, %106 ], [ 0, %104 ], [ 0, %83 ], [ 0, %74 ], [ 0, %80 ], [ 0, %67 ], [ 0, %24 ], [ 0, %89 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i112.i ], [ 0, %71 ], [ 0, %48 ], [ 0, %55 ], [ 0, %append_block_.exit.thread.sink.split.i ]
+  %.059.i = phi i32 [ 0, %11 ], [ 0, %17 ], [ 0, %106 ], [ 0, %109 ], [ 0, %112 ], [ 1, %110 ], [ 0, %24 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ 0, %48 ], [ 0, %55 ], [ 0, %67 ], [ 0, %71 ], [ 0, %74 ], [ 0, %80 ], [ 0, %83 ], [ 0, %104 ], [ 0, %89 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i112.i ], [ 0, %append_block_.exit.thread.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %113 = call i32 @fclose(ptr noundef nonnull %5)
   br label %114
@@ -1637,7 +1637,7 @@ copy_data_.exit.thread.i:                         ; preds = %.critedge.sink.spli
   br i1 %108, label %.preheader.i, label %write_to_flac_.exit, !llvm.loop !31
 
 write_to_flac_.exit:                              ; preds = %.loopexit.i, %28, %40, %41, %51, %52, %57, %58, %63, %64, %73, %74, %78, %79, %88, %89, %copy_data_.exit.thread.i
-  %.041.i = phi i32 [ 0, %40 ], [ 0, %51 ], [ 0, %57 ], [ 0, %63 ], [ 0, %73 ], [ 0, %78 ], [ 0, %88 ], [ 0, %copy_data_.exit.thread.i ], [ 0, %41 ], [ 0, %52 ], [ 0, %58 ], [ 0, %64 ], [ 0, %74 ], [ 0, %79 ], [ 0, %89 ], [ 1, %28 ], [ 1, %.loopexit.i ]
+  %.041.i = phi i32 [ 0, %41 ], [ 0, %40 ], [ 0, %52 ], [ 0, %51 ], [ 0, %58 ], [ 0, %57 ], [ 0, %64 ], [ 0, %63 ], [ 0, %74 ], [ 0, %73 ], [ 0, %79 ], [ 0, %78 ], [ 0, %89 ], [ 0, %88 ], [ 0, %copy_data_.exit.thread.i ], [ 1, %28 ], [ 1, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @FLAC__metadata_simple_iterator_delete(ptr noundef nonnull %7) #14
   %109 = call i32 @fclose(ptr noundef nonnull %16)
@@ -2128,7 +2128,7 @@ fread.inline.exit237.i:                           ; preds = %149
   br i1 %.not163.i, label %read_from_flac_.exit, label %append_block_.exit.thread.sink.split.i
 
 171:                                              ; preds = %155, %144, %139, %132, %131, %124, %117, %115, %112, %111, %103, %87, %82, %81, %81
-  %.1.i = phi i32 [ %.0135.ph.ph.i, %139 ], [ %.0135.ph.ph.i, %81 ], [ %.0135.ph.ph.i, %87 ], [ %.0135.ph.ph.i, %144 ], [ %.0135.ph.ph.i, %82 ], [ %.0135.ph.ph.i, %112 ], [ %.0135.ph.ph.i, %111 ], [ %.0135.ph.ph.i, %103 ], [ %.0135.ph.ph.i, %117 ], [ %.0135.ph.ph.i, %131 ], [ %.0135.ph.ph.i, %124 ], [ %.0135.ph.ph.i, %132 ], [ %.0135.ph.ph.i, %155 ], [ 1, %115 ], [ %.0135.ph.ph.i, %81 ]
+  %.1.i = phi i32 [ %.0135.ph.ph.i, %87 ], [ %.0135.ph.ph.i, %112 ], [ %.0135.ph.ph.i, %111 ], [ %.0135.ph.ph.i, %103 ], [ %.0135.ph.ph.i, %131 ], [ %.0135.ph.ph.i, %124 ], [ %.0135.ph.ph.i, %155 ], [ %.0135.ph.ph.i, %144 ], [ %.0135.ph.ph.i, %139 ], [ %.0135.ph.ph.i, %81 ], [ %.0135.ph.ph.i, %82 ], [ 1, %115 ], [ %.0135.ph.ph.i, %117 ], [ %.0135.ph.ph.i, %132 ], [ %.0135.ph.ph.i, %81 ]
   %172 = call i32 @FLAC__metadata_simple_iterator_get_block_length(ptr noundef nonnull %6) #14
   %173 = add i32 %172, -4
   %.not.i238.i = icmp ult i32 %173, %45
@@ -2212,12 +2212,12 @@ append_block_.exit.i:                             ; preds = %safe_realloc_nofree
   br label %append_block_.exit.thread.sink.split.i
 
 append_block_.exit.thread.sink.split.i:           ; preds = %202, %193, %189, %safe_realloc_nofree_muladd2_.exit.thread.i.i, %174, %170, %154, %151, %148, %143, %138, %135, %130, %127, %123, %120, %116, %110, %107, %102, %99, %96, %90, %.thread240.i, %86, %74, %71, %54
-  %.str.37.sink.i = phi ptr [ @.str.36, %174 ], [ @.str.111, %170 ], [ %207, %202 ], [ %198, %193 ], [ @.str.37, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ @.str.93, %154 ], [ @.str.110, %151 ], [ @.str.109, %148 ], [ @.str.93, %143 ], [ @.str.107, %138 ], [ @.str.106, %135 ], [ @.str.105, %130 ], [ @.str.104, %127 ], [ @.str.103, %123 ], [ @.str.102, %120 ], [ @.str.101, %116 ], [ @.str.100, %110 ], [ @.str.99, %107 ], [ @.str.93, %102 ], [ @.str.97, %99 ], [ @.str.96, %96 ], [ @.str.95, %90 ], [ @.str.94, %.thread240.i ], [ @.str.93, %86 ], [ @.str.92, %74 ], [ @.str.91, %71 ], [ @.str.90, %54 ], [ @.str.112, %189 ]
+  %.str.37.sink.i = phi ptr [ %207, %202 ], [ %198, %193 ], [ @.str.90, %54 ], [ @.str.91, %71 ], [ @.str.92, %74 ], [ @.str.93, %86 ], [ @.str.94, %.thread240.i ], [ @.str.95, %90 ], [ @.str.96, %96 ], [ @.str.97, %99 ], [ @.str.93, %102 ], [ @.str.99, %107 ], [ @.str.100, %110 ], [ @.str.101, %116 ], [ @.str.102, %120 ], [ @.str.103, %123 ], [ @.str.104, %127 ], [ @.str.105, %130 ], [ @.str.106, %135 ], [ @.str.107, %138 ], [ @.str.93, %143 ], [ @.str.109, %148 ], [ @.str.110, %151 ], [ @.str.93, %154 ], [ @.str.111, %170 ], [ @.str.36, %174 ], [ @.str.37, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ @.str.112, %189 ]
   store ptr %.str.37.sink.i, ptr %2, align 8, !tbaa !12
   br label %read_from_flac_.exit
 
 read_from_flac_.exit:                             ; preds = %54, %71, %74, %86, %.thread240.i, %90, %96, %99, %102, %107, %110, %116, %120, %123, %127, %130, %135, %138, %143, %148, %151, %154, %170, %174, %safe_realloc_nofree_muladd2_.exit.thread.i.i, %189, %192, %199, %201, %append_block_.exit.thread.sink.split.i
-  %.0140.i = phi i32 [ 0, %54 ], [ 0, %71 ], [ 0, %170 ], [ 0, %74 ], [ 0, %86 ], [ 0, %110 ], [ 0, %102 ], [ 0, %107 ], [ 0, %90 ], [ 0, %96 ], [ 0, %99 ], [ 0, %123 ], [ 0, %127 ], [ 0, %116 ], [ 0, %120 ], [ 0, %143 ], [ 0, %151 ], [ 0, %148 ], [ 0, %130 ], [ 0, %135 ], [ 0, %138 ], [ 0, %154 ], [ 0, %.thread240.i ], [ 1, %199 ], [ 0, %201 ], [ 0, %192 ], [ 0, %189 ], [ 0, %174 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ 0, %append_block_.exit.thread.sink.split.i ]
+  %.0140.i = phi i32 [ 0, %54 ], [ 0, %71 ], [ 0, %74 ], [ 0, %86 ], [ 0, %.thread240.i ], [ 0, %90 ], [ 0, %96 ], [ 0, %99 ], [ 0, %102 ], [ 0, %107 ], [ 0, %110 ], [ 0, %116 ], [ 0, %120 ], [ 0, %123 ], [ 0, %127 ], [ 0, %130 ], [ 0, %135 ], [ 0, %138 ], [ 0, %143 ], [ 0, %148 ], [ 0, %151 ], [ 0, %154 ], [ 0, %170 ], [ 0, %189 ], [ 0, %192 ], [ 0, %201 ], [ 1, %199 ], [ 0, %174 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ 0, %append_block_.exit.thread.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @FLAC__metadata_simple_iterator_delete(ptr noundef nonnull %6) #14
@@ -2660,13 +2660,13 @@ copy_data_.exit118.i:                             ; preds = %163, %157
   br i1 %174, label %149, label %write_to_iff_.exit, !llvm.loop !40
 
 write_to_iff_.exit:                               ; preds = %copy_data_.exit118.i, %26, %27, %42, %43, %copy_data_.exit.thread.i, %68, %69, %78, %79, %copy_data_.exit98.thread.i, %100, %101, %105, %106, %119, %120, %copy_data_.exit108.thread.i, %141, %142, %143, %155, %156, %copy_data_.exit118.thread.i
-  %.071.i = phi i32 [ 0, %78 ], [ 0, %26 ], [ 0, %42 ], [ 0, %copy_data_.exit.thread.i ], [ 0, %68 ], [ 0, %copy_data_.exit98.thread.i ], [ 0, %100 ], [ 0, %105 ], [ 0, %119 ], [ 0, %copy_data_.exit108.thread.i ], [ 0, %141 ], [ 0, %155 ], [ 0, %copy_data_.exit118.thread.i ], [ 0, %27 ], [ 0, %43 ], [ 0, %69 ], [ 0, %79 ], [ 0, %101 ], [ 0, %106 ], [ 0, %120 ], [ 0, %142 ], [ 0, %156 ], [ 1, %143 ], [ 1, %copy_data_.exit118.i ]
+  %.071.i = phi i32 [ 0, %27 ], [ 0, %26 ], [ 0, %43 ], [ 0, %42 ], [ 0, %69 ], [ 0, %68 ], [ 0, %79 ], [ 0, %78 ], [ 0, %101 ], [ 0, %100 ], [ 0, %106 ], [ 0, %105 ], [ 0, %120 ], [ 0, %119 ], [ 0, %142 ], [ 0, %141 ], [ 0, %156 ], [ 0, %155 ], [ 0, %copy_data_.exit.thread.i ], [ 0, %copy_data_.exit98.thread.i ], [ 0, %copy_data_.exit108.thread.i ], [ 0, %copy_data_.exit118.thread.i ], [ 1, %143 ], [ 1, %copy_data_.exit118.i ]
   %175 = call i32 @fclose(ptr noundef nonnull %12)
   %176 = call i32 @fclose(ptr noundef nonnull %17)
   br label %177
 
 177:                                              ; preds = %14, %15, %write_to_iff_.exit, %21
-  %.0 = phi i32 [ %.071.i, %write_to_iff_.exit ], [ 0, %21 ], [ 0, %15 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %21 ], [ %.071.i, %write_to_iff_.exit ], [ 0, %15 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -2790,7 +2790,7 @@ fread.inline.exit.i.i:                            ; preds = %fread.inline.exit38
   br i1 %.not31.i.i, label %compare_data_.exit.thread.i, label %.critedge.sink.split.i.i
 
 .critedge.sink.split.i.i:                         ; preds = %59, %57, %54
-  %.str.121.sink.i.i = phi ptr [ @.str.124, %57 ], [ @.str.121, %54 ], [ %48, %59 ]
+  %.str.121.sink.i.i = phi ptr [ @.str.121, %54 ], [ @.str.124, %57 ], [ %48, %59 ]
   store ptr %.str.121.sink.i.i, ptr %4, align 8, !tbaa !12
   br label %compare_data_.exit.thread.i
 
@@ -2892,7 +2892,7 @@ fread.inline.exit.i46.i:                          ; preds = %fread.inline.exit38
   br i1 %.not31.i49.i, label %compare_data_.exit56.thread.i, label %.critedge.sink.split.i50.i
 
 .critedge.sink.split.i50.i:                       ; preds = %93, %91, %88
-  %.str.121.sink.i51.i = phi ptr [ @.str.124, %91 ], [ @.str.121, %88 ], [ @.str.128, %93 ]
+  %.str.121.sink.i51.i = phi ptr [ @.str.121, %88 ], [ @.str.124, %91 ], [ @.str.128, %93 ]
   store ptr %.str.121.sink.i51.i, ptr %4, align 8, !tbaa !12
   br label %compare_data_.exit56.thread.i
 
@@ -2910,13 +2910,13 @@ compare_data_.exit56.thread.i:                    ; preds = %.critedge.sink.spli
   br i1 %96, label %.lr.ph.i, label %compare_with_iff_.exit, !llvm.loop !43
 
 compare_with_iff_.exit:                           ; preds = %.loopexit.i, %31, %32, %compare_data_.exit.thread.i, %.preheader.i, %68, %69, %75, %76, %compare_data_.exit56.thread.i
-  %.035.i = phi i32 [ 0, %compare_data_.exit56.thread.i ], [ 0, %31 ], [ 0, %compare_data_.exit.thread.i ], [ 0, %68 ], [ 0, %75 ], [ 0, %32 ], [ 0, %69 ], [ 0, %76 ], [ 1, %.preheader.i ], [ 1, %.loopexit.i ]
+  %.035.i = phi i32 [ 0, %32 ], [ 0, %31 ], [ 0, %69 ], [ 0, %68 ], [ 0, %76 ], [ 0, %75 ], [ 0, %compare_data_.exit.thread.i ], [ 0, %compare_data_.exit56.thread.i ], [ 1, %.preheader.i ], [ 1, %.loopexit.i ]
   %97 = call i32 @fclose(ptr noundef nonnull %10)
   %98 = call i32 @fclose(ptr noundef nonnull %15)
   br label %99
 
 99:                                               ; preds = %12, %13, %compare_with_iff_.exit, %19
-  %.0 = phi i32 [ %.035.i, %compare_with_iff_.exit ], [ 0, %19 ], [ 0, %13 ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %19 ], [ %.035.i, %compare_with_iff_.exit ], [ 0, %13 ], [ 0, %12 ]
   ret i32 %.0
 }
 

@@ -404,9 +404,9 @@ pref_key_string_to_bin.exit:                      ; preds = %30, %20, %24
   br label %130
 
 130:                                              ; preds = %.critedge, %81
-  %spec.select = phi i32 [ 2, %81 ], [ %.0161, %.critedge ]
-  %.2163 = phi i1 [ false, %81 ], [ %129, %.critedge ]
-  %.2158 = phi i32 [ undef, %81 ], [ %.0156, %.critedge ]
+  %spec.select = phi i32 [ %.0161, %.critedge ], [ 2, %81 ]
+  %.2163 = phi i1 [ %129, %.critedge ], [ false, %81 ]
+  %.2158 = phi i32 [ %.0156, %.critedge ], [ undef, %81 ]
   %131 = load ptr, ptr %6, align 8
   %.not185 = icmp eq ptr %131, null
   br i1 %.not185, label %133, label %132

@@ -197,7 +197,7 @@ define void @_ZN15wiggle_generate8wasmtime11link_module17hb869d6407f4936e6E(ptr 
   br label %70
 
 .thread:                                          ; preds = %148, %122, %317, %135, %159, %.thread104, %.thread99, %82
-  %.pn90.pn = phi { ptr, i32 } [ %.pn90102, %.thread99 ], [ %lpad.thr_comm, %.thread104 ], [ %83, %82 ], [ %.pn76, %122 ], [ %318, %317 ], [ %.pn88, %159 ], [ %136, %135 ], [ %.pn70, %148 ]
+  %.pn90.pn = phi { ptr, i32 } [ %.pn90102, %.thread99 ], [ %83, %82 ], [ %lpad.thr_comm, %.thread104 ], [ %318, %317 ], [ %136, %135 ], [ %.pn88, %159 ], [ %.pn76, %122 ], [ %.pn70, %148 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9ebc9b7807f19d85E"(ptr nonnull align 8 %58) #5
           to label %306 unwind label %133
 

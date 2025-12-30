@@ -94,7 +94,7 @@ define dso_local zeroext i1 @preempt_p_job_preempt_check(ptr noundef readonly ca
   br label %preempt_p_preemptable.exit
 
 preempt_p_preemptable.exit:                       ; preds = %2, %23, %26, %32, %35
-  %.0.i = phi i1 [ %31, %26 ], [ false, %2 ], [ false, %32 ], [ false, %23 ], [ %.not18.i, %35 ]
+  %.0.i = phi i1 [ %31, %26 ], [ false, %2 ], [ false, %23 ], [ false, %32 ], [ %.not18.i, %35 ]
   ret i1 %.0.i
 }
 
@@ -151,7 +151,7 @@ define dso_local zeroext i1 @preempt_p_preemptable(ptr noundef readonly captures
   br label %34
 
 34:                                               ; preds = %31, %28, %19, %2, %22
-  %.0 = phi i1 [ %27, %22 ], [ false, %2 ], [ false, %28 ], [ false, %19 ], [ %.not18, %31 ]
+  %.0 = phi i1 [ %27, %22 ], [ false, %2 ], [ false, %19 ], [ false, %28 ], [ %.not18, %31 ]
   ret i1 %.0
 }
 

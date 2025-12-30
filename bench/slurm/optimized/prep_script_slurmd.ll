@@ -303,7 +303,7 @@ _run_spank_job_script.exit:                       ; preds = %62, %64, %67
   %109 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, i32 noundef %93) #6
   br label %_script_list_create.exit.thread82
 
-_script_list_create.exit.thread82:                ; preds = %92, %108, %106, %104
+_script_list_create.exit.thread82:                ; preds = %92, %108, %104, %106
   call void @globfree(ptr noundef nonnull %4) #6
   br label %.critedge76.sink.split
 
@@ -795,7 +795,7 @@ define internal range(i32 -1, 1) i32 @_run_subpath_command(ptr noundef %0, ptr n
   br label %31
 
 31:                                               ; preds = %15, %21, %19, %23, %26
-  %.0 = phi i32 [ 0, %23 ], [ 0, %26 ], [ -1, %19 ], [ -1, %21 ], [ -1, %15 ]
+  %.0 = phi i32 [ 0, %26 ], [ 0, %23 ], [ -1, %19 ], [ -1, %21 ], [ -1, %15 ]
   call void @slurm_xfree(ptr noundef nonnull %3) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

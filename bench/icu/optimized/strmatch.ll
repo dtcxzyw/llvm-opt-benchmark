@@ -166,7 +166,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -929,8 +929,8 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit63:       ; preds = %.lr.ph.split
   store i32 %155, ptr %2, align 4, !tbaa !12
   br label %.thread
 
-.thread:                                          ; preds = %136, %.lr.ph.split, %125, %128, %39, %36, %31, %91, %88, %100, %154
-  %.4 = phi i32 [ %104, %100 ], [ 2, %154 ], [ %35, %31 ], [ 0, %88 ], [ 0, %91 ], [ 0, %36 ], [ 0, %39 ], [ 0, %125 ], [ 1, %.lr.ph.split ], [ %140, %136 ], [ 0, %128 ]
+.thread:                                          ; preds = %136, %.lr.ph.split, %128, %125, %39, %36, %31, %88, %91, %100, %154
+  %.4 = phi i32 [ 2, %154 ], [ 0, %88 ], [ 0, %91 ], [ %104, %100 ], [ 0, %36 ], [ 0, %39 ], [ %35, %31 ], [ 0, %125 ], [ 0, %128 ], [ 1, %.lr.ph.split ], [ %140, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.4
 }

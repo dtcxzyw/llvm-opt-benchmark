@@ -390,7 +390,7 @@ _ZN9grpc_core12Notification19WaitForNotificationEv.exit: ; preds = %27
   br label %.body
 
 .body:                                            ; preds = %31, %22, %34
-  %.pn13.pn = phi { ptr, i32 } [ %23, %22 ], [ %35, %34 ], [ %32, %31 ]
+  %.pn13.pn = phi { ptr, i32 } [ %32, %31 ], [ %35, %34 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   resume { ptr, i32 } %.pn13.pn

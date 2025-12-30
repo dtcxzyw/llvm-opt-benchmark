@@ -170,7 +170,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i.backedge
 
 _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i.backedge: ; preds = %._crit_edge.loopexit.i26.i, %70, %._crit_edge.loopexit.i.i, %57, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i
-  %.034.i.be = phi i32 [ %50, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i ], [ 1, %70 ], [ %72, %._crit_edge.loopexit.i26.i ], [ %59, %._crit_edge.loopexit.i.i ], [ 1, %57 ]
+  %.034.i.be = phi i32 [ %50, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i ], [ %72, %._crit_edge.loopexit.i26.i ], [ 1, %70 ], [ %59, %._crit_edge.loopexit.i.i ], [ 1, %57 ]
   br label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i
 
 .lr.ph.i23.i:                                     ; preds = %70, %.lr.ph.i23.i
@@ -639,7 +639,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %exitcond.not.i20.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i18.i
 
 _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i: ; preds = %._crit_edge.loopexit.i26.i, %79, %._crit_edge.loopexit.i.i, %63, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i
-  %.135.i = phi i32 [ %57, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i ], [ 1, %79 ], [ %81, %._crit_edge.loopexit.i26.i ], [ %65, %._crit_edge.loopexit.i.i ], [ 1, %63 ]
+  %.135.i = phi i32 [ %57, %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i ], [ %81, %._crit_edge.loopexit.i26.i ], [ 1, %79 ], [ %65, %._crit_edge.loopexit.i.i ], [ 1, %63 ]
   %67 = load atomic i64, ptr %16 monotonic, align 128, !noalias !69
   %68 = load i64, ptr %17, align 16, !noalias !69, !noundef !7
   %69 = and i64 %68, %67
@@ -683,7 +683,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i: ; pred
           cleanup
   br label %.body.thread
 
-.body.thread45.loopexit.split-lp:                 ; preds = %.noexc24, %104, %95, %_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.i.i, %87, %.noexc26, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h42412dd3f3c2eedfE.exit.i", %.noexc.i.i.i
+.body.thread45.loopexit.split-lp:                 ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h42412dd3f3c2eedfE.exit.i", %.noexc26, %.noexc.i.i.i, %.noexc24, %104, %95, %_ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.i.i, %87
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -890,7 +890,7 @@ _ZN3std4sync4mpmc7context7Context4with7CONTEXT7__getit17h854c275b3ed77486E.exit.
   resume { ptr, i32 } %eh.lpad-body44
 
 .body.thread:                                     ; preds = %.body.thread45.loopexit, %.body.thread45.loopexit.split-lp, %116, %98
-  %eh.lpad-body44 = phi { ptr, i32 } [ %lpad.loopexit63, %116 ], [ %99, %98 ], [ %lpad.loopexit, %.body.thread45.loopexit ], [ %lpad.loopexit.split-lp, %.body.thread45.loopexit.split-lp ]
+  %eh.lpad-body44 = phi { ptr, i32 } [ %99, %98 ], [ %lpad.loopexit63, %116 ], [ %lpad.loopexit, %.body.thread45.loopexit ], [ %lpad.loopexit.split-lp, %.body.thread45.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr132drop_in_place$LT$core..result..Result$LT$uu_du..StatPrintInfo$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h8ed55adb0b619c11E"(ptr noalias noundef align 16 dereferenceable(160) %2) #16
           to label %131 unwind label %132
 

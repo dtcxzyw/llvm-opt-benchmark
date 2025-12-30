@@ -41,7 +41,7 @@ _Py_atomic_compare_exchange_uint8.exit.thread:    ; preds = %10
   br i1 %16, label %_Py_atomic_compare_exchange_uint8.exit, label %17
 
 17:                                               ; preds = %_Py_atomic_compare_exchange_uint8.exit.thread, %15
-  %.044 = phi i8 [ %14, %_Py_atomic_compare_exchange_uint8.exit.thread ], [ %7, %15 ]
+  %.044 = phi i8 [ %7, %15 ], [ %14, %_Py_atomic_compare_exchange_uint8.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = call i32 @PyTime_MonotonicRaw(ptr noundef nonnull %4) #8
   %19 = icmp sgt i64 %1, 0
@@ -124,8 +124,8 @@ _Py_atomic_compare_exchange_uint8.exit39.us:      ; preds = %35, %33
   br label %49
 
 49:                                               ; preds = %47, %_Py_atomic_compare_exchange_uint8.exit39.thread.us
-  %.347.us = phi i8 [ %39, %_Py_atomic_compare_exchange_uint8.exit39.thread.us ], [ %48, %47 ]
-  %.128.us = phi i64 [ %.027.ph.us, %_Py_atomic_compare_exchange_uint8.exit39.thread.us ], [ %.330.us, %47 ]
+  %.347.us = phi i8 [ %48, %47 ], [ %39, %_Py_atomic_compare_exchange_uint8.exit39.thread.us ]
+  %.128.us = phi i64 [ %.330.us, %47 ], [ %.027.ph.us, %_Py_atomic_compare_exchange_uint8.exit39.thread.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.outer.us
 
@@ -217,25 +217,25 @@ _Py_atomic_compare_exchange_uint8.exit39:         ; preds = %67, %65
   %83 = load atomic i8, ptr %0 monotonic, align 1
   br label %84
 
-.thread:                                          ; preds = %_Py_atomic_compare_exchange_uint8.exit39, %73, %75, %_Py_atomic_compare_exchange_uint8.exit39.us, %41
-  %.us-phi = phi i32 [ 1, %41 ], [ 0, %_Py_atomic_compare_exchange_uint8.exit39.us ], [ 0, %_Py_atomic_compare_exchange_uint8.exit39 ], [ 1, %73 ], [ 2, %75 ]
+.thread:                                          ; preds = %_Py_atomic_compare_exchange_uint8.exit39, %75, %73, %_Py_atomic_compare_exchange_uint8.exit39.us, %41
+  %.us-phi = phi i32 [ 0, %_Py_atomic_compare_exchange_uint8.exit39.us ], [ 1, %41 ], [ 0, %_Py_atomic_compare_exchange_uint8.exit39 ], [ 2, %75 ], [ 1, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_Py_atomic_compare_exchange_uint8.exit38.thread
 
 84:                                               ; preds = %_Py_atomic_compare_exchange_uint8.exit39.thread, %82
-  %.347 = phi i8 [ %71, %_Py_atomic_compare_exchange_uint8.exit39.thread ], [ %83, %82 ]
-  %.128 = phi i64 [ %.027.ph, %_Py_atomic_compare_exchange_uint8.exit39.thread ], [ %.330, %82 ]
+  %.347 = phi i8 [ %83, %82 ], [ %71, %_Py_atomic_compare_exchange_uint8.exit39.thread ]
+  %.128 = phi i64 [ %.330, %82 ], [ %.027.ph, %_Py_atomic_compare_exchange_uint8.exit39.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.outer
 
 _Py_atomic_compare_exchange_uint8.exit38.thread:  ; preds = %._crit_edge, %.lr.ph, %._crit_edge.us, %.lr.ph.us, %.thread
-  %.2 = phi i32 [ %.us-phi, %.thread ], [ 1, %.lr.ph ], [ 1, %.lr.ph.us ], [ 0, %._crit_edge.us ], [ 0, %._crit_edge ]
+  %.2 = phi i32 [ %.us-phi, %.thread ], [ 1, %.lr.ph.us ], [ 0, %._crit_edge.us ], [ 1, %.lr.ph ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_Py_atomic_compare_exchange_uint8.exit
 
 _Py_atomic_compare_exchange_uint8.exit:           ; preds = %10, %15, %_Py_atomic_compare_exchange_uint8.exit38.thread
-  %.0 = phi i32 [ 0, %15 ], [ %.2, %_Py_atomic_compare_exchange_uint8.exit38.thread ], [ 1, %10 ]
+  %.0 = phi i32 [ %.2, %_Py_atomic_compare_exchange_uint8.exit38.thread ], [ 0, %15 ], [ 1, %10 ]
   ret i32 %.0
 }
 
@@ -585,7 +585,7 @@ thread-pre-split:                                 ; preds = %18, %7
   br label %.backedge
 
 unlock_once.exit:                                 ; preds = %.backedge, %15, %.split6.i
-  %.0 = phi i32 [ %11, %15 ], [ %11, %.split6.i ], [ 0, %.backedge ]
+  %.0 = phi i32 [ %11, %.split6.i ], [ %11, %15 ], [ 0, %.backedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

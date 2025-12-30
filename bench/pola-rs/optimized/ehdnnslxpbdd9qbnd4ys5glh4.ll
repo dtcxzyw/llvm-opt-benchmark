@@ -204,7 +204,7 @@ define hidden void @_ZN10polars_ffi12import_array17hfaa6e1869ba2de84E(ptr dead_o
           to label %.thread unwind label %48
 
 .thread:                                          ; preds = %71, %67, %74, %55, %50, %58, %35, %30, %38, %75
-  %.pn45 = phi { ptr, i32 } [ %16, %71 ], [ %lpad.thr_comm.split-lp, %75 ], [ %51, %55 ], [ %31, %35 ], [ %31, %38 ], [ %31, %30 ], [ %51, %58 ], [ %51, %50 ], [ %16, %74 ], [ %16, %67 ]
+  %.pn45 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %75 ], [ %31, %38 ], [ %31, %30 ], [ %31, %35 ], [ %51, %58 ], [ %51, %50 ], [ %51, %55 ], [ %16, %74 ], [ %16, %67 ], [ %16, %71 ]
   resume { ptr, i32 } %.pn45
 
 75:                                               ; preds = %3

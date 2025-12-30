@@ -1690,7 +1690,7 @@ add_device_id_text.exit:                          ; preds = %4, %ht_lookup_devic
   br label %dissect_asam_cmp_ctrl_msg.exit
 
 dissect_asam_cmp_ctrl_msg.exit:                   ; preds = %138, %170, %177, %182
-  %.0.i = phi i32 [ %173, %170 ], [ %142, %138 ], [ %.pre1.i, %182 ], [ %179, %177 ]
+  %.0.i = phi i32 [ %142, %138 ], [ %173, %170 ], [ %.pre1.i, %182 ], [ %179, %177 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
@@ -1958,8 +1958,8 @@ ht_interface_config_to_string.exit.i:             ; preds = %ht_lookup_interface
   br label %ht_interface_config_to_string.exit.thread.i
 
 ht_interface_config_to_string.exit.thread.i:      ; preds = %341, %ht_interface_config_to_string.exit.i, %ht_lookup_interface.exit.i.i, %325
-  %.not3014.i = phi i1 [ true, %ht_interface_config_to_string.exit.i ], [ false, %341 ], [ true, %ht_lookup_interface.exit.i.i ], [ true, %325 ]
-  %.0.i3.i = phi ptr [ null, %ht_interface_config_to_string.exit.i ], [ %340, %341 ], [ null, %ht_lookup_interface.exit.i.i ], [ null, %325 ]
+  %.not3014.i = phi i1 [ false, %341 ], [ true, %ht_interface_config_to_string.exit.i ], [ true, %ht_lookup_interface.exit.i.i ], [ true, %325 ]
+  %.0.i3.i = phi ptr [ %340, %341 ], [ null, %ht_interface_config_to_string.exit.i ], [ null, %ht_lookup_interface.exit.i.i ], [ null, %325 ]
   %342 = add i32 %.58.i, 4
   %343 = load i32, ptr @hf_cmp_iface_msg_total_rx, align 4
   %344 = call ptr @proto_tree_add_item(ptr noundef %329, i32 noundef %343, ptr noundef %0, i32 noundef %342, i32 noundef 4, i32 noundef 0)
@@ -2182,7 +2182,7 @@ dissect_asam_cmp_status_interface_support_mask.exit.i: ; preds = %393, %390, %38
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %424, %.lr.ph10.i, %475, %470, %467, %455, %435, %430, %427, %318, %313, %308
-  %.4.i = phi i32 [ %477, %475 ], [ %317, %313 ], [ %311, %308 ], [ %474, %470 ], [ %216, %467 ], [ %434, %430 ], [ %216, %427 ], [ %454, %435 ], [ %466, %455 ], [ %216, %318 ], [ %.58.i, %.lr.ph10.i ], [ %.8.i, %424 ]
+  %.4.i = phi i32 [ %477, %475 ], [ %317, %313 ], [ %311, %308 ], [ %434, %430 ], [ %216, %427 ], [ %454, %435 ], [ %466, %455 ], [ %474, %470 ], [ %216, %467 ], [ %216, %318 ], [ %.58.i, %.lr.ph10.i ], [ %.8.i, %424 ]
   %478 = load i32, ptr %25, align 4
   %479 = add i32 %478, 16
   %480 = sub i32 %.4.i, %.0103
@@ -3062,7 +3062,7 @@ proto_item_set_hidden.exit494.i:                  ; preds = %966, %963, %proto_i
   br i1 %972, label %943, label %.loopexit496.i, !llvm.loop !15
 
 .loopexit496.i:                                   ; preds = %proto_item_set_hidden.exit494.i, %proto_item_set_hidden.exit.i, %.preheader495.i, %.preheader497.i, %903, %875
-  %.7.i = phi i32 [ %899, %903 ], [ %899, %875 ], [ %941, %proto_item_set_hidden.exit.i ], [ %899, %.preheader495.i ], [ %899, %.preheader497.i ], [ %971, %proto_item_set_hidden.exit494.i ]
+  %.7.i = phi i32 [ %899, %903 ], [ %899, %875 ], [ %899, %.preheader495.i ], [ %899, %.preheader497.i ], [ %941, %proto_item_set_hidden.exit.i ], [ %971, %proto_item_set_hidden.exit494.i ]
   call void @proto_item_set_end(ptr noundef %567, ptr noundef %0, i32 noundef %.7.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)

@@ -313,7 +313,7 @@ define internal fastcc void @show_trace_log_lvl(ptr noundef %0, ptr noundef %1, 
   br label %53
 
 53:                                               ; preds = %49, %47, %39
-  %54 = phi ptr [ %52, %49 ], [ %42, %39 ], [ %48, %47 ]
+  %54 = phi ptr [ %42, %39 ], [ %48, %47 ], [ %52, %49 ]
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.thread14, label %.thread
 

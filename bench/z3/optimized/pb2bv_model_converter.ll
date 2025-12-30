@@ -317,7 +317,7 @@ _ZNK13bound_manager3endEv.exit:                   ; preds = %._crit_edge
   br i1 %.not27.old.i.i.i, label %.loopexit, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %105, %102
-  %.137.i.i.i.be = phi ptr [ %104, %102 ], [ %.old.i.i.i, %105 ]
+  %.137.i.i.i.be = phi ptr [ %.old.i.i.i, %105 ], [ %104, %102 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !49
 
 .loopexit:                                        ; preds = %91, %102, %105, %.preheader.i.i.i
@@ -374,7 +374,7 @@ _ZN11ast_manager7inc_refEP3ast.exit42:            ; preds = %106, %.loopexit
   br label %131
 
 _ZNK7obj_mapI9func_declP4exprE8containsEPS0_.exit: ; preds = %86, %97, %118
-  %129 = phi ptr [ %71, %97 ], [ %123, %118 ], [ %71, %86 ]
+  %129 = phi ptr [ %123, %118 ], [ %71, %97 ], [ %71, %86 ]
   %130 = getelementptr inbounds nuw i8, ptr %.02666, i64 8
   %.not = icmp eq ptr %130, %70
   br i1 %.not, label %._crit_edge68, label %.lr.ph67
@@ -760,7 +760,7 @@ _ZN6vectorISt4pairIP9func_declS2_ELb0EjE3endEv.exit: ; preds = %2
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit.thread, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %71, %68
-  %.137.i.i.i.i.be = phi ptr [ %70, %68 ], [ %.old.i.i.i.i, %71 ]
+  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %71 ], [ %70, %68 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !81
 
 _ZNK10model_core16get_const_interpEP9func_decl.exit: ; preds = %52, %63

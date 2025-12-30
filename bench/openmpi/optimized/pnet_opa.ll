@@ -898,7 +898,7 @@ pmix_obj_run_destructors.exit177:                 ; preds = %.lr.ph.i174, %402
   br label %pmix_obj_run_destructors.exit
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i151, %.lr.ph.i169, %.lr.ph.i131, %378, %pmix_obj_run_destructors.exit149, %transports_print.exit.thread, %22, %pmix_obj_run_destructors.exit177
-  %.0 = phi i32 [ 0, %pmix_obj_run_destructors.exit177 ], [ -1366, %22 ], [ -32, %.lr.ph.i169 ], [ -29, %.lr.ph.i131 ], [ -29, %transports_print.exit.thread ], [ %229, %pmix_obj_run_destructors.exit149 ], [ -32, %378 ], [ %229, %.lr.ph.i151 ]
+  %.0 = phi i32 [ 0, %pmix_obj_run_destructors.exit177 ], [ -1366, %22 ], [ -29, %transports_print.exit.thread ], [ %229, %pmix_obj_run_destructors.exit149 ], [ -32, %378 ], [ -29, %.lr.ph.i131 ], [ -32, %.lr.ph.i169 ], [ %229, %.lr.ph.i151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1424,7 +1424,7 @@ pmix_obj_run_destructors.exit92:                  ; preds = %.lr.ph.i89, %256
   br label %.thread95
 
 .thread95:                                        ; preds = %30, %pmix_obj_run_constructors.exit, %269, %267, %271, %270
-  %.06198 = phi i32 [ %.2.lcssa, %269 ], [ %.2.lcssa, %271 ], [ %.2.lcssa, %270 ], [ %.2.lcssa, %267 ], [ 0, %pmix_obj_run_constructors.exit ], [ 0, %30 ]
+  %.06198 = phi i32 [ %.2.lcssa, %271 ], [ %.2.lcssa, %270 ], [ %.2.lcssa, %267 ], [ %.2.lcssa, %269 ], [ 0, %pmix_obj_run_constructors.exit ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1572,7 +1572,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %33
   br label %pmix_obj_new_tma.exit
 
 pmix_obj_new_tma.exit:                            ; preds = %7, %pmix_obj_update.exit, %43, %42, %.loopexit
-  %.0 = phi ptr [ null, %pmix_obj_update.exit ], [ %3, %.loopexit ], [ null, %42 ], [ null, %43 ], [ null, %7 ]
+  %.0 = phi ptr [ %3, %.loopexit ], [ null, %42 ], [ null, %43 ], [ null, %pmix_obj_update.exit ], [ null, %7 ]
   ret ptr %.0
 }
 

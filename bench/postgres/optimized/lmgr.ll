@@ -1216,7 +1216,7 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
   br label %.critedge47.thread
 
 .critedge47.thread:                               ; preds = %.critedge, %.lr.ph63.split.split, %.thread102, %.critedge47.thread110, %.critedge47
-  %.0.lcssa94101109 = phi ptr [ %.0.lcssa94101, %.critedge47 ], [ %.0.lcssa94101112, %.critedge47.thread110 ], [ %23, %.lr.ph63.split.split ], [ null, %.thread102 ], [ null, %.critedge ]
+  %.0.lcssa94101109 = phi ptr [ %.0.lcssa94101112, %.critedge47.thread110 ], [ %.0.lcssa94101, %.critedge47 ], [ null, %.thread102 ], [ %23, %.lr.ph63.split.split ], [ null, %.critedge ]
   call void @list_free_deep(ptr noundef %.0.lcssa94101109) #8
   br label %73
 

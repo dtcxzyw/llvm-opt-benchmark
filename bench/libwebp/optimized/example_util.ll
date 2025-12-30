@@ -326,7 +326,7 @@ ExUtilDeleteCommandLineArguments.exit:            ; preds = %24, %26
   br label %.thread
 
 .thread:                                          ; preds = %ExUtilReadFileToWebPData.exit.thread, %32, %ExUtilDeleteCommandLineArguments.exit, %8, %12, %._crit_edge, %3
-  %.025 = phi i32 [ 1, %8 ], [ 0, %3 ], [ 1, %._crit_edge ], [ 1, %12 ], [ 0, %ExUtilDeleteCommandLineArguments.exit ], [ 0, %32 ], [ 0, %ExUtilReadFileToWebPData.exit.thread ]
+  %.025 = phi i32 [ 0, %3 ], [ 1, %._crit_edge ], [ 1, %12 ], [ 1, %8 ], [ 0, %ExUtilDeleteCommandLineArguments.exit ], [ 0, %32 ], [ 0, %ExUtilReadFileToWebPData.exit.thread ]
   ret i32 %.025
 }
 
@@ -353,7 +353,7 @@ define hidden range(i32 0, 2) i32 @ExUtilReadFileToWebPData(ptr noundef %0, ptr 
   br label %12
 
 12:                                               ; preds = %6, %2, %8
-  %.0 = phi i32 [ 0, %2 ], [ 1, %8 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %8 ], [ 0, %2 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

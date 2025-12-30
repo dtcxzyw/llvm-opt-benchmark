@@ -456,7 +456,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_CST(ptr noundef 
   br label %.loopexit11
 
 .loopexit11:                                      ; preds = %104, %91, %87, %79, %.loopexit, %72, %.loopexit13
-  %149 = phi i32 [ 0, %.loopexit ], [ 12291, %.loopexit13 ], [ 12299, %72 ], [ 12299, %87 ], [ 12291, %91 ], [ 0, %104 ], [ 12291, %79 ]
+  %149 = phi i32 [ 0, %.loopexit ], [ 12291, %.loopexit13 ], [ 12299, %72 ], [ 12291, %79 ], [ 12299, %87 ], [ 12291, %91 ], [ 0, %104 ]
   ret i32 %149
 }
 
@@ -830,7 +830,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_PSS(ptr noundef 
   br i1 %105, label %.thread, label %85, !llvm.loop !18
 
 .thread:                                          ; preds = %14, %22, %26, %102, %7, %2, %.loopexit8
-  %106 = phi i32 [ 12291, %2 ], [ 0, %.loopexit8 ], [ 0, %102 ], [ 12299, %7 ], [ 12291, %26 ], [ 12299, %22 ], [ 12291, %14 ]
+  %106 = phi i32 [ 0, %.loopexit8 ], [ 12299, %7 ], [ 12291, %2 ], [ 0, %102 ], [ 12291, %26 ], [ 12299, %22 ], [ 12291, %14 ]
   ret i32 %106
 }
 

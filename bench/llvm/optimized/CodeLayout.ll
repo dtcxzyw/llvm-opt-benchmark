@@ -2379,10 +2379,10 @@ _ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i99.i.i: ; preds = %_Z
   br label %_ZNSt6vectorIS_ImSaImEESaIS1_EE6resizeEm.exit100.i.i
 
 _ZNSt6vectorIS_ImSaImEESaIS1_EE6resizeEm.exit100.i.i: ; preds = %_ZSt27__uninitialized_default_n_aIPSt6vectorImSaImEEmS2_ET_S4_T0_RSaIT1_E.exit.i, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i99.i.i, %134, %126
-  %144 = phi ptr [ %130, %126 ], [ %85, %_ZSt27__uninitialized_default_n_aIPSt6vectorImSaImEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %130, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i99.i.i ], [ %130, %134 ]
-  %145 = phi i64 [ %131, %126 ], [ %189, %_ZSt27__uninitialized_default_n_aIPSt6vectorImSaImEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %131, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i99.i.i ], [ %131, %134 ]
-  %146 = phi ptr [ %132, %126 ], [ %84, %_ZSt27__uninitialized_default_n_aIPSt6vectorImSaImEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %132, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i99.i.i ], [ %132, %134 ]
-  %147 = phi ptr [ %128, %126 ], [ %87, %_ZSt27__uninitialized_default_n_aIPSt6vectorImSaImEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %128, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i99.i.i ], [ %128, %134 ]
+  %144 = phi ptr [ %85, %_ZSt27__uninitialized_default_n_aIPSt6vectorImSaImEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %130, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i99.i.i ], [ %130, %134 ], [ %130, %126 ]
+  %145 = phi i64 [ %189, %_ZSt27__uninitialized_default_n_aIPSt6vectorImSaImEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %131, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i99.i.i ], [ %131, %134 ], [ %131, %126 ]
+  %146 = phi ptr [ %84, %_ZSt27__uninitialized_default_n_aIPSt6vectorImSaImEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %132, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i99.i.i ], [ %132, %134 ], [ %132, %126 ]
+  %147 = phi ptr [ %87, %_ZSt27__uninitialized_default_n_aIPSt6vectorImSaImEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %128, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i99.i.i ], [ %128, %134 ], [ %128, %126 ]
   %148 = icmp ugt i64 %145, 1152921504606846975
   br i1 %148, label %149, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
@@ -4103,7 +4103,7 @@ _ZNK12_GLOBAL__N_112MergedNodesT7forEachIZNKS_10ExtTSPImpl11extTSPScoreERKS0_RKN
   br label %_ZZNK12_GLOBAL__N_110ExtTSPImpl11extTSPScoreERKNS_12MergedNodesTERKNS_12MergedJumpsTEENKUlPKNS_5JumpTEE_clES9_.exit.i.i198.i.i
 
 _ZZNK12_GLOBAL__N_110ExtTSPImpl11extTSPScoreERKNS_12MergedNodesTERKNS_12MergedJumpsTEENKUlPKNS_5JumpTEE_clES9_.exit.i.i198.i.i: ; preds = %865, %862, %854, %851, %845
-  %.0.i.i.i.i199.i.i = phi double [ %848, %845 ], [ 0.000000e+00, %851 ], [ %861, %854 ], [ %872, %865 ], [ 0.000000e+00, %862 ]
+  %.0.i.i.i.i199.i.i = phi double [ %848, %845 ], [ %861, %854 ], [ 0.000000e+00, %851 ], [ %872, %865 ], [ 0.000000e+00, %862 ]
   %873 = fadd double %.16.i196.i.i, %.0.i.i.i.i199.i.i
   %874 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i.i197.i.i, i64 8
   %.not2.i.i200.i.i = icmp eq ptr %874, %.val15.i.i193.i.i
@@ -4235,12 +4235,12 @@ _ZN12_GLOBAL__N_110MergeGainT16updateIfLessThanERKS0_.exit.i.i.i: ; preds = %878
   unreachable
 
 _ZN12_GLOBAL__N_110mergeNodesERKSt6vectorIPNS_5NodeTESaIS2_EES6_mNS_10MergeTypeTE.exit.i.i.i.i.i: ; preds = %912, %911, %910, %909, %.lr.ph.i76.i.i.i
-  %.sink17.i.i.i.i.i.i = phi ptr [ %903, %912 ], [ %.val11.i.i.i.i, %911 ], [ %.val.i74.i.i.i, %909 ], [ %.val11.i.i.i.i, %910 ], [ %.val.i74.i.i.i, %.lr.ph.i76.i.i.i ]
-  %.8.val.sink.i.i.i.i.i.i = phi ptr [ %.val9.i.i.i.i, %912 ], [ %.val12.i77.i.i.i, %911 ], [ %.val9.i.i.i.i, %909 ], [ %.val12.i77.i.i.i, %910 ], [ %903, %.lr.ph.i76.i.i.i ]
-  %.0.val.sink.i.i.i.i.i.i = phi ptr [ %.val.i74.i.i.i, %912 ], [ %903, %911 ], [ %.val11.i.i.i.i, %909 ], [ %.val.i74.i.i.i, %910 ], [ %.val11.i.i.i.i, %.lr.ph.i76.i.i.i ]
-  %.sink.i.i.i.i.i.i = phi ptr [ %903, %912 ], [ %.val9.i.i.i.i, %911 ], [ %.val12.i77.i.i.i, %909 ], [ %.val9.i.i.i.i, %910 ], [ %.val12.i77.i.i.i, %.lr.ph.i76.i.i.i ]
-  %.0.val1.sink.i.i.i.i.i.i = phi ptr [ %.val11.i.i.i.i, %912 ], [ %.val.i74.i.i.i, %911 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val46.i.i.i.i.i.i, %909 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val46.i.i.i.i.i.i, %910 ], [ %903, %.lr.ph.i76.i.i.i ]
-  %.8.val3.sink.i.i.i.i.i.i = phi ptr [ %.val12.i77.i.i.i, %912 ], [ %903, %911 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val52.i.i.i.i.i.i, %909 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val52.i.i.i.i.i.i, %910 ], [ %.val9.i.i.i.i, %.lr.ph.i76.i.i.i ]
+  %.sink17.i.i.i.i.i.i = phi ptr [ %903, %912 ], [ %.val11.i.i.i.i, %911 ], [ %.val11.i.i.i.i, %910 ], [ %.val.i74.i.i.i, %909 ], [ %.val.i74.i.i.i, %.lr.ph.i76.i.i.i ]
+  %.8.val.sink.i.i.i.i.i.i = phi ptr [ %.val9.i.i.i.i, %912 ], [ %.val12.i77.i.i.i, %911 ], [ %.val12.i77.i.i.i, %910 ], [ %.val9.i.i.i.i, %909 ], [ %903, %.lr.ph.i76.i.i.i ]
+  %.0.val.sink.i.i.i.i.i.i = phi ptr [ %.val.i74.i.i.i, %912 ], [ %903, %911 ], [ %.val.i74.i.i.i, %910 ], [ %.val11.i.i.i.i, %909 ], [ %.val11.i.i.i.i, %.lr.ph.i76.i.i.i ]
+  %.sink.i.i.i.i.i.i = phi ptr [ %903, %912 ], [ %.val9.i.i.i.i, %911 ], [ %.val9.i.i.i.i, %910 ], [ %.val12.i77.i.i.i, %909 ], [ %.val12.i77.i.i.i, %.lr.ph.i76.i.i.i ]
+  %.0.val1.sink.i.i.i.i.i.i = phi ptr [ %.val11.i.i.i.i, %912 ], [ %.val.i74.i.i.i, %911 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val46.i.i.i.i.i.i, %910 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val46.i.i.i.i.i.i, %909 ], [ %903, %.lr.ph.i76.i.i.i ]
+  %.8.val3.sink.i.i.i.i.i.i = phi ptr [ %.val12.i77.i.i.i, %912 ], [ %903, %911 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val52.i.i.i.i.i.i, %910 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val52.i.i.i.i.i.i, %909 ], [ %.val9.i.i.i.i, %.lr.ph.i76.i.i.i ]
   %.val15.val.i.i.i.i.i = load ptr, ptr %.val.i74.i.i.i, align 8, !tbaa !149, !noalias !272
   %.val15.val.val.i.i.i.i.i = load i64, ptr %.val15.val.i.i.i.i.i, align 8, !tbaa !196, !noalias !272
   %914 = icmp eq i64 %.val15.val.val.i.i.i.i.i, 0
@@ -4404,7 +4404,7 @@ _ZNK12_GLOBAL__N_112MergedNodesT7forEachIZNKS_10ExtTSPImpl11extTSPScoreERKS0_RKN
   br label %_ZZNK12_GLOBAL__N_110ExtTSPImpl11extTSPScoreERKNS_12MergedNodesTERKNS_12MergedJumpsTEENKUlPKNS_5JumpTEE_clES9_.exit.i.i154.i.i
 
 _ZZNK12_GLOBAL__N_110ExtTSPImpl11extTSPScoreERKNS_12MergedNodesTERKNS_12MergedJumpsTEENKUlPKNS_5JumpTEE_clES9_.exit.i.i154.i.i: ; preds = %987, %984, %976, %973, %967
-  %.0.i.i.i.i155.i.i = phi double [ %970, %967 ], [ 0.000000e+00, %973 ], [ %983, %976 ], [ %994, %987 ], [ 0.000000e+00, %984 ]
+  %.0.i.i.i.i155.i.i = phi double [ %970, %967 ], [ %983, %976 ], [ 0.000000e+00, %973 ], [ %994, %987 ], [ 0.000000e+00, %984 ]
   %995 = fadd double %.16.i152.i.i, %.0.i.i.i.i155.i.i
   %996 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i.i153.i.i, i64 8
   %.not2.i.i156.i.i = icmp eq ptr %996, %.val15.i.i149.i.i
@@ -4555,12 +4555,12 @@ _ZNSt6vectorIN12_GLOBAL__N_110MergeTypeTESaIS1_EED2Ev.exit.i.i.i: ; preds = %_ZN
   unreachable
 
 _ZN12_GLOBAL__N_110mergeNodesERKSt6vectorIPNS_5NodeTESaIS2_EES6_mNS_10MergeTypeTE.exit.i.i89.i.i.i: ; preds = %1039, %1038, %1037, %1036, %.lr.ph.i83.i.i.i
-  %.sink17.i.i.i90.i.i.i = phi ptr [ %1030, %1039 ], [ %.val11.i85.i.i.i, %1038 ], [ %.val.i78.i.i.i, %1036 ], [ %.val11.i85.i.i.i, %1037 ], [ %.val.i78.i.i.i, %.lr.ph.i83.i.i.i ]
-  %.8.val.sink.i.i.i91.i.i.i = phi ptr [ %.val9.i79.i.i.i, %1039 ], [ %.val12.i86.i.i.i, %1038 ], [ %.val9.i79.i.i.i, %1036 ], [ %.val12.i86.i.i.i, %1037 ], [ %1030, %.lr.ph.i83.i.i.i ]
-  %.0.val.sink.i.i.i92.i.i.i = phi ptr [ %.val.i78.i.i.i, %1039 ], [ %1030, %1038 ], [ %.val11.i85.i.i.i, %1036 ], [ %.val.i78.i.i.i, %1037 ], [ %.val11.i85.i.i.i, %.lr.ph.i83.i.i.i ]
-  %.sink.i.i.i93.i.i.i = phi ptr [ %1030, %1039 ], [ %.val9.i79.i.i.i, %1038 ], [ %.val12.i86.i.i.i, %1036 ], [ %.val9.i79.i.i.i, %1037 ], [ %.val12.i86.i.i.i, %.lr.ph.i83.i.i.i ]
-  %.0.val1.sink.i.i.i94.i.i.i = phi ptr [ %.val11.i85.i.i.i, %1039 ], [ %.val.i78.i.i.i, %1038 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val46.i.i.i109.i.i.i, %1036 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val46.i.i.i109.i.i.i, %1037 ], [ %1030, %.lr.ph.i83.i.i.i ]
-  %.8.val3.sink.i.i.i95.i.i.i = phi ptr [ %.val12.i86.i.i.i, %1039 ], [ %1030, %1038 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val52.i.i.i110.i.i.i, %1036 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val52.i.i.i110.i.i.i, %1037 ], [ %.val9.i79.i.i.i, %.lr.ph.i83.i.i.i ]
+  %.sink17.i.i.i90.i.i.i = phi ptr [ %1030, %1039 ], [ %.val11.i85.i.i.i, %1038 ], [ %.val11.i85.i.i.i, %1037 ], [ %.val.i78.i.i.i, %1036 ], [ %.val.i78.i.i.i, %.lr.ph.i83.i.i.i ]
+  %.8.val.sink.i.i.i91.i.i.i = phi ptr [ %.val9.i79.i.i.i, %1039 ], [ %.val12.i86.i.i.i, %1038 ], [ %.val12.i86.i.i.i, %1037 ], [ %.val9.i79.i.i.i, %1036 ], [ %1030, %.lr.ph.i83.i.i.i ]
+  %.0.val.sink.i.i.i92.i.i.i = phi ptr [ %.val.i78.i.i.i, %1039 ], [ %1030, %1038 ], [ %.val.i78.i.i.i, %1037 ], [ %.val11.i85.i.i.i, %1036 ], [ %.val11.i85.i.i.i, %.lr.ph.i83.i.i.i ]
+  %.sink.i.i.i93.i.i.i = phi ptr [ %1030, %1039 ], [ %.val9.i79.i.i.i, %1038 ], [ %.val9.i79.i.i.i, %1037 ], [ %.val12.i86.i.i.i, %1036 ], [ %.val12.i86.i.i.i, %.lr.ph.i83.i.i.i ]
+  %.0.val1.sink.i.i.i94.i.i.i = phi ptr [ %.val11.i85.i.i.i, %1039 ], [ %.val.i78.i.i.i, %1038 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val46.i.i.i109.i.i.i, %1037 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val46.i.i.i109.i.i.i, %1036 ], [ %1030, %.lr.ph.i83.i.i.i ]
+  %.8.val3.sink.i.i.i95.i.i.i = phi ptr [ %.val12.i86.i.i.i, %1039 ], [ %1030, %1038 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val52.i.i.i110.i.i.i, %1037 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val52.i.i.i110.i.i.i, %1036 ], [ %.val9.i79.i.i.i, %.lr.ph.i83.i.i.i ]
   %.val15.val.i.i96.i.i.i = load ptr, ptr %.val.i78.i.i.i, align 8, !tbaa !149, !noalias !275
   %.val15.val.val.i.i97.i.i.i = load i64, ptr %.val15.val.i.i96.i.i.i, align 8, !tbaa !196, !noalias !275
   %1041 = icmp eq i64 %.val15.val.val.i.i97.i.i.i, 0
@@ -4724,7 +4724,7 @@ _ZNK12_GLOBAL__N_112MergedNodesT7forEachIZNKS_10ExtTSPImpl11extTSPScoreERKS0_RKN
   br label %_ZZNK12_GLOBAL__N_110ExtTSPImpl11extTSPScoreERKNS_12MergedNodesTERKNS_12MergedJumpsTEENKUlPKNS_5JumpTEE_clES9_.exit.i.i110.i.i
 
 _ZZNK12_GLOBAL__N_110ExtTSPImpl11extTSPScoreERKNS_12MergedNodesTERKNS_12MergedJumpsTEENKUlPKNS_5JumpTEE_clES9_.exit.i.i110.i.i: ; preds = %1114, %1111, %1103, %1100, %1094
-  %.0.i.i.i.i111.i.i = phi double [ %1097, %1094 ], [ 0.000000e+00, %1100 ], [ %1110, %1103 ], [ %1121, %1114 ], [ 0.000000e+00, %1111 ]
+  %.0.i.i.i.i111.i.i = phi double [ %1097, %1094 ], [ %1110, %1103 ], [ 0.000000e+00, %1100 ], [ %1121, %1114 ], [ 0.000000e+00, %1111 ]
   %1122 = fadd double %.16.i108.i.i, %.0.i.i.i.i111.i.i
   %1123 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i.i109.i.i, i64 8
   %.not2.i.i112.i.i = icmp eq ptr %1123, %.val15.i.i105.i.i
@@ -4870,12 +4870,12 @@ _ZNSt6vectorIN12_GLOBAL__N_110MergeTypeTESaIS1_EED2Ev.exit115.i.i.i: ; preds = %
   unreachable
 
 _ZN12_GLOBAL__N_110mergeNodesERKSt6vectorIPNS_5NodeTESaIS2_EES6_mNS_10MergeTypeTE.exit.i.i129.i.i.i: ; preds = %1159, %1158, %1157, %1156, %.lr.ph.i123.i.i.i
-  %.sink17.i.i.i130.i.i.i = phi ptr [ %1154, %1159 ], [ %.val11.i125.i.i.i, %1158 ], [ %.val.i.i127.i.i.i, %1156 ], [ %.val11.i125.i.i.i, %1157 ], [ %.val.i.i127.i.i.i, %.lr.ph.i123.i.i.i ]
-  %.8.val.sink.i.i.i131.i.i.i = phi ptr [ %.val12.i.i128.i.i.i, %1159 ], [ %.val12.i126.i.i.i, %1158 ], [ %.val12.i.i128.i.i.i, %1156 ], [ %.val12.i126.i.i.i, %1157 ], [ %1154, %.lr.ph.i123.i.i.i ]
-  %.0.val.sink.i.i.i132.i.i.i = phi ptr [ %.val.i.i127.i.i.i, %1159 ], [ %1154, %1158 ], [ %.val11.i125.i.i.i, %1156 ], [ %.val.i.i127.i.i.i, %1157 ], [ %.val11.i125.i.i.i, %.lr.ph.i123.i.i.i ]
-  %.sink.i.i.i133.i.i.i = phi ptr [ %1154, %1159 ], [ %.val12.i.i128.i.i.i, %1158 ], [ %.val12.i126.i.i.i, %1156 ], [ %.val12.i.i128.i.i.i, %1157 ], [ %.val12.i126.i.i.i, %.lr.ph.i123.i.i.i ]
-  %.0.val1.sink.i.i.i134.i.i.i = phi ptr [ %.val11.i125.i.i.i, %1159 ], [ %.val.i.i127.i.i.i, %1158 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val46.i.i.i149.i.i.i, %1156 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val46.i.i.i149.i.i.i, %1157 ], [ %1154, %.lr.ph.i123.i.i.i ]
-  %.8.val3.sink.i.i.i135.i.i.i = phi ptr [ %.val12.i126.i.i.i, %1159 ], [ %1154, %1158 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val52.i.i.i150.i.i.i, %1156 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val52.i.i.i150.i.i.i, %1157 ], [ %.val12.i.i128.i.i.i, %.lr.ph.i123.i.i.i ]
+  %.sink17.i.i.i130.i.i.i = phi ptr [ %1154, %1159 ], [ %.val11.i125.i.i.i, %1158 ], [ %.val11.i125.i.i.i, %1157 ], [ %.val.i.i127.i.i.i, %1156 ], [ %.val.i.i127.i.i.i, %.lr.ph.i123.i.i.i ]
+  %.8.val.sink.i.i.i131.i.i.i = phi ptr [ %.val12.i.i128.i.i.i, %1159 ], [ %.val12.i126.i.i.i, %1158 ], [ %.val12.i126.i.i.i, %1157 ], [ %.val12.i.i128.i.i.i, %1156 ], [ %1154, %.lr.ph.i123.i.i.i ]
+  %.0.val.sink.i.i.i132.i.i.i = phi ptr [ %.val.i.i127.i.i.i, %1159 ], [ %1154, %1158 ], [ %.val.i.i127.i.i.i, %1157 ], [ %.val11.i125.i.i.i, %1156 ], [ %.val11.i125.i.i.i, %.lr.ph.i123.i.i.i ]
+  %.sink.i.i.i133.i.i.i = phi ptr [ %1154, %1159 ], [ %.val12.i.i128.i.i.i, %1158 ], [ %.val12.i.i128.i.i.i, %1157 ], [ %.val12.i126.i.i.i, %1156 ], [ %.val12.i126.i.i.i, %.lr.ph.i123.i.i.i ]
+  %.0.val1.sink.i.i.i134.i.i.i = phi ptr [ %.val11.i125.i.i.i, %1159 ], [ %.val.i.i127.i.i.i, %1158 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val46.i.i.i149.i.i.i, %1157 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val46.i.i.i149.i.i.i, %1156 ], [ %1154, %.lr.ph.i123.i.i.i ]
+  %.8.val3.sink.i.i.i135.i.i.i = phi ptr [ %.val12.i126.i.i.i, %1159 ], [ %1154, %1158 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val52.i.i.i150.i.i.i, %1157 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val52.i.i.i150.i.i.i, %1156 ], [ %.val12.i.i128.i.i.i, %.lr.ph.i123.i.i.i ]
   %.val15.val.i.i136.i.i.i = load ptr, ptr %.val.i.i127.i.i.i, align 8, !tbaa !149, !noalias !278
   %.val15.val.val.i.i137.i.i.i = load i64, ptr %.val15.val.i.i136.i.i.i, align 8, !tbaa !196, !noalias !278
   %1161 = icmp eq i64 %.val15.val.val.i.i137.i.i.i, 0
@@ -5039,7 +5039,7 @@ _ZNK12_GLOBAL__N_112MergedNodesT7forEachIZNKS_10ExtTSPImpl11extTSPScoreERKS0_RKN
   br label %_ZZNK12_GLOBAL__N_110ExtTSPImpl11extTSPScoreERKNS_12MergedNodesTERKNS_12MergedJumpsTEENKUlPKNS_5JumpTEE_clES9_.exit.i.i.i.i
 
 _ZZNK12_GLOBAL__N_110ExtTSPImpl11extTSPScoreERKNS_12MergedNodesTERKNS_12MergedJumpsTEENKUlPKNS_5JumpTEE_clES9_.exit.i.i.i.i: ; preds = %1234, %1231, %1223, %1220, %1214
-  %.0.i.i.i.i.i.i = phi double [ %1217, %1214 ], [ 0.000000e+00, %1220 ], [ %1230, %1223 ], [ %1241, %1234 ], [ 0.000000e+00, %1231 ]
+  %.0.i.i.i.i.i.i = phi double [ %1217, %1214 ], [ %1230, %1223 ], [ 0.000000e+00, %1220 ], [ %1241, %1234 ], [ 0.000000e+00, %1231 ]
   %1242 = fadd double %.16.i.i.i, %.0.i.i.i.i.i.i
   %1243 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i.i.i.i, i64 8
   %.not2.i.i.i.i = icmp eq ptr %1243, %.val15.i.i.i.i
@@ -5491,10 +5491,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsE
   br i1 %.not.i36.i.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEEZNS2_10ExtTSPImpl12concatChainsEvEUlS5_S5_E_EvT_SD_T0_.exit.i.i, label %.lr.ph.i20.i.i.i.i.i, !llvm.loop !300
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEEZNS2_10ExtTSPImpl12concatChainsEvEUlS5_S5_E_EvT_SD_T0_.exit.i.i: ; preds = %1408, %.lr.ph.i15.i.i.i.i.i, %1377, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10ExtTSPImpl12concatChainsEvEUlS5_S5_E_EEEvT_SG_T0_.exit.i.i.i.i.i, %._crit_edge.i18.i, %_ZN12_GLOBAL__N_110ExtTSPImpl15mergeColdChainsEv.exit.i
-  %.not.i.i96.i.i = phi i1 [ false, %.lr.ph.i15.i.i.i.i.i ], [ true, %_ZN12_GLOBAL__N_110ExtTSPImpl15mergeColdChainsEv.exit.i ], [ false, %1377 ], [ true, %._crit_edge.i18.i ], [ false, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10ExtTSPImpl12concatChainsEvEUlS5_S5_E_EEEvT_SG_T0_.exit.i.i.i.i.i ], [ false, %1408 ]
-  %.sroa.042.0.lcssa95.i.i = phi ptr [ %.sroa.042.1.i.i, %.lr.ph.i15.i.i.i.i.i ], [ null, %_ZN12_GLOBAL__N_110ExtTSPImpl15mergeColdChainsEv.exit.i ], [ %.sroa.042.1.i.i, %1377 ], [ %.sroa.042.1.i.i, %._crit_edge.i18.i ], [ %.sroa.042.1.i.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10ExtTSPImpl12concatChainsEvEUlS5_S5_E_EEEvT_SG_T0_.exit.i.i.i.i.i ], [ %.sroa.042.1.i.i, %1408 ]
-  %.sroa.8.0.lcssa94.i.i = phi ptr [ %.sroa.8.1.i.i, %.lr.ph.i15.i.i.i.i.i ], [ null, %_ZN12_GLOBAL__N_110ExtTSPImpl15mergeColdChainsEv.exit.i ], [ %.sroa.8.1.i.i, %1377 ], [ %.sroa.8.1.i.i, %._crit_edge.i18.i ], [ %.sroa.8.1.i.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10ExtTSPImpl12concatChainsEvEUlS5_S5_E_EEEvT_SG_T0_.exit.i.i.i.i.i ], [ %.sroa.8.1.i.i, %1408 ]
-  %.sroa.13.0.lcssa93.i.i = phi i64 [ %1340, %.lr.ph.i15.i.i.i.i.i ], [ 0, %_ZN12_GLOBAL__N_110ExtTSPImpl15mergeColdChainsEv.exit.i ], [ %1340, %1377 ], [ %1340, %._crit_edge.i18.i ], [ %1340, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10ExtTSPImpl12concatChainsEvEUlS5_S5_E_EEEvT_SG_T0_.exit.i.i.i.i.i ], [ %1340, %1408 ]
+  %.not.i.i96.i.i = phi i1 [ true, %._crit_edge.i18.i ], [ false, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10ExtTSPImpl12concatChainsEvEUlS5_S5_E_EEEvT_SG_T0_.exit.i.i.i.i.i ], [ false, %1377 ], [ true, %_ZN12_GLOBAL__N_110ExtTSPImpl15mergeColdChainsEv.exit.i ], [ false, %.lr.ph.i15.i.i.i.i.i ], [ false, %1408 ]
+  %.sroa.042.0.lcssa95.i.i = phi ptr [ %.sroa.042.1.i.i, %._crit_edge.i18.i ], [ %.sroa.042.1.i.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10ExtTSPImpl12concatChainsEvEUlS5_S5_E_EEEvT_SG_T0_.exit.i.i.i.i.i ], [ %.sroa.042.1.i.i, %1377 ], [ null, %_ZN12_GLOBAL__N_110ExtTSPImpl15mergeColdChainsEv.exit.i ], [ %.sroa.042.1.i.i, %.lr.ph.i15.i.i.i.i.i ], [ %.sroa.042.1.i.i, %1408 ]
+  %.sroa.8.0.lcssa94.i.i = phi ptr [ %.sroa.8.1.i.i, %._crit_edge.i18.i ], [ %.sroa.8.1.i.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10ExtTSPImpl12concatChainsEvEUlS5_S5_E_EEEvT_SG_T0_.exit.i.i.i.i.i ], [ %.sroa.8.1.i.i, %1377 ], [ null, %_ZN12_GLOBAL__N_110ExtTSPImpl15mergeColdChainsEv.exit.i ], [ %.sroa.8.1.i.i, %.lr.ph.i15.i.i.i.i.i ], [ %.sroa.8.1.i.i, %1408 ]
+  %.sroa.13.0.lcssa93.i.i = phi i64 [ %1340, %._crit_edge.i18.i ], [ %1340, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10ExtTSPImpl12concatChainsEvEUlS5_S5_E_EEEvT_SG_T0_.exit.i.i.i.i.i ], [ %1340, %1377 ], [ 0, %_ZN12_GLOBAL__N_110ExtTSPImpl15mergeColdChainsEv.exit.i ], [ %1340, %.lr.ph.i15.i.i.i.i.i ], [ %1340, %1408 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !293
   %1409 = load i64, ptr %8, align 8, !tbaa !89, !noalias !293
   %1410 = icmp ugt i64 %1409, 1152921504606846975
@@ -6178,7 +6178,7 @@ _ZN4llvm11SmallVectorImLj6EED2Ev.exit41:          ; preds = %_ZN4llvm11SmallVect
   br label %_ZN12_GLOBAL__N_111extTSPScoreEmmmmb.exit
 
 _ZN12_GLOBAL__N_111extTSPScoreEmmmmb.exit:        ; preds = %67, %73, %76, %84, %87
-  %.0.i = phi double [ %70, %67 ], [ 0.000000e+00, %73 ], [ %83, %76 ], [ %94, %87 ], [ 0.000000e+00, %84 ]
+  %.0.i = phi double [ %70, %67 ], [ %83, %76 ], [ 0.000000e+00, %73 ], [ %94, %87 ], [ 0.000000e+00, %84 ]
   %95 = fadd double %.02661, %.0.i
   %96 = getelementptr inbounds nuw i8, ptr %.02760, i64 24
   %.not28 = icmp eq ptr %96, %21
@@ -7938,7 +7938,7 @@ _ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_
   br label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ChainEdgeES2_St9_IdentityIS2_EZNS0_10CDSortImpl15mergeChainPairsEvEUlS2_S2_E_SaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i
 
 _ZNSt8_Rb_treeIPN12_GLOBAL__N_19ChainEdgeES2_St9_IdentityIS2_EZNS0_10CDSortImpl15mergeChainPairsEvEUlS2_S2_E_SaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i: ; preds = %707, %705, %703, %692, %690
-  %710 = phi i1 [ %spec.select.i.i17.i.i.i, %707 ], [ true, %690 ], [ true, %692 ], [ false, %703 ], [ true, %705 ]
+  %710 = phi i1 [ true, %690 ], [ true, %692 ], [ false, %703 ], [ true, %705 ], [ %spec.select.i.i17.i.i.i, %707 ]
   %711 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !382
   %712 = getelementptr inbounds nuw i8, ptr %711, i64 32
   store ptr %654, ptr %712, align 8, !tbaa !231, !noalias !382
@@ -8044,12 +8044,12 @@ _ZNSt3setIPN12_GLOBAL__N_19ChainEdgeEZNS0_10CDSortImpl15mergeChainPairsEvEUlS2_S
   unreachable
 
 _ZN12_GLOBAL__N_110mergeNodesERKSt6vectorIPNS_5NodeTESaIS2_EES6_mNS_10MergeTypeTE.exit.i.i.i: ; preds = %739, %738, %737, %736, %._crit_edge135.i.i
-  %.sink17.i.i.i.i = phi ptr [ %735, %739 ], [ %.val9.i.i.i, %738 ], [ %.val.i.i.i, %736 ], [ %.val9.i.i.i, %737 ], [ %.val.i.i.i, %._crit_edge135.i.i ]
-  %.8.val.sink.i.i.i.i = phi ptr [ %.val8.i.i.i, %739 ], [ %.val10.i.i.i, %738 ], [ %.val8.i.i.i, %736 ], [ %.val10.i.i.i, %737 ], [ %735, %._crit_edge135.i.i ]
-  %.0.val.sink.i.i.i.i = phi ptr [ %.val.i.i.i, %739 ], [ %735, %738 ], [ %.val9.i.i.i, %736 ], [ %.val.i.i.i, %737 ], [ %.val9.i.i.i, %._crit_edge135.i.i ]
-  %.sink.i.i.i.i = phi ptr [ %735, %739 ], [ %.val8.i.i.i, %738 ], [ %.val10.i.i.i, %736 ], [ %.val8.i.i.i, %737 ], [ %.val10.i.i.i, %._crit_edge135.i.i ]
-  %.0.val1.sink.i.i.i.i = phi ptr [ %.val9.i.i.i, %739 ], [ %.val.i.i.i, %738 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val.i.i.i.i, %736 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val46.i.i.i.i, %737 ], [ %735, %._crit_edge135.i.i ]
-  %.8.val3.sink.i.i.i.i = phi ptr [ %.val10.i.i.i, %739 ], [ %735, %738 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val51.i.i.i.i, %736 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val52.i.i.i.i, %737 ], [ %.val8.i.i.i, %._crit_edge135.i.i ]
+  %.sink17.i.i.i.i = phi ptr [ %735, %739 ], [ %.val9.i.i.i, %738 ], [ %.val9.i.i.i, %737 ], [ %.val.i.i.i, %736 ], [ %.val.i.i.i, %._crit_edge135.i.i ]
+  %.8.val.sink.i.i.i.i = phi ptr [ %.val8.i.i.i, %739 ], [ %.val10.i.i.i, %738 ], [ %.val10.i.i.i, %737 ], [ %.val8.i.i.i, %736 ], [ %735, %._crit_edge135.i.i ]
+  %.0.val.sink.i.i.i.i = phi ptr [ %.val.i.i.i, %739 ], [ %735, %738 ], [ %.val.i.i.i, %737 ], [ %.val9.i.i.i, %736 ], [ %.val9.i.i.i, %._crit_edge135.i.i ]
+  %.sink.i.i.i.i = phi ptr [ %735, %739 ], [ %.val8.i.i.i, %738 ], [ %.val8.i.i.i, %737 ], [ %.val10.i.i.i, %736 ], [ %.val10.i.i.i, %._crit_edge135.i.i ]
+  %.0.val1.sink.i.i.i.i = phi ptr [ %.val9.i.i.i, %739 ], [ %.val.i.i.i, %738 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val46.i.i.i.i, %737 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val.i.i.i.i, %736 ], [ %735, %._crit_edge135.i.i ]
+  %.8.val3.sink.i.i.i.i = phi ptr [ %.val10.i.i.i, %739 ], [ %735, %738 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val52.i.i.i.i, %737 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val51.i.i.i.i, %736 ], [ %.val8.i.i.i, %._crit_edge135.i.i ]
   store ptr %.sink17.i.i.i.i, ptr %12, align 8, !tbaa !257, !alias.scope !406, !noalias !382
   store ptr %.8.val.sink.i.i.i.i, ptr %628, align 8, !tbaa !257, !alias.scope !406, !noalias !382
   store ptr %.0.val.sink.i.i.i.i, ptr %629, align 8, !tbaa !257, !alias.scope !406, !noalias !382
@@ -8345,7 +8345,7 @@ _ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_
   br label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ChainEdgeES2_St9_IdentityIS2_EZNS0_10CDSortImpl15mergeChainPairsEvEUlS2_S2_E_SaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i
 
 _ZNSt8_Rb_treeIPN12_GLOBAL__N_19ChainEdgeES2_St9_IdentityIS2_EZNS0_10CDSortImpl15mergeChainPairsEvEUlS2_S2_E_SaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i.i.i: ; preds = %857, %855, %853, %842, %840
-  %860 = phi i1 [ %spec.select.i.i17.i.i.i.i, %857 ], [ true, %840 ], [ true, %842 ], [ false, %853 ], [ true, %855 ]
+  %860 = phi i1 [ true, %840 ], [ true, %842 ], [ false, %853 ], [ true, %855 ], [ %spec.select.i.i17.i.i.i.i, %857 ]
   %861 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !382
   %862 = getelementptr inbounds nuw i8, ptr %861, i64 32
   store ptr %804, ptr %862, align 8, !tbaa !231, !noalias !382
@@ -8361,7 +8361,7 @@ _ZNSt3setIPN12_GLOBAL__N_19ChainEdgeEZNS0_10CDSortImpl15mergeChainPairsEvEUlS2_S
   br i1 %.not114.i.i, label %.loopexit.i.i, label %.lr.ph138.i.i
 
 _ZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEv.exit.i: ; preds = %.loopexit.i.i, %_ZN12_GLOBAL__N_110CDSortImplC2ERKN4llvm10codelayout12CDSortConfigENS1_8ArrayRefImEES7_NS6_INS2_9EdgeCountEEES7_.exit.thread, %.preheader.i.i, %_ZN12_GLOBAL__N_110CDSortImplC2ERKN4llvm10codelayout12CDSortConfigENS1_8ArrayRefImEES7_NS6_INS2_9EdgeCountEEES7_.exit
-  %866 = phi ptr [ %409, %_ZN12_GLOBAL__N_110CDSortImplC2ERKN4llvm10codelayout12CDSortConfigENS1_8ArrayRefImEES7_NS6_INS2_9EdgeCountEEES7_.exit.thread ], [ %623, %_ZN12_GLOBAL__N_110CDSortImplC2ERKN4llvm10codelayout12CDSortConfigENS1_8ArrayRefImEES7_NS6_INS2_9EdgeCountEEES7_.exit ], [ %623, %.preheader.i.i ], [ %623, %.loopexit.i.i ]
+  %866 = phi ptr [ %409, %_ZN12_GLOBAL__N_110CDSortImplC2ERKN4llvm10codelayout12CDSortConfigENS1_8ArrayRefImEES7_NS6_INS2_9EdgeCountEEES7_.exit.thread ], [ %623, %.preheader.i.i ], [ %623, %_ZN12_GLOBAL__N_110CDSortImplC2ERKN4llvm10codelayout12CDSortConfigENS1_8ArrayRefImEES7_NS6_INS2_9EdgeCountEEES7_.exit ], [ %623, %.loopexit.i.i ]
   %.val98.i.i = load ptr, ptr %866, align 8, !tbaa !364, !noalias !382
   call fastcc void @_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ChainEdgeES2_St9_IdentityIS2_EZNS0_10CDSortImpl15mergeChainPairsEvEUlS2_S2_E_SaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %.val98.i.i), !noalias !382
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !382
@@ -8778,10 +8778,10 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_
   br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEEZNS2_10CDSortImpl12concatChainsEvEUlS5_S5_E_EvT_SD_T0_.exit.i.i
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEEZNS2_10CDSortImpl12concatChainsEvEUlS5_S5_E_EvT_SD_T0_.exit.i.i: ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_10CDSortImpl12concatChainsEvEUlS5_S5_E_EEEvT_T0_.exit.i.i.i.i.i.i, %1031, %881, %._crit_edge105.i.i, %_ZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEv.exit.i
-  %.not.i.i200.i.i = phi i1 [ true, %_ZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEv.exit.i ], [ false, %1031 ], [ true, %._crit_edge105.i.i ], [ false, %881 ], [ false, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_10CDSortImpl12concatChainsEvEUlS5_S5_E_EEEvT_T0_.exit.i.i.i.i.i.i ]
-  %.sroa.067.0.lcssa199.i.i = phi ptr [ null, %_ZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEv.exit.i ], [ %.sroa.067.1.i.i, %1031 ], [ %.sroa.067.1.i.i, %._crit_edge105.i.i ], [ %.sroa.067.1.i.i, %881 ], [ %.sroa.067.1.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_10CDSortImpl12concatChainsEvEUlS5_S5_E_EEEvT_T0_.exit.i.i.i.i.i.i ]
-  %.sroa.8.0.lcssa198.i.i = phi ptr [ null, %_ZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEv.exit.i ], [ %.sroa.8.1.i.i, %1031 ], [ %.sroa.8.1.i.i, %._crit_edge105.i.i ], [ %.sroa.8.1.i.i, %881 ], [ %.sroa.8.1.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_10CDSortImpl12concatChainsEvEUlS5_S5_E_EEEvT_T0_.exit.i.i.i.i.i.i ]
-  %.sroa.13.0.lcssa197.i.i = phi i64 [ 0, %_ZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEv.exit.i ], [ %871, %1031 ], [ %871, %._crit_edge105.i.i ], [ %871, %881 ], [ %871, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_10CDSortImpl12concatChainsEvEUlS5_S5_E_EEEvT_T0_.exit.i.i.i.i.i.i ]
+  %.not.i.i200.i.i = phi i1 [ true, %._crit_edge105.i.i ], [ false, %881 ], [ false, %1031 ], [ true, %_ZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEv.exit.i ], [ false, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_10CDSortImpl12concatChainsEvEUlS5_S5_E_EEEvT_T0_.exit.i.i.i.i.i.i ]
+  %.sroa.067.0.lcssa199.i.i = phi ptr [ %.sroa.067.1.i.i, %._crit_edge105.i.i ], [ %.sroa.067.1.i.i, %881 ], [ %.sroa.067.1.i.i, %1031 ], [ null, %_ZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEv.exit.i ], [ %.sroa.067.1.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_10CDSortImpl12concatChainsEvEUlS5_S5_E_EEEvT_T0_.exit.i.i.i.i.i.i ]
+  %.sroa.8.0.lcssa198.i.i = phi ptr [ %.sroa.8.1.i.i, %._crit_edge105.i.i ], [ %.sroa.8.1.i.i, %881 ], [ %.sroa.8.1.i.i, %1031 ], [ null, %_ZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEv.exit.i ], [ %.sroa.8.1.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_10CDSortImpl12concatChainsEvEUlS5_S5_E_EEEvT_T0_.exit.i.i.i.i.i.i ]
+  %.sroa.13.0.lcssa197.i.i = phi i64 [ %871, %._crit_edge105.i.i ], [ %871, %881 ], [ %871, %1031 ], [ 0, %_ZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEv.exit.i ], [ %871, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS2_10CDSortImpl12concatChainsEvEUlS5_S5_E_EEEvT_T0_.exit.i.i.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !434
   %1032 = load i64, ptr %17, align 8, !tbaa !319, !noalias !434
   %1033 = icmp ugt i64 %1032, 1152921504606846975
@@ -10026,12 +10026,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_110ExtTSPImpl11mergeChainsEPNS_6Cha
   unreachable
 
 _ZN12_GLOBAL__N_110mergeNodesERKSt6vectorIPNS_5NodeTESaIS2_EES6_mNS_10MergeTypeTE.exit: ; preds = %5, %14, %15, %16, %17
-  %.sink17.i = phi ptr [ %13, %17 ], [ %.val37, %16 ], [ %.val35, %14 ], [ %.val37, %15 ], [ %.val35, %5 ]
-  %.8.val.sink.i = phi ptr [ %.val36, %17 ], [ %.val38, %16 ], [ %.val36, %14 ], [ %.val38, %15 ], [ %13, %5 ]
-  %.0.val.sink.i = phi ptr [ %.val35, %17 ], [ %13, %16 ], [ %.val37, %14 ], [ %.val35, %15 ], [ %.val37, %5 ]
-  %.sink.i = phi ptr [ %13, %17 ], [ %.val36, %16 ], [ %.val38, %14 ], [ %.val36, %15 ], [ %.val38, %5 ]
-  %.0.val1.sink.i = phi ptr [ %.val37, %17 ], [ %.val35, %16 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val.i, %14 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val46.i, %15 ], [ %13, %5 ]
-  %.8.val3.sink.i = phi ptr [ %.val38, %17 ], [ %13, %16 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val51.i, %14 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val52.i, %15 ], [ %.val36, %5 ]
+  %.sink17.i = phi ptr [ %13, %17 ], [ %.val37, %16 ], [ %.val37, %15 ], [ %.val35, %14 ], [ %.val35, %5 ]
+  %.8.val.sink.i = phi ptr [ %.val36, %17 ], [ %.val38, %16 ], [ %.val38, %15 ], [ %.val36, %14 ], [ %13, %5 ]
+  %.0.val.sink.i = phi ptr [ %.val35, %17 ], [ %13, %16 ], [ %.val35, %15 ], [ %.val37, %14 ], [ %.val37, %5 ]
+  %.sink.i = phi ptr [ %13, %17 ], [ %.val36, %16 ], [ %.val36, %15 ], [ %.val38, %14 ], [ %.val38, %5 ]
+  %.0.val1.sink.i = phi ptr [ %.val37, %17 ], [ %.val35, %16 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val46.i, %15 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val.i, %14 ], [ %13, %5 ]
+  %.8.val3.sink.i = phi ptr [ %.val38, %17 ], [ %13, %16 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val52.i, %15 ], [ %_ZN12_GLOBAL__N_19EmptyListE.val51.i, %14 ], [ %.val36, %5 ]
   store ptr %.sink17.i, ptr %6, align 8, !tbaa !257, !alias.scope !472
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.8.val.sink.i, ptr %19, align 8, !tbaa !257, !alias.scope !472
@@ -10280,7 +10280,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_16ChainTESt6vector
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_16ChainTESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKS4_EEET_SE_SE_T0_.exit.i.i.i
 
 _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_16ChainTESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKS4_EEET_SE_SE_T0_.exit.i.i.i: ; preds = %85, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_16ChainTESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKS4_EEET_SE_SE_T0_.exit.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_16ChainTESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKS4_EEET_SE_SE_T0_.exit.i.i.i.loopexit.split.loop.exit89, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_16ChainTESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKS4_EEET_SE_SE_T0_.exit.i.i.i.loopexit.split.loop.exit91, %._crit_edge._crit_edge59.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %105
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.035.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %._crit_edge._crit_edge59.i.i.i.i.i ], [ %.sroa.035.0.lcssa.i.i.i.i.i, %105 ], [ %118, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_16ChainTESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKS4_EEET_SE_SE_T0_.exit.i.i.i.loopexit.split.loop.exit91 ], [ %116, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_16ChainTESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKS4_EEET_SE_SE_T0_.exit.i.i.i.loopexit.split.loop.exit ], [ %117, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_16ChainTESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKS4_EEET_SE_SE_T0_.exit.i.i.i.loopexit.split.loop.exit89 ], [ %.sroa.035.052.i.i.i.i.i, %85 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.035.0.lcssa.i.i.i.i.i, %105 ], [ %.sroa.035.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %._crit_edge._crit_edge59.i.i.i.i.i ], [ %116, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_16ChainTESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKS4_EEET_SE_SE_T0_.exit.i.i.i.loopexit.split.loop.exit ], [ %117, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_16ChainTESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKS4_EEET_SE_SE_T0_.exit.i.i.i.loopexit.split.loop.exit89 ], [ %118, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_16ChainTESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKS4_EEET_SE_SE_T0_.exit.i.i.i.loopexit.split.loop.exit91 ], [ %.sroa.035.052.i.i.i.i.i, %85 ]
   %119 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %.val6.i
   %.sroa.012.027.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, i64 8
   %.not28.i.i.i = icmp eq ptr %.sroa.012.027.i.i.i, %.val6.i
@@ -10947,7 +10947,7 @@ _ZNK12_GLOBAL__N_112MergedNodesT7forEachIZNKS_10ExtTSPImpl11extTSPScoreERKS0_RKN
   br label %_ZZNK12_GLOBAL__N_110ExtTSPImpl11extTSPScoreERKNS_12MergedNodesTERKNS_12MergedJumpsTEENKUlPKNS_5JumpTEE_clES9_.exit.i
 
 _ZZNK12_GLOBAL__N_110ExtTSPImpl11extTSPScoreERKNS_12MergedNodesTERKNS_12MergedJumpsTEENKUlPKNS_5JumpTEE_clES9_.exit.i: ; preds = %82, %79, %71, %68, %62
-  %.0.i.i.i = phi double [ %65, %62 ], [ 0.000000e+00, %68 ], [ %78, %71 ], [ %89, %82 ], [ 0.000000e+00, %79 ]
+  %.0.i.i.i = phi double [ %65, %62 ], [ %78, %71 ], [ 0.000000e+00, %68 ], [ %89, %82 ], [ 0.000000e+00, %79 ]
   %90 = fadd double %.16, %.0.i.i.i
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i, i64 8
   %.not2.i = icmp eq ptr %91, %.val15.i
@@ -11388,8 +11388,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsE
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10ExtTSPImpl12concatChainsEvEUlS5_S5_E_EEEvT_SG_SG_SG_T0_.exit.i
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10ExtTSPImpl12concatChainsEvEUlS5_S5_E_EEEvT_SG_SG_SG_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit73.thread87.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit73.i.i, %132, %119, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit61.i.i, %111, %102, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit49.thread81.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit49.i.i, %90, %78, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit37.i.i, %72, %60
-  %.sink107.i.i = phi ptr [ %56, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit49.i.i ], [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit73.thread87.i.i ], [ %32, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit61.i.i ], [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit37.i.i ], [ %32, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit49.thread81.i.i ], [ %33, %72 ], [ %33, %60 ], [ %56, %90 ], [ %56, %78 ], [ %32, %111 ], [ %32, %102 ], [ %120, %132 ], [ %120, %119 ], [ %117, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit73.i.i ]
-  %.sink106.i.i = phi ptr [ %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit49.i.i ], [ %30, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit73.thread87.i.i ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit61.i.i ], [ %30, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit37.i.i ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit49.thread81.i.i ], [ %30, %72 ], [ %30, %60 ], [ %31, %90 ], [ %31, %78 ], [ %9, %111 ], [ %9, %102 ], [ %31, %132 ], [ %31, %119 ], [ %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit73.i.i ]
+  %.sink107.i.i = phi ptr [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit73.thread87.i.i ], [ %32, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit49.thread81.i.i ], [ %33, %72 ], [ %33, %60 ], [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit37.i.i ], [ %56, %90 ], [ %56, %78 ], [ %56, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit49.i.i ], [ %32, %111 ], [ %32, %102 ], [ %32, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit61.i.i ], [ %120, %132 ], [ %120, %119 ], [ %117, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit73.i.i ]
+  %.sink106.i.i = phi ptr [ %30, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit73.thread87.i.i ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit49.thread81.i.i ], [ %30, %72 ], [ %30, %60 ], [ %30, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit37.i.i ], [ %31, %90 ], [ %31, %78 ], [ %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit49.i.i ], [ %9, %111 ], [ %9, %102 ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit61.i.i ], [ %31, %132 ], [ %31, %119 ], [ %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110ExtTSPImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit73.i.i ]
   %137 = load ptr, ptr %0, align 8, !tbaa !207
   store ptr %.sink107.i.i, ptr %0, align 8, !tbaa !207
   store ptr %137, ptr %.sink106.i.i, align 8, !tbaa !207
@@ -12267,16 +12267,16 @@ _ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_
   br i1 %.not.i58.i.i, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ChainEdgeES2_St9_IdentityIS2_EZNS0_10CDSortImpl15mergeChainPairsEvEUlS2_S2_E_SaIS2_EE11equal_rangeERKS2_.exit.i, label %.lr.ph.i42.i.i, !llvm.loop !583
 
 _ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.thread.i.i: ; preds = %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.thread6.i.i, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.i.i, %18, %16, %8
-  %.sink.i.i = phi i64 [ 24, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.i.i ], [ 24, %18 ], [ 24, %8 ], [ 16, %16 ], [ 16, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.thread6.i.i ]
-  %.123.i.i = phi ptr [ %.02213.i.i, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.i.i ], [ %.02213.i.i, %18 ], [ %.02213.i.i, %8 ], [ %.014.i.i, %16 ], [ %.014.i.i, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.thread6.i.i ]
+  %.sink.i.i = phi i64 [ 24, %18 ], [ 24, %8 ], [ 24, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.i.i ], [ 16, %16 ], [ 16, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.thread6.i.i ]
+  %.123.i.i = phi ptr [ %.02213.i.i, %18 ], [ %.02213.i.i, %8 ], [ %.02213.i.i, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.i.i ], [ %.014.i.i, %16 ], [ %.014.i.i, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.thread6.i.i ]
   %55 = getelementptr i8, ptr %.014.i.i, i64 %.sink.i.i
   %.0.i.i = load ptr, ptr %55, align 8, !tbaa !385
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ChainEdgeES2_St9_IdentityIS2_EZNS0_10CDSortImpl15mergeChainPairsEvEUlS2_S2_E_SaIS2_EE11equal_rangeERKS2_.exit.i, label %8, !llvm.loop !584
 
 _ZNSt8_Rb_treeIPN12_GLOBAL__N_19ChainEdgeES2_St9_IdentityIS2_EZNS0_10CDSortImpl15mergeChainPairsEvEUlS2_S2_E_SaIS2_EE11equal_rangeERKS2_.exit.i: ; preds = %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.thread.i.i, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.thread.i54.i.i, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ChainEdgeES2_St9_IdentityIS2_EZNS0_10CDSortImpl15mergeChainPairsEvEUlS2_S2_E_SaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i.i, %1
-  %.sroa.05.0.i.i = phi ptr [ %.08.lcssa.i.i.i, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.thread.i54.i.i ], [ %.08.lcssa.i.i.i, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ChainEdgeES2_St9_IdentityIS2_EZNS0_10CDSortImpl15mergeChainPairsEvEUlS2_S2_E_SaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i.i ], [ %3, %1 ], [ %.123.i.i, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.thread.i.i ]
-  %.sroa.3.0.i.i = phi ptr [ %.19.i56.i.i, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.thread.i54.i.i ], [ %.02213.i.i, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ChainEdgeES2_St9_IdentityIS2_EZNS0_10CDSortImpl15mergeChainPairsEvEUlS2_S2_E_SaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i.i ], [ %3, %1 ], [ %.123.i.i, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.thread.i.i ]
+  %.sroa.05.0.i.i = phi ptr [ %.08.lcssa.i.i.i, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ChainEdgeES2_St9_IdentityIS2_EZNS0_10CDSortImpl15mergeChainPairsEvEUlS2_S2_E_SaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i.i ], [ %3, %1 ], [ %.08.lcssa.i.i.i, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.thread.i54.i.i ], [ %.123.i.i, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.thread.i.i ]
+  %.sroa.3.0.i.i = phi ptr [ %.02213.i.i, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_19ChainEdgeES2_St9_IdentityIS2_EZNS0_10CDSortImpl15mergeChainPairsEvEUlS2_S2_E_SaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit.i.i ], [ %3, %1 ], [ %.19.i56.i.i, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.thread.i54.i.i ], [ %.123.i.i, %_ZZN12_GLOBAL__N_110CDSortImpl15mergeChainPairsEvENKUlPNS_9ChainEdgeES2_E_clES2_S2_.exit.thread.i.i ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val.i.i = load ptr, ptr %57, align 8, !tbaa !365
@@ -12708,7 +12708,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110CDSortImpl12concatChainsE
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10CDSortImpl12concatChainsEvEUlS5_S5_E_EEEvT_SG_SG_SG_T0_.exit.i
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10CDSortImpl12concatChainsEvEUlS5_S5_E_EEEvT_SG_SG_SG_T0_.exit.i: ; preds = %91, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110CDSortImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit28.thread42.i.i, %79, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110CDSortImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit.thread39.i.i, %67, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110CDSortImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit26.thread40.i.i, %55, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110CDSortImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit.thread.i.i
-  %.sink59.i.i = phi ptr [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110CDSortImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit26.thread40.i.i ], [ %spec.select60.i.i, %91 ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110CDSortImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit.thread39.i.i ], [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110CDSortImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit.thread.i.i ], [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110CDSortImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit28.thread42.i.i ], [ %34, %55 ], [ %spec.select.i.i, %67 ], [ %10, %79 ]
+  %.sink59.i.i = phi ptr [ %34, %55 ], [ %34, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110CDSortImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit.thread.i.i ], [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110CDSortImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit26.thread40.i.i ], [ %10, %79 ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110CDSortImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit.thread39.i.i ], [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110CDSortImpl12concatChainsEvEUlPKNS2_6ChainTES6_E_EclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEESF_EEbT_T0_.exit28.thread42.i.i ], [ %spec.select.i.i, %67 ], [ %spec.select60.i.i, %91 ]
   %96 = load ptr, ptr %0, align 8, !tbaa !207
   %97 = load ptr, ptr %.sink59.i.i, align 8, !tbaa !207
   store ptr %97, ptr %0, align 8, !tbaa !207

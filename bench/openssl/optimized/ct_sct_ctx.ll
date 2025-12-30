@@ -30,7 +30,7 @@ define ptr @SCT_CTX_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %5, %7, %2, %11
-  %.0 = phi ptr [ null, %2 ], [ null, %11 ], [ %3, %7 ], [ %3, %5 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %2 ], [ %3, %7 ], [ %3, %5 ]
   ret ptr %.0
 }
 
@@ -160,7 +160,7 @@ ct_x509_get_ext.exit42:                           ; preds = %.thread
   br label %45
 
 42:                                               ; preds = %ct_x509_get_ext.exit42, %28, %25, %22, %13, %12, %ct_x509_get_ext.exit
-  %.033 = phi ptr [ null, %ct_x509_get_ext.exit ], [ null, %12 ], [ null, %13 ], [ null, %ct_x509_get_ext.exit42 ], [ %23, %25 ], [ null, %22 ], [ %23, %28 ]
+  %.033 = phi ptr [ null, %ct_x509_get_ext.exit ], [ null, %12 ], [ null, %13 ], [ null, %ct_x509_get_ext.exit42 ], [ null, %22 ], [ %23, %28 ], [ %23, %25 ]
   %43 = load ptr, ptr %4, align 8, !tbaa !18
   call void @CRYPTO_free(ptr noundef %43, ptr noundef nonnull @.str, i32 noundef 195) #4
   %44 = load ptr, ptr %5, align 8, !tbaa !18
@@ -255,7 +255,7 @@ ct_x509_get_ext.exit41:                           ; preds = %ct_x509_get_ext.exi
   br label %.critedge
 
 .critedge:                                        ; preds = %23, %34, %26, %31, %21, %19, %ct_x509_get_ext.exit41, %2
-  %.0.shrunk = phi i1 [ false, %21 ], [ true, %2 ], [ false, %ct_x509_get_ext.exit41 ], [ false, %19 ], [ %.not40, %34 ], [ false, %26 ], [ %not..not, %23 ], [ false, %31 ]
+  %.0.shrunk = phi i1 [ true, %2 ], [ false, %ct_x509_get_ext.exit41 ], [ false, %19 ], [ false, %21 ], [ %not..not, %23 ], [ false, %31 ], [ false, %26 ], [ %.not40, %34 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -342,8 +342,8 @@ define internal fastcc range(i32 0, 2) i32 @ct_public_key_hash(ptr %.80.val, ptr
   br label %26
 
 26:                                               ; preds = %23, %25, %19, %16, %13, %3
-  %.020 = phi ptr [ null, %3 ], [ %.1, %16 ], [ null, %13 ], [ %.1, %19 ], [ null, %25 ], [ null, %23 ]
-  %.0 = phi i32 [ 0, %3 ], [ 0, %16 ], [ 0, %13 ], [ 0, %19 ], [ 1, %25 ], [ 1, %23 ]
+  %.020 = phi ptr [ null, %3 ], [ %.1, %16 ], [ %.1, %19 ], [ null, %13 ], [ null, %25 ], [ null, %23 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %16 ], [ 0, %19 ], [ 0, %13 ], [ 1, %25 ], [ 1, %23 ]
   call void @EVP_MD_free(ptr noundef %6) #4
   call void @CRYPTO_free(ptr noundef %.020, ptr noundef nonnull @.str, i32 noundef 240) #4
   %27 = load ptr, ptr %4, align 8, !tbaa !18
@@ -381,7 +381,7 @@ define range(i32 0, 2) i32 @SCT_CTX_set1_pubkey(ptr noundef captures(none) %0, p
   br label %14
 
 14:                                               ; preds = %2, %12, %11
-  %.0 = phi i32 [ 0, %11 ], [ 1, %12 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %12 ], [ 0, %11 ], [ 0, %2 ]
   ret i32 %.0
 }
 

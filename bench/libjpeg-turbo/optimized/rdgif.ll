@@ -510,7 +510,7 @@ ReadByte.exit188:                                 ; preds = %201
   br label %268
 
 268:                                              ; preds = %219, %256, %264
-  %get_pixel_rows.sink = phi ptr [ @load_interlaced_image, %256 ], [ @load_interlaced_image, %264 ], [ @get_pixel_rows, %219 ]
+  %get_pixel_rows.sink = phi ptr [ @load_interlaced_image, %264 ], [ @load_interlaced_image, %256 ], [ @get_pixel_rows, %219 ]
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %get_pixel_rows.sink, ptr %269, align 8, !tbaa !78
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 60

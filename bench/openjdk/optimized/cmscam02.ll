@@ -492,7 +492,7 @@ NonlinearCompression.exit:                        ; preds = %67
   br label %ComputeCorrelates.exit
 
 ComputeCorrelates.exit:                           ; preds = %96, %85, %83, %101, %98, %93, %87
-  %.sroa.31301.0 = phi double [ %103, %101 ], [ 0.000000e+00, %83 ], [ 2.700000e+02, %87 ], [ %95, %93 ], [ 9.000000e+01, %85 ], [ %100, %98 ], [ 0.000000e+00, %96 ]
+  %.sroa.31301.0 = phi double [ 2.700000e+02, %87 ], [ %95, %93 ], [ %100, %98 ], [ %103, %101 ], [ 0.000000e+00, %83 ], [ 9.000000e+01, %85 ], [ 0.000000e+00, %96 ]
   %104 = tail call double @llvm.fmuladd.f64(double %69, double 2.000000e+00, double %70)
   %105 = fdiv double %71, 2.000000e+01
   %106 = fadd double %104, %105

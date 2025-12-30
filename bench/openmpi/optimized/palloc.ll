@@ -973,7 +973,7 @@ pmix_cmd_line_get_param.exit446.thread:           ; preds = %344, %pmix_cmd_line
   br i1 %.not.i452, label %pmix_cmd_line_get_param.exit454, label %.lr.ph.i449, !llvm.loop !37
 
 pmix_cmd_line_get_param.exit454:                  ; preds = %.lr.ph.i449, %355
-  %.08.i453 = phi ptr [ %.011.i450, %.lr.ph.i449 ], [ null, %355 ]
+  %.08.i453 = phi ptr [ null, %355 ], [ %.011.i450, %.lr.ph.i449 ]
   %.not295 = icmp eq ptr %.08.i453, null
   %spec.select = select i1 %.not295, i8 1, i8 2
   br label %.lr.ph.i457
@@ -993,7 +993,7 @@ pmix_cmd_line_get_param.exit454:                  ; preds = %.lr.ph.i449, %355
   br i1 %.not.i460, label %pmix_cmd_line_get_param.exit462, label %.lr.ph.i457, !llvm.loop !37
 
 pmix_cmd_line_get_param.exit462:                  ; preds = %.lr.ph.i457, %361
-  %.08.i461 = phi ptr [ %.011.i458, %.lr.ph.i457 ], [ null, %361 ]
+  %.08.i461 = phi ptr [ null, %361 ], [ %.011.i458, %.lr.ph.i457 ]
   %.not296 = icmp eq ptr %.08.i461, null
   %.1210 = select i1 %.not296, i8 %spec.select, i8 3
   br label %.lr.ph.i465
@@ -1519,8 +1519,8 @@ pmix_obj_run_destructors.exit518:                 ; preds = %.lr.ph.i515, %552
 597:                                              ; preds = %pmix_obj_new_tma.exit, %486
   br i1 %.not22.i, label %.thread591, label %.thread598
 
-.thread598:                                       ; preds = %590, %571, %566, %pmix_obj_update.exit, %594, %597
-  %.0200603 = phi i32 [ %483, %597 ], [ 0, %590 ], [ 0, %571 ], [ %537, %566 ], [ 0, %pmix_obj_update.exit ], [ 0, %594 ]
+.thread598:                                       ; preds = %pmix_obj_update.exit, %594, %590, %571, %566, %597
+  %.0200603 = phi i32 [ %483, %597 ], [ 0, %pmix_obj_update.exit ], [ 0, %594 ], [ 0, %590 ], [ 0, %571 ], [ %537, %566 ]
   %598 = call i32 @pthread_mutex_lock(ptr noundef nonnull %467) #16
   %599 = icmp eq i32 %598, 35
   br i1 %599, label %600, label %pmix_obj_update.exit316
@@ -1575,12 +1575,12 @@ pmix_obj_run_destructors.exit524:                 ; preds = %.lr.ph.i521, %607
   br label %.thread591
 
 .thread591:                                       ; preds = %563, %565, %462, %451, %437, %384, %370, %347, %336, %322, %308, %292, %276, %262, %251, %237, %223, %208, %194, %pmix_obj_update.exit316, %620, %618, %597
-  %.0200595 = phi i32 [ %483, %597 ], [ %.0200603, %pmix_obj_update.exit316 ], [ %.0200603, %620 ], [ %.0200603, %618 ], [ 0, %565 ], [ 0, %563 ], [ %461, %462 ], [ %450, %451 ], [ %436, %437 ], [ %383, %384 ], [ %369, %370 ], [ %346, %347 ], [ %335, %336 ], [ %321, %322 ], [ %307, %308 ], [ %291, %292 ], [ %275, %276 ], [ %261, %262 ], [ %250, %251 ], [ %236, %237 ], [ %222, %223 ], [ %207, %208 ], [ %193, %194 ]
+  %.0200595 = phi i32 [ %.0200603, %pmix_obj_update.exit316 ], [ %.0200603, %620 ], [ %.0200603, %618 ], [ %483, %597 ], [ 0, %565 ], [ 0, %563 ], [ %461, %462 ], [ %450, %451 ], [ %436, %437 ], [ %383, %384 ], [ %369, %370 ], [ %346, %347 ], [ %335, %336 ], [ %321, %322 ], [ %307, %308 ], [ %291, %292 ], [ %275, %276 ], [ %261, %262 ], [ %250, %251 ], [ %236, %237 ], [ %222, %223 ], [ %207, %208 ], [ %193, %194 ]
   %621 = call i32 @PMIx_tool_finalize() #16
   br label %622
 
 622:                                              ; preds = %.thread, %2, %.thread591
-  %.0 = phi i32 [ -27, %.thread ], [ %.0200595, %.thread591 ], [ -1, %2 ]
+  %.0 = phi i32 [ %.0200595, %.thread591 ], [ -1, %2 ], [ -27, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

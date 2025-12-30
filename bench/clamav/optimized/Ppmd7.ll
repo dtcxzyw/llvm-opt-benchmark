@@ -744,8 +744,8 @@ SplitBlock.exit.i:                                ; preds = %148, %._crit_edge.i
   br label %ShrinkUnits.exit
 
 ShrinkUnits.exit:                                 ; preds = %.ShrinkUnits.exit_crit_edge, %119, %SplitBlock.exit.i
-  %173 = phi ptr [ %167, %SplitBlock.exit.i ], [ %104, %119 ], [ %.pre, %.ShrinkUnits.exit_crit_edge ]
-  %.034.i = phi ptr [ %9, %SplitBlock.exit.i ], [ %106, %119 ], [ %9, %.ShrinkUnits.exit_crit_edge ]
+  %173 = phi ptr [ %104, %119 ], [ %167, %SplitBlock.exit.i ], [ %.pre, %.ShrinkUnits.exit_crit_edge ]
+  %.034.i = phi ptr [ %106, %119 ], [ %9, %SplitBlock.exit.i ], [ %9, %.ShrinkUnits.exit_crit_edge ]
   %174 = ptrtoint ptr %.034.i to i64
   %175 = ptrtoint ptr %173 to i64
   %176 = sub i64 %174, %175
@@ -1257,7 +1257,7 @@ AllocUnits.exit.thread:                           ; preds = %159
   br label %AllocUnits.exit
 
 AllocUnits.exit:                                  ; preds = %179, %182
-  %.0.i = phi ptr [ %183, %182 ], [ %174, %179 ]
+  %.0.i = phi ptr [ %174, %179 ], [ %183, %182 ]
   %.not198.not = icmp eq ptr %.0.i, null
   br i1 %.not198.not, label %.thread214, label %AllocUnits.exit._crit_edge
 
@@ -1365,7 +1365,7 @@ AllocUnits.exit207.thread:                        ; preds = %224
   br label %AllocUnits.exit207
 
 AllocUnits.exit207:                               ; preds = %239, %242
-  %.0.i205 = phi ptr [ %243, %242 ], [ %234, %239 ]
+  %.0.i205 = phi ptr [ %234, %239 ], [ %243, %242 ]
   %.not196.not = icmp eq ptr %.0.i205, null
   br i1 %.not196.not, label %.thread221, label %244
 
@@ -1705,7 +1705,7 @@ define internal fastcc ptr @CreateSuccessors(ptr noundef captures(none) %0, i32 
   br i1 %.not99, label %.thread, label %100
 
 .thread:                                          ; preds = %112, %114, %42
-  %.3 = phi ptr [ %44, %42 ], [ %.0, %114 ], [ null, %112 ]
+  %.3 = phi ptr [ %44, %42 ], [ null, %112 ], [ %.0, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.3
 }

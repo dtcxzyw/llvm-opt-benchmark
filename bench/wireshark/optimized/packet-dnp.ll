@@ -1414,8 +1414,8 @@ check_dnp3_header.exit:                           ; preds = %15, %13
   %18 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %check_dnp3_header.exit.thread
 
-check_dnp3_header.exit.thread:                    ; preds = %.thread.i, %15, %check_dnp3_header.exit
-  %.0 = phi i32 [ %18, %check_dnp3_header.exit ], [ 0, %15 ], [ 0, %.thread.i ]
+check_dnp3_header.exit.thread:                    ; preds = %15, %.thread.i, %check_dnp3_header.exit
+  %.0 = phi i32 [ %18, %check_dnp3_header.exit ], [ 0, %.thread.i ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -2977,9 +2977,9 @@ proto_item_set_generated.exit1255:                ; preds = %151, %153, %156
   br label %186
 
 186:                                              ; preds = %180, %175, %169, %163, %proto_item_set_generated.exit1246, %proto_item_set_generated.exit1243, %proto_item_set_generated.exit
-  %.01273 = phi i32 [ 0, %163 ], [ %79, %proto_item_set_generated.exit ], [ %101, %proto_item_set_generated.exit1243 ], [ %120, %proto_item_set_generated.exit1246 ], [ 0, %169 ], [ 0, %175 ], [ 0, %180 ]
-  %.01202 = phi i32 [ 1, %163 ], [ 2, %proto_item_set_generated.exit ], [ 4, %proto_item_set_generated.exit1243 ], [ 8, %proto_item_set_generated.exit1246 ], [ 2, %169 ], [ 4, %175 ], [ 1, %180 ]
-  %.01199 = phi i32 [ %165, %163 ], [ %69, %proto_item_set_generated.exit ], [ %91, %proto_item_set_generated.exit1243 ], [ %111, %proto_item_set_generated.exit1246 ], [ %171, %169 ], [ %176, %175 ], [ %182, %180 ]
+  %.01273 = phi i32 [ %79, %proto_item_set_generated.exit ], [ %101, %proto_item_set_generated.exit1243 ], [ %120, %proto_item_set_generated.exit1246 ], [ 0, %163 ], [ 0, %169 ], [ 0, %175 ], [ 0, %180 ]
+  %.01202 = phi i32 [ 2, %proto_item_set_generated.exit ], [ 4, %proto_item_set_generated.exit1243 ], [ 8, %proto_item_set_generated.exit1246 ], [ 1, %163 ], [ 2, %169 ], [ 4, %175 ], [ 1, %180 ]
+  %.01199 = phi i32 [ %69, %proto_item_set_generated.exit ], [ %91, %proto_item_set_generated.exit1243 ], [ %111, %proto_item_set_generated.exit1246 ], [ %165, %163 ], [ %171, %169 ], [ %176, %175 ], [ %182, %180 ]
   %187 = icmp sgt i32 %.01199, 0
   br i1 %187, label %188, label %191
 
@@ -2989,10 +2989,10 @@ proto_item_set_generated.exit1255:                ; preds = %151, %153, %156
   br label %.thread1291
 
 .thread1291:                                      ; preds = %188, %proto_item_set_generated.exit1249, %proto_item_set_generated.exit1252, %proto_item_set_generated.exit1255
-  %.0127312821299 = phi i32 [ %.01273, %188 ], [ %135, %proto_item_set_generated.exit1249 ], [ %160, %proto_item_set_generated.exit1255 ], [ %148, %proto_item_set_generated.exit1252 ]
-  %.0120212841297 = phi i32 [ %.01202, %188 ], [ 1, %proto_item_set_generated.exit1249 ], [ 4, %proto_item_set_generated.exit1255 ], [ 2, %proto_item_set_generated.exit1252 ]
-  %.0119912861295 = phi i32 [ %.01199, %188 ], [ 1, %proto_item_set_generated.exit1249 ], [ 1, %proto_item_set_generated.exit1255 ], [ 1, %proto_item_set_generated.exit1252 ]
-  %190 = phi ptr [ %spec.select1317, %188 ], [ @.str.938, %proto_item_set_generated.exit1249 ], [ @.str.938, %proto_item_set_generated.exit1255 ], [ @.str.938, %proto_item_set_generated.exit1252 ]
+  %.0127312821299 = phi i32 [ %160, %proto_item_set_generated.exit1255 ], [ %148, %proto_item_set_generated.exit1252 ], [ %135, %proto_item_set_generated.exit1249 ], [ %.01273, %188 ]
+  %.0120212841297 = phi i32 [ 4, %proto_item_set_generated.exit1255 ], [ 2, %proto_item_set_generated.exit1252 ], [ 1, %proto_item_set_generated.exit1249 ], [ %.01202, %188 ]
+  %.0119912861295 = phi i32 [ 1, %proto_item_set_generated.exit1255 ], [ 1, %proto_item_set_generated.exit1252 ], [ 1, %proto_item_set_generated.exit1249 ], [ %.01199, %188 ]
+  %190 = phi ptr [ @.str.938, %proto_item_set_generated.exit1255 ], [ @.str.938, %proto_item_set_generated.exit1252 ], [ @.str.938, %proto_item_set_generated.exit1249 ], [ %spec.select1317, %188 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.01209, ptr noundef nonnull @.str.937, i32 noundef %.0119912861295, ptr noundef nonnull %190)
   br label %200
 
@@ -3418,7 +3418,7 @@ dnp3_al_empty_obj.exit:                           ; preds = %dnp3_al_obj_procpre
   br label %378
 
 378:                                              ; preds = %362, %340, %318, %305, %307, %329, %335, %323, %351, %357, %345, %373, %367, %299
-  %.01203 = phi i32 [ %302, %305 ], [ %372, %367 ], [ %377, %373 ], [ %366, %362 ], [ %317, %307 ], [ %328, %323 ], [ %334, %329 ], [ %339, %335 ], [ %322, %318 ], [ %350, %345 ], [ %356, %351 ], [ %361, %357 ], [ %344, %340 ], [ %302, %299 ]
+  %.01203 = phi i32 [ %302, %305 ], [ %372, %367 ], [ %377, %373 ], [ %317, %307 ], [ %328, %323 ], [ %334, %329 ], [ %339, %335 ], [ %350, %345 ], [ %356, %351 ], [ %361, %357 ], [ %302, %299 ], [ %322, %318 ], [ %344, %340 ], [ %366, %362 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1112
 
@@ -4848,8 +4848,8 @@ switch.lookup1405:                                ; preds = %961
   br label %1112
 
 1112:                                             ; preds = %422, %401, %1073, %1090, %915, %916, %768, %785, %379, %379, %379, %379, %379, %379, %379, %379, %379, %379, %379, %379, %379, %379, %379, %434, %440, %454, %476, %515, %518, %610, %628, %677, %722, %765, %786, %850, %875, %892, %912, %922, %939, %950, %957, %977, %992, %1003, %1019, %1023, %1043, %1058, %1108, %378
-  %.11193 = phi i8 [ %.011921327, %378 ], [ %.011921327, %1108 ], [ %.011921327, %915 ], [ %.011921327, %1073 ], [ %.011921327, %1090 ], [ %spec.select, %401 ], [ %spec.select1239, %422 ], [ %.011921327, %434 ], [ %.011921327, %440 ], [ %.011921327, %454 ], [ %.011921327, %476 ], [ %.011921327, %515 ], [ %.011921327, %518 ], [ %.011921327, %610 ], [ %.011921327, %628 ], [ %.011921327, %677 ], [ %.011921327, %722 ], [ %.011921327, %765 ], [ %.011921327, %379 ], [ %.011921327, %786 ], [ %.011921327, %850 ], [ %.011921327, %875 ], [ %.011921327, %892 ], [ %.011921327, %912 ], [ %.011921327, %768 ], [ %.011921327, %922 ], [ %.011921327, %939 ], [ %.011921327, %950 ], [ %.011921327, %957 ], [ %.011921327, %977 ], [ %.011921327, %992 ], [ %.011921327, %1003 ], [ %.011921327, %1019 ], [ %.011921327, %1023 ], [ %.011921327, %1043 ], [ %.011921327, %1058 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %785 ], [ %.011921327, %916 ]
-  %.2 = phi i32 [ %.01203, %378 ], [ %1111, %1108 ], [ %297, %915 ], [ %1089, %1073 ], [ %1107, %1090 ], [ %spec.select1238, %401 ], [ %spec.select1240, %422 ], [ %435, %434 ], [ %443, %440 ], [ %469, %454 ], [ %482, %476 ], [ %502, %515 ], [ %547, %518 ], [ %.21205, %610 ], [ %639, %628 ], [ %.6, %677 ], [ %.9, %722 ], [ %.11, %765 ], [ %297, %379 ], [ %789, %786 ], [ %851, %850 ], [ %.12, %875 ], [ %.13, %892 ], [ %.14, %912 ], [ %782, %768 ], [ %938, %922 ], [ %949, %939 ], [ %956, %950 ], [ %960, %957 ], [ %991, %977 ], [ %1002, %992 ], [ %1018, %1003 ], [ %1022, %1019 ], [ %1042, %1023 ], [ %1057, %1043 ], [ %1072, %1058 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %782, %785 ], [ %919, %916 ]
+  %.11193 = phi i8 [ %.011921327, %378 ], [ %.011921327, %1108 ], [ %.011921327, %434 ], [ %.011921327, %440 ], [ %.011921327, %454 ], [ %.011921327, %476 ], [ %.011921327, %515 ], [ %.011921327, %518 ], [ %.011921327, %610 ], [ %.011921327, %628 ], [ %.011921327, %677 ], [ %.011921327, %722 ], [ %.011921327, %765 ], [ %.011921327, %786 ], [ %.011921327, %850 ], [ %.011921327, %875 ], [ %.011921327, %892 ], [ %.011921327, %912 ], [ %.011921327, %922 ], [ %.011921327, %939 ], [ %.011921327, %950 ], [ %.011921327, %957 ], [ %.011921327, %977 ], [ %.011921327, %992 ], [ %.011921327, %1003 ], [ %.011921327, %1019 ], [ %.011921327, %1023 ], [ %.011921327, %1043 ], [ %.011921327, %1058 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %379 ], [ %.011921327, %785 ], [ %.011921327, %768 ], [ %.011921327, %916 ], [ %.011921327, %915 ], [ %.011921327, %1090 ], [ %.011921327, %1073 ], [ %spec.select, %401 ], [ %spec.select1239, %422 ]
+  %.2 = phi i32 [ %.01203, %378 ], [ %1111, %1108 ], [ %435, %434 ], [ %443, %440 ], [ %469, %454 ], [ %482, %476 ], [ %502, %515 ], [ %547, %518 ], [ %.21205, %610 ], [ %639, %628 ], [ %.6, %677 ], [ %.9, %722 ], [ %.11, %765 ], [ %789, %786 ], [ %851, %850 ], [ %.12, %875 ], [ %.13, %892 ], [ %.14, %912 ], [ %938, %922 ], [ %949, %939 ], [ %956, %950 ], [ %960, %957 ], [ %991, %977 ], [ %1002, %992 ], [ %1018, %1003 ], [ %1022, %1019 ], [ %1042, %1023 ], [ %1057, %1043 ], [ %1072, %1058 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %297, %379 ], [ %782, %785 ], [ %782, %768 ], [ %919, %916 ], [ %297, %915 ], [ %1107, %1090 ], [ %1089, %1073 ], [ %spec.select1238, %401 ], [ %spec.select1240, %422 ]
   %1113 = add i32 %.41277, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -5072,14 +5072,14 @@ default.unreachable82:                            ; preds = %28
   unreachable
 
 60:                                               ; preds = %33, %58, %48, %46, %36
-  %.067.in = phi ptr [ @hf_dnp3_al_ctrq_b0, %58 ], [ @hf_dnp3_al_biq_b0, %33 ], [ @hf_dnp3_al_aoq_b0, %48 ], [ @hf_dnp3_al_boq_b0, %36 ], [ @hf_dnp3_al_aiq_b0, %46 ]
-  %.066.in = phi ptr [ @hf_dnp3_al_ctrq_b1, %58 ], [ @hf_dnp3_al_biq_b1, %33 ], [ @hf_dnp3_al_aoq_b1, %48 ], [ @hf_dnp3_al_boq_b1, %36 ], [ @hf_dnp3_al_aiq_b1, %46 ]
-  %.065.in = phi ptr [ @hf_dnp3_al_ctrq_b2, %58 ], [ @hf_dnp3_al_biq_b2, %33 ], [ @hf_dnp3_al_aoq_b2, %48 ], [ @hf_dnp3_al_boq_b2, %36 ], [ @hf_dnp3_al_aiq_b2, %46 ]
-  %.064.in = phi ptr [ @hf_dnp3_al_ctrq_b3, %58 ], [ @hf_dnp3_al_biq_b3, %33 ], [ @hf_dnp3_al_aoq_b3, %48 ], [ @hf_dnp3_al_boq_b3, %36 ], [ @hf_dnp3_al_aiq_b3, %46 ]
-  %.063.in = phi ptr [ @hf_dnp3_al_ctrq_b4, %58 ], [ @hf_dnp3_al_biq_b4, %33 ], [ @hf_dnp3_al_aoq_b4, %48 ], [ @hf_dnp3_al_boq_b4, %36 ], [ @hf_dnp3_al_aiq_b4, %46 ]
-  %.062.in = phi ptr [ @hf_dnp3_al_ctrq_b5, %58 ], [ @hf_dnp3_al_biq_b5, %33 ], [ @hf_dnp3_al_aoq_b5, %48 ], [ @hf_dnp3_al_boq_b5, %36 ], [ @hf_dnp3_al_aiq_b5, %46 ]
-  %.061.in = phi ptr [ @hf_dnp3_al_ctrq_b6, %58 ], [ %spec.select, %33 ], [ @hf_dnp3_al_aoq_b6, %48 ], [ @hf_dnp3_al_boq_b6, %36 ], [ @hf_dnp3_al_aiq_b6, %46 ]
-  %.0 = phi i32 [ %59, %58 ], [ %spec.select80, %33 ], [ %49, %48 ], [ %37, %36 ], [ %47, %46 ]
+  %.067.in = phi ptr [ @hf_dnp3_al_boq_b0, %36 ], [ @hf_dnp3_al_aiq_b0, %46 ], [ @hf_dnp3_al_aoq_b0, %48 ], [ @hf_dnp3_al_ctrq_b0, %58 ], [ @hf_dnp3_al_biq_b0, %33 ]
+  %.066.in = phi ptr [ @hf_dnp3_al_boq_b1, %36 ], [ @hf_dnp3_al_aiq_b1, %46 ], [ @hf_dnp3_al_aoq_b1, %48 ], [ @hf_dnp3_al_ctrq_b1, %58 ], [ @hf_dnp3_al_biq_b1, %33 ]
+  %.065.in = phi ptr [ @hf_dnp3_al_boq_b2, %36 ], [ @hf_dnp3_al_aiq_b2, %46 ], [ @hf_dnp3_al_aoq_b2, %48 ], [ @hf_dnp3_al_ctrq_b2, %58 ], [ @hf_dnp3_al_biq_b2, %33 ]
+  %.064.in = phi ptr [ @hf_dnp3_al_boq_b3, %36 ], [ @hf_dnp3_al_aiq_b3, %46 ], [ @hf_dnp3_al_aoq_b3, %48 ], [ @hf_dnp3_al_ctrq_b3, %58 ], [ @hf_dnp3_al_biq_b3, %33 ]
+  %.063.in = phi ptr [ @hf_dnp3_al_boq_b4, %36 ], [ @hf_dnp3_al_aiq_b4, %46 ], [ @hf_dnp3_al_aoq_b4, %48 ], [ @hf_dnp3_al_ctrq_b4, %58 ], [ @hf_dnp3_al_biq_b4, %33 ]
+  %.062.in = phi ptr [ @hf_dnp3_al_boq_b5, %36 ], [ @hf_dnp3_al_aiq_b5, %46 ], [ @hf_dnp3_al_aoq_b5, %48 ], [ @hf_dnp3_al_ctrq_b5, %58 ], [ @hf_dnp3_al_biq_b5, %33 ]
+  %.061.in = phi ptr [ @hf_dnp3_al_boq_b6, %36 ], [ @hf_dnp3_al_aiq_b6, %46 ], [ @hf_dnp3_al_aoq_b6, %48 ], [ @hf_dnp3_al_ctrq_b6, %58 ], [ %spec.select, %33 ]
+  %.0 = phi i32 [ %37, %36 ], [ %47, %46 ], [ %49, %48 ], [ %59, %58 ], [ %spec.select80, %33 ]
   %.062 = load i32, ptr %.062.in, align 4
   %.063 = load i32, ptr %.063.in, align 4
   %.064 = load i32, ptr %.064.in, align 4
@@ -5183,7 +5183,7 @@ define internal noundef zeroext i1 @dnp3_udp_check_header(ptr readnone captures(
   br label %check_dnp3_header.exit
 
 check_dnp3_header.exit:                           ; preds = %.thread.i, %15, %18
-  %.0.i = phi i1 [ false, %15 ], [ true, %18 ], [ false, %.thread.i ]
+  %.0.i = phi i1 [ true, %18 ], [ false, %.thread.i ], [ false, %15 ]
   ret i1 %.0.i
 }
 
@@ -5275,7 +5275,7 @@ define internal zeroext i1 @dnp3_udp_check_header_heur(ptr readnone captures(non
   br label %check_dnp3_header.exit
 
 check_dnp3_header.exit:                           ; preds = %12, %4, %7
-  %.0.i = phi i1 [ %.not16.i, %12 ], [ false, %4 ], [ false, %7 ]
+  %.0.i = phi i1 [ false, %7 ], [ false, %4 ], [ %.not16.i, %12 ]
   ret i1 %.0.i
 }
 

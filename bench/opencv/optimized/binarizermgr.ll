@@ -455,8 +455,8 @@ _ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split: ; preds = %44, %71, %98, %125
   br label %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit
 
 _ZN5zxing3RefINS_9BinarizerEED2Ev.exit:           ; preds = %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split, %144, %147, %117, %120, %90, %93, %63, %66, %36, %39
-  %.sink82 = phi ptr [ %100, %117 ], [ %19, %36 ], [ %46, %63 ], [ %73, %90 ], [ %127, %147 ], [ %19, %39 ], [ %100, %120 ], [ %46, %66 ], [ %127, %144 ], [ %73, %93 ], [ %.sink82.ph, %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split ]
-  %.pn24.pn = phi { ptr, i32 } [ %118, %117 ], [ %37, %36 ], [ %64, %63 ], [ %91, %90 ], [ %145, %147 ], [ %37, %39 ], [ %118, %120 ], [ %64, %66 ], [ %145, %144 ], [ %91, %93 ], [ %.pn24.pn.ph, %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split ]
+  %.sink82 = phi ptr [ %19, %39 ], [ %19, %36 ], [ %46, %66 ], [ %46, %63 ], [ %73, %93 ], [ %73, %90 ], [ %100, %120 ], [ %100, %117 ], [ %127, %147 ], [ %127, %144 ], [ %.sink82.ph, %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split ]
+  %.pn24.pn = phi { ptr, i32 } [ %37, %39 ], [ %37, %36 ], [ %64, %66 ], [ %64, %63 ], [ %91, %93 ], [ %91, %90 ], [ %118, %120 ], [ %118, %117 ], [ %145, %147 ], [ %145, %144 ], [ %.pn24.pn.ph, %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit.sink.split ]
   call void @_ZdlPv(ptr noundef nonnull %.sink82) #13
   resume { ptr, i32 } %.pn24.pn
 }

@@ -925,7 +925,7 @@ tgq_idct_put_mb_dconly.exit.i:                    ; preds = %524, %tgq_dconly.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %tgq_decode_mb.exit.thread65
 
-tgq_decode_mb.exit.thread70:                      ; preds = %410, %337, %315, %.loopexit
+tgq_decode_mb.exit.thread70:                      ; preds = %410, %315, %337, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %tgq_decode_mb.exit.thread
 
@@ -936,8 +936,8 @@ tgq_decode_mb.exit:                               ; preds = %copy_block8.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %tgq_decode_mb.exit.thread65
 
-tgq_decode_mb.exit.thread65:                      ; preds = %tgq_idct_put_mb_dconly.exit.i, %301, %tgq_decode_mb.exit
-  %.sroa.0.868 = phi ptr [ %.sroa.0.6, %tgq_decode_mb.exit ], [ %303, %301 ], [ %.sroa.0.3, %tgq_idct_put_mb_dconly.exit.i ]
+tgq_decode_mb.exit.thread65:                      ; preds = %301, %tgq_idct_put_mb_dconly.exit.i, %tgq_decode_mb.exit
+  %.sroa.0.868 = phi ptr [ %.sroa.0.6, %tgq_decode_mb.exit ], [ %.sroa.0.3, %tgq_idct_put_mb_dconly.exit.i ], [ %303, %301 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %529 = load i32, ptr %87, align 8, !tbaa !40
   %530 = add nsw i32 %529, 15
@@ -974,7 +974,7 @@ tgq_decode_mb.exit.thread65:                      ; preds = %tgq_idct_put_mb_dco
   br label %tgq_decode_mb.exit.thread
 
 tgq_decode_mb.exit.thread:                        ; preds = %120, %170, %152, %tgq_decode_mb.exit.thread70, %._crit_edge94, %tgq_calculate_qtable.exit, %45, %544, %11
-  %.0 = phi i32 [ -1094995529, %11 ], [ %545, %544 ], [ %51, %45 ], [ %77, %tgq_calculate_qtable.exit ], [ -1094995529, %tgq_decode_mb.exit.thread70 ], [ %542, %._crit_edge94 ], [ -1094995529, %170 ], [ -1094995529, %152 ], [ -1094995529, %120 ]
+  %.0 = phi i32 [ -1094995529, %11 ], [ %545, %544 ], [ %51, %45 ], [ %77, %tgq_calculate_qtable.exit ], [ %542, %._crit_edge94 ], [ -1094995529, %tgq_decode_mb.exit.thread70 ], [ -1094995529, %152 ], [ -1094995529, %170 ], [ -1094995529, %120 ]
   ret i32 %.0
 }
 

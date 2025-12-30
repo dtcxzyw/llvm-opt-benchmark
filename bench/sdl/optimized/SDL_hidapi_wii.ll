@@ -140,7 +140,7 @@ define internal zeroext i1 @HIDAPI_DriverWii_InitDevice(ptr noundef %0) #0 {
   br label %GetExtensionType.exit.i
 
 GetExtensionType.exit.i:                          ; preds = %28, %27, %26, %25, %23
-  %.0.i.i = phi i32 [ 0, %28 ], [ 131, %27 ], [ 129, %25 ], [ 130, %26 ], [ 128, %23 ]
+  %.0.i.i = phi i32 [ 0, %28 ], [ 129, %25 ], [ 130, %26 ], [ 131, %27 ], [ 128, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ReadExtensionControllerType.exit
 
@@ -410,7 +410,7 @@ ReadInput.exit:                                   ; preds = %ReadInput.exit.lr.p
   br label %91
 
 91:                                               ; preds = %89, %87, %84
-  %.0.i.i.i = phi i32 [ 70, %87 ], [ 100, %84 ], [ %..i.i.i, %89 ]
+  %.0.i.i.i = phi i32 [ 100, %84 ], [ 70, %87 ], [ %..i.i.i, %89 ]
   call void @SDL_SendJoystickPowerInfo(ptr noundef nonnull %.fr, i32 noundef 1, i32 noundef %.0.i.i.i) #7
   %.pr.i.i = load i32, ptr %29, align 4
   switch i32 %.pr.i.i, label %92 [
@@ -556,7 +556,7 @@ ReadRegister.exit.i.i:                            ; preds = %WriteOutput.exit.i.
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %139, %136, %ReadRegister.exit.i.i, %128, %124
-  %.sink.i.i = phi i32 [ 2, %ReadRegister.exit.i.i ], [ 0, %124 ], [ 0, %128 ], [ 0, %139 ], [ 0, %136 ]
+  %.sink.i.i = phi i32 [ 2, %ReadRegister.exit.i.i ], [ 0, %128 ], [ 0, %124 ], [ 0, %139 ], [ 0, %136 ]
   store i32 %.sink.i.i, ptr %43, align 8
   br label %140
 
@@ -809,7 +809,7 @@ HandleInput.exit:                                 ; preds = %199, %HandleButtonP
   br i1 %203, label %ReadInput.exit.thread, label %ReadInput.exit, !llvm.loop !7
 
 ReadInput.exit.thread:                            ; preds = %ReadInput.exit, %HandleInput.exit, %ReadInput.exit.us, %HandleInput.exit.us, %16
-  %.0.i49 = phi i32 [ 0, %HandleInput.exit.us ], [ 0, %16 ], [ %62, %ReadInput.exit.us ], [ 0, %HandleInput.exit ], [ %71, %ReadInput.exit ]
+  %.0.i49 = phi i32 [ 0, %16 ], [ 0, %HandleInput.exit.us ], [ %62, %ReadInput.exit.us ], [ 0, %HandleInput.exit ], [ %71, %ReadInput.exit ]
   %204 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %205 = load i64, ptr %204, align 8
   %206 = add i64 %205, 3000
@@ -1501,7 +1501,7 @@ define internal fastcc noundef zeroext i1 @ParseExtensionIdentifyResponse(ptr no
   br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !12
 
 .loopexit:                                        ; preds = %29, %20, %24, %21, %13, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %13 ], [ true, %20 ], [ false, %21 ], [ false, %24 ], [ true, %29 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %13 ], [ false, %21 ], [ false, %24 ], [ true, %20 ], [ true, %29 ]
   ret i1 %.0
 }
 
@@ -1925,7 +1925,7 @@ switch.lookup.i.i:                                ; preds = %107
   br label %UpdatePowerLevelWiiU.exit.i
 
 UpdatePowerLevelWiiU.exit.i:                      ; preds = %switch.lookup.i.i, %107, %100
-  %.0.i29.i = phi i32 [ %switch.offset.i.i, %switch.lookup.i.i ], [ 100, %100 ], [ 3, %107 ]
+  %.0.i29.i = phi i32 [ 100, %100 ], [ %switch.offset.i.i, %switch.lookup.i.i ], [ 3, %107 ]
   %spec.select17.i.i = select i1 %.not16.i.i, i32 4, i32 1
   %110 = and i32 %103, 8
   %.not.i30.i = icmp eq i32 %110, 0

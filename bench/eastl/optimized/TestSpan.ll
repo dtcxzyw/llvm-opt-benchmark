@@ -459,8 +459,8 @@ land.rhs.i:
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %land.rhs.i
-  %first2.addr.06.i.i = phi ptr [ %incdec.ptr2.i.i, %for.body.i.i ], [ @__const._Z18TestSpanComparisonRi.arr2, %land.rhs.i ]
-  %first1.addr.05.i.i.idx = phi i64 [ %first1.addr.05.i.i.add, %for.body.i.i ], [ 0, %land.rhs.i ]
+  %first2.addr.06.i.i = phi ptr [ @__const._Z18TestSpanComparisonRi.arr2, %land.rhs.i ], [ %incdec.ptr2.i.i, %for.body.i.i ]
+  %first1.addr.05.i.i.idx = phi i64 [ 0, %land.rhs.i ], [ %first1.addr.05.i.i.add, %for.body.i.i ]
   %first1.addr.05.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first1.addr.05.i.i.idx
   %0 = load i32, ptr %first1.addr.05.i.i.ptr, align 4
   %1 = load i32, ptr %first2.addr.06.i.i, align 4
@@ -500,7 +500,7 @@ _ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EE
   br label %for.body.i.i.i17
 
 for.body.i.i.i17:                                 ; preds = %if.end.i.i.i, %_ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit
-  %first2.addr.017.i.i.i.idx = phi i64 [ %first2.addr.017.i.i.i.add, %if.end.i.i.i ], [ 0, %_ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit ]
+  %first2.addr.017.i.i.i.idx = phi i64 [ 0, %_ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit ], [ %first2.addr.017.i.i.i.add, %if.end.i.i.i ]
   %first2.addr.017.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr1, i64 %first2.addr.017.i.i.i.idx
   %first1.addr.016.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.i.idx
   %4 = load i32, ptr %first1.addr.016.i.i.i.ptr, align 4
@@ -543,7 +543,7 @@ _ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EE
   br label %for.body.i.i.i52
 
 for.body.i.i.i52:                                 ; preds = %if.end.i.i.i56, %_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit
-  %first2.addr.017.i.i.i53.idx = phi i64 [ %first2.addr.017.i.i.i53.add, %if.end.i.i.i56 ], [ 0, %_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit ]
+  %first2.addr.017.i.i.i53.idx = phi i64 [ 0, %_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit ], [ %first2.addr.017.i.i.i53.add, %if.end.i.i.i56 ]
   %first2.addr.017.i.i.i53.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr1, i64 %first2.addr.017.i.i.i53.idx
   %first1.addr.016.i.i.i54.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.i53.idx
   %8 = load i32, ptr %first1.addr.016.i.i.i54.ptr, align 4

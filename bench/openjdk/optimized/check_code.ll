@@ -1623,8 +1623,8 @@ check_and_push_string_utf.exit352.i.i:            ; preds = %657, %653
   br label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %672, %.preheader.i.i.i, %.loopexit.loopexit.i.i.i, %678, %667, %665
-  %.4.i.i.i = phi ptr [ %.016.i.i.i, %667 ], [ %.016.i.i.i, %665 ], [ %669, %.loopexit.loopexit.i.i.i ], [ %.3.i.i.i, %.preheader.i.i.i ], [ %.016.i.i.i, %678 ], [ %.2.i.i.i, %672 ]
-  %.1.i.i.i = phi i32 [ %668, %667 ], [ %.0.i.i.i140, %665 ], [ %680, %.loopexit.loopexit.i.i.i ], [ %671, %.preheader.i.i.i ], [ %679, %678 ], [ %671, %672 ]
+  %.4.i.i.i = phi ptr [ %.016.i.i.i, %667 ], [ %.016.i.i.i, %678 ], [ %.016.i.i.i, %665 ], [ %669, %.loopexit.loopexit.i.i.i ], [ %.3.i.i.i, %.preheader.i.i.i ], [ %.2.i.i.i, %672 ]
+  %.1.i.i.i = phi i32 [ %668, %667 ], [ %679, %678 ], [ %.0.i.i.i140, %665 ], [ %680, %.loopexit.loopexit.i.i.i ], [ %671, %.preheader.i.i.i ], [ %671, %672 ]
   %681 = getelementptr inbounds nuw i8, ptr %.4.i.i.i, i64 1
   br label %665, !llvm.loop !19
 
@@ -2009,7 +2009,7 @@ verify_opcode_operands.exit.i:                    ; preds = %814, %809, %800, %s
   br label %847
 
 847:                                              ; preds = %845, %835
-  %.0.i.i134.i = phi ptr [ %837, %835 ], [ %840, %845 ]
+  %.0.i.i134.i = phi ptr [ %840, %845 ], [ %837, %835 ]
   store ptr %.0.i.i134.i, ptr %20, align 8
   %848 = getelementptr inbounds nuw i8, ptr %.0.i.i134.i, i64 16
   store ptr %848, ptr %29, align 8
@@ -3618,7 +3618,7 @@ define internal fastcc i32 @instruction_length(ptr noundef %0, ptr noundef readn
   br label %60
 
 60:                                               ; preds = %52, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %46, %34, %27, %11, %4, %55, %51, %50, %37, %20
-  %.0 = phi i32 [ 4, %48 ], [ -1, %52 ], [ %59, %55 ], [ 6, %50 ], [ -1, %4 ], [ %26, %20 ], [ -1, %11 ], [ -1, %27 ], [ %45, %37 ], [ -1, %34 ], [ -1, %51 ], [ -1, %46 ], [ 4, %48 ], [ 4, %48 ], [ 4, %48 ], [ 4, %48 ], [ 4, %48 ], [ 4, %48 ], [ 4, %48 ], [ 4, %48 ], [ 4, %48 ], [ 4, %48 ]
+  %.0 = phi i32 [ %59, %55 ], [ %26, %20 ], [ %45, %37 ], [ -1, %51 ], [ 6, %50 ], [ -1, %4 ], [ -1, %11 ], [ -1, %27 ], [ -1, %34 ], [ -1, %46 ], [ 4, %48 ], [ 4, %48 ], [ 4, %48 ], [ 4, %48 ], [ 4, %48 ], [ 4, %48 ], [ 4, %48 ], [ 4, %48 ], [ 4, %48 ], [ 4, %48 ], [ 4, %48 ], [ -1, %52 ]
   ret i32 %.0
 }
 
@@ -4033,7 +4033,7 @@ free_block.exit.i.i.us:                           ; preds = %192, %191, %182
   br label %pop_and_free.exit.i.us
 
 pop_and_free.exit.i.us:                           ; preds = %198, %197, %194, %161, %158, %115
-  %.0297.i.us = phi ptr [ %201, %198 ], [ %7, %115 ], [ %7, %197 ], [ %7, %194 ], [ %7, %158 ], [ %7, %161 ]
+  %.0297.i.us = phi ptr [ %201, %198 ], [ %7, %115 ], [ %7, %194 ], [ %7, %197 ], [ %7, %158 ], [ %7, %161 ]
   %202 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0297.i.us) #21
   %203 = icmp sgt i64 %202, 0
   br i1 %203, label %.lr.ph.i.us, label %._crit_edge.i.us
@@ -4275,9 +4275,9 @@ pop_and_free.exit.i.us:                           ; preds = %198, %197, %194, %1
   br i1 %.not358.i.us, label %295, label %.split424.us
 
 295:                                              ; preds = %294, %293, %292, %280, %280, %280, %280, %274, %272, %270, %266, %265, %264, %262, %233, %223, %219
-  %296 = phi i32 [ %212, %266 ], [ %212, %223 ], [ 2, %294 ], [ 4, %265 ], [ 3, %293 ], [ %212, %280 ], [ %212, %280 ], [ %289, %292 ], [ %212, %280 ], [ %212, %219 ], [ %212, %274 ], [ 6, %264 ], [ %212, %272 ], [ %212, %262 ], [ %212, %270 ], [ %212, %233 ], [ %212, %280 ]
-  %.0303.i.us = phi i32 [ %215, %266 ], [ %215, %223 ], [ %215, %294 ], [ %215, %265 ], [ %215, %293 ], [ %215, %280 ], [ %215, %280 ], [ %215, %292 ], [ %215, %280 ], [ %215, %219 ], [ %215, %274 ], [ %215, %264 ], [ %215, %272 ], [ %215, %262 ], [ %215, %270 ], [ 2, %233 ], [ %215, %280 ]
-  %.1.i.us = phi ptr [ %208, %266 ], [ %spec.select.i.us, %223 ], [ %208, %294 ], [ %208, %265 ], [ %208, %293 ], [ %208, %280 ], [ %208, %280 ], [ %208, %292 ], [ %208, %280 ], [ %208, %219 ], [ %208, %274 ], [ %208, %264 ], [ %208, %272 ], [ %263, %262 ], [ %208, %270 ], [ %237, %233 ], [ %208, %280 ]
+  %296 = phi i32 [ 2, %294 ], [ 3, %293 ], [ %212, %280 ], [ %289, %292 ], [ %212, %274 ], [ %212, %272 ], [ %212, %270 ], [ %212, %266 ], [ 4, %265 ], [ 6, %264 ], [ %212, %262 ], [ %212, %233 ], [ %212, %219 ], [ %212, %280 ], [ %212, %280 ], [ %212, %280 ], [ %212, %223 ]
+  %.0303.i.us = phi i32 [ %215, %294 ], [ %215, %293 ], [ %215, %280 ], [ %215, %292 ], [ %215, %274 ], [ %215, %272 ], [ %215, %270 ], [ %215, %266 ], [ %215, %265 ], [ %215, %264 ], [ %215, %262 ], [ 2, %233 ], [ %215, %219 ], [ %215, %280 ], [ %215, %280 ], [ %215, %280 ], [ %215, %223 ]
+  %.1.i.us = phi ptr [ %208, %294 ], [ %208, %293 ], [ %208, %280 ], [ %208, %292 ], [ %208, %274 ], [ %208, %272 ], [ %208, %270 ], [ %208, %266 ], [ %208, %265 ], [ %208, %264 ], [ %263, %262 ], [ %237, %233 ], [ %208, %219 ], [ %208, %280 ], [ %208, %280 ], [ %208, %280 ], [ %spec.select.i.us, %223 ]
   %297 = sub nsw i32 %.0296462.i.us, %.0303.i.us
   %298 = getelementptr inbounds nuw i8, ptr %.0295463.i.us, i64 8
   %299 = load ptr, ptr %298, align 8
@@ -4487,7 +4487,7 @@ check_and_push_string_utf.exit378.i.us:           ; preds = %324, %321
   br i1 %or.cond23.i.us, label %386, label %.split447.us
 
 386:                                              ; preds = %383, %368, %364, %351, %347, %._crit_edge521.i.us, %check_and_push_string_utf.exit378.i.us
-  %.0304.i.us = phi i64 [ 1, %._crit_edge521.i.us ], [ 0, %check_and_push_string_utf.exit378.i.us ], [ 1, %347 ], [ 1, %351 ], [ 1, %364 ], [ 1, %368 ], [ 1, %383 ]
+  %.0304.i.us = phi i64 [ 0, %check_and_push_string_utf.exit378.i.us ], [ 1, %347 ], [ 1, %351 ], [ 1, %._crit_edge521.i.us ], [ 1, %383 ], [ 1, %368 ], [ 1, %364 ]
   %387 = getelementptr inbounds nuw i8, ptr %316, i64 1
   store ptr %387, ptr %13, align 8
   %388 = load i8, ptr %387, align 1
@@ -5175,9 +5175,9 @@ CCalloc.exit100.us:                               ; preds = %669, %._crit_edge.i
   br label %.critedge.i.us
 
 .critedge.i.us:                                   ; preds = %692, %._crit_edge217.i.us, %638, %637, %623, %pop_stack.exit.us, %pop_stack.exit.us, %pop_stack.exit.us, %pop_stack.exit.us, %pop_stack.exit.us
-  %695 = phi i1 [ true, %623 ], [ false, %637 ], [ true, %638 ], [ true, %692 ], [ false, %._crit_edge217.i.us ], [ false, %pop_stack.exit.us ], [ false, %pop_stack.exit.us ], [ false, %pop_stack.exit.us ], [ false, %pop_stack.exit.us ], [ false, %pop_stack.exit.us ]
-  %.0149.i.us = phi ptr [ %476, %623 ], [ %476, %637 ], [ %476, %638 ], [ %674, %692 ], [ %674, %._crit_edge217.i.us ], [ %476, %pop_stack.exit.us ], [ %476, %pop_stack.exit.us ], [ %476, %pop_stack.exit.us ], [ %476, %pop_stack.exit.us ], [ %476, %pop_stack.exit.us ]
-  %.0.i.us = phi i32 [ %474, %623 ], [ %474, %637 ], [ %474, %638 ], [ %645, %692 ], [ %645, %._crit_edge217.i.us ], [ %474, %pop_stack.exit.us ], [ %474, %pop_stack.exit.us ], [ %474, %pop_stack.exit.us ], [ %474, %pop_stack.exit.us ], [ %474, %pop_stack.exit.us ]
+  %695 = phi i1 [ false, %637 ], [ true, %638 ], [ true, %692 ], [ false, %._crit_edge217.i.us ], [ true, %623 ], [ false, %pop_stack.exit.us ], [ false, %pop_stack.exit.us ], [ false, %pop_stack.exit.us ], [ false, %pop_stack.exit.us ], [ false, %pop_stack.exit.us ]
+  %.0149.i.us = phi ptr [ %476, %637 ], [ %476, %638 ], [ %674, %692 ], [ %674, %._crit_edge217.i.us ], [ %476, %623 ], [ %476, %pop_stack.exit.us ], [ %476, %pop_stack.exit.us ], [ %476, %pop_stack.exit.us ], [ %476, %pop_stack.exit.us ], [ %476, %pop_stack.exit.us ]
+  %.0.i.us = phi i32 [ %474, %637 ], [ %474, %638 ], [ %645, %692 ], [ %645, %._crit_edge217.i.us ], [ %474, %623 ], [ %474, %pop_stack.exit.us ], [ %474, %pop_stack.exit.us ], [ %474, %pop_stack.exit.us ], [ %474, %pop_stack.exit.us ], [ %474, %pop_stack.exit.us ]
   %696 = icmp sgt i32 %.fr221.i.us, 0
   br i1 %696, label %.preheader.i43.us, label %update_registers.exit.us
 
@@ -5397,10 +5397,10 @@ copy_masks.exit181.i.us:                          ; preds = %801, %.lr.ph220.i.u
   br i1 %exitcond269.not.i.us, label %update_registers.exit.us, label %.lr.ph220.i.us, !llvm.loop !45
 
 update_registers.exit.us:                         ; preds = %490, %503, %..loopexit_crit_edge.split.us.us.i.us, %718, %copy_masks.exit181.i.us, %copy_masks.exit181.preheader.i.us, %.critedge.i.us, %add_to_masks.exit.i.us, %491, %483, %pop_stack.exit.us
-  %.0189.i.us = phi i32 [ %474, %503 ], [ %474, %491 ], [ %.0.i.us, %.critedge.i.us ], [ %474, %pop_stack.exit.us ], [ %474, %add_to_masks.exit.i.us ], [ %.0.i.us, %copy_masks.exit181.preheader.i.us ], [ %474, %483 ], [ %.0.i.us, %copy_masks.exit181.i.us ], [ %.0.i.us, %718 ], [ %474, %..loopexit_crit_edge.split.us.us.i.us ], [ %474, %490 ]
-  %.0148188.i.us = phi i32 [ %.fr221.i.us, %503 ], [ %.fr221.i.us, %491 ], [ %.fr221.i.us, %.critedge.i.us ], [ %.fr221.i.us, %pop_stack.exit.us ], [ %599, %add_to_masks.exit.i.us ], [ %.fr221.i.us, %copy_masks.exit181.preheader.i.us ], [ %.fr221.i.us, %483 ], [ %.fr221.i.us, %copy_masks.exit181.i.us ], [ %.fr221.i.us, %718 ], [ %.fr221.i.us, %..loopexit_crit_edge.split.us.us.i.us ], [ %.fr221.i.us, %490 ]
-  %.0149187.i.us = phi ptr [ %495, %503 ], [ %495, %491 ], [ %.0149.i.us, %.critedge.i.us ], [ %476, %pop_stack.exit.us ], [ %476, %add_to_masks.exit.i.us ], [ %.0149.i.us, %copy_masks.exit181.preheader.i.us ], [ %476, %483 ], [ %.0149.i.us, %copy_masks.exit181.i.us ], [ %.0149.i.us, %718 ], [ %495, %..loopexit_crit_edge.split.us.us.i.us ], [ %476, %490 ]
-  %.6.i.us = phi ptr [ %482, %503 ], [ %482, %491 ], [ %482, %.critedge.i.us ], [ %482, %pop_stack.exit.us ], [ %601, %add_to_masks.exit.i.us ], [ %746, %copy_masks.exit181.preheader.i.us ], [ %482, %483 ], [ %746, %copy_masks.exit181.i.us ], [ %482, %718 ], [ %.5.us.i.us, %..loopexit_crit_edge.split.us.us.i.us ], [ %482, %490 ]
+  %.0189.i.us = phi i32 [ %.0.i.us, %.critedge.i.us ], [ %474, %pop_stack.exit.us ], [ %474, %add_to_masks.exit.i.us ], [ %.0.i.us, %copy_masks.exit181.preheader.i.us ], [ %474, %491 ], [ %474, %483 ], [ %.0.i.us, %copy_masks.exit181.i.us ], [ %.0.i.us, %718 ], [ %474, %..loopexit_crit_edge.split.us.us.i.us ], [ %474, %503 ], [ %474, %490 ]
+  %.0148188.i.us = phi i32 [ %.fr221.i.us, %.critedge.i.us ], [ %.fr221.i.us, %pop_stack.exit.us ], [ %599, %add_to_masks.exit.i.us ], [ %.fr221.i.us, %copy_masks.exit181.preheader.i.us ], [ %.fr221.i.us, %491 ], [ %.fr221.i.us, %483 ], [ %.fr221.i.us, %copy_masks.exit181.i.us ], [ %.fr221.i.us, %718 ], [ %.fr221.i.us, %..loopexit_crit_edge.split.us.us.i.us ], [ %.fr221.i.us, %503 ], [ %.fr221.i.us, %490 ]
+  %.0149187.i.us = phi ptr [ %.0149.i.us, %.critedge.i.us ], [ %476, %pop_stack.exit.us ], [ %476, %add_to_masks.exit.i.us ], [ %.0149.i.us, %copy_masks.exit181.preheader.i.us ], [ %495, %491 ], [ %476, %483 ], [ %.0149.i.us, %copy_masks.exit181.i.us ], [ %.0149.i.us, %718 ], [ %495, %..loopexit_crit_edge.split.us.us.i.us ], [ %495, %503 ], [ %476, %490 ]
+  %.6.i.us = phi ptr [ %482, %.critedge.i.us ], [ %482, %pop_stack.exit.us ], [ %601, %add_to_masks.exit.i.us ], [ %746, %copy_masks.exit181.preheader.i.us ], [ %482, %491 ], [ %482, %483 ], [ %746, %copy_masks.exit181.i.us ], [ %482, %718 ], [ %.5.us.i.us, %..loopexit_crit_edge.split.us.us.i.us ], [ %482, %503 ], [ %482, %490 ]
   store i32 %.0189.i.us, ptr %14, align 8
   store ptr %.0149187.i.us, ptr %42, align 8
   store ptr %.6.i.us, ptr %43, align 8
@@ -5762,9 +5762,9 @@ free_block.exit.i114.i.us:                        ; preds = %936, %935, %928
   br label %pop_and_free.exit.i46.us
 
 pop_and_free.exit.i46.us:                         ; preds = %941, %938, %885, %884, %883, %882, %880, %878, %873, %871, %862, %861, %858, %824, %823, %818, %816
-  %942 = phi i32 [ %815, %885 ], [ %896, %941 ], [ %815, %824 ], [ %815, %884 ], [ %815, %883 ], [ %815, %882 ], [ %815, %880 ], [ %815, %878 ], [ %815, %873 ], [ %815, %871 ], [ %815, %862 ], [ %815, %861 ], [ %815, %823 ], [ %815, %818 ], [ %815, %816 ], [ %815, %858 ], [ %896, %938 ]
-  %.0.i44110.us = phi i16 [ %809, %885 ], [ %.0.i44111.us, %941 ], [ %809, %824 ], [ %809, %884 ], [ %809, %883 ], [ %809, %882 ], [ %809, %880 ], [ %809, %878 ], [ %809, %873 ], [ %809, %871 ], [ %809, %862 ], [ %809, %861 ], [ %809, %823 ], [ %809, %818 ], [ %809, %816 ], [ %809, %858 ], [ %.0.i44111.us, %938 ]
-  %.0102.i.us = phi ptr [ %889, %885 ], [ %.1103.i.us, %941 ], [ @.str.1, %824 ], [ @.str.4, %884 ], [ @.str.5, %883 ], [ @.str.3, %882 ], [ @.str.1, %880 ], [ @.str.1, %878 ], [ @.str.1, %873 ], [ @.str.1, %871 ], [ @.str.2, %862 ], [ %4, %861 ], [ @.str.1, %823 ], [ %822, %818 ], [ @.str.1, %816 ], [ %4, %858 ], [ %.1103.i.us, %938 ]
+  %942 = phi i32 [ %815, %885 ], [ %815, %884 ], [ %815, %883 ], [ %815, %882 ], [ %815, %880 ], [ %815, %878 ], [ %815, %873 ], [ %815, %871 ], [ %815, %823 ], [ %815, %818 ], [ %815, %816 ], [ %815, %824 ], [ %815, %862 ], [ %815, %858 ], [ %815, %861 ], [ %896, %938 ], [ %896, %941 ]
+  %.0.i44110.us = phi i16 [ %809, %885 ], [ %809, %884 ], [ %809, %883 ], [ %809, %882 ], [ %809, %880 ], [ %809, %878 ], [ %809, %873 ], [ %809, %871 ], [ %809, %823 ], [ %809, %818 ], [ %809, %816 ], [ %809, %824 ], [ %809, %862 ], [ %809, %858 ], [ %809, %861 ], [ %.0.i44111.us, %938 ], [ %.0.i44111.us, %941 ]
+  %.0102.i.us = phi ptr [ %889, %885 ], [ @.str.4, %884 ], [ @.str.5, %883 ], [ @.str.3, %882 ], [ @.str.1, %880 ], [ @.str.1, %878 ], [ @.str.1, %873 ], [ @.str.1, %871 ], [ @.str.1, %823 ], [ %822, %818 ], [ @.str.1, %816 ], [ @.str.1, %824 ], [ @.str.2, %862 ], [ %4, %858 ], [ %4, %861 ], [ %.1103.i.us, %938 ], [ %.1103.i.us, %941 ]
   %943 = load i8, ptr %.0102.i.us, align 1
   %.not131.i.us = icmp eq i8 %943, 0
   br i1 %.not131.i.us, label %._crit_edge.i50.us, label %.lr.ph.i47.us
@@ -5808,7 +5808,7 @@ pop_and_free.exit.i46.us:                         ; preds = %941, %938, %885, %8
   br label %961
 
 961:                                              ; preds = %959, %952
-  %.0.i118.i.us = phi ptr [ %954, %952 ], [ %957, %959 ]
+  %.0.i118.i.us = phi ptr [ %957, %959 ], [ %954, %952 ]
   store ptr %.0.i118.i.us, ptr %41, align 8
   %962 = getelementptr inbounds nuw i8, ptr %.0.i118.i.us, i64 16
   store ptr %962, ptr %.phi.trans.insert.i90, align 8
@@ -5878,8 +5878,8 @@ CCalloc.exit.i.us:                                ; preds = %961, %._crit_edge.i
   br label %985
 
 985:                                              ; preds = %984, %983, %981, %979, %978, %975, %971, %970
-  %.1105.i.us = phi ptr [ %.0104132.i.us, %970 ], [ %.0104132.i.us, %984 ], [ %.0104132.i.us, %983 ], [ %.0104132.i.us, %981 ], [ %.0104132.i.us, %979 ], [ %.0104132.i.us, %978 ], [ %977, %975 ], [ %.0104132.i.us, %971 ]
-  %.1.i48.us = phi i32 [ %.0134.i.us, %970 ], [ %.0134.i.us, %984 ], [ %.0134.i.us, %983 ], [ %982, %981 ], [ %980, %979 ], [ %.0134.i.us, %978 ], [ %976, %975 ], [ %.0134.i.us, %971 ]
+  %.1105.i.us = phi ptr [ %.0104132.i.us, %984 ], [ %.0104132.i.us, %983 ], [ %.0104132.i.us, %981 ], [ %.0104132.i.us, %979 ], [ %.0104132.i.us, %978 ], [ %977, %975 ], [ %.0104132.i.us, %971 ], [ %.0104132.i.us, %970 ]
+  %.1.i48.us = phi i32 [ %.0134.i.us, %984 ], [ %.0134.i.us, %983 ], [ %982, %981 ], [ %980, %979 ], [ %.0134.i.us, %978 ], [ %976, %975 ], [ %.0134.i.us, %971 ], [ %.0134.i.us, %970 ]
   %986 = add nsw i32 %.1.i48.us, 1
   %987 = getelementptr inbounds nuw i8, ptr %.1105.i.us, i64 1
   %988 = load i8, ptr %987, align 1
@@ -6024,7 +6024,7 @@ CCalloc.exit106.us:                               ; preds = %1021, %._crit_edge.
   br i1 %.not111.i.us, label %push_stack.exit.us, label %.lr.ph142.i.us, !llvm.loop !54
 
 push_stack.exit.us:                               ; preds = %993, %1041, %989, %._crit_edge.i50.us
-  %.1101.i.us = phi ptr [ %.0100.lcssa.i.us, %._crit_edge.i50.us ], [ %1026, %1041 ], [ null, %989 ], [ %.0100.lcssa.i.us, %993 ]
+  %.1101.i.us = phi ptr [ %.0100.lcssa.i.us, %._crit_edge.i50.us ], [ null, %989 ], [ %1026, %1041 ], [ %.0100.lcssa.i.us, %993 ]
   store i32 %.0.lcssa.i.us, ptr %38, align 8
   store ptr %.1101.i.us, ptr %15, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -6212,8 +6212,8 @@ push_stack.exit.us:                               ; preds = %993, %1041, %989, %
   br label %1119
 
 1119:                                             ; preds = %1116, %1113, %1112, %.loopexit.i64.us, %1055, %1045, %1045, %1045, %1045, %1045, %1045, %1045
-  %.0104.i.us = phi i32 [ 1, %1116 ], [ 2, %1113 ], [ 1, %1112 ], [ %1058, %1055 ], [ %1102, %.loopexit.i64.us ], [ 0, %1045 ], [ 0, %1045 ], [ 0, %1045 ], [ 0, %1045 ], [ 0, %1045 ], [ 0, %1045 ], [ 0, %1045 ]
-  %.0103.i.us = phi ptr [ %2, %1116 ], [ %2, %1113 ], [ %2, %1112 ], [ %1057, %1055 ], [ %1101, %.loopexit.i64.us ], [ %2, %1045 ], [ %2, %1045 ], [ %2, %1045 ], [ %2, %1045 ], [ %2, %1045 ], [ %2, %1045 ], [ %2, %1045 ]
+  %.0104.i.us = phi i32 [ 1, %1116 ], [ 2, %1113 ], [ 1, %1112 ], [ %1102, %.loopexit.i64.us ], [ %1058, %1055 ], [ 0, %1045 ], [ 0, %1045 ], [ 0, %1045 ], [ 0, %1045 ], [ 0, %1045 ], [ 0, %1045 ], [ 0, %1045 ]
+  %.0103.i.us = phi ptr [ %2, %1116 ], [ %2, %1113 ], [ %2, %1112 ], [ %1101, %.loopexit.i64.us ], [ %1057, %1055 ], [ %2, %1045 ], [ %2, %1045 ], [ %2, %1045 ], [ %2, %1045 ], [ %2, %1045 ], [ %2, %1045 ], [ %2, %1045 ]
   %1120 = icmp sgt i32 %1054, 0
   br i1 %1120, label %.lr.ph130.i.us, label %.preheader.i61.us
 
@@ -6831,7 +6831,7 @@ is_superclass.exit.split:                         ; preds = %is_superclass.exit,
   br label %.thread
 
 .thread:                                          ; preds = %34, %24, %46, %43, %.split.us
-  %.159 = phi ptr [ %.us-phi62, %.split.us ], [ %.us-phi62, %46 ], [ %.us-phi62, %43 ], [ null, %24 ], [ null, %34 ]
+  %.159 = phi ptr [ %.us-phi62, %46 ], [ %.us-phi62, %43 ], [ %.us-phi62, %.split.us ], [ null, %24 ], [ null, %34 ]
   %54 = load ptr, ptr %5, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 184
   %56 = load ptr, ptr %55, align 8
@@ -7232,9 +7232,9 @@ pop_and_free.exit.loopexit:                       ; preds = %6
   br label %pop_and_free.exit
 
 pop_and_free.exit:                                ; preds = %6, %pop_and_free.exit.loopexit, %pop_and_free.exit.loopexit119, %pop_and_free.exit.loopexit99, %75, %72, %9, %11, %13, %15, %54
-  %.044 = phi i32 [ %57, %54 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %57, %75 ], [ 6, %pop_and_free.exit.loopexit119 ], [ 2, %pop_and_free.exit.loopexit ], [ 4, %pop_and_free.exit.loopexit99 ], [ %57, %72 ], [ 3, %6 ]
-  %.043 = phi i8 [ 65, %54 ], [ 73, %9 ], [ 73, %11 ], [ 73, %13 ], [ 73, %15 ], [ 65, %75 ], [ 76, %pop_and_free.exit.loopexit119 ], [ %8, %pop_and_free.exit.loopexit ], [ %8, %pop_and_free.exit.loopexit99 ], [ 65, %72 ], [ %8, %6 ]
-  %.1 = phi ptr [ %58, %54 ], [ %7, %9 ], [ %7, %11 ], [ %7, %13 ], [ %7, %15 ], [ %58, %75 ], [ %7, %pop_and_free.exit.loopexit119 ], [ %7, %pop_and_free.exit.loopexit ], [ %7, %pop_and_free.exit.loopexit99 ], [ %58, %72 ], [ %7, %6 ]
+  %.044 = phi i32 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %57, %54 ], [ %57, %72 ], [ %57, %75 ], [ 4, %pop_and_free.exit.loopexit99 ], [ 6, %pop_and_free.exit.loopexit119 ], [ 2, %pop_and_free.exit.loopexit ], [ 3, %6 ]
+  %.043 = phi i8 [ 73, %9 ], [ 73, %11 ], [ 73, %13 ], [ 73, %15 ], [ 65, %54 ], [ 65, %72 ], [ 65, %75 ], [ %8, %pop_and_free.exit.loopexit99 ], [ 76, %pop_and_free.exit.loopexit119 ], [ %8, %pop_and_free.exit.loopexit ], [ %8, %6 ]
+  %.1 = phi ptr [ %7, %9 ], [ %7, %11 ], [ %7, %13 ], [ %7, %15 ], [ %58, %54 ], [ %58, %72 ], [ %58, %75 ], [ %7, %pop_and_free.exit.loopexit99 ], [ %7, %pop_and_free.exit.loopexit119 ], [ %7, %pop_and_free.exit.loopexit ], [ %7, %6 ]
   store ptr %.1, ptr %1, align 8
   %76 = icmp eq i32 %.042, 0
   br i1 %76, label %84, label %77
@@ -7721,7 +7721,7 @@ define internal fastcc i32 @merge_fullinfo_types(ptr noundef nonnull %0, i32 nou
   br label %240
 
 240:                                              ; preds = %87, %86, %77, %71, %61, %52, %46, %42, %34, %38, %29, %21, %19, %17, %12, %7, %4, %._crit_edge314, %143, %132, %._crit_edge, %105, %92, %80, %74, %64, %.critedge
-  %.0 = phi i32 [ %227, %._crit_edge314 ], [ %1, %4 ], [ 0, %7 ], [ 0, %12 ], [ %2, %17 ], [ %1, %19 ], [ %2, %21 ], [ %1, %.critedge ], [ %2, %29 ], [ %2, %34 ], [ %1, %42 ], [ 0, %46 ], [ 0, %52 ], [ %68, %64 ], [ 0, %61 ], [ %76, %74 ], [ %.0230, %71 ], [ %82, %80 ], [ %.0231, %77 ], [ %88, %87 ], [ %2, %86 ], [ %93, %92 ], [ %2, %105 ], [ %118, %._crit_edge ], [ %2, %132 ], [ %1, %143 ], [ %2, %38 ]
+  %.0 = phi i32 [ %1, %.critedge ], [ %68, %64 ], [ %76, %74 ], [ %82, %80 ], [ %93, %92 ], [ %2, %105 ], [ %118, %._crit_edge ], [ %2, %132 ], [ %1, %143 ], [ %227, %._crit_edge314 ], [ %1, %4 ], [ 0, %7 ], [ 0, %12 ], [ %2, %17 ], [ %1, %19 ], [ %2, %21 ], [ %2, %29 ], [ %2, %38 ], [ %2, %34 ], [ %1, %42 ], [ 0, %46 ], [ 0, %52 ], [ 0, %61 ], [ %.0230, %71 ], [ %.0231, %77 ], [ %88, %87 ], [ %2, %86 ]
   ret i32 %.0
 }
 
@@ -7832,7 +7832,7 @@ define internal fastcc void @merge_into_one_successor(ptr noundef nonnull %0, i3
   br i1 %.not155, label %.loopexit169, label %.lr.ph177, !llvm.loop !68
 
 .loopexit169:                                     ; preds = %20, %45, %17
-  %.1129 = phi ptr [ %10, %45 ], [ %4, %17 ], [ %4, %20 ]
+  %.1129 = phi ptr [ %4, %17 ], [ %10, %45 ], [ %4, %20 ]
   %48 = icmp sgt i32 %18, 0
   br i1 %48, label %.lr.ph179.preheader, label %.loopexit
 

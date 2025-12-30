@@ -495,10 +495,10 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit53: ; preds = %66, %_ZNSt6ve
   br i1 %90, label %37, label %._crit_edge.loopexit, !llvm.loop !31
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEN3g2o7ColSortEEvT_SB_T0_.exit: ; preds = %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit", %._crit_edge235, %.noexc
-  %.not.i.i287 = phi i1 [ false, %.noexc ], [ true, %._crit_edge235 ], [ true, %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit" ]
-  %.sroa.0161.0.lcssa283 = phi ptr [ %.sroa.0161.1.lcssa, %.noexc ], [ %.sroa.0161.1.lcssa, %._crit_edge235 ], [ null, %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit" ]
-  %.sroa.13.0.lcssa282 = phi ptr [ %.sroa.13.1.lcssa, %.noexc ], [ %.sroa.13.1.lcssa, %._crit_edge235 ], [ null, %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit" ]
-  %.sroa.24.0.lcssa278 = phi ptr [ %.sroa.24.1.lcssa, %.noexc ], [ %.sroa.24.1.lcssa, %._crit_edge235 ], [ null, %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit" ]
+  %.not.i.i287 = phi i1 [ true, %._crit_edge235 ], [ false, %.noexc ], [ true, %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit" ]
+  %.sroa.0161.0.lcssa283 = phi ptr [ %.sroa.0161.1.lcssa, %._crit_edge235 ], [ %.sroa.0161.1.lcssa, %.noexc ], [ null, %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit" ]
+  %.sroa.13.0.lcssa282 = phi ptr [ %.sroa.13.1.lcssa, %._crit_edge235 ], [ %.sroa.13.1.lcssa, %.noexc ], [ null, %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit" ]
+  %.sroa.24.0.lcssa278 = phi ptr [ %.sroa.24.1.lcssa, %._crit_edge235 ], [ %.sroa.24.1.lcssa, %.noexc ], [ null, %"_ZZNK3g2o15MatrixStructure5writeESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv.exit" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %91, ptr %5, align 8, !tbaa !32
@@ -976,9 +976,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %268
   br label %273
 
 273:                                              ; preds = %.loopexit185, %.loopexit.split-lp186, %.loopexit180, %.loopexit.split-lp181, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85, %230
-  %.sroa.24.4 = phi ptr [ %.sroa.24.1.lcssa, %230 ], [ %.sroa.24.0.lcssa278, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85 ], [ %.sroa.13.1225, %.loopexit.split-lp181 ], [ %.sroa.13.1225, %.loopexit180 ], [ %.sroa.24.5, %.loopexit185 ], [ %.sroa.24.5, %.loopexit.split-lp186 ]
-  %.sroa.0161.4 = phi ptr [ %.sroa.0161.1.lcssa, %230 ], [ %.sroa.0161.0.lcssa283, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85 ], [ %.sroa.0161.1226, %.loopexit.split-lp181 ], [ %.sroa.0161.1226, %.loopexit180 ], [ %.sroa.0161.5, %.loopexit185 ], [ %.sroa.0161.5, %.loopexit.split-lp186 ]
-  %.pn27.pn = phi { ptr, i32 } [ %231, %230 ], [ %.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85 ], [ %lpad.loopexit.split-lp183, %.loopexit.split-lp181 ], [ %lpad.loopexit182, %.loopexit180 ], [ %lpad.loopexit187, %.loopexit185 ], [ %lpad.loopexit.split-lp188, %.loopexit.split-lp186 ]
+  %.sroa.24.4 = phi ptr [ %.sroa.24.0.lcssa278, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85 ], [ %.sroa.24.1.lcssa, %230 ], [ %.sroa.13.1225, %.loopexit180 ], [ %.sroa.13.1225, %.loopexit.split-lp181 ], [ %.sroa.24.5, %.loopexit185 ], [ %.sroa.24.5, %.loopexit.split-lp186 ]
+  %.sroa.0161.4 = phi ptr [ %.sroa.0161.0.lcssa283, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85 ], [ %.sroa.0161.1.lcssa, %230 ], [ %.sroa.0161.1226, %.loopexit180 ], [ %.sroa.0161.1226, %.loopexit.split-lp181 ], [ %.sroa.0161.5, %.loopexit185 ], [ %.sroa.0161.5, %.loopexit.split-lp186 ]
+  %.pn27.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85 ], [ %231, %230 ], [ %lpad.loopexit182, %.loopexit180 ], [ %lpad.loopexit.split-lp183, %.loopexit.split-lp181 ], [ %lpad.loopexit187, %.loopexit185 ], [ %lpad.loopexit.split-lp188, %.loopexit.split-lp186 ]
   %.not.i.i.i86 = icmp eq ptr %.sroa.0161.4, null
   br i1 %.not.i.i.i86, label %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit87, label %274
 

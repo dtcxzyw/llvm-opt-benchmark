@@ -556,7 +556,7 @@ _nvml_get_device_pci_info.exit.i:                 ; preds = %97, %95
   br i1 %123, label %.lr.ph111.i, label %.loopexit95.i, !llvm.loop !11
 
 .loopexit95.i:                                    ; preds = %.lr.ph111.i, %108, %._crit_edge.i
-  %124 = phi ptr [ null, %._crit_edge.i ], [ %109, %108 ], [ %109, %.lr.ph111.i ]
+  %124 = phi ptr [ %109, %108 ], [ null, %._crit_edge.i ], [ %109, %.lr.ph111.i ]
   %125 = load i32, ptr %31, align 4
   %.not133.i = icmp eq i32 %125, 0
   br i1 %.not133.i, label %._crit_edge126.i, label %.lr.ph125.i
@@ -1948,7 +1948,7 @@ define dso_local void @gpu_p_step_hardware_init(ptr noundef %0, ptr noundef %1) 
   br label %79
 
 79:                                               ; preds = %.sink.split.i, %74, %70
-  %.043.i = phi i32 [ %76, %74 ], [ %71, %70 ], [ %.043.ph.i, %.sink.split.i ]
+  %.043.i = phi i32 [ %71, %70 ], [ %76, %74 ], [ %.043.ph.i, %.sink.split.i ]
   %80 = icmp sgt i32 %.043.i, 0
   br i1 %80, label %.lr.ph.preheader.i, label %_set_freq.exit
 
@@ -2184,9 +2184,9 @@ _nvml_set_freqs.exit.i:                           ; preds = %129, %128
   br label %172
 
 172:                                              ; preds = %171, %_nvml_get_handle.exit.i, %88, %85
-  %.141.i = phi i32 [ %91, %171 ], [ %.04058.i, %85 ], [ %.04058.i, %88 ], [ %91, %_nvml_get_handle.exit.i ]
-  %.138.i = phi i32 [ %.239.i, %171 ], [ %.03759.i, %85 ], [ %.03759.i, %88 ], [ %.03759.i, %_nvml_get_handle.exit.i ]
-  %.1.i = phi i1 [ %.2.i, %171 ], [ %.03660.i, %85 ], [ %.03660.i, %88 ], [ %.03660.i, %_nvml_get_handle.exit.i ]
+  %.141.i = phi i32 [ %91, %171 ], [ %.04058.i, %88 ], [ %.04058.i, %85 ], [ %91, %_nvml_get_handle.exit.i ]
+  %.138.i = phi i32 [ %.239.i, %171 ], [ %.03759.i, %88 ], [ %.03759.i, %85 ], [ %.03759.i, %_nvml_get_handle.exit.i ]
+  %.1.i = phi i1 [ %.2.i, %171 ], [ %.03660.i, %88 ], [ %.03660.i, %85 ], [ %.03660.i, %_nvml_get_handle.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -2466,8 +2466,8 @@ _nvml_reset_freqs.exit.i:                         ; preds = %38, %37
   br label %65
 
 65:                                               ; preds = %64, %61, %60, %58, %_nvml_get_handle.exit.i, %.lr.ph.i
-  %.118.i = phi i32 [ %13, %_nvml_get_handle.exit.i ], [ %.01727.i, %.lr.ph.i ], [ %13, %60 ], [ %13, %64 ], [ %13, %61 ], [ %13, %58 ]
-  %.1.i = phi i32 [ %.028.i, %_nvml_get_handle.exit.i ], [ %.028.i, %.lr.ph.i ], [ %.028.i, %60 ], [ %.028.i, %64 ], [ %.028.i, %61 ], [ %59, %58 ]
+  %.118.i = phi i32 [ %.01727.i, %.lr.ph.i ], [ %13, %_nvml_get_handle.exit.i ], [ %13, %60 ], [ %13, %64 ], [ %13, %61 ], [ %13, %58 ]
+  %.1.i = phi i32 [ %.028.i, %.lr.ph.i ], [ %.028.i, %_nvml_get_handle.exit.i ], [ %.028.i, %60 ], [ %.028.i, %64 ], [ %.028.i, %61 ], [ %59, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2670,7 +2670,7 @@ define dso_local ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 
   br label %66
 
 66:                                               ; preds = %62, %65, %47, %15, %8
-  %.0 = phi ptr [ %17, %15 ], [ %10, %8 ], [ %49, %47 ], [ %64, %65 ], [ %64, %62 ]
+  %.0 = phi ptr [ %17, %15 ], [ %49, %47 ], [ %10, %8 ], [ %64, %65 ], [ %64, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0

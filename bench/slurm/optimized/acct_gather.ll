@@ -391,7 +391,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_write_conf(i32 noundef %0) lo
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.acct_gather_write_conf) #10
   unreachable
 
-.thread:                                          ; preds = %43, %.split86.us, %21, %.split68.us
+.thread:                                          ; preds = %.split86.us, %43, %.split68.us, %21
   %54 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @conf_mutex) #9
   %.not52 = icmp eq i32 %54, 0
   br i1 %.not52, label %57, label %55
@@ -536,7 +536,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_read_conf(i32 noundef %0) loc
   br label %.thread
 
 .split77.us:                                      ; preds = %.lr.ph114, %.lr.ph99.preheader, %.lr.ph114.preheader, %.lr.ph99.preheader.preheader
-  %.us-phi78 = phi i64 [ %33, %.lr.ph99.preheader ], [ %15, %.lr.ph99.preheader.preheader ], [ %4, %.lr.ph114.preheader ], [ %12, %.lr.ph114 ]
+  %.us-phi78 = phi i64 [ %15, %.lr.ph99.preheader.preheader ], [ %4, %.lr.ph114.preheader ], [ %33, %.lr.ph99.preheader ], [ %12, %.lr.ph114 ]
   %39 = and i64 %.us-phi78, 2147483647
   %40 = getelementptr inbounds nuw i8, ptr %.041.ph116, i64 %39
   %41 = sub i64 %.040.ph118, %39
@@ -675,7 +675,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_read_conf(i32 noundef %0) loc
   br label %.thread
 
 .split127.us:                                     ; preds = %.lr.ph165, %.lr.ph150.preheader, %.lr.ph165.preheader, %.lr.ph150.preheader.preheader
-  %.us-phi128 = phi i64 [ %81, %.lr.ph150.preheader ], [ %63, %.lr.ph150.preheader.preheader ], [ %52, %.lr.ph165.preheader ], [ %60, %.lr.ph165 ]
+  %.us-phi128 = phi i64 [ %63, %.lr.ph150.preheader.preheader ], [ %52, %.lr.ph165.preheader ], [ %81, %.lr.ph150.preheader ], [ %60, %.lr.ph165 ]
   %87 = and i64 %.us-phi128, 2147483647
   %88 = getelementptr inbounds nuw i8, ptr %.037.ph171, i64 %87
   %89 = sub i64 %.038.ph169, %87
@@ -706,8 +706,8 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_read_conf(i32 noundef %0) loc
   tail call void @s_p_hashtbl_destroy(ptr noundef nonnull %95) #9
   br label %.thread
 
-.thread:                                          ; preds = %86, %.split130.us, %76, %71, %38, %.split80.us, %28, %23, %.outer._crit_edge, %96
-  %.0 = phi i32 [ -1, %.outer._crit_edge ], [ 0, %96 ], [ -1, %38 ], [ -1, %23 ], [ -1, %28 ], [ -1, %.split80.us ], [ -1, %71 ], [ -1, %76 ], [ -1, %.split130.us ], [ -1, %86 ]
+.thread:                                          ; preds = %.split130.us, %86, %76, %71, %.split80.us, %38, %28, %23, %.outer._crit_edge, %96
+  %.0 = phi i32 [ 0, %96 ], [ -1, %.outer._crit_edge ], [ -1, %23 ], [ -1, %28 ], [ -1, %38 ], [ -1, %.split80.us ], [ -1, %71 ], [ -1, %76 ], [ -1, %86 ], [ -1, %.split130.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -990,7 +990,7 @@ acct_gather_parse_freq.exit.thread:               ; preds = %20, %18, %9
   br label %acct_gather_parse_freq.exit.thread19
 
 acct_gather_parse_freq.exit.thread19:             ; preds = %20, %11, %acct_gather_parse_freq.exit.thread
-  %27 = phi i32 [ 65534, %acct_gather_parse_freq.exit.thread ], [ %25, %20 ], [ %15, %11 ]
+  %27 = phi i32 [ 65534, %acct_gather_parse_freq.exit.thread ], [ %15, %11 ], [ %25, %20 ]
   store i32 %27, ptr @acct_gather_check_acct_freq_task.acct_freq_task, align 4
   br label %28
 
@@ -1032,7 +1032,7 @@ acct_gather_parse_freq.exit.thread19:             ; preds = %20, %11, %acct_gath
   br i1 %45, label %acct_gather_parse_freq.exit16.thread, label %acct_gather_parse_freq.exit16
 
 acct_gather_parse_freq.exit16:                    ; preds = %41, %32
-  %.015.i13 = phi i32 [ %36, %32 ], [ %46, %41 ]
+  %.015.i13 = phi i32 [ %46, %41 ], [ %36, %32 ]
   switch i32 %.015.i13, label %49 [
     i32 -1, label %acct_gather_parse_freq.exit16.thread
     i32 0, label %47
@@ -1057,7 +1057,7 @@ acct_gather_parse_freq.exit16.thread.sink.split:  ; preds = %47, %52
   br label %acct_gather_parse_freq.exit16.thread
 
 acct_gather_parse_freq.exit16.thread:             ; preds = %acct_gather_parse_freq.exit16.thread.sink.split, %41, %39, %49, %acct_gather_parse_freq.exit16, %28
-  %.0 = phi i32 [ 0, %28 ], [ 0, %41 ], [ 0, %39 ], [ 0, %acct_gather_parse_freq.exit16 ], [ 0, %49 ], [ 1, %acct_gather_parse_freq.exit16.thread.sink.split ]
+  %.0 = phi i32 [ 0, %28 ], [ 0, %acct_gather_parse_freq.exit16 ], [ 0, %49 ], [ 0, %39 ], [ 0, %41 ], [ 1, %acct_gather_parse_freq.exit16.thread.sink.split ]
   ret i32 %.0
 }
 

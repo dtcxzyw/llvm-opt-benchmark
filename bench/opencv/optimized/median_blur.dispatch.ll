@@ -9518,7 +9518,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit253.i: ; preds = %
   unreachable
 
 5910:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit253.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %.pn234.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.pn234.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit253.i ]
+  %.pn234.pn.pn.i = phi { ptr, i32 } [ %.pn234.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit253.i ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
@@ -10182,7 +10182,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit380.i: ; preds = %
   br i1 %exitcond549.not.i, label %6241, label %6244, !llvm.loop !124
 
 ._crit_edge.i645:                                 ; preds = %6218, %6241, %6228, %6206
-  %storemerge.i = phi i16 [ %6242, %6241 ], [ %6208, %6206 ], [ %6203, %6228 ], [ %6219, %6218 ]
+  %storemerge.i = phi i16 [ %6208, %6206 ], [ %6203, %6228 ], [ %6242, %6241 ], [ %6219, %6218 ]
   store i16 %storemerge.i, ptr %6202, align 2
   %6251 = add nsw i64 %6204, %6165
   %.idx588.i = shl nsw i64 %6251, 5

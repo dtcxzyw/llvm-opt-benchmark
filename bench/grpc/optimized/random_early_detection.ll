@@ -102,7 +102,7 @@ _ZN4absl12lts_202407229BernoulliIRNS0_9BitGenRefEEEbOT_d.exit: ; preds = %31, %_
   br label %38
 
 38:                                               ; preds = %7, %3, %_ZN4absl12lts_202407229BernoulliIRNS0_9BitGenRefEEEbOT_d.exit
-  %.0 = phi i1 [ false, %3 ], [ %37, %_ZN4absl12lts_202407229BernoulliIRNS0_9BitGenRefEEEbOT_d.exit ], [ true, %7 ]
+  %.0 = phi i1 [ %37, %_ZN4absl12lts_202407229BernoulliIRNS0_9BitGenRefEEEbOT_d.exit ], [ false, %3 ], [ true, %7 ]
   ret i1 %.0
 }
 

@@ -155,7 +155,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -521,9 +521,9 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit55:       ; preds = %25
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit55, %6, %25, %32, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %3
-  %.039 = phi i32 [ %33, %32 ], [ %4, %3 ], [ %4, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit55 ], [ %26, %25 ], [ %4, %6 ]
-  %.038 = phi i8 [ 16, %32 ], [ 10, %3 ], [ 10, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 8, %_ZNK6icu_7713UnicodeString6charAtEi.exit55 ], [ 8, %25 ], [ 10, %6 ]
-  %.034 = phi i32 [ 0, %32 ], [ 0, %3 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit55 ], [ 1, %25 ], [ 0, %6 ]
+  %.039 = phi i32 [ %33, %32 ], [ %4, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %4, %3 ], [ %26, %25 ], [ %4, %6 ], [ %26, %_ZNK6icu_7713UnicodeString6charAtEi.exit55 ]
+  %.038 = phi i8 [ 16, %32 ], [ 10, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 10, %3 ], [ 8, %25 ], [ 10, %6 ], [ 8, %_ZNK6icu_7713UnicodeString6charAtEi.exit55 ]
+  %.034 = phi i32 [ 0, %32 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 0, %3 ], [ 1, %25 ], [ 0, %6 ], [ 1, %_ZNK6icu_7713UnicodeString6charAtEi.exit55 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -586,7 +586,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit61:       ; preds = %42, %50
   br label %.thread65
 
 .thread65:                                        ; preds = %59, %.thread70, %63
-  %.3 = phi i32 [ %.043, %.thread70 ], [ %.043, %63 ], [ 0, %59 ]
+  %.3 = phi i32 [ %.043, %63 ], [ %.043, %.thread70 ], [ 0, %59 ]
   ret i32 %.3
 }
 
@@ -746,8 +746,8 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit39:       ; preds = %61, %70
   %.pre = load i32, ptr %6, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %28, %_ZNK6icu_7713UnicodeString6charAtEi.exit36, %_ZNK6icu_7713UnicodeString6charAtEi.exit39, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, %50, %.critedge.loopexit, %5
-  %.not33.lcssa = phi i32 [ %1, %5 ], [ %.pre, %.critedge.loopexit ], [ -1, %50 ], [ -1, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ -1, %_ZNK6icu_7713UnicodeString6charAtEi.exit39 ], [ -1, %_ZNK6icu_7713UnicodeString6charAtEi.exit36 ], [ -1, %28 ]
+.critedge:                                        ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit39, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, %50, %_ZNK6icu_7713UnicodeString6charAtEi.exit36, %28, %.critedge.loopexit, %5
+  %.not33.lcssa = phi i32 [ %1, %5 ], [ %.pre, %.critedge.loopexit ], [ -1, %28 ], [ -1, %_ZNK6icu_7713UnicodeString6charAtEi.exit36 ], [ -1, %50 ], [ -1, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ -1, %_ZNK6icu_7713UnicodeString6charAtEi.exit39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.not33.lcssa
 }
@@ -932,7 +932,7 @@ define noundef i32 @_ZN6icu_7711ICU_Utility11parseNumberERKNS_13UnicodeStringERi
   br label %.thread
 
 .thread:                                          ; preds = %20, %.thread35, %30
-  %.3 = phi i32 [ -1, %.thread35 ], [ %.022, %30 ], [ -1, %20 ]
+  %.3 = phi i32 [ %.022, %30 ], [ -1, %.thread35 ], [ -1, %20 ]
   ret i32 %.3
 }
 

@@ -2067,7 +2067,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit:     ; preds = %634, %636
   br label %644
 
 637:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit554, %.loopexit.split-lp555, %.loopexit549, %.loopexit.split-lp550, %482, %522, %633, %429, %427, %425, %305, %284
-  %.pn122.pn = phi { ptr, i32 } [ %306, %305 ], [ %285, %284 ], [ %430, %429 ], [ %428, %427 ], [ %426, %425 ], [ %lpad.loopexit.split-lp557, %.loopexit.split-lp555 ], [ %.pn114.pn.pn.pn.pn, %633 ], [ %lpad.loopexit.split-lp552, %.loopexit.split-lp550 ], [ %.pn111, %522 ], [ %483, %482 ], [ %lpad.loopexit551, %.loopexit549 ], [ %lpad.loopexit556, %.loopexit554 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn122.pn = phi { ptr, i32 } [ %306, %305 ], [ %430, %429 ], [ %428, %427 ], [ %426, %425 ], [ %285, %284 ], [ %.pn114.pn.pn.pn.pn, %633 ], [ %483, %482 ], [ %.pn111, %522 ], [ %lpad.loopexit551, %.loopexit549 ], [ %lpad.loopexit.split-lp552, %.loopexit.split-lp550 ], [ %lpad.loopexit556, %.loopexit554 ], [ %lpad.loopexit.split-lp557, %.loopexit.split-lp555 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #26
@@ -4134,7 +4134,7 @@ _ZNSt12__shared_ptrIN2cv7TrackerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pred
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %111, %108, %106
-  %.pn = phi { ptr, i32 } [ %109, %111 ], [ %107, %106 ], [ %109, %108 ]
+  %.pn = phi { ptr, i32 } [ %107, %106 ], [ %109, %108 ], [ %109, %111 ]
   %112 = load ptr, ptr %6, align 8, !tbaa !12
   %113 = icmp eq ptr %112, %7
   br i1 %113, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

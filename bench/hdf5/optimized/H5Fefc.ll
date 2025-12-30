@@ -386,7 +386,7 @@ define range(i32 -1, 1) i32 @H5F__efc_open(i1 noundef zeroext %0, ptr noundef ca
   store ptr %161, ptr %2, align 8, !tbaa !20
   br label %.thread133
 
-162:                                              ; preds = %132, %124
+162:                                              ; preds = %124, %132
   %163 = getelementptr inbounds nuw i8, ptr %.4, i64 8
   %164 = load ptr, ptr %163, align 8, !tbaa !31
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 32
@@ -412,7 +412,7 @@ define range(i32 -1, 1) i32 @H5F__efc_open(i1 noundef zeroext %0, ptr noundef ca
   br label %.thread133
 
 .thread133:                                       ; preds = %40, %52, %104, %97, %32, %25, %18, %.critedge127, %37, %119, %160, %174, %7
-  %.0 = phi i32 [ -1, %174 ], [ -1, %18 ], [ 0, %7 ], [ 0, %.critedge127 ], [ -1, %40 ], [ -1, %52 ], [ -1, %104 ], [ 0, %37 ], [ -1, %97 ], [ 0, %119 ], [ 0, %160 ], [ -1, %32 ], [ -1, %25 ]
+  %.0 = phi i32 [ -1, %174 ], [ 0, %7 ], [ 0, %.critedge127 ], [ 0, %37 ], [ -1, %40 ], [ -1, %52 ], [ -1, %104 ], [ -1, %97 ], [ 0, %119 ], [ 0, %160 ], [ -1, %32 ], [ -1, %25 ], [ -1, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -1011,10 +1011,10 @@ H5F__efc_release_real.exit:                       ; preds = %33, %18
   br label %79
 
 79:                                               ; preds = %.lr.ph, %75, %71
-  %storemerge = phi i32 [ -4, %75 ], [ -4, %71 ], [ -3, %.lr.ph ]
-  %.175 = phi ptr [ %.181, %75 ], [ %.181, %71 ], [ %.17678, %.lr.ph ]
-  %.172 = phi ptr [ %.17379, %75 ], [ %.17379, %71 ], [ %.181, %.lr.ph ]
-  %.250 = phi ptr [ %.04880, %75 ], [ %.181, %71 ], [ %.04880, %.lr.ph ]
+  %storemerge = phi i32 [ -4, %71 ], [ -4, %75 ], [ -3, %.lr.ph ]
+  %.175 = phi ptr [ %.181, %71 ], [ %.181, %75 ], [ %.17678, %.lr.ph ]
+  %.172 = phi ptr [ %.17379, %71 ], [ %.17379, %75 ], [ %.181, %.lr.ph ]
+  %.250 = phi ptr [ %.181, %71 ], [ %.04880, %75 ], [ %.04880, %.lr.ph ]
   store i32 %storemerge, ptr %68, align 4, !tbaa !19
   %.not52 = icmp eq ptr %67, null
   br i1 %.not52, label %._crit_edge, label %.lr.ph, !llvm.loop !67
@@ -1132,7 +1132,7 @@ H5F__efc_release_real.exit66.thread:              ; preds = %96, %._crit_edge.i6
   br i1 %.not55, label %.loopexit, label %.preheader69, !llvm.loop !69
 
 .loopexit:                                        ; preds = %.preheader69, %.lr.ph91, %H5F__efc_release_real.exit, %48, %41, %34, %119, %H5F__efc_release_real.exit66.thread, %1
-  %.0 = phi i32 [ -1, %34 ], [ 0, %1 ], [ 0, %H5F__efc_release_real.exit ], [ 0, %48 ], [ -1, %119 ], [ 0, %.lr.ph91 ], [ 0, %H5F__efc_release_real.exit66.thread ], [ 0, %41 ], [ 0, %.preheader69 ]
+  %.0 = phi i32 [ -1, %34 ], [ -1, %119 ], [ 0, %H5F__efc_release_real.exit66.thread ], [ 0, %1 ], [ 0, %H5F__efc_release_real.exit ], [ 0, %41 ], [ 0, %48 ], [ 0, %.lr.ph91 ], [ 0, %.preheader69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

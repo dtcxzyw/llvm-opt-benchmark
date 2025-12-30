@@ -140,12 +140,12 @@ define hidden ptr @_PyTokenizer_FromString(ptr noundef %0, i32 noundef %1, i32 n
   store ptr %.148.i, ptr %65, align 8, !tbaa !18
   br label %decode_str.exit
 
-decode_str.exit.thread:                           ; preds = %37, %7, %52
+decode_str.exit.thread:                           ; preds = %7, %37, %52
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %67
 
 decode_str.exit:                                  ; preds = %15, %23, %61, %.thread.i
-  %.049.i = phi ptr [ %16, %15 ], [ %24, %23 ], [ %62, %61 ], [ %.146.i, %.thread.i ]
+  %.049.i = phi ptr [ %24, %23 ], [ %62, %61 ], [ %.146.i, %.thread.i ], [ %16, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %66 = icmp eq ptr %.049.i, null
   br i1 %66, label %67, label %68
@@ -167,7 +167,7 @@ decode_str.exit:                                  ; preds = %15, %23, %61, %.thr
   br label %73
 
 73:                                               ; preds = %3, %68, %67
-  %.0 = phi ptr [ %5, %68 ], [ null, %67 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %67 ], [ %5, %68 ], [ null, %3 ]
   ret ptr %.0
 }
 

@@ -544,7 +544,7 @@ calc_payload_hash.exit.thread.i:                  ; preds = %131
   br i1 %.not183.i, label %make_headers.exit.thread.sink.split, label %202
 
 202:                                              ; preds = %195, %.critedge2.i188, %185, %181
-  %.5.ph.i = phi ptr [ %201, %195 ], [ %.4240.i, %185 ], [ %.4240.i, %181 ], [ %.4240.i, %.critedge2.i188 ]
+  %.5.ph.i = phi ptr [ %201, %195 ], [ %.4240.i, %.critedge2.i188 ], [ %.4240.i, %181 ], [ %.4240.i, %185 ]
   %203 = getelementptr inbounds nuw i8, ptr %.0136241.i, i64 8
   %.0136.i = load ptr, ptr %203, align 8, !tbaa !100
   %.not162.i = icmp eq ptr %.0136.i, null
@@ -693,7 +693,7 @@ find_date_hdr.exit.thread.i:                      ; preds = %trim_headers.exit.i
   br i1 %.not166.i, label %.critedge6.i192, label %.lr.ph244.i, !llvm.loop !112
 
 .critedge6.i192:                                  ; preds = %.preheader226.i, %.critedge8.i, %.lr.ph244.i
-  %.0127.lcssa.i = phi ptr [ %.0127243.i, %.lr.ph244.i ], [ %237, %.critedge8.i ], [ %.0128.i, %.preheader226.i ]
+  %.0127.lcssa.i = phi ptr [ %237, %.critedge8.i ], [ %.0127243.i, %.lr.ph244.i ], [ %.0128.i, %.preheader226.i ]
   %238 = ptrtoint ptr %.0127.lcssa.i to i64
   %239 = ptrtoint ptr %.0128.i to i64
   %240 = sub i64 %238, %239
@@ -835,15 +835,15 @@ compare_header_names.exit.i:                      ; preds = %265, %261
   br i1 %.not168.i, label %.loopexit, label %.lr.ph257.i, !llvm.loop !115
 
 make_headers.exit.thread.sink.split:              ; preds = %195, %171, %172
-  %.lcssa307.sink = phi ptr [ %.0139.i, %171 ], [ %.0139.i, %172 ], [ %194, %195 ]
-  %.2.i.ph.ph = phi ptr [ null, %171 ], [ null, %172 ], [ %.4240.i, %195 ]
+  %.0139.i.sink = phi ptr [ %.0139.i, %172 ], [ %.0139.i, %171 ], [ %194, %195 ]
+  %.2.i.ph.ph = phi ptr [ null, %172 ], [ null, %171 ], [ %.4240.i, %195 ]
   %295 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
-  call void %295(ptr noundef %.lcssa307.sink) #12
+  call void %295(ptr noundef %.0139.i.sink) #12
   br label %make_headers.exit.thread
 
-make_headers.exit.thread:                         ; preds = %192, %289, %280, %.lr.ph257.i, %287, %make_headers.exit.thread.sink.split, %227, %175, %find_date_hdr.exit.thread.i
-  %.2.ph = phi ptr [ null, %find_date_hdr.exit.thread.i ], [ %.1198, %289 ], [ null, %make_headers.exit.thread.sink.split ], [ null, %175 ], [ null, %227 ], [ %.1198, %287 ], [ %.1198, %.lr.ph257.i ], [ %.1198, %280 ], [ null, %192 ]
-  %.2.i.ph = phi ptr [ %.4.lcssa.i, %find_date_hdr.exit.thread.i ], [ %.6306.i, %289 ], [ %.2.i.ph.ph, %make_headers.exit.thread.sink.split ], [ %.0126.i, %175 ], [ %.4.lcssa.i, %227 ], [ %.6306.i, %287 ], [ %.6306.i, %.lr.ph257.i ], [ %.6306.i, %280 ], [ %.4240.i, %192 ]
+make_headers.exit.thread:                         ; preds = %192, %.lr.ph257.i, %280, %287, %289, %make_headers.exit.thread.sink.split, %227, %175, %find_date_hdr.exit.thread.i
+  %.2.ph = phi ptr [ null, %find_date_hdr.exit.thread.i ], [ null, %175 ], [ null, %227 ], [ null, %make_headers.exit.thread.sink.split ], [ %.1198, %289 ], [ %.1198, %287 ], [ %.1198, %280 ], [ %.1198, %.lr.ph257.i ], [ null, %192 ]
+  %.2.i.ph = phi ptr [ %.4.lcssa.i, %find_date_hdr.exit.thread.i ], [ %.0126.i, %175 ], [ %.4.lcssa.i, %227 ], [ %.2.i.ph.ph, %make_headers.exit.thread.sink.split ], [ %.6306.i, %289 ], [ %.6306.i, %287 ], [ %.6306.i, %280 ], [ %.6306.i, %.lr.ph257.i ], [ %.4240.i, %192 ]
   call void @curl_slist_free_all(ptr noundef %.2.i.ph) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -992,13 +992,13 @@ make_headers.exit.thread:                         ; preds = %192, %289, %280, %.
   br label %calc_s3_payload_hash.exit
 
 calc_s3_payload_hash.exit:                        ; preds = %make_headers.exit.thread, %131, %146, %45, %51, %70, %76, %154, %354, %351, %348, %345, %342, %338, %334, %331, %328, %326, %323, %317, %306, %300, %151, %358, %36
-  %.0197 = phi ptr [ null, %36 ], [ null, %154 ], [ %.2, %317 ], [ %.2, %323 ], [ %.2, %326 ], [ %.2, %331 ], [ %.2, %334 ], [ %.2, %354 ], [ %.2, %358 ], [ %.2, %351 ], [ %.2, %348 ], [ %.2, %345 ], [ %.2, %342 ], [ %.2, %338 ], [ %.2, %328 ], [ %.2, %306 ], [ %.2, %300 ], [ %.2.ph, %make_headers.exit.thread ], [ null, %151 ], [ null, %45 ], [ null, %76 ], [ null, %70 ], [ null, %51 ], [ null, %146 ], [ null, %131 ]
-  %.0107 = phi ptr [ null, %36 ], [ null, %154 ], [ null, %317 ], [ %322, %323 ], [ %322, %326 ], [ %322, %331 ], [ %322, %334 ], [ %322, %354 ], [ %322, %358 ], [ %322, %351 ], [ %322, %348 ], [ %322, %345 ], [ %322, %342 ], [ %322, %338 ], [ %322, %328 ], [ null, %306 ], [ null, %300 ], [ null, %make_headers.exit.thread ], [ null, %151 ], [ null, %45 ], [ null, %76 ], [ null, %70 ], [ null, %51 ], [ null, %146 ], [ null, %131 ]
-  %.0106 = phi ptr [ null, %36 ], [ null, %154 ], [ null, %317 ], [ null, %323 ], [ %325, %326 ], [ %325, %331 ], [ %325, %334 ], [ %325, %354 ], [ %325, %358 ], [ %325, %351 ], [ %325, %348 ], [ %325, %345 ], [ %325, %342 ], [ %325, %338 ], [ %325, %328 ], [ null, %306 ], [ null, %300 ], [ null, %make_headers.exit.thread ], [ null, %151 ], [ null, %45 ], [ null, %76 ], [ null, %70 ], [ null, %51 ], [ null, %146 ], [ null, %131 ]
-  %.0105 = phi ptr [ null, %36 ], [ null, %154 ], [ null, %317 ], [ null, %323 ], [ null, %326 ], [ %327, %331 ], [ %327, %334 ], [ %327, %354 ], [ %327, %358 ], [ %327, %351 ], [ %327, %348 ], [ %327, %345 ], [ %327, %342 ], [ %327, %338 ], [ %327, %328 ], [ null, %306 ], [ null, %300 ], [ null, %make_headers.exit.thread ], [ null, %151 ], [ null, %45 ], [ null, %76 ], [ null, %70 ], [ null, %51 ], [ null, %146 ], [ null, %131 ]
-  %.0104 = phi ptr [ null, %36 ], [ null, %154 ], [ null, %317 ], [ null, %323 ], [ null, %326 ], [ null, %331 ], [ %333, %334 ], [ %333, %354 ], [ %333, %358 ], [ %333, %351 ], [ %333, %348 ], [ %333, %345 ], [ %333, %342 ], [ %333, %338 ], [ null, %328 ], [ null, %306 ], [ null, %300 ], [ null, %make_headers.exit.thread ], [ null, %151 ], [ null, %45 ], [ null, %76 ], [ null, %70 ], [ null, %51 ], [ null, %146 ], [ null, %131 ]
-  %.0102 = phi ptr [ null, %36 ], [ null, %154 ], [ null, %317 ], [ null, %323 ], [ null, %326 ], [ null, %331 ], [ null, %334 ], [ %337, %354 ], [ %337, %358 ], [ %337, %351 ], [ %337, %348 ], [ %337, %345 ], [ %337, %342 ], [ %337, %338 ], [ null, %328 ], [ null, %306 ], [ null, %300 ], [ null, %make_headers.exit.thread ], [ null, %151 ], [ null, %45 ], [ null, %76 ], [ null, %70 ], [ null, %51 ], [ null, %146 ], [ null, %131 ]
-  %.099 = phi i32 [ 43, %36 ], [ 27, %154 ], [ 27, %317 ], [ 27, %323 ], [ 27, %326 ], [ 27, %331 ], [ 27, %334 ], [ 0, %354 ], [ 0, %358 ], [ %353, %351 ], [ %350, %348 ], [ %347, %345 ], [ %344, %342 ], [ %341, %338 ], [ 27, %328 ], [ %310, %306 ], [ %305, %300 ], [ 27, %make_headers.exit.thread ], [ %153, %151 ], [ 3, %45 ], [ 3, %76 ], [ 3, %70 ], [ 3, %51 ], [ %147, %146 ], [ %132, %131 ]
+  %.0197 = phi ptr [ null, %36 ], [ null, %154 ], [ %.2, %317 ], [ %.2, %323 ], [ %.2, %326 ], [ %.2, %331 ], [ %.2, %334 ], [ %.2, %354 ], [ %.2, %358 ], [ %.2, %351 ], [ %.2, %348 ], [ %.2, %345 ], [ %.2, %342 ], [ %.2, %338 ], [ %.2, %328 ], [ %.2, %306 ], [ %.2, %300 ], [ null, %151 ], [ null, %76 ], [ null, %70 ], [ null, %51 ], [ null, %45 ], [ null, %146 ], [ null, %131 ], [ %.2.ph, %make_headers.exit.thread ]
+  %.0107 = phi ptr [ null, %36 ], [ null, %154 ], [ null, %317 ], [ %322, %323 ], [ %322, %326 ], [ %322, %331 ], [ %322, %334 ], [ %322, %354 ], [ %322, %358 ], [ %322, %351 ], [ %322, %348 ], [ %322, %345 ], [ %322, %342 ], [ %322, %338 ], [ %322, %328 ], [ null, %306 ], [ null, %300 ], [ null, %151 ], [ null, %76 ], [ null, %70 ], [ null, %51 ], [ null, %45 ], [ null, %146 ], [ null, %131 ], [ null, %make_headers.exit.thread ]
+  %.0106 = phi ptr [ null, %36 ], [ null, %154 ], [ null, %317 ], [ null, %323 ], [ %325, %326 ], [ %325, %331 ], [ %325, %334 ], [ %325, %354 ], [ %325, %358 ], [ %325, %351 ], [ %325, %348 ], [ %325, %345 ], [ %325, %342 ], [ %325, %338 ], [ %325, %328 ], [ null, %306 ], [ null, %300 ], [ null, %151 ], [ null, %76 ], [ null, %70 ], [ null, %51 ], [ null, %45 ], [ null, %146 ], [ null, %131 ], [ null, %make_headers.exit.thread ]
+  %.0105 = phi ptr [ null, %36 ], [ null, %154 ], [ null, %317 ], [ null, %323 ], [ null, %326 ], [ %327, %331 ], [ %327, %334 ], [ %327, %354 ], [ %327, %358 ], [ %327, %351 ], [ %327, %348 ], [ %327, %345 ], [ %327, %342 ], [ %327, %338 ], [ %327, %328 ], [ null, %306 ], [ null, %300 ], [ null, %151 ], [ null, %76 ], [ null, %70 ], [ null, %51 ], [ null, %45 ], [ null, %146 ], [ null, %131 ], [ null, %make_headers.exit.thread ]
+  %.0104 = phi ptr [ null, %36 ], [ null, %154 ], [ null, %317 ], [ null, %323 ], [ null, %326 ], [ null, %331 ], [ %333, %334 ], [ %333, %354 ], [ %333, %358 ], [ %333, %351 ], [ %333, %348 ], [ %333, %345 ], [ %333, %342 ], [ %333, %338 ], [ null, %328 ], [ null, %306 ], [ null, %300 ], [ null, %151 ], [ null, %76 ], [ null, %70 ], [ null, %51 ], [ null, %45 ], [ null, %146 ], [ null, %131 ], [ null, %make_headers.exit.thread ]
+  %.0102 = phi ptr [ null, %36 ], [ null, %154 ], [ null, %317 ], [ null, %323 ], [ null, %326 ], [ null, %331 ], [ null, %334 ], [ %337, %354 ], [ %337, %358 ], [ %337, %351 ], [ %337, %348 ], [ %337, %345 ], [ %337, %342 ], [ %337, %338 ], [ null, %328 ], [ null, %306 ], [ null, %300 ], [ null, %151 ], [ null, %76 ], [ null, %70 ], [ null, %51 ], [ null, %45 ], [ null, %146 ], [ null, %131 ], [ null, %make_headers.exit.thread ]
+  %.099 = phi i32 [ 43, %36 ], [ 27, %154 ], [ 27, %317 ], [ 27, %323 ], [ 27, %326 ], [ 27, %331 ], [ 27, %334 ], [ 0, %354 ], [ 0, %358 ], [ %353, %351 ], [ %350, %348 ], [ %347, %345 ], [ %344, %342 ], [ %341, %338 ], [ 27, %328 ], [ %310, %306 ], [ %305, %300 ], [ %153, %151 ], [ 3, %76 ], [ 3, %70 ], [ 3, %51 ], [ 3, %45 ], [ %147, %146 ], [ %132, %131 ], [ 27, %make_headers.exit.thread ]
   call void @Curl_dyn_free(ptr noundef nonnull %15) #12
   call void @Curl_dyn_free(ptr noundef nonnull %16) #12
   call void @Curl_dyn_free(ptr noundef nonnull %13) #12
@@ -1018,7 +1018,7 @@ calc_s3_payload_hash.exit:                        ; preds = %make_headers.exit.t
   br label %371
 
 371:                                              ; preds = %2, %calc_s3_payload_hash.exit
-  %.0 = phi i32 [ 0, %2 ], [ %.099, %calc_s3_payload_hash.exit ]
+  %.0 = phi i32 [ %.099, %calc_s3_payload_hash.exit ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -1164,7 +1164,7 @@ define internal fastcc i32 @canon_query(ptr noundef %0, ptr noundef %1, ptr noun
   br label %36
 
 36:                                               ; preds = %32, %34, %20
-  %.1 = phi i32 [ 0, %20 ], [ 0, %32 ], [ %35, %34 ]
+  %.1 = phi i32 [ 0, %20 ], [ %35, %34 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %37 = add nuw nsw i32 %.04567, 1
   %38 = getelementptr inbounds nuw i8, ptr %.24268, i64 16

@@ -1363,8 +1363,8 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit399:       ; preds = %_ZL13gmx_snew_implI
           to label %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit unwind label %.loopexit
 
 _ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit:        ; preds = %563, %558, %557
-  %.2606 = phi ptr [ %.1605, %557 ], [ %.1605, %558 ], [ %567, %563 ]
-  %.2187 = phi i32 [ %.1186, %557 ], [ %.1186, %558 ], [ %564, %563 ]
+  %.2606 = phi ptr [ %.1605, %558 ], [ %.1605, %557 ], [ %567, %563 ]
+  %.2187 = phi i32 [ %.1186, %558 ], [ %.1186, %557 ], [ %564, %563 ]
   br i1 %162, label %568, label %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit405
 
 568:                                              ; preds = %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit
@@ -1383,8 +1383,8 @@ _ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit:        ; preds = %563, %558, %557
           to label %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit405 unwind label %.loopexit
 
 _ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit405:     ; preds = %573, %568, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit
-  %.2609 = phi ptr [ %.1608, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit ], [ %.1608, %568 ], [ %577, %573 ]
-  %.2 = phi i32 [ %.1, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit ], [ %.1, %568 ], [ %574, %573 ]
+  %.2609 = phi ptr [ %.1608, %568 ], [ %.1608, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit ], [ %577, %573 ]
+  %.2 = phi i32 [ %.1, %568 ], [ %.1, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit ], [ %574, %573 ]
   %578 = load ptr, ptr %12, align 8, !tbaa !44
   %579 = load ptr, ptr %27, align 8, !tbaa !59
   %580 = invoke noundef zeroext i1 @_Z15read_next_framePK16gmx_output_env_tP11t_trxstatusP10t_trxframe(ptr noundef %578, ptr noundef %579, ptr noundef nonnull %28)
@@ -1455,8 +1455,8 @@ _ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit405:     ; preds = %573, %568, %_ZL15gm
   br label %605
 
 605:                                              ; preds = %.lr.ph668, %604, %602
-  %.1203 = phi float [ %.0202664, %602 ], [ %600, %604 ], [ %.0202664, %.lr.ph668 ]
-  %.1201 = phi float [ %.0200665, %602 ], [ %.0200665, %604 ], [ %600, %.lr.ph668 ]
+  %.1203 = phi float [ %600, %604 ], [ %.0202664, %602 ], [ %.0202664, %.lr.ph668 ]
+  %.1201 = phi float [ %.0200665, %604 ], [ %.0200665, %602 ], [ %600, %.lr.ph668 ]
   %indvars.iv.next727 = add nuw nsw i64 %indvars.iv726, 1
   %exitcond733.not = icmp eq i64 %indvars.iv.next727, %wide.trip.count732
   br i1 %exitcond733.not, label %._crit_edge669, label %.lr.ph668, !llvm.loop !62
@@ -2342,7 +2342,7 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm2EED2Ev.exit: 
   br label %948
 
 924:                                              ; preds = %.loopexit, %.loopexit.split-lp, %899, %891, %851, %807, %717, %678, %349, %307, %261, %235, %207, %181
-  %.pn312.pn = phi { ptr, i32 } [ %.pn312, %181 ], [ %.pn310, %207 ], [ %.pn267, %235 ], [ %.pn305.pn.pn, %807 ], [ %.pn301.pn.pn, %851 ], [ %.pn295.pn.pn, %678 ], [ %.pn291.pn.pn, %717 ], [ %.pn284.pn.pn, %349 ], [ %.pn280.pn.pn, %307 ], [ %.pn278, %261 ], [ %.pn276, %891 ], [ %.pn269, %899 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn312.pn = phi { ptr, i32 } [ %.pn312, %181 ], [ %.pn310, %207 ], [ %.pn305.pn.pn, %807 ], [ %.pn301.pn.pn, %851 ], [ %.pn295.pn.pn, %678 ], [ %.pn291.pn.pn, %717 ], [ %.pn284.pn.pn, %349 ], [ %.pn280.pn.pn, %307 ], [ %.pn278, %261 ], [ %.pn276, %891 ], [ %.pn269, %899 ], [ %.pn267, %235 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %925 = load ptr, ptr %35, align 8, !tbaa !36
   %926 = icmp eq ptr %925, %131
   br i1 %926, label %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm1EED2Ev.exit519, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i516

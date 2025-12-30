@@ -1000,7 +1000,7 @@ define dso_local void @__clocksource_update_freq_scale(ptr noundef captures(none
   br label %.loopexit
 
 .thread.thread:                                   ; preds = %.loopexit6, %.thread, %56
-  %69 = phi i32 [ %60, %56 ], [ %.pre, %.thread ], [ %54, %.loopexit6 ]
+  %69 = phi i32 [ %.pre, %.thread ], [ %60, %56 ], [ %54, %.loopexit6 ]
   %70 = icmp ult i32 %69, 250000
   br i1 %70, label %71, label %72, !prof !39
 
@@ -1954,7 +1954,7 @@ define internal fastcc void @__clocksource_select(i1 noundef zeroext %0) unnamed
   br i1 %36, label %.thread, label %.split.split, !llvm.loop !57
 
 .split13.us:                                      ; preds = %29, %.split.us.split, %.split13.split.us, %.split.us.split.us
-  %.us-phi = phi ptr [ %12, %.split.us.split ], [ %10, %.split.us.split.us ], [ %25, %.split13.split.us ], [ %27, %29 ]
+  %.us-phi = phi ptr [ %10, %.split.us.split.us ], [ %25, %.split13.split.us ], [ %12, %.split.us.split ], [ %27, %29 ]
   %37 = icmp eq ptr %.us-phi, null
   br i1 %37, label %.thread, label %38
 

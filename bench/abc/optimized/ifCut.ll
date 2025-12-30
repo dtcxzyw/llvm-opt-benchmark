@@ -169,8 +169,8 @@ If_CutPrint.exit42:                               ; preds = %55, %If_CutPrint.ex
   br label %If_CutVerifyCut.exit.thread
 
 If_CutVerifyCut.exit.thread:                      ; preds = %39, %.preheader.lr.ph.i, %If_CutPrint.exit42, %15
-  %66 = phi i16 [ %16, %15 ], [ %.pre, %If_CutPrint.exit42 ], [ %16, %.preheader.lr.ph.i ], [ %16, %39 ]
-  %67 = phi i16 [ %17, %15 ], [ %.pre, %If_CutPrint.exit42 ], [ %17, %.preheader.lr.ph.i ], [ %17, %39 ]
+  %66 = phi i16 [ %16, %.preheader.lr.ph.i ], [ %.pre, %If_CutPrint.exit42 ], [ %16, %15 ], [ %16, %39 ]
+  %67 = phi i16 [ %17, %.preheader.lr.ph.i ], [ %.pre, %If_CutPrint.exit42 ], [ %17, %15 ], [ %17, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = sext i16 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next, %68
@@ -400,8 +400,8 @@ If_CutCheckDominance.exit:                        ; preds = %53, %42
   br i1 %exitcond31.not.i57, label %If_CutCheckDominance.exit58, label %.preheader.us.i49, !llvm.loop !27
 
 If_CutCheckDominance.exit.thread:                 ; preds = %._crit_edge.us.i55, %._crit_edge.us.i, %75, %50, %36, %._crit_edge, %62, %37, %31
-  %79 = phi i16 [ %15, %31 ], [ 1, %36 ], [ %15, %37 ], [ %60, %._crit_edge ], [ %15, %._crit_edge.us.i ], [ %15, %62 ], [ %15, %75 ], [ %15, %50 ], [ %15, %._crit_edge.us.i55 ]
-  %.1 = phi i32 [ 0, %31 ], [ 0, %36 ], [ %.03570, %37 ], [ %61, %._crit_edge ], [ %.03570, %._crit_edge.us.i ], [ %.03570, %62 ], [ %.03570, %75 ], [ %.03570, %50 ], [ %.03570, %._crit_edge.us.i55 ]
+  %79 = phi i16 [ %15, %31 ], [ %15, %37 ], [ %60, %._crit_edge ], [ %15, %62 ], [ 1, %36 ], [ %15, %50 ], [ %15, %75 ], [ %15, %._crit_edge.us.i ], [ %15, %._crit_edge.us.i55 ]
+  %.1 = phi i32 [ 0, %31 ], [ %.03570, %37 ], [ %61, %._crit_edge ], [ %.03570, %62 ], [ 0, %36 ], [ %.03570, %50 ], [ %.03570, %75 ], [ %.03570, %._crit_edge.us.i ], [ %.03570, %._crit_edge.us.i55 ]
   %80 = add nsw i32 %.1, 1
   %81 = sext i16 %79 to i32
   %82 = icmp slt i32 %80, %81
@@ -723,7 +723,7 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered_(ptr noundef captures(none) %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %102, %23, %.preheader140, %.loopexit142, %.loopexit143, %._crit_edge154, %._crit_edge, %._crit_edge158
-  %.0128 = phi i32 [ 0, %.loopexit142 ], [ 1, %._crit_edge158 ], [ 0, %.loopexit143 ], [ 1, %._crit_edge154 ], [ 0, %.preheader140 ], [ 1, %._crit_edge ], [ 0, %23 ], [ 0, %102 ]
+  %.0128 = phi i32 [ 1, %._crit_edge158 ], [ 1, %._crit_edge154 ], [ 1, %._crit_edge ], [ 0, %.loopexit143 ], [ 0, %.loopexit142 ], [ 0, %.preheader140 ], [ 0, %23 ], [ 0, %102 ]
   ret i32 %.0128
 }
 
@@ -936,7 +936,7 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered(ptr noundef readnone captures(non
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %25, %.preheader107, %._crit_edge122.loopexit, %.preheader108, %._crit_edge.loopexit, %.preheader
-  %.5.lcssa.sink = phi i32 [ %76, %._crit_edge.loopexit ], [ %13, %.preheader ], [ %91, %._crit_edge122.loopexit ], [ %.1, %.preheader108 ], [ %.086, %.preheader107 ], [ %13, %25 ]
+  %.5.lcssa.sink = phi i32 [ %13, %.preheader ], [ %.1, %.preheader108 ], [ %76, %._crit_edge.loopexit ], [ %.086, %.preheader107 ], [ %91, %._crit_edge122.loopexit ], [ %13, %25 ]
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %93 = load i64, ptr %92, align 4
   %94 = shl i32 %.5.lcssa.sink, 24
@@ -954,7 +954,7 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered(ptr noundef readnone captures(non
   br label %.loopexit
 
 .loopexit:                                        ; preds = %61, %20, %.loopexit.sink.split, %.preheader109, %.loopexit111, %.loopexit112
-  %.0 = phi i32 [ 0, %.loopexit111 ], [ 0, %20 ], [ 0, %.loopexit112 ], [ 1, %.loopexit.sink.split ], [ 0, %.preheader109 ], [ 0, %61 ]
+  %.0 = phi i32 [ 0, %.loopexit112 ], [ 0, %.loopexit111 ], [ 0, %.preheader109 ], [ 1, %.loopexit.sink.split ], [ 0, %20 ], [ 0, %61 ]
   ret i32 %.0
 }
 
@@ -1151,7 +1151,7 @@ define range(i32 -1, 2) i32 @If_CutCompareDelay(ptr noundef readonly captures(no
   br label %37
 
 37:                                               ; preds = %34, %29, %27, %17, %14, %3
-  %.0 = phi i32 [ -1, %29 ], [ -1, %3 ], [ 1, %14 ], [ -1, %17 ], [ 1, %27 ], [ %., %34 ]
+  %.0 = phi i32 [ -1, %3 ], [ 1, %14 ], [ -1, %17 ], [ 1, %27 ], [ -1, %29 ], [ %., %34 ]
   ret i32 %.0
 }
 
@@ -1204,7 +1204,7 @@ define range(i32 -1, 2) i32 @If_CutCompareDelayOld(ptr noundef readonly captures
   br label %37
 
 37:                                               ; preds = %35, %25, %22, %17, %14, %3
-  %.0 = phi i32 [ -1, %25 ], [ -1, %3 ], [ 1, %14 ], [ -1, %17 ], [ 1, %22 ], [ %., %35 ]
+  %.0 = phi i32 [ -1, %3 ], [ 1, %14 ], [ -1, %17 ], [ 1, %22 ], [ -1, %25 ], [ %., %35 ]
   ret i32 %.0
 }
 
@@ -1257,7 +1257,7 @@ define range(i32 -1, 2) i32 @If_CutCompareArea(ptr noundef readonly captures(non
   br label %37
 
 37:                                               ; preds = %34, %27, %25, %15, %12, %3
-  %.0 = phi i32 [ -1, %27 ], [ -1, %3 ], [ 1, %12 ], [ -1, %15 ], [ 1, %25 ], [ %., %34 ]
+  %.0 = phi i32 [ -1, %3 ], [ 1, %12 ], [ -1, %15 ], [ 1, %25 ], [ -1, %27 ], [ %., %34 ]
   ret i32 %.0
 }
 
@@ -1966,7 +1966,7 @@ define internal fastcc range(i32 -1, 2) i32 @If_ManSortCompare(ptr noundef reado
   br label %338
 
 338:                                              ; preds = %336, %332, %329, %322, %319, %312, %309, %304, %302, %290, %287, %278, %276, %270, %267, %260, %257, %250, %247, %242, %240, %230, %227, %218, %216, %210, %208, %198, %195, %188, %185, %178, %175, %168, %165, %155, %152, %147, %144, %137, %134, %127, %124, %115, %112, %105, %102, %95, %92, %87, %85, %75, %72, %63, %60, %53, %51, %41, %38, %31, %28, %21, %18, %11
-  %.0 = phi i32 [ -1, %332 ], [ -1, %11 ], [ 1, %18 ], [ -1, %21 ], [ 1, %28 ], [ -1, %31 ], [ 1, %38 ], [ -1, %41 ], [ 1, %51 ], [ %., %60 ], [ -1, %53 ], [ %.226, %336 ], [ -1, %63 ], [ 1, %72 ], [ -1, %75 ], [ 1, %85 ], [ -1, %87 ], [ 1, %92 ], [ -1, %95 ], [ 1, %102 ], [ %.222, %112 ], [ -1, %105 ], [ 1, %329 ], [ -1, %115 ], [ 1, %124 ], [ -1, %127 ], [ 1, %134 ], [ -1, %137 ], [ 1, %144 ], [ -1, %147 ], [ 1, %152 ], [ %.223, %165 ], [ -1, %155 ], [ -1, %322 ], [ -1, %168 ], [ 1, %175 ], [ -1, %178 ], [ 1, %185 ], [ -1, %188 ], [ 1, %195 ], [ -1, %198 ], [ 1, %208 ], [ %.224, %216 ], [ -1, %210 ], [ 1, %319 ], [ -1, %218 ], [ 1, %227 ], [ -1, %230 ], [ 1, %240 ], [ -1, %242 ], [ 1, %247 ], [ -1, %250 ], [ 1, %257 ], [ -1, %260 ], [ 1, %267 ], [ %.225, %276 ], [ -1, %270 ], [ -1, %312 ], [ -1, %278 ], [ 1, %287 ], [ -1, %290 ], [ 1, %302 ], [ -1, %304 ], [ 1, %309 ]
+  %.0 = phi i32 [ -1, %11 ], [ 1, %18 ], [ -1, %21 ], [ 1, %28 ], [ -1, %31 ], [ 1, %38 ], [ -1, %41 ], [ 1, %51 ], [ -1, %53 ], [ %., %60 ], [ -1, %63 ], [ 1, %72 ], [ -1, %75 ], [ 1, %85 ], [ -1, %87 ], [ 1, %92 ], [ -1, %95 ], [ 1, %102 ], [ -1, %105 ], [ %.222, %112 ], [ -1, %115 ], [ 1, %124 ], [ -1, %127 ], [ 1, %134 ], [ -1, %137 ], [ 1, %144 ], [ -1, %147 ], [ 1, %152 ], [ -1, %155 ], [ %.223, %165 ], [ -1, %168 ], [ 1, %175 ], [ -1, %178 ], [ 1, %185 ], [ -1, %188 ], [ 1, %195 ], [ -1, %198 ], [ 1, %208 ], [ -1, %210 ], [ %.224, %216 ], [ -1, %218 ], [ 1, %227 ], [ -1, %230 ], [ 1, %240 ], [ -1, %242 ], [ 1, %247 ], [ -1, %250 ], [ 1, %257 ], [ -1, %260 ], [ 1, %267 ], [ -1, %270 ], [ %.225, %276 ], [ -1, %278 ], [ 1, %287 ], [ -1, %290 ], [ 1, %302 ], [ -1, %304 ], [ 1, %309 ], [ -1, %312 ], [ 1, %319 ], [ -1, %322 ], [ 1, %329 ], [ -1, %332 ], [ %.226, %336 ]
   ret i32 %.0
 }
 
@@ -2052,7 +2052,7 @@ define range(i32 0, 2) i32 @If_CutCheck(ptr noundef readonly captures(none) %0) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %1, %14
-  %.08 = phi i32 [ 1, %1 ], [ 0, %14 ], [ 1, %8 ]
+  %.08 = phi i32 [ 0, %14 ], [ 1, %1 ], [ 1, %8 ]
   ret i32 %.08
 }
 
@@ -2316,7 +2316,7 @@ If_CutLutArea.exit:                               ; preds = %5, %13, %17, %22
   br label %62
 
 62:                                               ; preds = %55, %61, %58
-  %.1 = phi float [ %59, %58 ], [ 0x4693B8B5C0000000, %61 ], [ 0x4693B8B5C0000000, %55 ]
+  %.1 = phi float [ 0x4693B8B5C0000000, %61 ], [ %59, %58 ], [ 0x4693B8B5C0000000, %55 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %34, !llvm.loop !106
@@ -2397,7 +2397,7 @@ define float @If_CutEdgeFlow(ptr noundef readonly captures(none) %0, ptr noundef
   br label %39
 
 39:                                               ; preds = %32, %38, %35
-  %.1 = phi float [ %36, %35 ], [ 0x4693B8B5C0000000, %38 ], [ 0x4693B8B5C0000000, %32 ]
+  %.1 = phi float [ 0x4693B8B5C0000000, %38 ], [ %36, %35 ], [ 0x4693B8B5C0000000, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !107
@@ -3224,7 +3224,7 @@ define range(i32 0, 2) i32 @If_CutGetCone_rec(ptr noundef readnone %0, ptr nound
   br i1 %.not28, label %.loopexit, label %.preheader, !llvm.loop !125
 
 .loopexit:                                        ; preds = %11, %.critedge, %20, %._crit_edge
-  %.024 = phi i32 [ 0, %._crit_edge ], [ 1, %20 ], [ 0, %.critedge ], [ 1, %11 ]
+  %.024 = phi i32 [ 0, %._crit_edge ], [ 0, %.critedge ], [ 1, %20 ], [ 1, %11 ]
   ret i32 %.024
 }
 

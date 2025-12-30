@@ -326,7 +326,7 @@ _ZNK4ncnn3Mat5emptyEv.exit75:                     ; preds = %._crit_edge
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %._crit_edge80, %22, %4, %43, %78, %75, %106, %109, %_ZNK4ncnn3Mat5emptyEv.exit75, %_ZNK4ncnn3Mat5emptyEv.exit74, %_ZNK4ncnn3Mat5emptyEv.exit
-  %.2 = phi i32 [ 0, %4 ], [ -100, %._crit_edge80 ], [ -100, %22 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit75 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit74 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %109 ], [ 0, %106 ], [ 0, %75 ], [ 0, %78 ], [ 0, %43 ], [ -100, %._crit_edge ]
+  %.2 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit74 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit75 ], [ 0, %109 ], [ 0, %106 ], [ 0, %75 ], [ 0, %78 ], [ 0, %43 ], [ 0, %4 ], [ -100, %22 ], [ -100, %._crit_edge80 ], [ -100, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1018,8 +1018,8 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %63, %58, %49
   br label %79
 
 79:                                               ; preds = %76, %.thread.i, %74, %_ZN4ncnn3Mat6addrefEv.exit
-  %.064.i = phi nsz <4 x float> [ %77, %76 ], [ %70, %74 ], [ %70, %_ZN4ncnn3Mat6addrefEv.exit ], [ %70, %.thread.i ]
-  %.062.i = phi nsz <8 x float> [ %78, %76 ], [ %72, %74 ], [ %72, %_ZN4ncnn3Mat6addrefEv.exit ], [ %75, %.thread.i ]
+  %.064.i = phi nsz <4 x float> [ %77, %76 ], [ %70, %_ZN4ncnn3Mat6addrefEv.exit ], [ %70, %.thread.i ], [ %70, %74 ]
+  %.062.i = phi nsz <8 x float> [ %78, %76 ], [ %72, %_ZN4ncnn3Mat6addrefEv.exit ], [ %75, %.thread.i ], [ %72, %74 ]
   %80 = icmp sgt i32 %67, 15
   br i1 %80, label %.lr.ph.i, label %.preheader14.i
 
@@ -1639,8 +1639,8 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %61, %56, %47
   br label %79
 
 79:                                               ; preds = %76, %.thread.i, %74, %_ZN4ncnn3Mat6addrefEv.exit
-  %.064.i = phi nsz <4 x float> [ %77, %76 ], [ %70, %74 ], [ %70, %_ZN4ncnn3Mat6addrefEv.exit ], [ %70, %.thread.i ]
-  %.062.i = phi nsz <8 x float> [ %78, %76 ], [ %72, %74 ], [ %72, %_ZN4ncnn3Mat6addrefEv.exit ], [ %75, %.thread.i ]
+  %.064.i = phi nsz <4 x float> [ %77, %76 ], [ %70, %_ZN4ncnn3Mat6addrefEv.exit ], [ %70, %.thread.i ], [ %70, %74 ]
+  %.062.i = phi nsz <8 x float> [ %78, %76 ], [ %72, %_ZN4ncnn3Mat6addrefEv.exit ], [ %75, %.thread.i ], [ %72, %74 ]
   %80 = icmp sgt i32 %67, 15
   br i1 %80, label %.lr.ph.i, label %.preheader14.i
 

@@ -113,8 +113,8 @@ define noundef ptr @d2i_PublicKey(i32 noundef %0, ptr noundef captures(address_i
   br label %56
 
 51:                                               ; preds = %29, %44, %35, %31, %27
-  %.sink50 = phi i32 [ 80, %44 ], [ 67, %35 ], [ 60, %31 ], [ 53, %27 ], [ 86, %29 ]
-  %.sink = phi i32 [ 524301, %44 ], [ 524301, %35 ], [ 524301, %31 ], [ 524294, %27 ], [ 163, %29 ]
+  %.sink50 = phi i32 [ 53, %27 ], [ 60, %31 ], [ 67, %35 ], [ 80, %44 ], [ 86, %29 ]
+  %.sink = phi i32 [ 524294, %27 ], [ 524301, %31 ], [ 524301, %35 ], [ 524301, %44 ], [ 163, %29 ]
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink50, ptr noundef nonnull @__func__.d2i_PublicKey) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #3

@@ -375,15 +375,15 @@ define dso_local ptr @phy_lookup_setting(i32 noundef %0, i32 noundef %1, ptr nou
   br i1 %52, label %.split3.us, label %53
 
 53:                                               ; preds = %47, %34, %.split
-  %54 = phi ptr [ %29, %.split ], [ %51, %47 ], [ %29, %34 ]
-  %55 = phi ptr [ %28, %.split ], [ %30, %47 ], [ %28, %34 ]
+  %54 = phi ptr [ %51, %47 ], [ %29, %34 ], [ %29, %.split ]
+  %55 = phi ptr [ %30, %47 ], [ %28, %34 ], [ %28, %.split ]
   %56 = add nuw nsw i32 %27, 1
   %57 = getelementptr i8, ptr %30, i64 8
   %58 = icmp eq i32 %56, 89
   br i1 %58, label %.split3.us, label %.split, !llvm.loop !12
 
 .split3.us:                                       ; preds = %42, %47, %53, %18, %23
-  %59 = phi ptr [ null, %18 ], [ null, %23 ], [ %30, %47 ], [ %55, %53 ], [ %30, %42 ]
+  %59 = phi ptr [ null, %23 ], [ null, %18 ], [ %30, %47 ], [ %55, %53 ], [ %30, %42 ]
   %.us-phi = phi ptr [ %6, %18 ], [ null, %23 ], [ %51, %47 ], [ %54, %53 ], [ %30, %42 ]
   %60 = icmp eq ptr %.us-phi, null
   %61 = select i1 %60, ptr %59, ptr %.us-phi
@@ -1321,7 +1321,7 @@ define dso_local i32 @phy_select_page(ptr noundef %0, i32 noundef %1) #1 align 1
   br label %.thread3
 
 .thread3:                                         ; preds = %.thread4, %26, %.thread, %13, %30, %27, %14
-  %31 = phi i32 [ %15, %30 ], [ %15, %14 ], [ %28, %27 ], [ -95, %.thread ], [ -95, %13 ], [ -95, %26 ], [ -95, %.thread4 ]
+  %31 = phi i32 [ %15, %30 ], [ %15, %14 ], [ %28, %27 ], [ -95, %13 ], [ -95, %.thread ], [ -95, %26 ], [ -95, %.thread4 ]
   ret i32 %31
 }
 

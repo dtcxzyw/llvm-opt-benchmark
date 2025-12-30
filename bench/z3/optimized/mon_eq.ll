@@ -574,7 +574,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   br label %.body69
 
 .body69:                                          ; preds = %216, %193, %223
-  %.pn.pn = phi { ptr, i32 } [ %224, %223 ], [ %194, %193 ], [ %217, %216 ]
+  %.pn.pn = phi { ptr, i32 } [ %224, %223 ], [ %217, %216 ], [ %194, %193 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
   br label %225
 
@@ -605,7 +605,7 @@ _ZN8rationalD2Ev.exit76:                          ; preds = %.noexc.i75
   ret i1 %.3
 
 .body:                                            ; preds = %107, %105, %225
-  %.pn40.pn = phi { ptr, i32 } [ %106, %105 ], [ %.pn.pn.pn, %225 ], [ %108, %107 ]
+  %.pn40.pn = phi { ptr, i32 } [ %.pn.pn.pn, %225 ], [ %108, %107 ], [ %106, %105 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume

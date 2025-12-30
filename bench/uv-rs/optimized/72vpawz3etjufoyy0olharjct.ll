@@ -108,7 +108,7 @@ define internal fastcc range(i32 0, -65535) i32 @"_ZN4core3num21_$LT$impl$u20$u1
   ]
 
 .loopexit49:                                      ; preds = %25, %14, %23, %.lr.ph, %3, %3, %2, %.loopexit
-  %.sroa.8.0.insert.insert = phi i32 [ 1, %2 ], [ 257, %3 ], [ %13, %.loopexit ], [ 257, %3 ], [ 257, %.lr.ph ], [ 257, %14 ], [ 513, %23 ], [ 513, %25 ]
+  %.sroa.8.0.insert.insert = phi i32 [ %13, %.loopexit ], [ 1, %2 ], [ 257, %3 ], [ 257, %3 ], [ 257, %.lr.ph ], [ 513, %25 ], [ 513, %23 ], [ 257, %14 ]
   ret i32 %.sroa.8.0.insert.insert
 
 3:                                                ; preds = %2
@@ -155,7 +155,7 @@ define internal fastcc range(i32 0, -65535) i32 @"_ZN4core3num21_$LT$impl$u20$u1
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %.preheader50, %34, %.preheader
-  %.sroa.015.1 = phi i16 [ %39, %34 ], [ 0, %.preheader ], [ %.sroa.015.0, %.preheader50 ]
+  %.sroa.015.1 = phi i16 [ 0, %.preheader ], [ %39, %34 ], [ %.sroa.015.0, %.preheader50 ]
   %12 = zext i16 %.sroa.015.1 to i32
   %13 = shl nuw i32 %12, 16
   br label %.loopexit49
@@ -432,7 +432,7 @@ define noundef zeroext i1 @_ZN16uv_platform_tags12platform_tag11PlatformTag6is_a
   br label %36
 
 36:                                               ; preds = %1, %32, %31, %27, %23, %19, %15, %11, %7, %3
-  %.sroa.0.0.shrunk = phi i1 [ %35, %32 ], [ %6, %3 ], [ %10, %7 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ], [ true, %31 ], [ false, %1 ]
+  %.sroa.0.0.shrunk = phi i1 [ %6, %3 ], [ %10, %7 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ], [ true, %31 ], [ %35, %32 ], [ false, %1 ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -496,7 +496,7 @@ define noundef zeroext i1 @_ZN16uv_platform_tags12platform_tag11PlatformTag9is_x
   br label %32
 
 32:                                               ; preds = %1, %31, %27, %23, %19, %15, %11, %7, %3
-  %.sroa.0.0.shrunk = phi i1 [ true, %31 ], [ %6, %3 ], [ %10, %7 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ], [ false, %1 ]
+  %.sroa.0.0.shrunk = phi i1 [ %6, %3 ], [ %10, %7 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ], [ true, %31 ], [ false, %1 ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -560,7 +560,7 @@ define noundef zeroext i1 @_ZN16uv_platform_tags12platform_tag11PlatformTag6is_x
   br label %32
 
 32:                                               ; preds = %1, %31, %27, %23, %19, %15, %11, %7, %3
-  %.sroa.0.0.shrunk = phi i1 [ true, %31 ], [ %6, %3 ], [ %10, %7 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ], [ false, %1 ]
+  %.sroa.0.0.shrunk = phi i1 [ %6, %3 ], [ %10, %7 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ], [ true, %31 ], [ false, %1 ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -1172,7 +1172,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit221: ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit
 
 _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit: ; preds = %120, %114, %108, %102, %56, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit221, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit216, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit211, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit206, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit201, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit196, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit191, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit186, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit161, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit156, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit151, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit146, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit141, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit136, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit131
-  %.sroa.0.0.in = phi i1 [ %159, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit221 ], [ %69, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit131 ], [ %73, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit136 ], [ %77, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit141 ], [ %81, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit146 ], [ %85, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit151 ], [ %93, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit156 ], [ %101, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit161 ], [ %61, %56 ], [ %107, %102 ], [ %113, %108 ], [ %119, %114 ], [ %131, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit186 ], [ %135, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit191 ], [ %139, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit196 ], [ %143, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit201 ], [ %147, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit206 ], [ %151, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit211 ], [ %155, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit216 ], [ %125, %120 ]
+  %.sroa.0.0.in = phi i1 [ %69, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit131 ], [ %73, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit136 ], [ %77, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit141 ], [ %81, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit146 ], [ %85, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit151 ], [ %93, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit156 ], [ %101, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit161 ], [ %131, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit186 ], [ %135, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit191 ], [ %139, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit196 ], [ %143, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit201 ], [ %147, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit206 ], [ %151, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit211 ], [ %155, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit216 ], [ %159, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit221 ], [ %61, %56 ], [ %107, %102 ], [ %113, %108 ], [ %119, %114 ], [ %125, %120 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -1682,7 +1682,7 @@ define void @"_ZN90_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$as$u20$c
   br i1 %.not.i.i1041, label %.thread1494, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1042"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1042": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddd631e46b4ff1f6E.exit1013", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1036", %129, %53, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddd631e46b4ff1f6E.exit1017", %.thread1169
-  %.not.i.i1167.ph1178.ph1244.ph1263.ph1284 = phi i1 [ false, %53 ], [ true, %.thread1169 ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddd631e46b4ff1f6E.exit1017" ], [ false, %129 ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1036" ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddd631e46b4ff1f6E.exit1013" ]
+  %.not.i.i1167.ph1178.ph1244.ph1263.ph1284 = phi i1 [ true, %.thread1169 ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddd631e46b4ff1f6E.exit1017" ], [ false, %53 ], [ false, %129 ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hfcb2dfe642d8bf55E.exit.i1036" ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddd631e46b4ff1f6E.exit1013" ]
   %bcmp.i.i.i1043 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(6) @anon.b6ff6adb2eeddc2d90bb9988127738b3.42, ptr noundef nonnull readonly align 1 dereferenceable(6) %1, i64 6), !alias.scope !152
   %bcmp.i.i.fr.i1044 = freeze i32 %bcmp.i.i.i1043
   %156 = icmp eq i32 %bcmp.i.i.fr.i1044, 0

@@ -442,8 +442,8 @@ define dso_local i64 @XLogInsertRecord(ptr noundef readonly captures(none) %0, i
   br label %21
 
 21:                                               ; preds = %18, %.fold.split, %20, %5
-  %22 = phi i1 [ true, %5 ], [ false, %20 ], [ false, %18 ], [ true, %.fold.split ]
-  %23 = phi i1 [ false, %5 ], [ false, %20 ], [ true, %18 ], [ false, %.fold.split ]
+  %22 = phi i1 [ false, %20 ], [ true, %5 ], [ false, %18 ], [ true, %.fold.split ]
+  %23 = phi i1 [ false, %20 ], [ false, %5 ], [ true, %18 ], [ false, %.fold.split ]
   %24 = load i32, ptr @LocalXLogInsertAllowed, align 4
   %25 = icmp sgt i32 %24, -1
   br i1 %25, label %XLogInsertAllowed.exit, label %26
@@ -662,7 +662,7 @@ XLogBytePosToRecPtr.exit:                         ; preds = %106, %108
   br label %XLogBytePosToEndRecPtr.exit
 
 XLogBytePosToEndRecPtr.exit:                      ; preds = %123, %132, %134
-  %.0.i56 = phi i64 [ %136, %134 ], [ %spec.select.i, %123 ], [ %133, %132 ]
+  %.0.i56 = phi i64 [ %133, %132 ], [ %136, %134 ], [ %spec.select.i, %123 ]
   %137 = mul i64 %121, %116
   %138 = and i64 %.0.i56, 4294967295
   %139 = add i64 %137, %138
@@ -848,7 +848,7 @@ ReserveXLogInsertLocation.exit54:                 ; preds = %156, %161
   br label %238
 
 238:                                              ; preds = %231, %224, %223
-  %.027.i.i = phi i64 [ %spec.select31.i.i, %224 ], [ %spec.select.i.i, %231 ], [ %201, %223 ]
+  %.027.i.i = phi i64 [ %201, %223 ], [ %spec.select.i.i, %231 ], [ %spec.select31.i.i, %224 ]
   %.b.i.i.i = load i1, ptr @holdingAllLocks, align 1
   %239 = load ptr, ptr @WALInsertLocks, align 8
   br i1 %.b.i.i.i, label %240, label %243
@@ -1266,7 +1266,7 @@ define internal fastcc noundef zeroext i1 @ReserveXLogSwitch(ptr noundef nonnull
   br label %XLogBytePosToEndRecPtr.exit
 
 XLogBytePosToEndRecPtr.exit:                      ; preds = %16, %25, %27
-  %.0.i = phi i64 [ %29, %27 ], [ %spec.select.i, %16 ], [ %26, %25 ]
+  %.0.i = phi i64 [ %26, %25 ], [ %29, %27 ], [ %spec.select.i, %16 ]
   %30 = load i32, ptr @wal_segment_size, align 4
   %31 = sext i32 %30 to i64
   %32 = mul i64 %14, %31
@@ -1338,7 +1338,7 @@ XLogBytePosToRecPtr.exit:                         ; preds = %44, %46
   br label %XLogBytePosToEndRecPtr.exit34
 
 XLogBytePosToEndRecPtr.exit34:                    ; preds = %58, %67, %69
-  %.0.i32 = phi i64 [ %71, %69 ], [ %spec.select.i33, %58 ], [ %68, %67 ]
+  %.0.i32 = phi i64 [ %68, %67 ], [ %71, %69 ], [ %spec.select.i33, %58 ]
   %72 = mul i64 %56, %31
   %73 = and i64 %.0.i32, 4294967295
   %74 = add i64 %72, %73
@@ -2141,7 +2141,7 @@ define internal fastcc i64 @WaitXLogInsertionsToFinish(i64 noundef %0) unnamed_a
   br label %XLogBytePosToEndRecPtr.exit
 
 XLogBytePosToEndRecPtr.exit:                      ; preds = %24, %33, %35
-  %.0.i = phi i64 [ %37, %35 ], [ %spec.select.i, %24 ], [ %34, %33 ]
+  %.0.i = phi i64 [ %34, %33 ], [ %37, %35 ], [ %spec.select.i, %24 ]
   %38 = load i32, ptr @wal_segment_size, align 4
   %39 = sext i32 %38 to i64
   %40 = mul i64 %22, %39
@@ -2823,7 +2823,7 @@ RecoveryInProgress.exit.thread:                   ; preds = %0, %RecoveryInProgr
   br label %67
 
 67:                                               ; preds = %58, %.sink.split
-  %.sroa.16.0 = phi i64 [ 0, %58 ], [ %.sroa.0.038, %.sink.split ]
+  %.sroa.16.0 = phi i64 [ %.sroa.0.038, %.sink.split ], [ 0, %58 ]
   %68 = load volatile i32, ptr @CritSectionCount, align 4
   %69 = add i32 %68, 1
   store volatile i32 %69, ptr @CritSectionCount, align 4
@@ -3254,7 +3254,7 @@ RecoveryInProgress.exit.thread:                   ; preds = %1, %RecoveryInProgr
   br label %40
 
 40:                                               ; preds = %.thread, %32, %RecoveryInProgress.exit.thread, %29, %16, %14
-  %.0 = phi i1 [ true, %16 ], [ %not.or.cond5.not, %29 ], [ false, %14 ], [ false, %RecoveryInProgress.exit.thread ], [ %.not11, %32 ], [ false, %.thread ]
+  %.0 = phi i1 [ false, %14 ], [ true, %16 ], [ %not.or.cond5.not, %29 ], [ false, %RecoveryInProgress.exit.thread ], [ %.not11, %32 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -3307,7 +3307,7 @@ define dso_local range(i32 0, -2147483648) i32 @XLogFileInit(i64 noundef %0, i32
   unreachable
 
 get_sync_bit.exit:                                ; preds = %7, %16, %16, %16, %17, %19
-  %.0.i = phi i32 [ %spec.store.select.i, %7 ], [ %18, %17 ], [ %20, %19 ], [ %spec.store.select.i, %16 ], [ %spec.store.select.i, %16 ], [ %spec.store.select.i, %16 ]
+  %.0.i = phi i32 [ %18, %17 ], [ %20, %19 ], [ %spec.store.select.i, %7 ], [ %spec.store.select.i, %16 ], [ %spec.store.select.i, %16 ], [ %spec.store.select.i, %16 ]
   %24 = or i32 %.0.i, 524290
   %25 = call i32 @BasicOpenFile(ptr noundef nonnull %4, i32 noundef %24) #26
   %26 = icmp slt i32 %25, 0
@@ -3378,7 +3378,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileInitInternal(i64 
   unreachable
 
 get_sync_bit.exit:                                ; preds = %4, %23, %23, %23, %24, %26
-  %.0.i = phi i32 [ %spec.store.select.i, %4 ], [ %25, %24 ], [ %27, %26 ], [ %spec.store.select.i, %23 ], [ %spec.store.select.i, %23 ], [ %spec.store.select.i, %23 ]
+  %.0.i = phi i32 [ %25, %24 ], [ %27, %26 ], [ %spec.store.select.i, %4 ], [ %spec.store.select.i, %23 ], [ %spec.store.select.i, %23 ], [ %spec.store.select.i, %23 ]
   %31 = or i32 %.0.i, 524290
   %32 = tail call i32 @BasicOpenFile(ptr noundef nonnull %3, i32 noundef %31) #26
   %33 = icmp slt i32 %32, 0
@@ -3462,7 +3462,7 @@ get_sync_bit.exit:                                ; preds = %4, %23, %23, %23, %
   br label %select.unfold
 
 select.unfold:                                    ; preds = %76, %64, %69, %71
-  %.1 = phi i32 [ 0, %71 ], [ %spec.select45, %76 ], [ %70, %69 ], [ 0, %64 ]
+  %.1 = phi i32 [ 0, %71 ], [ %70, %69 ], [ 0, %64 ], [ %spec.select45, %76 ]
   %78 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %78, align 4
   %79 = load i8, ptr @wal_init_zero, align 1, !range !4, !noundef !5
@@ -3603,7 +3603,7 @@ define dso_local range(i32 0, -2147483648) i32 @XLogFileOpen(i64 noundef %0, i32
   unreachable
 
 get_sync_bit.exit:                                ; preds = %2, %20, %20, %20, %21, %23
-  %.0.i = phi i32 [ %spec.store.select.i, %2 ], [ %22, %21 ], [ %24, %23 ], [ %spec.store.select.i, %20 ], [ %spec.store.select.i, %20 ], [ %spec.store.select.i, %20 ]
+  %.0.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ %spec.store.select.i, %2 ], [ %spec.store.select.i, %20 ], [ %spec.store.select.i, %20 ], [ %spec.store.select.i, %20 ]
   %28 = or i32 %.0.i, 524290
   %29 = call i32 @BasicOpenFile(ptr noundef nonnull %3, i32 noundef %28) #26
   %30 = icmp slt i32 %29, 0
@@ -3755,7 +3755,7 @@ IsXLogFileName.exit:                              ; preds = %.lr.ph
   br label %IsXLogFileName.exit.thread
 
 IsXLogFileName.exit.thread:                       ; preds = %.lr.ph, %13, %IsXLogFileName.exit, %19
-  %.1 = phi i64 [ %.014, %IsXLogFileName.exit ], [ %.2, %19 ], [ %.014, %13 ], [ %.014, %.lr.ph ]
+  %.1 = phi i64 [ %.2, %19 ], [ %.014, %IsXLogFileName.exit ], [ %.014, %13 ], [ %.014, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %27 = call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str.22) #26
   %.not = icmp eq ptr %27, null
@@ -8074,7 +8074,7 @@ update_checkpoint_display.exit71:                 ; preds = %210, %211
   br label %230
 
 230:                                              ; preds = %226, %228, %229, %45, %47, %RecoveryInProgress.exit.thread, %30
-  %.0 = phi i1 [ false, %RecoveryInProgress.exit.thread ], [ false, %45 ], [ false, %30 ], [ false, %47 ], [ true, %229 ], [ true, %228 ], [ true, %226 ]
+  %.0 = phi i1 [ false, %30 ], [ false, %RecoveryInProgress.exit.thread ], [ false, %47 ], [ false, %45 ], [ true, %229 ], [ true, %228 ], [ true, %226 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14)
@@ -8761,7 +8761,7 @@ RecoveryInProgress.exit114.thread:                ; preds = %350, %RecoveryInPro
   br label %update_checkpoint_display.exit115
 
 update_checkpoint_display.exit115:                ; preds = %360, %359, %60, %64
-  %.082 = phi i1 [ false, %60 ], [ false, %64 ], [ true, %359 ], [ true, %360 ]
+  %.082 = phi i1 [ false, %64 ], [ false, %60 ], [ true, %359 ], [ true, %360 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -9288,7 +9288,7 @@ XLogGetLastRemovedSegno.exit:                     ; preds = %4, %17
   br label %41
 
 41:                                               ; preds = %39, %30, %1
-  %.0 = phi i32 [ %.22, %39 ], [ %., %30 ], [ 0, %1 ]
+  %.0 = phi i32 [ 0, %1 ], [ %., %30 ], [ %.22, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -10094,7 +10094,7 @@ define dso_local void @assign_wal_sync_method(i32 noundef %0, ptr noundef readno
   unreachable
 
 get_sync_bit.exit8:                               ; preds = %38, %38, %38, %39, %41
-  %.0.i7 = phi i32 [ %spec.store.select.i, %38 ], [ %40, %39 ], [ %42, %41 ], [ %spec.store.select.i, %38 ], [ %spec.store.select.i, %38 ]
+  %.0.i7 = phi i32 [ %40, %39 ], [ %42, %41 ], [ %spec.store.select.i, %38 ], [ %spec.store.select.i, %38 ], [ %spec.store.select.i, %38 ]
   %.not4 = icmp eq i32 %.0.i.ph, %.0.i7
   br i1 %.not4, label %get_sync_bit.exit8.thread, label %46
 
@@ -11319,7 +11319,7 @@ define internal fastcc i64 @XLogBytePosToEndRecPtr(i64 noundef %0) unnamed_addr 
   br label %21
 
 21:                                               ; preds = %7, %16, %18
-  %.0 = phi i64 [ %20, %18 ], [ %spec.select, %7 ], [ %17, %16 ]
+  %.0 = phi i64 [ %17, %16 ], [ %20, %18 ], [ %spec.select, %7 ]
   %22 = load i32, ptr @wal_segment_size, align 4
   %23 = sext i32 %22 to i64
   %24 = mul i64 %5, %23
@@ -11387,7 +11387,7 @@ define internal fastcc ptr @GetXLogBuffer(i64 noundef %0, i32 noundef %1) unname
   br label %39
 
 39:                                               ; preds = %25, %32, %24
-  %.027 = phi i64 [ %spec.select31, %25 ], [ %spec.select, %32 ], [ %0, %24 ]
+  %.027 = phi i64 [ %0, %24 ], [ %spec.select, %32 ], [ %spec.select31, %25 ]
   %.b.i = load i1, ptr @holdingAllLocks, align 1
   %40 = load ptr, ptr @WALInsertLocks, align 8
   br i1 %.b.i, label %41, label %44
@@ -11523,7 +11523,7 @@ define internal fastcc zeroext i1 @InstallXLogFileSegment(ptr noundef nonnull ca
   br label %.loopexit13
 
 .loopexit13:                                      ; preds = %.lr.ph, %5, %.loopexit
-  %.0 = phi i1 [ false, %5 ], [ %.not, %.loopexit ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %.not, %.loopexit ], [ false, %5 ], [ false, %.lr.ph ]
   %43 = load ptr, ptr @MainLWLockArray, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1152
   call void @LWLockRelease(ptr noundef nonnull %44) #26

@@ -98,7 +98,7 @@ define internal range(i32 -30, 1) i32 @archive_filter_uuencode_open(ptr noundef 
   br label %16
 
 16:                                               ; preds = %8, %13, %12, %1
-  %.020 = phi i64 [ 65536, %1 ], [ %15, %13 ], [ 65536, %12 ], [ %10, %8 ]
+  %.020 = phi i64 [ %15, %13 ], [ 65536, %12 ], [ 65536, %1 ], [ %10, %8 ]
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %.020, ptr %17, align 8, !tbaa !29
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -317,7 +317,7 @@ define internal i32 @archive_filter_uuencode_write(ptr noundef readonly captures
   br i1 %.not49, label %.loopexit, label %40, !llvm.loop !41
 
 .loopexit:                                        ; preds = %40, %33, %._crit_edge, %3
-  %.041 = phi i32 [ 0, %._crit_edge ], [ 0, %3 ], [ 0, %33 ], [ %44, %40 ]
+  %.041 = phi i32 [ 0, %3 ], [ 0, %._crit_edge ], [ 0, %33 ], [ %44, %40 ]
   ret i32 %.041
 }
 

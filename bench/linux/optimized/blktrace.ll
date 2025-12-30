@@ -564,7 +564,7 @@ define dso_local noundef range(i32 -22, 1) i32 @blk_trace_setup(ptr noundef %0, 
   br label %__blk_trace_remove.exit
 
 __blk_trace_remove.exit:                          ; preds = %32, %17, %14, %11, %5
-  %33 = phi i32 [ 0, %14 ], [ -14, %5 ], [ %12, %11 ], [ -14, %17 ], [ -14, %32 ]
+  %33 = phi i32 [ -14, %5 ], [ %12, %11 ], [ 0, %14 ], [ -14, %17 ], [ -14, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @mutex_unlock(ptr noundef nonnull %7) #21
   ret i32 %33
@@ -855,7 +855,7 @@ define dso_local noundef range(i32 -25, 1) i32 @blk_trace_ioctl(ptr noundef %0, 
   br label %__blk_trace_startstop.exit
 
 __blk_trace_startstop.exit:                       ; preds = %91, %76, %16, %13, %.split1, %.split, %72, %38, %3
-  %92 = phi i32 [ -22, %13 ], [ -25, %3 ], [ %73, %72 ], [ %39, %38 ], [ %75, %.split ], [ -22, %.split1 ], [ 0, %16 ], [ 0, %91 ], [ -22, %76 ]
+  %92 = phi i32 [ %73, %72 ], [ %39, %38 ], [ -25, %3 ], [ %75, %.split ], [ -22, %.split1 ], [ 0, %16 ], [ -22, %13 ], [ 0, %91 ], [ -22, %76 ]
   call void @mutex_unlock(ptr noundef nonnull %10) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %92
@@ -3995,8 +3995,8 @@ define internal i64 @sysfs_blk_trace_attr_store(ptr noundef readonly captures(ad
   br label %.thread14
 
 .thread14:                                        ; preds = %.thread14.sink.split, %103, %62, %85
-  %148 = phi ptr [ %101, %103 ], [ %52, %85 ], [ %52, %62 ], [ %.ph, %.thread14.sink.split ]
-  %149 = phi i64 [ -12, %103 ], [ -22, %85 ], [ -12, %62 ], [ -12, %.thread14.sink.split ]
+  %148 = phi ptr [ %52, %62 ], [ %52, %85 ], [ %101, %103 ], [ %.ph, %.thread14.sink.split ]
+  %149 = phi i64 [ -12, %62 ], [ -22, %85 ], [ -12, %103 ], [ -12, %.thread14.sink.split ]
   call void @mutex_unlock(ptr noundef nonnull %148) #21
   br label %.thread16
 

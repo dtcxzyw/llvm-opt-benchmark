@@ -97,10 +97,10 @@ define internal range(i32 0, 2) i32 @dsa_pub_decode(ptr noundef %0, ptr noundef 
   br label %39
 
 38:                                               ; preds = %29, %24, %10, %21, %13
-  %.sink25 = phi i32 [ 66, %24 ], [ 61, %10 ], [ 57, %21 ], [ 51, %13 ], [ 71, %29 ]
-  %.sink = phi i32 [ 104, %24 ], [ 105, %10 ], [ 524298, %21 ], [ 104, %13 ], [ 108, %29 ]
-  %.013 = phi ptr [ null, %24 ], [ null, %10 ], [ null, %21 ], [ null, %13 ], [ %27, %29 ]
-  %.0 = phi ptr [ %.1, %24 ], [ null, %10 ], [ null, %21 ], [ null, %13 ], [ %.1, %29 ]
+  %.sink25 = phi i32 [ 51, %13 ], [ 57, %21 ], [ 61, %10 ], [ 66, %24 ], [ 71, %29 ]
+  %.sink = phi i32 [ 104, %13 ], [ 524298, %21 ], [ 105, %10 ], [ 104, %24 ], [ 108, %29 ]
+  %.013 = phi ptr [ null, %13 ], [ null, %21 ], [ null, %10 ], [ null, %24 ], [ %27, %29 ]
+  %.0 = phi ptr [ null, %13 ], [ null, %21 ], [ null, %10 ], [ %.1, %24 ], [ %.1, %29 ]
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink25, ptr noundef nonnull @__func__.dsa_pub_decode) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 10, i32 noundef %.sink, ptr noundef null) #5
@@ -278,7 +278,7 @@ define internal range(i32 0, 2) i32 @dsa_pub_print(ptr noundef %0, ptr noundef r
   br label %do_dsa_print.exit
 
 do_dsa_print.exit:                                ; preds = %11, %16, %18, %20
-  %.028.i = phi i32 [ 0, %16 ], [ 0, %11 ], [ %spec.select.i, %20 ], [ 0, %18 ]
+  %.028.i = phi i32 [ 0, %18 ], [ 0, %16 ], [ 0, %11 ], [ %spec.select.i, %20 ]
   ret i32 %.028.i
 }
 
@@ -519,7 +519,7 @@ define internal range(i32 0, 2) i32 @dsa_copy_parameters(ptr noundef captures(no
   br label %21
 
 21:                                               ; preds = %9, %6, %16
-  %.0 = phi i32 [ 0, %6 ], [ 1, %16 ], [ 0, %9 ]
+  %.0 = phi i32 [ 1, %16 ], [ 0, %6 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -571,7 +571,7 @@ define internal range(i32 0, 2) i32 @dsa_param_print(ptr noundef %0, ptr noundef
   br label %do_dsa_print.exit
 
 do_dsa_print.exit:                                ; preds = %11, %14, %16, %18
-  %.028.i = phi i32 [ 0, %14 ], [ 0, %11 ], [ %spec.select.i, %18 ], [ 0, %16 ]
+  %.028.i = phi i32 [ 0, %16 ], [ 0, %14 ], [ 0, %11 ], [ %spec.select.i, %18 ]
   ret i32 %.028.i
 }
 
@@ -638,7 +638,7 @@ define internal i32 @dsa_sig_print(ptr noundef %0, ptr readnone captures(none) %
   br label %33
 
 33:                                               ; preds = %28, %10, %31, %27
-  %.017 = phi i32 [ %., %10 ], [ %32, %31 ], [ %.0, %27 ], [ 0, %28 ]
+  %.017 = phi i32 [ %.0, %27 ], [ %32, %31 ], [ %., %10 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.017
 }
@@ -938,7 +938,7 @@ define internal fastcc range(i32 0, 2) i32 @do_dsa_print(ptr noundef %0, ptr nou
   br i1 %21, label %30, label %24
 
 .thread40:                                        ; preds = %9, %.thread50, %12
-  %.02549 = phi ptr [ %11, %.thread50 ], [ %16, %12 ], [ null, %9 ]
+  %.02549 = phi ptr [ %16, %12 ], [ %11, %.thread50 ], [ null, %9 ]
   %22 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %.0) #5
   %23 = icmp slt i32 %22, 1
   br i1 %23, label %30, label %24
@@ -962,7 +962,7 @@ define internal fastcc range(i32 0, 2) i32 @do_dsa_print(ptr noundef %0, ptr nou
   br label %30
 
 30:                                               ; preds = %28, %26, %24, %.thread40, %19, %17
-  %.028 = phi i32 [ 0, %19 ], [ 0, %.thread40 ], [ %spec.select, %28 ], [ 0, %26 ], [ 0, %24 ], [ 0, %17 ]
+  %.028 = phi i32 [ 0, %19 ], [ 0, %26 ], [ 0, %24 ], [ 0, %17 ], [ 0, %.thread40 ], [ %spec.select, %28 ]
   ret i32 %.028
 }
 

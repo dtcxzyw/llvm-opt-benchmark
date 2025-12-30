@@ -42,14 +42,14 @@ define ptr @wc_NewRsaKey(ptr noundef %0, i32 noundef %1, ptr noundef writeonly c
   tail call void @sp_clear(ptr noundef nonnull %10) #12
   br label %21
 
-21:                                               ; preds = %6, %20
-  %.0.i.ph = phi i32 [ %19, %20 ], [ %11, %6 ]
+21:                                               ; preds = %20, %6
+  %.0.i.ph = phi i32 [ %11, %6 ], [ %19, %20 ]
   tail call void @wolfSSL_Free(ptr noundef nonnull %4) #12
   br label %wc_InitRsaKey_ex.exit
 
 wc_InitRsaKey_ex.exit:                            ; preds = %12, %3, %21
-  %.011 = phi ptr [ null, %3 ], [ null, %21 ], [ %4, %12 ]
-  %.0 = phi i32 [ -125, %3 ], [ %.0.i.ph, %21 ], [ 0, %12 ]
+  %.011 = phi ptr [ null, %21 ], [ null, %3 ], [ %4, %12 ]
+  %.0 = phi i32 [ %.0.i.ph, %21 ], [ -125, %3 ], [ 0, %12 ]
   %.not16 = icmp eq ptr %2, null
   br i1 %.not16, label %23, label %22
 
@@ -100,7 +100,7 @@ define i32 @wc_InitRsaKey_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   br label %21
 
 21:                                               ; preds = %12, %5, %3, %20
-  %.0 = phi i32 [ %11, %5 ], [ -173, %3 ], [ %19, %20 ], [ 0, %12 ]
+  %.0 = phi i32 [ %19, %20 ], [ -173, %3 ], [ %11, %5 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -303,7 +303,7 @@ define i32 @wc_InitRsaKey(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %wc_InitRsaKey_ex.exit
 
 wc_InitRsaKey_ex.exit:                            ; preds = %2, %4, %10, %18
-  %.0.i = phi i32 [ %9, %4 ], [ -173, %2 ], [ %17, %18 ], [ 0, %10 ]
+  %.0.i = phi i32 [ %17, %18 ], [ -173, %2 ], [ %9, %4 ], [ 0, %10 ]
   ret i32 %.0.i
 }
 
@@ -386,7 +386,7 @@ define i32 @wc_RsaPad_ex(ptr noundef readonly captures(address_is_null) %0, i32 
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !28
 
 .loopexit.i:                                      ; preds = %44, %.preheader.i, %30
-  %.pre-phi52.i = phi i32 [ %.pre51.i, %30 ], [ %36, %.preheader.i ], [ %36, %44 ]
+  %.pre-phi52.i = phi i32 [ %36, %.preheader.i ], [ %.pre51.i, %30 ], [ %36, %44 ]
   %45 = zext i32 %.pre-phi52.i to i64
   %46 = getelementptr inbounds nuw i8, ptr %27, i64 %45
   store i8 0, ptr %46, align 1, !tbaa !20
@@ -629,12 +629,12 @@ RsaPad_OAEP.exit:                                 ; preds = %52, %55, %58, %61, 
   br label %.thread7.i
 
 .thread7.i:                                       ; preds = %172, %161, %153, %147
-  %.29.i = phi i32 [ %164, %161 ], [ 0, %172 ], [ %159, %153 ], [ %148, %147 ]
+  %.29.i = phi i32 [ 0, %172 ], [ %164, %161 ], [ %159, %153 ], [ %148, %147 ]
   tail call void @wolfSSL_Free(ptr noundef nonnull %140) #12
   br label %RsaPad.exit
 
 RsaPad.exit:                                      ; preds = %.thread7.i, %134, %130, %128, %114, %111, %109, %.loopexit.i, %34, %23, %18, %14, %RsaPad_OAEP.exit
-  %.0 = phi i32 [ -201, %23 ], [ -201, %14 ], [ %.0.i, %RsaPad_OAEP.exit ], [ %38, %34 ], [ -173, %18 ], [ 0, %.loopexit.i ], [ -173, %114 ], [ -125, %109 ], [ %112, %111 ], [ -250, %128 ], [ -250, %130 ], [ %.29.i, %.thread7.i ], [ -125, %134 ]
+  %.0 = phi i32 [ %.0.i, %RsaPad_OAEP.exit ], [ -201, %14 ], [ 0, %.loopexit.i ], [ -173, %18 ], [ -201, %23 ], [ %38, %34 ], [ %.29.i, %.thread7.i ], [ -125, %109 ], [ %112, %111 ], [ -173, %114 ], [ -250, %128 ], [ -250, %130 ], [ -125, %134 ]
   ret i32 %.0
 }
 
@@ -1134,7 +1134,7 @@ ConstantCompare.exit.i:                           ; preds = %.lr.ph.i137.i, %178
   br label %RsaUnPad_OAEP.exit
 
 RsaUnPad_OAEP.exit:                               ; preds = %.lr.ph35.i.i, %73, %76, %79, %83, %RsaMGF.exit.i, %.preheader.i84.i, %._crit_edge.i22, %ConstantCompare.exit.i
-  %.069.i = phi i32 [ %199, %ConstantCompare.exit.i ], [ -132, %73 ], [ -173, %76 ], [ -173, %83 ], [ %96, %RsaMGF.exit.i ], [ -173, %79 ], [ %177, %._crit_edge.i22 ], [ %.0.i815.i, %.preheader.i84.i ], [ %.0.i815.i, %.lr.ph35.i.i ]
+  %.069.i = phi i32 [ %199, %ConstantCompare.exit.i ], [ -132, %73 ], [ -173, %79 ], [ -173, %76 ], [ %96, %RsaMGF.exit.i ], [ %177, %._crit_edge.i22 ], [ %.0.i815.i, %.preheader.i84.i ], [ -173, %83 ], [ %.0.i815.i, %.lr.ph35.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %RsaUnPad.exit
@@ -1279,7 +1279,7 @@ RsaUnPad_OAEP.exit:                               ; preds = %.lr.ph35.i.i, %73, 
   br label %RsaUnPad.exit
 
 RsaUnPad.exit:                                    ; preds = %260, %259, %252, %236, %229, %225, %224, %222, %210, %203, %200, %._crit_edge.i, %39, %34, %.split.loop.exit103, %25, %23, %15, %12, %RsaUnPad_OAEP.exit
-  %.0 = phi i32 [ %72, %._crit_edge.i ], [ -201, %12 ], [ %.069.i, %RsaUnPad_OAEP.exit ], [ -201, %34 ], [ -173, %15 ], [ -201, %25 ], [ -201, %23 ], [ -201, %.split.loop.exit103 ], [ %40, %39 ], [ -234, %210 ], [ %201, %200 ], [ -193, %203 ], [ -250, %222 ], [ -250, %224 ], [ -193, %225 ], [ %235, %236 ], [ -250, %252 ], [ -250, %259 ], [ %266, %260 ], [ -125, %229 ]
+  %.0 = phi i32 [ %.069.i, %RsaUnPad_OAEP.exit ], [ -201, %12 ], [ -173, %15 ], [ -201, %23 ], [ -201, %25 ], [ -201, %.split.loop.exit103 ], [ -201, %34 ], [ %40, %39 ], [ %72, %._crit_edge.i ], [ %235, %236 ], [ -250, %252 ], [ -250, %259 ], [ %266, %260 ], [ %201, %200 ], [ -193, %203 ], [ -234, %210 ], [ -250, %222 ], [ -250, %224 ], [ -193, %225 ], [ -125, %229 ]
   ret i32 %.0
 }
 
@@ -1343,7 +1343,7 @@ define range(i32 -253, 1) i32 @RsaFunctionCheckIn(ptr noundef %0, i32 noundef %1
   br label %.thread35
 
 .thread35:                                        ; preds = %4, %17, %.thread, %19, %21
-  %.4 = phi i32 [ %spec.select30, %21 ], [ %spec.select, %19 ], [ -115, %.thread ], [ -253, %17 ], [ -110, %4 ]
+  %.4 = phi i32 [ %spec.select30, %21 ], [ -115, %.thread ], [ %spec.select, %19 ], [ -253, %17 ], [ -110, %4 ]
   call void @sp_clear(ptr noundef nonnull %9) #12
   ret i32 %.4
 }
@@ -1538,7 +1538,7 @@ wc_RsaCleanup.exit:                               ; preds = %ForceZero.exit.i, %
   br label %77
 
 77:                                               ; preds = %wc_RsaFunctionSync.exit, %wc_RsaCleanup.exit, %24, %8, %14
-  %.0 = phi i32 [ %25, %24 ], [ -173, %8 ], [ -173, %14 ], [ %.0.i, %wc_RsaCleanup.exit ], [ %.0.i, %wc_RsaFunctionSync.exit ]
+  %.0 = phi i32 [ -173, %14 ], [ -173, %8 ], [ %25, %24 ], [ %.0.i, %wc_RsaCleanup.exit ], [ %.0.i, %wc_RsaFunctionSync.exit ]
   ret i32 %.0
 }
 
@@ -1615,7 +1615,7 @@ wc_RsaEncryptSize.exit:                           ; preds = %14
   br label %.thread
 
 .thread:                                          ; preds = %34, %39, %29, %41
-  %.058 = phi i32 [ %43, %41 ], [ %31, %29 ], [ %36, %39 ], [ %36, %34 ]
+  %.058 = phi i32 [ %31, %29 ], [ %36, %39 ], [ %43, %41 ], [ %36, %34 ]
   %44 = icmp eq i32 %.058, -108
   br i1 %44, label %75, label %.thread67
 
@@ -1898,7 +1898,7 @@ define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly captures(ad
   br label %105
 
 105:                                              ; preds = %50, %59, %.loopexit
-  %.1 = phi i32 [ %56, %59 ], [ %104, %.loopexit ], [ -131, %50 ]
+  %.1 = phi i32 [ %104, %.loopexit ], [ %56, %59 ], [ -131, %50 ]
   store i32 6, ptr %22, align 4, !tbaa !39
   br label %.thread
 
@@ -2197,8 +2197,8 @@ define i32 @wc_RsaPSS_CheckPadding_ex2(ptr noundef readonly captures(address_is_
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.thread90.thread, label %32
 
-32:                                               ; preds = %24, %28
-  %.055.ph = phi ptr [ %9, %24 ], [ %30, %28 ]
+32:                                               ; preds = %28, %24
+  %.055.ph = phi ptr [ %30, %28 ], [ %9, %24 ]
   store i64 0, ptr %.055.ph, align 1
   %33 = getelementptr inbounds nuw i8, ptr %.055.ph, i64 8
   %34 = zext i32 %1 to i64
@@ -2226,8 +2226,8 @@ define i32 @wc_RsaPSS_CheckPadding_ex2(ptr noundef readonly captures(address_is_
   call void @wolfSSL_Free(ptr noundef nonnull %.055.ph) #12
   br label %.thread90.thread
 
-.thread90.thread:                                 ; preds = %12, %8, %21, %19, %28, %41, %.thread90
-  %.698 = phi i32 [ %.6, %.thread90 ], [ %.6, %41 ], [ -125, %28 ], [ -173, %12 ], [ -173, %8 ], [ -250, %21 ], [ -250, %19 ]
+.thread90.thread:                                 ; preds = %19, %12, %8, %21, %28, %41, %.thread90
+  %.698 = phi i32 [ %.6, %41 ], [ %.6, %.thread90 ], [ -125, %28 ], [ -250, %19 ], [ -173, %8 ], [ -173, %12 ], [ -250, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.698
 }
@@ -2308,7 +2308,7 @@ define i32 @wc_RsaPSS_VerifyCheck(ptr noundef readonly captures(address_is_null)
   br label %24
 
 24:                                               ; preds = %.thread, %21, %12, %9
-  %.0 = phi i32 [ -173, %12 ], [ %10, %9 ], [ %19, %.thread ], [ %.fr, %21 ]
+  %.0 = phi i32 [ %10, %9 ], [ -173, %12 ], [ %19, %.thread ], [ %.fr, %21 ]
   ret i32 %.0
 }
 
@@ -2487,7 +2487,7 @@ RsaGetValue.exit.thread63:                        ; preds = %27
   br label %RsaGetValue.exit52
 
 RsaGetValue.exit52:                               ; preds = %11, %23, %27, %RsaGetValue.exit.thread63, %32, %35, %39, %42, %46, %56, %53, %49
-  %.5 = phi i32 [ %28, %27 ], [ -131, %49 ], [ %54, %53 ], [ 0, %56 ], [ -131, %42 ], [ %47, %46 ], [ -131, %35 ], [ %40, %39 ], [ -131, %RsaGetValue.exit.thread63 ], [ %33, %32 ], [ -131, %23 ], [ -173, %11 ]
+  %.5 = phi i32 [ 0, %56 ], [ %54, %53 ], [ -131, %49 ], [ -131, %42 ], [ %47, %46 ], [ -131, %35 ], [ %40, %39 ], [ -131, %RsaGetValue.exit.thread63 ], [ %33, %32 ], [ -131, %23 ], [ %28, %27 ], [ -173, %11 ]
   ret i32 %.5
 }
 
@@ -2675,7 +2675,7 @@ CalcDX.exit101:                                   ; preds = %81, %89
   br i1 %30, label %101, label %.thread143
 
 .thread143:                                       ; preds = %.thread, %31, %34, %37, %90, %75, %58, %54, %50, %46, %42, %.thread105
-  %.9129132 = phi i32 [ %.8, %75 ], [ -173, %.thread105 ], [ %60, %58 ], [ %56, %54 ], [ %52, %50 ], [ %48, %46 ], [ %44, %42 ], [ %.9, %90 ], [ -173, %37 ], [ -173, %34 ], [ -173, %31 ], [ %40, %.thread ]
+  %.9129132 = phi i32 [ -173, %.thread105 ], [ %44, %42 ], [ %48, %46 ], [ %52, %50 ], [ %56, %54 ], [ %60, %58 ], [ %.8, %75 ], [ %.9, %90 ], [ -173, %37 ], [ -173, %34 ], [ -173, %31 ], [ %40, %.thread ]
   call void @sp_clear(ptr noundef nonnull %16) #12
   %94 = getelementptr inbounds nuw i8, ptr %16, i64 1040
   call void @sp_clear(ptr noundef nonnull %94) #12
@@ -3005,7 +3005,7 @@ define internal fastcc i32 @RsaMGF1(i32 noundef range(i32 4, 18) %0, ptr noundef
   br i1 %60, label %.split, label %.thread, !llvm.loop !41
 
 .thread:                                          ; preds = %._crit_edge, %.split, %.preheader.us.us, %.split.us.split, %13, %5
-  %.043 = phi i32 [ -173, %13 ], [ %.fr7, %5 ], [ %38, %.preheader.us.us ], [ %40, %.split.us.split ], [ 0, %._crit_edge ], [ %48, %.split ]
+  %.043 = phi i32 [ %.fr7, %5 ], [ -173, %13 ], [ %40, %.split.us.split ], [ %38, %.preheader.us.us ], [ %48, %.split ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.043
 }
@@ -3056,7 +3056,7 @@ define internal fastcc i32 @RsaFunctionSync(ptr noundef nonnull %0, i32 noundef 
   %spec.select30 = select i1 %.not28, i32 0, i32 -113
   br label %.thread35
 
-.thread35:                                        ; preds = %7, %17, %19, %.thread, %.thread37, %22
+.thread35:                                        ; preds = %7, %17, %.thread, %19, %.thread37, %22
   %.3 = phi i32 [ %23, %22 ], [ %spec.select30, %.thread37 ], [ -130, %.thread ], [ -112, %19 ], [ -111, %17 ], [ -110, %7 ]
   call void @sp_forcezero(ptr noundef nonnull %12) #12
   ret i32 %.3
@@ -3179,7 +3179,7 @@ define internal fastcc i32 @RsaFunctionPrivate(ptr noundef nonnull %0, ptr nound
   %.not104 = icmp eq i32 %67, 0
   br i1 %.not104, label %select.unfold164, label %.critedge
 
-select.unfold164:                                 ; preds = %53, %66
+select.unfold164:                                 ; preds = %66, %53
   %68 = call i32 @sp_mont_setup(ptr noundef nonnull %1, ptr noundef nonnull %4) #12
   %.not106 = icmp eq i32 %68, 0
   br i1 %.not106, label %69, label %.critedge
@@ -3211,8 +3211,8 @@ select.unfold164:                                 ; preds = %53, %66
   %spec.select126 = select i1 %.not111, i32 0, i32 -117
   br label %.critedge
 
-.critedge:                                        ; preds = %56, %58, %.thread142, %61, %64, %20, %3, %30, %26, %32, %35, %53, %66, %select.unfold164, %69, %71, %73, %75, %77
-  %.17 = phi i32 [ -112, %58 ], [ %spec.select126, %77 ], [ -117, %75 ], [ -117, %73 ], [ -117, %71 ], [ -117, %69 ], [ -117, %select.unfold164 ], [ -112, %53 ], [ -115, %66 ], [ -110, %20 ], [ -117, %35 ], [ -112, %32 ], [ %28, %26 ], [ -119, %30 ], [ -110, %3 ], [ -116, %64 ], [ -117, %61 ], [ -114, %.thread142 ], [ -112, %56 ]
+.critedge:                                        ; preds = %56, %58, %.thread142, %61, %64, %20, %3, %30, %26, %32, %35, %66, %53, %select.unfold164, %69, %71, %73, %75, %77
+  %.17 = phi i32 [ %spec.select126, %77 ], [ -117, %75 ], [ -117, %73 ], [ -117, %71 ], [ -117, %69 ], [ -117, %select.unfold164 ], [ -115, %66 ], [ -112, %53 ], [ -117, %35 ], [ -112, %32 ], [ -119, %30 ], [ %28, %26 ], [ -110, %3 ], [ -110, %20 ], [ -116, %64 ], [ -117, %61 ], [ -114, %.thread142 ], [ -112, %58 ], [ -112, %56 ]
   call void @sp_forcezero(ptr noundef nonnull %15) #12
   call void @sp_forcezero(ptr noundef nonnull %10) #12
   call void @llvm.stackrestore.p0(ptr %9)

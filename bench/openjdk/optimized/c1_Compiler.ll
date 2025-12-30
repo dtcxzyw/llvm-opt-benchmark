@@ -351,7 +351,7 @@ define hidden noundef zeroext i1 @_ZN8Compiler22is_intrinsic_supportedE13vmIntri
   br label %30
 
 30:                                               ; preds = %1, %26, %23, %20, %17, %11, %8, %5, %2, %29
-  %.0 = phi i1 [ false, %26 ], [ true, %29 ], [ false, %23 ], [ false, %2 ], [ false, %5 ], [ false, %8 ], [ false, %17 ], [ false, %11 ], [ false, %20 ], [ false, %1 ]
+  %.0 = phi i1 [ true, %29 ], [ false, %2 ], [ false, %5 ], [ false, %8 ], [ false, %11 ], [ false, %17 ], [ false, %20 ], [ false, %23 ], [ false, %26 ], [ false, %1 ]
   ret i1 %.0
 }
 

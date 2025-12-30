@@ -252,7 +252,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %91, %84, %102, %.thread, %67, %.critedge79, %56, %51, %44, %105, %99, %65
-  %.1 = phi i32 [ -1497649742, %102 ], [ %47, %44 ], [ %61, %.critedge79 ], [ 0, %99 ], [ %71, %67 ], [ 0, %105 ], [ 0, %91 ], [ 0, %84 ], [ -12, %51 ], [ %66, %65 ], [ %58, %56 ], [ -1497649742, %.thread ], [ 0, %.preheader ], [ 0, %.lr.ph ]
+  %.1 = phi i32 [ 0, %99 ], [ 0, %105 ], [ 0, %91 ], [ 0, %84 ], [ %66, %65 ], [ %47, %44 ], [ %58, %56 ], [ -12, %51 ], [ %61, %.critedge79 ], [ %71, %67 ], [ -1497649742, %.thread ], [ -1497649742, %102 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 }

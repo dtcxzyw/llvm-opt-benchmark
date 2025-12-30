@@ -387,7 +387,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   br label %.split.split, !llvm.loop !7
 
 .split32.us:                                      ; preds = %.critedge, %170, %138, %.critedge.us, %.critedge.us33, %150, %123, %.critedge.us.us
-  %.us-phi = phi i32 [ %134, %138 ], [ %119, %123 ], [ %145, %.critedge.us33 ], [ %119, %.critedge.us.us ], [ %144, %150 ], [ %134, %.critedge.us ], [ %165, %.critedge ], [ %164, %170 ]
+  %.us-phi = phi i32 [ %119, %.critedge.us.us ], [ %119, %123 ], [ %145, %.critedge.us33 ], [ %144, %150 ], [ %134, %.critedge.us ], [ %134, %138 ], [ %165, %.critedge ], [ %164, %170 ]
   %185 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   br i1 %104, label %186, label %.thread86
 
@@ -517,8 +517,8 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   br label %475
 
 .loopexit29:                                      ; preds = %213, %236, %.critedge16, %199, %.split39.us.split, %.critedge16.us..loopexit29.split.us.split_crit_edge, %.split39.us.split.us, %.critedge16.us.us..loopexit29.split.us.split.us_crit_edge, %249, %100
-  %259 = phi i32 [ %256, %249 ], [ %87, %100 ], [ %204, %199 ], [ %223, %236 ], [ %87, %.split39.us.split.us ], [ %204, %.critedge16.us.us..loopexit29.split.us.split.us_crit_edge ], [ %87, %.split39.us.split ], [ %218, %.critedge16.us..loopexit29.split.us.split_crit_edge ], [ %224, %.critedge16 ], [ %218, %213 ]
-  %260 = phi i32 [ %252, %249 ], [ %88, %100 ], [ %.us-phi82, %199 ], [ %.us-phi8189, %236 ], [ %.us-phi82, %.split39.us.split.us ], [ %.us-phi82, %.critedge16.us.us..loopexit29.split.us.split.us_crit_edge ], [ %.us-phi85, %.split39.us.split ], [ %.us-phi85, %.critedge16.us..loopexit29.split.us.split_crit_edge ], [ %.us-phi8189, %.critedge16 ], [ %.us-phi85, %213 ]
+  %259 = phi i32 [ %256, %249 ], [ %87, %100 ], [ %204, %.critedge16.us.us..loopexit29.split.us.split.us_crit_edge ], [ %87, %.split39.us.split.us ], [ %218, %.critedge16.us..loopexit29.split.us.split_crit_edge ], [ %87, %.split39.us.split ], [ %204, %199 ], [ %223, %236 ], [ %224, %.critedge16 ], [ %218, %213 ]
+  %260 = phi i32 [ %252, %249 ], [ %88, %100 ], [ %.us-phi82, %.critedge16.us.us..loopexit29.split.us.split.us_crit_edge ], [ %.us-phi82, %.split39.us.split.us ], [ %.us-phi85, %.critedge16.us..loopexit29.split.us.split_crit_edge ], [ %.us-phi85, %.split39.us.split ], [ %.us-phi82, %199 ], [ %.us-phi8189, %.critedge16 ], [ %.us-phi8189, %236 ], [ %.us-phi85, %213 ]
   %261 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   tail call void @complement_pos(ptr noundef %261, i32 noundef -1) #9
   %262 = icmp sgt i32 %259, %260

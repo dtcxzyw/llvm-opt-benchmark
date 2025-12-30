@@ -407,7 +407,7 @@ define ptr @ossl_rcu_lock_new(i32 noundef %0, ptr noundef %1) local_unnamed_addr
   br label %28
 
 28:                                               ; preds = %8, %27, %5, %2
-  %.018 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %27 ], [ %6, %8 ]
+  %.018 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %27 ], [ %6, %8 ]
   ret ptr %.018
 }
 
@@ -452,7 +452,7 @@ define ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %3, %0, %5
-  %.0 = phi ptr [ null, %0 ], [ null, %5 ], [ %1, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %0 ], [ %1, %3 ]
   ret ptr %.0
 }
 

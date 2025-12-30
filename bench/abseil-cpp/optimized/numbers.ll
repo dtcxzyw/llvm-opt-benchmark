@@ -160,7 +160,7 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.l
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit40, %._crit_edge.i.i.i.i.i, %43, %50, %57
-  %.sink.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %57 ], [ %.sroa.03.2.i.i.i.i, %50 ], [ %.sroa.03.0.i.i.i.i, %43 ], [ %6, %._crit_edge.i.i.i.i.i ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit40 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38 ], [ %64, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %43 ], [ %.sroa.03.2.i.i.i.i, %50 ], [ %6, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %57 ], [ %64, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38 ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit40 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %67 = ptrtoint ptr %.sink.i.i.i.i.i to i64
   %68 = sub i64 %67, %8
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %5, i64 %68)
@@ -214,7 +214,7 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: 
   br label %93
 
 93:                                               ; preds = %.sink.split, %80, %91, %86, %77
-  %.0 = phi i1 [ false, %77 ], [ true, %86 ], [ false, %80 ], [ true, %91 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %77 ], [ false, %80 ], [ true, %91 ], [ true, %86 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -340,7 +340,7 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.l
   br label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit40, %._crit_edge.i.i.i.i.i, %43, %50, %57
-  %.sink.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %57 ], [ %.sroa.03.2.i.i.i.i, %50 ], [ %.sroa.03.0.i.i.i.i, %43 ], [ %6, %._crit_edge.i.i.i.i.i ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit40 ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38 ], [ %64, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %43 ], [ %.sroa.03.2.i.i.i.i, %50 ], [ %6, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %57 ], [ %64, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %65, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit38 ], [ %66, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit40 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %67 = ptrtoint ptr %.sink.i.i.i.i.i to i64
   %68 = sub i64 %67, %8
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %5, i64 %68)
@@ -394,7 +394,7 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: 
   br label %93
 
 93:                                               ; preds = %.sink.split, %80, %91, %86, %77
-  %.0 = phi i1 [ false, %77 ], [ true, %86 ], [ false, %80 ], [ true, %91 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %77 ], [ false, %80 ], [ true, %91 ], [ true, %86 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -450,7 +450,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtobESt17basic_string_viewI
   br i1 %24, label %.sink.split, label %25
 
 .sink.split:                                      ; preds = %15, %17, %19, %21, %23, %5, %7, %9, %11, %13
-  %.sink = phi i8 [ 1, %5 ], [ 1, %13 ], [ 1, %11 ], [ 1, %9 ], [ 1, %7 ], [ 0, %23 ], [ 0, %21 ], [ 0, %19 ], [ 0, %17 ], [ 0, %15 ]
+  %.sink = phi i8 [ 1, %13 ], [ 1, %11 ], [ 1, %9 ], [ 1, %7 ], [ 1, %5 ], [ 0, %23 ], [ 0, %21 ], [ 0, %19 ], [ 0, %17 ], [ 0, %15 ]
   store i8 %.sink, ptr %2, align 1, !tbaa !28
   br label %25
 
@@ -1894,9 +1894,9 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   br label %62
 
 62:                                               ; preds = %._crit_edge.i.i, %58, %55, %52, %47, %.thread.i.i, %44, %42, %39, %36
-  %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %32, %42 ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %.thread.i.i ], [ %32, %36 ], [ %32, %39 ]
-  %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %43, %42 ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %spec.select.i.i, %.thread.i.i ], [ %.1.i.i, %36 ], [ %40, %39 ]
-  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %42 ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ %spec.select96.i.i, %.thread.i.i ], [ 10, %36 ], [ 8, %39 ]
+  %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %42 ], [ %32, %36 ], [ %32, %.thread.i.i ], [ %32, %39 ]
+  %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %43, %42 ], [ %.1.i.i, %36 ], [ %spec.select.i.i, %.thread.i.i ], [ %40, %39 ]
+  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select96.i.i, %.thread.i.i ], [ 8, %39 ]
   %63 = ptrtoint ptr %.2.i.i to i64
   %64 = sub i64 %.pre-phi.i.i, %63
   %65 = zext nneg i32 %.0.i.i to i64
@@ -1969,13 +1969,13 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   br i1 %.not44.i.i, label %.lr.ph.i9.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !36
 
 _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i: ; preds = %82, %78, %76, %.lr.ph.i6.i, %99, %95, %93, %.lr.ph.i9.i, %85, %68
-  %.02742.lcssa.sink.i.sink.i = phi i32 [ 0, %85 ], [ 0, %68 ], [ %100, %99 ], [ -2147483648, %95 ], [ %.02742.i.i, %.lr.ph.i9.i ], [ -2147483648, %93 ], [ %.02640.i.i, %.lr.ph.i6.i ], [ 2147483647, %76 ], [ %83, %82 ], [ 2147483647, %78 ]
-  %.0.ph.i = phi i1 [ true, %85 ], [ true, %68 ], [ true, %99 ], [ false, %95 ], [ false, %.lr.ph.i9.i ], [ false, %93 ], [ false, %.lr.ph.i6.i ], [ false, %76 ], [ true, %82 ], [ false, %78 ]
+  %.02742.lcssa.sink.i.sink.i = phi i32 [ 0, %68 ], [ 0, %85 ], [ %.02742.i.i, %.lr.ph.i9.i ], [ -2147483648, %93 ], [ -2147483648, %95 ], [ %100, %99 ], [ %.02640.i.i, %.lr.ph.i6.i ], [ 2147483647, %76 ], [ 2147483647, %78 ], [ %83, %82 ]
+  %.0.ph.i = phi i1 [ true, %68 ], [ true, %85 ], [ false, %.lr.ph.i9.i ], [ false, %93 ], [ false, %95 ], [ true, %99 ], [ false, %.lr.ph.i6.i ], [ false, %76 ], [ false, %78 ], [ true, %82 ]
   store i32 %.02742.lcssa.sink.i.sink.i, ptr %2, align 4, !tbaa !31
   br label %_ZN4absl12_GLOBAL__N_117safe_int_internalIiEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_117safe_int_internalIiEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %16, %4, %28, %42, %58, %60, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i
-  %.0.i = phi i1 [ false, %42 ], [ %.0.ph.i, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i ], [ false, %4 ], [ false, %58 ], [ false, %60 ], [ false, %28 ], [ false, %16 ]
+  %.0.i = phi i1 [ false, %4 ], [ false, %28 ], [ false, %42 ], [ false, %58 ], [ false, %60 ], [ %.0.ph.i, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i ], [ false, %16 ]
   ret i1 %.0.i
 }
 
@@ -2117,9 +2117,9 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   br label %62
 
 62:                                               ; preds = %._crit_edge.i.i, %58, %55, %52, %47, %.thread.i.i, %44, %42, %39, %36
-  %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %32, %42 ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %.thread.i.i ], [ %32, %36 ], [ %32, %39 ]
-  %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %43, %42 ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %spec.select.i.i, %.thread.i.i ], [ %.1.i.i, %36 ], [ %40, %39 ]
-  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %42 ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ %spec.select96.i.i, %.thread.i.i ], [ 10, %36 ], [ 8, %39 ]
+  %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %42 ], [ %32, %36 ], [ %32, %.thread.i.i ], [ %32, %39 ]
+  %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %43, %42 ], [ %.1.i.i, %36 ], [ %spec.select.i.i, %.thread.i.i ], [ %40, %39 ]
+  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select96.i.i, %.thread.i.i ], [ 8, %39 ]
   %63 = ptrtoint ptr %.2.i.i to i64
   %64 = sub i64 %.pre-phi.i.i, %63
   %65 = zext nneg i32 %.0.i.i to i64
@@ -2193,13 +2193,13 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   br i1 %.not43.i.i, label %.lr.ph.i9.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !40
 
 _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i: ; preds = %82, %78, %76, %.lr.ph.i6.i, %100, %95, %93, %.lr.ph.i9.i, %85, %68
-  %.02741.lcssa.sink.i.sink.i = phi i64 [ 0, %85 ], [ 0, %68 ], [ %101, %100 ], [ -9223372036854775808, %95 ], [ %.02741.i.i, %.lr.ph.i9.i ], [ -9223372036854775808, %93 ], [ %.02640.i.i, %.lr.ph.i6.i ], [ 9223372036854775807, %76 ], [ %83, %82 ], [ 9223372036854775807, %78 ]
-  %.0.ph.i = phi i1 [ true, %85 ], [ true, %68 ], [ true, %100 ], [ false, %95 ], [ false, %.lr.ph.i9.i ], [ false, %93 ], [ false, %.lr.ph.i6.i ], [ false, %76 ], [ true, %82 ], [ false, %78 ]
+  %.02741.lcssa.sink.i.sink.i = phi i64 [ 0, %68 ], [ 0, %85 ], [ %.02741.i.i, %.lr.ph.i9.i ], [ -9223372036854775808, %93 ], [ -9223372036854775808, %95 ], [ %101, %100 ], [ %.02640.i.i, %.lr.ph.i6.i ], [ 9223372036854775807, %76 ], [ 9223372036854775807, %78 ], [ %83, %82 ]
+  %.0.ph.i = phi i1 [ true, %68 ], [ true, %85 ], [ false, %.lr.ph.i9.i ], [ false, %93 ], [ false, %95 ], [ true, %100 ], [ false, %.lr.ph.i6.i ], [ false, %76 ], [ false, %78 ], [ true, %82 ]
   store i64 %.02741.lcssa.sink.i.sink.i, ptr %2, align 8, !tbaa !37
   br label %_ZN4absl12_GLOBAL__N_117safe_int_internalIlEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_117safe_int_internalIlEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %16, %4, %28, %42, %58, %60, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i
-  %.0.i = phi i1 [ false, %42 ], [ %.0.ph.i, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i ], [ false, %4 ], [ false, %58 ], [ false, %60 ], [ false, %28 ], [ false, %16 ]
+  %.0.i = phi i1 [ false, %4 ], [ false, %28 ], [ false, %42 ], [ false, %58 ], [ false, %60 ], [ %.0.ph.i, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i ], [ false, %16 ]
   ret i1 %.0.i
 }
 
@@ -2341,9 +2341,9 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
   br label %62
 
 62:                                               ; preds = %._crit_edge.i.i, %58, %55, %52, %47, %.thread.i.i, %44, %42, %39, %36
-  %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %32, %42 ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %.thread.i.i ], [ %32, %36 ], [ %32, %39 ]
-  %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %43, %42 ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %spec.select.i.i, %.thread.i.i ], [ %.1.i.i, %36 ], [ %40, %39 ]
-  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %42 ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ %spec.select96.i.i, %.thread.i.i ], [ 10, %36 ], [ 8, %39 ]
+  %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %42 ], [ %32, %36 ], [ %32, %.thread.i.i ], [ %32, %39 ]
+  %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %43, %42 ], [ %.1.i.i, %36 ], [ %spec.select.i.i, %.thread.i.i ], [ %40, %39 ]
+  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select96.i.i, %.thread.i.i ], [ 8, %39 ]
   %63 = ptrtoint ptr %.2.i.i to i64
   %64 = sub i64 %.pre-phi.i.i, %63
   br i1 %27, label %84, label %65
@@ -2475,16 +2475,16 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
   br i1 %.not126.i.i, label %89, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !44
 
 _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i: ; preds = %81, %78, %76, %70, %101, %97, %95, %89, %84, %65
-  %.sroa.098.0122.lcssa.sink.i.sink.i = phi i64 [ 0, %84 ], [ 0, %65 ], [ %.sroa.012.0.extract.trunc.i.i85.i.i, %101 ], [ 0, %97 ], [ %.sroa.098.0122.i.i, %89 ], [ 0, %95 ], [ %.sroa.068.091.i.i, %70 ], [ -1, %76 ], [ %.sroa.012.0.extract.trunc.i.i66.i.i, %81 ], [ -1, %78 ]
-  %.sroa.11.0121.lcssa.sink.i.sink.i = phi i64 [ 0, %84 ], [ 0, %65 ], [ %.narrow.i.i84.i.i, %101 ], [ -9223372036854775808, %97 ], [ %.sroa.11.0121.i.i, %89 ], [ -9223372036854775808, %95 ], [ %.sroa.11.090.i.i, %70 ], [ 9223372036854775807, %76 ], [ %.narrow.i.i.i.i, %81 ], [ 9223372036854775807, %78 ]
-  %.0.ph.i = phi i1 [ true, %84 ], [ true, %65 ], [ true, %101 ], [ false, %97 ], [ false, %89 ], [ false, %95 ], [ false, %70 ], [ false, %76 ], [ true, %81 ], [ false, %78 ]
+  %.sroa.098.0122.lcssa.sink.i.sink.i = phi i64 [ 0, %65 ], [ 0, %84 ], [ %.sroa.098.0122.i.i, %89 ], [ 0, %95 ], [ 0, %97 ], [ %.sroa.012.0.extract.trunc.i.i85.i.i, %101 ], [ %.sroa.068.091.i.i, %70 ], [ -1, %76 ], [ -1, %78 ], [ %.sroa.012.0.extract.trunc.i.i66.i.i, %81 ]
+  %.sroa.11.0121.lcssa.sink.i.sink.i = phi i64 [ 0, %65 ], [ 0, %84 ], [ %.sroa.11.0121.i.i, %89 ], [ -9223372036854775808, %95 ], [ -9223372036854775808, %97 ], [ %.narrow.i.i84.i.i, %101 ], [ %.sroa.11.090.i.i, %70 ], [ 9223372036854775807, %76 ], [ 9223372036854775807, %78 ], [ %.narrow.i.i.i.i, %81 ]
+  %.0.ph.i = phi i1 [ true, %65 ], [ true, %84 ], [ false, %89 ], [ false, %95 ], [ false, %97 ], [ true, %101 ], [ false, %70 ], [ false, %76 ], [ false, %78 ], [ true, %81 ]
   store i64 %.sroa.098.0122.lcssa.sink.i.sink.i, ptr %2, align 16
   %.sroa.11.0..sroa_idx.i13.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.sroa.11.0121.lcssa.sink.i.sink.i, ptr %.sroa.11.0..sroa_idx.i13.i, align 8, !tbaa !41
   br label %_ZN4absl12_GLOBAL__N_117safe_int_internalINS_6int128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_117safe_int_internalINS_6int128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %16, %4, %28, %42, %58, %60, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i
-  %.0.i = phi i1 [ false, %42 ], [ %.0.ph.i, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i ], [ false, %4 ], [ false, %58 ], [ false, %60 ], [ false, %28 ], [ false, %16 ]
+  %.0.i = phi i1 [ false, %4 ], [ false, %28 ], [ false, %42 ], [ false, %58 ], [ false, %60 ], [ %.0.ph.i, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i ], [ false, %16 ]
   ret i1 %.0.i
 }
 
@@ -2626,9 +2626,9 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_b
   br label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i
 
 _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i: ; preds = %._crit_edge.i.i, %58, %55, %52, %47, %.thread.i.i, %44, %42, %39, %36
-  %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %32, %42 ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %.thread.i.i ], [ %32, %36 ], [ %32, %39 ]
-  %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %43, %42 ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %spec.select.i.i, %.thread.i.i ], [ %.1.i.i, %36 ], [ %40, %39 ]
-  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %42 ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ %spec.select96.i.i, %.thread.i.i ], [ 10, %36 ], [ 8, %39 ]
+  %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %42 ], [ %32, %36 ], [ %32, %.thread.i.i ], [ %32, %39 ]
+  %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %43, %42 ], [ %.1.i.i, %36 ], [ %spec.select.i.i, %.thread.i.i ], [ %40, %39 ]
+  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select96.i.i, %.thread.i.i ], [ 8, %39 ]
   br i1 %27, label %_ZN4absl12_GLOBAL__N_118safe_uint_internalIjEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit, label %62
 
 62:                                               ; preds = %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i
@@ -2669,13 +2669,13 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   br i1 %.not42.i.i, label %.lr.ph.i4.i, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, !llvm.loop !45
 
 _ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i: ; preds = %81, %77, %75, %.lr.ph.i4.i, %62
-  %.02640.lcssa.sink.i.i = phi i32 [ 0, %62 ], [ -1, %77 ], [ %.02640.i.i, %.lr.ph.i4.i ], [ -1, %75 ], [ %82, %81 ]
-  %84 = phi i1 [ true, %62 ], [ false, %77 ], [ false, %.lr.ph.i4.i ], [ false, %75 ], [ true, %81 ]
+  %.02640.lcssa.sink.i.i = phi i32 [ 0, %62 ], [ %.02640.i.i, %.lr.ph.i4.i ], [ -1, %75 ], [ -1, %77 ], [ %82, %81 ]
+  %84 = phi i1 [ true, %62 ], [ false, %.lr.ph.i4.i ], [ false, %75 ], [ false, %77 ], [ true, %81 ]
   store i32 %.02640.lcssa.sink.i.i, ptr %2, align 4, !tbaa !31
   br label %_ZN4absl12_GLOBAL__N_118safe_uint_internalIjEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_118safe_uint_internalIjEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %16, %4, %28, %42, %58, %60, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i, %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i
-  %.0.i = phi i1 [ %84, %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i ], [ false, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i ], [ false, %4 ], [ false, %58 ], [ false, %60 ], [ false, %28 ], [ false, %42 ], [ false, %16 ]
+  %.0.i = phi i1 [ %84, %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i ], [ false, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i ], [ false, %4 ], [ false, %28 ], [ false, %42 ], [ false, %58 ], [ false, %60 ], [ false, %16 ]
   ret i1 %.0.i
 }
 
@@ -2817,9 +2817,9 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_b
   br label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i
 
 _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i: ; preds = %._crit_edge.i.i, %58, %55, %52, %47, %.thread.i.i, %44, %42, %39, %36
-  %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %32, %42 ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %.thread.i.i ], [ %32, %36 ], [ %32, %39 ]
-  %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %43, %42 ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %spec.select.i.i, %.thread.i.i ], [ %.1.i.i, %36 ], [ %40, %39 ]
-  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %42 ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ %spec.select96.i.i, %.thread.i.i ], [ 10, %36 ], [ 8, %39 ]
+  %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %42 ], [ %32, %36 ], [ %32, %.thread.i.i ], [ %32, %39 ]
+  %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %43, %42 ], [ %.1.i.i, %36 ], [ %spec.select.i.i, %.thread.i.i ], [ %40, %39 ]
+  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select96.i.i, %.thread.i.i ], [ 8, %39 ]
   br i1 %27, label %_ZN4absl12_GLOBAL__N_118safe_uint_internalImEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit, label %62
 
 62:                                               ; preds = %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i
@@ -2860,13 +2860,13 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   br i1 %.not42.i.i, label %.lr.ph.i4.i, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, !llvm.loop !46
 
 _ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i: ; preds = %81, %77, %75, %.lr.ph.i4.i, %62
-  %.02640.lcssa.sink.i.i = phi i64 [ 0, %62 ], [ -1, %77 ], [ %.02640.i.i, %.lr.ph.i4.i ], [ -1, %75 ], [ %82, %81 ]
-  %84 = phi i1 [ true, %62 ], [ false, %77 ], [ false, %.lr.ph.i4.i ], [ false, %75 ], [ true, %81 ]
+  %.02640.lcssa.sink.i.i = phi i64 [ 0, %62 ], [ %.02640.i.i, %.lr.ph.i4.i ], [ -1, %75 ], [ -1, %77 ], [ %82, %81 ]
+  %84 = phi i1 [ true, %62 ], [ false, %.lr.ph.i4.i ], [ false, %75 ], [ false, %77 ], [ true, %81 ]
   store i64 %.02640.lcssa.sink.i.i, ptr %2, align 8, !tbaa !37
   br label %_ZN4absl12_GLOBAL__N_118safe_uint_internalImEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_118safe_uint_internalImEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %16, %4, %28, %42, %58, %60, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i, %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i
-  %.0.i = phi i1 [ %84, %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i ], [ false, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i ], [ false, %4 ], [ false, %58 ], [ false, %60 ], [ false, %28 ], [ false, %42 ], [ false, %16 ]
+  %.0.i = phi i1 [ %84, %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i ], [ false, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i ], [ false, %4 ], [ false, %28 ], [ false, %42 ], [ false, %58 ], [ false, %60 ], [ false, %16 ]
   ret i1 %.0.i
 }
 
@@ -3009,9 +3009,9 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_
   br label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i
 
 _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i: ; preds = %._crit_edge.i.i, %58, %55, %52, %47, %.thread.i.i, %44, %42, %39, %36
-  %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %32, %42 ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %.thread.i.i ], [ %32, %36 ], [ %32, %39 ]
-  %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %43, %42 ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %spec.select.i.i, %.thread.i.i ], [ %.1.i.i, %36 ], [ %40, %39 ]
-  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %42 ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ %spec.select96.i.i, %.thread.i.i ], [ 10, %36 ], [ 8, %39 ]
+  %.pre-phi.i.i = phi i64 [ %.pre77.i.i, %._crit_edge.i.i ], [ %48, %55 ], [ %32, %44 ], [ %48, %58 ], [ %48, %52 ], [ %48, %47 ], [ %32, %42 ], [ %32, %36 ], [ %32, %.thread.i.i ], [ %32, %39 ]
+  %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %.1.i.i, %55 ], [ %.1.i.i, %44 ], [ %59, %58 ], [ %.1.i.i, %52 ], [ %.1.i.i, %47 ], [ %43, %42 ], [ %.1.i.i, %36 ], [ %spec.select.i.i, %.thread.i.i ], [ %40, %39 ]
+  %.0.i.i = phi i32 [ %3, %._crit_edge.i.i ], [ 16, %55 ], [ 10, %44 ], [ 16, %58 ], [ 16, %52 ], [ 16, %47 ], [ 16, %42 ], [ 10, %36 ], [ %spec.select96.i.i, %.thread.i.i ], [ 8, %39 ]
   br i1 %27, label %_ZN4absl12_GLOBAL__N_118safe_uint_internalINS_7uint128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit, label %62
 
 62:                                               ; preds = %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i
@@ -3102,7 +3102,7 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   br label %_ZN4absl12_GLOBAL__N_118safe_uint_internalINS_7uint128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_118safe_uint_internalINS_7uint128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %16, %4, %28, %42, %58, %60, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i, %77, %80, %84, %._crit_edge.i8.i
-  %.0.i = phi i1 [ true, %._crit_edge.i8.i ], [ false, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i ], [ false, %77 ], [ false, %80 ], [ false, %84 ], [ false, %4 ], [ false, %58 ], [ false, %60 ], [ false, %28 ], [ false, %42 ], [ false, %16 ]
+  %.0.i = phi i1 [ false, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i ], [ false, %77 ], [ false, %80 ], [ false, %84 ], [ true, %._crit_edge.i8.i ], [ false, %4 ], [ false, %28 ], [ false, %42 ], [ false, %58 ], [ false, %60 ], [ false, %16 ]
   ret i1 %.0.i
 }
 
@@ -3234,7 +3234,7 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit28: ; preds 
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit
 
 _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit:      ; preds = %.lr.ph.i.i.i, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit26, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit28, %40, %48, %56, %62
-  %.028.i.i.i = phi ptr [ %.1.i.i.i, %48 ], [ %3, %62 ], [ %.2.i.i.i, %56 ], [ %.029.lcssa.i.i.i, %40 ], [ %65, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit28 ], [ %64, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit26 ], [ %63, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %.lr.ph.i.i.i ]
+  %.028.i.i.i = phi ptr [ %3, %62 ], [ %.029.lcssa.i.i.i, %40 ], [ %.1.i.i.i, %48 ], [ %.2.i.i.i, %56 ], [ %63, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit ], [ %64, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit26 ], [ %65, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit28 ], [ %.02946.i.i.i, %.lr.ph.i.i.i ]
   %66 = ptrtoint ptr %.028.i.i.i to i64
   %67 = sub i64 %66, %5
   %68 = icmp ugt i64 %67, %0

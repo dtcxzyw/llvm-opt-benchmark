@@ -533,7 +533,7 @@ build_elision_headers.exit:                       ; preds = %146
   br label %find_expected_header.exit.i.us.i
 
 find_expected_header.exit.i.us.i:                 ; preds = %229, %228, %227, %223, %217, %217, %217
-  %.0.i.i.us.i = phi i32 [ 0, %229 ], [ 3, %217 ], [ 4, %228 ], [ 3, %227 ], [ 3, %217 ], [ 2, %223 ], [ 3, %217 ]
+  %.0.i.i.us.i = phi i32 [ 4, %228 ], [ 2, %223 ], [ 0, %229 ], [ 3, %227 ], [ 3, %217 ], [ 3, %217 ], [ 3, %217 ]
   %230 = getelementptr inbounds nuw i8, ptr %.val.us.i, i64 3216
   %231 = getelementptr inbounds nuw i8, ptr %.val.us.i, i64 4288
   %232 = load i32, ptr %231, align 8, !tbaa !77
@@ -740,7 +740,7 @@ find_header_idx.exit.us.i:                        ; preds = %244, %._crit_edge.l
   br label %find_expected_header.exit.i182.i
 
 find_expected_header.exit.i182.i:                 ; preds = %332, %327, %303, %303, %303, %303, %293
-  %.0.i.i183.i = phi i32 [ 0, %332 ], [ 0, %293 ], [ 3, %303 ], [ 3, %303 ], [ 3, %303 ], [ %.1.i.i.i, %327 ], [ 3, %303 ]
+  %.0.i.i183.i = phi i32 [ %.1.i.i.i, %327 ], [ 0, %332 ], [ 0, %293 ], [ 3, %303 ], [ 3, %303 ], [ 3, %303 ], [ 3, %303 ]
   br i1 %277, label %.lr.ph.i185.i, label %find_header_idx.exit194.i
 
 .lr.ph.i185.i:                                    ; preds = %find_expected_header.exit.i182.i
@@ -938,7 +938,7 @@ find_header_idx.exit194.i:                        ; preds = %342, %._crit_edge.l
   br label %find_expected_header.exit.i205.us.i.us
 
 find_expected_header.exit.i205.us.i.us:           ; preds = %414, %413, %.lr.ph.split.us.i.split.us, %.lr.ph.split.us.i.split.us, %.lr.ph.split.us.i.split.us, %.lr.ph.split.us.i.split.us
-  %.0.i.i206.us.i.us = phi i32 [ 0, %414 ], [ 3, %.lr.ph.split.us.i.split.us ], [ 3, %.lr.ph.split.us.i.split.us ], [ 3, %.lr.ph.split.us.i.split.us ], [ 3, %.lr.ph.split.us.i.split.us ], [ 2, %413 ]
+  %.0.i.i206.us.i.us = phi i32 [ 2, %413 ], [ 0, %414 ], [ 3, %.lr.ph.split.us.i.split.us ], [ 3, %.lr.ph.split.us.i.split.us ], [ 3, %.lr.ph.split.us.i.split.us ], [ 3, %.lr.ph.split.us.i.split.us ]
   %415 = zext nneg i32 %.0.i.i206.us.i.us to i64
   br label %416
 
@@ -1052,7 +1052,7 @@ build_frame_code.exit:                            ; preds = %.loopexit218.i, %16
   br label %462
 
 462:                                              ; preds = %457, %461, %454, %22, %40, %21
-  %.0 = phi i32 [ -733130664, %21 ], [ -12, %22 ], [ %455, %454 ], [ -12, %40 ], [ 0, %461 ], [ 0, %457 ]
+  %.0 = phi i32 [ -733130664, %21 ], [ -12, %40 ], [ -12, %22 ], [ %455, %454 ], [ 0, %461 ], [ 0, %457 ]
   ret i32 %.0
 }
 
@@ -1164,7 +1164,7 @@ define internal i32 @nut_write_packet(ptr noundef %0, ptr noundef readonly captu
   br label %66
 
 66:                                               ; preds = %62, %61
-  %.0275 = phi i1 [ %65, %62 ], [ true, %61 ]
+  %.0275 = phi i1 [ true, %61 ], [ %65, %62 ]
   %67 = add nsw i32 %.0267, 30
   %68 = sext i32 %67 to i64
   %69 = call i64 @avio_seek(ptr noundef %15, i64 noundef 0, i32 noundef 1) #13
@@ -1491,8 +1491,8 @@ put_tt.exit353:                                   ; preds = %get_v_length.exit.i
   %245 = icmp ult i32 %243, %244
   br i1 %245, label %.lr.ph440, label %.thread426, !llvm.loop !135
 
-.thread426:                                       ; preds = %._crit_edge438, %.preheader432, %77, %220, %211, %66
-  %.8 = phi i32 [ %.0269, %66 ], [ %.0269, %77 ], [ %140, %211 ], [ %218, %220 ], [ %218, %.preheader432 ], [ %218, %._crit_edge438 ]
+.thread426:                                       ; preds = %._crit_edge438, %.preheader432, %77, %211, %220, %66
+  %.8 = phi i32 [ %.0269, %66 ], [ %140, %211 ], [ %218, %220 ], [ %.0269, %77 ], [ %218, %.preheader432 ], [ %218, %._crit_edge438 ]
   %246 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %247 = load i64, ptr %246, align 8, !tbaa !136
   %.not303 = icmp eq i64 %247, -9223372036854775808
@@ -1566,8 +1566,8 @@ put_tt.exit353:                                   ; preds = %get_v_length.exit.i
   br label %282
 
 282:                                              ; preds = %276, %271
-  %.120.i = phi i32 [ %spec.select.i, %276 ], [ %.01927.i, %271 ]
-  %.1.i = phi i32 [ %spec.select25.i, %276 ], [ %.028.i, %271 ]
+  %.120.i = phi i32 [ %.01927.i, %271 ], [ %spec.select.i, %276 ]
+  %.1.i = phi i32 [ %.028.i, %271 ], [ %spec.select25.i, %276 ]
   %indvars.iv.next.i356 = add nuw nsw i64 %indvars.iv.i354, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i356, %wide.trip.count.i
   br i1 %exitcond.not.i, label %find_best_header_idx.exit, label %271, !llvm.loop !138
@@ -2079,12 +2079,12 @@ put_v.exit415:                                    ; preds = %get_v_length.exit.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph440, %._crit_edge, %215, %.thread, %501, %510, %44
-  %.2271 = phi i32 [ %45, %44 ], [ %.8, %510 ], [ %.8, %501 ], [ %40, %.thread ], [ %218, %215 ], [ %140, %._crit_edge ], [ -12, %.lr.ph440 ]
+  %.2271 = phi i32 [ %45, %44 ], [ %.8, %510 ], [ %.8, %501 ], [ %40, %.thread ], [ %140, %._crit_edge ], [ %218, %215 ], [ -12, %.lr.ph440 ]
   call void @av_freep(ptr noundef nonnull %5) #13
   br label %515
 
 515:                                              ; preds = %35, %24, %27, %.loopexit
-  %.0246 = phi i32 [ %36, %35 ], [ -22, %24 ], [ %.2271, %.loopexit ], [ -22, %27 ]
+  %.0246 = phi i32 [ %.2271, %.loopexit ], [ -22, %27 ], [ -22, %24 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2324,10 +2324,10 @@ put_v.exit86.i:                                   ; preds = %get_v_length.exit.i
   br label %._crit_edge144.i
 
 ._crit_edge144.i:                                 ; preds = %.._crit_edge144.i_crit_edge, %110, %103
-  %114 = phi i64 [ %106, %103 ], [ -9223372036854775808, %110 ], [ %.pre, %.._crit_edge144.i_crit_edge ]
-  %.pre-phi.i = phi i64 [ %104, %103 ], [ %104, %110 ], [ 0, %.._crit_edge144.i_crit_edge ]
-  %115 = phi i32 [ %102, %103 ], [ %.pre142.i, %110 ], [ %102, %.._crit_edge144.i_crit_edge ]
-  %116 = phi ptr [ %.pre.i, %103 ], [ %112, %110 ], [ %.pre.i, %.._crit_edge144.i_crit_edge ]
+  %114 = phi i64 [ -9223372036854775808, %110 ], [ %106, %103 ], [ %.pre, %.._crit_edge144.i_crit_edge ]
+  %.pre-phi.i = phi i64 [ %104, %110 ], [ %104, %103 ], [ 0, %.._crit_edge144.i_crit_edge ]
+  %115 = phi i32 [ %.pre142.i, %110 ], [ %102, %103 ], [ %102, %.._crit_edge144.i_crit_edge ]
+  %116 = phi ptr [ %112, %110 ], [ %.pre.i, %103 ], [ %.pre.i, %.._crit_edge144.i_crit_edge ]
   %117 = icmp ne i64 %114, -9223372036854775808
   %118 = add nsw i32 %.069124.i, 1
   %119 = icmp eq i32 %118, %115
@@ -2957,8 +2957,8 @@ put_v.exit198.i:                                  ; preds = %get_v_length.exit.i
   br label %.split.loop.exit404.i
 
 .split.loop.exit404.i:                            ; preds = %154, %.split.loop.exit401.i, %.split.loop.exit398.i, %.split.loop.exit395.i, %.split.loop.exit392.i, %.split.loop.exit389.i, %.split.loop.exit.i
-  %.0124.lcssa.i = phi i32 [ %.0124340.i, %.split.loop.exit401.i ], [ %.0124340.i, %.split.loop.exit.i ], [ %.0124340.i, %.split.loop.exit389.i ], [ %.0124340.i, %.split.loop.exit392.i ], [ %.0124340.i, %.split.loop.exit395.i ], [ %.0124340.i, %.split.loop.exit398.i ], [ %155, %154 ]
-  %.2.lcssa.i = phi i32 [ %162, %.split.loop.exit401.i ], [ %157, %.split.loop.exit.i ], [ %158, %.split.loop.exit389.i ], [ %159, %.split.loop.exit392.i ], [ %160, %.split.loop.exit395.i ], [ %161, %.split.loop.exit398.i ], [ 256, %154 ]
+  %.0124.lcssa.i = phi i32 [ %.0124340.i, %.split.loop.exit.i ], [ %.0124340.i, %.split.loop.exit389.i ], [ %.0124340.i, %.split.loop.exit392.i ], [ %.0124340.i, %.split.loop.exit395.i ], [ %.0124340.i, %.split.loop.exit398.i ], [ %.0124340.i, %.split.loop.exit401.i ], [ %155, %154 ]
+  %.2.lcssa.i = phi i32 [ %157, %.split.loop.exit.i ], [ %158, %.split.loop.exit389.i ], [ %159, %.split.loop.exit392.i ], [ %160, %.split.loop.exit395.i ], [ %161, %.split.loop.exit398.i ], [ %162, %.split.loop.exit401.i ], [ 256, %154 ]
   %163 = zext i16 %128 to i64
   br label %164
 
@@ -5272,8 +5272,8 @@ get_v_length.exit.i.i98:                          ; preds = %get_v_length.exit.p
   br i1 %247, label %.lr.ph307.split, label %.thread, !llvm.loop !197
 
 .thread:                                          ; preds = %.loopexit298, %203, %205, %.lr.ph, %189, %.preheader299
-  %.7 = phi i32 [ %.259304, %.lr.ph ], [ 0, %.preheader299 ], [ %.158.ph.us, %189 ], [ %.057305, %203 ], [ %.057305, %205 ], [ %.158.ph, %.loopexit298 ]
-  %.5 = phi i32 [ -22, %.lr.ph ], [ %8, %.preheader299 ], [ %8, %189 ], [ -22, %203 ], [ -22, %205 ], [ %8, %.loopexit298 ]
+  %.7 = phi i32 [ 0, %.preheader299 ], [ %.158.ph.us, %189 ], [ %.259304, %.lr.ph ], [ %.158.ph, %.loopexit298 ], [ %.057305, %203 ], [ %.057305, %205 ]
+  %.5 = phi i32 [ %8, %.preheader299 ], [ %8, %189 ], [ -22, %.lr.ph ], [ %8, %.loopexit298 ], [ -22, %203 ], [ -22, %205 ]
   %248 = sext i32 %.7 to i64
   br label %249
 

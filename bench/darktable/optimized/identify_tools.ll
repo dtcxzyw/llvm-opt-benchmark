@@ -329,7 +329,7 @@ define noundef float @_ZN6LibRaw10find_greenEiiii(ptr noundef nonnull readonly a
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %5, %119
-  %.050 = phi nsz float [ 0.000000e+00, %5 ], [ %123, %119 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %.preheader ]
+  %.050 = phi nsz float [ %123, %119 ], [ 0.000000e+00, %5 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret float %.050
@@ -621,7 +621,7 @@ define void @_ZN6LibRaw21removeExcessiveSpacesEPc(ptr noundef captures(none) %0)
   br label %18
 
 18:                                               ; preds = %.lr.ph, %.sink.split
-  %.125 = phi i32 [ %.02427, %.lr.ph ], [ %15, %.sink.split ]
+  %.125 = phi i32 [ %15, %.sink.split ], [ %.02427, %.lr.ph ]
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count33
   br i1 %exitcond34.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !90

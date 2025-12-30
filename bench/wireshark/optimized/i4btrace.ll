@@ -227,7 +227,7 @@ define hidden range(i32 -1, 2) i32 @i4btrace_open(ptr noundef %0, ptr noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %80, %60, %62, %.thread257, %53, %27, %7, %97, %102
-  %.0 = phi i32 [ %., %7 ], [ -1, %53 ], [ 1, %102 ], [ -1, %97 ], [ 0, %27 ], [ -1, %.thread257 ], [ 0, %62 ], [ -1, %60 ], [ 0, %80 ]
+  %.0 = phi i32 [ 1, %102 ], [ -1, %97 ], [ %., %7 ], [ 0, %27 ], [ -1, %53 ], [ -1, %.thread257 ], [ 0, %62 ], [ -1, %60 ], [ 0, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -281,7 +281,7 @@ define internal noundef zeroext i1 @i4btrace_seek_read(ptr noundef readonly capt
   br label %18
 
 18:                                               ; preds = %10, %14, %17, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %14 ], [ false, %17 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %17 ], [ false, %14 ], [ true, %10 ]
   ret i1 %.0
 }
 

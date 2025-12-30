@@ -245,7 +245,7 @@ define hidden noundef range(i32 0, 6) i32 @_ZN5o3dgc20DynamicVectorDecoder12Deco
   br label %_ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE.exit
 
 _ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE.exit: ; preds = %13, %37
-  %.0.i = phi i64 [ %60, %37 ], [ %36, %13 ]
+  %.0.i = phi i64 [ %36, %13 ], [ %60, %37 ]
   %.not = icmp eq i64 %.0.i, 498
   br i1 %.not, label %72, label %.preheader
 
@@ -414,7 +414,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5o3dgc12BinaryStream10ReadUInt32ERmN
   br label %_ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit
 
 _ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit: ; preds = %6, %51, %27
-  %.0 = phi i64 [ %74, %51 ], [ %50, %27 ], [ %15, %6 ]
+  %.0 = phi i64 [ %50, %27 ], [ %74, %51 ], [ %15, %6 ]
   ret i64 %.0
 }
 
@@ -544,7 +544,7 @@ define hidden noundef i32 @_ZN5o3dgc20DynamicVectorDecoder14DecodePlayloadERNS_1
   br label %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit
 
 _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit: ; preds = %24, %44, %66
-  %.0.in.i = phi i32 [ %87, %66 ], [ %65, %44 ], [ %32, %24 ]
+  %.0.in.i = phi i32 [ %65, %44 ], [ %87, %66 ], [ %32, %24 ]
   %88 = load ptr, ptr %18, align 8
   %89 = getelementptr inbounds nuw float, ptr %88, i64 %.071144
   store i32 %.0.in.i, ptr %89, align 4
@@ -641,7 +641,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit: ; preds = %2
   br label %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit89
 
 _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit89: ; preds = %93, %113, %135
-  %.0.in.i82 = phi i32 [ %156, %135 ], [ %134, %113 ], [ %101, %93 ]
+  %.0.in.i82 = phi i32 [ %134, %113 ], [ %156, %135 ], [ %101, %93 ]
   %157 = load ptr, ptr %19, align 8
   %158 = getelementptr inbounds nuw float, ptr %157, i64 %.071144
   store i32 %.0.in.i82, ptr %158, align 4
@@ -1127,7 +1127,7 @@ _ZN5o3dgc20DynamicVectorDecoder9IQuantizeEPfmmmPKfS3_m.exit: ; preds = %._crit_e
   ret i32 0
 
 .loopexit.split-lp:                               ; preds = %.loopexit119.split.us, %.loopexit.split-lp.loopexit.split-lp.split.us, %.loopexit.split-lp.loopexit.split.us, %342, %219
-  %.pn = phi { ptr, i32 } [ %220, %219 ], [ %343, %342 ], [ %lpad.loopexit.us, %.loopexit119.split.us ], [ %lpad.loopexit121.us, %.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit.split-lp122.us, %.loopexit.split-lp.loopexit.split-lp.split.us ]
+  %.pn = phi { ptr, i32 } [ %343, %342 ], [ %220, %219 ], [ %lpad.loopexit.us, %.loopexit119.split.us ], [ %lpad.loopexit121.us, %.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit.split-lp122.us, %.loopexit.split-lp.loopexit.split-lp.split.us ]
   call void @_ZN5o3dgc19Adaptive_Data_ModelD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %7) #14
   br label %344
 

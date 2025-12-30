@@ -890,7 +890,7 @@ sub_1370:                                         ; preds = %.tail, %sub_1
   br label %.tail368.thread
 
 .tail368.thread:                                  ; preds = %pmix_obj_new_tma.exit305, %.tail368, %sub_1370, %sub_0, %167, %169, %175, %151, %153, %159, %134, %136, %142
-  %.sink = phi i32 [ 0, %.tail368 ], [ 4, %151 ], [ 5, %167 ], [ 3, %134 ], [ 3, %142 ], [ 3, %136 ], [ 4, %159 ], [ 4, %153 ], [ 5, %175 ], [ 5, %169 ], [ 0, %sub_0 ], [ 0, %sub_1370 ], [ 0, %pmix_obj_new_tma.exit305 ]
+  %.sink = phi i32 [ 3, %142 ], [ 3, %136 ], [ 3, %134 ], [ 4, %159 ], [ 4, %153 ], [ 4, %151 ], [ 5, %175 ], [ 5, %169 ], [ 5, %167 ], [ 0, %sub_0 ], [ 0, %sub_1370 ], [ 0, %.tail368 ], [ 0, %pmix_obj_new_tma.exit305 ]
   %178 = getelementptr inbounds nuw i8, ptr %110, i64 180
   store i32 %.sink, ptr %178, align 4, !tbaa !64
   %179 = load i8, ptr @prte_filem_raw_flatten_trees, align 1, !tbaa !68, !range !69, !noundef !70
@@ -1817,7 +1817,7 @@ pmix_obj_run_destructors.exit364:                 ; preds = %.lr.ph.i361, %589
   br i1 %.not266, label %pmix_obj_run_destructors.exit, label %.lr.ph400, !llvm.loop !99
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph400, %.lr.ph.i307, %608, %234, %605, %603, %604, %pmix_obj_update.exit293, %460, %458
-  %.0 = phi i32 [ 0, %605 ], [ 0, %603 ], [ -1, %pmix_obj_update.exit293 ], [ -1, %458 ], [ -1, %460 ], [ 0, %604 ], [ 0, %608 ], [ 0, %234 ], [ 0, %.lr.ph.i307 ], [ 0, %.lr.ph400 ]
+  %.0 = phi i32 [ -1, %458 ], [ -1, %460 ], [ -1, %pmix_obj_update.exit293 ], [ 0, %604 ], [ 0, %603 ], [ 0, %605 ], [ 0, %234 ], [ 0, %608 ], [ 0, %.lr.ph.i307 ], [ 0, %.lr.ph400 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -2239,7 +2239,7 @@ create_link.exit:                                 ; preds = %167, %174
   br label %205
 
 205:                                              ; preds = %26, %._crit_edge106, %.loopexit, %10
-  %.0 = phi i32 [ -5, %10 ], [ 0, %._crit_edge106 ], [ %.028.i, %.loopexit ], [ 0, %26 ]
+  %.0 = phi i32 [ -5, %10 ], [ %.028.i, %.loopexit ], [ 0, %._crit_edge106 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3126,7 +3126,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %182, %
   call void @free(ptr noundef %216) #16
   br label %.critedge
 
-.critedge:                                        ; preds = %166, %158, %147, %149, %pmix_obj_update.exit, %215, %39, %30, %20, %15
+.critedge:                                        ; preds = %158, %166, %147, %149, %pmix_obj_update.exit, %215, %39, %30, %20, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

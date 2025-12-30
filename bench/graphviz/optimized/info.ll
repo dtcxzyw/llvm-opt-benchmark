@@ -43,8 +43,8 @@ define void @addVertex(ptr noundef readonly captures(none) %0, double noundef %1
   %15 = fdiv double %12, %11
   br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %select.unfold30.us
-  %.02544.us = phi i64 [ %32, %select.unfold30.us ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %select.unfold29.us
+  %.02544.us = phi i64 [ %32, %select.unfold29.us ], [ 0, %.lr.ph ]
   %16 = getelementptr inbounds nuw %struct.pointf_s, ptr %.pre, i64 %.02544.us
   %17 = load double, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -57,7 +57,7 @@ define void @addVertex(ptr noundef readonly captures(none) %0, double noundef %1
 22:                                               ; preds = %.lr.ph.split.us
   %23 = fsub double %17, %.sroa.010.0.copyload.fr
   %24 = fcmp ult double %23, 0.000000e+00
-  br i1 %24, label %25, label %select.unfold30.us
+  br i1 %24, label %25, label %select.unfold29.us
 
 25:                                               ; preds = %22
   %26 = fsub double %19, %.sroa.4.0.copyload.fr
@@ -69,9 +69,9 @@ define void @addVertex(ptr noundef readonly captures(none) %0, double noundef %1
   %30 = fcmp ule double %15, %27
   %31 = fcmp ogt double %11, %23
   %or.cond39.us = and i1 %31, %30
-  br i1 %or.cond39.us, label %select.unfold, label %select.unfold30.us
+  br i1 %or.cond39.us, label %select.unfold, label %select.unfold29.us
 
-select.unfold30.us:                               ; preds = %29, %22
+select.unfold29.us:                               ; preds = %29, %22
   %32 = add nuw i64 %.02544.us, 1
   %exitcond174.not = icmp eq i64 %32, %9
   br i1 %exitcond174.not, label %select.unfold, label %.lr.ph.split.us, !llvm.loop !21
@@ -80,8 +80,8 @@ select.unfold30.us:                               ; preds = %29, %22
   %33 = fcmp ogt double %11, 0.000000e+00
   br i1 %33, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %select.unfold30.us80
-  %.02544.us78 = phi i64 [ %54, %select.unfold30.us80 ], [ 0, %.lr.ph.split ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %select.unfold29.us80
+  %.02544.us78 = phi i64 [ %54, %select.unfold29.us80 ], [ 0, %.lr.ph.split ]
   %34 = getelementptr inbounds nuw %struct.pointf_s, ptr %.pre, i64 %.02544.us78
   %35 = load double, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -103,7 +103,7 @@ select.unfold30.us:                               ; preds = %29, %22
 
 46:                                               ; preds = %44
   %47 = fcmp ogt double %42, 0.000000e+00
-  br i1 %47, label %select.unfold, label %select.unfold30.us80
+  br i1 %47, label %select.unfold, label %select.unfold29.us80
 
 48:                                               ; preds = %44
   %49 = fdiv double %42, %41
@@ -114,9 +114,9 @@ select.unfold30.us:                               ; preds = %29, %22
   %52 = fcmp ule double %15, %49
   %53 = fcmp olt double %11, %41
   %or.cond.us = and i1 %53, %52
-  br i1 %or.cond.us, label %select.unfold, label %select.unfold30.us80
+  br i1 %or.cond.us, label %select.unfold, label %select.unfold29.us80
 
-select.unfold30.us80:                             ; preds = %51, %46
+select.unfold29.us80:                             ; preds = %51, %46
   %54 = add nuw i64 %.02544.us78, 1
   %exitcond173.not = icmp eq i64 %54, %9
   br i1 %exitcond173.not, label %select.unfold, label %.lr.ph.split.split.us, !llvm.loop !21
@@ -124,8 +124,8 @@ select.unfold30.us80:                             ; preds = %51, %46
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %14, label %.lr.ph.split.split.split.us.split.us, label %.lr.ph.split.split.split.split
 
-.lr.ph.split.split.split.us.split.us:             ; preds = %.lr.ph.split.split, %select.unfold30.us95.us
-  %.02544.us93.us = phi i64 [ %70, %select.unfold30.us95.us ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us.split.us:             ; preds = %.lr.ph.split.split, %select.unfold29.us95.us
+  %.02544.us93.us = phi i64 [ %70, %select.unfold29.us95.us ], [ 0, %.lr.ph.split.split ]
   %55 = getelementptr inbounds nuw %struct.pointf_s, ptr %.pre, i64 %.02544.us93.us
   %56 = load double, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -143,21 +143,21 @@ select.unfold30.us80:                             ; preds = %51, %46
 
 65:                                               ; preds = %61
   %66 = fcmp ogt double %62, 0.000000e+00
-  br i1 %66, label %select.unfold30.us95.us, label %67
+  br i1 %66, label %select.unfold29.us95.us, label %67
 
 67:                                               ; preds = %65
   %68 = fcmp olt double %12, %63
   %69 = fcmp ugt double %63, 0.000000e+00
   %or.cond = and i1 %68, %69
-  br i1 %or.cond, label %select.unfold, label %select.unfold30.us95.us
+  br i1 %or.cond, label %select.unfold, label %select.unfold29.us95.us
 
-select.unfold30.us95.us:                          ; preds = %65, %67
+select.unfold29.us95.us:                          ; preds = %65, %67
   %70 = add nuw i64 %.02544.us93.us, 1
   %exitcond172.not = icmp eq i64 %70, %9
   br i1 %exitcond172.not, label %select.unfold, label %.lr.ph.split.split.split.us.split.us, !llvm.loop !21
 
-.lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split, %select.unfold30
-  %.02544 = phi i64 [ %82, %select.unfold30 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split, %select.unfold29
+  %.02544 = phi i64 [ %82, %select.unfold29 ], [ 0, %.lr.ph.split.split ]
   %71 = getelementptr inbounds nuw %struct.pointf_s, ptr %.pre, i64 %.02544
   %72 = load double, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -174,15 +174,15 @@ select.unfold30.us95.us:                          ; preds = %65, %67
   %80 = fcmp ugt double %78, 0.000000e+00
   %81 = or i1 %79, %80
   %or.cond152 = select i1 %or.cond150, i1 true, i1 %81
-  br i1 %or.cond152, label %select.unfold, label %select.unfold30
+  br i1 %or.cond152, label %select.unfold, label %select.unfold29
 
-select.unfold30:                                  ; preds = %77
+select.unfold29:                                  ; preds = %77
   %82 = add nuw i64 %.02544, 1
   %exitcond.not = icmp eq i64 %82, %9
   br i1 %exitcond.not, label %select.unfold, label %.lr.ph.split.split.split.split, !llvm.loop !21
 
-select.unfold:                                    ; preds = %select.unfold30, %77, %select.unfold30.us95.us, %67, %61, %select.unfold30.us80, %46, %48, %40, %51, %select.unfold30.us, %25, %29
-  %.025.lcssa = phi i64 [ %.02544.us78, %51 ], [ %.02544.us93.us, %67 ], [ %.02544.us, %29 ], [ %.02544.us, %25 ], [ %9, %select.unfold30.us ], [ %.02544.us78, %48 ], [ %.02544.us78, %46 ], [ %9, %select.unfold30.us80 ], [ %.02544.us78, %40 ], [ %9, %select.unfold30.us95.us ], [ %.02544.us93.us, %61 ], [ %.02544, %77 ], [ %9, %select.unfold30 ]
+select.unfold:                                    ; preds = %select.unfold29, %77, %select.unfold29.us95.us, %67, %61, %select.unfold29.us80, %46, %48, %40, %51, %select.unfold29.us, %25, %29
+  %.025.lcssa = phi i64 [ %.02544.us, %29 ], [ %.02544.us, %25 ], [ %9, %select.unfold29.us ], [ %.02544.us78, %51 ], [ %.02544.us78, %40 ], [ %.02544.us78, %48 ], [ %.02544.us78, %46 ], [ %9, %select.unfold29.us80 ], [ %.02544.us93.us, %61 ], [ %.02544.us93.us, %67 ], [ %9, %select.unfold29.us95.us ], [ %.02544, %77 ], [ %9, %select.unfold29 ]
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %84 = add i64 %9, 1
   %85 = icmp ugt i64 %84, 1152921504606846975

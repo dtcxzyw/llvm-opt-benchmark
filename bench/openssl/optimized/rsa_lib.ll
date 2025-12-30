@@ -121,8 +121,8 @@ define internal fastcc ptr @rsa_new_intern(ptr noundef %0, ptr noundef %1) unnam
   br i1 %.not39, label %.sink.split, label %43
 
 .sink.split:                                      ; preds = %40, %25, %19
-  %.sink46 = phi i32 [ 111, %25 ], [ 101, %19 ], [ 125, %40 ]
-  %.sink = phi i32 [ 524326, %25 ], [ 524326, %19 ], [ 786693, %40 ]
+  %.sink46 = phi i32 [ 101, %19 ], [ 111, %25 ], [ 125, %40 ]
+  %.sink = phi i32 [ 524326, %19 ], [ 524326, %25 ], [ 786693, %40 ]
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink46, ptr noundef nonnull @__func__.rsa_new_intern) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef %.sink, ptr noundef null) #11
@@ -133,7 +133,7 @@ define internal fastcc ptr @rsa_new_intern(ptr noundef %0, ptr noundef %1) unnam
   br label %43
 
 43:                                               ; preds = %36, %40, %2, %42, %9
-  %.0 = phi ptr [ null, %2 ], [ null, %9 ], [ null, %42 ], [ %3, %40 ], [ %3, %36 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %42 ], [ null, %2 ], [ %3, %40 ], [ %3, %36 ]
   ret ptr %.0
 }
 
@@ -444,7 +444,7 @@ icbrt64.exit:                                     ; preds = %30
   br label %47
 
 47:                                               ; preds = %10, %8, %1, %icbrt64.exit, %7, %6, %5, %4, %3, %2
-  %.017 = phi i16 [ 112, %1 ], [ 1200, %8 ], [ %.016, %icbrt64.exit ], [ 256, %7 ], [ 128, %2 ], [ 152, %3 ], [ 176, %4 ], [ 192, %5 ], [ 200, %6 ], [ 0, %10 ]
+  %.017 = phi i16 [ %.016, %icbrt64.exit ], [ 128, %2 ], [ 152, %3 ], [ 176, %4 ], [ 192, %5 ], [ 200, %6 ], [ 256, %7 ], [ 112, %1 ], [ 1200, %8 ], [ 0, %10 ]
   ret i16 %.017
 }
 
@@ -770,7 +770,7 @@ define range(i32 0, 2) i32 @RSA_set0_multi_prime_params(ptr noundef %0, ptr noun
   br label %50
 
 50:                                               ; preds = %10, %5, %.loopexit, %45
-  %.051 = phi i32 [ 1, %45 ], [ 0, %5 ], [ 0, %.loopexit ], [ 0, %10 ]
+  %.051 = phi i32 [ 0, %.loopexit ], [ 1, %45 ], [ 0, %5 ], [ 0, %10 ]
   ret i32 %.051
 }
 
@@ -993,7 +993,7 @@ define range(i32 0, 2) i32 @RSA_get0_multi_prime_crt_params(ptr noundef readonly
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !57
 
 .loopexit:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %8, %3
-  %.017 = phi i32 [ 0, %3 ], [ 1, %8 ], [ 1, %.lr.ph.split.split.us ], [ 1, %.lr.ph.split.us.split.us ], [ 1, %.lr.ph.split.us.split ], [ 1, %.lr.ph.split.split ]
+  %.017 = phi i32 [ 0, %3 ], [ 1, %8 ], [ 1, %.lr.ph.split.us.split.us ], [ 1, %.lr.ph.split.us.split ], [ 1, %.lr.ph.split.split.us ], [ 1, %.lr.ph.split.split ]
   ret i32 %.017
 }
 
@@ -1303,7 +1303,7 @@ define range(i32 0, 2) i32 @ossl_rsa_set0_all_params(ptr noundef %0, ptr noundef
   br label %RSA_set0_factors.exit.thread
 
 RSA_set0_factors.exit.thread:                     ; preds = %52, %11, %18, %40, %8, %4, %.thread, %75
-  %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 0, %11 ], [ 1, %75 ], [ 0, %.thread ], [ 0, %40 ], [ 0, %18 ], [ 0, %52 ]
+  %.0 = phi i32 [ 1, %75 ], [ 0, %.thread ], [ 0, %4 ], [ 0, %8 ], [ 0, %40 ], [ 0, %18 ], [ 0, %11 ], [ 0, %52 ]
   ret i32 %.0
 }
 
@@ -1357,7 +1357,7 @@ define range(i32 0, 2) i32 @ossl_rsa_get0_all_params(ptr noundef readonly captur
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !70
 
 .loopexit:                                        ; preds = %.lr.ph, %10, %6, %4
-  %.0 = phi i32 [ 1, %6 ], [ 0, %4 ], [ 1, %10 ], [ 1, %.lr.ph ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %6 ], [ 1, %10 ], [ 1, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -1482,7 +1482,7 @@ define range(i32 0, 2) i32 @ossl_rsa_check_factors(ptr noundef readonly captures
   br i1 %66, label %.loopexit, label %55
 
 .loopexit:                                        ; preds = %38, %52, %64, %55, %.preheader, %22, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %22 ], [ 1, %.preheader ], [ 0, %52 ], [ 1, %55 ], [ 0, %64 ], [ 0, %38 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %22 ], [ 1, %.preheader ], [ 0, %64 ], [ 1, %55 ], [ 0, %52 ], [ 0, %38 ]
   tail call void @OPENSSL_sk_free(ptr noundef %2) #11
   tail call void @OPENSSL_sk_free(ptr noundef %3) #11
   tail call void @OPENSSL_sk_free(ptr noundef %4) #11
@@ -1857,7 +1857,7 @@ define range(i32 -2147483648, 2) i32 @EVP_PKEY_CTX_set0_rsa_oaep_label(ptr nound
   br label %21
 
 21:                                               ; preds = %13, %11, %20, %10
-  %.0 = phi i32 [ -2, %10 ], [ -1, %11 ], [ 1, %20 ], [ %18, %13 ]
+  %.0 = phi i32 [ -2, %10 ], [ 1, %20 ], [ -1, %11 ], [ %18, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1922,7 +1922,7 @@ define range(i32 -2, -2147483648) i32 @EVP_PKEY_CTX_get0_rsa_oaep_label(ptr noun
   br label %20
 
 20:                                               ; preds = %15, %12, %10, %9
-  %.0 = phi i32 [ -2, %9 ], [ -1, %12 ], [ %spec.select, %15 ], [ -1, %10 ]
+  %.0 = phi i32 [ -2, %9 ], [ -1, %10 ], [ -1, %12 ], [ %spec.select, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2120,7 +2120,7 @@ RSA_pkey_ctx_ctrl.exit:                           ; preds = %2, %3, %6, %6
   br label %RSA_pkey_ctx_ctrl.exit.thread
 
 RSA_pkey_ctx_ctrl.exit.thread:                    ; preds = %6, %14, %10, %RSA_pkey_ctx_ctrl.exit
-  %.0.i8 = phi i32 [ %8, %RSA_pkey_ctx_ctrl.exit ], [ %8, %14 ], [ %8, %10 ], [ -1, %6 ]
+  %.0.i8 = phi i32 [ %8, %14 ], [ %8, %10 ], [ %8, %RSA_pkey_ctx_ctrl.exit ], [ -1, %6 ]
   ret i32 %.0.i8
 }
 

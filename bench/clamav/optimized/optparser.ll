@@ -1079,9 +1079,9 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
   br label %94
 
 94:                                               ; preds = %90, %87, %80, %74, %70, %27
-  %95 = phi ptr [ %17, %27 ], [ %43, %80 ], [ %43, %90 ], [ %43, %87 ], [ %43, %74 ], [ %43, %70 ]
-  %.2274.us = phi i32 [ %.0272.us, %27 ], [ %.1273.us, %80 ], [ %.1273.us, %90 ], [ %.1273.us, %87 ], [ %.1273.us, %74 ], [ %.1273.us, %70 ]
-  %.1271.us = phi i32 [ %.0270.us, %27 ], [ %81, %80 ], [ %91, %90 ], [ %81, %87 ], [ %75, %74 ], [ %.0270.us, %70 ]
+  %95 = phi ptr [ %43, %80 ], [ %43, %90 ], [ %43, %87 ], [ %43, %74 ], [ %43, %70 ], [ %17, %27 ]
+  %.2274.us = phi i32 [ %.1273.us, %80 ], [ %.1273.us, %90 ], [ %.1273.us, %87 ], [ %.1273.us, %74 ], [ %.1273.us, %70 ], [ %.0272.us, %27 ]
+  %.1271.us = phi i32 [ %81, %80 ], [ %91, %90 ], [ %81, %87 ], [ %75, %74 ], [ %.0270.us, %70 ], [ %.0270.us, %27 ]
   %indvars.iv.next575 = add nuw nsw i64 %indvars.iv574, 1
   br label %.split.us
 
@@ -1609,7 +1609,7 @@ optget_i.exit._crit_edge:                         ; preds = %optget_i.exit, %275
   br i1 %299, label %300, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %297, %313, %323, %320, %309, %310, %280, %279, %290, %293, %283, %.critedge, %178
-  %.0268.be = phi i32 [ %175, %.critedge ], [ %.1269, %280 ], [ %175, %178 ], [ %.1269, %283 ], [ %.1269, %293 ], [ %.1269, %290 ], [ %.1269, %279 ], [ %.1269, %310 ], [ %.1269, %309 ], [ %.1269, %320 ], [ %.1269, %323 ], [ %.1269, %313 ], [ %.1269, %297 ]
+  %.0268.be = phi i32 [ %175, %178 ], [ %175, %.critedge ], [ %.1269, %283 ], [ %.1269, %293 ], [ %.1269, %290 ], [ %.1269, %279 ], [ %.1269, %280 ], [ %.1269, %310 ], [ %.1269, %309 ], [ %.1269, %320 ], [ %.1269, %323 ], [ %.1269, %313 ], [ %.1269, %297 ]
   br label %.backedge
 
 300:                                              ; preds = %297
@@ -1914,8 +1914,8 @@ sub_0:                                            ; preds = %434
   br label %.critedge390
 
 .critedge390:                                     ; preds = %.thread400, %432, %429, %.tail.thread, %364, %384, %385, %388, %434, %.tail
-  %.2284 = phi ptr [ %.1283, %364 ], [ null, %.thread400 ], [ null, %432 ], [ null, %388 ], [ null, %.tail ], [ null, %434 ], [ null, %384 ], [ null, %385 ], [ null, %.tail.thread ], [ null, %429 ]
-  %.0264 = phi i64 [ -1, %364 ], [ %spec.select419, %.thread400 ], [ 9223372036854775807, %432 ], [ 0, %388 ], [ 1, %.tail ], [ 1, %434 ], [ 0, %384 ], [ %387, %385 ], [ %spec.select392, %.tail.thread ], [ 9223372036854775807, %429 ]
+  %.2284 = phi ptr [ %.1283, %364 ], [ null, %384 ], [ null, %385 ], [ null, %388 ], [ null, %434 ], [ null, %.tail ], [ null, %.tail.thread ], [ null, %429 ], [ null, %432 ], [ null, %.thread400 ]
+  %.0264 = phi i64 [ -1, %364 ], [ 0, %384 ], [ %387, %385 ], [ 0, %388 ], [ 1, %434 ], [ 1, %.tail ], [ %spec.select392, %.tail.thread ], [ 9223372036854775807, %429 ], [ 9223372036854775807, %432 ], [ %spec.select419, %.thread400 ]
   %441 = call fastcc i32 @optaddarg(ptr noundef nonnull %160, ptr noundef nonnull %.0286, ptr noundef %.2284, i64 noundef %.0264)
   %442 = icmp slt i32 %441, 0
   br i1 %442, label %451, label %.outer.backedge
@@ -1955,8 +1955,8 @@ sub_0:                                            ; preds = %434
   %457 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %454, ptr noundef nonnull @.str.720, ptr noundef %456) #21
   br label %.critedge391
 
-.critedge391:                                     ; preds = %231, %163, %379, %382, %409, %421, %418, %.thread413, %.thread409, %350, %362, %359, %302, %304, %.loopexit421, %267, %227, %228, %222, %223, %.critedge8.thread641, %212, %189, %190, %183, %184, %341, %251, %.thread, %233
-  %.not371 = phi i1 [ false, %.loopexit421 ], [ false, %341 ], [ false, %302 ], [ false, %.thread413 ], [ false, %350 ], [ false, %227 ], [ false, %251 ], [ false, %222 ], [ false, %.critedge8.thread641 ], [ false, %189 ], [ false, %183 ], [ false, %.thread ], [ false, %382 ], [ false, %379 ], [ false, %233 ], [ false, %184 ], [ false, %190 ], [ false, %212 ], [ false, %223 ], [ false, %228 ], [ false, %267 ], [ false, %304 ], [ false, %359 ], [ false, %362 ], [ false, %.thread409 ], [ false, %418 ], [ false, %421 ], [ false, %409 ], [ true, %163 ], [ true, %231 ]
+.critedge391:                                     ; preds = %231, %163, %382, %379, %409, %421, %418, %.thread413, %.thread409, %350, %362, %359, %302, %304, %.loopexit421, %267, %227, %228, %222, %223, %.critedge8.thread641, %212, %189, %190, %183, %184, %341, %251, %.thread, %233
+  %.not371 = phi i1 [ false, %341 ], [ false, %233 ], [ false, %.thread ], [ false, %251 ], [ false, %184 ], [ false, %183 ], [ false, %190 ], [ false, %189 ], [ false, %212 ], [ false, %.critedge8.thread641 ], [ false, %223 ], [ false, %222 ], [ false, %228 ], [ false, %227 ], [ false, %267 ], [ false, %.loopexit421 ], [ false, %304 ], [ false, %302 ], [ false, %359 ], [ false, %362 ], [ false, %350 ], [ false, %.thread409 ], [ false, %.thread413 ], [ false, %418 ], [ false, %421 ], [ false, %409 ], [ false, %379 ], [ false, %382 ], [ true, %163 ], [ true, %231 ]
   %.not370 = icmp eq ptr %.0267, null
   br i1 %.not370, label %460, label %458
 
@@ -2025,7 +2025,7 @@ sub_0:                                            ; preds = %434
   br label %.loopexit
 
 .loopexit:                                        ; preds = %477, %462, %464, %483, %474, %461, %147, %143, %.split487.us, %.split485.us, %.split483.us
-  %.0261 = phi ptr [ null, %.split485.us ], [ null, %.split487.us ], [ null, %.split483.us ], [ null, %143 ], [ null, %461 ], [ null, %483 ], [ null, %147 ], [ null, %474 ], [ %160, %462 ], [ %160, %464 ], [ %160, %477 ]
+  %.0261 = phi ptr [ null, %.split485.us ], [ null, %.split487.us ], [ null, %.split483.us ], [ null, %143 ], [ null, %461 ], [ null, %483 ], [ null, %474 ], [ null, %147 ], [ %160, %464 ], [ %160, %462 ], [ %160, %477 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -2353,7 +2353,7 @@ optget_i.exit:                                    ; preds = %11, %6
   br label %75
 
 75:                                               ; preds = %71, %73, %53, %59, %43, %36, %29, %.loopexit
-  %.0 = phi i32 [ 0, %53 ], [ -1, %43 ], [ -1, %36 ], [ -1, %29 ], [ -1, %.loopexit ], [ -1, %59 ], [ 0, %73 ], [ 0, %71 ]
+  %.0 = phi i32 [ -1, %43 ], [ -1, %36 ], [ -1, %29 ], [ -1, %59 ], [ -1, %.loopexit ], [ 0, %53 ], [ 0, %73 ], [ 0, %71 ]
   ret i32 %.0
 }
 
@@ -2499,7 +2499,7 @@ define ptr @optadditem(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nound
   br i1 %.not106, label %.preheader, label %56
 
 .preheader:                                       ; preds = %45, %15, %52, %22
-  %.not133199 = phi i1 [ false, %52 ], [ true, %15 ], [ true, %22 ], [ false, %45 ]
+  %.not133199 = phi i1 [ true, %22 ], [ false, %52 ], [ true, %15 ], [ false, %45 ]
   %.not107 = icmp eq ptr %0, null
   %.pre185.pre = load ptr, ptr %7, align 8, !tbaa !19
   br i1 %.not107, label %._crit_edge, label %.lr.ph
@@ -2586,7 +2586,7 @@ define ptr @optadditem(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nound
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %90, %.backedge.sink.split, %109, %115, %104
-  %.01018.i.be = phi ptr [ %92, %90 ], [ %.pre185.pre, %104 ], [ %.pre185.pre, %.backedge.sink.split ], [ %.pre185.pre, %109 ], [ %.pre185.pre, %115 ]
+  %.01018.i.be = phi ptr [ %92, %90 ], [ %.pre185.pre, %.backedge.sink.split ], [ %.pre185.pre, %109 ], [ %.pre185.pre, %115 ], [ %.pre185.pre, %104 ]
   br label %.lr.ph.i
 
 .loopexit:                                        ; preds = %90, %.lr.ph
@@ -2801,8 +2801,8 @@ sub_0:                                            ; preds = %169
   br label %176
 
 176:                                              ; preds = %.thread143, %.thread145, %.tail.thread, %134, %138, %137, %141, %142, %145, %169, %.tail
-  %.088 = phi ptr [ %1, %134 ], [ %1, %137 ], [ %140, %138 ], [ null, %145 ], [ null, %.tail.thread ], [ null, %.tail ], [ null, %142 ], [ null, %141 ], [ null, %169 ], [ null, %.thread145 ], [ null, %.thread143 ]
-  %.086 = phi i64 [ -1, %134 ], [ -1, %137 ], [ -1, %138 ], [ 0, %145 ], [ %spec.select139, %.tail.thread ], [ 1, %.tail ], [ %144, %142 ], [ 0, %141 ], [ 1, %169 ], [ 4294967295, %.thread145 ], [ %spec.select149, %.thread143 ]
+  %.088 = phi ptr [ %1, %134 ], [ %1, %137 ], [ %140, %138 ], [ null, %141 ], [ null, %142 ], [ null, %145 ], [ null, %169 ], [ null, %.tail ], [ null, %.tail.thread ], [ null, %.thread145 ], [ null, %.thread143 ]
+  %.086 = phi i64 [ -1, %134 ], [ -1, %137 ], [ -1, %138 ], [ 0, %141 ], [ %144, %142 ], [ 0, %145 ], [ 1, %169 ], [ 1, %.tail ], [ %spec.select139, %.tail.thread ], [ 4294967295, %.thread145 ], [ %spec.select149, %.thread143 ]
   %177 = call fastcc i32 @optaddarg(ptr noundef nonnull %.pre185.pre, ptr noundef nonnull %0, ptr noundef %.088, i64 noundef %.086)
   %178 = icmp slt i32 %177, 0
   br i1 %178, label %179, label %184
@@ -2814,7 +2814,7 @@ sub_0:                                            ; preds = %169
   %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %180, ptr noundef nonnull @.str.720, ptr noundef %182) #21
   br label %.critedge138
 
-.critedge138:                                     ; preds = %.loopexit, %93, %._crit_edge, %179, %.critedge, %131, %124, %112
+.critedge138:                                     ; preds = %.critedge, %.loopexit, %93, %._crit_edge, %179, %131, %124, %112
   call void @optfree(ptr noundef %.pre185.pre)
   br label %184
 

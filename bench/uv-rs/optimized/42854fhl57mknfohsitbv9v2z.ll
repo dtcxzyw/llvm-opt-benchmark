@@ -747,8 +747,8 @@ _ZN3std4sync6poison4once4Once9call_once17hbc20ca15f55b63c7E.exit24: ; preds = %"
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %11, %_ZN3std4sync6poison4once4Once9call_once17hbc20ca15f55b63c7E.exit24
-  %.sroa.4.0 = phi i64 [ %.val22, %11 ], [ %spec.select21, %_ZN3std4sync6poison4once4Once9call_once17hbc20ca15f55b63c7E.exit24 ], [ 1, %16 ]
-  %.sroa.0.0 = phi ptr [ %.val, %11 ], [ %spec.select, %_ZN3std4sync6poison4once4Once9call_once17hbc20ca15f55b63c7E.exit24 ], [ @anon.dc91213395aaaec7d823e7c7a7268dda.7, %16 ]
+  %.sroa.4.0 = phi i64 [ %spec.select21, %_ZN3std4sync6poison4once4Once9call_once17hbc20ca15f55b63c7E.exit24 ], [ %.val22, %11 ], [ 1, %16 ]
+  %.sroa.0.0 = phi ptr [ %spec.select, %_ZN3std4sync6poison4once4Once9call_once17hbc20ca15f55b63c7E.exit24 ], [ %.val, %11 ], [ @anon.dc91213395aaaec7d823e7c7a7268dda.7, %16 ]
   %28 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %29 = insertvalue { ptr, i64 } %28, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %29
@@ -1318,7 +1318,7 @@ define hidden noundef zeroext i1 @"_ZN69_$LT$anyhow..context..Quoted$LT$C$GT$$u2
   br label %10
 
 10:                                               ; preds = %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h22662b3291b717f0E.exit", %8, %2
-  %.sroa.0.0 = phi i1 [ %9, %8 ], [ true, %2 ], [ true, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h22662b3291b717f0E.exit" ]
+  %.sroa.0.0 = phi i1 [ true, %2 ], [ %9, %8 ], [ true, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h22662b3291b717f0E.exit" ]
   ret i1 %.sroa.0.0
 }
 
@@ -1358,7 +1358,7 @@ define hidden noundef zeroext i1 @"_ZN69_$LT$anyhow..context..Quoted$LT$C$GT$$u2
   br label %10
 
 10:                                               ; preds = %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h22662b3291b717f0E.exit", %8, %2
-  %.sroa.0.0 = phi i1 [ %9, %8 ], [ true, %2 ], [ true, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h22662b3291b717f0E.exit" ]
+  %.sroa.0.0 = phi i1 [ true, %2 ], [ %9, %8 ], [ true, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h22662b3291b717f0E.exit" ]
   ret i1 %.sroa.0.0
 }
 
@@ -2027,7 +2027,7 @@ define hidden void @_ZN9uv_pep50812verbatim_url11VerbatimUrl9from_path17hd57d950
           to label %36 unwind label %34
 
 .body:                                            ; preds = %"_ZN4core3ptr62drop_in_place$LT$alloc..borrow..Cow$LT$std..path..Path$GT$$GT$17hb553c416951b52f5E.exit70", %45, %34
-  %.pn60 = phi { ptr, i32 } [ %46, %45 ], [ %35, %34 ], [ %.pn58, %"_ZN4core3ptr62drop_in_place$LT$alloc..borrow..Cow$LT$std..path..Path$GT$$GT$17hb553c416951b52f5E.exit70" ]
+  %.pn60 = phi { ptr, i32 } [ %35, %34 ], [ %46, %45 ], [ %.pn58, %"_ZN4core3ptr62drop_in_place$LT$alloc..borrow..Cow$LT$std..path..Path$GT$$GT$17hb553c416951b52f5E.exit70" ]
   %31 = load i64, ptr %14, align 8, !range !158, !alias.scope !204, !noundef !4
   %32 = icmp eq i64 %31, -9223372036854775808
   br i1 %32, label %"_ZN4core3ptr62drop_in_place$LT$alloc..borrow..Cow$LT$std..path..Path$GT$$GT$17hb553c416951b52f5E.exit", label %33

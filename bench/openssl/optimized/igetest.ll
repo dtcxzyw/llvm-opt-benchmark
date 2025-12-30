@@ -492,7 +492,7 @@ define internal range(i32 0, 2) i32 @test_bi_ige_vectors(i32 noundef %0) #0 {
   br label %30
 
 30:                                               ; preds = %23, %1, %28
-  %.0 = phi i32 [ 0, %1 ], [ 0, %28 ], [ 1, %23 ]
+  %.0 = phi i32 [ 0, %28 ], [ 0, %1 ], [ 1, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

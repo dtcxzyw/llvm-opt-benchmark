@@ -1166,7 +1166,7 @@ define i32 @wmem_strbuf_strcmp(ptr noundef readonly captures(none) %0, ptr nound
   br label %_memcmp_len.exit
 
 _memcmp_len.exit:                                 ; preds = %2, %13, %15
-  %.0.i = phi i32 [ -1, %13 ], [ %12, %2 ], [ %..i, %15 ]
+  %.0.i = phi i32 [ %12, %2 ], [ -1, %13 ], [ %..i, %15 ]
   ret i32 %.0.i
 }
 
@@ -1306,7 +1306,7 @@ define internal fastcc zeroext i1 @string_utf8_validate(ptr noundef %0, i64 noun
   br label %29
 
 29:                                               ; preds = %14, %15, %6, %7, %.critedge
-  %.0 = phi i1 [ %28, %.critedge ], [ true, %6 ], [ true, %7 ], [ %10, %15 ], [ %10, %14 ]
+  %.0 = phi i1 [ %28, %.critedge ], [ true, %7 ], [ true, %6 ], [ %10, %15 ], [ %10, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }

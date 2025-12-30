@@ -1330,7 +1330,7 @@ _ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInser
   br label %return
 
 return:                                           ; preds = %for.body, %_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i, %if.then.i
-  %cmp.not8 = phi i1 [ true, %if.then.i ], [ true, %_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i ], [ false, %for.body ]
+  %cmp.not8 = phi i1 [ true, %_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i ], [ true, %if.then.i ], [ false, %for.body ]
   ret i1 %cmp.not8
 }
 
@@ -1637,7 +1637,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i8:  ; preds = %if.then.i.i6
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit9
 
 _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit9: ; preds = %entry, %cleanup, %if.then.i.i6, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i8
-  %retval.022 = phi i1 [ %retval.0, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i8 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i6 ], [ false, %entry ]
+  %retval.022 = phi i1 [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i6 ], [ %retval.0, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i8 ], [ false, %entry ]
   ret i1 %retval.022
 }
 
@@ -1877,7 +1877,7 @@ if.then17:                                        ; preds = %invoke.cont14
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
 cleanup:                                          ; preds = %invoke.cont4, %for.end, %invoke.cont14, %if.then7, %if.then17
-  %retval.0 = phi ptr [ %call21, %if.then17 ], [ null, %for.end ], [ null, %if.then7 ], [ null, %invoke.cont14 ], [ %it.033, %invoke.cont4 ]
+  %retval.0 = phi ptr [ %call21, %if.then17 ], [ null, %if.then7 ], [ null, %invoke.cont14 ], [ null, %for.end ], [ %it.033, %invoke.cont4 ]
   %27 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   %tobool.i.i.i22 = icmp slt i8 %27, 0
   br i1 %tobool.i.i.i22, label %if.then.i.i23, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit26
@@ -2581,7 +2581,7 @@ _ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInser
   store ptr %add.ptr.i.i.i, ptr %mCapacityAllocator.i.i.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i.i, %_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i.i
+if.end:                                           ; preds = %_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i.i, %if.then.i.i
   %mpParentSuite = getelementptr inbounds nuw i8, ptr %pTest, i64 32
   store ptr %this, ptr %mpParentSuite, align 8
   %mResults = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -2655,7 +2655,7 @@ _ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE16DoInsertVa
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i, %if.then.i
-  %cmp.not8.i9 = phi i1 [ true, %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i ], [ true, %if.then.i ], [ false, %for.body.i ]
+  %cmp.not8.i9 = phi i1 [ true, %if.then.i ], [ true, %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEE16DoInsertValueEndIJRKS4_EEEvDpOT_.exit.i ], [ false, %for.body.i ]
   ret i1 %cmp.not8.i9
 }
 
@@ -3996,9 +3996,9 @@ if.end172:                                        ; preds = %if.then169, %invoke
   br i1 %cmp142, label %while.body143, label %invoke.cont175, !llvm.loop !21
 
 invoke.cont175:                                   ; preds = %if.end172, %.noexc35, %if.end140, %invoke.cont152, %for.end.i, %.noexc36
-  %bReport.1 = phi i8 [ %2, %.noexc35 ], [ %bReport.2114, %invoke.cont152 ], [ %2, %.noexc36 ], [ %2, %for.end.i ], [ %2, %if.end140 ], [ 1, %if.end172 ]
-  %nTestCount.1 = phi i64 [ %sub.ptr.div.i, %.noexc35 ], [ %add151, %invoke.cont152 ], [ %sub.ptr.div.i, %.noexc36 ], [ %sub.ptr.div.i, %for.end.i ], [ 0, %if.end140 ], [ %inc164, %if.end172 ]
-  %nTestResult.1 = phi i32 [ -2147483648, %.noexc35 ], [ %add154, %invoke.cont152 ], [ %22, %.noexc36 ], [ -2147483648, %for.end.i ], [ 0, %if.end140 ], [ %spec.select, %if.end172 ]
+  %bReport.1 = phi i8 [ %bReport.2114, %invoke.cont152 ], [ %2, %for.end.i ], [ %2, %.noexc36 ], [ %2, %if.end140 ], [ %2, %.noexc35 ], [ 1, %if.end172 ]
+  %nTestCount.1 = phi i64 [ %add151, %invoke.cont152 ], [ %sub.ptr.div.i, %for.end.i ], [ %sub.ptr.div.i, %.noexc36 ], [ 0, %if.end140 ], [ %sub.ptr.div.i, %.noexc35 ], [ %inc164, %if.end172 ]
+  %nTestResult.1 = phi i32 [ %add154, %invoke.cont152 ], [ -2147483648, %for.end.i ], [ %22, %.noexc36 ], [ 0, %if.end140 ], [ -2147483648, %.noexc35 ], [ %spec.select, %if.end172 ]
   %36 = load atomic i32, ptr @_ZN2EA8UnitTest17gGlobalErrorCountE seq_cst, align 4
   %add177 = add nsw i32 %36, %nTestResult.1
   %37 = trunc i8 %bReport.1 to i1

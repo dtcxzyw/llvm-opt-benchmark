@@ -552,7 +552,7 @@ define hidden noundef ptr @_Z12as_ValueType9BasicType(i8 noundef zeroext %0) loc
   unreachable
 
 12:                                               ; preds = %1, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0.in = phi ptr [ @illegalType, %9 ], [ @intType, %2 ], [ @longType, %3 ], [ @floatType, %4 ], [ @doubleType, %5 ], [ @arrayType, %6 ], [ @objectType, %7 ], [ @addressType, %8 ], [ @voidType, %1 ]
+  %.0.in = phi ptr [ @intType, %2 ], [ @longType, %3 ], [ @floatType, %4 ], [ @doubleType, %5 ], [ @arrayType, %6 ], [ @objectType, %7 ], [ @addressType, %8 ], [ @illegalType, %9 ], [ @voidType, %1 ]
   %.0 = load ptr, ptr %.0.in, align 8
   ret ptr %.0
 }
@@ -889,7 +889,7 @@ _ZN22CompilationResourceObjnwEm.exit29:           ; preds = %169, %171
   unreachable
 
 180:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit29, %174, %147, %150, %_ZN22CompilationResourceObjnwEm.exit26, %138, %_ZN22CompilationResourceObjnwEm.exit23, %95, %_ZN22CompilationResourceObjnwEm.exit20, %71, %_ZN22CompilationResourceObjnwEm.exit17, %47, %_ZN22CompilationResourceObjnwEm.exit, %23, %105
-  %.0 = phi ptr [ null, %147 ], [ null, %_ZN22CompilationResourceObjnwEm.exit ], [ null, %_ZN22CompilationResourceObjnwEm.exit17 ], [ null, %_ZN22CompilationResourceObjnwEm.exit20 ], [ %106, %105 ], [ null, %_ZN22CompilationResourceObjnwEm.exit23 ], [ null, %_ZN22CompilationResourceObjnwEm.exit26 ], [ %.0.i.i.i, %23 ], [ %.0.i.i.i16, %47 ], [ %.0.i.i.i19, %71 ], [ %.0.i.i.i22, %95 ], [ %.0.i.i.i25, %138 ], [ %148, %150 ], [ %.0.i.i.i28, %174 ], [ null, %_ZN22CompilationResourceObjnwEm.exit29 ]
+  %.0 = phi ptr [ %106, %105 ], [ %.0.i.i.i, %23 ], [ null, %_ZN22CompilationResourceObjnwEm.exit ], [ %.0.i.i.i16, %47 ], [ null, %_ZN22CompilationResourceObjnwEm.exit17 ], [ %.0.i.i.i19, %71 ], [ null, %_ZN22CompilationResourceObjnwEm.exit20 ], [ %.0.i.i.i22, %95 ], [ null, %_ZN22CompilationResourceObjnwEm.exit23 ], [ %.0.i.i.i25, %138 ], [ null, %_ZN22CompilationResourceObjnwEm.exit26 ], [ %148, %150 ], [ null, %147 ], [ %.0.i.i.i28, %174 ], [ null, %_ZN22CompilationResourceObjnwEm.exit29 ]
   ret ptr %.0
 }
 

@@ -1009,7 +1009,7 @@ _ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit65: ; preds = %55
   br label %.lr.ph85
 
 ._crit_edge86:                                    ; preds = %.lr.ph85, %55, %_ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit65
-  %.0.i64113 = phi i32 [ 0, %55 ], [ 0, %_ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit65 ], [ %59, %.lr.ph85 ]
+  %.0.i64113 = phi i32 [ 0, %_ZNK6vectorIN11realclosure3numELb0EjE4sizeEv.exit65 ], [ 0, %55 ], [ %59, %.lr.ph85 ]
   %60 = icmp ne i32 %.054, 0
   %or.cond = and i1 %60, %9
   br i1 %or.cond, label %.lr.ph88.preheader, label %.loopexit
@@ -1111,7 +1111,7 @@ _ZN6vectorIN11realclosure3numELb0EjED2Ev.exit67:  ; preds = %78, %80
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 86:                                               ; preds = %46, %77, %44, %22, %20
-  %.pn58.pn = phi { ptr, i32 } [ %.pn.pn, %77 ], [ %47, %46 ], [ %45, %44 ], [ %23, %22 ], [ %21, %20 ]
+  %.pn58.pn = phi { ptr, i32 } [ %47, %46 ], [ %.pn.pn, %77 ], [ %45, %44 ], [ %23, %22 ], [ %21, %20 ]
   call void @_ZN6vectorIN11realclosure3numELb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.044 = extractvalue { ptr, i32 } %.pn58.pn, 1
@@ -1272,7 +1272,7 @@ define ptr @Z3_rcf_add(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unn
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 24:                                               ; preds = %17, %19
-  %.pn22 = phi { ptr, i32 } [ %18, %17 ], [ %20, %19 ]
+  %.pn22 = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.017 = extractvalue { ptr, i32 } %.pn22, 1
   br i1 %8, label %25, label %_ZN10z3_log_ctxD2Ev.exit25, !prof !158
@@ -1404,7 +1404,7 @@ define ptr @Z3_rcf_sub(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unn
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 24:                                               ; preds = %17, %19
-  %.pn22 = phi { ptr, i32 } [ %18, %17 ], [ %20, %19 ]
+  %.pn22 = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.017 = extractvalue { ptr, i32 } %.pn22, 1
   br i1 %8, label %25, label %_ZN10z3_log_ctxD2Ev.exit25, !prof !158
@@ -1536,7 +1536,7 @@ define ptr @Z3_rcf_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unn
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 24:                                               ; preds = %17, %19
-  %.pn22 = phi { ptr, i32 } [ %18, %17 ], [ %20, %19 ]
+  %.pn22 = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.017 = extractvalue { ptr, i32 } %.pn22, 1
   br i1 %8, label %25, label %_ZN10z3_log_ctxD2Ev.exit25, !prof !158
@@ -1668,7 +1668,7 @@ define ptr @Z3_rcf_div(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unn
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 24:                                               ; preds = %17, %19
-  %.pn22 = phi { ptr, i32 } [ %18, %17 ], [ %20, %19 ]
+  %.pn22 = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.017 = extractvalue { ptr, i32 } %.pn22, 1
   br i1 %8, label %25, label %_ZN10z3_log_ctxD2Ev.exit25, !prof !158
@@ -1795,7 +1795,7 @@ define ptr @Z3_rcf_neg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 per
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 22:                                               ; preds = %15, %17
-  %.pn = phi { ptr, i32 } [ %16, %15 ], [ %18, %17 ]
+  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.015 = extractvalue { ptr, i32 } %.pn, 1
   br i1 %6, label %23, label %_ZN10z3_log_ctxD2Ev.exit20, !prof !158
@@ -1922,7 +1922,7 @@ define ptr @Z3_rcf_inv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 per
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 22:                                               ; preds = %15, %17
-  %.pn = phi { ptr, i32 } [ %16, %15 ], [ %18, %17 ]
+  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.015 = extractvalue { ptr, i32 } %.pn, 1
   br i1 %6, label %23, label %_ZN10z3_log_ctxD2Ev.exit20, !prof !158
@@ -2049,7 +2049,7 @@ define ptr @Z3_rcf_power(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 23:                                               ; preds = %16, %18
-  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ]
+  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.017 = extractvalue { ptr, i32 } %.pn, 1
   br i1 %7, label %24, label %_ZN10z3_log_ctxD2Ev.exit22, !prof !158

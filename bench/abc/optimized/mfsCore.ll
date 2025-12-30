@@ -126,7 +126,7 @@ define range(i32 0, 2) i32 @Abc_WinNode(ptr noundef %0, ptr noundef %1) local_un
   br label %55
 
 55:                                               ; preds = %30, %27, %51
-  %.0 = phi i32 [ 1, %27 ], [ 1, %51 ], [ 0, %30 ]
+  %.0 = phi i32 [ 1, %51 ], [ 1, %27 ], [ 0, %30 ]
   ret i32 %.0
 }
 
@@ -1178,7 +1178,7 @@ Abc_Clock.exit81:                                 ; preds = %.thread96, %121
   br label %.thread
 
 .thread:                                          ; preds = %Abc_Clock.exit79, %154, %174, %108, %133
-  %.0 = phi i32 [ 0, %108 ], [ 0, %133 ], [ 1, %174 ], [ 1, %154 ], [ 0, %Abc_Clock.exit79 ]
+  %.0 = phi i32 [ 0, %133 ], [ 0, %108 ], [ 1, %174 ], [ 1, %154 ], [ 0, %Abc_Clock.exit79 ]
   ret i32 %.0
 }
 
@@ -1240,7 +1240,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br label %23
 
 23:                                               ; preds = %.sink.split, %20, %18
-  %.0147 = phi i32 [ %15, %20 ], [ %15, %18 ], [ %.sink259, %.sink.split ]
+  %.0147 = phi i32 [ %15, %18 ], [ %15, %20 ], [ %.sink259, %.sink.split ]
   %24 = call i32 @Abc_NtkToAig(ptr noundef nonnull %0) #11
   %.not156 = icmp eq i32 %24, 0
   br i1 %.not156, label %25, label %28

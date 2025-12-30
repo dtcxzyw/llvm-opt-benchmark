@@ -1097,7 +1097,7 @@ _ZN9table2mapI17default_map_entryIPKcjE13str_hash_proc11str_eq_procED2Ev.exit: ;
   ret ptr %1
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %186, %195, %214, %205, %174
-  %.pn39.pn.pn.pn = phi { ptr, i32 } [ %215, %214 ], [ %206, %205 ], [ %175, %174 ], [ %196, %195 ], [ %187, %186 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit146, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp147, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn39.pn.pn.pn = phi { ptr, i32 } [ %175, %174 ], [ %196, %195 ], [ %187, %186 ], [ %215, %214 ], [ %206, %205 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit146, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp147, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6bufferIPcLb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %13) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %250
@@ -1976,7 +1976,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit114: ; preds = %_ZNS
   br i1 %250, label %189, label %._crit_edge162, !llvm.loop !84
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %201, %210, %232, %223
-  %.pn30.pn.pn = phi { ptr, i32 } [ %233, %232 ], [ %224, %223 ], [ %211, %210 ], [ %202, %201 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit149, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp150, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn30.pn.pn = phi { ptr, i32 } [ %211, %210 ], [ %202, %201 ], [ %233, %232 ], [ %224, %223 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit149, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp150, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6bufferIPcLb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %13) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %251
@@ -3301,7 +3301,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPcN9__gnu_cxx5__ops15_Iter_c
   br i1 %44, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPPclS0_N9__gnu_cxx5__ops15_Iter_comp_iterI6str_ltEEEvT_T0_S8_T1_T2_.exit.us, !llvm.loop !96
 
 _ZSt13__adjust_heapIPPclS0_N9__gnu_cxx5__ops15_Iter_comp_iterI6str_ltEEEvT_T0_S8_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %42, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.014.us, %.split.us ], [ %.01317.i.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %42 ]
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.014.us, %.split.us ], [ %.018.i.i.us, %42 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
   %45 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.us
   store ptr %21, ptr %45, align 8, !tbaa !22
   %.not.us = icmp eq i64 %.014.us, 0
@@ -4566,7 +4566,7 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI17default_map_entry
   br i1 %.not27, label %.loopexit, label %31, !llvm.loop !120
 
 .loopexit:                                        ; preds = %18, %24, %37, %42, %31, %.preheader
-  %.026 = phi ptr [ null, %.preheader ], [ null, %31 ], [ %.133, %37 ], [ null, %42 ], [ %.031, %24 ], [ null, %18 ]
+  %.026 = phi ptr [ null, %.preheader ], [ %.133, %37 ], [ null, %42 ], [ null, %31 ], [ null, %18 ], [ %.031, %24 ]
   ret ptr %.026
 }
 
@@ -4656,7 +4656,7 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI17default_map_entry
   br i1 %.not27, label %.loopexit, label %31, !llvm.loop !122
 
 .loopexit:                                        ; preds = %18, %24, %37, %42, %31, %.preheader
-  %.026 = phi ptr [ null, %.preheader ], [ null, %31 ], [ %.133, %37 ], [ null, %42 ], [ %.031, %24 ], [ null, %18 ]
+  %.026 = phi ptr [ null, %.preheader ], [ %.133, %37 ], [ null, %42 ], [ null, %31 ], [ null, %18 ], [ %.031, %24 ]
   ret ptr %.026
 }
 

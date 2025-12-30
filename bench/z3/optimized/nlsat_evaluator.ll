@@ -374,7 +374,7 @@ switch.lookup41:                                  ; preds = %.thread31
   br label %_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit
 
 _ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit: ; preds = %.thread31, %switch.lookup41, %.thread, %44, %switch.lookup36, %switch.lookup
-  %47 = phi i1 [ %switch.masked40, %switch.lookup36 ], [ %switch.masked, %switch.lookup ], [ %switch.masked45, %switch.lookup41 ], [ false, %44 ], [ false, %.thread ], [ false, %.thread31 ]
+  %47 = phi i1 [ %switch.masked, %switch.lookup ], [ %switch.masked40, %switch.lookup36 ], [ false, %44 ], [ false, %.thread ], [ %switch.masked45, %switch.lookup41 ], [ false, %.thread31 ]
   %spec.select.i = xor i1 %2, %47
   ret i1 %spec.select.i
 }
@@ -547,7 +547,7 @@ switch.lookup31:                                  ; preds = %69
   br label %_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit
 
 _ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit: ; preds = %69, %switch.lookup31, %63, %67, %switch.lookup26, %switch.lookup
-  %71 = phi i1 [ %switch.masked30, %switch.lookup26 ], [ %switch.masked, %switch.lookup ], [ %switch.masked35, %switch.lookup31 ], [ false, %67 ], [ false, %63 ], [ false, %69 ]
+  %71 = phi i1 [ %switch.masked, %switch.lookup ], [ %switch.masked30, %switch.lookup26 ], [ false, %67 ], [ false, %63 ], [ %switch.masked35, %switch.lookup31 ], [ false, %69 ]
   %spec.select.i = xor i1 %2, %71
   br label %72
 
@@ -1212,10 +1212,10 @@ _ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit105: ;
   br label %250
 
 250:                                              ; preds = %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit105, %243, %237, %227, %223
-  %251 = phi ptr [ %74, %223 ], [ %229, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit105 ], [ %74, %243 ], [ %74, %237 ], [ %74, %227 ]
-  %.275 = phi i8 [ %.073139, %223 ], [ %.073139, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit105 ], [ 0, %243 ], [ 0, %237 ], [ 1, %227 ]
-  %.271 = phi i8 [ %.069140, %223 ], [ %.069140, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit105 ], [ 1, %243 ], [ 0, %237 ], [ 1, %227 ]
-  %.268 = phi i32 [ %.066141, %223 ], [ %.066141, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit105 ], [ %249, %243 ], [ %242, %237 ], [ -1, %227 ]
+  %251 = phi ptr [ %74, %223 ], [ %229, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit105 ], [ %74, %237 ], [ %74, %243 ], [ %74, %227 ]
+  %.275 = phi i8 [ %.073139, %223 ], [ %.073139, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit105 ], [ 0, %237 ], [ 0, %243 ], [ 1, %227 ]
+  %.271 = phi i8 [ %.069140, %223 ], [ %.069140, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit105 ], [ 0, %237 ], [ 1, %243 ], [ 1, %227 ]
+  %.268 = phi i32 [ %.066141, %223 ], [ %.066141, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit105 ], [ %242, %237 ], [ %249, %243 ], [ -1, %227 ]
   %252 = icmp eq i32 %.064143, %59
   br i1 %252, label %253, label %281
 
@@ -1289,11 +1289,11 @@ _ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit105: ;
           to label %.sink.split unwind label %186
 
 .sink.split:                                      ; preds = %.noexc116, %279, %.noexc98, %221
-  %.sink184 = phi ptr [ %217, %.noexc98 ], [ %217, %221 ], [ %275, %279 ], [ %275, %.noexc116 ]
-  %.174.ph = phi i8 [ %.073139, %.noexc98 ], [ %.073139, %221 ], [ %.275, %279 ], [ %.275, %.noexc116 ]
-  %.170.ph = phi i8 [ %.069140, %.noexc98 ], [ %.069140, %221 ], [ %.271, %279 ], [ %.271, %.noexc116 ]
-  %.167.ph = phi i32 [ %.066141, %.noexc98 ], [ %.066141, %221 ], [ %.268, %279 ], [ %.268, %.noexc116 ]
-  %.1.ph = phi i8 [ 1, %.noexc98 ], [ 1, %221 ], [ 0, %279 ], [ 0, %.noexc116 ]
+  %.sink184 = phi ptr [ %217, %221 ], [ %217, %.noexc98 ], [ %275, %279 ], [ %275, %.noexc116 ]
+  %.174.ph = phi i8 [ %.073139, %221 ], [ %.073139, %.noexc98 ], [ %.275, %279 ], [ %.275, %.noexc116 ]
+  %.170.ph = phi i8 [ %.069140, %221 ], [ %.069140, %.noexc98 ], [ %.271, %279 ], [ %.271, %.noexc116 ]
+  %.167.ph = phi i32 [ %.066141, %221 ], [ %.066141, %.noexc98 ], [ %.268, %279 ], [ %.268, %.noexc116 ]
+  %.1.ph = phi i8 [ 1, %221 ], [ 1, %.noexc98 ], [ 0, %279 ], [ 0, %.noexc116 ]
   store ptr %.sink184, ptr %0, align 8, !tbaa !87
   br label %281
 

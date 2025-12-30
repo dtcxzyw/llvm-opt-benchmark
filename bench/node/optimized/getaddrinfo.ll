@@ -70,7 +70,7 @@ sw.epilog:                                        ; preds = %entry
   unreachable
 
 return:                                           ; preds = %entry, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ %sub, %sw.bb13 ], [ -3000, %sw.bb1 ], [ -3001, %sw.bb2 ], [ -3002, %sw.bb3 ], [ -3003, %sw.bb4 ], [ -3004, %sw.bb5 ], [ -3005, %sw.bb6 ], [ -3006, %sw.bb7 ], [ -3007, %sw.bb8 ], [ -3008, %sw.bb9 ], [ -3009, %sw.bb10 ], [ -3010, %sw.bb11 ], [ -3011, %sw.bb12 ], [ %sys_err, %entry ]
+  %retval.0 = phi i32 [ -3000, %sw.bb1 ], [ -3001, %sw.bb2 ], [ -3002, %sw.bb3 ], [ -3003, %sw.bb4 ], [ -3004, %sw.bb5 ], [ -3005, %sw.bb6 ], [ -3006, %sw.bb7 ], [ -3007, %sw.bb8 ], [ -3008, %sw.bb9 ], [ -3009, %sw.bb10 ], [ -3010, %sw.bb11 ], [ -3011, %sw.bb12 ], [ %sub, %sw.bb13 ], [ %sys_err, %entry ]
   ret i32 %retval.0
 }
 
@@ -235,7 +235,7 @@ uv__getaddrinfo_done.exit:                        ; preds = %if.end11.i, %if.the
   br label %return
 
 return:                                           ; preds = %cond.end19, %entry, %lor.lhs.false, %uv__getaddrinfo_done.exit, %if.then57, %if.then9
-  %retval.0 = phi i32 [ %12, %uv__getaddrinfo_done.exit ], [ %conv, %if.then9 ], [ -22, %entry ], [ 0, %if.then57 ], [ -22, %lor.lhs.false ], [ -12, %cond.end19 ]
+  %retval.0 = phi i32 [ %conv, %if.then9 ], [ 0, %if.then57 ], [ %12, %uv__getaddrinfo_done.exit ], [ -22, %lor.lhs.false ], [ -22, %entry ], [ -12, %cond.end19 ]
   ret i32 %retval.0
 }
 
@@ -389,7 +389,7 @@ if.end12:                                         ; preds = %if.end7
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false2, %if.end12, %if.then11, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end12 ], [ %sub, %if.then5 ], [ -105, %if.then11 ], [ -22, %lor.lhs.false2 ], [ -22, %entry ]
+  %retval.0 = phi i32 [ %sub, %if.then5 ], [ -105, %if.then11 ], [ 0, %if.end12 ], [ -22, %lor.lhs.false2 ], [ -22, %entry ]
   ret i32 %retval.0
 }
 
@@ -444,7 +444,7 @@ if.end12.i:                                       ; preds = %if.end7.i
   br label %uv_if_indextoname.exit
 
 uv_if_indextoname.exit:                           ; preds = %entry, %lor.lhs.false2.i, %if.then5.i, %if.then11.i, %if.end12.i
-  %retval.0.i = phi i32 [ 0, %if.end12.i ], [ %sub.i, %if.then5.i ], [ -105, %if.then11.i ], [ -22, %lor.lhs.false2.i ], [ -22, %entry ]
+  %retval.0.i = phi i32 [ %sub.i, %if.then5.i ], [ -105, %if.then11.i ], [ 0, %if.end12.i ], [ -22, %lor.lhs.false2.i ], [ -22, %entry ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ifname_buf.i)
   ret i32 %retval.0.i
 }

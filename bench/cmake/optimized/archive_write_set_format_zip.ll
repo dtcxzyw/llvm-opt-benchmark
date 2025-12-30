@@ -492,7 +492,7 @@ define internal range(i32 -30, 1) i32 @archive_write_zip_options(ptr noundef %0,
   br label %148
 
 148:                                              ; preds = %132, %138, %143, %126, %129, %114, %116, %98, %102, %52, %78, %76, %84, %86, %87, %68, %70, %30, %32, %35, %14, %22, %25, %20, %42, %41
-  %.067 = phi i32 [ 0, %138 ], [ -25, %22 ], [ 0, %41 ], [ 0, %42 ], [ -20, %30 ], [ -25, %87 ], [ 0, %98 ], [ 0, %114 ], [ %., %129 ], [ -25, %14 ], [ 0, %20 ], [ 0, %25 ], [ -20, %35 ], [ -20, %32 ], [ 0, %52 ], [ 0, %68 ], [ -25, %70 ], [ 0, %76 ], [ -25, %78 ], [ 0, %84 ], [ -25, %86 ], [ 0, %102 ], [ 0, %116 ], [ -25, %126 ], [ 0, %143 ], [ -20, %132 ]
+  %.067 = phi i32 [ 0, %41 ], [ 0, %42 ], [ -25, %14 ], [ 0, %20 ], [ 0, %25 ], [ -25, %22 ], [ -20, %35 ], [ -20, %32 ], [ -20, %30 ], [ 0, %52 ], [ 0, %68 ], [ -25, %70 ], [ 0, %76 ], [ -25, %78 ], [ 0, %84 ], [ -25, %86 ], [ -25, %87 ], [ 0, %102 ], [ 0, %98 ], [ 0, %116 ], [ 0, %114 ], [ -25, %126 ], [ %., %129 ], [ 0, %143 ], [ 0, %138 ], [ -20, %132 ]
   ret i32 %.067
 }
 
@@ -944,10 +944,10 @@ path_length.exit:                                 ; preds = %is_all_ascii.exit, 
   br label %212
 
 212:                                              ; preds = %210, %167, %159, %198, %190
-  %213 = phi i32 [ 0, %159 ], [ 0, %167 ], [ %spec.select, %190 ], [ %spec.select374, %210 ], [ %spec.select374, %198 ]
-  %.0319 = phi i16 [ 20, %159 ], [ 20, %167 ], [ %.4323, %190 ], [ %spec.select377, %210 ], [ %.5324, %198 ]
-  %.1317 = phi i64 [ %.0316, %159 ], [ 0, %167 ], [ 0, %190 ], [ 0, %210 ], [ 0, %198 ]
-  %.0313 = phi ptr [ %156, %159 ], [ null, %167 ], [ null, %190 ], [ null, %210 ], [ null, %198 ]
+  %213 = phi i32 [ 0, %159 ], [ 0, %167 ], [ %spec.select, %190 ], [ %spec.select374, %198 ], [ %spec.select374, %210 ]
+  %.0319 = phi i16 [ 20, %159 ], [ 20, %167 ], [ %.4323, %190 ], [ %.5324, %198 ], [ %spec.select377, %210 ]
+  %.1317 = phi i64 [ %.0316, %159 ], [ 0, %167 ], [ 0, %190 ], [ 0, %198 ], [ 0, %210 ]
+  %.0313 = phi ptr [ %156, %159 ], [ null, %167 ], [ null, %190 ], [ null, %198 ], [ null, %210 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   store i32 67324752, ptr %7, align 16
   %214 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -1125,7 +1125,7 @@ dos_time.exit:                                    ; preds = %212, %229, %231
   br label %cd_alloc.exit
 
 cd_alloc.exit:                                    ; preds = %299, %307, %314
-  %.1.i = phi ptr [ %315, %314 ], [ null, %307 ], [ null, %299 ]
+  %.1.i = phi ptr [ %315, %314 ], [ null, %299 ], [ null, %307 ]
   %322 = getelementptr inbounds nuw i8, ptr %12, i64 208
   store ptr %.1.i, ptr %322, align 8, !tbaa !85
   %323 = getelementptr inbounds nuw i8, ptr %12, i64 256
@@ -1290,7 +1290,7 @@ dos_time.exit389:                                 ; preds = %344, %353, %355
   br label %cd_alloc.exit391
 
 cd_alloc.exit391:                                 ; preds = %404, %412, %419
-  %.1.i390 = phi ptr [ %420, %419 ], [ null, %412 ], [ null, %404 ]
+  %.1.i390 = phi ptr [ %420, %419 ], [ null, %404 ], [ null, %412 ]
   %427 = load ptr, ptr %55, align 8, !tbaa !53
   %428 = call ptr @archive_entry_pathname(ptr noundef %427) #13
   %429 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %428) #16
@@ -1388,7 +1388,7 @@ copy_path.exit:                                   ; preds = %cd_alloc.exit391, %
   br label %477
 
 477:                                              ; preds = %454, %466, %451
-  %.1312 = phi ptr [ %476, %466 ], [ %.0311, %454 ], [ %.0311, %451 ]
+  %.1312 = phi ptr [ %476, %466 ], [ %.0311, %451 ], [ %.0311, %454 ]
   %478 = getelementptr inbounds nuw i8, ptr %12, i64 248
   %479 = load i64, ptr %478, align 8, !tbaa !84
   %480 = getelementptr inbounds nuw i8, ptr %12, i64 216
@@ -1460,7 +1460,7 @@ copy_path.exit:                                   ; preds = %cd_alloc.exit391, %
   br label %cd_alloc.exit394
 
 cd_alloc.exit394:                                 ; preds = %498, %506, %513
-  %.1.i393 = phi ptr [ %514, %513 ], [ null, %506 ], [ null, %498 ]
+  %.1.i393 = phi ptr [ %514, %513 ], [ null, %498 ], [ null, %506 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1.i393, ptr nonnull align 16 %8, i64 %483, i1 false)
   %519 = call i32 @archive_entry_mtime_is_set(ptr noundef %1) #13
   %.not358 = icmp eq i32 %519, 0
@@ -1708,7 +1708,7 @@ write_path.exit:                                  ; preds = %598, %608
   br label %write_path.exit.thread
 
 write_path.exit.thread:                           ; preds = %606, %595, %588, %629, %633, %620, %612, %write_path.exit, %582, %.critedge, %646, %85, %37, %32, %22
-  %.0 = phi i32 [ -25, %22 ], [ -25, %32 ], [ -25, %37 ], [ -30, %85 ], [ -30, %.critedge ], [ -30, %582 ], [ -30, %write_path.exit ], [ -30, %612 ], [ -30, %646 ], [ -30, %620 ], [ %.0325, %633 ], [ %.0325, %629 ], [ -30, %588 ], [ -30, %595 ], [ -30, %606 ]
+  %.0 = phi i32 [ -25, %22 ], [ -25, %32 ], [ -25, %37 ], [ -30, %85 ], [ -30, %646 ], [ -30, %.critedge ], [ -30, %582 ], [ -30, %write_path.exit ], [ -30, %612 ], [ -30, %620 ], [ %.0325, %633 ], [ %.0325, %629 ], [ -30, %588 ], [ -30, %595 ], [ -30, %606 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -2368,7 +2368,7 @@ trad_enc_encrypt_update.exit155:                  ; preds = %284, %.thread172, %
   br label %.loopexit173
 
 .loopexit173:                                     ; preds = %272, %321, %.thread170, %342, %345, %3, %337, %325, %244, %148, %103
-  %.0 = phi i64 [ %149, %148 ], [ -30, %337 ], [ %spec.select, %342 ], [ %.2.ph, %.thread170 ], [ %245, %244 ], [ 0, %3 ], [ %326, %325 ], [ -25, %321 ], [ %104, %103 ], [ %spec.select, %345 ], [ -30, %272 ]
+  %.0 = phi i64 [ -30, %337 ], [ %245, %244 ], [ %326, %325 ], [ -25, %321 ], [ %104, %103 ], [ %149, %148 ], [ 0, %3 ], [ %spec.select, %345 ], [ %spec.select, %342 ], [ %.2.ph, %.thread170 ], [ -30, %272 ]
   ret i64 %.0
 }
 
@@ -2713,7 +2713,7 @@ cd_alloc.exit:                                    ; preds = %156
   %.not171 = icmp eq ptr %160, null
   br i1 %.not171, label %.thread196, label %.sink.split
 
-.thread196:                                       ; preds = %cd_alloc.exit, %176, %168
+.thread196:                                       ; preds = %cd_alloc.exit, %168, %176
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.4) #13
   br label %.thread179
 
@@ -2940,7 +2940,7 @@ cd_alloc.exit177:                                 ; preds = %276
   %.not173 = icmp eq ptr %280, null
   br i1 %.not173, label %.thread212, label %308
 
-.thread212:                                       ; preds = %cd_alloc.exit177, %296, %288
+.thread212:                                       ; preds = %cd_alloc.exit177, %288, %296
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread179
@@ -3020,7 +3020,7 @@ cd_alloc.exit177:                                 ; preds = %276
   br label %.thread179
 
 .thread179:                                       ; preds = %86, %trad_enc_encrypt_update.exit, %.preheader, %76, %.thread212, %.thread196, %106, %140, %327
-  %.5 = phi i32 [ -30, %.thread212 ], [ 0, %327 ], [ -25, %76 ], [ -30, %.thread196 ], [ -30, %140 ], [ %99, %106 ], [ -30, %.preheader ], [ -30, %86 ], [ %78, %trad_enc_encrypt_update.exit ]
+  %.5 = phi i32 [ 0, %327 ], [ -30, %140 ], [ %99, %106 ], [ -30, %.thread196 ], [ -30, %.thread212 ], [ -25, %76 ], [ -30, %.preheader ], [ -30, %86 ], [ %78, %trad_enc_encrypt_update.exit ]
   ret i32 %.5
 }
 
@@ -3155,7 +3155,7 @@ define internal range(i32 -30, 1) i32 @archive_write_zip_close(ptr noundef %0) #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %53, %43, %._crit_edge._crit_edge, %63
-  %.045 = phi i32 [ 0, %63 ], [ -30, %53 ], [ -30, %._crit_edge._crit_edge ], [ -30, %43 ], [ -30, %.lr.ph ]
+  %.045 = phi i32 [ 0, %63 ], [ -30, %._crit_edge._crit_edge ], [ -30, %43 ], [ -30, %53 ], [ -30, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.045
 }

@@ -2235,7 +2235,7 @@ test_wassp.exit:                                  ; preds = %4
   br label %test_wassp.exit.thread
 
 test_wassp.exit.thread:                           ; preds = %4, %test_wassp.exit, %8
-  %.0.i6 = phi i1 [ true, %8 ], [ false, %test_wassp.exit ], [ false, %4 ]
+  %.0.i6 = phi i1 [ false, %test_wassp.exit ], [ true, %8 ], [ false, %4 ]
   ret i1 %.0.i6
 }
 
@@ -2861,7 +2861,7 @@ define internal fastcc i32 @dissect_wassp_mu(ptr noundef %0, ptr noundef %1, ptr
   br label %dissect_mu_netflow.exit
 
 dissect_mu_netflow.exit:                          ; preds = %.lr.ph.i, %121, %123, %126, %131, %133, %5
-  %.075 = phi i32 [ %137, %133 ], [ %3, %5 ], [ %125, %123 ], [ %130, %126 ], [ %132, %131 ], [ %122, %121 ], [ %118, %.lr.ph.i ]
+  %.075 = phi i32 [ %137, %133 ], [ %125, %123 ], [ %130, %126 ], [ %132, %131 ], [ %3, %5 ], [ %122, %121 ], [ %118, %.lr.ph.i ]
   ret i32 %.075
 }
 
@@ -4122,7 +4122,7 @@ wassp_match_strval.exit:                          ; preds = %56, %57
   br label %wassp_type_converter.exit
 
 wassp_type_converter.exit:                        ; preds = %105, %111, %112, %113, %114
-  %.0.in.i = phi ptr [ @hf_wassp_tlv_value_octext, %105 ], [ @hf_wassp_tlv_value_string, %111 ], [ @hf_wassp_tlv_value_int, %112 ], [ @hf_wassp_tlv_value_ip, %114 ], [ @hf_wassp_mu_mac, %113 ]
+  %.0.in.i = phi ptr [ @hf_wassp_tlv_value_string, %111 ], [ @hf_wassp_tlv_value_int, %112 ], [ @hf_wassp_mu_mac, %113 ], [ @hf_wassp_tlv_value_ip, %114 ], [ @hf_wassp_tlv_value_octext, %105 ]
   %.0.i242 = load i32, ptr %.0.in.i, align 4
   %115 = add i32 %.116, 4
   %116 = add nsw i32 %65, -4

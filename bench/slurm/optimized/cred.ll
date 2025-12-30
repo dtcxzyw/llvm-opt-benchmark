@@ -385,8 +385,8 @@ define dso_local ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i
   br label %44
 
 44:                                               ; preds = %._crit_edge, %43, %39
-  %45 = phi ptr [ %40, %39 ], [ %4, %43 ], [ %37, %._crit_edge ]
-  %.0 = phi i1 [ true, %39 ], [ false, %43 ], [ false, %._crit_edge ]
+  %45 = phi ptr [ %4, %43 ], [ %40, %39 ], [ %37, %._crit_edge ]
+  %.0 = phi i1 [ false, %43 ], [ true, %39 ], [ false, %._crit_edge ]
   call void @identity_debug2(ptr noundef nonnull %45, ptr noundef nonnull @__func__.slurm_cred_create) #11
   %46 = load ptr, ptr @ops, align 8
   %47 = call ptr %46(ptr noundef nonnull %0, i1 noundef zeroext %1, i16 noundef zeroext %2) #11
@@ -1547,7 +1547,7 @@ define dso_local ptr @unpack_sbcast_cred(ptr noundef %0, ptr noundef readonly ca
   br label %12
 
 12:                                               ; preds = %8, %4, %3
-  %.0 = phi i1 [ %.not7, %8 ], [ false, %3 ], [ false, %4 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %3 ], [ %.not7, %8 ]
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 40), align 8
   %14 = tail call ptr %13(ptr noundef %0, i1 noundef zeroext %.0, i16 noundef zeroext %2) #11
   ret ptr %14

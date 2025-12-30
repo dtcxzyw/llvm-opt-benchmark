@@ -546,7 +546,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %201, label %157, label %.loopexit280, !llvm.loop !33
 
 .loopexit280:                                     ; preds = %.loopexit295, %.loopexit286, %.loopexit, %141, %79, %18, %7, %16
-  %.0234 = phi i32 [ 1, %7 ], [ %17, %16 ], [ 0, %18 ], [ 0, %79 ], [ 0, %141 ], [ 0, %.loopexit286 ], [ 0, %.loopexit ], [ 0, %.loopexit295 ]
+  %.0234 = phi i32 [ %17, %16 ], [ 1, %7 ], [ 0, %18 ], [ 0, %79 ], [ 0, %141 ], [ 0, %.loopexit ], [ 0, %.loopexit286 ], [ 0, %.loopexit295 ]
   ret i32 %.0234
 }
 

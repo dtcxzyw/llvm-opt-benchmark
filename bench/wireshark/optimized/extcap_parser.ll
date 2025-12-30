@@ -150,7 +150,7 @@ define hidden zeroext i1 @extcap_compare_is_default(ptr noundef readonly capture
   br label %16
 
 16:                                               ; preds = %9, %2, %4
-  %.0 = phi i1 [ false, %2 ], [ %15, %9 ], [ false, %4 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %2 ], [ %15, %9 ]
   ret i1 %.0
 }
 
@@ -312,7 +312,7 @@ define hidden zeroext i1 @extcap_complex_get_bool(ptr noundef readonly captures(
   br label %matches_regex.exit
 
 matches_regex.exit:                               ; preds = %11, %9, %7, %1, %3
-  %.0 = phi i1 [ false, %7 ], [ false, %1 ], [ false, %3 ], [ %13, %11 ], [ false, %9 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %1 ], [ false, %7 ], [ %13, %11 ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -801,7 +801,7 @@ matches_regex.exit22:                             ; preds = %84, %86
   br label %extcap_parse_arg_sentence.exit.thread
 
 140:                                              ; preds = %135, %132, %129, %126, %123, %120, %117, %114, %111, %108, %105, %102, %99, %96
-  %.sink.i = phi i32 [ 1, %96 ], [ 3, %102 ], [ 5, %108 ], [ 9, %114 ], [ 11, %120 ], [ 8, %126 ], [ 12, %132 ], [ 13, %129 ], [ 7, %123 ], [ 10, %117 ], [ 6, %111 ], [ 4, %105 ], [ 2, %99 ], [ 14, %135 ]
+  %.sink.i = phi i32 [ 1, %96 ], [ 2, %99 ], [ 3, %102 ], [ 4, %105 ], [ 5, %108 ], [ 6, %111 ], [ 9, %114 ], [ 10, %117 ], [ 11, %120 ], [ 7, %123 ], [ 8, %126 ], [ 13, %129 ], [ 12, %132 ], [ 14, %135 ]
   store i32 %.sink.i, ptr %14, align 8
   %141 = load ptr, ptr %16, align 8
   %142 = tail call ptr @g_hash_table_lookup(ptr noundef %141, ptr noundef nonnull inttoptr (i64 19 to ptr))
@@ -959,8 +959,8 @@ extcap_parse_arg_sentence.exit:                   ; preds = %186, %189, %189, %1
   %216 = tail call ptr @g_list_append(ptr noundef %.030, ptr noundef nonnull %13)
   br label %extcap_parse_arg_sentence.exit.thread
 
-extcap_parse_arg_sentence.exit.thread:            ; preds = %165, %174, %184, %205, %.lr.ph, %138, %9, %199, %95, %38, %33, %28, %23, %20, %208, %215, %extcap_parse_arg_sentence.exit
-  %.1 = phi ptr [ %216, %215 ], [ %.030, %extcap_parse_arg_sentence.exit ], [ %.030, %208 ], [ %.030, %20 ], [ %.030, %23 ], [ %.030, %28 ], [ %.030, %33 ], [ %.030, %38 ], [ %.030, %95 ], [ %.030, %199 ], [ %.030, %9 ], [ %.030, %138 ], [ %.030, %.lr.ph ], [ %.030, %205 ], [ %.030, %184 ], [ %.030, %174 ], [ %.030, %165 ]
+extcap_parse_arg_sentence.exit.thread:            ; preds = %165, %174, %184, %9, %199, %.lr.ph, %208, %205, %138, %95, %38, %33, %28, %23, %20, %215, %extcap_parse_arg_sentence.exit
+  %.1 = phi ptr [ %216, %215 ], [ %.030, %extcap_parse_arg_sentence.exit ], [ %.030, %20 ], [ %.030, %23 ], [ %.030, %28 ], [ %.030, %33 ], [ %.030, %38 ], [ %.030, %95 ], [ %.030, %138 ], [ %.030, %205 ], [ %.030, %208 ], [ %.030, %.lr.ph ], [ %.030, %199 ], [ %.030, %9 ], [ %.030, %184 ], [ %.030, %174 ], [ %.030, %165 ]
   %217 = getelementptr inbounds nuw i8, ptr %.01229, i64 8
   %218 = load ptr, ptr %217, align 8
   %.not = icmp eq ptr %218, null
@@ -1177,7 +1177,7 @@ define internal fastcc ptr @extcap_tokenize_sentences(ptr noundef %0) unnamed_ad
   br label %109
 
 109:                                              ; preds = %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %35
-  %.057.i = phi i64 [ 23, %103 ], [ 1, %35 ], [ 2, %40 ], [ 3, %43 ], [ 4, %46 ], [ 5, %49 ], [ 6, %52 ], [ 7, %55 ], [ 8, %58 ], [ 9, %61 ], [ 10, %64 ], [ 13, %67 ], [ 14, %70 ], [ 15, %73 ], [ 11, %76 ], [ 12, %79 ], [ 16, %82 ], [ 18, %85 ], [ 17, %88 ], [ 19, %91 ], [ 20, %94 ], [ 21, %97 ], [ 22, %100 ], [ %..i, %106 ]
+  %.057.i = phi i64 [ 1, %35 ], [ 2, %40 ], [ 3, %43 ], [ 4, %46 ], [ 5, %49 ], [ 6, %52 ], [ 7, %55 ], [ 8, %58 ], [ 9, %61 ], [ 10, %64 ], [ 13, %67 ], [ 14, %70 ], [ 15, %73 ], [ 11, %76 ], [ 12, %79 ], [ 16, %82 ], [ 18, %85 ], [ 17, %88 ], [ 19, %91 ], [ 20, %94 ], [ 21, %97 ], [ 22, %100 ], [ 23, %103 ], [ %..i, %106 ]
   %110 = load ptr, ptr %26, align 8
   %111 = inttoptr i64 %.057.i to ptr
   %112 = call i32 @g_hash_table_insert(ptr noundef %110, ptr noundef %111, ptr noundef %37)
@@ -1376,7 +1376,7 @@ define internal fastcc noundef ptr @extcap_parse_value_sentence(ptr noundef read
   br label %extcap_free_value.exit
 
 extcap_free_value.exit:                           ; preds = %27, %25, %4, %59, %56, %1, %40, %17, %13
-  %.0 = phi ptr [ null, %1 ], [ null, %13 ], [ null, %17 ], [ null, %4 ], [ null, %40 ], [ %20, %59 ], [ %20, %56 ], [ null, %25 ], [ null, %27 ]
+  %.0 = phi ptr [ null, %13 ], [ null, %17 ], [ null, %40 ], [ null, %1 ], [ %20, %59 ], [ %20, %56 ], [ null, %4 ], [ null, %25 ], [ null, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -1639,10 +1639,10 @@ matches_regex.exit.i:                             ; preds = %101, %99
   br label %extcap_parse_control_sentence.exit.thread
 
 132:                                              ; preds = %128, %125, %122, %119
-  %.sink.i = phi i32 [ 1, %119 ], [ 3, %125 ], [ 2, %122 ], [ 4, %128 ]
-  %133 = phi i1 [ true, %119 ], [ false, %125 ], [ false, %122 ], [ true, %128 ]
-  %134 = phi i1 [ false, %119 ], [ false, %125 ], [ false, %122 ], [ true, %128 ]
-  %.0125.i = phi i32 [ 5, %119 ], [ 0, %125 ], [ 0, %122 ], [ 7, %128 ]
+  %.sink.i = phi i32 [ 1, %119 ], [ 2, %122 ], [ 3, %125 ], [ 4, %128 ]
+  %133 = phi i1 [ true, %119 ], [ false, %122 ], [ false, %125 ], [ true, %128 ]
+  %134 = phi i1 [ false, %119 ], [ false, %122 ], [ false, %125 ], [ true, %128 ]
+  %.0125.i = phi i32 [ 5, %119 ], [ 0, %122 ], [ 0, %125 ], [ 7, %128 ]
   store i32 %.sink.i, ptr %73, align 4
   %135 = load ptr, ptr %74, align 8
   %136 = call ptr @g_hash_table_lookup(ptr noundef %135, ptr noundef nonnull inttoptr (i64 24 to ptr))
@@ -1674,7 +1674,7 @@ matches_regex.exit.i:                             ; preds = %101, %99
   br label %151
 
 151:                                              ; preds = %149, %146, %143, %140, %137, %132
-  %.sink164.i = phi i32 [ 4, %146 ], [ 2, %140 ], [ 0, %149 ], [ 3, %143 ], [ 1, %137 ], [ 1, %132 ]
+  %.sink164.i = phi i32 [ 0, %149 ], [ 1, %137 ], [ 2, %140 ], [ 3, %143 ], [ 4, %146 ], [ 1, %132 ]
   %152 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i32 %.sink164.i, ptr %152, align 8
   %153 = load ptr, ptr %74, align 8
@@ -1824,7 +1824,7 @@ matches_regex.exit:                               ; preds = %216, %218
   store ptr %227, ptr %225, align 8
   br label %extcap_parse_control_sentence.exit.thread
 
-extcap_parse_control_sentence.exit.thread:        ; preds = %223, %78, %87, %118, %68, %.critedge.i, %81, %176, %183, %194, %178, %192, %205, %207
+extcap_parse_control_sentence.exit.thread:        ; preds = %78, %87, %118, %81, %176, %183, %223, %68, %.critedge.i, %178, %192, %194, %205, %207
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %extcap_parse_interface_sentence.exit.thread
 
@@ -1839,8 +1839,8 @@ extcap_parse_control_sentence.exit:               ; preds = %151, %extcap_free_c
   store ptr %230, ptr %1, align 8
   br label %extcap_parse_interface_sentence.exit.thread
 
-extcap_parse_interface_sentence.exit.thread:      ; preds = %28, %35, %19, %extcap_parse_control_sentence.exit.thread, %52, %extcap_parse_interface_sentence.exit, %extcap_parse_control_sentence.exit, %228, %59, %54, %5
-  %.1 = phi ptr [ %53, %52 ], [ %.043, %extcap_parse_interface_sentence.exit ], [ %.043, %228 ], [ %.043, %extcap_parse_control_sentence.exit ], [ %.043, %59 ], [ %.043, %54 ], [ %.043, %5 ], [ %.043, %extcap_parse_control_sentence.exit.thread ], [ %.043, %19 ], [ %.043, %35 ], [ %.043, %28 ]
+extcap_parse_interface_sentence.exit.thread:      ; preds = %19, %35, %28, %extcap_parse_control_sentence.exit.thread, %52, %extcap_parse_interface_sentence.exit, %extcap_parse_control_sentence.exit, %228, %59, %54, %5
+  %.1 = phi ptr [ %53, %52 ], [ %.043, %extcap_parse_interface_sentence.exit ], [ %.043, %228 ], [ %.043, %extcap_parse_control_sentence.exit ], [ %.043, %59 ], [ %.043, %54 ], [ %.043, %5 ], [ %.043, %extcap_parse_control_sentence.exit.thread ], [ %.043, %28 ], [ %.043, %35 ], [ %.043, %19 ]
   %231 = getelementptr inbounds nuw i8, ptr %.02242, i64 8
   %232 = load ptr, ptr %231, align 8
   %.not = icmp eq ptr %232, null
@@ -1941,8 +1941,8 @@ extcap_parse_dlt_sentence.exit:                   ; preds = %28
   %38 = tail call ptr @g_list_append(ptr noundef %.017, ptr noundef nonnull %9)
   br label %extcap_parse_dlt_sentence.exit.thread
 
-extcap_parse_dlt_sentence.exit.thread:            ; preds = %5, %33, %26, %20, %16, %.lr.ph, %37, %extcap_parse_dlt_sentence.exit
-  %.1 = phi ptr [ %38, %37 ], [ %.017, %extcap_parse_dlt_sentence.exit ], [ %.017, %.lr.ph ], [ %.017, %16 ], [ %.017, %20 ], [ %.017, %26 ], [ %.017, %33 ], [ %.017, %5 ]
+extcap_parse_dlt_sentence.exit.thread:            ; preds = %5, %.lr.ph, %33, %26, %20, %16, %37, %extcap_parse_dlt_sentence.exit
+  %.1 = phi ptr [ %38, %37 ], [ %.017, %extcap_parse_dlt_sentence.exit ], [ %.017, %16 ], [ %.017, %20 ], [ %.017, %26 ], [ %.017, %33 ], [ %.017, %.lr.ph ], [ %.017, %5 ]
   %39 = getelementptr inbounds nuw i8, ptr %.01016, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null

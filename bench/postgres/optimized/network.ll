@@ -174,7 +174,7 @@ addressOK.exit.thread:                            ; preds = %44, %38, %35, %34
   br label %62
 
 62:                                               ; preds = %addressOK.exit, %50, %28, %30, %addressOK.exit.thread
-  %.0 = phi ptr [ null, %28 ], [ %4, %addressOK.exit.thread ], [ null, %30 ], [ null, %50 ], [ null, %addressOK.exit ]
+  %.0 = phi ptr [ %4, %addressOK.exit.thread ], [ null, %30 ], [ null, %28 ], [ null, %50 ], [ null, %addressOK.exit ]
   ret ptr %.0
 }
 
@@ -1098,7 +1098,7 @@ define internal fastcc i32 @network_cmp_internal(ptr noundef readonly captures(n
   br label %bitncmp.exit
 
 bitncmp.exit:                                     ; preds = %41, %32, %12, %.loopexit, %45
-  %.1 = phi i32 [ %48, %45 ], [ %..i, %32 ], [ %40, %.loopexit ], [ %21, %12 ], [ %44, %41 ]
+  %.1 = phi i32 [ %48, %45 ], [ %40, %.loopexit ], [ %21, %12 ], [ %..i, %32 ], [ %44, %41 ]
   ret i32 %.1
 }
 
@@ -1208,8 +1208,8 @@ define internal i64 @network_abbrev_convert(i64 noundef %0, ptr noundef readonly
   br label %32
 
 32:                                               ; preds = %25, %18, %27
-  %.059 = phi i64 [ %.057, %18 ], [ %31, %27 ], [ 0, %25 ]
-  %.058 = phi i64 [ 0, %18 ], [ %30, %27 ], [ %.057, %25 ]
+  %.059 = phi i64 [ %31, %27 ], [ %.057, %18 ], [ 0, %25 ]
+  %.058 = phi i64 [ %30, %27 ], [ 0, %18 ], [ %.057, %25 ]
   br i1 %11, label %33, label %43
 
 33:                                               ; preds = %32
@@ -1336,7 +1336,7 @@ define internal noundef zeroext i1 @network_abbrev_abort(i32 noundef %0, ptr nou
   br label %49
 
 49:                                               ; preds = %43, %46, %44, %34, %37, %35, %2, %6, %9, %25
-  %.0 = phi i1 [ true, %34 ], [ false, %25 ], [ false, %2 ], [ false, %9 ], [ false, %6 ], [ true, %35 ], [ true, %37 ], [ false, %44 ], [ false, %46 ], [ false, %43 ]
+  %.0 = phi i1 [ false, %25 ], [ false, %9 ], [ false, %6 ], [ false, %2 ], [ true, %35 ], [ true, %37 ], [ true, %34 ], [ false, %44 ], [ false, %46 ], [ false, %43 ]
   ret i1 %.0
 }
 
@@ -1631,7 +1631,7 @@ define dso_local i32 @bitncmp(ptr noundef readonly captures(none) %0, ptr nounde
   br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %19, %18, %3, %8
-  %.019 = phi i32 [ 0, %8 ], [ %., %18 ], [ %7, %3 ], [ 0, %19 ]
+  %.019 = phi i32 [ 0, %8 ], [ %7, %3 ], [ %., %18 ], [ 0, %19 ]
   ret i32 %.019
 }
 
@@ -2073,7 +2073,7 @@ is_opclause.exit:                                 ; preds = %7
   br label %match_network_function.exit
 
 match_network_function.exit:                      ; preds = %is_opclause.exit, %7, %59, %58, %56, %55, %53, %52, %50, %49, %36, %34, %33, %31, %30, %28, %27, %25, %24, %11, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %is_opclause.exit ], [ null, %36 ], [ null, %33 ], [ %35, %34 ], [ %26, %25 ], [ null, %24 ], [ %29, %28 ], [ null, %27 ], [ %32, %31 ], [ null, %30 ], [ null, %11 ], [ null, %58 ], [ %60, %59 ], [ %51, %50 ], [ null, %49 ], [ %54, %53 ], [ null, %52 ], [ %57, %56 ], [ null, %55 ], [ null, %7 ]
+  %.0 = phi ptr [ null, %1 ], [ %26, %25 ], [ %29, %28 ], [ %32, %31 ], [ %35, %34 ], [ null, %24 ], [ null, %27 ], [ null, %30 ], [ null, %33 ], [ null, %11 ], [ %51, %50 ], [ %54, %53 ], [ %57, %56 ], [ %60, %59 ], [ null, %49 ], [ null, %52 ], [ null, %55 ], [ null, %58 ], [ null, %36 ], [ null, %7 ], [ null, %is_opclause.exit ]
   %61 = ptrtoint ptr %.0 to i64
   ret i64 %61
 }
@@ -3027,7 +3027,7 @@ define dso_local double @convert_network_to_scalar(i64 noundef %0, i32 noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %92, %51, %20
-  %.0 = phi double [ 0.000000e+00, %92 ], [ %91, %51 ], [ %50, %20 ], [ %19, %14 ]
+  %.0 = phi double [ 0.000000e+00, %92 ], [ %50, %20 ], [ %91, %51 ], [ %19, %14 ]
   ret double %.0
 }
 
@@ -3895,7 +3895,7 @@ define internal fastcc ptr @match_network_subset(ptr noundef %0, ptr noundef rea
   br label %43
 
 43:                                               ; preds = %11, %4, %7, %37
-  %.0 = phi ptr [ %42, %37 ], [ null, %4 ], [ null, %7 ], [ null, %11 ]
+  %.0 = phi ptr [ %42, %37 ], [ null, %7 ], [ null, %4 ], [ null, %11 ]
   ret ptr %.0
 }
 

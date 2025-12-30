@@ -450,7 +450,7 @@ remove_vc_all_except.exit:                        ; preds = %107, %.preheader47.
   br i1 %.not30.i, label %.lr.ph, label %.critedge.i, !llvm.loop !30
 
 .critedge.i:                                      ; preds = %.backedge.i, %.lr.ph, %188, %.preheader.i76, %.thread.i
-  %.023.lcssa.i = phi i32 [ 0, %.thread.i ], [ 1, %.preheader.i76 ], [ 1, %.lr.ph ], [ 1, %.backedge.i ], [ 0, %188 ]
+  %.023.lcssa.i = phi i32 [ 0, %.thread.i ], [ 1, %.preheader.i76 ], [ 1, %.backedge.i ], [ 1, %.lr.ph ], [ 0, %188 ]
   %190 = load ptr, ptr @stdin, align 8, !tbaa !14
   %.not37.i = icmp eq ptr %.024.i, %190
   br i1 %.not37.i, label %import_vc_from.exit, label %191
@@ -525,7 +525,7 @@ import_vc_from.exit:                              ; preds = %138, %153, %.crited
   br label %remove_vc_all.exit
 
 remove_vc_all.exit:                               ; preds = %222, %216, %209, %198, %129, %128, %125, %119, %118, %115, %54, %51, %46, %.critedge69, %import_vc_from.exit, %130, %remove_vc_all_except.exit, %37, %33
-  %.062 = phi i32 [ 1, %129 ], [ 1, %33 ], [ 1, %37 ], [ 0, %.critedge69 ], [ %.0.i71, %remove_vc_all_except.exit ], [ 1, %54 ], [ 1, %119 ], [ %132, %130 ], [ %.0.i77, %import_vc_from.exit ], [ 0, %51 ], [ 1, %46 ], [ 0, %115 ], [ 1, %118 ], [ 0, %125 ], [ 1, %128 ], [ 0, %198 ], [ 0, %209 ], [ 1, %222 ], [ 1, %216 ]
+  %.062 = phi i32 [ 1, %33 ], [ 1, %37 ], [ %.0.i71, %remove_vc_all_except.exit ], [ %132, %130 ], [ %.0.i77, %import_vc_from.exit ], [ 0, %.critedge69 ], [ 0, %51 ], [ 1, %46 ], [ 1, %54 ], [ 0, %115 ], [ 1, %118 ], [ 1, %119 ], [ 0, %125 ], [ 1, %128 ], [ 1, %129 ], [ 0, %198 ], [ 0, %209 ], [ 1, %222 ], [ 1, %216 ]
   call void @FLAC__metadata_iterator_delete(ptr noundef %11) #11
   br label %224
 
@@ -786,7 +786,7 @@ fread.inline.exit:                                ; preds = %34
   br label %130
 
 130:                                              ; preds = %.critedge, %94, %106, %116, %120, %119, %15, %23, %53, %65, %75, %85, %88, %40
-  %.1 = phi i32 [ 0, %.critedge ], [ 0, %15 ], [ 0, %23 ], [ 0, %65 ], [ 0, %53 ], [ 1, %88 ], [ 0, %85 ], [ 0, %75 ], [ 0, %40 ], [ 0, %94 ], [ 0, %116 ], [ 0, %106 ], [ 1, %120 ], [ 1, %119 ]
+  %.1 = phi i32 [ 0, %15 ], [ 0, %23 ], [ 0, %53 ], [ 1, %88 ], [ 0, %85 ], [ 0, %75 ], [ 0, %65 ], [ 0, %40 ], [ 0, %116 ], [ 0, %106 ], [ 0, %94 ], [ 1, %120 ], [ 1, %119 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1

@@ -305,7 +305,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %.body
 
 .body:                                            ; preds = %93, %43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15, %51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-  %.pn7.pn = phi { ptr, i32 } [ %.pn7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15 ], [ %52, %51 ], [ %44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %44, %43 ], [ %.pn7, %93 ]
+  %.pn7.pn = phi { ptr, i32 } [ %52, %51 ], [ %44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %.pn7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15 ], [ %44, %43 ], [ %.pn7, %93 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn7.pn
@@ -1832,8 +1832,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %79,
   br label %150
 
 84:                                               ; preds = %.lr.ph, %.lr.ph, %73, %72, %71, %70
-  %.sroa.7.0 = phi ptr [ @_ZN2cv6base649to_binaryIdEEmPKhPh, %73 ], [ @_ZN2cv6base649to_binaryItEEmPKhPh, %70 ], [ @_ZN2cv6base649to_binaryIjEEmPKhPh, %71 ], [ @_ZN2cv6base649to_binaryIfEEmPKhPh, %72 ], [ @_ZN2cv6base649to_binaryIhEEmPKhPh, %.lr.ph ], [ @_ZN2cv6base649to_binaryIhEEmPKhPh, %.lr.ph ]
-  %.0 = phi i64 [ 8, %73 ], [ 2, %70 ], [ 4, %71 ], [ 4, %72 ], [ 1, %.lr.ph ], [ 1, %.lr.ph ]
+  %.sroa.7.0 = phi ptr [ @_ZN2cv6base649to_binaryItEEmPKhPh, %70 ], [ @_ZN2cv6base649to_binaryIjEEmPKhPh, %71 ], [ @_ZN2cv6base649to_binaryIfEEmPKhPh, %72 ], [ @_ZN2cv6base649to_binaryIdEEmPKhPh, %73 ], [ @_ZN2cv6base649to_binaryIhEEmPKhPh, %.lr.ph ], [ @_ZN2cv6base649to_binaryIhEEmPKhPh, %.lr.ph ]
+  %.0 = phi i64 [ 2, %70 ], [ 4, %71 ], [ 4, %72 ], [ 8, %73 ], [ 1, %.lr.ph ], [ 1, %.lr.ph ]
   %85 = add i64 %.12160, 4294967295
   %86 = add i64 %85, %.0
   %87 = sub nsw i64 0, %.0

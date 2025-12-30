@@ -457,7 +457,7 @@ define void @dlaqr2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %302
 
 302:                                              ; preds = %286, %293, %300
-  %.0601 = phi i32 [ %292, %293 ], [ %301, %300 ], [ %292, %286 ]
+  %.0601 = phi i32 [ %301, %300 ], [ %292, %293 ], [ %292, %286 ]
   %.not633.not655 = icmp slt i32 %.0601, %.0605663
   br i1 %.not633.not655, label %.lr.ph660.preheader, label %.loopexit648.loopexit
 

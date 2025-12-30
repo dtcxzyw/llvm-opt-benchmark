@@ -967,8 +967,8 @@ _ZL10tableForcefRK12t_forcetableffPfS2_.exit.us.us: ; preds = %195, %184
   br label %250
 
 250:                                              ; preds = %_ZL10tableForcefRK12t_forcetableffPfS2_.exit.us.us, %164, %145, %131, %130
-  %.0189.us.us = phi float [ %144, %131 ], [ %249, %_ZL10tableForcefRK12t_forcetableffPfS2_.exit.us.us ], [ %183, %164 ], [ %163, %145 ], [ 0.000000e+00, %130 ]
-  %.0187.us.us = phi float [ %140, %131 ], [ %.sink.i.us.us, %_ZL10tableForcefRK12t_forcetableffPfS2_.exit.us.us ], [ %179, %164 ], [ %159, %145 ], [ 0.000000e+00, %130 ]
+  %.0189.us.us = phi float [ %249, %_ZL10tableForcefRK12t_forcetableffPfS2_.exit.us.us ], [ %183, %164 ], [ %163, %145 ], [ %144, %131 ], [ 0.000000e+00, %130 ]
+  %.0187.us.us = phi float [ %.sink.i.us.us, %_ZL10tableForcefRK12t_forcetableffPfS2_.exit.us.us ], [ %179, %164 ], [ %159, %145 ], [ %140, %131 ], [ 0.000000e+00, %130 ]
   %251 = fcmp ogt float %.0156.us.us, 0.000000e+00
   %252 = tail call float @llvm.fmuladd.f32(float %.0156.us.us, float %.0189.us.us, float %.0187.us.us)
   %.1188.us.us = select i1 %251, float %252, float %.0187.us.us

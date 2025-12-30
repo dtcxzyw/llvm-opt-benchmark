@@ -388,7 +388,7 @@ define noundef i64 @_ZNK5boost4urls12ipv6_address10print_implEPc(ptr noundef non
   br i1 %.not.i, label %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_0clEPKhS5_.exit", label %.lr.ph.i, !llvm.loop !41
 
 "_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_0clEPKhS5_.exit": ; preds = %.lr.ph.i, %43, %46
-  %.0.lcssa.i = phi i64 [ %47, %46 ], [ %.03.i, %.lr.ph.i ], [ %.03.i, %43 ]
+  %.0.lcssa.i = phi i64 [ %.03.i, %.lr.ph.i ], [ %.03.i, %43 ], [ %47, %46 ]
   %49 = icmp eq i64 %.0.lcssa.i, 0
   %50 = icmp ugt i64 %.0.lcssa.i, %.05379
   %51 = ptrtoint ptr %.05977 to i64
@@ -507,8 +507,8 @@ define noundef i64 @_ZNK5boost4urls12ipv6_address10print_implEPc(ptr noundef non
   br label %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit"
 
 "_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit": ; preds = %113, %102, %84, %62, %118, %122
-  %.261 = phi ptr [ %120, %118 ], [ %120, %122 ], [ %10, %62 ], [ %10, %84 ], [ %10, %102 ], [ %10, %113 ]
-  %.0 = phi ptr [ %119, %118 ], [ %123, %122 ], [ %82, %62 ], [ %99, %84 ], [ %112, %102 ], [ %117, %113 ]
+  %.261 = phi ptr [ %120, %122 ], [ %120, %118 ], [ %10, %62 ], [ %10, %84 ], [ %10, %102 ], [ %10, %113 ]
+  %.0 = phi ptr [ %123, %122 ], [ %119, %118 ], [ %82, %62 ], [ %99, %84 ], [ %112, %102 ], [ %117, %113 ]
   %.not6980 = icmp eq ptr %.261, %40
   br i1 %.not6980, label %._crit_edge, label %.lr.ph
 

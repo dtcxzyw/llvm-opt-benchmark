@@ -161,7 +161,7 @@ define internal fastcc range(i32 0, 5) i32 @PGSharedMemoryAttach(i32 noundef %0,
   br label %40
 
 40:                                               ; preds = %24, %26, %30, %19, %19, %12, %7, %7, %35, %23, %22, %11, %10
-  %.0 = phi i32 [ %39, %35 ], [ 3, %10 ], [ 2, %7 ], [ 0, %11 ], [ 2, %7 ], [ 0, %12 ], [ 3, %22 ], [ 2, %19 ], [ 0, %23 ], [ 2, %19 ], [ 3, %30 ], [ 3, %26 ], [ 3, %24 ]
+  %.0 = phi i32 [ 3, %10 ], [ 0, %11 ], [ 3, %22 ], [ 0, %23 ], [ %39, %35 ], [ 2, %7 ], [ 2, %7 ], [ 0, %12 ], [ 2, %19 ], [ 2, %19 ], [ 3, %30 ], [ 3, %26 ], [ 3, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -228,8 +228,8 @@ define dso_local void @GetHugePageSize(ptr noundef writeonly captures(address_is
   br label %18
 
 18:                                               ; preds = %.loopexit, %.sink.split
-  %.032 = phi i64 [ 0, %.sink.split ], [ %16, %.loopexit ]
-  %19 = phi i64 [ 2097152, %.sink.split ], [ %spec.select, %.loopexit ]
+  %.032 = phi i64 [ %16, %.loopexit ], [ 0, %.sink.split ]
+  %19 = phi i64 [ %spec.select, %.loopexit ], [ 2097152, %.sink.split ]
   %.in.in = load i32, ptr @huge_page_size, align 4
   %.not2334 = icmp eq i32 %.in.in, 0
   %.in = sext i32 %.in.in to i64
@@ -587,7 +587,7 @@ default.unreachable113:                           ; preds = %113
   unreachable
 
 139:                                              ; preds = %136, %123, %125, %129
-  %.2 = phi i32 [ %spec.select, %136 ], [ %.033, %125 ], [ %.033, %123 ], [ %130, %129 ]
+  %.2 = phi i32 [ %.033, %125 ], [ %.033, %123 ], [ %130, %129 ], [ %spec.select, %136 ]
   %140 = load ptr, ptr %7, align 8
   %.not39 = icmp eq ptr %140, null
   br i1 %.not39, label %148, label %141

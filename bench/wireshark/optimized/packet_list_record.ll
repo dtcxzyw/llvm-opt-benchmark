@@ -340,7 +340,7 @@ define void @_ZN16PacketListRecord7dissectEP13_capture_filebb(ptr noundef align 
   br label %38
 
 38:                                               ; preds = %36, %34
-  %39 = phi i1 [ %37, %36 ], [ true, %34 ]
+  %39 = phi i1 [ true, %34 ], [ %37, %36 ]
   %40 = load ptr, ptr %1, align 8
   call void @epan_dissect_init(ptr noundef nonnull %5, ptr noundef %40, i1 noundef zeroext %39, i1 noundef zeroext false)
   br i1 %3, label %41, label %47
@@ -475,7 +475,7 @@ define void @_ZN16PacketListRecord12columnStringEP13_capture_fileib(ptr dead_on_
   br i1 %.not.i.i, label %.thread22, label %.thread24
 
 .thread22:                                        ; preds = %13, %17, %21, %26, %30
-  %36 = phi i1 [ false, %21 ], [ false, %30 ], [ false, %26 ], [ true, %17 ], [ true, %13 ]
+  %36 = phi i1 [ false, %30 ], [ false, %26 ], [ false, %21 ], [ true, %17 ], [ true, %13 ]
   tail call void @_ZN16PacketListRecord7dissectEP13_capture_filebb(ptr noundef align 8 dereferenceable_or_null(37) %1, ptr noundef nonnull %2, i1 noundef zeroext true, i1 noundef zeroext %36)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
@@ -784,7 +784,7 @@ select.unfold.i.i:                                ; preds = %34, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i: ; preds = %38, %select.unfold.i.i
-  %42 = phi i1 [ %41, %38 ], [ true, %select.unfold.i.i ]
+  %42 = phi i1 [ true, %select.unfold.i.i ], [ %41, %38 ]
   %43 = tail call noalias noundef dereferenceable_or_null(40) ptr @_Znwm(i64 noundef 40) #29
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %.sroa.0.0.insert.ext = zext i32 %18 to i64
@@ -2787,7 +2787,7 @@ _ZN6QCacheIj5QListI7QStringEE6unlinkEPNS3_4NodeE.exit: ; preds = %.lr.ph.i.i6, %
   br label %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit.thread
 
 _ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit.thread: ; preds = %42, %6, %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit.i, %2, %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit, %_ZN6QCacheIj5QListI7QStringEE6unlinkEPNS3_4NodeE.exit
-  %.not12 = phi i1 [ true, %_ZN6QCacheIj5QListI7QStringEE6unlinkEPNS3_4NodeE.exit ], [ false, %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit ], [ false, %2 ], [ false, %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit.i ], [ false, %6 ], [ false, %42 ]
+  %.not12 = phi i1 [ false, %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE8findNodeERKj.exit ], [ true, %_ZN6QCacheIj5QListI7QStringEE6unlinkEPNS3_4NodeE.exit ], [ false, %2 ], [ false, %_ZNK12QHashPrivate4DataIN6QCacheIj5QListI7QStringEE4NodeEE4findERKj.exit.i ], [ false, %6 ], [ false, %42 ]
   ret i1 %.not12
 }
 
@@ -3181,7 +3181,7 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   br i1 %64, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %61, %23, %59, %55
-  %.1 = phi i64 [ %spec.store.select.i53, %55 ], [ %spec.store.select.i53, %59 ], [ %.052, %23 ], [ %.052, %61 ]
+  %.1 = phi i64 [ %spec.store.select.i53, %59 ], [ %spec.store.select.i53, %55 ], [ %.052, %23 ], [ %.052, %61 ]
   %65 = add i64 %spec.store.select.i53, 1
   %66 = load i64, ptr %12, align 8
   %67 = icmp eq i64 %65, %66

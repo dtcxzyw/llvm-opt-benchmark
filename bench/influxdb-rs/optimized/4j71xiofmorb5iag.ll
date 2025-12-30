@@ -1288,7 +1288,7 @@ _ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread67: ; pr
   br label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit41"
 
 _ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread: ; preds = %157, %150, %143, %136, %129, %122, %.lr.ph.i.i, %177, %._crit_edge.i.i, %111, %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit
-  %199 = phi i64 [ %112, %177 ], [ %.pre317, %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit ], [ %112, %._crit_edge.i.i ], [ %112, %111 ], [ %112, %.lr.ph.i.i ], [ %112, %122 ], [ %112, %129 ], [ %112, %136 ], [ %112, %143 ], [ %112, %150 ], [ %112, %157 ]
+  %199 = phi i64 [ %112, %._crit_edge.i.i ], [ %112, %111 ], [ %.pre317, %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit ], [ %112, %177 ], [ %112, %.lr.ph.i.i ], [ %112, %122 ], [ %112, %129 ], [ %112, %136 ], [ %112, %143 ], [ %112, %150 ], [ %112, %157 ]
   %200 = load i8, ptr %38, align 1, !noundef !15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !350)
   %201 = load i64, ptr %25, align 8, !alias.scope !350, !noalias !353, !noundef !15

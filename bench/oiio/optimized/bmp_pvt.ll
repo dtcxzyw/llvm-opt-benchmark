@@ -63,7 +63,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_07bmp_pvt13BmpFileHeader
   br label %36
 
 36:                                               ; preds = %29, %2, %8, %15, %22
-  %.0 = phi i1 [ false, %2 ], [ %35, %29 ], [ false, %22 ], [ false, %15 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %22 ], [ false, %15 ], [ false, %8 ], [ false, %2 ], [ %35, %29 ]
   ret i1 %.0
 }
 
@@ -113,7 +113,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_07bmp_pvt13BmpFileHeader
   br label %36
 
 36:                                               ; preds = %29, %2, %8, %15, %22
-  %.0 = phi i1 [ false, %2 ], [ %35, %29 ], [ false, %22 ], [ false, %15 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %22 ], [ false, %15 ], [ false, %8 ], [ false, %2 ], [ %35, %29 ]
   ret i1 %.0
 }
 
@@ -554,7 +554,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_07bmp_pvt20DibInformatio
   br label %275
 
 275:                                              ; preds = %.thread49, %214, %221, %228, %235, %121, %128, %135, %142, %149, %156, %163, %170, %177, %184, %191, %198, %205, %113, %90, %97, %104, %12, %19, %26, %33, %40, %47, %54, %61, %68, %75, %2, %.thread47
-  %.038 = phi i1 [ true, %.thread47 ], [ false, %121 ], [ false, %113 ], [ false, %90 ], [ false, %12 ], [ false, %2 ], [ false, %.thread49 ], [ false, %75 ], [ false, %68 ], [ false, %61 ], [ false, %54 ], [ false, %47 ], [ false, %40 ], [ false, %33 ], [ false, %26 ], [ false, %19 ], [ false, %104 ], [ false, %97 ], [ false, %205 ], [ false, %198 ], [ false, %191 ], [ false, %184 ], [ false, %177 ], [ false, %170 ], [ false, %163 ], [ false, %156 ], [ false, %149 ], [ false, %142 ], [ false, %135 ], [ false, %128 ], [ false, %235 ], [ false, %228 ], [ false, %221 ], [ false, %214 ]
+  %.038 = phi i1 [ true, %.thread47 ], [ false, %2 ], [ false, %75 ], [ false, %68 ], [ false, %61 ], [ false, %54 ], [ false, %47 ], [ false, %40 ], [ false, %33 ], [ false, %26 ], [ false, %19 ], [ false, %12 ], [ false, %104 ], [ false, %97 ], [ false, %90 ], [ false, %113 ], [ false, %205 ], [ false, %198 ], [ false, %191 ], [ false, %184 ], [ false, %177 ], [ false, %170 ], [ false, %163 ], [ false, %156 ], [ false, %149 ], [ false, %142 ], [ false, %135 ], [ false, %128 ], [ false, %121 ], [ false, %235 ], [ false, %228 ], [ false, %221 ], [ false, %214 ], [ false, %.thread49 ]
   ret i1 %.038
 }
 
@@ -658,7 +658,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_07bmp_pvt20DibInformatio
   br label %78
 
 78:                                               ; preds = %71, %2, %8, %15, %22, %29, %36, %43, %50, %57, %64
-  %.0 = phi i1 [ false, %2 ], [ %77, %71 ], [ false, %64 ], [ false, %57 ], [ false, %50 ], [ false, %43 ], [ false, %36 ], [ false, %29 ], [ false, %22 ], [ false, %15 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %64 ], [ false, %57 ], [ false, %50 ], [ false, %43 ], [ false, %36 ], [ false, %29 ], [ false, %22 ], [ false, %15 ], [ false, %8 ], [ false, %2 ], [ %77, %71 ]
   ret i1 %.0
 }
 

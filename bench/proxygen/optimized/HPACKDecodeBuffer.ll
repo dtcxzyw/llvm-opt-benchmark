@@ -1113,7 +1113,7 @@ if.end56:                                         ; preds = %if.end36
   br i1 %tobool.not, label %return, label %do.body, !llvm.loop !7
 
 return:                                           ; preds = %if.end56, %if.end, %invoke.cont53, %invoke.cont33, %invoke.cont20, %invoke.cont3
-  %retval.0 = phi i8 [ 7, %invoke.cont3 ], [ 0, %if.end ], [ 7, %invoke.cont20 ], [ 4, %invoke.cont33 ], [ 4, %invoke.cont53 ], [ 0, %if.end56 ]
+  %retval.0 = phi i8 [ 7, %invoke.cont3 ], [ 7, %invoke.cont20 ], [ 4, %invoke.cont33 ], [ 4, %invoke.cont53 ], [ 0, %if.end ], [ 0, %if.end56 ]
   ret i8 %retval.0
 
 eh.resume:                                        ; preds = %lpad44, %lpad28, %ehcleanup22, %ehcleanup
@@ -1936,7 +1936,7 @@ if.end2.i:                                        ; preds = %_ZN5folly10canNallo
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %entry, %_ZN5folly10canNallocxEv.exit.i, %if.end2.i
-  %retval.0.i = phi i64 [ 0, %entry ], [ %cond.i, %if.end2.i ], [ %add, %_ZN5folly10canNallocxEv.exit.i ]
+  %retval.0.i = phi i64 [ %cond.i, %if.end2.i ], [ 0, %entry ], [ %add, %_ZN5folly10canNallocxEv.exit.i ]
   %call.i = call noalias ptr @malloc(i64 noundef %retval.0.i) #25
   %tobool.not.i7 = icmp eq ptr %call.i, null
   br i1 %tobool.not.i7, label %if.then.i, label %_ZN5folly13checkedMallocEm.exit
@@ -2096,7 +2096,7 @@ if.end18:                                         ; preds = %init.end
   br label %return
 
 return:                                           ; preds = %init.end, %if.end, %entry, %if.end18
-  %retval.0 = phi i1 [ false, %init.end ], [ false, %entry ], [ false, %if.end ], [ %cmp19, %if.end18 ]
+  %retval.0 = phi i1 [ %cmp19, %if.end18 ], [ false, %entry ], [ false, %if.end ], [ false, %init.end ]
   ret i1 %retval.0
 }
 
@@ -2199,7 +2199,7 @@ _ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5: ; preds = %if.end6
   br label %return
 
 return:                                           ; preds = %init.end, %entry, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5
-  %retval.0 = phi i1 [ false, %entry ], [ %cmp, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5 ], [ false, %init.end ]
+  %retval.0 = phi i1 [ %cmp, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5 ], [ false, %entry ], [ false, %init.end ]
   ret i1 %retval.0
 }
 
@@ -2314,7 +2314,7 @@ if.end2.i:                                        ; preds = %_ZN5folly10canNallo
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %if.end7, %_ZN5folly10canNallocxEv.exit.i, %if.end2.i
-  %retval.0.i9 = phi i64 [ 0, %if.end7 ], [ %cond.i, %if.end2.i ], [ %7, %_ZN5folly10canNallocxEv.exit.i ]
+  %retval.0.i9 = phi i64 [ %cond.i, %if.end2.i ], [ 0, %if.end7 ], [ %7, %_ZN5folly10canNallocxEv.exit.i ]
   %call.i10 = call noalias ptr @malloc(i64 noundef %retval.0.i9) #25
   %tobool.not.i11 = icmp eq ptr %call.i10, null
   br i1 %tobool.not.i11, label %if.then.i, label %_ZN5folly13checkedMallocEm.exit
@@ -2407,7 +2407,7 @@ if.end2.i:                                        ; preds = %_ZN5folly10canNallo
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %if.end2.i
-  %retval.0.i = phi i64 [ %add, %_ZN5folly10canNallocxEv.exit.i ], [ %cond.i, %if.end2.i ]
+  %retval.0.i = phi i64 [ %cond.i, %if.end2.i ], [ %add, %_ZN5folly10canNallocxEv.exit.i ]
   %call.i = call noalias ptr @malloc(i64 noundef %retval.0.i) #25
   %tobool.not.i6 = icmp eq ptr %call.i, null
   br i1 %tobool.not.i6, label %if.then.i, label %_ZN5folly13checkedMallocEm.exit
@@ -2504,7 +2504,7 @@ if.end2.i:                                        ; preds = %_ZN5folly10canNallo
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallocxEv.exit.i, %if.end2.i
-  %retval.0.i = phi i64 [ %add, %_ZN5folly10canNallocxEv.exit.i ], [ %cond.i, %if.end2.i ]
+  %retval.0.i = phi i64 [ %cond.i, %if.end2.i ], [ %add, %_ZN5folly10canNallocxEv.exit.i ]
   %4 = load ptr, ptr %this, align 8
   %size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i64, ptr %size_, align 8
@@ -2768,7 +2768,7 @@ if.end2.i:                                        ; preds = %_ZN5folly10canNallo
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %if.end7, %_ZN5folly10canNallocxEv.exit.i, %if.end2.i
-  %retval.0.i5 = phi i64 [ 0, %if.end7 ], [ %cond.i, %if.end2.i ], [ %7, %_ZN5folly10canNallocxEv.exit.i ]
+  %retval.0.i5 = phi i64 [ %cond.i, %if.end2.i ], [ 0, %if.end7 ], [ %7, %_ZN5folly10canNallocxEv.exit.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 -8
   %add11 = add i64 %currentSize, 9
   %sub.i = sub i64 %currentCapacity, %currentSize

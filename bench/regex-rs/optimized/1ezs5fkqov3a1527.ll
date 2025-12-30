@@ -2612,7 +2612,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$regex_syntax..ast..ClassSet$
   unreachable
 
 common.resume:                                    ; preds = %21, %22, %.body, %18
-  %common.resume.op = phi { ptr, i32 } [ %12, %.body ], [ %19, %18 ], [ %3, %22 ], [ %3, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %12, %.body ], [ %3, %22 ], [ %3, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr56drop_in_place$LT$regex_syntax..ast..ClassSetBinaryOp$GT$17hc0146bac5a5d2320E.llvm.15241997999693184539.exit": ; preds = %10
@@ -4115,7 +4115,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$regex_syntax..ast..
   unreachable
 
 common.resume:                                    ; preds = %6, %20, %21
-  %common.resume.op = phi { ptr, i32 } [ %12, %20 ], [ %12, %21 ], [ %7, %6 ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %21 ], [ %12, %20 ], [ %7, %6 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr54drop_in_place$LT$regex_syntax..ast..ClassBracketed$GT$17h4684b329539f8b3cE.exit": ; preds = %19, %18, %4
@@ -9909,7 +9909,7 @@ default.unreachable75:                            ; preds = %65, %1
   br i1 %152, label %"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..ast..Ast$GT$$GT$17h82cb65adb9686095E.llvm.15241997999693184539.exit", label %153
 
 common.resume:                                    ; preds = %62, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %.pn, %62 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn, %62 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 153:                                              ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4b2009a03ed84f42E.llvm.15241997999693184539.exit.i"
@@ -10234,7 +10234,7 @@ define void @"_ZN69_$LT$regex_syntax..ast..ClassSet$u20$as$u20$core..ops..drop..
   br label %common.resume
 
 common.resume:                                    ; preds = %46, %.body36, %110
-  %common.resume.op = phi { ptr, i32 } [ %103, %.body36 ], [ %103, %110 ], [ %.pn, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %103, %110 ], [ %103, %.body36 ], [ %.pn, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..ast..ClassSet$GT$$GT$17h63085c26606cf3b8E.exit": ; preds = %95
@@ -10772,7 +10772,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %32
   br label %common.resume
 
 common.resume:                                    ; preds = %.body, %41, %.body58, %163
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i60, %.body58 ], [ %.pn.i60, %163 ], [ %.pn, %.body ], [ %42, %41 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i60, %163 ], [ %.pn.i60, %.body58 ], [ %.pn, %.body ], [ %42, %41 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..hir..Hir$GT$$GT$17he1ffd41f1164ce8eE.exit": ; preds = %"_ZN4core3ptr43drop_in_place$LT$regex_syntax..hir..Hir$GT$17h2df1c1d625d66ee2E.exit63", %.loopexit.thread, %.loopexit

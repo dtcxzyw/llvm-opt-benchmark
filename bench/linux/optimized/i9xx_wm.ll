@@ -3376,7 +3376,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %60, %175, %169, %37, %22
-  %195 = phi i32 [ %24, %37 ], [ %194, %175 ], [ %24, %60 ], [ %24, %22 ], [ %24, %169 ], [ %24, %.loopexit ]
+  %195 = phi i32 [ %24, %37 ], [ %194, %175 ], [ %24, %22 ], [ %24, %169 ], [ %24, %60 ], [ %24, %.loopexit ]
   %196 = add nuw nsw i64 %23, 1
   %197 = load ptr, ptr %10, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 704
@@ -6208,7 +6208,7 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr noundef r
   br label %321
 
 321:                                              ; preds = %296, %318, %293, %.loopexit12, %.loopexit13
-  %322 = phi i8 [ %81, %.loopexit13 ], [ %294, %293 ], [ %102, %.loopexit12 ], [ %294, %296 ], [ %320, %318 ]
+  %322 = phi i8 [ %294, %293 ], [ %102, %.loopexit12 ], [ %81, %.loopexit13 ], [ %294, %296 ], [ %320, %318 ]
   %323 = icmp eq i8 %322, 0
   br i1 %323, label %361, label %324
 
@@ -6266,7 +6266,7 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr noundef r
   br label %361
 
 361:                                              ; preds = %354, %321, %39, %24
-  %362 = phi i32 [ %26, %39 ], [ %360, %354 ], [ %26, %321 ], [ %26, %24 ]
+  %362 = phi i32 [ %26, %39 ], [ %360, %354 ], [ %26, %24 ], [ %26, %321 ]
   %363 = add nuw nsw i64 %25, 1
   %364 = load ptr, ptr %10, align 8
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 704
@@ -6423,7 +6423,7 @@ define internal noundef i32 @g4x_compute_intermediate_wm(ptr noundef readonly ca
   br label %85
 
 85:                                               ; preds = %84, %83, %74
-  %86 = phi i32 [ 0, %84 ], [ 63, %74 ], [ 127, %83 ]
+  %86 = phi i32 [ 0, %84 ], [ 127, %83 ], [ 63, %74 ]
   %87 = icmp samesign ult i32 %86, %81
   br i1 %87, label %88, label %99, !prof !16
 
@@ -7366,7 +7366,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_g4x_compute_pipe_wm(ptr n
   store i16 -1, ptr %88, align 2
   br label %104
 
-89:                                               ; preds = %77, %56, %69, %73
+89:                                               ; preds = %77, %69, %73, %56
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 1675
   store i8 0, ptr %90, align 1
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 1668
@@ -7398,13 +7398,13 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_g4x_compute_pipe_wm(ptr n
   br label %104
 
 104:                                              ; preds = %.thread12, %.thread11, %103, %89
-  %105 = phi i8 [ 1, %103 ], [ 0, %.thread11 ], [ 0, %89 ], [ 0, %.thread12 ]
+  %105 = phi i8 [ 1, %103 ], [ 0, %89 ], [ 0, %.thread11 ], [ 0, %.thread12 ]
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 1676
   store i8 %105, ptr %106, align 2
   br label %.critedge
 
 .critedge:                                        ; preds = %1, %15, %12, %19, %104
-  %107 = phi i32 [ 0, %104 ], [ -22, %1 ], [ -22, %19 ], [ -22, %12 ], [ -22, %15 ]
+  %107 = phi i32 [ 0, %104 ], [ -22, %19 ], [ -22, %12 ], [ -22, %15 ], [ -22, %1 ]
   ret i32 %107
 }
 

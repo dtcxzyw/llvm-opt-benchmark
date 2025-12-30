@@ -2500,7 +2500,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i.i.i.i19.i.i.i: ; pred
   br label %.body.i
 
 .body.i:                                          ; preds = %101, %91, %.body.i.i.i, %common.resume.sink.split.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %102, %101 ], [ %56, %.body.i.i.i ], [ %lpad.phi.i.i.i, %91 ], [ %common.resume.op.ph.i.i, %common.resume.sink.split.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %102, %101 ], [ %lpad.phi.i.i.i, %91 ], [ %56, %.body.i.i.i ], [ %common.resume.op.ph.i.i, %common.resume.sink.split.i.i ]
   %.val2.i = load i64, ptr %0, align 8, !range !3, !alias.scope !248, !noundef !9
   %.val3.i = load ptr, ptr %6, align 8, !alias.scope !248
   invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$C$usize$GT$$GT$17h75e927e85779216fE"(i64 %.val2.i, ptr %.val3.i) #15
@@ -3287,7 +3287,7 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..It
           to label %common.resume unwind label %14
 
 common.resume:                                    ; preds = %62, %.body, %12
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %13, %12 ], [ %63, %62 ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %eh.lpad-body, %.body ], [ %63, %62 ]
   resume { ptr, i32 } %common.resume.op
 
 14:                                               ; preds = %12
@@ -4417,7 +4417,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$ruff_db..panic..PanicError$G
   br label %.body
 
 .body:                                            ; preds = %31, %23, %6
-  %.pn = phi { ptr, i32 } [ %7, %6 ], [ %24, %23 ], [ %24, %31 ]
+  %.pn = phi { ptr, i32 } [ %7, %6 ], [ %24, %31 ], [ %24, %23 ]
   %32 = load i64, ptr %0, align 8, !range !41, !alias.scope !590, !noundef !9
   %33 = icmp eq i64 %32, 3
   br i1 %33, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17h9299d46d279fe631E.exit", label %34
@@ -4645,7 +4645,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$winnow..error..ContextError$
   br label %common.resume
 
 common.resume:                                    ; preds = %2, %21, %29
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %22, %29 ], [ %3, %2 ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %29 ], [ %22, %21 ], [ %3, %2 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h8c24b76eb0d6b31cE.exit": ; preds = %"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$winnow..error..StrContext$GT$$GT$17h6da4c452115a3b66E.exit", %13, %20
@@ -8459,7 +8459,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$alloc..sync..ArcInner$LT$sal
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %83, %75, %54
-  %common.resume.op.i = phi { ptr, i32 } [ %76, %75 ], [ %76, %83 ], [ %.pn10.i, %54 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %76, %83 ], [ %76, %75 ], [ %.pn10.i, %54 ]
   resume { ptr, i32 } %common.resume.op.i
 
 84:                                               ; preds = %54, %42, %"_ZN4core3ptr211drop_in_place$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$salsa..zalsa..IngredientIndex$C$core..any..TypeId$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h98bd9a360e54c7b8E.exit.i", %"_ZN4core3ptr207drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h6fb181fc8b361e3eE.exit.i", %.body
@@ -8634,7 +8634,7 @@ define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$salsa..storage..Sto
   unreachable
 
 common.resume:                                    ; preds = %6, %10, %15
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %11, %15 ], [ %7, %6 ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %15 ], [ %11, %10 ], [ %7, %6 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr51drop_in_place$LT$salsa..storage..CoordinateDrop$GT$17hf379ca8b8ac82104E.exit": ; preds = %16, %20
@@ -9085,7 +9085,7 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$alloc..sync..ArcInner$LT$ty_
   unreachable
 
 common.resume.i:                                  ; preds = %35, %31, %27, %14, %9
-  %common.resume.op.i = phi { ptr, i32 } [ %32, %31 ], [ %10, %9 ], [ %10, %14 ], [ %32, %35 ], [ %28, %27 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %10, %14 ], [ %10, %9 ], [ %32, %35 ], [ %32, %31 ], [ %28, %27 ]
   resume { ptr, i32 } %common.resume.op.i
 
 21:                                               ; preds = %1

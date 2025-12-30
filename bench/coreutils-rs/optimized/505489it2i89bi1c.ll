@@ -770,9 +770,9 @@ define hidden { i64, i8 } @_ZN5uu_wc4utf810Incomplete20try_complete_offsets17h99
   br i1 %.not, label %19, label %20
 
 16:                                               ; preds = %19, %22, %20, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hd2e7cb0b2bdf2d0cE.exit"
-  %storemerge.in26 = phi i64 [ %11, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hd2e7cb0b2bdf2d0cE.exit" ], [ %23, %22 ], [ %11, %19 ], [ %.sroa.01.0.copyload, %20 ]
-  %.sroa.5.0 = phi i8 [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hd2e7cb0b2bdf2d0cE.exit" ], [ 1, %22 ], [ 2, %19 ], [ 0, %20 ]
-  %.sroa.0.0 = phi i64 [ %.0.sroa.speculated.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hd2e7cb0b2bdf2d0cE.exit" ], [ %24, %22 ], [ %.0.sroa.speculated.i, %19 ], [ %21, %20 ]
+  %storemerge.in26 = phi i64 [ %11, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hd2e7cb0b2bdf2d0cE.exit" ], [ %11, %19 ], [ %23, %22 ], [ %.sroa.01.0.copyload, %20 ]
+  %.sroa.5.0 = phi i8 [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hd2e7cb0b2bdf2d0cE.exit" ], [ 2, %19 ], [ 1, %22 ], [ 0, %20 ]
+  %.sroa.0.0 = phi i64 [ %.0.sroa.speculated.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hd2e7cb0b2bdf2d0cE.exit" ], [ %.0.sroa.speculated.i, %19 ], [ %24, %22 ], [ %21, %20 ]
   %storemerge = trunc i64 %storemerge.in26 to i8
   store i8 %storemerge, ptr %5, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

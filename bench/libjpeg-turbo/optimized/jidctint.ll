@@ -85,7 +85,7 @@ define void @jpeg_idct_islow(ptr noundef readonly captures(none) %0, ptr noundef
   br label %176
 
 ._crit_edge:                                      ; preds = %13, %36, %32, %28, %24, %20
-  %53 = phi i16 [ %18, %13 ], [ 0, %36 ], [ 0, %32 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ]
+  %53 = phi i16 [ 0, %36 ], [ 0, %32 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ], [ %18, %13 ]
   %54 = sext i16 %53 to i64
   %55 = getelementptr inbounds nuw i8, ptr %.0251263, i64 32
   %56 = load i16, ptr %55, align 2, !tbaa !32
@@ -298,7 +298,7 @@ define void @jpeg_idct_islow(ptr noundef readonly captures(none) %0, ptr noundef
   br label %332
 
 ._crit_edge269:                                   ; preds = %180, %206, %202, %198, %194, %190
-  %224 = phi i32 [ %188, %180 ], [ 0, %206 ], [ 0, %202 ], [ 0, %198 ], [ 0, %194 ], [ 0, %190 ]
+  %224 = phi i32 [ 0, %206 ], [ 0, %202 ], [ 0, %198 ], [ 0, %194 ], [ 0, %190 ], [ %188, %180 ]
   %225 = zext i32 %224 to i64
   %226 = getelementptr inbounds nuw i8, ptr %.2266, i64 24
   %227 = load i32, ptr %226, align 4, !tbaa !33

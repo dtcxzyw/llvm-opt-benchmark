@@ -244,11 +244,11 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %77
 
 77:                                               ; preds = %62, %69, %35
-  %.1 = phi ptr [ %37, %35 ], [ %.mux, %62 ], [ %72, %69 ]
+  %.1 = phi ptr [ %72, %69 ], [ %37, %35 ], [ %.mux, %62 ]
   %.not146 = icmp eq ptr %.1, null
   br i1 %.not146, label %.thread, label %.thread153
 
-.thread:                                          ; preds = %46, %59, %49, %77
+.thread:                                          ; preds = %49, %46, %59, %77
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %79 = load ptr, ptr %78, align 8
   %80 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %79, i64 noundef 32) #5
@@ -267,8 +267,8 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   store i8 %.sink, ptr %84, align 4
   br label %.thread153
 
-.thread153:                                       ; preds = %.thread153.sink.split, %66, %53, %77, %18
-  %.0 = phi ptr [ %.1, %77 ], [ %61, %66 ], [ null, %18 ], [ %48, %53 ], [ %.sink166, %.thread153.sink.split ]
+.thread153:                                       ; preds = %.thread153.sink.split, %53, %66, %77, %18
+  %.0 = phi ptr [ %.1, %77 ], [ null, %18 ], [ %48, %53 ], [ %61, %66 ], [ %.sink166, %.thread153.sink.split ]
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %86 = load ptr, ptr %85, align 8
   call void @col_set_str(ptr noundef %86, i32 noundef 35, ptr noundef nonnull @.str.29)

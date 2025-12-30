@@ -221,7 +221,7 @@ markPQExpBufferBroken.exit32:                     ; preds = %23, %25
   br label %26
 
 26:                                               ; preds = %15, %2, %4, %markPQExpBufferBroken.exit32, %22, %markPQExpBufferBroken.exit
-  %.0 = phi i32 [ 0, %markPQExpBufferBroken.exit32 ], [ 0, %markPQExpBufferBroken.exit ], [ 0, %2 ], [ 1, %22 ], [ 0, %4 ], [ 1, %15 ]
+  %.0 = phi i32 [ 0, %markPQExpBufferBroken.exit ], [ 1, %22 ], [ 0, %markPQExpBufferBroken.exit32 ], [ 0, %4 ], [ 0, %2 ], [ 1, %15 ]
   ret i32 %.0
 }
 
@@ -427,7 +427,7 @@ markPQExpBufferBroken.exit32.i:                   ; preds = %52, %50
   br label %enlargePQExpBuffer.exit
 
 enlargePQExpBuffer.exit:                          ; preds = %markPQExpBufferBroken.exit32.i, %49, %42, %markPQExpBufferBroken.exit.i, %33, %markPQExpBufferBroken.exit25, %22, %markPQExpBufferBroken.exit
-  %.0 = phi i1 [ true, %markPQExpBufferBroken.exit ], [ true, %22 ], [ true, %markPQExpBufferBroken.exit25 ], [ true, %markPQExpBufferBroken.exit32.i ], [ true, %markPQExpBufferBroken.exit.i ], [ false, %42 ], [ false, %49 ], [ true, %33 ]
+  %.0 = phi i1 [ true, %markPQExpBufferBroken.exit ], [ true, %22 ], [ true, %markPQExpBufferBroken.exit25 ], [ true, %markPQExpBufferBroken.exit.i ], [ false, %49 ], [ true, %markPQExpBufferBroken.exit32.i ], [ true, %33 ], [ false, %42 ]
   ret i1 %.0
 }
 
@@ -558,7 +558,7 @@ enlargePQExpBuffer.exit:                          ; preds = %.enlargePQExpBuffer
   store i8 0, ptr %33, align 1
   br label %enlargePQExpBuffer.exit.thread
 
-enlargePQExpBuffer.exit.thread:                   ; preds = %5, %3, %markPQExpBufferBroken.exit.i, %markPQExpBufferBroken.exit32.i, %enlargePQExpBuffer.exit
+enlargePQExpBuffer.exit.thread:                   ; preds = %3, %5, %markPQExpBufferBroken.exit32.i, %markPQExpBufferBroken.exit.i, %enlargePQExpBuffer.exit
   ret void
 }
 
@@ -652,7 +652,7 @@ enlargePQExpBuffer.exit:                          ; preds = %.enlargePQExpBuffer
   store i8 0, ptr %31, align 1
   br label %enlargePQExpBuffer.exit.thread
 
-enlargePQExpBuffer.exit.thread:                   ; preds = %4, %2, %markPQExpBufferBroken.exit.i, %markPQExpBufferBroken.exit32.i, %enlargePQExpBuffer.exit
+enlargePQExpBuffer.exit.thread:                   ; preds = %2, %4, %markPQExpBufferBroken.exit32.i, %markPQExpBufferBroken.exit.i, %enlargePQExpBuffer.exit
   ret void
 }
 

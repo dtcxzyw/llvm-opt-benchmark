@@ -531,7 +531,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %83
 
 83:                                               ; preds = %81, %77, %73, %72, %71, %50, %40, %30
-  %.2.i = phi ptr [ %.053.i, %77 ], [ %.053.i, %30 ], [ %.053.i, %40 ], [ %.053.i, %50 ], [ %.0.lcssa.i, %81 ], [ %.053.i, %73 ], [ %55, %71 ], [ %.053.i, %72 ]
+  %.2.i = phi ptr [ %.053.i, %77 ], [ %.053.i, %30 ], [ %.053.i, %40 ], [ %.053.i, %50 ], [ %55, %71 ], [ %.053.i, %72 ], [ %.053.i, %73 ], [ %.0.lcssa.i, %81 ]
   %.not.i.i = icmp eq ptr %.2.i, null
   br i1 %.not.i.i, label %.thread, label %..preheader.i_crit_edge.i
 
@@ -586,7 +586,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   tail call void @h5tools_setstatus(i32 noundef 1) #15
   br label %hand_free.exit
 
-.sink.split:                                      ; preds = %12, %10
+.sink.split:                                      ; preds = %10, %12
   tail call void @h5tools_setstatus(i32 noundef 0) #15
   br label %100
 
@@ -868,7 +868,7 @@ ceil_log10.exit.i:                                ; preds = %.lr.ph.i.i51, %207
   call void @free(ptr noundef nonnull %195) #15
   br label %freespace_stats.exit
 
-236:                                              ; preds = %194, %190
+236:                                              ; preds = %190, %194
   call void (ptr, ...) @warn_msg(ptr noundef nonnull @.str.13) #15
   br label %freespace_stats.exit
 
@@ -933,8 +933,8 @@ freespace_stats.exit:                             ; preds = %.loopexit.i55, %193
   br label %261
 
 261:                                              ; preds = %.loopexit, %110, %109, %103
-  %.041 = phi i64 [ -1, %110 ], [ -1, %103 ], [ -1, %109 ], [ %117, %.loopexit ]
-  %.038 = phi ptr [ null, %110 ], [ null, %103 ], [ null, %109 ], [ %114, %.loopexit ]
+  %.041 = phi i64 [ -1, %103 ], [ -1, %109 ], [ %117, %.loopexit ], [ -1, %110 ]
+  %.038 = phi ptr [ null, %103 ], [ null, %109 ], [ %114, %.loopexit ], [ null, %110 ]
   %.not.i57 = icmp eq ptr %.065.ph, null
   br i1 %.not.i57, label %hand_free.exit, label %.preheader.i58
 
@@ -1509,7 +1509,7 @@ group_stats.exit:                                 ; preds = %._crit_edge.i.i, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %datatype_stats.exit
 
-195:                                              ; preds = %120, %65, %69, %124
+195:                                              ; preds = %69, %65, %124, %120
   %.pr = load i32, ptr @enable_error_stack, align 4, !tbaa !9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %196 = icmp sgt i32 %.pr, 0
@@ -2380,7 +2380,7 @@ dataset_stats.exit:                               ; preds = %670
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %datatype_stats.exit
 
-689:                                              ; preds = %681, %235, %315, %334, %363, %391, %410, %477, %502, %524, %619, %662, %239, %319, %338, %367, %395, %414, %481, %506, %528, %623, %666, %685, %565, %569, %590, %586
+689:                                              ; preds = %239, %235, %319, %315, %338, %334, %367, %363, %395, %391, %414, %410, %481, %477, %506, %502, %528, %524, %623, %619, %666, %662, %685, %681, %569, %565, %590, %586
   %.pr100 = load i32, ptr @enable_error_stack, align 4, !tbaa !9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %690 = icmp sgt i32 %.pr100, 0
@@ -2538,7 +2538,7 @@ ceil_log10.exit.i.i85:                            ; preds = %.lr.ph.i.i.i81, %74
   br label %datatype_stats.exit
 
 datatype_stats.exit:                              ; preds = %763, %._crit_edge.i.i91, %.thread102, %dataset_stats.exit, %.thread, %group_stats.exit, %696, %700, %689, %202, %206, %195, %21, %25, %13, %4, %768
-  %.0 = phi i32 [ -1, %.thread102 ], [ 0, %768 ], [ -1, %21 ], [ 0, %group_stats.exit ], [ -1, %202 ], [ 0, %dataset_stats.exit ], [ 0, %4 ], [ -1, %13 ], [ -1, %25 ], [ -1, %195 ], [ -1, %206 ], [ -1, %689 ], [ -1, %700 ], [ -1, %696 ], [ -1, %.thread ], [ 0, %._crit_edge.i.i91 ], [ 0, %763 ]
+  %.0 = phi i32 [ 0, %768 ], [ 0, %group_stats.exit ], [ 0, %dataset_stats.exit ], [ 0, %4 ], [ -1, %13 ], [ -1, %25 ], [ -1, %21 ], [ -1, %195 ], [ -1, %206 ], [ -1, %202 ], [ -1, %689 ], [ -1, %700 ], [ -1, %696 ], [ -1, %.thread ], [ -1, %.thread102 ], [ 0, %._crit_edge.i.i91 ], [ 0, %763 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

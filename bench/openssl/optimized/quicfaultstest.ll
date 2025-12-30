@@ -202,7 +202,7 @@ define internal range(i32 0, 2) i32 @test_basic() #1 {
   br label %37
 
 37:                                               ; preds = %34, %26, %22, %15, %8, %0
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %34 ], [ 0, %26 ], [ 0, %22 ], [ 0, %15 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %26 ], [ 0, %22 ], [ 0, %15 ], [ 0, %8 ], [ 0, %0 ], [ %spec.select, %34 ]
   %38 = load ptr, ptr %2, align 8, !tbaa !11
   call void @SSL_free(ptr noundef %38) #4
   %39 = load ptr, ptr %1, align 8, !tbaa !9
@@ -346,7 +346,7 @@ define internal range(i32 0, 2) i32 @test_unknown_frame() #1 {
   br label %76
 
 76:                                               ; preds = %70, %65, %61, %57, %49, %46, %39, %30, %36, %24, %17, %10, %0
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %70 ], [ 0, %65 ], [ 0, %61 ], [ 0, %57 ], [ 0, %49 ], [ 0, %46 ], [ 0, %39 ], [ 0, %36 ], [ 0, %30 ], [ 0, %24 ], [ 0, %17 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %65 ], [ 0, %61 ], [ 0, %57 ], [ 0, %49 ], [ 0, %46 ], [ 0, %39 ], [ 0, %36 ], [ 0, %30 ], [ 0, %24 ], [ 0, %17 ], [ 0, %10 ], [ 0, %0 ], [ %spec.select, %70 ]
   %77 = load ptr, ptr %5, align 8, !tbaa !15
   call void @qtest_fault_free(ptr noundef %77) #4
   %78 = load ptr, ptr %2, align 8, !tbaa !11
@@ -428,7 +428,7 @@ define internal range(i32 0, 2) i32 @test_drop_extensions(i32 noundef %0) #1 {
   br label %36
 
 36:                                               ; preds = %30, %23, %16, %9, %1
-  %.05 = phi i32 [ 0, %1 ], [ %spec.select, %30 ], [ 0, %23 ], [ 0, %16 ], [ 0, %9 ]
+  %.05 = phi i32 [ 0, %23 ], [ 0, %16 ], [ 0, %9 ], [ 0, %1 ], [ %spec.select, %30 ]
   %37 = load ptr, ptr %4, align 8, !tbaa !15
   call void @qtest_fault_free(ptr noundef %37) #4
   %38 = load ptr, ptr %3, align 8, !tbaa !11
@@ -603,7 +603,7 @@ define internal range(i32 0, 2) i32 @test_corrupted_data(i32 noundef %0) #1 {
   br label %94
 
 94:                                               ; preds = %91, %88, %82, %74, %68, %65, %58, %55, %48, %39, %45, %32, %27, %22, %12, %1
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %91 ], [ 0, %88 ], [ 0, %82 ], [ 0, %74 ], [ 0, %68 ], [ 0, %65 ], [ 0, %58 ], [ 0, %55 ], [ 0, %48 ], [ 0, %45 ], [ 0, %39 ], [ 0, %32 ], [ 0, %22 ], [ 0, %27 ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %88 ], [ 0, %82 ], [ 0, %74 ], [ 0, %68 ], [ 0, %65 ], [ 0, %58 ], [ 0, %55 ], [ 0, %48 ], [ 0, %45 ], [ 0, %39 ], [ 0, %32 ], [ 0, %22 ], [ 0, %27 ], [ 0, %12 ], [ 0, %1 ], [ %spec.select, %91 ]
   %95 = load ptr, ptr %2, align 8, !tbaa !15
   call void @qtest_fault_free(ptr noundef %95) #4
   %96 = load ptr, ptr %4, align 8, !tbaa !11

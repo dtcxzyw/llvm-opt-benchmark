@@ -98,7 +98,7 @@ Py_DECREF.exit:                                   ; preds = %17, %19, %22
   br label %_PyErr_Occurred.exit24.thread
 
 _PyErr_Occurred.exit24.thread:                    ; preds = %15, %_PyErr_Occurred.exit, %_PyErr_Occurred.exit24, %24, %26, %11, %13
-  %.0 = phi ptr [ null, %24 ], [ null, %11 ], [ null, %13 ], [ null, %26 ], [ %2, %_PyErr_Occurred.exit24 ], [ null, %_PyErr_Occurred.exit ], [ %2, %15 ]
+  %.0 = phi ptr [ null, %13 ], [ null, %11 ], [ null, %26 ], [ null, %24 ], [ %2, %_PyErr_Occurred.exit24 ], [ null, %_PyErr_Occurred.exit ], [ %2, %15 ]
   ret ptr %.0
 }
 
@@ -233,7 +233,7 @@ _PyErr_Occurred.exit24.i:                         ; preds = %22
   br label %_PyObject_VectorcallTstate.exit
 
 _PyObject_VectorcallTstate.exit:                  ; preds = %30, %_PyErr_Occurred.exit24.i, %22, %19, %_PyErr_Occurred.exit.i, %_PyVectorcall_FunctionInline.exit.thread.i
-  %.0.i = phi ptr [ %11, %_PyVectorcall_FunctionInline.exit.thread.i ], [ null, %30 ], [ null, %19 ], [ %13, %22 ], [ null, %_PyErr_Occurred.exit.i ], [ %13, %_PyErr_Occurred.exit24.i ]
+  %.0.i = phi ptr [ %11, %_PyVectorcall_FunctionInline.exit.thread.i ], [ null, %19 ], [ null, %30 ], [ %13, %_PyErr_Occurred.exit24.i ], [ null, %_PyErr_Occurred.exit.i ], [ %13, %22 ]
   ret ptr %.0.i
 }
 
@@ -431,8 +431,8 @@ define dso_local noundef ptr @_PyObject_MakeTpCall(ptr noundef %0, ptr noundef %
   br label %Py_DECREF.exit41
 
 33:                                               ; preds = %20, %14, %16, %22
-  %.031 = phi ptr [ null, %14 ], [ %4, %22 ], [ %4, %16 ], [ null, %20 ]
-  %.029 = phi ptr [ null, %14 ], [ %25, %22 ], [ %4, %16 ], [ null, %20 ]
+  %.031 = phi ptr [ %4, %22 ], [ %4, %16 ], [ null, %14 ], [ null, %20 ]
+  %.029 = phi ptr [ %25, %22 ], [ %4, %16 ], [ null, %14 ], [ null, %20 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %35 = load i32, ptr %34, align 4, !tbaa !44
   %36 = add i32 %35, -1
@@ -846,7 +846,7 @@ Py_XDECREF.exit:                                  ; preds = %32, %34, %36, %39
   call void @_Py_Dealloc(ptr noundef nonnull %6) #10
   br label %45
 
-.thread31:                                        ; preds = %31, %Py_DECREF.exit24, %28
+.thread31:                                        ; preds = %Py_DECREF.exit24, %28, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %51
 
@@ -1087,7 +1087,7 @@ _PyErr_Occurred.exit24.i:                         ; preds = %26
   br label %_PyObject_VectorcallTstate.exit
 
 _PyObject_VectorcallTstate.exit:                  ; preds = %34, %_PyErr_Occurred.exit24.i, %26, %23, %_PyErr_Occurred.exit.i, %_PyVectorcall_FunctionInline.exit.thread.i
-  %.0.i = phi ptr [ %15, %_PyVectorcall_FunctionInline.exit.thread.i ], [ null, %34 ], [ null, %23 ], [ %17, %26 ], [ null, %_PyErr_Occurred.exit.i ], [ %17, %_PyErr_Occurred.exit24.i ]
+  %.0.i = phi ptr [ %15, %_PyVectorcall_FunctionInline.exit.thread.i ], [ null, %23 ], [ null, %34 ], [ %17, %_PyErr_Occurred.exit24.i ], [ null, %_PyErr_Occurred.exit.i ], [ %17, %26 ]
   ret ptr %.0.i
 }
 
@@ -1245,7 +1245,7 @@ _PyErr_Occurred.exit24.i:                         ; preds = %25
   br label %_PyObject_VectorcallTstate.exit
 
 _PyObject_VectorcallTstate.exit:                  ; preds = %33, %_PyErr_Occurred.exit24.i, %25, %22, %_PyErr_Occurred.exit.i, %_PyVectorcall_FunctionInline.exit.thread.i
-  %.0.i = phi ptr [ %14, %_PyVectorcall_FunctionInline.exit.thread.i ], [ null, %33 ], [ null, %22 ], [ %16, %25 ], [ null, %_PyErr_Occurred.exit.i ], [ %16, %_PyErr_Occurred.exit24.i ]
+  %.0.i = phi ptr [ %14, %_PyVectorcall_FunctionInline.exit.thread.i ], [ null, %22 ], [ null, %33 ], [ %16, %_PyErr_Occurred.exit24.i ], [ null, %_PyErr_Occurred.exit.i ], [ %16, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
 }
@@ -1441,7 +1441,7 @@ _PyErr_Occurred.exit24.i:                         ; preds = %21
   br label %_PyObject_VectorcallTstate.exit
 
 _PyObject_VectorcallTstate.exit:                  ; preds = %29, %_PyErr_Occurred.exit24.i, %21, %18, %_PyErr_Occurred.exit.i, %_PyVectorcall_FunctionInline.exit.thread.i
-  %.0.i = phi ptr [ %10, %_PyVectorcall_FunctionInline.exit.thread.i ], [ null, %29 ], [ null, %18 ], [ %12, %21 ], [ null, %_PyErr_Occurred.exit.i ], [ %12, %_PyErr_Occurred.exit24.i ]
+  %.0.i = phi ptr [ %10, %_PyVectorcall_FunctionInline.exit.thread.i ], [ null, %18 ], [ null, %29 ], [ %12, %_PyErr_Occurred.exit24.i ], [ null, %_PyErr_Occurred.exit.i ], [ %12, %21 ]
   ret ptr %.0.i
 }
 
@@ -1671,7 +1671,7 @@ _PyErr_Occurred.exit24.i:                         ; preds = %64
   br label %_PyObject_VectorcallTstate.exit
 
 _PyObject_VectorcallTstate.exit:                  ; preds = %_PyVectorcall_FunctionInline.exit.thread.i43, %_PyErr_Occurred.exit.i49, %61, %64, %_PyErr_Occurred.exit24.i, %72, %41, %_PyVectorcall_FunctionInline.exit.thread.i
-  %.025 = phi ptr [ %43, %41 ], [ %40, %_PyVectorcall_FunctionInline.exit.thread.i ], [ %53, %_PyVectorcall_FunctionInline.exit.thread.i43 ], [ null, %72 ], [ null, %61 ], [ %55, %64 ], [ null, %_PyErr_Occurred.exit.i49 ], [ %55, %_PyErr_Occurred.exit24.i ]
+  %.025 = phi ptr [ %40, %_PyVectorcall_FunctionInline.exit.thread.i ], [ %43, %41 ], [ %53, %_PyVectorcall_FunctionInline.exit.thread.i43 ], [ null, %61 ], [ null, %72 ], [ %55, %_PyErr_Occurred.exit24.i ], [ null, %_PyErr_Occurred.exit.i49 ], [ %55, %64 ]
   %75 = load i64, ptr %6, align 8, !tbaa !45
   %76 = icmp sgt i64 %75, 0
   br i1 %76, label %.lr.ph, label %._crit_edge
@@ -1709,7 +1709,7 @@ Py_DECREF.exit:                                   ; preds = %.lr.ph, %80, %83
   br label %null_error.exit
 
 null_error.exit:                                  ; preds = %_PyErr_Occurred.exit.thread.i, %_PyErr_Occurred.exit.i, %._crit_edge, %87, %18, %16
-  %.0 = phi ptr [ %.025, %._crit_edge ], [ %17, %16 ], [ null, %18 ], [ %.025, %87 ], [ null, %_PyErr_Occurred.exit.i ], [ null, %_PyErr_Occurred.exit.thread.i ]
+  %.0 = phi ptr [ %17, %16 ], [ null, %18 ], [ %.025, %87 ], [ %.025, %._crit_edge ], [ null, %_PyErr_Occurred.exit.i ], [ null, %_PyErr_Occurred.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -1818,7 +1818,7 @@ Py_DECREF.exit:                                   ; preds = %callmethod.exit, %2
   br label %null_error.exit
 
 null_error.exit:                                  ; preds = %_PyErr_Occurred.exit.thread.i, %_PyErr_Occurred.exit.i, %Py_DECREF.exit, %14
-  %.0 = phi ptr [ null, %14 ], [ %.0.i, %Py_DECREF.exit ], [ null, %_PyErr_Occurred.exit.i ], [ null, %_PyErr_Occurred.exit.thread.i ]
+  %.0 = phi ptr [ %.0.i, %Py_DECREF.exit ], [ null, %14 ], [ null, %_PyErr_Occurred.exit.i ], [ null, %_PyErr_Occurred.exit.thread.i ]
   ret ptr %.0
 }
 
@@ -1898,7 +1898,7 @@ Py_DECREF.exit:                                   ; preds = %callmethod.exit, %2
   br label %null_error.exit
 
 null_error.exit:                                  ; preds = %_PyErr_Occurred.exit.thread.i, %_PyErr_Occurred.exit.i, %Py_DECREF.exit, %14
-  %.0 = phi ptr [ null, %14 ], [ %.0.i, %Py_DECREF.exit ], [ null, %_PyErr_Occurred.exit.i ], [ null, %_PyErr_Occurred.exit.thread.i ]
+  %.0 = phi ptr [ %.0.i, %Py_DECREF.exit ], [ null, %14 ], [ null, %_PyErr_Occurred.exit.i ], [ null, %_PyErr_Occurred.exit.thread.i ]
   ret ptr %.0
 }
 
@@ -1976,7 +1976,7 @@ Py_DECREF.exit:                                   ; preds = %callmethod.exit, %2
   br label %null_error.exit
 
 null_error.exit:                                  ; preds = %_PyErr_Occurred.exit.thread.i, %_PyErr_Occurred.exit.i, %Py_DECREF.exit, %14
-  %.0 = phi ptr [ null, %14 ], [ %.0.i, %Py_DECREF.exit ], [ null, %_PyErr_Occurred.exit.i ], [ null, %_PyErr_Occurred.exit.thread.i ]
+  %.0 = phi ptr [ %.0.i, %Py_DECREF.exit ], [ null, %14 ], [ null, %_PyErr_Occurred.exit.i ], [ null, %_PyErr_Occurred.exit.thread.i ]
   ret ptr %.0
 }
 
@@ -2056,7 +2056,7 @@ Py_DECREF.exit:                                   ; preds = %callmethod.exit, %2
   br label %null_error.exit
 
 null_error.exit:                                  ; preds = %_PyErr_Occurred.exit.thread.i, %_PyErr_Occurred.exit.i, %Py_DECREF.exit, %14
-  %.0 = phi ptr [ null, %14 ], [ %.0.i, %Py_DECREF.exit ], [ null, %_PyErr_Occurred.exit.i ], [ null, %_PyErr_Occurred.exit.thread.i ]
+  %.0 = phi ptr [ %.0.i, %Py_DECREF.exit ], [ null, %14 ], [ null, %_PyErr_Occurred.exit.i ], [ null, %_PyErr_Occurred.exit.thread.i ]
   ret ptr %.0
 }
 
@@ -2165,7 +2165,7 @@ Py_DECREF.exit:                                   ; preds = %callmethod.exit, %2
   br label %null_error.exit
 
 null_error.exit:                                  ; preds = %_PyErr_Occurred.exit.thread.i, %_PyErr_Occurred.exit.i, %Py_DECREF.exit, %14
-  %.0 = phi ptr [ null, %14 ], [ %.0.i, %Py_DECREF.exit ], [ null, %_PyErr_Occurred.exit.i ], [ null, %_PyErr_Occurred.exit.thread.i ]
+  %.0 = phi ptr [ %.0.i, %Py_DECREF.exit ], [ null, %14 ], [ null, %_PyErr_Occurred.exit.i ], [ null, %_PyErr_Occurred.exit.thread.i ]
   ret ptr %.0
 }
 
@@ -2262,7 +2262,7 @@ _PyErr_Occurred.exit24.i:                         ; preds = %34
   br label %_PyObject_VectorcallTstate.exit
 
 _PyObject_VectorcallTstate.exit:                  ; preds = %42, %_PyErr_Occurred.exit24.i, %34, %31, %_PyErr_Occurred.exit.i, %_PyVectorcall_FunctionInline.exit.thread.i
-  %.0.i = phi ptr [ %23, %_PyVectorcall_FunctionInline.exit.thread.i ], [ null, %42 ], [ null, %31 ], [ %25, %34 ], [ null, %_PyErr_Occurred.exit.i ], [ %25, %_PyErr_Occurred.exit24.i ]
+  %.0.i = phi ptr [ %23, %_PyVectorcall_FunctionInline.exit.thread.i ], [ null, %31 ], [ null, %42 ], [ %25, %_PyErr_Occurred.exit24.i ], [ null, %_PyErr_Occurred.exit.i ], [ %25, %34 ]
   %45 = load ptr, ptr %5, align 8, !tbaa !23
   %46 = load i32, ptr %45, align 8, !tbaa !24
   %.not.i = icmp sgt i32 %46, -1
@@ -2560,7 +2560,7 @@ _PyErr_Occurred.exit24.i:                         ; preds = %85
   br label %_PyObject_VectorcallTstate.exit
 
 _PyObject_VectorcallTstate.exit:                  ; preds = %93, %_PyErr_Occurred.exit24.i, %85, %82, %_PyErr_Occurred.exit.i43, %_PyVectorcall_FunctionInline.exit.thread.i
-  %.0.i = phi ptr [ %74, %_PyVectorcall_FunctionInline.exit.thread.i ], [ null, %93 ], [ null, %82 ], [ %76, %85 ], [ null, %_PyErr_Occurred.exit.i43 ], [ %76, %_PyErr_Occurred.exit24.i ]
+  %.0.i = phi ptr [ %74, %_PyVectorcall_FunctionInline.exit.thread.i ], [ null, %82 ], [ null, %93 ], [ %76, %_PyErr_Occurred.exit24.i ], [ null, %_PyErr_Occurred.exit.i43 ], [ %76, %85 ]
   %.not37 = icmp eq ptr %.029, %5
   br i1 %.not37, label %null_error.exit, label %96
 
@@ -2569,7 +2569,7 @@ _PyObject_VectorcallTstate.exit:                  ; preds = %93, %_PyErr_Occurre
   br label %null_error.exit
 
 null_error.exit:                                  ; preds = %_PyErr_Occurred.exit.thread.i, %_PyErr_Occurred.exit.i, %_PyObject_VectorcallTstate.exit, %96, %41
-  %.0 = phi ptr [ %.0.i, %_PyObject_VectorcallTstate.exit ], [ null, %41 ], [ %.0.i, %96 ], [ null, %_PyErr_Occurred.exit.i ], [ null, %_PyErr_Occurred.exit.thread.i ]
+  %.0 = phi ptr [ null, %41 ], [ %.0.i, %96 ], [ %.0.i, %_PyObject_VectorcallTstate.exit ], [ null, %_PyErr_Occurred.exit.i ], [ null, %_PyErr_Occurred.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -2649,7 +2649,7 @@ Py_DECREF.exit:                                   ; preds = %20, %26, %29
   br label %null_error.exit
 
 null_error.exit:                                  ; preds = %_PyErr_Occurred.exit.thread.i, %_PyErr_Occurred.exit.i, %30, %14
-  %.0 = phi ptr [ null, %14 ], [ %.2, %30 ], [ null, %_PyErr_Occurred.exit.i ], [ null, %_PyErr_Occurred.exit.thread.i ]
+  %.0 = phi ptr [ %.2, %30 ], [ null, %14 ], [ null, %_PyErr_Occurred.exit.i ], [ null, %_PyErr_Occurred.exit.thread.i ]
   ret ptr %.0
 }
 

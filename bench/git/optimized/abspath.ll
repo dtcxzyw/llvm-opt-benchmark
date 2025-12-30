@@ -255,7 +255,7 @@ sub_199:                                          ; preds = %sub_098
   br i1 %86, label %.lr.ph21.i, label %.critedge2.i, !llvm.loop !17
 
 .critedge2.i:                                     ; preds = %77, %84, %.lr.ph21.i, %.critedge.i
-  %.1.lcssa.i = phi i64 [ %.0.lcssa.i, %.critedge.i ], [ %71, %84 ], [ %.120.i, %.lr.ph21.i ], [ %71, %77 ]
+  %.1.lcssa.i = phi i64 [ %.0.lcssa.i, %.critedge.i ], [ %.120.i, %.lr.ph21.i ], [ %71, %84 ], [ %71, %77 ]
   %87 = load i64, ptr %0, align 8, !tbaa !18
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %87, i64 1)
   %88 = icmp ugt i64 %.1.lcssa.i, %spec.select.i.i
@@ -456,7 +456,7 @@ get_root_part.exit64:                             ; preds = %142, %144
   br i1 %164, label %.lr.ph21.i73, label %.critedge2.i68, !llvm.loop !17
 
 .critedge2.i68:                                   ; preds = %155, %162, %.lr.ph21.i73, %.critedge.i66
-  %.1.lcssa.i69 = phi i64 [ %.0.lcssa.i67, %.critedge.i66 ], [ %149, %162 ], [ %.120.i74, %.lr.ph21.i73 ], [ %149, %155 ]
+  %.1.lcssa.i69 = phi i64 [ %.0.lcssa.i67, %.critedge.i66 ], [ %.120.i74, %.lr.ph21.i73 ], [ %149, %162 ], [ %149, %155 ]
   %165 = load i64, ptr %0, align 8, !tbaa !18
   %spec.select.i.i70 = call i64 @llvm.usub.sat.i64(i64 %165, i64 1)
   %166 = icmp ugt i64 %.1.lcssa.i69, %spec.select.i.i70
@@ -536,7 +536,7 @@ strbuf_addch.exit89:                              ; preds = %strbuf_avail.exit.i
   br label %.thread93
 
 .thread93:                                        ; preds = %136, %128, %116, %26, %10, %.outer._crit_edge
-  %.034 = phi ptr [ null, %116 ], [ null, %10 ], [ %183, %.outer._crit_edge ], [ null, %26 ], [ null, %128 ], [ null, %136 ]
+  %.034 = phi ptr [ null, %116 ], [ %183, %.outer._crit_edge ], [ null, %26 ], [ null, %10 ], [ null, %128 ], [ null, %136 ]
   call void @strbuf_release(ptr noundef nonnull %5) #12
   call void @strbuf_release(ptr noundef nonnull %6) #12
   call void @strbuf_release(ptr noundef nonnull %7) #12

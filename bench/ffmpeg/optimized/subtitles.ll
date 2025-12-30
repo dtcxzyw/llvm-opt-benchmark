@@ -104,7 +104,7 @@ sub_2:                                            ; preds = %sub_132
   br i1 %48, label %.sink.split, label %51
 
 .sink.split.sink.split:                           ; preds = %.tail26, %.tail.thread
-  %.sink = phi i32 [ 2, %.tail26 ], [ 1, %.tail.thread ]
+  %.sink = phi i32 [ 1, %.tail.thread ], [ 2, %.tail26 ]
   store i32 %.sink, ptr %1, align 8, !tbaa !18
   br label %.sink.split
 
@@ -234,7 +234,7 @@ define i32 @ff_text_r8(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br label %47
 
 41:                                               ; preds = %27, %18
-  %.258 = phi i32 [ %28, %27 ], [ %19, %18 ]
+  %.258 = phi i32 [ %19, %18 ], [ %28, %27 ]
   %.not = icmp eq i32 %.258, 0
   br i1 %.not, label %.critedge, label %42
 
@@ -498,7 +498,7 @@ define ptr @ff_subtitles_queue_insert(ptr noundef %0, ptr noundef readonly captu
   br label %.critedge
 
 .critedge:                                        ; preds = %44, %7, %19, %15, %33, %26, %._crit_edge, %40
-  %.1 = phi ptr [ null, %15 ], [ null, %33 ], [ null, %._crit_edge ], [ null, %40 ], [ null, %26 ], [ %12, %19 ], [ %12, %7 ], [ %34, %44 ]
+  %.1 = phi ptr [ null, %40 ], [ null, %._crit_edge ], [ null, %26 ], [ null, %33 ], [ null, %15 ], [ %12, %19 ], [ %12, %7 ], [ %34, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.1
 }
@@ -761,7 +761,7 @@ define internal range(i32 -1, 2) i32 @cmp_pkt_sub_pos_ts(ptr noundef readonly ca
   br label %22
 
 22:                                               ; preds = %10, %19, %16
-  %.0 = phi i32 [ %21, %19 ], [ %18, %16 ], [ 0, %10 ]
+  %.0 = phi i32 [ %18, %16 ], [ %21, %19 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -876,7 +876,7 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
   br i1 %49, label %.preheader109, label %.lr.ph.i
 
 .preheader109:                                    ; preds = %40, %27, %.preheader.i
-  %.0.i = phi i32 [ 0, %.preheader.i ], [ %39, %27 ], [ %.026..i, %40 ]
+  %.0.i = phi i32 [ %39, %27 ], [ 0, %.preheader.i ], [ %.026..i, %40 ]
   %50 = icmp slt i32 %.0.i, %21
   %.pre.pre = load ptr, ptr %0, align 8, !tbaa !27
   br i1 %50, label %.lr.ph, label %.critedge
@@ -935,7 +935,7 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.split, %71, %.lr.ph118, %.critedge.loopexit.split.loop.exit188, %.preheader109
-  %.079.lcssa = phi i32 [ %.0.i, %.preheader109 ], [ %23, %.lr.ph118 ], [ %78, %.critedge.loopexit.split.loop.exit188 ], [ %spec.select, %71 ], [ %.079112, %.lr.ph.split ]
+  %.079.lcssa = phi i32 [ %.0.i, %.preheader109 ], [ %78, %.critedge.loopexit.split.loop.exit188 ], [ %23, %.lr.ph118 ], [ %spec.select, %71 ], [ %.079112, %.lr.ph.split ]
   %79 = icmp sgt i32 %.079.lcssa, 0
   br i1 %79, label %.lr.ph122, label %.critedge2
 
@@ -996,7 +996,7 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.lr.ph122.split, %101, %.critedge2.loopexit, %.critedge.thread, %.lr.ph122.split.us, %.critedge
-  %.281.lcssa = phi i32 [ %.079.lcssa, %.critedge ], [ %.0.i, %.critedge.thread ], [ %.079.lcssa171173, %.lr.ph122.split.us ], [ %107, %.critedge2.loopexit ], [ %spec.select140, %101 ], [ %.281120, %.lr.ph122.split ]
+  %.281.lcssa = phi i32 [ %.079.lcssa, %.critedge ], [ %.079.lcssa171173, %.lr.ph122.split.us ], [ %.0.i, %.critedge.thread ], [ %107, %.critedge2.loopexit ], [ %spec.select140, %101 ], [ %.281120, %.lr.ph122.split ]
   %108 = zext nneg i32 %.281.lcssa to i64
   %109 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %108
   %110 = load ptr, ptr %109, align 8, !tbaa !28
@@ -1050,7 +1050,7 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
   br i1 %or.cond107.us, label %135, label %.thread
 
 135:                                              ; preds = %129, %.lr.ph134.split.us
-  %.6.us = phi i32 [ %134, %129 ], [ %.4132.us, %.lr.ph134.split.us ]
+  %.6.us = phi i32 [ %.4132.us, %.lr.ph134.split.us ], [ %134, %129 ]
   %indvars.iv.next158 = add nsw i64 %indvars.iv157, -1
   %136 = icmp sgt i64 %indvars.iv157, 0
   br i1 %136, label %.lr.ph134.split.us, label %.thread, !llvm.loop !53
@@ -1082,13 +1082,13 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
   br i1 %or.cond107, label %151, label %.thread
 
 151:                                              ; preds = %147, %.lr.ph134.split, %144
-  %.6 = phi i32 [ %150, %147 ], [ %.4132, %.lr.ph134.split ], [ %.4132, %144 ]
+  %.6 = phi i32 [ %.4132, %144 ], [ %.4132, %.lr.ph134.split ], [ %150, %147 ]
   %indvars.iv.next155 = add nsw i64 %indvars.iv154, -1
   %152 = icmp sgt i64 %indvars.iv154, 0
   br i1 %152, label %.lr.ph134.split, label %.thread, !llvm.loop !53
 
 .thread:                                          ; preds = %151, %147, %135, %129
-  %.4.lcssa = phi i32 [ %.4132.us, %129 ], [ %.6.us, %135 ], [ %.6, %151 ], [ %.4132, %147 ]
+  %.4.lcssa = phi i32 [ %.4132.us, %129 ], [ %.6.us, %135 ], [ %.4132, %147 ], [ %.6, %151 ]
   %153 = icmp eq i32 %2, -1
   %154 = icmp sgt i32 %.4.lcssa, 0
   %or.cond = select i1 %153, i1 %154, i1 false
@@ -1114,13 +1114,13 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
   br i1 %.old5, label %.preheader, label %.thread103.sink.split
 
 .thread103.sink.split:                            ; preds = %.preheader, %165, %.thread, %.preheader108, %17
-  %.sink = phi i32 [ %18, %17 ], [ %.4.lcssa, %.thread ], [ %.281.lcssa, %.preheader108 ], [ 0, %165 ], [ %.8, %.preheader ]
+  %.sink = phi i32 [ %18, %17 ], [ %.4.lcssa, %.thread ], [ %.281.lcssa, %.preheader108 ], [ %.8, %.preheader ], [ 0, %165 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sink, ptr %167, align 8, !tbaa !49
   br label %.thread103
 
 .thread103:                                       ; preds = %.thread103.sink.split, %.critedge2.thread, %19, %.critedge2, %11, %13, %7
-  %.0 = phi i32 [ -34, %.critedge2 ], [ -38, %7 ], [ -34, %11 ], [ -34, %13 ], [ -34, %.critedge2.thread ], [ -34, %19 ], [ 0, %.thread103.sink.split ]
+  %.0 = phi i32 [ -38, %7 ], [ -34, %13 ], [ -34, %11 ], [ -34, %.critedge2 ], [ -34, %19 ], [ -34, %.critedge2.thread ], [ 0, %.thread103.sink.split ]
   ret i32 %.0
 }
 
@@ -1283,7 +1283,7 @@ define range(i32 -2147483647, -2147483648) i32 @ff_smil_extract_next_text_chunk(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %5, %20
-  %.0 = phi i32 [ 0, %5 ], [ %23, %20 ], [ -1094995529, %11 ]
+  %.0 = phi i32 [ %23, %20 ], [ 0, %5 ], [ -1094995529, %11 ]
   ret i32 %.0
 }
 
@@ -1459,10 +1459,10 @@ define range(i32 -12, 1) i32 @ff_subtitles_read_text_chunk(ptr noundef captures(
   br label %32
 
 32:                                               ; preds = %9, %9, %30, %23
-  %.128 = phi i32 [ %.02750, %23 ], [ 0, %9 ], [ %31, %30 ], [ 0, %9 ]
-  %.125 = phi i32 [ %19, %23 ], [ %.02451, %9 ], [ 0, %30 ], [ %.02451, %9 ]
-  %.123 = phi i32 [ %16, %23 ], [ %.02252, %9 ], [ %.2, %30 ], [ %.02252, %9 ]
-  %.1 = phi i8 [ %25, %23 ], [ %.02153, %9 ], [ %.02153, %30 ], [ %.02153, %9 ]
+  %.128 = phi i32 [ %.02750, %23 ], [ %31, %30 ], [ 0, %9 ], [ 0, %9 ]
+  %.125 = phi i32 [ %19, %23 ], [ 0, %30 ], [ %.02451, %9 ], [ %.02451, %9 ]
+  %.123 = phi i32 [ %16, %23 ], [ %.2, %30 ], [ %.02252, %9 ], [ %.02252, %9 ]
+  %.1 = phi i8 [ %25, %23 ], [ %.02153, %30 ], [ %.02153, %9 ], [ %.02153, %9 ]
   %33 = call i32 @ff_text_r8(ptr noundef %0)
   %34 = trunc i32 %33 to i8
   %.not = icmp eq i8 %34, 0
@@ -1549,7 +1549,7 @@ ff_text_eof.exit.thread:                          ; preds = %8, %ff_text_eof.exi
   br i1 %exitcond.not, label %.thread42, label %.lr.ph
 
 .thread42:                                        ; preds = %16, %.lr.ph, %.lr.ph, %4
-  %.024.lcssa = phi i64 [ 0, %4 ], [ %.02449, %.lr.ph ], [ %.02449, %.lr.ph ], [ %5, %16 ]
+  %.024.lcssa = phi i64 [ 0, %4 ], [ %5, %16 ], [ %.02449, %.lr.ph ], [ %.02449, %.lr.ph ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1629,7 +1629,7 @@ ff_text_peek_r8.exit35:                           ; preds = %46, %51, %55
   br label %.thread
 
 .thread:                                          ; preds = %ff_text_eof.exit.thread, %ff_text_eof.exit, %ff_text_peek_r8.exit35, %58, %3
-  %.0 = phi i64 [ %.024.lcssa, %ff_text_peek_r8.exit35 ], [ 0, %3 ], [ %.024.lcssa, %58 ], [ %.02449, %ff_text_eof.exit ], [ -1094995529, %ff_text_eof.exit.thread ]
+  %.0 = phi i64 [ 0, %3 ], [ %.024.lcssa, %58 ], [ %.024.lcssa, %ff_text_peek_r8.exit35 ], [ %.02449, %ff_text_eof.exit ], [ -1094995529, %ff_text_eof.exit.thread ]
   ret i64 %.0
 }
 

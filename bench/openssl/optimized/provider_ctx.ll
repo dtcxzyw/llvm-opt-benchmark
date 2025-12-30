@@ -191,7 +191,7 @@ define ptr @ossl_prov_ctx_get_param(ptr noundef readonly captures(address_is_nul
   br label %26
 
 26:                                               ; preds = %20, %3, %7, %10, %25
-  %.0 = phi ptr [ %2, %25 ], [ %2, %3 ], [ %2, %10 ], [ %2, %7 ], [ %23, %20 ]
+  %.0 = phi ptr [ %2, %25 ], [ %2, %10 ], [ %2, %7 ], [ %2, %3 ], [ %23, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -246,7 +246,7 @@ define noundef i32 @ossl_prov_ctx_get_bool_param(ptr noundef readonly captures(a
   %or.cond.i = select i1 %22, i1 %24, i1 false
   br i1 %or.cond.i, label %sub_0, label %ossl_prov_ctx_get_param.exit.thread
 
-ossl_prov_ctx_get_param.exit.thread:              ; preds = %3, %10, %7, %20, %14
+ossl_prov_ctx_get_param.exit.thread:              ; preds = %10, %7, %3, %20, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %49
@@ -309,7 +309,7 @@ sub_016:                                          ; preds = %34
   br label %50
 
 50:                                               ; preds = %.tail15, %.tail15.thread, %43, %46, %.tail, %.tail.thread, %31, %34, %49
-  %.0 = phi i32 [ %2, %49 ], [ 1, %.tail ], [ 1, %34 ], [ 1, %31 ], [ 1, %.tail.thread ], [ 0, %46 ], [ 0, %43 ], [ 0, %.tail15.thread ], [ 0, %.tail15 ]
+  %.0 = phi i32 [ %2, %49 ], [ 1, %34 ], [ 1, %31 ], [ 1, %.tail.thread ], [ 1, %.tail ], [ 0, %46 ], [ 0, %43 ], [ 0, %.tail15.thread ], [ 0, %.tail15 ]
   ret i32 %.0
 }
 

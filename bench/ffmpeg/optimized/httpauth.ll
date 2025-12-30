@@ -241,8 +241,8 @@ define internal void @handle_digest_params(ptr noundef %0, ptr noundef readonly 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %10, %8, %15, %23, %27, %19
-  %.sink35 = phi ptr [ %9, %8 ], [ %20, %19 ], [ %28, %27 ], [ %24, %23 ], [ %16, %15 ], [ %11, %10 ]
-  %.sink = phi i32 [ 200, %8 ], [ 10, %19 ], [ 10, %27 ], [ 30, %23 ], [ 300, %15 ], [ 300, %10 ]
+  %.sink35 = phi ptr [ %20, %19 ], [ %28, %27 ], [ %24, %23 ], [ %16, %15 ], [ %9, %8 ], [ %11, %10 ]
+  %.sink = phi i32 [ 10, %19 ], [ 10, %27 ], [ 30, %23 ], [ 300, %15 ], [ 200, %8 ], [ 300, %10 ]
   store ptr %.sink35, ptr %3, align 8, !tbaa !12
   store i32 %.sink, ptr %4, align 4, !tbaa !15
   br label %29
@@ -499,7 +499,7 @@ define ptr @ff_http_auth_create_response(ptr noundef initializes((860, 864)) %0,
   br label %make_digest_auth.exit
 
 make_digest_auth.exit:                            ; preds = %.critedge66, %62, %72, %74, %118
-  %.0.i = phi ptr [ null, %62 ], [ null, %.critedge66 ], [ %97, %118 ], [ null, %72 ], [ null, %74 ]
+  %.0.i = phi ptr [ null, %62 ], [ %97, %118 ], [ null, %.critedge66 ], [ null, %72 ], [ null, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -515,7 +515,7 @@ make_digest_auth.exit:                            ; preds = %.critedge66, %62, %
   br label %.critedge
 
 .critedge:                                        ; preds = %120, %38, %27, %17, %28, %15, %4, %13
-  %.0 = phi ptr [ null, %27 ], [ null, %38 ], [ %.3, %120 ], [ null, %13 ], [ null, %4 ], [ %26, %28 ], [ null, %15 ], [ null, %17 ]
+  %.0 = phi ptr [ null, %13 ], [ null, %4 ], [ %26, %28 ], [ null, %15 ], [ null, %17 ], [ null, %27 ], [ null, %38 ], [ %.3, %120 ]
   ret ptr %.0
 }
 

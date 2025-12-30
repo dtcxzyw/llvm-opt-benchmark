@@ -1742,7 +1742,7 @@ bmpv4_dissect_tlv_hdr.exit:                       ; preds = %11, %28
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %32, %61, %55, %53, %47, %bmpv4_dissect_tlv_hdr.exit, %76, %72
-  %.2 = phi i32 [ %.0.i, %bmpv4_dissect_tlv_hdr.exit ], [ %85, %76 ], [ %51, %53 ], [ %51, %47 ], [ %64, %61 ], [ %60, %55 ], [ %75, %72 ], [ %35, %32 ], [ %45, %.lr.ph ]
+  %.2 = phi i32 [ %.0.i, %bmpv4_dissect_tlv_hdr.exit ], [ %51, %53 ], [ %51, %47 ], [ %64, %61 ], [ %60, %55 ], [ %75, %72 ], [ %85, %76 ], [ %35, %32 ], [ %45, %.lr.ph ]
   %86 = call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %.2)
   %87 = icmp sgt i32 %86, 3
   br i1 %87, label %11, label %._crit_edge, !llvm.loop !17

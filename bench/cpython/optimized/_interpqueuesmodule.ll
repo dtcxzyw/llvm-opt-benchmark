@@ -339,7 +339,7 @@ _queue_clear.exit.i:                              ; preds = %_queueitem_free.exi
   br label %59
 
 59:                                               ; preds = %43, %46, %58, %3, %11
-  %.0 = phi ptr [ null, %3 ], [ null, %11 ], [ null, %43 ], [ null, %58 ], [ %51, %46 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %3 ], [ null, %43 ], [ null, %58 ], [ %51, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -475,7 +475,7 @@ define internal ptr @queuesmod_list_all(ptr readnone captures(none) %0, ptr read
   br i1 %exitcond.not, label %Py_DECREF.exit.thread, label %35, !llvm.loop !61
 
 Py_DECREF.exit.thread:                            ; preds = %48, %.preheader, %42, %44, %47, %.loopexit
-  %.023 = phi ptr [ null, %.loopexit ], [ null, %42 ], [ null, %47 ], [ null, %44 ], [ %31, %.preheader ], [ %31, %48 ]
+  %.023 = phi ptr [ null, %.loopexit ], [ null, %47 ], [ null, %44 ], [ null, %42 ], [ %31, %.preheader ], [ %31, %48 ]
   tail call void @PyMem_Free(ptr noundef nonnull %9) #6
   br label %52
 
@@ -670,8 +670,8 @@ _queue_lock.exit.i.i:                             ; preds = %62
   br label %_queue_add.exit.i
 
 _queue_add.exit.i:                                ; preds = %90, %76, %_queue_lock.exit.i.i, %62
-  %.not24.i = phi i1 [ true, %90 ], [ false, %62 ], [ false, %76 ], [ false, %_queue_lock.exit.i.i ]
-  %.0.i29.i = phi i32 [ 0, %90 ], [ -14, %62 ], [ -1, %76 ], [ -22, %_queue_lock.exit.i.i ]
+  %.not24.i = phi i1 [ false, %76 ], [ true, %90 ], [ false, %62 ], [ false, %_queue_lock.exit.i.i ]
+  %.0.i29.i = phi i32 [ -1, %76 ], [ 0, %90 ], [ -14, %62 ], [ -22, %_queue_lock.exit.i.i ]
   %92 = load ptr, ptr %63, align 8, !tbaa !35
   call void @PyThread_release_lock(ptr noundef %92) #6
   %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8, !tbaa !20
@@ -701,7 +701,7 @@ _queue_unmark_waiter.exit31.i:                    ; preds = %98, %94
   br label %queue_put.exit
 
 queue_put.exit:                                   ; preds = %18, %_queues_lookup.exit.i, %44, %48, %_queue_unmark_waiter.exit26.i, %_queue_unmark_waiter.exit31.i, %101
-  %.0.i = phi i32 [ -1, %18 ], [ -14, %_queues_lookup.exit.i ], [ 0, %_queue_unmark_waiter.exit31.i ], [ -1, %_queue_unmark_waiter.exit26.i ], [ %.0.i29.i, %101 ], [ -1, %44 ], [ -1, %48 ]
+  %.0.i = phi i32 [ -1, %18 ], [ -14, %_queues_lookup.exit.i ], [ -1, %_queue_unmark_waiter.exit26.i ], [ %.0.i29.i, %101 ], [ 0, %_queue_unmark_waiter.exit31.i ], [ -1, %44 ], [ -1, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %103 = call fastcc i32 @handle_queue_error(i32 noundef %.0.i, ptr noundef %0, i64 noundef %12)
   %.not7 = icmp eq i32 %103, 0
@@ -909,7 +909,7 @@ queue_get.exit:                                   ; preds = %67, %_queues_lookup
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %79, %queue_get.exit, %81, %84, %87, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %queue_get.exit ], [ %80, %79 ], [ %82, %81 ], [ %82, %84 ], [ %82, %87 ]
+  %.0 = phi ptr [ null, %3 ], [ %80, %79 ], [ null, %queue_get.exit ], [ %82, %81 ], [ %82, %84 ], [ %82, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -1575,7 +1575,7 @@ set_external_exc_types.exit:                      ; preds = %_Py_NewRef.exit.i18
   br label %set_external_queue_type.exit.thread
 
 set_external_queue_type.exit.thread:              ; preds = %ensure_xid_class.exit.thread.i, %ensure_xid_class.exit.i, %set_external_exc_types.exit, %3, %35, %25, %15
-  %.0 = phi ptr [ null, %3 ], [ null, %35 ], [ null, %25 ], [ null, %15 ], [ @_Py_NoneStruct, %set_external_exc_types.exit ], [ null, %ensure_xid_class.exit.i ], [ null, %ensure_xid_class.exit.thread.i ]
+  %.0 = phi ptr [ null, %35 ], [ null, %25 ], [ null, %15 ], [ null, %3 ], [ @_Py_NoneStruct, %set_external_exc_types.exit ], [ null, %ensure_xid_class.exit.i ], [ null, %ensure_xid_class.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1751,8 +1751,8 @@ Py_DECREF.exit:                                   ; preds = %resolve_module_errc
   tail call void @_Py_Dealloc(ptr noundef nonnull %60) #6
   br label %Py_DECREF.exit17
 
-Py_DECREF.exit17:                                 ; preds = %3, %Py_DECREF.exit, %38, %58, %21, %55, %71, %68, %66, %4, %3
-  %.0 = phi i32 [ %0, %3 ], [ -1, %38 ], [ -1, %Py_DECREF.exit ], [ 1, %71 ], [ 1, %4 ], [ 1, %66 ], [ 1, %68 ], [ -1, %55 ], [ -1, %21 ], [ -1, %58 ], [ %0, %3 ]
+Py_DECREF.exit17:                                 ; preds = %3, %Py_DECREF.exit, %38, %21, %58, %55, %71, %68, %66, %4, %3
+  %.0 = phi i32 [ %0, %3 ], [ 1, %4 ], [ 1, %66 ], [ 1, %68 ], [ 1, %71 ], [ -1, %55 ], [ -1, %58 ], [ -1, %21 ], [ -1, %38 ], [ -1, %Py_DECREF.exit ], [ %0, %3 ]
   ret i32 %.0
 }
 
@@ -1993,12 +1993,12 @@ define internal fastcc range(i32 0, 2) i32 @idarg_int64_converter(ptr noundef %0
   %29 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %25, ptr noundef nonnull @.str.34, ptr noundef nonnull %spec.store.select, ptr noundef %28) #6
   br label %30
 
-.critedge:                                        ; preds = %.thread21, %15, %10
+.critedge:                                        ; preds = %10, %.thread21, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %30
 
 30:                                               ; preds = %.critedge, %22, %24
-  %.1 = phi i32 [ 1, %22 ], [ 0, %.critedge ], [ 0, %24 ]
+  %.1 = phi i32 [ 1, %22 ], [ 0, %24 ], [ 0, %.critedge ]
   ret i32 %.1
 }
 
@@ -2237,8 +2237,8 @@ _queues_incref.exit.thread.i:                     ; preds = %23, %14
   store ptr @_queueid_xid_free, ptr %38, align 8, !tbaa !100
   br label %_queueid_xid_new.exit.thread
 
-_queueid_xid_new.exit.thread:                     ; preds = %33, %_queues_incref.exit.thread.i, %35, %Py_DECREF.exit
-  %.1 = phi i32 [ -1, %Py_DECREF.exit ], [ 0, %35 ], [ -1, %_queues_incref.exit.thread.i ], [ -1, %33 ]
+_queueid_xid_new.exit.thread:                     ; preds = %_queues_incref.exit.thread.i, %33, %35, %Py_DECREF.exit
+  %.1 = phi i32 [ -1, %Py_DECREF.exit ], [ 0, %35 ], [ -1, %33 ], [ -1, %_queues_incref.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %39
 
@@ -2331,7 +2331,7 @@ _get_current_module.exit.thread:                  ; preds = %6, %_get_current_mo
   br label %get_external_queue_type.exit
 
 get_external_queue_type.exit:                     ; preds = %18, %25, %34
-  %.06.i = phi ptr [ %20, %18 ], [ %35, %34 ], [ null, %25 ]
+  %.06.i = phi ptr [ %35, %34 ], [ %20, %18 ], [ null, %25 ]
   %36 = load i32, ptr %10, align 8, !tbaa !55
   %.not.i17 = icmp sgt i32 %36, -1
   br i1 %.not.i17, label %37, label %Py_DECREF.exit18
@@ -2382,7 +2382,7 @@ Py_DECREF.exit18:                                 ; preds = %get_external_queue_
   br label %Py_DECREF.exit16
 
 Py_DECREF.exit16:                                 ; preds = %54, %51, %48, %47, %44, %42, %_get_current_module.exit.thread, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %_get_current_module.exit.thread ], [ null, %47 ], [ null, %42 ], [ null, %44 ], [ %49, %48 ], [ %49, %51 ], [ %49, %54 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %_get_current_module.exit.thread ], [ null, %42 ], [ null, %44 ], [ null, %47 ], [ %49, %48 ], [ %49, %51 ], [ %49, %54 ]
   ret ptr %.0
 }
 
@@ -2443,7 +2443,7 @@ _PyMutex_Unlock.exit5.sink.split.i:               ; preds = %16, %11
   br label %_globals_init.exit
 
 _globals_init.exit:                               ; preds = %11, %16, %_PyMutex_Unlock.exit5.sink.split.i
-  %.1.i = phi i32 [ -11, %11 ], [ 0, %16 ], [ %.1.ph.i, %_PyMutex_Unlock.exit5.sink.split.i ]
+  %.1.i = phi i32 [ 0, %16 ], [ -11, %11 ], [ %.1.ph.i, %_PyMutex_Unlock.exit5.sink.split.i ]
   %19 = tail call fastcc i32 @handle_queue_error(i32 noundef %.1.i, ptr noundef %0, i64 noundef -1)
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %51
@@ -2513,7 +2513,7 @@ _globals_init.exit:                               ; preds = %11, %16, %_PyMutex_
   br label %51
 
 51:                                               ; preds = %_globals_init.exit, %50, %46
-  %.0 = phi i32 [ 0, %46 ], [ -1, %50 ], [ -1, %_globals_init.exit ]
+  %.0 = phi i32 [ -1, %50 ], [ 0, %46 ], [ -1, %_globals_init.exit ]
   ret i32 %.0
 }
 

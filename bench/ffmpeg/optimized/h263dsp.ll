@@ -71,7 +71,7 @@ define internal void @h263_h_loop_filter_c(ptr noundef captures(none) %0, i32 no
   br label %39
 
 39:                                               ; preds = %37, %34, %32, %.ph.lver.orig
-  %.064.lver.orig = phi i32 [ %.sext.lver.orig, %32 ], [ %38, %37 ], [ 0, %.ph.lver.orig ], [ %spec.select.lver.orig, %34 ]
+  %.064.lver.orig = phi i32 [ %38, %37 ], [ 0, %.ph.lver.orig ], [ %.sext.lver.orig, %32 ], [ %spec.select.lver.orig, %34 ]
   %40 = add nsw i32 %.064.lver.orig, %18
   %41 = sub nsw i32 %20, %.064.lver.orig
   %42 = and i32 %40, 256
@@ -154,7 +154,7 @@ define internal void @h263_h_loop_filter_c(ptr noundef captures(none) %0, i32 no
   br label %84
 
 84:                                               ; preds = %81, %79, %56, %77
-  %.064 = phi i32 [ %.sext, %79 ], [ %78, %77 ], [ 0, %56 ], [ %spec.select, %81 ]
+  %.064 = phi i32 [ %78, %77 ], [ 0, %56 ], [ %.sext, %79 ], [ %spec.select, %81 ]
   %85 = add nsw i32 %.064, %64
   %86 = sub nsw i32 %65, %.064
   %87 = and i32 %85, 256
@@ -253,7 +253,7 @@ define internal void @h263_v_loop_filter_c(ptr noundef captures(none) %0, i32 no
   br label %43
 
 43:                                               ; preds = %40, %38, %14, %36
-  %.064 = phi i32 [ %.sext, %38 ], [ %37, %36 ], [ 0, %14 ], [ %spec.select, %40 ]
+  %.064 = phi i32 [ %37, %36 ], [ 0, %14 ], [ %.sext, %38 ], [ %spec.select, %40 ]
   %44 = add nsw i32 %.064, %22
   %45 = sub nsw i32 %25, %.064
   %46 = and i32 %44, 256

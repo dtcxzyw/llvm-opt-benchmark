@@ -773,9 +773,9 @@ _ZN8rawspeed24UncompressedDecompressorD2Ev.exit:  ; preds = %176, %185, %_ZN9__g
   br label %210
 
 210:                                              ; preds = %.loopexit, %.loopexit.split-lp, %125, %209, %92
-  %.sroa.20.0163 = phi ptr [ %.sroa.20.3, %125 ], [ %.sroa.20.3, %209 ], [ %.sroa.20.0.lcssa213, %92 ], [ %.sroa.20.0166.lcssa, %.loopexit ], [ %.sroa.20.0166183, %.loopexit.split-lp ]
-  %.sroa.0122.0152 = phi ptr [ %.sroa.0122.3, %125 ], [ %.sroa.0122.3, %209 ], [ %.sroa.0122.0.lcssa215, %92 ], [ %.sroa.0122.0168, %.loopexit ], [ %.sroa.0122.0168, %.loopexit.split-lp ]
-  %.pn90.pn = phi { ptr, i32 } [ %126, %125 ], [ %.pn, %209 ], [ %93, %92 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.20.0163 = phi ptr [ %.sroa.20.0.lcssa213, %92 ], [ %.sroa.20.3, %209 ], [ %.sroa.20.3, %125 ], [ %.sroa.20.0166.lcssa, %.loopexit ], [ %.sroa.20.0166183, %.loopexit.split-lp ]
+  %.sroa.0122.0152 = phi ptr [ %.sroa.0122.0.lcssa215, %92 ], [ %.sroa.0122.3, %209 ], [ %.sroa.0122.3, %125 ], [ %.sroa.0122.0168, %.loopexit ], [ %.sroa.0122.0168, %.loopexit.split-lp ]
+  %.pn90.pn = phi { ptr, i32 } [ %93, %92 ], [ %.pn, %209 ], [ %126, %125 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i106 = icmp eq ptr %.sroa.0122.0152, null
   br i1 %.not.i.i.i106, label %_ZNSt6vectorIN8rawspeed10RawDecoder8RawSliceESaIS2_EED2Ev.exit107, label %211
 
@@ -2088,7 +2088,7 @@ _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %60
 
-.critedge:                                        ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %4, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIvESaISt4pairIKS5_S5_EEE4findERS9_.exit, %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %31
+.critedge:                                        ; preds = %4, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIvESaISt4pairIKS5_S5_EEE4findERS9_.exit, %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %31
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %61, ptr %0, align 8, !tbaa !186
   %62 = load ptr, ptr %3, align 8, !tbaa !162
@@ -2368,7 +2368,7 @@ _ZN8rawspeed4MSan21CheckMemIsInitializedENS_17CroppedArray2DRefISt4byteEE.exit26
           to label %76 unwind label %77
 
 76:                                               ; preds = %74, %72, %70, %63
-  %.merged = phi { ptr, i32 } [ %73, %72 ], [ %71, %70 ], [ %.pn15.pn, %63 ], [ %75, %74 ]
+  %.merged = phi { ptr, i32 } [ %.pn15.pn, %63 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ]
   resume { ptr, i32 } %.merged
 
 77:                                               ; preds = %74, %72, %70
@@ -2520,8 +2520,8 @@ _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %59
 
-.critedge:                                        ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %3, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIvESaISt4pairIKS5_S5_EEE4findERS9_.exit, %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %31
-  %60 = phi double [ %2, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %2, %3 ], [ %2, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIvESaISt4pairIKS5_S5_EEE4findERS9_.exit ], [ %.pre, %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %2, %31 ]
+.critedge:                                        ; preds = %3, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIvESaISt4pairIKS5_S5_EEE4findERS9_.exit, %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %31
+  %60 = phi double [ %2, %3 ], [ %2, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %2, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIvESaISt4pairIKS5_S5_EEE4findERS9_.exit ], [ %.pre, %_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %2, %31 ]
   ret double %60
 }
 
@@ -2625,7 +2625,7 @@ define hidden void @_ZN8rawspeed10RawDecoder14decodeMetaDataEPKNS_14CameraMetaDa
   ret void
 
 37:                                               ; preds = %34, %32, %30, %23
-  %.merged = phi { ptr, i32 } [ %33, %32 ], [ %31, %30 ], [ %7, %23 ], [ %35, %34 ]
+  %.merged = phi { ptr, i32 } [ %7, %23 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ]
   resume { ptr, i32 } %.merged
 
 38:                                               ; preds = %34, %32, %30
@@ -2714,7 +2714,7 @@ define hidden void @_ZN8rawspeed10RawDecoder12checkSupportEPKNS_14CameraMetaData
   ret void
 
 37:                                               ; preds = %34, %32, %30, %23
-  %.merged = phi { ptr, i32 } [ %33, %32 ], [ %31, %30 ], [ %7, %23 ], [ %35, %34 ]
+  %.merged = phi { ptr, i32 } [ %7, %23 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ]
   resume { ptr, i32 } %.merged
 
 38:                                               ; preds = %34, %32, %30

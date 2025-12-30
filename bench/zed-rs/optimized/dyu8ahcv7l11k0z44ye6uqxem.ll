@@ -666,7 +666,7 @@ define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as
   unreachable
 
 .body:                                            ; preds = %16, %10
-  %.pn.i = phi { ptr, i32 } [ %11, %10 ], [ %17, %16 ]
+  %.pn.i = phi { ptr, i32 } [ %17, %16 ], [ %11, %10 ]
   %23 = trunc i64 %.sroa.5.026.i to i32
   store i32 %23, ptr %6, align 8, !alias.scope !174, !noalias !180
   invoke void @"_ZN83_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2e705e4212dd8a97E.llvm.13118169870191431217"(ptr noalias noundef nonnull align 8 dereferenceable(7208) %6)
@@ -886,7 +886,7 @@ define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as
   unreachable
 
 .body:                                            ; preds = %16, %9
-  %.pn.i = phi { ptr, i32 } [ %17, %16 ], [ %10, %9 ]
+  %.pn.i = phi { ptr, i32 } [ %10, %9 ], [ %17, %16 ]
   %24 = trunc i64 %.sroa.5.0.i6 to i32
   store i32 %24, ptr %6, align 8, !alias.scope !236, !noalias !243
   invoke void @"_ZN4core3ptr96drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$multi_buffer..ExcerptSummary$C$12_usize$GT$$GT$17h121da101aed42adbE"(ptr noalias noundef nonnull align 8 dereferenceable(1256) %6) #34
@@ -978,7 +978,7 @@ define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as
   unreachable
 
 .body:                                            ; preds = %16, %9
-  %.pn.i = phi { ptr, i32 } [ %17, %16 ], [ %10, %9 ]
+  %.pn.i = phi { ptr, i32 } [ %10, %9 ], [ %17, %16 ]
   %23 = trunc i64 %.sroa.5.0.i to i32
   store i32 %23, ptr %6, align 8, !alias.scope !259, !noalias !272
   invoke void @"_ZN4core3ptr96drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$multi_buffer..ExcerptSummary$C$12_usize$GT$$GT$17h121da101aed42adbE"(ptr noalias noundef nonnull align 8 dereferenceable(1256) %6) #34
@@ -10670,7 +10670,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 44:                                               ; preds = %28, %37, %33
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %33 ], [ %34, %37 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %37 ], [ %34, %33 ]
   %45 = trunc i64 %.sroa.5.028 to i32
   store i32 %45, ptr %0, align 8, !noalias !3374
   resume { ptr, i32 } %.pn
@@ -10890,7 +10890,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 48:                                               ; preds = %31, %40, %36
-  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %37, %36 ], [ %37, %40 ]
+  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %37, %40 ], [ %37, %36 ]
   %49 = trunc i64 %.sroa.5.028 to i32
   store i32 %49, ptr %0, align 8, !noalias !3457
   resume { ptr, i32 } %.pn
@@ -11577,7 +11577,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 41:                                               ; preds = %25, %34, %30
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %31, %30 ], [ %31, %34 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %31, %34 ], [ %31, %30 ]
   %42 = trunc i64 %.sroa.5.0 to i32
   store i32 %42, ptr %0, align 8, !noalias !3751
   resume { ptr, i32 } %.pn
@@ -11689,7 +11689,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 43:                                               ; preds = %30, %35
-  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %31, %30 ]
+  %.pn = phi { ptr, i32 } [ %31, %30 ], [ %36, %35 ]
   %44 = trunc i64 %.sroa.5.0 to i32
   store i32 %44, ptr %0, align 8, !noalias !3796
   resume { ptr, i32 } %.pn
@@ -11802,7 +11802,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 26:                                               ; preds = %18, %12
-  %.pn = phi { ptr, i32 } [ %13, %12 ], [ %19, %18 ]
+  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %13, %12 ]
   %27 = trunc i64 %.sroa.5.026 to i32
   store i32 %27, ptr %0, align 8, !noalias !3820
   resume { ptr, i32 } %.pn
@@ -11914,7 +11914,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 44:                                               ; preds = %28, %37, %33
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %33 ], [ %34, %37 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %37 ], [ %34, %33 ]
   %45 = trunc i64 %.sroa.5.028 to i32
   store i32 %45, ptr %0, align 8, !noalias !3868
   resume { ptr, i32 } %.pn
@@ -12000,7 +12000,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 28:                                               ; preds = %12, %19
-  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %13, %12 ]
+  %.pn = phi { ptr, i32 } [ %13, %12 ], [ %20, %19 ]
   %29 = trunc i64 %.sroa.5.036 to i32
   store i32 %29, ptr %0, align 8, !noalias !3884
   resume { ptr, i32 } %.pn
@@ -12202,7 +12202,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 46:                                               ; preds = %32, %37
-  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %33, %32 ]
+  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %38, %37 ]
   %47 = trunc i64 %.sroa.5.037 to i32
   store i32 %47, ptr %0, align 8, !noalias !3964
   resume { ptr, i32 } %.pn
@@ -12387,7 +12387,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 41:                                               ; preds = %25, %34, %30
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %31, %30 ], [ %31, %34 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %31, %34 ], [ %31, %30 ]
   %42 = trunc i64 %.sroa.5.0 to i32
   store i32 %42, ptr %0, align 8, !noalias !4046
   resume { ptr, i32 } %.pn
@@ -12745,7 +12745,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 35:                                               ; preds = %28, %22
-  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %29, %28 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %23, %22 ]
   %36 = trunc i64 %.sroa.5.0 to i32
   store i32 %36, ptr %0, align 8, !noalias !4183
   resume { ptr, i32 } %.pn
@@ -12899,7 +12899,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 35:                                               ; preds = %21, %26
-  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %22, %21 ]
+  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %27, %26 ]
   %36 = trunc i64 %.sroa.5.029 to i32
   store i32 %36, ptr %0, align 8, !noalias !4233
   resume { ptr, i32 } %.pn
@@ -13009,7 +13009,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 45:                                               ; preds = %28, %37, %33
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %33 ], [ %34, %37 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %37 ], [ %34, %33 ]
   %46 = trunc i64 %.sroa.5.0 to i32
   store i32 %46, ptr %0, align 8, !noalias !4284
   resume { ptr, i32 } %.pn
@@ -13196,7 +13196,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 39:                                               ; preds = %31, %25
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %32, %31 ]
+  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %26, %25 ]
   %40 = trunc i64 %.sroa.5.027 to i32
   store i32 %40, ptr %0, align 8, !noalias !4357
   resume { ptr, i32 } %.pn
@@ -13475,7 +13475,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 27:                                               ; preds = %11, %18
-  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %12, %11 ]
+  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %19, %18 ]
   %28 = trunc i64 %.sroa.5.0 to i32
   store i32 %28, ptr %0, align 8, !noalias !4441
   resume { ptr, i32 } %.pn
@@ -13587,7 +13587,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 44:                                               ; preds = %28, %37, %33
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %33 ], [ %34, %37 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %34, %37 ], [ %34, %33 ]
   %45 = trunc i64 %.sroa.5.028 to i32
   store i32 %45, ptr %0, align 8, !noalias !4489
   resume { ptr, i32 } %.pn
@@ -13786,7 +13786,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 41:                                               ; preds = %25, %34, %30
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %31, %30 ], [ %31, %34 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %31, %34 ], [ %31, %30 ]
   %42 = trunc i64 %.sroa.5.0 to i32
   store i32 %42, ptr %0, align 8, !noalias !4572
   resume { ptr, i32 } %.pn
@@ -13922,7 +13922,7 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
   ret void
 
 57:                                               ; preds = %24, %48
-  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %25, %24 ]
+  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %49, %48 ]
   %58 = trunc i64 %.sroa.5.029 to i32
   store i32 %58, ptr %0, align 8, !noalias !4600
   resume { ptr, i32 } %.pn
@@ -15822,9 +15822,9 @@ _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hcf250944c3d9d92
   br label %.preheader
 
 _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hcf250944c3d9d929E.exit.thread: ; preds = %55, %60, %40
-  %.pn.i.pn = phi { i64, i64 } [ %41, %40 ], [ %56, %55 ], [ %61, %60 ]
-  %.sroa.7.026 = extractvalue { i64, i64 } %.pn.i.pn, 0
-  %.sroa.12.027 = extractvalue { i64, i64 } %.pn.i.pn, 1
+  %.pn = phi { i64, i64 } [ %41, %40 ], [ %61, %60 ], [ %56, %55 ]
+  %.sroa.7.026 = extractvalue { i64, i64 } %.pn, 0
+  %.sroa.12.027 = extractvalue { i64, i64 } %.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !4627
   br label %_ZN9hashbrown3raw5inner13RawTableInner20reserve_rehash_inner17hbb22da73152d5befE.exit
 

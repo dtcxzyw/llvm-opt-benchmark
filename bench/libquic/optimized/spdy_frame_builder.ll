@@ -127,7 +127,7 @@ _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit:       ; preds = %2
   br label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.thread
 
 _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.thread: ; preds = %2, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit, %12
-  %.0.i4 = phi i1 [ true, %12 ], [ false, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit ], [ false, %2 ]
+  %.0.i4 = phi i1 [ false, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit ], [ true, %12 ], [ false, %2 ]
   ret i1 %.0.i4
 }
 
@@ -277,7 +277,7 @@ _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i:     ; preds = %_ZNK3net16SpdyFrame
   br label %_ZN3net16SpdyFrameBuilder4SeekEm.exit
 
 _ZN3net16SpdyFrameBuilder4SeekEm.exit:            ; preds = %3, %22, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit
-  %.0.i11 = phi i1 [ true, %22 ], [ false, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit ], [ true, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i ], [ false, %3 ]
+  %.0.i11 = phi i1 [ false, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit ], [ true, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i ], [ true, %22 ], [ false, %3 ]
   ret i1 %.0.i11
 }
 
@@ -642,7 +642,7 @@ _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i: ; preds = %20
   br label %_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj.exit
 
 _ZN3net16SpdyFrameBuilder10WriteBytesEPKvj.exit:  ; preds = %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i, %20, %11
-  %.0.in = phi i1 [ true, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i ], [ true, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i ], [ false, %11 ], [ false, %20 ]
+  %.0.in = phi i1 [ false, %11 ], [ false, %20 ], [ true, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i ], [ true, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i ]
   store i64 %7, ptr %6, align 8, !tbaa !20
   ret i1 %.0.in
 }
@@ -719,7 +719,7 @@ _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i:   ; preds = %26
   br label %_ZN3net16SpdyFrameBuilder11WriteUInt16Et.exit
 
 _ZN3net16SpdyFrameBuilder11WriteUInt16Et.exit:    ; preds = %41, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i, %26, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ true, %41 ], [ false, %26 ], [ true, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i ]
+  %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %26 ], [ true, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i ], [ true, %41 ]
   ret i1 %.0
 }
 
@@ -790,7 +790,7 @@ _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i:   ; preds = %_ZNK3net16SpdyFrame
   br label %_ZN3net16SpdyFrameBuilder11WriteUInt32Ej.exit
 
 _ZN3net16SpdyFrameBuilder11WriteUInt32Ej.exit:    ; preds = %40, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i, %24, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %40 ], [ false, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i ], [ true, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i ], [ false, %24 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i ], [ true, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i ], [ true, %40 ], [ false, %24 ]
   ret i1 %.0
 }
 
@@ -846,7 +846,7 @@ _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i.i: ; preds = %22
   br label %_ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm.exit
 
 _ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm.exit: ; preds = %15, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i, %22, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i.i
-  %.0.in.i = phi i1 [ true, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i.i ], [ true, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i ], [ false, %15 ], [ false, %22 ]
+  %.0.in.i = phi i1 [ false, %15 ], [ false, %22 ], [ true, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i ], [ true, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i.i ]
   store i64 %9, ptr %3, align 8, !tbaa !20
   ret i1 %.0.in.i
 }

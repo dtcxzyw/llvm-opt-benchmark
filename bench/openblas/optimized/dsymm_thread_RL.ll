@@ -74,7 +74,7 @@ define noundef i32 @dsymm_thread_RL(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %39, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %30, %32
-  %.056 = phi i64 [ 1, %30 ], [ %34, %32 ], [ %37, %.lr.ph ]
+  %.056 = phi i64 [ %34, %32 ], [ 1, %30 ], [ %37, %.lr.ph ]
   %40 = shl nsw i64 %.056, 3
   %41 = icmp slt i64 %.059, %40
   br i1 %41, label %.critedge, label %42
@@ -654,7 +654,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   br label %107
 
 107:                                              ; preds = %99, %102, %104
-  %.0293 = phi i64 [ %100, %102 ], [ %106, %104 ], [ 384, %99 ]
+  %.0293 = phi i64 [ %106, %104 ], [ %100, %102 ], [ 384, %99 ]
   br i1 %85, label %111, label %108
 
 108:                                              ; preds = %107
@@ -664,8 +664,8 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   br label %111
 
 111:                                              ; preds = %107, %108
-  %.0294 = phi i64 [ %83, %108 ], [ %.mux, %107 ]
-  %.0286 = phi i64 [ %110, %108 ], [ %.0293, %107 ]
+  %.0294 = phi i64 [ %.mux, %107 ], [ %83, %108 ]
+  %.0286 = phi i64 [ %.0293, %107 ], [ %110, %108 ]
   %112 = mul nsw i64 %.0300400, %19
   %113 = getelementptr double, ptr %89, i64 %112
   %114 = tail call i32 @dgemm_itcopy(i64 noundef %.0293, i64 noundef %.0294, ptr noundef %113, i64 noundef %19, ptr noundef %3) #6
@@ -870,7 +870,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   br label %197
 
 197:                                              ; preds = %.lr.ph398, %190, %192
-  %.1295 = phi i64 [ %188, %190 ], [ %196, %192 ], [ 192, %.lr.ph398 ]
+  %.1295 = phi i64 [ %196, %192 ], [ %188, %190 ], [ 192, %.lr.ph398 ]
   %gep395 = getelementptr double, ptr %invariant.gep394, i64 %.0305396
   %198 = tail call i32 @dgemm_itcopy(i64 noundef %.0293, i64 noundef %.1295, ptr noundef %gep395, i64 noundef %19, ptr noundef %3) #6
   %199 = getelementptr double, ptr %17, i64 %.0305396

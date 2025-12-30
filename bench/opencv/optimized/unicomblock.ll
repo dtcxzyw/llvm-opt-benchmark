@@ -443,7 +443,7 @@ define hidden noundef zeroext i16 @_ZN5zxing11UnicomBlock19GetUnicomBlockIndexEi
   br label %28
 
 28:                                               ; preds = %3, %6, %19, %17
-  %.0 = phi i16 [ %27, %19 ], [ %18, %17 ], [ 0, %6 ], [ 0, %3 ]
+  %.0 = phi i16 [ %18, %17 ], [ %27, %19 ], [ 0, %6 ], [ 0, %3 ]
   ret i16 %.0
 }
 
@@ -593,7 +593,7 @@ define hidden void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 ca
   br label %103
 
 103:                                              ; preds = %43, %56, %65, %93, %71, %76, %79
-  %.3 = phi i32 [ %.1100, %43 ], [ %.1100, %79 ], [ %.1100, %76 ], [ %.1100, %71 ], [ %99, %93 ], [ %.1100, %65 ], [ %.1100, %56 ]
+  %.3 = phi i32 [ %.1100, %79 ], [ %.1100, %76 ], [ %.1100, %71 ], [ %99, %93 ], [ %.1100, %65 ], [ %.1100, %56 ], [ %.1100, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !65
@@ -686,7 +686,7 @@ define hidden noundef i32 @_ZN5zxing11UnicomBlock18GetUnicomBlockSizeEii(ptr nou
   br label %31
 
 31:                                               ; preds = %3, %6, %22, %17
-  %.0 = phi i32 [ %30, %22 ], [ %21, %17 ], [ 0, %6 ], [ 0, %3 ]
+  %.0 = phi i32 [ %21, %17 ], [ %30, %22 ], [ 0, %6 ], [ 0, %3 ]
   ret i32 %.0
 }
 

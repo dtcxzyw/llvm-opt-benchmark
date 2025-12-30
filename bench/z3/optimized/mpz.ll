@@ -680,7 +680,7 @@ define hidden noundef i32 @_Z5u_gcdjj(i32 noundef %0, i32 noundef %1) local_unna
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.preheader, %13, %6
-  %.pn = phi i32 [ %1, %13 ], [ 1, %6 ], [ %19, %.preheader ]
+  %.pn = phi i32 [ 1, %6 ], [ %1, %13 ], [ %19, %.preheader ]
   %.1 = shl i32 %.pn, %8
   br label %22
 
@@ -6970,7 +6970,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3gcdERK3mpzS3_RS1_(ptr nounde
   br i1 %.not.i, label %_Z5u_gcdjj.exit, label %.preheader.i, !llvm.loop !5
 
 _Z5u_gcdjj.exit:                                  ; preds = %.preheader.i, %29, %36
-  %.pn.i = phi i32 [ %.064, %36 ], [ 1, %29 ], [ %42, %.preheader.i ]
+  %.pn.i = phi i32 [ 1, %29 ], [ %.064, %36 ], [ %42, %.preheader.i ]
   %.1.i = shl i32 %.pn.i, %31
   %45 = icmp sgt i32 %.1.i, -1
   br i1 %45, label %_Z5u_gcdjj.exit.thread, label %49
@@ -7466,7 +7466,7 @@ _ZN11mpz_managerILb1EE3absER3mpz.exit87:          ; preds = %209, %_ZN11mpz_mana
   br i1 %.not.i92, label %.loopexit.i93, label %.preheader.i89, !llvm.loop !5
 
 .loopexit.i93:                                    ; preds = %.preheader.i89, %275, %268
-  %.pn.i94 = phi i32 [ %264, %275 ], [ 1, %268 ], [ %281, %.preheader.i89 ]
+  %.pn.i94 = phi i32 [ 1, %268 ], [ %264, %275 ], [ %281, %.preheader.i89 ]
   %.1.i95 = shl i32 %.pn.i94, %270
   br label %_Z5u_gcdjj.exit97
 
@@ -7691,10 +7691,10 @@ _ZN11mpz_managerILb1EE3remERK3mpzS3_RS1_.exit:    ; preds = %319, %_ZN11mpz_mana
   br i1 %403, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %395, %390
-  %.070.lcssa = phi i64 [ %.068173, %395 ], [ %.070171, %390 ], [ %.070171, %.lr.ph ]
-  %.069.lcssa = phi i64 [ %397, %395 ], [ %.069172, %390 ], [ %.069172, %.lr.ph ]
-  %.068.lcssa = phi i64 [ %399, %395 ], [ %.068173, %390 ], [ %.068173, %.lr.ph ]
-  %.067.lcssa = phi i64 [ %.069172, %395 ], [ %.067174, %390 ], [ %.067174, %.lr.ph ]
+  %.070.lcssa = phi i64 [ %.070171, %.lr.ph ], [ %.068173, %395 ], [ %.070171, %390 ]
+  %.069.lcssa = phi i64 [ %.069172, %.lr.ph ], [ %397, %395 ], [ %.069172, %390 ]
+  %.068.lcssa = phi i64 [ %.068173, %.lr.ph ], [ %399, %395 ], [ %.068173, %390 ]
+  %.067.lcssa = phi i64 [ %.067174, %.lr.ph ], [ %.069172, %395 ], [ %.067174, %390 ]
   %404 = icmp eq i64 %.070.lcssa, 0
   br i1 %404, label %._crit_edge.thread, label %429
 
@@ -9838,7 +9838,7 @@ _ZN11mpz_managerILb1EE3remERK3mpzS3_RS1_.exit:    ; preds = %.noexc, %35, %39
   unreachable
 
 _ZN15_scoped_numeralI11mpz_managerILb1EEED2Ev.exit: ; preds = %40, %44, %25, %11, %_ZN11mpz_managerILb1EE3remERK3mpzS3_RS1_.exit
-  %.0.in.in14 = phi i32 [ %12, %11 ], [ %.pre, %_ZN11mpz_managerILb1EE3remERK3mpzS3_RS1_.exit ], [ %30, %25 ], [ %.pre, %44 ], [ %.pre, %40 ]
+  %.0.in.in14 = phi i32 [ %.pre, %_ZN11mpz_managerILb1EE3remERK3mpzS3_RS1_.exit ], [ %30, %25 ], [ %12, %11 ], [ %.pre, %44 ], [ %.pre, %40 ]
   %.0.in = icmp eq i32 %.0.in.in14, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.in
@@ -13351,7 +13351,7 @@ _ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit10:  ; preds = %35, %_ZN11mpz_manag
   br label %_ZNK11mpz_managerILb1EE8is_int64ERK3mpz.exit.thread12
 
 _ZNK11mpz_managerILb1EE8is_int64ERK3mpz.exit.thread12: ; preds = %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread.thread, %_ZN11mpz_managerILb1EE13is_abs_uint64ERK3mpz.exit.i, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread, %25, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit10, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit, %_ZNK11mpz_managerILb1EE8is_int64ERK3mpz.exit
-  %41 = phi i1 [ false, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit ], [ false, %_ZNK11mpz_managerILb1EE8is_int64ERK3mpz.exit ], [ %40, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit10 ], [ false, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread ], [ false, %25 ], [ false, %_ZN11mpz_managerILb1EE13is_abs_uint64ERK3mpz.exit.i ], [ false, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread.thread ]
+  %41 = phi i1 [ false, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit ], [ false, %_ZNK11mpz_managerILb1EE8is_int64ERK3mpz.exit ], [ %40, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit10 ], [ false, %25 ], [ false, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread ], [ false, %_ZN11mpz_managerILb1EE13is_abs_uint64ERK3mpz.exit.i ], [ false, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread.thread ]
   ret i1 %41
 }
 
@@ -14809,7 +14809,7 @@ _ZN11mpz_managerILb1EE15is_power_of_twoERK3mpzRj.exit.sink.split: ; preds = %.cr
   br label %_ZN11mpz_managerILb1EE15is_power_of_twoERK3mpzRj.exit
 
 _ZN11mpz_managerILb1EE15is_power_of_twoERK3mpzRj.exit: ; preds = %.lr.ph.i, %_ZN11mpz_managerILb1EE15is_power_of_twoERK3mpzRj.exit.sink.split, %2, %10, %.critedge.i
-  %.0.i = phi i1 [ false, %10 ], [ false, %.critedge.i ], [ false, %2 ], [ true, %_ZN11mpz_managerILb1EE15is_power_of_twoERK3mpzRj.exit.sink.split ], [ false, %.lr.ph.i ]
+  %.0.i = phi i1 [ false, %2 ], [ false, %10 ], [ false, %.critedge.i ], [ true, %_ZN11mpz_managerILb1EE15is_power_of_twoERK3mpzRj.exit.sink.split ], [ false, %.lr.ph.i ]
   ret i1 %.0.i
 }
 
@@ -14880,7 +14880,7 @@ _ZN11mpz_managerILb1EE4log2ERK3mpz.exit:          ; preds = %.critedge
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %.critedge, %11, %3
-  %.0 = phi i1 [ false, %11 ], [ false, %.critedge ], [ false, %3 ], [ true, %.loopexit.sink.split ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %3 ], [ false, %11 ], [ false, %.critedge ], [ true, %.loopexit.sink.split ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -14918,7 +14918,7 @@ define weak_odr hidden noundef i32 @_ZN11mpz_managerILb1EE4log2ERK3mpz(ptr nound
   br label %24
 
 24:                                               ; preds = %2, %12, %10
-  %.0 = phi i32 [ %23, %12 ], [ %11, %10 ], [ 0, %2 ]
+  %.0 = phi i32 [ %11, %10 ], [ %23, %12 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -15512,7 +15512,7 @@ define weak_odr hidden noundef i32 @_ZN11mpz_managerILb1EE21power_of_two_multipl
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !138
 
 .loopexit:                                        ; preds = %55, %28, %36, %2, %10
-  %.048 = phi i32 [ 0, %2 ], [ %.459, %10 ], [ %.6, %36 ], [ 0, %28 ], [ %33, %55 ]
+  %.048 = phi i32 [ %.459, %10 ], [ 0, %2 ], [ %.6, %36 ], [ 0, %28 ], [ %33, %55 ]
   ret i32 %.048
 }
 
@@ -15558,7 +15558,7 @@ define weak_odr hidden noundef i32 @_ZN11mpz_managerILb1EE5mlog2ERK3mpz(ptr noun
   br label %29
 
 29:                                               ; preds = %2, %17, %14, %11
-  %.0 = phi i32 [ %28, %17 ], [ %12, %11 ], [ %16, %14 ], [ 0, %2 ]
+  %.0 = phi i32 [ %12, %11 ], [ %16, %14 ], [ %28, %17 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -15633,7 +15633,7 @@ define weak_odr hidden noundef i32 @_ZN11mpz_managerILb1EE7bitsizeERK3mpz(ptr no
   br label %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit
 
 _ZN11mpz_managerILb1EE4log2ERK3mpz.exit:          ; preds = %38, %35, %32, %14, %12, %5
-  %.0.in = phi i32 [ 0, %5 ], [ %25, %14 ], [ %13, %12 ], [ %49, %38 ], [ %33, %32 ], [ %37, %35 ]
+  %.0.in = phi i32 [ %13, %12 ], [ %25, %14 ], [ 0, %5 ], [ %33, %32 ], [ %37, %35 ], [ %49, %38 ]
   %.0 = add i32 %.0.in, 1
   ret i32 %.0
 }
@@ -16123,8 +16123,8 @@ _ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit29:     ; preds = %223, %219, %209, %2
   %224 = call noundef zeroext i1 @_ZN11mpz_managerILb1EE2eqERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br i1 %224, label %._crit_edge, label %85
 
-_ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit19:     ; preds = %121, %125, %84, %80
-  %225 = phi i1 [ false, %121 ], [ false, %125 ], [ true, %84 ], [ true, %80 ]
+_ZN11mpz_managerILb1EE3setER3mpzRKS1_.exit19:     ; preds = %125, %121, %84, %80
+  %225 = phi i1 [ false, %125 ], [ false, %121 ], [ true, %84 ], [ true, %80 ]
   %226 = load ptr, ptr %30, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %226, null
   br i1 %.not.i.i, label %_ZN11mpz_managerILb1EE3delER3mpz.exit, label %227
@@ -16264,7 +16264,7 @@ _ZN11mpz_managerILb1EE3delER3mpz.exit73:          ; preds = %267, %271, %_ZN11mp
   br label %272
 
 272:                                              ; preds = %14, %3, %_ZN11mpz_managerILb1EE3delER3mpz.exit73, %27
-  %.017 = phi i1 [ %225, %_ZN11mpz_managerILb1EE3delER3mpz.exit73 ], [ false, %3 ], [ true, %27 ], [ true, %14 ]
+  %.017 = phi i1 [ true, %27 ], [ %225, %_ZN11mpz_managerILb1EE3delER3mpz.exit73 ], [ false, %3 ], [ true, %14 ]
   ret i1 %.017
 }
 
@@ -16300,7 +16300,7 @@ define weak_odr hidden noundef i32 @_ZN11mpz_managerILb1EE17prev_power_of_twoERK
   br label %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit
 
 _ZN11mpz_managerILb1EE4log2ERK3mpz.exit:          ; preds = %2, %10, %12
-  %.0.i = phi i32 [ %23, %12 ], [ %11, %10 ], [ 0, %2 ]
+  %.0.i = phi i32 [ %11, %10 ], [ %23, %12 ], [ 0, %2 ]
   ret i32 %.0.i
 }
 
@@ -16387,7 +16387,7 @@ _ZN11mpz_managerILb1EE4log2ERK3mpz.exit:          ; preds = %13, %.loopexit
   br label %_ZN11mpz_managerILb1EE15is_power_of_twoERK3mpzRj.exit
 
 _ZN11mpz_managerILb1EE15is_power_of_twoERK3mpzRj.exit: ; preds = %13, %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit, %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit.i, %5, %2
-  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ %43, %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit ], [ %31, %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit.i ], [ %16, %13 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ %43, %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit ], [ %31, %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit.i ], [ %16, %13 ]
   ret i32 %.0
 }
 
@@ -16459,7 +16459,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN11mpz_managerILb1EE4rootER3mpzj(pt
   br label %_ZN11mpz_managerILb1EE4log2ERK3mpz.exit
 
 _ZN11mpz_managerILb1EE4log2ERK3mpz.exit:          ; preds = %29, %31
-  %.0.i = phi i32 [ %42, %31 ], [ %30, %29 ]
+  %.0.i = phi i32 [ %30, %29 ], [ %42, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 2, ptr %8, align 8, !tbaa !23
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -16519,7 +16519,7 @@ _ZN11mpz_managerILb1EE4log2ERK3mpz.exit:          ; preds = %29, %31
   br label %_ZN11mpz_managerILb1EE5mlog2ERK3mpz.exit
 
 _ZN11mpz_managerILb1EE5mlog2ERK3mpz.exit:         ; preds = %58, %61, %64
-  %.0.i21 = phi i32 [ %75, %64 ], [ %59, %58 ], [ %63, %61 ]
+  %.0.i21 = phi i32 [ %59, %58 ], [ %63, %61 ], [ %75, %64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 2, ptr %10, align 8, !tbaa !23
   %76 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -17291,7 +17291,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN11mpz_managerILb1EE7get_bitERK3mpz
   br label %36
 
 36:                                               ; preds = %24, %17, %8, %10
-  %.0 = phi i1 [ false, %8 ], [ %16, %10 ], [ %35, %24 ], [ false, %17 ]
+  %.0 = phi i1 [ %16, %10 ], [ false, %8 ], [ %35, %24 ], [ false, %17 ]
   ret i1 %.0
 }
 
@@ -23554,7 +23554,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3gcdERK3mpzS3_RS1_(ptr nounde
   br i1 %.not.i, label %_Z5u_gcdjj.exit, label %.preheader.i, !llvm.loop !5
 
 _Z5u_gcdjj.exit:                                  ; preds = %.preheader.i, %29, %36
-  %.pn.i = phi i32 [ %.064, %36 ], [ 1, %29 ], [ %42, %.preheader.i ]
+  %.pn.i = phi i32 [ 1, %29 ], [ %.064, %36 ], [ %42, %.preheader.i ]
   %.1.i = shl i32 %.pn.i, %31
   %45 = icmp sgt i32 %.1.i, -1
   br i1 %45, label %_Z5u_gcdjj.exit.thread, label %49
@@ -24050,7 +24050,7 @@ _ZN11mpz_managerILb0EE3absER3mpz.exit87:          ; preds = %209, %_ZN11mpz_mana
   br i1 %.not.i92, label %.loopexit.i93, label %.preheader.i89, !llvm.loop !5
 
 .loopexit.i93:                                    ; preds = %.preheader.i89, %275, %268
-  %.pn.i94 = phi i32 [ %264, %275 ], [ 1, %268 ], [ %281, %.preheader.i89 ]
+  %.pn.i94 = phi i32 [ 1, %268 ], [ %264, %275 ], [ %281, %.preheader.i89 ]
   %.1.i95 = shl i32 %.pn.i94, %270
   br label %_Z5u_gcdjj.exit97
 
@@ -24280,10 +24280,10 @@ _ZN11mpz_managerILb0EE3remERK3mpzS3_RS1_.exit:    ; preds = %319, %_ZN11mpz_mana
   br i1 %408, label %._crit_edge, label %.lr.ph, !llvm.loop !165
 
 ._crit_edge:                                      ; preds = %.lr.ph, %400, %395
-  %.070.lcssa = phi i64 [ %.068173, %400 ], [ %.070171, %395 ], [ %.070171, %.lr.ph ]
-  %.069.lcssa = phi i64 [ %402, %400 ], [ %.069172, %395 ], [ %.069172, %.lr.ph ]
-  %.068.lcssa = phi i64 [ %404, %400 ], [ %.068173, %395 ], [ %.068173, %.lr.ph ]
-  %.067.lcssa = phi i64 [ %.069172, %400 ], [ %.067174, %395 ], [ %.067174, %.lr.ph ]
+  %.070.lcssa = phi i64 [ %.070171, %.lr.ph ], [ %.068173, %400 ], [ %.070171, %395 ]
+  %.069.lcssa = phi i64 [ %.069172, %.lr.ph ], [ %402, %400 ], [ %.069172, %395 ]
+  %.068.lcssa = phi i64 [ %.068173, %.lr.ph ], [ %404, %400 ], [ %.068173, %395 ]
+  %.067.lcssa = phi i64 [ %.067174, %.lr.ph ], [ %.069172, %400 ], [ %.067174, %395 ]
   %409 = icmp eq i64 %.070.lcssa, 0
   br i1 %409, label %._crit_edge.thread, label %439
 
@@ -26508,7 +26508,7 @@ _ZN11mpz_managerILb0EE3remERK3mpzS3_RS1_.exit:    ; preds = %.noexc, %35, %39
   unreachable
 
 _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit: ; preds = %45, %49, %25, %11, %_ZN11mpz_managerILb0EE3remERK3mpzS3_RS1_.exit
-  %.0.in.in16 = phi i32 [ %12, %11 ], [ %.pre, %_ZN11mpz_managerILb0EE3remERK3mpzS3_RS1_.exit ], [ %30, %25 ], [ %.pre, %49 ], [ %.pre, %45 ]
+  %.0.in.in16 = phi i32 [ %.pre, %_ZN11mpz_managerILb0EE3remERK3mpzS3_RS1_.exit ], [ %30, %25 ], [ %12, %11 ], [ %.pre, %49 ], [ %.pre, %45 ]
   %.0.in = icmp eq i32 %.0.in.in16, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.in
@@ -30142,7 +30142,7 @@ _ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit10:  ; preds = %35, %_ZN11mpz_manag
   br label %_ZNK11mpz_managerILb0EE8is_int64ERK3mpz.exit.thread12
 
 _ZNK11mpz_managerILb0EE8is_int64ERK3mpz.exit.thread12: ; preds = %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread.thread, %_ZN11mpz_managerILb0EE13is_abs_uint64ERK3mpz.exit.i, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread, %25, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit10, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit, %_ZNK11mpz_managerILb0EE8is_int64ERK3mpz.exit
-  %41 = phi i1 [ false, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit ], [ false, %_ZNK11mpz_managerILb0EE8is_int64ERK3mpz.exit ], [ %40, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit10 ], [ false, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread ], [ false, %25 ], [ false, %_ZN11mpz_managerILb0EE13is_abs_uint64ERK3mpz.exit.i ], [ false, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread.thread ]
+  %41 = phi i1 [ false, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit ], [ false, %_ZNK11mpz_managerILb0EE8is_int64ERK3mpz.exit ], [ %40, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit10 ], [ false, %25 ], [ false, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread ], [ false, %_ZN11mpz_managerILb0EE13is_abs_uint64ERK3mpz.exit.i ], [ false, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread.thread ]
   ret i1 %41
 }
 
@@ -31567,7 +31567,7 @@ _ZN11mpz_managerILb0EE15is_power_of_twoERK3mpzRj.exit.sink.split: ; preds = %.cr
   br label %_ZN11mpz_managerILb0EE15is_power_of_twoERK3mpzRj.exit
 
 _ZN11mpz_managerILb0EE15is_power_of_twoERK3mpzRj.exit: ; preds = %.lr.ph.i, %_ZN11mpz_managerILb0EE15is_power_of_twoERK3mpzRj.exit.sink.split, %2, %10, %.critedge.i
-  %.0.i = phi i1 [ false, %10 ], [ false, %.critedge.i ], [ false, %2 ], [ true, %_ZN11mpz_managerILb0EE15is_power_of_twoERK3mpzRj.exit.sink.split ], [ false, %.lr.ph.i ]
+  %.0.i = phi i1 [ false, %2 ], [ false, %10 ], [ false, %.critedge.i ], [ true, %_ZN11mpz_managerILb0EE15is_power_of_twoERK3mpzRj.exit.sink.split ], [ false, %.lr.ph.i ]
   ret i1 %.0.i
 }
 
@@ -31638,7 +31638,7 @@ _ZN11mpz_managerILb0EE4log2ERK3mpz.exit:          ; preds = %.critedge
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %.critedge, %11, %3
-  %.0 = phi i1 [ false, %11 ], [ false, %.critedge ], [ false, %3 ], [ true, %.loopexit.sink.split ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %3 ], [ false, %11 ], [ false, %.critedge ], [ true, %.loopexit.sink.split ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -31674,7 +31674,7 @@ define weak_odr hidden noundef i32 @_ZN11mpz_managerILb0EE4log2ERK3mpz(ptr nound
   br label %24
 
 24:                                               ; preds = %2, %12, %10
-  %.0 = phi i32 [ %23, %12 ], [ %11, %10 ], [ 0, %2 ]
+  %.0 = phi i32 [ %11, %10 ], [ %23, %12 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -32268,7 +32268,7 @@ define weak_odr hidden noundef i32 @_ZN11mpz_managerILb0EE21power_of_two_multipl
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !199
 
 .loopexit:                                        ; preds = %55, %28, %36, %2, %10
-  %.048 = phi i32 [ 0, %2 ], [ %.459, %10 ], [ %.6, %36 ], [ 0, %28 ], [ %33, %55 ]
+  %.048 = phi i32 [ %.459, %10 ], [ 0, %2 ], [ %.6, %36 ], [ 0, %28 ], [ %33, %55 ]
   ret i32 %.048
 }
 
@@ -32314,7 +32314,7 @@ define weak_odr hidden noundef i32 @_ZN11mpz_managerILb0EE5mlog2ERK3mpz(ptr noun
   br label %29
 
 29:                                               ; preds = %2, %17, %14, %11
-  %.0 = phi i32 [ %28, %17 ], [ %12, %11 ], [ %16, %14 ], [ 0, %2 ]
+  %.0 = phi i32 [ %12, %11 ], [ %16, %14 ], [ %28, %17 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -32389,7 +32389,7 @@ define weak_odr hidden noundef i32 @_ZN11mpz_managerILb0EE7bitsizeERK3mpz(ptr no
   br label %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit
 
 _ZN11mpz_managerILb0EE4log2ERK3mpz.exit:          ; preds = %38, %35, %32, %14, %12, %5
-  %.0.in = phi i32 [ 0, %5 ], [ %25, %14 ], [ %13, %12 ], [ %49, %38 ], [ %33, %32 ], [ %37, %35 ]
+  %.0.in = phi i32 [ %13, %12 ], [ %25, %14 ], [ 0, %5 ], [ %33, %32 ], [ %37, %35 ], [ %49, %38 ]
   %.0 = add i32 %.0.in, 1
   ret i32 %.0
 }
@@ -32879,8 +32879,8 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit29:     ; preds = %223, %219, %209, %2
   %224 = call noundef zeroext i1 @_ZN11mpz_managerILb0EE2eqERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br i1 %224, label %._crit_edge, label %85
 
-_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit19:     ; preds = %121, %125, %84, %80
-  %225 = phi i1 [ false, %121 ], [ false, %125 ], [ true, %84 ], [ true, %80 ]
+_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit19:     ; preds = %125, %121, %84, %80
+  %225 = phi i1 [ false, %125 ], [ false, %121 ], [ true, %84 ], [ true, %80 ]
   %226 = load ptr, ptr %30, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %226, null
   br i1 %.not.i.i, label %_ZN11mpz_managerILb0EE3delER3mpz.exit, label %227
@@ -33050,7 +33050,7 @@ _ZN11mpz_managerILb0EE3delER3mpz.exit73:          ; preds = %292, %296, %_ZN11mp
   br label %302
 
 302:                                              ; preds = %14, %3, %_ZN11mpz_managerILb0EE3delER3mpz.exit73, %27
-  %.017 = phi i1 [ %225, %_ZN11mpz_managerILb0EE3delER3mpz.exit73 ], [ false, %3 ], [ true, %27 ], [ true, %14 ]
+  %.017 = phi i1 [ true, %27 ], [ %225, %_ZN11mpz_managerILb0EE3delER3mpz.exit73 ], [ false, %3 ], [ true, %14 ]
   ret i1 %.017
 }
 
@@ -33086,7 +33086,7 @@ define weak_odr hidden noundef i32 @_ZN11mpz_managerILb0EE17prev_power_of_twoERK
   br label %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit
 
 _ZN11mpz_managerILb0EE4log2ERK3mpz.exit:          ; preds = %2, %10, %12
-  %.0.i = phi i32 [ %23, %12 ], [ %11, %10 ], [ 0, %2 ]
+  %.0.i = phi i32 [ %11, %10 ], [ %23, %12 ], [ 0, %2 ]
   ret i32 %.0.i
 }
 
@@ -33173,7 +33173,7 @@ _ZN11mpz_managerILb0EE4log2ERK3mpz.exit:          ; preds = %13, %.loopexit
   br label %_ZN11mpz_managerILb0EE15is_power_of_twoERK3mpzRj.exit
 
 _ZN11mpz_managerILb0EE15is_power_of_twoERK3mpzRj.exit: ; preds = %13, %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit, %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit.i, %5, %2
-  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ %43, %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit ], [ %31, %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit.i ], [ %16, %13 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ %43, %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit ], [ %31, %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit.i ], [ %16, %13 ]
   ret i32 %.0
 }
 
@@ -33245,7 +33245,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN11mpz_managerILb0EE4rootER3mpzj(pt
   br label %_ZN11mpz_managerILb0EE4log2ERK3mpz.exit
 
 _ZN11mpz_managerILb0EE4log2ERK3mpz.exit:          ; preds = %29, %31
-  %.0.i = phi i32 [ %42, %31 ], [ %30, %29 ]
+  %.0.i = phi i32 [ %30, %29 ], [ %42, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 2, ptr %8, align 8, !tbaa !23
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -33305,7 +33305,7 @@ _ZN11mpz_managerILb0EE4log2ERK3mpz.exit:          ; preds = %29, %31
   br label %_ZN11mpz_managerILb0EE5mlog2ERK3mpz.exit
 
 _ZN11mpz_managerILb0EE5mlog2ERK3mpz.exit:         ; preds = %58, %61, %64
-  %.0.i21 = phi i32 [ %75, %64 ], [ %59, %58 ], [ %63, %61 ]
+  %.0.i21 = phi i32 [ %59, %58 ], [ %63, %61 ], [ %75, %64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 2, ptr %10, align 8, !tbaa !23
   %76 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -34097,7 +34097,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN11mpz_managerILb0EE7get_bitERK3mpz
   br label %36
 
 36:                                               ; preds = %24, %17, %8, %10
-  %.0 = phi i1 [ false, %8 ], [ %16, %10 ], [ %35, %24 ], [ false, %17 ]
+  %.0 = phi i1 [ %16, %10 ], [ false, %8 ], [ %35, %24 ], [ false, %17 ]
   ret i1 %.0
 }
 

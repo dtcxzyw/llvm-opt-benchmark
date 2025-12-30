@@ -321,8 +321,8 @@ switch.lookup:                                    ; preds = %64
   br i1 %.not96.i.i, label %.thread109.i.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %139, %138, %137, %108, %105
-  %.075108.i.i = phi ptr [ %.176.i.i, %139 ], [ %110, %108 ], [ @.str.8, %137 ], [ @.str.9, %138 ], [ @.str.7, %105 ]
-  %.077107.i.i = phi ptr [ %.077.i.i, %139 ], [ null, %108 ], [ null, %137 ], [ null, %138 ], [ null, %105 ]
+  %.075108.i.i = phi ptr [ %.176.i.i, %139 ], [ %110, %108 ], [ @.str.9, %138 ], [ @.str.8, %137 ], [ @.str.7, %105 ]
+  %.077107.i.i = phi ptr [ %.077.i.i, %139 ], [ null, %108 ], [ null, %138 ], [ null, %137 ], [ null, %105 ]
   %140 = call ptr @cstring_to_text(ptr noundef nonnull %.075108.i.i) #4
   %141 = ptrtoint ptr %140 to i64
   store i64 %141, ptr %30, align 16
@@ -730,7 +730,7 @@ thread-pre-split.i.i.i:                           ; preds = %319, %316
   br label %get_hba_options.exit.i.i
 
 368:                                              ; preds = %359, %326
-  %.17.i.i.i = phi i32 [ %.5.i.i.i, %326 ], [ %.20.i.i.i, %359 ]
+  %.17.i.i.i = phi i32 [ %.20.i.i.i, %359 ], [ %.5.i.i.i, %326 ]
   %.not108.i.i.i = icmp eq i32 %.17.i.i.i, 0
   br i1 %.not108.i.i.i, label %get_hba_options.exit.thread.i.i, label %get_hba_options.exit.i.i
 

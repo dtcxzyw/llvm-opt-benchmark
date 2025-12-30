@@ -1369,6 +1369,9 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit140:            ; preds = %228, %231, %232, %2
   %.not = icmp slt i32 %262, %.sroa.11.0.extract.trunc
   br i1 %.not, label %263, label %.critedge.backedge
 
+.critedge.backedge:                               ; preds = %260, %263, %212, %215, %168, %170, %124, %127, %88, %90, %52, %55
+  br label %.critedge, !llvm.loop !89
+
 263:                                              ; preds = %260
   %264 = mul nsw i32 %39, 3
   %265 = add nsw i32 %264, %31
@@ -1377,9 +1380,6 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit140:            ; preds = %228, %231, %232, %2
   %267 = icmp slt i32 %266, 3
   %or.cond132 = select i1 %.not108, i1 true, i1 %267
   br i1 %or.cond132, label %.critedge.backedge, label %268
-
-.critedge.backedge:                               ; preds = %263, %215, %170, %127, %90, %55, %212, %168, %124, %88, %52, %260
-  br label %.critedge, !llvm.loop !89
 
 268:                                              ; preds = %263
   store i32 6, ptr %0, align 8, !tbaa !74
@@ -2548,7 +2548,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !83
   br label %40
 

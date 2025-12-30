@@ -376,8 +376,8 @@ msdos_find.exit.thread:                           ; preds = %2, %23, %41, %45
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %51, label %.thread
 
-.thread:                                          ; preds = %msdos_find.exit.thread, %46
-  %.ph3 = phi i32 [ %47, %46 ], [ %.ph, %msdos_find.exit.thread ]
+.thread:                                          ; preds = %46, %msdos_find.exit.thread
+  %.ph3 = phi i32 [ %.ph, %msdos_find.exit.thread ], [ %47, %46 ]
   %49 = load ptr, ptr %9, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 136
   call void @mutex_unlock(ptr noundef nonnull %50) #12
@@ -394,7 +394,7 @@ msdos_find.exit.thread:                           ; preds = %2, %23, %41, %45
   br label %56
 
 56:                                               ; preds = %.thread, %51
-  %57 = phi i32 [ %.ph3, %.thread ], [ %55, %51 ]
+  %57 = phi i32 [ %55, %51 ], [ %.ph3, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %57
 }
@@ -595,8 +595,8 @@ msdos_find.exit.thread:                           ; preds = %14, %25, %43, %47
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %53, label %.thread
 
-.thread:                                          ; preds = %2, %msdos_find.exit.thread, %48
-  %.ph4 = phi i32 [ %49, %48 ], [ %.ph, %msdos_find.exit.thread ], [ %12, %2 ]
+.thread:                                          ; preds = %2, %48, %msdos_find.exit.thread
+  %.ph4 = phi i32 [ %.ph, %msdos_find.exit.thread ], [ %49, %48 ], [ %12, %2 ]
   %51 = load ptr, ptr %9, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 136
   call void @mutex_unlock(ptr noundef nonnull %52) #12
@@ -614,7 +614,7 @@ msdos_find.exit.thread:                           ; preds = %14, %25, %43, %47
   br label %58
 
 58:                                               ; preds = %.thread, %53
-  %59 = phi i32 [ %.ph4, %.thread ], [ %57, %53 ]
+  %59 = phi i32 [ %57, %53 ], [ %.ph4, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %59
 }
@@ -962,7 +962,7 @@ define internal i32 @msdos_rename(ptr readnone captures(none) %0, ptr noundef %1
   br label %.thread20.thread
 
 .thread20.thread:                                 ; preds = %240, %211, %.thread20
-  %212 = phi i32 [ %.ph23, %.thread20 ], [ %.ph23, %211 ], [ %233, %240 ]
+  %212 = phi i32 [ %.ph23, %211 ], [ %.ph23, %.thread20 ], [ %233, %240 ]
   %213 = load ptr, ptr %7, align 8
   %214 = icmp eq ptr %213, null
   br i1 %214, label %216, label %215
@@ -1147,7 +1147,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @msdos_format_name(ptr noun
   br i1 %42, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %23, %40, %38
-  %43 = phi i1 [ false, %38 ], [ true, %40 ], [ false, %23 ]
+  %43 = phi i1 [ true, %40 ], [ false, %38 ], [ false, %23 ]
   %44 = add i8 %30, -65
   %45 = icmp ult i8 %44, 26
   %46 = and i1 %45, %43
@@ -1355,7 +1355,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @msdos_format_name(ptr noun
   br label %.critedge
 
 .critedge:                                        ; preds = %49, %49, %.thread, %40, %34, %139, %136, %136, %.thread13, %130, %125, %15, %173, %.critedge11, %.thread14, %.loopexit, %138, %84, %73, %7
-  %176 = phi i32 [ -22, %7 ], [ -22, %73 ], [ -22, %84 ], [ -22, %138 ], [ -22, %.loopexit ], [ -22, %.thread14 ], [ 0, %.critedge11 ], [ 0, %173 ], [ -22, %139 ], [ -22, %15 ], [ -22, %125 ], [ -22, %130 ], [ -22, %.thread13 ], [ -22, %136 ], [ -22, %136 ], [ -22, %34 ], [ -22, %40 ], [ -22, %.thread ], [ -22, %49 ], [ -22, %49 ]
+  %176 = phi i32 [ -22, %7 ], [ -22, %73 ], [ -22, %84 ], [ -22, %138 ], [ -22, %.loopexit ], [ -22, %.thread14 ], [ 0, %.critedge11 ], [ 0, %173 ], [ -22, %15 ], [ -22, %125 ], [ -22, %130 ], [ -22, %.thread13 ], [ -22, %136 ], [ -22, %136 ], [ -22, %139 ], [ -22, %34 ], [ -22, %40 ], [ -22, %.thread ], [ -22, %49 ], [ -22, %49 ]
   ret i32 %176
 }
 

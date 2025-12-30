@@ -1040,8 +1040,8 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i359.invoke.sink.split: ; pre
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i359.invoke
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i359.invoke: ; preds = %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i359.invoke.sink.split, %.noexc340, %.noexc362, %.noexc351
-  %388 = phi ptr [ %372, %.noexc362 ], [ %294, %.noexc340 ], [ %350, %.noexc351 ], [ %.ph, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i359.invoke.sink.split ]
-  %389 = phi i8 [ %385, %.noexc362 ], [ %307, %.noexc340 ], [ %363, %.noexc351 ], [ %387, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i359.invoke.sink.split ]
+  %388 = phi ptr [ %350, %.noexc351 ], [ %372, %.noexc362 ], [ %294, %.noexc340 ], [ %.ph, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i359.invoke.sink.split ]
+  %389 = phi i8 [ %363, %.noexc351 ], [ %385, %.noexc362 ], [ %307, %.noexc340 ], [ %387, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i359.invoke.sink.split ]
   %390 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %388, i8 noundef signext %389)
           to label %.noexc364.invoke unwind label %340
 

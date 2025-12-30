@@ -257,7 +257,7 @@ define dso_local range(i32 0, 23) i32 @onas_scan_queue_start(ptr noundef readonl
   br label %15
 
 15:                                               ; preds = %9, %7, %13, %5
-  %.0 = phi i32 [ 3, %5 ], [ 9, %13 ], [ 22, %7 ], [ 0, %9 ]
+  %.0 = phi i32 [ 9, %13 ], [ 3, %5 ], [ 22, %7 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

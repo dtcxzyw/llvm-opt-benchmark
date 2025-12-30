@@ -351,7 +351,7 @@ for.inc.i.i:                                      ; preds = %_ZNK5folly20AsciiCa
   %cmp.not.i.i4 = icmp eq i64 %__first1.addr.08.i.i.add, 12
   br i1 %cmp.not.i.i4, label %if.else, label %for.body.i.i, !llvm.loop !4
 
-if.then20:                                        ; preds = %if.end.i.i.i, %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i, %invoke.cont14
+if.then20:                                        ; preds = %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i, %if.end.i.i.i, %invoke.cont14
   %err_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 31, ptr %err_.i, align 8
   %12 = load ptr, ptr %upstream_, align 8
@@ -2467,8 +2467,8 @@ if.end22.loopexit.i.i:                            ; preds = %for.body.i.i
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.end22.loopexit.i.i, %if.end.i.i
-  %.pre8 = phi i64 [ 0, %if.end.i.i ], [ %3, %if.end22.loopexit.i.i ]
-  %4 = phi ptr [ %.pre20.i.i, %if.end.i.i ], [ %.pre.i.i, %if.end22.loopexit.i.i ]
+  %.pre8 = phi i64 [ %3, %if.end22.loopexit.i.i ], [ 0, %if.end.i.i ]
+  %4 = phi ptr [ %.pre.i.i, %if.end22.loopexit.i.i ], [ %.pre20.i.i, %if.end.i.i ]
   store ptr %call.i.i.i, ptr %this, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
@@ -2763,8 +2763,8 @@ if.end22.loopexit.i.i:                            ; preds = %for.body.i.i
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.end22.loopexit.i.i, %if.end.i.i
-  %.pre9 = phi i64 [ 0, %if.end.i.i ], [ %3, %if.end22.loopexit.i.i ]
-  %4 = phi ptr [ %.pre20.i.i, %if.end.i.i ], [ %.pre.i.i, %if.end22.loopexit.i.i ]
+  %.pre9 = phi i64 [ %3, %if.end22.loopexit.i.i ], [ 0, %if.end.i.i ]
+  %4 = phi ptr [ %.pre.i.i, %if.end22.loopexit.i.i ], [ %.pre20.i.i, %if.end.i.i ]
   store ptr %call.i.i.i, ptr %this, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i

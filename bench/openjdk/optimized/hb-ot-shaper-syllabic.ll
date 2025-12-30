@@ -270,7 +270,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit:              ; preds = %89, %102
   br label %_ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit
 
 _ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit: ; preds = %137, %123, %109, %.critedge2
-  %.1 = phi i32 [ %59, %109 ], [ %59, %.critedge2 ], [ %.04469, %123 ], [ %.04469, %137 ]
+  %.1 = phi i32 [ %59, %.critedge2 ], [ %59, %109 ], [ %.04469, %123 ], [ %.04469, %137 ]
   %140 = load i32, ptr %41, align 4
   %141 = load i32, ptr %42, align 8
   %142 = icmp ult i32 %140, %141
@@ -287,7 +287,7 @@ _ZN11hb_buffer_t11output_infoERK15hb_glyph_info_t.exit: ; preds = %137, %123, %1
   br label %147
 
 147:                                              ; preds = %.critedge, %145, %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit, %21, %17, %18, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit ], [ false, %21 ], [ false, %17 ], [ false, %18 ], [ true, %145 ], [ true, %.critedge ]
+  %.0 = phi i1 [ false, %6 ], [ false, %18 ], [ false, %17 ], [ false, %21 ], [ false, %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit ], [ true, %145 ], [ true, %.critedge ]
   ret i1 %.0
 }
 

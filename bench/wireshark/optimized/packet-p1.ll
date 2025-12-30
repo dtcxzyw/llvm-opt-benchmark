@@ -3825,7 +3825,7 @@ define hidden ptr @p1_get_last_oraddress(ptr noundef readonly captures(address_i
   br label %15
 
 15:                                               ; preds = %7, %1, %3, %12
-  %.0 = phi ptr [ %14, %12 ], [ @.str.4, %1 ], [ @.str.4, %3 ], [ @.str.4, %7 ]
+  %.0 = phi ptr [ %14, %12 ], [ @.str.4, %3 ], [ @.str.4, %1 ], [ @.str.4, %7 ]
   ret ptr %.0
 }
 
@@ -4079,9 +4079,9 @@ p1_initialize_content_globals.exit:               ; preds = %7, %11
   br label %.sink.split
 
 38:                                               ; preds = %p1_initialize_content_globals.exit, %35, %34, %33
-  %.034 = phi ptr [ @dissect_p1_MTS_APDU, %35 ], [ @dissect_p1_MTABindResult, %33 ], [ @dissect_p1_MTABindError, %34 ], [ @dissect_p1_MTABindArgument, %p1_initialize_content_globals.exit ]
-  %.033 = phi ptr [ @.str.114, %35 ], [ @.str.1927, %33 ], [ @.str.1928, %34 ], [ @.str.1926, %p1_initialize_content_globals.exit ]
-  %.0.in = phi ptr [ @hf_p1_MTS_APDU_PDU, %35 ], [ @hf_p1_MTABindResult_PDU, %33 ], [ @hf_p1_MTABindError_PDU, %34 ], [ @hf_p1_MTABindArgument_PDU, %p1_initialize_content_globals.exit ]
+  %.034 = phi ptr [ @dissect_p1_MTABindResult, %33 ], [ @dissect_p1_MTABindError, %34 ], [ @dissect_p1_MTS_APDU, %35 ], [ @dissect_p1_MTABindArgument, %p1_initialize_content_globals.exit ]
+  %.033 = phi ptr [ @.str.1927, %33 ], [ @.str.1928, %34 ], [ @.str.114, %35 ], [ @.str.1926, %p1_initialize_content_globals.exit ]
+  %.0.in = phi ptr [ @hf_p1_MTABindResult_PDU, %33 ], [ @hf_p1_MTABindError_PDU, %34 ], [ @hf_p1_MTS_APDU_PDU, %35 ], [ @hf_p1_MTABindArgument_PDU, %p1_initialize_content_globals.exit ]
   %.0 = load i32, ptr %.0.in, align 4
   %39 = load ptr, ptr %27, align 8
   call void @col_set_str(ptr noundef %39, i32 noundef 25, ptr noundef nonnull %.033)

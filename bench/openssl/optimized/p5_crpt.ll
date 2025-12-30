@@ -120,7 +120,7 @@ define range(i32 0, 2) i32 @PKCS5_PBE_keyivgen_ex(ptr noundef %0, ptr noundef %1
   br label %57
 
 57:                                               ; preds = %46, %52, %54
-  %.051 = phi i32 [ %2, %52 ], [ %56, %54 ], [ 0, %46 ]
+  %.051 = phi i32 [ %56, %54 ], [ %2, %52 ], [ 0, %46 ]
   %58 = tail call i32 @EVP_MD_get_size(ptr noundef %5) #6
   %59 = icmp slt i32 %58, 1
   br i1 %59, label %81, label %60

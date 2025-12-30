@@ -866,9 +866,9 @@ err_merge.exit117:                                ; preds = %task_stop.exit113, 
   br i1 %exitcond.not.i, label %._crit_edge.split.us.us.i, label %196, !llvm.loop !81
 
 trailing_dts.exit:                                ; preds = %._crit_edge.split.us.us.i, %196, %._crit_edge151.thread, %188
-  %.4.lcssa189195 = phi i32 [ %.0.i116, %188 ], [ %.0.i116, %196 ], [ %.3.lcssa, %._crit_edge151.thread ], [ %.0.i116, %._crit_edge.split.us.us.i ]
-  %.not47.i = phi i1 [ false, %188 ], [ true, %196 ], [ false, %._crit_edge151.thread ], [ false, %._crit_edge.split.us.us.i ]
-  %.128.i = phi i64 [ 9223372036854775807, %188 ], [ %.22949.us.us.i, %196 ], [ 9223372036854775807, %._crit_edge151.thread ], [ %.229.lcssa.us.i, %._crit_edge.split.us.us.i ]
+  %.4.lcssa189195 = phi i32 [ %.0.i116, %188 ], [ %.3.lcssa, %._crit_edge151.thread ], [ %.0.i116, %196 ], [ %.0.i116, %._crit_edge.split.us.us.i ]
+  %.not47.i = phi i1 [ false, %188 ], [ false, %._crit_edge151.thread ], [ true, %196 ], [ false, %._crit_edge.split.us.us.i ]
+  %.128.i = phi i64 [ 9223372036854775807, %188 ], [ 9223372036854775807, %._crit_edge151.thread ], [ %.22949.us.us.i, %196 ], [ %.229.lcssa.us.i, %._crit_edge.split.us.us.i ]
   %202 = icmp eq i64 %.128.i, 9223372036854775807
   %203 = select i1 %.not47.i, i1 true, i1 %202
   %.5.i = select i1 %203, i64 -9223372036854775808, i64 %.128.i
@@ -1059,7 +1059,7 @@ define i32 @sch_add_mux_stream(ptr noundef readonly captures(none) %0, i32 nound
   br label %28
 
 28:                                               ; preds = %18, %7, %26
-  %.0 = phi i32 [ %16, %7 ], [ %20, %26 ], [ -12, %18 ]
+  %.0 = phi i32 [ %20, %26 ], [ %16, %7 ], [ -12, %18 ]
   ret i32 %.0
 }
 
@@ -1122,7 +1122,7 @@ waiter_init.exit:                                 ; preds = %21, %25
   br label %29
 
 29:                                               ; preds = %waiter_init.exit, %10, %3
-  %.0 = phi i32 [ %8, %3 ], [ %., %waiter_init.exit ], [ -12, %10 ]
+  %.0 = phi i32 [ %8, %3 ], [ -12, %10 ], [ %., %waiter_init.exit ]
   ret i32 %.0
 }
 
@@ -1277,7 +1277,7 @@ sch_add_dec_output.exit:                          ; preds = %26
   br label %sch_add_dec_output.exit.thread
 
 sch_add_dec_output.exit.thread:                   ; preds = %38, %26, %42, %sch_add_dec_output.exit, %11, %4, %46
-  %.0 = phi i32 [ %9, %4 ], [ -12, %11 ], [ %36, %sch_add_dec_output.exit ], [ %33, %26 ], [ %6, %46 ], [ %44, %42 ], [ -12, %38 ]
+  %.0 = phi i32 [ %6, %46 ], [ %9, %4 ], [ -12, %11 ], [ %36, %sch_add_dec_output.exit ], [ %44, %42 ], [ %33, %26 ], [ -12, %38 ]
   ret i32 %.0
 }
 
@@ -1428,7 +1428,7 @@ queue_alloc.exit:                                 ; preds = %42
   br label %48
 
 48:                                               ; preds = %queue_alloc.exit, %42, %waiter_init.exit, %28, %21, %5
-  %.0 = phi i32 [ %10, %5 ], [ -12, %28 ], [ -12, %21 ], [ %.0.i, %waiter_init.exit ], [ %7, %queue_alloc.exit ], [ -12, %42 ]
+  %.0 = phi i32 [ %10, %5 ], [ -12, %21 ], [ -12, %28 ], [ %.0.i, %waiter_init.exit ], [ %7, %queue_alloc.exit ], [ -12, %42 ]
   ret i32 %.0
 }
 
@@ -1482,7 +1482,7 @@ define i32 @sch_add_sq_enc(ptr noundef %0, i64 noundef %1, ptr noundef %2) local
   br label %32
 
 32:                                               ; preds = %17, %10, %3, %25, %23
-  %.0 = phi i32 [ %8, %3 ], [ %24, %23 ], [ %31, %25 ], [ -12, %10 ], [ -12, %17 ]
+  %.0 = phi i32 [ %24, %23 ], [ %31, %25 ], [ %8, %3 ], [ -12, %10 ], [ -12, %17 ]
   ret i32 %.0
 }
 
@@ -1554,7 +1554,7 @@ define range(i32 -2147483648, 1) i32 @sch_sq_add_enc(ptr noundef readonly captur
   br label %44
 
 44:                                               ; preds = %39, %42, %30, %19
-  %.0 = phi i32 [ %37, %30 ], [ %28, %19 ], [ 0, %42 ], [ 0, %39 ]
+  %.0 = phi i32 [ %28, %19 ], [ %37, %30 ], [ 0, %42 ], [ 0, %39 ]
   ret i32 %.0
 }
 
@@ -2078,7 +2078,7 @@ define range(i32 -2147483648, 1) i32 @sch_connect(ptr noundef readonly captures(
   unreachable
 
 .critedge:                                        ; preds = %181, %163, %46, %66, %116, %129, %223, %236, %188, %81, %18
-  %.1 = phi i32 [ %89, %81 ], [ %196, %188 ], [ %26, %18 ], [ 0, %236 ], [ 0, %223 ], [ 0, %129 ], [ 0, %116 ], [ 0, %66 ], [ 0, %46 ], [ 0, %163 ], [ 0, %181 ]
+  %.1 = phi i32 [ %26, %18 ], [ %89, %81 ], [ %196, %188 ], [ 0, %236 ], [ 0, %223 ], [ 0, %129 ], [ 0, %116 ], [ 0, %66 ], [ 0, %46 ], [ 0, %163 ], [ 0, %181 ]
   ret i32 %.1
 }
 
@@ -2264,7 +2264,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mux_init(ptr noundef %0, p
   br label %.thread
 
 .thread:                                          ; preds = %31, %36, %18, %2, %.loopexit, %27
-  %.025 = phi i32 [ 0, %18 ], [ %7, %2 ], [ %23, %27 ], [ 0, %.loopexit ], [ %37, %36 ], [ %34, %31 ]
+  %.025 = phi i32 [ %23, %27 ], [ 0, %.loopexit ], [ %7, %2 ], [ 0, %18 ], [ %37, %36 ], [ %34, %31 ]
   ret i32 %.025
 }
 
@@ -2344,7 +2344,7 @@ define range(i32 -2147483648, 1) i32 @sch_mux_sub_heartbeat_add(ptr noundef read
   br label %45
 
 45:                                               ; preds = %42, %18, %44
-  %.0 = phi i32 [ %27, %18 ], [ 0, %44 ], [ -12, %42 ]
+  %.0 = phi i32 [ 0, %44 ], [ %27, %18 ], [ -12, %42 ]
   ret i32 %.0
 }
 
@@ -3099,12 +3099,12 @@ start_prepare.exit:                               ; preds = %check_acyclic_for_o
   br label %start_prepare.exit.thread
 
 .thread95:                                        ; preds = %258, %.lr.ph167, %.lr.ph175, %.lr.ph185, %301
-  %.4 = phi i32 [ %271, %.lr.ph167 ], [ %303, %301 ], [ %291, %.lr.ph185 ], [ %281, %.lr.ph175 ], [ %259, %258 ]
+  %.4 = phi i32 [ %303, %301 ], [ %291, %.lr.ph185 ], [ %281, %.lr.ph175 ], [ %271, %.lr.ph167 ], [ %259, %258 ]
   %312 = call i32 @sch_stop(ptr noundef nonnull %0, ptr noundef null)
   br label %start_prepare.exit.thread
 
-start_prepare.exit.thread:                        ; preds = %20, %47, %77, %._crit_edge375.i, %.thread239.i, %.thread218.i, %.thread.i, %.thread251.i, %.thread253.i, %76, %check_acyclic.exit.thread.i, %.thread222.thread.i, %72, %start_prepare.exit, %.thread95, %._crit_edge194
-  %.0 = phi i32 [ %.4, %.thread95 ], [ 0, %._crit_edge194 ], [ -12, %._crit_edge375.i ], [ -12, %77 ], [ -22, %72 ], [ %spec.select.i, %start_prepare.exit ], [ -12, %47 ], [ -22, %.thread239.i ], [ -22, %.thread218.i ], [ -22, %.thread.i ], [ -22, %.thread251.i ], [ -22, %.thread253.i ], [ -22, %76 ], [ -12, %check_acyclic.exit.thread.i ], [ -22, %.thread222.thread.i ], [ -12, %20 ]
+start_prepare.exit.thread:                        ; preds = %20, %47, %77, %._crit_edge375.i, %.thread239.i, %.thread218.i, %.thread.i, %.thread253.i, %.thread251.i, %72, %76, %.thread222.thread.i, %check_acyclic.exit.thread.i, %start_prepare.exit, %.thread95, %._crit_edge194
+  %.0 = phi i32 [ 0, %._crit_edge194 ], [ %.4, %.thread95 ], [ %spec.select.i, %start_prepare.exit ], [ -22, %.thread239.i ], [ -22, %.thread218.i ], [ -22, %.thread.i ], [ -22, %.thread253.i ], [ -22, %.thread251.i ], [ -22, %72 ], [ -22, %76 ], [ -22, %.thread222.thread.i ], [ -12, %check_acyclic.exit.thread.i ], [ -12, %._crit_edge375.i ], [ -12, %77 ], [ -12, %47 ], [ -12, %20 ]
   ret i32 %.0
 }
 
@@ -3199,7 +3199,7 @@ define internal fastcc void @schedule_update_locked(ptr noundef captures(none) %
   br label %24
 
 24:                                               ; preds = %23, %14
-  %.431.ph.i = phi i64 [ %..229.i, %23 ], [ %.22949.i, %14 ]
+  %.431.ph.i = phi i64 [ %.22949.i, %14 ], [ %..229.i, %23 ]
   %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
   %exitcond83.not.i = icmp eq i64 %indvars.iv.next80.i, %wide.trip.count82.i
   br i1 %exitcond83.not.i, label %._crit_edge.split.i, label %14, !llvm.loop !81
@@ -3339,7 +3339,7 @@ trailing_dts.exit:                                ; preds = %._crit_edge.split.i
   br label %unchoke_for_stream.exit.us.us
 
 unchoke_for_stream.exit.us.us:                    ; preds = %70, %68, %52, %48
-  %.2.us.us = phi i32 [ 1, %68 ], [ %.1119.us.us, %48 ], [ %.1119.us.us, %52 ], [ 1, %70 ]
+  %.2.us.us = phi i32 [ %.1119.us.us, %48 ], [ %.1119.us.us, %52 ], [ 1, %70 ], [ 1, %68 ]
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
   br i1 %exitcond180.not, label %._crit_edge122.split.us.us, label %48, !llvm.loop !180
@@ -3454,7 +3454,7 @@ unchoke_for_stream.exit.us.us:                    ; preds = %70, %68, %52, %48
   br label %.preheader151
 
 unchoke_for_stream.exit:                          ; preds = %109, %97, %92, %88
-  %.2 = phi i32 [ %.1119, %92 ], [ %.1119, %88 ], [ 1, %109 ], [ 1, %97 ]
+  %.2 = phi i32 [ %.1119, %88 ], [ %.1119, %92 ], [ 1, %97 ], [ 1, %109 ]
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge122.split, label %88, !llvm.loop !180
@@ -3844,8 +3844,8 @@ select.unfold.i:                                  ; preds = %86, %82, %80
   br label %88
 
 88:                                               ; preds = %select.unfold.i, %72, %60, %54
-  %.sroa.0.4.ph.i = phi i64 [ %.sroa.0.6.ph.i, %select.unfold.i ], [ %.sroa.0.294.i, %72 ], [ %.sroa.0.294.i, %60 ], [ %.sroa.0.294.i, %54 ]
-  %.sroa.7.4.ph.i = phi i64 [ %.sroa.7.6.ph.i, %select.unfold.i ], [ %.sroa.7.296.i, %72 ], [ %.sroa.7.296.i, %60 ], [ %.sroa.7.296.i, %54 ]
+  %.sroa.0.4.ph.i = phi i64 [ %.sroa.0.6.ph.i, %select.unfold.i ], [ %.sroa.0.294.i, %72 ], [ %.sroa.0.294.i, %54 ], [ %.sroa.0.294.i, %60 ]
+  %.sroa.7.4.ph.i = phi i64 [ %.sroa.7.6.ph.i, %select.unfold.i ], [ %.sroa.7.296.i, %72 ], [ %.sroa.7.296.i, %54 ], [ %.sroa.7.296.i, %60 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %89 = load i32, ptr %51, align 8, !tbaa !119
   %90 = zext i32 %89 to i64
@@ -4022,7 +4022,7 @@ demux_stream_send_to_dst.exit.i:                  ; preds = %157, %124
   br label %demux_flush.exit
 
 demux_flush.exit:                                 ; preds = %159, %120, %62, %._crit_edge.loopexit.i27, %101, %.thread70.i, %87, %waiter_wait.exit
-  %.0 = phi i32 [ %70, %62 ], [ -1414092869, %waiter_wait.exit ], [ 0, %.thread70.i ], [ %76, %87 ], [ %165, %._crit_edge.loopexit.i27 ], [ -541478725, %101 ], [ %122, %120 ], [ %145, %159 ]
+  %.0 = phi i32 [ -1414092869, %waiter_wait.exit ], [ 0, %.thread70.i ], [ %76, %87 ], [ -541478725, %101 ], [ %165, %._crit_edge.loopexit.i27 ], [ %70, %62 ], [ %145, %159 ], [ %122, %120 ]
   ret i32 %.0
 }
 
@@ -4268,7 +4268,7 @@ define i32 @sch_dec_receive(ptr noundef readonly captures(none) %0, i32 noundef 
   br label %47
 
 47:                                               ; preds = %35, %37, %40, %43, %46, %.critedge
-  %.1 = phi i32 [ %25, %.critedge ], [ %31, %35 ], [ %31, %46 ], [ %31, %43 ], [ %31, %40 ], [ %31, %37 ]
+  %.1 = phi i32 [ %25, %.critedge ], [ %31, %46 ], [ %31, %43 ], [ %31, %40 ], [ %31, %37 ], [ %31, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
@@ -4434,7 +4434,7 @@ send_to_filter.exit26.i:                          ; preds = %88, %86, %77, %68
   store i8 1, ptr %33, align 1, !tbaa !96
   br label %.thread
 
-.thread:                                          ; preds = %send_to_filter.exit26.i, %47
+.thread:                                          ; preds = %47, %send_to_filter.exit26.i
   tail call void @av_frame_unref(ptr noundef %.038) #9
   %92 = add i32 %.03969, 1
   br label %95
@@ -4448,7 +4448,7 @@ dec_send_to_dst.exit:                             ; preds = %63
   br label %.thread58
 
 95:                                               ; preds = %.thread, %dec_send_to_dst.exit
-  %.241 = phi i32 [ %.03969, %dec_send_to_dst.exit ], [ %92, %.thread ]
+  %.241 = phi i32 [ %92, %.thread ], [ %.03969, %dec_send_to_dst.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %96 = load i32, ptr %23, align 8, !tbaa !124
   %97 = zext i32 %96 to i64
@@ -4461,7 +4461,7 @@ dec_send_to_dst.exit:                             ; preds = %63
   br label %.thread58
 
 .thread58:                                        ; preds = %44, %18, %._crit_edge.loopexit, %94
-  %.3 = phi i32 [ %99, %._crit_edge.loopexit ], [ %64, %94 ], [ -541478725, %18 ], [ %45, %44 ]
+  %.3 = phi i32 [ %64, %94 ], [ -541478725, %18 ], [ %99, %._crit_edge.loopexit ], [ %45, %44 ]
   ret i32 %.3
 }
 
@@ -4619,7 +4619,7 @@ enc_send_to_dst.exit:                             ; preds = %48
   %63 = icmp slt i32 %49, 0
   br i1 %63, label %enc_send_to_dst.exit.thread, label %select.unfold
 
-enc_send_to_dst.exit.thread.thread:               ; preds = %31, %62
+enc_send_to_dst.exit.thread.thread:               ; preds = %62, %31
   tail call void @av_packet_unref(ptr noundef %.028) #9
   br label %select.unfold
 
@@ -4771,7 +4771,7 @@ waiter_wait.exit.thread:                          ; preds = %37, %waiter_wait.ex
   br i1 %57, label %.thread, label %.lr.ph
 
 58:                                               ; preds = %.thread, %waiter_wait.exit.thread, %waiter_wait.exit
-  %.0 = phi i32 [ %.2.ph, %.thread ], [ -11, %waiter_wait.exit.thread ], [ -541478725, %waiter_wait.exit ]
+  %.0 = phi i32 [ -11, %waiter_wait.exit.thread ], [ -541478725, %waiter_wait.exit ], [ %.2.ph, %.thread ]
   ret i32 %.0
 }
 
@@ -5197,7 +5197,7 @@ send_to_enc_sq.exit:                              ; preds = %125, %.loopexit79.i
   br label %send_to_enc_thread.exit
 
 send_to_enc_thread.exit:                          ; preds = %11, %36, %150, %145, %142, %139, %send_to_enc_sq.exit
-  %.1 = phi i32 [ %148, %145 ], [ %.0.i25, %send_to_enc_sq.exit ], [ 0, %139 ], [ -541478725, %142 ], [ %148, %150 ], [ %14, %11 ], [ 0, %36 ]
+  %.1 = phi i32 [ %.0.i25, %send_to_enc_sq.exit ], [ 0, %139 ], [ -541478725, %142 ], [ %148, %150 ], [ %148, %145 ], [ %14, %11 ], [ 0, %36 ]
   ret i32 %.1
 }
 
@@ -5349,7 +5349,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mux_task_start(ptr noundef
   br label %.lr.ph, !llvm.loop !229
 
 ._crit_edge:                                      ; preds = %34, %16, %19
-  %.136 = phi i32 [ %18, %16 ], [ %.237.ph, %34 ], [ %18, %19 ]
+  %.136 = phi i32 [ %.237.ph, %34 ], [ %18, %16 ], [ %18, %19 ]
   %38 = icmp sgt i32 %.136, -1
   br i1 %38, label %39, label %._crit_edge.thread
 
@@ -5421,7 +5421,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mux_task_start(ptr noundef
   br label %65
 
 65:                                               ; preds = %.thread59, %1, %._crit_edge.thread
-  %.0 = phi i32 [ 0, %._crit_edge.thread ], [ %55, %.thread59 ], [ %4, %1 ]
+  %.0 = phi i32 [ 0, %._crit_edge.thread ], [ %4, %1 ], [ %55, %.thread59 ]
   ret i32 %.0
 }
 
@@ -5942,7 +5942,7 @@ send_to_filter.exit.i:                            ; preds = %188
   br label %err_merge.exit.i
 
 err_merge.exit.i:                                 ; preds = %219, %send_to_filter.exit.i, %211, %202, %192
-  %.1.i = phi i32 [ %spec.select.i, %219 ], [ %.032.i, %send_to_filter.exit.i ], [ %.032.i, %211 ], [ %.032.i, %192 ], [ %.032.i, %202 ]
+  %.1.i = phi i32 [ %.032.i, %send_to_filter.exit.i ], [ %.032.i, %192 ], [ %.032.i, %202 ], [ %.032.i, %211 ], [ %spec.select.i, %219 ]
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i35, 1
   %222 = load i32, ptr %180, align 8, !tbaa !112
   %223 = zext i32 %222 to i64
@@ -5970,7 +5970,7 @@ dec_done.exit.sink.split:                         ; preds = %demux_done.exit, %m
   br label %dec_done.exit
 
 dec_done.exit:                                    ; preds = %enc_send_to_dst.exit.i, %._crit_edge.i19, %dec_done.exit.sink.split, %139, %86
-  %.0 = phi i32 [ 0, %86 ], [ 0, %139 ], [ 0, %._crit_edge.i19 ], [ %.0.ph, %dec_done.exit.sink.split ], [ 0, %enc_send_to_dst.exit.i ]
+  %.0 = phi i32 [ 0, %86 ], [ 0, %139 ], [ %.0.ph, %dec_done.exit.sink.split ], [ 0, %._crit_edge.i19 ], [ 0, %enc_send_to_dst.exit.i ]
   ret i32 %.0
 }
 
@@ -6180,7 +6180,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @send_to_mux(ptr noundef %0
   br label %.thread60
 
 .thread60:                                        ; preds = %.thread60.sink.split, %73, %.thread66, %85, %76
-  %.2 = phi i32 [ 0, %.thread66 ], [ %79, %76 ], [ 0, %85 ], [ -541478725, %73 ], [ %.2.ph, %.thread60.sink.split ]
+  %.2 = phi i32 [ %79, %76 ], [ 0, %85 ], [ 0, %.thread66 ], [ -541478725, %73 ], [ %.2.ph, %.thread60.sink.split ]
   ret i32 %.2
 }
 

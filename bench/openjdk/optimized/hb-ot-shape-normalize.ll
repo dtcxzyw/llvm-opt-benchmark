@@ -199,7 +199,7 @@ _ZN11hb_buffer_t11next_glyphsEj.exit.thread:      ; preds = %_ZN9hb_font_t18get_
   br label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %100
-  %.lcssa209 = phi i32 [ %101, %100 ], [ %101, %.lr.ph.preheader ], [ %107, %..critedge.loopexit_crit_edge ], [ %107, %.lr.ph ]
+  %.lcssa209 = phi i32 [ %101, %100 ], [ %107, %..critedge.loopexit_crit_edge ], [ %101, %.lr.ph.preheader ], [ %107, %.lr.ph ]
   %109 = icmp eq i32 %.lcssa209, %33
   br i1 %109, label %.critedge2, label %110
 
@@ -673,7 +673,7 @@ _ZL9set_glyphR15hb_glyph_info_tP9hb_font_t.exit53.i.i: ; preds = %343, %340
   br label %.critedge2.i.i
 
 .critedge2.i.i:                                   ; preds = %_ZN11hb_buffer_t10next_glyphEv.exit51.i.i, %292, %.lr.ph.i.i, %369, %356, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit.i.i
-  %372 = phi i32 [ %.pre19.i.i, %356 ], [ %287, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit.i.i ], [ %371, %369 ], [ %289, %.lr.ph.i.i ], [ %338, %_ZN11hb_buffer_t10next_glyphEv.exit51.i.i ], [ %289, %292 ]
+  %372 = phi i32 [ %287, %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit.i.i ], [ %371, %369 ], [ %.pre19.i.i, %356 ], [ %289, %.lr.ph.i.i ], [ %338, %_ZN11hb_buffer_t10next_glyphEv.exit51.i.i ], [ %289, %292 ]
   %373 = icmp ult i32 %372, %.2.in.lcssa
   br i1 %373, label %152, label %.critedge.i.i, !llvm.loop !12
 
@@ -1530,8 +1530,8 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit35:     ; preds = %.thread57, %88
 149:                                              ; preds = %138
   br label %150
 
-150:                                              ; preds = %138, %138, %147, %139, %140, %149, %148, %141, %142, %143, %144, %145, %146
-  %.0.i.ph = phi i16 [ 1280, %146 ], [ 5120, %145 ], [ 4864, %144 ], [ 1536, %143 ], [ 1024, %142 ], [ 768, %141 ], [ 5376, %148 ], [ 4352, %149 ], [ 256, %140 ], [ 512, %139 ], [ 4096, %147 ], [ 4608, %138 ], [ 4608, %138 ]
+150:                                              ; preds = %138, %138, %139, %140, %141, %142, %143, %144, %145, %146, %147, %148, %149
+  %.0.i.ph = phi i16 [ 4352, %149 ], [ 5376, %148 ], [ 4096, %147 ], [ 1280, %146 ], [ 5120, %145 ], [ 4864, %144 ], [ 1536, %143 ], [ 1024, %142 ], [ 768, %141 ], [ 256, %140 ], [ 512, %139 ], [ 4608, %138 ], [ 4608, %138 ]
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %152 = load ptr, ptr %151, align 8
   store i32 0, ptr %4, align 4
@@ -1954,7 +1954,7 @@ define internal fastcc void @_ZL32_hb_glyph_info_set_unicode_propsP15hb_glyph_in
   br label %_ZN18hb_unicode_funcs_t24modified_combining_classEj.exit
 
 _ZN18hb_unicode_funcs_t24modified_combining_classEj.exit: ; preds = %41, %41, %42, %43
-  %.0.i = phi i32 [ %53, %43 ], [ 65024, %41 ], [ 32512, %42 ], [ 65024, %41 ]
+  %.0.i = phi i32 [ 32512, %42 ], [ %53, %43 ], [ 65024, %41 ], [ 65024, %41 ]
   %54 = or i32 %.1, %.0.i
   %55 = or i32 %54, 128
   br label %56
@@ -2402,7 +2402,7 @@ _ZL11output_charP11hb_buffer_tjj.exit76:          ; preds = %._ZN11hb_buffer_t12
   br label %244
 
 244:                                              ; preds = %167, %_ZL11output_charP11hb_buffer_tjj.exit65, %125, %_ZL11output_charP11hb_buffer_tjj.exit, %3, %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit, %_ZL11output_charP11hb_buffer_tjj.exit76, %_ZL11output_charP11hb_buffer_tjj.exit54, %_ZL11output_charP11hb_buffer_tjj.exit43
-  %.0 = phi i32 [ 2, %_ZL11output_charP11hb_buffer_tjj.exit43 ], [ 0, %3 ], [ %166, %_ZL11output_charP11hb_buffer_tjj.exit54 ], [ 1, %_ZL11output_charP11hb_buffer_tjj.exit ], [ 2, %_ZL11output_charP11hb_buffer_tjj.exit76 ], [ %124, %125 ], [ 1, %_ZL11output_charP11hb_buffer_tjj.exit65 ], [ 0, %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit ], [ 0, %167 ]
+  %.0 = phi i32 [ 2, %_ZL11output_charP11hb_buffer_tjj.exit43 ], [ %166, %_ZL11output_charP11hb_buffer_tjj.exit54 ], [ 2, %_ZL11output_charP11hb_buffer_tjj.exit76 ], [ 0, %_ZN9hb_font_t17get_nominal_glyphEjPjj.exit ], [ 0, %3 ], [ 1, %_ZL11output_charP11hb_buffer_tjj.exit ], [ %124, %125 ], [ 1, %_ZL11output_charP11hb_buffer_tjj.exit65 ], [ 0, %167 ]
   ret i32 %.0
 }
 
@@ -2504,7 +2504,7 @@ define linkonce_odr hidden noundef i32 @_ZN18hb_unicode_funcs_t20is_default_igno
   br label %_ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit
 
 _ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit:    ; preds = %21, %18, %35, %4, %39, %36, %32, %27, %15, %12, %10, %8, %6
-  %.0.shrunk = phi i1 [ %41, %39 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %14, %12 ], [ %17, %15 ], [ false, %35 ], [ %31, %27 ], [ %34, %32 ], [ false, %4 ], [ %38, %36 ], [ true, %18 ], [ %26, %21 ]
+  %.0.shrunk = phi i1 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %14, %12 ], [ %17, %15 ], [ %31, %27 ], [ %34, %32 ], [ %38, %36 ], [ %41, %39 ], [ false, %4 ], [ false, %35 ], [ true, %18 ], [ %26, %21 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

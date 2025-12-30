@@ -115,7 +115,7 @@ define hidden void @hb_draw_funcs_set_move_to_func(ptr noundef captures(none) %0
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_draw_funcs_set_preambleP15hb_draw_funcs_tbPPvPPFvS1_E.exit
 
-36:                                               ; preds = %30, %33, %31
+36:                                               ; preds = %33, %31, %30
   %spec.select = select i1 %.not, ptr @_ZL19hb_draw_move_to_nilP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_, ptr %1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %spec.select, ptr %37, align 8
@@ -242,7 +242,7 @@ define hidden void @hb_draw_funcs_set_line_to_func(ptr noundef captures(none) %0
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_draw_funcs_set_preambleP15hb_draw_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %32, %35, %33
+38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL19hb_draw_line_to_nilP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %spec.select, ptr %39, align 8
@@ -371,7 +371,7 @@ define hidden void @hb_draw_funcs_set_quadratic_to_func(ptr noundef captures(non
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_draw_funcs_set_preambleP15hb_draw_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %32, %35, %33
+38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL24hb_draw_quadratic_to_nilP15hb_draw_funcs_tPvP15hb_draw_state_tffffS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %spec.select, ptr %39, align 8
@@ -527,7 +527,7 @@ define hidden void @hb_draw_funcs_set_cubic_to_func(ptr noundef captures(none) %
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_draw_funcs_set_preambleP15hb_draw_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %32, %35, %33
+38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL20hb_draw_cubic_to_nilP15hb_draw_funcs_tPvP15hb_draw_state_tffffffS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %spec.select, ptr %39, align 8
@@ -656,7 +656,7 @@ define hidden void @hb_draw_funcs_set_close_path_func(ptr noundef captures(none)
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_draw_funcs_set_preambleP15hb_draw_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %32, %35, %33
+38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL22hb_draw_close_path_nilP15hb_draw_funcs_tPvP15hb_draw_state_tS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %spec.select, ptr %39, align 8
@@ -902,7 +902,7 @@ _ZL17hb_object_destroyI15hb_draw_funcs_tEbPT_.exit: ; preds = %10, %7
   tail call void @free(ptr noundef nonnull %0) #13
   br label %_ZL17hb_object_destroyI15hb_draw_funcs_tEbPT_.exit.thread
 
-_ZL17hb_object_destroyI15hb_draw_funcs_tEbPT_.exit.thread: ; preds = %1, %2, %5, %73
+_ZL17hb_object_destroyI15hb_draw_funcs_tEbPT_.exit.thread: ; preds = %1, %5, %2, %73
   ret void
 }
 
@@ -959,7 +959,7 @@ define hidden range(i32 0, 2) i32 @hb_draw_funcs_set_user_data(ptr noundef captu
   br label %_ZL23hb_object_set_user_dataI15hb_draw_funcs_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit
 
 _ZL23hb_object_set_user_dataI15hb_draw_funcs_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit: ; preds = %.lr.ph.i, %5, %6, %.split.loop.exit.i
-  %.015.i = phi i32 [ 0, %5 ], [ %22, %.split.loop.exit.i ], [ 0, %6 ], [ 0, %.lr.ph.i ]
+  %.015.i = phi i32 [ %22, %.split.loop.exit.i ], [ 0, %6 ], [ 0, %5 ], [ 0, %.lr.ph.i ]
   ret i32 %.015.i
 }
 
@@ -1015,7 +1015,7 @@ _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %17, %18, 
   br label %_ZL23hb_object_get_user_dataIK15hb_draw_funcs_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK15hb_draw_funcs_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %2, %3, %5, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
-  %.0.i = phi ptr [ null, %2 ], [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %5 ]
+  %.0.i = phi ptr [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %2 ], [ null, %5 ]
   ret ptr %.0.i
 }
 
@@ -1654,7 +1654,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EE
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %19, %17, %20, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
-  %.0 = phi ptr [ %.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ null, %20 ], [ %16, %17 ], [ %16, %19 ]
+  %.0 = phi ptr [ null, %20 ], [ %.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ %16, %17 ], [ %16, %19 ]
   %43 = load i32, ptr %0, align 8
   %44 = icmp slt i32 %43, 0
   %45 = select i1 %44, ptr null, ptr %.0

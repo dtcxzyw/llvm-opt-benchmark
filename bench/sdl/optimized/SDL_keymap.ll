@@ -296,7 +296,7 @@ SDL_DestroyKeymap.exit:                           ; preds = %3
   br label %9
 
 9:                                                ; preds = %3, %1, %SDL_DestroyKeymap.exit
-  %.0 = phi ptr [ null, %1 ], [ null, %SDL_DestroyKeymap.exit ], [ %2, %3 ]
+  %.0 = phi ptr [ null, %SDL_DestroyKeymap.exit ], [ null, %1 ], [ %2, %3 ]
   ret ptr %.0
 }
 
@@ -501,7 +501,7 @@ switch.lookup:                                    ; preds = %58
   br label %SDL_GetDefaultKeyFromScancode.exit
 
 SDL_GetDefaultKeyFromScancode.exit:               ; preds = %58, %switch.lookup, %54, %50, %44, %40, %38, %30, %26, %24, %18
-  %.0 = phi i32 [ %21, %18 ], [ 0, %24 ], [ %39, %38 ], [ 0, %26 ], [ 0, %30 ], [ %41, %40 ], [ 0, %44 ], [ %switch.load, %switch.lookup ], [ %57, %54 ], [ %53, %50 ], [ 0, %58 ]
+  %.0 = phi i32 [ %21, %18 ], [ 0, %24 ], [ 0, %26 ], [ %41, %40 ], [ %39, %38 ], [ 0, %30 ], [ %57, %54 ], [ %53, %50 ], [ 0, %44 ], [ %switch.load, %switch.lookup ], [ 0, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -651,7 +651,7 @@ define hidden i32 @SDL_GetKeymapScancode(ptr noundef readonly captures(address_i
   br label %SDL_GetDefaultScancodeFromKey.exit
 
 SDL_GetDefaultScancodeFromKey.exit:               ; preds = %25, %62, %60, %.thread57.i, %45, %39, %35, %29, %21, %11, %16
-  %.0 = phi i32 [ %15, %16 ], [ %15, %11 ], [ %51, %.thread57.i ], [ 0, %21 ], [ %61, %60 ], [ %36, %35 ], [ %40, %39 ], [ %46, %45 ], [ %..i, %62 ], [ %32, %29 ], [ 0, %25 ]
+  %.0 = phi i32 [ %15, %16 ], [ %15, %11 ], [ %36, %35 ], [ %40, %39 ], [ %46, %45 ], [ %61, %60 ], [ 0, %21 ], [ %..i, %62 ], [ %32, %29 ], [ %51, %.thread57.i ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -744,7 +744,7 @@ define hidden range(i32 0, 512) i32 @SDL_GetScancodeFromName_REAL(ptr noundef %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %12, %4
-  %.08 = phi i32 [ 0, %4 ], [ 0, %12 ], [ %14, %.loopexit.loopexit ]
+  %.08 = phi i32 [ 0, %12 ], [ 0, %4 ], [ %14, %.loopexit.loopexit ]
   ret i32 %.08
 }
 
@@ -886,7 +886,7 @@ define hidden ptr @SDL_GetKeyName_REAL(i32 noundef %0) local_unnamed_addr #0 {
   br label %SDL_GetScancodeName_REAL.exit
 
 SDL_GetScancodeName_REAL.exit:                    ; preds = %10, %8, %19, %24, %53, %37, %35, %33, %31, %29, %27
-  %.0 = phi ptr [ @.str.2, %24 ], [ %spec.store.select.i55, %37 ], [ %55, %53 ], [ %spec.store.select.i40, %27 ], [ %spec.store.select.i43, %29 ], [ %spec.store.select.i46, %31 ], [ %spec.store.select.i49, %33 ], [ %spec.store.select.i52, %35 ], [ %23, %19 ], [ @.str.2, %8 ], [ %spec.store.select.i, %10 ]
+  %.0 = phi ptr [ %55, %53 ], [ %spec.store.select.i40, %27 ], [ %spec.store.select.i43, %29 ], [ %spec.store.select.i46, %31 ], [ %spec.store.select.i49, %33 ], [ %spec.store.select.i52, %35 ], [ %spec.store.select.i55, %37 ], [ %23, %19 ], [ @.str.2, %24 ], [ @.str.2, %8 ], [ %spec.store.select.i, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -990,7 +990,7 @@ select.unfold:                                    ; preds = %select.unfold.sink.
   %.not56 = icmp eq i32 %.048, 0
   br i1 %.not56, label %.preheader.preheader, label %59
 
-.preheader.preheader:                             ; preds = %46, %29, %7, %53, %select.unfold
+.preheader.preheader:                             ; preds = %53, %46, %29, %7, %select.unfold
   br label %.preheader
 
 59:                                               ; preds = %select.unfold
@@ -1074,9 +1074,9 @@ SDL_GetKeymapScancode.exit:                       ; preds = %61
   %95 = icmp eq i32 %.048, 127
   br i1 %95, label %SDL_GetKeymapScancode.exit.thread, label %SDL_GetKeymapScancode.exit.thread68
 
-SDL_GetKeymapScancode.exit.thread:                ; preds = %.thread57.i.i, %90, %75, %79, %94
-  %.060.ph = phi i16 [ 0, %75 ], [ 3, %90 ], [ 0, %.thread57.i.i ], [ 3, %79 ], [ 0, %94 ]
-  %.0.i.ph = phi i32 [ %76, %75 ], [ %92, %90 ], [ %85, %.thread57.i.i ], [ %80, %79 ], [ 76, %94 ]
+SDL_GetKeymapScancode.exit.thread:                ; preds = %75, %79, %90, %.thread57.i.i, %94
+  %.060.ph = phi i16 [ 3, %90 ], [ 0, %.thread57.i.i ], [ 3, %79 ], [ 0, %75 ], [ 0, %94 ]
+  %.0.i.ph = phi i32 [ %92, %90 ], [ %85, %.thread57.i.i ], [ %80, %79 ], [ %76, %75 ], [ 76, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %96
 
@@ -1148,12 +1148,12 @@ SDL_GetKeymapScancode.exit.thread68:              ; preds = %94
   br label %SDL_GetScancodeFromName_REAL.exit
 
 SDL_GetScancodeFromName_REAL.exit:                ; preds = %110, %118, %.loopexit.loopexit.i
-  %.08.i = phi i32 [ 0, %110 ], [ 0, %118 ], [ %120, %.loopexit.loopexit.i ]
+  %.08.i = phi i32 [ 0, %118 ], [ 0, %110 ], [ %120, %.loopexit.loopexit.i ]
   %121 = tail call i32 @SDL_GetKeyFromScancode_REAL(i32 noundef %.08.i, i16 noundef zeroext 0, i1 noundef zeroext false) #5
   br label %122
 
 122:                                              ; preds = %105, %SDL_GetKeymapScancode.exit, %96, %98, %SDL_GetKeymapScancode.exit.thread68, %1, %SDL_GetScancodeFromName_REAL.exit
-  %.047 = phi i32 [ 0, %1 ], [ %121, %SDL_GetScancodeFromName_REAL.exit ], [ %107, %105 ], [ %99, %98 ], [ %.048, %96 ], [ %.048, %SDL_GetKeymapScancode.exit ], [ %.048, %SDL_GetKeymapScancode.exit.thread68 ]
+  %.047 = phi i32 [ %121, %SDL_GetScancodeFromName_REAL.exit ], [ %107, %105 ], [ 0, %1 ], [ %99, %98 ], [ %.048, %96 ], [ %.048, %SDL_GetKeymapScancode.exit ], [ %.048, %SDL_GetKeymapScancode.exit.thread68 ]
   ret i32 %.047
 }
 

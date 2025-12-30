@@ -115,7 +115,7 @@ define internal void @wspstat_init(ptr noundef %0, ptr readnone captures(none) %
   br label %index2pdut.exit
 
 index2pdut.exit:                                  ; preds = %.lr.ph98, %35, %37
-  %.0.i = phi i32 [ %indvars101, %.lr.ph98 ], [ %36, %35 ], [ %spec.select.i, %37 ]
+  %.0.i = phi i32 [ %36, %35 ], [ %indvars101, %.lr.ph98 ], [ %spec.select.i, %37 ]
   %41 = tail call ptr @try_val_to_str_ext(i32 noundef %.0.i, ptr noundef nonnull @wsp_vals_pdu_type_ext)
   store ptr %41, ptr %30, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -232,7 +232,7 @@ define internal range(i32 0, 2) i32 @wspstat_packet(ptr noundef readonly capture
   br label %pdut2index.exit
 
 pdut2index.exit:                                  ; preds = %5, %10, %14, %16
-  %.0.i = phi i32 [ %8, %5 ], [ %15, %14 ], [ 0, %10 ], [ %spec.select.i, %16 ]
+  %.0.i = phi i32 [ %15, %14 ], [ %8, %5 ], [ 0, %10 ], [ %spec.select.i, %16 ]
   %19 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %38, label %20

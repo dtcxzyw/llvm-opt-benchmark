@@ -378,7 +378,7 @@ RB_ENCODING_GET.exit.i:                           ; preds = %13, %3
   br label %convert_encoding.exit
 
 convert_encoding.exit:                            ; preds = %RB_ENCODING_GET.exit.i, %20, %24
-  %.0.i = phi i64 [ %27, %24 ], [ %23, %20 ], [ %6, %RB_ENCODING_GET.exit.i ]
+  %.0.i = phi i64 [ %23, %20 ], [ %27, %24 ], [ %6, %RB_ENCODING_GET.exit.i ]
   store i64 %.0.i, ptr %4, align 8, !tbaa !6
   %28 = call i64 @rb_string_value(ptr noundef nonnull %4) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -847,7 +847,7 @@ RB_ENCODING_GET.exit.i:                           ; preds = %14, %2
   br label %convert_encoding.exit
 
 convert_encoding.exit:                            ; preds = %RB_ENCODING_GET.exit.i, %21, %25
-  %.0.i = phi i64 [ %28, %25 ], [ %24, %21 ], [ %7, %RB_ENCODING_GET.exit.i ]
+  %.0.i = phi i64 [ %24, %21 ], [ %28, %25 ], [ %7, %RB_ENCODING_GET.exit.i ]
   store i64 %.0.i, ptr %3, align 8, !tbaa !6
   %29 = call i64 @rb_string_value(ptr noundef nonnull %3) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1410,8 +1410,8 @@ rvalue_stack_push.exit321:                        ; preds = %138, %147
   br i1 %exitcond423.not, label %.critedge2, label %.lr.ph407
 
 .critedge2:                                       ; preds = %.lr.ph407, %211, %.preheader390, %197, %.critedge293
-  %213 = phi ptr [ %storemerge.lcssa, %.critedge293 ], [ %storemerge.lcssa, %197 ], [ %201, %.preheader390 ], [ %208, %.lr.ph407 ], [ %212, %211 ]
-  %.0236 = phi i1 [ true, %.critedge293 ], [ true, %197 ], [ false, %.preheader390 ], [ false, %211 ], [ false, %.lr.ph407 ]
+  %213 = phi ptr [ %storemerge.lcssa, %197 ], [ %storemerge.lcssa, %.critedge293 ], [ %201, %.preheader390 ], [ %208, %.lr.ph407 ], [ %212, %211 ]
+  %.0236 = phi i1 [ true, %197 ], [ true, %.critedge293 ], [ false, %.preheader390 ], [ false, %211 ], [ false, %.lr.ph407 ]
   %214 = icmp ult ptr %213, %25
   br i1 %214, label %215, label %.critedge4
 
@@ -1559,7 +1559,7 @@ rvalue_stack_push.exit327:                        ; preds = %json_decode_integer
   br label %655
 
 .critedge298:                                     ; preds = %235, %.lr.ph410, %.preheader, %.critedge4
-  %276 = phi ptr [ %213, %.critedge4 ], [ %.promoted409, %.preheader ], [ %scevgep425, %235 ], [ %232, %.lr.ph410 ]
+  %276 = phi ptr [ %.promoted409, %.preheader ], [ %213, %.critedge4 ], [ %scevgep425, %235 ], [ %232, %.lr.ph410 ]
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %278 = load ptr, ptr %277, align 8, !tbaa !57
   %279 = ptrtoint ptr %276 to i64
@@ -2077,7 +2077,7 @@ json_eat_whitespace.exit366:                      ; preds = %.lr.ph.i362, %534
   br i1 %.not271, label %544, label %json_eat_whitespace.exit366.thread
 
 json_eat_whitespace.exit366.thread:               ; preds = %518, %541, %json_eat_whitespace.exit366
-  %543 = phi ptr [ %539, %json_eat_whitespace.exit366 ], [ %539, %541 ], [ %520, %518 ]
+  %543 = phi ptr [ %539, %541 ], [ %539, %json_eat_whitespace.exit366 ], [ %520, %518 ]
   tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.49, ptr noundef %543) #25
   unreachable
 
@@ -2302,7 +2302,7 @@ json_eat_whitespace.exit386:                      ; preds = %.lr.ph.i382, %640
   br i1 %.not274, label %650, label %json_eat_whitespace.exit386.thread
 
 json_eat_whitespace.exit386.thread:               ; preds = %624, %647, %json_eat_whitespace.exit386
-  %649 = phi ptr [ %645, %json_eat_whitespace.exit386 ], [ %645, %647 ], [ %626, %624 ]
+  %649 = phi ptr [ %645, %647 ], [ %645, %json_eat_whitespace.exit386 ], [ %626, %624 ]
   tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.51, ptr noundef %649) #25
   unreachable
 
@@ -2321,7 +2321,7 @@ json_eat_whitespace.exit386.thread:               ; preds = %624, %647, %json_ea
   unreachable
 
 655:                                              ; preds = %499, %rvalue_stack_push.exit376, %346, %rvalue_stack_push.exit351, %rvalue_stack_push.exit327, %rvalue_stack_push.exit334, %312, %167, %rvalue_stack_push.exit321, %rvalue_stack_push.exit316, %rvalue_stack_push.exit311, %rvalue_stack_push.exit306, %rvalue_stack_push.exit
-  %.0 = phi i64 [ 4, %rvalue_stack_push.exit ], [ 20, %rvalue_stack_push.exit306 ], [ 0, %rvalue_stack_push.exit311 ], [ %115, %rvalue_stack_push.exit316 ], [ %142, %rvalue_stack_push.exit321 ], [ %171, %167 ], [ %.017.i, %rvalue_stack_push.exit351 ], [ %313, %312 ], [ %.0.i329, %rvalue_stack_push.exit334 ], [ %.0.i322, %rvalue_stack_push.exit327 ], [ %348, %346 ], [ %501, %499 ], [ %579, %rvalue_stack_push.exit376 ]
+  %.0 = phi i64 [ 4, %rvalue_stack_push.exit ], [ 20, %rvalue_stack_push.exit306 ], [ 0, %rvalue_stack_push.exit311 ], [ %115, %rvalue_stack_push.exit316 ], [ %142, %rvalue_stack_push.exit321 ], [ %171, %167 ], [ %313, %312 ], [ %.0.i322, %rvalue_stack_push.exit327 ], [ %.0.i329, %rvalue_stack_push.exit334 ], [ %348, %346 ], [ %.017.i, %rvalue_stack_push.exit351 ], [ %501, %499 ], [ %579, %rvalue_stack_push.exit376 ]
   ret i64 %.0
 }
 
@@ -2753,9 +2753,9 @@ unescape_unicode.exit.i.i:                        ; preds = %95
   br label %convert_UTF32_to_UTF8.exit.i.i
 
 convert_UTF32_to_UTF8.exit.i.i:                   ; preds = %194, %183, %175, %171, %122, %119, %70, %69, %68, %67, %66, %65, %62
-  %.187.i.i = phi ptr [ %63, %62 ], [ %63, %65 ], [ %63, %66 ], [ %63, %67 ], [ %63, %68 ], [ %63, %69 ], [ %63, %70 ], [ %116, %119 ], [ %116, %122 ], [ %96, %171 ], [ %96, %175 ], [ %.288106112115.i.i, %183 ], [ %.288106112120.i.i, %194 ]
-  %.084.i.i = phi ptr [ @.str.62, %62 ], [ @.str.63, %65 ], [ @.str.64, %66 ], [ @.str.65, %67 ], [ @.str.66, %68 ], [ @.str.67, %69 ], [ @.str.68, %70 ], [ @.str.61, %119 ], [ @.str.61, %122 ], [ %4, %171 ], [ %4, %175 ], [ %4, %183 ], [ %4, %194 ]
-  %.079.i.i = phi i64 [ 1, %62 ], [ 1, %65 ], [ 1, %66 ], [ 1, %67 ], [ 1, %68 ], [ 1, %69 ], [ 1, %70 ], [ 1, %119 ], [ 1, %122 ], [ 1, %171 ], [ 2, %175 ], [ 3, %183 ], [ 4, %194 ]
+  %.187.i.i = phi ptr [ %63, %65 ], [ %63, %66 ], [ %63, %67 ], [ %63, %68 ], [ %63, %69 ], [ %63, %70 ], [ %63, %62 ], [ %116, %122 ], [ %116, %119 ], [ %96, %171 ], [ %96, %175 ], [ %.288106112115.i.i, %183 ], [ %.288106112120.i.i, %194 ]
+  %.084.i.i = phi ptr [ @.str.63, %65 ], [ @.str.64, %66 ], [ @.str.65, %67 ], [ @.str.66, %68 ], [ @.str.67, %69 ], [ @.str.68, %70 ], [ @.str.62, %62 ], [ @.str.61, %122 ], [ @.str.61, %119 ], [ %4, %171 ], [ %4, %175 ], [ %4, %183 ], [ %4, %194 ]
+  %.079.i.i = phi i64 [ 1, %65 ], [ 1, %66 ], [ 1, %67 ], [ 1, %68 ], [ 1, %69 ], [ 1, %70 ], [ 1, %62 ], [ 1, %122 ], [ 1, %119 ], [ 1, %171 ], [ 2, %175 ], [ 3, %183 ], [ 4, %194 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.182.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %.084.i.i, i64 noundef range(i64 1, 0) %.079.i.i, i1 noundef false) #20
   %209 = getelementptr inbounds nuw i8, ptr %.182.i.i, i64 %.079.i.i
   %210 = getelementptr inbounds nuw i8, ptr %.187.i.i, i64 1
@@ -2882,7 +2882,7 @@ json_string_fastpath.exit.i:                      ; preds = %244, %241, %.thread
   br label %json_decode_string.exit
 
 json_decode_string.exit:                          ; preds = %json_string_fastpath.exit.i, %249, %253, %259
-  %.1.i = phi i64 [ %.0.i, %253 ], [ %.0.i, %249 ], [ %261, %259 ], [ %.0.i, %json_string_fastpath.exit.i ]
+  %.1.i = phi i64 [ %.0.i, %249 ], [ %261, %259 ], [ %.0.i, %253 ], [ %.0.i, %json_string_fastpath.exit.i ]
   %262 = load ptr, ptr %5, align 8, !tbaa !51
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 1
   store ptr %263, ptr %5, align 8, !tbaa !51
@@ -3453,7 +3453,7 @@ define internal range(i32 0, 2) i32 @match_i(i64 noundef %0, i64 noundef %1, i64
   br label %16
 
 16:                                               ; preds = %5, %9, %3, %14
-  %.0 = phi i32 [ 1, %3 ], [ 1, %14 ], [ 0, %9 ], [ 0, %5 ]
+  %.0 = phi i32 [ 1, %14 ], [ 1, %3 ], [ 0, %9 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -3581,7 +3581,7 @@ rvalue_cache_insert_at.exit:                      ; preds = %50
   br label %.thread
 
 .thread:                                          ; preds = %rstring_cache_cmp.exit, %._crit_edge, %rvalue_cache_insert_at.exit, %44, %5, %3
-  %.0 = phi i64 [ 0, %5 ], [ 0, %3 ], [ %47, %44 ], [ 0, %._crit_edge ], [ %47, %rvalue_cache_insert_at.exit ], [ %22, %rstring_cache_cmp.exit ]
+  %.0 = phi i64 [ 0, %3 ], [ 0, %5 ], [ 0, %._crit_edge ], [ %47, %rvalue_cache_insert_at.exit ], [ %47, %44 ], [ %22, %rstring_cache_cmp.exit ]
   ret i64 %.0
 }
 
@@ -3704,7 +3704,7 @@ rvalue_cache_insert_at.exit:                      ; preds = %48
   br label %.thread
 
 .thread:                                          ; preds = %rstring_cache_cmp.exit, %._crit_edge, %rvalue_cache_insert_at.exit, %43, %5, %3
-  %.0 = phi i64 [ 0, %5 ], [ 0, %3 ], [ %45, %43 ], [ 0, %._crit_edge ], [ %45, %rvalue_cache_insert_at.exit ], [ %22, %rstring_cache_cmp.exit ]
+  %.0 = phi i64 [ 0, %3 ], [ 0, %5 ], [ 0, %._crit_edge ], [ %45, %rvalue_cache_insert_at.exit ], [ %45, %43 ], [ %22, %rstring_cache_cmp.exit ]
   ret i64 %.0
 }
 

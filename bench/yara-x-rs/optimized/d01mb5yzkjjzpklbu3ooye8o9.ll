@@ -1173,7 +1173,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %23
-  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %23 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %23 ], [ %15, %14 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 23:                                               ; preds = %21, %4
@@ -1257,7 +1257,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -1341,7 +1341,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -1482,7 +1482,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -1602,7 +1602,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -1722,7 +1722,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -1842,7 +1842,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -1924,7 +1924,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %25 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %15, %14 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %23, %4
@@ -2008,7 +2008,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -2128,7 +2128,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -2210,7 +2210,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %25 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %15, %14 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %23, %4
@@ -2330,7 +2330,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -2409,7 +2409,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %23
-  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %23 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %23 ], [ %15, %14 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 23:                                               ; preds = %21, %4
@@ -2529,7 +2529,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -2649,7 +2649,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4

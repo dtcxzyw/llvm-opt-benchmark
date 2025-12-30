@@ -520,59 +520,57 @@ _ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i6.us:   ; preds = %_ZNK4llvm7msgpack7D
 
 _ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i6:      ; preds = %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i6.preheader, %.thread
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.thread ], [ %11, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i6.preheader ]
-  %.0811.i.i.i.i = phi ptr [ %49, %.thread ], [ %12, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i6.preheader ]
+  %.0811.i.i.i.i = phi ptr [ %50, %.thread ], [ %12, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i6.preheader ]
   %17 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %.not.i7 = icmp eq ptr %18, %6
-  br i1 %.not.i7, label %24, label %19
+  br i1 %.not.i7, label %20, label %19
 
 19:                                               ; preds = %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i6
   %.not.i20.i8 = icmp eq ptr %18, null
-  br i1 %.not.i20.i8, label %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread, label %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit21.i9
+  br i1 %.not.i20.i8, label %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread, label %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27
 
-_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit21.i9:    ; preds = %19
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = load i8, ptr %20, align 8, !tbaa !84
-  %.fr = freeze i8 %21
-  %22 = icmp eq i8 %.fr, 10
-  %23 = icmp ult i8 %.fr, %.fr80
-  %spec.select.i10 = or i1 %22, %23
-  br i1 %spec.select.i10, label %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread, label %.thread
-
-24:                                               ; preds = %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i6
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %26 = load i8, ptr %25, align 8, !tbaa !84
-  switch i8 %26, label %45 [
-    i8 0, label %27
-    i8 1, label %31
+20:                                               ; preds = %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i6
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %22 = load i8, ptr %21, align 8, !tbaa !84
+  switch i8 %22, label %45 [
+    i8 0, label %23
+    i8 1, label %27
     i8 2, label %.thread
-    i8 3, label %35
-    i8 4, label %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27
+    i8 3, label %31
+    i8 4, label %35
     i8 5, label %39
     i8 6, label %39
   ]
 
-27:                                               ; preds = %24
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 40
+  %25 = load i64, ptr %24, align 8, !tbaa !35
+  %.fr84 = freeze i64 %25
+  %26 = icmp slt i64 %.fr84, %7
+  br i1 %26, label %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread, label %.thread
+
+27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 40
   %29 = load i64, ptr %28, align 8, !tbaa !35
-  %.fr84 = freeze i64 %29
-  %30 = icmp slt i64 %.fr84, %7
+  %.fr83 = freeze i64 %29
+  %30 = icmp ult i64 %.fr83, %7
   br i1 %30, label %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread, label %.thread
 
-31:                                               ; preds = %24
+31:                                               ; preds = %20
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 40
-  %33 = load i64, ptr %32, align 8, !tbaa !35
-  %.fr83 = freeze i64 %33
-  %34 = icmp ult i64 %.fr83, %7
+  %33 = load i8, ptr %32, align 8, !tbaa !35, !range !87, !noundef !88
+  %34 = icmp ult i8 %33, %.sroa.5.8.extract.trunc36
   br i1 %34, label %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread, label %.thread
 
-35:                                               ; preds = %24
+35:                                               ; preds = %20
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 40
-  %37 = load i8, ptr %36, align 8, !tbaa !35, !range !87, !noundef !88
-  %38 = icmp ult i8 %37, %.sroa.5.8.extract.trunc36
+  %37 = load double, ptr %36, align 8, !tbaa !35
+  %.fr81 = freeze double %37
+  %38 = fcmp olt double %.fr81, %16
   br i1 %38, label %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread, label %.thread
 
-39:                                               ; preds = %24, %24
+39:                                               ; preds = %20, %20
   %.sroa.22.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 48
   %.sroa.22.0.copyload.i13 = load i64, ptr %.sroa.22.0..sroa_idx.i12, align 8, !tbaa !89
   %.sroa.speculated.i.i.i16 = tail call i64 @llvm.umin.i64(i64 %2, i64 %.sroa.22.0.copyload.i13)
@@ -595,63 +593,60 @@ _ZN4llvmltENS_9StringRefES0_.exit.i24:            ; preds = %_ZN4llvm9StringRef1
   %44 = icmp slt i32 %.fr.i.i.i20, 0
   br i1 %44, label %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread, label %.thread
 
-45:                                               ; preds = %24
+45:                                               ; preds = %20
   unreachable
 
-_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27:     ; preds = %24
-  %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 40
-  %47 = load double, ptr %46, align 8, !tbaa !35
-  %.fr81 = freeze double %47
-  %48 = fcmp olt double %.fr81, %16
-  br i1 %48, label %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread, label %.thread
+_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27:     ; preds = %19
+  %46 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %47 = load i8, ptr %46, align 8, !tbaa !84
+  %.fr = freeze i8 %47
+  %48 = icmp eq i8 %.fr, 10
+  %49 = icmp ult i8 %.fr, %.fr80
+  %spec.select.i10 = or i1 %48, %49
+  br i1 %spec.select.i10, label %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread, label %.thread
 
-_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread: ; preds = %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27, %_ZN4llvmltENS_9StringRefES0_.exit.i24, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit21.i9, %31, %27, %35, %.thread.i.i.i26, %19
+_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread: ; preds = %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27, %23, %27, %31, %35, %_ZN4llvmltENS_9StringRefES0_.exit.i24, %.thread.i.i.i26, %19
   br label %.thread
 
-.thread:                                          ; preds = %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27, %_ZN4llvmltENS_9StringRefES0_.exit.i24, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit21.i9, %31, %27, %35, %.thread.i.i.i26, %24, %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread
-  %49 = phi ptr [ %.0811.i.i.i.i, %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread ], [ %.012.i.i.i.i, %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27 ], [ %.012.i.i.i.i, %.thread.i.i.i26 ], [ %.012.i.i.i.i, %24 ], [ %.012.i.i.i.i, %35 ], [ %.012.i.i.i.i, %27 ], [ %.012.i.i.i.i, %31 ], [ %.012.i.i.i.i, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit21.i9 ], [ %.012.i.i.i.i, %_ZN4llvmltENS_9StringRefES0_.exit.i24 ]
-  %50 = phi i64 [ 24, %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread ], [ 16, %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27 ], [ 16, %.thread.i.i.i26 ], [ 16, %24 ], [ 16, %35 ], [ 16, %27 ], [ 16, %31 ], [ 16, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit21.i9 ], [ 16, %_ZN4llvmltENS_9StringRefES0_.exit.i24 ]
-  %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %50
+.thread:                                          ; preds = %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27, %23, %27, %31, %35, %_ZN4llvmltENS_9StringRefES0_.exit.i24, %.thread.i.i.i26, %20, %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread
+  %50 = phi ptr [ %.0811.i.i.i.i, %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread ], [ %.012.i.i.i.i, %20 ], [ %.012.i.i.i.i, %.thread.i.i.i26 ], [ %.012.i.i.i.i, %_ZN4llvmltENS_9StringRefES0_.exit.i24 ], [ %.012.i.i.i.i, %35 ], [ %.012.i.i.i.i, %31 ], [ %.012.i.i.i.i, %27 ], [ %.012.i.i.i.i, %23 ], [ %.012.i.i.i.i, %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27 ]
+  %51 = phi i64 [ 24, %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27.thread41.thread ], [ 16, %20 ], [ 16, %.thread.i.i.i26 ], [ 16, %_ZN4llvmltENS_9StringRefES0_.exit.i24 ], [ 16, %35 ], [ 16, %31 ], [ 16, %27 ], [ 16, %23 ], [ 16, %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit27 ]
+  %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %51
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !85
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeIN4llvm7msgpack7DocNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i, label %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i6, !llvm.loop !86
 
 _ZNSt8_Rb_treeIN4llvm7msgpack7DocNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i: ; preds = %.thread, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i6.us
-  %.us-phi = phi ptr [ %.012.i.i.i.i.us, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i6.us ], [ %49, %.thread ]
-  %51 = icmp eq ptr %.us-phi, %12
-  br i1 %51, label %_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit, label %52
+  %.us-phi = phi ptr [ %.012.i.i.i.i.us, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i6.us ], [ %50, %.thread ]
+  %52 = icmp eq ptr %.us-phi, %12
+  br i1 %52, label %_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit, label %53
 
-52:                                               ; preds = %_ZNSt8_Rb_treeIN4llvm7msgpack7DocNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i
-  %53 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 32
-  %54 = load ptr, ptr %53, align 8, !tbaa !3
-  %.not.i.i = icmp eq ptr %54, null
+53:                                               ; preds = %_ZNSt8_Rb_treeIN4llvm7msgpack7DocNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i
+  %54 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 32
+  %55 = load ptr, ptr %54, align 8, !tbaa !3
+  %.not.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i, label %_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit, label %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i
 
-_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i:       ; preds = %52
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load i8, ptr %55, align 8, !tbaa !84
-  %.fr87 = freeze i8 %56
-  %57 = icmp eq i8 %.fr87, 10
-  br i1 %57, label %_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit, label %58
+_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i:       ; preds = %53
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %57 = load i8, ptr %56, align 8, !tbaa !84
+  %.fr87 = freeze i8 %57
+  %58 = icmp eq i8 %.fr87, 10
+  br i1 %58, label %_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit, label %59
 
-58:                                               ; preds = %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i
-  %.not.i = icmp eq ptr %6, %54
-  br i1 %.not.i, label %60, label %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit21.i
+59:                                               ; preds = %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i
+  %.not.i = icmp eq ptr %6, %55
+  br i1 %.not.i, label %60, label %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit
 
-_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit21.i:     ; preds = %58
-  %59 = icmp ult i8 %.fr80, %.fr87
-  %spec.select.i = or i1 %15, %59
-  br i1 %spec.select.i, label %_ZN4llvmltENS_9StringRefES0_.exit.i.thread75, label %_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit
-
-60:                                               ; preds = %58
-  switch i8 %.fr80, label %79 [
+60:                                               ; preds = %59
+  switch i8 %.fr80, label %83 [
     i8 0, label %61
     i8 1, label %65
     i8 2, label %_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit
-    i8 3, label %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit
-    i8 4, label %69
-    i8 5, label %73
-    i8 6, label %73
+    i8 3, label %69
+    i8 4, label %73
+    i8 5, label %77
+    i8 6, label %77
   ]
 
 61:                                               ; preds = %60
@@ -670,48 +665,53 @@ _ZNK4llvm7msgpack7DocNode7isEmptyEv.exit21.i:     ; preds = %58
 
 69:                                               ; preds = %60
   %70 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 40
-  %71 = load double, ptr %70, align 8, !tbaa !35
-  %.fr88 = freeze double %71
-  %72 = fcmp ogt double %.fr88, %16
+  %71 = load i8, ptr %70, align 8, !tbaa !35, !range !87, !noundef !88
+  %72 = icmp ugt i8 %71, %.sroa.5.8.extract.trunc36
   br i1 %72, label %_ZN4llvmltENS_9StringRefES0_.exit.i.thread75, label %_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit
 
-73:                                               ; preds = %60, %60
+73:                                               ; preds = %60
+  %74 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 40
+  %75 = load double, ptr %74, align 8, !tbaa !35
+  %.fr88 = freeze double %75
+  %76 = fcmp ogt double %.fr88, %16
+  br i1 %76, label %_ZN4llvmltENS_9StringRefES0_.exit.i.thread75, label %_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit
+
+77:                                               ; preds = %60, %60
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.us-phi, i64 48
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !89
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i, i64 %2)
-  %74 = icmp eq i64 %.sroa.speculated.i.i.i, 0
-  br i1 %74, label %.thread.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
+  %78 = icmp eq i64 %.sroa.speculated.i.i.i, 0
+  br i1 %78, label %.thread.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %73
-  %75 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 40
-  %.sroa.0.0.copyload.i = load ptr, ptr %75, align 8, !tbaa !90
-  %76 = tail call i32 @memcmp(ptr noundef %.fr82, ptr noundef %.sroa.0.0.copyload.i, i64 noundef %.sroa.speculated.i.i.i) #20
-  %.fr.i.i.i = freeze i32 %76
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %77
+  %79 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 40
+  %.sroa.0.0.copyload.i = load ptr, ptr %79, align 8, !tbaa !90
+  %80 = tail call i32 @memcmp(ptr noundef %.fr82, ptr noundef %.sroa.0.0.copyload.i, i64 noundef %.sroa.speculated.i.i.i) #20
+  %.fr.i.i.i = freeze i32 %80
   %.not.not.i.i.i = icmp eq i32 %.fr.i.i.i, 0
   br i1 %.not.not.i.i.i, label %.thread.i.i.i, label %_ZN4llvmltENS_9StringRefES0_.exit.i
 
-.thread.i.i.i:                                    ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i, %73
-  %77 = icmp ult i64 %2, %.sroa.2.0.copyload.i
-  br i1 %77, label %_ZN4llvmltENS_9StringRefES0_.exit.i.thread75, label %_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit
+.thread.i.i.i:                                    ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i, %77
+  %81 = icmp ult i64 %2, %.sroa.2.0.copyload.i
+  br i1 %81, label %_ZN4llvmltENS_9StringRefES0_.exit.i.thread75, label %_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit
 
 _ZN4llvmltENS_9StringRefES0_.exit.i:              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
-  %78 = icmp slt i32 %.fr.i.i.i, 0
-  br i1 %78, label %_ZN4llvmltENS_9StringRefES0_.exit.i.thread75, label %_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit
-
-79:                                               ; preds = %60
-  unreachable
-
-_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit:       ; preds = %60
-  %80 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 40
-  %81 = load i8, ptr %80, align 8, !tbaa !35, !range !87, !noundef !88
-  %82 = icmp ugt i8 %81, %.sroa.5.8.extract.trunc36
+  %82 = icmp slt i32 %.fr.i.i.i, 0
   br i1 %82, label %_ZN4llvmltENS_9StringRefES0_.exit.i.thread75, label %_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit
 
-_ZN4llvmltENS_9StringRefES0_.exit.i.thread75:     ; preds = %.thread.i.i.i, %69, %61, %65, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit21.i, %_ZN4llvmltENS_9StringRefES0_.exit.i, %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit
+83:                                               ; preds = %60
+  unreachable
+
+_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit:       ; preds = %59
+  %84 = icmp ult i8 %.fr80, %.fr87
+  %spec.select.i = or i1 %15, %84
+  br i1 %spec.select.i, label %_ZN4llvmltENS_9StringRefES0_.exit.i.thread75, label %_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit
+
+_ZN4llvmltENS_9StringRefES0_.exit.i.thread75:     ; preds = %.thread.i.i.i, %_ZN4llvmltENS_9StringRefES0_.exit.i, %73, %69, %65, %61, %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit
   br label %_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit
 
-_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit: ; preds = %.thread.i.i.i, %60, %52, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i, %_ZN4llvmltENS_9StringRefES0_.exit.i.thread75, %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit, %_ZN4llvmltENS_9StringRefES0_.exit.i, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit21.i, %65, %61, %69, %3, %_ZNSt8_Rb_treeIN4llvm7msgpack7DocNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %12, %3 ], [ %12, %_ZNSt8_Rb_treeIN4llvm7msgpack7DocNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i ], [ %12, %_ZN4llvmltENS_9StringRefES0_.exit.i.thread75 ], [ %.us-phi, %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit ], [ %.us-phi, %60 ], [ %.us-phi, %_ZN4llvmltENS_9StringRefES0_.exit.i ], [ %.us-phi, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit21.i ], [ %.us-phi, %65 ], [ %.us-phi, %61 ], [ %.us-phi, %69 ], [ %.us-phi, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i ], [ %.us-phi, %52 ], [ %.us-phi, %.thread.i.i.i ]
+_ZN4llvm7msgpack10MapDocNode4findENS0_7DocNodeE.exit: ; preds = %.thread.i.i.i, %53, %60, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i, %_ZN4llvmltENS_9StringRefES0_.exit.i.thread75, %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit, %61, %65, %69, %73, %_ZN4llvmltENS_9StringRefES0_.exit.i, %3, %_ZNSt8_Rb_treeIN4llvm7msgpack7DocNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i
+  %.sroa.0.0.i.i.i = phi ptr [ %12, %_ZNSt8_Rb_treeIN4llvm7msgpack7DocNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i ], [ %12, %3 ], [ %12, %_ZN4llvmltENS_9StringRefES0_.exit.i.thread75 ], [ %.us-phi, %_ZN4llvm7msgpackltERKNS0_7DocNodeES3_.exit ], [ %.us-phi, %61 ], [ %.us-phi, %65 ], [ %.us-phi, %69 ], [ %.us-phi, %73 ], [ %.us-phi, %_ZN4llvmltENS_9StringRefES0_.exit.i ], [ %.us-phi, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.i ], [ %.us-phi, %60 ], [ %.us-phi, %53 ], [ %.us-phi, %.thread.i.i.i ]
   ret ptr %.sroa.0.0.i.i.i
 }
 
@@ -832,7 +832,7 @@ _ZNSt3mapIN4llvm7msgpack7DocNodeES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE11lower_bou
   br label %.thread.i
 
 .thread.i:                                        ; preds = %20, %18
-  %23 = phi i1 [ %22, %20 ], [ true, %18 ]
+  %23 = phi i1 [ true, %18 ], [ %22, %20 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %23, ptr noundef nonnull %12, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load i64, ptr %24, align 8, !tbaa !59
@@ -1366,8 +1366,8 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %73, %_ZNSt10unique_
   br label %99
 
 99:                                               ; preds = %83, %98, %97, %96, %95, %93, %91, %88, %85
-  %.sroa.080.0 = phi ptr [ %.sroa.080.0.copyload81, %98 ], [ %59, %85 ], [ %58, %88 ], [ %57, %91 ], [ %56, %93 ], [ %55, %95 ], [ %54, %96 ], [ %.sroa.080.0.copyload, %97 ], [ %60, %83 ]
-  %.sroa.24.0 = phi i64 [ %.sroa.24.0.copyload96, %98 ], [ undef, %85 ], [ undef, %88 ], [ undef, %91 ], [ undef, %93 ], [ %.sroa.210.0.copyload, %95 ], [ %.sroa.2.0.copyload, %96 ], [ %.sroa.24.0.copyload, %97 ], [ undef, %83 ]
+  %.sroa.080.0 = phi ptr [ %59, %85 ], [ %58, %88 ], [ %57, %91 ], [ %56, %93 ], [ %55, %95 ], [ %54, %96 ], [ %.sroa.080.0.copyload, %97 ], [ %.sroa.080.0.copyload81, %98 ], [ %60, %83 ]
+  %.sroa.24.0 = phi i64 [ undef, %85 ], [ undef, %88 ], [ undef, %91 ], [ undef, %93 ], [ %.sroa.210.0.copyload, %95 ], [ %.sroa.2.0.copyload, %96 ], [ %.sroa.24.0.copyload, %97 ], [ %.sroa.24.0.copyload96, %98 ], [ undef, %83 ]
   %100 = load i32, ptr %24, align 8, !tbaa !102
   %.not.i = icmp eq i32 %100, 0
   br i1 %.not.i, label %171, label %101
@@ -1505,7 +1505,7 @@ _ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.thread.i: ; preds = %_ZNK4llvm7msgpack7
   br label %171
 
 171:                                              ; preds = %99, %167, %_ZN4llvm7msgpack12ArrayDocNodeixEm.exit
-  %.029 = phi ptr [ %149, %167 ], [ %141, %_ZN4llvm7msgpack12ArrayDocNodeixEm.exit ], [ %61, %99 ]
+  %.029 = phi ptr [ %141, %_ZN4llvm7msgpack12ArrayDocNodeixEm.exit ], [ %149, %167 ], [ %61, %99 ]
   %172 = load ptr, ptr %.029, align 8, !tbaa !3
   %.not.i36 = icmp eq ptr %172, null
   br i1 %.not.i36, label %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.thread, label %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit
@@ -1665,7 +1665,7 @@ _ZN4llvm23SmallVectorTemplateBaseI10StackLevelLb1EE9push_backERKS1_.exit46: ; pr
   br i1 %.not.i47, label %.loopexit, label %219, !llvm.loop !127
 
 .loopexit:                                        ; preds = %223, %219, %228, %216, %.thread, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit39.thread, %83
-  %.124 = phi i32 [ 1, %83 ], [ 3, %.thread ], [ 1, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit39.thread ], [ 0, %216 ], [ 0, %228 ], [ 0, %219 ], [ 0, %223 ]
+  %.124 = phi i32 [ 1, %83 ], [ 1, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit39.thread ], [ 3, %.thread ], [ 0, %216 ], [ 0, %228 ], [ 0, %219 ], [ 0, %223 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.16)
   br label %229
 
@@ -2432,7 +2432,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %41
   br label %_ZN4llvmltENS_9StringRefES0_.exit
 
 _ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i, %47
-  %.1.i.i = phi i32 [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %49, %47 ], [ 0, %.thread.i.i ]
+  %.1.i.i = phi i32 [ %49, %47 ], [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ 0, %.thread.i.i ]
   %50 = icmp slt i32 %.1.i.i, 0
   br label %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.thread
 
@@ -2440,7 +2440,7 @@ _ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRef1
   unreachable
 
 _ZNK4llvm7msgpack7DocNode7isEmptyEv.exit.thread:  ; preds = %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit21, %9, %2, %14, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit, %_ZN4llvmltENS_9StringRefES0_.exit, %35, %29, %23, %17
-  %.0 = phi i1 [ %50, %_ZN4llvmltENS_9StringRefES0_.exit ], [ false, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit ], [ true, %9 ], [ %22, %17 ], [ %28, %23 ], [ %spec.select, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit21 ], [ %34, %29 ], [ %40, %35 ], [ false, %14 ], [ false, %2 ]
+  %.0 = phi i1 [ %22, %17 ], [ %28, %23 ], [ %34, %29 ], [ %40, %35 ], [ %50, %_ZN4llvmltENS_9StringRefES0_.exit ], [ false, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit ], [ false, %14 ], [ false, %2 ], [ true, %9 ], [ %spec.select, %_ZNK4llvm7msgpack7DocNode7isEmptyEv.exit21 ]
   ret i1 %.0
 }
 
@@ -3204,8 +3204,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm7msgpack7DocNodeESt4pairI
   br label %_ZNSt8_Rb_treeIN4llvm7msgpack7DocNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE24_M_get_insert_unique_posERS4_.exit
 
 _ZNSt8_Rb_treeIN4llvm7msgpack7DocNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE24_M_get_insert_unique_posERS4_.exit: ; preds = %77, %._crit_edge.thread.i47, %51, %._crit_edge.thread.i27, %25, %._crit_edge.thread.i, %64, %39, %54, %56, %31, %14
-  %.sroa.070.0 = phi ptr [ null, %56 ], [ null, %14 ], [ %spec.select, %39 ], [ %spec.select72, %64 ], [ null, %._crit_edge.thread.i ], [ %33, %31 ], [ %1, %54 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %25 ], [ %spec.select.i21, %51 ], [ %spec.select.i41, %77 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %58, %56 ], [ %15, %14 ], [ %spec.select71, %39 ], [ %spec.select73, %64 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %33, %31 ], [ null, %54 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %25 ], [ %spec.select21.i22, %51 ], [ %spec.select21.i42, %77 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %14 ], [ %33, %31 ], [ null, %56 ], [ %1, %54 ], [ %spec.select, %39 ], [ %spec.select72, %64 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %25 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %51 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %77 ]
+  %.sroa.12.0 = phi ptr [ %15, %14 ], [ %33, %31 ], [ %58, %56 ], [ null, %54 ], [ %spec.select71, %39 ], [ %spec.select73, %64 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %25 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %51 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %77 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

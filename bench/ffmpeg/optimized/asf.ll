@@ -225,7 +225,7 @@ get_id3_tag.exit:                                 ; preds = %78, %80
   br label %84
 
 84:                                               ; preds = %76, %get_id3_tag.exit, %asf_read_picture.exit
-  %.0 = phi i32 [ %.0.i, %asf_read_picture.exit ], [ 0, %get_id3_tag.exit ], [ 1, %76 ]
+  %.0 = phi i32 [ 0, %get_id3_tag.exit ], [ %.0.i, %asf_read_picture.exit ], [ 1, %76 ]
   ret i32 %.0
 }
 

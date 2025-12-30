@@ -422,7 +422,7 @@ thread-pre-split.i.i.i.i.i.i125:                  ; preds = %.loopexit202
   br label %.body121
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i129, %.loopexit202.thread, %._crit_edge.i.i.i.i.i.i.i128, %.loopexit202
-  %.sroa.0170.0275 = phi ptr [ null, %.loopexit202.thread ], [ %.sroa.0170.1198, %.loopexit202 ], [ %.sroa.0170.1198, %._crit_edge.i.i.i.i.i.i.i128 ], [ %.sroa.0170.1198, %.lr.ph.i.i.i.i.i.i.i.i129 ]
+  %.sroa.0170.0275 = phi ptr [ null, %.loopexit202.thread ], [ %.sroa.0170.1198, %._crit_edge.i.i.i.i.i.i.i128 ], [ %.sroa.0170.1198, %.loopexit202 ], [ %.sroa.0170.1198, %.lr.ph.i.i.i.i.i.i.i.i129 ]
   call void @free(ptr noundef %.sroa.0170.0275) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
@@ -598,8 +598,8 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sc
   br label %.critedge95
 
 .critedge95:                                      ; preds = %.critedge95.loopexit, %.preheader, %.critedge, %209
-  %.144207 = phi i32 [ %207, %209 ], [ %207, %.critedge ], [ %.043213, %.preheader ], [ %219, %.critedge95.loopexit ]
-  %.1205 = phi i1 [ false, %209 ], [ false, %.critedge ], [ true, %.preheader ], [ true, %.critedge95.loopexit ]
+  %.144207 = phi i32 [ %207, %.critedge ], [ %207, %209 ], [ %.043213, %.preheader ], [ %219, %.critedge95.loopexit ]
+  %.1205 = phi i1 [ false, %.critedge ], [ false, %209 ], [ true, %.preheader ], [ true, %.critedge95.loopexit ]
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next235, %186
   br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !33

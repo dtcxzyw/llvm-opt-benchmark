@@ -1292,7 +1292,7 @@ _ZN13HasherVisitorD2Ev.exit:                      ; preds = %_ZN13HasherVisitorC
   br label %33
 
 33:                                               ; preds = %_ZN13HasherVisitorD2Ev.exit, %_ZN13HasherVisitorD2Ev.exit.thread
-  %34 = phi i32 [ %spec.select, %_ZN13HasherVisitorD2Ev.exit ], [ %11, %_ZN13HasherVisitorD2Ev.exit.thread ]
+  %34 = phi i32 [ %11, %_ZN13HasherVisitorD2Ev.exit.thread ], [ %spec.select, %_ZN13HasherVisitorD2Ev.exit ]
   ret i32 %34
 }
 
@@ -14234,7 +14234,7 @@ select.unfold.i.i:                                ; preds = %54, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIP7AstNodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIP7AstNodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i: ; preds = %58, %select.unfold.i.i
-  %62 = phi i1 [ %61, %58 ], [ true, %select.unfold.i.i ]
+  %62 = phi i1 [ true, %select.unfold.i.i ], [ %61, %58 ]
   %63 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   store ptr %1, ptr %64, align 8, !tbaa !326

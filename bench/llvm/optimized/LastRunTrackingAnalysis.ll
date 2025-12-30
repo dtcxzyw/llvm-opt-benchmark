@@ -285,7 +285,7 @@ _ZNKSt8functionIFbPKvEEclES1_.exit:               ; preds = %37
   br label %45
 
 45:                                               ; preds = %44, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvSt8functionIFbS3_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4findES3_.exit, %_ZNKSt8functionIFbPKvEEclES1_.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvSt8functionIFbS3_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4findES3_.exit ], [ true, %44 ], [ false, %_ZNKSt8functionIFbPKvEEclES1_.exit ]
+  %.0 = phi i1 [ false, %3 ], [ true, %44 ], [ false, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvSt8functionIFbS3_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4findES3_.exit ], [ false, %_ZNKSt8functionIFbPKvEEclES1_.exit ]
   ret i1 %.0
 }
 

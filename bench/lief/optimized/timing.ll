@@ -94,7 +94,7 @@ define hidden range(i32 -1, 3) i32 @mbedtls_timing_get_delay(ptr noundef readonl
   br label %25
 
 25:                                               ; preds = %21, %6, %1
-  %.0 = phi i32 [ 2, %6 ], [ -1, %1 ], [ %., %21 ]
+  %.0 = phi i32 [ -1, %1 ], [ 2, %6 ], [ %., %21 ]
   ret i32 %.0
 }
 

@@ -45,7 +45,7 @@ define i32 @ff_ac3_float_encode_init(ptr noundef %0) #0 {
   br label %15
 
 15:                                               ; preds = %10, %1, %13
-  %.0 = phi i32 [ -12, %1 ], [ %14, %13 ], [ %11, %10 ]
+  %.0 = phi i32 [ %14, %13 ], [ -12, %1 ], [ %11, %10 ]
   ret i32 %.0
 }
 

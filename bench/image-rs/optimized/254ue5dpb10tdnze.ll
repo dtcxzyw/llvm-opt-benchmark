@@ -11808,7 +11808,7 @@ define hidden void @_ZN5image8imageops8colorops19grayscale_with_type17hcd2471a68
   br label %42
 
 42:                                               ; preds = %26, %38, %40
-  %.0.i.i.i.i = phi float [ 0xC7EFFFFFE0000000, %38 ], [ 0x47EFFFFFE0000000, %26 ], [ %41, %40 ]
+  %.0.i.i.i.i = phi float [ 0x47EFFFFFE0000000, %26 ], [ 0xC7EFFFFFE0000000, %38 ], [ %41, %40 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1162)
   %43 = icmp uge i32 %24, %9
   %44 = icmp uge i32 %.sroa.8.145, %11
@@ -12328,7 +12328,7 @@ define hidden void @_ZN5image8imageops8colorops25grayscale_with_type_alpha17h8c4
   br label %42
 
 42:                                               ; preds = %26, %38, %40
-  %.0.i.i.i.i = phi float [ 0xC7EFFFFFE0000000, %38 ], [ 0x47EFFFFFE0000000, %26 ], [ %41, %40 ]
+  %.0.i.i.i.i = phi float [ 0x47EFFFFFE0000000, %26 ], [ 0xC7EFFFFFE0000000, %38 ], [ %41, %40 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1224)
   %43 = icmp uge i32 %24, %9
   %44 = icmp uge i32 %.sroa.8.147, %11
@@ -20537,7 +20537,7 @@ define hidden noundef float @_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.ll
   br label %_ZN5image6traits11Enlargeable10clamp_from17hc0d2f00a5a1392d8E.exit
 
 _ZN5image6traits11Enlargeable10clamp_from17hc0d2f00a5a1392d8E.exit: ; preds = %7, %23, %25
-  %.0.i = phi float [ 0xC7EFFFFFE0000000, %23 ], [ 0x47EFFFFFE0000000, %7 ], [ %26, %25 ]
+  %.0.i = phi float [ 0x47EFFFFFE0000000, %7 ], [ 0xC7EFFFFFE0000000, %23 ], [ %26, %25 ]
   ret float %.0.i
 
 27:                                               ; preds = %4
@@ -20685,7 +20685,7 @@ define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
   br label %_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit
 
 _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: ; preds = %2, %18, %20
-  %.0.i.i = phi float [ 0xC7EFFFFFE0000000, %18 ], [ 0x47EFFFFFE0000000, %2 ], [ %21, %20 ]
+  %.0.i.i = phi float [ 0x47EFFFFFE0000000, %2 ], [ 0xC7EFFFFFE0000000, %18 ], [ %21, %20 ]
   %22 = fcmp olt float %.0.i.i, 0.000000e+00
   %.0.i.i1 = select i1 %22, float 0.000000e+00, float %.0.i.i
   %23 = fcmp ogt float %.0.i.i1, 1.000000e+00
@@ -20735,7 +20735,7 @@ define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
   br label %_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit
 
 _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: ; preds = %2, %18, %20
-  %.0.i.i = phi float [ 0xC7EFFFFFE0000000, %18 ], [ 0x47EFFFFFE0000000, %2 ], [ %21, %20 ]
+  %.0.i.i = phi float [ 0x47EFFFFFE0000000, %2 ], [ 0xC7EFFFFFE0000000, %18 ], [ %21, %20 ]
   store float %.0.i.i, ptr %0, align 4
   ret void
 }
@@ -20858,7 +20858,7 @@ define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
   br label %_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit
 
 _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: ; preds = %2, %18, %20
-  %.0.i.i = phi float [ 0xC7EFFFFFE0000000, %18 ], [ 0x47EFFFFFE0000000, %2 ], [ %21, %20 ]
+  %.0.i.i = phi float [ 0x47EFFFFFE0000000, %2 ], [ 0xC7EFFFFFE0000000, %18 ], [ %21, %20 ]
   %22 = fcmp olt float %.0.i.i, 0.000000e+00
   %.0.i.i1 = select i1 %22, float 0.000000e+00, float %.0.i.i
   %23 = fcmp ogt float %.0.i.i1, 1.000000e+00
@@ -20955,7 +20955,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
   br label %_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit
 
 _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: ; preds = %2, %18, %20
-  %.0.i.i = phi float [ 0xC7EFFFFFE0000000, %18 ], [ 0x47EFFFFFE0000000, %2 ], [ %21, %20 ]
+  %.0.i.i = phi float [ 0x47EFFFFFE0000000, %2 ], [ 0xC7EFFFFFE0000000, %18 ], [ %21, %20 ]
   store float %.0.i.i, ptr %0, align 4
   ret void
 }
@@ -21125,7 +21125,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
   br label %_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit
 
 _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: ; preds = %2, %18, %20
-  %.0.i.i = phi float [ 0xC7EFFFFFE0000000, %18 ], [ 0x47EFFFFFE0000000, %2 ], [ %21, %20 ]
+  %.0.i.i = phi float [ 0x47EFFFFFE0000000, %2 ], [ 0xC7EFFFFFE0000000, %18 ], [ %21, %20 ]
   %22 = fcmp olt float %.0.i.i, 0.000000e+00
   %.0.i.i1 = select i1 %22, float 0.000000e+00, float %.0.i.i
   %23 = fcmp ogt float %.0.i.i1, 1.000000e+00
@@ -21175,7 +21175,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
   br label %_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit
 
 _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: ; preds = %2, %18, %20
-  %.0.i.i = phi float [ 0xC7EFFFFFE0000000, %18 ], [ 0x47EFFFFFE0000000, %2 ], [ %21, %20 ]
+  %.0.i.i = phi float [ 0x47EFFFFFE0000000, %2 ], [ 0xC7EFFFFFE0000000, %18 ], [ %21, %20 ]
   %22 = fcmp olt float %.0.i.i, 0.000000e+00
   %.0.i.i1 = select i1 %22, float 0.000000e+00, float %.0.i.i
   %23 = fcmp ogt float %.0.i.i1, 1.000000e+00
@@ -21396,7 +21396,7 @@ define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
   br label %_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit
 
 _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: ; preds = %2, %18, %20
-  %.0.i.i = phi float [ 0xC7EFFFFFE0000000, %18 ], [ 0x47EFFFFFE0000000, %2 ], [ %21, %20 ]
+  %.0.i.i = phi float [ 0x47EFFFFFE0000000, %2 ], [ 0xC7EFFFFFE0000000, %18 ], [ %21, %20 ]
   %22 = fcmp olt float %.0.i.i, 0.000000e+00
   %.0.i.i1 = select i1 %22, float 0.000000e+00, float %.0.i.i
   %23 = fcmp ogt float %.0.i.i1, 1.000000e+00
@@ -21448,7 +21448,7 @@ define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
   br label %_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit
 
 _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: ; preds = %2, %18, %20
-  %.0.i.i = phi float [ 0xC7EFFFFFE0000000, %18 ], [ 0x47EFFFFFE0000000, %2 ], [ %21, %20 ]
+  %.0.i.i = phi float [ 0x47EFFFFFE0000000, %2 ], [ 0xC7EFFFFFE0000000, %18 ], [ %21, %20 ]
   %22 = fcmp olt float %.0.i.i, 0.000000e+00
   %.0.i.i1 = select i1 %22, float 0.000000e+00, float %.0.i.i
   %23 = fcmp ogt float %.0.i.i1, 1.000000e+00
@@ -21525,7 +21525,7 @@ define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
   br label %_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit
 
 _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: ; preds = %2, %18, %20
-  %.0.i.i = phi float [ 0xC7EFFFFFE0000000, %18 ], [ 0x47EFFFFFE0000000, %2 ], [ %21, %20 ]
+  %.0.i.i = phi float [ 0x47EFFFFFE0000000, %2 ], [ 0xC7EFFFFFE0000000, %18 ], [ %21, %20 ]
   store float %.0.i.i, ptr %0, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 1.000000e+00, ptr %22, align 4
@@ -21632,7 +21632,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
   br label %_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit
 
 _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: ; preds = %2, %18, %20
-  %.0.i.i = phi float [ 0xC7EFFFFFE0000000, %18 ], [ 0x47EFFFFFE0000000, %2 ], [ %21, %20 ]
+  %.0.i.i = phi float [ 0x47EFFFFFE0000000, %2 ], [ 0xC7EFFFFFE0000000, %18 ], [ %21, %20 ]
   %22 = fcmp olt float %.0.i.i, 0.000000e+00
   %.0.i.i1 = select i1 %22, float 0.000000e+00, float %.0.i.i
   %23 = fcmp ogt float %.0.i.i1, 1.000000e+00
@@ -21797,7 +21797,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
   br label %_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit
 
 _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: ; preds = %2, %18, %20
-  %.0.i.i = phi float [ 0xC7EFFFFFE0000000, %18 ], [ 0x47EFFFFFE0000000, %2 ], [ %21, %20 ]
+  %.0.i.i = phi float [ 0x47EFFFFFE0000000, %2 ], [ 0xC7EFFFFFE0000000, %18 ], [ %21, %20 ]
   store float %.0.i.i, ptr %0, align 4
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %23 = load float, ptr %22, align 4, !noundef !4
@@ -21834,7 +21834,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
   br label %_ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit
 
 _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: ; preds = %2, %18, %20
-  %.0.i.i = phi float [ 0xC7EFFFFFE0000000, %18 ], [ 0x47EFFFFFE0000000, %2 ], [ %21, %20 ]
+  %.0.i.i = phi float [ 0x47EFFFFFE0000000, %2 ], [ 0xC7EFFFFFE0000000, %18 ], [ %21, %20 ]
   %22 = fcmp olt float %.0.i.i, 0.000000e+00
   %.0.i.i1 = select i1 %22, float 0.000000e+00, float %.0.i.i
   %23 = fcmp ogt float %.0.i.i1, 1.000000e+00
@@ -24233,7 +24233,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h0132d81866dd64f8E(ptr noal
   unreachable
 
 common.resume:                                    ; preds = %69, %52, %59
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %53, %52 ], [ %lpad.thr_comm.split-lp, %69 ]
+  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %lpad.thr_comm.split-lp, %69 ], [ %53, %52 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr119drop_in_place$LT$image..codecs..dds..DdsDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h173cd36ef2fbc332E.exit": ; preds = %58
@@ -24392,7 +24392,7 @@ switch.lookup:
   br label %46
 
 .thread:                                          ; preds = %55, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..pnm..decoder..PnmDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17ha125e0badd8e62feE.exit"
-  %.pn35 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %55 ], [ %49, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..pnm..decoder..PnmDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17ha125e0badd8e62feE.exit" ]
+  %.pn35 = phi { ptr, i32 } [ %49, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..pnm..decoder..PnmDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17ha125e0badd8e62feE.exit" ], [ %lpad.thr_comm.split-lp, %55 ]
   resume { ptr, i32 } %.pn35
 
 55:                                               ; preds = %21
@@ -24545,7 +24545,7 @@ switch.lookup:
   br label %"_ZN4core3ptr108drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h01d748b6c17340d0E.exit28"
 
 .thread:                                          ; preds = %59, %62, %"_ZN4core3ptr108drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h01d748b6c17340d0E.exit"
-  %.pn36 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %59 ], [ %47, %"_ZN4core3ptr108drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h01d748b6c17340d0E.exit" ], [ %lpad.thr_comm.split-lp, %62 ]
+  %.pn36 = phi { ptr, i32 } [ %47, %"_ZN4core3ptr108drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h01d748b6c17340d0E.exit" ], [ %lpad.thr_comm.split-lp, %62 ], [ %lpad.thr_comm.split-lp, %59 ]
   resume { ptr, i32 } %.pn36
 
 59:                                               ; preds = %20
@@ -24672,7 +24672,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h0c6f765611dc664eE(ptr noal
   unreachable
 
 .thread:                                          ; preds = %47, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..gif..GifDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc709dc2763e23ab3E.exit"
-  %.pn35 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %47 ], [ %41, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..gif..GifDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc709dc2763e23ab3E.exit" ]
+  %.pn35 = phi { ptr, i32 } [ %41, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..gif..GifDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc709dc2763e23ab3E.exit" ], [ %lpad.thr_comm.split-lp, %47 ]
   resume { ptr, i32 } %.pn35
 
 47:                                               ; preds = %2
@@ -24818,7 +24818,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h0e569a3dc206bb11E(ptr noal
   br label %49
 
 .thread:                                          ; preds = %52, %59
-  %.pn32 = phi { ptr, i32 } [ %53, %52 ], [ %lpad.thr_comm.split-lp, %59 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %59 ], [ %53, %52 ]
   resume { ptr, i32 } %.pn32
 
 59:                                               ; preds = %24
@@ -24961,7 +24961,7 @@ switch.lookup:
   br label %45
 
 .thread:                                          ; preds = %48, %55
-  %.pn32 = phi { ptr, i32 } [ %49, %48 ], [ %lpad.thr_comm.split-lp, %55 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %55 ], [ %49, %48 ]
   resume { ptr, i32 } %.pn32
 
 55:                                               ; preds = %20
@@ -25118,7 +25118,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h10a6f3166bbcda8eE(ptr noal
   br label %50
 
 .thread:                                          ; preds = %61, %"_ZN4core3ptr119drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h01745d98425335dbE.exit"
-  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm, %61 ], [ %53, %"_ZN4core3ptr119drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h01745d98425335dbE.exit" ]
+  %.pn37 = phi { ptr, i32 } [ %53, %"_ZN4core3ptr119drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h01745d98425335dbE.exit" ], [ %lpad.thr_comm, %61 ]
   resume { ptr, i32 } %.pn37
 
 61:                                               ; preds = %10, %25
@@ -25248,7 +25248,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h11a0b4c2ba1f1069E(ptr noal
   unreachable
 
 .body.thread:                                     ; preds = %30, %.body, %49
-  %eh.lpad-body38 = phi { ptr, i32 } [ %21, %.body ], [ %50, %49 ], [ %31, %30 ]
+  %eh.lpad-body38 = phi { ptr, i32 } [ %50, %49 ], [ %21, %.body ], [ %31, %30 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u16$GT$$GT$17h6540701bf0cd0dcfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #20
           to label %.thread unwind label %51
 
@@ -25272,7 +25272,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h11a0b4c2ba1f1069E(ptr noal
   br label %46
 
 .thread:                                          ; preds = %.body.thread, %54
-  %.pn32 = phi { ptr, i32 } [ %eh.lpad-body38, %.body.thread ], [ %lpad.thr_comm.split-lp, %54 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %54 ], [ %eh.lpad-body38, %.body.thread ]
   resume { ptr, i32 } %.pn32
 
 54:                                               ; preds = %18
@@ -25422,7 +25422,7 @@ _ZN5image5image12ImageDecoder10read_image17hc303e51b87284974E.exit: ; preds = %2
   unreachable
 
 common.resume:                                    ; preds = %61, %44, %51
-  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %45, %44 ], [ %lpad.thr_comm.split-lp, %61 ]
+  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %lpad.thr_comm.split-lp, %61 ], [ %45, %44 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr129drop_in_place$LT$image..codecs..farbfeld..FarbfeldDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17ha4152666750cd8ddE.exit": ; preds = %50
@@ -25581,7 +25581,7 @@ _ZN5image5image12ImageDecoder10read_image17hc303e51b87284974E.exit: ; preds = %2
   unreachable
 
 common.resume:                                    ; preds = %59, %42, %49
-  %common.resume.op = phi { ptr, i32 } [ %50, %49 ], [ %43, %42 ], [ %lpad.thr_comm.split-lp, %59 ]
+  %common.resume.op = phi { ptr, i32 } [ %50, %49 ], [ %lpad.thr_comm.split-lp, %59 ], [ %43, %42 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr129drop_in_place$LT$image..codecs..farbfeld..FarbfeldDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17ha4152666750cd8ddE.exit": ; preds = %48
@@ -25652,8 +25652,8 @@ define hidden void @_ZN5image5image14decoder_to_vec17h21b11e48c515b041E(ptr noal
   br label %32
 
 32:                                               ; preds = %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i", %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread7.i", %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.i"
-  %33 = phi i64 [ %14, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ %28, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.i" ], [ %21, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread7.i" ]
-  %.0.i2.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ %31, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.i" ], [ 4, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread7.i" ]
+  %33 = phi i64 [ %14, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ %21, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread7.i" ], [ %28, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.i" ]
+  %.0.i2.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ 4, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread7.i" ], [ %31, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.i" ]
   %34 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %33, i64 %.0.i2.i)
   %35 = extractvalue { i64, i1 } %34, 1
   %36 = extractvalue { i64, i1 } %34, 0
@@ -25802,7 +25802,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h21b11e48c515b041E(ptr noal
   unreachable
 
 common.resume:                                    ; preds = %86, %64, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %65, %64 ], [ %lpad.thr_comm.split-lp, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %lpad.thr_comm.split-lp, %86 ], [ %65, %64 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$image..codecs..webp..decoder..WebPDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h991402b183d7a349E.exit": ; preds = %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hd285c3f9a075bf87E.llvm.9832446184049035033.exit.i.i"
@@ -25935,7 +25935,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h27cd787d3a16a4a6E(ptr noal
   unreachable
 
 .body.thread:                                     ; preds = %30, %.body, %49
-  %eh.lpad-body38 = phi { ptr, i32 } [ %21, %.body ], [ %50, %49 ], [ %31, %30 ]
+  %eh.lpad-body38 = phi { ptr, i32 } [ %50, %49 ], [ %21, %.body ], [ %31, %30 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17hc7015d4d3bde46c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #20
           to label %.thread unwind label %51
 
@@ -25959,7 +25959,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h27cd787d3a16a4a6E(ptr noal
   br label %46
 
 .thread:                                          ; preds = %.body.thread, %54
-  %.pn32 = phi { ptr, i32 } [ %eh.lpad-body38, %.body.thread ], [ %lpad.thr_comm.split-lp, %54 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %54 ], [ %eh.lpad-body38, %.body.thread ]
   resume { ptr, i32 } %.pn32
 
 54:                                               ; preds = %18
@@ -26006,7 +26006,7 @@ default.unreachable:                              ; preds = %2
   br label %14
 
 14:                                               ; preds = %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.i", %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.thread.i", %2
-  %.0.i.i = phi i64 [ 2, %2 ], [ 3, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.i" ], [ 1, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.thread.i" ]
+  %.0.i.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.i" ], [ 1, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.thread.i" ], [ 2, %2 ]
   %15 = zext i16 %8 to i64
   %16 = zext i16 %10 to i64
   %17 = mul nuw nsw i64 %16, %15
@@ -26108,7 +26108,7 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 .thread:                                          ; preds = %51, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc1746d80d9e8a94eE.exit"
-  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm, %51 ], [ %46, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc1746d80d9e8a94eE.exit" ]
+  %.pn37 = phi { ptr, i32 } [ %46, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc1746d80d9e8a94eE.exit" ], [ %lpad.thr_comm, %51 ]
   resume { ptr, i32 } %.pn37
 
 51:                                               ; preds = %13, %14
@@ -26261,7 +26261,7 @@ switch.lookup:
   br label %"_ZN4core3ptr121drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hac6eda24f36e866fE.exit28"
 
 .thread:                                          ; preds = %59, %62, %"_ZN4core3ptr121drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hac6eda24f36e866fE.exit"
-  %.pn36 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %59 ], [ %47, %"_ZN4core3ptr121drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hac6eda24f36e866fE.exit" ], [ %lpad.thr_comm.split-lp, %62 ]
+  %.pn36 = phi { ptr, i32 } [ %47, %"_ZN4core3ptr121drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hac6eda24f36e866fE.exit" ], [ %lpad.thr_comm.split-lp, %62 ], [ %lpad.thr_comm.split-lp, %59 ]
   resume { ptr, i32 } %.pn36
 
 59:                                               ; preds = %20
@@ -26430,7 +26430,7 @@ _ZN5image5image12ImageDecoder10read_image17hf46b3fdf38b7e9c2E.exit: ; preds = %4
   unreachable
 
 common.resume:                                    ; preds = %68, %55, %62
-  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %56, %55 ], [ %lpad.thr_comm, %68 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %lpad.thr_comm, %68 ], [ %56, %55 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr127drop_in_place$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17ha1dfbd502be8e130E.exit": ; preds = %61
@@ -26588,7 +26588,7 @@ _ZN5image5image12ImageDecoder10read_image17hcfb4e71c71760440E.exit: ; preds = %3
   unreachable
 
 common.resume:                                    ; preds = %63, %46, %53
-  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %47, %46 ], [ %lpad.thr_comm.split-lp, %63 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %lpad.thr_comm.split-lp, %63 ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr119drop_in_place$LT$image..codecs..qoi..QoiDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h515d375a175f0494E.exit": ; preds = %52
@@ -26749,7 +26749,7 @@ _ZN5image5image12ImageDecoder10read_image17hc303e51b87284974E.exit: ; preds = %2
   unreachable
 
 common.resume:                                    ; preds = %61, %44, %51
-  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %45, %44 ], [ %lpad.thr_comm.split-lp, %61 ]
+  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %lpad.thr_comm.split-lp, %61 ], [ %45, %44 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr129drop_in_place$LT$image..codecs..farbfeld..FarbfeldDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17ha4152666750cd8ddE.exit": ; preds = %50
@@ -26922,7 +26922,7 @@ _ZN5image5image12ImageDecoder10read_image17hf46b3fdf38b7e9c2E.exit: ; preds = %3
   unreachable
 
 common.resume:                                    ; preds = %66, %53, %60
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %54, %53 ], [ %lpad.thr_comm, %66 ]
+  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %lpad.thr_comm, %66 ], [ %54, %53 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr127drop_in_place$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17ha1dfbd502be8e130E.exit": ; preds = %59
@@ -27090,7 +27090,7 @@ default.unreachable:                              ; preds = %2
   br label %14
 
 14:                                               ; preds = %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.i", %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.thread.i", %2
-  %.0.i.i = phi i64 [ 2, %2 ], [ 3, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.i" ], [ 1, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.thread.i" ]
+  %.0.i.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.i" ], [ 1, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.thread.i" ], [ 2, %2 ]
   %15 = zext i16 %8 to i64
   %16 = zext i16 %10 to i64
   %17 = mul nuw nsw i64 %16, %15
@@ -27190,7 +27190,7 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 .thread:                                          ; preds = %49, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc1746d80d9e8a94eE.exit"
-  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm, %49 ], [ %44, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc1746d80d9e8a94eE.exit" ]
+  %.pn37 = phi { ptr, i32 } [ %44, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc1746d80d9e8a94eE.exit" ], [ %lpad.thr_comm, %49 ]
   resume { ptr, i32 } %.pn37
 
 49:                                               ; preds = %13, %14
@@ -27345,7 +27345,7 @@ _ZN5image5image12ImageDecoder10read_image17hcfb4e71c71760440E.exit: ; preds = %3
   unreachable
 
 common.resume:                                    ; preds = %65, %48, %55
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %49, %48 ], [ %lpad.thr_comm.split-lp, %65 ]
+  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %lpad.thr_comm.split-lp, %65 ], [ %49, %48 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr119drop_in_place$LT$image..codecs..qoi..QoiDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h515d375a175f0494E.exit": ; preds = %54
@@ -27478,7 +27478,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h3e30cdb15c040f56E(ptr noal
   unreachable
 
 .thread:                                          ; preds = %47, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..gif..GifDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc709dc2763e23ab3E.exit"
-  %.pn35 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %47 ], [ %41, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..gif..GifDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc709dc2763e23ab3E.exit" ]
+  %.pn35 = phi { ptr, i32 } [ %41, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..gif..GifDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc709dc2763e23ab3E.exit" ], [ %lpad.thr_comm.split-lp, %47 ]
   resume { ptr, i32 } %.pn35
 
 47:                                               ; preds = %2
@@ -27678,7 +27678,7 @@ _ZN5image5image12ImageDecoder10read_image17hee0498265dd45ac0E.exit: ; preds = %3
   unreachable
 
 common.resume:                                    ; preds = %77, %53, %60
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %54, %53 ], [ %lpad.thr_comm, %77 ]
+  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %lpad.thr_comm, %77 ], [ %54, %53 ]
   resume { ptr, i32 } %common.resume.op
 
 77:                                               ; preds = %2, %29
@@ -27863,7 +27863,7 @@ switch.lookup:
   unreachable
 
 common.resume:                                    ; preds = %71, %49, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %50, %49 ], [ %lpad.thr_comm.split-lp, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %lpad.thr_comm.split-lp, %71 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$image..codecs..pnm..decoder..PnmDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h4db3bff20708308cE.exit": ; preds = %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hd285c3f9a075bf87E.llvm.9832446184049035033.exit.i.i"
@@ -27914,7 +27914,7 @@ default.unreachable:                              ; preds = %2
   br label %14
 
 14:                                               ; preds = %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.i", %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.thread.i", %2
-  %.0.i.i = phi i64 [ 2, %2 ], [ 3, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.i" ], [ 1, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.thread.i" ]
+  %.0.i.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.i" ], [ 1, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.thread.i" ], [ 2, %2 ]
   %15 = zext i16 %8 to i64
   %16 = zext i16 %10 to i64
   %17 = mul nuw nsw i64 %16, %15
@@ -28016,7 +28016,7 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 .thread:                                          ; preds = %51, %"_ZN4core3ptr130drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h3f443b20f237ef78E.exit"
-  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm, %51 ], [ %46, %"_ZN4core3ptr130drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h3f443b20f237ef78E.exit" ]
+  %.pn37 = phi { ptr, i32 } [ %46, %"_ZN4core3ptr130drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h3f443b20f237ef78E.exit" ], [ %lpad.thr_comm, %51 ]
   resume { ptr, i32 } %.pn37
 
 51:                                               ; preds = %13, %14
@@ -28145,7 +28145,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h4353e7904273ef0fE(ptr noal
   unreachable
 
 .body.thread:                                     ; preds = %30, %.body, %49
-  %eh.lpad-body38 = phi { ptr, i32 } [ %21, %.body ], [ %50, %49 ], [ %31, %30 ]
+  %eh.lpad-body38 = phi { ptr, i32 } [ %50, %49 ], [ %21, %.body ], [ %31, %30 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u16$GT$$GT$17h6540701bf0cd0dcfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #20
           to label %.thread unwind label %51
 
@@ -28169,7 +28169,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h4353e7904273ef0fE(ptr noal
   br label %46
 
 .thread:                                          ; preds = %.body.thread, %54
-  %.pn32 = phi { ptr, i32 } [ %eh.lpad-body38, %.body.thread ], [ %lpad.thr_comm.split-lp, %54 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %54 ], [ %eh.lpad-body38, %.body.thread ]
   resume { ptr, i32 } %.pn32
 
 54:                                               ; preds = %18
@@ -28290,7 +28290,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h472ec923ffe23ab8E(ptr noal
   unreachable
 
 .thread:                                          ; preds = %41, %47
-  %.pn32 = phi { ptr, i32 } [ %42, %41 ], [ %lpad.thr_comm.split-lp, %47 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %47 ], [ %42, %41 ]
   resume { ptr, i32 } %.pn32
 
 47:                                               ; preds = %2
@@ -28445,7 +28445,7 @@ _ZN5image5image12ImageDecoder10read_image17hcfb4e71c71760440E.exit: ; preds = %3
   unreachable
 
 common.resume:                                    ; preds = %65, %48, %55
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %49, %48 ], [ %lpad.thr_comm.split-lp, %65 ]
+  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %lpad.thr_comm.split-lp, %65 ], [ %49, %48 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr119drop_in_place$LT$image..codecs..qoi..QoiDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h515d375a175f0494E.exit": ; preds = %54
@@ -28503,7 +28503,7 @@ default.unreachable:                              ; preds = %2
   br label %14
 
 14:                                               ; preds = %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.i", %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.thread.i", %2
-  %.0.i.i = phi i64 [ 2, %2 ], [ 3, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.i" ], [ 1, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.thread.i" ]
+  %.0.i.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.i" ], [ 1, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.thread.i" ], [ 2, %2 ]
   %15 = zext i16 %8 to i64
   %16 = zext i16 %10 to i64
   %17 = mul nuw nsw i64 %16, %15
@@ -28605,7 +28605,7 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 .thread:                                          ; preds = %51, %"_ZN4core3ptr130drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h3f443b20f237ef78E.exit"
-  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm, %51 ], [ %46, %"_ZN4core3ptr130drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h3f443b20f237ef78E.exit" ]
+  %.pn37 = phi { ptr, i32 } [ %46, %"_ZN4core3ptr130drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h3f443b20f237ef78E.exit" ], [ %lpad.thr_comm, %51 ]
   resume { ptr, i32 } %.pn37
 
 51:                                               ; preds = %13, %14
@@ -28732,7 +28732,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h495fd2ff4527ed42E(ptr noal
   unreachable
 
 .body.thread:                                     ; preds = %28, %.body, %47
-  %eh.lpad-body38 = phi { ptr, i32 } [ %20, %.body ], [ %48, %47 ], [ %29, %28 ]
+  %eh.lpad-body38 = phi { ptr, i32 } [ %48, %47 ], [ %20, %.body ], [ %29, %28 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #20
           to label %.thread unwind label %49
 
@@ -28756,7 +28756,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h495fd2ff4527ed42E(ptr noal
   br label %44
 
 .thread:                                          ; preds = %.body.thread, %52
-  %.pn32 = phi { ptr, i32 } [ %eh.lpad-body38, %.body.thread ], [ %lpad.thr_comm.split-lp, %52 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %52 ], [ %eh.lpad-body38, %.body.thread ]
   resume { ptr, i32 } %.pn32
 
 52:                                               ; preds = %18
@@ -28957,7 +28957,7 @@ _ZN5image5image12ImageDecoder10read_image17hee0498265dd45ac0E.exit: ; preds = %4
   unreachable
 
 common.resume:                                    ; preds = %79, %55, %62
-  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %56, %55 ], [ %lpad.thr_comm, %79 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %lpad.thr_comm, %79 ], [ %56, %55 ]
   resume { ptr, i32 } %common.resume.op
 
 79:                                               ; preds = %2, %29
@@ -29103,7 +29103,7 @@ switch.lookup:
   br label %44
 
 .thread:                                          ; preds = %53, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..pnm..decoder..PnmDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17ha125e0badd8e62feE.exit"
-  %.pn35 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %53 ], [ %47, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..pnm..decoder..PnmDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17ha125e0badd8e62feE.exit" ]
+  %.pn35 = phi { ptr, i32 } [ %47, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..pnm..decoder..PnmDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17ha125e0badd8e62feE.exit" ], [ %lpad.thr_comm.split-lp, %53 ]
   resume { ptr, i32 } %.pn35
 
 53:                                               ; preds = %21
@@ -29267,7 +29267,7 @@ _ZN5image5image12ImageDecoder10read_image17hf46b3fdf38b7e9c2E.exit: ; preds = %4
   unreachable
 
 common.resume:                                    ; preds = %68, %55, %62
-  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %56, %55 ], [ %lpad.thr_comm, %68 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %lpad.thr_comm, %68 ], [ %56, %55 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr127drop_in_place$LT$image..codecs..openexr..OpenExrDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17ha1dfbd502be8e130E.exit": ; preds = %61
@@ -29666,7 +29666,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h6266a6e5c1ea8e42E(ptr noal
   br label %50
 
 .thread:                                          ; preds = %61, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17haee72ec18e7ee946E.exit"
-  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm, %61 ], [ %53, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17haee72ec18e7ee946E.exit" ]
+  %.pn37 = phi { ptr, i32 } [ %53, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17haee72ec18e7ee946E.exit" ], [ %lpad.thr_comm, %61 ]
   resume { ptr, i32 } %.pn37
 
 61:                                               ; preds = %10, %25
@@ -29943,7 +29943,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h65152c0f30928759E(ptr noal
   br label %50
 
 .thread:                                          ; preds = %61, %"_ZN4core3ptr119drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h01745d98425335dbE.exit"
-  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm, %61 ], [ %53, %"_ZN4core3ptr119drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h01745d98425335dbE.exit" ]
+  %.pn37 = phi { ptr, i32 } [ %53, %"_ZN4core3ptr119drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h01745d98425335dbE.exit" ], [ %lpad.thr_comm, %61 ]
   resume { ptr, i32 } %.pn37
 
 61:                                               ; preds = %10, %25
@@ -30087,7 +30087,7 @@ switch.lookup:
   br label %45
 
 .thread:                                          ; preds = %48, %55
-  %.pn32 = phi { ptr, i32 } [ %49, %48 ], [ %lpad.thr_comm.split-lp, %55 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %55 ], [ %49, %48 ]
   resume { ptr, i32 } %.pn32
 
 55:                                               ; preds = %20
@@ -30248,7 +30248,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h6944829bab41c74eE(ptr noal
   unreachable
 
 common.resume:                                    ; preds = %69, %52, %59
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %53, %52 ], [ %lpad.thr_comm.split-lp, %69 ]
+  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %lpad.thr_comm.split-lp, %69 ], [ %53, %52 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr119drop_in_place$LT$image..codecs..dds..DdsDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h173cd36ef2fbc332E.exit": ; preds = %58
@@ -30481,7 +30481,7 @@ switch.lookup:                                    ; preds = %16, %27
   unreachable
 
 common.resume:                                    ; preds = %86, %70, %82
-  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %71, %70 ], [ %lpad.thr_comm, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %lpad.thr_comm, %86 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i": ; preds = %78
@@ -30644,7 +30644,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h72ce8cce9a9825e1E(ptr noal
   unreachable
 
 common.resume:                                    ; preds = %67, %50, %57
-  %common.resume.op = phi { ptr, i32 } [ %58, %57 ], [ %51, %50 ], [ %lpad.thr_comm.split-lp, %67 ]
+  %common.resume.op = phi { ptr, i32 } [ %58, %57 ], [ %lpad.thr_comm.split-lp, %67 ], [ %51, %50 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr119drop_in_place$LT$image..codecs..dds..DdsDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h173cd36ef2fbc332E.exit": ; preds = %56
@@ -30715,8 +30715,8 @@ define hidden void @_ZN5image5image14decoder_to_vec17h7c6fa4f0fbf76b67E(ptr noal
   br label %32
 
 32:                                               ; preds = %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i", %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread7.i", %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.i"
-  %33 = phi i64 [ %14, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ %28, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.i" ], [ %21, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread7.i" ]
-  %.0.i2.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ %31, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.i" ], [ 4, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread7.i" ]
+  %33 = phi i64 [ %14, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ %21, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread7.i" ], [ %28, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.i" ]
+  %.0.i2.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ 4, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread7.i" ], [ %31, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.i" ]
   %34 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %33, i64 %.0.i2.i)
   %35 = extractvalue { i64, i1 } %34, 1
   %36 = extractvalue { i64, i1 } %34, 0
@@ -30828,7 +30828,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h7c6fa4f0fbf76b67E(ptr noal
   br label %61
 
 .thread:                                          ; preds = %70, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..webp..decoder..WebPDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hade8f9179f251e6aE.exit"
-  %.pn35 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %70 ], [ %64, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..webp..decoder..WebPDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hade8f9179f251e6aE.exit" ]
+  %.pn35 = phi { ptr, i32 } [ %64, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..webp..decoder..WebPDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hade8f9179f251e6aE.exit" ], [ %lpad.thr_comm.split-lp, %70 ]
   resume { ptr, i32 } %.pn35
 
 70:                                               ; preds = %38
@@ -30888,8 +30888,8 @@ define hidden void @_ZN5image5image14decoder_to_vec17h7cdd80a38b00c697E(ptr noal
   br label %32
 
 32:                                               ; preds = %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i", %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread7.i", %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.i"
-  %33 = phi i64 [ %14, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ %28, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.i" ], [ %21, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread7.i" ]
-  %.0.i2.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ %31, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.i" ], [ 4, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread7.i" ]
+  %33 = phi i64 [ %14, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ %21, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread7.i" ], [ %28, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.i" ]
+  %.0.i2.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ 4, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread7.i" ], [ %31, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.i" ]
   %34 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %33, i64 %.0.i2.i)
   %35 = extractvalue { i64, i1 } %34, 1
   %36 = extractvalue { i64, i1 } %34, 0
@@ -31040,7 +31040,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h7cdd80a38b00c697E(ptr noal
   unreachable
 
 common.resume:                                    ; preds = %88, %66, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %67, %66 ], [ %lpad.thr_comm.split-lp, %88 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %lpad.thr_comm.split-lp, %88 ], [ %67, %66 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$image..codecs..webp..decoder..WebPDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h991402b183d7a349E.exit": ; preds = %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hd285c3f9a075bf87E.llvm.9832446184049035033.exit.i.i"
@@ -31195,7 +31195,7 @@ switch.lookup:
   br label %"_ZN4core3ptr121drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hac6eda24f36e866fE.exit28"
 
 .thread:                                          ; preds = %57, %60, %"_ZN4core3ptr121drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hac6eda24f36e866fE.exit"
-  %.pn36 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %57 ], [ %45, %"_ZN4core3ptr121drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hac6eda24f36e866fE.exit" ], [ %lpad.thr_comm.split-lp, %60 ]
+  %.pn36 = phi { ptr, i32 } [ %45, %"_ZN4core3ptr121drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hac6eda24f36e866fE.exit" ], [ %lpad.thr_comm.split-lp, %60 ], [ %lpad.thr_comm.split-lp, %57 ]
   resume { ptr, i32 } %.pn36
 
 57:                                               ; preds = %20
@@ -31327,7 +31327,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h8650234f723d296aE(ptr noal
   unreachable
 
 .body.thread:                                     ; preds = %28, %.body, %47
-  %eh.lpad-body38 = phi { ptr, i32 } [ %20, %.body ], [ %48, %47 ], [ %29, %28 ]
+  %eh.lpad-body38 = phi { ptr, i32 } [ %48, %47 ], [ %20, %.body ], [ %29, %28 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #20
           to label %.thread unwind label %49
 
@@ -31351,7 +31351,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h8650234f723d296aE(ptr noal
   br label %44
 
 .thread:                                          ; preds = %.body.thread, %52
-  %.pn32 = phi { ptr, i32 } [ %eh.lpad-body38, %.body.thread ], [ %lpad.thr_comm.split-lp, %52 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %52 ], [ %eh.lpad-body38, %.body.thread ]
   resume { ptr, i32 } %.pn32
 
 52:                                               ; preds = %18
@@ -31532,8 +31532,8 @@ define hidden void @_ZN5image5image14decoder_to_vec17h8983d8acb31fcd31E(ptr noal
   br label %32
 
 32:                                               ; preds = %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i", %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread7.i", %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.i"
-  %33 = phi i64 [ %14, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ %28, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.i" ], [ %21, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread7.i" ]
-  %.0.i2.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ %31, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.i" ], [ 4, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread7.i" ]
+  %33 = phi i64 [ %14, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ %21, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread7.i" ], [ %28, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.i" ]
+  %.0.i2.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ 4, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread7.i" ], [ %31, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.i" ]
   %34 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %33, i64 %.0.i2.i)
   %35 = extractvalue { i64, i1 } %34, 1
   %36 = extractvalue { i64, i1 } %34, 0
@@ -31647,7 +31647,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h8983d8acb31fcd31E(ptr noal
   br label %63
 
 .thread:                                          ; preds = %72, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..webp..decoder..WebPDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hade8f9179f251e6aE.exit"
-  %.pn35 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %72 ], [ %66, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..webp..decoder..WebPDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hade8f9179f251e6aE.exit" ]
+  %.pn35 = phi { ptr, i32 } [ %66, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..webp..decoder..WebPDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hade8f9179f251e6aE.exit" ], [ %lpad.thr_comm.split-lp, %72 ]
   resume { ptr, i32 } %.pn35
 
 72:                                               ; preds = %38
@@ -31867,7 +31867,7 @@ switch.lookup:                                    ; preds = %16, %27
   unreachable
 
 common.resume:                                    ; preds = %84, %68, %80
-  %common.resume.op = phi { ptr, i32 } [ %81, %80 ], [ %69, %68 ], [ %lpad.thr_comm, %84 ]
+  %common.resume.op = phi { ptr, i32 } [ %81, %80 ], [ %lpad.thr_comm, %84 ], [ %69, %68 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i": ; preds = %76
@@ -32040,7 +32040,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h9129c3c119daa66cE(ptr noal
   br label %"_ZN4core3ptr115drop_in_place$LT$image..codecs..bmp..decoder..BmpDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h8d9b67d1d90a6235E.exit"
 
 .thread:                                          ; preds = %52, %69
-  %.pn32 = phi { ptr, i32 } [ %53, %52 ], [ %lpad.thr_comm.split-lp, %69 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %69 ], [ %53, %52 ]
   resume { ptr, i32 } %.pn32
 
 69:                                               ; preds = %25
@@ -32223,7 +32223,7 @@ switch.lookup:
   unreachable
 
 common.resume:                                    ; preds = %69, %47, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %48, %47 ], [ %lpad.thr_comm.split-lp, %69 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %lpad.thr_comm.split-lp, %69 ], [ %48, %47 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$image..codecs..pnm..decoder..PnmDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h4db3bff20708308cE.exit": ; preds = %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hd285c3f9a075bf87E.llvm.9832446184049035033.exit.i.i"
@@ -32412,7 +32412,7 @@ switch.lookup:
   unreachable
 
 common.resume:                                    ; preds = %71, %49, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %50, %49 ], [ %lpad.thr_comm.split-lp, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %lpad.thr_comm.split-lp, %71 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$image..codecs..pnm..decoder..PnmDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h4db3bff20708308cE.exit": ; preds = %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hd285c3f9a075bf87E.llvm.9832446184049035033.exit.i.i"
@@ -32476,8 +32476,8 @@ define hidden void @_ZN5image5image14decoder_to_vec17h9b0d709f52fe3910E(ptr noal
   br label %32
 
 32:                                               ; preds = %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i", %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread7.i", %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.i"
-  %33 = phi i64 [ %14, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ %28, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.i" ], [ %21, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread7.i" ]
-  %.0.i2.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ %31, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.i" ], [ 4, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread7.i" ]
+  %33 = phi i64 [ %14, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ %21, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread7.i" ], [ %28, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.i" ]
+  %.0.i2.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ 4, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread7.i" ], [ %31, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.i" ]
   %34 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %33, i64 %.0.i2.i)
   %35 = extractvalue { i64, i1 } %34, 1
   %36 = extractvalue { i64, i1 } %34, 0
@@ -32628,7 +32628,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h9b0d709f52fe3910E(ptr noal
   unreachable
 
 common.resume:                                    ; preds = %88, %66, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %67, %66 ], [ %lpad.thr_comm.split-lp, %88 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %lpad.thr_comm.split-lp, %88 ], [ %67, %66 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$image..codecs..webp..decoder..WebPDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h991402b183d7a349E.exit": ; preds = %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hd285c3f9a075bf87E.llvm.9832446184049035033.exit.i.i"
@@ -32898,7 +32898,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17ha0646e1a112505c1E(ptr noal
   br label %49
 
 .thread:                                          ; preds = %52, %59
-  %.pn32 = phi { ptr, i32 } [ %53, %52 ], [ %lpad.thr_comm.split-lp, %59 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %59 ], [ %53, %52 ]
   resume { ptr, i32 } %.pn32
 
 59:                                               ; preds = %24
@@ -33039,7 +33039,7 @@ switch.lookup:
   br label %43
 
 .thread:                                          ; preds = %46, %53
-  %.pn32 = phi { ptr, i32 } [ %47, %46 ], [ %lpad.thr_comm.split-lp, %53 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %53 ], [ %47, %46 ]
   resume { ptr, i32 } %.pn32
 
 53:                                               ; preds = %20
@@ -33182,7 +33182,7 @@ switch.lookup:
   br label %45
 
 .thread:                                          ; preds = %48, %55
-  %.pn32 = phi { ptr, i32 } [ %49, %48 ], [ %lpad.thr_comm.split-lp, %55 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %55 ], [ %49, %48 ]
   resume { ptr, i32 } %.pn32
 
 55:                                               ; preds = %20
@@ -33404,8 +33404,8 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br label %43
 
 43:                                               ; preds = %16, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i", %36, %37, %38, %39, %40, %41, %42
-  %44 = phi i64 [ %35, %42 ], [ %35, %37 ], [ %35, %36 ], [ %35, %38 ], [ %35, %39 ], [ %35, %40 ], [ %35, %41 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ %21, %16 ]
-  %.0.i2.i = phi i64 [ 16, %42 ], [ 3, %37 ], [ 2, %36 ], [ 4, %38 ], [ 6, %39 ], [ 8, %40 ], [ 12, %41 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ 1, %16 ]
+  %44 = phi i64 [ %35, %37 ], [ %35, %36 ], [ %35, %38 ], [ %35, %39 ], [ %35, %40 ], [ %35, %41 ], [ %35, %42 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ %21, %16 ]
+  %.0.i2.i = phi i64 [ 3, %37 ], [ 2, %36 ], [ 4, %38 ], [ 6, %39 ], [ 8, %40 ], [ 12, %41 ], [ 16, %42 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ 1, %16 ]
   %45 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %44, i64 %.0.i2.i)
   %46 = extractvalue { i64, i1 } %45, 1
   %47 = extractvalue { i64, i1 } %45, 0
@@ -33519,7 +33519,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br label %74
 
 .thread:                                          ; preds = %83, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h3a14589338cd9d8dE.exit"
-  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm, %83 ], [ %77, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h3a14589338cd9d8dE.exit" ]
+  %.pn37 = phi { ptr, i32 } [ %77, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h3a14589338cd9d8dE.exit" ], [ %lpad.thr_comm, %83 ]
   resume { ptr, i32 } %.pn37
 
 83:                                               ; preds = %15, %49
@@ -33674,7 +33674,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hb155d184d645aca9E(ptr noal
   br label %48
 
 .thread:                                          ; preds = %59, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17haee72ec18e7ee946E.exit"
-  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm, %59 ], [ %51, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17haee72ec18e7ee946E.exit" ]
+  %.pn37 = phi { ptr, i32 } [ %51, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17haee72ec18e7ee946E.exit" ], [ %lpad.thr_comm, %59 ]
   resume { ptr, i32 } %.pn37
 
 59:                                               ; preds = %10, %25
@@ -33818,7 +33818,7 @@ switch.lookup:
   br label %45
 
 .thread:                                          ; preds = %48, %55
-  %.pn32 = phi { ptr, i32 } [ %49, %48 ], [ %lpad.thr_comm.split-lp, %55 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %55 ], [ %49, %48 ]
   resume { ptr, i32 } %.pn32
 
 55:                                               ; preds = %20
@@ -33985,7 +33985,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hb361ea5a711f62fdE(ptr noal
   br label %"_ZN4core3ptr115drop_in_place$LT$image..codecs..bmp..decoder..BmpDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h8d9b67d1d90a6235E.exit"
 
 .thread:                                          ; preds = %50, %67
-  %.pn32 = phi { ptr, i32 } [ %51, %50 ], [ %lpad.thr_comm.split-lp, %67 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %67 ], [ %51, %50 ]
   resume { ptr, i32 } %.pn32
 
 67:                                               ; preds = %25
@@ -34106,7 +34106,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hbfcd17aff1cd2238E(ptr noal
   unreachable
 
 .thread:                                          ; preds = %46, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..gif..GifDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc709dc2763e23ab3E.exit"
-  %.pn35 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %46 ], [ %40, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..gif..GifDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc709dc2763e23ab3E.exit" ]
+  %.pn35 = phi { ptr, i32 } [ %40, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..gif..GifDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc709dc2763e23ab3E.exit" ], [ %lpad.thr_comm.split-lp, %46 ]
   resume { ptr, i32 } %.pn35
 
 46:                                               ; preds = %2
@@ -34260,7 +34260,7 @@ switch.lookup:
   br label %"_ZN4core3ptr121drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hac6eda24f36e866fE.exit28"
 
 .thread:                                          ; preds = %59, %62, %"_ZN4core3ptr121drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hac6eda24f36e866fE.exit"
-  %.pn36 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %59 ], [ %47, %"_ZN4core3ptr121drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hac6eda24f36e866fE.exit" ], [ %lpad.thr_comm.split-lp, %62 ]
+  %.pn36 = phi { ptr, i32 } [ %47, %"_ZN4core3ptr121drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hac6eda24f36e866fE.exit" ], [ %lpad.thr_comm.split-lp, %62 ], [ %lpad.thr_comm.split-lp, %59 ]
   resume { ptr, i32 } %.pn36
 
 59:                                               ; preds = %20
@@ -34385,7 +34385,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hc598dc2b5b5d81faE(ptr noal
   unreachable
 
 .thread:                                          ; preds = %40, %46
-  %.pn32 = phi { ptr, i32 } [ %41, %40 ], [ %lpad.thr_comm.split-lp, %46 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %46 ], [ %41, %40 ]
   resume { ptr, i32 } %.pn32
 
 46:                                               ; preds = %2
@@ -34554,7 +34554,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hc7d202ee1d1d839bE(ptr noal
   br label %"_ZN4core3ptr115drop_in_place$LT$image..codecs..bmp..decoder..BmpDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h8d9b67d1d90a6235E.exit"
 
 .thread:                                          ; preds = %52, %69
-  %.pn32 = phi { ptr, i32 } [ %53, %52 ], [ %lpad.thr_comm.split-lp, %69 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %69 ], [ %53, %52 ]
   resume { ptr, i32 } %.pn32
 
 69:                                               ; preds = %25
@@ -34798,7 +34798,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hce900191dfb81653E(ptr noal
   unreachable
 
 .thread:                                          ; preds = %41, %47
-  %.pn32 = phi { ptr, i32 } [ %42, %41 ], [ %lpad.thr_comm.split-lp, %47 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %47 ], [ %42, %41 ]
   resume { ptr, i32 } %.pn32
 
 47:                                               ; preds = %2
@@ -35020,7 +35020,7 @@ switch.lookup:                                    ; preds = %16, %27
   unreachable
 
 common.resume:                                    ; preds = %86, %70, %82
-  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %71, %70 ], [ %lpad.thr_comm, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %lpad.thr_comm, %86 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i": ; preds = %78
@@ -35153,7 +35153,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd2db2fc6e67ece71E(ptr noal
   unreachable
 
 .body.thread:                                     ; preds = %30, %.body, %49
-  %eh.lpad-body38 = phi { ptr, i32 } [ %21, %.body ], [ %50, %49 ], [ %31, %30 ]
+  %eh.lpad-body38 = phi { ptr, i32 } [ %50, %49 ], [ %21, %.body ], [ %31, %30 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17hc7015d4d3bde46c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #20
           to label %.thread unwind label %51
 
@@ -35177,7 +35177,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd2db2fc6e67ece71E(ptr noal
   br label %46
 
 .thread:                                          ; preds = %.body.thread, %54
-  %.pn32 = phi { ptr, i32 } [ %eh.lpad-body38, %.body.thread ], [ %lpad.thr_comm.split-lp, %54 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %54 ], [ %eh.lpad-body38, %.body.thread ]
   resume { ptr, i32 } %.pn32
 
 54:                                               ; preds = %18
@@ -35332,7 +35332,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd5533ca0609609d5E(ptr noal
   br label %48
 
 .thread:                                          ; preds = %59, %"_ZN4core3ptr119drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h01745d98425335dbE.exit"
-  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm, %59 ], [ %51, %"_ZN4core3ptr119drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h01745d98425335dbE.exit" ]
+  %.pn37 = phi { ptr, i32 } [ %51, %"_ZN4core3ptr119drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h01745d98425335dbE.exit" ], [ %lpad.thr_comm, %59 ]
   resume { ptr, i32 } %.pn37
 
 59:                                               ; preds = %10, %25
@@ -35476,7 +35476,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd6fe3738d4ec7636E(ptr noal
   br label %47
 
 .thread:                                          ; preds = %50, %57
-  %.pn32 = phi { ptr, i32 } [ %51, %50 ], [ %lpad.thr_comm.split-lp, %57 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %57 ], [ %51, %50 ]
   resume { ptr, i32 } %.pn32
 
 57:                                               ; preds = %24
@@ -35523,7 +35523,7 @@ default.unreachable:                              ; preds = %2
   br label %14
 
 14:                                               ; preds = %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.i", %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.thread.i", %2
-  %.0.i.i = phi i64 [ 2, %2 ], [ 3, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.i" ], [ 1, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.thread.i" ]
+  %.0.i.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.i" ], [ 1, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h34f7fed1245a6e33E.exit.thread.i" ], [ 2, %2 ]
   %15 = zext i16 %8 to i64
   %16 = zext i16 %10 to i64
   %17 = mul nuw nsw i64 %16, %15
@@ -35623,7 +35623,7 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 .thread:                                          ; preds = %49, %"_ZN4core3ptr130drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h3f443b20f237ef78E.exit"
-  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm, %49 ], [ %44, %"_ZN4core3ptr130drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h3f443b20f237ef78E.exit" ]
+  %.pn37 = phi { ptr, i32 } [ %44, %"_ZN4core3ptr130drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h3f443b20f237ef78E.exit" ], [ %lpad.thr_comm, %49 ]
   resume { ptr, i32 } %.pn37
 
 49:                                               ; preds = %13, %14
@@ -35824,7 +35824,7 @@ _ZN5image5image12ImageDecoder10read_image17hee0498265dd45ac0E.exit: ; preds = %4
   unreachable
 
 common.resume:                                    ; preds = %79, %55, %62
-  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %56, %55 ], [ %lpad.thr_comm, %79 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %lpad.thr_comm, %79 ], [ %56, %55 ]
   resume { ptr, i32 } %common.resume.op
 
 79:                                               ; preds = %2, %29
@@ -35975,7 +35975,7 @@ switch.lookup:
   br label %"_ZN4core3ptr108drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h01d748b6c17340d0E.exit28"
 
 .thread:                                          ; preds = %57, %60, %"_ZN4core3ptr108drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h01d748b6c17340d0E.exit"
-  %.pn36 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %57 ], [ %45, %"_ZN4core3ptr108drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h01d748b6c17340d0E.exit" ], [ %lpad.thr_comm.split-lp, %60 ]
+  %.pn36 = phi { ptr, i32 } [ %45, %"_ZN4core3ptr108drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h01d748b6c17340d0E.exit" ], [ %lpad.thr_comm.split-lp, %60 ], [ %lpad.thr_comm.split-lp, %57 ]
   resume { ptr, i32 } %.pn36
 
 57:                                               ; preds = %20
@@ -36027,7 +36027,7 @@ default.unreachable:                              ; preds = %2
   br label %14
 
 14:                                               ; preds = %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.i", %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.thread.i", %2
-  %.0.i.i = phi i64 [ 2, %2 ], [ 3, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.i" ], [ 1, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.thread.i" ]
+  %.0.i.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.i" ], [ 1, %"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hffb41130f206ddd4E.exit.thread.i" ], [ 2, %2 ]
   %15 = zext i16 %8 to i64
   %16 = zext i16 %10 to i64
   %17 = mul nuw nsw i64 %16, %15
@@ -36129,7 +36129,7 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 .thread:                                          ; preds = %51, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc1746d80d9e8a94eE.exit"
-  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm, %51 ], [ %46, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc1746d80d9e8a94eE.exit" ]
+  %.pn37 = phi { ptr, i32 } [ %46, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hc1746d80d9e8a94eE.exit" ], [ %lpad.thr_comm, %51 ]
   resume { ptr, i32 } %.pn37
 
 51:                                               ; preds = %13, %14
@@ -36237,8 +36237,8 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br label %43
 
 43:                                               ; preds = %16, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i", %36, %37, %38, %39, %40, %41, %42
-  %44 = phi i64 [ %35, %42 ], [ %35, %37 ], [ %35, %36 ], [ %35, %38 ], [ %35, %39 ], [ %35, %40 ], [ %35, %41 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ %21, %16 ]
-  %.0.i2.i = phi i64 [ 16, %42 ], [ 3, %37 ], [ 2, %36 ], [ 4, %38 ], [ 6, %39 ], [ 8, %40 ], [ 12, %41 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ 1, %16 ]
+  %44 = phi i64 [ %35, %37 ], [ %35, %36 ], [ %35, %38 ], [ %35, %39 ], [ %35, %40 ], [ %35, %41 ], [ %35, %42 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ %21, %16 ]
+  %.0.i2.i = phi i64 [ 3, %37 ], [ 2, %36 ], [ 4, %38 ], [ 6, %39 ], [ 8, %40 ], [ 12, %41 ], [ 16, %42 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ 1, %16 ]
   %45 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %44, i64 %.0.i2.i)
   %46 = extractvalue { i64, i1 } %45, 1
   %47 = extractvalue { i64, i1 } %45, 0
@@ -36352,7 +36352,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br label %74
 
 .thread:                                          ; preds = %83, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h3a14589338cd9d8dE.exit"
-  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm, %83 ], [ %77, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h3a14589338cd9d8dE.exit" ]
+  %.pn37 = phi { ptr, i32 } [ %77, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h3a14589338cd9d8dE.exit" ], [ %lpad.thr_comm, %83 ]
   resume { ptr, i32 } %.pn37
 
 83:                                               ; preds = %15, %49
@@ -36632,7 +36632,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hec4f0027f108377bE(ptr noal
   br label %50
 
 .thread:                                          ; preds = %61, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17haee72ec18e7ee946E.exit"
-  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm, %61 ], [ %53, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17haee72ec18e7ee946E.exit" ]
+  %.pn37 = phi { ptr, i32 } [ %53, %"_ZN4core3ptr106drop_in_place$LT$image..codecs..png..PngDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17haee72ec18e7ee946E.exit" ], [ %lpad.thr_comm, %61 ]
   resume { ptr, i32 } %.pn37
 
 61:                                               ; preds = %10, %25
@@ -36781,7 +36781,7 @@ switch.lookup:
   br label %46
 
 .thread:                                          ; preds = %55, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..pnm..decoder..PnmDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17ha125e0badd8e62feE.exit"
-  %.pn35 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %55 ], [ %49, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..pnm..decoder..PnmDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17ha125e0badd8e62feE.exit" ]
+  %.pn35 = phi { ptr, i32 } [ %49, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..pnm..decoder..PnmDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17ha125e0badd8e62feE.exit" ], [ %lpad.thr_comm.split-lp, %55 ]
   resume { ptr, i32 } %.pn35
 
 55:                                               ; preds = %21
@@ -36841,8 +36841,8 @@ define hidden void @_ZN5image5image14decoder_to_vec17hf982acd17ce91047E(ptr noal
   br label %32
 
 32:                                               ; preds = %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i", %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread7.i", %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.i"
-  %33 = phi i64 [ %14, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ %28, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.i" ], [ %21, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread7.i" ]
-  %.0.i2.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ %31, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.i" ], [ 4, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread7.i" ]
+  %33 = phi i64 [ %14, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ %21, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread7.i" ], [ %28, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.i" ]
+  %.0.i2.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ 4, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread7.i" ], [ %31, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.i" ]
   %34 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %33, i64 %.0.i2.i)
   %35 = extractvalue { i64, i1 } %34, 1
   %36 = extractvalue { i64, i1 } %34, 0
@@ -36956,7 +36956,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hf982acd17ce91047E(ptr noal
   br label %63
 
 .thread:                                          ; preds = %72, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..webp..decoder..WebPDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hade8f9179f251e6aE.exit"
-  %.pn35 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %72 ], [ %66, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..webp..decoder..WebPDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hade8f9179f251e6aE.exit" ]
+  %.pn35 = phi { ptr, i32 } [ %66, %"_ZN4core3ptr117drop_in_place$LT$image..codecs..webp..decoder..WebPDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hade8f9179f251e6aE.exit" ], [ %lpad.thr_comm.split-lp, %72 ]
   resume { ptr, i32 } %.pn35
 
 72:                                               ; preds = %38
@@ -37109,7 +37109,7 @@ switch.lookup:
   br label %"_ZN4core3ptr108drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h01d748b6c17340d0E.exit28"
 
 .thread:                                          ; preds = %59, %62, %"_ZN4core3ptr108drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h01d748b6c17340d0E.exit"
-  %.pn36 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %59 ], [ %47, %"_ZN4core3ptr108drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h01d748b6c17340d0E.exit" ], [ %lpad.thr_comm.split-lp, %62 ]
+  %.pn36 = phi { ptr, i32 } [ %47, %"_ZN4core3ptr108drop_in_place$LT$image..codecs..tiff..TiffDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h01d748b6c17340d0E.exit" ], [ %lpad.thr_comm.split-lp, %62 ], [ %lpad.thr_comm.split-lp, %59 ]
   resume { ptr, i32 } %.pn36
 
 59:                                               ; preds = %20
@@ -37222,8 +37222,8 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br label %43
 
 43:                                               ; preds = %16, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i", %36, %37, %38, %39, %40, %41, %42
-  %44 = phi i64 [ %35, %42 ], [ %35, %37 ], [ %35, %36 ], [ %35, %38 ], [ %35, %39 ], [ %35, %40 ], [ %35, %41 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ %21, %16 ]
-  %.0.i2.i = phi i64 [ 16, %42 ], [ 3, %37 ], [ 2, %36 ], [ 4, %38 ], [ 6, %39 ], [ 8, %40 ], [ 12, %41 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ 1, %16 ]
+  %44 = phi i64 [ %35, %37 ], [ %35, %36 ], [ %35, %38 ], [ %35, %39 ], [ %35, %40 ], [ %35, %41 ], [ %35, %42 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ %21, %16 ]
+  %.0.i2.i = phi i64 [ 3, %37 ], [ 2, %36 ], [ 4, %38 ], [ 6, %39 ], [ 8, %40 ], [ 12, %41 ], [ 16, %42 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ 1, %16 ]
   %45 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %44, i64 %.0.i2.i)
   %46 = extractvalue { i64, i1 } %45, 1
   %47 = extractvalue { i64, i1 } %45, 0
@@ -37335,7 +37335,7 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   br label %72
 
 .thread:                                          ; preds = %81, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h3a14589338cd9d8dE.exit"
-  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm, %81 ], [ %75, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h3a14589338cd9d8dE.exit" ]
+  %.pn37 = phi { ptr, i32 } [ %75, %"_ZN4core3ptr115drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h3a14589338cd9d8dE.exit" ], [ %lpad.thr_comm, %81 ]
   resume { ptr, i32 } %.pn37
 
 81:                                               ; preds = %15, %49
@@ -37476,7 +37476,7 @@ switch.lookup:
   br label %43
 
 .thread:                                          ; preds = %46, %53
-  %.pn32 = phi { ptr, i32 } [ %47, %46 ], [ %lpad.thr_comm.split-lp, %53 ]
+  %.pn32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %53 ], [ %47, %46 ]
   resume { ptr, i32 } %.pn32
 
 53:                                               ; preds = %20
@@ -41681,7 +41681,7 @@ define hidden i32 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
   br label %"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h2c75656c027b1942E.exit"
 
 "_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h2c75656c027b1942E.exit": ; preds = %1, %17, %19
-  %.0.i.i.i = phi i32 [ -8388609, %17 ], [ 2139095039, %1 ], [ %21, %19 ]
+  %.0.i.i.i = phi i32 [ 2139095039, %1 ], [ -8388609, %17 ], [ %21, %19 ]
   ret i32 %.0.i.i.i
 }
 
@@ -43112,7 +43112,7 @@ define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
   br label %"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h387f56893c96dec4E.exit"
 
 "_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h387f56893c96dec4E.exit": ; preds = %1, %17, %19
-  %.0.i.i.i = phi i64 [ 4286578687, %17 ], [ 2139095039, %1 ], [ %22, %19 ]
+  %.0.i.i.i = phi i64 [ 2139095039, %1 ], [ 4286578687, %17 ], [ %22, %19 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %24 = load i32, ptr %23, align 4, !alias.scope !5346, !noalias !5344, !noundef !4
   %.sroa.5.0.insert.ext = zext i32 %24 to i64

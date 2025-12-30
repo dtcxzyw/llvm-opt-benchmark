@@ -288,14 +288,14 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_reg_prop(ptr noundef %0) #0 {
   br i1 %22, label %.sink.split, label %26
 
 .sink.split:                                      ; preds = %20, %17, %14, %11, %8
-  %.sink = phi i32 [ 329, %17 ], [ 308, %8 ], [ 315, %11 ], [ 321, %14 ], [ 335, %20 ]
+  %.sink = phi i32 [ 308, %8 ], [ 315, %11 ], [ 321, %14 ], [ 329, %17 ], [ 335, %20 ]
   %23 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
   %24 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !10
   %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5P__dcrt_reg_prop, i32 noundef %.sink, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.87) #12
   br label %26
 
 26:                                               ; preds = %.sink.split, %20, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %20 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %1 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -614,7 +614,7 @@ switch.lookup:                                    ; preds = %27
   br label %50
 
 50:                                               ; preds = %.thread, %2, %43, %46, %14
-  %.013 = phi i32 [ -1, %14 ], [ -1, %46 ], [ 0, %43 ], [ -1, %.thread ], [ 0, %2 ]
+  %.013 = phi i32 [ -1, %14 ], [ -1, %46 ], [ 0, %43 ], [ 0, %2 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.013
 }
@@ -1418,8 +1418,8 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   br label %217
 
 217:                                              ; preds = %128, %136, %144, %152, %163, %174, %205, %213, %116, %93
-  %.0118.ph = phi ptr [ null, %93 ], [ %110, %116 ], [ %122, %128 ], [ %122, %213 ], [ %122, %205 ], [ %122, %174 ], [ %122, %163 ], [ %122, %152 ], [ %122, %144 ], [ %122, %136 ]
-  %.0117.ph = phi ptr [ null, %93 ], [ null, %116 ], [ %125, %128 ], [ %125, %213 ], [ %125, %205 ], [ %125, %174 ], [ %125, %163 ], [ %125, %152 ], [ %125, %144 ], [ %125, %136 ]
+  %.0118.ph = phi ptr [ null, %93 ], [ %110, %116 ], [ %122, %213 ], [ %122, %205 ], [ %122, %174 ], [ %122, %163 ], [ %122, %152 ], [ %122, %144 ], [ %122, %136 ], [ %122, %128 ]
+  %.0117.ph = phi ptr [ null, %93 ], [ null, %116 ], [ %125, %213 ], [ %125, %205 ], [ %125, %174 ], [ %125, %163 ], [ %125, %152 ], [ %125, %144 ], [ %125, %136 ], [ %125, %128 ]
   %218 = call i32 @H5P_poke(ptr noundef nonnull %74, ptr noundef nonnull @.str.9, ptr noundef nonnull %6) #12
   %219 = icmp slt i32 %218, 0
   br i1 %219, label %.thread159, label %.thread159.thread
@@ -1519,7 +1519,7 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   %267 = call i32 @H5CX_pop(i1 noundef zeroext true) #12
   br label %270
 
-.thread170.thread:                                ; preds = %47, %42, %83, %76, %68, %61, %54
+.thread170.thread:                                ; preds = %42, %47, %83, %76, %68, %61, %54
   %268 = call i32 @H5CX_pop(i1 noundef zeroext true) #12
   br label %270
 
@@ -2107,7 +2107,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pget_virtual_srcspace(i64 noun
   %143 = call i32 @H5CX_pop(i1 noundef zeroext true) #12
   br label %145
 
-.thread78:                                        ; preds = %28, %35, %15, %.thread87, %.thread83
+.thread78:                                        ; preds = %15, %28, %35, %.thread87, %.thread83
   %144 = call i32 @H5E_dump_api_stack() #12
   br label %145
 
@@ -4039,7 +4039,7 @@ define range(i32 -1, 1) i32 @H5Pset_fill_value(i64 noundef %0, i64 noundef %1, p
   %122 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_fill_value, i32 noundef 3032, i64 noundef %120, i64 noundef %121, ptr noundef nonnull @.str.70) #12
   br label %.thread84
 
-.thread84:                                        ; preds = %119, %50, %43, %59, %67, %77, %84, %107, %96
+.thread84:                                        ; preds = %119, %50, %43, %59, %67, %77, %84, %96, %107
   %123 = call i32 @H5CX_pop(i1 noundef zeroext true) #12
   br label %.thread78
 
@@ -4267,10 +4267,10 @@ define range(i32 -1, 1) i32 @H5P_get_fill_value(ptr noundef %0, ptr noundef %1, 
   br label %106
 
 106:                                              ; preds = %103, %104, %99, %88, %77, %55, %41, %34, %30, %23, %13
-  %.047 = phi ptr [ null, %13 ], [ null, %23 ], [ null, %30 ], [ null, %34 ], [ null, %41 ], [ null, %55 ], [ %75, %88 ], [ %.148, %99 ], [ %.148, %104 ], [ %.148, %103 ], [ null, %77 ]
-  %.045 = phi ptr [ null, %13 ], [ null, %23 ], [ null, %30 ], [ null, %34 ], [ null, %41 ], [ null, %55 ], [ null, %88 ], [ %.146, %99 ], [ %.146, %104 ], [ %.146, %103 ], [ null, %77 ]
-  %.042 = phi ptr [ null, %13 ], [ null, %23 ], [ null, %30 ], [ null, %34 ], [ null, %41 ], [ null, %55 ], [ %.143, %88 ], [ %.143, %99 ], [ %.143, %104 ], [ %.143, %103 ], [ %.143, %77 ]
-  %.0 = phi i32 [ -1, %13 ], [ -1, %23 ], [ -1, %30 ], [ 0, %34 ], [ -1, %41 ], [ -1, %55 ], [ -1, %88 ], [ -1, %99 ], [ 0, %104 ], [ 0, %103 ], [ -1, %77 ]
+  %.047 = phi ptr [ null, %13 ], [ null, %23 ], [ null, %30 ], [ null, %34 ], [ null, %41 ], [ null, %55 ], [ %.148, %99 ], [ %.148, %104 ], [ %.148, %103 ], [ null, %77 ], [ %75, %88 ]
+  %.045 = phi ptr [ null, %13 ], [ null, %23 ], [ null, %30 ], [ null, %34 ], [ null, %41 ], [ null, %55 ], [ %.146, %99 ], [ %.146, %104 ], [ %.146, %103 ], [ null, %77 ], [ null, %88 ]
+  %.042 = phi ptr [ null, %13 ], [ null, %23 ], [ null, %30 ], [ null, %34 ], [ null, %41 ], [ null, %55 ], [ %.143, %99 ], [ %.143, %104 ], [ %.143, %103 ], [ %.143, %77 ], [ %.143, %88 ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %23 ], [ -1, %30 ], [ 0, %34 ], [ -1, %41 ], [ -1, %55 ], [ -1, %99 ], [ 0, %104 ], [ 0, %103 ], [ -1, %77 ], [ -1, %88 ]
   %.not63 = icmp eq ptr %.047, %2
   br i1 %.not63, label %109, label %107
 
@@ -5856,7 +5856,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_enc(ptr noundef readonly 
   br i1 %195, label %150, label %.loopexit, !llvm.loop !80
 
 .loopexit:                                        ; preds = %125, %31, %189, %68, %21, %145, %3, %138, %185, %172, %14, %121, %105, %134
-  %.0107 = phi i32 [ 0, %21 ], [ 0, %3 ], [ 0, %134 ], [ 0, %14 ], [ 0, %138 ], [ -1, %172 ], [ -1, %185 ], [ 0, %145 ], [ -1, %105 ], [ -1, %121 ], [ 0, %68 ], [ 0, %31 ], [ 0, %189 ], [ 0, %125 ]
+  %.0107 = phi i32 [ 0, %138 ], [ -1, %172 ], [ -1, %185 ], [ 0, %3 ], [ 0, %14 ], [ -1, %105 ], [ -1, %121 ], [ 0, %134 ], [ 0, %145 ], [ 0, %21 ], [ 0, %68 ], [ 0, %189 ], [ 0, %31 ], [ 0, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0107
@@ -6220,7 +6220,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_dec(ptr noundef %0, ptr n
   br label %236
 
 .thread126:                                       ; preds = %69, %23, %54, %15, %10, %14
-  %.0111 = phi ptr [ @H5D_def_layout_virtual_g, %54 ], [ @H5D_def_layout_contig_g, %14 ], [ @H5D_def_layout_compact_g, %10 ], [ @H5D_def_layout_chunk_g, %15 ], [ %3, %23 ], [ %3, %69 ]
+  %.0111 = phi ptr [ @H5D_def_layout_contig_g, %14 ], [ @H5D_def_layout_compact_g, %10 ], [ @H5D_def_layout_chunk_g, %15 ], [ @H5D_def_layout_virtual_g, %54 ], [ %3, %23 ], [ %3, %69 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2256) %1, ptr noundef nonnull align 8 dereferenceable(2256) %.0111, i64 2256, i1 false)
   br label %236
 
@@ -6475,7 +6475,7 @@ define internal range(i32 -1, 2) i32 @H5P__dcrt_layout_cmp(ptr noundef readonly 
   br i1 %.not87, label %.loopexit, label %47
 
 .loopexit:                                        ; preds = %29, %35, %28, %51, %60, %61, %70, %71, %82, %83, %90, %91, %98, %99, %110, %47, %.preheader89, %.preheader, %3, %16, %10, %14, %23, %17, %43, %37
-  %.066 = phi i32 [ 0, %3 ], [ -1, %10 ], [ 0, %16 ], [ 1, %43 ], [ -1, %37 ], [ 1, %14 ], [ 0, %.preheader89 ], [ -1, %17 ], [ 1, %23 ], [ 0, %47 ], [ 0, %.preheader ], [ 1, %110 ], [ 1, %60 ], [ 1, %90 ], [ 1, %98 ], [ -1, %91 ], [ -1, %83 ], [ 1, %82 ], [ -1, %71 ], [ 1, %70 ], [ -1, %61 ], [ -1, %51 ], [ -1, %99 ], [ -1, %29 ], [ 1, %35 ], [ 0, %28 ]
+  %.066 = phi i32 [ 0, %16 ], [ 0, %3 ], [ -1, %10 ], [ 1, %14 ], [ -1, %17 ], [ 1, %23 ], [ -1, %37 ], [ 1, %43 ], [ 0, %.preheader ], [ 0, %.preheader89 ], [ -1, %51 ], [ 1, %60 ], [ -1, %61 ], [ 1, %70 ], [ -1, %71 ], [ 1, %82 ], [ -1, %83 ], [ 1, %90 ], [ -1, %91 ], [ 1, %98 ], [ -1, %99 ], [ 1, %110 ], [ 0, %47 ], [ -1, %29 ], [ 1, %35 ], [ 0, %28 ]
   ret i32 %.066
 }
 
@@ -6740,7 +6740,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_enc(ptr noundef reado
   br label %H5VM_limit_enc_size.exit
 
 H5VM_limit_enc_size.exit:                         ; preds = %57, %62, %69, %74, %83, %88, %95, %100
-  %.0.i.i = phi i32 [ %92, %88 ], [ %66, %62 ], [ %78, %74 ], [ %61, %57 ], [ %73, %69 ], [ %87, %83 ], [ %99, %95 ], [ %103, %100 ]
+  %.0.i.i = phi i32 [ %61, %57 ], [ %66, %62 ], [ %73, %69 ], [ %78, %74 ], [ %87, %83 ], [ %92, %88 ], [ %99, %95 ], [ %103, %100 ]
   %104 = lshr i32 %.0.i.i, 3
   %105 = add nuw nsw i32 %104, 1
   %106 = trunc nuw nsw i32 %105 to i8
@@ -6912,7 +6912,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %57, %62, %69, %74, 
   br label %H5VM_limit_enc_size.exit79
 
 H5VM_limit_enc_size.exit79:                       ; preds = %156, %161, %168, %173, %182, %187, %194, %199
-  %.0.i.i74 = phi i32 [ %191, %187 ], [ %165, %161 ], [ %177, %173 ], [ %160, %156 ], [ %172, %168 ], [ %186, %182 ], [ %198, %194 ], [ %202, %199 ]
+  %.0.i.i74 = phi i32 [ %160, %156 ], [ %165, %161 ], [ %172, %168 ], [ %177, %173 ], [ %186, %182 ], [ %191, %187 ], [ %198, %194 ], [ %202, %199 ]
   %203 = lshr i32 %.0.i.i74, 3
   %204 = add nuw nsw i32 %203, 1
   %.pre = load i64, ptr %2, align 8, !tbaa !10
@@ -7048,7 +7048,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_dec(ptr noundef captu
   br label %66
 
 66:                                               ; preds = %2, %30, %63, %59, %37
-  %.047 = phi i32 [ 0, %2 ], [ 0, %30 ], [ -1, %37 ], [ -1, %59 ], [ 0, %63 ]
+  %.047 = phi i32 [ 0, %30 ], [ 0, %2 ], [ -1, %37 ], [ -1, %59 ], [ 0, %63 ]
   ret i32 %.047
 }
 
@@ -7315,7 +7315,7 @@ define internal noundef i32 @H5P__dcrt_ext_file_list_enc(ptr noundef readonly ca
   br label %H5VM_limit_enc_size.exit
 
 H5VM_limit_enc_size.exit:                         ; preds = %18, %23, %30, %35, %44, %49, %56, %61
-  %.0.i.i = phi i32 [ %53, %49 ], [ %27, %23 ], [ %39, %35 ], [ %22, %18 ], [ %34, %30 ], [ %48, %44 ], [ %60, %56 ], [ %64, %61 ]
+  %.0.i.i = phi i32 [ %22, %18 ], [ %27, %23 ], [ %34, %30 ], [ %39, %35 ], [ %48, %44 ], [ %53, %49 ], [ %60, %56 ], [ %64, %61 ]
   %65 = lshr i32 %.0.i.i, 3
   %66 = add nuw nsw i32 %65, 1
   %67 = trunc nuw nsw i32 %66 to i8
@@ -7453,7 +7453,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %18, %23, %30, %35, 
   br label %H5VM_limit_enc_size.exit116
 
 H5VM_limit_enc_size.exit116:                      ; preds = %95, %100, %107, %112, %121, %126, %133, %138
-  %.0.i.i111 = phi i32 [ %130, %126 ], [ %104, %100 ], [ %116, %112 ], [ %99, %95 ], [ %111, %107 ], [ %125, %121 ], [ %137, %133 ], [ %141, %138 ]
+  %.0.i.i111 = phi i32 [ %99, %95 ], [ %104, %100 ], [ %111, %107 ], [ %116, %112 ], [ %125, %121 ], [ %130, %126 ], [ %137, %133 ], [ %141, %138 ]
   %142 = lshr i32 %.0.i.i111, 3
   %143 = add nuw nsw i32 %142, 1
   %144 = trunc nuw nsw i32 %143 to i8
@@ -7581,7 +7581,7 @@ H5VM_limit_enc_size.exit116:                      ; preds = %95, %100, %107, %11
   br label %H5VM_limit_enc_size.exit125
 
 H5VM_limit_enc_size.exit125:                      ; preds = %171, %176, %183, %188, %197, %202, %209, %214
-  %.0.i.i120 = phi i32 [ %206, %202 ], [ %180, %176 ], [ %192, %188 ], [ %175, %171 ], [ %187, %183 ], [ %201, %197 ], [ %213, %209 ], [ %217, %214 ]
+  %.0.i.i120 = phi i32 [ %175, %171 ], [ %180, %176 ], [ %187, %183 ], [ %192, %188 ], [ %201, %197 ], [ %206, %202 ], [ %213, %209 ], [ %217, %214 ]
   %218 = lshr i32 %.0.i.i120, 3
   %219 = add nuw nsw i32 %218, 1
   %220 = trunc nuw nsw i32 %219 to i8
@@ -7701,7 +7701,7 @@ H5VM_limit_enc_size.exit125:                      ; preds = %171, %176, %183, %1
   br label %H5VM_limit_enc_size.exit134
 
 H5VM_limit_enc_size.exit134:                      ; preds = %241, %246, %253, %258, %267, %272, %279, %284
-  %.0.i.i129 = phi i32 [ %276, %272 ], [ %250, %246 ], [ %262, %258 ], [ %245, %241 ], [ %257, %253 ], [ %271, %267 ], [ %283, %279 ], [ %287, %284 ]
+  %.0.i.i129 = phi i32 [ %245, %241 ], [ %250, %246 ], [ %257, %253 ], [ %262, %258 ], [ %271, %267 ], [ %276, %272 ], [ %283, %279 ], [ %287, %284 ]
   %288 = lshr i32 %.0.i.i129, 3
   %289 = add nuw nsw i32 %288, 1
   %290 = trunc nuw nsw i32 %289 to i8
@@ -7828,8 +7828,8 @@ H5VM_limit_enc_size.exit134:                      ; preds = %241, %246, %253, %2
   br label %H5VM_limit_enc_size.exit143
 
 H5VM_limit_enc_size.exit143:                      ; preds = %312, %317, %324, %329, %338, %343, %350, %355
-  %361 = phi ptr [ %306, %343 ], [ %306, %317 ], [ %306, %329 ], [ %306, %312 ], [ %306, %324 ], [ %306, %338 ], [ %306, %350 ], [ %356, %355 ]
-  %.0.i.i138 = phi i32 [ %347, %343 ], [ %321, %317 ], [ %333, %329 ], [ %316, %312 ], [ %328, %324 ], [ %342, %338 ], [ %354, %350 ], [ %360, %355 ]
+  %361 = phi ptr [ %306, %312 ], [ %306, %317 ], [ %306, %324 ], [ %306, %329 ], [ %306, %338 ], [ %306, %343 ], [ %306, %350 ], [ %356, %355 ]
+  %.0.i.i138 = phi i32 [ %316, %312 ], [ %321, %317 ], [ %328, %324 ], [ %333, %329 ], [ %342, %338 ], [ %347, %343 ], [ %354, %350 ], [ %360, %355 ]
   %362 = lshr i32 %.0.i.i138, 3
   %363 = add nuw nsw i32 %362, 2
   %364 = zext nneg i32 %363 to i64
@@ -7943,7 +7943,7 @@ H5VM_limit_enc_size.exit143:                      ; preds = %312, %317, %324, %3
   br label %H5VM_limit_enc_size.exit152
 
 H5VM_limit_enc_size.exit152:                      ; preds = %382, %387, %394, %399, %408, %413, %420, %425
-  %.0.i.i147 = phi i32 [ %417, %413 ], [ %391, %387 ], [ %403, %399 ], [ %386, %382 ], [ %398, %394 ], [ %412, %408 ], [ %424, %420 ], [ %428, %425 ]
+  %.0.i.i147 = phi i32 [ %386, %382 ], [ %391, %387 ], [ %398, %394 ], [ %403, %399 ], [ %412, %408 ], [ %417, %413 ], [ %424, %420 ], [ %428, %425 ]
   %429 = lshr i32 %.0.i.i147, 3
   %430 = add nuw nsw i32 %429, 2
   %431 = zext nneg i32 %430 to i64
@@ -8042,7 +8042,7 @@ H5VM_limit_enc_size.exit152:                      ; preds = %382, %387, %394, %3
   br label %H5VM_limit_enc_size.exit161
 
 H5VM_limit_enc_size.exit161:                      ; preds = %441, %446, %453, %458, %467, %472, %479, %484
-  %.0.i.i156 = phi i32 [ %476, %472 ], [ %450, %446 ], [ %462, %458 ], [ %445, %441 ], [ %457, %453 ], [ %471, %467 ], [ %483, %479 ], [ %487, %484 ]
+  %.0.i.i156 = phi i32 [ %445, %441 ], [ %450, %446 ], [ %457, %453 ], [ %462, %458 ], [ %471, %467 ], [ %476, %472 ], [ %483, %479 ], [ %487, %484 ]
   %488 = lshr i32 %.0.i.i156, 3
   %489 = add nuw nsw i32 %488, 2
   %490 = zext nneg i32 %489 to i64
@@ -8140,7 +8140,7 @@ H5VM_limit_enc_size.exit161:                      ; preds = %441, %446, %453, %4
   br label %H5VM_limit_enc_size.exit170
 
 H5VM_limit_enc_size.exit170:                      ; preds = %499, %504, %511, %516, %525, %530, %537, %542
-  %.0.i.i165 = phi i32 [ %534, %530 ], [ %508, %504 ], [ %520, %516 ], [ %503, %499 ], [ %515, %511 ], [ %529, %525 ], [ %541, %537 ], [ %545, %542 ]
+  %.0.i.i165 = phi i32 [ %503, %499 ], [ %508, %504 ], [ %515, %511 ], [ %520, %516 ], [ %529, %525 ], [ %534, %530 ], [ %541, %537 ], [ %545, %542 ]
   %546 = lshr i32 %.0.i.i165, 3
   %547 = add nuw nsw i32 %546, 2
   %548 = zext nneg i32 %547 to i64
@@ -8518,7 +8518,7 @@ define internal i32 @H5P__dcrt_ext_file_list_cmp(ptr noundef readonly captures(n
   br i1 %69, label %.thread82, label %36
 
 .thread82:                                        ; preds = %36, %68, %62, %60, %.thread84, %53, %52, %51, %43, %.preheader, %32, %3, %35, %10, %16, %18, %24, %33
-  %.061 = phi i32 [ 0, %3 ], [ -1, %10 ], [ 1, %16 ], [ -1, %18 ], [ 1, %24 ], [ %spec.select, %32 ], [ 1, %33 ], [ 0, %35 ], [ -1, %62 ], [ 1, %60 ], [ -1, %.thread84 ], [ %54, %53 ], [ 1, %52 ], [ -1, %51 ], [ 1, %43 ], [ -1, %.preheader ], [ 1, %68 ], [ 0, %36 ]
+  %.061 = phi i32 [ 0, %35 ], [ 0, %3 ], [ -1, %10 ], [ 1, %16 ], [ -1, %18 ], [ 1, %24 ], [ 1, %33 ], [ %spec.select, %32 ], [ 0, %36 ], [ 1, %68 ], [ -1, %62 ], [ 1, %60 ], [ -1, %.thread84 ], [ %54, %53 ], [ 1, %52 ], [ -1, %51 ], [ 1, %43 ], [ -1, %.preheader ]
   ret i32 %.061
 }
 

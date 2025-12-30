@@ -1004,7 +1004,7 @@ define dso_local i32 @io_send(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %.thread15
 
 .thread15:                                        ; preds = %.thread20, %.thread17, %.thread, %196, %183, %178, %144, %133, %128, %106, %103, %75, %71, %68, %63, %39, %18
-  %207 = phi i32 [ 0, %196 ], [ %22, %18 ], [ -88, %71 ], [ %82, %75 ], [ -11, %68 ], [ -11, %39 ], [ -12, %63 ], [ -11, %133 ], [ -11, %106 ], [ -11, %103 ], [ -12, %128 ], [ -11, %183 ], [ -11, %144 ], [ -12, %178 ], [ -12, %.thread17 ], [ -12, %.thread ], [ -12, %.thread20 ]
+  %207 = phi i32 [ 0, %196 ], [ %22, %18 ], [ -88, %71 ], [ %82, %75 ], [ -11, %68 ], [ -11, %39 ], [ -12, %63 ], [ -11, %133 ], [ -11, %106 ], [ -11, %103 ], [ -12, %128 ], [ -11, %183 ], [ -11, %144 ], [ -12, %178 ], [ -12, %.thread ], [ -12, %.thread17 ], [ -12, %.thread20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %207
@@ -1258,7 +1258,7 @@ define internal fastcc i32 @io_recvmsg_copy_hdr(ptr noundef captures(none) %0, p
   br label %.thread
 
 .thread:                                          ; preds = %54, %63, %66, %45, %36, %34, %76, %70, %19, %15
-  %77 = phi i32 [ 0, %76 ], [ %74, %70 ], [ -14, %15 ], [ %21, %19 ], [ -75, %54 ], [ -75, %63 ], [ -75, %66 ], [ -22, %45 ], [ -14, %36 ], [ -22, %34 ]
+  %77 = phi i32 [ 0, %76 ], [ -14, %15 ], [ %21, %19 ], [ %74, %70 ], [ -75, %54 ], [ -75, %63 ], [ -75, %66 ], [ -22, %45 ], [ -14, %36 ], [ -22, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %142
 
@@ -2468,7 +2468,7 @@ define dso_local range(i32 -3072, 1) i32 @io_recv(ptr noundef %0, i32 noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %62, %.loopexit, %212, %193, %118, %107, %103, %97, %94, %92, %87, %29, %22, %14
-  %213 = phi i32 [ -11, %118 ], [ -11, %14 ], [ -11, %22 ], [ -88, %29 ], [ -11, %87 ], [ -529, %92 ], [ -529, %94 ], [ -529, %97 ], [ -529, %103 ], [ -529, %107 ], [ 0, %193 ], [ %211, %.loopexit ], [ %56, %212 ], [ -105, %62 ]
+  %213 = phi i32 [ -11, %118 ], [ -11, %14 ], [ -11, %22 ], [ -88, %29 ], [ -11, %87 ], [ -529, %92 ], [ -529, %94 ], [ -529, %97 ], [ -529, %103 ], [ -529, %107 ], [ %211, %.loopexit ], [ %56, %212 ], [ 0, %193 ], [ -105, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %213
@@ -3050,7 +3050,7 @@ define dso_local i32 @io_send_zc(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br label %.thread14
 
 .thread14:                                        ; preds = %.thread, %113, %206, %161, %148, %96, %85, %79, %74, %50, %30, %8, %2
-  %209 = phi i32 [ %149, %148 ], [ %173, %161 ], [ 0, %206 ], [ -88, %2 ], [ -95, %8 ], [ %34, %30 ], [ %94, %85 ], [ %104, %96 ], [ %118, %113 ], [ -11, %79 ], [ -11, %50 ], [ -12, %74 ], [ -12, %.thread ]
+  %209 = phi i32 [ %149, %148 ], [ %173, %161 ], [ 0, %206 ], [ -88, %2 ], [ -95, %8 ], [ %34, %30 ], [ %94, %85 ], [ %104, %96 ], [ -11, %79 ], [ -11, %50 ], [ -12, %74 ], [ %118, %113 ], [ -12, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %209
@@ -4132,7 +4132,7 @@ define dso_local noundef range(i32 -11, 1) i32 @io_connect(ptr noundef %0, i32 n
   br i1 %65, label %.thread2, label %.thread3
 
 .thread2:                                         ; preds = %61, %40, %31, %63
-  %66 = phi i32 [ %64, %63 ], [ -103, %31 ], [ -12, %40 ], [ -4, %61 ]
+  %66 = phi i32 [ %64, %63 ], [ -12, %40 ], [ -103, %31 ], [ -4, %61 ]
   %67 = load i32, ptr %5, align 4
   %68 = or i32 %67, 256
   %69 = and i32 %67, 64

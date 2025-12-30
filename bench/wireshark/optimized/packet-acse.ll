@@ -725,7 +725,7 @@ define internal i32 @dissect_acse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %51
 
 51:                                               ; preds = %18, %31, %29, %27, %4, %.loopexit, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %31 ], [ %50, %.loopexit ], [ 0, %4 ], [ 0, %27 ], [ 0, %29 ], [ 0, %18 ]
+  %.0 = phi i32 [ %50, %.loopexit ], [ 0, %9 ], [ 0, %4 ], [ 0, %27 ], [ 0, %29 ], [ 0, %31 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

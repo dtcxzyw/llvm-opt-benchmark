@@ -266,7 +266,7 @@ build_replindex_scan_key.exit.split.us:           ; preds = %build_replindex_sca
   br i1 %129, label %.split.backedge, label %.critedge
 
 .critedge:                                        ; preds = %121, %102, %86, %.backedge.us, %build_replindex_scan_key.exit.split.us
-  %130 = phi i1 [ false, %102 ], [ false, %.backedge.us ], [ false, %build_replindex_scan_key.exit.split.us ], [ true, %86 ], [ true, %121 ]
+  %130 = phi i1 [ false, %build_replindex_scan_key.exit.split.us ], [ false, %.backedge.us ], [ true, %86 ], [ false, %102 ], [ true, %121 ]
   call void @index_endscan(ptr noundef %77) #4
   call void @index_close(ptr noundef %9, i32 noundef 0) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -412,10 +412,10 @@ slot_getallattrs.exit39:                          ; preds = %slot_getallattrs.ex
   %.pre54 = sext i32 %.pre53 to i64
   br label %select.unfold
 
-select.unfold:                                    ; preds = %.select.unfold_crit_edge, %27, %48, %38
-  %.pre-phi = phi i64 [ %.pre54, %.select.unfold_crit_edge ], [ %30, %27 ], [ %30, %48 ], [ %30, %38 ]
-  %78 = phi i32 [ %.pre53, %.select.unfold_crit_edge ], [ %28, %27 ], [ %28, %48 ], [ %28, %38 ]
-  %79 = phi ptr [ %.pre, %.select.unfold_crit_edge ], [ %29, %27 ], [ %29, %48 ], [ %29, %38 ]
+select.unfold:                                    ; preds = %.select.unfold_crit_edge, %38, %27, %48
+  %.pre-phi = phi i64 [ %.pre54, %.select.unfold_crit_edge ], [ %30, %38 ], [ %30, %27 ], [ %30, %48 ]
+  %78 = phi i32 [ %.pre53, %.select.unfold_crit_edge ], [ %28, %38 ], [ %28, %27 ], [ %28, %48 ]
+  %79 = phi ptr [ %.pre, %.select.unfold_crit_edge ], [ %29, %38 ], [ %29, %27 ], [ %29, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not50 = icmp slt i64 %indvars.iv.next, %.pre-phi
   br i1 %.not50, label %27, label %._crit_edge, !llvm.loop !9
@@ -486,15 +486,15 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %3, %ItemPointerIndi
   unreachable
 
 .sink.split:                                      ; preds = %15, %ItemPointerIndicatesMovedPartitions.exit.thread, %12
-  %.str.14.sink = phi ptr [ @.str.13, %ItemPointerIndicatesMovedPartitions.exit.thread ], [ @.str.12, %12 ], [ @.str.14, %15 ]
-  %.sink = phi i32 [ 151, %ItemPointerIndicatesMovedPartitions.exit.thread ], [ 147, %12 ], [ 158, %15 ]
+  %.str.14.sink = phi ptr [ @.str.12, %12 ], [ @.str.13, %ItemPointerIndicatesMovedPartitions.exit.thread ], [ @.str.14, %15 ]
+  %.sink = phi i32 [ 147, %12 ], [ 151, %ItemPointerIndicatesMovedPartitions.exit.thread ], [ 158, %15 ]
   %23 = tail call i32 @errcode(i32 noundef 16777220) #4
   %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.14.sink) #4
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.should_refetch_tuple) #4
   br label %25
 
 25:                                               ; preds = %.sink.split, %15, %12, %ItemPointerIndicatesMovedPartitions.exit.thread, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %12 ], [ true, %ItemPointerIndicatesMovedPartitions.exit.thread ], [ true, %15 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %2 ], [ true, %ItemPointerIndicatesMovedPartitions.exit.thread ], [ true, %12 ], [ true, %15 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -639,7 +639,7 @@ CheckCmdReplicaIdentity.exit:
   %14 = tail call zeroext i1 @ExecBRInsertTriggers(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %2) #4
   br i1 %14, label %.critedge, label %43
 
-.critedge:                                        ; preds = %CheckCmdReplicaIdentity.exit, %9, %13
+.critedge:                                        ; preds = %9, %CheckCmdReplicaIdentity.exit, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -700,7 +700,7 @@ CheckCmdReplicaIdentity.exit:
   br label %.thread49
 
 .thread49:                                        ; preds = %31, %42, %36
-  %.03851 = phi ptr [ %40, %36 ], [ %40, %42 ], [ null, %31 ]
+  %.03851 = phi ptr [ %40, %42 ], [ %40, %36 ], [ null, %31 ]
   call void @ExecARInsertTriggers(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %2, ptr noundef %.03851, ptr noundef null) #4
   call void @list_free(ptr noundef %.03851) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1023,7 +1023,7 @@ define dso_local void @ExecSimpleRelationUpdate(ptr noundef %0, ptr noundef %1, 
   %18 = tail call zeroext i1 @ExecBRUpdateTriggers(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef null, ptr noundef %4, ptr noundef null, ptr noundef null) #4
   br i1 %18, label %.critedge, label %52
 
-.critedge:                                        ; preds = %5, %13, %17
+.critedge:                                        ; preds = %13, %5, %17
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1
@@ -1091,7 +1091,7 @@ define dso_local void @ExecSimpleRelationUpdate(ptr noundef %0, ptr noundef %1, 
   br label %.thread59
 
 .thread59:                                        ; preds = %36, %51, %44
-  %.04661 = phi ptr [ %49, %44 ], [ %49, %51 ], [ null, %36 ]
+  %.04661 = phi ptr [ %49, %51 ], [ %49, %44 ], [ null, %36 ]
   call void @ExecARUpdateTriggers(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef null, ptr noundef %4, ptr noundef %.04661, ptr noundef null, i1 noundef zeroext false) #4
   call void @list_free(ptr noundef %.04661) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

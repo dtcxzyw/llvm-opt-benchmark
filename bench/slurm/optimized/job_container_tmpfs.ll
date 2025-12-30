@@ -437,7 +437,7 @@ _restore_ns.exit:                                 ; preds = %83, %86, %96
   br label %.critedge
 
 .critedge:                                        ; preds = %24, %36, %110, %111, %2, %52
-  %.0 = phi i32 [ 0, %110 ], [ 0, %2 ], [ -1, %52 ], [ -1, %111 ], [ -1, %36 ], [ -1, %24 ]
+  %.0 = phi i32 [ -1, %52 ], [ 0, %2 ], [ -1, %111 ], [ 0, %110 ], [ -1, %36 ], [ -1, %24 ]
   ret i32 %.0
 }
 
@@ -608,13 +608,13 @@ define dso_local range(i32 -1, 1) i32 @container_p_join(ptr noundef readonly cap
   br label %.sink.split
 
 .sink.split:                                      ; preds = %33, %38, %50
-  %.0.ph = phi i32 [ -1, %38 ], [ -1, %33 ], [ 0, %50 ]
+  %.0.ph = phi i32 [ 0, %50 ], [ -1, %38 ], [ -1, %33 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #12
   call void @slurm_xfree(ptr noundef nonnull %5) #12
   br label %52
 
 52:                                               ; preds = %.sink.split, %21, %18, %13, %3
-  %.0 = phi i32 [ 0, %21 ], [ 0, %3 ], [ 0, %18 ], [ 0, %13 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %13 ], [ 0, %18 ], [ 0, %21 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1610,7 +1610,7 @@ define dso_local range(i32 -1, 1) i32 @container_p_send_stepd(i32 noundef %0) lo
 .lr.ph70.split.backedge:                          ; preds = %44, %41
   br label %.lr.ph70.split, !llvm.loop !14
 
-.thread:                                          ; preds = %37, %.split75.us, %16, %.split58.us
+.thread:                                          ; preds = %.split75.us, %37, %.split58.us, %16
   %45 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.container_p_send_stepd) #12
   br label %.loopexit
 
@@ -1741,7 +1741,7 @@ define dso_local range(i32 -1, 1) i32 @container_p_recv_stepd(i32 noundef %0) lo
   br label %.thread
 
 .split77.us:                                      ; preds = %.lr.ph114, %.lr.ph99.preheader, %.lr.ph114.preheader, %.lr.ph99.preheader.preheader
-  %.us-phi78 = phi i64 [ %33, %.lr.ph99.preheader ], [ %15, %.lr.ph99.preheader.preheader ], [ %4, %.lr.ph114.preheader ], [ %12, %.lr.ph114 ]
+  %.us-phi78 = phi i64 [ %15, %.lr.ph99.preheader.preheader ], [ %4, %.lr.ph114.preheader ], [ %33, %.lr.ph99.preheader ], [ %12, %.lr.ph114 ]
   %39 = and i64 %.us-phi78, 2147483647
   %40 = getelementptr inbounds nuw i8, ptr %.041.ph116, i64 %39
   %41 = sub i64 %.040.ph118, %39
@@ -1879,7 +1879,7 @@ define dso_local range(i32 -1, 1) i32 @container_p_recv_stepd(i32 noundef %0) lo
   br label %.thread
 
 .split127.us:                                     ; preds = %.lr.ph165, %.lr.ph150.preheader, %.lr.ph165.preheader, %.lr.ph150.preheader.preheader
-  %.us-phi128 = phi i64 [ %81, %.lr.ph150.preheader ], [ %63, %.lr.ph150.preheader.preheader ], [ %52, %.lr.ph165.preheader ], [ %60, %.lr.ph165 ]
+  %.us-phi128 = phi i64 [ %63, %.lr.ph150.preheader.preheader ], [ %52, %.lr.ph165.preheader ], [ %81, %.lr.ph150.preheader ], [ %60, %.lr.ph165 ]
   %87 = and i64 %.us-phi128, 2147483647
   %88 = getelementptr inbounds nuw i8, ptr %.037.ph171, i64 %87
   %89 = sub i64 %.038.ph169, %87
@@ -1921,12 +1921,12 @@ _is_plugin_disabled.exit:                         ; preds = %95, %98
   store i8 %101, ptr @plugin_disabled, align 1
   br label %103
 
-.thread:                                          ; preds = %86, %.split130.us, %76, %71, %38, %.split80.us, %28, %23, %.outer._crit_edge
+.thread:                                          ; preds = %.split130.us, %86, %76, %71, %.split80.us, %38, %28, %23, %.outer._crit_edge
   %102 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.container_p_recv_stepd) #12
   br label %103
 
 103:                                              ; preds = %.thread, %_is_plugin_disabled.exit
-  %.0 = phi i32 [ -1, %.thread ], [ 0, %_is_plugin_disabled.exit ]
+  %.0 = phi i32 [ 0, %_is_plugin_disabled.exit ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

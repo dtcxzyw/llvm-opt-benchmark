@@ -76,7 +76,7 @@ define range(i32 0, 2) i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr noundef captu
   br i1 %34, label %.loopexit, label %.thread90
 
 .thread90:                                        ; preds = %30, %.thread
-  %35 = phi ptr [ %.pre, %30 ], [ %26, %.thread ]
+  %35 = phi ptr [ %26, %.thread ], [ %.pre, %30 ]
   tail call void @BN_set_flags(ptr noundef nonnull %35, i32 noundef 4) #2
   %36 = load ptr, ptr %27, align 8, !tbaa !22
   tail call void @BN_set_flags(ptr noundef %36, i32 noundef 4) #2
@@ -125,8 +125,8 @@ define range(i32 0, 2) i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr noundef captu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.lr.ph, %47, %30, %.thread, %.preheader, %.thread90, %12, %54
-  %.not77 = phi i1 [ false, %12 ], [ false, %30 ], [ false, %.thread ], [ true, %54 ], [ false, %.thread90 ], [ false, %.preheader ], [ false, %47 ], [ false, %.lr.ph ], [ false, %.backedge ]
-  %.067 = phi i32 [ 0, %12 ], [ 0, %30 ], [ 0, %.thread ], [ 1, %54 ], [ 0, %.thread90 ], [ 0, %.preheader ], [ 0, %47 ], [ 0, %.lr.ph ], [ 0, %.backedge ]
+  %.not77 = phi i1 [ false, %12 ], [ false, %30 ], [ true, %54 ], [ false, %.thread90 ], [ false, %.preheader ], [ false, %.thread ], [ false, %47 ], [ false, %.lr.ph ], [ false, %.backedge ]
+  %.067 = phi i32 [ 0, %12 ], [ 0, %30 ], [ 1, %54 ], [ 0, %.thread90 ], [ 0, %.preheader ], [ 0, %.thread ], [ 0, %47 ], [ 0, %.lr.ph ], [ 0, %.backedge ]
   tail call void @BN_clear(ptr noundef %14) #2
   tail call void @BN_clear(ptr noundef %15) #2
   tail call void @BN_clear(ptr noundef %13) #2
@@ -349,8 +349,8 @@ define range(i32 -1, 2) i32 @ossl_rsa_sp800_56b_derive_params_from_pq(ptr nounde
   store i32 %84, ptr %82, align 8, !tbaa !23
   br label %98
 
-85:                                               ; preds = %4, %11, %18, %23, %28, %.thread, %40, %51, %63, %70, %75, %.thread100, %.thread99, %32
-  %.0.ph = phi i32 [ 0, %32 ], [ -1, %.thread99 ], [ -1, %.thread100 ], [ -1, %75 ], [ -1, %70 ], [ -1, %63 ], [ -1, %51 ], [ -1, %40 ], [ -1, %.thread ], [ -1, %28 ], [ -1, %23 ], [ -1, %18 ], [ -1, %11 ], [ -1, %4 ]
+85:                                               ; preds = %4, %11, %18, %23, %28, %40, %51, %63, %70, %75, %.thread100, %.thread99, %.thread, %32
+  %.0.ph = phi i32 [ 0, %32 ], [ -1, %.thread ], [ -1, %.thread99 ], [ -1, %.thread100 ], [ -1, %75 ], [ -1, %70 ], [ -1, %63 ], [ -1, %51 ], [ -1, %40 ], [ -1, %28 ], [ -1, %23 ], [ -1, %18 ], [ -1, %11 ], [ -1, %4 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %87 = load ptr, ptr %86, align 8, !tbaa !24
   tail call void @BN_free(ptr noundef %87) #2
@@ -487,7 +487,7 @@ define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_generate_key(ptr noundef captures
   br label %40
 
 40:                                               ; preds = %9, %4, %39
-  %.0 = phi i32 [ 0, %4 ], [ %.03549, %39 ], [ 0, %9 ]
+  %.0 = phi i32 [ %.03549, %39 ], [ 0, %4 ], [ 0, %9 ]
   ret i32 %.0
 }
 

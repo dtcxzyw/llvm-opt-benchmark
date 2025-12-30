@@ -1033,7 +1033,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$salsa..zalsa..Zalsa$GT$17hfe
   br label %common.resume
 
 common.resume:                                    ; preds = %.body, %65, %73
-  %common.resume.op = phi { ptr, i32 } [ %66, %65 ], [ %66, %73 ], [ %.pn10, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %66, %73 ], [ %66, %65 ], [ %.pn10, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr223drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$salsa..event..Event$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc9d393e6900d8c45E.exit": ; preds = %"_ZN4core3ptr44drop_in_place$LT$salsa..runtime..Runtime$GT$17h5b029ba154b3400fE.exit", %57, %64
@@ -2280,13 +2280,13 @@ define void @"_ZN119_$LT$salsa..tracked_struct..IngredientImpl$LT$C$GT$..delete_
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hfa2b4d785c4b0ca5E.exit.i"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hfa2b4d785c4b0ca5E.exit.i": ; preds = %.loopexit.i.i.i.i.i, %31, %27, %10
-  %.sroa.12.1.i = phi i64 [ %.sroa.12.0.i, %10 ], [ %28, %31 ], [ %28, %27 ], [ %.sroa.12.0.i, %.loopexit.i.i.i.i.i ]
-  %.sroa.9.3.i = phi i64 [ %.sroa.9.0.i, %10 ], [ %20, %31 ], [ %20, %27 ], [ 0, %.loopexit.i.i.i.i.i ]
-  %.sroa.7.2.i = phi i64 [ %.sroa.7.0.i, %10 ], [ %.sroa.7.1.i, %31 ], [ %.sroa.7.1.i, %27 ], [ %.sroa.7.1.i, %.loopexit.i.i.i.i.i ]
-  %.sroa.4.2.i = phi i64 [ %.sroa.4.0.i, %10 ], [ %.sroa.4.1.i, %31 ], [ %.sroa.4.1.i, %27 ], [ 59, %.loopexit.i.i.i.i.i ]
-  %.sroa.17.1.i = phi ptr [ %.sroa.17.0.i, %10 ], [ %32, %31 ], [ %.sroa.17.0.i, %27 ], [ %.sroa.17.0.i, %.loopexit.i.i.i.i.i ]
-  %.sink25.i.sroa.phi.i = phi ptr [ %.sroa.49.i, %10 ], [ %.sroa.10.i, %31 ], [ %.sroa.49.i, %27 ], [ %.sroa.49.i, %.loopexit.i.i.i.i.i ]
-  %.sink.i.i = phi ptr [ null, %10 ], [ %.sroa.17.0.i, %31 ], [ null, %27 ], [ null, %.loopexit.i.i.i.i.i ]
+  %.sroa.12.1.i = phi i64 [ %.sroa.12.0.i, %10 ], [ %28, %27 ], [ %28, %31 ], [ %.sroa.12.0.i, %.loopexit.i.i.i.i.i ]
+  %.sroa.9.3.i = phi i64 [ %.sroa.9.0.i, %10 ], [ %20, %27 ], [ %20, %31 ], [ 0, %.loopexit.i.i.i.i.i ]
+  %.sroa.7.2.i = phi i64 [ %.sroa.7.0.i, %10 ], [ %.sroa.7.1.i, %27 ], [ %.sroa.7.1.i, %31 ], [ %.sroa.7.1.i, %.loopexit.i.i.i.i.i ]
+  %.sroa.4.2.i = phi i64 [ %.sroa.4.0.i, %10 ], [ %.sroa.4.1.i, %27 ], [ %.sroa.4.1.i, %31 ], [ 59, %.loopexit.i.i.i.i.i ]
+  %.sroa.17.1.i = phi ptr [ %.sroa.17.0.i, %10 ], [ %.sroa.17.0.i, %27 ], [ %32, %31 ], [ %.sroa.17.0.i, %.loopexit.i.i.i.i.i ]
+  %.sink25.i.sroa.phi.i = phi ptr [ %.sroa.49.i, %10 ], [ %.sroa.49.i, %27 ], [ %.sroa.10.i, %31 ], [ %.sroa.49.i, %.loopexit.i.i.i.i.i ]
+  %.sink.i.i = phi ptr [ null, %10 ], [ null, %27 ], [ %.sroa.17.0.i, %31 ], [ null, %.loopexit.i.i.i.i.i ]
   store ptr %.sink.i.i, ptr %.sink25.i.sroa.phi.i, align 8, !alias.scope !338, !noalias !350
   %.sroa.49.i.0..sroa.49.i.0..sroa.49.i.0..sroa.49.0..sroa.49.0..sroa.49.8..i = load i64, ptr %.sroa.49.i, align 8, !noundef !10
   %34 = inttoptr i64 %.sroa.49.i.0..sroa.49.i.0..sroa.49.i.0..sroa.49.0..sroa.49.0..sroa.49.8..i to ptr

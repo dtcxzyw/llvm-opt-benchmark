@@ -1019,7 +1019,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit122:       ; preds = %_ZNSt10filesystem7_
   br label %393
 
 ._crit_edge.invoke:                               ; preds = %.lr.ph, %.lr.ph148, %.loopexit, %.lr.ph151._crit_edge, %_ZNSt10filesystem7__cxx114pathD2Ev.exit122, %250, %_ZNSt10filesystem7__cxx114pathD2Ev.exit
-  %360 = phi ptr [ %224, %250 ], [ %178, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %325, %_ZNSt10filesystem7__cxx114pathD2Ev.exit122 ], [ %178, %.lr.ph151._crit_edge ], [ %224, %.lr.ph148 ], [ %224, %.loopexit ], [ %325, %.lr.ph ]
+  %360 = phi ptr [ %178, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %224, %250 ], [ %325, %_ZNSt10filesystem7__cxx114pathD2Ev.exit122 ], [ %178, %.lr.ph151._crit_edge ], [ %224, %.loopexit ], [ %224, %.lr.ph148 ], [ %325, %.lr.ph ]
   %361 = invoke noundef i32 @_Z11gmx_ffcloseP8_IO_FILE(ptr noundef %360)
           to label %362 unwind label %136
 

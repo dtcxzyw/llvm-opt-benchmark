@@ -449,7 +449,7 @@ define internal noundef ptr @time_clock_settime(ptr readnone captures(none) %0, 
   br label %22
 
 22:                                               ; preds = %16, %12, %8, %2, %19
-  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ null, %19 ], [ null, %12 ], [ @_Py_NoneStruct, %16 ]
+  %.0 = phi ptr [ null, %19 ], [ null, %2 ], [ null, %8 ], [ null, %12 ], [ @_Py_NoneStruct, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -495,7 +495,7 @@ define internal noundef ptr @time_clock_settime_ns(ptr readnone captures(none) %
   br label %22
 
 22:                                               ; preds = %16, %12, %8, %2, %19
-  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ null, %19 ], [ null, %12 ], [ @_Py_NoneStruct, %16 ]
+  %.0 = phi ptr [ null, %19 ], [ null, %2 ], [ null, %8 ], [ null, %12 ], [ @_Py_NoneStruct, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -637,7 +637,7 @@ define internal noundef ptr @time_sleep(ptr readnone captures(none) %0, ptr noun
   %.not10.i = icmp eq i32 %30, 0
   br i1 %.not10.i, label %.preheader.i, label %pysleep.exit.thread
 
-pysleep.exit.thread:                              ; preds = %29, %18, %15, %25
+pysleep.exit.thread:                              ; preds = %29, %15, %18, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
@@ -648,7 +648,7 @@ pysleep.exit.thread:                              ; preds = %29, %18, %15, %25
   br label %32
 
 32:                                               ; preds = %31, %pysleep.exit.thread, %8, %13
-  %.1 = phi ptr [ null, %8 ], [ null, %13 ], [ @_Py_NoneStruct, %31 ], [ null, %pysleep.exit.thread ]
+  %.1 = phi ptr [ null, %13 ], [ null, %8 ], [ @_Py_NoneStruct, %31 ], [ null, %pysleep.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %33
 
@@ -690,7 +690,7 @@ define internal ptr @time_gmtime(ptr noundef readonly captures(none) %0, ptr nou
   %.pre.i = load i64, ptr %4, align 8, !tbaa !19
   br label %16
 
-parse_time_t_args.exit.thread:                    ; preds = %13, %2
+parse_time_t_args.exit.thread:                    ; preds = %2, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %22
@@ -713,7 +713,7 @@ parse_time_t_args.exit.thread:                    ; preds = %13, %2
   br label %22
 
 22:                                               ; preds = %parse_time_t_args.exit.thread, %16, %19
-  %.0 = phi ptr [ null, %parse_time_t_args.exit.thread ], [ %21, %19 ], [ null, %16 ]
+  %.0 = phi ptr [ %21, %19 ], [ null, %16 ], [ null, %parse_time_t_args.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -751,7 +751,7 @@ define internal ptr @time_localtime(ptr noundef readonly captures(none) %0, ptr 
   %.pre.i = load i64, ptr %4, align 8, !tbaa !19
   br label %16
 
-parse_time_t_args.exit.thread:                    ; preds = %13, %2
+parse_time_t_args.exit.thread:                    ; preds = %2, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
@@ -772,7 +772,7 @@ parse_time_t_args.exit.thread:                    ; preds = %13, %2
   br label %21
 
 21:                                               ; preds = %parse_time_t_args.exit.thread, %16, %18
-  %.0 = phi ptr [ null, %parse_time_t_args.exit.thread ], [ %20, %18 ], [ null, %16 ]
+  %.0 = phi ptr [ %20, %18 ], [ null, %16 ], [ null, %parse_time_t_args.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -873,7 +873,7 @@ define internal ptr @time_ctime(ptr readnone captures(none) %0, ptr noundef %1) 
   %.pre.i = load i64, ptr %4, align 8, !tbaa !19
   br label %16
 
-parse_time_t_args.exit.thread:                    ; preds = %13, %2
+parse_time_t_args.exit.thread:                    ; preds = %2, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %38
@@ -909,7 +909,7 @@ parse_time_t_args.exit.thread:                    ; preds = %13, %2
   br label %38
 
 38:                                               ; preds = %parse_time_t_args.exit.thread, %16, %18
-  %.0 = phi ptr [ null, %parse_time_t_args.exit.thread ], [ %37, %18 ], [ null, %16 ]
+  %.0 = phi ptr [ %37, %18 ], [ null, %16 ], [ null, %parse_time_t_args.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -1313,7 +1313,7 @@ _PyUnicode_DATA.exit25.i93:                       ; preds = %.lr.ph.split, %136
   br i1 %exitcond180.not, label %PyUnicode_READ_CHAR.exit96._crit_edge, label %_PyUnicode_DATA.exit25.i93, !llvm.loop !44
 
 PyUnicode_READ_CHAR.exit96._crit_edge:            ; preds = %126, %_PyUnicode_DATA.exit17.i80.us, %121, %_PyUnicode_DATA.exit17.i80.us.us, %116, %_PyUnicode_DATA.exit.i87.us, %111, %_PyUnicode_DATA.exit.i87.us.us, %136, %_PyUnicode_DATA.exit25.i93, %131, %_PyUnicode_DATA.exit25.i93.us, %100
-  %.258.lcssa = phi i64 [ %.157.lcssa, %100 ], [ %.258135.us139.us, %_PyUnicode_DATA.exit17.i80.us.us ], [ %.258135.us, %_PyUnicode_DATA.exit.i87.us ], [ %.258135.us.us, %_PyUnicode_DATA.exit.i87.us.us ], [ %.258135.us146, %_PyUnicode_DATA.exit25.i93.us ], [ %.258135, %_PyUnicode_DATA.exit25.i93 ], [ %.val74, %131 ], [ %.val74, %136 ], [ %.val74, %111 ], [ %.val74, %116 ], [ %.val74, %121 ], [ %.val74, %126 ], [ %.258135.us139, %_PyUnicode_DATA.exit17.i80.us ]
+  %.258.lcssa = phi i64 [ %.157.lcssa, %100 ], [ %.258135.us146, %_PyUnicode_DATA.exit25.i93.us ], [ %.val74, %131 ], [ %.258135, %_PyUnicode_DATA.exit25.i93 ], [ %.val74, %136 ], [ %.258135.us.us, %_PyUnicode_DATA.exit.i87.us.us ], [ %.val74, %111 ], [ %.258135.us, %_PyUnicode_DATA.exit.i87.us ], [ %.val74, %116 ], [ %.258135.us139.us, %_PyUnicode_DATA.exit17.i80.us.us ], [ %.val74, %121 ], [ %.258135.us139, %_PyUnicode_DATA.exit17.i80.us ], [ %.val74, %126 ]
   %138 = call i32 @PyUnicodeWriter_WriteSubstring(ptr noundef nonnull %38, ptr noundef %.pre, i64 noundef %.157.lcssa, i64 noundef %.258.lcssa) #11
   %139 = icmp slt i32 %138, 0
   br i1 %139, label %.thread116, label %.preheader121
@@ -1330,14 +1330,14 @@ PyUnicode_READ_CHAR.exit96._crit_edge:            ; preds = %126, %_PyUnicode_DA
   br label %.thread116
 
 .thread116:                                       ; preds = %Py_DECREF.exit, %time_strftime1.exit, %PyUnicode_READ_CHAR.exit96._crit_edge, %.thread116.sink.split, %37
-  %.0103 = phi ptr [ null, %37 ], [ %.0103.ph, %.thread116.sink.split ], [ %81, %time_strftime1.exit ], [ %.2105, %PyUnicode_READ_CHAR.exit96._crit_edge ], [ %81, %Py_DECREF.exit ]
+  %.0103 = phi ptr [ null, %37 ], [ %.0103.ph, %.thread116.sink.split ], [ %81, %Py_DECREF.exit ], [ %81, %time_strftime1.exit ], [ %.2105, %PyUnicode_READ_CHAR.exit96._crit_edge ]
   call void @PyMem_Free(ptr noundef %.0103) #11
   call void @PyMem_Free(ptr noundef nonnull %33) #11
   call void @PyUnicodeWriter_Discard(ptr noundef %38) #11
   br label %143
 
 143:                                              ; preds = %28, %35, %10, %16, %13, %.thread116, %140, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %28 ], [ null, %35 ], [ null, %13 ], [ null, %10 ], [ null, %16 ], [ null, %.thread116 ], [ %141, %140 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %28 ], [ null, %35 ], [ null, %10 ], [ null, %16 ], [ null, %13 ], [ null, %.thread116 ], [ %141, %140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1405,7 +1405,7 @@ Py_DECREF.exit:                                   ; preds = %8, %10, %13
   br label %15
 
 15:                                               ; preds = %Py_DECREF.exit, %5, %2
-  %.0 = phi ptr [ null, %5 ], [ null, %2 ], [ %_Py_NoneStruct., %Py_DECREF.exit ]
+  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ %_Py_NoneStruct., %Py_DECREF.exit ]
   ret ptr %.0
 }
 
@@ -1878,7 +1878,7 @@ Py_DECREF.exit60:                                 ; preds = %121, %123, %126
   br label %Py_DECREF.exit58
 
 Py_DECREF.exit58:                                 ; preds = %132, %129, %127, %Py_DECREF.exit60, %120, %117, %Py_DECREF.exit56, %_PyTime_GetThreadTimeWithInfo.exit.thread, %61, %_PyTime_GetThreadTimeWithInfo.exit, %28, %22, %16, %2, %34, %59
-  %.0 = phi ptr [ null, %2 ], [ null, %_PyTime_GetThreadTimeWithInfo.exit ], [ %115, %120 ], [ null, %_PyTime_GetThreadTimeWithInfo.exit.thread ], [ null, %16 ], [ null, %22 ], [ null, %34 ], [ null, %28 ], [ null, %59 ], [ null, %61 ], [ %115, %Py_DECREF.exit56 ], [ %115, %117 ], [ null, %Py_DECREF.exit60 ], [ null, %127 ], [ null, %129 ], [ null, %132 ]
+  %.0 = phi ptr [ null, %34 ], [ null, %59 ], [ null, %2 ], [ null, %16 ], [ null, %22 ], [ null, %28 ], [ null, %_PyTime_GetThreadTimeWithInfo.exit ], [ null, %61 ], [ null, %_PyTime_GetThreadTimeWithInfo.exit.thread ], [ %115, %Py_DECREF.exit56 ], [ %115, %117 ], [ %115, %120 ], [ null, %Py_DECREF.exit60 ], [ null, %127 ], [ null, %129 ], [ null, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2225,7 +2225,7 @@ define internal fastcc ptr @tmtotuple(ptr %.0.val, ptr noundef nonnull readonly 
   br label %Py_DECREF.exit.thread
 
 Py_DECREF.exit.thread:                            ; preds = %127, %121, %123, %126, %111, %113, %116, %101, %103, %106, %90, %92, %95, %78, %80, %83, %65, %67, %70, %55, %57, %60, %44, %46, %49, %33, %35, %38, %22, %24, %27, %10, %12, %15, %1
-  %.0 = phi ptr [ null, %10 ], [ null, %1 ], [ null, %111 ], [ null, %101 ], [ null, %90 ], [ null, %78 ], [ null, %65 ], [ null, %55 ], [ null, %44 ], [ null, %33 ], [ null, %22 ], [ null, %15 ], [ null, %12 ], [ null, %27 ], [ null, %24 ], [ null, %38 ], [ null, %35 ], [ null, %49 ], [ null, %46 ], [ null, %60 ], [ null, %57 ], [ null, %70 ], [ null, %67 ], [ null, %83 ], [ null, %80 ], [ null, %95 ], [ null, %92 ], [ null, %106 ], [ null, %103 ], [ null, %116 ], [ null, %113 ], [ null, %126 ], [ null, %123 ], [ null, %121 ], [ %2, %127 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %15 ], [ null, %12 ], [ null, %10 ], [ null, %27 ], [ null, %24 ], [ null, %22 ], [ null, %38 ], [ null, %35 ], [ null, %33 ], [ null, %49 ], [ null, %46 ], [ null, %44 ], [ null, %60 ], [ null, %57 ], [ null, %55 ], [ null, %70 ], [ null, %67 ], [ null, %65 ], [ null, %83 ], [ null, %80 ], [ null, %78 ], [ null, %95 ], [ null, %92 ], [ null, %90 ], [ null, %106 ], [ null, %103 ], [ null, %101 ], [ null, %116 ], [ null, %113 ], [ null, %111 ], [ null, %126 ], [ null, %123 ], [ null, %121 ], [ %2, %127 ]
   ret ptr %.0
 }
 
@@ -2334,7 +2334,7 @@ define internal fastcc range(i32 0, 2) i32 @gettmarg(ptr noundef readonly captur
   br label %48
 
 48:                                               ; preds = %25, %.critedge, %38, %44, %11, %23, %9
-  %.029 = phi i32 [ 0, %23 ], [ 0, %38 ], [ 0, %11 ], [ 0, %9 ], [ 0, %44 ], [ 1, %.critedge ], [ 1, %25 ]
+  %.029 = phi i32 [ 0, %23 ], [ 0, %9 ], [ 0, %11 ], [ 0, %44 ], [ 0, %38 ], [ 1, %.critedge ], [ 1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.029
 }
@@ -2441,7 +2441,7 @@ define internal fastcc range(i32 0, 2) i32 @checktm(ptr noundef nonnull captures
   br label %45
 
 45:                                               ; preds = %41, %42, %43, %35, %29, %25, %20, %15, %7
-  %.0 = phi i32 [ 0, %20 ], [ 0, %25 ], [ 0, %29 ], [ 0, %35 ], [ 0, %7 ], [ 0, %43 ], [ 0, %15 ], [ 1, %42 ], [ 1, %41 ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %25 ], [ 0, %29 ], [ 0, %35 ], [ 0, %43 ], [ 0, %15 ], [ 0, %7 ], [ 1, %42 ], [ 1, %41 ]
   ret i32 %.0
 }
 
@@ -2601,7 +2601,7 @@ define internal fastcc range(i32 -1, 1) i32 @init_timezone(ptr noundef %0) unnam
   br label %63
 
 63:                                               ; preds = %28, %32, %36, %43, %47, %51, %58, %61, %20
-  %.034 = phi i32 [ -1, %20 ], [ -1, %47 ], [ -1, %28 ], [ -1, %32 ], [ -1, %51 ], [ %., %61 ], [ -1, %58 ], [ -1, %36 ], [ -1, %43 ]
+  %.034 = phi i32 [ -1, %20 ], [ -1, %28 ], [ -1, %32 ], [ -1, %36 ], [ -1, %43 ], [ -1, %47 ], [ -1, %51 ], [ -1, %58 ], [ %., %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -2785,7 +2785,7 @@ py_clock.exit:                                    ; preds = %76, %74, %process_t
   br label %.thread35
 
 .thread35:                                        ; preds = %26, %23, %py_clock.exit
-  %.2 = phi i32 [ %.4, %py_clock.exit ], [ -1, %23 ], [ %.lobit, %26 ]
+  %.2 = phi i32 [ %.4, %py_clock.exit ], [ %.lobit, %26 ], [ -1, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2
 }

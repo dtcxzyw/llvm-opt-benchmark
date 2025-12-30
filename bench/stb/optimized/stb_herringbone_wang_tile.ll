@@ -1302,7 +1302,7 @@ stbhw__process_v_row.exit248:                     ; preds = %stbhw__process_v_ro
   br i1 %473, label %.preheader251, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %._crit_edge308, %._crit_edge357, %.preheader255, %.preheader251.lr.ph, %.preheader258.lr.ph, %._crit_edge286, %._crit_edge337, %60
-  %.0 = phi i32 [ 0, %60 ], [ 1, %._crit_edge337 ], [ 1, %.preheader251.lr.ph ], [ 1, %._crit_edge286 ], [ 1, %.preheader255 ], [ 1, %._crit_edge357 ], [ 1, %.preheader258.lr.ph ], [ 1, %._crit_edge308 ]
+  %.0 = phi i32 [ 0, %60 ], [ 1, %._crit_edge337 ], [ 1, %._crit_edge286 ], [ 1, %.preheader258.lr.ph ], [ 1, %.preheader251.lr.ph ], [ 1, %.preheader255 ], [ 1, %._crit_edge357 ], [ 1, %._crit_edge308 ]
   ret i32 %.0
 }
 
@@ -1642,7 +1642,7 @@ define ptr @stbhw__choose_tile(ptr noundef readonly captures(none) %0, i32 nound
   br i1 %109, label %.split.us.loopexit, label %110
 
 110:                                              ; preds = %108, %99, %92, %85, %78, %71
-  %.354.ph.us.us = phi i32 [ %.253.us.us, %108 ], [ %.05170.us.us, %71 ], [ %.05170.us.us, %78 ], [ %.05170.us.us, %85 ], [ %.05170.us.us, %92 ], [ %.05170.us.us, %99 ]
+  %.354.ph.us.us = phi i32 [ %.05170.us.us, %71 ], [ %.05170.us.us, %78 ], [ %.05170.us.us, %85 ], [ %.05170.us.us, %92 ], [ %.05170.us.us, %99 ], [ %.253.us.us, %108 ]
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
   br i1 %exitcond98.not, label %._crit_edge.us, label %68, !llvm.loop !70
@@ -1829,7 +1829,7 @@ define i32 @stbhw__change_color(i32 noundef %0, i32 noundef %1, ptr noundef read
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %.loopexit.loopexit.split.loop.exit52, %._crit_edge.thread, %22
-  %.0 = phi i32 [ %29, %22 ], [ %30, %.loopexit.loopexit.split.loop.exit52 ], [ 0, %._crit_edge.thread ], [ %1, %21 ]
+  %.0 = phi i32 [ %29, %22 ], [ 0, %._crit_edge.thread ], [ %30, %.loopexit.loopexit.split.loop.exit52 ], [ %1, %21 ]
   ret i32 %.0
 }
 
@@ -2703,8 +2703,8 @@ stbhw__draw_h_tile.exit399:                       ; preds = %..loopexit_crit_edg
   %.not302 = icmp slt i64 %indvars.iv.next539, %310
   br i1 %.not302, label %316, label %.critedge324, !llvm.loop !87
 
-.critedge324:                                     ; preds = %._crit_edge, %268, %232, %._crit_edge478, %374, %338, %._crit_edge466, %304, %15
-  %.0 = phi i32 [ 0, %15 ], [ 1, %._crit_edge478 ], [ 1, %304 ], [ 0, %268 ], [ 1, %._crit_edge466 ], [ 0, %374 ], [ 0, %338 ], [ 0, %232 ], [ 1, %._crit_edge ]
+.critedge324:                                     ; preds = %._crit_edge, %232, %268, %._crit_edge478, %338, %374, %._crit_edge466, %304, %15
+  %.0 = phi i32 [ 0, %15 ], [ 1, %304 ], [ 1, %._crit_edge466 ], [ 0, %374 ], [ 0, %338 ], [ 1, %._crit_edge478 ], [ 0, %268 ], [ 0, %232 ], [ 1, %._crit_edge ]
   ret i32 %.0
 }
 

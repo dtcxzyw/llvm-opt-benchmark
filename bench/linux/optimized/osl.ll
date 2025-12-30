@@ -374,7 +374,7 @@ define dso_local i64 @acpi_os_get_root_pointer() local_unnamed_addr #0 section "
   br label %29
 
 29:                                               ; preds = %25, %27, %22, %19, %11, %7
-  %30 = phi i64 [ %23, %22 ], [ %10, %7 ], [ %13, %11 ], [ %20, %19 ], [ %.pre, %27 ], [ 0, %25 ]
+  %30 = phi i64 [ %10, %7 ], [ %13, %11 ], [ %20, %19 ], [ %23, %22 ], [ %.pre, %27 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %30
 }
@@ -2152,7 +2152,7 @@ define dso_local range(i32 0, 16388) i32 @acpi_os_prepare_sleep(i8 noundef zeroe
   br label %.thread3
 
 .thread3:                                         ; preds = %6, %3
-  %10 = phi i32 [ %spec.select, %6 ], [ 0, %3 ]
+  %10 = phi i32 [ 0, %3 ], [ %spec.select, %6 ]
   ret i32 %10
 }
 
@@ -2193,7 +2193,7 @@ define dso_local range(i32 0, 16388) i32 @acpi_os_enter_sleep(i8 noundef zeroext
   br label %.thread3
 
 .thread3:                                         ; preds = %9, %6, %3
-  %13 = phi i32 [ 0, %3 ], [ %spec.select, %9 ], [ 0, %6 ]
+  %13 = phi i32 [ 0, %3 ], [ 0, %6 ], [ %spec.select, %9 ]
   ret i32 %13
 }
 

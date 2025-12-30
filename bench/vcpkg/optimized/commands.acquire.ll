@@ -500,7 +500,7 @@ _ZN5vcpkg4Util12lookup_valueISt3mapINS_13StringLiteralESt6vectorINSt7__cxx1112ba
   br label %147
 
 147:                                              ; preds = %143, %145, %39, %120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38, %37
-  %.pn24.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %lpad.phi115, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ], [ %146, %145 ], [ %144, %143 ], [ %40, %39 ], [ %121, %120 ]
+  %.pn24.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %146, %145 ], [ %144, %143 ], [ %40, %39 ], [ %121, %120 ], [ %lpad.phi115, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ]
   %148 = load ptr, ptr %5, align 8, !tbaa !22
   %149 = load ptr, ptr %9, align 8, !tbaa !19
   %.not4.i.i.i.i = icmp eq ptr %148, %149

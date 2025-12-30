@@ -547,7 +547,7 @@ select.unfold.i.i:                                ; preds = %23, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIjSt4pairIKjPN4llvm11DbgVariableEESt10_Select1stIS5_ESt4lessIjESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIjSt4pairIKjPN4llvm11DbgVariableEESt10_Select1stIS5_ESt4lessIjESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i: ; preds = %27, %select.unfold.i.i
-  %31 = phi i1 [ %30, %27 ], [ true, %select.unfold.i.i ]
+  %31 = phi i1 [ true, %select.unfold.i.i ], [ %30, %27 ]
   %32 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i32 %11, ptr %33, align 8
@@ -961,8 +961,8 @@ _ZN4llvm13RangeSpanListC2ERKS0_.exit:             ; preds = %10, %.sink.split.i.
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i
-  %.011.i.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i.i ], [ %40, %.lr.ph.i.i.i.i.preheader.i ]
-  %.0810.i.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i.i ], [ %.pre, %.lr.ph.i.i.i.i.preheader.i ]
+  %.011.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.preheader.i ], [ %51, %.lr.ph.i.i.i.i.i ]
+  %.0810.i.i.i.i.i = phi ptr [ %.pre, %.lr.ph.i.i.i.i.preheader.i ], [ %50, %.lr.ph.i.i.i.i.i ]
   %41 = load ptr, ptr %.0810.i.i.i.i.i, align 8, !tbaa !166
   %42 = load ptr, ptr %.011.i.i.i.i.i, align 8, !tbaa !166
   %43 = icmp eq ptr %41, %42

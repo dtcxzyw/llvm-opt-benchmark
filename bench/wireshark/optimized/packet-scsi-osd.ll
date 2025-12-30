@@ -617,7 +617,7 @@ define hidden noundef ptr @osd_lookup_attribute(i32 noundef %0, i32 noundef %1) 
   br i1 %.not16, label %.thread, label %.lr.ph, !llvm.loop !8
 
 .thread:                                          ; preds = %.lr.ph34, %.lr.ph, %14, %.preheader
-  %.013 = phi ptr [ null, %.preheader ], [ null, %14 ], [ %.124, %.lr.ph ], [ null, %.lr.ph34 ]
+  %.013 = phi ptr [ null, %.preheader ], [ %.124, %.lr.ph ], [ null, %14 ], [ null, %.lr.ph34 ]
   ret ptr %.013
 }
 
@@ -1584,7 +1584,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %107, %108, %109, %1
   %or.cond16 = icmp ult i8 %155, 2
   br i1 %or.cond16, label %.critedge, label %select.unfold
 
-select.unfold:                                    ; preds = %150, %154, %153
+select.unfold:                                    ; preds = %150, %153, %154
   %156 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %146, ptr noundef nonnull @ei_osd2_invalid_object_descriptor_format)
   br label %.critedge246
 
@@ -1597,9 +1597,9 @@ select.unfold:                                    ; preds = %150, %154, %153
   %161 = trunc i8 %160 to i1
   br label %.critedge
 
-.critedge:                                        ; preds = %153, %154, %150, %157
-  %.1227 = phi i8 [ 0, %157 ], [ %148, %150 ], [ %148, %154 ], [ %148, %153 ]
-  %.1224 = phi i1 [ %161, %157 ], [ true, %150 ], [ false, %154 ], [ true, %153 ]
+.critedge:                                        ; preds = %154, %153, %150, %157
+  %.1227 = phi i8 [ 0, %157 ], [ %148, %150 ], [ %148, %153 ], [ %148, %154 ]
+  %.1224 = phi i1 [ %161, %157 ], [ true, %150 ], [ true, %153 ], [ false, %154 ]
   %162 = add i32 %.0, 24
   %163 = zext i32 %138 to i64
   %164 = icmp samesign ugt i64 %spec.select239, %163
@@ -1716,7 +1716,7 @@ select.unfold:                                    ; preds = %150, %154, %153
   %222 = icmp samesign ugt i64 %spec.select239, %221
   br i1 %222, label %.lr.ph269.split.split, label %.critedge246
 
-.critedge246:                                     ; preds = %.lr.ph269.split.split, %.lr.ph269.split.split.us.split, %.lr.ph269.split.split.us.split.us, %.loopexit.us, %177, %181, %.critedge, %select.unfold, %dissect_osd_attribute_data_in.exit, %106
+.critedge246:                                     ; preds = %.lr.ph269.split.split, %.lr.ph269.split.split.us.split, %.lr.ph269.split.split.us.split.us, %.loopexit.us, %181, %177, %.critedge, %select.unfold, %dissect_osd_attribute_data_in.exit, %106
   ret void
 }
 
@@ -4895,8 +4895,8 @@ define internal fastcc void @dissect_osd_attributes_list(ptr noundef %0, ptr nou
   br label %.thread98
 
 .sink.split:                                      ; preds = %33, %.lr.ph108
-  %.sink123 = phi i32 [ %., %33 ], [ 16, %.lr.ph108 ]
-  %.sink121 = phi i32 [ %.124, %33 ], [ 18, %.lr.ph108 ]
+  %.sink123 = phi i32 [ 16, %.lr.ph108 ], [ %., %33 ]
+  %.sink121 = phi i32 [ 18, %.lr.ph108 ], [ %.124, %33 ]
   %36 = add i32 %.1107, %.sink123
   %37 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %36)
   %38 = zext i16 %37 to i32
@@ -5004,7 +5004,7 @@ osd_lookup_attribute.exit.thread:                 ; preds = %.lr.ph, %69, %.preh
   br label %.loopexit
 
 86:                                               ; preds = %43, %83, %74, %osd_lookup_attribute.exit.thread
-  %.2 = phi i32 [ %54, %osd_lookup_attribute.exit.thread ], [ %85, %83 ], [ %.1107, %43 ], [ %54, %74 ]
+  %.2 = phi i32 [ %.1107, %43 ], [ %54, %74 ], [ %54, %osd_lookup_attribute.exit.thread ], [ %85, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %87 = sub i32 %.2, %2
   %88 = icmp ult i32 %87, %29
@@ -5355,7 +5355,7 @@ dissect_osd2_query_list_descriptor.exit:          ; preds = %.critedge.i, %.lr.p
   %118 = icmp ult i32 %spec.select80, %117
   br i1 %118, label %.lr.ph, label %.thread, !llvm.loop !14
 
-.thread:                                          ; preds = %112, %30, %6, %5, %.thread83, %9, %12, %20
+.thread:                                          ; preds = %112, %30, %5, %6, %.thread83, %9, %12, %20
   ret void
 }
 

@@ -37,8 +37,8 @@ define dso_local i32 @uv_tcp_init_ex(ptr noundef %0, ptr noundef %1, i32 noundef
   %14 = tail call i32 @uv__close(i32 noundef %9) #7
   br label %15
 
-15:                                               ; preds = %8, %13
-  %.0.i.ph = phi i32 [ %12, %13 ], [ %9, %8 ]
+15:                                               ; preds = %13, %8
+  %.0.i.ph = phi i32 [ %9, %8 ], [ %12, %13 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -61,7 +61,7 @@ define dso_local i32 @uv_tcp_init_ex(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %new_socket.exit
 
 new_socket.exit:                                  ; preds = %11, %7, %3, %26
-  %.0 = phi i32 [ 0, %7 ], [ -22, %3 ], [ %.0.i.ph, %26 ], [ 0, %11 ]
+  %.0 = phi i32 [ %.0.i.ph, %26 ], [ -22, %3 ], [ 0, %7 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -194,7 +194,7 @@ define hidden i32 @uv__tcp_bind(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %maybe_new_socket.exit
 
 maybe_new_socket.exit:                            ; preds = %20, %15, %.critedge, %62, %51, %32, %7, %53, %42, %26
-  %.0 = phi i32 [ -22, %51 ], [ -22, %7 ], [ %29, %26 ], [ 0, %.critedge ], [ %45, %42 ], [ %34, %32 ], [ %54, %53 ], [ 0, %62 ], [ %16, %15 ], [ %19, %20 ]
+  %.0 = phi i32 [ %29, %26 ], [ %45, %42 ], [ %54, %53 ], [ -22, %7 ], [ %34, %32 ], [ -22, %51 ], [ 0, %62 ], [ 0, %.critedge ], [ %19, %20 ], [ %16, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -346,7 +346,7 @@ uv__is_ipv6_link_local.exit.thread:               ; preds = %31, %36, %40, %uv__
   br label %maybe_new_socket.exit
 
 maybe_new_socket.exit:                            ; preds = %25, %20, %.critedge36, %66, %5, %51
-  %.0 = phi i32 [ %52, %51 ], [ 0, %.critedge36 ], [ -114, %5 ], [ 0, %66 ], [ %21, %20 ], [ %24, %25 ]
+  %.0 = phi i32 [ %52, %51 ], [ -114, %5 ], [ 0, %66 ], [ 0, %.critedge36 ], [ %24, %25 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -520,7 +520,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tcp_close_reset(ptr
   br label %18
 
 18:                                               ; preds = %2, %17, %15
-  %.0 = phi i32 [ %16, %15 ], [ 0, %17 ], [ -22, %2 ]
+  %.0 = phi i32 [ 0, %17 ], [ %16, %15 ], [ -22, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -585,7 +585,7 @@ define hidden i32 @uv__tcp_listen(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %maybe_new_socket.exit
 
 maybe_new_socket.exit:                            ; preds = %15, %10, %3, %24, %20
-  %.0 = phi i32 [ 0, %24 ], [ %5, %3 ], [ %23, %20 ], [ %11, %10 ], [ %14, %15 ]
+  %.0 = phi i32 [ %23, %20 ], [ 0, %24 ], [ %5, %3 ], [ %14, %15 ], [ %11, %10 ]
   ret i32 %.0
 }
 
@@ -661,7 +661,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__tcp_keepalive(i32 nou
   br label %22
 
 22:                                               ; preds = %.sink.split, %17, %11, %9
-  %.0 = phi i32 [ -22, %11 ], [ 0, %9 ], [ 0, %17 ], [ %21, %.sink.split ]
+  %.0 = phi i32 [ 0, %9 ], [ -22, %11 ], [ 0, %17 ], [ %21, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -426,7 +426,7 @@ _ZL8printexpPci.exit:                             ; preds = %_Z8trimzeroPc.exit8
   br label %_Z8trimzeroPc.exit
 
 _Z8trimzeroPc.exit:                               ; preds = %239, %220, %_ZL8printexpPci.exit, %243, %226
-  %.1 = phi ptr [ %278, %_ZL8printexpPci.exit ], [ %228, %226 ], [ %.0.i80, %220 ], [ %247, %243 ], [ %.0.i81, %239 ]
+  %.1 = phi ptr [ %228, %226 ], [ %247, %243 ], [ %278, %_ZL8printexpPci.exit ], [ %.0.i80, %220 ], [ %.0.i81, %239 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %279
 

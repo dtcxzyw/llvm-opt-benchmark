@@ -3640,7 +3640,7 @@ define linkonce_odr dso_local void @_ZN6BridgeC2ER8Settings(ptr noundef nonnull 
   br label %86
 
 86:                                               ; preds = %80, %82, %84, %78, %76
-  %.pn98.pn = phi { ptr, i32 } [ %79, %78 ], [ %77, %76 ], [ %85, %84 ], [ %83, %82 ], [ %81, %80 ]
+  %.pn98.pn = phi { ptr, i32 } [ %77, %76 ], [ %79, %78 ], [ %85, %84 ], [ %83, %82 ], [ %81, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %104
 
@@ -4504,7 +4504,7 @@ define linkonce_odr dso_local void @_ZN10CantileverC2ER8Settings(ptr noundef non
   br label %91
 
 91:                                               ; preds = %81, %83, %89, %87, %85, %54
-  %.pn49.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %82, %81 ], [ %84, %83 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ]
+  %.pn49.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %84, %83 ], [ %82, %81 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %92
 
@@ -5617,7 +5617,7 @@ define linkonce_odr dso_local void @_ZN14BreakableJointC2ER8Settings(ptr noundef
   br label %216
 
 216:                                              ; preds = %160, %150, %167, %161, %180, %168, %191, %181, %202, %192, %215, %203, %148
-  %.pn190.pn.pn.pn = phi { ptr, i32 } [ %149, %148 ], [ %193, %192 ], [ %182, %181 ], [ %169, %168 ], [ %162, %161 ], [ %151, %150 ], [ %.pn, %160 ], [ %.pn178, %167 ], [ %.pn181, %180 ], [ %.pn184, %191 ], [ %.pn187, %202 ], [ %.pn190, %215 ], [ %204, %203 ]
+  %.pn190.pn.pn.pn = phi { ptr, i32 } [ %149, %148 ], [ %.pn, %160 ], [ %151, %150 ], [ %.pn178, %167 ], [ %162, %161 ], [ %.pn181, %180 ], [ %169, %168 ], [ %.pn184, %191 ], [ %182, %181 ], [ %.pn187, %202 ], [ %193, %192 ], [ %.pn190, %215 ], [ %204, %203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %217
 
@@ -7843,7 +7843,7 @@ _Z9b2MakeRotf.exit150:                            ; preds = %67
   br label %166
 
 166:                                              ; preds = %148, %165, %74, %80, %102, %78, %76
-  %.pn141.pn.pn.pn.pn = phi { ptr, i32 } [ %81, %80 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %.pn141, %102 ], [ %.pn135.pn.pn.pn, %165 ], [ %149, %148 ]
+  %.pn141.pn.pn.pn.pn = phi { ptr, i32 } [ %75, %74 ], [ %79, %78 ], [ %77, %76 ], [ %.pn141, %102 ], [ %81, %80 ], [ %.pn135.pn.pn.pn, %165 ], [ %149, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %167
 

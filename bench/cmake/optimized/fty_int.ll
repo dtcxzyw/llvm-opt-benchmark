@@ -214,7 +214,7 @@ define internal noundef zeroext i1 @Check_Integer_Field(ptr noundef %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %._crit_edge, %34, %37
-  %.0 = phi i1 [ false, %34 ], [ true, %37 ], [ false, %._crit_edge ], [ false, %10 ]
+  %.0 = phi i1 [ true, %37 ], [ false, %34 ], [ false, %._crit_edge ], [ false, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }

@@ -2370,7 +2370,7 @@ _ZNSt3__118__search_substringB8ne210000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.
   br label %_ZNSt3__110__str_findB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit
 
 _ZNSt3__110__str_findB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit: ; preds = %4, %17, %_ZNSt3__118__search_substringB8ne210000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.exit.i, %_ZNSt3__118__search_substringB8ne210000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.exit.thread.i
-  %.0.i = phi i64 [ %2, %17 ], [ -1, %4 ], [ -1, %_ZNSt3__118__search_substringB8ne210000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.exit.thread.i ], [ %40, %_ZNSt3__118__search_substringB8ne210000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.exit.i ]
+  %.0.i = phi i64 [ -1, %4 ], [ %2, %17 ], [ -1, %_ZNSt3__118__search_substringB8ne210000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.exit.thread.i ], [ %40, %_ZNSt3__118__search_substringB8ne210000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.exit.i ]
   ret i64 %.0.i
 }
 
@@ -2491,7 +2491,7 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trait
   br i1 %39, label %_ZNSt3__111__str_rfindB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit, label %.lr.ph.i.i.i, !llvm.loop !14
 
 _ZNSt3__111__str_rfindB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit: ; preds = %.loopexit.i.i.i, %27, %32, %4
-  %.sroa.0.0.i.i.i = phi ptr [ %.04054.i.i.i, %27 ], [ %19, %4 ], [ %.04054.i.i.i, %32 ], [ %.141.i.i.i, %.loopexit.i.i.i ]
+  %.sroa.0.0.i.i.i = phi ptr [ %19, %4 ], [ %.04054.i.i.i, %32 ], [ %.04054.i.i.i, %27 ], [ %.141.i.i.i, %.loopexit.i.i.i ]
   %.not.i3 = icmp ne i64 %3, 0
   %40 = icmp eq ptr %.sroa.0.0.i.i.i, %19
   %or.cond.i = select i1 %.not.i3, i1 %40, i1 false
@@ -3189,7 +3189,7 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt
   br label %28
 
 28:                                               ; preds = %2, %27, %21, %9
-  %.0 = phi ptr [ %0, %27 ], [ %19, %9 ], [ %26, %21 ], [ %0, %2 ]
+  %.0 = phi ptr [ %19, %9 ], [ %26, %21 ], [ %0, %27 ], [ %0, %2 ]
   ret ptr %.0
 }
 
@@ -5257,7 +5257,7 @@ _ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.
   br label %_ZNSt3__110__str_findB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit
 
 _ZNSt3__110__str_findB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit: ; preds = %4, %17, %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.i, %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.thread.i
-  %.0.i = phi i64 [ %2, %17 ], [ -1, %4 ], [ -1, %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.thread.i ], [ %41, %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.i ]
+  %.0.i = phi i64 [ -1, %4 ], [ %2, %17 ], [ -1, %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.thread.i ], [ %41, %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.i ]
   ret i64 %.0.i
 }
 
@@ -5381,7 +5381,7 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIwNS_11char_trait
   br i1 %39, label %_ZNSt3__111__str_rfindB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit, label %.lr.ph.i.i.i, !llvm.loop !26
 
 _ZNSt3__111__str_rfindB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit: ; preds = %.loopexit.i.i.i, %27, %32, %4
-  %.sroa.0.0.i.i.i = phi ptr [ %.04054.i.i.i, %27 ], [ %19, %4 ], [ %.04054.i.i.i, %32 ], [ %.141.i.i.i, %.loopexit.i.i.i ]
+  %.sroa.0.0.i.i.i = phi ptr [ %19, %4 ], [ %.04054.i.i.i, %32 ], [ %.04054.i.i.i, %27 ], [ %.141.i.i.i, %.loopexit.i.i.i ]
   %.not.i3 = icmp ne i64 %3, 0
   %40 = icmp eq ptr %.sroa.0.0.i.i.i, %19
   %or.cond.i = select i1 %.not.i3, i1 %40, i1 false
@@ -6067,7 +6067,7 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt
   br label %28
 
 28:                                               ; preds = %2, %27, %21, %9
-  %.0 = phi ptr [ %0, %27 ], [ %19, %9 ], [ %26, %21 ], [ %0, %2 ]
+  %.0 = phi ptr [ %19, %9 ], [ %26, %21 ], [ %0, %27 ], [ %0, %2 ]
   ret ptr %.0
 }
 
@@ -6657,7 +6657,7 @@ _ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit.i.i.i12.i.i: ; preds = %26
   ret i64 %17
 
 .body:                                            ; preds = %24, %33
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %34, %33 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %eh.lpad-body
@@ -6761,7 +6761,7 @@ _ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit.i.i.i12.i.i: ; preds = %26
   ret i64 %17
 
 .body:                                            ; preds = %24, %33
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %34, %33 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %eh.lpad-body
@@ -6865,7 +6865,7 @@ _ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit.i.i.i12.i.i: ; preds = %26
   ret i64 %17
 
 .body:                                            ; preds = %24, %33
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %34, %33 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %eh.lpad-body
@@ -6971,7 +6971,7 @@ _ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit.i.i.i12.i.i: ; preds = %26
   ret float %16
 
 .body:                                            ; preds = %24, %34
-  %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %35, %34 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %eh.lpad-body
@@ -7077,7 +7077,7 @@ _ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit.i.i.i12.i.i: ; preds = %26
   ret double %16
 
 .body:                                            ; preds = %24, %34
-  %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %35, %34 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %eh.lpad-body
@@ -7181,7 +7181,7 @@ _ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit.i.i.i12.i.i: ; preds = %25
   ret x86_fp80 %16
 
 .body:                                            ; preds = %23, %32
-  %eh.lpad-body = phi { ptr, i32 } [ %33, %32 ], [ %24, %23 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %33, %32 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %eh.lpad-body
@@ -7372,7 +7372,7 @@ _ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit.i.i.i12.i.i: ; preds = %26
   ret i64 %17
 
 .body:                                            ; preds = %24, %33
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %34, %33 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %eh.lpad-body
@@ -7477,7 +7477,7 @@ _ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit.i.i.i12.i.i: ; preds = %26
   ret i64 %17
 
 .body:                                            ; preds = %24, %33
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %34, %33 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %eh.lpad-body
@@ -7582,7 +7582,7 @@ _ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit.i.i.i12.i.i: ; preds = %26
   ret i64 %17
 
 .body:                                            ; preds = %24, %33
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %34, %33 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %eh.lpad-body
@@ -7689,7 +7689,7 @@ _ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit.i.i.i12.i.i: ; preds = %26
   ret float %16
 
 .body:                                            ; preds = %24, %34
-  %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %35, %34 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %eh.lpad-body
@@ -7796,7 +7796,7 @@ _ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit.i.i.i12.i.i: ; preds = %26
   ret double %16
 
 .body:                                            ; preds = %24, %34
-  %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %35, %34 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %eh.lpad-body
@@ -7901,7 +7901,7 @@ _ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit.i.i.i12.i.i: ; preds = %25
   ret x86_fp80 %16
 
 .body:                                            ; preds = %23, %32
-  %eh.lpad-body = phi { ptr, i32 } [ %33, %32 ], [ %24, %23 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %33, %32 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %eh.lpad-body
@@ -8450,7 +8450,7 @@ define dso_local void @_ZNSt3__19to_stringEm(ptr dead_on_unwind noalias writable
   br label %_ZNSt3__18to_charsB8ne210000ImTnNS_9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEENS_15to_chars_resultEPcS6_S2_.exit.i
 
 _ZNSt3__18to_charsB8ne210000ImTnNS_9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEENS_15to_chars_resultEPcS6_S2_.exit.i: ; preds = %15, %5
-  %.sroa.0.0.i.i.i = phi ptr [ %48, %15 ], [ %7, %5 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %7, %5 ], [ %48, %15 ]
   %49 = ptrtoint ptr %.sroa.0.0.i.i.i to i64
   %50 = ptrtoint ptr %3 to i64
   %51 = sub i64 %49, %50
@@ -8571,7 +8571,7 @@ define dso_local void @_ZNSt3__19to_stringEy(ptr dead_on_unwind noalias writable
   br label %_ZNSt3__18to_charsB8ne210000IyTnNS_9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEENS_15to_chars_resultEPcS6_S2_.exit.i
 
 _ZNSt3__18to_charsB8ne210000IyTnNS_9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEENS_15to_chars_resultEPcS6_S2_.exit.i: ; preds = %15, %5
-  %.sroa.0.0.i.i.i = phi ptr [ %48, %15 ], [ %7, %5 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %7, %5 ], [ %48, %15 ]
   %49 = ptrtoint ptr %.sroa.0.0.i.i.i to i64
   %50 = ptrtoint ptr %3 to i64
   %51 = sub i64 %49, %50
@@ -9198,7 +9198,7 @@ define dso_local void @_ZNSt3__110to_wstringEm(ptr dead_on_unwind noalias writab
   br label %_ZNSt3__18to_charsB8ne210000ImTnNS_9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEENS_15to_chars_resultEPcS6_S2_.exit.i
 
 _ZNSt3__18to_charsB8ne210000ImTnNS_9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEENS_15to_chars_resultEPcS6_S2_.exit.i: ; preds = %15, %5
-  %.sroa.0.0.i.i.i = phi ptr [ %48, %15 ], [ %7, %5 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %7, %5 ], [ %48, %15 ]
   %49 = ptrtoint ptr %.sroa.0.0.i.i.i to i64
   %50 = ptrtoint ptr %3 to i64
   %51 = sub i64 %49, %50
@@ -9327,7 +9327,7 @@ define dso_local void @_ZNSt3__110to_wstringEy(ptr dead_on_unwind noalias writab
   br label %_ZNSt3__18to_charsB8ne210000IyTnNS_9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEENS_15to_chars_resultEPcS6_S2_.exit.i
 
 _ZNSt3__18to_charsB8ne210000IyTnNS_9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEENS_15to_chars_resultEPcS6_S2_.exit.i: ; preds = %15, %5
-  %.sroa.0.0.i.i.i = phi ptr [ %48, %15 ], [ %7, %5 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %7, %5 ], [ %48, %15 ]
   %49 = ptrtoint ptr %.sroa.0.0.i.i.i to i64
   %50 = ptrtoint ptr %3 to i64
   %51 = sub i64 %49, %50

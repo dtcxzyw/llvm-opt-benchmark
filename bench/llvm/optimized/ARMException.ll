@@ -224,7 +224,7 @@ _ZNK4llvm8Function21needsUnwindTableEntryEv.exit: ; preds = %24
   br i1 %.not23, label %.critedge, label %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread
 
 .critedge:                                        ; preds = %2, %19, %13, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit
-  %.029 = phi ptr [ %spec.select.i.i, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit ], [ %spec.select.i.i, %19 ], [ %spec.select.i.i, %13 ], [ null, %2 ]
+  %.029 = phi ptr [ %spec.select.i.i, %19 ], [ %spec.select.i.i, %13 ], [ %spec.select.i.i, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit ], [ null, %2 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %29 = load ptr, ptr %28, align 8, !tbaa !262
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 440

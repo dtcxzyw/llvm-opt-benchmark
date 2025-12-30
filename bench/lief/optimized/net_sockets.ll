@@ -242,7 +242,7 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr noundef captures(none)
   br i1 %.not26, label %._crit_edge, label %.lr.ph.split, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %64, %55, %42, %37, %.preheader
-  %.1 = phi i32 [ -82, %.preheader ], [ 0, %37 ], [ %.2.us, %42 ], [ %.2, %64 ], [ 0, %55 ]
+  %.1 = phi i32 [ -82, %.preheader ], [ 0, %37 ], [ %.2.us, %42 ], [ 0, %55 ], [ %.2, %64 ]
   %66 = load ptr, ptr %7, align 8, !tbaa !15
   call void @freeaddrinfo(ptr noundef %66) #9
   br label %67
@@ -365,8 +365,8 @@ define hidden range(i32 -26880, 1) i32 @mbedtls_net_accept(ptr noundef captures(
   %.not42 = icmp eq i32 %50, 0
   br i1 %.not42, label %51, label %.thread
 
-.thread:                                          ; preds = %40, %36, %49, %44
-  %.2.ph = phi i32 [ -66, %44 ], [ -66, %49 ], [ -74, %36 ], [ -66, %40 ]
+.thread:                                          ; preds = %36, %49, %44, %40
+  %.2.ph = phi i32 [ -66, %40 ], [ -66, %44 ], [ -66, %49 ], [ -74, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %66
@@ -411,7 +411,7 @@ define hidden range(i32 -26880, 1) i32 @mbedtls_net_accept(ptr noundef captures(
   br label %66
 
 66:                                               ; preds = %55, %.thread50, %.thread52, %63, %59, %.thread, %29, %5, %15, %51
-  %.0 = phi i32 [ -70, %51 ], [ %., %29 ], [ -74, %5 ], [ -67, %63 ], [ %.2.ph, %.thread ], [ -67, %59 ], [ -74, %15 ], [ 0, %.thread52 ], [ 0, %.thread50 ], [ 0, %55 ]
+  %.0 = phi i32 [ -70, %51 ], [ -74, %15 ], [ -74, %5 ], [ %., %29 ], [ %.2.ph, %.thread ], [ -67, %59 ], [ -67, %63 ], [ 0, %.thread52 ], [ 0, %.thread50 ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -616,7 +616,7 @@ define hidden range(i32 -26880, -2147483648) i32 @mbedtls_net_recv(ptr noundef r
   br label %18
 
 18:                                               ; preds = %6, %15, %15, %10, %3, %17, %16
-  %.0 = phi i32 [ -80, %15 ], [ -69, %3 ], [ -26880, %10 ], [ -26880, %16 ], [ -76, %17 ], [ -80, %15 ], [ %8, %6 ]
+  %.0 = phi i32 [ -26880, %16 ], [ -76, %17 ], [ -69, %3 ], [ -26880, %10 ], [ -80, %15 ], [ -80, %15 ], [ %8, %6 ]
   ret i32 %.0
 }
 
@@ -714,7 +714,7 @@ define hidden range(i32 -26880, -2147483648) i32 @mbedtls_net_recv_timeout(ptr n
   br label %mbedtls_net_recv.exit
 
 mbedtls_net_recv.exit:                            ; preds = %49, %48, %47, %47, %42, %38, %35, %31, %.preheader.preheader, %4
-  %.0 = phi i32 [ -26624, %.preheader.preheader ], [ %.0.i, %4 ], [ %., %31 ], [ -80, %47 ], [ -69, %35 ], [ -26880, %42 ], [ -26880, %48 ], [ -76, %49 ], [ -80, %47 ], [ %40, %38 ]
+  %.0 = phi i32 [ %.0.i, %4 ], [ -26624, %.preheader.preheader ], [ %., %31 ], [ -26880, %48 ], [ -76, %49 ], [ -69, %35 ], [ -26880, %42 ], [ -80, %47 ], [ -80, %47 ], [ %40, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -758,7 +758,7 @@ define hidden range(i32 -26752, -2147483648) i32 @mbedtls_net_send(ptr noundef r
   br label %18
 
 18:                                               ; preds = %6, %15, %15, %10, %3, %17, %16
-  %.0 = phi i32 [ -80, %15 ], [ -69, %3 ], [ -26752, %10 ], [ -26752, %16 ], [ -78, %17 ], [ -80, %15 ], [ %8, %6 ]
+  %.0 = phi i32 [ -26752, %16 ], [ -78, %17 ], [ -69, %3 ], [ -26752, %10 ], [ -80, %15 ], [ -80, %15 ], [ %8, %6 ]
   ret i32 %.0
 }
 

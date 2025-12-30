@@ -377,7 +377,7 @@ vp56_size_changed.exit:                           ; preds = %148, %75
   br label %.thread94
 
 .thread94:                                        ; preds = %.thread, %173, %180, %.critedge, %72, %73, %59, %33, %17, %15, %183, %.loopexit
-  %.0 = phi i32 [ -1094995529, %173 ], [ -1094995529, %15 ], [ -1094995529, %17 ], [ %36, %33 ], [ %57, %.thread ], [ -1094995529, %.loopexit ], [ %70, %72 ], [ -1094995529, %.critedge ], [ %184, %183 ], [ %55, %59 ], [ %70, %73 ], [ %181, %180 ]
+  %.0 = phi i32 [ -1094995529, %.loopexit ], [ %184, %183 ], [ -1094995529, %173 ], [ -1094995529, %15 ], [ -1094995529, %17 ], [ %36, %33 ], [ %55, %59 ], [ %70, %73 ], [ %70, %72 ], [ -1094995529, %.critedge ], [ %181, %180 ], [ %57, %.thread ]
   ret i32 %.0
 }
 
@@ -2163,7 +2163,7 @@ vp56_decode_4mv.exit.i.i:                         ; preds = %995
   br label %vp56_decode_mv.exit.i
 
 1018:                                             ; preds = %vp56_get_vectors_predictors.exit85.i.i, %892, %vp56_get_vectors_predictors.exit72.i.i, %vp56_get_vectors_predictors.exit59.i.i, %787, %786, %vp56_parse_mb_type.exit.i.i
-  %.046.i.i = phi ptr [ %11, %vp56_get_vectors_predictors.exit85.i.i ], [ %517, %786 ], [ %518, %787 ], [ %517, %vp56_get_vectors_predictors.exit59.i.i ], [ %518, %vp56_get_vectors_predictors.exit72.i.i ], [ %11, %892 ], [ %11, %vp56_parse_mb_type.exit.i.i ]
+  %.046.i.i = phi ptr [ %517, %786 ], [ %518, %787 ], [ %517, %vp56_get_vectors_predictors.exit59.i.i ], [ %518, %vp56_get_vectors_predictors.exit72.i.i ], [ %11, %892 ], [ %11, %vp56_get_vectors_predictors.exit85.i.i ], [ %11, %vp56_parse_mb_type.exit.i.i ]
   %1019 = load ptr, ptr %514, align 16, !tbaa !76
   %1020 = load i32, ptr %458, align 16, !tbaa !71
   %1021 = mul nsw i32 %1020, %.0135240
@@ -2833,7 +2833,7 @@ vp56_conceal_mb.exit:                             ; preds = %1189, %1297, %1299,
   br label %1350
 
 1350:                                             ; preds = %1166, %1340, %1345
-  %.4 = phi i32 [ -1094995529, %1166 ], [ 0, %1345 ], [ %1343, %1340 ]
+  %.4 = phi i32 [ 0, %1345 ], [ -1094995529, %1166 ], [ %1343, %1340 ]
   ret i32 %.4
 }
 

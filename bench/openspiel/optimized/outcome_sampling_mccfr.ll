@@ -1894,8 +1894,8 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %296
   br label %_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver12SamplePolicyERKNS0_18CFRInfoStateValuesE.exit
 
 _ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver12SamplePolicyERKNS0_18CFRInfoStateValuesE.exit: ; preds = %290, %299, %.noexc164.thread, %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit.i
-  %.sroa.15.0 = phi ptr [ %300, %299 ], [ %.sroa.19.1, %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit.i ], [ %295, %.noexc164.thread ], [ %.sroa.19.1, %290 ]
-  %.sroa.0202.0 = phi ptr [ %298, %299 ], [ %.sroa.0202.1, %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit.i ], [ null, %.noexc164.thread ], [ %.sroa.0202.1, %290 ]
+  %.sroa.15.0 = phi ptr [ %.sroa.19.1, %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit.i ], [ %295, %.noexc164.thread ], [ %300, %299 ], [ %.sroa.19.1, %290 ]
+  %.sroa.0202.0 = phi ptr [ %.sroa.0202.1, %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit.i ], [ null, %.noexc164.thread ], [ %298, %299 ], [ %.sroa.0202.1, %290 ]
   invoke void @_ZN4absl7debian221discrete_distributionIiE10param_typeC2IN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEEET_SD_(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr %.sroa.0202.0, ptr %.sroa.15.0)
           to label %_ZN4absl7debian221discrete_distributionIiEC2IN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEEET_SC_.exit unwind label %329
 
@@ -2404,7 +2404,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit187:                 ; preds = %_ZN10open_spiel10al
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit189
 
 _ZNSt6vectorIdSaIdEED2Ev.exit189:                 ; preds = %522, %521, %401, %354, %347, %340, %333, %331
-  %.pn139 = phi { ptr, i32 } [ %348, %347 ], [ %332, %331 ], [ %334, %333 ], [ %402, %401 ], [ %355, %354 ], [ %341, %340 ], [ %.pn137, %521 ], [ %.pn137, %522 ]
+  %.pn139 = phi { ptr, i32 } [ %348, %347 ], [ %332, %331 ], [ %402, %401 ], [ %355, %354 ], [ %341, %340 ], [ %334, %333 ], [ %.pn137, %521 ], [ %.pn137, %522 ]
   call void @_ZN4absl7debian221discrete_distributionIiED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %37) #27
   br label %525
 
@@ -2450,7 +2450,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit193:                 ; preds = %531, %_ZNSt6vectorI
   ret double %.0
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit151:     ; preds = %110, %108, %_ZNSt6vectorIlSaIlEED2Ev.exit193, %160, %154, %149, %128, %122, %116
-  %.pn147 = phi { ptr, i32 } [ %lpad.phi, %110 ], [ %129, %128 ], [ %123, %122 ], [ %117, %116 ], [ %155, %154 ], [ %.pn145, %149 ], [ %lpad.phi, %108 ], [ %.pn139.pn.pn.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit193 ], [ %161, %160 ]
+  %.pn147 = phi { ptr, i32 } [ %129, %128 ], [ %123, %122 ], [ %117, %116 ], [ %.pn145, %149 ], [ %.pn139.pn.pn.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit193 ], [ %161, %160 ], [ %155, %154 ], [ %lpad.phi, %108 ], [ %lpad.phi, %110 ]
   resume { ptr, i32 } %.pn147
 }
 
@@ -4408,7 +4408,7 @@ _ZN4absl7debian2eqENS0_11string_viewES1_.exit.thread: ; preds = %_ZN4absl7debian
   br label %82
 
 82:                                               ; preds = %.body, %82
-  %83 = phi ptr [ %.142, %.body ], [ %84, %82 ]
+  %83 = phi ptr [ %84, %82 ], [ %.142, %.body ]
   %84 = getelementptr inbounds i8, ptr %83, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #27
   %85 = icmp eq ptr %84, %11
@@ -4906,7 +4906,7 @@ _ZNSt10unique_ptrIN10open_spiel6PolicyESt14default_deleteIS1_EED2Ev.exit103: ; p
   br label %.loopexit.split-lp130
 
 .loopexit.split-lp130:                            ; preds = %.loopexit129, %.loopexit.split-lp130.loopexit.split-lp, %.loopexit.split-lp130.loopexit, %253, %107, %102, %95, %88
-  %.pn59 = phi { ptr, i32 } [ %89, %88 ], [ %.pn55.pn.pn, %253 ], [ %96, %95 ], [ %103, %102 ], [ %108, %107 ], [ %lpad.loopexit131, %.loopexit129 ], [ %lpad.loopexit134, %.loopexit.split-lp130.loopexit ], [ %lpad.loopexit.split-lp135, %.loopexit.split-lp130.loopexit.split-lp ]
+  %.pn59 = phi { ptr, i32 } [ %89, %88 ], [ %96, %95 ], [ %103, %102 ], [ %108, %107 ], [ %.pn55.pn.pn, %253 ], [ %lpad.loopexit131, %.loopexit129 ], [ %lpad.loopexit134, %.loopexit.split-lp130.loopexit ], [ %lpad.loopexit.split-lp135, %.loopexit.split-lp130.loopexit.split-lp ]
   %254 = load ptr, ptr %15, align 8
   %.not.i.i.i104 = icmp eq ptr %254, null
   br i1 %.not.i.i.i104, label %_ZNSt6vectorIN4absl7debian211string_viewESaIS2_EED2Ev.exit105, label %255
@@ -4933,7 +4933,7 @@ _ZNSt6vectorIN4absl7debian211string_viewESaIS2_EED2Ev.exit105: ; preds = %255, %
   br i1 %265, label %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EED2Ev.exit106, label %262
 
 _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EED2Ev.exit106: ; preds = %82, %262, %.body.thread, %75, %38
-  %.pn59.pn.pn = phi { ptr, i32 } [ %39, %38 ], [ %.pn49.pn.ph, %.body.thread ], [ %.pn59.pn, %262 ], [ %.pn, %75 ], [ %.pn49, %82 ]
+  %.pn59.pn.pn = phi { ptr, i32 } [ %.pn, %75 ], [ %39, %38 ], [ %.pn49.pn.ph, %.body.thread ], [ %.pn59.pn, %262 ], [ %.pn49, %82 ]
   call void @_ZN10open_spiel10algorithms30PartiallyDeserializedCFRSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #27
   resume { ptr, i32 } %.pn59.pn.pn
 }
@@ -6412,7 +6412,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 .loopexit:                                        ; preds = %39, %.noexc, %34
-  %.0.i.pn.i.i = phi ptr [ %49, %.noexc ], [ %35, %34 ], [ %41, %39 ]
+  %.0.i.pn.i.i = phi ptr [ %35, %34 ], [ %49, %.noexc ], [ %41, %39 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store double %27, ptr %.0.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 16
@@ -6557,7 +6557,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
   br label %.body
 
 .loopexit:                                        ; preds = %39, %.noexc, %34
-  %.0.i.pn.i.i = phi ptr [ %49, %.noexc ], [ %35, %34 ], [ %41, %39 ]
+  %.0.i.pn.i.i = phi ptr [ %35, %34 ], [ %49, %.noexc ], [ %41, %39 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   store double %27, ptr %.0.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 16

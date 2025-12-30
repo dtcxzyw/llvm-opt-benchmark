@@ -72,7 +72,7 @@ define noundef range(i32 0, 4) i32 @_Z19alts_counter_createbmmPP12alts_counterPP
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
 _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %18, %17, %13, %12, %8, %7, %20, %26
-  %.0 = phi i32 [ 0, %20 ], [ 3, %8 ], [ 3, %13 ], [ 0, %26 ], [ 3, %7 ], [ 3, %12 ], [ 3, %17 ], [ 3, %18 ]
+  %.0 = phi i32 [ 0, %26 ], [ 0, %20 ], [ 3, %7 ], [ 3, %8 ], [ 3, %12 ], [ 3, %13 ], [ 3, %17 ], [ 3, %18 ]
   ret i32 %.0
 }
 
@@ -152,13 +152,13 @@ define noundef range(i32 0, 10) i32 @_Z22alts_counter_incrementP12alts_counterPb
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %.preheader
-  %.33 = phi i8 [ %., %._crit_edge ], [ 1, %.preheader ]
-  %27 = phi i32 [ %spec.select, %._crit_edge ], [ 9, %.preheader ]
+  %.33 = phi i8 [ 1, %.preheader ], [ %., %._crit_edge ]
+  %27 = phi i32 [ 9, %.preheader ], [ %spec.select, %._crit_edge ]
   store i8 %.33, ptr %1, align 1, !tbaa !18
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
 _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %14, %13, %6, %5, %._crit_edge.thread
-  %.015 = phi i32 [ %27, %._crit_edge.thread ], [ 3, %6 ], [ 3, %5 ], [ 3, %13 ], [ 3, %14 ]
+  %.015 = phi i32 [ %27, %._crit_edge.thread ], [ 3, %5 ], [ 3, %6 ], [ 3, %13 ], [ 3, %14 ]
   ret i32 %.015
 }
 

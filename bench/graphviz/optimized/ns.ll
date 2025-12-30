@@ -673,7 +673,7 @@ init_rank.exit:                                   ; preds = %292, %._crit_edge.i
   br label %init_graph.exit.thread
 
 init_graph.exit.thread:                           ; preds = %init_rank.exit, %init_graph.exit
-  %.03880.i = phi ptr [ %.03776.i, %init_graph.exit ], [ %.03880.i.pre, %init_rank.exit ]
+  %.03880.i = phi ptr [ %.03880.i.pre, %init_rank.exit ], [ %.03776.i, %init_graph.exit ]
   %295 = icmp sgt i32 %3, -1
   %. = select i1 %295, i32 %3, i32 30
   store i32 %., ptr @Search_size, align 4, !tbaa !45
@@ -1155,7 +1155,7 @@ STsetFind.exit49.i.i:                             ; preds = %STsetFind.exit49.i.
   br label %514
 
 514:                                              ; preds = %508, %506, %504
-  %.0.i.i.i = phi ptr [ %.032..031.i.i.i, %508 ], [ %.031.i.i.i, %506 ], [ %.032.i.i.i, %504 ]
+  %.0.i.i.i = phi ptr [ %.032.i.i.i, %504 ], [ %.031.i.i.i, %506 ], [ %.032..031.i.i.i, %508 ]
   store ptr %.0.i.i.i, ptr %502, align 8, !tbaa !80
   store ptr %.0.i.i.i, ptr %499, align 8, !tbaa !80
   %515 = getelementptr inbounds nuw i8, ptr %.032.i.i.i, i64 8
@@ -1399,7 +1399,7 @@ freeTreeList.exit87:                              ; preds = %.lr.ph.i82, %591
   br label %626
 
 626:                                              ; preds = %620, %619
-  %.218.i = phi ptr [ %613, %619 ], [ %spec.select.i95, %620 ]
+  %.218.i = phi ptr [ %spec.select.i95, %620 ], [ %613, %619 ]
   %627 = add nsw i32 %.01536.i, 1
   %.not30.i = icmp slt i32 %627, %609
   br i1 %.not30.i, label %628, label %leave_edge.exit.thread
@@ -1450,7 +1450,7 @@ freeTreeList.exit87:                              ; preds = %.lr.ph.i82, %591
   br label %647
 
 647:                                              ; preds = %641, %640
-  %.6.i = phi ptr [ %634, %640 ], [ %spec.select31.i, %641 ]
+  %.6.i = phi ptr [ %spec.select31.i, %641 ], [ %634, %640 ]
   %648 = add nsw i32 %.240.i, 1
   %.not28.i = icmp slt i32 %648, %631
   br i1 %.not28.i, label %649, label %.loopexit.i
@@ -2258,7 +2258,7 @@ gv_calloc.exit.i117:                              ; preds = %.thread.i, %.thread
   br i1 %.not114.i, label %.loopexit.i119, label %.lr.ph.i129, !llvm.loop !120
 
 .loopexit.i119:                                   ; preds = %1146, %1127, %1124, %gv_calloc.exit.i117
-  %.0101.i120 = phi i32 [ 0, %1124 ], [ 0, %gv_calloc.exit.i117 ], [ %.1102.ph.i, %1127 ], [ %.1102.ph.i, %1146 ]
+  %.0101.i120 = phi i32 [ 0, %gv_calloc.exit.i117 ], [ 0, %1124 ], [ %.1102.ph.i, %1127 ], [ %.1102.ph.i, %1146 ]
   %1148 = load ptr, ptr @G, align 8, !tbaa !36
   %1149 = getelementptr inbounds nuw i8, ptr %1148, i64 16
   %1150 = load ptr, ptr %1149, align 8, !tbaa !6
@@ -2760,7 +2760,7 @@ freeTreeList.exit152:                             ; preds = %.lr.ph.i147, %1374
   br label %1420
 
 1420:                                             ; preds = %.thread160, %freeTreeList.exit, %1406, %1414, %freeTreeList.exit87
-  %.1 = phi i32 [ 0, %freeTreeList.exit87 ], [ 2, %.thread160 ], [ %.140.i, %freeTreeList.exit ], [ 0, %1414 ], [ 0, %1406 ]
+  %.1 = phi i32 [ 0, %freeTreeList.exit87 ], [ %.140.i, %freeTreeList.exit ], [ 0, %1414 ], [ 0, %1406 ], [ 2, %.thread160 ]
   ret i32 %.1
 }
 
@@ -2994,7 +2994,7 @@ define internal fastcc i32 @tight_subtree_search(ptr noundef readonly captures(n
   br i1 %.not48, label %.loopexit, label %.lr.ph60, !llvm.loop !131
 
 .loopexit:                                        ; preds = %48, %100, %111, %.preheader
-  %.045 = phi i32 [ %.0.lcssa, %.preheader ], [ %.3, %111 ], [ -1, %100 ], [ -1, %48 ]
+  %.045 = phi i32 [ %.0.lcssa, %.preheader ], [ -1, %100 ], [ %.3, %111 ], [ -1, %48 ]
   ret i32 %.045
 }
 
@@ -3124,7 +3124,7 @@ define internal fastcc range(i32 -1, 1) i32 @add_tree_edge(ptr noundef nonnull %
   br i1 %87, label %.sink.split, label %88
 
 .sink.split:                                      ; preds = %65, %44, %1
-  %.str.12.sink = phi ptr [ @.str.11, %44 ], [ @.str.10, %1 ], [ @.str.12, %65 ]
+  %.str.12.sink = phi ptr [ @.str.10, %1 ], [ @.str.11, %44 ], [ @.str.12, %65 ]
   tail call void (ptr, ...) @agerrorf(ptr noundef nonnull %.str.12.sink) #21
   br label %88
 

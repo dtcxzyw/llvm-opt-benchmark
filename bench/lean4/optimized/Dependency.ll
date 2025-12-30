@@ -1140,8 +1140,8 @@ lean_alloc_ctor.exit204:                          ; preds = %244
   unreachable
 
 lean_alloc_ctor.exit171:                          ; preds = %lean_alloc_ctor.exit204, %lean_alloc_ctor.exit201, %lean_alloc_ctor.exit183, %lean_alloc_ctor.exit180, %lean_alloc_ctor.exit172, %lean_alloc_ctor.exit170
-  %.sink254 = phi ptr [ %141, %lean_alloc_ctor.exit183 ], [ %241, %lean_alloc_ctor.exit201 ], [ %59, %lean_alloc_ctor.exit170 ], [ %70, %lean_alloc_ctor.exit172 ], [ %130, %lean_alloc_ctor.exit180 ], [ %252, %lean_alloc_ctor.exit204 ]
-  %.sink247 = phi ptr [ %135, %lean_alloc_ctor.exit183 ], [ %235, %lean_alloc_ctor.exit201 ], [ %53, %lean_alloc_ctor.exit170 ], [ %64, %lean_alloc_ctor.exit172 ], [ %124, %lean_alloc_ctor.exit180 ], [ %246, %lean_alloc_ctor.exit204 ]
+  %.sink254 = phi ptr [ %59, %lean_alloc_ctor.exit170 ], [ %70, %lean_alloc_ctor.exit172 ], [ %130, %lean_alloc_ctor.exit180 ], [ %141, %lean_alloc_ctor.exit183 ], [ %241, %lean_alloc_ctor.exit201 ], [ %252, %lean_alloc_ctor.exit204 ]
+  %.sink247 = phi ptr [ %53, %lean_alloc_ctor.exit170 ], [ %64, %lean_alloc_ctor.exit172 ], [ %124, %lean_alloc_ctor.exit180 ], [ %135, %lean_alloc_ctor.exit183 ], [ %235, %lean_alloc_ctor.exit201 ], [ %246, %lean_alloc_ctor.exit204 ]
   %255 = getelementptr inbounds nuw i8, ptr %.sink254, i64 4
   %256 = getelementptr inbounds nuw i8, ptr %.sink254, i64 16
   store i64 0, ptr %256, align 8, !tbaa !13
@@ -1802,7 +1802,7 @@ _init_l_Lake_Dependency_fullName___closed__2.exit: ; preds = %_init_l_Lake_instI
   br label %135
 
 135:                                              ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %8, %7 ], [ %.sink42, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit13 ], [ %.sink42, %.sink.split ]
   ret ptr %.0
 }
 

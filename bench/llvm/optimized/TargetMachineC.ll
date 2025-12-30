@@ -191,7 +191,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.i:        ; preds = %.lr.ph.i.i.i.i
   br i1 %.not.i.i.i.i, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 "_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.exit": ; preds = %15, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.i", %.lr.ph.i.i.i.us.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.us.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.us.i", %_ZN4llvm9StringRefC2EPKc.exit.thread, %_ZN4llvm9StringRefC2EPKc.exit
-  %.sroa.03.0.lcssa.i.i.i.i = phi ptr [ %4, %_ZN4llvm9StringRefC2EPKc.exit ], [ %7, %_ZN4llvm9StringRefC2EPKc.exit.thread ], [ %.sroa.03.09.i.i.i.us.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.us.i ], [ %12, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.us.i" ], [ %.sroa.03.09.i.i.i.us.i, %.lr.ph.i.i.i.us.i ], [ %.sroa.03.09.i.i.i.i, %15 ], [ %17, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.i" ]
+  %.sroa.03.0.lcssa.i.i.i.i = phi ptr [ %4, %_ZN4llvm9StringRefC2EPKc.exit ], [ %7, %_ZN4llvm9StringRefC2EPKc.exit.thread ], [ %.sroa.03.09.i.i.i.us.i, %.lr.ph.i.i.i.us.i ], [ %12, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.us.i" ], [ %.sroa.03.09.i.i.i.us.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.us.i ], [ %17, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.i" ], [ %.sroa.03.09.i.i.i.i, %15 ]
   %18 = tail call { ptr, ptr } @_ZN4llvm14TargetRegistry7targetsEv() #19
   %19 = extractvalue { ptr, ptr } %18, 1
   %.not = icmp eq ptr %.sroa.03.0.lcssa.i.i.i.i, %19
@@ -237,8 +237,8 @@ _ZN4llvm9StringRefC2EPKc.exit._crit_edge:         ; preds = %_ZN4llvm9StringRefC
   br label %14
 
 14:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit._crit_edge, %11, %12
-  %15 = phi ptr [ %.pre7, %11 ], [ %.pre7, %12 ], [ %.pre, %_ZN4llvm9StringRefC2EPKc.exit._crit_edge ]
-  %.0 = phi i32 [ 1, %11 ], [ 1, %12 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit._crit_edge ]
+  %15 = phi ptr [ %.pre7, %12 ], [ %.pre7, %11 ], [ %.pre, %_ZN4llvm9StringRefC2EPKc.exit._crit_edge ]
+  %.0 = phi i32 [ 1, %12 ], [ 1, %11 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit._crit_edge ]
   %16 = icmp eq ptr %15, %5
   br i1 %16, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
@@ -470,7 +470,7 @@ define dso_local void @LLVMTargetMachineOptionsSetCodeModel(ptr noundef writeonl
   br label %_ZN4llvm6unwrapE13LLVMCodeModelRb.exit
 
 _ZN4llvm6unwrapE13LLVMCodeModelRb.exit:           ; preds = %2, %4, %5, %6, %7, %8, %9
-  %.sroa.7.0.i = phi i64 [ 4294967297, %9 ], [ 4294967300, %8 ], [ 4294967296, %5 ], [ 0, %2 ], [ 4294967298, %6 ], [ 4294967299, %7 ], [ 0, %4 ]
+  %.sroa.7.0.i = phi i64 [ 4294967297, %9 ], [ 4294967296, %5 ], [ 4294967298, %6 ], [ 4294967299, %7 ], [ 4294967300, %8 ], [ 0, %4 ], [ 0, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i64 %.sroa.7.0.i, ptr %10, align 4
   ret void
@@ -739,7 +739,7 @@ define dso_local noundef ptr @LLVMCreateTargetMachine(ptr noundef %0, ptr nounde
   br label %LLVMTargetMachineOptionsSetCodeModel.exit
 
 LLVMTargetMachineOptionsSetCodeModel.exit:        ; preds = %7, %26, %27, %28, %29, %30, %31
-  %.sroa.7.0.i.i = phi i64 [ 4294967297, %31 ], [ 4294967300, %30 ], [ 4294967296, %27 ], [ 0, %7 ], [ 4294967298, %28 ], [ 4294967299, %29 ], [ 0, %26 ]
+  %.sroa.7.0.i.i = phi i64 [ 4294967297, %31 ], [ 4294967296, %27 ], [ 4294967298, %28 ], [ 4294967299, %29 ], [ 4294967300, %30 ], [ 0, %26 ], [ 0, %7 ]
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 108
   store i64 %.sroa.7.0.i.i, ptr %32, align 4
   %33 = tail call ptr @LLVMCreateTargetMachineWithOptions(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8)

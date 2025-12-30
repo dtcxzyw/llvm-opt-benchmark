@@ -556,7 +556,7 @@ _ZN4ncnn3MatD2Ev.exit10:                          ; preds = %193, %190, %200, %2
   br label %209
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %_ZN4ncnn3MatD2Ev.exit, %_ZNK4ncnn3Mat5emptyEv.exit40.thread, %_ZNK4ncnn3Mat5emptyEv.exit40, %_ZNK4ncnn3Mat5emptyEv.exit, %2
-  %.06 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %2 ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit40 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit40.thread ], [ -100, %_ZN4ncnn3MatD2Ev.exit ]
+  %.06 = phi i32 [ 0, %2 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit40.thread ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit40 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ]
   ret i32 %.06
 
 209:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit10, %_ZN4ncnn3MatD2Ev.exit8

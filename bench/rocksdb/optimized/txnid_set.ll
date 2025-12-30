@@ -672,7 +672,7 @@ _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
   br label %50
 
 50:                                               ; preds = %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit37, %48, %36, %tailrecurse._crit_edge
-  %.030 = phi i32 [ -30989, %tailrecurse._crit_edge ], [ %19, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit ], [ 0, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit37 ], [ %37, %36 ], [ 0, %48 ]
+  %.030 = phi i32 [ -30989, %tailrecurse._crit_edge ], [ %19, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit ], [ %37, %36 ], [ 0, %48 ], [ 0, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit37 ]
   ret i32 %.030
 }
 
@@ -719,7 +719,7 @@ _ZNK4toku3omtImmLb0EE4sizeEv.exit.thread:         ; preds = %3
   br label %_ZNK4toku3omtImmLb0EE4sizeEv.exit16
 
 _ZNK4toku3omtImmLb0EE4sizeEv.exit16:              ; preds = %_ZNK4toku3omtImmLb0EE4sizeEv.exit, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread, %21
-  %.0.i15 = phi i32 [ %19, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread ], [ %27, %21 ], [ 0, %_ZNK4toku3omtImmLb0EE4sizeEv.exit ]
+  %.0.i15 = phi i32 [ %27, %21 ], [ %19, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread ], [ 0, %_ZNK4toku3omtImmLb0EE4sizeEv.exit ]
   %28 = add i32 %.0.i15, 1
   tail call void @_ZN4toku3omtImmLb0EE23maybe_resize_or_convertEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %28)
   %29 = load i8, ptr %0, align 8, !tbaa !8, !range !12, !noundef !13
@@ -910,7 +910,7 @@ _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
   br label %_ZN4toku3omtImmLb0EE16convert_to_arrayEv.exit
 
 _ZN4toku3omtImmLb0EE16convert_to_arrayEv.exit:    ; preds = %51, %52
-  %.0.i.i = phi i32 [ 0, %51 ], [ %58, %52 ]
+  %.0.i.i = phi i32 [ %58, %52 ], [ 0, %51 ]
   %59 = shl i32 %.0.i.i, 1
   %60 = tail call i32 @llvm.umax.i32(i32 %59, i32 4)
   %61 = zext i32 %60 to i64
@@ -949,7 +949,7 @@ define linkonce_odr void @_ZN4toku3omtImmLb0EE15insert_internalEPNS_12omt_intern
   br label %21
 
 tailrecurse.outer._crit_edge:                     ; preds = %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit39, %tailrecurse, %5
-  %.tr40.lcssa = phi ptr [ %29, %tailrecurse ], [ %1, %5 ], [ %111, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit39 ]
+  %.tr40.lcssa = phi ptr [ %1, %5 ], [ %29, %tailrecurse ], [ %111, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit39 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !14
   %12 = add i32 %11, 1
@@ -1150,7 +1150,7 @@ define linkonce_odr void @_ZN4toku3omtImmLb0EE9rebalanceEPNS_12omt_internal17sub
   br label %_ZNK4toku3omtImmLb0EE4sizeEv.exit.i
 
 _ZNK4toku3omtImmLb0EE4sizeEv.exit.i:              ; preds = %12, %10
-  %.0.i.i = phi i32 [ 0, %10 ], [ %18, %12 ]
+  %.0.i.i = phi i32 [ %18, %12 ], [ 0, %10 ]
   %19 = shl i32 %.0.i.i, 1
   %20 = tail call i32 @llvm.umax.i32(i32 %19, i32 4)
   %21 = zext i32 %20 to i64

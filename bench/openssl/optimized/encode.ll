@@ -413,7 +413,7 @@ evp_encodeblock_int.exit94:                       ; preds = %148, %112, %.thread
   br label %204
 
 204:                                              ; preds = %5, %202, %197, %16
-  %.064 = phi i32 [ 1, %202 ], [ 1, %16 ], [ 0, %197 ], [ 0, %5 ]
+  %.064 = phi i32 [ 1, %16 ], [ 0, %197 ], [ 1, %202 ], [ 0, %5 ]
   ret i32 %.064
 }
 
@@ -706,7 +706,7 @@ define range(i32 -1, 2) i32 @EVP_DecodeUpdate(ptr noundef captures(address_is_nu
   br label %20
 
 20:                                               ; preds = %16, %15, %9, %5
-  %.076 = phi i32 [ 0, %5 ], [ %spec.select, %16 ], [ 1, %15 ], [ 0, %9 ]
+  %.076 = phi i32 [ 1, %15 ], [ 0, %9 ], [ 0, %5 ], [ %spec.select, %16 ]
   %21 = icmp eq i32 %4, 0
   br i1 %21, label %conv_ascii2bin.exit.thread, label %22
 
@@ -1024,7 +1024,7 @@ conv_ascii2bin.exit67:                            ; preds = %conv_ascii2bin.exit
   br i1 %83, label %.lr.ph88, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %17, %31, %conv_ascii2bin.exit67, %62, %.preheader, %.critedge2
-  %.042 = phi i32 [ -1, %.critedge2 ], [ 0, %.preheader ], [ -1, %31 ], [ -1, %conv_ascii2bin.exit67 ], [ %81, %62 ], [ 0, %17 ]
+  %.042 = phi i32 [ -1, %.critedge2 ], [ 0, %.preheader ], [ -1, %conv_ascii2bin.exit67 ], [ %81, %62 ], [ -1, %31 ], [ 0, %17 ]
   ret i32 %.042
 }
 
@@ -1053,7 +1053,7 @@ define range(i32 -1, 2) i32 @EVP_DecodeFinal(ptr noundef captures(address_is_nul
   br label %10
 
 10:                                               ; preds = %3, %5, %9
-  %.0 = phi i32 [ -1, %5 ], [ 1, %9 ], [ 1, %3 ]
+  %.0 = phi i32 [ 1, %9 ], [ -1, %5 ], [ 1, %3 ]
   ret i32 %.0
 }
 

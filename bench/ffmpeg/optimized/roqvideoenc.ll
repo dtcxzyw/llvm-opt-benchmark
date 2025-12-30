@@ -939,7 +939,7 @@ eval_sse.exit.i.i.i61.i:                          ; preds = %390
   br i1 %exitcond37.not.i.i.i.i, label %eval_motion_dist.exit.i.i, label %373, !llvm.loop !101
 
 eval_motion_dist.exit.i.i:                        ; preds = %403, %360, %354, %339, %.lr.ph.i
-  %.sink.i.i = phi i32 [ 2147483647, %.lr.ph.i ], [ 2147483647, %360 ], [ 2147483647, %339 ], [ 2147483647, %354 ], [ %402, %403 ]
+  %.sink.i.i = phi i32 [ 2147483647, %339 ], [ 2147483647, %360 ], [ 2147483647, %354 ], [ 2147483647, %.lr.ph.i ], [ %402, %403 ]
   %404 = getelementptr inbounds nuw i8, ptr %333, i64 4
   store i32 %.sink.i.i, ptr %404, align 4, !tbaa !70
   %405 = load i32, ptr %33, align 8, !tbaa !30
@@ -2032,7 +2032,7 @@ write_typecode.exit115.thread.i.i:                ; preds = %973
   br label %roq_encode_video.exit.thread
 
 roq_encode_video.exit.thread:                     ; preds = %generate_new_codebooks.exit.thread.i, %596, %42, %47, %4, %1012
-  %.036 = phi i32 [ 0, %1012 ], [ %27, %4 ], [ %50, %47 ], [ %45, %42 ], [ %.0.i.ph.i, %generate_new_codebooks.exit.thread.i ], [ -22, %596 ]
+  %.036 = phi i32 [ 0, %1012 ], [ %27, %4 ], [ %45, %42 ], [ %50, %47 ], [ %.0.i.ph.i, %generate_new_codebooks.exit.thread.i ], [ -22, %596 ]
   ret i32 %.036
 }
 
@@ -2399,11 +2399,11 @@ eval_motion_dist.exit245:                         ; preds = %130
 132:                                              ; preds = %eval_motion_dist.exit245
   br label %eval_motion_dist.exit245.thread
 
-eval_motion_dist.exit245.thread:                  ; preds = %eval_motion_dist.exit.eval_motion_dist.exit245.thread_crit_edge, %84, %72, %89, %eval_motion_dist.exit245, %132
-  %.pre-phi = phi i32 [ %.pre523, %eval_motion_dist.exit.eval_motion_dist.exit245.thread_crit_edge ], [ %76, %84 ], [ %76, %72 ], [ %76, %89 ], [ %76, %eval_motion_dist.exit245 ], [ %76, %132 ]
-  %.sroa.090.0 = phi i32 [ 0, %eval_motion_dist.exit.eval_motion_dist.exit245.thread_crit_edge ], [ 0, %84 ], [ 0, %72 ], [ 0, %89 ], [ 0, %eval_motion_dist.exit245 ], [ %.sroa.0.0.extract.trunc.i, %132 ]
-  %.sroa.15.0 = phi i32 [ 0, %eval_motion_dist.exit.eval_motion_dist.exit245.thread_crit_edge ], [ 0, %84 ], [ 0, %72 ], [ 0, %89 ], [ 0, %eval_motion_dist.exit245 ], [ %.sroa.2.0.extract.trunc.i, %132 ]
-  %.0 = phi i32 [ %.0.i, %eval_motion_dist.exit.eval_motion_dist.exit245.thread_crit_edge ], [ %.0.i, %84 ], [ %.0.i, %72 ], [ %.0.i, %89 ], [ %.0.i, %eval_motion_dist.exit245 ], [ %129, %132 ]
+eval_motion_dist.exit245.thread:                  ; preds = %eval_motion_dist.exit.eval_motion_dist.exit245.thread_crit_edge, %84, %89, %72, %eval_motion_dist.exit245, %132
+  %.pre-phi = phi i32 [ %.pre523, %eval_motion_dist.exit.eval_motion_dist.exit245.thread_crit_edge ], [ %76, %84 ], [ %76, %89 ], [ %76, %72 ], [ %76, %eval_motion_dist.exit245 ], [ %76, %132 ]
+  %.sroa.090.0 = phi i32 [ 0, %eval_motion_dist.exit.eval_motion_dist.exit245.thread_crit_edge ], [ 0, %84 ], [ 0, %89 ], [ 0, %72 ], [ 0, %eval_motion_dist.exit245 ], [ %.sroa.0.0.extract.trunc.i, %132 ]
+  %.sroa.15.0 = phi i32 [ 0, %eval_motion_dist.exit.eval_motion_dist.exit245.thread_crit_edge ], [ 0, %84 ], [ 0, %89 ], [ 0, %72 ], [ 0, %eval_motion_dist.exit245 ], [ %.sroa.2.0.extract.trunc.i, %132 ]
+  %.0 = phi i32 [ %.0.i, %eval_motion_dist.exit.eval_motion_dist.exit245.thread_crit_edge ], [ %.0.i, %84 ], [ %.0.i, %89 ], [ %.0.i, %72 ], [ %.0.i, %eval_motion_dist.exit245 ], [ %129, %132 ]
   %133 = mul nsw i32 %25, %28
   %134 = sdiv i32 %133, %1
   %135 = udiv i32 %.pre-phi, %1
@@ -2513,10 +2513,10 @@ eval_motion_dist.exit273:                         ; preds = %188
 190:                                              ; preds = %eval_motion_dist.exit273
   br label %eval_motion_dist.exit273.thread
 
-eval_motion_dist.exit273.thread:                  ; preds = %143, %137, %147, %eval_motion_dist.exit273, %190, %eval_motion_dist.exit245.thread
-  %.sroa.090.1 = phi i32 [ %.sroa.0.0.extract.trunc.i246, %190 ], [ %.sroa.090.0, %eval_motion_dist.exit273 ], [ %.sroa.090.0, %eval_motion_dist.exit245.thread ], [ %.sroa.090.0, %147 ], [ %.sroa.090.0, %137 ], [ %.sroa.090.0, %143 ]
-  %.sroa.15.1 = phi i32 [ %.sroa.2.0.extract.trunc.i248, %190 ], [ %.sroa.15.0, %eval_motion_dist.exit273 ], [ %.sroa.15.0, %eval_motion_dist.exit245.thread ], [ %.sroa.15.0, %147 ], [ %.sroa.15.0, %137 ], [ %.sroa.15.0, %143 ]
-  %.1 = phi i32 [ %187, %190 ], [ %.0, %eval_motion_dist.exit273 ], [ %.0, %eval_motion_dist.exit245.thread ], [ %.0, %147 ], [ %.0, %137 ], [ %.0, %143 ]
+eval_motion_dist.exit273.thread:                  ; preds = %143, %147, %137, %eval_motion_dist.exit273, %190, %eval_motion_dist.exit245.thread
+  %.sroa.090.1 = phi i32 [ %.sroa.0.0.extract.trunc.i246, %190 ], [ %.sroa.090.0, %eval_motion_dist.exit273 ], [ %.sroa.090.0, %eval_motion_dist.exit245.thread ], [ %.sroa.090.0, %137 ], [ %.sroa.090.0, %147 ], [ %.sroa.090.0, %143 ]
+  %.sroa.15.1 = phi i32 [ %.sroa.2.0.extract.trunc.i248, %190 ], [ %.sroa.15.0, %eval_motion_dist.exit273 ], [ %.sroa.15.0, %eval_motion_dist.exit245.thread ], [ %.sroa.15.0, %137 ], [ %.sroa.15.0, %147 ], [ %.sroa.15.0, %143 ]
+  %.1 = phi i32 [ %187, %190 ], [ %.0, %eval_motion_dist.exit273 ], [ %.0, %eval_motion_dist.exit245.thread ], [ %.0, %137 ], [ %.0, %147 ], [ %.0, %143 ]
   %191 = add nsw i32 %136, 1
   %192 = icmp slt i32 %191, %10
   %193 = icmp sgt i32 %136, -2
@@ -2625,10 +2625,10 @@ eval_motion_dist.exit301:                         ; preds = %245
 247:                                              ; preds = %eval_motion_dist.exit301
   br label %eval_motion_dist.exit301.thread
 
-eval_motion_dist.exit301.thread:                  ; preds = %200, %194, %204, %eval_motion_dist.exit301, %247, %eval_motion_dist.exit273.thread
-  %.sroa.090.2 = phi i32 [ %.sroa.0.0.extract.trunc.i274, %247 ], [ %.sroa.090.1, %eval_motion_dist.exit301 ], [ %.sroa.090.1, %eval_motion_dist.exit273.thread ], [ %.sroa.090.1, %204 ], [ %.sroa.090.1, %194 ], [ %.sroa.090.1, %200 ]
-  %.sroa.15.2 = phi i32 [ %.sroa.2.0.extract.trunc.i276, %247 ], [ %.sroa.15.1, %eval_motion_dist.exit301 ], [ %.sroa.15.1, %eval_motion_dist.exit273.thread ], [ %.sroa.15.1, %204 ], [ %.sroa.15.1, %194 ], [ %.sroa.15.1, %200 ]
-  %.2 = phi i32 [ %244, %247 ], [ %.1, %eval_motion_dist.exit301 ], [ %.1, %eval_motion_dist.exit273.thread ], [ %.1, %204 ], [ %.1, %194 ], [ %.1, %200 ]
+eval_motion_dist.exit301.thread:                  ; preds = %200, %204, %194, %eval_motion_dist.exit301, %247, %eval_motion_dist.exit273.thread
+  %.sroa.090.2 = phi i32 [ %.sroa.0.0.extract.trunc.i274, %247 ], [ %.sroa.090.1, %eval_motion_dist.exit301 ], [ %.sroa.090.1, %eval_motion_dist.exit273.thread ], [ %.sroa.090.1, %194 ], [ %.sroa.090.1, %204 ], [ %.sroa.090.1, %200 ]
+  %.sroa.15.2 = phi i32 [ %.sroa.2.0.extract.trunc.i276, %247 ], [ %.sroa.15.1, %eval_motion_dist.exit301 ], [ %.sroa.15.1, %eval_motion_dist.exit273.thread ], [ %.sroa.15.1, %194 ], [ %.sroa.15.1, %204 ], [ %.sroa.15.1, %200 ]
+  %.2 = phi i32 [ %244, %247 ], [ %.1, %eval_motion_dist.exit301 ], [ %.1, %eval_motion_dist.exit273.thread ], [ %.1, %194 ], [ %.1, %204 ], [ %.1, %200 ]
   %248 = mul nsw i32 %26, %28
   %249 = sdiv i32 %248, %1
   %250 = add nsw i32 %249, %135
@@ -2737,10 +2737,10 @@ eval_motion_dist.exit329:                         ; preds = %302
 304:                                              ; preds = %eval_motion_dist.exit329
   br label %eval_motion_dist.exit329.thread
 
-eval_motion_dist.exit329.thread:                  ; preds = %257, %251, %261, %eval_motion_dist.exit329, %304, %eval_motion_dist.exit301.thread
-  %.sroa.090.3 = phi i32 [ %.sroa.0.0.extract.trunc.i302, %304 ], [ %.sroa.090.2, %eval_motion_dist.exit329 ], [ %.sroa.090.2, %eval_motion_dist.exit301.thread ], [ %.sroa.090.2, %261 ], [ %.sroa.090.2, %251 ], [ %.sroa.090.2, %257 ]
-  %.sroa.15.3 = phi i32 [ %.sroa.2.0.extract.trunc.i304, %304 ], [ %.sroa.15.2, %eval_motion_dist.exit329 ], [ %.sroa.15.2, %eval_motion_dist.exit301.thread ], [ %.sroa.15.2, %261 ], [ %.sroa.15.2, %251 ], [ %.sroa.15.2, %257 ]
-  %.3 = phi i32 [ %301, %304 ], [ %.2, %eval_motion_dist.exit329 ], [ %.2, %eval_motion_dist.exit301.thread ], [ %.2, %261 ], [ %.2, %251 ], [ %.2, %257 ]
+eval_motion_dist.exit329.thread:                  ; preds = %257, %261, %251, %eval_motion_dist.exit329, %304, %eval_motion_dist.exit301.thread
+  %.sroa.090.3 = phi i32 [ %.sroa.0.0.extract.trunc.i302, %304 ], [ %.sroa.090.2, %eval_motion_dist.exit329 ], [ %.sroa.090.2, %eval_motion_dist.exit301.thread ], [ %.sroa.090.2, %251 ], [ %.sroa.090.2, %261 ], [ %.sroa.090.2, %257 ]
+  %.sroa.15.3 = phi i32 [ %.sroa.2.0.extract.trunc.i304, %304 ], [ %.sroa.15.2, %eval_motion_dist.exit329 ], [ %.sroa.15.2, %eval_motion_dist.exit301.thread ], [ %.sroa.15.2, %251 ], [ %.sroa.15.2, %261 ], [ %.sroa.15.2, %257 ]
+  %.3 = phi i32 [ %301, %304 ], [ %.2, %eval_motion_dist.exit329 ], [ %.2, %eval_motion_dist.exit301.thread ], [ %.2, %251 ], [ %.2, %261 ], [ %.2, %257 ]
   %305 = add nsw i32 %136, -1
   store i32 %305, ptr %3, align 4, !tbaa !70
   %306 = sdiv i32 %28, %1
@@ -2790,7 +2790,7 @@ eval_motion_dist.exit329.thread:                  ; preds = %257, %251, %261, %e
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %325, %327, %328, %330
-  %.0.i330 = phi i32 [ %..i, %327 ], [ %321, %328 ], [ %321, %325 ], [ %.20.i, %330 ]
+  %.0.i330 = phi i32 [ %321, %325 ], [ %321, %328 ], [ %..i, %327 ], [ %.20.i, %330 ]
   store i32 %.0.i330, ptr %indvars.iv.sroa.phi, align 4, !tbaa !70
   br i1 %317, label %316, label %331, !llvm.loop !139
 
@@ -2886,7 +2886,7 @@ eval_sse.exit.i.i352:                             ; preds = %366
   br i1 %exitcond37.not.i.i356, label %eval_motion_dist.exit358, label %349, !llvm.loop !101
 
 eval_motion_dist.exit358:                         ; preds = %379, %331, %334, %338
-  %.0.i357 = phi i32 [ 2147483647, %338 ], [ 2147483647, %331 ], [ 2147483647, %334 ], [ %378, %379 ]
+  %.0.i357 = phi i32 [ 2147483647, %331 ], [ 2147483647, %338 ], [ 2147483647, %334 ], [ %378, %379 ]
   %380 = icmp slt i32 %.0.i357, %.3
   %.sroa.090.4 = select i1 %380, i32 %.sroa.0.0..sroa.0.0., i32 %.sroa.090.3
   %.sroa.15.4 = select i1 %380, i32 %.sroa.5.0..sroa.5.0., i32 %.sroa.15.3
@@ -3001,10 +3001,10 @@ eval_motion_dist.exit386:                         ; preds = %434
 436:                                              ; preds = %eval_motion_dist.exit386
   br label %eval_motion_dist.exit386.thread
 
-eval_motion_dist.exit386.thread:                  ; preds = %389, %381, %393, %eval_motion_dist.exit386, %436
-  %.sroa.090.6 = phi i32 [ %.sroa.0.0.extract.trunc.i359, %436 ], [ %.sroa.090.5469, %eval_motion_dist.exit386 ], [ %.sroa.090.5469, %393 ], [ %.sroa.090.5469, %381 ], [ %.sroa.090.5469, %389 ]
-  %.sroa.15.6 = phi i32 [ %.sroa.2.0.extract.trunc.i361, %436 ], [ %.sroa.15.5470, %eval_motion_dist.exit386 ], [ %.sroa.15.5470, %393 ], [ %.sroa.15.5470, %381 ], [ %.sroa.15.5470, %389 ]
-  %.6 = phi i32 [ %433, %436 ], [ %.5472, %eval_motion_dist.exit386 ], [ %.5472, %393 ], [ %.5472, %381 ], [ %.5472, %389 ]
+eval_motion_dist.exit386.thread:                  ; preds = %389, %393, %381, %eval_motion_dist.exit386, %436
+  %.sroa.090.6 = phi i32 [ %.sroa.0.0.extract.trunc.i359, %436 ], [ %.sroa.090.5469, %eval_motion_dist.exit386 ], [ %.sroa.090.5469, %381 ], [ %.sroa.090.5469, %393 ], [ %.sroa.090.5469, %389 ]
+  %.sroa.15.6 = phi i32 [ %.sroa.2.0.extract.trunc.i361, %436 ], [ %.sroa.15.5470, %eval_motion_dist.exit386 ], [ %.sroa.15.5470, %381 ], [ %.sroa.15.5470, %393 ], [ %.sroa.15.5470, %389 ]
+  %.6 = phi i32 [ %433, %436 ], [ %.5472, %eval_motion_dist.exit386 ], [ %.5472, %381 ], [ %.5472, %393 ], [ %.5472, %389 ]
   %indvars.iv.next511 = add nuw nsw i64 %indvars.iv510, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next511, 3
   br i1 %exitcond.not, label %eval_motion_dist.exit414.thread, label %381, !llvm.loop !140
@@ -3113,10 +3113,10 @@ eval_motion_dist.exit414:                         ; preds = %487
 489:                                              ; preds = %eval_motion_dist.exit414
   br label %eval_motion_dist.exit414.thread
 
-eval_motion_dist.exit414.thread:                  ; preds = %eval_motion_dist.exit386.thread, %444, %438, %447, %437, %489, %eval_motion_dist.exit414
-  %.sroa.090.7 = phi i32 [ %.sroa.090.3, %444 ], [ %.sroa.0.0.extract.trunc.i387, %489 ], [ %.sroa.090.3, %eval_motion_dist.exit414 ], [ %.sroa.090.3, %437 ], [ %.sroa.090.3, %447 ], [ %.sroa.090.3, %438 ], [ %.sroa.090.6, %eval_motion_dist.exit386.thread ]
-  %.sroa.15.7 = phi i32 [ %.sroa.15.3, %444 ], [ %.sroa.2.0.extract.trunc.i389, %489 ], [ %.sroa.15.3, %eval_motion_dist.exit414 ], [ %.sroa.15.3, %437 ], [ %.sroa.15.3, %447 ], [ %.sroa.15.3, %438 ], [ %.sroa.15.6, %eval_motion_dist.exit386.thread ]
-  %.7 = phi i32 [ %.3, %444 ], [ %486, %489 ], [ %.3, %eval_motion_dist.exit414 ], [ %.3, %437 ], [ %.3, %447 ], [ %.3, %438 ], [ %.6, %eval_motion_dist.exit386.thread ]
+eval_motion_dist.exit414.thread:                  ; preds = %eval_motion_dist.exit386.thread, %444, %447, %438, %437, %489, %eval_motion_dist.exit414
+  %.sroa.090.7 = phi i32 [ %.sroa.0.0.extract.trunc.i387, %489 ], [ %.sroa.090.3, %eval_motion_dist.exit414 ], [ %.sroa.090.3, %437 ], [ %.sroa.090.3, %438 ], [ %.sroa.090.3, %447 ], [ %.sroa.090.3, %444 ], [ %.sroa.090.6, %eval_motion_dist.exit386.thread ]
+  %.sroa.15.7 = phi i32 [ %.sroa.2.0.extract.trunc.i389, %489 ], [ %.sroa.15.3, %eval_motion_dist.exit414 ], [ %.sroa.15.3, %437 ], [ %.sroa.15.3, %438 ], [ %.sroa.15.3, %447 ], [ %.sroa.15.3, %444 ], [ %.sroa.15.6, %eval_motion_dist.exit386.thread ]
+  %.7 = phi i32 [ %486, %489 ], [ %.3, %eval_motion_dist.exit414 ], [ %.3, %437 ], [ %.3, %438 ], [ %.3, %447 ], [ %.3, %444 ], [ %.6, %eval_motion_dist.exit386.thread ]
   %.not224479 = icmp eq i32 %.7, -1
   br i1 %.not224479, label %._crit_edge, label %.preheader
 
@@ -3226,7 +3226,7 @@ eval_sse.exit.i.i436:                             ; preds = %531
   br i1 %exitcond37.not.i.i440, label %eval_motion_dist.exit442, label %514, !llvm.loop !101
 
 eval_motion_dist.exit442:                         ; preds = %544, %490, %499, %503
-  %.0.i441 = phi i32 [ 2147483647, %503 ], [ 2147483647, %490 ], [ 2147483647, %499 ], [ %543, %544 ]
+  %.0.i441 = phi i32 [ 2147483647, %490 ], [ 2147483647, %503 ], [ 2147483647, %499 ], [ %543, %544 ]
   %545 = icmp slt i32 %.0.i441, %.9476
   %.sroa.090.10 = select i1 %545, i32 %493, i32 %.sroa.090.9473
   %.sroa.15.10 = select i1 %545, i32 %496, i32 %.sroa.15.9474
@@ -3410,7 +3410,7 @@ eval_sse.exit.i.i:                                ; preds = %70
   br i1 %exitcond37.not.i.i, label %eval_motion_dist.exit, label %53, !llvm.loop !101
 
 eval_motion_dist.exit:                            ; preds = %83, %4, %37, %32, %9
-  %.sink = phi i32 [ 2147483647, %4 ], [ 2147483647, %37 ], [ 2147483647, %9 ], [ 2147483647, %32 ], [ %82, %83 ]
+  %.sink = phi i32 [ 2147483647, %9 ], [ 2147483647, %37 ], [ 2147483647, %32 ], [ 2147483647, %4 ], [ %82, %83 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %84, align 4, !tbaa !70
   %85 = load i32, ptr %7, align 8, !tbaa !30

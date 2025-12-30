@@ -294,7 +294,7 @@ av1_set_ref_frame.exit:                           ; preds = %29
   br label %101
 
 101:                                              ; preds = %97, %95
-  %.1.shrunk.i.i = phi i1 [ %spec.select.i.i, %97 ], [ %.0.shrunk.i.i, %95 ]
+  %.1.shrunk.i.i = phi i1 [ %.0.shrunk.i.i, %95 ], [ %spec.select.i.i, %97 ]
   br i1 %72, label %102, label %106
 
 102:                                              ; preds = %101
@@ -305,7 +305,7 @@ av1_set_ref_frame.exit:                           ; preds = %29
   br label %106
 
 106:                                              ; preds = %102, %101
-  %.2.shrunk.i.i = phi i1 [ %spec.select40.i.i, %102 ], [ %.1.shrunk.i.i, %101 ]
+  %.2.shrunk.i.i = phi i1 [ %.1.shrunk.i.i, %101 ], [ %spec.select40.i.i, %102 ]
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 7864
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %108, align 8
@@ -323,7 +323,7 @@ av1_set_ref_frame.exit:                           ; preds = %29
   br label %116
 
 116:                                              ; preds = %113, %106
-  %.3.shrunk.i.i = phi i1 [ %spec.select42.i.i, %113 ], [ %.2.shrunk.i.i, %106 ]
+  %.3.shrunk.i.i = phi i1 [ %.2.shrunk.i.i, %106 ], [ %spec.select42.i.i, %113 ]
   %117 = xor i1 %.3.shrunk.i.i, true
   br label %has_top_right.exit.i
 
@@ -1955,8 +1955,8 @@ convert_to_trans_prec.exit31:                     ; preds = %89, %93, %107
   br label %integer_mv_precision.exit
 
 integer_mv_precision.exit:                        ; preds = %.sink.split21.i34, %122, %120, %.sink.split21.i, %27, %25, %6, %convert_to_trans_prec.exit31, %9
-  %.sroa.10.0 = phi i16 [ %111, %convert_to_trans_prec.exit31 ], [ %28, %27 ], [ 0, %6 ], [ %16, %9 ], [ %16, %25 ], [ %32, %.sink.split21.i ], [ %111, %120 ], [ %127, %.sink.split21.i34 ], [ %123, %122 ]
-  %.sroa.0.0 = phi i16 [ %110, %convert_to_trans_prec.exit31 ], [ %.sroa.0.1, %27 ], [ 0, %6 ], [ %12, %9 ], [ %.sroa.0.1, %25 ], [ %.sroa.0.1, %.sink.split21.i ], [ %.sroa.0.2, %120 ], [ %.sroa.0.2, %.sink.split21.i34 ], [ %.sroa.0.2, %122 ]
+  %.sroa.10.0 = phi i16 [ %111, %convert_to_trans_prec.exit31 ], [ %16, %9 ], [ 0, %6 ], [ %16, %25 ], [ %32, %.sink.split21.i ], [ %28, %27 ], [ %111, %120 ], [ %127, %.sink.split21.i34 ], [ %123, %122 ]
+  %.sroa.0.0 = phi i16 [ %110, %convert_to_trans_prec.exit31 ], [ %12, %9 ], [ 0, %6 ], [ %.sroa.0.1, %25 ], [ %.sroa.0.1, %.sink.split21.i ], [ %.sroa.0.1, %27 ], [ %.sroa.0.2, %120 ], [ %.sroa.0.2, %.sink.split21.i34 ], [ %.sroa.0.2, %122 ]
   %.sroa.10.0.insert.ext = zext i16 %.sroa.10.0 to i32
   %.sroa.10.0.insert.shift = shl nuw i32 %.sroa.10.0.insert.ext, 16
   %.sroa.0.0.insert.ext = zext i16 %.sroa.0.0 to i32
@@ -2712,7 +2712,7 @@ get_mv_projection.exit.us.us:                     ; preds = %115, %112
   br i1 %exitcond124.not, label %get_ref_frame_buf.exit.thread, label %.preheader.us.us, !llvm.loop !42
 
 get_ref_frame_buf.exit.thread:                    ; preds = %._crit_edge.split.us106.us, %.preheader.lr.ph, %.split.us, %get_ref_frame_map_idx.exit.i, %20, %25, %17, %17, %get_ref_frame_buf.exit
-  %.0 = phi i32 [ 0, %20 ], [ 0, %get_ref_frame_buf.exit ], [ 0, %17 ], [ 0, %17 ], [ 0, %25 ], [ 0, %get_ref_frame_map_idx.exit.i ], [ 1, %.preheader.lr.ph ], [ 1, %.split.us ], [ 1, %._crit_edge.split.us106.us ]
+  %.0 = phi i32 [ 0, %get_ref_frame_buf.exit ], [ 0, %17 ], [ 0, %17 ], [ 0, %25 ], [ 0, %20 ], [ 0, %get_ref_frame_map_idx.exit.i ], [ 1, %.split.us ], [ 1, %.preheader.lr.ph ], [ 1, %._crit_edge.split.us106.us ]
   ret i32 %.0
 }
 
@@ -3264,7 +3264,7 @@ define hidden zeroext i8 @av1_findSamples(ptr noundef readonly captures(none) %0
   br label %314
 
 314:                                              ; preds = %310, %308
-  %.1.shrunk.i = phi i1 [ %spec.select.i, %310 ], [ %.0.shrunk.i, %308 ]
+  %.1.shrunk.i = phi i1 [ %.0.shrunk.i, %308 ], [ %spec.select.i, %310 ]
   br i1 %285, label %315, label %319
 
 315:                                              ; preds = %314
@@ -3275,7 +3275,7 @@ define hidden zeroext i8 @av1_findSamples(ptr noundef readonly captures(none) %0
   br label %319
 
 319:                                              ; preds = %315, %314
-  %.2.shrunk.i = phi i1 [ %spec.select40.i, %315 ], [ %.1.shrunk.i, %314 ]
+  %.2.shrunk.i = phi i1 [ %.1.shrunk.i, %314 ], [ %spec.select40.i, %315 ]
   %320 = load ptr, ptr %5, align 8
   %321 = load ptr, ptr %320, align 8
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 1
@@ -3373,7 +3373,7 @@ is_inside.exit:                                   ; preds = %337
   br label %has_top_right.exit.thread
 
 has_top_right.exit.thread:                        ; preds = %92, %198, %325, %328, %332, %337, %280, %354, %279, %has_top_right.exit, %342, %350, %is_inside.exit, %251, %152
-  %.0 = phi i8 [ 8, %152 ], [ %.6152, %325 ], [ %.6152, %328 ], [ 8, %251 ], [ %spec.select176, %354 ], [ %.6152, %350 ], [ %.6152, %342 ], [ %.6152, %is_inside.exit ], [ %.6152, %has_top_right.exit ], [ %.6152, %279 ], [ %.6152, %280 ], [ %.6152, %337 ], [ %.6152, %332 ], [ 8, %198 ], [ 8, %92 ]
+  %.0 = phi i8 [ 8, %152 ], [ 8, %251 ], [ %.6152, %350 ], [ %.6152, %342 ], [ %.6152, %is_inside.exit ], [ %.6152, %has_top_right.exit ], [ %.6152, %279 ], [ %spec.select176, %354 ], [ %.6152, %280 ], [ %.6152, %337 ], [ %.6152, %332 ], [ %.6152, %328 ], [ %.6152, %325 ], [ 8, %198 ], [ 8, %92 ]
   ret i8 %.0
 }
 
@@ -3713,8 +3713,8 @@ get_relative_dist.exit:                           ; preds = %25
   br label %.thread141
 
 .thread141:                                       ; preds = %57, %58, %69, %64
-  %.0109156 = phi i32 [ %.0109160, %64 ], [ %.0109160, %69 ], [ %.0109160, %58 ], [ %.1110, %57 ]
-  %.0106133139146 = phi i32 [ 5, %64 ], [ %60, %69 ], [ 6, %58 ], [ 7, %57 ]
+  %.0109156 = phi i32 [ %.0109160, %69 ], [ %.0109160, %64 ], [ %.0109160, %58 ], [ %.1110, %57 ]
+  %.0106133139146 = phi i32 [ %60, %69 ], [ 5, %64 ], [ 6, %58 ], [ 7, %57 ]
   %.not122162 = icmp sgt i32 %.0109156, %.0106133139146
   br i1 %.not122162, label %.thread141..preheader149_crit_edge, label %.lr.ph
 
@@ -3905,7 +3905,7 @@ define internal fastcc void @scan_row_mbmi(ptr noundef readonly captures(none) %
   br label %25
 
 25:                                               ; preds = %23, %21, %13
-  %.062 = phi i32 [ 0, %13 ], [ %spec.select, %23 ], [ 1, %21 ]
+  %.062 = phi i32 [ 1, %21 ], [ 0, %13 ], [ %spec.select, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 7864
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4070,7 +4070,7 @@ define internal fastcc void @scan_col_mbmi(ptr noundef readonly captures(none) %
   br label %25
 
 25:                                               ; preds = %23, %21, %13
-  %.062 = phi i32 [ 0, %13 ], [ %spec.select, %23 ], [ 1, %21 ]
+  %.062 = phi i32 [ 1, %21 ], [ 0, %13 ], [ %spec.select, %23 ]
   %26 = icmp sgt i32 %., 0
   br i1 %26, label %.lr.ph, label %._crit_edge
 
@@ -4816,7 +4816,7 @@ is_inside.exit.thread.sink.split:                 ; preds = %340, %199
   br label %is_inside.exit.thread
 
 is_inside.exit.thread:                            ; preds = %is_inside.exit.thread.sink.split, %12, %18, %26, %.loopexit, %.loopexit181, %31, %is_inside.exit
-  %.0 = phi i32 [ 0, %is_inside.exit ], [ 0, %31 ], [ 1, %.loopexit181 ], [ 0, %18 ], [ 1, %.loopexit ], [ 0, %12 ], [ 0, %26 ], [ 1, %is_inside.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %is_inside.exit ], [ 0, %31 ], [ 1, %.loopexit181 ], [ 1, %.loopexit ], [ 0, %26 ], [ 0, %18 ], [ 0, %12 ], [ 1, %is_inside.exit.thread.sink.split ]
   ret i32 %.0
 }
 

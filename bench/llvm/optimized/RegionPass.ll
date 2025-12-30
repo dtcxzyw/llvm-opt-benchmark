@@ -1491,7 +1491,7 @@ _ZSt4copyIPPPN4llvm6RegionES4_ET0_T_S6_S5_.exit26: ; preds = %_ZNSt11_Deque_base
   br label %_ZSt4copyIPPPN4llvm6RegionES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPPPN4llvm6RegionES4_ET0_T_S6_S5_.exit:  ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPN4llvm6RegionES4_ET0_T_S6_S5_.exit26
-  %.0 = phi ptr [ %53, %_ZSt4copyIPPPN4llvm6RegionES4_ET0_T_S6_S5_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %53, %_ZSt4copyIPPPN4llvm6RegionES4_ET0_T_S6_S5_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !40
   %60 = load ptr, ptr %.0, align 8, !tbaa !39
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24

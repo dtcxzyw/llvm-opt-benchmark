@@ -1952,7 +1952,7 @@ define range(i32 0, 2) i32 @xSAT_SolverAddClause(ptr noundef %0, ptr noundef %1)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %23, %.critedge.thread, %.critedge, %48, %42
-  %.0 = phi i32 [ 1, %48 ], [ %.135, %.critedge ], [ %47, %42 ], [ 0, %.critedge.thread ], [ 1, %23 ], [ 1, %18 ]
+  %.0 = phi i32 [ %47, %42 ], [ 1, %48 ], [ %.135, %.critedge ], [ 0, %.critedge.thread ], [ 1, %23 ], [ 1, %18 ]
   ret i32 %.0
 }
 

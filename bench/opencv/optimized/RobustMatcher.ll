@@ -501,8 +501,8 @@ _ZNSt6vectorIN2cv6DMatchESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norm
   br i1 %.not29, label %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit, label %25, !llvm.loop !50
 
 _ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit: ; preds = %70, %21, %48, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %11
-  %.pre47 = phi ptr [ %.pre46, %11 ], [ %.pre46, %21 ], [ %.pre46, %48 ], [ %.pre, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.pre46, %70 ]
-  %72 = phi ptr [ %12, %11 ], [ %12, %21 ], [ %12, %48 ], [ %.pre, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %12, %70 ]
+  %.pre47 = phi ptr [ %.pre46, %21 ], [ %.pre46, %48 ], [ %.pre, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.pre46, %11 ], [ %.pre46, %70 ]
+  %72 = phi ptr [ %12, %21 ], [ %12, %48 ], [ %.pre, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %12, %11 ], [ %12, %70 ]
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.020.042, i64 24
   %.not = icmp eq ptr %73, %72
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !51
@@ -1391,7 +1391,7 @@ _ZNSt6vectorIS_IN2cv6DMatchESaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyI
   ret void
 
 156:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt6vectorIcSaIcEED2Ev.exit39, %142, %82
-  %.pn31 = phi { ptr, i32 } [ %83, %82 ], [ %145, %_ZNSt6vectorIcSaIcEED2Ev.exit39 ], [ %143, %142 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn31 = phi { ptr, i32 } [ %145, %_ZNSt6vectorIcSaIcEED2Ev.exit39 ], [ %143, %142 ], [ %83, %82 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIS_IN2cv6DMatchESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %157

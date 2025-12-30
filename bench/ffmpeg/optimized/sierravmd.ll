@@ -46,7 +46,7 @@ define internal range(i32 0, 51) i32 @vmd_probe(ptr noundef readonly captures(no
   br label %20
 
 20:                                               ; preds = %9, %5, %1
-  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %., %9 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ %., %9 ]
   ret i32 %.0
 }
 
@@ -212,7 +212,7 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   br label %91
 
 91:                                               ; preds = %87, %69, %89
-  %.0153 = phi i32 [ 2, %69 ], [ 2, %89 ], [ 1, %87 ]
+  %.0153 = phi i32 [ 2, %89 ], [ 2, %69 ], [ 1, %87 ]
   %92 = getelementptr inbounds nuw i8, ptr %74, i64 128
   tail call void @av_channel_layout_default(ptr noundef nonnull %92, i32 noundef %.0153) #5
   %93 = load ptr, ptr %73, align 8, !tbaa !40
@@ -390,7 +390,7 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   br label %186
 
 186:                                              ; preds = %173, %174
-  %.3163.us = phi i32 [ %.1161213.us, %173 ], [ %185, %174 ]
+  %.3163.us = phi i32 [ %185, %174 ], [ %.1161213.us, %173 ]
   %187 = zext nneg i32 %168 to i64
   %188 = add nsw i64 %.0164212.us, %187
   br label %189
@@ -413,7 +413,7 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   br i1 %.not192, label %195, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us
-  %.us-phi = phi i32 [ %165, %.lr.ph.split.us.split ], [ %157, %.lr.ph.split.us.split.us ], [ %193, %.lr.ph.split ]
+  %.us-phi = phi i32 [ %157, %.lr.ph.split.us.split.us ], [ %165, %.lr.ph.split.us.split ], [ %193, %.lr.ph.split ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.2) #5
   %194 = icmp sgt i32 %.us-phi, -1
   %spec.store.select = select i1 %194, i32 -1094995529, i32 %.us-phi
@@ -486,8 +486,8 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   br label %229
 
 229:                                              ; preds = %203, %216, %217, %202
-  %.3163 = phi i32 [ %.1161213, %202 ], [ %214, %203 ], [ %228, %217 ], [ %.1161213, %216 ]
-  %.3 = phi i64 [ %.1158214, %202 ], [ %spec.select, %203 ], [ %.1158214, %217 ], [ %.1158214, %216 ]
+  %.3163 = phi i32 [ %.1161213, %202 ], [ %228, %217 ], [ %.1161213, %216 ], [ %214, %203 ]
+  %.3 = phi i64 [ %.1158214, %202 ], [ %.1158214, %217 ], [ %.1158214, %216 ], [ %spec.select, %203 ]
   %230 = zext nneg i32 %197 to i64
   %231 = add nsw i64 %.0164212, %230
   br label %232
@@ -502,9 +502,9 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   br i1 %235, label %.lr.ph.split, label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %232, %189, %161, %.lr.ph226.split
-  %236 = phi i32 [ 0, %.lr.ph226.split ], [ %191, %189 ], [ %163, %161 ], [ %234, %232 ]
-  %.1161.lcssa = phi i32 [ %.0160224, %.lr.ph226.split ], [ %.2162.us, %189 ], [ %.0160224, %161 ], [ %.2162, %232 ]
-  %.1158.lcssa = phi i64 [ %.0157225, %.lr.ph226.split ], [ %.0157225, %189 ], [ %.0157225, %161 ], [ %.2159, %232 ]
+  %236 = phi i32 [ 0, %.lr.ph226.split ], [ %163, %161 ], [ %191, %189 ], [ %234, %232 ]
+  %.1161.lcssa = phi i32 [ %.0160224, %.lr.ph226.split ], [ %.0160224, %161 ], [ %.2162.us, %189 ], [ %.2162, %232 ]
+  %.1158.lcssa = phi i64 [ %.0157225, %.lr.ph226.split ], [ %.0157225, %161 ], [ %.0157225, %189 ], [ %.2159, %232 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %237 = load i32, ptr %122, align 8, !tbaa !57
   %238 = zext i32 %237 to i64
@@ -519,12 +519,12 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   br label %.thread
 
 .thread:                                          ; preds = %.split217.us, %.split.us, %143, %116, %._crit_edge227
-  %.0167 = phi i32 [ -12, %116 ], [ -5, %143 ], [ 0, %._crit_edge227 ], [ -1094995529, %.split217.us ], [ %spec.store.select, %.split.us ]
+  %.0167 = phi i32 [ 0, %._crit_edge227 ], [ -12, %116 ], [ -5, %143 ], [ -1094995529, %.split217.us ], [ %spec.store.select, %.split.us ]
   call void @av_freep(ptr noundef nonnull %2) #5
   br label %.critedge
 
 .critedge:                                        ; preds = %67, %113, %55, %35, %1, %.thread
-  %.0 = phi i32 [ -5, %1 ], [ -12, %35 ], [ %.0167, %.thread ], [ -1094995529, %113 ], [ %56, %55 ], [ -12, %67 ]
+  %.0 = phi i32 [ %.0167, %.thread ], [ -5, %1 ], [ -12, %35 ], [ %56, %55 ], [ -1094995529, %113 ], [ -12, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

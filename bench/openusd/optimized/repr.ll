@@ -621,7 +621,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit10.thread: ; preds = 
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit.thread12
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit.thread12: ; preds = %45, %17, %41, %13, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit10, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit10.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit
-  %66 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit10 ], [ %65, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit10.thread ], [ false, %41 ], [ true, %13 ], [ true, %17 ], [ false, %45 ]
+  %66 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit10 ], [ %65, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit10.thread ], [ true, %13 ], [ false, %41 ], [ true, %17 ], [ false, %45 ]
   ret i1 %66
 }
 
@@ -748,7 +748,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit10.thread: ; preds = 
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit.thread12
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit.thread12: ; preds = %45, %17, %41, %13, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit10, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit10.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit
-  %66 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit10 ], [ %65, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit10.thread ], [ false, %41 ], [ true, %13 ], [ true, %17 ], [ false, %45 ]
+  %66 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit10 ], [ %65, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit10.thread ], [ true, %13 ], [ false, %41 ], [ true, %17 ], [ false, %45 ]
   ret i1 %66
 }
 
@@ -854,7 +854,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit.thread: ; preds = %_
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit.thread12: ; preds = %13, %52, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit.thread, %40, %15, %11, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit
-  %59 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit.thread ], [ false, %40 ], [ true, %15 ], [ true, %11 ], [ false, %52 ], [ false, %13 ]
+  %59 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit ], [ true, %11 ], [ true, %15 ], [ false, %40 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit.thread ], [ false, %52 ], [ false, %13 ]
   ret i1 %59
 }
 

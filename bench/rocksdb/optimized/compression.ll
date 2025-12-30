@@ -55,7 +55,7 @@ _ZN7rocksdb21ZSTDStreamingCompressC2ERKNS_18CompressionOptionsEjm.exit: ; preds 
   resume { ptr, i32 } %16
 
 17:                                               ; preds = %_ZN7rocksdb21ZSTDStreamingCompressC2ERKNS_18CompressionOptionsEjm.exit, %4
-  %.0 = phi ptr [ null, %4 ], [ %6, %_ZN7rocksdb21ZSTDStreamingCompressC2ERKNS_18CompressionOptionsEjm.exit ]
+  %.0 = phi ptr [ %6, %_ZN7rocksdb21ZSTDStreamingCompressC2ERKNS_18CompressionOptionsEjm.exit ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -98,7 +98,7 @@ _ZN7rocksdb23ZSTDStreamingUncompressC2Ejm.exit:   ; preds = %4
   resume { ptr, i32 } %13
 
 14:                                               ; preds = %_ZN7rocksdb23ZSTDStreamingUncompressC2Ejm.exit, %3
-  %.0 = phi ptr [ null, %3 ], [ %5, %_ZN7rocksdb23ZSTDStreamingUncompressC2Ejm.exit ]
+  %.0 = phi ptr [ %5, %_ZN7rocksdb23ZSTDStreamingUncompressC2Ejm.exit ], [ null, %3 ]
   ret ptr %.0
 }
 

@@ -6433,7 +6433,7 @@ define internal i32 @dissect_h245_NonStandardIdentifier(ptr noundef %0, i32 noun
   br label %18
 
 18:                                               ; preds = %5, %14, %10
-  %.sink = phi ptr [ %13, %10 ], [ %17, %14 ], [ null, %5 ]
+  %.sink = phi ptr [ %17, %14 ], [ %13, %10 ], [ null, %5 ]
   store ptr %.sink, ptr @nsp_handle, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %8

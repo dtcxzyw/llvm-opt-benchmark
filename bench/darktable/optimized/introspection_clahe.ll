@@ -123,7 +123,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   br label %42
 
 42:                                               ; preds = %41, %39, %29
-  %43 = phi reassoc nsz arcp contract afn double [ 1.000000e+00, %39 ], [ %37, %41 ], [ 0.000000e+00, %29 ]
+  %43 = phi reassoc nsz arcp contract afn double [ %37, %41 ], [ 1.000000e+00, %39 ], [ 0.000000e+00, %29 ]
   %44 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %32, float %34)
   %45 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %30, float %44)
   %46 = fpext float %45 to double
@@ -138,7 +138,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   br label %51
 
 51:                                               ; preds = %50, %48, %42
-  %52 = phi reassoc nsz arcp contract afn double [ 1.000000e+00, %48 ], [ %46, %50 ], [ 0.000000e+00, %42 ]
+  %52 = phi reassoc nsz arcp contract afn double [ %46, %50 ], [ 1.000000e+00, %48 ], [ 0.000000e+00, %42 ]
   %53 = fadd reassoc nsz arcp contract afn double %52, %43
   %54 = fmul reassoc nsz arcp contract afn double %53, 5.000000e-01
   %55 = fptrunc reassoc nsz arcp contract afn double %54 to float

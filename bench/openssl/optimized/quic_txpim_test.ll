@@ -116,7 +116,7 @@ define internal range(i32 0, 2) i32 @test_txpim() #0 {
   br i1 %.not37, label %.loopexit, label %5
 
 .loopexit:                                        ; preds = %5, %31, %35, %39, %28, %10, %.preheader41, %16, %0
-  %.0 = phi i32 [ 0, %16 ], [ 0, %0 ], [ 0, %.preheader41 ], [ 0, %10 ], [ 0, %28 ], [ 0, %31 ], [ 0, %35 ], [ 0, %39 ], [ 1, %5 ]
+  %.0 = phi i32 [ 0, %0 ], [ 0, %16 ], [ 1, %5 ], [ 0, %.preheader41 ], [ 0, %10 ], [ 0, %28 ], [ 0, %31 ], [ 0, %35 ], [ 0, %39 ]
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %.split47.us, label %.split
 

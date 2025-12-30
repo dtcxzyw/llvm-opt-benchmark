@@ -127,7 +127,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit.i
 
 _ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit.i: ; preds = %if.end.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i.i, %if.end.i
-  %retval.0.i.i = phi ptr [ %9, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %if.end.i ]
+  %retval.0.i.i = phi ptr [ %9, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i ], [ null, %if.end.i.i.i ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #13
   br label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit
 
@@ -377,7 +377,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
   br i1 %20, label %if.end39, label %do.body34
 
-do.body34.critedge22:                             ; preds = %if.end.i21, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
+do.body34.critedge22:                             ; preds = %if.end.i.i.i, %if.end.i21, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #13
   br label %do.body34.sink.split
 
@@ -908,7 +908,7 @@ if.end114:                                        ; preds = %if.end111
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end114, %if.end30, %if.then113
-  %retval.sroa.0.0 = phi ptr [ null, %if.end30 ], [ null, %if.then113 ], [ %.ret.sroa.0.0, %if.end114 ]
+  %retval.sroa.0.0 = phi ptr [ null, %if.then113 ], [ null, %if.end30 ], [ %.ret.sroa.0.0, %if.end114 ]
   call void @_ZN4node21InternalCallbackScope5CloseEv(ptr noundef nonnull align 8 dereferenceable(37) %scope)
   %26 = load ptr, ptr %scope, align 8
   %async_callback_scope_depth_.i.i = getelementptr inbounds nuw i8, ptr %26, i64 1408
@@ -1014,7 +1014,7 @@ if.end72:                                         ; preds = %if.end60
   br label %return
 
 return:                                           ; preds = %do.end22, %if.end29, %_ZNK4node11Environment16can_call_into_jsEv.exit, %if.end72, %if.then63
-  %retval.sroa.0.0 = phi ptr [ null, %_ZNK4node11Environment16can_call_into_jsEv.exit ], [ %call86, %if.end72 ], [ %13, %if.then63 ], [ null, %if.end29 ], [ null, %do.end22 ]
+  %retval.sroa.0.0 = phi ptr [ %call86, %if.end72 ], [ %13, %if.then63 ], [ null, %_ZNK4node11Environment16can_call_into_jsEv.exit ], [ null, %if.end29 ], [ null, %do.end22 ]
   ret ptr %retval.sroa.0.0
 }
 

@@ -207,8 +207,8 @@ thermal_hwmon_lookup_by_type.exit:                ; preds = %9
   br label %.thread14
 
 .thread14:                                        ; preds = %.thread, %88, %90, %29
-  %95 = phi ptr [ %91, %90 ], [ %41, %88 ], [ %18, %29 ], [ %10, %.thread ]
-  %96 = phi i32 [ %92, %90 ], [ %89, %88 ], [ %31, %29 ], [ -12, %.thread ]
+  %95 = phi ptr [ %91, %90 ], [ %18, %29 ], [ %41, %88 ], [ %10, %.thread ]
+  %96 = phi i32 [ %92, %90 ], [ %31, %29 ], [ %89, %88 ], [ -12, %.thread ]
   call void @kfree(ptr noundef nonnull %95) #9
   br label %97
 

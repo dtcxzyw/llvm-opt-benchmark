@@ -101,7 +101,7 @@ define internal range(i32 0, 2) i32 @test_offset(i32 noundef %0) #0 {
   br label %30
 
 30:                                               ; preds = %29, %26, %24, %21
-  %.0 = phi i32 [ 1, %26 ], [ 1, %21 ], [ -1, %24 ], [ %., %29 ]
+  %.0 = phi i32 [ 1, %21 ], [ -1, %24 ], [ 1, %26 ], [ %., %29 ]
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !19
   %33 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 94, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %32, i32 noundef %.0) #4
@@ -127,7 +127,7 @@ define internal range(i32 0, 2) i32 @test_offset(i32 noundef %0) #0 {
   br label %43
 
 43:                                               ; preds = %38, %41, %34, %19
-  %.08 = phi i32 [ 0, %19 ], [ 0, %41 ], [ 0, %34 ], [ 1, %38 ]
+  %.08 = phi i32 [ 0, %41 ], [ 0, %34 ], [ 0, %19 ], [ 1, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

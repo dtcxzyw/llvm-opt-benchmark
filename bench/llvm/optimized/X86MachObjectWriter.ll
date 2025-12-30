@@ -576,7 +576,7 @@ _ZNK4llvm8MCSymbol11isInSectionEv.exit232.i:      ; preds = %_ZNK4llvm8MCSymbol9
   br label %290
 
 _ZNK4llvm8MCSymbol11isInSectionEv.exit232.thread.i: ; preds = %_ZNK4llvm8MCSymbol11isInSectionEv.exit232.i, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i230.i, %213
-  %242 = phi i64 [ %.pre61.i, %_ZNK4llvm8MCSymbol11isInSectionEv.exit232.i ], [ %.pre61.pre.i, %213 ], [ %.pre61.pre62.i, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i230.i ]
+  %242 = phi i64 [ %.pre61.pre.i, %213 ], [ %.pre61.i, %_ZNK4llvm8MCSymbol11isInSectionEv.exit232.i ], [ %.pre61.pre62.i, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i230.i ]
   %243 = and i64 %242, 28672
   %244 = icmp eq i64 %243, 8192
   br i1 %244, label %245, label %270
@@ -1211,7 +1211,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL20getFixupKindLog2Sizej(i
   br label %6
 
 6:                                                ; preds = %1, %1, %5, %4, %3
-  %.0 = phi i32 [ 3, %5 ], [ 1, %3 ], [ 2, %4 ], [ 0, %1 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %3 ], [ 2, %4 ], [ 3, %5 ], [ 0, %1 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -1252,7 +1252,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm8MCSymbol11isUndefinedEb
   br label %_ZNK4llvm8MCSymbol11getFragmentEb.exit
 
 _ZNK4llvm8MCSymbol11getFragmentEb.exit:           ; preds = %2, %4, %8
-  %.0.i = phi i1 [ %15, %8 ], [ false, %2 ], [ true, %4 ]
+  %.0.i = phi i1 [ %15, %8 ], [ true, %4 ], [ false, %2 ]
   ret i1 %.0.i
 }
 
@@ -1357,7 +1357,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm8MCSymbol11getFragmentEb(ptr no
   br label %15
 
 15:                                               ; preds = %2, %4, %8
-  %.0 = phi ptr [ %14, %8 ], [ %3, %2 ], [ null, %4 ]
+  %.0 = phi ptr [ %14, %8 ], [ null, %4 ], [ %3, %2 ]
   ret ptr %.0
 }
 

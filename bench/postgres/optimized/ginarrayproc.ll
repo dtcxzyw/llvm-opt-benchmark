@@ -207,7 +207,7 @@ define dso_local i64 @ginqueryarrayextract(ptr noundef readonly captures(none) %
   unreachable
 
 43:                                               ; preds = %36, %33, %1, %35
-  %.sink = phi i32 [ %.17, %36 ], [ 1, %35 ], [ %., %33 ], [ 0, %1 ]
+  %.sink = phi i32 [ 1, %35 ], [ 0, %1 ], [ %., %33 ], [ %.17, %36 ]
   %44 = inttoptr i64 %22 to ptr
   store i32 %.sink, ptr %44, align 4
   %45 = load ptr, ptr %5, align 8
@@ -333,7 +333,7 @@ define dso_local range(i64 0, 2) i64 @ginarrayconsistent(ptr noundef readonly ca
   unreachable
 
 .loopexit:                                        ; preds = %40, %.lr.ph, %29, %33, %.lr.ph39, %26, %22, %38, %27, %17, %37
-  %.030 = phi i64 [ 0, %.lr.ph39 ], [ 1, %37 ], [ 1, %38 ], [ 1, %27 ], [ 0, %17 ], [ 1, %22 ], [ 0, %26 ], [ 0, %33 ], [ 1, %29 ], [ 0, %.lr.ph ], [ 1, %40 ]
+  %.030 = phi i64 [ 1, %37 ], [ 0, %17 ], [ 1, %27 ], [ 1, %38 ], [ 0, %26 ], [ 1, %22 ], [ 1, %29 ], [ 0, %33 ], [ 0, %.lr.ph39 ], [ 1, %40 ], [ 0, %.lr.ph ]
   ret i64 %.030
 }
 
@@ -451,7 +451,7 @@ define dso_local range(i64 0, 3) i64 @ginarraytriconsistent(ptr noundef readonly
   unreachable
 
 .loopexit:                                        ; preds = %37, %.lr.ph, %35, %31, %.lr.ph48, %27, %20, %.preheader40, %.preheader37, %.preheader, %1
-  %.234 = phi i8 [ 2, %1 ], [ 0, %.lr.ph48 ], [ 2, %.preheader40 ], [ 1, %.preheader37 ], [ 0, %.preheader ], [ 1, %20 ], [ %.133, %27 ], [ 0, %31 ], [ %spec.select, %35 ], [ 0, %.lr.ph ], [ 2, %37 ]
+  %.234 = phi i8 [ 2, %1 ], [ 0, %.preheader ], [ 1, %.preheader37 ], [ 2, %.preheader40 ], [ %.133, %27 ], [ 1, %20 ], [ %spec.select, %35 ], [ 0, %31 ], [ 0, %.lr.ph48 ], [ 2, %37 ], [ 0, %.lr.ph ]
   %46 = zext nneg i8 %.234 to i64
   ret i64 %46
 }

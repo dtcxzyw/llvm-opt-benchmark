@@ -512,7 +512,7 @@ sub_1:                                            ; preds = %sub_0
   br label %14
 
 14:                                               ; preds = %11, %.tail, %9
-  %.0 = phi ptr [ %0, %.tail ], [ %spec.select, %11 ], [ %10, %9 ]
+  %.0 = phi ptr [ %10, %9 ], [ %0, %.tail ], [ %spec.select, %11 ]
   ret ptr %.0
 }
 
@@ -537,7 +537,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %7
 
 7:                                                ; preds = %5, %3, %1
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ %., %5 ], [ @introspection_linear, %1 ]
+  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ %., %5 ]
   ret ptr %.0
 }
 

@@ -458,7 +458,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_getcwd(ptr noundef %0, ptr noun
   br label %throwUnixException.exit
 
 throwUnixException.exit:                          ; preds = %10, %6, %15, %22
-  %.0 = phi ptr [ null, %15 ], [ %21, %22 ], [ null, %6 ], [ null, %10 ]
+  %.0 = phi ptr [ %21, %22 ], [ null, %15 ], [ null, %6 ], [ null, %10 ]
   ret ptr %.0
 }
 
@@ -703,7 +703,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_openat0(ptr noundef %0, ptr nou
   br label %.critedge10
 
 .critedge10:                                      ; preds = %.preheader, %19, %.critedge, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %19 ], [ -1, %.critedge ], [ %12, %.preheader ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %.critedge ], [ -1, %19 ], [ %12, %.preheader ]
   ret i32 %.0
 }
 
@@ -1884,7 +1884,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_readdir0(ptr noundef %0, ptr no
   br label %throwUnixException.exit
 
 throwUnixException.exit:                          ; preds = %12, %10, %17, %25, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %17 ], [ %24, %25 ], [ null, %10 ], [ null, %12 ]
+  %.0 = phi ptr [ null, %8 ], [ %24, %25 ], [ null, %17 ], [ null, %10 ], [ null, %12 ]
   ret ptr %.0
 }
 
@@ -2198,7 +2198,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_readlink0(ptr noundef %0, ptr n
   br label %throwUnixException.exit
 
 throwUnixException.exit:                          ; preds = %22, %20, %13, %9, %36, %27
-  %.0 = phi ptr [ null, %13 ], [ null, %27 ], [ %35, %36 ], [ null, %9 ], [ null, %20 ], [ null, %22 ]
+  %.0 = phi ptr [ %35, %36 ], [ null, %27 ], [ null, %9 ], [ null, %13 ], [ null, %20 ], [ null, %22 ]
   ret ptr %.0
 }
 
@@ -2245,7 +2245,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_realpath0(ptr noundef %0, ptr n
   br label %throwUnixException.exit
 
 throwUnixException.exit:                          ; preds = %12, %8, %17, %24
-  %.0 = phi ptr [ null, %17 ], [ %23, %24 ], [ null, %8 ], [ null, %12 ]
+  %.0 = phi ptr [ %23, %24 ], [ null, %17 ], [ null, %8 ], [ null, %12 ]
   ret ptr %.0
 }
 
@@ -2475,7 +2475,7 @@ thread-pre-split:                                 ; preds = %.critedge, %26, %29
   br label %throwUnixException.exit
 
 throwUnixException.exit:                          ; preds = %38, %35, %43, %50
-  %.1 = phi ptr [ null, %43 ], [ %49, %50 ], [ null, %35 ], [ null, %38 ]
+  %.1 = phi ptr [ %49, %50 ], [ null, %43 ], [ null, %35 ], [ null, %38 ]
   call void @free(ptr noundef nonnull %12) #11
   br label %56
 
@@ -2597,8 +2597,8 @@ thread-pre-split:                                 ; preds = %.critedge, %26, %29
   call void %51(ptr noundef nonnull %0, ptr noundef nonnull %47, i32 noundef 0, i32 noundef %43, ptr noundef %53) #11
   br label %throwUnixException.exit.thread
 
-throwUnixException.exit.thread:                   ; preds = %41, %48, %.loopexit, %36
-  %.1.ph = phi ptr [ null, %36 ], [ null, %.loopexit ], [ %47, %48 ], [ null, %41 ]
+throwUnixException.exit.thread:                   ; preds = %48, %41, %.loopexit, %36
+  %.1.ph = phi ptr [ null, %36 ], [ null, %.loopexit ], [ null, %41 ], [ %47, %48 ]
   call void @free(ptr noundef %16) #11
   br label %56
 

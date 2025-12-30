@@ -195,7 +195,7 @@ define hidden range(i32 0, 2) i32 @_glfwIsValidContextConfig(ptr noundef readonl
   br label %67
 
 .thread:                                          ; preds = %31, %32, %34
-  %36 = phi i1 [ false, %31 ], [ true, %34 ], [ false, %32 ]
+  %36 = phi i1 [ true, %34 ], [ false, %32 ], [ false, %31 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %38 = load i32, ptr %37, align 4, !tbaa !58
   switch i32 %38, label %39 [
@@ -569,7 +569,7 @@ define hidden ptr @_glfwChooseFBConfig(ptr noundef readonly captures(none) %0, p
   br label %158
 
 158:                                              ; preds = %154, %152
-  %.8 = phi i32 [ %spec.select163, %154 ], [ %.7, %152 ]
+  %.8 = phi i32 [ %.7, %152 ], [ %spec.select163, %154 ]
   %159 = icmp ult i32 %spec.select162, %.0125166
   br i1 %159, label %.thread, label %160
 
@@ -1258,7 +1258,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   br label %glfwMakeContextCurrent.exit122
 
 glfwMakeContextCurrent.exit122:                   ; preds = %.thread17.i155, %.thread20.i157, %256, %255, %248, %.thread17.i146, %.thread20.i148, %153, %152, %145, %.thread17.i137, %.thread20.i139, %113, %112, %105, %.thread17.i128, %.thread20.i130, %76, %75, %68, %.thread17.i119, %.thread20.i121, %49, %48, %41, %glfwMakeContextCurrent.exit, %172
-  %.0 = phi i32 [ 0, %glfwMakeContextCurrent.exit ], [ 0, %.thread17.i137 ], [ 0, %.thread17.i146 ], [ 0, %172 ], [ 0, %.thread17.i128 ], [ 0, %.thread17.i119 ], [ 0, %41 ], [ 0, %48 ], [ 0, %49 ], [ 0, %.thread20.i121 ], [ 0, %68 ], [ 0, %75 ], [ 0, %76 ], [ 0, %.thread20.i130 ], [ 0, %105 ], [ 0, %112 ], [ 0, %113 ], [ 0, %.thread20.i139 ], [ 0, %145 ], [ 0, %152 ], [ 0, %153 ], [ 0, %.thread20.i148 ], [ 1, %248 ], [ 1, %255 ], [ 1, %256 ], [ 1, %.thread20.i157 ], [ 1, %.thread17.i155 ]
+  %.0 = phi i32 [ 0, %172 ], [ 0, %glfwMakeContextCurrent.exit ], [ 0, %41 ], [ 0, %48 ], [ 0, %49 ], [ 0, %.thread20.i121 ], [ 0, %.thread17.i119 ], [ 0, %68 ], [ 0, %75 ], [ 0, %76 ], [ 0, %.thread20.i130 ], [ 0, %.thread17.i128 ], [ 0, %105 ], [ 0, %112 ], [ 0, %113 ], [ 0, %.thread20.i139 ], [ 0, %.thread17.i137 ], [ 0, %145 ], [ 0, %152 ], [ 0, %153 ], [ 0, %.thread20.i148 ], [ 0, %.thread17.i146 ], [ 1, %248 ], [ 1, %255 ], [ 1, %256 ], [ 1, %.thread20.i157 ], [ 1, %.thread17.i155 ]
   ret i32 %.0
 }
 
@@ -1467,7 +1467,7 @@ define i32 @glfwExtensionSupported(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %44, %44, %.thread40, %.thread38, %.thread44, %11, %7, %4
-  %.0 = phi i32 [ 0, %11 ], [ %50, %.thread44 ], [ %.3.ph, %.thread38 ], [ 0, %.thread40 ], [ 0, %7 ], [ 0, %4 ], [ 1, %44 ], [ 1, %44 ]
+  %.0 = phi i32 [ 0, %11 ], [ %50, %.thread44 ], [ 0, %7 ], [ 0, %4 ], [ %.3.ph, %.thread38 ], [ 0, %.thread40 ], [ 1, %44 ], [ 1, %44 ]
   ret i32 %.0
 }
 

@@ -549,7 +549,7 @@ init_gaussian_kernel.exit:                        ; preds = %41
   br i1 %197, label %193, label %.loopexit
 
 .loopexit:                                        ; preds = %193, %.preheader224, %100
-  %198 = phi i32 [ %.pre, %100 ], [ %96, %.preheader224 ], [ %96, %193 ]
+  %198 = phi i32 [ %96, %.preheader224 ], [ %.pre, %100 ], [ %96, %193 ]
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %199 = sext i32 %198 to i64
   %200 = icmp slt i64 %indvars.iv.next292, %199
@@ -749,7 +749,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %11
 
 11:                                               ; preds = %8, %2, %6
-  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %8 ], [ %7, %6 ]
+  %.0 = phi ptr [ %7, %6 ], [ %0, %2 ], [ %spec.select, %8 ]
   ret ptr %.0
 }
 
@@ -774,7 +774,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %7
 
 7:                                                ; preds = %5, %3, %1
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ %., %5 ], [ @introspection_linear, %1 ]
+  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ %., %5 ]
   ret ptr %.0
 }
 

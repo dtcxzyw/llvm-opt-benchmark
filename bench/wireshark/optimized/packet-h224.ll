@@ -486,7 +486,7 @@ define internal noundef i32 @dissect_h224_cme_client_data(ptr noundef %0, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %3, %33, %62, %64, %26
-  %.1 = phi i32 [ %2, %3 ], [ %74, %64 ], [ %32, %26 ], [ %63, %62 ], [ %43, %33 ], [ %18, %8 ], [ %24, %.lr.ph ]
+  %.1 = phi i32 [ %2, %3 ], [ %32, %26 ], [ %63, %62 ], [ %43, %33 ], [ %74, %64 ], [ %18, %8 ], [ %24, %.lr.ph ]
   ret i32 %.1
 }
 

@@ -359,8 +359,8 @@ define internal i32 @dissect_vsif(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %66, %70, %35, %31, %.lr.ph56..loopexit_crit_edge.i
-  %.pre-phi.i = phi i32 [ %.pre.i, %.lr.ph56..loopexit_crit_edge.i ], [ %33, %31 ], [ %36, %35 ], [ %72, %70 ], [ %67, %66 ]
-  %.1.i = phi i32 [ %29, %.lr.ph56..loopexit_crit_edge.i ], [ %29, %31 ], [ %29, %35 ], [ %29, %70 ], [ %68, %66 ]
+  %.pre-phi.i = phi i32 [ %.pre.i, %.lr.ph56..loopexit_crit_edge.i ], [ %36, %35 ], [ %72, %70 ], [ %33, %31 ], [ %67, %66 ]
+  %.1.i = phi i32 [ %29, %.lr.ph56..loopexit_crit_edge.i ], [ %29, %35 ], [ %29, %70 ], [ %29, %31 ], [ %68, %66 ]
   %74 = add i32 %.1.i, %.pre-phi.i
   %75 = icmp slt i32 %74, %7
   br i1 %75, label %.lr.ph56.i, label %dissect_cisco.exit, !llvm.loop !8
@@ -539,7 +539,7 @@ dissect_sav_static_prefix_rule.exit.sink.split.i.i: ; preds = %155, %.lr.ph.i55.
   br label %dissect_sav_static_prefix_rule.exit.i.i
 
 dissect_sav_static_prefix_rule.exit.i.i:          ; preds = %151, %dissect_sav_static_prefix_rule.exit.sink.split.i.i, %118
-  %.pre-phi69.i = phi i32 [ %123, %118 ], [ %.pre.i32, %dissect_sav_static_prefix_rule.exit.sink.split.i.i ], [ %123, %151 ]
+  %.pre-phi69.i = phi i32 [ %.pre.i32, %dissect_sav_static_prefix_rule.exit.sink.split.i.i ], [ %123, %118 ], [ %123, %151 ]
   %158 = icmp slt i32 %.pre-phi69.i, %111
   br i1 %158, label %.lr.ph.i55.i, label %dissect_extended_cmts_mic.exit.i, !llvm.loop !11
 
@@ -825,7 +825,7 @@ dissect_sav_static_prefix_rule.exit.i.i:          ; preds = %151, %dissect_sav_s
   br label %dissect_ip_multicast_join_authorization_static_session_rule.exit.i.i
 
 dissect_ip_multicast_join_authorization_static_session_rule.exit.i.i: ; preds = %288, %299, %296, %224, %221
-  %.pre-phi.i60.i = phi i32 [ %217, %221 ], [ %226, %224 ], [ %301, %299 ], [ %293, %296 ], [ %226, %288 ]
+  %.pre-phi.i60.i = phi i32 [ %226, %224 ], [ %301, %299 ], [ %293, %296 ], [ %217, %221 ], [ %226, %288 ]
   %303 = add i32 %.pre-phi.i60.i, %214
   %304 = icmp slt i32 %303, %210
   br i1 %304, label %.lr.ph.i58.i, label %dissect_extended_cmts_mic.exit.i, !llvm.loop !14
@@ -844,7 +844,7 @@ dissect_extended_cmts_mic.exit.sink.split.i:      ; preds = %306, %305, %86, %85
   br label %dissect_extended_cmts_mic.exit.i
 
 dissect_extended_cmts_mic.exit.i:                 ; preds = %dissect_ip_multicast_join_authorization_static_session_rule.exit.i.i, %202, %dissect_sav_static_prefix_rule.exit.i.i, %101, %dissect_extended_cmts_mic.exit.sink.split.i, %205, %159, %106, %87
-  %.pre-phi = phi i32 [ %164, %202 ], [ %111, %dissect_sav_static_prefix_rule.exit.i.i ], [ %92, %101 ], [ %92, %87 ], [ %.pre, %dissect_extended_cmts_mic.exit.sink.split.i ], [ %210, %205 ], [ %164, %159 ], [ %111, %106 ], [ %210, %dissect_ip_multicast_join_authorization_static_session_rule.exit.i.i ]
+  %.pre-phi = phi i32 [ %.pre, %dissect_extended_cmts_mic.exit.sink.split.i ], [ %210, %205 ], [ %164, %159 ], [ %111, %106 ], [ %92, %87 ], [ %92, %101 ], [ %111, %dissect_sav_static_prefix_rule.exit.i.i ], [ %164, %202 ], [ %210, %dissect_ip_multicast_join_authorization_static_session_rule.exit.i.i ]
   %309 = icmp slt i32 %.pre-phi, %7
   br i1 %309, label %.lr.ph.i31, label %dissect_general_extension_information.exit, !llvm.loop !15
 

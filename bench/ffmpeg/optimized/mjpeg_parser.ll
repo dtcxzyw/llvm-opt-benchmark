@@ -88,8 +88,8 @@ thread-pre-split.i:                               ; preds = %33, %20
   br label %.backedge107.i
 
 .backedge107.i:                                   ; preds = %46, %41
-  %.181.be.i = phi i32 [ %47, %46 ], [ %43, %41 ]
-  %.1.be.i = phi i32 [ %26, %46 ], [ 0, %41 ]
+  %.181.be.i = phi i32 [ %43, %41 ], [ %47, %46 ]
+  %.1.be.i = phi i32 [ 0, %41 ], [ %26, %46 ]
   %45 = icmp slt i32 %.181.be.i, %5
   br i1 %45, label %20, label %.loopexit.i, !llvm.loop !22
 
@@ -179,8 +179,8 @@ thread-pre-split127.i:                            ; preds = %71, %69, %52
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %83, %78
-  %.282.be.i = phi i32 [ %84, %83 ], [ %80, %78 ]
-  %.3.be.i = phi i32 [ %.4.i, %83 ], [ 0, %78 ]
+  %.282.be.i = phi i32 [ %80, %78 ], [ %84, %83 ]
+  %.3.be.i = phi i32 [ 0, %78 ], [ %.4.i, %83 ]
   %82 = icmp slt i32 %.282.be.i, %5
   br i1 %82, label %52, label %.loopexit.i, !llvm.loop !24
 
@@ -196,7 +196,7 @@ thread-pre-split127.i:                            ; preds = %71, %69, %52
   br label %find_frame_end.exit
 
 find_frame_end.exit:                              ; preds = %48, %63, %.loopexit.i
-  %.0.i = phi i32 [ -100, %.loopexit.i ], [ %64, %63 ], [ 0, %48 ]
+  %.0.i = phi i32 [ %64, %63 ], [ -100, %.loopexit.i ], [ 0, %48 ]
   %85 = call i32 @ff_combine_frame(ptr noundef nonnull %13, i32 noundef %.0.i, ptr noundef nonnull %7, ptr noundef nonnull %8) #3
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %87, label %find_frame_end.exit._crit_edge

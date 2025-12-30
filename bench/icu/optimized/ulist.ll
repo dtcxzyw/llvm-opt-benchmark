@@ -23,7 +23,7 @@ define noalias noundef ptr @ulist_createEmptyList_77(ptr noundef captures(none) 
   br label %9
 
 9:                                                ; preds = %1, %8, %7
-  %.0 = phi ptr [ %5, %8 ], [ null, %7 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %7 ], [ %5, %8 ], [ null, %1 ]
   ret ptr %.0
 }
 

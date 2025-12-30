@@ -493,7 +493,7 @@ cf_hc_baller_reply_ms.exit.i:                     ; preds = %166, %162, %159
   tail call void @Curl_expire(ptr noundef %1, i64 noundef %198, i32 noundef 14) #4
   br label %time_to_start_next.exit
 
-199:                                              ; preds = %174, %108, %136, %125, %120, %116, %109, %153, %148, %144, %137, %191, %186, %175, %182
+199:                                              ; preds = %125, %120, %116, %109, %108, %153, %148, %144, %137, %136, %191, %186, %182, %175, %174
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %201 = load ptr, ptr %200, align 8, !tbaa !102
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 1410
@@ -674,7 +674,7 @@ cf_hc_baller_is_active.exit173.thread:            ; preds = %cf_hc_baller_is_act
   br label %284
 
 284:                                              ; preds = %283, %278, %274, %267, %._crit_edge.thread
-  %285 = phi i64 [ %.pre189, %283 ], [ %260, %278 ], [ %260, %._crit_edge.thread ], [ %260, %274 ], [ %260, %267 ]
+  %285 = phi i64 [ %.pre189, %283 ], [ %260, %278 ], [ %260, %274 ], [ %260, %267 ], [ %260, %._crit_edge.thread ]
   %.not187 = icmp eq i64 %285, 0
   br i1 %.not187, label %._crit_edge182, label %.lr.ph181
 
@@ -1000,7 +1000,7 @@ cf_hc_baller_is_active.exit.thread:               ; preds = %14, %32, %24, %cf_h
   %exitcond72.not = icmp eq i64 %51, %36
   br i1 %exitcond72.not, label %.loopexit, label %.lr.ph66, !llvm.loop !125
 
-.loopexit:                                        ; preds = %.lr.ph66, %._crit_edge, %._crit_edge.thread, %._crit_edge63
+.loopexit:                                        ; preds = %.lr.ph66, %._crit_edge.thread, %._crit_edge, %._crit_edge63
   %52 = phi i8 [ %45, %._crit_edge63 ], [ 1, %._crit_edge ], [ 1, %._crit_edge.thread ], [ 1, %.lr.ph66 ]
   %.2 = phi i32 [ 0, %._crit_edge63 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %spec.select, %.lr.ph66 ]
   %.not52 = icmp eq ptr %1, null
@@ -1508,7 +1508,7 @@ cf_hc_baller_needs_flush.exit.thread:             ; preds = %cf_hc_baller_needs_
   br label %89
 
 89:                                               ; preds = %84, %.loopexit, %78, %cf_get_max_baller_time.exit48, %cf_get_max_baller_time.exit
-  %.0 = phi i32 [ 0, %78 ], [ 0, %cf_get_max_baller_time.exit ], [ 0, %cf_get_max_baller_time.exit48 ], [ %88, %84 ], [ 48, %.loopexit ]
+  %.0 = phi i32 [ 0, %cf_get_max_baller_time.exit ], [ 0, %cf_get_max_baller_time.exit48 ], [ 0, %78 ], [ %88, %84 ], [ 48, %.loopexit ]
   ret i32 %.0
 }
 
@@ -1746,7 +1746,7 @@ cf_hc_baller_reset.exit.i.i.i:                    ; preds = %80, %75
   br label %93
 
 cf_hc_create.exit.i:                              ; preds = %68, %25
-  %.03758.i.i = phi i32 [ 27, %25 ], [ %45, %68 ]
+  %.03758.i.i = phi i32 [ %45, %68 ], [ 27, %25 ]
   %92 = load ptr, ptr @Curl_cfree, align 8, !tbaa !97
   call void %92(ptr noundef %27) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1761,7 +1761,7 @@ cf_hc_create.exit.i:                              ; preds = %68, %25
   br label %cf_http_connect_add.exit
 
 cf_http_connect_add.exit:                         ; preds = %93, %cf_hc_create.exit.i, %4, %14
-  %.1 = phi i32 [ 0, %4 ], [ %15, %14 ], [ %.03758.i.i, %cf_hc_create.exit.i ], [ 0, %93 ]
+  %.1 = phi i32 [ %15, %14 ], [ 0, %4 ], [ %.03758.i.i, %cf_hc_create.exit.i ], [ 0, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }

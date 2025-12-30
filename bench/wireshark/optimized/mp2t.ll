@@ -392,7 +392,7 @@ define hidden range(i32 -1, 2) i32 @mp2t_open(ptr noundef captures(none) %0, ptr
   br i1 %212, label %mp2t_bits_per_second.exit.thread, label %mp2t_bits_per_second.exit
 
 mp2t_bits_per_second.exit:                        ; preds = %170, %109, %206
-  %.0113 = phi i64 [ 26970350, %109 ], [ %211, %206 ], [ 26970350, %170 ]
+  %.0113 = phi i64 [ %211, %206 ], [ 26970350, %109 ], [ 26970350, %170 ]
   %213 = call i32 @llvm.umin.i32(i32 %.0104164, i32 %79)
   %214 = sub i32 %.0104164, %213
   %215 = load ptr, ptr %0, align 8
@@ -429,8 +429,8 @@ mp2t_bits_per_second.exit:                        ; preds = %170, %109, %206
   store i64 %.0113, ptr %229, align 8
   br label %mp2t_bits_per_second.exit.thread
 
-mp2t_bits_per_second.exit.thread:                 ; preds = %19, %54, %38, %36, %.preheader119, %67, %63, %72, %.preheader122, %206, %111, %186, %170, %172, %109, %mp2t_bits_per_second.exit, %.loopexit, %49, %28, %26, %9, %219
-  %.0 = phi i32 [ 0, %63 ], [ -1, %172 ], [ -1, %.loopexit ], [ -1, %mp2t_bits_per_second.exit ], [ 1, %219 ], [ 0, %28 ], [ %., %9 ], [ %.112, %49 ], [ 0, %186 ], [ 0, %170 ], [ -1, %.preheader122 ], [ -1, %54 ], [ -1, %26 ], [ -1, %206 ], [ 0, %109 ], [ -1, %111 ], [ -1, %67 ], [ 0, %72 ], [ 0, %36 ], [ 0, %.preheader119 ], [ -1, %38 ], [ 0, %19 ]
+mp2t_bits_per_second.exit.thread:                 ; preds = %19, %54, %38, %36, %.preheader119, %67, %63, %72, %.preheader122, %206, %186, %170, %109, %111, %172, %mp2t_bits_per_second.exit, %.loopexit, %49, %28, %26, %9, %219
+  %.0 = phi i32 [ 1, %219 ], [ %., %9 ], [ -1, %26 ], [ 0, %28 ], [ %.112, %49 ], [ -1, %.loopexit ], [ -1, %mp2t_bits_per_second.exit ], [ 0, %186 ], [ 0, %170 ], [ 0, %109 ], [ -1, %111 ], [ -1, %172 ], [ -1, %206 ], [ -1, %.preheader122 ], [ 0, %72 ], [ 0, %63 ], [ -1, %67 ], [ 0, %.preheader119 ], [ -1, %54 ], [ -1, %38 ], [ 0, %36 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -512,7 +512,7 @@ define internal noundef zeroext i1 @mp2t_read(ptr noundef readonly captures(none
   br label %mp2t_read_packet.exit
 
 mp2t_read_packet.exit:                            ; preds = %14, %44, %10, %48
-  %.0 = phi i1 [ true, %48 ], [ false, %44 ], [ false, %10 ], [ false, %14 ]
+  %.0 = phi i1 [ true, %48 ], [ false, %10 ], [ false, %44 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -576,7 +576,7 @@ mp2t_read_packet.exit:                            ; preds = %10
   br label %40
 
 40:                                               ; preds = %mp2t_read_packet.exit.thread, %mp2t_read_packet.exit, %39, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %mp2t_read_packet.exit ], [ false, %39 ], [ true, %mp2t_read_packet.exit.thread ]
+  %.0 = phi i1 [ false, %5 ], [ false, %39 ], [ false, %mp2t_read_packet.exit ], [ true, %mp2t_read_packet.exit.thread ]
   ret i1 %.0
 }
 

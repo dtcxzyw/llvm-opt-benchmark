@@ -534,7 +534,7 @@ define dso_local void @llvm_emit_builtin_args_types3(ptr noundef %0, ptr noundef
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %17, %7, %13
-  %.054 = phi i32 [ 0, %7 ], [ 0, %13 ], [ %15, %17 ]
+  %.054 = phi i32 [ 0, %13 ], [ 0, %7 ], [ %15, %17 ]
   %.not42 = icmp eq ptr %4, null
   br i1 %.not42, label %24, label %22
 
@@ -1403,7 +1403,7 @@ default.unreachable825:                           ; preds = %382
   unreachable
 
 403:                                              ; preds = %382, %402, %401, %400, %399, %398, %397, %394, %391, %389, %387
-  %.0752 = phi i32 [ 16, %402 ], [ %388, %387 ], [ %390, %389 ], [ %393, %391 ], [ %396, %394 ], [ 5, %397 ], [ 6, %398 ], [ 4, %399 ], [ 3, %400 ], [ 15, %401 ], [ 0, %382 ]
+  %.0752 = phi i32 [ %388, %387 ], [ %390, %389 ], [ %393, %391 ], [ %396, %394 ], [ 5, %397 ], [ 6, %398 ], [ 4, %399 ], [ 3, %400 ], [ 15, %401 ], [ 16, %402 ], [ 0, %382 ]
   %404 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %405 = load ptr, ptr %404, align 8
   %406 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -3384,7 +3384,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
-  %.0 = phi ptr [ %4, %44 ], [ %25, %24 ], [ %29, %26 ], [ %62, %61 ], [ %43, %42 ], [ %4, %37 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %4, %.backedge ]
+  %.0 = phi ptr [ %25, %24 ], [ %29, %26 ], [ %43, %42 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %62, %61 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
   ret ptr %.0
 }
 

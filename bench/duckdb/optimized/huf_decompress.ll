@@ -412,7 +412,7 @@ _ZN11duckdb_zstdL16HUF_rescaleStatsEPhPjjjj.exit: ; preds = %16
   br i1 %exitcond287.not, label %.critedge, label %94, !llvm.loop !23
 
 .critedge:                                        ; preds = %.loopexit, %_ZN11duckdb_zstdL16HUF_rescaleStatsEPhPjjjj.exit, %11, %6
-  %.0 = phi i64 [ -44, %_ZN11duckdb_zstdL16HUF_rescaleStatsEPhPjjjj.exit ], [ -44, %6 ], [ %14, %11 ], [ %14, %.loopexit ]
+  %.0 = phi i64 [ -44, %6 ], [ %14, %11 ], [ -44, %_ZN11duckdb_zstdL16HUF_rescaleStatsEPhPjjjj.exit ], [ %14, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
@@ -1323,9 +1323,9 @@ _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.i: ; preds = %1
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %104, %98
-  %.sroa.31.7.i = phi i32 [ %101, %98 ], [ %110, %104 ]
-  %.pn199.i = phi i64 [ %100, %98 ], [ %108, %104 ]
-  %.022.i.i = phi i1 [ true, %98 ], [ %107, %104 ]
+  %.sroa.31.7.i = phi i32 [ %110, %104 ], [ %101, %98 ]
+  %.pn199.i = phi i64 [ %108, %104 ], [ %100, %98 ]
+  %.022.i.i = phi i1 [ %107, %104 ], [ true, %98 ]
   %.sroa.9789.5.idx.i = sub nsw i64 %.sroa.9789.4.idx237.i, %.pn199.i
   %.sroa.9789.5.i = getelementptr inbounds i8, ptr %2, i64 %.sroa.9789.5.idx.i
   %.sroa.0.5.i = load i64, ptr %.sroa.9789.5.i, align 1, !tbaa !17
@@ -1442,9 +1442,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %104
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit15.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit15.i: ; preds = %192, %186
-  %.sroa.31.8.i = phi i32 [ %189, %186 ], [ %198, %192 ]
-  %.pn.i = phi i64 [ %188, %186 ], [ %196, %192 ]
-  %.022.i10.i = phi i1 [ true, %186 ], [ %195, %192 ]
+  %.sroa.31.8.i = phi i32 [ %198, %192 ], [ %189, %186 ]
+  %.pn.i = phi i64 [ %196, %192 ], [ %188, %186 ]
+  %.022.i10.i = phi i1 [ %195, %192 ], [ true, %186 ]
   %.sroa.9789.6.idx.i = sub nsw i64 %.sroa.9789.3.idx220.i, %.pn.i
   %.sroa.9789.6.i = getelementptr inbounds i8, ptr %2, i64 %.sroa.9789.6.idx.i
   %.sroa.0.6.i = load i64, ptr %.sroa.9789.6.i, align 1, !tbaa !17
@@ -1555,14 +1555,14 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.sp
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i: ; preds = %201, %190, %113, %102, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.split.loop.exit, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit.split.loop.exit, %268, %266, %260, %.thread.i
-  %276 = phi i64 [ %74, %266 ], [ %74, %260 ], [ %86, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit.split.loop.exit ], [ %74, %268 ], [ %83, %.thread.i ], [ %86, %113 ], [ %86, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.split.loop.exit ], [ %86, %102 ], [ %86, %190 ], [ %86, %201 ]
-  %.sroa.3.0.extract.shift.i303.i = phi i32 [ %.sroa.3.0.extract.shift.i.i, %266 ], [ %.sroa.3.0.extract.shift.i.i, %260 ], [ %.sroa.3.0.extract.shift.i302.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit.split.loop.exit ], [ %.sroa.3.0.extract.shift.i.i, %268 ], [ %.sroa.3.0.extract.shift.i293.i, %.thread.i ], [ %.sroa.3.0.extract.shift.i302.i, %113 ], [ %.sroa.3.0.extract.shift.i302.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.split.loop.exit ], [ %.sroa.3.0.extract.shift.i302.i, %102 ], [ %.sroa.3.0.extract.shift.i302.i, %190 ], [ %.sroa.3.0.extract.shift.i302.i, %201 ]
-  %277 = phi ptr [ %73, %266 ], [ %73, %260 ], [ %87, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit.split.loop.exit ], [ %73, %268 ], [ %82, %.thread.i ], [ %87, %113 ], [ %87, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.split.loop.exit ], [ %87, %102 ], [ %87, %190 ], [ %87, %201 ]
-  %278 = phi ptr [ %72, %266 ], [ %72, %260 ], [ %88, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit.split.loop.exit ], [ %72, %268 ], [ %81, %.thread.i ], [ %88, %113 ], [ %88, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.split.loop.exit ], [ %88, %102 ], [ %88, %190 ], [ %88, %201 ]
-  %.sroa.31.0.i = phi i32 [ %69, %266 ], [ %265, %260 ], [ %.sroa.31.7.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit.split.loop.exit ], [ %275, %268 ], [ %80, %.thread.i ], [ %179, %113 ], [ %.sroa.31.8.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.split.loop.exit ], [ %.sroa.31.5235.i, %102 ], [ %253, %201 ], [ %.sroa.31.4218.i, %190 ]
-  %.sroa.0.0.i = phi i64 [ %.val.i.i.i, %266 ], [ %.val.i.i35.i, %260 ], [ %.sroa.0.5.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit.split.loop.exit ], [ %.val.i36.i, %268 ], [ %.sroa.0.9.i, %.thread.i ], [ %.sroa.0.5.i, %113 ], [ %.sroa.0.6.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.split.loop.exit ], [ %.sroa.0.4236.i, %102 ], [ %.sroa.0.6.i, %201 ], [ %.sroa.0.3219.i, %190 ]
-  %.sroa.9789.0.i = phi ptr [ %.ptr189.i, %266 ], [ %264, %260 ], [ %.sroa.9789.5.i.le, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit.split.loop.exit ], [ %273, %268 ], [ %2, %.thread.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %113 ], [ %.sroa.9789.6.i.le, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.split.loop.exit ], [ %2, %102 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %201 ], [ %2, %190 ]
-  %.4.i.i = phi ptr [ %0, %266 ], [ %0, %260 ], [ %.0.i238.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit.split.loop.exit ], [ %0, %268 ], [ %0, %.thread.i ], [ %183, %113 ], [ %.1.i5221.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.split.loop.exit ], [ %.0.i238.i, %102 ], [ %257, %201 ], [ %.1.i5221.i, %190 ]
+  %276 = phi i64 [ %74, %268 ], [ %74, %260 ], [ %74, %266 ], [ %83, %.thread.i ], [ %86, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit.split.loop.exit ], [ %86, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.split.loop.exit ], [ %86, %102 ], [ %86, %113 ], [ %86, %190 ], [ %86, %201 ]
+  %.sroa.3.0.extract.shift.i303.i = phi i32 [ %.sroa.3.0.extract.shift.i.i, %268 ], [ %.sroa.3.0.extract.shift.i.i, %260 ], [ %.sroa.3.0.extract.shift.i.i, %266 ], [ %.sroa.3.0.extract.shift.i293.i, %.thread.i ], [ %.sroa.3.0.extract.shift.i302.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit.split.loop.exit ], [ %.sroa.3.0.extract.shift.i302.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.split.loop.exit ], [ %.sroa.3.0.extract.shift.i302.i, %102 ], [ %.sroa.3.0.extract.shift.i302.i, %113 ], [ %.sroa.3.0.extract.shift.i302.i, %190 ], [ %.sroa.3.0.extract.shift.i302.i, %201 ]
+  %277 = phi ptr [ %73, %268 ], [ %73, %260 ], [ %73, %266 ], [ %82, %.thread.i ], [ %87, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit.split.loop.exit ], [ %87, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.split.loop.exit ], [ %87, %102 ], [ %87, %113 ], [ %87, %190 ], [ %87, %201 ]
+  %278 = phi ptr [ %72, %268 ], [ %72, %260 ], [ %72, %266 ], [ %81, %.thread.i ], [ %88, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit.split.loop.exit ], [ %88, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.split.loop.exit ], [ %88, %102 ], [ %88, %113 ], [ %88, %190 ], [ %88, %201 ]
+  %.sroa.31.0.i = phi i32 [ %275, %268 ], [ %265, %260 ], [ %69, %266 ], [ %80, %.thread.i ], [ %.sroa.31.7.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit.split.loop.exit ], [ %.sroa.31.8.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.split.loop.exit ], [ %179, %113 ], [ %.sroa.31.5235.i, %102 ], [ %253, %201 ], [ %.sroa.31.4218.i, %190 ]
+  %.sroa.0.0.i = phi i64 [ %.val.i36.i, %268 ], [ %.val.i.i35.i, %260 ], [ %.val.i.i.i, %266 ], [ %.sroa.0.9.i, %.thread.i ], [ %.sroa.0.5.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit.split.loop.exit ], [ %.sroa.0.6.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.split.loop.exit ], [ %.sroa.0.5.i, %113 ], [ %.sroa.0.4236.i, %102 ], [ %.sroa.0.6.i, %201 ], [ %.sroa.0.3219.i, %190 ]
+  %.sroa.9789.0.i = phi ptr [ %273, %268 ], [ %264, %260 ], [ %.ptr189.i, %266 ], [ %2, %.thread.i ], [ %.sroa.9789.5.i.le, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit.split.loop.exit ], [ %.sroa.9789.6.i.le, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.split.loop.exit ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %113 ], [ %2, %102 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %201 ], [ %2, %190 ]
+  %.4.i.i = phi ptr [ %0, %268 ], [ %0, %260 ], [ %0, %266 ], [ %0, %.thread.i ], [ %.0.i238.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit.split.loop.exit ], [ %.1.i5221.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i.loopexit73.split.loop.exit ], [ %183, %113 ], [ %.0.i238.i, %102 ], [ %257, %201 ], [ %.1.i5221.i, %190 ]
   %279 = ptrtoint ptr %.4.i.i to i64
   %280 = sub i64 %276, %279
   %281 = icmp ugt i64 %280, 1
@@ -1609,9 +1609,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.i: ; preds = %2
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit22.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit22.i: ; preds = %293, %288
-  %.sroa.31.9.i = phi i32 [ %290, %288 ], [ %303, %293 ]
-  %.pn357.in.i = phi i32 [ %289, %288 ], [ %.021.i18.i, %293 ]
-  %.022.i17.i = phi i1 [ true, %288 ], [ %298, %293 ]
+  %.sroa.31.9.i = phi i32 [ %303, %293 ], [ %290, %288 ]
+  %.pn357.in.i = phi i32 [ %.021.i18.i, %293 ], [ %289, %288 ]
+  %.022.i17.i = phi i1 [ %298, %293 ], [ true, %288 ]
   %.pn357.i = zext i32 %.pn357.in.i to i64
   %.pn356.i = sub nsw i64 0, %.pn357.i
   %.sroa.9789.7.i = getelementptr inbounds i8, ptr %.sroa.9789.2.i39, i64 %.pn356.i
@@ -1721,7 +1721,7 @@ _ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2
   br label %_ZN11duckdb_zstdL46HUF_decompress1X2_usingDTable_internal_defaultEPvmPKvmPKj.exit
 
 _ZN11duckdb_zstdL46HUF_decompress1X2_usingDTable_internal_defaultEPvmPKvmPKj.exit: ; preds = %_ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2Ej.exit.i, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.i, %62, %15, %10, %8
-  %.0 = phi i64 [ %9, %8 ], [ %3, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.i ], [ %spec.select200.i, %_ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2Ej.exit.i ], [ -1, %15 ], [ -20, %62 ], [ -72, %10 ]
+  %.0 = phi i64 [ %9, %8 ], [ %3, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.i ], [ -20, %62 ], [ -1, %15 ], [ -72, %10 ], [ %spec.select200.i, %_ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2Ej.exit.i ]
   ret i64 %.0
 }
 
@@ -1847,7 +1847,7 @@ _ZN11duckdb_zstd17HUF_selectDecoderEmm.exit:      ; preds = %19, %20
   br label %_ZN11duckdb_zstd27HUF_decompress1X2_DCtx_wkspEPjPvmPKvmS1_mi.exit
 
 _ZN11duckdb_zstd27HUF_decompress1X2_DCtx_wkspEPjPvmPKvmS1_mi.exit: ; preds = %53, %52, %49, %45, %44, %41, %10, %8, %17, %14
-  %.0 = phi i64 [ -20, %10 ], [ -70, %8 ], [ %2, %14 ], [ %2, %17 ], [ -72, %44 ], [ %48, %45 ], [ %42, %41 ], [ %56, %53 ], [ %50, %49 ], [ -72, %52 ]
+  %.0 = phi i64 [ %2, %14 ], [ %2, %17 ], [ -70, %8 ], [ -20, %10 ], [ %48, %45 ], [ %42, %41 ], [ -72, %44 ], [ %56, %53 ], [ %50, %49 ], [ -72, %52 ]
   ret i64 %.0
 }
 
@@ -2060,9 +2060,9 @@ _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.i: ; preds = %1
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i: ; preds = %91, %85
-  %.sroa.20.4.i = phi i32 [ %88, %85 ], [ %97, %91 ]
-  %.pn.i = phi i64 [ %87, %85 ], [ %95, %91 ]
-  %.022.i38.i.i = phi i1 [ true, %85 ], [ %94, %91 ]
+  %.sroa.20.4.i = phi i32 [ %97, %91 ], [ %88, %85 ]
+  %.pn.i = phi i64 [ %95, %91 ], [ %87, %85 ]
+  %.022.i38.i.i = phi i1 [ %94, %91 ], [ true, %85 ]
   %.sroa.5029.3.idx.i = sub nsw i64 %.sroa.5029.2.idx103.i, %.pn.i
   %.sroa.5029.3.i = getelementptr inbounds i8, ptr %2, i64 %.sroa.5029.3.idx.i
   %.sroa.0.3.i = load i64, ptr %.sroa.5029.3.i, align 1, !tbaa !17
@@ -2157,10 +2157,10 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i.loopexit.spli
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i: ; preds = %100, %89, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i.loopexit.split.loop.exit, %155, %153, %147, %.thread.i
-  %.sroa.20.1.i = phi i32 [ %70, %153 ], [ %162, %155 ], [ %152, %147 ], [ %78, %.thread.i ], [ %.sroa.20.4.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i.loopexit.split.loop.exit ], [ %143, %100 ], [ %.sroa.20.3101.i, %89 ]
-  %.sroa.0.1.i = phi i64 [ %.val.i.i.i, %153 ], [ %.val.i8.i, %155 ], [ %.val.i.i7.i, %147 ], [ %.sroa.0.4.i, %.thread.i ], [ %.sroa.0.3.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i.loopexit.split.loop.exit ], [ %.sroa.0.3.i, %100 ], [ %.sroa.0.2102.i, %89 ]
-  %.sroa.5029.1.i = phi ptr [ %.ptr85.i, %153 ], [ %160, %155 ], [ %151, %147 ], [ %2, %.thread.i ], [ %.sroa.5029.3.i.le, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i.loopexit.split.loop.exit ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %100 ], [ %2, %89 ]
-  %.3.i.i = phi ptr [ %0, %153 ], [ %0, %155 ], [ %0, %147 ], [ %0, %.thread.i ], [ %.0.i104.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i.loopexit.split.loop.exit ], [ %144, %100 ], [ %.0.i104.i, %89 ]
+  %.sroa.20.1.i = phi i32 [ %162, %155 ], [ %152, %147 ], [ %70, %153 ], [ %78, %.thread.i ], [ %.sroa.20.4.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i.loopexit.split.loop.exit ], [ %143, %100 ], [ %.sroa.20.3101.i, %89 ]
+  %.sroa.0.1.i = phi i64 [ %.val.i8.i, %155 ], [ %.val.i.i7.i, %147 ], [ %.val.i.i.i, %153 ], [ %.sroa.0.4.i, %.thread.i ], [ %.sroa.0.3.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i.loopexit.split.loop.exit ], [ %.sroa.0.3.i, %100 ], [ %.sroa.0.2102.i, %89 ]
+  %.sroa.5029.1.i = phi ptr [ %160, %155 ], [ %151, %147 ], [ %.ptr85.i, %153 ], [ %2, %.thread.i ], [ %.sroa.5029.3.i.le, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i.loopexit.split.loop.exit ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %100 ], [ %2, %89 ]
+  %.3.i.i = phi ptr [ %0, %155 ], [ %0, %147 ], [ %0, %153 ], [ %0, %.thread.i ], [ %.0.i104.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i.loopexit.split.loop.exit ], [ %144, %100 ], [ %.0.i104.i, %89 ]
   %.sroa.20.2.fr108.i = freeze i32 %.sroa.20.1.i
   %163 = icmp ult ptr %.3.i.i, %11
   br i1 %163, label %.lr.ph111.i, label %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit.i
@@ -2199,7 +2199,7 @@ _ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1
   br label %_ZN11duckdb_zstdL46HUF_decompress1X1_usingDTable_internal_defaultEPvmPKvmPKj.exit
 
 _ZN11duckdb_zstdL46HUF_decompress1X1_usingDTable_internal_defaultEPvmPKvmPKj.exit: ; preds = %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit.i, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.i, %63, %16, %10, %8
-  %.0 = phi i64 [ %9, %8 ], [ %3, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.i ], [ %spec.select.i, %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit.i ], [ -1, %16 ], [ -20, %63 ], [ -72, %10 ]
+  %.0 = phi i64 [ %9, %8 ], [ %3, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.i ], [ -20, %63 ], [ -1, %16 ], [ -72, %10 ], [ %spec.select.i, %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit.i ]
   ret i64 %.0
 }
 
@@ -2382,9 +2382,9 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   br label %106
 
 106:                                              ; preds = %100, %.thread.i.i
-  %.sroa.116432.11.i = phi ptr [ %27, %100 ], [ %48, %.thread.i.i ]
-  %.sroa.36382.14.i = phi i32 [ %105, %100 ], [ %52, %.thread.i.i ]
-  %.sroa.0366.12.i = phi i64 [ %.sroa.0366.11.i, %100 ], [ %.val.i.i.i, %.thread.i.i ]
+  %.sroa.116432.11.i = phi ptr [ %48, %.thread.i.i ], [ %27, %100 ]
+  %.sroa.36382.14.i = phi i32 [ %52, %.thread.i.i ], [ %105, %100 ]
+  %.sroa.0366.12.i = phi i64 [ %.val.i.i.i, %.thread.i.i ], [ %.sroa.0366.11.i, %100 ]
   %107 = icmp eq i16 %.val.i4.i, 0
   br i1 %107, label %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread.i, label %108
 
@@ -2490,9 +2490,9 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   br label %172
 
 172:                                              ; preds = %166, %.thread.i12.i
-  %.sroa.0213.12.i = phi i64 [ %.sroa.0213.11.i, %166 ], [ %.val.i.i10.i, %.thread.i12.i ]
-  %.sroa.36229.14.i = phi i32 [ %171, %166 ], [ %118, %.thread.i12.i ]
-  %.sroa.116279.11.i = phi ptr [ %28, %166 ], [ %114, %.thread.i12.i ]
+  %.sroa.0213.12.i = phi i64 [ %.val.i.i10.i, %.thread.i12.i ], [ %.sroa.0213.11.i, %166 ]
+  %.sroa.36229.14.i = phi i32 [ %118, %.thread.i12.i ], [ %171, %166 ]
+  %.sroa.116279.11.i = phi ptr [ %114, %.thread.i12.i ], [ %28, %166 ]
   %173 = icmp eq i16 %.val.i5.i, 0
   br i1 %173, label %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread.i, label %174
 
@@ -2598,9 +2598,9 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   br label %238
 
 238:                                              ; preds = %232, %.thread.i18.i
-  %.sroa.0.12.i = phi i64 [ %.sroa.0.11.i, %232 ], [ %.val.i.i16.i, %.thread.i18.i ]
-  %.sroa.36.14.i = phi i32 [ %237, %232 ], [ %184, %.thread.i18.i ]
-  %.sroa.116128.11.i = phi ptr [ %29, %232 ], [ %180, %.thread.i18.i ]
+  %.sroa.0.12.i = phi i64 [ %.val.i.i16.i, %.thread.i18.i ], [ %.sroa.0.11.i, %232 ]
+  %.sroa.36.14.i = phi i32 [ %184, %.thread.i18.i ], [ %237, %232 ]
+  %.sroa.116128.11.i = phi ptr [ %180, %.thread.i18.i ], [ %29, %232 ]
   %239 = call fastcc noundef i64 @_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm(ptr noundef %7, ptr noundef nonnull %30, i64 noundef %26)
   %240 = icmp ult i64 %239, -119
   br i1 %240, label %241, label %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread.i
@@ -3050,9 +3050,9 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit29.i: ; preds 
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i: ; preds = %537, %532
-  %.pn572.in.i = phi i32 [ %533, %532 ], [ %.021.i.i.i, %537 ]
-  %.sroa.36382.12.i = phi i32 [ %534, %532 ], [ %547, %537 ]
-  %.022.i.i.i = phi i1 [ true, %532 ], [ %542, %537 ]
+  %.pn572.in.i = phi i32 [ %.021.i.i.i, %537 ], [ %533, %532 ]
+  %.sroa.36382.12.i = phi i32 [ %547, %537 ], [ %534, %532 ]
+  %.022.i.i.i = phi i1 [ %542, %537 ], [ true, %532 ]
   %.pn572.i = zext i32 %.pn572.in.i to i64
   %.pn571.i = sub nsw i64 0, %.pn572.i
   %.sroa.116432.9.i = getelementptr inbounds i8, ptr %.sroa.116432.8692.i, i64 %.pn571.i
@@ -3172,9 +3172,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i: ; preds = %5
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i.i: ; preds = %628, %623
-  %.pn570.in.i = phi i32 [ %624, %623 ], [ %.021.i231.i.i, %628 ]
-  %.sroa.36382.10.i = phi i32 [ %625, %623 ], [ %638, %628 ]
-  %.022.i230.i.i = phi i1 [ true, %623 ], [ %633, %628 ]
+  %.pn570.in.i = phi i32 [ %.021.i231.i.i, %628 ], [ %624, %623 ]
+  %.sroa.36382.10.i = phi i32 [ %638, %628 ], [ %625, %623 ]
+  %.022.i230.i.i = phi i1 [ %633, %628 ], [ true, %623 ]
   %.pn570.i = zext i32 %.pn570.in.i to i64
   %.pn.i = sub nsw i64 0, %.pn570.i
   %.sroa.116432.7.i = getelementptr inbounds i8, ptr %.sroa.116432.6674.i, i64 %.pn.i
@@ -3288,10 +3288,10 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i.i: ; preds =
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit249.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit249.i.i: ; preds = %641, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i.i, %626, %550, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i, %535, %710, %708, %702, %699, %.preheader629.i, %.preheader630.i
-  %.sroa.116432.2.i = phi ptr [ %27, %708 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader629.i ], [ %722, %710 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %699 ], [ %706, %702 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader630.i ], [ %27, %535 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %550 ], [ %.sroa.116432.9.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %641 ], [ %27, %626 ], [ %.sroa.116432.7.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i.i ]
-  %.sroa.36382.2.i = phi i32 [ %.sroa.36382.0.i, %708 ], [ %.sroa.36382.0.i, %.preheader629.i ], [ %724, %710 ], [ %.sroa.36382.0.i, %699 ], [ %707, %702 ], [ %.sroa.36382.0.i, %.preheader630.i ], [ %.sroa.36382.11693.i, %535 ], [ %616, %550 ], [ %.sroa.36382.12.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i ], [ %693, %641 ], [ %.sroa.36382.9675.i, %626 ], [ %.sroa.36382.10.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i.i ]
-  %.sroa.0366.2.i = phi i64 [ %.sroa.0366.0.i, %708 ], [ %.sroa.0366.0.i, %.preheader629.i ], [ %.val.i35.i, %710 ], [ %.sroa.0366.0.i, %699 ], [ %.val.i.i34.i, %702 ], [ %.sroa.0366.0.i, %.preheader630.i ], [ %.sroa.0366.8694.i, %535 ], [ %.sroa.0366.9.i, %550 ], [ %.sroa.0366.9.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i ], [ %.sroa.0366.7.i, %641 ], [ %.sroa.0366.6676.i, %626 ], [ %.sroa.0366.7.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i.i ]
-  %.4.i218.i.i = phi ptr [ %.0161.i.i, %708 ], [ %.0161.i.i, %.preheader629.i ], [ %.0161.i.i, %710 ], [ %.0161.i.i, %699 ], [ %.0161.i.i, %702 ], [ %.0161.i.i, %.preheader630.i ], [ %.0.i225.i695.i, %535 ], [ %620, %550 ], [ %.0.i225.i695.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i ], [ %697, %641 ], [ %.1.i224.i677.i, %626 ], [ %.1.i224.i677.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i.i ]
+  %.sroa.116432.2.i = phi ptr [ %722, %710 ], [ %706, %702 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %699 ], [ %27, %708 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader629.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader630.i ], [ %27, %535 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %550 ], [ %.sroa.116432.9.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i ], [ %27, %626 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %641 ], [ %.sroa.116432.7.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i.i ]
+  %.sroa.36382.2.i = phi i32 [ %724, %710 ], [ %707, %702 ], [ %.sroa.36382.0.i, %699 ], [ %.sroa.36382.0.i, %708 ], [ %.sroa.36382.0.i, %.preheader629.i ], [ %.sroa.36382.0.i, %.preheader630.i ], [ %.sroa.36382.11693.i, %535 ], [ %616, %550 ], [ %.sroa.36382.12.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i ], [ %.sroa.36382.9675.i, %626 ], [ %693, %641 ], [ %.sroa.36382.10.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i.i ]
+  %.sroa.0366.2.i = phi i64 [ %.val.i35.i, %710 ], [ %.val.i.i34.i, %702 ], [ %.sroa.0366.0.i, %699 ], [ %.sroa.0366.0.i, %708 ], [ %.sroa.0366.0.i, %.preheader629.i ], [ %.sroa.0366.0.i, %.preheader630.i ], [ %.sroa.0366.8694.i, %535 ], [ %.sroa.0366.9.i, %550 ], [ %.sroa.0366.9.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i ], [ %.sroa.0366.6676.i, %626 ], [ %.sroa.0366.7.i, %641 ], [ %.sroa.0366.7.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i.i ]
+  %.4.i218.i.i = phi ptr [ %.0161.i.i, %710 ], [ %.0161.i.i, %702 ], [ %.0161.i.i, %699 ], [ %.0161.i.i, %708 ], [ %.0161.i.i, %.preheader629.i ], [ %.0161.i.i, %.preheader630.i ], [ %.0.i225.i695.i, %535 ], [ %620, %550 ], [ %.0.i225.i695.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i ], [ %.1.i224.i677.i, %626 ], [ %697, %641 ], [ %.1.i224.i677.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i.i ]
   %725 = ptrtoint ptr %.4.i218.i.i to i64
   %726 = sub i64 %514, %725
   %727 = icmp ugt i64 %726, 1
@@ -3338,9 +3338,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit249.i.i: ; preds =
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit242.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit242.i.i: ; preds = %739, %734
-  %.pn986.in.i = phi i32 [ %735, %734 ], [ %.021.i238.i.i, %739 ]
-  %.sroa.36382.7.i = phi i32 [ %736, %734 ], [ %749, %739 ]
-  %.022.i237.i.i = phi i1 [ true, %734 ], [ %744, %739 ]
+  %.pn986.in.i = phi i32 [ %.021.i238.i.i, %739 ], [ %735, %734 ]
+  %.sroa.36382.7.i = phi i32 [ %749, %739 ], [ %736, %734 ]
+  %.022.i237.i.i = phi i1 [ %744, %739 ], [ true, %734 ]
   %.pn986.i = zext i32 %.pn986.in.i to i64
   %.pn985.i = sub nsw i64 0, %.pn986.i
   %.sroa.116432.5.i = getelementptr inbounds i8, ptr %.sroa.116432.4.i68, i64 %.pn985.i
@@ -3507,9 +3507,9 @@ _ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i.i: ; preds = %831, %826
-  %.sroa.36229.12.i = phi i32 [ %828, %826 ], [ %841, %831 ]
-  %.pn576.in.i = phi i32 [ %827, %826 ], [ %.021.i252.i.i, %831 ]
-  %.022.i251.i.i = phi i1 [ true, %826 ], [ %836, %831 ]
+  %.sroa.36229.12.i = phi i32 [ %841, %831 ], [ %828, %826 ]
+  %.pn576.in.i = phi i32 [ %.021.i252.i.i, %831 ], [ %827, %826 ]
+  %.022.i251.i.i = phi i1 [ %836, %831 ], [ true, %826 ]
   %.pn576.i = zext i32 %.pn576.in.i to i64
   %.pn575.i = sub nsw i64 0, %.pn576.i
   %.sroa.116279.9.i = getelementptr inbounds i8, ptr %.sroa.116279.8736.i, i64 %.pn575.i
@@ -3629,9 +3629,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i.i: ; preds =
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i.i: ; preds = %922, %917
-  %.sroa.36229.10.i = phi i32 [ %919, %917 ], [ %932, %922 ]
-  %.pn574.in.i = phi i32 [ %918, %917 ], [ %.021.i259.i.i, %922 ]
-  %.022.i258.i.i = phi i1 [ true, %917 ], [ %927, %922 ]
+  %.sroa.36229.10.i = phi i32 [ %932, %922 ], [ %919, %917 ]
+  %.pn574.in.i = phi i32 [ %.021.i259.i.i, %922 ], [ %918, %917 ]
+  %.022.i258.i.i = phi i1 [ %927, %922 ], [ true, %917 ]
   %.pn574.i = zext i32 %.pn574.in.i to i64
   %.pn573.i = sub nsw i64 0, %.pn574.i
   %.sroa.116279.7.i = getelementptr inbounds i8, ptr %.sroa.116279.6718.i, i64 %.pn573.i
@@ -3745,10 +3745,10 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i.i: ; preds =
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit277.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit277.i.i: ; preds = %935, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i.i, %920, %844, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i.i, %829, %1004, %1002, %996, %993, %.preheader620.i, %.preheader621.i
-  %.sroa.0213.2.i = phi i64 [ %.sroa.0213.0.i, %1002 ], [ %.sroa.0213.0.i, %.preheader620.i ], [ %.val.i43.i, %1004 ], [ %.sroa.0213.0.i, %993 ], [ %.val.i.i42.i, %996 ], [ %.sroa.0213.0.i, %.preheader621.i ], [ %.sroa.0213.8734.i, %829 ], [ %.sroa.0213.9.i, %844 ], [ %.sroa.0213.9.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i.i ], [ %.sroa.0213.7.i, %935 ], [ %.sroa.0213.6716.i, %920 ], [ %.sroa.0213.7.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i.i ]
-  %.sroa.36229.2.i = phi i32 [ %.sroa.36229.0.i, %1002 ], [ %.sroa.36229.0.i, %.preheader620.i ], [ %1018, %1004 ], [ %.sroa.36229.0.i, %993 ], [ %1001, %996 ], [ %.sroa.36229.0.i, %.preheader621.i ], [ %.sroa.36229.11735.i, %829 ], [ %910, %844 ], [ %.sroa.36229.12.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i.i ], [ %987, %935 ], [ %.sroa.36229.9717.i, %920 ], [ %.sroa.36229.10.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i.i ]
-  %.sroa.116279.2.i = phi ptr [ %28, %1002 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader620.i ], [ %1016, %1004 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %993 ], [ %1000, %996 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader621.i ], [ %28, %829 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %844 ], [ %.sroa.116279.9.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %935 ], [ %28, %920 ], [ %.sroa.116279.7.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i.i ]
-  %.4.i209.i.i = phi ptr [ %.0165.i.i, %1002 ], [ %.0165.i.i, %.preheader620.i ], [ %.0165.i.i, %1004 ], [ %.0165.i.i, %993 ], [ %.0165.i.i, %996 ], [ %.0165.i.i, %.preheader621.i ], [ %.0.i216.i737.i, %829 ], [ %914, %844 ], [ %.0.i216.i737.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i.i ], [ %991, %935 ], [ %.1.i215.i719.i, %920 ], [ %.1.i215.i719.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i.i ]
+  %.sroa.0213.2.i = phi i64 [ %.val.i43.i, %1004 ], [ %.val.i.i42.i, %996 ], [ %.sroa.0213.0.i, %993 ], [ %.sroa.0213.0.i, %1002 ], [ %.sroa.0213.0.i, %.preheader620.i ], [ %.sroa.0213.0.i, %.preheader621.i ], [ %.sroa.0213.8734.i, %829 ], [ %.sroa.0213.9.i, %844 ], [ %.sroa.0213.9.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i.i ], [ %.sroa.0213.6716.i, %920 ], [ %.sroa.0213.7.i, %935 ], [ %.sroa.0213.7.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i.i ]
+  %.sroa.36229.2.i = phi i32 [ %1018, %1004 ], [ %1001, %996 ], [ %.sroa.36229.0.i, %993 ], [ %.sroa.36229.0.i, %1002 ], [ %.sroa.36229.0.i, %.preheader620.i ], [ %.sroa.36229.0.i, %.preheader621.i ], [ %.sroa.36229.11735.i, %829 ], [ %910, %844 ], [ %.sroa.36229.12.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i.i ], [ %.sroa.36229.9717.i, %920 ], [ %987, %935 ], [ %.sroa.36229.10.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i.i ]
+  %.sroa.116279.2.i = phi ptr [ %1016, %1004 ], [ %1000, %996 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %993 ], [ %28, %1002 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader620.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader621.i ], [ %28, %829 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %844 ], [ %.sroa.116279.9.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i.i ], [ %28, %920 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %935 ], [ %.sroa.116279.7.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i.i ]
+  %.4.i209.i.i = phi ptr [ %.0165.i.i, %1004 ], [ %.0165.i.i, %996 ], [ %.0165.i.i, %993 ], [ %.0165.i.i, %1002 ], [ %.0165.i.i, %.preheader620.i ], [ %.0165.i.i, %.preheader621.i ], [ %.0.i216.i737.i, %829 ], [ %914, %844 ], [ %.0.i216.i737.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i.i ], [ %.1.i215.i719.i, %920 ], [ %991, %935 ], [ %.1.i215.i719.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i.i ]
   %1019 = ptrtoint ptr %.4.i209.i.i to i64
   %1020 = sub i64 %808, %1019
   %1021 = icmp ugt i64 %1020, 1
@@ -3795,9 +3795,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit277.i.i: ; preds =
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit270.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit270.i.i: ; preds = %1033, %1028
-  %.sroa.36229.7.i = phi i32 [ %1030, %1028 ], [ %1043, %1033 ]
-  %.pn988.in.i = phi i32 [ %1029, %1028 ], [ %.021.i266.i.i, %1033 ]
-  %.022.i265.i.i = phi i1 [ true, %1028 ], [ %1038, %1033 ]
+  %.sroa.36229.7.i = phi i32 [ %1043, %1033 ], [ %1030, %1028 ]
+  %.pn988.in.i = phi i32 [ %.021.i266.i.i, %1033 ], [ %1029, %1028 ]
+  %.022.i265.i.i = phi i1 [ %1038, %1033 ], [ true, %1028 ]
   %.pn988.i = zext i32 %.pn988.in.i to i64
   %.pn987.i = sub nsw i64 0, %.pn988.i
   %.sroa.116279.5.i = getelementptr inbounds i8, ptr %.sroa.116279.4.i86, i64 %.pn987.i
@@ -3964,9 +3964,9 @@ _ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i.i: ; preds = %1125, %1120
-  %.sroa.36.12.i = phi i32 [ %1122, %1120 ], [ %1135, %1125 ]
-  %.pn580.in.i = phi i32 [ %1121, %1120 ], [ %.021.i280.i.i, %1125 ]
-  %.022.i279.i.i = phi i1 [ true, %1120 ], [ %1130, %1125 ]
+  %.sroa.36.12.i = phi i32 [ %1135, %1125 ], [ %1122, %1120 ]
+  %.pn580.in.i = phi i32 [ %.021.i280.i.i, %1125 ], [ %1121, %1120 ]
+  %.022.i279.i.i = phi i1 [ %1130, %1125 ], [ true, %1120 ]
   %.pn580.i = zext i32 %.pn580.in.i to i64
   %.pn579.i = sub nsw i64 0, %.pn580.i
   %.sroa.116128.9.i = getelementptr inbounds i8, ptr %.sroa.116128.8778.i, i64 %.pn579.i
@@ -4086,9 +4086,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i.i: ; preds =
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i.i: ; preds = %1216, %1211
-  %.sroa.36.10.i = phi i32 [ %1213, %1211 ], [ %1226, %1216 ]
-  %.pn578.in.i = phi i32 [ %1212, %1211 ], [ %.021.i287.i.i, %1216 ]
-  %.022.i286.i.i = phi i1 [ true, %1211 ], [ %1221, %1216 ]
+  %.sroa.36.10.i = phi i32 [ %1226, %1216 ], [ %1213, %1211 ]
+  %.pn578.in.i = phi i32 [ %.021.i287.i.i, %1216 ], [ %1212, %1211 ]
+  %.022.i286.i.i = phi i1 [ %1221, %1216 ], [ true, %1211 ]
   %.pn578.i = zext i32 %.pn578.in.i to i64
   %.pn577.i = sub nsw i64 0, %.pn578.i
   %.sroa.116128.7.i = getelementptr inbounds i8, ptr %.sroa.116128.6760.i, i64 %.pn577.i
@@ -4202,10 +4202,10 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i.i: ; preds =
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit305.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit305.i.i: ; preds = %1229, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i.i, %1214, %1138, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i.i, %1123, %1298, %1296, %1290, %1287, %.preheader611.i, %.preheader612.i
-  %.sroa.0.2.i = phi i64 [ %.sroa.0.0.i, %1296 ], [ %.sroa.0.0.i, %.preheader611.i ], [ %.val.i51.i, %1298 ], [ %.sroa.0.0.i, %1287 ], [ %.val.i.i50.i, %1290 ], [ %.sroa.0.0.i, %.preheader612.i ], [ %.sroa.0.8776.i, %1123 ], [ %.sroa.0.9.i, %1138 ], [ %.sroa.0.9.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i.i ], [ %.sroa.0.7.i, %1229 ], [ %.sroa.0.6758.i, %1214 ], [ %.sroa.0.7.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i.i ]
-  %.sroa.36.2.i = phi i32 [ %.sroa.36.0.i, %1296 ], [ %.sroa.36.0.i, %.preheader611.i ], [ %1312, %1298 ], [ %.sroa.36.0.i, %1287 ], [ %1295, %1290 ], [ %.sroa.36.0.i, %.preheader612.i ], [ %.sroa.36.11777.i, %1123 ], [ %1204, %1138 ], [ %.sroa.36.12.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i.i ], [ %1281, %1229 ], [ %.sroa.36.9759.i, %1214 ], [ %.sroa.36.10.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i.i ]
-  %.sroa.116128.2.i = phi ptr [ %29, %1296 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader611.i ], [ %1310, %1298 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %1287 ], [ %1294, %1290 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader612.i ], [ %29, %1123 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %1138 ], [ %.sroa.116128.9.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %1229 ], [ %29, %1214 ], [ %.sroa.116128.7.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i.i ]
-  %.4.i200.i.i = phi ptr [ %.0169.i.i, %1296 ], [ %.0169.i.i, %.preheader611.i ], [ %.0169.i.i, %1298 ], [ %.0169.i.i, %1287 ], [ %.0169.i.i, %1290 ], [ %.0169.i.i, %.preheader612.i ], [ %.0.i207.i779.i, %1123 ], [ %1208, %1138 ], [ %.0.i207.i779.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i.i ], [ %1285, %1229 ], [ %.1.i206.i761.i, %1214 ], [ %.1.i206.i761.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i.i ]
+  %.sroa.0.2.i = phi i64 [ %.val.i51.i, %1298 ], [ %.val.i.i50.i, %1290 ], [ %.sroa.0.0.i, %1287 ], [ %.sroa.0.0.i, %1296 ], [ %.sroa.0.0.i, %.preheader611.i ], [ %.sroa.0.0.i, %.preheader612.i ], [ %.sroa.0.8776.i, %1123 ], [ %.sroa.0.9.i, %1138 ], [ %.sroa.0.9.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i.i ], [ %.sroa.0.6758.i, %1214 ], [ %.sroa.0.7.i, %1229 ], [ %.sroa.0.7.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i.i ]
+  %.sroa.36.2.i = phi i32 [ %1312, %1298 ], [ %1295, %1290 ], [ %.sroa.36.0.i, %1287 ], [ %.sroa.36.0.i, %1296 ], [ %.sroa.36.0.i, %.preheader611.i ], [ %.sroa.36.0.i, %.preheader612.i ], [ %.sroa.36.11777.i, %1123 ], [ %1204, %1138 ], [ %.sroa.36.12.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i.i ], [ %.sroa.36.9759.i, %1214 ], [ %1281, %1229 ], [ %.sroa.36.10.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i.i ]
+  %.sroa.116128.2.i = phi ptr [ %1310, %1298 ], [ %1294, %1290 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %1287 ], [ %29, %1296 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader611.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader612.i ], [ %29, %1123 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %1138 ], [ %.sroa.116128.9.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i.i ], [ %29, %1214 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %1229 ], [ %.sroa.116128.7.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i.i ]
+  %.4.i200.i.i = phi ptr [ %.0169.i.i, %1298 ], [ %.0169.i.i, %1290 ], [ %.0169.i.i, %1287 ], [ %.0169.i.i, %1296 ], [ %.0169.i.i, %.preheader611.i ], [ %.0169.i.i, %.preheader612.i ], [ %.0.i207.i779.i, %1123 ], [ %1208, %1138 ], [ %.0.i207.i779.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i.i ], [ %.1.i206.i761.i, %1214 ], [ %1285, %1229 ], [ %.1.i206.i761.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i.i ]
   %1313 = ptrtoint ptr %.4.i200.i.i to i64
   %1314 = sub i64 %1102, %1313
   %1315 = icmp ugt i64 %1314, 1
@@ -4252,9 +4252,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit305.i.i: ; preds =
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit298.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit298.i.i: ; preds = %1327, %1322
-  %.sroa.36.7.i = phi i32 [ %1324, %1322 ], [ %1337, %1327 ]
-  %.pn990.in.i = phi i32 [ %1323, %1322 ], [ %.021.i294.i.i, %1327 ]
-  %.022.i293.i.i = phi i1 [ true, %1322 ], [ %1332, %1327 ]
+  %.sroa.36.7.i = phi i32 [ %1337, %1327 ], [ %1324, %1322 ]
+  %.pn990.in.i = phi i32 [ %.021.i294.i.i, %1327 ], [ %1323, %1322 ]
+  %.022.i293.i.i = phi i1 [ %1332, %1327 ], [ true, %1322 ]
   %.pn990.i = zext i32 %.pn990.in.i to i64
   %.pn989.i = sub nsw i64 0, %.pn990.i
   %.sroa.116128.5.i = getelementptr inbounds i8, ptr %.sroa.116128.4.i104, i64 %.pn989.i
@@ -4737,8 +4737,8 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i.i: ; preds =
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit333.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit333.i.i: ; preds = %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i.i, %1543, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i.i, %1430, %1648, %1644, %1638, %1633, %._crit_edge.i, %._crit_edge805.i
-  %1663 = phi i32 [ %1531, %._crit_edge.i ], [ %1418, %._crit_edge805.i ], [ %1630, %1644 ], [ %1630, %1633 ], [ %1662, %1648 ], [ %1421, %1430 ], [ %1643, %1638 ], [ %1448, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i.i ], [ %1561, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i.i ], [ %1534, %1543 ]
-  %.4.i.i.i = phi ptr [ %.1.i.i.lcssa.i, %._crit_edge.i ], [ %.0.i.i.lcssa.i, %._crit_edge805.i ], [ %.0173.i.i, %1644 ], [ %.0173.i.i, %1633 ], [ %.0173.i.i, %1648 ], [ %.0.i.i803.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i.i ], [ %.0173.i.i, %1638 ], [ %.0.i.i803.i, %1430 ], [ %.1.i.i800.i, %1543 ], [ %.1.i.i800.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i.i ]
+  %1663 = phi i32 [ %1662, %1648 ], [ %1643, %1638 ], [ %1630, %1633 ], [ %1418, %._crit_edge805.i ], [ %1531, %._crit_edge.i ], [ %1630, %1644 ], [ %1448, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i.i ], [ %1421, %1430 ], [ %1561, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i.i ], [ %1534, %1543 ]
+  %.4.i.i.i = phi ptr [ %.0173.i.i, %1648 ], [ %.0173.i.i, %1638 ], [ %.0173.i.i, %1633 ], [ %.0.i.i.lcssa.i, %._crit_edge805.i ], [ %.1.i.i.lcssa.i, %._crit_edge.i ], [ %.0173.i.i, %1644 ], [ %.0.i.i803.i, %1430 ], [ %.0.i.i803.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i.i ], [ %.1.i.i800.i, %1543 ], [ %.1.i.i800.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i.i ]
   %1664 = ptrtoint ptr %.4.i.i.i to i64
   %1665 = sub i64 %1396, %1664
   %1666 = icmp ugt i64 %1665, 1
@@ -4935,7 +4935,7 @@ _ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2
   br label %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread.i
 
 _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread.i: ; preds = %_ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2Ej.exit.i.i, %.loopexit636.i, %238, %229, %177, %172, %163, %111, %106, %97, %45, %40, %14
-  %.1.i.i = phi i64 [ %spec.select.i.i, %_ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2Ej.exit.i.i ], [ -20, %14 ], [ -1, %111 ], [ -20, %.loopexit636.i ], [ -1, %45 ], [ %239, %238 ], [ -20, %97 ], [ -72, %40 ], [ -20, %163 ], [ -72, %106 ], [ -20, %229 ], [ -72, %172 ], [ -1, %177 ]
+  %.1.i.i = phi i64 [ %239, %238 ], [ -20, %14 ], [ -20, %.loopexit636.i ], [ %spec.select.i.i, %_ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2Ej.exit.i.i ], [ -20, %97 ], [ -1, %45 ], [ -72, %40 ], [ -20, %163 ], [ -1, %111 ], [ -72, %106 ], [ -20, %229 ], [ -1, %177 ], [ -72, %172 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN11duckdb_zstdL46HUF_decompress4X2_usingDTable_internal_defaultEPvmPKvmPKj.exit
 
@@ -5111,9 +5111,9 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   br label %105
 
 105:                                              ; preds = %99, %.thread.i.i
-  %.sroa.69246.6.i = phi ptr [ %27, %99 ], [ %47, %.thread.i.i ]
-  %.sroa.25219.7.i = phi i32 [ %104, %99 ], [ %51, %.thread.i.i ]
-  %.sroa.0210.7.i = phi i64 [ %.sroa.0210.6.i, %99 ], [ %.val.i.i.i, %.thread.i.i ]
+  %.sroa.69246.6.i = phi ptr [ %47, %.thread.i.i ], [ %27, %99 ]
+  %.sroa.25219.7.i = phi i32 [ %51, %.thread.i.i ], [ %104, %99 ]
+  %.sroa.0210.7.i = phi i64 [ %.val.i.i.i, %.thread.i.i ], [ %.sroa.0210.6.i, %99 ]
   %106 = icmp eq i16 %.val.i4.i, 0
   br i1 %106, label %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread.i, label %107
 
@@ -5219,9 +5219,9 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   br label %171
 
 171:                                              ; preds = %165, %.thread.i12.i
-  %.sroa.0127.7.i = phi i64 [ %.sroa.0127.6.i, %165 ], [ %.val.i.i10.i, %.thread.i12.i ]
-  %.sroa.25136.7.i = phi i32 [ %170, %165 ], [ %117, %.thread.i12.i ]
-  %.sroa.69163.6.i = phi ptr [ %28, %165 ], [ %113, %.thread.i12.i ]
+  %.sroa.0127.7.i = phi i64 [ %.val.i.i10.i, %.thread.i12.i ], [ %.sroa.0127.6.i, %165 ]
+  %.sroa.25136.7.i = phi i32 [ %117, %.thread.i12.i ], [ %170, %165 ]
+  %.sroa.69163.6.i = phi ptr [ %113, %.thread.i12.i ], [ %28, %165 ]
   %172 = icmp eq i16 %.val.i5.i, 0
   br i1 %172, label %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread.i, label %173
 
@@ -5327,9 +5327,9 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   br label %237
 
 237:                                              ; preds = %231, %.thread.i18.i
-  %.sroa.0.7.i = phi i64 [ %.sroa.0.6.i, %231 ], [ %.val.i.i16.i, %.thread.i18.i ]
-  %.sroa.25.7.i = phi i32 [ %236, %231 ], [ %183, %.thread.i18.i ]
-  %.sroa.6982.6.i = phi ptr [ %29, %231 ], [ %179, %.thread.i18.i ]
+  %.sroa.0.7.i = phi i64 [ %.val.i.i16.i, %.thread.i18.i ], [ %.sroa.0.6.i, %231 ]
+  %.sroa.25.7.i = phi i32 [ %183, %.thread.i18.i ], [ %236, %231 ]
+  %.sroa.6982.6.i = phi ptr [ %179, %.thread.i18.i ], [ %29, %231 ]
   %238 = call fastcc noundef i64 @_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm(ptr noundef %7, ptr noundef nonnull %30, i64 noundef %26)
   %239 = icmp ult i64 %238, -119
   br i1 %239, label %240, label %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread.i
@@ -5716,9 +5716,9 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit29.i: ; preds 
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i.i: ; preds = %481, %476
-  %.pn329.in.i = phi i32 [ %477, %476 ], [ %.021.i39.i233.i.i, %481 ]
-  %.sroa.25219.5.i = phi i32 [ %478, %476 ], [ %491, %481 ]
-  %.022.i38.i232.i.i = phi i1 [ true, %476 ], [ %486, %481 ]
+  %.pn329.in.i = phi i32 [ %.021.i39.i233.i.i, %481 ], [ %477, %476 ]
+  %.sroa.25219.5.i = phi i32 [ %491, %481 ], [ %478, %476 ]
+  %.022.i38.i232.i.i = phi i1 [ %486, %481 ], [ true, %476 ]
   %.pn329.i = zext i32 %.pn329.in.i to i64
   %.pn.i = sub nsw i64 0, %.pn329.i
   %.sroa.69246.4.i = getelementptr inbounds i8, ptr %.sroa.69246.3391.i, i64 %.pn.i
@@ -5819,10 +5819,10 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i.i: ; pre
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i221.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i221.i.i: ; preds = %494, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i.i, %479, %550, %548, %542, %540, %.preheader357.i
-  %.sroa.69246.2.i = phi ptr [ %562, %550 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %540 ], [ %546, %542 ], [ %27, %548 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader357.i ], [ %27, %479 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %494 ], [ %.sroa.69246.4.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i.i ]
-  %.sroa.25219.2.i = phi i32 [ %564, %550 ], [ %.sroa.25219.0.i, %540 ], [ %547, %542 ], [ %.sroa.25219.0.i, %548 ], [ %.sroa.25219.0.i, %.preheader357.i ], [ %.sroa.25219.4392.i, %479 ], [ %537, %494 ], [ %.sroa.25219.5.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i.i ]
-  %.sroa.0210.2.i = phi i64 [ %.val.i33.i, %550 ], [ %.sroa.0210.0.i, %540 ], [ %.val.i.i32.i, %542 ], [ %.sroa.0210.0.i, %548 ], [ %.sroa.0210.0.i, %.preheader357.i ], [ %.sroa.0210.3393.i, %479 ], [ %.sroa.0210.4.i, %494 ], [ %.sroa.0210.4.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i.i ]
-  %.3.i223.i.i = phi ptr [ %.0145.i.i, %550 ], [ %.0145.i.i, %540 ], [ %.0145.i.i, %542 ], [ %.0145.i.i, %548 ], [ %.0145.i.i, %.preheader357.i ], [ %.0.i229.i394.i, %479 ], [ %538, %494 ], [ %.0.i229.i394.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i.i ]
+  %.sroa.69246.2.i = phi ptr [ %562, %550 ], [ %546, %542 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %540 ], [ %27, %548 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader357.i ], [ %27, %479 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %494 ], [ %.sroa.69246.4.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i.i ]
+  %.sroa.25219.2.i = phi i32 [ %564, %550 ], [ %547, %542 ], [ %.sroa.25219.0.i, %540 ], [ %.sroa.25219.0.i, %548 ], [ %.sroa.25219.0.i, %.preheader357.i ], [ %.sroa.25219.4392.i, %479 ], [ %537, %494 ], [ %.sroa.25219.5.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i.i ]
+  %.sroa.0210.2.i = phi i64 [ %.val.i33.i, %550 ], [ %.val.i.i32.i, %542 ], [ %.sroa.0210.0.i, %540 ], [ %.sroa.0210.0.i, %548 ], [ %.sroa.0210.0.i, %.preheader357.i ], [ %.sroa.0210.3393.i, %479 ], [ %.sroa.0210.4.i, %494 ], [ %.sroa.0210.4.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i.i ]
+  %.3.i223.i.i = phi ptr [ %.0145.i.i, %550 ], [ %.0145.i.i, %542 ], [ %.0145.i.i, %540 ], [ %.0145.i.i, %548 ], [ %.0145.i.i, %.preheader357.i ], [ %.0.i229.i394.i, %479 ], [ %538, %494 ], [ %.0.i229.i394.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i.i ]
   %565 = icmp ult ptr %.3.i223.i.i, %33
   br i1 %565, label %.lr.ph411.i, label %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit237.i.i
 
@@ -5902,9 +5902,9 @@ _ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i.i: ; preds = %598, %593
-  %.sroa.25136.5.i = phi i32 [ %595, %593 ], [ %608, %598 ]
-  %.pn331.in.i = phi i32 [ %594, %593 ], [ %.021.i39.i215.i.i, %598 ]
-  %.022.i38.i214.i.i = phi i1 [ true, %593 ], [ %603, %598 ]
+  %.sroa.25136.5.i = phi i32 [ %608, %598 ], [ %595, %593 ]
+  %.pn331.in.i = phi i32 [ %.021.i39.i215.i.i, %598 ], [ %594, %593 ]
+  %.022.i38.i214.i.i = phi i1 [ %603, %598 ], [ true, %593 ]
   %.pn331.i = zext i32 %.pn331.in.i to i64
   %.pn330.i = sub nsw i64 0, %.pn331.i
   %.sroa.69163.4.i = getelementptr inbounds i8, ptr %.sroa.69163.3415.i, i64 %.pn330.i
@@ -6005,10 +6005,10 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i.i: ; pre
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i203.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i203.i.i: ; preds = %611, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i.i, %596, %667, %665, %659, %657, %.preheader356.i
-  %.sroa.0127.2.i = phi i64 [ %.val.i37.i, %667 ], [ %.sroa.0127.0.i, %657 ], [ %.val.i.i36.i, %659 ], [ %.sroa.0127.0.i, %665 ], [ %.sroa.0127.0.i, %.preheader356.i ], [ %.sroa.0127.3413.i, %596 ], [ %.sroa.0127.4.i, %611 ], [ %.sroa.0127.4.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i.i ]
-  %.sroa.25136.2.i = phi i32 [ %681, %667 ], [ %.sroa.25136.0.i, %657 ], [ %664, %659 ], [ %.sroa.25136.0.i, %665 ], [ %.sroa.25136.0.i, %.preheader356.i ], [ %.sroa.25136.4414.i, %596 ], [ %654, %611 ], [ %.sroa.25136.5.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i.i ]
-  %.sroa.69163.2.i = phi ptr [ %679, %667 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %657 ], [ %663, %659 ], [ %28, %665 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader356.i ], [ %28, %596 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %611 ], [ %.sroa.69163.4.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i.i ]
-  %.3.i205.i.i = phi ptr [ %.0149.i.i, %667 ], [ %.0149.i.i, %657 ], [ %.0149.i.i, %659 ], [ %.0149.i.i, %665 ], [ %.0149.i.i, %.preheader356.i ], [ %.0.i211.i416.i, %596 ], [ %655, %611 ], [ %.0.i211.i416.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i.i ]
+  %.sroa.0127.2.i = phi i64 [ %.val.i37.i, %667 ], [ %.val.i.i36.i, %659 ], [ %.sroa.0127.0.i, %657 ], [ %.sroa.0127.0.i, %665 ], [ %.sroa.0127.0.i, %.preheader356.i ], [ %.sroa.0127.3413.i, %596 ], [ %.sroa.0127.4.i, %611 ], [ %.sroa.0127.4.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i.i ]
+  %.sroa.25136.2.i = phi i32 [ %681, %667 ], [ %664, %659 ], [ %.sroa.25136.0.i, %657 ], [ %.sroa.25136.0.i, %665 ], [ %.sroa.25136.0.i, %.preheader356.i ], [ %.sroa.25136.4414.i, %596 ], [ %654, %611 ], [ %.sroa.25136.5.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i.i ]
+  %.sroa.69163.2.i = phi ptr [ %679, %667 ], [ %663, %659 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %657 ], [ %28, %665 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader356.i ], [ %28, %596 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %611 ], [ %.sroa.69163.4.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i.i ]
+  %.3.i205.i.i = phi ptr [ %.0149.i.i, %667 ], [ %.0149.i.i, %659 ], [ %.0149.i.i, %657 ], [ %.0149.i.i, %665 ], [ %.0149.i.i, %.preheader356.i ], [ %.0.i211.i416.i, %596 ], [ %655, %611 ], [ %.0.i211.i416.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i.i ]
   %682 = icmp ult ptr %.3.i205.i.i, %34
   br i1 %682, label %.lr.ph433.i, label %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit219.i.i
 
@@ -6088,9 +6088,9 @@ _ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i.i: ; preds = %715, %710
-  %.sroa.25.5.i = phi i32 [ %712, %710 ], [ %725, %715 ]
-  %.pn333.in.i = phi i32 [ %711, %710 ], [ %.021.i39.i197.i.i, %715 ]
-  %.022.i38.i196.i.i = phi i1 [ true, %710 ], [ %720, %715 ]
+  %.sroa.25.5.i = phi i32 [ %725, %715 ], [ %712, %710 ]
+  %.pn333.in.i = phi i32 [ %.021.i39.i197.i.i, %715 ], [ %711, %710 ]
+  %.022.i38.i196.i.i = phi i1 [ %720, %715 ], [ true, %710 ]
   %.pn333.i = zext i32 %.pn333.in.i to i64
   %.pn332.i = sub nsw i64 0, %.pn333.i
   %.sroa.6982.4.i = getelementptr inbounds i8, ptr %.sroa.6982.3437.i, i64 %.pn332.i
@@ -6191,10 +6191,10 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i.i: ; pre
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i185.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i185.i.i: ; preds = %728, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i.i, %713, %784, %782, %776, %774, %.preheader355.i
-  %.sroa.0.2.i = phi i64 [ %.val.i41.i, %784 ], [ %.sroa.0.0.i, %774 ], [ %.val.i.i40.i, %776 ], [ %.sroa.0.0.i, %782 ], [ %.sroa.0.0.i, %.preheader355.i ], [ %.sroa.0.3435.i, %713 ], [ %.sroa.0.4.i, %728 ], [ %.sroa.0.4.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i.i ]
-  %.sroa.25.2.i = phi i32 [ %798, %784 ], [ %.sroa.25.0.i, %774 ], [ %781, %776 ], [ %.sroa.25.0.i, %782 ], [ %.sroa.25.0.i, %.preheader355.i ], [ %.sroa.25.4436.i, %713 ], [ %771, %728 ], [ %.sroa.25.5.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i.i ]
-  %.sroa.6982.2.i = phi ptr [ %796, %784 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %774 ], [ %780, %776 ], [ %29, %782 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader355.i ], [ %29, %713 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %728 ], [ %.sroa.6982.4.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i.i ]
-  %.3.i187.i.i = phi ptr [ %.0153.i.i, %784 ], [ %.0153.i.i, %774 ], [ %.0153.i.i, %776 ], [ %.0153.i.i, %782 ], [ %.0153.i.i, %.preheader355.i ], [ %.0.i193.i438.i, %713 ], [ %772, %728 ], [ %.0.i193.i438.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i.i ]
+  %.sroa.0.2.i = phi i64 [ %.val.i41.i, %784 ], [ %.val.i.i40.i, %776 ], [ %.sroa.0.0.i, %774 ], [ %.sroa.0.0.i, %782 ], [ %.sroa.0.0.i, %.preheader355.i ], [ %.sroa.0.3435.i, %713 ], [ %.sroa.0.4.i, %728 ], [ %.sroa.0.4.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i.i ]
+  %.sroa.25.2.i = phi i32 [ %798, %784 ], [ %781, %776 ], [ %.sroa.25.0.i, %774 ], [ %.sroa.25.0.i, %782 ], [ %.sroa.25.0.i, %.preheader355.i ], [ %.sroa.25.4436.i, %713 ], [ %771, %728 ], [ %.sroa.25.5.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i.i ]
+  %.sroa.6982.2.i = phi ptr [ %796, %784 ], [ %780, %776 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %774 ], [ %29, %782 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader355.i ], [ %29, %713 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %728 ], [ %.sroa.6982.4.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i.i ]
+  %.3.i187.i.i = phi ptr [ %.0153.i.i, %784 ], [ %.0153.i.i, %776 ], [ %.0153.i.i, %774 ], [ %.0153.i.i, %782 ], [ %.0153.i.i, %.preheader355.i ], [ %.0.i193.i438.i, %713 ], [ %772, %728 ], [ %.0.i193.i438.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i.i ]
   %799 = icmp ult ptr %.3.i187.i.i, %35
   br i1 %799, label %.lr.ph455.i, label %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit201.i.i
 
@@ -6421,9 +6421,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i.i: ; preds 
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i.i: ; preds = %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i.i, %841, %931, %927, %921, %916, %._crit_edge.i
-  %946 = phi i32 [ %829, %._crit_edge.i ], [ %821, %916 ], [ %945, %931 ], [ %821, %927 ], [ %926, %921 ], [ %859, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i.i ], [ %832, %841 ]
-  %947 = phi ptr [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %._crit_edge.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %916 ], [ %943, %931 ], [ %918, %927 ], [ %925, %921 ], [ %storemerge.in.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i.i ], [ %833, %841 ]
-  %.3.i.i.i = phi ptr [ %.0.i.i.lcssa.i, %._crit_edge.i ], [ %.0157.i.i, %916 ], [ %.0157.i.i, %931 ], [ %.0157.i.i, %927 ], [ %.0157.i.i, %921 ], [ %.0.i.i457.i, %841 ], [ %.0.i.i457.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i.i ]
+  %946 = phi i32 [ %945, %931 ], [ %926, %921 ], [ %821, %916 ], [ %829, %._crit_edge.i ], [ %821, %927 ], [ %859, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i.i ], [ %832, %841 ]
+  %947 = phi ptr [ %943, %931 ], [ %925, %921 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %916 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %._crit_edge.i ], [ %918, %927 ], [ %storemerge.in.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i.i ], [ %833, %841 ]
+  %.3.i.i.i = phi ptr [ %.0157.i.i, %931 ], [ %.0157.i.i, %921 ], [ %.0157.i.i, %916 ], [ %.0.i.i.lcssa.i, %._crit_edge.i ], [ %.0157.i.i, %927 ], [ %.0.i.i457.i, %841 ], [ %.0.i.i457.i, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i.i ]
   %948 = icmp ult ptr %.3.i.i.i, %15
   br i1 %948, label %.lr.ph461.i, label %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit.i.i
 
@@ -6483,7 +6483,7 @@ _ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1
   br label %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread.i
 
 _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread.i: ; preds = %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit.i.i, %.loopexit.i, %237, %228, %176, %171, %162, %110, %105, %96, %44, %39, %14
-  %.1.i.i = phi i64 [ %spec.select.i.i, %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit.i.i ], [ -20, %14 ], [ -1, %110 ], [ -20, %.loopexit.i ], [ -1, %44 ], [ %238, %237 ], [ -20, %96 ], [ -72, %39 ], [ -20, %162 ], [ -72, %105 ], [ -20, %228 ], [ -72, %171 ], [ -1, %176 ]
+  %.1.i.i = phi i64 [ %238, %237 ], [ -20, %14 ], [ -20, %.loopexit.i ], [ %spec.select.i.i, %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit.i.i ], [ -20, %96 ], [ -1, %44 ], [ -72, %39 ], [ -20, %162 ], [ -1, %110 ], [ -72, %105 ], [ -20, %228 ], [ -1, %176 ], [ -72, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN11duckdb_zstdL46HUF_decompress4X1_usingDTable_internal_defaultEPvmPKvmPKj.exit
 
@@ -6572,7 +6572,7 @@ _ZN11duckdb_zstd17HUF_selectDecoderEmm.exit:      ; preds = %12, %13
   br label %_ZN11duckdb_zstdL27HUF_decompress4X2_DCtx_wkspEPjPvmPKvmS1_mi.exit
 
 _ZN11duckdb_zstdL27HUF_decompress4X2_DCtx_wkspEPjPvmPKvmS1_mi.exit: ; preds = %46, %45, %42, %38, %37, %34, %10, %8
-  %.0 = phi i64 [ -20, %10 ], [ -70, %8 ], [ -72, %37 ], [ %41, %38 ], [ %35, %34 ], [ %49, %46 ], [ %43, %42 ], [ -72, %45 ]
+  %.0 = phi i64 [ -70, %8 ], [ -20, %10 ], [ %41, %38 ], [ %35, %34 ], [ -72, %37 ], [ %49, %46 ], [ %43, %42 ], [ -72, %45 ]
   ret i64 %.0
 }
 
@@ -6767,9 +6767,9 @@ _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit: ; preds = %10
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit: ; preds = %101, %107
-  %.sroa.31.7 = phi i32 [ %104, %101 ], [ %113, %107 ]
-  %.pn199 = phi i64 [ %103, %101 ], [ %111, %107 ]
-  %.022.i = phi i1 [ true, %101 ], [ %110, %107 ]
+  %.sroa.31.7 = phi i32 [ %113, %107 ], [ %104, %101 ]
+  %.pn199 = phi i64 [ %111, %107 ], [ %103, %101 ]
+  %.022.i = phi i1 [ %110, %107 ], [ true, %101 ]
   %.sroa.9789.5.idx = sub nsw i64 %.sroa.9789.4.idx237, %.pn199
   %.sroa.9789.5 = getelementptr inbounds i8, ptr %2, i64 %.sroa.9789.5.idx
   %.sroa.0.5 = load i64, ptr %.sroa.9789.5, align 1, !tbaa !17
@@ -6886,9 +6886,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit: ; preds = %101, 
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit15
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit15: ; preds = %189, %195
-  %.sroa.31.8 = phi i32 [ %192, %189 ], [ %201, %195 ]
-  %.pn = phi i64 [ %191, %189 ], [ %199, %195 ]
-  %.022.i10 = phi i1 [ true, %189 ], [ %198, %195 ]
+  %.sroa.31.8 = phi i32 [ %201, %195 ], [ %192, %189 ]
+  %.pn = phi i64 [ %199, %195 ], [ %191, %189 ]
+  %.022.i10 = phi i1 [ %198, %195 ], [ true, %189 ]
   %.sroa.9789.6.idx = sub nsw i64 %.sroa.9789.3.idx220, %.pn
   %.sroa.9789.6 = getelementptr inbounds i8, ptr %2, i64 %.sroa.9789.6.idx
   %.sroa.0.6 = load i64, ptr %.sroa.9789.6, align 1, !tbaa !17
@@ -6999,14 +6999,14 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.spl
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29: ; preds = %193, %204, %105, %116, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.split.loop.exit, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit.split.loop.exit, %.thread, %269, %271, %263
-  %279 = phi i64 [ %69, %269 ], [ %69, %263 ], [ %81, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit.split.loop.exit ], [ %69, %271 ], [ %78, %.thread ], [ %81, %105 ], [ %81, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.split.loop.exit ], [ %81, %116 ], [ %81, %204 ], [ %81, %193 ]
-  %.sroa.3.0.extract.shift.i303 = phi i32 [ %.sroa.3.0.extract.shift.i, %269 ], [ %.sroa.3.0.extract.shift.i, %263 ], [ %.sroa.3.0.extract.shift.i302, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit.split.loop.exit ], [ %.sroa.3.0.extract.shift.i, %271 ], [ %.sroa.3.0.extract.shift.i293, %.thread ], [ %.sroa.3.0.extract.shift.i302, %105 ], [ %.sroa.3.0.extract.shift.i302, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.split.loop.exit ], [ %.sroa.3.0.extract.shift.i302, %116 ], [ %.sroa.3.0.extract.shift.i302, %204 ], [ %.sroa.3.0.extract.shift.i302, %193 ]
-  %280 = phi ptr [ %68, %269 ], [ %68, %263 ], [ %82, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit.split.loop.exit ], [ %68, %271 ], [ %77, %.thread ], [ %82, %105 ], [ %82, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.split.loop.exit ], [ %82, %116 ], [ %82, %204 ], [ %82, %193 ]
-  %281 = phi ptr [ %67, %269 ], [ %67, %263 ], [ %83, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit.split.loop.exit ], [ %67, %271 ], [ %76, %.thread ], [ %83, %105 ], [ %83, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.split.loop.exit ], [ %83, %116 ], [ %83, %204 ], [ %83, %193 ]
-  %.sroa.31.0 = phi i32 [ %64, %269 ], [ %268, %263 ], [ %.sroa.31.7, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit.split.loop.exit ], [ %278, %271 ], [ %75, %.thread ], [ %.sroa.31.5235, %105 ], [ %.sroa.31.8, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.split.loop.exit ], [ %182, %116 ], [ %.sroa.31.4218, %193 ], [ %256, %204 ]
-  %.sroa.0.0 = phi i64 [ %.val.i.i, %269 ], [ %.val.i.i35, %263 ], [ %.sroa.0.5, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit.split.loop.exit ], [ %.val.i36, %271 ], [ %.sroa.0.9, %.thread ], [ %.sroa.0.4236, %105 ], [ %.sroa.0.6, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.split.loop.exit ], [ %.sroa.0.5, %116 ], [ %.sroa.0.3219, %193 ], [ %.sroa.0.6, %204 ]
-  %.sroa.9789.0 = phi ptr [ %.sroa.9789.9176.ptr.ptr.ptr, %269 ], [ %267, %263 ], [ %.sroa.9789.5.le, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit.split.loop.exit ], [ %276, %271 ], [ %2, %.thread ], [ %2, %105 ], [ %.sroa.9789.6.le, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.split.loop.exit ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %116 ], [ %2, %193 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %204 ]
-  %.4.i = phi ptr [ %0, %269 ], [ %0, %263 ], [ %.0.i238, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit.split.loop.exit ], [ %0, %271 ], [ %0, %.thread ], [ %.0.i238, %105 ], [ %.1.i5221, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.split.loop.exit ], [ %186, %116 ], [ %.1.i5221, %193 ], [ %260, %204 ]
+  %279 = phi i64 [ %69, %271 ], [ %69, %263 ], [ %69, %269 ], [ %78, %.thread ], [ %81, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit.split.loop.exit ], [ %81, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.split.loop.exit ], [ %81, %116 ], [ %81, %105 ], [ %81, %204 ], [ %81, %193 ]
+  %.sroa.3.0.extract.shift.i303 = phi i32 [ %.sroa.3.0.extract.shift.i, %271 ], [ %.sroa.3.0.extract.shift.i, %263 ], [ %.sroa.3.0.extract.shift.i, %269 ], [ %.sroa.3.0.extract.shift.i293, %.thread ], [ %.sroa.3.0.extract.shift.i302, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit.split.loop.exit ], [ %.sroa.3.0.extract.shift.i302, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.split.loop.exit ], [ %.sroa.3.0.extract.shift.i302, %116 ], [ %.sroa.3.0.extract.shift.i302, %105 ], [ %.sroa.3.0.extract.shift.i302, %204 ], [ %.sroa.3.0.extract.shift.i302, %193 ]
+  %280 = phi ptr [ %68, %271 ], [ %68, %263 ], [ %68, %269 ], [ %77, %.thread ], [ %82, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit.split.loop.exit ], [ %82, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.split.loop.exit ], [ %82, %116 ], [ %82, %105 ], [ %82, %204 ], [ %82, %193 ]
+  %281 = phi ptr [ %67, %271 ], [ %67, %263 ], [ %67, %269 ], [ %76, %.thread ], [ %83, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit.split.loop.exit ], [ %83, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.split.loop.exit ], [ %83, %116 ], [ %83, %105 ], [ %83, %204 ], [ %83, %193 ]
+  %.sroa.31.0 = phi i32 [ %278, %271 ], [ %268, %263 ], [ %64, %269 ], [ %75, %.thread ], [ %.sroa.31.7, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit.split.loop.exit ], [ %.sroa.31.8, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.split.loop.exit ], [ %.sroa.31.5235, %105 ], [ %182, %116 ], [ %.sroa.31.4218, %193 ], [ %256, %204 ]
+  %.sroa.0.0 = phi i64 [ %.val.i36, %271 ], [ %.val.i.i35, %263 ], [ %.val.i.i, %269 ], [ %.sroa.0.9, %.thread ], [ %.sroa.0.5, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit.split.loop.exit ], [ %.sroa.0.6, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.split.loop.exit ], [ %.sroa.0.4236, %105 ], [ %.sroa.0.5, %116 ], [ %.sroa.0.3219, %193 ], [ %.sroa.0.6, %204 ]
+  %.sroa.9789.0 = phi ptr [ %276, %271 ], [ %267, %263 ], [ %.sroa.9789.9176.ptr.ptr.ptr, %269 ], [ %2, %.thread ], [ %.sroa.9789.5.le, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit.split.loop.exit ], [ %.sroa.9789.6.le, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.split.loop.exit ], [ %2, %105 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %116 ], [ %2, %193 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %204 ]
+  %.4.i = phi ptr [ %0, %271 ], [ %0, %263 ], [ %0, %269 ], [ %0, %.thread ], [ %.0.i238, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit.split.loop.exit ], [ %.1.i5221, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29.loopexit330.split.loop.exit ], [ %.0.i238, %105 ], [ %186, %116 ], [ %.1.i5221, %193 ], [ %260, %204 ]
   %282 = ptrtoint ptr %.4.i to i64
   %283 = sub i64 %279, %282
   %284 = icmp ugt i64 %283, 1
@@ -7053,9 +7053,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit29: ; preds = %193
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit22
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit22: ; preds = %291, %296
-  %.sroa.31.9 = phi i32 [ %293, %291 ], [ %306, %296 ]
-  %.pn357.in = phi i32 [ %292, %291 ], [ %.021.i18, %296 ]
-  %.022.i17 = phi i1 [ true, %291 ], [ %301, %296 ]
+  %.sroa.31.9 = phi i32 [ %306, %296 ], [ %293, %291 ]
+  %.pn357.in = phi i32 [ %.021.i18, %296 ], [ %292, %291 ]
+  %.022.i17 = phi i1 [ %301, %296 ], [ true, %291 ]
   %.pn357 = zext i32 %.pn357.in to i64
   %.pn356 = sub nsw i64 0, %.pn357
   %.sroa.9789.7 = getelementptr inbounds i8, ptr %.sroa.9789.2368, i64 %.pn356
@@ -7164,8 +7164,8 @@ _ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2
   %spec.select200 = select i1 %or.cond, i64 %1, i64 -20
   br label %_ZN11duckdb_zstdL43HUF_decompress1X2_usingDTable_internal_bodyEPvmPKvmPKj.exit
 
-_ZN11duckdb_zstdL43HUF_decompress1X2_usingDTable_internal_bodyEPvmPKvmPKj.exit: ; preds = %_ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2Ej.exit, %57, %5, %10, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit
-  %.1.i = phi i64 [ %3, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit ], [ %spec.select200, %_ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2Ej.exit ], [ -1, %10 ], [ -20, %57 ], [ -72, %5 ]
+_ZN11duckdb_zstdL43HUF_decompress1X2_usingDTable_internal_bodyEPvmPKvmPKj.exit: ; preds = %_ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2Ej.exit, %57, %10, %5, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit
+  %.1.i = phi i64 [ %3, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit ], [ -20, %57 ], [ -1, %10 ], [ -72, %5 ], [ %spec.select200, %_ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2Ej.exit ]
   ret i64 %.1.i
 }
 
@@ -7311,7 +7311,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL15BIT_initD
   br label %83
 
 83:                                               ; preds = %75, %.thread, %73, %22, %5
-  %.0 = phi i64 [ -72, %5 ], [ -20, %73 ], [ -1, %22 ], [ %2, %.thread ], [ %2, %75 ]
+  %.0 = phi i64 [ -72, %5 ], [ -1, %22 ], [ -20, %73 ], [ %2, %.thread ], [ %2, %75 ]
   ret i64 %.0
 }
 
@@ -7478,9 +7478,9 @@ _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit: ; preds = %11
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i: ; preds = %86, %80
-  %.sroa.20.4 = phi i32 [ %83, %80 ], [ %92, %86 ]
-  %.pn = phi i64 [ %82, %80 ], [ %90, %86 ]
-  %.022.i38.i = phi i1 [ true, %80 ], [ %89, %86 ]
+  %.sroa.20.4 = phi i32 [ %92, %86 ], [ %83, %80 ]
+  %.pn = phi i64 [ %90, %86 ], [ %82, %80 ]
+  %.022.i38.i = phi i1 [ %89, %86 ], [ true, %80 ]
   %.sroa.5029.3.idx = sub nsw i64 %.sroa.5029.2.idx103, %.pn
   %.sroa.5029.3 = getelementptr inbounds i8, ptr %2, i64 %.sroa.5029.3.idx
   %.sroa.0.3 = load i64, ptr %.sroa.5029.3, align 1, !tbaa !17
@@ -7575,10 +7575,10 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.loopexit.split.
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %84, %95, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.loopexit.split.loop.exit, %.thread, %148, %142, %150
-  %.sroa.20.1 = phi i32 [ %65, %148 ], [ %157, %150 ], [ %147, %142 ], [ %73, %.thread ], [ %.sroa.20.4, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.loopexit.split.loop.exit ], [ %.sroa.20.3101, %84 ], [ %138, %95 ]
-  %.sroa.0.1 = phi i64 [ %.val.i.i, %148 ], [ %.val.i8, %150 ], [ %.val.i.i7, %142 ], [ %.sroa.0.4, %.thread ], [ %.sroa.0.3, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.loopexit.split.loop.exit ], [ %.sroa.0.2102, %84 ], [ %.sroa.0.3, %95 ]
-  %.sroa.5029.1 = phi ptr [ %.sroa.5029.476.ptr.ptr, %148 ], [ %155, %150 ], [ %146, %142 ], [ %2, %.thread ], [ %.sroa.5029.3.le, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.loopexit.split.loop.exit ], [ %2, %84 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %95 ]
-  %.3.i = phi ptr [ %0, %148 ], [ %0, %150 ], [ %0, %142 ], [ %0, %.thread ], [ %.0.i104, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.loopexit.split.loop.exit ], [ %.0.i104, %84 ], [ %139, %95 ]
+  %.sroa.20.1 = phi i32 [ %157, %150 ], [ %147, %142 ], [ %65, %148 ], [ %73, %.thread ], [ %.sroa.20.4, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.loopexit.split.loop.exit ], [ %.sroa.20.3101, %84 ], [ %138, %95 ]
+  %.sroa.0.1 = phi i64 [ %.val.i8, %150 ], [ %.val.i.i7, %142 ], [ %.val.i.i, %148 ], [ %.sroa.0.4, %.thread ], [ %.sroa.0.3, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.loopexit.split.loop.exit ], [ %.sroa.0.2102, %84 ], [ %.sroa.0.3, %95 ]
+  %.sroa.5029.1 = phi ptr [ %155, %150 ], [ %146, %142 ], [ %.sroa.5029.476.ptr.ptr, %148 ], [ %2, %.thread ], [ %.sroa.5029.3.le, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.loopexit.split.loop.exit ], [ %2, %84 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %95 ]
+  %.3.i = phi ptr [ %0, %150 ], [ %0, %142 ], [ %0, %148 ], [ %0, %.thread ], [ %.0.i104, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.loopexit.split.loop.exit ], [ %.0.i104, %84 ], [ %139, %95 ]
   %.sroa.20.2.fr108 = freeze i32 %.sroa.20.1
   %158 = icmp ult ptr %.3.i, %6
   br i1 %158, label %.lr.ph111, label %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit
@@ -7616,8 +7616,8 @@ _ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1
   %spec.select = select i1 %or.cond, i64 %1, i64 -20
   br label %_ZN11duckdb_zstdL43HUF_decompress1X1_usingDTable_internal_bodyEPvmPKvmPKj.exit
 
-_ZN11duckdb_zstdL43HUF_decompress1X1_usingDTable_internal_bodyEPvmPKvmPKj.exit: ; preds = %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit, %58, %5, %11, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit
-  %.1.i = phi i64 [ %3, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit ], [ %spec.select, %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit ], [ -1, %11 ], [ -20, %58 ], [ -72, %5 ]
+_ZN11duckdb_zstdL43HUF_decompress1X1_usingDTable_internal_bodyEPvmPKvmPKj.exit: ; preds = %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit, %58, %11, %5, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit
+  %.1.i = phi i64 [ %3, %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit ], [ -20, %58 ], [ -1, %11 ], [ -72, %5 ], [ %spec.select, %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit ]
   ret i64 %.1.i
 }
 
@@ -8205,9 +8205,9 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   br label %101
 
 101:                                              ; preds = %95, %.thread.i
-  %.sroa.116432.11 = phi ptr [ %22, %95 ], [ %43, %.thread.i ]
-  %.sroa.36382.14 = phi i32 [ %100, %95 ], [ %47, %.thread.i ]
-  %.sroa.0366.12 = phi i64 [ %.sroa.0366.11, %95 ], [ %.val.i.i, %.thread.i ]
+  %.sroa.116432.11 = phi ptr [ %43, %.thread.i ], [ %22, %95 ]
+  %.sroa.36382.14 = phi i32 [ %47, %.thread.i ], [ %100, %95 ]
+  %.sroa.0366.12 = phi i64 [ %.val.i.i, %.thread.i ], [ %.sroa.0366.11, %95 ]
   %102 = icmp eq i16 %.val.i4, 0
   br i1 %102, label %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread, label %103
 
@@ -8313,9 +8313,9 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   br label %167
 
 167:                                              ; preds = %161, %.thread.i12
-  %.sroa.0213.12 = phi i64 [ %.sroa.0213.11, %161 ], [ %.val.i.i10, %.thread.i12 ]
-  %.sroa.36229.14 = phi i32 [ %166, %161 ], [ %113, %.thread.i12 ]
-  %.sroa.116279.11 = phi ptr [ %23, %161 ], [ %109, %.thread.i12 ]
+  %.sroa.0213.12 = phi i64 [ %.val.i.i10, %.thread.i12 ], [ %.sroa.0213.11, %161 ]
+  %.sroa.36229.14 = phi i32 [ %113, %.thread.i12 ], [ %166, %161 ]
+  %.sroa.116279.11 = phi ptr [ %109, %.thread.i12 ], [ %23, %161 ]
   %168 = icmp eq i16 %.val.i5, 0
   br i1 %168, label %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread, label %169
 
@@ -8421,9 +8421,9 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   br label %233
 
 233:                                              ; preds = %227, %.thread.i18
-  %.sroa.0.12 = phi i64 [ %.sroa.0.11, %227 ], [ %.val.i.i16, %.thread.i18 ]
-  %.sroa.36.14 = phi i32 [ %232, %227 ], [ %179, %.thread.i18 ]
-  %.sroa.116128.11 = phi ptr [ %24, %227 ], [ %175, %.thread.i18 ]
+  %.sroa.0.12 = phi i64 [ %.val.i.i16, %.thread.i18 ], [ %.sroa.0.11, %227 ]
+  %.sroa.36.14 = phi i32 [ %179, %.thread.i18 ], [ %232, %227 ]
+  %.sroa.116128.11 = phi ptr [ %175, %.thread.i18 ], [ %24, %227 ]
   %234 = call fastcc noundef i64 @_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm(ptr noundef %6, ptr noundef nonnull %25, i64 noundef %21)
   %235 = icmp ult i64 %234, -119
   br i1 %235, label %236, label %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread
@@ -8874,9 +8874,9 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit29: ; preds = 
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %533, %528
-  %.pn572.in = phi i32 [ %529, %528 ], [ %.021.i.i, %533 ]
-  %.sroa.36382.12 = phi i32 [ %530, %528 ], [ %543, %533 ]
-  %.022.i.i = phi i1 [ true, %528 ], [ %538, %533 ]
+  %.pn572.in = phi i32 [ %.021.i.i, %533 ], [ %529, %528 ]
+  %.sroa.36382.12 = phi i32 [ %543, %533 ], [ %530, %528 ]
+  %.022.i.i = phi i1 [ %538, %533 ], [ true, %528 ]
   %.pn572 = zext i32 %.pn572.in to i64
   %.pn571 = sub nsw i64 0, %.pn572
   %.sroa.116432.9 = getelementptr inbounds i8, ptr %.sroa.116432.8692, i64 %.pn571
@@ -8996,9 +8996,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %533
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i: ; preds = %624, %619
-  %.pn570.in = phi i32 [ %620, %619 ], [ %.021.i231.i, %624 ]
-  %.sroa.36382.10 = phi i32 [ %621, %619 ], [ %634, %624 ]
-  %.022.i230.i = phi i1 [ true, %619 ], [ %629, %624 ]
+  %.pn570.in = phi i32 [ %.021.i231.i, %624 ], [ %620, %619 ]
+  %.sroa.36382.10 = phi i32 [ %634, %624 ], [ %621, %619 ]
+  %.022.i230.i = phi i1 [ %629, %624 ], [ true, %619 ]
   %.pn570 = zext i32 %.pn570.in to i64
   %.pn = sub nsw i64 0, %.pn570
   %.sroa.116432.7 = getelementptr inbounds i8, ptr %.sroa.116432.6674, i64 %.pn
@@ -9112,10 +9112,10 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i: ; preds = %
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit249.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit249.i: ; preds = %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i, %637, %622, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i, %546, %531, %.preheader630, %.preheader629, %704, %698, %706, %695
-  %.sroa.116432.2 = phi ptr [ %22, %704 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader629 ], [ %718, %706 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %695 ], [ %702, %698 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader630 ], [ %22, %531 ], [ %.sroa.116432.9, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %546 ], [ %.sroa.116432.7, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i ], [ %22, %622 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %637 ]
-  %.sroa.36382.2 = phi i32 [ %.sroa.36382.0, %704 ], [ %.sroa.36382.0, %.preheader629 ], [ %720, %706 ], [ %.sroa.36382.0, %695 ], [ %703, %698 ], [ %.sroa.36382.0, %.preheader630 ], [ %.sroa.36382.11693, %531 ], [ %.sroa.36382.12, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i ], [ %612, %546 ], [ %.sroa.36382.10, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i ], [ %.sroa.36382.9675, %622 ], [ %689, %637 ]
-  %.sroa.0366.2 = phi i64 [ %.sroa.0366.0, %704 ], [ %.sroa.0366.0, %.preheader629 ], [ %.val.i35, %706 ], [ %.sroa.0366.0, %695 ], [ %.val.i.i34, %698 ], [ %.sroa.0366.0, %.preheader630 ], [ %.sroa.0366.8694, %531 ], [ %.sroa.0366.9, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i ], [ %.sroa.0366.9, %546 ], [ %.sroa.0366.7, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i ], [ %.sroa.0366.6676, %622 ], [ %.sroa.0366.7, %637 ]
-  %.4.i218.i = phi ptr [ %.0161.i, %704 ], [ %.0161.i, %.preheader629 ], [ %.0161.i, %706 ], [ %.0161.i, %695 ], [ %.0161.i, %698 ], [ %.0161.i, %.preheader630 ], [ %.0.i225.i695, %531 ], [ %.0.i225.i695, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i ], [ %616, %546 ], [ %.1.i224.i677, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i ], [ %.1.i224.i677, %622 ], [ %693, %637 ]
+  %.sroa.116432.2 = phi ptr [ %718, %706 ], [ %702, %698 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %695 ], [ %22, %704 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader629 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader630 ], [ %.sroa.116432.9, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %546 ], [ %22, %531 ], [ %.sroa.116432.7, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %637 ], [ %22, %622 ]
+  %.sroa.36382.2 = phi i32 [ %720, %706 ], [ %703, %698 ], [ %.sroa.36382.0, %695 ], [ %.sroa.36382.0, %704 ], [ %.sroa.36382.0, %.preheader629 ], [ %.sroa.36382.0, %.preheader630 ], [ %.sroa.36382.12, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i ], [ %612, %546 ], [ %.sroa.36382.11693, %531 ], [ %.sroa.36382.10, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i ], [ %689, %637 ], [ %.sroa.36382.9675, %622 ]
+  %.sroa.0366.2 = phi i64 [ %.val.i35, %706 ], [ %.val.i.i34, %698 ], [ %.sroa.0366.0, %695 ], [ %.sroa.0366.0, %704 ], [ %.sroa.0366.0, %.preheader629 ], [ %.sroa.0366.0, %.preheader630 ], [ %.sroa.0366.9, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i ], [ %.sroa.0366.9, %546 ], [ %.sroa.0366.8694, %531 ], [ %.sroa.0366.7, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i ], [ %.sroa.0366.7, %637 ], [ %.sroa.0366.6676, %622 ]
+  %.4.i218.i = phi ptr [ %.0161.i, %706 ], [ %.0161.i, %698 ], [ %.0161.i, %695 ], [ %.0161.i, %704 ], [ %.0161.i, %.preheader629 ], [ %.0161.i, %.preheader630 ], [ %.0.i225.i695, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i ], [ %616, %546 ], [ %.0.i225.i695, %531 ], [ %.1.i224.i677, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i ], [ %693, %637 ], [ %.1.i224.i677, %622 ]
   %721 = ptrtoint ptr %.4.i218.i to i64
   %722 = sub i64 %510, %721
   %723 = icmp ugt i64 %722, 1
@@ -9162,9 +9162,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit249.i: ; preds = %
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit242.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit242.i: ; preds = %735, %730
-  %.pn986.in = phi i32 [ %731, %730 ], [ %.021.i238.i, %735 ]
-  %.sroa.36382.7 = phi i32 [ %732, %730 ], [ %745, %735 ]
-  %.022.i237.i = phi i1 [ true, %730 ], [ %740, %735 ]
+  %.pn986.in = phi i32 [ %.021.i238.i, %735 ], [ %731, %730 ]
+  %.sroa.36382.7 = phi i32 [ %745, %735 ], [ %732, %730 ]
+  %.022.i237.i = phi i1 [ %740, %735 ], [ true, %730 ]
   %.pn986 = zext i32 %.pn986.in to i64
   %.pn985 = sub nsw i64 0, %.pn986
   %.sroa.116432.5 = getelementptr inbounds i8, ptr %.sroa.116432.41031, i64 %.pn985
@@ -9331,9 +9331,9 @@ _ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i: ; preds = %827, %822
-  %.sroa.36229.12 = phi i32 [ %824, %822 ], [ %837, %827 ]
-  %.pn576.in = phi i32 [ %823, %822 ], [ %.021.i252.i, %827 ]
-  %.022.i251.i = phi i1 [ true, %822 ], [ %832, %827 ]
+  %.sroa.36229.12 = phi i32 [ %837, %827 ], [ %824, %822 ]
+  %.pn576.in = phi i32 [ %.021.i252.i, %827 ], [ %823, %822 ]
+  %.022.i251.i = phi i1 [ %832, %827 ], [ true, %822 ]
   %.pn576 = zext i32 %.pn576.in to i64
   %.pn575 = sub nsw i64 0, %.pn576
   %.sroa.116279.9 = getelementptr inbounds i8, ptr %.sroa.116279.8736, i64 %.pn575
@@ -9453,9 +9453,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i: ; preds = %
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i: ; preds = %918, %913
-  %.sroa.36229.10 = phi i32 [ %915, %913 ], [ %928, %918 ]
-  %.pn574.in = phi i32 [ %914, %913 ], [ %.021.i259.i, %918 ]
-  %.022.i258.i = phi i1 [ true, %913 ], [ %923, %918 ]
+  %.sroa.36229.10 = phi i32 [ %928, %918 ], [ %915, %913 ]
+  %.pn574.in = phi i32 [ %.021.i259.i, %918 ], [ %914, %913 ]
+  %.022.i258.i = phi i1 [ %923, %918 ], [ true, %913 ]
   %.pn574 = zext i32 %.pn574.in to i64
   %.pn573 = sub nsw i64 0, %.pn574
   %.sroa.116279.7 = getelementptr inbounds i8, ptr %.sroa.116279.6718, i64 %.pn573
@@ -9569,10 +9569,10 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i: ; preds = %
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit277.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit277.i: ; preds = %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i, %931, %916, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i, %840, %825, %.preheader621, %.preheader620, %998, %992, %1000, %989
-  %.sroa.0213.2 = phi i64 [ %.sroa.0213.0, %998 ], [ %.sroa.0213.0, %.preheader620 ], [ %.val.i43, %1000 ], [ %.sroa.0213.0, %989 ], [ %.val.i.i42, %992 ], [ %.sroa.0213.0, %.preheader621 ], [ %.sroa.0213.8734, %825 ], [ %.sroa.0213.9, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i ], [ %.sroa.0213.9, %840 ], [ %.sroa.0213.7, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i ], [ %.sroa.0213.6716, %916 ], [ %.sroa.0213.7, %931 ]
-  %.sroa.36229.2 = phi i32 [ %.sroa.36229.0, %998 ], [ %.sroa.36229.0, %.preheader620 ], [ %1014, %1000 ], [ %.sroa.36229.0, %989 ], [ %997, %992 ], [ %.sroa.36229.0, %.preheader621 ], [ %.sroa.36229.11735, %825 ], [ %.sroa.36229.12, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i ], [ %906, %840 ], [ %.sroa.36229.10, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i ], [ %.sroa.36229.9717, %916 ], [ %983, %931 ]
-  %.sroa.116279.2 = phi ptr [ %23, %998 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader620 ], [ %1012, %1000 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %989 ], [ %996, %992 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader621 ], [ %23, %825 ], [ %.sroa.116279.9, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %840 ], [ %.sroa.116279.7, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i ], [ %23, %916 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %931 ]
-  %.4.i209.i = phi ptr [ %.0165.i, %998 ], [ %.0165.i, %.preheader620 ], [ %.0165.i, %1000 ], [ %.0165.i, %989 ], [ %.0165.i, %992 ], [ %.0165.i, %.preheader621 ], [ %.0.i216.i737, %825 ], [ %.0.i216.i737, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i ], [ %910, %840 ], [ %.1.i215.i719, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i ], [ %.1.i215.i719, %916 ], [ %987, %931 ]
+  %.sroa.0213.2 = phi i64 [ %.val.i43, %1000 ], [ %.val.i.i42, %992 ], [ %.sroa.0213.0, %989 ], [ %.sroa.0213.0, %998 ], [ %.sroa.0213.0, %.preheader620 ], [ %.sroa.0213.0, %.preheader621 ], [ %.sroa.0213.9, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i ], [ %.sroa.0213.9, %840 ], [ %.sroa.0213.8734, %825 ], [ %.sroa.0213.7, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i ], [ %.sroa.0213.7, %931 ], [ %.sroa.0213.6716, %916 ]
+  %.sroa.36229.2 = phi i32 [ %1014, %1000 ], [ %997, %992 ], [ %.sroa.36229.0, %989 ], [ %.sroa.36229.0, %998 ], [ %.sroa.36229.0, %.preheader620 ], [ %.sroa.36229.0, %.preheader621 ], [ %.sroa.36229.12, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i ], [ %906, %840 ], [ %.sroa.36229.11735, %825 ], [ %.sroa.36229.10, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i ], [ %983, %931 ], [ %.sroa.36229.9717, %916 ]
+  %.sroa.116279.2 = phi ptr [ %1012, %1000 ], [ %996, %992 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %989 ], [ %23, %998 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader620 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader621 ], [ %.sroa.116279.9, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %840 ], [ %23, %825 ], [ %.sroa.116279.7, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %931 ], [ %23, %916 ]
+  %.4.i209.i = phi ptr [ %.0165.i, %1000 ], [ %.0165.i, %992 ], [ %.0165.i, %989 ], [ %.0165.i, %998 ], [ %.0165.i, %.preheader620 ], [ %.0165.i, %.preheader621 ], [ %.0.i216.i737, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i ], [ %910, %840 ], [ %.0.i216.i737, %825 ], [ %.1.i215.i719, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i ], [ %987, %931 ], [ %.1.i215.i719, %916 ]
   %1015 = ptrtoint ptr %.4.i209.i to i64
   %1016 = sub i64 %804, %1015
   %1017 = icmp ugt i64 %1016, 1
@@ -9619,9 +9619,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit277.i: ; preds = %
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit270.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit270.i: ; preds = %1029, %1024
-  %.sroa.36229.7 = phi i32 [ %1026, %1024 ], [ %1039, %1029 ]
-  %.pn988.in = phi i32 [ %1025, %1024 ], [ %.021.i266.i, %1029 ]
-  %.022.i265.i = phi i1 [ true, %1024 ], [ %1034, %1029 ]
+  %.sroa.36229.7 = phi i32 [ %1039, %1029 ], [ %1026, %1024 ]
+  %.pn988.in = phi i32 [ %.021.i266.i, %1029 ], [ %1025, %1024 ]
+  %.022.i265.i = phi i1 [ %1034, %1029 ], [ true, %1024 ]
   %.pn988 = zext i32 %.pn988.in to i64
   %.pn987 = sub nsw i64 0, %.pn988
   %.sroa.116279.5 = getelementptr inbounds i8, ptr %.sroa.116279.41050, i64 %.pn987
@@ -9788,9 +9788,9 @@ _ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i: ; preds = %1121, %1116
-  %.sroa.36.12 = phi i32 [ %1118, %1116 ], [ %1131, %1121 ]
-  %.pn580.in = phi i32 [ %1117, %1116 ], [ %.021.i280.i, %1121 ]
-  %.022.i279.i = phi i1 [ true, %1116 ], [ %1126, %1121 ]
+  %.sroa.36.12 = phi i32 [ %1131, %1121 ], [ %1118, %1116 ]
+  %.pn580.in = phi i32 [ %.021.i280.i, %1121 ], [ %1117, %1116 ]
+  %.022.i279.i = phi i1 [ %1126, %1121 ], [ true, %1116 ]
   %.pn580 = zext i32 %.pn580.in to i64
   %.pn579 = sub nsw i64 0, %.pn580
   %.sroa.116128.9 = getelementptr inbounds i8, ptr %.sroa.116128.8778, i64 %.pn579
@@ -9910,9 +9910,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i: ; preds = %
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i: ; preds = %1212, %1207
-  %.sroa.36.10 = phi i32 [ %1209, %1207 ], [ %1222, %1212 ]
-  %.pn578.in = phi i32 [ %1208, %1207 ], [ %.021.i287.i, %1212 ]
-  %.022.i286.i = phi i1 [ true, %1207 ], [ %1217, %1212 ]
+  %.sroa.36.10 = phi i32 [ %1222, %1212 ], [ %1209, %1207 ]
+  %.pn578.in = phi i32 [ %.021.i287.i, %1212 ], [ %1208, %1207 ]
+  %.022.i286.i = phi i1 [ %1217, %1212 ], [ true, %1207 ]
   %.pn578 = zext i32 %.pn578.in to i64
   %.pn577 = sub nsw i64 0, %.pn578
   %.sroa.116128.7 = getelementptr inbounds i8, ptr %.sroa.116128.6760, i64 %.pn577
@@ -10026,10 +10026,10 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i: ; preds = %
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit305.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit305.i: ; preds = %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i, %1225, %1210, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i, %1134, %1119, %.preheader612, %.preheader611, %1292, %1286, %1294, %1283
-  %.sroa.0.2 = phi i64 [ %.sroa.0.0, %1292 ], [ %.sroa.0.0, %.preheader611 ], [ %.val.i51, %1294 ], [ %.sroa.0.0, %1283 ], [ %.val.i.i50, %1286 ], [ %.sroa.0.0, %.preheader612 ], [ %.sroa.0.8776, %1119 ], [ %.sroa.0.9, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i ], [ %.sroa.0.9, %1134 ], [ %.sroa.0.7, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i ], [ %.sroa.0.6758, %1210 ], [ %.sroa.0.7, %1225 ]
-  %.sroa.36.2 = phi i32 [ %.sroa.36.0, %1292 ], [ %.sroa.36.0, %.preheader611 ], [ %1308, %1294 ], [ %.sroa.36.0, %1283 ], [ %1291, %1286 ], [ %.sroa.36.0, %.preheader612 ], [ %.sroa.36.11777, %1119 ], [ %.sroa.36.12, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i ], [ %1200, %1134 ], [ %.sroa.36.10, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i ], [ %.sroa.36.9759, %1210 ], [ %1277, %1225 ]
-  %.sroa.116128.2 = phi ptr [ %24, %1292 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader611 ], [ %1306, %1294 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %1283 ], [ %1290, %1286 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader612 ], [ %24, %1119 ], [ %.sroa.116128.9, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %1134 ], [ %.sroa.116128.7, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i ], [ %24, %1210 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %1225 ]
-  %.4.i200.i = phi ptr [ %.0169.i, %1292 ], [ %.0169.i, %.preheader611 ], [ %.0169.i, %1294 ], [ %.0169.i, %1283 ], [ %.0169.i, %1286 ], [ %.0169.i, %.preheader612 ], [ %.0.i207.i779, %1119 ], [ %.0.i207.i779, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i ], [ %1204, %1134 ], [ %.1.i206.i761, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i ], [ %.1.i206.i761, %1210 ], [ %1281, %1225 ]
+  %.sroa.0.2 = phi i64 [ %.val.i51, %1294 ], [ %.val.i.i50, %1286 ], [ %.sroa.0.0, %1283 ], [ %.sroa.0.0, %1292 ], [ %.sroa.0.0, %.preheader611 ], [ %.sroa.0.0, %.preheader612 ], [ %.sroa.0.9, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i ], [ %.sroa.0.9, %1134 ], [ %.sroa.0.8776, %1119 ], [ %.sroa.0.7, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i ], [ %.sroa.0.7, %1225 ], [ %.sroa.0.6758, %1210 ]
+  %.sroa.36.2 = phi i32 [ %1308, %1294 ], [ %1291, %1286 ], [ %.sroa.36.0, %1283 ], [ %.sroa.36.0, %1292 ], [ %.sroa.36.0, %.preheader611 ], [ %.sroa.36.0, %.preheader612 ], [ %.sroa.36.12, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i ], [ %1200, %1134 ], [ %.sroa.36.11777, %1119 ], [ %.sroa.36.10, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i ], [ %1277, %1225 ], [ %.sroa.36.9759, %1210 ]
+  %.sroa.116128.2 = phi ptr [ %1306, %1294 ], [ %1290, %1286 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %1283 ], [ %24, %1292 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader611 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader612 ], [ %.sroa.116128.9, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %1134 ], [ %24, %1119 ], [ %.sroa.116128.7, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %1225 ], [ %24, %1210 ]
+  %.4.i200.i = phi ptr [ %.0169.i, %1294 ], [ %.0169.i, %1286 ], [ %.0169.i, %1283 ], [ %.0169.i, %1292 ], [ %.0169.i, %.preheader611 ], [ %.0169.i, %.preheader612 ], [ %.0.i207.i779, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i ], [ %1204, %1134 ], [ %.0.i207.i779, %1119 ], [ %.1.i206.i761, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i ], [ %1281, %1225 ], [ %.1.i206.i761, %1210 ]
   %1309 = ptrtoint ptr %.4.i200.i to i64
   %1310 = sub i64 %1098, %1309
   %1311 = icmp ugt i64 %1310, 1
@@ -10076,9 +10076,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit305.i: ; preds = %
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit298.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit298.i: ; preds = %1323, %1318
-  %.sroa.36.7 = phi i32 [ %1320, %1318 ], [ %1333, %1323 ]
-  %.pn990.in = phi i32 [ %1319, %1318 ], [ %.021.i294.i, %1323 ]
-  %.022.i293.i = phi i1 [ true, %1318 ], [ %1328, %1323 ]
+  %.sroa.36.7 = phi i32 [ %1333, %1323 ], [ %1320, %1318 ]
+  %.pn990.in = phi i32 [ %.021.i294.i, %1323 ], [ %1319, %1318 ]
+  %.022.i293.i = phi i1 [ %1328, %1323 ], [ true, %1318 ]
   %.pn990 = zext i32 %.pn990.in to i64
   %.pn989 = sub nsw i64 0, %.pn990
   %.sroa.116128.5 = getelementptr inbounds i8, ptr %.sroa.116128.41068, i64 %.pn989
@@ -10561,8 +10561,8 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i: ; preds = %
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit333.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit333.i: ; preds = %1539, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i, %1426, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i, %1640, %._crit_edge, %._crit_edge805, %1629, %1634, %1644
-  %1659 = phi i32 [ %1527, %._crit_edge ], [ %1414, %._crit_edge805 ], [ %1626, %1640 ], [ %1626, %1629 ], [ %1658, %1644 ], [ %1417, %1426 ], [ %1639, %1634 ], [ %1444, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i ], [ %1530, %1539 ], [ %1557, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i ]
-  %.4.i.i = phi ptr [ %.1.i.i.lcssa, %._crit_edge ], [ %.0.i.i.lcssa, %._crit_edge805 ], [ %.0173.i, %1640 ], [ %.0173.i, %1629 ], [ %.0173.i, %1644 ], [ %.0.i.i803, %1426 ], [ %.0173.i, %1634 ], [ %.0.i.i803, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i ], [ %.1.i.i800, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i ], [ %.1.i.i800, %1539 ]
+  %1659 = phi i32 [ %1658, %1644 ], [ %1639, %1634 ], [ %1626, %1629 ], [ %1414, %._crit_edge805 ], [ %1527, %._crit_edge ], [ %1626, %1640 ], [ %1417, %1426 ], [ %1444, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i ], [ %1530, %1539 ], [ %1557, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i ]
+  %.4.i.i = phi ptr [ %.0173.i, %1644 ], [ %.0173.i, %1634 ], [ %.0173.i, %1629 ], [ %.0.i.i.lcssa, %._crit_edge805 ], [ %.1.i.i.lcssa, %._crit_edge ], [ %.0173.i, %1640 ], [ %.0.i.i803, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i ], [ %.0.i.i803, %1426 ], [ %.1.i.i800, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i ], [ %.1.i.i800, %1539 ]
   %1660 = ptrtoint ptr %.4.i.i to i64
   %1661 = sub i64 %1392, %1660
   %1662 = icmp ugt i64 %1661, 1
@@ -10759,8 +10759,8 @@ _ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2
   %spec.select.i = select i1 %.not587, i64 -20, i64 %1
   br label %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread
 
-_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread: ; preds = %224, %167, %172, %158, %101, %106, %92, %35, %40, %_ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2Ej.exit.i, %.loopexit636, %233, %9
-  %.1.i = phi i64 [ %spec.select.i, %_ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2Ej.exit.i ], [ -20, %9 ], [ -1, %106 ], [ -20, %.loopexit636 ], [ -1, %40 ], [ %234, %233 ], [ -20, %92 ], [ -72, %35 ], [ -20, %158 ], [ -72, %101 ], [ -20, %224 ], [ -72, %167 ], [ -1, %172 ]
+_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread: ; preds = %224, %172, %167, %158, %106, %101, %92, %40, %35, %_ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2Ej.exit.i, %.loopexit636, %233, %9
+  %.1.i = phi i64 [ %234, %233 ], [ -20, %9 ], [ -20, %.loopexit636 ], [ %spec.select.i, %_ZN11duckdb_zstdL18HUF_decodeStreamX2EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX2Ej.exit.i ], [ -20, %92 ], [ -1, %40 ], [ -72, %35 ], [ -20, %158 ], [ -1, %106 ], [ -72, %101 ], [ -20, %224 ], [ -1, %172 ], [ -72, %167 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN11duckdb_zstdL43HUF_decompress4X2_usingDTable_internal_bodyEPvmPKvmPKj.exit
 
@@ -10869,9 +10869,9 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL43HUF_decompress4X2_usingDT
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit: ; preds = %48, %53
-  %.pn151.in = phi i32 [ %49, %48 ], [ %.021.i, %53 ]
-  %.sroa.17.8 = phi i32 [ %50, %48 ], [ %63, %53 ]
-  %.022.i = phi i1 [ true, %48 ], [ %58, %53 ]
+  %.pn151.in = phi i32 [ %.021.i, %53 ], [ %49, %48 ]
+  %.sroa.17.8 = phi i32 [ %63, %53 ], [ %50, %48 ]
+  %.022.i = phi i1 [ %58, %53 ], [ true, %48 ]
   %.pn151 = zext i32 %.pn151.in to i64
   %.pn = sub nsw i64 0, %.pn151
   %.sroa.62114.6 = getelementptr inbounds i8, ptr %.sroa.62114.5154, i64 %.pn
@@ -10995,10 +10995,10 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit: ; preds = %48, %
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit73
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit73: ; preds = %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit, %66, %51, %144, %146, %139
-  %.sroa.62114.2 = phi ptr [ %29, %144 ], [ %158, %146 ], [ %142, %139 ], [ %.sroa.62114.6, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %66 ], [ %.sroa.62114.5154, %51 ]
-  %.sroa.17.2 = phi i32 [ %38, %144 ], [ %160, %146 ], [ %143, %139 ], [ %.sroa.17.8, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit ], [ %132, %66 ], [ %.sroa.17.6155, %51 ]
-  %.sroa.0.2 = phi i64 [ %.val.i.i, %144 ], [ %.val.i77, %146 ], [ %.val.i.i76, %139 ], [ %.sroa.0.6, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit ], [ %.sroa.0.6, %66 ], [ %.sroa.0.5156, %51 ]
-  %.4.i = phi ptr [ %25, %144 ], [ %25, %146 ], [ %25, %139 ], [ %.0.i157, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit ], [ %136, %66 ], [ %.0.i157, %51 ]
+  %.sroa.62114.2 = phi ptr [ %158, %146 ], [ %142, %139 ], [ %29, %144 ], [ %.sroa.62114.6, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %66 ], [ %.sroa.62114.5154, %51 ]
+  %.sroa.17.2 = phi i32 [ %160, %146 ], [ %143, %139 ], [ %38, %144 ], [ %.sroa.17.8, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit ], [ %132, %66 ], [ %.sroa.17.6155, %51 ]
+  %.sroa.0.2 = phi i64 [ %.val.i77, %146 ], [ %.val.i.i76, %139 ], [ %.val.i.i, %144 ], [ %.sroa.0.6, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit ], [ %.sroa.0.6, %66 ], [ %.sroa.0.5156, %51 ]
+  %.4.i = phi ptr [ %25, %146 ], [ %25, %139 ], [ %25, %144 ], [ %.0.i157, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit ], [ %136, %66 ], [ %.0.i157, %51 ]
   %161 = ptrtoint ptr %.4.i to i64
   %162 = sub i64 %41, %161
   %163 = icmp ugt i64 %162, 1
@@ -11042,9 +11042,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit73: ; preds = %_ZN
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit66
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit66: ; preds = %167, %172
-  %.pn195.in = phi i32 [ %168, %167 ], [ %.021.i62, %172 ]
-  %.sroa.17.9 = phi i32 [ %169, %167 ], [ %182, %172 ]
-  %.022.i61 = phi i1 [ true, %167 ], [ %177, %172 ]
+  %.pn195.in = phi i32 [ %.021.i62, %172 ], [ %168, %167 ]
+  %.sroa.17.9 = phi i32 [ %182, %172 ], [ %169, %167 ]
+  %.022.i61 = phi i1 [ %177, %172 ], [ true, %167 ]
   %.pn195 = zext i32 %.pn195.in to i64
   %.pn194 = sub nsw i64 0, %.pn195
   %.sroa.62114.7 = getelementptr inbounds i8, ptr %.sroa.62114.42, i64 %.pn194
@@ -11289,7 +11289,7 @@ define internal fastcc noundef range(i64 -20, 2) i64 @_ZN11duckdb_zstdL27HUF_Dec
   br label %.thread
 
 .thread:                                          ; preds = %14, %37, %12, %10, %6, %36, %56
-  %.0 = phi i64 [ -20, %36 ], [ 1, %56 ], [ 0, %6 ], [ -20, %10 ], [ 0, %12 ], [ 0, %37 ], [ 0, %14 ]
+  %.0 = phi i64 [ 1, %56 ], [ -20, %36 ], [ 0, %6 ], [ -20, %10 ], [ 0, %12 ], [ 0, %37 ], [ 0, %14 ]
   ret i64 %.0
 }
 
@@ -11634,14 +11634,14 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   br i1 %262, label %.preheader, label %.loopexit, !llvm.loop !81
 
 .loopexit226:                                     ; preds = %.loopexit, %40, %1
-  %.sroa.0.0250 = phi ptr [ %.sroa.0.0252, %40 ], [ %.sroa.0.0.copyload, %1 ], [ %225, %.loopexit ]
-  %.sroa.11.0248 = phi ptr [ %.sroa.11.0253, %40 ], [ %.sroa.11.0.copyload, %1 ], [ %235, %.loopexit ]
-  %.sroa.18.0246 = phi ptr [ %.sroa.18.0254, %40 ], [ %.sroa.18.0.copyload, %1 ], [ %245, %.loopexit ]
-  %.sroa.25.0244 = phi ptr [ %.sroa.25.0255, %40 ], [ %.sroa.25.0.copyload, %1 ], [ %255, %.loopexit ]
-  %.sroa.0142.0242 = phi i64 [ %.sroa.0142.0256, %40 ], [ %.sroa.0142.0.copyload, %1 ], [ %231, %.loopexit ]
-  %.sroa.23.0240 = phi i64 [ %.sroa.23.0257, %40 ], [ %.sroa.23.0.copyload, %1 ], [ %241, %.loopexit ]
-  %.sroa.42.0238 = phi i64 [ %.sroa.42.0258, %40 ], [ %.sroa.42.0.copyload, %1 ], [ %251, %.loopexit ]
-  %.sroa.61.0236 = phi i64 [ %.sroa.61.0259, %40 ], [ %.sroa.61.0.copyload, %1 ], [ %261, %.loopexit ]
+  %.sroa.0.0250 = phi ptr [ %.sroa.0.0.copyload, %1 ], [ %.sroa.0.0252, %40 ], [ %225, %.loopexit ]
+  %.sroa.11.0248 = phi ptr [ %.sroa.11.0.copyload, %1 ], [ %.sroa.11.0253, %40 ], [ %235, %.loopexit ]
+  %.sroa.18.0246 = phi ptr [ %.sroa.18.0.copyload, %1 ], [ %.sroa.18.0254, %40 ], [ %245, %.loopexit ]
+  %.sroa.25.0244 = phi ptr [ %.sroa.25.0.copyload, %1 ], [ %.sroa.25.0255, %40 ], [ %255, %.loopexit ]
+  %.sroa.0142.0242 = phi i64 [ %.sroa.0142.0.copyload, %1 ], [ %.sroa.0142.0256, %40 ], [ %231, %.loopexit ]
+  %.sroa.23.0240 = phi i64 [ %.sroa.23.0.copyload, %1 ], [ %.sroa.23.0257, %40 ], [ %241, %.loopexit ]
+  %.sroa.42.0238 = phi i64 [ %.sroa.42.0.copyload, %1 ], [ %.sroa.42.0258, %40 ], [ %251, %.loopexit ]
+  %.sroa.61.0236 = phi i64 [ %.sroa.61.0.copyload, %1 ], [ %.sroa.61.0259, %40 ], [ %261, %.loopexit ]
   store i64 %.sroa.0142.0242, ptr %9, align 8
   store i64 %.sroa.23.0240, ptr %.sroa.23.0..sroa_idx, align 8
   store i64 %.sroa.42.0238, ptr %.sroa.42.0..sroa_idx, align 8
@@ -11803,9 +11803,9 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   br label %100
 
 100:                                              ; preds = %94, %.thread.i
-  %.sroa.69246.6 = phi ptr [ %22, %94 ], [ %42, %.thread.i ]
-  %.sroa.25219.7 = phi i32 [ %99, %94 ], [ %46, %.thread.i ]
-  %.sroa.0210.7 = phi i64 [ %.sroa.0210.6, %94 ], [ %.val.i.i, %.thread.i ]
+  %.sroa.69246.6 = phi ptr [ %42, %.thread.i ], [ %22, %94 ]
+  %.sroa.25219.7 = phi i32 [ %46, %.thread.i ], [ %99, %94 ]
+  %.sroa.0210.7 = phi i64 [ %.val.i.i, %.thread.i ], [ %.sroa.0210.6, %94 ]
   %101 = icmp eq i16 %.val.i4, 0
   br i1 %101, label %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread, label %102
 
@@ -11911,9 +11911,9 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   br label %166
 
 166:                                              ; preds = %160, %.thread.i12
-  %.sroa.0127.7 = phi i64 [ %.sroa.0127.6, %160 ], [ %.val.i.i10, %.thread.i12 ]
-  %.sroa.25136.7 = phi i32 [ %165, %160 ], [ %112, %.thread.i12 ]
-  %.sroa.69163.6 = phi ptr [ %23, %160 ], [ %108, %.thread.i12 ]
+  %.sroa.0127.7 = phi i64 [ %.val.i.i10, %.thread.i12 ], [ %.sroa.0127.6, %160 ]
+  %.sroa.25136.7 = phi i32 [ %112, %.thread.i12 ], [ %165, %160 ]
+  %.sroa.69163.6 = phi ptr [ %108, %.thread.i12 ], [ %23, %160 ]
   %167 = icmp eq i16 %.val.i5, 0
   br i1 %167, label %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread, label %168
 
@@ -12019,9 +12019,9 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   br label %232
 
 232:                                              ; preds = %226, %.thread.i18
-  %.sroa.0.7 = phi i64 [ %.sroa.0.6, %226 ], [ %.val.i.i16, %.thread.i18 ]
-  %.sroa.25.7 = phi i32 [ %231, %226 ], [ %178, %.thread.i18 ]
-  %.sroa.6982.6 = phi ptr [ %24, %226 ], [ %174, %.thread.i18 ]
+  %.sroa.0.7 = phi i64 [ %.val.i.i16, %.thread.i18 ], [ %.sroa.0.6, %226 ]
+  %.sroa.25.7 = phi i32 [ %178, %.thread.i18 ], [ %231, %226 ]
+  %.sroa.6982.6 = phi ptr [ %174, %.thread.i18 ], [ %24, %226 ]
   %233 = call fastcc noundef i64 @_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm(ptr noundef %6, ptr noundef nonnull %25, i64 noundef %21)
   %234 = icmp ult i64 %233, -119
   br i1 %234, label %235, label %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread
@@ -12409,9 +12409,9 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit29: ; preds = 
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i: ; preds = %477, %472
-  %.pn329.in = phi i32 [ %473, %472 ], [ %.021.i39.i233.i, %477 ]
-  %.sroa.25219.5 = phi i32 [ %474, %472 ], [ %487, %477 ]
-  %.022.i38.i232.i = phi i1 [ true, %472 ], [ %482, %477 ]
+  %.pn329.in = phi i32 [ %.021.i39.i233.i, %477 ], [ %473, %472 ]
+  %.sroa.25219.5 = phi i32 [ %487, %477 ], [ %474, %472 ]
+  %.022.i38.i232.i = phi i1 [ %482, %477 ], [ true, %472 ]
   %.pn329 = zext i32 %.pn329.in to i64
   %.pn = sub nsw i64 0, %.pn329
   %.sroa.69246.4 = getelementptr inbounds i8, ptr %.sroa.69246.3391, i64 %.pn
@@ -12512,10 +12512,10 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i: ; preds
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i221.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i221.i: ; preds = %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i, %490, %475, %.preheader357, %544, %538, %546, %536
-  %.sroa.69246.2 = phi ptr [ %558, %546 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %536 ], [ %542, %538 ], [ %22, %544 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader357 ], [ %.sroa.69246.4, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %490 ], [ %22, %475 ]
-  %.sroa.25219.2 = phi i32 [ %560, %546 ], [ %.sroa.25219.0, %536 ], [ %543, %538 ], [ %.sroa.25219.0, %544 ], [ %.sroa.25219.0, %.preheader357 ], [ %.sroa.25219.5, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i ], [ %533, %490 ], [ %.sroa.25219.4392, %475 ]
-  %.sroa.0210.2 = phi i64 [ %.val.i33, %546 ], [ %.sroa.0210.0, %536 ], [ %.val.i.i32, %538 ], [ %.sroa.0210.0, %544 ], [ %.sroa.0210.0, %.preheader357 ], [ %.sroa.0210.4, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i ], [ %.sroa.0210.4, %490 ], [ %.sroa.0210.3393, %475 ]
-  %.3.i223.i = phi ptr [ %.0145.i, %546 ], [ %.0145.i, %536 ], [ %.0145.i, %538 ], [ %.0145.i, %544 ], [ %.0145.i, %.preheader357 ], [ %.0.i229.i394, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i ], [ %534, %490 ], [ %.0.i229.i394, %475 ]
+  %.sroa.69246.2 = phi ptr [ %558, %546 ], [ %542, %538 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %536 ], [ %22, %544 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader357 ], [ %.sroa.69246.4, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %490 ], [ %22, %475 ]
+  %.sroa.25219.2 = phi i32 [ %560, %546 ], [ %543, %538 ], [ %.sroa.25219.0, %536 ], [ %.sroa.25219.0, %544 ], [ %.sroa.25219.0, %.preheader357 ], [ %.sroa.25219.5, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i ], [ %533, %490 ], [ %.sroa.25219.4392, %475 ]
+  %.sroa.0210.2 = phi i64 [ %.val.i33, %546 ], [ %.val.i.i32, %538 ], [ %.sroa.0210.0, %536 ], [ %.sroa.0210.0, %544 ], [ %.sroa.0210.0, %.preheader357 ], [ %.sroa.0210.4, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i ], [ %.sroa.0210.4, %490 ], [ %.sroa.0210.3393, %475 ]
+  %.3.i223.i = phi ptr [ %.0145.i, %546 ], [ %.0145.i, %538 ], [ %.0145.i, %536 ], [ %.0145.i, %544 ], [ %.0145.i, %.preheader357 ], [ %.0.i229.i394, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i ], [ %534, %490 ], [ %.0.i229.i394, %475 ]
   %561 = icmp ult ptr %.3.i223.i, %28
   br i1 %561, label %.lr.ph411, label %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit237.i
 
@@ -12595,9 +12595,9 @@ _ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i: ; preds = %594, %589
-  %.sroa.25136.5 = phi i32 [ %591, %589 ], [ %604, %594 ]
-  %.pn331.in = phi i32 [ %590, %589 ], [ %.021.i39.i215.i, %594 ]
-  %.022.i38.i214.i = phi i1 [ true, %589 ], [ %599, %594 ]
+  %.sroa.25136.5 = phi i32 [ %604, %594 ], [ %591, %589 ]
+  %.pn331.in = phi i32 [ %.021.i39.i215.i, %594 ], [ %590, %589 ]
+  %.022.i38.i214.i = phi i1 [ %599, %594 ], [ true, %589 ]
   %.pn331 = zext i32 %.pn331.in to i64
   %.pn330 = sub nsw i64 0, %.pn331
   %.sroa.69163.4 = getelementptr inbounds i8, ptr %.sroa.69163.3415, i64 %.pn330
@@ -12698,10 +12698,10 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i: ; preds
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i203.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i203.i: ; preds = %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i, %607, %592, %.preheader356, %661, %655, %663, %653
-  %.sroa.0127.2 = phi i64 [ %.val.i37, %663 ], [ %.sroa.0127.0, %653 ], [ %.val.i.i36, %655 ], [ %.sroa.0127.0, %661 ], [ %.sroa.0127.0, %.preheader356 ], [ %.sroa.0127.4, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i ], [ %.sroa.0127.4, %607 ], [ %.sroa.0127.3413, %592 ]
-  %.sroa.25136.2 = phi i32 [ %677, %663 ], [ %.sroa.25136.0, %653 ], [ %660, %655 ], [ %.sroa.25136.0, %661 ], [ %.sroa.25136.0, %.preheader356 ], [ %.sroa.25136.5, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i ], [ %650, %607 ], [ %.sroa.25136.4414, %592 ]
-  %.sroa.69163.2 = phi ptr [ %675, %663 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %653 ], [ %659, %655 ], [ %23, %661 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader356 ], [ %.sroa.69163.4, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %607 ], [ %23, %592 ]
-  %.3.i205.i = phi ptr [ %.0149.i, %663 ], [ %.0149.i, %653 ], [ %.0149.i, %655 ], [ %.0149.i, %661 ], [ %.0149.i, %.preheader356 ], [ %.0.i211.i416, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i ], [ %651, %607 ], [ %.0.i211.i416, %592 ]
+  %.sroa.0127.2 = phi i64 [ %.val.i37, %663 ], [ %.val.i.i36, %655 ], [ %.sroa.0127.0, %653 ], [ %.sroa.0127.0, %661 ], [ %.sroa.0127.0, %.preheader356 ], [ %.sroa.0127.4, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i ], [ %.sroa.0127.4, %607 ], [ %.sroa.0127.3413, %592 ]
+  %.sroa.25136.2 = phi i32 [ %677, %663 ], [ %660, %655 ], [ %.sroa.25136.0, %653 ], [ %.sroa.25136.0, %661 ], [ %.sroa.25136.0, %.preheader356 ], [ %.sroa.25136.5, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i ], [ %650, %607 ], [ %.sroa.25136.4414, %592 ]
+  %.sroa.69163.2 = phi ptr [ %675, %663 ], [ %659, %655 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %653 ], [ %23, %661 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader356 ], [ %.sroa.69163.4, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %607 ], [ %23, %592 ]
+  %.3.i205.i = phi ptr [ %.0149.i, %663 ], [ %.0149.i, %655 ], [ %.0149.i, %653 ], [ %.0149.i, %661 ], [ %.0149.i, %.preheader356 ], [ %.0.i211.i416, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i ], [ %651, %607 ], [ %.0.i211.i416, %592 ]
   %678 = icmp ult ptr %.3.i205.i, %29
   br i1 %678, label %.lr.ph433, label %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit219.i
 
@@ -12781,9 +12781,9 @@ _ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i: ; preds = %711, %706
-  %.sroa.25.5 = phi i32 [ %708, %706 ], [ %721, %711 ]
-  %.pn333.in = phi i32 [ %707, %706 ], [ %.021.i39.i197.i, %711 ]
-  %.022.i38.i196.i = phi i1 [ true, %706 ], [ %716, %711 ]
+  %.sroa.25.5 = phi i32 [ %721, %711 ], [ %708, %706 ]
+  %.pn333.in = phi i32 [ %.021.i39.i197.i, %711 ], [ %707, %706 ]
+  %.022.i38.i196.i = phi i1 [ %716, %711 ], [ true, %706 ]
   %.pn333 = zext i32 %.pn333.in to i64
   %.pn332 = sub nsw i64 0, %.pn333
   %.sroa.6982.4 = getelementptr inbounds i8, ptr %.sroa.6982.3437, i64 %.pn332
@@ -12884,10 +12884,10 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i: ; preds
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i185.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i185.i: ; preds = %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i, %724, %709, %.preheader355, %778, %772, %780, %770
-  %.sroa.0.2 = phi i64 [ %.val.i41, %780 ], [ %.sroa.0.0, %770 ], [ %.val.i.i40, %772 ], [ %.sroa.0.0, %778 ], [ %.sroa.0.0, %.preheader355 ], [ %.sroa.0.4, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i ], [ %.sroa.0.4, %724 ], [ %.sroa.0.3435, %709 ]
-  %.sroa.25.2 = phi i32 [ %794, %780 ], [ %.sroa.25.0, %770 ], [ %777, %772 ], [ %.sroa.25.0, %778 ], [ %.sroa.25.0, %.preheader355 ], [ %.sroa.25.5, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i ], [ %767, %724 ], [ %.sroa.25.4436, %709 ]
-  %.sroa.6982.2 = phi ptr [ %792, %780 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %770 ], [ %776, %772 ], [ %24, %778 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader355 ], [ %.sroa.6982.4, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %724 ], [ %24, %709 ]
-  %.3.i187.i = phi ptr [ %.0153.i, %780 ], [ %.0153.i, %770 ], [ %.0153.i, %772 ], [ %.0153.i, %778 ], [ %.0153.i, %.preheader355 ], [ %.0.i193.i438, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i ], [ %768, %724 ], [ %.0.i193.i438, %709 ]
+  %.sroa.0.2 = phi i64 [ %.val.i41, %780 ], [ %.val.i.i40, %772 ], [ %.sroa.0.0, %770 ], [ %.sroa.0.0, %778 ], [ %.sroa.0.0, %.preheader355 ], [ %.sroa.0.4, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i ], [ %.sroa.0.4, %724 ], [ %.sroa.0.3435, %709 ]
+  %.sroa.25.2 = phi i32 [ %794, %780 ], [ %777, %772 ], [ %.sroa.25.0, %770 ], [ %.sroa.25.0, %778 ], [ %.sroa.25.0, %.preheader355 ], [ %.sroa.25.5, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i ], [ %767, %724 ], [ %.sroa.25.4436, %709 ]
+  %.sroa.6982.2 = phi ptr [ %792, %780 ], [ %776, %772 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %770 ], [ %24, %778 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %.preheader355 ], [ %.sroa.6982.4, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %724 ], [ %24, %709 ]
+  %.3.i187.i = phi ptr [ %.0153.i, %780 ], [ %.0153.i, %772 ], [ %.0153.i, %770 ], [ %.0153.i, %778 ], [ %.0153.i, %.preheader355 ], [ %.0.i193.i438, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i ], [ %768, %724 ], [ %.0.i193.i438, %709 ]
   %795 = icmp ult ptr %.3.i187.i, %30
   br i1 %795, label %.lr.ph455, label %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit201.i
 
@@ -13114,9 +13114,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i: ; preds = 
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i: ; preds = %837, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i, %923, %._crit_edge, %912, %917, %927
-  %942 = phi i32 [ %825, %._crit_edge ], [ %817, %912 ], [ %941, %927 ], [ %817, %923 ], [ %922, %917 ], [ %828, %837 ], [ %855, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i ]
-  %943 = phi ptr [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %._crit_edge ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %912 ], [ %939, %927 ], [ %914, %923 ], [ %921, %917 ], [ %829, %837 ], [ %storemerge.in, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i ]
-  %.3.i.i = phi ptr [ %.0.i.i.lcssa, %._crit_edge ], [ %.0157.i, %912 ], [ %.0157.i, %927 ], [ %.0157.i, %923 ], [ %.0157.i, %917 ], [ %.0.i.i457, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i ], [ %.0.i.i457, %837 ]
+  %942 = phi i32 [ %941, %927 ], [ %922, %917 ], [ %817, %912 ], [ %825, %._crit_edge ], [ %817, %923 ], [ %828, %837 ], [ %855, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i ]
+  %943 = phi ptr [ %939, %927 ], [ %921, %917 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %912 ], [ @_ZZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tEE10zeroFilled, %._crit_edge ], [ %914, %923 ], [ %829, %837 ], [ %storemerge.in, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i ]
+  %.3.i.i = phi ptr [ %.0157.i, %927 ], [ %.0157.i, %917 ], [ %.0157.i, %912 ], [ %.0.i.i.lcssa, %._crit_edge ], [ %.0157.i, %923 ], [ %.0.i.i457, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i ], [ %.0.i.i457, %837 ]
   %944 = icmp ult ptr %.3.i.i, %10
   br i1 %944, label %.lr.ph461, label %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit.i
 
@@ -13176,8 +13176,8 @@ _ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1
   %spec.select.i = select i1 %.not338, i64 -20, i64 %1
   br label %_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread
 
-_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread: ; preds = %223, %166, %171, %157, %100, %105, %91, %34, %39, %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit.i, %.loopexit, %232, %9
-  %.1.i = phi i64 [ %spec.select.i, %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit.i ], [ -20, %9 ], [ -1, %105 ], [ -20, %.loopexit ], [ -1, %39 ], [ %233, %232 ], [ -20, %91 ], [ -72, %34 ], [ -20, %157 ], [ -72, %100 ], [ -20, %223 ], [ -72, %166 ], [ -1, %171 ]
+_ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread: ; preds = %223, %171, %166, %157, %105, %100, %91, %39, %34, %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit.i, %.loopexit, %232, %9
+  %.1.i = phi i64 [ %233, %232 ], [ -20, %9 ], [ -20, %.loopexit ], [ %spec.select.i, %_ZN11duckdb_zstdL18HUF_decodeStreamX1EPhPNS_13BIT_DStream_tES0_PKNS_10HUF_DEltX1Ej.exit.i ], [ -20, %91 ], [ -1, %39 ], [ -72, %34 ], [ -20, %157 ], [ -1, %105 ], [ -72, %100 ], [ -20, %223 ], [ -1, %171 ], [ -72, %166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN11duckdb_zstdL43HUF_decompress4X1_usingDTable_internal_bodyEPvmPKvmPKj.exit
 
@@ -13286,9 +13286,9 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL43HUF_decompress4X1_usingDT
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i: ; preds = %53, %48
-  %.pn112.in = phi i32 [ %49, %48 ], [ %.021.i39.i, %53 ]
-  %.sroa.12.6 = phi i32 [ %50, %48 ], [ %63, %53 ]
-  %.022.i38.i = phi i1 [ true, %48 ], [ %58, %53 ]
+  %.pn112.in = phi i32 [ %.021.i39.i, %53 ], [ %49, %48 ]
+  %.sroa.12.6 = phi i32 [ %63, %53 ], [ %50, %48 ]
+  %.022.i38.i = phi i1 [ %58, %53 ], [ true, %48 ]
   %.pn112 = zext i32 %.pn112.in to i64
   %.pn = sub nsw i64 0, %.pn112
   %.sroa.3881.5 = getelementptr inbounds i8, ptr %.sroa.3881.4113, i64 %.pn
@@ -13385,9 +13385,9 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i: ; preds = %5
   br label %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i
 
 _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i, %66, %51, %118, %113, %120
-  %.sroa.12.3 = phi i32 [ %38, %118 ], [ %134, %120 ], [ %117, %113 ], [ %.sroa.12.6, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i ], [ %109, %66 ], [ %.sroa.12.5114, %51 ]
-  %.sroa.0.3 = phi i64 [ %.val.i.i, %118 ], [ %.val.i61, %120 ], [ %.val.i.i60, %113 ], [ %.sroa.0.5, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i ], [ %.sroa.0.5, %66 ], [ %.sroa.0.4115, %51 ]
-  %.3.i = phi ptr [ %25, %118 ], [ %25, %120 ], [ %25, %113 ], [ %.0.i116, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i ], [ %110, %66 ], [ %.0.i116, %51 ]
+  %.sroa.12.3 = phi i32 [ %134, %120 ], [ %117, %113 ], [ %38, %118 ], [ %.sroa.12.6, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i ], [ %109, %66 ], [ %.sroa.12.5114, %51 ]
+  %.sroa.0.3 = phi i64 [ %.val.i61, %120 ], [ %.val.i.i60, %113 ], [ %.val.i.i, %118 ], [ %.sroa.0.5, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i ], [ %.sroa.0.5, %66 ], [ %.sroa.0.4115, %51 ]
+  %.3.i = phi ptr [ %25, %120 ], [ %25, %113 ], [ %25, %118 ], [ %.0.i116, %_ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i ], [ %110, %66 ], [ %.0.i116, %51 ]
   %135 = icmp ult ptr %.3.i, %.146
   br i1 %135, label %.lr.ph128, label %._crit_edge
 

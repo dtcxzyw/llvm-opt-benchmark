@@ -389,7 +389,7 @@ switch.lookup:                                    ; preds = %3
   br i1 %27, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !16
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %24, %22, %18, %14, %switch.lookup
-  %.0.i.i = phi i32 [ %23, %22 ], [ %15, %14 ], [ %19, %18 ], [ 1, %switch.lookup ], [ %26, %24 ]
+  %.0.i.i = phi i32 [ %15, %14 ], [ %19, %18 ], [ %23, %22 ], [ 1, %switch.lookup ], [ %26, %24 ]
   %.lobit.i = lshr i64 %2, 63
   %28 = trunc nuw nsw i64 %.lobit.i to i32
   %29 = add i32 %.0.i.i, %28
@@ -1707,8 +1707,8 @@ _ZNK4absl12lts_202407226Status4codeEv.exit:       ; preds = %26, %29
   br label %_ZNK4absl12lts_202407226Status7messageEv.exit
 
 _ZNK4absl12lts_202407226Status7messageEv.exit:    ; preds = %37, %43
-  %.sroa.0.0.i = phi i64 [ %spec.select.i, %43 ], [ %42, %37 ]
-  %.sroa.4.0.i = phi ptr [ %spec.select2.i, %43 ], [ %40, %37 ]
+  %.sroa.0.0.i = phi i64 [ %42, %37 ], [ %spec.select.i, %43 ]
+  %.sroa.4.0.i = phi ptr [ %40, %37 ], [ %spec.select2.i, %43 ]
   store ptr inttoptr (i64 1 to ptr), ptr %6, align 8, !tbaa !84, !alias.scope !86
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.0.0.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !86
@@ -2467,8 +2467,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %48, %
   br label %69
 
 69:                                               ; preds = %67, %63
-  %.sroa.0.0.i51 = phi i64 [ 27, %67 ], [ %61, %63 ]
-  %.sroa.4.0.i52 = phi ptr [ @_ZN4absl12lts_202407226Status16kMovedFromStringE, %67 ], [ %66, %63 ]
+  %.sroa.0.0.i51 = phi i64 [ %61, %63 ], [ 27, %67 ]
+  %.sroa.4.0.i52 = phi ptr [ %66, %63 ], [ @_ZN4absl12lts_202407226Status16kMovedFromStringE, %67 ]
   store i64 %.sroa.0.0.i51, ptr %8, align 8, !tbaa !24
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.sroa.4.0.i52, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !25
@@ -2858,9 +2858,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br i1 %.not43.i.i.i.i, label %.loopexit171, label %.lr.ph50.i.i.i.i, !llvm.loop !150
 
 .loopexit171:                                     ; preds = %.lr.ph50.i.i.i.i, %._crit_edge.thread, %._crit_edge, %._crit_edge.i.i.i.i, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i
-  %200 = phi ptr [ %126, %._crit_edge.thread ], [ %170, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %170, %._crit_edge ], [ %170, %._crit_edge.i.i.i.i ], [ %170, %.lr.ph50.i.i.i.i ]
-  %201 = phi ptr [ %125, %._crit_edge.thread ], [ %169, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %169, %._crit_edge ], [ %169, %._crit_edge.i.i.i.i ], [ %169, %.lr.ph50.i.i.i.i ]
-  %202 = phi ptr [ %124, %._crit_edge.thread ], [ %168, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %168, %._crit_edge ], [ %168, %._crit_edge.i.i.i.i ], [ %168, %.lr.ph50.i.i.i.i ]
+  %200 = phi ptr [ %126, %._crit_edge.thread ], [ %170, %._crit_edge ], [ %170, %._crit_edge.i.i.i.i ], [ %170, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %170, %.lr.ph50.i.i.i.i ]
+  %201 = phi ptr [ %125, %._crit_edge.thread ], [ %169, %._crit_edge ], [ %169, %._crit_edge.i.i.i.i ], [ %169, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %169, %.lr.ph50.i.i.i.i ]
+  %202 = phi ptr [ %124, %._crit_edge.thread ], [ %168, %._crit_edge ], [ %168, %._crit_edge.i.i.i.i ], [ %168, %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit.i.i.i.i ], [ %168, %.lr.ph50.i.i.i.i ]
   %203 = load ptr, ptr %19, align 8, !tbaa !21
   %204 = load i64, ptr %200, align 8, !tbaa !46
   store i64 %204, ptr %18, align 8
@@ -3631,8 +3631,8 @@ _ZNK4absl12lts_202407226Status4codeEv.exit:       ; preds = %12, %15
   br label %_ZNK4absl12lts_202407226Status7messageEv.exit
 
 _ZNK4absl12lts_202407226Status7messageEv.exit:    ; preds = %23, %29
-  %.sroa.0.0.i = phi i64 [ %spec.select.i, %29 ], [ %28, %23 ]
-  %.sroa.4.0.i = phi ptr [ %spec.select2.i, %29 ], [ %26, %23 ]
+  %.sroa.0.0.i = phi i64 [ %28, %23 ], [ %spec.select.i, %29 ]
+  %.sroa.4.0.i = phi ptr [ %26, %23 ], [ %spec.select2.i, %29 ]
   store i64 %.sroa.0.0.i, ptr %8, align 8, !tbaa !24
   %.sroa.2.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.sroa.4.0.i, ptr %.sroa.2.0..sroa_idx.i10, align 8, !tbaa !25
@@ -3977,7 +3977,7 @@ _ZN4absl12lts_202407224CordD2Ev.exit:             ; preds = %85, %88
   br label %97
 
 97:                                               ; preds = %.body, %93
-  %.pn.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %94, %93 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
   br label %98
 
@@ -5685,7 +5685,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
   br label %.critedge104.i.i.i.i
 
 .critedge104.i.i.i.i:                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i230.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit226.i.i.i.i, %464
-  %.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %465, %464 ], [ %465, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit226.i.i.i.i ], [ %.pn.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i230.i.i.i.i ], [ %.pn.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229.i.i.i.i ]
+  %.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %465, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit226.i.i.i.i ], [ %465, %464 ], [ %.pn.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i230.i.i.i.i ], [ %.pn.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %486
 
@@ -5930,7 +5930,7 @@ upb_Arena_Malloc.exit.i.i.i.i.i.i:                ; preds = %55, %53
   br label %google_rpc_Status_add_details.exit.i.i.i.i
 
 google_rpc_Status_add_details.exit.i.i.i.i:       ; preds = %57, %upb_Arena_Malloc.exit.i.i.i.i.i.i, %upb_Array_Reserve.exit.i.i.i.i.i.i, %upb_Message_GetOrCreateMutableArray.exit.i.i.i.i.i
-  %.0.i.i.i.i.i = phi ptr [ null, %upb_Array_Reserve.exit.i.i.i.i.i.i ], [ null, %upb_Message_GetOrCreateMutableArray.exit.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %57 ], [ null, %upb_Arena_Malloc.exit.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %upb_Message_GetOrCreateMutableArray.exit.i.i.i.i.i ], [ null, %upb_Array_Reserve.exit.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %57 ], [ null, %upb_Arena_Malloc.exit.i.i.i.i.i.i ]
   %65 = load ptr, ptr %9, align 8, !tbaa !216
   %66 = load ptr, ptr %65, align 8, !tbaa !62
   %67 = add i64 %1, 7
@@ -6412,16 +6412,16 @@ _ZNK4absl12lts_2024072213cord_internal18CordRepBtreeReadercvbEv.exit.thread.i.i.
   br label %_ZN4absl12lts_202407224Cord13ChunkIteratorppEv.exit.i.i.i.i
 
 _ZN4absl12lts_202407224Cord13ChunkIteratorppEv.exit.i.i.i.i: ; preds = %_ZNK4absl12lts_2024072213cord_internal18CordRepBtreeReadercvbEv.exit.thread.i.i.i.i.i, %_ZN4absl12lts_202407224Cord13ChunkIterator12AdvanceBtreeEv.exit.i.i.i.i.i
-  %289 = phi i64 [ %219, %_ZNK4absl12lts_2024072213cord_internal18CordRepBtreeReadercvbEv.exit.thread.i.i.i.i.i ], [ %.pre78.i.i.i.i, %_ZN4absl12lts_202407224Cord13ChunkIterator12AdvanceBtreeEv.exit.i.i.i.i.i ]
-  %290 = phi i64 [ %216, %_ZNK4absl12lts_2024072213cord_internal18CordRepBtreeReadercvbEv.exit.thread.i.i.i.i.i ], [ %288, %_ZN4absl12lts_202407224Cord13ChunkIterator12AdvanceBtreeEv.exit.i.i.i.i.i ]
-  %.sroa.2.0.copyload.i76.i.i.i.i = phi ptr [ null, %_ZNK4absl12lts_2024072213cord_internal18CordRepBtreeReadercvbEv.exit.thread.i.i.i.i.i ], [ %.sroa.3.0.i.i.i.i.i.i.i, %_ZN4absl12lts_202407224Cord13ChunkIterator12AdvanceBtreeEv.exit.i.i.i.i.i ]
-  %.sroa.0.0.copyload.i73.i.i.i.i = phi i64 [ 0, %_ZNK4absl12lts_2024072213cord_internal18CordRepBtreeReadercvbEv.exit.thread.i.i.i.i.i ], [ %.sroa.0.0.i.i.i.i.i.i.i, %_ZN4absl12lts_202407224Cord13ChunkIterator12AdvanceBtreeEv.exit.i.i.i.i.i ]
+  %289 = phi i64 [ %.pre78.i.i.i.i, %_ZN4absl12lts_202407224Cord13ChunkIterator12AdvanceBtreeEv.exit.i.i.i.i.i ], [ %219, %_ZNK4absl12lts_2024072213cord_internal18CordRepBtreeReadercvbEv.exit.thread.i.i.i.i.i ]
+  %290 = phi i64 [ %288, %_ZN4absl12lts_202407224Cord13ChunkIterator12AdvanceBtreeEv.exit.i.i.i.i.i ], [ %216, %_ZNK4absl12lts_2024072213cord_internal18CordRepBtreeReadercvbEv.exit.thread.i.i.i.i.i ]
+  %.sroa.2.0.copyload.i76.i.i.i.i = phi ptr [ %.sroa.3.0.i.i.i.i.i.i.i, %_ZN4absl12lts_202407224Cord13ChunkIterator12AdvanceBtreeEv.exit.i.i.i.i.i ], [ null, %_ZNK4absl12lts_2024072213cord_internal18CordRepBtreeReadercvbEv.exit.thread.i.i.i.i.i ]
+  %.sroa.0.0.copyload.i73.i.i.i.i = phi i64 [ %.sroa.0.0.i.i.i.i.i.i.i, %_ZN4absl12lts_202407224Cord13ChunkIterator12AdvanceBtreeEv.exit.i.i.i.i.i ], [ 0, %_ZNK4absl12lts_2024072213cord_internal18CordRepBtreeReadercvbEv.exit.thread.i.i.i.i.i ]
   %.not.i.i.i.i = icmp eq i64 %289, 0
   br i1 %.not.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %215
 
 "_ZSt6invokeIRKZN9grpc_core8internal13StatusToProtoERKN4absl12lts_202407226StatusEP9upb_ArenaE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS3_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSK_DpOSL_.exit": ; preds = %88, %90, %_ZNK4absl12lts_202407224Cord7TryFlatEv.exit.thread57.i.i.i.i, %209, %212
-  %.0.i27.sink.i.i.i.i = phi ptr [ null, %88 ], [ %.sroa.547.0.copyload.i.i.i.i, %_ZNK4absl12lts_202407224Cord7TryFlatEv.exit.thread57.i.i.i.i ], [ %91, %90 ], [ %.0.i27.i.i.i.i, %209 ], [ %.0.i27.i.i.i.i, %212 ]
-  %.sink.i.i.i.i = phi i64 [ %89, %88 ], [ %.sroa.046.0.copyload.i.i.i.i, %_ZNK4absl12lts_202407224Cord7TryFlatEv.exit.thread57.i.i.i.i ], [ %93, %90 ], [ %211, %209 ], [ %214, %212 ]
+  %.0.i27.sink.i.i.i.i = phi ptr [ %.sroa.547.0.copyload.i.i.i.i, %_ZNK4absl12lts_202407224Cord7TryFlatEv.exit.thread57.i.i.i.i ], [ %91, %90 ], [ null, %88 ], [ %.0.i27.i.i.i.i, %209 ], [ %.0.i27.i.i.i.i, %212 ]
+  %.sink.i.i.i.i = phi i64 [ %.sroa.046.0.copyload.i.i.i.i, %_ZNK4absl12lts_202407224Cord7TryFlatEv.exit.thread57.i.i.i.i ], [ %93, %90 ], [ %89, %88 ], [ %211, %209 ], [ %214, %212 ]
   %291 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 24
   store ptr %.0.i27.sink.i.i.i.i, ptr %291, align 1
   %.sroa.56.0..sroa_idx.i35.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 32

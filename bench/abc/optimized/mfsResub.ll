@@ -753,7 +753,7 @@ Abc_MfsObjProb.exit:                              ; preds = %286
   br label %._crit_edge252
 
 ._crit_edge252:                                   ; preds = %._crit_edge252.loopexit315, %._crit_edge252.loopexit, %._crit_edge.thread, %._crit_edge.us.us.thread, %.lr.ph251.split.us.split, %253
-  %.1143.lcssa = phi i32 [ 0, %253 ], [ %281, %._crit_edge.us.us.thread ], [ 0, %.lr.ph251.split.us.split ], [ %304, %._crit_edge.thread ], [ %308, %._crit_edge252.loopexit ], [ %309, %._crit_edge252.loopexit315 ]
+  %.1143.lcssa = phi i32 [ 0, %253 ], [ 0, %.lr.ph251.split.us.split ], [ %281, %._crit_edge.us.us.thread ], [ %304, %._crit_edge.thread ], [ %308, %._crit_edge252.loopexit ], [ %309, %._crit_edge252.loopexit315 ]
   %310 = icmp eq i32 %.1143.lcssa, %264
   br i1 %310, label %.loopexit223, label %311
 
@@ -916,7 +916,7 @@ Abc_NtkMfsTryResubOnce.exit210:                   ; preds = %311
   br label %.loopexit223
 
 .loopexit223:                                     ; preds = %.lr.ph251.split.us.split, %._crit_edge252, %307, %279, %Abc_NtkMfsTryResubOnce.exit210, %Abc_NtkMfsTryResubOnce.exit, %398, %401, %374, %367, %.loopexit224, %240, %Abc_Clock.exit, %191, %378, %Abc_Clock.exit192
-  %.0 = phi i32 [ 0, %374 ], [ 0, %Abc_NtkMfsTryResubOnce.exit ], [ 1, %191 ], [ 1, %Abc_Clock.exit192 ], [ 0, %Abc_Clock.exit ], [ 0, %.loopexit224 ], [ 0, %398 ], [ 0, %Abc_NtkMfsTryResubOnce.exit210 ], [ 1, %367 ], [ 1, %378 ], [ 0, %240 ], [ 0, %401 ], [ 0, %307 ], [ 0, %279 ], [ 0, %._crit_edge252 ], [ 0, %.lr.ph251.split.us.split ]
+  %.0 = phi i32 [ 1, %Abc_Clock.exit192 ], [ 1, %378 ], [ 0, %Abc_NtkMfsTryResubOnce.exit ], [ 1, %191 ], [ 0, %Abc_Clock.exit ], [ 0, %240 ], [ 0, %.loopexit224 ], [ 0, %Abc_NtkMfsTryResubOnce.exit210 ], [ 1, %367 ], [ 0, %374 ], [ 0, %401 ], [ 0, %398 ], [ 0, %279 ], [ 0, %307 ], [ 0, %._crit_edge252 ], [ 0, %.lr.ph251.split.us.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -1769,8 +1769,8 @@ Abc_MfsObjProb.exit236:                           ; preds = %.critedge291.split.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit584, %.loopexit.loopexit582, %.loopexit.loopexit477, %.loopexit.loopexit474, %.loopexit.loopexit, %283
-  %.1157307 = phi i32 [ 1, %283 ], [ %380, %.loopexit.loopexit474 ], [ %382, %.loopexit.loopexit477 ], [ %384, %.loopexit.loopexit582 ], [ %378, %.loopexit.loopexit ], [ %386, %.loopexit.loopexit584 ]
-  %.2166 = phi i32 [ %.0164, %283 ], [ %381, %.loopexit.loopexit474 ], [ %383, %.loopexit.loopexit477 ], [ %385, %.loopexit.loopexit582 ], [ %379, %.loopexit.loopexit ], [ 0, %.loopexit.loopexit584 ]
+  %.1157307 = phi i32 [ 1, %283 ], [ %378, %.loopexit.loopexit ], [ %380, %.loopexit.loopexit474 ], [ %382, %.loopexit.loopexit477 ], [ %384, %.loopexit.loopexit582 ], [ %386, %.loopexit.loopexit584 ]
+  %.2166 = phi i32 [ %.0164, %283 ], [ %379, %.loopexit.loopexit ], [ %381, %.loopexit.loopexit474 ], [ %383, %.loopexit.loopexit477 ], [ %385, %.loopexit.loopexit582 ], [ 0, %.loopexit.loopexit584 ]
   %387 = icmp eq i32 %.1157307, %292
   br i1 %387, label %.loopexit295, label %388
 
@@ -2114,7 +2114,7 @@ Abc_Clock.exit277:                                ; preds = %Abc_NtkMfsUpdateNet
   br i1 %.not180, label %259, label %.loopexit295
 
 .loopexit295:                                     ; preds = %.loopexit293, %.loopexit, %.critedge187, %Abc_NtkMfsTryResubOnce.exit252, %Abc_NtkMfsTryResubOnce.exit, %Abc_Clock.exit254, %Abc_Clock.exit, %Abc_Clock.exit277, %Abc_Clock.exit230
-  %.0 = phi i32 [ 0, %Abc_Clock.exit254 ], [ 0, %Abc_NtkMfsTryResubOnce.exit ], [ 1, %Abc_Clock.exit230 ], [ 0, %Abc_Clock.exit ], [ 1, %Abc_Clock.exit277 ], [ 0, %Abc_NtkMfsTryResubOnce.exit252 ], [ 0, %.critedge187 ], [ 0, %.loopexit ], [ 0, %.loopexit293 ]
+  %.0 = phi i32 [ 1, %Abc_Clock.exit230 ], [ 1, %Abc_Clock.exit277 ], [ 0, %Abc_NtkMfsTryResubOnce.exit ], [ 0, %Abc_Clock.exit ], [ 0, %Abc_NtkMfsTryResubOnce.exit252 ], [ 0, %Abc_Clock.exit254 ], [ 0, %.critedge187 ], [ 0, %.loopexit ], [ 0, %.loopexit293 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -2340,7 +2340,7 @@ define range(i32 0, 2) i32 @Abc_NtkMfsResubNode(ptr noundef %0, ptr noundef %1) 
   br i1 %47, label %30, label %.critedge2, !llvm.loop !111
 
 .critedge2:                                       ; preds = %19, %42, %45, %.critedge
-  %.024 = phi i32 [ 0, %45 ], [ 0, %.critedge ], [ 1, %42 ], [ 1, %19 ]
+  %.024 = phi i32 [ 0, %.critedge ], [ 1, %42 ], [ 0, %45 ], [ 1, %19 ]
   ret i32 %.024
 }
 
@@ -2414,14 +2414,14 @@ define range(i32 0, 2) i32 @Abc_NtkMfsResubNode2(ptr noundef %0, ptr noundef %1)
   br i1 %26, label %.lr.ph, label %.critedge2, !llvm.loop !112
 
 .critedge2:                                       ; preds = %24, %6, %6, %16
-  %.val25 = phi i32 [ %.val2551, %16 ], [ %.val2551, %6 ], [ %.val2551, %6 ], [ %.val2549, %24 ]
+  %.val25 = phi i32 [ %.val2551, %6 ], [ %.val2551, %6 ], [ %.val2551, %16 ], [ %.val2549, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = sext i32 %.val25 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
   br i1 %28, label %6, label %.critedge, !llvm.loop !113
 
 .critedge:                                        ; preds = %.critedge2, %22, %2
-  %.022 = phi i32 [ 1, %22 ], [ 0, %2 ], [ 0, %.critedge2 ]
+  %.022 = phi i32 [ 0, %2 ], [ 1, %22 ], [ 0, %.critedge2 ]
   ret i32 %.022
 }
 

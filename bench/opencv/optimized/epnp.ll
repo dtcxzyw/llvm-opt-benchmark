@@ -791,7 +791,7 @@ _ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit19:     ; preds = %36
   br label %99
 
 99:                                               ; preds = %.thread35, %_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit19
-  %100 = phi i32 [ %65, %.thread35 ], [ %98, %_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit19 ]
+  %100 = phi i32 [ %98, %_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit19 ], [ %65, %.thread35 ]
   %101 = getelementptr inbounds nuw %"class.cv::Point3_.2", ptr %15, i64 %indvars.iv
   br label %_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit22
 
@@ -1368,7 +1368,7 @@ _ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit19:     ; preds = %36
   br label %99
 
 99:                                               ; preds = %.thread35, %_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit19
-  %100 = phi i32 [ %65, %.thread35 ], [ %98, %_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit19 ]
+  %100 = phi i32 [ %98, %_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit19 ], [ %65, %.thread35 ]
   %101 = getelementptr inbounds nuw %"class.cv::Point3_.2", ptr %15, i64 %indvars.iv
   br label %_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit22
 
@@ -4706,7 +4706,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !35
   br label %40
 

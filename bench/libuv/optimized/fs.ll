@@ -276,7 +276,7 @@ define internal void @uv__fs_work(ptr noundef %0) #0 {
   br label %uv__fs_close.exit
 
 uv__fs_close.exit:                                ; preds = %159, %163
-  %.0.i = phi i32 [ %165, %163 ], [ %161, %159 ]
+  %.0.i = phi i32 [ %161, %159 ], [ %165, %163 ]
   %166 = sext i32 %.0.i to i64
   br label %uv__fs_readlink.exit
 
@@ -467,15 +467,15 @@ uv__fs_close.exit:                                ; preds = %159, %163
   br i1 %cond, label %.thread, label %.lr.ph
 
 250:                                              ; preds = %245, %238, %224, %215, %206, %193, %176
-  %.067.i = phi i32 [ -1, %176 ], [ %185, %238 ], [ %185, %193 ], [ %185, %245 ], [ %185, %206 ], [ %185, %215 ], [ %185, %224 ]
-  %.062.i = phi i32 [ %178, %176 ], [ %240, %238 ], [ %195, %193 ], [ %246, %245 ], [ %208, %206 ], [ %217, %215 ], [ %226, %224 ]
+  %.067.i = phi i32 [ -1, %176 ], [ %185, %193 ], [ %185, %206 ], [ %185, %215 ], [ %185, %224 ], [ %185, %238 ], [ %185, %245 ]
+  %.062.i = phi i32 [ %178, %176 ], [ %195, %193 ], [ %208, %206 ], [ %217, %215 ], [ %226, %224 ], [ %240, %238 ], [ %246, %245 ]
   %.062.i.fr = freeze i32 %.062.i
   %spec.select161 = call i32 @llvm.smin.i32(i32 %.062.i.fr, i32 0)
   br label %.thread
 
 .thread:                                          ; preds = %247, %241, %250, %179, %227, %232, %200
-  %.067.i137 = phi i32 [ %185, %179 ], [ %.067.i, %250 ], [ %185, %227 ], [ %185, %200 ], [ %185, %232 ], [ %185, %241 ], [ %185, %247 ]
-  %251 = phi i32 [ %185, %179 ], [ %spec.select161, %250 ], [ -1, %227 ], [ 0, %200 ], [ 0, %232 ], [ 0, %241 ], [ 0, %247 ]
+  %.067.i137 = phi i32 [ %185, %200 ], [ %185, %232 ], [ %185, %227 ], [ %185, %179 ], [ %.067.i, %250 ], [ %185, %241 ], [ %185, %247 ]
+  %251 = phi i32 [ 0, %200 ], [ 0, %232 ], [ -1, %227 ], [ %185, %179 ], [ %spec.select161, %250 ], [ 0, %241 ], [ 0, %247 ]
   %252 = call i32 @uv__close_nocheckstdio(i32 noundef %170) #15
   %253 = icmp ne i32 %252, 0
   %254 = icmp eq i32 %251, 0
@@ -919,7 +919,7 @@ uv__fs_lstat.exit:                                ; preds = %uv__fs_statx.exit.i
   unreachable
 
 461:                                              ; preds = %458, %456, %453
-  %.1.i = phi i32 [ %454, %453 ], [ %454, %456 ], [ -1, %458 ]
+  %.1.i = phi i32 [ %454, %456 ], [ %454, %453 ], [ -1, %458 ]
   %462 = load ptr, ptr %81, align 8
   %.not34.i = icmp eq ptr %462, null
   br i1 %.not34.i, label %466, label %463
@@ -1023,7 +1023,7 @@ uv__preadv.exit.i:                                ; preds = %506, %497
   br label %511
 
 511:                                              ; preds = %uv__preadv.exit.i, %492, %491, %489, %484, %483
-  %.032.i = phi i64 [ %488, %484 ], [ %490, %489 ], [ 0, %483 ], [ %496, %492 ], [ %510, %uv__preadv.exit.i ], [ 0, %491 ]
+  %.032.i = phi i64 [ %488, %484 ], [ %490, %489 ], [ %496, %492 ], [ %510, %uv__preadv.exit.i ], [ 0, %483 ], [ 0, %491 ]
   %512 = load ptr, ptr %81, align 8
   %.not38.i = icmp eq ptr %512, null
   br i1 %.not38.i, label %uv__fs_read.exit, label %513
@@ -1190,7 +1190,7 @@ sub_0.i:                                          ; preds = %538
   br i1 %exitcond.not.i, label %uv__fs_readdir.exit, label %.lr.ph21.i
 
 uv__fs_readdir.exit:                              ; preds = %.outer.i, %.lr.ph21.i, %551, %533, %542, %.loopexit6.i
-  %.024.i = phi i32 [ -1, %.loopexit6.i ], [ %.023.ph18.i, %542 ], [ %.023.ph18.i, %551 ], [ -1, %.lr.ph21.i ], [ 0, %533 ], [ %561, %.outer.i ]
+  %.024.i = phi i32 [ %.023.ph18.i, %542 ], [ -1, %.loopexit6.i ], [ 0, %533 ], [ %.023.ph18.i, %551 ], [ -1, %.lr.ph21.i ], [ %561, %.outer.i ]
   %570 = sext i32 %.024.i to i64
   br label %uv__fs_readlink.exit
 
@@ -1535,8 +1535,8 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
   br i1 %693, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.outer68.i.i, %.split.us110.i.i, %.split.us.us.i.i
-  %.047.ph96.i.i = phi i64 [ %.047.ph149.i.i, %.split.us110.i.i ], [ %.047.ph149.i.i, %.split.us.us.i.i ], [ %691, %.outer68.i.i ]
-  %.04882.i.i = phi i64 [ %.048104.us.i.i, %.split.us110.i.i ], [ %.048104.us.i.i, %.split.us.us.i.i ], [ %692, %.outer68.i.i ]
+  %.047.ph96.i.i = phi i64 [ %.047.ph149.i.i, %.split.us.us.i.i ], [ %.047.ph149.i.i, %.split.us110.i.i ], [ %691, %.outer68.i.i ]
+  %.04882.i.i = phi i64 [ %.048104.us.i.i, %.split.us.us.i.i ], [ %.048104.us.i.i, %.split.us110.i.i ], [ %692, %.outer68.i.i ]
   %.not56.old.i.i = icmp eq i64 %.04882.i.i, -1
   br i1 %.not56.old.i.i, label %uv__fs_sendfile_emul.exit.i, label %.loopexit.thread.i.i
 
@@ -1547,7 +1547,7 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
   br label %uv__fs_sendfile_emul.exit.i
 
 uv__fs_sendfile_emul.exit.i:                      ; preds = %666, %675, %.loopexit.thread.i.i, %.loopexit.i.i, %.critedge6.i.i, %.split122.us.i.i
-  %.161.i.i = phi i64 [ -1, %.loopexit.i.i ], [ %.04881.i.i, %.loopexit.thread.i.i ], [ -1, %.critedge6.i.i ], [ -1, %675 ], [ -1, %.split122.us.i.i ], [ -1, %666 ]
+  %.161.i.i = phi i64 [ %.04881.i.i, %.loopexit.thread.i.i ], [ -1, %.loopexit.i.i ], [ -1, %.critedge6.i.i ], [ -1, %.split122.us.i.i ], [ -1, %675 ], [ -1, %666 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %uv__fs_sendfile.exit
@@ -1687,7 +1687,7 @@ uv__fs_stat.exit:                                 ; preds = %uv__fs_statx.exit.i
   br label %uv__fs_statfs.exit
 
 uv__fs_statfs.exit:                               ; preds = %727, %733, %734
-  %.0.i107 = phi i64 [ 0, %734 ], [ -1, %733 ], [ -1, %727 ]
+  %.0.i107 = phi i64 [ -1, %733 ], [ 0, %734 ], [ -1, %727 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %uv__fs_readlink.exit
 
@@ -1834,7 +1834,7 @@ uv__pwritev.exit.i.i:                             ; preds = %819, %810
   br label %uv__fs_write.exit.i
 
 uv__fs_write.exit.i:                              ; preds = %uv__pwritev.exit.i.i, %805, %802, %797
-  %.0.i.i = phi i64 [ %801, %797 ], [ %803, %802 ], [ %823, %uv__pwritev.exit.i.i ], [ %809, %805 ]
+  %.0.i.i = phi i64 [ %801, %797 ], [ %803, %802 ], [ %809, %805 ], [ %823, %uv__pwritev.exit.i.i ]
   %824 = icmp slt i64 %.0.i.i, 0
   br i1 %824, label %825, label %.critedge.i121
 
@@ -1924,18 +1924,18 @@ uv__fs_write_all.exit:                            ; preds = %.loopexit.i, %854
   unreachable
 
 .thread159:                                       ; preds = %602, %596, %uv__fs_closedir.exit
-  %.0.i98.sink = phi ptr [ %.0.i98, %596 ], [ null, %uv__fs_closedir.exit ], [ %603, %602 ]
-  store ptr %.0.i98.sink, ptr %42, align 8
+  %.lcssa396.sink = phi ptr [ %.0.i98, %596 ], [ null, %uv__fs_closedir.exit ], [ %603, %602 ]
+  store ptr %.lcssa396.sink, ptr %42, align 8
   %856 = getelementptr inbounds i8, ptr %0, i64 -248
   store i64 0, ptr %856, align 8
   br label %866
 
 uv__fs_readlink.exit:                             ; preds = %143, %148, %153, %uv__fs_close.exit, %uv__fs_copyfile.exit, %265, %270, %276, %282, %uv__fs_fstat.exit, %318, %321, %326, %354, %uv__fs_lstat.exit, %415, %420, %425, %uv__fs_mkstemp.exit, %469, %uv__fs_read.exit, %uv__fs_scandir.exit, %uv__fs_opendir.exit, %uv__fs_readdir.exit, %606, %611, %uv__fs_sendfile.exit, %uv__fs_stat.exit, %uv__fs_statfs.exit, %748, %753, %757, %uv__fs_write_all.exit
-  %.0 = phi i64 [ %147, %143 ], [ %152, %148 ], [ %158, %153 ], [ %166, %uv__fs_close.exit ], [ %.059.i, %uv__fs_copyfile.exit ], [ %269, %265 ], [ %275, %270 ], [ %281, %276 ], [ %284, %282 ], [ %317, %uv__fs_fstat.exit ], [ %320, %318 ], [ %325, %321 ], [ %353, %326 ], [ %381, %354 ], [ %414, %uv__fs_lstat.exit ], [ %419, %415 ], [ %424, %420 ], [ %427, %425 ], [ %468, %uv__fs_mkstemp.exit ], [ %475, %469 ], [ %.032.i, %uv__fs_read.exit ], [ %.0.i93, %uv__fs_scandir.exit ], [ %.0.i94, %uv__fs_opendir.exit ], [ %570, %uv__fs_readdir.exit ], [ %756, %753 ], [ %.1.i120, %uv__fs_write_all.exit ], [ %784, %757 ], [ %610, %606 ], [ %614, %611 ], [ %.0.i102, %uv__fs_sendfile.exit ], [ %726, %uv__fs_stat.exit ], [ %.0.i107, %uv__fs_statfs.exit ], [ %752, %748 ]
+  %.0 = phi i64 [ %147, %143 ], [ %152, %148 ], [ %158, %153 ], [ %166, %uv__fs_close.exit ], [ %.059.i, %uv__fs_copyfile.exit ], [ %269, %265 ], [ %275, %270 ], [ %281, %276 ], [ %284, %282 ], [ %317, %uv__fs_fstat.exit ], [ %320, %318 ], [ %325, %321 ], [ %353, %326 ], [ %381, %354 ], [ %414, %uv__fs_lstat.exit ], [ %419, %415 ], [ %424, %420 ], [ %427, %425 ], [ %468, %uv__fs_mkstemp.exit ], [ %475, %469 ], [ %.032.i, %uv__fs_read.exit ], [ %.0.i93, %uv__fs_scandir.exit ], [ %.0.i94, %uv__fs_opendir.exit ], [ %570, %uv__fs_readdir.exit ], [ %610, %606 ], [ %614, %611 ], [ %.0.i102, %uv__fs_sendfile.exit ], [ %726, %uv__fs_stat.exit ], [ %.0.i107, %uv__fs_statfs.exit ], [ %752, %748 ], [ %756, %753 ], [ %784, %757 ], [ %.1.i120, %uv__fs_write_all.exit ]
   %857 = icmp eq i64 %.0, -1
   br i1 %857, label %uv__fs_readlink.exit.thread, label %863
 
-uv__fs_readlink.exit.thread:                      ; preds = %598, %605, %589, %584, %592, %uv__fs_readlink.exit
+uv__fs_readlink.exit.thread:                      ; preds = %598, %605, %592, %589, %584, %uv__fs_readlink.exit
   %858 = load i32, ptr %25, align 4
   %859 = icmp eq i32 %858, 4
   %or.cond = and i1 %spec.select, %859
@@ -2045,7 +2045,7 @@ define dso_local i32 @uv_fs_access(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %31
 
 31:                                               ; preds = %17, %5, %26, %20
-  %.0 = phi i32 [ -22, %5 ], [ 0, %20 ], [ %30, %26 ], [ -12, %17 ]
+  %.0 = phi i32 [ 0, %20 ], [ %30, %26 ], [ -22, %5 ], [ -12, %17 ]
   ret i32 %.0
 }
 
@@ -2104,7 +2104,7 @@ define dso_local i32 @uv_fs_chmod(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %31
 
 31:                                               ; preds = %17, %5, %26, %20
-  %.0 = phi i32 [ -22, %5 ], [ 0, %20 ], [ %30, %26 ], [ -12, %17 ]
+  %.0 = phi i32 [ 0, %20 ], [ %30, %26 ], [ -22, %5 ], [ -12, %17 ]
   ret i32 %.0
 }
 
@@ -2165,7 +2165,7 @@ define dso_local i32 @uv_fs_chown(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %34
 
 34:                                               ; preds = %18, %6, %28, %21
-  %.0 = phi i32 [ -22, %6 ], [ 0, %21 ], [ %33, %28 ], [ -12, %18 ]
+  %.0 = phi i32 [ 0, %21 ], [ %33, %28 ], [ -22, %6 ], [ -12, %18 ]
   ret i32 %.0
 }
 
@@ -2218,7 +2218,7 @@ define dso_local i32 @uv_fs_close(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %26
 
 26:                                               ; preds = %16, %4, %.critedge, %18
-  %.0 = phi i32 [ %25, %.critedge ], [ -22, %4 ], [ 0, %18 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %18 ], [ %25, %.critedge ], [ -22, %4 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -2270,7 +2270,7 @@ define dso_local i32 @uv_fs_fchmod(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %27
 
 27:                                               ; preds = %5, %23, %18
-  %.0 = phi i32 [ %26, %23 ], [ 0, %18 ], [ -22, %5 ]
+  %.0 = phi i32 [ 0, %18 ], [ %26, %23 ], [ -22, %5 ]
   ret i32 %.0
 }
 
@@ -2322,7 +2322,7 @@ define dso_local i32 @uv_fs_fchown(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %29
 
 29:                                               ; preds = %6, %25, %20
-  %.0 = phi i32 [ %28, %25 ], [ 0, %20 ], [ -22, %6 ]
+  %.0 = phi i32 [ 0, %20 ], [ %28, %25 ], [ -22, %6 ]
   ret i32 %.0
 }
 
@@ -2383,7 +2383,7 @@ define dso_local i32 @uv_fs_lchown(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %34
 
 34:                                               ; preds = %18, %6, %28, %21
-  %.0 = phi i32 [ -22, %6 ], [ 0, %21 ], [ %33, %28 ], [ -12, %18 ]
+  %.0 = phi i32 [ 0, %21 ], [ %33, %28 ], [ -22, %6 ], [ -12, %18 ]
   ret i32 %.0
 }
 
@@ -2436,7 +2436,7 @@ define dso_local i32 @uv_fs_fdatasync(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %26
 
 26:                                               ; preds = %16, %4, %.critedge, %18
-  %.0 = phi i32 [ %25, %.critedge ], [ -22, %4 ], [ 0, %18 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %18 ], [ %25, %.critedge ], [ -22, %4 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -2491,7 +2491,7 @@ define dso_local i32 @uv_fs_fstat(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %26
 
 26:                                               ; preds = %16, %4, %.critedge, %18
-  %.0 = phi i32 [ %25, %.critedge ], [ -22, %4 ], [ 0, %18 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %18 ], [ %25, %.critedge ], [ -22, %4 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -2546,7 +2546,7 @@ define dso_local i32 @uv_fs_fsync(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %26
 
 26:                                               ; preds = %16, %4, %.critedge, %18
-  %.0 = phi i32 [ %25, %.critedge ], [ -22, %4 ], [ 0, %18 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %18 ], [ %25, %.critedge ], [ -22, %4 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -2601,7 +2601,7 @@ define dso_local i32 @uv_fs_ftruncate(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %28
 
 28:                                               ; preds = %18, %5, %.critedge, %20
-  %.0 = phi i32 [ %27, %.critedge ], [ -22, %5 ], [ 0, %20 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %20 ], [ %27, %.critedge ], [ -22, %5 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -2655,7 +2655,7 @@ define dso_local i32 @uv_fs_futime(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %29
 
 29:                                               ; preds = %6, %25, %20
-  %.0 = phi i32 [ %28, %25 ], [ 0, %20 ], [ -22, %6 ]
+  %.0 = phi i32 [ 0, %20 ], [ %28, %25 ], [ -22, %6 ]
   ret i32 %.0
 }
 
@@ -2716,7 +2716,7 @@ define dso_local i32 @uv_fs_lutime(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %34
 
 34:                                               ; preds = %18, %6, %28, %21
-  %.0 = phi i32 [ -22, %6 ], [ 0, %21 ], [ %33, %28 ], [ -12, %18 ]
+  %.0 = phi i32 [ 0, %21 ], [ %33, %28 ], [ -22, %6 ], [ -12, %18 ]
   ret i32 %.0
 }
 
@@ -2774,7 +2774,7 @@ define dso_local i32 @uv_fs_lstat(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %29
 
 29:                                               ; preds = %19, %16, %4, %.critedge, %21
-  %.0 = phi i32 [ -22, %4 ], [ -12, %16 ], [ 0, %21 ], [ %28, %.critedge ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %21 ], [ %28, %.critedge ], [ -22, %4 ], [ -12, %16 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -2843,7 +2843,7 @@ define dso_local i32 @uv_fs_link(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %37
 
 37:                                               ; preds = %17, %25, %5, %.critedge, %29
-  %.042 = phi i32 [ 0, %25 ], [ -22, %5 ], [ 0, %29 ], [ %36, %.critedge ], [ -12, %17 ]
+  %.042 = phi i32 [ 0, %29 ], [ %36, %.critedge ], [ -22, %5 ], [ 0, %25 ], [ -12, %17 ]
   ret i32 %.042
 }
 
@@ -2915,7 +2915,7 @@ define dso_local i32 @uv_fs_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %32
 
 32:                                               ; preds = %20, %17, %5, %.critedge, %23
-  %.0 = phi i32 [ -22, %5 ], [ -12, %17 ], [ 0, %23 ], [ %31, %.critedge ], [ 0, %20 ]
+  %.0 = phi i32 [ 0, %23 ], [ %31, %.critedge ], [ -22, %5 ], [ -12, %17 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -2969,7 +2969,7 @@ define dso_local i32 @uv_fs_mkdtemp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %27
 
 27:                                               ; preds = %6, %4, %23, %18
-  %.0 = phi i32 [ %26, %23 ], [ -22, %4 ], [ 0, %18 ], [ -12, %6 ]
+  %.0 = phi i32 [ 0, %18 ], [ %26, %23 ], [ -22, %4 ], [ -12, %6 ]
   ret i32 %.0
 }
 
@@ -3021,7 +3021,7 @@ define dso_local i32 @uv_fs_mkstemp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %27
 
 27:                                               ; preds = %6, %4, %23, %18
-  %.0 = phi i32 [ %26, %23 ], [ -22, %4 ], [ 0, %18 ], [ -12, %6 ]
+  %.0 = phi i32 [ 0, %18 ], [ %26, %23 ], [ -22, %4 ], [ -12, %6 ]
   ret i32 %.0
 }
 
@@ -3087,7 +3087,7 @@ define dso_local i32 @uv_fs_open(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %35
 
 35:                                               ; preds = %21, %18, %6, %.critedge, %25
-  %.0 = phi i32 [ -22, %6 ], [ -12, %18 ], [ 0, %25 ], [ %34, %.critedge ], [ 0, %21 ]
+  %.0 = phi i32 [ 0, %25 ], [ %34, %.critedge ], [ -22, %6 ], [ -12, %18 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -3169,7 +3169,7 @@ define dso_local i32 @uv_fs_read(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %43
 
 43:                                               ; preds = %.thread, %29, %9, %7, %39, %34
-  %.0 = phi i32 [ -12, %29 ], [ -22, %7 ], [ 0, %34 ], [ %42, %39 ], [ -22, %9 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %34 ], [ %42, %39 ], [ -22, %7 ], [ -22, %9 ], [ -12, %29 ], [ 0, %.thread ]
   ret i32 %.0
 }
 
@@ -3228,7 +3228,7 @@ define dso_local i32 @uv_fs_scandir(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %31
 
 31:                                               ; preds = %17, %5, %26, %20
-  %.0 = phi i32 [ -22, %5 ], [ 0, %20 ], [ %30, %26 ], [ -12, %17 ]
+  %.0 = phi i32 [ 0, %20 ], [ %30, %26 ], [ -22, %5 ], [ -12, %17 ]
   ret i32 %.0
 }
 
@@ -3281,7 +3281,7 @@ define dso_local i32 @uv_fs_opendir(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %28
 
 28:                                               ; preds = %16, %4, %24, %19
-  %.0 = phi i32 [ -22, %4 ], [ 0, %19 ], [ %27, %24 ], [ -12, %16 ]
+  %.0 = phi i32 [ 0, %19 ], [ %27, %24 ], [ -22, %4 ], [ -12, %16 ]
   ret i32 %.0
 }
 
@@ -3344,7 +3344,7 @@ define dso_local i32 @uv_fs_readdir(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %34
 
 34:                                               ; preds = %6, %17, %21, %4, %30, %25
-  %.0 = phi i32 [ %33, %30 ], [ -22, %4 ], [ 0, %25 ], [ -22, %21 ], [ -22, %17 ], [ -22, %6 ]
+  %.0 = phi i32 [ 0, %25 ], [ %33, %30 ], [ -22, %4 ], [ -22, %21 ], [ -22, %17 ], [ -22, %6 ]
   ret i32 %.0
 }
 
@@ -3396,7 +3396,7 @@ define dso_local i32 @uv_fs_closedir(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %27
 
 27:                                               ; preds = %6, %4, %23, %18
-  %.0 = phi i32 [ %26, %23 ], [ -22, %4 ], [ 0, %18 ], [ -22, %6 ]
+  %.0 = phi i32 [ 0, %18 ], [ %26, %23 ], [ -22, %4 ], [ -22, %6 ]
   ret i32 %.0
 }
 
@@ -3449,7 +3449,7 @@ define dso_local i32 @uv_fs_readlink(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %28
 
 28:                                               ; preds = %16, %4, %24, %19
-  %.0 = phi i32 [ -22, %4 ], [ 0, %19 ], [ %27, %24 ], [ -12, %16 ]
+  %.0 = phi i32 [ 0, %19 ], [ %27, %24 ], [ -22, %4 ], [ -12, %16 ]
   ret i32 %.0
 }
 
@@ -3502,7 +3502,7 @@ define dso_local i32 @uv_fs_realpath(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %28
 
 28:                                               ; preds = %16, %4, %24, %19
-  %.0 = phi i32 [ -22, %4 ], [ 0, %19 ], [ %27, %24 ], [ -12, %16 ]
+  %.0 = phi i32 [ 0, %19 ], [ %27, %24 ], [ -22, %4 ], [ -12, %16 ]
   ret i32 %.0
 }
 
@@ -3571,7 +3571,7 @@ define dso_local i32 @uv_fs_rename(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %37
 
 37:                                               ; preds = %17, %25, %5, %.critedge, %29
-  %.042 = phi i32 [ 0, %25 ], [ -22, %5 ], [ 0, %29 ], [ %36, %.critedge ], [ -12, %17 ]
+  %.042 = phi i32 [ 0, %29 ], [ %36, %.critedge ], [ -22, %5 ], [ 0, %25 ], [ -12, %17 ]
   ret i32 %.042
 }
 
@@ -3626,7 +3626,7 @@ define dso_local i32 @uv_fs_rmdir(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %28
 
 28:                                               ; preds = %16, %4, %24, %19
-  %.0 = phi i32 [ -22, %4 ], [ 0, %19 ], [ %27, %24 ], [ -12, %16 ]
+  %.0 = phi i32 [ 0, %19 ], [ %27, %24 ], [ -22, %4 ], [ -12, %16 ]
   ret i32 %.0
 }
 
@@ -3680,7 +3680,7 @@ define dso_local i32 @uv_fs_sendfile(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %31
 
 31:                                               ; preds = %7, %27, %22
-  %.0 = phi i32 [ %30, %27 ], [ 0, %22 ], [ -22, %7 ]
+  %.0 = phi i32 [ 0, %22 ], [ %30, %27 ], [ -22, %7 ]
   ret i32 %.0
 }
 
@@ -3738,7 +3738,7 @@ define dso_local i32 @uv_fs_stat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %29
 
 29:                                               ; preds = %19, %16, %4, %.critedge, %21
-  %.0 = phi i32 [ -22, %4 ], [ -12, %16 ], [ 0, %21 ], [ %28, %.critedge ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %21 ], [ %28, %.critedge ], [ -22, %4 ], [ -12, %16 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -3811,7 +3811,7 @@ define dso_local i32 @uv_fs_symlink(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %40
 
 40:                                               ; preds = %18, %26, %6, %.critedge, %31
-  %.044 = phi i32 [ 0, %26 ], [ -22, %6 ], [ 0, %31 ], [ %39, %.critedge ], [ -12, %18 ]
+  %.044 = phi i32 [ 0, %31 ], [ %39, %.critedge ], [ -22, %6 ], [ 0, %26 ], [ -12, %18 ]
   ret i32 %.044
 }
 
@@ -3871,7 +3871,7 @@ define dso_local i32 @uv_fs_unlink(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %29
 
 29:                                               ; preds = %19, %16, %4, %.critedge, %21
-  %.0 = phi i32 [ -22, %4 ], [ -12, %16 ], [ 0, %21 ], [ %28, %.critedge ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %21 ], [ %28, %.critedge ], [ -22, %4 ], [ -12, %16 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -3934,7 +3934,7 @@ define dso_local i32 @uv_fs_utime(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %34
 
 34:                                               ; preds = %18, %6, %28, %21
-  %.0 = phi i32 [ -22, %6 ], [ 0, %21 ], [ %33, %28 ], [ -12, %18 ]
+  %.0 = phi i32 [ 0, %21 ], [ %33, %28 ], [ -22, %6 ], [ -12, %18 ]
   ret i32 %.0
 }
 
@@ -4013,7 +4013,7 @@ define dso_local i32 @uv_fs_write(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %42
 
 42:                                               ; preds = %32, %27, %9, %7, %.critedge, %34
-  %.0 = phi i32 [ %41, %.critedge ], [ -22, %7 ], [ -22, %9 ], [ -12, %27 ], [ 0, %34 ], [ 0, %32 ]
+  %.0 = phi i32 [ 0, %34 ], [ %41, %.critedge ], [ -22, %7 ], [ -22, %9 ], [ -12, %27 ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -4192,7 +4192,7 @@ define dso_local i32 @uv_fs_copyfile(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %40
 
 40:                                               ; preds = %19, %8, %6, %35, %27
-  %.042 = phi i32 [ -22, %8 ], [ -22, %6 ], [ 0, %27 ], [ %39, %35 ], [ -12, %19 ]
+  %.042 = phi i32 [ 0, %27 ], [ %39, %35 ], [ -22, %6 ], [ -22, %8 ], [ -12, %19 ]
   ret i32 %.042
 }
 
@@ -4245,7 +4245,7 @@ define dso_local i32 @uv_fs_statfs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %28
 
 28:                                               ; preds = %16, %4, %24, %19
-  %.0 = phi i32 [ -22, %4 ], [ 0, %19 ], [ %27, %24 ], [ -12, %16 ]
+  %.0 = phi i32 [ 0, %19 ], [ %27, %24 ], [ -22, %4 ], [ -12, %16 ]
   ret i32 %.0
 }
 
@@ -4329,7 +4329,7 @@ define internal fastcc range(i32 0, 2) i32 @uv__is_cifs_or_smb(i32 noundef %0) u
   br label %9
 
 9:                                                ; preds = %5, %5, %5, %1, %8
-  %.0 = phi i32 [ 0, %1 ], [ 0, %8 ], [ 1, %5 ], [ 1, %5 ], [ 1, %5 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %1 ], [ 1, %5 ], [ 1, %5 ], [ 1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -4531,7 +4531,7 @@ sub_2:                                            ; preds = %sub_14
   br label %.tail2
 
 .tail2:                                           ; preds = %sub_2, %sub_14, %sub_0, %.tail
-  %12 = phi i32 [ 0, %.tail ], [ %11, %sub_2 ], [ 1, %sub_14 ], [ 1, %sub_0 ]
+  %12 = phi i32 [ 0, %.tail ], [ 1, %sub_14 ], [ %11, %sub_2 ], [ 1, %sub_0 ]
   ret i32 %12
 }
 

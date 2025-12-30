@@ -1002,7 +1002,7 @@ define dso_local ptr @get_phy_device(ptr noundef %0, i32 noundef %1, i1 noundef 
   br i1 %29, label %.thread7, label %.thread
 
 .thread:                                          ; preds = %22, %17, %9, %27
-  %30 = phi i32 [ %28, %27 ], [ %13, %9 ], [ %21, %17 ], [ -19, %22 ]
+  %30 = phi i32 [ %28, %27 ], [ %21, %17 ], [ %13, %9 ], [ -19, %22 ]
   %31 = sext i32 %30 to i64
   %32 = inttoptr i64 %31 to ptr
   br label %45
@@ -1027,7 +1027,7 @@ define dso_local ptr @get_phy_device(ptr noundef %0, i32 noundef %1, i1 noundef 
   br label %45
 
 .thread7:                                         ; preds = %27, %38, %34, %33
-  %43 = phi i32 [ %24, %33 ], [ 0, %38 ], [ 0, %34 ], [ 0, %27 ]
+  %43 = phi i32 [ 0, %38 ], [ 0, %34 ], [ %24, %33 ], [ 0, %27 ]
   %44 = call ptr @phy_device_create(ptr noundef %0, i32 noundef %1, i32 noundef %43, i1 noundef zeroext %2, ptr noundef nonnull %4)
   br label %45
 
@@ -1169,7 +1169,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @get_phy_c45_ids(ptr nounde
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %23, %14, %67, %64, %59, %36, %78, %42, %39
-  %81 = phi i32 [ 0, %78 ], [ -5, %39 ], [ -19, %42 ], [ -5, %36 ], [ %60, %59 ], [ -5, %67 ], [ -5, %64 ], [ -5, %14 ], [ -5, %23 ], [ -5, %20 ]
+  %81 = phi i32 [ 0, %78 ], [ -5, %39 ], [ -19, %42 ], [ -5, %36 ], [ -5, %67 ], [ -5, %64 ], [ %60, %59 ], [ -5, %14 ], [ -5, %23 ], [ -5, %20 ]
   ret i32 %81
 }
 
@@ -2881,8 +2881,8 @@ define dso_local noundef range(i32 -2147483648, 2147483644) i32 @genphy_loopback
   br i1 %39, label %.preheader, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %34, %29, %10
-  %.pre-phi = phi i1 [ true, %10 ], [ %33, %29 ], [ true, %34 ]
-  %40 = phi i32 [ %24, %10 ], [ %32, %29 ], [ %37, %34 ]
+  %.pre-phi = phi i1 [ %33, %29 ], [ true, %10 ], [ true, %34 ]
+  %40 = phi i32 [ %32, %29 ], [ %24, %10 ], [ %37, %34 ]
   %41 = icmp sgt i32 %40, -1
   %42 = and i1 %41, %.pre-phi
   br i1 %42, label %49, label %43
@@ -3269,7 +3269,7 @@ define dso_local i32 @__genphy_config_aneg(ptr noundef %0, i1 noundef zeroext %1
   br label %.thread15
 
 .thread15:                                        ; preds = %87, %75, %39, %.thread13, %116, %113, %108, %33, %16, %2
-  %118 = phi i32 [ %38, %33 ], [ %3, %2 ], [ %18, %16 ], [ -95, %.thread13 ], [ %117, %116 ], [ %111, %108 ], [ 0, %113 ], [ %97, %87 ], [ %82, %75 ], [ %73, %39 ]
+  %118 = phi i32 [ %38, %33 ], [ %3, %2 ], [ %18, %16 ], [ %117, %116 ], [ %111, %108 ], [ 0, %113 ], [ -95, %.thread13 ], [ %97, %87 ], [ %82, %75 ], [ %73, %39 ]
   ret i32 %118
 }
 
@@ -3849,7 +3849,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genphy_read_status(ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %70, %40, %22, %66, %67, %77, %59, %6, %1
-  %86 = phi i32 [ %27, %22 ], [ %4, %1 ], [ 0, %6 ], [ 0, %66 ], [ %60, %59 ], [ 0, %77 ], [ 0, %67 ], [ %44, %40 ], [ %75, %70 ]
+  %86 = phi i32 [ %4, %1 ], [ 0, %6 ], [ %60, %59 ], [ 0, %77 ], [ 0, %67 ], [ 0, %66 ], [ %44, %40 ], [ %27, %22 ], [ %75, %70 ]
   ret i32 %86
 }
 
@@ -4028,8 +4028,8 @@ define dso_local i32 @genphy_soft_reset(ptr noundef %0) #0 align 16 {
   br i1 %35, label %.preheader, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %30, %24, %9
-  %.pre-phi = phi i32 [ 0, %9 ], [ %29, %24 ], [ 0, %30 ]
-  %36 = phi i32 [ %19, %9 ], [ %27, %24 ], [ %33, %30 ]
+  %.pre-phi = phi i32 [ %29, %24 ], [ 0, %9 ], [ 0, %30 ]
+  %36 = phi i32 [ %27, %24 ], [ %19, %9 ], [ %33, %30 ]
   %37 = icmp slt i32 %36, 0
   %38 = select i1 %37, i32 %36, i32 %.pre-phi
   %39 = icmp eq i32 %38, 0
@@ -4833,7 +4833,7 @@ define internal i32 @phy_probe(ptr noundef initializes((832, 840)) %0) #0 align 
   br label %57
 
 57:                                               ; preds = %55, %53, %46
-  %58 = phi i32 [ %56, %55 ], [ %47, %46 ], [ %54, %53 ]
+  %58 = phi i32 [ %47, %46 ], [ %54, %53 ], [ %56, %55 ]
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %121
 
@@ -5700,7 +5700,7 @@ thread-pre-split:                                 ; preds = %21, %17, %13
   br label %101
 
 101:                                              ; preds = %98, %95, %91, %89, %84
-  %102 = phi i32 [ %96, %95 ], [ -16, %84 ], [ 0, %91 ], [ 0, %89 ], [ 0, %98 ]
+  %102 = phi i32 [ -16, %84 ], [ 0, %91 ], [ 0, %89 ], [ 0, %98 ], [ %96, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %103
 
@@ -5873,7 +5873,7 @@ define internal range(i32 -2147483648, 1) i32 @mdio_bus_phy_resume(ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %45, %37, %28, %22, %86, %82, %78, %62, %1
-  %87 = phi i32 [ 0, %1 ], [ 0, %78 ], [ %57, %62 ], [ 0, %86 ], [ 0, %82 ], [ %46, %45 ], [ %38, %37 ], [ %29, %28 ], [ %23, %22 ]
+  %87 = phi i32 [ 0, %1 ], [ %57, %62 ], [ 0, %86 ], [ 0, %82 ], [ 0, %78 ], [ %46, %45 ], [ %38, %37 ], [ %29, %28 ], [ %23, %22 ]
   ret i32 %87
 }
 

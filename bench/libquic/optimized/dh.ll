@@ -207,7 +207,7 @@ define hidden range(i32 0, 2) i32 @DH_generate_parameters_ex(ptr noundef capture
   tail call void @ERR_put_error(i32 noundef 5, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 224) #5
   br label %52
 
-.thread55.sink.split:                             ; preds = %39, %33, %35, %29, %31, %43, %46, %37, %27, %22, %15, %7, %48
+.thread55.sink.split:                             ; preds = %37, %39, %33, %35, %29, %31, %43, %46, %27, %22, %15, %7, %48
   tail call void @ERR_put_error(i32 noundef 5, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 224) #5
   br label %.thread55
 
@@ -355,9 +355,9 @@ define hidden range(i32 0, 2) i32 @DH_generate_key(ptr noundef %0) local_unnamed
   br label %55
 
 .loopexit:                                        ; preds = %.critedge.backedge, %23, %45, %.loopexit77, %20, %13, %7, %6, %.critedge.preheader
-  %.042.ph = phi ptr [ %8, %23 ], [ %8, %45 ], [ null, %6 ], [ %8, %.loopexit77 ], [ %8, %20 ], [ %8, %13 ], [ null, %7 ], [ %8, %.critedge.preheader ], [ %8, %.critedge.backedge ]
-  %.040.ph = phi ptr [ %.141, %23 ], [ %.141, %45 ], [ null, %6 ], [ %.141, %.loopexit77 ], [ null, %20 ], [ null, %13 ], [ null, %7 ], [ %.141, %.critedge.preheader ], [ %.141, %.critedge.backedge ]
-  %.0.ph = phi ptr [ %.1, %23 ], [ %.1, %45 ], [ null, %6 ], [ %.1, %.loopexit77 ], [ %.1, %20 ], [ null, %13 ], [ null, %7 ], [ %.1, %.critedge.preheader ], [ %.1, %.critedge.backedge ]
+  %.042.ph = phi ptr [ %8, %23 ], [ %8, %45 ], [ %8, %.loopexit77 ], [ %8, %20 ], [ %8, %13 ], [ null, %7 ], [ null, %6 ], [ %8, %.critedge.preheader ], [ %8, %.critedge.backedge ]
+  %.040.ph = phi ptr [ %.141, %23 ], [ %.141, %45 ], [ %.141, %.loopexit77 ], [ null, %20 ], [ null, %13 ], [ null, %7 ], [ null, %6 ], [ %.141, %.critedge.preheader ], [ %.141, %.critedge.backedge ]
+  %.0.ph = phi ptr [ %.1, %23 ], [ %.1, %45 ], [ %.1, %.loopexit77 ], [ %.1, %20 ], [ null, %13 ], [ null, %7 ], [ null, %6 ], [ %.1, %.critedge.preheader ], [ %.1, %.critedge.backedge ]
   call void @ERR_put_error(i32 noundef 5, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 305) #5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !24
@@ -632,12 +632,12 @@ int_dh_bn_cpy.exit34.i:                           ; preds = %17, %12
   store i32 %45, ptr %36, align 8, !tbaa !30
   br label %int_dh_param_copy.exit
 
-46:                                               ; preds = %39, %17, %10, %23, %30
+46:                                               ; preds = %39, %10, %17, %23, %30
   tail call void @DH_free(ptr noundef nonnull %calloc.i)
   br label %int_dh_param_copy.exit
 
 int_dh_param_copy.exit:                           ; preds = %44, %32, %int_dh_bn_cpy.exit34.i, %DH_new.exit.thread, %46
-  %.0 = phi ptr [ null, %DH_new.exit.thread ], [ null, %46 ], [ %calloc.i, %int_dh_bn_cpy.exit34.i ], [ %calloc.i, %32 ], [ %calloc.i, %44 ]
+  %.0 = phi ptr [ null, %46 ], [ null, %DH_new.exit.thread ], [ %calloc.i, %int_dh_bn_cpy.exit34.i ], [ %calloc.i, %32 ], [ %calloc.i, %44 ]
   ret ptr %.0
 }
 

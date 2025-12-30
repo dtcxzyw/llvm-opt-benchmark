@@ -491,7 +491,7 @@ define internal range(i32 -1, 1) i32 @option_parse_trailer(ptr noundef readonly 
   br label %new_trailers_clear.exit
 
 new_trailers_clear.exit:                          ; preds = %.lr.ph.i, %6, %10, %11
-  %.0 = phi i32 [ -1, %10 ], [ 0, %11 ], [ 0, %6 ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ 0, %11 ], [ -1, %10 ], [ 0, %6 ], [ 0, %.lr.ph.i ]
   ret i32 %.0
 }
 

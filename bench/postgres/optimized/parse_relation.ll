@@ -196,15 +196,15 @@ define dso_local ptr @refnameNamespaceItem(ptr noundef %0, ptr noundef %1, ptr n
   br label %42
 
 42:                                               ; preds = %41, %34, %31, %.lr.ph31.i.us
-  %43 = phi i32 [ %20, %31 ], [ %20, %.lr.ph31.i.us ], [ %.pre.i50.us, %41 ], [ %20, %34 ]
-  %.1.i47.us = phi ptr [ %.02529.i.us, %31 ], [ %.02529.i.us, %.lr.ph31.i.us ], [ %23, %41 ], [ %.02529.i.us, %34 ]
+  %43 = phi i32 [ %20, %.lr.ph31.i.us ], [ %20, %31 ], [ %.pre.i50.us, %41 ], [ %20, %34 ]
+  %.1.i47.us = phi ptr [ %.02529.i.us, %.lr.ph31.i.us ], [ %.02529.i.us, %31 ], [ %23, %41 ], [ %.02529.i.us, %34 ]
   %indvars.iv.next.i48.us = add nuw nsw i64 %indvars.iv.i46.us, 1
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next.i48.us, %44
   br i1 %45, label %.lr.ph31.i.us, label %scanNameSpaceForRelid.exit.us
 
 scanNameSpaceForRelid.exit.us:                    ; preds = %42, %.lr.ph.i44.us, %12
-  %.0.us = phi ptr [ null, %.lr.ph.i44.us ], [ null, %12 ], [ %.1.i47.us, %42 ]
+  %.0.us = phi ptr [ null, %12 ], [ null, %.lr.ph.i44.us ], [ %.1.i47.us, %42 ]
   %.not41.us = icmp ne ptr %.0.us, null
   %brmerge.us = or i1 %.not, %.not41.us
   %.0.mux.us = select i1 %.not41.us, ptr %.0.us, ptr %.3.us
@@ -219,9 +219,9 @@ scanNameSpaceForRelid.exit.us:                    ; preds = %42, %.lr.ph.i44.us,
   br label %50
 
 50:                                               ; preds = %46, %scanNameSpaceForRelid.exit.us
-  %.129.us = phi ptr [ %.028.us, %scanNameSpaceForRelid.exit.us ], [ %49, %46 ]
-  %.4.us = phi ptr [ %.0.mux.us, %scanNameSpaceForRelid.exit.us ], [ %.3.us, %46 ]
-  %.1.us = phi i32 [ %.mux.us, %scanNameSpaceForRelid.exit.us ], [ 0, %46 ]
+  %.129.us = phi ptr [ %49, %46 ], [ %.028.us, %scanNameSpaceForRelid.exit.us ]
+  %.4.us = phi ptr [ %.3.us, %46 ], [ %.0.mux.us, %scanNameSpaceForRelid.exit.us ]
+  %.1.us = phi i32 [ 0, %46 ], [ %.mux.us, %scanNameSpaceForRelid.exit.us ]
   switch i32 %.1.us, label %.critedge.loopexit117 [
     i32 0, label %.split.us
     i32 3, label %.critedge
@@ -307,8 +307,8 @@ scanNameSpaceForRelid.exit.us:                    ; preds = %42, %.lr.ph.i44.us,
   br label %92
 
 92:                                               ; preds = %91, %86, %82, %78, %75, %72, %.lr.ph37.i.us
-  %93 = phi i32 [ %59, %72 ], [ %59, %75 ], [ %59, %.lr.ph37.i.us ], [ %.pre.i.us, %91 ], [ %59, %86 ], [ %59, %82 ], [ %59, %78 ]
-  %.1.i.us = phi ptr [ %.03135.i.us, %72 ], [ %.03135.i.us, %75 ], [ %.03135.i.us, %.lr.ph37.i.us ], [ %62, %91 ], [ %.03135.i.us, %86 ], [ %.03135.i.us, %82 ], [ %.03135.i.us, %78 ]
+  %93 = phi i32 [ %59, %.lr.ph37.i.us ], [ %59, %72 ], [ %59, %75 ], [ %.pre.i.us, %91 ], [ %59, %86 ], [ %59, %82 ], [ %59, %78 ]
+  %.1.i.us = phi ptr [ %.03135.i.us, %.lr.ph37.i.us ], [ %.03135.i.us, %72 ], [ %.03135.i.us, %75 ], [ %62, %91 ], [ %.03135.i.us, %86 ], [ %.03135.i.us, %82 ], [ %.03135.i.us, %78 ]
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %94 = sext i32 %93 to i64
   %95 = icmp slt i64 %indvars.iv.next.i.us, %94
@@ -402,8 +402,8 @@ scanNameSpaceForRelid.exit.us:                    ; preds = %42, %.lr.ph.i44.us,
   br label %141
 
 141:                                              ; preds = %140, %131, %127, %123, %120, %117, %.lr.ph37.i
-  %142 = phi i32 [ %104, %117 ], [ %104, %120 ], [ %104, %.lr.ph37.i ], [ %.pre.i, %140 ], [ %104, %131 ], [ %104, %127 ], [ %104, %123 ]
-  %.1.i = phi ptr [ %.03135.i, %117 ], [ %.03135.i, %120 ], [ %.03135.i, %.lr.ph37.i ], [ %107, %140 ], [ %.03135.i, %131 ], [ %.03135.i, %127 ], [ %.03135.i, %123 ]
+  %142 = phi i32 [ %104, %.lr.ph37.i ], [ %104, %117 ], [ %104, %120 ], [ %.pre.i, %140 ], [ %104, %131 ], [ %104, %127 ], [ %104, %123 ]
+  %.1.i = phi ptr [ %.03135.i, %.lr.ph37.i ], [ %.03135.i, %117 ], [ %.03135.i, %120 ], [ %107, %140 ], [ %.03135.i, %131 ], [ %.03135.i, %127 ], [ %.03135.i, %123 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %143 = sext i32 %142 to i64
   %144 = icmp slt i64 %indvars.iv.next.i, %143
@@ -421,7 +421,7 @@ scanNameSpaceForRelid.exit:                       ; preds = %141
   %.not41.not = icmp eq ptr %.1.i, null
   br i1 %.not41.not, label %scanNameSpaceForRelid.exit.thread, label %152
 
-scanNameSpaceForRelid.exit.thread:                ; preds = %96, %.lr.ph.i, %scanNameSpaceForRelid.exit
+scanNameSpaceForRelid.exit.thread:                ; preds = %.lr.ph.i, %96, %scanNameSpaceForRelid.exit
   %149 = load i32, ptr %4, align 4
   %150 = add i32 %149, 1
   store i32 %150, ptr %4, align 4
@@ -429,16 +429,16 @@ scanNameSpaceForRelid.exit.thread:                ; preds = %96, %.lr.ph.i, %sca
   br label %152
 
 152:                                              ; preds = %scanNameSpaceForRelid.exit, %scanNameSpaceForRelid.exit.thread
-  %.129 = phi ptr [ %.028, %scanNameSpaceForRelid.exit ], [ %151, %scanNameSpaceForRelid.exit.thread ]
-  %.4 = phi ptr [ %.1.i, %scanNameSpaceForRelid.exit ], [ %.3, %scanNameSpaceForRelid.exit.thread ]
-  %cond = phi i1 [ false, %scanNameSpaceForRelid.exit ], [ true, %scanNameSpaceForRelid.exit.thread ]
+  %.129 = phi ptr [ %151, %scanNameSpaceForRelid.exit.thread ], [ %.028, %scanNameSpaceForRelid.exit ]
+  %.4 = phi ptr [ %.3, %scanNameSpaceForRelid.exit.thread ], [ %.1.i, %scanNameSpaceForRelid.exit ]
+  %cond = phi i1 [ true, %scanNameSpaceForRelid.exit.thread ], [ false, %scanNameSpaceForRelid.exit ]
   br i1 %cond, label %.split.split, label %.critedge
 
 .critedge.loopexit117:                            ; preds = %50
   br label %.critedge
 
 .critedge:                                        ; preds = %152, %.split.split, %92, %50, %.split.us, %.critedge.loopexit117, %.lr.ph.i.us, %.split.split.us, %.split.split.us.split, %8, %10
-  %.2 = phi ptr [ null, %8 ], [ null, %.lr.ph.i.us ], [ null, %10 ], [ null, %.split.split.us.split ], [ %.1.i.us, %92 ], [ null, %.split.split.us ], [ null, %50 ], [ %.4.us, %.critedge.loopexit117 ], [ null, %.split.us ], [ %.4, %152 ], [ null, %.split.split ]
+  %.2 = phi ptr [ null, %10 ], [ null, %8 ], [ null, %.split.split.us.split ], [ null, %.split.split.us ], [ null, %.lr.ph.i.us ], [ %.4.us, %.critedge.loopexit117 ], [ null, %.split.us ], [ null, %50 ], [ %.1.i.us, %92 ], [ null, %.split.split ], [ %.4, %152 ]
   ret ptr %.2
 }
 
@@ -1059,7 +1059,7 @@ updateFuzzyAttrMatchState.exit.us:                ; preds = %23, %16
   br i1 %30, label %31, label %36
 
 .critedge:                                        ; preds = %updateFuzzyAttrMatchState.exit, %updateFuzzyAttrMatchState.exit.us, %.lr.ph.split.preheader
-  %.031.lcssa = phi i32 [ %.1.us, %updateFuzzyAttrMatchState.exit.us ], [ 0, %.lr.ph.split.preheader ], [ %.1, %updateFuzzyAttrMatchState.exit ]
+  %.031.lcssa = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1.us, %updateFuzzyAttrMatchState.exit.us ], [ %.1, %updateFuzzyAttrMatchState.exit ]
   %.not38 = icmp eq i32 %.031.lcssa, 0
   br i1 %.not38, label %.critedge.thread, label %specialAttNum.exit.thread
 
@@ -1178,7 +1178,7 @@ specialAttNum.exit:                               ; preds = %75
   br label %specialAttNum.exit.thread
 
 specialAttNum.exit.thread:                        ; preds = %75, %79, %.critedge.thread, %72, %specialAttNum.exit, %.critedge
-  %.0 = phi i32 [ %.031.lcssa, %.critedge ], [ 0, %.critedge.thread ], [ %spec.select, %79 ], [ 0, %specialAttNum.exit ], [ 0, %72 ], [ 0, %75 ]
+  %.0 = phi i32 [ %.031.lcssa, %.critedge ], [ 0, %specialAttNum.exit ], [ 0, %72 ], [ 0, %.critedge.thread ], [ %spec.select, %79 ], [ 0, %75 ]
   ret i32 %.0
 }
 
@@ -1340,7 +1340,7 @@ define dso_local ptr @colNameToVar(ptr noundef %0, ptr noundef %1, i1 noundef ze
   br label %33
 
 33:                                               ; preds = %25, %32, %22, %.lr.ph56
-  %.3 = phi ptr [ %.24954, %22 ], [ %.24954, %.lr.ph56 ], [ %26, %32 ], [ %.24954, %25 ]
+  %.3 = phi ptr [ %.24954, %.lr.ph56 ], [ %.24954, %22 ], [ %26, %32 ], [ %.24954, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %6, align 4
   %35 = sext i32 %34 to i64
@@ -1655,7 +1655,7 @@ define internal fastcc noundef zeroext i1 @isFutureCTE(ptr noundef readonly capt
   br i1 %.not.not, label %.loopexit, label %.lr.ph39, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge32.split.us, %11, %2
-  %.not30 = phi i1 [ true, %11 ], [ false, %2 ], [ false, %._crit_edge32.split.us ]
+  %.not30 = phi i1 [ false, %2 ], [ true, %11 ], [ false, %._crit_edge32.split.us ]
   ret i1 %.not30
 }
 
@@ -1770,8 +1770,8 @@ define dso_local noundef ptr @addRangeTableEntry(ptr noundef %0, ptr noundef %1,
   %exitcond85.not.i = icmp eq i64 %indvars.iv.next, %34
   br i1 %exitcond85.not.i, label %isLockedRefname.exit, label %35
 
-isLockedRefname.exit:                             ; preds = %.loopexit.i, %35, %46, %26, %27, %17, %.lr.ph57.split.split.i, %.lr.ph57.split.us.split.i, %5
-  %52 = phi i32 [ 2, %5 ], [ 2, %46 ], [ 2, %27 ], [ 1, %17 ], [ 1, %.lr.ph57.split.us.split.i ], [ 1, %.lr.ph57.split.split.i ], [ 1, %26 ], [ 1, %.loopexit.i ], [ 2, %35 ]
+isLockedRefname.exit:                             ; preds = %.loopexit.i, %35, %46, %26, %27, %.lr.ph57.split.split.i, %.lr.ph57.split.us.split.i, %17, %5
+  %52 = phi i32 [ 2, %5 ], [ 1, %17 ], [ 1, %.lr.ph57.split.us.split.i ], [ 1, %.lr.ph57.split.split.i ], [ 1, %26 ], [ 2, %27 ], [ 2, %46 ], [ 1, %.loopexit.i ], [ 2, %35 ]
   %53 = tail call ptr @parserOpenTable(ptr noundef %0, ptr noundef %1, i32 noundef %52)
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 72
   %55 = load i32, ptr %54, align 8
@@ -2009,7 +2009,7 @@ define dso_local noundef zeroext i1 @isLockedRefname(ptr noundef readonly captur
   br i1 %exitcond85.not, label %.critedge, label %23
 
 .critedge:                                        ; preds = %.loopexit, %23, %35, %14, %6, %.lr.ph57.split.split, %.lr.ph57.split.us.split, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %.lr.ph57.split.us.split ], [ true, %35 ], [ false, %.lr.ph57.split.split ], [ %20, %14 ], [ false, %6 ], [ %29, %23 ], [ %29, %.loopexit ]
+  %.0 = phi i1 [ true, %2 ], [ false, %6 ], [ false, %.lr.ph57.split.us.split ], [ false, %.lr.ph57.split.split ], [ %20, %14 ], [ true, %35 ], [ %29, %23 ], [ %29, %.loopexit ]
   ret i1 %.0
 }
 
@@ -2856,7 +2856,7 @@ list_length.exit:                                 ; preds = %7, %15
   br label %chooseScalarFunctionAlias.exit
 
 chooseScalarFunctionAlias.exit:                   ; preds = %121, %125, %126
-  %.0.i = phi ptr [ %.mux, %121 ], [ %127, %126 ], [ %76, %125 ]
+  %.0.i = phi ptr [ %127, %126 ], [ %.mux, %121 ], [ %76, %125 ]
   %128 = load i32, ptr %9, align 4
   %129 = call i32 @exprTypmod(ptr noundef %75) #10
   call void @TupleDescInitEntry(ptr noundef %117, i16 noundef signext 1, ptr noundef %.0.i, i32 noundef %128, i32 noundef %129, i32 noundef 0) #10
@@ -5195,7 +5195,7 @@ list_length.exit:                                 ; preds = %11, %14
   br label %94
 
 94:                                               ; preds = %77, %78, %48, %49
-  %.2 = phi ptr [ null, %48 ], [ %..i, %49 ], [ %.3, %78 ], [ %.3, %77 ]
+  %.2 = phi ptr [ %..i, %49 ], [ null, %48 ], [ %.3, %78 ], [ %.3, %77 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !29
@@ -5480,7 +5480,7 @@ markVarForSelectPriv.exit.us:                     ; preds = %.lr.ph.i.us, %42
   br i1 %76, label %77, label %.thread
 
 .thread:                                          ; preds = %72, %67, %32, %37, %19, %.split.split, %.split.split.us
-  %.us-phi = phi ptr [ null, %19 ], [ %.0.us35, %32 ], [ null, %.split.split.us ], [ null, %.split.split ], [ %.0.us35, %37 ], [ %.0, %67 ], [ %.0, %72 ]
+  %.us-phi = phi ptr [ null, %.split.split.us ], [ null, %.split.split ], [ null, %19 ], [ %.0.us35, %37 ], [ %.0.us35, %32 ], [ %.0, %67 ], [ %.0, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.us-phi
 
@@ -5590,7 +5590,7 @@ list_length.exit24:                               ; preds = %32
   unreachable
 
 54:                                               ; preds = %2, %40, %27, %16
-  %.0 = phi ptr [ %47, %40 ], [ %23, %16 ], [ %30, %27 ], [ @.str.45, %2 ]
+  %.0 = phi ptr [ %23, %16 ], [ %30, %27 ], [ %47, %40 ], [ @.str.45, %2 ]
   ret ptr %.0
 }
 
@@ -5818,7 +5818,7 @@ list_length.exit80:                               ; preds = %45
   unreachable
 
 120:                                              ; preds = %._crit_edge, %82, %.split, %78, %16, %36, %53, %2, %2, %2, %2, %2
-  %.5 = phi i1 [ false, %._crit_edge ], [ false, %2 ], [ %24, %16 ], [ %59, %53 ], [ %.not75, %36 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %78 ], [ %93, %82 ], [ false, %.split ]
+  %.5 = phi i1 [ %24, %16 ], [ %.not75, %36 ], [ %59, %53 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %78 ], [ false, %.split ], [ %93, %82 ], [ false, %._crit_edge ]
   ret i1 %.5
 }
 
@@ -5860,7 +5860,7 @@ define dso_local ptr @get_tle_by_resno(ptr noundef readonly captures(address_is_
   br i1 %.not17, label %._crit_edge25, label %8
 
 ._crit_edge25:                                    ; preds = %9, %8, %.lr.ph, %2
-  %14 = phi ptr [ null, %.lr.ph ], [ null, %2 ], [ null, %8 ], [ %11, %9 ]
+  %14 = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ null, %8 ], [ %11, %9 ]
   ret ptr %14
 }
 
@@ -5898,7 +5898,7 @@ define dso_local ptr @get_parse_rowmark(ptr noundef readonly captures(none) %0, 
   br i1 %.not17, label %._crit_edge25, label %10
 
 ._crit_edge25:                                    ; preds = %11, %10, %.lr.ph, %2
-  %16 = phi ptr [ null, %.lr.ph ], [ null, %2 ], [ null, %10 ], [ %13, %11 ]
+  %16 = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ null, %10 ], [ %13, %11 ]
   ret ptr %16
 }
 
@@ -5968,7 +5968,7 @@ specialAttNum.exit.thread:                        ; preds = %30, %specialAttNum.
   br label %37
 
 37:                                               ; preds = %.loopexit, %specialAttNum.exit, %specialAttNum.exit.thread
-  %.2 = phi i32 [ %34, %specialAttNum.exit ], [ 0, %specialAttNum.exit.thread ], [ %36, %.loopexit ]
+  %.2 = phi i32 [ 0, %specialAttNum.exit.thread ], [ %34, %specialAttNum.exit ], [ %36, %.loopexit ]
   ret i32 %.2
 }
 
@@ -6372,8 +6372,8 @@ scanNameSpaceForCTE.exit.thread72.i.thread:       ; preds = %2, %scanNameSpaceFo
   %.not63.i = icmp eq ptr %123, null
   br i1 %.not63.i, label %searchRangeTableForRel.exit.thread49.thread, label %.lr.ph147.split.split.i, !llvm.loop !32
 
-.loopexit:                                        ; preds = %50, %.thread86.us149.us.i, %73, %.thread86.us.us133.i.us81, %.thread86.us.us133.i.us, %.thread86.us.us170.us.i, %98
-  %.4.i.ph = phi ptr [ %69, %73 ], [ %93, %.thread86.us.us170.us.i ], [ %116, %.thread86.us.us133.i.us ], [ %93, %98 ], [ %69, %.thread86.us.us133.i.us81 ], [ %40, %.thread86.us149.us.i ], [ %40, %50 ]
+.loopexit:                                        ; preds = %.thread86.us149.us.i, %50, %73, %.thread86.us.us133.i.us81, %.thread86.us.us133.i.us, %98, %.thread86.us.us170.us.i
+  %.4.i.ph = phi ptr [ %93, %.thread86.us.us170.us.i ], [ %93, %98 ], [ %116, %.thread86.us.us133.i.us ], [ %69, %.thread86.us.us133.i.us81 ], [ %69, %73 ], [ %40, %50 ], [ %40, %.thread86.us149.us.i ]
   %124 = getelementptr inbounds nuw i8, ptr %.4.i.ph, i64 8
   %125 = load ptr, ptr %124, align 8
   %.not31 = icmp eq ptr %125, null

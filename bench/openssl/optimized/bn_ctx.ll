@@ -448,7 +448,7 @@ BN_POOL_get.exit.thread:                          ; preds = %15, %BN_POOL_get.ex
   br label %63
 
 63:                                               ; preds = %1, %4, %56, %BN_POOL_get.exit.thread
-  %.0 = phi ptr [ %.1.i15, %56 ], [ null, %BN_POOL_get.exit.thread ], [ null, %4 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %BN_POOL_get.exit.thread ], [ %.1.i15, %56 ], [ null, %4 ], [ null, %1 ]
   ret ptr %.0
 }
 

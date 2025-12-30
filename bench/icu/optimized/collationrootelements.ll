@@ -97,7 +97,7 @@ define noundef range(i64 0, -1095216660480) i64 @_ZNK6icu_7721CollationRootEleme
   br i1 %43, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit
 
 _ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %39, %31, %4
-  %.041.i34 = phi i32 [ %.041.i35, %31 ], [ %7, %4 ], [ %.041.i35, %.preheader.i ], [ %.041..033.i, %39 ]
+  %.041.i34 = phi i32 [ %7, %4 ], [ %.041.i35, %31 ], [ %.041.i35, %.preheader.i ], [ %.041..033.i, %39 ]
   %44 = sext i32 %.041.i34 to i64
   %45 = getelementptr inbounds i32, ptr %5, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !10
@@ -250,7 +250,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements5findPEj(ptr noundef nonnu
   br i1 %41, label %.lr.ph110, label %.thread88
 
 .thread88:                                        ; preds = %37, %.preheader, %29, %2
-  %.041106 = phi i32 [ %.041107, %29 ], [ %5, %2 ], [ %.041..033, %37 ], [ %.041107, %.preheader ]
+  %.041106 = phi i32 [ %5, %2 ], [ %.041107, %29 ], [ %.041107, %.preheader ], [ %.041..033, %37 ]
   ret i32 %.041106
 }
 
@@ -348,7 +348,7 @@ define noundef range(i64 0, -553916563456) i64 @_ZNK6icu_7721CollationRootElemen
   br i1 %43, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit
 
 _ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %39, %31, %4
-  %.041.i19 = phi i32 [ %.041.i20, %31 ], [ %7, %4 ], [ %.041.i20, %.preheader.i ], [ %.041..033.i, %39 ]
+  %.041.i19 = phi i32 [ %7, %4 ], [ %.041.i20, %31 ], [ %.041.i20, %.preheader.i ], [ %.041..033.i, %39 ]
   %44 = sext i32 %.041.i19 to i64
   %45 = getelementptr inbounds i32, ptr %5, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !10
@@ -467,7 +467,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements16getPrimaryBeforeEja(ptr 
   br i1 %42, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
 
 _ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.i, %38, %30, %3
-  %.041.i9.i = phi i32 [ %.041.i10.i, %30 ], [ %6, %3 ], [ %.041.i10.i, %.preheader.i.i ], [ %.041..033.i.i, %38 ]
+  %.041.i9.i = phi i32 [ %6, %3 ], [ %.041.i10.i, %30 ], [ %.041..033.i.i, %38 ], [ %.041.i10.i, %.preheader.i.i ]
   %43 = sext i32 %.041.i9.i to i64
   %44 = getelementptr inbounds i32, ptr %4, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !10
@@ -608,7 +608,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements11findPrimaryEj(ptr nounde
   br i1 %41, label %.lr.ph, label %_ZNK6icu_7721CollationRootElements5findPEj.exit
 
 _ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %37, %29, %2
-  %.041.i9 = phi i32 [ %.041.i10, %29 ], [ %5, %2 ], [ %.041.i10, %.preheader.i ], [ %.041..033.i, %37 ]
+  %.041.i9 = phi i32 [ %5, %2 ], [ %.041.i10, %29 ], [ %.041.i10, %.preheader.i ], [ %.041..033.i, %37 ]
   ret i32 %.041.i9
 }
 
@@ -718,7 +718,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements18getS
   br i1 %50, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
 
 _ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.i, %46, %38, %12
-  %.041.i9.i = phi i32 [ %.041.i10.i, %38 ], [ %14, %12 ], [ %.041.i10.i, %.preheader.i.i ], [ %.041..033.i.i, %46 ]
+  %.041.i9.i = phi i32 [ %14, %12 ], [ %.041.i10.i, %38 ], [ %.041..033.i.i, %46 ], [ %.041.i10.i, %.preheader.i.i ]
   %51 = add nsw i32 %.041.i9.i, 1
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i32, ptr %5, i64 %52
@@ -877,7 +877,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements17getT
   br i1 %52, label %.lr.ph.i, label %_ZNK6icu_7721CollationRootElements11findPrimaryEj.exit
 
 _ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.i, %48, %40, %13
-  %.041.i9.i = phi i32 [ %.041.i10.i, %40 ], [ %16, %13 ], [ %.041.i10.i, %.preheader.i.i ], [ %.041..033.i.i, %48 ]
+  %.041.i9.i = phi i32 [ %16, %13 ], [ %.041.i10.i, %40 ], [ %.041..033.i.i, %48 ], [ %.041.i10.i, %.preheader.i.i ]
   %53 = add nsw i32 %.041.i9.i, 1
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i32, ptr %14, i64 %54

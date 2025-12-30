@@ -126,8 +126,8 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %8
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %48, %50, %40, %42
-  %.sink291 = phi ptr [ %43, %42 ], [ %41, %40 ], [ %49, %48 ], [ %51, %50 ]
-  %.sink = phi i32 [ 16, %42 ], [ 16, %40 ], [ %45, %48 ], [ %45, %50 ]
+  %.sink291 = phi ptr [ %41, %40 ], [ %43, %42 ], [ %49, %48 ], [ %51, %50 ]
+  %.sink = phi i32 [ 16, %40 ], [ 16, %42 ], [ %45, %48 ], [ %45, %50 ]
   store ptr %.sink291, ptr %13, align 8, !tbaa !30
   store i32 %.sink, ptr %5, align 8, !tbaa !29
   br label %Vec_IntPush.exit
@@ -690,7 +690,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %.critedge
   br label %Vec_IntStart.exit
 
 Vec_IntStart.exit:                                ; preds = %.critedge, %Vec_IntAlloc.exit.i, %9
-  %.val159 = phi ptr [ %8, %9 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %.critedge ]
+  %.val159 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %8, %9 ], [ null, %.critedge ]
   tail call void @Gia_ManCreateRefs(ptr noundef nonnull %0) #14
   %.val129175 = load i32, ptr %4, align 8, !tbaa !3
   %12 = icmp sgt i32 %.val129175, 0
@@ -1423,7 +1423,7 @@ Vec_IntAlloc.exit.thread:                         ; preds = %Vec_PtrStart.exit
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %195, %Vec_IntAlloc.exit
-  %198 = phi ptr [ %177, %Vec_IntAlloc.exit ], [ %197, %195 ]
+  %198 = phi ptr [ %197, %195 ], [ %177, %Vec_IntAlloc.exit ]
   %199 = icmp sgt i32 %.val80, 0
   br i1 %199, label %.lr.ph.i, label %Vec_IntFill.exit
 
@@ -1744,7 +1744,7 @@ Vec_PtrFree.exit.i:                               ; preds = %167, %164
   br i1 %170, label %161, label %.critedge.i, !llvm.loop !138
 
 .critedge.i:                                      ; preds = %168, %Vec_PtrFree.exit, %._crit_edge
-  %.lcssa231305 = phi ptr [ %134, %Vec_PtrFree.exit ], [ %154, %._crit_edge ], [ %154, %168 ]
+  %.lcssa231305 = phi ptr [ %154, %._crit_edge ], [ %134, %Vec_PtrFree.exit ], [ %154, %168 ]
   %171 = getelementptr inbounds nuw i8, ptr %.lcssa231305, i64 8
   %172 = load ptr, ptr %171, align 8, !tbaa !107
   %.not.i9.i = icmp eq ptr %172, null

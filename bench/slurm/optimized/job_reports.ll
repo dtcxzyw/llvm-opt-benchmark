@@ -590,7 +590,7 @@ define internal fastcc void @_run_report(i32 noundef range(i32 0, 3) %0, i32 nou
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.backedge.i, %251, %245, %237, %231, %221, %211, %199, %159, %146, %145, %144, %130, %118, %117, %110, %100, %87, %.critedge246.i, %62, %59, %56, %44
-  %.1196.i = phi i32 [ %.0195266.i, %251 ], [ %.0195266.i, %245 ], [ %.0195266.i, %231 ], [ %.0195266.i, %237 ], [ %.0195266.i, %221 ], [ %.0195266.i, %211 ], [ %.0195266.i, %199 ], [ 1, %44 ], [ %.0195266.i, %146 ], [ %.0195266.i, %145 ], [ %.0195266.i, %144 ], [ %.0195266.i, %130 ], [ %.0195266.i, %118 ], [ %.0195266.i, %117 ], [ %.0195266.i, %110 ], [ %.0195266.i, %100 ], [ %.0195266.i, %87 ], [ %.0195266.i, %.critedge246.i ], [ %.0195266.i, %62 ], [ %.0195266.i, %59 ], [ %.0195266.i, %56 ], [ %.0195266.i, %159 ], [ %.0195266.i, %.backedge.i ]
+  %.1196.i = phi i32 [ %.0195266.i, %251 ], [ %.0195266.i, %245 ], [ %.0195266.i, %237 ], [ %.0195266.i, %221 ], [ %.0195266.i, %211 ], [ %.0195266.i, %199 ], [ %.0195266.i, %146 ], [ %.0195266.i, %145 ], [ %.0195266.i, %144 ], [ %.0195266.i, %130 ], [ %.0195266.i, %118 ], [ %.0195266.i, %117 ], [ %.0195266.i, %110 ], [ %.0195266.i, %100 ], [ %.0195266.i, %87 ], [ %.0195266.i, %.critedge246.i ], [ %.0195266.i, %62 ], [ %.0195266.i, %59 ], [ %.0195266.i, %56 ], [ 1, %44 ], [ %.0195266.i, %231 ], [ %.0195266.i, %159 ], [ %.0195266.i, %.backedge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %255 = icmp eq i64 %indvars.iv.next.i, %zext
   br i1 %255, label %.loopexit251.i, label %40, !llvm.loop !12
@@ -1048,10 +1048,10 @@ _merge_cluster_groups.exit:                       ; preds = %.outer._crit_edge.i
   br label %451, !llvm.loop !17
 
 439:                                              ; preds = %434, %432, %430, %428, %424, %422, %420, %418, %414, %410, %403
-  %.sink74.i = phi i16 [ 0, %403 ], [ 3, %418 ], [ 4, %422 ], [ 7, %432 ], [ 6, %424 ], [ 2, %420 ], [ 1, %414 ], [ 0, %410 ], [ 6, %430 ], [ 6, %428 ], [ 8, %434 ]
-  %.str.46.sink.i = phi ptr [ @.str.45, %403 ], [ @.str.47, %418 ], [ @.str.51, %422 ], [ @.str.56, %432 ], [ @.str.55, %424 ], [ @.str.49, %420 ], [ @.str.46, %414 ], [ @.str.45, %410 ], [ @.str.55, %430 ], [ @.str.55, %428 ], [ @.str.57, %434 ]
-  %.sink.i175 = phi i32 [ 9, %403 ], [ 12, %418 ], [ 9, %422 ], [ 9, %432 ], [ 10, %424 ], [ 9, %420 ], [ 9, %414 ], [ 9, %410 ], [ 10, %430 ], [ 10, %428 ], [ 9, %434 ]
-  %print_fields_str.sink.i = phi ptr [ @print_fields_str, %403 ], [ @print_fields_time_from_mins, %418 ], [ @print_fields_uint32, %422 ], [ @print_fields_str, %432 ], [ @print_fields_uint32, %424 ], [ @print_fields_uint32, %420 ], [ @print_fields_str, %414 ], [ @print_fields_str, %410 ], [ @print_fields_uint32, %430 ], [ @print_fields_uint32, %428 ], [ @print_fields_str, %434 ]
+  %.sink74.i = phi i16 [ 0, %410 ], [ 0, %403 ], [ 1, %414 ], [ 3, %418 ], [ 2, %420 ], [ 4, %422 ], [ 6, %430 ], [ 6, %428 ], [ 6, %424 ], [ 7, %432 ], [ 8, %434 ]
+  %.str.46.sink.i = phi ptr [ @.str.45, %410 ], [ @.str.45, %403 ], [ @.str.46, %414 ], [ @.str.47, %418 ], [ @.str.49, %420 ], [ @.str.51, %422 ], [ @.str.55, %430 ], [ @.str.55, %428 ], [ @.str.55, %424 ], [ @.str.56, %432 ], [ @.str.57, %434 ]
+  %.sink.i175 = phi i32 [ 9, %410 ], [ 9, %403 ], [ 9, %414 ], [ 12, %418 ], [ 9, %420 ], [ 9, %422 ], [ 10, %430 ], [ 10, %428 ], [ 10, %424 ], [ 9, %432 ], [ 9, %434 ]
+  %print_fields_str.sink.i = phi ptr [ @print_fields_str, %410 ], [ @print_fields_str, %403 ], [ @print_fields_str, %414 ], [ @print_fields_time_from_mins, %418 ], [ @print_fields_uint32, %420 ], [ @print_fields_uint32, %422 ], [ @print_fields_uint32, %430 ], [ @print_fields_uint32, %428 ], [ @print_fields_uint32, %424 ], [ @print_fields_str, %432 ], [ @print_fields_str, %434 ]
   %440 = load ptr, ptr %4, align 8
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 24
   store i16 %.sink74.i, ptr %441, align 8
@@ -1410,7 +1410,7 @@ _setup_grouping_print_fields_list.exit:           ; preds = %458, %459
   br label %584
 
 584:                                              ; preds = %.lr.ph, %582, %580
-  %.sink = phi ptr [ %581, %580 ], [ %583, %582 ], [ null, %.lr.ph ]
+  %.sink = phi ptr [ %583, %582 ], [ %581, %580 ], [ null, %.lr.ph ]
   call void %579(ptr noundef nonnull %575, ptr noundef %.sink, i32 noundef 0) #12
   %585 = call ptr @list_next(ptr noundef %546) #12
   %.not162 = icmp eq ptr %585, null
@@ -1528,7 +1528,7 @@ _setup_grouping_print_fields_list.exit:           ; preds = %458, %459
   br label %629
 
 629:                                              ; preds = %_setup_grouping_print_fields_list.exit, %._crit_edge204, %382, %288, %283, %278
-  %.0105 = phi ptr [ null, %288 ], [ %.1, %382 ], [ %.1, %_setup_grouping_print_fields_list.exit ], [ %.1, %._crit_edge204 ], [ null, %278 ], [ null, %283 ]
+  %.0105 = phi ptr [ %.1, %382 ], [ %.1, %_setup_grouping_print_fields_list.exit ], [ %.1, %._crit_edge204 ], [ null, %278 ], [ null, %283 ], [ null, %288 ]
   %630 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @slurm_xfree(ptr noundef nonnull %630) #12
   %.b138 = load i1, ptr @print_job_count, align 4
@@ -1678,7 +1678,7 @@ define internal range(i32 -1, 2) i32 @_sort_cluster_grouping_dec(ptr noundef rea
   br label %14
 
 14:                                               ; preds = %13, %10, %2, %6
-  %.0 = phi i32 [ 0, %2 ], [ %., %13 ], [ 1, %10 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %2 ], [ 1, %10 ], [ %., %13 ]
   ret i32 %.0
 }
 
@@ -1754,7 +1754,7 @@ define internal range(i32 -1, 2) i32 @_sort_acct_grouping_dec(ptr noundef readon
   br label %31
 
 31:                                               ; preds = %30, %27, %24, %22, %19, %2, %8
-  %.0 = phi i32 [ 0, %2 ], [ 1, %19 ], [ 0, %24 ], [ %., %30 ], [ 1, %27 ], [ -1, %22 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %2 ], [ 1, %19 ], [ -1, %22 ], [ 0, %24 ], [ 1, %27 ], [ %., %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

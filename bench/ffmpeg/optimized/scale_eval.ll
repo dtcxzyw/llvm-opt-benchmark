@@ -309,8 +309,8 @@ define range(i32 -22, 1) i32 @ff_scale_adjust_dimensions(ptr noundef readonly ca
   br label %93
 
 93:                                               ; preds = %.sink.split, %76, %82, %55
-  %.285 = phi i64 [ %.184.fr, %55 ], [ %84, %82 ], [ %78, %76 ], [ %92, %.sink.split ]
-  %.2 = phi i64 [ %.1.fr, %55 ], [ %83, %82 ], [ %77, %76 ], [ %.2.ph, %.sink.split ]
+  %.285 = phi i64 [ %.184.fr, %55 ], [ %78, %76 ], [ %84, %82 ], [ %92, %.sink.split ]
+  %.2 = phi i64 [ %.1.fr, %55 ], [ %77, %76 ], [ %83, %82 ], [ %.2.ph, %.sink.split ]
   %94 = add i64 %.2, 2147483648
   %.not92 = icmp ult i64 %94, 4294967296
   %95 = add i64 %.285, 2147483648

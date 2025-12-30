@@ -1517,7 +1517,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit22:             ; preds = %60
   unreachable
 
 .body12:                                          ; preds = %.body17, %67, %_ZN4cvc58internal7IntegerD2Ev.exit4.i
-  %.pn = phi { ptr, i32 } [ %35, %_ZN4cvc58internal7IntegerD2Ev.exit4.i ], [ %68, %67 ], [ %eh.lpad-body18, %.body17 ]
+  %.pn = phi { ptr, i32 } [ %68, %67 ], [ %35, %_ZN4cvc58internal7IntegerD2Ev.exit4.i ], [ %eh.lpad-body18, %.body17 ]
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %.body unwind label %74
 
@@ -1529,7 +1529,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit22:             ; preds = %60
   unreachable
 
 .body:                                            ; preds = %.body12, %65, %_ZN4cvc58internal7IntegerD2Ev.exit3.i
-  %.pn.pn = phi { ptr, i32 } [ %23, %_ZN4cvc58internal7IntegerD2Ev.exit3.i ], [ %66, %65 ], [ %.pn, %.body12 ]
+  %.pn.pn = phi { ptr, i32 } [ %66, %65 ], [ %23, %_ZN4cvc58internal7IntegerD2Ev.exit3.i ], [ %.pn, %.body12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
@@ -1729,7 +1729,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit12:             ; preds = %42
   unreachable
 
 .body:                                            ; preds = %.body9, %47, %_ZN4cvc58internal7IntegerD2Ev.exit3.i
-  %.pn = phi { ptr, i32 } [ %20, %_ZN4cvc58internal7IntegerD2Ev.exit3.i ], [ %48, %47 ], [ %eh.lpad-body10, %.body9 ]
+  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %20, %_ZN4cvc58internal7IntegerD2Ev.exit3.i ], [ %eh.lpad-body10, %.body9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit14 unwind label %54
@@ -3073,7 +3073,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit76:             ; preds = %_ZN4cvc58internal9B
   ret void
 
 161:                                              ; preds = %124, %_ZN4cvc58internal7IntegerD2Ev.exit75, %110, %_ZN4cvc58internal7IntegerD2Ev.exit65, %_ZN4cvc58internal7IntegerD2Ev.exit62, %_ZN4cvc58internal7IntegerD2Ev.exit48, %_ZN4cvc58internal7IntegerD2Ev.exit47, %_ZN4cvc58internal7IntegerD2Ev.exit46
-  %.pn40.pn = phi { ptr, i32 } [ %52, %_ZN4cvc58internal7IntegerD2Ev.exit48 ], [ %.pn35.pn.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit62 ], [ %47, %_ZN4cvc58internal7IntegerD2Ev.exit47 ], [ %111, %110 ], [ %.pn, %_ZN4cvc58internal7IntegerD2Ev.exit46 ], [ %106, %_ZN4cvc58internal7IntegerD2Ev.exit65 ], [ %.pn29.pn, %_ZN4cvc58internal7IntegerD2Ev.exit75 ], [ %125, %124 ]
+  %.pn40.pn = phi { ptr, i32 } [ %52, %_ZN4cvc58internal7IntegerD2Ev.exit48 ], [ %.pn35.pn.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit62 ], [ %47, %_ZN4cvc58internal7IntegerD2Ev.exit47 ], [ %111, %110 ], [ %106, %_ZN4cvc58internal7IntegerD2Ev.exit65 ], [ %.pn, %_ZN4cvc58internal7IntegerD2Ev.exit46 ], [ %.pn29.pn, %_ZN4cvc58internal7IntegerD2Ev.exit75 ], [ %125, %124 ]
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit77 unwind label %162
 

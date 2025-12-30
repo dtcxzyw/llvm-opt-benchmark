@@ -395,7 +395,7 @@ thread-pre-split:                                 ; preds = %24
   br label %.thread
 
 .thread:                                          ; preds = %23, %49, %37, %28, %26, %24, %114
-  %.0 = phi i32 [ %115, %114 ], [ -12, %37 ], [ -12, %24 ], [ 0, %28 ], [ 0, %26 ], [ -12, %49 ], [ 0, %23 ]
+  %.0 = phi i32 [ %115, %114 ], [ -12, %24 ], [ 0, %26 ], [ 0, %28 ], [ -12, %37 ], [ -12, %49 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -532,7 +532,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %.thread, label %85
 
-.thread:                                          ; preds = %67, %77, %72
+.thread:                                          ; preds = %77, %72, %67
   %.2.ph = phi i32 [ %83, %77 ], [ %75, %72 ], [ %70, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1390,7 +1390,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   br label %557
 
 557:                                              ; preds = %550, %547, %539, %531, %523
-  %.sink561.i = phi float [ %535, %531 ], [ %556, %550 ], [ %527, %523 ], [ %546, %539 ], [ 0.000000e+00, %547 ]
+  %.sink561.i = phi float [ %535, %531 ], [ %556, %550 ], [ %546, %539 ], [ %527, %523 ], [ 0.000000e+00, %547 ]
   %558 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv463.i
   store float %.sink561.i, ptr %558, align 4, !tbaa !68
   %indvars.iv.next464.i = add nuw nsw i64 %indvars.iv463.i, 1
@@ -1524,7 +1524,7 @@ generate_window_func.exit:                        ; preds = %600, %580, %578, %5
   br i1 %exitcond267.not, label %.thread184, label %.preheader.us, !llvm.loop !107
 
 .thread184:                                       ; preds = %85, %131, %165, %175, %188, %186, %184, %182, %._crit_edge224.us, %generate_window_func.exit, %.thread
-  %.3 = phi i32 [ 0, %generate_window_func.exit ], [ -12, %131 ], [ %.2.ph, %.thread ], [ 0, %._crit_edge224.us ], [ -12, %182 ], [ -12, %184 ], [ -12, %186 ], [ -12, %188 ], [ -12, %175 ], [ -12, %165 ], [ %91, %85 ]
+  %.3 = phi i32 [ %.2.ph, %.thread ], [ 0, %generate_window_func.exit ], [ 0, %._crit_edge224.us ], [ -12, %182 ], [ -12, %184 ], [ -12, %186 ], [ -12, %188 ], [ -12, %175 ], [ -12, %165 ], [ -12, %131 ], [ %91, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.3
 }
@@ -1957,7 +1957,7 @@ define internal noundef i32 @denoise(ptr noundef readonly captures(none) %0, ptr
   br label %.split72.us89.i.us
 
 .split72.us89.i.us:                               ; preds = %.split.us73.us.i.us, %.split.us.us.i116.us, %.split.us88.i.us
-  %.us-phi.us.i113.us = phi float [ %243, %.split.us.us.i116.us ], [ %.180.us.i.us, %.split.us88.i.us ], [ %231, %.split.us73.us.i.us ]
+  %.us-phi.us.i113.us = phi float [ %.180.us.i.us, %.split.us88.i.us ], [ %243, %.split.us.us.i116.us ], [ %231, %.split.us73.us.i.us ]
   %254 = load ptr, ptr %37, align 8, !tbaa !118
   %255 = load ptr, ptr %39, align 8, !tbaa !115
   call void %254(ptr noundef %255, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef 8) #10
@@ -2085,7 +2085,7 @@ define internal noundef i32 @denoise(ptr noundef readonly captures(none) %0, ptr
   br label %.split72.us89.i128.us
 
 .split72.us89.i128.us:                            ; preds = %.split.us73.us.i126.us, %.split.us.us.i134.us, %.split.us88.i136.us
-  %.us-phi.us.i129.us = phi float [ %308, %.split.us.us.i134.us ], [ %.180.us.i125.us, %.split.us88.i136.us ], [ %296, %.split.us73.us.i126.us ]
+  %.us-phi.us.i129.us = phi float [ %.180.us.i125.us, %.split.us88.i136.us ], [ %308, %.split.us.us.i134.us ], [ %296, %.split.us73.us.i126.us ]
   %319 = load ptr, ptr %37, align 8, !tbaa !118
   %320 = load ptr, ptr %39, align 8, !tbaa !115
   call void %319(ptr noundef %320, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 8) #10
@@ -2334,7 +2334,7 @@ export_block.exit.us:                             ; preds = %417, %420, %._crit_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.lr.ph, %.loopexit.loopexit, %56, %69
-  %430 = phi i32 [ %57, %69 ], [ %.pre196, %.loopexit.loopexit ], [ %57, %56 ], [ %57, %.preheader.lr.ph ]
+  %430 = phi i32 [ %.pre196, %.loopexit.loopexit ], [ %57, %56 ], [ %57, %69 ], [ %57, %.preheader.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %431 = sext i32 %430 to i64
   %432 = icmp slt i64 %indvars.iv.next, %431
@@ -2803,7 +2803,7 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #2 {
   br label %23
 
 23:                                               ; preds = %17, %14, %20
-  %.sink = phi ptr [ %16, %14 ], [ %22, %20 ], [ %19, %17 ]
+  %.sink = phi ptr [ %22, %20 ], [ %16, %14 ], [ %19, %17 ]
   %24 = tail call ptr @av_frame_clone(ptr noundef %.sink) #10
   %.not28 = icmp eq ptr %24, null
   br i1 %.not28, label %.thread, label %25
@@ -2818,7 +2818,7 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #2 {
   br label %.thread
 
 .thread:                                          ; preds = %25, %23, %1, %10
-  %.121 = phi i32 [ %8, %1 ], [ -541478725, %10 ], [ -12, %23 ], [ %spec.select, %25 ]
+  %.121 = phi i32 [ -541478725, %10 ], [ %8, %1 ], [ -12, %23 ], [ %spec.select, %25 ]
   ret i32 %.121
 }
 

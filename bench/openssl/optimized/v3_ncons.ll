@@ -333,7 +333,7 @@ define range(i32 0, 54) i32 @NAME_CONSTRAINTS_check(ptr noundef %0, ptr noundef 
   br i1 %.not46, label %48, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %48, %44, %.thread59, %2, %12, %23
-  %.0 = phi i32 [ %.2.ph, %.thread59 ], [ 1, %12 ], [ 1, %2 ], [ 1, %23 ], [ 0, %44 ], [ %55, %.lr.ph ], [ 0, %48 ]
+  %.0 = phi i32 [ 1, %23 ], [ 1, %12 ], [ 1, %2 ], [ %.2.ph, %.thread59 ], [ 0, %44 ], [ %55, %.lr.ph ], [ 0, %48 ]
   ret i32 %.0
 }
 
@@ -597,7 +597,7 @@ nc_minmax_valid.exit64:                           ; preds = %90, %99
   br label %.split.us
 
 .split.us:                                        ; preds = %nc_minmax_valid.exit, %42, %nc_minmax_valid.exit64, %103, %nc_minmax_valid.exit64.us, %81, %100, %78, %.split.us.loopexit105, %.split.us.loopexit104, %.preheader, %._crit_edge
-  %.043 = phi i32 [ 47, %._crit_edge ], [ 48, %.split.us.loopexit104 ], [ %80, %78 ], [ 48, %.split.us.loopexit105 ], [ %102, %100 ], [ 0, %.preheader ], [ 0, %81 ], [ 49, %nc_minmax_valid.exit64.us ], [ 0, %103 ], [ 49, %nc_minmax_valid.exit64 ], [ %44, %42 ], [ 49, %nc_minmax_valid.exit ]
+  %.043 = phi i32 [ 47, %._crit_edge ], [ 0, %.preheader ], [ %80, %78 ], [ %102, %100 ], [ 49, %nc_minmax_valid.exit64.us ], [ 0, %81 ], [ 48, %.split.us.loopexit104 ], [ 49, %nc_minmax_valid.exit64 ], [ 0, %103 ], [ 48, %.split.us.loopexit105 ], [ 49, %nc_minmax_valid.exit ], [ %44, %42 ]
   ret i32 %.043
 }
 
@@ -1026,7 +1026,7 @@ ia5memrchr.exit.i:                                ; preds = %.lr.ph.i.i, %.crite
   br label %ia5memrchr.exit.thread.i
 
 ia5memrchr.exit.thread.i:                         ; preds = %37, %76, %74, %63, %62, %57, %48, %ia5memrchr.exit.i, %.critedge.i.i, %24
-  %.029.i = phi i32 [ 0, %74 ], [ 53, %24 ], [ 53, %ia5memrchr.exit.i ], [ 0, %57 ], [ 47, %62 ], [ 1, %48 ], [ 47, %76 ], [ 1, %63 ], [ 53, %.critedge.i.i ], [ 53, %37 ]
+  %.029.i = phi i32 [ 0, %57 ], [ 47, %62 ], [ 47, %76 ], [ 0, %74 ], [ 53, %24 ], [ 53, %ia5memrchr.exit.i ], [ 1, %48 ], [ 1, %63 ], [ 53, %.critedge.i.i ], [ 53, %37 ]
   call void @CRYPTO_free(ptr noundef nonnull %22, ptr noundef nonnull @.str.2, i32 noundef 731) #9
   br label %nc_email_eai.exit
 
@@ -1500,7 +1500,7 @@ ia5memrchr.exit74.i:                              ; preds = %.lr.ph.i71.i, %.cri
   br i1 %.not27.i, label %303, label %nc_dn.exit
 
 nc_dn.exit:                                       ; preds = %.lr.ph.i, %303, %167, %227, %221, %194, %188, %137, %131, %299, %298, %291, %288, %287, %286, %278, %268, %250, %247, %243, %231, %218, %211, %207, %205, %203, %198, %179, %ia5memrchr.exit74.i, %.critedge.i64.i, %124, %114, %105, %99, %93, %90, %84, %3, %6, %nc_email_eai.exit
-  %.0 = phi i32 [ 51, %6 ], [ %.0.i, %nc_email_eai.exit ], [ %spec.select.i, %288 ], [ 51, %3 ], [ %..i, %99 ], [ 53, %298 ], [ 0, %194 ], [ 47, %93 ], [ 17, %84 ], [ 17, %90 ], [ 47, %124 ], [ 0, %105 ], [ 47, %114 ], [ 0, %227 ], [ 0, %218 ], [ 47, %198 ], [ 53, %203 ], [ 47, %207 ], [ 47, %211 ], [ 53, %ia5memrchr.exit74.i ], [ 53, %.critedge.i64.i ], [ 53, %205 ], [ 53, %291 ], [ 47, %179 ], [ 47, %299 ], [ 53, %167 ], [ 47, %131 ], [ 47, %287 ], [ 53, %231 ], [ 53, %268 ], [ 47, %286 ], [ 0, %278 ], [ 53, %250 ], [ 53, %247 ], [ 53, %243 ], [ 0, %137 ], [ 47, %188 ], [ 47, %221 ], [ 0, %303 ], [ 47, %.lr.ph.i ]
+  %.0 = phi i32 [ %.0.i, %nc_email_eai.exit ], [ 51, %6 ], [ 51, %3 ], [ 17, %84 ], [ 17, %90 ], [ 47, %93 ], [ %..i, %99 ], [ 0, %105 ], [ 47, %114 ], [ 47, %124 ], [ 53, %ia5memrchr.exit74.i ], [ 47, %198 ], [ 53, %205 ], [ 53, %203 ], [ 47, %207 ], [ 47, %211 ], [ 53, %.critedge.i64.i ], [ 47, %179 ], [ 0, %218 ], [ 47, %286 ], [ 53, %250 ], [ 53, %247 ], [ 53, %243 ], [ 53, %231 ], [ 53, %268 ], [ 0, %278 ], [ 47, %287 ], [ %spec.select.i, %288 ], [ 53, %291 ], [ 53, %298 ], [ 47, %299 ], [ 47, %131 ], [ 0, %137 ], [ 0, %194 ], [ 47, %188 ], [ 47, %221 ], [ 0, %227 ], [ 53, %167 ], [ 0, %303 ], [ 47, %.lr.ph.i ]
   ret i32 %.0
 }
 

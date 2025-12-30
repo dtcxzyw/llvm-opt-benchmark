@@ -619,7 +619,7 @@ define dso_local noundef zeroext i1 @XLogArchiveCheckDone(ptr noundef %0) local_
   br label %24
 
 24:                                               ; preds = %19, %15, %11, %8, %1, %23
-  %.0 = phi i1 [ true, %8 ], [ true, %11 ], [ false, %15 ], [ false, %23 ], [ true, %1 ], [ true, %19 ]
+  %.0 = phi i1 [ false, %23 ], [ true, %1 ], [ true, %8 ], [ true, %11 ], [ false, %15 ], [ true, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
@@ -696,7 +696,7 @@ define dso_local noundef zeroext i1 @XLogArchiveIsReadyOrDone(ptr noundef %0) lo
   br label %15
 
 15:                                               ; preds = %11, %7, %1
-  %.0 = phi i1 [ true, %7 ], [ true, %1 ], [ %14, %11 ]
+  %.0 = phi i1 [ true, %1 ], [ true, %7 ], [ %14, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0

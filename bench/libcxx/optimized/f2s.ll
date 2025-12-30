@@ -84,8 +84,8 @@ define hidden { ptr, i32 } @_ZNSt3__116__f2s_buffered_nB8ne210000EPcS0_fNS_12cha
   br label %36
 
 36:                                               ; preds = %26, %.split, %16, %9, %18, %14
-  %.sroa.031.0 = phi ptr [ %1, %16 ], [ %15, %14 ], [ %1, %9 ], [ %19, %18 ], [ %34, %.split ], [ %30, %26 ]
-  %.sroa.7.0 = phi i32 [ 75, %16 ], [ 0, %14 ], [ 75, %9 ], [ 0, %18 ], [ %35, %.split ], [ %31, %26 ]
+  %.sroa.031.0 = phi ptr [ %15, %14 ], [ %19, %18 ], [ %1, %9 ], [ %1, %16 ], [ %34, %.split ], [ %30, %26 ]
+  %.sroa.7.0 = phi i32 [ 0, %14 ], [ 0, %18 ], [ 75, %9 ], [ 75, %16 ], [ %35, %.split ], [ %31, %26 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.031.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.7.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -214,7 +214,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__123_Large_integer_to_charsB8ne2
   br label %_ZNSt3__116__decimalLength9B8ne210000Ej.exit
 
 _ZNSt3__116__decimalLength9B8ne210000Ej.exit:     ; preds = %62, %60, %58, %56, %54, %52, %50, %48, %.loopexit73
-  %64 = phi i32 [ 10, %.loopexit73 ], [ 3, %60 ], [ 9, %48 ], [ 8, %50 ], [ 7, %52 ], [ 6, %54 ], [ 5, %56 ], [ 4, %58 ], [ %..i, %62 ]
+  %64 = phi i32 [ 10, %.loopexit73 ], [ 9, %48 ], [ 8, %50 ], [ 7, %52 ], [ 6, %54 ], [ 5, %56 ], [ 4, %58 ], [ 3, %60 ], [ %..i, %62 ]
   %65 = mul nsw i32 %.060, 9
   %66 = add i32 %64, %65
   %67 = ptrtoint ptr %1 to i64
@@ -572,13 +572,13 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196: ; preds = %.lr.ph.i.i192, 
   br label %232
 
 232:                                              ; preds = %227, %225, %109, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit
-  %.1162 = phi i8 [ %.0161, %109 ], [ %.0161198, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit ], [ %.0161198, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196 ], [ %.0161198, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189 ], [ %.2163, %225 ], [ %.2163, %227 ]
-  %.1156.shrunk = phi i1 [ false, %109 ], [ %116, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit ], [ false, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196 ], [ false, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189 ], [ false, %225 ], [ %231, %227 ]
-  %.1152.shrunk = phi i1 [ false, %109 ], [ false, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit ], [ false, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196 ], [ %123, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189 ], [ false, %225 ], [ false, %227 ]
-  %.0150 = phi i32 [ %18, %109 ], [ %18, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit ], [ %18, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196 ], [ %18, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189 ], [ %134, %225 ], [ %134, %227 ]
-  %.0145 = phi i32 [ %75, %109 ], [ %75, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit ], [ %75, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196 ], [ %75, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189 ], [ %190, %225 ], [ %190, %227 ]
-  %.1141 = phi i32 [ %60, %109 ], [ %60, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit ], [ %130, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196 ], [ %60, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189 ], [ %175, %225 ], [ %175, %227 ]
-  %.0135 = phi i32 [ %45, %109 ], [ %45, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit ], [ %45, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196 ], [ %45, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189 ], [ %160, %225 ], [ %160, %227 ]
+  %.1162 = phi i8 [ %.0161198, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit ], [ %.0161198, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196 ], [ %.0161198, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189 ], [ %.0161, %109 ], [ %.2163, %225 ], [ %.2163, %227 ]
+  %.1156.shrunk = phi i1 [ %116, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit ], [ false, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196 ], [ false, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189 ], [ false, %109 ], [ false, %225 ], [ %231, %227 ]
+  %.1152.shrunk = phi i1 [ false, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit ], [ false, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196 ], [ %123, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189 ], [ false, %109 ], [ false, %225 ], [ false, %227 ]
+  %.0150 = phi i32 [ %18, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit ], [ %18, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196 ], [ %18, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189 ], [ %18, %109 ], [ %134, %225 ], [ %134, %227 ]
+  %.0145 = phi i32 [ %75, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit ], [ %75, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196 ], [ %75, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189 ], [ %75, %109 ], [ %190, %225 ], [ %190, %227 ]
+  %.1141 = phi i32 [ %60, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit ], [ %130, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196 ], [ %60, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189 ], [ %60, %109 ], [ %175, %225 ], [ %175, %227 ]
+  %.0135 = phi i32 [ %45, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit ], [ %45, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196 ], [ %45, %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189 ], [ %45, %109 ], [ %160, %225 ], [ %160, %227 ]
   %233 = or i1 %.1152.shrunk, %.1156.shrunk
   br i1 %233, label %.preheader207, label %.preheader
 
@@ -755,7 +755,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__110__to_charsB8ne210000EPcS0_NS
   br label %_ZNSt3__116__decimalLength9B8ne210000Ej.exit
 
 _ZNSt3__116__decimalLength9B8ne210000Ej.exit:     ; preds = %6, %8, %10, %12, %14, %16, %18, %20
-  %.0.i = phi i32 [ 3, %18 ], [ 9, %6 ], [ 8, %8 ], [ 7, %10 ], [ 6, %12 ], [ 5, %14 ], [ 4, %16 ], [ %..i, %20 ]
+  %.0.i = phi i32 [ 9, %6 ], [ 8, %8 ], [ 7, %10 ], [ 6, %12 ], [ 5, %14 ], [ 4, %16 ], [ 3, %18 ], [ %..i, %20 ]
   %22 = add nsw i32 %.0.i, %.sroa.4.0.extract.trunc
   %23 = add nsw i32 %22, -1
   switch i32 %3, label %.thread172 [
@@ -1095,8 +1095,8 @@ _ZNSt3__116__decimalLength9B8ne210000Ej.exit:     ; preds = %6, %8, %10, %12, %1
   br label %205
 
 205:                                              ; preds = %.thread174, %196, %.thread172, %43, %121
-  %.sroa.0139.3 = phi ptr [ %64, %.thread174 ], [ %1, %43 ], [ %122, %121 ], [ %204, %196 ], [ %1, %.thread172 ]
-  %.sroa.6.3 = phi i32 [ %65, %.thread174 ], [ 75, %43 ], [ 0, %121 ], [ 0, %196 ], [ 75, %.thread172 ]
+  %.sroa.0139.3 = phi ptr [ %1, %43 ], [ %122, %121 ], [ %64, %.thread174 ], [ %204, %196 ], [ %1, %.thread172 ]
+  %.sroa.6.3 = phi i32 [ 75, %43 ], [ 0, %121 ], [ %65, %.thread174 ], [ 0, %196 ], [ 75, %.thread172 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0139.3, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.6.3, 1
   ret { ptr, i32 } %.fca.1.insert

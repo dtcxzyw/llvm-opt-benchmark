@@ -1989,13 +1989,13 @@ _ZN5Catch16AssertionHandlerD2Ev.exit191:          ; preds = %613, %617
   br label %631
 
 631:                                              ; preds = %354, %393, %424, %452, %537, %630, %607
-  %.pn110.pn.pn.pn = phi { ptr, i32 } [ %.pn88, %607 ], [ %.pn91, %630 ], [ %.pn110.pn, %537 ], [ %.pn102, %452 ], [ %.pn100, %424 ], [ %.pn97, %393 ], [ %.pn94, %354 ]
+  %.pn110.pn.pn.pn = phi { ptr, i32 } [ %.pn91, %630 ], [ %.pn88, %607 ], [ %.pn110.pn, %537 ], [ %.pn102, %452 ], [ %.pn100, %424 ], [ %.pn97, %393 ], [ %.pn94, %354 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %632
 
 632:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173, %228, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161, %189, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145, %156, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129, %121, %631
-  %.pn110.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn110.pn.pn.pn, %631 ], [ %.pn77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161 ], [ %.pn72.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ %122, %121 ], [ %157, %156 ], [ %190, %189 ], [ %229, %228 ], [ %.pn82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ]
+  %.pn110.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn110.pn.pn.pn, %631 ], [ %122, %121 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ %157, %156 ], [ %.pn72.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145 ], [ %190, %189 ], [ %.pn77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161 ], [ %229, %228 ], [ %.pn82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ]
   resume { ptr, i32 } %.pn110.pn.pn.pn.pn
 
 633:                                              ; preds = %626, %603, %532, %512, %479, %448, %420, %389, %350
@@ -4143,7 +4143,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
   br label %.body
 
 .body:                                            ; preds = %64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22, %62, %17
-  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %63, %62 ], [ %65, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22 ], [ %65, %64 ]
+  %.pn = phi { ptr, i32 } [ %63, %62 ], [ %18, %17 ], [ %65, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22 ], [ %65, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %82
 
@@ -4166,7 +4166,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
   br label %.body14
 
 .body14:                                          ; preds = %73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25, %71, %49
-  %.pn5 = phi { ptr, i32 } [ %50, %49 ], [ %72, %71 ], [ %74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25 ], [ %74, %73 ]
+  %.pn5 = phi { ptr, i32 } [ %72, %71 ], [ %50, %49 ], [ %74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25 ], [ %74, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %82
 
@@ -4422,7 +4422,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %.body
 
 .body:                                            ; preds = %40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10, %38, %24
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %39, %38 ], [ %41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10 ], [ %41, %40 ]
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %25, %24 ], [ %41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10 ], [ %41, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %47 = load ptr, ptr %5, align 8, !tbaa !17
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 16

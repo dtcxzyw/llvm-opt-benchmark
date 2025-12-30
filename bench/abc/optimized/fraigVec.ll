@@ -765,7 +765,7 @@ define range(i32 -1, 2) i32 @Fraig_NodeVecCompareRefCounts(ptr noundef readonly 
   br label %26
 
 26:                                               ; preds = %24, %18, %16, %2
-  %.0 = phi i32 [ -1, %18 ], [ -1, %2 ], [ 1, %16 ], [ %., %24 ]
+  %.0 = phi i32 [ -1, %2 ], [ 1, %16 ], [ -1, %18 ], [ %., %24 ]
   ret i32 %.0
 }
 

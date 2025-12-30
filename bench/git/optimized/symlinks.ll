@@ -79,7 +79,7 @@ _.exit.i:                                         ; preds = %18, %14
   br label %threaded_check_leading_path.exit
 
 threaded_check_leading_path.exit:                 ; preds = %3, %10, %12, %_.exit.i
-  %.0.i = phi i32 [ -1, %10 ], [ 0, %3 ], [ %5, %_.exit.i ], [ %5, %12 ]
+  %.0.i = phi i32 [ 0, %3 ], [ -1, %10 ], [ %5, %_.exit.i ], [ %5, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
@@ -696,18 +696,18 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %92, %118, %.loopexit.sink.split.loopexit249, %.loopexit.sink.split.loopexit239, %.split133.us
-  %spec.store.select.sink = phi i32 [ %spec.store.select, %.split133.us ], [ 4, %118 ], [ 16, %.loopexit.sink.split.loopexit249 ], [ 16, %.loopexit.sink.split.loopexit239 ], [ 4, %92 ]
-  %.089128.ph = phi i32 [ %.us-phi134, %.split133.us ], [ %.089, %118 ], [ %.089.us, %.loopexit.sink.split.loopexit249 ], [ %.089, %.loopexit.sink.split.loopexit239 ], [ %.089.us, %92 ]
-  %.394.ph = phi i32 [ %.us-phi135, %.split133.us ], [ %103, %118 ], [ %.lcssa153, %.loopexit.sink.split.loopexit249 ], [ %103, %.loopexit.sink.split.loopexit239 ], [ %.lcssa153, %92 ]
-  %.0.ph = phi i32 [ %116, %.split133.us ], [ 0, %118 ], [ 0, %.loopexit.sink.split.loopexit249 ], [ 0, %.loopexit.sink.split.loopexit239 ], [ 0, %92 ]
+  %spec.store.select.sink = phi i32 [ %spec.store.select, %.split133.us ], [ 16, %.loopexit.sink.split.loopexit239 ], [ 16, %.loopexit.sink.split.loopexit249 ], [ 4, %118 ], [ 4, %92 ]
+  %.089128.ph = phi i32 [ %.us-phi134, %.split133.us ], [ %.089, %.loopexit.sink.split.loopexit239 ], [ %.089.us, %.loopexit.sink.split.loopexit249 ], [ %.089, %118 ], [ %.089.us, %92 ]
+  %.394.ph = phi i32 [ %.us-phi135, %.split133.us ], [ %103, %.loopexit.sink.split.loopexit239 ], [ %.lcssa153, %.loopexit.sink.split.loopexit249 ], [ %103, %118 ], [ %.lcssa153, %92 ]
+  %.0.ph = phi i32 [ %116, %.split133.us ], [ 0, %.loopexit.sink.split.loopexit239 ], [ 0, %.loopexit.sink.split.loopexit249 ], [ 0, %118 ], [ 0, %92 ]
   store i32 %spec.store.select.sink, ptr %3, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split.us, %.split, %.critedge, %.preheader, %.loopexit.sink.split
-  %.089128 = phi i32 [ %.089128.ph, %.loopexit.sink.split ], [ %.089, %.split ], [ %.089, %.preheader ], [ %.089, %.critedge ], [ %.089.us, %.split.us ]
-  %.394 = phi i32 [ %.394.ph, %.loopexit.sink.split ], [ %.089, %.split ], [ %2, %.preheader ], [ %103, %.critedge ], [ %.089.us, %.split.us ]
-  %.3 = phi i32 [ %.394.ph, %.loopexit.sink.split ], [ %.089, %.split ], [ %.089, %.preheader ], [ %.089, %.critedge ], [ %.089.us, %.split.us ]
-  %.0 = phi i32 [ %.0.ph, %.loopexit.sink.split ], [ 0, %.split ], [ 0, %.preheader ], [ 0, %.critedge ], [ 0, %.split.us ]
+  %.089128 = phi i32 [ %.089128.ph, %.loopexit.sink.split ], [ %.089, %.preheader ], [ %.089, %.critedge ], [ %.089, %.split ], [ %.089.us, %.split.us ]
+  %.394 = phi i32 [ %.394.ph, %.loopexit.sink.split ], [ %2, %.preheader ], [ %.089, %.split ], [ %103, %.critedge ], [ %.089.us, %.split.us ]
+  %.3 = phi i32 [ %.394.ph, %.loopexit.sink.split ], [ %.089, %.preheader ], [ %.089, %.critedge ], [ %.089, %.split ], [ %.089.us, %.split.us ]
+  %.0 = phi i32 [ %.0.ph, %.loopexit.sink.split ], [ 0, %.preheader ], [ 0, %.critedge ], [ 0, %.split ], [ 0, %.split.us ]
   %121 = load i32, ptr %3, align 4, !tbaa !4
   %122 = and i32 %4, 6
   %123 = and i32 %122, %121
@@ -762,7 +762,7 @@ reset_lstat_cache.exit119:                        ; preds = %140, %138, %134, %1
   br label %144
 
 144:                                              ; preds = %longest_path_match.exit, %reset_lstat_cache.exit119, %142, %58
-  %.088 = phi i32 [ %2, %58 ], [ %.1, %longest_path_match.exit ], [ %.394, %142 ], [ %.394, %reset_lstat_cache.exit119 ]
+  %.088 = phi i32 [ %2, %58 ], [ %.394, %142 ], [ %.394, %reset_lstat_cache.exit119 ], [ %.1, %longest_path_match.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.088
 }

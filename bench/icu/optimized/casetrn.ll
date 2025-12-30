@@ -124,7 +124,7 @@ define range(i32 -1, -2147483648) i32 @utrans_rep_caseContextIterator_77(ptr nou
   br label %57
 
 57:                                               ; preds = %30, %._crit_edge44, %55, %47, %50, %32
-  %.0 = phi i32 [ %45, %50 ], [ %28, %32 ], [ -1, %47 ], [ -1, %55 ], [ -1, %._crit_edge44 ], [ -1, %30 ]
+  %.0 = phi i32 [ %28, %32 ], [ %45, %50 ], [ -1, %47 ], [ -1, %55 ], [ -1, %._crit_edge44 ], [ -1, %30 ]
   ret i32 %.0
 }
 

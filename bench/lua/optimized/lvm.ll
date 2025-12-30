@@ -105,7 +105,7 @@ define hidden range(i32 0, 2) i32 @luaV_flttointeger(double noundef %0, ptr noun
   br label %9
 
 9:                                                ; preds = %6, %7, %3
-  %.0 = phi double [ %8, %7 ], [ %4, %6 ], [ %4, %3 ]
+  %.0 = phi double [ %8, %7 ], [ %4, %3 ], [ %4, %6 ]
   %10 = fcmp oge double %.0, 0xC3E0000000000000
   %11 = fcmp olt double %.0, 0x43E0000000000000
   %or.cond = and i1 %10, %11
@@ -154,7 +154,7 @@ define hidden range(i32 0, 2) i32 @luaV_tointegerns(ptr noundef readonly capture
   br label %13
 
 13:                                               ; preds = %11, %10, %6
-  %.0.i = phi double [ %12, %11 ], [ %8, %10 ], [ %8, %6 ]
+  %.0.i = phi double [ %12, %11 ], [ %8, %6 ], [ %8, %10 ]
   %14 = fcmp oge double %.0.i, 0xC3E0000000000000
   %15 = fcmp olt double %.0.i, 0x43E0000000000000
   %or.cond.i = and i1 %14, %15
@@ -175,7 +175,7 @@ define hidden range(i32 0, 2) i32 @luaV_tointegerns(ptr noundef readonly capture
   br label %luaV_flttointeger.exit
 
 luaV_flttointeger.exit:                           ; preds = %18, %10, %3, %20
-  %.0 = phi i32 [ 0, %3 ], [ 1, %20 ], [ %19, %18 ], [ %2, %10 ]
+  %.0 = phi i32 [ 1, %20 ], [ 0, %3 ], [ %19, %18 ], [ %2, %10 ]
   ret i32 %.0
 }
 
@@ -247,7 +247,7 @@ l_strton.exit:                                    ; preds = %14, %17
   br label %35
 
 35:                                               ; preds = %33, %32, %28
-  %.0.i.i = phi double [ %34, %33 ], [ %30, %32 ], [ %30, %28 ]
+  %.0.i.i = phi double [ %34, %33 ], [ %30, %28 ], [ %30, %32 ]
   %36 = fcmp oge double %.0.i.i, 0xC3E0000000000000
   %37 = fcmp olt double %.0.i.i, 0x43E0000000000000
   %or.cond.i.i = and i1 %36, %37
@@ -268,7 +268,7 @@ l_strton.exit:                                    ; preds = %14, %17
   br label %luaV_tointegerns.exit
 
 luaV_tointegerns.exit:                            ; preds = %25, %32, %40, %42
-  %.0.i3 = phi i32 [ 0, %25 ], [ 1, %42 ], [ %41, %40 ], [ %2, %32 ]
+  %.0.i3 = phi i32 [ 1, %42 ], [ 0, %25 ], [ %41, %40 ], [ %2, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i3
 }
@@ -463,8 +463,8 @@ define hidden void @luaV_finishset(ptr noundef %0, ptr noundef %1, ptr noundef %
   unreachable
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %38
-  %45 = phi i8 [ %.pre, %..critedge_crit_edge ], [ %41, %38 ]
-  %.042 = phi ptr [ %21, %..critedge_crit_edge ], [ %39, %38 ]
+  %45 = phi i8 [ %41, %38 ], [ %.pre, %..critedge_crit_edge ]
+  %.042 = phi ptr [ %39, %38 ], [ %21, %..critedge_crit_edge ]
   %46 = and i8 %45, 15
   %47 = icmp eq i8 %46, 6
   br i1 %47, label %48, label %49
@@ -593,7 +593,7 @@ luaV_flttointeger.exit.i13.i:                     ; preds = %42
   br label %LTnum.exit
 
 LTnum.exit:                                       ; preds = %18, %25, %luaV_flttointeger.exit.i.i, %39, %46, %luaV_flttointeger.exit.i13.i
-  %.1.in.i = phi i1 [ %.1.in.i.i, %luaV_flttointeger.exit.i.i ], [ %20, %18 ], [ %41, %39 ], [ %27, %25 ], [ %48, %46 ], [ %.1.in.i15.i, %luaV_flttointeger.exit.i13.i ]
+  %.1.in.i = phi i1 [ %20, %18 ], [ %41, %39 ], [ %27, %25 ], [ %.1.in.i.i, %luaV_flttointeger.exit.i.i ], [ %48, %46 ], [ %.1.in.i15.i, %luaV_flttointeger.exit.i13.i ]
   %.1.i = zext i1 %.1.in.i to i32
   br label %57
 
@@ -794,7 +794,7 @@ luaV_flttointeger.exit.i13.i:                     ; preds = %40
   br label %LEnum.exit
 
 LEnum.exit:                                       ; preds = %18, %25, %luaV_flttointeger.exit.i.i, %37, %44, %luaV_flttointeger.exit.i13.i
-  %.1.in.i = phi i1 [ %.1.in.i.i, %luaV_flttointeger.exit.i.i ], [ %20, %18 ], [ %39, %37 ], [ %27, %25 ], [ %46, %44 ], [ %.1.in.i15.i, %luaV_flttointeger.exit.i13.i ]
+  %.1.in.i = phi i1 [ %20, %18 ], [ %39, %37 ], [ %27, %25 ], [ %.1.in.i.i, %luaV_flttointeger.exit.i.i ], [ %46, %44 ], [ %.1.in.i15.i, %luaV_flttointeger.exit.i13.i ]
   %.1.i = zext i1 %.1.in.i to i32
   br label %57
 
@@ -1167,8 +1167,8 @@ luaV_tointegerns.exit79:                          ; preds = %31
   %138 = icmp eq ptr %137, null
   br i1 %138, label %luaV_tointegerns.exit.thread92, label %.thread112
 
-.thread112:                                       ; preds = %83, %112, %132
-  %.054114 = phi ptr [ %137, %132 ], [ %88, %83 ], [ %117, %112 ]
+.thread112:                                       ; preds = %112, %83, %132
+  %.054114 = phi ptr [ %137, %132 ], [ %117, %112 ], [ %88, %83 ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %140 = load ptr, ptr %139, align 8, !tbaa !8
   %141 = tail call zeroext i8 @luaT_callTMres(ptr noundef nonnull %0, ptr noundef nonnull %.054114, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %140) #13
@@ -1179,8 +1179,8 @@ luaV_tointegerns.exit79:                          ; preds = %31
   %145 = zext i1 %.not72 to i32
   br label %luaV_tointegerns.exit.thread92
 
-luaV_tointegerns.exit.thread92:                   ; preds = %.thread107, %123, %94, %.thread, %27, %26, %31, %17, %16, %21, %36, %132, %102, %98, %73, %69, %39, %39, %39, %12, %.thread112, %127, %65, %60, %55, %50, %45, %40
-  %.0 = phi i32 [ 1, %98 ], [ 0, %132 ], [ %131, %127 ], [ 0, %12 ], [ %44, %40 ], [ %49, %45 ], [ %54, %50 ], [ %59, %55 ], [ %64, %60 ], [ %68, %65 ], [ 1, %39 ], [ 1, %69 ], [ 0, %102 ], [ %145, %.thread112 ], [ 0, %73 ], [ 1, %39 ], [ 1, %39 ], [ 0, %17 ], [ 0, %27 ], [ %38, %36 ], [ 0, %21 ], [ 0, %31 ], [ 0, %16 ], [ 0, %26 ], [ 0, %.thread ], [ 0, %94 ], [ 0, %123 ], [ 0, %.thread107 ]
+luaV_tointegerns.exit.thread92:                   ; preds = %.thread107, %123, %.thread, %94, %27, %26, %31, %17, %16, %21, %36, %132, %102, %98, %73, %69, %39, %39, %39, %12, %.thread112, %127, %65, %60, %55, %50, %45, %40
+  %.0 = phi i32 [ %131, %127 ], [ %44, %40 ], [ %49, %45 ], [ %54, %50 ], [ %59, %55 ], [ %64, %60 ], [ %68, %65 ], [ %145, %.thread112 ], [ 0, %12 ], [ 1, %39 ], [ 1, %39 ], [ 1, %39 ], [ 1, %69 ], [ 0, %73 ], [ 1, %98 ], [ 0, %102 ], [ 0, %132 ], [ %38, %36 ], [ 0, %21 ], [ 0, %16 ], [ 0, %17 ], [ 0, %31 ], [ 0, %26 ], [ 0, %27 ], [ 0, %94 ], [ 0, %.thread ], [ 0, %123 ], [ 0, %.thread107 ]
   ret i32 %.0
 }
 
@@ -1458,7 +1458,7 @@ copy2buff.exit85:                                 ; preds = %125, %copy2buff.exi
   br label %137
 
 137:                                              ; preds = %27, %29, %copy2buff.exit85, %38, %18
-  %.071 = phi i32 [ 1, %18 ], [ 1, %29 ], [ 1, %27 ], [ 1, %38 ], [ %136, %copy2buff.exit85 ]
+  %.071 = phi i32 [ 1, %29 ], [ 1, %38 ], [ %136, %copy2buff.exit85 ], [ 1, %18 ], [ 1, %27 ]
   %138 = sub nsw i32 %.0, %.071
   %139 = load ptr, ptr %5, align 8, !tbaa !8
   %140 = sext i32 %.071 to i64
@@ -1682,7 +1682,7 @@ define hidden i64 @luaV_shiftl(i64 noundef %0, i64 noundef %1) local_unnamed_add
   br label %12
 
 12:                                               ; preds = %9, %4, %6
-  %.0 = phi i64 [ %spec.select, %9 ], [ %8, %6 ], [ 0, %4 ]
+  %.0 = phi i64 [ %8, %6 ], [ 0, %4 ], [ %spec.select, %9 ]
   ret i64 %.0
 }
 
@@ -3951,8 +3951,8 @@ luaV_finishget.exit2634:                          ; preds = %934, %.thread.i2626
   br label %.sink.split3783
 
 .sink.split3783:                                  ; preds = %1162, %1159, %1157, %1138, %1135, %1132
-  %storemerge3811 = phi double [ %1142, %1138 ], [ 0.000000e+00, %1132 ], [ 0.000000e+00, %1135 ], [ %1163, %1162 ], [ %1155, %1157 ], [ %1155, %1159 ]
-  %.sink3784 = phi i8 [ 3, %1138 ], [ 3, %1132 ], [ 3, %1135 ], [ 19, %1162 ], [ 19, %1157 ], [ 19, %1159 ]
+  %storemerge3811 = phi double [ 0.000000e+00, %1132 ], [ 0.000000e+00, %1135 ], [ %1142, %1138 ], [ %1163, %1162 ], [ %1155, %1157 ], [ %1155, %1159 ]
+  %.sink3784 = phi i8 [ 3, %1132 ], [ 3, %1135 ], [ 3, %1138 ], [ 19, %1162 ], [ 19, %1157 ], [ 19, %1159 ]
   %.52186.ph = getelementptr inbounds nuw i8, ptr %.02181, i64 4
   store double %storemerge3811, ptr %1121, align 8, !tbaa !8
   %1164 = getelementptr inbounds nuw i8, ptr %1121, i64 8
@@ -4044,7 +4044,7 @@ luaV_finishget.exit2634:                          ; preds = %934, %.thread.i2626
   br label %1209
 
 1209:                                             ; preds = %1191, %1172, %1206
-  %.62187 = phi ptr [ %1200, %1206 ], [ %.02181, %1191 ], [ %.02181, %1172 ]
+  %.62187 = phi ptr [ %1200, %1206 ], [ %.02181, %1172 ], [ %.02181, %1191 ]
   %.not2528 = icmp eq i32 %.32227, 0
   br i1 %.not2528, label %1214, label %1210, !prof !44
 
@@ -4116,7 +4116,7 @@ luaV_finishget.exit2634:                          ; preds = %934, %.thread.i2626
   br label %1247
 
 1247:                                             ; preds = %1235, %1216, %1243
-  %.72188 = phi ptr [ %1244, %1243 ], [ %.02181, %1235 ], [ %.02181, %1216 ]
+  %.72188 = phi ptr [ %1244, %1243 ], [ %.02181, %1216 ], [ %.02181, %1235 ]
   %.not2527 = icmp eq i32 %.32227, 0
   br i1 %.not2527, label %1252, label %1248, !prof !44
 
@@ -4306,7 +4306,7 @@ luaV_tointegerns.exit:                            ; preds = %1333
   br label %luaV_tointegerns.exit.thread2900
 
 luaV_tointegerns.exit.thread2900:                 ; preds = %1312, %1329, %1333, %1337
-  %.92190 = phi ptr [ %1338, %1337 ], [ %.02181, %1333 ], [ %.02181, %1312 ], [ %.02181, %1329 ]
+  %.92190 = phi ptr [ %1338, %1337 ], [ %.02181, %1333 ], [ %.02181, %1329 ], [ %.02181, %1312 ]
   %.not2525 = icmp eq i32 %.32227, 0
   br i1 %.not2525, label %1345, label %1341, !prof !44
 
@@ -4372,7 +4372,7 @@ luaV_tointegerns.exit2642:                        ; preds = %1368
   br label %luaV_tointegerns.exit2642.thread2910
 
 luaV_tointegerns.exit2642.thread2910:             ; preds = %1347, %1364, %1368, %1372
-  %.102191 = phi ptr [ %1373, %1372 ], [ %.02181, %1368 ], [ %.02181, %1347 ], [ %.02181, %1364 ]
+  %.102191 = phi ptr [ %1373, %1372 ], [ %.02181, %1368 ], [ %.02181, %1364 ], [ %.02181, %1347 ]
   %.not2523 = icmp eq i32 %.32227, 0
   br i1 %.not2523, label %1380, label %1376, !prof !44
 
@@ -4438,7 +4438,7 @@ luaV_tointegerns.exit2645:                        ; preds = %1403
   br label %luaV_tointegerns.exit2645.thread2920
 
 luaV_tointegerns.exit2645.thread2920:             ; preds = %1382, %1399, %1403, %1407
-  %.112192 = phi ptr [ %1408, %1407 ], [ %.02181, %1403 ], [ %.02181, %1382 ], [ %.02181, %1399 ]
+  %.112192 = phi ptr [ %1408, %1407 ], [ %.02181, %1403 ], [ %.02181, %1399 ], [ %.02181, %1382 ]
   %.not2521 = icmp eq i32 %.32227, 0
   br i1 %.not2521, label %1415, label %1411, !prof !44
 
@@ -4515,14 +4515,14 @@ luaV_tointegerns.exit2648:                        ; preds = %1435
   br label %luaV_shiftl.exit
 
 luaV_shiftl.exit:                                 ; preds = %1444, %1446, %1449
-  %.0.i2650 = phi i64 [ %spec.select.i2649, %1449 ], [ %1448, %1446 ], [ 0, %1444 ]
+  %.0.i2650 = phi i64 [ %1448, %1446 ], [ 0, %1444 ], [ %spec.select.i2649, %1449 ]
   store i64 %.0.i2650, ptr %1421, align 8, !tbaa !8
   %1452 = getelementptr inbounds nuw i8, ptr %1421, i64 8
   store i8 3, ptr %1452, align 8, !tbaa !4
   br label %luaV_tointegerns.exit2648.thread2930
 
 luaV_tointegerns.exit2648.thread2930:             ; preds = %1417, %1431, %1435, %luaV_shiftl.exit
-  %.122193 = phi ptr [ %1440, %luaV_shiftl.exit ], [ %.02181, %1435 ], [ %.02181, %1417 ], [ %.02181, %1431 ]
+  %.122193 = phi ptr [ %1440, %luaV_shiftl.exit ], [ %.02181, %1435 ], [ %.02181, %1431 ], [ %.02181, %1417 ]
   %.not2519 = icmp eq i32 %.32227, 0
   br i1 %.not2519, label %1457, label %1453, !prof !44
 
@@ -4599,14 +4599,14 @@ luaV_tointegerns.exit2653:                        ; preds = %1478
   br label %luaV_shiftl.exit2656
 
 luaV_shiftl.exit2656:                             ; preds = %1486, %1488, %1491
-  %.0.i2655 = phi i64 [ %spec.select.i2654, %1491 ], [ %1490, %1488 ], [ 0, %1486 ]
+  %.0.i2655 = phi i64 [ %1490, %1488 ], [ 0, %1486 ], [ %spec.select.i2654, %1491 ]
   store i64 %.0.i2655, ptr %1463, align 8, !tbaa !8
   %1494 = getelementptr inbounds nuw i8, ptr %1463, i64 8
   store i8 3, ptr %1494, align 8, !tbaa !4
   br label %luaV_tointegerns.exit2653.thread2940
 
 luaV_tointegerns.exit2653.thread2940:             ; preds = %1459, %1474, %1478, %luaV_shiftl.exit2656
-  %.132194 = phi ptr [ %1483, %luaV_shiftl.exit2656 ], [ %.02181, %1478 ], [ %.02181, %1459 ], [ %.02181, %1474 ]
+  %.132194 = phi ptr [ %1483, %luaV_shiftl.exit2656 ], [ %.02181, %1478 ], [ %.02181, %1474 ], [ %.02181, %1459 ]
   %.not2517 = icmp eq i32 %.32227, 0
   br i1 %.not2517, label %1499, label %1495, !prof !44
 
@@ -4997,8 +4997,8 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1459, %1474, %1478,
   br label %.sink.split3798
 
 .sink.split3798:                                  ; preds = %1683, %1680, %1678, %1659, %1656, %1653
-  %storemerge3806 = phi double [ %1663, %1659 ], [ 0.000000e+00, %1653 ], [ 0.000000e+00, %1656 ], [ %1684, %1683 ], [ %1676, %1678 ], [ %1676, %1680 ]
-  %.sink3799 = phi i8 [ 3, %1659 ], [ 3, %1653 ], [ 3, %1656 ], [ 19, %1683 ], [ 19, %1678 ], [ 19, %1680 ]
+  %storemerge3806 = phi double [ 0.000000e+00, %1653 ], [ 0.000000e+00, %1656 ], [ %1663, %1659 ], [ %1684, %1683 ], [ %1676, %1678 ], [ %1676, %1680 ]
+  %.sink3799 = phi i8 [ 3, %1653 ], [ 3, %1656 ], [ 3, %1659 ], [ 19, %1683 ], [ 19, %1678 ], [ 19, %1680 ]
   %.172198.ph = getelementptr inbounds nuw i8, ptr %.02181, i64 4
   store double %storemerge3806, ptr %1642, align 8, !tbaa !8
   %1685 = getelementptr inbounds nuw i8, ptr %1642, i64 8
@@ -5090,7 +5090,7 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1459, %1474, %1478,
   br label %1730
 
 1730:                                             ; preds = %1712, %1693, %1727
-  %.182199 = phi ptr [ %1721, %1727 ], [ %.02181, %1712 ], [ %.02181, %1693 ]
+  %.182199 = phi ptr [ %1721, %1727 ], [ %.02181, %1693 ], [ %.02181, %1712 ]
   %.not2511 = icmp eq i32 %.32227, 0
   br i1 %.not2511, label %1735, label %1731, !prof !44
 
@@ -5162,7 +5162,7 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1459, %1474, %1478,
   br label %1768
 
 1768:                                             ; preds = %1756, %1737, %1764
-  %.192200 = phi ptr [ %1765, %1764 ], [ %.02181, %1756 ], [ %.02181, %1737 ]
+  %.192200 = phi ptr [ %1765, %1764 ], [ %.02181, %1737 ], [ %.02181, %1756 ]
   %.not2510 = icmp eq i32 %.32227, 0
   br i1 %.not2510, label %1773, label %1769, !prof !44
 
@@ -5380,7 +5380,7 @@ luaV_tointegerns.exit2673:                        ; preds = %1866
   br label %luaV_tointegerns.exit2670.thread2955
 
 luaV_tointegerns.exit2670.thread2955:             ; preds = %1857, %1833, %1862, %1866, %1849, %1853, %1870
-  %.212202 = phi ptr [ %1871, %1870 ], [ %.02181, %1849 ], [ %.02181, %1866 ], [ %.02181, %1853 ], [ %.02181, %1833 ], [ %.02181, %1857 ], [ %.02181, %1862 ]
+  %.212202 = phi ptr [ %1871, %1870 ], [ %.02181, %1853 ], [ %.02181, %1849 ], [ %.02181, %1866 ], [ %.02181, %1862 ], [ %.02181, %1833 ], [ %.02181, %1857 ]
   %.not2508 = icmp eq i32 %.32227, 0
   br i1 %.not2508, label %1878, label %1874, !prof !44
 
@@ -5474,7 +5474,7 @@ luaV_tointegerns.exit2679:                        ; preds = %1913
   br label %luaV_tointegerns.exit2676.thread2975
 
 luaV_tointegerns.exit2676.thread2975:             ; preds = %1904, %1880, %1909, %1913, %1896, %1900, %1917
-  %.222203 = phi ptr [ %1918, %1917 ], [ %.02181, %1896 ], [ %.02181, %1913 ], [ %.02181, %1900 ], [ %.02181, %1880 ], [ %.02181, %1904 ], [ %.02181, %1909 ]
+  %.222203 = phi ptr [ %1918, %1917 ], [ %.02181, %1900 ], [ %.02181, %1896 ], [ %.02181, %1913 ], [ %.02181, %1909 ], [ %.02181, %1880 ], [ %.02181, %1904 ]
   %.not2505 = icmp eq i32 %.32227, 0
   br i1 %.not2505, label %1925, label %1921, !prof !44
 
@@ -5568,7 +5568,7 @@ luaV_tointegerns.exit2685:                        ; preds = %1960
   br label %luaV_tointegerns.exit2682.thread2995
 
 luaV_tointegerns.exit2682.thread2995:             ; preds = %1951, %1927, %1956, %1960, %1943, %1947, %1964
-  %.232204 = phi ptr [ %1965, %1964 ], [ %.02181, %1943 ], [ %.02181, %1960 ], [ %.02181, %1947 ], [ %.02181, %1927 ], [ %.02181, %1951 ], [ %.02181, %1956 ]
+  %.232204 = phi ptr [ %1965, %1964 ], [ %.02181, %1947 ], [ %.02181, %1943 ], [ %.02181, %1960 ], [ %.02181, %1956 ], [ %.02181, %1927 ], [ %.02181, %1951 ]
   %.not2502 = icmp eq i32 %.32227, 0
   br i1 %.not2502, label %1972, label %1968, !prof !44
 
@@ -5679,7 +5679,7 @@ luaV_shiftl.exit2694:                             ; preds = %2015, %2018
   br label %luaV_tointegerns.exit2688.thread3015
 
 luaV_tointegerns.exit2688.thread3015:             ; preds = %1998, %1974, %2003, %2007, %1990, %1994, %luaV_shiftl.exit2694
-  %.242205 = phi ptr [ %2012, %luaV_shiftl.exit2694 ], [ %.02181, %1990 ], [ %.02181, %2007 ], [ %.02181, %1994 ], [ %.02181, %1974 ], [ %.02181, %1998 ], [ %.02181, %2003 ]
+  %.242205 = phi ptr [ %2012, %luaV_shiftl.exit2694 ], [ %.02181, %1994 ], [ %.02181, %1990 ], [ %.02181, %2007 ], [ %.02181, %2003 ], [ %.02181, %1974 ], [ %.02181, %1998 ]
   %.not2496 = icmp eq i32 %.32227, 0
   br i1 %.not2496, label %2026, label %2022, !prof !44
 
@@ -5785,14 +5785,14 @@ luaV_tointegerns.exit2700:                        ; preds = %2061
   br label %luaV_shiftl.exit2703
 
 luaV_shiftl.exit2703:                             ; preds = %2068, %2070, %2073
-  %.0.i2702 = phi i64 [ %spec.select.i2701, %2073 ], [ %2072, %2070 ], [ 0, %2068 ]
+  %.0.i2702 = phi i64 [ %2072, %2070 ], [ 0, %2068 ], [ %spec.select.i2701, %2073 ]
   store i64 %.0.i2702, ptr %2032, align 8, !tbaa !8
   %2076 = getelementptr inbounds nuw i8, ptr %2032, i64 8
   store i8 3, ptr %2076, align 8, !tbaa !4
   br label %luaV_tointegerns.exit2697.thread3035
 
 luaV_tointegerns.exit2697.thread3035:             ; preds = %2052, %2028, %2057, %2061, %2044, %2048, %luaV_shiftl.exit2703
-  %.252206 = phi ptr [ %2066, %luaV_shiftl.exit2703 ], [ %.02181, %2044 ], [ %.02181, %2061 ], [ %.02181, %2048 ], [ %.02181, %2028 ], [ %.02181, %2052 ], [ %.02181, %2057 ]
+  %.252206 = phi ptr [ %2066, %luaV_shiftl.exit2703 ], [ %.02181, %2048 ], [ %.02181, %2044 ], [ %.02181, %2061 ], [ %.02181, %2057 ], [ %.02181, %2028 ], [ %.02181, %2052 ]
   %.not2499 = icmp eq i32 %.32227, 0
   br i1 %.not2499, label %2081, label %2077, !prof !44
 
@@ -6447,7 +6447,7 @@ luaV_flttointeger.exit.i13.i:                     ; preds = %2439
   br label %LTnum.exit
 
 LTnum.exit:                                       ; preds = %2423, %luaV_flttointeger.exit.i.i, %2436, %2443, %luaV_flttointeger.exit.i13.i
-  %.1.in.i = phi i1 [ %.1.in.i.i, %luaV_flttointeger.exit.i.i ], [ %.1.in.i15.i, %luaV_flttointeger.exit.i13.i ], [ %2438, %2436 ], [ %2425, %2423 ], [ %2445, %2443 ]
+  %.1.in.i = phi i1 [ %2438, %2436 ], [ %2425, %2423 ], [ %.1.in.i.i, %luaV_flttointeger.exit.i.i ], [ %2445, %2443 ], [ %.1.in.i15.i, %luaV_flttointeger.exit.i13.i ]
   %.1.i = zext i1 %.1.in.i to i32
   br label %2508
 
@@ -6695,7 +6695,7 @@ luaV_flttointeger.exit.i13.i2711:                 ; preds = %2576
   br label %LEnum.exit
 
 LEnum.exit:                                       ; preds = %2562, %luaV_flttointeger.exit.i.i2716, %2573, %2580, %luaV_flttointeger.exit.i13.i2711
-  %.1.in.i2714 = phi i1 [ %.1.in.i.i2717, %luaV_flttointeger.exit.i.i2716 ], [ %.1.in.i15.i2713, %luaV_flttointeger.exit.i13.i2711 ], [ %2575, %2573 ], [ %2564, %2562 ], [ %2582, %2580 ]
+  %.1.in.i2714 = phi i1 [ %2575, %2573 ], [ %2564, %2562 ], [ %.1.in.i.i2717, %luaV_flttointeger.exit.i.i2716 ], [ %2582, %2580 ], [ %.1.in.i15.i2713, %luaV_flttointeger.exit.i13.i2711 ]
   %.1.i2715 = zext i1 %.1.in.i2714 to i32
   br label %2652
 
@@ -7650,7 +7650,7 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   br i1 %3133, label %.lr.ph3281, label %.loopexit, !prof !74
 
 .loopexit:                                        ; preds = %.lr.ph3281, %.lr.ph3284, %3118, %3088, %3102, %3116, %3083, %3077, %3030
-  %.103 = phi i32 [ %3035, %3030 ], [ %3080, %3077 ], [ 1, %3083 ], [ %.32227, %3088 ], [ 1, %3102 ], [ %.32227, %3116 ], [ %.32227, %3118 ], [ %.32227, %.lr.ph3284 ], [ %.32227, %.lr.ph3281 ]
+  %.103 = phi i32 [ %3035, %3030 ], [ %3080, %3077 ], [ 1, %3083 ], [ 1, %3102 ], [ %.32227, %3116 ], [ %.32227, %3088 ], [ %.32227, %3118 ], [ %.32227, %.lr.ph3284 ], [ %.32227, %.lr.ph3281 ]
   %3134 = getelementptr inbounds nuw i8, ptr %.1, i64 60
   %3135 = load i32, ptr %3134, align 4, !tbaa !71
   %3136 = and i32 %3135, 65536
@@ -7934,7 +7934,7 @@ luaV_tonumber_.exit.i.i:                          ; preds = %3268, %3246
   br i1 %3279, label %forprep.exit.thread, label %forlimit.exit.i
 
 forlimit.exit.sink.split.i:                       ; preds = %luaV_tointeger.exit.i.i, %luaV_tointeger.exit.thread27.i.i
-  %.0104.ph.i = phi i64 [ %3239, %luaV_tointeger.exit.i.i ], [ %3238, %luaV_tointeger.exit.thread27.i.i ]
+  %.0104.ph.i = phi i64 [ %3238, %luaV_tointeger.exit.thread27.i.i ], [ %3239, %luaV_tointeger.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %forlimit.exit.i
 
@@ -8216,7 +8216,7 @@ luaV_tonumber_.exit90.i:                          ; preds = %3393, %3371
   store i8 19, ptr %3330, align 8, !tbaa !4
   br label %3413
 
-forprep.exit.thread:                              ; preds = %3407, %3405, %forlimit.exit.i, %3277, %3278
+forprep.exit.thread:                              ; preds = %3405, %3407, %forlimit.exit.i, %3277, %3278
   %3409 = lshr i32 %.02305, 15
   %3410 = zext nneg i32 %3409 to i64
   %3411 = getelementptr inbounds nuw i32, ptr %.02181, i64 %3410

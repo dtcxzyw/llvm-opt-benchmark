@@ -388,7 +388,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %37
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %54, %52, %18, %19
-  %.0 = phi i1 [ false, %18 ], [ false, %19 ], [ true, %52 ], [ true, %54 ]
+  %.0 = phi i1 [ false, %19 ], [ false, %18 ], [ true, %52 ], [ true, %54 ]
   ret i1 %.0
 }
 
@@ -1972,7 +1972,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZNK7oopDesc4is_aEP
   br i1 %47, label %_ZNK6HandleclEv.exit6, label %.thread
 
 .thread:                                          ; preds = %40, %_ZNK7oopDesc4is_aEP5Klass.exit, %44, %_ZNK6HandleclEv.exit, %46
-  %.017 = phi ptr [ %1, %46 ], [ %45, %44 ], [ null, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ null, %_ZNK6HandleclEv.exit ], [ null, %40 ]
+  %.017 = phi ptr [ %1, %46 ], [ null, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ null, %_ZNK6HandleclEv.exit ], [ %45, %44 ], [ null, %40 ]
   %48 = load ptr, ptr %0, align 8
   br label %_ZNK6HandleclEv.exit6
 

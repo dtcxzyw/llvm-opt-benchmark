@@ -281,7 +281,7 @@ define dso_local ptr @kobject_get_path(ptr noundef readonly captures(address_is_
   br label %37
 
 .thread:                                          ; preds = %42, %45, %37, %59, %23, %2, %18, %..thread.loopexit8_crit_edge9.split.us
-  %71 = phi ptr [ %47, %59 ], [ %22, %..thread.loopexit8_crit_edge9.split.us ], [ null, %2 ], [ null, %23 ], [ null, %18 ], [ null, %37 ], [ null, %45 ], [ null, %42 ]
+  %71 = phi ptr [ null, %2 ], [ null, %18 ], [ %22, %..thread.loopexit8_crit_edge9.split.us ], [ null, %23 ], [ %47, %59 ], [ null, %37 ], [ null, %45 ], [ null, %42 ]
   ret ptr %71
 }
 
@@ -324,7 +324,7 @@ define dso_local noundef range(i32 -12, 1) i32 @kobject_set_name_vargs(ptr nound
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %19, %8, %3
-  %22 = phi i32 [ 0, %19 ], [ -12, %14 ], [ 0, %3 ], [ -12, %8 ]
+  %22 = phi i32 [ 0, %19 ], [ 0, %3 ], [ -12, %8 ], [ -12, %14 ]
   ret i32 %22
 }
 
@@ -924,7 +924,7 @@ kobject_get.exit10:                               ; preds = %22
   br label %kobject_get.exit11
 
 kobject_get.exit11:                               ; preds = %39, %35, %60, %56, %kobject_get.exit10
-  %62 = phi ptr [ %45, %60 ], [ null, %kobject_get.exit10 ], [ %45, %56 ], [ %1, %35 ], [ %1, %39 ]
+  %62 = phi ptr [ null, %kobject_get.exit10 ], [ %45, %56 ], [ %45, %60 ], [ %1, %35 ], [ %1, %39 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !9
   %63 = tail call ptr @kobject_get_path(ptr noundef nonnull %0, i32 noundef 3264)
   %64 = icmp eq ptr %63, null
@@ -1181,7 +1181,7 @@ define dso_local noundef ptr @kobject_create_and_add(ptr noundef %0, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %2, %23, %13
-  %25 = phi ptr [ %4, %13 ], [ null, %23 ], [ null, %2 ]
+  %25 = phi ptr [ null, %23 ], [ %4, %13 ], [ null, %2 ]
   ret ptr %25
 }
 

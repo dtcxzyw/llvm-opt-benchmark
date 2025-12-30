@@ -306,7 +306,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %21, %28, %30, %31, %12, %17, %19, %20
-  %.0 = phi ptr [ %0, %12 ], [ %0, %20 ], [ %0, %19 ], [ %0, %17 ], [ %23, %31 ], [ %23, %30 ], [ %23, %28 ], [ %23, %21 ]
+  %.0 = phi ptr [ %0, %20 ], [ %0, %19 ], [ %0, %17 ], [ %0, %12 ], [ %23, %31 ], [ %23, %30 ], [ %23, %28 ], [ %23, %21 ]
   ret ptr %.0
 }
 
@@ -416,7 +416,7 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
   br label %l_IO_Promise_resultD___rarg___lambda__1.exit
 
 l_IO_Promise_resultD___rarg___lambda__1.exit:     ; preds = %12, %17, %19, %20, %21, %28, %30, %31
-  %.0.i = phi ptr [ %0, %12 ], [ %0, %20 ], [ %0, %19 ], [ %0, %17 ], [ %23, %31 ], [ %23, %30 ], [ %23, %28 ], [ %23, %21 ]
+  %.0.i = phi ptr [ %0, %20 ], [ %0, %19 ], [ %0, %17 ], [ %0, %12 ], [ %23, %31 ], [ %23, %30 ], [ %23, %28 ], [ %23, %21 ]
   br i1 %.not.i.i, label %32, label %lean_dec.exit5
 
 32:                                               ; preds = %l_IO_Promise_resultD___rarg___lambda__1.exit
@@ -951,7 +951,7 @@ lean_alloc_ctor.exit100:                          ; preds = %lean_dec.exit
   br label %153
 
 153:                                              ; preds = %lean_alloc_ctor.exit100, %117, %lean_alloc_ctor.exit, %lean_dec.exit60, %lean_alloc_ctor.exit93, %lean_dec.exit57
-  %.3 = phi ptr [ %111, %lean_alloc_ctor.exit93 ], [ %69, %lean_alloc_ctor.exit ], [ %4, %lean_dec.exit60 ], [ %4, %lean_dec.exit57 ], [ %147, %lean_alloc_ctor.exit100 ], [ %4, %117 ]
+  %.3 = phi ptr [ %4, %lean_dec.exit60 ], [ %69, %lean_alloc_ctor.exit ], [ %4, %lean_dec.exit57 ], [ %111, %lean_alloc_ctor.exit93 ], [ %147, %lean_alloc_ctor.exit100 ], [ %4, %117 ]
   ret ptr %.3
 }
 

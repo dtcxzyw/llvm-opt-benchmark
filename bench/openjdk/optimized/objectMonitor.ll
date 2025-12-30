@@ -758,7 +758,7 @@ _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit22: ; preds = %23, %26, %28
   br label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24
 
 _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24: ; preds = %13, %11, %70, %68, %63, %58, %49, %46, %38, %36, %33, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit22, %53, %31, %44, %41, %17
-  %.0 = phi i1 [ true, %49 ], [ false, %53 ], [ false, %41 ], [ true, %17 ], [ true, %31 ], [ false, %70 ], [ false, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit22 ], [ true, %38 ], [ false, %44 ], [ false, %33 ], [ true, %36 ], [ true, %46 ], [ false, %58 ], [ false, %63 ], [ false, %68 ], [ true, %11 ], [ true, %13 ]
+  %.0 = phi i1 [ false, %53 ], [ true, %17 ], [ true, %31 ], [ false, %44 ], [ false, %41 ], [ false, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit22 ], [ false, %33 ], [ true, %36 ], [ true, %38 ], [ true, %46 ], [ true, %49 ], [ false, %58 ], [ false, %63 ], [ false, %68 ], [ false, %70 ], [ true, %11 ], [ true, %13 ]
   %71 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %3) #13, !srcloc !13
   ret i1 %.0
 }
@@ -992,7 +992,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %73, %83
   br label %_ZN21EventJavaMonitorEnterC2E14EventStartTime.exit.thread
 
 _ZN21EventJavaMonitorEnterC2E14EventStartTime.exit.thread: ; preds = %_ZN19JfrConditionalFlushI21EventJavaMonitorEnterEC2EP6Thread.exit, %_ZNK7oopDesc5klassEv.exit, %_ZN21EventJavaMonitorEnterC2E14EventStartTime.exit
-  %.pre3.i.i71 = phi i64 [ 0, %_ZN21EventJavaMonitorEnterC2E14EventStartTime.exit ], [ %64, %_ZNK7oopDesc5klassEv.exit ], [ 0, %_ZN19JfrConditionalFlushI21EventJavaMonitorEnterEC2EP6Thread.exit ]
+  %.pre3.i.i71 = phi i64 [ %64, %_ZNK7oopDesc5klassEv.exit ], [ 0, %_ZN21EventJavaMonitorEnterC2E14EventStartTime.exit ], [ 0, %_ZN19JfrConditionalFlushI21EventJavaMonitorEnterEC2EP6Thread.exit ]
   call void @_ZN36JavaThreadBlockedOnMonitorEnterStateC2EP10JavaThreadP13ObjectMonitor(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef %1, ptr noundef nonnull %0)
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 1048
   store volatile ptr %0, ptr %88, align 8
@@ -1211,8 +1211,8 @@ _ZNK7oopDesc5klassEv.exit54:                      ; preds = %171, %181
   br label %_ZN8JfrEventI21EventJavaMonitorEnterE13should_commitEv.exit
 
 _ZN8JfrEventI21EventJavaMonitorEnterE13should_commitEv.exit: ; preds = %200, %202
-  %205 = phi i64 [ %201, %200 ], [ %.pre3.i.i71, %202 ]
-  %206 = phi i64 [ 0, %200 ], [ %204, %202 ]
+  %205 = phi i64 [ %.pre3.i.i71, %202 ], [ %201, %200 ]
+  %206 = phi i64 [ %204, %202 ], [ 0, %200 ]
   %207 = sub nsw i64 %206, %205
   %208 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 264), align 8
   %209 = icmp sge i64 %207, %208
@@ -1248,7 +1248,7 @@ _ZN8JfrEventI21EventJavaMonitorEnterE6commitEv.exit: ; preds = %196, %211, %_ZN8
   br label %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit
 
 _ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit: ; preds = %12, %10, %27, %24, %219, %216, %_ZN8JfrEventI21EventJavaMonitorEnterE6commitEv.exit, %31, %_ZN13ObjectMonitor36install_displaced_markword_in_objectEP7oopDesc.exit, %16
-  %.0 = phi i1 [ true, %31 ], [ true, %16 ], [ true, %219 ], [ true, %27 ], [ false, %_ZN13ObjectMonitor36install_displaced_markword_in_objectEP7oopDesc.exit ], [ true, %_ZN8JfrEventI21EventJavaMonitorEnterE6commitEv.exit ], [ true, %216 ], [ true, %24 ], [ true, %10 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %16 ], [ false, %_ZN13ObjectMonitor36install_displaced_markword_in_objectEP7oopDesc.exit ], [ true, %31 ], [ true, %_ZN8JfrEventI21EventJavaMonitorEnterE6commitEv.exit ], [ true, %216 ], [ true, %219 ], [ true, %24 ], [ true, %27 ], [ true, %10 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -1438,7 +1438,7 @@ _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit.thread38: ; preds = %35, %60, 
   br label %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit
 
 _ZN13ObjectMonitor7TryLockEP10JavaThread.exit:    ; preds = %81, %79, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit.thread38, %73, %76, %_ZN13ObjectMonitor16short_fixed_spinEP10JavaThreadib.exit, %.loopexit, %55
-  %.025 = phi i1 [ true, %55 ], [ false, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit.thread38 ], [ true, %_ZN13ObjectMonitor16short_fixed_spinEP10JavaThreadib.exit ], [ false, %.loopexit ], [ false, %76 ], [ false, %73 ], [ true, %79 ], [ true, %81 ]
+  %.025 = phi i1 [ true, %55 ], [ true, %_ZN13ObjectMonitor16short_fixed_spinEP10JavaThreadib.exit ], [ false, %.loopexit ], [ false, %76 ], [ false, %73 ], [ false, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit.thread38 ], [ true, %79 ], [ true, %81 ]
   ret i1 %.025
 }
 
@@ -2285,7 +2285,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %91, %129, %131
   br label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit
 
 _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit: ; preds = %50, %48, %143, %141, %136, %_ZN12ResourceMarkD2Ev.exit, %33, %90, %55, %57, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit16, %_ZNK13ObjectMonitor7is_busyEv.exit
-  %.0 = phi i1 [ true, %143 ], [ false, %55 ], [ false, %_ZNK13ObjectMonitor7is_busyEv.exit ], [ true, %90 ], [ false, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit16 ], [ false, %57 ], [ false, %33 ], [ true, %_ZN12ResourceMarkD2Ev.exit ], [ true, %136 ], [ true, %141 ], [ false, %48 ], [ false, %50 ]
+  %.0 = phi i1 [ false, %_ZNK13ObjectMonitor7is_busyEv.exit ], [ false, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit16 ], [ false, %57 ], [ false, %55 ], [ true, %90 ], [ false, %33 ], [ true, %_ZN12ResourceMarkD2Ev.exit ], [ true, %136 ], [ true, %141 ], [ true, %143 ], [ false, %48 ], [ false, %50 ]
   ret i1 %.0
 }
 
@@ -2925,7 +2925,7 @@ _ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit: ; preds = %10
   br label %19
 
 19:                                               ; preds = %2, %17, %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit
-  %.0 = phi i1 [ false, %17 ], [ true, %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit ], [ true, %2 ]
+  %.0 = phi i1 [ true, %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit ], [ false, %17 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -3032,8 +3032,8 @@ _ZN20EventJavaMonitorWaitC2E14EventStartTime.exit: ; preds = %24, %30
   br label %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit
 
 _ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit: ; preds = %45, %47
-  %50 = phi i64 [ %46, %45 ], [ %.pre3.i.i, %47 ]
-  %51 = phi i64 [ 0, %45 ], [ %49, %47 ]
+  %50 = phi i64 [ %.pre3.i.i, %47 ], [ %46, %45 ]
+  %51 = phi i64 [ %49, %47 ], [ 0, %45 ]
   %52 = sub nsw i64 %51, %50
   %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 288), align 8
   %54 = icmp sge i64 %52, %53
@@ -3742,7 +3742,7 @@ _ZN16ThreadStatistics21contended_enter_beginEv.exit.i.i.i: ; preds = %63, %59
   br label %_ZN12ObjectWaiter18wait_reenter_beginEP13ObjectMonitor.exit
 
 _ZN12ObjectWaiter18wait_reenter_beginEP13ObjectMonitor.exit: ; preds = %.loopexit, %_ZN23JavaThreadStatusChanger8is_aliveEP10JavaThread.exit.i.i, %_ZN16ThreadStatistics15contended_enterEv.exit.i.i.i, %_ZN16ThreadStatistics21contended_enter_beginEv.exit.i.i.i
-  %.0.i.i = phi i8 [ 1, %_ZN16ThreadStatistics21contended_enter_beginEv.exit.i.i.i ], [ 0, %_ZN23JavaThreadStatusChanger8is_aliveEP10JavaThread.exit.i.i ], [ 0, %_ZN16ThreadStatistics15contended_enterEv.exit.i.i.i ], [ 0, %.loopexit ]
+  %.0.i.i = phi i8 [ 0, %_ZN23JavaThreadStatusChanger8is_aliveEP10JavaThread.exit.i.i ], [ 0, %_ZN16ThreadStatistics15contended_enterEv.exit.i.i.i ], [ 1, %_ZN16ThreadStatistics21contended_enter_beginEv.exit.i.i.i ], [ 0, %.loopexit ]
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i8 %.0.i.i, ptr %68, align 8
   br label %_ZN13ObjectMonitor13DequeueWaiterEv.exit.thread
@@ -3816,7 +3816,7 @@ _ZN16ThreadStatistics21contended_enter_beginEv.exit.i.i: ; preds = %24, %20
   br label %_ZN36JavaThreadBlockedOnMonitorEnterState18wait_reenter_beginEP10JavaThreadP13ObjectMonitor.exit
 
 _ZN36JavaThreadBlockedOnMonitorEnterState18wait_reenter_beginEP10JavaThreadP13ObjectMonitor.exit: ; preds = %2, %_ZN23JavaThreadStatusChanger8is_aliveEP10JavaThread.exit.i, %_ZN16ThreadStatistics15contended_enterEv.exit.i.i, %_ZN16ThreadStatistics21contended_enter_beginEv.exit.i.i
-  %.0.i = phi i8 [ 1, %_ZN16ThreadStatistics21contended_enter_beginEv.exit.i.i ], [ 0, %_ZN23JavaThreadStatusChanger8is_aliveEP10JavaThread.exit.i ], [ 0, %_ZN16ThreadStatistics15contended_enterEv.exit.i.i ], [ 0, %2 ]
+  %.0.i = phi i8 [ 0, %_ZN23JavaThreadStatusChanger8is_aliveEP10JavaThread.exit.i ], [ 0, %_ZN16ThreadStatistics15contended_enterEv.exit.i.i ], [ 1, %_ZN16ThreadStatistics21contended_enter_beginEv.exit.i.i ], [ 0, %2 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %.0.i, ptr %29, align 8
   ret void
@@ -4135,7 +4135,7 @@ define hidden noundef zeroext i1 @_ZN13ObjectMonitor16short_fixed_spinEP10JavaTh
   br i1 %exitcond.not, label %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit, label %7, !llvm.loop !19
 
 _ZN13ObjectMonitor7TryLockEP10JavaThread.exit:    ; preds = %24, %4, %9, %17, %18
-  %.0 = phi i1 [ true, %17 ], [ true, %18 ], [ false, %9 ], [ false, %4 ], [ false, %24 ]
+  %.0 = phi i1 [ true, %18 ], [ true, %17 ], [ false, %9 ], [ false, %4 ], [ false, %24 ]
   ret i1 %.0
 }
 
@@ -4225,7 +4225,7 @@ define hidden void @_ZN13ObjectMonitor10InitializeEv() local_unnamed_addr #0 ali
   %.not20 = icmp eq ptr %26, null
   br i1 %.not20, label %27, label %.thread
 
-.thread:                                          ; preds = %24, %7, %12, %15, %18, %21
+.thread:                                          ; preds = %7, %12, %15, %18, %21, %24
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
   br label %32
 
@@ -4566,7 +4566,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br label %_ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPVP7oopDescS1_.exit
 
 _ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPVP7oopDescS1_.exit: ; preds = %8, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %19, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i
-  %.0.i = phi ptr [ %2, %8 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ], [ %29, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i ], [ %2, %19 ]
+  %.0.i = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ], [ %2, %8 ], [ %29, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i ], [ %2, %19 ]
   ret ptr %.0.i
 }
 
@@ -4720,7 +4720,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   br label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
-  %.0.i4 = phi ptr [ %39, %79 ], [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
+  %.0.i4 = phi ptr [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
   ret ptr %.0.i4
 }
 
@@ -4891,7 +4891,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   br label %115
 
 115:                                              ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread, %113, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, %4
-  %.0 = phi ptr [ null, %4 ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
+  %.0 = phi ptr [ null, %4 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ null, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ], [ %2, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26 ], [ %112, %113 ], [ %112, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread ]
   ret ptr %.0
 }
 
@@ -4998,7 +4998,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -5419,7 +5419,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br label %_ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPVP7oopDescS1_.exit
 
 _ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPVP7oopDescS1_.exit: ; preds = %8, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %19, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i
-  %.0.i = phi ptr [ %2, %8 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ], [ %29, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i ], [ %2, %19 ]
+  %.0.i = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ], [ %2, %8 ], [ %29, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i ], [ %2, %19 ]
   ret ptr %.0.i
 }
 
@@ -5565,7 +5565,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   br label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
-  %.0.i4 = phi ptr [ %39, %79 ], [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
+  %.0.i4 = phi ptr [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
   ret ptr %.0.i4
 }
 
@@ -5756,7 +5756,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDe
   br label %_ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_42weak_load_barrier_on_phantom_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit
 
 _ZN8XBarrier7barrierIXadL_ZNS_25is_good_or_null_fast_pathEmEEXadL_ZNS_42weak_load_barrier_on_phantom_oop_slow_pathEmEEEEP7oopDescPVS2_S2_.exit: ; preds = %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %22, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, %6
-  %.0 = phi ptr [ %1, %6 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
+  %.0 = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i ], [ %1, %6 ], [ %29, %22 ], [ %46, %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ]
   ret ptr %.0
 }
 
@@ -6299,7 +6299,7 @@ _ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i: ; preds = %62
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i: ; preds = %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i, %61
-  %.pn.i.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i ], [ 1, %61 ]
+  %.pn.i.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i ], [ 1, %61 ]
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.pn.i.i.i
   store ptr %66, ptr %35, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_.exit
@@ -6704,7 +6704,7 @@ _ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i: ; preds = %93
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i: ; preds = %87, %85, %78, %71, %64, %57, %50, %43, %38, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i
-  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
   %98 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.pn.i.i
   store ptr %98, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvPKT_m.exit
@@ -6911,7 +6911,7 @@ _ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i: ; preds = %93
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIlEEPhPKT_mSE_.exit.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIlEEPhPKT_mSE_.exit.i: ; preds = %87, %85, %78, %71, %64, %57, %50, %43, %38, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i
-  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
   %98 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.pn.i.i
   store ptr %98, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIlEEvPKT_m.exit
@@ -7132,7 +7132,7 @@ _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i: ; preds = %38
   br label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit: ; preds = %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i, %41, %30, %28, %37, %38, %25
-  %.0 = phi i64 [ %23, %38 ], [ %23, %25 ], [ 0, %37 ], [ %23, %30 ], [ %23, %28 ], [ %23, %41 ], [ %23, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i ]
+  %.0 = phi i64 [ %23, %25 ], [ 0, %37 ], [ %23, %38 ], [ %23, %28 ], [ %23, %30 ], [ %23, %41 ], [ %23, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i14 = icmp eq ptr %48, null
@@ -7450,7 +7450,7 @@ _ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i
-  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ], [ 5, %59 ]
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEvPKT_m.exit
@@ -7649,7 +7649,7 @@ _ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i: ; preds = %62
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i: ; preds = %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i, %61
-  %.pn.i.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i ], [ 1, %61 ]
+  %.pn.i.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i ], [ 1, %61 ]
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.pn.i.i.i
   store ptr %66, ptr %35, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_.exit

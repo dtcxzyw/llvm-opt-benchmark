@@ -398,7 +398,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Topen1(i64 noundef %0, ptr nou
   %81 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %83
 
-.thread56:                                        ; preds = %26, %33, %13, %.thread65, %.thread61
+.thread56:                                        ; preds = %13, %26, %33, %.thread65, %.thread61
   %82 = call i32 @H5E_dump_api_stack() #4
   br label %83
 

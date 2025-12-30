@@ -134,7 +134,7 @@ define dso_local i32 @assoc_array_iterate(ptr noundef %0, ptr noundef readonly c
   br label %39
 
 .loopexit9:                                       ; preds = %30, %69, %.preheader, %3
-  %76 = phi i32 [ 0, %3 ], [ 0, %69 ], [ 0, %.preheader ], [ %31, %30 ]
+  %76 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ 0, %69 ], [ %31, %30 ]
   ret i32 %76
 }
 

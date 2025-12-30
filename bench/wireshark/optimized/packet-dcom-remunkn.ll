@@ -395,7 +395,7 @@ define internal i32 @dissect_remunk_remrelease_rqst(ptr noundef %0, i32 noundef 
   br label %47
 
 47:                                               ; preds = %45, %43, %26
-  %.056 = phi ptr [ %spec.select, %45 ], [ @.str.36, %26 ], [ @.str.37, %43 ]
+  %.056 = phi ptr [ @.str.36, %26 ], [ @.str.37, %43 ], [ %spec.select, %45 ]
   %48 = load ptr, ptr %25, align 8
   %49 = load i32, ptr %10, align 4
   %50 = load i32, ptr %11, align 4

@@ -399,8 +399,8 @@ define hidden void @"_ZN15async_broadcast15Sender$LT$T$GT$13try_broadcast17h5532
   %21 = zext i1 %20 to i8
   br label %22
 
-.thread53:                                        ; preds = %86, %18, %14, %77, %81, %83
-  %.sroa.011.0.ph = phi i1 [ false, %83 ], [ false, %81 ], [ false, %77 ], [ true, %14 ], [ true, %18 ], [ false, %86 ]
+.thread53:                                        ; preds = %14, %18, %77, %81, %83, %86
+  %.sroa.011.0.ph = phi i1 [ false, %86 ], [ false, %83 ], [ false, %81 ], [ false, %77 ], [ true, %18 ], [ true, %14 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread49
@@ -759,8 +759,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8429083252963556395.exit.
   br i1 %.sroa.011.147, label %160, label %.thread59
 
 .thread49:                                        ; preds = %.body20, %28, %.thread53
-  %.pn1548 = phi { ptr, i32 } [ %29, %28 ], [ %lpad.thr_comm, %.thread53 ], [ %.pn, %.body20 ]
-  %.sroa.011.147 = phi i1 [ true, %28 ], [ %.sroa.011.0.ph, %.thread53 ], [ %.sroa.011.5, %.body20 ]
+  %.pn1548 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread53 ], [ %29, %28 ], [ %.pn, %.body20 ]
+  %.sroa.011.147 = phi i1 [ %.sroa.011.0.ph, %.thread53 ], [ true, %28 ], [ %.sroa.011.5, %.body20 ]
   invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$live_kit_client..test..Frame$GT$$GT$17hb1800292e6562bb9E"(ptr noalias noundef align 8 dereferenceable(40) %9) #21
           to label %159 unwind label %146
 
@@ -807,8 +807,8 @@ define hidden void @"_ZN15async_broadcast15Sender$LT$T$GT$13try_broadcast17hd263
   %19 = zext i1 %18 to i8
   br label %20
 
-.thread54:                                        ; preds = %84, %16, %12, %75, %79, %81
-  %.sroa.011.0.ph = phi i1 [ false, %81 ], [ false, %79 ], [ false, %75 ], [ true, %12 ], [ true, %16 ], [ false, %84 ]
+.thread54:                                        ; preds = %12, %16, %75, %79, %81, %84
+  %.sroa.011.0.ph = phi i1 [ false, %84 ], [ false, %81 ], [ false, %79 ], [ false, %75 ], [ true, %16 ], [ true, %12 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread50
@@ -1127,8 +1127,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8429083252963556395.exit.
   br i1 %.sroa.011.148, label %143, label %.thread60
 
 .thread50:                                        ; preds = %.body20, %26, %.thread54
-  %.pn1549 = phi { ptr, i32 } [ %27, %26 ], [ %lpad.thr_comm, %.thread54 ], [ %.pn, %.body20 ]
-  %.sroa.011.148 = phi i1 [ true, %26 ], [ %.sroa.011.0.ph, %.thread54 ], [ %.sroa.011.5, %.body20 ]
+  %.pn1549 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread54 ], [ %27, %26 ], [ %.pn, %.body20 ]
+  %.sroa.011.148 = phi i1 [ %.sroa.011.0.ph, %.thread54 ], [ true, %26 ], [ %.sroa.011.5, %.body20 ]
   %140 = load i8, ptr %7, align 8, !range !97, !alias.scope !109, !noundef !5
   %141 = icmp eq i8 %140, 10
   br i1 %141, label %.noexc38, label %142
@@ -1527,7 +1527,7 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$live_kit_client..Ro
   unreachable
 
 "_ZN4core3ptr90drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..RemoteTrackPublication$GT$$GT$17h4da23a9d98373008E.exit": ; preds = %54, %60, %82, %68
-  %.pn = phi { ptr, i32 } [ %83, %82 ], [ %69, %68 ], [ %55, %60 ], [ %55, %54 ]
+  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %83, %82 ], [ %55, %60 ], [ %55, %54 ]
   resume { ptr, i32 } %.pn
 
 68:                                               ; preds = %31
@@ -1944,10 +1944,10 @@ common.resume:                                    ; preds = %40, %24
   br i1 %81, label %100, label %85
 
 "_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd26e7629871f3f7fE.exit": ; preds = %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h52cc59fe8b5dc719E.exit.thread", %59, %57, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d5212df9d17b093E.exit.thread"
-  %.sroa.26.sroa.0.2 = phi ptr [ %.sroa.0.sroa.048.462, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d5212df9d17b093E.exit.thread" ], [ %.sroa.26.sroa.0.0, %57 ], [ %.sroa.0.sroa.048.0, %59 ], [ %.sroa.26.sroa.0.560, %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h52cc59fe8b5dc719E.exit.thread" ]
-  %.sroa.26.sroa.9.2 = phi ptr [ %.sroa.0.sroa.18.563, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d5212df9d17b093E.exit.thread" ], [ %.sroa.26.sroa.9.0, %57 ], [ %.sroa.0.sroa.048.0, %59 ], [ %.sroa.26.sroa.9.561, %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h52cc59fe8b5dc719E.exit.thread" ]
-  %.sroa.0.sroa.18.2 = phi ptr [ %.sroa.26.sroa.9.561, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d5212df9d17b093E.exit.thread" ], [ %.sroa.0.sroa.18.0, %57 ], [ %.sroa.26.sroa.9.0, %59 ], [ %.sroa.0.sroa.18.563, %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h52cc59fe8b5dc719E.exit.thread" ]
-  %.sroa.01.1 = phi ptr [ %.sroa.26.sroa.0.560, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d5212df9d17b093E.exit.thread" ], [ %.sroa.0.sroa.048.0, %57 ], [ %.sroa.26.sroa.0.0, %59 ], [ %.sroa.0.sroa.048.462, %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h52cc59fe8b5dc719E.exit.thread" ]
+  %.sroa.26.sroa.0.2 = phi ptr [ %.sroa.0.sroa.048.0, %59 ], [ %.sroa.26.sroa.0.0, %57 ], [ %.sroa.0.sroa.048.462, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d5212df9d17b093E.exit.thread" ], [ %.sroa.26.sroa.0.560, %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h52cc59fe8b5dc719E.exit.thread" ]
+  %.sroa.26.sroa.9.2 = phi ptr [ %.sroa.0.sroa.048.0, %59 ], [ %.sroa.26.sroa.9.0, %57 ], [ %.sroa.0.sroa.18.563, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d5212df9d17b093E.exit.thread" ], [ %.sroa.26.sroa.9.561, %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h52cc59fe8b5dc719E.exit.thread" ]
+  %.sroa.0.sroa.18.2 = phi ptr [ %.sroa.26.sroa.9.0, %59 ], [ %.sroa.0.sroa.18.0, %57 ], [ %.sroa.26.sroa.9.561, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d5212df9d17b093E.exit.thread" ], [ %.sroa.0.sroa.18.563, %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h52cc59fe8b5dc719E.exit.thread" ]
+  %.sroa.01.1 = phi ptr [ %.sroa.26.sroa.0.0, %59 ], [ %.sroa.0.sroa.048.0, %57 ], [ %.sroa.26.sroa.0.560, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d5212df9d17b093E.exit.thread" ], [ %.sroa.0.sroa.048.462, %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h52cc59fe8b5dc719E.exit.thread" ]
   %.sroa.0.sroa.048.2 = getelementptr inbounds nuw i8, ptr %.sroa.01.1, i64 64
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.01.1, i64 56
   %83 = load i64, ptr %82, align 8, !noundef !5
@@ -2181,10 +2181,10 @@ common.resume:                                    ; preds = %40, %24
   br i1 %81, label %100, label %85
 
 "_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb836cf194e2885aE.exit": ; preds = %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5b98eb0995c34003E.exit.thread", %59, %57, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9704029cdea7121E.exit.thread"
-  %.sroa.26.sroa.0.2 = phi ptr [ %.sroa.0.sroa.048.462, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9704029cdea7121E.exit.thread" ], [ %.sroa.26.sroa.0.0, %57 ], [ %.sroa.0.sroa.048.0, %59 ], [ %.sroa.26.sroa.0.560, %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5b98eb0995c34003E.exit.thread" ]
-  %.sroa.26.sroa.9.2 = phi ptr [ %.sroa.0.sroa.18.563, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9704029cdea7121E.exit.thread" ], [ %.sroa.26.sroa.9.0, %57 ], [ %.sroa.0.sroa.048.0, %59 ], [ %.sroa.26.sroa.9.561, %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5b98eb0995c34003E.exit.thread" ]
-  %.sroa.0.sroa.18.2 = phi ptr [ %.sroa.26.sroa.9.561, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9704029cdea7121E.exit.thread" ], [ %.sroa.0.sroa.18.0, %57 ], [ %.sroa.26.sroa.9.0, %59 ], [ %.sroa.0.sroa.18.563, %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5b98eb0995c34003E.exit.thread" ]
-  %.sroa.01.1 = phi ptr [ %.sroa.26.sroa.0.560, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9704029cdea7121E.exit.thread" ], [ %.sroa.0.sroa.048.0, %57 ], [ %.sroa.26.sroa.0.0, %59 ], [ %.sroa.0.sroa.048.462, %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5b98eb0995c34003E.exit.thread" ]
+  %.sroa.26.sroa.0.2 = phi ptr [ %.sroa.0.sroa.048.0, %59 ], [ %.sroa.26.sroa.0.0, %57 ], [ %.sroa.0.sroa.048.462, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9704029cdea7121E.exit.thread" ], [ %.sroa.26.sroa.0.560, %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5b98eb0995c34003E.exit.thread" ]
+  %.sroa.26.sroa.9.2 = phi ptr [ %.sroa.0.sroa.048.0, %59 ], [ %.sroa.26.sroa.9.0, %57 ], [ %.sroa.0.sroa.18.563, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9704029cdea7121E.exit.thread" ], [ %.sroa.26.sroa.9.561, %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5b98eb0995c34003E.exit.thread" ]
+  %.sroa.0.sroa.18.2 = phi ptr [ %.sroa.26.sroa.9.0, %59 ], [ %.sroa.0.sroa.18.0, %57 ], [ %.sroa.26.sroa.9.561, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9704029cdea7121E.exit.thread" ], [ %.sroa.0.sroa.18.563, %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5b98eb0995c34003E.exit.thread" ]
+  %.sroa.01.1 = phi ptr [ %.sroa.26.sroa.0.0, %59 ], [ %.sroa.0.sroa.048.0, %57 ], [ %.sroa.26.sroa.0.560, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf9704029cdea7121E.exit.thread" ], [ %.sroa.0.sroa.048.462, %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5b98eb0995c34003E.exit.thread" ]
   %.sroa.0.sroa.048.2 = getelementptr inbounds nuw i8, ptr %.sroa.01.1, i64 48
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.01.1, i64 40
   %83 = load i64, ptr %82, align 8, !noundef !5
@@ -2272,7 +2272,7 @@ default.unreachable28:                            ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit
 
 _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit: ; preds = %12, %10, %8
-  %.sroa.0.0.in = phi i1 [ %11, %10 ], [ %9, %8 ], [ %13, %12 ]
+  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -2307,7 +2307,7 @@ default.unreachable28:                            ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit
 
 _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit: ; preds = %12, %10, %8
-  %.sroa.0.0.in = phi i1 [ %11, %10 ], [ %9, %8 ], [ %13, %12 ]
+  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ]
   ret i1 %.sroa.0.0.in
 }
 

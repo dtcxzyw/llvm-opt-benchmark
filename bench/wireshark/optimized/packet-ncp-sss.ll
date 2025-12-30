@@ -585,7 +585,7 @@ define internal fastcc i32 @sss_string(ptr noundef %0, i32 noundef %1, ptr nound
   br label %52
 
 52:                                               ; preds = %11, %50, %24, %17
-  %.0 = phi i32 [ %42, %50 ], [ %20, %17 ], [ %.062, %24 ], [ %.062, %11 ]
+  %.0 = phi i32 [ %20, %17 ], [ %.062, %24 ], [ %42, %50 ], [ %.062, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

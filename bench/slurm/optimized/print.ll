@@ -243,7 +243,7 @@ define dso_local void @print_fields(ptr noundef %0) local_unnamed_addr #0 {
   br label %_elapsed_time.exit
 
 _elapsed_time.exit:                               ; preds = %63, %67, %69
-  %.028.i = phi ptr [ %70, %69 ], [ %65, %63 ], [ %68, %67 ]
+  %.028.i = phi ptr [ %65, %63 ], [ %68, %67 ], [ %70, %69 ]
   store ptr %.028.i, ptr %18, align 8
   br label %71
 
@@ -865,7 +865,7 @@ _print_small_double.exit97:                       ; preds = %267, %265, %262, %2
   br label %_elapsed_time.exit101
 
 _elapsed_time.exit101:                            ; preds = %419, %423, %425
-  %.028.i99 = phi ptr [ %426, %425 ], [ %421, %419 ], [ %424, %423 ]
+  %.028.i99 = phi ptr [ %421, %419 ], [ %424, %423 ], [ %426, %425 ]
   store ptr %.028.i99, ptr %18, align 8
   br label %427
 

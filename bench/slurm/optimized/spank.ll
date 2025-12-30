@@ -597,7 +597,7 @@ spank_stack_post_opt.exit.i:                      ; preds = %._crit_edge.i13.i.i
   br label %spank_init_remote.exit
 
 spank_init_remote.exit:                           ; preds = %101, %99, %spank_stack_post_opt.exit.i, %_spank_init.exit.i, %5
-  %.0 = phi i32 [ -1, %5 ], [ %98, %spank_stack_post_opt.exit.i ], [ -1, %_spank_init.exit.i ], [ %102, %101 ], [ -1, %99 ]
+  %.0 = phi i32 [ %98, %spank_stack_post_opt.exit.i ], [ -1, %_spank_init.exit.i ], [ -1, %5 ], [ %102, %101 ], [ -1, %99 ]
   ret i32 %.0
 }
 
@@ -946,7 +946,7 @@ define dso_local range(i32 0, 3006) i32 @spank_option_register(ptr noundef reado
   br label %19
 
 19:                                               ; preds = %10, %11, %13, %2, %16
-  %.0 = phi i32 [ 3001, %2 ], [ %18, %16 ], [ 3001, %13 ], [ 3001, %11 ], [ 3001, %10 ]
+  %.0 = phi i32 [ %18, %16 ], [ 3001, %2 ], [ 3001, %13 ], [ 3001, %11 ], [ 3001, %10 ]
   ret i32 %.0
 }
 
@@ -1126,7 +1126,7 @@ _add_one_option.exit:                             ; preds = %31
   br label %get_global_option_cache.exit.thread
 
 get_global_option_cache.exit.thread:              ; preds = %1, %get_global_option_cache.exit, %._crit_edge, %18, %13
-  %.0 = phi ptr [ %51, %._crit_edge ], [ null, %13 ], [ %19, %18 ], [ null, %get_global_option_cache.exit ], [ null, %1 ]
+  %.0 = phi ptr [ null, %13 ], [ %19, %18 ], [ %51, %._crit_edge ], [ null, %get_global_option_cache.exit ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -1231,7 +1231,7 @@ _do_option_cb.exit:                               ; preds = %23
   br label %37
 
 37:                                               ; preds = %_do_option_cb.exit.thread, %get_global_option_cache.exit.thread, %13, %_do_option_cb.exit, %16
-  %.0 = phi i32 [ -1, %16 ], [ %26, %_do_option_cb.exit ], [ -1, %get_global_option_cache.exit.thread ], [ -1, %13 ], [ 0, %_do_option_cb.exit.thread ]
+  %.0 = phi i32 [ %26, %_do_option_cb.exit ], [ -1, %16 ], [ -1, %13 ], [ -1, %get_global_option_cache.exit.thread ], [ 0, %_do_option_cb.exit.thread ]
   ret i32 %.0
 }
 
@@ -1672,7 +1672,7 @@ _get_next_segment.exit.us:                        ; preds = %.loopexit.i.us, %72
   br label %_get_next_segment.exit
 
 _get_next_segment.exit:                           ; preds = %85, %.loopexit.i, %109
-  %.0.i13 = phi ptr [ %7, %.loopexit.i ], [ %82, %85 ], [ %82, %109 ]
+  %.0.i13 = phi ptr [ %82, %85 ], [ %82, %109 ], [ %7, %.loopexit.i ]
   %111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.88, i32 noundef %2, ptr noundef nonnull @.str.83, ptr noundef nonnull %.0.i13) #19
   %112 = load ptr, ptr %5, align 8
   %113 = load i8, ptr %112, align 1
@@ -1884,7 +1884,7 @@ define dso_local range(i32 0, 3010) i32 @spank_option_getopt(ptr noundef readonl
   br label %58
 
 58:                                               ; preds = %54, %32, %35, %28, %18, %15, %16, %12, %12, %12, %12, %12, %10
-  %.0 = phi i32 [ 3009, %10 ], [ 3000, %28 ], [ 3001, %18 ], [ 0, %32 ], [ %., %54 ], [ 3001, %15 ], [ 3009, %12 ], [ 3009, %12 ], [ 3009, %12 ], [ 3009, %12 ], [ 3009, %12 ], [ 3001, %16 ], [ 0, %35 ]
+  %.0 = phi i32 [ 3009, %10 ], [ 3009, %12 ], [ 3009, %12 ], [ 3009, %12 ], [ 3009, %12 ], [ 3009, %12 ], [ 3001, %16 ], [ 3001, %15 ], [ 3001, %18 ], [ 3000, %28 ], [ 0, %35 ], [ 0, %32 ], [ %., %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -2095,7 +2095,7 @@ define dso_local range(i32 -1, 2) i32 @spank_remote(ptr noundef readonly capture
   br label %10
 
 10:                                               ; preds = %5, %1, %3
-  %.0 = phi i32 [ -1, %1 ], [ %., %5 ], [ -1, %3 ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %1 ], [ %., %5 ]
   ret i32 %.0
 }
 
@@ -2113,7 +2113,7 @@ define dso_local range(i32 0, 6) i32 @spank_context() local_unnamed_addr #8 {
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %3, %0
-  %.0 = phi i32 [ %spec.select, %3 ], [ 0, %0 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %3 ]
   ret i32 %.0
 }
 
@@ -3737,7 +3737,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br label %job_task_info_by_pid.exit.thread
 
 job_task_info_by_pid.exit.thread:                 ; preds = %608, %563, %598, %553, %.preheader.i273, %603, %.preheader.i, %558, %36, %643, %647, %650, %653, %493, %498, %472, %144, %787, %791, %767, %770, %747, %750, %727, %730, %707, %710, %657, %job_task_info_by_pid.exit281, %job_task_info_by_pid.exit, %523, %524, %502, %476, %455, %456, %433, %436, %405, %416, %411, %368, %371, %348, %351, %326, %323, %331, %328, %297, %300, %277, %280, %255, %252, %260, %257, %226, %229, %203, %206, %176, %183, %180, %149, %155, %152, %125, %130, %84, %90, %93, %87, %56, %61, %64, %58, %853, %837, %821, %805, %686
-  %.0 = phi i32 [ 3007, %643 ], [ 0, %56 ], [ 0, %58 ], [ 0, %61 ], [ 0, %64 ], [ 0, %84 ], [ 0, %87 ], [ 0, %90 ], [ 0, %93 ], [ 0, %125 ], [ 0, %130 ], [ 0, %149 ], [ 0, %152 ], [ 0, %155 ], [ 0, %144 ], [ 0, %176 ], [ 0, %180 ], [ 0, %183 ], [ 0, %203 ], [ 0, %206 ], [ 0, %226 ], [ 0, %229 ], [ 0, %252 ], [ 3004, %255 ], [ 0, %257 ], [ 0, %260 ], [ 0, %277 ], [ 0, %280 ], [ 0, %297 ], [ 0, %300 ], [ 0, %323 ], [ 3004, %326 ], [ 0, %328 ], [ 0, %331 ], [ 0, %348 ], [ 0, %351 ], [ 0, %368 ], [ 0, %371 ], [ 0, %405 ], [ 0, %411 ], [ 0, %416 ], [ 0, %433 ], [ 0, %436 ], [ 0, %456 ], [ 3002, %455 ], [ 0, %476 ], [ 0, %853 ], [ 0, %502 ], [ 3002, %472 ], [ 0, %524 ], [ 3002, %523 ], [ 0, %job_task_info_by_pid.exit ], [ 3008, %553 ], [ 3002, %493 ], [ 0, %job_task_info_by_pid.exit281 ], [ 3008, %598 ], [ 3001, %36 ], [ 0, %657 ], [ 3007, %563 ], [ %690, %686 ], [ 0, %707 ], [ 0, %710 ], [ 0, %727 ], [ 0, %730 ], [ 0, %747 ], [ 0, %750 ], [ 0, %767 ], [ 0, %770 ], [ 0, %787 ], [ 0, %791 ], [ 0, %805 ], [ 0, %821 ], [ 0, %837 ], [ 3002, %498 ], [ 3007, %653 ], [ 3007, %650 ], [ 3007, %647 ], [ 3007, %558 ], [ 3007, %.preheader.i ], [ 3007, %603 ], [ 3007, %.preheader.i273 ], [ 3007, %608 ]
+  %.0 = phi i32 [ 0, %56 ], [ 0, %58 ], [ 0, %61 ], [ 0, %64 ], [ 0, %84 ], [ 0, %87 ], [ 0, %90 ], [ 0, %93 ], [ 0, %125 ], [ 0, %130 ], [ 0, %149 ], [ 0, %152 ], [ 0, %155 ], [ 0, %176 ], [ 0, %180 ], [ 0, %183 ], [ 0, %203 ], [ 0, %206 ], [ 0, %226 ], [ 0, %229 ], [ 0, %252 ], [ 3004, %255 ], [ 0, %257 ], [ 0, %260 ], [ 0, %277 ], [ 0, %280 ], [ 0, %297 ], [ 0, %300 ], [ 0, %323 ], [ 3004, %326 ], [ 0, %328 ], [ 0, %331 ], [ 0, %348 ], [ 0, %351 ], [ 0, %368 ], [ 0, %371 ], [ 0, %405 ], [ 0, %411 ], [ 0, %416 ], [ 0, %433 ], [ 0, %436 ], [ 0, %456 ], [ 3002, %455 ], [ 0, %476 ], [ 0, %502 ], [ 0, %524 ], [ 3002, %523 ], [ 0, %job_task_info_by_pid.exit ], [ 0, %job_task_info_by_pid.exit281 ], [ 0, %657 ], [ %690, %686 ], [ 0, %707 ], [ 0, %710 ], [ 0, %727 ], [ 0, %730 ], [ 0, %747 ], [ 0, %750 ], [ 0, %767 ], [ 0, %770 ], [ 0, %787 ], [ 0, %791 ], [ 0, %805 ], [ 0, %821 ], [ 0, %837 ], [ 0, %853 ], [ 0, %144 ], [ 3002, %472 ], [ 3002, %498 ], [ 3002, %493 ], [ 3008, %553 ], [ 3008, %598 ], [ 3007, %653 ], [ 3007, %650 ], [ 3007, %647 ], [ 3007, %643 ], [ 3001, %36 ], [ 3007, %558 ], [ 3007, %.preheader.i ], [ 3007, %603 ], [ 3007, %.preheader.i273 ], [ 3007, %563 ], [ 3007, %608 ]
   call void @llvm.va_end.p0(ptr nonnull %3)
   br label %_check_spank_item_validity.exit.thread
 
@@ -3748,7 +3748,7 @@ switch.lookup:                                    ; preds = %22
   br label %_check_spank_item_validity.exit.thread
 
 _check_spank_item_validity.exit.thread:           ; preds = %22, %switch.lookup, %18, %12, %_valid_in_local_context.exit.i, %10, %9, %2, %5, %job_task_info_by_pid.exit.thread
-  %.0182 = phi i32 [ %.0, %job_task_info_by_pid.exit.thread ], [ 3001, %2 ], [ 3001, %5 ], [ 3009, %9 ], [ 3006, %12 ], [ %switch.load, %switch.lookup ], [ 3009, %18 ], [ 3009, %10 ], [ 3009, %_valid_in_local_context.exit.i ], [ 3006, %22 ]
+  %.0182 = phi i32 [ %.0, %job_task_info_by_pid.exit.thread ], [ 3001, %5 ], [ 3001, %2 ], [ 3006, %12 ], [ 3009, %_valid_in_local_context.exit.i ], [ 3009, %10 ], [ 3009, %9 ], [ 3009, %18 ], [ %switch.load, %switch.lookup ], [ 3006, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0182
 }
@@ -3807,7 +3807,7 @@ define internal fastcc range(i32 0, 3008) i32 @_global_to_local_id(ptr noundef r
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %.preheader, %3, %4, %18
-  %.013 = phi i32 [ 3001, %3 ], [ 0, %18 ], [ 3001, %4 ], [ 3007, %.preheader ], [ 3007, %11 ]
+  %.013 = phi i32 [ 0, %18 ], [ 3001, %4 ], [ 3001, %3 ], [ 3007, %.preheader ], [ 3007, %11 ]
   ret i32 %.013
 }
 
@@ -3839,7 +3839,7 @@ define dso_local range(i32 0, 3007) i32 @spank_env_access_check(ptr noundef read
   br label %13
 
 13:                                               ; preds = %9, %5, %1, %3
-  %.0 = phi i32 [ 3006, %5 ], [ 3001, %1 ], [ %., %9 ], [ 3001, %3 ]
+  %.0 = phi i32 [ 3001, %3 ], [ 3001, %1 ], [ 3006, %5 ], [ %., %9 ]
   ret i32 %.0
 }
 
@@ -3882,8 +3882,8 @@ define dso_local range(i32 0, 3007) i32 @spank_getenv(ptr noundef readonly captu
   %. = select i1 %.not14, i32 0, i32 3005
   br label %spank_env_access_check.exit.thread
 
-spank_env_access_check.exit.thread:               ; preds = %12, %6, %4, %8, %21, %17
-  %.0 = phi i32 [ 3001, %12 ], [ 3004, %17 ], [ %., %21 ], [ 3006, %8 ], [ 3001, %6 ], [ 3001, %4 ]
+spank_env_access_check.exit.thread:               ; preds = %12, %8, %4, %6, %21, %17
+  %.0 = phi i32 [ 3004, %17 ], [ %., %21 ], [ 3006, %8 ], [ 3001, %4 ], [ 3001, %6 ], [ 3001, %12 ]
   ret i32 %.0
 }
 
@@ -3936,8 +3936,8 @@ spank_env_access_check.exit:                      ; preds = %12
   %. = select i1 %26, i32 3000, i32 0
   br label %spank_env_access_check.exit.thread
 
-spank_env_access_check.exit.thread:               ; preds = %12, %6, %4, %8, %24, %18, %spank_env_access_check.exit
-  %.0 = phi i32 [ 3001, %spank_env_access_check.exit ], [ 3003, %18 ], [ %., %24 ], [ 3006, %8 ], [ 3001, %6 ], [ 3001, %4 ], [ 3001, %12 ]
+spank_env_access_check.exit.thread:               ; preds = %12, %8, %4, %6, %24, %18, %spank_env_access_check.exit
+  %.0 = phi i32 [ 3001, %spank_env_access_check.exit ], [ 3003, %18 ], [ %., %24 ], [ 3006, %8 ], [ 3001, %4 ], [ 3001, %6 ], [ 3001, %12 ]
   ret i32 %.0
 }
 
@@ -3974,8 +3974,8 @@ define dso_local range(i32 0, 3007) i32 @spank_unsetenv(ptr noundef readonly cap
   tail call void @unsetenvp(ptr noundef %17, ptr noundef nonnull %1) #19
   br label %spank_env_access_check.exit.thread
 
-spank_env_access_check.exit.thread:               ; preds = %10, %4, %2, %6, %15
-  %.0 = phi i32 [ 0, %15 ], [ 3001, %10 ], [ 3006, %6 ], [ 3001, %4 ], [ 3001, %2 ]
+spank_env_access_check.exit.thread:               ; preds = %10, %6, %2, %4, %15
+  %.0 = phi i32 [ 0, %15 ], [ 3006, %6 ], [ 3001, %2 ], [ 3001, %4 ], [ 3001, %10 ]
   ret i32 %.0
 }
 
@@ -4080,8 +4080,8 @@ dyn_spank_get_job_env.exit:                       ; preds = %14
 spank_job_control_access_check.exit.thread.fold.split: ; preds = %spank_remote.exit.i
   br label %spank_job_control_access_check.exit.thread
 
-spank_job_control_access_check.exit.thread:       ; preds = %spank_remote.exit.i, %spank_job_control_access_check.exit.thread.fold.split, %6, %4, %dyn_spank_get_job_env.exit.thread, %21, %dyn_spank_get_job_env.exit, %spank_job_control_access_check.exit
-  %.0 = phi i32 [ 3004, %dyn_spank_get_job_env.exit ], [ 3004, %dyn_spank_get_job_env.exit.thread ], [ 3001, %spank_job_control_access_check.exit ], [ %., %21 ], [ 3010, %spank_remote.exit.i ], [ 3001, %6 ], [ 3001, %4 ], [ 3009, %spank_job_control_access_check.exit.thread.fold.split ]
+spank_job_control_access_check.exit.thread:       ; preds = %spank_remote.exit.i, %spank_job_control_access_check.exit.thread.fold.split, %4, %6, %dyn_spank_get_job_env.exit.thread, %21, %dyn_spank_get_job_env.exit, %spank_job_control_access_check.exit
+  %.0 = phi i32 [ 3001, %spank_job_control_access_check.exit ], [ 3004, %dyn_spank_get_job_env.exit ], [ %., %21 ], [ 3004, %dyn_spank_get_job_env.exit.thread ], [ 3010, %spank_remote.exit.i ], [ 3001, %4 ], [ 3001, %6 ], [ 3009, %spank_job_control_access_check.exit.thread.fold.split ]
   ret i32 %.0
 }
 
@@ -4132,8 +4132,8 @@ dyn_spank_set_job_env.exit:                       ; preds = %13
 spank_job_control_access_check.exit.thread.fold.split: ; preds = %spank_remote.exit.i
   br label %spank_job_control_access_check.exit.thread
 
-spank_job_control_access_check.exit.thread:       ; preds = %spank_remote.exit.i, %spank_job_control_access_check.exit.thread.fold.split, %6, %4, %20, %dyn_spank_set_job_env.exit, %spank_job_control_access_check.exit
-  %.0 = phi i32 [ 3001, %spank_job_control_access_check.exit ], [ 0, %dyn_spank_set_job_env.exit ], [ 3001, %20 ], [ 3010, %spank_remote.exit.i ], [ 3001, %6 ], [ 3001, %4 ], [ 3009, %spank_job_control_access_check.exit.thread.fold.split ]
+spank_job_control_access_check.exit.thread:       ; preds = %spank_remote.exit.i, %spank_job_control_access_check.exit.thread.fold.split, %4, %6, %20, %dyn_spank_set_job_env.exit, %spank_job_control_access_check.exit
+  %.0 = phi i32 [ 3001, %spank_job_control_access_check.exit ], [ 3001, %20 ], [ 0, %dyn_spank_set_job_env.exit ], [ 3010, %spank_remote.exit.i ], [ 3001, %4 ], [ 3001, %6 ], [ 3009, %spank_job_control_access_check.exit.thread.fold.split ]
   ret i32 %.0
 }
 
@@ -4182,8 +4182,8 @@ dyn_spank_unset_job_env.exit:                     ; preds = %10
 spank_job_control_access_check.exit.thread.fold.split: ; preds = %spank_remote.exit.i
   br label %spank_job_control_access_check.exit.thread
 
-spank_job_control_access_check.exit.thread:       ; preds = %spank_remote.exit.i, %spank_job_control_access_check.exit.thread.fold.split, %4, %2, %17, %dyn_spank_unset_job_env.exit, %spank_job_control_access_check.exit
-  %.0 = phi i32 [ 3001, %spank_job_control_access_check.exit ], [ 0, %dyn_spank_unset_job_env.exit ], [ 3001, %17 ], [ 3010, %spank_remote.exit.i ], [ 3001, %4 ], [ 3001, %2 ], [ 3009, %spank_job_control_access_check.exit.thread.fold.split ]
+spank_job_control_access_check.exit.thread:       ; preds = %spank_remote.exit.i, %spank_job_control_access_check.exit.thread.fold.split, %2, %4, %17, %dyn_spank_unset_job_env.exit, %spank_job_control_access_check.exit
+  %.0 = phi i32 [ 3001, %spank_job_control_access_check.exit ], [ 3001, %17 ], [ 0, %dyn_spank_unset_job_env.exit ], [ 3010, %spank_remote.exit.i ], [ 3001, %2 ], [ 3001, %4 ], [ 3009, %spank_job_control_access_check.exit.thread.fold.split ]
   ret i32 %.0
 }
 
@@ -4305,7 +4305,7 @@ define dso_local range(i32 0, 3003) i32 @spank_prepend_task_argv(ptr noundef rea
   br i1 %53, label %.lr.ph58, label %.critedge3.loopexit, !llvm.loop !30
 
 54:                                               ; preds = %14, %8, %11, %3, %4, %.critedge3
-  %.038 = phi i32 [ 3001, %3 ], [ 0, %.critedge3 ], [ 3001, %4 ], [ 3002, %14 ], [ 3002, %11 ], [ 3002, %8 ]
+  %.038 = phi i32 [ 0, %.critedge3 ], [ 3001, %4 ], [ 3001, %3 ], [ 3002, %14 ], [ 3002, %11 ], [ 3002, %8 ]
   ret i32 %.038
 }
 
@@ -4416,7 +4416,7 @@ get_global_option_cache.exit:                     ; preds = %2, %4
   br i1 %.not17, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !32
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %get_global_option_cache.exit
-  %.0.ph.lcssa = phi i64 [ %.0.ph20, %.backedge ], [ 0, %get_global_option_cache.exit ], [ %21, %.outer ]
+  %.0.ph.lcssa = phi i64 [ 0, %get_global_option_cache.exit ], [ %.0.ph20, %.backedge ], [ %21, %.outer ]
   tail call void @list_iterator_destroy(ptr noundef %7) #19
   ret i64 %.0.ph.lcssa
 }
@@ -4465,12 +4465,12 @@ get_global_option_cache.exit:                     ; preds = %1
   br i1 %.not17, label %get_global_option_cache.exit.thread, label %get_global_option_cache.exit.thread.sink.split
 
 get_global_option_cache.exit.thread.sink.split:   ; preds = %11, %.thread, %14
-  %.sink = phi ptr [ @.str.34, %14 ], [ %spec.select, %11 ], [ %.pre, %.thread ]
+  %.sink = phi ptr [ @.str.34, %14 ], [ %.pre, %.thread ], [ %spec.select, %11 ]
   %18 = tail call ptr @xstrdup(ptr noundef nonnull %.sink) #19
   br label %get_global_option_cache.exit.thread
 
 get_global_option_cache.exit.thread:              ; preds = %get_global_option_cache.exit.thread.sink.split, %1, %5, %.thread, %get_global_option_cache.exit
-  %.0 = phi ptr [ null, %.thread ], [ null, %get_global_option_cache.exit ], [ null, %5 ], [ null, %1 ], [ %18, %get_global_option_cache.exit.thread.sink.split ]
+  %.0 = phi ptr [ null, %get_global_option_cache.exit ], [ null, %.thread ], [ null, %5 ], [ null, %1 ], [ %18, %get_global_option_cache.exit.thread.sink.split ]
   ret ptr %.0
 }
 
@@ -4981,7 +4981,7 @@ _plugin_stack_line_type.exit.i:                   ; preds = %46
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %104, %103, %100, %98, %87
-  %.024.i = phi i32 [ %88, %104 ], [ 2, %103 ], [ 2, %100 ], [ %88, %87 ], [ 1, %98 ], [ 0, %.preheader ], [ %93, %.lr.ph ]
+  %.024.i = phi i32 [ %88, %104 ], [ %88, %87 ], [ 1, %98 ], [ 2, %103 ], [ 2, %100 ], [ 0, %.preheader ], [ %93, %.lr.ph ]
   call void @slurm_xfree(ptr noundef nonnull %6) #19
   call void @globfree(ptr noundef nonnull %5) #19
   br label %_spank_conf_include.exit
@@ -5356,7 +5356,7 @@ _spank_plugin_destroy.exit:                       ; preds = %240, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_spank_stack_process_line.exit.thread
 
-248:                                              ; preds = %232, %219, %205, %208, %221, %235
+248:                                              ; preds = %208, %205, %221, %219, %235, %232
   %249 = call i32 @get_log_level() #19
   %250 = icmp sgt i32 %249, 4
   br i1 %250, label %251, label %254
@@ -5388,12 +5388,12 @@ _spank_plugin_destroy.exit:                       ; preds = %240, %._crit_edge.i
   %.not45.i = icmp eq ptr %261, null
   br i1 %.not45.i, label %_spank_stack_process_line.exit.thread, label %.lr.ph80, !llvm.loop !39
 
-_spank_stack_process_line.exit.thread:            ; preds = %.lr.ph80, %.lr.ph80.preheader, %254, %66, %_spank_plugin_destroy.exit29, %106, %_spank_plugin_destroy.exit
+_spank_stack_process_line.exit.thread:            ; preds = %.lr.ph80, %.lr.ph80.preheader, %254, %66, %_spank_plugin_destroy.exit29, %_spank_plugin_destroy.exit, %106
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %263
 
 _spank_stack_process_line.exit:                   ; preds = %_spank_conf_include.exit, %182
-  %.036.i = phi i32 [ %183, %182 ], [ %.0.i38, %_spank_conf_include.exit ]
+  %.036.i = phi i32 [ %.0.i38, %_spank_conf_include.exit ], [ %183, %182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %262 = icmp slt i32 %.036.i, 0
   br i1 %262, label %_spank_stack_process_line.exit._crit_edge, label %263
@@ -5411,7 +5411,7 @@ _spank_stack_process_line.exit._crit_edge:        ; preds = %263, %_spank_stack_
   br label %267
 
 267:                                              ; preds = %29, %_spank_stack_process_line.exit._crit_edge, %33
-  %.0 = phi i32 [ %.1, %_spank_stack_process_line.exit._crit_edge ], [ -1, %33 ], [ 0, %29 ]
+  %.0 = phi i32 [ -1, %33 ], [ %.1, %_spank_stack_process_line.exit._crit_edge ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.0
 }
@@ -5641,7 +5641,7 @@ define internal fastcc noundef ptr @_get_next_segment(ptr noundef nonnull captur
   br label %45
 
 45:                                               ; preds = %3, %43, %.loopexit, %10
-  %.0 = phi ptr [ %2, %.loopexit ], [ %4, %10 ], [ %4, %43 ], [ null, %3 ]
+  %.0 = phi ptr [ %4, %10 ], [ %4, %43 ], [ %2, %.loopexit ], [ null, %3 ]
   ret ptr %.0
 }
 

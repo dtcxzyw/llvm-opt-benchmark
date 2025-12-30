@@ -80,9 +80,9 @@ define dso_local ptr @CleanQuerytext(ptr noundef readonly captures(ret: address,
   br label %.critedge2
 
 .critedge2:                                       ; preds = %18, %28, %.critedge2.loopexit.split.loop.exit61, %11
-  %.124.lcssa56 = phi i32 [ %.12430, %.critedge2.loopexit.split.loop.exit61 ], [ %.023, %11 ], [ %.12430, %28 ], [ %15, %18 ]
-  %.126.lcssa55 = phi ptr [ %.12629, %.critedge2.loopexit.split.loop.exit61 ], [ %.sink63, %11 ], [ %.12629, %28 ], [ %19, %18 ]
-  %.2.lcssa = phi i32 [ %30, %.critedge2.loopexit.split.loop.exit61 ], [ %13, %11 ], [ 0, %28 ], [ 0, %18 ]
+  %.124.lcssa56 = phi i32 [ %.023, %11 ], [ %.12430, %.critedge2.loopexit.split.loop.exit61 ], [ %.12430, %28 ], [ %15, %18 ]
+  %.126.lcssa55 = phi ptr [ %.sink63, %11 ], [ %.12629, %.critedge2.loopexit.split.loop.exit61 ], [ %.12629, %28 ], [ %19, %18 ]
+  %.2.lcssa = phi i32 [ %13, %11 ], [ %30, %.critedge2.loopexit.split.loop.exit61 ], [ 0, %28 ], [ 0, %18 ]
   store i32 %.124.lcssa56, ptr %1, align 4
   store i32 %.2.lcssa, ptr %2, align 4
   ret ptr %.126.lcssa55
@@ -5775,7 +5775,7 @@ AppendJumble.exit56:                              ; preds = %.lr.ph.i49, %61
   unreachable
 
 .sink.split:                                      ; preds = %93, %76, %51, %34, %86, %69, %44, %AppendJumble.exit56
-  %.lcssa.sink = phi i64 [ %55, %51 ], [ %65, %AppendJumble.exit56 ], [ %80, %76 ], [ %38, %34 ], [ %24, %44 ], [ %24, %69 ], [ %24, %86 ], [ %97, %93 ]
+  %.lcssa.sink = phi i64 [ %65, %AppendJumble.exit56 ], [ %24, %44 ], [ %24, %69 ], [ %24, %86 ], [ %38, %34 ], [ %55, %51 ], [ %80, %76 ], [ %97, %93 ]
   store i64 %.lcssa.sink, ptr %4, align 8
   br label %104
 

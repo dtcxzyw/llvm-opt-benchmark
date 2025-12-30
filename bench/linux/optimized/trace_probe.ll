@@ -1187,7 +1187,7 @@ sub_0:                                            ; preds = %175
   br label %405
 
 .tail.thread:                                     ; preds = %166, %.tail, %sub_0, %186, %188
-  %.sink = phi ptr [ @.str.104, %186 ], [ @.str.104, %188 ], [ %167, %sub_0 ], [ %167, %.tail ], [ %167, %166 ]
+  %.sink = phi ptr [ @.str.104, %188 ], [ @.str.104, %186 ], [ %167, %sub_0 ], [ %167, %.tail ], [ %167, %166 ]
   %200 = zext i32 %169 to i64
   %201 = tail call fastcc ptr @find_fetch_type(ptr noundef %.sink, i64 noundef %200)
   %202 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -1787,7 +1787,7 @@ define dso_local i32 @traceprobe_update_arg(ptr noundef readonly captures(none) 
   br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %16, %33, %26, %7, %.preheader, %1
-  %36 = phi i32 [ 0, %1 ], [ %18, %16 ], [ 0, %.preheader ], [ -2, %26 ], [ 0, %33 ], [ -22, %7 ]
+  %36 = phi i32 [ 0, %1 ], [ %18, %16 ], [ 0, %33 ], [ 0, %.preheader ], [ -2, %26 ], [ -22, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %36
 }
@@ -2470,7 +2470,7 @@ define dso_local i32 @trace_probe_register_event_call(ptr noundef readonly captu
   br label %53
 
 53:                                               ; preds = %50, %43
-  %54 = phi ptr [ %52, %50 ], [ %47, %43 ]
+  %54 = phi ptr [ %47, %43 ], [ %52, %50 ]
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.thread, label %56
 
@@ -2980,7 +2980,7 @@ define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef range(i6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %41, %.loopexit.sink.split, %18, %11, %8
-  %46 = phi ptr [ @probe_fetch_types, %18 ], [ %.ph, %.loopexit.sink.split ], [ null, %11 ], [ null, %8 ], [ null, %.preheader ], [ %42, %41 ]
+  %46 = phi ptr [ null, %11 ], [ null, %8 ], [ @probe_fetch_types, %18 ], [ %.ph, %.loopexit.sink.split ], [ null, %.preheader ], [ %42, %41 ]
   ret ptr %46
 }
 
@@ -3557,7 +3557,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.thread24
 
 316:                                              ; preds = %17, %.tail.thread
-  %317 = phi i32 [ -14, %17 ], [ -22, %.tail.thread ]
+  %317 = phi i32 [ -22, %.tail.thread ], [ -14, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
@@ -3573,8 +3573,8 @@ sub_1:                                            ; preds = %sub_0
   call void @__trace_probe_log_err(i32 noundef %321, i32 noundef 38)
   br label %.thread
 
-.thread:                                          ; preds = %193, %279, %300, %131, %309, %276, %270, %238, %133, %163, %144, %216, %.thread19, %253, %249, %316, %319, %.thread24, %234, %210, %190, %179, %172, %169, %156
-  %322 = phi i32 [ -22, %253 ], [ -22, %234 ], [ -22, %210 ], [ -22, %190 ], [ -22, %156 ], [ -22, %179 ], [ -22, %169 ], [ -12, %172 ], [ %317, %316 ], [ -22, %319 ], [ 0, %.thread24 ], [ %spec.select, %309 ], [ -22, %249 ], [ %244, %238 ], [ %129, %133 ], [ %161, %163 ], [ %142, %144 ], [ %214, %216 ], [ %296, %.thread19 ], [ -22, %270 ], [ -12, %276 ], [ 0, %131 ], [ 0, %300 ], [ 0, %279 ], [ 0, %193 ]
+.thread:                                          ; preds = %279, %300, %193, %131, %309, %276, %270, %238, %133, %163, %144, %216, %.thread19, %253, %249, %316, %319, %.thread24, %234, %210, %190, %179, %172, %169, %156
+  %322 = phi i32 [ -22, %234 ], [ -22, %210 ], [ -22, %190 ], [ -22, %156 ], [ -22, %179 ], [ -22, %169 ], [ -12, %172 ], [ %317, %316 ], [ -22, %319 ], [ 0, %.thread24 ], [ -22, %249 ], [ -22, %253 ], [ %244, %238 ], [ %129, %133 ], [ %161, %163 ], [ %142, %144 ], [ %214, %216 ], [ %296, %.thread19 ], [ -22, %270 ], [ -12, %276 ], [ %spec.select, %309 ], [ 0, %131 ], [ 0, %193 ], [ 0, %300 ], [ 0, %279 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

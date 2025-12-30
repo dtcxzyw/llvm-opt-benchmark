@@ -632,7 +632,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %76, %104, %147, %17
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %291, %287, %284
-  %.sink.i = phi i32 [ 2, %284 ], [ 0, %291 ], [ 1, %287 ]
+  %.sink.i = phi i32 [ 0, %291 ], [ 2, %284 ], [ 1, %287 ]
   store i32 %.sink.i, ptr %10, align 4, !tbaa !28
   br label %292
 

@@ -650,26 +650,26 @@ define noundef signext i8 @_ZN9UPerfTest3runEv(ptr noundef nonnull align 8 deref
   %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(5) @.str.6) #27
   %38 = icmp eq i32 %37, 0
   %39 = load ptr, ptr %0, align 8, !tbaa !3
-  br i1 %38, label %44, label %40
+  br i1 %38, label %40, label %42
 
 40:                                               ; preds = %.tail.thread.i
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef signext i8 %42(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %17, ptr noundef %.0)
+  %41 = load ptr, ptr %39, align 8
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br i1 %.not16.i, label %_ZN9UPerfTest7runTestEPcS0_.exit, label %46
 
-44:                                               ; preds = %.tail.thread.i
-  %45 = load ptr, ptr %39, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(160) %0)
+42:                                               ; preds = %.tail.thread.i
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call noundef signext i8 %44(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %17, ptr noundef %.0)
   br i1 %.not16.i, label %_ZN9UPerfTest7runTestEPcS0_.exit, label %46
 
-46:                                               ; preds = %44, %40, %32
-  %.01436.i = phi i8 [ %36, %32 ], [ 1, %44 ], [ %43, %40 ]
+46:                                               ; preds = %42, %40, %32
+  %.01436.i = phi i8 [ %36, %32 ], [ %45, %42 ], [ 1, %40 ]
   store i8 47, ptr %24, align 1, !tbaa !53
   br label %_ZN9UPerfTest7runTestEPcS0_.exit
 
-_ZN9UPerfTest7runTestEPcS0_.exit:                 ; preds = %32, %40, %44, %46
-  %.01437.i = phi i8 [ %36, %32 ], [ %.01436.i, %46 ], [ 1, %44 ], [ %43, %40 ]
+_ZN9UPerfTest7runTestEPcS0_.exit:                 ; preds = %32, %40, %42, %46
+  %.01437.i = phi i8 [ %36, %32 ], [ %.01436.i, %46 ], [ %45, %42 ], [ 1, %40 ]
   %47 = icmp ne i8 %.01437.i, 0
   %48 = load i32, ptr @_ZL9execCount, align 4
   %49 = icmp sgt i32 %48, 0
@@ -753,26 +753,26 @@ define noundef signext i8 @_ZN9UPerfTest7runTestEPcS0_(ptr noundef nonnull align
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.6) #27
   %26 = icmp eq i32 %25, 0
   %27 = load ptr, ptr %0, align 8, !tbaa !3
-  br i1 %26, label %32, label %28
+  br i1 %26, label %28, label %30
 
 28:                                               ; preds = %.tail.thread
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef signext i8 %30(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %1, ptr noundef %2)
+  %29 = load ptr, ptr %27, align 8
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br i1 %.not16, label %35, label %34
 
-32:                                               ; preds = %.tail.thread
-  %33 = load ptr, ptr %27, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(160) %0)
+30:                                               ; preds = %.tail.thread
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call noundef signext i8 %32(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %1, ptr noundef %2)
   br i1 %.not16, label %35, label %34
 
-34:                                               ; preds = %28, %20, %32
-  %.01436 = phi i8 [ %24, %20 ], [ 1, %32 ], [ %31, %28 ]
+34:                                               ; preds = %28, %20, %30
+  %.01436 = phi i8 [ %24, %20 ], [ %33, %30 ], [ 1, %28 ]
   store i8 47, ptr %10, align 1, !tbaa !53
   br label %35
 
-35:                                               ; preds = %.thread38, %28, %20, %34, %32
-  %.01437 = phi i8 [ %24, %20 ], [ %.01436, %34 ], [ 1, %32 ], [ %31, %28 ], [ %8, %.thread38 ]
+35:                                               ; preds = %.thread38, %28, %20, %34, %30
+  %.01437 = phi i8 [ %24, %20 ], [ %.01436, %34 ], [ %33, %30 ], [ 1, %28 ], [ %8, %.thread38 ]
   ret i8 %.01437
 }
 
@@ -1106,7 +1106,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr n
   br i1 %.not, label %.loopexit170, label %.lr.ph203, !llvm.loop !60
 
 .loopexit170:                                     ; preds = %176, %.outer, %.lr.ph203, %182
-  %.1109 = phi i8 [ %.0108.ph, %.lr.ph203 ], [ %.0108.ph, %182 ], [ 1, %176 ], [ %.0108.ph, %.outer ]
+  %.1109 = phi i8 [ %.0108.ph, %182 ], [ %.0108.ph, %.lr.ph203 ], [ 1, %176 ], [ %.0108.ph, %.outer ]
   store ptr %6, ptr @_ZN9UPerfTest5gTestE, align 8, !tbaa !57
   br label %.critedge129
 

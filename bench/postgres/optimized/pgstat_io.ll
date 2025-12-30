@@ -243,7 +243,7 @@ pgstat_tracks_io_op.exit:                         ; preds = %switch.early.test.i
   %57 = icmp slt i64 %56, 1
   br i1 %57, label %.loopexit, label %60
 
-pgstat_tracks_io_op.exit.thread:                  ; preds = %30, %27, %26, %switch.edge.i.i, %29, %29, %29, %switch.early.test96.i, %switch.early.test.i, %switch.early.test95.i, %45, %43, %43, %41, %41, %41, %41, %37, %33, %31, %31, %31, %pgstat_tracks_io_op.exit
+pgstat_tracks_io_op.exit.thread:                  ; preds = %30, %27, %26, %29, %29, %29, %switch.edge.i.i, %switch.early.test95.i, %switch.early.test.i, %switch.early.test96.i, %45, %43, %43, %41, %41, %41, %41, %37, %33, %31, %31, %31, %pgstat_tracks_io_op.exit
   %58 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8
   %.not = icmp eq i64 %59, 0
@@ -265,7 +265,7 @@ pgstat_tracks_io_op.exit.thread:                  ; preds = %30, %27, %26, %swit
   br i1 %exitcond56, label %.loopexit, label %.preheader38, !llvm.loop !7
 
 .loopexit:                                        ; preds = %62, %54, %pgstat_tracks_io_op.exit.thread
-  %63 = phi i1 [ false, %54 ], [ false, %pgstat_tracks_io_op.exit.thread ], [ true, %62 ]
+  %63 = phi i1 [ false, %pgstat_tracks_io_op.exit.thread ], [ false, %54 ], [ true, %62 ]
   ret i1 %63
 }
 
@@ -446,8 +446,8 @@ switch.early.test95:                              ; preds = %43
   %not.or.cond49 = xor i1 %or.cond49, true
   br label %pgstat_tracks_io_object.exit.thread
 
-pgstat_tracks_io_object.exit.thread:              ; preds = %31, %4, %17, %switch.edge.i, %9, %5, %16, %16, %16, %switch.early.test96, %.thread107, %switch.early.test95, %switch.early.test, %36, %35, %35, %27, %22, %21, %21, %21, %pgstat_tracks_io_object.exit
-  %.0 = phi i1 [ false, %pgstat_tracks_io_object.exit ], [ false, %21 ], [ false, %22 ], [ false, %27 ], [ false, %9 ], [ false, %35 ], [ false, %36 ], [ %not.or.cond49, %.thread107 ], [ false, %switch.early.test95 ], [ false, %switch.early.test ], [ false, %switch.early.test96 ], [ false, %21 ], [ false, %21 ], [ false, %4 ], [ false, %17 ], [ false, %switch.edge.i ], [ false, %35 ], [ false, %16 ], [ false, %16 ], [ false, %16 ], [ false, %5 ], [ false, %31 ]
+pgstat_tracks_io_object.exit.thread:              ; preds = %31, %4, %17, %16, %16, %16, %switch.edge.i, %9, %5, %switch.early.test96, %.thread107, %switch.early.test95, %switch.early.test, %36, %35, %35, %27, %22, %21, %21, %21, %pgstat_tracks_io_object.exit
+  %.0 = phi i1 [ false, %pgstat_tracks_io_object.exit ], [ false, %21 ], [ false, %21 ], [ false, %21 ], [ false, %22 ], [ false, %27 ], [ false, %35 ], [ false, %35 ], [ false, %36 ], [ false, %switch.early.test96 ], [ false, %switch.early.test ], [ false, %switch.early.test95 ], [ %not.or.cond49, %.thread107 ], [ false, %5 ], [ false, %9 ], [ false, %switch.edge.i ], [ false, %16 ], [ false, %16 ], [ false, %16 ], [ false, %17 ], [ false, %4 ], [ false, %31 ]
   ret i1 %.0
 }
 
@@ -948,7 +948,7 @@ switch.edge.thread:                               ; preds = %11, %switch.edge
   br label %pgstat_tracks_io_bktype.exit
 
 pgstat_tracks_io_bktype.exit:                     ; preds = %3, %.thread, %16, %15, %15, %15, %switch.edge, %8, %4
-  %.0 = phi i1 [ false, %15 ], [ false, %4 ], [ false, %8 ], [ false, %switch.edge ], [ false, %15 ], [ %or.cond29.not, %.thread ], [ false, %16 ], [ false, %15 ], [ false, %3 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %8 ], [ false, %switch.edge ], [ false, %15 ], [ false, %15 ], [ false, %15 ], [ false, %16 ], [ %or.cond29.not, %.thread ], [ false, %3 ]
   ret i1 %.0
 }
 

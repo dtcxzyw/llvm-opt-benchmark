@@ -44,7 +44,7 @@ define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5E
           to label %13 unwind label %36, !noalias !3
 
 13:                                               ; preds = %32, %.invoke.i
-  %.sroa.02.0.i = phi i8 [ %12, %.invoke.i ], [ %35, %32 ]
+  %.sroa.02.0.i = phi i8 [ %35, %32 ], [ %12, %.invoke.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false), !noalias !7
@@ -152,7 +152,7 @@ define internal fastcc noalias noundef nonnull align 8 ptr @_ZN13pingora_error5E
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %49, %46, %42, %40, %23, %55
-  %.pn10 = phi { ptr, i32 } [ %56, %55 ], [ %47, %46 ], [ %24, %23 ], [ %37, %40 ], [ %37, %42 ], [ %47, %49 ], [ %.pn10.ph, %.thread.sink.split ]
+  %.pn10 = phi { ptr, i32 } [ %56, %55 ], [ %24, %23 ], [ %37, %40 ], [ %37, %42 ], [ %47, %46 ], [ %47, %49 ], [ %.pn10.ph, %.thread.sink.split ]
   resume { ptr, i32 } %.pn10
 
 55:                                               ; preds = %2

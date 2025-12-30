@@ -97,7 +97,7 @@ switch.lookup:                                    ; preds = %9
   br label %ml_dsa_get_codec.exit
 
 ml_dsa_get_codec.exit:                            ; preds = %9, %21, %18, %switch.lookup, %15, %5, %26
-  %.0 = phi ptr [ null, %26 ], [ null, %5 ], [ null, %switch.lookup ], [ null, %18 ], [ %19, %21 ], [ null, %15 ], [ null, %9 ]
+  %.0 = phi ptr [ null, %26 ], [ null, %5 ], [ null, %15 ], [ null, %switch.lookup ], [ null, %18 ], [ %19, %21 ], [ null, %9 ]
   ret ptr %.0
 }
 
@@ -396,9 +396,9 @@ switch.lookup:                                    ; preds = %14
   br label %select.unfold
 
 select.unfold:                                    ; preds = %139, %122, %120, %112, %106, %102, %92, %88, %38, %26, %22, %20, %.thread, %36
-  %.081 = phi ptr [ null, %22 ], [ null, %26 ], [ null, %36 ], [ null, %38 ], [ null, %.thread ], [ null, %88 ], [ null, %102 ], [ null, %112 ], [ null, %120 ], [ null, %122 ], [ null, %20 ], [ %123, %139 ], [ null, %106 ], [ null, %92 ]
-  %.080 = phi ptr [ null, %22 ], [ null, %26 ], [ null, %36 ], [ null, %38 ], [ null, %.thread ], [ null, %88 ], [ null, %102 ], [ null, %112 ], [ null, %120 ], [ null, %122 ], [ null, %20 ], [ %spec.select, %139 ], [ null, %106 ], [ null, %92 ]
-  %.077 = phi ptr [ null, %22 ], [ null, %26 ], [ %31, %36 ], [ %31, %38 ], [ %31, %.thread ], [ %31, %88 ], [ %31, %102 ], [ %31, %112 ], [ %31, %120 ], [ %31, %122 ], [ null, %20 ], [ %31, %139 ], [ %31, %106 ], [ %31, %92 ]
+  %.081 = phi ptr [ null, %22 ], [ null, %26 ], [ null, %36 ], [ null, %38 ], [ null, %.thread ], [ null, %88 ], [ null, %102 ], [ null, %112 ], [ null, %120 ], [ null, %122 ], [ null, %106 ], [ null, %92 ], [ null, %20 ], [ %123, %139 ]
+  %.080 = phi ptr [ null, %22 ], [ null, %26 ], [ null, %36 ], [ null, %38 ], [ null, %.thread ], [ null, %88 ], [ null, %102 ], [ null, %112 ], [ null, %120 ], [ null, %122 ], [ null, %106 ], [ null, %92 ], [ null, %20 ], [ %spec.select, %139 ]
+  %.077 = phi ptr [ null, %22 ], [ null, %26 ], [ %31, %36 ], [ %31, %38 ], [ %31, %.thread ], [ %31, %88 ], [ %31, %102 ], [ %31, %112 ], [ %31, %120 ], [ %31, %122 ], [ %31, %106 ], [ %31, %92 ], [ null, %20 ], [ %31, %139 ]
   call void @CRYPTO_free(ptr noundef %.077, ptr noundef nonnull @.str, i32 noundef 272) #6
   call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef nonnull %18) #6
   %145 = icmp eq ptr %.080, null
@@ -409,7 +409,7 @@ select.unfold:                                    ; preds = %139, %122, %120, %1
   br label %ml_dsa_get_codec.exit
 
 ml_dsa_get_codec.exit:                            ; preds = %14, %select.unfold, %146, %switch.lookup, %5
-  %.076 = phi ptr [ null, %switch.lookup ], [ null, %5 ], [ %.080, %select.unfold ], [ null, %146 ], [ null, %14 ]
+  %.076 = phi ptr [ null, %5 ], [ null, %switch.lookup ], [ null, %146 ], [ %.080, %select.unfold ], [ null, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -750,13 +750,13 @@ switch.lookup:                                    ; preds = %3
   store ptr %55, ptr %1, align 8, !tbaa !14
   br label %130
 
-.thread114:                                       ; preds = %._crit_edge.thread, %126, %53, %70, %86, %105, %118
-  %.087.ph = phi ptr [ %55, %118 ], [ %55, %105 ], [ %55, %86 ], [ %55, %70 ], [ null, %53 ], [ %55, %126 ], [ null, %._crit_edge.thread ]
+.thread114:                                       ; preds = %._crit_edge.thread, %53, %70, %86, %105, %118, %126
+  %.087.ph = phi ptr [ %55, %126 ], [ %55, %118 ], [ %55, %105 ], [ %55, %86 ], [ %55, %70 ], [ null, %53 ], [ null, %._crit_edge.thread ]
   tail call void @CRYPTO_free(ptr noundef nonnull %19, ptr noundef nonnull @.str, i32 noundef 412) #6
   br label %132
 
 130:                                              ; preds = %48, %129
-  %.087 = phi ptr [ null, %48 ], [ %55, %129 ]
+  %.087 = phi ptr [ %55, %129 ], [ null, %48 ]
   tail call void @CRYPTO_free(ptr noundef nonnull %19, ptr noundef nonnull @.str, i32 noundef 412) #6
   %131 = icmp eq i32 %51, 0
   br i1 %131, label %132, label %ml_dsa_get_codec.exit
@@ -767,7 +767,7 @@ switch.lookup:                                    ; preds = %3
   br label %ml_dsa_get_codec.exit
 
 ml_dsa_get_codec.exit:                            ; preds = %3, %130, %132, %13, %11
-  %.0 = phi i32 [ 0, %13 ], [ 0, %11 ], [ %51, %130 ], [ 0, %132 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %13 ], [ 0, %132 ], [ %51, %130 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -866,7 +866,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_key_to_text(ptr noundef %0, ptr noundef 
   br label %42
 
 42:                                               ; preds = %38, %34, %28, %26, %21, %19, %13, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %13 ], [ 0, %19 ], [ 0, %28 ], [ 0, %34 ], [ %., %38 ], [ 0, %26 ], [ 0, %21 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %13 ], [ 0, %19 ], [ 0, %21 ], [ 0, %26 ], [ 0, %28 ], [ 0, %34 ], [ %., %38 ]
   ret i32 %.0
 }
 

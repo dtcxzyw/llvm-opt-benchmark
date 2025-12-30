@@ -360,7 +360,7 @@ define dso_local void @power_save_exc_setup() local_unnamed_addr #0 {
   br label %_parse_exc_nodes.exit
 
 _parse_exc_nodes.exit:                            ; preds = %16, %19, %._crit_edge.i, %61
-  %.0.i = phi i32 [ %18, %16 ], [ %18, %19 ], [ %.020.lcssa.i, %61 ], [ %.020.lcssa.i, %._crit_edge.i ]
+  %.0.i = phi i32 [ %18, %19 ], [ %18, %16 ], [ %.020.lcssa.i, %61 ], [ %.020.lcssa.i, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not10 = icmp eq i32 %.0.i, 0
@@ -783,7 +783,7 @@ _clear_power_config.exit.i:                       ; preds = %21, %19
   br i1 %.not10.i.i, label %89, label %85
 
 85:                                               ; preds = %81, %79, %77, %75
-  %.str.40.sink.i.i = phi ptr [ @.str.39, %79 ], [ @.str.38, %77 ], [ @.str.37, %75 ], [ @.str.40, %81 ]
+  %.str.40.sink.i.i = phi ptr [ @.str.37, %75 ], [ @.str.38, %77 ], [ @.str.39, %79 ], [ @.str.40, %81 ]
   %86 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.40.sink.i.i, ptr noundef nonnull %71) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %87 = load ptr, ptr @suspend_prog, align 8
@@ -824,7 +824,7 @@ _clear_power_config.exit.i:                       ; preds = %21, %19
   br i1 %.not10.i31.i, label %108, label %104
 
 104:                                              ; preds = %100, %98, %96, %94
-  %.str.40.sink.i27.i = phi ptr [ @.str.39, %98 ], [ @.str.38, %96 ], [ @.str.37, %94 ], [ @.str.40, %100 ]
+  %.str.40.sink.i27.i = phi ptr [ @.str.37, %94 ], [ @.str.38, %96 ], [ @.str.39, %98 ], [ @.str.40, %100 ]
   %105 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.40.sink.i27.i, ptr noundef nonnull %90) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %106 = load ptr, ptr @resume_prog, align 8
@@ -1939,8 +1939,8 @@ _rl_spend_token.exit238.i:                        ; preds = %353, %351, %345
   br label %387
 
 387:                                              ; preds = %385, %379, %335, %_rl_get_tokens.exit236.i, %314
-  %388 = phi ptr [ %304, %_rl_get_tokens.exit236.i ], [ %304, %335 ], [ %304, %314 ], [ %371, %385 ], [ %371, %379 ]
-  %.1145.i = phi i1 [ %.0144266.i, %_rl_get_tokens.exit236.i ], [ %.0144266.i, %335 ], [ %.0144266.i, %314 ], [ true, %385 ], [ true, %379 ]
+  %388 = phi ptr [ %304, %335 ], [ %304, %_rl_get_tokens.exit236.i ], [ %304, %314 ], [ %371, %385 ], [ %371, %379 ]
+  %.1145.i = phi i1 [ %.0144266.i, %335 ], [ %.0144266.i, %_rl_get_tokens.exit236.i ], [ %.0144266.i, %314 ], [ true, %385 ], [ true, %379 ]
   %.val.i = load i32, ptr %306, align 8
   %389 = and i32 %.val.i, 15
   %.off.i.i = add nsw i32 %389, -1
@@ -2134,7 +2134,7 @@ _rl_spend_token.exit250.i:                        ; preds = %459, %457, %453
   br label %_node_state_should_suspend.exit.thread.i
 
 _node_state_should_suspend.exit.thread.i:         ; preds = %483, %_rl_spend_token.exit250.i, %435, %_node_state_should_suspend.exit.i, %427, %421, %418, %411, %_rl_get_tokens.exit245.i, %387
-  %.2.i = phi i1 [ %.1145.i, %387 ], [ %.1145.i, %435 ], [ %.1145.i, %_node_state_should_suspend.exit.i ], [ %.1145.i, %421 ], [ %.1145.i, %418 ], [ %.1145.i, %411 ], [ %.1145.i, %_rl_get_tokens.exit245.i ], [ true, %483 ], [ true, %_rl_spend_token.exit250.i ], [ %.1145.i, %427 ]
+  %.2.i = phi i1 [ %.1145.i, %435 ], [ %.1145.i, %_node_state_should_suspend.exit.i ], [ %.1145.i, %421 ], [ %.1145.i, %418 ], [ %.1145.i, %411 ], [ %.1145.i, %_rl_get_tokens.exit245.i ], [ %.1145.i, %387 ], [ true, %483 ], [ true, %_rl_spend_token.exit250.i ], [ %.1145.i, %427 ]
   %487 = load i32, ptr %306, align 8
   %488 = and i32 %487, 262144
   %.not206.i = icmp eq i32 %488, 0
@@ -2277,7 +2277,7 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %483, %_rl_spend_tok
   br label %565
 
 565:                                              ; preds = %561, %540, %529, %521, %516
-  %.4.i = phi i1 [ %.3.i, %521 ], [ %.3.i, %516 ], [ %.3.i, %529 ], [ true, %561 ], [ true, %540 ]
+  %.4.i = phi i1 [ %.3.i, %529 ], [ %.3.i, %521 ], [ %.3.i, %516 ], [ true, %561 ], [ true, %540 ]
   %566 = load i32, ptr %6, align 4
   %567 = add nsw i32 %566, 1
   store i32 %567, ptr %6, align 4
@@ -2963,7 +2963,7 @@ define internal fastcc noundef zeroext i1 @_valid_prog(ptr noundef nonnull %0) u
   br i1 %.not10, label %13, label %.sink.split
 
 .sink.split:                                      ; preds = %8, %6, %4, %1
-  %.str.40.sink = phi ptr [ @.str.39, %6 ], [ @.str.38, %4 ], [ @.str.37, %1 ], [ @.str.40, %8 ]
+  %.str.40.sink = phi ptr [ @.str.37, %1 ], [ @.str.38, %4 ], [ @.str.39, %6 ], [ @.str.40, %8 ]
   %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull %.str.40.sink, ptr noundef nonnull %0) #12
   br label %13
 

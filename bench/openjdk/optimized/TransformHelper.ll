@@ -732,7 +732,7 @@ define void @Java_sun_java2d_loops_TransformHelper_Transform(ptr noundef %0, ptr
   br label %111
 
 111:                                              ; preds = %100, %107
-  %.0193 = phi ptr [ %104, %100 ], [ %110, %107 ]
+  %.0193 = phi ptr [ %110, %107 ], [ %104, %100 ]
   %112 = icmp eq ptr %.0193, null
   br i1 %112, label %.thread, label %.thread234
 
@@ -1102,7 +1102,7 @@ define void @Java_sun_java2d_loops_TransformHelper_Transform(ptr noundef %0, ptr
   br i1 %.not227, label %319, label %.sink.split
 
 .sink.split:                                      ; preds = %316, %124, %80
-  %.sink = phi ptr [ %126, %124 ], [ %82, %80 ], [ %318, %316 ]
+  %.sink = phi ptr [ %82, %80 ], [ %126, %124 ], [ %318, %316 ]
   call void %.sink(ptr noundef %0, ptr noundef nonnull %45, ptr noundef nonnull %21) #8
   br label %319
 
@@ -1227,7 +1227,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @checkOverflow(i32 noundef %0, 
   br label %75
 
 75:                                               ; preds = %58, %70, %41, %54, %24, %37, %6, %74
-  %.0 = phi i8 [ 0, %74 ], [ 1, %6 ], [ 1, %24 ], [ 1, %41 ], [ 1, %58 ], [ 1, %37 ], [ 1, %54 ], [ 1, %70 ]
+  %.0 = phi i8 [ 0, %74 ], [ 1, %6 ], [ 1, %37 ], [ 1, %24 ], [ 1, %54 ], [ 1, %41 ], [ 1, %70 ], [ 1, %58 ]
   ret i8 %.0
 }
 
@@ -1527,7 +1527,7 @@ define internal fastcc void @calculateEdges(ptr noundef nonnull writeonly captur
   br i1 %65, label %.lr.ph76, label %.critedge2, !llvm.loop !21
 
 .critedge2:                                       ; preds = %47, %.lr.ph76, %61, %.critedge
-  %.065.lcssa96 = phi i32 [ %.065.lcssa, %.critedge ], [ %.065.lcssa, %.lr.ph76 ], [ %.065.lcssa, %61 ], [ %38, %47 ]
+  %.065.lcssa96 = phi i32 [ %.065.lcssa, %.critedge ], [ %.065.lcssa, %61 ], [ %.065.lcssa, %.lr.ph76 ], [ %38, %47 ]
   %.063.lcssa = phi i32 [ %38, %.critedge ], [ %.06373, %.lr.ph76 ], [ %.065.lcssa, %61 ], [ %38, %47 ]
   %66 = getelementptr inbounds nuw i8, ptr %.pn84, i64 12
   store i32 %.065.lcssa96, ptr %.06285, align 4

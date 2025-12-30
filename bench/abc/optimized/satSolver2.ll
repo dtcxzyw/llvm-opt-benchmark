@@ -3090,8 +3090,8 @@ Vec_IntAlloc.exit.i:                              ; preds = %39, %Prf_ManMemory.
   br label %Vec_IntPush.exit.sink.split.i
 
 Vec_IntPush.exit.sink.split.i:                    ; preds = %86, %84, %78, %76
-  %.sink65.i = phi ptr [ %79, %78 ], [ %77, %76 ], [ %85, %84 ], [ %87, %86 ]
-  %.sink.i = phi i32 [ 16, %78 ], [ 16, %76 ], [ %81, %84 ], [ %81, %86 ]
+  %.sink65.i = phi ptr [ %77, %76 ], [ %79, %78 ], [ %85, %84 ], [ %87, %86 ]
+  %.sink.i = phi i32 [ 16, %76 ], [ 16, %78 ], [ %81, %84 ], [ %81, %86 ]
   store ptr %.sink65.i, ptr %44, align 8, !tbaa !72
   store i32 %.sink.i, ptr %37, align 8, !tbaa !114
   br label %Vec_IntPush.exit.i
@@ -3176,8 +3176,8 @@ Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit39.sink.split.i
 
 Vec_IntPush.exit39.sink.split.i:                  ; preds = %128, %126, %120, %118
-  %.sink67.i = phi ptr [ %121, %120 ], [ %119, %118 ], [ %127, %126 ], [ %129, %128 ]
-  %.sink66.i = phi i32 [ 16, %120 ], [ 16, %118 ], [ %123, %126 ], [ %123, %128 ]
+  %.sink67.i = phi ptr [ %119, %118 ], [ %121, %120 ], [ %127, %126 ], [ %129, %128 ]
+  %.sink66.i = phi i32 [ 16, %118 ], [ 16, %120 ], [ %123, %126 ], [ %123, %128 ]
   store ptr %.sink67.i, ptr %44, align 8, !tbaa !72
   store i32 %.sink66.i, ptr %37, align 8, !tbaa !114
   %.pre.i.pre = load ptr, ptr %53, align 8, !tbaa !71
@@ -3206,7 +3206,7 @@ Vec_IntPush.exit39.i:                             ; preds = %Vec_IntPush.exit39.
   br i1 %138, label %.lr.ph.i, label %Prf_ManUnsatCore.exit, !llvm.loop !117
 
 Prf_ManUnsatCore.exit:                            ; preds = %134, %91, %.preheader40.i, %.preheader.i
-  %.val32.i = phi ptr [ %.pre.i52.i, %91 ], [ %43, %.preheader.i ], [ %43, %.preheader40.i ], [ %.pre.i3549.i, %134 ]
+  %.val32.i = phi ptr [ %43, %.preheader40.i ], [ %43, %.preheader.i ], [ %.pre.i52.i, %91 ], [ %.pre.i3549.i, %134 ]
   store ptr null, ptr %52, align 8, !tbaa !68
   %.val31.i = load i32, ptr %38, align 4, !tbaa !115
   %139 = sext i32 %.val31.i to i64
@@ -3614,7 +3614,7 @@ clause2_read.exit:                                ; preds = %160, %161
   br label %solver2_enqueue.exit
 
 solver2_enqueue.exit:                             ; preds = %.critedge2, %129, %200, %144, %116, %124, %90, %73
-  %.0 = phi i32 [ %74, %73 ], [ %91, %90 ], [ %99, %124 ], [ %99, %144 ], [ %99, %116 ], [ %99, %200 ], [ %99, %129 ], [ %99, %.critedge2 ]
+  %.0 = phi i32 [ %74, %73 ], [ %91, %90 ], [ %99, %124 ], [ %99, %116 ], [ %99, %144 ], [ %99, %200 ], [ %99, %129 ], [ %99, %.critedge2 ]
   ret i32 %.0
 }
 
@@ -4554,7 +4554,7 @@ clause2_read.exit285:                             ; preds = %385, %386
   br label %.sink.split
 
 .sink.split:                                      ; preds = %383, %.lr.ph411, %397
-  %.sink = phi i32 [ %381, %.lr.ph411 ], [ %402, %397 ], [ %381, %383 ]
+  %.sink = phi i32 [ %402, %397 ], [ %381, %.lr.ph411 ], [ %381, %383 ]
   %403 = add nsw i32 %.7409, 1
   %404 = sext i32 %.7409 to i64
   %405 = getelementptr inbounds i32, ptr %.val, i64 %404
@@ -4584,7 +4584,7 @@ clause2_read.exit285:                             ; preds = %385, %386
   br i1 %412, label %374, label %._crit_edge416, !llvm.loop !147
 
 ._crit_edge416:                                   ; preds = %._crit_edge412, %Sat_MemCompactLearned.exit, %.preheader357
-  %413 = phi i32 [ %339, %Sat_MemCompactLearned.exit ], [ %371, %.preheader357 ], [ %409, %._crit_edge412 ]
+  %413 = phi i32 [ %371, %.preheader357 ], [ %339, %Sat_MemCompactLearned.exit ], [ %409, %._crit_edge412 ]
   %414 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %415 = load i32, ptr %414, align 4, !tbaa !41
   %.not233 = icmp ne i32 %415, 0
@@ -4809,13 +4809,13 @@ Sat_MemClauseHand.exit.i:                         ; preds = %454
   br label %534
 
 534:                                              ; preds = %527, %490, %489
-  %535 = phi ptr [ %528, %527 ], [ %482, %490 ], [ %482, %489 ]
-  %.087.val.i328 = phi i32 [ %.sink175.i343, %527 ], [ %487, %490 ], [ %487, %489 ]
-  %.3103.i329 = phi ptr [ %.2102133.i323, %527 ], [ %spec.select.i326, %490 ], [ null, %489 ]
-  %.296.i330 = phi i32 [ %.397.i341, %527 ], [ %.195136.i321, %490 ], [ %.195136.i321, %489 ]
-  %.292.i331 = phi i32 [ %532, %527 ], [ %.191137.i320, %490 ], [ %.191137.i320, %489 ]
-  %.286.i332 = phi i32 [ 0, %527 ], [ %spec.select120.i327, %490 ], [ %.185138.i319, %489 ]
-  %.2.i333 = phi i32 [ %533, %527 ], [ %.1139.i318, %490 ], [ %.1139.i318, %489 ]
+  %535 = phi ptr [ %482, %489 ], [ %528, %527 ], [ %482, %490 ]
+  %.087.val.i328 = phi i32 [ %487, %489 ], [ %.sink175.i343, %527 ], [ %487, %490 ]
+  %.3103.i329 = phi ptr [ null, %489 ], [ %.2102133.i323, %527 ], [ %spec.select.i326, %490 ]
+  %.296.i330 = phi i32 [ %.195136.i321, %489 ], [ %.397.i341, %527 ], [ %.195136.i321, %490 ]
+  %.292.i331 = phi i32 [ %.191137.i320, %489 ], [ %532, %527 ], [ %.191137.i320, %490 ]
+  %.286.i332 = phi i32 [ %.185138.i319, %489 ], [ 0, %527 ], [ %spec.select120.i327, %490 ]
+  %.2.i333 = phi i32 [ %.1139.i318, %489 ], [ %533, %527 ], [ %.1139.i318, %490 ]
   %536 = lshr i32 %.087.val.i328, 11
   %537 = and i32 %.087.val.i328, 1
   %538 = add nuw nsw i32 %536, 2
@@ -8154,7 +8154,7 @@ veci_delete.exit137.i.backedge:                   ; preds = %1237, %1236
   br label %veci_delete.exit137.i
 
 veci_delete.exit.thread.sink.split.i:             ; preds = %solver2_canceluntil.exit199.i, %solver2_canceluntil.exit171.i, %solver2_canceluntil.exit135.i, %433
-  %.2.ph.ph.i = phi i8 [ 0, %solver2_canceluntil.exit135.i ], [ 0, %solver2_canceluntil.exit171.i ], [ -1, %433 ], [ 1, %solver2_canceluntil.exit199.i ]
+  %.2.ph.ph.i = phi i8 [ -1, %433 ], [ 0, %solver2_canceluntil.exit135.i ], [ 0, %solver2_canceluntil.exit171.i ], [ 1, %solver2_canceluntil.exit199.i ]
   call void @free(ptr noundef nonnull %.sroa.26.0.i.ph) #29
   br label %solver2_search.exit
 
@@ -8291,7 +8291,7 @@ solver2_canceluntil.exit190:                      ; preds = %1254, %._crit_edge5
   br label %solver2_canceluntil.exit
 
 solver2_canceluntil.exit:                         ; preds = %._crit_edge54.i147, %264, %._crit_edge54.i, %.critedge, %solver2_canceluntil.exit190
-  %.3 = phi i32 [ -1, %._crit_edge54.i ], [ %1296, %solver2_canceluntil.exit190 ], [ -1, %.critedge ], [ -1, %264 ], [ -1, %._crit_edge54.i147 ]
+  %.3 = phi i32 [ %1296, %solver2_canceluntil.exit190 ], [ -1, %.critedge ], [ -1, %._crit_edge54.i ], [ -1, %264 ], [ -1, %._crit_edge54.i147 ]
   ret i32 %.3
 }
 

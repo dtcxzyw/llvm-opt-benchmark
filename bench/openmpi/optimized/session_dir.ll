@@ -286,7 +286,7 @@ _setup_proc_session_dir.exit:                     ; preds = %87, %87, %90
   br label %setup_base.exit.thread.thread
 
 setup_base.exit.thread.thread:                    ; preds = %54, %10, %35, %58, %setup_base.exit.thread, %99, %96, %94, %_setup_proc_session_dir.exit, %_setup_job_session_dir.exit.thread, %_setup_job_session_dir.exit, %61
-  %.0 = phi i32 [ %.0.i2941, %94 ], [ -13, %61 ], [ %.05.i37, %_setup_job_session_dir.exit.thread ], [ %78, %_setup_job_session_dir.exit ], [ %92, %_setup_proc_session_dir.exit ], [ 0, %96 ], [ 0, %99 ], [ -43, %58 ], [ %.01116.i.i, %setup_base.exit.thread ], [ %9, %10 ], [ %36, %35 ], [ %55, %54 ]
+  %.0 = phi i32 [ -13, %61 ], [ %78, %_setup_job_session_dir.exit ], [ %.05.i37, %_setup_job_session_dir.exit.thread ], [ %92, %_setup_proc_session_dir.exit ], [ %.0.i2941, %94 ], [ 0, %99 ], [ 0, %96 ], [ -43, %58 ], [ %.01116.i.i, %setup_base.exit.thread ], [ %9, %10 ], [ %36, %35 ], [ %55, %54 ]
   ret i32 %.0
 }
 
@@ -442,8 +442,8 @@ define internal fastcc range(i32 -2, 1) i32 @_setup_tmpdir_base() unnamed_addr #
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %23, ptr noundef nonnull @.str.1, i32 noundef 136) #9
   br label %.thread
 
-.thread:                                          ; preds = %21, %19, %22
-  %.012 = phi i32 [ -2, %22 ], [ 0, %19 ], [ 0, %21 ]
+.thread:                                          ; preds = %19, %21, %22
+  %.012 = phi i32 [ -2, %22 ], [ 0, %21 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.012
 }

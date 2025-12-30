@@ -99,7 +99,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit:              ; preds = %3
   br label %_ZNK4llvm5APInt18getSignificantBitsEv.exit
 
 _ZNK4llvm5APInt18getSignificantBitsEv.exit:       ; preds = %43, %45, %52, %55, %59
-  %61 = phi i32 [ 0, %43 ], [ %53, %52 ], [ %51, %45 ], [ %58, %55 ], [ %60, %59 ]
+  %61 = phi i32 [ %51, %45 ], [ %53, %52 ], [ 0, %43 ], [ %58, %55 ], [ %60, %59 ]
   %62 = add i32 %28, 1
   %63 = sub i32 %62, %61
   br label %119
@@ -216,7 +216,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %66, %71
   br i1 %.not1651, label %.thread52, label %144
 
 .thread45:                                        ; preds = %106, %102, %99, %92, %90
-  %126 = phi i32 [ 0, %90 ], [ %100, %99 ], [ %98, %92 ], [ %105, %102 ], [ %107, %106 ]
+  %126 = phi i32 [ %98, %92 ], [ %100, %99 ], [ 0, %90 ], [ %105, %102 ], [ %107, %106 ]
   %127 = xor i8 %5, 1
   %.neg37 = zext nneg i8 %127 to i32
   %128 = add i32 %76, %.neg37

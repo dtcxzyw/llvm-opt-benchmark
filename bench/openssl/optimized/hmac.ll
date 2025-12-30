@@ -168,14 +168,14 @@ thread-pre-split:                                 ; preds = %30
   %spec.select = zext i1 %.not79 to i32
   br i1 %.not70, label %77, label %.thread
 
-.thread:                                          ; preds = %53, %62, %66, %49, %71
-  %.05785 = phi i32 [ %spec.select, %71 ], [ 0, %49 ], [ 0, %66 ], [ 0, %62 ], [ 0, %53 ]
+.thread:                                          ; preds = %49, %53, %62, %66, %71
+  %.05785 = phi i32 [ %spec.select, %71 ], [ 0, %66 ], [ 0, %62 ], [ 0, %53 ], [ 0, %49 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %8, i64 noundef 144) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %6, i64 noundef 144) #7
   br label %77
 
 77:                                               ; preds = %71, %.thread, %33, %22, %26, %30, %18, %15, %.critedge, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %.critedge ], [ 0, %18 ], [ 0, %33 ], [ %spec.select, %71 ], [ 0, %22 ], [ 0, %15 ], [ 0, %30 ], [ 0, %26 ], [ %.05785, %.thread ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %.critedge ], [ 0, %15 ], [ 0, %18 ], [ 0, %30 ], [ 0, %26 ], [ 0, %22 ], [ 0, %33 ], [ %.05785, %.thread ], [ %spec.select, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -262,7 +262,7 @@ hmac_ctx_alloc_mds.exit:                          ; preds = %.thread9.i
   %.not8 = icmp eq ptr %23, null
   br i1 %.not8, label %hmac_ctx_alloc_mds.exit.thread, label %hmac_ctx_alloc_mds.exit.thread5
 
-hmac_ctx_alloc_mds.exit.thread:                   ; preds = %13, %18, %hmac_ctx_alloc_mds.exit
+hmac_ctx_alloc_mds.exit.thread:                   ; preds = %18, %13, %hmac_ctx_alloc_mds.exit
   %24 = load ptr, ptr %2, align 8, !tbaa !17
   %25 = tail call i32 @EVP_MD_CTX_reset(ptr noundef %24) #7
   %26 = load ptr, ptr %5, align 8, !tbaa !19
@@ -487,7 +487,7 @@ hmac_ctx_alloc_mds.exit.thread15:                 ; preds = %.thread9.i, %hmac_c
   %34 = load ptr, ptr %1, align 8, !tbaa !3
   br label %43
 
-hmac_ctx_alloc_mds.exit.thread:                   ; preds = %6, %12, %28, %23, %hmac_ctx_alloc_mds.exit.thread15, %hmac_ctx_alloc_mds.exit
+hmac_ctx_alloc_mds.exit.thread:                   ; preds = %12, %6, %28, %23, %hmac_ctx_alloc_mds.exit.thread15, %hmac_ctx_alloc_mds.exit
   %35 = load ptr, ptr %3, align 8, !tbaa !17
   %36 = tail call i32 @EVP_MD_CTX_reset(ptr noundef %35) #7
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24

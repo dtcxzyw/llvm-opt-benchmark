@@ -682,7 +682,7 @@ agxbfree.exit84.i:                                ; preds = %168, %agxbuse.exit8
   br label %173
 
 173:                                              ; preds = %172, %142, %141, %agxbfree.exit.i
-  %.236.i = phi i1 [ %.not.i81, %142 ], [ false, %agxbfree.exit.i ], [ %.not.i81, %172 ], [ %.not.i81, %141 ]
+  %.236.i = phi i1 [ %.not.i81, %142 ], [ %.not.i81, %172 ], [ %.not.i81, %141 ], [ false, %agxbfree.exit.i ]
   %174 = call i32 @getErrorErrors() #25
   %.not41.i = icmp eq i32 %174, 0
   br i1 %.not41.i, label %180, label %175
@@ -706,7 +706,7 @@ agxbfree.exit84.i:                                ; preds = %168, %agxbuse.exit8
   br label %mkBlock.exit
 
 mkBlock.exit:                                     ; preds = %180, %181
-  %.037.i = phi i8 [ %183, %181 ], [ 1, %180 ]
+  %.037.i = phi i8 [ 1, %180 ], [ %183, %181 ]
   %184 = call i32 @getErrorErrors() #25
   %.not69 = icmp eq i32 %184, 0
   br i1 %.not69, label %185, label %.loopexit
@@ -779,9 +779,9 @@ mkBlock.exit:                                     ; preds = %180, %181
   br label %.loopexit
 
 .loopexit:                                        ; preds = %mkBlock.exit, %.thread, %initDisc.exit.thread, %213, %214, %206, %196, %39, %13
-  %215 = phi ptr [ %191, %.thread ], [ null, %initDisc.exit.thread ], [ %191, %213 ], [ %191, %214 ], [ %191, %206 ], [ %191, %196 ], [ null, %39 ], [ null, %13 ], [ %55, %mkBlock.exit ]
-  %216 = phi i64 [ %192, %.thread ], [ 0, %initDisc.exit.thread ], [ %192, %213 ], [ %192, %214 ], [ %192, %206 ], [ %192, %196 ], [ 0, %39 ], [ 0, %13 ], [ %75, %mkBlock.exit ]
-  %217 = phi ptr [ %34, %.thread ], [ null, %initDisc.exit.thread ], [ %34, %213 ], [ %34, %214 ], [ %34, %206 ], [ %34, %196 ], [ %34, %39 ], [ null, %13 ], [ %34, %mkBlock.exit ]
+  %215 = phi ptr [ null, %initDisc.exit.thread ], [ %191, %213 ], [ %191, %214 ], [ %191, %206 ], [ %191, %196 ], [ null, %39 ], [ null, %13 ], [ %191, %.thread ], [ %55, %mkBlock.exit ]
+  %216 = phi i64 [ 0, %initDisc.exit.thread ], [ %192, %213 ], [ %192, %214 ], [ %192, %206 ], [ %192, %196 ], [ 0, %39 ], [ 0, %13 ], [ %192, %.thread ], [ %75, %mkBlock.exit ]
+  %217 = phi ptr [ null, %initDisc.exit.thread ], [ %34, %213 ], [ %34, %214 ], [ %34, %206 ], [ %34, %196 ], [ %34, %39 ], [ null, %13 ], [ %34, %.thread ], [ %34, %mkBlock.exit ]
   %218 = call i32 @getErrorErrors() #25
   %.not74 = icmp eq i32 %218, 0
   br i1 %.not74, label %freeCompileProg.exit, label %220
@@ -815,7 +815,7 @@ mkBlock.exit:                                     ; preds = %180, %181
   br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !85
 
 freeCompileProg.exit:                             ; preds = %.thread93, %.loopexit, %._crit_edge.i
-  %.0 = phi ptr [ %7, %.loopexit ], [ null, %.thread93 ], [ null, %._crit_edge.i ]
+  %.0 = phi ptr [ %7, %.loopexit ], [ null, %._crit_edge.i ], [ null, %.thread93 ]
   ret ptr %.0
 }
 
@@ -1104,7 +1104,7 @@ define ptr @openEdge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %15
 
 15:                                               ; preds = %9, %11, %13, %7, %4
-  %.0 = phi ptr [ null, %7 ], [ null, %4 ], [ %10, %13 ], [ %10, %11 ], [ null, %9 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ %10, %13 ], [ %10, %11 ], [ null, %9 ]
   ret ptr %.0
 }
 
@@ -1273,7 +1273,7 @@ define internal range(i32 -1, 1) i32 @convert(ptr noundef captures(none) %0, i64
   br label %75
 
 75:                                               ; preds = %25, %67, %17, %70, %69, %65, %59, %58, %21, %10, %26, %35, %31, %41, %37, %45, %43, %63, %48, %51, %50
-  %.046 = phi i32 [ -1, %67 ], [ 0, %10 ], [ 0, %69 ], [ %spec.select, %17 ], [ 0, %21 ], [ 0, %70 ], [ -1, %26 ], [ 0, %35 ], [ -1, %31 ], [ 0, %41 ], [ -1, %37 ], [ 0, %45 ], [ -1, %43 ], [ 0, %50 ], [ 0, %51 ], [ -1, %48 ], [ 0, %65 ], [ 0, %58 ], [ -1, %63 ], [ 0, %59 ], [ %not., %25 ]
+  %.046 = phi i32 [ -1, %26 ], [ 0, %35 ], [ -1, %31 ], [ 0, %41 ], [ -1, %37 ], [ 0, %45 ], [ -1, %43 ], [ 0, %50 ], [ 0, %51 ], [ -1, %48 ], [ -1, %63 ], [ -1, %67 ], [ 0, %10 ], [ %spec.select, %17 ], [ 0, %21 ], [ 0, %58 ], [ 0, %59 ], [ 0, %65 ], [ 0, %70 ], [ 0, %69 ], [ %not., %25 ]
   %76 = or i32 %.046, %2
   %or.cond3 = icmp eq i32 %76, 0
   br i1 %or.cond3, label %77, label %78
@@ -1351,7 +1351,7 @@ agxbfree.exit:                                    ; preds = %18, %23
   br label %24
 
 24:                                               ; preds = %tvtypeToStr.exit, %14, %agxbfree.exit
-  %.0 = phi i32 [ %.not15, %tvtypeToStr.exit ], [ -1, %14 ], [ 0, %agxbfree.exit ]
+  %.0 = phi i32 [ 0, %agxbfree.exit ], [ -1, %14 ], [ %.not15, %tvtypeToStr.exit ]
   store i64 263, ptr %1, align 8, !tbaa !86
   br label %25
 
@@ -1559,8 +1559,8 @@ define internal range(i32 -1, 1) i32 @binary(ptr noundef captures(none) %0, ptr 
   store i64 %.sink, ptr %52, align 8, !tbaa !65
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %41, %38, %26, %29, %32, %35, %.thread92, %78, %73, %68, %64, %60, %56, %.thread, %17, %16, %11, %8, %4
-  %.0 = phi i32 [ -1, %8 ], [ -1, %4 ], [ -1, %16 ], [ -1, %17 ], [ 0, %78 ], [ -1, %.thread ], [ 0, %56 ], [ 0, %60 ], [ 0, %64 ], [ 0, %68 ], [ 0, %73 ], [ 0, %35 ], [ -1, %11 ], [ %.0699194, %.thread92 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %38 ], [ 0, %41 ], [ 0, %.critedge.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %26, %29, %32, %35, %38, %41, %.thread92, %78, %73, %68, %64, %60, %56, %.thread, %17, %16, %11, %8, %4
+  %.0 = phi i32 [ -1, %4 ], [ -1, %8 ], [ -1, %11 ], [ -1, %16 ], [ -1, %17 ], [ -1, %.thread ], [ 0, %56 ], [ 0, %60 ], [ 0, %64 ], [ 0, %68 ], [ 0, %73 ], [ 0, %78 ], [ %.0699194, %.thread92 ], [ 0, %41 ], [ 0, %38 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %.critedge.sink.split ]
   ret i32 %.0
 }
 
@@ -4486,7 +4486,7 @@ agxbfree.exit:                                    ; preds = %deparse.exit, %68
   br label %72
 
 72:                                               ; preds = %9, %9, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %69
-  %.sroa.09.0 = phi ptr [ %26, %24 ], [ %71, %69 ], [ inttoptr (i64 1 to ptr), %12 ], [ inttoptr (i64 2 to ptr), %13 ], [ inttoptr (i64 3 to ptr), %14 ], [ inttoptr (i64 4 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %16 ], [ inttoptr (i64 6 to ptr), %17 ], [ inttoptr (i64 7 to ptr), %18 ], [ inttoptr (i64 8 to ptr), %19 ], [ inttoptr (i64 9 to ptr), %20 ], [ inttoptr (i64 10 to ptr), %21 ], [ inttoptr (i64 11 to ptr), %22 ], [ inttoptr (i64 12 to ptr), %23 ], [ null, %9 ], [ null, %9 ]
+  %.sroa.09.0 = phi ptr [ %26, %24 ], [ inttoptr (i64 1 to ptr), %12 ], [ inttoptr (i64 2 to ptr), %13 ], [ inttoptr (i64 3 to ptr), %14 ], [ inttoptr (i64 4 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %16 ], [ inttoptr (i64 6 to ptr), %17 ], [ inttoptr (i64 7 to ptr), %18 ], [ inttoptr (i64 8 to ptr), %19 ], [ inttoptr (i64 9 to ptr), %20 ], [ inttoptr (i64 10 to ptr), %21 ], [ inttoptr (i64 11 to ptr), %22 ], [ inttoptr (i64 12 to ptr), %23 ], [ %71, %69 ], [ null, %9 ], [ null, %9 ]
   ret ptr %.sroa.09.0
 }
 
@@ -4888,7 +4888,7 @@ agxbfree.exit77:                                  ; preds = %deparse.exit76, %11
   br i1 %.not40.i, label %assignable.exit, label %assignable.exit.sink.split
 
 assignable.exit.sink.split:                       ; preds = %169, %167, %165
-  %.str.184.sink = phi ptr [ @.str.185, %167 ], [ @.str.184, %165 ], [ @.str.186, %169 ]
+  %.str.184.sink = phi ptr [ @.str.184, %165 ], [ @.str.185, %167 ], [ @.str.186, %169 ]
   tail call void (ptr, ...) @exerror(ptr noundef nonnull %.str.184.sink, ptr noundef nonnull %114) #25
   br label %assignable.exit
 
@@ -4911,7 +4911,7 @@ setattr.exit:                                     ; preds = %assignable.exit, %1
   br label %179
 
 179:                                              ; preds = %47, %77, %63, %61, %75, %70, %55, %52, %46, %setattr.exit, %agxbfree.exit77, %agxbfree.exit
-  %.0 = phi i32 [ %178, %setattr.exit ], [ -1, %agxbfree.exit ], [ -1, %agxbfree.exit77 ], [ 0, %52 ], [ 0, %47 ], [ 0, %77 ], [ 0, %61 ], [ 0, %63 ], [ 0, %70 ], [ 0, %75 ], [ 0, %55 ], [ -1, %46 ]
+  %.0 = phi i32 [ %178, %setattr.exit ], [ -1, %agxbfree.exit ], [ -1, %agxbfree.exit77 ], [ 0, %47 ], [ 0, %61 ], [ 0, %63 ], [ 0, %70 ], [ 0, %75 ], [ 0, %77 ], [ 0, %55 ], [ 0, %52 ], [ -1, %46 ]
   ret i32 %.0
 }
 
@@ -5048,7 +5048,7 @@ sub_131:                                          ; preds = %sub_0
   br label %41
 
 41:                                               ; preds = %.sink.split, %39, %37, %35, %33, %31, %29, %27, %25, %23, %.tail29.thread, %.tail29, %.tail, %8
-  %.0 = phi i32 [ 12, %39 ], [ 11, %37 ], [ 10, %35 ], [ 9, %33 ], [ 8, %31 ], [ 7, %29 ], [ 6, %27 ], [ 5, %25 ], [ 4, %23 ], [ 3, %.tail29.thread ], [ 2, %.tail29 ], [ 1, %.tail ], [ 0, %8 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %8 ], [ 1, %.tail ], [ 2, %.tail29 ], [ 3, %.tail29.thread ], [ 4, %23 ], [ 5, %25 ], [ 6, %27 ], [ 7, %29 ], [ 8, %31 ], [ 9, %33 ], [ 10, %35 ], [ 11, %37 ], [ 12, %39 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -5881,7 +5881,7 @@ define internal fastcc range(i32 0, 2) i32 @setDfltAttr(ptr noundef nonnull %0, 
   br label %11
 
 9:                                                ; preds = %4, %7, %6
-  %.0 = phi i32 [ 1, %7 ], [ 2, %6 ], [ 0, %4 ]
+  %.0 = phi i32 [ 2, %6 ], [ 1, %7 ], [ 0, %4 ]
   %10 = tail call ptr @agattr(ptr noundef nonnull %0, i32 noundef %.0, ptr noundef nonnull %2, ptr noundef nonnull %3) #25
   br label %11
 
@@ -5912,7 +5912,7 @@ define internal fastcc ptr @nxtAttr(ptr noundef nonnull %0, ptr noundef nonnull 
   br label %toKind.exit
 
 toKind.exit:                                      ; preds = %3, %5, %6, %7
-  %.0.i = phi i32 [ 0, %7 ], [ 1, %6 ], [ 2, %5 ], [ 0, %3 ]
+  %.0.i = phi i32 [ 0, %7 ], [ 2, %5 ], [ 1, %6 ], [ 0, %3 ]
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %toKind.exit
@@ -5960,7 +5960,7 @@ define internal fastcc range(i32 0, 3) i32 @toKind(ptr noundef nonnull %0, ptr n
   br label %7
 
 7:                                                ; preds = %2, %6, %5, %4
-  %.0 = phi i32 [ 0, %6 ], [ 1, %5 ], [ 2, %4 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %6 ], [ 2, %4 ], [ 1, %5 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -5984,8 +5984,8 @@ define internal fastcc ptr @getDfltAttr(ptr noundef nonnull %0, ptr noundef nonn
   br label %toKind.exit
 
 toKind.exit:                                      ; preds = %3, %5, %6, %7
-  %switch.selectcmp1.i = phi ptr [ @.str.141, %7 ], [ @.str.142, %6 ], [ @.str.143, %5 ], [ @.str.141, %3 ]
-  %.0.i = phi i32 [ 0, %7 ], [ 1, %6 ], [ 2, %5 ], [ 0, %3 ]
+  %switch.selectcmp1.i = phi ptr [ @.str.141, %7 ], [ @.str.143, %5 ], [ @.str.142, %6 ], [ @.str.141, %3 ]
+  %.0.i = phi i32 [ 0, %7 ], [ 2, %5 ], [ 1, %6 ], [ 0, %3 ]
   %8 = tail call ptr @agattr(ptr noundef nonnull %0, i32 noundef %.0.i, ptr noundef nonnull %2, ptr noundef null) #25
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %11
@@ -6361,7 +6361,7 @@ tailrecurse.backedge:                             ; preds = %57, %63, %65, %67, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %5, %91, %104, %105, %95, %82, %agxbfree.exit
-  %.0 = phi ptr [ null, %95 ], [ null, %91 ], [ null, %agxbfree.exit ], [ null, %82 ], [ null, %104 ], [ null, %105 ], [ %3, %5 ], [ %.tr98.be, %tailrecurse.backedge ]
+  %.0 = phi ptr [ null, %agxbfree.exit ], [ null, %82 ], [ null, %95 ], [ null, %105 ], [ null, %104 ], [ null, %91 ], [ %3, %5 ], [ %.tr98.be, %tailrecurse.backedge ]
   ret ptr %.0
 }
 
@@ -6546,9 +6546,9 @@ define internal fastcc zeroext i16 @typeChk(i16 noundef zeroext %0, ptr noundef 
   %.not26 = icmp eq i16 %39, 0
   br i1 %.not26, label %.thread, label %.thread36
 
-.thread36:                                        ; preds = %31, %28, %16, %27, %36
-  %.041 = phi i16 [ %41, %36 ], [ 8, %27 ], [ 8, %16 ], [ 8, %28 ], [ 8, %31 ]
-  %.02440 = phi i16 [ %39, %36 ], [ 112, %27 ], [ 112, %16 ], [ 112, %28 ], [ 112, %31 ]
+.thread36:                                        ; preds = %27, %31, %28, %16, %36
+  %.041 = phi i16 [ %41, %36 ], [ 8, %16 ], [ 8, %28 ], [ 8, %31 ], [ 8, %27 ]
+  %.02440 = phi i16 [ %39, %36 ], [ 112, %16 ], [ 112, %28 ], [ 112, %31 ], [ 112, %27 ]
   %.not28 = icmp eq i16 %0, 0
   %spec.store.select = select i1 %.not28, i16 112, i16 %0
   %42 = and i16 %.02440, %spec.store.select
@@ -7070,7 +7070,7 @@ agxbuse.exit73:                                   ; preds = %agxbclear.exit.thre
   %exitcond.not = icmp eq i64 %124, %.val42
   br i1 %exitcond.not, label %.critedge, label %27, !llvm.loop !151
 
-.critedge:                                        ; preds = %123, %agxbuse.exit, %agxbuse.exit58
+.critedge:                                        ; preds = %123, %agxbuse.exit58, %agxbuse.exit
   %.val40.pre = load i8, ptr %24, align 1, !tbaa !65
   %125 = icmp eq i8 %.val40.pre, -1
   br i1 %125, label %126, label %agxbfree.exit

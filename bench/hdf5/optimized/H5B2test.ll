@@ -929,7 +929,7 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   br label %.thread99.thread
 
 .thread99.thread:                                 ; preds = %133, %142, %148, %.thread103, %3, %154, %157, %.thread99
-  %.070 = phi i32 [ -1, %157 ], [ %.171, %154 ], [ 0, %3 ], [ %.171, %.thread99 ], [ 0, %.thread103 ], [ -1, %148 ], [ -1, %142 ], [ -1, %133 ]
+  %.070 = phi i32 [ -1, %157 ], [ %.171, %154 ], [ %.171, %.thread99 ], [ 0, %3 ], [ 0, %.thread103 ], [ -1, %148 ], [ -1, %142 ], [ -1, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

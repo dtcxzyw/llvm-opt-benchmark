@@ -300,7 +300,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i
 
-select.unfold:                                    ; preds = %28, %._crit_edge.thread.i.i, %12
+select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
@@ -313,7 +313,7 @@ select.unfold:                                    ; preds = %28, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
-  %38 = phi i1 [ %37, %33 ], [ true, %select.unfold ]
+  %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
   %39 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
           to label %.noexc6 unwind label %43
 
@@ -3422,7 +3422,7 @@ _ZN7QStringD2Ev.exit288:                          ; preds = %594, %_ZN9QtPrivate
   br label %778
 
 778:                                              ; preds = %776, %774, %772, %770, %768, %766, %764, %762, %760, %758, %756, %754, %752, %750, %748, %746, %744, %742, %740, %738, %736, %734, %732, %730, %728, %726, %724, %722, %720, %718, %716, %714, %712, %710, %708, %706, %704, %702, %700, %698, %696, %694, %692, %690, %688, %686, %684, %682, %680, %678, %676, %674, %672, %670, %668, %666, %664, %662, %660, %658, %656, %654, %652, %650, %648, %646, %644, %642, %640, %638, %636, %634, %632, %630, %628, %626, %624, %622, %620, %618, %616, %614, %612, %610, %608, %606, %65
-  %.pn = phi { ptr, i32 } [ %777, %776 ], [ %775, %774 ], [ %773, %772 ], [ %771, %770 ], [ %611, %610 ], [ %769, %768 ], [ %767, %766 ], [ %765, %764 ], [ %763, %762 ], [ %761, %760 ], [ %759, %758 ], [ %757, %756 ], [ %755, %754 ], [ %753, %752 ], [ %751, %750 ], [ %749, %748 ], [ %747, %746 ], [ %745, %744 ], [ %743, %742 ], [ %741, %740 ], [ %739, %738 ], [ %737, %736 ], [ %735, %734 ], [ %733, %732 ], [ %731, %730 ], [ %729, %728 ], [ %727, %726 ], [ %725, %724 ], [ %723, %722 ], [ %721, %720 ], [ %719, %718 ], [ %717, %716 ], [ %715, %714 ], [ %713, %712 ], [ %711, %710 ], [ %709, %708 ], [ %707, %706 ], [ %705, %704 ], [ %703, %702 ], [ %701, %700 ], [ %699, %698 ], [ %697, %696 ], [ %695, %694 ], [ %693, %692 ], [ %691, %690 ], [ %609, %608 ], [ %689, %688 ], [ %687, %686 ], [ %685, %684 ], [ %683, %682 ], [ %681, %680 ], [ %679, %678 ], [ %677, %676 ], [ %675, %674 ], [ %673, %672 ], [ %671, %670 ], [ %607, %606 ], [ %669, %668 ], [ %667, %666 ], [ %665, %664 ], [ %663, %662 ], [ %661, %660 ], [ %659, %658 ], [ %657, %656 ], [ %655, %654 ], [ %653, %652 ], [ %651, %650 ], [ %649, %648 ], [ %647, %646 ], [ %66, %65 ], [ %645, %644 ], [ %643, %642 ], [ %641, %640 ], [ %639, %638 ], [ %637, %636 ], [ %635, %634 ], [ %633, %632 ], [ %631, %630 ], [ %629, %628 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ], [ %621, %620 ], [ %619, %618 ], [ %617, %616 ], [ %615, %614 ], [ %613, %612 ]
+  %.pn = phi { ptr, i32 } [ %777, %776 ], [ %775, %774 ], [ %773, %772 ], [ %771, %770 ], [ %769, %768 ], [ %767, %766 ], [ %765, %764 ], [ %763, %762 ], [ %761, %760 ], [ %759, %758 ], [ %757, %756 ], [ %755, %754 ], [ %753, %752 ], [ %751, %750 ], [ %749, %748 ], [ %747, %746 ], [ %745, %744 ], [ %743, %742 ], [ %741, %740 ], [ %739, %738 ], [ %737, %736 ], [ %735, %734 ], [ %733, %732 ], [ %731, %730 ], [ %729, %728 ], [ %727, %726 ], [ %725, %724 ], [ %723, %722 ], [ %721, %720 ], [ %719, %718 ], [ %717, %716 ], [ %715, %714 ], [ %713, %712 ], [ %711, %710 ], [ %709, %708 ], [ %707, %706 ], [ %705, %704 ], [ %703, %702 ], [ %701, %700 ], [ %699, %698 ], [ %697, %696 ], [ %695, %694 ], [ %693, %692 ], [ %691, %690 ], [ %689, %688 ], [ %687, %686 ], [ %685, %684 ], [ %683, %682 ], [ %681, %680 ], [ %679, %678 ], [ %677, %676 ], [ %675, %674 ], [ %673, %672 ], [ %671, %670 ], [ %669, %668 ], [ %667, %666 ], [ %665, %664 ], [ %663, %662 ], [ %661, %660 ], [ %659, %658 ], [ %657, %656 ], [ %655, %654 ], [ %653, %652 ], [ %651, %650 ], [ %649, %648 ], [ %647, %646 ], [ %645, %644 ], [ %643, %642 ], [ %641, %640 ], [ %639, %638 ], [ %637, %636 ], [ %635, %634 ], [ %633, %632 ], [ %631, %630 ], [ %629, %628 ], [ %627, %626 ], [ %625, %624 ], [ %623, %622 ], [ %621, %620 ], [ %619, %618 ], [ %617, %616 ], [ %615, %614 ], [ %613, %612 ], [ %611, %610 ], [ %609, %608 ], [ %607, %606 ], [ %66, %65 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -3647,7 +3647,7 @@ define void @_ZN24SaveMeshAttributesDialog17setMaskCapabilityEv(ptr noundef nonn
   br label %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit
 
 _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit: ; preds = %1, %12
-  %.0.i.i = phi i1 [ %16, %12 ], [ false, %1 ]
+  %.0.i.i = phi i1 [ false, %1 ], [ %16, %12 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(48) %5, i1 noundef zeroext %.0.i.i)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
@@ -3673,7 +3673,7 @@ _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit: ; preds = %1,
   br label %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit3
 
 _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit3: ; preds = %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit, %30
-  %.0.i.i1 = phi i1 [ %33, %30 ], [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit ]
+  %.0.i.i1 = phi i1 [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit ], [ %33, %30 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(48) %25, i1 noundef zeroext %.0.i.i1)
   %34 = load ptr, ptr %17, align 8
   %35 = tail call noundef i32 @_ZN9MeshModel5io2mmEi(i32 noundef 2)
@@ -3698,7 +3698,7 @@ _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit3: ; preds = %_
   br label %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit6
 
 _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit6: ; preds = %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit3, %46
-  %.0.i.i4 = phi i1 [ %49, %46 ], [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit3 ]
+  %.0.i.i4 = phi i1 [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit3 ], [ %49, %46 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(48) %41, i1 noundef zeroext %.0.i.i4)
   %50 = load ptr, ptr %17, align 8
   %51 = tail call noundef i32 @_ZN9MeshModel5io2mmEi(i32 noundef 4)
@@ -3723,7 +3723,7 @@ _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit6: ; preds = %_
   br label %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit9
 
 _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit9: ; preds = %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit6, %62
-  %.0.i.i7 = phi i1 [ %65, %62 ], [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit6 ]
+  %.0.i.i7 = phi i1 [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit6 ], [ %65, %62 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(48) %57, i1 noundef zeroext %.0.i.i7)
   %66 = load ptr, ptr %17, align 8
   %67 = tail call noundef i32 @_ZN9MeshModel5io2mmEi(i32 noundef 32)
@@ -3748,7 +3748,7 @@ _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit9: ; preds = %_
   br label %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit12
 
 _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit12: ; preds = %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit9, %78
-  %.0.i.i10 = phi i1 [ %81, %78 ], [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit9 ]
+  %.0.i.i10 = phi i1 [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit9 ], [ %81, %78 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(48) %73, i1 noundef zeroext %.0.i.i10)
   %82 = load ptr, ptr %17, align 8
   %83 = tail call noundef i32 @_ZN9MeshModel5io2mmEi(i32 noundef 16)
@@ -3773,7 +3773,7 @@ _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit12: ; preds = %
   br label %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit15
 
 _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit15: ; preds = %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit12, %94
-  %.0.i.i13 = phi i1 [ %97, %94 ], [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit12 ]
+  %.0.i.i13 = phi i1 [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit12 ], [ %97, %94 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(48) %89, i1 noundef zeroext %.0.i.i13)
   %98 = load ptr, ptr %17, align 8
   %99 = tail call noundef i32 @_ZN9MeshModel5io2mmEi(i32 noundef 65536)
@@ -3818,7 +3818,7 @@ _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit15: ; preds = %
   br label %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit18
 
 _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit18: ; preds = %115, %123
-  %.0.i.i16 = phi i1 [ %126, %123 ], [ false, %115 ]
+  %.0.i.i16 = phi i1 [ false, %115 ], [ %126, %123 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(48) %118, i1 noundef zeroext %.0.i.i16)
   %127 = load ptr, ptr %17, align 8
   %128 = tail call noundef i32 @_ZN9MeshModel5io2mmEi(i32 noundef 512)
@@ -3843,7 +3843,7 @@ _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit18: ; preds = %
   br label %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit21
 
 _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit21: ; preds = %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit18, %139
-  %.0.i.i19 = phi i1 [ %142, %139 ], [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit18 ]
+  %.0.i.i19 = phi i1 [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit18 ], [ %142, %139 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(48) %134, i1 noundef zeroext %.0.i.i19)
   %143 = load ptr, ptr %17, align 8
   %144 = tail call noundef i32 @_ZN9MeshModel5io2mmEi(i32 noundef 128)
@@ -3868,7 +3868,7 @@ _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit21: ; preds = %
   br label %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit24
 
 _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit24: ; preds = %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit21, %155
-  %.0.i.i22 = phi i1 [ %158, %155 ], [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit21 ]
+  %.0.i.i22 = phi i1 [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit21 ], [ %158, %155 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(48) %150, i1 noundef zeroext %.0.i.i22)
   %159 = load ptr, ptr %17, align 8
   %160 = tail call noundef i32 @_ZN9MeshModel5io2mmEi(i32 noundef 256)
@@ -3893,7 +3893,7 @@ _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit24: ; preds = %
   br label %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit27
 
 _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit27: ; preds = %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit24, %171
-  %.0.i.i25 = phi i1 [ %174, %171 ], [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit24 ]
+  %.0.i.i25 = phi i1 [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit24 ], [ %174, %171 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(48) %166, i1 noundef zeroext %.0.i.i25)
   %175 = load ptr, ptr %17, align 8
   %176 = tail call noundef i32 @_ZN9MeshModel5io2mmEi(i32 noundef 1024)
@@ -3918,7 +3918,7 @@ _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit27: ; preds = %
   br label %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit30
 
 _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit30: ; preds = %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit27, %187
-  %.0.i.i28 = phi i1 [ %190, %187 ], [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit27 ]
+  %.0.i.i28 = phi i1 [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit27 ], [ %190, %187 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(48) %182, i1 noundef zeroext %.0.i.i28)
   %191 = load ptr, ptr %17, align 8
   %192 = tail call noundef i32 @_ZN9MeshModel5io2mmEi(i32 noundef 2048)
@@ -3943,7 +3943,7 @@ _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit30: ; preds = %
   br label %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit33
 
 _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit33: ; preds = %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit30, %203
-  %.0.i.i31 = phi i1 [ %206, %203 ], [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit30 ]
+  %.0.i.i31 = phi i1 [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit30 ], [ %206, %203 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(48) %198, i1 noundef zeroext %.0.i.i31)
   %207 = load ptr, ptr %17, align 8
   %208 = tail call noundef i32 @_ZN9MeshModel5io2mmEi(i32 noundef 4096)
@@ -3968,7 +3968,7 @@ _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit33: ; preds = %
   br label %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit36
 
 _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit36: ; preds = %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit33, %219
-  %.0.i.i34 = phi i1 [ %222, %219 ], [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit33 ]
+  %.0.i.i34 = phi i1 [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit33 ], [ %222, %219 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(48) %214, i1 noundef zeroext %.0.i.i34)
   %223 = load ptr, ptr %17, align 8
   %224 = tail call noundef i32 @_ZN9MeshModel5io2mmEi(i32 noundef 16384)
@@ -3993,7 +3993,7 @@ _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit36: ; preds = %
   br label %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit39
 
 _ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit39: ; preds = %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit36, %235
-  %.0.i.i37 = phi i1 [ %238, %235 ], [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit36 ]
+  %.0.i.i37 = phi i1 [ false, %_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii.exit36 ], [ %238, %235 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(48) %230, i1 noundef zeroext %.0.i.i37)
   %239 = load ptr, ptr %17, align 8
   %240 = tail call noundef i32 @_ZN9MeshModel5io2mmEi(i32 noundef 131072)
@@ -6063,8 +6063,8 @@ _ZN7QStringD2Ev.exit33:                           ; preds = %72, %_ZN9QtPrivate8
   ret void
 
 .body26:                                          ; preds = %70, %60, %68, %62, %.body
-  %.sink = phi ptr [ %7, %62 ], [ %7, %.body ], [ %6, %68 ], [ %6, %60 ], [ %6, %70 ]
-  %.pn10.pn = phi { ptr, i32 } [ %63, %62 ], [ %.pn, %.body ], [ %69, %68 ], [ %61, %60 ], [ %71, %70 ]
+  %.sink = phi ptr [ %7, %.body ], [ %7, %62 ], [ %6, %68 ], [ %6, %60 ], [ %6, %70 ]
+  %.pn10.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %63, %62 ], [ %69, %68 ], [ %61, %60 ], [ %71, %70 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #23
   resume { ptr, i32 } %.pn10.pn
 }
@@ -6250,7 +6250,7 @@ define void @_ZN24SaveMeshAttributesDialog14checkAndEnableEP9QCheckBoxiii(ptr no
   br label %_ZN24SaveMeshAttributesDialog15shouldBeEnabledEiii.exit
 
 _ZN24SaveMeshAttributesDialog15shouldBeEnabledEiii.exit: ; preds = %5, %8
-  %.0.i = phi i1 [ %12, %8 ], [ false, %5 ]
+  %.0.i = phi i1 [ false, %5 ], [ %12, %8 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %.0.i)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
@@ -6279,7 +6279,7 @@ define noundef zeroext i1 @_ZN24SaveMeshAttributesDialog15shouldBeEnabledEiii(pt
   br label %12
 
 12:                                               ; preds = %7, %4
-  %.0 = phi i1 [ %11, %7 ], [ false, %4 ]
+  %.0 = phi i1 [ false, %4 ], [ %11, %7 ]
   ret i1 %.0
 }
 
@@ -6382,7 +6382,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
   br label %26
 
 _ZN7QStringD2Ev.exit.sink.split:                  ; preds = %20, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i8, %12, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i
-  %.sink = phi ptr [ %13, %12 ], [ %.pre.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %.pre.i9, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i8 ], [ %21, %20 ]
+  %.sink = phi ptr [ %.pre.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %13, %12 ], [ %.pre.i9, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i8 ], [ %21, %20 ]
   call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %.sink, i64 noundef 2, i64 noundef 8) #23
   br label %_ZN7QStringD2Ev.exit
 
@@ -7898,9 +7898,9 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3v
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
-  %.620.i = phi ptr [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
-  %.2.i = phi i1 [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.620.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.2.i = phi i1 [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
   call void @_ZdlPv(ptr noundef nonnull %8) #22
   %75 = icmp eq ptr %1, %.620.i
   %or.cond.i = select i1 %.2.i, i1 true, i1 %75
@@ -7923,7 +7923,7 @@ _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i: ; p
   br i1 %81, label %.body.thread.i, label %.preheader.i
 
 .body.thread.i:                                   ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i, %.body.i, %.body.thread724.i
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i = phi { ptr, i32 } [ %55, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %55, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i
 
 __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit.i

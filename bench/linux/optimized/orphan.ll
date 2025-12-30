@@ -669,7 +669,7 @@ define dso_local i32 @ext4_orphan_del(ptr noundef %0, ptr noundef %1) local_unna
   br label %.thread14
 
 139:                                              ; preds = %.thread14, %129, %78, %73, %12
-  %140 = phi i32 [ %74, %73 ], [ 0, %129 ], [ 0, %12 ], [ 0, %78 ], [ %132, %.thread14 ]
+  %140 = phi i32 [ %74, %73 ], [ 0, %12 ], [ 0, %78 ], [ %132, %.thread14 ], [ 0, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %140
 }

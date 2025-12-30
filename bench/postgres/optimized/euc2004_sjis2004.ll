@@ -629,8 +629,8 @@ get_ten.exit127.thread.i:                         ; preds = %get_ten.exit127.i, 
   br label %.backedge.i
 
 shift_jis_20042euc_jis_2004.exit:                 ; preds = %.backedge.i, %1, %24, %33, %get_ten.exit.thread.i, %get_ten.exit113.thread.i, %get_ten.exit120.thread.i, %get_ten.exit127.thread.i, %116
-  %.093190.i = phi ptr [ %.093202.i, %24 ], [ %.093202.i, %116 ], [ %.093202.i, %get_ten.exit120.thread.i ], [ %.093202.i, %get_ten.exit113.thread.i ], [ %.093202.i, %get_ten.exit.thread.i ], [ %.093202.i, %get_ten.exit127.thread.i ], [ %.093202.i, %33 ], [ %8, %1 ], [ %.093.be.i, %.backedge.i ]
-  %.092182.i = phi ptr [ %.092204.i, %24 ], [ %.092204.i, %116 ], [ %.092204.i, %get_ten.exit120.thread.i ], [ %.092204.i, %get_ten.exit113.thread.i ], [ %.092204.i, %get_ten.exit.thread.i ], [ %.092204.i, %get_ten.exit127.thread.i ], [ %.092204.i, %33 ], [ %5, %1 ], [ %.092.be.i, %.backedge.i ]
+  %.093190.i = phi ptr [ %.093202.i, %116 ], [ %.093202.i, %get_ten.exit127.thread.i ], [ %.093202.i, %get_ten.exit120.thread.i ], [ %.093202.i, %get_ten.exit113.thread.i ], [ %.093202.i, %get_ten.exit.thread.i ], [ %.093202.i, %33 ], [ %.093202.i, %24 ], [ %8, %1 ], [ %.093.be.i, %.backedge.i ]
+  %.092182.i = phi ptr [ %.092204.i, %116 ], [ %.092204.i, %get_ten.exit127.thread.i ], [ %.092204.i, %get_ten.exit120.thread.i ], [ %.092204.i, %get_ten.exit113.thread.i ], [ %.092204.i, %get_ten.exit.thread.i ], [ %.092204.i, %33 ], [ %.092204.i, %24 ], [ %5, %1 ], [ %.092.be.i, %.backedge.i ]
   store i8 0, ptr %.093190.i, align 1
   %131 = ptrtoint ptr %.092182.i to i64
   %132 = sub i64 %131, %4

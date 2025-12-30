@@ -729,7 +729,7 @@ _ZN5folly9EventBase7OptionsD2Ev.exit20:           ; preds = %59, %.body
   unreachable
 
 .body14:                                          ; preds = %66, %64, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i, %37
-  %.pn8 = phi { ptr, i32 } [ %38, %37 ], [ %65, %64 ], [ %38, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i ], [ %67, %66 ]
+  %.pn8 = phi { ptr, i32 } [ %65, %64 ], [ %38, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i ], [ %38, %37 ], [ %67, %66 ]
   call void @_ZN5folly9EventBaseD1Ev(ptr noundef nonnull align 16 dereferenceable(632) %6) #14
   br label %69
 

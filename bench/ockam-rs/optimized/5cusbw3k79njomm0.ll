@@ -1445,7 +1445,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.172960
   unreachable
 
 common.resume:                                    ; preds = %138, %.body, %29
-  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %.pn, %.body ], [ %lpad.phi72, %138 ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %lpad.phi72, %138 ], [ %.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17heb4dd64fd820664bE.exit": ; preds = %_ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.17296089498221847322.exit
@@ -1822,12 +1822,12 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.172960
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #17
   unreachable
 
-.loopexit68:                                      ; preds = %42, %44
+.loopexit68:                                      ; preds = %44, %42
   %lpad.loopexit70 = landingpad { ptr, i32 }
           cleanup
   br label %138
 
-.loopexit.split-lp69:                             ; preds = %36, %.loopexit73
+.loopexit.split-lp69:                             ; preds = %.loopexit73, %36
   %lpad.loopexit.split-lp71 = landingpad { ptr, i32 }
           cleanup
   br label %138
@@ -2150,7 +2150,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   unreachable
 
 common.resume:                                    ; preds = %769, %819, %.loopexit.split-lp.i156, %.loopexit.split-lp41.i, %393, %412, %.thread144.i, %182, %200, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %413, %412 ], [ %201, %200 ], [ %183, %182 ], [ %.pn.i, %.body.i ], [ %394, %393 ], [ %.pn16142.i, %.thread144.i ], [ %770, %769 ], [ %820, %819 ], [ %lpad.phi43.i, %.loopexit.split-lp41.i ], [ %lpad.phi.i157, %.loopexit.split-lp.i156 ]
+  %common.resume.op = phi { ptr, i32 } [ %183, %182 ], [ %.pn.i, %.body.i ], [ %201, %200 ], [ %394, %393 ], [ %.pn16142.i, %.thread144.i ], [ %413, %412 ], [ %770, %769 ], [ %lpad.phi43.i, %.loopexit.split-lp41.i ], [ %820, %819 ], [ %lpad.phi.i157, %.loopexit.split-lp.i156 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4aad4a8093cb7816E.exit.i": ; preds = %"_ZN3std4sync6rwlock15RwLock$LT$T$GT$5write17h540c45cae51c225aE.exit.i"
@@ -2283,7 +2283,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.6783306594713324768.exit.th
           to label %"_ZN4core3ptr208drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_core..routing..address..Address$C$ockam_core..flow_control..flow_control_id..FlowControlId$GT$$GT$$GT$17haa73a954d9aac420E.exit28.i" unwind label %226, !noalias !275
 
 .body.i:                                          ; preds = %351, %332, %297, %285, %248, %236, %226
-  %.pn.i = phi { ptr, i32 } [ %lpad.phi136.i, %248 ], [ %352, %351 ], [ %lpad.phi.i, %297 ], [ %286, %285 ], [ %237, %236 ], [ %227, %226 ], [ %333, %332 ]
+  %.pn.i = phi { ptr, i32 } [ %352, %351 ], [ %lpad.phi.i, %297 ], [ %lpad.phi136.i, %248 ], [ %227, %226 ], [ %237, %236 ], [ %286, %285 ], [ %333, %332 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$ockam_core..flow_control..flow_control_id..FlowControlId$GT$17h10f6db11c15315a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %87) #16
           to label %common.resume unwind label %372, !noalias !275
 
@@ -3772,7 +3772,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.6783306594713324768.exit.th
           to label %_ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.17296089498221847322.exit.i87 unwind label %625, !noalias !435
 
 .body73.i:                                        ; preds = %704, %685, %643, %631, %625
-  %.pn.i86 = phi { ptr, i32 } [ %lpad.phi.i99, %643 ], [ %705, %704 ], [ %632, %631 ], [ %626, %625 ], [ %686, %685 ]
+  %.pn.i86 = phi { ptr, i32 } [ %705, %704 ], [ %lpad.phi.i99, %643 ], [ %626, %625 ], [ %632, %631 ], [ %686, %685 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$ockam_core..flow_control..flow_control_id..FlowControlId$GT$17h10f6db11c15315a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %62) #16
           to label %.thread144.i unwind label %737, !noalias !435
 
@@ -4206,7 +4206,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.6783306594713324768.exit.th
           to label %common.resume unwind label %737, !noalias !435
 
 .thread147.i:                                     ; preds = %606, %588, %554, %543, %520, %509, %.body39.i, %457, %.thread153.i
-  %.pn16143.i = phi { ptr, i32 } [ %458, %457 ], [ %lpad.thr_comm.i, %.thread153.i ], [ %eh.lpad-body40.i, %.body39.i ], [ %589, %588 ], [ %510, %509 ], [ %544, %543 ], [ %607, %606 ], [ %lpad.phi.i.i, %554 ], [ %lpad.phi82.i.i, %520 ]
+  %.pn16143.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread153.i ], [ %458, %457 ], [ %eh.lpad-body40.i, %.body39.i ], [ %510, %509 ], [ %544, %543 ], [ %589, %588 ], [ %607, %606 ], [ %lpad.phi.i.i, %554 ], [ %lpad.phi82.i.i, %520 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$ockam_core..flow_control..flow_control_id..FlowControlId$GT$17h10f6db11c15315a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %65) #16
           to label %.thread144.i unwind label %737, !noalias !435
 
@@ -5437,7 +5437,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit451
   br label %239
 
 .invoke:                                          ; preds = %196, %229, %105, %138
-  %247 = phi ptr [ @anon.c2f733fa73b4447e3d449345afeaf2ec.62, %229 ], [ @anon.c2f733fa73b4447e3d449345afeaf2ec.59, %105 ], [ @anon.c2f733fa73b4447e3d449345afeaf2ec.59, %138 ], [ @anon.c2f733fa73b4447e3d449345afeaf2ec.62, %196 ]
+  %247 = phi ptr [ @anon.c2f733fa73b4447e3d449345afeaf2ec.59, %138 ], [ @anon.c2f733fa73b4447e3d449345afeaf2ec.59, %105 ], [ @anon.c2f733fa73b4447e3d449345afeaf2ec.62, %229 ], [ @anon.c2f733fa73b4447e3d449345afeaf2ec.62, %196 ]
   invoke void @_ZN4core6option13expect_failed17h92d9ca41185c3cd6E(ptr noalias noundef nonnull readonly align 1 @anon.c2f733fa73b4447e3d449345afeaf2ec.52, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %247) #18
           to label %.cont unwind label %92
 
@@ -6399,7 +6399,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit529
           to label %.body unwind label %375
 
 565:                                              ; preds = %.invoke786, %669, %.noexc577, %.noexc576, %.critedge9.i574, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit563", %589, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit570", %622, %615, %612, %592, %537
-  %.1 = phi i8 [ 0, %537 ], [ 1, %.invoke786 ], [ 1, %669 ], [ 1, %592 ], [ 1, %.noexc577 ], [ 1, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit570" ], [ 1, %589 ], [ 1, %622 ], [ 1, %615 ], [ 1, %612 ], [ 1, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit563" ], [ 1, %.critedge9.i574 ], [ 1, %.noexc576 ]
+  %.1 = phi i8 [ 0, %537 ], [ 1, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit570" ], [ 1, %622 ], [ 1, %615 ], [ 1, %612 ], [ 1, %592 ], [ 1, %589 ], [ 1, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit563" ], [ 1, %.critedge9.i574 ], [ 1, %.noexc576 ], [ 1, %.noexc577 ], [ 1, %669 ], [ 1, %.invoke786 ]
   %566 = landingpad { ptr, i32 }
           cleanup
   br label %564

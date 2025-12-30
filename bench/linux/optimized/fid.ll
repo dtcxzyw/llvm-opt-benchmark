@@ -109,7 +109,7 @@ define dso_local ptr @v9fs_fid_find_inode(ptr noundef %0, i1 noundef zeroext %1,
   br i1 %43, label %.split.us, label %53
 
 .split.us:                                        ; preds = %.preheader.split.split, %28, %.preheader.split.us.split.us, %.preheader.split
-  %.us-phi = phi ptr [ %24, %28 ], [ %12, %.preheader.split.us.split.us ], [ %9, %.preheader.split ], [ %40, %.preheader.split.split ]
+  %.us-phi = phi ptr [ %9, %.preheader.split ], [ %12, %.preheader.split.us.split.us ], [ %24, %28 ], [ %40, %.preheader.split.split ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_9p_fid_ref, i64 8), i32 2) #6
           to label %45 [label %44], !srcloc !8
 
@@ -439,7 +439,7 @@ define dso_local ptr @v9fs_fid_lookup(ptr noundef %0) local_unnamed_addr #0 alig
   br label %.thread23
 
 .thread23:                                        ; preds = %136, %138, %126, %139, %.preheader
-  %141 = phi ptr [ %115, %.preheader ], [ %124, %126 ], [ %124, %139 ], [ %124, %138 ], [ %124, %136 ]
+  %141 = phi ptr [ %115, %.preheader ], [ %124, %139 ], [ %124, %126 ], [ %124, %138 ], [ %124, %136 ]
   %142 = icmp ugt ptr %124, inttoptr (i64 -4096 to ptr)
   br i1 %142, label %143, label %112
 
@@ -543,7 +543,7 @@ thread-pre-split:                                 ; preds = %.thread21, %45, %44
   br label %.thread18
 
 .thread18:                                        ; preds = %151, %162, %161, %159, %93, %91, %184, %thread-pre-split, %143
-  %185 = phi ptr [ %144, %184 ], [ inttoptr (i64 -12 to ptr), %93 ], [ %144, %thread-pre-split ], [ %124, %143 ], [ inttoptr (i64 -12 to ptr), %91 ], [ inttoptr (i64 -2 to ptr), %159 ], [ inttoptr (i64 -2 to ptr), %161 ], [ inttoptr (i64 -2 to ptr), %162 ], [ inttoptr (i64 -2 to ptr), %151 ]
+  %185 = phi ptr [ %144, %184 ], [ %144, %thread-pre-split ], [ %124, %143 ], [ inttoptr (i64 -12 to ptr), %91 ], [ inttoptr (i64 -12 to ptr), %93 ], [ inttoptr (i64 -2 to ptr), %159 ], [ inttoptr (i64 -2 to ptr), %161 ], [ inttoptr (i64 -2 to ptr), %162 ], [ inttoptr (i64 -2 to ptr), %151 ]
   tail call void @up_read(ptr noundef nonnull %27) #6
   br label %186
 
@@ -692,8 +692,8 @@ define internal fastcc ptr @v9fs_fid_find(ptr noundef %0, i32 %1, i32 noundef ra
   br label %.sink.split
 
 .sink.split:                                      ; preds = %29, %63, %70, %59, %42, %7, %25, %36
-  %.sink = phi ptr [ %8, %7 ], [ %43, %63 ], [ %8, %36 ], [ %8, %25 ], [ %43, %70 ], [ %43, %42 ], [ %43, %59 ], [ %8, %29 ]
-  %.ph = phi ptr [ null, %7 ], [ null, %63 ], [ %.split6, %36 ], [ %.split6, %25 ], [ %.us-phi.i, %70 ], [ null, %42 ], [ %.us-phi.i, %59 ], [ null, %29 ]
+  %.sink = phi ptr [ %8, %36 ], [ %8, %25 ], [ %8, %7 ], [ %43, %42 ], [ %43, %59 ], [ %43, %70 ], [ %43, %63 ], [ %8, %29 ]
+  %.ph = phi ptr [ %.split6, %36 ], [ %.split6, %25 ], [ null, %7 ], [ null, %42 ], [ %.us-phi.i, %59 ], [ %.us-phi.i, %70 ], [ null, %63 ], [ null, %29 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %.sink) #6
   br label %72
 

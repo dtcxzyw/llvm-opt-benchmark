@@ -166,8 +166,8 @@ _ZNSt6vectorI8FDRFloodSaIS0_EEC2EmRKS1_.exit:     ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %_ZNSt6vectorI8FDRFloodSaIS0_EED2Ev.exit227
 
 .thread:                                          ; preds = %63, %31, %57, %52
-  %.0145.shrunk = phi i1 [ %55, %52 ], [ true, %57 ], [ false, %31 ], [ false, %63 ]
-  %.0144 = phi i8 [ %45, %52 ], [ %45, %57 ], [ %45, %31 ], [ %spec.select, %63 ]
+  %.0145.shrunk = phi i1 [ true, %57 ], [ %55, %52 ], [ false, %31 ], [ false, %63 ]
+  %.0144 = phi i8 [ %45, %57 ], [ %45, %52 ], [ %45, %31 ], [ %spec.select, %63 ]
   %.0145.shrunk.fr = freeze i1 %.0145.shrunk
   %71 = tail call i32 @llvm.umax.i32(i32 %32, i32 %40)
   %.not338 = icmp eq i32 %71, 0
@@ -280,9 +280,9 @@ _ZN3ue2L11isDifferentEhhb.exit:                   ; preds = %112
   br i1 %.not293, label %126, label %.split.us
 
 .split.us:                                        ; preds = %_ZN3ue2L11isDifferentEhhb.exit, %120, %_ZN3ue2L11isDifferentEhhb.exit.us, %90
-  %.us-phi.in = phi i64 [ %indvars.iv362, %_ZN3ue2L11isDifferentEhhb.exit.us ], [ %indvars.iv362, %90 ], [ %indvars.iv358, %120 ], [ %indvars.iv358, %_ZN3ue2L11isDifferentEhhb.exit ]
-  %.us-phi318 = phi i32 [ %.0152315.us, %_ZN3ue2L11isDifferentEhhb.exit.us ], [ %.0152315.us, %90 ], [ %71, %120 ], [ %71, %_ZN3ue2L11isDifferentEhhb.exit ]
-  %.us-phi319 = phi i32 [ %.0146316.us, %_ZN3ue2L11isDifferentEhhb.exit.us ], [ %.0146316.us, %90 ], [ %71, %120 ], [ %71, %_ZN3ue2L11isDifferentEhhb.exit ]
+  %.us-phi.in = phi i64 [ %indvars.iv362, %90 ], [ %indvars.iv362, %_ZN3ue2L11isDifferentEhhb.exit.us ], [ %indvars.iv358, %120 ], [ %indvars.iv358, %_ZN3ue2L11isDifferentEhhb.exit ]
+  %.us-phi318 = phi i32 [ %.0152315.us, %90 ], [ %.0152315.us, %_ZN3ue2L11isDifferentEhhb.exit.us ], [ %71, %120 ], [ %71, %_ZN3ue2L11isDifferentEhhb.exit ]
+  %.us-phi319 = phi i32 [ %.0146316.us, %90 ], [ %.0146316.us, %_ZN3ue2L11isDifferentEhhb.exit.us ], [ %71, %120 ], [ %71, %_ZN3ue2L11isDifferentEhhb.exit ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   %124 = tail call i32 @llvm.umin.i32(i32 %.us-phi319, i32 %.us-phi)
   %125 = tail call i32 @llvm.umin.i32(i32 %.us-phi318, i32 %.us-phi)
@@ -693,14 +693,14 @@ _ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pai
   br i1 %296, label %.thread.i.i, label %.thread13.i.i
 
 297:                                              ; preds = %275, %250
-  %.sroa.074.0.i.i.i = phi ptr [ null, %275 ], [ %251, %250 ]
-  %.sroa.12.0.i.i.i = phi ptr [ %276, %275 ], [ %251, %250 ]
+  %.sroa.074.0.i.i.i = phi ptr [ %251, %250 ], [ null, %275 ]
+  %.sroa.12.0.i.i.i = phi ptr [ %251, %250 ], [ %276, %275 ]
   %.not.i.i220 = icmp eq ptr %.sroa.12.0.i.i.i, null
   br i1 %.not.i.i220, label %.thread13.i.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %297, %293, %._crit_edge.thread.i50.i.i.i, %283, %268, %._crit_edge.thread.i29.i.i.i, %258, %242, %._crit_edge.thread.i.i.i.i, %230
-  %.sroa.12.0.i10.i.i = phi ptr [ %.sroa.12.0.i.i.i, %297 ], [ %.022.lcssa31.i21.i.i.i, %268 ], [ %.022.lcssa31.i.i.i.i, %242 ], [ %spec.select75.i.i.i, %258 ], [ %.022.lcssa32.i51.i.i.i, %._crit_edge.thread.i50.i.i.i ], [ %.022.lcssa32.i30.i.i.i, %._crit_edge.thread.i29.i.i.i ], [ %.022.lcssa32.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %spec.select77.i.i.i, %283 ], [ %231, %230 ], [ %.022.lcssa31.i42.i.i.i, %293 ]
-  %.sroa.074.0.i9.i.i = phi ptr [ %.sroa.074.0.i.i.i, %297 ], [ null, %268 ], [ null, %242 ], [ %spec.select.i.i.i, %258 ], [ null, %._crit_edge.thread.i50.i.i.i ], [ null, %._crit_edge.thread.i29.i.i.i ], [ null, %._crit_edge.thread.i.i.i.i ], [ %spec.select76.i.i.i, %283 ], [ null, %230 ], [ null, %293 ]
+  %.sroa.12.0.i10.i.i = phi ptr [ %.sroa.12.0.i.i.i, %297 ], [ %.022.lcssa32.i51.i.i.i, %._crit_edge.thread.i50.i.i.i ], [ %.022.lcssa32.i30.i.i.i, %._crit_edge.thread.i29.i.i.i ], [ %.022.lcssa32.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %spec.select77.i.i.i, %283 ], [ %spec.select75.i.i.i, %258 ], [ %231, %230 ], [ %.022.lcssa31.i.i.i.i, %242 ], [ %.022.lcssa31.i21.i.i.i, %268 ], [ %.022.lcssa31.i42.i.i.i, %293 ]
+  %.sroa.074.0.i9.i.i = phi ptr [ %.sroa.074.0.i.i.i, %297 ], [ null, %._crit_edge.thread.i50.i.i.i ], [ null, %._crit_edge.thread.i29.i.i.i ], [ null, %._crit_edge.thread.i.i.i.i ], [ %spec.select76.i.i.i, %283 ], [ %spec.select.i.i.i, %258 ], [ null, %230 ], [ null, %242 ], [ null, %268 ], [ null, %293 ]
   %.not.i.i11.i.i = icmp ne ptr %.sroa.074.0.i9.i.i, null
   %298 = icmp eq ptr %.sroa.12.0.i10.i.i, %206
   %or.cond.i.i.i.i = select i1 %.not.i.i11.i.i, i1 true, i1 %298
@@ -713,7 +713,7 @@ _ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pai
   br label %303
 
 303:                                              ; preds = %299, %.thread.i.i
-  %304 = phi i1 [ %302, %299 ], [ true, %.thread.i.i ]
+  %304 = phi i1 [ true, %.thread.i.i ], [ %302, %299 ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %304, ptr noundef nonnull %226, ptr noundef nonnull %.sroa.12.0.i10.i.i, ptr noundef nonnull align 8 dereferenceable(32) %206) #17
   %305 = load i64, ptr %210, align 8
   %306 = add i64 %305, 1
@@ -721,7 +721,7 @@ _ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pai
   br label %307
 
 .thread13.i.i:                                    ; preds = %297, %293, %272, %268, %242
-  %.sroa.01.0.ph.i.i = phi ptr [ %.sroa.074.0.i.i.i, %297 ], [ %.sroa.08.0.i22.i.i.i, %268 ], [ %.sroa.08.0.i.i.i.i, %242 ], [ %.sroa.08.0.i43.i.i.i, %293 ], [ %.08.lcssa.i.i.i15.i, %272 ]
+  %.sroa.01.0.ph.i.i = phi ptr [ %.sroa.074.0.i.i.i, %297 ], [ %.sroa.08.0.i43.i.i.i, %293 ], [ %.sroa.08.0.i22.i.i.i, %268 ], [ %.sroa.08.0.i.i.i.i, %242 ], [ %.08.lcssa.i.i.i15.i, %272 ]
   call void @_ZdlPv(ptr noundef nonnull %226) #20
   br label %307
 
@@ -865,7 +865,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %345, %352
   br label %_ZNSt6vectorI8FDRFloodSaIS0_EED2Ev.exit227
 
 _ZNSt6vectorI8FDRFloodSaIS0_EED2Ev.exit227:       ; preds = %29, %69, %357, %16
-  %.pn179.pn.pn.pn = phi { ptr, i32 } [ %17, %16 ], [ %.pn165, %357 ], [ %70, %69 ], [ %30, %29 ]
+  %.pn179.pn.pn.pn = phi { ptr, i32 } [ %.pn165, %357 ], [ %17, %16 ], [ %70, %69 ], [ %30, %29 ]
   call void @_ZdlPv(ptr noundef nonnull %6) #20
   resume { ptr, i32 } %.pn179.pn.pn.pn
 }

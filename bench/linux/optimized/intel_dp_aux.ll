@@ -1110,8 +1110,8 @@ define dso_local i32 @intel_dp_aux_ch(ptr noundef readonly captures(address) %0)
   br i1 %15, label %104, label %.thread
 
 .thread:                                          ; preds = %8, %1, %._crit_edge
-  %16 = phi i32 [ %13, %._crit_edge ], [ 0, %8 ], [ %6, %1 ]
-  %17 = phi ptr [ @.str.2, %._crit_edge ], [ @.str.2, %8 ], [ @.str.1, %1 ]
+  %16 = phi i32 [ %13, %._crit_edge ], [ %6, %1 ], [ 0, %8 ]
+  %17 = phi ptr [ @.str.2, %._crit_edge ], [ @.str.1, %1 ], [ @.str.2, %8 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2, i8 0, i64 6, i1 false), !annotation !9
   %18 = getelementptr inbounds nuw i8, ptr %.pre16, i64 688
   %19 = load ptr, ptr %18, align 8

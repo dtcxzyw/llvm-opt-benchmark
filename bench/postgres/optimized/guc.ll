@@ -599,7 +599,7 @@ set_guc_source.exit:                              ; preds = %122
   br label %147
 
 147:                                              ; preds = %142, %144, %._crit_edge256, %121, %97, %103, %118
-  %.5 = phi i1 [ %.4258, %97 ], [ true, %118 ], [ %.4258, %121 ], [ %.4258, %103 ], [ %.4258, %._crit_edge256 ], [ %.4258, %144 ], [ %.4258, %142 ]
+  %.5 = phi i1 [ true, %118 ], [ %.4258, %103 ], [ %.4258, %97 ], [ %.4258, %121 ], [ %.4258, %._crit_edge256 ], [ %.4258, %144 ], [ %.4258, %142 ]
   %148 = call ptr @hash_seq_search(ptr noundef nonnull %6) #29
   %.not203 = icmp eq ptr %148, null
   br i1 %.not203, label %._crit_edge261, label %97
@@ -737,9 +737,9 @@ set_guc_source.exit:                              ; preds = %122
   br label %203
 
 203:                                              ; preds = %11, %3, %201, %._crit_edge248
-  %.0174 = phi ptr [ %.2176, %._crit_edge248 ], [ %.4178.lcssa, %201 ], [ @.str, %11 ], [ %7, %3 ]
-  %.0171 = phi i1 [ false, %._crit_edge248 ], [ true, %201 ], [ false, %11 ], [ false, %3 ]
-  %.0170 = phi i1 [ true, %._crit_edge248 ], [ %.6.lcssa, %201 ], [ true, %11 ], [ true, %3 ]
+  %.0174 = phi ptr [ %.2176, %._crit_edge248 ], [ %.4178.lcssa, %201 ], [ %7, %3 ], [ @.str, %11 ]
+  %.0171 = phi i1 [ false, %._crit_edge248 ], [ true, %201 ], [ false, %3 ], [ false, %11 ]
+  %.0170 = phi i1 [ true, %._crit_edge248 ], [ %.6.lcssa, %201 ], [ true, %3 ], [ true, %11 ]
   %or.cond26 = and i1 %1, %.0170
   br i1 %or.cond26, label %204, label %.thread223
 
@@ -974,7 +974,7 @@ guc_free.exit29.i:                                ; preds = %73, %71
   br label %add_placeholder_variable.exit
 
 add_placeholder_variable.exit:                    ; preds = %75, %77, %40, %42, %guc_free.exit29.i, %add_guc_variable.exit.thread.i, %guc_free.exit.i, %74, %33, %27, %10
-  %.022 = phi ptr [ %12, %10 ], [ %31, %27 ], [ null, %74 ], [ null, %33 ], [ null, %40 ], [ null, %guc_free.exit29.i ], [ null, %guc_free.exit.i ], [ %38, %add_guc_variable.exit.thread.i ], [ null, %42 ], [ null, %77 ], [ null, %75 ]
+  %.022 = phi ptr [ %12, %10 ], [ %31, %27 ], [ null, %33 ], [ null, %74 ], [ null, %guc_free.exit.i ], [ null, %guc_free.exit29.i ], [ %38, %add_guc_variable.exit.thread.i ], [ null, %42 ], [ null, %40 ], [ null, %77 ], [ null, %75 ]
   ret ptr %.022
 }
 
@@ -1239,7 +1239,7 @@ define dso_local ptr @GetConfigOption(ptr noundef %0, i1 noundef zeroext %1, i1 
   unreachable
 
 config_enum_lookup_by_value.exit:                 ; preds = %.lr.ph, %.lr.ph.preheader, %14, %3, %33, %28, %23, %17
-  %.0 = phi ptr [ null, %14 ], [ null, %3 ], [ %22, %17 ], [ @GetConfigOption.buffer, %23 ], [ @GetConfigOption.buffer, %28 ], [ %spec.select, %33 ], [ %43, %.lr.ph.preheader ], [ %48, %.lr.ph ]
+  %.0 = phi ptr [ %22, %17 ], [ @GetConfigOption.buffer, %23 ], [ @GetConfigOption.buffer, %28 ], [ %spec.select, %33 ], [ null, %3 ], [ null, %14 ], [ %43, %.lr.ph.preheader ], [ %48, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -1986,7 +1986,7 @@ valid_custom_variable_name.exit.thread:           ; preds = %13, %18, %16, %5, %
   br label %.critedge
 
 .critedge:                                        ; preds = %55, %28, %49, %57, %.critedge.sink.split.sink.split, %34, %.lr.ph, %.split, %56, %valid_custom_variable_name.exit.thread
-  %.4 = phi i1 [ false, %56 ], [ false, %valid_custom_variable_name.exit.thread ], [ true, %34 ], [ true, %.lr.ph ], [ false, %28 ], [ false, %.split ], [ false, %.critedge.sink.split.sink.split ], [ false, %57 ], [ false, %49 ], [ true, %55 ]
+  %.4 = phi i1 [ false, %valid_custom_variable_name.exit.thread ], [ false, %56 ], [ false, %.split ], [ true, %.lr.ph ], [ true, %34 ], [ false, %.critedge.sink.split.sink.split ], [ false, %57 ], [ false, %49 ], [ false, %28 ], [ true, %55 ]
   ret i1 %.4
 }
 
@@ -2599,7 +2599,7 @@ guc_free.exit63:                                  ; preds = %87, %83
   br label %90
 
 90:                                               ; preds = %10, %14, %guc_free.exit63, %81, %63, %45, %38, %28
-  %.0 = phi i1 [ false, %28 ], [ false, %38 ], [ true, %guc_free.exit63 ], [ false, %81 ], [ false, %63 ], [ false, %45 ], [ false, %14 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %38 ], [ true, %guc_free.exit63 ], [ false, %81 ], [ false, %63 ], [ false, %45 ], [ false, %28 ], [ false, %14 ], [ false, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -3177,7 +3177,7 @@ set_string_field.exit:                            ; preds = %209, %213, %191, %1
   br i1 %287, label %set_extra_field.exit, label %279, !llvm.loop !32
 
 set_extra_field.exit.sink.split:                  ; preds = %279, %238, %174, %129, %88
-  %.sink = phi ptr [ %220, %238 ], [ %154, %174 ], [ %113, %129 ], [ %70, %88 ], [ %263, %279 ]
+  %.sink = phi ptr [ %70, %88 ], [ %113, %129 ], [ %154, %174 ], [ %220, %238 ], [ %263, %279 ]
   tail call void @pfree(ptr noundef nonnull %.sink) #29
   br label %set_extra_field.exit
 
@@ -3457,7 +3457,7 @@ guc_free.exit:                                    ; preds = %34
   tail call void @pfree(ptr noundef nonnull %4) #29
   br label %extra_field_used.exit.thread
 
-extra_field_used.exit.thread:                     ; preds = %39, %35, %16, %12, %5, %20, %28, %24, %guc_free.exit, %3
+extra_field_used.exit.thread:                     ; preds = %39, %35, %28, %24, %20, %16, %12, %5, %guc_free.exit, %3
   ret void
 }
 
@@ -3513,7 +3513,7 @@ guc_free.exit:                                    ; preds = %20
   tail call void @pfree(ptr noundef nonnull %4) #29
   br label %string_field_used.exit.thread
 
-string_field_used.exit.thread:                    ; preds = %25, %21, %14, %5, %10, %guc_free.exit, %3
+string_field_used.exit.thread:                    ; preds = %25, %21, %5, %10, %14, %guc_free.exit, %3
   ret void
 }
 
@@ -4162,7 +4162,7 @@ guc_free.exit.i223:                               ; preds = %261
   br label %set_extra_field.exit224
 
 set_extra_field.exit224:                          ; preds = %266, %262, %guc_free.exit.i223, %258, %255, %252, %249, %246, %set_string_field.exit, %216
-  %.5 = phi i1 [ false, %216 ], [ true, %set_string_field.exit ], [ true, %guc_free.exit.i223 ], [ true, %246 ], [ true, %249 ], [ true, %252 ], [ true, %255 ], [ true, %258 ], [ true, %262 ], [ true, %266 ]
+  %.5 = phi i1 [ false, %216 ], [ true, %set_string_field.exit ], [ true, %246 ], [ true, %249 ], [ true, %252 ], [ true, %255 ], [ true, %258 ], [ true, %guc_free.exit.i223 ], [ true, %262 ], [ true, %266 ]
   %270 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %271 = load ptr, ptr %270, align 8
   store ptr null, ptr %270, align 8
@@ -4336,13 +4336,13 @@ set_string_field.exit230:                         ; preds = %282, %286, %set_ext
   br i1 %347, label %set_extra_field.exit, label %339, !llvm.loop !32
 
 set_extra_field.exit.sink.split:                  ; preds = %339, %.preheader, %204, %165, %127
-  %.sink336 = phi ptr [ %291, %.preheader ], [ %185, %204 ], [ %146, %165 ], [ %108, %127 ], [ %320, %339 ]
-  %.1.ph = phi i1 [ %.5, %.preheader ], [ true, %204 ], [ true, %165 ], [ true, %127 ], [ true, %339 ]
+  %.sink336 = phi ptr [ %108, %127 ], [ %146, %165 ], [ %185, %204 ], [ %291, %.preheader ], [ %320, %339 ]
+  %.1.ph = phi i1 [ true, %127 ], [ true, %165 ], [ true, %204 ], [ %.5, %.preheader ], [ true, %339 ]
   tail call void @pfree(ptr noundef nonnull %.sink336) #29
   br label %set_extra_field.exit
 
 set_extra_field.exit:                             ; preds = %344, %340, %306, %302, %209, %205, %170, %166, %132, %128, %set_extra_field.exit.sink.split, %336, %333, %330, %327, %324, %318, %299, %296, %292, %set_string_field.exit230, %201, %198, %195, %192, %189, %183, %162, %159, %156, %153, %150, %144, %124, %121, %118, %115, %112, %106, %313, %178, %139, %101, %92
-  %.1 = phi i1 [ false, %92 ], [ false, %178 ], [ false, %101 ], [ false, %139 ], [ %.5, %306 ], [ false, %313 ], [ true, %333 ], [ %.5, %299 ], [ %.5, %296 ], [ true, %106 ], [ true, %170 ], [ true, %112 ], [ true, %115 ], [ true, %118 ], [ true, %121 ], [ true, %124 ], [ true, %330 ], [ true, %132 ], [ true, %144 ], [ true, %327 ], [ true, %150 ], [ true, %153 ], [ true, %156 ], [ true, %159 ], [ true, %162 ], [ true, %209 ], [ true, %318 ], [ true, %183 ], [ true, %324 ], [ true, %189 ], [ true, %192 ], [ true, %195 ], [ true, %198 ], [ true, %201 ], [ true, %336 ], [ %.1.ph, %set_extra_field.exit.sink.split ], [ %.5, %set_string_field.exit230 ], [ %.5, %292 ], [ true, %128 ], [ true, %166 ], [ true, %205 ], [ %.5, %302 ], [ true, %340 ], [ true, %344 ]
+  %.1 = phi i1 [ false, %92 ], [ false, %101 ], [ false, %139 ], [ false, %178 ], [ false, %313 ], [ true, %106 ], [ true, %112 ], [ true, %115 ], [ true, %118 ], [ true, %121 ], [ true, %124 ], [ true, %144 ], [ true, %150 ], [ true, %153 ], [ true, %156 ], [ true, %159 ], [ true, %162 ], [ true, %183 ], [ true, %189 ], [ true, %192 ], [ true, %195 ], [ true, %198 ], [ true, %201 ], [ %.5, %set_string_field.exit230 ], [ %.5, %292 ], [ %.5, %296 ], [ %.5, %299 ], [ true, %318 ], [ true, %324 ], [ true, %327 ], [ true, %330 ], [ true, %333 ], [ true, %336 ], [ %.1.ph, %set_extra_field.exit.sink.split ], [ true, %128 ], [ true, %132 ], [ true, %166 ], [ true, %170 ], [ true, %205 ], [ true, %209 ], [ %.5, %302 ], [ %.5, %306 ], [ true, %340 ], [ true, %344 ]
   %348 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %349 = load ptr, ptr %348, align 8
   store ptr null, ptr %348, align 8
@@ -4955,7 +4955,7 @@ define dso_local noundef ptr @get_config_unit_name(i32 noundef %0) local_unnamed
   unreachable
 
 22:                                               ; preds = %11, %14, %6, %9, %1, %18, %17, %16, %5, %4, %3
-  %.0 = phi ptr [ @.str.50, %18 ], [ @.str.44, %3 ], [ @.str.45, %4 ], [ @.str.46, %5 ], [ null, %1 ], [ @get_config_unit_name.bbuf, %6 ], [ @.str.48, %16 ], [ @.str.49, %17 ], [ @get_config_unit_name.bbuf, %9 ], [ @get_config_unit_name.xbuf, %14 ], [ @get_config_unit_name.xbuf, %11 ]
+  %.0 = phi ptr [ @.str.44, %3 ], [ @.str.45, %4 ], [ @.str.46, %5 ], [ @.str.48, %16 ], [ @.str.49, %17 ], [ @.str.50, %18 ], [ null, %1 ], [ @get_config_unit_name.bbuf, %9 ], [ @get_config_unit_name.bbuf, %6 ], [ @get_config_unit_name.xbuf, %14 ], [ @get_config_unit_name.xbuf, %11 ]
   ret ptr %.0
 }
 
@@ -5094,7 +5094,7 @@ define dso_local noundef zeroext i1 @parse_int(ptr noundef %0, ptr noundef write
   br label %59
 
 59:                                               ; preds = %56, %57, %54, %55, %44, %48, %47, %39, %21, %24
-  %.0 = phi i1 [ false, %39 ], [ false, %21 ], [ true, %56 ], [ false, %44 ], [ false, %54 ], [ false, %24 ], [ false, %47 ], [ false, %48 ], [ false, %55 ], [ true, %57 ]
+  %.0 = phi i1 [ false, %24 ], [ false, %21 ], [ false, %39 ], [ false, %47 ], [ false, %48 ], [ false, %44 ], [ false, %55 ], [ false, %54 ], [ true, %57 ], [ true, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
@@ -5239,7 +5239,7 @@ define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %
   br i1 %.not43, label %.loopexit, label %.lr.ph56, !llvm.loop !42
 
 .loopexit:                                        ; preds = %62, %33, %32, %61
-  %.037 = phi i1 [ false, %32 ], [ true, %61 ], [ false, %33 ], [ false, %62 ]
+  %.037 = phi i1 [ true, %61 ], [ false, %32 ], [ false, %33 ], [ false, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.037
 }
@@ -5338,7 +5338,7 @@ define dso_local noundef zeroext i1 @parse_real(ptr noundef %0, ptr noundef writ
   br label %43
 
 43:                                               ; preds = %40, %41, %35, %39, %38, %30, %10, %15
-  %.0 = phi i1 [ false, %30 ], [ false, %10 ], [ true, %40 ], [ false, %35 ], [ false, %15 ], [ false, %38 ], [ false, %39 ], [ true, %41 ]
+  %.0 = phi i1 [ false, %15 ], [ false, %10 ], [ false, %30 ], [ false, %38 ], [ false, %39 ], [ false, %35 ], [ true, %41 ], [ true, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
@@ -5518,7 +5518,7 @@ define dso_local range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef %0, pt
   br label %21
 
 21:                                               ; preds = %19, %15, %10
-  %.0631 = phi i32 [ %18, %15 ], [ %., %19 ], [ %8, %10 ]
+  %.0631 = phi i32 [ %18, %15 ], [ %8, %10 ], [ %., %19 ]
   %.not678 = icmp eq ptr %1, null
   br i1 %.not678, label %22, label %25
 
@@ -5696,7 +5696,7 @@ switch.early.test:                                ; preds = %.critedge.thread
   br label %.critedge729
 
 .critedge729:                                     ; preds = %87, %switch.early.test, %switch.early.test, %switch.early.test, %.critedge.thread, %50, %.fold.split, %85, %76, %57, %43, %40
-  %.0635 = phi i1 [ false, %40 ], [ false, %43 ], [ false, %85 ], [ true, %50 ], [ false, %57 ], [ false, %76 ], [ false, %switch.early.test ], [ false, %87 ], [ false, %.fold.split ], [ false, %.critedge.thread ], [ false, %switch.early.test ], [ false, %switch.early.test ]
+  %.0635 = phi i1 [ false, %40 ], [ false, %43 ], [ false, %57 ], [ false, %76 ], [ false, %switch.early.test ], [ false, %85 ], [ true, %50 ], [ false, %.fold.split ], [ false, %.critedge.thread ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %87 ]
   %96 = getelementptr inbounds nuw i8, ptr %.0633, i64 32
   %97 = load i32, ptr %96, align 8
   %98 = and i32 %97, 4096
@@ -5785,7 +5785,7 @@ switch.early.test:                                ; preds = %.critedge.thread
   br label %140
 
 140:                                              ; preds = %136, %134
-  %141 = phi i1 [ %139, %136 ], [ false, %134 ]
+  %141 = phi i1 [ false, %134 ], [ %139, %136 ]
   %142 = getelementptr inbounds nuw i8, ptr %.0633, i64 44
   %143 = load i32, ptr %142, align 4
   %144 = icmp ugt i32 %143, %4
@@ -7296,8 +7296,8 @@ guc_free.exit791:                                 ; preds = %800
   store ptr %813, ptr @guc_report_list, align 8
   br label %.thread
 
-.thread:                                          ; preds = %716, %719, %563, %566, %426, %429, %306, %309, %186, %189, %128, %130, %120, %122, %109, %111, %101, %103, %90, %92, %79, %81, %69, %71, %59, %61, %51, %53, %44, %46, %34, %36, %685, %689, %723, %529, %527, %570, %514, %521, %394, %398, %433, %275, %279, %313, %155, %159, %193, %802, %guc_free.exit762, %512, %392, %273, %803, %804, %807, %811, %146, %148, %76, %22
-  %.0613 = phi i32 [ 0, %563 ], [ 0, %90 ], [ 0, %101 ], [ 0, %109 ], [ 0, %120 ], [ -1, %146 ], [ -1, %273 ], [ -1, %392 ], [ -1, %512 ], [ -1, %guc_free.exit762 ], [ -1, %802 ], [ -1, %76 ], [ 0, %34 ], [ 0, %44 ], [ 0, %51 ], [ 0, %22 ], [ 0, %69 ], [ 0, %59 ], [ 0, %79 ], [ -1, %148 ], [ 1, %811 ], [ 1, %807 ], [ 1, %804 ], [ -1, %803 ], [ 0, %521 ], [ 0, %128 ], [ 0, %186 ], [ 0, %306 ], [ 0, %155 ], [ 0, %159 ], [ -1, %193 ], [ 0, %275 ], [ 0, %279 ], [ -1, %313 ], [ 0, %394 ], [ 0, %398 ], [ -1, %433 ], [ 0, %529 ], [ 0, %527 ], [ 0, %426 ], [ 0, %514 ], [ -1, %570 ], [ 0, %685 ], [ 0, %689 ], [ -1, %723 ], [ 0, %36 ], [ 0, %46 ], [ 0, %53 ], [ 0, %61 ], [ 0, %71 ], [ 0, %81 ], [ 0, %92 ], [ 0, %103 ], [ 0, %111 ], [ 0, %122 ], [ 0, %130 ], [ 0, %189 ], [ 0, %309 ], [ 0, %429 ], [ 0, %566 ], [ 0, %719 ], [ 0, %716 ]
+.thread:                                          ; preds = %716, %719, %563, %566, %426, %429, %306, %309, %186, %189, %128, %130, %120, %122, %109, %111, %101, %103, %90, %92, %79, %81, %69, %71, %59, %61, %51, %53, %44, %46, %34, %36, %689, %685, %723, %529, %527, %570, %521, %514, %398, %394, %433, %279, %275, %313, %159, %155, %193, %802, %guc_free.exit762, %512, %392, %273, %803, %804, %807, %811, %146, %148, %76, %22
+  %.0613 = phi i32 [ -1, %273 ], [ -1, %392 ], [ -1, %512 ], [ -1, %guc_free.exit762 ], [ -1, %802 ], [ 0, %22 ], [ -1, %76 ], [ -1, %148 ], [ -1, %146 ], [ 1, %811 ], [ 1, %807 ], [ 1, %804 ], [ -1, %803 ], [ 0, %159 ], [ 0, %155 ], [ -1, %193 ], [ 0, %279 ], [ 0, %275 ], [ -1, %313 ], [ 0, %398 ], [ 0, %394 ], [ -1, %433 ], [ 0, %529 ], [ 0, %527 ], [ -1, %570 ], [ 0, %521 ], [ 0, %514 ], [ 0, %689 ], [ 0, %685 ], [ -1, %723 ], [ 0, %36 ], [ 0, %34 ], [ 0, %46 ], [ 0, %44 ], [ 0, %53 ], [ 0, %51 ], [ 0, %61 ], [ 0, %59 ], [ 0, %71 ], [ 0, %69 ], [ 0, %81 ], [ 0, %79 ], [ 0, %92 ], [ 0, %90 ], [ 0, %103 ], [ 0, %101 ], [ 0, %111 ], [ 0, %109 ], [ 0, %122 ], [ 0, %120 ], [ 0, %130 ], [ 0, %128 ], [ 0, %189 ], [ 0, %186 ], [ 0, %309 ], [ 0, %306 ], [ 0, %429 ], [ 0, %426 ], [ 0, %566 ], [ 0, %563 ], [ 0, %719 ], [ 0, %716 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0613
@@ -7611,11 +7611,11 @@ guc_free.exit:                                    ; preds = %115, %117
   %141 = tail call fastcc zeroext i1 @call_enum_check_hook(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, i32 noundef %2, i32 noundef %3)
   br i1 %141, label %.thread203, label %.thread209
 
-.thread209:                                       ; preds = %136, %138, %137
+.thread209:                                       ; preds = %137, %136, %138
   br label %.thread203
 
 .thread203:                                       ; preds = %guc_strdup.exit.thread, %guc_free.exit, %6, %19, %57, %94, %113, %138, %.thread209, %.thread200, %.thread196, %.thread
-  %.1 = phi i1 [ false, %.thread209 ], [ false, %.thread ], [ false, %.thread196 ], [ false, %.thread200 ], [ true, %6 ], [ true, %138 ], [ true, %113 ], [ true, %94 ], [ true, %57 ], [ true, %19 ], [ false, %guc_free.exit ], [ false, %guc_strdup.exit.thread ]
+  %.1 = phi i1 [ false, %.thread ], [ false, %.thread196 ], [ false, %.thread200 ], [ false, %.thread209 ], [ true, %138 ], [ true, %113 ], [ true, %94 ], [ true, %57 ], [ true, %19 ], [ true, %6 ], [ false, %guc_free.exit ], [ false, %guc_strdup.exit.thread ]
   ret i1 %.1
 }
 
@@ -7683,7 +7683,7 @@ define internal fastcc noundef zeroext i1 @call_bool_check_hook(ptr noundef read
   br label %33
 
 33:                                               ; preds = %8, %5, %32
-  %.0 = phi i1 [ true, %5 ], [ false, %32 ], [ true, %8 ]
+  %.0 = phi i1 [ false, %32 ], [ true, %5 ], [ true, %8 ]
   ret i1 %.0
 }
 
@@ -7758,7 +7758,7 @@ define internal fastcc noundef zeroext i1 @extra_field_used(ptr noundef readonly
   br i1 %39, label %.loopexit, label %31, !llvm.loop !32
 
 .loopexit:                                        ; preds = %31, %32, %36, %25, %21, %17, %13, %9, %2
-  %.021 = phi i1 [ true, %21 ], [ true, %25 ], [ true, %17 ], [ true, %2 ], [ true, %9 ], [ true, %13 ], [ %.not.not.not, %36 ], [ %.not.not.not, %32 ], [ %.not.not.not, %31 ]
+  %.021 = phi i1 [ true, %2 ], [ true, %9 ], [ true, %13 ], [ true, %17 ], [ true, %21 ], [ true, %25 ], [ %.not.not.not, %36 ], [ %.not.not.not, %32 ], [ %.not.not.not, %31 ]
   ret i1 %.021
 }
 
@@ -7825,7 +7825,7 @@ define internal fastcc noundef zeroext i1 @call_int_check_hook(ptr noundef reado
   br label %32
 
 32:                                               ; preds = %8, %5, %31
-  %.0 = phi i1 [ true, %5 ], [ false, %31 ], [ true, %8 ]
+  %.0 = phi i1 [ false, %31 ], [ true, %5 ], [ true, %8 ]
   ret i1 %.0
 }
 
@@ -7892,7 +7892,7 @@ define internal fastcc noundef zeroext i1 @call_real_check_hook(ptr noundef read
   br label %32
 
 32:                                               ; preds = %8, %5, %31
-  %.0 = phi i1 [ true, %5 ], [ false, %31 ], [ true, %8 ]
+  %.0 = phi i1 [ false, %31 ], [ true, %5 ], [ true, %8 ]
   ret i1 %.0
 }
 
@@ -8040,7 +8040,7 @@ define internal fastcc noundef zeroext i1 @string_field_used(ptr noundef readonl
   br i1 %25, label %.loopexit, label %17, !llvm.loop !33
 
 .loopexit:                                        ; preds = %17, %18, %22, %2, %7, %11
-  %.014 = phi i1 [ true, %7 ], [ true, %2 ], [ true, %11 ], [ %.not.not.not, %22 ], [ %.not.not.not, %18 ], [ %.not.not.not, %17 ]
+  %.014 = phi i1 [ true, %11 ], [ true, %7 ], [ true, %2 ], [ %.not.not.not, %22 ], [ %.not.not.not, %18 ], [ %.not.not.not, %17 ]
   ret i1 %.014
 }
 
@@ -8145,7 +8145,7 @@ config_enum_lookup_by_value.exit:                 ; preds = %.lr.ph, %.lr.ph.pre
   br label %46
 
 46:                                               ; preds = %8, %5, %45
-  %.0 = phi i1 [ true, %5 ], [ false, %45 ], [ true, %8 ]
+  %.0 = phi i1 [ false, %45 ], [ true, %5 ], [ true, %8 ]
   ret i1 %.0
 }
 
@@ -8265,7 +8265,7 @@ define dso_local ptr @GetConfigOptionResetString(ptr noundef %0) local_unnamed_a
   unreachable
 
 config_enum_lookup_by_value.exit:                 ; preds = %.lr.ph, %.lr.ph.preheader, %9, %25, %21, %17, %12
-  %.0 = phi ptr [ null, %9 ], [ %16, %12 ], [ @GetConfigOptionResetString.buffer, %17 ], [ @GetConfigOptionResetString.buffer, %21 ], [ %spec.select, %25 ], [ %33, %.lr.ph.preheader ], [ %38, %.lr.ph ]
+  %.0 = phi ptr [ %16, %12 ], [ @GetConfigOptionResetString.buffer, %17 ], [ @GetConfigOptionResetString.buffer, %21 ], [ %spec.select, %25 ], [ null, %9 ], [ %33, %.lr.ph.preheader ], [ %38, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -9425,12 +9425,12 @@ define dso_local ptr @get_explain_guc_options(ptr noundef captures(none) initial
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %.sroa.0.047, i64 -52
   %15 = load i32, ptr %14, align 4
-  switch i32 %15, label %47 [
+  switch i32 %15, label %51 [
     i32 0, label %16
-    i32 1, label %52
-    i32 2, label %22
-    i32 3, label %29
-    i32 4, label %41
+    i32 1, label %22
+    i32 2, label %28
+    i32 3, label %35
+    i32 4, label %45
   ]
 
 16:                                               ; preds = %13
@@ -9444,61 +9444,61 @@ define dso_local ptr @get_explain_guc_options(ptr noundef captures(none) initial
 
 22:                                               ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 64
-  %24 = load double, ptr %23, align 8
+  %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = load double, ptr %26, align 8
-  %28 = fcmp une double %24, %27
-  br i1 %28, label %.critedge41, label %.critedge
+  %27 = load i32, ptr %26, align 4
+  %.not44 = icmp eq i32 %24, %27
+  br i1 %.not44, label %.critedge, label %.critedge41
 
-29:                                               ; preds = %13
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 64
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, null
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 56
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %32, label %37, label %38
+28:                                               ; preds = %13
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 64
+  %30 = load double, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 56
+  %32 = load ptr, ptr %31, align 8
+  %33 = load double, ptr %32, align 8
+  %34 = fcmp une double %30, %33
+  br i1 %34, label %.critedge41, label %.critedge
 
-37:                                               ; preds = %29
-  br i1 %36, label %.critedge, label %.critedge41
+35:                                               ; preds = %13
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 64
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp eq ptr %37, null
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 56
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %38, label %43, label %44
 
-38:                                               ; preds = %29
-  br i1 %36, label %.critedge41, label %39
+43:                                               ; preds = %35
+  br i1 %42, label %.critedge, label %.critedge41
 
-39:                                               ; preds = %38
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %35) #30
-  %.not43 = icmp eq i32 %40, 0
-  br i1 %.not43, label %.critedge, label %.critedge41
+44:                                               ; preds = %35
+  br i1 %42, label %.critedge41, label %56
 
-41:                                               ; preds = %13
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 64
-  %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 56
-  %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr %45, align 4
-  %.not42 = icmp eq i32 %43, %46
+45:                                               ; preds = %13
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 64
+  %47 = load i32, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 56
+  %49 = load ptr, ptr %48, align 8
+  %50 = load i32, ptr %49, align 4
+  %.not42 = icmp eq i32 %47, %50
   br i1 %.not42, label %.critedge, label %.critedge41
 
-47:                                               ; preds = %13
-  %48 = getelementptr inbounds i8, ptr %.sroa.0.047, i64 -52
-  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
-  %50 = load i32, ptr %48, align 4
-  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.89, i32 noundef %50) #29
+51:                                               ; preds = %13
+  %52 = getelementptr inbounds i8, ptr %.sroa.0.047, i64 -52
+  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
+  %54 = load i32, ptr %52, align 4
+  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.89, i32 noundef %54) #29
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 5412, ptr noundef nonnull @__func__.get_explain_guc_options) #29
   unreachable
 
-52:                                               ; preds = %13
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 64
-  %54 = load i32, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 56
-  %56 = load ptr, ptr %55, align 8
-  %57 = load i32, ptr %56, align 4
-  %.not44 = icmp eq i32 %54, %57
-  br i1 %.not44, label %.critedge, label %.critedge41
+56:                                               ; preds = %44
+  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %41) #30
+  %.not43 = icmp eq i32 %57, 0
+  br i1 %.not43, label %.critedge, label %.critedge41
 
-.critedge41:                                      ; preds = %37, %22, %41, %39, %16, %38, %52
+.critedge41:                                      ; preds = %43, %45, %28, %22, %16, %44, %56
   %58 = load i32, ptr %0, align 4
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds ptr, ptr %5, i64 %59
@@ -9508,7 +9508,7 @@ define dso_local ptr @get_explain_guc_options(ptr noundef captures(none) initial
   store i32 %62, ptr %0, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %22, %41, %39, %16, %37, %52, %11, %.lr.ph, %.critedge41
+.critedge:                                        ; preds = %45, %28, %22, %16, %43, %56, %11, %.lr.ph, %.critedge41
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not38 = icmp eq ptr %64, @guc_nondef_list
@@ -9759,7 +9759,7 @@ define dso_local ptr @ShowGUCOption(ptr noundef readonly captures(none) %0, i1 n
   unreachable
 
 config_enum_lookup_by_value.exit:                 ; preds = %.lr.ph, %.lr.ph.preheader, %2, %75, %63, %71, %69, %44, %56, %24, %37, %13, %15
-  %.1 = phi ptr [ @.str.92, %2 ], [ %68, %69 ], [ %20, %15 ], [ %3, %37 ], [ %3, %56 ], [ %14, %13 ], [ %25, %24 ], [ %45, %44 ], [ %64, %63 ], [ @.str.8, %71 ], [ %76, %75 ], [ %83, %.lr.ph.preheader ], [ %88, %.lr.ph ]
+  %.1 = phi ptr [ %14, %13 ], [ %20, %15 ], [ %25, %24 ], [ %3, %37 ], [ %45, %44 ], [ %3, %56 ], [ %64, %63 ], [ @.str.8, %71 ], [ %68, %69 ], [ %76, %75 ], [ @.str.92, %2 ], [ %83, %.lr.ph.preheader ], [ %88, %.lr.ph ]
   %95 = call ptr @pstrdup(ptr noundef %.1) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %95
@@ -10403,7 +10403,7 @@ guc_free.exit98:                                  ; preds = %45
   br i1 %.not74, label %58, label %.sink.split
 
 .sink.split:                                      ; preds = %56, %51, %36, %31, %26
-  %.sink = phi ptr [ %50, %51 ], [ %35, %36 ], [ %30, %31 ], [ %25, %26 ], [ %55, %56 ]
+  %.sink = phi ptr [ %25, %26 ], [ %30, %31 ], [ %35, %36 ], [ %50, %51 ], [ %55, %56 ]
   tail call void @pfree(ptr noundef nonnull %.sink) #29
   br label %58
 
@@ -11077,7 +11077,7 @@ define internal fastcc zeroext i1 @validate_option_array_item(ptr noundef %0, pt
   br label %34
 
 34:                                               ; preds = %11, %28, %24, %9, %3, %29
-  %.0 = phi i1 [ false, %3 ], [ true, %9 ], [ true, %29 ], [ false, %28 ], [ %14, %11 ], [ false, %24 ]
+  %.0 = phi i1 [ true, %29 ], [ false, %3 ], [ %14, %11 ], [ true, %9 ], [ false, %24 ], [ false, %28 ]
   ret i1 %.0
 }
 

@@ -641,7 +641,7 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
   br label %.split94.us
 
 .split94.us:                                      ; preds = %.split.split.us.split.us, %.split.us.split.us.split.us.split.us.split.us, %.split74, %.split74.us.split.us.split.us.split.us, %.split74.us.split.split.us, %.split94, %.split94.us.split.us, %.split94.us.split, %.split97.us, %.split100.us, %.split80.us, %.split77.us, %153, %124, %122, %120, %118
-  %.pn.pn.pn = phi { ptr, i32 } [ %119, %118 ], [ %154, %153 ], [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %78, %.split94.us.split.us ], [ %.us-phi101, %.split100.us ], [ %.us-phi98, %.split97.us ], [ %81, %.split74.us.split.us.split.us.split.us ], [ %.us-phi81, %.split80.us ], [ %.us-phi78, %.split77.us ], [ %138, %.split94 ], [ %111, %.split94.us.split ], [ %145, %.split74 ], [ %114, %.split74.us.split.split.us ], [ %116, %.split.split.us.split.us ], [ %83, %.split.us.split.us.split.us.split.us.split.us ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %154, %153 ], [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ], [ %.us-phi101, %.split100.us ], [ %.us-phi98, %.split97.us ], [ %.us-phi81, %.split80.us ], [ %.us-phi78, %.split77.us ], [ %138, %.split94 ], [ %111, %.split94.us.split ], [ %78, %.split94.us.split.us ], [ %145, %.split74 ], [ %114, %.split74.us.split.split.us ], [ %81, %.split74.us.split.us.split.us.split.us ], [ %116, %.split.split.us.split.us ], [ %83, %.split.us.split.us.split.us.split.us.split.us ]
   %155 = load ptr, ptr %0, align 8, !tbaa !61
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %157 = icmp eq ptr %155, %156
@@ -716,7 +716,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal17IsEvaluationValidERKNS0_13
   br i1 %or.cond30.not, label %21, label %.critedge, !llvm.loop !66
 
 .critedge:                                        ; preds = %21, %18, %4
-  %.0 = phi i1 [ true, %18 ], [ false, %4 ], [ %31, %21 ]
+  %.0 = phi i1 [ false, %4 ], [ true, %18 ], [ %31, %21 ]
   ret i1 %.0
 }
 

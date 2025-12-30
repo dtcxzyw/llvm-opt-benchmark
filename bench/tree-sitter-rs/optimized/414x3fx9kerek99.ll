@@ -796,8 +796,8 @@ define internal { ptr, ptr } @"_ZN63_$LT$libloading..error..Error$u20$as$u20$cor
   br label %15
 
 15:                                               ; preds = %1, %13, %12, %10, %8, %6
-  %.sroa.7.0 = phi ptr [ @anon.9a3a17f5c830402e59ce66ac5de2c364.29, %13 ], [ @anon.9a3a17f5c830402e59ce66ac5de2c364.25, %6 ], [ @anon.9a3a17f5c830402e59ce66ac5de2c364.25, %8 ], [ @anon.9a3a17f5c830402e59ce66ac5de2c364.25, %10 ], [ @anon.9a3a17f5c830402e59ce66ac5de2c364.27, %12 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %14, %13 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %0, %12 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ @anon.9a3a17f5c830402e59ce66ac5de2c364.25, %6 ], [ @anon.9a3a17f5c830402e59ce66ac5de2c364.25, %8 ], [ @anon.9a3a17f5c830402e59ce66ac5de2c364.25, %10 ], [ @anon.9a3a17f5c830402e59ce66ac5de2c364.27, %12 ], [ @anon.9a3a17f5c830402e59ce66ac5de2c364.29, %13 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %0, %12 ], [ %14, %13 ], [ null, %1 ]
   %16 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %17

@@ -376,7 +376,7 @@ define internal range(i32 -22, 1) i32 @nonstatic_find_io(ptr noundef captures(no
   br i1 %40, label %39, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %33, %.thread14, %171, %.thread
-  %174 = phi i32 [ -22, %.thread14 ], [ -22, %.thread ], [ 0, %171 ], [ -16, %33 ]
+  %174 = phi i32 [ 0, %171 ], [ -22, %.thread ], [ -22, %.thread14 ], [ -16, %33 ]
   ret i32 %174
 }
 
@@ -940,8 +940,8 @@ define internal fastcc i32 @do_mem_probe(ptr noundef %0, i64 noundef %1, i64 nou
   br label %.thread
 
 .thread:                                          ; preds = %.split15.us, %5
-  %99 = phi i64 [ %.us-phi, %.split15.us ], [ 0, %5 ]
-  %100 = phi ptr [ %spec.select, %.split15.us ], [ @.str.4, %5 ]
+  %99 = phi i64 [ 0, %5 ], [ %.us-phi, %.split15.us ]
+  %100 = phi ptr [ @.str.4, %5 ], [ %spec.select, %.split15.us ]
   %101 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef nonnull %100) #13
   %102 = sub i64 %2, %99
   %103 = trunc i64 %102 to i32
@@ -1277,7 +1277,7 @@ define internal fastcc range(i32 -22, 1) i32 @do_validate_mem(ptr noundef %0, i6
   br label %104
 
 104:                                              ; preds = %55, %.thread19.thread, %.thread43, %102, %63, %61, %.thread19, %46
-  %105 = phi i32 [ -22, %.thread19.thread ], [ -22, %46 ], [ 0, %102 ], [ 0, %63 ], [ -22, %.thread19 ], [ -22, %61 ], [ 0, %.thread43 ], [ %., %55 ]
+  %105 = phi i32 [ -22, %46 ], [ 0, %102 ], [ 0, %63 ], [ -22, %.thread19 ], [ -22, %61 ], [ 0, %.thread43 ], [ -22, %.thread19.thread ], [ %., %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %105
@@ -1750,12 +1750,12 @@ define internal noundef i64 @store_io_db(ptr noundef readonly captures(none) %0,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %62, %44, %67, %60, %22
-  %.ph = phi i64 [ -16, %60 ], [ -22, %22 ], [ %3, %67 ], [ %3, %44 ], [ %3, %62 ]
+  %.ph = phi i64 [ -22, %22 ], [ -16, %60 ], [ %3, %67 ], [ %3, %44 ], [ %3, %62 ]
   call void @mutex_unlock(ptr noundef nonnull %23) #11
   br label %69
 
 69:                                               ; preds = %.sink.split, %17, %14
-  %70 = phi i64 [ -22, %17 ], [ -22, %14 ], [ %.ph, %.sink.split ]
+  %70 = phi i64 [ -22, %14 ], [ -22, %17 ], [ %.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %70

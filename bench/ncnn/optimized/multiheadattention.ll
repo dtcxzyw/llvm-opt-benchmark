@@ -2786,7 +2786,7 @@ _ZN4ncnn3MatD2Ev.exit42:                          ; preds = %1107, %1104, %1114,
   br label %1123
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %_ZN4ncnn3MatD2Ev.exit34, %_ZN4ncnn3MatD2Ev.exit32, %_ZN4ncnn3MatD2Ev.exit30, %_ZN4ncnn3MatD2Ev.exit28, %_ZN4ncnn3MatD2Ev.exit26, %_ZN4ncnn3MatD2Ev.exit24, %_ZN4ncnn3MatD2Ev.exit22, %_ZN4ncnn3MatD2Ev.exit, %825, %_ZN4ncnn3MatD2Ev.exit39, %_ZNK4ncnn3Mat5emptyEv.exit264, %_ZNK4ncnn3Mat5emptyEv.exit263, %_ZNK4ncnn3Mat5emptyEv.exit262, %_ZNK4ncnn3Mat5emptyEv.exit261, %_ZNK4ncnn3Mat5emptyEv.exit260, %_ZNK4ncnn3Mat5emptyEv.exit259, %_ZNK4ncnn3Mat5emptyEv.exit258, %_ZNK4ncnn3Mat5emptyEv.exit
-  %.019 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit264 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit258 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit259 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit260 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit261 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit262 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit263 ], [ 0, %_ZN4ncnn3MatD2Ev.exit39 ], [ 0, %825 ], [ -100, %_ZN4ncnn3MatD2Ev.exit32 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit22 ], [ -100, %_ZN4ncnn3MatD2Ev.exit24 ], [ -100, %_ZN4ncnn3MatD2Ev.exit26 ], [ -100, %_ZN4ncnn3MatD2Ev.exit28 ], [ -100, %_ZN4ncnn3MatD2Ev.exit30 ], [ -100, %_ZN4ncnn3MatD2Ev.exit34 ]
+  %.019 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit258 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit259 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit260 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit261 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit262 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit263 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit264 ], [ 0, %_ZN4ncnn3MatD2Ev.exit39 ], [ 0, %825 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit22 ], [ -100, %_ZN4ncnn3MatD2Ev.exit24 ], [ -100, %_ZN4ncnn3MatD2Ev.exit26 ], [ -100, %_ZN4ncnn3MatD2Ev.exit28 ], [ -100, %_ZN4ncnn3MatD2Ev.exit30 ], [ -100, %_ZN4ncnn3MatD2Ev.exit32 ], [ -100, %_ZN4ncnn3MatD2Ev.exit34 ]
   ret i32 %.019
 
 1123:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit42, %_ZN4ncnn3MatD2Ev.exit41, %_ZN4ncnn3MatD2Ev.exit40, %_ZN4ncnn3MatD2Ev.exit35, %_ZN4ncnn3MatD2Ev.exit33, %_ZN4ncnn3MatD2Ev.exit31, %_ZN4ncnn3MatD2Ev.exit29, %_ZN4ncnn3MatD2Ev.exit27, %_ZN4ncnn3MatD2Ev.exit25, %_ZN4ncnn3MatD2Ev.exit23, %_ZN4ncnn3MatD2Ev.exit21
@@ -5627,7 +5627,7 @@ define internal void @_ZNK4ncnn18MultiHeadAttention7forwardERKSt6vectorINS_3MatE
   br label %.noexc274
 
 .noexc274:                                        ; preds = %.lr.ph, %.noexc274.loopexit, %.noexc273
-  %.pre712 = phi i32 [ %.pre712.pre720, %.noexc273 ], [ %.pre712.pre, %.noexc274.loopexit ], [ %.pre712.pre720, %.lr.ph ]
+  %.pre712 = phi i32 [ %.pre712.pre, %.noexc274.loopexit ], [ %.pre712.pre720, %.noexc273 ], [ %.pre712.pre720, %.lr.ph ]
   %116 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !79
   %117 = load i64, ptr %39, align 8, !tbaa !17, !noalias !79
   %118 = mul i64 %117, %indvars.iv709
@@ -6780,7 +6780,7 @@ define internal void @_ZNK4ncnn18MultiHeadAttention12forward_int8ERKSt6vectorINS
   br label %.noexc354
 
 .noexc354:                                        ; preds = %.lr.ph, %.noexc354.loopexit, %.noexc356
-  %.pre = phi i32 [ %.pre.pre711, %.noexc356 ], [ %.pre.pre, %.noexc354.loopexit ], [ %.pre.pre711, %.lr.ph ]
+  %.pre = phi i32 [ %.pre.pre, %.noexc354.loopexit ], [ %.pre.pre711, %.noexc356 ], [ %.pre.pre711, %.lr.ph ]
   %234 = load ptr, ptr %9, align 8, !tbaa !16, !noalias !145
   %235 = load i64, ptr %63, align 8, !tbaa !17, !noalias !145
   %236 = mul i64 %235, %indvars.iv702

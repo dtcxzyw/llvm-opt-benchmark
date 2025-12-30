@@ -827,7 +827,7 @@ _ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.i: ; preds = %.lr.ph.i51.i, %200
   br label %_ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i
 
 _ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.thread.i: ; preds = %191, %204, %172, %.preheader.i.i.i62, %212, %210, %209, %201, %.loopexit69.i, %142, %138, %_ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i
-  %.1.i = phi i32 [ %.072.i, %.loopexit69.i ], [ %.072.i, %_ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i ], [ 2, %172 ], [ 2, %142 ], [ %.072.i, %201 ], [ 1, %209 ], [ 1, %138 ], [ 1, %210 ], [ 1, %212 ], [ %.072.i, %204 ], [ 2, %.preheader.i.i.i62 ], [ 2, %191 ]
+  %.1.i = phi i32 [ %.072.i, %_ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i ], [ 2, %142 ], [ %.072.i, %.loopexit69.i ], [ 1, %210 ], [ 1, %212 ], [ 1, %209 ], [ %.072.i, %201 ], [ 1, %138 ], [ 2, %.preheader.i.i.i62 ], [ 2, %172 ], [ %.072.i, %204 ], [ 2, %191 ]
   %218 = icmp ne ptr %.sroa.056.073.i, null
   tail call void @llvm.assume(i1 %218)
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.056.073.i, align 8
@@ -1097,7 +1097,7 @@ _ZN12_GLOBAL__N_118VZeroUpperInserter17addDirtySuccessorERN4llvm17MachineBasicBl
   br label %355
 
 355:                                              ; preds = %12, %6, %40, %._crit_edge110, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %12 ], [ %354, %._crit_edge110 ], [ false, %40 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %12 ], [ false, %6 ], [ %354, %._crit_edge110 ], [ false, %40 ]
   ret i1 %.0
 }
 

@@ -755,7 +755,7 @@ define internal noundef zeroext i1 @dissect_rlc_nr_heur(ptr noundef %0, ptr noun
   br label %62
 
 62:                                               ; preds = %7, %4, %60, %35
-  %.0 = phi i1 [ true, %60 ], [ false, %4 ], [ true, %35 ], [ false, %7 ]
+  %.0 = phi i1 [ true, %35 ], [ true, %60 ], [ false, %4 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -1310,7 +1310,7 @@ show_PDU_in_info.exit.thread.i:                   ; preds = %286, %283, %282, %2
   br label %312
 
 312:                                              ; preds = %303, %297, %294, %show_PDU_in_info.exit.thread.i
-  %.0119.i = phi ptr [ null, %show_PDU_in_info.exit.thread.i ], [ null, %294 ], [ %311, %303 ], [ null, %297 ]
+  %.0119.i = phi ptr [ null, %294 ], [ null, %show_PDU_in_info.exit.thread.i ], [ %311, %303 ], [ null, %297 ]
   %313 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i)
   %314 = icmp sgt i32 %313, 0
   br i1 %314, label %315, label %354
@@ -1743,7 +1743,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %522, %519, %516
   br label %._crit_edge170.thread.i.i
 
 ._crit_edge170.thread.i.i:                        ; preds = %proto_item_set_generated.exit.i.i, %._crit_edge170.i.i, %409
-  %.0137.lcssa186.i.i = phi i32 [ %.3.i.i, %._crit_edge170.i.i ], [ %.3.i.i, %proto_item_set_generated.exit.i.i ], [ %405, %409 ]
+  %.0137.lcssa186.i.i = phi i32 [ %.3.i.i, %proto_item_set_generated.exit.i.i ], [ %.3.i.i, %._crit_edge170.i.i ], [ %405, %409 ]
   %528 = add i32 %.0137.lcssa186.i.i, 7
   %529 = sdiv i32 %528, 8
   %530 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %529)
@@ -1961,7 +1961,7 @@ show_PDU_in_info.exit.thread.i144:                ; preds = %612, %609, %608, %5
   br label %638
 
 638:                                              ; preds = %629, %623, %620, %show_PDU_in_info.exit.thread.i144
-  %.0129.i = phi ptr [ null, %show_PDU_in_info.exit.thread.i144 ], [ null, %620 ], [ %637, %629 ], [ null, %623 ]
+  %.0129.i = phi ptr [ null, %620 ], [ null, %show_PDU_in_info.exit.thread.i144 ], [ %637, %629 ], [ null, %623 ]
   %639 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i)
   %640 = icmp sgt i32 %639, 0
   br i1 %640, label %641, label %659

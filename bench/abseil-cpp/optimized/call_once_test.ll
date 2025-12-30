@@ -1344,7 +1344,7 @@ _ZNSt6vectorISt6threadSaIS0_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPSt6t
   br label %.body
 
 .body:                                            ; preds = %53, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i, %43, %331, %284, %242, %192, %188, %187, %148, %106, %63
-  %.pn50 = phi { ptr, i32 } [ %64, %63 ], [ %193, %192 ], [ %189, %188 ], [ %.pn46.pn.pn, %331 ], [ %.pn42.pn.pn, %284 ], [ %.pn38.pn.pn, %242 ], [ %.pn34.pn.pn, %187 ], [ %.pn30.pn.pn, %148 ], [ %.pn.pn.pn, %106 ], [ %54, %53 ], [ %44, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i ], [ %44, %43 ]
+  %.pn50 = phi { ptr, i32 } [ %193, %192 ], [ %189, %188 ], [ %.pn46.pn.pn, %331 ], [ %.pn42.pn.pn, %284 ], [ %.pn38.pn.pn, %242 ], [ %.pn34.pn.pn, %187 ], [ %.pn30.pn.pn, %148 ], [ %.pn.pn.pn, %106 ], [ %64, %63 ], [ %54, %53 ], [ %44, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i ], [ %44, %43 ]
   call void @_ZNSt6vectorISt6threadSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn50

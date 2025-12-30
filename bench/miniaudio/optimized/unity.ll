@@ -894,7 +894,7 @@ define range(i32 0, 35) i32 @ma_strcpy_s(ptr noundef writeonly captures(address_
   br label %15
 
 15:                                               ; preds = %5, %3, %.critedge22, %.critedge, %9
-  %.018 = phi i32 [ 34, %.critedge22 ], [ 22, %3 ], [ 22, %9 ], [ 0, %.critedge ], [ 34, %5 ]
+  %.018 = phi i32 [ 22, %9 ], [ 0, %.critedge ], [ 34, %.critedge22 ], [ 22, %3 ], [ 34, %5 ]
   ret i32 %.018
 }
 
@@ -938,7 +938,7 @@ define range(i32 0, 35) i32 @ma_wcscpy_s(ptr noundef writeonly captures(address_
   br label %15
 
 15:                                               ; preds = %5, %3, %.critedge23, %.critedge, %9
-  %.018 = phi i32 [ 34, %.critedge23 ], [ 22, %3 ], [ 22, %9 ], [ 0, %.critedge ], [ 34, %5 ]
+  %.018 = phi i32 [ 22, %9 ], [ 0, %.critedge ], [ 34, %.critedge23 ], [ 22, %3 ], [ 34, %5 ]
   ret i32 %.018
 }
 
@@ -1001,7 +1001,7 @@ define range(i32 0, 35) i32 @ma_strncpy_s(ptr noundef writeonly captures(address
   br label %26
 
 26:                                               ; preds = %6, %4, %25, %23, %10
-  %.028 = phi i32 [ 34, %25 ], [ 22, %4 ], [ 22, %10 ], [ 0, %23 ], [ 34, %6 ]
+  %.028 = phi i32 [ 22, %10 ], [ 0, %23 ], [ 34, %25 ], [ 22, %4 ], [ 34, %6 ]
   ret i32 %.028
 }
 
@@ -1054,7 +1054,7 @@ define range(i32 0, 35) i32 @ma_strcat_s(ptr noundef captures(address_is_null) %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %.loopexit.sink.split, %5, %3
-  %.0 = phi i32 [ 34, %5 ], [ 22, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 22, %10 ]
+  %.0 = phi i32 [ 22, %3 ], [ 34, %5 ], [ %.0.ph, %.loopexit.sink.split ], [ 22, %10 ]
   ret i32 %.0
 }
 
@@ -1116,7 +1116,7 @@ define range(i32 0, 35) i32 @ma_strncat_s(ptr noundef captures(address_is_null) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %.loopexit.sink.split, %8, %6, %4
-  %.0 = phi i32 [ %.0.ph, %.loopexit.sink.split ], [ 22, %4 ], [ 34, %6 ], [ 22, %8 ], [ 22, %12 ]
+  %.0 = phi i32 [ 22, %4 ], [ 34, %6 ], [ 22, %8 ], [ %.0.ph, %.loopexit.sink.split ], [ 22, %12 ]
   ret i32 %.0
 }
 
@@ -1194,7 +1194,7 @@ define range(i32 0, 23) i32 @ma_itoa_s(i32 noundef %0, ptr noundef captures(addr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %.thread, %4
-  %.0 = phi i32 [ 22, %4 ], [ 22, %.loopexit.sink.split ], [ 0, %.thread ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 22, %4 ], [ 0, %.thread ], [ 22, %.loopexit.sink.split ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -1400,7 +1400,7 @@ define range(i32 -51, 1) i32 @ma_fopen(ptr noundef writeonly captures(address_is
   br label %.thread
 
 .thread:                                          ; preds = %3, %7, %4, %10
-  %.0 = phi i32 [ -2, %4 ], [ %spec.store.select, %10 ], [ 0, %7 ], [ -2, %3 ]
+  %.0 = phi i32 [ %spec.store.select, %10 ], [ -2, %4 ], [ 0, %7 ], [ -2, %3 ]
   ret i32 %.0
 }
 
@@ -1543,7 +1543,7 @@ ma_free.exit:                                     ; preds = %20, %ma_malloc.exit
   br label %.thread
 
 .thread:                                          ; preds = %4, %ma_free.exit, %48, %8
-  %.030 = phi i32 [ %.1, %ma_free.exit ], [ %., %48 ], [ -2, %8 ], [ -2, %4 ]
+  %.030 = phi i32 [ %.1, %ma_free.exit ], [ -2, %8 ], [ %., %48 ], [ -2, %4 ]
   ret i32 %.030
 }
 
@@ -1688,7 +1688,7 @@ ma_allocation_callbacks_init_copy.exit:           ; preds = %6, %14, %18, %22, %
   br label %ma_mutex_init.exit
 
 ma_mutex_init.exit:                               ; preds = %34, %ma_allocation_callbacks_init_copy.exit, %2
-  %.08 = phi i32 [ -2, %2 ], [ 0, %ma_allocation_callbacks_init_copy.exit ], [ %35, %34 ]
+  %.08 = phi i32 [ -2, %2 ], [ %35, %34 ], [ 0, %ma_allocation_callbacks_init_copy.exit ]
   ret i32 %.08
 }
 
@@ -2087,7 +2087,7 @@ ma_malloc.exit:                                   ; preds = %29
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %29, %64, %.loopexit, %44, %41, %ma_log_post.exit, %ma_malloc.exit, %8
-  %.1 = phi i32 [ 0, %64 ], [ -4, %ma_malloc.exit ], [ -3, %8 ], [ 0, %ma_log_post.exit ], [ -3, %44 ], [ -3, %41 ], [ 0, %.loopexit ], [ -4, %29 ]
+  %.1 = phi i32 [ -3, %8 ], [ -4, %ma_malloc.exit ], [ 0, %ma_log_post.exit ], [ -3, %41 ], [ -3, %44 ], [ 0, %.loopexit ], [ 0, %64 ], [ -4, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %66
 
@@ -2498,7 +2498,7 @@ define range(i32 -51, 1) i32 @ma_fence_init(ptr noundef %0) local_unnamed_addr #
   br label %ma_event_init.exit
 
 ma_event_init.exit:                               ; preds = %14, %11, %6, %1
-  %.07 = phi i32 [ -2, %1 ], [ 0, %14 ], [ %7, %6 ], [ %13, %11 ]
+  %.07 = phi i32 [ -2, %1 ], [ %7, %6 ], [ %13, %11 ], [ 0, %14 ]
   ret i32 %.07
 }
 
@@ -2544,8 +2544,8 @@ define range(i32 -5, 1) i32 @ma_fence_acquire(ptr noundef captures(address_is_nu
   %.not = icmp eq i32 %12, 2147483647
   br i1 %.not, label %.thread, label %4
 
-.thread:                                          ; preds = %4, %8, %11, %1
-  %.0 = phi i32 [ -2, %1 ], [ 0, %8 ], [ -5, %4 ], [ -5, %11 ]
+.thread:                                          ; preds = %8, %4, %11, %1
+  %.0 = phi i32 [ -2, %1 ], [ -5, %4 ], [ 0, %8 ], [ -5, %11 ]
   ret i32 %.0
 }
 
@@ -2587,8 +2587,8 @@ ma_event_signal.exit:                             ; preds = %11
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %.thread, label %4
 
-.thread:                                          ; preds = %4, %18, %ma_event_signal.exit, %11, %1
-  %.0 = phi i32 [ 0, %11 ], [ -2, %1 ], [ 0, %ma_event_signal.exit ], [ -3, %18 ], [ -3, %4 ]
+.thread:                                          ; preds = %4, %18, %11, %ma_event_signal.exit, %1
+  %.0 = phi i32 [ -2, %1 ], [ 0, %11 ], [ 0, %ma_event_signal.exit ], [ -3, %18 ], [ -3, %4 ]
   ret i32 %.0
 }
 
@@ -2722,7 +2722,7 @@ define range(i32 -51, 1) i32 @ma_async_notification_event_init(ptr noundef %0) l
   br label %ma_event_init.exit
 
 ma_event_init.exit:                               ; preds = %15, %12, %7, %1
-  %.0 = phi i32 [ -2, %1 ], [ 0, %15 ], [ %8, %7 ], [ %14, %12 ]
+  %.0 = phi i32 [ -2, %1 ], [ %8, %7 ], [ %14, %12 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -3012,8 +3012,8 @@ ma_zero_memory_default.exit19.i:                  ; preds = %29
   store i32 1, ptr %56, align 8, !tbaa !61
   br label %ma_free.exit
 
-ma_free.exit:                                     ; preds = %20, %3, %5, %38, %36, %33, %ma_malloc.exit, %39
-  %.013 = phi i32 [ 0, %39 ], [ -2, %38 ], [ -2, %3 ], [ -4, %ma_malloc.exit ], [ -4, %20 ], [ -2, %33 ], [ -2, %36 ], [ -2, %5 ]
+ma_free.exit:                                     ; preds = %20, %5, %3, %38, %36, %33, %ma_malloc.exit, %39
+  %.013 = phi i32 [ 0, %39 ], [ -4, %ma_malloc.exit ], [ -2, %33 ], [ -2, %36 ], [ -2, %38 ], [ -2, %3 ], [ -2, %5 ], [ -4, %20 ]
   ret i32 %.013
 }
 
@@ -3155,8 +3155,8 @@ ma_ffs_32.exit:                                   ; preds = %.preheader, %.ma_ff
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #66, !srcloc !39
   br i1 %7, label %.preheader59, label %.thread54, !llvm.loop !67
 
-.thread54:                                        ; preds = %.preheader59, %._crit_edge, %49, %24, %30, %2
-  %.0 = phi i32 [ -2, %2 ], [ 0, %30 ], [ -4, %24 ], [ -4, %49 ], [ -4, %._crit_edge ], [ -4, %.preheader59 ]
+.thread54:                                        ; preds = %.preheader59, %._crit_edge, %49, %30, %24, %2
+  %.0 = phi i32 [ -2, %2 ], [ -4, %24 ], [ 0, %30 ], [ -4, %49 ], [ -4, %._crit_edge ], [ -4, %.preheader59 ]
   ret i32 %.0
 }
 
@@ -3207,7 +3207,7 @@ define range(i32 -3, 1) i32 @ma_slot_allocator_free(ptr noundef captures(address
   br label %.loopexit, !llvm.loop !68
 
 .loopexit:                                        ; preds = %.critedge, %26, %4, %2
-  %.0 = phi i32 [ -2, %4 ], [ -2, %2 ], [ 0, %26 ], [ -3, %.critedge ]
+  %.0 = phi i32 [ 0, %26 ], [ -2, %2 ], [ -2, %4 ], [ -3, %.critedge ]
   ret i32 %.0
 }
 
@@ -3296,8 +3296,8 @@ define range(i32 -2, 1) i32 @ma_job_queue_get_heap_size(ptr noundef readonly cap
   store i64 %23, ptr %1, align 8, !tbaa !52
   br label %ma_job_queue_get_heap_layout.exit.thread
 
-ma_job_queue_get_heap_layout.exit.thread:         ; preds = %4, %6, %2, %10
-  %.0 = phi i32 [ 0, %10 ], [ -2, %2 ], [ -2, %6 ], [ -2, %4 ]
+ma_job_queue_get_heap_layout.exit.thread:         ; preds = %6, %4, %2, %10
+  %.0 = phi i32 [ 0, %10 ], [ -2, %2 ], [ -2, %4 ], [ -2, %6 ]
   ret i32 %.0
 }
 
@@ -3507,7 +3507,7 @@ ma_slot_allocator_alloc.exit:                     ; preds = %.preheader59.i, %._
   store i64 %106, ptr %110, align 8, !tbaa !81
   br label %ma_job_queue_get_heap_layout.exit.thread
 
-ma_job_queue_get_heap_layout.exit.thread:         ; preds = %ma_zero_memory_default.exit, %ma_zero_memory_default.exit32, %6, %3, %ma_slot_allocator_alloc.exit
+ma_job_queue_get_heap_layout.exit.thread:         ; preds = %ma_zero_memory_default.exit, %6, %ma_zero_memory_default.exit32, %3, %ma_slot_allocator_alloc.exit
   %.0 = phi i32 [ 0, %ma_slot_allocator_alloc.exit ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit32 ], [ -2, %6 ], [ -2, %ma_zero_memory_default.exit ]
   ret i32 %.0
 }
@@ -3592,7 +3592,7 @@ ma_malloc.exit:                                   ; preds = %26, %29
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %23, %5, %3, %40, %38, %35, %ma_malloc.exit, %41
-  %.013 = phi i32 [ 0, %41 ], [ %33, %38 ], [ -2, %5 ], [ -4, %ma_malloc.exit ], [ -4, %23 ], [ %33, %40 ], [ %33, %35 ], [ -2, %3 ]
+  %.013 = phi i32 [ 0, %41 ], [ -4, %ma_malloc.exit ], [ %33, %35 ], [ %33, %38 ], [ %33, %40 ], [ -2, %3 ], [ -2, %5 ], [ -4, %23 ]
   ret i32 %.013
 }
 
@@ -3880,8 +3880,8 @@ ma_spinlock_lock.exit:                            ; preds = %.loopexit.i, %42
   %117 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %111) #66
   br label %ma_slot_allocator_alloc.exit.thread
 
-ma_slot_allocator_alloc.exit.thread:              ; preds = %._crit_edge.i, %41, %.preheader59.i, %26, %101, %109, %2
-  %.0 = phi i32 [ 0, %101 ], [ -2, %2 ], [ 0, %109 ], [ -4, %26 ], [ -4, %.preheader59.i ], [ -4, %41 ], [ -4, %._crit_edge.i ]
+ma_slot_allocator_alloc.exit.thread:              ; preds = %.preheader59.i, %._crit_edge.i, %41, %26, %101, %109, %2
+  %.0 = phi i32 [ -2, %2 ], [ 0, %109 ], [ 0, %101 ], [ -4, %26 ], [ -4, %41 ], [ -4, %._crit_edge.i ], [ -4, %.preheader59.i ]
   ret i32 %.0
 }
 
@@ -4055,7 +4055,7 @@ ma_slot_allocator_free.exit:                      ; preds = %.critedge.i, %69, %
   br label %98
 
 98:                                               ; preds = %ma_slot_allocator_free.exit, %2, %96, %54
-  %.0 = phi i32 [ -2, %2 ], [ -32, %54 ], [ -51, %96 ], [ 0, %ma_slot_allocator_free.exit ]
+  %.0 = phi i32 [ -32, %54 ], [ -51, %96 ], [ -2, %2 ], [ 0, %ma_slot_allocator_free.exit ]
   ret i32 %.0
 }
 
@@ -4180,7 +4180,7 @@ define range(i32 -2, 1) i32 @ma_get_backend_from_name(ptr noundef readonly captu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %11, %12, %2
-  %.08 = phi i32 [ 0, %11 ], [ -2, %2 ], [ 0, %12 ], [ -2, %4 ]
+  %.08 = phi i32 [ -2, %2 ], [ 0, %12 ], [ 0, %11 ], [ -2, %4 ]
   ret i32 %.08
 }
 
@@ -4925,7 +4925,7 @@ ma_data_converter_get_heap_size.exit.i.i:         ; preds = %ma_data_converter_u
   br label %ma_data_converter_init.exit.thread.i
 
 ma_data_converter_init.exit.thread.i:             ; preds = %338, %335, %.thread.i.i, %328, %325, %ma_data_converter_get_heap_size.exit.i.i
-  %.013.i.ph.i = phi i32 [ %333, %335 ], [ %334, %.thread.i.i ], [ -4, %325 ], [ -4, %328 ], [ %333, %338 ], [ %322, %ma_data_converter_get_heap_size.exit.i.i ]
+  %.013.i.ph.i = phi i32 [ %334, %.thread.i.i ], [ -4, %325 ], [ %333, %338 ], [ %333, %335 ], [ -4, %328 ], [ %322, %ma_data_converter_get_heap_size.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ma_device__post_init_setup.exit
 
@@ -5146,7 +5146,7 @@ ma_data_converter_get_heap_size.exit.i190.i:      ; preds = %ma_data_converter_u
   br label %ma_data_converter_init.exit198.thread.i
 
 ma_data_converter_init.exit198.thread.i:          ; preds = %454, %451, %.thread.i196.i, %444, %441, %ma_data_converter_get_heap_size.exit.i190.i
-  %456 = phi i32 [ %438, %ma_data_converter_get_heap_size.exit.i190.i ], [ %449, %451 ], [ %450, %.thread.i196.i ], [ -4, %441 ], [ -4, %444 ], [ %449, %454 ]
+  %456 = phi i32 [ %450, %.thread.i196.i ], [ -4, %441 ], [ %449, %454 ], [ %449, %451 ], [ -4, %444 ], [ %438, %ma_data_converter_get_heap_size.exit.i190.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %ma_device__post_init_setup.exit
 
@@ -5336,8 +5336,8 @@ ma_free.exit.i:                                   ; preds = %539, %536, %ma_real
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ma_device__post_init_setup.exit
 
-ma_device__post_init_setup.exit:                  ; preds = %53, %51, %57, %18, %16, %22, %ma_free.exit.i, %.thread224.i, %ma_data_converter_init.exit198.thread.i, %341, %ma_data_converter_init.exit.thread.i, %ma_device_descriptor_is_valid.exit76, %ma_device_descriptor_is_valid.exit, %4
-  %.0 = phi i32 [ -2, %18 ], [ -2, %4 ], [ -2, %ma_device_descriptor_is_valid.exit ], [ -2, %ma_device_descriptor_is_valid.exit76 ], [ 0, %341 ], [ %.013.i.ph.i, %ma_data_converter_init.exit.thread.i ], [ -4, %ma_free.exit.i ], [ %456, %ma_data_converter_init.exit198.thread.i ], [ 0, %.thread224.i ], [ -2, %22 ], [ -2, %16 ], [ -2, %57 ], [ -2, %51 ], [ -2, %53 ]
+ma_device__post_init_setup.exit:                  ; preds = %57, %53, %51, %22, %18, %16, %ma_free.exit.i, %.thread224.i, %ma_data_converter_init.exit198.thread.i, %341, %ma_data_converter_init.exit.thread.i, %ma_device_descriptor_is_valid.exit76, %ma_device_descriptor_is_valid.exit, %4
+  %.0 = phi i32 [ -2, %4 ], [ -2, %ma_device_descriptor_is_valid.exit ], [ -2, %ma_device_descriptor_is_valid.exit76 ], [ -4, %ma_free.exit.i ], [ %.013.i.ph.i, %ma_data_converter_init.exit.thread.i ], [ %456, %ma_data_converter_init.exit198.thread.i ], [ 0, %.thread224.i ], [ 0, %341 ], [ -2, %16 ], [ -2, %18 ], [ -2, %22 ], [ -2, %51 ], [ -2, %53 ], [ -2, %57 ]
   ret i32 %.0
 }
 
@@ -5448,7 +5448,7 @@ ma_context_get_device_info.exit24:                ; preds = %34, %38
   br label %44
 
 44:                                               ; preds = %ma_zero_memory_default.exit, %3, %ma_context_get_device_info.exit24, %ma_context_get_device_info.exit, %12
-  %.0 = phi i32 [ %.0.i23, %ma_context_get_device_info.exit24 ], [ -2, %3 ], [ %13, %12 ], [ %.0.i, %ma_context_get_device_info.exit ], [ -2, %ma_zero_memory_default.exit ]
+  %.0 = phi i32 [ %13, %12 ], [ %.0.i, %ma_context_get_device_info.exit ], [ %.0.i23, %ma_context_get_device_info.exit24 ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit ]
   ret i32 %.0
 }
 
@@ -5509,7 +5509,7 @@ ma_zero_memory_default.exit:                      ; preds = %3
   br label %24
 
 24:                                               ; preds = %20, %22, %7, %ma_zero_memory_default.exit, %3, %19
-  %.0 = phi i32 [ %13, %7 ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit ], [ %18, %19 ], [ 0, %22 ], [ 0, %20 ]
+  %.0 = phi i32 [ %18, %19 ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit ], [ %13, %7 ], [ 0, %22 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -5729,7 +5729,7 @@ ma_thread_create__posix.exit:                     ; preds = %86
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %12, %95, %93, %90, %ma_thread_create__posix.exit.thread, %ma_malloc.exit.thread28, %ma_thread_create__posix.exit, %ma_malloc.exit, %6
-  %.0 = phi i32 [ -4, %ma_malloc.exit ], [ -2, %6 ], [ 0, %ma_thread_create__posix.exit.thread ], [ 0, %ma_thread_create__posix.exit ], [ %88, %95 ], [ -4, %ma_malloc.exit.thread28 ], [ %88, %90 ], [ %88, %93 ], [ -4, %12 ]
+  %.0 = phi i32 [ -2, %6 ], [ -4, %ma_malloc.exit ], [ 0, %ma_thread_create__posix.exit ], [ -4, %ma_malloc.exit.thread28 ], [ 0, %ma_thread_create__posix.exit.thread ], [ %88, %90 ], [ %88, %93 ], [ %88, %95 ], [ -4, %12 ]
   ret i32 %.0
 }
 
@@ -6010,7 +6010,7 @@ ma_log_init.exit:                                 ; preds = %ma_allocation_callb
   br label %ma_log_init.exit.thread
 
 ma_log_init.exit.thread:                          ; preds = %ma_log_init.exit, %ma_allocation_callbacks_init_copy.exit.i, %ma_allocation_callbacks_init_copy.exit
-  %.sink = phi ptr [ %31, %ma_allocation_callbacks_init_copy.exit ], [ %spec.select236, %ma_log_init.exit ], [ %33, %ma_allocation_callbacks_init_copy.exit.i ]
+  %.sink = phi ptr [ %31, %ma_allocation_callbacks_init_copy.exit ], [ %33, %ma_allocation_callbacks_init_copy.exit.i ], [ %spec.select236, %ma_log_init.exit ]
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr %.sink, ptr %63, align 8, !tbaa !205
   %64 = load i32, ptr %.081.sroa.phi241, align 8, !tbaa !206
@@ -6068,7 +6068,7 @@ ma_zero_memory_default.exit113:                   ; preds = %ma_zero_memory_defa
   br label %ma_context_get_log.exit.thread
 
 ma_context_get_log.exit.thread:                   ; preds = %ma_zero_memory_default.exit113, %78, %79, %80
-  %ma_context_init__pulse.sink = phi ptr [ @ma_context_init__null, %80 ], [ @ma_context_init__alsa, %78 ], [ @ma_context_init__jack, %79 ], [ @ma_context_init__pulse, %ma_zero_memory_default.exit113 ]
+  %ma_context_init__pulse.sink = phi ptr [ @ma_context_init__alsa, %78 ], [ @ma_context_init__jack, %79 ], [ @ma_context_init__null, %80 ], [ @ma_context_init__pulse, %ma_zero_memory_default.exit113 ]
   store ptr %ma_context_init__pulse.sink, ptr %3, align 8, !tbaa !213
   %81 = load ptr, ptr %75, align 8, !tbaa !205
   br label %ma_context_get_log.exit.thread163
@@ -6165,7 +6165,7 @@ ma_get_backend_name.exit142:                      ; preds = %.thread160, %ma_con
   br label %128
 
 ma_mutex_init.exit122.thread:                     ; preds = %ma_mutex_init.exit.thread, %ma_mutex_init.exit122, %ma_context_get_log.exit124
-  %.0.i121174 = phi i32 [ 0, %ma_mutex_init.exit122 ], [ %99, %ma_context_get_log.exit124 ], [ 0, %ma_mutex_init.exit.thread ]
+  %.0.i121174 = phi i32 [ %99, %ma_context_get_log.exit124 ], [ 0, %ma_mutex_init.exit122 ], [ 0, %ma_mutex_init.exit.thread ]
   %117 = load ptr, ptr %75, align 8, !tbaa !205
   %118 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %117, i32 noundef 4, ptr noundef nonnull @.str.17)
   %119 = load ptr, ptr %75, align 8, !tbaa !205
@@ -6189,8 +6189,8 @@ ma_mutex_init.exit122.thread:                     ; preds = %ma_mutex_init.exit.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1016) %3, i8 0, i64 1016, i1 false)
   br label %ma_zero_memory_default.exit
 
-ma_zero_memory_default.exit:                      ; preds = %20, %27, %24, %17, %._crit_edge, %ma_mutex_init.exit122.thread, %4
-  %.0 = phi i32 [ %.0.i121174, %ma_mutex_init.exit122.thread ], [ -2, %4 ], [ -203, %._crit_edge ], [ -2, %20 ], [ -2, %17 ], [ -2, %24 ], [ -2, %27 ]
+ma_zero_memory_default.exit:                      ; preds = %17, %20, %24, %27, %._crit_edge, %ma_mutex_init.exit122.thread, %4
+  %.0 = phi i32 [ %.0.i121174, %ma_mutex_init.exit122.thread ], [ -2, %4 ], [ -203, %._crit_edge ], [ -2, %27 ], [ -2, %24 ], [ -2, %20 ], [ -2, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -7204,7 +7204,7 @@ ma_context_get_log.exit420:                       ; preds = %ma_free.exit416, %5
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %22, %13, %531, %528, %525, %517, %557, %ma_context_get_log.exit420
-  %.0228 = phi i32 [ 0, %557 ], [ -4, %531 ], [ -4, %517 ], [ %539, %ma_context_get_log.exit420 ], [ -4, %525 ], [ -4, %528 ], [ -203, %13 ], [ -203, %22 ]
+  %.0228 = phi i32 [ %539, %ma_context_get_log.exit420 ], [ 0, %557 ], [ -4, %517 ], [ -4, %525 ], [ -4, %528 ], [ -4, %531 ], [ -203, %13 ], [ -203, %22 ]
   ret i32 %.0228
 }
 
@@ -8577,7 +8577,7 @@ ma_context_open_client__jack.exit:                ; preds = %159
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %24, %15, %193, %ma_context_open_client__jack.exit.thread
-  %.0 = phi i32 [ -203, %193 ], [ 0, %ma_context_open_client__jack.exit.thread ], [ -203, %15 ], [ -203, %24 ]
+  %.0 = phi i32 [ 0, %ma_context_open_client__jack.exit.thread ], [ -203, %193 ], [ -203, %15 ], [ -203, %24 ]
   ret i32 %.0
 }
 
@@ -8895,7 +8895,7 @@ ma_realloc.exit:                                  ; preds = %12
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %ma_realloc.exit, %._crit_edge, %43
-  %.1 = phi i32 [ 1, %._crit_edge ], [ 0, %ma_realloc.exit ], [ 1, %43 ], [ 0, %12 ]
+  %.1 = phi i32 [ 1, %43 ], [ 1, %._crit_edge ], [ 0, %ma_realloc.exit ], [ 0, %12 ]
   ret i32 %.1
 }
 
@@ -9092,7 +9092,7 @@ ma_zero_memory_default.exit:                      ; preds = %13
   %41 = icmp eq i8 %36, %40
   br i1 %41, label %ma__is_channel_map_valid.exit, label %37
 
-ma__is_channel_map_valid.exit.thread:             ; preds = %.critedge.loopexit.i, %30, %27, %20
+ma__is_channel_map_valid.exit.thread:             ; preds = %.critedge.loopexit.i, %27, %30, %20
   switch i32 %21, label %ma__is_channel_map_valid.exit366.thread [
     i32 1, label %42
     i32 3, label %42
@@ -9153,7 +9153,7 @@ ma__is_channel_map_valid.exit.thread:             ; preds = %.critedge.loopexit.
   %60 = icmp eq i8 %55, %59
   br i1 %60, label %ma__is_channel_map_valid.exit, label %56
 
-ma__is_channel_map_valid.exit366.thread:          ; preds = %.critedge.loopexit.i358, %49, %46, %ma__is_channel_map_valid.exit.thread
+ma__is_channel_map_valid.exit366.thread:          ; preds = %.critedge.loopexit.i358, %46, %49, %ma__is_channel_map_valid.exit.thread
   store ptr %0, ptr %2, align 8, !tbaa !130
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %62 = load ptr, ptr %61, align 8, !tbaa !265
@@ -10282,7 +10282,7 @@ ma_device_get_log.exit485:                        ; preds = %ma_device_get_conte
   br label %ma__is_channel_map_valid.exit
 
 ma__is_channel_map_valid.exit:                    ; preds = %38, %57, %.thread510, %.thread504, %51, %32, %ma_device_get_log.exit485, %537, %ma_mutex_init.exit, %42, %23, %16, %ma_zero_memory_default.exit, %13, %401, %384, %252, %239, %190, %181, %176, %11
-  %.0 = phi i32 [ %12, %11 ], [ -2, %23 ], [ -2, %13 ], [ -2, %ma_zero_memory_default.exit ], [ -3, %16 ], [ 0, %ma_device_get_log.exit485 ], [ -2, %57 ], [ %175, %176 ], [ %180, %181 ], [ %189, %190 ], [ %238, %239 ], [ %251, %252 ], [ %400, %401 ], [ -4, %.thread510 ], [ %383, %384 ], [ %173, %ma_mutex_init.exit ], [ -2, %42 ], [ -4, %.thread504 ], [ 0, %537 ], [ -2, %32 ], [ -2, %51 ], [ -2, %38 ]
+  %.0 = phi i32 [ %12, %11 ], [ %175, %176 ], [ %180, %181 ], [ %189, %190 ], [ %238, %239 ], [ %251, %252 ], [ %400, %401 ], [ %383, %384 ], [ -2, %13 ], [ -2, %ma_zero_memory_default.exit ], [ -3, %16 ], [ -2, %23 ], [ -2, %42 ], [ %173, %ma_mutex_init.exit ], [ 0, %537 ], [ 0, %ma_device_get_log.exit485 ], [ -2, %32 ], [ -2, %51 ], [ -4, %.thread504 ], [ -4, %.thread510 ], [ -2, %57 ], [ -2, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -10338,13 +10338,13 @@ define i32 @ma_device_init_ex(ptr noundef readonly captures(address_is_null) %0,
   %32 = icmp eq ptr %31, null
   br i1 %32, label %ma_allocation_callbacks_init_copy.exit.thread, label %ma_free.exit
 
-ma_allocation_callbacks_init_copy.exit.thread:    ; preds = %17, %25, %29, %21
+ma_allocation_callbacks_init_copy.exit.thread:    ; preds = %29, %25, %21, %17
   br label %ma_free.exit
 
 ma_malloc.exit:                                   ; preds = %.thread22.i, %8, %21
-  %.sroa.12.066 = phi ptr [ @ma__free_default, %8 ], [ @ma__free_default, %21 ], [ %14, %.thread22.i ]
-  %.sroa.7.065 = phi ptr [ @ma__malloc_default, %8 ], [ @ma__malloc_default, %21 ], [ %27, %.thread22.i ]
-  %.sroa.050.063 = phi ptr [ null, %8 ], [ null, %21 ], [ %11, %.thread22.i ]
+  %.sroa.12.066 = phi ptr [ @ma__free_default, %21 ], [ @ma__free_default, %8 ], [ %14, %.thread22.i ]
+  %.sroa.7.065 = phi ptr [ @ma__malloc_default, %21 ], [ @ma__malloc_default, %8 ], [ %27, %.thread22.i ]
+  %.sroa.050.063 = phi ptr [ null, %21 ], [ null, %8 ], [ %11, %.thread22.i ]
   %33 = tail call ptr %.sroa.7.065(i64 noundef 1016, ptr noundef %.sroa.050.063) #66
   %34 = icmp eq ptr %33, null
   br i1 %34, label %ma_free.exit, label %.preheader
@@ -10446,7 +10446,7 @@ ma_context_uninit.exit:                           ; preds = %70, %ma_free.exit.i
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %29, %72, %._crit_edge, %ma_allocation_callbacks_init_copy.exit.thread, %ma_malloc.exit, %5, %73
-  %.033 = phi i32 [ 0, %73 ], [ -2, %5 ], [ -2, %ma_allocation_callbacks_init_copy.exit.thread ], [ %.034.lcssa, %72 ], [ -4, %ma_malloc.exit ], [ %.034.lcssa, %._crit_edge ], [ -4, %29 ]
+  %.033 = phi i32 [ 0, %73 ], [ -2, %5 ], [ -4, %ma_malloc.exit ], [ -2, %ma_allocation_callbacks_init_copy.exit.thread ], [ %.034.lcssa, %._crit_edge ], [ %.034.lcssa, %72 ], [ -4, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.033
 }
@@ -11669,7 +11669,7 @@ select.unfold.thread.i:                           ; preds = %ma_device__handle_d
   br i1 %342, label %.lr.ph.i, label %ma_device_get_state.exit.i
 
 ma_device_get_state.exit.i:                       ; preds = %340, %326, %313, %.thread195.i, %330, %.thread189.i, %316, %.thread183.i, %119, %117
-  %.8107.i = phi i32 [ 0, %117 ], [ 0, %316 ], [ 0, %330 ], [ %.3102.ph.i, %.thread183.i ], [ %.11.ph.i, %.thread189.i ], [ %.14.ph.i, %.thread195.i ], [ 0, %119 ], [ 0, %326 ], [ %.5104.ph.i, %313 ], [ 0, %340 ]
+  %.8107.i = phi i32 [ 0, %117 ], [ %.3102.ph.i, %.thread183.i ], [ %.11.ph.i, %.thread189.i ], [ %.14.ph.i, %.thread195.i ], [ 0, %119 ], [ 0, %316 ], [ 0, %330 ], [ %.5104.ph.i, %313 ], [ 0, %326 ], [ 0, %340 ]
   %343 = load atomic i32, ptr %19 seq_cst, align 4
   %344 = icmp eq i32 %343, 2
   %.not.i = icmp eq i32 %.8107.i, 0
@@ -11978,8 +11978,8 @@ ma_pcm_rb_seek_write.exit:                        ; preds = %115, %121, %124
   %130 = atomicrmw xchg ptr %110, i32 %129 seq_cst, align 8
   br label %ma_calculate_frame_count_after_resampling.exit.thread
 
-ma_calculate_frame_count_after_resampling.exit.thread: ; preds = %59, %51, %55, %ma_aligned_malloc.exit.i, %37, %63, %ma_aligned_malloc.exit.thread.i, %ma_zero_memory_default.exit.i.i, %7, %ma_calculate_frame_count_after_resampling.exit, %ma_pcm_rb_seek_write.exit
-  %.0 = phi i32 [ 0, %ma_pcm_rb_seek_write.exit ], [ -2, %ma_calculate_frame_count_after_resampling.exit ], [ -2, %7 ], [ -4, %ma_aligned_malloc.exit.thread.i ], [ -2, %ma_zero_memory_default.exit.i.i ], [ -2, %59 ], [ -2, %51 ], [ -2, %55 ], [ -4, %ma_aligned_malloc.exit.i ], [ -2, %37 ], [ -2, %63 ]
+ma_calculate_frame_count_after_resampling.exit.thread: ; preds = %51, %55, %59, %63, %ma_aligned_malloc.exit.thread.i, %ma_aligned_malloc.exit.i, %37, %ma_zero_memory_default.exit.i.i, %7, %ma_calculate_frame_count_after_resampling.exit, %ma_pcm_rb_seek_write.exit
+  %.0 = phi i32 [ 0, %ma_pcm_rb_seek_write.exit ], [ -2, %ma_calculate_frame_count_after_resampling.exit ], [ -2, %7 ], [ -2, %ma_zero_memory_default.exit.i.i ], [ -2, %51 ], [ -2, %55 ], [ -2, %59 ], [ -2, %63 ], [ -4, %ma_aligned_malloc.exit.thread.i ], [ -4, %ma_aligned_malloc.exit.i ], [ -2, %37 ]
   ret i32 %.0
 }
 
@@ -12202,7 +12202,7 @@ ma_channel_map_get_channel.exit:                  ; preds = %.lr.ph.split, %52
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %ma_channel_map_get_channel.exit.us43, %ma_channel_map_get_channel.exit.us.us, %55, %._crit_edge
-  %.0.lcssa76 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %55 ], [ %spec.select, %ma_channel_map_get_channel.exit.us.us ], [ %spec.select52, %ma_channel_map_get_channel.exit.us43 ]
+  %.0.lcssa76 = phi i64 [ %.0.lcssa, %55 ], [ %.0.lcssa, %._crit_edge ], [ %spec.select, %ma_channel_map_get_channel.exit.us.us ], [ %spec.select52, %ma_channel_map_get_channel.exit.us43 ]
   ret i64 %.0.lcssa76
 }
 
@@ -12678,7 +12678,7 @@ define range(i32 -2, 1) i32 @ma_device_get_master_volume(ptr noundef %0, ptr nou
   br label %10
 
 10:                                               ; preds = %2, %7, %6
-  %.0 = phi i32 [ 0, %7 ], [ -2, %6 ], [ -2, %2 ]
+  %.0 = phi i32 [ -2, %6 ], [ 0, %7 ], [ -2, %2 ]
   ret i32 %.0
 }
 
@@ -12891,8 +12891,8 @@ define range(i32 -2, 1) i32 @ma_device_handle_backend_data_callback(ptr noundef 
   br label %ma_pcm_rb_pointer_distance.exit.i
 
 ma_pcm_rb_pointer_distance.exit.i:                ; preds = %85, %83
-  %89 = phi i32 [ %86, %85 ], [ %.pre.i, %83 ]
-  %.0.i.i.i = phi i32 [ %88, %85 ], [ %84, %83 ]
+  %89 = phi i32 [ %.pre.i, %83 ], [ %86, %85 ]
+  %.0.i.i.i = phi i32 [ %84, %83 ], [ %88, %85 ]
   %90 = load i32, ptr %20, align 8, !tbaa !348
   %91 = load i32, ptr %21, align 4, !tbaa !349
   %92 = zext i32 %90 to i64
@@ -12956,7 +12956,7 @@ ma_pcm_rb_pointer_distance.exit.i:                ; preds = %85, %83
   br label %ma_rb_pointer_distance.exit.i.i.i
 
 ma_rb_pointer_distance.exit.i.i.i:                ; preds = %133, %131
-  %.0.i.i.i.i = phi i32 [ %136, %133 ], [ %132, %131 ]
+  %.0.i.i.i.i = phi i32 [ %132, %131 ], [ %136, %133 ]
   %137 = icmp eq i32 %.0.i.i.i.i, 0
   br i1 %137, label %select.unfold.i, label %ma_pcm_rb_commit_write.exit.i
 
@@ -13196,7 +13196,7 @@ ma_device__handle_duplex_callback_capture.exit:   ; preds = %ma_pcm_rb_pointer_d
   br label %ma_pcm_rb_pointer_distance.exit.i37
 
 ma_pcm_rb_pointer_distance.exit.i37:              ; preds = %273, %271
-  %.0.i.i.i38 = phi i32 [ %276, %273 ], [ %272, %271 ]
+  %.0.i.i.i38 = phi i32 [ %272, %271 ], [ %276, %273 ]
   %277 = load i32, ptr %186, align 8, !tbaa !348
   %278 = load i32, ptr %187, align 4, !tbaa !349
   %279 = zext i32 %277 to i64
@@ -13247,13 +13247,13 @@ ma_pcm_rb_pointer_distance.exit.i37:              ; preds = %273, %271
   br label %ma_rb_pointer_distance.exit.i.i.i35
 
 ma_rb_pointer_distance.exit.i.i.i35:              ; preds = %310, %308
-  %.0.i.i.i.i36 = phi i32 [ %313, %310 ], [ %309, %308 ]
+  %.0.i.i.i.i36 = phi i32 [ %309, %308 ], [ %313, %310 ]
   %314 = icmp eq i32 %.0.i.i.i.i36, 0
   br i1 %314, label %ma_device__handle_duplex_callback_playback.exit, label %.thread58.i
 
 .thread58.i:                                      ; preds = %ma_rb_pointer_distance.exit.i.i.i35, %224
-  %.186.i = phi i32 [ %216, %224 ], [ %.18791.i, %ma_rb_pointer_distance.exit.i.i.i35 ]
-  %.14684.i = phi ptr [ %229, %224 ], [ %.1468592.i, %ma_rb_pointer_distance.exit.i.i.i35 ]
+  %.186.i = phi i32 [ %.18791.i, %ma_rb_pointer_distance.exit.i.i.i35 ], [ %216, %224 ]
+  %.14684.i = phi ptr [ %.1468592.i, %ma_rb_pointer_distance.exit.i.i.i35 ], [ %229, %224 ]
   %315 = load atomic i32, ptr %176 seq_cst, align 4
   %.not.i = icmp eq i32 %315, 2
   br i1 %.not.i, label %.lr.ph, label %ma_device__handle_duplex_callback_playback.exit
@@ -13278,7 +13278,7 @@ ma_rb_pointer_distance.exit.i.i.i35:              ; preds = %310, %308
   br label %ma_device__handle_duplex_callback_playback.exit
 
 ma_device__handle_duplex_callback_playback.exit:  ; preds = %.thread58.i, %194, %.thread.i, %ma_pcm_rb_pointer_distance.exit.i37, %284, %ma_rb_pointer_distance.exit.i.i.i35, %.lr.ph.i, %175, %318, %174, %321, %316, %10, %4
-  %.0 = phi i32 [ -2, %316 ], [ -2, %4 ], [ 0, %174 ], [ -2, %10 ], [ %.mux, %318 ], [ 0, %321 ], [ 0, %175 ], [ 0, %.lr.ph.i ], [ 0, %ma_rb_pointer_distance.exit.i.i.i35 ], [ 0, %284 ], [ 0, %ma_pcm_rb_pointer_distance.exit.i37 ], [ 0, %.thread.i ], [ 0, %194 ], [ 0, %.thread58.i ]
+  %.0 = phi i32 [ -2, %4 ], [ -2, %10 ], [ -2, %316 ], [ %.mux, %318 ], [ 0, %321 ], [ 0, %174 ], [ 0, %175 ], [ 0, %.lr.ph.i ], [ 0, %ma_rb_pointer_distance.exit.i.i.i35 ], [ 0, %284 ], [ 0, %ma_pcm_rb_pointer_distance.exit.i37 ], [ 0, %.thread.i ], [ 0, %194 ], [ 0, %.thread58.i ]
   ret i32 %.0
 }
 
@@ -13503,7 +13503,7 @@ define internal fastcc void @ma_device__read_frames_from_client(ptr noundef %0, 
   store i64 %72, ptr %18, align 8, !tbaa !358
   br label %73
 
-.thread87:                                        ; preds = %48, %35
+.thread87:                                        ; preds = %35, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
@@ -13573,7 +13573,7 @@ ma_data_converter_get_required_input_frame_count.exit: ; preds = %94, %99
   br label %ma_data_converter_get_required_input_frame_count.exit.thread
 
 ma_data_converter_get_required_input_frame_count.exit.thread: ; preds = %90, %87, %100, %ma_data_converter_get_required_input_frame_count.exit
-  %.1115 = phi i64 [ 0, %ma_data_converter_get_required_input_frame_count.exit ], [ %.1, %100 ], [ 0, %87 ], [ 0, %90 ]
+  %.1115 = phi i64 [ %.1, %100 ], [ 0, %ma_data_converter_get_required_input_frame_count.exit ], [ 0, %87 ], [ 0, %90 ]
   store i64 %.1115, ptr %7, align 8, !tbaa !63
   store i64 %85, ptr %8, align 8, !tbaa !63
   %102 = call i32 @ma_data_converter_process_pcm_frames(ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %.369100, ptr noundef nonnull %8)
@@ -13666,7 +13666,7 @@ define i32 @ma_calculate_buffer_size_in_frames_from_descriptor(ptr noundef reado
   br label %30
 
 30:                                               ; preds = %10, %3, %27, %24, %21
-  %.0 = phi i32 [ 0, %3 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %13, %10 ]
+  %.0 = phi i32 [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ 0, %3 ], [ %13, %10 ]
   ret i32 %.0
 }
 
@@ -15241,7 +15241,7 @@ define range(i32 -2, 1) i32 @ma_mix_pcm_frames_f32(ptr noundef captures(address_
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !374
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph34, %.preheader30, %.preheader, %9, %5
-  %.0 = phi i32 [ 0, %9 ], [ -2, %5 ], [ 0, %.preheader ], [ 0, %.preheader30 ], [ 0, %.lr.ph34 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ -2, %5 ], [ 0, %9 ], [ 0, %.preheader ], [ 0, %.preheader30 ], [ 0, %.lr.ph34 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -17114,9 +17114,9 @@ ma_dither_f32.exit21:                             ; preds = %.lr.ph63, %146, %15
   br label %353
 
 353:                                              ; preds = %.lr.ph67, %240, %183
-  %354 = phi i32 [ %343, %240 ], [ %231, %183 ], [ %182, %.lr.ph67 ]
-  %.079.i = phi <4 x float> [ %296, %240 ], [ %211, %183 ], [ zeroinitializer, %.lr.ph67 ]
-  %.078.i = phi <4 x float> [ %352, %240 ], [ %239, %183 ], [ zeroinitializer, %.lr.ph67 ]
+  %354 = phi i32 [ %231, %183 ], [ %343, %240 ], [ %182, %.lr.ph67 ]
+  %.079.i = phi <4 x float> [ %211, %183 ], [ %296, %240 ], [ zeroinitializer, %.lr.ph67 ]
+  %.078.i = phi <4 x float> [ %239, %183 ], [ %352, %240 ], [ zeroinitializer, %.lr.ph67 ]
   %355 = getelementptr inbounds nuw float, ptr %1, i64 %.0.i66
   %356 = load <4 x float>, ptr %355, align 16, !tbaa !7
   %357 = getelementptr inbounds nuw i8, ptr %355, i64 16
@@ -18212,7 +18212,7 @@ define range(i32 -3, 1) i32 @ma_biquad_reinit(ptr noundef readonly captures(addr
   br label %81
 
 81:                                               ; preds = %11, %22, %49, %16, %9, %5, %2
-  %.0 = phi i32 [ -3, %16 ], [ -2, %2 ], [ -2, %5 ], [ -2, %9 ], [ -3, %11 ], [ 0, %49 ], [ 0, %22 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %5 ], [ -2, %9 ], [ -3, %16 ], [ 0, %49 ], [ 0, %22 ], [ -3, %11 ]
   ret i32 %.0
 }
 
@@ -18303,8 +18303,8 @@ ma_biquad_init_preallocated.exit.thread:          ; preds = %ma_biquad_init_prea
   store i32 1, ptr %41, align 8, !tbaa !457
   br label %ma_free.exit
 
-ma_free.exit:                                     ; preds = %12, %3, %5, %39, %37, %34, %ma_malloc.exit, %40
-  %.013 = phi i32 [ 0, %40 ], [ %.0.i2231, %39 ], [ -2, %3 ], [ -4, %ma_malloc.exit ], [ -4, %12 ], [ %.0.i2231, %34 ], [ %.0.i2231, %37 ], [ -2, %5 ]
+ma_free.exit:                                     ; preds = %12, %5, %3, %39, %37, %34, %ma_malloc.exit, %40
+  %.013 = phi i32 [ 0, %40 ], [ -4, %ma_malloc.exit ], [ %.0.i2231, %34 ], [ %.0.i2231, %37 ], [ %.0.i2231, %39 ], [ -2, %3 ], [ -2, %5 ], [ -4, %12 ]
   ret i32 %.013
 }
 
@@ -18710,7 +18710,7 @@ ma_zero_memory_default.exit15:                    ; preds = %3
   br label %ma_lpf1_reinit.exit
 
 ma_lpf1_reinit.exit:                              ; preds = %6, %ma_zero_memory_default.exit15, %40, %37, %25, %20, %17, %3
-  %.0 = phi i32 [ 0, %40 ], [ -2, %3 ], [ -3, %25 ], [ 0, %37 ], [ -2, %17 ], [ -3, %20 ], [ -2, %ma_zero_memory_default.exit15 ], [ -2, %6 ]
+  %.0 = phi i32 [ -2, %3 ], [ -2, %17 ], [ -3, %25 ], [ 0, %40 ], [ 0, %37 ], [ -3, %20 ], [ -2, %ma_zero_memory_default.exit15 ], [ -2, %6 ]
   ret i32 %.0
 }
 
@@ -18777,7 +18777,7 @@ define range(i32 -3, 1) i32 @ma_lpf1_reinit(ptr noundef readonly captures(addres
   br label %31
 
 31:                                               ; preds = %7, %24, %27, %12, %5, %2
-  %.0 = phi i32 [ -3, %12 ], [ -2, %2 ], [ -2, %5 ], [ -3, %7 ], [ 0, %27 ], [ 0, %24 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %5 ], [ -3, %12 ], [ 0, %27 ], [ 0, %24 ], [ -3, %7 ]
   ret i32 %.0
 }
 
@@ -18889,8 +18889,8 @@ ma_malloc.exit:                                   ; preds = %17, %20
   store i32 1, ptr %58, align 8, !tbaa !473
   br label %ma_free.exit
 
-59:                                               ; preds = %25, %36, %28, %41, %23
-  %.0.i22.ph = phi i32 [ -2, %25 ], [ -3, %36 ], [ -2, %28 ], [ -3, %41 ], [ -2, %23 ]
+59:                                               ; preds = %25, %36, %41, %28, %23
+  %.0.i22.ph = phi i32 [ -2, %25 ], [ -3, %36 ], [ -3, %41 ], [ -2, %28 ], [ -2, %23 ]
   br i1 %.not.i, label %65, label %60
 
 60:                                               ; preds = %59
@@ -18909,7 +18909,7 @@ ma_malloc.exit:                                   ; preds = %17, %20
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %14, %5, %3, %65, %63, %60, %ma_malloc.exit, %._crit_edge.i.i
-  %.013 = phi i32 [ 0, %._crit_edge.i.i ], [ %.0.i22.ph, %65 ], [ -2, %5 ], [ -4, %ma_malloc.exit ], [ -4, %14 ], [ %.0.i22.ph, %60 ], [ %.0.i22.ph, %63 ], [ -2, %3 ]
+  %.013 = phi i32 [ 0, %._crit_edge.i.i ], [ -4, %ma_malloc.exit ], [ %.0.i22.ph, %60 ], [ %.0.i22.ph, %63 ], [ %.0.i22.ph, %65 ], [ -2, %3 ], [ -2, %5 ], [ -4, %14 ]
   ret i32 %.013
 }
 
@@ -19288,7 +19288,7 @@ ma_zero_memory_default.exit17.i:                  ; preds = %ma_zero_memory_defa
   br label %ma_biquad_init_preallocated.exit
 
 ma_biquad_init_preallocated.exit:                 ; preds = %43, %ma_zero_memory_default.exit17.i, %35, %40, %41, %48, %61, %ma_zero_memory_default.exit, %3
-  %.0 = phi i32 [ -2, %ma_zero_memory_default.exit ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit17.i ], [ -3, %43 ], [ 0, %48 ], [ -2, %35 ], [ -2, %40 ], [ -3, %41 ], [ 0, %61 ]
+  %.0 = phi i32 [ -2, %3 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %ma_zero_memory_default.exit17.i ], [ -2, %35 ], [ -2, %40 ], [ 0, %61 ], [ 0, %48 ], [ -3, %41 ], [ -3, %43 ]
   ret i32 %.0
 }
 
@@ -19380,7 +19380,7 @@ ma_malloc.exit:                                   ; preds = %27, %30
   br label %ma_lpf2_get_heap_size.exit
 
 ma_lpf2_get_heap_size.exit:                       ; preds = %24, %41, %39, %36, %cdce.end10.i, %ma_malloc.exit, %42
-  %.013 = phi i32 [ 0, %42 ], [ -4, %ma_malloc.exit ], [ %34, %39 ], [ -2, %cdce.end10.i ], [ -4, %24 ], [ %34, %41 ], [ %34, %36 ]
+  %.013 = phi i32 [ 0, %42 ], [ -4, %ma_malloc.exit ], [ -2, %cdce.end10.i ], [ %34, %36 ], [ %34, %39 ], [ %34, %41 ], [ -4, %24 ]
   ret i32 %.013
 }
 
@@ -19530,7 +19530,7 @@ define range(i32 -3, 1) i32 @ma_lpf2_reinit(ptr noundef readonly captures(addres
   br label %ma_biquad_reinit.exit
 
 ma_biquad_reinit.exit:                            ; preds = %32, %50, %37, %30, %29, %5, %2
-  %.0 = phi i32 [ -2, %2 ], [ -3, %32 ], [ 0, %37 ], [ -2, %5 ], [ -2, %29 ], [ -3, %30 ], [ 0, %50 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %5 ], [ -2, %29 ], [ 0, %50 ], [ 0, %37 ], [ -3, %30 ], [ -3, %32 ]
   ret i32 %.0
 }
 
@@ -20196,7 +20196,7 @@ ma_lpf2_uninit.exit:                              ; preds = %.lr.ph214.split, %1
   br label %ma_lpf_get_heap_layout.exit.thread
 
 ma_lpf_get_heap_layout.exit.thread:               ; preds = %cdce.end10.i.i, %134, %98, %96, %95, %.lr.ph.split.us.preheader, %.lr.ph, %119, %130, %132, %._crit_edge215, %10, %.critedge, %25, %28, %18, %15, %8, %4, %._crit_edge
-  %.092 = phi i32 [ -2, %18 ], [ -2, %4 ], [ -2, %8 ], [ -3, %10 ], [ -3, %15 ], [ -3, %25 ], [ -2, %.critedge ], [ %.3101285, %._crit_edge215 ], [ 0, %._crit_edge ], [ -3, %28 ], [ -2, %119 ], [ -2, %.lr.ph.split.us.preheader ], [ -2, %95 ], [ -3, %96 ], [ -3, %98 ], [ -2, %.lr.ph ], [ -3, %134 ], [ -3, %132 ], [ -2, %130 ], [ -2, %cdce.end10.i.i ]
+  %.092 = phi i32 [ %.3101285, %._crit_edge215 ], [ 0, %._crit_edge ], [ -2, %4 ], [ -2, %8 ], [ -3, %15 ], [ -2, %18 ], [ -3, %28 ], [ -3, %25 ], [ -2, %.critedge ], [ -3, %10 ], [ -2, %.lr.ph.split.us.preheader ], [ -2, %95 ], [ -3, %96 ], [ -3, %132 ], [ -2, %130 ], [ -2, %119 ], [ -2, %.lr.ph ], [ -3, %98 ], [ -3, %134 ], [ -2, %cdce.end10.i.i ]
   ret i32 %.092
 }
 
@@ -20347,7 +20347,7 @@ ma_lpf_init_preallocated.exit.thread:             ; preds = %59, %ma_lpf_init_pr
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %cdce.end10.i.i.i, %50, %9, %5, %3, %69, %67, %64, %ma_lpf_init_preallocated.exit.thread, %ma_malloc.exit, %70
-  %.013 = phi i32 [ 0, %70 ], [ %.0.i2130, %69 ], [ -2, %9 ], [ -4, %ma_malloc.exit ], [ %.0.i2130, %ma_lpf_init_preallocated.exit.thread ], [ %.0.i2130, %64 ], [ %.0.i2130, %67 ], [ -4, %50 ], [ -2, %3 ], [ -2, %5 ], [ -2, %cdce.end10.i.i.i ]
+  %.013 = phi i32 [ 0, %70 ], [ -4, %ma_malloc.exit ], [ %.0.i2130, %ma_lpf_init_preallocated.exit.thread ], [ %.0.i2130, %64 ], [ %.0.i2130, %67 ], [ %.0.i2130, %69 ], [ -2, %3 ], [ -2, %5 ], [ -2, %9 ], [ -4, %50 ], [ -2, %cdce.end10.i.i.i ]
   ret i32 %.013
 }
 
@@ -21084,7 +21084,7 @@ ma_lpf_process_pcm_frame_s16.exit:                ; preds = %ma_biquad_process_p
   br i1 %254, label %169, label %.critedge, !llvm.loop !537
 
 .critedge:                                        ; preds = %ma_lpf_process_pcm_frame_s16.exit, %ma_lpf_process_pcm_frame_f32.exit, %.lr.ph111.split, %18, %ma_lpf2_process_pcm_frames.exit, %.lr.ph113, %75, %.preheader89, %.preheader86, %.lr.ph111, %.preheader, %.thread, %4
-  %.059 = phi i32 [ 0, %75 ], [ -2, %4 ], [ -3, %.thread ], [ 0, %.preheader86 ], [ -2, %.lr.ph111 ], [ -2, %.lr.ph111.split ], [ 0, %.preheader ], [ 0, %.preheader89 ], [ 0, %ma_lpf_process_pcm_frame_f32.exit ], [ -2, %.lr.ph113 ], [ %82, %ma_lpf2_process_pcm_frames.exit ], [ -2, %18 ], [ 0, %ma_lpf_process_pcm_frame_s16.exit ]
+  %.059 = phi i32 [ -2, %4 ], [ -3, %.thread ], [ 0, %.preheader ], [ -2, %.lr.ph111 ], [ 0, %.preheader86 ], [ 0, %.preheader89 ], [ %82, %ma_lpf2_process_pcm_frames.exit ], [ -2, %.lr.ph113 ], [ 0, %75 ], [ -2, %18 ], [ -2, %.lr.ph111.split ], [ 0, %ma_lpf_process_pcm_frame_f32.exit ], [ 0, %ma_lpf_process_pcm_frame_s16.exit ]
   ret i32 %.059
 }
 
@@ -21266,7 +21266,7 @@ ma_zero_memory_default.exit15:                    ; preds = %3
   br label %ma_hpf1_reinit.exit
 
 ma_hpf1_reinit.exit:                              ; preds = %6, %ma_zero_memory_default.exit15, %40, %37, %25, %20, %17, %3
-  %.0 = phi i32 [ 0, %40 ], [ -2, %3 ], [ -3, %25 ], [ 0, %37 ], [ -2, %17 ], [ -3, %20 ], [ -2, %ma_zero_memory_default.exit15 ], [ -2, %6 ]
+  %.0 = phi i32 [ -2, %3 ], [ -2, %17 ], [ -3, %25 ], [ 0, %40 ], [ 0, %37 ], [ -3, %20 ], [ -2, %ma_zero_memory_default.exit15 ], [ -2, %6 ]
   ret i32 %.0
 }
 
@@ -21333,7 +21333,7 @@ define range(i32 -3, 1) i32 @ma_hpf1_reinit(ptr noundef readonly captures(addres
   br label %31
 
 31:                                               ; preds = %7, %24, %27, %12, %5, %2
-  %.0 = phi i32 [ -3, %12 ], [ -2, %2 ], [ -2, %5 ], [ -3, %7 ], [ 0, %27 ], [ 0, %24 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %5 ], [ -3, %12 ], [ 0, %27 ], [ 0, %24 ], [ -3, %7 ]
   ret i32 %.0
 }
 
@@ -21445,8 +21445,8 @@ ma_malloc.exit:                                   ; preds = %17, %20
   store i32 1, ptr %58, align 8, !tbaa !473
   br label %ma_free.exit
 
-59:                                               ; preds = %25, %36, %28, %41, %23
-  %.0.i22.ph = phi i32 [ -2, %25 ], [ -3, %36 ], [ -2, %28 ], [ -3, %41 ], [ -2, %23 ]
+59:                                               ; preds = %25, %36, %41, %28, %23
+  %.0.i22.ph = phi i32 [ -2, %25 ], [ -3, %36 ], [ -3, %41 ], [ -2, %28 ], [ -2, %23 ]
   br i1 %.not.i, label %65, label %60
 
 60:                                               ; preds = %59
@@ -21465,7 +21465,7 @@ ma_malloc.exit:                                   ; preds = %17, %20
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %14, %5, %3, %65, %63, %60, %ma_malloc.exit, %._crit_edge.i.i
-  %.013 = phi i32 [ 0, %._crit_edge.i.i ], [ %.0.i22.ph, %65 ], [ -2, %5 ], [ -4, %ma_malloc.exit ], [ -4, %14 ], [ %.0.i22.ph, %60 ], [ %.0.i22.ph, %63 ], [ -2, %3 ]
+  %.013 = phi i32 [ 0, %._crit_edge.i.i ], [ -4, %ma_malloc.exit ], [ %.0.i22.ph, %60 ], [ %.0.i22.ph, %63 ], [ %.0.i22.ph, %65 ], [ -2, %3 ], [ -2, %5 ], [ -4, %14 ]
   ret i32 %.013
 }
 
@@ -21823,7 +21823,7 @@ ma_zero_memory_default.exit17.i:                  ; preds = %ma_zero_memory_defa
   br label %ma_biquad_init_preallocated.exit
 
 ma_biquad_init_preallocated.exit:                 ; preds = %44, %ma_zero_memory_default.exit17.i, %36, %41, %42, %49, %62, %ma_zero_memory_default.exit, %3
-  %.0 = phi i32 [ -2, %ma_zero_memory_default.exit ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit17.i ], [ -3, %44 ], [ 0, %49 ], [ -2, %36 ], [ -2, %41 ], [ -3, %42 ], [ 0, %62 ]
+  %.0 = phi i32 [ -2, %3 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %ma_zero_memory_default.exit17.i ], [ -2, %36 ], [ -2, %41 ], [ 0, %62 ], [ 0, %49 ], [ -3, %42 ], [ -3, %44 ]
   ret i32 %.0
 }
 
@@ -21915,7 +21915,7 @@ ma_malloc.exit:                                   ; preds = %27, %30
   br label %ma_hpf2_get_heap_size.exit
 
 ma_hpf2_get_heap_size.exit:                       ; preds = %24, %41, %39, %36, %cdce.end10.i, %ma_malloc.exit, %42
-  %.013 = phi i32 [ 0, %42 ], [ -4, %ma_malloc.exit ], [ %34, %39 ], [ -2, %cdce.end10.i ], [ -4, %24 ], [ %34, %41 ], [ %34, %36 ]
+  %.013 = phi i32 [ 0, %42 ], [ -4, %ma_malloc.exit ], [ -2, %cdce.end10.i ], [ %34, %36 ], [ %34, %39 ], [ %34, %41 ], [ -4, %24 ]
   ret i32 %.013
 }
 
@@ -22066,7 +22066,7 @@ define range(i32 -3, 1) i32 @ma_hpf2_reinit(ptr noundef readonly captures(addres
   br label %ma_biquad_reinit.exit
 
 ma_biquad_reinit.exit:                            ; preds = %33, %51, %38, %31, %30, %5, %2
-  %.0 = phi i32 [ -2, %2 ], [ -3, %33 ], [ 0, %38 ], [ -2, %5 ], [ -2, %30 ], [ -3, %31 ], [ 0, %51 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %5 ], [ -2, %30 ], [ 0, %51 ], [ 0, %38 ], [ -3, %31 ], [ -3, %33 ]
   ret i32 %.0
 }
 
@@ -22702,7 +22702,7 @@ ma_hpf2_uninit.exit:                              ; preds = %.lr.ph215.split, %1
   br label %ma_hpf_get_heap_layout.exit.thread
 
 ma_hpf_get_heap_layout.exit.thread:               ; preds = %cdce.end10.i.i, %134, %98, %96, %95, %.lr.ph.split.us.preheader, %.lr.ph, %119, %130, %132, %._crit_edge216, %10, %.critedge, %25, %28, %18, %15, %8, %4, %._crit_edge
-  %.092 = phi i32 [ -2, %18 ], [ -2, %4 ], [ -2, %8 ], [ -3, %10 ], [ -3, %15 ], [ -3, %25 ], [ -2, %.critedge ], [ %.3101286, %._crit_edge216 ], [ 0, %._crit_edge ], [ -3, %28 ], [ -2, %119 ], [ -2, %.lr.ph.split.us.preheader ], [ -2, %95 ], [ -3, %96 ], [ -3, %98 ], [ -2, %.lr.ph ], [ -3, %134 ], [ -3, %132 ], [ -2, %130 ], [ -2, %cdce.end10.i.i ]
+  %.092 = phi i32 [ %.3101286, %._crit_edge216 ], [ 0, %._crit_edge ], [ -2, %4 ], [ -2, %8 ], [ -3, %15 ], [ -2, %18 ], [ -3, %28 ], [ -3, %25 ], [ -2, %.critedge ], [ -3, %10 ], [ -2, %.lr.ph.split.us.preheader ], [ -2, %95 ], [ -3, %96 ], [ -3, %132 ], [ -2, %130 ], [ -2, %119 ], [ -2, %.lr.ph ], [ -3, %98 ], [ -3, %134 ], [ -2, %cdce.end10.i.i ]
   ret i32 %.092
 }
 
@@ -22853,7 +22853,7 @@ ma_hpf_init_preallocated.exit.thread:             ; preds = %59, %ma_hpf_init_pr
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %cdce.end10.i.i.i, %50, %9, %5, %3, %69, %67, %64, %ma_hpf_init_preallocated.exit.thread, %ma_malloc.exit, %70
-  %.013 = phi i32 [ 0, %70 ], [ %.0.i2130, %69 ], [ -2, %9 ], [ -4, %ma_malloc.exit ], [ %.0.i2130, %ma_hpf_init_preallocated.exit.thread ], [ %.0.i2130, %64 ], [ %.0.i2130, %67 ], [ -4, %50 ], [ -2, %3 ], [ -2, %5 ], [ -2, %cdce.end10.i.i.i ]
+  %.013 = phi i32 [ 0, %70 ], [ -4, %ma_malloc.exit ], [ %.0.i2130, %ma_hpf_init_preallocated.exit.thread ], [ %.0.i2130, %64 ], [ %.0.i2130, %67 ], [ %.0.i2130, %69 ], [ -2, %3 ], [ -2, %5 ], [ -2, %9 ], [ -4, %50 ], [ -2, %cdce.end10.i.i.i ]
   ret i32 %.013
 }
 
@@ -23490,7 +23490,7 @@ ma_biquad_process_pcm_frame_s16.exit:             ; preds = %220
   br i1 %254, label %171, label %.critedge, !llvm.loop !578
 
 .critedge:                                        ; preds = %._crit_edge, %._crit_edge135, %.lr.ph141.split, %18, %ma_hpf2_process_pcm_frames.exit, %.lr.ph143, %75, %.preheader117, %.preheader114, %.lr.ph141, %.preheader, %.thread, %4
-  %.092 = phi i32 [ 0, %75 ], [ -2, %4 ], [ -3, %.thread ], [ 0, %.preheader114 ], [ -2, %.lr.ph141 ], [ -2, %.lr.ph141.split ], [ 0, %.preheader ], [ 0, %.preheader117 ], [ 0, %._crit_edge135 ], [ -2, %.lr.ph143 ], [ %82, %ma_hpf2_process_pcm_frames.exit ], [ -2, %18 ], [ 0, %._crit_edge ]
+  %.092 = phi i32 [ -2, %4 ], [ -3, %.thread ], [ 0, %.preheader ], [ -2, %.lr.ph141 ], [ 0, %.preheader114 ], [ 0, %.preheader117 ], [ %82, %ma_hpf2_process_pcm_frames.exit ], [ -2, %.lr.ph143 ], [ 0, %75 ], [ -2, %18 ], [ -2, %.lr.ph141.split ], [ 0, %._crit_edge135 ], [ 0, %._crit_edge ]
   ret i32 %.092
 }
 
@@ -23725,7 +23725,7 @@ ma_zero_memory_default.exit17.i:                  ; preds = %ma_zero_memory_defa
   br label %ma_biquad_init_preallocated.exit
 
 ma_biquad_init_preallocated.exit:                 ; preds = %44, %ma_zero_memory_default.exit17.i, %36, %41, %42, %49, %64, %ma_zero_memory_default.exit, %3
-  %.0 = phi i32 [ -2, %ma_zero_memory_default.exit ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit17.i ], [ -3, %44 ], [ 0, %49 ], [ -2, %36 ], [ -2, %41 ], [ -3, %42 ], [ 0, %64 ]
+  %.0 = phi i32 [ -2, %3 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %ma_zero_memory_default.exit17.i ], [ -2, %36 ], [ -2, %41 ], [ 0, %64 ], [ 0, %49 ], [ -3, %42 ], [ -3, %44 ]
   ret i32 %.0
 }
 
@@ -23817,7 +23817,7 @@ ma_malloc.exit:                                   ; preds = %27, %30
   br label %ma_bpf2_get_heap_size.exit
 
 ma_bpf2_get_heap_size.exit:                       ; preds = %24, %41, %39, %36, %cdce.end10.i, %ma_malloc.exit, %42
-  %.013 = phi i32 [ 0, %42 ], [ -4, %ma_malloc.exit ], [ %34, %39 ], [ -2, %cdce.end10.i ], [ -4, %24 ], [ %34, %41 ], [ %34, %36 ]
+  %.013 = phi i32 [ 0, %42 ], [ -4, %ma_malloc.exit ], [ -2, %cdce.end10.i ], [ %34, %36 ], [ %34, %39 ], [ %34, %41 ], [ -4, %24 ]
   ret i32 %.013
 }
 
@@ -23973,7 +23973,7 @@ define range(i32 -3, 1) i32 @ma_bpf2_reinit(ptr noundef readonly captures(addres
   br label %ma_biquad_reinit.exit
 
 ma_biquad_reinit.exit:                            ; preds = %33, %53, %38, %31, %30, %5, %2
-  %.0 = phi i32 [ -2, %2 ], [ -3, %33 ], [ 0, %38 ], [ -2, %5 ], [ -2, %30 ], [ -3, %31 ], [ 0, %53 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %5 ], [ -2, %30 ], [ 0, %53 ], [ 0, %38 ], [ -3, %31 ], [ -3, %33 ]
   ret i32 %.0
 }
 
@@ -24099,7 +24099,7 @@ ma_bpf_get_heap_layout.exit:                      ; preds = %33, %11
   br label %ma_bpf_get_heap_layout.exit.thread
 
 ma_bpf_get_heap_layout.exit.thread:               ; preds = %cdce.end10.i.i, %6, %4, %2, %ma_bpf_get_heap_layout.exit
-  %.0 = phi i32 [ 0, %ma_bpf_get_heap_layout.exit ], [ -2, %2 ], [ -2, %6 ], [ -2, %4 ], [ -2, %cdce.end10.i.i ]
+  %.0 = phi i32 [ 0, %ma_bpf_get_heap_layout.exit ], [ -2, %2 ], [ -2, %4 ], [ -2, %6 ], [ -2, %cdce.end10.i.i ]
   ret i32 %.0
 }
 
@@ -24376,7 +24376,7 @@ ma_bpf2_get_heap_size.exit:                       ; preds = %cdce.end10.i
   br label %ma_bpf_get_heap_layout.exit
 
 ma_bpf_get_heap_layout.exit:                      ; preds = %cdce.end10.i.i, %ma_bpf2_get_heap_size.exit, %ma_bpf2_get_heap_size.exit.us, %10, %ma_bpf2_get_heap_size.exit.thread97, %25, %18, %15, %8, %4, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -2, %4 ], [ -2, %8 ], [ -3, %10 ], [ -3, %15 ], [ -2, %18 ], [ -3, %25 ], [ -2, %ma_bpf2_get_heap_size.exit.thread97 ], [ %102, %ma_bpf2_get_heap_size.exit ], [ %78, %ma_bpf2_get_heap_size.exit.us ], [ -2, %cdce.end10.i.i ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -2, %4 ], [ -2, %8 ], [ -3, %15 ], [ -2, %18 ], [ -3, %25 ], [ -2, %ma_bpf2_get_heap_size.exit.thread97 ], [ -3, %10 ], [ %78, %ma_bpf2_get_heap_size.exit.us ], [ %102, %ma_bpf2_get_heap_size.exit ], [ -2, %cdce.end10.i.i ]
   ret i32 %.0
 }
 
@@ -24515,7 +24515,7 @@ ma_bpf_init_preallocated.exit.thread:             ; preds = %ma_bpf_get_heap_siz
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %cdce.end10.i.i.i, %39, %5, %3, %57, %55, %52, %ma_bpf_init_preallocated.exit.thread, %ma_malloc.exit, %58
-  %.013 = phi i32 [ 0, %58 ], [ %.0.i2134, %57 ], [ -2, %5 ], [ -4, %ma_malloc.exit ], [ %.0.i2134, %ma_bpf_init_preallocated.exit.thread ], [ %.0.i2134, %52 ], [ %.0.i2134, %55 ], [ -2, %3 ], [ -4, %39 ], [ -2, %cdce.end10.i.i.i ]
+  %.013 = phi i32 [ 0, %58 ], [ -4, %ma_malloc.exit ], [ %.0.i2134, %ma_bpf_init_preallocated.exit.thread ], [ %.0.i2134, %52 ], [ %.0.i2134, %55 ], [ %.0.i2134, %57 ], [ -2, %3 ], [ -2, %5 ], [ -4, %39 ], [ -2, %cdce.end10.i.i.i ]
   ret i32 %.013
 }
 
@@ -24862,7 +24862,7 @@ ma_biquad_process_pcm_frame_s16.exit:             ; preds = %106
   br i1 %140, label %80, label %.critedge, !llvm.loop !617
 
 .critedge:                                        ; preds = %._crit_edge, %._crit_edge91, %ma_bpf2_process_pcm_frames.exit, %.lr.ph97, %11, %.preheader79, %.preheader77, %.preheader, %.thread, %4
-  %.065 = phi i32 [ 0, %.preheader77 ], [ -2, %4 ], [ -3, %.thread ], [ 0, %._crit_edge91 ], [ 0, %11 ], [ 0, %.preheader ], [ 0, %.preheader79 ], [ -2, %.lr.ph97 ], [ %18, %ma_bpf2_process_pcm_frames.exit ], [ 0, %._crit_edge ]
+  %.065 = phi i32 [ -2, %4 ], [ -3, %.thread ], [ 0, %.preheader ], [ 0, %.preheader77 ], [ 0, %.preheader79 ], [ %18, %ma_bpf2_process_pcm_frames.exit ], [ -2, %.lr.ph97 ], [ 0, %11 ], [ 0, %._crit_edge91 ], [ 0, %._crit_edge ]
   ret i32 %.065
 }
 
@@ -25087,7 +25087,7 @@ ma_zero_memory_default.exit17.i:                  ; preds = %ma_zero_memory_defa
   br label %ma_biquad_init_preallocated.exit
 
 ma_biquad_init_preallocated.exit:                 ; preds = %41, %ma_zero_memory_default.exit17.i, %33, %38, %39, %46, %57, %ma_zero_memory_default.exit, %3
-  %.0 = phi i32 [ -2, %ma_zero_memory_default.exit ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit17.i ], [ -3, %41 ], [ 0, %46 ], [ -2, %33 ], [ -2, %38 ], [ -3, %39 ], [ 0, %57 ]
+  %.0 = phi i32 [ -2, %3 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %ma_zero_memory_default.exit17.i ], [ -2, %33 ], [ -2, %38 ], [ 0, %57 ], [ 0, %46 ], [ -3, %39 ], [ -3, %41 ]
   ret i32 %.0
 }
 
@@ -25179,7 +25179,7 @@ ma_malloc.exit:                                   ; preds = %27, %30
   br label %ma_notch2_get_heap_size.exit
 
 ma_notch2_get_heap_size.exit:                     ; preds = %24, %41, %39, %36, %cdce.end10.i, %ma_malloc.exit, %42
-  %.013 = phi i32 [ 0, %42 ], [ -4, %ma_malloc.exit ], [ %34, %39 ], [ -2, %cdce.end10.i ], [ -4, %24 ], [ %34, %41 ], [ %34, %36 ]
+  %.013 = phi i32 [ 0, %42 ], [ -4, %ma_malloc.exit ], [ -2, %cdce.end10.i ], [ %34, %36 ], [ %34, %39 ], [ %34, %41 ], [ -4, %24 ]
   ret i32 %.013
 }
 
@@ -25322,7 +25322,7 @@ define range(i32 -3, 1) i32 @ma_notch2_reinit(ptr noundef readonly captures(addr
   br label %ma_biquad_reinit.exit
 
 ma_biquad_reinit.exit:                            ; preds = %30, %46, %35, %28, %27, %5, %2
-  %.0 = phi i32 [ -2, %2 ], [ -3, %30 ], [ 0, %35 ], [ -2, %5 ], [ -2, %27 ], [ -3, %28 ], [ 0, %46 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %5 ], [ -2, %27 ], [ 0, %46 ], [ 0, %35 ], [ -3, %28 ], [ -3, %30 ]
   ret i32 %.0
 }
 
@@ -25578,7 +25578,7 @@ ma_zero_memory_default.exit17.i:                  ; preds = %ma_zero_memory_defa
   br label %ma_biquad_init_preallocated.exit
 
 ma_biquad_init_preallocated.exit:                 ; preds = %49, %ma_zero_memory_default.exit17.i, %41, %46, %47, %54, %67, %ma_zero_memory_default.exit, %3
-  %.0 = phi i32 [ -2, %ma_zero_memory_default.exit ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit17.i ], [ -3, %49 ], [ 0, %54 ], [ -2, %41 ], [ -2, %46 ], [ -3, %47 ], [ 0, %67 ]
+  %.0 = phi i32 [ -2, %3 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %ma_zero_memory_default.exit17.i ], [ -2, %41 ], [ -2, %46 ], [ 0, %67 ], [ 0, %54 ], [ -3, %47 ], [ -3, %49 ]
   ret i32 %.0
 }
 
@@ -25681,7 +25681,7 @@ ma_malloc.exit:                                   ; preds = %32, %35
   br label %ma_peak2_get_heap_size.exit
 
 ma_peak2_get_heap_size.exit:                      ; preds = %29, %46, %44, %41, %cdce.end12.i, %ma_malloc.exit, %47
-  %.013 = phi i32 [ 0, %47 ], [ -4, %ma_malloc.exit ], [ %39, %44 ], [ -2, %cdce.end12.i ], [ -4, %29 ], [ %39, %46 ], [ %39, %41 ]
+  %.013 = phi i32 [ 0, %47 ], [ -4, %ma_malloc.exit ], [ -2, %cdce.end12.i ], [ %39, %41 ], [ %39, %44 ], [ %39, %46 ], [ -4, %29 ]
   ret i32 %.013
 }
 
@@ -25837,7 +25837,7 @@ define range(i32 -3, 1) i32 @ma_peak2_reinit(ptr noundef readonly captures(addre
   br label %ma_biquad_reinit.exit
 
 ma_biquad_reinit.exit:                            ; preds = %38, %56, %43, %36, %35, %5, %2
-  %.0 = phi i32 [ -2, %2 ], [ -3, %38 ], [ 0, %43 ], [ -2, %5 ], [ -2, %35 ], [ -3, %36 ], [ 0, %56 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %5 ], [ -2, %35 ], [ 0, %56 ], [ 0, %43 ], [ -3, %36 ], [ -3, %38 ]
   ret i32 %.0
 }
 
@@ -26125,7 +26125,7 @@ ma_zero_memory_default.exit17.i:                  ; preds = %ma_zero_memory_defa
   br label %ma_biquad_init_preallocated.exit
 
 ma_biquad_init_preallocated.exit:                 ; preds = %68, %ma_zero_memory_default.exit17.i, %60, %65, %66, %73, %88, %ma_zero_memory_default.exit, %3
-  %.0 = phi i32 [ -2, %ma_zero_memory_default.exit ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit17.i ], [ -3, %68 ], [ 0, %73 ], [ -2, %60 ], [ -2, %65 ], [ -3, %66 ], [ 0, %88 ]
+  %.0 = phi i32 [ -2, %3 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %ma_zero_memory_default.exit17.i ], [ -2, %60 ], [ -2, %65 ], [ 0, %88 ], [ 0, %73 ], [ -3, %66 ], [ -3, %68 ]
   ret i32 %.0
 }
 
@@ -26244,7 +26244,7 @@ ma_malloc.exit:                                   ; preds = %42, %45
   br label %ma_loshelf2_get_heap_size.exit
 
 ma_loshelf2_get_heap_size.exit:                   ; preds = %39, %56, %54, %51, %cdce.end14.i, %ma_malloc.exit, %57
-  %.013 = phi i32 [ 0, %57 ], [ -4, %ma_malloc.exit ], [ %49, %54 ], [ -2, %cdce.end14.i ], [ -4, %39 ], [ %49, %56 ], [ %49, %51 ]
+  %.013 = phi i32 [ 0, %57 ], [ -4, %ma_malloc.exit ], [ -2, %cdce.end14.i ], [ %49, %51 ], [ %49, %54 ], [ %49, %56 ], [ -4, %39 ]
   ret i32 %.013
 }
 
@@ -26424,7 +26424,7 @@ define range(i32 -3, 1) i32 @ma_loshelf2_reinit(ptr noundef readonly captures(ad
   br label %ma_biquad_reinit.exit
 
 ma_biquad_reinit.exit:                            ; preds = %57, %77, %62, %55, %54, %5, %2
-  %.0 = phi i32 [ -2, %2 ], [ -3, %57 ], [ 0, %62 ], [ -2, %5 ], [ -2, %54 ], [ -3, %55 ], [ 0, %77 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %5 ], [ -2, %54 ], [ 0, %77 ], [ 0, %62 ], [ -3, %55 ], [ -3, %57 ]
   ret i32 %.0
 }
 
@@ -26712,7 +26712,7 @@ ma_zero_memory_default.exit17.i:                  ; preds = %ma_zero_memory_defa
   br label %ma_biquad_init_preallocated.exit
 
 ma_biquad_init_preallocated.exit:                 ; preds = %68, %ma_zero_memory_default.exit17.i, %60, %65, %66, %73, %88, %ma_zero_memory_default.exit, %3
-  %.0 = phi i32 [ -2, %ma_zero_memory_default.exit ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit17.i ], [ -3, %68 ], [ 0, %73 ], [ -2, %60 ], [ -2, %65 ], [ -3, %66 ], [ 0, %88 ]
+  %.0 = phi i32 [ -2, %3 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %ma_zero_memory_default.exit17.i ], [ -2, %60 ], [ -2, %65 ], [ 0, %88 ], [ 0, %73 ], [ -3, %66 ], [ -3, %68 ]
   ret i32 %.0
 }
 
@@ -26831,7 +26831,7 @@ ma_malloc.exit:                                   ; preds = %42, %45
   br label %ma_hishelf2_get_heap_size.exit
 
 ma_hishelf2_get_heap_size.exit:                   ; preds = %39, %56, %54, %51, %cdce.end14.i, %ma_malloc.exit, %57
-  %.013 = phi i32 [ 0, %57 ], [ -4, %ma_malloc.exit ], [ %49, %54 ], [ -2, %cdce.end14.i ], [ -4, %39 ], [ %49, %56 ], [ %49, %51 ]
+  %.013 = phi i32 [ 0, %57 ], [ -4, %ma_malloc.exit ], [ -2, %cdce.end14.i ], [ %49, %51 ], [ %49, %54 ], [ %49, %56 ], [ -4, %39 ]
   ret i32 %.013
 }
 
@@ -27011,7 +27011,7 @@ define range(i32 -3, 1) i32 @ma_hishelf2_reinit(ptr noundef readonly captures(ad
   br label %ma_biquad_reinit.exit
 
 ma_biquad_reinit.exit:                            ; preds = %57, %77, %62, %55, %54, %5, %2
-  %.0 = phi i32 [ -2, %2 ], [ -3, %57 ], [ 0, %62 ], [ -2, %5 ], [ -2, %54 ], [ -3, %55 ], [ 0, %77 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %5 ], [ -2, %54 ], [ 0, %77 ], [ 0, %62 ], [ -3, %55 ], [ -3, %57 ]
   ret i32 %.0
 }
 
@@ -27138,7 +27138,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %31, %ma_zero_memory
   br i1 %.not.i.i, label %ma_silence_pcm_frames.exit, label %ma_zero_memory_default.exit.i.i, !llvm.loop !305
 
 ma_silence_pcm_frames.exit:                       ; preds = %ma_zero_memory_default.exit.i.i, %31, %ma_malloc.exit.thread, %ma_malloc.exit, %6, %ma_zero_memory_default.exit, %3
-  %.0 = phi i32 [ -4, %ma_malloc.exit.thread ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %6 ], [ -4, %ma_malloc.exit ], [ 0, %31 ], [ 0, %ma_zero_memory_default.exit.i.i ]
+  %.0 = phi i32 [ -2, %3 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %6 ], [ -4, %ma_malloc.exit ], [ -4, %ma_malloc.exit.thread ], [ 0, %31 ], [ 0, %ma_zero_memory_default.exit.i.i ]
   ret i32 %.0
 }
 
@@ -27487,7 +27487,7 @@ ma_zero_memory_default.exit:                      ; preds = %7
   br i1 %exitcond.not, label %ma_gainer_get_heap_layout.exit, label %.lr.ph, !llvm.loop !699
 
 ma_gainer_get_heap_layout.exit:                   ; preds = %.lr.ph, %ma_zero_memory_default.exit, %7, %ma_zero_memory_default.exit32, %3
-  %.026 = phi i32 [ -2, %7 ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit32 ], [ 0, %ma_zero_memory_default.exit ], [ 0, %.lr.ph ]
+  %.026 = phi i32 [ -2, %3 ], [ -2, %ma_zero_memory_default.exit32 ], [ -2, %7 ], [ 0, %ma_zero_memory_default.exit ], [ 0, %.lr.ph ]
   ret i32 %.026
 }
 
@@ -27596,8 +27596,8 @@ ma_gainer_init_preallocated.exit:                 ; preds = %.lr.ph.i, %ma_zero_
   store i32 1, ptr %43, align 8, !tbaa !700
   br label %ma_free.exit
 
-ma_free.exit:                                     ; preds = %11, %3, %5, %42, %40, %37, %ma_malloc.exit, %ma_gainer_init_preallocated.exit
-  %.013 = phi i32 [ 0, %ma_gainer_init_preallocated.exit ], [ -2, %42 ], [ -2, %3 ], [ -4, %ma_malloc.exit ], [ -4, %11 ], [ -2, %37 ], [ -2, %40 ], [ -2, %5 ]
+ma_free.exit:                                     ; preds = %11, %5, %3, %42, %40, %37, %ma_malloc.exit, %ma_gainer_init_preallocated.exit
+  %.013 = phi i32 [ 0, %ma_gainer_init_preallocated.exit ], [ -4, %ma_malloc.exit ], [ -2, %37 ], [ -2, %40 ], [ -2, %42 ], [ -2, %3 ], [ -2, %5 ], [ -4, %11 ]
   ret i32 %.013
 }
 
@@ -27899,7 +27899,7 @@ define range(i32 -2, 1) i32 @ma_gainer_process_pcm_frames(ptr noundef captures(a
   br i1 %exitcond323.not.i, label %._crit_edge300.i, label %.lr.ph283.i, !llvm.loop !712
 
 .loopexit271.i:                                   ; preds = %._crit_edge290.i, %._crit_edge295.i, %._crit_edge.i
-  %.2.i = phi i64 [ %77, %._crit_edge295.i ], [ 0, %._crit_edge.i ], [ %151, %._crit_edge290.i ]
+  %.2.i = phi i64 [ %77, %._crit_edge295.i ], [ %151, %._crit_edge290.i ], [ 0, %._crit_edge.i ]
   %171 = icmp samesign ult i64 %.2.i, %spec.select.i
   br i1 %171, label %.preheader270.us.i, label %._crit_edge300.i
 
@@ -28641,7 +28641,7 @@ define range(i32 -2, 1) i32 @ma_panner_process_pcm_frames(ptr noundef readonly c
   br i1 %.not.i.i57, label %ma_stereo_balance_pcm_frames.exit, label %.lr.ph.i52, !llvm.loop !360
 
 ma_stereo_balance_pcm_frames.exit:                ; preds = %.lr.ph.i, %.lr.ph.i20.i35, %.lr.ph.i18.i41, %.lr.ph43.i.i, %.lr.ph.i.i44, %.lr.ph.i20.i, %.lr.ph.i18.i, %.lr.ph64.i.i, %.lr.ph66.i.i, %.lr.ph68.i.i, %.lr.ph.i.i, %.lr.ph.i52, %154, %152, %142, %140, %130, %128, %114, %101, %88, %86, %75, %73, %.preheader58.i.i, %.preheader60.i.i, %.preheader.i.i, %.preheader56.i.i, %22, %20, %4
-  %.0 = phi i32 [ -2, %4 ], [ 0, %.lr.ph.i52 ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i44 ], [ 0, %20 ], [ 0, %22 ], [ 0, %.lr.ph68.i.i ], [ 0, %.preheader56.i.i ], [ 0, %.preheader.i.i ], [ 0, %.lr.ph66.i.i ], [ 0, %.lr.ph64.i.i ], [ 0, %.preheader60.i.i ], [ 0, %.preheader58.i.i ], [ 0, %.lr.ph.i18.i ], [ 0, %.lr.ph.i20.i ], [ 0, %73 ], [ 0, %75 ], [ 0, %86 ], [ 0, %88 ], [ 0, %.lr.ph43.i.i ], [ 0, %101 ], [ 0, %.lr.ph.i18.i41 ], [ 0, %114 ], [ 0, %.lr.ph.i20.i35 ], [ 0, %128 ], [ 0, %130 ], [ 0, %140 ], [ 0, %142 ], [ 0, %152 ], [ 0, %154 ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ -2, %4 ], [ 0, %20 ], [ 0, %22 ], [ 0, %.preheader56.i.i ], [ 0, %.preheader.i.i ], [ 0, %.preheader60.i.i ], [ 0, %.preheader58.i.i ], [ 0, %73 ], [ 0, %75 ], [ 0, %86 ], [ 0, %88 ], [ 0, %101 ], [ 0, %114 ], [ 0, %128 ], [ 0, %130 ], [ 0, %140 ], [ 0, %142 ], [ 0, %152 ], [ 0, %154 ], [ 0, %.lr.ph.i52 ], [ 0, %.lr.ph.i.i ], [ 0, %.lr.ph68.i.i ], [ 0, %.lr.ph66.i.i ], [ 0, %.lr.ph64.i.i ], [ 0, %.lr.ph.i18.i ], [ 0, %.lr.ph.i20.i ], [ 0, %.lr.ph.i.i44 ], [ 0, %.lr.ph43.i.i ], [ 0, %.lr.ph.i18.i41 ], [ 0, %.lr.ph.i20.i35 ], [ 0, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -28933,14 +28933,14 @@ define range(i32 -29, 1) i32 @ma_fader_process_pcm_frames(ptr noundef captures(a
   br i1 %98, label %.lr.ph.us, label %ma_copy_pcm_frames.exit106, !llvm.loop !742
 
 ma_copy_pcm_frames.exit106:                       ; preds = %._crit_edge.us, %.lr.ph.i100, %.lr.ph118, %.preheader, %51, %49, %64, %72, %.loopexit
-  %.184 = phi i64 [ %28, %.loopexit ], [ %spec.select98, %64 ], [ %spec.select98, %72 ], [ 0, %.preheader ], [ %spec.select98, %49 ], [ %spec.select98, %51 ], [ %spec.select98, %.lr.ph.i100 ], [ %spec.select98, %.lr.ph118 ], [ %spec.select98, %._crit_edge.us ]
+  %.184 = phi i64 [ %spec.select98, %64 ], [ %spec.select98, %72 ], [ %28, %.loopexit ], [ %spec.select98, %49 ], [ %spec.select98, %51 ], [ 0, %.preheader ], [ %spec.select98, %.lr.ph118 ], [ %spec.select98, %.lr.ph.i100 ], [ %spec.select98, %._crit_edge.us ]
   %99 = load i64, ptr %7, align 8, !tbaa !737
   %100 = add i64 %99, %.184
   store i64 %100, ptr %7, align 8, !tbaa !737
   br label %.thread113
 
 .thread113:                                       ; preds = %75, %4, %ma_copy_pcm_frames.exit106
-  %.080 = phi i32 [ -29, %75 ], [ 0, %ma_copy_pcm_frames.exit106 ], [ -2, %4 ]
+  %.080 = phi i32 [ 0, %ma_copy_pcm_frames.exit106 ], [ -2, %4 ], [ -29, %75 ]
   ret i32 %.080
 }
 
@@ -29033,7 +29033,7 @@ define void @ma_fader_set_fade(ptr noundef captures(address_is_null) %0, float n
   br label %ma_fader_get_current_volume.exit.i
 
 ma_fader_get_current_volume.exit.i:               ; preds = %23, %20, %14, %8, %6
-  %.0.i = phi float [ %1, %6 ], [ %35, %23 ], [ 1.000000e+00, %8 ], [ %16, %14 ], [ %22, %20 ]
+  %.0.i = phi float [ %1, %6 ], [ %16, %14 ], [ %22, %20 ], [ %35, %23 ], [ 1.000000e+00, %8 ]
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %3, i64 4294967295)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %.0.i, ptr %36, align 4, !tbaa !734
@@ -29100,7 +29100,7 @@ define void @ma_fader_set_fade_ex(ptr noundef captures(address_is_null) %0, floa
   br label %ma_fader_get_current_volume.exit
 
 ma_fader_get_current_volume.exit:                 ; preds = %24, %21, %15, %9, %7
-  %.0 = phi float [ %1, %7 ], [ %36, %24 ], [ 1.000000e+00, %9 ], [ %17, %15 ], [ %23, %21 ]
+  %.0 = phi float [ %1, %7 ], [ %17, %15 ], [ %23, %21 ], [ %36, %24 ], [ 1.000000e+00, %9 ]
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %3, i64 4294967295)
   %spec.store.select1 = tail call i64 @llvm.smin.i64(i64 %4, i64 2147483647)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -29165,7 +29165,7 @@ define float @ma_fader_get_current_volume(ptr noundef readonly captures(address_
   br label %31
 
 31:                                               ; preds = %3, %1, %18, %15, %9
-  %.0 = phi float [ %30, %18 ], [ 0.000000e+00, %1 ], [ %11, %9 ], [ %17, %15 ], [ 1.000000e+00, %3 ]
+  %.0 = phi float [ %11, %9 ], [ %17, %15 ], [ %30, %18 ], [ 0.000000e+00, %1 ], [ 1.000000e+00, %3 ]
   ret float %.0
 }
 
@@ -29577,7 +29577,7 @@ ma_spatializer_listener_set_direction.exit:       ; preds = %.loopexit.i.i.i72, 
   br label %ma_get_default_channel_map_for_spatializer.exit
 
 ma_get_default_channel_map_for_spatializer.exit:  ; preds = %.preheader.i.i, %6, %ma_zero_memory_default.exit64, %63, %61, %52, %50, %3
-  %.0 = phi i32 [ 0, %63 ], [ -2, %3 ], [ -2, %6 ], [ 0, %50 ], [ 0, %52 ], [ 0, %61 ], [ -2, %ma_zero_memory_default.exit64 ], [ 0, %.preheader.i.i ]
+  %.0 = phi i32 [ -2, %3 ], [ 0, %50 ], [ 0, %52 ], [ 0, %61 ], [ 0, %63 ], [ -2, %ma_zero_memory_default.exit64 ], [ -2, %6 ], [ 0, %.preheader.i.i ]
   ret i32 %.0
 }
 
@@ -29729,8 +29729,8 @@ ma_malloc.exit:                                   ; preds = %15, %18
   store i32 1, ptr %31, align 4, !tbaa !762
   br label %ma_free.exit
 
-ma_free.exit:                                     ; preds = %12, %3, %5, %29, %27, %24, %ma_malloc.exit, %30
-  %.013 = phi i32 [ 0, %30 ], [ %22, %27 ], [ -2, %3 ], [ -4, %ma_malloc.exit ], [ -4, %12 ], [ %22, %29 ], [ %22, %24 ], [ -2, %5 ]
+ma_free.exit:                                     ; preds = %12, %5, %3, %29, %27, %24, %ma_malloc.exit, %30
+  %.013 = phi i32 [ 0, %30 ], [ -4, %ma_malloc.exit ], [ %22, %24 ], [ %22, %27 ], [ %22, %29 ], [ -2, %3 ], [ -2, %5 ], [ -4, %12 ]
   ret i32 %.013
 }
 
@@ -30195,8 +30195,8 @@ ma_spatializer_validate_config.exit.i:            ; preds = %9
   store i64 %25, ptr %1, align 8, !tbaa !52
   br label %ma_spatializer_get_heap_layout.exit.thread
 
-ma_spatializer_get_heap_layout.exit.thread:       ; preds = %6, %4, %9, %2, %ma_spatializer_validate_config.exit.i
-  %.0 = phi i32 [ 0, %ma_spatializer_validate_config.exit.i ], [ -2, %2 ], [ -2, %9 ], [ -2, %4 ], [ -2, %6 ]
+ma_spatializer_get_heap_layout.exit.thread:       ; preds = %9, %6, %4, %2, %ma_spatializer_validate_config.exit.i
+  %.0 = phi i32 [ 0, %ma_spatializer_validate_config.exit.i ], [ -2, %2 ], [ -2, %4 ], [ -2, %6 ], [ -2, %9 ]
   ret i32 %.0
 }
 
@@ -30437,8 +30437,8 @@ ma_channel_map_copy_or_default.exit:              ; preds = %108, %103, %101
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %115
   br i1 %exitcond.not.i, label %ma_spatializer_get_heap_layout.exit.thread, label %.lr.ph.i, !llvm.loop !699
 
-ma_spatializer_get_heap_layout.exit.thread:       ; preds = %.lr.ph.i, %ma_channel_map_copy_or_default.exit, %7, %10, %ma_zero_memory_default.exit108, %3
-  %.0 = phi i32 [ -2, %7 ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit108 ], [ -2, %10 ], [ -2, %ma_channel_map_copy_or_default.exit ], [ 0, %.lr.ph.i ]
+ma_spatializer_get_heap_layout.exit.thread:       ; preds = %.lr.ph.i, %ma_channel_map_copy_or_default.exit, %10, %7, %ma_zero_memory_default.exit108, %3
+  %.0 = phi i32 [ -2, %3 ], [ -2, %ma_zero_memory_default.exit108 ], [ -2, %7 ], [ -2, %10 ], [ -2, %ma_channel_map_copy_or_default.exit ], [ 0, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -30607,8 +30607,8 @@ ma_malloc.exit:                                   ; preds = %29, %32
   store i32 1, ptr %45, align 8, !tbaa !808
   br label %ma_free.exit
 
-ma_free.exit:                                     ; preds = %26, %3, %8, %5, %43, %41, %38, %ma_malloc.exit, %44
-  %.013 = phi i32 [ 0, %44 ], [ %36, %41 ], [ -2, %3 ], [ -4, %ma_malloc.exit ], [ -4, %26 ], [ %36, %43 ], [ %36, %38 ], [ -2, %5 ], [ -2, %8 ]
+ma_free.exit:                                     ; preds = %26, %8, %5, %3, %43, %41, %38, %ma_malloc.exit, %44
+  %.013 = phi i32 [ 0, %44 ], [ -4, %ma_malloc.exit ], [ %36, %38 ], [ %36, %41 ], [ %36, %43 ], [ -2, %3 ], [ -2, %5 ], [ -2, %8 ], [ -4, %26 ]
   ret i32 %.013
 }
 
@@ -30951,7 +30951,7 @@ ma_spatializer_get_attenuation_model.exit:        ; preds = %94, %ma_spatializer
   br label %ma_attenuation_inverse.exit
 
 ma_attenuation_inverse.exit:                      ; preds = %121, %119, %110, %108, %101, %99, %ma_spatializer_get_attenuation_model.exit
-  %.0246 = phi float [ 1.000000e+00, %108 ], [ 1.000000e+00, %ma_spatializer_get_attenuation_model.exit ], [ 1.000000e+00, %99 ], [ %107, %101 ], [ %118, %110 ], [ %130, %121 ], [ 1.000000e+00, %119 ]
+  %.0246 = phi float [ 1.000000e+00, %ma_spatializer_get_attenuation_model.exit ], [ %107, %101 ], [ 1.000000e+00, %99 ], [ %118, %110 ], [ 1.000000e+00, %108 ], [ %130, %121 ], [ 1.000000e+00, %119 ]
   %131 = fcmp ogt float %sqrt.i, 0x3F50624DE0000000
   br i1 %131, label %ma_spatializer_get_cone.exit, label %ma_spatializer_get_max_gain.exit
 
@@ -31014,7 +31014,7 @@ ma_spatializer_get_cone.exit:                     ; preds = %ma_attenuation_inve
   br label %172
 
 172:                                              ; preds = %166, %164, %145, %ma_spatializer_get_cone.exit
-  %.0.i303 = phi float [ %143, %164 ], [ 1.000000e+00, %145 ], [ %171, %166 ], [ 1.000000e+00, %ma_spatializer_get_cone.exit ]
+  %.0.i303 = phi float [ %171, %166 ], [ 1.000000e+00, %145 ], [ %143, %164 ], [ 1.000000e+00, %ma_spatializer_get_cone.exit ]
   %173 = fmul float %.0246, %.0.i303
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %175 = load float, ptr %174, align 4, !tbaa !763
@@ -31059,13 +31059,13 @@ ma_spatializer_get_cone.exit:                     ; preds = %ma_attenuation_inve
   br label %ma_calculate_angular_gain.exit309
 
 ma_calculate_angular_gain.exit309:                ; preds = %177, %199, %201
-  %.0.i304 = phi float [ %184, %199 ], [ 1.000000e+00, %177 ], [ %206, %201 ]
+  %.0.i304 = phi float [ %206, %201 ], [ 1.000000e+00, %177 ], [ %184, %199 ]
   %207 = fmul float %173, %.0.i304
   br label %ma_spatializer_get_max_gain.exit
 
 ma_spatializer_get_max_gain.exit:                 ; preds = %ma_attenuation_inverse.exit, %172, %ma_calculate_angular_gain.exit309
-  %.0245388 = phi float [ %sqrt.i, %172 ], [ %sqrt.i, %ma_calculate_angular_gain.exit309 ], [ 0.000000e+00, %ma_attenuation_inverse.exit ]
-  %.2 = phi float [ %173, %172 ], [ %207, %ma_calculate_angular_gain.exit309 ], [ %.0246, %ma_attenuation_inverse.exit ]
+  %.0245388 = phi float [ %sqrt.i, %ma_calculate_angular_gain.exit309 ], [ %sqrt.i, %172 ], [ 0.000000e+00, %ma_attenuation_inverse.exit ]
+  %.2 = phi float [ %207, %ma_calculate_angular_gain.exit309 ], [ %173, %172 ], [ %.0246, %ma_attenuation_inverse.exit ]
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %209 = load atomic volatile i32, ptr %208 seq_cst, align 4
   %210 = bitcast i32 %209 to float
@@ -31448,7 +31448,7 @@ ma_spatializer_get_velocity.exit:                 ; preds = %.loopexit.i.i.i368,
   br label %ma_doppler_pitch.exit
 
 ma_doppler_pitch.exit:                            ; preds = %ma_gainer_set_gains.exit, %358, %ma_spatializer_get_velocity.exit
-  %.sink = phi float [ 1.000000e+00, %ma_spatializer_get_velocity.exit ], [ %375, %358 ], [ 1.000000e+00, %ma_gainer_set_gains.exit ]
+  %.sink = phi float [ %375, %358 ], [ 1.000000e+00, %ma_spatializer_get_velocity.exit ], [ 1.000000e+00, %ma_gainer_set_gains.exit ]
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store float %.sink, ptr %376, align 8, !tbaa !805
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -31642,7 +31642,7 @@ ma_channel_map_get_channel.exit50.thread57.us.us.us.i: ; preds = %ma_channel_map
   br i1 %exitcond189.not.i, label %._crit_edge.split.us.us.us.i, label %.lr.ph.split.us.us.us.split.i, !llvm.loop !813
 
 ._crit_edge.split.us.us.us.i:                     ; preds = %ma_channel_map_get_channel.exit50.thread.us.us.us.us124.i, %ma_channel_map_get_channel.exit50.thread.us.us.us.us116.i, %ma_channel_map_get_channel.exit50.thread.us.us.us.us108.i, %ma_channel_map_get_channel.exit50.thread57.us.us.us.us101.i, %ma_channel_map_get_channel.exit50.thread.us.us.us.us92.i, %ma_channel_map_get_channel.exit50.thread.us.us.us.us.i, %ma_channel_map_get_channel.exit50.thread57.us.us.us.i
-  %.us-phi88.i = phi float [ %50, %ma_channel_map_get_channel.exit50.thread.us.us.us.us116.i ], [ %.1.us.us.us.i, %ma_channel_map_get_channel.exit50.thread57.us.us.us.i ], [ %38, %ma_channel_map_get_channel.exit50.thread.us.us.us.us.i ], [ %41, %ma_channel_map_get_channel.exit50.thread.us.us.us.us92.i ], [ %44, %ma_channel_map_get_channel.exit50.thread57.us.us.us.us101.i ], [ %47, %ma_channel_map_get_channel.exit50.thread.us.us.us.us108.i ], [ %53, %ma_channel_map_get_channel.exit50.thread.us.us.us.us124.i ]
+  %.us-phi88.i = phi float [ %.1.us.us.us.i, %ma_channel_map_get_channel.exit50.thread57.us.us.us.i ], [ %38, %ma_channel_map_get_channel.exit50.thread.us.us.us.us.i ], [ %41, %ma_channel_map_get_channel.exit50.thread.us.us.us.us92.i ], [ %44, %ma_channel_map_get_channel.exit50.thread57.us.us.us.us101.i ], [ %47, %ma_channel_map_get_channel.exit50.thread.us.us.us.us108.i ], [ %50, %ma_channel_map_get_channel.exit50.thread.us.us.us.us116.i ], [ %53, %ma_channel_map_get_channel.exit50.thread.us.us.us.us124.i ]
   %58 = fdiv float %.us-phi88.i, %34
   store float %58, ptr %.04176.us.us.i, align 4, !tbaa !339
   %59 = getelementptr inbounds nuw i8, ptr %.04176.us.us.i, i64 4
@@ -32798,7 +32798,7 @@ ma_channel_map_get_channel.exit359:               ; preds = %.lr.ph, %ma_channel
   br i1 %545, label %.preheader379, label %.loopexit375, !llvm.loop !846
 
 .loopexit375:                                     ; preds = %._crit_edge444, %._crit_edge462, %390, %.preheader382, %.preheader380, %.preheader377, %.preheader374, %._crit_edge435
-  %.2 = phi i32 [ 0, %._crit_edge435 ], [ %439, %390 ], [ 0, %.preheader382 ], [ 0, %.preheader374 ], [ 0, %.preheader377 ], [ 0, %.preheader380 ], [ %497, %._crit_edge462 ], [ %543, %._crit_edge444 ]
+  %.2 = phi i32 [ 0, %._crit_edge435 ], [ 0, %.preheader374 ], [ 0, %.preheader377 ], [ 0, %.preheader380 ], [ 0, %.preheader382 ], [ %439, %390 ], [ %497, %._crit_edge462 ], [ %543, %._crit_edge444 ]
   %546 = zext i32 %.2 to i64
   %547 = icmp ugt i64 %6, %546
   br i1 %547, label %.preheader373.lr.ph, label %.loopexit
@@ -33024,7 +33024,7 @@ switch.lookup778:                                 ; preds = %628
   br label %ma_channel_map_get_channel.exit365.us.us
 
 ma_channel_map_get_channel.exit365.us.us:         ; preds = %switch.lookup778, %619, %621, %623, %626, %switch.lookup775, %switch.lookup772, %switch.lookup769, %switch.lookup, %630, %625, %switch.lookup.i68.i.us.us, %.lr.ph.split.us.us
-  %.0.i364.us.us = phi i64 [ %switch.load771, %switch.lookup769 ], [ %switch.offset.i70.i.us.us, %switch.lookup.i68.i.us.us ], [ %switch.load, %switch.lookup ], [ %spec.select, %630 ], [ %switch.select20.i.i.us.us, %625 ], [ 1, %.lr.ph.split.us.us ], [ 0, %619 ], [ %switch.load774, %switch.lookup772 ], [ %switch.load780, %switch.lookup778 ], [ %switch.load777, %switch.lookup775 ], [ 0, %626 ], [ 0, %623 ], [ 0, %621 ]
+  %.0.i364.us.us = phi i64 [ 1, %.lr.ph.split.us.us ], [ %switch.select20.i.i.us.us, %625 ], [ %switch.offset.i70.i.us.us, %switch.lookup.i68.i.us.us ], [ %spec.select, %630 ], [ %switch.load, %switch.lookup ], [ %switch.load771, %switch.lookup769 ], [ %switch.load774, %switch.lookup772 ], [ %switch.load777, %switch.lookup775 ], [ 0, %626 ], [ 0, %623 ], [ 0, %621 ], [ 0, %619 ], [ %switch.load780, %switch.lookup778 ]
   %633 = trunc nuw i64 %indvars.iv552 to i32
   %634 = add i32 %571, %633
   %635 = zext i32 %634 to i64
@@ -34164,8 +34164,8 @@ define range(i32 -2, 1) i32 @ma_linear_resampler_get_heap_size(ptr noundef reado
   store i64 %38, ptr %1, align 8, !tbaa !52
   br label %ma_linear_resampler_get_heap_layout.exit.thread
 
-ma_linear_resampler_get_heap_layout.exit.thread:  ; preds = %6, %4, %8, %2, %33
-  %.0 = phi i32 [ 0, %33 ], [ -2, %2 ], [ -2, %8 ], [ -2, %4 ], [ -2, %6 ]
+ma_linear_resampler_get_heap_layout.exit.thread:  ; preds = %8, %6, %4, %2, %33
+  %.0 = phi i32 [ 0, %33 ], [ -2, %2 ], [ -2, %4 ], [ -2, %6 ], [ -2, %8 ]
   ret i32 %.0
 }
 
@@ -34270,8 +34270,8 @@ ma_zero_memory_default.exit:                      ; preds = %46, %39
   store i32 0, ptr %56, align 4, !tbaa !871
   br label %ma_linear_resampler_get_heap_layout.exit.thread
 
-ma_linear_resampler_get_heap_layout.exit.thread:  ; preds = %7, %ma_zero_memory_default.exit32, %9, %ma_zero_memory_default.exit, %3, %54
-  %.0 = phi i32 [ 0, %54 ], [ -2, %3 ], [ %53, %ma_zero_memory_default.exit ], [ -2, %9 ], [ -2, %ma_zero_memory_default.exit32 ], [ -2, %7 ]
+ma_linear_resampler_get_heap_layout.exit.thread:  ; preds = %9, %7, %ma_zero_memory_default.exit32, %ma_zero_memory_default.exit, %3, %54
+  %.0 = phi i32 [ 0, %54 ], [ -2, %3 ], [ %53, %ma_zero_memory_default.exit ], [ -2, %ma_zero_memory_default.exit32 ], [ -2, %7 ], [ -2, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -34494,8 +34494,8 @@ ma_malloc.exit:                                   ; preds = %41, %44
   store i32 1, ptr %57, align 8, !tbaa !880
   br label %ma_free.exit
 
-ma_free.exit:                                     ; preds = %38, %3, %7, %5, %55, %53, %50, %ma_malloc.exit, %56
-  %.013 = phi i32 [ 0, %56 ], [ %48, %53 ], [ -2, %3 ], [ -4, %ma_malloc.exit ], [ -4, %38 ], [ %48, %55 ], [ %48, %50 ], [ -2, %5 ], [ -2, %7 ]
+ma_free.exit:                                     ; preds = %38, %7, %5, %3, %55, %53, %50, %ma_malloc.exit, %56
+  %.013 = phi i32 [ 0, %56 ], [ -4, %ma_malloc.exit ], [ %48, %50 ], [ %48, %53 ], [ %48, %55 ], [ -2, %3 ], [ -2, %5 ], [ -2, %7 ], [ -4, %38 ]
   ret i32 %.013
 }
 
@@ -35718,8 +35718,8 @@ ma_lpf_process_pcm_frame_f32.exit.i25.i:          ; preds = %ma_biquad_process_p
   br i1 %exitcond135.not.i.i58, label %.sink.split, label %.preheader76.i.i18, !llvm.loop !910
 
 .sink.split:                                      ; preds = %588, %494, %._crit_edge85.i.i76, %453, %._crit_edge91.i.i89, %313, %204, %._crit_edge85.i.i, %163, %._crit_edge91.i.i, %455, %322, %165, %17
-  %storemerge46.i59.sink = phi i64 [ %.2.lcssa152.i.i, %313 ], [ 0, %165 ], [ 0, %17 ], [ 0, %455 ], [ 0, %322 ], [ %.2.lcssa.i.i91, %453 ], [ %.2.lcssa.i.i, %163 ], [ %.2.lcssa.i.i, %._crit_edge91.i.i ], [ %199, %._crit_edge85.i.i ], [ %.05998.i.i, %204 ], [ %.2.lcssa.i.i91, %._crit_edge91.i.i89 ], [ %489, %._crit_edge85.i.i76 ], [ %.05998.i.i22, %494 ], [ %.2.lcssa152.i.i25, %588 ]
-  %storemerge.i60.sink = phi i64 [ %16, %313 ], [ 0, %165 ], [ 0, %17 ], [ 0, %455 ], [ 0, %322 ], [ %.05898.i.i85, %._crit_edge91.i.i89 ], [ %16, %163 ], [ %.05898.i.i, %._crit_edge91.i.i ], [ %.05899.i.i, %._crit_edge85.i.i ], [ %.05899.i.i, %204 ], [ %321, %453 ], [ %.05899.i.i21, %._crit_edge85.i.i76 ], [ %.05899.i.i21, %494 ], [ %321, %588 ]
+  %storemerge46.i59.sink = phi i64 [ 0, %17 ], [ 0, %165 ], [ 0, %322 ], [ 0, %455 ], [ %.2.lcssa.i.i, %._crit_edge91.i.i ], [ %.2.lcssa.i.i, %163 ], [ %199, %._crit_edge85.i.i ], [ %.05998.i.i, %204 ], [ %.2.lcssa152.i.i, %313 ], [ %.2.lcssa.i.i91, %._crit_edge91.i.i89 ], [ %.2.lcssa.i.i91, %453 ], [ %489, %._crit_edge85.i.i76 ], [ %.05998.i.i22, %494 ], [ %.2.lcssa152.i.i25, %588 ]
+  %storemerge.i60.sink = phi i64 [ 0, %17 ], [ 0, %165 ], [ 0, %322 ], [ 0, %455 ], [ %16, %163 ], [ %.05898.i.i, %._crit_edge91.i.i ], [ %.05899.i.i, %._crit_edge85.i.i ], [ %.05899.i.i, %204 ], [ %16, %313 ], [ %321, %453 ], [ %.05898.i.i85, %._crit_edge91.i.i89 ], [ %.05899.i.i21, %._crit_edge85.i.i76 ], [ %.05899.i.i21, %494 ], [ %321, %588 ]
   store i64 %storemerge46.i59.sink, ptr %2, align 8, !tbaa !63
   store i64 %storemerge.i60.sink, ptr %4, align 8, !tbaa !63
   br label %589
@@ -35829,7 +35829,7 @@ ma_gcf_u32.exit.i:                                ; preds = %13
   br label %ma_linear_resampler_set_rate_internal.exit
 
 ma_linear_resampler_set_rate_internal.exit:       ; preds = %ma_gcf_u32.exit.i, %22, %34
-  %.0.i = phi i32 [ 0, %34 ], [ %33, %22 ], [ -2, %ma_gcf_u32.exit.i ]
+  %.0.i = phi i32 [ 0, %34 ], [ -2, %ma_gcf_u32.exit.i ], [ %33, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %54
 
@@ -36177,7 +36177,7 @@ define i32 @ma_resampler_get_heap_size(ptr noundef %0, ptr noundef %1) local_unn
   br label %ma_resampler_get_vtable.exit
 
 ma_resampler_get_vtable.exit:                     ; preds = %6, %17, %9, %.thread, %4, %2
-  %.0 = phi i32 [ -29, %9 ], [ -2, %2 ], [ -2, %4 ], [ -29, %.thread ], [ %18, %17 ], [ -2, %6 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %4 ], [ -29, %.thread ], [ -29, %9 ], [ %18, %17 ], [ -2, %6 ]
   ret i32 %.0
 }
 
@@ -36247,7 +36247,7 @@ ma_zero_memory_default.exit:                      ; preds = %3
   br label %ma_resampler_get_vtable.exit
 
 ma_resampler_get_vtable.exit:                     ; preds = %6, %35, %23, %29, %ma_zero_memory_default.exit, %3
-  %.0 = phi i32 [ -29, %23 ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit ], [ -29, %29 ], [ %36, %35 ], [ -2, %6 ]
+  %.0 = phi i32 [ -2, %3 ], [ -2, %ma_zero_memory_default.exit ], [ -29, %29 ], [ -29, %23 ], [ %36, %35 ], [ -2, %6 ]
   ret i32 %.0
 }
 
@@ -36377,8 +36377,8 @@ ma_resampler_init_preallocated.exit:              ; preds = %54
   %.not19 = icmp eq i32 %60, 0
   br i1 %.not19, label %69, label %ma_resampler_init_preallocated.exit.thread
 
-ma_resampler_init_preallocated.exit.thread:       ; preds = %54, %32, %30, %48, %ma_resampler_init_preallocated.exit
-  %.0.i2129 = phi i32 [ %60, %ma_resampler_init_preallocated.exit ], [ -29, %54 ], [ -2, %32 ], [ -2, %30 ], [ -29, %48 ]
+ma_resampler_init_preallocated.exit.thread:       ; preds = %32, %48, %54, %30, %ma_resampler_init_preallocated.exit
+  %.0.i2129 = phi i32 [ %60, %ma_resampler_init_preallocated.exit ], [ -2, %32 ], [ -29, %48 ], [ -29, %54 ], [ -2, %30 ]
   %61 = icmp eq ptr %.0, null
   br i1 %61, label %ma_free.exit, label %62
 
@@ -36406,8 +36406,8 @@ ma_resampler_init_preallocated.exit.thread:       ; preds = %54, %32, %30, %48, 
   store i32 1, ptr %70, align 8, !tbaa !173
   br label %ma_free.exit
 
-ma_free.exit:                                     ; preds = %21, %.thread.i, %3, %6, %9, %68, %66, %63, %ma_resampler_init_preallocated.exit.thread, %ma_malloc.exit, %ma_resampler_get_heap_size.exit, %69
-  %.013 = phi i32 [ 0, %69 ], [ %17, %ma_resampler_get_heap_size.exit ], [ -29, %9 ], [ -4, %ma_malloc.exit ], [ %.0.i2129, %68 ], [ %.0.i2129, %ma_resampler_init_preallocated.exit.thread ], [ %.0.i2129, %63 ], [ %.0.i2129, %66 ], [ -29, %.thread.i ], [ -2, %3 ], [ -2, %6 ], [ -4, %21 ]
+ma_free.exit:                                     ; preds = %21, %6, %9, %.thread.i, %3, %68, %66, %63, %ma_resampler_init_preallocated.exit.thread, %ma_malloc.exit, %ma_resampler_get_heap_size.exit, %69
+  %.013 = phi i32 [ 0, %69 ], [ %17, %ma_resampler_get_heap_size.exit ], [ -4, %ma_malloc.exit ], [ %.0.i2129, %ma_resampler_init_preallocated.exit.thread ], [ %.0.i2129, %63 ], [ %.0.i2129, %66 ], [ %.0.i2129, %68 ], [ -2, %6 ], [ -29, %9 ], [ -29, %.thread.i ], [ -2, %3 ], [ -4, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.013
 }
@@ -36542,7 +36542,7 @@ define i32 @ma_resampler_set_rate(ptr noundef captures(address_is_null) %0, i32 
   br label %24
 
 24:                                               ; preds = %16, %8, %12, %5, %3, %21
-  %.0 = phi i32 [ 0, %21 ], [ -2, %3 ], [ -2, %5 ], [ -29, %8 ], [ -29, %12 ], [ %20, %16 ]
+  %.0 = phi i32 [ 0, %21 ], [ -2, %3 ], [ -2, %5 ], [ -29, %12 ], [ -29, %8 ], [ %20, %16 ]
   ret i32 %.0
 }
 
@@ -36587,7 +36587,7 @@ define i32 @ma_resampler_set_rate_ratio(ptr noundef captures(address_is_null) %0
   br label %ma_resampler_set_rate.exit
 
 ma_resampler_set_rate.exit:                       ; preds = %22, %17, %13, %9, %5, %2
-  %.0 = phi i32 [ -2, %5 ], [ -2, %2 ], [ 0, %22 ], [ %21, %17 ], [ -29, %13 ], [ -29, %9 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %5 ], [ 0, %22 ], [ -29, %13 ], [ -29, %9 ], [ %21, %17 ]
   ret i32 %.0
 }
 
@@ -36939,7 +36939,7 @@ ma_channel_map_is_valid.exit53:                   ; preds = %31, %29, %ma_channe
   br label %ma_channel_map_is_valid.exit.thread
 
 ma_channel_map_is_valid.exit.thread:              ; preds = %ma_channel_map_get_channel.exit.i, %ma_channel_map_get_channel.exit.us.i, %ma_channel_map_get_channel.exit.i46, %ma_channel_map_get_channel.exit.us.i50, %4, %8, %2, %59
-  %.0 = phi i32 [ -2, %4 ], [ -2, %2 ], [ 0, %59 ], [ -2, %ma_channel_map_get_channel.exit.us.i ], [ -2, %8 ], [ -2, %ma_channel_map_get_channel.exit.us.i50 ], [ -2, %ma_channel_map_get_channel.exit.i46 ], [ -2, %ma_channel_map_get_channel.exit.i ]
+  %.0 = phi i32 [ 0, %59 ], [ -2, %2 ], [ -2, %8 ], [ -2, %4 ], [ -2, %ma_channel_map_get_channel.exit.us.i50 ], [ -2, %ma_channel_map_get_channel.exit.i46 ], [ -2, %ma_channel_map_get_channel.exit.us.i ], [ -2, %ma_channel_map_get_channel.exit.i ]
   ret i32 %.0
 }
 
@@ -37329,8 +37329,8 @@ ma_channel_map_get_channel.exit269:               ; preds = %.lr.ph383, %186
   %192 = icmp samesign ult i64 %indvars.iv.next463, %191
   br i1 %192, label %143, label %._crit_edge387, !llvm.loop !955
 
-._crit_edge387:                                   ; preds = %._crit_edge384, %82, %92, %.preheader370
-  %193 = phi i32 [ 0, %82 ], [ 0, %.preheader370 ], [ 0, %92 ], [ %190, %._crit_edge384 ]
+._crit_edge387:                                   ; preds = %._crit_edge384, %92, %82, %.preheader370
+  %193 = phi i32 [ 0, %.preheader370 ], [ 0, %82 ], [ 0, %92 ], [ %190, %._crit_edge384 ]
   %194 = load i32, ptr %23, align 4, !tbaa !943
   switch i32 %194, label %.preheader366 [
     i32 2, label %200
@@ -37664,7 +37664,7 @@ ma_is_spatial_channel_position.exit282:           ; preds = %303
   br label %ma_is_spatial_channel_position.exit282.thread
 
 ma_is_spatial_channel_position.exit282.thread:    ; preds = %302, %298, %ma_channel_map_get_channel.exit275, %ma_channel_map_get_channel.exit275, %ma_channel_map_get_channel.exit275, %340, %336, %345, %341
-  %348 = phi i32 [ %291, %341 ], [ %291, %298 ], [ %291, %ma_channel_map_get_channel.exit275 ], [ %291, %ma_channel_map_get_channel.exit275 ], [ %291, %ma_channel_map_get_channel.exit275 ], [ %291, %340 ], [ %291, %336 ], [ %.pre498, %345 ], [ %291, %302 ]
+  %348 = phi i32 [ %291, %298 ], [ %291, %ma_channel_map_get_channel.exit275 ], [ %291, %ma_channel_map_get_channel.exit275 ], [ %291, %ma_channel_map_get_channel.exit275 ], [ %291, %340 ], [ %291, %336 ], [ %.pre498, %345 ], [ %291, %341 ], [ %291, %302 ]
   %indvars.iv.next478 = add nuw nsw i64 %indvars.iv477, 1
   %349 = zext i32 %348 to i64
   %350 = icmp samesign ult i64 %indvars.iv.next478, %349
@@ -37675,7 +37675,7 @@ ma_is_spatial_channel_position.exit.thread.loopexit: ; preds = %ma_is_spatial_ch
   br label %ma_is_spatial_channel_position.exit.thread
 
 ma_is_spatial_channel_position.exit.thread:       ; preds = %269, %ma_channel_map_get_channel.exit.i.i, %ma_channel_map_get_channel.exit.us.i.i, %ma_is_spatial_channel_position.exit, %ma_is_spatial_channel_position.exit.thread.loopexit, %265, %ma_channel_map_get_channel.exit272, %ma_channel_map_get_channel.exit272, %ma_channel_map_get_channel.exit272
-  %351 = phi i32 [ %258, %ma_channel_map_get_channel.exit.i.i ], [ %258, %ma_is_spatial_channel_position.exit ], [ %258, %ma_channel_map_get_channel.exit272 ], [ %.pre499, %ma_is_spatial_channel_position.exit.thread.loopexit ], [ %258, %ma_channel_map_get_channel.exit.us.i.i ], [ %258, %265 ], [ %258, %ma_channel_map_get_channel.exit272 ], [ %258, %ma_channel_map_get_channel.exit272 ], [ %258, %269 ]
+  %351 = phi i32 [ %.pre499, %ma_is_spatial_channel_position.exit.thread.loopexit ], [ %258, %265 ], [ %258, %ma_channel_map_get_channel.exit272 ], [ %258, %ma_channel_map_get_channel.exit272 ], [ %258, %ma_channel_map_get_channel.exit272 ], [ %258, %ma_is_spatial_channel_position.exit ], [ %258, %ma_channel_map_get_channel.exit.us.i.i ], [ %258, %ma_channel_map_get_channel.exit.i.i ], [ %258, %269 ]
   %indvars.iv.next481 = add nuw nsw i64 %indvars.iv480, 1
   %352 = zext i32 %351 to i64
   %353 = icmp samesign ult i64 %indvars.iv.next481, %352
@@ -37884,7 +37884,7 @@ ma_is_spatial_channel_position.exit315:           ; preds = %403
   br label %ma_is_spatial_channel_position.exit315.thread
 
 ma_is_spatial_channel_position.exit315.thread:    ; preds = %402, %398, %ma_channel_map_get_channel.exit308, %ma_channel_map_get_channel.exit308, %ma_channel_map_get_channel.exit308, %440, %436, %445, %441
-  %448 = phi i32 [ %390, %441 ], [ %390, %398 ], [ %390, %ma_channel_map_get_channel.exit308 ], [ %390, %ma_channel_map_get_channel.exit308 ], [ %390, %ma_channel_map_get_channel.exit308 ], [ %390, %440 ], [ %390, %436 ], [ %.pre500, %445 ], [ %390, %402 ]
+  %448 = phi i32 [ %390, %398 ], [ %390, %ma_channel_map_get_channel.exit308 ], [ %390, %ma_channel_map_get_channel.exit308 ], [ %390, %ma_channel_map_get_channel.exit308 ], [ %390, %440 ], [ %390, %436 ], [ %.pre500, %445 ], [ %390, %441 ], [ %390, %402 ]
   %indvars.iv.next484 = add nuw nsw i64 %indvars.iv483, 1
   %449 = zext i32 %448 to i64
   %450 = icmp samesign ult i64 %indvars.iv.next484, %449
@@ -37895,10 +37895,10 @@ ma_is_spatial_channel_position.exit292.thread.loopexit: ; preds = %ma_is_spatial
   br label %ma_is_spatial_channel_position.exit292.thread
 
 ma_is_spatial_channel_position.exit292.thread:    ; preds = %369, %ma_channel_map_get_channel.exit.i.i297, %ma_channel_map_get_channel.exit.us.i.i302, %ma_is_spatial_channel_position.exit292.thread.loopexit, %ma_channel_map_contains_channel_position.exit305, %365, %ma_channel_map_get_channel.exit285, %ma_channel_map_get_channel.exit285, %ma_channel_map_get_channel.exit285
-  %451 = phi i32 [ %355, %ma_channel_map_get_channel.exit.i.i297 ], [ %355, %ma_channel_map_get_channel.exit.us.i.i302 ], [ %355, %ma_channel_map_get_channel.exit285 ], [ %.pre501, %ma_is_spatial_channel_position.exit292.thread.loopexit ], [ %355, %ma_channel_map_contains_channel_position.exit305 ], [ %355, %365 ], [ %355, %ma_channel_map_get_channel.exit285 ], [ %355, %ma_channel_map_get_channel.exit285 ], [ %355, %369 ]
-  %452 = phi i32 [ %356, %ma_channel_map_get_channel.exit.i.i297 ], [ %356, %ma_channel_map_get_channel.exit.us.i.i302 ], [ %356, %ma_channel_map_get_channel.exit285 ], [ %448, %ma_is_spatial_channel_position.exit292.thread.loopexit ], [ %356, %ma_channel_map_contains_channel_position.exit305 ], [ %356, %365 ], [ %356, %ma_channel_map_get_channel.exit285 ], [ %356, %ma_channel_map_get_channel.exit285 ], [ %356, %369 ]
-  %453 = phi i32 [ %357, %ma_channel_map_get_channel.exit.i.i297 ], [ %357, %ma_channel_map_get_channel.exit.us.i.i302 ], [ %357, %ma_channel_map_get_channel.exit285 ], [ %448, %ma_is_spatial_channel_position.exit292.thread.loopexit ], [ 0, %ma_channel_map_contains_channel_position.exit305 ], [ %357, %365 ], [ %357, %ma_channel_map_get_channel.exit285 ], [ %357, %ma_channel_map_get_channel.exit285 ], [ %357, %369 ]
-  %454 = phi i32 [ %358, %ma_channel_map_get_channel.exit.i.i297 ], [ %358, %ma_channel_map_get_channel.exit.us.i.i302 ], [ %358, %ma_channel_map_get_channel.exit285 ], [ %448, %ma_is_spatial_channel_position.exit292.thread.loopexit ], [ 0, %ma_channel_map_contains_channel_position.exit305 ], [ %358, %365 ], [ %358, %ma_channel_map_get_channel.exit285 ], [ %358, %ma_channel_map_get_channel.exit285 ], [ %358, %369 ]
+  %451 = phi i32 [ %.pre501, %ma_is_spatial_channel_position.exit292.thread.loopexit ], [ %355, %ma_channel_map_contains_channel_position.exit305 ], [ %355, %365 ], [ %355, %ma_channel_map_get_channel.exit285 ], [ %355, %ma_channel_map_get_channel.exit285 ], [ %355, %ma_channel_map_get_channel.exit285 ], [ %355, %ma_channel_map_get_channel.exit.us.i.i302 ], [ %355, %ma_channel_map_get_channel.exit.i.i297 ], [ %355, %369 ]
+  %452 = phi i32 [ %448, %ma_is_spatial_channel_position.exit292.thread.loopexit ], [ %356, %ma_channel_map_contains_channel_position.exit305 ], [ %356, %365 ], [ %356, %ma_channel_map_get_channel.exit285 ], [ %356, %ma_channel_map_get_channel.exit285 ], [ %356, %ma_channel_map_get_channel.exit285 ], [ %356, %ma_channel_map_get_channel.exit.us.i.i302 ], [ %356, %ma_channel_map_get_channel.exit.i.i297 ], [ %356, %369 ]
+  %453 = phi i32 [ %448, %ma_is_spatial_channel_position.exit292.thread.loopexit ], [ 0, %ma_channel_map_contains_channel_position.exit305 ], [ %357, %365 ], [ %357, %ma_channel_map_get_channel.exit285 ], [ %357, %ma_channel_map_get_channel.exit285 ], [ %357, %ma_channel_map_get_channel.exit285 ], [ %357, %ma_channel_map_get_channel.exit.us.i.i302 ], [ %357, %ma_channel_map_get_channel.exit.i.i297 ], [ %357, %369 ]
+  %454 = phi i32 [ %448, %ma_is_spatial_channel_position.exit292.thread.loopexit ], [ 0, %ma_channel_map_contains_channel_position.exit305 ], [ %358, %365 ], [ %358, %ma_channel_map_get_channel.exit285 ], [ %358, %ma_channel_map_get_channel.exit285 ], [ %358, %ma_channel_map_get_channel.exit285 ], [ %358, %ma_channel_map_get_channel.exit.us.i.i302 ], [ %358, %ma_channel_map_get_channel.exit.i.i297 ], [ %358, %369 ]
   %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
   %455 = zext i32 %451 to i64
   %456 = icmp samesign ult i64 %indvars.iv.next487, %455
@@ -38051,7 +38051,7 @@ ma_is_spatial_channel_position.exit338:           ; preds = %499
   br label %ma_is_spatial_channel_position.exit338.thread
 
 ma_is_spatial_channel_position.exit338.thread:    ; preds = %498, %494, %ma_channel_map_get_channel.exit331, %ma_channel_map_get_channel.exit331, %ma_channel_map_get_channel.exit331, %512, %508, %517, %513
-  %518 = phi i32 [ %487, %513 ], [ %487, %494 ], [ %487, %ma_channel_map_get_channel.exit331 ], [ %487, %ma_channel_map_get_channel.exit331 ], [ %487, %ma_channel_map_get_channel.exit331 ], [ %487, %512 ], [ %487, %508 ], [ %.pre502, %517 ], [ %487, %498 ]
+  %518 = phi i32 [ %487, %494 ], [ %487, %ma_channel_map_get_channel.exit331 ], [ %487, %ma_channel_map_get_channel.exit331 ], [ %487, %ma_channel_map_get_channel.exit331 ], [ %487, %512 ], [ %487, %508 ], [ %.pre502, %517 ], [ %487, %513 ], [ %487, %498 ]
   %indvars.iv.next490 = add nuw nsw i64 %indvars.iv489, 1
   %519 = zext i32 %518 to i64
   %520 = icmp samesign ult i64 %indvars.iv.next490, %519
@@ -38062,7 +38062,7 @@ ma_is_spatial_channel_position.exit338.thread:    ; preds = %498, %494, %ma_chan
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge390, %ma_channel_map_get_channel.exit.i.i320, %ma_channel_map_get_channel.exit.us.i.i325, %.preheader367.lr.ph, %.preheader368, %200, %71, %._crit_edge387, %.loopexit, %._crit_edge402, %ma_zero_memory_default.exit256, %3
-  %.0 = phi i32 [ 0, %71 ], [ -2, %3 ], [ %7, %ma_zero_memory_default.exit256 ], [ 0, %._crit_edge402 ], [ 0, %.loopexit ], [ -2, %200 ], [ 0, %._crit_edge387 ], [ 0, %.preheader368 ], [ 0, %.preheader367.lr.ph ], [ 0, %ma_channel_map_get_channel.exit.us.i.i325 ], [ 0, %ma_channel_map_get_channel.exit.i.i320 ], [ 0, %._crit_edge390 ]
+  %.0 = phi i32 [ -2, %3 ], [ %7, %ma_zero_memory_default.exit256 ], [ 0, %._crit_edge402 ], [ 0, %.loopexit ], [ 0, %._crit_edge387 ], [ 0, %71 ], [ -2, %200 ], [ 0, %.preheader368 ], [ 0, %.preheader367.lr.ph ], [ 0, %ma_channel_map_get_channel.exit.us.i.i325 ], [ 0, %ma_channel_map_get_channel.exit.i.i320 ], [ 0, %._crit_edge390 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -38203,7 +38203,7 @@ switch.lookup146:                                 ; preds = %29
   br label %ma_channel_map_get_channel.exit45.us.us.us
 
 ma_channel_map_get_channel.exit45.us.us.us:       ; preds = %switch.lookup146, %20, %22, %24, %27, %switch.lookup141, %switch.lookup137, %switch.lookup132, %switch.lookup, %33, %31, %26, %switch.lookup.i68.i.us.us.us, %19
-  %.0.i44.us.us.us = phi i8 [ %switch.offset.i70.i.us.us.us, %switch.lookup.i68.i.us.us.us ], [ %switch.masked136, %switch.lookup132 ], [ %switch.masked, %switch.lookup ], [ %switch.select20.i.i.us.us.us, %26 ], [ %switch.masked140, %switch.lookup137 ], [ 1, %19 ], [ 0, %31 ], [ %35, %33 ], [ %switch.masked150, %switch.lookup146 ], [ %switch.masked145, %switch.lookup141 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ], [ 0, %27 ]
+  %.0.i44.us.us.us = phi i8 [ %35, %33 ], [ 1, %19 ], [ 0, %31 ], [ %switch.select20.i.i.us.us.us, %26 ], [ %switch.offset.i70.i.us.us.us, %switch.lookup.i68.i.us.us.us ], [ %switch.masked, %switch.lookup ], [ %switch.masked136, %switch.lookup132 ], [ %switch.masked140, %switch.lookup137 ], [ %switch.masked145, %switch.lookup141 ], [ 0, %27 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ], [ %switch.masked150, %switch.lookup146 ]
   %40 = icmp eq i8 %.0.i.us.us, %.0.i44.us.us.us
   br i1 %40, label %.split.us.us.us, label %41
 
@@ -38385,7 +38385,7 @@ ma_channel_map_get_channel.exit.i:                ; preds = %12, %ma_channel_map
   br i1 %exitcond.not.i, label %ma_channel_map_find_channel_position.exit, label %ma_channel_map_get_channel.exit.i, !llvm.loop !960
 
 ma_channel_map_find_channel_position.exit:        ; preds = %ma_channel_map_get_channel.exit.i, %12, %ma_channel_map_get_channel.exit.us.i, %7, %3
-  %.012.i = phi i32 [ 0, %3 ], [ 0, %7 ], [ 1, %ma_channel_map_get_channel.exit.us.i ], [ 0, %12 ], [ 1, %ma_channel_map_get_channel.exit.i ]
+  %.012.i = phi i32 [ 0, %3 ], [ 1, %ma_channel_map_get_channel.exit.us.i ], [ 0, %7 ], [ 1, %ma_channel_map_get_channel.exit.i ], [ 0, %12 ]
   ret i32 %.012.i
 }
 
@@ -38548,7 +38548,7 @@ ma_channel_map_get_channel.exit:                  ; preds = %ma_channel_map_get_
   br i1 %exitcond.not, label %.loopexit, label %ma_channel_map_get_channel.exit, !llvm.loop !960
 
 .loopexit:                                        ; preds = %17, %10, %6, %.split.us, %16
-  %.012 = phi i32 [ 1, %.split.us ], [ 1, %16 ], [ 0, %6 ], [ 0, %10 ], [ 0, %17 ]
+  %.012 = phi i32 [ 1, %16 ], [ 1, %.split.us ], [ 0, %6 ], [ 0, %10 ], [ 0, %17 ]
   ret i32 %.012
 }
 
@@ -38628,7 +38628,7 @@ ma_malloc.exit:                                   ; preds = %12, %15
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %.thread, %9, %27, %25, %22, %ma_channel_converter_get_heap_size.exit, %ma_malloc.exit, %28
-  %.013 = phi i32 [ 0, %28 ], [ %5, %ma_channel_converter_get_heap_size.exit ], [ %19, %25 ], [ -4, %ma_malloc.exit ], [ -4, %9 ], [ %19, %27 ], [ %19, %22 ], [ %20, %.thread ]
+  %.013 = phi i32 [ 0, %28 ], [ %5, %ma_channel_converter_get_heap_size.exit ], [ -4, %ma_malloc.exit ], [ %19, %22 ], [ %19, %25 ], [ %19, %27 ], [ -4, %9 ], [ %20, %.thread ]
   ret i32 %.013
 }
 
@@ -39532,8 +39532,8 @@ ma_zero_memory_64.exit.i:                         ; preds = %ma_zero_memory_64.e
   br i1 %353, label %.preheader.i65, label %._crit_edge252.i, !llvm.loop !999
 
 ._crit_edge252.i:                                 ; preds = %._crit_edge250.i, %.preheader.lr.ph.i64, %.preheader199.i
-  %354 = phi i32 [ %311, %.preheader.lr.ph.i64 ], [ %311, %.preheader199.i ], [ %350, %._crit_edge250.i ]
-  %355 = phi i32 [ %312, %.preheader.lr.ph.i64 ], [ 0, %.preheader199.i ], [ %350, %._crit_edge250.i ]
+  %354 = phi i32 [ %311, %.preheader199.i ], [ %311, %.preheader.lr.ph.i64 ], [ %350, %._crit_edge250.i ]
+  %355 = phi i32 [ 0, %.preheader199.i ], [ %312, %.preheader.lr.ph.i64 ], [ %350, %._crit_edge250.i ]
   %356 = add i32 %.0174253.i, 1
   %357 = zext i32 %356 to i64
   %358 = icmp ugt i64 %3, %357
@@ -39634,8 +39634,8 @@ ma_zero_memory_64.exit.i:                         ; preds = %ma_zero_memory_64.e
   br i1 %420, label %.preheader205.i, label %._crit_edge236.i, !llvm.loop !1002
 
 ._crit_edge236.i:                                 ; preds = %._crit_edge234.i, %.preheader205.lr.ph.i, %.preheader206.i
-  %421 = phi i32 [ %359, %.preheader205.lr.ph.i ], [ %359, %.preheader206.i ], [ %417, %._crit_edge234.i ]
-  %422 = phi i32 [ %360, %.preheader205.lr.ph.i ], [ 0, %.preheader206.i ], [ %417, %._crit_edge234.i ]
+  %421 = phi i32 [ %359, %.preheader206.i ], [ %359, %.preheader205.lr.ph.i ], [ %417, %._crit_edge234.i ]
+  %422 = phi i32 [ 0, %.preheader206.i ], [ %360, %.preheader205.lr.ph.i ], [ %417, %._crit_edge234.i ]
   %423 = add i32 %.2237.i, 1
   %424 = zext i32 %423 to i64
   %425 = icmp ugt i64 %3, %424
@@ -39713,15 +39713,15 @@ ma_zero_memory_64.exit.i:                         ; preds = %ma_zero_memory_64.e
   br i1 %466, label %.preheader209.i, label %._crit_edge230.i, !llvm.loop !1005
 
 ._crit_edge230.i:                                 ; preds = %._crit_edge.i63, %.preheader209.lr.ph.i, %.preheader210.i
-  %467 = phi i32 [ %426, %.preheader209.lr.ph.i ], [ %426, %.preheader210.i ], [ %463, %._crit_edge.i63 ]
-  %468 = phi i32 [ %427, %.preheader209.lr.ph.i ], [ 0, %.preheader210.i ], [ %463, %._crit_edge.i63 ]
+  %467 = phi i32 [ %426, %.preheader210.i ], [ %426, %.preheader209.lr.ph.i ], [ %463, %._crit_edge.i63 ]
+  %468 = phi i32 [ 0, %.preheader210.i ], [ %427, %.preheader209.lr.ph.i ], [ %463, %._crit_edge.i63 ]
   %469 = add i32 %.3231.i, 1
   %470 = zext i32 %469 to i64
   %471 = icmp ugt i64 %3, %470
   br i1 %471, label %.preheader210.i, label %ma_zero_memory_64.exit, !llvm.loop !1006
 
 ma_zero_memory_64.exit:                           ; preds = %._crit_edge.us.i39, %.lr.ph.i40, %._crit_edge.i44, %._crit_edge142.i, %._crit_edge146.us.i, %.lr.ph149.i, %._crit_edge152.i, %._crit_edge.us.i, %.preheader116.i, %._crit_edge.i, %._crit_edge133.i, %._crit_edge140.us.i, %._crit_edge147.i, %.lr.ph.i, %._crit_edge222.split.us.us.us.i, %._crit_edge230.i, %._crit_edge236.i, %._crit_edge242.split.us.us.us.i, %._crit_edge252.i, %ma_zero_memory_default.exit.i, %9, %.preheader199.lr.ph.i, %.preheader200.i, %.preheader202.lr.ph.split.us.i, %.preheader202.lr.ph.i, %.preheader203.i, %.preheader206.lr.ph.i, %.preheader207.i, %.preheader210.lr.ph.i, %.preheader211.i, %.preheader214.lr.ph.split.us.i, %.preheader214.lr.ph.i, %.preheader215.i, %ma_zero_memory_64.exit.i, %.preheader129.i, %.preheader131.lr.ph.i, %.preheader132.i, %.preheader118.i, %.preheader120.lr.ph.i, %.preheader121.i, %.preheader.lr.ph.i51, %.preheader117.i50, %.preheader123.lr.ph.i, %.preheader124.i, %.preheader126.lr.ph.i, %.preheader127.i, %133, %.preheader106.i, %.preheader107.preheader.i, %.preheader108.i, %.preheader111.i, %.preheader114.i, %.preheader117.i, %35, %24, %4, %221
-  %.0 = phi i32 [ %229, %221 ], [ -2, %4 ], [ 0, %._crit_edge242.split.us.us.us.i ], [ 0, %._crit_edge133.i ], [ 0, %.lr.ph149.i ], [ 0, %._crit_edge146.us.i ], [ 0, %24 ], [ -3, %35 ], [ 0, %.preheader111.i ], [ 0, %.preheader108.i ], [ 0, %.preheader106.i ], [ 0, %.preheader114.i ], [ 0, %.preheader117.i ], [ 0, %.preheader107.preheader.i ], [ 0, %.lr.ph.i40 ], [ 0, %ma_zero_memory_default.exit.i ], [ 0, %._crit_edge252.i ], [ 0, %._crit_edge.i44 ], [ 0, %._crit_edge142.i ], [ -3, %133 ], [ 0, %.preheader124.i ], [ 0, %.preheader127.i ], [ 0, %.preheader121.i ], [ 0, %.preheader118.i ], [ 0, %.preheader129.i ], [ 0, %.preheader117.i50 ], [ 0, %.preheader132.i ], [ 0, %.preheader123.lr.ph.i ], [ 0, %.preheader131.lr.ph.i ], [ 0, %.preheader.lr.ph.i51 ], [ 0, %._crit_edge147.i ], [ 0, %._crit_edge140.us.i ], [ 0, %.preheader126.lr.ph.i ], [ 0, %._crit_edge236.i ], [ 0, %.lr.ph.i ], [ 0, %._crit_edge230.i ], [ 0, %.preheader120.lr.ph.i ], [ 0, %._crit_edge222.split.us.us.us.i ], [ -3, %ma_zero_memory_64.exit.i ], [ 0, %.preheader207.i ], [ 0, %.preheader203.i ], [ 0, %.preheader200.i ], [ 0, %.preheader211.i ], [ 0, %.preheader215.i ], [ 0, %.preheader202.lr.ph.split.us.i ], [ 0, %.preheader206.lr.ph.i ], [ 0, %.preheader202.lr.ph.i ], [ 0, %.preheader199.lr.ph.i ], [ 0, %._crit_edge.us.i ], [ 0, %.preheader210.lr.ph.i ], [ 0, %._crit_edge152.i ], [ 0, %.preheader214.lr.ph.split.us.i ], [ 0, %9 ], [ 0, %.preheader214.lr.ph.i ], [ 0, %._crit_edge.i ], [ 0, %.preheader116.i ], [ 0, %._crit_edge.us.i39 ]
+  %.0 = phi i32 [ %229, %221 ], [ -2, %4 ], [ 0, %24 ], [ -3, %35 ], [ 0, %.preheader106.i ], [ 0, %.preheader108.i ], [ 0, %.preheader111.i ], [ 0, %.preheader114.i ], [ 0, %.preheader117.i ], [ 0, %.preheader107.preheader.i ], [ -3, %133 ], [ 0, %.preheader117.i50 ], [ 0, %.preheader118.i ], [ 0, %.preheader121.i ], [ 0, %.preheader124.i ], [ 0, %.preheader127.i ], [ 0, %.preheader129.i ], [ 0, %.preheader132.i ], [ 0, %.preheader126.lr.ph.i ], [ 0, %.preheader123.lr.ph.i ], [ 0, %.preheader.lr.ph.i51 ], [ 0, %.preheader120.lr.ph.i ], [ 0, %.preheader131.lr.ph.i ], [ -3, %ma_zero_memory_64.exit.i ], [ 0, %.preheader200.i ], [ 0, %.preheader203.i ], [ 0, %.preheader207.i ], [ 0, %.preheader211.i ], [ 0, %.preheader215.i ], [ 0, %.preheader214.lr.ph.i ], [ 0, %.preheader214.lr.ph.split.us.i ], [ 0, %.preheader210.lr.ph.i ], [ 0, %.preheader206.lr.ph.i ], [ 0, %.preheader202.lr.ph.i ], [ 0, %.preheader202.lr.ph.split.us.i ], [ 0, %.preheader199.lr.ph.i ], [ 0, %9 ], [ 0, %ma_zero_memory_default.exit.i ], [ 0, %._crit_edge252.i ], [ 0, %._crit_edge242.split.us.us.us.i ], [ 0, %._crit_edge236.i ], [ 0, %._crit_edge230.i ], [ 0, %._crit_edge222.split.us.us.us.i ], [ 0, %.lr.ph.i ], [ 0, %._crit_edge147.i ], [ 0, %._crit_edge140.us.i ], [ 0, %._crit_edge133.i ], [ 0, %._crit_edge.i ], [ 0, %.preheader116.i ], [ 0, %._crit_edge.us.i ], [ 0, %._crit_edge152.i ], [ 0, %.lr.ph149.i ], [ 0, %._crit_edge146.us.i ], [ 0, %._crit_edge142.i ], [ 0, %._crit_edge.i44 ], [ 0, %.lr.ph.i40 ], [ 0, %._crit_edge.us.i39 ]
   ret i32 %.0
 }
 
@@ -39957,7 +39957,7 @@ ma_data_converter_config_is_resampler_required.exit.thread.i.i: ; preds = %ma_da
   br label %ma_channel_converter_config_init_from_data_converter_config.exit
 
 ma_channel_converter_config_init_from_data_converter_config.exit: ; preds = %ma_data_converter_config_is_resampler_required.exit.thread.i.i, %25, %25, %28
-  %.0.i.i = phi i32 [ 5, %ma_data_converter_config_is_resampler_required.exit.thread.i.i ], [ %27, %25 ], [ %switch.select13.i.i, %28 ], [ %27, %25 ]
+  %.0.i.i = phi i32 [ 5, %ma_data_converter_config_is_resampler_required.exit.thread.i.i ], [ %27, %25 ], [ %27, %25 ], [ %switch.select13.i.i, %28 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !151, !noalias !1012
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -40039,7 +40039,7 @@ ma_data_converter_config_is_resampler_required.exit.thread.i.i31: ; preds = %ma_
   br label %ma_resampler_config_init_from_data_converter_config.exit
 
 ma_resampler_config_init_from_data_converter_config.exit: ; preds = %ma_data_converter_config_is_resampler_required.exit.thread.i.i31, %52, %52, %55
-  %.0.i.i33 = phi i32 [ 5, %ma_data_converter_config_is_resampler_required.exit.thread.i.i31 ], [ %54, %52 ], [ %switch.select13.i.i40, %55 ], [ %54, %52 ]
+  %.0.i.i33 = phi i32 [ 5, %ma_data_converter_config_is_resampler_required.exit.thread.i.i31 ], [ %54, %52 ], [ %54, %52 ], [ %switch.select13.i.i40, %55 ]
   %..i = call i32 @llvm.umin.i32(i32 %10, i32 %14)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %58 = load i32, ptr %57, align 8, !tbaa !150, !noalias !1017
@@ -40094,8 +40094,8 @@ ma_resampler_get_heap_size.exit:                  ; preds = %.thread.i
   %.not28 = icmp eq i32 %75, 0
   br i1 %.not28, label %76, label %.thread53
 
-.thread53:                                        ; preds = %ma_resampler_get_heap_size.exit, %71, %ma_resampler_config_init_from_data_converter_config.exit, %.thread.i
-  %.2.ph = phi i32 [ %75, %ma_resampler_get_heap_size.exit ], [ -29, %.thread.i ], [ -2, %ma_resampler_config_init_from_data_converter_config.exit ], [ -29, %71 ]
+.thread53:                                        ; preds = %ma_resampler_get_heap_size.exit, %.thread.i, %71, %ma_resampler_config_init_from_data_converter_config.exit
+  %.2.ph = phi i32 [ %75, %ma_resampler_get_heap_size.exit ], [ -2, %ma_resampler_config_init_from_data_converter_config.exit ], [ -29, %71 ], [ -29, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %84
@@ -40121,7 +40121,7 @@ ma_resampler_get_heap_size.exit:                  ; preds = %.thread.i
   br label %84
 
 84:                                               ; preds = %.thread53, %.critedge, %8, %12, %2, %80
-  %.023 = phi i32 [ %41, %.critedge ], [ -2, %2 ], [ 0, %80 ], [ %.2.ph, %.thread53 ], [ -2, %12 ], [ -2, %8 ]
+  %.023 = phi i32 [ 0, %80 ], [ -2, %2 ], [ -2, %12 ], [ -2, %8 ], [ %41, %.critedge ], [ %.2.ph, %.thread53 ]
   ret i32 %.023
 }
 
@@ -40211,8 +40211,8 @@ ma_data_converter_config_is_resampler_required.exit.thread.i: ; preds = %ma_zero
   br label %ma_data_converter_config_get_mid_format.exit
 
 ma_data_converter_config_get_mid_format.exit:     ; preds = %ma_data_converter_config_is_resampler_required.exit.thread.i, %41, %41, %43
-  %44 = phi i32 [ %38, %ma_data_converter_config_is_resampler_required.exit.thread.i ], [ %42, %41 ], [ %42, %43 ], [ %42, %41 ]
-  %.0.i = phi i32 [ 5, %ma_data_converter_config_is_resampler_required.exit.thread.i ], [ %17, %41 ], [ %switch.select13.i, %43 ], [ %17, %41 ]
+  %44 = phi i32 [ %38, %ma_data_converter_config_is_resampler_required.exit.thread.i ], [ %42, %41 ], [ %42, %41 ], [ %42, %43 ]
+  %.0.i = phi i32 [ 5, %ma_data_converter_config_is_resampler_required.exit.thread.i ], [ %17, %41 ], [ %17, %41 ], [ %switch.select13.i, %43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1027)
   %.not14.i.i = icmp eq i32 %26, %29
@@ -40237,7 +40237,7 @@ ma_data_converter_config_is_resampler_required.exit.thread.i.i: ; preds = %ma_da
   br label %ma_channel_converter_config_init_from_data_converter_config.exit
 
 ma_channel_converter_config_init_from_data_converter_config.exit: ; preds = %ma_data_converter_config_is_resampler_required.exit.thread.i.i, %47, %47, %48
-  %.0.i.i = phi i32 [ 5, %ma_data_converter_config_is_resampler_required.exit.thread.i.i ], [ %17, %47 ], [ %switch.select13.i.i, %48 ], [ %17, %47 ]
+  %.0.i.i = phi i32 [ 5, %ma_data_converter_config_is_resampler_required.exit.thread.i.i ], [ %17, %47 ], [ %17, %47 ], [ %switch.select13.i.i, %48 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !151, !noalias !1027
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -40324,7 +40324,7 @@ ma_data_converter_config_is_resampler_required.exit.thread.i.i93: ; preds = %ma_
   br label %ma_resampler_config_init_from_data_converter_config.exit
 
 ma_resampler_config_init_from_data_converter_config.exit: ; preds = %ma_data_converter_config_is_resampler_required.exit.thread.i.i93, %79, %79, %81
-  %.0.i.i95 = phi i32 [ 5, %ma_data_converter_config_is_resampler_required.exit.thread.i.i93 ], [ %80, %79 ], [ %switch.select13.i.i102, %81 ], [ %80, %79 ]
+  %.0.i.i95 = phi i32 [ 5, %ma_data_converter_config_is_resampler_required.exit.thread.i.i93 ], [ %80, %79 ], [ %80, %79 ], [ %switch.select13.i.i102, %81 ]
   %..i = call i32 @llvm.umin.i32(i32 %72, i32 %73)
   %83 = load i32, ptr %25, align 8, !tbaa !150, !noalias !1033
   %84 = load i32, ptr %28, align 4, !tbaa !154, !noalias !1033
@@ -40402,8 +40402,8 @@ ma_resampler_init_preallocated.exit:              ; preds = %108
   %.not82 = icmp eq i32 %114, 0
   br i1 %.not82, label %115, label %.thread
 
-.thread:                                          ; preds = %ma_resampler_init_preallocated.exit, %106, %ma_resampler_config_init_from_data_converter_config.exit, %108
-  %.2.ph = phi i32 [ %114, %ma_resampler_init_preallocated.exit ], [ -29, %108 ], [ -2, %ma_resampler_config_init_from_data_converter_config.exit ], [ -29, %106 ]
+.thread:                                          ; preds = %ma_resampler_init_preallocated.exit, %108, %106, %ma_resampler_config_init_from_data_converter_config.exit
+  %.2.ph = phi i32 [ %114, %ma_resampler_init_preallocated.exit ], [ -2, %ma_resampler_config_init_from_data_converter_config.exit ], [ -29, %106 ], [ -29, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %176
 
@@ -40548,7 +40548,7 @@ ma_resampler_init_preallocated.exit:              ; preds = %108
   br label %176
 
 176:                                              ; preds = %.thread, %157, %172, %171, %175, %174, %167, %168, %.critedge, %ma_zero_memory_default.exit91, %3
-  %.074 = phi i32 [ 0, %157 ], [ -2, %3 ], [ %64, %.critedge ], [ %.2.ph, %.thread ], [ %8, %ma_zero_memory_default.exit91 ], [ 0, %168 ], [ 0, %167 ], [ 0, %174 ], [ 0, %175 ], [ 0, %171 ], [ 0, %172 ]
+  %.074 = phi i32 [ -2, %3 ], [ %8, %ma_zero_memory_default.exit91 ], [ %64, %.critedge ], [ 0, %168 ], [ 0, %167 ], [ 0, %174 ], [ 0, %175 ], [ 0, %171 ], [ 0, %172 ], [ 0, %157 ], [ %.2.ph, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.074
 }
@@ -40629,7 +40629,7 @@ ma_malloc.exit:                                   ; preds = %12, %15
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %.thread, %9, %27, %25, %22, %ma_data_converter_get_heap_size.exit, %ma_malloc.exit, %28
-  %.013 = phi i32 [ 0, %28 ], [ %5, %ma_data_converter_get_heap_size.exit ], [ %19, %25 ], [ -4, %ma_malloc.exit ], [ -4, %9 ], [ %19, %27 ], [ %19, %22 ], [ %20, %.thread ]
+  %.013 = phi i32 [ 0, %28 ], [ %5, %ma_data_converter_get_heap_size.exit ], [ -4, %ma_malloc.exit ], [ %19, %22 ], [ %19, %25 ], [ %19, %27 ], [ -4, %9 ], [ %20, %.thread ]
   ret i32 %.013
 }
 
@@ -41216,7 +41216,7 @@ ma_resampler_process_pcm_frames.exit.thread.i.i:  ; preds = %291, %288, %280, %2
   br label %.loopexit.sink.split.i.i
 
 ma_resampler_process_pcm_frames.exit.i.i:         ; preds = %295, %284
-  %.2.i.i = phi i32 [ %298, %295 ], [ %287, %284 ]
+  %.2.i.i = phi i32 [ %287, %284 ], [ %298, %295 ]
   %.not103.i.i = icmp eq i32 %.2.i.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %.not103.i.i, label %312, label %.loopexit.sink.split.i.i
@@ -41272,18 +41272,18 @@ ma_resampler_process_pcm_frames.exit109.i.i:      ; preds = %305
   br i1 %329, label %.loopexit.sink.split.i.i, label %228
 
 .loopexit.sink.split.i.i:                         ; preds = %324, %ma_resampler_process_pcm_frames.exit109.i.i, %305, %299, %ma_resampler_process_pcm_frames.exit.i.i, %ma_resampler_process_pcm_frames.exit.thread.i.i
-  %.179.ph.i.i = phi i64 [ %.078123.i.i, %ma_resampler_process_pcm_frames.exit.thread.i.i ], [ %.078123.i.i, %305 ], [ %326, %324 ], [ %.078123.i.i, %299 ], [ %.078123.i.i, %ma_resampler_process_pcm_frames.exit109.i.i ], [ %.078123.i.i, %ma_resampler_process_pcm_frames.exit.i.i ]
-  %.176.ph.i.i = phi i64 [ %.075124.i.i, %ma_resampler_process_pcm_frames.exit.thread.i.i ], [ %.075124.i.i, %305 ], [ %328, %324 ], [ %.075124.i.i, %299 ], [ %.075124.i.i, %ma_resampler_process_pcm_frames.exit109.i.i ], [ %.075124.i.i, %ma_resampler_process_pcm_frames.exit.i.i ]
-  %.171.ph.i.i = phi i32 [ -29, %ma_resampler_process_pcm_frames.exit.thread.i.i ], [ -29, %305 ], [ 0, %324 ], [ -29, %299 ], [ %311, %ma_resampler_process_pcm_frames.exit109.i.i ], [ %.2.i.i, %ma_resampler_process_pcm_frames.exit.i.i ]
+  %.179.ph.i.i = phi i64 [ %.078123.i.i, %ma_resampler_process_pcm_frames.exit.thread.i.i ], [ %326, %324 ], [ %.078123.i.i, %299 ], [ %.078123.i.i, %305 ], [ %.078123.i.i, %ma_resampler_process_pcm_frames.exit109.i.i ], [ %.078123.i.i, %ma_resampler_process_pcm_frames.exit.i.i ]
+  %.176.ph.i.i = phi i64 [ %.075124.i.i, %ma_resampler_process_pcm_frames.exit.thread.i.i ], [ %328, %324 ], [ %.075124.i.i, %299 ], [ %.075124.i.i, %305 ], [ %.075124.i.i, %ma_resampler_process_pcm_frames.exit109.i.i ], [ %.075124.i.i, %ma_resampler_process_pcm_frames.exit.i.i ]
+  %.171.ph.i.i = phi i32 [ -29, %ma_resampler_process_pcm_frames.exit.thread.i.i ], [ 0, %324 ], [ -29, %299 ], [ -29, %305 ], [ %311, %ma_resampler_process_pcm_frames.exit109.i.i ], [ %.2.i.i, %ma_resampler_process_pcm_frames.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %228, %.loopexit.sink.split.i.i, %216, %215
-  %.179.i.i = phi i64 [ %.179.ph.i.i, %.loopexit.sink.split.i.i ], [ 0, %216 ], [ 0, %215 ], [ %326, %228 ]
-  %.176.i.i = phi i64 [ %.176.ph.i.i, %.loopexit.sink.split.i.i ], [ 0, %216 ], [ 0, %215 ], [ %328, %228 ]
-  %.171.i.i = phi i32 [ %.171.ph.i.i, %.loopexit.sink.split.i.i ], [ 0, %216 ], [ 0, %215 ], [ 0, %228 ]
+  %.179.i.i = phi i64 [ 0, %216 ], [ 0, %215 ], [ %.179.ph.i.i, %.loopexit.sink.split.i.i ], [ %326, %228 ]
+  %.176.i.i = phi i64 [ 0, %216 ], [ 0, %215 ], [ %.176.ph.i.i, %.loopexit.sink.split.i.i ], [ %328, %228 ]
+  %.171.i.i = phi i32 [ 0, %216 ], [ 0, %215 ], [ %.171.ph.i.i, %.loopexit.sink.split.i.i ], [ 0, %228 ]
   br i1 %.not.i.i42, label %331, label %330
 
 330:                                              ; preds = %.loopexit.i.i
@@ -41436,7 +41436,7 @@ ma_resampler_get_required_input_frame_count.exit.ma_resampler_get_required_input
   br label %ma_resampler_get_required_input_frame_count.exit.thread.i
 
 ma_resampler_get_required_input_frame_count.exit.thread.i: ; preds = %ma_resampler_get_required_input_frame_count.exit.ma_resampler_get_required_input_frame_count.exit.thread_crit_edge.i, %402, %393
-  %409 = phi i64 [ %.pre.i48, %ma_resampler_get_required_input_frame_count.exit.ma_resampler_get_required_input_frame_count.exit.thread_crit_edge.i ], [ %spec.store.select111.i, %402 ], [ %spec.store.select111.i, %393 ]
+  %409 = phi i64 [ %.pre.i48, %ma_resampler_get_required_input_frame_count.exit.ma_resampler_get_required_input_frame_count.exit.thread_crit_edge.i ], [ %spec.store.select111.i, %393 ], [ %spec.store.select111.i, %402 ]
   %410 = load i32, ptr %368, align 8, !tbaa !1045
   %411 = zext i32 %410 to i64
   %412 = mul i64 %409, %411
@@ -41534,7 +41534,7 @@ ma_resampler_process_pcm_frames.exit.i:           ; preds = %434
   br i1 %or.cond, label %371, label %.loopexit.i52
 
 .thread.i:                                        ; preds = %442, %ma_resampler_process_pcm_frames.exit.i, %434, %431
-  %.1.ph.i = phi i32 [ %445, %442 ], [ %440, %ma_resampler_process_pcm_frames.exit.i ], [ -29, %431 ], [ -29, %434 ]
+  %.1.ph.i = phi i32 [ %445, %442 ], [ %440, %ma_resampler_process_pcm_frames.exit.i ], [ -29, %434 ], [ -29, %431 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %ma_data_converter_process_pcm_frames__resample_first.exit
@@ -41556,7 +41556,7 @@ ma_resampler_process_pcm_frames.exit.i:           ; preds = %434
   br label %ma_data_converter_process_pcm_frames__resample_first.exit
 
 ma_data_converter_process_pcm_frames__resample_first.exit: ; preds = %.thread.i, %464, %465
-  %.2.i49 = phi i32 [ %.1.ph.i, %.thread.i ], [ 0, %465 ], [ 0, %464 ]
+  %.2.i49 = phi i32 [ 0, %465 ], [ 0, %464 ], [ %.1.ph.i, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -41707,7 +41707,7 @@ ma_resampler_get_required_input_frame_count.exit.ma_resampler_get_required_input
   br label %ma_resampler_get_required_input_frame_count.exit.thread.i64
 
 ma_resampler_get_required_input_frame_count.exit.thread.i64: ; preds = %ma_resampler_get_required_input_frame_count.exit.ma_resampler_get_required_input_frame_count.exit.thread_crit_edge.i62, %540, %531
-  %547 = phi i64 [ %.pre.i63, %ma_resampler_get_required_input_frame_count.exit.ma_resampler_get_required_input_frame_count.exit.thread_crit_edge.i62 ], [ %spec.store.select.i59, %540 ], [ %spec.store.select.i59, %531 ]
+  %547 = phi i64 [ %.pre.i63, %ma_resampler_get_required_input_frame_count.exit.ma_resampler_get_required_input_frame_count.exit.thread_crit_edge.i62 ], [ %spec.store.select.i59, %531 ], [ %spec.store.select.i59, %540 ]
   %548 = load i32, ptr %506, align 8, !tbaa !1045
   %549 = zext i32 %548 to i64
   %550 = mul i64 %547, %549
@@ -41807,7 +41807,7 @@ ma_resampler_process_pcm_frames.exit.i72:         ; preds = %577
   br i1 %or.cond198, label %509, label %.loopexit.i75
 
 .thread.i68:                                      ; preds = %ma_resampler_process_pcm_frames.exit.i72, %577, %573, %570
-  %.1.ph.i69 = phi i32 [ %583, %ma_resampler_process_pcm_frames.exit.i72 ], [ %572, %570 ], [ -29, %573 ], [ -29, %577 ]
+  %.1.ph.i69 = phi i32 [ %583, %ma_resampler_process_pcm_frames.exit.i72 ], [ %572, %570 ], [ -29, %577 ], [ -29, %573 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ma_data_converter_process_pcm_frames__channels_first.exit
@@ -41829,14 +41829,14 @@ ma_resampler_process_pcm_frames.exit.i72:         ; preds = %577
   br label %ma_data_converter_process_pcm_frames__channels_first.exit
 
 ma_data_converter_process_pcm_frames__channels_first.exit: ; preds = %.thread.i68, %604, %605
-  %.2.i70 = phi i32 [ %.1.ph.i69, %.thread.i68 ], [ 0, %605 ], [ 0, %604 ]
+  %.2.i70 = phi i32 [ 0, %605 ], [ 0, %604 ], [ %.1.ph.i69, %.thread.i68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ma_data_converter_process_pcm_frames__passthrough.exit
 
 ma_data_converter_process_pcm_frames__passthrough.exit: ; preds = %332, %331, %207, %203, %199, %195, %186, %185, %105, %89, %88, %56, %55, %25, %5, %ma_data_converter_process_pcm_frames__channels_first.exit, %ma_data_converter_process_pcm_frames__resample_first.exit
-  %.0 = phi i32 [ %.2.i70, %ma_data_converter_process_pcm_frames__channels_first.exit ], [ -2, %5 ], [ -3, %25 ], [ 0, %56 ], [ 0, %89 ], [ 0, %185 ], [ %.2.i49, %ma_data_converter_process_pcm_frames__resample_first.exit ], [ 0, %55 ], [ 0, %88 ], [ %107, %105 ], [ 0, %186 ], [ -29, %203 ], [ %211, %207 ], [ -29, %199 ], [ -2, %195 ], [ %.171.i.i, %331 ], [ %.171.i.i, %332 ]
+  %.0 = phi i32 [ %.2.i49, %ma_data_converter_process_pcm_frames__resample_first.exit ], [ %.2.i70, %ma_data_converter_process_pcm_frames__channels_first.exit ], [ -2, %5 ], [ -3, %25 ], [ 0, %55 ], [ 0, %56 ], [ 0, %88 ], [ 0, %89 ], [ %107, %105 ], [ 0, %186 ], [ 0, %185 ], [ %211, %207 ], [ -2, %195 ], [ -29, %203 ], [ -29, %199 ], [ %.171.i.i, %331 ], [ %.171.i.i, %332 ]
   ret i32 %.0
 }
 
@@ -41886,7 +41886,7 @@ define i32 @ma_data_converter_set_rate(ptr noundef captures(address_is_null) %0,
   br label %ma_resampler_set_rate.exit
 
 ma_resampler_set_rate.exit:                       ; preds = %26, %21, %17, %13, %9, %5, %3
-  %.0 = phi i32 [ -3, %5 ], [ -2, %3 ], [ 0, %26 ], [ %25, %21 ], [ -2, %9 ], [ -29, %13 ], [ -29, %17 ]
+  %.0 = phi i32 [ -2, %3 ], [ -3, %5 ], [ 0, %26 ], [ -2, %9 ], [ -29, %17 ], [ -29, %13 ], [ %25, %21 ]
   ret i32 %.0
 }
 
@@ -41940,7 +41940,7 @@ define i32 @ma_data_converter_set_rate_ratio(ptr noundef captures(address_is_nul
   br label %ma_resampler_set_rate_ratio.exit
 
 ma_resampler_set_rate_ratio.exit:                 ; preds = %28, %23, %19, %15, %11, %8, %4, %2
-  %.0 = phi i32 [ -3, %4 ], [ -2, %2 ], [ -2, %11 ], [ -2, %8 ], [ 0, %28 ], [ %27, %23 ], [ -29, %19 ], [ -29, %15 ]
+  %.0 = phi i32 [ -2, %2 ], [ -3, %4 ], [ -2, %8 ], [ -2, %11 ], [ 0, %28 ], [ -29, %19 ], [ -29, %15 ], [ %27, %23 ]
   ret i32 %.0
 }
 
@@ -41976,7 +41976,7 @@ define i64 @ma_data_converter_get_input_latency(ptr noundef readonly captures(ad
   br label %ma_resampler_get_input_latency.exit
 
 ma_resampler_get_input_latency.exit:              ; preds = %15, %11, %6, %3, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %3 ], [ %19, %15 ], [ 0, %6 ], [ 0, %11 ]
+  %.0 = phi i64 [ 0, %1 ], [ 0, %3 ], [ %19, %15 ], [ 0, %11 ], [ 0, %6 ]
   ret i64 %.0
 }
 
@@ -42012,7 +42012,7 @@ define i64 @ma_data_converter_get_output_latency(ptr noundef readonly captures(a
   br label %ma_resampler_get_output_latency.exit
 
 ma_resampler_get_output_latency.exit:             ; preds = %15, %11, %6, %3, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %3 ], [ %19, %15 ], [ 0, %6 ], [ 0, %11 ]
+  %.0 = phi i64 [ 0, %1 ], [ 0, %3 ], [ %19, %15 ], [ 0, %11 ], [ 0, %6 ]
   ret i64 %.0
 }
 
@@ -42177,7 +42177,7 @@ define range(i32 -2, 1) i32 @ma_data_converter_get_input_channel_map(ptr noundef
   br i1 %or.cond5.i, label %ma_channel_converter_get_output_channel_map.exit, label %.preheader.i, !llvm.loop !140
 
 ma_channel_converter_get_output_channel_map.exit: ; preds = %.preheader.i.i.i, %.preheader.i, %26, %18, %16, %9, %3
-  %.0 = phi i32 [ -2, %3 ], [ 0, %.preheader.i ], [ 0, %9 ], [ 0, %16 ], [ 0, %18 ], [ 0, %26 ], [ 0, %.preheader.i.i.i ]
+  %.0 = phi i32 [ -2, %3 ], [ 0, %9 ], [ 0, %16 ], [ 0, %18 ], [ 0, %26 ], [ 0, %.preheader.i ], [ 0, %.preheader.i.i.i ]
   ret i32 %.0
 }
 
@@ -42279,7 +42279,7 @@ define range(i32 -2, 1) i32 @ma_data_converter_get_output_channel_map(ptr nounde
   br i1 %or.cond5.i, label %ma_channel_converter_get_input_channel_map.exit, label %.preheader.i, !llvm.loop !140
 
 ma_channel_converter_get_input_channel_map.exit:  ; preds = %.preheader.i.i.i, %.preheader.i, %26, %18, %16, %9, %3
-  %.0 = phi i32 [ -2, %3 ], [ 0, %.preheader.i ], [ 0, %9 ], [ 0, %16 ], [ 0, %18 ], [ 0, %26 ], [ 0, %.preheader.i.i.i ]
+  %.0 = phi i32 [ -2, %3 ], [ 0, %9 ], [ 0, %16 ], [ 0, %18 ], [ 0, %26 ], [ 0, %.preheader.i ], [ 0, %.preheader.i.i.i ]
   ret i32 %.0
 }
 
@@ -42315,7 +42315,7 @@ define i32 @ma_data_converter_reset(ptr noundef readonly captures(address_is_nul
   br label %ma_resampler_reset.exit
 
 ma_resampler_reset.exit:                          ; preds = %16, %12, %7, %3, %1
-  %.0 = phi i32 [ 0, %3 ], [ -2, %1 ], [ %20, %16 ], [ -29, %7 ], [ -29, %12 ]
+  %.0 = phi i32 [ -2, %1 ], [ 0, %3 ], [ %20, %16 ], [ -29, %12 ], [ -29, %7 ]
   ret i32 %.0
 }
 
@@ -42903,7 +42903,7 @@ switch.lookup214:                                 ; preds = %115
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
 ma_channel_map_init_standard_channel_alsa.exit:   ; preds = %107, %109, %111, %113, %switch.lookup214, %switch.lookup209, %switch.lookup204, %switch.lookup199, %switch.lookup195, %93, %95, %switch.lookup190, %switch.lookup185, %switch.lookup181, %75, %77, %79, %81, %switch.lookup176, %switch.lookup171, %switch.lookup166, %switch.lookup161, %switch.lookup157, %55, %57, %59, %61, %63, %switch.lookup152, %switch.lookup147, %switch.lookup142, %switch.lookup137, %switch.lookup133, %switch.lookup128, %39, %41, %43, %switch.lookup123, %switch.lookup118, %switch.lookup113, %switch.lookup109, %25, %27, %switch.lookup104, %switch.lookup99, %switch.lookup95, %7, %9, %11, %13, %switch.lookup90, %switch.lookup85, %switch.lookup80, %switch.lookup76, %switch.lookup, %switch.lookup.i68, %120, %117, %106, %105, %switch.lookup.i58, %102, %99, %92, %91, %switch.lookup.i48, %88, %85, %74, %73, %70, %67, %54, %53, %switch.lookup18.i, %switch.lookup.i31, %50, %47, %38, %37, %switch.lookup.i23, %34, %31, %24, %23, %switch.lookup.i, %20, %17, %6, %5, %3
-  %.0 = phi i8 [ %switch.masked175, %switch.lookup171 ], [ 0, %81 ], [ 0, %3 ], [ 0, %43 ], [ 0, %13 ], [ %switch.offset20.i, %switch.lookup18.i ], [ 0, %67 ], [ %22, %20 ], [ %switch.masked94, %switch.lookup90 ], [ %switch.masked89, %switch.lookup85 ], [ %switch.offset.i50, %switch.lookup.i48 ], [ 0, %117 ], [ 0, %75 ], [ %switch.select20.i, %106 ], [ 1, %105 ], [ %switch.masked180, %switch.lookup176 ], [ 0, %57 ], [ %switch.offset.i70, %switch.lookup.i68 ], [ 0, %93 ], [ 1, %5 ], [ %switch.select16.i, %6 ], [ %switch.masked117, %switch.lookup113 ], [ 0, %17 ], [ 0, %95 ], [ %switch.offset.i, %switch.lookup.i ], [ 0, %85 ], [ %switch.masked165, %switch.lookup161 ], [ %switch.masked208, %switch.lookup204 ], [ %switch.masked, %switch.lookup ], [ %switch.select16.i54, %74 ], [ 0, %59 ], [ %switch.masked160, %switch.lookup157 ], [ 1, %53 ], [ %switch.masked79, %switch.lookup76 ], [ %switch.select16.i44, %54 ], [ %switch.masked203, %switch.lookup199 ], [ 1, %73 ], [ 0, %39 ], [ 0, %41 ], [ %switch.masked84, %switch.lookup80 ], [ %switch.masked132, %switch.lookup128 ], [ %switch.masked198, %switch.lookup195 ], [ %36, %34 ], [ %switch.masked108, %switch.lookup104 ], [ %switch.masked103, %switch.lookup99 ], [ %72, %70 ], [ %switch.masked156, %switch.lookup152 ], [ %switch.masked151, %switch.lookup147 ], [ %switch.masked213, %switch.lookup209 ], [ %switch.masked218, %switch.lookup214 ], [ %switch.offset.i60, %switch.lookup.i58 ], [ %switch.masked146, %switch.lookup142 ], [ 1, %23 ], [ %switch.select14.i, %24 ], [ %122, %120 ], [ 0, %31 ], [ 0, %99 ], [ %switch.offset.i25, %switch.lookup.i23 ], [ 0, %7 ], [ 0, %9 ], [ 0, %11 ], [ %switch.masked98, %switch.lookup95 ], [ %52, %50 ], [ %switch.masked127, %switch.lookup123 ], [ %switch.masked122, %switch.lookup118 ], [ %switch.masked141, %switch.lookup137 ], [ 0, %61 ], [ %104, %102 ], [ %switch.masked136, %switch.lookup133 ], [ 0, %63 ], [ %90, %88 ], [ %switch.masked170, %switch.lookup166 ], [ 1, %91 ], [ %switch.select14.i64, %92 ], [ 1, %37 ], [ %switch.select16.i37, %38 ], [ %switch.masked189, %switch.lookup185 ], [ 0, %47 ], [ %switch.masked194, %switch.lookup190 ], [ %switch.offset.i33, %switch.lookup.i31 ], [ 0, %25 ], [ 0, %27 ], [ 0, %55 ], [ %switch.masked112, %switch.lookup109 ], [ %switch.masked184, %switch.lookup181 ], [ 0, %79 ], [ 0, %77 ], [ 0, %113 ], [ 0, %111 ], [ 0, %109 ], [ 0, %107 ]
+  %.0 = phi i8 [ 0, %3 ], [ %22, %20 ], [ 1, %5 ], [ 0, %17 ], [ %switch.select16.i, %6 ], [ %switch.offset.i, %switch.lookup.i ], [ %36, %34 ], [ 1, %23 ], [ 0, %31 ], [ %switch.select14.i, %24 ], [ %switch.offset.i25, %switch.lookup.i23 ], [ %52, %50 ], [ 1, %37 ], [ 0, %47 ], [ %switch.select16.i37, %38 ], [ %switch.offset.i33, %switch.lookup.i31 ], [ %switch.offset20.i, %switch.lookup18.i ], [ %72, %70 ], [ 1, %53 ], [ 0, %67 ], [ %switch.select16.i44, %54 ], [ %90, %88 ], [ 1, %73 ], [ 0, %85 ], [ %switch.select16.i54, %74 ], [ %switch.offset.i50, %switch.lookup.i48 ], [ %104, %102 ], [ 1, %91 ], [ 0, %99 ], [ %switch.select14.i64, %92 ], [ %switch.offset.i60, %switch.lookup.i58 ], [ %122, %120 ], [ 1, %105 ], [ 0, %117 ], [ %switch.select20.i, %106 ], [ %switch.offset.i70, %switch.lookup.i68 ], [ %switch.masked, %switch.lookup ], [ %switch.masked79, %switch.lookup76 ], [ %switch.masked84, %switch.lookup80 ], [ %switch.masked89, %switch.lookup85 ], [ %switch.masked94, %switch.lookup90 ], [ 0, %13 ], [ 0, %11 ], [ 0, %9 ], [ 0, %7 ], [ %switch.masked98, %switch.lookup95 ], [ %switch.masked103, %switch.lookup99 ], [ %switch.masked108, %switch.lookup104 ], [ 0, %27 ], [ 0, %25 ], [ %switch.masked112, %switch.lookup109 ], [ %switch.masked117, %switch.lookup113 ], [ %switch.masked122, %switch.lookup118 ], [ %switch.masked127, %switch.lookup123 ], [ 0, %43 ], [ 0, %41 ], [ 0, %39 ], [ %switch.masked132, %switch.lookup128 ], [ %switch.masked136, %switch.lookup133 ], [ %switch.masked141, %switch.lookup137 ], [ %switch.masked146, %switch.lookup142 ], [ %switch.masked151, %switch.lookup147 ], [ %switch.masked156, %switch.lookup152 ], [ 0, %63 ], [ 0, %61 ], [ 0, %59 ], [ 0, %57 ], [ 0, %55 ], [ %switch.masked160, %switch.lookup157 ], [ %switch.masked165, %switch.lookup161 ], [ %switch.masked170, %switch.lookup166 ], [ %switch.masked175, %switch.lookup171 ], [ %switch.masked180, %switch.lookup176 ], [ 0, %81 ], [ 0, %79 ], [ 0, %77 ], [ 0, %75 ], [ %switch.masked184, %switch.lookup181 ], [ %switch.masked189, %switch.lookup185 ], [ %switch.masked194, %switch.lookup190 ], [ 0, %95 ], [ 0, %93 ], [ %switch.masked198, %switch.lookup195 ], [ %switch.masked203, %switch.lookup199 ], [ %switch.masked208, %switch.lookup204 ], [ %switch.masked213, %switch.lookup209 ], [ %switch.masked218, %switch.lookup214 ], [ 0, %113 ], [ 0, %111 ], [ 0, %109 ], [ 0, %107 ]
   ret i8 %.0
 }
 
@@ -42983,7 +42983,7 @@ ma_channel_map_get_channel.exit:                  ; preds = %ma_channel_map_get_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %ma_channel_map_get_channel.exit, %ma_channel_map_get_channel.exit.us, %2, %.thread
-  %.010 = phi i32 [ %1, %2 ], [ 1, %.thread ], [ 0, %ma_channel_map_get_channel.exit.us ], [ 0, %ma_channel_map_get_channel.exit ]
+  %.010 = phi i32 [ 1, %.thread ], [ %1, %2 ], [ 0, %ma_channel_map_get_channel.exit.us ], [ 0, %ma_channel_map_get_channel.exit ]
   ret i32 %.010
 }
 
@@ -43053,7 +43053,7 @@ ma_channel_map_get_channel.exit:                  ; preds = %.lr.ph.split, %18
   br i1 %.not, label %18, label %.loopexit
 
 .loopexit:                                        ; preds = %ma_channel_map_get_channel.exit, %18, %ma_channel_map_get_channel.exit.us21, %17, %ma_channel_map_get_channel.exit.us, %12, %.lr.ph.split.us, %3
-  %.011 = phi i32 [ 1, %3 ], [ 1, %.lr.ph.split.us ], [ 1, %17 ], [ 0, %ma_channel_map_get_channel.exit.us ], [ 1, %12 ], [ 0, %ma_channel_map_get_channel.exit.us21 ], [ 1, %18 ], [ 0, %ma_channel_map_get_channel.exit ]
+  %.011 = phi i32 [ 1, %3 ], [ 1, %.lr.ph.split.us ], [ 0, %ma_channel_map_get_channel.exit.us ], [ 1, %12 ], [ 0, %ma_channel_map_get_channel.exit.us21 ], [ 1, %17 ], [ 0, %ma_channel_map_get_channel.exit ], [ 1, %18 ]
   ret i32 %.011
 }
 
@@ -43230,7 +43230,7 @@ ma_data_converter_get_expected_output_frame_count.exit: ; preds = %36
   %44 = icmp eq i32 %43, -29
   br i1 %44, label %.preheader.preheader, label %.loopexit
 
-.preheader.preheader:                             ; preds = %ma_data_converter_get_expected_output_frame_count.exit, %31, %36
+.preheader.preheader:                             ; preds = %ma_data_converter_get_expected_output_frame_count.exit, %36, %31
   store i64 0, ptr %7, align 8, !tbaa !63
   br label %.preheader
 
@@ -43341,8 +43341,8 @@ ma_data_converter_uninit.exit:                    ; preds = %ma_channel_converte
   %88 = load i64, ptr %7, align 8, !tbaa !63
   br label %ma_data_converter_init.exit.thread
 
-ma_data_converter_init.exit.thread:               ; preds = %.thread.i, %18, %24, %ma_data_converter_get_heap_size.exit.i, %5, %ma_data_converter_uninit.exit
-  %.015 = phi i64 [ %88, %ma_data_converter_uninit.exit ], [ 0, %5 ], [ 0, %ma_data_converter_get_heap_size.exit.i ], [ 0, %24 ], [ 0, %18 ], [ 0, %.thread.i ]
+ma_data_converter_init.exit.thread:               ; preds = %.thread.i, %24, %18, %ma_data_converter_get_heap_size.exit.i, %5, %ma_data_converter_uninit.exit
+  %.015 = phi i64 [ %88, %ma_data_converter_uninit.exit ], [ 0, %5 ], [ 0, %ma_data_converter_get_heap_size.exit.i ], [ 0, %18 ], [ 0, %24 ], [ 0, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %.015
 }
@@ -43462,7 +43462,7 @@ ma_allocation_callbacks_init_copy.exit:           ; preds = %39, %30, %14
   %60 = icmp eq ptr %59, null
   br i1 %60, label %ma_aligned_malloc.exit.thread, label %ma_aligned_malloc.exit
 
-ma_aligned_malloc.exit.thread:                    ; preds = %47, %56
+ma_aligned_malloc.exit.thread:                    ; preds = %56, %47
   store ptr null, ptr %5, align 8, !tbaa !327
   br label %.critedge
 
@@ -43490,8 +43490,8 @@ ma_zero_memory_default.exit:                      ; preds = %66, %67
   store i8 1, ptr %68, align 4, !tbaa !326
   br label %.critedge
 
-.critedge:                                        ; preds = %26, %35, %31, %22, %ma_aligned_malloc.exit.thread, %44, %ma_zero_memory_default.exit, %ma_aligned_malloc.exit, %8, %6
-  %.0 = phi i32 [ -4, %ma_aligned_malloc.exit.thread ], [ -2, %6 ], [ -2, %8 ], [ -4, %ma_aligned_malloc.exit ], [ 0, %ma_zero_memory_default.exit ], [ 0, %44 ], [ -2, %22 ], [ -2, %31 ], [ -2, %35 ], [ -2, %26 ]
+.critedge:                                        ; preds = %22, %26, %31, %35, %ma_aligned_malloc.exit.thread, %44, %ma_zero_memory_default.exit, %ma_aligned_malloc.exit, %8, %6
+  %.0 = phi i32 [ -2, %6 ], [ -2, %8 ], [ -4, %ma_aligned_malloc.exit ], [ 0, %ma_zero_memory_default.exit ], [ 0, %44 ], [ -4, %ma_aligned_malloc.exit.thread ], [ -2, %35 ], [ -2, %31 ], [ -2, %26 ], [ -2, %22 ]
   ret i32 %.0
 }
 
@@ -43718,13 +43718,13 @@ define range(i32 -17, 1) i32 @ma_rb_commit_read(ptr noundef captures(address_is_
   br label %ma_rb_pointer_distance.exit
 
 ma_rb_pointer_distance.exit:                      ; preds = %27, %29
-  %.0.i = phi i32 [ %32, %29 ], [ %28, %27 ]
+  %.0.i = phi i32 [ %28, %27 ], [ %32, %29 ]
   %33 = icmp eq i32 %.0.i, 0
   %spec.select21 = select i1 %33, i32 -17, i32 0
   br label %34
 
 34:                                               ; preds = %ma_rb_pointer_distance.exit, %4, %2
-  %.0 = phi i32 [ %spec.select21, %ma_rb_pointer_distance.exit ], [ -2, %2 ], [ -2, %4 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %4 ], [ %spec.select21, %ma_rb_pointer_distance.exit ]
   ret i32 %.0
 }
 
@@ -43756,7 +43756,7 @@ define i32 @ma_rb_pointer_distance(ptr noundef readonly captures(address_is_null
   br label %19
 
 19:                                               ; preds = %1, %14, %12
-  %.0 = phi i32 [ %18, %14 ], [ %13, %12 ], [ 0, %1 ]
+  %.0 = phi i32 [ %13, %12 ], [ %18, %14 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -43865,13 +43865,13 @@ define range(i32 -17, 1) i32 @ma_rb_commit_write(ptr noundef captures(address_is
   br label %ma_rb_pointer_distance.exit
 
 ma_rb_pointer_distance.exit:                      ; preds = %27, %29
-  %.0.i = phi i32 [ %32, %29 ], [ %28, %27 ]
+  %.0.i = phi i32 [ %28, %27 ], [ %32, %29 ]
   %33 = icmp eq i32 %.0.i, 0
   %spec.select21 = select i1 %33, i32 -17, i32 0
   br label %34
 
 34:                                               ; preds = %ma_rb_pointer_distance.exit, %4, %2
-  %.0 = phi i32 [ %spec.select21, %ma_rb_pointer_distance.exit ], [ -2, %2 ], [ -2, %4 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %4 ], [ %spec.select21, %ma_rb_pointer_distance.exit ]
   ret i32 %.0
 }
 
@@ -44013,7 +44013,7 @@ define range(i32 0, -2147483648) i32 @ma_rb_available_read(ptr noundef readonly 
   br label %ma_rb_pointer_distance.exit
 
 ma_rb_pointer_distance.exit:                      ; preds = %12, %14
-  %.0.i = phi i32 [ %18, %14 ], [ %13, %12 ]
+  %.0.i = phi i32 [ %13, %12 ], [ %18, %14 ]
   %. = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 0)
   br label %19
 
@@ -44051,7 +44051,7 @@ define i32 @ma_rb_available_write(ptr noundef readonly captures(address_is_null)
   br label %ma_rb_pointer_distance.exit
 
 ma_rb_pointer_distance.exit:                      ; preds = %14, %16
-  %.0.i4 = phi i32 [ %19, %16 ], [ %15, %14 ]
+  %.0.i4 = phi i32 [ %15, %14 ], [ %19, %16 ]
   %20 = sub i32 %5, %.0.i4
   br label %21
 
@@ -44093,7 +44093,7 @@ define range(i64 0, 4294967296) i64 @ma_rb_get_subbuffer_stride(ptr noundef read
   br label %10
 
 10:                                               ; preds = %3, %1, %7
-  %.0.shrunk = phi i32 [ 0, %1 ], [ %9, %7 ], [ %5, %3 ]
+  %.0.shrunk = phi i32 [ %9, %7 ], [ 0, %1 ], [ %5, %3 ]
   %.0 = zext i32 %.0.shrunk to i64
   ret i64 %.0
 }
@@ -44115,7 +44115,7 @@ define i64 @ma_rb_get_subbuffer_offset(ptr noundef readonly captures(address_is_
   br label %ma_rb_get_subbuffer_stride.exit
 
 ma_rb_get_subbuffer_stride.exit:                  ; preds = %4, %8
-  %.0.shrunk.i = phi i32 [ %6, %4 ], [ %10, %8 ]
+  %.0.shrunk.i = phi i32 [ %10, %8 ], [ %6, %4 ]
   %.0.i = zext i32 %.0.shrunk.i to i64
   %11 = mul i64 %1, %.0.i
   br label %12
@@ -44142,7 +44142,7 @@ define ptr @ma_rb_get_subbuffer_ptr(ptr noundef readonly captures(address_is_nul
   br label %ma_rb_get_subbuffer_offset.exit
 
 ma_rb_get_subbuffer_offset.exit:                  ; preds = %5, %9
-  %.0.shrunk.i.i = phi i32 [ %7, %5 ], [ %11, %9 ]
+  %.0.shrunk.i.i = phi i32 [ %11, %9 ], [ %7, %5 ]
   %.0.i.i = zext i32 %.0.shrunk.i.i to i64
   %12 = mul i64 %1, %.0.i.i
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 %12
@@ -44199,7 +44199,7 @@ ma_zero_memory_default.exit:                      ; preds = %8
   br label %32
 
 32:                                               ; preds = %23, %15, %ma_zero_memory_default.exit, %8
-  %.025 = phi i32 [ 0, %23 ], [ -2, %8 ], [ -2, %ma_zero_memory_default.exit ], [ %22, %15 ]
+  %.025 = phi i32 [ -2, %8 ], [ -2, %ma_zero_memory_default.exit ], [ %22, %15 ], [ 0, %23 ]
   ret i32 %.025
 }
 
@@ -44279,7 +44279,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %6
   br label %ma_pcm_rb_init_ex.exit
 
 ma_pcm_rb_init_ex.exit:                           ; preds = %6, %ma_zero_memory_default.exit.i, %13, %18
-  %.025.i = phi i32 [ 0, %18 ], [ -2, %6 ], [ -2, %ma_zero_memory_default.exit.i ], [ %17, %13 ]
+  %.025.i = phi i32 [ -2, %6 ], [ -2, %ma_zero_memory_default.exit.i ], [ %17, %13 ], [ 0, %18 ]
   ret i32 %.025.i
 }
 
@@ -44456,13 +44456,13 @@ define range(i32 -17, 1) i32 @ma_pcm_rb_commit_read(ptr noundef captures(address
   br label %ma_rb_pointer_distance.exit.i
 
 ma_rb_pointer_distance.exit.i:                    ; preds = %37, %35
-  %.0.i.i = phi i32 [ %40, %37 ], [ %36, %35 ]
+  %.0.i.i = phi i32 [ %36, %35 ], [ %40, %37 ]
   %41 = icmp eq i32 %.0.i.i, 0
   %spec.select21.i = select i1 %41, i32 -17, i32 0
   br label %ma_rb_commit_read.exit
 
 ma_rb_commit_read.exit:                           ; preds = %ma_rb_pointer_distance.exit.i, %4, %2
-  %.0 = phi i32 [ -2, %2 ], [ %spec.select21.i, %ma_rb_pointer_distance.exit.i ], [ -2, %4 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %4 ], [ %spec.select21.i, %ma_rb_pointer_distance.exit.i ]
   ret i32 %.0
 }
 
@@ -44598,13 +44598,13 @@ define range(i32 -17, 1) i32 @ma_pcm_rb_commit_write(ptr noundef captures(addres
   br label %ma_rb_pointer_distance.exit.i
 
 ma_rb_pointer_distance.exit.i:                    ; preds = %37, %35
-  %.0.i.i = phi i32 [ %40, %37 ], [ %36, %35 ]
+  %.0.i.i = phi i32 [ %36, %35 ], [ %40, %37 ]
   %41 = icmp eq i32 %.0.i.i, 0
   %spec.select21.i = select i1 %41, i32 -17, i32 0
   br label %ma_rb_commit_write.exit
 
 ma_rb_commit_write.exit:                          ; preds = %ma_rb_pointer_distance.exit.i, %4, %2
-  %.0 = phi i32 [ -2, %2 ], [ %spec.select21.i, %ma_rb_pointer_distance.exit.i ], [ -2, %4 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %4 ], [ %spec.select21.i, %ma_rb_pointer_distance.exit.i ]
   ret i32 %.0
 }
 
@@ -44765,7 +44765,7 @@ define i32 @ma_pcm_rb_pointer_distance(ptr noundef readonly captures(address_is_
   br label %ma_rb_pointer_distance.exit
 
 ma_rb_pointer_distance.exit:                      ; preds = %12, %14
-  %.0.i = phi i32 [ %18, %14 ], [ %13, %12 ]
+  %.0.i = phi i32 [ %13, %12 ], [ %18, %14 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %20 = load i32, ptr %19, align 8, !tbaa !348
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -44810,7 +44810,7 @@ define range(i32 0, -2147483648) i32 @ma_pcm_rb_available_read(ptr noundef reado
   br label %ma_rb_available_read.exit
 
 ma_rb_available_read.exit:                        ; preds = %12, %14
-  %.0.i.i = phi i32 [ %18, %14 ], [ %13, %12 ]
+  %.0.i.i = phi i32 [ %13, %12 ], [ %18, %14 ]
   %..i = tail call i32 @llvm.smax.i32(i32 %.0.i.i, i32 0)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %20 = load i32, ptr %19, align 8, !tbaa !348
@@ -44857,7 +44857,7 @@ define i32 @ma_pcm_rb_available_write(ptr noundef readonly captures(address_is_n
   br label %ma_rb_available_write.exit
 
 ma_rb_available_write.exit:                       ; preds = %14, %16
-  %.0.i4.i = phi i32 [ %19, %16 ], [ %15, %14 ]
+  %.0.i4.i = phi i32 [ %15, %14 ], [ %19, %16 ]
   %20 = sub i32 %5, %.0.i4.i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %22 = load i32, ptr %21, align 8, !tbaa !348
@@ -44916,7 +44916,7 @@ define i32 @ma_pcm_rb_get_subbuffer_stride(ptr noundef readonly captures(address
   br label %ma_rb_get_subbuffer_stride.exit
 
 ma_rb_get_subbuffer_stride.exit:                  ; preds = %3, %7
-  %.0.shrunk.i = phi i32 [ %5, %3 ], [ %9, %7 ]
+  %.0.shrunk.i = phi i32 [ %9, %7 ], [ %5, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load i32, ptr %10, align 8, !tbaa !348
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -44951,7 +44951,7 @@ define i32 @ma_pcm_rb_get_subbuffer_offset(ptr noundef readonly captures(address
   br label %ma_rb_get_subbuffer_offset.exit
 
 ma_rb_get_subbuffer_offset.exit:                  ; preds = %4, %9
-  %.0.shrunk.i.i = phi i32 [ %7, %4 ], [ %11, %9 ]
+  %.0.shrunk.i.i = phi i32 [ %11, %9 ], [ %7, %4 ]
   %.0.i.i = zext i32 %.0.shrunk.i.i to i64
   %12 = mul nuw i64 %.0.i.i, %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -44990,7 +44990,7 @@ define ptr @ma_pcm_rb_get_subbuffer_ptr(ptr noundef readonly captures(address_is
   br label %ma_rb_get_subbuffer_ptr.exit
 
 ma_rb_get_subbuffer_ptr.exit:                     ; preds = %5, %10
-  %.0.shrunk.i.i.i = phi i32 [ %8, %5 ], [ %12, %10 ]
+  %.0.shrunk.i.i.i = phi i32 [ %12, %10 ], [ %8, %5 ]
   %.0.i.i.i = zext i32 %.0.shrunk.i.i.i to i64
   %13 = mul nuw i64 %.0.i.i.i, %6
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 %13
@@ -45326,7 +45326,7 @@ define noundef nonnull ptr @ma_result_description(i32 noundef %0) local_unnamed_
   br label %67
 
 67:                                               ; preds = %1, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.98, %66 ], [ @.str.162, %65 ], [ @.str.97, %1 ], [ @.str.99, %2 ], [ @.str.100, %3 ], [ @.str.101, %4 ], [ @.str.102, %5 ], [ @.str.103, %6 ], [ @.str.104, %7 ], [ @.str.105, %8 ], [ @.str.106, %9 ], [ @.str.107, %10 ], [ @.str.108, %11 ], [ @.str.109, %12 ], [ @.str.110, %13 ], [ @.str.111, %14 ], [ @.str.112, %15 ], [ @.str.113, %16 ], [ @.str.114, %17 ], [ @.str.115, %18 ], [ @.str.116, %19 ], [ @.str.117, %20 ], [ @.str.118, %21 ], [ @.str.119, %22 ], [ @.str.120, %23 ], [ @.str.121, %24 ], [ @.str.122, %25 ], [ @.str.123, %26 ], [ @.str.124, %27 ], [ @.str.125, %28 ], [ @.str.126, %29 ], [ @.str.127, %30 ], [ @.str.128, %31 ], [ @.str.129, %32 ], [ @.str.130, %33 ], [ @.str.131, %34 ], [ @.str.132, %35 ], [ @.str.133, %36 ], [ @.str.134, %37 ], [ @.str.135, %38 ], [ @.str.136, %39 ], [ @.str.137, %40 ], [ @.str.138, %41 ], [ @.str.139, %42 ], [ @.str.140, %43 ], [ @.str.141, %44 ], [ @.str.142, %45 ], [ @.str.143, %46 ], [ @.str.144, %47 ], [ @.str.145, %48 ], [ @.str.146, %49 ], [ @.str.147, %50 ], [ @.str.148, %51 ], [ @.str.149, %52 ], [ @.str.150, %53 ], [ @.str.151, %54 ], [ @.str.152, %55 ], [ @.str.153, %56 ], [ @.str.154, %57 ], [ @.str.155, %58 ], [ @.str.156, %59 ], [ @.str.157, %60 ], [ @.str.158, %61 ], [ @.str.159, %62 ], [ @.str.160, %63 ], [ @.str.161, %64 ]
+  %.0 = phi ptr [ @.str.98, %66 ], [ @.str.99, %2 ], [ @.str.100, %3 ], [ @.str.101, %4 ], [ @.str.102, %5 ], [ @.str.103, %6 ], [ @.str.104, %7 ], [ @.str.105, %8 ], [ @.str.106, %9 ], [ @.str.107, %10 ], [ @.str.108, %11 ], [ @.str.109, %12 ], [ @.str.110, %13 ], [ @.str.111, %14 ], [ @.str.112, %15 ], [ @.str.113, %16 ], [ @.str.114, %17 ], [ @.str.115, %18 ], [ @.str.116, %19 ], [ @.str.117, %20 ], [ @.str.118, %21 ], [ @.str.119, %22 ], [ @.str.120, %23 ], [ @.str.121, %24 ], [ @.str.122, %25 ], [ @.str.123, %26 ], [ @.str.124, %27 ], [ @.str.125, %28 ], [ @.str.126, %29 ], [ @.str.127, %30 ], [ @.str.128, %31 ], [ @.str.129, %32 ], [ @.str.130, %33 ], [ @.str.131, %34 ], [ @.str.132, %35 ], [ @.str.133, %36 ], [ @.str.134, %37 ], [ @.str.135, %38 ], [ @.str.136, %39 ], [ @.str.137, %40 ], [ @.str.138, %41 ], [ @.str.139, %42 ], [ @.str.140, %43 ], [ @.str.141, %44 ], [ @.str.142, %45 ], [ @.str.143, %46 ], [ @.str.144, %47 ], [ @.str.145, %48 ], [ @.str.146, %49 ], [ @.str.147, %50 ], [ @.str.148, %51 ], [ @.str.149, %52 ], [ @.str.150, %53 ], [ @.str.151, %54 ], [ @.str.152, %55 ], [ @.str.153, %56 ], [ @.str.154, %57 ], [ @.str.155, %58 ], [ @.str.156, %59 ], [ @.str.157, %60 ], [ @.str.158, %61 ], [ @.str.159, %62 ], [ @.str.160, %63 ], [ @.str.161, %64 ], [ @.str.162, %65 ], [ @.str.97, %1 ]
   ret ptr %.0
 }
 
@@ -45370,7 +45370,7 @@ ma_malloc.exit:                                   ; preds = %6, %9
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %3, %12, %11, %ma_malloc.exit
-  %.0.i7 = phi ptr [ %.0.i, %12 ], [ null, %ma_malloc.exit ], [ %.0.i, %11 ], [ null, %3 ]
+  %.0.i7 = phi ptr [ null, %ma_malloc.exit ], [ %.0.i, %11 ], [ %.0.i, %12 ], [ null, %3 ]
   ret ptr %.0.i7
 }
 
@@ -45490,7 +45490,7 @@ define i32 @ma_data_source_read_pcm_frames(ptr noundef %0, ptr noundef %1, i64 n
   %29 = getelementptr inbounds nuw i32, ptr @__const.ma_get_bytes_per_sample.sizes, i64 %28
   br label %41
 
-30:                                               ; preds = %21, %14
+30:                                               ; preds = %14, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -45644,8 +45644,8 @@ ma_data_source_read_pcm_frames_within_range.exit: ; preds = %89
   ]
 
 95:                                               ; preds = %ma_data_source_read_pcm_frames_within_range.exit.thread135, %ma_data_source_read_pcm_frames_within_range.exit
-  %96 = phi i64 [ %86, %ma_data_source_read_pcm_frames_within_range.exit.thread135 ], [ %94, %ma_data_source_read_pcm_frames_within_range.exit ]
-  %.2104119 = phi i64 [ %.pre71.i133, %ma_data_source_read_pcm_frames_within_range.exit.thread135 ], [ %.pre71.i, %ma_data_source_read_pcm_frames_within_range.exit ]
+  %96 = phi i64 [ %94, %ma_data_source_read_pcm_frames_within_range.exit ], [ %86, %ma_data_source_read_pcm_frames_within_range.exit.thread135 ]
+  %.2104119 = phi i64 [ %.pre71.i, %ma_data_source_read_pcm_frames_within_range.exit ], [ %.pre71.i133, %ma_data_source_read_pcm_frames_within_range.exit.thread135 ]
   br i1 %.not77, label %116, label %97
 
 .thread196:                                       ; preds = %89
@@ -45726,9 +45726,9 @@ ma_data_source_seek_to_pcm_frame.exit95:          ; preds = %127
   br i1 %.not80, label %136, label %.thread
 
 136:                                              ; preds = %ma_data_source_seek_to_pcm_frame.exit, %ma_data_source_read_pcm_frames_within_range.exit, %ma_data_source_seek_to_pcm_frame.exit95
-  %137 = phi i64 [ %94, %ma_data_source_read_pcm_frames_within_range.exit ], [ %117, %ma_data_source_seek_to_pcm_frame.exit95 ], [ %101, %ma_data_source_seek_to_pcm_frame.exit ]
-  %.2104120 = phi i64 [ %.pre71.i, %ma_data_source_read_pcm_frames_within_range.exit ], [ %.2104119199, %ma_data_source_seek_to_pcm_frame.exit95 ], [ %.2104119198202, %ma_data_source_seek_to_pcm_frame.exit ]
-  %.251 = phi i32 [ %.049143, %ma_data_source_read_pcm_frames_within_range.exit ], [ %.049143, %ma_data_source_seek_to_pcm_frame.exit95 ], [ %.352, %ma_data_source_seek_to_pcm_frame.exit ]
+  %137 = phi i64 [ %117, %ma_data_source_seek_to_pcm_frame.exit95 ], [ %94, %ma_data_source_read_pcm_frames_within_range.exit ], [ %101, %ma_data_source_seek_to_pcm_frame.exit ]
+  %.2104120 = phi i64 [ %.2104119199, %ma_data_source_seek_to_pcm_frame.exit95 ], [ %.pre71.i, %ma_data_source_read_pcm_frames_within_range.exit ], [ %.2104119198202, %ma_data_source_seek_to_pcm_frame.exit ]
+  %.251 = phi i32 [ %.049143, %ma_data_source_seek_to_pcm_frame.exit95 ], [ %.049143, %ma_data_source_read_pcm_frames_within_range.exit ], [ %.352, %ma_data_source_seek_to_pcm_frame.exit ]
   %.not82 = icmp eq ptr %.056140, null
   br i1 %.not82, label %144, label %138
 
@@ -45741,13 +45741,13 @@ ma_data_source_seek_to_pcm_frame.exit95:          ; preds = %127
   br label %144
 
 144:                                              ; preds = %136, %138
-  %.157 = phi ptr [ null, %136 ], [ %143, %138 ]
+  %.157 = phi ptr [ %143, %138 ], [ null, %136 ]
   %145 = icmp ult i64 %137, %2
   br i1 %145, label %41, label %.thread
 
-.thread:                                          ; preds = %144, %124, %ma_data_source_seek_to_pcm_frame.exit, %ma_data_source_read_pcm_frames_within_range.exit, %.thread200, %ma_data_source_seek_to_pcm_frame.exit95, %121, %45, %47, %108, %100, %127
-  %.154.ph.ph = phi i64 [ %117, %127 ], [ %101, %108 ], [ %.053142, %45 ], [ %117, %ma_data_source_seek_to_pcm_frame.exit95 ], [ %99, %.thread200 ], [ %94, %ma_data_source_read_pcm_frames_within_range.exit ], [ %101, %ma_data_source_seek_to_pcm_frame.exit ], [ %137, %144 ], [ %117, %124 ], [ %117, %121 ], [ %.053142, %47 ], [ %101, %100 ]
-  %.1.ph.ph = phi i32 [ -29, %127 ], [ -3, %108 ], [ 0, %45 ], [ %135, %ma_data_source_seek_to_pcm_frame.exit95 ], [ 0, %.thread200 ], [ %91, %ma_data_source_read_pcm_frames_within_range.exit ], [ %115, %ma_data_source_seek_to_pcm_frame.exit ], [ 0, %144 ], [ 0, %124 ], [ 0, %121 ], [ 0, %47 ], [ -29, %100 ]
+.thread:                                          ; preds = %144, %ma_data_source_read_pcm_frames_within_range.exit, %.thread200, %ma_data_source_seek_to_pcm_frame.exit, %124, %121, %ma_data_source_seek_to_pcm_frame.exit95, %45, %47, %100, %108, %127
+  %.154.ph.ph = phi i64 [ %117, %127 ], [ %101, %108 ], [ %101, %100 ], [ %.053142, %47 ], [ %.053142, %45 ], [ %117, %ma_data_source_seek_to_pcm_frame.exit95 ], [ %117, %121 ], [ %117, %124 ], [ %101, %ma_data_source_seek_to_pcm_frame.exit ], [ %99, %.thread200 ], [ %94, %ma_data_source_read_pcm_frames_within_range.exit ], [ %137, %144 ]
+  %.1.ph.ph = phi i32 [ -29, %127 ], [ -3, %108 ], [ -29, %100 ], [ 0, %47 ], [ 0, %45 ], [ %135, %ma_data_source_seek_to_pcm_frame.exit95 ], [ 0, %121 ], [ 0, %124 ], [ %115, %ma_data_source_seek_to_pcm_frame.exit ], [ 0, %.thread200 ], [ %91, %ma_data_source_read_pcm_frames_within_range.exit ], [ 0, %144 ]
   br i1 %.not, label %147, label %146
 
 146:                                              ; preds = %.thread
@@ -45762,7 +45762,7 @@ ma_data_source_seek_to_pcm_frame.exit95:          ; preds = %127
   br label %150
 
 150:                                              ; preds = %11, %147, %ma_data_source_resolve_current.exit
-  %.0 = phi i32 [ %40, %ma_data_source_resolve_current.exit ], [ -2, %11 ], [ %spec.store.select, %147 ]
+  %.0 = phi i32 [ %40, %ma_data_source_resolve_current.exit ], [ %spec.store.select, %147 ], [ -2, %11 ]
   ret i32 %.0
 }
 
@@ -45863,7 +45863,7 @@ ma_zero_memory_default.exit:                      ; preds = %17, %15
   br label %35
 
 35:                                               ; preds = %32, %33, %24, %19, %ma_zero_memory_default.exit
-  %.0 = phi i32 [ %25, %24 ], [ -2, %ma_zero_memory_default.exit ], [ -29, %19 ], [ 0, %33 ], [ 0, %32 ]
+  %.0 = phi i32 [ -2, %ma_zero_memory_default.exit ], [ -29, %19 ], [ %25, %24 ], [ 0, %33 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -46101,7 +46101,7 @@ define i32 @ma_data_source_get_length_in_pcm_frames(ptr noundef %0, ptr noundef 
   br label %20
 
 20:                                               ; preds = %13, %4, %2, %18, %9
-  %.0 = phi i32 [ %19, %18 ], [ -2, %2 ], [ 0, %9 ], [ -2, %4 ], [ -29, %13 ]
+  %.0 = phi i32 [ 0, %9 ], [ %19, %18 ], [ -2, %2 ], [ -2, %4 ], [ -29, %13 ]
   ret i32 %.0
 }
 
@@ -46164,8 +46164,8 @@ ma_data_source_get_cursor_in_pcm_frames.exit:     ; preds = %10, %15
   %.not36.i = icmp eq i32 %26, 0
   br i1 %.not36.i, label %27, label %ma_data_source_get_data_format.exit.thread
 
-ma_data_source_get_data_format.exit.thread:       ; preds = %25, %.thread, %17
-  %.0.i13.ph = phi i32 [ -29, %17 ], [ -2, %.thread ], [ %26, %25 ]
+ma_data_source_get_data_format.exit.thread:       ; preds = %17, %25, %.thread
+  %.0.i13.ph = phi i32 [ -2, %.thread ], [ %26, %25 ], [ -29, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -46243,8 +46243,8 @@ ma_data_source_get_length_in_pcm_frames.exit:     ; preds = %16
   %.not36.i = icmp eq i32 %28, 0
   br i1 %.not36.i, label %29, label %ma_data_source_get_data_format.exit.thread
 
-ma_data_source_get_data_format.exit.thread:       ; preds = %27, %22
-  %.0.i13.ph = phi i32 [ -29, %22 ], [ %28, %27 ]
+ma_data_source_get_data_format.exit.thread:       ; preds = %22, %27
+  %.0.i13.ph = phi i32 [ %28, %27 ], [ -29, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -46262,8 +46262,8 @@ ma_data_source_get_data_format.exit.thread:       ; preds = %27, %22
   store float %34, ptr %1, align 4, !tbaa !339
   br label %ma_data_source_get_length_in_pcm_frames.exit.thread
 
-ma_data_source_get_length_in_pcm_frames.exit.thread: ; preds = %8, %16, %ma_data_source_get_data_format.exit.thread, %ma_data_source_get_length_in_pcm_frames.exit, %2, %29
-  %.0 = phi i32 [ 0, %29 ], [ -2, %2 ], [ %21, %ma_data_source_get_length_in_pcm_frames.exit ], [ %.0.i13.ph, %ma_data_source_get_data_format.exit.thread ], [ -2, %8 ], [ -29, %16 ]
+ma_data_source_get_length_in_pcm_frames.exit.thread: ; preds = %16, %8, %ma_data_source_get_data_format.exit.thread, %ma_data_source_get_length_in_pcm_frames.exit, %2, %29
+  %.0 = phi i32 [ 0, %29 ], [ -2, %2 ], [ %21, %ma_data_source_get_length_in_pcm_frames.exit ], [ %.0.i13.ph, %ma_data_source_get_data_format.exit.thread ], [ -29, %16 ], [ -2, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -46312,7 +46312,7 @@ define range(i32 -2, 1) i32 @ma_data_source_set_range_in_pcm_frames(ptr noundef 
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %19, label %14
 
-14:                                               ; preds = %7, %12
+14:                                               ; preds = %12, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %15, align 8, !tbaa !1056
@@ -46367,7 +46367,7 @@ define range(i32 -2, 1) i32 @ma_data_source_set_range_in_pcm_frames(ptr noundef 
   br label %ma_data_source_seek_to_pcm_frame.exit
 
 ma_data_source_seek_to_pcm_frame.exit:            ; preds = %42, %37, %33, %28, %14, %35, %3
-  %.023 = phi i32 [ 0, %14 ], [ -2, %3 ], [ 0, %35 ], [ 0, %33 ], [ 0, %28 ], [ 0, %37 ], [ 0, %42 ]
+  %.023 = phi i32 [ -2, %3 ], [ 0, %35 ], [ 0, %14 ], [ 0, %28 ], [ 0, %33 ], [ 0, %37 ], [ 0, %42 ]
   ret i32 %.023
 }
 
@@ -46428,7 +46428,7 @@ define range(i32 -2, 1) i32 @ma_data_source_set_loop_point_in_pcm_frames(ptr nou
   br label %18
 
 18:                                               ; preds = %11, %6, %3
-  %.0 = phi i32 [ -2, %6 ], [ -2, %3 ], [ 0, %11 ]
+  %.0 = phi i32 [ -2, %3 ], [ -2, %6 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -46869,7 +46869,7 @@ define range(i32 -17, 1) i32 @ma_audio_buffer_ref_unmap(ptr noundef captures(add
   br label %14
 
 14:                                               ; preds = %11, %4, %2
-  %.0 = phi i32 [ -2, %4 ], [ -2, %2 ], [ %., %11 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %4 ], [ %., %11 ]
   ret i32 %.0
 }
 
@@ -47155,7 +47155,7 @@ ma_allocation_callbacks_init_copy.exit.i:         ; preds = %51, %47, %43, %42, 
   br label %ma_audio_buffer_init_ex.exit
 
 ma_audio_buffer_init_ex.exit:                     ; preds = %2, %ma_zero_memory_default.exit.i, %5, %ma_allocation_callbacks_init_copy.exit.i
-  %.0.i = phi i32 [ 0, %ma_allocation_callbacks_init_copy.exit.i ], [ -2, %2 ], [ -2, %ma_zero_memory_default.exit.i ], [ -2, %5 ]
+  %.0.i = phi i32 [ -2, %2 ], [ -2, %ma_zero_memory_default.exit.i ], [ -2, %5 ], [ 0, %ma_allocation_callbacks_init_copy.exit.i ]
   ret i32 %.0.i
 }
 
@@ -47361,8 +47361,8 @@ ma_audio_buffer_ref_set_data.exit56:              ; preds = %ma_allocation_callb
   br label %ma_malloc.exit.thread.sink.split
 
 ma_malloc.exit.thread.sink.split:                 ; preds = %.lr.ph.i, %ma_zero_memory_default.exit.i.i, %73, %75, %93, %.lr.ph17.preheader.i, %96, %ma_audio_buffer_ref_set_data.exit56
-  %.sink73 = phi ptr [ %106, %ma_audio_buffer_ref_set_data.exit56 ], [ %68, %ma_zero_memory_default.exit.i.i ], [ %68, %73 ], [ %68, %96 ], [ %68, %.lr.ph17.preheader.i ], [ %68, %93 ], [ %68, %75 ], [ %68, %.lr.ph.i ]
-  %.sink = phi i32 [ 0, %ma_audio_buffer_ref_set_data.exit56 ], [ 1, %ma_zero_memory_default.exit.i.i ], [ 1, %73 ], [ 1, %96 ], [ 1, %.lr.ph17.preheader.i ], [ 1, %93 ], [ 1, %75 ], [ 1, %.lr.ph.i ]
+  %.sink73 = phi ptr [ %106, %ma_audio_buffer_ref_set_data.exit56 ], [ %68, %96 ], [ %68, %.lr.ph17.preheader.i ], [ %68, %93 ], [ %68, %75 ], [ %68, %73 ], [ %68, %ma_zero_memory_default.exit.i.i ], [ %68, %.lr.ph.i ]
+  %.sink = phi i32 [ 0, %ma_audio_buffer_ref_set_data.exit56 ], [ 1, %96 ], [ 1, %.lr.ph17.preheader.i ], [ 1, %93 ], [ 1, %75 ], [ 1, %73 ], [ 1, %ma_zero_memory_default.exit.i.i ], [ 1, %.lr.ph.i ]
   %107 = load i64, ptr %7, align 8, !tbaa !1072
   store i64 0, ptr %21, align 8, !tbaa !1065
   store i64 %107, ptr %22, align 8, !tbaa !1066
@@ -47372,7 +47372,7 @@ ma_malloc.exit.thread.sink.split:                 ; preds = %.lr.ph.i, %ma_zero_
   br label %ma_malloc.exit.thread
 
 ma_malloc.exit.thread:                            ; preds = %ma_malloc.exit.thread.sink.split, %64, %53, %ma_malloc.exit, %6, %ma_zero_memory_default.exit, %3
-  %.0 = phi i32 [ -4, %64 ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %6 ], [ -4, %53 ], [ -4, %ma_malloc.exit ], [ 0, %ma_malloc.exit.thread.sink.split ]
+  %.0 = phi i32 [ -2, %3 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %6 ], [ -4, %ma_malloc.exit ], [ -4, %53 ], [ -4, %64 ], [ 0, %ma_malloc.exit.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -47435,7 +47435,7 @@ define range(i32 -4, 1) i32 @ma_audio_buffer_alloc_and_init(ptr noundef readonly
   br label %ma_allocation_callbacks_init_copy.exit
 
 ma_allocation_callbacks_init_copy.exit:           ; preds = %.thread22.i, %10, %12, %14
-  %.sroa.16.0 = phi ptr [ %.sroa.16.0.copyload, %14 ], [ null, %12 ], [ %.sroa.16.0.copyload, %10 ], [ %spec.select, %.thread22.i ]
+  %.sroa.16.0 = phi ptr [ null, %12 ], [ %.sroa.16.0.copyload, %10 ], [ %.sroa.16.0.copyload, %14 ], [ %spec.select, %.thread22.i ]
   %17 = zext i32 %.sroa.0.0.copyload to i64
   %18 = getelementptr inbounds nuw i32, ptr @__const.ma_get_bytes_per_sample.sizes, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !3
@@ -47460,10 +47460,10 @@ ma_allocation_callbacks_init_copy.exit.thread:    ; preds = %12
   br i1 %32, label %ma_free.exit, label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %ma_allocation_callbacks_init_copy.exit, %ma_allocation_callbacks_init_copy.exit.thread
-  %.sroa.16.06072 = phi ptr [ %.sroa.16.0, %ma_allocation_callbacks_init_copy.exit ], [ @ma__malloc_default, %ma_allocation_callbacks_init_copy.exit.thread ]
-  %.sroa.20.06170 = phi ptr [ %.sroa.20.0.copyload, %ma_allocation_callbacks_init_copy.exit ], [ @ma__realloc_default, %ma_allocation_callbacks_init_copy.exit.thread ]
-  %.sroa.23.06268 = phi ptr [ %.sroa.23.0.copyload, %ma_allocation_callbacks_init_copy.exit ], [ @ma__free_default, %ma_allocation_callbacks_init_copy.exit.thread ]
-  %33 = phi i64 [ %23, %ma_allocation_callbacks_init_copy.exit ], [ %31, %ma_allocation_callbacks_init_copy.exit.thread ]
+  %.sroa.16.06072 = phi ptr [ @ma__malloc_default, %ma_allocation_callbacks_init_copy.exit.thread ], [ %.sroa.16.0, %ma_allocation_callbacks_init_copy.exit ]
+  %.sroa.20.06170 = phi ptr [ @ma__realloc_default, %ma_allocation_callbacks_init_copy.exit.thread ], [ %.sroa.20.0.copyload, %ma_allocation_callbacks_init_copy.exit ]
+  %.sroa.23.06268 = phi ptr [ @ma__free_default, %ma_allocation_callbacks_init_copy.exit.thread ], [ %.sroa.23.0.copyload, %ma_allocation_callbacks_init_copy.exit ]
+  %33 = phi i64 [ %31, %ma_allocation_callbacks_init_copy.exit.thread ], [ %23, %ma_allocation_callbacks_init_copy.exit ]
   %34 = tail call ptr %.sroa.16.06072(i64 noundef %33, ptr noundef %.sroa.10.0.copyload) #66
   %35 = icmp eq ptr %34, null
   br i1 %35, label %ma_free.exit, label %36
@@ -47599,7 +47599,7 @@ ma_audio_buffer_init_ex.exit:                     ; preds = %ma_zero_memory_defa
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %87, %ma_audio_buffer_init_ex.exit, %ma_allocation_callbacks_init_copy.exit.thread, %ma_malloc.exit, %ma_allocation_callbacks_init_copy.exit, %4, %2, %88
-  %.0 = phi i32 [ 0, %88 ], [ -2, %2 ], [ -2, %4 ], [ -4, %ma_allocation_callbacks_init_copy.exit ], [ -2, %87 ], [ -4, %ma_malloc.exit ], [ -4, %ma_allocation_callbacks_init_copy.exit.thread ], [ -2, %ma_audio_buffer_init_ex.exit ]
+  %.0 = phi i32 [ 0, %88 ], [ -2, %2 ], [ -2, %4 ], [ -4, %ma_allocation_callbacks_init_copy.exit ], [ -4, %ma_malloc.exit ], [ -4, %ma_allocation_callbacks_init_copy.exit.thread ], [ -2, %ma_audio_buffer_init_ex.exit ], [ -2, %87 ]
   ret i32 %.0
 }
 
@@ -47784,7 +47784,7 @@ ma_audio_buffer_ref_map.exit.sink.split:          ; preds = %8, %7, %9
   br label %ma_audio_buffer_ref_map.exit
 
 ma_audio_buffer_ref_map.exit:                     ; preds = %ma_audio_buffer_ref_map.exit.sink.split, %8, %.thread13, %7
-  %.0 = phi i32 [ -2, %7 ], [ -2, %.thread13 ], [ -2, %8 ], [ %.0.ph, %ma_audio_buffer_ref_map.exit.sink.split ]
+  %.0 = phi i32 [ -2, %7 ], [ -2, %8 ], [ -2, %.thread13 ], [ %.0.ph, %ma_audio_buffer_ref_map.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -48014,7 +48014,7 @@ define range(i32 -2, 1) i32 @ma_paged_audio_buffer_data_get_length_in_pcm_frames
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !1086
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %4, %2
-  %.08 = phi i32 [ -2, %4 ], [ -2, %2 ], [ 0, %6 ], [ 0, %.lr.ph ]
+  %.08 = phi i32 [ -2, %2 ], [ -2, %4 ], [ 0, %6 ], [ 0, %.lr.ph ]
   ret i32 %.08
 }
 
@@ -48267,7 +48267,7 @@ ma_malloc.exit.i:                                 ; preds = %26, %23
   br label %ma_paged_audio_buffer_data_allocate_page.exit
 
 ma_paged_audio_buffer_data_allocate_page.exit:    ; preds = %.thread.i, %ma_malloc.exit.i, %20, %7, %4
-  %.0 = phi i32 [ -4, %7 ], [ -4, %ma_malloc.exit.i ], [ -4, %20 ], [ -2, %4 ], [ 0, %.thread.i ]
+  %.0 = phi i32 [ -2, %4 ], [ -4, %7 ], [ -4, %ma_malloc.exit.i ], [ -4, %20 ], [ 0, %.thread.i ]
   ret i32 %.0
 }
 
@@ -48527,7 +48527,7 @@ ma_paged_audio_buffer_data_get_tail.exit:         ; preds = %33, %36
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !1094
 
 .loopexit:                                        ; preds = %44, %20, %17, %.critedge, %4, %2
-  %.034 = phi i32 [ 0, %17 ], [ -2, %2 ], [ 0, %4 ], [ 0, %.critedge ], [ -25, %20 ], [ -25, %44 ]
+  %.034 = phi i32 [ -2, %2 ], [ 0, %4 ], [ 0, %.critedge ], [ 0, %17 ], [ -25, %20 ], [ -25, %44 ]
   ret i32 %.034
 }
 
@@ -48583,7 +48583,7 @@ define range(i32 -2, 1) i32 @ma_paged_audio_buffer_get_length_in_pcm_frames(ptr 
   br i1 %.not.i, label %ma_paged_audio_buffer_data_get_length_in_pcm_frames.exit, label %.lr.ph.i, !llvm.loop !1086
 
 ma_paged_audio_buffer_data_get_length_in_pcm_frames.exit: ; preds = %.lr.ph.i, %2, %6, %8
-  %.08.i = phi i32 [ -2, %6 ], [ -2, %2 ], [ 0, %8 ], [ 0, %.lr.ph.i ]
+  %.08.i = phi i32 [ -2, %2 ], [ -2, %6 ], [ 0, %8 ], [ 0, %.lr.ph.i ]
   ret i32 %.08.i
 }
 
@@ -48952,7 +48952,7 @@ ma_fopen.exit.i:                                  ; preds = %9
   br label %ma_default_vfs_open__stdio.exit
 
 ma_default_vfs_open__stdio.exit:                  ; preds = %ma_fopen.exit.i, %14, %6, %4
-  %.0 = phi i32 [ -2, %6 ], [ -2, %4 ], [ 0, %ma_fopen.exit.i ], [ %spec.select.i, %14 ]
+  %.0 = phi i32 [ -2, %4 ], [ -2, %6 ], [ 0, %ma_fopen.exit.i ], [ %spec.select.i, %14 ]
   ret i32 %.0
 }
 
@@ -49054,7 +49054,7 @@ define internal range(i32 -51, 1) i32 @ma_default_vfs_read(ptr readnone captures
   br label %ma_default_vfs_read__stdio.exit
 
 ma_default_vfs_read__stdio.exit:                  ; preds = %18, %16, %13, %7
-  %.0 = phi i32 [ -2, %7 ], [ -17, %16 ], [ %20, %18 ], [ 0, %13 ]
+  %.0 = phi i32 [ -2, %7 ], [ %20, %18 ], [ -17, %16 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -49234,7 +49234,7 @@ ma_fopen.exit.i.i:                                ; preds = %19
   br label %ma_vfs_open.exit
 
 ma_vfs_open.exit:                                 ; preds = %ma_fopen.exit.i.i, %24, %16, %15, %13, %10, %7, %6
-  %.0 = phi i32 [ -29, %10 ], [ %14, %13 ], [ -2, %6 ], [ -2, %7 ], [ -2, %16 ], [ -2, %15 ], [ 0, %ma_fopen.exit.i.i ], [ %spec.select.i.i, %24 ]
+  %.0 = phi i32 [ %14, %13 ], [ -2, %6 ], [ -2, %7 ], [ -29, %10 ], [ -2, %15 ], [ -2, %16 ], [ 0, %ma_fopen.exit.i.i ], [ %spec.select.i.i, %24 ]
   ret i32 %.0
 }
 
@@ -49297,7 +49297,7 @@ ma_default_vfs_open_w__stdio.exit.i:              ; preds = %25, %21
   br label %ma_vfs_open_w.exit
 
 ma_vfs_open_w.exit:                               ; preds = %ma_default_vfs_open_w__stdio.exit.i, %18, %17, %15, %11, %8, %7
-  %.0 = phi i32 [ -29, %11 ], [ %16, %15 ], [ -2, %7 ], [ -2, %8 ], [ %24, %ma_default_vfs_open_w__stdio.exit.i ], [ -2, %17 ], [ -2, %18 ]
+  %.0 = phi i32 [ %16, %15 ], [ -2, %7 ], [ -2, %8 ], [ -29, %11 ], [ %24, %ma_default_vfs_open_w__stdio.exit.i ], [ -2, %17 ], [ -2, %18 ]
   ret i32 %.0
 }
 
@@ -49328,7 +49328,7 @@ define i32 @ma_vfs_or_default_close(ptr noundef %0, ptr noundef %1) local_unname
   br label %ma_vfs_close.exit
 
 ma_vfs_close.exit:                                ; preds = %12, %11, %9, %5, %4
-  %.0 = phi i32 [ -29, %5 ], [ %10, %9 ], [ -2, %4 ], [ 0, %12 ], [ -2, %11 ]
+  %.0 = phi i32 [ %10, %9 ], [ -2, %4 ], [ -29, %5 ], [ 0, %12 ], [ -2, %11 ]
   ret i32 %.0
 }
 
@@ -49424,7 +49424,7 @@ ma_vfs_read.exit:                                 ; preds = %9, %12, %19
   br label %ma_default_vfs_read.exit
 
 ma_default_vfs_read.exit:                         ; preds = %36, %34, %31, %25, %ma_vfs_read.exit
-  %.0 = phi i32 [ %.0.i, %ma_vfs_read.exit ], [ -2, %25 ], [ -17, %34 ], [ %38, %36 ], [ 0, %31 ]
+  %.0 = phi i32 [ %.0.i, %ma_vfs_read.exit ], [ -2, %25 ], [ %38, %36 ], [ -17, %34 ], [ 0, %31 ]
   ret i32 %.0
 }
 
@@ -49488,7 +49488,7 @@ define i32 @ma_vfs_or_default_write(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %ma_vfs_write.exit
 
 ma_vfs_write.exit:                                ; preds = %26, %25, %19, %15, %11, %8
-  %.0 = phi i32 [ -29, %11 ], [ %16, %15 ], [ -2, %8 ], [ -2, %19 ], [ %28, %26 ], [ 0, %25 ]
+  %.0 = phi i32 [ %16, %15 ], [ -2, %8 ], [ -29, %11 ], [ -2, %19 ], [ %28, %26 ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -49525,7 +49525,7 @@ define i32 @ma_vfs_or_default_seek(ptr noundef %0, ptr noundef %1, i64 noundef %
   br label %ma_vfs_seek.exit
 
 ma_vfs_seek.exit:                                 ; preds = %14, %13, %11, %7, %6
-  %.0 = phi i32 [ -29, %7 ], [ %12, %11 ], [ -2, %6 ], [ %..i.i, %14 ], [ -2, %13 ]
+  %.0 = phi i32 [ %12, %11 ], [ -2, %6 ], [ -29, %7 ], [ %..i.i, %14 ], [ -2, %13 ]
   ret i32 %.0
 }
 
@@ -49567,7 +49567,7 @@ define i32 @ma_vfs_or_default_tell(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %ma_vfs_tell.exit
 
 ma_vfs_tell.exit:                                 ; preds = %17, %15, %14, %12, %8, %6, %5
-  %.0 = phi i32 [ -29, %8 ], [ %13, %12 ], [ -2, %5 ], [ -2, %6 ], [ 0, %17 ], [ -2, %14 ], [ -2, %15 ]
+  %.0 = phi i32 [ %13, %12 ], [ -2, %5 ], [ -2, %6 ], [ -29, %8 ], [ 0, %17 ], [ -2, %14 ], [ -2, %15 ]
   ret i32 %.0
 }
 
@@ -49629,7 +49629,7 @@ ma_default_vfs_info__stdio.exit.i:                ; preds = %23, %19
   br label %ma_vfs_info.exit
 
 ma_vfs_info.exit:                                 ; preds = %ma_default_vfs_info__stdio.exit.i, %ma_zero_memory_default.exit.i8, %14, %12, %8, %ma_zero_memory_default.exit.i, %6
-  %.0 = phi i32 [ -29, %8 ], [ %13, %12 ], [ -2, %6 ], [ -2, %ma_zero_memory_default.exit.i ], [ %.0.i.i, %ma_default_vfs_info__stdio.exit.i ], [ -2, %14 ], [ -2, %ma_zero_memory_default.exit.i8 ]
+  %.0 = phi i32 [ %13, %12 ], [ -2, %6 ], [ -2, %ma_zero_memory_default.exit.i ], [ -29, %8 ], [ %.0.i.i, %ma_default_vfs_info__stdio.exit.i ], [ -2, %14 ], [ -2, %ma_zero_memory_default.exit.i8 ]
   ret i32 %.0
 }
 
@@ -49731,7 +49731,7 @@ define internal fastcc i32 @ma_vfs_open_and_read_file_ex(ptr noundef %0, ptr nou
   br i1 %.not13.i.i.i, label %50, label %ma_vfs_or_default_open.exit.thread70
 
 ma_vfs_or_default_open.exit:                      ; preds = %38, %21
-  %.032 = phi i32 [ %39, %38 ], [ %22, %21 ]
+  %.032 = phi i32 [ %22, %21 ], [ %39, %38 ]
   %.not44 = icmp eq i32 %.032, 0
   br i1 %.not44, label %43, label %ma_vfs_or_default_close.exit
 
@@ -49944,8 +49944,8 @@ ma_vfs_or_default_close.exit60:                   ; preds = %114, %115, %119, %1
   store ptr %.0.i57, ptr %3, align 8, !tbaa !27
   br label %ma_vfs_or_default_close.exit
 
-ma_vfs_or_default_close.exit:                     ; preds = %50, %26, %43, %ma_vfs_or_default_open.exit.thread70, %33, %40, %34, %18, %130, %128, %125, %93, %90, %88, %84, %81, %74, %ma_vfs_or_default_info.exit.thread, %70, %ma_vfs_or_default_info.exit.thread.thread, %63, %ma_vfs_or_default_open.exit, %15, %134, %ma_malloc.exit.thread
-  %.0 = phi i32 [ 0, %134 ], [ -2, %15 ], [ %42, %ma_vfs_or_default_open.exit.thread70 ], [ %61, %74 ], [ 0, %ma_malloc.exit.thread ], [ -11, %93 ], [ %.032, %ma_vfs_or_default_open.exit ], [ %111, %130 ], [ %62, %63 ], [ %.0.i50798187, %ma_vfs_or_default_info.exit.thread.thread ], [ %.0.i50798187, %70 ], [ %61, %ma_vfs_or_default_info.exit.thread ], [ -11, %81 ], [ -11, %84 ], [ -11, %88 ], [ -11, %90 ], [ %111, %125 ], [ %111, %128 ], [ -2, %43 ], [ -2, %33 ], [ -2, %40 ], [ -29, %34 ], [ %spec.select, %26 ], [ -29, %18 ], [ -2, %50 ]
+ma_vfs_or_default_close.exit:                     ; preds = %50, %26, %43, %ma_vfs_or_default_open.exit.thread70, %40, %34, %33, %18, %130, %128, %125, %93, %90, %88, %84, %81, %74, %ma_vfs_or_default_info.exit.thread, %70, %ma_vfs_or_default_info.exit.thread.thread, %63, %ma_vfs_or_default_open.exit, %15, %134, %ma_malloc.exit.thread
+  %.0 = phi i32 [ 0, %ma_malloc.exit.thread ], [ 0, %134 ], [ -2, %15 ], [ %.032, %ma_vfs_or_default_open.exit ], [ %42, %ma_vfs_or_default_open.exit.thread70 ], [ %62, %63 ], [ %.0.i50798187, %ma_vfs_or_default_info.exit.thread.thread ], [ %.0.i50798187, %70 ], [ %61, %ma_vfs_or_default_info.exit.thread ], [ %61, %74 ], [ -11, %81 ], [ -11, %84 ], [ -11, %88 ], [ -11, %90 ], [ -11, %93 ], [ %111, %125 ], [ %111, %128 ], [ %111, %130 ], [ -2, %40 ], [ -29, %34 ], [ -2, %33 ], [ -29, %18 ], [ -2, %43 ], [ %spec.select, %26 ], [ -2, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -50166,12 +50166,12 @@ switch.lookup.i:                                  ; preds = %42
   br label %.thread.sink.split.i
 
 .thread.sink.split.i:                             ; preds = %switch.lookup.i, %42, %39
-  %.sink.i = phi i32 [ 5, %39 ], [ %switch.offset.i, %switch.lookup.i ], [ 5, %42 ]
+  %.sink.i = phi i32 [ %switch.offset.i, %switch.lookup.i ], [ 5, %42 ], [ 5, %39 ]
   store i32 %.sink.i, ptr %9, align 8, !tbaa !1127
   br label %ma_wav_init_internal.exit
 
 ma_wav_init_internal.exit:                        ; preds = %32, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %.thread.sink.split.i, %36, %7, %ma_dr_wav_init.exit, %13
-  %.0 = phi i32 [ -2, %13 ], [ -10, %ma_dr_wav_init.exit ], [ 0, %.thread.sink.split.i ], [ -2, %7 ], [ 0, %36 ], [ -10, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ -10, %32 ]
+  %.0 = phi i32 [ -2, %13 ], [ -10, %ma_dr_wav_init.exit ], [ -2, %7 ], [ 0, %36 ], [ 0, %.thread.sink.split.i ], [ -10, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ -10, %32 ]
   ret i32 %.0
 }
 
@@ -50234,7 +50234,7 @@ ma_dr_wav_preinit.exit.i:                         ; preds = %15, %.thread.i.i
   br label %ma_dr_wav_init_ex.exit
 
 ma_dr_wav_init_ex.exit:                           ; preds = %5, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i, %15, %ma_dr_wav_preinit.exit.i
-  %.0.i = phi i32 [ %18, %ma_dr_wav_preinit.exit.i ], [ 0, %5 ], [ 0, %15 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i ]
+  %.0.i = phi i32 [ %18, %ma_dr_wav_preinit.exit.i ], [ 0, %5 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i ], [ 0, %15 ]
   ret i32 %.0.i
 }
 
@@ -50390,12 +50390,12 @@ switch.lookup.i:                                  ; preds = %36
   br label %.thread.sink.split.i
 
 .thread.sink.split.i:                             ; preds = %switch.lookup.i, %36, %33
-  %.sink.i = phi i32 [ 5, %33 ], [ %switch.offset.i, %switch.lookup.i ], [ 5, %36 ]
+  %.sink.i = phi i32 [ %switch.offset.i, %switch.lookup.i ], [ 5, %36 ], [ 5, %33 ]
   store i32 %.sink.i, ptr %6, align 8, !tbaa !1127
   br label %ma_wav_init_internal.exit
 
 ma_wav_init_internal.exit:                        ; preds = %18, %10, %.sink.split.i.i.i, %.thread.sink.split.i, %ma_dr_wav_init_file.exit, %4
-  %.0 = phi i32 [ 0, %.thread.sink.split.i ], [ -2, %4 ], [ 0, %ma_dr_wav_init_file.exit ], [ -10, %.sink.split.i.i.i ], [ -10, %10 ], [ -10, %18 ]
+  %.0 = phi i32 [ -2, %4 ], [ 0, %ma_dr_wav_init_file.exit ], [ 0, %.thread.sink.split.i ], [ -10, %.sink.split.i.i.i ], [ -10, %10 ], [ -10, %18 ]
   ret i32 %.0
 }
 
@@ -50468,7 +50468,7 @@ ma_dr_wav_preinit.exit.i.i:                       ; preds = %15, %.thread.i.i.i
   br label %ma_dr_wav_init_file_ex.exit
 
 ma_dr_wav_init_file_ex.exit:                      ; preds = %3, %5, %ma_dr_wav_preinit.exit.i.i, %.sink.split.i.i
-  %.0.i = phi i32 [ 0, %.sink.split.i.i ], [ 1, %ma_dr_wav_preinit.exit.i.i ], [ 0, %3 ], [ 0, %5 ]
+  %.0.i = phi i32 [ 1, %ma_dr_wav_preinit.exit.i.i ], [ 0, %.sink.split.i.i ], [ 0, %3 ], [ 0, %5 ]
   ret i32 %.0.i
 }
 
@@ -50599,12 +50599,12 @@ switch.lookup.i:                                  ; preds = %37
   br label %.thread.sink.split.i
 
 .thread.sink.split.i:                             ; preds = %switch.lookup.i, %37, %34
-  %.sink.i = phi i32 [ 5, %34 ], [ %switch.offset.i, %switch.lookup.i ], [ 5, %37 ]
+  %.sink.i = phi i32 [ %switch.offset.i, %switch.lookup.i ], [ 5, %37 ], [ 5, %34 ]
   store i32 %.sink.i, ptr %7, align 8, !tbaa !1127
   br label %ma_wav_init_internal.exit
 
 ma_wav_init_internal.exit:                        ; preds = %.thread.sink.split.i, %31, %ma_dr_wav_init_file_w.exit.thread, %4
-  %.0 = phi i32 [ -10, %ma_dr_wav_init_file_w.exit.thread ], [ -2, %4 ], [ 0, %31 ], [ 0, %.thread.sink.split.i ]
+  %.0 = phi i32 [ -2, %4 ], [ -10, %ma_dr_wav_init_file_w.exit.thread ], [ 0, %31 ], [ 0, %.thread.sink.split.i ]
   ret i32 %.0
 }
 
@@ -50803,12 +50803,12 @@ switch.lookup.i:                                  ; preds = %39
   br label %.thread.sink.split.i
 
 .thread.sink.split.i:                             ; preds = %switch.lookup.i, %39, %36
-  %.sink.i = phi i32 [ 5, %36 ], [ %switch.offset.i, %switch.lookup.i ], [ 5, %39 ]
+  %.sink.i = phi i32 [ %switch.offset.i, %switch.lookup.i ], [ 5, %39 ], [ 5, %36 ]
   store i32 %.sink.i, ptr %7, align 8, !tbaa !1127
   br label %ma_wav_init_internal.exit
 
 ma_wav_init_internal.exit:                        ; preds = %26, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %11, %.thread.sink.split.i, %33, %5, %ma_dr_wav_init_memory.exit
-  %.0 = phi i32 [ -10, %ma_dr_wav_init_memory.exit ], [ 0, %.thread.sink.split.i ], [ -2, %5 ], [ 0, %33 ], [ -10, %11 ], [ -10, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ -10, %26 ]
+  %.0 = phi i32 [ -10, %ma_dr_wav_init_memory.exit ], [ -2, %5 ], [ 0, %33 ], [ 0, %.thread.sink.split.i ], [ -10, %11 ], [ -10, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ -10, %26 ]
   ret i32 %.0
 }
 
@@ -50877,7 +50877,7 @@ ma_dr_wav_preinit.exit.i:                         ; preds = %14, %.thread.i.i
   br label %ma_dr_wav_init_memory_ex.exit
 
 ma_dr_wav_init_memory_ex.exit:                    ; preds = %4, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i, %14, %ma_dr_wav_preinit.exit.i
-  %.0.i = phi i32 [ 0, %4 ], [ %20, %ma_dr_wav_preinit.exit.i ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i ], [ 0, %14 ]
+  %.0.i = phi i32 [ %20, %ma_dr_wav_preinit.exit.i ], [ 0, %4 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i ], [ 0, %14 ]
   ret i32 %.0.i
 }
 
@@ -51135,7 +51135,7 @@ define range(i32 -10, 1) i32 @ma_dr_wav_uninit(ptr noundef readonly captures(add
   br label %ma_dr_wav_free.exit
 
 ma_dr_wav_free.exit:                              ; preds = %130, %127, %122, %117, %114
-  %.1 = phi i32 [ %spec.select, %117 ], [ 0, %114 ], [ 0, %122 ], [ 0, %127 ], [ 0, %130 ]
+  %.1 = phi i32 [ 0, %114 ], [ %spec.select, %117 ], [ 0, %122 ], [ 0, %127 ], [ 0, %130 ]
   %132 = load ptr, ptr %0, align 8, !tbaa !1141
   %133 = icmp eq ptr %132, @ma_dr_wav__on_read_stdio
   br i1 %133, label %137, label %134
@@ -51568,7 +51568,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit.i:         ; preds = %32, %38
   br i1 %.not40.i, label %ma_dr_wav_read_pcm_frames_f32__pcm.exit, label %53
 
 ma_dr_wav_read_pcm_frames_f32__pcm.exit:          ; preds = %53, %56, %.loopexit.i, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i, %42
-  %.0.i = phi i64 [ 0, %42 ], [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i ], [ %.03451.i, %53 ], [ %125, %.loopexit.i ], [ %.03451.i, %56 ]
+  %.0.i = phi i64 [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i ], [ 0, %42 ], [ %.03451.i, %56 ], [ %.03451.i, %53 ], [ %125, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %317
 
@@ -51784,7 +51784,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit.i41:       ; preds = %155, %161
   br i1 %.not45.i, label %ma_dr_wav_read_pcm_frames_f32__ieee.exit, label %.preheader.split.i
 
 ma_dr_wav_read_pcm_frames_f32__ieee.exit:         ; preds = %.preheader.split.us56.i, %193, %.loopexit52.us.i, %.preheader.split.us.i, %175, %.loopexit.us.i, %.preheader.split.i, %210, %216, %150, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i41, %165
-  %.0.i44 = phi i64 [ %151, %150 ], [ 0, %165 ], [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i41 ], [ %.03953.us.i, %175 ], [ %220, %216 ], [ %.03953.i, %210 ], [ %.03953.i, %.preheader.split.i ], [ %190, %.loopexit.us.i ], [ %.03953.us.i, %.preheader.split.us.i ], [ %207, %.loopexit52.us.i ], [ %.03953.us59.i, %.preheader.split.us56.i ], [ %.03953.us59.i, %193 ]
+  %.0.i44 = phi i64 [ %151, %150 ], [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i41 ], [ 0, %165 ], [ %.03953.i, %210 ], [ %.03953.i, %.preheader.split.i ], [ %220, %216 ], [ %.03953.us.i, %175 ], [ %.03953.us.i, %.preheader.split.us.i ], [ %190, %.loopexit.us.i ], [ %.03953.us59.i, %193 ], [ %.03953.us59.i, %.preheader.split.us56.i ], [ %207, %.loopexit52.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %317
 
@@ -51884,7 +51884,7 @@ ma_dr_wav_read_pcm_frames_f32__ieee.exit:         ; preds = %.preheader.split.us
   br i1 %.not39.i, label %ma_dr_wav_read_pcm_frames_f32__alaw.exit, label %247
 
 ma_dr_wav_read_pcm_frames_f32__alaw.exit:         ; preds = %247, %250, %.loopexit.i59, %237, %239
-  %.0.i53 = phi i64 [ 0, %239 ], [ 0, %237 ], [ %.03345.i, %247 ], [ %268, %.loopexit.i59 ], [ %.03345.i, %250 ]
+  %.0.i53 = phi i64 [ 0, %239 ], [ 0, %237 ], [ %.03345.i, %250 ], [ %.03345.i, %247 ], [ %268, %.loopexit.i59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %317
 
@@ -51984,12 +51984,12 @@ ma_dr_wav_read_pcm_frames_f32__alaw.exit:         ; preds = %247, %250, %.loopex
   br i1 %.not39.i79, label %ma_dr_wav_read_pcm_frames_f32__mulaw.exit, label %295
 
 ma_dr_wav_read_pcm_frames_f32__mulaw.exit:        ; preds = %295, %298, %.loopexit.i78, %285, %287
-  %.0.i67 = phi i64 [ 0, %287 ], [ 0, %285 ], [ %.03345.i71, %295 ], [ %316, %.loopexit.i78 ], [ %.03345.i71, %298 ]
+  %.0.i67 = phi i64 [ 0, %287 ], [ 0, %285 ], [ %.03345.i71, %298 ], [ %.03345.i71, %295 ], [ %316, %.loopexit.i78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %317
 
 317:                                              ; preds = %23, %3, %ma_dr_wav_read_pcm_frames_f32__mulaw.exit, %ma_dr_wav_read_pcm_frames_f32__alaw.exit, %ma_dr_wav_read_pcm_frames_f32__ieee.exit, %ma_dr_wav_read_pcm_frames_f32__msadpcm_ima.exit, %ma_dr_wav_read_pcm_frames_f32__pcm.exit, %13
-  %.0 = phi i64 [ 0, %3 ], [ %14, %13 ], [ %.0.i, %ma_dr_wav_read_pcm_frames_f32__pcm.exit ], [ %.022.lcssa.i, %ma_dr_wav_read_pcm_frames_f32__msadpcm_ima.exit ], [ %.0.i44, %ma_dr_wav_read_pcm_frames_f32__ieee.exit ], [ %.0.i53, %ma_dr_wav_read_pcm_frames_f32__alaw.exit ], [ %.0.i67, %ma_dr_wav_read_pcm_frames_f32__mulaw.exit ], [ 0, %23 ]
+  %.0 = phi i64 [ %14, %13 ], [ %.0.i, %ma_dr_wav_read_pcm_frames_f32__pcm.exit ], [ %.022.lcssa.i, %ma_dr_wav_read_pcm_frames_f32__msadpcm_ima.exit ], [ %.0.i44, %ma_dr_wav_read_pcm_frames_f32__ieee.exit ], [ %.0.i53, %ma_dr_wav_read_pcm_frames_f32__alaw.exit ], [ %.0.i67, %ma_dr_wav_read_pcm_frames_f32__mulaw.exit ], [ 0, %3 ], [ 0, %23 ]
   ret i64 %.0
 }
 
@@ -52231,7 +52231,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit.i:         ; preds = %33, %39
   br i1 %.not48.i, label %ma_dr_wav_read_pcm_frames_s16__pcm.exit, label %54
 
 ma_dr_wav_read_pcm_frames_s16__pcm.exit:          ; preds = %54, %57, %.loopexit.i, %.split.i, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i, %43
-  %.0.i = phi i64 [ %29, %.split.i ], [ 0, %43 ], [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i ], [ %.04159.i, %54 ], [ %107, %.loopexit.i ], [ %.04159.i, %57 ]
+  %.0.i = phi i64 [ %29, %.split.i ], [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i ], [ 0, %43 ], [ %.04159.i, %57 ], [ %.04159.i, %54 ], [ %107, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %295
 
@@ -52416,7 +52416,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit.i40:       ; preds = %114, %120
   br i1 %.not44.i, label %ma_dr_wav_read_pcm_frames_s16__ieee.exit, label %.preheader.split.i
 
 ma_dr_wav_read_pcm_frames_s16__ieee.exit:         ; preds = %.preheader.split.us54.i, %161, %.loopexit50.us.i, %.preheader.split.us.i, %134, %.loopexit.us.i, %.preheader.split.i, %188, %194, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i40, %124
-  %.0.i43 = phi i64 [ 0, %124 ], [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i40 ], [ %.03751.us.i, %134 ], [ %198, %194 ], [ %.03751.i, %188 ], [ %.03751.i, %.preheader.split.i ], [ %158, %.loopexit.us.i ], [ %.03751.us.i, %.preheader.split.us.i ], [ %185, %.loopexit50.us.i ], [ %.03751.us57.i, %.preheader.split.us54.i ], [ %.03751.us57.i, %161 ]
+  %.0.i43 = phi i64 [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i40 ], [ 0, %124 ], [ %.03751.i, %188 ], [ %.03751.i, %.preheader.split.i ], [ %198, %194 ], [ %.03751.us.i, %134 ], [ %.03751.us.i, %.preheader.split.us.i ], [ %158, %.loopexit.us.i ], [ %.03751.us57.i, %161 ], [ %.03751.us57.i, %.preheader.split.us54.i ], [ %185, %.loopexit50.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %295
 
@@ -52513,7 +52513,7 @@ ma_dr_wav_read_pcm_frames_s16__ieee.exit:         ; preds = %.preheader.split.us
   br i1 %.not43.i, label %ma_dr_wav_read_pcm_frames_s16__alaw.exit, label %225
 
 ma_dr_wav_read_pcm_frames_s16__alaw.exit:         ; preds = %225, %228, %.loopexit.i54, %215, %217
-  %.0.i52 = phi i64 [ 0, %217 ], [ 0, %215 ], [ %.03650.i, %225 ], [ %244, %.loopexit.i54 ], [ %.03650.i, %228 ]
+  %.0.i52 = phi i64 [ 0, %217 ], [ 0, %215 ], [ %.03650.i, %228 ], [ %.03650.i, %225 ], [ %244, %.loopexit.i54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %295
 
@@ -52610,7 +52610,7 @@ ma_dr_wav_read_pcm_frames_s16__alaw.exit:         ; preds = %225, %228, %.loopex
   br i1 %.not43.i73, label %ma_dr_wav_read_pcm_frames_s16__mulaw.exit, label %271
 
 ma_dr_wav_read_pcm_frames_s16__mulaw.exit:        ; preds = %271, %274, %.loopexit.i72, %261, %263
-  %.0.i62 = phi i64 [ 0, %263 ], [ 0, %261 ], [ %.03650.i66, %271 ], [ %290, %.loopexit.i72 ], [ %.03650.i66, %274 ]
+  %.0.i62 = phi i64 [ 0, %263 ], [ 0, %261 ], [ %.03650.i66, %274 ], [ %.03650.i66, %271 ], [ %290, %.loopexit.i72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %295
 
@@ -52623,7 +52623,7 @@ ma_dr_wav_read_pcm_frames_s16__mulaw.exit:        ; preds = %271, %274, %.loopex
   br label %295
 
 295:                                              ; preds = %22, %3, %293, %291, %ma_dr_wav_read_pcm_frames_s16__mulaw.exit, %ma_dr_wav_read_pcm_frames_s16__alaw.exit, %ma_dr_wav_read_pcm_frames_s16__ieee.exit, %ma_dr_wav_read_pcm_frames_s16__pcm.exit, %12
-  %.0 = phi i64 [ 0, %3 ], [ %13, %12 ], [ %.0.i, %ma_dr_wav_read_pcm_frames_s16__pcm.exit ], [ %.0.i43, %ma_dr_wav_read_pcm_frames_s16__ieee.exit ], [ %.0.i52, %ma_dr_wav_read_pcm_frames_s16__alaw.exit ], [ %.0.i62, %ma_dr_wav_read_pcm_frames_s16__mulaw.exit ], [ %292, %291 ], [ %294, %293 ], [ 0, %22 ]
+  %.0 = phi i64 [ %13, %12 ], [ %.0.i, %ma_dr_wav_read_pcm_frames_s16__pcm.exit ], [ %.0.i43, %ma_dr_wav_read_pcm_frames_s16__ieee.exit ], [ %.0.i52, %ma_dr_wav_read_pcm_frames_s16__alaw.exit ], [ %.0.i62, %ma_dr_wav_read_pcm_frames_s16__mulaw.exit ], [ %292, %291 ], [ %294, %293 ], [ 0, %3 ], [ 0, %22 ]
   ret i64 %.0
 }
 
@@ -52883,7 +52883,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit.i:         ; preds = %35, %41
   br i1 %.not45.i, label %ma_dr_wav_read_pcm_frames_s32__pcm.exit, label %56
 
 ma_dr_wav_read_pcm_frames_s32__pcm.exit:          ; preds = %56, %59, %.loopexit.i, %30, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i, %45
-  %.0.i = phi i64 [ %31, %30 ], [ 0, %45 ], [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i ], [ %.03956.i, %56 ], [ %122, %.loopexit.i ], [ %.03956.i, %59 ]
+  %.0.i = phi i64 [ %31, %30 ], [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i ], [ 0, %45 ], [ %.03956.i, %59 ], [ %.03956.i, %56 ], [ %122, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %313
 
@@ -53093,7 +53093,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit.i41:       ; preds = %149, %155
   br i1 %.not40.i, label %ma_dr_wav_read_pcm_frames_s32__ieee.exit, label %.preheader.split.i
 
 ma_dr_wav_read_pcm_frames_s32__ieee.exit:         ; preds = %.preheader.split.us51.i, %188, %.loopexit47.us.i, %.preheader.split.us.i, %169, %.loopexit.us.i, %.preheader.split.i, %206, %212, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i41, %159
-  %.0.i44 = phi i64 [ 0, %159 ], [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i41 ], [ %.03448.us.i, %169 ], [ %216, %212 ], [ %.03448.i, %206 ], [ %.03448.i, %.preheader.split.i ], [ %185, %.loopexit.us.i ], [ %.03448.us.i, %.preheader.split.us.i ], [ %203, %.loopexit47.us.i ], [ %.03448.us54.i, %.preheader.split.us51.i ], [ %.03448.us54.i, %188 ]
+  %.0.i44 = phi i64 [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit.i41 ], [ 0, %159 ], [ %.03448.i, %206 ], [ %.03448.i, %.preheader.split.i ], [ %216, %212 ], [ %.03448.us.i, %169 ], [ %.03448.us.i, %.preheader.split.us.i ], [ %185, %.loopexit.us.i ], [ %.03448.us54.i, %188 ], [ %.03448.us54.i, %.preheader.split.us51.i ], [ %203, %.loopexit47.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %313
 
@@ -53193,7 +53193,7 @@ ma_dr_wav_read_pcm_frames_s32__ieee.exit:         ; preds = %.preheader.split.us
   br i1 %.not39.i, label %ma_dr_wav_read_pcm_frames_s32__alaw.exit, label %243
 
 ma_dr_wav_read_pcm_frames_s32__alaw.exit:         ; preds = %243, %246, %.loopexit.i59, %233, %235
-  %.0.i53 = phi i64 [ 0, %235 ], [ 0, %233 ], [ %.03345.i, %243 ], [ %264, %.loopexit.i59 ], [ %.03345.i, %246 ]
+  %.0.i53 = phi i64 [ 0, %235 ], [ 0, %233 ], [ %.03345.i, %246 ], [ %.03345.i, %243 ], [ %264, %.loopexit.i59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %313
 
@@ -53293,12 +53293,12 @@ ma_dr_wav_read_pcm_frames_s32__alaw.exit:         ; preds = %243, %246, %.loopex
   br i1 %.not39.i79, label %ma_dr_wav_read_pcm_frames_s32__mulaw.exit, label %291
 
 ma_dr_wav_read_pcm_frames_s32__mulaw.exit:        ; preds = %291, %294, %.loopexit.i78, %281, %283
-  %.0.i67 = phi i64 [ 0, %283 ], [ 0, %281 ], [ %.03345.i71, %291 ], [ %312, %.loopexit.i78 ], [ %.03345.i71, %294 ]
+  %.0.i67 = phi i64 [ 0, %283 ], [ 0, %281 ], [ %.03345.i71, %294 ], [ %.03345.i71, %291 ], [ %312, %.loopexit.i78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %313
 
 313:                                              ; preds = %23, %3, %ma_dr_wav_read_pcm_frames_s32__mulaw.exit, %ma_dr_wav_read_pcm_frames_s32__alaw.exit, %ma_dr_wav_read_pcm_frames_s32__ieee.exit, %ma_dr_wav_read_pcm_frames_s32__msadpcm_ima.exit, %ma_dr_wav_read_pcm_frames_s32__pcm.exit, %13
-  %.0 = phi i64 [ 0, %3 ], [ %14, %13 ], [ %.0.i, %ma_dr_wav_read_pcm_frames_s32__pcm.exit ], [ %.022.lcssa.i, %ma_dr_wav_read_pcm_frames_s32__msadpcm_ima.exit ], [ %.0.i44, %ma_dr_wav_read_pcm_frames_s32__ieee.exit ], [ %.0.i53, %ma_dr_wav_read_pcm_frames_s32__alaw.exit ], [ %.0.i67, %ma_dr_wav_read_pcm_frames_s32__mulaw.exit ], [ 0, %23 ]
+  %.0 = phi i64 [ %14, %13 ], [ %.0.i, %ma_dr_wav_read_pcm_frames_s32__pcm.exit ], [ %.022.lcssa.i, %ma_dr_wav_read_pcm_frames_s32__msadpcm_ima.exit ], [ %.0.i44, %ma_dr_wav_read_pcm_frames_s32__ieee.exit ], [ %.0.i53, %ma_dr_wav_read_pcm_frames_s32__alaw.exit ], [ %.0.i67, %ma_dr_wav_read_pcm_frames_s32__mulaw.exit ], [ 0, %3 ], [ 0, %23 ]
   ret i64 %.0
 }
 
@@ -53677,7 +53677,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit:           ; preds = %73
   br label %.critedge
 
 .critedge:                                        ; preds = %101, %95, %.critedge.sink.split, %92, %75, %90, %ma_dr_wav_get_bytes_per_pcm_frame.exit, %23, %39, %12, %9, %2, %5
-  %.0 = phi i32 [ 0, %23 ], [ 0, %2 ], [ 0, %9 ], [ 1, %39 ], [ 1, %92 ], [ 1, %12 ], [ 0, %5 ], [ 0, %90 ], [ %.0.ph, %.critedge.sink.split ], [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit ], [ 0, %75 ], [ 1, %101 ], [ 0, %95 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 0, %9 ], [ 1, %12 ], [ 1, %39 ], [ 0, %23 ], [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit ], [ 0, %90 ], [ 0, %75 ], [ 1, %92 ], [ %.0.ph, %.critedge.sink.split ], [ 1, %101 ], [ 0, %95 ]
   ret i32 %.0
 }
 
@@ -53916,7 +53916,7 @@ ma_fopen.exit.i:                                  ; preds = %17
   br label %ma_dr_flac_open_file.exit
 
 ma_dr_flac_open_file.exit:                        ; preds = %10, %17, %ma_fopen.exit.i, %22
-  %.0.i9 = phi ptr [ %20, %ma_fopen.exit.i ], [ null, %22 ], [ null, %10 ], [ null, %17 ]
+  %.0.i9 = phi ptr [ null, %22 ], [ %20, %ma_fopen.exit.i ], [ null, %10 ], [ null, %17 ]
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr %.0.i9, ptr %24, align 8, !tbaa !1207
   %25 = icmp eq ptr %.0.i9, null
@@ -53948,7 +53948,7 @@ ma_fopen.exit:                                    ; preds = %4
   br label %ma_fopen.exit.thread
 
 ma_fopen.exit.thread:                             ; preds = %4, %2, %ma_fopen.exit, %9
-  %.0 = phi ptr [ %7, %ma_fopen.exit ], [ null, %9 ], [ null, %2 ], [ null, %4 ]
+  %.0 = phi ptr [ null, %9 ], [ %7, %ma_fopen.exit ], [ null, %2 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -54005,7 +54005,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %4
   br label %ma_dr_flac_open_file_w.exit
 
 ma_dr_flac_open_file_w.exit:                      ; preds = %11, %18, %22
-  %.0.i10 = phi ptr [ null, %11 ], [ null, %22 ], [ %20, %18 ]
+  %.0.i10 = phi ptr [ null, %22 ], [ null, %11 ], [ %20, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr %.0.i10, ptr %24, align 8, !tbaa !1207
@@ -54037,7 +54037,7 @@ define ptr @ma_dr_flac_open_file_w(ptr noundef %0, ptr noundef readonly captures
   br label %11
 
 11:                                               ; preds = %5, %2, %9
-  %.0 = phi ptr [ null, %2 ], [ null, %9 ], [ %7, %5 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %2 ], [ %7, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -54493,7 +54493,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i: ; preds = %17, %25
   br i1 %.not.i113, label %ma_dr_flac__seek_forward_by_pcm_frames.exit, label %12, !llvm.loop !1228
 
 ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i, %.preheader.i, %17, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i
-  %.025.i = phi i64 [ %.028.i, %.preheader.i ], [ %22, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %17 ], [ %.1.i112, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
+  %.025.i = phi i64 [ %22, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %17 ], [ %.028.i, %.preheader.i ], [ %.1.i112, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %29 = load i64, ptr %28, align 8, !tbaa !1229
   %30 = add i64 %29, %.025.i
@@ -55608,7 +55608,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit: ; preds = %54, %ma_dr_flac_rea
   br i1 %.not, label %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread, label %49, !llvm.loop !1256
 
 ma_dr_flac__read_and_decode_next_flac_frame.exit.thread: ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit, %54, %.preheader249, %3, %ma_dr_flac__seek_forward_by_pcm_frames.exit
-  %.0 = phi i64 [ 0, %3 ], [ %.025.i, %ma_dr_flac__seek_forward_by_pcm_frames.exit ], [ %.083216, %54 ], [ %.083216, %.preheader249 ], [ %.184, %ma_dr_flac__read_and_decode_next_flac_frame.exit ]
+  %.0 = phi i64 [ %.025.i, %ma_dr_flac__seek_forward_by_pcm_frames.exit ], [ 0, %3 ], [ %.083216, %.preheader249 ], [ %.083216, %54 ], [ %.184, %ma_dr_flac__read_and_decode_next_flac_frame.exit ]
   ret i64 %.0
 }
 
@@ -55675,7 +55675,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i: ; preds = %17, %25
   br i1 %.not.i113, label %ma_dr_flac__seek_forward_by_pcm_frames.exit, label %12, !llvm.loop !1228
 
 ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i, %.preheader.i, %17, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i
-  %.025.i = phi i64 [ %.028.i, %.preheader.i ], [ %22, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %17 ], [ %.1.i112, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
+  %.025.i = phi i64 [ %22, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %17 ], [ %.028.i, %.preheader.i ], [ %.1.i112, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %29 = load i64, ptr %28, align 8, !tbaa !1229
   %30 = add i64 %29, %.025.i
@@ -56772,7 +56772,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit: ; preds = %52, %ma_dr_flac_rea
   br i1 %.not, label %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread, label %47, !llvm.loop !1278
 
 ma_dr_flac__read_and_decode_next_flac_frame.exit.thread: ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit, %52, %.preheader244, %3, %ma_dr_flac__seek_forward_by_pcm_frames.exit
-  %.0 = phi i64 [ 0, %3 ], [ %.025.i, %ma_dr_flac__seek_forward_by_pcm_frames.exit ], [ %.083216, %52 ], [ %.083216, %.preheader244 ], [ %.184, %ma_dr_flac__read_and_decode_next_flac_frame.exit ]
+  %.0 = phi i64 [ %.025.i, %ma_dr_flac__seek_forward_by_pcm_frames.exit ], [ 0, %3 ], [ %.083216, %.preheader244 ], [ %.083216, %52 ], [ %.184, %ma_dr_flac__read_and_decode_next_flac_frame.exit ]
   ret i64 %.0
 }
 
@@ -56839,7 +56839,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i: ; preds = %17, %25
   br i1 %.not.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit, label %12, !llvm.loop !1228
 
 ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i, %.preheader.i, %17, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i
-  %.025.i = phi i64 [ %.028.i, %.preheader.i ], [ %22, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %17 ], [ %.1.i111, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
+  %.025.i = phi i64 [ %22, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %17 ], [ %.028.i, %.preheader.i ], [ %.1.i111, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %29 = load i64, ptr %28, align 8, !tbaa !1229
   %30 = add i64 %29, %.025.i
@@ -57808,7 +57808,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit: ; preds = %54, %ma_dr_flac_rea
   br i1 %.not, label %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread, label %49, !llvm.loop !1300
 
 ma_dr_flac__read_and_decode_next_flac_frame.exit.thread: ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit, %54, %.preheader242, %3, %ma_dr_flac__seek_forward_by_pcm_frames.exit
-  %.077 = phi i64 [ 0, %3 ], [ %.025.i, %ma_dr_flac__seek_forward_by_pcm_frames.exit ], [ %.082214, %54 ], [ %.082214, %.preheader242 ], [ %.183, %ma_dr_flac__read_and_decode_next_flac_frame.exit ]
+  %.077 = phi i64 [ %.025.i, %ma_dr_flac__seek_forward_by_pcm_frames.exit ], [ 0, %3 ], [ %.082214, %.preheader242 ], [ %.082214, %54 ], [ %.183, %ma_dr_flac__read_and_decode_next_flac_frame.exit ]
   ret i64 %.077
 }
 
@@ -57923,7 +57923,7 @@ tailrecurse:                                      ; preds = %.critedge84.thread,
 ma_dr_flac__seek_to_first_frame.exit:             ; preds = %41, %36, %43, %46, %49
   %.1.i.i = phi i32 [ 1, %49 ], [ 0, %43 ], [ 0, %46 ], [ 0, %36 ], [ 0, %41 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %22, i8 0, i64 168, i1 false)
-  br i1 %ret.known.tr161, label %253, label %.loopexit.thread
+  br i1 %ret.known.tr161, label %254, label %.loopexit.thread
 
 50:                                               ; preds = %30
   %51 = load i64, ptr %6, align 8, !tbaa !1310
@@ -57942,7 +57942,7 @@ ma_dr_flac__seek_to_first_frame.exit:             ; preds = %41, %36, %43, %46, 
   %58 = sub nuw i32 %56, %55
   store i32 %58, ptr %8, align 8, !tbaa !1226
   store i64 %spec.select, ptr %4, align 8, !tbaa !1229
-  br i1 %ret.known.tr161, label %253, label %.loopexit.thread
+  br i1 %ret.known.tr161, label %254, label %.loopexit.thread
 
 59:                                               ; preds = %50
   %60 = sub nuw i64 %25, %spec.select
@@ -57958,12 +57958,12 @@ ma_dr_flac__seek_to_first_frame.exit:             ; preds = %41, %36, %43, %46, 
   %67 = add i32 %64, %61
   store i32 %67, ptr %8, align 8, !tbaa !1226
   store i64 %spec.select, ptr %4, align 8, !tbaa !1229
-  br i1 %ret.known.tr161, label %253, label %.loopexit.thread
+  br i1 %ret.known.tr161, label %254, label %.loopexit.thread
 
 .critedge:                                        ; preds = %59, %53
   %68 = load i32, ptr %9, align 8, !tbaa !1212
   %69 = icmp eq i32 %68, 1
-  br i1 %69, label %70, label %234
+  br i1 %69, label %70, label %232
 
 70:                                               ; preds = %.critedge
   %71 = load ptr, ptr %11, align 8, !tbaa !1217
@@ -58201,8 +58201,8 @@ ma_dr_flac_oggbs__seek_physical.exit91.i:         ; preds = %176, %158
   %.not78133.i = icmp eq i32 %181, 0
   br i1 %.not78133.i, label %.critedge84.thread, label %.lr.ph135.i
 
-.lr.ph135.i:                                      ; preds = %.preheader.i, %231
-  %.059134.i = phi i64 [ %.160.i, %231 ], [ %.057.ph132.i, %.preheader.i ]
+.lr.ph135.i:                                      ; preds = %.preheader.i, %229
+  %.059134.i = phi i64 [ %.160.i, %229 ], [ %.057.ph132.i, %.preheader.i ]
   %182 = load i64, ptr %22, align 8, !tbaa !1319
   %183 = icmp eq i64 %182, 0
   br i1 %183, label %184, label %ma_dr_flac__get_pcm_frame_range_of_current_flac_frame.exit.i
@@ -58241,13 +58241,13 @@ ma_dr_flac__get_pcm_frame_range_of_current_flac_frame.exit.i: ; preds = %184, %.
 
 203:                                              ; preds = %ma_dr_flac__get_pcm_frame_range_of_current_flac_frame.exit.i
   %204 = icmp ult i64 %spec.select, %197
-  br i1 %204, label %205, label %228
+  br i1 %204, label %205, label %226
 
 205:                                              ; preds = %203
   %206 = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %0)
   switch i32 %206, label %.critedge84.thread [
     i32 0, label %207
-    i32 -100, label %231
+    i32 -100, label %229
   ]
 
 207:                                              ; preds = %205
@@ -58270,11 +58270,11 @@ ma_dr_flac__get_pcm_frame_range_of_current_flac_frame.exit.i: ; preds = %184, %.
   %213 = load i8, ptr %21, align 1, !tbaa !1227
   %214 = tail call fastcc i32 @ma_dr_flac__read_next_flac_frame_header(ptr noundef %12, i8 noundef zeroext %213, ptr noundef %22)
   %.not.i.i96.i = icmp eq i32 %214, 0
-  br i1 %.not.i.i96.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit.i, label %215
+  br i1 %.not.i.i96.i, label %.critedge84, label %215
 
 215:                                              ; preds = %.preheader.i95.i
   %216 = tail call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %0)
-  switch i32 %216, label %ma_dr_flac__seek_forward_by_pcm_frames.exit.i [
+  switch i32 %216, label %.critedge84 [
     i32 0, label %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i
     i32 -100, label %.preheader.i95.i
   ]
@@ -58289,7 +58289,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i: ; preds = %217
   %221 = trunc nuw i64 %.01627.i.i to i32
   %222 = sub i32 %211, %221
   store i32 %222, ptr %8, align 8, !tbaa !1226
-  br label %ma_dr_flac__seek_forward_by_pcm_frames.exit.i
+  br label %.critedge84
 
 223:                                              ; preds = %217
   %224 = add i64 %.028.i.i, %218
@@ -58301,103 +58301,103 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i: ; preds = %215, %223
   %.117.i.i = phi i64 [ %225, %223 ], [ %.01627.i.i, %215 ]
   %.1.i93.i = phi i64 [ %224, %223 ], [ %.028.i.i, %215 ]
   %.not.i94.i = icmp eq i64 %.117.i.i, 0
-  br i1 %.not.i94.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit.i, label %210, !llvm.loop !1228
+  br i1 %.not.i94.i, label %.critedge84, label %210, !llvm.loop !1228
 
-ma_dr_flac__seek_forward_by_pcm_frames.exit.i:    ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i, %215, %.preheader.i95.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i
-  %.025.i.i = phi i64 [ %.028.i.i, %215 ], [ %220, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i ], [ %.028.i.i, %.preheader.i95.i ], [ %.1.i93.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i ]
-  %226 = load i64, ptr %4, align 8, !tbaa !1229
-  %227 = add i64 %226, %.025.i.i
-  store i64 %227, ptr %4, align 8, !tbaa !1229
-  %.not273 = icmp eq i64 %.025.i.i, %209
-  br i1 %.not273, label %.critedge84.thread98, label %.critedge84.thread
-
-228:                                              ; preds = %203
-  %229 = tail call fastcc range(i32 -100, 1) i32 @ma_dr_flac__seek_flac_frame(ptr noundef nonnull %0)
-  switch i32 %229, label %.critedge84.thread [
-    i32 0, label %231
-    i32 -100, label %230
+226:                                              ; preds = %203
+  %227 = tail call fastcc range(i32 -100, 1) i32 @ma_dr_flac__seek_flac_frame(ptr noundef nonnull %0)
+  switch i32 %227, label %.critedge84.thread [
+    i32 0, label %229
+    i32 -100, label %228
   ]
 
-230:                                              ; preds = %228
-  br label %231
+228:                                              ; preds = %226
+  br label %229
 
-231:                                              ; preds = %230, %228, %205
-  %.160.i = phi i64 [ %.059134.i, %230 ], [ %.059134.i, %205 ], [ %197, %228 ]
-  %232 = load i8, ptr %21, align 1, !tbaa !1227
-  %233 = tail call fastcc i32 @ma_dr_flac__read_next_flac_frame_header(ptr noundef %12, i8 noundef zeroext %232, ptr noundef %22)
-  %.not78.i = icmp eq i32 %233, 0
+229:                                              ; preds = %228, %226, %205
+  %.160.i = phi i64 [ %.059134.i, %205 ], [ %.059134.i, %228 ], [ %197, %226 ]
+  %230 = load i8, ptr %21, align 1, !tbaa !1227
+  %231 = tail call fastcc i32 @ma_dr_flac__read_next_flac_frame_header(ptr noundef %12, i8 noundef zeroext %230, ptr noundef %22)
+  %.not78.i = icmp eq i32 %231, 0
   br i1 %.not78.i, label %.critedge84.thread, label %.lr.ph135.i
 
-234:                                              ; preds = %.critedge
-  %235 = load i8, ptr %10, align 8
-  %236 = and i8 %235, 1
-  %.not72 = icmp eq i8 %236, 0
-  br i1 %.not72, label %237, label %.critedge82
+232:                                              ; preds = %.critedge
+  %233 = load i8, ptr %10, align 8
+  %234 = and i8 %233, 1
+  %.not72 = icmp eq i8 %234, 0
+  br i1 %.not72, label %235, label %.critedge82
 
-237:                                              ; preds = %234
-  %238 = tail call fastcc i32 @ma_dr_flac__seek_to_pcm_frame__seek_table(ptr noundef %0, i64 noundef %spec.select)
-  %239 = icmp eq i32 %238, 0
-  br i1 %239, label %..critedge82_crit_edge, label %.critedge84.thread98
+235:                                              ; preds = %232
+  %236 = tail call fastcc i32 @ma_dr_flac__seek_to_pcm_frame__seek_table(ptr noundef %0, i64 noundef %spec.select)
+  %237 = icmp eq i32 %236, 0
+  br i1 %237, label %..critedge82_crit_edge, label %.critedge84.thread98
 
-..critedge82_crit_edge:                           ; preds = %237
+..critedge82_crit_edge:                           ; preds = %235
   %.pre = load i8, ptr %10, align 8
   br label %.critedge82
 
-.critedge82:                                      ; preds = %..critedge82_crit_edge, %234
-  %240 = phi i8 [ %.pre, %..critedge82_crit_edge ], [ %235, %234 ]
-  %241 = and i8 %240, 2
-  %.not74 = icmp eq i8 %241, 0
-  br i1 %.not74, label %242, label %.critedge86
+.critedge82:                                      ; preds = %..critedge82_crit_edge, %232
+  %238 = phi i8 [ %.pre, %..critedge82_crit_edge ], [ %233, %232 ]
+  %239 = and i8 %238, 2
+  %.not74 = icmp eq i8 %239, 0
+  br i1 %.not74, label %240, label %.critedge86
 
-242:                                              ; preds = %.critedge82
-  %243 = load i64, ptr %6, align 8, !tbaa !1310
-  %.not75 = icmp eq i64 %243, 0
-  br i1 %.not75, label %.critedge86, label %244
+240:                                              ; preds = %.critedge82
+  %241 = load i64, ptr %6, align 8, !tbaa !1310
+  %.not75 = icmp eq i64 %241, 0
+  br i1 %.not75, label %.critedge86, label %242
 
-244:                                              ; preds = %242
-  %245 = tail call fastcc i32 @ma_dr_flac__seek_to_pcm_frame__binary_search(ptr noundef %0, i64 noundef %spec.select)
-  %246 = icmp eq i32 %245, 0
-  br i1 %246, label %..critedge86_crit_edge, label %.critedge84.thread98
+242:                                              ; preds = %240
+  %243 = tail call fastcc i32 @ma_dr_flac__seek_to_pcm_frame__binary_search(ptr noundef %0, i64 noundef %spec.select)
+  %244 = icmp eq i32 %243, 0
+  br i1 %244, label %..critedge86_crit_edge, label %.critedge84.thread98
 
-..critedge86_crit_edge:                           ; preds = %244
+..critedge86_crit_edge:                           ; preds = %242
   %.pre218 = load i8, ptr %10, align 8
   br label %.critedge86
 
-.critedge86:                                      ; preds = %..critedge86_crit_edge, %242, %.critedge82
-  %247 = phi i8 [ %.pre218, %..critedge86_crit_edge ], [ %240, %242 ], [ %240, %.critedge82 ]
-  %248 = and i8 %247, 4
-  %.not77 = icmp eq i8 %248, 0
-  br i1 %.not77, label %.critedge84, label %.critedge84.thread
+.critedge86:                                      ; preds = %..critedge86_crit_edge, %.critedge82, %240
+  %245 = phi i8 [ %.pre218, %..critedge86_crit_edge ], [ %238, %.critedge82 ], [ %238, %240 ]
+  %246 = and i8 %245, 4
+  %.not77 = icmp eq i8 %246, 0
+  br i1 %.not77, label %247, label %.critedge84.thread
 
-.critedge84:                                      ; preds = %.critedge86
-  %249 = tail call fastcc i32 @ma_dr_flac__seek_to_pcm_frame__brute_force(ptr noundef %0, i64 noundef %spec.select)
-  %250 = icmp eq i32 %249, 0
-  br i1 %250, label %.critedge84.thread, label %.critedge84.thread98
+247:                                              ; preds = %.critedge86
+  %248 = tail call fastcc i32 @ma_dr_flac__seek_to_pcm_frame__brute_force(ptr noundef %0, i64 noundef %spec.select)
+  %249 = icmp eq i32 %248, 0
+  br i1 %249, label %.critedge84.thread, label %.critedge84.thread98
 
-.critedge84.thread98:                             ; preds = %207, %244, %237, %.critedge84, %ma_dr_flac__seek_forward_by_pcm_frames.exit.i, %202
+.critedge84:                                      ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i, %.preheader.i95.i, %215, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i
+  %.025.i.i = phi i64 [ %220, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i ], [ %.028.i.i, %215 ], [ %.028.i.i, %.preheader.i95.i ], [ %.1.i93.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i ]
+  %250 = load i64, ptr %4, align 8, !tbaa !1229
+  %251 = add i64 %250, %.025.i.i
+  store i64 %251, ptr %4, align 8, !tbaa !1229
+  %.not273 = icmp eq i64 %.025.i.i, %209
+  br i1 %.not273, label %.critedge84.thread98, label %.critedge84.thread
+
+.critedge84.thread98:                             ; preds = %207, %235, %242, %.critedge84, %247, %202
   store i64 %spec.select, ptr %4, align 8, !tbaa !1229
-  br i1 %ret.known.tr161, label %253, label %.loopexit.thread
+  br i1 %ret.known.tr161, label %254, label %.loopexit.thread
 
 .critedge84.thread.sink.split:                    ; preds = %103, %121
   %.sink = phi i64 [ %123, %121 ], [ %73, %103 ]
   store i64 %.sink, ptr %72, align 8, !tbaa !1311
   br label %.critedge84.thread
 
-.critedge84.thread:                               ; preds = %82, %.lr.ph35.i86.i, %205, %228, %231, %.lr.ph35.i.i, %.critedge84.thread.sink.split, %ma_dr_flac__seek_forward_by_pcm_frames.exit.i, %199, %161, %158, %77, %87, %84, %._crit_edge36.i.i, %106, %103, %ma_dr_flac_oggbs__seek_physical.exit91.i, %.preheader.i, %._crit_edge36.i82.i, %.critedge86, %.critedge84
-  %251 = tail call i32 @ma_dr_flac_seek_to_pcm_frame(ptr noundef nonnull %0, i64 noundef %25)
-  %252 = icmp eq i32 %251, 0
-  br i1 %252, label %tailrecurse, label %.loopexit
+.critedge84.thread:                               ; preds = %82, %.lr.ph35.i86.i, %229, %205, %226, %.lr.ph35.i.i, %.critedge84.thread.sink.split, %247, %.preheader.i, %199, %._crit_edge36.i82.i, %161, %158, %77, %87, %84, %._crit_edge36.i.i, %106, %103, %ma_dr_flac_oggbs__seek_physical.exit91.i, %.critedge86, %.critedge84
+  %252 = tail call i32 @ma_dr_flac_seek_to_pcm_frame(ptr noundef nonnull %0, i64 noundef %25)
+  %253 = icmp eq i32 %252, 0
+  br i1 %253, label %tailrecurse, label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %27, %.critedge84.thread
-  %.0 = phi i32 [ 0, %27 ], [ 1, %tailrecurse ], [ 0, %.critedge84.thread ]
-  br i1 %ret.known.tr161, label %253, label %.loopexit.thread
+  %.0 = phi i32 [ 1, %tailrecurse ], [ 0, %27 ], [ 0, %.critedge84.thread ]
+  br i1 %ret.known.tr161, label %254, label %.loopexit.thread
 
-253:                                              ; preds = %ma_dr_flac__seek_to_first_frame.exit, %.critedge84.thread98, %57, %66, %.loopexit
+254:                                              ; preds = %.critedge84.thread98, %66, %57, %ma_dr_flac__seek_to_first_frame.exit, %.loopexit
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %2, %ma_dr_flac__seek_to_first_frame.exit, %.critedge84.thread98, %57, %66, %.loopexit, %253
-  %254 = phi i32 [ 0, %253 ], [ %.0, %.loopexit ], [ %.1.i.i, %ma_dr_flac__seek_to_first_frame.exit ], [ 1, %66 ], [ 1, %57 ], [ 1, %.critedge84.thread98 ], [ 0, %2 ]
-  ret i32 %254
+.loopexit.thread:                                 ; preds = %2, %.critedge84.thread98, %66, %57, %ma_dr_flac__seek_to_first_frame.exit, %.loopexit, %254
+  %255 = phi i32 [ 0, %254 ], [ %.0, %.loopexit ], [ %.1.i.i, %ma_dr_flac__seek_to_first_frame.exit ], [ 1, %57 ], [ 1, %66 ], [ 1, %.critedge84.thread98 ], [ 0, %2 ]
+  ret i32 %255
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -58646,8 +58646,8 @@ ma_mp3_post_init.exit:                            ; preds = %48, %59, %ma_malloc
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %ma_mp3_init_internal.exit
 
-ma_mp3_init_internal.exit:                        ; preds = %44, %40, %33, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %46, %7, %ma_mp3_post_init.exit, %14
-  %.0 = phi i32 [ -2, %14 ], [ -2, %7 ], [ 0, %ma_mp3_post_init.exit ], [ -10, %46 ], [ -10, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ -10, %33 ], [ -10, %40 ], [ -10, %44 ]
+ma_mp3_init_internal.exit:                        ; preds = %33, %46, %44, %40, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %7, %ma_mp3_post_init.exit, %14
+  %.0 = phi i32 [ -2, %14 ], [ 0, %ma_mp3_post_init.exit ], [ -2, %7 ], [ -10, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ -10, %40 ], [ -10, %44 ], [ -10, %46 ], [ -10, %33 ]
   ret i32 %.0
 }
 
@@ -58738,7 +58738,7 @@ ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %8
   br label %ma_dr_mp3_init_internal.exit
 
 ma_dr_mp3_init_internal.exit:                     ; preds = %29, %27, %25, %21, %14, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %29 ], [ 0, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %14 ], [ 0, %21 ], [ 0, %25 ], [ 0, %27 ]
+  %.0 = phi i32 [ 0, %5 ], [ 1, %29 ], [ 0, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %21 ], [ 0, %25 ], [ 0, %27 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -58888,7 +58888,7 @@ ma_mp3_post_init.exit:                            ; preds = %19, %24, %ma_malloc
   br label %ma_mp3_init_internal.exit
 
 ma_mp3_init_internal.exit:                        ; preds = %4, %ma_mp3_post_init.exit, %11
-  %.0 = phi i32 [ -10, %11 ], [ 0, %ma_mp3_post_init.exit ], [ -2, %4 ]
+  %.0 = phi i32 [ 0, %ma_mp3_post_init.exit ], [ -10, %11 ], [ -2, %4 ]
   ret i32 %.0
 }
 
@@ -58985,12 +58985,12 @@ ma_dr_mp3_init.exit:                              ; preds = %18
   store i32 %34, ptr %35, align 8, !tbaa !1337
   br label %ma_fopen.exit.thread
 
-36:                                               ; preds = %ma_fopen.exit, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %15, %22, %26, %28
+36:                                               ; preds = %ma_fopen.exit, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %22, %26, %28, %15
   %37 = tail call i32 @fclose(ptr noundef nonnull %6)
   br label %ma_fopen.exit.thread
 
 ma_fopen.exit.thread:                             ; preds = %5, %3, %ma_dr_mp3_init.exit, %36
-  %.0 = phi i32 [ 1, %ma_dr_mp3_init.exit ], [ 0, %36 ], [ 0, %3 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %36 ], [ 1, %ma_dr_mp3_init.exit ], [ 0, %3 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -59111,7 +59111,7 @@ ma_mp3_post_init.exit:                            ; preds = %19, %24, %ma_malloc
   br label %ma_mp3_init_internal.exit
 
 ma_mp3_init_internal.exit:                        ; preds = %4, %ma_mp3_post_init.exit, %11
-  %.0 = phi i32 [ -10, %11 ], [ 0, %ma_mp3_post_init.exit ], [ -2, %4 ]
+  %.0 = phi i32 [ 0, %ma_mp3_post_init.exit ], [ -10, %11 ], [ -2, %4 ]
   ret i32 %.0
 }
 
@@ -59207,12 +59207,12 @@ ma_dr_mp3_init.exit:                              ; preds = %18
   store i32 %34, ptr %35, align 8, !tbaa !1337
   br label %38
 
-36:                                               ; preds = %6, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %15, %22, %26, %28
+36:                                               ; preds = %6, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %22, %26, %28, %15
   %37 = call i32 @fclose(ptr noundef %7)
   br label %38
 
 38:                                               ; preds = %ma_dr_mp3_init.exit, %3, %36
-  %.0 = phi i32 [ 0, %3 ], [ 0, %36 ], [ 1, %ma_dr_mp3_init.exit ]
+  %.0 = phi i32 [ 0, %36 ], [ 0, %3 ], [ 1, %ma_dr_mp3_init.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -59413,8 +59413,8 @@ ma_mp3_post_init.exit:                            ; preds = %44, %55, %ma_malloc
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ma_mp3_init_internal.exit
 
-ma_mp3_init_internal.exit:                        ; preds = %40, %36, %29, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %42, %12, %5, %ma_mp3_post_init.exit
-  %.0 = phi i32 [ -2, %5 ], [ 0, %ma_mp3_post_init.exit ], [ -10, %12 ], [ -10, %42 ], [ -10, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ -10, %29 ], [ -10, %36 ], [ -10, %40 ]
+ma_mp3_init_internal.exit:                        ; preds = %29, %42, %40, %36, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %12, %5, %ma_mp3_post_init.exit
+  %.0 = phi i32 [ 0, %ma_mp3_post_init.exit ], [ -2, %5 ], [ -10, %12 ], [ -10, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ -10, %36 ], [ -10, %40 ], [ -10, %42 ], [ -10, %29 ]
   ret i32 %.0
 }
 
@@ -59515,7 +59515,7 @@ ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %9
   br label %ma_dr_mp3_init_internal.exit
 
 ma_dr_mp3_init_internal.exit:                     ; preds = %33, %31, %29, %25, %18, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i, %6, %4
-  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 1, %33 ], [ 0, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %18 ], [ 0, %25 ], [ 0, %29 ], [ 0, %31 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 1, %33 ], [ 0, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %25 ], [ 0, %29 ], [ 0, %31 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -59679,8 +59679,8 @@ ma_dr_mp3_read_pcm_frames_s16.exit:               ; preds = %18, %11
   br label %ma_dr_mp3_read_pcm_frames_s16.exit.thread
 
 ma_dr_mp3_read_pcm_frames_s16.exit.thread:        ; preds = %ma_dr_mp3_read_pcm_frames_s16.exit, %14
-  %.026 = phi i64 [ %.0.fr, %ma_dr_mp3_read_pcm_frames_s16.exit ], [ 0, %14 ]
-  %22 = phi i32 [ %spec.select, %ma_dr_mp3_read_pcm_frames_s16.exit ], [ -17, %14 ]
+  %.026 = phi i64 [ 0, %14 ], [ %.0.fr, %ma_dr_mp3_read_pcm_frames_s16.exit ]
+  %22 = phi i32 [ -17, %14 ], [ %spec.select, %ma_dr_mp3_read_pcm_frames_s16.exit ]
   br i1 %.not, label %24, label %23
 
 23:                                               ; preds = %ma_dr_mp3_read_pcm_frames_s16.exit.thread
@@ -59868,7 +59868,7 @@ define i64 @ma_dr_mp3_read_pcm_frames_f32(ptr noundef %0, i64 noundef %1, ptr no
   br i1 %50, label %ma_dr_mp3_read_pcm_frames_raw.exit, label %.split.i
 
 ma_dr_mp3_read_pcm_frames_raw.exit:               ; preds = %.split.i, %22, %48
-  %.us-phi.i = phi i64 [ %.030.i, %.split.i ], [ %45, %48 ], [ %45, %22 ]
+  %.us-phi.i = phi i64 [ %.030.i, %.split.i ], [ %45, %22 ], [ %45, %48 ]
   %51 = icmp eq i64 %.us-phi.i, 0
   br i1 %51, label %.thread, label %52
 
@@ -60102,9 +60102,9 @@ ma_dr_mp3_find_closest_seek_point.exit.thread32.i: ; preds = %ma_dr_mp3_find_clo
   br i1 %72, label %._crit_edge.i, label %.lr.ph53.i
 
 ma_dr_mp3__on_seek_64.exit.i:                     ; preds = %.thread.i.i, %49
-  %.sroa.10.042.i = phi i64 [ %43, %.thread.i.i ], [ %.sroa.10.043.i, %49 ]
-  %.sroa.5.039.i = phi i64 [ %.sroa.5.0.copyload.i, %.thread.i.i ], [ %.sroa.5.040.i, %49 ]
-  %.sroa.7.037.i = phi i32 [ %42, %.thread.i.i ], [ %.sroa.7.038.i, %49 ]
+  %.sroa.10.042.i = phi i64 [ %.sroa.10.043.i, %49 ], [ %43, %.thread.i.i ]
+  %.sroa.5.039.i = phi i64 [ %.sroa.5.040.i, %49 ], [ %.sroa.5.0.copyload.i, %.thread.i.i ]
+  %.sroa.7.037.i = phi i32 [ %.sroa.7.038.i, %49 ], [ %42, %.thread.i.i ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 6744
   store i32 0, ptr %73, align 8, !tbaa !1347
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 6748
@@ -60184,7 +60184,7 @@ ma_dr_mp3__on_seek_64.exit.i:                     ; preds = %.thread.i.i, %49
   br i1 %109, label %ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i, label %.split.us.i.i.i
 
 ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i: ; preds = %107, %94, %.split.us.i.i.i, %._crit_edge57.i
-  %.0.i.i.i = phi i64 [ 0, %._crit_edge57.i ], [ %104, %94 ], [ %.030.us.i.i.i, %.split.us.i.i.i ], [ %104, %107 ]
+  %.0.i.i.i = phi i64 [ 0, %._crit_edge57.i ], [ %104, %107 ], [ %104, %94 ], [ %.030.us.i.i.i, %.split.us.i.i.i ]
   %.not.i27.i = icmp eq i64 %.0.i.i.i, %88
   br label %ma_dr_mp3_seek_to_start_of_stream.exit
 
@@ -60265,12 +60265,12 @@ ma_dr_mp3_seek_to_start_of_stream.exit.i:         ; preds = %116
   br i1 %152, label %ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i18, label %.split.us.i.i.i14
 
 ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i18: ; preds = %150, %137, %.split.us.i.i.i14, %127
-  %.0.i.i.i19 = phi i64 [ 0, %127 ], [ %147, %137 ], [ %.030.us.i.i.i15, %.split.us.i.i.i14 ], [ %147, %150 ]
+  %.0.i.i.i19 = phi i64 [ 0, %127 ], [ %147, %150 ], [ %147, %137 ], [ %.030.us.i.i.i15, %.split.us.i.i.i14 ]
   %.not.i.i20 = icmp eq i64 %.0.i.i.i19, %129
   br label %ma_dr_mp3_seek_to_start_of_stream.exit
 
 ma_dr_mp3_seek_to_start_of_stream.exit:           ; preds = %.lr.ph53.i, %84, %ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i18, %116, %110, %ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i, %._crit_edge.i, %51, %ma_dr_mp3_find_closest_seek_point.exit.thread32.i, %14, %10, %2, %4
-  %.0.shrunk = phi i1 [ false, %84 ], [ false, %2 ], [ false, %10 ], [ false, %4 ], [ true, %14 ], [ false, %116 ], [ %.not.i27.i, %ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i ], [ false, %ma_dr_mp3_find_closest_seek_point.exit.thread32.i ], [ false, %51 ], [ false, %._crit_edge.i ], [ true, %110 ], [ %.not.i.i20, %ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i18 ], [ false, %.lr.ph53.i ]
+  %.0.shrunk = phi i1 [ false, %4 ], [ false, %2 ], [ true, %14 ], [ false, %10 ], [ %.not.i27.i, %ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i ], [ false, %ma_dr_mp3_find_closest_seek_point.exit.thread32.i ], [ false, %51 ], [ false, %._crit_edge.i ], [ %.not.i.i20, %ma_dr_mp3_seek_forward_by_pcm_frames__brute_force.exit.i18 ], [ true, %110 ], [ false, %116 ], [ false, %84 ], [ false, %.lr.ph53.i ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -60366,7 +60366,7 @@ ma_dr_mp3_seek_to_start_of_stream.exit.i:         ; preds = %11
   %.not28.i = icmp eq i32 %36, 0
   br i1 %.not28.i, label %37, label %ma_dr_mp3_get_mp3_and_pcm_frame_count.exit
 
-37:                                               ; preds = %6, %29, %33, %11
+37:                                               ; preds = %6, %33, %11, %29
   br label %ma_dr_mp3_get_mp3_and_pcm_frame_count.exit
 
 ma_dr_mp3_get_mp3_and_pcm_frame_count.exit:       ; preds = %33, %37
@@ -60479,8 +60479,8 @@ ma_decoder__preinit.exit:                         ; preds = %42, %34
   %43 = call fastcc i32 @ma_decoder_init__internal(ptr noundef %1, ptr noundef %6, ptr noundef nonnull %4)
   br label %ma_decoder__preinit.exit.thread
 
-ma_decoder__preinit.exit.thread:                  ; preds = %.thread22.i.i.i, %35, %27, %ma_decoder_config_init_copy.exit, %ma_decoder__preinit.exit
-  %.0 = phi i32 [ %43, %ma_decoder__preinit.exit ], [ -2, %ma_decoder_config_init_copy.exit ], [ -2, %27 ], [ -2, %35 ], [ -2, %.thread22.i.i.i ]
+ma_decoder__preinit.exit.thread:                  ; preds = %.thread22.i.i.i, %27, %35, %ma_decoder_config_init_copy.exit, %ma_decoder__preinit.exit
+  %.0 = phi i32 [ %43, %ma_decoder__preinit.exit ], [ -2, %ma_decoder_config_init_copy.exit ], [ -2, %35 ], [ -2, %27 ], [ -2, %.thread22.i.i.i ]
   ret i32 %.0
 }
 
@@ -60853,7 +60853,7 @@ ma_decoder_init_mp3__internal.exit108:            ; preds = %149
   %162 = call i32 %0(ptr noundef %2, i64 noundef 0, i32 noundef 0) #66
   br label %165
 
-163:                                              ; preds = %ma_decoder_init_mp3__internal.exit108, %74, %ma_decoder_init_flac__internal.exit100, %ma_decoder_init_wav__internal.exit92, %107
+163:                                              ; preds = %ma_decoder_init_mp3__internal.exit108, %74, %ma_decoder_init_wav__internal.exit92, %ma_decoder_init_flac__internal.exit100, %107
   %164 = call fastcc i32 @ma_decoder__postinit(ptr noundef %1, ptr noundef %2)
   br label %165
 
@@ -61279,8 +61279,8 @@ ma_decoder_init_flac_from_memory__internal.exit111: ; preds = %145
 173:                                              ; preds = %171, %.critedge76
   br label %ma_decoder__preinit.exit.thread
 
-ma_decoder__preinit.exit.thread:                  ; preds = %.thread22.i.i.i, %45, %37, %ma_decoder_config_init_copy.exit, %171, %169, %159, %162, %165, %ma_decoder_init_custom_from_memory__internal.exit, %ma_decoder__preinit.exit, %173
-  %.055 = phi i32 [ %170, %169 ], [ %172, %171 ], [ -2, %ma_decoder__preinit.exit ], [ -203, %ma_decoder_init_custom_from_memory__internal.exit ], [ 0, %173 ], [ %158, %159 ], [ %158, %165 ], [ %158, %162 ], [ -2, %ma_decoder_config_init_copy.exit ], [ -2, %37 ], [ -2, %45 ], [ -2, %.thread22.i.i.i ]
+ma_decoder__preinit.exit.thread:                  ; preds = %.thread22.i.i.i, %37, %45, %ma_decoder_config_init_copy.exit, %171, %169, %159, %162, %165, %ma_decoder_init_custom_from_memory__internal.exit, %ma_decoder__preinit.exit, %173
+  %.055 = phi i32 [ 0, %173 ], [ -2, %ma_decoder__preinit.exit ], [ -203, %ma_decoder_init_custom_from_memory__internal.exit ], [ %158, %165 ], [ %158, %162 ], [ %158, %159 ], [ %170, %169 ], [ %172, %171 ], [ -2, %ma_decoder_config_init_copy.exit ], [ -2, %45 ], [ -2, %37 ], [ -2, %.thread22.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret i32 %.055
 }
@@ -61361,7 +61361,7 @@ define internal fastcc i32 @ma_decoder__postinit(ptr noundef nonnull readonly ca
   br i1 %.not36.i.i, label %20, label %ma_data_source_get_data_format.exit.thread.i
 
 ma_data_source_get_data_format.exit.thread.i:     ; preds = %18, %13, %2
-  %.0.i.ph.i = phi i32 [ -29, %13 ], [ -2, %2 ], [ %19, %18 ]
+  %.0.i.ph.i = phi i32 [ %19, %18 ], [ -29, %13 ], [ -2, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -61647,8 +61647,8 @@ ma_decoder__init_data_converter.exit:             ; preds = %69, %ma_data_conver
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %152
 
-150:                                              ; preds = %.critedge.thread.i, %ma_data_source_get_data_format.exit.thread.i, %20, %64, %.thread.i.i, %54, %57, %67, %ma_data_converter_get_heap_size.exit.i.i
-  %.0.i.ph = phi i32 [ %51, %ma_data_converter_get_heap_size.exit.i.i ], [ %62, %67 ], [ -4, %57 ], [ -4, %54 ], [ %63, %.thread.i.i ], [ %62, %64 ], [ -2, %20 ], [ %.0.i.ph.i, %ma_data_source_get_data_format.exit.thread.i ], [ -4, %.critedge.thread.i ]
+150:                                              ; preds = %20, %ma_data_source_get_data_format.exit.thread.i, %.critedge.thread.i, %.thread.i.i, %54, %67, %64, %57, %ma_data_converter_get_heap_size.exit.i.i
+  %.0.i.ph = phi i32 [ %51, %ma_data_converter_get_heap_size.exit.i.i ], [ -4, %57 ], [ %62, %64 ], [ %62, %67 ], [ -4, %54 ], [ %63, %.thread.i.i ], [ -4, %.critedge.thread.i ], [ %.0.i.ph.i, %ma_data_source_get_data_format.exit.thread.i ], [ -2, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %151 = call i32 @ma_decoder_uninit(ptr noundef nonnull %1)
@@ -61743,8 +61743,8 @@ ma_decoder__preinit.exit:                         ; preds = %40, %31
   store i64 0, ptr %43, align 8, !tbaa !7
   br label %ma_decoder__preinit.exit.thread
 
-ma_decoder__preinit.exit.thread:                  ; preds = %27, %36, %32, %23, %4, %ma_decoder__preinit.exit
-  %.0 = phi i32 [ 0, %ma_decoder__preinit.exit ], [ -2, %4 ], [ -2, %23 ], [ -2, %32 ], [ -2, %36 ], [ -2, %27 ]
+ma_decoder__preinit.exit.thread:                  ; preds = %23, %27, %32, %36, %4, %ma_decoder__preinit.exit
+  %.0 = phi i32 [ 0, %ma_decoder__preinit.exit ], [ -2, %4 ], [ -2, %36 ], [ -2, %32 ], [ -2, %27 ], [ -2, %23 ]
   ret i32 %.0
 }
 
@@ -62014,8 +62014,8 @@ ma_vfs_or_default_open.exit._crit_edge.i:         ; preds = %ma_vfs_or_default_o
   %.pre.i = load ptr, ptr %19, align 8, !tbaa !27
   br label %75
 
-ma_decoder__preinit_vfs.exit.thread:              ; preds = %69, %.thread22.i.i.i.i, %ma_decoder__preinit.exit.i, %59, %ma_vfs_or_default_open.exit.i, %ma_decoder_config_init_copy.exit, %42, %50, %63
-  %.0.i.ph = phi i32 [ -2, %ma_decoder__preinit.exit.i ], [ %spec.select, %69 ], [ -29, %63 ], [ -2, %.thread22.i.i.i.i ], [ -2, %50 ], [ -2, %42 ], [ -2, %ma_decoder_config_init_copy.exit ], [ %74, %ma_vfs_or_default_open.exit.i ], [ -2, %59 ]
+ma_decoder__preinit_vfs.exit.thread:              ; preds = %69, %.thread22.i.i.i.i, %59, %ma_decoder__preinit.exit.i, %ma_vfs_or_default_open.exit.i, %ma_decoder_config_init_copy.exit, %50, %42, %63
+  %.0.i.ph = phi i32 [ -29, %63 ], [ -2, %42 ], [ -2, %50 ], [ -2, %ma_decoder_config_init_copy.exit ], [ %74, %ma_vfs_or_default_open.exit.i ], [ -2, %ma_decoder__preinit.exit.i ], [ -2, %59 ], [ -2, %.thread22.i.i.i.i ], [ %spec.select, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %ma_vfs_or_default_close.exit
 
@@ -62651,7 +62651,7 @@ ma_decoder_init_mp3__internal.exit167:            ; preds = %265
   br label %ma_vfs_or_default_close.exit
 
 ma_vfs_or_default_close.exit:                     ; preds = %290, %288, %284, %ma_decoder__on_seek_vfs.exit101.thread, %ma_decoder__preinit_vfs.exit.thread, %280, %281, %ma_decoder__on_seek_vfs.exit101
-  %.039 = phi i32 [ %.8, %281 ], [ %.0.i.ph, %ma_decoder__preinit_vfs.exit.thread ], [ -203, %ma_decoder__on_seek_vfs.exit101 ], [ -203, %ma_decoder__on_seek_vfs.exit101.thread ], [ 0, %280 ], [ %.8, %284 ], [ %.8, %288 ], [ %.8, %290 ]
+  %.039 = phi i32 [ -203, %ma_decoder__on_seek_vfs.exit101 ], [ %.8, %281 ], [ 0, %280 ], [ %.0.i.ph, %ma_decoder__preinit_vfs.exit.thread ], [ -203, %ma_decoder__on_seek_vfs.exit101.thread ], [ %.8, %284 ], [ %.8, %288 ], [ %.8, %290 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret i32 %.039
 }
@@ -62693,7 +62693,7 @@ define internal i32 @ma_decoder__on_seek_vfs(ptr noundef readonly captures(none)
   br label %ma_vfs_or_default_seek.exit
 
 ma_vfs_or_default_seek.exit:                      ; preds = %9, %10, %14, %16, %17
-  %.0.i = phi i32 [ -29, %10 ], [ %15, %14 ], [ -2, %9 ], [ %..i.i.i, %17 ], [ -2, %16 ]
+  %.0.i = phi i32 [ %15, %14 ], [ -2, %9 ], [ -29, %10 ], [ %..i.i.i, %17 ], [ -2, %16 ]
   ret i32 %.0.i
 }
 
@@ -62853,12 +62853,12 @@ ma_default_vfs_open_w__stdio.exit.i.i.i:          ; preds = %72, %70
   br label %ma_vfs_or_default_open_w.exit.i
 
 ma_vfs_or_default_open_w.exit.i:                  ; preds = %ma_default_vfs_open_w__stdio.exit.i.i.i, %68
-  %.0.i17.i = phi i32 [ %71, %ma_default_vfs_open_w__stdio.exit.i.i.i ], [ %69, %68 ]
+  %.0.i17.i = phi i32 [ %69, %68 ], [ %71, %ma_default_vfs_open_w__stdio.exit.i.i.i ]
   %.not16.i = icmp eq i32 %.0.i17.i, 0
   br i1 %.not16.i, label %74, label %ma_decoder__preinit_vfs_w.exit.thread
 
-ma_decoder__preinit_vfs_w.exit.thread:            ; preds = %.thread22.i.i.i.i, %ma_decoder__preinit.exit.i, %60, %ma_vfs_or_default_open_w.exit.i, %ma_decoder_config_init_copy.exit, %43, %51, %64
-  %.0.i.ph = phi i32 [ -29, %64 ], [ -2, %.thread22.i.i.i.i ], [ -2, %51 ], [ -2, %43 ], [ -2, %ma_decoder_config_init_copy.exit ], [ %.0.i17.i, %ma_vfs_or_default_open_w.exit.i ], [ -2, %60 ], [ -2, %ma_decoder__preinit.exit.i ]
+ma_decoder__preinit_vfs_w.exit.thread:            ; preds = %.thread22.i.i.i.i, %60, %ma_decoder__preinit.exit.i, %ma_vfs_or_default_open_w.exit.i, %ma_decoder_config_init_copy.exit, %51, %43, %64
+  %.0.i.ph = phi i32 [ -29, %64 ], [ -2, %43 ], [ -2, %51 ], [ -2, %ma_decoder_config_init_copy.exit ], [ %.0.i17.i, %ma_vfs_or_default_open_w.exit.i ], [ -2, %ma_decoder__preinit.exit.i ], [ -2, %60 ], [ -2, %.thread22.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %ma_vfs_or_default_close.exit
 
@@ -63335,7 +63335,7 @@ ma_decoder_init_mp3__internal.exit126:            ; preds = %229
   br label %ma_vfs_or_default_close.exit
 
 ma_vfs_or_default_close.exit:                     ; preds = %256, %255, %253, %249, %248, %ma_decoder__on_seek_vfs.exit97.thread, %ma_decoder__preinit_vfs_w.exit.thread, %244, %ma_decoder__on_seek_vfs.exit97
-  %.038 = phi i32 [ -203, %ma_decoder__on_seek_vfs.exit97 ], [ %.0.i.ph, %ma_decoder__preinit_vfs_w.exit.thread ], [ -203, %ma_decoder__on_seek_vfs.exit97.thread ], [ 0, %244 ], [ %.8, %248 ], [ %.8, %249 ], [ %.8, %253 ], [ %.8, %255 ], [ %.8, %256 ]
+  %.038 = phi i32 [ -203, %ma_decoder__on_seek_vfs.exit97 ], [ 0, %244 ], [ %.0.i.ph, %ma_decoder__preinit_vfs_w.exit.thread ], [ -203, %ma_decoder__on_seek_vfs.exit97.thread ], [ %.8, %248 ], [ %.8, %249 ], [ %.8, %253 ], [ %.8, %255 ], [ %.8, %256 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   ret i32 %.038
 }
@@ -64161,8 +64161,8 @@ ma_decoder_init_flac_from_file__internal.exit181: ; preds = %229
 255:                                              ; preds = %253, %.critedge85
   br label %ma_decoder__preinit_file.exit.thread
 
-ma_decoder__preinit_file.exit.thread:             ; preds = %.thread22.i.i.i.i, %59, %50, %42, %ma_decoder_config_init_copy.exit, %ma_decoder__preinit.exit.i, %253, %243, %246, %249, %ma_decoder_init_custom_from_file__internal.exit, %255
-  %.054 = phi i32 [ %242, %243 ], [ %254, %253 ], [ -203, %ma_decoder_init_custom_from_file__internal.exit ], [ 0, %255 ], [ %242, %249 ], [ %242, %246 ], [ -2, %ma_decoder__preinit.exit.i ], [ -2, %ma_decoder_config_init_copy.exit ], [ -2, %42 ], [ -2, %50 ], [ -2, %.thread22.i.i.i.i ], [ -2, %59 ]
+ma_decoder__preinit_file.exit.thread:             ; preds = %.thread22.i.i.i.i, %59, %42, %50, %ma_decoder_config_init_copy.exit, %ma_decoder__preinit.exit.i, %253, %243, %246, %249, %ma_decoder_init_custom_from_file__internal.exit, %255
+  %.054 = phi i32 [ 0, %255 ], [ -203, %ma_decoder_init_custom_from_file__internal.exit ], [ %242, %249 ], [ %242, %246 ], [ %242, %243 ], [ %254, %253 ], [ -2, %ma_decoder__preinit.exit.i ], [ -2, %ma_decoder_config_init_copy.exit ], [ -2, %50 ], [ -2, %42 ], [ -2, %59 ], [ -2, %.thread22.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   ret i32 %.054
 }
@@ -64763,8 +64763,8 @@ ma_decoder_init_flac_from_file_w__internal.exit144: ; preds = %194
 220:                                              ; preds = %218, %.critedge85
   br label %ma_decoder__preinit_file_w.exit.thread
 
-ma_decoder__preinit_file_w.exit.thread:           ; preds = %.thread22.i.i.i.i, %59, %50, %42, %ma_decoder_config_init_copy.exit, %ma_decoder__preinit.exit.i, %218, %208, %211, %214, %ma_decoder_init_custom_from_file_w__internal.exit, %220
-  %.054 = phi i32 [ %207, %208 ], [ %219, %218 ], [ -203, %ma_decoder_init_custom_from_file_w__internal.exit ], [ 0, %220 ], [ %207, %214 ], [ %207, %211 ], [ -2, %ma_decoder__preinit.exit.i ], [ -2, %ma_decoder_config_init_copy.exit ], [ -2, %42 ], [ -2, %50 ], [ -2, %.thread22.i.i.i.i ], [ -2, %59 ]
+ma_decoder__preinit_file_w.exit.thread:           ; preds = %.thread22.i.i.i.i, %59, %42, %50, %ma_decoder_config_init_copy.exit, %ma_decoder__preinit.exit.i, %218, %208, %211, %214, %ma_decoder_init_custom_from_file_w__internal.exit, %220
+  %.054 = phi i32 [ 0, %220 ], [ -203, %ma_decoder_init_custom_from_file_w__internal.exit ], [ %207, %214 ], [ %207, %211 ], [ %207, %208 ], [ %219, %218 ], [ -2, %ma_decoder__preinit.exit.i ], [ -2, %ma_decoder_config_init_copy.exit ], [ -2, %50 ], [ -2, %42 ], [ -2, %59 ], [ -2, %.thread22.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   ret i32 %.054
 }
@@ -65183,8 +65183,8 @@ define i32 @ma_decoder_read_pcm_frames(ptr noundef %0, ptr noundef %1, i64 nound
   %.not110 = icmp eq i32 %108, 0
   br i1 %.not110, label %select.unfold, label %.thread130
 
-.thread130:                                       ; preds = %.thread, %71, %99
-  %.4.ph = phi i32 [ 0, %99 ], [ %79, %71 ], [ %108, %.thread ]
+.thread130:                                       ; preds = %71, %99, %.thread
+  %.4.ph = phi i32 [ %108, %.thread ], [ 0, %99 ], [ %79, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
@@ -65298,7 +65298,7 @@ ma_data_converter_get_required_input_frame_count.exit.thread: ; preds = %115, %1
   br i1 %152, label %111, label %.loopexit
 
 .loopexit:                                        ; preds = %select.unfold, %151, %.thread130, %.thread137, %35, %27
-  %.075 = phi i32 [ %28, %27 ], [ %36, %35 ], [ %132, %.thread137 ], [ %.4.ph, %.thread130 ], [ 0, %151 ], [ 0, %select.unfold ]
+  %.075 = phi i32 [ %28, %27 ], [ %36, %35 ], [ %.4.ph, %.thread130 ], [ %132, %.thread137 ], [ 0, %151 ], [ 0, %select.unfold ]
   %153 = load i64, ptr %8, align 8, !tbaa !63
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %155 = load i64, ptr %154, align 8, !tbaa !1413
@@ -65317,15 +65317,15 @@ ma_data_converter_get_required_input_frame_count.exit.thread: ; preds = %115, %1
   %spec.store.select = select i1 %or.cond5, i32 -17, i32 %.075
   br label %161
 
-.critedge:                                        ; preds = %42, %37
-  %.0.i.ph = phi i32 [ -29, %37 ], [ %43, %42 ]
+.critedge:                                        ; preds = %37, %42
+  %.0.i.ph = phi i32 [ %43, %42 ], [ -29, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %161
 
 161:                                              ; preds = %.critedge, %19, %16, %158
-  %.0 = phi i32 [ -3, %19 ], [ -2, %16 ], [ %.0.i.ph, %.critedge ], [ %spec.store.select, %158 ]
+  %.0 = phi i32 [ %spec.store.select, %158 ], [ -2, %16 ], [ -3, %19 ], [ %.0.i.ph, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -65360,8 +65360,8 @@ define i32 @ma_decoder_seek_to_pcm_frame(ptr noundef captures(address_is_null) %
   %.not36.i = icmp eq i32 %17, 0
   br i1 %.not36.i, label %18, label %ma_data_source_get_data_format.exit.thread
 
-ma_data_source_get_data_format.exit.thread:       ; preds = %16, %11
-  %.0.i.ph = phi i32 [ -29, %11 ], [ %17, %16 ]
+ma_data_source_get_data_format.exit.thread:       ; preds = %11, %16
+  %.0.i.ph = phi i32 [ %17, %16 ], [ -29, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -65467,7 +65467,7 @@ ma_data_source_seek_to_pcm_frame.exit.thread40:   ; preds = %54, %ma_data_source
   br label %ma_data_source_seek_to_pcm_frame.exit.thread
 
 ma_data_source_seek_to_pcm_frame.exit.thread:     ; preds = %62, %57, %ma_data_source_seek_to_pcm_frame.exit.thread40, %ma_data_source_seek_to_pcm_frame.exit
-  %.0.i3039 = phi i32 [ %69, %ma_data_source_seek_to_pcm_frame.exit ], [ 0, %ma_data_source_seek_to_pcm_frame.exit.thread40 ], [ -3, %62 ], [ -29, %57 ]
+  %.0.i3039 = phi i32 [ 0, %ma_data_source_seek_to_pcm_frame.exit.thread40 ], [ %69, %ma_data_source_seek_to_pcm_frame.exit ], [ -3, %62 ], [ -29, %57 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 451
   %73 = load i8, ptr %72, align 1, !tbaa !167
   %74 = icmp eq i8 %73, 0
@@ -65494,7 +65494,7 @@ ma_data_source_seek_to_pcm_frame.exit.thread:     ; preds = %62, %57, %ma_data_s
   br label %ma_data_converter_reset.exit
 
 ma_data_converter_reset.exit:                     ; preds = %ma_data_source_get_cursor_in_pcm_frames.exit, %ma_data_source_get_data_format.exit.thread, %ma_data_source_seek_to_pcm_frame.exit.thread, %75, %80, %84, %8, %2
-  %.019 = phi i32 [ -2, %2 ], [ -2, %8 ], [ %.0.i.ph, %ma_data_source_get_data_format.exit.thread ], [ 0, %ma_data_source_get_cursor_in_pcm_frames.exit ], [ %.0.i3039, %ma_data_source_seek_to_pcm_frame.exit.thread ], [ %.0.i3039, %75 ], [ %.0.i3039, %80 ], [ %.0.i3039, %84 ]
+  %.019 = phi i32 [ -2, %2 ], [ -2, %8 ], [ 0, %ma_data_source_get_cursor_in_pcm_frames.exit ], [ %.0.i.ph, %ma_data_source_get_data_format.exit.thread ], [ %.0.i3039, %ma_data_source_seek_to_pcm_frame.exit.thread ], [ %.0.i3039, %75 ], [ %.0.i3039, %80 ], [ %.0.i3039, %84 ]
   ret i32 %.019
 }
 
@@ -65601,7 +65601,7 @@ define range(i32 -2, 1) i32 @ma_decoder_get_data_format(ptr noundef readonly cap
   br i1 %or.cond5.i.i, label %ma_data_converter_get_output_channel_map.exit, label %.preheader.i.i, !llvm.loop !140
 
 ma_data_converter_get_output_channel_map.exit:    ; preds = %.preheader.i.i.i.i, %.preheader.i.i, %41, %33, %31, %24, %20, %6
-  %.0 = phi i32 [ -2, %6 ], [ 0, %20 ], [ 0, %24 ], [ 0, %31 ], [ 0, %33 ], [ 0, %.preheader.i.i ], [ 0, %41 ], [ 0, %.preheader.i.i.i.i ]
+  %.0 = phi i32 [ -2, %6 ], [ 0, %20 ], [ 0, %24 ], [ 0, %31 ], [ 0, %33 ], [ 0, %41 ], [ 0, %.preheader.i.i ], [ 0, %.preheader.i.i.i.i ]
   ret i32 %.0
 }
 
@@ -65697,8 +65697,8 @@ ma_data_source_get_length_in_pcm_frames.exit:     ; preds = %19
   %.not36.i = icmp eq i32 %34, 0
   br i1 %.not36.i, label %35, label %ma_data_source_get_data_format.exit.thread
 
-ma_data_source_get_data_format.exit.thread:       ; preds = %33, %25, %27
-  %.0.i22.ph = phi i32 [ -29, %27 ], [ -2, %25 ], [ %34, %33 ]
+ma_data_source_get_data_format.exit.thread:       ; preds = %25, %27, %33
+  %.0.i22.ph = phi i32 [ %34, %33 ], [ -29, %27 ], [ -2, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -65730,7 +65730,7 @@ ma_data_source_get_length_in_pcm_frames.exit.thread26: ; preds = %19, %ma_data_s
   br label %44
 
 44:                                               ; preds = %10, %8, %2, %ma_data_source_get_length_in_pcm_frames.exit.thread26
-  %.0 = phi i32 [ -2, %8 ], [ -2, %2 ], [ %.1, %ma_data_source_get_length_in_pcm_frames.exit.thread26 ], [ -203, %10 ]
+  %.0 = phi i32 [ %.1, %ma_data_source_get_length_in_pcm_frames.exit.thread26 ], [ -2, %2 ], [ -2, %8 ], [ -203, %10 ]
   ret i32 %.0
 }
 
@@ -65806,7 +65806,7 @@ ma_data_source_get_length_in_pcm_frames.exit.i:   ; preds = %19
   br i1 %.not36.i.i, label %35, label %ma_data_source_get_data_format.exit.thread.i
 
 ma_data_source_get_data_format.exit.thread.i:     ; preds = %33, %27, %25
-  %.0.i22.ph.i = phi i32 [ -29, %27 ], [ -2, %25 ], [ %34, %33 ]
+  %.0.i22.ph.i = phi i32 [ %34, %33 ], [ -29, %27 ], [ -2, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -65827,13 +65827,13 @@ ma_data_source_get_data_format.exit.thread.i:     ; preds = %33, %27, %25
   %42 = call i64 @ma_calculate_frame_count_after_resampling(i32 noundef %38, i32 noundef %36, i64 noundef %40)
   br label %43
 
-ma_decoder_get_length_in_pcm_frames.exit.thread20: ; preds = %19, %ma_data_source_get_length_in_pcm_frames.exit.i, %ma_data_source_get_data_format.exit.thread.i
-  %.1.i.ph = phi i32 [ %.0.i22.ph.i, %ma_data_source_get_data_format.exit.thread.i ], [ %24, %ma_data_source_get_length_in_pcm_frames.exit.i ], [ -29, %19 ]
+ma_decoder_get_length_in_pcm_frames.exit.thread20: ; preds = %ma_data_source_get_length_in_pcm_frames.exit.i, %ma_data_source_get_data_format.exit.thread.i, %19
+  %.1.i.ph = phi i32 [ -29, %19 ], [ %.0.i22.ph.i, %ma_data_source_get_data_format.exit.thread.i ], [ %24, %ma_data_source_get_length_in_pcm_frames.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ma_decoder_get_length_in_pcm_frames.exit.thread
 
 43:                                               ; preds = %35, %41
-  %.016 = phi i64 [ %40, %35 ], [ %42, %41 ]
+  %.016 = phi i64 [ %42, %41 ], [ %40, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %45 = load i64, ptr %44, align 8, !tbaa !1413
@@ -65970,7 +65970,7 @@ ma_realloc.exit.thread:                           ; preds = %29, %ma_realloc.exi
   br label %.thread83
 
 .thread83:                                        ; preds = %.thread83.sink.split, %35, %ma_realloc.exit.thread, %26, %24
-  %.2.ph = phi i32 [ -11, %24 ], [ -4, %35 ], [ -4, %ma_realloc.exit.thread ], [ -11, %26 ], [ %.2.ph.ph, %.thread83.sink.split ]
+  %.2.ph = phi i32 [ -4, %35 ], [ -4, %ma_realloc.exit.thread ], [ -11, %26 ], [ -11, %24 ], [ %.2.ph.ph, %.thread83.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %65
 
@@ -66041,7 +66041,7 @@ ma_free.exit70:                                   ; preds = %60, %57, %55, %54
   br label %65
 
 65:                                               ; preds = %.thread83, %63
-  %.4 = phi i32 [ %.2.ph, %.thread83 ], [ 0, %63 ]
+  %.4 = phi i32 [ 0, %63 ], [ %.2.ph, %.thread83 ]
   ret i32 %.4
 }
 
@@ -66262,7 +66262,7 @@ ma_zero_memory_default.exit:                      ; preds = %2
   br label %ma_allocation_callbacks_init_copy.exit
 
 ma_allocation_callbacks_init_copy.exit:           ; preds = %43, %39, %35, %34, %30, %26, %5, %9, %13, %ma_zero_memory_default.exit, %2
-  %.0 = phi i32 [ -2, %5 ], [ -2, %2 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %9 ], [ -2, %13 ], [ -2, %26 ], [ -2, %35 ], [ -2, %39 ], [ 0, %34 ], [ 0, %43 ], [ -2, %30 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %13 ], [ -2, %9 ], [ -2, %5 ], [ -2, %39 ], [ -2, %35 ], [ 0, %34 ], [ 0, %43 ], [ -2, %30 ], [ -2, %26 ]
   ret i32 %.0
 }
 
@@ -66399,8 +66399,8 @@ ma_dr_wav_init_write.exit:                        ; preds = %36
   store ptr %7, ptr %55, align 8, !tbaa !1454
   br label %ma_malloc.exit.thread
 
-ma_malloc.exit.thread:                            ; preds = %9, %36, %1, %ma_dr_wav_init_write.exit, %ma_malloc.exit, %54
-  %.0 = phi i32 [ -4, %ma_malloc.exit ], [ 0, %54 ], [ -1, %ma_dr_wav_init_write.exit ], [ -4, %1 ], [ -1, %36 ], [ -1, %9 ]
+ma_malloc.exit.thread:                            ; preds = %36, %9, %1, %ma_dr_wav_init_write.exit, %ma_malloc.exit, %54
+  %.0 = phi i32 [ 0, %54 ], [ -4, %ma_malloc.exit ], [ -1, %ma_dr_wav_init_write.exit ], [ -4, %1 ], [ -1, %9 ], [ -1, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -66699,8 +66699,8 @@ ma_encoder_init__internal.exit.thread:            ; preds = %ma_encoder_init__in
   %86 = call i32 @fclose(ptr noundef nonnull %75)
   br label %ma_vfs_or_default_close.exit
 
-ma_vfs_or_default_close.exit:                     ; preds = %57, %52, %47, %49, %33, %42, %38, %29, %16, %12, %ma_zero_memory_default.exit.i, %4, %8, %85, %84, %82, %78, %77, %ma_encoder_init__internal.exit, %ma_vfs_or_default_open.exit
-  %.0 = phi i32 [ %62, %ma_vfs_or_default_open.exit ], [ %.017.i32, %85 ], [ -2, %33 ], [ 0, %ma_encoder_init__internal.exit ], [ %.017.i32, %77 ], [ %.017.i32, %78 ], [ %.017.i32, %82 ], [ %.017.i32, %84 ], [ -2, %8 ], [ -2, %4 ], [ -2, %ma_zero_memory_default.exit.i ], [ -2, %12 ], [ -2, %16 ], [ -2, %29 ], [ -2, %38 ], [ -2, %42 ], [ -29, %49 ], [ -2, %52 ], [ -2, %47 ], [ %spec.select, %57 ]
+ma_vfs_or_default_close.exit:                     ; preds = %57, %52, %49, %47, %29, %33, %38, %42, %8, %12, %16, %ma_zero_memory_default.exit.i, %4, %85, %84, %82, %78, %77, %ma_encoder_init__internal.exit, %ma_vfs_or_default_open.exit
+  %.0 = phi i32 [ %62, %ma_vfs_or_default_open.exit ], [ 0, %ma_encoder_init__internal.exit ], [ %.017.i32, %77 ], [ %.017.i32, %78 ], [ %.017.i32, %82 ], [ %.017.i32, %84 ], [ %.017.i32, %85 ], [ -2, %4 ], [ -2, %ma_zero_memory_default.exit.i ], [ -2, %16 ], [ -2, %12 ], [ -2, %8 ], [ -2, %42 ], [ -2, %38 ], [ -2, %33 ], [ -2, %29 ], [ -2, %52 ], [ -29, %49 ], [ -2, %47 ], [ %spec.select, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -66769,7 +66769,7 @@ define internal i32 @ma_encoder__on_write_vfs(ptr noundef readonly captures(none
   br label %ma_vfs_or_default_write.exit
 
 ma_vfs_or_default_write.exit:                     ; preds = %11, %14, %18, %22, %28, %29
-  %.0.i = phi i32 [ -29, %14 ], [ %19, %18 ], [ -2, %11 ], [ -2, %22 ], [ %31, %29 ], [ 0, %28 ]
+  %.0.i = phi i32 [ %19, %18 ], [ -2, %11 ], [ -29, %14 ], [ -2, %22 ], [ %31, %29 ], [ 0, %28 ]
   ret i32 %.0.i
 }
 
@@ -66810,7 +66810,7 @@ define internal i32 @ma_encoder__on_seek_vfs(ptr noundef readonly captures(none)
   br label %ma_vfs_or_default_seek.exit
 
 ma_vfs_or_default_seek.exit:                      ; preds = %9, %10, %14, %16, %17
-  %.0.i = phi i32 [ -29, %10 ], [ %15, %14 ], [ -2, %9 ], [ %..i.i.i, %17 ], [ -2, %16 ]
+  %.0.i = phi i32 [ %15, %14 ], [ -2, %9 ], [ -29, %10 ], [ %..i.i.i, %17 ], [ -2, %16 ]
   ret i32 %.0.i
 }
 
@@ -66938,7 +66938,7 @@ ma_default_vfs_open_w__stdio.exit.i.i:            ; preds = %59, %57
   br label %ma_vfs_or_default_open_w.exit
 
 ma_vfs_or_default_open_w.exit:                    ; preds = %54, %ma_default_vfs_open_w__stdio.exit.i.i
-  %.0.i20 = phi i32 [ %58, %ma_default_vfs_open_w__stdio.exit.i.i ], [ %55, %54 ]
+  %.0.i20 = phi i32 [ %55, %54 ], [ %58, %ma_default_vfs_open_w__stdio.exit.i.i ]
   %.not18 = icmp eq i32 %.0.i20, 0
   br i1 %.not18, label %61, label %ma_vfs_or_default_close.exit
 
@@ -66999,8 +66999,8 @@ ma_encoder_init__internal.exit.thread:            ; preds = %ma_encoder_init__in
   %84 = call i32 @fclose(ptr noundef nonnull %73)
   br label %ma_vfs_or_default_close.exit
 
-ma_vfs_or_default_close.exit:                     ; preds = %49, %56, %50, %34, %43, %39, %30, %17, %13, %ma_zero_memory_default.exit.i, %4, %9, %83, %82, %80, %76, %75, %ma_encoder_init__internal.exit, %ma_vfs_or_default_open_w.exit
-  %.0 = phi i32 [ %.0.i20, %ma_vfs_or_default_open_w.exit ], [ %.017.i29, %83 ], [ -2, %34 ], [ 0, %ma_encoder_init__internal.exit ], [ %.017.i29, %75 ], [ %.017.i29, %76 ], [ %.017.i29, %80 ], [ %.017.i29, %82 ], [ -2, %9 ], [ -2, %4 ], [ -2, %ma_zero_memory_default.exit.i ], [ -2, %13 ], [ -2, %17 ], [ -2, %30 ], [ -2, %39 ], [ -2, %43 ], [ -2, %49 ], [ -2, %56 ], [ -29, %50 ]
+ma_vfs_or_default_close.exit:                     ; preds = %56, %50, %49, %30, %34, %39, %43, %9, %13, %17, %ma_zero_memory_default.exit.i, %4, %83, %82, %80, %76, %75, %ma_encoder_init__internal.exit, %ma_vfs_or_default_open_w.exit
+  %.0 = phi i32 [ %.0.i20, %ma_vfs_or_default_open_w.exit ], [ 0, %ma_encoder_init__internal.exit ], [ %.017.i29, %75 ], [ %.017.i29, %76 ], [ %.017.i29, %80 ], [ %.017.i29, %82 ], [ %.017.i29, %83 ], [ -2, %4 ], [ -2, %ma_zero_memory_default.exit.i ], [ -2, %17 ], [ -2, %13 ], [ -2, %9 ], [ -2, %43 ], [ -2, %39 ], [ -2, %34 ], [ -2, %30 ], [ -2, %56 ], [ -29, %50 ], [ -2, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -67127,8 +67127,8 @@ ma_encoder_preinit.exit:                          ; preds = %46, %37
   %58 = tail call i32 @ma_encoder__on_init_wav(ptr noundef nonnull %4) #66
   br label %ma_encoder_init__internal.exit
 
-ma_encoder_init__internal.exit:                   ; preds = %33, %42, %38, %29, %16, %12, %ma_zero_memory_default.exit.i, %5, %8, %54, %49, %ma_encoder_preinit.exit
-  %.0 = phi i32 [ -2, %49 ], [ -2, %ma_encoder_preinit.exit ], [ %58, %54 ], [ -2, %8 ], [ -2, %5 ], [ -2, %ma_zero_memory_default.exit.i ], [ -2, %12 ], [ -2, %16 ], [ -2, %29 ], [ -2, %38 ], [ -2, %42 ], [ -2, %33 ]
+ma_encoder_init__internal.exit:                   ; preds = %29, %33, %38, %42, %8, %12, %16, %ma_zero_memory_default.exit.i, %5, %54, %49, %ma_encoder_preinit.exit
+  %.0 = phi i32 [ -2, %ma_encoder_preinit.exit ], [ %58, %54 ], [ -2, %49 ], [ -2, %5 ], [ -2, %ma_zero_memory_default.exit.i ], [ -2, %16 ], [ -2, %12 ], [ -2, %8 ], [ -2, %42 ], [ -2, %38 ], [ -2, %33 ], [ -2, %29 ]
   ret i32 %.0
 }
 
@@ -68210,7 +68210,7 @@ ma_waveform_read_pcm_frames__sine.exit:           ; preds = %._crit_edge.i90, %.
   br label %400
 
 400:                                              ; preds = %ma_waveform_read_pcm_frames__sine.exit, %399, %10, %6
-  %.0 = phi i32 [ -3, %10 ], [ -2, %6 ], [ 0, %ma_waveform_read_pcm_frames__sine.exit ], [ 0, %399 ]
+  %.0 = phi i32 [ -2, %6 ], [ -3, %10 ], [ 0, %399 ], [ 0, %ma_waveform_read_pcm_frames__sine.exit ]
   ret i32 %.0
 }
 
@@ -68650,7 +68650,7 @@ define range(i32 -2, 1) i32 @ma_pulsewave_read_pcm_frames(ptr noundef captures(a
   br label %22
 
 22:                                               ; preds = %20, %21, %6
-  %.0 = phi i32 [ 0, %20 ], [ -2, %6 ], [ 0, %21 ]
+  %.0 = phi i32 [ -2, %6 ], [ 0, %21 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -68857,9 +68857,9 @@ ma_zero_memory_default.exit49:                    ; preds = %3
   br label %21
 
 21:                                               ; preds = %18, %.thread.i
-  %.sroa.9.0 = phi i64 [ 0, %18 ], [ %16, %.thread.i ]
-  %.sroa.7.0 = phi i64 [ 0, %18 ], [ %15, %.thread.i ]
-  %22 = phi i64 [ %20, %18 ], [ %17, %.thread.i ]
+  %.sroa.9.0 = phi i64 [ %16, %.thread.i ], [ 0, %18 ]
+  %.sroa.7.0 = phi i64 [ %15, %.thread.i ], [ 0, %18 ]
+  %22 = phi i64 [ %17, %.thread.i ], [ %20, %18 ]
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store ptr %1, ptr %23, align 8, !tbaa !1509
   %.not = icmp eq ptr %1, null
@@ -68962,7 +68962,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lo
   br i1 %exitcond.not, label %ma_noise_get_heap_layout.exit.thread, label %.lr.ph66, !llvm.loop !1516
 
 ma_noise_get_heap_layout.exit.thread:             ; preds = %.lr.ph66, %40, %64, %6, %ma_zero_memory_default.exit49, %thread-pre-split, %3
-  %.0 = phi i32 [ 0, %thread-pre-split ], [ -2, %3 ], [ -2, %6 ], [ -2, %ma_zero_memory_default.exit49 ], [ 0, %64 ], [ 0, %40 ], [ 0, %.lr.ph66 ]
+  %.0 = phi i32 [ -2, %3 ], [ 0, %thread-pre-split ], [ -2, %ma_zero_memory_default.exit49 ], [ -2, %6 ], [ 0, %64 ], [ 0, %40 ], [ 0, %.lr.ph66 ]
   ret i32 %.0
 }
 
@@ -68996,7 +68996,7 @@ define range(i32 -4, 1) i32 @ma_noise_init(ptr noundef readonly captures(address
   br label %17
 
 17:                                               ; preds = %14, %.thread.i.i
-  %18 = phi i64 [ %16, %14 ], [ %13, %.thread.i.i ]
+  %18 = phi i64 [ %13, %.thread.i.i ], [ %16, %14 ]
   %19 = add nuw nsw i64 %18, 7
   %20 = and i64 %19, 9223372036854775800
   %.not.i = icmp eq ptr %1, null
@@ -69056,8 +69056,8 @@ ma_malloc.exit:                                   ; preds = %24, %27
   store i32 1, ptr %40, align 8, !tbaa !1517
   br label %ma_free.exit
 
-ma_free.exit:                                     ; preds = %.thread.thread, %21, %3, %5, %38, %36, %33, %ma_malloc.exit, %39
-  %.013 = phi i32 [ 0, %39 ], [ %30, %38 ], [ -2, %3 ], [ -4, %ma_malloc.exit ], [ -4, %21 ], [ %30, %33 ], [ %30, %36 ], [ -2, %5 ], [ %31, %.thread.thread ]
+ma_free.exit:                                     ; preds = %.thread.thread, %21, %5, %3, %38, %36, %33, %ma_malloc.exit, %39
+  %.013 = phi i32 [ 0, %39 ], [ -4, %ma_malloc.exit ], [ %30, %33 ], [ %30, %36 ], [ %30, %38 ], [ -2, %3 ], [ -2, %5 ], [ -4, %21 ], [ %31, %.thread.thread ]
   ret i32 %.013
 }
 
@@ -70350,7 +70350,7 @@ ma_noise_read_pcm_frames__white.exit:             ; preds = %688, %712, %345, %4
   br label %715
 
 715:                                              ; preds = %ma_noise_read_pcm_frames__white.exit, %714, %17, %12
-  %.019 = phi i32 [ 0, %ma_noise_read_pcm_frames__white.exit ], [ -2, %12 ], [ -3, %17 ], [ 0, %714 ]
+  %.019 = phi i32 [ -2, %12 ], [ -3, %17 ], [ 0, %714 ], [ 0, %ma_noise_read_pcm_frames__white.exit ]
   ret i32 %.019
 }
 
@@ -70537,7 +70537,7 @@ ma_log_init.exit:                                 ; preds = %ma_allocation_callb
   br label %.sink.split
 
 .sink.split:                                      ; preds = %ma_log_init.exit, %ma_allocation_callbacks_init_copy.exit.i
-  %.sink = phi ptr [ %spec.select, %ma_log_init.exit ], [ %39, %ma_allocation_callbacks_init_copy.exit.i ]
+  %.sink = phi ptr [ %39, %ma_allocation_callbacks_init_copy.exit.i ], [ %spec.select, %ma_log_init.exit ]
   store ptr %.sink, ptr %35, align 8, !tbaa !1567
   br label %69
 
@@ -70802,8 +70802,8 @@ ma_malloc.exit:                                   ; preds = %161
   call void @ma_job_queue_uninit(ptr noundef nonnull %126, ptr noundef nonnull %1)
   br label %ma_job_queue_init.exit.thread
 
-ma_job_queue_init.exit.thread:                    ; preds = %186, %.preheader, %194, %185, %149, %128, %ma_malloc.exit.i, %125, %152, %176, %.thread, %121, %111, %6, %ma_zero_memory_default.exit, %2
-  %.070 = phi i32 [ -4, %.thread ], [ -2, %2 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %6 ], [ 0, %176 ], [ -2, %111 ], [ -2, %121 ], [ %148, %152 ], [ %180, %185 ], [ %148, %149 ], [ -4, %128 ], [ -4, %ma_malloc.exit.i ], [ -2, %125 ], [ %193, %194 ], [ 0, %.preheader ], [ 0, %186 ]
+ma_job_queue_init.exit.thread:                    ; preds = %186, %.preheader, %194, %185, %128, %125, %152, %149, %ma_malloc.exit.i, %176, %.thread, %121, %111, %6, %ma_zero_memory_default.exit, %2
+  %.070 = phi i32 [ -2, %2 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %6 ], [ -2, %111 ], [ -2, %121 ], [ -4, %.thread ], [ 0, %176 ], [ -4, %128 ], [ -2, %125 ], [ %148, %152 ], [ %148, %149 ], [ -4, %ma_malloc.exit.i ], [ %193, %194 ], [ %180, %185 ], [ 0, %.preheader ], [ 0, %186 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.070
 }
@@ -70984,7 +70984,7 @@ ma_free.exit.i.i.i:                               ; preds = %57, %.lr.ph.split.i
   br i1 %.not.i20.i.i, label %.thread.i.i, label %.lr.ph.split.i.i.i, !llvm.loop !1084
 
 .sink.split.i.i:                                  ; preds = %47, %45, %41, %36, %34, %30
-  %.sink.i.i = phi ptr [ %42, %47 ], [ %31, %30 ], [ %31, %34 ], [ %31, %36 ], [ %42, %41 ], [ %42, %45 ]
+  %.sink.i.i = phi ptr [ %31, %30 ], [ %31, %34 ], [ %31, %36 ], [ %42, %41 ], [ %42, %45 ], [ %42, %47 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink.i.i, i8 0, i64 16, i1 false)
   br label %.thread.i.i
 
@@ -71631,15 +71631,15 @@ ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split.i: ; preds = %ma_data_
   store i32 %.sink.i, ptr %201, align 8, !tbaa !1620
   br label %ma_resource_manager_data_buffer_seek_to_pcm_frame.exit
 
-ma_resource_manager_data_buffer_seek_to_pcm_frame.exit: ; preds = %ma_async_notification_signal.exit.i91, %163, %74, %77, %ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split.i, %ma_data_source_seek_to_pcm_frame.exit.i, %192, %187, %ma_resource_manager_pipeline_notifications_signal_all_notifications.exit93.thread138, %ma_resource_manager_pipeline_notifications_signal_all_notifications.exit93
-  %.064136 = phi i32 [ 0, %ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split.i ], [ 0, %ma_resource_manager_pipeline_notifications_signal_all_notifications.exit93.thread138 ], [ %96, %ma_resource_manager_pipeline_notifications_signal_all_notifications.exit93 ], [ 0, %187 ], [ 0, %192 ], [ 0, %ma_data_source_seek_to_pcm_frame.exit.i ], [ %66, %ma_async_notification_signal.exit.i91 ], [ %.2121131, %163 ], [ %66, %74 ], [ %66, %77 ]
+ma_resource_manager_data_buffer_seek_to_pcm_frame.exit: ; preds = %77, %74, %ma_async_notification_signal.exit.i91, %163, %ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split.i, %ma_data_source_seek_to_pcm_frame.exit.i, %192, %187, %ma_resource_manager_pipeline_notifications_signal_all_notifications.exit93.thread138, %ma_resource_manager_pipeline_notifications_signal_all_notifications.exit93
+  %.064136 = phi i32 [ 0, %ma_resource_manager_pipeline_notifications_signal_all_notifications.exit93.thread138 ], [ %96, %ma_resource_manager_pipeline_notifications_signal_all_notifications.exit93 ], [ 0, %187 ], [ 0, %192 ], [ 0, %ma_data_source_seek_to_pcm_frame.exit.i ], [ 0, %ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split.i ], [ %66, %77 ], [ %66, %74 ], [ %66, %ma_async_notification_signal.exit.i91 ], [ %.2121131, %163 ]
   %.val86 = load ptr, ptr %39, align 8, !tbaa !1604
   %.val87 = load ptr, ptr %49, align 8
   call fastcc void @ma_resource_manager_pipeline_notifications_release_all_fences(ptr %.val86, ptr %.val87)
   br label %ma_resource_manager_pipeline_notifications_signal_all_notifications.exit
 
 ma_resource_manager_pipeline_notifications_signal_all_notifications.exit: ; preds = %25, %22, %ma_async_notification_signal.exit.i, %ma_zero_memory_default.exit, %10, %11, %ma_resource_manager_data_buffer_seek_to_pcm_frame.exit
-  %.0 = phi i32 [ %.064136, %ma_resource_manager_data_buffer_seek_to_pcm_frame.exit ], [ -2, %10 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %11 ], [ -2, %ma_async_notification_signal.exit.i ], [ -2, %22 ], [ -2, %25 ]
+  %.0 = phi i32 [ %.064136, %ma_resource_manager_data_buffer_seek_to_pcm_frame.exit ], [ -2, %11 ], [ -2, %10 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %ma_async_notification_signal.exit.i ], [ -2, %22 ], [ -2, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -71897,8 +71897,8 @@ ma_resource_manager_post_job.exit.thread:         ; preds = %ma_resource_manager
   %78 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %77) #66
   br label %79
 
-ma_resource_manager_inline_notification_uninit.exit.thread: ; preds = %65, %ma_resource_manager_inline_notification_init.exit, %ma_resource_manager_post_job.exit.thread
-  %.1.ph = phi i32 [ %.0.i2533, %ma_resource_manager_post_job.exit.thread ], [ %52, %ma_resource_manager_inline_notification_init.exit ], [ %.0.i2533, %65 ]
+ma_resource_manager_inline_notification_uninit.exit.thread: ; preds = %ma_resource_manager_inline_notification_init.exit, %ma_resource_manager_post_job.exit.thread, %65
+  %.1.ph = phi i32 [ %.0.i2533, %65 ], [ %.0.i2533, %ma_resource_manager_post_job.exit.thread ], [ %52, %ma_resource_manager_inline_notification_init.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %80
@@ -71909,7 +71909,7 @@ ma_resource_manager_inline_notification_uninit.exit.thread: ; preds = %65, %ma_r
   br label %80
 
 80:                                               ; preds = %79, %ma_resource_manager_inline_notification_uninit.exit.thread, %1, %ma_resource_manager_data_buffer_uninit_internal.exit
-  %.0 = phi i32 [ -2, %1 ], [ 0, %ma_resource_manager_data_buffer_uninit_internal.exit ], [ 0, %79 ], [ %.1.ph, %ma_resource_manager_inline_notification_uninit.exit.thread ]
+  %.0 = phi i32 [ 0, %ma_resource_manager_data_buffer_uninit_internal.exit ], [ -2, %1 ], [ 0, %79 ], [ %.1.ph, %ma_resource_manager_inline_notification_uninit.exit.thread ]
   ret i32 %.0
 }
 
@@ -72160,8 +72160,8 @@ ma_data_source_seek_to_pcm_frame.exit.thread56:   ; preds = %17, %ma_resource_ma
   br i1 %71, label %94, label %.thread
 
 .thread:                                          ; preds = %ma_data_source_seek_to_pcm_frame.exit.thread56, %.thread65, %70
-  %.063 = phi i1 [ %69, %.thread65 ], [ %72, %70 ], [ true, %ma_data_source_seek_to_pcm_frame.exit.thread56 ]
-  %.03362 = phi i64 [ %2, %.thread65 ], [ %67, %70 ], [ %2, %ma_data_source_seek_to_pcm_frame.exit.thread56 ]
+  %.063 = phi i1 [ %72, %70 ], [ %69, %.thread65 ], [ true, %ma_data_source_seek_to_pcm_frame.exit.thread56 ]
+  %.03362 = phi i64 [ %67, %70 ], [ %2, %.thread65 ], [ %2, %ma_data_source_seek_to_pcm_frame.exit.thread56 ]
   %73 = load atomic i32, ptr %11 seq_cst, align 4
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %ma_resource_manager_data_buffer_get_connector.exit52, label %75
@@ -72205,7 +72205,7 @@ ma_resource_manager_get_log.exit.i50:             ; preds = %89, %85
   br label %ma_resource_manager_data_buffer_get_connector.exit52
 
 ma_resource_manager_data_buffer_get_connector.exit52: ; preds = %.thread, %79, %81, %83, %ma_resource_manager_get_log.exit.i50
-  %.0.i49 = phi ptr [ %84, %83 ], [ null, %ma_resource_manager_get_log.exit.i50 ], [ %80, %79 ], [ %82, %81 ], [ null, %.thread ]
+  %.0.i49 = phi ptr [ null, %ma_resource_manager_get_log.exit.i50 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ null, %.thread ]
   %93 = call i32 @ma_data_source_read_pcm_frames(ptr noundef %.0.i49, ptr noundef %1, i64 noundef %.03362, ptr noundef nonnull %5)
   br label %94
 
@@ -72241,7 +72241,7 @@ ma_resource_manager_data_buffer_get_connector.exit52: ; preds = %.thread, %79, %
   br label %ma_data_source_seek_to_pcm_frame.exit.thread
 
 ma_data_source_seek_to_pcm_frame.exit.thread:     ; preds = %40, %33, %48, %ma_data_source_seek_to_pcm_frame.exit, %10, %8, %103, %53
-  %.032 = phi i32 [ %spec.store.select, %103 ], [ -2, %8 ], [ -19, %53 ], [ -19, %10 ], [ %47, %ma_data_source_seek_to_pcm_frame.exit ], [ -25, %48 ], [ -3, %40 ], [ -29, %33 ]
+  %.032 = phi i32 [ -19, %53 ], [ %spec.store.select, %103 ], [ -2, %8 ], [ -19, %10 ], [ %47, %ma_data_source_seek_to_pcm_frame.exit ], [ -25, %48 ], [ -3, %40 ], [ -29, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.032
 }
@@ -72344,7 +72344,7 @@ ma_data_source_get_length_in_pcm_frames.exit.i.i: ; preds = %33
   br i1 %.not36.i.i.i, label %49, label %ma_data_source_get_data_format.exit.thread.i.i
 
 ma_data_source_get_data_format.exit.thread.i.i:   ; preds = %47, %41, %39
-  %.0.i22.ph.i.i = phi i32 [ -29, %41 ], [ -2, %39 ], [ %48, %47 ]
+  %.0.i22.ph.i.i = phi i32 [ %48, %47 ], [ -29, %41 ], [ -2, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -72366,12 +72366,12 @@ ma_data_source_get_data_format.exit.thread.i.i:   ; preds = %47, %41, %39
   br label %57
 
 ma_decoder_get_length_in_pcm_frames.exit.thread20.i: ; preds = %ma_data_source_get_data_format.exit.thread.i.i, %ma_data_source_get_length_in_pcm_frames.exit.i.i, %33
-  %.1.i.ph.i = phi i32 [ %.0.i22.ph.i.i, %ma_data_source_get_data_format.exit.thread.i.i ], [ %38, %ma_data_source_get_length_in_pcm_frames.exit.i.i ], [ -29, %33 ]
+  %.1.i.ph.i = phi i32 [ -29, %33 ], [ %.0.i22.ph.i.i, %ma_data_source_get_data_format.exit.thread.i.i ], [ %38, %ma_data_source_get_length_in_pcm_frames.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ma_decoder_get_available_frames.exit
 
 57:                                               ; preds = %55, %49
-  %.016.i = phi i64 [ %54, %49 ], [ %56, %55 ]
+  %.016.i = phi i64 [ %56, %55 ], [ %54, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %59 = load i64, ptr %58, align 8, !tbaa !1413
@@ -72400,7 +72400,7 @@ ma_audio_buffer_get_available_frames.exit:        ; preds = %21
   br label %ma_decoder_get_available_frames.exit
 
 ma_decoder_get_available_frames.exit:             ; preds = %57, %ma_decoder_get_length_in_pcm_frames.exit.thread20.i, %24, %21, %17, %8, %2, %64, %ma_audio_buffer_get_available_frames.exit
-  %.0 = phi i32 [ 0, %64 ], [ -2, %2 ], [ %., %17 ], [ -2, %8 ], [ 0, %ma_audio_buffer_get_available_frames.exit ], [ -2, %21 ], [ 0, %57 ], [ %.1.i.ph.i, %ma_decoder_get_length_in_pcm_frames.exit.thread20.i ], [ -203, %24 ]
+  %.0 = phi i32 [ 0, %ma_audio_buffer_get_available_frames.exit ], [ 0, %64 ], [ -2, %2 ], [ -2, %8 ], [ %., %17 ], [ -2, %21 ], [ 0, %57 ], [ %.1.i.ph.i, %ma_decoder_get_length_in_pcm_frames.exit.thread20.i ], [ -203, %24 ]
   ret i32 %.0
 }
 
@@ -72473,8 +72473,8 @@ ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split: ; preds = %ma_data_so
   store i32 %.sink, ptr %36, align 8, !tbaa !1620
   br label %ma_data_source_seek_to_pcm_frame.exit.thread17
 
-ma_data_source_seek_to_pcm_frame.exit.thread17:   ; preds = %ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split, %22, %27, %ma_data_source_seek_to_pcm_frame.exit
-  %.0 = phi i32 [ -29, %22 ], [ -3, %27 ], [ %34, %ma_data_source_seek_to_pcm_frame.exit ], [ %.0.ph, %ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split ]
+ma_data_source_seek_to_pcm_frame.exit.thread17:   ; preds = %ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split, %27, %22, %ma_data_source_seek_to_pcm_frame.exit
+  %.0 = phi i32 [ %34, %ma_data_source_seek_to_pcm_frame.exit ], [ -3, %27 ], [ -29, %22 ], [ %.0.ph, %ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split ]
   ret i32 %.0
 }
 
@@ -72569,7 +72569,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %23, %21
   br label %ma_data_source_get_data_format.exit
 
 ma_data_source_get_data_format.exit:              ; preds = %ma_zero_memory_default.exit.i, %28, %36, %37
-  %.0.i = phi i32 [ %29, %28 ], [ 0, %36 ], [ -29, %ma_zero_memory_default.exit.i ], [ 0, %37 ]
+  %.0.i = phi i32 [ -29, %ma_zero_memory_default.exit.i ], [ %29, %28 ], [ 0, %37 ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -72646,7 +72646,7 @@ ma_data_source_get_data_format.exit:              ; preds = %ma_zero_memory_defa
   br label %ma_channel_map_init_standard.exit
 
 ma_channel_map_init_standard.exit:                ; preds = %.preheader.i28, %.preheader.i, %57, %39, %6, %76, %ma_data_source_get_data_format.exit
-  %.0 = phi i32 [ -2, %76 ], [ %.0.i, %ma_data_source_get_data_format.exit ], [ -19, %6 ], [ 0, %.preheader.i ], [ 0, %39 ], [ 0, %57 ], [ 0, %.preheader.i28 ]
+  %.0 = phi i32 [ -2, %76 ], [ %.0.i, %ma_data_source_get_data_format.exit ], [ -19, %6 ], [ 0, %39 ], [ 0, %57 ], [ 0, %.preheader.i ], [ 0, %.preheader.i28 ]
   ret i32 %.0
 }
 
@@ -72695,7 +72695,7 @@ ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit: ; preds = %5
   br label %17
 
 17:                                               ; preds = %5, %2, %16, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit, %ma_audio_buffer_get_cursor_in_pcm_frames.exit, %ma_decoder_get_cursor_in_pcm_frames.exit
-  %.0 = phi i32 [ -2, %2 ], [ -2, %16 ], [ 0, %ma_decoder_get_cursor_in_pcm_frames.exit ], [ 0, %ma_audio_buffer_get_cursor_in_pcm_frames.exit ], [ 0, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit ], [ -19, %5 ]
+  %.0 = phi i32 [ -2, %16 ], [ 0, %ma_decoder_get_cursor_in_pcm_frames.exit ], [ 0, %ma_audio_buffer_get_cursor_in_pcm_frames.exit ], [ 0, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit ], [ -2, %2 ], [ -19, %5 ]
   ret i32 %.0
 }
 
@@ -72775,7 +72775,7 @@ ma_resource_manager_data_buffer_get_connector.exit: ; preds = %ma_resource_manag
   br label %ma_data_source_get_length_in_pcm_frames.exit
 
 ma_data_source_get_length_in_pcm_frames.exit:     ; preds = %39, %34, %30, %ma_resource_manager_data_buffer_get_connector.exit, %5, %2
-  %.0 = phi i32 [ -19, %5 ], [ -2, %2 ], [ %40, %39 ], [ -29, %34 ], [ 0, %30 ], [ -2, %ma_resource_manager_data_buffer_get_connector.exit ]
+  %.0 = phi i32 [ -2, %2 ], [ -19, %5 ], [ 0, %30 ], [ %40, %39 ], [ -2, %ma_resource_manager_data_buffer_get_connector.exit ], [ -29, %34 ]
   ret i32 %.0
 }
 
@@ -73422,7 +73422,7 @@ ma_free.exit133.i:                                ; preds = %275, %272, %271
   br label %ma_free.exit.thread.i
 
 ma_free.exit.thread.i:                            ; preds = %285, %282, %164, %161
-  %.190.ph.i = phi i32 [ %.2149.i, %285 ], [ %.2149.i, %282 ], [ -4, %161 ], [ -4, %164 ]
+  %.190.ph.i = phi i32 [ %.2149.i, %285 ], [ %.2149.i, %282 ], [ -4, %164 ], [ -4, %161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %ma_resource_manager_data_buffer_node_acquire_critical_section.exit
 
@@ -73554,7 +73554,7 @@ ma_free.exit:                                     ; preds = %305
   br label %ma_free.exit114.thread
 
 ma_free.exit114.thread:                           ; preds = %.thread186, %292, %319, %321, %322, %325, %330, %333
-  %.1129132 = phi i32 [ 0, %322 ], [ %.1185191, %333 ], [ %.1185191, %330 ], [ -3, %325 ], [ 0, %321 ], [ 0, %319 ], [ 0, %292 ], [ 0, %.thread186 ]
+  %.1129132 = phi i32 [ %.1185191, %333 ], [ %.1185191, %330 ], [ -3, %325 ], [ 0, %322 ], [ 0, %321 ], [ 0, %319 ], [ 0, %292 ], [ 0, %.thread186 ]
   %335 = getelementptr inbounds nuw i8, ptr %.0124, i64 20
   %336 = load i32, ptr %335, align 4, !tbaa !1587
   %.not91 = icmp eq i32 %336, 0
@@ -73580,7 +73580,7 @@ ma_free.exit114.thread:                           ; preds = %.thread186, %292, %
   br label %ma_free.exit114
 
 ma_free.exit114:                                  ; preds = %ma_resource_manager_data_buffer_bst_unlock.exit, %344, %339, %ma_free.exit114.thread
-  %.1129131 = phi i32 [ 0, %ma_resource_manager_data_buffer_bst_unlock.exit ], [ %.1129132, %ma_free.exit114.thread ], [ %.1129132, %339 ], [ %.1129132, %344 ]
+  %.1129131 = phi i32 [ %.1129132, %ma_free.exit114.thread ], [ %.1129132, %339 ], [ %.1129132, %344 ], [ 0, %ma_resource_manager_data_buffer_bst_unlock.exit ]
   br i1 %.not, label %350, label %349
 
 349:                                              ; preds = %ma_free.exit114
@@ -73588,7 +73588,7 @@ ma_free.exit114:                                  ; preds = %ma_resource_manager
   br label %350
 
 350:                                              ; preds = %ma_resource_manager_data_buffer_bst_unlock.exit, %ma_free.exit114, %349, %21, %14, %16
-  %.0 = phi i32 [ -2, %21 ], [ -2, %14 ], [ -2, %16 ], [ %.089.i, %ma_resource_manager_data_buffer_bst_unlock.exit ], [ %.1129131, %349 ], [ %.1129131, %ma_free.exit114 ]
+  %.0 = phi i32 [ -2, %16 ], [ -2, %14 ], [ -2, %21 ], [ %.089.i, %ma_resource_manager_data_buffer_bst_unlock.exit ], [ %.1129131, %349 ], [ %.1129131, %ma_free.exit114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
@@ -74076,7 +74076,7 @@ ma_free.exit.i.i:                                 ; preds = %180, %.lr.ph.split.
   br i1 %.not.i20.i, label %.thread.i, label %.lr.ph.split.i.i, !llvm.loop !1084
 
 .sink.split.i:                                    ; preds = %169, %166, %162, %157, %154, %150
-  %.sink.i = phi ptr [ %163, %169 ], [ %151, %150 ], [ %151, %154 ], [ %151, %157 ], [ %163, %162 ], [ %163, %166 ]
+  %.sink.i = phi ptr [ %151, %150 ], [ %151, %154 ], [ %151, %157 ], [ %163, %162 ], [ %163, %166 ], [ %163, %169 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink.i, i8 0, i64 16, i1 false)
   br label %.thread.i
 
@@ -74092,7 +74092,7 @@ ma_free.exit.i.i:                                 ; preds = %180, %.lr.ph.split.
   br label %ma_resource_manager_data_buffer_bst_unlock.exit
 
 ma_resource_manager_data_buffer_bst_unlock.exit:  ; preds = %100, %184, %.thread.i, %96, %.loopexit, %111, %10, %4
-  %.0 = phi i32 [ %spec.select, %.loopexit ], [ -2, %4 ], [ -2, %10 ], [ 0, %111 ], [ 0, %184 ], [ -7, %96 ], [ 0, %.thread.i ], [ -7, %100 ]
+  %.0 = phi i32 [ -2, %4 ], [ -2, %10 ], [ 0, %111 ], [ %spec.select, %.loopexit ], [ -7, %96 ], [ 0, %.thread.i ], [ 0, %184 ], [ -7, %100 ]
   ret i32 %.0
 }
 
@@ -74573,7 +74573,7 @@ ma_async_notification_signal.exit:                ; preds = %205, %202, %201
   br label %ma_resource_manager_pipeline_notifications_signal_all_notifications.exit
 
 ma_resource_manager_pipeline_notifications_signal_all_notifications.exit: ; preds = %198, %195, %ma_free.exit, %134, %131, %ma_async_notification_signal.exit.i94, %118, %115, %ma_async_notification_signal.exit.i90, %23, %20, %ma_async_notification_signal.exit.i, %ma_async_notification_signal.exit, %ma_zero_memory_default.exit, %8, %9, %207
-  %.0 = phi i32 [ 0, %207 ], [ -2, %8 ], [ -2, %23 ], [ -2, %20 ], [ -2, %118 ], [ -4, %134 ], [ -2, %ma_zero_memory_default.exit ], [ %206, %ma_async_notification_signal.exit ], [ -2, %9 ], [ -2, %ma_async_notification_signal.exit.i ], [ -2, %ma_async_notification_signal.exit.i90 ], [ -2, %115 ], [ -4, %ma_async_notification_signal.exit.i94 ], [ -4, %131 ], [ %178, %ma_free.exit ], [ %178, %195 ], [ %178, %198 ]
+  %.0 = phi i32 [ 0, %207 ], [ -2, %9 ], [ -2, %8 ], [ -2, %ma_zero_memory_default.exit ], [ %206, %ma_async_notification_signal.exit ], [ -2, %ma_async_notification_signal.exit.i ], [ -2, %20 ], [ -2, %23 ], [ -2, %ma_async_notification_signal.exit.i90 ], [ -2, %115 ], [ -2, %118 ], [ -4, %ma_async_notification_signal.exit.i94 ], [ -4, %131 ], [ -4, %134 ], [ %178, %ma_free.exit ], [ %178, %195 ], [ %178, %198 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -74926,8 +74926,8 @@ ma_data_source_get_data_format.exit.i:            ; preds = %27, %25, %19
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %ma_data_source_get_data_format.exit.i, %ma_resource_manager_data_stream_result.exit.i
-  %.162 = phi i64 [ 0, %ma_resource_manager_data_stream_result.exit.i ], [ %.061, %ma_data_source_get_data_format.exit.i ]
-  %.160 = phi i32 [ 0, %ma_resource_manager_data_stream_result.exit.i ], [ %.059, %ma_data_source_get_data_format.exit.i ]
+  %.162 = phi i64 [ %.061, %ma_data_source_get_data_format.exit.i ], [ 0, %ma_resource_manager_data_stream_result.exit.i ]
+  %.160 = phi i32 [ %.059, %ma_data_source_get_data_format.exit.i ], [ 0, %ma_resource_manager_data_stream_result.exit.i ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 696
@@ -75095,8 +75095,8 @@ ma_resource_manager_data_stream_unmap.exit.thread71: ; preds = %ma_resource_mana
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %124
 
-ma_resource_manager_data_stream_unmap.exit.thread: ; preds = %110, %ma_copy_pcm_frames.exit
-  %.0.i49.ph = phi i32 [ -3, %ma_copy_pcm_frames.exit ], [ -2, %110 ]
+ma_resource_manager_data_stream_unmap.exit.thread: ; preds = %ma_copy_pcm_frames.exit, %110
+  %.0.i49.ph = phi i32 [ -2, %110 ], [ -3, %ma_copy_pcm_frames.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
@@ -75112,9 +75112,9 @@ ma_resource_manager_data_stream_unmap.exit:       ; preds = %110
   %125 = icmp ult i64 %95, %2
   br i1 %125, label %46, label %.thread
 
-.thread:                                          ; preds = %124, %ma_resource_manager_data_stream_unmap.exit, %49, %46, %.thread44.i, %ma_resource_manager_data_stream_unmap.exit.thread
-  %.129 = phi i32 [ %.0.i49.ph, %ma_resource_manager_data_stream_unmap.exit.thread ], [ %..i, %.thread44.i ], [ %.fr, %ma_resource_manager_data_stream_unmap.exit ], [ -19, %49 ], [ 0, %124 ], [ -3, %46 ]
-  %.1 = phi i64 [ %95, %ma_resource_manager_data_stream_unmap.exit.thread ], [ %.02782, %.thread44.i ], [ %95, %ma_resource_manager_data_stream_unmap.exit ], [ %.02782, %49 ], [ %95, %124 ], [ %.02782, %46 ]
+.thread:                                          ; preds = %124, %ma_resource_manager_data_stream_unmap.exit, %46, %49, %.thread44.i, %ma_resource_manager_data_stream_unmap.exit.thread
+  %.129 = phi i32 [ %.0.i49.ph, %ma_resource_manager_data_stream_unmap.exit.thread ], [ %..i, %.thread44.i ], [ 0, %124 ], [ %.fr, %ma_resource_manager_data_stream_unmap.exit ], [ -3, %46 ], [ -19, %49 ]
+  %.1 = phi i64 [ %95, %ma_resource_manager_data_stream_unmap.exit.thread ], [ %.02782, %.thread44.i ], [ %95, %124 ], [ %95, %ma_resource_manager_data_stream_unmap.exit ], [ %.02782, %46 ], [ %.02782, %49 ]
   br i1 %.not, label %127, label %126
 
 126:                                              ; preds = %.thread
@@ -75129,7 +75129,7 @@ ma_resource_manager_data_stream_unmap.exit:       ; preds = %110
   br label %130
 
 130:                                              ; preds = %15, %ma_resource_manager_data_stream_result.exit, %10, %127
-  %.031 = phi i32 [ %spec.store.select, %127 ], [ -2, %10 ], [ -19, %15 ], [ -3, %ma_resource_manager_data_stream_result.exit ]
+  %.031 = phi i32 [ %spec.store.select, %127 ], [ -2, %10 ], [ -3, %ma_resource_manager_data_stream_result.exit ], [ -19, %15 ]
   ret i32 %.031
 }
 
@@ -75265,7 +75265,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %29, %28
   br label %ma_data_source_get_data_format.exit
 
 ma_data_source_get_data_format.exit:              ; preds = %ma_zero_memory_default.exit.i, %34, %42, %43
-  %.0.i27 = phi i32 [ %35, %34 ], [ 0, %42 ], [ -29, %ma_zero_memory_default.exit.i ], [ 0, %43 ]
+  %.0.i27 = phi i32 [ -29, %ma_zero_memory_default.exit.i ], [ %35, %34 ], [ 0, %43 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -75357,7 +75357,7 @@ ma_resource_manager_data_stream_set_absolute_cursor.exit: ; preds = %16, %21
   br label %ma_resource_manager_post_job.exit
 
 ma_resource_manager_post_job.exit:                ; preds = %2, %40, %ma_resource_manager_data_stream_set_absolute_cursor.exit, %12, %5
-  %.0 = phi i32 [ 0, %12 ], [ -2, %ma_resource_manager_data_stream_set_absolute_cursor.exit ], [ -3, %5 ], [ %42, %40 ], [ -2, %2 ]
+  %.0 = phi i32 [ -3, %5 ], [ 0, %12 ], [ %42, %40 ], [ -2, %ma_resource_manager_data_stream_set_absolute_cursor.exit ], [ -2, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -75416,7 +75416,7 @@ define i32 @ma_resource_manager_data_stream_get_length_in_pcm_frames(ptr noundef
   br label %ma_resource_manager_data_stream_result.exit.thread
 
 ma_resource_manager_data_stream_result.exit.thread: ; preds = %4, %9, %6, %2
-  %.0 = phi i32 [ %8, %6 ], [ -2, %2 ], [ %., %9 ], [ -2, %4 ]
+  %.0 = phi i32 [ -2, %2 ], [ %8, %6 ], [ %., %9 ], [ -2, %4 ]
   ret i32 %.0
 }
 
@@ -75541,7 +75541,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %3
   br label %ma_resource_manager_data_source_preinit.exit.thread
 
 ma_resource_manager_data_source_preinit.exit.thread: ; preds = %ma_zero_memory_default.exit.i, %3, %14, %12
-  %.0 = phi i32 [ %15, %14 ], [ %13, %12 ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit.i ]
+  %.0 = phi i32 [ %13, %12 ], [ %15, %14 ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit.i ]
   ret i32 %.0
 }
 
@@ -75588,7 +75588,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %5
   br label %ma_resource_manager_data_source_init_ex.exit
 
 ma_resource_manager_data_source_init_ex.exit:     ; preds = %5, %ma_zero_memory_default.exit.i.i, %14, %16
-  %.0.i = phi i32 [ %17, %16 ], [ %15, %14 ], [ -2, %5 ], [ -2, %ma_zero_memory_default.exit.i.i ]
+  %.0.i = phi i32 [ %15, %14 ], [ %17, %16 ], [ -2, %5 ], [ -2, %ma_zero_memory_default.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
@@ -75636,7 +75636,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %5
   br label %ma_resource_manager_data_source_init_ex.exit
 
 ma_resource_manager_data_source_init_ex.exit:     ; preds = %5, %ma_zero_memory_default.exit.i.i, %14, %16
-  %.0.i = phi i32 [ %17, %16 ], [ %15, %14 ], [ -2, %5 ], [ -2, %ma_zero_memory_default.exit.i.i ]
+  %.0.i = phi i32 [ %15, %14 ], [ %17, %16 ], [ -2, %5 ], [ -2, %ma_zero_memory_default.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
@@ -75714,7 +75714,7 @@ define range(i32 -51, 1) i32 @ma_resource_manager_data_source_uninit(ptr noundef
   br label %11
 
 11:                                               ; preds = %1, %9, %7
-  %.0 = phi i32 [ %10, %9 ], [ %8, %7 ], [ -2, %1 ]
+  %.0 = phi i32 [ %8, %7 ], [ %10, %9 ], [ -2, %1 ]
   ret i32 %.0
 }
 
@@ -75747,7 +75747,7 @@ define i32 @ma_resource_manager_data_source_read_pcm_frames(ptr noundef %0, ptr 
   br label %16
 
 16:                                               ; preds = %6, %14, %12
-  %.0 = phi i32 [ %15, %14 ], [ %13, %12 ], [ -2, %6 ]
+  %.0 = phi i32 [ %13, %12 ], [ %15, %14 ], [ -2, %6 ]
   ret i32 %.0
 }
 
@@ -75839,7 +75839,7 @@ ma_resource_manager_data_stream_set_absolute_cursor.exit.i: ; preds = %25, %20
   br label %ma_resource_manager_data_stream_seek_to_pcm_frame.exit
 
 ma_resource_manager_data_stream_seek_to_pcm_frame.exit: ; preds = %9, %16, %ma_resource_manager_data_stream_set_absolute_cursor.exit.i, %44
-  %.0.i = phi i32 [ 0, %16 ], [ -2, %ma_resource_manager_data_stream_set_absolute_cursor.exit.i ], [ -3, %9 ], [ %46, %44 ]
+  %.0.i = phi i32 [ -3, %9 ], [ 0, %16 ], [ %46, %44 ], [ -2, %ma_resource_manager_data_stream_set_absolute_cursor.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ma_resource_manager_data_buffer_seek_to_pcm_frame.exit
 
@@ -75912,7 +75912,7 @@ ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split.i: ; preds = %ma_data_
   br label %ma_resource_manager_data_buffer_seek_to_pcm_frame.exit
 
 ma_resource_manager_data_buffer_seek_to_pcm_frame.exit: ; preds = %ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split.i, %ma_data_source_seek_to_pcm_frame.exit.i, %72, %67, %2, %ma_resource_manager_data_stream_seek_to_pcm_frame.exit
-  %.0 = phi i32 [ -2, %2 ], [ %.0.i, %ma_resource_manager_data_stream_seek_to_pcm_frame.exit ], [ -29, %67 ], [ -3, %72 ], [ %79, %ma_data_source_seek_to_pcm_frame.exit.i ], [ %.0.ph.i, %ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split.i ]
+  %.0 = phi i32 [ %.0.i, %ma_resource_manager_data_stream_seek_to_pcm_frame.exit ], [ -2, %2 ], [ %79, %ma_data_source_seek_to_pcm_frame.exit.i ], [ -3, %72 ], [ -29, %67 ], [ %.0.ph.i, %ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split.i ]
   ret i32 %.0
 }
 
@@ -76017,7 +76017,7 @@ define range(i32 -29, 1) i32 @ma_resource_manager_data_source_map(ptr noundef re
   br label %ma_resource_manager_data_stream_map.exit
 
 ma_resource_manager_data_stream_map.exit:         ; preds = %38, %.thread44.i, %16, %13, %12, %.thread50.i, %10, %5, %3
-  %.0 = phi i32 [ -2, %3 ], [ -29, %5 ], [ 0, %38 ], [ -2, %12 ], [ -3, %13 ], [ %..i, %.thread44.i ], [ -19, %16 ], [ -2, %10 ], [ -2, %.thread50.i ]
+  %.0 = phi i32 [ -2, %3 ], [ -29, %5 ], [ 0, %38 ], [ -2, %12 ], [ -3, %13 ], [ -19, %16 ], [ %..i, %.thread44.i ], [ -2, %10 ], [ -2, %.thread50.i ]
   ret i32 %.0
 }
 
@@ -76119,12 +76119,12 @@ ma_resource_manager_data_stream_set_absolute_cursor.exit.i: ; preds = %24, %14
   br label %ma_resource_manager_data_stream_unmap.exit
 
 ma_resource_manager_data_stream_unmap.exit:       ; preds = %9, %12, %31, %49, %52
-  %.0.i = phi i32 [ 0, %52 ], [ -2, %12 ], [ -3, %9 ], [ %51, %49 ], [ -2, %31 ]
+  %.0.i = phi i32 [ 0, %52 ], [ -3, %9 ], [ -2, %12 ], [ %51, %49 ], [ -2, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %53
 
 53:                                               ; preds = %5, %2, %ma_resource_manager_data_stream_unmap.exit
-  %.0 = phi i32 [ -2, %2 ], [ %.0.i, %ma_resource_manager_data_stream_unmap.exit ], [ -29, %5 ]
+  %.0 = phi i32 [ %.0.i, %ma_resource_manager_data_stream_unmap.exit ], [ -2, %2 ], [ -29, %5 ]
   ret i32 %.0
 }
 
@@ -76252,7 +76252,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %34, %33
   br label %ma_data_source_get_data_format.exit.i
 
 ma_data_source_get_data_format.exit.i:            ; preds = %48, %47, %39, %ma_zero_memory_default.exit.i.i
-  %.0.i27.i = phi i32 [ %40, %39 ], [ 0, %47 ], [ -29, %ma_zero_memory_default.exit.i.i ], [ 0, %48 ]
+  %.0.i27.i = phi i32 [ -29, %ma_zero_memory_default.exit.i.i ], [ %40, %39 ], [ 0, %48 ], [ 0, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -76339,7 +76339,7 @@ ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit.i: ; preds = %16
   br label %ma_resource_manager_data_stream_get_cursor_in_pcm_frames.exit
 
 ma_resource_manager_data_stream_get_cursor_in_pcm_frames.exit: ; preds = %27, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit.i, %ma_audio_buffer_get_cursor_in_pcm_frames.exit.i, %ma_decoder_get_cursor_in_pcm_frames.exit.i, %16, %15, %12, %ma_resource_manager_data_stream_result.exit.i, %9, %2
-  %.0 = phi i32 [ -3, %ma_resource_manager_data_stream_result.exit.i ], [ -2, %2 ], [ 0, %12 ], [ -2, %9 ], [ -2, %15 ], [ -2, %27 ], [ 0, %ma_decoder_get_cursor_in_pcm_frames.exit.i ], [ 0, %ma_audio_buffer_get_cursor_in_pcm_frames.exit.i ], [ 0, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit.i ], [ -19, %16 ]
+  %.0 = phi i32 [ -2, %2 ], [ 0, %12 ], [ -2, %9 ], [ -3, %ma_resource_manager_data_stream_result.exit.i ], [ -2, %27 ], [ 0, %ma_decoder_get_cursor_in_pcm_frames.exit.i ], [ 0, %ma_audio_buffer_get_cursor_in_pcm_frames.exit.i ], [ 0, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit.i ], [ -2, %15 ], [ -19, %16 ]
   ret i32 %.0
 }
 
@@ -76446,7 +76446,7 @@ ma_resource_manager_data_buffer_get_connector.exit.i: ; preds = %ma_resource_man
   br label %ma_resource_manager_data_stream_get_length_in_pcm_frames.exit
 
 ma_resource_manager_data_stream_get_length_in_pcm_frames.exit: ; preds = %52, %47, %43, %ma_resource_manager_data_buffer_get_connector.exit.i, %18, %17, %13, %10, %9, %2
-  %.0 = phi i32 [ %..i, %13 ], [ -2, %2 ], [ %12, %10 ], [ -2, %9 ], [ -19, %18 ], [ -2, %17 ], [ %53, %52 ], [ -29, %47 ], [ 0, %43 ], [ -2, %ma_resource_manager_data_buffer_get_connector.exit.i ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %9 ], [ %12, %10 ], [ %..i, %13 ], [ -2, %17 ], [ -19, %18 ], [ 0, %43 ], [ %53, %52 ], [ -2, %ma_resource_manager_data_buffer_get_connector.exit.i ], [ -29, %47 ]
   ret i32 %.0
 }
 
@@ -76473,7 +76473,7 @@ ma_resource_manager_data_buffer_result.exit:      ; preds = %3
   br label %11
 
 11:                                               ; preds = %1, %ma_resource_manager_data_buffer_result.exit, %ma_resource_manager_data_stream_result.exit
-  %.0 = phi i32 [ %10, %ma_resource_manager_data_buffer_result.exit ], [ %8, %ma_resource_manager_data_stream_result.exit ], [ -2, %1 ]
+  %.0 = phi i32 [ %8, %ma_resource_manager_data_stream_result.exit ], [ %10, %ma_resource_manager_data_buffer_result.exit ], [ -2, %1 ]
   ret i32 %.0
 }
 
@@ -76496,7 +76496,7 @@ ma_resource_manager_data_stream_set_looping.exit.sink.split: ; preds = %4
   br label %ma_resource_manager_data_stream_set_looping.exit
 
 ma_resource_manager_data_stream_set_looping.exit: ; preds = %4, %ma_resource_manager_data_stream_set_looping.exit.sink.split, %2
-  %.0 = phi i32 [ 0, %4 ], [ -2, %2 ], [ %11, %ma_resource_manager_data_stream_set_looping.exit.sink.split ]
+  %.0 = phi i32 [ -2, %2 ], [ %11, %ma_resource_manager_data_stream_set_looping.exit.sink.split ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -76523,7 +76523,7 @@ ma_resource_manager_data_buffer_is_looping.exit:  ; preds = %3
   br label %11
 
 11:                                               ; preds = %1, %ma_resource_manager_data_buffer_is_looping.exit, %ma_resource_manager_data_stream_is_looping.exit
-  %.0 = phi i32 [ %10, %ma_resource_manager_data_buffer_is_looping.exit ], [ %8, %ma_resource_manager_data_stream_is_looping.exit ], [ 0, %1 ]
+  %.0 = phi i32 [ %8, %ma_resource_manager_data_stream_is_looping.exit ], [ %10, %ma_resource_manager_data_buffer_is_looping.exit ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -76587,7 +76587,7 @@ ma_resource_manager_data_stream_get_available_frames.exit: ; preds = %10, %19, %
   br label %37
 
 37:                                               ; preds = %4, %2, %35, %ma_resource_manager_data_stream_get_available_frames.exit
-  %.0 = phi i32 [ %36, %35 ], [ -2, %2 ], [ 0, %ma_resource_manager_data_stream_get_available_frames.exit ], [ -2, %4 ]
+  %.0 = phi i32 [ 0, %ma_resource_manager_data_stream_get_available_frames.exit ], [ %36, %35 ], [ -2, %2 ], [ -2, %4 ]
   ret i32 %.0
 }
 
@@ -76656,7 +76656,7 @@ ma_resource_manager_next_job.exit:                ; preds = %1
   br label %ma_job_process.exit
 
 ma_job_process.exit:                              ; preds = %9, %6, %ma_resource_manager_next_job.exit, %1
-  %.0 = phi i32 [ %5, %ma_resource_manager_next_job.exit ], [ -2, %1 ], [ %13, %9 ], [ -3, %6 ]
+  %.0 = phi i32 [ -2, %1 ], [ %5, %ma_resource_manager_next_job.exit ], [ %13, %9 ], [ -3, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -76764,7 +76764,7 @@ ma_zero_memory_default.exit:                      ; preds = %3
   br label %19
 
 19:                                               ; preds = %13, %ma_zero_memory_default.exit, %3, %18
-  %.0 = phi i32 [ %12, %ma_zero_memory_default.exit ], [ -2, %3 ], [ %17, %18 ], [ 0, %13 ]
+  %.0 = phi i32 [ %17, %18 ], [ -2, %3 ], [ %12, %ma_zero_memory_default.exit ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -76865,7 +76865,7 @@ ma_malloc.exit:                                   ; preds = %13, %16
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %.thread, %10, %28, %26, %23, %ma_node_get_heap_size.exit, %ma_malloc.exit, %29
-  %.015 = phi i32 [ 0, %29 ], [ %6, %ma_node_get_heap_size.exit ], [ %20, %26 ], [ -4, %ma_malloc.exit ], [ -4, %10 ], [ %20, %28 ], [ %20, %23 ], [ %21, %.thread ]
+  %.015 = phi i32 [ 0, %29 ], [ %6, %ma_node_get_heap_size.exit ], [ -4, %ma_malloc.exit ], [ %20, %23 ], [ %20, %26 ], [ %20, %28 ], [ -4, %10 ], [ %21, %.thread ]
   ret i32 %.015
 }
 
@@ -77960,7 +77960,7 @@ ma_node_get_output_channels.exit286:              ; preds = %ma_node_get_output_
   br i1 %.not.i.i289, label %ma_copy_pcm_frames.exit, label %.lr.ph.i287, !llvm.loop !360
 
 ma_copy_pcm_frames.exit:                          ; preds = %279, %ma_node_process_pcm_frames_internal.exit279, %.lr.ph.i287, %ma_node_get_output_bus_count.exit.i282, %ma_node_get_output_channels.exit286, %283
-  %.4 = phi i32 [ 0, %ma_node_get_output_channels.exit286 ], [ 0, %.lr.ph.i287 ], [ 0, %283 ], [ 0, %ma_node_get_output_bus_count.exit.i282 ], [ %.3, %ma_node_process_pcm_frames_internal.exit279 ], [ %.3, %279 ]
+  %.4 = phi i32 [ 0, %283 ], [ 0, %ma_node_get_output_channels.exit286 ], [ 0, %ma_node_get_output_bus_count.exit.i282 ], [ 0, %.lr.ph.i287 ], [ %.3, %ma_node_process_pcm_frames_internal.exit279 ], [ %.3, %279 ]
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %300 = load i16, ptr %299, align 2, !tbaa !1689
   %301 = zext i16 %300 to i32
@@ -77973,7 +77973,7 @@ ma_copy_pcm_frames.exit:                          ; preds = %279, %ma_node_proce
   br label %ma_node_get_output_bus_count.exit.i290
 
 ma_node_get_output_bus_count.exit.i290:           ; preds = %ma_node_process_pcm_frames_internal.exit, %90, %95, %ma_copy_pcm_frames.exit, %97, %100
-  %.0165 = phi i32 [ 0, %ma_node_process_pcm_frames_internal.exit ], [ %.4, %ma_copy_pcm_frames.exit ], [ 0, %95 ], [ %93, %90 ], [ 0, %97 ], [ 0, %100 ]
+  %.0165 = phi i32 [ 0, %ma_node_process_pcm_frames_internal.exit ], [ 0, %95 ], [ %93, %90 ], [ %.4, %ma_copy_pcm_frames.exit ], [ 0, %97 ], [ 0, %100 ]
   %306 = load i32, ptr %15, align 4, !tbaa !1667
   %.not.i291 = icmp ult i32 %1, %306
   br i1 %.not.i291, label %307, label %ma_node_get_output_bus_count.exit.i290.ma_node_get_output_channels.exit294_crit_edge
@@ -78032,8 +78032,8 @@ ma_apply_volume_factor_f32.exit:                  ; preds = %.lr.ph.i.i, %ma_nod
   store i32 %333, ptr %4, align 4, !tbaa !3
   br label %ma_node_get_state_by_time_range.exit.thread
 
-ma_node_get_state_by_time_range.exit.thread:      ; preds = %ma_node_get_state.exit.i, %ma_node_get_state_time.exit.i, %ma_node_get_state_by_time_range.exit, %ma_node_get_output_bus_count.exit, %6, %ma_apply_volume_factor_f32.exit
-  %.0 = phi i32 [ %.0165, %ma_apply_volume_factor_f32.exit ], [ -2, %ma_node_get_output_bus_count.exit ], [ -2, %6 ], [ 0, %ma_node_get_state_by_time_range.exit ], [ 0, %ma_node_get_state_time.exit.i ], [ 0, %ma_node_get_state.exit.i ]
+ma_node_get_state_by_time_range.exit.thread:      ; preds = %ma_node_get_state_time.exit.i, %ma_node_get_state.exit.i, %ma_node_get_state_by_time_range.exit, %ma_node_get_output_bus_count.exit, %6, %ma_apply_volume_factor_f32.exit
+  %.0 = phi i32 [ %.0165, %ma_apply_volume_factor_f32.exit ], [ -2, %6 ], [ -2, %ma_node_get_output_bus_count.exit ], [ 0, %ma_node_get_state_by_time_range.exit ], [ 0, %ma_node_get_state.exit.i ], [ 0, %ma_node_get_state_time.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -78360,8 +78360,8 @@ ma_node_translate_bus_counts.exit:                ; preds = %51, %46
   store i64 %103, ptr %2, align 8, !tbaa !1664
   br label %ma_node_translate_bus_counts.exit.thread
 
-ma_node_translate_bus_counts.exit.thread:         ; preds = %50, %42, %18, %51, %37, %33, %29, %3, %5, %8, %98
-  %.040 = phi i32 [ 0, %98 ], [ -2, %3 ], [ -2, %8 ], [ -2, %5 ], [ -2, %29 ], [ -2, %33 ], [ -2, %37 ], [ -2, %51 ], [ -2, %18 ], [ -2, %42 ], [ -2, %50 ]
+ma_node_translate_bus_counts.exit.thread:         ; preds = %51, %50, %37, %42, %33, %29, %18, %3, %5, %8, %98
+  %.040 = phi i32 [ 0, %98 ], [ -2, %8 ], [ -2, %5 ], [ -2, %3 ], [ -2, %18 ], [ -2, %29 ], [ -2, %33 ], [ -2, %42 ], [ -2, %37 ], [ -2, %50 ], [ -2, %51 ]
   ret i32 %.040
 }
 
@@ -78587,7 +78587,7 @@ ma_node_get_output_bus_count.exit:                ; preds = %ma_zero_memory_defa
   br i1 %102, label %.lr.ph128.splitthread-pre-split, label %ma_node_get_output_bus_count.exit._crit_edge, !llvm.loop !1717
 
 ma_node_get_output_bus_count.exit._crit_edge:     ; preds = %ma_node_get_output_bus_count.exit, %ma_node_get_output_bus_count.exit.us, %ma_node_get_output_bus_count.exit.preheader
-  %103 = phi i32 [ %58, %ma_node_get_output_bus_count.exit.us ], [ 0, %ma_node_get_output_bus_count.exit.preheader ], [ %100, %ma_node_get_output_bus_count.exit ]
+  %103 = phi i32 [ 0, %ma_node_get_output_bus_count.exit.preheader ], [ %58, %ma_node_get_output_bus_count.exit.us ], [ %100, %ma_node_get_output_bus_count.exit ]
   %104 = load ptr, ptr %46, align 8, !tbaa !1690
   %.not83 = icmp eq ptr %104, null
   br i1 %.not83, label %ma_node_input_bus_init.exit, label %ma_node_get_input_bus_count.exit95.preheader
@@ -78764,7 +78764,7 @@ ma_silence_pcm_frames.exit117:                    ; preds = %ma_silence_pcm_fram
   br i1 %155, label %128, label %ma_node_input_bus_init.exit, !llvm.loop !1719
 
 ma_node_input_bus_init.exit:                      ; preds = %ma_zero_memory_default.exit.i, %ma_zero_memory_default.exit.i.us, %ma_zero_memory_default.exit.i92, %ma_zero_memory_default.exit.i92.us, %ma_silence_pcm_frames.exit117, %ma_node_get_output_bus_count.exit100.preheader, %ma_node_get_output_bus_count.exit._crit_edge, %ma_zero_memory_default.exit87, %4
-  %.072 = phi i32 [ 0, %ma_node_get_output_bus_count.exit100.preheader ], [ -2, %4 ], [ %7, %ma_zero_memory_default.exit87 ], [ 0, %ma_node_get_output_bus_count.exit._crit_edge ], [ -2, %ma_zero_memory_default.exit.i92.us ], [ -2, %ma_zero_memory_default.exit.i.us ], [ -2, %ma_zero_memory_default.exit.i92 ], [ 0, %ma_silence_pcm_frames.exit117 ], [ -2, %ma_zero_memory_default.exit.i ]
+  %.072 = phi i32 [ -2, %4 ], [ %7, %ma_zero_memory_default.exit87 ], [ 0, %ma_node_get_output_bus_count.exit._crit_edge ], [ 0, %ma_node_get_output_bus_count.exit100.preheader ], [ 0, %ma_silence_pcm_frames.exit117 ], [ -2, %ma_zero_memory_default.exit.i92.us ], [ -2, %ma_zero_memory_default.exit.i92 ], [ -2, %ma_zero_memory_default.exit.i.us ], [ -2, %ma_zero_memory_default.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.072
 }
@@ -79272,7 +79272,7 @@ ma_node_input_bus_attach.exit:                    ; preds = %ma_node_input_bus_l
   br label %104
 
 104:                                              ; preds = %ma_node_get_input_channels.exit, %ma_node_get_output_bus_count.exit, %ma_node_get_input_bus_count.exit, %7, %4, %ma_node_input_bus_attach.exit
-  %.0 = phi i32 [ 0, %ma_node_input_bus_attach.exit ], [ -2, %4 ], [ -3, %7 ], [ -3, %ma_node_get_output_bus_count.exit ], [ -3, %ma_node_get_input_bus_count.exit ], [ -3, %ma_node_get_input_channels.exit ]
+  %.0 = phi i32 [ 0, %ma_node_input_bus_attach.exit ], [ -2, %4 ], [ -3, %7 ], [ -3, %ma_node_get_input_bus_count.exit ], [ -3, %ma_node_get_output_bus_count.exit ], [ -3, %ma_node_get_input_channels.exit ]
   ret i32 %.0
 }
 
@@ -79423,7 +79423,7 @@ ma_node_get_state_time.exit10.i:                  ; preds = %ma_node_get_state_t
   br label %ma_node_get_state_by_time_range.exit
 
 ma_node_get_state_by_time_range.exit:             ; preds = %ma_node_get_state_time.exit10.i, %ma_node_get_state_time.exit.i, %ma_node_get_state.exit.i, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %ma_node_get_state_time.exit.i ], [ %..i, %ma_node_get_state_time.exit10.i ], [ 1, %ma_node_get_state.exit.i ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %ma_node_get_state.exit.i ], [ 1, %ma_node_get_state_time.exit.i ], [ %..i, %ma_node_get_state_time.exit10.i ]
   ret i32 %.0
 }
 
@@ -79452,7 +79452,7 @@ ma_node_get_state_time.exit10:                    ; preds = %ma_node_get_state_t
   br label %13
 
 13:                                               ; preds = %ma_node_get_state_time.exit10, %ma_node_get_state_time.exit, %ma_node_get_state.exit, %3
-  %.0 = phi i32 [ 1, %ma_node_get_state_time.exit ], [ 1, %3 ], [ 1, %ma_node_get_state.exit ], [ %., %ma_node_get_state_time.exit10 ]
+  %.0 = phi i32 [ 1, %3 ], [ 1, %ma_node_get_state.exit ], [ 1, %ma_node_get_state_time.exit ], [ %., %ma_node_get_state_time.exit10 ]
   ret i32 %.0
 }
 
@@ -79511,8 +79511,8 @@ ma_zero_memory_default.exit:                      ; preds = %4
   %.not36.i = icmp eq i32 %22, 0
   br i1 %.not36.i, label %23, label %ma_data_source_get_data_format.exit.thread
 
-ma_data_source_get_data_format.exit.thread:       ; preds = %21, %12, %16
-  %.0.i.ph = phi i32 [ -29, %16 ], [ -2, %12 ], [ %22, %21 ]
+ma_data_source_get_data_format.exit.thread:       ; preds = %12, %16, %21
+  %.0.i.ph = phi i32 [ %22, %21 ], [ -29, %16 ], [ -2, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -79549,7 +79549,7 @@ ma_data_source_get_data_format.exit.thread:       ; preds = %21, %12, %16
   br label %34
 
 34:                                               ; preds = %ma_data_source_get_data_format.exit.thread, %29, %26, %23, %ma_zero_memory_default.exit, %4, %31
-  %.0 = phi i32 [ 0, %31 ], [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ %.0.i.ph, %ma_data_source_get_data_format.exit.thread ], [ -2, %23 ], [ -2, %26 ], [ %30, %29 ]
+  %.0 = phi i32 [ 0, %31 ], [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %23 ], [ -2, %26 ], [ %30, %29 ], [ %.0.i.ph, %ma_data_source_get_data_format.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -79684,7 +79684,7 @@ ma_zero_memory_default.exit:                      ; preds = %4
   br label %22
 
 22:                                               ; preds = %._crit_edge, %10, %ma_zero_memory_default.exit, %4
-  %.017 = phi i32 [ -2, %10 ], [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ %21, %._crit_edge ]
+  %.017 = phi i32 [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %10 ], [ %21, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -79844,8 +79844,8 @@ ma_biquad_init_preallocated.exit.thread.i:        ; preds = %ma_biquad_init_prea
   %49 = call i32 @ma_node_init(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %3)
   br label %ma_biquad_init.exit.thread
 
-ma_biquad_init.exit.thread:                       ; preds = %42, %39, %19, %ma_malloc.exit.i, %11, %44, %45, %8, %ma_zero_memory_default.exit, %4
-  %.0 = phi i32 [ %49, %45 ], [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %8 ], [ %.0.i2231.i, %42 ], [ %.0.i2231.i, %39 ], [ -4, %19 ], [ -4, %ma_malloc.exit.i ], [ -2, %11 ], [ %.0.i2231.i, %44 ]
+ma_biquad_init.exit.thread:                       ; preds = %19, %11, %44, %42, %39, %ma_malloc.exit.i, %45, %8, %ma_zero_memory_default.exit, %4
+  %.0 = phi i32 [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %8 ], [ %49, %45 ], [ -4, %19 ], [ -2, %11 ], [ %.0.i2231.i, %44 ], [ %.0.i2231.i, %42 ], [ %.0.i2231.i, %39 ], [ -4, %ma_malloc.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -79970,7 +79970,7 @@ ma_zero_memory_default.exit:                      ; preds = %4
   br label %19
 
 19:                                               ; preds = %14, %11, %8, %ma_zero_memory_default.exit, %4
-  %.0 = phi i32 [ %13, %11 ], [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %8 ], [ %18, %14 ]
+  %.0 = phi i32 [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %8 ], [ %13, %11 ], [ %18, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -80077,7 +80077,7 @@ ma_zero_memory_default.exit:                      ; preds = %4
   br label %19
 
 19:                                               ; preds = %14, %11, %8, %ma_zero_memory_default.exit, %4
-  %.0 = phi i32 [ %13, %11 ], [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %8 ], [ %18, %14 ]
+  %.0 = phi i32 [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %8 ], [ %13, %11 ], [ %18, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -80184,7 +80184,7 @@ ma_zero_memory_default.exit:                      ; preds = %4
   br label %19
 
 19:                                               ; preds = %14, %11, %8, %ma_zero_memory_default.exit, %4
-  %.0 = phi i32 [ %13, %11 ], [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %8 ], [ %18, %14 ]
+  %.0 = phi i32 [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %8 ], [ %13, %11 ], [ %18, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -80290,7 +80290,7 @@ ma_zero_memory_default.exit:                      ; preds = %4
   br label %19
 
 19:                                               ; preds = %14, %11, %8, %ma_zero_memory_default.exit, %4
-  %.0 = phi i32 [ %13, %11 ], [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %8 ], [ %18, %14 ]
+  %.0 = phi i32 [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %8 ], [ %13, %11 ], [ %18, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -80428,7 +80428,7 @@ ma_zero_memory_default.exit:                      ; preds = %4
   br label %20
 
 20:                                               ; preds = %15, %8, %ma_zero_memory_default.exit, %4, %14
-  %.0 = phi i32 [ -2, %8 ], [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ %13, %14 ], [ %19, %15 ]
+  %.0 = phi i32 [ %13, %14 ], [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %8 ], [ %19, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -80559,7 +80559,7 @@ ma_zero_memory_default.exit:                      ; preds = %4
   br label %19
 
 19:                                               ; preds = %14, %11, %8, %ma_zero_memory_default.exit, %4
-  %.0 = phi i32 [ %13, %11 ], [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %8 ], [ %18, %14 ]
+  %.0 = phi i32 [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %8 ], [ %13, %11 ], [ %18, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -80690,7 +80690,7 @@ ma_zero_memory_default.exit:                      ; preds = %4
   br label %19
 
 19:                                               ; preds = %14, %11, %8, %ma_zero_memory_default.exit, %4
-  %.0 = phi i32 [ %13, %11 ], [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %8 ], [ %18, %14 ]
+  %.0 = phi i32 [ -2, %4 ], [ -2, %ma_zero_memory_default.exit ], [ -2, %8 ], [ %13, %11 ], [ %18, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -80895,8 +80895,8 @@ ma_delay_init.exit:                               ; preds = %ma_zero_memory_defa
   call void @free(ptr noundef nonnull %46) #66
   br label %ma_delay_uninit.exit
 
-ma_delay_uninit.exit:                             ; preds = %ma_malloc.exit.i, %ma_zero_memory_default.exit, %ma_malloc.exit.thread.i, %54, %52, %49, %45, %ma_delay_init.exit, %4
-  %.0 = phi i32 [ %44, %54 ], [ -2, %4 ], [ 0, %ma_delay_init.exit ], [ %44, %45 ], [ %44, %49 ], [ %44, %52 ], [ -4, %ma_malloc.exit.i ], [ -2, %ma_zero_memory_default.exit ], [ -4, %ma_malloc.exit.thread.i ]
+ma_delay_uninit.exit:                             ; preds = %ma_malloc.exit.thread.i, %ma_malloc.exit.i, %ma_zero_memory_default.exit, %54, %52, %49, %45, %ma_delay_init.exit, %4
+  %.0 = phi i32 [ -2, %4 ], [ 0, %ma_delay_init.exit ], [ %44, %45 ], [ %44, %49 ], [ %44, %52 ], [ %44, %54 ], [ -4, %ma_malloc.exit.thread.i ], [ -4, %ma_malloc.exit.i ], [ -2, %ma_zero_memory_default.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -81117,7 +81117,7 @@ define internal fastcc range(i32 -2, 1) i32 @ma_engine_node_get_heap_layout(ptr 
   br label %ma_engine_get_channels.exit
 
 ma_engine_get_channels.exit:                      ; preds = %17, %14, %11
-  %22 = phi i32 [ %13, %11 ], [ 0, %14 ], [ %21, %17 ]
+  %22 = phi i32 [ %13, %11 ], [ %21, %17 ], [ 0, %14 ]
   store i32 %22, ptr %5, align 4, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i32, ptr %23, align 8, !tbaa !1748
@@ -81139,7 +81139,7 @@ ma_engine_get_channels.exit:                      ; preds = %17, %14, %11
   br label %ma_engine_get_channels.exit53
 
 ma_engine_get_channels.exit53:                    ; preds = %28, %25, %ma_engine_get_channels.exit
-  %33 = phi i32 [ %24, %ma_engine_get_channels.exit ], [ 0, %25 ], [ %32, %28 ]
+  %33 = phi i32 [ %24, %ma_engine_get_channels.exit ], [ %32, %28 ], [ 0, %25 ]
   store i32 %33, ptr %6, align 4, !tbaa !3
   %34 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %34, align 8, !tbaa !1740
@@ -81216,7 +81216,7 @@ ma_node_get_heap_size.exit:                       ; preds = %ma_engine_get_chann
   br label %ma_linear_resampler_get_heap_size.exit
 
 ma_linear_resampler_get_heap_size.exit:           ; preds = %45, %39, %ma_node_get_heap_size.exit, %51, %64, %8, %2
-  %.0 = phi i32 [ -2, %45 ], [ -2, %2 ], [ -2, %8 ], [ %38, %ma_node_get_heap_size.exit ], [ 0, %51 ], [ -2, %39 ], [ 0, %64 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %8 ], [ %38, %ma_node_get_heap_size.exit ], [ 0, %64 ], [ 0, %51 ], [ -2, %39 ], [ -2, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -81590,7 +81590,7 @@ ma_engine_get_sample_rate.exit117:                ; preds = %120, %124
   br label %ma_fader_init.exit
 
 ma_fader_init.exit:                               ; preds = %136, %156
-  %.2 = phi i32 [ %155, %156 ], [ %141, %136 ]
+  %.2 = phi i32 [ %141, %136 ], [ %155, %156 ]
   %157 = getelementptr inbounds nuw i8, ptr %2, i64 488
   call void @ma_lpf_uninit(ptr noundef nonnull readonly %157, ptr noundef null)
   %158 = getelementptr inbounds nuw i8, ptr %2, i64 552
@@ -81614,7 +81614,7 @@ ma_linear_resampler_uninit.exit:                  ; preds = %164, %160, %ma_fade
   br label %ma_engine_get_listener_count.exit.thread
 
 ma_engine_get_listener_count.exit.thread:         ; preds = %17, %ma_linear_resampler_uninit.exit, %ma_engine_node_base_node_config_init.exit, %142, %149, %ma_engine_get_listener_count.exit, %ma_zero_memory_default.exit104, %3
-  %.0 = phi i32 [ -2, %ma_engine_get_listener_count.exit ], [ -2, %3 ], [ %13, %ma_zero_memory_default.exit104 ], [ 0, %142 ], [ 0, %149 ], [ %106, %ma_engine_node_base_node_config_init.exit ], [ %.1, %ma_linear_resampler_uninit.exit ], [ -2, %17 ]
+  %.0 = phi i32 [ -2, %3 ], [ %13, %ma_zero_memory_default.exit104 ], [ -2, %ma_engine_get_listener_count.exit ], [ 0, %149 ], [ 0, %142 ], [ %106, %ma_engine_node_base_node_config_init.exit ], [ %.1, %ma_linear_resampler_uninit.exit ], [ -2, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -81756,7 +81756,7 @@ ma_malloc.exit:                                   ; preds = %12, %15
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %.thread, %9, %27, %25, %22, %ma_engine_node_get_heap_size.exit, %ma_malloc.exit, %28
-  %.013 = phi i32 [ 0, %28 ], [ %5, %ma_engine_node_get_heap_size.exit ], [ %19, %25 ], [ -4, %ma_malloc.exit ], [ -4, %9 ], [ %19, %27 ], [ %19, %22 ], [ %20, %.thread ]
+  %.013 = phi i32 [ 0, %28 ], [ %5, %ma_engine_node_get_heap_size.exit ], [ -4, %ma_malloc.exit ], [ %19, %22 ], [ %19, %25 ], [ %19, %27 ], [ -4, %9 ], [ %20, %.thread ]
   ret i32 %.013
 }
 
@@ -82526,13 +82526,13 @@ ma_node_get_heap_size.exit.i:                     ; preds = %120
   call void %140(ptr noundef nonnull %133, ptr noundef %142) #66
   br label %143
 
-143:                                              ; preds = %ma_node_get_heap_size.exit.i, %141, %131, %128, %.thread.i, %138
-  %.015.i.ph = phi i32 [ %136, %138 ], [ %137, %.thread.i ], [ -4, %128 ], [ -4, %131 ], [ %136, %141 ], [ %125, %ma_node_get_heap_size.exit.i ]
+143:                                              ; preds = %ma_node_get_heap_size.exit.i, %131, %138, %141, %128, %.thread.i
+  %.015.i.ph = phi i32 [ %137, %.thread.i ], [ -4, %128 ], [ %136, %141 ], [ %136, %138 ], [ -4, %131 ], [ %125, %ma_node_get_heap_size.exit.i ]
   call void @ma_node_uninit(ptr noundef nonnull %1, ptr noundef nonnull readonly %34)
   br label %ma_node_graph_init.exit.thread
 
-ma_node_graph_init.exit.thread:                   ; preds = %143, %ma_node_get_heap_size.exit.i152, %118, %108, %105, %.thread.i158, %115
-  %.0.i123.ph = phi i32 [ %.015.i.ph, %143 ], [ %113, %115 ], [ %114, %.thread.i158 ], [ -4, %105 ], [ -4, %108 ], [ %113, %118 ], [ %102, %ma_node_get_heap_size.exit.i152 ]
+ma_node_graph_init.exit.thread:                   ; preds = %143, %ma_node_get_heap_size.exit.i152, %108, %115, %118, %105, %.thread.i158
+  %.0.i123.ph = phi i32 [ %.015.i.ph, %143 ], [ %114, %.thread.i158 ], [ -4, %105 ], [ %113, %118 ], [ %113, %115 ], [ -4, %108 ], [ %102, %ma_node_get_heap_size.exit.i152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %237
@@ -82577,7 +82577,7 @@ ma_node_graph_init.exit.thread:                   ; preds = %143, %ma_node_get_h
   br label %ma_node_graph_get_channels.exit
 
 ma_node_graph_get_channels.exit:                  ; preds = %152, %154
-  %.0.i127 = phi i64 [ 0, %152 ], [ %157, %154 ]
+  %.0.i127 = phi i64 [ %157, %154 ], [ 0, %152 ]
   store i64 %.0.i127, ptr %8, align 8
   store ptr null, ptr %.sroa.5163.0..sroa_idx, align 8, !tbaa !217
   store i32 0, ptr %.sroa.6164.0..sroa_idx, align 8, !tbaa !3
@@ -82751,8 +82751,8 @@ ma_engine_start.exit:                             ; preds = %205
   call void %216(ptr noundef nonnull %212, ptr noundef %218) #66
   br label %ma_free.exit143
 
-ma_free.exit143:                                  ; preds = %160, %162, %ma_node_graph_get_channels.exit, %170, %173, %217, %214, %211, %.thread417, %208
-  %.293 = phi i32 [ %.4, %217 ], [ -4, %.thread417 ], [ %.4, %208 ], [ %.4, %211 ], [ %.4, %214 ], [ %169, %170 ], [ %169, %173 ], [ -2, %ma_node_graph_get_channels.exit ], [ -4, %162 ], [ -4, %160 ]
+ma_free.exit143:                                  ; preds = %160, %ma_node_graph_get_channels.exit, %162, %173, %170, %217, %214, %211, %.thread417, %208
+  %.293 = phi i32 [ %.4, %208 ], [ -4, %.thread417 ], [ %.4, %211 ], [ %.4, %214 ], [ %.4, %217 ], [ %169, %173 ], [ %169, %170 ], [ -4, %162 ], [ -2, %ma_node_graph_get_channels.exit ], [ -4, %160 ]
   %219 = load i32, ptr %151, align 4, !tbaa !1751
   %.not428 = icmp eq i32 %219, 0
   br i1 %.not428, label %ma_node_graph_uninit.exit, label %.lr.ph
@@ -82799,7 +82799,7 @@ ma_node_graph_uninit.exit:                        ; preds = %ma_spatializer_list
   br label %237
 
 237:                                              ; preds = %ma_node_graph_init.exit.thread, %144, %ma_node_graph_uninit.exit
-  %.192 = phi i32 [ %.0.i123.ph, %ma_node_graph_init.exit.thread ], [ %.293, %ma_node_graph_uninit.exit ], [ -2, %144 ]
+  %.192 = phi i32 [ %.293, %ma_node_graph_uninit.exit ], [ -2, %144 ], [ %.0.i123.ph, %ma_node_graph_init.exit.thread ]
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 1241
   %239 = load i8, ptr %238, align 1, !tbaa !1797
   %.not120 = icmp eq i8 %239, 0
@@ -82824,7 +82824,7 @@ ma_node_graph_uninit.exit:                        ; preds = %ma_spatializer_list
   br label %ma_free.exit148
 
 ma_free.exit148:                                  ; preds = %247, %244, %240, %.thread403, %237, %201, %205, %ma_engine_start.exit, %85, %2
-  %.0 = phi i32 [ %.2.ph, %.thread403 ], [ -2, %2 ], [ 0, %201 ], [ -2, %85 ], [ 0, %ma_engine_start.exit ], [ 0, %205 ], [ %.192, %237 ], [ %.192, %240 ], [ %.192, %244 ], [ %.192, %247 ]
+  %.0 = phi i32 [ -2, %2 ], [ -2, %85 ], [ 0, %ma_engine_start.exit ], [ 0, %205 ], [ 0, %201 ], [ %.192, %237 ], [ %.2.ph, %.thread403 ], [ %.192, %240 ], [ %.192, %244 ], [ %.192, %247 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -83333,7 +83333,7 @@ ma_device_get_context.exit.i:                     ; preds = %ma_engine_get_devic
   br label %ma_device_get_log.exit
 
 ma_device_get_log.exit:                           ; preds = %11, %ma_device_get_context.exit.i, %ma_engine_get_device.exit, %3, %1
-  %.0 = phi ptr [ %5, %3 ], [ null, %1 ], [ %13, %11 ], [ null, %ma_device_get_context.exit.i ], [ null, %ma_engine_get_device.exit ]
+  %.0 = phi ptr [ null, %1 ], [ %5, %3 ], [ %13, %11 ], [ null, %ma_device_get_context.exit.i ], [ null, %ma_engine_get_device.exit ]
   ret ptr %.0
 }
 
@@ -84318,8 +84318,8 @@ ma_sound_uninit.exit:                             ; preds = %._crit_edge
   %.not83 = icmp eq ptr %73, null
   br i1 %.not83, label %ma_free.exit.thread, label %ma_sound_init_from_file.exit
 
-ma_sound_init_from_file.exit:                     ; preds = %43, %ma_free.exit.i, %ma_sound_uninit.exit
-  %.1105 = phi ptr [ %73, %ma_sound_uninit.exit ], [ %.067127, %ma_free.exit.i ], [ %.067127, %43 ]
+ma_sound_init_from_file.exit:                     ; preds = %ma_free.exit.i, %43, %ma_sound_uninit.exit
+  %.1105 = phi ptr [ %73, %ma_sound_uninit.exit ], [ %.067127, %43 ], [ %.067127, %ma_free.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 1268
   %75 = load i32, ptr %74, align 4, !tbaa !1743, !noalias !1819
@@ -84392,7 +84392,7 @@ ma_free.exit.thread.sink.split:                   ; preds = %94, %91
   br label %ma_free.exit.thread
 
 ma_free.exit.thread:                              ; preds = %ma_free.exit.thread.sink.split, %ma_sound_uninit.exit, %91, %94, %._crit_edge
-  %.065.ph = phi i32 [ -4, %._crit_edge ], [ %80, %94 ], [ %83, %91 ], [ -4, %ma_sound_uninit.exit ], [ %.065.ph.ph, %ma_free.exit.thread.sink.split ]
+  %.065.ph = phi i32 [ %80, %94 ], [ %83, %91 ], [ -4, %ma_sound_uninit.exit ], [ -4, %._crit_edge ], [ %.065.ph.ph, %ma_free.exit.thread.sink.split ]
   store atomic volatile i32 0, ptr %11 release, align 4
   br label %135
 
@@ -84485,7 +84485,7 @@ ma_sound_start.exit:                              ; preds = %ma_node_set_state.e
   br label %135
 
 135:                                              ; preds = %ma_free.exit.thread, %4, %ma_sound_start.exit, %131
-  %.0 = phi i32 [ 0, %ma_sound_start.exit ], [ -2, %4 ], [ %127, %131 ], [ %.065.ph, %ma_free.exit.thread ]
+  %.0 = phi i32 [ %127, %131 ], [ 0, %ma_sound_start.exit ], [ -2, %4 ], [ %.065.ph, %ma_free.exit.thread ]
   ret i32 %.0
 }
 
@@ -84570,7 +84570,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %ma_sound_config_ini
   br label %ma_sound_init_ex.exit
 
 ma_sound_init_ex.exit:                            ; preds = %18, %ma_zero_memory_default.exit.i.i, %ma_sound_config_init_2.exit, %6
-  %.0 = phi i32 [ -2, %6 ], [ -2, %ma_sound_config_init_2.exit ], [ -2, %ma_zero_memory_default.exit.i.i ], [ %25, %18 ]
+  %.0 = phi i32 [ -2, %6 ], [ %25, %18 ], [ -2, %ma_sound_config_init_2.exit ], [ -2, %ma_zero_memory_default.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -84659,7 +84659,7 @@ ma_node_set_state.exit:                           ; preds = %ma_data_source_seek
   br label %35
 
 35:                                               ; preds = %ma_data_source_seek_to_pcm_frame.exit, %ma_data_source_seek_to_pcm_frame.exit.thread, %ma_sound_is_playing.exit, %1, %ma_node_set_state.exit
-  %.0 = phi i32 [ %31, %ma_data_source_seek_to_pcm_frame.exit.thread ], [ -2, %1 ], [ 0, %ma_node_set_state.exit ], [ 0, %ma_sound_is_playing.exit ], [ %31, %ma_data_source_seek_to_pcm_frame.exit ]
+  %.0 = phi i32 [ 0, %ma_node_set_state.exit ], [ -2, %1 ], [ 0, %ma_sound_is_playing.exit ], [ %31, %ma_data_source_seek_to_pcm_frame.exit.thread ], [ %31, %ma_data_source_seek_to_pcm_frame.exit ]
   ret i32 %.0
 }
 
@@ -84803,7 +84803,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %ma_fence_acquire.ex
   br label %ma_resource_manager_data_source_init_ex.exit
 
 ma_resource_manager_data_source_init_ex.exit:     ; preds = %69, %71
-  %.0.i46 = phi i32 [ %72, %71 ], [ %70, %69 ]
+  %.0.i46 = phi i32 [ %70, %69 ], [ %72, %71 ]
   %.not41 = icmp eq i32 %.0.i46, 0
   br i1 %.not41, label %73, label %ma_resource_manager_data_source_init_ex.exit.thread
 
@@ -84860,7 +84860,7 @@ ma_zero_memory_default.exit:                      ; preds = %78, %ma_resource_ma
   br label %ma_resource_manager_data_source_init_ex.exit.thread
 
 ma_resource_manager_data_source_init_ex.exit.thread: ; preds = %ma_zero_memory_default.exit.i.i, %ma_fence_acquire.exit, %73, %ma_resource_manager_data_source_init_ex.exit, %ma_zero_memory_default.exit
-  %.035 = phi i32 [ %.0.i46, %ma_resource_manager_data_source_init_ex.exit ], [ %77, %ma_zero_memory_default.exit ], [ 0, %73 ], [ -2, %ma_fence_acquire.exit ], [ -2, %ma_zero_memory_default.exit.i.i ]
+  %.035 = phi i32 [ %77, %ma_zero_memory_default.exit ], [ %.0.i46, %ma_resource_manager_data_source_init_ex.exit ], [ 0, %73 ], [ -2, %ma_fence_acquire.exit ], [ -2, %ma_zero_memory_default.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %95 = load ptr, ptr %23, align 8, !tbaa !1606
   %.not43 = icmp eq ptr %95, null
@@ -84900,7 +84900,7 @@ ma_event_signal.exit.i:                           ; preds = %104
   br i1 %.not.i51, label %ma_fence_release.exit, label %97
 
 ma_fence_release.exit:                            ; preds = %111, %97, %ma_event_signal.exit.i, %104, %ma_malloc.exit.thread, %ma_resource_manager_data_source_init_ex.exit.thread, %ma_malloc.exit
-  %.034 = phi i32 [ -4, %ma_malloc.exit ], [ -4, %ma_malloc.exit.thread ], [ %.035, %ma_resource_manager_data_source_init_ex.exit.thread ], [ %.035, %ma_event_signal.exit.i ], [ %.035, %104 ], [ %.035, %97 ], [ %.035, %111 ]
+  %.034 = phi i32 [ -4, %ma_malloc.exit ], [ %.035, %ma_resource_manager_data_source_init_ex.exit.thread ], [ -4, %ma_malloc.exit.thread ], [ %.035, %104 ], [ %.035, %ma_event_signal.exit.i ], [ %.035, %97 ], [ %.035, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.034
@@ -84985,8 +84985,8 @@ define internal fastcc i32 @ma_sound_init_from_data_source_internal(ptr noundef 
   %.not36.i = icmp eq i32 %45, 0
   br i1 %.not36.i, label %46, label %ma_data_source_get_data_format.exit.thread
 
-ma_data_source_get_data_format.exit.thread:       ; preds = %44, %38
-  %.0.i.ph = phi i32 [ -29, %38 ], [ %45, %44 ]
+ma_data_source_get_data_format.exit.thread:       ; preds = %38, %44
+  %.0.i.ph = phi i32 [ %45, %44 ], [ -29, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -85287,8 +85287,8 @@ thread-pre-split:                                 ; preds = %ma_data_source_set_
   %192 = call i32 %189(ptr noundef nonnull %180, i32 noundef %182) #66
   br label %ma_sound_set_looping.exit
 
-ma_sound_set_looping.exit:                        ; preds = %68, %.thread.i, %58, %61, %71, %ma_engine_node_get_heap_size.exit.i, %191, %184, %179, %ma_data_source_get_data_format.exit.thread, %46, %90
-  %.044 = phi i32 [ 0, %191 ], [ %.043, %90 ], [ %.0.i.ph, %ma_data_source_get_data_format.exit.thread ], [ -3, %46 ], [ 0, %179 ], [ 0, %184 ], [ %66, %68 ], [ %67, %.thread.i ], [ -4, %58 ], [ -4, %61 ], [ %66, %71 ], [ %55, %ma_engine_node_get_heap_size.exit.i ]
+ma_sound_set_looping.exit:                        ; preds = %.thread.i, %58, %71, %68, %61, %ma_engine_node_get_heap_size.exit.i, %191, %184, %179, %ma_data_source_get_data_format.exit.thread, %46, %90
+  %.044 = phi i32 [ %.043, %90 ], [ -3, %46 ], [ %.0.i.ph, %ma_data_source_get_data_format.exit.thread ], [ 0, %179 ], [ 0, %184 ], [ 0, %191 ], [ %67, %.thread.i ], [ -4, %58 ], [ %66, %71 ], [ %66, %68 ], [ -4, %61 ], [ %55, %ma_engine_node_get_heap_size.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.044
 }
@@ -85335,7 +85335,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %3
   br label %ma_sound_preinit.exit.thread
 
 ma_sound_preinit.exit.thread:                     ; preds = %ma_zero_memory_default.exit.i, %3, %21, %19
-  %.0 = phi i32 [ %22, %21 ], [ -2, %ma_zero_memory_default.exit.i ], [ %20, %19 ], [ -2, %3 ]
+  %.0 = phi i32 [ %20, %19 ], [ %22, %21 ], [ -2, %3 ], [ -2, %ma_zero_memory_default.exit.i ]
   ret i32 %.0
 }
 
@@ -85399,7 +85399,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %ma_sound_config_ini
   br label %ma_sound_init_ex.exit
 
 ma_sound_init_ex.exit:                            ; preds = %18, %ma_zero_memory_default.exit.i.i, %ma_sound_config_init_2.exit, %6
-  %.0 = phi i32 [ -2, %6 ], [ -2, %ma_sound_config_init_2.exit ], [ -2, %ma_zero_memory_default.exit.i.i ], [ %25, %18 ]
+  %.0 = phi i32 [ -2, %6 ], [ %25, %18 ], [ -2, %ma_sound_config_init_2.exit ], [ -2, %ma_zero_memory_default.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -85581,7 +85581,7 @@ ma_zero_memory_default.exit:                      ; preds = %59, %ma_resource_ma
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %16, %ma_zero_memory_default.exit.i, %5, %47, %44, %ma_resource_manager_data_source_init_copy.exit.thread, %ma_malloc.exit, %12, %76, %ma_zero_memory_default.exit
-  %.0 = phi i32 [ 0, %76 ], [ %.0.i3953, %47 ], [ -2, %ma_zero_memory_default.exit.i ], [ -3, %12 ], [ -2, %5 ], [ %58, %ma_zero_memory_default.exit ], [ -4, %ma_malloc.exit ], [ %.0.i3953, %ma_resource_manager_data_source_init_copy.exit.thread ], [ %.0.i3953, %44 ], [ -4, %16 ]
+  %.0 = phi i32 [ %58, %ma_zero_memory_default.exit ], [ 0, %76 ], [ -3, %12 ], [ -4, %ma_malloc.exit ], [ %.0.i3953, %ma_resource_manager_data_source_init_copy.exit.thread ], [ %.0.i3953, %44 ], [ %.0.i3953, %47 ], [ -2, %5 ], [ -2, %ma_zero_memory_default.exit.i ], [ -4, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -85630,7 +85630,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %ma_sound_config_ini
   br label %ma_sound_init_ex.exit
 
 ma_sound_init_ex.exit:                            ; preds = %ma_sound_config_init_2.exit, %ma_zero_memory_default.exit.i.i, %18
-  %.0.i = phi i32 [ %20, %18 ], [ -2, %ma_zero_memory_default.exit.i.i ], [ -2, %ma_sound_config_init_2.exit ]
+  %.0.i = phi i32 [ %20, %18 ], [ -2, %ma_sound_config_init_2.exit ], [ -2, %ma_zero_memory_default.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
@@ -85834,7 +85834,7 @@ ma_sound_set_fade_start_in_pcm_frames.exit.i.i:   ; preds = %7
   br label %ma_sound_stop_with_fade_in_pcm_frames.exit
 
 ma_sound_stop_with_fade_in_pcm_frames.exit:       ; preds = %ma_sound_get_engine.exit, %7, %ma_sound_set_fade_start_in_pcm_frames.exit.i.i
-  %21 = phi i64 [ %15, %ma_sound_set_fade_start_in_pcm_frames.exit.i.i ], [ %15, %7 ], [ 0, %ma_sound_get_engine.exit ]
+  %21 = phi i64 [ %15, %7 ], [ %15, %ma_sound_set_fade_start_in_pcm_frames.exit.i.i ], [ 0, %ma_sound_get_engine.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = atomicrmw xchg ptr %22, i64 %21 seq_cst, align 8
   br label %24
@@ -86313,7 +86313,7 @@ ma_sound_get_engine.exit:                         ; preds = %1
   br label %ma_vec3f_normalize.exit
 
 ma_vec3f_normalize.exit:                          ; preds = %17, %7, %ma_sound_get_engine.exit, %1
-  %.pn = phi { <2 x float>, float } [ { <2 x float> zeroinitializer, float -1.000000e+00 }, %ma_sound_get_engine.exit ], [ { <2 x float> zeroinitializer, float -1.000000e+00 }, %1 ], [ %26, %17 ], [ zeroinitializer, %7 ]
+  %.pn = phi { <2 x float>, float } [ { <2 x float> zeroinitializer, float -1.000000e+00 }, %1 ], [ { <2 x float> zeroinitializer, float -1.000000e+00 }, %ma_sound_get_engine.exit ], [ %26, %17 ], [ zeroinitializer, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret { <2 x float>, float } %.pn
 }
@@ -87038,7 +87038,7 @@ define float @ma_sound_get_current_fade_volume(ptr noundef readonly captures(add
   br label %ma_fader_get_current_volume.exit
 
 ma_fader_get_current_volume.exit:                 ; preds = %18, %15, %9, %3, %1
-  %.0 = phi float [ -2.000000e+00, %1 ], [ %30, %18 ], [ 1.000000e+00, %3 ], [ %11, %9 ], [ %17, %15 ]
+  %.0 = phi float [ -2.000000e+00, %1 ], [ %11, %9 ], [ %17, %15 ], [ %30, %18 ], [ 1.000000e+00, %3 ]
   ret float %.0
 }
 
@@ -87431,7 +87431,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %45, %47
   br label %ma_data_source_get_data_format.exit
 
 ma_data_source_get_data_format.exit:              ; preds = %ma_zero_memory_default.exit.i, %52, %60, %61
-  %.0.i32 = phi i32 [ %53, %52 ], [ 0, %60 ], [ -29, %ma_zero_memory_default.exit.i ], [ 0, %61 ]
+  %.0.i32 = phi i32 [ -29, %ma_zero_memory_default.exit.i ], [ %53, %52 ], [ 0, %61 ], [ 0, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -87501,7 +87501,7 @@ ma_data_source_get_cursor_in_pcm_frames.exit:     ; preds = %13, %16, %18, %23, 
   br label %29
 
 29:                                               ; preds = %5, %2, %ma_data_source_get_cursor_in_pcm_frames.exit, %12
-  %.0 = phi i32 [ %.0.i, %ma_data_source_get_cursor_in_pcm_frames.exit ], [ -2, %2 ], [ 0, %12 ], [ -3, %5 ]
+  %.0 = phi i32 [ 0, %12 ], [ %.0.i, %ma_data_source_get_cursor_in_pcm_frames.exit ], [ -2, %2 ], [ -3, %5 ]
   ret i32 %.0
 }
 
@@ -87546,7 +87546,7 @@ define i32 @ma_sound_get_length_in_pcm_frames(ptr noundef readonly captures(addr
   br label %ma_data_source_get_length_in_pcm_frames.exit
 
 ma_data_source_get_length_in_pcm_frames.exit:     ; preds = %22, %17, %13, %8, %4, %2
-  %.0 = phi i32 [ -3, %4 ], [ -2, %2 ], [ %23, %22 ], [ -2, %8 ], [ 0, %13 ], [ -29, %17 ]
+  %.0 = phi i32 [ -2, %2 ], [ -3, %4 ], [ 0, %13 ], [ %23, %22 ], [ -2, %8 ], [ -29, %17 ]
   ret i32 %.0
 }
 
@@ -87642,8 +87642,8 @@ ma_sound_get_data_format.exit.thread:             ; preds = %ma_sound_get_cursor
   %.not36.i.i = icmp eq i32 %40, 0
   br i1 %.not36.i.i, label %ma_sound_get_data_format.exit, label %ma_sound_get_data_format.exit.thread37
 
-ma_sound_get_data_format.exit.thread37:           ; preds = %39, %34
-  %.0.i32.i.ph = phi i32 [ -29, %34 ], [ %40, %39 ]
+ma_sound_get_data_format.exit.thread37:           ; preds = %34, %39
+  %.0.i32.i.ph = phi i32 [ %40, %39 ], [ -29, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -87732,7 +87732,7 @@ ma_data_source_get_length_in_pcm_frames.exit.i:   ; preds = %20
   br i1 %.not36.i.i, label %33, label %ma_data_source_get_data_format.exit.thread.i
 
 ma_data_source_get_data_format.exit.thread.i:     ; preds = %31, %26
-  %.0.i13.ph.i = phi i32 [ -29, %26 ], [ %32, %31 ]
+  %.0.i13.ph.i = phi i32 [ %32, %31 ], [ -29, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -87831,7 +87831,7 @@ ma_zero_memory_default.exit.i:                    ; preds = %ma_sound_group_conf
   br label %ma_sound_group_init_ex.exit
 
 ma_sound_group_init_ex.exit:                      ; preds = %ma_sound_group_config_init_2.exit, %ma_zero_memory_default.exit.i, %12
-  %.0.i = phi i32 [ -2, %ma_zero_memory_default.exit.i ], [ -2, %ma_sound_group_config_init_2.exit ], [ %19, %12 ]
+  %.0.i = phi i32 [ -2, %ma_sound_group_config_init_2.exit ], [ %19, %12 ], [ -2, %ma_zero_memory_default.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
@@ -87874,7 +87874,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %ma_zero_memory_defa
   br label %ma_sound_init_ex.exit
 
 ma_sound_init_ex.exit:                            ; preds = %12, %ma_zero_memory_default.exit.i.i, %ma_zero_memory_default.exit, %3
-  %.0 = phi i32 [ -2, %ma_zero_memory_default.exit ], [ -2, %3 ], [ %19, %12 ], [ -2, %ma_zero_memory_default.exit.i.i ]
+  %.0 = phi i32 [ -2, %3 ], [ -2, %ma_zero_memory_default.exit ], [ %19, %12 ], [ -2, %ma_zero_memory_default.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -88041,7 +88041,7 @@ ma_node_set_state.exit.i:                         ; preds = %ma_data_source_seek
   br label %ma_sound_start.exit
 
 ma_sound_start.exit:                              ; preds = %1, %ma_sound_is_playing.exit.i, %ma_data_source_seek_to_pcm_frame.exit.i, %ma_data_source_seek_to_pcm_frame.exit.thread.i, %ma_node_set_state.exit.i
-  %.0.i = phi i32 [ %31, %ma_data_source_seek_to_pcm_frame.exit.thread.i ], [ -2, %1 ], [ 0, %ma_node_set_state.exit.i ], [ 0, %ma_sound_is_playing.exit.i ], [ %31, %ma_data_source_seek_to_pcm_frame.exit.i ]
+  %.0.i = phi i32 [ 0, %ma_node_set_state.exit.i ], [ -2, %1 ], [ 0, %ma_sound_is_playing.exit.i ], [ %31, %ma_data_source_seek_to_pcm_frame.exit.thread.i ], [ %31, %ma_data_source_seek_to_pcm_frame.exit.i ]
   ret i32 %.0.i
 }
 
@@ -88370,7 +88370,7 @@ ma_sound_get_engine.exit.i:                       ; preds = %1
   br label %ma_sound_get_direction_to_listener.exit
 
 ma_sound_get_direction_to_listener.exit:          ; preds = %1, %ma_sound_get_engine.exit.i, %7, %17
-  %.pn.i = phi { <2 x float>, float } [ { <2 x float> zeroinitializer, float -1.000000e+00 }, %ma_sound_get_engine.exit.i ], [ { <2 x float> zeroinitializer, float -1.000000e+00 }, %1 ], [ %26, %17 ], [ zeroinitializer, %7 ]
+  %.pn.i = phi { <2 x float>, float } [ { <2 x float> zeroinitializer, float -1.000000e+00 }, %1 ], [ { <2 x float> zeroinitializer, float -1.000000e+00 }, %ma_sound_get_engine.exit.i ], [ %26, %17 ], [ zeroinitializer, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret { <2 x float>, float } %.pn.i
 }
@@ -89076,7 +89076,7 @@ define float @ma_sound_group_get_current_fade_volume(ptr noundef readonly captur
   br label %ma_sound_get_current_fade_volume.exit
 
 ma_sound_get_current_fade_volume.exit:            ; preds = %1, %3, %9, %15, %18
-  %.0.i = phi float [ -2.000000e+00, %1 ], [ %30, %18 ], [ 1.000000e+00, %3 ], [ %11, %9 ], [ %17, %15 ]
+  %.0.i = phi float [ -2.000000e+00, %1 ], [ %11, %9 ], [ %17, %15 ], [ %30, %18 ], [ 1.000000e+00, %3 ]
   ret float %.0.i
 }
 
@@ -89340,8 +89340,8 @@ ma_dr_wav_preinit.exit:                           ; preds = %18, %.thread.i
   %21 = tail call fastcc i32 @ma_dr_wav_init__internal(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %5, i32 noundef %6)
   br label %ma_dr_wav_preinit.exit.thread
 
-ma_dr_wav_preinit.exit.thread:                    ; preds = %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %18, %8, %ma_dr_wav_preinit.exit
-  %.0 = phi i32 [ %21, %ma_dr_wav_preinit.exit ], [ 0, %8 ], [ 0, %18 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i ]
+ma_dr_wav_preinit.exit.thread:                    ; preds = %18, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %8, %ma_dr_wav_preinit.exit
+  %.0 = phi i32 [ %21, %ma_dr_wav_preinit.exit ], [ 0, %8 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -89700,7 +89700,7 @@ ma_dr_wav_guid_equal.exit:                        ; preds = %.preheader1217
 .thread790:                                       ; preds = %183
   br i1 %or.cond1004, label %192, label %.thread801
 
-.thread794:                                       ; preds = %175, %149, %156
+.thread794:                                       ; preds = %149, %156, %175
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %ma_dr_wav_free.exit748
@@ -89717,9 +89717,9 @@ ma_dr_wav_guid_equal.exit:                        ; preds = %.preheader1217
   br i1 %.not1113.not, label %.thread785, label %ma_dr_wav_free.exit748
 
 .thread785:                                       ; preds = %122, %.thread797, %ma_dr_wav_guid_equal.exit.thread788, %192
-  %193 = phi ptr [ %150, %.thread797 ], [ %84, %ma_dr_wav_guid_equal.exit.thread788 ], [ %150, %192 ], [ %86, %122 ]
-  %194 = phi i64 [ %179, %.thread797 ], [ %143, %ma_dr_wav_guid_equal.exit.thread788 ], [ %179, %192 ], [ %121, %122 ]
-  %.0386 = phi i1 [ true, %.thread797 ], [ true, %ma_dr_wav_guid_equal.exit.thread788 ], [ false, %192 ], [ true, %122 ]
+  %193 = phi ptr [ %150, %192 ], [ %84, %ma_dr_wav_guid_equal.exit.thread788 ], [ %150, %.thread797 ], [ %86, %122 ]
+  %194 = phi i64 [ %179, %192 ], [ %143, %ma_dr_wav_guid_equal.exit.thread788 ], [ %179, %.thread797 ], [ %121, %122 ]
+  %.0386 = phi i1 [ false, %192 ], [ true, %ma_dr_wav_guid_equal.exit.thread788 ], [ true, %.thread797 ], [ true, %122 ]
   %195 = load i32, ptr %193, align 8, !tbaa !1150
   %196 = icmp eq i32 %195, 3
   br i1 %196, label %197, label %249
@@ -90219,7 +90219,7 @@ ma_dr_wav_bytes_to_u16_ex.exit584:                ; preds = %408, %461
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %315, i8 0, i64 24, i1 false)
   %468 = load i64, ptr %263, align 8, !tbaa !1863
   %469 = icmp ugt i64 %468, 16
-  br i1 %469, label %470, label %546
+  br i1 %469, label %470, label %547
 
 470:                                              ; preds = %ma_dr_wav_bytes_to_u16_ex.exit584
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -90227,7 +90227,7 @@ ma_dr_wav_bytes_to_u16_ex.exit584:                ; preds = %408, %461
   %472 = load ptr, ptr %33, align 8, !tbaa !1143
   %473 = call i64 %471(ptr noundef %472, ptr noundef nonnull %24, i64 noundef 2) #66
   %.not497 = icmp eq i64 %473, 2
-  br i1 %.not497, label %474, label %.critedge518
+  br i1 %.not497, label %474, label %545
 
 474:                                              ; preds = %470
   %475 = add i64 %368, 18
@@ -90263,7 +90263,7 @@ ma_dr_wav_bytes_to_u16_ex.exit590:                ; preds = %477, %484
   %489 = icmp eq i16 %488, -2
   %490 = icmp ne i16 %.0.i589, 22
   %or.cond56 = and i1 %490, %489
-  br i1 %or.cond56, label %.critedge518, label %491
+  br i1 %or.cond56, label %545, label %491
 
 491:                                              ; preds = %487
   br i1 %489, label %492, label %525
@@ -90328,7 +90328,7 @@ ma_dr_wav_bytes_to_u32_ex.exit543:                ; preds = %501, %522
   %527 = load ptr, ptr %33, align 8, !tbaa !1143
   %528 = call i32 %526(ptr noundef %527, i32 noundef %486, i32 noundef 1) #66
   %529 = icmp eq i32 %528, 0
-  br i1 %529, label %.critedge518, label %._crit_edge1375
+  br i1 %529, label %545, label %._crit_edge1375
 
 ._crit_edge1375:                                  ; preds = %525
   %.pre1376 = load i16, ptr %315, align 4, !tbaa !1875
@@ -90352,72 +90352,72 @@ ma_dr_wav_bytes_to_u32_ex.exit543:                ; preds = %501, %522
   %539 = trunc i64 %538 to i32
   %540 = call i32 %535(ptr noundef %536, i32 noundef %539, i32 noundef 1) #66
   %541 = icmp eq i32 %540, 0
-  br i1 %541, label %.critedge518, label %542
+  br i1 %541, label %545, label %.critedge518
 
-542:                                              ; preds = %533
-  %543 = load i64, ptr %263, align 8, !tbaa !1863
-  %544 = sub i64 %543, %.0420
-  %545 = add i64 %544, %534
-  store i64 %545, ptr %8, align 8, !tbaa !63
+.critedge518:                                     ; preds = %533
+  %542 = load i64, ptr %263, align 8, !tbaa !1863
+  %543 = sub i64 %542, %.0420
+  %544 = add i64 %543, %534
+  store i64 %544, ptr %8, align 8, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br label %546
+  br label %547
 
 .critedge516:                                     ; preds = %492
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br label %.critedge518
+  br label %545
 
-546:                                              ; preds = %542, %ma_dr_wav_bytes_to_u16_ex.exit584
-  %547 = phi i64 [ %545, %542 ], [ %406, %ma_dr_wav_bytes_to_u16_ex.exit584 ]
-  %548 = load i32, ptr %264, align 8, !tbaa !1865
-  %.not500 = icmp eq i32 %548, 0
-  br i1 %.not500, label %ma_dr_wav__seek_forward.exit660.thread, label %549
-
-549:                                              ; preds = %546
-  %550 = load ptr, ptr %269, align 8, !tbaa !1142
-  %551 = load ptr, ptr %33, align 8, !tbaa !1143
-  %552 = icmp slt i32 %548, 0
-  br i1 %552, label %.lr.ph1301.preheader, label %ma_dr_wav__seek_forward.exit660
-
-.lr.ph1301.preheader:                             ; preds = %549
-  %553 = zext i32 %548 to i64
-  br label %.lr.ph1301
-
-.lr.ph1301:                                       ; preds = %.lr.ph1301.preheader, %.lr.ph.i654
-  %.013.i6551300 = phi i64 [ %555, %.lr.ph.i654 ], [ %553, %.lr.ph1301.preheader ]
-  %554 = call i32 %550(ptr noundef %551, i32 noundef 2147483647, i32 noundef 1) #66
-  %.not11.i659 = icmp eq i32 %554, 0
-  br i1 %.not11.i659, label %ma_dr_wav__seek_forward.exit660.thread, label %.lr.ph.i654
-
-.lr.ph.i654:                                      ; preds = %.lr.ph1301
-  %555 = add i64 %.013.i6551300, -2147483647
-  %556 = icmp ugt i64 %555, 2147483647
-  br i1 %556, label %.lr.ph1301, label %ma_dr_wav__seek_forward.exit660.loopexit
-
-ma_dr_wav__seek_forward.exit660.loopexit:         ; preds = %.lr.ph.i654
-  %557 = trunc nuw nsw i64 %555 to i32
-  br label %ma_dr_wav__seek_forward.exit660
-
-ma_dr_wav__seek_forward.exit660:                  ; preds = %ma_dr_wav__seek_forward.exit660.loopexit, %549
-  %.013.i655.lcssa = phi i32 [ %548, %549 ], [ %557, %ma_dr_wav__seek_forward.exit660.loopexit ]
-  %558 = call i32 %550(ptr noundef %551, i32 noundef %.013.i655.lcssa, i32 noundef 1) #66
-  %.not10.i656.not = icmp eq i32 %558, 0
-  br i1 %.not10.i656.not, label %ma_dr_wav__seek_forward.exit660.thread, label %559
-
-559:                                              ; preds = %ma_dr_wav__seek_forward.exit660
-  %560 = load i32, ptr %264, align 8, !tbaa !1865
-  %561 = zext i32 %560 to i64
-  %562 = add i64 %547, %561
-  store i64 %562, ptr %8, align 8, !tbaa !63
-  br label %ma_dr_wav__seek_forward.exit660.thread
-
-.critedge518:                                     ; preds = %533, %487, %525, %470, %.critedge516
-  %563 = phi i64 [ %534, %533 ], [ %475, %487 ], [ %475, %525 ], [ %406, %470 ], [ %475, %.critedge516 ]
+545:                                              ; preds = %533, %525, %.critedge516, %487, %470
+  %546 = phi i64 [ %534, %533 ], [ %475, %525 ], [ %475, %.critedge516 ], [ %475, %487 ], [ %406, %470 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %ma_dr_wav__seek_forward.exit660.thread
 
-ma_dr_wav__seek_forward.exit660.thread:           ; preds = %.lr.ph1301, %546, %559, %ma_dr_wav__seek_forward.exit660, %.critedge518, %ma_dr_wav_guid_equal.exit652
-  %564 = phi i64 [ %563, %.critedge518 ], [ %368, %ma_dr_wav_guid_equal.exit652 ], [ %547, %ma_dr_wav__seek_forward.exit660 ], [ %562, %559 ], [ %547, %546 ], [ %547, %.lr.ph1301 ]
-  %.7407 = phi i32 [ 1, %.critedge518 ], [ 1, %ma_dr_wav_guid_equal.exit652 ], [ 5, %ma_dr_wav__seek_forward.exit660 ], [ 6, %559 ], [ 6, %546 ], [ 5, %.lr.ph1301 ]
+547:                                              ; preds = %.critedge518, %ma_dr_wav_bytes_to_u16_ex.exit584
+  %548 = phi i64 [ %544, %.critedge518 ], [ %406, %ma_dr_wav_bytes_to_u16_ex.exit584 ]
+  %549 = load i32, ptr %264, align 8, !tbaa !1865
+  %.not500 = icmp eq i32 %549, 0
+  br i1 %.not500, label %ma_dr_wav__seek_forward.exit660.thread, label %550
+
+550:                                              ; preds = %547
+  %551 = load ptr, ptr %269, align 8, !tbaa !1142
+  %552 = load ptr, ptr %33, align 8, !tbaa !1143
+  %553 = icmp slt i32 %549, 0
+  br i1 %553, label %.lr.ph1301.preheader, label %ma_dr_wav__seek_forward.exit660
+
+.lr.ph1301.preheader:                             ; preds = %550
+  %554 = zext i32 %549 to i64
+  br label %.lr.ph1301
+
+.lr.ph1301:                                       ; preds = %.lr.ph1301.preheader, %.lr.ph.i654
+  %.013.i6551300 = phi i64 [ %556, %.lr.ph.i654 ], [ %554, %.lr.ph1301.preheader ]
+  %555 = call i32 %551(ptr noundef %552, i32 noundef 2147483647, i32 noundef 1) #66
+  %.not11.i659 = icmp eq i32 %555, 0
+  br i1 %.not11.i659, label %ma_dr_wav__seek_forward.exit660.thread, label %.lr.ph.i654
+
+.lr.ph.i654:                                      ; preds = %.lr.ph1301
+  %556 = add i64 %.013.i6551300, -2147483647
+  %557 = icmp ugt i64 %556, 2147483647
+  br i1 %557, label %.lr.ph1301, label %ma_dr_wav__seek_forward.exit660.loopexit
+
+ma_dr_wav__seek_forward.exit660.loopexit:         ; preds = %.lr.ph.i654
+  %558 = trunc nuw nsw i64 %556 to i32
+  br label %ma_dr_wav__seek_forward.exit660
+
+ma_dr_wav__seek_forward.exit660:                  ; preds = %ma_dr_wav__seek_forward.exit660.loopexit, %550
+  %.013.i655.lcssa = phi i32 [ %549, %550 ], [ %558, %ma_dr_wav__seek_forward.exit660.loopexit ]
+  %559 = call i32 %551(ptr noundef %552, i32 noundef %.013.i655.lcssa, i32 noundef 1) #66
+  %.not10.i656.not = icmp eq i32 %559, 0
+  br i1 %.not10.i656.not, label %ma_dr_wav__seek_forward.exit660.thread, label %560
+
+560:                                              ; preds = %ma_dr_wav__seek_forward.exit660
+  %561 = load i32, ptr %264, align 8, !tbaa !1865
+  %562 = zext i32 %561 to i64
+  %563 = add i64 %548, %562
+  store i64 %563, ptr %8, align 8, !tbaa !63
+  br label %ma_dr_wav__seek_forward.exit660.thread
+
+ma_dr_wav__seek_forward.exit660.thread:           ; preds = %.lr.ph1301, %547, %560, %ma_dr_wav__seek_forward.exit660, %545, %ma_dr_wav_guid_equal.exit652
+  %564 = phi i64 [ %546, %545 ], [ %368, %ma_dr_wav_guid_equal.exit652 ], [ %548, %ma_dr_wav__seek_forward.exit660 ], [ %563, %560 ], [ %548, %547 ], [ %548, %.lr.ph1301 ]
+  %.7407 = phi i32 [ 1, %545 ], [ 1, %ma_dr_wav_guid_equal.exit652 ], [ 5, %ma_dr_wav__seek_forward.exit660 ], [ 6, %560 ], [ 6, %547 ], [ 5, %.lr.ph1301 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %865
 
@@ -90614,8 +90614,8 @@ ma_dr_wav_guid_equal.exit682:                     ; preds = %599, %591
   br label %641
 
 641:                                              ; preds = %.thread844, %ma_dr_wav_guid_equal.exit682, %639
-  %642 = phi i64 [ %608, %.thread844 ], [ %638, %639 ], [ %368, %ma_dr_wav_guid_equal.exit682 ]
-  %.1422 = phi i64 [ %610, %.thread844 ], [ %640, %639 ], [ %367, %ma_dr_wav_guid_equal.exit682 ]
+  %642 = phi i64 [ %638, %639 ], [ %368, %ma_dr_wav_guid_equal.exit682 ], [ %608, %.thread844 ]
+  %.1422 = phi i64 [ %640, %639 ], [ %367, %ma_dr_wav_guid_equal.exit682 ], [ %610, %.thread844 ]
   %643 = load i32, ptr %264, align 8, !tbaa !1865
   %644 = zext i32 %643 to i64
   %645 = add i64 %.1422, %644
@@ -90885,7 +90885,7 @@ ma_dr_wav_bytes_to_u16_ex.exit608:                ; preds = %676, %703
   br i1 %or.cond1201, label %.thread910, label %ma_dr_wav__seek_forward.exit711.thread
 
 .thread910:                                       ; preds = %766, %760, %754, %748, %.thread883, %741, %.thread872, %734, %712, %733, %724, %726, %709
-  %.5394 = phi i16 [ 1, %709 ], [ 7, %760 ], [ 7, %766 ], [ 6, %754 ], [ 3, %.thread872 ], [ 3, %741 ], [ 3, %.thread883 ], [ 3, %734 ], [ 1, %712 ], [ 1, %733 ], [ 1, %724 ], [ 1, %726 ], [ 6, %748 ]
+  %.5394 = phi i16 [ 1, %709 ], [ 1, %733 ], [ 1, %724 ], [ 1, %726 ], [ 1, %712 ], [ 3, %734 ], [ 3, %.thread872 ], [ 3, %741 ], [ 3, %.thread883 ], [ 6, %748 ], [ 6, %754 ], [ 7, %760 ], [ 7, %766 ]
   store i16 %.5394, ptr %10, align 4, !tbaa !1860
   store i16 %.0.i601851855, ptr %291, align 2, !tbaa !1870
   %772 = trunc nuw i64 %708 to i32
@@ -90951,9 +90951,9 @@ ma_dr_wav__seek_forward.exit711.thread915:        ; preds = %787, %ma_dr_wav__se
   br label %ma_dr_wav__seek_forward.exit711.thread
 
 ma_dr_wav__seek_forward.exit711.thread:           ; preds = %.lr.ph1291, %766, %760, %754, %748, %.thread883, %.thread872, %727, %712, %718, %710, %783, %ma_dr_wav__seek_forward.exit711.thread915, %ma_dr_wav__seek_forward.exit711, %ma_dr_wav_bytes_to_u16_ex.exit608, %669, %668, %666
-  %798 = phi i64 [ %368, %666 ], [ %368, %668 ], [ %673, %669 ], [ %673, %ma_dr_wav_bytes_to_u16_ex.exit608 ], [ %673, %ma_dr_wav__seek_forward.exit711 ], [ %673, %766 ], [ %797, %ma_dr_wav__seek_forward.exit711.thread915 ], [ %673, %783 ], [ %673, %710 ], [ %673, %718 ], [ %673, %712 ], [ %673, %727 ], [ %673, %.thread872 ], [ %673, %.thread883 ], [ %673, %748 ], [ %673, %754 ], [ %673, %760 ], [ %673, %.lr.ph1291 ]
-  %.11411 = phi i32 [ 1, %666 ], [ 1, %668 ], [ 1, %669 ], [ 1, %ma_dr_wav_bytes_to_u16_ex.exit608 ], [ 1, %ma_dr_wav__seek_forward.exit711 ], [ 1, %766 ], [ 6, %ma_dr_wav__seek_forward.exit711.thread915 ], [ 6, %783 ], [ 1, %710 ], [ 1, %718 ], [ 1, %712 ], [ 1, %727 ], [ 1, %.thread872 ], [ 1, %.thread883 ], [ 1, %748 ], [ 1, %754 ], [ 1, %760 ], [ 1, %.lr.ph1291 ]
-  %.2397 = phi i64 [ %.0395, %666 ], [ %.0395, %668 ], [ %.0395, %669 ], [ %.0395, %ma_dr_wav_bytes_to_u16_ex.exit608 ], [ %.0.i554857, %ma_dr_wav__seek_forward.exit711 ], [ %.0395, %766 ], [ %.0.i554857, %ma_dr_wav__seek_forward.exit711.thread915 ], [ %.0.i554857, %783 ], [ %.0395, %710 ], [ %.0395, %718 ], [ %.0395, %712 ], [ %.0395, %727 ], [ %.0395, %.thread872 ], [ %.0395, %.thread883 ], [ %.0395, %748 ], [ %.0395, %754 ], [ %.0395, %760 ], [ %.0.i554857, %.lr.ph1291 ]
+  %798 = phi i64 [ %368, %666 ], [ %368, %668 ], [ %673, %669 ], [ %673, %ma_dr_wav_bytes_to_u16_ex.exit608 ], [ %673, %ma_dr_wav__seek_forward.exit711 ], [ %797, %ma_dr_wav__seek_forward.exit711.thread915 ], [ %673, %783 ], [ %673, %718 ], [ %673, %712 ], [ %673, %727 ], [ %673, %.thread872 ], [ %673, %.thread883 ], [ %673, %748 ], [ %673, %754 ], [ %673, %760 ], [ %673, %766 ], [ %673, %710 ], [ %673, %.lr.ph1291 ]
+  %.11411 = phi i32 [ 1, %666 ], [ 1, %668 ], [ 1, %669 ], [ 1, %ma_dr_wav_bytes_to_u16_ex.exit608 ], [ 1, %ma_dr_wav__seek_forward.exit711 ], [ 6, %ma_dr_wav__seek_forward.exit711.thread915 ], [ 6, %783 ], [ 1, %718 ], [ 1, %712 ], [ 1, %727 ], [ 1, %.thread872 ], [ 1, %.thread883 ], [ 1, %748 ], [ 1, %754 ], [ 1, %760 ], [ 1, %766 ], [ 1, %710 ], [ 1, %.lr.ph1291 ]
+  %.2397 = phi i64 [ %.0395, %666 ], [ %.0395, %668 ], [ %.0395, %669 ], [ %.0395, %ma_dr_wav_bytes_to_u16_ex.exit608 ], [ %.0.i554857, %ma_dr_wav__seek_forward.exit711 ], [ %.0.i554857, %ma_dr_wav__seek_forward.exit711.thread915 ], [ %.0.i554857, %783 ], [ %.0395, %718 ], [ %.0395, %712 ], [ %.0395, %727 ], [ %.0395, %.thread872 ], [ %.0395, %.thread883 ], [ %.0395, %748 ], [ %.0395, %754 ], [ %.0395, %760 ], [ %.0395, %766 ], [ %.0395, %710 ], [ %.0.i554857, %.lr.ph1291 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %865
 
@@ -91078,9 +91078,9 @@ ma_dr_wav__seek_forward.exit728.thread924:        ; preds = %836, %ma_dr_wav__se
   br label %ma_dr_wav__seek_forward.exit720.thread
 
 ma_dr_wav__seek_forward.exit720.thread:           ; preds = %.lr.ph1285, %.lr.ph1288, %ma_dr_wav__seek_forward.exit728, %ma_dr_wav__seek_forward.exit720.thread921, %ma_dr_wav__seek_forward.exit720, %802, %ma_dr_wav__seek_forward.exit728.thread924
-  %846 = phi i64 [ %806, %ma_dr_wav__seek_forward.exit720 ], [ %806, %802 ], [ %835, %ma_dr_wav__seek_forward.exit720.thread921 ], [ %845, %ma_dr_wav__seek_forward.exit728.thread924 ], [ %835, %ma_dr_wav__seek_forward.exit728 ], [ %835, %.lr.ph1288 ], [ %806, %.lr.ph1285 ]
-  %.13413 = phi i32 [ 1, %ma_dr_wav__seek_forward.exit720 ], [ 1, %802 ], [ 5, %ma_dr_wav__seek_forward.exit720.thread921 ], [ 6, %ma_dr_wav__seek_forward.exit728.thread924 ], [ 5, %ma_dr_wav__seek_forward.exit728 ], [ 5, %.lr.ph1288 ], [ 1, %.lr.ph1285 ]
-  %.5378 = phi i64 [ %.2375, %ma_dr_wav__seek_forward.exit720 ], [ %.2375, %802 ], [ %367, %ma_dr_wav__seek_forward.exit720.thread921 ], [ %367, %ma_dr_wav__seek_forward.exit728.thread924 ], [ %367, %ma_dr_wav__seek_forward.exit728 ], [ %367, %.lr.ph1288 ], [ %.2375, %.lr.ph1285 ]
+  %846 = phi i64 [ %845, %ma_dr_wav__seek_forward.exit728.thread924 ], [ %806, %802 ], [ %806, %ma_dr_wav__seek_forward.exit720 ], [ %835, %ma_dr_wav__seek_forward.exit720.thread921 ], [ %835, %ma_dr_wav__seek_forward.exit728 ], [ %835, %.lr.ph1288 ], [ %806, %.lr.ph1285 ]
+  %.13413 = phi i32 [ 6, %ma_dr_wav__seek_forward.exit728.thread924 ], [ 1, %802 ], [ 1, %ma_dr_wav__seek_forward.exit720 ], [ 5, %ma_dr_wav__seek_forward.exit720.thread921 ], [ 5, %ma_dr_wav__seek_forward.exit728 ], [ 5, %.lr.ph1288 ], [ 1, %.lr.ph1285 ]
+  %.5378 = phi i64 [ %367, %ma_dr_wav__seek_forward.exit728.thread924 ], [ %.2375, %802 ], [ %.2375, %ma_dr_wav__seek_forward.exit720 ], [ %367, %ma_dr_wav__seek_forward.exit720.thread921 ], [ %367, %ma_dr_wav__seek_forward.exit728 ], [ %367, %.lr.ph1288 ], [ %.2375, %.lr.ph1285 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %865
 
@@ -91134,21 +91134,21 @@ ma_dr_wav__seek_forward.exit736.thread927:        ; preds = %852, %ma_dr_wav__se
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %ma_dr_wav_free.exit748
 
-.thread1427:                                      ; preds = %ma_dr_wav__seek_forward.exit736.thread927, %ma_dr_wav__seek_forward.exit675.thread839, %ma_dr_wav__seek_forward.exit690.thread847
-  %.sink1514 = phi i64 [ %864, %ma_dr_wav__seek_forward.exit736.thread927 ], [ %590, %ma_dr_wav__seek_forward.exit675.thread839 ], [ %654, %ma_dr_wav__seek_forward.exit690.thread847 ]
-  %.1385.ph1425 = phi i8 [ %.0384, %ma_dr_wav__seek_forward.exit736.thread927 ], [ 1, %ma_dr_wav__seek_forward.exit675.thread839 ], [ %.0384, %ma_dr_wav__seek_forward.exit690.thread847 ]
-  %.3376.ph1426 = phi i64 [ %.2375, %ma_dr_wav__seek_forward.exit736.thread927 ], [ %spec.select, %ma_dr_wav__seek_forward.exit675.thread839 ], [ %.2375, %ma_dr_wav__seek_forward.exit690.thread847 ]
+.thread1427:                                      ; preds = %ma_dr_wav__seek_forward.exit675.thread839, %ma_dr_wav__seek_forward.exit690.thread847, %ma_dr_wav__seek_forward.exit736.thread927
+  %.sink1514 = phi i64 [ %590, %ma_dr_wav__seek_forward.exit675.thread839 ], [ %654, %ma_dr_wav__seek_forward.exit690.thread847 ], [ %864, %ma_dr_wav__seek_forward.exit736.thread927 ]
+  %.1385.ph1425 = phi i8 [ 1, %ma_dr_wav__seek_forward.exit675.thread839 ], [ %.0384, %ma_dr_wav__seek_forward.exit690.thread847 ], [ %.0384, %ma_dr_wav__seek_forward.exit736.thread927 ]
+  %.3376.ph1426 = phi i64 [ %spec.select, %ma_dr_wav__seek_forward.exit675.thread839 ], [ %.2375, %ma_dr_wav__seek_forward.exit690.thread847 ], [ %.2375, %ma_dr_wav__seek_forward.exit736.thread927 ]
   store i64 %.sink1514, ptr %8, align 8, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.backedge
 
 865:                                              ; preds = %ma_dr_wav__seek_forward.exit720.thread, %ma_dr_wav__seek_forward.exit711.thread, %ma_dr_wav__seek_forward.exit660.thread
-  %866 = phi i64 [ %846, %ma_dr_wav__seek_forward.exit720.thread ], [ %564, %ma_dr_wav__seek_forward.exit660.thread ], [ %798, %ma_dr_wav__seek_forward.exit711.thread ]
-  %.5405 = phi i32 [ %.13413, %ma_dr_wav__seek_forward.exit720.thread ], [ %.7407, %ma_dr_wav__seek_forward.exit660.thread ], [ %.11411, %ma_dr_wav__seek_forward.exit711.thread ]
-  %.1396 = phi i64 [ %.0395, %ma_dr_wav__seek_forward.exit720.thread ], [ %.0395, %ma_dr_wav__seek_forward.exit660.thread ], [ %.2397, %ma_dr_wav__seek_forward.exit711.thread ]
-  %.1385 = phi i8 [ 1, %ma_dr_wav__seek_forward.exit720.thread ], [ %.0384, %ma_dr_wav__seek_forward.exit660.thread ], [ %.0384, %ma_dr_wav__seek_forward.exit711.thread ]
-  %.1383 = phi i8 [ %.0382, %ma_dr_wav__seek_forward.exit720.thread ], [ 1, %ma_dr_wav__seek_forward.exit660.thread ], [ 1, %ma_dr_wav__seek_forward.exit711.thread ]
-  %.3376 = phi i64 [ %.5378, %ma_dr_wav__seek_forward.exit720.thread ], [ %.2375, %ma_dr_wav__seek_forward.exit660.thread ], [ %.2375, %ma_dr_wav__seek_forward.exit711.thread ]
+  %866 = phi i64 [ %564, %ma_dr_wav__seek_forward.exit660.thread ], [ %798, %ma_dr_wav__seek_forward.exit711.thread ], [ %846, %ma_dr_wav__seek_forward.exit720.thread ]
+  %.5405 = phi i32 [ %.7407, %ma_dr_wav__seek_forward.exit660.thread ], [ %.11411, %ma_dr_wav__seek_forward.exit711.thread ], [ %.13413, %ma_dr_wav__seek_forward.exit720.thread ]
+  %.1396 = phi i64 [ %.0395, %ma_dr_wav__seek_forward.exit660.thread ], [ %.2397, %ma_dr_wav__seek_forward.exit711.thread ], [ %.0395, %ma_dr_wav__seek_forward.exit720.thread ]
+  %.1385 = phi i8 [ %.0384, %ma_dr_wav__seek_forward.exit660.thread ], [ %.0384, %ma_dr_wav__seek_forward.exit711.thread ], [ 1, %ma_dr_wav__seek_forward.exit720.thread ]
+  %.1383 = phi i8 [ 1, %ma_dr_wav__seek_forward.exit660.thread ], [ 1, %ma_dr_wav__seek_forward.exit711.thread ], [ %.0382, %ma_dr_wav__seek_forward.exit720.thread ]
+  %.3376 = phi i64 [ %.2375, %ma_dr_wav__seek_forward.exit660.thread ], [ %.2375, %ma_dr_wav__seek_forward.exit711.thread ], [ %.5378, %ma_dr_wav__seek_forward.exit720.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   switch i32 %.5405, label %ma_dr_wav_free.exit748 [
     i32 6, label %.backedge
@@ -91165,8 +91165,8 @@ ma_dr_wav__seek_forward.exit736.thread927:        ; preds = %852, %ma_dr_wav__se
   br label %326
 
 .loopexit1215.sink.split:                         ; preds = %326, %ma_dr_wav__seek_forward.exit736, %ma_dr_wav__seek_forward.exit690, %ma_dr_wav__seek_forward.exit675, %ma_dr_wav_guid_equal.exit667, %847, %.lr.ph1282, %.lr.ph1294, %.lr.ph1297, %.thread41.i634, %.thread.i639
-  %.3376940.ph = phi i64 [ %.2375, %.thread.i639 ], [ %spec.select, %.lr.ph1297 ], [ %.2375, %.lr.ph1294 ], [ %.2375, %.thread41.i634 ], [ %.2375, %.lr.ph1282 ], [ %.2375, %ma_dr_wav__seek_forward.exit736 ], [ %.2375, %326 ], [ %spec.select, %ma_dr_wav_guid_equal.exit667 ], [ %spec.select, %ma_dr_wav__seek_forward.exit675 ], [ %.2375, %ma_dr_wav__seek_forward.exit690 ], [ %.2375, %847 ]
-  %.1385938.ph = phi i8 [ %.0384, %.thread.i639 ], [ 1, %.lr.ph1297 ], [ %.0384, %.lr.ph1294 ], [ %.0384, %.thread41.i634 ], [ %.0384, %.lr.ph1282 ], [ %.0384, %ma_dr_wav__seek_forward.exit736 ], [ %.0384, %326 ], [ 1, %ma_dr_wav_guid_equal.exit667 ], [ 1, %ma_dr_wav__seek_forward.exit675 ], [ %.0384, %ma_dr_wav__seek_forward.exit690 ], [ %.0384, %847 ]
+  %.3376940.ph = phi i64 [ %.2375, %.thread.i639 ], [ %.2375, %.thread41.i634 ], [ %spec.select, %.lr.ph1297 ], [ %.2375, %.lr.ph1294 ], [ %.2375, %.lr.ph1282 ], [ %.2375, %847 ], [ %.2375, %326 ], [ %spec.select, %ma_dr_wav_guid_equal.exit667 ], [ %spec.select, %ma_dr_wav__seek_forward.exit675 ], [ %.2375, %ma_dr_wav__seek_forward.exit690 ], [ %.2375, %ma_dr_wav__seek_forward.exit736 ]
+  %.1385938.ph = phi i8 [ %.0384, %.thread.i639 ], [ %.0384, %.thread41.i634 ], [ 1, %.lr.ph1297 ], [ %.0384, %.lr.ph1294 ], [ %.0384, %.lr.ph1282 ], [ %.0384, %847 ], [ %.0384, %326 ], [ 1, %ma_dr_wav_guid_equal.exit667 ], [ 1, %ma_dr_wav__seek_forward.exit675 ], [ %.0384, %ma_dr_wav__seek_forward.exit690 ], [ %.0384, %ma_dr_wav__seek_forward.exit736 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.loopexit1215
 
@@ -91383,7 +91383,7 @@ ma_dr_wav_free.exit:                              ; preds = %ma_dr_wav__seek_for
   br i1 %968, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %958, %960, %956
-  %.6379 = phi i64 [ %.3376940, %956 ], [ 4294967295, %960 ], [ 4294967295, %958 ], [ %967, %.preheader ]
+  %.6379 = phi i64 [ 4294967295, %960 ], [ %.3376940, %956 ], [ 4294967295, %958 ], [ %967, %.preheader ]
   %969 = load ptr, ptr %269, align 8, !tbaa !1142
   %970 = load i64, ptr %276, align 8, !tbaa !1155
   %971 = load ptr, ptr %33, align 8, !tbaa !1143
@@ -91631,7 +91631,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit762.thread: ; preds = %1081, %ma_dr_wav_ge
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %ma_dr_wav_free.exit748
 
-.critedge509:                                     ; preds = %92, %ma_dr_wav_bytes_to_u32_ex.exit, %117, %85, %115
+.critedge509:                                     ; preds = %92, %117, %115, %ma_dr_wav_bytes_to_u32_ex.exit, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %ma_dr_wav_free.exit748
@@ -91642,7 +91642,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit762.thread: ; preds = %1081, %ma_dr_wav_ge
   br label %ma_dr_wav_free.exit748
 
 ma_dr_wav_free.exit748:                           ; preds = %865, %122, %1081, %36, %1023, %1020, %ma_dr_wav_get_bytes_per_pcm_frame.exit.thread, %47, %.thread769, %70, %1093, %1090, %ma_dr_wav_get_bytes_per_pcm_frame.exit762.thread, %1063, %1060, %1055, %982, %979, %974, %ma_dr_wav_free.exit.thread, %.thread942, %.thread816, %.thread801, %.thread794, %ma_dr_wav_guid_equal.exit, %ma_dr_wav_get_bytes_per_pcm_frame.exit762, %913, %908, %897, %870, %.loopexit1215, %83, %.critedge512, %.critedge509, %.critedge, %4, %192
-  %.0370 = phi i32 [ 0, %4 ], [ 0, %.thread769 ], [ 0, %.loopexit1215 ], [ 0, %897 ], [ 0, %908 ], [ 0, %ma_dr_wav_free.exit.thread ], [ 0, %.thread942 ], [ 0, %982 ], [ 0, %1063 ], [ 0, %913 ], [ 0, %47 ], [ 0, %870 ], [ 0, %83 ], [ 0, %.thread816 ], [ 0, %122 ], [ 0, %ma_dr_wav_guid_equal.exit ], [ 0, %192 ], [ 0, %.critedge512 ], [ 0, %.critedge ], [ 1, %1081 ], [ 0, %.critedge509 ], [ 1, %ma_dr_wav_get_bytes_per_pcm_frame.exit762 ], [ 0, %1093 ], [ 0, %.thread794 ], [ 0, %.thread801 ], [ 0, %974 ], [ 0, %979 ], [ 0, %1055 ], [ 0, %1060 ], [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit762.thread ], [ 0, %1090 ], [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit.thread ], [ 0, %70 ], [ 0, %36 ], [ 0, %1023 ], [ 0, %1020 ], [ 0, %865 ]
+  %.0370 = phi i32 [ 0, %ma_dr_wav_guid_equal.exit ], [ 0, %192 ], [ 0, %4 ], [ 0, %.critedge ], [ 0, %.critedge509 ], [ 0, %.critedge512 ], [ 0, %83 ], [ 0, %.loopexit1215 ], [ 0, %870 ], [ 0, %897 ], [ 0, %908 ], [ 0, %913 ], [ 1, %ma_dr_wav_get_bytes_per_pcm_frame.exit762 ], [ 0, %.thread794 ], [ 0, %.thread801 ], [ 0, %.thread816 ], [ 0, %.thread942 ], [ 0, %ma_dr_wav_free.exit.thread ], [ 0, %974 ], [ 0, %979 ], [ 0, %982 ], [ 0, %1055 ], [ 0, %1060 ], [ 0, %1063 ], [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit762.thread ], [ 0, %1090 ], [ 0, %1093 ], [ 0, %70 ], [ 0, %.thread769 ], [ 0, %47 ], [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit.thread ], [ 0, %1020 ], [ 0, %1023 ], [ 0, %36 ], [ 1, %1081 ], [ 0, %122 ], [ 0, %865 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -91710,8 +91710,8 @@ ma_dr_wav_preinit.exit:                           ; preds = %16, %.thread.i
   %20 = tail call fastcc i32 @ma_dr_wav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %19)
   br label %ma_dr_wav_preinit.exit.thread
 
-ma_dr_wav_preinit.exit.thread:                    ; preds = %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %16, %6, %ma_dr_wav_preinit.exit
-  %.0 = phi i32 [ %20, %ma_dr_wav_preinit.exit ], [ 0, %6 ], [ 0, %16 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i ]
+ma_dr_wav_preinit.exit.thread:                    ; preds = %16, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %6, %ma_dr_wav_preinit.exit
+  %.0 = phi i32 [ %20, %ma_dr_wav_preinit.exit ], [ 0, %6 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -91823,8 +91823,8 @@ ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %13
   %46 = tail call fastcc i32 @ma_dr_wav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 0)
   br label %ma_dr_wav_preinit_write.exit.thread
 
-ma_dr_wav_preinit_write.exit.thread:              ; preds = %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %19, %10, %10, %10, %6, %22
-  %.0 = phi i32 [ %46, %22 ], [ 0, %6 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %19 ]
+ma_dr_wav_preinit_write.exit.thread:              ; preds = %19, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %10, %10, %10, %6, %22
+  %.0 = phi i32 [ %46, %22 ], [ 0, %6 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -92208,7 +92208,7 @@ thread-pre-split196:                              ; preds = %99, %127, %130, %13
   br label %176
 
 176:                                              ; preds = %34, %25, %158
-  %.0 = phi i32 [ 0, %25 ], [ 1, %158 ], [ 0, %34 ]
+  %.0 = phi i32 [ 1, %158 ], [ 0, %25 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -92306,8 +92306,8 @@ ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %12
   %44 = tail call fastcc i32 @ma_dr_wav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2)
   br label %ma_dr_wav_preinit_write.exit.thread
 
-ma_dr_wav_preinit_write.exit.thread:              ; preds = %17, %9, %9, %9, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %6, %20
-  %.0 = phi i32 [ %44, %20 ], [ 0, %6 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %17 ]
+ma_dr_wav_preinit_write.exit.thread:              ; preds = %17, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %9, %9, %9, %6, %20
+  %.0 = phi i32 [ %44, %20 ], [ 0, %6 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -92413,7 +92413,7 @@ ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %18
   br label %ma_dr_wav_init_write_sequential.exit
 
 ma_dr_wav_init_write_sequential.exit:             ; preds = %26, %23, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i, %15, %15, %15, %8, %6
-  %.0 = phi i32 [ 0, %6 ], [ %49, %26 ], [ 0, %8 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i ], [ 0, %15 ], [ 0, %15 ], [ 0, %15 ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %6 ], [ %49, %26 ], [ 0, %8 ], [ 0, %15 ], [ 0, %15 ], [ 0, %15 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -92519,8 +92519,8 @@ ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %15
   %50 = tail call fastcc i32 @ma_dr_wav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 0)
   br label %ma_dr_wav_preinit_write.exit.thread
 
-ma_dr_wav_preinit_write.exit.thread:              ; preds = %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %21, %12, %12, %12, %8, %24
-  %.0 = phi i32 [ %50, %24 ], [ 0, %8 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %21 ]
+ma_dr_wav_preinit_write.exit.thread:              ; preds = %21, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %12, %12, %12, %8, %24
+  %.0 = phi i32 [ %50, %24 ], [ 0, %8 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -92644,7 +92644,7 @@ ma_dr_wav_preinit.exit.i:                         ; preds = %18, %.thread.i.i
   br label %ma_dr_wav_init_file__internal_FILE.exit
 
 ma_dr_wav_init_file__internal_FILE.exit:          ; preds = %8, %6, %.sink.split.i, %ma_dr_wav_preinit.exit.i
-  %.0 = phi i32 [ 0, %.sink.split.i ], [ 1, %ma_dr_wav_preinit.exit.i ], [ 0, %6 ], [ 0, %8 ]
+  %.0 = phi i32 [ 1, %ma_dr_wav_preinit.exit.i ], [ 0, %.sink.split.i ], [ 0, %6 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -92791,7 +92791,7 @@ ma_dr_wav_preinit.exit.i:                         ; preds = %17, %.thread.i.i
   br label %ma_dr_wav_init_file__internal_FILE.exit
 
 ma_dr_wav_init_file__internal_FILE.exit:          ; preds = %6, %4, %.sink.split.i, %ma_dr_wav_preinit.exit.i
-  %.0 = phi i32 [ 0, %.sink.split.i ], [ 1, %ma_dr_wav_preinit.exit.i ], [ 0, %4 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %ma_dr_wav_preinit.exit.i ], [ 0, %.sink.split.i ], [ 0, %4 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -93067,8 +93067,8 @@ ma_dr_wav_preinit.exit:                           ; preds = %17, %.thread.i
   %23 = tail call fastcc i32 @ma_dr_wav_init__internal(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   br label %ma_dr_wav_preinit.exit.thread
 
-ma_dr_wav_preinit.exit.thread:                    ; preds = %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %17, %7, %ma_dr_wav_preinit.exit
-  %.0 = phi i32 [ 0, %7 ], [ %23, %ma_dr_wav_preinit.exit ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %17 ]
+ma_dr_wav_preinit.exit.thread:                    ; preds = %17, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %7, %ma_dr_wav_preinit.exit
+  %.0 = phi i32 [ %23, %ma_dr_wav_preinit.exit ], [ 0, %7 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -93143,7 +93143,7 @@ define internal range(i32 0, 2) i32 @ma_dr_wav__on_seek_memory(ptr noundef captu
   br label %30
 
 30:                                               ; preds = %19, %27, %23, %15, %9
-  %.0 = phi i32 [ 0, %15 ], [ 0, %23 ], [ 0, %9 ], [ 1, %27 ], [ 1, %19 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %15 ], [ 0, %23 ], [ 1, %27 ], [ 1, %19 ]
   ret i32 %.0
 }
 
@@ -93212,8 +93212,8 @@ ma_dr_wav_preinit.exit:                           ; preds = %15, %.thread.i
   %22 = tail call fastcc i32 @ma_dr_wav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %21)
   br label %ma_dr_wav_preinit.exit.thread
 
-ma_dr_wav_preinit.exit.thread:                    ; preds = %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %15, %5, %ma_dr_wav_preinit.exit
-  %.0 = phi i32 [ 0, %5 ], [ %22, %ma_dr_wav_preinit.exit ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %15 ]
+ma_dr_wav_preinit.exit.thread:                    ; preds = %15, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %5, %ma_dr_wav_preinit.exit
+  %.0 = phi i32 [ %22, %ma_dr_wav_preinit.exit ], [ 0, %5 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -93331,8 +93331,8 @@ ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %15
   %51 = tail call fastcc i32 @ma_dr_wav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %4)
   br label %ma_dr_wav_preinit_write.exit.thread
 
-ma_dr_wav_preinit_write.exit.thread:              ; preds = %21, %12, %12, %12, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %10, %7, %24
-  %.0 = phi i32 [ 0, %7 ], [ %51, %24 ], [ 0, %10 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %21 ]
+ma_dr_wav_preinit_write.exit.thread:              ; preds = %21, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %12, %12, %12, %10, %7, %24
+  %.0 = phi i32 [ %51, %24 ], [ 0, %7 ], [ 0, %10 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -93825,7 +93825,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit:           ; preds = %65
   br i1 %exitcond46.not, label %.critedge, label %.lr.ph36, !llvm.loop !1889
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph32, %.lr.ph34, %.lr.ph36, %.preheader28, %.preheader26, %.preheader24, %.preheader, %69, %73, %ma_dr_wav_read_pcm_frames_le.exit, %ma_dr_wav_get_bytes_per_pcm_frame.exit
-  %.1 = phi i64 [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit ], [ %.0.i20, %73 ], [ %.0.i20, %ma_dr_wav_read_pcm_frames_le.exit ], [ 0, %69 ], [ %.0.i20, %.preheader24 ], [ %.0.i20, %.preheader ], [ %.0.i20, %.preheader26 ], [ %.0.i20, %.preheader28 ], [ %.0.i20, %.lr.ph32 ], [ %.0.i20, %.lr.ph36 ], [ %.0.i20, %.lr.ph34 ], [ %.0.i20, %.lr.ph ]
+  %.1 = phi i64 [ 0, %ma_dr_wav_get_bytes_per_pcm_frame.exit ], [ %.0.i20, %ma_dr_wav_read_pcm_frames_le.exit ], [ %.0.i20, %73 ], [ 0, %69 ], [ %.0.i20, %.preheader ], [ %.0.i20, %.preheader24 ], [ %.0.i20, %.preheader26 ], [ %.0.i20, %.preheader28 ], [ %.0.i20, %.lr.ph36 ], [ %.0.i20, %.lr.ph34 ], [ %.0.i20, %.lr.ph32 ], [ %.0.i20, %.lr.ph ]
   ret i64 %.1
 }
 
@@ -93876,7 +93876,7 @@ define internal fastcc range(i32 0, 2) i32 @ma_dr_wav_seek_to_first_pcm_frame(pt
   br label %25
 
 25:                                               ; preds = %4, %1, %20
-  %.0 = phi i32 [ 0, %1 ], [ 1, %20 ], [ 0, %4 ]
+  %.0 = phi i32 [ 1, %20 ], [ 0, %1 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -94214,9 +94214,9 @@ define internal fastcc i64 @ma_dr_wav_read_pcm_frames_s16__msadpcm(ptr noundef n
   br label %.loopexit
 
 .backedge:                                        ; preds = %92, %.thread193, %113
-  %.promoted248 = phi i32 [ 0, %113 ], [ %storemerge186, %.thread193 ], [ %.promoted249, %92 ]
-  %.2168217240 = phi i64 [ %89, %113 ], [ %89, %.thread193 ], [ %.2168217, %92 ]
-  %.1173215234 = phi i64 [ %90, %113 ], [ %90, %.thread193 ], [ %.1173215, %92 ]
+  %.promoted248 = phi i32 [ %storemerge186, %.thread193 ], [ 0, %113 ], [ %.promoted249, %92 ]
+  %.2168217240 = phi i64 [ %89, %.thread193 ], [ %89, %113 ], [ %.2168217, %92 ]
+  %.1173215234 = phi i64 [ %90, %.thread193 ], [ %90, %113 ], [ %.1173215, %92 ]
   %195 = load i64, ptr %7, align 8, !tbaa !1195
   %196 = load i64, ptr %8, align 8, !tbaa !1194
   %197 = icmp ult i64 %195, %196
@@ -94227,7 +94227,7 @@ define internal fastcc i64 @ma_dr_wav_read_pcm_frames_s16__msadpcm(ptr noundef n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %87, %.loopexit.loopexit, %3, %194, %86, %62
-  %.3 = phi i64 [ %.0166225, %86 ], [ %89, %194 ], [ %.0166225, %62 ], [ 0, %3 ], [ %198, %.loopexit.loopexit ], [ %.0166225, %87 ], [ %.2168217240, %.backedge ]
+  %.3 = phi i64 [ %89, %194 ], [ %.0166225, %62 ], [ %.0166225, %86 ], [ 0, %3 ], [ %198, %.loopexit.loopexit ], [ %.0166225, %87 ], [ %.2168217240, %.backedge ]
   ret i64 %.3
 }
 
@@ -94576,8 +94576,8 @@ define internal fastcc i64 @ma_dr_wav_read_pcm_frames_s16__ima(ptr noundef nonnu
   br i1 %195, label %.lr.ph288, label %.backedge, !llvm.loop !1900
 
 .backedge:                                        ; preds = %86, %194, %110, %107
-  %.1189279308 = phi i64 [ %82, %194 ], [ %82, %107 ], [ %82, %110 ], [ %.1189279, %86 ]
-  %.2198278305 = phi i64 [ %83, %194 ], [ %83, %107 ], [ %83, %110 ], [ %.2198278, %86 ]
+  %.1189279308 = phi i64 [ %82, %110 ], [ %82, %107 ], [ %82, %194 ], [ %.1189279, %86 ]
+  %.2198278305 = phi i64 [ %83, %110 ], [ %83, %107 ], [ %83, %194 ], [ %.2198278, %86 ]
   %196 = load i64, ptr %7, align 8, !tbaa !1195
   %197 = load i64, ptr %8, align 8, !tbaa !1194
   %198 = icmp ult i64 %196, %197
@@ -94588,7 +94588,7 @@ define internal fastcc i64 @ma_dr_wav_read_pcm_frames_s16__ima(ptr noundef nonnu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %80, %.loopexit.loopexit, %3, %.thread231, %.thread228, %.thread
-  %.3183 = phi i64 [ %.0196290, %.thread228 ], [ %83, %.thread231 ], [ %.0196290, %.thread ], [ 0, %3 ], [ %199, %.loopexit.loopexit ], [ %.0196290, %80 ], [ %.2198278305, %.backedge ]
+  %.3183 = phi i64 [ %.0196290, %.thread ], [ %.0196290, %.thread228 ], [ %83, %.thread231 ], [ 0, %3 ], [ %199, %.loopexit.loopexit ], [ %.0196290, %80 ], [ %.2198278305, %.backedge ]
   ret i64 %.3183
 }
 
@@ -95708,8 +95708,8 @@ ma_dr_wav_init.exit:                              ; preds = %.thread.i.i.i, %23
   %28 = call fastcc ptr @ma_dr_wav__read_pcm_frames_and_close_s16(ptr noundef %8, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %ma_dr_wav_init.exit.thread
 
-ma_dr_wav_init.exit.thread:                       ; preds = %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %23, %14, %ma_dr_wav_init.exit, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %ma_dr_wav_init.exit ], [ null, %14 ], [ null, %23 ], [ null, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i ]
+ma_dr_wav_init.exit.thread:                       ; preds = %23, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %14, %ma_dr_wav_init.exit, %27
+  %.0 = phi ptr [ %28, %27 ], [ null, %ma_dr_wav_init.exit ], [ null, %14 ], [ null, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ null, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
@@ -95754,7 +95754,7 @@ define internal fastcc ptr @ma_dr_wav__read_pcm_frames_and_close_s16(ptr noundef
   br label %ma_dr_wav__malloc_from_callbacks.exit
 
 ma_dr_wav__malloc_from_callbacks.exit:            ; preds = %19, %25
-  %.0.i = phi ptr [ %27, %25 ], [ %21, %19 ]
+  %.0.i = phi ptr [ %21, %19 ], [ %27, %25 ]
   %28 = icmp eq ptr %.0.i, null
   br i1 %28, label %ma_dr_wav__malloc_from_callbacks.exit.thread, label %30
 
@@ -95906,8 +95906,8 @@ ma_dr_wav_init.exit:                              ; preds = %.thread.i.i.i, %23
   %28 = call fastcc ptr @ma_dr_wav__read_pcm_frames_and_close_f32(ptr noundef %8, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %ma_dr_wav_init.exit.thread
 
-ma_dr_wav_init.exit.thread:                       ; preds = %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %23, %14, %ma_dr_wav_init.exit, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %ma_dr_wav_init.exit ], [ null, %14 ], [ null, %23 ], [ null, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i ]
+ma_dr_wav_init.exit.thread:                       ; preds = %23, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %14, %ma_dr_wav_init.exit, %27
+  %.0 = phi ptr [ %28, %27 ], [ null, %ma_dr_wav_init.exit ], [ null, %14 ], [ null, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ null, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
@@ -95952,7 +95952,7 @@ define internal fastcc ptr @ma_dr_wav__read_pcm_frames_and_close_f32(ptr noundef
   br label %ma_dr_wav__malloc_from_callbacks.exit
 
 ma_dr_wav__malloc_from_callbacks.exit:            ; preds = %19, %25
-  %.0.i = phi ptr [ %27, %25 ], [ %21, %19 ]
+  %.0.i = phi ptr [ %21, %19 ], [ %27, %25 ]
   %28 = icmp eq ptr %.0.i, null
   br i1 %28, label %ma_dr_wav__malloc_from_callbacks.exit.thread, label %30
 
@@ -96104,8 +96104,8 @@ ma_dr_wav_init.exit:                              ; preds = %.thread.i.i.i, %23
   %28 = call fastcc ptr @ma_dr_wav__read_pcm_frames_and_close_s32(ptr noundef %8, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %ma_dr_wav_init.exit.thread
 
-ma_dr_wav_init.exit.thread:                       ; preds = %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %23, %14, %ma_dr_wav_init.exit, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %ma_dr_wav_init.exit ], [ null, %14 ], [ null, %23 ], [ null, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i ]
+ma_dr_wav_init.exit.thread:                       ; preds = %23, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %14, %ma_dr_wav_init.exit, %27
+  %.0 = phi ptr [ %28, %27 ], [ null, %ma_dr_wav_init.exit ], [ null, %14 ], [ null, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ null, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
@@ -96150,7 +96150,7 @@ define internal fastcc ptr @ma_dr_wav__read_pcm_frames_and_close_s32(ptr noundef
   br label %ma_dr_wav__malloc_from_callbacks.exit
 
 ma_dr_wav__malloc_from_callbacks.exit:            ; preds = %19, %25
-  %.0.i = phi ptr [ %27, %25 ], [ %21, %19 ]
+  %.0.i = phi ptr [ %21, %19 ], [ %27, %25 ]
   %28 = icmp eq ptr %.0.i, null
   br i1 %28, label %ma_dr_wav__malloc_from_callbacks.exit.thread, label %30
 
@@ -97305,7 +97305,7 @@ ma_fopen.exit:                                    ; preds = %6
   br label %ma_fopen.exit.thread
 
 ma_fopen.exit.thread:                             ; preds = %6, %4, %ma_fopen.exit, %11
-  %.0 = phi ptr [ %9, %ma_fopen.exit ], [ null, %11 ], [ null, %4 ], [ null, %6 ]
+  %.0 = phi ptr [ null, %11 ], [ %9, %ma_fopen.exit ], [ null, %4 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -97376,7 +97376,7 @@ ma_dr_flac__init_cpu_caps.exit:                   ; preds = %7, %13
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 2
   br label %39
 
-39:                                               ; preds = %68, %.lr.ph.i
+39:                                               ; preds = %.critedge.i, %.lr.ph.i
   %40 = load i64, ptr %34, align 8, !tbaa !1914
   %41 = add i64 %40, 4
   store i64 %41, ptr %34, align 8, !tbaa !1914
@@ -97394,7 +97394,7 @@ ma_dr_flac__init_cpu_caps.exit:                   ; preds = %7, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %49 = call i64 %0(ptr noundef %4, ptr noundef nonnull %11, i64 noundef 6) #66
   %.not111.i = icmp eq i64 %49, 6
-  br i1 %.not111.i, label %50, label %.critedge.i
+  br i1 %.not111.i, label %50, label %72
 
 50:                                               ; preds = %48
   %51 = load i64, ptr %34, align 8, !tbaa !1914
@@ -97419,17 +97419,21 @@ ma_dr_flac__init_cpu_caps.exit:                   ; preds = %7, %13
   %spec.select.i = select i1 %.not112.i, i32 %64, i32 %66
   %67 = call i32 %1(ptr noundef %4, i32 noundef %spec.select.i, i32 noundef 1) #66
   %.not113.i = icmp eq i32 %67, 0
-  br i1 %.not113.i, label %.critedge.i, label %68
+  br i1 %.not113.i, label %72, label %.critedge.i
 
-68:                                               ; preds = %50
-  %69 = zext nneg i32 %spec.select.i to i64
-  %70 = load i64, ptr %34, align 8, !tbaa !1914
-  %71 = add i64 %70, %69
-  store i64 %71, ptr %34, align 8, !tbaa !1914
+.critedge.i:                                      ; preds = %50
+  %68 = zext nneg i32 %spec.select.i to i64
+  %69 = load i64, ptr %34, align 8, !tbaa !1914
+  %70 = add i64 %69, %68
+  store i64 %70, ptr %34, align 8, !tbaa !1914
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %72 = call i64 %0(ptr noundef %4, ptr noundef nonnull %10, i64 noundef 4) #66
-  %.not.i = icmp eq i64 %72, 4
+  %71 = call i64 %0(ptr noundef %4, ptr noundef nonnull %10, i64 noundef 4) #66
+  %.not.i = icmp eq i64 %71, 4
   br i1 %.not.i, label %39, label %ma_dr_flac__init_private.exit.thread
+
+72:                                               ; preds = %50, %48
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  br label %ma_dr_flac__init_private.exit.thread
 
 73:                                               ; preds = %39
   %74 = icmp eq i8 %42, 102
@@ -97478,19 +97482,15 @@ ma_dr_flac__init_cpu_caps.exit:                   ; preds = %7, %13
   %94 = call fastcc i32 @ma_dr_flac__init_private__ogg(ptr noundef nonnull %12, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef %5)
   br label %ma_dr_flac__init_private.exit
 
-.critedge.i:                                      ; preds = %50, %48
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %ma_dr_flac__init_private.exit.thread
-
-ma_dr_flac__init_private.exit.thread:             ; preds = %68, %89, %ma_dr_flac__init_cpu_caps.exit, %.critedge.i, %90, %19
+ma_dr_flac__init_private.exit.thread:             ; preds = %.critedge.i, %72, %ma_dr_flac__init_cpu_caps.exit, %90, %89, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %ma_dr_flac__free_from_callbacks.exit140
+  br label %ma_dr_flac__free_from_callbacks.exit141
 
 ma_dr_flac__init_private.exit:                    ; preds = %80, %87, %91, %93
-  %.0105.i = phi i32 [ %88, %87 ], [ %92, %91 ], [ %94, %93 ], [ %81, %80 ]
+  %.0105.i = phi i32 [ %81, %80 ], [ %88, %87 ], [ %92, %91 ], [ %94, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not = icmp eq i32 %.0105.i, 0
-  br i1 %.not, label %ma_dr_flac__free_from_callbacks.exit140, label %95
+  br i1 %.not, label %ma_dr_flac__free_from_callbacks.exit141, label %95
 
 95:                                               ; preds = %ma_dr_flac__init_private.exit
   %.not122 = icmp eq ptr %6, null
@@ -97500,7 +97500,7 @@ ma_dr_flac__init_private.exit:                    ; preds = %80, %87, %91, %93
   %.sroa.74.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.74.0.copyload = load ptr, ptr %.sroa.74.0..sroa_idx, align 8, !tbaa !27
   %97 = icmp eq ptr %.sroa.74.0.copyload, null
-  br i1 %97, label %ma_dr_flac__free_from_callbacks.exit140, label %98
+  br i1 %97, label %ma_dr_flac__free_from_callbacks.exit141, label %98
 
 98:                                               ; preds = %96
   %.sroa.63.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -97511,7 +97511,7 @@ ma_dr_flac__init_private.exit:                    ; preds = %80, %87, %91, %93
   %99 = icmp eq ptr %.sroa.52.0.copyload, null
   %100 = icmp eq ptr %.sroa.63.0.copyload, null
   %or.cond = select i1 %99, i1 %100, i1 false
-  br i1 %or.cond, label %ma_dr_flac__free_from_callbacks.exit140, label %101
+  br i1 %or.cond, label %ma_dr_flac__free_from_callbacks.exit141, label %101
 
 101:                                              ; preds = %95, %98
   %.sroa.74.0 = phi ptr [ %.sroa.74.0.copyload, %98 ], [ @ma_dr_flac__free_default, %95 ]
@@ -97547,16 +97547,16 @@ ma_dr_flac__init_private.exit:                    ; preds = %80, %87, %91, %93
 
 121:                                              ; preds = %118
   %.not12.i = icmp eq ptr %.sroa.63.0, null
-  br i1 %.not12.i, label %ma_dr_flac__free_from_callbacks.exit140, label %122
+  br i1 %.not12.i, label %ma_dr_flac__free_from_callbacks.exit141, label %122
 
 122:                                              ; preds = %121
   %123 = call ptr %.sroa.63.0(ptr noundef null, i64 noundef 65944, ptr noundef %.sroa.0.0) #66
   br label %ma_dr_flac__malloc_from_callbacks.exit
 
 ma_dr_flac__malloc_from_callbacks.exit:           ; preds = %119, %122
-  %.0.i = phi ptr [ %123, %122 ], [ %120, %119 ]
+  %.0.i = phi ptr [ %120, %119 ], [ %123, %122 ]
   %124 = icmp eq ptr %.0.i, null
-  br i1 %124, label %ma_dr_flac__free_from_callbacks.exit140, label %125
+  br i1 %124, label %ma_dr_flac__free_from_callbacks.exit141, label %125
 
 125:                                              ; preds = %ma_dr_flac__malloc_from_callbacks.exit
   %narrow = add nuw nsw i32 %114, 70496
@@ -97625,14 +97625,14 @@ ma_dr_flac__malloc_from_callbacks.exit:           ; preds = %119, %122
   %.not12.i406.i = icmp eq ptr %.sroa.63.0, null
   br label %162
 
-ma_dr_flac__read_and_decode_block_header.exit.thread.i: ; preds = %.critedge350.i, %141
+ma_dr_flac__read_and_decode_block_header.exit.thread.i: ; preds = %.critedge.i132, %141
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.loopexit288
+  br label %.loopexit289
 
-162:                                              ; preds = %.critedge350.i, %.lr.ph641.i
-  %.0265639.i = phi i64 [ 42, %.lr.ph641.i ], [ %564, %.critedge350.i ]
-  %.0267638.i = phi i64 [ 0, %.lr.ph641.i ], [ %.2269489.i, %.critedge350.i ]
-  %.0270637.i = phi i32 [ 0, %.lr.ph641.i ], [ %.2272488.i, %.critedge350.i ]
+162:                                              ; preds = %.critedge.i132, %.lr.ph641.i
+  %.0265639.i = phi i64 [ 42, %.lr.ph641.i ], [ %564, %.critedge.i132 ]
+  %.0267638.i = phi i64 [ 0, %.lr.ph641.i ], [ %.2269489.i, %.critedge.i132 ]
+  %.0270637.i = phi i32 [ 0, %.lr.ph641.i ], [ %.2272488.i, %.critedge.i132 ]
   %163 = load i32, ptr %8, align 4, !tbaa !3
   %.fr.i = freeze i32 %163
   %164 = call i32 @llvm.bswap.i32(i32 %.fr.i)
@@ -97658,7 +97658,7 @@ ma_dr_flac__read_and_decode_block_header.exit.thread.i: ; preds = %.critedge350.
 
 171:                                              ; preds = %162
   %172 = icmp samesign ult i32 %168, 4
-  br i1 %172, label %.loopexit288, label %173
+  br i1 %172, label %.loopexit289, label %173
 
 173:                                              ; preds = %171
   br i1 %.not.i131, label %ma_dr_flac__free_from_callbacks.exit359.i, label %174
@@ -97672,16 +97672,16 @@ ma_dr_flac__read_and_decode_block_header.exit.thread.i: ; preds = %.critedge350.
   br label %ma_dr_flac__malloc_from_callbacks.exit.i
 
 178:                                              ; preds = %174
-  br i1 %.not12.i406.i, label %.loopexit288, label %179
+  br i1 %.not12.i406.i, label %.loopexit289, label %179
 
 179:                                              ; preds = %178
   %180 = call ptr %.sroa.63.0(ptr noundef null, i64 noundef %175, ptr noundef %.sroa.0.0) #66
   br label %ma_dr_flac__malloc_from_callbacks.exit.i
 
 ma_dr_flac__malloc_from_callbacks.exit.i:         ; preds = %179, %176
-  %.0.i356.i = phi ptr [ %180, %179 ], [ %177, %176 ]
+  %.0.i356.i = phi ptr [ %177, %176 ], [ %180, %179 ]
   %181 = icmp eq ptr %.0.i356.i, null
-  br i1 %181, label %.loopexit288, label %182
+  br i1 %181, label %.loopexit289, label %182
 
 182:                                              ; preds = %ma_dr_flac__malloc_from_callbacks.exit.i
   %183 = call i64 %.0112(ptr noundef %.0110, ptr noundef nonnull %.0.i356.i, i64 noundef %175) #66
@@ -97690,7 +97690,7 @@ ma_dr_flac__malloc_from_callbacks.exit.i:         ; preds = %179, %176
 
 184:                                              ; preds = %182
   call void %.sroa.74.0(ptr noundef nonnull %.0.i356.i, ptr noundef %.sroa.0.0) #66
-  br label %.loopexit288
+  br label %.loopexit289
 
 185:                                              ; preds = %182
   store ptr %.0.i356.i, ptr %145, align 8, !tbaa !1925
@@ -97720,20 +97720,20 @@ ma_dr_flac__malloc_from_callbacks.exit.i:         ; preds = %179, %176
   br label %ma_dr_flac__malloc_from_callbacks.exit363.i
 
 196:                                              ; preds = %191
-  br i1 %.not12.i406.i, label %.loopexit288, label %197
+  br i1 %.not12.i406.i, label %.loopexit289, label %197
 
 197:                                              ; preds = %196
   %198 = call ptr %.sroa.63.0(ptr noundef null, i64 noundef %193, ptr noundef %.sroa.0.0) #66
   br label %ma_dr_flac__malloc_from_callbacks.exit363.i
 
 ma_dr_flac__malloc_from_callbacks.exit363.i:      ; preds = %197, %194
-  %.0.i361.i = phi ptr [ %198, %197 ], [ %195, %194 ]
+  %.0.i361.i = phi ptr [ %195, %194 ], [ %198, %197 ]
   %199 = icmp eq ptr %.0.i361.i, null
-  br i1 %199, label %.loopexit288, label %.preheader.i
+  br i1 %199, label %.loopexit289, label %.preheader.i
 
 .preheader.i:                                     ; preds = %ma_dr_flac__malloc_from_callbacks.exit363.i
   %.not645.i = icmp samesign ult i32 %168, 18
-  br i1 %.not645.i, label %.loopexit285, label %.lr.ph634.preheader.i
+  br i1 %.not645.i, label %.loopexit286, label %.lr.ph634.preheader.i
 
 .lr.ph634.preheader.i:                            ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %192 to i64
@@ -97748,7 +97748,7 @@ ma_dr_flac__malloc_from_callbacks.exit363.i:      ; preds = %197, %194
 
 202:                                              ; preds = %.lr.ph634.i
   call void %.sroa.74.0(ptr noundef nonnull %.0.i361.i, ptr noundef %.sroa.0.0) #66
-  br label %.loopexit288
+  br label %.loopexit289
 
 203:                                              ; preds = %.lr.ph634.i
   %204 = load i64, ptr %200, align 8, !tbaa !1927
@@ -97764,9 +97764,9 @@ ma_dr_flac__malloc_from_callbacks.exit363.i:      ; preds = %197, %194
   store i16 %211, ptr %209, align 8, !tbaa !1930
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond747.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond747.not.i, label %.loopexit285, label %.lr.ph634.i, !llvm.loop !1931
+  br i1 %exitcond747.not.i, label %.loopexit286, label %.lr.ph634.i, !llvm.loop !1931
 
-.loopexit285:                                     ; preds = %203, %.preheader.i
+.loopexit286:                                     ; preds = %203, %.preheader.i
   store ptr %.0.i361.i, ptr %145, align 8, !tbaa !1925
   store i32 %168, ptr %146, align 8, !tbaa !1926
   store i32 %192, ptr %147, align 8, !tbaa !7
@@ -97775,7 +97775,7 @@ ma_dr_flac__malloc_from_callbacks.exit363.i:      ; preds = %197, %194
 
 212:                                              ; preds = %162
   %213 = icmp samesign ult i32 %168, 8
-  br i1 %213, label %.loopexit288, label %214
+  br i1 %213, label %.loopexit289, label %214
 
 214:                                              ; preds = %212
   br i1 %.not.i131, label %ma_dr_flac__free_from_callbacks.exit359.i, label %215
@@ -97789,16 +97789,16 @@ ma_dr_flac__malloc_from_callbacks.exit363.i:      ; preds = %197, %194
   br label %ma_dr_flac__malloc_from_callbacks.exit371.i
 
 219:                                              ; preds = %215
-  br i1 %.not12.i406.i, label %.loopexit288, label %220
+  br i1 %.not12.i406.i, label %.loopexit289, label %220
 
 220:                                              ; preds = %219
   %221 = call ptr %.sroa.63.0(ptr noundef null, i64 noundef %216, ptr noundef %.sroa.0.0) #66
   br label %ma_dr_flac__malloc_from_callbacks.exit371.i
 
 ma_dr_flac__malloc_from_callbacks.exit371.i:      ; preds = %220, %217
-  %.0.i369.i = phi ptr [ %221, %220 ], [ %218, %217 ]
+  %.0.i369.i = phi ptr [ %218, %217 ], [ %221, %220 ]
   %222 = icmp eq ptr %.0.i369.i, null
-  br i1 %222, label %.loopexit288, label %223
+  br i1 %222, label %.loopexit289, label %223
 
 223:                                              ; preds = %ma_dr_flac__malloc_from_callbacks.exit371.i
   %224 = call i64 %.0112(ptr noundef %.0110, ptr noundef nonnull %.0.i369.i, i64 noundef %216) #66
@@ -97807,7 +97807,7 @@ ma_dr_flac__malloc_from_callbacks.exit371.i:      ; preds = %220, %217
 
 225:                                              ; preds = %223
   call void %.sroa.74.0(ptr noundef nonnull %.0.i369.i, ptr noundef %.sroa.0.0) #66
-  br label %.loopexit288
+  br label %.loopexit289
 
 226:                                              ; preds = %223
   store ptr %.0.i369.i, ptr %145, align 8, !tbaa !1925
@@ -97834,7 +97834,7 @@ ma_dr_flac__malloc_from_callbacks.exit371.i:      ; preds = %220, %217
 
 244:                                              ; preds = %226
   call void %.sroa.74.0(ptr noundef nonnull %.0.i369.i, ptr noundef %.sroa.0.0) #66
-  br label %.loopexit288
+  br label %.loopexit289
 
 245:                                              ; preds = %226
   %246 = getelementptr inbounds nuw i8, ptr %.0.i369.i, i64 4
@@ -97861,7 +97861,7 @@ ma_dr_flac__malloc_from_callbacks.exit371.i:      ; preds = %220, %217
 
 263:                                              ; preds = %245
   call void %.sroa.74.0(ptr noundef nonnull %.0.i369.i, ptr noundef %.sroa.0.0) #66
-  br label %.loopexit288
+  br label %.loopexit289
 
 264:                                              ; preds = %245
   %265 = getelementptr inbounds nuw i8, ptr %247, i64 4
@@ -97879,7 +97879,7 @@ ma_dr_flac__malloc_from_callbacks.exit371.i:      ; preds = %220, %217
 
 269:                                              ; preds = %.lr.ph631.i
   call void %.sroa.74.0(ptr noundef nonnull %.0.i369.i, ptr noundef %.sroa.0.0) #66
-  br label %.loopexit288
+  br label %.loopexit289
 
 270:                                              ; preds = %.lr.ph631.i
   %271 = load i16, ptr %.0288629.i, align 1
@@ -97902,7 +97902,7 @@ ma_dr_flac__malloc_from_callbacks.exit371.i:      ; preds = %220, %217
 
 287:                                              ; preds = %270
   call void %.sroa.74.0(ptr noundef nonnull %.0.i369.i, ptr noundef %.sroa.0.0) #66
-  br label %.loopexit288
+  br label %.loopexit289
 
 288:                                              ; preds = %270
   %289 = getelementptr inbounds nuw i8, ptr %283, i64 %282
@@ -97912,7 +97912,7 @@ ma_dr_flac__malloc_from_callbacks.exit371.i:      ; preds = %220, %217
 
 291:                                              ; preds = %162
   %292 = icmp samesign ult i32 %168, 396
-  br i1 %292, label %.loopexit288, label %293
+  br i1 %292, label %.loopexit289, label %293
 
 293:                                              ; preds = %291
   br i1 %.not.i131, label %ma_dr_flac__free_from_callbacks.exit359.i, label %294
@@ -97926,16 +97926,16 @@ ma_dr_flac__malloc_from_callbacks.exit371.i:      ; preds = %220, %217
   br label %ma_dr_flac__malloc_from_callbacks.exit387.i
 
 298:                                              ; preds = %294
-  br i1 %.not12.i406.i, label %.loopexit288, label %299
+  br i1 %.not12.i406.i, label %.loopexit289, label %299
 
 299:                                              ; preds = %298
   %300 = call ptr %.sroa.63.0(ptr noundef null, i64 noundef %295, ptr noundef %.sroa.0.0) #66
   br label %ma_dr_flac__malloc_from_callbacks.exit387.i
 
 ma_dr_flac__malloc_from_callbacks.exit387.i:      ; preds = %299, %296
-  %.0.i385.i = phi ptr [ %300, %299 ], [ %297, %296 ]
+  %.0.i385.i = phi ptr [ %297, %296 ], [ %300, %299 ]
   %301 = icmp eq ptr %.0.i385.i, null
-  br i1 %301, label %.loopexit288, label %302
+  br i1 %301, label %.loopexit289, label %302
 
 302:                                              ; preds = %ma_dr_flac__malloc_from_callbacks.exit387.i
   %303 = call i64 %.0112(ptr noundef %.0110, ptr noundef nonnull %.0.i385.i, i64 noundef %295) #66
@@ -97944,7 +97944,7 @@ ma_dr_flac__malloc_from_callbacks.exit387.i:      ; preds = %299, %296
 
 304:                                              ; preds = %302
   call void %.sroa.74.0(ptr noundef nonnull %.0.i385.i, ptr noundef %.sroa.0.0) #66
-  br label %.loopexit288
+  br label %.loopexit289
 
 305:                                              ; preds = %302
   store ptr %.0.i385.i, ptr %145, align 8, !tbaa !1925
@@ -97956,8 +97956,8 @@ ma_dr_flac__malloc_from_callbacks.exit387.i:      ; preds = %299, %296
   store i64 %308, ptr %158, align 8, !tbaa !7
   %309 = getelementptr inbounds nuw i8, ptr %.0.i385.i, i64 136
   %310 = load i8, ptr %309, align 8, !tbaa !7
-  %.lobit.i132 = lshr i8 %310, 7
-  %311 = zext nneg i8 %.lobit.i132 to i32
+  %.lobit.i133 = lshr i8 %310, 7
+  %311 = zext nneg i8 %.lobit.i133 to i32
   store i32 %311, ptr %159, align 8, !tbaa !7
   %312 = getelementptr inbounds nuw i8, ptr %.0.i385.i, i64 395
   %313 = load i8, ptr %312, align 1, !tbaa !7
@@ -97967,17 +97967,17 @@ ma_dr_flac__malloc_from_callbacks.exit387.i:      ; preds = %299, %296
   %315 = zext i8 %313 to i64
   %316 = mul nuw nsw i64 %315, 36
   %.not331612.not.i = icmp eq i8 %313, 0
-  br i1 %.not331612.not.i, label %._crit_edge.i, label %.lr.ph.i133
+  br i1 %.not331612.not.i, label %._crit_edge.i, label %.lr.ph.i134
 
-.lr.ph.i133:                                      ; preds = %305
+.lr.ph.i134:                                      ; preds = %305
   %317 = getelementptr inbounds nuw i8, ptr %.0.i385.i, i64 %295
   %318 = ptrtoint ptr %317 to i64
   br label %319
 
-319:                                              ; preds = %334, %.lr.ph.i133
-  %.0292615.i = phi i8 [ 0, %.lr.ph.i133 ], [ %338, %334 ]
-  %.0294614.i = phi i64 [ %316, %.lr.ph.i133 ], [ %336, %334 ]
-  %.0297613.i = phi ptr [ %314, %.lr.ph.i133 ], [ %337, %334 ]
+319:                                              ; preds = %334, %.lr.ph.i134
+  %.0292615.i = phi i8 [ 0, %.lr.ph.i134 ], [ %338, %334 ]
+  %.0294614.i = phi i64 [ %316, %.lr.ph.i134 ], [ %336, %334 ]
+  %.0297613.i = phi ptr [ %314, %.lr.ph.i134 ], [ %337, %334 ]
   %320 = ptrtoint ptr %.0297613.i to i64
   %321 = sub i64 %318, %320
   %322 = icmp slt i64 %321, 36
@@ -97985,7 +97985,7 @@ ma_dr_flac__malloc_from_callbacks.exit387.i:      ; preds = %299, %296
 
 323:                                              ; preds = %319
   call void %.sroa.74.0(ptr noundef nonnull %.0.i385.i, ptr noundef %.sroa.0.0) #66
-  br label %.loopexit288
+  br label %.loopexit289
 
 324:                                              ; preds = %319
   %325 = getelementptr inbounds nuw i8, ptr %.0297613.i, i64 35
@@ -98000,7 +98000,7 @@ ma_dr_flac__malloc_from_callbacks.exit387.i:      ; preds = %299, %296
 
 333:                                              ; preds = %324
   call void %.sroa.74.0(ptr noundef nonnull %.0.i385.i, ptr noundef %.sroa.0.0) #66
-  br label %.loopexit288
+  br label %.loopexit289
 
 334:                                              ; preds = %324
   %335 = shl nuw nsw i64 %328, 4
@@ -98026,18 +98026,18 @@ ma_dr_flac__malloc_from_callbacks.exit387.i:      ; preds = %299, %296
   br label %ma_dr_flac__malloc_from_callbacks.exit397.i
 
 ma_dr_flac__malloc_from_callbacks.exit397.i:      ; preds = %342, %339
-  %.0.i395.i = phi ptr [ %343, %342 ], [ %340, %339 ]
+  %.0.i395.i = phi ptr [ %340, %339 ], [ %343, %342 ]
   %.not332.i = icmp eq ptr %.0.i395.i, null
   br i1 %.not332.i, label %ma_dr_flac__malloc_from_callbacks.exit397.thread.i, label %.preheader519.i
 
 .preheader519.i:                                  ; preds = %ma_dr_flac__malloc_from_callbacks.exit397.i
   %344 = load i8, ptr %160, align 4, !tbaa !7
   %.not642.i = icmp eq i8 %344, 0
-  br i1 %.not642.i, label %.loopexit287, label %.lr.ph627.i
+  br i1 %.not642.i, label %.loopexit288, label %.lr.ph627.i
 
 ma_dr_flac__malloc_from_callbacks.exit397.thread.i: ; preds = %341, %ma_dr_flac__malloc_from_callbacks.exit397.i
   call void %.sroa.74.0(ptr noundef nonnull %.0.i385.i, ptr noundef %.sroa.0.0) #66
-  br label %.loopexit288
+  br label %.loopexit289
 
 .lr.ph627.i:                                      ; preds = %.preheader519.i, %._crit_edge621.i
   %.0285626.i = phi ptr [ %.1286.lcssa.i, %._crit_edge621.i ], [ %.0.i395.i, %.preheader519.i ]
@@ -98071,16 +98071,16 @@ ma_dr_flac__malloc_from_callbacks.exit397.thread.i: ; preds = %341, %ma_dr_flac_
   %354 = add nuw i8 %.1293625.i, 1
   %355 = load i8, ptr %160, align 4, !tbaa !7
   %356 = icmp ult i8 %354, %355
-  br i1 %356, label %.lr.ph627.i, label %.loopexit287, !llvm.loop !1937
+  br i1 %356, label %.lr.ph627.i, label %.loopexit288, !llvm.loop !1937
 
-.loopexit287:                                     ; preds = %._crit_edge621.i, %.preheader519.i
+.loopexit288:                                     ; preds = %._crit_edge621.i, %.preheader519.i
   store ptr %.0.i395.i, ptr %161, align 8, !tbaa !7
   call void %.sroa.74.0(ptr noundef nonnull %.0.i385.i, ptr noundef %.sroa.0.0) #66
   br label %ma_dr_flac__free_from_callbacks.exit359.i.sink.split
 
 357:                                              ; preds = %162
   %358 = icmp samesign ult i32 %168, 32
-  br i1 %358, label %.loopexit288, label %359
+  br i1 %358, label %.loopexit289, label %359
 
 359:                                              ; preds = %357
   br i1 %.not.i131, label %ma_dr_flac__free_from_callbacks.exit359.i, label %360
@@ -98094,16 +98094,16 @@ ma_dr_flac__malloc_from_callbacks.exit397.thread.i: ; preds = %341, %ma_dr_flac_
   br label %ma_dr_flac__malloc_from_callbacks.exit407.i
 
 364:                                              ; preds = %360
-  br i1 %.not12.i406.i, label %.loopexit288, label %365
+  br i1 %.not12.i406.i, label %.loopexit289, label %365
 
 365:                                              ; preds = %364
   %366 = call ptr %.sroa.63.0(ptr noundef null, i64 noundef %361, ptr noundef %.sroa.0.0) #66
   br label %ma_dr_flac__malloc_from_callbacks.exit407.i
 
 ma_dr_flac__malloc_from_callbacks.exit407.i:      ; preds = %365, %362
-  %.0.i405.i = phi ptr [ %366, %365 ], [ %363, %362 ]
+  %.0.i405.i = phi ptr [ %363, %362 ], [ %366, %365 ]
   %367 = icmp eq ptr %.0.i405.i, null
-  br i1 %367, label %.loopexit288, label %368
+  br i1 %367, label %.loopexit289, label %368
 
 368:                                              ; preds = %ma_dr_flac__malloc_from_callbacks.exit407.i
   %369 = call i64 %.0112(ptr noundef %.0110, ptr noundef nonnull %.0.i405.i, i64 noundef %361) #66
@@ -98112,7 +98112,7 @@ ma_dr_flac__malloc_from_callbacks.exit407.i:      ; preds = %365, %362
 
 370:                                              ; preds = %368
   call void %.sroa.74.0(ptr noundef nonnull %.0.i405.i, ptr noundef %.sroa.0.0) #66
-  br label %.loopexit288
+  br label %.loopexit289
 
 371:                                              ; preds = %368
   store ptr %.0.i405.i, ptr %145, align 8, !tbaa !1925
@@ -98163,7 +98163,7 @@ ma_dr_flac__malloc_from_callbacks.exit407.i:      ; preds = %365, %362
 
 412:                                              ; preds = %371
   call void %.sroa.74.0(ptr noundef nonnull %.0.i405.i, ptr noundef %.sroa.0.0) #66
-  br label %.loopexit288
+  br label %.loopexit289
 
 413:                                              ; preds = %371
   %414 = getelementptr inbounds nuw i8, ptr %.0.i405.i, i64 8
@@ -98194,7 +98194,7 @@ ma_dr_flac__malloc_from_callbacks.exit407.i:      ; preds = %365, %362
 
 436:                                              ; preds = %413
   call void %.sroa.74.0(ptr noundef nonnull %.0.i405.i, ptr noundef %.sroa.0.0) #66
-  br label %.loopexit288
+  br label %.loopexit289
 
 437:                                              ; preds = %413
   %438 = getelementptr inbounds nuw i8, ptr %415, i64 4
@@ -98304,7 +98304,7 @@ ma_dr_flac__malloc_from_callbacks.exit407.i:      ; preds = %365, %362
 
 534:                                              ; preds = %437
   call void %.sroa.74.0(ptr noundef nonnull %.0.i405.i, ptr noundef %.sroa.0.0) #66
-  br label %.loopexit288
+  br label %.loopexit289
 
 535:                                              ; preds = %437
   call void %2(ptr noundef %5, ptr noundef nonnull %9) #66
@@ -98344,16 +98344,16 @@ ma_dr_flac__malloc_from_callbacks.exit407.i:      ; preds = %365, %362
   br label %ma_dr_flac__malloc_from_callbacks.exit421.i
 
 548:                                              ; preds = %544
-  br i1 %.not12.i406.i, label %.loopexit288, label %549
+  br i1 %.not12.i406.i, label %.loopexit289, label %549
 
 549:                                              ; preds = %548
   %550 = call ptr %.sroa.63.0(ptr noundef null, i64 noundef %545, ptr noundef %.sroa.0.0) #66
   br label %ma_dr_flac__malloc_from_callbacks.exit421.i
 
 ma_dr_flac__malloc_from_callbacks.exit421.i:      ; preds = %549, %546
-  %.0.i419.i = phi ptr [ %550, %549 ], [ %547, %546 ]
+  %.0.i419.i = phi ptr [ %547, %546 ], [ %550, %549 ]
   %551 = icmp eq ptr %.0.i419.i, null
-  br i1 %551, label %.loopexit288, label %552
+  br i1 %551, label %.loopexit289, label %552
 
 552:                                              ; preds = %ma_dr_flac__malloc_from_callbacks.exit421.i
   %553 = call i64 %.0112(ptr noundef %.0110, ptr noundef nonnull %.0.i419.i, i64 noundef %545) #66
@@ -98362,7 +98362,7 @@ ma_dr_flac__malloc_from_callbacks.exit421.i:      ; preds = %549, %546
 
 554:                                              ; preds = %552
   call void %.sroa.74.0(ptr noundef nonnull %.0.i419.i, ptr noundef %.sroa.0.0) #66
-  br label %.loopexit288
+  br label %.loopexit289
 
 555:                                              ; preds = %552
   store ptr %.0.i419.i, ptr %145, align 8, !tbaa !1925
@@ -98371,17 +98371,17 @@ ma_dr_flac__malloc_from_callbacks.exit421.i:      ; preds = %549, %546
   call void %.sroa.74.0(ptr noundef nonnull %.0.i419.i, ptr noundef %.sroa.0.0) #66
   br label %ma_dr_flac__free_from_callbacks.exit359.thread.i
 
-ma_dr_flac__free_from_callbacks.exit359.i.sink.split: ; preds = %288, %264, %.loopexit285, %.loopexit287
-  %.0.i395.i.sink = phi ptr [ %.0.i395.i, %.loopexit287 ], [ %.0.i361.i, %.loopexit285 ], [ %.0.i369.i, %264 ], [ %.0.i369.i, %288 ]
-  %.2272.i.ph = phi i32 [ %.0270637.i, %.loopexit287 ], [ %168, %.loopexit285 ], [ %.0270637.i, %264 ], [ %.0270637.i, %288 ]
-  %.2269.i.ph = phi i64 [ %.0267638.i, %.loopexit287 ], [ %169, %.loopexit285 ], [ %.0267638.i, %264 ], [ %.0267638.i, %288 ]
+ma_dr_flac__free_from_callbacks.exit359.i.sink.split: ; preds = %288, %264, %.loopexit286, %.loopexit288
+  %.0.i395.i.sink = phi ptr [ %.0.i395.i, %.loopexit288 ], [ %.0.i361.i, %.loopexit286 ], [ %.0.i369.i, %264 ], [ %.0.i369.i, %288 ]
+  %.2272.i.ph = phi i32 [ %.0270637.i, %.loopexit288 ], [ %168, %.loopexit286 ], [ %.0270637.i, %264 ], [ %.0270637.i, %288 ]
+  %.2269.i.ph = phi i64 [ %.0267638.i, %.loopexit288 ], [ %169, %.loopexit286 ], [ %.0267638.i, %264 ], [ %.0267638.i, %288 ]
   call void %2(ptr noundef %5, ptr noundef nonnull %9) #66
   call void %.sroa.74.0(ptr noundef nonnull %.0.i395.i.sink, ptr noundef %.sroa.0.0) #66
   br label %ma_dr_flac__free_from_callbacks.exit359.i
 
 ma_dr_flac__free_from_callbacks.exit359.i:        ; preds = %ma_dr_flac__free_from_callbacks.exit359.i.sink.split, %543, %540, %536, %359, %293, %214, %190, %173
-  %.2272.i = phi i32 [ %.0270637.i, %536 ], [ %.0270637.i, %543 ], [ %.0270637.i, %540 ], [ %.0270637.i, %173 ], [ %.0270637.i, %359 ], [ %168, %190 ], [ %.0270637.i, %293 ], [ %.0270637.i, %214 ], [ %.2272.i.ph, %ma_dr_flac__free_from_callbacks.exit359.i.sink.split ]
-  %.2269.i = phi i64 [ %.0267638.i, %536 ], [ %.0267638.i, %543 ], [ %.0267638.i, %540 ], [ %.0267638.i, %173 ], [ %.0267638.i, %359 ], [ %169, %190 ], [ %.0267638.i, %293 ], [ %.0267638.i, %214 ], [ %.2269.i.ph, %ma_dr_flac__free_from_callbacks.exit359.i.sink.split ]
+  %.2272.i = phi i32 [ %.0270637.i, %543 ], [ %.0270637.i, %173 ], [ %168, %190 ], [ %.0270637.i, %214 ], [ %.0270637.i, %293 ], [ %.0270637.i, %359 ], [ %.0270637.i, %536 ], [ %.0270637.i, %540 ], [ %.2272.i.ph, %ma_dr_flac__free_from_callbacks.exit359.i.sink.split ]
+  %.2269.i = phi i64 [ %.0267638.i, %543 ], [ %.0267638.i, %173 ], [ %169, %190 ], [ %.0267638.i, %214 ], [ %.0267638.i, %293 ], [ %.0267638.i, %359 ], [ %.0267638.i, %536 ], [ %.0267638.i, %540 ], [ %.2269.i.ph, %ma_dr_flac__free_from_callbacks.exit359.i.sink.split ]
   %556 = icmp ne i32 %168, 0
   %or.cond.i = and i1 %.not.i131, %556
   br i1 %or.cond.i, label %557, label %ma_dr_flac__free_from_callbacks.exit359.thread.i
@@ -98402,14 +98402,14 @@ ma_dr_flac__free_from_callbacks.exit359.thread.thread.i: ; preds = %541, %537
   br label %ma_dr_flac__free_from_callbacks.exit
 
 ma_dr_flac__free_from_callbacks.exit359.thread.i: ; preds = %557, %ma_dr_flac__free_from_callbacks.exit359.i, %555, %541, %539, %535, %185
-  %.2269489.i = phi i64 [ %.2269.i, %ma_dr_flac__free_from_callbacks.exit359.i ], [ %.2269.i, %557 ], [ %.0267638.i, %555 ], [ %.0267638.i, %185 ], [ %.0267638.i, %541 ], [ %.0267638.i, %535 ], [ %.0267638.i, %539 ]
-  %.2272488.i = phi i32 [ %.2272.i, %ma_dr_flac__free_from_callbacks.exit359.i ], [ %.2272.i, %557 ], [ %.0270637.i, %555 ], [ %.0270637.i, %185 ], [ %.0270637.i, %541 ], [ %.0270637.i, %535 ], [ %.0270637.i, %539 ]
+  %.2269489.i = phi i64 [ %.2269.i, %557 ], [ %.2269.i, %ma_dr_flac__free_from_callbacks.exit359.i ], [ %.0267638.i, %555 ], [ %.0267638.i, %535 ], [ %.0267638.i, %185 ], [ %.0267638.i, %541 ], [ %.0267638.i, %539 ]
+  %.2272488.i = phi i32 [ %.2272.i, %557 ], [ %.2272.i, %ma_dr_flac__free_from_callbacks.exit359.i ], [ %.0270637.i, %555 ], [ %.0270637.i, %535 ], [ %.0270637.i, %185 ], [ %.0270637.i, %541 ], [ %.0270637.i, %539 ]
   %563 = zext nneg i32 %168 to i64
   %564 = add i64 %169, %563
   %.not344.i = icmp sgt i32 %164, -1
-  br i1 %.not344.i, label %.critedge350.i, label %ma_dr_flac__free_from_callbacks.exit
+  br i1 %.not344.i, label %.critedge.i132, label %ma_dr_flac__free_from_callbacks.exit
 
-.critedge350.i:                                   ; preds = %ma_dr_flac__free_from_callbacks.exit359.thread.i
+.critedge.i132:                                   ; preds = %ma_dr_flac__free_from_callbacks.exit359.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -98417,14 +98417,14 @@ ma_dr_flac__free_from_callbacks.exit359.thread.i: ; preds = %557, %ma_dr_flac__f
   %.not.i.i = icmp eq i64 %565, 4
   br i1 %.not.i.i, label %162, label %ma_dr_flac__read_and_decode_block_header.exit.thread.i
 
-.loopexit288:                                     ; preds = %171, %178, %ma_dr_flac__malloc_from_callbacks.exit.i, %196, %ma_dr_flac__malloc_from_callbacks.exit363.i, %212, %219, %ma_dr_flac__malloc_from_callbacks.exit371.i, %291, %298, %ma_dr_flac__malloc_from_callbacks.exit387.i, %357, %364, %ma_dr_flac__malloc_from_callbacks.exit407.i, %548, %ma_dr_flac__malloc_from_callbacks.exit421.i, %ma_dr_flac__read_and_decode_block_header.exit.thread.i, %184, %202, %225, %244, %263, %269, %287, %304, %323, %333, %ma_dr_flac__malloc_from_callbacks.exit397.thread.i, %370, %412, %436, %534, %554
+.loopexit289:                                     ; preds = %171, %178, %ma_dr_flac__malloc_from_callbacks.exit.i, %196, %ma_dr_flac__malloc_from_callbacks.exit363.i, %212, %219, %ma_dr_flac__malloc_from_callbacks.exit371.i, %291, %298, %ma_dr_flac__malloc_from_callbacks.exit387.i, %357, %364, %ma_dr_flac__malloc_from_callbacks.exit407.i, %548, %ma_dr_flac__malloc_from_callbacks.exit421.i, %ma_dr_flac__read_and_decode_block_header.exit.thread.i, %184, %202, %225, %244, %263, %269, %287, %304, %323, %333, %ma_dr_flac__malloc_from_callbacks.exit397.thread.i, %370, %412, %436, %534, %554
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %566 = icmp eq ptr %.0117, null
-  br i1 %566, label %ma_dr_flac__free_from_callbacks.exit140, label %567
+  br i1 %566, label %ma_dr_flac__free_from_callbacks.exit141, label %567
 
-567:                                              ; preds = %.loopexit288
+567:                                              ; preds = %.loopexit289
   call void %.sroa.74.0(ptr noundef nonnull %.0117, ptr noundef %.sroa.0.0) #66
-  br label %ma_dr_flac__free_from_callbacks.exit140
+  br label %ma_dr_flac__free_from_callbacks.exit141
 
 ma_dr_flac__free_from_callbacks.exit:             ; preds = %ma_dr_flac__free_from_callbacks.exit359.thread.i, %.thread490.i, %ma_dr_flac__free_from_callbacks.exit359.thread.thread.i
   %.1271.ph.i = phi i32 [ %.2272.i, %.thread490.i ], [ %.0270637.i, %ma_dr_flac__free_from_callbacks.exit359.thread.thread.i ], [ %.2272488.i, %ma_dr_flac__free_from_callbacks.exit359.thread.i ]
@@ -98437,153 +98437,153 @@ ma_dr_flac__free_from_callbacks.exit:             ; preds = %ma_dr_flac__free_fr
   br label %571
 
 571:                                              ; preds = %ma_dr_flac__free_from_callbacks.exit, %138
-  %.0258 = phi i64 [ 42, %138 ], [ %.1266.ph.i, %ma_dr_flac__free_from_callbacks.exit ]
-  %.0256 = phi i64 [ 0, %138 ], [ %.1268.ph.i, %ma_dr_flac__free_from_callbacks.exit ]
-  %.0255 = phi i32 [ 0, %138 ], [ %568, %ma_dr_flac__free_from_callbacks.exit ]
+  %.0259 = phi i64 [ 42, %138 ], [ %.1266.ph.i, %ma_dr_flac__free_from_callbacks.exit ]
+  %.0257 = phi i64 [ 0, %138 ], [ %.1268.ph.i, %ma_dr_flac__free_from_callbacks.exit ]
+  %.0256 = phi i32 [ 0, %138 ], [ %568, %ma_dr_flac__free_from_callbacks.exit ]
   %.1108 = phi i32 [ %.0107, %138 ], [ %570, %ma_dr_flac__free_from_callbacks.exit ]
   %572 = zext i32 %.1108 to i64
-  %.not.i135 = icmp eq ptr %.sroa.52.0, null
-  br i1 %.not.i135, label %575, label %573
+  %.not.i136 = icmp eq ptr %.sroa.52.0, null
+  br i1 %.not.i136, label %575, label %573
 
 573:                                              ; preds = %571
   %574 = call ptr %.sroa.52.0(i64 noundef %572, ptr noundef %.sroa.0.0) #66
-  br label %ma_dr_flac__malloc_from_callbacks.exit138
+  br label %ma_dr_flac__malloc_from_callbacks.exit139
 
 575:                                              ; preds = %571
-  %.not12.i137 = icmp eq ptr %.sroa.63.0, null
-  br i1 %.not12.i137, label %ma_dr_flac__malloc_from_callbacks.exit138.thread, label %576
+  %.not12.i138 = icmp eq ptr %.sroa.63.0, null
+  br i1 %.not12.i138, label %ma_dr_flac__malloc_from_callbacks.exit139.thread, label %576
 
 576:                                              ; preds = %575
   %577 = call ptr %.sroa.63.0(ptr noundef null, i64 noundef %572, ptr noundef %.sroa.0.0) #66
-  br label %ma_dr_flac__malloc_from_callbacks.exit138
+  br label %ma_dr_flac__malloc_from_callbacks.exit139
 
-ma_dr_flac__malloc_from_callbacks.exit138:        ; preds = %573, %576
-  %.0.i136 = phi ptr [ %577, %576 ], [ %574, %573 ]
-  %578 = icmp eq ptr %.0.i136, null
-  br i1 %578, label %ma_dr_flac__malloc_from_callbacks.exit138.thread, label %581
+ma_dr_flac__malloc_from_callbacks.exit139:        ; preds = %573, %576
+  %.0.i137 = phi ptr [ %574, %573 ], [ %577, %576 ]
+  %578 = icmp eq ptr %.0.i137, null
+  br i1 %578, label %ma_dr_flac__malloc_from_callbacks.exit139.thread, label %581
 
-ma_dr_flac__malloc_from_callbacks.exit138.thread: ; preds = %575, %ma_dr_flac__malloc_from_callbacks.exit138
+ma_dr_flac__malloc_from_callbacks.exit139.thread: ; preds = %575, %ma_dr_flac__malloc_from_callbacks.exit139
   %579 = icmp eq ptr %.0117, null
-  br i1 %579, label %ma_dr_flac__free_from_callbacks.exit140, label %580
+  br i1 %579, label %ma_dr_flac__free_from_callbacks.exit141, label %580
 
-580:                                              ; preds = %ma_dr_flac__malloc_from_callbacks.exit138.thread
+580:                                              ; preds = %ma_dr_flac__malloc_from_callbacks.exit139.thread
   call void %.sroa.74.0(ptr noundef nonnull %.0117, ptr noundef %.sroa.0.0) #66
-  br label %ma_dr_flac__free_from_callbacks.exit140
+  br label %ma_dr_flac__free_from_callbacks.exit141
 
-581:                                              ; preds = %ma_dr_flac__malloc_from_callbacks.exit138
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4488) %.0.i136, i8 0, i64 4488, i1 false)
-  %582 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 304
+581:                                              ; preds = %ma_dr_flac__malloc_from_callbacks.exit139
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4488) %.0.i137, i8 0, i64 4488, i1 false)
+  %582 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4176) %582, ptr noundef nonnull readonly align 8 dereferenceable(4176) %25, i64 4176, i1 false), !tbaa.struct !1938
   %583 = load ptr, ptr %22, align 8, !tbaa !1907
-  store ptr %583, ptr %.0.i136, align 8, !tbaa !1939
+  store ptr %583, ptr %.0.i137, align 8, !tbaa !1939
   %584 = load ptr, ptr %24, align 8, !tbaa !1910
-  %585 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 8
+  %585 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 8
   store ptr %584, ptr %585, align 8, !tbaa !1940
   %586 = load i16, ptr %102, align 8, !tbaa !1915
-  %587 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 54
+  %587 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 54
   store i16 %586, ptr %587, align 2, !tbaa !1321
   %588 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %589 = load i32, ptr %588, align 8, !tbaa !1941
-  %590 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 48
+  %590 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 48
   store i32 %589, ptr %590, align 8, !tbaa !1225
   %591 = load i8, ptr %111, align 4, !tbaa !1916
-  %592 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 52
+  %592 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 52
   store i8 %591, ptr %592, align 4, !tbaa !1224
   %593 = getelementptr inbounds nuw i8, ptr %12, i64 53
   %594 = load i8, ptr %593, align 1, !tbaa !1942
-  %595 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 53
+  %595 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 53
   store i8 %594, ptr %595, align 1, !tbaa !1227
   %596 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %597 = load i64, ptr %596, align 8, !tbaa !1943
-  %598 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 56
+  %598 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 56
   store i64 %597, ptr %598, align 8, !tbaa !1310
   %599 = load i32, ptr %20, align 8, !tbaa !1908
-  %600 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 64
+  %600 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 64
   store i32 %599, ptr %600, align 8, !tbaa !1212
-  %601 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 16
+  %601 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 16
   store ptr %.sroa.0.0, ptr %601, align 8, !tbaa !27
-  %.sroa.52.0..sroa_idx196 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 24
-  store ptr %.sroa.52.0, ptr %.sroa.52.0..sroa_idx196, align 8, !tbaa !27
-  %.sroa.63.0..sroa_idx207 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 32
-  store ptr %.sroa.63.0, ptr %.sroa.63.0..sroa_idx207, align 8, !tbaa !27
-  %.sroa.74.0..sroa_idx218 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 40
-  store ptr %.sroa.74.0, ptr %.sroa.74.0..sroa_idx218, align 8, !tbaa !27
-  %602 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 4480
+  %.sroa.52.0..sroa_idx197 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 24
+  store ptr %.sroa.52.0, ptr %.sroa.52.0..sroa_idx197, align 8, !tbaa !27
+  %.sroa.63.0..sroa_idx208 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 32
+  store ptr %.sroa.63.0, ptr %.sroa.63.0..sroa_idx208, align 8, !tbaa !27
+  %.sroa.74.0..sroa_idx219 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 40
+  store ptr %.sroa.74.0, ptr %.sroa.74.0..sroa_idx219, align 8, !tbaa !27
+  %602 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 4480
   %603 = ptrtoint ptr %602 to i64
   %604 = add i64 %603, 63
   %605 = and i64 %604, -64
   %606 = inttoptr i64 %605 to ptr
-  %607 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 272
+  %607 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 272
   store ptr %606, ptr %607, align 8, !tbaa !1944
   %608 = icmp eq i32 %599, 1
   br i1 %608, label %610, label %.thread
 
 .thread:                                          ; preds = %581
-  %609 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 240
-  store i64 %.0258, ptr %609, align 8, !tbaa !1301
+  %609 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 240
+  store i64 %.0259, ptr %609, align 8, !tbaa !1301
   br label %624
 
 610:                                              ; preds = %581
   %611 = zext nneg i32 %114 to i64
   %612 = getelementptr inbounds nuw i8, ptr %606, i64 %611
-  %613 = zext nneg i32 %.0255 to i64
+  %613 = zext nneg i32 %.0256 to i64
   %614 = mul nuw nsw i64 %613, 24
   %615 = getelementptr inbounds nuw i8, ptr %612, i64 %614
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65944) %615, ptr noundef nonnull align 8 dereferenceable(65944) %.0117, i64 65944, i1 false)
   call void %.sroa.74.0(ptr noundef nonnull %.0117, ptr noundef %.sroa.0.0) #66
   store ptr @ma_dr_flac__on_read_ogg, ptr %582, align 8, !tbaa !1222
-  %616 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 312
+  %616 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 312
   store ptr @ma_dr_flac__on_seek_ogg, ptr %616, align 8, !tbaa !1945
-  %617 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 320
+  %617 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 320
   store ptr %615, ptr %617, align 8, !tbaa !1221
-  %618 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 288
+  %618 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 288
   store ptr %615, ptr %618, align 8, !tbaa !1217
   %.pre = load i32, ptr %20, align 8, !tbaa !1908
   %619 = icmp eq i32 %.pre, 1
-  %620 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 240
-  store i64 %.0258, ptr %620, align 8, !tbaa !1301
+  %620 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 240
+  store i64 %.0259, ptr %620, align 8, !tbaa !1301
   br i1 %619, label %621, label %624
 
 621:                                              ; preds = %610
-  %622 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 280
+  %622 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 280
   store ptr null, ptr %622, align 8, !tbaa !1946
-  %623 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 68
+  %623 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 68
   store i32 0, ptr %623, align 4, !tbaa !1947
   br label %.critedge
 
 624:                                              ; preds = %.thread, %610
   %625 = phi ptr [ %609, %.thread ], [ %620, %610 ]
-  %.not125 = icmp eq i64 %.0256, 0
+  %.not125 = icmp eq i64 %.0257, 0
   br i1 %.not125, label %.critedge, label %626
 
 626:                                              ; preds = %624
-  %627 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 68
-  store i32 %.0255, ptr %627, align 4, !tbaa !1947
+  %627 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 68
+  store i32 %.0256, ptr %627, align 4, !tbaa !1947
   %628 = load ptr, ptr %607, align 8, !tbaa !1944
   %629 = zext nneg i32 %114 to i64
   %630 = getelementptr inbounds nuw i8, ptr %628, i64 %629
-  %631 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 280
+  %631 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 280
   store ptr %630, ptr %631, align 8, !tbaa !1946
-  %632 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 312
+  %632 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 312
   %633 = load ptr, ptr %632, align 8, !tbaa !1945
-  %634 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 320
+  %634 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 320
   %635 = load ptr, ptr %634, align 8, !tbaa !1221
-  %636 = trunc i64 %.0256 to i32
+  %636 = trunc i64 %.0257 to i32
   %637 = call i32 %633(ptr noundef %635, i32 noundef %636, i32 noundef 0) #66
   %.not126 = icmp eq i32 %637, 0
   br i1 %.not126, label %661, label %.preheader
 
 .preheader:                                       ; preds = %626
-  %.not397 = icmp eq i32 %.0255, 0
-  br i1 %.not397, label %.loopexit, label %.lr.ph.preheader
+  %.not398 = icmp eq i32 %.0256, 0
+  br i1 %.not398, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %.0255 to i64
-  %.pre506 = load ptr, ptr %631, align 8, !tbaa !1946
+  %wide.trip.count = zext nneg i32 %.0256 to i64
+  %.pre507 = load ptr, ptr %631, align 8, !tbaa !1946
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %644
-  %638 = phi ptr [ %.pre506, %.lr.ph.preheader ], [ %645, %644 ]
+  %638 = phi ptr [ %.pre507, %.lr.ph.preheader ], [ %645, %644 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %644 ]
   %639 = load ptr, ptr %582, align 8, !tbaa !1222
   %640 = load ptr, ptr %634, align 8, !tbaa !1221
@@ -98622,11 +98622,11 @@ ma_dr_flac__malloc_from_callbacks.exit138.thread: ; preds = %575, %ma_dr_flac__m
   %659 = trunc i64 %658 to i32
   %660 = call i32 %656(ptr noundef %657, i32 noundef %659, i32 noundef 0) #66
   %.not127.not = icmp eq i32 %660, 0
-  br i1 %.not127.not, label %ma_dr_flac__free_from_callbacks.exit144, label %.critedge
+  br i1 %.not127.not, label %ma_dr_flac__free_from_callbacks.exit145, label %.critedge
 
-ma_dr_flac__free_from_callbacks.exit144:          ; preds = %.loopexit
-  call void %.sroa.74.0(ptr noundef nonnull %.0.i136, ptr noundef %.sroa.0.0) #66
-  br label %ma_dr_flac__free_from_callbacks.exit140
+ma_dr_flac__free_from_callbacks.exit145:          ; preds = %.loopexit
+  call void %.sroa.74.0(ptr noundef nonnull %.0.i137, ptr noundef %.sroa.0.0) #66
+  br label %ma_dr_flac__free_from_callbacks.exit141
 
 661:                                              ; preds = %626
   store ptr null, ptr %631, align 8, !tbaa !1946
@@ -98637,18 +98637,18 @@ ma_dr_flac__free_from_callbacks.exit144:          ; preds = %.loopexit
   %662 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %663 = load i32, ptr %662, align 8, !tbaa !1949
   %.not128 = icmp eq i32 %663, 0
-  br i1 %.not128, label %664, label %ma_dr_flac__free_from_callbacks.exit140
+  br i1 %.not128, label %664, label %ma_dr_flac__free_from_callbacks.exit141
 
 664:                                              ; preds = %.critedge
-  %665 = getelementptr inbounds nuw i8, ptr %.0.i136, i64 72
+  %665 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 72
   %666 = getelementptr inbounds nuw i8, ptr %12, i64 4264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %665, ptr noundef nonnull align 8 dereferenceable(24) %666, i64 24, i1 false), !tbaa.struct !1950
   br label %667
 
 667:                                              ; preds = %669, %664
-  %668 = call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %.0.i136)
-  switch i32 %668, label %ma_dr_flac__free_from_callbacks.exit148 [
-    i32 0, label %ma_dr_flac__free_from_callbacks.exit140
+  %668 = call fastcc i32 @ma_dr_flac__decode_flac_frame(ptr noundef %.0.i137)
+  switch i32 %668, label %ma_dr_flac__free_from_callbacks.exit149 [
+    i32 0, label %ma_dr_flac__free_from_callbacks.exit141
     i32 -100, label %669
   ]
 
@@ -98656,18 +98656,18 @@ ma_dr_flac__free_from_callbacks.exit144:          ; preds = %.loopexit
   %670 = load i8, ptr %595, align 1, !tbaa !1227
   %671 = call fastcc i32 @ma_dr_flac__read_next_flac_frame_header(ptr noundef %582, i8 noundef zeroext %670, ptr noundef %665)
   %.not129 = icmp eq i32 %671, 0
-  br i1 %.not129, label %ma_dr_flac__free_from_callbacks.exit146, label %667
+  br i1 %.not129, label %ma_dr_flac__free_from_callbacks.exit147, label %667
 
-ma_dr_flac__free_from_callbacks.exit146:          ; preds = %669
-  call void %.sroa.74.0(ptr noundef nonnull %.0.i136, ptr noundef %.sroa.0.0) #66
-  br label %ma_dr_flac__free_from_callbacks.exit140
+ma_dr_flac__free_from_callbacks.exit147:          ; preds = %669
+  call void %.sroa.74.0(ptr noundef nonnull %.0.i137, ptr noundef %.sroa.0.0) #66
+  br label %ma_dr_flac__free_from_callbacks.exit141
 
-ma_dr_flac__free_from_callbacks.exit148:          ; preds = %667
-  call void %.sroa.74.0(ptr noundef nonnull %.0.i136, ptr noundef %.sroa.0.0) #66
-  br label %ma_dr_flac__free_from_callbacks.exit140
+ma_dr_flac__free_from_callbacks.exit149:          ; preds = %667
+  call void %.sroa.74.0(ptr noundef nonnull %.0.i137, ptr noundef %.sroa.0.0) #66
+  br label %ma_dr_flac__free_from_callbacks.exit141
 
-ma_dr_flac__free_from_callbacks.exit140:          ; preds = %667, %ma_dr_flac__free_from_callbacks.exit146, %ma_dr_flac__free_from_callbacks.exit148, %567, %.loopexit288, %121, %.critedge, %580, %ma_dr_flac__malloc_from_callbacks.exit138.thread, %ma_dr_flac__init_private.exit.thread, %ma_dr_flac__free_from_callbacks.exit144, %ma_dr_flac__malloc_from_callbacks.exit, %96, %98, %ma_dr_flac__init_private.exit
-  %.0 = phi ptr [ null, %ma_dr_flac__init_private.exit ], [ null, %96 ], [ %.0.i136, %.critedge ], [ null, %580 ], [ null, %ma_dr_flac__free_from_callbacks.exit146 ], [ null, %ma_dr_flac__free_from_callbacks.exit144 ], [ null, %121 ], [ null, %98 ], [ null, %ma_dr_flac__malloc_from_callbacks.exit ], [ null, %ma_dr_flac__init_private.exit.thread ], [ null, %ma_dr_flac__malloc_from_callbacks.exit138.thread ], [ null, %567 ], [ null, %.loopexit288 ], [ null, %ma_dr_flac__free_from_callbacks.exit148 ], [ %.0.i136, %667 ]
+ma_dr_flac__free_from_callbacks.exit141:          ; preds = %667, %ma_dr_flac__free_from_callbacks.exit149, %ma_dr_flac__free_from_callbacks.exit147, %567, %.loopexit289, %121, %.critedge, %580, %ma_dr_flac__malloc_from_callbacks.exit139.thread, %ma_dr_flac__init_private.exit.thread, %ma_dr_flac__free_from_callbacks.exit145, %ma_dr_flac__malloc_from_callbacks.exit, %96, %98, %ma_dr_flac__init_private.exit
+  %.0 = phi ptr [ null, %ma_dr_flac__free_from_callbacks.exit145 ], [ null, %ma_dr_flac__init_private.exit ], [ null, %98 ], [ null, %96 ], [ null, %ma_dr_flac__malloc_from_callbacks.exit ], [ null, %ma_dr_flac__init_private.exit.thread ], [ null, %ma_dr_flac__malloc_from_callbacks.exit139.thread ], [ null, %580 ], [ %.0.i137, %.critedge ], [ null, %121 ], [ null, %.loopexit289 ], [ null, %567 ], [ null, %ma_dr_flac__free_from_callbacks.exit147 ], [ null, %ma_dr_flac__free_from_callbacks.exit149 ], [ %.0.i137, %667 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret ptr %.0
 }
@@ -98691,7 +98691,7 @@ define ptr @ma_dr_flac_open_file_with_metadata_w(ptr noundef %0, ptr noundef %1,
   br label %13
 
 13:                                               ; preds = %7, %4, %11
-  %.0 = phi ptr [ null, %4 ], [ null, %11 ], [ %9, %7 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %4 ], [ %9, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -98754,7 +98754,7 @@ define internal range(i32 0, 2) i32 @ma_dr_flac__on_seek_memory(ptr noundef capt
   br label %19
 
 19:                                               ; preds = %14, %17, %15, %10, %3
-  %.0 = phi i32 [ 0, %10 ], [ 0, %15 ], [ 0, %3 ], [ 1, %17 ], [ 1, %14 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %10 ], [ 0, %15 ], [ 1, %17 ], [ 1, %14 ]
   ret i32 %.0
 }
 
@@ -99113,7 +99113,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i: ; preds = %146, %154
   br i1 %.not.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit, label %.lr.ph.i, !llvm.loop !1228
 
 ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i, %.preheader.i, %146, %140, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i
-  %.025.i = phi i64 [ 0, %140 ], [ %151, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %.preheader.i ], [ %.028.i, %146 ], [ %.1.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
+  %.025.i = phi i64 [ 0, %140 ], [ %151, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %146 ], [ %.028.i, %.preheader.i ], [ %.1.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
   %157 = load i64, ptr %86, align 8, !tbaa !1229
   %158 = add i64 %157, %.025.i
   store i64 %158, ptr %86, align 8, !tbaa !1229
@@ -99170,7 +99170,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i170: ; preds = %166, %174
   br i1 %.not.i173, label %ma_dr_flac__seek_forward_by_pcm_frames.exit178, label %.lr.ph.i167, !llvm.loop !1228
 
 ma_dr_flac__seek_forward_by_pcm_frames.exit178:   ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i170, %.preheader.i176, %166, %160, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i175
-  %.025.i174 = phi i64 [ 0, %160 ], [ %171, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i175 ], [ %.028.i168, %.preheader.i176 ], [ %.028.i168, %166 ], [ %.1.i172, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i170 ]
+  %.025.i174 = phi i64 [ 0, %160 ], [ %171, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i175 ], [ %.028.i168, %166 ], [ %.028.i168, %.preheader.i176 ], [ %.1.i172, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i170 ]
   %177 = load i64, ptr %86, align 8, !tbaa !1229
   %178 = add i64 %177, %.025.i174
   store i64 %178, ptr %86, align 8, !tbaa !1229
@@ -99210,7 +99210,7 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit178:   ; preds = %ma_dr_flac__read_an
   br i1 %.not162, label %.critedge.thread, label %121
 
 .critedge.thread:                                 ; preds = %190, %181, %138, %.thread188, %ma_dr_flac__seek_forward_by_pcm_frames.exit, %ma_dr_flac__seek_forward_by_pcm_frames.exit178, %59, %53, %ma_dr_flac__get_pcm_frame_range_of_current_flac_frame.exit, %108, %.critedge._crit_edge, %94, %28, %18, %24, %10, %2, %6
-  %.0.shrunk = phi i1 [ false, %108 ], [ false, %2 ], [ false, %10 ], [ false, %18 ], [ true, %ma_dr_flac__get_pcm_frame_range_of_current_flac_frame.exit ], [ false, %28 ], [ false, %.critedge._crit_edge ], [ false, %94 ], [ false, %6 ], [ false, %24 ], [ false, %59 ], [ false, %53 ], [ %159, %ma_dr_flac__seek_forward_by_pcm_frames.exit ], [ %179, %ma_dr_flac__seek_forward_by_pcm_frames.exit178 ], [ false, %190 ], [ true, %.thread188 ], [ false, %138 ], [ false, %181 ]
+  %.0.shrunk = phi i1 [ false, %6 ], [ false, %2 ], [ false, %10 ], [ false, %24 ], [ false, %18 ], [ false, %28 ], [ false, %94 ], [ false, %.critedge._crit_edge ], [ false, %108 ], [ false, %59 ], [ false, %53 ], [ true, %ma_dr_flac__get_pcm_frame_range_of_current_flac_frame.exit ], [ %159, %ma_dr_flac__seek_forward_by_pcm_frames.exit ], [ %179, %ma_dr_flac__seek_forward_by_pcm_frames.exit178 ], [ false, %190 ], [ false, %181 ], [ false, %138 ], [ true, %.thread188 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -99340,7 +99340,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i: ; preds = %47, %55
   br i1 %.not.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit, label %42, !llvm.loop !1228
 
 ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i, %.preheader.i, %47, %38, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i
-  %.025.i = phi i64 [ 0, %38 ], [ %52, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %.preheader.i ], [ %.028.i, %47 ], [ %.1.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
+  %.025.i = phi i64 [ 0, %38 ], [ %52, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %47 ], [ %.028.i, %.preheader.i ], [ %.1.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %59 = load i64, ptr %58, align 8, !tbaa !1229
   %60 = add i64 %59, %.025.i
@@ -99369,7 +99369,7 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   br label %80
 
 80:                                               ; preds = %ma_dr_flac__seek_to_first_frame.exit.thread, %63, %ma_dr_flac__seek_forward_by_pcm_frames.exit
-  %.0 = phi i32 [ %79, %63 ], [ %62, %ma_dr_flac__seek_forward_by_pcm_frames.exit ], [ 0, %ma_dr_flac__seek_to_first_frame.exit.thread ]
+  %.0 = phi i32 [ %62, %ma_dr_flac__seek_forward_by_pcm_frames.exit ], [ %79, %63 ], [ 0, %ma_dr_flac__seek_to_first_frame.exit.thread ]
   ret i32 %.0
 }
 
@@ -99566,7 +99566,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i: ; preds = %86, %94
   br i1 %.not.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit, label %.lr.ph.i, !llvm.loop !1228
 
 ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i, %.preheader.i, %86, %80, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i
-  %.025.i = phi i64 [ 0, %80 ], [ %91, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %.preheader.i ], [ %.028.i, %86 ], [ %.1.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
+  %.025.i = phi i64 [ 0, %80 ], [ %91, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %86 ], [ %.028.i, %.preheader.i ], [ %.1.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
   %97 = load i64, ptr %3, align 8, !tbaa !1229
   %98 = add i64 %97, %.025.i
   store i64 %98, ptr %3, align 8, !tbaa !1229
@@ -99623,7 +99623,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i81: ; preds = %106, %114
   br i1 %.not.i84, label %ma_dr_flac__seek_forward_by_pcm_frames.exit89, label %.lr.ph.i78, !llvm.loop !1228
 
 ma_dr_flac__seek_forward_by_pcm_frames.exit89:    ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i81, %.preheader.i87, %106, %100, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i86
-  %.025.i85 = phi i64 [ 0, %100 ], [ %111, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i86 ], [ %.028.i79, %.preheader.i87 ], [ %.028.i79, %106 ], [ %.1.i83, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i81 ]
+  %.025.i85 = phi i64 [ 0, %100 ], [ %111, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i86 ], [ %.028.i79, %106 ], [ %.028.i79, %.preheader.i87 ], [ %.1.i83, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i81 ]
   %117 = load i64, ptr %3, align 8, !tbaa !1229
   %118 = add i64 %117, %.025.i85
   store i64 %118, ptr %3, align 8, !tbaa !1229
@@ -99663,7 +99663,7 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit89:    ; preds = %ma_dr_flac__read_an
   br i1 %.not75, label %.thread104, label %61
 
 .thread104:                                       ; preds = %130, %121, %78, %.thread99, %ma_dr_flac__seek_forward_by_pcm_frames.exit, %ma_dr_flac__seek_forward_by_pcm_frames.exit89, %ma_dr_flac__seek_to_first_frame.exit.thread, %39, %11
-  %.0.shrunk = phi i1 [ false, %39 ], [ false, %11 ], [ false, %ma_dr_flac__seek_to_first_frame.exit.thread ], [ %99, %ma_dr_flac__seek_forward_by_pcm_frames.exit ], [ %119, %ma_dr_flac__seek_forward_by_pcm_frames.exit89 ], [ false, %130 ], [ true, %.thread99 ], [ false, %78 ], [ false, %121 ]
+  %.0.shrunk = phi i1 [ false, %11 ], [ false, %39 ], [ false, %ma_dr_flac__seek_to_first_frame.exit.thread ], [ %99, %ma_dr_flac__seek_forward_by_pcm_frames.exit ], [ %119, %ma_dr_flac__seek_forward_by_pcm_frames.exit89 ], [ false, %130 ], [ false, %121 ], [ false, %78 ], [ true, %.thread99 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -99740,7 +99740,7 @@ define internal fastcc ptr @ma_dr_flac__full_read_and_close_s32(ptr noundef nonn
   br label %ma_dr_flac__malloc_from_callbacks.exit
 
 ma_dr_flac__malloc_from_callbacks.exit:           ; preds = %13, %19
-  %.0.i = phi ptr [ %21, %19 ], [ %15, %13 ]
+  %.0.i = phi ptr [ %15, %13 ], [ %21, %19 ]
   %22 = icmp eq ptr %.0.i, null
   br i1 %22, label %.thread117, label %.preheader
 
@@ -99886,7 +99886,7 @@ ma_dr_flac__free_from_callbacks.exit.thread112:   ; preds = %ma_dr_flac__realloc
   br label %ma_dr_flac__malloc_from_callbacks.exit94
 
 ma_dr_flac__malloc_from_callbacks.exit94:         ; preds = %80, %86
-  %.0.i92 = phi ptr [ %88, %86 ], [ %82, %80 ]
+  %.0.i92 = phi ptr [ %82, %80 ], [ %88, %86 ]
   %89 = icmp eq ptr %.0.i92, null
   br i1 %89, label %.thread123, label %90
 
@@ -100009,7 +100009,7 @@ ma_dr_flac_close.exit.sink.split:                 ; preds = %148, %125
   br label %ma_dr_flac_close.exit
 
 ma_dr_flac_close.exit:                            ; preds = %ma_dr_flac_close.exit.sink.split, %148, %125
-  %.0 = phi ptr [ null, %148 ], [ %.4, %125 ], [ %.0.ph, %ma_dr_flac_close.exit.sink.split ]
+  %.0 = phi ptr [ %.4, %125 ], [ null, %148 ], [ %.0.ph, %ma_dr_flac_close.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -100085,7 +100085,7 @@ define internal fastcc ptr @ma_dr_flac__full_read_and_close_s16(ptr noundef nonn
   br label %ma_dr_flac__malloc_from_callbacks.exit
 
 ma_dr_flac__malloc_from_callbacks.exit:           ; preds = %13, %19
-  %.0.i = phi ptr [ %21, %19 ], [ %15, %13 ]
+  %.0.i = phi ptr [ %15, %13 ], [ %21, %19 ]
   %22 = icmp eq ptr %.0.i, null
   br i1 %22, label %.thread117, label %.preheader
 
@@ -100231,7 +100231,7 @@ ma_dr_flac__free_from_callbacks.exit.thread112:   ; preds = %ma_dr_flac__realloc
   br label %ma_dr_flac__malloc_from_callbacks.exit94
 
 ma_dr_flac__malloc_from_callbacks.exit94:         ; preds = %80, %86
-  %.0.i92 = phi ptr [ %88, %86 ], [ %82, %80 ]
+  %.0.i92 = phi ptr [ %82, %80 ], [ %88, %86 ]
   %89 = icmp eq ptr %.0.i92, null
   br i1 %89, label %.thread123, label %90
 
@@ -100354,7 +100354,7 @@ ma_dr_flac_close.exit.sink.split:                 ; preds = %148, %125
   br label %ma_dr_flac_close.exit
 
 ma_dr_flac_close.exit:                            ; preds = %ma_dr_flac_close.exit.sink.split, %148, %125
-  %.0 = phi ptr [ null, %148 ], [ %.4, %125 ], [ %.0.ph, %ma_dr_flac_close.exit.sink.split ]
+  %.0 = phi ptr [ %.4, %125 ], [ null, %148 ], [ %.0.ph, %ma_dr_flac_close.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -100430,7 +100430,7 @@ define internal fastcc ptr @ma_dr_flac__full_read_and_close_f32(ptr noundef nonn
   br label %ma_dr_flac__malloc_from_callbacks.exit
 
 ma_dr_flac__malloc_from_callbacks.exit:           ; preds = %13, %19
-  %.0.i = phi ptr [ %21, %19 ], [ %15, %13 ]
+  %.0.i = phi ptr [ %15, %13 ], [ %21, %19 ]
   %22 = icmp eq ptr %.0.i, null
   br i1 %22, label %.thread117, label %.preheader
 
@@ -100576,7 +100576,7 @@ ma_dr_flac__free_from_callbacks.exit.thread112:   ; preds = %ma_dr_flac__realloc
   br label %ma_dr_flac__malloc_from_callbacks.exit94
 
 ma_dr_flac__malloc_from_callbacks.exit94:         ; preds = %80, %86
-  %.0.i92 = phi ptr [ %88, %86 ], [ %82, %80 ]
+  %.0.i92 = phi ptr [ %82, %80 ], [ %88, %86 ]
   %89 = icmp eq ptr %.0.i92, null
   br i1 %89, label %.thread123, label %90
 
@@ -100699,7 +100699,7 @@ ma_dr_flac_close.exit.sink.split:                 ; preds = %148, %125
   br label %ma_dr_flac_close.exit
 
 ma_dr_flac_close.exit:                            ; preds = %ma_dr_flac_close.exit.sink.split, %148, %125
-  %.0 = phi ptr [ null, %148 ], [ %.4, %125 ], [ %.0.ph, %ma_dr_flac_close.exit.sink.split ]
+  %.0 = phi ptr [ %.4, %125 ], [ null, %148 ], [ %.0.ph, %ma_dr_flac_close.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -101171,7 +101171,7 @@ define ptr @ma_dr_flac_next_vorbis_comment(ptr noundef captures(address_is_null)
   br label %31
 
 31:                                               ; preds = %13, %30, %4, %6, %9
-  %.0 = phi ptr [ null, %4 ], [ null, %9 ], [ null, %6 ], [ %26, %30 ], [ %26, %13 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %6 ], [ null, %4 ], [ %26, %30 ], [ %26, %13 ]
   ret ptr %.0
 }
 
@@ -101249,7 +101249,7 @@ define range(i32 0, 2) i32 @ma_dr_flac_next_cuesheet_track(ptr noundef captures(
   br label %28
 
 28:                                               ; preds = %11, %25, %2, %4, %7
-  %.0 = phi i32 [ 0, %2 ], [ 0, %7 ], [ 0, %4 ], [ 1, %25 ], [ 1, %11 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 0, %2 ], [ 1, %25 ], [ 1, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret i32 %.0
 }
@@ -101316,12 +101316,12 @@ define range(i32 0, 1153) i32 @ma_dr_mp3dec_decode_frame(ptr noundef captures(no
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 6152
   %20 = load i8, ptr %19, align 4, !tbaa !7
   %21 = icmp eq i8 %20, -1
-  br i1 %21, label %22, label %.lr.ph125.preheader.i
+  br i1 %21, label %22, label %.lr.ph127.preheader.i
 
 22:                                               ; preds = %18
   %23 = load i8, ptr %1, align 1, !tbaa !7
   %24 = icmp eq i8 %23, -1
-  br i1 %24, label %25, label %.lr.ph125.preheader.i
+  br i1 %24, label %25, label %.lr.ph127.preheader.i
 
 25:                                               ; preds = %22
   %26 = getelementptr i8, ptr %1, i64 1
@@ -101335,7 +101335,7 @@ define range(i32 0, 1153) i32 @ma_dr_mp3dec_decode_frame(ptr noundef captures(no
   %33 = and i8 %27, 6
   %.not.i.i = icmp eq i8 %33, 0
   %or.cond8.i.i = or i1 %.not.i.i, %or.cond.not11.i.i
-  br i1 %or.cond8.i.i, label %.lr.ph125.preheader.i, label %34
+  br i1 %or.cond8.i.i, label %.lr.ph127.preheader.i, label %34
 
 34:                                               ; preds = %25
   %35 = getelementptr i8, ptr %1, i64 2
@@ -101346,14 +101346,14 @@ define range(i32 0, 1153) i32 @ma_dr_mp3dec_decode_frame(ptr noundef captures(no
   %38 = and i32 %37, 12
   %.not8.i = icmp eq i32 %38, 12
   %or.cond.i = or i1 %.not6.i.i, %.not8.i
-  br i1 %or.cond.i, label %.lr.ph125.preheader.i, label %39
+  br i1 %or.cond.i, label %.lr.ph127.preheader.i, label %39
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 6153
   %41 = load i8, ptr %40, align 1, !tbaa !7
   %42 = xor i8 %41, %27
   %43 = icmp ult i8 %42, 2
-  br i1 %43, label %44, label %.lr.ph125.preheader.i
+  br i1 %43, label %44, label %.lr.ph127.preheader.i
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 6154
@@ -101361,13 +101361,13 @@ define range(i32 0, 1153) i32 @ma_dr_mp3dec_decode_frame(ptr noundef captures(no
   %47 = xor i8 %46, %36
   %48 = and i8 %47, 12
   %49 = icmp eq i8 %48, 0
-  br i1 %49, label %ma_dr_mp3_hdr_compare.exit, label %.lr.ph125.preheader.i
+  br i1 %49, label %ma_dr_mp3_hdr_compare.exit, label %.lr.ph127.preheader.i
 
 ma_dr_mp3_hdr_compare.exit:                       ; preds = %44
   %50 = icmp ult i8 %46, 16
   %51 = icmp ult i8 %36, 16
   %.not = xor i1 %51, %50
-  br i1 %.not, label %.lr.ph125.preheader.i, label %ma_dr_mp3_hdr_padding.exit
+  br i1 %.not, label %.lr.ph127.preheader.i, label %ma_dr_mp3_hdr_padding.exit
 
 ma_dr_mp3_hdr_padding.exit:                       ; preds = %ma_dr_mp3_hdr_compare.exit
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 6148
@@ -101423,14 +101423,14 @@ ma_dr_mp3_hdr_padding.exit:                       ; preds = %ma_dr_mp3_hdr_compa
 93:                                               ; preds = %ma_dr_mp3_hdr_padding.exit
   %94 = add nsw i32 %92, 4
   %95 = icmp sgt i32 %94, %2
-  br i1 %95, label %.lr.ph125.preheader.i, label %96
+  br i1 %95, label %.lr.ph127.preheader.i, label %96
 
 96:                                               ; preds = %93
   %97 = sext i32 %92 to i64
   %98 = getelementptr inbounds i8, ptr %1, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !7
   %100 = icmp eq i8 %99, -1
-  br i1 %100, label %101, label %.lr.ph125.preheader.i
+  br i1 %100, label %101, label %.lr.ph127.preheader.i
 
 101:                                              ; preds = %96
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 1
@@ -101444,7 +101444,7 @@ ma_dr_mp3_hdr_padding.exit:                       ; preds = %ma_dr_mp3_hdr_compa
   %109 = and i8 %103, 6
   %.not.i.i114 = icmp eq i8 %109, 0
   %or.cond8.i.i115 = or i1 %.not.i.i114, %or.cond.not11.i.i113
-  br i1 %or.cond8.i.i115, label %.lr.ph125.preheader.i, label %110
+  br i1 %or.cond8.i.i115, label %.lr.ph127.preheader.i, label %110
 
 110:                                              ; preds = %101
   %111 = getelementptr inbounds nuw i8, ptr %98, i64 2
@@ -101458,7 +101458,7 @@ ma_dr_mp3_hdr_padding.exit:                       ; preds = %ma_dr_mp3_hdr_compa
   %115 = xor i8 %103, %27
   %116 = icmp ult i8 %115, 2
   %or.cond257 = and i1 %116, %or.cond.i119.not259
-  br i1 %or.cond257, label %117, label %.lr.ph125.preheader.i
+  br i1 %or.cond257, label %117, label %.lr.ph127.preheader.i
 
 117:                                              ; preds = %110
   %118 = xor i8 %112, %36
@@ -101469,29 +101469,29 @@ ma_dr_mp3_hdr_padding.exit:                       ; preds = %ma_dr_mp3_hdr_compa
   %or.cond580 = or i1 %120, %.not96
   %.not97 = icmp eq i32 %92, 0
   %or.cond582 = or i1 %or.cond580, %.not97
-  br i1 %or.cond582, label %.lr.ph125.preheader.i, label %.thread239
+  br i1 %or.cond582, label %.lr.ph127.preheader.i, label %.thread239
 
 122:                                              ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6668) %0, i8 0, i64 6668, i1 false)
   br label %ma_dr_mp3d_find_frame.exit.thread
 
-.lr.ph125.preheader.i:                            ; preds = %93, %117, %96, %110, %101, %25, %34, %22, %39, %44, %18, %ma_dr_mp3_hdr_compare.exit
+.lr.ph127.preheader.i:                            ; preds = %93, %117, %110, %96, %101, %25, %22, %34, %39, %44, %18, %ma_dr_mp3_hdr_compare.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6668) %0, i8 0, i64 6668, i1 false)
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 6148
   %124 = add nsw i32 %2, -4
   %125 = zext nneg i32 %2 to i64
   %wide.trip.count.i = zext nneg i32 %124 to i64
-  br label %.lr.ph125.i
+  br label %.lr.ph127.i
 
-.lr.ph125.i:                                      ; preds = %ma_dr_mp3_hdr_valid.exit.thread.i, %.lr.ph125.preheader.i
-  %indvars.iv140.i = phi i64 [ 0, %.lr.ph125.preheader.i ], [ %indvars.iv.next141.i, %ma_dr_mp3_hdr_valid.exit.thread.i ]
-  %.055122.i = phi ptr [ %1, %.lr.ph125.preheader.i ], [ %338, %ma_dr_mp3_hdr_valid.exit.thread.i ]
-  %126 = load i8, ptr %.055122.i, align 1, !tbaa !7
+.lr.ph127.i:                                      ; preds = %ma_dr_mp3_hdr_valid.exit.thread.i, %.lr.ph127.preheader.i
+  %indvars.iv142.i = phi i64 [ 0, %.lr.ph127.preheader.i ], [ %indvars.iv.next143.i, %ma_dr_mp3_hdr_valid.exit.thread.i ]
+  %.055124.i = phi ptr [ %1, %.lr.ph127.preheader.i ], [ %338, %ma_dr_mp3_hdr_valid.exit.thread.i ]
+  %126 = load i8, ptr %.055124.i, align 1, !tbaa !7
   %127 = icmp eq i8 %126, -1
   br i1 %127, label %128, label %ma_dr_mp3_hdr_valid.exit.thread.i
 
-128:                                              ; preds = %.lr.ph125.i
-  %129 = getelementptr i8, ptr %.055122.i, i64 1
+128:                                              ; preds = %.lr.ph127.i
+  %129 = getelementptr i8, ptr %.055124.i, i64 1
   %130 = load i8, ptr %129, align 1, !tbaa !7
   %131 = zext i8 %130 to i32
   %132 = and i32 %131, 240
@@ -101505,7 +101505,7 @@ ma_dr_mp3_hdr_padding.exit:                       ; preds = %ma_dr_mp3_hdr_compa
   br i1 %or.cond8.i.i123, label %ma_dr_mp3_hdr_valid.exit.thread.i, label %137
 
 137:                                              ; preds = %128
-  %138 = getelementptr i8, ptr %.055122.i, i64 2
+  %138 = getelementptr i8, ptr %.055124.i, i64 2
   %139 = load i8, ptr %138, align 1, !tbaa !7
   %140 = zext i8 %139 to i32
   %.mask.i.i124 = and i32 %140, 240
@@ -101560,24 +101560,24 @@ ma_dr_mp3_hdr_padding.exit.i:                     ; preds = %137
   %spec.select.i126 = select i1 %.not.i76.i, i32 0, i32 %178
   %179 = add nuw nsw i32 %spec.select.i.i, %spec.select.i126
   %180 = icmp eq i32 %spec.select.i.i, 0
-  %181 = trunc nuw nsw i64 %indvars.iv140.i to i32
+  %181 = trunc nuw nsw i64 %indvars.iv142.i to i32
   br i1 %180, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %ma_dr_mp3_hdr_padding.exit.i
-  %182 = add nuw nsw i64 %indvars.iv140.i, 4
+  %182 = add nuw nsw i64 %indvars.iv142.i, 4
   br label %183
 
 183:                                              ; preds = %ma_dr_mp3_hdr_compare.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 4, %.lr.ph.i ], [ %indvars.iv.next.i, %ma_dr_mp3_hdr_compare.exit.thread.i ]
   %.056118.i = phi i32 [ %179, %.lr.ph.i ], [ %.258.i, %ma_dr_mp3_hdr_compare.exit.thread.i ]
   %184 = shl nuw nsw i64 %indvars.iv.i, 1
-  %185 = add nuw nsw i64 %184, %indvars.iv140.i
+  %185 = add nuw nsw i64 %184, %indvars.iv142.i
   %186 = trunc nuw i64 %185 to i32
   %187 = icmp sgt i32 %124, %186
   br i1 %187, label %188, label %.critedge.thread.i
 
 188:                                              ; preds = %183
-  %189 = getelementptr inbounds nuw i8, ptr %.055122.i, i64 %indvars.iv.i
+  %189 = getelementptr inbounds nuw i8, ptr %.055124.i, i64 %indvars.iv.i
   %190 = load i8, ptr %189, align 1, !tbaa !7
   %191 = icmp eq i8 %190, -1
   br i1 %191, label %192, label %ma_dr_mp3_hdr_compare.exit.thread.i
@@ -101676,11 +101676,11 @@ ma_dr_mp3_hdr_padding.exit78.i:                   ; preds = %ma_dr_mp3_hdr_compa
   %.not6.i.i85.i = icmp ne i32 %.mask.i.i84.i, 240
   %249 = and i32 %248, 12
   %.not8.i86.i = icmp ne i32 %249, 12
-  %or.cond.i87.not157.i = and i1 %.not6.i.i85.i, %.not8.i86.i
+  %or.cond.i87.not159.i = and i1 %.not6.i.i85.i, %.not8.i86.i
   %250 = xor i8 %238, %207
   %251 = icmp ult i8 %250, 2
-  %or.cond155.i = and i1 %251, %or.cond.i87.not157.i
-  br i1 %or.cond155.i, label %252, label %ma_dr_mp3_hdr_compare.exit.thread.i
+  %or.cond157.i = and i1 %251, %or.cond.i87.not159.i
+  br i1 %or.cond157.i, label %252, label %ma_dr_mp3_hdr_compare.exit.thread.i
 
 252:                                              ; preds = %245
   %253 = xor i8 %247, %211
@@ -101688,16 +101688,16 @@ ma_dr_mp3_hdr_padding.exit78.i:                   ; preds = %ma_dr_mp3_hdr_compa
   %255 = icmp ne i8 %254, 0
   %256 = icmp ult i8 %247, 16
   %.not71.i = xor i1 %215, %256
-  %or.cond156.i = or i1 %.not71.i, %255
-  br i1 %or.cond156.i, label %ma_dr_mp3_hdr_compare.exit.thread.i, label %257
+  %or.cond158.i = or i1 %.not71.i, %255
+  br i1 %or.cond158.i, label %ma_dr_mp3_hdr_compare.exit.thread.i, label %257
 
 257:                                              ; preds = %252
   store i32 %221, ptr %123, align 4, !tbaa !3
   br label %ma_dr_mp3_hdr_compare.exit.thread.i
 
 ma_dr_mp3_hdr_compare.exit.thread.i:              ; preds = %257, %252, %245, %236, %231, %ma_dr_mp3_hdr_padding.exit78.i, %ma_dr_mp3_hdr_compare.exit.i, %210, %206, %201, %192, %188
-  %.261.i = phi i32 [ 0, %ma_dr_mp3_hdr_compare.exit.i ], [ %221, %257 ], [ 0, %245 ], [ 0, %ma_dr_mp3_hdr_padding.exit78.i ], [ 0, %192 ], [ 0, %210 ], [ 0, %206 ], [ 0, %188 ], [ 0, %201 ], [ 0, %252 ], [ 0, %236 ], [ 0, %231 ]
-  %.258.i = phi i32 [ %.056118.i, %ma_dr_mp3_hdr_compare.exit.i ], [ %220, %257 ], [ %.056118.i, %245 ], [ %.056118.i, %ma_dr_mp3_hdr_padding.exit78.i ], [ %.056118.i, %192 ], [ %.056118.i, %210 ], [ %.056118.i, %206 ], [ %.056118.i, %188 ], [ %.056118.i, %201 ], [ %.056118.i, %252 ], [ %.056118.i, %236 ], [ %.056118.i, %231 ]
+  %.261.i = phi i32 [ 0, %ma_dr_mp3_hdr_compare.exit.i ], [ %221, %257 ], [ 0, %ma_dr_mp3_hdr_padding.exit78.i ], [ 0, %210 ], [ 0, %206 ], [ 0, %201 ], [ 0, %188 ], [ 0, %192 ], [ 0, %252 ], [ 0, %245 ], [ 0, %231 ], [ 0, %236 ]
+  %.258.i = phi i32 [ %.056118.i, %ma_dr_mp3_hdr_compare.exit.i ], [ %220, %257 ], [ %.056118.i, %ma_dr_mp3_hdr_padding.exit78.i ], [ %.056118.i, %210 ], [ %.056118.i, %206 ], [ %.056118.i, %201 ], [ %.056118.i, %188 ], [ %.056118.i, %192 ], [ %.056118.i, %252 ], [ %.056118.i, %245 ], [ %.056118.i, %231 ], [ %.056118.i, %236 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %258 = icmp eq i32 %.261.i, 0
   %259 = icmp samesign ult i64 %indvars.iv.i, 2303
@@ -101714,7 +101714,7 @@ ma_dr_mp3_hdr_compare.exit.thread.i:              ; preds = %257, %252, %245, %2
   br i1 %or.cond72.i, label %.critedge.thread.i, label %261
 
 261:                                              ; preds = %.critedge.i
-  %262 = sub nsw i64 %125, %indvars.iv140.i
+  %262 = sub nsw i64 %125, %indvars.iv142.i
   %.val.pre.i.i = load i8, ptr %129, align 1, !tbaa !7
   %.val16.pre.i.i = load i8, ptr %138, align 1, !tbaa !7
   %263 = icmp ult i8 %.val16.pre.i.i, 16
@@ -101780,7 +101780,7 @@ ma_dr_mp3_hdr_padding.exit.i.i:                   ; preds = %335, %261
 
 309:                                              ; preds = %ma_dr_mp3_hdr_padding.exit.i.i
   %310 = sext i32 %305 to i64
-  %311 = getelementptr inbounds i8, ptr %.055122.i, i64 %310
+  %311 = getelementptr inbounds i8, ptr %.055124.i, i64 %310
   %312 = load i8, ptr %311, align 1, !tbaa !7
   %313 = icmp eq i8 %312, -1
   br i1 %313, label %314, label %.critedge.thread.i
@@ -101832,8 +101832,8 @@ ma_dr_mp3d_match_frame.exit.i:                    ; preds = %ma_dr_mp3_hdr_paddi
   br i1 %.not.i127, label %.critedge.thread.i, label %ma_dr_mp3d_find_frame.exit.loopexit353
 
 .critedge.thread.i:                               ; preds = %183, %330, %323, %314, %309, %ma_dr_mp3d_match_frame.exit.i, %.critedge.i
-  %.056112.i = phi i32 [ %.056.lcssa.i, %330 ], [ %.056.lcssa.i, %.critedge.i ], [ %.056.lcssa.i, %ma_dr_mp3d_match_frame.exit.i ], [ %.056.lcssa.i, %309 ], [ %.056.lcssa.i, %314 ], [ %.056.lcssa.i, %323 ], [ %.056118.i, %183 ]
-  %.not69.i = icmp eq i64 %indvars.iv140.i, 0
+  %.056112.i = phi i32 [ %.056.lcssa.i, %ma_dr_mp3d_match_frame.exit.i ], [ %.056.lcssa.i, %.critedge.i ], [ %.056.lcssa.i, %309 ], [ %.056.lcssa.i, %314 ], [ %.056.lcssa.i, %323 ], [ %.056.lcssa.i, %330 ], [ %.056118.i, %183 ]
+  %.not69.i = icmp eq i64 %indvars.iv142.i, 0
   %337 = icmp eq i32 %.056112.i, %2
   %or.cond73.i = select i1 %.not69.i, i1 %337, i1 false
   br i1 %or.cond73.i, label %ma_dr_mp3d_find_frame.exit.loopexit353, label %.thread.i
@@ -101842,11 +101842,11 @@ ma_dr_mp3d_match_frame.exit.i:                    ; preds = %ma_dr_mp3_hdr_paddi
   store i32 0, ptr %123, align 4, !tbaa !3
   br label %ma_dr_mp3_hdr_valid.exit.thread.i
 
-ma_dr_mp3_hdr_valid.exit.thread.i:                ; preds = %.thread.i, %137, %128, %.lr.ph125.i
-  %indvars.iv.next141.i = add nuw nsw i64 %indvars.iv140.i, 1
-  %338 = getelementptr inbounds nuw i8, ptr %.055122.i, i64 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next141.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ma_dr_mp3d_find_frame.exit.thread, label %.lr.ph125.i, !llvm.loop !1959
+ma_dr_mp3_hdr_valid.exit.thread.i:                ; preds = %.thread.i, %137, %128, %.lr.ph127.i
+  %indvars.iv.next143.i = add nuw nsw i64 %indvars.iv142.i, 1
+  %338 = getelementptr inbounds nuw i8, ptr %.055124.i, i64 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next143.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %ma_dr_mp3d_find_frame.exit.thread, label %.lr.ph127.i, !llvm.loop !1959
 
 ma_dr_mp3d_find_frame.exit.loopexit353:           ; preds = %ma_dr_mp3d_match_frame.exit.i, %.critedge.thread.i
   %storemerge.i.ph = phi i32 [ %2, %.critedge.thread.i ], [ %.056.lcssa.i, %ma_dr_mp3d_match_frame.exit.i ]
@@ -101869,8 +101869,8 @@ ma_dr_mp3d_find_frame.exit.thread:                ; preds = %ma_dr_mp3_hdr_valid
   br label %2197
 
 .thread239:                                       ; preds = %117, %ma_dr_mp3_hdr_padding.exit, %ma_dr_mp3d_find_frame.exit
-  %.1 = phi i32 [ %storemerge.i, %ma_dr_mp3d_find_frame.exit ], [ %92, %117 ], [ %2, %ma_dr_mp3_hdr_padding.exit ]
-  %.086 = phi i32 [ %.2.i, %ma_dr_mp3d_find_frame.exit ], [ 0, %117 ], [ 0, %ma_dr_mp3_hdr_padding.exit ]
+  %.1 = phi i32 [ %storemerge.i, %ma_dr_mp3d_find_frame.exit ], [ %2, %ma_dr_mp3_hdr_padding.exit ], [ %92, %117 ]
+  %.086 = phi i32 [ %.2.i, %ma_dr_mp3d_find_frame.exit ], [ 0, %ma_dr_mp3_hdr_padding.exit ], [ 0, %117 ]
   %340 = sext i32 %.086 to i64
   %341 = getelementptr inbounds i8, ptr %1, i64 %340
   %342 = load i32, ptr %341, align 1
@@ -103019,7 +103019,7 @@ ma_dr_mp3_bs_get_bits.exit.i.i.i:                 ; preds = %._crit_edge.i.i.i.i
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i.i, label %980, !llvm.loop !1985
 
 .loopexit.i.i.i:                                  ; preds = %ma_dr_mp3_bs_get_bits.exit.i.i.i, %975, %969
-  %.pre-phi.i.i.i = phi i64 [ %970, %969 ], [ %976, %975 ], [ %wide.trip.count.i.i.i, %ma_dr_mp3_bs_get_bits.exit.i.i.i ]
+  %.pre-phi.i.i.i = phi i64 [ %976, %975 ], [ %970, %969 ], [ %wide.trip.count.i.i.i, %ma_dr_mp3_bs_get_bits.exit.i.i.i ]
   %1011 = getelementptr inbounds nuw i8, ptr %.03952.i.i.i, i64 %.pre-phi.i.i.i
   %1012 = getelementptr inbounds nuw i8, ptr %.053.i.i.i, i64 %.pre-phi.i.i.i
   %indvars.iv.next58.i.i.i = add nuw nsw i64 %indvars.iv57.i.i.i, 1
@@ -104938,8 +104938,8 @@ ma_dr_mp3_bs_get_bits.exit69.i:                   ; preds = %._crit_edge.i58.i, 
   br label %ma_dr_mp3_bs_get_bits.exit81.i
 
 ma_dr_mp3_bs_get_bits.exit81.i:                   ; preds = %._crit_edge.i70.i, %1983, %.preheader.i.split
-  %.sroa.18.7 = phi i32 [ %.sroa.18.6, %.preheader.i.split ], [ %1984, %._crit_edge.i70.i ], [ %1984, %1983 ]
-  %2004 = phi i8 [ 6, %.preheader.i.split ], [ %2003, %._crit_edge.i70.i ], [ 0, %1983 ]
+  %.sroa.18.7 = phi i32 [ %.sroa.18.6, %.preheader.i.split ], [ %1984, %1983 ], [ %1984, %._crit_edge.i70.i ]
+  %2004 = phi i8 [ 6, %.preheader.i.split ], [ 0, %1983 ], [ %2003, %._crit_edge.i70.i ]
   %2005 = getelementptr inbounds nuw i8, ptr %1903, i64 %indvars.iv113.i
   store i8 %2004, ptr %2005, align 1, !tbaa !7
   %indvars.iv.next114.i = add nuw nsw i64 %indvars.iv113.i, 1
@@ -105244,7 +105244,7 @@ ma_dr_mp3_bs_get_bits.exit.us.i:                  ; preds = %._crit_edge.i.us.i,
   br i1 %exitcond90.not.i, label %.loopexit.us.i, label %.lr.ph67.us.i, !llvm.loop !2036
 
 .loopexit.us.i:                                   ; preds = %2110, %ma_dr_mp3_bs_get_bits.exit.us.i, %2116, %ma_dr_mp3_bs_get_bits.exit56.us.i, %2075
-  %.sroa.18.13 = phi i32 [ %.sroa.18.12, %2075 ], [ %2088, %ma_dr_mp3_bs_get_bits.exit56.us.i ], [ %.sroa.18.12, %2116 ], [ %2119, %ma_dr_mp3_bs_get_bits.exit.us.i ], [ %2088, %2110 ]
+  %.sroa.18.13 = phi i32 [ %.sroa.18.12, %2075 ], [ %.sroa.18.12, %2116 ], [ %2088, %ma_dr_mp3_bs_get_bits.exit56.us.i ], [ %2119, %ma_dr_mp3_bs_get_bits.exit.us.i ], [ %2088, %2110 ]
   %2144 = sext i32 %.14368.us.i to i64
   %2145 = getelementptr inbounds float, ptr %.04169.us.i, i64 %2144
   %2146 = sub nsw i32 18, %.14368.us.i
@@ -105362,7 +105362,7 @@ ma_dr_mp3_L12_apply_scf_384.exit:                 ; preds = %2173, %2151
   br label %2197
 
 2197:                                             ; preds = %.thread253, %.critedge, %2186, %ma_dr_mp3d_find_frame.exit.thread
-  %.0 = phi i32 [ %2196, %2186 ], [ 0, %.critedge ], [ %.2.ph, %.thread253 ], [ 0, %ma_dr_mp3d_find_frame.exit.thread ]
+  %.0 = phi i32 [ %2196, %2186 ], [ 0, %ma_dr_mp3d_find_frame.exit.thread ], [ 0, %.critedge ], [ %.2.ph, %.thread253 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.0
 }
@@ -106051,7 +106051,7 @@ define void @ma_dr_mp3dec_f32_to_s16(ptr noundef readonly captures(none) %0, ptr
   br label %48
 
 48:                                               ; preds = %42, %.lr.ph59, %44
-  %.sink = phi i16 [ 32767, %.lr.ph59 ], [ %47, %44 ], [ -32768, %42 ]
+  %.sink = phi i16 [ %47, %44 ], [ 32767, %.lr.ph59 ], [ -32768, %42 ]
   %49 = getelementptr inbounds nuw i16, ptr %1, i64 %.158
   store i16 %.sink, ptr %49, align 2, !tbaa !334
   %50 = add nuw i64 %.158, 1
@@ -106255,7 +106255,7 @@ define internal fastcc i64 @ma_dr_mp3_read_pcm_frames_raw(ptr noundef nonnull %0
   br i1 %56, label %.thread, label %.split
 
 .thread:                                          ; preds = %.split, %26, %54, %.split.us, %10, %23
-  %.us-phi = phi i64 [ %20, %23 ], [ %.030.us, %.split.us ], [ %20, %10 ], [ %.030, %.split ], [ %51, %26 ], [ %51, %54 ]
+  %.us-phi = phi i64 [ %.030.us, %.split.us ], [ %20, %10 ], [ %20, %23 ], [ %.030, %.split ], [ %51, %26 ], [ %51, %54 ]
   ret i64 %.us-phi
 }
 
@@ -106342,7 +106342,7 @@ ma_dr_mp3_seek_to_start_of_stream.exit:           ; preds = %9
   br label %ma_dr_mp3_seek_to_start_of_stream.exit.thread
 
 ma_dr_mp3_seek_to_start_of_stream.exit.thread:    ; preds = %28, %9, %38, %39, %32, %5, %3
-  %.0 = phi i32 [ 0, %5 ], [ 0, %3 ], [ 0, %32 ], [ 0, %9 ], [ 1, %38 ], [ 1, %39 ], [ 0, %28 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %32 ], [ 1, %39 ], [ 1, %38 ], [ 0, %9 ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -106523,7 +106523,7 @@ ma_dr_mp3__realloc_from_callbacks.exit.i:         ; preds = %79
   br i1 %.not99.i, label %.sink.split.i, label %ma_dr_mp3__realloc_from_callbacks.exit.thread115.i
 
 ma_dr_mp3__realloc_from_callbacks.exit.thread115.i: ; preds = %ma_dr_mp3__realloc_from_callbacks.exit.i, %90, %89
-  %.0.i118.i = phi ptr [ %94, %ma_dr_mp3__realloc_from_callbacks.exit.i ], [ %87, %89 ], [ %87, %90 ]
+  %.0.i118.i = phi ptr [ %94, %ma_dr_mp3__realloc_from_callbacks.exit.i ], [ %87, %90 ], [ %87, %89 ]
   store ptr %.0.i118.i, ptr %58, align 8, !tbaa !1333
   store i64 65536, ptr %60, align 8, !tbaa !2054
   br label %95
@@ -106641,7 +106641,7 @@ ma_dr_mp3__realloc_from_callbacks.exit111.i:      ; preds = %139
   br i1 %.not101.i, label %.sink.split.i, label %ma_dr_mp3__realloc_from_callbacks.exit111.thread122.i
 
 ma_dr_mp3__realloc_from_callbacks.exit111.thread122.i: ; preds = %ma_dr_mp3__realloc_from_callbacks.exit111.i, %151, %150
-  %.0.i107125.i = phi ptr [ %155, %ma_dr_mp3__realloc_from_callbacks.exit111.i ], [ %148, %150 ], [ %148, %151 ]
+  %.0.i107125.i = phi ptr [ %155, %ma_dr_mp3__realloc_from_callbacks.exit111.i ], [ %148, %151 ], [ %148, %150 ]
   store ptr %.0.i107125.i, ptr %58, align 8, !tbaa !1333
   store i64 %140, ptr %60, align 8, !tbaa !2054
   %.pre134.i = load i64, ptr %57, align 8, !tbaa !1350
@@ -106933,7 +106933,7 @@ ma_dr_mp3_seek_to_start_of_stream.exit:           ; preds = %21
   br label %104
 
 104:                                              ; preds = %.critedge93, %13, %10, %3, %.critedge, %103
-  %.0 = phi i32 [ 0, %10 ], [ 0, %3 ], [ 1, %103 ], [ 0, %.critedge ], [ 0, %13 ], [ 0, %.critedge93 ]
+  %.0 = phi i32 [ 1, %103 ], [ 0, %.critedge ], [ 0, %3 ], [ 0, %10 ], [ 0, %13 ], [ 0, %.critedge93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -107047,8 +107047,8 @@ ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
   %37 = call fastcc ptr @ma_dr_mp3__full_read_and_close_f32(ptr noundef %7, ptr noundef %3, ptr noundef %4)
   br label %ma_dr_mp3_init.exit.thread
 
-ma_dr_mp3_init.exit.thread:                       ; preds = %28, %26, %22, %15, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %6, %30
-  %.0 = phi ptr [ %37, %30 ], [ null, %6 ], [ null, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ null, %15 ], [ null, %22 ], [ null, %26 ], [ null, %28 ]
+ma_dr_mp3_init.exit.thread:                       ; preds = %15, %28, %26, %22, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %6, %30
+  %.0 = phi ptr [ %37, %30 ], [ null, %6 ], [ null, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ null, %22 ], [ null, %26 ], [ null, %28 ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
@@ -107144,9 +107144,9 @@ ma_dr_mp3__realloc_from_callbacks.exit.thread:    ; preds = %30, %32, %34, %ma_d
   tail call void %47(ptr noundef nonnull %.050, ptr noundef %49) #66
   br label %ma_dr_mp3__free_from_callbacks.exit.thread
 
-ma_dr_mp3__free_from_callbacks.exit:              ; preds = %39, %38, %ma_dr_mp3__realloc_from_callbacks.exit, %16
-  %.252 = phi ptr [ %.050, %16 ], [ %43, %ma_dr_mp3__realloc_from_callbacks.exit ], [ %36, %38 ], [ %36, %39 ]
-  %.2 = phi i64 [ %.048, %16 ], [ %spec.select, %ma_dr_mp3__realloc_from_callbacks.exit ], [ %spec.select, %38 ], [ %spec.select, %39 ]
+ma_dr_mp3__free_from_callbacks.exit:              ; preds = %38, %39, %ma_dr_mp3__realloc_from_callbacks.exit, %16
+  %.252 = phi ptr [ %.050, %16 ], [ %43, %ma_dr_mp3__realloc_from_callbacks.exit ], [ %36, %39 ], [ %36, %38 ]
+  %.2 = phi i64 [ %.048, %16 ], [ %spec.select, %ma_dr_mp3__realloc_from_callbacks.exit ], [ %spec.select, %39 ], [ %spec.select, %38 ]
   %50 = load i32, ptr %5, align 4, !tbaa !1335
   %51 = zext i32 %50 to i64
   %52 = mul i64 %.0, %51
@@ -107157,9 +107157,9 @@ ma_dr_mp3__free_from_callbacks.exit:              ; preds = %39, %38, %ma_dr_mp3
   %.not = icmp eq i64 %14, %13
   br i1 %.not, label %10, label %ma_dr_mp3__free_from_callbacks.exit.thread
 
-ma_dr_mp3__free_from_callbacks.exit.thread:       ; preds = %19, %ma_dr_mp3__free_from_callbacks.exit, %10, %48, %46, %ma_dr_mp3__realloc_from_callbacks.exit.thread
-  %.151.ph = phi ptr [ null, %ma_dr_mp3__realloc_from_callbacks.exit.thread ], [ %.050, %46 ], [ %.050, %48 ], [ %.050, %19 ], [ %.252, %ma_dr_mp3__free_from_callbacks.exit ], [ %.050, %10 ]
-  %.1.ph = phi i64 [ %.0, %ma_dr_mp3__realloc_from_callbacks.exit.thread ], [ %.0, %46 ], [ %.0, %48 ], [ %.0, %19 ], [ %17, %ma_dr_mp3__free_from_callbacks.exit ], [ %.0, %10 ]
+ma_dr_mp3__free_from_callbacks.exit.thread:       ; preds = %19, %10, %ma_dr_mp3__free_from_callbacks.exit, %48, %46, %ma_dr_mp3__realloc_from_callbacks.exit.thread
+  %.151.ph = phi ptr [ null, %ma_dr_mp3__realloc_from_callbacks.exit.thread ], [ %.050, %46 ], [ %.050, %48 ], [ %.050, %19 ], [ %.050, %10 ], [ %.252, %ma_dr_mp3__free_from_callbacks.exit ]
+  %.1.ph = phi i64 [ %.0, %ma_dr_mp3__realloc_from_callbacks.exit.thread ], [ %.0, %46 ], [ %.0, %48 ], [ %.0, %19 ], [ %.0, %10 ], [ %17, %ma_dr_mp3__free_from_callbacks.exit ]
   %.not63 = icmp eq ptr %1, null
   br i1 %.not63, label %61, label %56
 
@@ -107305,8 +107305,8 @@ ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
   %37 = call fastcc ptr @ma_dr_mp3__full_read_and_close_s16(ptr noundef %7, ptr noundef %3, ptr noundef %4)
   br label %ma_dr_mp3_init.exit.thread
 
-ma_dr_mp3_init.exit.thread:                       ; preds = %28, %26, %22, %15, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %6, %30
-  %.0 = phi ptr [ %37, %30 ], [ null, %6 ], [ null, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ null, %15 ], [ null, %22 ], [ null, %26 ], [ null, %28 ]
+ma_dr_mp3_init.exit.thread:                       ; preds = %15, %28, %26, %22, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %6, %30
+  %.0 = phi ptr [ %37, %30 ], [ null, %6 ], [ null, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ null, %22 ], [ null, %26 ], [ null, %28 ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
@@ -107383,7 +107383,7 @@ define internal fastcc ptr @ma_dr_mp3__full_read_and_close_s16(ptr noundef nonnu
   br i1 %50, label %ma_dr_mp3_read_pcm_frames_s16.exit, label %.split.i
 
 ma_dr_mp3_read_pcm_frames_s16.exit:               ; preds = %48, %22, %.split.i
-  %.0.i = phi i64 [ %45, %22 ], [ %.030.i, %.split.i ], [ %45, %48 ]
+  %.0.i = phi i64 [ %.030.i, %.split.i ], [ %45, %22 ], [ %45, %48 ]
   %51 = icmp eq i64 %.0.i, 0
   br i1 %51, label %ma_dr_mp3_read_pcm_frames_s16.exit.thread, label %52
 
@@ -107455,9 +107455,9 @@ ma_dr_mp3__realloc_from_callbacks.exit.thread:    ; preds = %65, %67, %69, %ma_d
   tail call void %82(ptr noundef nonnull %.050, ptr noundef %84) #66
   br label %ma_dr_mp3_read_pcm_frames_s16.exit.thread
 
-ma_dr_mp3__free_from_callbacks.exit:              ; preds = %74, %73, %ma_dr_mp3__realloc_from_callbacks.exit, %52
-  %.252 = phi ptr [ %.050, %52 ], [ %78, %ma_dr_mp3__realloc_from_callbacks.exit ], [ %71, %73 ], [ %71, %74 ]
-  %.2 = phi i64 [ %.048, %52 ], [ %spec.select, %ma_dr_mp3__realloc_from_callbacks.exit ], [ %spec.select, %73 ], [ %spec.select, %74 ]
+ma_dr_mp3__free_from_callbacks.exit:              ; preds = %73, %74, %ma_dr_mp3__realloc_from_callbacks.exit, %52
+  %.252 = phi ptr [ %.050, %52 ], [ %78, %ma_dr_mp3__realloc_from_callbacks.exit ], [ %71, %74 ], [ %71, %73 ]
+  %.2 = phi i64 [ %.048, %52 ], [ %spec.select, %ma_dr_mp3__realloc_from_callbacks.exit ], [ %spec.select, %74 ], [ %spec.select, %73 ]
   %85 = load i32, ptr %5, align 4, !tbaa !1335
   %86 = zext i32 %85 to i64
   %87 = mul i64 %.0, %86
@@ -107468,9 +107468,9 @@ ma_dr_mp3__free_from_callbacks.exit:              ; preds = %74, %73, %ma_dr_mp3
   %.not = icmp eq i64 %.0.i, %19
   br i1 %.not, label %16, label %ma_dr_mp3_read_pcm_frames_s16.exit.thread
 
-ma_dr_mp3_read_pcm_frames_s16.exit.thread:        ; preds = %55, %16, %ma_dr_mp3__free_from_callbacks.exit, %ma_dr_mp3_read_pcm_frames_s16.exit, %83, %81, %ma_dr_mp3__realloc_from_callbacks.exit.thread
-  %.151.ph = phi ptr [ %.050, %83 ], [ null, %ma_dr_mp3__realloc_from_callbacks.exit.thread ], [ %.050, %81 ], [ %.050, %16 ], [ %.050, %ma_dr_mp3_read_pcm_frames_s16.exit ], [ %.252, %ma_dr_mp3__free_from_callbacks.exit ], [ %.050, %55 ]
-  %.1.ph = phi i64 [ %.0, %83 ], [ %.0, %ma_dr_mp3__realloc_from_callbacks.exit.thread ], [ %.0, %81 ], [ %.0, %16 ], [ %.0, %ma_dr_mp3_read_pcm_frames_s16.exit ], [ %53, %ma_dr_mp3__free_from_callbacks.exit ], [ %.0, %55 ]
+ma_dr_mp3_read_pcm_frames_s16.exit.thread:        ; preds = %55, %16, %ma_dr_mp3_read_pcm_frames_s16.exit, %ma_dr_mp3__free_from_callbacks.exit, %83, %81, %ma_dr_mp3__realloc_from_callbacks.exit.thread
+  %.151.ph = phi ptr [ null, %ma_dr_mp3__realloc_from_callbacks.exit.thread ], [ %.050, %81 ], [ %.050, %83 ], [ %.252, %ma_dr_mp3__free_from_callbacks.exit ], [ %.050, %ma_dr_mp3_read_pcm_frames_s16.exit ], [ %.050, %16 ], [ %.050, %55 ]
+  %.1.ph = phi i64 [ %.0, %ma_dr_mp3__realloc_from_callbacks.exit.thread ], [ %.0, %81 ], [ %.0, %83 ], [ %53, %ma_dr_mp3__free_from_callbacks.exit ], [ %.0, %ma_dr_mp3_read_pcm_frames_s16.exit ], [ %.0, %16 ], [ %.0, %55 ]
   %.not63 = icmp eq ptr %1, null
   br i1 %.not63, label %96, label %91
 
@@ -107621,8 +107621,8 @@ ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
   %39 = call fastcc ptr @ma_dr_mp3__full_read_and_close_f32(ptr noundef %6, ptr noundef %2, ptr noundef %3)
   br label %ma_dr_mp3_init_memory.exit.thread
 
-ma_dr_mp3_init_memory.exit.thread:                ; preds = %28, %24, %17, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %30, %5, %32
-  %.0 = phi ptr [ %39, %32 ], [ null, %5 ], [ null, %30 ], [ null, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ null, %17 ], [ null, %24 ], [ null, %28 ]
+ma_dr_mp3_init_memory.exit.thread:                ; preds = %17, %30, %28, %24, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %5, %32
+  %.0 = phi ptr [ %39, %32 ], [ null, %5 ], [ null, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ null, %24 ], [ null, %28 ], [ null, %30 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -107720,8 +107720,8 @@ ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
   %39 = call fastcc ptr @ma_dr_mp3__full_read_and_close_s16(ptr noundef %6, ptr noundef %2, ptr noundef %3)
   br label %ma_dr_mp3_init_memory.exit.thread
 
-ma_dr_mp3_init_memory.exit.thread:                ; preds = %28, %24, %17, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %30, %5, %32
-  %.0 = phi ptr [ %39, %32 ], [ null, %5 ], [ null, %30 ], [ null, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ null, %17 ], [ null, %24 ], [ null, %28 ]
+ma_dr_mp3_init_memory.exit.thread:                ; preds = %17, %30, %28, %24, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %5, %32
+  %.0 = phi ptr [ %39, %32 ], [ null, %5 ], [ null, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ null, %24 ], [ null, %28 ], [ null, %30 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -107794,7 +107794,7 @@ define ptr @ma_dr_mp3_malloc(i64 noundef %0, ptr noundef readonly captures(addre
   br label %ma_dr_mp3__malloc_from_callbacks.exit
 
 ma_dr_mp3__malloc_from_callbacks.exit:            ; preds = %12, %9, %6, %15
-  %.0 = phi ptr [ %16, %15 ], [ %14, %12 ], [ %8, %6 ], [ null, %9 ]
+  %.0 = phi ptr [ %16, %15 ], [ %8, %6 ], [ %14, %12 ], [ null, %9 ]
   ret ptr %.0
 }
 
@@ -108043,7 +108043,7 @@ ma_resource_manager_get_log.exit82:               ; preds = %51, %67
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %80, %78, %75, %ma_resource_manager_get_log.exit82, %ma_resource_manager_post_job.exit80, %ma_resource_manager_get_log.exit, %ma_resource_manager_get_log.exit78
-  %.1 = phi i32 [ %spec.store.select, %ma_resource_manager_get_log.exit ], [ %spec.store.select, %ma_resource_manager_get_log.exit78 ], [ -19, %ma_resource_manager_post_job.exit80 ], [ %.0.i79103105, %ma_resource_manager_get_log.exit82 ], [ %.0.i79103105, %75 ], [ %.0.i79103105, %78 ], [ %.0.i79103105, %80 ]
+  %.1 = phi i32 [ %spec.store.select, %ma_resource_manager_get_log.exit78 ], [ %spec.store.select, %ma_resource_manager_get_log.exit ], [ -19, %ma_resource_manager_post_job.exit80 ], [ %.0.i79103105, %ma_resource_manager_get_log.exit82 ], [ %.0.i79103105, %75 ], [ %.0.i79103105, %78 ], [ %.0.i79103105, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %102
@@ -108093,7 +108093,7 @@ ma_resource_manager_data_buffer_node_init_supply_encoded.exit: ; preds = %ma_res
   br label %102
 
 102:                                              ; preds = %ma_free.exit, %ma_resource_manager_data_buffer_node_init_supply_encoded.exit, %22
-  %.059 = phi i32 [ %23, %22 ], [ %88, %ma_resource_manager_data_buffer_node_init_supply_encoded.exit ], [ %.1, %ma_free.exit ]
+  %.059 = phi i32 [ %23, %22 ], [ %.1, %ma_free.exit ], [ %88, %ma_resource_manager_data_buffer_node_init_supply_encoded.exit ]
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %104 = load ptr, ptr %103, align 8, !tbaa !7
   %105 = icmp eq ptr %104, null
@@ -108261,7 +108261,7 @@ ma_event_signal.exit.i98:                         ; preds = %168
   br i1 %.not.i96, label %ma_fence_release.exit99, label %161
 
 ma_fence_release.exit99:                          ; preds = %175, %161, %ma_event_signal.exit.i98, %168, %ma_async_notification_signal.exit94, %ma_fence_release.exit
-  %spec.store.select1 = phi i32 [ %.059, %ma_async_notification_signal.exit94 ], [ %.059, %ma_event_signal.exit.i98 ], [ %.059, %168 ], [ 0, %ma_fence_release.exit ], [ %.059, %161 ], [ %.059, %175 ]
+  %spec.store.select1 = phi i32 [ %.059, %ma_event_signal.exit.i98 ], [ %.059, %168 ], [ %.059, %ma_async_notification_signal.exit94 ], [ 0, %ma_fence_release.exit ], [ %.059, %161 ], [ %.059, %175 ]
   %177 = atomicrmw add ptr %12, i32 1 seq_cst, align 8
   br label %ma_resource_manager_post_job.exit
 
@@ -108416,7 +108416,7 @@ ma_resource_manager_post_job.exit44.thread:       ; preds = %ma_resource_manager
   br label %33
 
 33:                                               ; preds = %19, %ma_resource_manager_post_job.exit44.thread
-  %.033 = phi i32 [ %22, %19 ], [ %32, %ma_resource_manager_post_job.exit44.thread ]
+  %.033 = phi i32 [ %32, %ma_resource_manager_post_job.exit44.thread ], [ %22, %19 ]
   %.not39 = icmp eq i32 %.033, -19
   br i1 %.not39, label %.thread65, label %.thread
 
@@ -108522,7 +108522,7 @@ ma_event_signal.exit.i:                           ; preds = %69
   br i1 %.not.i46, label %ma_fence_release.exit, label %62
 
 ma_fence_release.exit:                            ; preds = %76, %62, %.thread65, %ma_event_signal.exit.i, %69, %ma_async_notification_signal.exit, %49
-  %78 = phi i32 [ -19, %.thread65 ], [ -19, %49 ], [ %52, %ma_event_signal.exit.i ], [ %52, %69 ], [ %52, %ma_async_notification_signal.exit ], [ %52, %62 ], [ %52, %76 ]
+  %78 = phi i32 [ -19, %.thread65 ], [ %52, %ma_event_signal.exit.i ], [ %52, %69 ], [ %52, %ma_async_notification_signal.exit ], [ -19, %49 ], [ %52, %62 ], [ %52, %76 ]
   %79 = atomicrmw add ptr %9, i32 1 seq_cst, align 8
   br label %ma_resource_manager_post_job.exit
 
@@ -108628,7 +108628,7 @@ ma_resource_manager_data_buffer_result.exit:      ; preds = %1
   br label %65
 
 51:                                               ; preds = %.thread, %18, %22
-  %52 = phi i1 [ false, %.thread ], [ true, %22 ], [ true, %18 ]
+  %52 = phi i1 [ true, %22 ], [ true, %18 ], [ false, %.thread ]
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %54 = load ptr, ptr %53, align 8, !tbaa !1613
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -108774,7 +108774,7 @@ ma_fence_release.exit83:                          ; preds = %120, %106, %ma_even
   br label %ma_resource_manager_post_job.exit
 
 ma_resource_manager_post_job.exit:                ; preds = %62, %60, %13, %11, %ma_fence_release.exit83
-  %.0 = phi i32 [ -2, %11 ], [ %.052, %ma_fence_release.exit83 ], [ %15, %13 ], [ %64, %62 ], [ -2, %60 ]
+  %.0 = phi i32 [ %.052, %ma_fence_release.exit83 ], [ %15, %13 ], [ -2, %11 ], [ %64, %62 ], [ -2, %60 ]
   ret i32 %.0
 }
 
@@ -109073,7 +109073,7 @@ ma_data_source_get_length_in_pcm_frames.exit.i:   ; preds = %63
   br i1 %.not36.i.i, label %79, label %ma_data_source_get_data_format.exit.thread.i
 
 ma_data_source_get_data_format.exit.thread.i:     ; preds = %77, %71, %69
-  %.0.i22.ph.i = phi i32 [ -29, %71 ], [ -2, %69 ], [ %78, %77 ]
+  %.0.i22.ph.i = phi i32 [ %78, %77 ], [ -29, %71 ], [ -2, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -109156,7 +109156,7 @@ ma_resource_manager_data_stream_fill_pages.exit.loopexit.critedge: ; preds = %ma
   br label %ma_resource_manager_data_stream_fill_pages.exit
 
 ma_resource_manager_data_stream_fill_pages.exit:  ; preds = %ma_resource_manager_data_stream_fill_pages.exit.loopexit.critedge, %54, %ma_decoder_get_length_in_pcm_frames.exit.thread73, %ma_resource_manager_data_stream_result.exit, %47, %111
-  %.047 = phi i32 [ -203, %54 ], [ %.1, %47 ], [ %.1.i.ph, %ma_decoder_get_length_in_pcm_frames.exit.thread73 ], [ -4, %111 ], [ -3, %ma_resource_manager_data_stream_result.exit ], [ 0, %ma_resource_manager_data_stream_fill_pages.exit.loopexit.critedge ]
+  %.047 = phi i32 [ %.1, %47 ], [ -4, %111 ], [ -3, %ma_resource_manager_data_stream_result.exit ], [ %.1.i.ph, %ma_decoder_get_length_in_pcm_frames.exit.thread73 ], [ -203, %54 ], [ 0, %ma_resource_manager_data_stream_fill_pages.exit.loopexit.critedge ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %117 = load ptr, ptr %116, align 8, !tbaa !7
   %118 = icmp eq ptr %117, null
@@ -109392,7 +109392,7 @@ ma_event_signal.exit.i:                           ; preds = %48
   br i1 %.not.i26, label %ma_resource_manager_post_job.exit, label %41
 
 ma_resource_manager_post_job.exit:                ; preds = %55, %41, %ma_event_signal.exit.i, %48, %12, %10, %ma_async_notification_signal.exit
-  %.0 = phi i32 [ 0, %ma_async_notification_signal.exit ], [ -2, %10 ], [ %14, %12 ], [ 0, %ma_event_signal.exit.i ], [ 0, %48 ], [ 0, %41 ], [ 0, %55 ]
+  %.0 = phi i32 [ 0, %ma_async_notification_signal.exit ], [ %14, %12 ], [ -2, %10 ], [ 0, %48 ], [ 0, %ma_event_signal.exit.i ], [ 0, %41 ], [ 0, %55 ]
   ret i32 %.0
 }
 
@@ -109676,7 +109676,7 @@ ma_data_source_get_length_in_pcm_frames.exit.i:   ; preds = %65
   br i1 %.not36.i.i, label %81, label %ma_data_source_get_data_format.exit.thread.i
 
 ma_data_source_get_data_format.exit.thread.i:     ; preds = %79, %73, %71
-  %.0.i22.ph.i = phi i32 [ -29, %73 ], [ -2, %71 ], [ %80, %79 ]
+  %.0.i22.ph.i = phi i32 [ %80, %79 ], [ -29, %73 ], [ -2, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -109697,13 +109697,13 @@ ma_data_source_get_data_format.exit.thread.i:     ; preds = %79, %73, %71
   %88 = call i64 @ma_calculate_frame_count_after_resampling(i32 noundef %84, i32 noundef %82, i64 noundef %86)
   br label %89
 
-ma_decoder_get_length_in_pcm_frames.exit.thread99: ; preds = %65, %ma_data_source_get_length_in_pcm_frames.exit.i, %ma_data_source_get_data_format.exit.thread.i
-  %.1.i.ph = phi i32 [ %.0.i22.ph.i, %ma_data_source_get_data_format.exit.thread.i ], [ %70, %ma_data_source_get_length_in_pcm_frames.exit.i ], [ -29, %65 ]
+ma_decoder_get_length_in_pcm_frames.exit.thread99: ; preds = %ma_data_source_get_length_in_pcm_frames.exit.i, %ma_data_source_get_data_format.exit.thread.i, %65
+  %.1.i.ph = phi i32 [ -29, %65 ], [ %.0.i22.ph.i, %ma_data_source_get_data_format.exit.thread.i ], [ %70, %ma_data_source_get_length_in_pcm_frames.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %ma_free.exit
 
 89:                                               ; preds = %81, %87
-  %.191 = phi i64 [ %86, %81 ], [ %88, %87 ]
+  %.191 = phi i64 [ %88, %87 ], [ %86, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not65 = icmp eq i64 %.191, 0
   br i1 %.not65, label %.thread, label %90
@@ -109838,8 +109838,8 @@ ma_free.exit74:                                   ; preds = %ma_zero_memory_defa
   store ptr %.0.i, ptr %5, align 8, !tbaa !1633
   br label %ma_free.exit
 
-ma_free.exit:                                     ; preds = %117, %ma_malloc.exit78.thread, %102, %106, %56, %12, %ma_decoder_get_length_in_pcm_frames.exit.thread99, %51, %48, %ma_malloc.exit, %150
-  %.0 = phi i32 [ -4, %12 ], [ %.0.i68, %51 ], [ -4, %ma_malloc.exit ], [ 0, %150 ], [ -203, %56 ], [ %.1.i.ph, %ma_decoder_get_length_in_pcm_frames.exit.thread99 ], [ %.0.i68, %48 ], [ -4, %117 ], [ -4, %ma_malloc.exit78.thread ], [ -11, %102 ], [ -11, %106 ]
+ma_free.exit:                                     ; preds = %117, %ma_malloc.exit78.thread, %106, %102, %56, %12, %ma_decoder_get_length_in_pcm_frames.exit.thread99, %51, %48, %ma_malloc.exit, %150
+  %.0 = phi i32 [ 0, %150 ], [ -4, %ma_malloc.exit ], [ %.0.i68, %48 ], [ %.0.i68, %51 ], [ %.1.i.ph, %ma_decoder_get_length_in_pcm_frames.exit.thread99 ], [ -4, %12 ], [ -203, %56 ], [ -4, %117 ], [ -4, %ma_malloc.exit78.thread ], [ -11, %106 ], [ -11, %102 ]
   ret i32 %.0
 }
 
@@ -110002,7 +110002,7 @@ ma_paged_audio_buffer_data_uninit.exit:           ; preds = %ma_free.exit.i
   br i1 %46, label %ma_free.exit23, label %.thread
 
 .sink.split:                                      ; preds = %33, %31, %28, %23, %19, %17, %14, %9
-  %.sink = phi ptr [ %10, %19 ], [ %10, %9 ], [ %10, %14 ], [ %10, %17 ], [ %24, %23 ], [ %24, %28 ], [ %24, %31 ], [ %24, %33 ]
+  %.sink = phi ptr [ %10, %9 ], [ %10, %14 ], [ %10, %17 ], [ %10, %19 ], [ %24, %23 ], [ %24, %28 ], [ %24, %31 ], [ %24, %33 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink, i8 0, i64 16, i1 false)
   br label %47
 
@@ -110187,15 +110187,15 @@ ma_resource_manager_get_log.exit:                 ; preds = %86, %88
   br label %.critedge
 
 ma_paged_audio_buffer_data_free_page.exit55:      ; preds = %12, %71, %80, %83, %85, %34, %18
-  %93 = phi i1 [ true, %85 ], [ false, %34 ], [ true, %18 ], [ %78, %71 ], [ true, %80 ], [ true, %83 ], [ true, %12 ]
-  %.139 = phi i32 [ -17, %85 ], [ %32, %34 ], [ %32, %18 ], [ 0, %71 ], [ -17, %80 ], [ -17, %83 ], [ 0, %12 ]
+  %93 = phi i1 [ false, %34 ], [ true, %18 ], [ %78, %71 ], [ true, %80 ], [ true, %83 ], [ true, %85 ], [ true, %12 ]
+  %.139 = phi i32 [ %32, %34 ], [ %32, %18 ], [ 0, %71 ], [ -17, %80 ], [ -17, %83 ], [ -17, %85 ], [ 0, %12 ]
   %94 = icmp eq i32 %.139, 0
   %or.cond = select i1 %94, i1 %93, i1 false
   %spec.store.select = select i1 %or.cond, i32 -17, i32 %.139
   br label %.critedge
 
-.critedge:                                        ; preds = %37, %ma_malloc.exit.i, %51, %ma_paged_audio_buffer_data_free_page.exit55, %ma_resource_manager_get_log.exit
-  %.1 = phi i32 [ -1, %ma_resource_manager_get_log.exit ], [ %spec.store.select, %ma_paged_audio_buffer_data_free_page.exit55 ], [ -4, %51 ], [ -4, %ma_malloc.exit.i ], [ -4, %37 ]
+.critedge:                                        ; preds = %51, %ma_malloc.exit.i, %37, %ma_paged_audio_buffer_data_free_page.exit55, %ma_resource_manager_get_log.exit
+  %.1 = phi i32 [ -1, %ma_resource_manager_get_log.exit ], [ %spec.store.select, %ma_paged_audio_buffer_data_free_page.exit55 ], [ -4, %37 ], [ -4, %ma_malloc.exit.i ], [ -4, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
@@ -110529,7 +110529,7 @@ ma_event_signal.exit.i:                           ; preds = %155
   br i1 %.not.i, label %ma_fence_release.exit, label %148
 
 ma_fence_release.exit:                            ; preds = %162, %148, %15, %ma_event_signal.exit.i, %155, %ma_audio_buffer_init.exit, %ma_async_notification_signal.exit, %11, %4
-  %.0 = phi i32 [ -2, %11 ], [ %10, %4 ], [ 0, %ma_async_notification_signal.exit ], [ 0, %ma_event_signal.exit.i ], [ %70, %ma_audio_buffer_init.exit ], [ -2, %15 ], [ 0, %155 ], [ 0, %148 ], [ 0, %162 ]
+  %.0 = phi i32 [ %10, %4 ], [ -2, %11 ], [ 0, %ma_async_notification_signal.exit ], [ %70, %ma_audio_buffer_init.exit ], [ 0, %155 ], [ 0, %ma_event_signal.exit.i ], [ -2, %15 ], [ 0, %148 ], [ 0, %162 ]
   ret i32 %.0
 }
 
@@ -110818,8 +110818,8 @@ ma_context_get_log.exit39:                        ; preds = %14
 36:                                               ; preds = %33
   br label %ma_context_get_log.exit42
 
-ma_context_get_log.exit42:                        ; preds = %33, %35, %36, %27, %34
-  %.0.i40.ph = phi i32 [ -2, %34 ], [ -204, %35 ], [ -1, %27 ], [ -1, %36 ], [ -6, %33 ]
+ma_context_get_log.exit42:                        ; preds = %33, %36, %34, %35, %27
+  %.0.i40.ph = phi i32 [ -1, %27 ], [ -204, %35 ], [ -2, %34 ], [ -1, %36 ], [ -6, %33 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %38 = load ptr, ptr %37, align 8, !tbaa !205
   %39 = tail call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %38, i32 noundef 1, ptr noundef nonnull @.str.268)
@@ -111105,7 +111105,7 @@ ma_wait_for_operation__pulse.exit30:              ; preds = %90, %93
   br label %98
 
 98:                                               ; preds = %82, %ma_context_get_default_device_index__pulse.exit27, %ma_wait_for_operation__pulse.exit30, %ma_wait_for_operation__pulse.exit
-  %.0 = phi i32 [ -1, %ma_context_get_default_device_index__pulse.exit27 ], [ -1, %82 ], [ %.0.i29, %ma_wait_for_operation__pulse.exit30 ], [ %.0.i, %ma_wait_for_operation__pulse.exit ]
+  %.0 = phi i32 [ %.0.i29, %ma_wait_for_operation__pulse.exit30 ], [ %.0.i, %ma_wait_for_operation__pulse.exit ], [ -1, %ma_context_get_default_device_index__pulse.exit27 ], [ -1, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -111159,7 +111159,7 @@ ma_wait_for_operation_and_unref__pulse.exit:      ; preds = %20, %23
   br label %30
 
 30:                                               ; preds = %ma_wait_for_operation_and_unref__pulse.exit, %4
-  %.017 = phi i32 [ %spec.select, %ma_wait_for_operation_and_unref__pulse.exit ], [ -1, %4 ]
+  %.017 = phi i32 [ -1, %4 ], [ %spec.select, %ma_wait_for_operation_and_unref__pulse.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.017
 }
@@ -111544,7 +111544,7 @@ ma_device_get_log.exit369:                        ; preds = %ma_device_get_conte
   br label %ma_calculate_period_size_in_frames_from_descriptor__pulse.exit
 
 ma_calculate_period_size_in_frames_from_descriptor__pulse.exit: ; preds = %169, %183, %184, %187, %188, %191, %193
-  %.0.i370 = phi i32 [ %174, %169 ], [ 0, %183 ], [ 0, %187 ], [ %186, %184 ], [ %190, %188 ], [ %195, %193 ], [ 0, %191 ]
+  %.0.i370 = phi i32 [ %174, %169 ], [ %186, %184 ], [ 0, %183 ], [ %190, %188 ], [ 0, %187 ], [ %195, %193 ], [ 0, %191 ]
   store i32 %.0.i370, ptr %173, align 8, !tbaa !119
   %196 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %197 = load i32, ptr %196, align 8, !tbaa !121
@@ -112473,7 +112473,7 @@ switch.lookup624:                                 ; preds = %ma_device_get_log.e
   br label %ma_result_from_pulse.exit439thread-pre-split
 
 ma_result_from_pulse.exit439thread-pre-split:     ; preds = %switch.lookup624, %510, %633, %ma_device_get_log.exit437
-  %.4.ph = phi i32 [ %.3, %633 ], [ %switch.load626, %switch.lookup624 ], [ -1, %510 ], [ -1, %ma_device_get_log.exit437 ]
+  %.4.ph = phi i32 [ -1, %ma_device_get_log.exit437 ], [ -1, %510 ], [ %.3, %633 ], [ %switch.load626, %switch.lookup624 ]
   %.pr517 = load i32, ptr %1, align 8, !tbaa !246
   br label %ma_result_from_pulse.exit439
 
@@ -112495,7 +112495,7 @@ ma_result_from_pulse.exit439:                     ; preds = %ma_result_from_puls
   br label %ma_log_post.exit417
 
 ma_log_post.exit417:                              ; preds = %376, %ma_device_get_context.exit.i406, %._crit_edge.i415, %ma_device_get_log.exit408, %ma_result_from_pulse.exit439, %643, %262, %ma_device_get_log.exit434
-  %.2 = phi i32 [ -1, %262 ], [ %.4, %643 ], [ %.4, %ma_result_from_pulse.exit439 ], [ -1, %ma_device_get_log.exit434 ], [ -1, %._crit_edge.i415 ], [ -1, %ma_device_get_log.exit408 ], [ -1, %376 ], [ -1, %ma_device_get_context.exit.i406 ]
+  %.2 = phi i32 [ -1, %262 ], [ %.4, %643 ], [ -1, %ma_device_get_log.exit434 ], [ %.4, %ma_result_from_pulse.exit439 ], [ -1, %ma_device_get_log.exit408 ], [ -1, %._crit_edge.i415 ], [ -1, %376 ], [ -1, %ma_device_get_context.exit.i406 ]
   %649 = load i32, ptr %1, align 8, !tbaa !246
   %650 = and i32 %649, -2
   %switch342 = icmp eq i32 %650, 2
@@ -112518,7 +112518,7 @@ switch.lookup600:                                 ; preds = %ma_device_get_log.e
   br label %ma_result_from_pulse.exit
 
 ma_result_from_pulse.exit:                        ; preds = %switch.lookup600, %ma_device_get_log.exit381, %ma_log_post.exit417, %651
-  %.1 = phi i32 [ %.2, %ma_log_post.exit417 ], [ %.2, %651 ], [ %switch.load602, %switch.lookup600 ], [ -1, %ma_device_get_log.exit381 ]
+  %.1 = phi i32 [ %.2, %651 ], [ %.2, %ma_log_post.exit417 ], [ -1, %ma_device_get_log.exit381 ], [ %switch.load602, %switch.lookup600 ]
   %660 = load i32, ptr %1, align 8, !tbaa !246
   %661 = and i32 %660, -2
   %switch344 = icmp eq i32 %661, 2
@@ -112534,7 +112534,7 @@ ma_result_from_pulse.exit:                        ; preds = %switch.lookup600, %
   br label %ma_log_post.exit
 
 ma_log_post.exit:                                 ; preds = %354, %613, %93, %ma_device_get_context.exit.i348, %ma_device_get_context.exit.i, %._crit_edge.i357, %ma_device_get_log.exit350, %._crit_edge.i, %ma_device_get_log.exit, %ma_result_from_pulse.exit, %ma_device_get_log.exit378, %662, %598, %13, %19, %4
-  %.0 = phi i32 [ -202, %19 ], [ -201, %4 ], [ %.1, %ma_result_from_pulse.exit ], [ 0, %598 ], [ -202, %13 ], [ -1, %ma_device_get_context.exit.i348 ], [ %48, %._crit_edge.i ], [ -1, %ma_device_get_log.exit378 ], [ %.1, %662 ], [ -1, %._crit_edge.i357 ], [ %48, %ma_device_get_log.exit ], [ %48, %ma_device_get_context.exit.i ], [ -1, %ma_device_get_log.exit350 ], [ -1, %93 ], [ 0, %613 ], [ 0, %354 ]
+  %.0 = phi i32 [ -201, %4 ], [ -202, %19 ], [ -202, %13 ], [ 0, %598 ], [ -1, %ma_device_get_log.exit378 ], [ %.1, %662 ], [ %.1, %ma_result_from_pulse.exit ], [ %48, %ma_device_get_log.exit ], [ %48, %._crit_edge.i ], [ -1, %ma_device_get_log.exit350 ], [ -1, %._crit_edge.i357 ], [ %48, %ma_device_get_context.exit.i ], [ -1, %93 ], [ -1, %ma_device_get_context.exit.i348 ], [ 0, %613 ], [ 0, %354 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -113211,7 +113211,7 @@ define internal fastcc i32 @ma_calculate_period_size_in_frames_from_descriptor__
   br label %ma_calculate_buffer_size_in_frames_from_milliseconds.exit
 
 ma_calculate_buffer_size_in_frames_from_milliseconds.exit: ; preds = %24, %22, %19, %18, %15, %14, %3
-  %.0 = phi i32 [ %5, %3 ], [ 0, %14 ], [ 0, %18 ], [ %17, %15 ], [ %21, %19 ], [ %26, %24 ], [ 0, %22 ]
+  %.0 = phi i32 [ %5, %3 ], [ %17, %15 ], [ 0, %14 ], [ %21, %19 ], [ 0, %18 ], [ %26, %24 ], [ 0, %22 ]
   ret i32 %.0
 }
 
@@ -113807,8 +113807,8 @@ ma_silence_pcm_frames.exit:                       ; preds = %ma_zero_memory_defa
   br label %ma_result_from_pulse.exit
 
 ma_result_from_pulse.exit:                        ; preds = %ma_silence_pcm_frames.exit, %19
-  %.031 = phi i64 [ %spec.select, %ma_silence_pcm_frames.exit ], [ 0, %19 ]
-  %.030 = phi i32 [ %.lobit, %ma_silence_pcm_frames.exit ], [ -1, %19 ]
+  %.031 = phi i64 [ 0, %19 ], [ %spec.select, %ma_silence_pcm_frames.exit ]
+  %.030 = phi i32 [ -1, %19 ], [ %.lobit, %ma_silence_pcm_frames.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %61
 
@@ -113816,8 +113816,8 @@ ma_result_from_pulse.exit:                        ; preds = %ma_silence_pcm_fram
   br label %61
 
 61:                                               ; preds = %ma_device_get_state.exit, %ma_result_from_pulse.exit, %60
-  %.132 = phi i64 [ 0, %60 ], [ %.031, %ma_result_from_pulse.exit ], [ %18, %ma_device_get_state.exit ]
-  %.1 = phi i32 [ -1, %60 ], [ %.030, %ma_result_from_pulse.exit ], [ 0, %ma_device_get_state.exit ]
+  %.132 = phi i64 [ %.031, %ma_result_from_pulse.exit ], [ 0, %60 ], [ %18, %ma_device_get_state.exit ]
+  %.1 = phi i32 [ %.030, %ma_result_from_pulse.exit ], [ -1, %60 ], [ 0, %ma_device_get_state.exit ]
   %.not38 = icmp eq ptr %2, null
   br i1 %.not38, label %63, label %62
 
@@ -113984,7 +113984,7 @@ ma_device_get_log.exit37:                         ; preds = %ma_device_get_conte
   br label %ma_log_post.exit
 
 ma_log_post.exit:                                 ; preds = %ma_device_get_context.exit.i23, %ma_device_get_context.exit.i, %._crit_edge.i32, %ma_device_get_log.exit25, %._crit_edge.i, %ma_device_get_log.exit, %68, %ma_device_get_log.exit37
-  %.0 = phi i32 [ -1, %ma_device_get_log.exit37 ], [ 0, %68 ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i32 ], [ -1, %ma_device_get_log.exit ], [ -1, %ma_device_get_context.exit.i ], [ -1, %ma_device_get_log.exit25 ], [ -1, %ma_device_get_context.exit.i23 ]
+  %.0 = phi i32 [ -1, %ma_device_get_log.exit37 ], [ 0, %68 ], [ -1, %ma_device_get_log.exit ], [ -1, %._crit_edge.i ], [ -1, %ma_device_get_log.exit25 ], [ -1, %._crit_edge.i32 ], [ -1, %ma_device_get_context.exit.i ], [ -1, %ma_device_get_context.exit.i23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -114252,7 +114252,7 @@ ma_convert_device_name_to_hw_format__alsa.exit.thread132: ; preds = %111
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader
 
-ma_convert_device_name_to_hw_format__alsa.exit.thread: ; preds = %83, %109, %111, %107, %103, %50
+ma_convert_device_name_to_hw_format__alsa.exit.thread: ; preds = %83, %103, %107, %109, %111, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %119
 
@@ -114424,16 +114424,16 @@ ma_is_capture_device_blacklisted__alsa.exit.sink.split: ; preds = %ma_is_common_
   br label %ma_is_capture_device_blacklisted__alsa.exit
 
 ma_is_capture_device_blacklisted__alsa.exit:      ; preds = %ma_is_common_device_name__alsa.exit.thread, %ma_is_capture_device_blacklisted__alsa.exit.sink.split, %ma_is_common_device_name__alsa.exit
-  %.4 = phi i32 [ %176, %ma_is_capture_device_blacklisted__alsa.exit.sink.split ], [ %.3, %ma_is_common_device_name__alsa.exit.thread ], [ %.3, %ma_is_common_device_name__alsa.exit ]
+  %.4 = phi i32 [ %.3, %ma_is_common_device_name__alsa.exit ], [ %176, %ma_is_capture_device_blacklisted__alsa.exit.sink.split ], [ %.3, %ma_is_common_device_name__alsa.exit.thread ]
   %.4.fr = freeze i32 %.4
   %177 = icmp ne i32 %.4.fr, 0
   br label %ma_does_id_exist_in_list__alsa.exit
 
 ma_does_id_exist_in_list__alsa.exit:              ; preds = %.lr.ph.i, %ma_is_capture_device_blacklisted__alsa.exit, %ma_is_device_blacklisted__alsa.exit, %.loopexit164, %ma_realloc.exit
-  %.187 = phi i32 [ %.490, %ma_is_device_blacklisted__alsa.exit ], [ %.086, %ma_realloc.exit ], [ %.086, %.loopexit164 ], [ %.490, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.086, %.lr.ph.i ]
-  %.283 = phi ptr [ %.5, %ma_is_device_blacklisted__alsa.exit ], [ %.081, %ma_realloc.exit ], [ %.081, %.loopexit164 ], [ %.5, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.081, %.lr.ph.i ]
-  %.not115 = phi i1 [ false, %ma_is_device_blacklisted__alsa.exit ], [ true, %ma_realloc.exit ], [ true, %.loopexit164 ], [ %177, %ma_is_capture_device_blacklisted__alsa.exit ], [ true, %.lr.ph.i ]
-  %.1 = phi i32 [ 0, %ma_is_device_blacklisted__alsa.exit ], [ %.075, %ma_realloc.exit ], [ %.075, %.loopexit164 ], [ %.4.fr, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.075, %.lr.ph.i ]
+  %.187 = phi i32 [ %.086, %ma_realloc.exit ], [ %.086, %.loopexit164 ], [ %.490, %ma_is_device_blacklisted__alsa.exit ], [ %.490, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.086, %.lr.ph.i ]
+  %.283 = phi ptr [ %.081, %ma_realloc.exit ], [ %.081, %.loopexit164 ], [ %.5, %ma_is_device_blacklisted__alsa.exit ], [ %.5, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.081, %.lr.ph.i ]
+  %.not115 = phi i1 [ true, %ma_realloc.exit ], [ true, %.loopexit164 ], [ false, %ma_is_device_blacklisted__alsa.exit ], [ %177, %ma_is_capture_device_blacklisted__alsa.exit ], [ true, %.lr.ph.i ]
+  %.1 = phi i32 [ %.075, %ma_realloc.exit ], [ %.075, %.loopexit164 ], [ 0, %ma_is_device_blacklisted__alsa.exit ], [ %.4.fr, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.075, %.lr.ph.i ]
   call void @free(ptr noundef %34) #66
   call void @free(ptr noundef %37) #66
   call void @free(ptr noundef %40) #66
@@ -114680,7 +114680,7 @@ ma_free.exit85:                                   ; preds = %105, %108
   br label %113
 
 113:                                              ; preds = %20, %13, %4, %ma_free.exit85, %ma_context_get_log.exit, %34
-  %.0 = phi i32 [ %12, %4 ], [ -204, %13 ], [ -4, %34 ], [ %62, %ma_context_get_log.exit ], [ 0, %ma_free.exit85 ], [ %21, %20 ]
+  %.0 = phi i32 [ -4, %34 ], [ %62, %ma_context_get_log.exit ], [ 0, %ma_free.exit85 ], [ %12, %4 ], [ -204, %13 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -114722,7 +114722,7 @@ thread-pre-split:                                 ; preds = %7
   br label %14
 
 14:                                               ; preds = %11, %7, %4, %13
-  %.0 = phi i32 [ %8, %7 ], [ 0, %13 ], [ %12, %11 ], [ -201, %4 ]
+  %.0 = phi i32 [ 0, %13 ], [ %12, %11 ], [ %8, %7 ], [ -201, %4 ]
   ret i32 %.0
 }
 
@@ -115257,7 +115257,7 @@ ma_log_post.exit56:                               ; preds = %ma_device_get_conte
   br label %.thread
 
 ma_device_get_state.exit:                         ; preds = %27, %63
-  %.232 = phi i64 [ %25, %27 ], [ %68, %63 ]
+  %.232 = phi i64 [ %68, %63 ], [ %25, %27 ]
   %93 = load atomic i32, ptr %8 seq_cst, align 4
   %94 = icmp eq i32 %93, 2
   br i1 %94, label %.lr.ph, label %ma_device_get_state.exit.thread.loopexit.loopexit
@@ -115276,7 +115276,7 @@ ma_device_get_state.exit.thread:                  ; preds = %ma_device_get_state
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %ma_log_post.exit56, %ma_log_post.exit, %ma_device_get_state.exit.thread, %96
-  %.2 = phi i32 [ 0, %ma_device_get_state.exit.thread ], [ 0, %96 ], [ %92, %ma_log_post.exit56 ], [ %62, %ma_log_post.exit ], [ %19, %.lr.ph ]
+  %.2 = phi i32 [ 0, %96 ], [ 0, %ma_device_get_state.exit.thread ], [ %92, %ma_log_post.exit56 ], [ %62, %ma_log_post.exit ], [ %19, %.lr.ph ]
   ret i32 %.2
 }
 
@@ -115456,7 +115456,7 @@ ma_log_post.exit56:                               ; preds = %ma_device_get_conte
   br label %.thread
 
 ma_device_get_state.exit:                         ; preds = %27, %63
-  %.232 = phi i64 [ %25, %27 ], [ %68, %63 ]
+  %.232 = phi i64 [ %68, %63 ], [ %25, %27 ]
   %93 = load atomic i32, ptr %8 seq_cst, align 4
   %94 = icmp eq i32 %93, 2
   br i1 %94, label %.lr.ph, label %ma_device_get_state.exit.thread.loopexit.loopexit
@@ -115475,7 +115475,7 @@ ma_device_get_state.exit.thread:                  ; preds = %ma_device_get_state
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %ma_log_post.exit56, %ma_log_post.exit, %ma_device_get_state.exit.thread, %96
-  %.2 = phi i32 [ 0, %ma_device_get_state.exit.thread ], [ 0, %96 ], [ %92, %ma_log_post.exit56 ], [ %62, %ma_log_post.exit ], [ %19, %.lr.ph ]
+  %.2 = phi i32 [ 0, %96 ], [ 0, %ma_device_get_state.exit.thread ], [ %92, %ma_log_post.exit56 ], [ %62, %ma_log_post.exit ], [ %19, %.lr.ph ]
   ret i32 %.2
 }
 
@@ -115796,7 +115796,7 @@ ma_context_get_log.exit52:                        ; preds = %.critedge50, %83
   br label %87
 
 87:                                               ; preds = %76, %ma_context_get_log.exit52, %80
-  %.140 = phi i32 [ 0, %80 ], [ -401, %ma_context_get_log.exit52 ], [ %79, %76 ]
+  %.140 = phi i32 [ 0, %80 ], [ %79, %76 ], [ -401, %ma_context_get_log.exit52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.140
 }
@@ -116462,8 +116462,8 @@ ma_device_get_log.exit404:                        ; preds = %ma_device_get_conte
   %259 = tail call i32 @ma_log_post(ptr noundef %.0.i1.i403, i32 noundef 1, ptr noundef nonnull @.str.404)
   br label %ma_log_post.exit
 
-260:                                              ; preds = %239, %242, %240, %241, %239
-  %.0.i.ph = phi i32 [ %.0305, %239 ], [ 4, %241 ], [ 3, %240 ], [ 5, %242 ], [ %.0305, %239 ]
+260:                                              ; preds = %239, %240, %241, %242, %239
+  %.0.i.ph = phi i32 [ %.0305, %239 ], [ 5, %242 ], [ 4, %241 ], [ 3, %240 ], [ %.0305, %239 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %261 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %262 = load i32, ptr %261, align 8, !tbaa !100
@@ -117440,7 +117440,7 @@ ma_channel_map_copy.exit:                         ; preds = %764, %765
   br label %ma_log_post.exit
 
 ma_log_post.exit:                                 ; preds = %ma_device_get_context.exit.i372, %ma_device_get_context.exit.i, %380, %348, %319, %285, %._crit_edge.i381, %ma_device_get_log.exit374, %._crit_edge.i, %ma_device_get_log.exit, %4, %ma_channel_map_copy.exit, %ma_device_get_log.exit517, %ma_device_get_log.exit511, %ma_device_get_log.exit505, %ma_device_get_log.exit499, %ma_device_get_log.exit493, %ma_device_get_log.exit475, %ma_device_get_log.exit469, %ma_device_get_log.exit463, %ma_device_get_log.exit457, %ma_device_get_log.exit451, %ma_device_get_log.exit445, %ma_device_get_log.exit434, %ma_device_get_log.exit404, %ma_log_post.exit398, %ma_log_post.exit368, %ma_log_post.exit353
-  %.0293 = phi i32 [ %148, %ma_log_post.exit368 ], [ %29, %4 ], [ %109, %ma_log_post.exit353 ], [ %238, %ma_log_post.exit398 ], [ -200, %ma_device_get_log.exit404 ], [ %412, %ma_device_get_log.exit434 ], [ -4, %ma_device_get_log.exit445 ], [ %463, %ma_device_get_log.exit451 ], [ %501, %ma_device_get_log.exit457 ], [ %587, %ma_device_get_log.exit475 ], [ -1, %ma_device_get_log.exit493 ], [ -4, %ma_device_get_log.exit499 ], [ %693, %ma_device_get_log.exit505 ], [ -1, %ma_device_get_log.exit511 ], [ %756, %ma_device_get_log.exit517 ], [ 0, %ma_channel_map_copy.exit ], [ %537, %ma_device_get_log.exit463 ], [ %562, %ma_device_get_log.exit469 ], [ %383, %380 ], [ %351, %348 ], [ %322, %319 ], [ %288, %285 ], [ -4, %._crit_edge.i ], [ -200, %._crit_edge.i381 ], [ -4, %ma_device_get_log.exit ], [ -4, %ma_device_get_context.exit.i ], [ -200, %ma_device_get_log.exit374 ], [ -200, %ma_device_get_context.exit.i372 ]
+  %.0293 = phi i32 [ %109, %ma_log_post.exit353 ], [ %238, %ma_log_post.exit398 ], [ -200, %ma_device_get_log.exit404 ], [ %412, %ma_device_get_log.exit434 ], [ -4, %ma_device_get_log.exit445 ], [ %463, %ma_device_get_log.exit451 ], [ %501, %ma_device_get_log.exit457 ], [ %587, %ma_device_get_log.exit475 ], [ -1, %ma_device_get_log.exit493 ], [ -4, %ma_device_get_log.exit499 ], [ %693, %ma_device_get_log.exit505 ], [ -1, %ma_device_get_log.exit511 ], [ %756, %ma_device_get_log.exit517 ], [ 0, %ma_channel_map_copy.exit ], [ %537, %ma_device_get_log.exit463 ], [ %562, %ma_device_get_log.exit469 ], [ %383, %380 ], [ %351, %348 ], [ %322, %319 ], [ %288, %285 ], [ %148, %ma_log_post.exit368 ], [ %29, %4 ], [ -4, %ma_device_get_log.exit ], [ -4, %._crit_edge.i ], [ -200, %ma_device_get_log.exit374 ], [ -200, %._crit_edge.i381 ], [ -4, %ma_device_get_context.exit.i ], [ -200, %ma_device_get_context.exit.i372 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -117920,7 +117920,7 @@ ma_context_get_log.exit34:                        ; preds = %ma_context_open_cli
   br label %65
 
 65:                                               ; preds = %7, %57, %ma_context_get_log.exit34, %ma_context_open_client__jack.exit
-  %.0 = phi i32 [ 0, %57 ], [ -401, %ma_context_open_client__jack.exit ], [ -401, %ma_context_get_log.exit34 ], [ -204, %7 ]
+  %.0 = phi i32 [ -401, %ma_context_open_client__jack.exit ], [ -401, %ma_context_get_log.exit34 ], [ 0, %57 ], [ -204, %7 ]
   ret i32 %.0
 }
 
@@ -118746,8 +118746,8 @@ ma_free.exit:                                     ; preds = %403, %402
   store ptr %401, ptr %407, align 8, !tbaa !7
   br label %ma_log_post.exit
 
-ma_log_post.exit:                                 ; preds = %352, %349, %343, %404, %.thread262, %ma_device_get_log.exit236, %ma_malloc.exit.thread, %285, %ma_device_get_log.exit225, %ma_malloc.exit, %ma_device_get_log.exit220, %ma_device_get_context.exit.i203, %ma_context_open_client__jack.exit, %76, %ma_device_get_context.exit.i178, %43, %ma_device_get_context.exit.i166, %10, %ma_device_get_context.exit.i, %290, %ma_free.exit, %._crit_edge.i212, %ma_device_get_log.exit205, %._crit_edge.i200, %ma_device_get_log.exit193, %._crit_edge.i187, %ma_device_get_log.exit180, %._crit_edge.i175, %ma_device_get_log.exit168, %._crit_edge.i, %ma_device_get_log.exit, %ma_device_get_log.exit217
-  %.0 = phi i32 [ -401, %ma_device_get_context.exit.i203 ], [ -201, %._crit_edge.i ], [ -204, %._crit_edge.i175 ], [ -202, %._crit_edge.i187 ], [ -401, %._crit_edge.i200 ], [ -401, %ma_device_get_log.exit217 ], [ -401, %._crit_edge.i212 ], [ -401, %ma_device_get_log.exit220 ], [ 0, %290 ], [ -201, %ma_device_get_log.exit ], [ -201, %10 ], [ -204, %ma_device_get_log.exit168 ], [ -204, %43 ], [ -202, %ma_device_get_log.exit180 ], [ -202, %76 ], [ -401, %ma_device_get_log.exit193 ], [ -401, %ma_context_open_client__jack.exit ], [ -401, %ma_device_get_log.exit205 ], [ 0, %ma_free.exit ], [ -201, %ma_device_get_context.exit.i ], [ -204, %ma_device_get_context.exit.i166 ], [ -202, %ma_device_get_context.exit.i178 ], [ -4, %ma_malloc.exit.thread ], [ -4, %285 ], [ -401, %ma_device_get_log.exit225 ], [ -4, %ma_malloc.exit ], [ -4, %352 ], [ -4, %349 ], [ -4, %343 ], [ -4, %404 ], [ -401, %.thread262 ], [ -401, %ma_device_get_log.exit236 ]
+ma_log_post.exit:                                 ; preds = %.thread262, %352, %349, %343, %404, %ma_device_get_log.exit236, %ma_malloc.exit.thread, %ma_malloc.exit, %285, %ma_device_get_log.exit225, %ma_device_get_log.exit220, %ma_device_get_context.exit.i203, %ma_context_open_client__jack.exit, %76, %ma_device_get_context.exit.i178, %43, %ma_device_get_context.exit.i166, %10, %ma_device_get_context.exit.i, %290, %ma_free.exit, %._crit_edge.i212, %ma_device_get_log.exit205, %._crit_edge.i200, %ma_device_get_log.exit193, %._crit_edge.i187, %ma_device_get_log.exit180, %._crit_edge.i175, %ma_device_get_log.exit168, %._crit_edge.i, %ma_device_get_log.exit, %ma_device_get_log.exit217
+  %.0 = phi i32 [ -401, %ma_device_get_log.exit217 ], [ -201, %ma_device_get_log.exit ], [ -201, %._crit_edge.i ], [ -204, %ma_device_get_log.exit168 ], [ -204, %._crit_edge.i175 ], [ -202, %ma_device_get_log.exit180 ], [ -202, %._crit_edge.i187 ], [ -401, %ma_device_get_log.exit193 ], [ -401, %._crit_edge.i200 ], [ -401, %ma_device_get_log.exit205 ], [ -401, %._crit_edge.i212 ], [ 0, %ma_free.exit ], [ 0, %290 ], [ -201, %ma_device_get_context.exit.i ], [ -201, %10 ], [ -204, %ma_device_get_context.exit.i166 ], [ -204, %43 ], [ -202, %ma_device_get_context.exit.i178 ], [ -202, %76 ], [ -401, %ma_context_open_client__jack.exit ], [ -401, %ma_device_get_context.exit.i203 ], [ -4, %ma_malloc.exit.thread ], [ -4, %ma_malloc.exit ], [ -4, %285 ], [ -401, %ma_device_get_log.exit225 ], [ -401, %ma_device_get_log.exit220 ], [ -401, %.thread262 ], [ -4, %352 ], [ -4, %349 ], [ -4, %343 ], [ -4, %404 ], [ -401, %ma_device_get_log.exit236 ]
   ret i32 %.0
 }
 
@@ -119231,7 +119231,7 @@ ma_device_get_log.exit128:                        ; preds = %ma_device_get_conte
   br label %.critedge85
 
 .critedge85:                                      ; preds = %ma_device_get_context.exit.i126, %ma_device_get_context.exit.i114, %ma_device_get_context.exit.i102, %ma_device_get_context.exit.i90, %ma_device_get_context.exit.i, %._crit_edge.i135, %ma_device_get_log.exit128, %._crit_edge.i123, %ma_device_get_log.exit116, %._crit_edge.i111, %ma_device_get_log.exit104, %._crit_edge.i99, %ma_device_get_log.exit92, %._crit_edge.i, %ma_device_get_log.exit, %110, %._crit_edge148
-  %.0 = phi i32 [ -1, %._crit_edge.i111 ], [ 0, %110 ], [ -402, %._crit_edge.i ], [ 0, %._crit_edge148 ], [ -1, %._crit_edge.i99 ], [ -1, %._crit_edge.i123 ], [ -1, %._crit_edge.i135 ], [ -402, %ma_device_get_log.exit ], [ -402, %ma_device_get_context.exit.i ], [ -1, %ma_device_get_log.exit92 ], [ -1, %ma_device_get_context.exit.i90 ], [ -1, %ma_device_get_log.exit104 ], [ -1, %ma_device_get_context.exit.i102 ], [ -1, %ma_device_get_log.exit116 ], [ -1, %ma_device_get_context.exit.i114 ], [ -1, %ma_device_get_log.exit128 ], [ -1, %ma_device_get_context.exit.i126 ]
+  %.0 = phi i32 [ 0, %._crit_edge148 ], [ 0, %110 ], [ -402, %ma_device_get_log.exit ], [ -402, %._crit_edge.i ], [ -1, %ma_device_get_log.exit92 ], [ -1, %._crit_edge.i99 ], [ -1, %ma_device_get_log.exit104 ], [ -1, %._crit_edge.i111 ], [ -1, %ma_device_get_log.exit116 ], [ -1, %._crit_edge.i123 ], [ -1, %ma_device_get_log.exit128 ], [ -1, %._crit_edge.i135 ], [ -402, %ma_device_get_context.exit.i ], [ -1, %ma_device_get_context.exit.i90 ], [ -1, %ma_device_get_context.exit.i102 ], [ -1, %ma_device_get_context.exit.i114 ], [ -1, %ma_device_get_context.exit.i126 ]
   ret i32 %.0
 }
 
@@ -119327,7 +119327,7 @@ ma_device__on_notification_stopped.exit:          ; preds = %36, %42
   br label %ma_log_post.exit
 
 ma_log_post.exit:                                 ; preds = %ma_device_get_context.exit.i, %._crit_edge.i, %ma_device_get_log.exit, %ma_device__on_notification_stopped.exit
-  %.0 = phi i32 [ 0, %ma_device__on_notification_stopped.exit ], [ -1, %._crit_edge.i ], [ -1, %ma_device_get_log.exit ], [ -1, %ma_device_get_context.exit.i ]
+  %.0 = phi i32 [ 0, %ma_device__on_notification_stopped.exit ], [ -1, %ma_device_get_log.exit ], [ -1, %._crit_edge.i ], [ -1, %ma_device_get_context.exit.i ]
   ret i32 %.0
 }
 
@@ -119621,7 +119621,7 @@ ma_free.exit48:                                   ; preds = %ma_calloc.exit45, %
   br label %.critedge
 
 .critedge:                                        ; preds = %39, %53, %6, %20, %37, %ma_free.exit48
-  %.2 = phi i32 [ -4, %6 ], [ 0, %37 ], [ 0, %ma_free.exit48 ], [ -4, %20 ], [ -4, %53 ], [ -4, %39 ]
+  %.2 = phi i32 [ 0, %ma_free.exit48 ], [ 0, %37 ], [ -4, %20 ], [ -4, %6 ], [ -4, %53 ], [ -4, %39 ]
   ret i32 %.2
 }
 
@@ -119781,7 +119781,7 @@ define internal range(i32 -201, 1) i32 @ma_device_init__null(ptr noundef initial
   br label %ma_calculate_buffer_size_in_frames_from_descriptor.exit
 
 ma_calculate_buffer_size_in_frames_from_descriptor.exit: ; preds = %.thread92, %38, %41, %44
-  %.0.i = phi i32 [ %30, %.thread92 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ]
+  %.0.i = phi i32 [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %30, %.thread92 ]
   store i32 %.0.i, ptr %29, align 8, !tbaa !119
   %.pr93 = load i32, ptr %1, align 8, !tbaa !246
   br label %47
@@ -119869,7 +119869,7 @@ ma_calculate_buffer_size_in_frames_from_descriptor.exit: ; preds = %.thread92, %
   br label %ma_calculate_buffer_size_in_frames_from_descriptor.exit84
 
 ma_calculate_buffer_size_in_frames_from_descriptor.exit84: ; preds = %.thread97, %80, %83, %86
-  %.0.i83 = phi i32 [ %72, %.thread97 ], [ %82, %80 ], [ %85, %83 ], [ %88, %86 ]
+  %.0.i83 = phi i32 [ %82, %80 ], [ %85, %83 ], [ %88, %86 ], [ %72, %.thread97 ]
   store i32 %.0.i83, ptr %71, align 8, !tbaa !119
   br label %89
 
@@ -119960,7 +119960,7 @@ ma_semaphore_init.exit.thread:                    ; preds = %113, %ma_semaphore_
   br label %124
 
 124:                                              ; preds = %ma_semaphore_init.exit.thread, %ma_semaphore_init.exit, %ma_event_init.exit89, %ma_event_init.exit, %4
-  %.0 = phi i32 [ %118, %ma_semaphore_init.exit ], [ -201, %4 ], [ %98, %ma_event_init.exit ], [ %108, %ma_event_init.exit89 ], [ %123, %ma_semaphore_init.exit.thread ]
+  %.0 = phi i32 [ -201, %4 ], [ %98, %ma_event_init.exit ], [ %108, %ma_event_init.exit89 ], [ %118, %ma_semaphore_init.exit ], [ %123, %ma_semaphore_init.exit.thread ]
   ret i32 %.0
 }
 
@@ -120068,8 +120068,8 @@ define internal noundef i32 @ma_device_read__null(ptr noundef captures(none) %0,
   br label %.thread
 
 .thread:                                          ; preds = %38, %21
-  %storemerge = phi i32 [ %40, %38 ], [ 0, %21 ]
-  %.254 = phi i32 [ %41, %38 ], [ %.063, %21 ]
+  %storemerge = phi i32 [ 0, %21 ], [ %40, %38 ]
+  %.254 = phi i32 [ %.063, %21 ], [ %41, %38 ]
   store i32 %storemerge, ptr %9, align 4, !tbaa !7
   %42 = icmp eq i32 %.254, %2
   br i1 %42, label %.thread58, label %43
@@ -120351,7 +120351,7 @@ ma_event_wait.exit:                               ; preds = %.lr.ph.i.i, %21
   br label %.sink.split
 
 .sink.split:                                      ; preds = %ma_event_wait.exit, %30, %36
-  %.sink = phi i32 [ 0, %30 ], [ 0, %36 ], [ -3, %ma_event_wait.exit ]
+  %.sink = phi i32 [ 0, %36 ], [ 0, %30 ], [ -3, %ma_event_wait.exit ]
   store i32 %.sink, ptr %9, align 4, !tbaa !7
   %53 = call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #66
   store i32 1, ptr %10, align 8, !tbaa !41
@@ -120903,8 +120903,8 @@ ma_device__on_data_inner.exit120:                 ; preds = %ma_zero_memory_defa
   br label %147
 
 147:                                              ; preds = %.loopexit, %ma_device__on_data_inner.exit120, %90
-  %148 = phi i32 [ %.pre146, %90 ], [ %.pre144, %ma_device__on_data_inner.exit120 ], [ %.pre145, %.loopexit ]
-  %.3 = phi i32 [ %.0, %90 ], [ %.4133, %ma_device__on_data_inner.exit120 ], [ %.5, %.loopexit ]
+  %148 = phi i32 [ %.pre144, %ma_device__on_data_inner.exit120 ], [ %.pre145, %.loopexit ], [ %.pre146, %90 ]
+  %.3 = phi i32 [ %.4133, %ma_device__on_data_inner.exit120 ], [ %.5, %.loopexit ], [ %.0, %90 ]
   %149 = icmp eq i32 %148, 3
   br i1 %149, label %.thread179, label %178
 
@@ -121067,7 +121067,7 @@ define internal range(i32 -2, 1) i32 @ma_resampling_backend_get_heap_size__linea
   br label %ma_linear_resampler_get_heap_size.exit
 
 ma_linear_resampler_get_heap_size.exit:           ; preds = %3, %10, %11, %32
-  %.0.i = phi i32 [ 0, %32 ], [ -2, %3 ], [ -2, %11 ], [ -2, %10 ]
+  %.0.i = phi i32 [ 0, %32 ], [ -2, %3 ], [ -2, %10 ], [ -2, %11 ]
   ret i32 %.0.i
 }
 
@@ -121430,7 +121430,7 @@ ma_channel_map_is_passthrough.exit:               ; preds = %ma_channel_map_get_
   br label %.lr.ph.i.i38
 
 .lr.ph.i.i38:                                     ; preds = %46, %45
-  %.0.i37 = phi i8 [ %spec.select, %45 ], [ %47, %46 ]
+  %.0.i37 = phi i8 [ %47, %46 ], [ %spec.select, %45 ]
   %48 = icmp eq ptr %2, null
   br i1 %48, label %ma_channel_map_get_channel.exit.us.i.i43, label %ma_channel_map_get_channel.exit.preheader.i.i
 
@@ -121462,7 +121462,7 @@ ma_channel_map_get_channel.exit.i.i39:            ; preds = %56, %ma_channel_map
   br i1 %exitcond.not.i.i42, label %ma_channel_map_is_passthrough.exit.thread, label %ma_channel_map_get_channel.exit.i.i39, !llvm.loop !960
 
 ma_channel_map_is_passthrough.exit.thread:        ; preds = %22, %21, %16, %ma_channel_map_get_channel.exit.i.i39, %56, %ma_channel_map_get_channel.exit.us.i.i43, %51, %40, %42, %.lr.ph.split.us.i.i, %7, %35, %37, %28, %30
-  %.028 = phi i32 [ 1, %16 ], [ 5, %51 ], [ 2, %28 ], [ 3, %35 ], [ 1, %21 ], [ 2, %30 ], [ 3, %37 ], [ 5, %40 ], [ 4, %42 ], [ 1, %7 ], [ 5, %56 ], [ 1, %.lr.ph.split.us.i.i ], [ 4, %ma_channel_map_get_channel.exit.us.i.i43 ], [ 4, %ma_channel_map_get_channel.exit.i.i39 ], [ 1, %22 ]
+  %.028 = phi i32 [ 2, %30 ], [ 2, %28 ], [ 3, %37 ], [ 3, %35 ], [ 5, %40 ], [ 1, %7 ], [ 1, %.lr.ph.split.us.i.i ], [ 4, %42 ], [ 4, %ma_channel_map_get_channel.exit.us.i.i43 ], [ 5, %51 ], [ 4, %ma_channel_map_get_channel.exit.i.i39 ], [ 5, %56 ], [ 1, %16 ], [ 1, %21 ], [ 1, %22 ]
   ret i32 %.028
 }
 
@@ -121742,7 +121742,7 @@ define internal fastcc range(i32 -2, 1) i32 @ma_channel_map_apply_shuffle_table(
   br i1 %exitcond28.not.i82, label %ma_channel_map_apply_shuffle_table_u8.exit, label %.preheader.i74, !llvm.loop !839
 
 ma_channel_map_apply_shuffle_table_u8.exit:       ; preds = %124, %106, %87, %45, %27, %110, %92, %49, %31, %13, %12, %7
-  %.0 = phi i32 [ -2, %12 ], [ -2, %7 ], [ 0, %45 ], [ 0, %27 ], [ 0, %106 ], [ 0, %87 ], [ 0, %13 ], [ 0, %31 ], [ 0, %49 ], [ 0, %92 ], [ 0, %110 ], [ 0, %124 ]
+  %.0 = phi i32 [ -2, %7 ], [ -2, %12 ], [ 0, %13 ], [ 0, %31 ], [ 0, %49 ], [ 0, %92 ], [ 0, %110 ], [ 0, %27 ], [ 0, %45 ], [ 0, %87 ], [ 0, %106 ], [ 0, %124 ]
   ret i32 %.0
 }
 
@@ -121883,7 +121883,7 @@ ma_copy_pcm_frames.exit:                          ; preds = %ma_copy_pcm_frames.
   br label %ma_rb_pointer_distance.exit.i.i
 
 ma_rb_pointer_distance.exit.i.i:                  ; preds = %82, %80
-  %.0.i.i.i = phi i32 [ %85, %82 ], [ %81, %80 ]
+  %.0.i.i.i = phi i32 [ %81, %80 ], [ %85, %82 ]
   %86 = icmp eq i32 %.0.i.i.i, 0
   br i1 %86, label %.thread, label %13
 
@@ -122341,7 +122341,7 @@ ma_paged_audio_buffer_data_get_tail.exit.i:       ; preds = %36, %33
   br i1 %.not.i, label %ma_paged_audio_buffer_seek_to_pcm_frame.exit, label %.lr.ph.i, !llvm.loop !1094
 
 ma_paged_audio_buffer_seek_to_pcm_frame.exit:     ; preds = %44, %2, %4, %17, %20, %.critedge.i
-  %.034.i = phi i32 [ 0, %17 ], [ -2, %2 ], [ 0, %4 ], [ 0, %.critedge.i ], [ -25, %20 ], [ -25, %44 ]
+  %.034.i = phi i32 [ -2, %2 ], [ 0, %4 ], [ 0, %.critedge.i ], [ 0, %17 ], [ -25, %20 ], [ -25, %44 ]
   ret i32 %.034.i
 }
 
@@ -122433,7 +122433,7 @@ define internal range(i32 -2, 1) i32 @ma_paged_audio_buffer__data_source_on_get_
   br i1 %.not.i.i, label %ma_paged_audio_buffer_get_length_in_pcm_frames.exit, label %.lr.ph.i.i, !llvm.loop !1086
 
 ma_paged_audio_buffer_get_length_in_pcm_frames.exit: ; preds = %.lr.ph.i.i, %2, %6, %8
-  %.08.i.i = phi i32 [ -2, %6 ], [ -2, %2 ], [ 0, %8 ], [ 0, %.lr.ph.i.i ]
+  %.08.i.i = phi i32 [ -2, %2 ], [ -2, %6 ], [ 0, %8 ], [ 0, %.lr.ph.i.i ]
   ret i32 %.08.i.i
 }
 
@@ -122948,8 +122948,8 @@ ma_dr_mp3_read_pcm_frames_s16.exit.i:             ; preds = %18, %11
   br label %ma_dr_mp3_read_pcm_frames_s16.exit.thread.i
 
 ma_dr_mp3_read_pcm_frames_s16.exit.thread.i:      ; preds = %ma_dr_mp3_read_pcm_frames_s16.exit.i, %14
-  %.026.i = phi i64 [ %.0.fr.i, %ma_dr_mp3_read_pcm_frames_s16.exit.i ], [ 0, %14 ]
-  %22 = phi i32 [ %spec.select.i, %ma_dr_mp3_read_pcm_frames_s16.exit.i ], [ -17, %14 ]
+  %.026.i = phi i64 [ 0, %14 ], [ %.0.fr.i, %ma_dr_mp3_read_pcm_frames_s16.exit.i ]
+  %22 = phi i32 [ -17, %14 ], [ %spec.select.i, %ma_dr_mp3_read_pcm_frames_s16.exit.i ]
   br i1 %.not.i, label %ma_mp3_read_pcm_frames.exit, label %23
 
 23:                                               ; preds = %ma_dr_mp3_read_pcm_frames_s16.exit.thread.i
@@ -123198,7 +123198,7 @@ ma_malloc.exit:                                   ; preds = %12, %15
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %9, %26, %24, %21, %ma_malloc.exit, %27
-  %.0 = phi i32 [ 0, %27 ], [ %19, %26 ], [ -4, %ma_malloc.exit ], [ %19, %21 ], [ %19, %24 ], [ -4, %9 ]
+  %.0 = phi i32 [ 0, %27 ], [ -4, %ma_malloc.exit ], [ %19, %21 ], [ %19, %24 ], [ %19, %26 ], [ -4, %9 ]
   ret i32 %.0
 }
 
@@ -123255,7 +123255,7 @@ ma_malloc.exit:                                   ; preds = %9, %12
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %6, %23, %21, %18, %ma_malloc.exit, %24
-  %.0 = phi i32 [ 0, %24 ], [ %16, %23 ], [ -4, %ma_malloc.exit ], [ %16, %18 ], [ %16, %21 ], [ -4, %6 ]
+  %.0 = phi i32 [ 0, %24 ], [ -4, %ma_malloc.exit ], [ %16, %18 ], [ %16, %21 ], [ %16, %23 ], [ -4, %6 ]
   ret i32 %.0
 }
 
@@ -123312,7 +123312,7 @@ ma_malloc.exit:                                   ; preds = %9, %12
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %6, %23, %21, %18, %ma_malloc.exit, %24
-  %.0 = phi i32 [ 0, %24 ], [ %16, %23 ], [ -4, %ma_malloc.exit ], [ %16, %18 ], [ %16, %21 ], [ -4, %6 ]
+  %.0 = phi i32 [ 0, %24 ], [ -4, %ma_malloc.exit ], [ %16, %18 ], [ %16, %21 ], [ %16, %23 ], [ -4, %6 ]
   ret i32 %.0
 }
 
@@ -123369,7 +123369,7 @@ ma_malloc.exit:                                   ; preds = %10, %13
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %7, %24, %22, %19, %ma_malloc.exit, %25
-  %.0 = phi i32 [ 0, %25 ], [ %17, %24 ], [ -4, %ma_malloc.exit ], [ %17, %19 ], [ %17, %22 ], [ -4, %7 ]
+  %.0 = phi i32 [ 0, %25 ], [ -4, %ma_malloc.exit ], [ %17, %19 ], [ %17, %22 ], [ %17, %24 ], [ -4, %7 ]
   ret i32 %.0
 }
 
@@ -123503,7 +123503,7 @@ ma_flac_init.exit:                                ; preds = %30
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %9, %43, %41, %38, %ma_malloc.exit, %ma_flac_init.exit
-  %.0 = phi i32 [ 0, %ma_flac_init.exit ], [ %.0.i17.ph, %43 ], [ -4, %ma_malloc.exit ], [ %.0.i17.ph, %38 ], [ %.0.i17.ph, %41 ], [ -4, %9 ]
+  %.0 = phi i32 [ 0, %ma_flac_init.exit ], [ -4, %ma_malloc.exit ], [ %.0.i17.ph, %38 ], [ %.0.i17.ph, %41 ], [ %.0.i17.ph, %43 ], [ -4, %9 ]
   ret i32 %.0
 }
 
@@ -123607,7 +123607,7 @@ ma_fopen.exit.i.i:                                ; preds = %26
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %6, %40, %38, %35, %ma_malloc.exit, %41
-  %.0 = phi i32 [ 0, %41 ], [ -10, %40 ], [ -4, %ma_malloc.exit ], [ -10, %35 ], [ -10, %38 ], [ -4, %6 ]
+  %.0 = phi i32 [ 0, %41 ], [ -4, %ma_malloc.exit ], [ -10, %35 ], [ -10, %38 ], [ -10, %40 ], [ -4, %6 ]
   ret i32 %.0
 }
 
@@ -123683,7 +123683,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %ma_malloc.exit
   %32 = call i32 @fclose(ptr noundef %28)
   br label %33
 
-33:                                               ; preds = %31, %20
+33:                                               ; preds = %20, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 112
   store ptr null, ptr %34, align 8, !tbaa !1207
@@ -123712,7 +123712,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %ma_malloc.exit
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %7, %40, %38, %35, %ma_malloc.exit, %41
-  %.0 = phi i32 [ 0, %41 ], [ -10, %40 ], [ -4, %ma_malloc.exit ], [ -10, %35 ], [ -10, %38 ], [ -4, %7 ]
+  %.0 = phi i32 [ 0, %41 ], [ -4, %ma_malloc.exit ], [ -10, %35 ], [ -10, %38 ], [ -10, %40 ], [ -4, %7 ]
   ret i32 %.0
 }
 
@@ -123832,7 +123832,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %ma_malloc.exit
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %8, %49, %47, %44, %ma_malloc.exit, %50
-  %.0 = phi i32 [ 0, %50 ], [ -10, %49 ], [ -4, %ma_malloc.exit ], [ -10, %44 ], [ -10, %47 ], [ -4, %8 ]
+  %.0 = phi i32 [ 0, %50 ], [ -4, %ma_malloc.exit ], [ -10, %44 ], [ -10, %47 ], [ -10, %49 ], [ -4, %8 ]
   ret i32 %.0
 }
 
@@ -123966,7 +123966,7 @@ ma_malloc.exit:                                   ; preds = %12, %15
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %9, %26, %24, %21, %ma_malloc.exit, %27
-  %.0 = phi i32 [ 0, %27 ], [ %19, %26 ], [ -4, %ma_malloc.exit ], [ %19, %21 ], [ %19, %24 ], [ -4, %9 ]
+  %.0 = phi i32 [ 0, %27 ], [ -4, %ma_malloc.exit ], [ %19, %21 ], [ %19, %24 ], [ %19, %26 ], [ -4, %9 ]
   ret i32 %.0
 }
 
@@ -124023,7 +124023,7 @@ ma_malloc.exit:                                   ; preds = %9, %12
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %6, %23, %21, %18, %ma_malloc.exit, %24
-  %.0 = phi i32 [ 0, %24 ], [ %16, %23 ], [ -4, %ma_malloc.exit ], [ %16, %18 ], [ %16, %21 ], [ -4, %6 ]
+  %.0 = phi i32 [ 0, %24 ], [ -4, %ma_malloc.exit ], [ %16, %18 ], [ %16, %21 ], [ %16, %23 ], [ -4, %6 ]
   ret i32 %.0
 }
 
@@ -124080,7 +124080,7 @@ ma_malloc.exit:                                   ; preds = %9, %12
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %6, %23, %21, %18, %ma_malloc.exit, %24
-  %.0 = phi i32 [ 0, %24 ], [ %16, %23 ], [ -4, %ma_malloc.exit ], [ %16, %18 ], [ %16, %21 ], [ -4, %6 ]
+  %.0 = phi i32 [ 0, %24 ], [ -4, %ma_malloc.exit ], [ %16, %18 ], [ %16, %21 ], [ %16, %23 ], [ -4, %6 ]
   ret i32 %.0
 }
 
@@ -124137,7 +124137,7 @@ ma_malloc.exit:                                   ; preds = %10, %13
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %7, %24, %22, %19, %ma_malloc.exit, %25
-  %.0 = phi i32 [ 0, %25 ], [ %17, %24 ], [ -4, %ma_malloc.exit ], [ %17, %19 ], [ %17, %22 ], [ -4, %7 ]
+  %.0 = phi i32 [ 0, %25 ], [ -4, %ma_malloc.exit ], [ %17, %19 ], [ %17, %22 ], [ %17, %24 ], [ -4, %7 ]
   ret i32 %.0
 }
 
@@ -124278,7 +124278,7 @@ define internal i32 @ma_decoder__on_tell_vfs(ptr noundef readonly captures(none)
   br label %ma_vfs_or_default_tell.exit
 
 ma_vfs_or_default_tell.exit:                      ; preds = %8, %9, %11, %15, %17, %18, %20
-  %.0.i = phi i32 [ -29, %11 ], [ %16, %15 ], [ -2, %8 ], [ -2, %9 ], [ 0, %20 ], [ -2, %17 ], [ -2, %18 ]
+  %.0.i = phi i32 [ %16, %15 ], [ -2, %8 ], [ -2, %9 ], [ -29, %11 ], [ 0, %20 ], [ -2, %17 ], [ -2, %18 ]
   ret i32 %.0.i
 }
 
@@ -124730,7 +124730,7 @@ ma_resource_manager_next_job.exit.i:              ; preds = %21
   br label %ma_resource_manager_process_next_job.exit
 
 ma_resource_manager_process_next_job.exit:        ; preds = %21, %ma_resource_manager_next_job.exit.i, %26, %29
-  %.0.i = phi i32 [ %25, %ma_resource_manager_next_job.exit.i ], [ -2, %21 ], [ %33, %29 ], [ -3, %26 ]
+  %.0.i = phi i32 [ -2, %21 ], [ %25, %ma_resource_manager_next_job.exit.i ], [ %33, %29 ], [ -3, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   switch i32 %.0.i, label %.preheader [
     i32 -32, label %.loopexit
@@ -124817,7 +124817,7 @@ ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split.i: ; preds = %ma_data_
   br label %ma_resource_manager_data_buffer_seek_to_pcm_frame.exit
 
 ma_resource_manager_data_buffer_seek_to_pcm_frame.exit: ; preds = %22, %27, %ma_data_source_seek_to_pcm_frame.exit.i, %ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split.i
-  %.0.i = phi i32 [ -29, %22 ], [ -3, %27 ], [ %34, %ma_data_source_seek_to_pcm_frame.exit.i ], [ %.0.ph.i, %ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split.i ]
+  %.0.i = phi i32 [ %34, %ma_data_source_seek_to_pcm_frame.exit.i ], [ -3, %27 ], [ -29, %22 ], [ %.0.ph.i, %ma_data_source_seek_to_pcm_frame.exit.thread17.sink.split.i ]
   ret i32 %.0.i
 }
 
@@ -124872,7 +124872,7 @@ ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit.i: ; preds = %5
   br label %ma_resource_manager_data_buffer_get_cursor_in_pcm_frames.exit
 
 ma_resource_manager_data_buffer_get_cursor_in_pcm_frames.exit: ; preds = %2, %5, %ma_decoder_get_cursor_in_pcm_frames.exit.i, %ma_audio_buffer_get_cursor_in_pcm_frames.exit.i, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit.i, %16
-  %.0.i = phi i32 [ -2, %2 ], [ -2, %16 ], [ 0, %ma_decoder_get_cursor_in_pcm_frames.exit.i ], [ 0, %ma_audio_buffer_get_cursor_in_pcm_frames.exit.i ], [ 0, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit.i ], [ -19, %5 ]
+  %.0.i = phi i32 [ -2, %16 ], [ 0, %ma_decoder_get_cursor_in_pcm_frames.exit.i ], [ 0, %ma_audio_buffer_get_cursor_in_pcm_frames.exit.i ], [ 0, %ma_paged_audio_buffer_get_cursor_in_pcm_frames.exit.i ], [ -2, %2 ], [ -19, %5 ]
   ret i32 %.0.i
 }
 
@@ -124952,7 +124952,7 @@ ma_resource_manager_data_buffer_get_connector.exit.i: ; preds = %ma_resource_man
   br label %ma_resource_manager_data_buffer_get_length_in_pcm_frames.exit
 
 ma_resource_manager_data_buffer_get_length_in_pcm_frames.exit: ; preds = %2, %5, %ma_resource_manager_data_buffer_get_connector.exit.i, %30, %34, %39
-  %.0.i = phi i32 [ -19, %5 ], [ -2, %2 ], [ %40, %39 ], [ -29, %34 ], [ 0, %30 ], [ -2, %ma_resource_manager_data_buffer_get_connector.exit.i ]
+  %.0.i = phi i32 [ -2, %2 ], [ -19, %5 ], [ 0, %30 ], [ %40, %39 ], [ -2, %ma_resource_manager_data_buffer_get_connector.exit.i ], [ -29, %34 ]
   ret i32 %.0.i
 }
 
@@ -125098,7 +125098,7 @@ ma_resource_manager_data_stream_set_absolute_cursor.exit.i: ; preds = %21, %16
   br label %ma_resource_manager_data_stream_seek_to_pcm_frame.exit
 
 ma_resource_manager_data_stream_seek_to_pcm_frame.exit: ; preds = %2, %5, %12, %ma_resource_manager_data_stream_set_absolute_cursor.exit.i, %40
-  %.0.i = phi i32 [ 0, %12 ], [ -2, %ma_resource_manager_data_stream_set_absolute_cursor.exit.i ], [ -3, %5 ], [ %42, %40 ], [ -2, %2 ]
+  %.0.i = phi i32 [ -3, %5 ], [ 0, %12 ], [ %42, %40 ], [ -2, %ma_resource_manager_data_stream_set_absolute_cursor.exit.i ], [ -2, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }
@@ -125220,7 +125220,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %29, %28
   br label %ma_data_source_get_data_format.exit.i
 
 ma_data_source_get_data_format.exit.i:            ; preds = %43, %42, %34, %ma_zero_memory_default.exit.i.i
-  %.0.i27.i = phi i32 [ %35, %34 ], [ 0, %42 ], [ -29, %ma_zero_memory_default.exit.i.i ], [ 0, %43 ]
+  %.0.i27.i = phi i32 [ -29, %ma_zero_memory_default.exit.i.i ], [ %35, %34 ], [ 0, %43 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -125285,7 +125285,7 @@ define internal i32 @ma_resource_manager_data_stream_cb__get_length_in_pcm_frame
   br label %ma_resource_manager_data_stream_get_length_in_pcm_frames.exit
 
 ma_resource_manager_data_stream_get_length_in_pcm_frames.exit: ; preds = %2, %4, %6, %9
-  %.0.i = phi i32 [ %8, %6 ], [ -2, %2 ], [ %..i, %9 ], [ -2, %4 ]
+  %.0.i = phi i32 [ -2, %2 ], [ %8, %6 ], [ %..i, %9 ], [ -2, %4 ]
   ret i32 %.0.i
 }
 
@@ -125387,7 +125387,7 @@ ma_zero_memory_default.exit.i.i.i:                ; preds = %44, %.lr.ph.i.i
   br i1 %.not.i.i.i, label %ma_node_graph_read_pcm_frames.exit, label %.lr.ph.i.i, !llvm.loop !305
 
 ma_node_graph_read_pcm_frames.exit:               ; preds = %ma_zero_memory_default.exit.i.i.i, %._crit_edge.i, %39, %5
-  %.0 = phi i64 [ 0, %5 ], [ %.135.i, %._crit_edge.i ], [ %.135.i, %39 ], [ %.135.i, %ma_zero_memory_default.exit.i.i.i ]
+  %.0 = phi i64 [ 0, %5 ], [ %.135.i, %39 ], [ %.135.i, %._crit_edge.i ], [ %.135.i, %ma_zero_memory_default.exit.i.i.i ]
   %47 = trunc i64 %.0 to i32
   store i32 %47, ptr %4, align 4, !tbaa !3
   ret void
@@ -125601,7 +125601,7 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %105, %ma_zero_memor
   br i1 %.not.i.i, label %ma_silence_pcm_frames.exit, label %ma_zero_memory_default.exit.i.i, !llvm.loop !305
 
 ma_silence_pcm_frames.exit:                       ; preds = %ma_zero_memory_default.exit.i.i, %52, %ma_mix_pcm_frames_f32.exit._crit_edge
-  %.254 = phi i32 [ %.06117, %52 ], [ %.2, %ma_mix_pcm_frames_f32.exit._crit_edge ], [ %.2, %ma_zero_memory_default.exit.i.i ]
+  %.254 = phi i32 [ %.2, %ma_mix_pcm_frames_f32.exit._crit_edge ], [ %.06117, %52 ], [ %.2, %ma_zero_memory_default.exit.i.i ]
   %114 = icmp eq i32 %.lobit, 0
   %spec.select77 = select i1 %114, i32 1, i32 %.06316
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -125645,8 +125645,8 @@ ma_node_input_bus_next.exit:                      ; preds = %119
   br label %._crit_edge19
 
 ._crit_edge19:                                    ; preds = %._crit_edge19.loopexit27, %._crit_edge19.loopexit
-  %.063.lcssa = phi i1 [ %135, %._crit_edge19.loopexit27 ], [ true, %._crit_edge19.loopexit ]
-  %.061.lcssa = phi i32 [ %.254, %._crit_edge19.loopexit27 ], [ 0, %._crit_edge19.loopexit ]
+  %.063.lcssa = phi i1 [ true, %._crit_edge19.loopexit ], [ %135, %._crit_edge19.loopexit27 ]
+  %.061.lcssa = phi i32 [ 0, %._crit_edge19.loopexit ], [ %.254, %._crit_edge19.loopexit27 ]
   %136 = icmp ne ptr %1, null
   %or.cond3 = and i1 %136, %.063.lcssa
   br i1 %or.cond3, label %137, label %ma_silence_pcm_frames.exit87
@@ -125707,7 +125707,7 @@ define internal void @ma_data_source_node_process_pcm_frames(ptr noundef readonl
   %.not36.i = icmp eq i32 %20, 0
   br i1 %.not36.i, label %21, label %ma_data_source_get_data_format.exit.thread
 
-ma_data_source_get_data_format.exit.thread:       ; preds = %19, %5, %14
+ma_data_source_get_data_format.exit.thread:       ; preds = %5, %14, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -126052,7 +126052,7 @@ ma_engine_node_update_pitch_if_required.exit:     ; preds = %56, %ma_engine_get_
   %.not36.i = icmp eq i32 %96, 0
   br i1 %.not36.i, label %97, label %ma_data_source_get_data_format.exit.thread
 
-ma_data_source_get_data_format.exit.thread:       ; preds = %95, %ma_engine_node_update_pitch_if_required.exit, %90
+ma_data_source_get_data_format.exit.thread:       ; preds = %ma_engine_node_update_pitch_if_required.exit, %90, %95
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -126122,7 +126122,7 @@ ma_data_source_get_data_format.exit.thread:       ; preds = %95, %ma_engine_node
   br label %ma_engine_node_get_required_input_frame_count.exit
 
 ma_engine_node_get_required_input_frame_count.exit: ; preds = %117, %120
-  %.0.i55 = phi i32 [ %118, %117 ], [ %139, %120 ]
+  %.0.i55 = phi i32 [ %139, %120 ], [ %118, %117 ]
   %spec.select = call i32 @llvm.umin.i32(i32 %104, i32 %.0.i55)
   %140 = load ptr, ptr %87, align 8, !tbaa !1813
   %141 = zext nneg i32 %spec.select to i64
@@ -126223,7 +126223,7 @@ ma_sound_at_end.exit59.thread:                    ; preds = %172, %ma_sound_at_e
   br i1 %176, label %117, label %.loopexit
 
 .loopexit:                                        ; preds = %ma_sound_at_end.exit59.thread, %97, %.thread, %ma_data_source_get_data_format.exit.thread, %ma_sound_stop.exit
-  %storemerge = phi i32 [ 0, %ma_sound_stop.exit ], [ %171, %.thread ], [ 0, %ma_data_source_get_data_format.exit.thread ], [ 0, %97 ], [ %171, %ma_sound_at_end.exit59.thread ]
+  %storemerge = phi i32 [ 0, %ma_sound_stop.exit ], [ 0, %ma_data_source_get_data_format.exit.thread ], [ %171, %.thread ], [ 0, %97 ], [ %171, %ma_sound_at_end.exit59.thread ]
   store i32 %storemerge, ptr %4, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
@@ -126320,7 +126320,7 @@ ma_engine_get_time_in_pcm_frames.exit:            ; preds = %26, %30
   br label %ma_fader_set_fade_ex.exit
 
 ma_fader_set_fade_ex.exit:                        ; preds = %35, %37, %43, %49, %52
-  %.0.i = phi float [ %20, %35 ], [ %64, %52 ], [ 1.000000e+00, %37 ], [ %45, %43 ], [ %51, %49 ]
+  %.0.i = phi float [ %20, %35 ], [ %45, %43 ], [ %51, %49 ], [ %64, %52 ], [ 1.000000e+00, %37 ]
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %16, i64 4294967295)
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 396
   store float %.0.i, ptr %65, align 4, !tbaa !734
@@ -126576,8 +126576,8 @@ ma_engine_find_closest_listener.exit.loopexit:    ; preds = %181
   br label %ma_engine_find_closest_listener.exit
 
 ma_engine_find_closest_listener.exit:             ; preds = %ma_engine_find_closest_listener.exit.loopexit, %ma_spatializer_get_position.exit, %ma_engine_get_listener_count.exit
-  %185 = phi ptr [ %141, %ma_engine_get_listener_count.exit ], [ %.pre, %ma_engine_find_closest_listener.exit.loopexit ], [ %154, %ma_spatializer_get_position.exit ]
-  %.0134 = phi i32 [ %139, %ma_engine_get_listener_count.exit ], [ %.2.i, %ma_engine_find_closest_listener.exit.loopexit ], [ 0, %ma_spatializer_get_position.exit ]
+  %185 = phi ptr [ %141, %ma_engine_get_listener_count.exit ], [ %154, %ma_spatializer_get_position.exit ], [ %.pre, %ma_engine_find_closest_listener.exit.loopexit ]
+  %.0134 = phi i32 [ %139, %ma_engine_get_listener_count.exit ], [ 0, %ma_spatializer_get_position.exit ], [ %.2.i, %ma_engine_find_closest_listener.exit.loopexit ]
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 760
   %187 = zext i32 %.0134 to i64
   %188 = getelementptr inbounds nuw %struct.ma_spatializer_listener, ptr %186, i64 %187
@@ -127113,7 +127113,7 @@ define internal fastcc i64 @ma_dr_wav_aiff_extented_to_s64(ptr noundef nonnull r
   br label %66
 
 66:                                               ; preds = %61, %59, %1, %57, %52
-  %.0 = phi i64 [ 0, %59 ], [ %53, %52 ], [ %58, %57 ], [ 0, %1 ], [ %spec.select, %61 ]
+  %.0 = phi i64 [ %53, %52 ], [ %58, %57 ], [ 0, %1 ], [ 0, %59 ], [ %spec.select, %61 ]
   ret i64 %.0
 }
 
@@ -127220,7 +127220,7 @@ ma_dr_wav__chunk_matches.exit:                    ; preds = %16
   br label %.thread
 
 .thread:                                          ; preds = %36, %42, %49, %55
-  %.0274.ph = phi i64 [ 32, %42 ], [ %53, %49 ], [ %53, %55 ], [ %40, %36 ]
+  %.0274.ph = phi i64 [ %40, %36 ], [ 32, %42 ], [ %53, %49 ], [ %53, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
@@ -128119,7 +128119,7 @@ ma_dr_wav__chunk_matches.exit257.thread:          ; preds = %479, %480, %.thread
   br label %573
 
 562:                                              ; preds = %511, %517, %491, %497, %506, %533, %541, %546, %553, %ma_dr_wav__chunk_matches.exit257.thread, %556, %550, %544, %537, %529, %486
-  %.1176 = phi i64 [ %558, %ma_dr_wav__chunk_matches.exit257.thread ], [ 0, %486 ], [ %502, %497 ], [ 0, %506 ], [ %530, %529 ], [ %534, %533 ], [ %538, %537 ], [ %542, %541 ], [ %545, %544 ], [ %547, %546 ], [ %551, %550 ], [ %554, %553 ], [ %557, %556 ], [ 0, %491 ], [ %521, %517 ], [ 0, %511 ]
+  %.1176 = phi i64 [ 0, %486 ], [ 0, %506 ], [ %530, %529 ], [ %534, %533 ], [ %538, %537 ], [ %542, %541 ], [ %545, %544 ], [ %547, %546 ], [ %551, %550 ], [ %554, %553 ], [ %557, %556 ], [ %558, %ma_dr_wav__chunk_matches.exit257.thread ], [ 0, %491 ], [ %502, %497 ], [ 0, %511 ], [ %521, %517 ]
   %563 = add i64 %.1176, %467
   %564 = icmp ult i64 %.1176, %470
   br i1 %564, label %565, label %573
@@ -128154,15 +128154,15 @@ ma_dr_wav__chunk_matches.exit257.thread:          ; preds = %479, %480, %.thread
   %580 = add i64 %.5, 1
   br label %581
 
-.thread377:                                       ; preds = %445, %575, %ma_dr_wav_fourcc_equal.exit243.thread, %565
+.thread377:                                       ; preds = %445, %ma_dr_wav_fourcc_equal.exit243.thread, %575, %565
   %.4.ph = phi i64 [ %449, %445 ], [ %467, %ma_dr_wav_fourcc_equal.exit243.thread ], [ %.5, %575 ], [ %563, %565 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
 581:                                              ; preds = %458, %452, %573, %579
-  %.4 = phi i64 [ %449, %452 ], [ %.5, %573 ], [ %449, %458 ], [ %580, %579 ]
-  %.1179 = phi i32 [ 3, %452 ], [ %.0178499, %573 ], [ 2, %458 ], [ %.0178499, %579 ]
+  %.4 = phi i64 [ %.5, %573 ], [ %580, %579 ], [ %449, %452 ], [ %449, %458 ]
+  %.1179 = phi i32 [ %.0178499, %573 ], [ %.0178499, %579 ], [ 3, %452 ], [ 2, %458 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %582 = load i64, ptr %433, align 8, !tbaa !1863
@@ -128176,7 +128176,7 @@ ma_dr_wav_fourcc_equal.exit240.thread:            ; preds = %2, %245, %241, %ma_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %581, %432, %22, %ma_dr_wav__read_smpl_to_metadata_obj.exit, %177, %251, %259, %ma_dr_wav__read_acid_to_metadata_obj.exit, %302, %357, %400, %409, %ma_dr_wav_fourcc_equal.exit240.thread, %344, %335, %323, %315, %238, %ma_dr_wav__read_inst_to_metadata_obj.exit, %198, %190, %.thread, %389, %.thread377, %.thread297, %67
-  %.1 = phi i64 [ %.2.ph, %.thread297 ], [ 0, %67 ], [ %586, %ma_dr_wav_fourcc_equal.exit240.thread ], [ %.4.ph, %.thread377 ], [ 0, %22 ], [ %385, %389 ], [ %406, %409 ], [ %406, %400 ], [ 0, %357 ], [ 0, %323 ], [ %341, %344 ], [ %341, %335 ], [ 0, %315 ], [ 0, %259 ], [ %.0.i222, %302 ], [ %.0.i222, %ma_dr_wav__read_acid_to_metadata_obj.exit ], [ 0, %251 ], [ 0, %198 ], [ %.0.i, %238 ], [ %.0.i, %ma_dr_wav__read_inst_to_metadata_obj.exit ], [ 0, %190 ], [ %.0274.ph, %.thread ], [ %.046.i, %177 ], [ %.046.i, %ma_dr_wav__read_smpl_to_metadata_obj.exit ], [ 0, %432 ], [ %.4, %581 ]
+  %.1 = phi i64 [ 0, %67 ], [ %.2.ph, %.thread297 ], [ %586, %ma_dr_wav_fourcc_equal.exit240.thread ], [ %385, %389 ], [ %406, %409 ], [ %406, %400 ], [ 0, %357 ], [ 0, %323 ], [ %341, %344 ], [ %341, %335 ], [ 0, %315 ], [ 0, %259 ], [ %.0.i222, %302 ], [ %.0.i222, %ma_dr_wav__read_acid_to_metadata_obj.exit ], [ 0, %251 ], [ 0, %198 ], [ %.0.i, %238 ], [ %.0.i, %ma_dr_wav__read_inst_to_metadata_obj.exit ], [ 0, %190 ], [ %.046.i, %177 ], [ %.046.i, %ma_dr_wav__read_smpl_to_metadata_obj.exit ], [ 0, %22 ], [ %.0274.ph, %.thread ], [ %.4.ph, %.thread377 ], [ 0, %432 ], [ %.4, %581 ]
   ret i64 %.1
 }
 
@@ -128361,7 +128361,7 @@ define internal fastcc i64 @ma_dr_wav__read_cue_to_metadata_obj(ptr noundef nonn
   br i1 %86, label %41, label %.loopexit, !llvm.loop !2206
 
 .loopexit:                                        ; preds = %48, %7, %22, %13, %47, %3
-  %.036 = phi i64 [ 0, %3 ], [ 4, %22 ], [ %45, %47 ], [ %11, %7 ], [ 4, %13 ], [ %45, %48 ]
+  %.036 = phi i64 [ 0, %3 ], [ 4, %22 ], [ %45, %47 ], [ 4, %13 ], [ %11, %7 ], [ %45, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.036
 }
@@ -128901,7 +128901,7 @@ ma_dr_wav_fourcc_equal.exit38.thread:             ; preds = %18, %ma_dr_wav_four
   br label %79
 
 79:                                               ; preds = %36, %43, %76, %ma_dr_wav_fourcc_equal.exit, %ma_dr_wav_fourcc_equal.exit37, %ma_dr_wav_fourcc_equal.exit38, %4
-  %.0 = phi i64 [ 0, %ma_dr_wav_fourcc_equal.exit ], [ 0, %4 ], [ 0, %ma_dr_wav_fourcc_equal.exit38 ], [ 0, %ma_dr_wav_fourcc_equal.exit37 ], [ 0, %36 ], [ %72, %43 ], [ %72, %76 ]
+  %.0 = phi i64 [ 0, %4 ], [ 0, %ma_dr_wav_fourcc_equal.exit38 ], [ 0, %ma_dr_wav_fourcc_equal.exit37 ], [ 0, %ma_dr_wav_fourcc_equal.exit ], [ 0, %36 ], [ %72, %43 ], [ %72, %76 ]
   ret i64 %.0
 }
 
@@ -129031,8 +129031,8 @@ define internal fastcc i64 @ma_dr_wav__write_or_count_metadata(ptr noundef reado
   br label %92
 
 92:                                               ; preds = %.thread897, %86, %88
-  %.1430894 = phi i32 [ %.1430, %88 ], [ %.1430896899, %.thread897 ], [ %.1430, %86 ]
-  %.1428 = phi i32 [ %.04271059, %88 ], [ %spec.select1042, %.thread897 ], [ 1, %86 ]
+  %.1430894 = phi i32 [ %.1430, %88 ], [ %.1430, %86 ], [ %.1430896899, %.thread897 ]
+  %.1428 = phi i32 [ %.04271059, %88 ], [ 1, %86 ], [ %spec.select1042, %.thread897 ]
   %93 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %78)
   %94 = icmp eq i32 %93, 1
   br i1 %94, label %.split, label %.thread957
@@ -129873,8 +129873,8 @@ ma_dr_wav__write_or_count.exit752:                ; preds = %ma_dr_wav__write_or
   br label %.loopexit1045
 
 .loopexit1045:                                    ; preds = %ma_dr_wav__write_or_count_u32ne_to_le.exit613, %ma_dr_wav__write_or_count_u32ne_to_le.exit589.thread, %.lr.ph.split.us, %ma_dr_wav__write_or_count_u32ne_to_le.exit589, %._crit_edge, %ma_dr_wav__write_or_count.exit541, %ma_dr_wav__write_or_count.exit752, %434
-  %.0441 = phi i32 [ %441, %ma_dr_wav__write_or_count.exit752 ], [ %103, %ma_dr_wav__write_or_count.exit541 ], [ %326, %434 ], [ %103, %._crit_edge ], [ %231, %ma_dr_wav__write_or_count_u32ne_to_le.exit589 ], [ %231, %.lr.ph.split.us ], [ %231, %ma_dr_wav__write_or_count_u32ne_to_le.exit589.thread ], [ %231, %ma_dr_wav__write_or_count_u32ne_to_le.exit613 ]
-  %.3 = phi i64 [ %456, %ma_dr_wav__write_or_count.exit752 ], [ %197, %ma_dr_wav__write_or_count.exit541 ], [ %.5, %434 ], [ %.1420.lcssa, %._crit_edge ], [ %232, %ma_dr_wav__write_or_count_u32ne_to_le.exit589 ], [ %245, %.lr.ph.split.us ], [ %239, %ma_dr_wav__write_or_count_u32ne_to_le.exit589.thread ], [ %279, %ma_dr_wav__write_or_count_u32ne_to_le.exit613 ]
+  %.0441 = phi i32 [ %326, %434 ], [ %441, %ma_dr_wav__write_or_count.exit752 ], [ %103, %ma_dr_wav__write_or_count.exit541 ], [ %103, %._crit_edge ], [ %231, %ma_dr_wav__write_or_count_u32ne_to_le.exit589 ], [ %231, %.lr.ph.split.us ], [ %231, %ma_dr_wav__write_or_count_u32ne_to_le.exit589.thread ], [ %231, %ma_dr_wav__write_or_count_u32ne_to_le.exit613 ]
+  %.3 = phi i64 [ %.5, %434 ], [ %456, %ma_dr_wav__write_or_count.exit752 ], [ %197, %ma_dr_wav__write_or_count.exit541 ], [ %.1420.lcssa, %._crit_edge ], [ %232, %ma_dr_wav__write_or_count_u32ne_to_le.exit589 ], [ %245, %.lr.ph.split.us ], [ %239, %ma_dr_wav__write_or_count_u32ne_to_le.exit589.thread ], [ %279, %ma_dr_wav__write_or_count_u32ne_to_le.exit613 ]
   %457 = and i32 %.0441, 1
   %.not471 = icmp eq i32 %457, 0
   br i1 %.not471, label %.thread957, label %458
@@ -129897,8 +129897,8 @@ ma_dr_wav__write_or_count_byte.exit:              ; preds = %458, %459
   %461 = add i64 %.0.i755, %.3965
   br label %.thread957
 
-.thread957:                                       ; preds = %435, %ma_dr_wav__write_or_count_f32ne_to_le.exit651, %92, %.split, %ma_dr_wav__write_or_count_byte.exit, %.loopexit1045
-  %.6 = phi i64 [ %461, %ma_dr_wav__write_or_count_byte.exit ], [ %.3, %.loopexit1045 ], [ %.04191060, %435 ], [ %322, %ma_dr_wav__write_or_count_f32ne_to_le.exit651 ], [ %.04191060, %92 ], [ %.04191060, %.split ]
+.thread957:                                       ; preds = %92, %435, %ma_dr_wav__write_or_count_f32ne_to_le.exit651, %.split, %ma_dr_wav__write_or_count_byte.exit, %.loopexit1045
+  %.6 = phi i64 [ %461, %ma_dr_wav__write_or_count_byte.exit ], [ %.3, %.loopexit1045 ], [ %.04191060, %92 ], [ %.04191060, %435 ], [ %322, %ma_dr_wav__write_or_count_f32ne_to_le.exit651 ], [ %.04191060, %.split ]
   %indvars.iv.next1095 = add nuw nsw i64 %indvars.iv1094, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next1095, %wide.trip.count
   br i1 %exitcond.not, label %462, label %76, !llvm.loop !2211
@@ -130005,7 +130005,7 @@ switch.lookup:                                    ; preds = %.split2
   br label %503
 
 503:                                              ; preds = %switch.lookup, %.split2, %497
-  %.0424 = phi ptr [ null, %.split2 ], [ %switch.load, %switch.lookup ], [ null, %497 ]
+  %.0424 = phi ptr [ null, %.split2 ], [ null, %497 ], [ %switch.load, %switch.lookup ]
   %504 = getelementptr inbounds nuw i8, ptr %494, i64 8
   %505 = load i32, ptr %504, align 8, !tbaa !7
   %.not463 = icmp eq i32 %505, 0
@@ -130108,8 +130108,8 @@ ma_dr_wav__write_or_count.exit795:                ; preds = %ma_dr_wav__write_or
   br label %550
 
 550:                                              ; preds = %ma_dr_wav__write_or_count_byte.exit783, %ma_dr_wav__write_or_count.exit795
-  %.1426 = phi i32 [ %507, %ma_dr_wav__write_or_count_byte.exit783 ], [ %534, %ma_dr_wav__write_or_count.exit795 ]
-  %.10 = phi i64 [ %524, %ma_dr_wav__write_or_count_byte.exit783 ], [ %549, %ma_dr_wav__write_or_count.exit795 ]
+  %.1426 = phi i32 [ %534, %ma_dr_wav__write_or_count.exit795 ], [ %507, %ma_dr_wav__write_or_count_byte.exit783 ]
+  %.10 = phi i64 [ %549, %ma_dr_wav__write_or_count.exit795 ], [ %524, %ma_dr_wav__write_or_count_byte.exit783 ]
   %551 = and i32 %.1426, 1
   %.not464 = icmp eq i32 %551, 0
   br i1 %.not464, label %.thread974, label %552
@@ -130131,8 +130131,8 @@ ma_dr_wav__write_or_count_byte.exit799:           ; preds = %552, %553
   %555 = add i64 %.0.i798, %.10
   br label %.thread974
 
-.thread974:                                       ; preds = %503, %527, %532, %525, %ma_dr_wav__write_or_count_byte.exit799, %550
-  %.11 = phi i64 [ %555, %ma_dr_wav__write_or_count_byte.exit799 ], [ %.10, %550 ], [ %.81067, %525 ], [ %.81067, %532 ], [ %.81067, %527 ], [ %.81067, %503 ]
+.thread974:                                       ; preds = %503, %525, %527, %532, %ma_dr_wav__write_or_count_byte.exit799, %550
+  %.11 = phi i64 [ %555, %ma_dr_wav__write_or_count_byte.exit799 ], [ %.10, %550 ], [ %.81067, %532 ], [ %.81067, %527 ], [ %.81067, %525 ], [ %.81067, %503 ]
   %indvars.iv.next1103 = add nuw nsw i64 %indvars.iv1102, 1
   %exitcond1106.not = icmp eq i64 %indvars.iv.next1103, %wide.trip.count
   br i1 %exitcond1106.not, label %.loopexit1043, label %493, !llvm.loop !2213
@@ -130482,8 +130482,8 @@ ma_dr_wav__write_or_count.exit887:                ; preds = %ma_dr_wav__write_or
   br label %702
 
 702:                                              ; preds = %ma_dr_wav__write_or_count.exit887, %ma_dr_wav__write_or_count_byte.exit875, %ma_dr_wav__write_or_count_byte.exit831
-  %.14 = phi i64 [ %701, %ma_dr_wav__write_or_count.exit887 ], [ %629, %ma_dr_wav__write_or_count_byte.exit831 ], [ %680, %ma_dr_wav__write_or_count_byte.exit875 ]
-  %.0417 = phi i32 [ %687, %ma_dr_wav__write_or_count.exit887 ], [ %628, %ma_dr_wav__write_or_count_byte.exit831 ], [ %spec.select473987990993996999100210051008101210161019, %ma_dr_wav__write_or_count_byte.exit875 ]
+  %.14 = phi i64 [ %629, %ma_dr_wav__write_or_count_byte.exit831 ], [ %680, %ma_dr_wav__write_or_count_byte.exit875 ], [ %701, %ma_dr_wav__write_or_count.exit887 ]
+  %.0417 = phi i32 [ %628, %ma_dr_wav__write_or_count_byte.exit831 ], [ %spec.select473987990993996999100210051008101210161019, %ma_dr_wav__write_or_count_byte.exit875 ], [ %687, %ma_dr_wav__write_or_count.exit887 ]
   %703 = and i32 %.0417, 1
   %.not457 = icmp eq i32 %703, 0
   br i1 %.not457, label %.thread1023, label %705
@@ -130632,7 +130632,7 @@ ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %11
   %.not.not16 = icmp eq i32 %44, 0
   br i1 %.not.not16, label %.sink.split, label %46
 
-.sink.split:                                      ; preds = %20, %17, %8, %8, %8, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %6
+.sink.split:                                      ; preds = %20, %17, %ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i, %8, %8, %8, %6
   %45 = tail call i32 @fclose(ptr noundef %1)
   br label %46
 
@@ -130703,8 +130703,8 @@ ma_dr_wav__realloc_from_callbacks.exit:           ; preds = %11
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %.critedge, label %ma_dr_wav__realloc_from_callbacks.exit.thread44
 
-ma_dr_wav__realloc_from_callbacks.exit.thread44:  ; preds = %33, %32, %ma_dr_wav__realloc_from_callbacks.exit
-  %.0.i47 = phi ptr [ %37, %ma_dr_wav__realloc_from_callbacks.exit ], [ %30, %32 ], [ %30, %33 ]
+ma_dr_wav__realloc_from_callbacks.exit.thread44:  ; preds = %32, %33, %ma_dr_wav__realloc_from_callbacks.exit
+  %.0.i47 = phi ptr [ %37, %ma_dr_wav__realloc_from_callbacks.exit ], [ %30, %33 ], [ %30, %32 ]
   %38 = load ptr, ptr %4, align 8, !tbaa !1884
   store ptr %.0.i47, ptr %38, align 8, !tbaa !27
   store i64 %.035, ptr %5, align 8, !tbaa !2216
@@ -130736,8 +130736,8 @@ ma_dr_wav__realloc_from_callbacks.exit.thread44:  ; preds = %33, %32, %ma_dr_wav
   store i64 %51, ptr %53, align 8, !tbaa !52
   br label %.critedge
 
-.critedge:                                        ; preds = %25, %28, %22, %ma_dr_wav__realloc_from_callbacks.exit, %50
-  %.1 = phi i64 [ %2, %50 ], [ 0, %ma_dr_wav__realloc_from_callbacks.exit ], [ 0, %22 ], [ 0, %28 ], [ 0, %25 ]
+.critedge:                                        ; preds = %22, %25, %28, %ma_dr_wav__realloc_from_callbacks.exit, %50
+  %.1 = phi i64 [ %2, %50 ], [ 0, %ma_dr_wav__realloc_from_callbacks.exit ], [ 0, %28 ], [ 0, %25 ], [ 0, %22 ]
   ret i64 %.1
 }
 
@@ -131027,7 +131027,7 @@ ma_dr_flac_oggbs__seek_physical.exit:             ; preds = %35, %18
   br i1 %.not30, label %ma_dr_flac__on_seek_ogg.exit, label %51
 
 ma_dr_flac__on_seek_ogg.exit:                     ; preds = %60, %51, %.lr.ph35.i, %49, %40, %._crit_edge36.i, %20, %15, %.thread45, %.thread38, %ma_dr_flac_oggbs__seek_physical.exit
-  %.0 = phi i32 [ 0, %ma_dr_flac_oggbs__seek_physical.exit ], [ 0, %15 ], [ 0, %20 ], [ 1, %40 ], [ 0, %._crit_edge36.i ], [ 1, %.thread38 ], [ 1, %.thread45 ], [ 0, %.lr.ph35.i ], [ 0, %49 ], [ 0, %60 ], [ 1, %51 ]
+  %.0 = phi i32 [ 0, %ma_dr_flac_oggbs__seek_physical.exit ], [ 1, %.thread38 ], [ 1, %.thread45 ], [ 0, %15 ], [ 0, %20 ], [ 0, %._crit_edge36.i ], [ 0, %49 ], [ 1, %40 ], [ 0, %.lr.ph35.i ], [ 0, %60 ], [ 1, %51 ]
   ret i32 %.0
 }
 
@@ -131384,7 +131384,7 @@ ma_dr_flac__decode_samples__lpc.exit.i:           ; preds = %146, %.critedge.i71
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %70, %ma_dr_flac__decode_samples__lpc.exit.i, %.critedge.i.i, %ma_dr_flac__decode_samples__constant.exit.i, %67, %.critedge.i61.i, %._crit_edge.i.i
+.loopexit:                                        ; preds = %70, %ma_dr_flac__decode_samples__lpc.exit.i, %ma_dr_flac__decode_samples__constant.exit.i, %67, %.critedge.i.i, %._crit_edge.i.i, %.critedge.i61.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !2229
@@ -131653,7 +131653,7 @@ ma_dr_flac__read_uint8.exit:                      ; preds = %180, %164, %._crit_
   br label %ma_dr_flac_crc16_bytes.exit
 
 ma_dr_flac_crc16_bytes.exit:                      ; preds = %190, %333
-  %.0.i = phi i16 [ %187, %190 ], [ %341, %333 ]
+  %.0.i = phi i16 [ %341, %333 ], [ %187, %190 ]
   store i16 %.0.i, ptr %186, align 8, !tbaa !2231
   store i32 0, ptr %191, align 8, !tbaa !1309
   br label %433
@@ -131864,7 +131864,7 @@ ma_dr_flac__flush_crc16.exit:                     ; preds = %424, %342
   br label %475
 
 475:                                              ; preds = %463, %439
-  %.03.i48 = phi i32 [ %443, %439 ], [ %472, %463 ]
+  %.03.i48 = phi i32 [ %472, %463 ], [ %443, %439 ]
   %476 = trunc i32 %.03.i48 to i16
   %.not32 = icmp eq i16 %437, %476
   br i1 %.not32, label %477, label %ma_dr_flac__decode_subframe.exit
@@ -131876,8 +131876,8 @@ ma_dr_flac__flush_crc16.exit:                     ; preds = %424, %342
   store i32 %479, ptr %480, align 8, !tbaa !1226
   br label %ma_dr_flac__decode_subframe.exit
 
-ma_dr_flac__decode_subframe.exit:                 ; preds = %57, %53, %51, %28, %457, %446, %433, %169, %157, %174, %475, %14, %1, %477
-  %.025 = phi i32 [ -17, %157 ], [ -1, %1 ], [ -1, %14 ], [ -17, %169 ], [ 0, %477 ], [ -100, %475 ], [ -17, %433 ], [ -17, %446 ], [ -17, %457 ], [ -17, %174 ], [ -1, %28 ], [ -1, %51 ], [ -1, %53 ], [ -1, %57 ]
+ma_dr_flac__decode_subframe.exit:                 ; preds = %57, %53, %51, %28, %457, %446, %433, %174, %169, %157, %475, %14, %1, %477
+  %.025 = phi i32 [ 0, %477 ], [ -1, %1 ], [ -1, %14 ], [ -100, %475 ], [ -17, %157 ], [ -17, %169 ], [ -17, %174 ], [ -17, %433 ], [ -17, %446 ], [ -17, %457 ], [ -1, %28 ], [ -1, %51 ], [ -1, %53 ], [ -1, %57 ]
   ret i32 %.025
 }
 
@@ -132071,7 +132071,7 @@ define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__read_next_flac_frame_hea
 
 ma_dr_flac__find_and_seek_to_next_sync_code.exit: ; preds = %111
   %120 = icmp eq i32 %112, 64
-  br i1 %120, label %121, label %.thread370
+  br i1 %120, label %121, label %.thread369
 
 121:                                              ; preds = %ma_dr_flac__find_and_seek_to_next_sync_code.exit
   %122 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
@@ -132081,7 +132081,7 @@ ma_dr_flac__find_and_seek_to_next_sync_code.exit: ; preds = %111
 123:                                              ; preds = %121
   %.pre.i = load i32, ptr %7, align 4, !tbaa !1306
   %.not34.i.i = icmp eq i32 %.pre.i, 64
-  br i1 %.not34.i.i, label %124, label %.thread370thread-pre-split
+  br i1 %.not34.i.i, label %124, label %.thread369thread-pre-split
 
 124:                                              ; preds = %123
   %125 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
@@ -132091,871 +132091,871 @@ ma_dr_flac__find_and_seek_to_next_sync_code.exit: ; preds = %111
 126:                                              ; preds = %124
   %127 = load i32, ptr %7, align 4, !tbaa !1306
   %128 = icmp eq i32 %127, 64
-  br i1 %128, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %.thread370thread-pre-split
+  br i1 %128, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %.thread369thread-pre-split
 
-.thread370thread-pre-split:                       ; preds = %123, %126
-  %.in.ph = phi i32 [ %127, %126 ], [ %.pre.i, %123 ]
-  %.03.i.in.in.pr = load i64, ptr %15, align 8, !tbaa !1307
-  br label %.thread370
+.thread369thread-pre-split:                       ; preds = %123, %126
+  %storemerge357.in.ph = phi i32 [ %127, %126 ], [ %.pre.i, %123 ]
+  %storemerge.in.pr = load i64, ptr %15, align 8, !tbaa !1307
+  br label %.thread369
 
-.thread370:                                       ; preds = %.thread370thread-pre-split, %ma_dr_flac__find_and_seek_to_next_sync_code.exit
-  %.03.i.in.in = phi i64 [ %.03.i.in.in.pr, %.thread370thread-pre-split ], [ %storemerge53.i, %ma_dr_flac__find_and_seek_to_next_sync_code.exit ]
-  %.in = phi i32 [ %.in.ph, %.thread370thread-pre-split ], [ %112, %ma_dr_flac__find_and_seek_to_next_sync_code.exit ]
-  %129 = add i32 %.in, 1
-  store i32 %129, ptr %7, align 4, !tbaa !1306
-  %storemerge = shl i64 %.03.i.in.in, 1
+.thread369:                                       ; preds = %.thread369thread-pre-split, %ma_dr_flac__find_and_seek_to_next_sync_code.exit
+  %storemerge.in = phi i64 [ %storemerge.in.pr, %.thread369thread-pre-split ], [ %storemerge53.i, %ma_dr_flac__find_and_seek_to_next_sync_code.exit ]
+  %storemerge357.in = phi i32 [ %storemerge357.in.ph, %.thread369thread-pre-split ], [ %112, %ma_dr_flac__find_and_seek_to_next_sync_code.exit ]
+  %storemerge357 = add i32 %storemerge357.in, 1
+  store i32 %storemerge357, ptr %7, align 4, !tbaa !1306
+  %storemerge = shl i64 %storemerge.in, 1
   store i64 %storemerge, ptr %15, align 8, !tbaa !1307
-  %.not = icmp sgt i64 %.03.i.in.in, -1
-  br i1 %.not, label %130, label %620
+  %.not = icmp sgt i64 %storemerge.in, -1
+  br i1 %.not, label %129, label %618
 
-130:                                              ; preds = %.thread370
-  %131 = icmp eq i32 %129, 64
-  br i1 %131, label %132, label %.thread372
+129:                                              ; preds = %.thread369
+  %130 = icmp eq i32 %storemerge357, 64
+  br i1 %130, label %131, label %.thread371
 
-132:                                              ; preds = %130
-  %133 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not.i.i122 = icmp eq i32 %133, 0
-  br i1 %.not.i.i122, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %134
+131:                                              ; preds = %129
+  %132 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not.i.i122 = icmp eq i32 %132, 0
+  br i1 %.not.i.i122, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %133
 
-134:                                              ; preds = %132
+133:                                              ; preds = %131
   %.pre.i124 = load i32, ptr %7, align 4, !tbaa !1306
   %.not34.i.i117 = icmp eq i32 %.pre.i124, 64
-  br i1 %.not34.i.i117, label %135, label %.thread372thread-pre-split
+  br i1 %.not34.i.i117, label %134, label %.thread371thread-pre-split
 
-135:                                              ; preds = %134
-  %136 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not35.i.i121 = icmp eq i32 %136, 0
-  br i1 %.not35.i.i121, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %137
+134:                                              ; preds = %133
+  %135 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not35.i.i121 = icmp eq i32 %135, 0
+  br i1 %.not35.i.i121, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %136
 
-137:                                              ; preds = %135
-  %138 = load i32, ptr %7, align 4, !tbaa !1306
-  %139 = icmp eq i32 %138, 64
-  br i1 %139, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %.thread372thread-pre-split
+136:                                              ; preds = %134
+  %137 = load i32, ptr %7, align 4, !tbaa !1306
+  %138 = icmp eq i32 %137, 64
+  br i1 %138, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %.thread371thread-pre-split
 
-.thread372thread-pre-split:                       ; preds = %134, %137
-  %.in360.ph = phi i32 [ %138, %137 ], [ %.pre.i124, %134 ]
-  %.03.i119.in.in.pr = load i64, ptr %15, align 8, !tbaa !1307
-  br label %.thread372
+.thread371thread-pre-split:                       ; preds = %133, %136
+  %storemerge359.in.ph = phi i32 [ %137, %136 ], [ %.pre.i124, %133 ]
+  %storemerge358.in.pr = load i64, ptr %15, align 8, !tbaa !1307
+  br label %.thread371
 
-.thread372:                                       ; preds = %.thread372thread-pre-split, %130
-  %.03.i119.in.in = phi i64 [ %.03.i119.in.in.pr, %.thread372thread-pre-split ], [ %storemerge, %130 ]
-  %.in360 = phi i32 [ %.in360.ph, %.thread372thread-pre-split ], [ %129, %130 ]
-  %140 = add i32 %.in360, 1
-  store i32 %140, ptr %7, align 4, !tbaa !1306
-  %storemerge358 = shl i64 %.03.i119.in.in, 1
+.thread371:                                       ; preds = %.thread371thread-pre-split, %129
+  %storemerge358.in = phi i64 [ %storemerge358.in.pr, %.thread371thread-pre-split ], [ %storemerge, %129 ]
+  %storemerge359.in = phi i32 [ %storemerge359.in.ph, %.thread371thread-pre-split ], [ %storemerge357, %129 ]
+  %storemerge359 = add i32 %storemerge359.in, 1
+  store i32 %storemerge359, ptr %7, align 4, !tbaa !1306
+  %storemerge358 = shl i64 %storemerge358.in, 1
   store i64 %storemerge358, ptr %15, align 8, !tbaa !1307
-  %isnotneg = icmp sgt i64 %.03.i119.in.in, -1
-  %141 = zext i1 %isnotneg to i64
-  %142 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %141
-  %143 = load i8, ptr %142, align 1, !tbaa !7
-  %144 = xor i8 %143, 54
-  %145 = icmp eq i32 %140, 64
-  br i1 %145, label %146, label %148
+  %isnotneg = icmp sgt i64 %storemerge358.in, -1
+  %139 = zext i1 %isnotneg to i64
+  %140 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %139
+  %141 = load i8, ptr %140, align 1, !tbaa !7
+  %142 = xor i8 %141, 54
+  %143 = icmp eq i32 %storemerge359, 64
+  br i1 %143, label %144, label %146
 
-146:                                              ; preds = %.thread372
-  %147 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not.i.i131 = icmp eq i32 %147, 0
+144:                                              ; preds = %.thread371
+  %145 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not.i.i131 = icmp eq i32 %145, 0
   br i1 %.not.i.i131, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %._crit_edge.i132
 
-._crit_edge.i132:                                 ; preds = %146
+._crit_edge.i132:                                 ; preds = %144
   %.pre.i133 = load i32, ptr %7, align 4, !tbaa !1306
-  br label %148
+  br label %146
 
-148:                                              ; preds = %._crit_edge.i132, %.thread372
-  %149 = phi i32 [ %.pre.i133, %._crit_edge.i132 ], [ %140, %.thread372 ]
-  %150 = zext i32 %149 to i64
-  %151 = sub nsw i64 64, %150
-  %.not34.i.i126 = icmp ult i64 %151, 4
-  br i1 %.not34.i.i126, label %158, label %152
+146:                                              ; preds = %._crit_edge.i132, %.thread371
+  %147 = phi i32 [ %.pre.i133, %._crit_edge.i132 ], [ %storemerge359, %.thread371 ]
+  %148 = zext i32 %147 to i64
+  %149 = sub nsw i64 64, %148
+  %.not34.i.i126 = icmp ult i64 %149, 4
+  br i1 %.not34.i.i126, label %156, label %150
 
-152:                                              ; preds = %148
-  %153 = load i64, ptr %15, align 8, !tbaa !1307
-  %154 = lshr i64 %153, 60
-  %155 = trunc nuw nsw i64 %154 to i32
-  %156 = add i32 %149, 4
-  store i32 %156, ptr %7, align 4, !tbaa !1306
-  %157 = shl i64 %153, 4
-  br label %186
+150:                                              ; preds = %146
+  %151 = load i64, ptr %15, align 8, !tbaa !1307
+  %152 = lshr i64 %151, 60
+  %153 = trunc nuw nsw i64 %152 to i32
+  %154 = add i32 %147, 4
+  store i32 %154, ptr %7, align 4, !tbaa !1306
+  %155 = shl i64 %151, 4
+  br label %184
 
-158:                                              ; preds = %148
-  %159 = trunc nuw nsw i64 %151 to i32
-  %160 = sub nuw nsw i32 4, %159
-  %161 = load i64, ptr %15, align 8, !tbaa !1307
-  %162 = lshr i64 -1, %151
-  %163 = xor i64 %162, -1
-  %164 = and i64 %161, %163
-  %165 = lshr i64 %164, %150
-  %166 = trunc nuw nsw i64 %165 to i32
-  %167 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not35.i.i130 = icmp eq i32 %167, 0
-  br i1 %.not35.i.i130, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %168
+156:                                              ; preds = %146
+  %157 = trunc nuw nsw i64 %149 to i32
+  %158 = sub nuw nsw i32 4, %157
+  %159 = load i64, ptr %15, align 8, !tbaa !1307
+  %160 = lshr i64 -1, %149
+  %161 = xor i64 %160, -1
+  %162 = and i64 %159, %161
+  %163 = lshr i64 %162, %148
+  %164 = trunc nuw nsw i64 %163 to i32
+  %165 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not35.i.i130 = icmp eq i32 %165, 0
+  br i1 %.not35.i.i130, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %166
 
-168:                                              ; preds = %158
-  %169 = zext nneg i32 %160 to i64
-  %170 = load i32, ptr %7, align 4, !tbaa !1306
-  %171 = zext i32 %170 to i64
-  %172 = sub nsw i64 64, %171
-  %173 = icmp ult i64 %172, %169
-  br i1 %173, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %174
+166:                                              ; preds = %156
+  %167 = zext nneg i32 %158 to i64
+  %168 = load i32, ptr %7, align 4, !tbaa !1306
+  %169 = zext i32 %168 to i64
+  %170 = sub nsw i64 64, %169
+  %171 = icmp ult i64 %170, %167
+  br i1 %171, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %172
 
-174:                                              ; preds = %168
-  %175 = shl nuw nsw i32 %166, %160
-  %176 = load i64, ptr %15, align 8, !tbaa !1307
-  %177 = lshr i64 -1, %169
-  %178 = xor i64 %177, -1
-  %179 = and i64 %176, %178
-  %180 = sub nuw nsw i64 64, %169
-  %181 = lshr i64 %179, %180
-  %182 = trunc nuw nsw i64 %181 to i32
-  %183 = or i32 %175, %182
-  %184 = add i32 %170, %160
-  store i32 %184, ptr %7, align 4, !tbaa !1306
-  %185 = shl i64 %176, %169
-  br label %186
+172:                                              ; preds = %166
+  %173 = shl nuw nsw i32 %164, %158
+  %174 = load i64, ptr %15, align 8, !tbaa !1307
+  %175 = lshr i64 -1, %167
+  %176 = xor i64 %175, -1
+  %177 = and i64 %174, %176
+  %178 = sub nuw nsw i64 64, %167
+  %179 = lshr i64 %177, %178
+  %180 = trunc nuw nsw i64 %179 to i32
+  %181 = or i32 %173, %180
+  %182 = add i32 %168, %158
+  store i32 %182, ptr %7, align 4, !tbaa !1306
+  %183 = shl i64 %174, %167
+  br label %184
 
-186:                                              ; preds = %174, %152
-  %storemerge361 = phi i64 [ %157, %152 ], [ %185, %174 ]
-  %187 = phi i32 [ %156, %152 ], [ %184, %174 ]
-  %.03.i128 = phi i32 [ %155, %152 ], [ %183, %174 ]
-  store i64 %storemerge361, ptr %15, align 8, !tbaa !1307
-  %188 = trunc i32 %.03.i128 to i8
-  %189 = icmp eq i8 %188, 0
-  br i1 %189, label %620, label %190
+184:                                              ; preds = %172, %150
+  %storemerge360 = phi i64 [ %155, %150 ], [ %183, %172 ]
+  %185 = phi i32 [ %154, %150 ], [ %182, %172 ]
+  %.03.i128 = phi i32 [ %153, %150 ], [ %181, %172 ]
+  store i64 %storemerge360, ptr %15, align 8, !tbaa !1307
+  %186 = trunc i32 %.03.i128 to i8
+  %187 = icmp eq i8 %186, 0
+  br i1 %187, label %618, label %188
 
-190:                                              ; preds = %186
-  %191 = and i32 %.03.i128, 255
-  %192 = shl i8 %144, 4
-  %193 = lshr i8 %144, 4
-  %194 = zext nneg i8 %193 to i32
-  %195 = and i32 %.03.i128, 15
-  %196 = xor i32 %195, %194
-  %197 = zext nneg i32 %196 to i64
-  %198 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %197
-  %199 = load i8, ptr %198, align 1, !tbaa !7
-  %200 = xor i8 %199, %192
-  store i8 %200, ptr %4, align 1, !tbaa !7
-  %201 = icmp eq i32 %187, 64
-  br i1 %201, label %202, label %204
+188:                                              ; preds = %184
+  %189 = and i32 %.03.i128, 255
+  %190 = shl i8 %142, 4
+  %191 = lshr i8 %142, 4
+  %192 = zext nneg i8 %191 to i32
+  %193 = and i32 %.03.i128, 15
+  %194 = xor i32 %193, %192
+  %195 = zext nneg i32 %194 to i64
+  %196 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %195
+  %197 = load i8, ptr %196, align 1, !tbaa !7
+  %198 = xor i8 %197, %190
+  store i8 %198, ptr %4, align 1, !tbaa !7
+  %199 = icmp eq i32 %185, 64
+  br i1 %199, label %200, label %202
 
-202:                                              ; preds = %190
-  %203 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not.i.i140 = icmp eq i32 %203, 0
+200:                                              ; preds = %188
+  %201 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not.i.i140 = icmp eq i32 %201, 0
   br i1 %.not.i.i140, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %._crit_edge.i141
 
-._crit_edge.i141:                                 ; preds = %202
+._crit_edge.i141:                                 ; preds = %200
   %.pre.i142 = load i32, ptr %7, align 4, !tbaa !1306
-  br label %204
+  br label %202
 
-204:                                              ; preds = %._crit_edge.i141, %190
-  %205 = phi i32 [ %.pre.i142, %._crit_edge.i141 ], [ %187, %190 ]
-  %206 = zext i32 %205 to i64
-  %207 = sub nsw i64 64, %206
-  %.not34.i.i135 = icmp ult i64 %207, 4
-  br i1 %.not34.i.i135, label %214, label %208
+202:                                              ; preds = %._crit_edge.i141, %188
+  %203 = phi i32 [ %.pre.i142, %._crit_edge.i141 ], [ %185, %188 ]
+  %204 = zext i32 %203 to i64
+  %205 = sub nsw i64 64, %204
+  %.not34.i.i135 = icmp ult i64 %205, 4
+  br i1 %.not34.i.i135, label %212, label %206
 
-208:                                              ; preds = %204
-  %209 = load i64, ptr %15, align 8, !tbaa !1307
-  %210 = lshr i64 %209, 60
-  %211 = trunc nuw nsw i64 %210 to i32
-  %212 = add i32 %205, 4
-  store i32 %212, ptr %7, align 4, !tbaa !1306
-  %213 = shl i64 %209, 4
-  br label %242
+206:                                              ; preds = %202
+  %207 = load i64, ptr %15, align 8, !tbaa !1307
+  %208 = lshr i64 %207, 60
+  %209 = trunc nuw nsw i64 %208 to i32
+  %210 = add i32 %203, 4
+  store i32 %210, ptr %7, align 4, !tbaa !1306
+  %211 = shl i64 %207, 4
+  br label %240
 
-214:                                              ; preds = %204
-  %215 = trunc nuw nsw i64 %207 to i32
-  %216 = sub nuw nsw i32 4, %215
-  %217 = load i64, ptr %15, align 8, !tbaa !1307
-  %218 = lshr i64 -1, %207
-  %219 = xor i64 %218, -1
-  %220 = and i64 %217, %219
-  %221 = lshr i64 %220, %206
-  %222 = trunc nuw nsw i64 %221 to i32
-  %223 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not35.i.i139 = icmp eq i32 %223, 0
-  br i1 %.not35.i.i139, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %224
+212:                                              ; preds = %202
+  %213 = trunc nuw nsw i64 %205 to i32
+  %214 = sub nuw nsw i32 4, %213
+  %215 = load i64, ptr %15, align 8, !tbaa !1307
+  %216 = lshr i64 -1, %205
+  %217 = xor i64 %216, -1
+  %218 = and i64 %215, %217
+  %219 = lshr i64 %218, %204
+  %220 = trunc nuw nsw i64 %219 to i32
+  %221 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not35.i.i139 = icmp eq i32 %221, 0
+  br i1 %.not35.i.i139, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %222
 
-224:                                              ; preds = %214
-  %225 = zext nneg i32 %216 to i64
-  %226 = load i32, ptr %7, align 4, !tbaa !1306
-  %227 = zext i32 %226 to i64
-  %228 = sub nsw i64 64, %227
-  %229 = icmp ult i64 %228, %225
-  br i1 %229, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %230
+222:                                              ; preds = %212
+  %223 = zext nneg i32 %214 to i64
+  %224 = load i32, ptr %7, align 4, !tbaa !1306
+  %225 = zext i32 %224 to i64
+  %226 = sub nsw i64 64, %225
+  %227 = icmp ult i64 %226, %223
+  br i1 %227, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %228
 
-230:                                              ; preds = %224
-  %231 = shl nuw nsw i32 %222, %216
-  %232 = load i64, ptr %15, align 8, !tbaa !1307
-  %233 = lshr i64 -1, %225
-  %234 = xor i64 %233, -1
-  %235 = and i64 %232, %234
-  %236 = sub nuw nsw i64 64, %225
-  %237 = lshr i64 %235, %236
-  %238 = trunc nuw nsw i64 %237 to i32
-  %239 = or i32 %231, %238
-  %240 = add i32 %226, %216
-  store i32 %240, ptr %7, align 4, !tbaa !1306
-  %241 = shl i64 %232, %225
-  br label %242
+228:                                              ; preds = %222
+  %229 = shl nuw nsw i32 %220, %214
+  %230 = load i64, ptr %15, align 8, !tbaa !1307
+  %231 = lshr i64 -1, %223
+  %232 = xor i64 %231, -1
+  %233 = and i64 %230, %232
+  %234 = sub nuw nsw i64 64, %223
+  %235 = lshr i64 %233, %234
+  %236 = trunc nuw nsw i64 %235 to i32
+  %237 = or i32 %229, %236
+  %238 = add i32 %224, %214
+  store i32 %238, ptr %7, align 4, !tbaa !1306
+  %239 = shl i64 %230, %223
+  br label %240
 
-242:                                              ; preds = %230, %208
-  %storemerge362 = phi i64 [ %213, %208 ], [ %241, %230 ]
-  %243 = phi i32 [ %212, %208 ], [ %240, %230 ]
-  %.03.i137 = phi i32 [ %211, %208 ], [ %239, %230 ]
-  store i64 %storemerge362, ptr %15, align 8, !tbaa !1307
-  %244 = trunc i32 %.03.i137 to i8
-  %245 = shl i8 %199, 4
-  %246 = lshr i8 %200, 4
-  %247 = zext nneg i8 %246 to i32
-  %248 = and i32 %.03.i137, 15
-  %249 = xor i32 %248, %247
-  %250 = zext nneg i32 %249 to i64
-  %251 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %250
-  %252 = load i8, ptr %251, align 1, !tbaa !7
-  %253 = xor i8 %252, %245
-  %254 = icmp eq i32 %243, 64
-  br i1 %254, label %255, label %257
+240:                                              ; preds = %228, %206
+  %storemerge361 = phi i64 [ %211, %206 ], [ %239, %228 ]
+  %241 = phi i32 [ %210, %206 ], [ %238, %228 ]
+  %.03.i137 = phi i32 [ %209, %206 ], [ %237, %228 ]
+  store i64 %storemerge361, ptr %15, align 8, !tbaa !1307
+  %242 = trunc i32 %.03.i137 to i8
+  %243 = shl i8 %197, 4
+  %244 = lshr i8 %198, 4
+  %245 = zext nneg i8 %244 to i32
+  %246 = and i32 %.03.i137, 15
+  %247 = xor i32 %246, %245
+  %248 = zext nneg i32 %247 to i64
+  %249 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %248
+  %250 = load i8, ptr %249, align 1, !tbaa !7
+  %251 = xor i8 %250, %243
+  %252 = icmp eq i32 %241, 64
+  br i1 %252, label %253, label %255
 
-255:                                              ; preds = %242
-  %256 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not.i.i149 = icmp eq i32 %256, 0
+253:                                              ; preds = %240
+  %254 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not.i.i149 = icmp eq i32 %254, 0
   br i1 %.not.i.i149, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %._crit_edge.i150
 
-._crit_edge.i150:                                 ; preds = %255
+._crit_edge.i150:                                 ; preds = %253
   %.pre.i151 = load i32, ptr %7, align 4, !tbaa !1306
-  br label %257
+  br label %255
 
-257:                                              ; preds = %._crit_edge.i150, %242
-  %258 = phi i32 [ %.pre.i151, %._crit_edge.i150 ], [ %243, %242 ]
-  %259 = zext i32 %258 to i64
-  %260 = sub nsw i64 64, %259
-  %.not34.i.i144 = icmp ult i64 %260, 4
-  br i1 %.not34.i.i144, label %267, label %261
+255:                                              ; preds = %._crit_edge.i150, %240
+  %256 = phi i32 [ %.pre.i151, %._crit_edge.i150 ], [ %241, %240 ]
+  %257 = zext i32 %256 to i64
+  %258 = sub nsw i64 64, %257
+  %.not34.i.i144 = icmp ult i64 %258, 4
+  br i1 %.not34.i.i144, label %265, label %259
 
-261:                                              ; preds = %257
-  %262 = load i64, ptr %15, align 8, !tbaa !1307
-  %263 = lshr i64 %262, 60
-  %264 = trunc nuw nsw i64 %263 to i32
-  %265 = add i32 %258, 4
-  store i32 %265, ptr %7, align 4, !tbaa !1306
-  %266 = shl i64 %262, 4
-  br label %295
+259:                                              ; preds = %255
+  %260 = load i64, ptr %15, align 8, !tbaa !1307
+  %261 = lshr i64 %260, 60
+  %262 = trunc nuw nsw i64 %261 to i32
+  %263 = add i32 %256, 4
+  store i32 %263, ptr %7, align 4, !tbaa !1306
+  %264 = shl i64 %260, 4
+  br label %293
 
-267:                                              ; preds = %257
-  %268 = trunc nuw nsw i64 %260 to i32
-  %269 = sub nuw nsw i32 4, %268
-  %270 = load i64, ptr %15, align 8, !tbaa !1307
-  %271 = lshr i64 -1, %260
-  %272 = xor i64 %271, -1
-  %273 = and i64 %270, %272
-  %274 = lshr i64 %273, %259
-  %275 = trunc nuw nsw i64 %274 to i32
-  %276 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not35.i.i148 = icmp eq i32 %276, 0
-  br i1 %.not35.i.i148, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %277
+265:                                              ; preds = %255
+  %266 = trunc nuw nsw i64 %258 to i32
+  %267 = sub nuw nsw i32 4, %266
+  %268 = load i64, ptr %15, align 8, !tbaa !1307
+  %269 = lshr i64 -1, %258
+  %270 = xor i64 %269, -1
+  %271 = and i64 %268, %270
+  %272 = lshr i64 %271, %257
+  %273 = trunc nuw nsw i64 %272 to i32
+  %274 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not35.i.i148 = icmp eq i32 %274, 0
+  br i1 %.not35.i.i148, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %275
 
-277:                                              ; preds = %267
-  %278 = zext nneg i32 %269 to i64
-  %279 = load i32, ptr %7, align 4, !tbaa !1306
-  %280 = zext i32 %279 to i64
-  %281 = sub nsw i64 64, %280
-  %282 = icmp ult i64 %281, %278
-  br i1 %282, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %283
+275:                                              ; preds = %265
+  %276 = zext nneg i32 %267 to i64
+  %277 = load i32, ptr %7, align 4, !tbaa !1306
+  %278 = zext i32 %277 to i64
+  %279 = sub nsw i64 64, %278
+  %280 = icmp ult i64 %279, %276
+  br i1 %280, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %281
 
-283:                                              ; preds = %277
-  %284 = shl nuw nsw i32 %275, %269
-  %285 = load i64, ptr %15, align 8, !tbaa !1307
-  %286 = lshr i64 -1, %278
-  %287 = xor i64 %286, -1
-  %288 = and i64 %285, %287
-  %289 = sub nuw nsw i64 64, %278
-  %290 = lshr i64 %288, %289
-  %291 = trunc nuw nsw i64 %290 to i32
-  %292 = or i32 %284, %291
-  %293 = add i32 %279, %269
-  store i32 %293, ptr %7, align 4, !tbaa !1306
-  %294 = shl i64 %285, %278
-  br label %295
+281:                                              ; preds = %275
+  %282 = shl nuw nsw i32 %273, %267
+  %283 = load i64, ptr %15, align 8, !tbaa !1307
+  %284 = lshr i64 -1, %276
+  %285 = xor i64 %284, -1
+  %286 = and i64 %283, %285
+  %287 = sub nuw nsw i64 64, %276
+  %288 = lshr i64 %286, %287
+  %289 = trunc nuw nsw i64 %288 to i32
+  %290 = or i32 %282, %289
+  %291 = add i32 %277, %267
+  store i32 %291, ptr %7, align 4, !tbaa !1306
+  %292 = shl i64 %283, %276
+  br label %293
 
-295:                                              ; preds = %283, %261
-  %storemerge363 = phi i64 [ %266, %261 ], [ %294, %283 ]
-  %296 = phi i32 [ %265, %261 ], [ %293, %283 ]
-  %.03.i146 = phi i32 [ %264, %261 ], [ %292, %283 ]
-  store i64 %storemerge363, ptr %15, align 8, !tbaa !1307
-  %297 = trunc i32 %.03.i146 to i8
-  %298 = icmp ugt i8 %297, 10
-  br i1 %298, label %620, label %299
+293:                                              ; preds = %281, %259
+  %storemerge362 = phi i64 [ %264, %259 ], [ %292, %281 ]
+  %294 = phi i32 [ %263, %259 ], [ %291, %281 ]
+  %.03.i146 = phi i32 [ %262, %259 ], [ %290, %281 ]
+  store i64 %storemerge362, ptr %15, align 8, !tbaa !1307
+  %295 = trunc i32 %.03.i146 to i8
+  %296 = icmp ugt i8 %295, 10
+  br i1 %296, label %618, label %297
 
-299:                                              ; preds = %295
-  %300 = shl i8 %252, 4
-  %301 = lshr i8 %253, 4
-  %302 = zext nneg i8 %301 to i32
-  %303 = and i32 %.03.i146, 15
-  %304 = xor i32 %303, %302
-  %305 = zext nneg i32 %304 to i64
-  %306 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %305
-  %307 = load i8, ptr %306, align 1, !tbaa !7
-  %308 = xor i8 %307, %300
-  store i8 %308, ptr %4, align 1, !tbaa !7
-  %309 = icmp eq i32 %296, 64
-  br i1 %309, label %310, label %312
+297:                                              ; preds = %293
+  %298 = shl i8 %250, 4
+  %299 = lshr i8 %251, 4
+  %300 = zext nneg i8 %299 to i32
+  %301 = and i32 %.03.i146, 15
+  %302 = xor i32 %301, %300
+  %303 = zext nneg i32 %302 to i64
+  %304 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %303
+  %305 = load i8, ptr %304, align 1, !tbaa !7
+  %306 = xor i8 %305, %298
+  store i8 %306, ptr %4, align 1, !tbaa !7
+  %307 = icmp eq i32 %294, 64
+  br i1 %307, label %308, label %310
 
-310:                                              ; preds = %299
-  %311 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not.i.i158 = icmp eq i32 %311, 0
+308:                                              ; preds = %297
+  %309 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not.i.i158 = icmp eq i32 %309, 0
   br i1 %.not.i.i158, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %._crit_edge.i159
 
-._crit_edge.i159:                                 ; preds = %310
+._crit_edge.i159:                                 ; preds = %308
   %.pre.i160 = load i32, ptr %7, align 4, !tbaa !1306
-  br label %312
+  br label %310
 
-312:                                              ; preds = %._crit_edge.i159, %299
-  %313 = phi i32 [ %.pre.i160, %._crit_edge.i159 ], [ %296, %299 ]
-  %314 = zext i32 %313 to i64
-  %315 = sub nsw i64 64, %314
-  %.not34.i.i153 = icmp ult i64 %315, 3
-  br i1 %.not34.i.i153, label %322, label %316
+310:                                              ; preds = %._crit_edge.i159, %297
+  %311 = phi i32 [ %.pre.i160, %._crit_edge.i159 ], [ %294, %297 ]
+  %312 = zext i32 %311 to i64
+  %313 = sub nsw i64 64, %312
+  %.not34.i.i153 = icmp ult i64 %313, 3
+  br i1 %.not34.i.i153, label %320, label %314
 
-316:                                              ; preds = %312
-  %317 = load i64, ptr %15, align 8, !tbaa !1307
-  %318 = lshr i64 %317, 61
-  %319 = trunc nuw nsw i64 %318 to i32
-  %320 = add i32 %313, 3
-  store i32 %320, ptr %7, align 4, !tbaa !1306
-  %321 = shl i64 %317, 3
-  br label %350
+314:                                              ; preds = %310
+  %315 = load i64, ptr %15, align 8, !tbaa !1307
+  %316 = lshr i64 %315, 61
+  %317 = trunc nuw nsw i64 %316 to i32
+  %318 = add i32 %311, 3
+  store i32 %318, ptr %7, align 4, !tbaa !1306
+  %319 = shl i64 %315, 3
+  br label %348
 
-322:                                              ; preds = %312
-  %323 = trunc nuw nsw i64 %315 to i32
-  %324 = sub nuw nsw i32 3, %323
-  %325 = load i64, ptr %15, align 8, !tbaa !1307
-  %326 = lshr i64 -1, %315
-  %327 = xor i64 %326, -1
-  %328 = and i64 %325, %327
-  %329 = lshr i64 %328, %314
-  %330 = trunc nuw nsw i64 %329 to i32
-  %331 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not35.i.i157 = icmp eq i32 %331, 0
-  br i1 %.not35.i.i157, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %332
+320:                                              ; preds = %310
+  %321 = trunc nuw nsw i64 %313 to i32
+  %322 = sub nuw nsw i32 3, %321
+  %323 = load i64, ptr %15, align 8, !tbaa !1307
+  %324 = lshr i64 -1, %313
+  %325 = xor i64 %324, -1
+  %326 = and i64 %323, %325
+  %327 = lshr i64 %326, %312
+  %328 = trunc nuw nsw i64 %327 to i32
+  %329 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not35.i.i157 = icmp eq i32 %329, 0
+  br i1 %.not35.i.i157, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %330
 
-332:                                              ; preds = %322
-  %333 = zext nneg i32 %324 to i64
-  %334 = load i32, ptr %7, align 4, !tbaa !1306
-  %335 = zext i32 %334 to i64
-  %336 = sub nsw i64 64, %335
-  %337 = icmp ult i64 %336, %333
-  br i1 %337, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %338
+330:                                              ; preds = %320
+  %331 = zext nneg i32 %322 to i64
+  %332 = load i32, ptr %7, align 4, !tbaa !1306
+  %333 = zext i32 %332 to i64
+  %334 = sub nsw i64 64, %333
+  %335 = icmp ult i64 %334, %331
+  br i1 %335, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %336
 
-338:                                              ; preds = %332
-  %339 = shl nuw nsw i32 %330, %324
-  %340 = load i64, ptr %15, align 8, !tbaa !1307
-  %341 = lshr i64 -1, %333
-  %342 = xor i64 %341, -1
-  %343 = and i64 %340, %342
-  %344 = sub nuw nsw i64 64, %333
-  %345 = lshr i64 %343, %344
-  %346 = trunc nuw nsw i64 %345 to i32
-  %347 = or i32 %339, %346
-  %348 = add i32 %334, %324
-  store i32 %348, ptr %7, align 4, !tbaa !1306
-  %349 = shl i64 %340, %333
-  br label %350
+336:                                              ; preds = %330
+  %337 = shl nuw nsw i32 %328, %322
+  %338 = load i64, ptr %15, align 8, !tbaa !1307
+  %339 = lshr i64 -1, %331
+  %340 = xor i64 %339, -1
+  %341 = and i64 %338, %340
+  %342 = sub nuw nsw i64 64, %331
+  %343 = lshr i64 %341, %342
+  %344 = trunc nuw nsw i64 %343 to i32
+  %345 = or i32 %337, %344
+  %346 = add i32 %332, %322
+  store i32 %346, ptr %7, align 4, !tbaa !1306
+  %347 = shl i64 %338, %331
+  br label %348
 
-350:                                              ; preds = %338, %316
-  %storemerge364 = phi i64 [ %321, %316 ], [ %349, %338 ]
-  %351 = phi i32 [ %320, %316 ], [ %348, %338 ]
-  %.03.i155 = phi i32 [ %319, %316 ], [ %347, %338 ]
-  store i64 %storemerge364, ptr %15, align 8, !tbaa !1307
-  %352 = trunc i32 %.03.i155 to i8
-  %353 = and i8 %352, -5
-  %or.cond = icmp eq i8 %353, 3
-  br i1 %or.cond, label %620, label %354
+348:                                              ; preds = %336, %314
+  %storemerge363 = phi i64 [ %319, %314 ], [ %347, %336 ]
+  %349 = phi i32 [ %318, %314 ], [ %346, %336 ]
+  %.03.i155 = phi i32 [ %317, %314 ], [ %345, %336 ]
+  store i64 %storemerge363, ptr %15, align 8, !tbaa !1307
+  %350 = trunc i32 %.03.i155 to i8
+  %351 = and i8 %350, -5
+  %or.cond = icmp eq i8 %351, 3
+  br i1 %or.cond, label %618, label %352
 
-354:                                              ; preds = %350
-  %355 = shl i8 %308, 3
-  %356 = lshr i8 %308, 5
-  %357 = zext nneg i8 %356 to i32
-  %358 = and i32 %.03.i155, 7
-  %359 = xor i32 %358, %357
-  %360 = zext nneg i32 %359 to i64
-  %361 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %360
-  %362 = load i8, ptr %361, align 1, !tbaa !7
-  %363 = xor i8 %362, %355
-  %364 = icmp eq i32 %351, 64
-  br i1 %364, label %365, label %.thread374
+352:                                              ; preds = %348
+  %353 = shl i8 %306, 3
+  %354 = lshr i8 %306, 5
+  %355 = zext nneg i8 %354 to i32
+  %356 = and i32 %.03.i155, 7
+  %357 = xor i32 %356, %355
+  %358 = zext nneg i32 %357 to i64
+  %359 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %358
+  %360 = load i8, ptr %359, align 1, !tbaa !7
+  %361 = xor i8 %360, %353
+  %362 = icmp eq i32 %349, 64
+  br i1 %362, label %363, label %.thread373
 
-365:                                              ; preds = %354
-  %366 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not.i.i167 = icmp eq i32 %366, 0
-  br i1 %.not.i.i167, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %367
+363:                                              ; preds = %352
+  %364 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not.i.i167 = icmp eq i32 %364, 0
+  br i1 %.not.i.i167, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %365
 
-367:                                              ; preds = %365
+365:                                              ; preds = %363
   %.pre.i169 = load i32, ptr %7, align 4, !tbaa !1306
   %.not34.i.i162 = icmp eq i32 %.pre.i169, 64
-  br i1 %.not34.i.i162, label %368, label %.thread374
+  br i1 %.not34.i.i162, label %366, label %.thread373
 
-368:                                              ; preds = %367
-  %369 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not35.i.i166 = icmp eq i32 %369, 0
-  br i1 %.not35.i.i166, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %370
+366:                                              ; preds = %365
+  %367 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not35.i.i166 = icmp eq i32 %367, 0
+  br i1 %.not35.i.i166, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %368
 
-370:                                              ; preds = %368
-  %371 = load i32, ptr %7, align 4, !tbaa !1306
-  %372 = icmp eq i32 %371, 64
-  br i1 %372, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %.thread374
+368:                                              ; preds = %366
+  %369 = load i32, ptr %7, align 4, !tbaa !1306
+  %370 = icmp eq i32 %369, 64
+  br i1 %370, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %.thread373
 
-.thread374:                                       ; preds = %354, %370, %367
-  %storemerge366.in = phi i32 [ %.pre.i169, %367 ], [ %371, %370 ], [ %351, %354 ]
-  %.03.i164.in.in = load i64, ptr %15, align 8, !tbaa !1307
-  %storemerge366 = add i32 %storemerge366.in, 1
-  store i32 %storemerge366, ptr %7, align 4, !tbaa !1306
-  %storemerge365 = shl i64 %.03.i164.in.in, 1
-  store i64 %storemerge365, ptr %15, align 8, !tbaa !1307
-  %.not230 = icmp sgt i64 %.03.i164.in.in, -1
-  br i1 %.not230, label %373, label %620
+.thread373:                                       ; preds = %352, %368, %365
+  %storemerge365.in = phi i32 [ %.pre.i169, %365 ], [ %369, %368 ], [ %349, %352 ]
+  %storemerge364.in = load i64, ptr %15, align 8, !tbaa !1307
+  %storemerge365 = add i32 %storemerge365.in, 1
+  store i32 %storemerge365, ptr %7, align 4, !tbaa !1306
+  %storemerge364 = shl i64 %storemerge364.in, 1
+  store i64 %storemerge364, ptr %15, align 8, !tbaa !1307
+  %.not230 = icmp sgt i64 %storemerge364.in, -1
+  br i1 %.not230, label %371, label %618
 
-373:                                              ; preds = %.thread374
-  %374 = shl i8 %363, 1
-  %375 = lshr i8 %363, 7
-  %376 = zext nneg i8 %375 to i64
-  %377 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %376
-  %378 = load i8, ptr %377, align 1, !tbaa !7
-  %379 = xor i8 %378, %374
-  store i8 %379, ptr %4, align 1, !tbaa !7
-  br i1 %isnotneg, label %385, label %380
+371:                                              ; preds = %.thread373
+  %372 = shl i8 %361, 1
+  %373 = lshr i8 %361, 7
+  %374 = zext nneg i8 %373 to i64
+  %375 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %374
+  %376 = load i8, ptr %375, align 1, !tbaa !7
+  %377 = xor i8 %376, %372
+  store i8 %377, ptr %4, align 1, !tbaa !7
+  br i1 %isnotneg, label %383, label %378
 
-380:                                              ; preds = %373
+378:                                              ; preds = %371
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %381 = call fastcc i32 @ma_dr_flac__read_utf8_coded_number(ptr noundef %0, ptr noundef %5, ptr noundef %4)
-  %.not81 = icmp eq i32 %381, 0
-  br i1 %.not81, label %.thread, label %383
+  %379 = call fastcc i32 @ma_dr_flac__read_utf8_coded_number(ptr noundef %0, ptr noundef %5, ptr noundef %4)
+  %.not81 = icmp eq i32 %379, 0
+  br i1 %.not81, label %.thread, label %381
 
-.thread:                                          ; preds = %380
+.thread:                                          ; preds = %378
   store i32 0, ptr %16, align 8, !tbaa !2232
-  %382 = load i64, ptr %5, align 8, !tbaa !63
-  store i64 %382, ptr %2, align 8, !tbaa !2233
+  %380 = load i64, ptr %5, align 8, !tbaa !63
+  store i64 %380, ptr %2, align 8, !tbaa !2233
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %391
+  br label %389
 
-383:                                              ; preds = %380
-  %384 = icmp eq i32 %381, -17
+381:                                              ; preds = %378
+  %382 = icmp eq i32 %379, -17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %384, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %620
+  br i1 %382, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %618
 
-385:                                              ; preds = %373
+383:                                              ; preds = %371
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !63
-  %386 = call fastcc i32 @ma_dr_flac__read_utf8_coded_number(ptr noundef %0, ptr noundef %6, ptr noundef %4)
-  %.not80 = icmp eq i32 %386, 0
-  br i1 %.not80, label %.thread214, label %389
+  %384 = call fastcc i32 @ma_dr_flac__read_utf8_coded_number(ptr noundef %0, ptr noundef %6, ptr noundef %4)
+  %.not80 = icmp eq i32 %384, 0
+  br i1 %.not80, label %.thread214, label %387
 
-.thread214:                                       ; preds = %385
-  %387 = load i64, ptr %6, align 8, !tbaa !63
-  %388 = trunc i64 %387 to i32
-  store i32 %388, ptr %16, align 8, !tbaa !2232
+.thread214:                                       ; preds = %383
+  %385 = load i64, ptr %6, align 8, !tbaa !63
+  %386 = trunc i64 %385 to i32
+  store i32 %386, ptr %16, align 8, !tbaa !2232
   store i64 0, ptr %2, align 8, !tbaa !2233
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %391
+  br label %389
 
-389:                                              ; preds = %385
-  %390 = icmp eq i32 %386, -17
+387:                                              ; preds = %383
+  %388 = icmp eq i32 %384, -17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %390, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %620
+  br i1 %388, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %618
 
-391:                                              ; preds = %.thread214, %.thread
-  %392 = icmp eq i8 %188, 1
-  br i1 %392, label %433, label %393
+389:                                              ; preds = %.thread214, %.thread
+  %390 = icmp eq i8 %186, 1
+  br i1 %390, label %431, label %391
+
+391:                                              ; preds = %389
+  %392 = icmp ult i8 %186, 6
+  br i1 %392, label %393, label %396
 
 393:                                              ; preds = %391
-  %394 = icmp ult i8 %188, 6
-  br i1 %394, label %395, label %398
+  %394 = shl nuw nsw i32 144, %189
+  %395 = trunc nuw nsw i32 %394 to i16
+  br label %431
 
-395:                                              ; preds = %393
-  %396 = shl nuw nsw i32 144, %191
-  %397 = trunc nuw nsw i32 %396 to i16
-  br label %433
-
-398:                                              ; preds = %393
-  switch i8 %188, label %429 [
-    i8 6, label %399
-    i8 7, label %410
+396:                                              ; preds = %391
+  switch i8 %186, label %427 [
+    i8 6, label %397
+    i8 7, label %408
   ]
 
-399:                                              ; preds = %398
-  %400 = tail call fastcc i32 @ma_dr_flac__read_uint16(ptr noundef %0, i32 noundef 8, ptr noundef %17)
-  %.not83 = icmp eq i32 %400, 0
-  br i1 %.not83, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %401
+397:                                              ; preds = %396
+  %398 = tail call fastcc i32 @ma_dr_flac__read_uint16(ptr noundef %0, i32 noundef 8, ptr noundef %17)
+  %.not83 = icmp eq i32 %398, 0
+  br i1 %.not83, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %399
 
-401:                                              ; preds = %399
-  %402 = load i8, ptr %4, align 1, !tbaa !7
-  %403 = load i16, ptr %17, align 8, !tbaa !2234
-  %404 = trunc i16 %403 to i8
-  %405 = xor i8 %402, %404
-  %406 = zext i8 %405 to i64
-  %407 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %406
-  %408 = load i8, ptr %407, align 1, !tbaa !7
-  store i8 %408, ptr %4, align 1, !tbaa !7
-  %409 = add i16 %403, 1
-  br label %433
+399:                                              ; preds = %397
+  %400 = load i8, ptr %4, align 1, !tbaa !7
+  %401 = load i16, ptr %17, align 8, !tbaa !2234
+  %402 = trunc i16 %401 to i8
+  %403 = xor i8 %400, %402
+  %404 = zext i8 %403 to i64
+  %405 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %404
+  %406 = load i8, ptr %405, align 1, !tbaa !7
+  store i8 %406, ptr %4, align 1, !tbaa !7
+  %407 = add i16 %401, 1
+  br label %431
 
-410:                                              ; preds = %398
-  %411 = tail call fastcc i32 @ma_dr_flac__read_uint16(ptr noundef %0, i32 noundef 16, ptr noundef %17)
-  %.not82 = icmp eq i32 %411, 0
-  br i1 %.not82, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %412
+408:                                              ; preds = %396
+  %409 = tail call fastcc i32 @ma_dr_flac__read_uint16(ptr noundef %0, i32 noundef 16, ptr noundef %17)
+  %.not82 = icmp eq i32 %409, 0
+  br i1 %.not82, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %410
 
-412:                                              ; preds = %410
-  %413 = load i8, ptr %4, align 1, !tbaa !7
-  %414 = load i16, ptr %17, align 8, !tbaa !2234
-  %415 = lshr i16 %414, 8
-  %416 = trunc nuw i16 %415 to i8
-  %417 = xor i8 %413, %416
-  %418 = zext i8 %417 to i64
-  %419 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %418
-  %420 = load i8, ptr %419, align 1, !tbaa !7
-  %421 = trunc i16 %414 to i8
-  %422 = xor i8 %420, %421
-  %423 = zext i8 %422 to i64
-  %424 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %423
-  %425 = load i8, ptr %424, align 1, !tbaa !7
-  store i8 %425, ptr %4, align 1, !tbaa !7
-  %426 = icmp eq i16 %414, -1
-  br i1 %426, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %427
+410:                                              ; preds = %408
+  %411 = load i8, ptr %4, align 1, !tbaa !7
+  %412 = load i16, ptr %17, align 8, !tbaa !2234
+  %413 = lshr i16 %412, 8
+  %414 = trunc nuw i16 %413 to i8
+  %415 = xor i8 %411, %414
+  %416 = zext i8 %415 to i64
+  %417 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %416
+  %418 = load i8, ptr %417, align 1, !tbaa !7
+  %419 = trunc i16 %412 to i8
+  %420 = xor i8 %418, %419
+  %421 = zext i8 %420 to i64
+  %422 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %421
+  %423 = load i8, ptr %422, align 1, !tbaa !7
+  store i8 %423, ptr %4, align 1, !tbaa !7
+  %424 = icmp eq i16 %412, -1
+  br i1 %424, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %425
 
-427:                                              ; preds = %412
-  %428 = add nuw i16 %414, 1
-  br label %433
+425:                                              ; preds = %410
+  %426 = add nuw i16 %412, 1
+  br label %431
 
-429:                                              ; preds = %398
-  %430 = add nsw i32 %191, -8
-  %431 = shl i32 256, %430
-  %432 = trunc i32 %431 to i16
-  br label %433
+427:                                              ; preds = %396
+  %428 = add nsw i32 %189, -8
+  %429 = shl i32 256, %428
+  %430 = trunc i32 %429 to i16
+  br label %431
 
-433:                                              ; preds = %391, %395, %427, %429, %401
-  %.sink = phi i16 [ %397, %395 ], [ %428, %427 ], [ %432, %429 ], [ %409, %401 ], [ 192, %391 ]
+431:                                              ; preds = %389, %393, %425, %427, %399
+  %.sink = phi i16 [ %395, %393 ], [ %426, %425 ], [ %430, %427 ], [ %407, %399 ], [ 192, %389 ]
   store i16 %.sink, ptr %17, align 8, !tbaa !2234
-  %434 = icmp ult i8 %244, 12
-  br i1 %434, label %435, label %439
+  %432 = icmp ult i8 %242, 12
+  br i1 %432, label %433, label %437
 
-435:                                              ; preds = %433
-  %436 = zext nneg i32 %248 to i64
-  %437 = getelementptr inbounds nuw i32, ptr @__const.ma_dr_flac__read_next_flac_frame_header.sampleRateTable, i64 %436
-  %438 = load i32, ptr %437, align 4, !tbaa !3
-  store i32 %438, ptr %18, align 4, !tbaa !2235
-  br label %610
+433:                                              ; preds = %431
+  %434 = zext nneg i32 %246 to i64
+  %435 = getelementptr inbounds nuw i32, ptr @__const.ma_dr_flac__read_next_flac_frame_header.sampleRateTable, i64 %434
+  %436 = load i32, ptr %435, align 4, !tbaa !3
+  store i32 %436, ptr %18, align 4, !tbaa !2235
+  br label %608
 
-439:                                              ; preds = %433
-  switch i8 %244, label %620 [
-    i8 12, label %440
-    i8 13, label %493
-    i8 14, label %551
+437:                                              ; preds = %431
+  switch i8 %242, label %618 [
+    i8 12, label %438
+    i8 13, label %491
+    i8 14, label %549
   ]
 
-440:                                              ; preds = %439
-  %441 = load i32, ptr %7, align 4, !tbaa !1306
-  %442 = icmp eq i32 %441, 64
-  br i1 %442, label %443, label %445
+438:                                              ; preds = %437
+  %439 = load i32, ptr %7, align 4, !tbaa !1306
+  %440 = icmp eq i32 %439, 64
+  br i1 %440, label %441, label %443
 
-443:                                              ; preds = %440
-  %444 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not.i = icmp eq i32 %444, 0
+441:                                              ; preds = %438
+  %442 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not.i = icmp eq i32 %442, 0
   br i1 %.not.i, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %._crit_edge314
 
-._crit_edge314:                                   ; preds = %443
+._crit_edge314:                                   ; preds = %441
   %.pre315 = load i32, ptr %7, align 4, !tbaa !1306
-  br label %445
+  br label %443
 
-445:                                              ; preds = %._crit_edge314, %440
-  %446 = phi i32 [ %.pre315, %._crit_edge314 ], [ %441, %440 ]
-  %447 = zext i32 %446 to i64
-  %448 = sub nsw i64 64, %447
-  %.not34.i = icmp ult i64 %448, 8
-  br i1 %.not34.i, label %456, label %449
+443:                                              ; preds = %._crit_edge314, %438
+  %444 = phi i32 [ %.pre315, %._crit_edge314 ], [ %439, %438 ]
+  %445 = zext i32 %444 to i64
+  %446 = sub nsw i64 64, %445
+  %.not34.i = icmp ult i64 %446, 8
+  br i1 %.not34.i, label %454, label %447
 
-449:                                              ; preds = %445
-  %450 = load i64, ptr %15, align 8, !tbaa !1307
-  %451 = lshr i64 %450, 56
-  %452 = trunc nuw nsw i64 %451 to i32
-  store i32 %452, ptr %18, align 4, !tbaa !3
-  %453 = load i32, ptr %7, align 4, !tbaa !1306
-  %454 = add i32 %453, 8
-  store i32 %454, ptr %7, align 4, !tbaa !1306
-  %455 = shl i64 %450, 8
+447:                                              ; preds = %443
+  %448 = load i64, ptr %15, align 8, !tbaa !1307
+  %449 = lshr i64 %448, 56
+  %450 = trunc nuw nsw i64 %449 to i32
+  store i32 %450, ptr %18, align 4, !tbaa !3
+  %451 = load i32, ptr %7, align 4, !tbaa !1306
+  %452 = add i32 %451, 8
+  store i32 %452, ptr %7, align 4, !tbaa !1306
+  %453 = shl i64 %448, 8
   br label %ma_dr_flac__read_uint32.exit
 
-456:                                              ; preds = %445
-  %457 = trunc nuw nsw i64 %448 to i32
-  %458 = sub nuw nsw i32 8, %457
-  %459 = load i64, ptr %15, align 8, !tbaa !1307
-  %460 = lshr i64 -1, %448
-  %461 = xor i64 %460, -1
-  %462 = and i64 %459, %461
-  %463 = lshr i64 %462, %447
-  %464 = trunc nuw nsw i64 %463 to i32
-  %465 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not35.i = icmp eq i32 %465, 0
-  br i1 %.not35.i, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %466
+454:                                              ; preds = %443
+  %455 = trunc nuw nsw i64 %446 to i32
+  %456 = sub nuw nsw i32 8, %455
+  %457 = load i64, ptr %15, align 8, !tbaa !1307
+  %458 = lshr i64 -1, %446
+  %459 = xor i64 %458, -1
+  %460 = and i64 %457, %459
+  %461 = lshr i64 %460, %445
+  %462 = trunc nuw nsw i64 %461 to i32
+  %463 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not35.i = icmp eq i32 %463, 0
+  br i1 %.not35.i, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %464
 
-466:                                              ; preds = %456
-  %467 = zext nneg i32 %458 to i64
-  %468 = load i32, ptr %7, align 4, !tbaa !1306
-  %469 = zext i32 %468 to i64
-  %470 = sub nsw i64 64, %469
-  %471 = icmp ult i64 %470, %467
-  br i1 %471, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %472
+464:                                              ; preds = %454
+  %465 = zext nneg i32 %456 to i64
+  %466 = load i32, ptr %7, align 4, !tbaa !1306
+  %467 = zext i32 %466 to i64
+  %468 = sub nsw i64 64, %467
+  %469 = icmp ult i64 %468, %465
+  br i1 %469, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %470
 
-472:                                              ; preds = %466
-  %473 = shl nuw nsw i32 %464, %458
-  %474 = load i64, ptr %15, align 8, !tbaa !1307
-  %475 = lshr i64 -1, %467
-  %476 = xor i64 %475, -1
-  %477 = and i64 %474, %476
-  %478 = sub nuw nsw i64 64, %467
-  %479 = lshr i64 %477, %478
-  %480 = trunc nuw nsw i64 %479 to i32
-  %481 = or i32 %473, %480
-  store i32 %481, ptr %18, align 4, !tbaa !3
-  %482 = load i32, ptr %7, align 4, !tbaa !1306
-  %483 = add i32 %482, %458
-  store i32 %483, ptr %7, align 4, !tbaa !1306
-  %484 = shl i64 %474, %467
+470:                                              ; preds = %464
+  %471 = shl nuw nsw i32 %462, %456
+  %472 = load i64, ptr %15, align 8, !tbaa !1307
+  %473 = lshr i64 -1, %465
+  %474 = xor i64 %473, -1
+  %475 = and i64 %472, %474
+  %476 = sub nuw nsw i64 64, %465
+  %477 = lshr i64 %475, %476
+  %478 = trunc nuw nsw i64 %477 to i32
+  %479 = or i32 %471, %478
+  store i32 %479, ptr %18, align 4, !tbaa !3
+  %480 = load i32, ptr %7, align 4, !tbaa !1306
+  %481 = add i32 %480, %456
+  store i32 %481, ptr %7, align 4, !tbaa !1306
+  %482 = shl i64 %472, %465
   br label %ma_dr_flac__read_uint32.exit
 
-ma_dr_flac__read_uint32.exit:                     ; preds = %472, %449
-  %storemerge369 = phi i64 [ %455, %449 ], [ %484, %472 ]
-  %485 = phi i32 [ %452, %449 ], [ %481, %472 ]
-  store i64 %storemerge369, ptr %15, align 8, !tbaa !1307
-  %486 = load i8, ptr %4, align 1, !tbaa !7
-  %487 = trunc i32 %485 to i8
-  %488 = xor i8 %486, %487
-  %489 = zext i8 %488 to i64
-  %490 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %489
-  %491 = load i8, ptr %490, align 1, !tbaa !7
-  store i8 %491, ptr %4, align 1, !tbaa !7
-  %492 = mul i32 %485, 1000
-  store i32 %492, ptr %18, align 4, !tbaa !2235
-  br label %610
+ma_dr_flac__read_uint32.exit:                     ; preds = %470, %447
+  %storemerge368 = phi i64 [ %453, %447 ], [ %482, %470 ]
+  %483 = phi i32 [ %450, %447 ], [ %479, %470 ]
+  store i64 %storemerge368, ptr %15, align 8, !tbaa !1307
+  %484 = load i8, ptr %4, align 1, !tbaa !7
+  %485 = trunc i32 %483 to i8
+  %486 = xor i8 %484, %485
+  %487 = zext i8 %486 to i64
+  %488 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %487
+  %489 = load i8, ptr %488, align 1, !tbaa !7
+  store i8 %489, ptr %4, align 1, !tbaa !7
+  %490 = mul i32 %483, 1000
+  store i32 %490, ptr %18, align 4, !tbaa !2235
+  br label %608
 
-493:                                              ; preds = %439
-  %494 = load i32, ptr %7, align 4, !tbaa !1306
-  %495 = icmp eq i32 %494, 64
-  br i1 %495, label %496, label %498
+491:                                              ; preds = %437
+  %492 = load i32, ptr %7, align 4, !tbaa !1306
+  %493 = icmp eq i32 %492, 64
+  br i1 %493, label %494, label %496
 
-496:                                              ; preds = %493
-  %497 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not.i96 = icmp eq i32 %497, 0
+494:                                              ; preds = %491
+  %495 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not.i96 = icmp eq i32 %495, 0
   br i1 %.not.i96, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %._crit_edge312
 
-._crit_edge312:                                   ; preds = %496
+._crit_edge312:                                   ; preds = %494
   %.pre313 = load i32, ptr %7, align 4, !tbaa !1306
-  br label %498
+  br label %496
 
-498:                                              ; preds = %._crit_edge312, %493
-  %499 = phi i32 [ %.pre313, %._crit_edge312 ], [ %494, %493 ]
-  %500 = zext i32 %499 to i64
-  %501 = sub nsw i64 64, %500
-  %.not34.i93 = icmp ult i64 %501, 16
-  br i1 %.not34.i93, label %509, label %502
+496:                                              ; preds = %._crit_edge312, %491
+  %497 = phi i32 [ %.pre313, %._crit_edge312 ], [ %492, %491 ]
+  %498 = zext i32 %497 to i64
+  %499 = sub nsw i64 64, %498
+  %.not34.i93 = icmp ult i64 %499, 16
+  br i1 %.not34.i93, label %507, label %500
 
-502:                                              ; preds = %498
-  %503 = load i64, ptr %15, align 8, !tbaa !1307
-  %504 = lshr i64 %503, 48
-  %505 = trunc nuw nsw i64 %504 to i32
-  store i32 %505, ptr %18, align 4, !tbaa !3
-  %506 = load i32, ptr %7, align 4, !tbaa !1306
-  %507 = add i32 %506, 16
-  store i32 %507, ptr %7, align 4, !tbaa !1306
-  %508 = shl i64 %503, 16
+500:                                              ; preds = %496
+  %501 = load i64, ptr %15, align 8, !tbaa !1307
+  %502 = lshr i64 %501, 48
+  %503 = trunc nuw nsw i64 %502 to i32
+  store i32 %503, ptr %18, align 4, !tbaa !3
+  %504 = load i32, ptr %7, align 4, !tbaa !1306
+  %505 = add i32 %504, 16
+  store i32 %505, ptr %7, align 4, !tbaa !1306
+  %506 = shl i64 %501, 16
   br label %ma_dr_flac__read_uint32.exit97
 
-509:                                              ; preds = %498
-  %510 = trunc nuw nsw i64 %501 to i32
-  %511 = sub nuw nsw i32 16, %510
-  %512 = load i64, ptr %15, align 8, !tbaa !1307
-  %513 = lshr i64 -1, %501
-  %514 = xor i64 %513, -1
-  %515 = and i64 %512, %514
-  %516 = lshr i64 %515, %500
-  %517 = trunc nuw nsw i64 %516 to i32
-  %518 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not35.i95 = icmp eq i32 %518, 0
-  br i1 %.not35.i95, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %519
+507:                                              ; preds = %496
+  %508 = trunc nuw nsw i64 %499 to i32
+  %509 = sub nuw nsw i32 16, %508
+  %510 = load i64, ptr %15, align 8, !tbaa !1307
+  %511 = lshr i64 -1, %499
+  %512 = xor i64 %511, -1
+  %513 = and i64 %510, %512
+  %514 = lshr i64 %513, %498
+  %515 = trunc nuw nsw i64 %514 to i32
+  %516 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not35.i95 = icmp eq i32 %516, 0
+  br i1 %.not35.i95, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %517
 
-519:                                              ; preds = %509
-  %520 = zext nneg i32 %511 to i64
-  %521 = load i32, ptr %7, align 4, !tbaa !1306
-  %522 = zext i32 %521 to i64
-  %523 = sub nsw i64 64, %522
-  %524 = icmp ult i64 %523, %520
-  br i1 %524, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %525
+517:                                              ; preds = %507
+  %518 = zext nneg i32 %509 to i64
+  %519 = load i32, ptr %7, align 4, !tbaa !1306
+  %520 = zext i32 %519 to i64
+  %521 = sub nsw i64 64, %520
+  %522 = icmp ult i64 %521, %518
+  br i1 %522, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %523
 
-525:                                              ; preds = %519
-  %526 = shl nuw nsw i32 %517, %511
-  %527 = load i64, ptr %15, align 8, !tbaa !1307
-  %528 = lshr i64 -1, %520
-  %529 = xor i64 %528, -1
-  %530 = and i64 %527, %529
-  %531 = sub nuw nsw i64 64, %520
-  %532 = lshr i64 %530, %531
-  %533 = trunc nuw nsw i64 %532 to i32
-  %534 = or i32 %526, %533
-  store i32 %534, ptr %18, align 4, !tbaa !3
-  %535 = load i32, ptr %7, align 4, !tbaa !1306
-  %536 = add i32 %535, %511
-  store i32 %536, ptr %7, align 4, !tbaa !1306
-  %537 = shl i64 %527, %520
+523:                                              ; preds = %517
+  %524 = shl nuw nsw i32 %515, %509
+  %525 = load i64, ptr %15, align 8, !tbaa !1307
+  %526 = lshr i64 -1, %518
+  %527 = xor i64 %526, -1
+  %528 = and i64 %525, %527
+  %529 = sub nuw nsw i64 64, %518
+  %530 = lshr i64 %528, %529
+  %531 = trunc nuw nsw i64 %530 to i32
+  %532 = or i32 %524, %531
+  store i32 %532, ptr %18, align 4, !tbaa !3
+  %533 = load i32, ptr %7, align 4, !tbaa !1306
+  %534 = add i32 %533, %509
+  store i32 %534, ptr %7, align 4, !tbaa !1306
+  %535 = shl i64 %525, %518
   br label %ma_dr_flac__read_uint32.exit97
 
-ma_dr_flac__read_uint32.exit97:                   ; preds = %525, %502
-  %storemerge368 = phi i64 [ %508, %502 ], [ %537, %525 ]
-  %538 = phi i32 [ %505, %502 ], [ %534, %525 ]
-  store i64 %storemerge368, ptr %15, align 8, !tbaa !1307
-  %539 = load i8, ptr %4, align 1, !tbaa !7
-  %540 = lshr i32 %538, 8
-  %541 = trunc i32 %540 to i8
-  %542 = xor i8 %539, %541
-  %543 = zext i8 %542 to i64
-  %544 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %543
-  %545 = load i8, ptr %544, align 1, !tbaa !7
-  %546 = trunc i32 %538 to i8
-  %547 = xor i8 %545, %546
-  %548 = zext i8 %547 to i64
-  %549 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %548
-  %550 = load i8, ptr %549, align 1, !tbaa !7
-  store i8 %550, ptr %4, align 1, !tbaa !7
-  br label %610
+ma_dr_flac__read_uint32.exit97:                   ; preds = %523, %500
+  %storemerge367 = phi i64 [ %506, %500 ], [ %535, %523 ]
+  %536 = phi i32 [ %503, %500 ], [ %532, %523 ]
+  store i64 %storemerge367, ptr %15, align 8, !tbaa !1307
+  %537 = load i8, ptr %4, align 1, !tbaa !7
+  %538 = lshr i32 %536, 8
+  %539 = trunc i32 %538 to i8
+  %540 = xor i8 %537, %539
+  %541 = zext i8 %540 to i64
+  %542 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %541
+  %543 = load i8, ptr %542, align 1, !tbaa !7
+  %544 = trunc i32 %536 to i8
+  %545 = xor i8 %543, %544
+  %546 = zext i8 %545 to i64
+  %547 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %546
+  %548 = load i8, ptr %547, align 1, !tbaa !7
+  store i8 %548, ptr %4, align 1, !tbaa !7
+  br label %608
 
-551:                                              ; preds = %439
-  %552 = load i32, ptr %7, align 4, !tbaa !1306
-  %553 = icmp eq i32 %552, 64
-  br i1 %553, label %554, label %556
+549:                                              ; preds = %437
+  %550 = load i32, ptr %7, align 4, !tbaa !1306
+  %551 = icmp eq i32 %550, 64
+  br i1 %551, label %552, label %554
 
-554:                                              ; preds = %551
-  %555 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not.i101 = icmp eq i32 %555, 0
+552:                                              ; preds = %549
+  %553 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not.i101 = icmp eq i32 %553, 0
   br i1 %.not.i101, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %._crit_edge
 
-._crit_edge:                                      ; preds = %554
+._crit_edge:                                      ; preds = %552
   %.pre = load i32, ptr %7, align 4, !tbaa !1306
-  br label %556
+  br label %554
 
-556:                                              ; preds = %._crit_edge, %551
-  %557 = phi i32 [ %.pre, %._crit_edge ], [ %552, %551 ]
-  %558 = zext i32 %557 to i64
-  %559 = sub nsw i64 64, %558
-  %.not34.i98 = icmp ult i64 %559, 16
-  br i1 %.not34.i98, label %567, label %560
+554:                                              ; preds = %._crit_edge, %549
+  %555 = phi i32 [ %.pre, %._crit_edge ], [ %550, %549 ]
+  %556 = zext i32 %555 to i64
+  %557 = sub nsw i64 64, %556
+  %.not34.i98 = icmp ult i64 %557, 16
+  br i1 %.not34.i98, label %565, label %558
 
-560:                                              ; preds = %556
-  %561 = load i64, ptr %15, align 8, !tbaa !1307
-  %562 = lshr i64 %561, 48
-  %563 = trunc nuw nsw i64 %562 to i32
-  store i32 %563, ptr %18, align 4, !tbaa !3
-  %564 = load i32, ptr %7, align 4, !tbaa !1306
-  %565 = add i32 %564, 16
-  store i32 %565, ptr %7, align 4, !tbaa !1306
-  %566 = shl i64 %561, 16
+558:                                              ; preds = %554
+  %559 = load i64, ptr %15, align 8, !tbaa !1307
+  %560 = lshr i64 %559, 48
+  %561 = trunc nuw nsw i64 %560 to i32
+  store i32 %561, ptr %18, align 4, !tbaa !3
+  %562 = load i32, ptr %7, align 4, !tbaa !1306
+  %563 = add i32 %562, 16
+  store i32 %563, ptr %7, align 4, !tbaa !1306
+  %564 = shl i64 %559, 16
   br label %ma_dr_flac__read_uint32.exit102
 
-567:                                              ; preds = %556
-  %568 = trunc nuw nsw i64 %559 to i32
-  %569 = sub nuw nsw i32 16, %568
-  %570 = load i64, ptr %15, align 8, !tbaa !1307
-  %571 = lshr i64 -1, %559
-  %572 = xor i64 %571, -1
-  %573 = and i64 %570, %572
-  %574 = lshr i64 %573, %558
-  %575 = trunc nuw nsw i64 %574 to i32
-  %576 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
-  %.not35.i100 = icmp eq i32 %576, 0
-  br i1 %.not35.i100, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %577
+565:                                              ; preds = %554
+  %566 = trunc nuw nsw i64 %557 to i32
+  %567 = sub nuw nsw i32 16, %566
+  %568 = load i64, ptr %15, align 8, !tbaa !1307
+  %569 = lshr i64 -1, %557
+  %570 = xor i64 %569, -1
+  %571 = and i64 %568, %570
+  %572 = lshr i64 %571, %556
+  %573 = trunc nuw nsw i64 %572 to i32
+  %574 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
+  %.not35.i100 = icmp eq i32 %574, 0
+  br i1 %.not35.i100, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %575
 
-577:                                              ; preds = %567
-  %578 = zext nneg i32 %569 to i64
-  %579 = load i32, ptr %7, align 4, !tbaa !1306
-  %580 = zext i32 %579 to i64
-  %581 = sub nsw i64 64, %580
-  %582 = icmp ult i64 %581, %578
-  br i1 %582, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %583
+575:                                              ; preds = %565
+  %576 = zext nneg i32 %567 to i64
+  %577 = load i32, ptr %7, align 4, !tbaa !1306
+  %578 = zext i32 %577 to i64
+  %579 = sub nsw i64 64, %578
+  %580 = icmp ult i64 %579, %576
+  br i1 %580, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %581
 
-583:                                              ; preds = %577
-  %584 = shl nuw nsw i32 %575, %569
-  %585 = load i64, ptr %15, align 8, !tbaa !1307
-  %586 = lshr i64 -1, %578
-  %587 = xor i64 %586, -1
-  %588 = and i64 %585, %587
-  %589 = sub nuw nsw i64 64, %578
-  %590 = lshr i64 %588, %589
-  %591 = trunc nuw nsw i64 %590 to i32
-  %592 = or i32 %584, %591
-  store i32 %592, ptr %18, align 4, !tbaa !3
-  %593 = load i32, ptr %7, align 4, !tbaa !1306
-  %594 = add i32 %593, %569
-  store i32 %594, ptr %7, align 4, !tbaa !1306
-  %595 = shl i64 %585, %578
+581:                                              ; preds = %575
+  %582 = shl nuw nsw i32 %573, %567
+  %583 = load i64, ptr %15, align 8, !tbaa !1307
+  %584 = lshr i64 -1, %576
+  %585 = xor i64 %584, -1
+  %586 = and i64 %583, %585
+  %587 = sub nuw nsw i64 64, %576
+  %588 = lshr i64 %586, %587
+  %589 = trunc nuw nsw i64 %588 to i32
+  %590 = or i32 %582, %589
+  store i32 %590, ptr %18, align 4, !tbaa !3
+  %591 = load i32, ptr %7, align 4, !tbaa !1306
+  %592 = add i32 %591, %567
+  store i32 %592, ptr %7, align 4, !tbaa !1306
+  %593 = shl i64 %583, %576
   br label %ma_dr_flac__read_uint32.exit102
 
-ma_dr_flac__read_uint32.exit102:                  ; preds = %583, %560
-  %storemerge367 = phi i64 [ %566, %560 ], [ %595, %583 ]
-  %596 = phi i32 [ %563, %560 ], [ %592, %583 ]
-  store i64 %storemerge367, ptr %15, align 8, !tbaa !1307
-  %597 = load i8, ptr %4, align 1, !tbaa !7
-  %598 = lshr i32 %596, 8
-  %599 = trunc i32 %598 to i8
-  %600 = xor i8 %597, %599
-  %601 = zext i8 %600 to i64
-  %602 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %601
-  %603 = load i8, ptr %602, align 1, !tbaa !7
-  %604 = trunc i32 %596 to i8
-  %605 = xor i8 %603, %604
-  %606 = zext i8 %605 to i64
-  %607 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %606
-  %608 = load i8, ptr %607, align 1, !tbaa !7
-  store i8 %608, ptr %4, align 1, !tbaa !7
-  %609 = mul i32 %596, 10
-  store i32 %609, ptr %18, align 4, !tbaa !2235
-  br label %610
+ma_dr_flac__read_uint32.exit102:                  ; preds = %581, %558
+  %storemerge366 = phi i64 [ %564, %558 ], [ %593, %581 ]
+  %594 = phi i32 [ %561, %558 ], [ %590, %581 ]
+  store i64 %storemerge366, ptr %15, align 8, !tbaa !1307
+  %595 = load i8, ptr %4, align 1, !tbaa !7
+  %596 = lshr i32 %594, 8
+  %597 = trunc i32 %596 to i8
+  %598 = xor i8 %595, %597
+  %599 = zext i8 %598 to i64
+  %600 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %599
+  %601 = load i8, ptr %600, align 1, !tbaa !7
+  %602 = trunc i32 %594 to i8
+  %603 = xor i8 %601, %602
+  %604 = zext i8 %603 to i64
+  %605 = getelementptr inbounds nuw i8, ptr @ma_dr_flac__crc8_table, i64 %604
+  %606 = load i8, ptr %605, align 1, !tbaa !7
+  store i8 %606, ptr %4, align 1, !tbaa !7
+  %607 = mul i32 %594, 10
+  store i32 %607, ptr %18, align 4, !tbaa !2235
+  br label %608
 
-610:                                              ; preds = %ma_dr_flac__read_uint32.exit, %ma_dr_flac__read_uint32.exit102, %ma_dr_flac__read_uint32.exit97, %435
-  store i8 %297, ptr %19, align 2, !tbaa !2236
+608:                                              ; preds = %ma_dr_flac__read_uint32.exit, %ma_dr_flac__read_uint32.exit102, %ma_dr_flac__read_uint32.exit97, %433
+  store i8 %295, ptr %19, align 2, !tbaa !2236
   %.mask232 = and i32 %.03.i155, 255
-  %611 = zext nneg i32 %.mask232 to i64
-  %612 = getelementptr inbounds nuw i8, ptr @__const.ma_dr_flac__read_next_flac_frame_header.bitsPerSampleTable, i64 %611
-  %613 = load i8, ptr %612, align 1, !tbaa !7
-  %614 = icmp eq i8 %352, 0
-  %spec.select = select i1 %614, i8 %1, i8 %613
+  %609 = zext nneg i32 %.mask232 to i64
+  %610 = getelementptr inbounds nuw i8, ptr @__const.ma_dr_flac__read_next_flac_frame_header.bitsPerSampleTable, i64 %609
+  %611 = load i8, ptr %610, align 1, !tbaa !7
+  %612 = icmp eq i8 %350, 0
+  %spec.select = select i1 %612, i8 %1, i8 %611
   store i8 %spec.select, ptr %20, align 1, !tbaa !2237
   %.not87 = icmp eq i8 %spec.select, %1
-  br i1 %.not87, label %615, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread
+  br i1 %.not87, label %613, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread
 
-615:                                              ; preds = %610
-  %616 = tail call fastcc i32 @ma_dr_flac__read_uint8(ptr noundef %0, i32 noundef 8, ptr noundef %21)
-  %.not88 = icmp eq i32 %616, 0
-  br i1 %.not88, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %617
+613:                                              ; preds = %608
+  %614 = tail call fastcc i32 @ma_dr_flac__read_uint8(ptr noundef %0, i32 noundef 8, ptr noundef %21)
+  %.not88 = icmp eq i32 %614, 0
+  br i1 %.not88, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %615
 
-617:                                              ; preds = %615
-  %618 = load i8, ptr %21, align 4, !tbaa !2238
-  %619 = load i8, ptr %4, align 1, !tbaa !7
-  %.not89 = icmp eq i8 %618, %619
-  br i1 %.not89, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %620
+615:                                              ; preds = %613
+  %616 = load i8, ptr %21, align 4, !tbaa !2238
+  %617 = load i8, ptr %4, align 1, !tbaa !7
+  %.not89 = icmp eq i8 %616, %617
+  br i1 %.not89, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %618
 
-620:                                              ; preds = %389, %383, %617, %439, %.thread374, %350, %295, %186, %.thread370
+618:                                              ; preds = %615, %387, %381, %437, %.thread373, %348, %293, %184, %.thread369
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 -50, ptr %4, align 1, !tbaa !7
-  %621 = load i32, ptr %7, align 4, !tbaa !1306
-  %622 = sub i32 0, %621
-  %623 = and i32 %622, 7
-  %624 = zext nneg i32 %623 to i64
-  %625 = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef nonnull %0, i64 noundef %624)
-  %.not.i115 = icmp eq i32 %625, 0
+  %619 = load i32, ptr %7, align 4, !tbaa !1306
+  %620 = sub i32 0, %619
+  %621 = and i32 %620, 7
+  %622 = zext nneg i32 %621 to i64
+  %623 = tail call fastcc i32 @ma_dr_flac__seek_bits(ptr noundef nonnull %0, i64 noundef %622)
+  %.not.i115 = icmp eq i32 %623, 0
   br i1 %.not.i115, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %.preheader.i.backedge
 
-.preheader.i.backedge:                            ; preds = %620, %115, %65
+.preheader.i.backedge:                            ; preds = %618, %115, %65
   br label %.preheader.i
 
-ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread: ; preds = %399, %410, %412, %610, %615, %620, %121, %124, %126, %132, %135, %137, %146, %158, %168, %202, %214, %224, %255, %267, %277, %310, %322, %332, %365, %368, %370, %443, %456, %466, %496, %509, %519, %554, %567, %577, %617, %383, %389, %47, %115, %25, %37, %71, %83, %93, %3
-  %.1.ph = phi i32 [ 0, %3 ], [ 0, %158 ], [ 0, %124 ], [ 0, %370 ], [ 0, %567 ], [ 0, %577 ], [ 1, %617 ], [ 0, %389 ], [ 0, %365 ], [ 0, %332 ], [ 0, %310 ], [ 0, %277 ], [ 0, %255 ], [ 0, %224 ], [ 0, %202 ], [ 0, %168 ], [ 0, %146 ], [ 0, %137 ], [ 0, %132 ], [ 0, %126 ], [ 0, %121 ], [ 0, %620 ], [ 0, %383 ], [ 0, %554 ], [ 0, %519 ], [ 0, %496 ], [ 0, %466 ], [ 0, %443 ], [ 0, %615 ], [ 0, %135 ], [ 0, %214 ], [ 0, %267 ], [ 0, %322 ], [ 0, %610 ], [ 0, %412 ], [ 0, %410 ], [ 0, %368 ], [ 0, %456 ], [ 0, %509 ], [ 0, %399 ], [ 0, %115 ], [ 0, %25 ], [ 0, %37 ], [ 0, %71 ], [ 0, %83 ], [ 0, %93 ], [ 0, %47 ]
+ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread: ; preds = %613, %608, %410, %408, %397, %618, %121, %124, %126, %131, %134, %136, %144, %156, %166, %200, %212, %222, %253, %265, %275, %308, %320, %330, %363, %366, %368, %441, %454, %464, %494, %507, %517, %552, %565, %575, %381, %387, %615, %115, %25, %37, %47, %71, %83, %93, %3
+  %.1.ph = phi i32 [ 0, %3 ], [ 0, %613 ], [ 0, %608 ], [ 0, %410 ], [ 0, %408 ], [ 0, %397 ], [ 0, %618 ], [ 0, %121 ], [ 0, %124 ], [ 0, %126 ], [ 0, %131 ], [ 0, %134 ], [ 0, %136 ], [ 0, %144 ], [ 0, %156 ], [ 0, %166 ], [ 0, %200 ], [ 0, %212 ], [ 0, %222 ], [ 0, %253 ], [ 0, %265 ], [ 0, %275 ], [ 0, %308 ], [ 0, %320 ], [ 0, %330 ], [ 0, %363 ], [ 0, %366 ], [ 0, %368 ], [ 0, %441 ], [ 0, %454 ], [ 0, %464 ], [ 0, %494 ], [ 0, %507 ], [ 0, %517 ], [ 0, %552 ], [ 0, %565 ], [ 0, %575 ], [ 0, %381 ], [ 0, %387 ], [ 1, %615 ], [ 0, %115 ], [ 0, %25 ], [ 0, %37 ], [ 0, %47 ], [ 0, %71 ], [ 0, %83 ], [ 0, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1.ph
 }
@@ -133140,12 +133140,12 @@ ma_dr_flac__read_streaminfo.exit.thread:          ; preds = %42, %44, %46, %48
   br label %88
 
 88:                                               ; preds = %ma_dr_flac__read_streaminfo.exit.thread, %50, %76
-  %.1 = phi i32 [ 0, %ma_dr_flac__read_streaminfo.exit.thread ], [ 1, %76 ], [ 1, %50 ]
+  %.1 = phi i32 [ 1, %76 ], [ 1, %50 ], [ 0, %ma_dr_flac__read_streaminfo.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.16)
   br label %89
 
 89:                                               ; preds = %ma_dr_flac__read_and_decode_block_header.exit.thread, %26, %20, %19, %88, %30
-  %.0 = phi i32 [ 0, %20 ], [ 1, %30 ], [ 0, %19 ], [ 0, %ma_dr_flac__read_and_decode_block_header.exit.thread ], [ %.1, %88 ], [ 0, %26 ]
+  %.0 = phi i32 [ 1, %30 ], [ %.1, %88 ], [ 0, %19 ], [ 0, %20 ], [ 0, %26 ], [ 0, %ma_dr_flac__read_and_decode_block_header.exit.thread ]
   ret i32 %.0
 }
 
@@ -133415,12 +133415,12 @@ ma_dr_flac__read_and_decode_block_header.exit.thread: ; preds = %124
   br label %145
 
 145:                                              ; preds = %ma_dr_flac__read_and_decode_block_header.exit.thread, %130, %126, %140
-  %.487 = phi i32 [ 1, %ma_dr_flac__read_and_decode_block_header.exit.thread ], [ 2, %140 ], [ 1, %126 ], [ 1, %130 ]
+  %.487 = phi i32 [ 2, %140 ], [ 1, %126 ], [ 1, %130 ], [ 1, %ma_dr_flac__read_and_decode_block_header.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %146
 
 146:                                              ; preds = %115, %113, %111, %108, %145
-  %.386 = phi i32 [ 1, %115 ], [ 1, %108 ], [ 1, %111 ], [ %.487, %145 ], [ 1, %113 ]
+  %.386 = phi i32 [ %.487, %145 ], [ 1, %108 ], [ 1, %111 ], [ 1, %113 ], [ 1, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread
 
@@ -133430,7 +133430,7 @@ ma_dr_flac__read_and_decode_block_header.exit.thread: ; preds = %124
   br i1 %.not95, label %.thread, label %149
 
 .thread:                                          ; preds = %146, %97, %147
-  %.285.ph = phi i32 [ %.386, %146 ], [ 1, %97 ], [ 1, %147 ]
+  %.285.ph = phi i32 [ 1, %97 ], [ %.386, %146 ], [ 1, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread170
 
@@ -133580,7 +133580,7 @@ ma_dr_flac_ogg__read_page_header.exit:            ; preds = %169, %._crit_edge.i
   br label %.thread185
 
 .thread185:                                       ; preds = %ma_dr_flac_ogg__get_page_body_size.exit.thread, %82, %199, %ma_dr_flac_ogg__read_page_header.exit.thread, %ma_dr_flac_ogg__read_page_header.exit, %ma_dr_flac_ogg__read_page_header_after_capture_pattern.exit, %200
-  %.0 = phi i32 [ 1, %200 ], [ 0, %ma_dr_flac_ogg__read_page_header.exit.thread ], [ 0, %ma_dr_flac_ogg__read_page_header_after_capture_pattern.exit ], [ 0, %ma_dr_flac_ogg__read_page_header.exit ], [ 0, %199 ], [ 0, %82 ], [ 0, %ma_dr_flac_ogg__get_page_body_size.exit.thread ]
+  %.0 = phi i32 [ 1, %200 ], [ 0, %ma_dr_flac_ogg__read_page_header_after_capture_pattern.exit ], [ 0, %ma_dr_flac_ogg__read_page_header.exit ], [ 0, %ma_dr_flac_ogg__read_page_header.exit.thread ], [ 0, %199 ], [ 0, %82 ], [ 0, %ma_dr_flac_ogg__get_page_body_size.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
@@ -133969,8 +133969,8 @@ ma_dr_flac_crc32_buffer.exit:                     ; preds = %.lr.ph74, %130
   %.not.i = icmp eq i64 %150, 4
   br i1 %.not.i, label %36, label %ma_dr_flac_ogg__read_page_header.exit.thread
 
-ma_dr_flac_oggbs__seek_physical.exit.thread:      ; preds = %._crit_edge.i33, %123, %145, %ma_dr_flac_ogg__read_page_header.exit, %ma_dr_flac_ogg__read_page_header.exit.thread, %143
-  %.1.ph = phi i32 [ 0, %143 ], [ 0, %ma_dr_flac_ogg__read_page_header.exit ], [ 1, %145 ], [ 0, %ma_dr_flac_ogg__read_page_header.exit.thread ], [ 0, %123 ], [ 0, %._crit_edge.i33 ]
+ma_dr_flac_oggbs__seek_physical.exit.thread:      ; preds = %._crit_edge.i33, %123, %143, %145, %ma_dr_flac_ogg__read_page_header.exit, %ma_dr_flac_ogg__read_page_header.exit.thread
+  %.1.ph = phi i32 [ 0, %ma_dr_flac_ogg__read_page_header.exit.thread ], [ 0, %ma_dr_flac_ogg__read_page_header.exit ], [ 1, %145 ], [ 0, %143 ], [ 0, %123 ], [ 0, %._crit_edge.i33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1.ph
 }
@@ -134053,7 +134053,7 @@ define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__read_uint8(ptr noundef n
   br label %ma_dr_flac__read_uint32.exit
 
 ma_dr_flac__read_uint32.exit:                     ; preds = %42, %14
-  %.03 = phi i32 [ %22, %14 ], [ %51, %42 ]
+  %.03 = phi i32 [ %51, %42 ], [ %22, %14 ]
   %54 = trunc i32 %.03 to i8
   store i8 %54, ptr %2, align 1, !tbaa !7
   br label %ma_dr_flac__read_uint32.exit.thread
@@ -134141,7 +134141,7 @@ define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__read_uint16(ptr noundef 
   br label %ma_dr_flac__read_uint32.exit
 
 ma_dr_flac__read_uint32.exit:                     ; preds = %42, %14
-  %.03 = phi i32 [ %22, %14 ], [ %51, %42 ]
+  %.03 = phi i32 [ %51, %42 ], [ %22, %14 ]
   %54 = trunc i32 %.03 to i16
   store i16 %54, ptr %2, align 2, !tbaa !334
   br label %ma_dr_flac__read_uint32.exit.thread
@@ -134224,7 +134224,7 @@ define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__read_subframe_header(ptr
   br label %48
 
 48:                                               ; preds = %36, %12
-  %.03.i = phi i32 [ %16, %12 ], [ %45, %36 ]
+  %.03.i = phi i32 [ %45, %36 ], [ %16, %12 ]
   %49 = trunc i32 %.03.i to i8
   %.not24 = icmp sgt i8 %49, -1
   br i1 %.not24, label %50, label %.critedge
@@ -134381,14 +134381,14 @@ ma_dr_flac__clz.exit:                             ; preds = %82, %ma_dr_flac__cl
   br label %ma_dr_flac__seek_past_next_set_bit.exit
 
 ma_dr_flac__seek_past_next_set_bit.exit:          ; preds = %113, %76
-  %.0 = phi i32 [ %78, %76 ], [ %117, %113 ]
+  %.0 = phi i32 [ %117, %113 ], [ %78, %76 ]
   %118 = trunc i32 %.0 to i8
   %119 = add i8 %118, 1
   store i8 %119, ptr %67, align 1, !tbaa !1234
   br label %.critedge
 
 .critedge:                                        ; preds = %72, %76, %30, %19, %6, %ma_dr_flac__clz.exit, %64, %65, %66, %ma_dr_flac__seek_past_next_set_bit.exit, %48
-  %.022 = phi i32 [ 0, %30 ], [ 0, %48 ], [ 1, %66 ], [ 0, %64 ], [ 1, %ma_dr_flac__seek_past_next_set_bit.exit ], [ 0, %65 ], [ 0, %76 ], [ 0, %ma_dr_flac__clz.exit ], [ 0, %6 ], [ 0, %19 ], [ 0, %72 ]
+  %.022 = phi i32 [ 0, %48 ], [ 1, %ma_dr_flac__seek_past_next_set_bit.exit ], [ 1, %66 ], [ 0, %65 ], [ 0, %64 ], [ 0, %ma_dr_flac__clz.exit ], [ 0, %6 ], [ 0, %19 ], [ 0, %30 ], [ 0, %76 ], [ 0, %72 ]
   ret i32 %.022
 }
 
@@ -134589,7 +134589,7 @@ define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__reload_cache(ptr noundef
   br label %ma_dr_flac_crc16_bytes.exit
 
 ma_dr_flac_crc16_bytes.exit:                      ; preds = %1, %148
-  %.0.i23 = phi i16 [ %5, %1 ], [ %156, %148 ]
+  %.0.i23 = phi i16 [ %156, %148 ], [ %5, %1 ]
   store i16 %.0.i23, ptr %4, align 8, !tbaa !2231
   store i32 0, ptr %2, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit
@@ -134798,7 +134798,7 @@ define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__read_int32(ptr noundef n
   br label %ma_dr_flac__read_uint32.exit
 
 ma_dr_flac__read_uint32.exit:                     ; preds = %42, %14
-  %.1 = phi i32 [ %22, %14 ], [ %51, %42 ]
+  %.1 = phi i32 [ %51, %42 ], [ %22, %14 ]
   %54 = icmp ult i32 %1, 32
   br i1 %54, label %55, label %62
 
@@ -134894,8 +134894,8 @@ define internal fastcc void @ma_dr_flac__decode_samples_with_residual(ptr nounde
   br label %ma_dr_flac__read_uint8.exit
 
 ma_dr_flac__read_uint8.exit:                      ; preds = %18, %42
-  %54 = phi i32 [ %23, %18 ], [ %52, %42 ]
-  %.03.i = phi i32 [ %22, %18 ], [ %51, %42 ]
+  %54 = phi i32 [ %52, %42 ], [ %23, %18 ]
+  %.03.i = phi i32 [ %51, %42 ], [ %22, %18 ]
   %55 = and i32 %.03.i, 254
   %or.cond.not = icmp eq i32 %55, 0
   br i1 %or.cond.not, label %56, label %ma_dr_flac__read_uint8.exit.thread
@@ -134972,7 +134972,7 @@ ma_dr_flac__read_uint8.exit:                      ; preds = %18, %42
   br label %102
 
 102:                                              ; preds = %90, %66
-  %.03.i61 = phi i32 [ %70, %66 ], [ %99, %90 ]
+  %.03.i61 = phi i32 [ %99, %90 ], [ %70, %66 ]
   %103 = trunc i32 %.03.i61 to i8
   %104 = icmp ugt i8 %103, 8
   br i1 %104, label %ma_dr_flac__read_uint8.exit.thread, label %105
@@ -136343,7 +136343,7 @@ ma_dr_flac__clz.exit96.i.i:                       ; preds = %58, %32
   br label %ma_dr_flac_crc16_bytes.exit.i.i
 
 ma_dr_flac_crc16_bytes.exit.i.i:                  ; preds = %216, %72
-  %.0.i98.i.i = phi i16 [ %74, %72 ], [ %224, %216 ]
+  %.0.i98.i.i = phi i16 [ %224, %216 ], [ %74, %72 ]
   store i16 %.0.i98.i.i, ptr %24, align 8, !tbaa !2231
   store i32 0, ptr %23, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit97.i.i
@@ -136590,7 +136590,7 @@ ma_dr_flac__clz.exit96.i.thread.i:                ; preds = %ma_dr_flac__clz.exi
   br label %ma_dr_flac_crc16_bytes.exit107.i.i
 
 ma_dr_flac_crc16_bytes.exit107.i.i:               ; preds = %394, %250
-  %.0.i100.i.i = phi i16 [ %252, %250 ], [ %402, %394 ]
+  %.0.i100.i.i = phi i16 [ %402, %394 ], [ %252, %250 ]
   store i16 %.0.i100.i.i, ptr %24, align 8, !tbaa !2231
   store i32 0, ptr %23, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit.i.i
@@ -137092,7 +137092,7 @@ ma_dr_flac__clz.exit96.i:                         ; preds = %583, %557
   br label %ma_dr_flac_crc16_bytes.exit.i
 
 ma_dr_flac_crc16_bytes.exit.i:                    ; preds = %597, %741
-  %.0.i98.i = phi i16 [ %599, %597 ], [ %749, %741 ]
+  %.0.i98.i = phi i16 [ %749, %741 ], [ %599, %597 ]
   store i16 %.0.i98.i, ptr %475, align 8, !tbaa !2231
   store i32 0, ptr %474, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit97.i
@@ -137339,7 +137339,7 @@ ma_dr_flac__clz.exit96.i.thread:                  ; preds = %560, %ma_dr_flac__c
   br label %ma_dr_flac_crc16_bytes.exit107.i
 
 ma_dr_flac_crc16_bytes.exit107.i:                 ; preds = %775, %919
-  %.0.i100.i = phi i16 [ %777, %775 ], [ %927, %919 ]
+  %.0.i100.i = phi i16 [ %927, %919 ], [ %777, %775 ]
   store i16 %.0.i100.i, ptr %475, align 8, !tbaa !2231
   store i32 0, ptr %474, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit.i
@@ -137703,7 +137703,7 @@ ma_dr_flac__clz.exit96.i130:                      ; preds = %998, %972
   br label %ma_dr_flac_crc16_bytes.exit.i153
 
 ma_dr_flac_crc16_bytes.exit.i153:                 ; preds = %1012, %1156
-  %.0.i98.i154 = phi i16 [ %1014, %1012 ], [ %1164, %1156 ]
+  %.0.i98.i154 = phi i16 [ %1164, %1156 ], [ %1014, %1012 ]
   store i16 %.0.i98.i154, ptr %475, align 8, !tbaa !2231
   store i32 0, ptr %474, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit97.i155
@@ -137950,7 +137950,7 @@ ma_dr_flac__clz.exit96.i130.thread:               ; preds = %975, %ma_dr_flac__c
   br label %ma_dr_flac_crc16_bytes.exit107.i174
 
 ma_dr_flac_crc16_bytes.exit107.i174:              ; preds = %1190, %1334
-  %.0.i100.i175 = phi i16 [ %1192, %1190 ], [ %1342, %1334 ]
+  %.0.i100.i175 = phi i16 [ %1342, %1334 ], [ %1192, %1190 ]
   store i16 %.0.i100.i175, ptr %475, align 8, !tbaa !2231
   store i32 0, ptr %474, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit.i176
@@ -138314,7 +138314,7 @@ ma_dr_flac__clz.exit96.i196:                      ; preds = %1413, %1387
   br label %ma_dr_flac_crc16_bytes.exit.i219
 
 ma_dr_flac_crc16_bytes.exit.i219:                 ; preds = %1427, %1571
-  %.0.i98.i220 = phi i16 [ %1429, %1427 ], [ %1579, %1571 ]
+  %.0.i98.i220 = phi i16 [ %1579, %1571 ], [ %1429, %1427 ]
   store i16 %.0.i98.i220, ptr %475, align 8, !tbaa !2231
   store i32 0, ptr %474, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit97.i221
@@ -138561,7 +138561,7 @@ ma_dr_flac__clz.exit96.i196.thread:               ; preds = %1390, %ma_dr_flac__
   br label %ma_dr_flac_crc16_bytes.exit107.i240
 
 ma_dr_flac_crc16_bytes.exit107.i240:              ; preds = %1605, %1749
-  %.0.i100.i241 = phi i16 [ %1607, %1605 ], [ %1757, %1749 ]
+  %.0.i100.i241 = phi i16 [ %1757, %1749 ], [ %1607, %1605 ]
   store i16 %.0.i100.i241, ptr %475, align 8, !tbaa !2231
   store i32 0, ptr %474, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit.i242
@@ -138925,7 +138925,7 @@ ma_dr_flac__clz.exit96.i262:                      ; preds = %1828, %1802
   br label %ma_dr_flac_crc16_bytes.exit.i285
 
 ma_dr_flac_crc16_bytes.exit.i285:                 ; preds = %1842, %1986
-  %.0.i98.i286 = phi i16 [ %1844, %1842 ], [ %1994, %1986 ]
+  %.0.i98.i286 = phi i16 [ %1994, %1986 ], [ %1844, %1842 ]
   store i16 %.0.i98.i286, ptr %475, align 8, !tbaa !2231
   store i32 0, ptr %474, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit97.i287
@@ -139172,7 +139172,7 @@ ma_dr_flac__clz.exit96.i262.thread:               ; preds = %1805, %ma_dr_flac__
   br label %ma_dr_flac_crc16_bytes.exit107.i306
 
 ma_dr_flac_crc16_bytes.exit107.i306:              ; preds = %2020, %2164
-  %.0.i100.i307 = phi i16 [ %2022, %2020 ], [ %2172, %2164 ]
+  %.0.i100.i307 = phi i16 [ %2172, %2164 ], [ %2022, %2020 ]
   store i16 %.0.i100.i307, ptr %475, align 8, !tbaa !2231
   store i32 0, ptr %474, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit.i308
@@ -141135,7 +141135,7 @@ ma_dr_flac__clz.exit96.i328:                      ; preds = %3307, %3281
   br label %ma_dr_flac_crc16_bytes.exit.i351
 
 ma_dr_flac_crc16_bytes.exit.i351:                 ; preds = %3321, %3465
-  %.0.i98.i352 = phi i16 [ %3323, %3321 ], [ %3473, %3465 ]
+  %.0.i98.i352 = phi i16 [ %3473, %3465 ], [ %3323, %3321 ]
   store i16 %.0.i98.i352, ptr %518, align 8, !tbaa !2231
   store i32 0, ptr %517, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit97.i353
@@ -141382,7 +141382,7 @@ ma_dr_flac__clz.exit96.i328.thread:               ; preds = %3284, %ma_dr_flac__
   br label %ma_dr_flac_crc16_bytes.exit107.i372
 
 ma_dr_flac_crc16_bytes.exit107.i372:              ; preds = %3499, %3643
-  %.0.i100.i373 = phi i16 [ %3501, %3499 ], [ %3651, %3643 ]
+  %.0.i100.i373 = phi i16 [ %3651, %3643 ], [ %3501, %3499 ]
   store i16 %.0.i100.i373, ptr %518, align 8, !tbaa !2231
   store i32 0, ptr %517, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit.i374
@@ -141746,7 +141746,7 @@ ma_dr_flac__clz.exit96.i394:                      ; preds = %3722, %3696
   br label %ma_dr_flac_crc16_bytes.exit.i417
 
 ma_dr_flac_crc16_bytes.exit.i417:                 ; preds = %3736, %3880
-  %.0.i98.i418 = phi i16 [ %3738, %3736 ], [ %3888, %3880 ]
+  %.0.i98.i418 = phi i16 [ %3888, %3880 ], [ %3738, %3736 ]
   store i16 %.0.i98.i418, ptr %518, align 8, !tbaa !2231
   store i32 0, ptr %517, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit97.i419
@@ -141993,7 +141993,7 @@ ma_dr_flac__clz.exit96.i394.thread:               ; preds = %3699, %ma_dr_flac__
   br label %ma_dr_flac_crc16_bytes.exit107.i438
 
 ma_dr_flac_crc16_bytes.exit107.i438:              ; preds = %3914, %4058
-  %.0.i100.i439 = phi i16 [ %3916, %3914 ], [ %4066, %4058 ]
+  %.0.i100.i439 = phi i16 [ %4066, %4058 ], [ %3916, %3914 ]
   store i16 %.0.i100.i439, ptr %518, align 8, !tbaa !2231
   store i32 0, ptr %517, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit.i440
@@ -142357,7 +142357,7 @@ ma_dr_flac__clz.exit96.i460:                      ; preds = %4137, %4111
   br label %ma_dr_flac_crc16_bytes.exit.i483
 
 ma_dr_flac_crc16_bytes.exit.i483:                 ; preds = %4151, %4295
-  %.0.i98.i484 = phi i16 [ %4153, %4151 ], [ %4303, %4295 ]
+  %.0.i98.i484 = phi i16 [ %4303, %4295 ], [ %4153, %4151 ]
   store i16 %.0.i98.i484, ptr %518, align 8, !tbaa !2231
   store i32 0, ptr %517, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit97.i485
@@ -142604,7 +142604,7 @@ ma_dr_flac__clz.exit96.i460.thread:               ; preds = %4114, %ma_dr_flac__
   br label %ma_dr_flac_crc16_bytes.exit107.i504
 
 ma_dr_flac_crc16_bytes.exit107.i504:              ; preds = %4329, %4473
-  %.0.i100.i505 = phi i16 [ %4331, %4329 ], [ %4481, %4473 ]
+  %.0.i100.i505 = phi i16 [ %4481, %4473 ], [ %4331, %4329 ]
   store i16 %.0.i100.i505, ptr %518, align 8, !tbaa !2231
   store i32 0, ptr %517, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit.i506
@@ -142968,7 +142968,7 @@ ma_dr_flac__clz.exit96.i526:                      ; preds = %4552, %4526
   br label %ma_dr_flac_crc16_bytes.exit.i549
 
 ma_dr_flac_crc16_bytes.exit.i549:                 ; preds = %4566, %4710
-  %.0.i98.i550 = phi i16 [ %4568, %4566 ], [ %4718, %4710 ]
+  %.0.i98.i550 = phi i16 [ %4718, %4710 ], [ %4568, %4566 ]
   store i16 %.0.i98.i550, ptr %518, align 8, !tbaa !2231
   store i32 0, ptr %517, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit97.i551
@@ -143215,7 +143215,7 @@ ma_dr_flac__clz.exit96.i526.thread:               ; preds = %4529, %ma_dr_flac__
   br label %ma_dr_flac_crc16_bytes.exit107.i570
 
 ma_dr_flac_crc16_bytes.exit107.i570:              ; preds = %4744, %4888
-  %.0.i100.i571 = phi i16 [ %4746, %4744 ], [ %4896, %4888 ]
+  %.0.i100.i571 = phi i16 [ %4896, %4888 ], [ %4746, %4744 ]
   store i16 %.0.i100.i571, ptr %518, align 8, !tbaa !2231
   store i32 0, ptr %517, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit.i572
@@ -144643,7 +144643,7 @@ ma_dr_flac__calculate_prediction_32.exit931:      ; preds = %ma_dr_flac__calcula
   br i1 %5740, label %3277, label %.loopexit1128, !llvm.loop !2270
 
 .loopexit1128:                                    ; preds = %ma_dr_flac__calculate_prediction_64.exit762, %ma_dr_flac__calculate_prediction_32.exit931, %.preheader1138, %.preheader
-  %.1 = phi ptr [ %5739, %ma_dr_flac__calculate_prediction_32.exit931 ], [ %8, %.preheader ], [ %8, %.preheader1138 ], [ %3275, %ma_dr_flac__calculate_prediction_64.exit762 ]
+  %.1 = phi ptr [ %8, %.preheader ], [ %8, %.preheader1138 ], [ %5739, %ma_dr_flac__calculate_prediction_32.exit931 ], [ %3275, %ma_dr_flac__calculate_prediction_64.exit762 ]
   %.not1178 = icmp eq i32 %462, %2
   br i1 %.not1178, label %ma_dr_flac__decode_samples_with_residual__rice__scalar_zeroorder.exit, label %.lr.ph1171
 
@@ -144972,7 +144972,7 @@ ma_dr_flac__clz.exit96.i592:                      ; preds = %5814, %5788
   br label %ma_dr_flac_crc16_bytes.exit.i615
 
 ma_dr_flac_crc16_bytes.exit.i615:                 ; preds = %5828, %5972
-  %.0.i98.i616 = phi i16 [ %5830, %5828 ], [ %5980, %5972 ]
+  %.0.i98.i616 = phi i16 [ %5980, %5972 ], [ %5830, %5828 ]
   store i16 %.0.i98.i616, ptr %5748, align 8, !tbaa !2231
   store i32 0, ptr %5747, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit97.i617
@@ -145219,7 +145219,7 @@ ma_dr_flac__clz.exit96.i592.thread:               ; preds = %5791, %ma_dr_flac__
   br label %ma_dr_flac_crc16_bytes.exit107.i636
 
 ma_dr_flac_crc16_bytes.exit107.i636:              ; preds = %6006, %6150
-  %.0.i100.i637 = phi i16 [ %6008, %6006 ], [ %6158, %6150 ]
+  %.0.i100.i637 = phi i16 [ %6158, %6150 ], [ %6008, %6006 ]
   store i16 %.0.i100.i637, ptr %5748, align 8, !tbaa !2231
   store i32 0, ptr %5747, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit.i638
@@ -146063,8 +146063,8 @@ ma_dr_flac__calculate_prediction_32.exit965:      ; preds = %6474, %6660
   %6670 = icmp ult i32 %6668, %2
   br i1 %6670, label %5784, label %ma_dr_flac__decode_samples_with_residual__rice__scalar_zeroorder.exit, !llvm.loop !2272
 
-ma_dr_flac__decode_samples_with_residual__rice__scalar_zeroorder.exit: ; preds = %2002, %2000, %1587, %1585, %1172, %1170, %757, %755, %933, %1348, %1763, %2178, %4726, %4724, %4311, %4309, %3896, %3894, %3481, %3479, %3657, %4072, %4487, %4902, %6667, %5986, %5988, %6164, %445, %232, %230, %408, %.loopexit1128, %11
-  %.0115 = phi i32 [ 0, %5988 ], [ 0, %4072 ], [ 0, %4902 ], [ 0, %6164 ], [ 0, %933 ], [ 0, %1348 ], [ 0, %4726 ], [ 0, %4487 ], [ 0, %1763 ], [ 0, %3657 ], [ 0, %2178 ], [ 1, %11 ], [ 1, %.loopexit1128 ], [ 0, %232 ], [ 0, %408 ], [ 1, %445 ], [ 0, %230 ], [ 0, %5986 ], [ 1, %6667 ], [ 0, %3479 ], [ 0, %3481 ], [ 0, %3894 ], [ 0, %3896 ], [ 0, %4309 ], [ 0, %4311 ], [ 0, %4724 ], [ 0, %755 ], [ 0, %757 ], [ 0, %1170 ], [ 0, %1172 ], [ 0, %1585 ], [ 0, %1587 ], [ 0, %2000 ], [ 0, %2002 ]
+ma_dr_flac__decode_samples_with_residual__rice__scalar_zeroorder.exit: ; preds = %2000, %2002, %1585, %1587, %1170, %1172, %755, %757, %933, %1348, %1763, %2178, %4724, %4726, %4309, %4311, %3894, %3896, %3479, %3481, %3657, %4072, %4487, %4902, %6667, %5988, %5986, %6164, %445, %232, %230, %408, %.loopexit1128, %11
+  %.0115 = phi i32 [ 1, %11 ], [ 1, %.loopexit1128 ], [ 0, %408 ], [ 0, %230 ], [ 0, %232 ], [ 1, %445 ], [ 0, %6164 ], [ 1, %6667 ], [ 0, %5988 ], [ 0, %5986 ], [ 0, %4902 ], [ 0, %4487 ], [ 0, %4072 ], [ 0, %3657 ], [ 0, %3481 ], [ 0, %3479 ], [ 0, %3896 ], [ 0, %3894 ], [ 0, %4311 ], [ 0, %4309 ], [ 0, %4726 ], [ 0, %4724 ], [ 0, %2178 ], [ 0, %1763 ], [ 0, %1348 ], [ 0, %933 ], [ 0, %757 ], [ 0, %755 ], [ 0, %1172 ], [ 0, %1170 ], [ 0, %1587 ], [ 0, %1585 ], [ 0, %2002 ], [ 0, %2000 ]
   ret i32 %.0115
 }
 
@@ -146146,8 +146146,8 @@ define internal fastcc range(i32 -100, 1) i32 @ma_dr_flac__read_utf8_coded_numbe
   br label %141
 
 51:                                               ; preds = %38, %14
-  %52 = phi i32 [ %19, %14 ], [ %48, %38 ]
-  %.03.i = phi i32 [ %18, %14 ], [ %47, %38 ]
+  %52 = phi i32 [ %48, %38 ], [ %19, %14 ]
+  %.03.i = phi i32 [ %47, %38 ], [ %18, %14 ]
   %53 = trunc i32 %.03.i to i8
   %54 = xor i8 %4, %53
   %55 = zext i8 %54 to i64
@@ -146197,7 +146197,7 @@ define internal fastcc range(i32 -100, 1) i32 @ma_dr_flac__read_utf8_coded_numbe
   br label %141
 
 79:                                               ; preds = %76, %73, %70, %67, %64, %61
-  %.023 = phi i32 [ 6, %73 ], [ 2, %61 ], [ 3, %64 ], [ 4, %67 ], [ 5, %70 ], [ 7, %76 ]
+  %.023 = phi i32 [ 2, %61 ], [ 3, %64 ], [ 4, %67 ], [ 5, %70 ], [ 6, %73 ], [ 7, %76 ]
   %80 = lshr i32 127, %.023
   %81 = and i32 %.03.i, %80
   %82 = zext nneg i32 %81 to i64
@@ -146566,8 +146566,8 @@ ma_dr_flac__read_uint64.exit:                     ; preds = %53, %67
   store i64 %131, ptr %15, align 8, !tbaa !1307
   br label %ma_dr_flac__read_uint64.exit.thread
 
-ma_dr_flac__read_uint64.exit.thread:              ; preds = %61, %57, %47, %31, %21, %35, %86, %76, %90, %128, %114, %118, %108, %122, %._crit_edge, %7
-  %.026 = phi i32 [ 1, %7 ], [ 1, %._crit_edge ], [ 0, %122 ], [ 0, %108 ], [ 0, %118 ], [ 0, %86 ], [ 1, %114 ], [ 1, %128 ], [ 0, %90 ], [ 0, %76 ], [ 0, %35 ], [ 0, %21 ], [ 0, %31 ], [ 0, %47 ], [ 0, %57 ], [ 0, %61 ]
+ma_dr_flac__read_uint64.exit.thread:              ; preds = %61, %57, %47, %35, %31, %21, %90, %86, %76, %128, %114, %122, %118, %108, %._crit_edge, %7
+  %.026 = phi i32 [ 1, %7 ], [ 1, %._crit_edge ], [ 0, %108 ], [ 0, %118 ], [ 0, %122 ], [ 1, %114 ], [ 1, %128 ], [ 0, %76 ], [ 0, %86 ], [ 0, %90 ], [ 0, %21 ], [ 0, %31 ], [ 0, %35 ], [ 0, %47 ], [ 0, %57 ], [ 0, %61 ]
   ret i32 %.026
 }
 
@@ -147062,7 +147062,7 @@ ma_dr_flac__seek_subframe.exit:                   ; preds = %122, %55, %42, %39
   br label %ma_dr_flac_crc16_bytes.exit
 
 ma_dr_flac_crc16_bytes.exit:                      ; preds = %142, %285
-  %.0.i = phi i16 [ %139, %142 ], [ %293, %285 ]
+  %.0.i = phi i16 [ %293, %285 ], [ %139, %142 ]
   store i16 %.0.i, ptr %138, align 8, !tbaa !2231
   store i32 0, ptr %143, align 8, !tbaa !1309
   br label %385
@@ -147273,14 +147273,14 @@ ma_dr_flac__flush_crc16.exit:                     ; preds = %376, %294
   br label %427
 
 427:                                              ; preds = %415, %391
-  %.03.i = phi i32 [ %395, %391 ], [ %424, %415 ]
+  %.03.i = phi i32 [ %424, %415 ], [ %395, %391 ]
   %428 = trunc i32 %.03.i to i16
   %.not14 = icmp eq i16 %389, %428
   %. = select i1 %.not14, i32 0, i32 -100
   br label %ma_dr_flac__seek_subframe.exit.thread
 
-ma_dr_flac__seek_subframe.exit.thread:            ; preds = %93, %83, %71, %111, %61, %114, %35, %39, %122, %55, %42, %31, %48, %13, %409, %398, %385, %427, %._crit_edge
-  %.0 = phi i32 [ -1, %._crit_edge ], [ %., %427 ], [ -17, %398 ], [ -17, %409 ], [ -17, %385 ], [ -1, %13 ], [ -1, %48 ], [ -1, %31 ], [ -1, %42 ], [ -1, %55 ], [ -1, %122 ], [ -1, %39 ], [ -1, %35 ], [ -1, %114 ], [ -1, %61 ], [ -1, %111 ], [ -1, %71 ], [ -1, %83 ], [ -1, %93 ]
+ma_dr_flac__seek_subframe.exit.thread:            ; preds = %93, %83, %71, %61, %111, %114, %48, %35, %39, %31, %13, %122, %55, %42, %409, %398, %385, %427, %._crit_edge
+  %.0 = phi i32 [ -1, %._crit_edge ], [ %., %427 ], [ -17, %385 ], [ -17, %398 ], [ -17, %409 ], [ -1, %42 ], [ -1, %55 ], [ -1, %122 ], [ -1, %13 ], [ -1, %31 ], [ -1, %39 ], [ -1, %35 ], [ -1, %48 ], [ -1, %114 ], [ -1, %111 ], [ -1, %61 ], [ -1, %71 ], [ -1, %83 ], [ -1, %93 ]
   ret i32 %.0
 }
 
@@ -147357,8 +147357,8 @@ define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__read_and_seek_residual(p
   br label %ma_dr_flac__read_uint8.exit
 
 ma_dr_flac__read_uint8.exit:                      ; preds = %13, %37
-  %49 = phi i32 [ %18, %13 ], [ %47, %37 ]
-  %.03.i = phi i32 [ %17, %13 ], [ %46, %37 ]
+  %49 = phi i32 [ %47, %37 ], [ %18, %13 ]
+  %.03.i = phi i32 [ %46, %37 ], [ %17, %13 ]
   %50 = and i32 %.03.i, 254
   %or.cond.not = icmp eq i32 %50, 0
   br i1 %or.cond.not, label %51, label %ma_dr_flac__read_uint8.exit.thread
@@ -147433,7 +147433,7 @@ ma_dr_flac__read_uint8.exit:                      ; preds = %13, %37
   br label %95
 
 95:                                               ; preds = %83, %59
-  %.03.i41 = phi i32 [ %63, %59 ], [ %92, %83 ]
+  %.03.i41 = phi i32 [ %92, %83 ], [ %63, %59 ]
   %96 = trunc i32 %.03.i41 to i8
   %97 = icmp ugt i8 %96, 8
   br i1 %97, label %ma_dr_flac__read_uint8.exit.thread, label %98
@@ -147528,10 +147528,10 @@ ma_dr_flac__read_uint8.exit:                      ; preds = %13, %37
   br label %154
 
 154:                                              ; preds = %142, %120
+  %storemerge = phi i64 [ %125, %120 ], [ %153, %142 ]
   %.pre15.i131 = phi i32 [ %124, %120 ], [ %152, %142 ]
-  %.pre.i66128 = phi i64 [ %125, %120 ], [ %153, %142 ]
   %.03.i50 = phi i32 [ %123, %120 ], [ %151, %142 ]
-  store i64 %.pre.i66128, ptr %104, align 8, !tbaa !1307
+  store i64 %storemerge, ptr %104, align 8, !tbaa !1307
   %155 = trunc i32 %.03.i50 to i8
   %156 = icmp eq i8 %155, 15
   br i1 %156, label %.thread, label %201
@@ -147601,17 +147601,17 @@ ma_dr_flac__read_uint8.exit:                      ; preds = %13, %37
   br label %198
 
 198:                                              ; preds = %186, %164
+  %storemerge157 = phi i64 [ %169, %164 ], [ %197, %186 ]
   %.pre15.i130 = phi i32 [ %168, %164 ], [ %196, %186 ]
-  %.pre.i66127 = phi i64 [ %169, %164 ], [ %197, %186 ]
   %.03.i59 = phi i32 [ %167, %164 ], [ %195, %186 ]
-  store i64 %.pre.i66127, ptr %104, align 8, !tbaa !1307
+  store i64 %storemerge157, ptr %104, align 8, !tbaa !1307
   %199 = trunc i32 %.03.i59 to i8
   %200 = icmp eq i8 %199, 31
   br i1 %200, label %.thread, label %201
 
 201:                                              ; preds = %198, %154
   %.pre15.i = phi i32 [ %.pre15.i131, %154 ], [ %.pre15.i130, %198 ]
-  %.pre.i66 = phi i64 [ %.pre.i66128, %154 ], [ %.pre.i66127, %198 ]
+  %.pre.i66 = phi i64 [ %storemerge, %154 ], [ %storemerge157, %198 ]
   %.086 = phi i8 [ %155, %154 ], [ %199, %198 ]
   %.not34 = icmp eq i8 %.086, -1
   br i1 %.not34, label %.thread, label %.lr.ph.i
@@ -147900,7 +147900,7 @@ ma_dr_flac__clz.exit65.i.i:                       ; preds = %236, %210
   br label %ma_dr_flac_crc16_bytes.exit.i.i
 
 ma_dr_flac_crc16_bytes.exit.i.i:                  ; preds = %393, %249
-  %.0.i67.i.i = phi i16 [ %251, %249 ], [ %401, %393 ]
+  %.0.i67.i.i = phi i16 [ %401, %393 ], [ %251, %249 ]
   store i16 %.0.i67.i.i, ptr %107, align 8, !tbaa !2231
   store i32 0, ptr %106, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit66.i.i
@@ -148139,7 +148139,7 @@ ma_dr_flac__update_crc16.exit66.i.i:              ; preds = %ma_dr_flac_crc16_by
   br label %ma_dr_flac_crc16_bytes.exit76.i.i
 
 ma_dr_flac_crc16_bytes.exit76.i.i:                ; preds = %566, %422
-  %.0.i69.i.i = phi i16 [ %424, %422 ], [ %574, %566 ]
+  %.0.i69.i.i = phi i16 [ %574, %566 ], [ %424, %422 ]
   store i16 %.0.i69.i.i, ptr %107, align 8, !tbaa !2231
   store i32 0, ptr %106, align 8, !tbaa !1309
   br label %ma_dr_flac__update_crc16.exit.i.i
@@ -148299,9 +148299,9 @@ ma_dr_flac__clz.exit.i.i:                         ; preds = %613, %590, %587
   br label %660
 
 660:                                              ; preds = %648, %626
-  %storemerge = phi i64 [ %631, %626 ], [ %659, %648 ]
+  %storemerge158 = phi i64 [ %631, %626 ], [ %659, %648 ]
   %.03.i71 = phi i32 [ %629, %626 ], [ %657, %648 ]
-  store i64 %storemerge, ptr %104, align 8, !tbaa !1307
+  store i64 %storemerge158, ptr %104, align 8, !tbaa !1307
   %661 = and i32 %.03.i71, 255
   %662 = mul nuw nsw i32 %661, %.022
   %663 = zext nneg i32 %662 to i64
@@ -148315,7 +148315,7 @@ ma_dr_flac__read_and_seek_residual__rice.exit:    ; preds = %616, %660
   br i1 %665, label %ma_dr_flac__read_uint8.exit.thread, label %110
 
 ma_dr_flac__read_uint8.exit.thread:               ; preds = %180, %170, %158, %136, %126, %114, %642, %632, %620, %660, %ma_dr_flac__read_and_seek_residual__rice.exit, %407, %409, %580, %77, %66, %53, %31, %20, %7, %98, %95, %ma_dr_flac__read_uint8.exit
-  %.024 = phi i32 [ 0, %ma_dr_flac__read_uint8.exit ], [ 0, %31 ], [ 0, %95 ], [ 0, %77 ], [ 0, %407 ], [ 0, %98 ], [ 0, %7 ], [ 0, %20 ], [ 0, %53 ], [ 0, %66 ], [ 0, %580 ], [ 0, %409 ], [ 0, %180 ], [ 0, %170 ], [ 0, %158 ], [ 0, %136 ], [ 0, %126 ], [ 0, %114 ], [ 0, %642 ], [ 0, %632 ], [ 0, %620 ], [ 1, %ma_dr_flac__read_and_seek_residual__rice.exit ], [ 0, %660 ]
+  %.024 = phi i32 [ 0, %ma_dr_flac__read_uint8.exit ], [ 0, %95 ], [ 0, %98 ], [ 0, %7 ], [ 0, %20 ], [ 0, %31 ], [ 0, %53 ], [ 0, %66 ], [ 0, %77 ], [ 0, %580 ], [ 0, %409 ], [ 0, %407 ], [ 0, %180 ], [ 0, %170 ], [ 0, %158 ], [ 0, %136 ], [ 0, %126 ], [ 0, %114 ], [ 0, %642 ], [ 0, %632 ], [ 0, %620 ], [ 0, %660 ], [ 1, %ma_dr_flac__read_and_seek_residual__rice.exit ]
   ret i32 %.024
 }
 
@@ -148442,7 +148442,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i: ; preds = %56, %64
   br i1 %.not.i.i, label %ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit, label %51, !llvm.loop !1228
 
 ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit: ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i, %.preheader.i.i, %56, %46, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i
-  %.025.i.i = phi i64 [ 0, %46 ], [ %61, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i ], [ %.028.i.i, %.preheader.i.i ], [ %.028.i.i, %56 ], [ %.1.i.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i ]
+  %.025.i.i = phi i64 [ 0, %46 ], [ %61, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i ], [ %.028.i.i, %56 ], [ %.028.i.i, %.preheader.i.i ], [ %.1.i.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i ]
   %67 = load i64, ptr %13, align 8, !tbaa !1229
   %68 = add i64 %67, %.025.i.i
   store i64 %68, ptr %13, align 8, !tbaa !1229
@@ -148515,7 +148515,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i118: ; preds = %83, %91
   br i1 %.not.i.i121, label %ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit126, label %78, !llvm.loop !1228
 
 ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit126: ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i118, %.preheader.i.i124, %83, %73, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i123
-  %.025.i.i122 = phi i64 [ 0, %73 ], [ %88, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i123 ], [ %.028.i.i116, %.preheader.i.i124 ], [ %.028.i.i116, %83 ], [ %.1.i.i120, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i118 ]
+  %.025.i.i122 = phi i64 [ 0, %73 ], [ %88, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i123 ], [ %.028.i.i116, %83 ], [ %.028.i.i116, %.preheader.i.i124 ], [ %.1.i.i120, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i118 ]
   %94 = load i64, ptr %13, align 8, !tbaa !1229
   %95 = add i64 %94, %.025.i.i122
   store i64 %95, ptr %13, align 8, !tbaa !1229
@@ -148607,7 +148607,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i131: ; preds = %127, %135
   br i1 %.not.i.i134, label %ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit139, label %122, !llvm.loop !1228
 
 ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit139: ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i131, %.preheader.i.i137, %127, %117, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i136
-  %.025.i.i135 = phi i64 [ 0, %117 ], [ %132, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i136 ], [ %.028.i.i129, %.preheader.i.i137 ], [ %.028.i.i129, %127 ], [ %.1.i.i133, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i131 ]
+  %.025.i.i135 = phi i64 [ 0, %117 ], [ %132, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i136 ], [ %.028.i.i129, %127 ], [ %.028.i.i129, %.preheader.i.i137 ], [ %.1.i.i133, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i131 ]
   %138 = load i64, ptr %13, align 8, !tbaa !1229
   %139 = add i64 %138, %.025.i.i135
   store i64 %139, ptr %13, align 8, !tbaa !1229
@@ -148627,10 +148627,10 @@ ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit139: ; preds = 
   br label %147
 
 147:                                              ; preds = %140, %110
-  %.186 = phi i64 [ %spec.select111, %140 ], [ %97, %110 ]
-  %.282 = phi i64 [ %.5, %140 ], [ %spec.select112, %110 ]
-  %.175 = phi i64 [ %spec.select113, %140 ], [ %.074199, %110 ]
-  %.171 = phi i64 [ %97, %140 ], [ %spec.select, %110 ]
+  %.186 = phi i64 [ %97, %110 ], [ %spec.select111, %140 ]
+  %.282 = phi i64 [ %spec.select112, %110 ], [ %.5, %140 ]
+  %.175 = phi i64 [ %.074199, %110 ], [ %spec.select113, %140 ]
+  %.171 = phi i64 [ %spec.select, %110 ], [ %97, %140 ]
   %148 = call fastcc i32 @ma_dr_flac__seek_to_approximate_flac_frame_to_byte(ptr noundef %0, i64 noundef %.282, i64 noundef %.171, i64 noundef %.186, ptr noundef %5)
   %.not102 = icmp eq i32 %148, 0
   br i1 %.not102, label %.thread, label %34

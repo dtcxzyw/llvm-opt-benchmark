@@ -238,7 +238,7 @@ define hidden noundef zeroext i1 @_ZN11StringDedup6Config15ergo_initializeEv() l
   br label %30
 
 30:                                               ; preds = %25, %29, %0, %18
-  %.08 = phi i1 [ true, %0 ], [ true, %18 ], [ false, %29 ], [ %23, %25 ]
+  %.08 = phi i1 [ true, %18 ], [ true, %0 ], [ false, %29 ], [ %23, %25 ]
   ret i1 %.08
 }
 

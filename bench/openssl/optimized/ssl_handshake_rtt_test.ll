@@ -83,7 +83,7 @@ define internal range(i32 0, 2) i32 @test_handshake_rtt(i32 noundef %0) #0 {
   br label %36
 
 36:                                               ; preds = %29, %32, %34, %22
-  %37 = phi ptr [ null, %22 ], [ null, %32 ], [ %35, %34 ], [ %27, %29 ]
+  %37 = phi ptr [ null, %22 ], [ %35, %34 ], [ null, %32 ], [ %27, %29 ]
   %38 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 75, ptr noundef nonnull @.str.4, ptr noundef %37) #3
   %.not36 = icmp eq i32 %38, 0
   br i1 %.not36, label %74, label %39
@@ -162,7 +162,7 @@ define internal range(i32 0, 2) i32 @test_handshake_rtt(i32 noundef %0) #0 {
   br label %69
 
 69:                                               ; preds = %66, %63, %1, %15
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %66 ], [ 0, %63 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %63 ], [ 0, %15 ], [ 0, %1 ], [ %spec.select, %66 ]
   %70 = load ptr, ptr %5, align 8, !tbaa !9
   call void @SSL_free(ptr noundef %70) #3
   %71 = load ptr, ptr %4, align 8, !tbaa !9

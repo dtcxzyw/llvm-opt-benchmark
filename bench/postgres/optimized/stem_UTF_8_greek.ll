@@ -1424,7 +1424,7 @@ define hidden range(i32 -2147483648, 2) i32 @greek_UTF_8_stem(ptr noundef initia
   %163 = icmp sgt i32 %162, -1
   br i1 %163, label %164, label %.loopexit553
 
-164:                                              ; preds = %157, %158, %161, %153, %140, %149
+164:                                              ; preds = %157, %158, %161, %153, %149, %140
   %165 = load i32, ptr %5, align 4
   %166 = add i32 %165, %.neg
   store i32 %166, ptr %2, align 8
@@ -1670,7 +1670,7 @@ define hidden range(i32 -2147483648, 2) i32 @greek_UTF_8_stem(ptr noundef initia
   br label %.loopexit553
 
 .loopexit553:                                     ; preds = %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %144, %158, %161, %309, %304, %299, %294, %289, %284, %279, %274, %269, %264, %259, %254, %249, %244, %239, %234, %229, %224, %219, %214, %209, %204, %199, %194, %189, %184, %179, %174, %169, %164, %135, %132, %129, %126, %123, %120, %117, %114, %111, %108, %105, %.loopexit, %314
-  %.1 = phi i32 [ 1, %314 ], [ %307, %304 ], [ %302, %299 ], [ %297, %294 ], [ %292, %289 ], [ %287, %284 ], [ %282, %279 ], [ %277, %274 ], [ %272, %269 ], [ %267, %264 ], [ %262, %259 ], [ %257, %254 ], [ %252, %249 ], [ %247, %244 ], [ %242, %239 ], [ %237, %234 ], [ %232, %229 ], [ %227, %224 ], [ %222, %219 ], [ %217, %214 ], [ %212, %209 ], [ %207, %204 ], [ %202, %199 ], [ %197, %194 ], [ %192, %189 ], [ %187, %184 ], [ %182, %179 ], [ %177, %174 ], [ %172, %169 ], [ %167, %164 ], [ %106, %105 ], [ %312, %309 ], [ %130, %129 ], [ 0, %.loopexit ], [ %127, %126 ], [ %124, %123 ], [ %121, %120 ], [ %118, %117 ], [ %115, %114 ], [ %112, %111 ], [ %109, %108 ], [ %162, %161 ], [ %147, %144 ], [ %159, %158 ], [ %136, %135 ], [ %133, %132 ], [ %17, %16 ], [ %20, %19 ], [ %23, %22 ], [ %26, %25 ], [ %29, %28 ], [ %32, %31 ], [ %35, %34 ], [ %38, %37 ], [ %41, %40 ], [ %44, %43 ], [ %47, %46 ], [ %50, %49 ], [ %53, %52 ], [ %56, %55 ], [ %59, %58 ], [ %62, %61 ], [ %65, %64 ], [ %68, %67 ], [ %71, %70 ], [ %74, %73 ], [ %77, %76 ], [ %80, %79 ], [ %83, %82 ], [ %14, %13 ]
+  %.1 = phi i32 [ 1, %314 ], [ 0, %.loopexit ], [ %136, %135 ], [ %133, %132 ], [ %130, %129 ], [ %127, %126 ], [ %124, %123 ], [ %121, %120 ], [ %118, %117 ], [ %115, %114 ], [ %112, %111 ], [ %109, %108 ], [ %106, %105 ], [ %167, %164 ], [ %172, %169 ], [ %177, %174 ], [ %182, %179 ], [ %187, %184 ], [ %192, %189 ], [ %197, %194 ], [ %202, %199 ], [ %207, %204 ], [ %212, %209 ], [ %217, %214 ], [ %222, %219 ], [ %227, %224 ], [ %232, %229 ], [ %237, %234 ], [ %242, %239 ], [ %247, %244 ], [ %252, %249 ], [ %257, %254 ], [ %262, %259 ], [ %267, %264 ], [ %272, %269 ], [ %277, %274 ], [ %282, %279 ], [ %287, %284 ], [ %292, %289 ], [ %297, %294 ], [ %302, %299 ], [ %307, %304 ], [ %312, %309 ], [ %159, %158 ], [ %162, %161 ], [ %147, %144 ], [ %14, %13 ], [ %17, %16 ], [ %20, %19 ], [ %23, %22 ], [ %26, %25 ], [ %29, %28 ], [ %32, %31 ], [ %35, %34 ], [ %38, %37 ], [ %41, %40 ], [ %44, %43 ], [ %47, %46 ], [ %50, %49 ], [ %53, %52 ], [ %56, %55 ], [ %59, %58 ], [ %62, %61 ], [ %65, %64 ], [ %68, %67 ], [ %71, %70 ], [ %74, %73 ], [ %77, %76 ], [ %80, %79 ], [ %83, %82 ]
   ret i32 %.1
 }
 
@@ -1717,7 +1717,7 @@ define internal fastcc i32 @r_steps2(ptr noundef initializes((24, 28)) %0) unnam
   br label %24
 
 24:                                               ; preds = %21, %6, %16, %11, %1
-  %.0 = phi i32 [ 0, %11 ], [ 0, %16 ], [ %spec.select, %21 ], [ 0, %1 ], [ %9, %6 ]
+  %.0 = phi i32 [ %9, %6 ], [ 0, %1 ], [ 0, %11 ], [ 0, %16 ], [ %spec.select, %21 ]
   ret i32 %.0
 }
 
@@ -1796,12 +1796,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_steps3(ptr noundef initi
   %41 = icmp sgt i32 %40, -1
   br i1 %41, label %select.unfold, label %.thread
 
-.thread:                                          ; preds = %26, %36, %39, %23, %30
-  %.3.ph = phi i32 [ 0, %30 ], [ %24, %23 ], [ %40, %39 ], [ %37, %36 ], [ 0, %26 ]
+.thread:                                          ; preds = %36, %39, %23, %26, %30
+  %.3.ph = phi i32 [ 0, %30 ], [ 0, %26 ], [ %24, %23 ], [ %40, %39 ], [ %37, %36 ]
   br label %select.unfold
 
 select.unfold:                                    ; preds = %23, %35, %36, %39, %.thread, %1, %6
-  %.0 = phi i32 [ %.3.ph, %.thread ], [ 0, %1 ], [ %9, %6 ], [ 1, %35 ], [ 1, %39 ], [ 1, %36 ], [ 1, %23 ]
+  %.0 = phi i32 [ %9, %6 ], [ 0, %1 ], [ %.3.ph, %.thread ], [ 1, %39 ], [ 1, %36 ], [ 1, %35 ], [ 1, %23 ]
   ret i32 %.0
 }
 
@@ -1872,7 +1872,7 @@ define internal fastcc i32 @r_steps4(ptr noundef initializes((24, 28)) %0) unnam
   br label %38
 
 38:                                               ; preds = %35, %6, %31, %29, %11, %18, %25, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %29 ], [ 0, %31 ], [ %spec.select, %35 ], [ 0, %11 ], [ %9, %6 ], [ 0, %25 ], [ 0, %18 ]
+  %.0 = phi i32 [ %9, %6 ], [ 0, %1 ], [ 0, %25 ], [ 0, %18 ], [ 0, %11 ], [ 0, %29 ], [ 0, %31 ], [ %spec.select, %35 ]
   ret i32 %.0
 }
 
@@ -1932,7 +1932,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_steps5(ptr noundef initi
   br label %29
 
 29:                                               ; preds = %16, %11, %1, %22, %25, %6, %28
-  %.0 = phi i32 [ 0, %11 ], [ 1, %28 ], [ %23, %22 ], [ %26, %25 ], [ 0, %1 ], [ %9, %6 ], [ 0, %16 ]
+  %.0 = phi i32 [ 1, %28 ], [ %23, %22 ], [ %26, %25 ], [ %9, %6 ], [ 0, %1 ], [ 0, %11 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -2098,12 +2098,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_steps6(ptr noundef initi
   %82 = icmp sgt i32 %81, -1
   br i1 %82, label %83, label %.thread
 
-.thread:                                          ; preds = %35, %53, %56, %59, %62, %65, %68, %71, %74, %77, %80, %38, %32, %43, %49
-  %.4.ph = phi i32 [ 0, %49 ], [ 0, %43 ], [ %33, %32 ], [ 0, %38 ], [ %81, %80 ], [ %78, %77 ], [ %75, %74 ], [ %72, %71 ], [ %69, %68 ], [ %66, %65 ], [ %63, %62 ], [ %60, %59 ], [ %57, %56 ], [ %54, %53 ], [ %36, %35 ]
+.thread:                                          ; preds = %53, %56, %59, %62, %65, %68, %71, %74, %77, %80, %32, %35, %43, %38, %49
+  %.4.ph = phi i32 [ 0, %49 ], [ 0, %38 ], [ 0, %43 ], [ %36, %35 ], [ %33, %32 ], [ %81, %80 ], [ %78, %77 ], [ %75, %74 ], [ %72, %71 ], [ %69, %68 ], [ %66, %65 ], [ %63, %62 ], [ %60, %59 ], [ %57, %56 ], [ %54, %53 ]
   br label %83
 
 83:                                               ; preds = %51, %53, %56, %59, %62, %65, %68, %71, %74, %77, %80, %31, %32, %35, %.thread, %1, %6
-  %.0 = phi i32 [ %.4.ph, %.thread ], [ 0, %1 ], [ %9, %6 ], [ 1, %31 ], [ 1, %35 ], [ 1, %32 ], [ 1, %80 ], [ 1, %77 ], [ 1, %74 ], [ 1, %71 ], [ 1, %68 ], [ 1, %65 ], [ 1, %62 ], [ 1, %59 ], [ 1, %56 ], [ 1, %53 ], [ 1, %51 ]
+  %.0 = phi i32 [ %9, %6 ], [ 0, %1 ], [ %.4.ph, %.thread ], [ 1, %35 ], [ 1, %32 ], [ 1, %31 ], [ 1, %80 ], [ 1, %77 ], [ 1, %74 ], [ 1, %71 ], [ 1, %68 ], [ 1, %65 ], [ 1, %62 ], [ 1, %59 ], [ 1, %56 ], [ 1, %53 ], [ 1, %51 ]
   ret i32 %.0
 }
 
@@ -2183,7 +2183,7 @@ define internal fastcc i32 @r_steps7(ptr noundef initializes((24, 28)) %0) unnam
   br label %41
 
 41:                                               ; preds = %38, %16, %34, %32, %21, %27, %14, %1, %8
-  %.0 = phi i32 [ 0, %1 ], [ 0, %14 ], [ 0, %32 ], [ 0, %34 ], [ %spec.select, %38 ], [ 0, %21 ], [ %19, %16 ], [ 0, %8 ], [ 0, %27 ]
+  %.0 = phi i32 [ %19, %16 ], [ 0, %8 ], [ 0, %1 ], [ 0, %14 ], [ 0, %27 ], [ 0, %21 ], [ 0, %32 ], [ 0, %34 ], [ %spec.select, %38 ]
   ret i32 %.0
 }
 
@@ -2257,12 +2257,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_steps8(ptr noundef initi
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %.thread, label %37
 
-.thread:                                          ; preds = %27, %24, %30, %34
-  %.4.ph = phi i32 [ %28, %27 ], [ 0, %30 ], [ %25, %24 ], [ %35, %34 ]
+.thread:                                          ; preds = %24, %27, %30, %34
+  %.4.ph = phi i32 [ 0, %30 ], [ %28, %27 ], [ %25, %24 ], [ %35, %34 ]
   br label %37
 
 37:                                               ; preds = %23, %24, %27, %34, %.thread, %1, %6
-  %.0 = phi i32 [ %.4.ph, %.thread ], [ 0, %1 ], [ %9, %6 ], [ 1, %34 ], [ 1, %27 ], [ 1, %24 ], [ 1, %23 ]
+  %.0 = phi i32 [ %9, %6 ], [ 0, %1 ], [ %.4.ph, %.thread ], [ 1, %34 ], [ 1, %27 ], [ 1, %24 ], [ 1, %23 ]
   ret i32 %.0
 }
 
@@ -2366,8 +2366,8 @@ define internal fastcc i32 @r_steps9(ptr noundef initializes((24, 28)) %0) unnam
   %spec.select74 = select i1 %52, i32 %51, i32 1
   br label %select.unfold
 
-select.unfold:                                    ; preds = %50, %36, %39, %43, %48, %21, %19, %1, %8, %15
-  %.0 = phi i32 [ 0, %1 ], [ 0, %8 ], [ 0, %19 ], [ %24, %21 ], [ 0, %15 ], [ 0, %39 ], [ %spec.select74, %50 ], [ %spec.select, %36 ], [ 0, %48 ], [ 0, %43 ]
+select.unfold:                                    ; preds = %50, %36, %43, %39, %48, %21, %19, %1, %8, %15
+  %.0 = phi i32 [ %24, %21 ], [ 0, %15 ], [ 0, %8 ], [ 0, %1 ], [ 0, %19 ], [ 0, %48 ], [ 0, %39 ], [ 0, %43 ], [ %spec.select74, %50 ], [ %spec.select, %36 ]
   ret i32 %.0
 }
 
@@ -2414,7 +2414,7 @@ define internal fastcc i32 @r_steps10(ptr noundef initializes((24, 28)) %0) unna
   br label %24
 
 24:                                               ; preds = %21, %6, %16, %11, %1
-  %.0 = phi i32 [ 0, %11 ], [ 0, %16 ], [ %spec.select, %21 ], [ 0, %1 ], [ %9, %6 ]
+  %.0 = phi i32 [ %9, %6 ], [ 0, %1 ], [ 0, %11 ], [ 0, %16 ], [ %spec.select, %21 ]
   ret i32 %.0
 }
 
@@ -2474,7 +2474,7 @@ define internal fastcc i32 @r_step2a(ptr noundef initializes((24, 28)) %0) unnam
   br label %31
 
 31:                                               ; preds = %21, %26, %16, %14, %1, %8
-  %.0 = phi i32 [ 0, %1 ], [ 0, %14 ], [ %spec.select, %26 ], [ 0, %8 ], [ %19, %16 ], [ 0, %21 ]
+  %.0 = phi i32 [ %19, %16 ], [ 0, %8 ], [ 0, %1 ], [ 0, %14 ], [ %spec.select, %26 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -2546,7 +2546,7 @@ define internal fastcc i32 @r_step2b(ptr noundef initializes((24, 28)) %0) unnam
   br label %36
 
 36:                                               ; preds = %33, %16, %31, %21, %25, %14, %1, %8
-  %.0 = phi i32 [ 0, %1 ], [ 0, %14 ], [ 0, %31 ], [ %spec.select, %33 ], [ 0, %21 ], [ %19, %16 ], [ 0, %8 ], [ 0, %25 ]
+  %.0 = phi i32 [ %19, %16 ], [ 0, %8 ], [ 0, %1 ], [ 0, %14 ], [ 0, %25 ], [ 0, %21 ], [ 0, %31 ], [ %spec.select, %33 ]
   ret i32 %.0
 }
 
@@ -2601,7 +2601,7 @@ define internal fastcc i32 @r_step2c(ptr noundef initializes((24, 28)) %0) unnam
   br label %27
 
 27:                                               ; preds = %24, %16, %21, %14, %1, %8
-  %.0 = phi i32 [ 0, %1 ], [ 0, %21 ], [ %spec.select, %24 ], [ 0, %14 ], [ %19, %16 ], [ 0, %8 ]
+  %.0 = phi i32 [ %19, %16 ], [ 0, %8 ], [ 0, %1 ], [ 0, %14 ], [ 0, %21 ], [ %spec.select, %24 ]
   ret i32 %.0
 }
 
@@ -2665,7 +2665,7 @@ define internal fastcc i32 @r_step2d(ptr noundef initializes((24, 28)) %0) unnam
   br label %33
 
 33:                                               ; preds = %30, %16, %26, %21, %14, %1, %8
-  %.0 = phi i32 [ 0, %1 ], [ 0, %21 ], [ 0, %26 ], [ %spec.select, %30 ], [ 0, %14 ], [ %19, %16 ], [ 0, %8 ]
+  %.0 = phi i32 [ %19, %16 ], [ 0, %8 ], [ 0, %1 ], [ 0, %14 ], [ 0, %21 ], [ 0, %26 ], [ %spec.select, %30 ]
   ret i32 %.0
 }
 
@@ -2705,7 +2705,7 @@ define internal fastcc i32 @r_step3(ptr noundef initializes((24, 28)) %0) unname
   br label %19
 
 19:                                               ; preds = %16, %6, %11, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %11 ], [ %spec.select, %16 ], [ %9, %6 ]
+  %.0 = phi i32 [ %9, %6 ], [ 0, %1 ], [ 0, %11 ], [ %spec.select, %16 ]
   ret i32 %.0
 }
 
@@ -2778,7 +2778,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br label %34
 
 34:                                               ; preds = %18, %31, %6, %26, %select.unfold, %1
-  %.0 = phi i32 [ %9, %6 ], [ 0, %select.unfold ], [ 0, %26 ], [ %spec.select, %31 ], [ 0, %1 ], [ %19, %18 ]
+  %.0 = phi i32 [ %9, %6 ], [ 0, %1 ], [ 0, %select.unfold ], [ 0, %26 ], [ %spec.select, %31 ], [ %19, %18 ]
   ret i32 %.0
 }
 
@@ -2886,7 +2886,7 @@ define internal fastcc i32 @r_step5a(ptr noundef %0) unnamed_addr #0 {
   br label %59
 
 59:                                               ; preds = %30, %12, %56, %42, %52, %47, %38
-  %.3 = phi i32 [ 0, %47 ], [ 0, %52 ], [ %spec.select, %56 ], [ 0, %38 ], [ %45, %42 ], [ %13, %12 ], [ %33, %30 ]
+  %.3 = phi i32 [ %45, %42 ], [ 0, %38 ], [ 0, %47 ], [ 0, %52 ], [ %spec.select, %56 ], [ %13, %12 ], [ %33, %30 ]
   ret i32 %.3
 }
 
@@ -3032,7 +3032,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br label %.thread
 
 .thread:                                          ; preds = %18, %41, %59, %71, %48, %67, %select.unfold, %44
-  %.4 = phi i32 [ %60, %59 ], [ 0, %select.unfold ], [ 0, %67 ], [ %spec.select, %71 ], [ 0, %44 ], [ %51, %48 ], [ %21, %18 ], [ %42, %41 ]
+  %.4 = phi i32 [ %51, %48 ], [ 0, %44 ], [ 0, %select.unfold ], [ 0, %67 ], [ %spec.select, %71 ], [ %60, %59 ], [ %21, %18 ], [ %42, %41 ]
   ret i32 %.4
 }
 
@@ -3156,7 +3156,7 @@ select.unfold:                                    ; preds = %42, %49, %52
   br label %64
 
 64:                                               ; preds = %49, %42, %18, %61, %30, %57, %select.unfold, %26
-  %.3 = phi i32 [ %21, %18 ], [ 0, %select.unfold ], [ 0, %57 ], [ %spec.select, %61 ], [ 0, %26 ], [ %33, %30 ], [ %50, %49 ], [ %43, %42 ]
+  %.3 = phi i32 [ %33, %30 ], [ 0, %26 ], [ 0, %select.unfold ], [ 0, %57 ], [ %spec.select, %61 ], [ %21, %18 ], [ %50, %49 ], [ %43, %42 ]
   ret i32 %.3
 }
 
@@ -3237,7 +3237,7 @@ define internal fastcc i32 @r_step5d(ptr noundef initializes((24, 28)) %0) unnam
   br label %select.unfold
 
 select.unfold:                                    ; preds = %39, %32, %35, %16, %14, %1, %8
-  %.0 = phi i32 [ 0, %1 ], [ 0, %8 ], [ 0, %14 ], [ %19, %16 ], [ 0, %35 ], [ %spec.select60, %39 ], [ %spec.select, %32 ]
+  %.0 = phi i32 [ %19, %16 ], [ 0, %8 ], [ 0, %1 ], [ 0, %14 ], [ 0, %35 ], [ %spec.select60, %39 ], [ %spec.select, %32 ]
   ret i32 %.0
 }
 
@@ -3299,7 +3299,7 @@ define internal fastcc i32 @r_step5e(ptr noundef initializes((24, 28)) %0) unnam
   br label %33
 
 33:                                               ; preds = %30, %16, %26, %21, %14, %1, %8
-  %.0 = phi i32 [ 0, %1 ], [ 0, %21 ], [ 0, %26 ], [ %spec.select, %30 ], [ 0, %14 ], [ %19, %16 ], [ 0, %8 ]
+  %.0 = phi i32 [ %19, %16 ], [ 0, %8 ], [ 0, %1 ], [ 0, %14 ], [ 0, %21 ], [ 0, %26 ], [ %spec.select, %30 ]
   ret i32 %.0
 }
 
@@ -3405,7 +3405,7 @@ define internal fastcc i32 @r_step5f(ptr noundef initializes((24, 28)) %0) unnam
   br label %.thread
 
 .thread:                                          ; preds = %8, %31, %53, %38, %48, %43, %34
-  %.4 = phi i32 [ 0, %43 ], [ 0, %48 ], [ %spec.select, %53 ], [ 0, %34 ], [ %41, %38 ], [ %11, %8 ], [ %32, %31 ]
+  %.4 = phi i32 [ %41, %38 ], [ 0, %34 ], [ 0, %43 ], [ 0, %48 ], [ %spec.select, %53 ], [ %11, %8 ], [ %32, %31 ]
   ret i32 %.4
 }
 
@@ -3509,8 +3509,8 @@ define internal fastcc i32 @r_step5g(ptr noundef initializes((24, 28)) %0) unnam
   %spec.select86 = select i1 %53, i32 %52, i32 1
   br label %select.unfold
 
-select.unfold:                                    ; preds = %51, %31, %34, %45, %40, %47, %8, %20, %16
-  %.3 = phi i32 [ %11, %8 ], [ 0, %16 ], [ %23, %20 ], [ 0, %34 ], [ %spec.select86, %51 ], [ %spec.select, %31 ], [ 0, %47 ], [ 0, %40 ], [ 0, %45 ]
+select.unfold:                                    ; preds = %51, %31, %40, %34, %45, %47, %8, %20, %16
+  %.3 = phi i32 [ %23, %20 ], [ 0, %16 ], [ %11, %8 ], [ 0, %47 ], [ 0, %45 ], [ 0, %34 ], [ 0, %40 ], [ %spec.select, %31 ], [ %spec.select86, %51 ]
   ret i32 %.3
 }
 
@@ -3576,7 +3576,7 @@ define internal fastcc i32 @r_step5h(ptr noundef initializes((24, 28)) %0) unnam
   br label %select.unfold
 
 select.unfold:                                    ; preds = %30, %18, %21, %25, %6, %1
-  %.0 = phi i32 [ %9, %6 ], [ 0, %1 ], [ 0, %21 ], [ %spec.select54, %30 ], [ %spec.select, %18 ], [ 0, %25 ]
+  %.0 = phi i32 [ %9, %6 ], [ 0, %1 ], [ 0, %25 ], [ 0, %21 ], [ %spec.select, %18 ], [ %spec.select54, %30 ]
   ret i32 %.0
 }
 
@@ -3637,7 +3637,7 @@ define internal fastcc i32 @r_step5j(ptr noundef initializes((24, 28)) %0) unnam
   br label %32
 
 32:                                               ; preds = %29, %6, %25, %23, %11, %18, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %23 ], [ 0, %25 ], [ %spec.select, %29 ], [ 0, %11 ], [ %9, %6 ], [ 0, %18 ]
+  %.0 = phi i32 [ %9, %6 ], [ 0, %1 ], [ 0, %18 ], [ 0, %11 ], [ 0, %23 ], [ 0, %25 ], [ %spec.select, %29 ]
   ret i32 %.0
 }
 
@@ -3649,7 +3649,7 @@ define internal fastcc i32 @r_step5i(ptr noundef initializes((24, 28)) %0) unnam
   store i32 %3, ptr %4, align 8
   %5 = tail call i32 @find_among_b(ptr noundef %0, ptr noundef nonnull @a_56, i32 noundef 3) #2
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %select.unfold, label %6
+  br i1 %.not, label %select.unfold75, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %2, align 8
@@ -3657,7 +3657,7 @@ define internal fastcc i32 @r_step5i(ptr noundef initializes((24, 28)) %0) unnam
   store i32 %7, ptr %8, align 4
   %9 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %10 = icmp sgt i32 %9, -1
-  br i1 %10, label %11, label %select.unfold
+  br i1 %10, label %11, label %select.unfold75
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3676,7 +3676,7 @@ define internal fastcc i32 @r_step5i(ptr noundef initializes((24, 28)) %0) unnam
   %19 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @s_99) #2
   %20 = icmp sgt i32 %19, -1
   %spec.select = select i1 %20, i32 1, i32 %19
-  br label %select.unfold
+  br label %select.unfold75
 
 21:                                               ; preds = %11
   %.neg = sub i32 %16, %15
@@ -3686,7 +3686,7 @@ define internal fastcc i32 @r_step5i(ptr noundef initializes((24, 28)) %0) unnam
   store i32 %23, ptr %4, align 8
   store i32 %23, ptr %8, align 4
   %24 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_54, i32 noundef 12) #2
-  switch i32 %24, label %select.unfold [
+  switch i32 %24, label %select.unfold75 [
     i32 0, label %28
     i32 1, label %25
   ]
@@ -3694,7 +3694,7 @@ define internal fastcc i32 @r_step5i(ptr noundef initializes((24, 28)) %0) unnam
 25:                                               ; preds = %21
   %26 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @s_100) #2
   %27 = icmp sgt i32 %26, -1
-  br i1 %27, label %select.unfold, label %.thread
+  br i1 %27, label %select.unfold75, label %.thread
 
 28:                                               ; preds = %21
   %29 = load i32, ptr %14, align 4
@@ -3716,14 +3716,14 @@ define internal fastcc i32 @r_step5i(ptr noundef initializes((24, 28)) %0) unnam
 37:                                               ; preds = %32
   %38 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @s_101) #2
   %39 = icmp slt i32 %38, 0
-  br i1 %39, label %.thread, label %select.unfold
+  br i1 %39, label %.thread, label %select.unfold75
 
-.thread:                                          ; preds = %32, %25, %28, %37
-  %.6.ph = phi i32 [ 0, %32 ], [ 0, %28 ], [ %26, %25 ], [ %38, %37 ]
-  br label %select.unfold
+.thread:                                          ; preds = %28, %32, %25, %37
+  %.6.ph = phi i32 [ %26, %25 ], [ 0, %32 ], [ 0, %28 ], [ %38, %37 ]
+  br label %select.unfold75
 
-select.unfold:                                    ; preds = %18, %25, %37, %21, %.thread, %1, %6
-  %.0 = phi i32 [ 0, %1 ], [ %.6.ph, %.thread ], [ %9, %6 ], [ %spec.select, %18 ], [ 1, %21 ], [ 1, %25 ], [ 1, %37 ]
+select.unfold75:                                  ; preds = %18, %25, %37, %21, %.thread, %1, %6
+  %.0 = phi i32 [ %9, %6 ], [ 0, %1 ], [ %.6.ph, %.thread ], [ 1, %21 ], [ 1, %37 ], [ 1, %25 ], [ %spec.select, %18 ]
   ret i32 %.0
 }
 
@@ -3785,7 +3785,7 @@ define internal fastcc i32 @r_step5k(ptr noundef initializes((24, 28)) %0) unnam
   br label %33
 
 33:                                               ; preds = %30, %16, %26, %21, %14, %1, %8
-  %.0 = phi i32 [ 0, %1 ], [ 0, %21 ], [ 0, %26 ], [ %spec.select, %30 ], [ 0, %14 ], [ %19, %16 ], [ 0, %8 ]
+  %.0 = phi i32 [ %19, %16 ], [ 0, %8 ], [ 0, %1 ], [ 0, %14 ], [ 0, %21 ], [ 0, %26 ], [ %spec.select, %30 ]
   ret i32 %.0
 }
 
@@ -3847,7 +3847,7 @@ define internal fastcc i32 @r_step5l(ptr noundef initializes((24, 28)) %0) unnam
   br label %33
 
 33:                                               ; preds = %30, %16, %26, %21, %14, %1, %8
-  %.0 = phi i32 [ 0, %1 ], [ 0, %21 ], [ 0, %26 ], [ %spec.select, %30 ], [ 0, %14 ], [ %19, %16 ], [ 0, %8 ]
+  %.0 = phi i32 [ %19, %16 ], [ 0, %8 ], [ 0, %1 ], [ 0, %14 ], [ 0, %21 ], [ 0, %26 ], [ %spec.select, %30 ]
   ret i32 %.0
 }
 
@@ -3909,7 +3909,7 @@ define internal fastcc i32 @r_step5m(ptr noundef initializes((24, 28)) %0) unnam
   br label %33
 
 33:                                               ; preds = %30, %16, %26, %21, %14, %1, %8
-  %.0 = phi i32 [ 0, %1 ], [ 0, %21 ], [ 0, %26 ], [ %spec.select, %30 ], [ 0, %14 ], [ %19, %16 ], [ 0, %8 ]
+  %.0 = phi i32 [ %19, %16 ], [ 0, %8 ], [ 0, %1 ], [ 0, %14 ], [ 0, %21 ], [ 0, %26 ], [ %spec.select, %30 ]
   ret i32 %.0
 }
 
@@ -3960,7 +3960,7 @@ define internal fastcc i32 @r_step6(ptr noundef initializes((24, 28)) %0) unname
   br label %26
 
 26:                                               ; preds = %8, %21, %19, %13
-  %.3 = phi i32 [ 0, %19 ], [ %spec.select, %21 ], [ 0, %13 ], [ %11, %8 ]
+  %.3 = phi i32 [ 0, %13 ], [ 0, %19 ], [ %spec.select, %21 ], [ %11, %8 ]
   ret i32 %.3
 }
 
@@ -4002,7 +4002,7 @@ define internal fastcc i32 @r_step7(ptr noundef initializes((24, 28)) %0) unname
   br label %21
 
 21:                                               ; preds = %16, %14, %1, %8
-  %.015 = phi i32 [ 0, %1 ], [ 0, %14 ], [ %spec.select, %16 ], [ 0, %8 ]
+  %.015 = phi i32 [ 0, %8 ], [ 0, %1 ], [ 0, %14 ], [ %spec.select, %16 ]
   ret i32 %.015
 }
 

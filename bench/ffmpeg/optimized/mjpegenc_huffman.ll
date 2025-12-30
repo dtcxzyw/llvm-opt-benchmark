@@ -292,7 +292,7 @@ define void @ff_mjpeg_encode_huffman_close(ptr noundef readonly captures(none) %
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.loopexit.i, %109, %104, %17
-  %.1201257.i = phi i32 [ %105, %109 ], [ %105, %104 ], [ %18, %17 ], [ %.1201257.ph.i, %.thread.loopexit.i ]
+  %.1201257.i = phi i32 [ %105, %104 ], [ %105, %109 ], [ %18, %17 ], [ %.1201257.ph.i, %.thread.loopexit.i ]
   %.not.i = icmp eq i32 %.1201257.i, 0
   br i1 %.not.i, label %112, label %17, !llvm.loop !20
 

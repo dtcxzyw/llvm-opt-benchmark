@@ -1184,7 +1184,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %.lr
   unreachable
 
 .noexc.i.i:                                       ; preds = %433, %432, %431, %417
-  %.047.i = phi ptr [ @.str.110, %417 ], [ @.str.113, %433 ], [ @.str.111, %431 ], [ @.str.112, %432 ]
+  %.047.i = phi ptr [ @.str.111, %431 ], [ @.str.112, %432 ], [ @.str.113, %433 ], [ @.str.110, %417 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, i8 noundef zeroext 2)
           to label %.noexc57 unwind label %402
@@ -1619,7 +1619,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   ret i32 0
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %248, %393, %.body59, %113, %71
-  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %.body59 ], [ %72, %71 ], [ %.pn, %113 ], [ %.pn.i, %393 ], [ %249, %248 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit87, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp88, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn21.pn = phi { ptr, i32 } [ %.pn21, %.body59 ], [ %.pn, %113 ], [ %72, %71 ], [ %249, %248 ], [ %.pn.i, %393 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit87, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp88, %.loopexit.split-lp.loopexit.split-lp ]
   %596 = getelementptr inbounds nuw i8, ptr %32, i64 280
   br label %597
 

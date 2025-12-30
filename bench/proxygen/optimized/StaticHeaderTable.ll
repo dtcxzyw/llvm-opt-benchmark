@@ -566,7 +566,7 @@ _ZNSt7__cxx114listIN8proxygen11HPACKHeaderESaIS2_EED2Ev.exit: ; preds = %while.b
   ret void
 
 ehcleanup41:                                      ; preds = %lpad.loopexit43, %lpad.loopexit.split-lp44, %lpad22, %lpad9
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad22 ], [ %19, %lpad9 ], [ %lpad.loopexit45, %lpad.loopexit43 ], [ %lpad.loopexit.split-lp46, %lpad.loopexit.split-lp44 ]
+  %.pn = phi { ptr, i32 } [ %19, %lpad9 ], [ %lpad.phi, %lpad22 ], [ %lpad.loopexit45, %lpad.loopexit43 ], [ %lpad.loopexit.split-lp46, %lpad.loopexit.split-lp44 ]
   call void @_ZNSt7__cxx114listIN8proxygen11HPACKHeaderESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %hlist) #24
   call void @_ZN8proxygen11HeaderTableD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #24
   br label %common.resume
@@ -1246,7 +1246,7 @@ if.end2.i:                                        ; preds = %_ZN5folly10canNallo
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %entry, %_ZN5folly10canNallocxEv.exit.i, %if.end2.i
-  %retval.0.i = phi i64 [ 0, %entry ], [ %cond.i, %if.end2.i ], [ %add, %_ZN5folly10canNallocxEv.exit.i ]
+  %retval.0.i = phi i64 [ %cond.i, %if.end2.i ], [ 0, %entry ], [ %add, %_ZN5folly10canNallocxEv.exit.i ]
   %call.i = call noalias ptr @malloc(i64 noundef %retval.0.i) #29
   %tobool.not.i7 = icmp eq ptr %call.i, null
   br i1 %tobool.not.i7, label %if.then.i, label %_ZN5folly13checkedMallocEm.exit
@@ -1403,7 +1403,7 @@ if.end18:                                         ; preds = %init.end
   br label %return
 
 return:                                           ; preds = %init.end, %if.end, %entry, %if.end18
-  %retval.0 = phi i1 [ false, %init.end ], [ false, %entry ], [ false, %if.end ], [ %cmp19, %if.end18 ]
+  %retval.0 = phi i1 [ %cmp19, %if.end18 ], [ false, %entry ], [ false, %if.end ], [ false, %init.end ]
   ret i1 %retval.0
 }
 
@@ -1506,7 +1506,7 @@ _ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5: ; preds = %if.end6
   br label %return
 
 return:                                           ; preds = %init.end, %entry, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5
-  %retval.0 = phi i1 [ false, %entry ], [ %cmp, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5 ], [ false, %init.end ]
+  %retval.0 = phi i1 [ %cmp, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5 ], [ false, %entry ], [ false, %init.end ]
   ret i1 %retval.0
 }
 
@@ -1626,7 +1626,7 @@ if.end2.i:                                        ; preds = %_ZN5folly10canNallo
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %if.end7, %_ZN5folly10canNallocxEv.exit.i, %if.end2.i
-  %retval.0.i9 = phi i64 [ 0, %if.end7 ], [ %cond.i, %if.end2.i ], [ %7, %_ZN5folly10canNallocxEv.exit.i ]
+  %retval.0.i9 = phi i64 [ %cond.i, %if.end2.i ], [ 0, %if.end7 ], [ %7, %_ZN5folly10canNallocxEv.exit.i ]
   %call.i10 = call noalias ptr @malloc(i64 noundef %retval.0.i9) #29
   %tobool.not.i11 = icmp eq ptr %call.i10, null
   br i1 %tobool.not.i11, label %if.then.i, label %_ZN5folly13checkedMallocEm.exit

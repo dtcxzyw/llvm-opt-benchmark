@@ -170,7 +170,7 @@ Vec_IntFind.exit46.i:                             ; preds = %65, %61, %57, %Ivy_
   br label %Ivy_NodeGetLeafCostOne.exit
 
 Ivy_NodeGetLeafCostOne.exit:                      ; preds = %13, %22, %23, %Vec_IntFind.exit.i, %Vec_IntFind.exit.i, %Vec_IntFind.exit46.i
-  %.0.i = phi i32 [ %67, %Vec_IntFind.exit46.i ], [ 999, %13 ], [ 999, %23 ], [ 999, %22 ], [ %47, %Vec_IntFind.exit.i ], [ %47, %Vec_IntFind.exit.i ]
+  %.0.i = phi i32 [ %67, %Vec_IntFind.exit46.i ], [ 999, %22 ], [ 999, %13 ], [ 999, %23 ], [ %47, %Vec_IntFind.exit.i ], [ %47, %Vec_IntFind.exit.i ]
   %68 = icmp sgt i32 %.052116, %.0.i
   br i1 %68, label %75, label %69
 
@@ -280,7 +280,7 @@ Ivy_NodeGetLeafCostOne.exit:                      ; preds = %13, %22, %23, %Vec_
   br label %Vec_IntRemove.exit
 
 Vec_IntRemove.exit:                               ; preds = %96, %._crit_edge.i, %._crit_edge30.i
-  %113 = phi i32 [ %112, %._crit_edge30.i ], [ %88, %._crit_edge.i ], [ %88, %96 ]
+  %113 = phi i32 [ %88, %._crit_edge.i ], [ %112, %._crit_edge30.i ], [ %88, %96 ]
   %114 = ashr i32 %87, 8
   %115 = getelementptr i8, ptr %0, i64 24
   %.val64 = load ptr, ptr %115, align 8, !tbaa !11
@@ -474,7 +474,7 @@ Vec_IntPush.exit84:                               ; preds = %.Vec_IntGrow.exit10
   br label %Vec_IntFind.exit
 
 Vec_IntFind.exit:                                 ; preds = %140, %Vec_IntPush.exit84, %Ivy_ObjFaninId0.exit
-  %.pre-phi = phi i32 [ %122, %Ivy_ObjFaninId0.exit ], [ %.pre, %Vec_IntPush.exit84 ], [ %122, %140 ]
+  %.pre-phi = phi i32 [ %.pre, %Vec_IntPush.exit84 ], [ %122, %Ivy_ObjFaninId0.exit ], [ %122, %140 ]
   switch i32 %.pre-phi, label %204 [
     i32 4, label %Vec_IntFind.exit95
     i32 7, label %Vec_IntFind.exit95
@@ -530,7 +530,7 @@ Vec_IntFind.exit95.thread:                        ; preds = %223, %213
   br label %Vec_IntFind.exit95
 
 Vec_IntFind.exit95:                               ; preds = %219, %4, %Vec_IntFind.exit, %Vec_IntFind.exit, %Ivy_ObjFaninId1.exit, %Vec_IntFind.exit95.thread, %.critedge.thread, %.critedge
-  %.051 = phi i32 [ 1, %Vec_IntFind.exit ], [ 0, %.critedge ], [ 0, %.critedge.thread ], [ 1, %Vec_IntFind.exit ], [ 1, %Vec_IntFind.exit95.thread ], [ 1, %Ivy_ObjFaninId1.exit ], [ 0, %4 ], [ 1, %219 ]
+  %.051 = phi i32 [ 0, %.critedge ], [ 0, %.critedge.thread ], [ 1, %Vec_IntFind.exit ], [ 1, %Vec_IntFind.exit95.thread ], [ 1, %Ivy_ObjFaninId1.exit ], [ 1, %Vec_IntFind.exit ], [ 0, %4 ], [ 1, %219 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.051
 }
@@ -1315,7 +1315,7 @@ Vec_PtrPushUnique.exit69.sink.split:              ; preds = %Vec_PtrPush.exit.i5
   br label %Vec_PtrPushUnique.exit69
 
 Vec_PtrPushUnique.exit69:                         ; preds = %103, %170, %53, %Vec_PtrPushUnique.exit69.sink.split, %88, %88, %134, %90, %84
-  %.0 = phi i32 [ 0, %134 ], [ 0, %90 ], [ 0, %84 ], [ 1, %170 ], [ 0, %88 ], [ 1, %53 ], [ 0, %88 ], [ 1, %Vec_PtrPushUnique.exit69.sink.split ], [ 1, %103 ]
+  %.0 = phi i32 [ 0, %84 ], [ 0, %88 ], [ 0, %90 ], [ 0, %134 ], [ 0, %88 ], [ 1, %Vec_PtrPushUnique.exit69.sink.split ], [ 1, %53 ], [ 1, %170 ], [ 1, %103 ]
   ret i32 %.0
 }
 
@@ -1464,7 +1464,7 @@ define range(i32 0, 1000) i32 @Ivy_ManFindBoolCutCost(ptr noundef readonly captu
   br label %31
 
 31:                                               ; preds = %1, %1, %13, %4
-  %.0 = phi i32 [ %30, %13 ], [ %12, %4 ], [ 999, %1 ], [ 999, %1 ]
+  %.0 = phi i32 [ %12, %4 ], [ %30, %13 ], [ 999, %1 ], [ 999, %1 ]
   ret i32 %.0
 }
 
@@ -2254,8 +2254,8 @@ Vec_PtrPush.exit225:                              ; preds = %.Vec_PtrGrow.exit11
   %or.cond151.not = icmp eq i32 %368, 48
   br i1 %or.cond151.not, label %369, label %.backedge.backedge
 
-369:                                              ; preds = %364, %272, %359
-  %.2123.ph = phi ptr [ %365, %364 ], [ %273, %272 ], [ %360, %359 ]
+369:                                              ; preds = %364, %359, %272
+  %.2123.ph = phi ptr [ %365, %364 ], [ %360, %359 ], [ %273, %272 ]
   %.not142 = icmp eq ptr %.0124, null
   br i1 %.not142, label %403, label %370
 
@@ -3245,7 +3245,7 @@ Ivy_CutCheckDominance.exit60:                     ; preds = %._crit_edge.us.i57,
   br label %Ivy_CutCheckDominance.exit.thread64
 
 Ivy_CutCheckDominance.exit.thread64:              ; preds = %39, %._crit_edge, %52, %29, %._crit_edge87
-  %.037 = phi i32 [ 0, %._crit_edge87 ], [ 1, %52 ], [ 1, %29 ], [ 1, %._crit_edge ], [ 1, %39 ]
+  %.037 = phi i32 [ 0, %._crit_edge87 ], [ 1, %29 ], [ 1, %52 ], [ 1, %._crit_edge ], [ 1, %39 ]
   ret i32 %.037
 }
 
@@ -3746,8 +3746,8 @@ Ivy_NodeCutPrescreen.exit:                        ; preds = %63, %Ivy_ObjRealFan
   br label %Ivy_NodeCutDeriveNew.exit
 
 Ivy_NodeCutDeriveNew.exit:                        ; preds = %158, %157, %110, %109
-  %storemerge144.in = phi i32 [ %.6.i, %109 ], [ %111, %110 ], [ %159, %158 ], [ %.6.i84, %157 ]
-  %165 = phi i32 [ %.657.i, %109 ], [ %116, %110 ], [ %164, %158 ], [ %.657.i83, %157 ]
+  %storemerge144.in = phi i32 [ %111, %110 ], [ %.6.i, %109 ], [ %159, %158 ], [ %.6.i84, %157 ]
+  %165 = phi i32 [ %116, %110 ], [ %.657.i, %109 ], [ %164, %158 ], [ %.657.i83, %157 ]
   %storemerge144 = trunc i32 %storemerge144.in to i16
   store i16 %storemerge144, ptr %5, align 4, !tbaa !53
   store i32 %165, ptr %4, align 4, !tbaa !50
@@ -3912,8 +3912,8 @@ Ivy_CutCheckDominance.exit60.i:                   ; preds = %._crit_edge.us.i57.
   br label %Ivy_NodeCutFindOrAddFilter.exit
 
 Ivy_NodeCutFindOrAddFilter.exit:                  ; preds = %._crit_edge.i118, %194, %206, %185, %._crit_edge87.i
-  %224 = phi i32 [ %23, %206 ], [ %23, %185 ], [ %.pre, %._crit_edge87.i ], [ %23, %194 ], [ %23, %._crit_edge.i118 ]
-  %225 = phi i32 [ %24, %206 ], [ %24, %185 ], [ %.pre, %._crit_edge87.i ], [ %24, %194 ], [ %24, %._crit_edge.i118 ]
+  %224 = phi i32 [ %.pre, %._crit_edge87.i ], [ %23, %185 ], [ %23, %206 ], [ %23, %194 ], [ %23, %._crit_edge.i118 ]
+  %225 = phi i32 [ %.pre, %._crit_edge87.i ], [ %24, %185 ], [ %24, %206 ], [ %24, %194 ], [ %24, %._crit_edge.i118 ]
   %226 = icmp eq i32 %225, 256
   br i1 %226, label %.lr.ph.i123.preheader, label %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge
 
@@ -3922,10 +3922,10 @@ Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge: ; pr
   br label %Ivy_NodeCutPrescreen.exit.thread
 
 Ivy_NodeCutPrescreen.exit.thread:                 ; preds = %62, %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge, %22, %22, %.preheader.i63
-  %227 = phi i32 [ %224, %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge ], [ %23, %22 ], [ %23, %22 ], [ %23, %.preheader.i63 ], [ %23, %62 ]
-  %.pr = phi i16 [ %.pr.pre, %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge ], [ %.pr176, %22 ], [ %.pr176, %22 ], [ %.pr176, %.preheader.i63 ], [ %.pr176, %62 ]
-  %228 = phi i32 [ %225, %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge ], [ %24, %22 ], [ %24, %22 ], [ %24, %.preheader.i63 ], [ %24, %62 ]
-  %229 = phi i32 [ %225, %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge ], [ %25, %22 ], [ %25, %22 ], [ %25, %.preheader.i63 ], [ %25, %62 ]
+  %227 = phi i32 [ %23, %22 ], [ %23, %22 ], [ %23, %.preheader.i63 ], [ %224, %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge ], [ %23, %62 ]
+  %.pr = phi i16 [ %.pr176, %22 ], [ %.pr176, %22 ], [ %.pr176, %.preheader.i63 ], [ %.pr.pre, %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge ], [ %.pr176, %62 ]
+  %228 = phi i32 [ %24, %22 ], [ %24, %22 ], [ %24, %.preheader.i63 ], [ %225, %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge ], [ %24, %62 ]
+  %229 = phi i32 [ %25, %22 ], [ %25, %22 ], [ %25, %.preheader.i63 ], [ %225, %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge ], [ %25, %62 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %230 = sext i16 %.pr to i64
   %231 = icmp slt i64 %indvars.iv.next, %230
@@ -3949,7 +3949,7 @@ Ivy_NodeCutPrescreen.exit.thread:                 ; preds = %62, %Ivy_NodeCutFin
   br i1 %238, label %.lr.ph.i123.preheader, label %Ivy_NodeCompactCuts.exit
 
 .lr.ph.i123.preheader:                            ; preds = %._crit_edge, %Ivy_NodeCutFindOrAddFilter.exit, %._crit_edge161
-  %.ph = phi i32 [ 256, %Ivy_NodeCutFindOrAddFilter.exit ], [ %235, %._crit_edge161 ], [ 256, %._crit_edge ]
+  %.ph = phi i32 [ %235, %._crit_edge161 ], [ 256, %Ivy_NodeCutFindOrAddFilter.exit ], [ 256, %._crit_edge ]
   br label %.lr.ph.i123
 
 .lr.ph.i123:                                      ; preds = %.lr.ph.i123.preheader, %248

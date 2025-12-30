@@ -656,7 +656,7 @@ curl_mime_data.exit:                              ; preds = %curl_mime_addpart.e
   %.not56 = icmp eq i32 %.047, 0
   br i1 %.not56, label %curl_mime_data.exit.thread, label %curl_mime_name.exit.thread
 
-curl_mime_data.exit.thread:                       ; preds = %curl_mime_subparts.exit, %39, %cleanup_part_content.exit.i66, %73, %35, %cleanup_part_content.exit.i, %3, %curl_mime_data.exit
+curl_mime_data.exit.thread:                       ; preds = %curl_mime_subparts.exit, %39, %cleanup_part_content.exit.i66, %73, %cleanup_part_content.exit.i, %35, %3, %curl_mime_data.exit
   %135 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %136 = load ptr, ptr %135, align 8, !tbaa !28
   %.not57 = icmp eq ptr %136, null
@@ -764,8 +764,8 @@ curl_mime_headers.exit:                           ; preds = %139
   %.not10.i83 = icmp eq ptr %183, null
   br i1 %.not10.i83, label %curl_mime_name.exit.thread, label %curl_mime_filename.exit
 
-curl_mime_name.exit.thread:                       ; preds = %.lr.ph.split, %75, %82, %.critedge.i.i, %101, %84, %3, %33, %44, %6, %137, %curl_mime_headers.exit, %curl_mime_data.exit, %163, %172, %181
-  %.6.ph = phi i32 [ 27, %181 ], [ 27, %172 ], [ 27, %163 ], [ %.047, %curl_mime_data.exit ], [ 27, %137 ], [ 43, %curl_mime_headers.exit ], [ 27, %33 ], [ 43, %44 ], [ 43, %6 ], [ 43, %3 ], [ 43, %84 ], [ 27, %75 ], [ 27, %82 ], [ 43, %.critedge.i.i ], [ 43, %101 ], [ 27, %.lr.ph.split ]
+curl_mime_name.exit.thread:                       ; preds = %.lr.ph.split, %75, %82, %.critedge.i.i, %101, %84, %3, %44, %33, %6, %137, %curl_mime_headers.exit, %curl_mime_data.exit, %163, %172, %181
+  %.6.ph = phi i32 [ 27, %181 ], [ 27, %172 ], [ 27, %163 ], [ 27, %137 ], [ 43, %curl_mime_headers.exit ], [ %.047, %curl_mime_data.exit ], [ 43, %44 ], [ 27, %33 ], [ 43, %6 ], [ 43, %3 ], [ 27, %75 ], [ 27, %82 ], [ 43, %.critedge.i.i ], [ 43, %101 ], [ 43, %84 ], [ 27, %.lr.ph.split ]
   tail call void @Curl_mime_cleanpart(ptr noundef %1)
   br label %curl_mime_filename.exit
 
@@ -845,7 +845,7 @@ cleanup_part_content.exit:                        ; preds = %4, %7
   br label %32
 
 32:                                               ; preds = %cleanup_part_content.exit, %28, %26, %3
-  %.016 = phi i32 [ 27, %26 ], [ 43, %3 ], [ 0, %28 ], [ 0, %cleanup_part_content.exit ]
+  %.016 = phi i32 [ 43, %3 ], [ 27, %26 ], [ 0, %28 ], [ 0, %cleanup_part_content.exit ]
   ret i32 %.016
 }
 
@@ -956,7 +956,7 @@ curl_mime_filename.exit:                          ; preds = %strippath.exit
   br label %strippath.exit.thread
 
 strippath.exit.thread:                            ; preds = %36, %strippath.exit, %24, %22, %curl_mime_filename.exit
-  %.1 = phi i32 [ 26, %22 ], [ %spec.select, %curl_mime_filename.exit ], [ 27, %24 ], [ 27, %strippath.exit ], [ 27, %36 ]
+  %.1 = phi i32 [ %spec.select, %curl_mime_filename.exit ], [ 26, %22 ], [ 27, %24 ], [ 27, %strippath.exit ], [ 27, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %49
 
@@ -1444,7 +1444,7 @@ mime_open_file.exit.thread:                       ; preds = %6, %7, %mime_open_f
   br label %15
 
 15:                                               ; preds = %mime_open_file.exit, %6, %mime_open_file.exit.thread
-  %.0 = phi i32 [ 0, %6 ], [ %14, %mime_open_file.exit.thread ], [ 1, %mime_open_file.exit ]
+  %.0 = phi i32 [ %14, %mime_open_file.exit.thread ], [ 0, %6 ], [ 1, %mime_open_file.exit ]
   ret i32 %.0
 }
 
@@ -1473,7 +1473,7 @@ mime_open_file.exit.thread:                       ; preds = %5, %mime_open_file.
   br label %13
 
 13:                                               ; preds = %mime_open_file.exit, %4, %mime_open_file.exit.thread
-  %.0 = phi i64 [ -2, %4 ], [ %12, %mime_open_file.exit.thread ], [ -1, %mime_open_file.exit ]
+  %.0 = phi i64 [ %12, %mime_open_file.exit.thread ], [ -2, %4 ], [ -1, %mime_open_file.exit ]
   ret i64 %.0
 }
 
@@ -1529,7 +1529,7 @@ define dso_local range(i32 0, 44) i32 @curl_mime_encoder(ptr noundef writeonly c
   br i1 %.not17, label %.loopexit, label %.preheader, !llvm.loop !56
 
 .loopexit:                                        ; preds = %8, %3, %2
-  %.012 = phi i32 [ 0, %3 ], [ 43, %2 ], [ %.1, %8 ]
+  %.012 = phi i32 [ 43, %2 ], [ 0, %3 ], [ %.1, %8 ]
   ret i32 %.012
 }
 
@@ -1693,8 +1693,8 @@ define internal i32 @mime_subparts_seek(ptr noundef captures(none) %0, i64 nound
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   br label %mime_part_rewind.exit.thread
 
-mime_part_rewind.exit.thread:                     ; preds = %.thread.fold.split.i, %24, %17, %20, %25
-  %27 = phi i32 [ %.01423, %25 ], [ %23, %.thread.fold.split.i ], [ 1, %24 ], [ 2, %17 ], [ 2, %20 ]
+mime_part_rewind.exit.thread:                     ; preds = %.thread.fold.split.i, %20, %24, %17, %25
+  %27 = phi i32 [ %.01423, %25 ], [ %23, %.thread.fold.split.i ], [ 2, %20 ], [ 1, %24 ], [ 2, %17 ]
   %28 = getelementptr inbounds nuw i8, ptr %.01524, i64 432
   store i64 1, ptr %28, align 8, !tbaa !25
   %.015.in = getelementptr inbounds nuw i8, ptr %.01524, i64 8
@@ -1713,7 +1713,7 @@ mime_part_rewind.exit.thread:                     ; preds = %.thread.fold.split.
   br label %31
 
 31:                                               ; preds = %._crit_edge, %._crit_edge.thread, %6, %3
-  %.0 = phi i32 [ 0, %6 ], [ 2, %3 ], [ 0, %._crit_edge.thread ], [ %27, %._crit_edge ]
+  %.0 = phi i32 [ 2, %3 ], [ 0, %6 ], [ 0, %._crit_edge.thread ], [ %27, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -1865,8 +1865,8 @@ define internal fastcc i64 @readback_part(ptr noundef %0, ptr noundef %1, i64 no
   store i64 0, ptr %12, align 8, !tbaa !64
   br label %111
 
-.thread:                                          ; preds = %..thread_crit_edge, %26, %29
-  %38 = phi ptr [ %.pre147, %..thread_crit_edge ], [ %.pre148, %26 ], [ %.pre148, %29 ]
+.thread:                                          ; preds = %..thread_crit_edge, %29, %26
+  %38 = phi ptr [ %.pre147, %..thread_crit_edge ], [ %.pre148, %29 ], [ %.pre148, %26 ]
   %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #19
   %40 = load i64, ptr %12, align 8, !tbaa !64
   %41 = tail call i64 @curlx_sotouz(i64 noundef %40) #18
@@ -2044,7 +2044,7 @@ thread-pre-split:                                 ; preds = %81, %87
   br label %read_encoded_part_content.exit
 
 read_encoded_part_content.exit:                   ; preds = %75, %95, %76, %90, %99
-  %.159 = phi i64 [ %100, %99 ], [ %spec.select, %76 ], [ %.048.i.ph, %90 ], [ %spec.select175, %95 ], [ %.048.i.ph, %75 ]
+  %.159 = phi i64 [ %100, %99 ], [ %.048.i.ph, %90 ], [ %spec.select175, %95 ], [ %spec.select, %76 ], [ %.048.i.ph, %75 ]
   switch i64 %.159, label %111 [
     i64 0, label %101
     i64 268435456, label %read_encoded_part_content.exit.thread
@@ -2073,7 +2073,7 @@ read_encoded_part_content.exit:                   ; preds = %75, %95, %76, %90, 
   br label %read_encoded_part_content.exit.thread
 
 read_encoded_part_content.exit.thread:            ; preds = %90, %read_encoded_part_content.exit, %read_encoded_part_content.exit, %read_encoded_part_content.exit, %read_encoded_part_content.exit, %101, %105, %108
-  %.159103 = phi i64 [ 0, %108 ], [ 0, %101 ], [ 0, %105 ], [ -1, %90 ], [ %.159, %read_encoded_part_content.exit ], [ %.159, %read_encoded_part_content.exit ], [ %.159, %read_encoded_part_content.exit ], [ %.159, %read_encoded_part_content.exit ]
+  %.159103 = phi i64 [ 0, %101 ], [ 0, %105 ], [ 0, %108 ], [ -1, %90 ], [ %.159, %read_encoded_part_content.exit ], [ %.159, %read_encoded_part_content.exit ], [ %.159, %read_encoded_part_content.exit ], [ %.159, %read_encoded_part_content.exit ]
   %.not75 = icmp eq i64 %.060131, 0
   %110 = select i1 %.not75, i64 %.159103, i64 %.060131
   br label %.thread104
@@ -2361,7 +2361,7 @@ Curl_mime_contenttype.exit194.thread:             ; preds = %65, %Curl_mime_cont
   br label %Curl_mime_contenttype.exit202
 
 Curl_mime_contenttype.exit202:                    ; preds = %83, %Curl_mime_contenttype.exit194, %Curl_mime_contenttype.exit, %84, %69, %Curl_mime_contenttype.exit194.thread, %32, %search_header.exit
-  %.1121 = phi ptr [ %spec.select, %search_header.exit ], [ %51, %Curl_mime_contenttype.exit ], [ %spec.select177, %Curl_mime_contenttype.exit194.thread ], [ %67, %Curl_mime_contenttype.exit194 ], [ @.str.19, %32 ], [ %86, %84 ], [ null, %69 ], [ null, %83 ]
+  %.1121 = phi ptr [ %spec.select, %search_header.exit ], [ %67, %Curl_mime_contenttype.exit194 ], [ @.str.19, %32 ], [ %spec.select177, %Curl_mime_contenttype.exit194.thread ], [ %86, %84 ], [ null, %69 ], [ %51, %Curl_mime_contenttype.exit ], [ null, %83 ]
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %88 = load i32, ptr %87, align 8, !tbaa !23
   %89 = icmp eq i32 %88, 4
@@ -2411,9 +2411,9 @@ Curl_mime_contenttype.exit202:                    ; preds = %83, %Curl_mime_cont
   br label %content_type_match.exit
 
 content_type_match.exit:                          ; preds = %98, %96, %90, %94, %106, %103
-  %.3123 = phi ptr [ %.1121, %103 ], [ %.1121, %90 ], [ %.1121, %94 ], [ null, %106 ], [ %.1121, %96 ], [ %.1121, %98 ]
-  %.0112 = phi ptr [ null, %103 ], [ %92, %90 ], [ null, %94 ], [ null, %106 ], [ null, %96 ], [ null, %98 ]
-  %.0111 = phi ptr [ null, %103 ], [ %spec.select179, %90 ], [ null, %94 ], [ null, %106 ], [ null, %96 ], [ null, %98 ]
+  %.3123 = phi ptr [ %.1121, %94 ], [ null, %106 ], [ %.1121, %103 ], [ %.1121, %90 ], [ %.1121, %96 ], [ %.1121, %98 ]
+  %.0112 = phi ptr [ null, %94 ], [ null, %106 ], [ null, %103 ], [ %92, %90 ], [ null, %96 ], [ null, %98 ]
+  %.0111 = phi ptr [ null, %94 ], [ null, %106 ], [ null, %103 ], [ %spec.select179, %90 ], [ null, %96 ], [ null, %98 ]
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %108 = load ptr, ptr %107, align 8, !tbaa !28
   %.not8.i204 = icmp eq ptr %108, null
@@ -2652,7 +2652,7 @@ content_type_match.exit232:                       ; preds = %185, %183, %182, %1
   br i1 %.not176, label %190, label %.loopexit, !llvm.loop !80
 
 .loopexit:                                        ; preds = %191, %190, %178, %.thread275, %search_header.exit215.thread280, %select.unfold257
-  %.2115 = phi i32 [ %.3, %select.unfold257 ], [ %171, %.thread275 ], [ 0, %178 ], [ %151, %search_header.exit215.thread280 ], [ 0, %190 ], [ %192, %191 ]
+  %.2115 = phi i32 [ %.3, %select.unfold257 ], [ %151, %search_header.exit215.thread280 ], [ %171, %.thread275 ], [ 0, %178 ], [ 0, %190 ], [ %192, %191 ]
   ret i32 %.2115
 }
 
@@ -2795,7 +2795,7 @@ define dso_local i32 @Curl_creader_set_mime(ptr noundef %0, ptr noundef %1) loca
   br label %35
 
 35:                                               ; preds = %2, %27, %24
-  %.0 = phi i32 [ %34, %27 ], [ 65, %24 ], [ %4, %2 ]
+  %.0 = phi i32 [ 65, %24 ], [ %34, %27 ], [ %4, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -3248,7 +3248,7 @@ define internal i64 @encoder_base64_read(ptr noundef writeonly captures(none) %0
   br label %126
 
 126:                                              ; preds = %79, %.loopexit, %80, %122, %25, %17
-  %.065 = phi i64 [ %spec.select, %79 ], [ -2, %25 ], [ -2, %17 ], [ %123, %122 ], [ %.163, %80 ], [ %.163, %.loopexit ]
+  %.065 = phi i64 [ -2, %17 ], [ -2, %25 ], [ %123, %122 ], [ %.163, %80 ], [ %.163, %.loopexit ], [ %spec.select, %79 ]
   ret i64 %.065
 }
 
@@ -3437,8 +3437,8 @@ qp_lookahead_eol.exit72:                          ; preds = %65
   br label %.thread
 
 .thread:                                          ; preds = %72, %62, %76, %.critedge, %qp_lookahead_eol.exit.thread79
-  %.152 = phi i64 [ 3, %.critedge ], [ %.051, %76 ], [ %.051, %qp_lookahead_eol.exit.thread79 ], [ %.051, %72 ], [ %.051, %62 ]
-  %.150 = phi i64 [ 0, %.critedge ], [ %.049, %76 ], [ %.049, %qp_lookahead_eol.exit.thread79 ], [ %.049, %72 ], [ %.049, %62 ]
+  %.152 = phi i64 [ 3, %.critedge ], [ %.051, %76 ], [ %.051, %qp_lookahead_eol.exit.thread79 ], [ %.051, %62 ], [ %.051, %72 ]
+  %.150 = phi i64 [ 0, %.critedge ], [ %.049, %76 ], [ %.049, %qp_lookahead_eol.exit.thread79 ], [ %.049, %62 ], [ %.049, %72 ]
   %78 = icmp ugt i64 %.152, %.059103
   br i1 %78, label %79, label %80
 
@@ -3667,7 +3667,7 @@ readback_bytes.exit48.thread:                     ; preds = %29
   br label %70
 
 70:                                               ; preds = %readback_bytes.exit48, %24, %27, %readback_bytes.exit48.thread, %61, %63, %64, %67, %58, %48
-  %.047.i = phi i64 [ 0, %24 ], [ 0, %27 ], [ %spec.select.i47, %readback_bytes.exit48 ], [ 0, %readback_bytes.exit48.thread ], [ 0, %63 ], [ 0, %61 ], [ %65, %64 ], [ 0, %67 ], [ %spec.select.i, %58 ], [ %spec.select.i41, %48 ]
+  %.047.i = phi i64 [ 0, %24 ], [ 0, %27 ], [ %spec.select.i47, %readback_bytes.exit48 ], [ 0, %readback_bytes.exit48.thread ], [ 0, %61 ], [ %65, %64 ], [ 0, %67 ], [ 0, %63 ], [ %spec.select.i41, %48 ], [ %spec.select.i, %58 ]
   %71 = add i64 %.047.i, %.049.i66
   %72 = getelementptr inbounds nuw i8, ptr %.051.i64, i64 %.047.i
   %73 = sub i64 %.053.i62, %.047.i
@@ -3714,7 +3714,7 @@ readback_bytes.exit48.thread:                     ; preds = %29
   br label %mime_subparts_read.exit
 
 mime_subparts_read.exit:                          ; preds = %24, %70, %66, %90
-  %.0 = phi i64 [ %spec.select, %66 ], [ %93, %90 ], [ %.049.i66, %24 ], [ %71, %70 ]
+  %.0 = phi i64 [ %93, %90 ], [ %spec.select, %66 ], [ %71, %70 ], [ %.049.i66, %24 ]
   switch i64 %.0, label %94 [
     i64 -2, label %98
     i64 0, label %.sink.split
@@ -4238,7 +4238,7 @@ Curl_mime_read.exit184:                           ; preds = %120
   br label %221
 
 221:                                              ; preds = %.thread194, %76, %199, %200, %207, %213, %214, %180, %174, %151, %147, %56, %35
-  %.0 = phi i32 [ %37, %35 ], [ 0, %56 ], [ 26, %180 ], [ %79, %76 ], [ 26, %147 ], [ 42, %151 ], [ 26, %174 ], [ %114, %.thread194 ], [ 0, %214 ], [ 0, %213 ], [ 0, %207 ], [ 0, %200 ], [ 0, %199 ]
+  %.0 = phi i32 [ %37, %35 ], [ 0, %56 ], [ 26, %180 ], [ 26, %147 ], [ 42, %151 ], [ 26, %174 ], [ %79, %76 ], [ 0, %214 ], [ 0, %213 ], [ 0, %207 ], [ 0, %200 ], [ 0, %199 ], [ %114, %.thread194 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -4341,7 +4341,7 @@ Curl_mime_read.exit:                              ; preds = %18
   br label %.thread
 
 .thread:                                          ; preds = %25, %29, %3, %32, %.critedge
-  %.3 = phi i32 [ 26, %.critedge ], [ 18, %32 ], [ 0, %3 ], [ 0, %29 ], [ 0, %25 ]
+  %.3 = phi i32 [ 18, %32 ], [ 26, %.critedge ], [ 0, %3 ], [ 0, %29 ], [ 0, %25 ]
   ret i32 %.3
 }
 

@@ -4508,8 +4508,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$13lo
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b63d0b36aa1b611E.exit"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b63d0b36aa1b611E.exit": ; preds = %22, %14, %30
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %14 ], [ %.sroa.0.0.copyload35, %30 ], [ -9223372036854775807, %22 ]
-  %.not = phi i1 [ true, %14 ], [ %32, %30 ], [ true, %22 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload35, %30 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %22 ]
+  %.not = phi i1 [ %32, %30 ], [ true, %14 ], [ true, %22 ]
   %33 = icmp eq i64 %2, %12
   %or.cond = and i1 %.not, %33
   br i1 %or.cond, label %.preheader, label %35
@@ -4663,8 +4663,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$13lo
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b63d0b36aa1b611E.exit"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b63d0b36aa1b611E.exit": ; preds = %22, %14, %30
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %14 ], [ %.sroa.0.0.copyload35, %30 ], [ -9223372036854775807, %22 ]
-  %.not = phi i1 [ true, %14 ], [ %32, %30 ], [ true, %22 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload35, %30 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %22 ]
+  %.not = phi i1 [ %32, %30 ], [ true, %14 ], [ true, %22 ]
   %33 = icmp eq i64 %2, %12
   %or.cond = and i1 %.not, %33
   br i1 %or.cond, label %.preheader, label %35
@@ -4818,8 +4818,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$13lo
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f963afc2fffd07aE.exit"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f963afc2fffd07aE.exit": ; preds = %22, %14, %30
-  %.sroa.0.0 = phi i64 [ 2, %14 ], [ %.sroa.0.0.copyload35, %30 ], [ 2, %22 ]
-  %.not = phi i1 [ true, %14 ], [ %32, %30 ], [ true, %22 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload35, %30 ], [ 2, %14 ], [ 2, %22 ]
+  %.not = phi i1 [ %32, %30 ], [ true, %14 ], [ true, %22 ]
   %33 = icmp eq i64 %2, %12
   %or.cond = and i1 %.not, %33
   br i1 %or.cond, label %.preheader, label %35
@@ -4973,8 +4973,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$13lo
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f963afc2fffd07aE.exit"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f963afc2fffd07aE.exit": ; preds = %22, %14, %30
-  %.sroa.0.0 = phi i64 [ 2, %14 ], [ %.sroa.0.0.copyload35, %30 ], [ 2, %22 ]
-  %.not = phi i1 [ true, %14 ], [ %32, %30 ], [ true, %22 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload35, %30 ], [ 2, %14 ], [ 2, %22 ]
+  %.not = phi i1 [ %32, %30 ], [ true, %14 ], [ true, %22 ]
   %33 = icmp eq i64 %2, %12
   %or.cond = and i1 %.not, %33
   br i1 %or.cond, label %.preheader, label %35
@@ -5561,8 +5561,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
           to label %53 unwind label %.loopexit
 
 .body50:                                          ; preds = %.loopexit, %129, %.body.thread.i, %80, %94
-  %.2 = phi i1 [ false, %129 ], [ false, %.body.thread.i ], [ true, %80 ], [ true, %94 ], [ true, %.loopexit ]
-  %.pn29 = phi { ptr, i32 } [ %130, %129 ], [ %148, %.body.thread.i ], [ %81, %80 ], [ %95, %94 ], [ %lpad.loopexit, %.loopexit ]
+  %.2 = phi i1 [ true, %94 ], [ true, %80 ], [ false, %.body.thread.i ], [ false, %129 ], [ true, %.loopexit ]
+  %.pn29 = phi { ptr, i32 } [ %95, %94 ], [ %81, %80 ], [ %148, %.body.thread.i ], [ %130, %129 ], [ %lpad.loopexit, %.loopexit ]
   %50 = load i64, ptr %11, align 8, !range !363, !alias.scope !835, !noundef !4
   %51 = icmp eq i64 %50, 2
   br i1 %51, label %.noexc38, label %52
@@ -6138,8 +6138,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   br label %"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h98441c15276daedeE.exit89"
 
 .body51:                                          ; preds = %185, %.body.thread.i, %136, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16136519120435910083.exit.i.i.i71", %123, %.body60, %76
-  %.2 = phi i1 [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16136519120435910083.exit.i.i.i71" ], [ false, %.body.thread.i ], [ false, %185 ], [ true, %136 ], [ true, %76 ], [ true, %.body60 ], [ true, %123 ]
-  %.pn29 = phi { ptr, i32 } [ %137, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16136519120435910083.exit.i.i.i71" ], [ %204, %.body.thread.i ], [ %186, %185 ], [ %137, %136 ], [ %77, %76 ], [ %eh.lpad-body61, %.body60 ], [ %124, %123 ]
+  %.2 = phi i1 [ true, %76 ], [ true, %.body60 ], [ true, %123 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16136519120435910083.exit.i.i.i71" ], [ true, %136 ], [ false, %.body.thread.i ], [ false, %185 ]
+  %.pn29 = phi { ptr, i32 } [ %77, %76 ], [ %eh.lpad-body61, %.body60 ], [ %124, %123 ], [ %137, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16136519120435910083.exit.i.i.i71" ], [ %137, %136 ], [ %204, %.body.thread.i ], [ %186, %185 ]
   invoke fastcc void @"_ZN4core3ptr179drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h22db55e330a277eeE"(ptr noalias noundef align 8 dereferenceable(80) %12) #21
           to label %29 unwind label %153
 
@@ -6541,7 +6541,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   resume { ptr, i32 } %.pn29.pn102
 
 .thread99:                                        ; preds = %42, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16136519120435910083.exit.i.i.i", %30, %25, %29
-  %.pn29.pn103 = phi { ptr, i32 } [ %.pn29, %29 ], [ %26, %25 ], [ %43, %42 ], [ %31, %30 ], [ %43, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16136519120435910083.exit.i.i.i" ]
+  %.pn29.pn103 = phi { ptr, i32 } [ %.pn29, %29 ], [ %26, %25 ], [ %31, %30 ], [ %43, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16136519120435910083.exit.i.i.i" ], [ %43, %42 ]
   invoke void @"_ZN4core3ptr174drop_in_place$LT$alloc..vec..Vec$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17ha196ed2cf0a1bbadE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #21
           to label %230 unwind label %153
 }
@@ -6698,8 +6698,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   br i1 %56, label %.loopexit75, label %60
 
 .body49:                                          ; preds = %.loopexit, %132, %.body.thread.i, %86, %97
-  %.2 = phi i1 [ false, %132 ], [ false, %.body.thread.i ], [ true, %86 ], [ true, %97 ], [ true, %.loopexit ]
-  %.pn29 = phi { ptr, i32 } [ %133, %132 ], [ %151, %.body.thread.i ], [ %87, %86 ], [ %98, %97 ], [ %lpad.loopexit, %.loopexit ]
+  %.2 = phi i1 [ true, %97 ], [ true, %86 ], [ false, %.body.thread.i ], [ false, %132 ], [ true, %.loopexit ]
+  %.pn29 = phi { ptr, i32 } [ %98, %97 ], [ %87, %86 ], [ %151, %.body.thread.i ], [ %133, %132 ], [ %lpad.loopexit, %.loopexit ]
   %57 = load i64, ptr %11, align 8, !range !230, !alias.scope !1014, !noundef !4
   %58 = icmp eq i64 %57, -9223372036854775807
   br i1 %58, label %.noexc38, label %59
@@ -7157,8 +7157,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
           to label %53 unwind label %.loopexit
 
 .body50:                                          ; preds = %.loopexit, %129, %.body.thread.i, %80, %94
-  %.2 = phi i1 [ false, %129 ], [ false, %.body.thread.i ], [ true, %80 ], [ true, %94 ], [ true, %.loopexit ]
-  %.pn29 = phi { ptr, i32 } [ %130, %129 ], [ %148, %.body.thread.i ], [ %81, %80 ], [ %95, %94 ], [ %lpad.loopexit, %.loopexit ]
+  %.2 = phi i1 [ true, %94 ], [ true, %80 ], [ false, %.body.thread.i ], [ false, %129 ], [ true, %.loopexit ]
+  %.pn29 = phi { ptr, i32 } [ %95, %94 ], [ %81, %80 ], [ %148, %.body.thread.i ], [ %130, %129 ], [ %lpad.loopexit, %.loopexit ]
   %50 = load i64, ptr %11, align 8, !range !363, !alias.scope !1083, !noundef !4
   %51 = icmp eq i64 %50, 2
   br i1 %51, label %.noexc38, label %52
@@ -7742,8 +7742,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   br label %"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h98441c15276daedeE.exit89"
 
 .body51:                                          ; preds = %191, %.body.thread.i, %142, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16136519120435910083.exit.i.i.i71", %129, %.body60, %82
-  %.2 = phi i1 [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16136519120435910083.exit.i.i.i71" ], [ false, %.body.thread.i ], [ false, %191 ], [ true, %142 ], [ true, %82 ], [ true, %.body60 ], [ true, %129 ]
-  %.pn29 = phi { ptr, i32 } [ %143, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16136519120435910083.exit.i.i.i71" ], [ %210, %.body.thread.i ], [ %192, %191 ], [ %143, %142 ], [ %83, %82 ], [ %eh.lpad-body61, %.body60 ], [ %130, %129 ]
+  %.2 = phi i1 [ true, %82 ], [ true, %.body60 ], [ true, %129 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16136519120435910083.exit.i.i.i71" ], [ true, %142 ], [ false, %.body.thread.i ], [ false, %191 ]
+  %.pn29 = phi { ptr, i32 } [ %83, %82 ], [ %eh.lpad-body61, %.body60 ], [ %130, %129 ], [ %143, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16136519120435910083.exit.i.i.i71" ], [ %143, %142 ], [ %210, %.body.thread.i ], [ %192, %191 ]
   invoke fastcc void @"_ZN4core3ptr179drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h22db55e330a277eeE"(ptr noalias noundef align 8 dereferenceable(80) %12) #21
           to label %29 unwind label %159
 
@@ -8145,7 +8145,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   resume { ptr, i32 } %.pn29.pn102
 
 .thread99:                                        ; preds = %42, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16136519120435910083.exit.i.i.i", %30, %25, %29
-  %.pn29.pn103 = phi { ptr, i32 } [ %.pn29, %29 ], [ %26, %25 ], [ %43, %42 ], [ %31, %30 ], [ %43, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16136519120435910083.exit.i.i.i" ]
+  %.pn29.pn103 = phi { ptr, i32 } [ %.pn29, %29 ], [ %26, %25 ], [ %31, %30 ], [ %43, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16136519120435910083.exit.i.i.i" ], [ %43, %42 ]
   invoke void @"_ZN4core3ptr174drop_in_place$LT$alloc..vec..Vec$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17ha196ed2cf0a1bbadE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #21
           to label %236 unwind label %159
 }
@@ -8294,8 +8294,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   br i1 %50, label %.loopexit75, label %54
 
 .body49:                                          ; preds = %.loopexit, %126, %.body.thread.i, %80, %91
-  %.2 = phi i1 [ false, %126 ], [ false, %.body.thread.i ], [ true, %80 ], [ true, %91 ], [ true, %.loopexit ]
-  %.pn29 = phi { ptr, i32 } [ %127, %126 ], [ %145, %.body.thread.i ], [ %81, %80 ], [ %92, %91 ], [ %lpad.loopexit, %.loopexit ]
+  %.2 = phi i1 [ true, %91 ], [ true, %80 ], [ false, %.body.thread.i ], [ false, %126 ], [ true, %.loopexit ]
+  %.pn29 = phi { ptr, i32 } [ %92, %91 ], [ %81, %80 ], [ %145, %.body.thread.i ], [ %127, %126 ], [ %lpad.loopexit, %.loopexit ]
   %51 = load i64, ptr %11, align 8, !range !230, !alias.scope !1262, !noundef !4
   %52 = icmp eq i64 %51, -9223372036854775807
   br i1 %52, label %.noexc38, label %53

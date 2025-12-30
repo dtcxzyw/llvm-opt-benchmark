@@ -1260,9 +1260,9 @@ define internal i32 @dissect_smc_tcp_pdu(ptr noundef %0, ptr noundef readonly ca
   br label %20
 
 20:                                               ; preds = %18, %.thread
-  %.str.300.sink = phi ptr [ %spec.select135, %18 ], [ @.str.347, %.thread ]
-  %.087112 = phi i8 [ %spec.select, %18 ], [ %17, %.thread ]
-  %.088110 = phi i8 [ %spec.select, %18 ], [ %15, %.thread ]
+  %.str.300.sink = phi ptr [ @.str.347, %.thread ], [ %spec.select135, %18 ]
+  %.087112 = phi i8 [ %17, %.thread ], [ %spec.select, %18 ]
+  %.088110 = phi i8 [ %15, %.thread ], [ %spec.select, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @col_set_str(ptr noundef %22, i32 noundef 35, ptr noundef nonnull %.str.300.sink)
@@ -1296,7 +1296,7 @@ define internal i32 @dissect_smc_tcp_pdu(ptr noundef %0, ptr noundef readonly ca
   br label %get_mixed_type.exit
 
 get_mixed_type.exit:                              ; preds = %25, %26, %27, %30
-  %.0.i = phi i8 [ 3, %27 ], [ %.087112, %26 ], [ %.088110, %25 ], [ %spec.select.i, %30 ]
+  %.0.i = phi i8 [ %.087112, %26 ], [ %.088110, %25 ], [ 3, %27 ], [ %spec.select.i, %30 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = zext nneg i8 %.0.i to i32

@@ -227,7 +227,7 @@ atomic_store_p.exit27.thread:                     ; preds = %rtree_leaf_elm_look
   br label %atomic_store_p.exit27
 
 atomic_store_p.exit27:                            ; preds = %119, %95, %85, %107
-  %121 = phi ptr [ %118, %107 ], [ %90, %85 ], [ %102, %95 ], [ %120, %119 ]
+  %121 = phi ptr [ %90, %85 ], [ %102, %95 ], [ %120, %119 ], [ %118, %107 ]
   %122 = load atomic i64, ptr %.0.i21 monotonic, align 8
   %123 = and i64 %122, -29
   %124 = shl i32 %3, 2
@@ -449,8 +449,8 @@ extent_neighbor_head_state_mergeable.exit:        ; preds = %86, %84
   call void @duckdb_je_emap_update_edata_state(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %81, i32 noundef 5)
   br label %extent_can_acquire_neighbor.exit.thread
 
-extent_can_acquire_neighbor.exit.thread:          ; preds = %106, %73, %91, %94, %96, %89, %103, %84, %86, %rtree_leaf_elm_lookup.exit
-  %.1 = phi ptr [ null, %rtree_leaf_elm_lookup.exit ], [ %81, %106 ], [ null, %73 ], [ null, %91 ], [ null, %94 ], [ null, %96 ], [ null, %89 ], [ null, %103 ], [ null, %84 ], [ null, %86 ]
+extent_can_acquire_neighbor.exit.thread:          ; preds = %106, %73, %89, %91, %94, %96, %103, %84, %86, %rtree_leaf_elm_lookup.exit
+  %.1 = phi ptr [ null, %rtree_leaf_elm_lookup.exit ], [ %81, %106 ], [ null, %73 ], [ null, %89 ], [ null, %91 ], [ null, %94 ], [ null, %96 ], [ null, %103 ], [ null, %84 ], [ null, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %107
 
@@ -717,7 +717,7 @@ rtree_leaf_elm_lookup.exit:                       ; preds = %96, %74, %84, %108
   br label %111
 
 111:                                              ; preds = %rtree_leaf_elm_lookup.exit, %rtree_leaf_elm_lookup.exit23
-  %.0 = phi i1 [ %or.cond19, %rtree_leaf_elm_lookup.exit ], [ true, %rtree_leaf_elm_lookup.exit23 ]
+  %.0 = phi i1 [ true, %rtree_leaf_elm_lookup.exit23 ], [ %or.cond19, %rtree_leaf_elm_lookup.exit ]
   ret i1 %.0
 }
 
@@ -848,7 +848,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %7, %8
   br label %rtree_leaf_elm_lookup.exit.i
 
 rtree_leaf_elm_lookup.exit.i:                     ; preds = %31, %42, %51, %74, %62
-  %.1.i = phi ptr [ %.014.i36, %31 ], [ %47, %42 ], [ %57, %51 ], [ %75, %74 ], [ %73, %62 ]
+  %.1.i = phi ptr [ %47, %42 ], [ %57, %51 ], [ %75, %74 ], [ %73, %62 ], [ %.014.i36, %31 ]
   store atomic i64 %28, ptr %.1.i release, align 8
   %76 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %77 = add i64 %.0.i737, 4096
@@ -1024,7 +1024,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %6, %7
   br label %rtree_leaf_elm_lookup.exit.i.i
 
 rtree_leaf_elm_lookup.exit.i.i:                   ; preds = %69, %57, %46, %37, %26
-  %.1.i.i = phi ptr [ %.014.i24.i, %26 ], [ %42, %37 ], [ %52, %46 ], [ %70, %69 ], [ %68, %57 ]
+  %.1.i.i = phi ptr [ %42, %37 ], [ %52, %46 ], [ %70, %69 ], [ %68, %57 ], [ %.014.i24.i, %26 ]
   store atomic i64 65302194596872192, ptr %.1.i.i release, align 8
   %71 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %72 = add i64 %.0.i25.i, 4096
@@ -1331,7 +1331,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %11, %12
   br label %34
 
 34:                                               ; preds = %31, %tsdn_rtree_ctx.exit, %25, %28
-  %.0 = phi i1 [ true, %tsdn_rtree_ctx.exit ], [ %33, %31 ], [ true, %28 ], [ true, %25 ]
+  %.0 = phi i1 [ true, %28 ], [ true, %25 ], [ true, %tsdn_rtree_ctx.exit ], [ %33, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0

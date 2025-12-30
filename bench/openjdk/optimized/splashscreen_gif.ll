@@ -206,7 +206,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   br label %113
 
 113:                                              ; preds = %111, %92
-  %.0226 = phi i32 [ %.263, %111 ], [ 0, %92 ]
+  %.0226 = phi i32 [ 0, %92 ], [ %.263, %111 ]
   %114 = getelementptr inbounds nuw i8, ptr %81, i64 40
   %115 = load i32, ptr %114, align 8
   %116 = icmp sgt i32 %115, 0
@@ -472,7 +472,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   br label %249
 
 249:                                              ; preds = %._crit_edge283, %41, %37, %21, %34, %10, %13, %18, %2, %200, %61, %47
-  %.0210 = phi i32 [ 0, %2 ], [ 0, %200 ], [ %.264, %._crit_edge283 ], [ 0, %41 ], [ 0, %61 ], [ 0, %47 ], [ 0, %37 ], [ 0, %21 ], [ 0, %10 ], [ 0, %18 ], [ 0, %13 ], [ 0, %34 ]
+  %.0210 = phi i32 [ 0, %200 ], [ 0, %61 ], [ 0, %47 ], [ 0, %2 ], [ 0, %18 ], [ 0, %13 ], [ 0, %10 ], [ 0, %34 ], [ 0, %21 ], [ 0, %37 ], [ 0, %41 ], [ %.264, %._crit_edge283 ]
   ret i32 %.0210
 }
 

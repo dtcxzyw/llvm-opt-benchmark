@@ -356,7 +356,7 @@ pmix_obj_run_constructors.exit66:                 ; preds = %.lr.ph.i63, %100
   br label %122
 
 122:                                              ; preds = %pmix_obj_update.exit49, %92, %91, %pmix_obj_update.exit, %67, %66, %120, %pmix_obj_new_tma.exit, %18
-  %.0 = phi ptr [ %23, %18 ], [ null, %pmix_obj_new_tma.exit ], [ %121, %120 ], [ null, %pmix_obj_update.exit ], [ null, %66 ], [ null, %67 ], [ null, %91 ], [ null, %92 ], [ null, %pmix_obj_update.exit49 ]
+  %.0 = phi ptr [ %23, %18 ], [ null, %pmix_obj_new_tma.exit ], [ %121, %120 ], [ null, %66 ], [ null, %67 ], [ null, %pmix_obj_update.exit ], [ null, %91 ], [ null, %92 ], [ null, %pmix_obj_update.exit49 ]
   ret ptr %.0
 }
 
@@ -500,7 +500,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %33
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !64
 
 .loopexit:                                        ; preds = %47, %10, %19, %44, %46, %pmix_obj_update.exit, %15, %7, %1
-  %.0 = phi i32 [ -46, %1 ], [ 0, %7 ], [ 0, %15 ], [ %20, %19 ], [ %20, %pmix_obj_update.exit ], [ %20, %46 ], [ %20, %44 ], [ -46, %10 ], [ -46, %47 ]
+  %.0 = phi i32 [ -46, %1 ], [ 0, %7 ], [ 0, %15 ], [ %20, %pmix_obj_update.exit ], [ %20, %46 ], [ %20, %44 ], [ %20, %19 ], [ -46, %10 ], [ -46, %47 ]
   ret i32 %.0
 }
 
@@ -625,7 +625,7 @@ define internal fastcc noundef i32 @start_progress_engine(ptr noundef %0) unname
   br label %60
 
 60:                                               ; preds = %11, %59, %9, %1
-  %.0 = phi i32 [ %8, %9 ], [ %8, %1 ], [ %.1, %59 ], [ 0, %11 ]
+  %.0 = phi i32 [ %8, %1 ], [ %8, %9 ], [ %.1, %59 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -759,7 +759,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %48
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !72
 
 .loopexit:                                        ; preds = %62, %10, %pmix_obj_update.exit, %61, %59, %15, %7, %1
-  %.0 = phi i32 [ -46, %1 ], [ 0, %7 ], [ 0, %15 ], [ 0, %pmix_obj_update.exit ], [ 0, %59 ], [ 0, %61 ], [ -46, %10 ], [ -46, %62 ]
+  %.0 = phi i32 [ -46, %1 ], [ 0, %7 ], [ 0, %15 ], [ 0, %59 ], [ 0, %61 ], [ 0, %pmix_obj_update.exit ], [ -46, %10 ], [ -46, %62 ]
   ret i32 %.0
 }
 
@@ -874,7 +874,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %37
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !73
 
 .loopexit:                                        ; preds = %51, %10, %pmix_obj_update.exit, %50, %48, %15, %7, %1
-  %.0 = phi i32 [ -46, %1 ], [ 0, %7 ], [ 0, %15 ], [ 0, %pmix_obj_update.exit ], [ 0, %48 ], [ 0, %50 ], [ -46, %10 ], [ -46, %51 ]
+  %.0 = phi i32 [ -46, %1 ], [ 0, %7 ], [ 0, %15 ], [ 0, %48 ], [ 0, %50 ], [ 0, %pmix_obj_update.exit ], [ -46, %10 ], [ -46, %51 ]
   ret i32 %.0
 }
 
@@ -933,7 +933,7 @@ define range(i32 -46, 1) i32 @pmix_progress_thread_pause(ptr noundef readonly ca
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !74
 
 .loopexit:                                        ; preds = %25, %10, %15, %19, %7, %1
-  %.09 = phi i32 [ -46, %1 ], [ 0, %7 ], [ 0, %15 ], [ 0, %19 ], [ -46, %10 ], [ -46, %25 ]
+  %.09 = phi i32 [ -46, %1 ], [ 0, %7 ], [ 0, %19 ], [ 0, %15 ], [ -46, %10 ], [ -46, %25 ]
   ret i32 %.09
 }
 
@@ -987,7 +987,7 @@ define noundef i32 @pmix_progress_thread_resume(ptr noundef readonly captures(ad
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !75
 
 .loopexit:                                        ; preds = %21, %10, %15, %7, %1, %19
-  %.09 = phi i32 [ -46, %1 ], [ 0, %7 ], [ %20, %19 ], [ -28, %15 ], [ -46, %10 ], [ -46, %21 ]
+  %.09 = phi i32 [ %20, %19 ], [ -46, %1 ], [ 0, %7 ], [ -28, %15 ], [ -46, %10 ], [ -46, %21 ]
   ret i32 %.09
 }
 

@@ -163,7 +163,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfpregs_set(ptr noundef captures
   br label %50
 
 50:                                               ; preds = %15, %45, %44, %21, %6
-  %51 = phi i32 [ -22, %6 ], [ 0, %44 ], [ -22, %21 ], [ 0, %45 ], [ -14, %15 ]
+  %51 = phi i32 [ -22, %6 ], [ -22, %21 ], [ 0, %45 ], [ 0, %44 ], [ -14, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %51
 }
@@ -664,7 +664,7 @@ define dso_local noundef range(i32 -22, 1) i32 @fpregs_set(ptr noundef captures(
   br label %80
 
 80:                                               ; preds = %15, %75, %74, %6
-  %81 = phi i32 [ -22, %6 ], [ 0, %74 ], [ 0, %75 ], [ -14, %15 ]
+  %81 = phi i32 [ -22, %6 ], [ 0, %75 ], [ 0, %74 ], [ -14, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %81
 }

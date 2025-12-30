@@ -1063,7 +1063,7 @@ compile_trampoline.exit:                          ; preds = %8, %._crit_edge.i
   br label %compile_trampoline.exit.thread
 
 compile_trampoline.exit.thread:                   ; preds = %19, %1, %32, %compile_trampoline.exit
-  %.1 = phi i32 [ 0, %compile_trampoline.exit ], [ %37, %32 ], [ 0, %1 ], [ 0, %19 ]
+  %.1 = phi i32 [ %37, %32 ], [ 0, %compile_trampoline.exit ], [ 0, %1 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 }

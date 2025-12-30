@@ -324,7 +324,7 @@ lj_opt_cse.exit:                                  ; preds = %114
   unreachable
 
 lj_opt_cse.exit.thread:                           ; preds = %183, %lj_ir_nextins.exit.i, %.thread.i, %184, %174, %39, %27, %15
-  %.070 = phi i32 [ %28, %27 ], [ %40, %39 ], [ %168, %lj_ir_nextins.exit.i ], [ %182, %174 ], [ %186, %184 ], [ %16, %15 ], [ %140, %.thread.i ], [ 65535, %183 ]
+  %.070 = phi i32 [ %28, %27 ], [ %40, %39 ], [ %182, %174 ], [ %186, %184 ], [ %16, %15 ], [ %140, %.thread.i ], [ %168, %lj_ir_nextins.exit.i ], [ 65535, %183 ]
   ret i32 %.070
 }
 
@@ -831,7 +831,7 @@ define internal range(i32 3, 5) i32 @fold_kfold_intcomp(ptr noundef readonly cap
   br label %28
 
 28:                                               ; preds = %1, %25, %23, %21, %18, %15, %13, %11, %8
-  %.0 = phi i32 [ %27, %25 ], [ %10, %8 ], [ %12, %11 ], [ %14, %13 ], [ %17, %15 ], [ %20, %18 ], [ %22, %21 ], [ %24, %23 ], [ 3, %1 ]
+  %.0 = phi i32 [ %10, %8 ], [ %12, %11 ], [ %14, %13 ], [ %17, %15 ], [ %20, %18 ], [ %22, %21 ], [ %24, %23 ], [ %27, %25 ], [ 3, %1 ]
   ret i32 %.0
 }
 
@@ -970,7 +970,7 @@ define internal i32 @fold_kfold_int64arith2(ptr noundef %0) #0 {
   br label %26
 
 26:                                               ; preds = %20, %24, %22, %13, %17, %15
-  %.0 = phi i64 [ %18, %17 ], [ %14, %13 ], [ %16, %15 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ]
+  %.0 = phi i64 [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ]
   %27 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %.0) #13
   ret i32 %27
 }
@@ -1069,7 +1069,7 @@ define internal range(i32 3, 5) i32 @fold_kfold_int64comp(ptr noundef readonly c
   br label %28
 
 28:                                               ; preds = %1, %25, %23, %21, %18, %15, %13, %11, %8
-  %.0 = phi i32 [ %27, %25 ], [ %10, %8 ], [ %12, %11 ], [ %14, %13 ], [ %17, %15 ], [ %20, %18 ], [ %22, %21 ], [ %24, %23 ], [ 3, %1 ]
+  %.0 = phi i32 [ %10, %8 ], [ %12, %11 ], [ %14, %13 ], [ %17, %15 ], [ %20, %18 ], [ %22, %21 ], [ %24, %23 ], [ %27, %25 ], [ 3, %1 ]
   ret i32 %.0
 }
 
@@ -1188,7 +1188,7 @@ define internal range(i32 0, 65536) i32 @fold_kfold_strref_snew(ptr noundef %0) 
   br label %37
 
 37:                                               ; preds = %26, %30, %18, %1, %15
-  %.018 = phi i32 [ 0, %1 ], [ %17, %15 ], [ 0, %26 ], [ 1, %30 ], [ 0, %18 ]
+  %.018 = phi i32 [ %17, %15 ], [ 0, %1 ], [ 1, %30 ], [ 0, %26 ], [ 0, %18 ]
   ret i32 %.018
 }
 
@@ -1485,12 +1485,12 @@ define internal i32 @fold_bufput_bufstr(ptr noundef %0) #0 {
   %101 = tail call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef nonnull %0, i32 noundef 22, i32 noundef %94, i32 noundef %97, i32 noundef %100) #13
   br label %103
 
-.thread77:                                        ; preds = %84, %69, %62, %80, %58, %50, %1
+.thread77:                                        ; preds = %84, %62, %69, %80, %50, %58, %1
   %102 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %103
 
 103:                                              ; preds = %41, %92, %.thread70, %.thread77
-  %.7 = phi i32 [ %102, %.thread77 ], [ %43, %41 ], [ %91, %.thread70 ], [ %101, %92 ]
+  %.7 = phi i32 [ %102, %.thread77 ], [ %43, %41 ], [ %101, %92 ], [ %91, %.thread70 ]
   ret i32 %.7
 }
 
@@ -1807,7 +1807,7 @@ lj_opt_cse.exit.loopexit:                         ; preds = %111
   br label %lj_opt_cse.exit
 
 lj_opt_cse.exit:                                  ; preds = %lj_opt_cse.exit.loopexit, %87, %lj_ir_nextins.exit.i, %.thread.i, %.thread61, %14
-  %.1 = phi i32 [ %16, %14 ], [ %90, %87 ], [ %127, %.thread61 ], [ %44, %.thread.i ], [ %73, %lj_ir_nextins.exit.i ], [ %.044.le, %lj_opt_cse.exit.loopexit ]
+  %.1 = phi i32 [ %16, %14 ], [ %127, %.thread61 ], [ %90, %87 ], [ %73, %lj_ir_nextins.exit.i ], [ %44, %.thread.i ], [ %.044.le, %lj_opt_cse.exit.loopexit ]
   ret i32 %.1
 }
 
@@ -2745,7 +2745,7 @@ define internal range(i32 0, 65536) i32 @fold_shortcut_conv_num_int(ptr noundef 
   br label %14
 
 14:                                               ; preds = %6, %1, %11
-  %.0 = phi i32 [ 0, %1 ], [ %13, %11 ], [ 0, %6 ]
+  %.0 = phi i32 [ %13, %11 ], [ 0, %1 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -2804,7 +2804,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_conv_i64_num(ptr noundef 
   br label %17
 
 17:                                               ; preds = %7, %1, %14, %11
-  %.0 = phi i32 [ 0, %1 ], [ 1, %11 ], [ %16, %14 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %11 ], [ %16, %14 ], [ 0, %1 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -2847,7 +2847,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_conv_int_i64(ptr noundef 
   br label %24
 
 24:                                               ; preds = %7, %1, %21, %18
-  %.0 = phi i32 [ 0, %1 ], [ %20, %18 ], [ 1, %21 ], [ 0, %7 ]
+  %.0 = phi i32 [ %20, %18 ], [ 1, %21 ], [ 0, %1 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -2873,7 +2873,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_conv_flt_num(ptr noundef 
   br label %14
 
 14:                                               ; preds = %6, %1, %11
-  %.0 = phi i32 [ 0, %1 ], [ %13, %11 ], [ 0, %6 ]
+  %.0 = phi i32 [ %13, %11 ], [ 0, %1 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -2979,8 +2979,8 @@ define internal range(i32 0, 65536) i32 @fold_simplify_conv_sext(ptr noundef rea
   br label %.thread
 
 .thread:                                          ; preds = %13, %16, %22, %18
-  %.024.in = phi i16 [ %29, %22 ], [ %3, %18 ], [ %3, %13 ], [ %3, %16 ]
-  %.023 = phi i64 [ %28, %22 ], [ 0, %18 ], [ 0, %13 ], [ 0, %16 ]
+  %.024.in = phi i16 [ %29, %22 ], [ %3, %18 ], [ %3, %16 ], [ %3, %13 ]
+  %.023 = phi i64 [ %28, %22 ], [ 0, %18 ], [ 0, %16 ], [ 0, %13 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 2992
   %31 = load i16, ptr %30, align 8, !tbaa !75
   %32 = icmp eq i16 %.024.in, %31
@@ -3018,7 +3018,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_conv_sext(ptr noundef rea
   br label %51
 
 51:                                               ; preds = %.thread, %44, %36, %33, %7, %1, %49
-  %.0 = phi i32 [ 0, %1 ], [ %50, %49 ], [ 0, %7 ], [ 0, %33 ], [ 0, %36 ], [ 0, %44 ], [ 0, %.thread ]
+  %.0 = phi i32 [ %50, %49 ], [ 0, %1 ], [ 0, %7 ], [ 0, %33 ], [ 0, %36 ], [ 0, %44 ], [ 0, %.thread ]
   ret i32 %.0
 }
 
@@ -3450,7 +3450,7 @@ define internal i32 @fold_simplify_intsub(ptr noundef %0) #0 {
   br label %19
 
 19:                                               ; preds = %1, %7, %16, %18
-  %.0 = phi i32 [ 2, %18 ], [ %17, %16 ], [ 0, %7 ], [ 0, %1 ]
+  %.0 = phi i32 [ %17, %16 ], [ 2, %18 ], [ 0, %7 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -3526,7 +3526,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_intsubsub_leftcancel(ptr noun
   br label %22
 
 22:                                               ; preds = %1, %11, %7, %17
-  %.0 = phi i32 [ 0, %7 ], [ 1, %17 ], [ 0, %11 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %17 ], [ 0, %7 ], [ 0, %11 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -3560,7 +3560,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_intsubsub_rightcancel(ptr
   br label %20
 
 20:                                               ; preds = %1, %11, %7, %16
-  %.0 = phi i32 [ 0, %7 ], [ %19, %16 ], [ 0, %11 ], [ 0, %1 ]
+  %.0 = phi i32 [ %19, %16 ], [ 0, %7 ], [ 0, %11 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -3681,7 +3681,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_intsubaddadd_cancel(ptr nound
   br label %40
 
 40:                                               ; preds = %.sink.split, %1, %36, %12, %7
-  %.0 = phi i32 [ 0, %12 ], [ 0, %36 ], [ 0, %7 ], [ 0, %1 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %12 ], [ 0, %36 ], [ 0, %1 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -4287,7 +4287,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_andk_shiftk(ptr noundef r
   br label %kfold_intop.exit
 
 kfold_intop.exit:                                 ; preds = %12, %16, %18, %20, %22, %24, %25, %26, %28, %31, %34, %36
-  %.0.i = phi i32 [ %35, %34 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ 1, %24 ], [ %13, %25 ], [ %37, %36 ], [ %27, %26 ], [ %30, %28 ], [ %33, %31 ], [ -1, %12 ]
+  %.0.i = phi i32 [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ 1, %24 ], [ %13, %25 ], [ %27, %26 ], [ %30, %28 ], [ %33, %31 ], [ %35, %34 ], [ %37, %36 ], [ -1, %12 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %39 = load i32, ptr %38, align 8, !tbaa !28
   %40 = icmp eq i32 %.0.i, %39
@@ -4642,8 +4642,8 @@ define internal range(i32 0, 65536) i32 @fold_reassoc_intarith_k(ptr noundef %0)
   br label %kfold_intop.exit
 
 kfold_intop.exit:                                 ; preds = %19, %21, %23, %25, %27, %29, %31, %33, %35, %38, %41, %44, %46, %48, %50
-  %52 = phi i32 [ %14, %50 ], [ %14, %19 ], [ %14, %21 ], [ %14, %23 ], [ %.pre, %25 ], [ %14, %27 ], [ %14, %29 ], [ %14, %31 ], [ %14, %33 ], [ %14, %35 ], [ %14, %38 ], [ %14, %41 ], [ %14, %44 ], [ %14, %46 ], [ %14, %48 ]
-  %.0.i = phi i32 [ %51, %50 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ]
+  %52 = phi i32 [ %14, %19 ], [ %14, %21 ], [ %14, %23 ], [ %.pre, %25 ], [ %14, %27 ], [ %14, %29 ], [ %14, %31 ], [ %14, %33 ], [ %14, %35 ], [ %14, %38 ], [ %14, %41 ], [ %14, %44 ], [ %14, %46 ], [ %14, %48 ], [ %14, %50 ]
+  %.0.i = phi i32 [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ]
   %53 = icmp eq i32 %.0.i, %52
   br i1 %53, label %kfold_intop.exit.thread, label %56
 
@@ -4669,7 +4669,7 @@ kfold_intop.exit.thread:                          ; preds = %13, %kfold_intop.ex
   br label %65
 
 65:                                               ; preds = %1, %kfold_intop.exit.thread, %60, %56
-  %.1 = phi i32 [ 0, %56 ], [ %55, %kfold_intop.exit.thread ], [ 1, %60 ], [ 0, %1 ]
+  %.1 = phi i32 [ %55, %kfold_intop.exit.thread ], [ 1, %60 ], [ 0, %56 ], [ 0, %1 ]
   ret i32 %.1
 }
 
@@ -4774,7 +4774,7 @@ kfold_int64arith.exit:                            ; preds = %13, %20, %22, %24, 
   br label %53
 
 53:                                               ; preds = %1, %48, %kfold_int64arith.exit
-  %.1 = phi i32 [ 0, %kfold_int64arith.exit ], [ 1, %48 ], [ 0, %1 ]
+  %.1 = phi i32 [ 1, %48 ], [ 0, %kfold_int64arith.exit ], [ 0, %1 ]
   ret i32 %.1
 }
 
@@ -4918,7 +4918,7 @@ define internal i32 @fold_reassoc_shift(ptr noundef %0) #0 {
   br label %41
 
 41:                                               ; preds = %32, %39, %17
-  %.0 = phi i32 [ %30, %17 ], [ %40, %39 ], [ %24, %32 ]
+  %.0 = phi i32 [ %40, %39 ], [ %30, %17 ], [ %24, %32 ]
   %42 = load i16, ptr %5, align 8, !tbaa !28
   store i16 %42, ptr %4, align 8, !tbaa !28
   %43 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %.0) #13
@@ -4928,7 +4928,7 @@ define internal i32 @fold_reassoc_shift(ptr noundef %0) #0 {
   br label %46
 
 46:                                               ; preds = %13, %41, %37, %36, %1
-  %.025 = phi i32 [ %38, %37 ], [ 0, %1 ], [ 1, %41 ], [ 2, %36 ], [ 0, %13 ]
+  %.025 = phi i32 [ 0, %1 ], [ 1, %41 ], [ 2, %36 ], [ %38, %37 ], [ 0, %13 ]
   ret i32 %.025
 }
 
@@ -5035,7 +5035,7 @@ define internal range(i32 0, 65536) i32 @fold_reassoc_minmax_k(ptr noundef %0) #
   br label %kfold_intop.exit
 
 kfold_intop.exit:                                 ; preds = %19, %21, %23, %25, %27, %29, %31, %33, %35, %38, %41, %44, %46, %48, %50
-  %.0.i = phi i32 [ %51, %50 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ]
+  %.0.i = phi i32 [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ]
   %52 = icmp eq i32 %14, %.0.i
   br i1 %52, label %kfold_intop.exit.thread, label %55
 
@@ -5061,7 +5061,7 @@ kfold_intop.exit.thread:                          ; preds = %13, %kfold_intop.ex
   br label %64
 
 64:                                               ; preds = %1, %kfold_intop.exit.thread, %59, %55
-  %.1 = phi i32 [ 0, %55 ], [ %54, %kfold_intop.exit.thread ], [ 1, %59 ], [ 0, %1 ]
+  %.1 = phi i32 [ %54, %kfold_intop.exit.thread ], [ 1, %59 ], [ 0, %55 ], [ 0, %1 ]
   ret i32 %.1
 }
 
@@ -5139,7 +5139,7 @@ define internal range(i32 0, 5) i32 @fold_abc_fwd(ptr noundef readonly captures(
   br i1 %.not36, label %.lr.ph, label %.critedge, !llvm.loop !78
 
 .critedge:                                        ; preds = %41, %45, %33, %10, %20, %24, %1, %5
-  %.5 = phi i32 [ 0, %20 ], [ 0, %1 ], [ 0, %5 ], [ 0, %10 ], [ 0, %24 ], [ 0, %33 ], [ 4, %41 ], [ 0, %45 ]
+  %.5 = phi i32 [ 0, %5 ], [ 0, %1 ], [ 0, %24 ], [ 0, %20 ], [ 0, %10 ], [ 0, %33 ], [ 4, %41 ], [ 0, %45 ]
   ret i32 %.5
 }
 
@@ -5212,7 +5212,7 @@ define internal i32 @fold_abc_k(ptr noundef %0) #0 {
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %._crit_edge, %25, %32, %1
-  %.020 = phi i32 [ 4, %32 ], [ 0, %1 ], [ %39, %._crit_edge ], [ 4, %25 ], [ 0, %6 ]
+  %.020 = phi i32 [ 0, %1 ], [ %39, %._crit_edge ], [ 4, %25 ], [ 4, %32 ], [ 0, %6 ]
   ret i32 %.020
 }
 
@@ -5449,7 +5449,7 @@ define internal i32 @fold_comm_bxor(ptr noundef %0) #0 {
   br label %fold_comm_swap.exit
 
 fold_comm_swap.exit:                              ; preds = %19, %17, %14, %16
-  %.0 = phi i32 [ 2, %16 ], [ %15, %14 ], [ 1, %19 ], [ 0, %17 ]
+  %.0 = phi i32 [ %15, %14 ], [ 2, %16 ], [ 1, %19 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -5587,7 +5587,7 @@ define internal range(i32 0, 5) i32 @fold_merge_eqne_snew_kgc(ptr noundef %0) #0
   br label %kfold_xload.exit
 
 kfold_xload.exit:                                 ; preds = %41, %56, %73, %76
-  %.012.i = phi i32 [ %75, %73 ], [ %58, %56 ], [ %77, %76 ], [ 0, %41 ]
+  %.012.i = phi i32 [ %58, %56 ], [ %77, %76 ], [ %75, %73 ], [ 0, %41 ]
   %78 = icmp eq i32 %7, 3
   br i1 %78, label %79, label %84
 
@@ -5613,7 +5613,7 @@ kfold_xload.exit:                                 ; preds = %41, %56, %73, %76
   br label %89
 
 89:                                               ; preds = %84, %12, %34, %36, %28, %1
-  %.0 = phi i32 [ 4, %28 ], [ 0, %1 ], [ 0, %12 ], [ 1, %84 ], [ 4, %36 ], [ 0, %34 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %84 ], [ 0, %12 ], [ 0, %34 ], [ 4, %36 ], [ 4, %28 ]
   ret i32 %.0
 }
 
@@ -5790,7 +5790,7 @@ define internal i32 @fold_cse_uref(ptr noundef %0) #0 {
   br label %93
 
 93:                                               ; preds = %41, %45, %79, %81, %88, %.thread35
-  %.5 = phi i32 [ %92, %.thread35 ], [ %.027.le, %45 ], [ %.027.le, %88 ], [ %.027.le, %41 ], [ %.027.le, %81 ], [ %80, %79 ]
+  %.5 = phi i32 [ %92, %.thread35 ], [ %.027.le, %41 ], [ %.027.le, %45 ], [ %.027.le, %88 ], [ %.027.le, %81 ], [ %80, %79 ]
   ret i32 %.5
 }
 
@@ -5927,7 +5927,7 @@ merge_uref.exit:                                  ; preds = %13
   br label %69
 
 69:                                               ; preds = %17, %21, %55, %57, %64, %.thread
-  %.3 = phi i32 [ %68, %.thread ], [ %.020.le, %21 ], [ %.020.le, %64 ], [ %.020.le, %17 ], [ %.020.le, %57 ], [ %56, %55 ]
+  %.3 = phi i32 [ %68, %.thread ], [ %.020.le, %17 ], [ %.020.le, %21 ], [ %.020.le, %64 ], [ %.020.le, %57 ], [ %56, %55 ]
   ret i32 %.3
 }
 
@@ -6277,7 +6277,7 @@ define internal range(i32 0, 65536) i32 @fold_fload_str_len_snew(ptr noundef rea
   br label %13
 
 13:                                               ; preds = %1, %5, %9
-  %.0 = phi i32 [ 0, %5 ], [ %12, %9 ], [ 0, %1 ]
+  %.0 = phi i32 [ %12, %9 ], [ 0, %5 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -6404,7 +6404,7 @@ define internal i32 @fold_fload_cdata_int64_kgc(ptr noundef %0) #0 {
   br label %22
 
 22:                                               ; preds = %1, %16, %19
-  %.1 = phi i32 [ 2, %19 ], [ %18, %16 ], [ 0, %1 ]
+  %.1 = phi i32 [ %18, %16 ], [ 2, %19 ], [ 0, %1 ]
   ret i32 %.1
 }
 
@@ -6638,7 +6638,7 @@ define internal i32 @fold_xload_kptr(ptr noundef %0) #0 {
   br label %kfold_xload.exit
 
 kfold_xload.exit:                                 ; preds = %1, %7, %24, %27
-  %.012.i = phi i32 [ %26, %24 ], [ %9, %7 ], [ %28, %27 ], [ 0, %1 ]
+  %.012.i = phi i32 [ %9, %7 ], [ %28, %27 ], [ %26, %24 ], [ 0, %1 ]
   ret i32 %.012.i
 }
 

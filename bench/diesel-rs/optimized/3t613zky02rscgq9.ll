@@ -244,7 +244,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h
   br label %"_ZN4core3ptr140drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$diesel..result..DatabaseErrorInformation$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h318a1b399d868212E.exit"
 
 common.resume:                                    ; preds = %.body, %82, %90, %61, %69, %40, %48, %19, %27, %107
-  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %20, %19 ], [ %41, %40 ], [ %62, %61 ], [ %108, %107 ], [ %20, %27 ], [ %41, %48 ], [ %62, %69 ], [ %83, %90 ], [ %102, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %108, %107 ], [ %20, %27 ], [ %20, %19 ], [ %41, %48 ], [ %41, %40 ], [ %62, %69 ], [ %62, %61 ], [ %83, %90 ], [ %83, %82 ], [ %102, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 36:                                               ; preds = %1
@@ -678,7 +678,7 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17h47622b000da17
   unreachable
 
 common.resume:                                    ; preds = %73, %61, %65
-  %common.resume.op = phi { ptr, i32 } [ %62, %61 ], [ %62, %65 ], [ %.pn, %73 ]
+  %common.resume.op = phi { ptr, i32 } [ %62, %65 ], [ %62, %61 ], [ %.pn, %73 ]
   resume { ptr, i32 } %common.resume.op
 
 72:                                               ; preds = %.noexc, %53
@@ -687,7 +687,7 @@ common.resume:                                    ; preds = %73, %61, %65
           to label %.critedge unwind label %74
 
 73:                                               ; preds = %78, %.thread79, %57, %74
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %58, %57 ], [ %lpad.thr_comm, %78 ], [ %lpad.thr_comm.split-lp, %.thread79 ]
+  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %58, %57 ], [ %lpad.thr_comm.split-lp, %.thread79 ], [ %lpad.thr_comm, %78 ]
   invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h6c0131ecb0cd3a33E"(ptr noalias noundef align 8 dereferenceable(32) %17) #13
           to label %common.resume unwind label %76
 
@@ -944,7 +944,7 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17hc5e299772f2a9
   unreachable
 
 common.resume:                                    ; preds = %72, %60, %64
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %61, %64 ], [ %.pn, %72 ]
+  %common.resume.op = phi { ptr, i32 } [ %61, %64 ], [ %61, %60 ], [ %.pn, %72 ]
   resume { ptr, i32 } %common.resume.op
 
 71:                                               ; preds = %.noexc, %52
@@ -953,7 +953,7 @@ common.resume:                                    ; preds = %72, %60, %64
           to label %.critedge unwind label %73
 
 72:                                               ; preds = %77, %.thread79, %56, %73
-  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %57, %56 ], [ %lpad.thr_comm, %77 ], [ %lpad.thr_comm.split-lp, %.thread79 ]
+  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %57, %56 ], [ %lpad.thr_comm.split-lp, %.thread79 ], [ %lpad.thr_comm, %77 ]
   invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h6c0131ecb0cd3a33E"(ptr noalias noundef align 8 dereferenceable(32) %17) #13
           to label %common.resume unwind label %75
 
@@ -1100,7 +1100,7 @@ define hidden void @_ZN6diesel5mysql10connection33update_transaction_manager_sta
   br label %19
 
 19:                                               ; preds = %17, %.thread14, %.thread19
-  %20 = phi ptr [ null, %.thread19 ], [ %spec.select, %17 ], [ %.sroa.5.016, %.thread14 ]
+  %20 = phi ptr [ null, %.thread19 ], [ %.sroa.5.016, %.thread14 ], [ %spec.select, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %4, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -1480,7 +1480,7 @@ define hidden void @"_ZN97_$LT$diesel..mysql..connection..MysqlConnection$u20$as
           to label %"_ZN6diesel10expression9select_by127_$LT$impl$u20$diesel..expression..QueryMetadata$LT$diesel..expression..select_by..SelectBy$LT$T$C$DB$GT$$GT$$u20$for$u20$DB$GT$12row_metadata17he0fd739d34d5a677E.exit" unwind label %13
 
 13:                                               ; preds = %.noexc10, %.noexc9, %.noexc8, %.noexc7, %.noexc6, %.noexc5, %.noexc, %2, %"_ZN6diesel10expression9select_by127_$LT$impl$u20$diesel..expression..QueryMetadata$LT$diesel..expression..select_by..SelectBy$LT$T$C$DB$GT$$GT$$u20$for$u20$DB$GT$12row_metadata17he0fd739d34d5a677E.exit"
-  %.0 = phi i1 [ false, %"_ZN6diesel10expression9select_by127_$LT$impl$u20$diesel..expression..QueryMetadata$LT$diesel..expression..select_by..SelectBy$LT$T$C$DB$GT$$GT$$u20$for$u20$DB$GT$12row_metadata17he0fd739d34d5a677E.exit" ], [ true, %.noexc10 ], [ true, %2 ], [ true, %.noexc ], [ true, %.noexc5 ], [ true, %.noexc6 ], [ true, %.noexc7 ], [ true, %.noexc8 ], [ true, %.noexc9 ]
+  %.0 = phi i1 [ false, %"_ZN6diesel10expression9select_by127_$LT$impl$u20$diesel..expression..QueryMetadata$LT$diesel..expression..select_by..SelectBy$LT$T$C$DB$GT$$GT$$u20$for$u20$DB$GT$12row_metadata17he0fd739d34d5a677E.exit" ], [ true, %2 ], [ true, %.noexc ], [ true, %.noexc5 ], [ true, %.noexc6 ], [ true, %.noexc7 ], [ true, %.noexc8 ], [ true, %.noexc9 ], [ true, %.noexc10 ]
   %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr105drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$diesel..mysql..backend..MysqlType$GT$$GT$$GT$17h21e0e109c44a6f69E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #13

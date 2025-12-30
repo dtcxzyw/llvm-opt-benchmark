@@ -626,7 +626,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17he6c5a3ae9a9f7feaE.exit.thread.
           to label %91 unwind label %89
 
 "_ZN6quiche19Connection$LT$F$GT$25max_send_udp_payload_size17h6ff35482fe7d9043E.exit.i": ; preds = %76, %.noexc17.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17he6c5a3ae9a9f7feaE.exit.thread.i.i
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %76 ], [ 1200, %_ZN4core4iter6traits8iterator8Iterator8try_fold17he6c5a3ae9a9f7feaE.exit.thread.i.i ], [ 1200, %.noexc17.i ]
+  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %76 ], [ 1200, %.noexc17.i ], [ 1200, %_ZN4core4iter6traits8iterator8Iterator8try_fold17he6c5a3ae9a9f7feaE.exit.thread.i.i ]
   %78 = load i64, ptr %.sroa.518.0..sroa_idx.i.i, align 8, !noalias !32
   %79 = add i64 %78, 1
   %80 = call i64 @llvm.usub.sat.i64(i64 %.sroa.0.0.i.i, i64 %79)
@@ -673,8 +673,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17he6c5a3ae9a9f7feaE.exit.thread.
   br i1 %97, label %"_ZN6quiche19Connection$LT$F$GT$22dgram_max_writable_len17h2143bc09dc98af2cE.exit.thread", label %100
 
 "_ZN6quiche19Connection$LT$F$GT$22dgram_max_writable_len17h2143bc09dc98af2cE.exit.thread": ; preds = %3, %"_ZN6quiche19Connection$LT$F$GT$22dgram_max_writable_len17h2143bc09dc98af2cE.exit.thread23", %151, %149, %144, %95, %"_ZN6quiche19Connection$LT$F$GT$22dgram_max_writable_len17h2143bc09dc98af2cE.exit", %133, %113
-  %.sroa.6.0 = phi i64 [ undef, %"_ZN6quiche19Connection$LT$F$GT$22dgram_max_writable_len17h2143bc09dc98af2cE.exit" ], [ %114, %113 ], [ undef, %133 ], [ undef, %95 ], [ undef, %144 ], [ undef, %149 ], [ undef, %151 ], [ undef, %"_ZN6quiche19Connection$LT$F$GT$22dgram_max_writable_len17h2143bc09dc98af2cE.exit.thread23" ], [ undef, %3 ]
-  %.sroa.0.0 = phi i64 [ 5, %"_ZN6quiche19Connection$LT$F$GT$22dgram_max_writable_len17h2143bc09dc98af2cE.exit" ], [ %112, %113 ], [ 5, %133 ], [ 1, %95 ], [ 20, %144 ], [ 20, %149 ], [ 20, %151 ], [ 5, %"_ZN6quiche19Connection$LT$F$GT$22dgram_max_writable_len17h2143bc09dc98af2cE.exit.thread23" ], [ 5, %3 ]
+  %.sroa.6.0 = phi i64 [ %114, %113 ], [ undef, %133 ], [ undef, %"_ZN6quiche19Connection$LT$F$GT$22dgram_max_writable_len17h2143bc09dc98af2cE.exit" ], [ undef, %95 ], [ undef, %144 ], [ undef, %149 ], [ undef, %151 ], [ undef, %"_ZN6quiche19Connection$LT$F$GT$22dgram_max_writable_len17h2143bc09dc98af2cE.exit.thread23" ], [ undef, %3 ]
+  %.sroa.0.0 = phi i64 [ %112, %113 ], [ 5, %133 ], [ 5, %"_ZN6quiche19Connection$LT$F$GT$22dgram_max_writable_len17h2143bc09dc98af2cE.exit" ], [ 1, %95 ], [ 20, %144 ], [ 20, %149 ], [ 20, %151 ], [ 5, %"_ZN6quiche19Connection$LT$F$GT$22dgram_max_writable_len17h2143bc09dc98af2cE.exit.thread23" ], [ 5, %3 ]
   %98 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %99 = insertvalue { i64, i64 } %98, i64 %.sroa.6.0, 1
   ret { i64, i64 } %99
@@ -1050,7 +1050,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %1
   %118 = invoke { i64, i32 } @_ZN3std4time7Instant3now17hd46d520c1ad33f9eE()
           to label %119 unwind label %128
 
-.thread:                                          ; preds = %127, %119
+.thread:                                          ; preds = %119, %127
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %75
@@ -1550,7 +1550,7 @@ define hidden void @"_ZN6quiche19Connection$LT$F$GT$14stream_do_send17h640979781
   %172 = invoke { i64, i32 } @_ZN3std4time7Instant3now17hd46d520c1ad33f9eE()
           to label %173 unwind label %182
 
-.thread:                                          ; preds = %181, %173
+.thread:                                          ; preds = %173, %181
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %105
@@ -1955,8 +1955,8 @@ define hidden { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$15stream_shutdown17h
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %.thread, %54, %14, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$17ha7e5aa2b038cbb01E.exit43", %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$17ha7e5aa2b038cbb01E.exit42"
-  %.sroa.7.0 = phi i64 [ %1, %54 ], [ %.sroa.7.1, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$17ha7e5aa2b038cbb01E.exit43" ], [ undef, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$17ha7e5aa2b038cbb01E.exit42" ], [ %1, %14 ], [ undef, %.thread ]
-  %.sroa.0.0 = phi i64 [ 6, %54 ], [ %.sroa.0.1, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$17ha7e5aa2b038cbb01E.exit43" ], [ 20, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$17ha7e5aa2b038cbb01E.exit42" ], [ 6, %14 ], [ 0, %.thread ]
+  %.sroa.7.0 = phi i64 [ %.sroa.7.1, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$17ha7e5aa2b038cbb01E.exit43" ], [ undef, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$17ha7e5aa2b038cbb01E.exit42" ], [ %1, %14 ], [ %1, %54 ], [ undef, %.thread ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.1, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$17ha7e5aa2b038cbb01E.exit43" ], [ 20, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$17ha7e5aa2b038cbb01E.exit42" ], [ 6, %14 ], [ 6, %54 ], [ 0, %.thread ]
   %17 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, i64 } %17, i64 %.sroa.7.0, 1
   ret { i64, i64 } %18
@@ -2351,7 +2351,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17he6c5a3ae9a9f7feaE.exit.thread:
   br label %38
 
 38:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17he6c5a3ae9a9f7feaE.exit.thread, %33, %37
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i, %37 ], [ 1200, %_ZN4core4iter6traits8iterator8Iterator8try_fold17he6c5a3ae9a9f7feaE.exit.thread ], [ 1200, %33 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i, %37 ], [ 1200, %33 ], [ 1200, %_ZN4core4iter6traits8iterator8Iterator8try_fold17he6c5a3ae9a9f7feaE.exit.thread ]
   ret i64 %.sroa.0.0
 }
 
@@ -2390,7 +2390,7 @@ define hidden { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$5close17h94b50a6b76a
   br i1 %28, label %35, label %32
 
 29:                                               ; preds = %"_ZN6quiche19Connection$LT$F$GT$11mark_closed17h7ff6df474dadb1eeE.exit", %55, %22, %5
-  %.sroa.0.0 = phi i64 [ 0, %22 ], [ 0, %5 ], [ 20, %55 ], [ 20, %"_ZN6quiche19Connection$LT$F$GT$11mark_closed17h7ff6df474dadb1eeE.exit" ]
+  %.sroa.0.0 = phi i64 [ 0, %5 ], [ 0, %22 ], [ 20, %55 ], [ 20, %"_ZN6quiche19Connection$LT$F$GT$11mark_closed17h7ff6df474dadb1eeE.exit" ]
   %30 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %31 = insertvalue { i64, i64 } %30, i64 undef, 1
   ret { i64, i64 } %31
@@ -2488,7 +2488,7 @@ common.resume.sink.split:                         ; preds = %63, %53
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %128, %132, %166, %170, %182, %211
-  %common.resume.op = phi { ptr, i32 } [ %167, %170 ], [ %167, %166 ], [ %.pn.i, %211 ], [ %.pn.i, %182 ], [ %129, %128 ], [ %129, %132 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %211 ], [ %.pn.i, %182 ], [ %129, %132 ], [ %129, %128 ], [ %167, %170 ], [ %167, %166 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 63:                                               ; preds = %48
@@ -2813,7 +2813,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %183, label %211, label %common.resume
 
 184:                                              ; preds = %203, %196, %186, %89
-  %.sroa.030.1.i = phi i8 [ 0, %203 ], [ 0, %196 ], [ 1, %186 ], [ 1, %89 ]
+  %.sroa.030.1.i = phi i8 [ 0, %196 ], [ 1, %186 ], [ 1, %89 ], [ 0, %203 ]
   %185 = landingpad { ptr, i32 }
           cleanup
   br label %182
@@ -2882,7 +2882,7 @@ common.resume:                                    ; preds = %common.resume.sink.
           to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$qlog..streamer..QlogStreamer$GT$$GT$17hd1fec679d6758aa3E.exit74.i" unwind label %208
 
 208:                                              ; preds = %207, %195
-  %.sroa.030.4.i = phi i8 [ 0, %207 ], [ %.sroa.030.3.ph.i, %195 ]
+  %.sroa.030.4.i = phi i8 [ %.sroa.030.3.ph.i, %195 ], [ 0, %207 ]
   %209 = landingpad { ptr, i32 }
           cleanup
   store i64 3, ptr %187, align 16, !alias.scope !268

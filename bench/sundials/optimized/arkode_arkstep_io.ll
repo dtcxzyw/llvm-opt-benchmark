@@ -168,7 +168,7 @@ define i32 @ARKStepSetExplicit(ptr noundef %0) local_unnamed_addr #0 {
   br label %14
 
 14:                                               ; preds = %1, %11, %9
-  %.0 = phi i32 [ 0, %11 ], [ -22, %9 ], [ %4, %1 ]
+  %.0 = phi i32 [ -22, %9 ], [ 0, %11 ], [ %4, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -246,7 +246,7 @@ define i32 @ARKStepSetImplicit(ptr noundef %0) local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %35, %1, %36, %10
-  %.05 = phi i32 [ %4, %1 ], [ -22, %10 ], [ 0, %36 ], [ %.0, %35 ]
+  %.05 = phi i32 [ -22, %10 ], [ 0, %36 ], [ %4, %1 ], [ %.0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.05
@@ -334,7 +334,7 @@ define i32 @ARKStepSetImEx(ptr noundef %0) local_unnamed_addr #0 {
   br label %42
 
 42:                                               ; preds = %40, %1, %41, %15, %9
-  %.05 = phi i32 [ %4, %1 ], [ -22, %9 ], [ -22, %15 ], [ 0, %41 ], [ %.0, %40 ]
+  %.05 = phi i32 [ -22, %9 ], [ -22, %15 ], [ 0, %41 ], [ %4, %1 ], [ %.0, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.05
@@ -607,7 +607,7 @@ ARKStepSetExplicit.exit:                          ; preds = %82
   br label %156
 
 156:                                              ; preds = %5, %131, %129, %125, %118, %109, %105, %90, %78, %26, %16
-  %.0 = phi i32 [ -22, %129 ], [ -22, %16 ], [ -22, %26 ], [ -21, %78 ], [ %.0.i.ph, %90 ], [ 0, %131 ], [ -21, %105 ], [ -22, %109 ], [ -21, %118 ], [ -21, %125 ], [ %12, %5 ]
+  %.0 = phi i32 [ -22, %16 ], [ -22, %26 ], [ -21, %78 ], [ %.0.i.ph, %90 ], [ 0, %131 ], [ -21, %105 ], [ -22, %109 ], [ -21, %118 ], [ -21, %125 ], [ -22, %129 ], [ %12, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -903,7 +903,7 @@ ARKStepSetExplicit.exit:                          ; preds = %72
   br label %152
 
 152:                                              ; preds = %ARKStepSetExplicit.exit, %93, %140, %3, %150, %138, %134, %123, %103, %91, %85, %80, %60, %54, %50
-  %.0 = phi i32 [ -22, %123 ], [ -22, %50 ], [ -22, %54 ], [ -22, %60 ], [ %.0.i.ph, %80 ], [ %10, %3 ], [ -22, %85 ], [ -22, %91 ], [ %102, %103 ], [ -22, %134 ], [ -22, %138 ], [ -22, %150 ], [ 0, %ARKStepSetExplicit.exit ], [ 0, %140 ], [ 0, %93 ]
+  %.0 = phi i32 [ -22, %50 ], [ -22, %54 ], [ -22, %60 ], [ %.0.i.ph, %80 ], [ -22, %85 ], [ -22, %91 ], [ %102, %103 ], [ -22, %134 ], [ -22, %138 ], [ -22, %150 ], [ -22, %123 ], [ %10, %3 ], [ 0, %ARKStepSetExplicit.exit ], [ 0, %140 ], [ 0, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -981,7 +981,7 @@ define i32 @arkStep_GetNumRhsEvals(ptr noundef %0, i32 noundef %1, ptr noundef w
   br label %26
 
 26:                                               ; preds = %14, %17, %20, %3, %11, %8
-  %.0 = phi i32 [ %5, %3 ], [ -22, %8 ], [ -22, %11 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ]
+  %.0 = phi i32 [ -22, %8 ], [ -22, %11 ], [ %5, %3 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1346,7 +1346,7 @@ define i32 @arkStep_SetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   br label %120
 
 120:                                              ; preds = %107, %111, %1, %106, %99
-  %.0 = phi i32 [ %7, %1 ], [ -20, %99 ], [ -20, %106 ], [ 0, %111 ], [ 0, %107 ]
+  %.0 = phi i32 [ -20, %99 ], [ -20, %106 ], [ %7, %1 ], [ 0, %111 ], [ 0, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1469,7 +1469,7 @@ define i32 @arkStep_SetLinear(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %16
 
 16:                                               ; preds = %2, %10, %9
-  %.0 = phi i32 [ 0, %10 ], [ -22, %9 ], [ %4, %2 ]
+  %.0 = phi i32 [ -22, %9 ], [ 0, %10 ], [ %4, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1555,7 +1555,7 @@ define i32 @arkStep_SetAutonomous(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %24
 
 24:                                               ; preds = %.thread21, %17, %2, %22, %16
-  %.0 = phi i32 [ -20, %22 ], [ -22, %16 ], [ %4, %2 ], [ 0, %17 ], [ 0, %.thread21 ]
+  %.0 = phi i32 [ -22, %16 ], [ -20, %22 ], [ %4, %2 ], [ 0, %17 ], [ 0, %.thread21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1671,7 +1671,7 @@ define i32 @arkStep_SetPredictorMethod(ptr noundef %0, i32 noundef %1) local_unn
   br label %10
 
 10:                                               ; preds = %5, %2, %9
-  %.0 = phi i32 [ %4, %2 ], [ -22, %9 ], [ 0, %5 ]
+  %.0 = phi i32 [ -22, %9 ], [ %4, %2 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2224,7 +2224,7 @@ define i32 @arkStep_PrintAllStats(ptr noundef %0, ptr noundef captures(none) %1,
   br label %255
 
 255:                                              ; preds = %253, %100, %96, %3, %254
-  %.0 = phi i32 [ %5, %3 ], [ -22, %254 ], [ 0, %96 ], [ 0, %100 ], [ 0, %253 ]
+  %.0 = phi i32 [ -22, %254 ], [ %5, %3 ], [ 0, %96 ], [ 0, %100 ], [ 0, %253 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -2910,7 +2910,7 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
   br label %247
 
 247:                                              ; preds = %53, %233, %237, %62, %72, %93, %114, %137, %1, %215, %196, %177, %160, %135, %112, %91, %70, %51, %38, %12
-  %.0 = phi i32 [ -20, %51 ], [ -21, %12 ], [ -20, %38 ], [ %6, %1 ], [ -20, %160 ], [ -20, %177 ], [ -20, %196 ], [ -20, %215 ], [ -20, %70 ], [ -20, %91 ], [ -20, %112 ], [ -20, %135 ], [ 0, %137 ], [ 0, %114 ], [ 0, %93 ], [ 0, %72 ], [ 0, %62 ], [ 0, %237 ], [ 0, %233 ], [ 0, %53 ]
+  %.0 = phi i32 [ -21, %12 ], [ -20, %38 ], [ -20, %160 ], [ -20, %177 ], [ -20, %196 ], [ -20, %215 ], [ -20, %70 ], [ -20, %91 ], [ -20, %112 ], [ -20, %135 ], [ -20, %51 ], [ %6, %1 ], [ 0, %137 ], [ 0, %114 ], [ 0, %93 ], [ 0, %72 ], [ 0, %62 ], [ 0, %237 ], [ 0, %233 ], [ 0, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3741,7 +3741,7 @@ define i32 @ARKStepWriteButcher(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %45
 
 45:                                               ; preds = %2, %44, %15
-  %.0 = phi i32 [ 0, %44 ], [ -21, %15 ], [ %5, %2 ]
+  %.0 = phi i32 [ -21, %15 ], [ 0, %44 ], [ %5, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

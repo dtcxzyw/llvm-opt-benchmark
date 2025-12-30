@@ -64,7 +64,7 @@ define range(i32 -1, 1) i32 @H5IMmake_image_8bit(i64 noundef %0, ptr noundef %1,
   br label %29
 
 29:                                               ; preds = %27, %24, %21, %17, %5
-  %.0 = phi i32 [ -1, %24 ], [ -1, %5 ], [ -1, %17 ], [ -1, %21 ], [ %.lobit, %27 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %17 ], [ -1, %21 ], [ -1, %24 ], [ %.lobit, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -141,7 +141,7 @@ define range(i32 -1, 1) i32 @H5IMmake_image_24bit(i64 noundef %0, ptr noundef %1
   br label %41
 
 41:                                               ; preds = %39, %36, %33, %30, %26, %13, %6
-  %.0 = phi i32 [ -1, %36 ], [ -1, %6 ], [ -1, %13 ], [ -1, %26 ], [ -1, %30 ], [ -1, %33 ], [ %.lobit, %39 ]
+  %.0 = phi i32 [ -1, %6 ], [ -1, %13 ], [ -1, %26 ], [ -1, %30 ], [ -1, %33 ], [ -1, %36 ], [ %.lobit, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -379,7 +379,7 @@ define range(i32 -1, 1) i32 @H5IMget_image_info(i64 noundef %0, ptr noundef %1, 
   br label %113
 
 113:                                              ; preds = %109, %111, %95, %52, %11, %7
-  %.0 = phi i32 [ -1, %11 ], [ -1, %7 ], [ -1, %109 ], [ 0, %95 ], [ -1, %52 ], [ -1, %111 ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %11 ], [ -1, %52 ], [ 0, %95 ], [ -1, %111 ], [ -1, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -447,7 +447,7 @@ define range(i32 -1, 1) i32 @H5IMread_image(i64 noundef %0, ptr noundef %1, ptr 
   br label %22
 
 22:                                               ; preds = %16, %21, %5, %3
-  %.0 = phi i32 [ -1, %5 ], [ -1, %3 ], [ %., %21 ], [ -1, %16 ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %5 ], [ %., %21 ], [ -1, %16 ]
   ret i32 %.0
 }
 
@@ -492,7 +492,7 @@ define range(i32 -1, 1) i32 @H5IMmake_palette(i64 noundef %0, ptr noundef %1, pt
   br label %26
 
 26:                                               ; preds = %24, %21, %17, %6, %4
-  %.0 = phi i32 [ -1, %21 ], [ -1, %4 ], [ 0, %6 ], [ -1, %17 ], [ %.lobit, %24 ]
+  %.0 = phi i32 [ -1, %4 ], [ 0, %6 ], [ -1, %17 ], [ -1, %21 ], [ %.lobit, %24 ]
   ret i32 %.0
 }
 
@@ -679,7 +679,7 @@ define range(i32 -1, 1) i32 @H5IMlink_palette(i64 noundef %0, ptr noundef %1, pt
   br label %108
 
 108:                                              ; preds = %101, %8, %3, %103
-  %.0 = phi i32 [ -1, %8 ], [ -1, %3 ], [ %.lobit, %101 ], [ -1, %103 ]
+  %.0 = phi i32 [ -1, %103 ], [ -1, %3 ], [ -1, %8 ], [ %.lobit, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -771,7 +771,7 @@ define range(i32 -1, 1) i32 @H5IMunlink_palette(i64 noundef %0, ptr noundef %1, 
   br label %38
 
 38:                                               ; preds = %34, %9, %6, %3, %36
-  %.0 = phi i32 [ -1, %9 ], [ -1, %3 ], [ %.lobit, %34 ], [ -1, %6 ], [ -1, %36 ]
+  %.0 = phi i32 [ -1, %36 ], [ -1, %3 ], [ -1, %6 ], [ -1, %9 ], [ %.lobit, %34 ]
   ret i32 %.0
 }
 
@@ -842,7 +842,7 @@ define range(i32 -1, 1) i32 @H5IMget_npalettes(i64 noundef %0, ptr noundef %1, p
   br label %39
 
 39:                                               ; preds = %35, %5, %3, %37
-  %.0 = phi i32 [ -1, %5 ], [ -1, %3 ], [ -1, %37 ], [ %.lobit, %35 ]
+  %.0 = phi i32 [ -1, %37 ], [ -1, %3 ], [ -1, %5 ], [ %.lobit, %35 ]
   ret i32 %.0
 }
 
@@ -957,7 +957,7 @@ define range(i32 -1, 1) i32 @H5IMget_palette_info(i64 noundef %0, ptr noundef %1
   br label %68
 
 68:                                               ; preds = %61, %7, %4, %63
-  %.0 = phi i32 [ -1, %7 ], [ -1, %4 ], [ -1, %63 ], [ %.lobit, %61 ]
+  %.0 = phi i32 [ -1, %63 ], [ -1, %4 ], [ -1, %7 ], [ %.lobit, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1063,7 +1063,7 @@ define range(i32 -1, 1) i32 @H5IMget_palette(i64 noundef %0, ptr noundef %1, i32
   br label %60
 
 60:                                               ; preds = %53, %7, %4, %55
-  %.0 = phi i32 [ -1, %7 ], [ -1, %4 ], [ %.lobit, %53 ], [ -1, %55 ]
+  %.0 = phi i32 [ -1, %55 ], [ -1, %4 ], [ -1, %7 ], [ %.lobit, %53 ]
   ret i32 %.0
 }
 
@@ -1155,7 +1155,7 @@ define range(i32 -1, 2) i32 @H5IMis_image(i64 noundef %0, ptr noundef %1) local_
   br label %47
 
 47:                                               ; preds = %43, %4, %2, %45, %12
-  %.025 = phi i32 [ -1, %4 ], [ -1, %2 ], [ -1, %45 ], [ 0, %12 ], [ %..0, %43 ]
+  %.025 = phi i32 [ -1, %45 ], [ 0, %12 ], [ -1, %2 ], [ -1, %4 ], [ %..0, %43 ]
   ret i32 %.025
 }
 
@@ -1252,7 +1252,7 @@ define range(i32 -1, 2) i32 @H5IMis_palette(i64 noundef %0, ptr noundef %1) loca
   br label %47
 
 47:                                               ; preds = %43, %4, %2, %45, %12
-  %.025 = phi i32 [ -1, %4 ], [ -1, %2 ], [ -1, %45 ], [ 0, %12 ], [ %..0, %43 ]
+  %.025 = phi i32 [ -1, %45 ], [ 0, %12 ], [ -1, %2 ], [ -1, %4 ], [ %..0, %43 ]
   ret i32 %.025
 }
 

@@ -124,7 +124,7 @@ define ptr @dt_module_load_modules(ptr noundef %0, i64 noundef %1, ptr noundef r
   br i1 %.not3340, label %.outer._crit_edge, label %.lr.ph
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.outer.us, %.backedge.us, %.preheader
-  %.028.ph.lcssa = phi ptr [ %.1.us, %.outer.us ], [ null, %.preheader ], [ %.028.ph43, %.backedge ], [ %.028.ph43.us, %.backedge.us ], [ %.1, %.outer ]
+  %.028.ph.lcssa = phi ptr [ null, %.preheader ], [ %.028.ph43.us, %.backedge.us ], [ %.1.us, %.outer.us ], [ %.028.ph43, %.backedge ], [ %.1, %.outer ]
   call void @g_dir_close(ptr noundef nonnull %8) #7
   %.not34 = icmp eq ptr %4, null
   br i1 %.not34, label %50, label %48

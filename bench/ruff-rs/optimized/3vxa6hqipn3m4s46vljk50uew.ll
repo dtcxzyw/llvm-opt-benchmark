@@ -290,7 +290,7 @@ _ZN16ruff_source_file10line_index9LineIndex10line_start17hed7e8a2147d8d2d5E.exit
   br i1 %.not, label %68, label %69
 
 50:                                               ; preds = %79, %81, %61, %45, %41
-  %.sroa.01.0.sink = phi i64 [ %43, %41 ], [ %66, %61 ], [ %47, %45 ], [ %82, %81 ], [ %80, %79 ]
+  %.sroa.01.0.sink = phi i64 [ %66, %61 ], [ %47, %45 ], [ %43, %41 ], [ %82, %81 ], [ %80, %79 ]
   %51 = call range(i64 1, 0) i64 @llvm.uadd.sat.i64(i64 %.sroa.01.0.sink, i64 1)
   %52 = insertvalue { i64, i64 } poison, i64 %20, 0
   %53 = insertvalue { i64, i64 } %52, i64 %51, 1
@@ -700,7 +700,7 @@ define i32 @_ZN16ruff_source_file10line_index9LineIndex6offset17h55759554f3d0e49
   unreachable
 
 .loopexit:                                        ; preds = %60, %38, %.split25, %.split21, %45
-  %.sroa.018.1 = phi i32 [ %69, %.split25 ], [ %47, %45 ], [ %49, %.split21 ], [ %39, %38 ], [ %62, %60 ]
+  %.sroa.018.1 = phi i32 [ %47, %45 ], [ %49, %.split21 ], [ %69, %.split25 ], [ %39, %38 ], [ %62, %60 ]
   %50 = call i32 @_ZN14ruff_text_size4size8TextSize3new17hdf09347c0d8982fdE(i32 0)
   %51 = sub i32 %18, %17
   %52 = call i32 @_ZN4core3cmp3Ord5clamp17h487b922e5f911247E(i32 %.sroa.018.1, i32 %50, i32 %51)
@@ -725,7 +725,7 @@ define i32 @_ZN16ruff_source_file10line_index9LineIndex6offset17h55759554f3d0e49
   br label %60
 
 60:                                               ; preds = %56, %58, %.lr.ph
-  %.sroa.017.0 = phi i32 [ 2, %56 ], [ %., %58 ], [ 1, %.lr.ph ]
+  %.sroa.017.0 = phi i32 [ 1, %.lr.ph ], [ %., %58 ], [ 2, %56 ]
   %61 = call i32 @_ZN14ruff_text_size4size8TextSize3new17hdf09347c0d8982fdE(i32 %.sroa.017.0)
   %62 = add i32 %61, %.sroa.018.041
   %63 = icmp ult i32 %54, 65536

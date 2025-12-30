@@ -2481,7 +2481,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nWrite(ptr noundef %0, pt
   br label %handleSignEndianConversion.exit
 
 handleSignEndianConversion.exit:                  ; preds = %.lr.ph.i, %.lr.ph69.i, %.lr.ph73.i, %.lr.ph77.i, %105, %91, %80, %.preheader.i, %72, %122, %24
-  %.068 = phi ptr [ %26, %24 ], [ %.1, %122 ], [ %.1, %72 ], [ %.1, %.preheader.i ], [ %.1, %.lr.ph69.i ], [ %.1, %80 ], [ %.1, %.lr.ph77.i ], [ %.1, %91 ], [ %.1, %.lr.ph73.i ], [ %.1, %105 ], [ %.1, %.lr.ph.i ]
+  %.068 = phi ptr [ %.1, %122 ], [ %26, %24 ], [ %.1, %72 ], [ %.1, %.preheader.i ], [ %.1, %80 ], [ %.1, %91 ], [ %.1, %105 ], [ %.1, %.lr.ph77.i ], [ %.1, %.lr.ph73.i ], [ %.1, %.lr.ph69.i ], [ %.1, %.lr.ph.i ]
   %123 = load ptr, ptr %11, align 8
   %124 = call i32 @DAUDIO_Write(ptr noundef %123, ptr noundef %.068, i32 noundef %5) #7
   br label %.sink.split
@@ -2495,7 +2495,7 @@ handleSignEndianConversion.exit:                  ; preds = %.lr.ph.i, %.lr.ph69
   br label %128
 
 128:                                              ; preds = %.sink.split, %15, %16, %18, %13, %9
-  %.0 = phi i32 [ -1, %16 ], [ -1, %9 ], [ 0, %13 ], [ -1, %18 ], [ -1, %15 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ -1, %9 ], [ 0, %13 ], [ -1, %18 ], [ -1, %16 ], [ -1, %15 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -2631,7 +2631,7 @@ handleSignEndianConversion.exit:                  ; preds = %.lr.ph.i, %.lr.ph69
   br label %65
 
 65:                                               ; preds = %10, %handleSignEndianConversion.exit, %12, %7
-  %.0 = phi i32 [ -1, %12 ], [ -1, %7 ], [ %22, %handleSignEndianConversion.exit ], [ -1, %10 ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %12 ], [ %22, %handleSignEndianConversion.exit ], [ -1, %10 ]
   ret i32 %.0
 }
 

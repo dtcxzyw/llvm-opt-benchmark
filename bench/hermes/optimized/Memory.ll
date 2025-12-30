@@ -125,8 +125,8 @@ if.end33:                                         ; preds = %if.then26, %if.end2
   br label %return
 
 return:                                           ; preds = %if.then26, %entry, %if.end33, %if.end19, %if.then17
-  %retval.sroa.6.0 = phi i64 [ 0, %entry ], [ 0, %if.end19 ], [ %11, %if.then17 ], [ %mul24, %if.end33 ], [ 0, %if.then26 ]
-  %retval.sroa.0.0 = phi ptr [ null, %entry ], [ null, %if.end19 ], [ %10, %if.then17 ], [ %call1335, %if.end33 ], [ null, %if.then26 ]
+  %retval.sroa.6.0 = phi i64 [ 0, %if.end19 ], [ %11, %if.then17 ], [ %mul24, %if.end33 ], [ 0, %entry ], [ 0, %if.then26 ]
+  %retval.sroa.0.0 = phi ptr [ null, %if.end19 ], [ %10, %if.then17 ], [ %call1335, %if.end33 ], [ null, %entry ], [ null, %if.then26 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert

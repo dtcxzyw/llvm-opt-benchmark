@@ -170,7 +170,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverLg4ff_IsSupportedDevice(ptr nou
   br i1 %or.cond27.i, label %HIDAPI_DriverLg4ff_IdentifyWheel.exit, label %HIDAPI_DriverLg4ff_SwitchMode.exit
 
 HIDAPI_DriverLg4ff_IdentifyWheel.exit:            ; preds = %23, %27, %30, %33, %34, %35, %38, %42, %44, %48, %51, %54, %56, %62, %65
-  %.0.i = phi i16 [ -15793, %56 ], [ -15793, %65 ], [ -15793, %23 ], [ -15793, %27 ], [ -15717, %30 ], [ -15718, %34 ], [ -15719, %33 ], [ -15720, %35 ], [ -15793, %38 ], [ %switch.select24.i, %42 ], [ -15717, %62 ], [ -15793, %44 ], [ -15793, %48 ], [ -15717, %51 ], [ -15719, %54 ]
+  %.0.i = phi i16 [ -15718, %34 ], [ -15793, %23 ], [ -15793, %27 ], [ -15717, %30 ], [ -15719, %33 ], [ -15720, %35 ], [ -15793, %38 ], [ -15793, %44 ], [ -15793, %48 ], [ -15717, %51 ], [ -15719, %54 ], [ -15793, %56 ], [ -15717, %62 ], [ -15793, %65 ], [ %switch.select24.i, %42 ]
   %71 = icmp eq i16 %.0.i, %4
   %72 = icmp eq i16 %.0.i, 0
   %or.cond = or i1 %71, %72
@@ -253,7 +253,7 @@ SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit.thread:     ; preds = %73, %SDL_HIDAPI_Dri
   br label %HIDAPI_DriverLg4ff_SwitchMode.exit
 
 HIDAPI_DriverLg4ff_SwitchMode.exit:               ; preds = %22, %65, %62, %54, %35, %.thread, %98, %94, %90, %86, %82, %78, %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit.thread, %HIDAPI_DriverLg4ff_IdentifyWheel.exit, %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit, %10
-  %.0 = phi i1 [ true, %65 ], [ false, %10 ], [ true, %HIDAPI_DriverLg4ff_IdentifyWheel.exit ], [ true, %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit ], [ true, %98 ], [ true, %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit.thread ], [ true, %78 ], [ true, %82 ], [ true, %86 ], [ true, %90 ], [ true, %94 ], [ true, %.thread ], [ true, %35 ], [ true, %54 ], [ true, %62 ], [ false, %22 ]
+  %.0 = phi i1 [ false, %10 ], [ true, %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit ], [ true, %HIDAPI_DriverLg4ff_IdentifyWheel.exit ], [ true, %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit.thread ], [ true, %78 ], [ true, %82 ], [ true, %86 ], [ true, %90 ], [ true, %94 ], [ true, %98 ], [ true, %.thread ], [ true, %35 ], [ true, %54 ], [ true, %62 ], [ true, %65 ], [ false, %22 ]
   ret i1 %.0
 }
 
@@ -353,7 +353,7 @@ HIDAPI_DriverLg4ff_SetAutoCenter.exit:            ; preds = %25, %31
   br label %46
 
 46:                                               ; preds = %HIDAPI_DriverLg4ff_SetAutoCenter.exit, %HIDAPI_DriverLg4ff_GetDeviceName.exit, %42, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %HIDAPI_DriverLg4ff_GetDeviceName.exit ], [ %45, %42 ], [ false, %HIDAPI_DriverLg4ff_SetAutoCenter.exit ]
+  %.0 = phi i1 [ false, %5 ], [ %45, %42 ], [ false, %HIDAPI_DriverLg4ff_GetDeviceName.exit ], [ false, %HIDAPI_DriverLg4ff_SetAutoCenter.exit ]
   ret i1 %.0
 }
 
@@ -484,7 +484,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverLg4ff_UpdateDevice(ptr noundef 
   br label %HIDAPI_DriverLg4ff_GetNumberOfButtons.exit.i
 
 HIDAPI_DriverLg4ff_GetNumberOfButtons.exit.i:     ; preds = %61, %60, %59, %58, %57, %56, %53
-  %.0.i.i = phi i32 [ 0, %61 ], [ 13, %60 ], [ 23, %56 ], [ 19, %57 ], [ 21, %58 ], [ 14, %59 ], [ 25, %53 ]
+  %.0.i.i = phi i32 [ 0, %61 ], [ 23, %56 ], [ 19, %57 ], [ 21, %58 ], [ 14, %59 ], [ 13, %60 ], [ 25, %53 ]
   %62 = call i64 @SDL_GetTicksNS_REAL() #8
   %63 = load i16, ptr %17, align 2
   switch i16 %63, label %.thread.i [
@@ -520,8 +520,8 @@ HIDAPI_DriverLg4ff_GetNumberOfButtons.exit.i:     ; preds = %61, %60, %59, %58, 
   br label %81
 
 81:                                               ; preds = %75, %69, %64
-  %.0160.i = phi i8 [ %80, %75 ], [ %68, %64 ], [ %74, %69 ]
-  %.0.i = phi i8 [ %77, %75 ], [ %66, %64 ], [ %71, %69 ]
+  %.0160.i = phi i8 [ %68, %64 ], [ %74, %69 ], [ %80, %75 ]
+  %.0.i = phi i8 [ %66, %64 ], [ %71, %69 ], [ %77, %75 ]
   %.not.not.i = icmp eq i8 %.0.i, %.0160.i
   br i1 %.not.not.i, label %.thread.i, label %82
 
@@ -551,7 +551,7 @@ HIDAPI_DriverLg4ff_GetNumberOfButtons.exit.i:     ; preds = %61, %60, %59, %58, 
   br label %87
 
 87:                                               ; preds = %86, %.thread.i
-  %.0162.i = phi i32 [ 0, %.thread.i ], [ 4, %86 ]
+  %.0162.i = phi i32 [ 4, %86 ], [ 0, %.thread.i ]
   %88 = icmp eq i16 %85, -15717
   br i1 %88, label %89, label %.thread208.i
 
@@ -922,8 +922,8 @@ lg4ff_adjust_dfp_x_axis.exit.i:                   ; preds = %249, %247, %240, %2
   br label %HIDAPI_DriverLg4ff_HandleState.exit.thread
 
 HIDAPI_DriverLg4ff_HandleState.exit.thread:       ; preds = %144, %184, %216, %262, %294
-  %.sink237.i = phi i8 [ %217, %216 ], [ %185, %184 ], [ %145, %144 ], [ %295, %294 ], [ %263, %262 ]
-  %.sink.i = phi i8 [ 2, %216 ], [ 1, %184 ], [ 1, %144 ], [ 3, %294 ], [ 2, %262 ]
+  %.sink237.i = phi i8 [ %295, %294 ], [ %145, %144 ], [ %185, %184 ], [ %217, %216 ], [ %263, %262 ]
+  %.sink.i = phi i8 [ 3, %294 ], [ 1, %144 ], [ 1, %184 ], [ 2, %216 ], [ 2, %262 ]
   %296 = zext i8 %.sink237.i to i16
   %297 = mul nuw i16 %296, 257
   %298 = xor i16 %297, -32768
@@ -1051,7 +1051,7 @@ HIDAPI_DriverLg4ff_SetAutoCenter.exit:            ; preds = %HIDAPI_DriverLg4ff_
   br i1 %.not, label %.loopexit, label %43, !llvm.loop !9
 
 .loopexit:                                        ; preds = %342, %1, %10, %47
-  %.0 = phi i1 [ false, %10 ], [ false, %47 ], [ false, %1 ], [ true, %342 ]
+  %.0 = phi i1 [ false, %47 ], [ false, %10 ], [ false, %1 ], [ true, %342 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -1091,7 +1091,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverLg4ff_OpenJoystick(ptr noundef 
   br label %HIDAPI_DriverLg4ff_GetNumberOfButtons.exit
 
 HIDAPI_DriverLg4ff_GetNumberOfButtons.exit:       ; preds = %2, %6, %7, %8, %9, %10, %11
-  %.0.i = phi i32 [ 0, %11 ], [ 13, %10 ], [ 23, %6 ], [ 19, %7 ], [ 21, %8 ], [ 14, %9 ], [ 25, %2 ]
+  %.0.i = phi i32 [ 0, %11 ], [ 23, %6 ], [ 19, %7 ], [ 21, %8 ], [ 14, %9 ], [ 13, %10 ], [ 25, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 %.0.i, ptr %12, align 8
   %13 = load i16, ptr %4, align 2
@@ -1108,7 +1108,7 @@ HIDAPI_DriverLg4ff_GetNumberOfButtons.exit:       ; preds = %2, %6, %7, %8, %9, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %HIDAPI_DriverLg4ff_GetNumberOfButtons.exit, %HIDAPI_DriverLg4ff_GetNumberOfButtons.exit, %HIDAPI_DriverLg4ff_GetNumberOfButtons.exit, %HIDAPI_DriverLg4ff_GetNumberOfButtons.exit, %14
-  %.sink = phi i32 [ 4, %HIDAPI_DriverLg4ff_GetNumberOfButtons.exit ], [ 3, %14 ], [ 4, %HIDAPI_DriverLg4ff_GetNumberOfButtons.exit ], [ 4, %HIDAPI_DriverLg4ff_GetNumberOfButtons.exit ], [ 4, %HIDAPI_DriverLg4ff_GetNumberOfButtons.exit ]
+  %.sink = phi i32 [ 3, %14 ], [ 4, %HIDAPI_DriverLg4ff_GetNumberOfButtons.exit ], [ 4, %HIDAPI_DriverLg4ff_GetNumberOfButtons.exit ], [ 4, %HIDAPI_DriverLg4ff_GetNumberOfButtons.exit ], [ 4, %HIDAPI_DriverLg4ff_GetNumberOfButtons.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %.sink, ptr %15, align 4
   br label %16

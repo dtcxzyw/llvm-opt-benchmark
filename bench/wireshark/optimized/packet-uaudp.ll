@@ -230,7 +230,7 @@ addresses_equal.exit26:                           ; preds = %35, %28, %addresses
   br label %50
 
 50:                                               ; preds = %45, %addresses_equal.exit26, %33, %35, %17, %19
-  %.sink = phi i32 [ 1, %addresses_equal.exit26 ], [ %., %45 ], [ 1, %33 ], [ 0, %17 ], [ 0, %19 ], [ 1, %35 ]
+  %.sink = phi i32 [ 0, %19 ], [ 0, %17 ], [ 1, %35 ], [ 1, %33 ], [ 1, %addresses_equal.exit26 ], [ %., %45 ]
   tail call fastcc void @_dissect_uaudp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.sink)
   %51 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %51

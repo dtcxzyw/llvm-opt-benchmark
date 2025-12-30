@@ -76,7 +76,7 @@ define internal range(i32 0, 78) i32 @bzip2_reader_bid(ptr readnone captures(non
   br label %17
 
 17:                                               ; preds = %14, %7, %6, %2, %16
-  %.012 = phi i32 [ 0, %7 ], [ 0, %2 ], [ 0, %6 ], [ 77, %16 ], [ 0, %14 ]
+  %.012 = phi i32 [ 77, %16 ], [ 0, %2 ], [ 0, %6 ], [ 0, %7 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.012
 }
@@ -197,7 +197,7 @@ define internal i64 @bzip2_filter_read(ptr noundef readonly captures(none) %0, p
   %36 = icmp eq i32 %bcmp16.i, 0
   br i1 %36, label %43, label %37
 
-37:                                               ; preds = %28, %23, %27, %35
+37:                                               ; preds = %23, %27, %28, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i8 1, ptr %7, align 1, !tbaa !25
   %38 = load ptr, ptr %11, align 8, !tbaa !23

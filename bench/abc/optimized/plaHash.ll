@@ -309,8 +309,8 @@ Vec_IntAlloc.exit:                                ; preds = %1, %7
   br label %Vec_IntPush.exit.i.sink.split
 
 Vec_IntPush.exit.i.sink.split:                    ; preds = %54, %56, %46, %48
-  %.sink91 = phi ptr [ %49, %48 ], [ %47, %46 ], [ %55, %54 ], [ %57, %56 ]
-  %.sink = phi i32 [ 16, %48 ], [ 16, %46 ], [ %51, %54 ], [ %51, %56 ]
+  %.sink91 = phi ptr [ %47, %46 ], [ %49, %48 ], [ %55, %54 ], [ %57, %56 ]
+  %.sink = phi i32 [ 16, %46 ], [ 16, %48 ], [ %51, %54 ], [ %51, %56 ]
   store ptr %.sink91, ptr %12, align 8, !tbaa !11
   store i32 %.sink, ptr %4, align 8, !tbaa !10
   br label %Vec_IntPush.exit.i
@@ -903,7 +903,7 @@ Vec_WecSizeSize.exit:                             ; preds = %39
   br label %Vec_WecSizeSize.exit.thread
 
 Vec_WecSizeSize.exit.thread:                      ; preds = %Vec_WecSizeSize.exit, %Vec_IntAlloc.exit
-  %48 = phi i32 [ %47, %Vec_WecSizeSize.exit ], [ 2, %Vec_IntAlloc.exit ]
+  %48 = phi i32 [ 2, %Vec_IntAlloc.exit ], [ %47, %Vec_WecSizeSize.exit ]
   %49 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #19
   %50 = shl nuw i32 1, %48
   %51 = add nsw i32 %50, -1

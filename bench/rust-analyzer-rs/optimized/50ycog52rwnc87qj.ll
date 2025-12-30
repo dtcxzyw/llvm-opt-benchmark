@@ -133,7 +133,7 @@ define noundef zeroext i1 @"_ZN61_$LT$span..map..RealSpanMap$u20$as$u20$core..fm
   br i1 %33, label %37, label %34
 
 .loopexit:                                        ; preds = %34, %2, %16, %37
-  %.0 = phi i1 [ true, %2 ], [ true, %37 ], [ false, %16 ], [ false, %34 ]
+  %.0 = phi i1 [ true, %37 ], [ false, %16 ], [ true, %2 ], [ false, %34 ]
   ret i1 %.0
 
 34:                                               ; preds = %29

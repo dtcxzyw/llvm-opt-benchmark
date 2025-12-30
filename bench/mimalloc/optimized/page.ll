@@ -894,7 +894,7 @@ define hidden void @_mi_page_unfull(ptr noundef %0) local_unnamed_addr #4 {
   br label %mi_heap_page_queue_of.exit
 
 mi_heap_page_queue_of.exit:                       ; preds = %4, %16, %20, %22
-  %32 = phi i64 [ 73, %20 ], [ 73, %4 ], [ %19, %16 ], [ %31, %22 ]
+  %32 = phi i64 [ 73, %4 ], [ %19, %16 ], [ %31, %22 ], [ 73, %20 ]
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 1264
   %34 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %33, i64 %32
   tail call fastcc void @mi_page_queue_enqueue_from_ex(ptr noundef nonnull %34, ptr noundef nonnull %8, ptr noundef nonnull %0) #14
@@ -1548,8 +1548,8 @@ define hidden void @_mi_heap_collect_retired(ptr noundef captures(address) %0, i
   br label %62
 
 62:                                               ; preds = %59, %60, %49, %37, %.lr.ph.split
-  %.127 = phi i64 [ %.02635, %49 ], [ %.02635, %.lr.ph.split ], [ %spec.select32, %59 ], [ %.02635, %60 ], [ %.02635, %37 ]
-  %.1 = phi i64 [ %.036, %49 ], [ %.036, %.lr.ph.split ], [ %spec.select, %59 ], [ %.036, %60 ], [ %.036, %37 ]
+  %.127 = phi i64 [ %.02635, %49 ], [ %.02635, %60 ], [ %.02635, %37 ], [ %.02635, %.lr.ph.split ], [ %spec.select32, %59 ]
+  %.1 = phi i64 [ %.036, %49 ], [ %.036, %60 ], [ %.036, %37 ], [ %.036, %.lr.ph.split ], [ %spec.select, %59 ]
   %63 = add i64 %.02834, 1
   %64 = load i64, ptr %5, align 8, !tbaa !52
   %.not = icmp ugt i64 %63, %64
@@ -2064,7 +2064,7 @@ _mi_page_free_collect.exit.i.i:                   ; preds = %_mi_page_thread_fre
   br label %151
 
 _mi_page_free_collect.exit.thread.i.i:            ; preds = %128, %_mi_page_free_collect.exit.i.i, %.sink.split.i.i.i, %124
-  %.048.val104.i.i = phi i1 [ true, %_mi_page_free_collect.exit.i.i ], [ false, %128 ], [ true, %124 ], [ true, %.sink.split.i.i.i ]
+  %.048.val104.i.i = phi i1 [ false, %128 ], [ true, %_mi_page_free_collect.exit.i.i ], [ true, %124 ], [ true, %.sink.split.i.i.i ]
   %133 = icmp eq ptr %.04484.i.i, null
   br i1 %133, label %149, label %134
 
@@ -2095,15 +2095,15 @@ _mi_page_free_collect.exit.thread.i.i:            ; preds = %128, %_mi_page_free
   br label %149
 
 149:                                              ; preds = %146, %139, %134, %_mi_page_free_collect.exit.thread.i.i
-  %.347.i.i = phi ptr [ %.04484.i.i, %134 ], [ %.04484.i.i, %139 ], [ %spec.select.i.i, %146 ], [ %.04883.i.i, %_mi_page_free_collect.exit.thread.i.i ]
-  %.2.i.i = phi i64 [ %86, %134 ], [ %86, %139 ], [ %86, %146 ], [ 0, %_mi_page_free_collect.exit.thread.i.i ]
+  %.347.i.i = phi ptr [ %.04484.i.i, %139 ], [ %.04484.i.i, %134 ], [ %.04883.i.i, %_mi_page_free_collect.exit.thread.i.i ], [ %spec.select.i.i, %146 ]
+  %.2.i.i = phi i64 [ %86, %139 ], [ %86, %134 ], [ 0, %_mi_page_free_collect.exit.thread.i.i ], [ %86, %146 ]
   %150 = icmp ugt i64 %.2.i.i, 4
   %or.cond.i.i = select i1 %.048.val104.i.i, i1 true, i1 %150
   br i1 %or.cond.i.i, label %.thread.i.i, label %151
 
 151:                                              ; preds = %149, %132
-  %.4.i.i = phi ptr [ %.347.i.i, %149 ], [ %.04484.i.i, %132 ]
-  %.3.i.i = phi i64 [ %.2.i.i, %149 ], [ %86, %132 ]
+  %.4.i.i = phi ptr [ %.04484.i.i, %132 ], [ %.347.i.i, %149 ]
+  %.3.i.i = phi i64 [ %86, %132 ], [ %.2.i.i, %149 ]
   %.not.i12.i = icmp eq ptr %85, null
   br i1 %.not.i12.i, label %.thread.i.i, label %.lr.ph.i.i
 
@@ -2228,8 +2228,8 @@ _mi_page_free_collect.exit.thread.i.i:            ; preds = %128, %_mi_page_free
   br label %210
 
 210:                                              ; preds = %208, %207, %197, %185, %.lr.ph.split.i.i.i
-  %.127.i.i.i = phi i64 [ %.02635.i.i.i, %197 ], [ %.02635.i.i.i, %.lr.ph.split.i.i.i ], [ %spec.select32.i.i.i, %207 ], [ %.02635.i.i.i, %208 ], [ %.02635.i.i.i, %185 ]
-  %.1.i.i.i = phi i64 [ %.036.i.i.i, %197 ], [ %.036.i.i.i, %.lr.ph.split.i.i.i ], [ %spec.select.i69.i.i, %207 ], [ %.036.i.i.i, %208 ], [ %.036.i.i.i, %185 ]
+  %.127.i.i.i = phi i64 [ %.02635.i.i.i, %197 ], [ %.02635.i.i.i, %208 ], [ %.02635.i.i.i, %185 ], [ %.02635.i.i.i, %.lr.ph.split.i.i.i ], [ %spec.select32.i.i.i, %207 ]
+  %.1.i.i.i = phi i64 [ %.036.i.i.i, %197 ], [ %.036.i.i.i, %208 ], [ %.036.i.i.i, %185 ], [ %.036.i.i.i, %.lr.ph.split.i.i.i ], [ %spec.select.i69.i.i, %207 ]
   %211 = add i64 %.02834.i.i.i, 1
   %212 = load i64, ptr %81, align 8, !tbaa !52
   %.not.i68.i.i = icmp ugt i64 %211, %212
@@ -2257,7 +2257,7 @@ mi_page_extend_free.exit.i.i:                     ; preds = %175, %154, %152
   br label %mi_page_queue_find_free_ex.exit.sink.split.i
 
 mi_page_queue_find_free_ex.exit.sink.split.i:     ; preds = %218, %mi_page_extend_free.exit.i.i, %_mi_page_free_collect.exit.i, %.sink.split.i.i, %75
-  %spec.select56.i.lcssa.sink.i = phi ptr [ %35, %_mi_page_free_collect.exit.i ], [ %35, %.sink.split.i.i ], [ %35, %75 ], [ %spec.select56.i.i, %218 ], [ %spec.select56.i.i, %mi_page_extend_free.exit.i.i ]
+  %spec.select56.i.lcssa.sink.i = phi ptr [ %35, %.sink.split.i.i ], [ %35, %75 ], [ %35, %_mi_page_free_collect.exit.i ], [ %spec.select56.i.i, %218 ], [ %spec.select56.i.i, %mi_page_extend_free.exit.i.i ]
   %219 = getelementptr inbounds nuw i8, ptr %spec.select56.i.lcssa.sink.i, i64 7
   %220 = load i8, ptr %219, align 1
   %221 = and i8 %220, 1
@@ -2661,7 +2661,7 @@ mi_bin.exit35.i67:                                ; preds = %126, %124, %120
   br i1 %exitcond.not.i76, label %mi_heap_queue_first_update.exit78, label %.lr.ph.i74, !llvm.loop !26
 
 mi_heap_queue_first_update.exit78:                ; preds = %.lr.ph.i74, %139, %89, %85, %83
-  %.val61 = phi i64 [ %.val61.pre, %83 ], [ %87, %139 ], [ %87, %89 ], [ %87, %85 ], [ %87, %.lr.ph.i74 ]
+  %.val61 = phi i64 [ %87, %139 ], [ %87, %89 ], [ %87, %85 ], [ %.val61.pre, %83 ], [ %87, %.lr.ph.i74 ]
   %143 = icmp eq i64 %.val61, 1048592
   %144 = zext i1 %143 to i8
   %145 = getelementptr inbounds nuw i8, ptr %2, i64 6

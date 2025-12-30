@@ -842,7 +842,7 @@ define dso_local void @gtt_write_workarounds(ptr noundef readonly captures(none)
   br i1 %26, label %.thread, label %30
 
 .thread:                                          ; preds = %17, %24, %10, %1
-  %27 = phi i32 [ 1743864447, %1 ], [ 1609630207, %10 ], [ %spec.select, %17 ], [ 1743864447, %24 ]
+  %27 = phi i32 [ 1743864447, %1 ], [ 1609630207, %10 ], [ 1743864447, %24 ], [ %spec.select, %17 ]
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef %4, i32 19924, i32 noundef %27, i1 noundef zeroext true) #10

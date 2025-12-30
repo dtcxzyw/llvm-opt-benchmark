@@ -2030,7 +2030,7 @@ if.end.i46:                                       ; preds = %do.end151
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end.i.i, %if.end.i46, %do.end151, %if.end44.i.i, %_ZNK4node10BaseObject6objectEv.exit.i.i, %_ZNK4node10BaseObject6objectEv.exit, %lor.lhs.false, %_ZN4node6crypto12_GLOBAL__N_13SetEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEPKcb.exit
-  %retval.0 = phi i32 [ 3, %_ZN4node6crypto12_GLOBAL__N_13SetEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEPKcb.exit ], [ 3, %_ZNK4node10BaseObject6objectEv.exit ], [ 3, %if.end44.i.i ], [ 3, %lor.lhs.false ], [ 3, %_ZNK4node10BaseObject6objectEv.exit.i.i ], [ 0, %if.end.i46 ], [ 0, %do.end151 ], [ 3, %if.end.i.i ]
+  %retval.0 = phi i32 [ 3, %_ZN4node6crypto12_GLOBAL__N_13SetEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEENS5_INS4_6StringEEEPKcb.exit ], [ 3, %lor.lhs.false ], [ 3, %_ZNK4node10BaseObject6objectEv.exit ], [ 3, %_ZNK4node10BaseObject6objectEv.exit.i.i ], [ 3, %if.end44.i.i ], [ 0, %do.end151 ], [ 0, %if.end.i46 ], [ 3, %if.end.i.i ]
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #25
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #25
   ret i32 %retval.0
@@ -2200,7 +2200,7 @@ cleanup:                                          ; preds = %lor.rhs, %cond.end,
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %cleanup
-  %retval.0 = phi i32 [ 1, %entry ], [ %retval.1, %cleanup ], [ 1, %lor.lhs.false ], [ -1, %if.end ]
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 1, %lor.lhs.false ], [ 1, %entry ], [ -1, %if.end ]
   ret i32 %retval.0
 }
 
@@ -2253,7 +2253,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
   %length_.i = getelementptr inbounds nuw i8, ptr %args, i64 16
   %12 = load i32, ptr %length_.i, align 8
   %cmp.not = icmp eq i32 %12, 4
@@ -2497,7 +2497,7 @@ if.end.i.i43:                                     ; preds = %if.end.i42
   br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
 
 _ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit: ; preds = %if.then.i.i, %if.end.i.i43
-  %retval.0.i = phi ptr [ %call7.i.i, %if.end.i.i43 ], [ %69, %if.then.i.i ]
+  %retval.0.i = phi ptr [ %69, %if.then.i.i ], [ %call7.i.i, %if.end.i.i43 ]
   %cmp106.not = icmp eq ptr %retval.0.i, null
   br i1 %cmp106.not, label %do.body111, label %do.end114
 
@@ -3009,7 +3009,7 @@ if.then30:                                        ; preds = %_ZN4node5DebugIJRiE
   %44 = load i32, ptr %read, align 4
   %call35 = call i32 @SSL_get_error(ptr noundef %43, i32 noundef %44) #25
   store i32 %call35, ptr %err, align 4
-  switch i32 %call35, label %cleanup214.critedge [
+  switch i32 %call35, label %cleanup210 [
     i32 6, label %sw.bb
     i32 1, label %sw.bb43
     i32 5, label %sw.bb43
@@ -3018,7 +3018,7 @@ if.then30:                                        ; preds = %_ZN4node5DebugIJRiE
 sw.bb:                                            ; preds = %if.then30
   %45 = load i8, ptr %eof_, align 2
   %tobool37 = trunc i8 %45 to i1
-  br i1 %tobool37, label %cleanup214.critedge, label %if.then38
+  br i1 %tobool37, label %cleanup210, label %if.then38
 
 if.then38:                                        ; preds = %sw.bb
   store i8 1, ptr %eof_, align 2
@@ -3033,7 +3033,7 @@ if.then38:                                        ; preds = %sw.bb
   %vfn.i61 = getelementptr inbounds nuw i8, ptr %vtable.i60, i64 24
   %50 = load ptr, ptr %vfn.i61, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(24) %49, i64 noundef -4095, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #25
-  br label %cleanup214.critedge
+  br label %cleanup210
 
 sw.bb43:                                          ; preds = %if.then30, %if.then30
   %call44 = call i64 @ERR_peek_error() #25
@@ -3044,7 +3044,7 @@ sw.bb43:                                          ; preds = %if.then30, %if.then
   %53 = load ptr, ptr %isolate_.i64, align 8
   %call47 = call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %53) #25
   %cmp.i266 = icmp eq ptr %call47, null
-  br i1 %cmp.i266, label %cleanup214.critedge, label %if.end54
+  br i1 %cmp.i266, label %cleanup210, label %if.end54
 
 if.end54:                                         ; preds = %sw.bb43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error_str) #25
@@ -3129,7 +3129,7 @@ if.end152:                                        ; preds = %lor.lhs.false135
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp177) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %code) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error_str) #25
-  br i1 %call185, label %sw.epilog, label %cleanup214.critedge
+  br i1 %call185, label %sw.epilog, label %cleanup210
 
 sw.epilog:                                        ; preds = %if.end152
   %73 = load i32, ptr %provider_type_.i, align 8
@@ -3171,15 +3171,15 @@ if.end194:                                        ; preds = %if.then193, %_ZN4no
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #25
   br label %cleanup214
 
-cleanup210.critedge:                              ; preds = %if.end101, %lor.lhs.false, %lor.lhs.false135, %if.end69, %if.end54, %if.end83
+cleanup210.critedge:                              ; preds = %if.end101, %lor.lhs.false, %lor.lhs.false135, %if.end83, %if.end69, %if.end54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error_str) #25
-  br label %cleanup214.critedge
+  br label %cleanup210
 
-cleanup214.critedge:                              ; preds = %if.then30, %sw.bb43, %if.then38, %sw.bb, %if.end152, %cleanup210.critedge
+cleanup210:                                       ; preds = %if.then30, %cleanup210.critedge, %sw.bb43, %sw.bb, %if.then38, %if.end152
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #25
   br label %cleanup214
 
-cleanup214:                                       ; preds = %cleanup214.critedge, %if.end.i, %if.then26, %if.end194
+cleanup214:                                       ; preds = %cleanup210, %if.end.i, %if.then26, %if.end194
   %call.i = call i32 @ERR_pop_to_mark() #25
   br label %cleanup.cont216
 
@@ -4517,7 +4517,7 @@ if.end44.i:                                       ; preds = %if.end.i
   br label %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_4NameEEEiPNS2_INS1_5ValueEEE.exit
 
 _ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_4NameEEEiPNS2_INS1_5ValueEEE.exit: ; preds = %_ZNK4node10BaseObject6objectEv.exit.i, %if.then33.i, %if.end44.i
-  %retval.sroa.0.0.i = phi ptr [ %14, %if.then33.i ], [ %call53.i, %if.end44.i ], [ null, %_ZNK4node10BaseObject6objectEv.exit.i ]
+  %retval.sroa.0.0.i = phi ptr [ %call53.i, %if.end44.i ], [ %14, %if.then33.i ], [ null, %_ZNK4node10BaseObject6objectEv.exit.i ]
   ret ptr %retval.sroa.0.0.i
 }
 
@@ -4615,7 +4615,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !24
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
-  %retval.0.i = phi i32 [ %add15.i, %if.then14.i ], [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
+  %retval.0.i = phi i32 [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ %add15.i, %if.then14.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
   %__val.lobit = lshr i64 %__val, 63
   %conv = trunc nuw nsw i64 %__val.lobit to i32
   %add2 = add i32 %retval.0.i, %conv
@@ -5515,8 +5515,8 @@ if.then.i117:                                     ; preds = %_ZNSt10unique_ptrIN
   br label %do.end132
 
 do.body119:                                       ; preds = %_ZN4node6crypto7NodeBIO21set_allocate_tls_hintEm.exit, %_ZN4node6crypto7NodeBIO21set_allocate_tls_hintEm.exit96
-  %71 = phi i32 [ %call93, %_ZN4node6crypto7NodeBIO21set_allocate_tls_hintEm.exit ], [ %call103, %_ZN4node6crypto7NodeBIO21set_allocate_tls_hintEm.exit96 ]
-  %bs.sroa.0.0 = phi ptr [ %49, %_ZN4node6crypto7NodeBIO21set_allocate_tls_hintEm.exit ], [ null, %_ZN4node6crypto7NodeBIO21set_allocate_tls_hintEm.exit96 ]
+  %71 = phi i32 [ %call103, %_ZN4node6crypto7NodeBIO21set_allocate_tls_hintEm.exit96 ], [ %call93, %_ZN4node6crypto7NodeBIO21set_allocate_tls_hintEm.exit ]
+  %bs.sroa.0.0 = phi ptr [ null, %_ZN4node6crypto7NodeBIO21set_allocate_tls_hintEm.exit96 ], [ %49, %_ZN4node6crypto7NodeBIO21set_allocate_tls_hintEm.exit ]
   %cmp120 = icmp ne i32 %71, -1
   %conv121 = trunc i64 %38 to i32
   %cmp122 = icmp ne i32 %71, %conv121
@@ -5648,7 +5648,7 @@ _ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i143: ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i143, %cleanup, %if.then.i.i60, %if.end42, %if.then62, %if.then6
-  %retval.0 = phi i32 [ -71, %if.then6 ], [ 0, %if.then.i.i60 ], [ 0, %if.then62 ], [ 0, %if.end42 ], [ %retval.1, %cleanup ], [ %retval.1, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i143 ]
+  %retval.0 = phi i32 [ -71, %if.then6 ], [ 0, %if.then62 ], [ 0, %if.end42 ], [ 0, %if.then.i.i60 ], [ %retval.1, %cleanup ], [ %retval.1, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i143 ]
   ret i32 %retval.0
 }
 
@@ -6120,7 +6120,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   br label %if.end85
 
 if.end85:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %do.end61, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit108
-  %verify_mode.0 = phi i32 [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit108 ], [ 0, %do.end61 ], [ %spec.select, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ]
+  %verify_mode.0 = phi i32 [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit108 ], [ %spec.select, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ 0, %do.end61 ]
   %33 = load ptr, ptr %ssl_, align 8
   tail call void @SSL_set_verify(ptr noundef %33, i32 noundef %verify_mode.0, ptr noundef nonnull @_ZN4node6crypto14VerifyCallbackEiP17x509_store_ctx_st) #25
   br label %return
@@ -6883,7 +6883,7 @@ if.end44.i.i:                                     ; preds = %if.end.i.i
   br label %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit
 
 _ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit: ; preds = %if.then33.i.i, %if.end44.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %20, %if.then33.i.i ], [ %call53.i.i, %if.end44.i.i ]
+  %retval.sroa.0.0.i.i = phi ptr [ %call53.i.i, %if.end44.i.i ], [ %20, %if.then33.i.i ]
   %cmp.i.i = icmp eq ptr %retval.sroa.0.0.i.i, null
   br i1 %cmp.i.i, label %cleanup, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
@@ -6995,7 +6995,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
   %12 = load ptr, ptr %args, align 8
   %13 = load i64, ptr %12, align 8
   %sub.i31.i = add i64 %13, -1
@@ -7113,7 +7113,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
   %12 = load ptr, ptr %args, align 8
   %13 = load i64, ptr %12, align 8
   %sub.i31.i = add i64 %13, -1
@@ -7622,7 +7622,7 @@ if.end44.i.i:                                     ; preds = %if.end.i.i
   br label %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6SymbolEEEiPNS2_INS1_5ValueEEE.exit
 
 _ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6SymbolEEEiPNS2_INS1_5ValueEEE.exit: ; preds = %if.then33.i.i, %if.end44.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %23, %if.then33.i.i ], [ %call53.i.i, %if.end44.i.i ]
+  %retval.sroa.0.0.i.i = phi ptr [ %call53.i.i, %if.end44.i.i ], [ %23, %if.then33.i.i ]
   %cmp.i.i = icmp eq ptr %retval.sroa.0.0.i.i, null
   br i1 %cmp.i.i, label %cleanup, label %lor.lhs.false
 
@@ -7647,7 +7647,7 @@ if.end80:                                         ; preds = %if.end72
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i, %if.end72, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6SymbolEEEiPNS2_INS1_5ValueEEE.exit, %lor.lhs.false, %if.end, %if.end80
-  %retval.1 = phi i32 [ %conv84, %if.end80 ], [ 0, %if.end ], [ 0, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6SymbolEEEiPNS2_INS1_5ValueEEE.exit ], [ 0, %lor.lhs.false ], [ 0, %if.end72 ], [ 0, %_ZNK4node10BaseObject6objectEv.exit.i.i ]
+  %retval.1 = phi i32 [ %conv84, %if.end80 ], [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6SymbolEEEiPNS2_INS1_5ValueEEE.exit ], [ 0, %if.end72 ], [ 0, %_ZNK4node10BaseObject6objectEv.exit.i.i ]
   %26 = load ptr, ptr %buf_.i.i.i, align 8
   %cmp.i.i.i.i16 = icmp ne ptr %26, null
   %buf_st_.i.i.i = getelementptr inbounds nuw i8, ptr %identity_utf8, i64 24
@@ -7770,7 +7770,7 @@ if.end44.i.i:                                     ; preds = %if.end.i.i
   br label %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6SymbolEEEiPNS2_INS1_5ValueEEE.exit
 
 _ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6SymbolEEEiPNS2_INS1_5ValueEEE.exit: ; preds = %if.then33.i.i, %if.end44.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %24, %if.then33.i.i ], [ %call53.i.i, %if.end44.i.i ]
+  %retval.sroa.0.0.i.i = phi ptr [ %call53.i.i, %if.end44.i.i ], [ %24, %if.then33.i.i ]
   %cmp.i.i = icmp eq ptr %retval.sroa.0.0.i.i, null
   br i1 %cmp.i.i, label %cleanup200, label %lor.lhs.false
 
@@ -7866,7 +7866,7 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %cleanup200
 
 cleanup200:                                       ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i, %if.then.i.i, %cleanup, %lor.lhs.false179, %if.end139, %if.end.i, %if.end130, %if.end82, %lor.lhs.false126, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6SymbolEEEiPNS2_INS1_5ValueEEE.exit, %lor.lhs.false, %if.then
-  %retval.0 = phi i32 [ %retval.1, %if.then.i.i ], [ 0, %if.then ], [ 0, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6SymbolEEEiPNS2_INS1_5ValueEEE.exit ], [ 0, %if.end82 ], [ 0, %if.end130 ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false126 ], [ 0, %if.end139 ], [ 0, %if.end.i ], [ 0, %lor.lhs.false179 ], [ %retval.1, %cleanup ], [ 0, %_ZNK4node10BaseObject6objectEv.exit.i.i ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %lor.lhs.false ], [ 0, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6SymbolEEEiPNS2_INS1_5ValueEEE.exit ], [ 0, %lor.lhs.false126 ], [ 0, %if.end82 ], [ 0, %if.end130 ], [ 0, %if.end.i ], [ 0, %if.end139 ], [ 0, %lor.lhs.false179 ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i ], [ 0, %_ZNK4node10BaseObject6objectEv.exit.i.i ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #25
   ret i32 %retval.0
 }
@@ -8107,7 +8107,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.
   br label %if.else.i.i, !llvm.loop !37
 
 if.then8.i.i:                                     ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %22, %if.end.i.i.i.i.i.i ], [ %24, %for.cond.i.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i.i = phi ptr [ %22, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %24, %for.cond.i.i.i.i.i.i ]
   %graph_.i.i8 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %27 = load ptr, ptr %graph_.i.i8, align 8
   %_M_finish.i.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -8237,7 +8237,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.
   br label %if.else.i, !llvm.loop !37
 
 if.then8.i:                                       ; preds = %for.cond.i.i.i.i.i, %for.body.i.i.i, %if.end.i.i.i.i.i
-  %retval.sroa.0.1.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %45, %if.end.i.i.i.i.i ], [ %47, %for.cond.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i = phi ptr [ %45, %if.end.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %47, %for.cond.i.i.i.i.i ]
   %graph_.i = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %50 = load ptr, ptr %graph_.i, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -8355,7 +8355,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i50: ; preds = %lor.lhs.false.i.
   br label %if.else.i51, !llvm.loop !37
 
 if.then8.i54:                                     ; preds = %for.cond.i.i.i.i.i52, %for.body.i.i.i80, %if.end.i.i.i.i.i40
-  %retval.sroa.0.1.i.i.i55 = phi ptr [ %retval.sroa.0.0.i.i.i78, %for.body.i.i.i80 ], [ %67, %if.end.i.i.i.i.i40 ], [ %69, %for.cond.i.i.i.i.i52 ]
+  %retval.sroa.0.1.i.i.i55 = phi ptr [ %67, %if.end.i.i.i.i.i40 ], [ %retval.sroa.0.0.i.i.i78, %for.body.i.i.i80 ], [ %69, %for.cond.i.i.i.i.i52 ]
   %graph_.i56 = getelementptr inbounds nuw i8, ptr %tracker, i64 8
   %72 = load ptr, ptr %graph_.i56, align 8
   %_M_finish.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %tracker, i64 64
@@ -8529,7 +8529,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
   %12 = load ptr, ptr %args, align 8
   %13 = load i64, ptr %12, align 8
   %sub.i31.i = add i64 %13, -1
@@ -9291,7 +9291,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
   %12 = load ptr, ptr %args, align 8
   %13 = load i64, ptr %12, align 8
   %sub.i31.i = add i64 %13, -1
@@ -9522,7 +9522,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
   %12 = load ptr, ptr %args, align 8
   %13 = load i64, ptr %12, align 8
   %sub.i31.i = add i64 %13, -1
@@ -9747,7 +9747,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
   %12 = load ptr, ptr %args, align 8
   %13 = load i64, ptr %12, align 8
   %sub.i31.i = add i64 %13, -1
@@ -9977,7 +9977,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
   %12 = load ptr, ptr %args, align 8
   %13 = load i64, ptr %12, align 8
   %sub.i31.i = add i64 %13, -1
@@ -10200,7 +10200,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
   %12 = load ptr, ptr %args, align 8
   %13 = load i64, ptr %12, align 8
   %sub.i31.i = add i64 %13, -1
@@ -10368,7 +10368,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
   %12 = load ptr, ptr %args, align 8
   %13 = load i64, ptr %12, align 8
   %sub.i31.i = add i64 %13, -1
@@ -10563,7 +10563,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
   %12 = load ptr, ptr %args, align 8
   %13 = load i64, ptr %12, align 8
   %sub.i31.i = add i64 %13, -1
@@ -10911,7 +10911,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %do.end24, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %28, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %do.end24 ]
+  %retval.0.i.i = phi ptr [ %28, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %do.end24 ], [ null, %if.end.i.i.i ]
   %29 = load ptr, ptr %args, align 8
   %30 = load i64, ptr %29, align 8
   %sub.i31.i = add i64 %30, -1
@@ -11718,7 +11718,7 @@ if.end.i.i12:                                     ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %do.end, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i12
-  %retval.0.i.i = phi ptr [ %22, %if.end.i.i12 ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %do.end ]
+  %retval.0.i.i = phi ptr [ %22, %if.end.i.i12 ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %do.end ], [ null, %if.end.i.i.i ]
   %ssl_ = getelementptr inbounds nuw i8, ptr %retval.i11.0.i, i64 168
   %23 = load ptr, ptr %ssl_, align 8
   %cmp.i.not = icmp eq ptr %23, null
@@ -11799,7 +11799,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
   %12 = load ptr, ptr %args, align 8
   %13 = load i64, ptr %12, align 8
   %sub.i31.i = add i64 %13, -1
@@ -11901,7 +11901,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %entry ]
+  %retval.0.i.i = phi ptr [ %11, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
   %12 = load ptr, ptr %args, align 8
   %13 = load i64, ptr %12, align 8
   %sub.i31.i = add i64 %13, -1
@@ -12144,7 +12144,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %do.end9, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %13, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %do.end9 ]
+  %retval.0.i.i = phi ptr [ %13, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %do.end9 ], [ null, %if.end.i.i.i ]
   %14 = load ptr, ptr %args, align 8
   %15 = load i64, ptr %14, align 8
   %sub.i31.i = add i64 %15, -1
@@ -12260,7 +12260,7 @@ if.end.i:                                         ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
 
 _ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %entry, %if.end.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i, %if.end.i
-  %retval.0.i = phi ptr [ %9, %if.end.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %if.end.i.i ], [ null, %entry ]
+  %retval.0.i = phi ptr [ %9, %if.end.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %entry ], [ null, %if.end.i.i ]
   %isolate_.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 88
   %10 = load ptr, ptr %isolate_.i, align 8
   tail call void @_ZN4node9SetMethodEN2v85LocalINS0_7ContextEEENS1_INS0_6ObjectEEESt17basic_string_viewIcSt11char_traitsIcEEPFvRKNS0_20FunctionCallbackInfoINS0_5ValueEEEE(ptr %context.coerce, ptr %target.coerce, i64 4, ptr nonnull @.str.199, ptr noundef nonnull @_ZN4node6crypto7TLSWrap4WrapERKN2v820FunctionCallbackInfoINS2_5ValueEEE) #25
@@ -15322,7 +15322,7 @@ if.end.i.i23:                                     ; preds = %if.end62
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end.i.i, %if.end36, %if.end.i.i23, %if.end62, %if.end44.i.i, %_ZNK4node10BaseObject6objectEv.exit.i.i, %_ZNK4node6crypto7TLSWrap13ocsp_responseEv.exit, %if.then
-  %retval.0 = phi i32 [ 0, %if.end.i.i23 ], [ 1, %if.then ], [ 3, %_ZNK4node6crypto7TLSWrap13ocsp_responseEv.exit ], [ 1, %_ZNK4node10BaseObject6objectEv.exit.i.i ], [ 3, %if.end36 ], [ 1, %if.end44.i.i ], [ 0, %if.end62 ], [ 1, %if.end.i.i ]
+  %retval.0 = phi i32 [ 1, %if.then ], [ 3, %_ZNK4node6crypto7TLSWrap13ocsp_responseEv.exit ], [ 1, %_ZNK4node10BaseObject6objectEv.exit.i.i ], [ 1, %if.end44.i.i ], [ 0, %if.end62 ], [ 0, %if.end.i.i23 ], [ 3, %if.end36 ], [ 1, %if.end.i.i ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #25
   ret i32 %retval.0
 }
@@ -15697,7 +15697,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %if.end12, !llvm.loop !37
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %if.end.i.i.i.i ], [ %9, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %7, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %9, %for.cond.i.i.i.i ]
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %12 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -15749,7 +15749,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit17:   ; preds = %_ZNK4node13MemoryTr
   call void %25(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %23, ptr noundef %24, ptr noundef %edge_name) #25
   br label %cleanup
 
-if.end12:                                         ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.end15.i.i
+if.end12:                                         ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %n.i)
   %call.i = call noundef ptr @_ZN4node13MemoryTracker7AddNodeEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %retainer, ptr noundef %edge_name)
   store ptr %call.i, ptr %n.i, align 8
@@ -15929,12 +15929,12 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %if.end, !llvm.loop !37
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %6, %if.end.i.i.i.i ], [ %8, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %6, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %8, %for.cond.i.i.i.i ]
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   %11 = load ptr, ptr %second, align 8
   br label %return
 
-if.end:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.end15.i.i
+if.end:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
   %call9 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #30
   tail call void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryTrackerEPKNS_14MemoryRetainerE(ptr noundef nonnull align 8 dereferenceable(49) %call9, ptr noundef nonnull %this, ptr noundef %retainer)
   %graph_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -16595,7 +16595,7 @@ _ZSt4copyIPPPN4node18MemoryRetainerNodeES4_ET0_T_S6_S5_.exit30: ; preds = %_ZNSt
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPPN4node18MemoryRetainerNodeES4_ET0_T_S6_S5_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPN4node18MemoryRetainerNodeES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPN4node18MemoryRetainerNodeES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -17278,7 +17278,7 @@ if.end14.i:                                       ; preds = %if.end9.i
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !166
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
-  %retval.0.i = phi i32 [ %add13.i, %if.then12.i ], [ %add.i, %if.then4.i ], [ %add8.i, %if.then7.i ], [ 1, %entry ], [ %add17.i, %if.end14.i ]
+  %retval.0.i = phi i32 [ %add.i, %if.then4.i ], [ %add8.i, %if.then7.i ], [ %add13.i, %if.then12.i ], [ 1, %entry ], [ %add17.i, %if.end14.i ]
   %__val.lobit = lshr i32 %__val, 31
   %add2 = add i32 %retval.0.i, %__val.lobit
   %conv3 = zext i32 %add2 to i64
@@ -17737,7 +17737,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !24
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
-  %retval.0.i = phi i32 [ %add15.i, %if.then14.i ], [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
+  %retval.0.i = phi i32 [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ %add15.i, %if.then14.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
   %conv = zext i32 %retval.0.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #25
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #25

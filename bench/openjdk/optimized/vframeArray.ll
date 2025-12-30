@@ -379,9 +379,9 @@ _ZNK6HandleclEv.exit:                             ; preds = %103, %108
   unreachable
 
 _ZNK20StackValueCollection3addEP10StackValue.exit.sink.split: ; preds = %129, %119, %_ZNK6HandleclEv.exit
-  %.sink133 = phi i32 [ %125, %119 ], [ %115, %_ZNK6HandleclEv.exit ], [ %137, %129 ]
-  %.sink122 = phi ptr [ %124, %119 ], [ %114, %_ZNK6HandleclEv.exit ], [ %136, %129 ]
-  %.sink.ph = phi ptr [ %121, %119 ], [ %105, %_ZNK6HandleclEv.exit ], [ %131, %129 ]
+  %.sink133 = phi i32 [ %115, %_ZNK6HandleclEv.exit ], [ %125, %119 ], [ %137, %129 ]
+  %.sink122 = phi ptr [ %114, %_ZNK6HandleclEv.exit ], [ %124, %119 ], [ %136, %129 ]
+  %.sink.ph = phi ptr [ %105, %_ZNK6HandleclEv.exit ], [ %121, %119 ], [ %131, %129 ]
   %143 = add nsw i32 %.sink133, 1
   %144 = icmp sgt i32 %.sink133, -1
   %145 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %143)
@@ -396,9 +396,9 @@ _ZNK20StackValueCollection3addEP10StackValue.exit.sink.split: ; preds = %129, %1
   br label %_ZNK20StackValueCollection3addEP10StackValue.exit
 
 _ZNK20StackValueCollection3addEP10StackValue.exit: ; preds = %_ZNK20StackValueCollection3addEP10StackValue.exit.sink.split, %129, %119, %_ZNK6HandleclEv.exit
-  %.sink110 = phi i32 [ %125, %119 ], [ %115, %_ZNK6HandleclEv.exit ], [ %137, %129 ], [ %.pre.i.i.i51, %_ZNK20StackValueCollection3addEP10StackValue.exit.sink.split ]
-  %.sink109 = phi ptr [ %124, %119 ], [ %114, %_ZNK6HandleclEv.exit ], [ %136, %129 ], [ %.sink122, %_ZNK20StackValueCollection3addEP10StackValue.exit.sink.split ]
-  %.sink = phi ptr [ %121, %119 ], [ %105, %_ZNK6HandleclEv.exit ], [ %131, %129 ], [ %.sink.ph, %_ZNK20StackValueCollection3addEP10StackValue.exit.sink.split ]
+  %.sink110 = phi i32 [ %115, %_ZNK6HandleclEv.exit ], [ %125, %119 ], [ %137, %129 ], [ %.pre.i.i.i51, %_ZNK20StackValueCollection3addEP10StackValue.exit.sink.split ]
+  %.sink109 = phi ptr [ %114, %_ZNK6HandleclEv.exit ], [ %124, %119 ], [ %136, %129 ], [ %.sink122, %_ZNK20StackValueCollection3addEP10StackValue.exit.sink.split ]
+  %.sink = phi ptr [ %105, %_ZNK6HandleclEv.exit ], [ %121, %119 ], [ %131, %129 ], [ %.sink.ph, %_ZNK20StackValueCollection3addEP10StackValue.exit.sink.split ]
   %150 = add nsw i32 %.sink110, 1
   store i32 %150, ptr %.sink109, align 8
   %151 = getelementptr inbounds nuw i8, ptr %.sink109, i64 8
@@ -528,9 +528,9 @@ _ZNK6HandleclEv.exit56:                           ; preds = %184, %189
   unreachable
 
 _ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split: ; preds = %210, %200, %_ZNK6HandleclEv.exit56
-  %.sink146 = phi i32 [ %206, %200 ], [ %196, %_ZNK6HandleclEv.exit56 ], [ %218, %210 ]
-  %.sink135 = phi ptr [ %205, %200 ], [ %195, %_ZNK6HandleclEv.exit56 ], [ %217, %210 ]
-  %.sink111.ph = phi ptr [ %202, %200 ], [ %186, %_ZNK6HandleclEv.exit56 ], [ %212, %210 ]
+  %.sink146 = phi i32 [ %196, %_ZNK6HandleclEv.exit56 ], [ %206, %200 ], [ %218, %210 ]
+  %.sink135 = phi ptr [ %195, %_ZNK6HandleclEv.exit56 ], [ %205, %200 ], [ %217, %210 ]
+  %.sink111.ph = phi ptr [ %186, %_ZNK6HandleclEv.exit56 ], [ %202, %200 ], [ %212, %210 ]
   %224 = add nsw i32 %.sink146, 1
   %225 = icmp sgt i32 %.sink146, -1
   %226 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %224)
@@ -545,9 +545,9 @@ _ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split: ; preds = %210, 
   br label %_ZNK20StackValueCollection3addEP10StackValue.exit60
 
 _ZNK20StackValueCollection3addEP10StackValue.exit60: ; preds = %_ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split, %210, %200, %_ZNK6HandleclEv.exit56
-  %.sink120 = phi i32 [ %206, %200 ], [ %196, %_ZNK6HandleclEv.exit56 ], [ %218, %210 ], [ %.pre.i.i.i67, %_ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split ]
-  %.sink119 = phi ptr [ %205, %200 ], [ %195, %_ZNK6HandleclEv.exit56 ], [ %217, %210 ], [ %.sink135, %_ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split ]
-  %.sink111 = phi ptr [ %202, %200 ], [ %186, %_ZNK6HandleclEv.exit56 ], [ %212, %210 ], [ %.sink111.ph, %_ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split ]
+  %.sink120 = phi i32 [ %196, %_ZNK6HandleclEv.exit56 ], [ %206, %200 ], [ %218, %210 ], [ %.pre.i.i.i67, %_ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split ]
+  %.sink119 = phi ptr [ %195, %_ZNK6HandleclEv.exit56 ], [ %205, %200 ], [ %217, %210 ], [ %.sink135, %_ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split ]
+  %.sink111 = phi ptr [ %186, %_ZNK6HandleclEv.exit56 ], [ %202, %200 ], [ %212, %210 ], [ %.sink111.ph, %_ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split ]
   %231 = add nsw i32 %.sink120, 1
   store i32 %231, ptr %.sink119, align 8
   %232 = getelementptr inbounds nuw i8, ptr %.sink119, i64 8

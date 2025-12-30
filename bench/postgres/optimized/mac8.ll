@@ -295,14 +295,14 @@ define dso_local noundef i64 @macaddr8_in(ptr noundef readonly captures(none) %0
   br label %hex2_to_uchar.exit
 
 hex2_to_uchar.exit:                               ; preds = %39, %56, %73, %90, %107, %124, %141, %158
-  %.186 = phi i8 [ %.085157, %141 ], [ %.085157, %158 ], [ %.085157, %56 ], [ %.085157, %73 ], [ %.085157, %90 ], [ %.085157, %107 ], [ %.085157, %124 ], [ %40, %39 ]
-  %.184 = phi i8 [ %.083158, %141 ], [ %.083158, %158 ], [ %57, %56 ], [ %.083158, %73 ], [ %.083158, %90 ], [ %.083158, %107 ], [ %.083158, %124 ], [ %.083158, %39 ]
-  %.182 = phi i8 [ %.081159, %141 ], [ %.081159, %158 ], [ %.081159, %56 ], [ %74, %73 ], [ %.081159, %90 ], [ %.081159, %107 ], [ %.081159, %124 ], [ %.081159, %39 ]
-  %.179 = phi i8 [ %.078160, %141 ], [ %.078160, %158 ], [ %.078160, %56 ], [ %.078160, %73 ], [ %91, %90 ], [ %.078160, %107 ], [ %.078160, %124 ], [ %.078160, %39 ]
-  %.176 = phi i8 [ %.075161, %141 ], [ %.075161, %158 ], [ %.075161, %56 ], [ %.075161, %73 ], [ %.075161, %90 ], [ %108, %107 ], [ %.075161, %124 ], [ %.075161, %39 ]
-  %.173 = phi i8 [ %.072162, %141 ], [ %.072162, %158 ], [ %.072162, %56 ], [ %.072162, %73 ], [ %.072162, %90 ], [ %.072162, %107 ], [ %125, %124 ], [ %.072162, %39 ]
-  %.170 = phi i8 [ %142, %141 ], [ %.069163, %158 ], [ %.069163, %56 ], [ %.069163, %73 ], [ %.069163, %90 ], [ %.069163, %107 ], [ %.069163, %124 ], [ %.069163, %39 ]
-  %.167 = phi i8 [ %.066164, %141 ], [ %159, %158 ], [ %.066164, %56 ], [ %.066164, %73 ], [ %.066164, %90 ], [ %.066164, %107 ], [ %.066164, %124 ], [ %.066164, %39 ]
+  %.186 = phi i8 [ %40, %39 ], [ %.085157, %56 ], [ %.085157, %73 ], [ %.085157, %90 ], [ %.085157, %107 ], [ %.085157, %124 ], [ %.085157, %141 ], [ %.085157, %158 ]
+  %.184 = phi i8 [ %.083158, %39 ], [ %57, %56 ], [ %.083158, %73 ], [ %.083158, %90 ], [ %.083158, %107 ], [ %.083158, %124 ], [ %.083158, %141 ], [ %.083158, %158 ]
+  %.182 = phi i8 [ %.081159, %39 ], [ %.081159, %56 ], [ %74, %73 ], [ %.081159, %90 ], [ %.081159, %107 ], [ %.081159, %124 ], [ %.081159, %141 ], [ %.081159, %158 ]
+  %.179 = phi i8 [ %.078160, %39 ], [ %.078160, %56 ], [ %.078160, %73 ], [ %91, %90 ], [ %.078160, %107 ], [ %.078160, %124 ], [ %.078160, %141 ], [ %.078160, %158 ]
+  %.176 = phi i8 [ %.075161, %39 ], [ %.075161, %56 ], [ %.075161, %73 ], [ %.075161, %90 ], [ %108, %107 ], [ %.075161, %124 ], [ %.075161, %141 ], [ %.075161, %158 ]
+  %.173 = phi i8 [ %.072162, %39 ], [ %.072162, %56 ], [ %.072162, %73 ], [ %.072162, %90 ], [ %.072162, %107 ], [ %125, %124 ], [ %.072162, %141 ], [ %.072162, %158 ]
+  %.170 = phi i8 [ %.069163, %39 ], [ %.069163, %56 ], [ %.069163, %73 ], [ %.069163, %90 ], [ %.069163, %107 ], [ %.069163, %124 ], [ %142, %141 ], [ %.069163, %158 ]
+  %.167 = phi i8 [ %.066164, %39 ], [ %.066164, %56 ], [ %.066164, %73 ], [ %.066164, %90 ], [ %.066164, %107 ], [ %.066164, %124 ], [ %.066164, %141 ], [ %159, %158 ]
   %160 = getelementptr inbounds nuw i8, ptr %.188156, i64 2
   %161 = load i8, ptr %160, align 1
   switch i8 %161, label %167 [
@@ -362,20 +362,20 @@ hex2_to_uchar.exit:                               ; preds = %39, %56, %73, %90, 
   br i1 %.not101, label %.critedge5, label %.preheader, !llvm.loop !6
 
 .critedge5.thread:                                ; preds = %..critedge5.thread_crit_edge, %169
-  %184 = phi i8 [ %.pre, %..critedge5.thread_crit_edge ], [ %172, %169 ]
+  %184 = phi i8 [ %172, %169 ], [ %.pre, %..critedge5.thread_crit_edge ]
   %.not95 = icmp eq i8 %184, 0
   br i1 %.not95, label %.critedge2, label %.lr.ph167, !llvm.loop !7
 
 .critedge2:                                       ; preds = %.lr.ph167, %.critedge5.thread, %.preheader
-  %.085.lcssa = phi i8 [ %.186, %.preheader ], [ %.085157, %.lr.ph167 ], [ %.186, %.critedge5.thread ]
-  %.083.lcssa = phi i8 [ %.184, %.preheader ], [ %.083158, %.lr.ph167 ], [ %.184, %.critedge5.thread ]
-  %.081.lcssa = phi i8 [ %.182, %.preheader ], [ %.081159, %.lr.ph167 ], [ %.182, %.critedge5.thread ]
-  %.078.lcssa = phi i8 [ %.179, %.preheader ], [ %.078160, %.lr.ph167 ], [ %.179, %.critedge5.thread ]
-  %.075.lcssa = phi i8 [ %.176, %.preheader ], [ %.075161, %.lr.ph167 ], [ %.176, %.critedge5.thread ]
-  %.072.lcssa = phi i8 [ %.173, %.preheader ], [ %.072162, %.lr.ph167 ], [ %.173, %.critedge5.thread ]
-  %.069.lcssa = phi i8 [ %.170, %.preheader ], [ %.069163, %.lr.ph167 ], [ %.170, %.critedge5.thread ]
-  %.066.lcssa = phi i8 [ %.167, %.preheader ], [ %.066164, %.lr.ph167 ], [ %.167, %.critedge5.thread ]
-  %.065.lcssa = phi i32 [ %23, %.preheader ], [ %.065165, %.lr.ph167 ], [ %23, %.critedge5.thread ]
+  %.085.lcssa = phi i8 [ %.186, %.preheader ], [ %.186, %.critedge5.thread ], [ %.085157, %.lr.ph167 ]
+  %.083.lcssa = phi i8 [ %.184, %.preheader ], [ %.184, %.critedge5.thread ], [ %.083158, %.lr.ph167 ]
+  %.081.lcssa = phi i8 [ %.182, %.preheader ], [ %.182, %.critedge5.thread ], [ %.081159, %.lr.ph167 ]
+  %.078.lcssa = phi i8 [ %.179, %.preheader ], [ %.179, %.critedge5.thread ], [ %.078160, %.lr.ph167 ]
+  %.075.lcssa = phi i8 [ %.176, %.preheader ], [ %.176, %.critedge5.thread ], [ %.075161, %.lr.ph167 ]
+  %.072.lcssa = phi i8 [ %.173, %.preheader ], [ %.173, %.critedge5.thread ], [ %.072162, %.lr.ph167 ]
+  %.069.lcssa = phi i8 [ %.170, %.preheader ], [ %.170, %.critedge5.thread ], [ %.069163, %.lr.ph167 ]
+  %.066.lcssa = phi i8 [ %.167, %.preheader ], [ %.167, %.critedge5.thread ], [ %.066164, %.lr.ph167 ]
+  %.065.lcssa = phi i32 [ %23, %.preheader ], [ %23, %.critedge5.thread ], [ %.065165, %.lr.ph167 ]
   switch i32 %.065.lcssa, label %.critedge5 [
     i32 6, label %185
     i32 8, label %.fold.split
@@ -409,7 +409,7 @@ hex2_to_uchar.exit:                               ; preds = %39, %56, %73, %90, 
   %194 = ptrtoint ptr %186 to i64
   br label %199
 
-.critedge5:                                       ; preds = %16, %143, %145, %150, %153, %128, %133, %136, %111, %116, %119, %94, %99, %102, %77, %82, %85, %60, %65, %68, %43, %48, %51, %26, %31, %34, %109, %92, %75, %58, %41, %24, %126, %164, %22, %179, %1, %.critedge2
+.critedge5:                                       ; preds = %16, %143, %145, %150, %153, %126, %128, %133, %136, %109, %111, %116, %119, %92, %94, %99, %102, %75, %77, %82, %85, %58, %60, %65, %68, %41, %43, %48, %51, %24, %26, %31, %34, %164, %22, %179, %1, %.critedge2
   %195 = tail call zeroext i1 @errsave_start(ptr noundef %6, ptr noundef null) #9
   br i1 %195, label %196, label %199
 
@@ -734,7 +734,7 @@ define dso_local range(i64 -1, 2) i64 @macaddr8_cmp(ptr noundef readonly capture
   br label %macaddr8_cmp_internal.exit
 
 macaddr8_cmp_internal.exit:                       ; preds = %1, %43, %45, %83
-  %.0.i = phi i64 [ -1, %45 ], [ -1, %1 ], [ 1, %43 ], [ %85, %83 ]
+  %.0.i = phi i64 [ -1, %1 ], [ 1, %43 ], [ -1, %45 ], [ %85, %83 ]
   ret i64 %.0.i
 }
 
@@ -829,7 +829,7 @@ define dso_local range(i64 0, 2) i64 @macaddr8_lt(ptr noundef readonly captures(
   br label %macaddr8_cmp_internal.exit
 
 macaddr8_cmp_internal.exit:                       ; preds = %45, %1, %43
-  %.0.i = phi i64 [ %spec.select, %45 ], [ 1, %1 ], [ 0, %43 ]
+  %.0.i = phi i64 [ 1, %1 ], [ 0, %43 ], [ %spec.select, %45 ]
   ret i64 %.0.i
 }
 
@@ -928,7 +928,7 @@ define dso_local range(i64 0, 2) i64 @macaddr8_le(ptr noundef readonly captures(
   br label %macaddr8_cmp_internal.exit
 
 macaddr8_cmp_internal.exit:                       ; preds = %1, %43, %45, %83
-  %.0.i = phi i64 [ 1, %45 ], [ 1, %1 ], [ 0, %43 ], [ %85, %83 ]
+  %.0.i = phi i64 [ 1, %1 ], [ 0, %43 ], [ 1, %45 ], [ %85, %83 ]
   ret i64 %.0.i
 }
 
@@ -1023,7 +1023,7 @@ define dso_local range(i64 0, 2) i64 @macaddr8_eq(ptr noundef readonly captures(
   br label %macaddr8_cmp_internal.exit
 
 macaddr8_cmp_internal.exit:                       ; preds = %1, %42, %80
-  %.0.i = phi i64 [ 0, %42 ], [ 0, %1 ], [ %82, %80 ]
+  %.0.i = phi i64 [ 0, %1 ], [ 0, %42 ], [ %82, %80 ]
   ret i64 %.0.i
 }
 
@@ -1118,7 +1118,7 @@ define dso_local range(i64 0, 2) i64 @macaddr8_ge(ptr noundef readonly captures(
   br label %macaddr8_cmp_internal.exit
 
 macaddr8_cmp_internal.exit:                       ; preds = %45, %1, %43
-  %.0.i = phi i64 [ %spec.select, %45 ], [ 0, %1 ], [ 1, %43 ]
+  %.0.i = phi i64 [ 0, %1 ], [ 1, %43 ], [ %spec.select, %45 ]
   ret i64 %.0.i
 }
 
@@ -1217,7 +1217,7 @@ define dso_local range(i64 0, 2) i64 @macaddr8_gt(ptr noundef readonly captures(
   br label %macaddr8_cmp_internal.exit
 
 macaddr8_cmp_internal.exit:                       ; preds = %1, %43, %45, %83
-  %.0.i = phi i64 [ 0, %45 ], [ 0, %1 ], [ 1, %43 ], [ %85, %83 ]
+  %.0.i = phi i64 [ 0, %1 ], [ 1, %43 ], [ 0, %45 ], [ %85, %83 ]
   ret i64 %.0.i
 }
 
@@ -1312,7 +1312,7 @@ define dso_local range(i64 0, 2) i64 @macaddr8_ne(ptr noundef readonly captures(
   br label %macaddr8_cmp_internal.exit
 
 macaddr8_cmp_internal.exit:                       ; preds = %1, %42, %80
-  %.0.i = phi i64 [ 1, %42 ], [ 1, %1 ], [ %82, %80 ]
+  %.0.i = phi i64 [ 1, %1 ], [ 1, %42 ], [ %82, %80 ]
   ret i64 %.0.i
 }
 

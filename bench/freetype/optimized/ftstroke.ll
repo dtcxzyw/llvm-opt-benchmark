@@ -729,7 +729,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   br label %176
 
 176:                                              ; preds = %160, %166, %117
-  %.069.i = phi i32 [ %165, %160 ], [ %159, %117 ], [ %175, %166 ]
+  %.069.i = phi i32 [ %159, %117 ], [ %165, %160 ], [ %175, %166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %203
@@ -778,7 +778,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   br label %203
 
 203:                                              ; preds = %202, %176, %.thread90.i
-  %.271.i = phi i32 [ %.069.i, %176 ], [ %.4.i, %202 ], [ %116, %.thread90.i ]
+  %.271.i = phi i32 [ %116, %.thread90.i ], [ %.069.i, %176 ], [ %.4.i, %202 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ft_stroker_outside.exit
 
@@ -888,7 +888,7 @@ define internal fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull captures
   br label %63
 
 ft_stroke_border_grow.exit:                       ; preds = %49, %56
-  %62 = phi i32 [ %55, %49 ], [ %60, %56 ]
+  %62 = phi i32 [ %60, %56 ], [ %55, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %73
 
@@ -1278,8 +1278,8 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
   %.not151 = icmp eq i32 %216, 0
   br i1 %.not151, label %217, label %.thread176
 
-.thread176:                                       ; preds = %213, %182, %211, %215
-  %.5.ph = phi i32 [ %216, %215 ], [ %212, %211 ], [ %210, %182 ], [ %214, %213 ]
+.thread176:                                       ; preds = %182, %211, %213, %215
+  %.5.ph = phi i32 [ %216, %215 ], [ %214, %213 ], [ %212, %211 ], [ %210, %182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1321,7 +1321,7 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
   br label %.thread186
 
 .thread186:                                       ; preds = %124, %.thread180, %35, %224, %3
-  %.0 = phi i32 [ 6, %3 ], [ 0, %35 ], [ 0, %224 ], [ %.7.ph, %.thread180 ], [ %.3, %124 ]
+  %.0 = phi i32 [ 0, %35 ], [ 0, %224 ], [ 6, %3 ], [ %.7.ph, %.thread180 ], [ %.3, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1392,7 +1392,7 @@ define internal fastcc i32 @ft_stroke_border_conicto(ptr noundef nonnull capture
   br label %32
 
 ft_stroke_border_grow.exit:                       ; preds = %18, %25
-  %31 = phi i32 [ %24, %18 ], [ %29, %25 ]
+  %31 = phi i32 [ %29, %25 ], [ %24, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %44
 
@@ -1610,9 +1610,9 @@ define i32 @FT_Stroker_CubicTo(ptr noundef captures(address_is_null) %0, ptr nou
   br label %ft_cubic_is_small_enough.exit
 
 ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %103, %104, %108, %113, %120
-  %.1207 = phi i64 [ %66, %103 ], [ %105, %104 ], [ %111, %120 ], [ %107, %108 ], [ %107, %106 ], [ %111, %113 ], [ %111, %112 ], [ %111, %118 ]
-  %.1205 = phi i64 [ %66, %103 ], [ %105, %104 ], [ %119, %120 ], [ %107, %108 ], [ %107, %106 ], [ %117, %113 ], [ %111, %112 ], [ %119, %118 ]
-  %.1203 = phi i64 [ %66, %103 ], [ %105, %104 ], [ %121, %120 ], [ %109, %108 ], [ %107, %106 ], [ %114, %113 ], [ %111, %112 ], [ %119, %118 ]
+  %.1207 = phi i64 [ %66, %103 ], [ %105, %104 ], [ %107, %108 ], [ %111, %113 ], [ %111, %120 ], [ %107, %106 ], [ %111, %112 ], [ %111, %118 ]
+  %.1205 = phi i64 [ %66, %103 ], [ %105, %104 ], [ %107, %108 ], [ %117, %113 ], [ %119, %120 ], [ %107, %106 ], [ %111, %112 ], [ %119, %118 ]
+  %.1203 = phi i64 [ %66, %103 ], [ %105, %104 ], [ %109, %108 ], [ %114, %113 ], [ %121, %120 ], [ %107, %106 ], [ %111, %112 ], [ %119, %118 ]
   %122 = call i64 @FT_Angle_Diff(i64 noundef %.1207, i64 noundef %.1205) #11
   %123 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %122, i1 true)
   %124 = call i64 @FT_Angle_Diff(i64 noundef %.1205, i64 noundef %.1203) #11
@@ -1882,8 +1882,8 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
   %.not173 = icmp eq i32 %287, 0
   br i1 %.not173, label %288, label %.thread210
 
-.thread210:                                       ; preds = %284, %253, %282, %286
-  %.5.ph = phi i32 [ %287, %286 ], [ %283, %282 ], [ %281, %253 ], [ %285, %284 ]
+.thread210:                                       ; preds = %253, %282, %284, %286
+  %.5.ph = phi i32 [ %287, %286 ], [ %285, %284 ], [ %283, %282 ], [ %281, %253 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1927,7 +1927,7 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
   br label %.thread220
 
 .thread220:                                       ; preds = %176, %.thread214, %47, %295, %4
-  %.0 = phi i32 [ 6, %4 ], [ 0, %47 ], [ 0, %295 ], [ %.7.ph, %.thread214 ], [ %.3, %176 ]
+  %.0 = phi i32 [ 0, %47 ], [ 0, %295 ], [ 6, %4 ], [ %.7.ph, %.thread214 ], [ %.3, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1988,7 +1988,7 @@ define internal fastcc i32 @ft_stroke_border_cubicto(ptr noundef nonnull capture
   br label %33
 
 ft_stroke_border_grow.exit:                       ; preds = %19, %26
-  %32 = phi i32 [ %25, %19 ], [ %30, %26 ]
+  %32 = phi i32 [ %30, %26 ], [ %25, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %47
 
@@ -2215,7 +2215,7 @@ define i32 @FT_Stroker_EndSubPath(ptr noundef %0) local_unnamed_addr #0 {
   br label %76
 
 ft_stroker_add_reverse_left.exit:                 ; preds = %32, %39
-  %75 = phi i32 [ %38, %32 ], [ %43, %39 ]
+  %75 = phi i32 [ %43, %39 ], [ %38, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %209
 
@@ -2461,7 +2461,7 @@ ft_stroke_border_close.exit61:                    ; preds = %172, %.loopexit.i
   br label %209
 
 209:                                              ; preds = %ft_stroker_add_reverse_left.exit, %127, %129, %ft_stroke_border_close.exit61, %1, %76, %7, %ft_stroke_border_close.exit
-  %.035 = phi i32 [ 6, %1 ], [ %128, %127 ], [ %135, %129 ], [ 0, %ft_stroke_border_close.exit61 ], [ 0, %ft_stroke_border_close.exit ], [ %10, %7 ], [ %75, %ft_stroker_add_reverse_left.exit ], [ %82, %76 ]
+  %.035 = phi i32 [ %135, %129 ], [ 0, %ft_stroke_border_close.exit61 ], [ %128, %127 ], [ 6, %1 ], [ 0, %ft_stroke_border_close.exit ], [ %10, %7 ], [ %75, %ft_stroker_add_reverse_left.exit ], [ %82, %76 ]
   ret i32 %.035
 }
 
@@ -3274,8 +3274,8 @@ FT_Stroker_BeginSubPath.exit:                     ; preds = %68, %70
   br i1 %.not119, label %.backedge, label %FT_Stroker_BeginSubPath.exit.thread
 
 .backedge:                                        ; preds = %117, %79, %select.unfold
-  %.195.be = phi ptr [ %90, %select.unfold ], [ %75, %79 ], [ %116, %117 ]
-  %.189.be = phi ptr [ %91, %select.unfold ], [ %76, %79 ], [ %118, %117 ]
+  %.195.be = phi ptr [ %75, %79 ], [ %90, %select.unfold ], [ %116, %117 ]
+  %.189.be = phi ptr [ %76, %79 ], [ %91, %select.unfold ], [ %118, %117 ]
   %84 = icmp ult ptr %.195.be, %.092
   br i1 %84, label %.lr.ph174, label %.thread155
 
@@ -3394,7 +3394,7 @@ select.unfold:                                    ; preds = %94
   br label %FT_Stroker_BeginSubPath.exit.thread
 
 121:                                              ; preds = %.thread145, %._crit_edge
-  %.4 = phi i32 [ %120, %.thread145 ], [ %107, %._crit_edge ]
+  %.4 = phi i32 [ %107, %._crit_edge ], [ %120, %.thread145 ]
   %.not123 = icmp eq i32 %.4, 0
   br i1 %.not123, label %.thread155, label %FT_Stroker_BeginSubPath.exit.thread
 
@@ -3416,7 +3416,7 @@ select.unfold:                                    ; preds = %94
   br i1 %128, label %35, label %FT_Stroker_BeginSubPath.exit.thread, !llvm.loop !76
 
 FT_Stroker_BeginSubPath.exit.thread:              ; preds = %125, %123, %121, %41, %79, %117, %FT_Stroker_Rewind.exit, %.thread135, %.thread140, %.thread, %12, %3
-  %.082 = phi i32 [ %83, %79 ], [ 0, %FT_Stroker_Rewind.exit ], [ 6, %12 ], [ 20, %3 ], [ %.387.ph, %.thread ], [ 20, %.thread140 ], [ 20, %.thread135 ], [ %119, %117 ], [ 0, %125 ], [ %124, %123 ], [ 20, %41 ], [ %.4, %121 ]
+  %.082 = phi i32 [ 20, %3 ], [ 6, %12 ], [ %.387.ph, %.thread ], [ 20, %.thread140 ], [ 20, %.thread135 ], [ 0, %FT_Stroker_Rewind.exit ], [ %83, %79 ], [ %119, %117 ], [ 0, %125 ], [ %124, %123 ], [ %.4, %121 ], [ 20, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.082
@@ -3581,13 +3581,13 @@ FT_Stroker_GetCounts.exit:                        ; preds = %16, %ft_stroke_bord
   br i1 %.not45, label %.sink.split, label %55
 
 .sink.split:                                      ; preds = %54, %50, %52
-  %.034.sink = phi ptr [ %.034, %50 ], [ %.034, %52 ], [ null, %54 ]
-  %.0.ph = phi i32 [ 0, %50 ], [ 0, %52 ], [ %.1.ph, %54 ]
+  %.034.sink = phi ptr [ %.034, %52 ], [ %.034, %50 ], [ null, %54 ]
+  %.0.ph = phi i32 [ 0, %52 ], [ 0, %50 ], [ %.1.ph, %54 ]
   store ptr %.034.sink, ptr %0, align 8, !tbaa !77
   br label %55
 
 55:                                               ; preds = %.sink.split, %10, %3, %7, %5, %54
-  %.0 = phi i32 [ 6, %3 ], [ 6, %7 ], [ %11, %10 ], [ %.1.ph, %54 ], [ 6, %5 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 6, %7 ], [ %.1.ph, %54 ], [ %11, %10 ], [ 6, %5 ], [ 6, %3 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -3714,13 +3714,13 @@ FT_Stroker_GetBorderCounts.exit:                  ; preds = %.lr.ph.i.i, %19, %.
   br i1 %.not52, label %.sink.split, label %46
 
 .sink.split:                                      ; preds = %45, %41, %43
-  %.040.sink = phi ptr [ %.040, %41 ], [ %.040, %43 ], [ null, %45 ]
-  %.0.ph = phi i32 [ 0, %41 ], [ 0, %43 ], [ %.1.ph, %45 ]
+  %.040.sink = phi ptr [ %.040, %43 ], [ %.040, %41 ], [ null, %45 ]
+  %.0.ph = phi i32 [ 0, %43 ], [ 0, %41 ], [ %.1.ph, %45 ]
   store ptr %.040.sink, ptr %0, align 8, !tbaa !77
   br label %46
 
 46:                                               ; preds = %.sink.split, %11, %4, %8, %6, %45
-  %.0 = phi i32 [ 6, %4 ], [ 6, %8 ], [ %12, %11 ], [ %.1.ph, %45 ], [ 6, %6 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 6, %8 ], [ %.1.ph, %45 ], [ %12, %11 ], [ 6, %6 ], [ 6, %4 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

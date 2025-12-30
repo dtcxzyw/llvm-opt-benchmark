@@ -2707,7 +2707,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit:                 ; preds = %3
   br label %30
 
 30:                                               ; preds = %23, %25, %18, %9
-  %.0 = phi i32 [ 3, %25 ], [ 1, %9 ], [ 2, %18 ], [ 0, %23 ]
+  %.0 = phi i32 [ 3, %25 ], [ 2, %18 ], [ 1, %9 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -2968,7 +2968,7 @@ _ZL11fill_to_posP12outputStreamj.exit56:          ; preds = %86, %88
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %100, %99, %98, %97, %95, %94, %93, %92, %91, %_ZL11fill_to_posP12outputStreamj.exit56
-  %.str.45.sink.i = phi ptr [ @.str.45, %100 ], [ @.str.44, %99 ], [ @.str.43, %98 ], [ @.str.36, %_ZL11fill_to_posP12outputStreamj.exit56 ], [ @.str.40, %94 ], [ @.str.39, %93 ], [ @.str.38, %92 ], [ @.str.37, %91 ], [ @.str.42, %97 ], [ @.str.42, %95 ]
+  %.str.45.sink.i = phi ptr [ @.str.45, %100 ], [ @.str.44, %99 ], [ @.str.43, %98 ], [ @.str.40, %94 ], [ @.str.39, %93 ], [ @.str.38, %92 ], [ @.str.37, %91 ], [ @.str.36, %_ZL11fill_to_posP12outputStreamj.exit56 ], [ @.str.42, %97 ], [ @.str.42, %95 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %.str.45.sink.i) #13
   br label %_ZNK7JVMFlag12print_originEP12outputStreamj.exit
 
@@ -3106,7 +3106,7 @@ _ZL11fill_to_posP12outputStreamj.exit63:          ; preds = %131, %133
   br label %.sink.split.i64
 
 .sink.split.i64:                                  ; preds = %145, %144, %143, %142, %140, %139, %138, %137, %136, %_ZL11fill_to_posP12outputStreamj.exit63
-  %.str.45.sink.i65 = phi ptr [ @.str.45, %145 ], [ @.str.44, %144 ], [ @.str.43, %143 ], [ @.str.36, %_ZL11fill_to_posP12outputStreamj.exit63 ], [ @.str.40, %139 ], [ @.str.39, %138 ], [ @.str.38, %137 ], [ @.str.37, %136 ], [ @.str.42, %142 ], [ @.str.42, %140 ]
+  %.str.45.sink.i65 = phi ptr [ @.str.45, %145 ], [ @.str.44, %144 ], [ @.str.43, %143 ], [ @.str.40, %139 ], [ @.str.39, %138 ], [ @.str.38, %137 ], [ @.str.37, %136 ], [ @.str.36, %_ZL11fill_to_posP12outputStreamj.exit63 ], [ @.str.42, %142 ], [ @.str.42, %140 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %.str.45.sink.i65) #13
   br label %_ZNK7JVMFlag12print_originEP12outputStreamj.exit67
 
@@ -3282,7 +3282,7 @@ define hidden void @_ZNK7JVMFlag12print_originEP12outputStreamj(ptr noundef nonn
   br label %.sink.split
 
 .sink.split:                                      ; preds = %11, %13, %3, %7, %8, %9, %10, %14, %15, %16
-  %.str.45.sink = phi ptr [ @.str.45, %16 ], [ @.str.44, %15 ], [ @.str.43, %14 ], [ @.str.36, %3 ], [ @.str.40, %10 ], [ @.str.39, %9 ], [ @.str.38, %8 ], [ @.str.37, %7 ], [ @.str.42, %13 ], [ @.str.42, %11 ]
+  %.str.45.sink = phi ptr [ @.str.45, %16 ], [ @.str.44, %15 ], [ @.str.43, %14 ], [ @.str.40, %10 ], [ @.str.39, %9 ], [ @.str.38, %8 ], [ @.str.37, %7 ], [ @.str.36, %3 ], [ @.str.42, %13 ], [ @.str.42, %11 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %.str.45.sink) #13
   br label %17
 
@@ -3549,7 +3549,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit.thread:          ; preds = %26, %22, %19, %_ZNK
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %3, %_ZNK7JVMFlag11is_unlockedEv.exit.thread, %_ZNK7JVMFlag11is_unlockerEv.exit, %._crit_edge
-  %.019 = phi ptr [ null, %._crit_edge ], [ %13, %_ZNK7JVMFlag11is_unlockedEv.exit.thread ], [ null, %_ZNK7JVMFlag11is_unlockerEv.exit ], [ null, %3 ]
+  %.019 = phi ptr [ null, %._crit_edge ], [ null, %_ZNK7JVMFlag11is_unlockerEv.exit ], [ %13, %_ZNK7JVMFlag11is_unlockedEv.exit.thread ], [ null, %3 ]
   ret ptr %.019
 }
 

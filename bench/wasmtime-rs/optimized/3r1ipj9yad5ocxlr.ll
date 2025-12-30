@@ -332,7 +332,7 @@ define hidden void @_ZN6anyhow5error23context_chain_drop_rest17h5755a8869bcb4cb4
   br label %common.resume
 
 common.resume:                                    ; preds = %35, %41, %15, %21
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %22, %21 ], [ %42, %41 ], [ %36, %35 ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %16, %15 ], [ %42, %41 ], [ %36, %35 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 88, i64 noundef 8) #8
   resume { ptr, i32 } %common.resume.op
 

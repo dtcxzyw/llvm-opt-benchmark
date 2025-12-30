@@ -124,8 +124,8 @@ define hidden i32 @lj_strscan_scan(ptr noundef %0, i32 noundef %1, ptr noundef c
   br label %.thread
 
 .thread:                                          ; preds = %25, %27, %32, %68, %57, %63, %37, %42, %47, %52
-  %.sroa.0.1 = phi i64 [ -2251799813685248, %25 ], [ -2251799813685248, %63 ], [ %., %52 ], [ %., %47 ], [ %., %42 ], [ %., %37 ], [ %., %57 ], [ -2251799813685248, %68 ], [ -2251799813685248, %32 ], [ -2251799813685248, %27 ]
-  %.3189 = phi ptr [ %.2188, %25 ], [ %.2188, %63 ], [ %38, %52 ], [ %38, %47 ], [ %38, %42 ], [ %38, %37 ], [ %spec.select, %57 ], [ %spec.select260, %68 ], [ %.2188, %32 ], [ %.2188, %27 ]
+  %.sroa.0.1 = phi i64 [ %., %52 ], [ %., %47 ], [ %., %42 ], [ %., %37 ], [ -2251799813685248, %63 ], [ %., %57 ], [ -2251799813685248, %68 ], [ -2251799813685248, %32 ], [ -2251799813685248, %27 ], [ -2251799813685248, %25 ]
+  %.3189 = phi ptr [ %38, %52 ], [ %38, %47 ], [ %38, %42 ], [ %38, %37 ], [ %.2188, %63 ], [ %spec.select, %57 ], [ %spec.select260, %68 ], [ %.2188, %32 ], [ %.2188, %27 ], [ %.2188, %25 ]
   br label %73
 
 73:                                               ; preds = %73, %.thread
@@ -183,9 +183,9 @@ thread-pre-split:                                 ; preds = %22, %4
   br label %99
 
 99:                                               ; preds = %91, %95, %97, %89
-  %.1218 = phi i32 [ 16, %95 ], [ 8, %97 ], [ 8, %91 ], [ 8, %89 ]
-  %.1216 = phi i32 [ 16, %95 ], [ 2, %97 ], [ %87, %91 ], [ %87, %89 ]
-  %.6 = phi ptr [ %96, %95 ], [ %98, %97 ], [ %.0186, %91 ], [ %.0186, %89 ]
+  %.1218 = phi i32 [ 16, %95 ], [ 8, %97 ], [ 8, %89 ], [ 8, %91 ]
+  %.1216 = phi i32 [ 16, %95 ], [ 2, %97 ], [ %87, %89 ], [ %87, %91 ]
+  %.6 = phi ptr [ %96, %95 ], [ %98, %97 ], [ %.0186, %89 ], [ %.0186, %91 ]
   br label %100
 
 100:                                              ; preds = %103, %99
@@ -309,9 +309,9 @@ thread-pre-split:                                 ; preds = %22, %4
   br label %146
 
 146:                                              ; preds = %.critedge.thread, %129, %126
-  %.0219 = phi i32 [ 3, %126 ], [ 1, %.critedge.thread ], [ 1, %129 ]
-  %.2205 = phi i32 [ %.0203, %126 ], [ %.3206288, %.critedge.thread ], [ 0, %129 ]
-  %.0194 = phi i32 [ 0, %126 ], [ %spec.select262, %.critedge.thread ], [ 0, %129 ]
+  %.0219 = phi i32 [ 1, %129 ], [ 3, %126 ], [ 1, %.critedge.thread ]
+  %.2205 = phi i32 [ 0, %129 ], [ %.0203, %126 ], [ %.3206288, %.critedge.thread ]
+  %.0194 = phi i32 [ 0, %129 ], [ 0, %126 ], [ %spec.select262, %.critedge.thread ]
   %147 = icmp sgt i32 %.0215, 9
   br i1 %147, label %148, label %185
 
@@ -468,8 +468,8 @@ thread-pre-split:                                 ; preds = %22, %4
   br i1 %or.cond, label %.thread270, label %225
 
 225:                                              ; preds = %194, %222, %192
-  %.3222 = phi i32 [ 2, %192 ], [ %.1220, %194 ], [ %.6225, %222 ]
-  %.14 = phi ptr [ %193, %192 ], [ %.9, %194 ], [ %.17, %222 ]
+  %.3222 = phi i32 [ 2, %192 ], [ %.6225, %222 ], [ %.1220, %194 ]
+  %.14 = phi ptr [ %193, %192 ], [ %.17, %222 ], [ %.9, %194 ]
   br label %226
 
 226:                                              ; preds = %226, %225
@@ -596,7 +596,7 @@ thread-pre-split:                                 ; preds = %22, %4
   br label %.thread270
 
 .thread270:                                       ; preds = %102, %121, %175, %277, %160, %271, %274, %282, %249, %256, %257, %263, %124, %127, %.critedge, %190, %209, %222, %220, %233, %234, %82, %80
-  %.1 = phi i32 [ 0, %80 ], [ 1, %82 ], [ 0, %121 ], [ 0, %175 ], [ 0, %124 ], [ 0, %127 ], [ 0, %220 ], [ 0, %233 ], [ 1, %249 ], [ 1, %256 ], [ 3, %257 ], [ 0, %234 ], [ 3, %282 ], [ %264, %263 ], [ 0, %.critedge ], [ 0, %209 ], [ 0, %190 ], [ %.7226, %271 ], [ 0, %222 ], [ 1, %277 ], [ 1, %274 ], [ 0, %160 ], [ 0, %102 ]
+  %.1 = phi i32 [ 1, %82 ], [ 0, %80 ], [ 1, %249 ], [ 1, %256 ], [ 3, %257 ], [ 3, %282 ], [ %264, %263 ], [ 0, %124 ], [ 0, %127 ], [ 0, %.critedge ], [ 0, %190 ], [ 0, %209 ], [ 0, %222 ], [ 0, %220 ], [ 0, %233 ], [ 0, %234 ], [ 1, %274 ], [ %.7226, %271 ], [ 0, %160 ], [ 1, %277 ], [ 0, %175 ], [ 0, %121 ], [ 0, %102 ]
   ret i32 %.1
 }
 
@@ -673,7 +673,7 @@ define internal fastcc i32 @strscan_oct(ptr noundef readonly captures(none) %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %28, %23, %5, %8
-  %.022 = phi i32 [ %.023, %24 ], [ 0, %5 ], [ 0, %23 ], [ 0, %8 ], [ %2, %28 ], [ 0, %.lr.ph ]
+  %.022 = phi i32 [ 0, %8 ], [ 0, %5 ], [ 0, %23 ], [ %2, %28 ], [ %.023, %24 ], [ 0, %.lr.ph ]
   ret i32 %.022
 }
 
@@ -882,7 +882,7 @@ strscan_double.exit:                              ; preds = %90, %93
   br label %95
 
 95:                                               ; preds = %57, %51, %strscan_double.exit, %58, %53, %45
-  %.056 = phi i32 [ %.062, %strscan_double.exit ], [ %2, %58 ], [ 4, %53 ], [ 3, %45 ], [ 0, %51 ], [ 0, %57 ]
+  %.056 = phi i32 [ %.062, %strscan_double.exit ], [ 4, %53 ], [ 3, %45 ], [ %2, %58 ], [ 0, %51 ], [ 0, %57 ]
   ret i32 %.056
 }
 
@@ -990,7 +990,7 @@ strscan_double.exit:                              ; preds = %40, %46
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %31, %7, %strscan_double.exit, %37, %33, %25
-  %.039 = phi i32 [ %2, %37 ], [ 0, %7 ], [ %.042, %strscan_double.exit ], [ 0, %31 ], [ 4, %33 ], [ 3, %25 ], [ 0, %.lr.ph ]
+  %.039 = phi i32 [ %.042, %strscan_double.exit ], [ 4, %33 ], [ 3, %25 ], [ %2, %37 ], [ 0, %7 ], [ 0, %31 ], [ 0, %.lr.ph ]
   ret i32 %.039
 }
 
@@ -1188,9 +1188,9 @@ define internal fastcc noundef i32 @strscan_dec(ptr noundef readonly captures(no
   br i1 %91, label %.preheader334, label %.thread, !llvm.loop !21
 
 .loopexit336:                                     ; preds = %.lr.ph349.preheader, %.preheader335
-  %.4243 = phi i32 [ %76, %.lr.ph349.preheader ], [ %.1240, %.preheader335 ]
-  %.4230 = phi i32 [ %78, %.lr.ph349.preheader ], [ %.0226, %.preheader335 ]
-  %.5225.idx = phi i64 [ %71, %.lr.ph349.preheader ], [ %.2222.idx, %.preheader335 ]
+  %.4243 = phi i32 [ %.1240, %.preheader335 ], [ %76, %.lr.ph349.preheader ]
+  %.4230 = phi i32 [ %.0226, %.preheader335 ], [ %78, %.lr.ph349.preheader ]
+  %.5225.idx = phi i64 [ %.2222.idx, %.preheader335 ], [ %71, %.lr.ph349.preheader ]
   %.5225.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.5225.idx
   %92 = icmp samesign ult i32 %.4230, 21
   %93 = icmp eq i32 %.4243, 0
@@ -1298,8 +1298,8 @@ define internal fastcc noundef i32 @strscan_dec(ptr noundef readonly captures(no
   br label %.thread305
 
 .thread:                                          ; preds = %88, %84, %104, %.loopexit336
-  %.5225303 = phi ptr [ %.5225.ptr, %104 ], [ %.5225.ptr, %.loopexit336 ], [ %.2222.ptr, %84 ], [ %.2222.ptr, %88 ]
-  %.4243302 = phi i32 [ 0, %104 ], [ %.4243, %.loopexit336 ], [ %.1240, %84 ], [ %.1240, %88 ]
+  %.5225303 = phi ptr [ %.5225.ptr, %.loopexit336 ], [ %.5225.ptr, %104 ], [ %.2222.ptr, %84 ], [ %.2222.ptr, %88 ]
+  %.4243302 = phi i32 [ %.4243, %.loopexit336 ], [ 0, %104 ], [ %.1240, %84 ], [ %.1240, %88 ]
   %132 = icmp eq i32 %2, 3
   br i1 %132, label %133, label %.thread309
 
@@ -1437,7 +1437,7 @@ define internal fastcc noundef i32 @strscan_dec(ptr noundef readonly captures(no
   br label %204
 
 204:                                              ; preds = %186, %195, %197
-  %.5200 = phi i32 [ %.1196.lcssa, %195 ], [ %190, %197 ], [ %190, %186 ]
+  %.5200 = phi i32 [ %190, %197 ], [ %.1196.lcssa, %195 ], [ %190, %186 ]
   %205 = trunc nuw i32 %.lcssa340 to i8
   %206 = zext nneg i32 %188 to i64
   %207 = getelementptr inbounds nuw i8, ptr %8, i64 %206
@@ -1532,10 +1532,10 @@ define internal fastcc noundef i32 @strscan_dec(ptr noundef readonly captures(no
   br i1 %247, label %.lr.ph392, label %._crit_edge393, !llvm.loop !26
 
 ._crit_edge393:                                   ; preds = %.loopexit332, %209, %.lr.ph373, %.critedge
-  %.2204.lcssa = phi i32 [ 0, %.critedge ], [ %.1203, %209 ], [ %.0202369, %.lr.ph373 ], [ %.4206, %.loopexit332 ]
-  %.6201.lcssa = phi i32 [ %140, %.critedge ], [ %.4199, %209 ], [ %.0195370, %.lr.ph373 ], [ %.7339, %.loopexit332 ]
-  %.1193.lcssa = phi i32 [ 0, %.critedge ], [ %154, %209 ], [ %.0192371, %.lr.ph373 ], [ %229, %.loopexit332 ]
-  %.2191.lcssa = phi i32 [ 9, %.critedge ], [ 9, %209 ], [ %.0189372, %.lr.ph373 ], [ %.4, %.loopexit332 ]
+  %.2204.lcssa = phi i32 [ 0, %.critedge ], [ %.0202369, %.lr.ph373 ], [ %.1203, %209 ], [ %.4206, %.loopexit332 ]
+  %.6201.lcssa = phi i32 [ %140, %.critedge ], [ %.0195370, %.lr.ph373 ], [ %.4199, %209 ], [ %.7339, %.loopexit332 ]
+  %.1193.lcssa = phi i32 [ 0, %.critedge ], [ %.0192371, %.lr.ph373 ], [ %154, %209 ], [ %229, %.loopexit332 ]
+  %.2191.lcssa = phi i32 [ 9, %.critedge ], [ %.0189372, %.lr.ph373 ], [ 9, %209 ], [ %.4, %.loopexit332 ]
   %248 = zext i32 %.2204.lcssa to i64
   %249 = getelementptr inbounds nuw i8, ptr %8, i64 %248
   %250 = load i8, ptr %249, align 1, !tbaa !4
@@ -1609,8 +1609,8 @@ define internal fastcc noundef i32 @strscan_dec(ptr noundef readonly captures(no
   br i1 %.not282, label %.loopexit, label %275, !llvm.loop !29
 
 .loopexit:                                        ; preds = %281, %.lr.ph410, %.preheader, %279
-  %.2194 = phi i32 [ %.1193.lcssa, %.preheader ], [ %274, %279 ], [ %.1193.lcssa, %.lr.ph410 ], [ %274, %281 ]
-  %.2 = phi i64 [ %.0182.lcssa, %.preheader ], [ %280, %279 ], [ %270, %.lr.ph410 ], [ %273, %281 ]
+  %.2194 = phi i32 [ %274, %279 ], [ %.1193.lcssa, %.preheader ], [ %.1193.lcssa, %.lr.ph410 ], [ %274, %281 ]
+  %.2 = phi i64 [ %280, %279 ], [ %.0182.lcssa, %.preheader ], [ %270, %.lr.ph410 ], [ %273, %281 ]
   %284 = icmp slt i32 %.2194, -1074
   %285 = icmp ne i64 %.2, 0
   %286 = and i1 %284, %285
@@ -1675,8 +1675,8 @@ define internal fastcc noundef i32 @strscan_dec(ptr noundef readonly captures(no
   store double %.128.i, ptr %1, align 8, !tbaa !4
   br label %.thread305
 
-.thread305:                                       ; preds = %148, %144, %113, %120, %124, %129, %119, %313, %.thread309, %133
-  %.2215 = phi i32 [ %.4248, %313 ], [ 0, %.thread309 ], [ 0, %133 ], [ 0, %119 ], [ 3, %113 ], [ 4, %120 ], [ %2, %124 ], [ %.3247, %129 ], [ %.4248, %144 ], [ %.4248, %148 ]
+.thread305:                                       ; preds = %148, %144, %119, %124, %113, %120, %129, %313, %.thread309, %133
+  %.2215 = phi i32 [ 0, %133 ], [ 0, %.thread309 ], [ %.4248, %313 ], [ 0, %119 ], [ %2, %124 ], [ 3, %113 ], [ 4, %120 ], [ %.3247, %129 ], [ %.4248, %144 ], [ %.4248, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.2215
 }

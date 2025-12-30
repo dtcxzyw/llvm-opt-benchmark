@@ -945,7 +945,7 @@ _ZN7QStringD2Ev.exit199:                          ; preds = %270, %_ZN17QArrayDa
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %118, %_ZN7QStringD2Ev.exit5.i, %120, %151, %_ZN17QArrayDataPointerIDsED2Ev.exit108, %_ZN17QArrayDataPointerIDsED2Ev.exit191, %_ZN7QStringD2Ev.exit195, %149, %122
-  %.pn50.pn.pn.pn = phi { ptr, i32 } [ %152, %151 ], [ %121, %120 ], [ %123, %122 ], [ %79, %_ZN7QStringD2Ev.exit5.i ], [ %150, %149 ], [ %eh.lpad-body150, %_ZN7QStringD2Ev.exit195 ], [ %.pn43.pn.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit191 ], [ %.pn40.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit108 ], [ %119, %118 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn50.pn.pn.pn = phi { ptr, i32 } [ %121, %120 ], [ %123, %122 ], [ %150, %149 ], [ %eh.lpad-body150, %_ZN7QStringD2Ev.exit195 ], [ %.pn43.pn.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit191 ], [ %.pn40.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit108 ], [ %152, %151 ], [ %119, %118 ], [ %79, %_ZN7QStringD2Ev.exit5.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %275 = load ptr, ptr %11, align 8
   %.not.i.i.i200 = icmp eq ptr %275, null
   br i1 %.not.i.i.i200, label %_ZN7QStringD2Ev.exit203, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i201

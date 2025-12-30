@@ -549,7 +549,7 @@ _ZN11btMultiBody21clearForcesAndTorquesEv.exit:   ; preds = %128, %_ZN11btMultiB
   br label %136
 
 136:                                              ; preds = %134, %132
-  %.pn = phi { ptr, i32 } [ %133, %132 ], [ %135, %134 ]
+  %.pn = phi { ptr, i32 } [ %135, %134 ], [ %133, %132 ]
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -3251,8 +3251,8 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK11btMultiBody15worldPosToLoca
   br label %115
 
 115:                                              ; preds = %3, %60, %9
-  %.sroa.027.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i17, %60 ], [ %.sroa.020.4.vec.insert.i, %9 ], [ splat (float 0x47EFFFFFE0000000), %3 ]
-  %.sroa.529.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i18, %60 ], [ %.sroa.3.12.vec.insert.i8, %9 ], [ <float 0x47EFFFFFE0000000, float 0.000000e+00>, %3 ]
+  %.sroa.027.0 = phi <2 x float> [ %.sroa.020.4.vec.insert.i, %9 ], [ %.sroa.0.4.vec.insert.i17, %60 ], [ splat (float 0x47EFFFFFE0000000), %3 ]
+  %.sroa.529.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i8, %9 ], [ %.sroa.3.12.vec.insert.i18, %60 ], [ <float 0x47EFFFFFE0000000, float 0.000000e+00>, %3 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.529.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -3500,8 +3500,8 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK11btMultiBody15worldDirToLoca
   br label %97
 
 97:                                               ; preds = %3, %51, %9
-  %.sroa.014.0 = phi <2 x float> [ %.sroa.020.4.vec.insert.i8, %51 ], [ %.sroa.020.4.vec.insert.i, %9 ], [ splat (float 0x47EFFFFFE0000000), %3 ]
-  %.sroa.516.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i9, %51 ], [ %.sroa.3.12.vec.insert.i, %9 ], [ <float 0x47EFFFFFE0000000, float 0.000000e+00>, %3 ]
+  %.sroa.014.0 = phi <2 x float> [ %.sroa.020.4.vec.insert.i, %9 ], [ %.sroa.020.4.vec.insert.i8, %51 ], [ splat (float 0x47EFFFFFE0000000), %3 ]
+  %.sroa.516.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i, %9 ], [ %.sroa.3.12.vec.insert.i9, %51 ], [ <float 0x47EFFFFFE0000000, float 0.000000e+00>, %3 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.014.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.516.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -7544,12 +7544,12 @@ _ZNK11btMultiBody9mulMatrixEPKfS1_iiiiPf.exit:    ; preds = %.preheader1410, %_Z
   br i1 %exitcond1643.not, label %.loopexit1409, label %1945, !llvm.loop !195
 
 .loopexit1409:                                    ; preds = %1945, %_ZNK11btMultiBody9mulMatrixEPKfS1_iiiiPf.exit, %1871
-  %1977 = phi float [ %1855, %1871 ], [ %1918, %_ZNK11btMultiBody9mulMatrixEPKfS1_iiiiPf.exit ], [ %1976, %1945 ]
-  %1978 = phi float [ %1854, %1871 ], [ %1915, %_ZNK11btMultiBody9mulMatrixEPKfS1_iiiiPf.exit ], [ %1975, %1945 ]
-  %1979 = phi float [ %1853, %1871 ], [ %1911, %_ZNK11btMultiBody9mulMatrixEPKfS1_iiiiPf.exit ], [ %1974, %1945 ]
-  %1980 = phi float [ %1816, %1871 ], [ %1908, %_ZNK11btMultiBody9mulMatrixEPKfS1_iiiiPf.exit ], [ %1973, %1945 ]
-  %1981 = phi float [ %1810, %1871 ], [ %1905, %_ZNK11btMultiBody9mulMatrixEPKfS1_iiiiPf.exit ], [ %1972, %1945 ]
-  %1982 = phi float [ %1804, %1871 ], [ %1901, %_ZNK11btMultiBody9mulMatrixEPKfS1_iiiiPf.exit ], [ %1971, %1945 ]
+  %1977 = phi float [ %1918, %_ZNK11btMultiBody9mulMatrixEPKfS1_iiiiPf.exit ], [ %1855, %1871 ], [ %1976, %1945 ]
+  %1978 = phi float [ %1915, %_ZNK11btMultiBody9mulMatrixEPKfS1_iiiiPf.exit ], [ %1854, %1871 ], [ %1975, %1945 ]
+  %1979 = phi float [ %1911, %_ZNK11btMultiBody9mulMatrixEPKfS1_iiiiPf.exit ], [ %1853, %1871 ], [ %1974, %1945 ]
+  %1980 = phi float [ %1908, %_ZNK11btMultiBody9mulMatrixEPKfS1_iiiiPf.exit ], [ %1816, %1871 ], [ %1973, %1945 ]
+  %1981 = phi float [ %1905, %_ZNK11btMultiBody9mulMatrixEPKfS1_iiiiPf.exit ], [ %1810, %1871 ], [ %1972, %1945 ]
+  %1982 = phi float [ %1901, %_ZNK11btMultiBody9mulMatrixEPKfS1_iiiiPf.exit ], [ %1804, %1871 ], [ %1971, %1945 ]
   %1983 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %1857, i64 %indvars.iv1644
   %1984 = getelementptr inbounds nuw i8, ptr %1983, i64 568
   %1985 = load ptr, ptr %1984, align 8, !tbaa !196
@@ -8281,7 +8281,7 @@ _ZNK11btMultiBody15isLinkKinematicEi.exit:        ; preds = %5
   br label %_ZNK11btMultiBody15isBaseKinematicEv.exit
 
 _ZNK11btMultiBody15isBaseKinematicEv.exit:        ; preds = %5, %_ZNK11btMultiBody15isLinkKinematicEi.exit, %18, %._crit_edge
-  %.05 = phi i1 [ %22, %18 ], [ false, %._crit_edge ], [ false, %_ZNK11btMultiBody15isLinkKinematicEi.exit ], [ false, %5 ]
+  %.05 = phi i1 [ false, %._crit_edge ], [ %22, %18 ], [ false, %_ZNK11btMultiBody15isLinkKinematicEi.exit ], [ false, %5 ]
   ret i1 %.05
 }
 
@@ -16916,7 +16916,7 @@ _ZNK11btMultiBody23isBaseStaticOrKinematicEv.exit.sink.split: ; preds = %11, %8
   br label %_ZNK11btMultiBody23isBaseStaticOrKinematicEv.exit
 
 _ZNK11btMultiBody23isBaseStaticOrKinematicEv.exit: ; preds = %_ZNK11btMultiBody23isBaseStaticOrKinematicEv.exit.sink.split, %8, %4, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %8 ], [ true, %4 ], [ %21, %_ZNK11btMultiBody23isBaseStaticOrKinematicEv.exit.sink.split ]
+  %.0 = phi i1 [ false, %11 ], [ true, %4 ], [ false, %8 ], [ %21, %_ZNK11btMultiBody23isBaseStaticOrKinematicEv.exit.sink.split ]
   ret i1 %.0
 }
 
@@ -17006,7 +17006,7 @@ _ZNK11btMultiBody23isLinkStaticOrKinematicEi.exit: ; preds = %5
   br label %_ZNK11btMultiBody23isBaseStaticOrKinematicEv.exit
 
 _ZNK11btMultiBody23isBaseStaticOrKinematicEv.exit: ; preds = %5, %_ZNK11btMultiBody23isLinkStaticOrKinematicEi.exit, %22, %19, %._crit_edge
-  %.05 = phi i1 [ %26, %22 ], [ false, %19 ], [ true, %._crit_edge ], [ false, %_ZNK11btMultiBody23isLinkStaticOrKinematicEi.exit ], [ false, %5 ]
+  %.05 = phi i1 [ true, %._crit_edge ], [ false, %19 ], [ %26, %22 ], [ false, %_ZNK11btMultiBody23isLinkStaticOrKinematicEi.exit ], [ false, %5 ]
   ret i1 %.05
 }
 

@@ -228,7 +228,7 @@ _Z18tMPI_Reduce_run_opPvPKvS1_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit: ; pr
   br i1 %116, label %45, label %.thread118
 
 .thread118:                                       ; preds = %109, %_Z18tMPI_Reduce_run_opPvPKvS1_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit, %33, %.thread125, %7, %31, %22, %18
-  %.0 = phi i32 [ %20, %18 ], [ 0, %.thread125 ], [ 0, %7 ], [ %32, %31 ], [ %23, %22 ], [ 0, %33 ], [ 0, %109 ], [ %75, %_Z18tMPI_Reduce_run_opPvPKvS1_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit ]
+  %.0 = phi i32 [ %32, %31 ], [ %23, %22 ], [ %20, %18 ], [ 0, %7 ], [ 0, %.thread125 ], [ 0, %33 ], [ 0, %109 ], [ %75, %_Z18tMPI_Reduce_run_opPvPKvS1_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit ]
   ret i32 %.0
 }
 
@@ -322,7 +322,7 @@ define noundef i32 @_Z14tMPI_AllreducePKvPviP14tmpi_datatype_7tMPI_OpP10tmpi_com
   br label %31
 
 31:                                               ; preds = %6, %29, %23, %11
-  %.0 = phi i32 [ %12, %11 ], [ %24, %23 ], [ %15, %29 ], [ 0, %6 ]
+  %.0 = phi i32 [ %24, %23 ], [ %15, %29 ], [ %12, %11 ], [ 0, %6 ]
   ret i32 %.0
 }
 

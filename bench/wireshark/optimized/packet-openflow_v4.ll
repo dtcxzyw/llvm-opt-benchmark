@@ -2918,7 +2918,7 @@ common.ret:                                       ; preds = %4, %4, %4, %126, %1
   br label %dissect_openflow_queue_prop_v4.exit.i.i
 
 dissect_openflow_queue_prop_v4.exit.i.i:          ; preds = %720, %709, %702, %695
-  %.0.i.i.i = phi i32 [ %spec.select.i.i.i, %709 ], [ %spec.select61.i.i.i, %720 ], [ %701, %695 ], [ %708, %702 ]
+  %.0.i.i.i = phi i32 [ %701, %695 ], [ %708, %702 ], [ %spec.select.i.i.i, %709 ], [ %spec.select61.i.i.i, %720 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %725 = icmp slt i32 %.0.i.i.i, %678
   br i1 %725, label %.lr.ph.i.i, label %dissect_openflow_packet_queue_v4.exit.i, !llvm.loop !12
@@ -4515,7 +4515,7 @@ dissect_openflow_action_header_v4.exit:           ; preds = %4, %19
   br label %124
 
 124:                                              ; preds = %119, %114, %96, %99, %110, %103, %92, %85, %81, %77, %70, %63, %59, %52, %48, %41, %37, %33, %23
-  %.0 = phi i32 [ %spec.select, %114 ], [ %spec.select139, %119 ], [ %32, %23 ], [ %36, %33 ], [ %40, %37 ], [ %47, %41 ], [ %51, %48 ], [ %58, %52 ], [ %62, %59 ], [ %69, %63 ], [ %76, %70 ], [ %80, %77 ], [ %84, %81 ], [ %91, %85 ], [ %95, %92 ], [ %9, %99 ], [ %97, %96 ], [ %109, %103 ], [ %113, %110 ]
+  %.0 = phi i32 [ %32, %23 ], [ %36, %33 ], [ %40, %37 ], [ %47, %41 ], [ %51, %48 ], [ %58, %52 ], [ %62, %59 ], [ %69, %63 ], [ %76, %70 ], [ %80, %77 ], [ %84, %81 ], [ %91, %85 ], [ %95, %92 ], [ %9, %99 ], [ %97, %96 ], [ %109, %103 ], [ %113, %110 ], [ %spec.select, %114 ], [ %spec.select139, %119 ]
   ret i32 %.0
 }
 
@@ -4610,7 +4610,7 @@ dissect_openflow_instruction_header_v4.exit:      ; preds = %4, %18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %39, %56, %52, %48, %29, %22
-  %.0 = phi i32 [ %59, %56 ], [ %28, %22 ], [ %38, %29 ], [ %55, %52 ], [ %51, %48 ], [ %42, %39 ], [ %46, %.lr.ph ]
+  %.0 = phi i32 [ %59, %56 ], [ %28, %22 ], [ %38, %29 ], [ %51, %48 ], [ %55, %52 ], [ %42, %39 ], [ %46, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -4866,7 +4866,7 @@ dissect_openflow_action_header_v4.exit.i:         ; preds = %88, %.lr.ph107.i
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %dissect_openflow_action_header_v4.exit.i, %.lr.ph110.i, %dissect_openflow_instruction_header_v4.exit.i, %127, %118, %96, %77, %72, %53
-  %.1.i = phi i32 [ %52, %127 ], [ %52, %118 ], [ %.0.i.i, %dissect_openflow_instruction_header_v4.exit.i ], [ %75, %.lr.ph110.i ], [ %.0.i101.i, %dissect_openflow_action_header_v4.exit.i ], [ %49, %53 ], [ %49, %72 ], [ %49, %77 ], [ %49, %96 ], [ %113, %.lr.ph.i ]
+  %.1.i = phi i32 [ %52, %127 ], [ %52, %118 ], [ %49, %53 ], [ %49, %72 ], [ %49, %77 ], [ %49, %96 ], [ %.0.i.i, %dissect_openflow_instruction_header_v4.exit.i ], [ %75, %.lr.ph110.i ], [ %.0.i101.i, %dissect_openflow_action_header_v4.exit.i ], [ %113, %.lr.ph.i ]
   %130 = add i16 %44, 7
   %131 = and i16 %130, -8
   %.not.i = icmp eq i16 %131, %44
@@ -4954,7 +4954,7 @@ define internal fastcc range(i32 -2147483636, 196604) i32 @dissect_openflow_mete
   br label %46
 
 46:                                               ; preds = %42, %35, %28, %24
-  %.0 = phi i32 [ %spec.select, %35 ], [ %spec.select60, %42 ], [ %27, %24 ], [ %34, %28 ]
+  %.0 = phi i32 [ %27, %24 ], [ %34, %28 ], [ %spec.select, %35 ], [ %spec.select60, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

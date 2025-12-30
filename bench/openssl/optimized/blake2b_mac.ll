@@ -53,7 +53,7 @@ define internal noalias ptr @blake2_mac_dup(ptr noundef readonly captures(none) 
   br label %7
 
 7:                                                ; preds = %3, %1, %6
-  %.0 = phi ptr [ null, %1 ], [ %4, %6 ], [ null, %3 ]
+  %.0 = phi ptr [ %4, %6 ], [ null, %1 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -135,7 +135,7 @@ blake2_setkey.exit:                               ; preds = %11, %14
   br label %28
 
 28:                                               ; preds = %blake2_setkey.exit.thread, %4, %6, %24, %23
-  %.0 = phi i32 [ %27, %24 ], [ 0, %4 ], [ 0, %23 ], [ 0, %6 ], [ 0, %blake2_setkey.exit.thread ]
+  %.0 = phi i32 [ %27, %24 ], [ 0, %23 ], [ 0, %6 ], [ 0, %4 ], [ 0, %blake2_setkey.exit.thread ]
   ret i32 %.0
 }
 
@@ -341,7 +341,7 @@ blake2_setkey.exit:                               ; preds = %23, %28
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %blake2_setkey.exit.thread, %16, %44, %51, %ossl_param_is_empty.exit, %50, %39
-  %.023 = phi i32 [ 0, %16 ], [ 0, %39 ], [ 0, %50 ], [ 0, %blake2_setkey.exit.thread ], [ 1, %ossl_param_is_empty.exit ], [ 1, %51 ], [ 1, %44 ], [ 1, %2 ]
+  %.023 = phi i32 [ 0, %39 ], [ 0, %50 ], [ 0, %16 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %51 ], [ 1, %44 ], [ 0, %blake2_setkey.exit.thread ], [ 1, %2 ]
   ret i32 %.023
 }
 

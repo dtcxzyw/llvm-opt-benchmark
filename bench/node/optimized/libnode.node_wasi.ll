@@ -1366,7 +1366,7 @@ lor.rhs.i:                                        ; preds = %lor.lhs.false.i
   %tobool.i.i = trunc i16 %call160.i to i1
   br i1 %tobool.i.i, label %do.end31, label %do.body30
 
-do.body30:                                        ; preds = %lor.rhs.i, %_ZN4node21FIXED_ONE_BYTE_STRINGILi3EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit.i, %lor.lhs.false.i, %if.end73.i
+do.body30:                                        ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi3EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit.i, %lor.lhs.false.i, %if.end73.i, %lor.rhs.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4wasi4WASIC1EPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEP16uvwasi_options_sE4args) #22
   tail call void @abort() #23
   unreachable
@@ -1851,7 +1851,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %do.end76, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %39, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i.i.i ], [ null, %do.end76 ]
+  %retval.0.i.i = phi ptr [ %39, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %do.end76 ], [ null, %if.end.i.i.i ]
   %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 2728
   %40 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %40, align 8
@@ -2566,7 +2566,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   br label %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit
 
 _ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit:            ; preds = %do.end11, %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
-  %argv.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end11 ]
+  %argv.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %do.end11 ]
   %9 = load i32, ptr %argv_buf_offset.addr, align 4
   %idxprom = zext i32 %9 to i64
   %arrayidx = getelementptr inbounds nuw i8, ptr %memory.coerce0, i64 %idxprom
@@ -2608,7 +2608,7 @@ if.then.i.i.i:                                    ; preds = %for.body, %if.end32
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %if.end32, %do.body2, %_ZN4node4wasi5DebugIJRA18_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.0.shrunk = phi i16 [ 61, %do.body2 ], [ 61, %_ZN4node4wasi5DebugIJRA18_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ %call17, %if.end32 ], [ %call17, %if.then.i.i.i ]
+  %retval.0.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA18_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ %call17, %if.end32 ], [ %call17, %if.then.i.i.i ]
   %retval.0 = zext i16 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
@@ -2676,7 +2676,7 @@ if.then11:                                        ; preds = %do.end8
   br label %return
 
 return:                                           ; preds = %do.end8, %if.then11, %do.body1, %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.0 = phi i32 [ 61, %do.body1 ], [ 61, %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 0, %if.then11 ], [ %conv10, %do.end8 ]
+  %retval.0 = phi i32 [ 61, %_ZN4node4wasi5DebugIJRA24_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body1 ], [ 0, %if.then11 ], [ %conv10, %do.end8 ]
   ret i32 %retval.0
 }
 
@@ -2858,7 +2858,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   br label %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit
 
 _ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit:            ; preds = %do.end11, %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
-  %environment.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end11 ]
+  %environment.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %do.end11 ]
   %9 = load i32, ptr %environ_buf_offset.addr, align 4
   %idxprom = zext i32 %9 to i64
   %arrayidx = getelementptr inbounds nuw i8, ptr %memory.coerce0, i64 %idxprom
@@ -2900,7 +2900,7 @@ if.then.i.i.i:                                    ; preds = %for.body, %if.end32
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %if.end32, %do.body2, %_ZN4node4wasi5DebugIJRA21_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.0.shrunk = phi i16 [ 61, %do.body2 ], [ 61, %_ZN4node4wasi5DebugIJRA21_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ %call17, %if.end32 ], [ %call17, %if.then.i.i.i ]
+  %retval.0.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA21_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ %call17, %if.end32 ], [ %call17, %if.then.i.i.i ]
   %retval.0 = zext i16 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
@@ -2964,7 +2964,7 @@ if.then11:                                        ; preds = %do.end8
   br label %return
 
 return:                                           ; preds = %do.end8, %if.then11, %do.body1, %_ZN4node4wasi5DebugIJRA27_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.0 = phi i32 [ 61, %do.body1 ], [ 61, %_ZN4node4wasi5DebugIJRA27_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 0, %if.then11 ], [ %conv10, %do.end8 ]
+  %retval.0 = phi i32 [ 61, %_ZN4node4wasi5DebugIJRA27_KcRjS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body1 ], [ 0, %if.then11 ], [ %conv10, %do.end8 ]
   ret i32 %retval.0
 }
 
@@ -3442,7 +3442,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !20
 
 _ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
-  %iovs.sroa.0.0 = phi ptr [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %iovs.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %8 = load i32, ptr %iovs_ptr.addr, align 4
   %conv12 = zext i32 %8 to i64
   %call14 = call zeroext i16 @uvwasi_serdes_readv_iovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %iovs.sroa.0.0, i32 noundef %7) #22
@@ -3475,7 +3475,7 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %do.body2, %_ZN4node4wasi5DebugIJRA37_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.0.shrunk = phi i16 [ 61, %do.body2 ], [ 61, %_ZN4node4wasi5DebugIJRA37_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
+  %retval.0.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA37_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
   %retval.0 = zext i16 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
@@ -3664,7 +3664,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !21
 
 _ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
-  %iovs.sroa.0.0 = phi ptr [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %iovs.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %8 = load i32, ptr %iovs_ptr.addr, align 4
   %conv12 = zext i32 %8 to i64
   %call14 = call zeroext i16 @uvwasi_serdes_readv_ciovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %iovs.sroa.0.0, i32 noundef %7) #22
@@ -3697,7 +3697,7 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %do.body2, %_ZN4node4wasi5DebugIJRA38_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.0.shrunk = phi i16 [ 61, %do.body2 ], [ 61, %_ZN4node4wasi5DebugIJRA38_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
+  %retval.0.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA38_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
   %retval.0 = zext i16 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
@@ -3779,7 +3779,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !20
 
 _ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
-  %iovs.sroa.0.0 = phi ptr [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %iovs.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %8 = load i32, ptr %iovs_ptr.addr, align 4
   %conv12 = zext i32 %8 to i64
   %call14 = call zeroext i16 @uvwasi_serdes_readv_iovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %iovs.sroa.0.0, i32 noundef %7) #22
@@ -3811,7 +3811,7 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %do.body2, %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.0.shrunk = phi i16 [ 61, %do.body2 ], [ 61, %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
+  %retval.0.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
   %retval.0 = zext i16 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
@@ -3885,7 +3885,7 @@ if.then12:                                        ; preds = %do.end9
   br label %return
 
 return:                                           ; preds = %do.end9, %if.then12, %do.body2, %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.0 = phi i32 [ 61, %do.body2 ], [ 61, %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 0, %if.then12 ], [ %conv11, %do.end9 ]
+  %retval.0 = phi i32 [ 61, %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ 0, %if.then12 ], [ %conv11, %do.end9 ]
   ret i32 %retval.0
 }
 
@@ -4141,7 +4141,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !21
 
 _ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
-  %iovs.sroa.0.0 = phi ptr [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %iovs.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %8 = load i32, ptr %iovs_ptr.addr, align 4
   %conv12 = zext i32 %8 to i64
   %call14 = call zeroext i16 @uvwasi_serdes_readv_ciovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %iovs.sroa.0.0, i32 noundef %7) #22
@@ -4173,7 +4173,7 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %do.body2, %_ZN4node4wasi5DebugIJRA26_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.0.shrunk = phi i16 [ 61, %do.body2 ], [ 61, %_ZN4node4wasi5DebugIJRA26_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
+  %retval.0.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA26_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
   %retval.0 = zext i16 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
@@ -4290,7 +4290,7 @@ if.then12:                                        ; preds = %do.end9
   br label %return
 
 return:                                           ; preds = %do.end9, %if.then12, %do.body2, %_ZN4node4wasi5DebugIJRA31_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.0 = phi i32 [ 61, %do.body2 ], [ 61, %_ZN4node4wasi5DebugIJRA31_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 0, %if.then12 ], [ %conv11, %do.end9 ]
+  %retval.0 = phi i32 [ 61, %_ZN4node4wasi5DebugIJRA31_KcRjS5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ 0, %if.then12 ], [ %conv11, %do.end9 ]
   ret i32 %retval.0
 }
 
@@ -4517,7 +4517,7 @@ if.then14:                                        ; preds = %do.end9
   br label %return
 
 return:                                           ; preds = %do.end9, %if.then14, %do.body2, %_ZN4node4wasi5DebugIJRA47_KcRjS5_S5_S5_S5_RmS6_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.0 = phi i32 [ 61, %do.body2 ], [ 61, %_ZN4node4wasi5DebugIJRA47_KcRjS5_S5_S5_S5_RmS6_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 0, %if.then14 ], [ %conv13, %do.end9 ]
+  %retval.0 = phi i32 [ 61, %_ZN4node4wasi5DebugIJRA47_KcRjS5_S5_S5_S5_RmS6_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ 0, %if.then14 ], [ %conv13, %do.end9 ]
   ret i32 %retval.0
 }
 
@@ -4604,7 +4604,7 @@ if.then24:                                        ; preds = %do.end18
   br label %return
 
 return:                                           ; preds = %do.end18, %if.then24, %do.body11, %do.body2, %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.0 = phi i32 [ 61, %do.body11 ], [ 61, %do.body2 ], [ 61, %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 0, %if.then24 ], [ %conv23, %do.end18 ]
+  %retval.0 = phi i32 [ 61, %_ZN4node4wasi5DebugIJRA39_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ 61, %do.body11 ], [ 0, %if.then24 ], [ %conv23, %do.end18 ]
   ret i32 %retval.0
 }
 
@@ -5029,7 +5029,7 @@ if.then.i.i.i31:                                  ; preds = %_ZNSt6vectorI14uvwa
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i31, %_ZNSt6vectorI14uvwasi_event_sSaIS0_EED2Ev.exit, %do.body12, %do.body2, %_ZN4node4wasi5DebugIJRA29_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.0.shrunk = phi i16 [ 61, %do.body12 ], [ 61, %do.body2 ], [ 61, %_ZN4node4wasi5DebugIJRA29_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ %call28, %_ZNSt6vectorI14uvwasi_event_sSaIS0_EED2Ev.exit ], [ %call28, %if.then.i.i.i31 ]
+  %retval.0.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA29_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ 61, %do.body12 ], [ %call28, %_ZNSt6vectorI14uvwasi_event_sSaIS0_EED2Ev.exit ], [ %call28, %if.then.i.i.i31 ]
   %retval.0 = zext i16 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
@@ -5313,7 +5313,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !20
 
 _ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end17, %if.then.i.i.i.i.i
-  %ri_data.sroa.0.0 = phi ptr [ null, %do.end17 ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %ri_data.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end17 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %9 = load i32, ptr %ri_data_ptr.addr, align 4
   %conv20 = zext i32 %9 to i64
   %call22 = call zeroext i16 @uvwasi_serdes_readv_iovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv20, ptr noundef %ri_data.sroa.0.0, i32 noundef %8) #22
@@ -5351,7 +5351,7 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %do.body10, %do.body2, %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.0.shrunk = phi i16 [ 61, %do.body10 ], [ 61, %do.body2 ], [ 61, %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
+  %retval.0.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ 61, %do.body10 ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
   %retval.0 = zext i16 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
@@ -5435,7 +5435,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !21
 
 _ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
-  %si_data.sroa.0.0 = phi ptr [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %si_data.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %do.end9 ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %8 = load i32, ptr %si_data_ptr.addr, align 4
   %conv12 = zext i32 %8 to i64
   %call14 = call zeroext i16 @uvwasi_serdes_readv_ciovec_t(ptr noundef %memory.coerce0, i64 noundef %memory.coerce1, i64 noundef %conv12, ptr noundef %si_data.sroa.0.0, i32 noundef %7) #22
@@ -5469,7 +5469,7 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %do.body2, %_ZN4node4wasi5DebugIJRA31_KcRjS5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.0.shrunk = phi i16 [ 61, %do.body2 ], [ 61, %_ZN4node4wasi5DebugIJRA31_KcRjS5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
+  %retval.0.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA31_KcRjS5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
   %retval.0 = zext i16 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
@@ -5899,7 +5899,7 @@ if.end.i:                                         ; preds = %_ZN4node18ContextEm
   br label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
 
 _ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %entry, %if.end.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i, %if.end.i
-  %retval.0.i = phi ptr [ %9, %if.end.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %if.end.i.i ], [ null, %entry ]
+  %retval.0.i = phi ptr [ %9, %if.end.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %entry ], [ null, %if.end.i.i ]
   %isolate_.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 88
   %10 = load ptr, ptr %isolate_.i, align 8
   %call17 = tail call ptr @_ZN4node19NewFunctionTemplateEPN2v87IsolateEPFvRKNS0_20FunctionCallbackInfoINS0_5ValueEEEENS0_5LocalINS0_9SignatureEEENS0_19ConstructorBehaviorENS0_14SideEffectTypeEPKNS0_9CFunctionE(ptr noundef %10, ptr noundef nonnull @_ZN4node4wasi4WASI3NewERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr null, i32 noundef 1, i32 noundef 0, ptr noundef null) #22
@@ -6070,7 +6070,7 @@ do.end31:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end31, %if.then18
-  %retval.0 = phi i32 [ %call35, %do.end31 ], [ 28, %if.then18 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then18 ], [ %call35, %do.end31 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -6645,7 +6645,7 @@ do.end31:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end31, %if.then18
-  %retval.0 = phi i32 [ %call35, %do.end31 ], [ 28, %if.then18 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then18 ], [ %call35, %do.end31 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -6977,7 +6977,7 @@ _ZN4node4wasi4WASI11ClockResGetERS1_NS0_10WasmMemoryEjj.exit: ; preds = %_ZN4nod
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI11ClockResGetERS1_NS0_10WasmMemoryEjj.exit, %if.then18
-  %retval.0 = phi i32 [ %retval.0.i, %_ZN4node4wasi4WASI11ClockResGetERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %if.then18 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then18 ], [ %retval.0.i, %_ZN4node4wasi4WASI11ClockResGetERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -7362,7 +7362,7 @@ _ZN4node4wasi4WASI12ClockTimeGetERS1_NS0_10WasmMemoryEjmj.exit: ; preds = %_ZN4n
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI12ClockTimeGetERS1_NS0_10WasmMemoryEjmj.exit, %if.then20
-  %retval.0 = phi i32 [ %retval.0.i, %_ZN4node4wasi4WASI12ClockTimeGetERS1_NS0_10WasmMemoryEjmj.exit ], [ 28, %if.then20 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then20 ], [ %retval.0.i, %_ZN4node4wasi4WASI12ClockTimeGetERS1_NS0_10WasmMemoryEjmj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -7769,7 +7769,7 @@ do.end31:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end31, %if.then18
-  %retval.0 = phi i32 [ %call35, %do.end31 ], [ 28, %if.then18 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then18 ], [ %call35, %do.end31 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -8052,7 +8052,7 @@ do.end31:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end31, %if.then18
-  %retval.0 = phi i32 [ %call35, %do.end31 ], [ 28, %if.then18 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then18 ], [ %call35, %do.end31 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -8379,7 +8379,7 @@ _ZN4node4wasi4WASI8FdAdviseERS1_NS0_10WasmMemoryEjmmj.exit: ; preds = %do.end35,
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI8FdAdviseERS1_NS0_10WasmMemoryEjmmj.exit, %if.then22
-  %retval.0 = phi i32 [ %conv1.i, %_ZN4node4wasi4WASI8FdAdviseERS1_NS0_10WasmMemoryEjmmj.exit ], [ 28, %if.then22 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then22 ], [ %conv1.i, %_ZN4node4wasi4WASI8FdAdviseERS1_NS0_10WasmMemoryEjmmj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -8865,7 +8865,7 @@ _ZN4node4wasi4WASI10FdAllocateERS1_NS0_10WasmMemoryEjmm.exit: ; preds = %do.end3
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI10FdAllocateERS1_NS0_10WasmMemoryEjmm.exit, %if.then20
-  %retval.0 = phi i32 [ %conv.i, %_ZN4node4wasi4WASI10FdAllocateERS1_NS0_10WasmMemoryEjmm.exit ], [ 28, %if.then20 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then20 ], [ %conv.i, %_ZN4node4wasi4WASI10FdAllocateERS1_NS0_10WasmMemoryEjmm.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -9272,7 +9272,7 @@ _ZN4node4wasi4WASI7FdCloseERS1_NS0_10WasmMemoryEj.exit: ; preds = %do.end29, %if
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI7FdCloseERS1_NS0_10WasmMemoryEj.exit, %if.then16
-  %retval.0 = phi i32 [ %conv.i, %_ZN4node4wasi4WASI7FdCloseERS1_NS0_10WasmMemoryEj.exit ], [ 28, %if.then16 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then16 ], [ %conv.i, %_ZN4node4wasi4WASI7FdCloseERS1_NS0_10WasmMemoryEj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -9567,7 +9567,7 @@ _ZN4node4wasi4WASI10FdDatasyncERS1_NS0_10WasmMemoryEj.exit: ; preds = %do.end29,
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI10FdDatasyncERS1_NS0_10WasmMemoryEj.exit, %if.then16
-  %retval.0 = phi i32 [ %conv.i, %_ZN4node4wasi4WASI10FdDatasyncERS1_NS0_10WasmMemoryEj.exit ], [ 28, %if.then16 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then16 ], [ %conv.i, %_ZN4node4wasi4WASI10FdDatasyncERS1_NS0_10WasmMemoryEj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -9875,7 +9875,7 @@ _ZN4node4wasi4WASI11FdFdstatGetERS1_NS0_10WasmMemoryEjj.exit: ; preds = %_ZN4nod
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI11FdFdstatGetERS1_NS0_10WasmMemoryEjj.exit, %if.then18
-  %retval.0 = phi i32 [ %retval.0.i, %_ZN4node4wasi4WASI11FdFdstatGetERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %if.then18 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then18 ], [ %retval.0.i, %_ZN4node4wasi4WASI11FdFdstatGetERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -10232,7 +10232,7 @@ _ZN4node4wasi4WASI16FdFdstatSetFlagsERS1_NS0_10WasmMemoryEjj.exit: ; preds = %do
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI16FdFdstatSetFlagsERS1_NS0_10WasmMemoryEjj.exit, %if.then18
-  %retval.0 = phi i32 [ %conv1.i, %_ZN4node4wasi4WASI16FdFdstatSetFlagsERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %if.then18 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then18 ], [ %conv1.i, %_ZN4node4wasi4WASI16FdFdstatSetFlagsERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -10576,7 +10576,7 @@ _ZN4node4wasi4WASI17FdFdstatSetRightsERS1_NS0_10WasmMemoryEjmm.exit: ; preds = %
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI17FdFdstatSetRightsERS1_NS0_10WasmMemoryEjmm.exit, %if.then20
-  %retval.0 = phi i32 [ %conv.i, %_ZN4node4wasi4WASI17FdFdstatSetRightsERS1_NS0_10WasmMemoryEjmm.exit ], [ 28, %if.then20 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then20 ], [ %conv.i, %_ZN4node4wasi4WASI17FdFdstatSetRightsERS1_NS0_10WasmMemoryEjmm.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -10992,7 +10992,7 @@ _ZN4node4wasi4WASI13FdFilestatGetERS1_NS0_10WasmMemoryEjj.exit: ; preds = %_ZN4n
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI13FdFilestatGetERS1_NS0_10WasmMemoryEjj.exit, %if.then18
-  %retval.0 = phi i32 [ %retval.0.i, %_ZN4node4wasi4WASI13FdFilestatGetERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %if.then18 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then18 ], [ %retval.0.i, %_ZN4node4wasi4WASI13FdFilestatGetERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -11348,7 +11348,7 @@ _ZN4node4wasi4WASI17FdFilestatSetSizeERS1_NS0_10WasmMemoryEjm.exit: ; preds = %d
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI17FdFilestatSetSizeERS1_NS0_10WasmMemoryEjm.exit, %if.then18
-  %retval.0 = phi i32 [ %conv.i, %_ZN4node4wasi4WASI17FdFilestatSetSizeERS1_NS0_10WasmMemoryEjm.exit ], [ 28, %if.then18 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then18 ], [ %conv.i, %_ZN4node4wasi4WASI17FdFilestatSetSizeERS1_NS0_10WasmMemoryEjm.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -11723,7 +11723,7 @@ _ZN4node4wasi4WASI18FdFilestatSetTimesERS1_NS0_10WasmMemoryEjmmj.exit: ; preds =
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI18FdFilestatSetTimesERS1_NS0_10WasmMemoryEjmmj.exit, %if.then22
-  %retval.0 = phi i32 [ %conv1.i, %_ZN4node4wasi4WASI18FdFilestatSetTimesERS1_NS0_10WasmMemoryEjmmj.exit ], [ 28, %if.then22 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then22 ], [ %conv1.i, %_ZN4node4wasi4WASI18FdFilestatSetTimesERS1_NS0_10WasmMemoryEjmmj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -12075,7 +12075,7 @@ do.end37:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end37, %if.then24
-  %retval.0 = phi i32 [ %call41, %do.end37 ], [ 28, %if.then24 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then24 ], [ %call41, %do.end37 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -12579,7 +12579,7 @@ _ZN4node4wasi4WASI12FdPrestatGetERS1_NS0_10WasmMemoryEjj.exit: ; preds = %_ZN4no
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI12FdPrestatGetERS1_NS0_10WasmMemoryEjj.exit, %if.then18
-  %retval.0 = phi i32 [ %retval.0.i, %_ZN4node4wasi4WASI12FdPrestatGetERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %if.then18 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then18 ], [ %retval.0.i, %_ZN4node4wasi4WASI12FdPrestatGetERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -12958,7 +12958,7 @@ _ZN4node4wasi4WASI16FdPrestatDirNameERS1_NS0_10WasmMemoryEjjj.exit: ; preds = %_
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI16FdPrestatDirNameERS1_NS0_10WasmMemoryEjjj.exit, %if.then20
-  %retval.0 = phi i32 [ %retval.0.i, %_ZN4node4wasi4WASI16FdPrestatDirNameERS1_NS0_10WasmMemoryEjjj.exit ], [ 28, %if.then20 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then20 ], [ %retval.0.i, %_ZN4node4wasi4WASI16FdPrestatDirNameERS1_NS0_10WasmMemoryEjjj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -13358,7 +13358,7 @@ do.end37:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end37, %if.then24
-  %retval.0 = phi i32 [ %call41, %do.end37 ], [ 28, %if.then24 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then24 ], [ %call41, %do.end37 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -13687,7 +13687,7 @@ do.end35:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end35, %if.then22
-  %retval.0 = phi i32 [ %call39, %do.end35 ], [ 28, %if.then22 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then22 ], [ %call39, %do.end35 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -14099,7 +14099,7 @@ do.end37:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end37, %if.then24
-  %retval.0 = phi i32 [ %call41, %do.end37 ], [ 28, %if.then24 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then24 ], [ %call41, %do.end37 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -14449,7 +14449,7 @@ _ZN4node4wasi4WASI10FdRenumberERS1_NS0_10WasmMemoryEjj.exit: ; preds = %do.end31
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI10FdRenumberERS1_NS0_10WasmMemoryEjj.exit, %if.then18
-  %retval.0 = phi i32 [ %conv.i, %_ZN4node4wasi4WASI10FdRenumberERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %if.then18 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then18 ], [ %conv.i, %_ZN4node4wasi4WASI10FdRenumberERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -14765,7 +14765,7 @@ do.end35:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end35, %if.then22
-  %retval.0 = phi i32 [ %call39, %do.end35 ], [ 28, %if.then22 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then22 ], [ %call39, %do.end35 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -15163,7 +15163,7 @@ _ZN4node4wasi4WASI6FdSyncERS1_NS0_10WasmMemoryEj.exit: ; preds = %do.end29, %if.
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI6FdSyncERS1_NS0_10WasmMemoryEj.exit, %if.then16
-  %retval.0 = phi i32 [ %conv.i, %_ZN4node4wasi4WASI6FdSyncERS1_NS0_10WasmMemoryEj.exit ], [ 28, %if.then16 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then16 ], [ %conv.i, %_ZN4node4wasi4WASI6FdSyncERS1_NS0_10WasmMemoryEj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -15472,7 +15472,7 @@ _ZN4node4wasi4WASI6FdTellERS1_NS0_10WasmMemoryEjj.exit: ; preds = %_ZN4node4wasi
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI6FdTellERS1_NS0_10WasmMemoryEjj.exit, %if.then18
-  %retval.0 = phi i32 [ %retval.0.i, %_ZN4node4wasi4WASI6FdTellERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %if.then18 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then18 ], [ %retval.0.i, %_ZN4node4wasi4WASI6FdTellERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -15808,7 +15808,7 @@ do.end35:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end35, %if.then22
-  %retval.0 = phi i32 [ %call39, %do.end35 ], [ 28, %if.then22 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then22 ], [ %call39, %do.end35 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -16157,7 +16157,7 @@ _ZN4node4wasi4WASI19PathCreateDirectoryERS1_NS0_10WasmMemoryEjjj.exit: ; preds =
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI19PathCreateDirectoryERS1_NS0_10WasmMemoryEjjj.exit, %if.then20
-  %retval.0 = phi i32 [ %retval.0.i, %_ZN4node4wasi4WASI19PathCreateDirectoryERS1_NS0_10WasmMemoryEjjj.exit ], [ 28, %if.then20 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then20 ], [ %retval.0.i, %_ZN4node4wasi4WASI19PathCreateDirectoryERS1_NS0_10WasmMemoryEjjj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -16538,7 +16538,7 @@ do.end37:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end37, %if.then24
-  %retval.0 = phi i32 [ %call41, %do.end37 ], [ 28, %if.then24 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then24 ], [ %call41, %do.end37 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -17006,7 +17006,7 @@ do.end41:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end41, %if.then28
-  %retval.0 = phi i32 [ %call45, %do.end41 ], [ 28, %if.then28 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then28 ], [ %call45, %do.end41 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -17525,7 +17525,7 @@ do.end41:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end41, %if.then28
-  %retval.0 = phi i32 [ %call45, %do.end41 ], [ 28, %if.then28 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then28 ], [ %call45, %do.end41 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -17922,7 +17922,7 @@ do.end45:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end45, %if.then32
-  %retval.0 = phi i32 [ %call49, %do.end45 ], [ 28, %if.then32 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then32 ], [ %call49, %do.end45 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -18531,7 +18531,7 @@ do.end39:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end39, %if.then26
-  %retval.0 = phi i32 [ %call43, %do.end39 ], [ 28, %if.then26 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then26 ], [ %call43, %do.end39 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -18927,7 +18927,7 @@ _ZN4node4wasi4WASI19PathRemoveDirectoryERS1_NS0_10WasmMemoryEjjj.exit: ; preds =
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI19PathRemoveDirectoryERS1_NS0_10WasmMemoryEjjj.exit, %if.then20
-  %retval.0 = phi i32 [ %retval.0.i, %_ZN4node4wasi4WASI19PathRemoveDirectoryERS1_NS0_10WasmMemoryEjjj.exit ], [ 28, %if.then20 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then20 ], [ %retval.0.i, %_ZN4node4wasi4WASI19PathRemoveDirectoryERS1_NS0_10WasmMemoryEjjj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -19308,7 +19308,7 @@ do.end39:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end39, %if.then26
-  %retval.0 = phi i32 [ %call43, %do.end39 ], [ 28, %if.then26 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then26 ], [ %call43, %do.end39 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -19660,7 +19660,7 @@ do.end37:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end37, %if.then24
-  %retval.0 = phi i32 [ %call41, %do.end37 ], [ 28, %if.then24 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then24 ], [ %call41, %do.end37 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -20030,7 +20030,7 @@ _ZN4node4wasi4WASI14PathUnlinkFileERS1_NS0_10WasmMemoryEjjj.exit: ; preds = %_ZN
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI14PathUnlinkFileERS1_NS0_10WasmMemoryEjjj.exit, %if.then20
-  %retval.0 = phi i32 [ %retval.0.i, %_ZN4node4wasi4WASI14PathUnlinkFileERS1_NS0_10WasmMemoryEjjj.exit ], [ 28, %if.then20 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then20 ], [ %retval.0.i, %_ZN4node4wasi4WASI14PathUnlinkFileERS1_NS0_10WasmMemoryEjjj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -20411,7 +20411,7 @@ do.end35:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end35, %if.then22
-  %retval.0 = phi i32 [ %call39, %do.end35 ], [ 28, %if.then22 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then22 ], [ %call39, %do.end35 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -21021,7 +21021,7 @@ _ZN4node4wasi4WASI9ProcRaiseERS1_NS0_10WasmMemoryEj.exit: ; preds = %do.end29, %
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI9ProcRaiseERS1_NS0_10WasmMemoryEj.exit, %if.then16
-  %retval.0 = phi i32 [ %conv1.i, %_ZN4node4wasi4WASI9ProcRaiseERS1_NS0_10WasmMemoryEj.exit ], [ 28, %if.then16 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then16 ], [ %conv1.i, %_ZN4node4wasi4WASI9ProcRaiseERS1_NS0_10WasmMemoryEj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -21326,7 +21326,7 @@ _ZN4node4wasi4WASI9RandomGetERS1_NS0_10WasmMemoryEjj.exit: ; preds = %_ZN4node4w
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI9RandomGetERS1_NS0_10WasmMemoryEjj.exit, %if.then18
-  %retval.0 = phi i32 [ %retval.0.i, %_ZN4node4wasi4WASI9RandomGetERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %if.then18 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then18 ], [ %retval.0.i, %_ZN4node4wasi4WASI9RandomGetERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -21676,7 +21676,7 @@ _ZN4node4wasi4WASI10SchedYieldERS1_NS0_10WasmMemoryE.exit: ; preds = %do.end29, 
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI10SchedYieldERS1_NS0_10WasmMemoryE.exit, %if.then16
-  %retval.0 = phi i32 [ %conv.i, %_ZN4node4wasi4WASI10SchedYieldERS1_NS0_10WasmMemoryE.exit ], [ 28, %if.then16 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then16 ], [ %conv.i, %_ZN4node4wasi4WASI10SchedYieldERS1_NS0_10WasmMemoryE.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -21951,7 +21951,7 @@ _ZN4node4wasi4WASI10SockAcceptERS1_NS0_10WasmMemoryEjjj.exit: ; preds = %_ZN4nod
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI10SockAcceptERS1_NS0_10WasmMemoryEjjj.exit, %if.then20
-  %retval.0 = phi i32 [ %conv1.i, %_ZN4node4wasi4WASI10SockAcceptERS1_NS0_10WasmMemoryEjjj.exit ], [ 28, %if.then20 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then20 ], [ %conv1.i, %_ZN4node4wasi4WASI10SockAcceptERS1_NS0_10WasmMemoryEjjj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -22331,7 +22331,7 @@ do.end39:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end39, %if.then26
-  %retval.0 = phi i32 [ %call43, %do.end39 ], [ 28, %if.then26 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then26 ], [ %call43, %do.end39 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -22683,7 +22683,7 @@ do.end37:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end37, %if.then24
-  %retval.0 = phi i32 [ %call41, %do.end37 ], [ 28, %if.then24 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then24 ], [ %call41, %do.end37 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -23031,7 +23031,7 @@ _ZN4node4wasi4WASI12SockShutdownERS1_NS0_10WasmMemoryEjj.exit: ; preds = %do.end
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node4wasi4WASI12SockShutdownERS1_NS0_10WasmMemoryEjj.exit, %if.then18
-  %retval.0 = phi i32 [ %conv1.i, %_ZN4node4wasi4WASI12SockShutdownERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %if.then18 ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
+  %retval.0 = phi i32 [ 28, %if.then18 ], [ %conv1.i, %_ZN4node4wasi4WASI12SockShutdownERS1_NS0_10WasmMemoryEjj.exit ], [ 28, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ]
   ret i32 %retval.0
 }
 
@@ -24010,7 +24010,7 @@ if.end14.i:                                       ; preds = %if.end9.i
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !91
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
-  %retval.0.i = phi i32 [ %add13.i, %if.then12.i ], [ %add.i, %if.then4.i ], [ %add8.i, %if.then7.i ], [ 1, %entry ], [ %add17.i, %if.end14.i ]
+  %retval.0.i = phi i32 [ %add.i, %if.then4.i ], [ %add8.i, %if.then7.i ], [ %add13.i, %if.then12.i ], [ 1, %entry ], [ %add17.i, %if.end14.i ]
   %conv = zext i32 %retval.0.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #22
@@ -24642,7 +24642,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !159
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
-  %retval.0.i = phi i32 [ %add15.i, %if.then14.i ], [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
+  %retval.0.i = phi i32 [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ %add15.i, %if.then14.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
   %conv = zext i32 %retval.0.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #22
@@ -27819,7 +27819,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !159
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
-  %retval.0.i = phi i32 [ %add15.i, %if.then14.i ], [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
+  %retval.0.i = phi i32 [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ %add15.i, %if.then14.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
   %__val.lobit = lshr i64 %__val, 63
   %conv = trunc nuw nsw i64 %__val.lobit to i32
   %add2 = add i32 %retval.0.i, %conv

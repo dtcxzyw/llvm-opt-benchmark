@@ -601,7 +601,7 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #4 align 16 
   br i1 %53, label %.loopexit, label %45
 
 .loopexit:                                        ; preds = %.preheader38, %38, %.preheader, %26
-  %54 = phi ptr [ %22, %26 ], [ %34, %38 ], [ %50, %.preheader ], [ %14, %.preheader38 ]
+  %54 = phi ptr [ %22, %26 ], [ %50, %.preheader ], [ %34, %38 ], [ %14, %.preheader38 ]
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.loopexit..thread32_crit_edge, label %75
 
@@ -1061,12 +1061,12 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #4 align 16 
   br label %.thread33
 
 .thread33:                                        ; preds = %311, %317, %.thread32, %318, %75, %67
-  %320 = phi i32 [ %319, %318 ], [ -28, %.thread32 ], [ -28, %75 ], [ -28, %67 ], [ %302, %317 ], [ %302, %311 ]
+  %320 = phi i32 [ %319, %318 ], [ -28, %75 ], [ -28, %67 ], [ -28, %.thread32 ], [ %302, %317 ], [ %302, %311 ]
   tail call void @mutex_unlock(ptr noundef nonnull @serial_mutex) #12
   br label %321
 
 321:                                              ; preds = %.thread33, %1
-  %322 = phi i32 [ %320, %.thread33 ], [ -22, %1 ]
+  %322 = phi i32 [ -22, %1 ], [ %320, %.thread33 ]
   ret i32 %322
 }
 
@@ -1494,8 +1494,8 @@ define internal i32 @univ8250_console_match(ptr noundef %0, ptr noundef readonly
   br i1 %56, label %.split6.us, label %49
 
 .split6.us:                                       ; preds = %43, %31, %.split
-  %.us-phi = phi i32 [ %25, %31 ], [ %51, %.split ], [ %37, %43 ]
-  %.us-phi7 = phi ptr [ %27, %31 ], [ %53, %.split ], [ %39, %43 ]
+  %.us-phi = phi i32 [ %51, %.split ], [ %25, %31 ], [ %37, %43 ]
+  %.us-phi7 = phi ptr [ %53, %.split ], [ %27, %31 ], [ %39, %43 ]
   %57 = trunc i32 %.us-phi to i16
   store i16 %57, ptr %22, align 2
   %58 = getelementptr inbounds nuw i8, ptr %.us-phi7, i64 264
@@ -1696,7 +1696,7 @@ select.unfold:                                    ; preds = %15, %11
   br label %31
 
 31:                                               ; preds = %15, %select.unfold, %7, %1
-  %32 = phi i32 [ %.ph, %select.unfold ], [ %5, %1 ], [ 0, %7 ], [ 0, %15 ]
+  %32 = phi i32 [ %.ph, %select.unfold ], [ 0, %7 ], [ %5, %1 ], [ 0, %15 ]
   ret i32 %32
 }
 

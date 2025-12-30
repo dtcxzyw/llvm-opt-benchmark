@@ -79,7 +79,7 @@ define i32 @ubidi_writeReverse_77(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %39
 
 39:                                               ; preds = %6, %8, %37, %28, %18
-  %.038 = phi i32 [ %38, %37 ], [ 0, %18 ], [ 0, %28 ], [ 0, %8 ], [ 0, %6 ]
+  %.038 = phi i32 [ 0, %18 ], [ 0, %28 ], [ %38, %37 ], [ 0, %8 ], [ 0, %6 ]
   ret i32 %.038
 }
 
@@ -430,17 +430,17 @@ switch.early.test:                                ; preds = %150
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %171, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %150
-  %.5126 = phi ptr [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %150 ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.6127, %171 ], [ %176, %.lr.ph ]
+  %.5126 = phi ptr [ %.4125, %switch.early.test ], [ %.4125, %150 ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.4125, %switch.early.test ], [ %.6127, %171 ], [ %176, %.lr.ph ]
   %177 = icmp sgt i32 %.9, 0
   br i1 %177, label %97, label %.loopexit186, !llvm.loop !17
 
 .loopexit186.sink.split:                          ; preds = %92, %35, %9
-  %.0116.ph = phi i32 [ %1, %35 ], [ %1, %9 ], [ %.0141, %92 ]
+  %.0116.ph = phi i32 [ %1, %9 ], [ %1, %35 ], [ %.0141, %92 ]
   store i32 15, ptr %5, align 4, !tbaa !3
   br label %.loopexit186
 
 .loopexit186:                                     ; preds = %74, %33, %.loopexit, %.loopexit186.sink.split
-  %.0116 = phi i32 [ %.0116.ph, %.loopexit186.sink.split ], [ %1, %33 ], [ %.0141, %.loopexit ], [ %1, %74 ]
+  %.0116 = phi i32 [ %.0116.ph, %.loopexit186.sink.split ], [ %.0141, %.loopexit ], [ %1, %33 ], [ %1, %74 ]
   ret i32 %.0116
 }
 
@@ -739,7 +739,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %151
 
 151:                                              ; preds = %140, %139
-  %.2209 = phi i32 [ %spec.select282, %140 ], [ %spec.store.select, %139 ]
+  %.2209 = phi i32 [ %spec.store.select, %139 ], [ %spec.select282, %140 ]
   %152 = and i32 %.2209, 1
   %.not248 = icmp eq i32 %152, 0
   br i1 %.not248, label %153, label %.thread296
@@ -793,7 +793,7 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %176
 
 176:                                              ; preds = %167, %160
-  %.3210 = phi i32 [ %spec.select285, %167 ], [ %.2209, %160 ]
+  %.3210 = phi i32 [ %.2209, %160 ], [ %spec.select285, %167 ]
   %177 = and i32 %.3210, 2
   %.not254 = icmp eq i32 %177, 0
   br i1 %.not254, label %178, label %.thread300
@@ -1016,13 +1016,13 @@ define i32 @ubidi_writeReordered_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %282, label %211, label %.loopexit, !llvm.loop !48
 
 .loopexit:                                        ; preds = %281, %201, %185, %75, %206, %.preheader305, %80, %.preheader
-  %.5201 = phi i32 [ %78, %75 ], [ %.4200, %185 ], [ %204, %201 ], [ %2, %.preheader ], [ %2, %80 ], [ %2, %.preheader305 ], [ %2, %206 ], [ %.9205, %281 ]
+  %.5201 = phi i32 [ %2, %.preheader ], [ %2, %80 ], [ %2, %.preheader305 ], [ %2, %206 ], [ %78, %75 ], [ %.4200, %185 ], [ %204, %201 ], [ %.9205, %281 ]
   %283 = sub nsw i32 %2, %.5201
   %284 = call i32 @u_terminateUChars_77(ptr noundef %1, i32 noundef %2, i32 noundef %283, ptr noundef nonnull %4)
   br label %285
 
 285:                                              ; preds = %43, %5, %9, %.loopexit, %41, %38, %25
-  %.0 = phi i32 [ %284, %.loopexit ], [ 0, %25 ], [ 0, %38 ], [ %42, %41 ], [ 0, %5 ], [ 0, %9 ], [ 0, %43 ]
+  %.0 = phi i32 [ 0, %25 ], [ 0, %38 ], [ %42, %41 ], [ %284, %.loopexit ], [ 0, %9 ], [ 0, %5 ], [ 0, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -1204,7 +1204,7 @@ switch.early.test:                                ; preds = %.preheader178
   br i1 %84, label %.preheader178, label %.loopexit177, !llvm.loop !52
 
 .loopexit177:                                     ; preds = %82, %.lr.ph197, %67
-  %.3115.pn = phi i32 [ %.2114, %.lr.ph197 ], [ %65, %67 ], [ %.3115, %82 ]
+  %.3115.pn = phi i32 [ %65, %67 ], [ %.2114, %.lr.ph197 ], [ %.3115, %82 ]
   %.3 = sub nsw i32 %3, %.3115.pn
   br label %.loopexit
 
@@ -1326,13 +1326,13 @@ switch.early.test166:                             ; preds = %99
   br label %141
 
 141:                                              ; preds = %switch.early.test166, %switch.early.test166, %switch.early.test166, %switch.early.test166, %switch.early.test166, %switch.early.test166, %switch.early.test166, %switch.early.test166, %switch.early.test166, %99, %130, %125
-  %.3111 = phi i32 [ %.0108, %switch.early.test166 ], [ %106, %130 ], [ %106, %125 ], [ %.0108, %99 ], [ %.0108, %switch.early.test166 ], [ %.0108, %switch.early.test166 ], [ %.0108, %switch.early.test166 ], [ %.0108, %switch.early.test166 ], [ %.0108, %switch.early.test166 ], [ %.0108, %switch.early.test166 ], [ %.0108, %switch.early.test166 ], [ %.0108, %switch.early.test166 ]
-  %.1105 = phi i32 [ %.0104, %switch.early.test166 ], [ %139, %130 ], [ %127, %125 ], [ %.0104, %99 ], [ %.0104, %switch.early.test166 ], [ %.0104, %switch.early.test166 ], [ %.0104, %switch.early.test166 ], [ %.0104, %switch.early.test166 ], [ %.0104, %switch.early.test166 ], [ %.0104, %switch.early.test166 ], [ %.0104, %switch.early.test166 ], [ %.0104, %switch.early.test166 ]
+  %.3111 = phi i32 [ %.0108, %switch.early.test166 ], [ %106, %125 ], [ %106, %130 ], [ %.0108, %99 ], [ %.0108, %switch.early.test166 ], [ %.0108, %switch.early.test166 ], [ %.0108, %switch.early.test166 ], [ %.0108, %switch.early.test166 ], [ %.0108, %switch.early.test166 ], [ %.0108, %switch.early.test166 ], [ %.0108, %switch.early.test166 ], [ %.0108, %switch.early.test166 ]
+  %.1105 = phi i32 [ %.0104, %switch.early.test166 ], [ %127, %125 ], [ %139, %130 ], [ %.0104, %99 ], [ %.0104, %switch.early.test166 ], [ %.0104, %switch.early.test166 ], [ %.0104, %switch.early.test166 ], [ %.0104, %switch.early.test166 ], [ %.0104, %switch.early.test166 ], [ %.0104, %switch.early.test166 ], [ %.0104, %switch.early.test166 ], [ %.0104, %switch.early.test166 ]
   %142 = icmp sgt i32 %102, 0
   br i1 %142, label %.preheader180, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %141, %58, %.preheader, %._crit_edge, %19, %11, %.loopexit177
-  %.1 = phi i32 [ %1, %19 ], [ %1, %11 ], [ %.3, %.loopexit177 ], [ %1, %.preheader ], [ %1, %58 ], [ %121, %._crit_edge ], [ %.1105, %141 ]
+  %.1 = phi i32 [ %.3, %.loopexit177 ], [ %1, %11 ], [ %1, %19 ], [ %121, %._crit_edge ], [ %1, %.preheader ], [ %1, %58 ], [ %.1105, %141 ]
   ret i32 %.1
 }
 

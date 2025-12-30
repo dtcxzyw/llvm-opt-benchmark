@@ -555,8 +555,8 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   br label %163
 
 163:                                              ; preds = %.thread177, %147, %.thread176, %117, %144, %155
-  %.5141 = phi i32 [ %133, %.thread177 ], [ %.3139, %144 ], [ %118, %117 ], [ %162, %155 ], [ %154, %147 ], [ %.3139, %.thread176 ]
-  %.2 = phi i1 [ false, %.thread177 ], [ true, %144 ], [ true, %117 ], [ true, %155 ], [ false, %147 ], [ false, %.thread176 ]
+  %.5141 = phi i32 [ %.3139, %144 ], [ %162, %155 ], [ %118, %117 ], [ %154, %147 ], [ %.3139, %.thread176 ], [ %133, %.thread177 ]
+  %.2 = phi i1 [ true, %144 ], [ true, %155 ], [ true, %117 ], [ false, %147 ], [ false, %.thread176 ], [ false, %.thread177 ]
   %164 = icmp eq i32 %.0121, %6
   br i1 %164, label %.loopexit.loopexit, label %165
 
@@ -702,7 +702,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   br label %fetch_att.exit159
 
 fetch_att.exit159:                                ; preds = %40, %43, %46, %49, %54, %240, %235, %232, %229, %226
-  %.1 = phi i64 [ %241, %240 ], [ %42, %40 ], [ %228, %226 ], [ %231, %229 ], [ %234, %232 ], [ %236, %235 ], [ %55, %54 ], [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %.1 = phi i64 [ %228, %226 ], [ %231, %229 ], [ %234, %232 ], [ %236, %235 ], [ %241, %240 ], [ %55, %54 ], [ %50, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ]
   ret i64 %.1
 }
 
@@ -843,9 +843,9 @@ define dso_local void @index_deform_tuple_internal(ptr noundef captures(none) %0
   br label %._crit_edge84
 
 ._crit_edge84:                                    ; preds = %27, %57, %49, %46, %45, %65
-  %73 = phi i16 [ -1, %49 ], [ -1, %45 ], [ %32, %57 ], [ %.pre, %65 ], [ -1, %46 ], [ %.pre, %27 ]
-  %.269 = phi i32 [ %56, %49 ], [ %.06780, %45 ], [ %64, %57 ], [ %72, %65 ], [ %.06780, %46 ], [ %28, %27 ]
-  %.2 = phi i1 [ true, %49 ], [ false, %45 ], [ true, %57 ], [ false, %65 ], [ true, %46 ], [ false, %27 ]
+  %73 = phi i16 [ -1, %45 ], [ %32, %57 ], [ %.pre, %65 ], [ -1, %46 ], [ -1, %49 ], [ %.pre, %27 ]
+  %.269 = phi i32 [ %.06780, %45 ], [ %64, %57 ], [ %72, %65 ], [ %.06780, %46 ], [ %56, %49 ], [ %28, %27 ]
+  %.2 = phi i1 [ false, %45 ], [ true, %57 ], [ false, %65 ], [ true, %46 ], [ true, %49 ], [ false, %27 ]
   %74 = sext i32 %.269 to i64
   %75 = getelementptr inbounds i8, ptr %3, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %11, i64 6

@@ -151,8 +151,8 @@ define hidden void @_ZN5boost9unit_test6output20xml_report_formatter22test_unit_
   br label %38
 
 38:                                               ; preds = %34, %30, %26, %3
-  %.sroa.0116.0 = phi ptr [ @.str.5, %30 ], [ @.str.3, %3 ], [ @.str.4, %26 ], [ %.str.6..str.7, %34 ]
-  %.sroa.9.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.5, i64 9), %30 ], [ getelementptr inbounds nuw (i8, ptr @.str.3, i64 6), %3 ], [ getelementptr inbounds nuw (i8, ptr @.str.4, i64 7), %26 ], [ %., %34 ]
+  %.sroa.0116.0 = phi ptr [ @.str.3, %3 ], [ @.str.4, %26 ], [ @.str.5, %30 ], [ %.str.6..str.7, %34 ]
+  %.sroa.9.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.3, i64 6), %3 ], [ getelementptr inbounds nuw (i8, ptr @.str.4, i64 7), %26 ], [ getelementptr inbounds nuw (i8, ptr @.str.5, i64 9), %30 ], [ %., %34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i8 60, ptr %20, align 1, !tbaa !13
   %39 = load ptr, ptr %2, align 8, !tbaa !14
@@ -781,7 +781,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit15: ; preds = %62, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %76
 
-select.unfold:                                    ; preds = %29, %.lr.ph, %_ZNKSt8_Rb_treeIcSt4pairIKcPS1_ESt10_Select1stIS3_ESt4lessIcESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i
+select.unfold:                                    ; preds = %29, %_ZNKSt8_Rb_treeIcSt4pairIKcPS1_ESt10_Select1stIS3_ESt4lessIcESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %23, ptr %3, align 1, !tbaa !13
   %66 = load ptr, ptr %0, align 8, !tbaa !14
@@ -894,7 +894,7 @@ define linkonce_odr hidden void @_ZNSt3mapIcPKcSt4lessIcESaISt4pairIS0_S1_EEEC2E
   %31 = icmp slt i8 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIcSt4pairIKcPS1_ESt10_Select1stIS3_ESt4lessIcESaIS3_EE17_M_insert_unique_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EOT_RT0_.exit.i
 
-select.unfold:                                    ; preds = %28, %._crit_edge.thread.i.i, %12
+select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIcSt4pairIKcPS1_ESt10_Select1stIS3_ESt4lessIcESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, label %33
@@ -907,7 +907,7 @@ select.unfold:                                    ; preds = %28, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIcSt4pairIKcPS1_ESt10_Select1stIS3_ESt4lessIcESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIcSt4pairIKcPS1_ESt10_Select1stIS3_ESt4lessIcESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
-  %38 = phi i1 [ %37, %33 ], [ true, %select.unfold ]
+  %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
   %39 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
           to label %.noexc6 unwind label %44
 

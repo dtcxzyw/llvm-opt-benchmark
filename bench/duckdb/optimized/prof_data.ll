@@ -2258,7 +2258,7 @@ rtree_metadata_read.exit.i:                       ; preds = %605, %593, %581, %5
   call fastcc void @arena_dalloc_no_tcache(ptr noundef %0, ptr noundef nonnull %1)
   br label %prof_tctx_destroy.exit
 
-prof_tctx_should_destroy.exit.thread:             ; preds = %8, %2, %11, %prof_tctx_should_destroy.exit
+prof_tctx_should_destroy.exit.thread:             ; preds = %11, %8, %2, %prof_tctx_should_destroy.exit
   %613 = load ptr, ptr %1, align 8, !tbaa !69
   %614 = load ptr, ptr %613, align 8, !tbaa !29
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 64
@@ -2533,7 +2533,7 @@ tailrecurse:                                      ; preds = %8
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %tailrecurse, %.lr.ph, %8, %3
-  %.015 = phi ptr [ null, %3 ], [ %7, %.lr.ph ], [ %9, %8 ], [ null, %tailrecurse ]
+  %.015 = phi ptr [ null, %3 ], [ %9, %8 ], [ %7, %.lr.ph ], [ null, %tailrecurse ]
   ret ptr %.015
 }
 

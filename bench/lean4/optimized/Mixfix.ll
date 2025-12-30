@@ -364,7 +364,7 @@ lean_alloc_ctor.exit68:                           ; preds = %lean_dec.exit50
   br label %102
 
 102:                                              ; preds = %lean_alloc_ctor.exit68, %lean_dec.exit49, %22, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %51, %lean_alloc_ctor.exit ], [ %8, %22 ], [ %96, %lean_alloc_ctor.exit68 ], [ %8, %lean_dec.exit49 ]
+  %.1 = phi ptr [ %8, %22 ], [ %51, %lean_alloc_ctor.exit ], [ %96, %lean_alloc_ctor.exit68 ], [ %8, %lean_dec.exit49 ]
   ret ptr %.1
 }
 
@@ -2629,7 +2629,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit79
   br label %lean_dec.exit78
 
 lean_dec.exit78:                                  ; preds = %102, %101, %99, %.thread124
-  %103 = phi ptr [ %27, %.thread124 ], [ %96, %102 ], [ %96, %99 ], [ %96, %101 ]
+  %103 = phi ptr [ %27, %.thread124 ], [ %96, %99 ], [ %96, %101 ], [ %96, %102 ]
   %104 = load ptr, ptr @l_Lean_Elab_Command_expandMixfix___lambda__1___closed__21, align 8, !tbaa !4
   %105 = ptrtoint ptr %103 to i64
   %106 = and i64 %105, 1
@@ -2870,7 +2870,7 @@ lean_alloc_ctor.exit122:                          ; preds = %lean_dec.exit71
   br label %lean_dec.exit70
 
 lean_dec.exit70:                                  ; preds = %192, %191, %189, %.thread126
-  %193 = phi ptr [ %117, %.thread126 ], [ %186, %192 ], [ %186, %189 ], [ %186, %191 ]
+  %193 = phi ptr [ %117, %.thread126 ], [ %186, %189 ], [ %186, %191 ], [ %186, %192 ]
   tail call void @lean_inc_heartbeat() #5
   %194 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #5
   %195 = icmp eq ptr %194, null
@@ -5136,7 +5136,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit79
   br label %lean_dec.exit78
 
 lean_dec.exit78:                                  ; preds = %102, %101, %99, %.thread124
-  %103 = phi ptr [ %27, %.thread124 ], [ %96, %102 ], [ %96, %99 ], [ %96, %101 ]
+  %103 = phi ptr [ %27, %.thread124 ], [ %96, %99 ], [ %96, %101 ], [ %96, %102 ]
   %104 = load ptr, ptr @l_Lean_Elab_Command_expandMixfix___lambda__1___closed__21, align 8, !tbaa !4
   %105 = ptrtoint ptr %103 to i64
   %106 = and i64 %105, 1
@@ -5377,7 +5377,7 @@ lean_alloc_ctor.exit122:                          ; preds = %lean_dec.exit71
   br label %lean_dec.exit70
 
 lean_dec.exit70:                                  ; preds = %192, %191, %189, %.thread126
-  %193 = phi ptr [ %117, %.thread126 ], [ %186, %192 ], [ %186, %189 ], [ %186, %191 ]
+  %193 = phi ptr [ %117, %.thread126 ], [ %186, %189 ], [ %186, %191 ], [ %186, %192 ]
   tail call void @lean_inc_heartbeat() #5
   %194 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #5
   %195 = icmp eq ptr %194, null
@@ -5669,7 +5669,7 @@ lean_dec_ref.exit528:                             ; preds = %88, %87, %85, %lean
   br label %lean_dec.exit488
 
 lean_dec.exit488:                                 ; preds = %93, %97, %106, %105, %103
-  %.0.i758 = phi ptr [ %100, %106 ], [ %100, %103 ], [ %100, %105 ], [ %98, %97 ], [ %96, %93 ]
+  %.0.i758 = phi ptr [ %100, %103 ], [ %100, %105 ], [ %100, %106 ], [ %98, %97 ], [ %96, %93 ]
   %107 = tail call ptr @l___private_Init_Data_Repr_0__Nat_reprFast(ptr noundef %.0.i758) #5
   %108 = tail call ptr @l_Lean_Syntax_mkNumLit(ptr noundef %107, ptr noundef nonnull inttoptr (i64 5 to ptr)) #5
   %109 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -8141,9 +8141,9 @@ lean_dec.exit:                                    ; preds = %992, %991, %989, %l
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %lean_alloc_ctor.exit748, %lean_alloc_ctor.exit713
-  %.sink885 = phi ptr [ %.0411, %lean_alloc_ctor.exit748 ], [ %.0411, %lean_alloc_ctor.exit713 ], [ %.sink889, %.sink.split.sink.split ]
-  %.sink883 = phi ptr [ %873, %lean_alloc_ctor.exit748 ], [ %714, %lean_alloc_ctor.exit713 ], [ %.sink883.ph, %.sink.split.sink.split ]
-  %.sink = phi ptr [ %52, %lean_alloc_ctor.exit748 ], [ %52, %lean_alloc_ctor.exit713 ], [ %.sink.ph, %.sink.split.sink.split ]
+  %.sink885 = phi ptr [ %.0411, %lean_alloc_ctor.exit713 ], [ %.0411, %lean_alloc_ctor.exit748 ], [ %.sink889, %.sink.split.sink.split ]
+  %.sink883 = phi ptr [ %714, %lean_alloc_ctor.exit713 ], [ %873, %lean_alloc_ctor.exit748 ], [ %.sink883.ph, %.sink.split.sink.split ]
+  %.sink = phi ptr [ %52, %lean_alloc_ctor.exit713 ], [ %52, %lean_alloc_ctor.exit748 ], [ %.sink.ph, %.sink.split.sink.split ]
   %997 = getelementptr inbounds nuw i8, ptr %.sink885, i64 8
   store ptr %.sink883, ptr %997, align 8, !tbaa !4
   %998 = getelementptr inbounds nuw i8, ptr %.sink885, i64 16
@@ -8408,7 +8408,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit79
   br label %lean_dec.exit78
 
 lean_dec.exit78:                                  ; preds = %102, %101, %99, %.thread124
-  %103 = phi ptr [ %27, %.thread124 ], [ %96, %102 ], [ %96, %99 ], [ %96, %101 ]
+  %103 = phi ptr [ %27, %.thread124 ], [ %96, %99 ], [ %96, %101 ], [ %96, %102 ]
   %104 = load ptr, ptr @l_Lean_Elab_Command_expandMixfix___lambda__1___closed__21, align 8, !tbaa !4
   %105 = ptrtoint ptr %103 to i64
   %106 = and i64 %105, 1
@@ -8649,7 +8649,7 @@ lean_alloc_ctor.exit122:                          ; preds = %lean_dec.exit71
   br label %lean_dec.exit70
 
 lean_dec.exit70:                                  ; preds = %192, %191, %189, %.thread126
-  %193 = phi ptr [ %117, %.thread126 ], [ %186, %192 ], [ %186, %189 ], [ %186, %191 ]
+  %193 = phi ptr [ %117, %.thread126 ], [ %186, %189 ], [ %186, %191 ], [ %186, %192 ]
   tail call void @lean_inc_heartbeat() #5
   %194 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #5
   %195 = icmp eq ptr %194, null
@@ -8941,7 +8941,7 @@ lean_dec_ref.exit528:                             ; preds = %88, %87, %85, %lean
   br label %lean_dec.exit488
 
 lean_dec.exit488:                                 ; preds = %93, %97, %106, %105, %103
-  %.0.i758 = phi ptr [ %100, %106 ], [ %100, %103 ], [ %100, %105 ], [ %98, %97 ], [ %96, %93 ]
+  %.0.i758 = phi ptr [ %100, %103 ], [ %100, %105 ], [ %100, %106 ], [ %98, %97 ], [ %96, %93 ]
   %107 = tail call ptr @l___private_Init_Data_Repr_0__Nat_reprFast(ptr noundef %.0.i758) #5
   %108 = tail call ptr @l_Lean_Syntax_mkNumLit(ptr noundef %107, ptr noundef nonnull inttoptr (i64 5 to ptr)) #5
   %109 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -11390,9 +11390,9 @@ lean_dec.exit:                                    ; preds = %984, %983, %981, %l
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %lean_alloc_ctor.exit748, %lean_alloc_ctor.exit713
-  %.sink885 = phi ptr [ %.0411, %lean_alloc_ctor.exit748 ], [ %.0411, %lean_alloc_ctor.exit713 ], [ %.sink889, %.sink.split.sink.split ]
-  %.sink883 = phi ptr [ %865, %lean_alloc_ctor.exit748 ], [ %706, %lean_alloc_ctor.exit713 ], [ %.sink883.ph, %.sink.split.sink.split ]
-  %.sink = phi ptr [ %52, %lean_alloc_ctor.exit748 ], [ %52, %lean_alloc_ctor.exit713 ], [ %.sink.ph, %.sink.split.sink.split ]
+  %.sink885 = phi ptr [ %.0411, %lean_alloc_ctor.exit713 ], [ %.0411, %lean_alloc_ctor.exit748 ], [ %.sink889, %.sink.split.sink.split ]
+  %.sink883 = phi ptr [ %706, %lean_alloc_ctor.exit713 ], [ %865, %lean_alloc_ctor.exit748 ], [ %.sink883.ph, %.sink.split.sink.split ]
+  %.sink = phi ptr [ %52, %lean_alloc_ctor.exit713 ], [ %52, %lean_alloc_ctor.exit748 ], [ %.sink.ph, %.sink.split.sink.split ]
   %989 = getelementptr inbounds nuw i8, ptr %.sink885, i64 8
   store ptr %.sink883, ptr %989, align 8, !tbaa !4
   %990 = getelementptr inbounds nuw i8, ptr %.sink885, i64 16
@@ -11651,7 +11651,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit79
   br label %lean_dec.exit78
 
 lean_dec.exit78:                                  ; preds = %102, %101, %99, %.thread124
-  %103 = phi ptr [ %27, %.thread124 ], [ %96, %102 ], [ %96, %99 ], [ %96, %101 ]
+  %103 = phi ptr [ %27, %.thread124 ], [ %96, %99 ], [ %96, %101 ], [ %96, %102 ]
   %104 = load ptr, ptr @l_Lean_Elab_Command_expandMixfix___lambda__1___closed__21, align 8, !tbaa !4
   %105 = ptrtoint ptr %103 to i64
   %106 = and i64 %105, 1
@@ -11892,7 +11892,7 @@ lean_alloc_ctor.exit122:                          ; preds = %lean_dec.exit71
   br label %lean_dec.exit70
 
 lean_dec.exit70:                                  ; preds = %192, %191, %189, %.thread126
-  %193 = phi ptr [ %117, %.thread126 ], [ %186, %192 ], [ %186, %189 ], [ %186, %191 ]
+  %193 = phi ptr [ %117, %.thread126 ], [ %186, %189 ], [ %186, %191 ], [ %186, %192 ]
   tail call void @lean_inc_heartbeat() #5
   %194 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #5
   %195 = icmp eq ptr %194, null
@@ -12184,7 +12184,7 @@ lean_dec_ref.exit528:                             ; preds = %88, %87, %85, %lean
   br label %lean_dec.exit488
 
 lean_dec.exit488:                                 ; preds = %93, %97, %106, %105, %103
-  %.0.i758 = phi ptr [ %100, %106 ], [ %100, %103 ], [ %100, %105 ], [ %98, %97 ], [ %96, %93 ]
+  %.0.i758 = phi ptr [ %100, %103 ], [ %100, %105 ], [ %100, %106 ], [ %98, %97 ], [ %96, %93 ]
   %107 = tail call ptr @l___private_Init_Data_Repr_0__Nat_reprFast(ptr noundef %.0.i758) #5
   %108 = tail call ptr @l_Lean_Syntax_mkNumLit(ptr noundef %107, ptr noundef nonnull inttoptr (i64 5 to ptr)) #5
   %109 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -14656,9 +14656,9 @@ lean_dec.exit:                                    ; preds = %992, %991, %989, %l
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %lean_alloc_ctor.exit748, %lean_alloc_ctor.exit713
-  %.sink885 = phi ptr [ %.0411, %lean_alloc_ctor.exit748 ], [ %.0411, %lean_alloc_ctor.exit713 ], [ %.sink889, %.sink.split.sink.split ]
-  %.sink883 = phi ptr [ %873, %lean_alloc_ctor.exit748 ], [ %714, %lean_alloc_ctor.exit713 ], [ %.sink883.ph, %.sink.split.sink.split ]
-  %.sink = phi ptr [ %52, %lean_alloc_ctor.exit748 ], [ %52, %lean_alloc_ctor.exit713 ], [ %.sink.ph, %.sink.split.sink.split ]
+  %.sink885 = phi ptr [ %.0411, %lean_alloc_ctor.exit713 ], [ %.0411, %lean_alloc_ctor.exit748 ], [ %.sink889, %.sink.split.sink.split ]
+  %.sink883 = phi ptr [ %714, %lean_alloc_ctor.exit713 ], [ %873, %lean_alloc_ctor.exit748 ], [ %.sink883.ph, %.sink.split.sink.split ]
+  %.sink = phi ptr [ %52, %lean_alloc_ctor.exit713 ], [ %52, %lean_alloc_ctor.exit748 ], [ %.sink.ph, %.sink.split.sink.split ]
   %997 = getelementptr inbounds nuw i8, ptr %.sink885, i64 8
   store ptr %.sink883, ptr %997, align 8, !tbaa !4
   %998 = getelementptr inbounds nuw i8, ptr %.sink885, i64 16
@@ -14917,7 +14917,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit79
   br label %lean_dec.exit78
 
 lean_dec.exit78:                                  ; preds = %102, %101, %99, %.thread124
-  %103 = phi ptr [ %27, %.thread124 ], [ %96, %102 ], [ %96, %99 ], [ %96, %101 ]
+  %103 = phi ptr [ %27, %.thread124 ], [ %96, %99 ], [ %96, %101 ], [ %96, %102 ]
   %104 = load ptr, ptr @l_Lean_Elab_Command_expandMixfix___lambda__1___closed__21, align 8, !tbaa !4
   %105 = ptrtoint ptr %103 to i64
   %106 = and i64 %105, 1
@@ -15158,7 +15158,7 @@ lean_alloc_ctor.exit122:                          ; preds = %lean_dec.exit71
   br label %lean_dec.exit70
 
 lean_dec.exit70:                                  ; preds = %192, %191, %189, %.thread126
-  %193 = phi ptr [ %117, %.thread126 ], [ %186, %192 ], [ %186, %189 ], [ %186, %191 ]
+  %193 = phi ptr [ %117, %.thread126 ], [ %186, %189 ], [ %186, %191 ], [ %186, %192 ]
   tail call void @lean_inc_heartbeat() #5
   %194 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #5
   %195 = icmp eq ptr %194, null
@@ -15354,7 +15354,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit551
   br label %lean_dec.exit550
 
 lean_dec.exit550:                                 ; preds = %60, %59, %57, %.thread789
-  %61 = phi ptr [ %21, %.thread789 ], [ %54, %60 ], [ %54, %57 ], [ %54, %59 ]
+  %61 = phi ptr [ %21, %.thread789 ], [ %54, %57 ], [ %54, %59 ], [ %54, %60 ]
   %62 = tail call zeroext i8 @l_Lean_Syntax_matchesNull(ptr noundef %61, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %63 = icmp eq i8 %62, 0
   br i1 %63, label %64, label %89
@@ -15749,7 +15749,7 @@ lean_dec.exit543:                                 ; preds = %206, %205, %203, %l
   br label %lean_dec.exit542
 
 lean_dec.exit542:                                 ; preds = %217, %216, %214, %.thread793
-  %218 = phi ptr [ %181, %.thread793 ], [ %211, %217 ], [ %211, %214 ], [ %211, %216 ]
+  %218 = phi ptr [ %181, %.thread793 ], [ %211, %214 ], [ %211, %216 ], [ %211, %217 ]
   %219 = tail call ptr @l_Lean_Syntax_getArg(ptr noundef %0, ptr noundef nonnull inttoptr (i64 11 to ptr)) #5
   %220 = tail call zeroext i8 @l_Lean_Syntax_isNone(ptr noundef %219) #5
   %221 = icmp eq i8 %220, 0
@@ -15911,7 +15911,7 @@ lean_dec.exit538:                                 ; preds = %269, %268, %266, %l
   br label %lean_dec.exit537
 
 lean_dec.exit537:                                 ; preds = %280, %279, %277, %.thread795
-  %281 = phi ptr [ %235, %.thread795 ], [ %274, %280 ], [ %274, %277 ], [ %274, %279 ]
+  %281 = phi ptr [ %235, %.thread795 ], [ %274, %277 ], [ %274, %279 ], [ %274, %280 ]
   %282 = load ptr, ptr @l_Lean_Elab_Command_expandMixfix___lambda__1___closed__27, align 8, !tbaa !4
   %283 = ptrtoint ptr %281 to i64
   %284 = and i64 %283, 1
@@ -16068,7 +16068,7 @@ lean_dec.exit533:                                 ; preds = %329, %328, %326, %l
   br label %lean_dec.exit532
 
 lean_dec.exit532:                                 ; preds = %340, %339, %337, %.thread797
-  %341 = phi ptr [ %295, %.thread797 ], [ %334, %340 ], [ %334, %337 ], [ %334, %339 ]
+  %341 = phi ptr [ %295, %.thread797 ], [ %334, %337 ], [ %334, %339 ], [ %334, %340 ]
   %342 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 1)
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 8
   store ptr %341, ptr %343, align 8, !tbaa !4
@@ -16252,7 +16252,7 @@ lean_dec.exit527:                                 ; preds = %400, %399, %397, %l
   br label %lean_dec.exit526
 
 lean_dec.exit526:                                 ; preds = %411, %410, %408, %.thread799
-  %412 = phi ptr [ %375, %.thread799 ], [ %405, %411 ], [ %405, %408 ], [ %405, %410 ]
+  %412 = phi ptr [ %375, %.thread799 ], [ %405, %408 ], [ %405, %410 ], [ %405, %411 ]
   %413 = tail call ptr @l_Lean_Syntax_getArg(ptr noundef %0, ptr noundef nonnull inttoptr (i64 11 to ptr)) #5
   %414 = tail call zeroext i8 @l_Lean_Syntax_isNone(ptr noundef %413) #5
   %415 = icmp eq i8 %414, 0
@@ -16414,7 +16414,7 @@ lean_dec.exit522:                                 ; preds = %463, %462, %460, %l
   br label %lean_dec.exit521
 
 lean_dec.exit521:                                 ; preds = %474, %473, %471, %.thread801
-  %475 = phi ptr [ %429, %.thread801 ], [ %468, %474 ], [ %468, %471 ], [ %468, %473 ]
+  %475 = phi ptr [ %429, %.thread801 ], [ %468, %471 ], [ %468, %473 ], [ %468, %474 ]
   %476 = load ptr, ptr @l_Lean_Elab_Command_expandMixfix___lambda__1___closed__27, align 8, !tbaa !4
   %477 = ptrtoint ptr %475 to i64
   %478 = and i64 %477, 1
@@ -16571,7 +16571,7 @@ lean_dec.exit517:                                 ; preds = %523, %522, %520, %l
   br label %lean_dec.exit516
 
 lean_dec.exit516:                                 ; preds = %534, %533, %531, %.thread803
-  %535 = phi ptr [ %489, %.thread803 ], [ %528, %534 ], [ %528, %531 ], [ %528, %533 ]
+  %535 = phi ptr [ %489, %.thread803 ], [ %528, %531 ], [ %528, %533 ], [ %528, %534 ]
   %536 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 1)
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 8
   store ptr %535, ptr %537, align 8, !tbaa !4
@@ -16755,7 +16755,7 @@ lean_dec.exit511:                                 ; preds = %594, %593, %591, %l
   br label %lean_dec.exit510
 
 lean_dec.exit510:                                 ; preds = %605, %604, %602, %.thread806
-  %606 = phi ptr [ %569, %.thread806 ], [ %599, %605 ], [ %599, %602 ], [ %599, %604 ]
+  %606 = phi ptr [ %569, %.thread806 ], [ %599, %602 ], [ %599, %604 ], [ %599, %605 ]
   %607 = tail call ptr @l_Lean_Syntax_getArg(ptr noundef %0, ptr noundef nonnull inttoptr (i64 11 to ptr)) #5
   %608 = tail call zeroext i8 @l_Lean_Syntax_isNone(ptr noundef %607) #5
   %609 = icmp eq i8 %608, 0
@@ -16917,7 +16917,7 @@ lean_dec.exit506:                                 ; preds = %657, %656, %654, %l
   br label %lean_dec.exit505
 
 lean_dec.exit505:                                 ; preds = %668, %667, %665, %.thread808
-  %669 = phi ptr [ %623, %.thread808 ], [ %662, %668 ], [ %662, %665 ], [ %662, %667 ]
+  %669 = phi ptr [ %623, %.thread808 ], [ %662, %665 ], [ %662, %667 ], [ %662, %668 ]
   %670 = load ptr, ptr @l_Lean_Elab_Command_expandMixfix___lambda__1___closed__27, align 8, !tbaa !4
   %671 = ptrtoint ptr %669 to i64
   %672 = and i64 %671, 1
@@ -17074,7 +17074,7 @@ lean_dec.exit501:                                 ; preds = %717, %716, %714, %l
   br label %lean_dec.exit500
 
 lean_dec.exit500:                                 ; preds = %728, %727, %725, %.thread810
-  %729 = phi ptr [ %683, %.thread810 ], [ %722, %728 ], [ %722, %725 ], [ %722, %727 ]
+  %729 = phi ptr [ %683, %.thread810 ], [ %722, %725 ], [ %722, %727 ], [ %722, %728 ]
   %730 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 1)
   %731 = getelementptr inbounds nuw i8, ptr %730, i64 8
   store ptr %729, ptr %731, align 8, !tbaa !4
@@ -17270,7 +17270,7 @@ lean_alloc_ctor.exit770:                          ; preds = %lean_dec.exit495
   br label %lean_dec.exit494
 
 lean_dec.exit494:                                 ; preds = %802, %801, %799, %.thread812
-  %803 = phi ptr [ %763, %.thread812 ], [ %796, %802 ], [ %796, %799 ], [ %796, %801 ]
+  %803 = phi ptr [ %763, %.thread812 ], [ %796, %799 ], [ %796, %801 ], [ %796, %802 ]
   %804 = tail call ptr @l_Lean_Syntax_getArg(ptr noundef %0, ptr noundef nonnull inttoptr (i64 11 to ptr)) #5
   %805 = tail call zeroext i8 @l_Lean_Syntax_isNone(ptr noundef %804) #5
   %806 = icmp eq i8 %805, 0
@@ -17432,7 +17432,7 @@ lean_dec.exit490:                                 ; preds = %854, %853, %851, %l
   br label %lean_dec.exit489
 
 lean_dec.exit489:                                 ; preds = %865, %864, %862, %.thread814
-  %866 = phi ptr [ %820, %.thread814 ], [ %859, %865 ], [ %859, %862 ], [ %859, %864 ]
+  %866 = phi ptr [ %820, %.thread814 ], [ %859, %862 ], [ %859, %864 ], [ %859, %865 ]
   %867 = load ptr, ptr @l_Lean_Elab_Command_expandMixfix___lambda__1___closed__27, align 8, !tbaa !4
   %868 = ptrtoint ptr %866 to i64
   %869 = and i64 %868, 1
@@ -17589,7 +17589,7 @@ lean_dec.exit485:                                 ; preds = %914, %913, %911, %l
   br label %lean_dec.exit484
 
 lean_dec.exit484:                                 ; preds = %925, %924, %922, %.thread816
-  %926 = phi ptr [ %880, %.thread816 ], [ %919, %925 ], [ %919, %922 ], [ %919, %924 ]
+  %926 = phi ptr [ %880, %.thread816 ], [ %919, %922 ], [ %919, %924 ], [ %919, %925 ]
   %927 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 1)
   %928 = getelementptr inbounds nuw i8, ptr %927, i64 8
   store ptr %926, ptr %928, align 8, !tbaa !4
@@ -17785,7 +17785,7 @@ lean_alloc_ctor.exit780:                          ; preds = %lean_dec.exit479
   br label %lean_dec.exit478
 
 lean_dec.exit478:                                 ; preds = %999, %998, %996, %.thread819
-  %1000 = phi ptr [ %960, %.thread819 ], [ %993, %999 ], [ %993, %996 ], [ %993, %998 ]
+  %1000 = phi ptr [ %960, %.thread819 ], [ %993, %996 ], [ %993, %998 ], [ %993, %999 ]
   %1001 = tail call ptr @l_Lean_Syntax_getArg(ptr noundef %0, ptr noundef nonnull inttoptr (i64 11 to ptr)) #5
   %1002 = tail call zeroext i8 @l_Lean_Syntax_isNone(ptr noundef %1001) #5
   %1003 = icmp eq i8 %1002, 0
@@ -17959,7 +17959,7 @@ lean_alloc_ctor.exit784:                          ; preds = %lean_dec.exit474
   br label %lean_dec.exit473
 
 lean_dec.exit473:                                 ; preds = %1065, %1064, %1062, %.thread821
-  %1066 = phi ptr [ %1017, %.thread821 ], [ %1059, %1065 ], [ %1059, %1062 ], [ %1059, %1064 ]
+  %1066 = phi ptr [ %1017, %.thread821 ], [ %1059, %1062 ], [ %1059, %1064 ], [ %1059, %1065 ]
   %1067 = load ptr, ptr @l_Lean_Elab_Command_expandMixfix___lambda__1___closed__27, align 8, !tbaa !4
   %1068 = ptrtoint ptr %1066 to i64
   %1069 = and i64 %1068, 1
@@ -18116,7 +18116,7 @@ lean_dec.exit469:                                 ; preds = %1114, %1113, %1111,
   br label %lean_dec.exit468
 
 lean_dec.exit468:                                 ; preds = %1125, %1124, %1122, %.thread823
-  %1126 = phi ptr [ %1080, %.thread823 ], [ %1119, %1125 ], [ %1119, %1122 ], [ %1119, %1124 ]
+  %1126 = phi ptr [ %1080, %.thread823 ], [ %1119, %1122 ], [ %1119, %1124 ], [ %1119, %1125 ]
   tail call void @lean_inc_heartbeat() #5
   %1127 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #5
   %1128 = icmp eq ptr %1127, null
@@ -18161,7 +18161,7 @@ lean_dec.exit:                                    ; preds = %1140, %1139, %1137,
   br label %1142
 
 1142:                                             ; preds = %lean_alloc_ctor.exit727, %lean_alloc_ctor.exit780, %lean_alloc_ctor.exit784, %lean_alloc_ctor.exit788, %lean_dec.exit469, %lean_dec.exit, %lean_dec.exit511, %lean_dec.exit506, %lean_dec.exit500, %lean_dec.exit501, %lean_dec.exit499, %lean_dec.exit543, %lean_dec.exit538, %lean_dec.exit532, %lean_dec.exit533, %lean_dec.exit531, %lean_dec.exit546, %lean_dec.exit515, %lean_dec.exit517, %lean_dec.exit516, %lean_dec.exit522, %lean_dec.exit527, %lean_dec.exit483, %lean_dec.exit485, %lean_dec.exit484, %lean_dec.exit490, %lean_alloc_ctor.exit770, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %47, %lean_alloc_ctor.exit ], [ %83, %lean_alloc_ctor.exit727 ], [ %929, %lean_dec.exit484 ], [ %732, %lean_dec.exit500 ], [ %538, %lean_dec.exit516 ], [ %344, %lean_dec.exit532 ], [ %163, %lean_dec.exit546 ], [ %207, %lean_dec.exit543 ], [ %353, %lean_dec.exit531 ], [ %270, %lean_dec.exit538 ], [ %330, %lean_dec.exit533 ], [ %401, %lean_dec.exit527 ], [ %547, %lean_dec.exit515 ], [ %464, %lean_dec.exit522 ], [ %524, %lean_dec.exit517 ], [ %595, %lean_dec.exit511 ], [ %741, %lean_dec.exit499 ], [ %658, %lean_dec.exit506 ], [ %718, %lean_dec.exit501 ], [ %789, %lean_alloc_ctor.exit770 ], [ %938, %lean_dec.exit483 ], [ %855, %lean_dec.exit490 ], [ %915, %lean_dec.exit485 ], [ %986, %lean_alloc_ctor.exit780 ], [ %1141, %lean_dec.exit ], [ %1052, %lean_alloc_ctor.exit784 ], [ %1115, %lean_dec.exit469 ], [ %1132, %lean_alloc_ctor.exit788 ]
+  %.0 = phi ptr [ %47, %lean_alloc_ctor.exit ], [ %83, %lean_alloc_ctor.exit727 ], [ %163, %lean_dec.exit546 ], [ %207, %lean_dec.exit543 ], [ %353, %lean_dec.exit531 ], [ %270, %lean_dec.exit538 ], [ %330, %lean_dec.exit533 ], [ %344, %lean_dec.exit532 ], [ %401, %lean_dec.exit527 ], [ %547, %lean_dec.exit515 ], [ %464, %lean_dec.exit522 ], [ %524, %lean_dec.exit517 ], [ %538, %lean_dec.exit516 ], [ %595, %lean_dec.exit511 ], [ %741, %lean_dec.exit499 ], [ %658, %lean_dec.exit506 ], [ %718, %lean_dec.exit501 ], [ %732, %lean_dec.exit500 ], [ %789, %lean_alloc_ctor.exit770 ], [ %938, %lean_dec.exit483 ], [ %855, %lean_dec.exit490 ], [ %915, %lean_dec.exit485 ], [ %929, %lean_dec.exit484 ], [ %986, %lean_alloc_ctor.exit780 ], [ %1141, %lean_dec.exit ], [ %1052, %lean_alloc_ctor.exit784 ], [ %1115, %lean_dec.exit469 ], [ %1132, %lean_alloc_ctor.exit788 ]
   ret ptr %.0
 }
 
@@ -18316,7 +18316,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit62
   br label %lean_dec.exit61
 
 lean_dec.exit61:                                  ; preds = %61, %60, %58, %.thread91
-  %62 = phi ptr [ %22, %.thread91 ], [ %55, %61 ], [ %55, %58 ], [ %55, %60 ]
+  %62 = phi ptr [ %22, %.thread91 ], [ %55, %58 ], [ %55, %60 ], [ %55, %61 ]
   %63 = load ptr, ptr @l_Lean_Elab_Command_expandMixfix___lambda__1___closed__30, align 8, !tbaa !4
   %64 = ptrtoint ptr %62 to i64
   %65 = and i64 %64, 1
@@ -18461,7 +18461,7 @@ lean_alloc_ctor.exit89:                           ; preds = %lean_dec.exit58
   br label %lean_dec.exit57
 
 lean_dec.exit57:                                  ; preds = %115, %114, %112, %.thread93
-  %116 = phi ptr [ %76, %.thread93 ], [ %109, %115 ], [ %109, %112 ], [ %109, %114 ]
+  %116 = phi ptr [ %76, %.thread93 ], [ %109, %112 ], [ %109, %114 ], [ %109, %115 ]
   %117 = tail call ptr @l_Lean_Syntax_getArgs(ptr noundef %116) #5
   %118 = ptrtoint ptr %116 to i64
   %119 = and i64 %118, 1
@@ -18795,7 +18795,7 @@ lean_alloc_ctor.exit98:                           ; preds = %lean_dec.exit67
   br label %lean_dec.exit66
 
 lean_dec.exit66:                                  ; preds = %92, %91, %89, %.thread104
-  %93 = phi ptr [ %55, %.thread104 ], [ %86, %92 ], [ %86, %89 ], [ %86, %91 ]
+  %93 = phi ptr [ %55, %.thread104 ], [ %86, %89 ], [ %86, %91 ], [ %86, %92 ]
   %94 = load ptr, ptr @l_Lean_Elab_Command_expandMixfix___lambda__13___closed__4, align 8, !tbaa !4
   %95 = ptrtoint ptr %93 to i64
   %96 = and i64 %95, 1
@@ -18994,7 +18994,7 @@ lean_dec.exit61:                                  ; preds = %157, %156, %154, %1
   br label %lean_dec.exit62
 
 lean_dec.exit62:                                  ; preds = %lean_dec.exit61, %162, %164, %165, %lean_alloc_ctor.exit103, %146, %148, %149, %lean_alloc_ctor.exit102, %lean_alloc_ctor.exit98, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %32, %lean_alloc_ctor.exit ], [ %142, %lean_alloc_ctor.exit103 ], [ %79, %lean_alloc_ctor.exit98 ], [ %130, %lean_alloc_ctor.exit102 ], [ %142, %149 ], [ %142, %148 ], [ %142, %146 ], [ %158, %165 ], [ %158, %164 ], [ %158, %162 ], [ %158, %lean_dec.exit61 ]
+  %.0 = phi ptr [ %32, %lean_alloc_ctor.exit ], [ %79, %lean_alloc_ctor.exit98 ], [ %130, %lean_alloc_ctor.exit102 ], [ %142, %149 ], [ %142, %148 ], [ %142, %146 ], [ %142, %lean_alloc_ctor.exit103 ], [ %158, %165 ], [ %158, %164 ], [ %158, %162 ], [ %158, %lean_dec.exit61 ]
   ret ptr %.0
 }
 
@@ -20516,7 +20516,7 @@ lean_dec_ref.exit:                                ; preds = %247, %246, %244, %_
   br label %254
 
 254:                                              ; preds = %.sink.split, %235, %168, %7
-  %.0 = phi ptr [ %173, %168 ], [ %238, %235 ], [ %8, %7 ], [ %.sink40, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %173, %168 ], [ %238, %235 ], [ %.sink40, %.sink.split ]
   ret ptr %.0
 }
 

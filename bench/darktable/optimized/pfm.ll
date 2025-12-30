@@ -219,8 +219,8 @@ define dso_local ptr @read_pfm(ptr noundef readonly captures(none) %0, ptr nound
   br label %137
 
 .critedge122:                                     ; preds = %.critedge, %68, %.preheader127, %62
-  %103 = phi i32 [ %57, %68 ], [ %57, %62 ], [ 0, %.preheader127 ], [ %95, %.critedge ]
-  %104 = phi i32 [ %56, %68 ], [ %56, %62 ], [ %.pre148, %.preheader127 ], [ %94, %.critedge ]
+  %103 = phi i32 [ 0, %.preheader127 ], [ %57, %62 ], [ %57, %68 ], [ %95, %.critedge ]
+  %104 = phi i32 [ %.pre148, %.preheader127 ], [ %56, %62 ], [ %56, %68 ], [ %94, %.critedge ]
   %105 = mul nsw i32 %104, 3
   %106 = sext i32 %105 to i64
   %107 = call noalias ptr @calloc(i64 noundef %106, i64 noundef 4) #12
@@ -282,7 +282,7 @@ define dso_local ptr @read_pfm(ptr noundef readonly captures(none) %0, ptr nound
   br label %137
 
 137:                                              ; preds = %99, %.thread124, %42, %135, %134, %28, %21
-  %.1 = phi ptr [ null, %21 ], [ null, %28 ], [ null, %42 ], [ null, %.thread124 ], [ null, %99 ], [ %41, %135 ], [ %41, %134 ]
+  %.1 = phi ptr [ null, %21 ], [ null, %28 ], [ null, %99 ], [ null, %42 ], [ %41, %135 ], [ %41, %134 ], [ null, %.thread124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -654,7 +654,7 @@ refreshVideoModes.exit:                           ; preds = %.refreshVideoModes.
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split.split
 
 .loopexit:                                        ; preds = %175, %137, %104, %69, %refreshVideoModes.exit, %refreshVideoModes.exit.thread
-  %.047 = phi ptr [ null, %refreshVideoModes.exit.thread ], [ null, %refreshVideoModes.exit ], [ %.1.us89, %104 ], [ %.1.us105, %137 ], [ %.1.us, %69 ], [ %.1, %175 ]
+  %.047 = phi ptr [ null, %refreshVideoModes.exit.thread ], [ null, %refreshVideoModes.exit ], [ %.1.us, %69 ], [ %.1.us89, %104 ], [ %.1.us105, %137 ], [ %.1, %175 ]
   ret ptr %.047
 }
 

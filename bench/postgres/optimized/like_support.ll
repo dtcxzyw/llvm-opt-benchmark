@@ -122,7 +122,7 @@ is_opclause.exit:                                 ; preds = %25
   br label %.critedge
 
 .critedge:                                        ; preds = %is_opclause.exit, %25, %43, %29, %22, %20, %2
-  %.1 = phi ptr [ null, %22 ], [ null, %2 ], [ %0, %20 ], [ null, %is_opclause.exit ], [ %42, %29 ], [ %56, %43 ], [ null, %25 ]
+  %.1 = phi ptr [ %0, %20 ], [ null, %2 ], [ null, %22 ], [ %42, %29 ], [ %56, %43 ], [ null, %25 ], [ null, %is_opclause.exit ]
   ret ptr %.1
 }
 
@@ -535,10 +535,10 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
   br i1 %.not82, label %128, label %.sink.split
 
 53:                                               ; preds = %44, %49, %48, %47
-  %.064 = phi i32 [ 1960, %49 ], [ 257, %47 ], [ 1061, %48 ], [ 667, %44 ]
-  %.063 = phi i32 [ 1957, %49 ], [ 255, %47 ], [ 1058, %48 ], [ 664, %44 ]
-  %.058 = phi i32 [ 1955, %49 ], [ 254, %47 ], [ 1054, %48 ], [ 98, %44 ]
-  %.056 = phi i32 [ %46, %49 ], [ 25, %47 ], [ %46, %48 ], [ %46, %44 ]
+  %.064 = phi i32 [ 257, %47 ], [ 1061, %48 ], [ 1960, %49 ], [ 667, %44 ]
+  %.063 = phi i32 [ 255, %47 ], [ 1058, %48 ], [ 1957, %49 ], [ 664, %44 ]
+  %.058 = phi i32 [ 254, %47 ], [ 1054, %48 ], [ 1955, %49 ], [ 98, %44 ]
+  %.056 = phi i32 [ 25, %47 ], [ %46, %48 ], [ %46, %49 ], [ %46, %44 ]
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %55 = load ptr, ptr %54, align 8
   %.not76 = icmp eq ptr %55, null
@@ -639,7 +639,7 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
   br label %105
 
 105:                                              ; preds = %100, %102, %104
-  %.2 = phi double [ %.057, %102 ], [ 9.999000e-01, %104 ], [ 1.000000e-04, %100 ]
+  %.2 = phi double [ 9.999000e-01, %104 ], [ %.057, %102 ], [ 1.000000e-04, %100 ]
   %106 = call double @mcv_selectivity(ptr noundef nonnull %9, ptr noundef nonnull %15, i32 noundef %5, i64 noundef %37, i1 noundef zeroext true, ptr noundef nonnull %16) #10
   %107 = fsub double 1.000000e+00, %.062
   %108 = load double, ptr %16, align 8
@@ -667,7 +667,7 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
   br label %119
 
 119:                                              ; preds = %112, %116, %118
-  %.3 = phi double [ %.261, %116 ], [ 1.000000e+00, %118 ], [ 0.000000e+00, %112 ]
+  %.3 = phi double [ 1.000000e+00, %118 ], [ %.261, %116 ], [ 0.000000e+00, %112 ]
   br i1 %.not77, label %124, label %120
 
 120:                                              ; preds = %119
@@ -684,15 +684,15 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
   br i1 %.not81, label %128, label %.sink.split
 
 .sink.split:                                      ; preds = %124, %50, %41, %32, %25
-  %.sink = phi ptr [ %52, %50 ], [ %43, %41 ], [ %34, %32 ], [ %27, %25 ], [ %125, %124 ]
-  %.0.ph = phi double [ %., %50 ], [ %., %41 ], [ 0.000000e+00, %32 ], [ %., %25 ], [ %.3, %124 ]
+  %.sink = phi ptr [ %27, %25 ], [ %34, %32 ], [ %43, %41 ], [ %52, %50 ], [ %125, %124 ]
+  %.0.ph = phi double [ %., %25 ], [ 0.000000e+00, %32 ], [ %., %41 ], [ %., %50 ], [ %.3, %124 ]
   %126 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %127 = load ptr, ptr %126, align 8
   call void %127(ptr noundef nonnull %.sink) #10
   br label %128
 
 128:                                              ; preds = %.sink.split, %124, %50, %41, %32, %25, %8
-  %.0 = phi double [ %., %25 ], [ 0.000000e+00, %32 ], [ %., %41 ], [ %., %50 ], [ %., %8 ], [ %.3, %124 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi double [ %., %8 ], [ %., %25 ], [ 0.000000e+00, %32 ], [ %., %41 ], [ %., %50 ], [ %.3, %124 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -753,13 +753,13 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr noundef rea
   br label %26
 
 26:                                               ; preds = %18, %22, %21, %20, %25, %23
-  %.169 = phi i32 [ 1957, %25 ], [ 2314, %20 ], [ %., %23 ], [ 664, %22 ], [ 2314, %21 ], [ 255, %18 ]
-  %.166 = phi i32 [ 1960, %25 ], [ 2317, %20 ], [ %.80, %23 ], [ 667, %22 ], [ 2317, %21 ], [ 257, %18 ]
-  %.not77 = phi i1 [ true, %25 ], [ true, %20 ], [ true, %23 ], [ true, %22 ], [ false, %21 ], [ true, %18 ]
-  %.164 = phi i32 [ 0, %25 ], [ 0, %20 ], [ 0, %23 ], [ 0, %22 ], [ 3877, %21 ], [ 0, %18 ]
-  %.161 = phi i1 [ false, %25 ], [ false, %20 ], [ %24, %23 ], [ true, %22 ], [ false, %21 ], [ true, %18 ]
-  %.1 = phi i32 [ 1955, %25 ], [ 98, %20 ], [ 1054, %23 ], [ 98, %22 ], [ 98, %21 ], [ 254, %18 ]
-  %.058 = phi i32 [ 17, %25 ], [ 25, %20 ], [ 1042, %23 ], [ 25, %22 ], [ 25, %21 ], [ 25, %18 ]
+  %.169 = phi i32 [ %., %23 ], [ 1957, %25 ], [ 2314, %21 ], [ 664, %22 ], [ 2314, %20 ], [ 255, %18 ]
+  %.166 = phi i32 [ %.80, %23 ], [ 1960, %25 ], [ 2317, %21 ], [ 667, %22 ], [ 2317, %20 ], [ 257, %18 ]
+  %.not77 = phi i1 [ true, %23 ], [ true, %25 ], [ false, %21 ], [ true, %22 ], [ true, %20 ], [ true, %18 ]
+  %.164 = phi i32 [ 0, %23 ], [ 0, %25 ], [ 3877, %21 ], [ 0, %22 ], [ 0, %20 ], [ 0, %18 ]
+  %.161 = phi i1 [ %24, %23 ], [ false, %25 ], [ false, %21 ], [ true, %22 ], [ false, %20 ], [ true, %18 ]
+  %.1 = phi i32 [ 1054, %23 ], [ 1955, %25 ], [ 98, %21 ], [ 98, %22 ], [ 98, %20 ], [ 254, %18 ]
+  %.058 = phi i32 [ 1042, %23 ], [ 17, %25 ], [ 25, %21 ], [ 25, %22 ], [ 25, %20 ], [ 25, %18 ]
   %27 = load ptr, ptr %7, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
@@ -838,7 +838,7 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr noundef rea
   br label %65
 
 65:                                               ; preds = %59, %62, %55, %53, %48, %39, %33, %18, %15, %6, %11, %44, %35
-  %.0 = phi ptr [ %57, %59 ], [ null, %6 ], [ null, %15 ], [ null, %33 ], [ %37, %35 ], [ null, %18 ], [ %46, %44 ], [ %57, %55 ], [ null, %53 ], [ null, %48 ], [ null, %39 ], [ null, %11 ], [ %64, %62 ]
+  %.0 = phi ptr [ %37, %35 ], [ %46, %44 ], [ null, %11 ], [ null, %6 ], [ null, %15 ], [ null, %18 ], [ null, %33 ], [ null, %39 ], [ null, %48 ], [ null, %53 ], [ %57, %55 ], [ %64, %62 ], [ %57, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
@@ -1192,8 +1192,8 @@ pattern_char_isalpha.exit.us:                     ; preds = %79
   br i1 %113, label %.lr.ph.split, label %pattern_char_isalpha.exit.thread, !llvm.loop !6
 
 pattern_char_isalpha.exit.thread:                 ; preds = %107, %105, %.lr.ph.split, %.lr.ph.split, %96, %72, %pattern_char_isalpha.exit.us, %.lr.ph.split.us, %.lr.ph.split.us, %78, %85, %81, %62
-  %.067.lcssa = phi i32 [ 0, %62 ], [ %.06796.us, %81 ], [ %.06796.us, %85 ], [ %.06796.us, %78 ], [ %.06796.us, %pattern_char_isalpha.exit.us ], [ %.06796.us, %.lr.ph.split.us ], [ %.06796.us, %.lr.ph.split.us ], [ %.06796.us, %72 ], [ %97, %96 ], [ %.06796, %105 ], [ %.06796, %.lr.ph.split ], [ %.06796, %.lr.ph.split ], [ %109, %107 ]
-  %.1 = phi i32 [ 0, %62 ], [ %.2.us, %81 ], [ %.2.us, %85 ], [ %.2.us, %78 ], [ %.2.us, %pattern_char_isalpha.exit.us ], [ %.06895.us, %.lr.ph.split.us ], [ %.06895.us, %.lr.ph.split.us ], [ %73, %72 ], [ %100, %96 ], [ %106, %105 ], [ %.06895, %.lr.ph.split ], [ %.06895, %.lr.ph.split ], [ %112, %107 ]
+  %.067.lcssa = phi i32 [ 0, %62 ], [ %.06796.us, %81 ], [ %.06796.us, %85 ], [ %.06796.us, %78 ], [ %.06796.us, %.lr.ph.split.us ], [ %.06796.us, %.lr.ph.split.us ], [ %.06796.us, %pattern_char_isalpha.exit.us ], [ %.06796.us, %72 ], [ %97, %96 ], [ %.06796, %.lr.ph.split ], [ %.06796, %.lr.ph.split ], [ %.06796, %105 ], [ %109, %107 ]
+  %.1 = phi i32 [ 0, %62 ], [ %.2.us, %81 ], [ %.2.us, %85 ], [ %.2.us, %78 ], [ %.06895.us, %.lr.ph.split.us ], [ %.06895.us, %.lr.ph.split.us ], [ %.2.us, %pattern_char_isalpha.exit.us ], [ %73, %72 ], [ %100, %96 ], [ %.06895, %.lr.ph.split ], [ %.06895, %.lr.ph.split ], [ %106, %105 ], [ %112, %107 ]
   %114 = sext i32 %.067.lcssa to i64
   %115 = getelementptr inbounds i8, ptr %65, i64 %114
   store i8 0, ptr %115, align 1
@@ -1279,15 +1279,15 @@ pattern_char_isalpha.exit.thread:                 ; preds = %107, %105, %.lr.ph.
   br label %144
 
 144:                                              ; preds = %143, %141, %140, %.lr.ph39.i
-  %.sink.i = phi double [ 9.000000e-01, %140 ], [ 5.000000e+00, %.lr.ph39.i ], [ 2.000000e-01, %143 ], [ 2.000000e-01, %141 ]
-  %.2.i = phi i32 [ %.137.i, %140 ], [ %.137.i, %.lr.ph39.i ], [ %.137.i, %143 ], [ %142, %141 ]
+  %.sink.i = phi double [ 2.000000e-01, %143 ], [ 9.000000e-01, %140 ], [ 5.000000e+00, %.lr.ph39.i ], [ 2.000000e-01, %141 ]
+  %.2.i = phi i32 [ %.137.i, %143 ], [ %.137.i, %140 ], [ %.137.i, %.lr.ph39.i ], [ %142, %141 ]
   %145 = fmul double %.02436.i, %.sink.i
   %146 = add nsw i32 %.2.i, 1
   %147 = icmp slt i32 %146, %130
   br i1 %147, label %.lr.ph39.i, label %like_selectivity.exit, !llvm.loop !9
 
 like_selectivity.exit:                            ; preds = %134, %141, %144, %._crit_edge.i
-  %.024.lcssa.i = phi double [ 1.000000e+00, %._crit_edge.i ], [ %.02436.i, %141 ], [ %145, %144 ], [ 1.000000e+00, %134 ]
+  %.024.lcssa.i = phi double [ 1.000000e+00, %._crit_edge.i ], [ %145, %144 ], [ %.02436.i, %141 ], [ 1.000000e+00, %134 ]
   %148 = fcmp ogt double %.024.lcssa.i, 1.000000e+00
   %.226.i = select i1 %148, double 1.000000e+00, double %.024.lcssa.i
   store double %.226.i, ptr %4, align 8
@@ -1384,7 +1384,7 @@ define internal fastcc range(i32 0, 3) i32 @regex_fixed_prefix(ptr noundef reado
   br label %regex_selectivity.exit
 
 regex_selectivity.exit:                           ; preds = %47, %49, %51
-  %.3.i = phi double [ %.0.i, %49 ], [ 1.000000e+00, %51 ], [ 0.000000e+00, %47 ]
+  %.3.i = phi double [ 1.000000e+00, %51 ], [ %.0.i, %49 ], [ 0.000000e+00, %47 ]
   store double %.3.i, ptr %4, align 8
   call void @pfree(ptr noundef nonnull %25) #10
   br label %100
@@ -1470,7 +1470,7 @@ regex_selectivity.exit:                           ; preds = %47, %49, %51
   br label %regex_selectivity.exit34
 
 regex_selectivity.exit34:                         ; preds = %92, %94, %96
-  %.3.i32 = phi double [ %.2.i, %94 ], [ 1.000000e+00, %96 ], [ 0.000000e+00, %92 ]
+  %.3.i32 = phi double [ 1.000000e+00, %96 ], [ %.2.i, %94 ], [ 0.000000e+00, %92 ]
   store double %.3.i32, ptr %4, align 8
   call void @pfree(ptr noundef nonnull %61) #10
   br label %97
@@ -1483,7 +1483,7 @@ regex_selectivity.exit34:                         ; preds = %92, %94, %96
   br label %100
 
 100:                                              ; preds = %97, %21, %regex_selectivity.exit
-  %.0 = phi i32 [ 0, %21 ], [ %., %97 ], [ 0, %regex_selectivity.exit ]
+  %.0 = phi i32 [ 0, %regex_selectivity.exit ], [ 0, %21 ], [ %., %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1901,7 +1901,7 @@ define internal fastcc ptr @make_greater_string(ptr noundef readonly captures(no
   br label %.thread
 
 select.unfold:                                    ; preds = %15, %23, %26
-  %84 = phi i32 [ %spec.select188, %15 ], [ %25, %23 ], [ %29, %26 ]
+  %84 = phi i32 [ %25, %23 ], [ %29, %26 ], [ %spec.select188, %15 ]
   %85 = sext i32 %84 to i64
   %86 = tail call ptr @palloc(i64 noundef %85) #10
   %87 = load i8, ptr %11, align 1
@@ -2046,8 +2046,8 @@ string_to_const.exit:                             ; preds = %string_to_datum.exi
   br label %.thread134
 
 .thread134:                                       ; preds = %._crit_edge.split.us.us, %104, %.thread134.sink.split, %._crit_edge141, %select.unfold, %.split.us
-  %.097131156174179.sink = phi ptr [ %.198, %.thread134.sink.split ], [ %.198, %.split.us ], [ %86, %select.unfold ], [ %.198, %._crit_edge141 ], [ %86, %104 ], [ %86, %._crit_edge.split.us.us ]
-  %.4 = phi ptr [ %.4.ph, %.thread134.sink.split ], [ %131, %.split.us ], [ null, %select.unfold ], [ null, %._crit_edge141 ], [ %108, %104 ], [ null, %._crit_edge.split.us.us ]
+  %.097131156174179.sink = phi ptr [ %.198, %.split.us ], [ %.198, %._crit_edge141 ], [ %86, %select.unfold ], [ %.198, %.thread134.sink.split ], [ %86, %104 ], [ %86, %._crit_edge.split.us.us ]
+  %.4 = phi ptr [ %131, %.split.us ], [ null, %._crit_edge141 ], [ null, %select.unfold ], [ %.4.ph, %.thread134.sink.split ], [ %108, %104 ], [ null, %._crit_edge.split.us.us ]
   tail call void @pfree(ptr noundef %.097131156174179.sink) #10
   ret ptr %.4
 }

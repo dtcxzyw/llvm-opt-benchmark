@@ -1020,7 +1020,7 @@ dissect_ice_params.exit.thread:                   ; preds = %dissect_ice_params.
   br label %dissect_ice_facet.exit.thread
 
 dissect_ice_facet.exit.thread:                    ; preds = %147, %154, %176, %dissect_ice_context.exit.thread, %109, %99, %88, %49, %38, %dissect_ice_facet.exit.thread69, %17, %77, %21, %25, %dissect_ice_facet.exit, %56, %dissect_ice_context.exit, %dissect_ice_params.exit.thread
-  %storemerge = phi i32 [ %186, %dissect_ice_params.exit.thread ], [ -1, %dissect_ice_context.exit.thread ], [ -1, %dissect_ice_context.exit ], [ -1, %56 ], [ -1, %dissect_ice_facet.exit ], [ -1, %25 ], [ -1, %21 ], [ -1, %77 ], [ -1, %17 ], [ -1, %49 ], [ -1, %dissect_ice_facet.exit.thread69 ], [ -1, %38 ], [ -1, %88 ], [ -1, %99 ], [ -1, %109 ], [ -1, %176 ], [ -1, %154 ], [ -1, %147 ]
+  %storemerge = phi i32 [ %186, %dissect_ice_params.exit.thread ], [ -1, %dissect_ice_context.exit ], [ -1, %56 ], [ -1, %dissect_ice_facet.exit ], [ -1, %25 ], [ -1, %21 ], [ -1, %77 ], [ -1, %17 ], [ -1, %dissect_ice_facet.exit.thread69 ], [ -1, %38 ], [ -1, %49 ], [ -1, %88 ], [ -1, %99 ], [ -1, %109 ], [ -1, %dissect_ice_context.exit.thread ], [ -1, %176 ], [ -1, %154 ], [ -1, %147 ]
   store i32 %storemerge, ptr %5, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

@@ -412,7 +412,7 @@ _ZNK4ncnn3Mat5emptyEv.exit71:                     ; preds = %._crit_edge
   br label %.critedge
 
 .critedge:                                        ; preds = %26, %4, %47, %98, %143, %_ZNK4ncnn3Mat5emptyEv.exit, %.critedge69, %.critedge67
-  %.2 = phi i32 [ -100, %.critedge69 ], [ -100, %.critedge67 ], [ 0, %4 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %143 ], [ 0, %98 ], [ 0, %47 ], [ -100, %26 ]
+  %.2 = phi i32 [ -100, %.critedge67 ], [ -100, %.critedge69 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %143 ], [ 0, %98 ], [ 0, %47 ], [ 0, %4 ], [ -100, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

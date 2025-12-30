@@ -281,7 +281,7 @@ define internal range(i32 -2147483648, 1) i32 @atrac9_decode_init(ptr noundef %0
   br i1 %exitcond113.not, label %116, label %117, !llvm.loop !54
 
 125:                                              ; preds = %77, %61, %114, %60, %49, %39, %24, %19, %13, %9
-  %.075 = phi i32 [ -1094995529, %9 ], [ -1094995529, %13 ], [ -1094995529, %19 ], [ %75, %61 ], [ -1094995529, %24 ], [ -1094995529, %39 ], [ -1094995529, %49 ], [ -1094995529, %60 ], [ -12, %77 ], [ 0, %114 ]
+  %.075 = phi i32 [ -1094995529, %9 ], [ -1094995529, %13 ], [ -1094995529, %19 ], [ -1094995529, %24 ], [ -1094995529, %39 ], [ -1094995529, %49 ], [ -1094995529, %60 ], [ 0, %114 ], [ %75, %61 ], [ -12, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.075
 }
@@ -977,8 +977,8 @@ dequantize.exit.i:                                ; preds = %.loopexit.i.i, %._c
   br i1 %exitcond.not.i, label %.loopexit339.i, label %442, !llvm.loop !87
 
 .loopexit339.i:                                   ; preds = %425, %442, %419, %.loopexit341.i
-  %.sroa.16.3 = phi i32 [ %358, %.loopexit341.i ], [ %spec.select.i235.i, %442 ], [ %spec.select.i235.i, %419 ], [ %spec.select.i236.i, %425 ]
-  %444 = phi i32 [ %364, %.loopexit341.i ], [ %364, %442 ], [ %364, %419 ], [ %439, %425 ]
+  %.sroa.16.3 = phi i32 [ %spec.select.i235.i, %419 ], [ %358, %.loopexit341.i ], [ %spec.select.i235.i, %442 ], [ %spec.select.i236.i, %425 ]
+  %444 = phi i32 [ %364, %419 ], [ %364, %.loopexit341.i ], [ %364, %442 ], [ %439, %425 ]
   %445 = getelementptr inbounds nuw i8, ptr %64, i64 8688
   %446 = load i32, ptr %445, align 16, !tbaa !80
   %.not.i237.i = icmp eq i32 %446, 0
@@ -1651,8 +1651,8 @@ parse_band_ext.exit.i:                            ; preds = %._crit_edge.i.i, %.
   br i1 %874, label %.lr.ph169.i.i, label %.loopexit158.i.i, !llvm.loop !103
 
 .loopexit158.i.i:                                 ; preds = %.lr.ph169.i.i, %.lr.ph173.i.i, %709, %.lr.ph179.i.i, %.preheader162.i.i, %.preheader160.i.i, %..loopexit158_crit_edge.i.i
-  %.sroa.16.10 = phi i32 [ %579, %..loopexit158_crit_edge.i.i ], [ %.sroa.16.9, %.preheader162.i.i ], [ %.sroa.16.29, %.lr.ph179.i.i ], [ %719, %709 ], [ %.sroa.16.24, %.preheader160.i.i ], [ %780, %.lr.ph173.i.i ], [ %870, %.lr.ph169.i.i ]
-  %875 = phi i32 [ %.pre216.i.i, %..loopexit158_crit_edge.i.i ], [ %853, %.preheader162.i.i ], [ %678, %.lr.ph179.i.i ], [ %722, %709 ], [ %748, %.preheader160.i.i ], [ %782, %.lr.ph173.i.i ], [ %872, %.lr.ph169.i.i ]
+  %.sroa.16.10 = phi i32 [ %579, %..loopexit158_crit_edge.i.i ], [ %.sroa.16.24, %.preheader160.i.i ], [ %.sroa.16.9, %.preheader162.i.i ], [ %.sroa.16.29, %.lr.ph179.i.i ], [ %719, %709 ], [ %780, %.lr.ph173.i.i ], [ %870, %.lr.ph169.i.i ]
+  %875 = phi i32 [ %.pre216.i.i, %..loopexit158_crit_edge.i.i ], [ %748, %.preheader160.i.i ], [ %853, %.preheader162.i.i ], [ %678, %.lr.ph179.i.i ], [ %722, %709 ], [ %782, %.lr.ph173.i.i ], [ %872, %.lr.ph169.i.i ]
   %.not155180.i.i = icmp sgt i32 %875, 0
   br i1 %.not155180.i.i, label %.lr.ph182.preheader.i.i, label %.loopexit333.i
 
@@ -1673,7 +1673,7 @@ parse_band_ext.exit.i:                            ; preds = %._crit_edge.i.i, %.
   br i1 %or.cond156.i.i, label %.thread148, label %876
 
 .loopexit333.i:                                   ; preds = %876, %.loopexit158.i.i, %704, %.preheader.i257.i
-  %.sroa.16.11 = phi i32 [ %.sroa.16.27, %704 ], [ %.sroa.16.10, %.loopexit158.i.i ], [ %.sroa.16.29, %.preheader.i257.i ], [ %.sroa.16.10, %876 ]
+  %.sroa.16.11 = phi i32 [ %.sroa.16.10, %.loopexit158.i.i ], [ %.sroa.16.29, %.preheader.i257.i ], [ %.sroa.16.27, %704 ], [ %.sroa.16.10, %876 ]
   %879 = getelementptr inbounds nuw i8, ptr %563, i64 148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(124) %879, ptr noundef nonnull align 8 dereferenceable(124) %583, i64 124, i1 false)
   %880 = getelementptr inbounds nuw i8, ptr %563, i64 512
@@ -1810,7 +1810,7 @@ parse_band_ext.exit.i:                            ; preds = %._crit_edge.i.i, %.
   br label %950
 
 .preheader1.i261.i:                               ; preds = %950, %.loopexit.i266.i, %.preheader2.i.i, %.preheader3.i.i
-  %946 = phi i32 [ %883, %.preheader3.i.i ], [ %943, %.loopexit.i266.i ], [ %883, %.preheader2.i.i ], [ %953, %950 ]
+  %946 = phi i32 [ %943, %.loopexit.i266.i ], [ %883, %.preheader3.i.i ], [ %883, %.preheader2.i.i ], [ %953, %950 ]
   %947 = load i32, ptr %359, align 16, !tbaa !82
   %948 = icmp sgt i32 %947, 0
   br i1 %948, label %.lr.ph14.i.i, label %.preheader.i262.i
@@ -2126,9 +2126,9 @@ read_coeffs_fine.exit.thread.i:                   ; preds = %calc_codebook_idx.e
   br label %get_vlc2.exit.i.i
 
 get_vlc2.exit.i.i:                                ; preds = %1098, %1081
-  %.064.i.i.i = phi i32 [ %.sroa.16.20, %1081 ], [ %1100, %1098 ]
-  %.062.i.i.i = phi i32 [ %1093, %1081 ], [ %1114, %1098 ]
-  %.0.i.i294.i = phi i32 [ %1096, %1081 ], [ %1117, %1098 ]
+  %.064.i.i.i = phi i32 [ %1100, %1098 ], [ %.sroa.16.20, %1081 ]
+  %.062.i.i.i = phi i32 [ %1114, %1098 ], [ %1093, %1081 ]
+  %.0.i.i294.i = phi i32 [ %1117, %1098 ], [ %1096, %1081 ]
   %1118 = add i32 %.0.i.i294.i, %.064.i.i.i
   %1119 = call i32 @llvm.umin.i32(i32 %34, i32 %1118)
   br i1 %1078, label %.lr.ph5.i.i, label %._crit_edge.i295.i
@@ -2313,7 +2313,7 @@ read_coeffs_fine.exit.i:                          ; preds = %.loopexit.i300.i
   br i1 %exitcond.not.i319.i, label %.loopexit.i312.i, label %.lr.ph.i316.i, !llvm.loop !72
 
 dequantize.exit320.i:                             ; preds = %.loopexit.i312.i, %read_coeffs_fine.exit.i, %read_coeffs_fine.exit.thread457.i, %read_coeffs_fine.exit.thread.i
-  %.sroa.16.12 = phi i32 [ %.sroa.16.11, %read_coeffs_fine.exit.thread.i ], [ %.sroa.16.18, %read_coeffs_fine.exit.i ], [ %.sroa.16.16, %read_coeffs_fine.exit.thread457.i ], [ %.sroa.16.18, %.loopexit.i312.i ]
+  %.sroa.16.12 = phi i32 [ %.sroa.16.18, %read_coeffs_fine.exit.i ], [ %.sroa.16.16, %read_coeffs_fine.exit.thread457.i ], [ %.sroa.16.11, %read_coeffs_fine.exit.thread.i ], [ %.sroa.16.18, %.loopexit.i312.i ]
   %indvars.iv.next389.i = add nuw nsw i64 %indvars.iv388.i, 1
   %exitcond391.not.i = icmp eq i64 %indvars.iv.next389.i, %wide.trip.count.i
   br i1 %exitcond391.not.i, label %.critedge221.i, label %562, !llvm.loop !124
@@ -2967,7 +2967,7 @@ apply_band_extension.exit:                        ; preds = %.loopexit145.i
   br label %apply_scalefactors.exit.i
 
 apply_scalefactors.exit.i:                        ; preds = %.loopexit.us.i.i, %apply_band_extension.exit, %1254, %apply_scalefactors.exit, %dequantize.exit.i
-  %.sroa.16.13 = phi i32 [ %.sroa.16.12, %apply_band_extension.exit ], [ %.sroa.16.34, %dequantize.exit.i ], [ %.sroa.16.12, %apply_scalefactors.exit ], [ %.sroa.16.12, %1254 ], [ %.sroa.16.34, %.loopexit.us.i.i ]
+  %.sroa.16.13 = phi i32 [ %.sroa.16.34, %dequantize.exit.i ], [ %.sroa.16.12, %apply_scalefactors.exit ], [ %.sroa.16.12, %1254 ], [ %.sroa.16.12, %apply_band_extension.exit ], [ %.sroa.16.34, %.loopexit.us.i.i ]
   %wide.trip.count406.i = select i1 %81, i64 2, i64 1
   br label %1519
 
@@ -3037,8 +3037,8 @@ atrac9_decode_block.exit:                         ; preds = %1519
   %1560 = load i32, ptr %1559, align 4, !tbaa !34
   br label %.thread148
 
-.thread148:                                       ; preds = %447, %362, %344, %.lr.ph182.i.i, %187, %279, %219, %267, %233, %589, %26, %4, %.thread150
-  %.039 = phi i32 [ -1094995529, %26 ], [ %24, %4 ], [ %1560, %.thread150 ], [ -1094995529, %279 ], [ -1094995529, %589 ], [ -1094995529, %187 ], [ -1094995529, %233 ], [ -1094995529, %267 ], [ -1094995529, %.lr.ph182.i.i ], [ -1094995529, %219 ], [ -1094995529, %344 ], [ -1094995529, %362 ], [ -1094995529, %447 ]
+.thread148:                                       ; preds = %344, %362, %447, %.lr.ph182.i.i, %187, %279, %267, %233, %219, %589, %26, %4, %.thread150
+  %.039 = phi i32 [ %1560, %.thread150 ], [ %24, %4 ], [ -1094995529, %26 ], [ -1094995529, %589 ], [ -1094995529, %219 ], [ -1094995529, %233 ], [ -1094995529, %267 ], [ -1094995529, %279 ], [ -1094995529, %187 ], [ -1094995529, %.lr.ph182.i.i ], [ -1094995529, %447 ], [ -1094995529, %362 ], [ -1094995529, %344 ]
   ret i32 %.039
 }
 

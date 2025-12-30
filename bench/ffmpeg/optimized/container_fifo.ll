@@ -45,7 +45,7 @@ define ptr @av_container_fifo_alloc(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %20
 
 20:                                               ; preds = %16, %6, %19
-  %.0 = phi ptr [ null, %6 ], [ null, %19 ], [ %8, %16 ]
+  %.0 = phi ptr [ null, %19 ], [ null, %6 ], [ %8, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
@@ -320,7 +320,7 @@ define ptr @av_container_fifo_alloc_avframe(i32 noundef %0) local_unnamed_addr #
   br label %av_container_fifo_alloc.exit
 
 av_container_fifo_alloc.exit:                     ; preds = %1, %11, %14
-  %.0.i = phi ptr [ null, %1 ], [ null, %14 ], [ %3, %11 ]
+  %.0.i = phi ptr [ null, %14 ], [ null, %1 ], [ %3, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i
 }

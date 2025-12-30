@@ -361,7 +361,7 @@ define void @_ZNK5ZXing10DataMatrix6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead
 
 10:                                               ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %108
+  br label %106
 
 11:                                               ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -375,7 +375,7 @@ define void @_ZNK5ZXing10DataMatrix6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead
   %18 = and i32 %14, 16
   %19 = icmp ne i32 %18, 0
   invoke void @_ZN5ZXing10DataMatrix6DetectERKNS_9BitMatrixEbbb(ptr dead_on_unwind nonnull writable sret(%class.Generator) align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext %15, i1 noundef zeroext %17, i1 noundef zeroext %19)
-          to label %20 unwind label %64
+          to label %20 unwind label %63
 
 20:                                               ; preds = %11
   %21 = load ptr, ptr %5, align 8, !tbaa !58
@@ -385,7 +385,7 @@ define void @_ZNK5ZXing10DataMatrix6Reader6decodeERKNS_12BinaryBitmapEi(ptr dead
 22:                                               ; preds = %20
   %23 = load ptr, ptr %21, align 8
   invoke fastcc void %23(ptr nonnull %21)
-          to label %_ZN9GeneratorIN5ZXing14DetectorResultEE5beginEv.exit unwind label %66
+          to label %_ZN9GeneratorIN5ZXing14DetectorResultEE5beginEv.exit unwind label %65
 
 _ZN9GeneratorIN5ZXing14DetectorResultEE5beginEv.exit: ; preds = %22
   %.sroa.0.0.copyload.pre.i = load ptr, ptr %5, align 8, !tbaa !60
@@ -420,171 +420,171 @@ _ZN9GeneratorIN5ZXing14DetectorResultEE4IterppEv.exit.us: ; preds = %_ZN9Generat
   %39 = load ptr, ptr %25, align 8, !tbaa !61
   %40 = icmp eq ptr %38, %39
   %.pre.i.us = load i8, ptr %26, align 2
-  br i1 %40, label %42, label %41
+  br i1 %40, label %41, label %_ZNK5ZXing13DecoderResult7isValidEb.exit.us
 
-41:                                               ; preds = %33
+_ZNK5ZXing13DecoderResult7isValidEb.exit.us:      ; preds = %33
   %.not2.i.us = icmp eq i8 %.pre.i.us, 0
   %spec.select.i.us = or i1 %37, %.not2.i.us
-  br i1 %spec.select.i.us, label %44, label %.critedge.us
+  br i1 %spec.select.i.us, label %43, label %.critedge.us
 
-42:                                               ; preds = %33
-  %43 = icmp ne i8 %.pre.i.us, 0
-  %or.cond.us = select i1 %37, i1 %43, i1 false
-  br i1 %or.cond.us, label %44, label %.critedge.us
+41:                                               ; preds = %33
+  %42 = icmp ne i8 %.pre.i.us, 0
+  %or.cond.us = select i1 %37, i1 %42, i1 false
+  br i1 %or.cond.us, label %43, label %.critedge.us
 
-44:                                               ; preds = %42, %41
+43:                                               ; preds = %41, %_ZNK5ZXing13DecoderResult7isValidEb.exit.us
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 128, ptr %7, align 4, !tbaa !62
-  %45 = load ptr, ptr %27, align 8, !tbaa !51
-  %46 = load ptr, ptr %28, align 8, !tbaa !54
-  %.not.i28.us = icmp eq ptr %45, %46
-  br i1 %.not.i28.us, label %50, label %47
+  %44 = load ptr, ptr %27, align 8, !tbaa !51
+  %45 = load ptr, ptr %28, align 8, !tbaa !54
+  %.not.i28.us = icmp eq ptr %44, %45
+  br i1 %.not.i28.us, label %49, label %46
 
-47:                                               ; preds = %44
-  invoke void @_ZN5ZXing6ResultC1EONS_13DecoderResultEONS_14DetectorResultENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) %45, ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(64) %24, i32 noundef 128)
+46:                                               ; preds = %43
+  invoke void @_ZN5ZXing6ResultC1EONS_13DecoderResultEONS_14DetectorResultENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) %44, ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(64) %24, i32 noundef 128)
           to label %.noexc30.us unwind label %.split41.us
 
-.noexc30.us:                                      ; preds = %47
-  %48 = load ptr, ptr %27, align 8, !tbaa !51
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 216
-  store ptr %49, ptr %27, align 8, !tbaa !51
+.noexc30.us:                                      ; preds = %46
+  %47 = load ptr, ptr %27, align 8, !tbaa !51
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 216
+  store ptr %48, ptr %27, align 8, !tbaa !51
   br label %_ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit.us
 
-50:                                               ; preds = %44
-  invoke void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE17_M_realloc_insertIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %45, ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 4 dereferenceable(4) %7)
+49:                                               ; preds = %43
+  invoke void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE17_M_realloc_insertIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %44, ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %._ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit.us_crit_edge unwind label %.split41.us
 
-._ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit.us_crit_edge: ; preds = %50
+._ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit.us_crit_edge: ; preds = %49
   %.pre = load ptr, ptr %27, align 8, !tbaa !51
   br label %_ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit.us
 
 _ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit.us: ; preds = %._ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit.us_crit_edge, %.noexc30.us
-  %51 = phi ptr [ %.pre, %._ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit.us_crit_edge ], [ %49, %.noexc30.us ]
+  %50 = phi ptr [ %.pre, %._ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit.us_crit_edge ], [ %48, %.noexc30.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %52 = load ptr, ptr %0, align 8, !tbaa !49
+  %51 = load ptr, ptr %0, align 8, !tbaa !49
+  %52 = ptrtoint ptr %50 to i64
   %53 = ptrtoint ptr %51 to i64
-  %54 = ptrtoint ptr %52 to i64
-  %55 = sub i64 %53, %54
-  %56 = sdiv exact i64 %55, 216
-  %57 = trunc i64 %56 to i32
-  %.not.us = icmp sgt i32 %3, %57
+  %54 = sub i64 %52, %53
+  %55 = sdiv exact i64 %54, 216
+  %56 = trunc i64 %55 to i32
+  %.not.us = icmp sgt i32 %3, %56
   br i1 %.not.us, label %.critedge.us, label %.split44.us
 
-.critedge.us:                                     ; preds = %_ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit.us, %42, %41
+.critedge.us:                                     ; preds = %_ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit.us, %41, %_ZNK5ZXing13DecoderResult7isValidEb.exit.us
   call void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %58 = load ptr, ptr %.sroa.0.0.copyload.pre.i, align 8
-  invoke fastcc void %58(ptr nonnull %.sroa.0.0.copyload.pre.i)
+  %57 = load ptr, ptr %.sroa.0.0.copyload.pre.i, align 8
+  invoke fastcc void %57(ptr nonnull %.sroa.0.0.copyload.pre.i)
           to label %_ZN9GeneratorIN5ZXing14DetectorResultEE4IterppEv.exit.us unwind label %.split46.us
 
 .split.us:                                        ; preds = %32
-  %59 = landingpad { ptr, i32 }
-          cleanup
-  br label %92
-
-.split41.us:                                      ; preds = %50, %47
-  %60 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
   br label %90
 
-.split46.us:                                      ; preds = %.critedge.us
-  %61 = landingpad { ptr, i32 }
+.split41.us:                                      ; preds = %49, %46
+  %59 = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %88
+
+.split46.us:                                      ; preds = %.critedge.us
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  br label %97
 
 _ZN9GeneratorIN5ZXing14DetectorResultEE4IterppEv.exit: ; preds = %_ZN9GeneratorIN5ZXing14DetectorResultEE5beginEv.exit.split, %.critedge
-  %62 = load ptr, ptr %.sroa.0.0.copyload.pre.i, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %_ZNK9GeneratorIN5ZXing14DetectorResultEE4ItereqESt18default_sentinel_t.exit.thread, label %69
+  %61 = load ptr, ptr %.sroa.0.0.copyload.pre.i, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %_ZNK9GeneratorIN5ZXing14DetectorResultEE4ItereqESt18default_sentinel_t.exit.thread, label %68
 
-64:                                               ; preds = %11
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %11
+  %64 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %105
 
-66:                                               ; preds = %22
-  %67 = landingpad { ptr, i32 }
+65:                                               ; preds = %22
+  %66 = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %97
 
 .split46:                                         ; preds = %.critedge
-  %68 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %97
 
-69:                                               ; preds = %_ZN9GeneratorIN5ZXing14DetectorResultEE4IterppEv.exit
+68:                                               ; preds = %_ZN9GeneratorIN5ZXing14DetectorResultEE4IterppEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN5ZXing10DataMatrix6DecodeERKNS_9BitMatrixE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DecoderResult") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %24)
-          to label %70 unwind label %.split
+          to label %69 unwind label %.split
 
-70:                                               ; preds = %69
-  %71 = load ptr, ptr %12, align 8, !tbaa !55
-  %72 = load i32, ptr %71, align 4
-  %73 = and i32 %72, 512
-  %74 = icmp ne i32 %73, 0
-  %75 = load ptr, ptr %6, align 8, !tbaa !61
-  %76 = load ptr, ptr %25, align 8, !tbaa !61
-  %77 = icmp eq ptr %75, %76
+69:                                               ; preds = %68
+  %70 = load ptr, ptr %12, align 8, !tbaa !55
+  %71 = load i32, ptr %70, align 4
+  %72 = and i32 %71, 512
+  %73 = icmp ne i32 %72, 0
+  %74 = load ptr, ptr %6, align 8, !tbaa !61
+  %75 = load ptr, ptr %25, align 8, !tbaa !61
+  %76 = icmp eq ptr %74, %75
   %.pre.i = load i8, ptr %26, align 2
-  br i1 %77, label %79, label %78
+  br i1 %76, label %77, label %_ZNK5ZXing13DecoderResult7isValidEb.exit
 
-78:                                               ; preds = %70
+77:                                               ; preds = %69
+  %78 = icmp ne i8 %.pre.i, 0
+  %or.cond = select i1 %73, i1 %78, i1 false
+  br i1 %or.cond, label %79, label %.critedge
+
+_ZNK5ZXing13DecoderResult7isValidEb.exit:         ; preds = %69
   %.not2.i = icmp eq i8 %.pre.i, 0
-  %spec.select.i = or i1 %74, %.not2.i
-  br i1 %spec.select.i, label %81, label %.critedge
+  %spec.select.i = or i1 %73, %.not2.i
+  br i1 %spec.select.i, label %79, label %.critedge
 
-79:                                               ; preds = %70
-  %80 = icmp ne i8 %.pre.i, 0
-  %or.cond = select i1 %74, i1 %80, i1 false
-  br i1 %or.cond, label %81, label %.critedge
-
-81:                                               ; preds = %79, %78
+79:                                               ; preds = %77, %_ZNK5ZXing13DecoderResult7isValidEb.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 128, ptr %7, align 4, !tbaa !62
-  %82 = load ptr, ptr %27, align 8, !tbaa !51
-  %83 = load ptr, ptr %28, align 8, !tbaa !54
-  %.not.i28 = icmp eq ptr %82, %83
-  br i1 %.not.i28, label %87, label %84
+  %80 = load ptr, ptr %27, align 8, !tbaa !51
+  %81 = load ptr, ptr %28, align 8, !tbaa !54
+  %.not.i28 = icmp eq ptr %80, %81
+  br i1 %.not.i28, label %85, label %82
 
-84:                                               ; preds = %81
-  invoke void @_ZN5ZXing6ResultC1EONS_13DecoderResultEONS_14DetectorResultENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) %82, ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(64) %24, i32 noundef 128)
+82:                                               ; preds = %79
+  invoke void @_ZN5ZXing6ResultC1EONS_13DecoderResultEONS_14DetectorResultENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) %80, ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(64) %24, i32 noundef 128)
           to label %.noexc30 unwind label %.split41
 
-.noexc30:                                         ; preds = %84
-  %85 = load ptr, ptr %27, align 8, !tbaa !51
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 216
-  store ptr %86, ptr %27, align 8, !tbaa !51
+.noexc30:                                         ; preds = %82
+  %83 = load ptr, ptr %27, align 8, !tbaa !51
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 216
+  store ptr %84, ptr %27, align 8, !tbaa !51
   br label %_ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit
 
-87:                                               ; preds = %81
-  invoke void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE17_M_realloc_insertIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %82, ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 4 dereferenceable(4) %7)
+85:                                               ; preds = %79
+  invoke void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE17_M_realloc_insertIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %80, ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %_ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit unwind label %.split41
 
-_ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit: ; preds = %87, %.noexc30
+_ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit: ; preds = %85, %.noexc30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
-.split:                                           ; preds = %69
-  %88 = landingpad { ptr, i32 }
-          cleanup
-  br label %92
-
-.split41:                                         ; preds = %87, %84
-  %89 = landingpad { ptr, i32 }
+.split:                                           ; preds = %68
+  %86 = landingpad { ptr, i32 }
           cleanup
   br label %90
 
-90:                                               ; preds = %.split41.us, %.split41
-  %.us-phi42 = phi { ptr, i32 } [ %89, %.split41 ], [ %60, %.split41.us ]
+.split41:                                         ; preds = %85, %82
+  %87 = landingpad { ptr, i32 }
+          cleanup
+  br label %88
+
+88:                                               ; preds = %.split41.us, %.split41
+  %.us-phi42 = phi { ptr, i32 } [ %87, %.split41 ], [ %59, %.split41.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #16
-  br label %92
+  br label %90
 
-.critedge:                                        ; preds = %_ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit, %79, %78
+.critedge:                                        ; preds = %_ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit, %77, %_ZNK5ZXing13DecoderResult7isValidEb.exit
   call void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %91 = load ptr, ptr %.sroa.0.0.copyload.pre.i, align 8
-  invoke fastcc void %91(ptr nonnull %.sroa.0.0.copyload.pre.i)
+  %89 = load ptr, ptr %.sroa.0.0.copyload.pre.i, align 8
+  invoke fastcc void %89(ptr nonnull %.sroa.0.0.copyload.pre.i)
           to label %_ZN9GeneratorIN5ZXing14DetectorResultEE4IterppEv.exit unwind label %.split46
 
 .split44.us:                                      ; preds = %_ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14DetectorResultENS0_13BarcodeFormatEEEERS1_DpOT_.exit.us
@@ -592,62 +592,62 @@ _ZNSt6vectorIN5ZXing6ResultESaIS1_EE12emplace_backIJNS0_13DecoderResultENS0_14De
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK9GeneratorIN5ZXing14DetectorResultEE4ItereqESt18default_sentinel_t.exit.thread
 
-92:                                               ; preds = %.split, %.split.us, %90
-  %.pn = phi { ptr, i32 } [ %.us-phi42, %90 ], [ %88, %.split ], [ %59, %.split.us ]
+90:                                               ; preds = %.split, %.split.us, %88
+  %.pn = phi { ptr, i32 } [ %.us-phi42, %88 ], [ %86, %.split ], [ %58, %.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %99
+  br label %97
 
 _ZNK9GeneratorIN5ZXing14DetectorResultEE4ItereqESt18default_sentinel_t.exit.thread: ; preds = %_ZN9GeneratorIN5ZXing14DetectorResultEE4IterppEv.exit, %_ZN9GeneratorIN5ZXing14DetectorResultEE4IterppEv.exit.us, %_ZN9GeneratorIN5ZXing14DetectorResultEE5beginEv.exit, %.split44.us
   %.pr = load ptr, ptr %5, align 8, !tbaa !58
   %.not.i33 = icmp eq ptr %.pr, null
-  br i1 %.not.i33, label %_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit, label %93
+  br i1 %.not.i33, label %_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit, label %91
 
-93:                                               ; preds = %_ZNK9GeneratorIN5ZXing14DetectorResultEE4ItereqESt18default_sentinel_t.exit.thread
-  %94 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
-  %95 = load ptr, ptr %94, align 8
-  invoke fastcc void %95(ptr nonnull %.pr)
-          to label %_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit unwind label %96
+91:                                               ; preds = %_ZNK9GeneratorIN5ZXing14DetectorResultEE4ItereqESt18default_sentinel_t.exit.thread
+  %92 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
+  %93 = load ptr, ptr %92, align 8
+  invoke fastcc void %93(ptr nonnull %.pr)
+          to label %_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit unwind label %94
 
-96:                                               ; preds = %93
-  %97 = landingpad { ptr, i32 }
+94:                                               ; preds = %91
+  %95 = landingpad { ptr, i32 }
           catch ptr null
-  %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #18
+  %96 = extractvalue { ptr, i32 } %95, 0
+  call void @__clang_call_terminate(ptr %96) #18
   unreachable
 
-_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit: ; preds = %20, %_ZNK9GeneratorIN5ZXing14DetectorResultEE4ItereqESt18default_sentinel_t.exit.thread, %93
+_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit: ; preds = %20, %_ZNK9GeneratorIN5ZXing14DetectorResultEE4ItereqESt18default_sentinel_t.exit.thread, %91
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %108
+  br label %106
 
-99:                                               ; preds = %.split46, %.split46.us, %92, %66
-  %.pn24 = phi { ptr, i32 } [ %.pn, %92 ], [ %67, %66 ], [ %68, %.split46 ], [ %61, %.split46.us ]
-  %100 = load ptr, ptr %5, align 8, !tbaa !58
-  %.not.i34 = icmp eq ptr %100, null
-  br i1 %.not.i34, label %_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit35, label %101
+97:                                               ; preds = %.split46, %.split46.us, %90, %65
+  %.pn24 = phi { ptr, i32 } [ %66, %65 ], [ %.pn, %90 ], [ %67, %.split46 ], [ %60, %.split46.us ]
+  %98 = load ptr, ptr %5, align 8, !tbaa !58
+  %.not.i34 = icmp eq ptr %98, null
+  br i1 %.not.i34, label %_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit35, label %99
 
-101:                                              ; preds = %99
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %103 = load ptr, ptr %102, align 8
-  invoke fastcc void %103(ptr nonnull %100)
-          to label %_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit35 unwind label %104
+99:                                               ; preds = %97
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %101 = load ptr, ptr %100, align 8
+  invoke fastcc void %101(ptr nonnull %98)
+          to label %_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit35 unwind label %102
 
-104:                                              ; preds = %101
-  %105 = landingpad { ptr, i32 }
+102:                                              ; preds = %99
+  %103 = landingpad { ptr, i32 }
           catch ptr null
-  %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #18
+  %104 = extractvalue { ptr, i32 } %103, 0
+  call void @__clang_call_terminate(ptr %104) #18
   unreachable
 
-_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit35: ; preds = %99, %101
+_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit35: ; preds = %97, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %107
+  br label %105
 
-107:                                              ; preds = %_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit35, %64
-  %.pn24.pn = phi { ptr, i32 } [ %.pn24, %_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit35 ], [ %65, %64 ]
+105:                                              ; preds = %_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit35, %63
+  %.pn24.pn = phi { ptr, i32 } [ %.pn24, %_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit35 ], [ %64, %63 ]
   call void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
   resume { ptr, i32 } %.pn24.pn
 
-108:                                              ; preds = %_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit, %10
+106:                                              ; preds = %_ZN9GeneratorIN5ZXing14DetectorResultEED2Ev.exit, %10
   ret void
 }
 

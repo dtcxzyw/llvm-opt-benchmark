@@ -85,7 +85,7 @@ define hidden void @dot11decrypt_construct_aad(ptr noundef readonly captures(non
   br label %45
 
 45:                                               ; preds = %.sink.split, %36, %30
-  %.0 = phi i64 [ 22, %36 ], [ 28, %30 ], [ %.sink45, %.sink.split ]
+  %.0 = phi i64 [ 28, %30 ], [ 22, %36 ], [ %.sink45, %.sink.split ]
   store i64 %.0, ptr %2, align 8
   ret void
 }
@@ -158,7 +158,7 @@ define hidden noundef zeroext i1 @dot11decrypt_prf(ptr noundef %0, i64 noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %8, %44, %23
-  %.040 = phi i1 [ false, %23 ], [ false, %8 ], [ true, %44 ], [ false, %38 ]
+  %.040 = phi i1 [ false, %23 ], [ true, %44 ], [ false, %8 ], [ false, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.040
@@ -252,7 +252,7 @@ define hidden noundef zeroext i1 @dot11decrypt_kdf(ptr noundef %0, i64 noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %46, %8, %52, %30
-  %.045 = phi i1 [ false, %30 ], [ false, %8 ], [ true, %52 ], [ false, %46 ]
+  %.045 = phi i1 [ false, %30 ], [ true, %52 ], [ false, %8 ], [ false, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

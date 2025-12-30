@@ -652,7 +652,7 @@ define internal void @hsw_enable_crt(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %24, %.thread1, %52, %46
-  %67 = phi i32 [ %45, %.thread1 ], [ %50, %52 ], [ %50, %46 ], [ %39, %24 ]
+  %67 = phi i32 [ %50, %52 ], [ %50, %46 ], [ %45, %.thread1 ], [ %39, %24 ]
   %68 = or i32 %67, -2147483648
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %70 = load i32, ptr %69, align 4
@@ -769,7 +769,7 @@ define internal void @hsw_post_disable_crt(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %4, %.thread1, %34, %28
-  %49 = phi i32 [ %27, %.thread1 ], [ %32, %34 ], [ %32, %28 ], [ %21, %4 ]
+  %49 = phi i32 [ %32, %34 ], [ %32, %28 ], [ %27, %.thread1 ], [ %21, %4 ]
   %50 = or i32 %49, 3072
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %52 = load i32, ptr %51, align 4
@@ -912,7 +912,7 @@ define internal void @pch_post_disable_crt(ptr readnone captures(none) %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %4, %.thread1, %32, %26
-  %47 = phi i32 [ %25, %.thread1 ], [ %30, %32 ], [ %30, %26 ], [ %19, %4 ]
+  %47 = phi i32 [ %30, %32 ], [ %30, %26 ], [ %25, %.thread1 ], [ %19, %4 ]
   %48 = or i32 %47, 3072
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %50 = load i32, ptr %49, align 4
@@ -1001,7 +1001,7 @@ define internal void @intel_disable_crt(ptr readnone captures(none) %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %4, %.thread1, %32, %26
-  %47 = phi i32 [ %25, %.thread1 ], [ %30, %32 ], [ %30, %26 ], [ %19, %4 ]
+  %47 = phi i32 [ %30, %32 ], [ %30, %26 ], [ %25, %.thread1 ], [ %19, %4 ]
   %48 = or i32 %47, 3072
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %50 = load i32, ptr %49, align 4
@@ -1136,7 +1136,7 @@ define internal void @intel_enable_crt(ptr readnone captures(none) %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %4, %.thread1, %32, %26
-  %47 = phi i32 [ %25, %.thread1 ], [ %30, %32 ], [ %30, %26 ], [ %19, %4 ]
+  %47 = phi i32 [ %30, %32 ], [ %30, %26 ], [ %25, %.thread1 ], [ %19, %4 ]
   %48 = or i32 %47, -2147483648
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %50 = load i32, ptr %49, align 4
@@ -1678,7 +1678,7 @@ define internal i32 @intel_crt_detect(ptr noundef %0, ptr noundef %1, i1 noundef
 204:                                              ; preds = %146
   br i1 %142, label %205, label %211
 
-205:                                              ; preds = %.split7.us, %149, %94, %204
+205:                                              ; preds = %149, %.split7.us, %94, %204
   br i1 %7, label %209, label %206
 
 206:                                              ; preds = %205
@@ -1691,7 +1691,7 @@ define internal i32 @intel_crt_detect(ptr noundef %0, ptr noundef %1, i1 noundef
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %210, i32 noundef 2, ptr noundef nonnull @.str.13) #5
   br label %257
 
-211:                                              ; preds = %.split7.us, %149, %94, %204
+211:                                              ; preds = %149, %.split7.us, %94, %204
   br i1 %7, label %215, label %212
 
 212:                                              ; preds = %211
@@ -1825,7 +1825,7 @@ define internal i32 @intel_crt_mode_valid(ptr noundef readonly captures(none) %0
   br label %31
 
 31:                                               ; preds = %25, %20
-  %32 = phi i32 [ %30, %25 ], [ 270000, %20 ]
+  %32 = phi i32 [ 270000, %20 ], [ %30, %25 ]
   %33 = icmp samesign ugt i32 %14, %32
   %34 = icmp sgt i32 %14, %5
   %35 = select i1 %33, i1 true, i1 %34

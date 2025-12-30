@@ -83,7 +83,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge675
 
 ._crit_edge675:                                   ; preds = %35, %.lr.ph
-  %.3 = phi double [ %spec.select, %35 ], [ %33, %.lr.ph ]
+  %.3 = phi double [ %33, %.lr.ph ], [ %spec.select, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not341.not = icmp slt i64 %indvars.iv, %28
   br i1 %.not341.not, label %.lr.ph, label %._crit_edge, !llvm.loop !9
@@ -134,7 +134,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge676
 
 ._crit_edge676:                                   ; preds = %52, %.lr.ph382
-  %.6 = phi double [ %spec.select734, %52 ], [ %50, %.lr.ph382 ]
+  %.6 = phi double [ %50, %.lr.ph382 ], [ %spec.select734, %52 ]
   %.not337.not = icmp slt i64 %indvars.iv.next573, %45
   br i1 %.not337.not, label %.lr.ph382, label %._crit_edge383.loopexit, !llvm.loop !12
 
@@ -192,7 +192,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge679
 
 ._crit_edge679:                                   ; preds = %71, %.lr.ph396
-  %.9 = phi double [ %spec.select735, %71 ], [ %69, %.lr.ph396 ]
+  %.9 = phi double [ %69, %.lr.ph396 ], [ %spec.select735, %71 ]
   %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, 1
   %.not332.not = icmp slt i64 %indvars.iv575, %64
   br i1 %.not332.not, label %.lr.ph396, label %._crit_edge397, !llvm.loop !14
@@ -242,7 +242,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge681
 
 ._crit_edge681:                                   ; preds = %88, %.lr.ph410
-  %.12 = phi double [ %spec.select736, %88 ], [ %86, %.lr.ph410 ]
+  %.12 = phi double [ %86, %.lr.ph410 ], [ %spec.select736, %88 ]
   %indvars.iv.next579 = add nsw i64 %indvars.iv578, 1
   %.not328.not = icmp slt i64 %indvars.iv578, %81
   br i1 %.not328.not, label %.lr.ph410, label %._crit_edge411.loopexit, !llvm.loop !16
@@ -358,7 +358,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge686
 
 ._crit_edge686:                                   ; preds = %132, %.loopexit348
-  %.14 = phi double [ %spec.select737, %132 ], [ %130, %.loopexit348 ]
+  %.14 = phi double [ %130, %.loopexit348 ], [ %spec.select737, %132 ]
   %134 = add nuw nsw i32 %106, 1
   %.not319.not = icmp slt i32 %106, %103
   br i1 %.not319.not, label %105, label %.loopexit347, !llvm.loop !21
@@ -454,7 +454,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge688
 
 ._crit_edge688:                                   ; preds = %170, %.loopexit
-  %.16 = phi double [ %spec.select740, %170 ], [ %164, %.loopexit ]
+  %.16 = phi double [ %164, %.loopexit ], [ %spec.select740, %170 ]
   %172 = add nuw nsw i32 %137, 1
   %storemerge312.neg = xor i32 %137, -1
   %.not313.not = icmp slt i32 %137, %103
@@ -706,7 +706,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %._crit_edge684
 
 ._crit_edge684:                                   ; preds = %244, %.lr.ph489
-  %.18 = phi double [ %spec.select741, %244 ], [ %242, %.lr.ph489 ]
+  %.18 = phi double [ %242, %.lr.ph489 ], [ %spec.select741, %244 ]
   %indvars.iv.next654 = add nuw nsw i64 %indvars.iv653, 1
   %exitcond657.not = icmp eq i64 %indvars.iv.next654, %wide.trip.count656
   br i1 %exitcond657.not, label %.loopexit347, label %.lr.ph489, !llvm.loop !35
@@ -866,7 +866,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %.loopexit347
 
 .loopexit347:                                     ; preds = %._crit_edge, %._crit_edge383, %._crit_edge397, %._crit_edge411, %._crit_edge684, %._crit_edge686, %._crit_edge688, %23, %39, %60, %75, %.loopexit356, %104, %135, %6, %.loopexit351, %248
-  %.0 = phi double [ undef, %248 ], [ %.18, %._crit_edge684 ], [ %.14, %._crit_edge686 ], [ %.16, %._crit_edge688 ], [ %.5.lcssa, %._crit_edge383 ], [ %.11.lcssa, %._crit_edge411 ], [ 0.000000e+00, %6 ], [ %.8.lcssa, %._crit_edge397 ], [ %311, %.loopexit351 ], [ 0.000000e+00, %135 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %.loopexit356 ], [ 0.000000e+00, %75 ], [ 0.000000e+00, %60 ], [ 1.000000e+00, %39 ], [ 1.000000e+00, %23 ], [ %.2.lcssa, %._crit_edge ]
+  %.0 = phi double [ %311, %.loopexit351 ], [ undef, %248 ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %135 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %.loopexit356 ], [ 0.000000e+00, %75 ], [ 0.000000e+00, %60 ], [ 1.000000e+00, %39 ], [ 1.000000e+00, %23 ], [ %.16, %._crit_edge688 ], [ %.14, %._crit_edge686 ], [ %.18, %._crit_edge684 ], [ %.11.lcssa, %._crit_edge411 ], [ %.8.lcssa, %._crit_edge397 ], [ %.5.lcssa, %._crit_edge383 ], [ %.2.lcssa, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

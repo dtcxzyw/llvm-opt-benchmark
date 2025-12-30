@@ -9883,8 +9883,8 @@ filter_mb_mbaff_edgev.exit313:                    ; preds = %1350, %1320, %filte
   br label %1354
 
 1354:                                             ; preds = %filter_mb_mbaff_edgev.exit313, %93, %9
-  %1355 = phi i32 [ %.pre505, %filter_mb_mbaff_edgev.exit313 ], [ %80, %9 ], [ %80, %93 ]
-  %1356 = phi i1 [ true, %filter_mb_mbaff_edgev.exit313 ], [ false, %9 ], [ false, %93 ]
+  %1355 = phi i32 [ %.pre505, %filter_mb_mbaff_edgev.exit313 ], [ %80, %93 ], [ %80, %9 ]
+  %1356 = phi i1 [ true, %filter_mb_mbaff_edgev.exit313 ], [ false, %93 ], [ false, %9 ]
   %1357 = and i32 %76, 128
   %.not = icmp eq i32 %1357, 0
   %1358 = select i1 %.not, i32 4, i32 2
@@ -12347,7 +12347,7 @@ define internal fastcc range(i32 0, 2) i32 @check_mv(ptr noundef readonly captur
   br label %109
 
 109:                                              ; preds = %32, %37, %.critedge, %67
-  %.091.shrunk = phi i1 [ true, %.critedge ], [ %108, %67 ], [ false, %37 ], [ %.0.in, %32 ]
+  %.091.shrunk = phi i1 [ %108, %67 ], [ true, %.critedge ], [ false, %37 ], [ %.0.in, %32 ]
   %.091 = zext i1 %.091.shrunk to i32
   ret i32 %.091
 }

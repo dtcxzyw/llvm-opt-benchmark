@@ -638,8 +638,8 @@ define dso_local ptr @dma_buf_dynamic_attach(ptr noundef %0, ptr noundef %1, ptr
   br label %.thread11
 
 .thread11:                                        ; preds = %64, %116, %107
-  %120 = phi ptr [ %110, %107 ], [ %.pre13, %116 ], [ %.pre14, %64 ]
-  %121 = phi i32 [ %109, %107 ], [ %109, %116 ], [ %68, %64 ]
+  %120 = phi ptr [ %.pre13, %116 ], [ %110, %107 ], [ %.pre14, %64 ]
+  %121 = phi i32 [ %109, %116 ], [ %109, %107 ], [ %68, %64 ]
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 120
   %123 = load ptr, ptr %122, align 8
   tail call void @ww_mutex_unlock(ptr noundef %123) #10
@@ -649,7 +649,7 @@ define dso_local ptr @dma_buf_dynamic_attach(ptr noundef %0, ptr noundef %1, ptr
   br label %126
 
 126:                                              ; preds = %.thread, %.thread11, %104, %36, %16, %15, %8
-  %127 = phi ptr [ inttoptr (i64 -22 to ptr), %8 ], [ inttoptr (i64 -22 to ptr), %15 ], [ %106, %104 ], [ %125, %.thread11 ], [ %18, %.thread ], [ %18, %36 ], [ inttoptr (i64 -12 to ptr), %16 ]
+  %127 = phi ptr [ inttoptr (i64 -22 to ptr), %8 ], [ inttoptr (i64 -22 to ptr), %15 ], [ %106, %104 ], [ %125, %.thread11 ], [ %18, %36 ], [ inttoptr (i64 -12 to ptr), %16 ], [ %18, %.thread ]
   ret ptr %127
 }
 
@@ -1466,7 +1466,7 @@ define dso_local i32 @dma_buf_vmap_unlocked(ptr noundef %0, ptr noundef captures
   br label %dma_buf_vmap.exit
 
 dma_buf_vmap.exit:                                ; preds = %18, %34, %43, %44
-  %45 = phi i32 [ 0, %34 ], [ 0, %44 ], [ %41, %43 ], [ -22, %18 ]
+  %45 = phi i32 [ 0, %34 ], [ 0, %44 ], [ -22, %18 ], [ %41, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %46 = load ptr, ptr %12, align 8
   tail call void @ww_mutex_unlock(ptr noundef %46) #10

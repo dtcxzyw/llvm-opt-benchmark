@@ -291,14 +291,14 @@ define hidden range(i32 0, 2) i32 @protohierstat_packet(ptr noundef %0, ptr noun
   br label %97
 
 97:                                               ; preds = %.loopexit, %89, %17, %.critedge, %12, %15, %32
-  %.1 = phi ptr [ %.05180, %12 ], [ %46, %32 ], [ %.05180, %17 ], [ %.05180, %.critedge ], [ %.05180, %15 ], [ %90, %89 ], [ %88, %.loopexit ]
+  %.1 = phi ptr [ %46, %32 ], [ %.05180, %.critedge ], [ %.05180, %15 ], [ %.05180, %12 ], [ %.05180, %17 ], [ %90, %89 ], [ %88, %.loopexit ]
   %98 = getelementptr inbounds nuw i8, ptr %.05279, i64 16
   %99 = load ptr, ptr %98, align 8
   %.not64 = icmp eq ptr %99, null
   br i1 %.not64, label %.loopexit75, label %12, !llvm.loop !10
 
 .loopexit75:                                      ; preds = %97, %9, %6, %5
-  %.0 = phi i32 [ 0, %9 ], [ 0, %6 ], [ 0, %5 ], [ 1, %97 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %9 ], [ 1, %97 ]
   ret i32 %.0
 }
 

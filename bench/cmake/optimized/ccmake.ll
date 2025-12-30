@@ -1630,7 +1630,7 @@ _ZNSolsEPFRSoS_E.exit171:                         ; preds = %.noexc217
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit153
 
 _ZNSt14_Function_baseD2Ev.exit160:                ; preds = %443, %440, %435, %432, %427, %424, %448
-  %.pn67 = phi { ptr, i32 } [ %449, %448 ], [ %433, %435 ], [ %425, %427 ], [ %425, %424 ], [ %433, %432 ], [ %441, %440 ], [ %441, %443 ]
+  %.pn67 = phi { ptr, i32 } [ %449, %448 ], [ %425, %424 ], [ %425, %427 ], [ %433, %432 ], [ %433, %435 ], [ %441, %440 ], [ %441, %443 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %509
 
@@ -1704,7 +1704,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %535
 
 529:                                              ; preds = %304, %509, %235, %246
-  %.pn74.pn = phi { ptr, i32 } [ %247, %246 ], [ %.pn70, %509 ], [ %lpad.loopexit, %235 ], [ %305, %304 ]
+  %.pn74.pn = phi { ptr, i32 } [ %247, %246 ], [ %lpad.loopexit, %235 ], [ %305, %304 ], [ %.pn70, %509 ]
   %530 = load ptr, ptr %13, align 8, !tbaa !4
   %531 = icmp eq ptr %530, %160
   br i1 %531, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i188
@@ -5624,7 +5624,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %51, %41, %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i2, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i2 ], [ %42, %41 ], [ %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14.i ], [ %21, %20 ], [ %52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4 ], [ %52, %51 ]
+  %common.resume.op = phi { ptr, i32 } [ %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14.i ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i2 ], [ %52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4 ], [ %21, %20 ], [ %42, %41 ], [ %52, %51 ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.4.exit:                     ; preds = %__cxx_global_var_init.1.exit

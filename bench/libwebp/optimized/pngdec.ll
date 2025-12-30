@@ -574,7 +574,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
   br label %.loopexit48.sink.split
 
 .loopexit:                                        ; preds = %18, %31, %28
-  %42 = phi ptr [ %.pre58, %28 ], [ %.pre59, %31 ], [ %15, %18 ]
+  %42 = phi ptr [ %.pre59, %31 ], [ %.pre58, %28 ], [ %15, %18 ]
   %43 = add nuw i32 %.03553, 1
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 56
   store ptr %44, ptr %5, align 8, !tbaa !34
@@ -773,7 +773,7 @@ select.unfold.i:                                  ; preds = %39, %37
   call void @free(ptr noundef %31) #15
   br label %HexStringToBytes.exit.thread
 
-HexStringToBytes.exit.thread:                     ; preds = %28, %50
+HexStringToBytes.exit.thread:                     ; preds = %50, %28
   store ptr null, ptr %2, align 8, !tbaa !42
   br label %52
 
@@ -784,7 +784,7 @@ HexStringToBytes.exit:                            ; preds = %.critedge.i
   br label %52
 
 52:                                               ; preds = %HexStringToBytes.exit.thread, %3, %HexStringToBytes.exit, %24, %11
-  %.0 = phi i32 [ 1, %HexStringToBytes.exit ], [ 0, %11 ], [ 0, %24 ], [ 0, %3 ], [ 0, %HexStringToBytes.exit.thread ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %24 ], [ 1, %HexStringToBytes.exit ], [ 0, %3 ], [ 0, %HexStringToBytes.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

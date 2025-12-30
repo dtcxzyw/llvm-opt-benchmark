@@ -241,7 +241,7 @@ _ZL11ChompStrlenPKc.exit.i.us:                    ; preds = %47, %42
   br label %55
 
 55:                                               ; preds = %54, %53, %51
-  %.0.i.us = phi i32 [ 12, %53 ], [ 10, %54 ], [ 8, %51 ]
+  %.0.i.us = phi i32 [ 10, %54 ], [ 12, %53 ], [ 8, %51 ]
   %56 = add nsw i32 %.1.i.i.us, -2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %29, align 1, !tbaa !4
@@ -423,7 +423,7 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge:
   br label %.split54.us, !llvm.loop !9
 
 .split54.us:                                      ; preds = %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread82, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread76, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge, %.split.us55, %.split.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us..split54.us_crit_edge
-  %.us-phi = phi i1 [ true, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread76 ], [ false, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us..split54.us_crit_edge ], [ false, %.split.us ], [ false, %.split.us55 ], [ false, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge ], [ true, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread82 ]
+  %.us-phi = phi i1 [ false, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us..split54.us_crit_edge ], [ false, %.split.us ], [ false, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge ], [ false, %.split.us55 ], [ true, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread76 ], [ true, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread82 ]
   %114 = call i32 @fclose(ptr noundef nonnull %13)
   %115 = call i32 @fclose(ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

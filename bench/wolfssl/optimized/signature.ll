@@ -28,7 +28,7 @@ define i32 @wc_SignatureGetSize(i32 noundef %0, ptr noundef %1, i32 noundef %2) 
   br label %12
 
 12:                                               ; preds = %3, %10, %8, %6, %4
-  %.0 = phi i32 [ -173, %8 ], [ %7, %6 ], [ -173, %4 ], [ %11, %10 ], [ -173, %3 ]
+  %.0 = phi i32 [ %7, %6 ], [ -173, %4 ], [ %11, %10 ], [ -173, %8 ], [ -173, %3 ]
   ret i32 %.0
 }
 
@@ -78,7 +78,7 @@ define i32 @wc_SignatureVerifyHash(i32 noundef %0, i32 noundef %1, ptr noundef %
   br label %wc_SignatureGetSize.exit
 
 wc_SignatureGetSize.exit:                         ; preds = %18, %19, %21, %23, %25
-  %.0.i = phi i32 [ -173, %23 ], [ %22, %21 ], [ -173, %19 ], [ %26, %25 ], [ -173, %18 ]
+  %.0.i = phi i32 [ %22, %21 ], [ -173, %19 ], [ %26, %25 ], [ -173, %23 ], [ -173, %18 ]
   %27 = icmp sgt i32 %5, %.0.i
   br i1 %27, label %66, label %28
 
@@ -172,7 +172,7 @@ wc_SignatureGetSize.exit:                         ; preds = %18, %19, %21, %23, 
   br label %64
 
 64:                                               ; preds = %60, %63, %54
-  %.5 = phi i32 [ %.4, %54 ], [ -229, %63 ], [ 0, %60 ]
+  %.5 = phi i32 [ -229, %63 ], [ %.4, %54 ], [ 0, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %65
 
@@ -182,7 +182,7 @@ wc_SignatureGetSize.exit:                         ; preds = %18, %19, %21, %23, 
   br label %66
 
 66:                                               ; preds = %39, %65, %31, %28, %wc_SignatureGetSize.exit, %8
-  %.055 = phi i32 [ %29, %28 ], [ -173, %8 ], [ -173, %wc_SignatureGetSize.exit ], [ %.6, %65 ], [ %spec.store.select, %39 ], [ -173, %31 ]
+  %.055 = phi i32 [ -173, %8 ], [ -173, %wc_SignatureGetSize.exit ], [ %29, %28 ], [ %spec.store.select, %39 ], [ %.6, %65 ], [ -173, %31 ]
   ret i32 %.055
 }
 
@@ -239,7 +239,7 @@ define i32 @wc_SignatureVerify(i32 noundef %0, i32 noundef %1, ptr noundef %2, i
   br label %wc_SignatureGetSize.exit
 
 wc_SignatureGetSize.exit:                         ; preds = %16, %17, %19, %21, %23
-  %.0.i = phi i32 [ -173, %21 ], [ %20, %19 ], [ -173, %17 ], [ %24, %23 ], [ -173, %16 ]
+  %.0.i = phi i32 [ %20, %19 ], [ -173, %17 ], [ %24, %23 ], [ -173, %21 ], [ -173, %16 ]
   %25 = icmp sgt i32 %5, %.0.i
   br i1 %25, label %wc_SignatureDerEncode.exit.thread55, label %26
 
@@ -278,7 +278,7 @@ wc_SignatureDerEncode.exit.thread:                ; preds = %38, %33, %wc_Signat
   br label %wc_SignatureDerEncode.exit.thread55
 
 wc_SignatureDerEncode.exit.thread55:              ; preds = %35, %29, %wc_SignatureDerEncode.exit.thread, %wc_SignatureDerEncode.exit, %26, %wc_SignatureGetSize.exit, %8
-  %.0 = phi i32 [ %27, %26 ], [ -173, %8 ], [ -173, %wc_SignatureGetSize.exit ], [ %42, %wc_SignatureDerEncode.exit.thread ], [ %39, %wc_SignatureDerEncode.exit ], [ %31, %29 ], [ %36, %35 ]
+  %.0 = phi i32 [ -173, %8 ], [ -173, %wc_SignatureGetSize.exit ], [ %27, %26 ], [ %42, %wc_SignatureDerEncode.exit.thread ], [ %39, %wc_SignatureDerEncode.exit ], [ %31, %29 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -355,7 +355,7 @@ define i32 @wc_SignatureGenerateHash_ex(i32 noundef %0, i32 noundef %1, ptr noun
   br label %wc_SignatureGetSize.exit
 
 wc_SignatureGetSize.exit:                         ; preds = %20, %21, %23, %25, %27
-  %.0.i = phi i32 [ -173, %25 ], [ %24, %23 ], [ -173, %21 ], [ %28, %27 ], [ -173, %20 ]
+  %.0.i = phi i32 [ %24, %23 ], [ -173, %21 ], [ %28, %27 ], [ -173, %25 ], [ -173, %20 ]
   %29 = icmp slt i32 %16, %.0.i
   br i1 %29, label %.thread, label %30
 
@@ -424,7 +424,7 @@ wc_SignatureGetSize.exit:                         ; preds = %20, %21, %23, %25, 
   br label %.thread
 
 .thread:                                          ; preds = %33, %46, %.loopexit, %51, %30, %wc_SignatureGetSize.exit, %10, %15
-  %.056 = phi i32 [ %31, %30 ], [ -173, %10 ], [ -173, %wc_SignatureGetSize.exit ], [ -173, %15 ], [ %53, %51 ], [ %.2, %.loopexit ], [ -173, %33 ], [ %.4, %46 ]
+  %.056 = phi i32 [ -173, %15 ], [ -173, %10 ], [ -173, %wc_SignatureGetSize.exit ], [ %31, %30 ], [ %53, %51 ], [ %.2, %.loopexit ], [ -173, %33 ], [ %.4, %46 ]
   ret i32 %.056
 }
 
@@ -486,7 +486,7 @@ define i32 @wc_SignatureGenerate_ex(i32 noundef %0, i32 noundef %1, ptr noundef 
   br label %wc_SignatureGetSize.exit
 
 wc_SignatureGetSize.exit:                         ; preds = %22, %23, %25, %27, %29
-  %.0.i = phi i32 [ -173, %27 ], [ %26, %25 ], [ -173, %23 ], [ %30, %29 ], [ -173, %22 ]
+  %.0.i = phi i32 [ %26, %25 ], [ -173, %23 ], [ %30, %29 ], [ -173, %27 ], [ -173, %22 ]
   %31 = icmp slt i32 %18, %.0.i
   br i1 %31, label %46, label %32
 
@@ -522,7 +522,7 @@ wc_SignatureGetSize.exit:                         ; preds = %22, %23, %25, %27, 
   br label %46
 
 46:                                               ; preds = %35, %.thread, %41, %32, %wc_SignatureGetSize.exit, %10, %17
-  %.0 = phi i32 [ %33, %32 ], [ -173, %10 ], [ -173, %wc_SignatureGetSize.exit ], [ -173, %17 ], [ %45, %.thread ], [ %42, %41 ], [ %38, %35 ]
+  %.0 = phi i32 [ -173, %17 ], [ -173, %10 ], [ -173, %wc_SignatureGetSize.exit ], [ %33, %32 ], [ %45, %.thread ], [ %42, %41 ], [ %38, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0

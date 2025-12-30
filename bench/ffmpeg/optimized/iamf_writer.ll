@@ -412,7 +412,7 @@ populate_audio_roll_distance.exit.i:              ; preds = %.sink.split.i.i, %1
   br label %fill_codec_config.exit.thread
 
 fill_codec_config.exit:                           ; preds = %150, %165
-  %.059.i = phi i32 [ %166, %165 ], [ %151, %150 ]
+  %.059.i = phi i32 [ %151, %150 ], [ %166, %165 ]
   %172 = icmp slt i32 %.059.i, 0
   br i1 %172, label %fill_codec_config.exit.thread, label %173
 
@@ -672,7 +672,7 @@ ff_iamf_get_param_definition.exit.thread:         ; preds = %264
   %291 = icmp slt i32 %290, 0
   br i1 %291, label %.thread265, label %.thread276
 
-.thread276:                                       ; preds = %288, %.thread405, %._crit_edge324
+.thread276:                                       ; preds = %.thread405, %288, %._crit_edge324
   %292 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %293 = load ptr, ptr %292, align 8, !tbaa !113
   %.not218 = icmp eq ptr %293, null
@@ -736,7 +736,7 @@ ff_iamf_get_param_definition.exit245.thread:      ; preds = %294
   %321 = icmp slt i32 %320, 0
   br i1 %321, label %.thread265, label %.thread281
 
-.thread281:                                       ; preds = %318, %.thread410, %.thread276
+.thread281:                                       ; preds = %.thread410, %318, %.thread276
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %323 = load ptr, ptr %322, align 8, !tbaa !57
   %324 = load i32, ptr %71, align 8, !tbaa !51
@@ -757,12 +757,12 @@ ff_iamf_get_param_definition.exit245.thread:      ; preds = %294
   br label %.thread
 
 .thread265:                                       ; preds = %.thread410, %.thread405, %.thread262, %243, %315, %285, %257, %.thread281, %186, %175
-  %.0150 = phi i32 [ -12, %186 ], [ -22, %.thread262 ], [ -12, %.thread281 ], [ -22, %257 ], [ %290, %.thread405 ], [ -12, %175 ], [ -22, %285 ], [ -22, %315 ], [ -22, %243 ], [ %320, %.thread410 ]
+  %.0150 = phi i32 [ -22, %257 ], [ -12, %175 ], [ -12, %186 ], [ -12, %.thread281 ], [ -22, %285 ], [ -22, %315 ], [ -22, %243 ], [ -22, %.thread262 ], [ %290, %.thread405 ], [ %320, %.thread410 ]
   call void @ff_iamf_free_audio_element(ptr noundef nonnull %4) #9
   br label %.thread
 
 .thread:                                          ; preds = %50, %40, %34, %29, %.thread250, %.critedge223, %173, %._crit_edge, %3, %.thread265, %328, %fill_codec_config.exit.thread, %11
-  %.0 = phi i32 [ -22, %11 ], [ %.059.i253, %fill_codec_config.exit.thread ], [ -22, %3 ], [ -22, %.thread250 ], [ -12, %173 ], [ -22, %.critedge223 ], [ 0, %328 ], [ %.0150, %.thread265 ], [ -12, %._crit_edge ], [ -22, %50 ], [ -1163346256, %40 ], [ -22, %34 ], [ -22, %29 ]
+  %.0 = phi i32 [ %.059.i253, %fill_codec_config.exit.thread ], [ 0, %328 ], [ %.0150, %.thread265 ], [ -22, %.critedge223 ], [ -22, %11 ], [ -22, %3 ], [ -12, %._crit_edge ], [ -12, %173 ], [ -22, %.thread250 ], [ -22, %50 ], [ -1163346256, %40 ], [ -22, %34 ], [ -22, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -901,7 +901,7 @@ define internal fastcc range(i32 -22, 1) i32 @add_param_definition(ptr noundef c
   br label %70
 
 70:                                               ; preds = %.thread53, %4, %58, %.thread50
-  %.035 = phi i32 [ 0, %58 ], [ -12, %4 ], [ -22, %.thread50 ], [ -12, %.thread53 ]
+  %.035 = phi i32 [ 0, %58 ], [ -22, %.thread50 ], [ -12, %4 ], [ -12, %.thread53 ]
   ret i32 %.035
 }
 
@@ -1220,12 +1220,12 @@ ff_iamf_get_param_definition.exit95:              ; preds = %.loopexit, %ff_iamf
   br label %158
 
 add_param_definition.exit.thread:                 ; preds = %.thread53.i, %.loopexit129, %.thread53.i98, %.loopexit128, %.thread50.i101, %99, %.thread50.i, %48, %._crit_edge
-  %.8 = phi i32 [ -12, %._crit_edge ], [ -22, %.thread50.i101 ], [ -22, %48 ], [ -12, %.thread53.i98 ], [ -22, %.thread50.i ], [ -22, %99 ], [ -12, %.loopexit128 ], [ -12, %.loopexit129 ], [ -12, %.thread53.i ]
+  %.8 = phi i32 [ -12, %._crit_edge ], [ -22, %48 ], [ -22, %.thread50.i ], [ -22, %99 ], [ -22, %.thread50.i101 ], [ -12, %.loopexit128 ], [ -12, %.thread53.i98 ], [ -12, %.loopexit129 ], [ -12, %.thread53.i ]
   call void @ff_iamf_free_mix_presentation(ptr noundef nonnull %4) #9
   br label %158
 
 158:                                              ; preds = %27, %.critedge, %3, %add_param_definition.exit.thread, %153, %16
-  %.0 = phi i32 [ -22, %16 ], [ -12, %.critedge ], [ 0, %153 ], [ %.8, %add_param_definition.exit.thread ], [ -22, %3 ], [ -22, %27 ]
+  %.0 = phi i32 [ 0, %153 ], [ %.8, %add_param_definition.exit.thread ], [ -22, %27 ], [ -22, %16 ], [ -22, %3 ], [ -12, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1880,10 +1880,10 @@ scalable_channel_layout_config.exit.i:            ; preds = %flush_put_bits.exit
   br i1 %334, label %328, label %.loopexit78, !llvm.loop !165
 
 .thread73.sink.split:                             ; preds = %208, %169
-  %.str.16.sink = phi ptr [ @.str.16, %169 ], [ @.str.17, %208 ]
+  %.str.17.sink = phi ptr [ @.str.16, %169 ], [ @.str.17, %208 ]
   %335 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %336 = load i32, ptr %335, align 8, !tbaa !61
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2, i32 noundef 16, ptr noundef nonnull %.str.16.sink, i32 noundef %336) #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2, i32 noundef 16, ptr noundef nonnull %.str.17.sink, i32 noundef %336) #9
   br label %.thread73
 
 .thread73:                                        ; preds = %109, %.thread73.sink.split
@@ -2455,8 +2455,8 @@ flush_put_bits.exit200.i:                         ; preds = %put_bits.exit198.i,
   %.not161.i = icmp samesign ult i64 %indvars.iv.next375.i, %630
   br i1 %.not161.i, label %379, label %.loopexit, !llvm.loop !200
 
-iamf_write_mixing_presentation.exit.thread:       ; preds = %342, %.thread309.i, %628, %.thread288.i
-  %.0.i62.ph = phi i32 [ -22, %.thread288.i ], [ -22, %628 ], [ -22, %.thread309.i ], [ %347, %342 ]
+iamf_write_mixing_presentation.exit.thread:       ; preds = %342, %.thread309.i, %.thread288.i, %628
+  %.0.i62.ph = phi i32 [ -22, %628 ], [ -22, %.thread288.i ], [ -22, %.thread309.i ], [ %347, %342 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2912,7 +2912,7 @@ av_iamf_param_definition_get_subblock.exit:       ; preds = %av_iamf_param_defin
   br label %193
 
 193:                                              ; preds = %188, %36, %.critedge123, %35, %29, %27
-  %.096 = phi i32 [ 0, %27 ], [ -22, %35 ], [ -22, %29 ], [ 0, %.critedge123 ], [ -22, %188 ], [ %37, %36 ]
+  %.096 = phi i32 [ 0, %27 ], [ -22, %35 ], [ 0, %.critedge123 ], [ -22, %188 ], [ -22, %29 ], [ %37, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3154,7 +3154,7 @@ flush_put_bits.exit:                              ; preds = %86
   br label %get_audio_element.exit.thread
 
 get_audio_element.exit.thread:                    ; preds = %._crit_edge.i, %27, %4, %86, %ff_iamf_get_codec_config.exit, %get_audio_element.exit, %106, %56
-  %.0 = phi i32 [ -22, %ff_iamf_get_codec_config.exit ], [ 0, %106 ], [ %.1, %56 ], [ -22, %get_audio_element.exit ], [ %87, %86 ], [ -22, %27 ], [ -22, %4 ], [ -22, %._crit_edge.i ]
+  %.0 = phi i32 [ 0, %106 ], [ %.1, %56 ], [ -22, %get_audio_element.exit ], [ -22, %ff_iamf_get_codec_config.exit ], [ %87, %86 ], [ -22, %4 ], [ -22, %27 ], [ -22, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3307,7 +3307,7 @@ flush_put_bits.exit:                              ; preds = %30
   br label %.critedge
 
 .critedge:                                        ; preds = %30, %7, %1, %flush_put_bits.exit, %4
-  %.021 = phi i32 [ -1094995529, %4 ], [ 0, %7 ], [ 0, %flush_put_bits.exit ], [ 0, %1 ], [ -1094995529, %30 ]
+  %.021 = phi i32 [ -1094995529, %4 ], [ 0, %flush_put_bits.exit ], [ 0, %1 ], [ 0, %7 ], [ -1094995529, %30 ]
   ret i32 %.021
 }
 

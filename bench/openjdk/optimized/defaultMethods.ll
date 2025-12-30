@@ -776,8 +776,8 @@ _ZN13GrowableArrayIP15EmptyVtableSlotE8allocateEv.exit.i: ; preds = %.loopexit12
   br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i100, !llvm.loop !10
 
 _ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; preds = %.loopexit120.i, %.lr.ph19.preheader.i, %.preheader16.i
-  %.sroa.27.12 = phi i32 [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.sroa.27.11, %.loopexit120.i ]
-  %.sroa.42.12 = phi ptr [ %184, %.preheader16.i ], [ %184, %.lr.ph19.preheader.i ], [ %.sroa.42.11, %.loopexit120.i ]
+  %.sroa.27.12 = phi i32 [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.sroa.27.11, %.loopexit120.i ]
+  %.sroa.42.12 = phi ptr [ %184, %.lr.ph19.preheader.i ], [ %184, %.preheader16.i ], [ %.sroa.42.11, %.loopexit120.i ]
   %197 = sext i32 %.sroa.0219.9 to i64
   %198 = getelementptr inbounds ptr, ptr %.sroa.42.12, i64 %197
   store ptr %149, ptr %198, align 8
@@ -989,17 +989,17 @@ _ZN13GrowableArrayIP15EmptyVtableSlotE8allocateEv.exit.i.i: ; preds = %267
   br i1 %exitcond292.not, label %.preheader16.i.i, label %.lr.ph.i80.i, !llvm.loop !10
 
 _ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit67.i: ; preds = %267, %.lr.ph19.preheader.i.i, %.preheader16.i.i
-  %.sroa.27.9 = phi i32 [ %.0.i.i.i.i65.i, %.preheader16.i.i ], [ %.0.i.i.i.i65.i, %.lr.ph19.preheader.i.i ], [ %.sroa.27.8, %267 ]
-  %.sroa.42.9 = phi ptr [ %302, %.preheader16.i.i ], [ %302, %.lr.ph19.preheader.i.i ], [ %.sroa.42.8, %267 ]
+  %.sroa.27.9 = phi i32 [ %.0.i.i.i.i65.i, %.lr.ph19.preheader.i.i ], [ %.0.i.i.i.i65.i, %.preheader16.i.i ], [ %.sroa.27.8, %267 ]
+  %.sroa.42.9 = phi ptr [ %302, %.lr.ph19.preheader.i.i ], [ %302, %.preheader16.i.i ], [ %.sroa.42.8, %267 ]
   %315 = sext i32 %.sroa.0219.7 to i64
   %316 = getelementptr inbounds ptr, ptr %.sroa.42.9, i64 %315
   store ptr %268, ptr %316, align 8
   br label %_ZL23already_in_vtable_slotsP13GrowableArrayIP15EmptyVtableSlotEP6Method.exit62.i
 
 _ZL23already_in_vtable_slotsP13GrowableArrayIP15EmptyVtableSlotEP6Method.exit62.i: ; preds = %238, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit67.i, %264, %219
-  %.sroa.0219.8 = phi i32 [ %.sroa.0219.7, %219 ], [ %.sroa.0219.7, %264 ], [ %295, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit67.i ], [ %.sroa.0219.7, %238 ]
-  %.sroa.27.10 = phi i32 [ %.sroa.27.8, %219 ], [ %.sroa.27.8, %264 ], [ %.sroa.27.9, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit67.i ], [ %.sroa.27.8, %238 ]
-  %.sroa.42.10 = phi ptr [ %.sroa.42.8, %219 ], [ %.sroa.42.8, %264 ], [ %.sroa.42.9, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit67.i ], [ %.sroa.42.8, %238 ]
+  %.sroa.0219.8 = phi i32 [ %.sroa.0219.7, %219 ], [ %295, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit67.i ], [ %.sroa.0219.7, %264 ], [ %.sroa.0219.7, %238 ]
+  %.sroa.27.10 = phi i32 [ %.sroa.27.8, %219 ], [ %.sroa.27.9, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit67.i ], [ %.sroa.27.8, %264 ], [ %.sroa.27.8, %238 ]
+  %.sroa.42.10 = phi ptr [ %.sroa.42.8, %219 ], [ %.sroa.42.9, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit67.i ], [ %.sroa.42.8, %264 ], [ %.sroa.42.8, %238 ]
   %indvars.iv.next136.i = add nuw nsw i64 %indvars.iv135.i, 1
   %317 = load ptr, ptr %206, align 8
   %318 = load i32, ptr %317, align 8
@@ -1181,17 +1181,17 @@ _ZN13GrowableArrayIP15EmptyVtableSlotE8allocateEv.exit.i84.i: ; preds = %376
   br i1 %exitcond294.not, label %.preheader16.i86.i, label %.lr.ph.i95.i, !llvm.loop !10
 
 _ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit79.i: ; preds = %376, %.lr.ph19.preheader.i91.i, %.preheader16.i86.i
-  %.sroa.27.6 = phi i32 [ %.0.i.i.i.i77.i, %.preheader16.i86.i ], [ %.0.i.i.i.i77.i, %.lr.ph19.preheader.i91.i ], [ %.sroa.27.5, %376 ]
-  %.sroa.42.6 = phi ptr [ %411, %.preheader16.i86.i ], [ %411, %.lr.ph19.preheader.i91.i ], [ %.sroa.42.5, %376 ]
+  %.sroa.27.6 = phi i32 [ %.0.i.i.i.i77.i, %.lr.ph19.preheader.i91.i ], [ %.0.i.i.i.i77.i, %.preheader16.i86.i ], [ %.sroa.27.5, %376 ]
+  %.sroa.42.6 = phi ptr [ %411, %.lr.ph19.preheader.i91.i ], [ %411, %.preheader16.i86.i ], [ %.sroa.42.5, %376 ]
   %424 = sext i32 %.sroa.0219.5 to i64
   %425 = getelementptr inbounds ptr, ptr %.sroa.42.6, i64 %424
   store ptr %377, ptr %425, align 8
   br label %_ZL23already_in_vtable_slotsP13GrowableArrayIP15EmptyVtableSlotEP6Method.exit74.i
 
 _ZL23already_in_vtable_slotsP13GrowableArrayIP15EmptyVtableSlotEP6Method.exit74.i: ; preds = %346, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit79.i, %373
-  %.sroa.0219.6 = phi i32 [ %.sroa.0219.5, %373 ], [ %404, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit79.i ], [ %.sroa.0219.5, %346 ]
-  %.sroa.27.7 = phi i32 [ %.sroa.27.5, %373 ], [ %.sroa.27.6, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit79.i ], [ %.sroa.27.5, %346 ]
-  %.sroa.42.7 = phi ptr [ %.sroa.42.5, %373 ], [ %.sroa.42.6, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit79.i ], [ %.sroa.42.5, %346 ]
+  %.sroa.0219.6 = phi i32 [ %404, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit79.i ], [ %.sroa.0219.5, %373 ], [ %.sroa.0219.5, %346 ]
+  %.sroa.27.7 = phi i32 [ %.sroa.27.6, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit79.i ], [ %.sroa.27.5, %373 ], [ %.sroa.27.5, %346 ]
+  %.sroa.42.7 = phi ptr [ %.sroa.42.6, %_ZN26GrowableArrayWithAllocatorIP15EmptyVtableSlot13GrowableArrayIS1_EE6appendERKS1_.exit79.i ], [ %.sroa.42.5, %373 ], [ %.sroa.42.5, %346 ]
   %indvars.iv.next139.i = add nuw nsw i64 %indvars.iv138.i, 1
   %426 = load ptr, ptr %321, align 8
   %427 = load i32, ptr %426, align 8
@@ -1924,14 +1924,14 @@ _ZN26GrowableArrayWithAllocatorIP6Method13GrowableArrayIS1_EE4pushERKS1_.exit51.
   br label %755
 
 755:                                              ; preds = %.sink.split.i, %650, %616, %569
-  %.sroa.0124.1.i = phi i32 [ %.sroa.0124.0196.i, %650 ], [ %.sroa.0124.0196.i, %616 ], [ %.sroa.0124.0196.i, %569 ], [ %.sroa.0124.1.ph.i, %.sink.split.i ]
-  %.sroa.11132.1.i = phi i32 [ %.sroa.11132.0198.i, %650 ], [ %.sroa.11132.0198.i, %616 ], [ %.sroa.11132.0198.i, %569 ], [ %.sroa.11132.1.ph.i, %.sink.split.i ]
-  %.sroa.18.1.i = phi ptr [ %.sroa.18.0199.i, %650 ], [ %.sroa.18.0199.i, %616 ], [ %.sroa.18.0199.i, %569 ], [ %.sroa.18.1.ph.i, %.sink.split.i ]
-  %.sroa.0144.1.i = phi i32 [ %.sroa.0144.0200.i, %650 ], [ %.sroa.0144.0200.i, %616 ], [ %.sroa.0144.0200.i, %569 ], [ %.sroa.0144.1.ph.i, %.sink.split.i ]
-  %.sroa.17.1.i = phi i32 [ %.sroa.17.0202.i, %650 ], [ %.sroa.17.0202.i, %616 ], [ %.sroa.17.0202.i, %569 ], [ %.sroa.17.1.ph.i, %.sink.split.i ]
-  %.sroa.24.1.i = phi ptr [ %.sroa.24.0203.i, %650 ], [ %.sroa.24.0203.i, %616 ], [ %.sroa.24.0203.i, %569 ], [ %.sroa.24.1.ph.i, %.sink.split.i ]
-  %.246.i = phi ptr [ %.044205.i, %650 ], [ %.044205.i, %616 ], [ %.044205.i, %569 ], [ %.246.ph.i, %.sink.split.i ]
-  %.2.i = phi ptr [ %.0206.i, %650 ], [ %.0206.i, %616 ], [ %.0206.i, %569 ], [ %.2.ph.i, %.sink.split.i ]
+  %.sroa.0124.1.i = phi i32 [ %.sroa.0124.0196.i, %616 ], [ %.sroa.0124.0196.i, %650 ], [ %.sroa.0124.0196.i, %569 ], [ %.sroa.0124.1.ph.i, %.sink.split.i ]
+  %.sroa.11132.1.i = phi i32 [ %.sroa.11132.0198.i, %616 ], [ %.sroa.11132.0198.i, %650 ], [ %.sroa.11132.0198.i, %569 ], [ %.sroa.11132.1.ph.i, %.sink.split.i ]
+  %.sroa.18.1.i = phi ptr [ %.sroa.18.0199.i, %616 ], [ %.sroa.18.0199.i, %650 ], [ %.sroa.18.0199.i, %569 ], [ %.sroa.18.1.ph.i, %.sink.split.i ]
+  %.sroa.0144.1.i = phi i32 [ %.sroa.0144.0200.i, %616 ], [ %.sroa.0144.0200.i, %650 ], [ %.sroa.0144.0200.i, %569 ], [ %.sroa.0144.1.ph.i, %.sink.split.i ]
+  %.sroa.17.1.i = phi i32 [ %.sroa.17.0202.i, %616 ], [ %.sroa.17.0202.i, %650 ], [ %.sroa.17.0202.i, %569 ], [ %.sroa.17.1.ph.i, %.sink.split.i ]
+  %.sroa.24.1.i = phi ptr [ %.sroa.24.0203.i, %616 ], [ %.sroa.24.0203.i, %650 ], [ %.sroa.24.0203.i, %569 ], [ %.sroa.24.1.ph.i, %.sink.split.i ]
+  %.246.i = phi ptr [ %.044205.i, %616 ], [ %.044205.i, %650 ], [ %.044205.i, %569 ], [ %.246.ph.i, %.sink.split.i ]
+  %.2.i = phi ptr [ %.0206.i, %616 ], [ %.0206.i, %650 ], [ %.0206.i, %569 ], [ %.2.ph.i, %.sink.split.i ]
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond299.not = icmp eq i64 %indvars.iv.next.i49, %wide.trip.count
   br i1 %exitcond299.not, label %._crit_edge.i31, label %569, !llvm.loop !20
@@ -2421,7 +2421,7 @@ _ZL30create_defaults_and_exceptionsP13GrowableArrayIP15EmptyVtableSlotEP13Instan
   br label %_ZL30create_defaults_and_exceptionsP13GrowableArrayIP15EmptyVtableSlotEP13InstanceKlassP10JavaThread.exit
 
 _ZL30create_defaults_and_exceptionsP13GrowableArrayIP15EmptyVtableSlotEP13InstanceKlassP10JavaThread.exit: ; preds = %675, %_ZL10new_methodP20BytecodeConstantPoolP14BytecodeBufferP6SymbolS4_11AccessFlagsiiN11ConstMethod10MethodTypeEP10JavaThread.exit.i, %_ZL30create_defaults_and_exceptionsP13GrowableArrayIP15EmptyVtableSlotEP13InstanceKlassP10JavaThread.exitthread-pre-split, %763, %_ZL24switchover_constant_poolP20BytecodeConstantPoolP13InstanceKlassP13GrowableArrayIP6MethodEP10JavaThread.exit.i, %_ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i.i, %.lr.ph.i.i.i, %_ZN15MetadataFactory9new_arrayIiEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i, %_ZL20merge_in_new_methodsP13InstanceKlassP13GrowableArrayIP6MethodEP10JavaThread.exit.i, %_ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i59.i, %.lr.ph.i.i62.i
-  %987 = phi ptr [ %.pr, %_ZL30create_defaults_and_exceptionsP13GrowableArrayIP15EmptyVtableSlotEP13InstanceKlassP10JavaThread.exitthread-pre-split ], [ %978, %_ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i59.i ], [ %.pr.i63.i, %.lr.ph.i.i62.i ], [ %765, %763 ], [ %.pr232.i.pr, %_ZL24switchover_constant_poolP20BytecodeConstantPoolP13InstanceKlassP13GrowableArrayIP6MethodEP10JavaThread.exit.i ], [ %822, %_ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i.i ], [ %.pr.i.i, %.lr.ph.i.i.i ], [ %844, %_ZN15MetadataFactory9new_arrayIiEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i ], [ %.pr174.i, %_ZL20merge_in_new_methodsP13InstanceKlassP13GrowableArrayIP6MethodEP10JavaThread.exit.i ], [ %.pr.i, %_ZL10new_methodP20BytecodeConstantPoolP14BytecodeBufferP6SymbolS4_11AccessFlagsiiN11ConstMethod10MethodTypeEP10JavaThread.exit.i ], [ %680, %675 ]
+  %987 = phi ptr [ %.pr, %_ZL30create_defaults_and_exceptionsP13GrowableArrayIP15EmptyVtableSlotEP13InstanceKlassP10JavaThread.exitthread-pre-split ], [ %765, %763 ], [ %.pr232.i.pr, %_ZL24switchover_constant_poolP20BytecodeConstantPoolP13InstanceKlassP13GrowableArrayIP6MethodEP10JavaThread.exit.i ], [ %822, %_ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i.i ], [ %.pr.i.i, %.lr.ph.i.i.i ], [ %844, %_ZN15MetadataFactory9new_arrayIiEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i ], [ %.pr174.i, %_ZL20merge_in_new_methodsP13InstanceKlassP13GrowableArrayIP6MethodEP10JavaThread.exit.i ], [ %978, %_ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i59.i ], [ %.pr.i63.i, %.lr.ph.i.i62.i ], [ %.pr.i, %_ZL10new_methodP20BytecodeConstantPoolP14BytecodeBufferP6SymbolS4_11AccessFlagsiiN11ConstMethod10MethodTypeEP10JavaThread.exit.i ], [ %680, %675 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not288 = icmp eq ptr %987, null
   %988 = load i64, ptr %491, align 8
@@ -3567,8 +3567,8 @@ _ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit.
   br label %_ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit
 
 _ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit: ; preds = %_ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit.sink.split, %45, %36, %33, %29
-  %.sink19 = phi ptr [ %42, %45 ], [ %30, %29 ], [ %30, %33 ], [ %42, %36 ], [ %.sink19.ph, %_ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit.sink.split ]
-  %.sink = phi i8 [ 0, %45 ], [ 1, %29 ], [ 0, %33 ], [ 1, %36 ], [ %52, %_ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit.sink.split ]
+  %.sink19 = phi ptr [ %30, %29 ], [ %30, %33 ], [ %42, %36 ], [ %42, %45 ], [ %.sink19.ph, %_ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit.sink.split ]
+  %.sink = phi i8 [ 1, %29 ], [ 0, %33 ], [ 1, %36 ], [ 0, %45 ], [ %52, %_ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit.sink.split ]
   store ptr %1, ptr %.sink19, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
   store i8 %.sink, ptr %53, align 8
@@ -4106,8 +4106,8 @@ _ZN13GrowableArrayIP6MethodE8allocateEv.exit.i:   ; preds = %17
   br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i, !llvm.loop !18
 
 _ZN26GrowableArrayWithAllocatorIP6Method13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %17, %.lr.ph19.preheader.i, %.preheader16.i
-  %.sroa.16.2 = phi ptr [ %26, %.preheader16.i ], [ %26, %.lr.ph19.preheader.i ], [ %.sroa.16.030, %17 ]
-  %.sroa.9.2 = phi i32 [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.sroa.9.031, %17 ]
+  %.sroa.16.2 = phi ptr [ %26, %.lr.ph19.preheader.i ], [ %26, %.preheader16.i ], [ %.sroa.16.030, %17 ]
+  %.sroa.9.2 = phi i32 [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.sroa.9.031, %17 ]
   %40 = load ptr, ptr %13, align 8
   %41 = sext i32 %.sroa.0.032 to i64
   %42 = getelementptr inbounds ptr, ptr %.sroa.16.2, i64 %41
@@ -4391,8 +4391,8 @@ _ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit.sink.s
   br label %_ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit
 
 _ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit: ; preds = %_ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit.sink.split, %27, %18, %15, %11
-  %.sink18 = phi ptr [ %24, %27 ], [ %12, %11 ], [ %12, %15 ], [ %24, %18 ], [ %.sink18.ph, %_ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit.sink.split ]
-  %.sink = phi i8 [ 0, %27 ], [ 1, %11 ], [ 0, %15 ], [ 1, %18 ], [ %34, %_ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit.sink.split ]
+  %.sink18 = phi ptr [ %12, %11 ], [ %12, %15 ], [ %24, %18 ], [ %24, %27 ], [ %.sink18.ph, %_ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit.sink.split ]
+  %.sink = phi i8 [ 1, %11 ], [ 0, %15 ], [ 1, %18 ], [ 0, %27 ], [ %34, %_ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit.sink.split ]
   store ptr %1, ptr %.sink18, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sink18, i64 8
   store i8 %.sink, ptr %35, align 8
@@ -4766,8 +4766,8 @@ _ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit.sink.spl
   br label %_ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit
 
 _ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit: ; preds = %_ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit.sink.split, %27, %18, %15, %11
-  %.sink18 = phi ptr [ %24, %27 ], [ %12, %11 ], [ %12, %15 ], [ %24, %18 ], [ %.sink18.ph, %_ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit.sink.split ]
-  %.sink = phi i8 [ 0, %27 ], [ 1, %11 ], [ 0, %15 ], [ 1, %18 ], [ %34, %_ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit.sink.split ]
+  %.sink18 = phi ptr [ %12, %11 ], [ %12, %15 ], [ %24, %18 ], [ %24, %27 ], [ %.sink18.ph, %_ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit.sink.split ]
+  %.sink = phi i8 [ 1, %11 ], [ 0, %15 ], [ 1, %18 ], [ 0, %27 ], [ %34, %_ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit.sink.split ]
   store ptr %1, ptr %.sink18, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sink18, i64 8
   store i8 %.sink, ptr %35, align 8

@@ -419,7 +419,7 @@ define internal fastcc ptr @pbl_canonicalize_absolute_filepath(ptr noundef reado
   br i1 %16, label %20, label %.sink.split
 
 .sink.split:                                      ; preds = %5, %9, %11
-  %.sink = phi i8 [ 47, %9 ], [ 47, %11 ], [ %8, %5 ]
+  %.sink = phi i8 [ 47, %11 ], [ 47, %9 ], [ %8, %5 ]
   %17 = add i32 %.038, 1
   %18 = sext i32 %.038 to i64
   %19 = getelementptr i8, ptr %4, i64 %18
@@ -554,7 +554,7 @@ tailrecurse:                                      ; preds = %check_node_depth.ex
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %tailrecurse, %4, %check_node_depth.exit, %15, %31, %27, %1
-  %.0 = phi ptr [ %19, %15 ], [ null, %1 ], [ %30, %27 ], [ %34, %31 ], [ null, %.lr.ph ], [ null, %.lr.ph ], [ null, %tailrecurse ], [ %6, %4 ], [ null, %.lr.ph ], [ null, %check_node_depth.exit ]
+  %.0 = phi ptr [ null, %1 ], [ %30, %27 ], [ %34, %31 ], [ %19, %15 ], [ null, %.lr.ph ], [ null, %.lr.ph ], [ null, %.lr.ph ], [ null, %tailrecurse ], [ %6, %4 ], [ null, %check_node_depth.exit ]
   ret ptr %.0
 }
 
@@ -661,14 +661,14 @@ define internal fastcc noundef ptr @pbl_find_node_in_pool(ptr noundef readonly c
   br i1 %43, label %._crit_edge, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.lr.ph, %.critedge, %.critedge.thread88, %.lr.ph73, %28
-  %.3 = phi ptr [ %.04871, %.lr.ph73 ], [ %.2, %28 ], [ %.2, %.critedge.thread88 ], [ %.2, %.critedge ], [ %.2, %.lr.ph ]
+  %.3 = phi ptr [ %.2, %28 ], [ %.04871, %.lr.ph73 ], [ %.2, %.critedge.thread88 ], [ %.2, %.critedge ], [ %.2, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %44 = icmp sgt i64 %indvars.iv, 0
   br i1 %44, label %.lr.ph73, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.critedge.thread, %.critedge.thread88
-  %.150 = phi ptr [ %.251.lcssa91, %.critedge.thread88 ], [ null, %.critedge.thread ]
-  %.1 = phi ptr [ %.2, %.critedge.thread88 ], [ %.3, %.critedge.thread ]
+  %.150 = phi ptr [ null, %.critedge.thread ], [ %.251.lcssa91, %.critedge.thread88 ]
+  %.1 = phi ptr [ %.3, %.critedge.thread ], [ %.2, %.critedge.thread88 ]
   %.not61 = icmp eq ptr %.1, null
   br i1 %.not61, label %._crit_edge.thread, label %45
 
@@ -677,7 +677,7 @@ define internal fastcc noundef ptr @pbl_find_node_in_pool(ptr noundef readonly c
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %10, %45, %._crit_edge
-  %.15095 = phi ptr [ %.150, %._crit_edge ], [ %.150, %45 ], [ null, %10 ]
+  %.15095 = phi ptr [ %.150, %45 ], [ %.150, %._crit_edge ], [ null, %10 ]
   tail call void @g_free(ptr noundef %13)
   br label %46
 
@@ -797,7 +797,7 @@ define internal fastcc noundef ptr @pbl_find_node_in_context(ptr noundef capture
   br label %.thread
 
 .thread:                                          ; preds = %17, %18, %.lr.ph._crit_edge, %._crit_edge, %11, %12, %3, %15
-  %.035 = phi ptr [ %40, %._crit_edge ], [ %16, %15 ], [ null, %3 ], [ null, %11 ], [ null, %12 ], [ %.lcssa74, %.lr.ph._crit_edge ], [ null, %18 ], [ null, %17 ]
+  %.035 = phi ptr [ %16, %15 ], [ null, %3 ], [ null, %12 ], [ null, %11 ], [ %.lcssa74, %.lr.ph._crit_edge ], [ %40, %._crit_edge ], [ null, %18 ], [ null, %17 ]
   ret ptr %.035
 }
 
@@ -1072,7 +1072,7 @@ pbl_field_descriptor_type.exit:                   ; preds = %9, %._crit_edge.i
   br label %45
 
 45:                                               ; preds = %pbl_field_descriptor_type.exit.thread, %.critedge, %pbl_field_descriptor_type.exit, %1
-  %.0 = phi i32 [ 0, %1 ], [ %., %.critedge ], [ 0, %pbl_field_descriptor_type.exit ], [ 0, %pbl_field_descriptor_type.exit.thread ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %pbl_field_descriptor_type.exit ], [ %., %.critedge ], [ 0, %pbl_field_descriptor_type.exit.thread ]
   ret i32 %.0
 }
 
@@ -1805,8 +1805,8 @@ pbl_get_option_by_name.exit:                      ; preds = %31
   br label %102
 
 102:                                              ; preds = %101, %100, %99, %98, %97, %96, %95, %94, %.lr.ph.i
-  %.sink.i = phi i8 [ 7, %94 ], [ 8, %95 ], [ 12, %96 ], [ 10, %97 ], [ 13, %98 ], [ 9, %99 ], [ 11, %100 ], [ %82, %101 ], [ %79, %.lr.ph.i ]
-  %103 = phi ptr [ %81, %94 ], [ %81, %95 ], [ %81, %96 ], [ %81, %97 ], [ %81, %98 ], [ %81, %99 ], [ %81, %100 ], [ %81, %101 ], [ %78, %.lr.ph.i ]
+  %.sink.i = phi i8 [ 8, %95 ], [ 12, %96 ], [ 10, %97 ], [ 13, %98 ], [ 9, %99 ], [ 11, %100 ], [ %82, %101 ], [ 7, %94 ], [ %79, %.lr.ph.i ]
+  %103 = phi ptr [ %81, %95 ], [ %81, %96 ], [ %81, %97 ], [ %81, %98 ], [ %81, %99 ], [ %81, %100 ], [ %81, %101 ], [ %81, %94 ], [ %78, %.lr.ph.i ]
   store i8 %.sink.i, ptr %.034.i, align 1
   %104 = getelementptr i8, ptr %103, i64 1
   store ptr %104, ptr %8, align 8
@@ -2134,7 +2134,7 @@ check_node_depth.exit:                            ; preds = %.preheader
   br label %.sink.split
 
 .sink.split:                                      ; preds = %112, %117, %96, %101
-  %.sink = phi ptr [ %99, %96 ], [ %102, %101 ], [ %118, %117 ], [ %115, %112 ]
+  %.sink = phi ptr [ %102, %101 ], [ %99, %96 ], [ %118, %117 ], [ %115, %112 ]
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %120 = load i32, ptr %119, align 8
   %121 = sext i32 %120 to i64
@@ -2143,7 +2143,7 @@ check_node_depth.exit:                            ; preds = %.preheader
   br label %124
 
 124:                                              ; preds = %.sink.split, %103, %88, %.critedge, %check_node_depth.exit, %2
-  %.0 = phi ptr [ %0, %2 ], [ null, %check_node_depth.exit ], [ %0, %.critedge ], [ %0, %103 ], [ %0, %88 ], [ %0, %.sink.split ]
+  %.0 = phi ptr [ %0, %2 ], [ null, %check_node_depth.exit ], [ %0, %.critedge ], [ %0, %88 ], [ %0, %103 ], [ %0, %.sink.split ]
   ret ptr %.0
 }
 

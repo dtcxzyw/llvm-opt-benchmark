@@ -5313,7 +5313,7 @@ define nonnull ptr @print_bluetooth_uuid(ptr noundef %0, ptr noundef %1) local_u
   br label %13
 
 13:                                               ; preds = %9, %4, %12
-  %.1 = phi ptr [ %6, %4 ], [ @.str.1279, %12 ], [ %11, %9 ]
+  %.1 = phi ptr [ @.str.1279, %12 ], [ %6, %4 ], [ %11, %9 ]
   ret ptr %.1
 }
 
@@ -5963,7 +5963,7 @@ define internal noundef zeroext i1 @bt_uuids_update_cb(ptr noundef readonly capt
   br i1 %20, label %.sink.split, label %22
 
 .sink.split:                                      ; preds = %15, %11, %5, %2
-  %.str.4732.sink = phi ptr [ @.str.4732, %11 ], [ @.str.4731, %5 ], [ @.str.4731, %2 ], [ @.str.4732, %15 ]
+  %.str.4732.sink = phi ptr [ @.str.4731, %2 ], [ @.str.4731, %5 ], [ @.str.4732, %11 ], [ @.str.4732, %15 ]
   %21 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.4732.sink)
   br label %22
 
@@ -6433,7 +6433,7 @@ define internal nonnull ptr @bluetooth_conv_get_filter_type(ptr noundef readonly
   br label %20
 
 20:                                               ; preds = %6, %3, %16, %12, %.thread
-  %.0 = phi ptr [ @.str.4730, %.thread ], [ %switch.select14, %3 ], [ @.str.1292, %16 ], [ %switch.select18, %6 ], [ @.str.1289, %12 ]
+  %.0 = phi ptr [ @.str.4730, %.thread ], [ @.str.1289, %12 ], [ @.str.1292, %16 ], [ %switch.select14, %3 ], [ %switch.select18, %6 ]
   ret ptr %.0
 }
 

@@ -138,7 +138,7 @@ parse_obu_header.exit:                            ; preds = %62
   br label %parse_obu_header.exit.thread
 
 parse_obu_header.exit.thread:                     ; preds = %62, %get_leb128.exit.i, %10, %4, %parse_obu_header.exit, %70
-  %.0.i35 = phi i32 [ %68, %70 ], [ %68, %parse_obu_header.exit ], [ -1094995529, %4 ], [ -1094995529, %10 ], [ -1094995529, %get_leb128.exit.i ], [ -1094995529, %62 ]
+  %.0.i35 = phi i32 [ %68, %parse_obu_header.exit ], [ %68, %70 ], [ -1094995529, %4 ], [ -1094995529, %10 ], [ -1094995529, %get_leb128.exit.i ], [ -1094995529, %62 ]
   ret i32 %.0.i35
 }
 
@@ -277,7 +277,7 @@ bytestream2_init.exit:                            ; preds = %4
   %67 = add i32 %63, %.neg.i
   br label %get_obu_bit_length.exit
 
-get_obu_bit_length.exit.thread:                   ; preds = %59, %56, %45
+get_obu_bit_length.exit.thread:                   ; preds = %56, %59, %45
   %.0.i.ph = phi i32 [ %61, %59 ], [ -34, %56 ], [ -34, %45 ]
   %68 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i32 %.0.i.ph, ptr %68, align 8, !tbaa !26
@@ -289,7 +289,7 @@ get_obu_bit_length.exit.thread:                   ; preds = %59, %56, %45
   br label %74
 
 get_obu_bit_length.exit:                          ; preds = %45, %62
-  %.0.i = phi i32 [ %47, %45 ], [ %67, %62 ]
+  %.0.i = phi i32 [ %67, %62 ], [ %47, %45 ]
   %70 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i32 %.0.i, ptr %70, align 8, !tbaa !26
   %71 = icmp slt i32 %.0.i, 0
@@ -323,7 +323,7 @@ get_obu_bit_length.exit:                          ; preds = %45, %62
   br i1 %83, label %13, label %.thread65
 
 .thread65:                                        ; preds = %79, %29, %18, %21, %bytestream2_init.exit
-  %.4 = phi i32 [ 0, %bytestream2_init.exit ], [ %34, %29 ], [ -12, %18 ], [ -12, %21 ], [ 0, %79 ]
+  %.4 = phi i32 [ 0, %bytestream2_init.exit ], [ -12, %21 ], [ -12, %18 ], [ %34, %29 ], [ 0, %79 ]
   ret i32 %.4
 }
 
@@ -370,7 +370,7 @@ define i64 @ff_av1_framerate(i64 noundef %0, i64 noundef %1, i64 noundef %2) loc
   br label %15
 
 15:                                               ; preds = %11, %3, %8
-  %.sroa.0.0.insert.insert = phi i64 [ 4294967296, %3 ], [ %spec.select, %11 ], [ 4294967296, %8 ]
+  %.sroa.0.0.insert.insert = phi i64 [ 4294967296, %8 ], [ 4294967296, %3 ], [ %spec.select, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0.insert.insert
 }

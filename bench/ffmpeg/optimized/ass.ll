@@ -151,7 +151,7 @@ define range(i32 -12, 1) i32 @ff_ass_add_rect2(ptr noundef captures(none) %0, pt
   br label %.thread52
 
 .thread52:                                        ; preds = %.thread47, %24
-  %25 = phi ptr [ %23, %.thread47 ], [ %21, %24 ]
+  %25 = phi ptr [ %21, %24 ], [ %23, %.thread47 ]
   store ptr %25, ptr %8, align 8, !tbaa !29
   br label %26
 
@@ -184,7 +184,7 @@ define range(i32 -12, 1) i32 @ff_ass_add_rect2(ptr noundef captures(none) %0, pt
   br label %39
 
 39:                                               ; preds = %.thread47, %28, %26, %16, %7, %37
-  %.032 = phi i32 [ -12, %7 ], [ 0, %37 ], [ -12, %26 ], [ -12, %16 ], [ -12, %28 ], [ -12, %.thread47 ]
+  %.032 = phi i32 [ 0, %37 ], [ -12, %7 ], [ -12, %16 ], [ -12, %26 ], [ -12, %28 ], [ -12, %.thread47 ]
   ret i32 %.032
 }
 
@@ -237,7 +237,7 @@ define range(i32 -12, 1) i32 @ff_ass_add_rect(ptr noundef captures(none) %0, ptr
   br label %ff_ass_add_rect2.exit
 
 ff_ass_add_rect2.exit:                            ; preds = %6, %11, %.thread52.i, %16, %25
-  %.032.i = phi i32 [ -12, %6 ], [ 0, %25 ], [ -12, %.thread52.i ], [ -12, %11 ], [ -12, %16 ]
+  %.032.i = phi i32 [ 0, %25 ], [ -12, %6 ], [ -12, %.thread52.i ], [ -12, %16 ], [ -12, %11 ]
   ret i32 %.032.i
 }
 

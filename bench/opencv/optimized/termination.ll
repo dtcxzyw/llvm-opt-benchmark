@@ -1017,7 +1017,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac19SPRTTerminationImpl6update
   br label %161
 
 161:                                              ; preds = %105, %149, %159, %156, %133, %17
-  %.0 = phi i32 [ %37, %17 ], [ %120, %105 ], [ %148, %133 ], [ %160, %159 ], [ %.sroa.speculated, %156 ], [ 0, %149 ]
+  %.0 = phi i32 [ %37, %17 ], [ %120, %105 ], [ %148, %133 ], [ %.sroa.speculated, %156 ], [ %160, %159 ], [ 0, %149 ]
   ret i32 %.0
 }
 

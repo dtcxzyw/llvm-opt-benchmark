@@ -570,7 +570,7 @@ _match.exit43:                                    ; preds = %43
   br i1 %61, label %9, label %.thread
 
 .thread:                                          ; preds = %60, %49, %54, %58
-  %62 = phi i32 [ 1, %49 ], [ 1, %58 ], [ 1, %54 ], [ 0, %60 ]
+  %62 = phi i32 [ 1, %58 ], [ 1, %54 ], [ 1, %49 ], [ 0, %60 ]
   ret i32 %62
 }
 
@@ -1657,7 +1657,7 @@ define internal fastcc void @apply_curve(ptr noundef readonly captures(none) %0,
   br label %74
 
 74:                                               ; preds = %64, %46, %37
-  %75 = phi reassoc nsz arcp contract afn float [ %73, %64 ], [ %63, %46 ], [ %43, %37 ]
+  %75 = phi reassoc nsz arcp contract afn float [ %63, %46 ], [ %73, %64 ], [ %43, %37 ]
   %76 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i.i.i
   store float %75, ptr %76, align 4, !tbaa !9
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1784,7 +1784,7 @@ dt_ioppr_apply_trc.exit.i.i:                      ; preds = %74
   br label %dt_rgb_norm.exit
 
 dt_rgb_norm.exit:                                 ; preds = %dt_ioppr_apply_trc.exit.i.i, %88, %102, %113, %121, %130, %138, %150, %167
-  %.0.i = phi nsz float [ %175, %167 ], [ %120, %113 ], [ %129, %121 ], [ %137, %130 ], [ %149, %138 ], [ %166, %150 ], [ %112, %102 ], [ %87, %dt_ioppr_apply_trc.exit.i.i ], [ %101, %88 ]
+  %.0.i = phi nsz float [ %120, %113 ], [ %129, %121 ], [ %137, %130 ], [ %149, %138 ], [ %166, %150 ], [ %175, %167 ], [ %112, %102 ], [ %87, %dt_ioppr_apply_trc.exit.i.i ], [ %101, %88 ]
   %176 = fmul reassoc nsz arcp contract afn float %.0.i, %5
   %177 = fcmp reassoc nsz arcp contract afn ogt float %176, 0.000000e+00
   br i1 %177, label %178, label %199
@@ -2248,7 +2248,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   br label %.loopexit
 
 .loopexit:                                        ; preds = %66, %37, %..loopexit62_crit_edge, %.preheader
-  %73 = phi ptr [ %.pre71, %.preheader ], [ %39, %37 ], [ %39, %..loopexit62_crit_edge ], [ %.pre71, %66 ]
+  %73 = phi ptr [ %39, %37 ], [ %39, %..loopexit62_crit_edge ], [ %.pre71, %.preheader ], [ %.pre71, %66 ]
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 184
   store i32 65536, ptr %75, align 8, !tbaa !162
@@ -2887,7 +2887,7 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %55, %24, %..loopexit236_crit_edge, %.preheader
-  %62 = phi ptr [ %.pre, %.preheader ], [ %29, %24 ], [ %29, %..loopexit236_crit_edge ], [ %.pre, %55 ]
+  %62 = phi ptr [ %29, %24 ], [ %29, %..loopexit236_crit_edge ], [ %.pre, %.preheader ], [ %.pre, %55 ]
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 184
   store i32 256, ptr %64, align 8, !tbaa !162
@@ -3416,8 +3416,8 @@ to_log.exit206:                                   ; preds = %326, %334
   br label %to_log.exit210
 
 to_log.exit210:                                   ; preds = %373, %368, %357, %351
-  %.0.i211225.sink = phi float [ %349, %351 ], [ %363, %357 ], [ %379, %373 ], [ %349, %368 ]
-  %.0.i213.sink = phi float [ %354, %351 ], [ %367, %357 ], [ %383, %373 ], [ %370, %368 ]
+  %.0.i211225.sink = phi float [ %363, %357 ], [ %349, %351 ], [ %379, %373 ], [ %349, %368 ]
+  %.0.i213.sink = phi float [ %367, %357 ], [ %354, %351 ], [ %383, %373 ], [ %370, %368 ]
   %384 = fmul reassoc nsz arcp contract afn float %.0.i211225.sink, %343
   %385 = fpext reassoc nsz arcp contract afn float %384 to double
   %386 = fmul reassoc nsz arcp contract afn float %.0.i213.sink, %.pre-phi
@@ -3504,7 +3504,7 @@ define internal range(i32 0, 2) i32 @dt_iop_basecurve_button_press(ptr noundef %
   br label %55
 
 55:                                               ; preds = %31, %54, %52
-  %56 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %52 ], [ %44, %54 ], [ %50, %31 ]
+  %56 = phi reassoc nsz arcp contract afn double [ %44, %54 ], [ 0.000000e+00, %52 ], [ %50, %31 ]
   %57 = sitofp i32 %40 to float
   %58 = fpext reassoc nsz arcp contract afn float %57 to double
   %59 = fdiv reassoc nsz arcp contract afn double %56, %58
@@ -3787,7 +3787,7 @@ thread-pre-split:                                 ; preds = %18, %27
   br i1 %195, label %.lr.ph, label %._crit_edge
 
 196:                                              ; preds = %133, %156, %3, %._crit_edge, %167, %._crit_edge167, %132
-  %.0142 = phi i32 [ 1, %132 ], [ 1, %._crit_edge167 ], [ 1, %._crit_edge ], [ 1, %167 ], [ 0, %3 ], [ 0, %156 ], [ 0, %133 ]
+  %.0142 = phi i32 [ 1, %132 ], [ 1, %._crit_edge167 ], [ 1, %167 ], [ 1, %._crit_edge ], [ 0, %3 ], [ 0, %156 ], [ 0, %133 ]
   ret i32 %.0142
 }
 
@@ -3839,7 +3839,7 @@ define internal noundef i32 @dt_iop_basecurve_motion_notify(ptr noundef %0, ptr 
   br label %39
 
 39:                                               ; preds = %3, %38, %36
-  %40 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %36 ], [ %30, %38 ], [ %34, %3 ]
+  %40 = phi reassoc nsz arcp contract afn double [ %30, %38 ], [ 0.000000e+00, %36 ], [ %34, %3 ]
   %41 = sitofp i32 %22 to float
   %42 = fpext reassoc nsz arcp contract afn float %41 to double
   %43 = fdiv reassoc nsz arcp contract afn double %40, %42
@@ -3856,7 +3856,7 @@ define internal noundef i32 @dt_iop_basecurve_motion_notify(ptr noundef %0, ptr 
   br label %50
 
 50:                                               ; preds = %39, %49, %47
-  %51 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %47 ], [ %33, %49 ], [ %45, %39 ]
+  %51 = phi reassoc nsz arcp contract afn double [ %33, %49 ], [ 0.000000e+00, %47 ], [ %45, %39 ]
   %52 = sitofp i32 %19 to float
   %53 = fpext reassoc nsz arcp contract afn float %52 to double
   %54 = fdiv reassoc nsz arcp contract afn double %51, %53
@@ -4061,7 +4061,7 @@ to_lin.exit129:                                   ; preds = %to_lin.exit127, %13
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.loopexit.i, %164
-  %.2.i = phi i32 [ %172, %.thread.loopexit.i ], [ 0, %164 ]
+  %.2.i = phi i32 [ 0, %164 ], [ %172, %.thread.loopexit.i ]
   %173 = icmp sgt i32 %.pre.i, %.2.i
   br i1 %173, label %.lr.ph37.preheader.i, label %.thread.._crit_edge38_crit_edge.i
 
@@ -4242,8 +4242,8 @@ define internal range(i32 0, 2) i32 @dt_iop_basecurve_key_press(ptr noundef %0, 
   br label %15
 
 15:                                               ; preds = %13, %14, %12, %9, %9
-  %.016 = phi nsz float [ 0.000000e+00, %9 ], [ 0.000000e+00, %12 ], [ 0x3F50624DE0000000, %13 ], [ 0xBF50624DE0000000, %14 ], [ 0.000000e+00, %9 ]
-  %.0 = phi nsz float [ 0x3F50624DE0000000, %9 ], [ 0xBF50624DE0000000, %12 ], [ 0.000000e+00, %13 ], [ 0.000000e+00, %14 ], [ 0x3F50624DE0000000, %9 ]
+  %.016 = phi nsz float [ 0.000000e+00, %12 ], [ 0x3F50624DE0000000, %13 ], [ 0xBF50624DE0000000, %14 ], [ 0.000000e+00, %9 ], [ 0.000000e+00, %9 ]
+  %.0 = phi nsz float [ 0xBF50624DE0000000, %12 ], [ 0.000000e+00, %13 ], [ 0.000000e+00, %14 ], [ 0x3F50624DE0000000, %9 ], [ 0x3F50624DE0000000, %9 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %16, align 8, !tbaa !240
   tail call fastcc void @_move_point_internal(ptr noundef nonnull %2, ptr noundef %0, float noundef %.016, float noundef %.0, i32 noundef %17)
@@ -4405,7 +4405,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %45
 
 45:                                               ; preds = %42, %12, %10, %8, %2, %40, %36, %32, %28, %24, %20, %16, %6
-  %.0 = phi ptr [ %0, %12 ], [ %spec.select, %42 ], [ %41, %40 ], [ %37, %36 ], [ %33, %32 ], [ %29, %28 ], [ %25, %24 ], [ %21, %20 ], [ %17, %16 ], [ %0, %10 ], [ %0, %8 ], [ %0, %2 ], [ %7, %6 ]
+  %.0 = phi ptr [ %41, %40 ], [ %37, %36 ], [ %33, %32 ], [ %29, %28 ], [ %25, %24 ], [ %21, %20 ], [ %17, %16 ], [ %7, %6 ], [ %0, %2 ], [ %0, %8 ], [ %0, %10 ], [ %0, %12 ], [ %spec.select, %42 ]
   ret ptr %.0
 }
 
@@ -4480,7 +4480,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #5 {
   br label %27
 
 27:                                               ; preds = %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ %., %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
+  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ %., %25 ]
   ret ptr %.0
 }
 
@@ -4997,7 +4997,7 @@ define internal fastcc i32 @_add_node(ptr noundef captures(none) %0, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %4
-  %.2 = phi i32 [ %12, %.thread.loopexit ], [ 0, %4 ]
+  %.2 = phi i32 [ 0, %4 ], [ %12, %.thread.loopexit ]
   %13 = icmp sgt i32 %.pre, %.2
   br i1 %13, label %.lr.ph37.preheader, label %.thread.._crit_edge38_crit_edge
 

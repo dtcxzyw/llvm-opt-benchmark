@@ -292,7 +292,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit37:  ; preds = %4
   unreachable
 
 56:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i", %48, %47
-  %.08.i = phi ptr [ %spec.select.i, %47 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i" ], [ null, %48 ]
+  %.08.i = phi ptr [ null, %48 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i" ], [ %spec.select.i, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !44
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !62

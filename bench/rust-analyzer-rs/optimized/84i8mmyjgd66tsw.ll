@@ -254,7 +254,7 @@ define noundef zeroext i1 @_ZN10test_utils13assert_linear12AssertLinear10next_ro
   unreachable
 
 common.resume:                                    ; preds = %223, %43, %192
-  %common.resume.op = phi { ptr, i32 } [ %.pn163.i, %192 ], [ %44, %43 ], [ %224, %223 ]
+  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %.pn163.i, %192 ], [ %224, %223 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4core4iter6traits8iterator8Iterator5unzip17h1a85fc62027c5bd0E.exit.i: ; preds = %37

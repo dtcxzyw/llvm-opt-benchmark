@@ -906,7 +906,7 @@ ext4_inode_block_valid.exit.thread4:              ; preds = %134, %113, %117
   br label %140
 
 ext4_inode_block_valid.exit.thread:               ; preds = %ext4_inode_block_valid.exit, %107, %87, %53, %33, %ext4_inode_block_valid.exit.thread5
-  %139 = phi i64 [ %34, %ext4_inode_block_valid.exit.thread5 ], [ %34, %53 ], [ %34, %33 ], [ %88, %87 ], [ %88, %107 ], [ %88, %ext4_inode_block_valid.exit ]
+  %139 = phi i64 [ %34, %ext4_inode_block_valid.exit.thread5 ], [ %34, %33 ], [ %34, %53 ], [ %88, %87 ], [ %88, %107 ], [ %88, %ext4_inode_block_valid.exit ]
   tail call void (ptr, ptr, i32, i64, i32, ptr, ...) @__ext4_error_inode(ptr noundef %2, ptr noundef %0, i32 noundef %1, i64 noundef %139, i32 noundef 0, ptr noundef nonnull @.str.2) #7
   br label %.loopexit
 

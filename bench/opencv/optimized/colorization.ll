@@ -1503,7 +1503,7 @@ _ZNSt12__shared_ptrIN2cv3dnn14dnn4_v202412235LayerELN9__gnu_cxx12_Lock_policyE2E
   br i1 %488, label %.loopexit, label %485
 
 .loopexit:                                        ; preds = %414, %485, %.thread
-  %.pn122.pn = phi { ptr, i32 } [ %.pn122, %485 ], [ %332, %.thread ], [ %413, %414 ]
+  %.pn122.pn = phi { ptr, i32 } [ %332, %.thread ], [ %.pn122, %485 ], [ %413, %414 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %57) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %57)

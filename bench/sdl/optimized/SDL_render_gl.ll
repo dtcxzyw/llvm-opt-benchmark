@@ -1302,7 +1302,7 @@ convert_format.exit:                              ; preds = %20
   br label %switch.edge
 
 switch.edge:                                      ; preds = %34, %35, %34, %34, %34, %36
-  %38 = phi i32 [ %37, %36 ], [ 2, %34 ], [ 2, %34 ], [ 2, %34 ], [ 1, %35 ], [ 2, %34 ]
+  %38 = phi i32 [ %37, %36 ], [ 2, %34 ], [ 1, %35 ], [ 2, %34 ], [ 2, %34 ], [ 2, %34 ]
   %39 = mul i32 %38, %32
   %40 = getelementptr inbounds nuw i8, ptr %26, i64 64
   store i32 %39, ptr %40, align 8
@@ -1414,7 +1414,7 @@ switch.edge:                                      ; preds = %34, %35, %34, %34, 
   br label %GL_GetFBO.exit
 
 GL_GetFBO.exit:                                   ; preds = %78, %.critedge, %83, %.critedge26.i
-  %.sink = phi ptr [ null, %.critedge ], [ null, %.critedge26.i ], [ %82, %83 ], [ %.030.i, %78 ]
+  %.sink = phi ptr [ %82, %83 ], [ null, %.critedge26.i ], [ null, %.critedge ], [ %.030.i, %78 ]
   %90 = getelementptr inbounds nuw i8, ptr %26, i64 120
   store ptr %.sink, ptr %90, align 8
   %91 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.23, i64 noundef 0) #6
@@ -1749,7 +1749,7 @@ GL_GetFBO.exit:                                   ; preds = %78, %.critedge, %83
   br label %279
 
 279:                                              ; preds = %68, %275, %277, %142, %25, %104, %convert_format.exit, %18
-  %.0 = phi i1 [ false, %25 ], [ false, %104 ], [ false, %68 ], [ %19, %18 ], [ %24, %convert_format.exit ], [ %278, %277 ], [ %276, %275 ], [ false, %142 ]
+  %.0 = phi i1 [ false, %104 ], [ false, %68 ], [ %24, %convert_format.exit ], [ %19, %18 ], [ false, %25 ], [ %278, %277 ], [ %276, %275 ], [ false, %142 ]
   ret i1 %.0
 }
 
@@ -1796,7 +1796,7 @@ switch.edge:                                      ; preds = %5
   br label %switch.edge.thread
 
 switch.edge.thread:                               ; preds = %.preheader, %17, %14, %13, %13, %13, %13, %switch.edge
-  %18 = phi i32 [ 2, %13 ], [ 0, %17 ], [ %15, %switch.edge ], [ 2, %13 ], [ 1, %14 ], [ 2, %13 ], [ 2, %13 ], [ 0, %.preheader ]
+  %18 = phi i32 [ %15, %switch.edge ], [ 2, %13 ], [ 2, %13 ], [ 2, %13 ], [ 1, %14 ], [ 2, %13 ], [ 0, %17 ], [ 0, %.preheader ]
   %19 = tail call fastcc zeroext i1 @GL_ActivateRenderer(ptr noundef nonnull %0)
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 536
   store ptr null, ptr %20, align 8
@@ -2098,7 +2098,7 @@ define internal noundef zeroext i1 @GL_LockTexture(ptr readnone captures(none) %
   br label %switch.edge
 
 switch.edge:                                      ; preds = %17, %18, %17, %17, %17, %19
-  %21 = phi i32 [ %20, %19 ], [ 2, %17 ], [ 2, %17 ], [ 2, %17 ], [ 1, %18 ], [ 2, %17 ]
+  %21 = phi i32 [ %20, %19 ], [ 2, %17 ], [ 1, %18 ], [ 2, %17 ], [ 2, %17 ], [ 2, %17 ]
   %22 = mul nsw i32 %14, %12
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %10, i64 %23
@@ -2146,7 +2146,7 @@ define internal void @GL_UnlockTexture(ptr noundef readonly captures(none) %0, p
   br label %switch.edge
 
 switch.edge:                                      ; preds = %14, %15, %14, %14, %14, %16
-  %18 = phi i32 [ %17, %16 ], [ 2, %14 ], [ 2, %14 ], [ 2, %14 ], [ 1, %15 ], [ 2, %14 ]
+  %18 = phi i32 [ %17, %16 ], [ 2, %14 ], [ 1, %15 ], [ 2, %14 ], [ 2, %14 ], [ 2, %14 ]
   %19 = mul nsw i32 %11, %9
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %7, i64 %20
@@ -2210,7 +2210,7 @@ define internal zeroext i1 @GL_SetRenderTarget(ptr noundef readonly captures(non
   br label %35
 
 35:                                               ; preds = %16, %33, %13, %9
-  %.0 = phi i1 [ %34, %33 ], [ %10, %9 ], [ true, %13 ], [ true, %16 ]
+  %.0 = phi i1 [ %34, %33 ], [ true, %13 ], [ %10, %9 ], [ true, %16 ]
   ret i1 %.0
 }
 
@@ -2859,8 +2859,8 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   br i1 %.not227, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %163, %.lr.ph329, %.lr.ph, %166, %.lr.ph.preheader, %156
-  %.0207.lcssa = phi ptr [ %.0201311, %156 ], [ %.0201311, %.lr.ph.preheader ], [ %.0210272326, %166 ], [ %.0207270328, %163 ], [ %.0207270328, %.lr.ph329 ], [ %.0210272326, %.lr.ph ]
-  %.0204.lcssa = phi i64 [ %148, %156 ], [ %148, %.lr.ph.preheader ], [ %167, %166 ], [ %.0204271327, %163 ], [ %.0204271327, %.lr.ph329 ], [ %167, %.lr.ph ]
+  %.0207.lcssa = phi ptr [ %.0201311, %156 ], [ %.0201311, %.lr.ph.preheader ], [ %.0210272326, %166 ], [ %.0210272326, %.lr.ph ], [ %.0207270328, %.lr.ph329 ], [ %.0207270328, %163 ]
+  %.0204.lcssa = phi i64 [ %148, %156 ], [ %148, %.lr.ph.preheader ], [ %167, %166 ], [ %167, %.lr.ph ], [ %.0204271327, %.lr.ph329 ], [ %.0204271327, %163 ]
   %168 = load ptr, ptr %31, align 8
   %169 = trunc i64 %.0204.lcssa to i32
   call void %168(i32 noundef 1, i32 noundef 0, i32 noundef %169) #6
@@ -2938,8 +2938,8 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   br i1 %.not231, label %.thread250, label %.lr.ph289
 
 .thread250:                                       ; preds = %.lr.ph343, %188, %191, %194, %197, %.lr.ph289, %200, %.lr.ph289.preheader, %170
-  %.0218.lcssa = phi ptr [ %.0201311, %170 ], [ %.0201311, %.lr.ph289.preheader ], [ %.0216288340, %200 ], [ %.0218286342, %.lr.ph343 ], [ %.0218286342, %188 ], [ %.0218286342, %191 ], [ %.0218286342, %194 ], [ %.0218286342, %197 ], [ %.0216288340, %.lr.ph289 ]
-  %.0213.lcssa = phi i64 [ %183, %170 ], [ %183, %.lr.ph289.preheader ], [ %203, %200 ], [ %.0213287341, %.lr.ph343 ], [ %.0213287341, %188 ], [ %.0213287341, %191 ], [ %.0213287341, %194 ], [ %.0213287341, %197 ], [ %203, %.lr.ph289 ]
+  %.0218.lcssa = phi ptr [ %.0201311, %170 ], [ %.0201311, %.lr.ph289.preheader ], [ %.0216288340, %200 ], [ %.0216288340, %.lr.ph289 ], [ %.0218286342, %197 ], [ %.0218286342, %194 ], [ %.0218286342, %191 ], [ %.0218286342, %188 ], [ %.0218286342, %.lr.ph343 ]
+  %.0213.lcssa = phi i64 [ %183, %170 ], [ %183, %.lr.ph289.preheader ], [ %203, %200 ], [ %203, %.lr.ph289 ], [ %.0213287341, %197 ], [ %.0213287341, %194 ], [ %.0213287341, %191 ], [ %.0213287341, %188 ], [ %.0213287341, %.lr.ph343 ]
   %.not238 = icmp eq ptr %173, null
   br i1 %.not238, label %SetCopyState.exit.thread256, label %204
 
@@ -3263,8 +3263,8 @@ SetCopyState.exit.thread256:                      ; preds = %.thread250
   call void %352(float noundef %348, float noundef %349, float noundef %350, float noundef %351) #6
   br label %SetCopyState.exit.thread
 
-SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode.exit97.i, %SetTextureScaleMode.exit.i, %SetTextureScaleMode.exit99.i, %SetTextureScaleMode.exit101.i, %340, %345, %153, %.thread, %101, %103, %91, %94, %86, %89, %143, %59
-  %.1 = phi ptr [ %.0201311, %59 ], [ %.0201311, %101 ], [ %.0201311, %86 ], [ %.0201311, %91 ], [ %.0201311, %143 ], [ %.0207.lcssa, %.thread ], [ %.0201311, %89 ], [ %.0201311, %94 ], [ %.0201311, %103 ], [ %.0201311, %153 ], [ %.0218.lcssa, %340 ], [ %.0218.lcssa, %345 ], [ %.0218.lcssa, %SetTextureScaleMode.exit101.i ], [ %.0218.lcssa, %SetTextureScaleMode.exit99.i ], [ %.0218.lcssa, %SetTextureScaleMode.exit.i ], [ %.0218.lcssa, %SetTextureScaleMode.exit97.i ]
+SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode.exit101.i, %SetTextureScaleMode.exit99.i, %SetTextureScaleMode.exit97.i, %SetTextureScaleMode.exit.i, %340, %345, %153, %.thread, %101, %103, %91, %94, %86, %89, %143, %59
+  %.1 = phi ptr [ %.0201311, %59 ], [ %.0201311, %143 ], [ %.0201311, %89 ], [ %.0201311, %86 ], [ %.0201311, %94 ], [ %.0201311, %91 ], [ %.0201311, %103 ], [ %.0201311, %101 ], [ %.0201311, %153 ], [ %.0207.lcssa, %.thread ], [ %.0218.lcssa, %340 ], [ %.0218.lcssa, %345 ], [ %.0218.lcssa, %SetTextureScaleMode.exit.i ], [ %.0218.lcssa, %SetTextureScaleMode.exit97.i ], [ %.0218.lcssa, %SetTextureScaleMode.exit99.i ], [ %.0218.lcssa, %SetTextureScaleMode.exit101.i ]
   %353 = getelementptr inbounds nuw i8, ptr %.1, i64 80
   %354 = load ptr, ptr %353, align 8
   %.not226 = icmp eq ptr %354, null
@@ -3415,7 +3415,7 @@ convert_format.exit:                              ; preds = %10
   br label %switch.edge
 
 switch.edge:                                      ; preds = %38, %39, %38, %38, %40
-  %42 = phi i32 [ %41, %40 ], [ 2, %38 ], [ 1, %39 ], [ 2, %38 ], [ 2, %38 ]
+  %42 = phi i32 [ %41, %40 ], [ 1, %39 ], [ 2, %38 ], [ 2, %38 ], [ 2, %38 ]
   %43 = udiv i32 %37, %42
   call void %35(i32 noundef 3330, i32 noundef %43) #6
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 320
@@ -3443,7 +3443,7 @@ switch.edge:                                      ; preds = %38, %39, %38, %38, 
   br label %57
 
 57:                                               ; preds = %52, %55, %53, %16, %convert_format.exit
-  %.039 = phi ptr [ null, %16 ], [ null, %convert_format.exit ], [ null, %52 ], [ %21, %55 ], [ %21, %53 ]
+  %.039 = phi ptr [ null, %convert_format.exit ], [ null, %16 ], [ null, %52 ], [ %21, %55 ], [ %21, %53 ]
   ret ptr %.039
 }
 
@@ -3735,7 +3735,7 @@ define internal zeroext i1 @GL_SetVSync(ptr readnone captures(none) %0, i32 noun
   br label %11
 
 11:                                               ; preds = %7, %5, %2, %9
-  %.0 = phi i1 [ %10, %9 ], [ false, %5 ], [ false, %2 ], [ true, %7 ]
+  %.0 = phi i1 [ %10, %9 ], [ false, %2 ], [ false, %5 ], [ true, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -4085,7 +4085,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   br label %67
 
 67:                                               ; preds = %66, %65, %64, %63, %62, %61, %60, %59
-  %.0.i = phi ptr [ @.str.51, %66 ], [ @.str.49, %64 ], [ @.str.44, %60 ], [ @.str.45, %61 ], [ @.str.46, %62 ], [ @.str.50, %65 ], [ @.str.48, %63 ], [ @.str.43, %59 ]
+  %.0.i = phi ptr [ @.str.51, %66 ], [ @.str.44, %60 ], [ @.str.45, %61 ], [ @.str.46, %62 ], [ @.str.48, %63 ], [ @.str.49, %64 ], [ @.str.50, %65 ], [ @.str.43, %59 ]
   %68 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.42, ptr noundef nonnull %.130, ptr noundef nonnull @.str.25, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %.0.i, i32 noundef %53) #6
   %69 = load ptr, ptr %14, align 8
   %70 = tail call i32 %69() #6
@@ -4093,7 +4093,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   br i1 %.not, label %GL_ClearErrors.exit, label %.lr.ph
 
 GL_ClearErrors.exit:                              ; preds = %67, %.preheader1.i, %.preheader4, %17, %._crit_edge, %34, %._crit_edge.i, %48, %4
-  %.0 = phi i1 [ true, %4 ], [ %20, %.preheader1.i ], [ true, %17 ], [ false, %._crit_edge ], [ %20, %34 ], [ %20, %._crit_edge.i ], [ %20, %48 ], [ true, %.preheader4 ], [ false, %67 ]
+  %.0 = phi i1 [ true, %4 ], [ true, %17 ], [ false, %._crit_edge ], [ %20, %34 ], [ %20, %._crit_edge.i ], [ %20, %48 ], [ true, %.preheader4 ], [ %20, %.preheader1.i ], [ false, %67 ]
   ret i1 %.0
 }
 

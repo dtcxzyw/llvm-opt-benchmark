@@ -282,8 +282,8 @@ copy_address.exit47:                              ; preds = %copy_address.exit47
   store ptr %73, ptr %74, align 8
   br label %copy_address.exit47.thread
 
-copy_address.exit47.thread:                       ; preds = %10, %7, %35, %38, %68, %copy_address.exit47
-  %.052 = phi ptr [ null, %copy_address.exit47 ], [ %.0, %68 ], [ null, %38 ], [ null, %35 ], [ null, %7 ], [ null, %10 ]
+copy_address.exit47.thread:                       ; preds = %7, %10, %35, %38, %68, %copy_address.exit47
+  %.052 = phi ptr [ %.0, %68 ], [ null, %copy_address.exit47 ], [ null, %38 ], [ null, %35 ], [ null, %10 ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.052
 }
@@ -1258,7 +1258,7 @@ copy_address.exit.loopexit.split.loop.exit30.i:   ; preds = %215
   br label %add_or_get_node.exit
 
 add_or_get_node.exit:                             ; preds = %cmp_address.exit.thread.i79, %addresses_equal.exit, %.critedge.i84, %228, %copy_address.exit.loopexit.split.loop.exit.i, %copy_address.exit.loopexit.split.loop.exit30.i
-  %.015.i = phi i32 [ %202, %228 ], [ 41, %addresses_equal.exit ], [ %202, %.critedge.i84 ], [ %235, %copy_address.exit.loopexit.split.loop.exit30.i ], [ %234, %copy_address.exit.loopexit.split.loop.exit.i ], [ 41, %cmp_address.exit.thread.i79 ]
+  %.015.i = phi i32 [ 41, %addresses_equal.exit ], [ %202, %.critedge.i84 ], [ %202, %228 ], [ %234, %copy_address.exit.loopexit.split.loop.exit.i ], [ %235, %copy_address.exit.loopexit.split.loop.exit30.i ], [ 41, %cmp_address.exit.thread.i79 ]
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %.015.i, ptr %236, align 8
   %237 = load i32, ptr %11, align 8
@@ -1343,7 +1343,7 @@ copy_address.exit.loopexit.split.loop.exit30.i98: ; preds = %254
   br label %.sink.split
 
 .sink.split:                                      ; preds = %cmp_address.exit.thread.i89, %cmp_address.exit.thread.i63, %cmp_address.exit.thread.i31, %copy_address.exit.loopexit.split.loop.exit30.i98, %copy_address.exit.loopexit.split.loop.exit.i97, %267, %.critedge.i99, %add_or_get_node.exit, %.critedge.thread.loopexit.split.loop.exit.i71, %copy_address.exit.i73, %add_or_get_node_local.exit58, %add_or_get_node_local.exit58.thread, %.critedge.thread.loopexit.split.loop.exit.i39, %copy_address.exit.i41, %add_or_get_node_local.exit, %add_or_get_node_local.exit.thread
-  %.015.i93.sink = phi i32 [ 41, %cmp_address.exit.thread.i63 ], [ 41, %cmp_address.exit.thread.i31 ], [ %81, %copy_address.exit.i41 ], [ 41, %add_or_get_node_local.exit ], [ %117, %.critedge.thread.loopexit.split.loop.exit.i39 ], [ 41, %add_or_get_node_local.exit.thread ], [ %162, %copy_address.exit.i73 ], [ 41, %add_or_get_node_local.exit58 ], [ %198, %.critedge.thread.loopexit.split.loop.exit.i71 ], [ 41, %add_or_get_node_local.exit58.thread ], [ %241, %267 ], [ 41, %add_or_get_node.exit ], [ %241, %.critedge.i99 ], [ %274, %copy_address.exit.loopexit.split.loop.exit30.i98 ], [ %273, %copy_address.exit.loopexit.split.loop.exit.i97 ], [ 41, %cmp_address.exit.thread.i89 ]
+  %.015.i93.sink = phi i32 [ %81, %copy_address.exit.i41 ], [ 41, %add_or_get_node_local.exit ], [ %117, %.critedge.thread.loopexit.split.loop.exit.i39 ], [ 41, %add_or_get_node_local.exit.thread ], [ %162, %copy_address.exit.i73 ], [ 41, %add_or_get_node_local.exit58 ], [ %198, %.critedge.thread.loopexit.split.loop.exit.i71 ], [ 41, %add_or_get_node_local.exit58.thread ], [ 41, %add_or_get_node.exit ], [ %241, %.critedge.i99 ], [ %241, %267 ], [ %273, %copy_address.exit.loopexit.split.loop.exit.i97 ], [ %274, %copy_address.exit.loopexit.split.loop.exit30.i98 ], [ 41, %cmp_address.exit.thread.i31 ], [ 41, %cmp_address.exit.thread.i63 ], [ 41, %cmp_address.exit.thread.i89 ]
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %.015.i93.sink, ptr %275, align 4
   br label %276

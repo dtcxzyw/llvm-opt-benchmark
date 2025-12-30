@@ -220,7 +220,7 @@ sh_init.exit.thread:                              ; preds = %78, %86
   br label %93
 
 sh_init.exit:                                     ; preds = %47, %69, %73
-  %.2.i = phi i32 [ %.1.i, %47 ], [ 2, %69 ], [ %spec.select46.i, %73 ]
+  %.2.i = phi i32 [ %.1.i, %47 ], [ %spec.select46.i, %73 ], [ 2, %69 ]
   %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
   %91 = tail call i32 @madvise(ptr noundef %89, i64 noundef %90, i32 noundef 16) #9

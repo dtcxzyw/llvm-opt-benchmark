@@ -364,7 +364,7 @@ define internal void @SDL_MouseRelativeCursorVisibleChanged(ptr noundef writeonl
   br label %19
 
 19:                                               ; preds = %18, %13, %4
-  %.1.i = phi ptr [ null, %18 ], [ %.val.i, %4 ], [ %.val14.i, %13 ]
+  %.1.i = phi ptr [ null, %18 ], [ %.val14.i, %13 ], [ %.val.i, %4 ]
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 16), align 8
   %.not12.i = icmp eq ptr %20, null
   br i1 %.not12.i, label %SDL_RedrawCursor.exit, label %21
@@ -517,7 +517,7 @@ define hidden void @SDL_PostInitMouse() local_unnamed_addr #0 {
   br label %50
 
 50:                                               ; preds = %49, %44, %39
-  %.1.i.i.i = phi ptr [ null, %49 ], [ %14, %39 ], [ %14, %44 ]
+  %.1.i.i.i = phi ptr [ null, %49 ], [ %14, %44 ], [ %14, %39 ]
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 16), align 8
   %.not12.i.i.i = icmp eq ptr %51, null
   br i1 %.not12.i.i.i, label %SDL_SetDefaultCursor.exit, label %52
@@ -633,7 +633,7 @@ define hidden void @SDL_SetDefaultCursor(ptr noundef %0) local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %36, %31, %26
-  %.1.i.i = phi ptr [ null, %36 ], [ %0, %26 ], [ %0, %31 ]
+  %.1.i.i = phi ptr [ null, %36 ], [ %0, %31 ], [ %0, %26 ]
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 16), align 8
   %.not12.i.i = icmp eq ptr %38, null
   br i1 %.not12.i.i, label %SDL_SetCursor_REAL.exit, label %39
@@ -1134,7 +1134,7 @@ define hidden zeroext i1 @SDL_SetCursor_REAL(ptr noundef %0) local_unnamed_addr 
   br label %21
 
 21:                                               ; preds = %20, %15, %10
-  %.1.i = phi ptr [ null, %20 ], [ %.val.i.pre, %10 ], [ %.val14.i, %15 ]
+  %.1.i = phi ptr [ null, %20 ], [ %.val14.i, %15 ], [ %.val.i.pre, %10 ]
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 16), align 8
   %.not12.i = icmp eq ptr %22, null
   br i1 %.not12.i, label %SDL_RedrawCursor.exit, label %23
@@ -1144,7 +1144,7 @@ define hidden zeroext i1 @SDL_SetCursor_REAL(ptr noundef %0) local_unnamed_addr 
   br label %SDL_RedrawCursor.exit
 
 SDL_RedrawCursor.exit:                            ; preds = %23, %21, %.thread, %1
-  %.015 = phi i1 [ %8, %.thread ], [ true, %1 ], [ true, %21 ], [ true, %23 ]
+  %.015 = phi i1 [ true, %1 ], [ %8, %.thread ], [ true, %21 ], [ true, %23 ]
   ret i1 %.015
 }
 
@@ -1224,7 +1224,7 @@ define hidden void @SDL_SetMouseFocus(ptr noundef %0) local_unnamed_addr #0 {
   br label %19
 
 19:                                               ; preds = %.thread, %18, %13, %8
-  %.1.i = phi ptr [ null, %18 ], [ %.val.i, %8 ], [ %.val14.i, %13 ], [ %.val.i13, %.thread ]
+  %.1.i = phi ptr [ null, %18 ], [ %.val14.i, %13 ], [ %.val.i, %8 ], [ %.val.i13, %.thread ]
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 16), align 8
   %.not12.i = icmp eq ptr %20, null
   br i1 %.not12.i, label %SDL_RedrawCursor.exit, label %21
@@ -1264,7 +1264,7 @@ define hidden void @SDL_RedrawCursor() local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %10, %5, %0
-  %.1 = phi ptr [ null, %10 ], [ %.val, %0 ], [ %.val14, %5 ]
+  %.1 = phi ptr [ null, %10 ], [ %.val14, %5 ], [ %.val, %0 ]
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 16), align 8
   %.not12 = icmp eq ptr %12, null
   br i1 %.not12, label %15, label %13
@@ -1392,7 +1392,7 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateMouseFocus(ptr noundef nonn
   %20 = fcmp ult float %2, %19
   br i1 %20, label %SDL_MousePositionInWindow.exit, label %21
 
-21:                                               ; preds = %8, %16, %11
+21:                                               ; preds = %16, %11, %8
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 128), align 8
   %23 = icmp eq ptr %0, %22
   br i1 %23, label %24, label %SDL_SetMouseFocus.exit
@@ -1463,7 +1463,7 @@ SDL_MousePositionInWindow.exit:                   ; preds = %16, %4
   br label %49
 
 49:                                               ; preds = %48, %43, %38
-  %.1.i.i = phi ptr [ null, %48 ], [ %.val.i.i, %38 ], [ %.val14.i.i, %43 ]
+  %.1.i.i = phi ptr [ null, %48 ], [ %.val14.i.i, %43 ], [ %.val.i.i, %38 ]
   %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 16), align 8
   %.not12.i.i18 = icmp eq ptr %50, null
   br i1 %.not12.i.i18, label %SDL_SetMouseFocus.exit20, label %51
@@ -1998,8 +1998,8 @@ define internal fastcc void @SDL_PrivateSendMouseButton(i64 noundef %0, ptr noun
   store i32 %2, ptr %44, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %30, %._crit_edge.i, %40, %17, %18
-  %.034.i.ph = phi ptr [ %.03526.i, %._crit_edge.i ], [ %14, %18 ], [ %14, %17 ], [ %44, %40 ], [ %31, %30 ]
+.loopexit:                                        ; preds = %30, %40, %._crit_edge.i, %18, %17
+  %.034.i.ph = phi ptr [ %14, %17 ], [ %14, %18 ], [ %.03526.i, %._crit_edge.i ], [ %44, %40 ], [ %31, %30 ]
   %45 = getelementptr inbounds nuw i8, ptr %.034.i.ph, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 229), align 1, !range !3, !noundef !4
@@ -2349,7 +2349,7 @@ define hidden void @SDL_SendMouseWheel(i64 noundef %0, ptr noundef %1, i32 nound
   br label %27
 
 27:                                               ; preds = %26, %21, %16
-  %.1.i.i = phi ptr [ null, %26 ], [ %.val.i.i, %16 ], [ %.val14.i.i, %21 ]
+  %.1.i.i = phi ptr [ null, %26 ], [ %.val14.i.i, %21 ], [ %.val.i.i, %16 ]
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 16), align 8
   %.not12.i.i = icmp eq ptr %28, null
   br i1 %.not12.i.i, label %SDL_SetMouseFocus.exit, label %29
@@ -2648,7 +2648,7 @@ SDL_SetDefaultCursor.exit:                        ; preds = %56, %57
   br label %78
 
 78:                                               ; preds = %77, %72, %67
-  %.1.i.i.i = phi ptr [ null, %77 ], [ %61, %67 ], [ %.val14.i.i.i, %72 ]
+  %.1.i.i.i = phi ptr [ null, %77 ], [ %.val14.i.i.i, %72 ], [ %61, %67 ]
   %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 16), align 8
   %.not12.i.i.i = icmp eq ptr %79, null
   br i1 %.not12.i.i.i, label %SDL_SetCursor_REAL.exit.i.preheader, label %80
@@ -2948,7 +2948,7 @@ SDL_GetMouseButtonState.exit.thread:              ; preds = %13, %4, %10, %SDL_G
   br label %.critedge
 
 .critedge:                                        ; preds = %SDL_GetMouseButtonState.exit.thread, %40, %53, %1
-  %.0 = phi i1 [ true, %1 ], [ false, %53 ], [ true, %40 ], [ true, %SDL_GetMouseButtonState.exit.thread ]
+  %.0 = phi i1 [ false, %53 ], [ true, %1 ], [ true, %40 ], [ true, %SDL_GetMouseButtonState.exit.thread ]
   ret i1 %.0
 }
 
@@ -3007,7 +3007,7 @@ define hidden zeroext i1 @SDL_SetRelativeMouseMode(i1 noundef zeroext %0) local_
   br label %23
 
 23:                                               ; preds = %18, %16
-  %.1.i = phi ptr [ %spec.select, %18 ], [ %.val.i, %16 ]
+  %.1.i = phi ptr [ %.val.i, %16 ], [ %spec.select, %18 ]
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 16), align 8
   %.not12.i = icmp eq ptr %24, null
   br i1 %.not12.i, label %SDL_RedrawCursor.exit, label %25
@@ -3068,7 +3068,7 @@ SDL_RedrawCursor.exit:                            ; preds = %25, %23
   br label %44
 
 44:                                               ; preds = %43, %38, %33
-  %.1.i.i = phi ptr [ null, %43 ], [ %.val.i.i, %33 ], [ %.val14.i.i, %38 ]
+  %.1.i.i = phi ptr [ null, %43 ], [ %.val14.i.i, %38 ], [ %.val.i.i, %33 ]
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 16), align 8
   %.not12.i.i = icmp eq ptr %45, null
   br i1 %.not12.i.i, label %SDL_SetMouseFocus.exit, label %46
@@ -3139,7 +3139,7 @@ SDL_SetMouseFocus.exit:                           ; preds = %27, %44, %46
   br label %73
 
 73:                                               ; preds = %72, %67, %.thread41
-  %.1.i34 = phi ptr [ null, %72 ], [ %.val.i32, %.thread41 ], [ %.val14.i33, %67 ]
+  %.1.i34 = phi ptr [ null, %72 ], [ %.val14.i33, %67 ], [ %.val.i32, %.thread41 ]
   %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 16), align 8
   %.not12.i35 = icmp eq ptr %74, null
   br i1 %.not12.i35, label %SDL_RedrawCursor.exit37, label %75
@@ -3153,7 +3153,7 @@ SDL_RedrawCursor.exit37:                          ; preds = %SDL_RedrawCursor.ex
   br label %77
 
 77:                                               ; preds = %5, %SDL_RedrawCursor.exit37, %13
-  %.0 = phi i1 [ true, %SDL_RedrawCursor.exit37 ], [ %14, %13 ], [ true, %5 ]
+  %.0 = phi i1 [ %14, %13 ], [ true, %SDL_RedrawCursor.exit37 ], [ true, %5 ]
   ret i1 %.0
 }
 
@@ -3244,7 +3244,7 @@ define hidden void @SDL_DestroyCursor_REAL(ptr noundef readnone captures(address
   br label %20
 
 20:                                               ; preds = %19, %14, %9
-  %.1.i.i = phi ptr [ null, %19 ], [ %3, %9 ], [ %.val14.i.i, %14 ]
+  %.1.i.i = phi ptr [ null, %19 ], [ %.val14.i.i, %14 ], [ %3, %9 ]
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 16), align 8
   %.not12.i.i = icmp eq ptr %21, null
   br i1 %.not12.i.i, label %SDL_SetCursor_REAL.exit.preheader, label %22
@@ -3619,7 +3619,7 @@ define hidden void @SDL_WarpMouseInWindow_REAL(ptr noundef %0, float noundef %1,
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %40, %38, %33, %30, %27, %24, %13, %12
-  %.sink.i = phi i64 [ %34, %33 ], [ %34, %38 ], [ %34, %40 ], [ 0, %30 ], [ 0, %27 ], [ 0, %24 ], [ 0, %13 ], [ 0, %12 ]
+  %.sink.i = phi i64 [ %34, %38 ], [ %34, %40 ], [ %34, %33 ], [ 0, %30 ], [ 0, %27 ], [ 0, %24 ], [ 0, %13 ], [ 0, %12 ]
   store i64 %.sink.i, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 192), align 8
   %.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 190), align 2, !range !3
   %.pre10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 128), align 8

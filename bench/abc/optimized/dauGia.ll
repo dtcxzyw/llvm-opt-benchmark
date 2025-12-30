@@ -81,7 +81,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br label %40
 
 40:                                               ; preds = %4, %.loopexit, %38, %36, %7
-  %.0 = phi i32 [ %39, %38 ], [ 0, %.loopexit ], [ %11, %7 ], [ %37, %36 ], [ 1, %4 ]
+  %.0 = phi i32 [ %11, %7 ], [ %37, %36 ], [ %39, %38 ], [ 0, %.loopexit ], [ 1, %4 ]
   ret i32 %.0
 }
 
@@ -252,8 +252,8 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %62, %._crit_edge, %.preheader.preheader
-  %88 = phi ptr [ %87, %.preheader.preheader ], [ %86, %._crit_edge ], [ %69, %62 ]
-  %.0146165 = phi ptr [ %8, %.preheader.preheader ], [ %8, %._crit_edge ], [ %4, %62 ]
+  %88 = phi ptr [ %86, %._crit_edge ], [ %87, %.preheader.preheader ], [ %69, %62 ]
+  %.0146165 = phi ptr [ %8, %._crit_edge ], [ %8, %.preheader.preheader ], [ %4, %62 ]
   %storemerge169 = getelementptr inbounds nuw i8, ptr %.pn168, i64 1
   store ptr %storemerge169, ptr %2, align 8, !tbaa !30
   %89 = icmp ult ptr %storemerge169, %88
@@ -374,7 +374,7 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %._crit_edge179
 
 ._crit_edge179:                                   ; preds = %41, %._crit_edge179.loopexit, %118, %._crit_edge190, %116, %._crit_edge185, %20
-  %.0 = phi i32 [ %25, %20 ], [ %40, %._crit_edge185 ], [ 0, %118 ], [ %117, %116 ], [ %148, %._crit_edge190 ], [ %.0142, %41 ], [ %61, %._crit_edge179.loopexit ]
+  %.0 = phi i32 [ %25, %20 ], [ %40, %._crit_edge185 ], [ %117, %116 ], [ %148, %._crit_edge190 ], [ 0, %118 ], [ %.0142, %41 ], [ %61, %._crit_edge179.loopexit ]
   ret i32 %.0
 }
 
@@ -466,9 +466,9 @@ define internal fastcc range(i32 0, 35) i32 @Abc_TtReadHex(ptr noundef nonnull c
   br label %.sink.split
 
 .lr.ph57.preheader:                               ; preds = %21, %.lr.ph.preheader.i
-  %.0.lcssa74 = phi i32 [ %indvars, %.lr.ph.preheader.i ], [ 1, %21 ]
-  %.fr = phi i32 [ %31, %.lr.ph.preheader.i ], [ 2, %21 ]
-  %37 = phi i64 [ %36, %.lr.ph.preheader.i ], [ 8, %21 ]
+  %.0.lcssa74 = phi i32 [ 1, %21 ], [ %indvars, %.lr.ph.preheader.i ]
+  %.fr = phi i32 [ 2, %21 ], [ %31, %.lr.ph.preheader.i ]
+  %37 = phi i64 [ 8, %21 ], [ %36, %.lr.ph.preheader.i ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %0, i8 0, i64 %37, i1 false), !tbaa !7
   %38 = sext i32 %.0.lcssa74 to i64
   %wide.trip.count = zext i32 %.0.lcssa74 to i64
@@ -543,8 +543,8 @@ Abc_TtReadHexDigit.exit:                          ; preds = %45, %49, %51
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread83, %63, %22, %25
-  %.sink = phi i64 [ %24, %22 ], [ %27, %25 ], [ 0, %.thread83 ], [ %75, %63 ]
-  %.037.ph = phi i32 [ 0, %22 ], [ 1, %25 ], [ 2, %.thread83 ], [ %.fr, %63 ]
+  %.sink = phi i64 [ %27, %25 ], [ %24, %22 ], [ 0, %.thread83 ], [ %75, %63 ]
+  %.037.ph = phi i32 [ 1, %25 ], [ 0, %22 ], [ 2, %.thread83 ], [ %.fr, %63 ]
   store i64 %.sink, ptr %0, align 8, !tbaa !7
   br label %76
 
@@ -990,7 +990,7 @@ Gia_ManAppendXorReal.exit:                        ; preds = %56, %69
   br label %Gia_ManAppendAnd2.exit
 
 Gia_ManAppendAnd2.exit:                           ; preds = %36, %33, %31, %29, %25, %94, %100, %98, %90, %Gia_ManAppendXorReal.exit
-  %.058 = phi i32 [ %101, %100 ], [ %89, %Gia_ManAppendXorReal.exit ], [ %92, %90 ], [ %95, %94 ], [ %99, %98 ], [ %37, %36 ], [ %26, %25 ], [ %30, %29 ], [ %15, %31 ], [ 0, %33 ]
+  %.058 = phi i32 [ %89, %Gia_ManAppendXorReal.exit ], [ %92, %90 ], [ %95, %94 ], [ %99, %98 ], [ %101, %100 ], [ %37, %36 ], [ %26, %25 ], [ %30, %29 ], [ %15, %31 ], [ 0, %33 ]
   %102 = ashr i32 %.058, 1
   %.val68 = load ptr, ptr %9, align 8, !tbaa !46
   %103 = sext i32 %102 to i64
@@ -1893,8 +1893,8 @@ define i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %._crit_edge, %.preheader.preheader
-  %83 = phi ptr [ %82, %.preheader.preheader ], [ %81, %._crit_edge ], [ %64, %57 ]
-  %.0174212 = phi ptr [ %10, %.preheader.preheader ], [ %10, %._crit_edge ], [ %4, %57 ]
+  %83 = phi ptr [ %81, %._crit_edge ], [ %82, %.preheader.preheader ], [ %64, %57 ]
+  %.0174212 = phi ptr [ %10, %._crit_edge ], [ %10, %.preheader.preheader ], [ %4, %57 ]
   %storemerge221 = getelementptr inbounds nuw i8, ptr %.pn193234, i64 1
   store ptr %storemerge221, ptr %2, align 8, !tbaa !30
   %84 = icmp ult ptr %storemerge221, %83
@@ -2451,7 +2451,7 @@ Gia_ManAppendAnd2.exit:                           ; preds = %4, %18
   br i1 %21, label %Gia_ManAppendAnd2.exit.thread, label %Gia_ManAppendAnd2.exit12
 
 Gia_ManAppendAnd2.exit.thread:                    ; preds = %16, %14, %10, %Gia_ManAppendAnd2.exit
-  %.0.i29 = phi i32 [ %20, %Gia_ManAppendAnd2.exit ], [ %11, %10 ], [ %3, %16 ], [ %15, %14 ]
+  %.0.i29 = phi i32 [ %20, %Gia_ManAppendAnd2.exit ], [ %3, %16 ], [ %15, %14 ], [ %11, %10 ]
   %22 = icmp slt i32 %1, 2
   br i1 %22, label %23, label %Gia_ManAppendAnd2.exit.thread.thread
 

@@ -577,7 +577,7 @@ define dso_local ptr @lua_newstate(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %50
 
 50:                                               ; preds = %9, %12, %7, %2, %49, %48
-  %.0 = phi ptr [ null, %7 ], [ null, %48 ], [ %10, %49 ], [ null, %2 ], [ null, %12 ], [ null, %9 ]
+  %.0 = phi ptr [ null, %48 ], [ %10, %49 ], [ null, %2 ], [ null, %7 ], [ null, %12 ], [ null, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

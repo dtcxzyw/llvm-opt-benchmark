@@ -734,7 +734,7 @@ define dso_local i32 @snd_hda_get_devices(ptr noundef %0, i16 noundef zeroext %1
   br i1 %52, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %56, %.preheader, %30, %4, %11, %16, %34
-  %58 = phi i32 [ 0, %34 ], [ 0, %30 ], [ 0, %4 ], [ 0, %16 ], [ 0, %11 ], [ %40, %.preheader ], [ %57, %56 ]
+  %58 = phi i32 [ 0, %34 ], [ 0, %16 ], [ 0, %11 ], [ 0, %4 ], [ 0, %30 ], [ %40, %.preheader ], [ %57, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %58
 }
@@ -810,7 +810,7 @@ define dso_local i32 @snd_hda_set_dev_select(ptr noundef %0, i16 noundef zeroext
   br label %.thread
 
 .thread:                                          ; preds = %28, %14, %8, %19, %35, %33, %3
-  %37 = phi i32 [ %36, %35 ], [ 0, %3 ], [ 0, %28 ], [ -22, %33 ], [ 0, %19 ], [ 0, %8 ], [ 0, %14 ]
+  %37 = phi i32 [ %36, %35 ], [ 0, %3 ], [ -22, %33 ], [ 0, %19 ], [ 0, %8 ], [ 0, %14 ], [ 0, %28 ]
   ret i32 %37
 }
 
@@ -2019,7 +2019,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_device_new(ptr nou
   br label %76
 
 76:                                               ; preds = %25, %74, %73, %65, %.loopexit, %21, %5
-  %77 = phi i32 [ -22, %5 ], [ -12, %21 ], [ 0, %73 ], [ %50, %.loopexit ], [ %66, %65 ], [ 0, %74 ], [ -12, %25 ]
+  %77 = phi i32 [ -22, %5 ], [ -12, %21 ], [ %50, %.loopexit ], [ %66, %65 ], [ 0, %74 ], [ 0, %73 ], [ -12, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %77
 }
@@ -4510,7 +4510,7 @@ define dso_local range(i32 -2147483648, 1) i32 @__snd_hda_add_vmaster(ptr nounde
   br label %.loopexit.split.us.us
 
 .loopexit.split.us.us:                            ; preds = %137, %128, %124, %120, %.preheader.split.us
-  %129 = phi i32 [ %114, %.preheader.split.us ], [ %.pre42, %128 ], [ %114, %124 ], [ %114, %120 ], [ %114, %137 ]
+  %129 = phi i32 [ %.pre42, %128 ], [ %114, %124 ], [ %114, %120 ], [ %114, %.preheader.split.us ], [ %114, %137 ]
   %130 = add nuw i32 %115, 1
   %131 = icmp ult i32 %130, %129
   br i1 %131, label %.preheader.split.us, label %.thread27, !llvm.loop !39
@@ -4633,7 +4633,7 @@ define dso_local range(i32 -2147483648, 1) i32 @__snd_hda_add_vmaster(ptr nounde
   br label %.thread19
 
 .thread19:                                        ; preds = %.loopexit28.split, %.loopexit28.split.us.us, %105, %98, %188, %187, %.split36.us, %.split30.us, %14
-  %189 = phi i32 [ -12, %.split30.us ], [ %103, %98 ], [ %.us-phi, %.split36.us ], [ 0, %188 ], [ 0, %187 ], [ 0, %14 ], [ -12, %105 ], [ 0, %.loopexit28.split.us.us ], [ 0, %.loopexit28.split ]
+  %189 = phi i32 [ -12, %.split30.us ], [ %.us-phi, %.split36.us ], [ 0, %188 ], [ 0, %187 ], [ 0, %14 ], [ -12, %105 ], [ %103, %98 ], [ 0, %.loopexit28.split.us.us ], [ 0, %.loopexit28.split ]
   ret i32 %189
 }
 
@@ -5421,7 +5421,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_create_dig_out_ctls(ptr 
   br label %.thread13
 
 .thread13:                                        ; preds = %.split, %129, %133, %96, %92, %.split.us, %162, %61, %.thread11
-  %165 = phi i32 [ -16, %.thread11 ], [ 0, %162 ], [ -12, %61 ], [ -12, %.split.us ], [ %94, %92 ], [ -12, %96 ], [ %131, %129 ], [ -12, %133 ], [ -12, %.split ]
+  %165 = phi i32 [ -16, %.thread11 ], [ 0, %162 ], [ -12, %61 ], [ %94, %92 ], [ -12, %96 ], [ -12, %.split.us ], [ %131, %129 ], [ -12, %133 ], [ -12, %.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %165
 }
@@ -5882,7 +5882,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_create_spdif_in_ctls(ptr
   br label %.thread
 
 .thread:                                          ; preds = %37, %33, %.split.us, %.split, %67, %71, %.split5.us, %47
-  %77 = phi i32 [ -16, %47 ], [ 0, %.split5.us ], [ %69, %67 ], [ -12, %71 ], [ -12, %.split ], [ -12, %.split.us ], [ %35, %33 ], [ -12, %37 ]
+  %77 = phi i32 [ -16, %47 ], [ 0, %.split5.us ], [ %69, %67 ], [ -12, %71 ], [ -12, %.split ], [ %35, %33 ], [ -12, %37 ], [ -12, %.split.us ]
   ret i32 %77
 }
 
@@ -6676,8 +6676,8 @@ define dso_local i32 @snd_hda_codec_prepare(ptr noundef %0, ptr noundef %1, i32 
   br i1 %69, label %34, label %.loopexit.loopexit, !llvm.loop !60
 
 .thread:                                          ; preds = %.loopexit, %..thread_crit_edge, %15, %12
-  %70 = phi ptr [ %.pre6, %12 ], [ %.pre5, %..thread_crit_edge ], [ %.pre6, %15 ], [ %19, %.loopexit ]
-  %71 = phi i32 [ %13, %12 ], [ -19, %..thread_crit_edge ], [ %13, %15 ], [ %13, %.loopexit ]
+  %70 = phi ptr [ %.pre6, %15 ], [ %.pre6, %12 ], [ %.pre5, %..thread_crit_edge ], [ %19, %.loopexit ]
+  %71 = phi i32 [ %13, %15 ], [ %13, %12 ], [ -19, %..thread_crit_edge ], [ %13, %.loopexit ]
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 1344
   tail call void @mutex_unlock(ptr noundef nonnull %72) #24
   ret i32 %71
@@ -6776,8 +6776,8 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_parse_pcms(ptr nou
   br label %38
 
 38:                                               ; preds = %36, %.thread
-  %39 = phi ptr [ %30, %36 ], [ null, %.thread ]
-  %40 = phi ptr [ %spec.select, %36 ], [ %35, %.thread ]
+  %39 = phi ptr [ null, %.thread ], [ %30, %36 ]
+  %40 = phi ptr [ %35, %.thread ], [ %spec.select, %36 ]
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, 0
@@ -7177,7 +7177,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_add_new_ctls(ptr noundef
   br i1 %111, label %.thread14, label %15, !llvm.loop !67
 
 .thread14:                                        ; preds = %20, %107, %102, %.loopexit, %84, %82, %98, %2
-  %112 = phi i32 [ 0, %2 ], [ -12, %102 ], [ %.ph, %98 ], [ %.ph, %82 ], [ %.ph, %84 ], [ %.ph, %.loopexit ], [ -12, %20 ], [ 0, %107 ]
+  %112 = phi i32 [ 0, %2 ], [ %.ph, %98 ], [ %.ph, %82 ], [ %.ph, %84 ], [ %.ph, %.loopexit ], [ -12, %102 ], [ -12, %20 ], [ 0, %107 ]
   ret i32 %112
 }
 
@@ -7569,7 +7569,7 @@ define internal fastcc void @setup_dig_out_stream(ptr noundef %0, i16 noundef ze
   br i1 %60, label %.thread9, label %.preheader12, !llvm.loop !51
 
 .thread9:                                         ; preds = %.preheader12, %26, %49, %39, %32
-  %61 = phi i1 [ false, %32 ], [ false, %26 ], [ true, %49 ], [ true, %39 ], [ true, %.preheader12 ]
+  %61 = phi i1 [ true, %49 ], [ true, %39 ], [ false, %32 ], [ false, %26 ], [ true, %.preheader12 ]
   tail call void @snd_hda_codec_setup_stream(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef 0, i32 noundef %3)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %63 = load ptr, ptr %62, align 8

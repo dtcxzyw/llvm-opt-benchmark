@@ -308,7 +308,7 @@ define noundef ptr @_ZNK20AdvancedPrefDelegate12createEditorEP7QWidgetRK20QStyle
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %41, %36, %33, %18, %4
-  %.1 = phi ptr [ null, %4 ], [ null, %33 ], [ null, %18 ], [ null, %36 ], [ %40, %41 ]
+  %.1 = phi ptr [ null, %33 ], [ null, %18 ], [ null, %4 ], [ null, %36 ], [ %40, %41 ]
   ret ptr %.1
 
 _ZN7QStringD2Ev.exit31:                           ; preds = %19, %32

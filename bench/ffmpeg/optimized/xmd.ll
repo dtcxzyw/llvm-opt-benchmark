@@ -37,7 +37,7 @@ define internal range(i32 0, 34) i32 @xmd_probe(ptr noundef readonly captures(no
   br label %18
 
 18:                                               ; preds = %14, %6, %10, %1
-  %.0 = phi i32 [ 0, %6 ], [ 0, %1 ], [ %spec.select, %14 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %10 ], [ 0, %6 ], [ %spec.select, %14 ]
   ret i32 %.0
 }
 
@@ -86,7 +86,7 @@ define internal range(i32 -1094995529, 1) i32 @xmd_read_header(ptr noundef %0) #
   br label %28
 
 28:                                               ; preds = %12, %6, %1, %17
-  %.0 = phi i32 [ -12, %1 ], [ -1094995529, %6 ], [ 0, %17 ], [ -1094995529, %12 ]
+  %.0 = phi i32 [ 0, %17 ], [ -12, %1 ], [ -1094995529, %6 ], [ -1094995529, %12 ]
   ret i32 %.0
 }
 

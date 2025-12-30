@@ -1277,7 +1277,7 @@ BufferGetPage.exit99.i:                           ; preds = %712, %706
   br label %BufferGetPage.exit101.i
 
 BufferGetPage.exit101.i:                          ; preds = %735, %729, %723, %BufferGetPage.exit99.i, %698
-  %.089.i = phi ptr [ %.0.i.i98.i, %BufferGetPage.exit99.i ], [ null, %723 ], [ null, %698 ], [ %734, %729 ], [ %740, %735 ]
+  %.089.i = phi ptr [ %.0.i.i98.i, %BufferGetPage.exit99.i ], [ null, %698 ], [ null, %723 ], [ %734, %729 ], [ %740, %735 ]
   %741 = load i16, ptr %626, align 4
   %.not112.i = icmp eq i16 %741, 0
   br i1 %.not112.i, label %._crit_edge.i39, label %.lr.ph.i

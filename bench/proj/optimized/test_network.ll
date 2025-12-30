@@ -7053,7 +7053,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_110CloseEventEEclEPS1_.exit.i905: ; preds =
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit906
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit906: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_110CloseEventEEclEPS1_.exit.i905, %1301, %1299, %1297
-  %.pn246 = phi { ptr, i32 } [ %1298, %1297 ], [ %1300, %1299 ], [ %1302, %1301 ], [ %1302, %_ZNKSt14default_deleteIN12_GLOBAL__N_110CloseEventEEclEPS1_.exit.i905 ]
+  %.pn246 = phi { ptr, i32 } [ %1300, %1299 ], [ %1298, %1297 ], [ %1302, %1301 ], [ %1302, %_ZNKSt14default_deleteIN12_GLOBAL__N_110CloseEventEEclEPS1_.exit.i905 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %1523
 
@@ -7776,12 +7776,12 @@ _ZN12_GLOBAL__N_120ExchangeWithCallbackD2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10
   ret void
 
 1523:                                             ; preds = %1174, %1176, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit864, %1166, %1168, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit861, %1158, %1160, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit858, %998, %1000, %_ZNSt10unique_ptrIN12_GLOBAL__N_114ReadRangeEventESt14default_deleteIS1_EED2Ev.exit855, %838, %840, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit704, %830, %832, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit701, %822, %824, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit698, %662, %664, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit695, %_ZN7testing7MessageD2Ev.exit956, %1457, %1379, %_ZN7testing7MessageD2Ev.exit918, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit906, %1296, %_ZN7testing7MessageD2Ev.exit756, %947, %_ZN7testing7MessageD2Ev.exit590, %607, %549
-  %.pn271 = phi { ptr, i32 } [ %550, %549 ], [ %.pn267.pn.pn, %_ZN7testing7MessageD2Ev.exit956 ], [ %.pn262.pn.pn.pn, %1457 ], [ %.pn252.pn.pn, %1379 ], [ %.pn248.pn.pn, %_ZN7testing7MessageD2Ev.exit918 ], [ %.pn246, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit906 ], [ %.pn241.pn.pn.pn, %1296 ], [ %1167, %1166 ], [ %1159, %1158 ], [ %999, %998 ], [ %839, %838 ], [ %.pn222.pn.pn, %_ZN7testing7MessageD2Ev.exit756 ], [ %.pn217.pn.pn.pn, %947 ], [ %831, %830 ], [ %823, %822 ], [ %663, %662 ], [ %.pn194.pn.pn, %607 ], [ %.pn198.pn.pn, %_ZN7testing7MessageD2Ev.exit590 ], [ %.pn202, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit695 ], [ %665, %664 ], [ %826, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit698 ], [ %825, %824 ], [ %834, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit701 ], [ %833, %832 ], [ %842, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit704 ], [ %841, %840 ], [ %.pn226, %_ZNSt10unique_ptrIN12_GLOBAL__N_114ReadRangeEventESt14default_deleteIS1_EED2Ev.exit855 ], [ %1001, %1000 ], [ %1162, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit858 ], [ %1161, %1160 ], [ %1170, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit861 ], [ %1169, %1168 ], [ %1178, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit864 ], [ %1177, %1176 ], [ %1175, %1174 ]
+  %.pn271 = phi { ptr, i32 } [ %550, %549 ], [ %.pn267.pn.pn, %_ZN7testing7MessageD2Ev.exit956 ], [ %.pn262.pn.pn.pn, %1457 ], [ %.pn252.pn.pn, %1379 ], [ %.pn248.pn.pn, %_ZN7testing7MessageD2Ev.exit918 ], [ %.pn246, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit906 ], [ %.pn241.pn.pn.pn, %1296 ], [ %.pn222.pn.pn, %_ZN7testing7MessageD2Ev.exit756 ], [ %.pn217.pn.pn.pn, %947 ], [ %.pn198.pn.pn, %_ZN7testing7MessageD2Ev.exit590 ], [ %.pn194.pn.pn, %607 ], [ %.pn202, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit695 ], [ %665, %664 ], [ %663, %662 ], [ %826, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit698 ], [ %825, %824 ], [ %823, %822 ], [ %834, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit701 ], [ %833, %832 ], [ %831, %830 ], [ %842, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit704 ], [ %841, %840 ], [ %839, %838 ], [ %.pn226, %_ZNSt10unique_ptrIN12_GLOBAL__N_114ReadRangeEventESt14default_deleteIS1_EED2Ev.exit855 ], [ %1001, %1000 ], [ %999, %998 ], [ %1162, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit858 ], [ %1161, %1160 ], [ %1159, %1158 ], [ %1170, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit861 ], [ %1169, %1168 ], [ %1167, %1166 ], [ %1178, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit864 ], [ %1177, %1176 ], [ %1175, %1174 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %1524
 
 1524:                                             ; preds = %543, %.body, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit555, %535, %537, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit552, %527, %529, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit549, %519, %521, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit546, %157, %159, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit543, %1523, %156
-  %.pn271.pn = phi { ptr, i32 } [ %.pn271, %1523 ], [ %536, %535 ], [ %528, %527 ], [ %520, %519 ], [ %158, %157 ], [ %.pn.pn.pn.pn, %156 ], [ %.pn179.pn.pn.pn.pn, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit543 ], [ %160, %159 ], [ %523, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit546 ], [ %522, %521 ], [ %531, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit549 ], [ %530, %529 ], [ %539, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit552 ], [ %538, %537 ], [ %545, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit555 ], [ %475, %.body ], [ %544, %543 ]
+  %.pn271.pn = phi { ptr, i32 } [ %.pn271, %1523 ], [ %.pn.pn.pn.pn, %156 ], [ %.pn179.pn.pn.pn.pn, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit543 ], [ %160, %159 ], [ %158, %157 ], [ %523, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit546 ], [ %522, %521 ], [ %520, %519 ], [ %531, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit549 ], [ %530, %529 ], [ %528, %527 ], [ %539, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit552 ], [ %538, %537 ], [ %536, %535 ], [ %545, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit555 ], [ %475, %.body ], [ %544, %543 ]
   call fastcc void @_ZN12_GLOBAL__N_120ExchangeWithCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn271.pn
@@ -7907,7 +7907,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_18open_cbkEP6pj_ctxPKcymPvPmmPcS4_(
   br label %80
 
 80:                                               ; preds = %.thread, %46, %59, %63, %9, %21
-  %.0 = phi ptr [ null, %9 ], [ null, %21 ], [ null, %46 ], [ %76, %63 ], [ null, %59 ], [ null, %.thread ]
+  %.0 = phi ptr [ null, %21 ], [ null, %9 ], [ null, %46 ], [ %76, %63 ], [ null, %59 ], [ null, %.thread ]
   ret ptr %.0
 }
 
@@ -8090,7 +8090,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_120get_header_value_cbkEP6pj_ctxP19
   br label %54
 
 54:                                               ; preds = %.thread, %31, %37, %46, %49, %4, %16
-  %.0 = phi ptr [ null, %4 ], [ null, %16 ], [ null, %31 ], [ null, %37 ], [ null, %46 ], [ %53, %49 ], [ null, %.thread ]
+  %.0 = phi ptr [ null, %16 ], [ null, %4 ], [ null, %31 ], [ null, %37 ], [ null, %46 ], [ %53, %49 ], [ null, %.thread ]
   ret ptr %.0
 }
 
@@ -8170,7 +8170,7 @@ define internal noundef i64 @_ZN12_GLOBAL__N_114read_range_cbkEP6pj_ctxP19PROJ_N
   br i1 %.not43, label %53, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %40, %45
-  %48 = phi i64 [ %44, %40 ], [ %2, %45 ]
+  %48 = phi i64 [ %2, %45 ], [ %44, %40 ]
   %49 = load ptr, ptr @stderr, align 8, !tbaa !30
   %50 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %51 = load i64, ptr %50, align 8, !tbaa !171
@@ -8210,7 +8210,7 @@ define internal noundef i64 @_ZN12_GLOBAL__N_114read_range_cbkEP6pj_ctxP19PROJ_N
   br label %76
 
 76:                                               ; preds = %.thread, %37, %._crit_edge, %59, %63, %8, %20
-  %.0 = phi i64 [ 0, %8 ], [ 0, %20 ], [ 0, %37 ], [ 0, %._crit_edge ], [ %75, %63 ], [ 0, %59 ], [ 0, %.thread ]
+  %.0 = phi i64 [ 0, %20 ], [ 0, %8 ], [ 0, %37 ], [ 0, %._crit_edge ], [ %75, %63 ], [ 0, %59 ], [ 0, %.thread ]
   ret i64 %.0
 }
 
@@ -8342,7 +8342,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef no
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
+  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !204
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
@@ -8857,7 +8857,7 @@ _ZNSt3mapIiP19PROJ_NETWORK_HANDLESt4lessIiESaISt4pairIKiS1_EEE11lower_boundERS5_
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
+  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #29
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !77
@@ -9089,8 +9089,8 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiP19PROJ_NETWO
   br label %_ZNSt8_Rb_treeIiSt4pairIKiP19PROJ_NETWORK_HANDLEESt10_Select1stIS4_ESt4lessIiESaIS4_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIiSt4pairIKiP19PROJ_NETWORK_HANDLEESt10_Select1stIS4_ESt4lessIiESaIS4_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -12142,7 +12142,7 @@ _ZN12_GLOBAL__N_120ExchangeWithCallbackD2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10
   br label %744
 
 744:                                              ; preds = %498, %.body, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit357, %490, %492, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit354, %482, %484, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit351, %474, %476, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit348, %112, %114, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit345, %743, %111
-  %.pn128.pn = phi { ptr, i32 } [ %.pn128, %743 ], [ %491, %490 ], [ %483, %482 ], [ %475, %474 ], [ %113, %112 ], [ %.pn.pn.pn.pn, %111 ], [ %.pn97.pn.pn.pn.pn, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit345 ], [ %115, %114 ], [ %478, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit348 ], [ %477, %476 ], [ %486, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit351 ], [ %485, %484 ], [ %494, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit354 ], [ %493, %492 ], [ %500, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit357 ], [ %430, %.body ], [ %499, %498 ]
+  %.pn128.pn = phi { ptr, i32 } [ %.pn128, %743 ], [ %.pn.pn.pn.pn, %111 ], [ %.pn97.pn.pn.pn.pn, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit345 ], [ %115, %114 ], [ %113, %112 ], [ %478, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit348 ], [ %477, %476 ], [ %475, %474 ], [ %486, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit351 ], [ %485, %484 ], [ %483, %482 ], [ %494, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit354 ], [ %493, %492 ], [ %491, %490 ], [ %500, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit357 ], [ %430, %.body ], [ %499, %498 ]
   call fastcc void @_ZN12_GLOBAL__N_120ExchangeWithCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn128.pn
@@ -16149,7 +16149,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_110CloseEventEEclEPS1_.exit.i742: ; preds =
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit743
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit743: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_110CloseEventEEclEPS1_.exit.i742, %1142, %1140, %1138
-  %.pn202 = phi { ptr, i32 } [ %1139, %1138 ], [ %1141, %1140 ], [ %1143, %1142 ], [ %1143, %_ZNKSt14default_deleteIN12_GLOBAL__N_110CloseEventEEclEPS1_.exit.i742 ]
+  %.pn202 = phi { ptr, i32 } [ %1141, %1140 ], [ %1139, %1138 ], [ %1143, %1142 ], [ %1143, %_ZNKSt14default_deleteIN12_GLOBAL__N_110CloseEventEEclEPS1_.exit.i742 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %1213
 
@@ -16375,12 +16375,12 @@ _ZN12_GLOBAL__N_120ExchangeWithCallbackD2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10
   ret void
 
 1213:                                             ; preds = %1013, %1015, %_ZNSt10unique_ptrIN12_GLOBAL__N_114ReadRangeEventESt14default_deleteIS1_EED2Ev.exit701, %818, %820, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit620, %810, %812, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit617, %802, %804, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit614, %642, %644, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit611, %_ZN7testing7MessageD2Ev.exit755, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit743, %1137, %_ZN7testing7MessageD2Ev.exit672, %927, %_ZN7testing7MessageD2Ev.exit506, %587, %529
-  %.pn208 = phi { ptr, i32 } [ %530, %529 ], [ %.pn204.pn.pn, %_ZN7testing7MessageD2Ev.exit755 ], [ %.pn202, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit743 ], [ %.pn197.pn.pn.pn, %1137 ], [ %819, %818 ], [ %.pn185.pn.pn, %_ZN7testing7MessageD2Ev.exit672 ], [ %.pn180.pn.pn.pn, %927 ], [ %811, %810 ], [ %803, %802 ], [ %643, %642 ], [ %.pn157.pn.pn, %587 ], [ %.pn161.pn.pn, %_ZN7testing7MessageD2Ev.exit506 ], [ %.pn165, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit611 ], [ %645, %644 ], [ %806, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit614 ], [ %805, %804 ], [ %814, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit617 ], [ %813, %812 ], [ %822, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit620 ], [ %821, %820 ], [ %1017, %_ZNSt10unique_ptrIN12_GLOBAL__N_114ReadRangeEventESt14default_deleteIS1_EED2Ev.exit701 ], [ %1016, %1015 ], [ %1014, %1013 ]
+  %.pn208 = phi { ptr, i32 } [ %530, %529 ], [ %.pn204.pn.pn, %_ZN7testing7MessageD2Ev.exit755 ], [ %.pn202, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit743 ], [ %.pn197.pn.pn.pn, %1137 ], [ %.pn185.pn.pn, %_ZN7testing7MessageD2Ev.exit672 ], [ %.pn180.pn.pn.pn, %927 ], [ %.pn161.pn.pn, %_ZN7testing7MessageD2Ev.exit506 ], [ %.pn157.pn.pn, %587 ], [ %.pn165, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit611 ], [ %645, %644 ], [ %643, %642 ], [ %806, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit614 ], [ %805, %804 ], [ %803, %802 ], [ %814, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit617 ], [ %813, %812 ], [ %811, %810 ], [ %822, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit620 ], [ %821, %820 ], [ %819, %818 ], [ %1017, %_ZNSt10unique_ptrIN12_GLOBAL__N_114ReadRangeEventESt14default_deleteIS1_EED2Ev.exit701 ], [ %1016, %1015 ], [ %1014, %1013 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %1214
 
 1214:                                             ; preds = %523, %.body, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit471, %515, %517, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit468, %507, %509, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit465, %499, %501, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit462, %137, %139, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit459, %1213, %136
-  %.pn208.pn = phi { ptr, i32 } [ %.pn208, %1213 ], [ %516, %515 ], [ %508, %507 ], [ %500, %499 ], [ %138, %137 ], [ %.pn.pn.pn.pn, %136 ], [ %.pn142.pn.pn.pn.pn, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit459 ], [ %140, %139 ], [ %503, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit462 ], [ %502, %501 ], [ %511, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit465 ], [ %510, %509 ], [ %519, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit468 ], [ %518, %517 ], [ %525, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit471 ], [ %455, %.body ], [ %524, %523 ]
+  %.pn208.pn = phi { ptr, i32 } [ %.pn208, %1213 ], [ %.pn.pn.pn.pn, %136 ], [ %.pn142.pn.pn.pn.pn, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit459 ], [ %140, %139 ], [ %138, %137 ], [ %503, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit462 ], [ %502, %501 ], [ %500, %499 ], [ %511, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit465 ], [ %510, %509 ], [ %508, %507 ], [ %519, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit468 ], [ %518, %517 ], [ %516, %515 ], [ %525, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit471 ], [ %455, %.body ], [ %524, %523 ]
   call fastcc void @_ZN12_GLOBAL__N_120ExchangeWithCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn208.pn
@@ -20662,12 +20662,12 @@ _ZN12_GLOBAL__N_120ExchangeWithCallbackD2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10
   ret void
 
 1499:                                             ; preds = %1418, %.body947, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit974, %1221, %1223, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit896, %1213, %1215, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit893, %1205, %1207, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit890, %881, %883, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit887, %875, %.body670, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit709, %867, %869, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit706, %859, %861, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit703, %851, %853, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit700, %644, %646, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit697, %_ZN7testing7MessageD2Ev.exit986, %_ZN7testing7MessageD2Ev.exit943, %1330, %_ZN7testing7MessageD2Ev.exit567, %589, %531
-  %.pn247 = phi { ptr, i32 } [ %532, %531 ], [ %.pn243.pn.pn, %_ZN7testing7MessageD2Ev.exit986 ], [ %1222, %1221 ], [ %.pn237.pn.pn, %_ZN7testing7MessageD2Ev.exit943 ], [ %.pn232.pn.pn.pn, %1330 ], [ %1214, %1213 ], [ %1206, %1205 ], [ %882, %881 ], [ %876, %875 ], [ %868, %867 ], [ %860, %859 ], [ %852, %851 ], [ %645, %644 ], [ %.pn182.pn.pn, %589 ], [ %.pn186.pn.pn, %_ZN7testing7MessageD2Ev.exit567 ], [ %.pn190, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit697 ], [ %647, %646 ], [ %855, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit700 ], [ %854, %853 ], [ %863, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit703 ], [ %862, %861 ], [ %871, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit706 ], [ %870, %869 ], [ %877, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit709 ], [ %800, %.body670 ], [ %.pn213.pn.pn.pn.pn, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit887 ], [ %884, %883 ], [ %1209, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit890 ], [ %1208, %1207 ], [ %1217, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit893 ], [ %1216, %1215 ], [ %1225, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit896 ], [ %1224, %1223 ], [ %1420, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit974 ], [ %1374, %.body947 ], [ %1419, %1418 ]
+  %.pn247 = phi { ptr, i32 } [ %532, %531 ], [ %.pn243.pn.pn, %_ZN7testing7MessageD2Ev.exit986 ], [ %.pn237.pn.pn, %_ZN7testing7MessageD2Ev.exit943 ], [ %.pn232.pn.pn.pn, %1330 ], [ %.pn186.pn.pn, %_ZN7testing7MessageD2Ev.exit567 ], [ %.pn182.pn.pn, %589 ], [ %.pn190, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit697 ], [ %647, %646 ], [ %645, %644 ], [ %855, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit700 ], [ %854, %853 ], [ %852, %851 ], [ %863, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit703 ], [ %862, %861 ], [ %860, %859 ], [ %871, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit706 ], [ %870, %869 ], [ %868, %867 ], [ %877, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit709 ], [ %800, %.body670 ], [ %876, %875 ], [ %.pn213.pn.pn.pn.pn, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit887 ], [ %884, %883 ], [ %882, %881 ], [ %1209, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit890 ], [ %1208, %1207 ], [ %1206, %1205 ], [ %1217, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit893 ], [ %1216, %1215 ], [ %1214, %1213 ], [ %1225, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit896 ], [ %1224, %1223 ], [ %1222, %1221 ], [ %1420, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit974 ], [ %1374, %.body947 ], [ %1419, %1418 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %1500
 
 1500:                                             ; preds = %525, %.body, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit532, %517, %519, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit529, %509, %511, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit526, %501, %503, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit523, %139, %141, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit520, %1499, %138
-  %.pn247.pn = phi { ptr, i32 } [ %.pn247, %1499 ], [ %518, %517 ], [ %510, %509 ], [ %502, %501 ], [ %140, %139 ], [ %.pn.pn.pn.pn, %138 ], [ %.pn167.pn.pn.pn.pn, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit520 ], [ %142, %141 ], [ %505, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit523 ], [ %504, %503 ], [ %513, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit526 ], [ %512, %511 ], [ %521, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit529 ], [ %520, %519 ], [ %527, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit532 ], [ %457, %.body ], [ %526, %525 ]
+  %.pn247.pn = phi { ptr, i32 } [ %.pn247, %1499 ], [ %.pn.pn.pn.pn, %138 ], [ %.pn167.pn.pn.pn.pn, %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit520 ], [ %142, %141 ], [ %140, %139 ], [ %505, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit523 ], [ %504, %503 ], [ %502, %501 ], [ %513, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit526 ], [ %512, %511 ], [ %510, %509 ], [ %521, %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit529 ], [ %520, %519 ], [ %518, %517 ], [ %527, %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit532 ], [ %457, %.body ], [ %526, %525 ]
   call fastcc void @_ZN12_GLOBAL__N_120ExchangeWithCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn247.pn
@@ -51695,7 +51695,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i46
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %70, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i46
-  %.pn = phi { ptr, i32 } [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i46 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %71, %70 ]
+  %.pn = phi { ptr, i32 } [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i46 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %71, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %133
 
@@ -51912,7 +51912,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %134, %.loopexit108, %.loopexit.split-lp109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64
-  %.pn30 = phi { ptr, i32 } [ %135, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64 ], [ %lpad.loopexit.split-lp111, %.loopexit.split-lp109 ], [ %lpad.loopexit110, %.loopexit108 ], [ %135, %134 ]
+  %.pn30 = phi { ptr, i32 } [ %135, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64 ], [ %lpad.loopexit110, %.loopexit108 ], [ %lpad.loopexit.split-lp111, %.loopexit.split-lp109 ], [ %135, %134 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %197
 
@@ -52129,7 +52129,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i90
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %198, %.loopexit113, %.loopexit.split-lp114, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i90
-  %.pn36 = phi { ptr, i32 } [ %199, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i90 ], [ %lpad.loopexit.split-lp116, %.loopexit.split-lp114 ], [ %lpad.loopexit115, %.loopexit113 ], [ %199, %198 ]
+  %.pn36 = phi { ptr, i32 } [ %199, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i90 ], [ %lpad.loopexit115, %.loopexit113 ], [ %lpad.loopexit.split-lp116, %.loopexit.split-lp114 ], [ %199, %198 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %236
 

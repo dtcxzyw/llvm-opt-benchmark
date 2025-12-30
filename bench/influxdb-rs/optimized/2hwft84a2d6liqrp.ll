@@ -244,7 +244,7 @@ define hidden noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..Part
   br label %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9df2b0cfad250172E.llvm.9308725237535942637.exit6"
 
 "_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9df2b0cfad250172E.llvm.9308725237535942637.exit6": ; preds = %7, %26, %21, %14, %12, %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9df2b0cfad250172E.llvm.9308725237535942637.exit"
-  %.0 = phi i1 [ false, %12 ], [ false, %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9df2b0cfad250172E.llvm.9308725237535942637.exit" ], [ %27, %26 ], [ false, %21 ], [ %.mux.i.i2, %14 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9df2b0cfad250172E.llvm.9308725237535942637.exit" ], [ false, %12 ], [ %27, %26 ], [ false, %21 ], [ %.mux.i.i2, %14 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -318,7 +318,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17h6ae413154ecd2250E.llvm.9308725237535942637.exit"
 
 "_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17h6ae413154ecd2250E.llvm.9308725237535942637.exit": ; preds = %7, %12, %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9df2b0cfad250172E.llvm.9308725237535942637.exit.i", %14, %21, %26
-  %.0.i = phi i1 [ false, %12 ], [ false, %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9df2b0cfad250172E.llvm.9308725237535942637.exit.i" ], [ %27, %26 ], [ false, %21 ], [ %.mux.i.i2.i, %14 ], [ false, %7 ]
+  %.0.i = phi i1 [ false, %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9df2b0cfad250172E.llvm.9308725237535942637.exit.i" ], [ false, %12 ], [ %27, %26 ], [ false, %21 ], [ %.mux.i.i2.i, %14 ], [ false, %7 ]
   ret i1 %.0.i
 }
 
@@ -333,7 +333,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$T$u20$as$u20$core..option..SpecOpti
   br i1 %brmerge, label %"_ZN89_$LT$influxdb_influxql_parser..identifier..Identifier$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3fe1b0e0a1885537E.llvm.9308725237535942637.exit", label %7
 
 "_ZN89_$LT$influxdb_influxql_parser..identifier..Identifier$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3fe1b0e0a1885537E.llvm.9308725237535942637.exit": ; preds = %2, %12, %7
-  %.0.shrunk = phi i1 [ false, %7 ], [ %.mux, %2 ], [ %13, %12 ]
+  %.0.shrunk = phi i1 [ %13, %12 ], [ false, %7 ], [ %.mux, %2 ]
   ret i1 %.0.shrunk
 
 7:                                                ; preds = %2
@@ -380,7 +380,7 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$a
   br label %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17hb6a81684a454fc14E.llvm.9308725237535942637.exit"
 
 "_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17hb6a81684a454fc14E.llvm.9308725237535942637.exit": ; preds = %2, %7, %12
-  %.0.shrunk.i = phi i1 [ false, %7 ], [ %.mux.i, %2 ], [ %13, %12 ]
+  %.0.shrunk.i = phi i1 [ %13, %12 ], [ false, %7 ], [ %.mux.i, %2 ]
   ret i1 %.0.shrunk.i
 }
 

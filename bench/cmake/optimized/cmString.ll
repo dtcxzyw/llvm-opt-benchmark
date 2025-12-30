@@ -317,7 +317,7 @@ define dso_local noundef zeroext i1 @_ZNK2cm6String9is_stableEv(ptr noundef nonn
   br label %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit
 
 _ZNK2cm6String13str_if_stableB5cxx11Ev.exit:      ; preds = %1, %4, %6, %9
-  %.0.i = phi i1 [ false, %4 ], [ true, %1 ], [ %14, %9 ], [ false, %6 ]
+  %.0.i = phi i1 [ true, %1 ], [ false, %6 ], [ false, %4 ], [ %14, %9 ]
   ret i1 %.0.i
 }
 
@@ -348,7 +348,7 @@ define dso_local noundef ptr @_ZNK2cm6String13str_if_stableB5cxx11Ev(ptr noundef
   br label %15
 
 15:                                               ; preds = %9, %4, %6, %1
-  %.0 = phi ptr [ null, %4 ], [ @_ZN2cmL13empty_string_B5cxx11E, %1 ], [ %spec.select, %9 ], [ null, %6 ]
+  %.0 = phi ptr [ @_ZN2cmL13empty_string_B5cxx11E, %1 ], [ null, %6 ], [ null, %4 ], [ %spec.select, %9 ]
   ret ptr %.0
 }
 
@@ -377,7 +377,7 @@ _ZNK2cm6String9is_stableEv.exit:                  ; preds = %6
   %13 = icmp eq i64 %10, %12
   br i1 %13, label %_ZNK2cm6String9is_stableEv.exit.thread2, label %_ZNK2cm6String9is_stableEv.exit.thread
 
-_ZNK2cm6String9is_stableEv.exit.thread:           ; preds = %6, %4, %_ZNK2cm6String9is_stableEv.exit
+_ZNK2cm6String9is_stableEv.exit.thread:           ; preds = %4, %6, %_ZNK2cm6String9is_stableEv.exit
   tail call void @_ZN2cm6String34internally_mutate_to_stable_stringEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   br label %_ZNK2cm6String9is_stableEv.exit.thread2
 
@@ -410,7 +410,7 @@ _ZNK2cm6String13str_if_stableB5cxx11Ev.exit:      ; preds = %6
   %.not = icmp eq i64 %10, %12
   br i1 %.not, label %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread7, label %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread
 
-_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread: ; preds = %6, %4, %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit
+_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread: ; preds = %4, %6, %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit
   tail call void @_ZN2cm6String34internally_mutate_to_stable_stringEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %13 = load ptr, ptr %0, align 8, !tbaa !12
   br label %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread7
@@ -442,7 +442,7 @@ define dso_local noundef ptr @_ZN2cm6String5c_strEv(ptr noundef nonnull align 8 
   br label %13
 
 13:                                               ; preds = %4, %1, %10
-  %.0 = phi ptr [ null, %1 ], [ %12, %10 ], [ %3, %4 ]
+  %.0 = phi ptr [ %12, %10 ], [ null, %1 ], [ %3, %4 ]
   ret ptr %.0
 }
 

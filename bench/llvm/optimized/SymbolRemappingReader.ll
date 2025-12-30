@@ -389,7 +389,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit48:                ; preds = %115, %_ZN4llvmeqENS
   br label %264
 
 _ZN4llvm12StringSwitchISt8optionalINS_28ItaniumManglingCanonicalizer12FragmentKindEES4_E4CaseENS_13StringLiteralES4_.exit33: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30
-  %.sroa.10.5 = phi i32 [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30 ]
+  %.sroa.10.5 = phi i32 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22 ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30 ]
   %149 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %.sroa.01.0.copyload = load ptr, ptr %149, align 8, !tbaa !10
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %116, i64 24

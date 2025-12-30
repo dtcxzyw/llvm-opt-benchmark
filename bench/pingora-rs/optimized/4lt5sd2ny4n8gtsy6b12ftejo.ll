@@ -155,8 +155,8 @@ define hidden noundef align 8 ptr @_ZN12pingora_http14ResponseHeader13insert_hea
           to label %46 unwind label %.thread241.i, !noalias !16
 
 45:                                               ; preds = %.thread.i, %.body45.thread111.i
-  %.sroa.016.1.i = phi i1 [ %.sroa.016.2.i, %.body45.thread111.i ], [ %.sroa.016.2101.i, %.thread.i ]
-  %.pn37.i = phi { ptr, i32 } [ %.pn.i, %.body45.thread111.i ], [ %.pn102.i, %.thread.i ]
+  %.sroa.016.1.i = phi i1 [ %.sroa.016.2101.i, %.thread.i ], [ %.sroa.016.2.i, %.body45.thread111.i ]
+  %.pn37.i = phi { ptr, i32 } [ %.pn102.i, %.thread.i ], [ %.pn.i, %.body45.thread111.i ]
   br i1 %.sroa.016.1.i, label %466, label %.body.thread
 
 .thread241.i:                                     ; preds = %464, %42
@@ -171,9 +171,9 @@ define hidden noundef align 8 ptr @_ZN12pingora_http14ResponseHeader13insert_hea
           to label %51 unwind label %49, !noalias !17
 
 .body45.thread111.i:                              ; preds = %.body45.thread.i, %.body45.i, %.thread65.i.i, %244, %239, %160, %154
-  %.sroa.016.2.i = phi i1 [ false, %.body45.i ], [ true, %.body45.thread.i ], [ false, %154 ], [ false, %.thread65.i.i ], [ false, %244 ], [ false, %239 ], [ false, %160 ]
-  %.sroa.013.0.i = phi i8 [ %.sroa.013.1.i, %.body45.i ], [ %.sroa.013.2.lpad-body107.i, %.body45.thread.i ], [ %.sroa.013.1.i, %154 ], [ %.sroa.013.1.i, %.thread65.i.i ], [ %.sroa.013.1.i, %244 ], [ %.sroa.013.1.i, %239 ], [ %.sroa.013.1.i, %160 ]
-  %.pn.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %.body45.i ], [ %eh.lpad-body46108.i, %.body45.thread.i ], [ %155, %154 ], [ %.pn69.i.i, %.thread65.i.i ], [ %245, %244 ], [ %240, %239 ], [ %161, %160 ]
+  %.sroa.016.2.i = phi i1 [ true, %.body45.thread.i ], [ false, %.body45.i ], [ false, %.thread65.i.i ], [ false, %244 ], [ false, %239 ], [ false, %160 ], [ false, %154 ]
+  %.sroa.013.0.i = phi i8 [ %.sroa.013.2.lpad-body107.i, %.body45.thread.i ], [ %.sroa.013.1.i, %.body45.i ], [ %.sroa.013.1.i, %.thread65.i.i ], [ %.sroa.013.1.i, %244 ], [ %.sroa.013.1.i, %239 ], [ %.sroa.013.1.i, %160 ], [ %.sroa.013.1.i, %154 ]
+  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body46108.i, %.body45.thread.i ], [ %lpad.thr_comm.split-lp.i, %.body45.i ], [ %.pn69.i.i, %.thread65.i.i ], [ %245, %244 ], [ %240, %239 ], [ %161, %160 ], [ %155, %154 ]
   %48 = trunc nuw i8 %.sroa.013.0.i to i1
   br i1 %48, label %.thread.i, label %45
 
@@ -225,7 +225,7 @@ define hidden noundef align 8 ptr @_ZN12pingora_http14ResponseHeader13insert_hea
           to label %65 unwind label %88, !noalias !23
 
 65:                                               ; preds = %84, %.invoke.i.i.i
-  %.sroa.02.0.i.i.i = phi i8 [ %64, %.invoke.i.i.i ], [ %87, %84 ]
+  %.sroa.02.0.i.i.i = phi i8 [ %87, %84 ], [ %64, %.invoke.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !27
   %66 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i16 13, ptr %66, align 8, !noalias !28
@@ -1253,7 +1253,7 @@ split.i56.i:                                      ; preds = %370, %"_ZN71_$LT$ht
           to label %.body45.thread.i unwind label %449, !noalias !114
 
 .body45.thread116.i:                              ; preds = %455, %452, %.thread62.i.i, %"_ZN4http6header3map18HeaderMap$LT$T$GT$16try_insert_entry17hde058a2c3a0cc63dE.exit.thread.i.i.i", %395, %350, %"_ZN4http6header3map18HeaderMap$LT$T$GT$16try_insert_entry17hde058a2c3a0cc63dE.exit.thread.i.i", %276
-  %.sroa.013.2.ph.i = phi i8 [ 0, %"_ZN4http6header3map18HeaderMap$LT$T$GT$16try_insert_entry17hde058a2c3a0cc63dE.exit.thread.i.i.i" ], [ 0, %395 ], [ 0, %350 ], [ 0, %"_ZN4http6header3map18HeaderMap$LT$T$GT$16try_insert_entry17hde058a2c3a0cc63dE.exit.thread.i.i" ], [ 1, %276 ], [ 0, %.thread62.i.i ], [ 0, %452 ], [ 0, %455 ]
+  %.sroa.013.2.ph.i = phi i8 [ 0, %455 ], [ 0, %452 ], [ 0, %.thread62.i.i ], [ 0, %"_ZN4http6header3map18HeaderMap$LT$T$GT$16try_insert_entry17hde058a2c3a0cc63dE.exit.thread.i.i.i" ], [ 0, %395 ], [ 0, %350 ], [ 0, %"_ZN4http6header3map18HeaderMap$LT$T$GT$16try_insert_entry17hde058a2c3a0cc63dE.exit.thread.i.i" ], [ 1, %276 ]
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   br label %.body45.thread.i
@@ -1353,8 +1353,8 @@ split.i56.i:                                      ; preds = %370, %"_ZN71_$LT$ht
   br label %.noexc
 
 .body45.thread.i:                                 ; preds = %.body45.thread116.i, %.thread64.i.i, %419, %414, %335, %330
-  %eh.lpad-body46108.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body45.thread116.i ], [ %336, %335 ], [ %420, %419 ], [ %415, %414 ], [ %331, %330 ], [ %.pn68.i50.i, %.thread64.i.i ]
-  %.sroa.013.2.lpad-body107.i = phi i8 [ %.sroa.013.2.ph.i, %.body45.thread116.i ], [ 0, %335 ], [ 0, %419 ], [ 0, %414 ], [ 0, %330 ], [ 0, %.thread64.i.i ]
+  %eh.lpad-body46108.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body45.thread116.i ], [ %336, %335 ], [ %331, %330 ], [ %420, %419 ], [ %415, %414 ], [ %.pn68.i50.i, %.thread64.i.i ]
+  %.sroa.013.2.lpad-body107.i = phi i8 [ %.sroa.013.2.ph.i, %.body45.thread116.i ], [ 0, %335 ], [ 0, %330 ], [ 0, %419 ], [ 0, %414 ], [ 0, %.thread64.i.i ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h55298893e523e4c8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #13
           to label %.body45.thread111.i unwind label %462, !noalias !17
 
@@ -1378,13 +1378,13 @@ split.i56.i:                                      ; preds = %370, %"_ZN71_$LT$ht
   br label %_ZN12pingora_http19insert_header_value17hf514d35d9bfc1649E.exit
 
 .thread.i:                                        ; preds = %.body.sink.split.i.i, %100, %97, %94, %92, %75, %49, %.body45.thread111.i
-  %.pn102.i = phi { ptr, i32 } [ %.pn.i, %.body45.thread111.i ], [ %50, %49 ], [ %98, %97 ], [ %76, %75 ], [ %89, %92 ], [ %89, %94 ], [ %98, %100 ], [ %eh.lpad-body10.ph.i.i, %.body.sink.split.i.i ]
-  %.sroa.016.2101.i = phi i1 [ %.sroa.016.2.i, %.body45.thread111.i ], [ true, %49 ], [ true, %97 ], [ true, %75 ], [ true, %92 ], [ true, %94 ], [ true, %100 ], [ true, %.body.sink.split.i.i ]
+  %.pn102.i = phi { ptr, i32 } [ %.pn.i, %.body45.thread111.i ], [ %50, %49 ], [ %76, %75 ], [ %89, %92 ], [ %89, %94 ], [ %98, %97 ], [ %98, %100 ], [ %eh.lpad-body10.ph.i.i, %.body.sink.split.i.i ]
+  %.sroa.016.2101.i = phi i1 [ %.sroa.016.2.i, %.body45.thread111.i ], [ true, %49 ], [ true, %75 ], [ true, %92 ], [ true, %94 ], [ true, %97 ], [ true, %100 ], [ true, %.body.sink.split.i.i ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$pingora_http..case_header_name..CaseHeaderName$GT$17hce690adacf8fe131E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %30) #13
           to label %45 unwind label %462, !noalias !17
 
 466:                                              ; preds = %.thread241.i, %45
-  %.pn37238.i = phi { ptr, i32 } [ %lpad.thr_comm239.i, %.thread241.i ], [ %.pn37.i, %45 ]
+  %.pn37238.i = phi { ptr, i32 } [ %.pn37.i, %45 ], [ %lpad.thr_comm239.i, %.thread241.i ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h551bc0b030773945E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %32) #13
           to label %.body.thread unwind label %462, !noalias !179
 
@@ -1398,7 +1398,7 @@ _ZN12pingora_http19insert_header_value17hf514d35d9bfc1649E.exit: ; preds = %465,
   ret ptr %.sroa.0.0
 
 .body.thread:                                     ; preds = %466, %45, %468
-  %eh.lpad-body19 = phi { ptr, i32 } [ %.pn37238.i, %466 ], [ %lpad.thr_comm, %468 ], [ %.pn37.i, %45 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm, %468 ], [ %.pn37238.i, %466 ], [ %.pn37.i, %45 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 468:                                              ; preds = %"_ZN53_$LT$T$u20$as$u20$core..convert..TryInto$LT$U$GT$$GT$8try_into17h061c418c1da8705fE.exit", %3

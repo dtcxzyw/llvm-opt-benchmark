@@ -324,7 +324,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr noundef re
   br i1 %.not26.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph.i, %134, %130
-  %.2.lcssa.i = phi ptr [ %140, %134 ], [ %133, %130 ], [ %147, %.lr.ph.i ]
+  %.2.lcssa.i = phi ptr [ %133, %130 ], [ %140, %134 ], [ %147, %.lr.ph.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.2.lcssa.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.2, i64 7, i1 false) #14
   %148 = call i32 @pathmap_open(ptr noundef nonnull %128) #14
   %149 = icmp sgt i32 %148, -1
@@ -342,8 +342,8 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr noundef re
   br label %build_symtab_from_build_id.exit
 
 build_symtab_from_build_id.exit:                  ; preds = %118, %153, %111, %.lr.ph188
-  %154 = phi i16 [ %107, %.lr.ph188 ], [ %107, %111 ], [ %.pre218, %153 ], [ %107, %118 ]
-  %.4 = phi ptr [ null, %.lr.ph188 ], [ null, %111 ], [ %.011.i, %153 ], [ null, %118 ]
+  %154 = phi i16 [ %107, %111 ], [ %107, %.lr.ph188 ], [ %.pre218, %153 ], [ %107, %118 ]
+  %.4 = phi ptr [ null, %111 ], [ null, %.lr.ph188 ], [ %.011.i, %153 ], [ null, %118 ]
   %155 = getelementptr inbounds nuw i8, ptr %.1118186, i64 64
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %156 = icmp eq ptr %.4, null
@@ -475,13 +475,13 @@ build_symtab_from_debug_link.exit:                ; preds = %open_file_from_debu
   br label %.preheader.sink.split
 
 .preheader.sink.split:                            ; preds = %43, %.preheader.sink.split.sink.split, %175, %205
-  %.1.lcssa241244249.sink = phi ptr [ %.1.lcssa241244249.sink.ph, %.preheader.sink.split.sink.split ], [ %.1.lcssa241244249, %205 ], [ %173, %175 ], [ %41, %43 ]
-  %.0111155256.ph = phi ptr [ %.0111155256.ph.ph, %.preheader.sink.split.sink.split ], [ %.5143, %205 ], [ %.1.lcssa241244248, %175 ], [ null, %43 ]
+  %.1.lcssa241244249.sink = phi ptr [ %.1.lcssa241244249, %205 ], [ %173, %175 ], [ %.1.lcssa241244249.sink.ph, %.preheader.sink.split.sink.split ], [ %41, %43 ]
+  %.0111155256.ph = phi ptr [ %.5143, %205 ], [ %.1.lcssa241244248, %175 ], [ %.0111155256.ph.ph, %.preheader.sink.split.sink.split ], [ null, %43 ]
   call void @free(ptr noundef nonnull %.1.lcssa241244249.sink) #14
   br label %.preheader
 
-.preheader:                                       ; preds = %24, %40, %.preheader.sink.split, %._crit_edge, %.thread, %._crit_edge.thread, %build_symtab_from_debug_link.exit, %open_file_from_debug_link.exit.i, %162, %._crit_edge189.thread
-  %.0111155256 = phi ptr [ %.5143, %.thread ], [ %.1.lcssa241244248, %._crit_edge189.thread ], [ %.1.lcssa241244248, %build_symtab_from_debug_link.exit ], [ %.1.lcssa241244248, %162 ], [ null, %._crit_edge.thread ], [ %.0111155256.ph, %.preheader.sink.split ], [ %.1.lcssa241244248, %open_file_from_debug_link.exit.i ], [ null, %40 ], [ %.1.lcssa, %._crit_edge ], [ null, %24 ]
+.preheader:                                       ; preds = %24, %40, %.preheader.sink.split, %._crit_edge, %.thread, %._crit_edge.thread, %build_symtab_from_debug_link.exit, %open_file_from_debug_link.exit.i, %._crit_edge189.thread, %162
+  %.0111155256 = phi ptr [ null, %._crit_edge.thread ], [ %.1.lcssa241244248, %build_symtab_from_debug_link.exit ], [ %.1.lcssa241244248, %open_file_from_debug_link.exit.i ], [ %.1.lcssa241244248, %._crit_edge189.thread ], [ %.1.lcssa241244248, %162 ], [ %.5143, %.thread ], [ %.1.lcssa, %._crit_edge ], [ %.0111155256.ph, %.preheader.sink.split ], [ null, %40 ], [ null, %24 ]
   call void @free(ptr noundef nonnull %9) #14
   %211 = load i16, ptr %13, align 4
   %.not198 = icmp eq i16 %211, 0
@@ -606,7 +606,7 @@ define hidden i64 @search_symbol(ptr noundef readonly captures(address_is_null) 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %9, %13, %19
-  %.0.ph = phi i64 [ %18, %13 ], [ %18, %19 ], [ 0, %9 ]
+  %.0.ph = phi i64 [ %18, %19 ], [ %18, %13 ], [ 0, %9 ]
   call void @free(ptr noundef %10) #14
   br label %23
 
@@ -673,7 +673,7 @@ define hidden ptr @nearest_symbol(ptr noundef readonly captures(address_is_null)
   br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !14
 
 .loopexit:                                        ; preds = %22, %19, %20, %.preheader, %3
-  %.0 = phi ptr [ %10, %19 ], [ null, %3 ], [ null, %.preheader ], [ %.pre, %20 ], [ null, %22 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %.preheader ], [ %.pre, %20 ], [ %10, %19 ], [ null, %22 ]
   ret ptr %.0
 }
 

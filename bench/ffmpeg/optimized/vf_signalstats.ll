@@ -695,13 +695,13 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #2 {
   br i1 %335, label %286, label %._crit_edge500.loopexit, !llvm.loop !69
 
 .loopexit:                                        ; preds = %._crit_edge500, %._crit_edge542, %.preheader478.lr.ph, %.preheader479, %.preheader476
-  %.in.v = phi i64 [ 16, %.preheader476 ], [ 8, %.preheader479 ], [ 16, %._crit_edge542 ], [ 8, %.preheader478.lr.ph ], [ 8, %._crit_edge500 ]
-  %.2403 = phi i64 [ %.0401.lcssa, %.preheader476 ], [ %.3404.lcssa, %.preheader479 ], [ %.0401.lcssa, %._crit_edge542 ], [ %.3404.lcssa, %.preheader478.lr.ph ], [ %.3404.lcssa, %._crit_edge500 ]
-  %.2398 = phi i64 [ 0, %.preheader476 ], [ 0, %.preheader479 ], [ %.1397.lcssa, %._crit_edge542 ], [ 0, %.preheader478.lr.ph ], [ %.4400.lcssa, %._crit_edge500 ]
-  %.2393 = phi i64 [ 0, %.preheader476 ], [ 0, %.preheader479 ], [ %.1392.lcssa, %._crit_edge542 ], [ 0, %.preheader478.lr.ph ], [ %.4395.lcssa, %._crit_edge500 ]
-  %.2388 = phi i16 [ %.0386.lcssa, %.preheader476 ], [ %.3389.lcssa, %.preheader479 ], [ %.0386.lcssa, %._crit_edge542 ], [ %.3389.lcssa, %.preheader478.lr.ph ], [ %.3389.lcssa, %._crit_edge500 ]
-  %.2383 = phi i16 [ 0, %.preheader476 ], [ 0, %.preheader479 ], [ %.1382.lcssa, %._crit_edge542 ], [ 0, %.preheader478.lr.ph ], [ %.4385.lcssa, %._crit_edge500 ]
-  %.2379 = phi i16 [ 0, %.preheader476 ], [ 0, %.preheader479 ], [ %.1378.lcssa, %._crit_edge542 ], [ 0, %.preheader478.lr.ph ], [ %.4.lcssa, %._crit_edge500 ]
+  %.in.v = phi i64 [ 16, %.preheader476 ], [ 8, %.preheader479 ], [ 8, %.preheader478.lr.ph ], [ 16, %._crit_edge542 ], [ 8, %._crit_edge500 ]
+  %.2403 = phi i64 [ %.0401.lcssa, %.preheader476 ], [ %.3404.lcssa, %.preheader479 ], [ %.3404.lcssa, %.preheader478.lr.ph ], [ %.0401.lcssa, %._crit_edge542 ], [ %.3404.lcssa, %._crit_edge500 ]
+  %.2398 = phi i64 [ 0, %.preheader476 ], [ 0, %.preheader479 ], [ 0, %.preheader478.lr.ph ], [ %.1397.lcssa, %._crit_edge542 ], [ %.4400.lcssa, %._crit_edge500 ]
+  %.2393 = phi i64 [ 0, %.preheader476 ], [ 0, %.preheader479 ], [ 0, %.preheader478.lr.ph ], [ %.1392.lcssa, %._crit_edge542 ], [ %.4395.lcssa, %._crit_edge500 ]
+  %.2388 = phi i16 [ %.0386.lcssa, %.preheader476 ], [ %.3389.lcssa, %.preheader479 ], [ %.3389.lcssa, %.preheader478.lr.ph ], [ %.0386.lcssa, %._crit_edge542 ], [ %.3389.lcssa, %._crit_edge500 ]
+  %.2383 = phi i16 [ 0, %.preheader476 ], [ 0, %.preheader479 ], [ 0, %.preheader478.lr.ph ], [ %.1382.lcssa, %._crit_edge542 ], [ %.4385.lcssa, %._crit_edge500 ]
+  %.2379 = phi i16 [ 0, %.preheader476 ], [ 0, %.preheader479 ], [ 0, %.preheader478.lr.ph ], [ %.1378.lcssa, %._crit_edge542 ], [ %.4.lcssa, %._crit_edge500 ]
   %336 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %337 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %338 = getelementptr inbounds nuw i8, ptr %14, i64 80
@@ -1773,7 +1773,7 @@ define internal i32 @filter8_tout(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %111, %128, %54, %74, %91, %143, %162
-  %192 = phi i32 [ %161, %162 ], [ %161, %143 ], [ %.2181, %91 ], [ %.2181, %74 ], [ %.2181, %54 ], [ %.2181, %128 ], [ %.2181, %111 ]
+  %192 = phi i32 [ %161, %143 ], [ %161, %162 ], [ %.2181, %91 ], [ %.2181, %74 ], [ %.2181, %54 ], [ %.2181, %128 ], [ %.2181, %111 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %54, !llvm.loop !98
@@ -1898,13 +1898,13 @@ define internal i32 @filter8_tout(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread177
 
 .thread177:                                       ; preds = %198, %218, %235, %257
-  %287 = phi i32 [ %256, %257 ], [ %256, %235 ], [ %.3183, %218 ], [ %.3183, %198 ]
+  %287 = phi i32 [ %256, %235 ], [ %256, %257 ], [ %.3183, %218 ], [ %.3183, %198 ]
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
   br i1 %exitcond198.not, label %.loopexit, label %198, !llvm.loop !99
 
 .loopexit:                                        ; preds = %.thread, %.thread177, %39, %.preheader, %193
-  %.1 = phi i32 [ %287, %.thread177 ], [ %.0188, %193 ], [ %.0188, %39 ], [ %.0188, %.preheader ], [ %192, %.thread ]
+  %.1 = phi i32 [ %.0188, %.preheader ], [ %.0188, %193 ], [ %.0188, %39 ], [ %287, %.thread177 ], [ %192, %.thread ]
   %exitcond203.not = icmp eq i64 %.pre, %wide.trip.count202
   br i1 %exitcond203.not, label %._crit_edge, label %39, !llvm.loop !100
 
@@ -2183,7 +2183,7 @@ define internal i32 @filter16_tout(ptr noundef readonly captures(none) %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %122, %141, %56, %79, %99, %158, %179
-  %217 = phi i32 [ %178, %179 ], [ %178, %158 ], [ %.2181, %99 ], [ %.2181, %79 ], [ %.2181, %56 ], [ %.2181, %141 ], [ %.2181, %122 ]
+  %217 = phi i32 [ %178, %158 ], [ %178, %179 ], [ %.2181, %99 ], [ %.2181, %79 ], [ %.2181, %56 ], [ %.2181, %141 ], [ %.2181, %122 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %56, !llvm.loop !101
@@ -2325,13 +2325,13 @@ define internal i32 @filter16_tout(ptr noundef readonly captures(none) %0, ptr n
   br label %.thread177
 
 .thread177:                                       ; preds = %223, %246, %266, %291
-  %329 = phi i32 [ %290, %291 ], [ %290, %266 ], [ %.3183, %246 ], [ %.3183, %223 ]
+  %329 = phi i32 [ %290, %266 ], [ %290, %291 ], [ %.3183, %246 ], [ %.3183, %223 ]
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
   br i1 %exitcond198.not, label %.loopexit, label %223, !llvm.loop !102
 
 .loopexit:                                        ; preds = %.thread, %.thread177, %41, %.preheader, %218
-  %.1 = phi i32 [ %329, %.thread177 ], [ %.0188, %218 ], [ %.0188, %41 ], [ %.0188, %.preheader ], [ %217, %.thread ]
+  %.1 = phi i32 [ %.0188, %.preheader ], [ %.0188, %218 ], [ %.0188, %41 ], [ %329, %.thread177 ], [ %217, %.thread ]
   %exitcond203.not = icmp eq i64 %.pre, %wide.trip.count202
   br i1 %exitcond203.not, label %._crit_edge, label %41, !llvm.loop !103
 
@@ -2525,7 +2525,7 @@ define internal i32 @filter8_vrep(ptr noundef readonly captures(none) %0, ptr no
   br label %.lr.ph.us73
 
 ._crit_edge64:                                    ; preds = %..loopexit_crit_edge.us, %47, %.lr.ph63.split, %.lr.ph63.split.us, %4
-  %.050.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph63.split ], [ 0, %.lr.ph63.split.us ], [ %.151.us.us, %47 ], [ %.151.us71, %..loopexit_crit_edge.us ]
+  %.050.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph63.split.us ], [ 0, %.lr.ph63.split ], [ %.151.us.us, %47 ], [ %.151.us71, %..loopexit_crit_edge.us ]
   %97 = mul nsw i32 %.050.lcssa, %.fr
   ret i32 %97
 }
@@ -2730,7 +2730,7 @@ define internal i32 @filter16_vrep(ptr noundef readonly captures(none) %0, ptr n
   br label %.lr.ph.us73
 
 ._crit_edge64:                                    ; preds = %..loopexit_crit_edge.us, %51, %.lr.ph63.split, %.lr.ph63.split.us, %4
-  %.050.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph63.split ], [ 0, %.lr.ph63.split.us ], [ %.151.us.us, %51 ], [ %.151.us71, %..loopexit_crit_edge.us ]
+  %.050.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph63.split.us ], [ 0, %.lr.ph63.split ], [ %.151.us.us, %51 ], [ %.151.us71, %..loopexit_crit_edge.us ]
   %110 = mul nsw i32 %.050.lcssa, %.fr
   ret i32 %110
 }
@@ -2933,7 +2933,7 @@ define internal i32 @filter8_brng(ptr noundef readonly captures(none) %0, ptr no
   br i1 %exitcond97.not, label %._crit_edge71, label %.lr.ph.us, !llvm.loop !111
 
 ._crit_edge71:                                    ; preds = %._crit_edge.split.us78.us, %._crit_edge.split.us.us, %.lr.ph70, %4
-  %.062.lcssa = phi i32 [ 0, %4 ], [ %136, %._crit_edge.split.us.us ], [ 0, %.lr.ph70 ], [ %70, %._crit_edge.split.us78.us ]
+  %.062.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph70 ], [ %136, %._crit_edge.split.us.us ], [ %70, %._crit_edge.split.us78.us ]
   ret i32 %.062.lcssa
 }
 
@@ -3175,7 +3175,7 @@ define internal i32 @filter16_brng(ptr noundef readonly captures(none) %0, ptr n
   br i1 %exitcond106.not, label %._crit_edge79, label %.lr.ph.us, !llvm.loop !113
 
 ._crit_edge79:                                    ; preds = %._crit_edge.split.us87.us, %._crit_edge.split.us.us, %.lr.ph78, %4
-  %.061.lcssa = phi i32 [ 0, %4 ], [ %165, %._crit_edge.split.us.us ], [ 0, %.lr.ph78 ], [ %120, %._crit_edge.split.us87.us ]
+  %.061.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph78 ], [ %165, %._crit_edge.split.us.us ], [ %120, %._crit_edge.split.us87.us ]
   ret i32 %.061.lcssa
 }
 
@@ -3351,7 +3351,7 @@ alloc_frame.exit83:                               ; preds = %alloc_frame.exit, %
   br label %99
 
 99:                                               ; preds = %alloc_frame.exit83, %46, %1, %42, %44
-  %.0 = phi i32 [ %spec.select, %alloc_frame.exit83 ], [ -12, %46 ], [ -12, %1 ], [ -12, %44 ], [ -12, %42 ]
+  %.0 = phi i32 [ -12, %44 ], [ -12, %42 ], [ -12, %1 ], [ -12, %46 ], [ %spec.select, %alloc_frame.exit83 ]
   ret i32 %.0
 }
 

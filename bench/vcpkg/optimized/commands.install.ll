@@ -743,7 +743,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %.body203
 
 .body203:                                         ; preds = %235, %232, %309
-  %.pn116.pn = phi { ptr, i32 } [ %310, %309 ], [ %233, %232 ], [ %233, %235 ]
+  %.pn116.pn = phi { ptr, i32 } [ %310, %309 ], [ %233, %235 ], [ %233, %232 ]
   br label %311
 
 311:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit220, %.body203
@@ -1143,7 +1143,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283: ; preds = %_Z
   br label %.body255
 
 .body255:                                         ; preds = %392, %389, %462
-  %.pn120.pn = phi { ptr, i32 } [ %463, %462 ], [ %390, %389 ], [ %390, %392 ]
+  %.pn120.pn = phi { ptr, i32 } [ %463, %462 ], [ %390, %392 ], [ %390, %389 ]
   %464 = load ptr, ptr %42, align 8, !tbaa !39
   %465 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %466 = icmp eq ptr %464, %465
@@ -1544,7 +1544,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit354: ; preds = %_Z
   br label %.body326
 
 .body326:                                         ; preds = %542, %539, %616
-  %.pn124.pn = phi { ptr, i32 } [ %617, %616 ], [ %540, %539 ], [ %540, %542 ]
+  %.pn124.pn = phi { ptr, i32 } [ %617, %616 ], [ %540, %542 ], [ %540, %539 ]
   br label %618
 
 618:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit357, %.body326
@@ -1954,7 +1954,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit428: ; preds = %_Z
   br label %.body400
 
 .body400:                                         ; preds = %700, %697, %774
-  %.pn128.pn = phi { ptr, i32 } [ %775, %774 ], [ %698, %697 ], [ %698, %700 ]
+  %.pn128.pn = phi { ptr, i32 } [ %775, %774 ], [ %698, %700 ], [ %698, %697 ]
   br label %776
 
 776:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit431, %.body400

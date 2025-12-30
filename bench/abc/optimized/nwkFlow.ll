@@ -166,7 +166,7 @@ define range(i32 0, 2) i32 @Nwk_ManPushForwardFast_rec(ptr noundef %0, ptr nound
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %19, %.critedge.sink.split, %.preheader, %5, %2
-  %.018 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 0, %.preheader ], [ 1, %.critedge.sink.split ], [ 0, %19 ], [ 0, %15 ]
+  %.018 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 0, %.preheader ], [ 1, %.critedge.sink.split ], [ 0, %19 ], [ 0, %15 ]
   ret i32 %.018
 }
 
@@ -236,7 +236,7 @@ define range(i32 0, 2) i32 @Nwk_ManPushBackwardFast_rec(ptr noundef %0, ptr noun
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %18, %.critedge.sink.split, %.preheader, %5, %2
-  %.017 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 0, %.preheader ], [ 1, %.critedge.sink.split ], [ 0, %18 ], [ 0, %14 ]
+  %.017 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 0, %.preheader ], [ 1, %.critedge.sink.split ], [ 0, %18 ], [ 0, %14 ]
   ret i32 %.017
 }
 
@@ -298,7 +298,7 @@ Nwk_ObjIsLo.exit.thread:                          ; preds = %5
   br i1 %.not15, label %.critedge, label %18
 
 .critedge:                                        ; preds = %25, %18, %.lr.ph, %13, %5, %Nwk_ObjIsLo.exit.thread, %1
-  %.010 = phi i32 [ 1, %Nwk_ObjIsLo.exit.thread ], [ 1, %1 ], [ 0, %5 ], [ 1, %13 ], [ 1, %18 ], [ 0, %25 ], [ 1, %.lr.ph ]
+  %.010 = phi i32 [ 1, %1 ], [ 1, %Nwk_ObjIsLo.exit.thread ], [ 0, %5 ], [ 1, %13 ], [ 0, %25 ], [ 1, %18 ], [ 1, %.lr.ph ]
   ret i32 %.010
 }
 
@@ -877,7 +877,7 @@ Nwk_ObjSetVisitedBot.exit:                        ; preds = %10, %.sink.split.i
   br i1 %.not27, label %31, label %.critedge
 
 .critedge:                                        ; preds = %38, %31, %.lr.ph, %26, %2, %22, %19
-  %.020 = phi i32 [ 1, %22 ], [ 1, %19 ], [ 0, %2 ], [ 0, %26 ], [ 0, %31 ], [ 1, %38 ], [ 0, %.lr.ph ]
+  %.020 = phi i32 [ 1, %19 ], [ 1, %22 ], [ 0, %2 ], [ 0, %26 ], [ 1, %38 ], [ 0, %31 ], [ 0, %.lr.ph ]
   ret i32 %.020
 }
 
@@ -1606,7 +1606,7 @@ Nwk_ObjSetVisitedTop.exit:                        ; preds = %11, %.sink.split.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %.critedge, %35, %Nwk_ObjSetVisitedTop.exit, %2, %38
-  %.017 = phi i32 [ 1, %38 ], [ 0, %2 ], [ 1, %Nwk_ObjSetVisitedTop.exit ], [ 0, %.critedge ], [ 0, %35 ], [ 1, %31 ]
+  %.017 = phi i32 [ 1, %38 ], [ 0, %2 ], [ 1, %Nwk_ObjSetVisitedTop.exit ], [ 0, %35 ], [ 0, %.critedge ], [ 1, %31 ]
   ret i32 %.017
 }
 
@@ -1851,8 +1851,8 @@ Nwk_ObjSetVisitedBot.exit.i51:                    ; preds = %.sink.split.i.i60, 
   store ptr null, ptr %75, align 8, !tbaa !31
   br label %Nwk_ManPushBackwardBot_rec.exit
 
-Nwk_ManPushBackwardBot_rec.exit:                  ; preds = %67, %76, %Nwk_ObjSetVisitedBot.exit.i51, %44, %40, %.critedge2, %74, %Nwk_ObjSetVisitedTop.exit, %2, %87
-  %.027 = phi i32 [ 0, %76 ], [ 0, %2 ], [ 1, %Nwk_ObjSetVisitedTop.exit ], [ 0, %.critedge2 ], [ 1, %87 ], [ 0, %74 ], [ 1, %44 ], [ 1, %40 ], [ 0, %Nwk_ObjSetVisitedBot.exit.i51 ], [ 1, %67 ]
+Nwk_ManPushBackwardBot_rec.exit:                  ; preds = %67, %Nwk_ObjSetVisitedBot.exit.i51, %76, %44, %40, %.critedge2, %74, %Nwk_ObjSetVisitedTop.exit, %2, %87
+  %.027 = phi i32 [ 1, %87 ], [ 0, %2 ], [ 1, %Nwk_ObjSetVisitedTop.exit ], [ 0, %74 ], [ 0, %.critedge2 ], [ 1, %40 ], [ 1, %44 ], [ 0, %76 ], [ 0, %Nwk_ObjSetVisitedBot.exit.i51 ], [ 1, %67 ]
   ret i32 %.027
 }
 

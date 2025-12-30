@@ -331,16 +331,16 @@ define internal range(i32 1, 0) i32 @truemotion1_decode_frame(ptr noundef %0, pt
   br i1 %exitcond.not.i.i, label %select_delta_tables.exit.i, label %129, !llvm.loop !50
 
 select_delta_tables.exit.i:                       ; preds = %129, %104, %89
-  %133 = phi i32 [ %90, %89 ], [ %83, %104 ], [ %105, %129 ]
-  %134 = phi ptr [ %91, %89 ], [ %82, %104 ], [ %106, %129 ]
-  %135 = phi i32 [ %90, %89 ], [ %81, %104 ], [ %107, %129 ]
-  %136 = phi ptr [ %92, %89 ], [ %73, %104 ], [ %108, %129 ]
-  %137 = phi ptr [ %93, %89 ], [ %74, %104 ], [ %109, %129 ]
-  %138 = phi i8 [ %94, %89 ], [ %.pre179.i, %104 ], [ %110, %129 ]
-  %139 = phi i8 [ %96, %89 ], [ %.pre183.i, %104 ], [ %112, %129 ]
-  %140 = phi i8 [ %97, %89 ], [ %.pre191.i, %104 ], [ %113, %129 ]
-  %141 = phi ptr [ %98, %89 ], [ %75, %104 ], [ %114, %129 ]
-  %142 = phi i32 [ %99, %89 ], [ %76, %104 ], [ %115, %129 ]
+  %133 = phi i32 [ %83, %104 ], [ %90, %89 ], [ %105, %129 ]
+  %134 = phi ptr [ %82, %104 ], [ %91, %89 ], [ %106, %129 ]
+  %135 = phi i32 [ %81, %104 ], [ %90, %89 ], [ %107, %129 ]
+  %136 = phi ptr [ %73, %104 ], [ %92, %89 ], [ %108, %129 ]
+  %137 = phi ptr [ %74, %104 ], [ %93, %89 ], [ %109, %129 ]
+  %138 = phi i8 [ %.pre179.i, %104 ], [ %94, %89 ], [ %110, %129 ]
+  %139 = phi i8 [ %.pre183.i, %104 ], [ %96, %89 ], [ %112, %129 ]
+  %140 = phi i8 [ %.pre191.i, %104 ], [ %97, %89 ], [ %113, %129 ]
+  %141 = phi ptr [ %75, %104 ], [ %98, %89 ], [ %114, %129 ]
+  %142 = phi i32 [ %76, %104 ], [ %99, %89 ], [ %115, %129 ]
   %143 = and i32 %142, 1
   %144 = icmp ne i32 %143, 0
   %145 = icmp ne i8 %140, 0
@@ -587,8 +587,8 @@ select_delta_tables.exit.i:                       ; preds = %129, %104, %89
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %255, i32 noundef 32, ptr noundef nonnull @.str.11, i32 noundef %135, i32 noundef %263, i32 noundef %142, i32 noundef %267, i32 noundef %270, i32 noundef %273, ptr noundef nonnull %279, ptr noundef nonnull %281, ptr noundef nonnull %283, ptr noundef nonnull %285) #7
   br label %286
 
-truemotion1_decode_header.exit.thread:            ; preds = %16, %25, %37, %55, %78, %164, %170, %153, %191, %232, %180
-  %.0.i.ph = phi i32 [ %189, %180 ], [ -1094995529, %232 ], [ -12, %191 ], [ -1094995529, %153 ], [ -1163346256, %170 ], [ -1163346256, %164 ], [ -1094995529, %78 ], [ -1163346256, %55 ], [ -1094995529, %37 ], [ -1094995529, %25 ], [ -1094995529, %16 ]
+truemotion1_decode_header.exit.thread:            ; preds = %16, %25, %37, %55, %78, %164, %170, %153, %180, %191, %232
+  %.0.i.ph = phi i32 [ -1094995529, %232 ], [ -12, %191 ], [ %189, %180 ], [ -1094995529, %153 ], [ -1163346256, %170 ], [ -1163346256, %164 ], [ -1094995529, %78 ], [ -1163346256, %55 ], [ -1094995529, %37 ], [ -1094995529, %25 ], [ -1094995529, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %2277
 
@@ -4347,7 +4347,7 @@ truemotion1_decode_24bit.exit:                    ; preds = %1267, %2265, %2235,
   br label %2277
 
 2277:                                             ; preds = %truemotion1_decode_header.exit.thread, %truemotion1_decode_24bit.exit, %286, %2276
-  %.0 = phi i32 [ %9, %2276 ], [ %.0.i.ph, %truemotion1_decode_header.exit.thread ], [ %289, %286 ], [ %2274, %truemotion1_decode_24bit.exit ]
+  %.0 = phi i32 [ %9, %2276 ], [ %289, %286 ], [ %2274, %truemotion1_decode_24bit.exit ], [ %.0.i.ph, %truemotion1_decode_header.exit.thread ]
   ret i32 %.0
 }
 

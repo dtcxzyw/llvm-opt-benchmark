@@ -128,7 +128,7 @@ define hidden void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$8get_
   ret void
 
 common.resume:                                    ; preds = %37, %29, %110
-  %common.resume.op = phi { ptr, i32 } [ %111, %110 ], [ %30, %29 ], [ %38, %37 ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %111, %110 ], [ %38, %37 ]
   resume { ptr, i32 } %common.resume.op
 
 35:                                               ; preds = %14
@@ -2147,7 +2147,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h89d08cc67f247e
   unreachable
 
 "_ZN4core3ptr107drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$sum_tree..SumTree$LT$text..Fragment$GT$$C$12_usize$GT$$GT$17hbdf928533ac0b69dE.exit.i": ; preds = %51, %"_ZN4core3ptr82drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..Fragment$C$12_usize$GT$$GT$17hf8fecac399b07595E.exit.i", %24, %"_ZN4core3ptr89drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..FragmentSummary$C$12_usize$GT$$GT$17hb323a06319f3a458E.exit.i"
-  %.pn2.pn.i = phi { ptr, i32 } [ %.pn2.i, %"_ZN4core3ptr89drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..FragmentSummary$C$12_usize$GT$$GT$17hb323a06319f3a458E.exit.i" ], [ %.pn2.i, %24 ], [ %.pn.i, %51 ], [ %.pn.i, %"_ZN4core3ptr82drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..Fragment$C$12_usize$GT$$GT$17hf8fecac399b07595E.exit.i" ]
+  %.pn2.pn.i = phi { ptr, i32 } [ %.pn2.i, %24 ], [ %.pn2.i, %"_ZN4core3ptr89drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..FragmentSummary$C$12_usize$GT$$GT$17hb323a06319f3a458E.exit.i" ], [ %.pn.i, %51 ], [ %.pn.i, %"_ZN4core3ptr82drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$text..Fragment$C$12_usize$GT$$GT$17hf8fecac399b07595E.exit.i" ]
   resume { ptr, i32 } %.pn2.pn.i
 
 36:                                               ; preds = %8
@@ -3823,7 +3823,7 @@ define hidden noundef zeroext i1 @"_ZN7postage4sync8transfer17Transfer$LT$T$GT$4
   br i1 %.sroa.18.0.in.i.i.i, label %8, label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$4send17hf424ca6ad1f03a81E.exit"
 
 "_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$4send17hf424ca6ad1f03a81E.exit": ; preds = %5, %1, %8
-  %.sroa.0.0 = phi i1 [ true, %1 ], [ false, %8 ], [ true, %5 ]
+  %.sroa.0.0 = phi i1 [ false, %8 ], [ true, %1 ], [ true, %5 ]
   ret i1 %.sroa.0.0
 
 8:                                                ; preds = %5

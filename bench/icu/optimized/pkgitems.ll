@@ -555,7 +555,7 @@ _ZN6icu_77L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit.i.i: ; pr
   br label %_ZN6icu_77L11checkParentEPKcPFvPvS1_S1_ES2_P10UErrorCode.exit.i
 
 _ZN6icu_77L11checkParentEPKcPFvPvS1_S1_ES2_P10UErrorCode.exit.i: ; preds = %.critedge.i, %_ZN6icu_77L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit.i.i, %239, %221, %214, %212, %205
-  %.sroa.15.3.i = phi ptr [ %.sroa.15.0.i, %205 ], [ %.sroa.15.5.i, %.critedge.i ], [ %.sroa.15.0.i, %221 ], [ %.sroa.15.0.i, %214 ], [ %.sroa.15.0.i, %212 ], [ %.sroa.15.0.i, %239 ], [ %.sroa.15.0.i, %_ZN6icu_77L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit.i.i ]
+  %.sroa.15.3.i = phi ptr [ %.sroa.15.0.i, %205 ], [ %.sroa.15.0.i, %221 ], [ %.sroa.15.0.i, %214 ], [ %.sroa.15.0.i, %212 ], [ %.sroa.15.5.i, %.critedge.i ], [ %.sroa.15.0.i, %239 ], [ %.sroa.15.0.i, %_ZN6icu_77L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit.i.i ]
   %268 = icmp eq ptr %.sroa.15.3.i, null
   br i1 %268, label %273, label %269
 
@@ -964,7 +964,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L21ures_enum
   br i1 %exitcond.not, label %.thread, label %59, !llvm.loop !48
 
 .thread:                                          ; preds = %.critedge91, %.critedge, %55, %39, %21, %64, %50, %9, %24, %33, %30, %27, %36
-  %.0 = phi i8 [ 1, %9 ], [ 0, %24 ], [ 1, %33 ], [ 1, %30 ], [ 1, %27 ], [ 1, %36 ], [ 1, %21 ], [ %47, %50 ], [ 1, %55 ], [ 1, %64 ], [ 1, %39 ], [ %47, %.critedge ], [ 1, %.critedge91 ]
+  %.0 = phi i8 [ 1, %9 ], [ 0, %24 ], [ 1, %33 ], [ 1, %30 ], [ 1, %27 ], [ 1, %36 ], [ %47, %50 ], [ 1, %64 ], [ 1, %21 ], [ 1, %39 ], [ 1, %55 ], [ %47, %.critedge ], [ 1, %.critedge91 ]
   ret i8 %.0
 }
 

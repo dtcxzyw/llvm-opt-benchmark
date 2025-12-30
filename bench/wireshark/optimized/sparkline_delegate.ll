@@ -884,7 +884,7 @@ _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i124: ; preds = %221
   br label %.body
 
 .body:                                            ; preds = %224, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i124, %221, %140, %136, %165, %_ZN7QStringD2Ev.exit103
-  %.pn67.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7QStringD2Ev.exit103 ], [ %137, %136 ], [ %166, %165 ], [ %141, %140 ], [ %222, %221 ], [ %222, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i124 ], [ %222, %224 ]
+  %.pn67.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7QStringD2Ev.exit103 ], [ %166, %165 ], [ %141, %140 ], [ %137, %136 ], [ %222, %221 ], [ %222, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i124 ], [ %222, %224 ]
   call void @_ZN20QStyleOptionViewItemD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(208) %12) #23
   br label %225
 
@@ -894,7 +894,7 @@ _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i124: ; preds = %221
   br label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit90
 
 _ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit90: ; preds = %102, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i88, %105, %225, %56
-  %.pn71.pn = phi { ptr, i32 } [ %57, %56 ], [ %.pn67.pn.pn, %225 ], [ %103, %105 ], [ %103, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i88 ], [ %103, %102 ]
+  %.pn71.pn = phi { ptr, i32 } [ %.pn67.pn.pn, %225 ], [ %57, %56 ], [ %103, %102 ], [ %103, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i88 ], [ %103, %105 ]
   %226 = load ptr, ptr %10, align 8
   %.not.i.i.i127 = icmp eq ptr %226, null
   br i1 %.not.i.i.i127, label %_ZN5QListI7QPointFED2Ev.exit130, label %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i128
@@ -3537,7 +3537,7 @@ define linkonce_odr noundef ptr @_ZZN22QtMetaContainerPrivate26QMetaContainerFor
   br label %_ZZN22QtMetaContainerPrivate26QMetaContainerForContainerI5QListIiEE24getCreateConstIteratorFnEvENKUlPKvNS_23QMetaContainerInterface8PositionEE_clES5_S7_.exit
 
 _ZZN22QtMetaContainerPrivate26QMetaContainerForContainerI5QListIiEE24getCreateConstIteratorFnEvENKUlPKvNS_23QMetaContainerInterface8PositionEE_clES5_S7_.exit: ; preds = %2, %3, %5, %9
-  %.0.i = phi ptr [ %10, %9 ], [ %4, %3 ], [ %6, %5 ], [ null, %2 ]
+  %.0.i = phi ptr [ %4, %3 ], [ %6, %5 ], [ %10, %9 ], [ null, %2 ]
   ret ptr %.0.i
 }
 
@@ -3999,7 +3999,7 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i10: ; preds = %_ZNK17
   br label %30
 
 29:                                               ; preds = %3, %21, %11, %4
-  %.06 = phi ptr [ %17, %21 ], [ %5, %4 ], [ %7, %11 ], [ null, %3 ]
+  %.06 = phi ptr [ %5, %4 ], [ %7, %11 ], [ %17, %21 ], [ null, %3 ]
   ret ptr %.06
 
 30:                                               ; preds = %27, %14

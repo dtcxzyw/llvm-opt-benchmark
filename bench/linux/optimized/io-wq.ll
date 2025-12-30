@@ -486,7 +486,7 @@ define internal fastcc noundef zeroext i1 @io_wq_activate_free_worker(ptr nounde
   br i1 %60, label %.preheader11, label %.thread10, !llvm.loop !24
 
 .thread10:                                        ; preds = %.thread8, %52, %54, %55, %2
-  %61 = phi i1 [ true, %55 ], [ true, %52 ], [ false, %2 ], [ true, %54 ], [ false, %.thread8 ]
+  %61 = phi i1 [ true, %55 ], [ false, %2 ], [ true, %54 ], [ true, %52 ], [ false, %.thread8 ]
   ret i1 %61
 }
 
@@ -2483,9 +2483,9 @@ define internal fastcc void @io_worker_handle_work(ptr noundef %0, ptr noundef %
   br label %io_assign_current_work.exit
 
 io_assign_current_work.exit:                      ; preds = %157, %162, %189
-  %191 = phi i1 [ false, %189 ], [ true, %162 ], [ true, %157 ]
-  %192 = phi ptr [ %163, %189 ], [ %153, %162 ], [ %153, %157 ]
-  %193 = phi ptr [ %164, %189 ], [ null, %162 ], [ null, %157 ]
+  %191 = phi i1 [ true, %162 ], [ false, %189 ], [ true, %157 ]
+  %192 = phi ptr [ %153, %162 ], [ %163, %189 ], [ %153, %157 ]
+  %193 = phi ptr [ null, %162 ], [ %164, %189 ], [ null, %157 ]
   tail call void @_raw_spin_lock(ptr noundef nonnull %16) #17
   store ptr %193, ptr %19, align 8
   store ptr null, ptr %17, align 8

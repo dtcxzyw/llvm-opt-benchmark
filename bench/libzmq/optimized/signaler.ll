@@ -290,7 +290,7 @@ define noundef range(i32 -1, 1) i32 @_ZNK3zmq10signaler_t4waitEi(ptr noundef non
   br label %48
 
 48:                                               ; preds = %39, %43, %15, %18, %31, %26
-  %.1 = phi i32 [ -1, %15 ], [ -1, %26 ], [ -1, %31 ], [ -1, %18 ], [ 0, %43 ], [ 0, %39 ]
+  %.1 = phi i32 [ -1, %26 ], [ -1, %31 ], [ -1, %18 ], [ -1, %15 ], [ 0, %43 ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %49
 
@@ -453,7 +453,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq10signaler_t13recv_failableEv(ptr no
   br label %46
 
 46:                                               ; preds = %40, %41, %7, %10, %39
-  %.0 = phi i32 [ -1, %7 ], [ 0, %39 ], [ -1, %10 ], [ 0, %41 ], [ 0, %40 ]
+  %.0 = phi i32 [ 0, %39 ], [ -1, %10 ], [ -1, %7 ], [ 0, %41 ], [ 0, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

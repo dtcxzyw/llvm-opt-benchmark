@@ -175,7 +175,7 @@ define dso_local i32 @fmt_merge_msg_config(ptr noundef %0, ptr noundef %1, ptr n
   br label %38
 
 38:                                               ; preds = %35, %23, %.thread, %19, %36, %28
-  %.1 = phi i32 [ %37, %36 ], [ -1, %19 ], [ -1, %28 ], [ 0, %.thread ], [ 0, %23 ], [ 0, %35 ]
+  %.1 = phi i32 [ %37, %36 ], [ -1, %28 ], [ -1, %19 ], [ 0, %.thread ], [ 0, %23 ], [ 0, %35 ]
   ret i32 %.1
 }
 
@@ -251,7 +251,7 @@ define dso_local noundef i32 @fmt_merge_msg(ptr noundef readonly captures(none) 
   br label %36
 
 36:                                               ; preds = %34, %31
-  %.041 = phi ptr [ %spec.select, %34 ], [ %33, %31 ]
+  %.041 = phi ptr [ %33, %31 ], [ %spec.select, %34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr null, ptr %18, align 8, !tbaa !18
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -390,9 +390,9 @@ find_merge_parent.exit.thread._crit_edge.i.i:     ; preds = %find_merge_parent.e
   br label %add_merge_parent.exit.i
 
 add_merge_parent.exit.i:                          ; preds = %76, %find_merge_parent.exit.thread._crit_edge.i.i, %65, %62, %59, %52
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %65 ], [ %.sroa.0.0, %52 ], [ %.sroa.0.2, %find_merge_parent.exit.thread._crit_edge.i.i ], [ %.sroa.0.0, %62 ], [ %.sroa.0.0, %59 ], [ %.sroa.0.0, %76 ]
-  %.sroa.5.1 = phi i32 [ %.sroa.5.0, %65 ], [ %.sroa.5.0, %52 ], [ %.pre160, %find_merge_parent.exit.thread._crit_edge.i.i ], [ %.sroa.5.0, %62 ], [ %.sroa.5.0, %59 ], [ %.sroa.5.0, %76 ]
-  %.sroa.15.1 = phi ptr [ %.sroa.15.0, %65 ], [ %.sroa.15.0, %52 ], [ %.sroa.15.3, %find_merge_parent.exit.thread._crit_edge.i.i ], [ %.sroa.15.0, %62 ], [ %.sroa.15.0, %59 ], [ %.sroa.15.0, %76 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %65 ], [ %.sroa.0.2, %find_merge_parent.exit.thread._crit_edge.i.i ], [ %.sroa.0.0, %62 ], [ %.sroa.0.0, %59 ], [ %.sroa.0.0, %52 ], [ %.sroa.0.0, %76 ]
+  %.sroa.5.1 = phi i32 [ %.sroa.5.0, %65 ], [ %.pre160, %find_merge_parent.exit.thread._crit_edge.i.i ], [ %.sroa.5.0, %62 ], [ %.sroa.5.0, %59 ], [ %.sroa.5.0, %52 ], [ %.sroa.5.0, %76 ]
+  %.sroa.15.1 = phi ptr [ %.sroa.15.0, %65 ], [ %.sroa.15.3, %find_merge_parent.exit.thread._crit_edge.i.i ], [ %.sroa.15.0, %62 ], [ %.sroa.15.0, %59 ], [ %.sroa.15.0, %52 ], [ %.sroa.15.0, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %98 = sext i32 %57 to i64
@@ -738,8 +738,8 @@ skip_prefix.exit83.i:                             ; preds = %236
   br label %sub_0.i
 
 sub_0.i:                                          ; preds = %skip_prefix.exit83.i, %241, %233, %223, %215
-  %.sink118.i = phi i32 [ 2, %223 ], [ 2, %233 ], [ 2, %skip_prefix.exit83.i ], [ 2, %241 ], [ 1, %215 ]
-  %.090.i = phi ptr [ %scevgep.i, %223 ], [ %193, %233 ], [ %.059.i53, %skip_prefix.exit83.i ], [ %scevgep112.i, %241 ], [ %.059.i53, %215 ]
+  %.sink118.i = phi i32 [ 2, %233 ], [ 2, %skip_prefix.exit83.i ], [ 2, %241 ], [ 2, %223 ], [ 1, %215 ]
+  %.090.i = phi ptr [ %193, %233 ], [ %.059.i53, %skip_prefix.exit83.i ], [ %scevgep112.i, %241 ], [ %scevgep.i, %223 ], [ %.059.i53, %215 ]
   %246 = getelementptr inbounds nuw i8, ptr %217, i64 160
   %247 = load i32, ptr %246, align 8, !tbaa !60
   %248 = or i32 %247, %.sink118.i
@@ -833,7 +833,7 @@ sub_1100.i:                                       ; preds = %sub_099.i
   call void (ptr, ...) @die(ptr noundef nonnull @.str.10, i32 noundef %151, i32 noundef %150, ptr noundef nonnull %139) #15
   unreachable
 
-find_merge_parent.exit.thread:                    ; preds = %180, %178, %168, %287
+find_merge_parent.exit.thread:                    ; preds = %180, %178, %287, %168
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %291 = zext i1 %141 to i32
   %292 = add i32 %.040144, %291
@@ -1471,7 +1471,7 @@ strbuf_complete_line.exit:                        ; preds = %466, %475, %strbuf_
   br label %558
 
 558:                                              ; preds = %555, %551, %544, %538, %535
-  %.1.i92 = phi i32 [ %545, %544 ], [ %.05472.i, %535 ], [ %.05472.i, %538 ], [ %545, %555 ], [ %545, %551 ]
+  %.1.i92 = phi i32 [ %.05472.i, %538 ], [ %.05472.i, %535 ], [ %545, %544 ], [ %545, %555 ], [ %545, %551 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %559 = call ptr @get_revision(ptr noundef nonnull %22) #14
   %.not61.i = icmp eq ptr %559, null

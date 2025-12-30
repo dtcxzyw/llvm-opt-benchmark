@@ -116,7 +116,7 @@ findLastPathComponent.exit17.thread.sink.split.i: ; preds = %.lr.ph.i.i, %.lr.ph
   br label %TruncatePath.exit
 
 TruncatePath.exit:                                ; preds = %findLastPathComponent.exit17.thread.sink.split.i, %13, %2, %5
-  %.0 = phi i8 [ 0, %2 ], [ 0, %5 ], [ 0, %13 ], [ 1, %findLastPathComponent.exit17.thread.sink.split.i ]
+  %.0 = phi i8 [ 0, %5 ], [ 0, %2 ], [ 0, %13 ], [ 1, %findLastPathComponent.exit17.thread.sink.split.i ]
   ret i8 %.0
 }
 
@@ -421,7 +421,7 @@ match_noeq.exit.thread.i:                         ; preds = %match_noeq.exit.thr
   br i1 %.not16.i, label %borrowed_unsetenv.exit, label %match_noeq.exit.thread.i, !llvm.loop !12
 
 borrowed_unsetenv.exit:                           ; preds = %21, %match_noeq.exit.thread.i, %1, %3, %6, %.preheader21.i
-  %.011.i = phi i32 [ 0, %.preheader21.i ], [ -1, %1 ], [ -1, %6 ], [ -1, %3 ], [ 0, %match_noeq.exit.thread.i ], [ 0, %21 ]
+  %.011.i = phi i32 [ -1, %6 ], [ -1, %3 ], [ -1, %1 ], [ 0, %.preheader21.i ], [ 0, %match_noeq.exit.thread.i ], [ 0, %21 ]
   ret i32 %.011.i
 }
 

@@ -103,7 +103,7 @@ define hidden range(i32 -1, 2) i32 @file_is_tar(ptr noundef %0, ptr noundef read
   br label %from_oct.exit.i
 
 from_oct.exit.i:                                  ; preds = %29, %35, %41, %.critedge.i.i, %.preheader.i.i
-  %.017.i.i = phi i32 [ %spec.select.i.i, %41 ], [ %39, %35 ], [ %.033.i.i, %.critedge.i.i ], [ 0, %.preheader.i.i ], [ -1, %29 ]
+  %.017.i.i = phi i32 [ %.033.i.i, %.critedge.i.i ], [ 0, %.preheader.i.i ], [ %spec.select.i.i, %41 ], [ %39, %35 ], [ -1, %29 ]
   br label %46
 
 46:                                               ; preds = %46, %from_oct.exit.i
@@ -161,7 +161,7 @@ is_tar.exit:                                      ; preds = %61, %57
   br label %is_tar.exit.thread
 
 is_tar.exit.thread:                               ; preds = %55, %16, %7, %65, %is_tar.exit, %2
-  %.0 = phi i32 [ 1, %is_tar.exit ], [ 0, %2 ], [ %., %65 ], [ 0, %7 ], [ 0, %16 ], [ 0, %55 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %is_tar.exit ], [ %., %65 ], [ 0, %7 ], [ 0, %16 ], [ 0, %55 ]
   ret i32 %.0
 }
 

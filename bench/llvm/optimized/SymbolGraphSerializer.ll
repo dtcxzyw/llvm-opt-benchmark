@@ -1275,7 +1275,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread7: ; preds = %7, %_ZNK4llvm9Stri
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread7, %_ZNK4llvm9StringRef11starts_withES0_.exit, %3, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %3 ], [ %14, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread7 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit ]
+  %.0 = phi i1 [ true, %2 ], [ true, %3 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ %14, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread7 ]
   ret i1 %.0
 }
 
@@ -4754,8 +4754,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang10extractapi15SymbolReferenceELb1EE9pus
   store i32 %50, ptr %24, align 8, !tbaa !91
   br label %_ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit.thread
 
-_ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit.thread: ; preds = %4, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit, %2, %_ZN4llvm23SmallVectorTemplateBaseIN5clang10extractapi15SymbolReferenceELb1EE9push_backERKS3_.exit
-  %.0 = phi i1 [ true, %2 ], [ %48, %_ZN4llvm23SmallVectorTemplateBaseIN5clang10extractapi15SymbolReferenceELb1EE9push_backERKS3_.exit ], [ true, %_ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ true, %4 ]
+_ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %4, %_ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit, %2, %_ZN4llvm23SmallVectorTemplateBaseIN5clang10extractapi15SymbolReferenceELb1EE9push_backERKS3_.exit
+  %.0 = phi i1 [ %48, %_ZN4llvm23SmallVectorTemplateBaseIN5clang10extractapi15SymbolReferenceELb1EE9push_backERKS3_.exit ], [ true, %2 ], [ true, %_ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit ], [ true, %4 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
   ret i1 %.0
 }
 
@@ -5906,7 +5906,7 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseReco
   br label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit: ; preds = %.lr.ph, %.lr.ph.i465, %.lr.ph.i456, %.lr.ph.i447, %.lr.ph.i438, %.lr.ph.i429, %.lr.ph.i420, %.lr.ph.i411, %.lr.ph.i402, %.lr.ph.i393, %.lr.ph.i384, %.lr.ph.i375, %.lr.ph.i366, %.lr.ph.i357, %.lr.ph.i348, %.lr.ph.i339, %.lr.ph.i330, %.lr.ph.i321, %.lr.ph.i312, %.lr.ph.i303, %.lr.ph.i294, %.lr.ph.i285, %.lr.ph.i276, %.lr.ph.i267, %.lr.ph.i258, %.lr.ph.i249, %.lr.ph.i240, %.lr.ph.i231, %.lr.ph.i222, %.lr.ph.i213, %.lr.ph.i204, %.lr.ph.i195, %.lr.ph.i186, %.lr.ph.i177, %.lr.ph.i168, %.lr.ph.i159, %.lr.ph.i, %331, %329, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148
-  %.0 = phi i1 [ true, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148 ], [ false, %331 ], [ false, %.lr.ph.i384 ], [ false, %.lr.ph.i375 ], [ false, %.lr.ph.i393 ], [ false, %.lr.ph.i402 ], [ false, %.lr.ph.i411 ], [ false, %.lr.ph.i420 ], [ false, %.lr.ph.i429 ], [ false, %.lr.ph.i438 ], [ false, %.lr.ph.i447 ], [ false, %.lr.ph.i456 ], [ false, %.lr.ph.i465 ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i159 ], [ false, %.lr.ph.i168 ], [ false, %.lr.ph.i177 ], [ false, %.lr.ph.i186 ], [ false, %.lr.ph.i195 ], [ false, %.lr.ph.i204 ], [ false, %.lr.ph.i213 ], [ false, %.lr.ph.i222 ], [ false, %.lr.ph.i231 ], [ false, %.lr.ph.i240 ], [ false, %.lr.ph.i249 ], [ false, %.lr.ph.i258 ], [ false, %.lr.ph.i267 ], [ false, %.lr.ph.i276 ], [ false, %.lr.ph.i285 ], [ false, %.lr.ph.i294 ], [ false, %.lr.ph.i303 ], [ false, %.lr.ph.i312 ], [ false, %.lr.ph.i321 ], [ false, %.lr.ph.i330 ], [ false, %.lr.ph.i339 ], [ false, %329 ], [ false, %.lr.ph.i348 ], [ false, %.lr.ph.i357 ], [ false, %.lr.ph.i366 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ true, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148 ], [ false, %329 ], [ false, %331 ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i159 ], [ false, %.lr.ph.i168 ], [ false, %.lr.ph.i177 ], [ false, %.lr.ph.i186 ], [ false, %.lr.ph.i195 ], [ false, %.lr.ph.i204 ], [ false, %.lr.ph.i213 ], [ false, %.lr.ph.i222 ], [ false, %.lr.ph.i231 ], [ false, %.lr.ph.i240 ], [ false, %.lr.ph.i249 ], [ false, %.lr.ph.i258 ], [ false, %.lr.ph.i267 ], [ false, %.lr.ph.i276 ], [ false, %.lr.ph.i285 ], [ false, %.lr.ph.i294 ], [ false, %.lr.ph.i303 ], [ false, %.lr.ph.i312 ], [ false, %.lr.ph.i321 ], [ false, %.lr.ph.i330 ], [ false, %.lr.ph.i339 ], [ false, %.lr.ph.i348 ], [ false, %.lr.ph.i357 ], [ false, %.lr.ph.i366 ], [ false, %.lr.ph.i375 ], [ false, %.lr.ph.i384 ], [ false, %.lr.ph.i393 ], [ false, %.lr.ph.i402 ], [ false, %.lr.ph.i411 ], [ false, %.lr.ph.i420 ], [ false, %.lr.ph.i429 ], [ false, %.lr.ph.i438 ], [ false, %.lr.ph.i447 ], [ false, %.lr.ph.i456 ], [ false, %.lr.ph.i465 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -19382,9 +19382,9 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit18:               ; preds = %_ZN4llvm4json9Objec
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !38
   %.sroa.0.0.copyload.i19 = load ptr, ptr %12, align 8, !tbaa !57
   %magicptr.i = ptrtoint ptr %.sroa.0.0.copyload.i19 to i64
-  switch i64 %magicptr.i, label %32 [
+  switch i64 %magicptr.i, label %34 [
     i64 -1, label %30
-    i64 -2, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
+    i64 -2, label %32
   ]
 
 30:                                               ; preds = %28
@@ -19392,29 +19392,29 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit18:               ; preds = %_ZN4llvm4json9Objec
   br i1 %31, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread46
 
 32:                                               ; preds = %28
+  %33 = icmp eq ptr %.sroa.0.0.copyload.i, inttoptr (i64 -2 to ptr)
+  br i1 %33, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread46
+
+34:                                               ; preds = %28
   %.sroa.2.0.copyload.i21 = load i64, ptr %.sroa.2.0..sroa_idx.i20, align 8, !tbaa !38
   %.not.i.i24 = icmp eq i64 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i21
-  br i1 %.not.i.i24, label %33, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread46
+  br i1 %.not.i.i24, label %35, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread46
 
-33:                                               ; preds = %32
-  %34 = icmp eq i64 %.sroa.2.0.copyload.i, 0
-  br i1 %34, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %35
+35:                                               ; preds = %34
+  %36 = icmp eq i64 %.sroa.2.0.copyload.i, 0
+  br i1 %36, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
 
-35:                                               ; preds = %33
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit: ; preds = %35
   %bcmp.i.i = call i32 @bcmp(ptr %.sroa.0.0.copyload.i, ptr %.sroa.0.0.copyload.i19, i64 %.sroa.2.0.copyload.i)
-  %36 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %36, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread46
-
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit: ; preds = %28
-  %37 = icmp eq ptr %.sroa.0.0.copyload.i, inttoptr (i64 -2 to ptr)
+  %37 = icmp eq i32 %bcmp.i.i, 0
   br i1 %37, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread46
 
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread46: ; preds = %32, %35, %30, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread46: ; preds = %34, %32, %30, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
   %.sroa.0.0.copyload.i30 = load ptr, ptr %13, align 8, !tbaa !57
   %magicptr.i35 = ptrtoint ptr %.sroa.0.0.copyload.i30 to i64
-  switch i64 %magicptr.i35, label %40 [
+  switch i64 %magicptr.i35, label %42 [
     i64 -1, label %38
-    i64 -2, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39
+    i64 -2, label %40
   ]
 
 38:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread46
@@ -19422,29 +19422,29 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread46: ; preds = 
   br i1 %39, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39.thread49
 
 40:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread46
+  %41 = icmp eq ptr %.sroa.0.0.copyload.i, inttoptr (i64 -2 to ptr)
+  br i1 %41, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39.thread49
+
+42:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread46
   %.sroa.2.0.copyload.i32 = load i64, ptr %.sroa.2.0..sroa_idx.i31, align 8, !tbaa !38
   %.not.i.i37 = icmp eq i64 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i32
-  br i1 %.not.i.i37, label %41, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39.thread49
+  br i1 %.not.i.i37, label %43, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39.thread49
 
-41:                                               ; preds = %40
-  %42 = icmp eq i64 %.sroa.2.0.copyload.i, 0
-  br i1 %42, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %43
+43:                                               ; preds = %42
+  %44 = icmp eq i64 %.sroa.2.0.copyload.i, 0
+  br i1 %44, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39
 
-43:                                               ; preds = %41
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39: ; preds = %43
   %bcmp.i.i38 = call i32 @bcmp(ptr %.sroa.0.0.copyload.i, ptr %.sroa.0.0.copyload.i30, i64 %.sroa.2.0.copyload.i)
-  %44 = icmp eq i32 %bcmp.i.i38, 0
-  br i1 %44, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39.thread49
-
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39: ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread46
-  %45 = icmp eq ptr %.sroa.0.0.copyload.i, inttoptr (i64 -2 to ptr)
+  %45 = icmp eq i32 %bcmp.i.i38, 0
   br i1 %45, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39.thread49
 
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39.thread49: ; preds = %40, %43, %38, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39.thread49: ; preds = %42, %40, %38, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39
   %46 = getelementptr inbounds nuw i8, ptr %.052, i64 24
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %46) #18
   br label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread
 
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread: ; preds = %41, %33, %43, %38, %35, %30, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39.thread49, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread: ; preds = %43, %35, %40, %38, %32, %30, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39.thread49, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit39, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
   %47 = load ptr, ptr %.052, align 8, !tbaa !36
   %.not.i.i40 = icmp eq ptr %47, null
   br i1 %.not.i.i40, label %_ZN4llvm4json9ObjectKeyD2Ev.exit44, label %48
@@ -26624,9 +26624,9 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit28:               ; preds = %_ZN4llvm4json9Objec
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !38
   %.sroa.0.0.copyload.i29 = load ptr, ptr %16, align 8, !tbaa !57
   %magicptr.i = ptrtoint ptr %.sroa.0.0.copyload.i29 to i64
-  switch i64 %magicptr.i, label %39 [
+  switch i64 %magicptr.i, label %41 [
     i64 -1, label %37
-    i64 -2, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
+    i64 -2, label %39
   ]
 
 37:                                               ; preds = %32
@@ -26634,29 +26634,29 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit28:               ; preds = %_ZN4llvm4json9Objec
   br i1 %38, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread51
 
 39:                                               ; preds = %32
+  %40 = icmp eq ptr %.sroa.0.0.copyload.i, inttoptr (i64 -2 to ptr)
+  br i1 %40, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread51
+
+41:                                               ; preds = %32
   %.sroa.2.0.copyload.i31 = load i64, ptr %.sroa.2.0..sroa_idx.i30, align 8, !tbaa !38
   %.not.i.i34 = icmp eq i64 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i31
-  br i1 %.not.i.i34, label %40, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread51
+  br i1 %.not.i.i34, label %42, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread51
 
-40:                                               ; preds = %39
-  %41 = icmp eq i64 %.sroa.2.0.copyload.i, 0
-  br i1 %41, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %42
+42:                                               ; preds = %41
+  %43 = icmp eq i64 %.sroa.2.0.copyload.i, 0
+  br i1 %43, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
 
-42:                                               ; preds = %40
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit: ; preds = %42
   %bcmp.i.i = call i32 @bcmp(ptr %.sroa.0.0.copyload.i, ptr %.sroa.0.0.copyload.i29, i64 %.sroa.2.0.copyload.i)
-  %43 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %43, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread51
-
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit: ; preds = %32
-  %44 = icmp eq ptr %.sroa.0.0.copyload.i, inttoptr (i64 -2 to ptr)
+  %44 = icmp eq i32 %bcmp.i.i, 0
   br i1 %44, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread51
 
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread51: ; preds = %39, %42, %37, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread51: ; preds = %41, %39, %37, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
   %.sroa.0.0.copyload.i40 = load ptr, ptr %17, align 8, !tbaa !57
   %magicptr.i45 = ptrtoint ptr %.sroa.0.0.copyload.i40 to i64
-  switch i64 %magicptr.i45, label %47 [
+  switch i64 %magicptr.i45, label %49 [
     i64 -1, label %45
-    i64 -2, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49
+    i64 -2, label %47
   ]
 
 45:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread51
@@ -26664,30 +26664,30 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread51: ; preds = 
   br i1 %46, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.thread54
 
 47:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread51
+  %48 = icmp eq ptr %.sroa.0.0.copyload.i, inttoptr (i64 -2 to ptr)
+  br i1 %48, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.thread54
+
+49:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread51
   %.sroa.2.0.copyload.i42 = load i64, ptr %.sroa.2.0..sroa_idx.i41, align 8, !tbaa !38
   %.not.i.i47 = icmp eq i64 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i42
-  br i1 %.not.i.i47, label %48, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.thread54
+  br i1 %.not.i.i47, label %50, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.thread54
 
-48:                                               ; preds = %47
-  %49 = icmp eq i64 %.sroa.2.0.copyload.i, 0
-  br i1 %49, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %50
+50:                                               ; preds = %49
+  %51 = icmp eq i64 %.sroa.2.0.copyload.i, 0
+  br i1 %51, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49
 
-50:                                               ; preds = %48
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49: ; preds = %50
   %bcmp.i.i48 = call i32 @bcmp(ptr %.sroa.0.0.copyload.i, ptr %.sroa.0.0.copyload.i40, i64 %.sroa.2.0.copyload.i)
-  %51 = icmp eq i32 %bcmp.i.i48, 0
-  br i1 %51, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.thread54
-
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49: ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread51
-  %52 = icmp eq ptr %.sroa.0.0.copyload.i, inttoptr (i64 -2 to ptr)
+  %52 = icmp eq i32 %bcmp.i.i48, 0
   br i1 %52, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.thread54
 
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.thread54: ; preds = %47, %50, %45, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.thread54: ; preds = %49, %47, %45, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49
   %53 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %54 = getelementptr inbounds nuw i8, ptr %34, i64 24
   call void @_ZN4llvm4json5Value8copyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %54) #18
   br label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread
 
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread: ; preds = %48, %40, %50, %45, %42, %37, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.thread54
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread: ; preds = %50, %42, %47, %45, %39, %37, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit49.thread54
   %55 = add nuw nsw i64 %.056, 1
   %exitcond.not = icmp eq i64 %55, %15
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !694

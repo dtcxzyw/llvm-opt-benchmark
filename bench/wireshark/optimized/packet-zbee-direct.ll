@@ -1533,7 +1533,7 @@ define internal fastcc noundef zeroext i1 @zbd_parse_uat_hexline(ptr noundef rea
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !17
 
 .loopexit:                                        ; preds = %23, %28, %37, %17, %.split.us, %3
-  %.037 = phi i1 [ false, %3 ], [ %.not44.us.not.not, %17 ], [ %.not44.us.not.not, %.split.us ], [ true, %37 ], [ false, %28 ], [ false, %23 ]
+  %.037 = phi i1 [ false, %3 ], [ %.not44.us.not.not, %.split.us ], [ %.not44.us.not.not, %17 ], [ true, %37 ], [ false, %28 ], [ false, %23 ]
   ret i1 %.037
 }
 
@@ -1954,12 +1954,12 @@ create_auth_string.exit.i.i:                      ; preds = %181
   br label %194
 
 194:                                              ; preds = %191, %165
-  %.5.i = phi ptr [ %.426.i, %165 ], [ %193, %191 ]
+  %.5.i = phi ptr [ %193, %191 ], [ %.426.i, %165 ]
   %195 = icmp eq ptr %.5.i, null
   br i1 %195, label %.loopexit.thread.i, label %.lr.ph28.i, !llvm.loop !32
 
 .loopexit.i:                                      ; preds = %.thread65.i, %try_decrypt.exit.i, %try_decrypt.exit.thread.i
-  %.8100.in.i = phi i32 [ %162, %.thread65.i ], [ %94, %try_decrypt.exit.i ], [ %94, %try_decrypt.exit.thread.i ]
+  %.8100.in.i = phi i32 [ %94, %try_decrypt.exit.thread.i ], [ %94, %try_decrypt.exit.i ], [ %162, %.thread65.i ]
   %196 = load ptr, ptr %0, align 8
   %197 = and i32 %.8100.in.i, 65535
   %198 = call ptr @tvb_new_child_real_data(ptr noundef %196, ptr noundef %52, i32 noundef %197, i32 noundef %197)
@@ -1974,7 +1974,7 @@ create_auth_string.exit.i.i:                      ; preds = %181
   br label %zb_direct_decrypt.exit
 
 zb_direct_decrypt.exit:                           ; preds = %45, %.loopexit.thread.i, %.loopexit.i, %27, %26, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %26 ], [ %200, %.loopexit.thread.i ], [ 0, %27 ], [ 0, %.loopexit.i ], [ 0, %45 ]
+  %.0 = phi i32 [ 0, %26 ], [ 0, %5 ], [ 0, %27 ], [ 0, %.loopexit.i ], [ %200, %.loopexit.thread.i ], [ 0, %45 ]
   ret i32 %.0
 }
 

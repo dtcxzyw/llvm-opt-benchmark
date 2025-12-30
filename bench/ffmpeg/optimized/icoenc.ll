@@ -127,8 +127,8 @@ ico_check_attributes.exit:                        ; preds = %35
   %. = select i1 %.not23, i32 -12, i32 0
   br label %ico_check_attributes.exit.thread
 
-ico_check_attributes.exit.thread:                 ; preds = %32, %33, %._crit_edge.i, %28, %._crit_edge, %9
-  %.021 = phi i32 [ -22, %9 ], [ %., %._crit_edge ], [ -22, %28 ], [ -22, %._crit_edge.i ], [ -22, %33 ], [ -22, %32 ]
+ico_check_attributes.exit.thread:                 ; preds = %33, %32, %._crit_edge.i, %28, %._crit_edge, %9
+  %.021 = phi i32 [ -22, %9 ], [ %., %._crit_edge ], [ -22, %28 ], [ -22, %._crit_edge.i ], [ -22, %32 ], [ -22, %33 ]
   ret i32 %.021
 }
 

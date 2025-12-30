@@ -1324,9 +1324,9 @@ _ZNK21btConeTwistConstraint33adjustSwingAxisToUseEllipseNormalER9btVector3.exit:
   br label %813
 
 813:                                              ; preds = %796, %779, %803, %809, %806, %786, %792, %789, %799, %782
-  %.148 = phi float [ %754, %779 ], [ %754, %799 ], [ %754, %782 ], [ %754, %796 ], [ %754, %789 ], [ %788, %786 ], [ %795, %792 ], [ 0.000000e+00, %806 ], [ 0.000000e+00, %809 ], [ 0.000000e+00, %803 ]
-  %.045 = phi float [ %751, %779 ], [ %751, %799 ], [ %751, %782 ], [ %751, %796 ], [ 0.000000e+00, %789 ], [ 0.000000e+00, %786 ], [ 0.000000e+00, %792 ], [ %751, %806 ], [ %812, %809 ], [ %805, %803 ]
-  %.1 = phi float [ %748, %779 ], [ %748, %799 ], [ %748, %782 ], [ %748, %796 ], [ %748, %789 ], [ %787, %786 ], [ %793, %792 ], [ %748, %806 ], [ %810, %809 ], [ %804, %803 ]
+  %.148 = phi float [ %754, %782 ], [ %754, %799 ], [ %788, %786 ], [ %795, %792 ], [ %754, %789 ], [ 0.000000e+00, %806 ], [ 0.000000e+00, %809 ], [ 0.000000e+00, %803 ], [ %754, %779 ], [ %754, %796 ]
+  %.045 = phi float [ %751, %782 ], [ %751, %799 ], [ 0.000000e+00, %786 ], [ 0.000000e+00, %792 ], [ 0.000000e+00, %789 ], [ %751, %806 ], [ %812, %809 ], [ %805, %803 ], [ %751, %779 ], [ %751, %796 ]
+  %.1 = phi float [ %748, %782 ], [ %748, %799 ], [ %787, %786 ], [ %793, %792 ], [ %748, %789 ], [ %748, %806 ], [ %810, %809 ], [ %804, %803 ], [ %748, %779 ], [ %748, %796 ]
   %814 = fmul float %693, %.045
   %815 = call float @llvm.fmuladd.f32(float %.1, float %666, float %814)
   %816 = call float @llvm.fmuladd.f32(float %.148, float %708, float %815)
@@ -5969,7 +5969,7 @@ _ZN21btConeTwistConstraint20computeConeLimitInfoERK12btQuaternionRfR9btVector3S3
   br label %136
 
 136:                                              ; preds = %130, %132, %135
-  %.0 = phi float [ %105, %132 ], [ %133, %135 ], [ %.0135, %130 ]
+  %.0 = phi float [ %133, %135 ], [ %105, %132 ], [ %.0135, %130 ]
   %137 = fmul float %.sroa.455.0, %.sroa.455.0
   %138 = tail call float @llvm.fmuladd.f32(float %.sroa.054.0, float %.sroa.054.0, float %137)
   %139 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.656.0, float %.sroa.656.0, float %138)
@@ -6064,7 +6064,7 @@ _ZN21btConeTwistConstraint21computeTwistLimitInfoERK12btQuaternionRfR9btVector3.
   br label %184
 
 184:                                              ; preds = %178, %180, %183
-  %.0134 = phi float [ %.1, %180 ], [ %181, %183 ], [ %149, %178 ]
+  %.0134 = phi float [ %181, %183 ], [ %.1, %180 ], [ %149, %178 ]
   %185 = fmul float %.sroa.546.0, %.sroa.546.0
   %186 = tail call float @llvm.fmuladd.f32(float %.sroa.045.0, float %.sroa.045.0, float %185)
   %187 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.8.0, float %.sroa.8.0, float %186)

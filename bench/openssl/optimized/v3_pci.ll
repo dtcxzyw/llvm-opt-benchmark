@@ -225,7 +225,7 @@ select.unfold:                                    ; preds = %34
   store ptr null, ptr %5, align 8, !tbaa !22
   br label %68
 
-.thread71:                                        ; preds = %select.unfold, %18, %40, %.thread65, %59, %55, %._crit_edge.thread
+.thread71:                                        ; preds = %select.unfold, %.thread65, %18, %40, %59, %55, %._crit_edge.thread
   %65 = load ptr, ptr %4, align 8, !tbaa !21
   call void @ASN1_OBJECT_free(ptr noundef %65) #5
   %66 = load ptr, ptr %5, align 8, !tbaa !22
@@ -631,7 +631,7 @@ define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %0, pt
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %201
 
-.thread:                                          ; preds = %61, %75, %186, %191, %.thread156, %179
+.thread:                                          ; preds = %61, %75, %191, %179, %186, %.thread156
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not173, label %199, label %201
 
@@ -642,7 +642,7 @@ define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %0, pt
   br label %201
 
 201:                                              ; preds = %18, %44, %37, %.thread170, %195, %.thread, %199, %39, %32, %23, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %23 ], [ 0, %.thread ], [ 0, %32 ], [ 0, %39 ], [ 0, %195 ], [ 0, %199 ], [ 1, %.thread170 ], [ 1, %37 ], [ 1, %44 ], [ 1, %18 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %23 ], [ 0, %32 ], [ 0, %39 ], [ 0, %195 ], [ 0, %199 ], [ 0, %.thread ], [ 1, %.thread170 ], [ 1, %37 ], [ 1, %44 ], [ 1, %18 ]
   ret i32 %.0
 }
 

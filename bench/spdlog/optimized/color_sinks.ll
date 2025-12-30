@@ -655,7 +655,7 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit: 
   br label %_ZN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEE15set_color_mode_ENS_10color_modeE.exit
 
 _ZN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEE15set_color_mode_ENS_10color_modeE.exit: ; preds = %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit, %92, %95, %98
-  %.sink.i = phi i8 [ 0, %98 ], [ %97, %95 ], [ 1, %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit ], [ 0, %92 ]
+  %.sink.i = phi i8 [ 0, %98 ], [ 1, %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit ], [ 0, %92 ], [ %97, %95 ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i8 %.sink.i, ptr %99, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1797,7 +1797,7 @@ define weak_odr dso_local void @_ZN6spdlog5sinks14ansicolor_sinkINS_7details13co
   br label %11
 
 11:                                               ; preds = %3, %7, %2, %10
-  %.sink = phi i8 [ 0, %10 ], [ %9, %7 ], [ 1, %2 ], [ 0, %3 ]
+  %.sink = phi i8 [ 0, %10 ], [ 1, %2 ], [ 0, %3 ], [ %9, %7 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i8 %.sink, ptr %12, align 8, !tbaa !43
   ret void
@@ -2092,7 +2092,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   br label %_ZN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEE15set_color_mode_ENS_10color_modeE.exit
 
 _ZN6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEE15set_color_mode_ENS_10color_modeE.exit: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %7, %11, %14
-  %.sink.i = phi i8 [ 0, %14 ], [ %13, %11 ], [ 1, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ 0, %7 ]
+  %.sink.i = phi i8 [ 0, %14 ], [ 1, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ 0, %7 ], [ %13, %11 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i8 %.sink.i, ptr %15, align 8, !tbaa !43
   %16 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #25
@@ -2824,7 +2824,7 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit: 
   br label %_ZN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEE15set_color_mode_ENS_10color_modeE.exit
 
 _ZN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEE15set_color_mode_ENS_10color_modeE.exit: ; preds = %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit, %92, %95, %98
-  %.sink.i = phi i8 [ 0, %98 ], [ %97, %95 ], [ 1, %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit ], [ 0, %92 ]
+  %.sink.i = phi i8 [ 0, %98 ], [ 1, %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm7EEC2Ev.exit ], [ 0, %92 ], [ %97, %95 ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i8 %.sink.i, ptr %99, align 8, !tbaa !110
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -3964,7 +3964,7 @@ define weak_odr dso_local void @_ZN6spdlog5sinks14ansicolor_sinkINS_7details17co
   br label %11
 
 11:                                               ; preds = %3, %7, %2, %10
-  %.sink = phi i8 [ 0, %10 ], [ %9, %7 ], [ 1, %2 ], [ 0, %3 ]
+  %.sink = phi i8 [ 0, %10 ], [ 1, %2 ], [ 0, %3 ], [ %9, %7 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i8 %.sink, ptr %12, align 8, !tbaa !110
   ret void
@@ -4223,7 +4223,7 @@ define weak_odr dso_local void @_ZN6spdlog5sinks14ansicolor_sinkINS_7details17co
   br label %_ZN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEE15set_color_mode_ENS_10color_modeE.exit
 
 _ZN6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEE15set_color_mode_ENS_10color_modeE.exit: ; preds = %2, %3, %7, %10
-  %.sink.i = phi i8 [ 0, %10 ], [ %9, %7 ], [ 1, %2 ], [ 0, %3 ]
+  %.sink.i = phi i8 [ 0, %10 ], [ 1, %2 ], [ 0, %3 ], [ %9, %7 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i8 %.sink.i, ptr %11, align 8, !tbaa !110
   ret void

@@ -1662,7 +1662,7 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit523: ; preds = %.loopexit663._ZN20b
   br label %.loopexit662
 
 .loopexit662:                                     ; preds = %.lr.ph671, %637, %657, %674, %665
-  %.1 = phi float [ 0.000000e+00, %657 ], [ %673, %665 ], [ %694, %674 ], [ 0.000000e+00, %637 ], [ %656, %.lr.ph671 ]
+  %.1 = phi float [ %673, %665 ], [ %694, %674 ], [ 0.000000e+00, %657 ], [ 0.000000e+00, %637 ], [ %656, %.lr.ph671 ]
   br i1 %.not338, label %715, label %695
 
 695:                                              ; preds = %.loopexit662
@@ -1750,7 +1750,7 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit523: ; preds = %.loopexit663._ZN20b
   br label %.loopexit661
 
 .loopexit661:                                     ; preds = %.lr.ph674, %695, %715, %735, %726
-  %.1312 = phi float [ 0.000000e+00, %715 ], [ %734, %726 ], [ %752, %735 ], [ 0.000000e+00, %695 ], [ %714, %.lr.ph674 ]
+  %.1312 = phi float [ %734, %726 ], [ %752, %735 ], [ 0.000000e+00, %715 ], [ 0.000000e+00, %695 ], [ %714, %.lr.ph674 ]
   %753 = fadd float %.1, %.1312
   %754 = fcmp ogt float %753, 0x3E80000000000000
   %755 = fdiv float %14, %753
@@ -1832,7 +1832,7 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit523: ; preds = %.loopexit663._ZN20b
   br label %.loopexit660
 
 .loopexit660:                                     ; preds = %772, %758, %778, %779
-  %.1316 = phi float [ 0.000000e+00, %778 ], [ %811, %779 ], [ 0.000000e+00, %758 ], [ %777, %772 ]
+  %.1316 = phi float [ %811, %779 ], [ 0.000000e+00, %778 ], [ 0.000000e+00, %758 ], [ %777, %772 ]
   br i1 %.not338, label %832, label %812
 
 812:                                              ; preds = %.loopexit660
@@ -1896,7 +1896,7 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit523: ; preds = %.loopexit663._ZN20b
   br label %.loopexit
 
 .loopexit:                                        ; preds = %826, %812, %832, %833
-  %.3 = phi float [ %.1316, %832 ], [ %853, %833 ], [ %.1316, %812 ], [ %831, %826 ]
+  %.3 = phi float [ %853, %833 ], [ %.1316, %832 ], [ %.1316, %812 ], [ %831, %826 ]
   %854 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store float 0.000000e+00, ptr %854, align 8, !tbaa !101
   %855 = getelementptr inbounds nuw i8, ptr %1, i64 116

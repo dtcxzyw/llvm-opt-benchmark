@@ -546,7 +546,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit37: ; preds = %140, %146
   br i1 %150, label %.loopexit, label %140
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit37, %127, %122, %.thread
-  %.pn.pn.pn = phi { ptr, i32 } [ %123, %127 ], [ %28, %.thread ], [ %123, %122 ], [ %.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit37 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %28, %.thread ], [ %123, %122 ], [ %123, %127 ], [ %.pn.pn, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit37 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__10HdCoordSys4SyncEPNS_15HdSceneDelegateEPNS_13HdRenderParamEPjE3key) #14
   br label %183
 

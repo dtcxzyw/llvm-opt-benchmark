@@ -425,7 +425,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13Enco
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %27, %23, %7, %12
-  %spec.select = phi i1 [ false, %7 ], [ %22, %12 ], [ false, %23 ], [ true, %27 ]
+  %spec.select = phi i1 [ %22, %12 ], [ false, %7 ], [ false, %23 ], [ true, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %spec.select
 }
@@ -497,7 +497,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17AttributesEncoder16EncodeAttr
   br label %17
 
 17:                                               ; preds = %12, %7, %2
-  %.0 = phi i1 [ false, %7 ], [ %16, %12 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ %16, %12 ]
   ret i1 %.0
 }
 

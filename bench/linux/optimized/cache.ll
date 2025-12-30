@@ -400,7 +400,7 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
   br i1 %170, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %166, %.loopexit124, %38, %31
-  %171 = phi i32 [ 0, %38 ], [ -5, %31 ], [ %157, %.loopexit124 ], [ %157, %166 ]
+  %171 = phi i32 [ -5, %31 ], [ 0, %38 ], [ %157, %.loopexit124 ], [ %157, %166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %171

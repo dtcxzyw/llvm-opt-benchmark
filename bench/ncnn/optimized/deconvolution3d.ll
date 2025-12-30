@@ -1171,7 +1171,7 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %108, %123, %124, %1
   br label %_ZN4ncnn3MataSERKS0_.exit.invoke
 
 _ZN4ncnn3MataSERKS0_.exit.invoke:                 ; preds = %106, %_ZN4ncnn3Mat7releaseEv.exit.i, %4, %94
-  %.sink93 = phi i64 [ 16, %4 ], [ 16, %94 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %106 ]
+  %.sink93 = phi i64 [ 16, %94 ], [ 16, %4 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %106 ]
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %146 = load i32, ptr %145, align 8, !tbaa !18
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink93
@@ -1259,8 +1259,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc67
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc67, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.sroa.9.0.i = phi ptr [ %182, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %182, %.noexc67 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %.sroa.048.0.i = phi ptr [ %181, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %181, %.noexc67 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %.sroa.9.0.i = phi ptr [ %182, %.noexc67 ], [ %182, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %.sroa.048.0.i = phi ptr [ %181, %.noexc67 ], [ %181, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %.sroa.048.0.i, ptr %11, align 8, !tbaa !67
   %186 = mul i32 %173, %167
@@ -1369,7 +1369,7 @@ _ZNK4ncnn3Mat5emptyEv.exit65.thread:              ; preds = %212, %_ZNK4ncnn3Mat
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %149, %_ZNK4ncnn3Mat5emptyEv.exit65.thread, %_ZNK4ncnn3Mat5emptyEv.exit65, %_ZNK4ncnn3Mat5emptyEv.exit
-  %.0 = phi i32 [ 0, %_ZNK4ncnn3Mat5emptyEv.exit65 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit65.thread ], [ -100, %149 ]
+  %.0 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit65.thread ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit65 ], [ -100, %149 ]
   %222 = load ptr, ptr %66, align 8, !tbaa !7
   %.not.i56 = icmp eq ptr %222, null
   br i1 %.not.i56, label %_ZN4ncnn3MatD2Ev.exit, label %223
@@ -2050,7 +2050,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZL13activation_ssf
   br label %_ZL13activation_ssfiRKN4ncnn3MatE.exit
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %176, %172, %160, %153, %152, %147, %142, %140, %137, %166
-  %.1 = phi nsz float [ %139, %137 ], [ %141, %140 ], [ %146, %142 ], [ %149, %152 ], [ %.0173, %147 ], [ %159, %153 ], [ %165, %160 ], [ %179, %176 ], [ %139, %172 ], [ 0.000000e+00, %166 ]
+  %.1 = phi nsz float [ %139, %137 ], [ %141, %140 ], [ %146, %142 ], [ %149, %152 ], [ %.0173, %147 ], [ %159, %153 ], [ %165, %160 ], [ %139, %172 ], [ %179, %176 ], [ 0.000000e+00, %166 ]
   store float %.1, ptr %138, align 4, !tbaa !79
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %exitcond242.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count241

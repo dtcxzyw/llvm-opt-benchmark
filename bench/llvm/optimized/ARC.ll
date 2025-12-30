@@ -483,7 +483,7 @@ _ZNK12_GLOBAL__N_110ARCABIInfo18classifyReturnTypeEN5clang8QualTypeE.exit: ; pre
   br label %_ZNK12_GLOBAL__N_110ARCABIInfo11updateStateERKN5clang7CodeGen10ABIArgInfoENS1_8QualTypeERNS0_7CCStateE.exit
 
 _ZNK12_GLOBAL__N_110ARCABIInfo11updateStateERKN5clang7CodeGen10ABIArgInfoENS1_8QualTypeERNS0_7CCStateE.exit: ; preds = %42, %46, %38, %44
-  %.sroa.041.1 = phi i32 [ 8, %44 ], [ 8, %38 ], [ %spec.select, %42 ], [ %storemerge.i, %46 ]
+  %.sroa.041.1 = phi i32 [ 8, %38 ], [ 8, %44 ], [ %storemerge.i, %46 ], [ %spec.select, %42 ]
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %58 = load i32, ptr %57, align 4, !tbaa !49
@@ -726,7 +726,7 @@ _ZSt6fill_nIPPN4llvm4TypeEmS2_ET_S4_T0_RKT1_.exit.i.i.i: ; preds = %151
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIPNS_4TypeELj3EEC2EmRKS2_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !81
 
 _ZN4llvm11SmallVectorIPNS_4TypeELj3EEC2EmRKS2_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZSt6fill_nIPPN4llvm4TypeEmS2_ET_S4_T0_RKT1_.exit.i.i.i
-  %162 = phi ptr [ %156, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %64, %_ZSt6fill_nIPPN4llvm4TypeEmS2_ET_S4_T0_RKT1_.exit.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %162 = phi ptr [ %64, %_ZSt6fill_nIPPN4llvm4TypeEmS2_ET_S4_T0_RKT1_.exit.i.i.i ], [ %156, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %storemerge.i.i = trunc i64 %127 to i32
   store i32 %storemerge.i.i, ptr %65, align 8, !tbaa !80, !noalias !54
   %163 = and i64 %127, 4294967295
@@ -901,7 +901,7 @@ _ZNK12_GLOBAL__N_110ARCABIInfo20classifyArgumentTypeEN5clang8QualTypeEh.exit: ; 
   br label %_ZNK12_GLOBAL__N_110ARCABIInfo11updateStateERKN5clang7CodeGen10ABIArgInfoENS1_8QualTypeERNS0_7CCStateE.exit37
 
 _ZNK12_GLOBAL__N_110ARCABIInfo11updateStateERKN5clang7CodeGen10ABIArgInfoENS1_8QualTypeERNS0_7CCStateE.exit37: ; preds = %223, %228, %_ZNK12_GLOBAL__N_110ARCABIInfo20classifyArgumentTypeEN5clang8QualTypeEh.exit, %222, %226
-  %.sroa.041.2 = phi i32 [ 0, %_ZNK12_GLOBAL__N_110ARCABIInfo20classifyArgumentTypeEN5clang8QualTypeEh.exit ], [ %.sroa.041.058, %222 ], [ %spec.select54, %223 ], [ %.sroa.041.058, %226 ], [ %storemerge.i33, %228 ]
+  %.sroa.041.2 = phi i32 [ 0, %_ZNK12_GLOBAL__N_110ARCABIInfo20classifyArgumentTypeEN5clang8QualTypeEh.exit ], [ %.sroa.041.058, %222 ], [ %.sroa.041.058, %226 ], [ %storemerge.i33, %228 ], [ %spec.select54, %223 ]
   %238 = getelementptr inbounds nuw i8, ptr %.059, i64 40
   %.not = icmp eq ptr %238, %60
   br i1 %.not, label %._crit_edge, label %68

@@ -160,7 +160,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit: ; 
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i: ; preds = %.lr.ph391.i, %972, %896, %735, %269, %240, %209, %168, %118, %40
-  %.010.be.i = phi i32 [ %13, %40 ], [ %.515.i, %735 ], [ %.010.i, %972 ], [ %13, %118 ], [ %13, %209 ], [ %.010.i, %168 ], [ %.010.i, %240 ], [ %.010.i, %269 ], [ %.010.i, %896 ], [ %.212.ph.i, %.lr.ph391.i ]
+  %.010.be.i = phi i32 [ %13, %40 ], [ %.515.i, %735 ], [ %13, %118 ], [ %13, %209 ], [ %.010.i, %168 ], [ %.010.i, %240 ], [ %.010.i, %269 ], [ %.010.i, %896 ], [ %.010.i, %972 ], [ %.212.ph.i, %.lr.ph391.i ]
   %.pre = load ptr, ptr %6, align 8, !tbaa !4
   %.pre322 = load i32, ptr %10, align 8, !tbaa !17
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i
@@ -733,8 +733,8 @@ switch.lookup593:                                 ; preds = %switch.hole_check
   br i1 %321, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %.critedge233.backedge.sink.split.i
 
 .critedge233.backedge.sink.split.i:               ; preds = %987, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i, %371, %319
-  %.sink687.i = phi i32 [ %988, %987 ], [ %522, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i ], [ %372, %371 ], [ %320, %319 ]
-  %.sink682.i = phi i8 [ 29, %987 ], [ 15, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i ], [ 14, %371 ], [ 12, %319 ]
+  %.sink687.i = phi i32 [ %372, %371 ], [ %522, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i ], [ %988, %987 ], [ %320, %319 ]
+  %.sink682.i = phi i8 [ 14, %371 ], [ 15, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i ], [ 29, %987 ], [ 12, %319 ]
   %322 = add nsw i32 %.sink687.i, 1
   store i32 %322, ptr %22, align 8, !tbaa !14
   %323 = sext i32 %.sink687.i to i64
@@ -1405,7 +1405,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i: ; 
   br i1 %666, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit152.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit152.i: ; preds = %.lr.ph, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.thread.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit150.i
-  %.313.i = phi i32 [ %.212.ph.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.thread.i ], [ %.212.ph.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i ], [ %.212.ph.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit150.i ], [ %13, %.lr.ph ]
+  %.313.i = phi i32 [ %.212.ph.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i ], [ %.212.ph.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit150.i ], [ %.212.ph.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.thread.i ], [ %13, %.lr.ph ]
   %667 = load ptr, ptr %6, align 8, !tbaa !4
   %668 = load i32, ptr %10, align 8, !tbaa !17
   %669 = sext i32 %668 to i64
@@ -1713,7 +1713,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit169.i: ; 
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.i: ; preds = %816, %798
-  %819 = phi i32 [ %800, %798 ], [ %.pre501.i, %816 ]
+  %819 = phi i32 [ %.pre501.i, %816 ], [ %800, %798 ]
   %820 = icmp sgt i32 %819, 0
   br i1 %820, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.thread.i, label %821
 
@@ -1932,7 +1932,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i: ; 
   ]
 
 .critedge233.preheader.i:                         ; preds = %920, %794, %768, %682, %674, %628, %588, %554, %192, %103, %72
-  %.212.ph.i = phi i32 [ %.010.i, %192 ], [ %13, %72 ], [ %13, %768 ], [ %13, %628 ], [ %13, %588 ], [ %13, %554 ], [ %13, %794 ], [ %13, %103 ], [ %.313.i, %682 ], [ %.313.i, %674 ], [ %13, %920 ]
+  %.212.ph.i = phi i32 [ %.010.i, %192 ], [ %13, %768 ], [ %13, %628 ], [ %13, %588 ], [ %13, %554 ], [ %13, %794 ], [ %13, %103 ], [ %.313.i, %682 ], [ %.313.i, %674 ], [ %13, %72 ], [ %13, %920 ]
   %.val55387.i = load i32, ptr %10, align 8, !tbaa !17
   %.val56388.i = load ptr, ptr %6, align 8, !tbaa !4
   %926 = sext i32 %.val55387.i to i64
@@ -2078,7 +2078,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit204.i: ; 
   br label %.critedge51.preheader.i
 
 .critedge51.preheader.i:                          ; preds = %519, %509, %switch.lookup593, %301, %.loopexit236.i, %.loopexit240.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i, %53
-  %.111.ph.i = phi i32 [ %.010.i, %53 ], [ %.717.i, %.loopexit236.i ], [ %.414.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i ], [ %.212.ph.i, %switch.lookup593 ], [ %.616.i, %.loopexit240.i ], [ %.212.ph.i, %301 ], [ %.212.ph.i, %509 ], [ %.212.ph.i, %519 ]
+  %.111.ph.i = phi i32 [ %.616.i, %.loopexit240.i ], [ %.717.i, %.loopexit236.i ], [ %.414.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i ], [ %.010.i, %53 ], [ %.212.ph.i, %301 ], [ %.212.ph.i, %switch.lookup593 ], [ %.212.ph.i, %509 ], [ %.212.ph.i, %519 ]
   %995 = icmp slt i32 %.111.ph.i, 131071
   %996 = load i32, ptr %22, align 8
   %997 = icmp sgt i32 %996, 0
@@ -2133,7 +2133,7 @@ switch.lookup:                                    ; preds = %.loopexit238.i
   br label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
 _ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit: ; preds = %718, %513, %693, %639, %578, %544, %199, %108, %36, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i, %53, %58, %67, %70, %89, %98, %101, %116, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i.i, %165, %180, %189, %207, %231, %233, %262, %266, %293, %552, %586, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit148.i, %647, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit156.i, %678, %701, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i, %729, %762, %765, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit169.i, %893, %964, %969, %.critedge51.preheader.i, %.critedge233._crit_edge.i, %switch.hole_check, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i200.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i194.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i, %903, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177._crit_edge.i, %862, %852, %821, %809, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit, %747, %612, %601, %567, %534, %377, %349, %341, %333, %284, %276, %255, %247, %215, %.critedge51.backedge.i, %124, %77, %.lr.ph362.i.backedge, %781, %494, %482, %469, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i, %431, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i49, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i43, %390, %310, %319, %362, %371, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i, %981, %987, %874, %.lr.ph358.i, %1004, %.loopexit238.i, %switch.lookup, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit, %18
-  %.0.i = phi i1 [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit ], [ %switch.masked, %switch.lookup ], [ false, %.lr.ph358.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i200.i ], [ false, %494 ], [ false, %874 ], [ false, %.loopexit238.i ], [ false, %18 ], [ false, %1004 ], [ false, %987 ], [ false, %981 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i ], [ false, %371 ], [ false, %362 ], [ false, %319 ], [ false, %310 ], [ false, %390 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i43 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i49 ], [ false, %431 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i ], [ false, %469 ], [ false, %482 ], [ false, %781 ], [ false, %.lr.ph362.i.backedge ], [ false, %77 ], [ false, %124 ], [ false, %.critedge51.backedge.i ], [ false, %215 ], [ false, %247 ], [ false, %255 ], [ false, %276 ], [ false, %284 ], [ false, %333 ], [ false, %341 ], [ false, %349 ], [ false, %377 ], [ false, %534 ], [ false, %567 ], [ false, %601 ], [ false, %612 ], [ false, %747 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit ], [ false, %809 ], [ false, %821 ], [ false, %852 ], [ false, %862 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177._crit_edge.i ], [ false, %903 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i194.i ], [ false, %switch.hole_check ], [ false, %.critedge233._crit_edge.i ], [ false, %.critedge51.preheader.i ], [ false, %969 ], [ false, %964 ], [ false, %893 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit169.i ], [ false, %765 ], [ false, %762 ], [ false, %729 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i ], [ false, %701 ], [ false, %678 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit156.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i ], [ false, %647 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit148.i ], [ false, %586 ], [ false, %552 ], [ false, %293 ], [ false, %266 ], [ false, %262 ], [ false, %233 ], [ false, %231 ], [ false, %207 ], [ false, %189 ], [ false, %180 ], [ false, %165 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i.i ], [ false, %116 ], [ false, %101 ], [ false, %98 ], [ false, %89 ], [ false, %70 ], [ false, %67 ], [ false, %58 ], [ false, %53 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i ], [ false, %36 ], [ false, %108 ], [ false, %199 ], [ false, %544 ], [ false, %578 ], [ false, %639 ], [ false, %693 ], [ false, %513 ], [ false, %718 ]
+  %.0.i = phi i1 [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit ], [ false, %18 ], [ %switch.masked, %switch.lookup ], [ false, %.loopexit238.i ], [ false, %1004 ], [ false, %.lr.ph358.i ], [ false, %874 ], [ false, %987 ], [ false, %981 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i ], [ false, %371 ], [ false, %362 ], [ false, %319 ], [ false, %310 ], [ false, %390 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i43 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i49 ], [ false, %431 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i ], [ false, %469 ], [ false, %482 ], [ false, %494 ], [ false, %781 ], [ false, %.lr.ph362.i.backedge ], [ false, %77 ], [ false, %124 ], [ false, %.critedge51.backedge.i ], [ false, %215 ], [ false, %247 ], [ false, %255 ], [ false, %276 ], [ false, %284 ], [ false, %333 ], [ false, %341 ], [ false, %349 ], [ false, %377 ], [ false, %534 ], [ false, %567 ], [ false, %601 ], [ false, %612 ], [ false, %747 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit ], [ false, %809 ], [ false, %821 ], [ false, %852 ], [ false, %862 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177._crit_edge.i ], [ false, %903 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i194.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i200.i ], [ false, %switch.hole_check ], [ false, %.critedge233._crit_edge.i ], [ false, %.critedge51.preheader.i ], [ false, %969 ], [ false, %964 ], [ false, %893 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit169.i ], [ false, %765 ], [ false, %762 ], [ false, %729 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i ], [ false, %701 ], [ false, %678 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit156.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i ], [ false, %647 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit148.i ], [ false, %586 ], [ false, %552 ], [ false, %293 ], [ false, %266 ], [ false, %262 ], [ false, %233 ], [ false, %231 ], [ false, %207 ], [ false, %189 ], [ false, %180 ], [ false, %165 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i.i ], [ false, %116 ], [ false, %101 ], [ false, %98 ], [ false, %89 ], [ false, %70 ], [ false, %67 ], [ false, %58 ], [ false, %53 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i ], [ false, %36 ], [ false, %108 ], [ false, %199 ], [ false, %544 ], [ false, %578 ], [ false, %639 ], [ false, %693 ], [ false, %513 ], [ false, %718 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.i
 }
@@ -2246,7 +2246,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i: ;
   br label %53
 
 53:                                               ; preds = %51, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i, %.thread.i, %2
-  %.02.ph = phi i32 [ 1, %.thread.i ], [ %spec.select.i, %51 ], [ -1, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i ], [ 0, %2 ]
+  %.02.ph = phi i32 [ %spec.select.i, %51 ], [ -1, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i ], [ 1, %.thread.i ], [ 0, %2 ]
   %54 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser30ParseUndisambiguatedIdentifierEci(ptr noundef nonnull align 8 dereferenceable(432) %0, i8 noundef signext %1, i32 noundef %.02.ph)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser18ParseDisambiguatorERi.exit
 
@@ -2393,8 +2393,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit: ; preds
   br i1 %42, label %.lr.ph.i, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %32, %.preheader.i, %18
-  %43 = phi i32 [ %20, %18 ], [ %20, %.preheader.i ], [ %34, %32 ]
-  %.053.ph = phi i32 [ 0, %18 ], [ %23, %.preheader.i ], [ %38, %32 ]
+  %43 = phi i32 [ %20, %.preheader.i ], [ %20, %18 ], [ %34, %32 ]
+  %.053.ph = phi i32 [ %23, %.preheader.i ], [ 0, %18 ], [ %38, %32 ]
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %7, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !13
@@ -2781,7 +2781,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17EmitDisambiguatorE
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %150, %_ZN4absl18debugging_internal12_GLOBAL__N_116IsIdentifierCharEc.exit, %180, %197, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17EmitDisambiguatorEi.exit.thread, %244, %200, %183, %50, %69, %81, %93, %106, %120, %166, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17EmitDisambiguatorEi.exit, %235, %.critedge28, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit
-  %.0 = phi i1 [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit ], [ false, %235 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17EmitDisambiguatorEi.exit ], [ true, %197 ], [ false, %106 ], [ false, %120 ], [ false, %81 ], [ false, %69 ], [ true, %.critedge28 ], [ false, %150 ], [ false, %50 ], [ false, %93 ], [ true, %180 ], [ false, %166 ], [ false, %200 ], [ false, %183 ], [ true, %244 ], [ true, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17EmitDisambiguatorEi.exit.thread ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116IsIdentifierCharEc.exit ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17EmitDisambiguatorEi.exit ], [ false, %50 ], [ false, %69 ], [ false, %81 ], [ false, %93 ], [ false, %106 ], [ false, %120 ], [ false, %166 ], [ false, %235 ], [ true, %.critedge28 ], [ false, %183 ], [ false, %200 ], [ true, %244 ], [ true, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17EmitDisambiguatorEi.exit.thread ], [ true, %197 ], [ true, %180 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116IsIdentifierCharEc.exit ], [ false, %150 ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -2848,7 +2848,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.spl
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseOptionalLifetimeEv.exit
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseOptionalLifetimeEv.exit: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ]
+  %.0 = phi i1 [ false, %1 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ], [ true, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i ]
   ret i1 %.0
 }
 
@@ -2971,7 +2971,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17ParseBase62NumberE
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12PushPositionEi.exit
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12PushPositionEi.exit: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i, %50, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17ParseBase62NumberERi.exit, %53
-  %.0 = phi i1 [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17ParseBase62NumberERi.exit ], [ true, %53 ], [ false, %50 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i ]
+  %.0 = phi i1 [ true, %53 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17ParseBase62NumberERi.exit ], [ false, %50 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i ]
   ret i1 %.0
 }
 

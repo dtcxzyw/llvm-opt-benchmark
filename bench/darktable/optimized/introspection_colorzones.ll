@@ -595,7 +595,7 @@ dt_Lab_2_LCH.exit:                                ; preds = %48, %50
   br label %60
 
 60:                                               ; preds = %dt_Lab_2_LCH.exit, %57, %54
-  %.0 = phi nsz float [ %59, %57 ], [ %56, %54 ], [ %.0.i, %dt_Lab_2_LCH.exit ]
+  %.0 = phi nsz float [ %56, %54 ], [ %59, %57 ], [ %.0.i, %dt_Lab_2_LCH.exit ]
   %61 = fcmp reassoc nsz arcp contract afn ogt float %.0, 1.000000e+00
   %62 = fcmp reassoc nsz arcp contract afn olt float %.0, 0.000000e+00
   %63 = select reassoc nsz arcp contract afn i1 %62, float 0.000000e+00, float %.0
@@ -706,7 +706,7 @@ dt_Lab_2_LCH.exit:                                ; preds = %34, %36
   br label %46
 
 46:                                               ; preds = %dt_Lab_2_LCH.exit, %44, %42
-  %.0 = phi nsz float [ %45, %44 ], [ %43, %42 ], [ %.0.i, %dt_Lab_2_LCH.exit ]
+  %.0 = phi nsz float [ %43, %42 ], [ %45, %44 ], [ %.0.i, %dt_Lab_2_LCH.exit ]
   %47 = fcmp reassoc nsz arcp contract afn ogt float %.0, 1.000000e+00
   %48 = fcmp reassoc nsz arcp contract afn olt float %.0, 0.000000e+00
   %49 = select reassoc nsz arcp contract afn i1 %48, float 0.000000e+00, float %.0
@@ -1670,7 +1670,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   br label %.lr.ph55.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph55.i, %.thread.thread50.i.thread, %.thread, %.thread63.i
-  %.248626568.i = phi i32 [ 0, %.thread63.i ], [ 0, %.thread.thread50.i.thread ], [ %.249.i, %.thread ], [ %.248.i217243246, %.lr.ph55.i ]
+  %.248626568.i = phi i32 [ 0, %.thread63.i ], [ %.249.i, %.thread ], [ 0, %.thread.thread50.i.thread ], [ %.248.i217243246, %.lr.ph55.i ]
   %99 = zext nneg i32 %.248626568.i to i64
   %100 = getelementptr inbounds nuw %struct.dt_iop_colorzones_node_t, ptr %19, i64 %99
   store float %65, ptr %100, align 4, !tbaa !15
@@ -1810,7 +1810,7 @@ _add_node.exit:                                   ; preds = %.thread241, %._crit
   br label %.lr.ph55.i127
 
 ._crit_edge.i120:                                 ; preds = %.lr.ph55.i127, %.thread.thread50.i124.thread, %.thread208, %.thread63.i118
-  %.248626568.i121 = phi i32 [ 0, %.thread63.i118 ], [ 0, %.thread.thread50.i124.thread ], [ %.249.i123, %.thread208 ], [ %.248.i125222249252, %.lr.ph55.i127 ]
+  %.248626568.i121 = phi i32 [ 0, %.thread63.i118 ], [ %.249.i123, %.thread208 ], [ 0, %.thread.thread50.i124.thread ], [ %.248.i125222249252, %.lr.ph55.i127 ]
   %157 = zext nneg i32 %.248626568.i121 to i64
   %158 = getelementptr inbounds nuw %struct.dt_iop_colorzones_node_t, ptr %19, i64 %157
   store float %.1, ptr %158, align 4, !tbaa !15
@@ -1951,7 +1951,7 @@ _add_node.exit137:                                ; preds = %.thread247, %._crit
   br label %.lr.ph55.i150
 
 ._crit_edge.i143:                                 ; preds = %.lr.ph55.i150, %.thread.thread50.i147.thread, %.thread210, %.thread63.i141
-  %.248626568.i144 = phi i32 [ 0, %.thread63.i141 ], [ 0, %.thread.thread50.i147.thread ], [ %.249.i146, %.thread210 ], [ %.248.i148227255258, %.lr.ph55.i150 ]
+  %.248626568.i144 = phi i32 [ 0, %.thread63.i141 ], [ %.249.i146, %.thread210 ], [ 0, %.thread.thread50.i147.thread ], [ %.248.i148227255258, %.lr.ph55.i150 ]
   %216 = zext nneg i32 %.248626568.i144 to i64
   %217 = getelementptr inbounds nuw %struct.dt_iop_colorzones_node_t, ptr %19, i64 %216
   store float %.2, ptr %217, align 4, !tbaa !15
@@ -2091,7 +2091,7 @@ _add_node.exit160:                                ; preds = %.thread253, %._crit
   br label %.lr.ph55.i173
 
 ._crit_edge.i166:                                 ; preds = %.lr.ph55.i173, %.thread.thread50.i170.thread, %.thread212, %.thread63.i164
-  %.248626568.i167 = phi i32 [ 0, %.thread63.i164 ], [ 0, %.thread.thread50.i170.thread ], [ %.249.i169, %.thread212 ], [ %.248.i171232261264, %.lr.ph55.i173 ]
+  %.248626568.i167 = phi i32 [ 0, %.thread63.i164 ], [ %.249.i169, %.thread212 ], [ 0, %.thread.thread50.i170.thread ], [ %.248.i171232261264, %.lr.ph55.i173 ]
   %274 = zext nneg i32 %.248626568.i167 to i64
   %275 = getelementptr inbounds nuw %struct.dt_iop_colorzones_node_t, ptr %19, i64 %274
   store float %.3, ptr %275, align 4, !tbaa !15
@@ -2231,7 +2231,7 @@ _add_node.exit183:                                ; preds = %.thread259, %._crit
   br label %.lr.ph55.i196
 
 ._crit_edge.i189:                                 ; preds = %.lr.ph55.i196, %.thread.thread50.i193.thread, %.thread214, %.thread63.i187
-  %.248626568.i190 = phi i32 [ 0, %.thread63.i187 ], [ 0, %.thread.thread50.i193.thread ], [ %.249.i192, %.thread214 ], [ %.248.i194237267270, %.lr.ph55.i196 ]
+  %.248626568.i190 = phi i32 [ 0, %.thread63.i187 ], [ %.249.i192, %.thread214 ], [ 0, %.thread.thread50.i193.thread ], [ %.248.i194237267270, %.lr.ph55.i196 ]
   %332 = zext nneg i32 %.248626568.i190 to i64
   %333 = getelementptr inbounds nuw %struct.dt_iop_colorzones_node_t, ptr %19, i64 %332
   store float %298, ptr %333, align 4, !tbaa !15
@@ -2344,7 +2344,7 @@ define internal fastcc i32 @_add_node(ptr noundef captures(none) %0, ptr noundef
   br label %.lr.ph55
 
 ._crit_edge:                                      ; preds = %.lr.ph55, %.thread63, %30
-  %.248626568 = phi i32 [ 0, %.thread63 ], [ %.248, %30 ], [ %.248, %.lr.ph55 ]
+  %.248626568 = phi i32 [ %.248, %30 ], [ 0, %.thread63 ], [ %.248, %.lr.ph55 ]
   %33 = zext nneg i32 %.248626568 to i64
   %34 = getelementptr inbounds nuw %struct.dt_iop_colorzones_node_t, ptr %0, i64 %33
   store float %2, ptr %34, align 4, !tbaa !15
@@ -2369,7 +2369,7 @@ define internal fastcc i32 @_add_node(ptr noundef captures(none) %0, ptr noundef
   br i1 %43, label %.lr.ph55, label %._crit_edge
 
 .thread44:                                        ; preds = %.thread63, %21, %.thread.thread, %._crit_edge, %27
-  %.346 = phi i32 [ %.248, %27 ], [ %.248626568, %._crit_edge ], [ -2, %.thread.thread ], [ -2, %21 ], [ %.pre, %.thread63 ]
+  %.346 = phi i32 [ %.248626568, %._crit_edge ], [ %.248, %27 ], [ -2, %.thread.thread ], [ -2, %21 ], [ %.pre, %.thread63 ]
   ret i32 %.346
 }
 
@@ -2666,7 +2666,7 @@ _delete_node.exit:                                ; preds = %._crit_edge.i60, %8
   br label %.lr.ph55.i
 
 ._crit_edge.i68:                                  ; preds = %.lr.ph55.i, %.thread.thread50.i.thread, %.thread, %.thread63.i
-  %.248626568.i = phi i32 [ 0, %.thread63.i ], [ 0, %.thread.thread50.i.thread ], [ %.249.i, %.thread ], [ %.248.i818790, %.lr.ph55.i ]
+  %.248626568.i = phi i32 [ 0, %.thread63.i ], [ %.249.i, %.thread ], [ 0, %.thread.thread50.i.thread ], [ %.248.i818790, %.lr.ph55.i ]
   %128 = zext nneg i32 %.248626568.i to i64
   %129 = getelementptr inbounds nuw %struct.dt_iop_colorzones_node_t, ptr %20, i64 %128
   store float %22, ptr %129, align 4, !tbaa !15
@@ -2691,7 +2691,7 @@ _delete_node.exit:                                ; preds = %._crit_edge.i60, %8
   br i1 %138, label %.lr.ph55.i, label %._crit_edge.i68
 
 _add_node.exit:                                   ; preds = %.thread85, %._crit_edge.i68, %.thread63.i, %122, %114, %.thread.thread.i, %.thread, %95
-  %.156 = phi i32 [ %.05595, %95 ], [ %.249.i, %122 ], [ %.248626568.i, %._crit_edge.i68 ], [ -2, %.thread.thread.i ], [ -2, %114 ], [ %.pre.i66, %.thread63.i ], [ %.249.i, %.thread ], [ -2, %.thread85 ]
+  %.156 = phi i32 [ %.05595, %95 ], [ %.248626568.i, %._crit_edge.i68 ], [ %.249.i, %122 ], [ -2, %.thread.thread.i ], [ -2, %114 ], [ %.pre.i66, %.thread63.i ], [ %.249.i, %.thread ], [ -2, %.thread85 ]
   %139 = fmul reassoc nsz arcp contract afn float %.1, 0x3F847AE140000000
   call fastcc void @_move_point_internal(ptr noundef %8, ptr noundef %0, i32 noundef %.156, float noundef 0.000000e+00, float noundef %139, i32 noundef 1543512063)
   %140 = sext i32 %.156 to i64
@@ -2705,7 +2705,7 @@ _add_node.exit:                                   ; preds = %.thread85, %._crit_
   br label %145
 
 145:                                              ; preds = %144, %65, %_delete_node.exit, %_add_node.exit
-  %.154 = phi nsz float [ %143, %_add_node.exit ], [ %62, %144 ], [ %62, %_delete_node.exit ], [ %62, %65 ]
+  %.154 = phi nsz float [ %62, %144 ], [ %62, %_delete_node.exit ], [ %62, %65 ], [ %143, %_add_node.exit ]
   %146 = sext i32 %1 to i64
   %147 = getelementptr inbounds %struct.dt_action_element_def_t, ptr @_action_elements_zones, i64 %146
   %148 = load ptr, ptr %147, align 16, !tbaa !173
@@ -3754,7 +3754,7 @@ dt_draw_curve_calc_values.exit:                   ; preds = %180
   br label %.loopexit585
 
 .loopexit585:                                     ; preds = %236, %203, %..loopexit586_crit_edge, %.preheader584
-  %243 = phi ptr [ %197, %.preheader584 ], [ %209, %203 ], [ %209, %..loopexit586_crit_edge ], [ %197, %236 ]
+  %243 = phi ptr [ %209, %203 ], [ %209, %..loopexit586_crit_edge ], [ %197, %.preheader584 ], [ %197, %236 ]
   %244 = getelementptr inbounds nuw [256 x float], ptr %40, i64 %indvars.iv646
   %245 = load i32, ptr %23, align 4, !tbaa !142
   %.not566 = icmp eq i32 %245, 2
@@ -5388,7 +5388,7 @@ define internal range(i32 0, 2) i32 @_area_button_press_callback(ptr noundef %0,
   br label %80
 
 80:                                               ; preds = %58, %79, %77
-  %81 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %77 ], [ %74, %79 ], [ %75, %58 ]
+  %81 = phi reassoc nsz arcp contract afn double [ %74, %79 ], [ 0.000000e+00, %77 ], [ %75, %58 ]
   %82 = sitofp i32 %70 to float
   %83 = fpext reassoc nsz arcp contract afn float %82 to double
   %84 = fdiv reassoc nsz arcp contract afn double %81, %83
@@ -5409,7 +5409,7 @@ define internal range(i32 0, 2) i32 @_area_button_press_callback(ptr noundef %0,
   br label %.critedge
 
 .critedge:                                        ; preds = %80, %93, %91
-  %94 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %91 ], [ %88, %93 ], [ %89, %80 ]
+  %94 = phi reassoc nsz arcp contract afn double [ %88, %93 ], [ 0.000000e+00, %91 ], [ %89, %80 ]
   %95 = sitofp i32 %67 to float
   %96 = fpext reassoc nsz arcp contract afn float %95 to double
   %97 = fdiv reassoc nsz arcp contract afn double %94, %96
@@ -5712,7 +5712,7 @@ _reset_nodes.exit:                                ; preds = %.lr.ph.split.i, %.l
   br label %255
 
 255:                                              ; preds = %39, %159, %_reset_nodes.exit, %239, %246, %16, %213, %160, %3
-  %.0 = phi i32 [ 1, %3 ], [ 1, %159 ], [ 1, %_reset_nodes.exit ], [ 1, %246 ], [ 1, %39 ], [ 1, %239 ], [ 0, %16 ], [ 0, %213 ], [ 0, %160 ]
+  %.0 = phi i32 [ 1, %3 ], [ 1, %159 ], [ 1, %_reset_nodes.exit ], [ 1, %39 ], [ 1, %239 ], [ 1, %246 ], [ 0, %16 ], [ 0, %213 ], [ 0, %160 ]
   ret i32 %.0
 }
 
@@ -5738,7 +5738,7 @@ define internal range(i32 0, 2) i32 @_area_button_release_callback(ptr readnone 
   br label %15
 
 15:                                               ; preds = %7, %3, %11
-  %.0 = phi i32 [ 1, %3 ], [ 1, %11 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %11 ], [ 1, %3 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -5792,7 +5792,7 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   br label %40
 
 40:                                               ; preds = %24, %39, %37
-  %41 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %37 ], [ %34, %39 ], [ %35, %24 ]
+  %41 = phi reassoc nsz arcp contract afn double [ %34, %39 ], [ 0.000000e+00, %37 ], [ %35, %24 ]
   %42 = sitofp i32 %20 to float
   %43 = fpext reassoc nsz arcp contract afn float %42 to double
   %44 = fdiv reassoc nsz arcp contract afn double %41, %43
@@ -5812,7 +5812,7 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   br label %53
 
 53:                                               ; preds = %40, %52, %50
-  %54 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %50 ], [ %47, %52 ], [ %48, %40 ]
+  %54 = phi reassoc nsz arcp contract afn double [ %47, %52 ], [ 0.000000e+00, %50 ], [ %48, %40 ]
   %55 = sitofp i32 %17 to float
   %56 = fpext reassoc nsz arcp contract afn float %55 to double
   %57 = fdiv reassoc nsz arcp contract afn double %54, %56
@@ -5857,7 +5857,7 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   br label %88
 
 88:                                               ; preds = %62, %87, %85
-  %89 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %85 ], [ %73, %87 ], [ %83, %62 ]
+  %89 = phi reassoc nsz arcp contract afn float [ %73, %87 ], [ 0.000000e+00, %85 ], [ %83, %62 ]
   store float %89, ptr %69, align 8, !tbaa !178
   %90 = fcmp reassoc nsz arcp contract afn olt float %83, %81
   br i1 %90, label %94, label %91
@@ -5870,7 +5870,7 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   br label %94
 
 94:                                               ; preds = %88, %93, %91
-  %95 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %91 ], [ %81, %93 ], [ %83, %88 ]
+  %95 = phi reassoc nsz arcp contract afn float [ %81, %93 ], [ 0.000000e+00, %91 ], [ %83, %88 ]
   store float %95, ptr %77, align 4, !tbaa !177
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %97 = load ptr, ptr %96, align 8, !tbaa !147
@@ -5909,7 +5909,7 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   br label %123
 
 123:                                              ; preds = %100, %122, %120
-  %124 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %120 ], [ %117, %122 ], [ %118, %100 ]
+  %124 = phi reassoc nsz arcp contract afn double [ %117, %122 ], [ 0.000000e+00, %120 ], [ %118, %100 ]
   %125 = sitofp i32 %20 to float
   %126 = fpext reassoc nsz arcp contract afn float %125 to double
   %127 = fdiv reassoc nsz arcp contract afn double %124, %126
@@ -5929,7 +5929,7 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   br label %136
 
 136:                                              ; preds = %123, %135, %133
-  %137 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %133 ], [ %130, %135 ], [ %131, %123 ]
+  %137 = phi reassoc nsz arcp contract afn double [ %130, %135 ], [ 0.000000e+00, %133 ], [ %131, %123 ]
   %138 = sitofp i32 %17 to float
   %139 = fpext reassoc nsz arcp contract afn float %138 to double
   %140 = fdiv reassoc nsz arcp contract afn double %137, %139
@@ -6308,7 +6308,7 @@ define internal i32 @_area_scrolled_callback(ptr noundef %0, ptr noundef %1, ptr
   br label %65
 
 65:                                               ; preds = %30, %64, %62
-  %66 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %62 ], [ %56, %64 ], [ %60, %30 ]
+  %66 = phi reassoc nsz arcp contract afn float [ %56, %64 ], [ 0.000000e+00, %62 ], [ %60, %30 ]
   store float %66, ptr %39, align 8, !tbaa !178
   %67 = fcmp reassoc nsz arcp contract afn ogt float %58, %60
   br i1 %67, label %71, label %68
@@ -6321,7 +6321,7 @@ define internal i32 @_area_scrolled_callback(ptr noundef %0, ptr noundef %1, ptr
   br label %71
 
 71:                                               ; preds = %65, %70, %68
-  %72 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %68 ], [ %58, %70 ], [ %60, %65 ]
+  %72 = phi reassoc nsz arcp contract afn float [ %58, %70 ], [ 0.000000e+00, %68 ], [ %60, %65 ]
   store float %72, ptr %43, align 4, !tbaa !177
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %74 = load ptr, ptr %73, align 8, !tbaa !147
@@ -6404,7 +6404,7 @@ define internal i32 @_area_scrolled_callback(ptr noundef %0, ptr noundef %1, ptr
   br label %121
 
 121:                                              ; preds = %3, %120, %18
-  %.0 = phi i32 [ 1, %120 ], [ %23, %18 ], [ 0, %3 ]
+  %.0 = phi i32 [ %23, %18 ], [ 1, %120 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -6448,8 +6448,8 @@ define internal range(i32 0, 2) i32 @_area_key_press_callback(ptr noundef %0, pt
   br label %19
 
 19:                                               ; preds = %17, %18, %16, %13, %13
-  %.018 = phi nsz float [ 0.000000e+00, %13 ], [ 0.000000e+00, %16 ], [ 0x3F50624DE0000000, %17 ], [ 0xBF50624DE0000000, %18 ], [ 0.000000e+00, %13 ]
-  %.0 = phi nsz float [ 0x3F50624DE0000000, %13 ], [ 0xBF50624DE0000000, %16 ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %18 ], [ 0x3F50624DE0000000, %13 ]
+  %.018 = phi nsz float [ 0.000000e+00, %16 ], [ 0x3F50624DE0000000, %17 ], [ 0xBF50624DE0000000, %18 ], [ 0.000000e+00, %13 ], [ 0.000000e+00, %13 ]
+  %.0 = phi nsz float [ 0xBF50624DE0000000, %16 ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %18 ], [ 0x3F50624DE0000000, %13 ], [ 0x3F50624DE0000000, %13 ]
   tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #31
   %20 = load i32, ptr %10, align 4, !tbaa !179
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -6458,7 +6458,7 @@ define internal range(i32 0, 2) i32 @_area_key_press_callback(ptr noundef %0, pt
   br label %.fold.split
 
 .fold.split:                                      ; preds = %13, %19, %7, %3
-  %.020 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 1, %19 ], [ 0, %13 ]
+  %.020 = phi i32 [ 0, %3 ], [ 0, %7 ], [ 1, %19 ], [ 0, %13 ]
   ret i32 %.020
 }
 
@@ -6603,9 +6603,9 @@ define internal noundef i32 @_bottom_area_draw_callback(ptr noundef %0, ptr noun
   br label %93
 
 93:                                               ; preds = %80, %92, %90
-  %.sroa.078.0 = phi nsz float [ 5.000000e+01, %92 ], [ %91, %90 ], [ 5.000000e+01, %80 ]
-  %.sroa.679.0 = phi nsz float [ %.reass, %92 ], [ 0x4056A09E60000000, %90 ], [ 0x4056A09E60000000, %80 ]
-  %.sroa.11.0 = phi nsz float [ %71, %92 ], [ %71, %90 ], [ %89, %80 ]
+  %.sroa.078.0 = phi nsz float [ %91, %90 ], [ 5.000000e+01, %92 ], [ 5.000000e+01, %80 ]
+  %.sroa.679.0 = phi nsz float [ 0x4056A09E60000000, %90 ], [ %.reass, %92 ], [ 0x4056A09E60000000, %80 ]
+  %.sroa.11.0 = phi nsz float [ %71, %90 ], [ %71, %92 ], [ %89, %80 ]
   %94 = fmul reassoc nsz arcp contract afn float %.sroa.11.0, 0x401921FB60000000
   %95 = call reassoc nsz arcp contract afn float @llvm.cos.f32(float %94)
   %96 = call reassoc nsz arcp contract afn float @llvm.sin.f32(float %94)
@@ -7413,7 +7413,7 @@ dt_draw_curve_calc_values.exit:                   ; preds = %208
   br label %.loopexit227
 
 .loopexit227:                                     ; preds = %272, %233, %..loopexit228_crit_edge, %.preheader226
-  %282 = phi ptr [ %225, %.preheader226 ], [ %239, %233 ], [ %239, %..loopexit228_crit_edge ], [ %225, %272 ]
+  %282 = phi ptr [ %239, %233 ], [ %239, %..loopexit228_crit_edge ], [ %225, %.preheader226 ], [ %225, %272 ]
   %283 = getelementptr inbounds nuw [65536 x float], ptr %32, i64 %indvars.iv253
   %284 = load i32, ptr %1, align 4, !tbaa !142
   %.not224 = icmp eq i32 %284, 2
@@ -7800,7 +7800,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %51
 
 51:                                               ; preds = %48, %2, %46, %42, %38, %34, %30, %26, %22, %18, %14, %10, %6
-  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %48 ], [ %47, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
+  %.0 = phi ptr [ %47, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %48 ]
   ret ptr %.0
 }
 
@@ -7875,7 +7875,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %27
 
 27:                                               ; preds = %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ %., %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
+  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ %., %25 ]
   ret ptr %.0
 }
 
@@ -8702,9 +8702,9 @@ dt_Lab_2_LCH.exit126:                             ; preds = %90, %92
   br label %117
 
 117:                                              ; preds = %dt_Lab_2_LCH.exit126, %113, %109
-  %.0113 = phi nsz float [ %114, %113 ], [ %110, %109 ], [ %.0.i, %dt_Lab_2_LCH.exit126 ]
-  %.0112 = phi nsz float [ %115, %113 ], [ %111, %109 ], [ %.0.i123, %dt_Lab_2_LCH.exit126 ]
-  %.0111 = phi nsz float [ %116, %113 ], [ %112, %109 ], [ %.0.i125, %dt_Lab_2_LCH.exit126 ]
+  %.0113 = phi nsz float [ %110, %109 ], [ %114, %113 ], [ %.0.i, %dt_Lab_2_LCH.exit126 ]
+  %.0112 = phi nsz float [ %111, %109 ], [ %115, %113 ], [ %.0.i123, %dt_Lab_2_LCH.exit126 ]
+  %.0111 = phi nsz float [ %112, %109 ], [ %116, %113 ], [ %.0.i125, %dt_Lab_2_LCH.exit126 ]
   %118 = load float, ptr %51, align 4, !tbaa !176
   %119 = load float, ptr %52, align 8, !tbaa !178
   %120 = fsub reassoc nsz arcp contract afn float %.0113, %119

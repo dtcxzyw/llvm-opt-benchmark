@@ -657,11 +657,11 @@ sub_1180:                                         ; preds = %sub_0179
   unreachable
 
 hwloc_utils_check_api_version.exit:               ; preds = %.tail159.thread.thread, %.thread301, %142, %114, %116, %.tail159, %.tail159.thread, %34, %52, %67, %77, %97, %160, %176, %171, %153, %124, %113, %87, %70, %43, %25
-  %.193 = phi i64 [ %.092236, %176 ], [ %.092236, %171 ], [ %.092236, %160 ], [ %.092236, %153 ], [ 1, %114 ], [ %.092236, %124 ], [ %.092236, %.tail159 ], [ %.092236, %113 ], [ %.092236, %97 ], [ %.092236, %87 ], [ %.092236, %77 ], [ %.092236, %70 ], [ %.092236, %67 ], [ %.092236, %25 ], [ %.092236, %52 ], [ %.092236, %43 ], [ %.092236, %34 ], [ %.092236, %.tail159.thread ], [ 1, %116 ], [ %.092236, %142 ], [ %.092236, %.thread301 ], [ %.092236, %.tail159.thread.thread ]
-  %.191 = phi i64 [ %177, %176 ], [ %.090237, %171 ], [ %.090237, %160 ], [ %.090237, %153 ], [ %.090237, %114 ], [ %.090237, %124 ], [ %.090237, %.tail159 ], [ %.090237, %113 ], [ %.090237, %97 ], [ %.090237, %87 ], [ %.090237, %77 ], [ %.090237, %70 ], [ %.090237, %67 ], [ %.090237, %25 ], [ %.090237, %52 ], [ %.090237, %43 ], [ %.090237, %34 ], [ %.090237, %.tail159.thread ], [ %.090237, %116 ], [ %.090237, %142 ], [ %.090237, %.thread301 ], [ %.090237, %.tail159.thread.thread ]
-  %.189 = phi i32 [ %.088238, %176 ], [ %.088238, %171 ], [ %.088238, %160 ], [ %.088238, %153 ], [ %.088238, %114 ], [ %.088238, %124 ], [ 1, %.tail159 ], [ %.088238, %113 ], [ %.088238, %97 ], [ %.088238, %87 ], [ %.088238, %77 ], [ %.088238, %70 ], [ %.088238, %67 ], [ %.088238, %25 ], [ %.088238, %52 ], [ %.088238, %43 ], [ %.088238, %34 ], [ 1, %.tail159.thread ], [ %.088238, %116 ], [ %.088238, %142 ], [ 1, %.thread301 ], [ 1, %.tail159.thread.thread ]
-  %.187 = phi ptr [ %.086239, %176 ], [ %.086239, %171 ], [ %.086239, %160 ], [ %.086239, %153 ], [ %.086239, %114 ], [ %126, %124 ], [ %.086239, %.tail159 ], [ %.086239, %113 ], [ %.086239, %97 ], [ %.086239, %87 ], [ %.086239, %77 ], [ %.086239, %70 ], [ %.086239, %67 ], [ %.086239, %25 ], [ %.086239, %52 ], [ %.086239, %43 ], [ %.086239, %34 ], [ %.086239, %.tail159.thread ], [ %.086239, %116 ], [ %.086239, %142 ], [ %.086239, %.thread301 ], [ %.086239, %.tail159.thread.thread ]
-  %.0 = phi i32 [ 1, %176 ], [ 1, %171 ], [ 2, %160 ], [ 1, %153 ], [ 1, %114 ], [ 2, %124 ], [ 1, %.tail159 ], [ 2, %113 ], [ 2, %97 ], [ 2, %87 ], [ 2, %77 ], [ 1, %70 ], [ 1, %67 ], [ 1, %25 ], [ 1, %52 ], [ 1, %43 ], [ 1, %34 ], [ 1, %.tail159.thread ], [ 1, %116 ], [ 2, %142 ], [ 1, %.thread301 ], [ 1, %.tail159.thread.thread ]
+  %.193 = phi i64 [ %.092236, %176 ], [ %.092236, %171 ], [ %.092236, %160 ], [ %.092236, %153 ], [ %.092236, %124 ], [ %.092236, %113 ], [ %.092236, %97 ], [ %.092236, %87 ], [ %.092236, %77 ], [ %.092236, %70 ], [ %.092236, %67 ], [ %.092236, %52 ], [ %.092236, %43 ], [ %.092236, %34 ], [ %.092236, %25 ], [ %.092236, %.tail159.thread ], [ %.092236, %.tail159 ], [ 1, %116 ], [ 1, %114 ], [ %.092236, %142 ], [ %.092236, %.thread301 ], [ %.092236, %.tail159.thread.thread ]
+  %.191 = phi i64 [ %177, %176 ], [ %.090237, %171 ], [ %.090237, %160 ], [ %.090237, %153 ], [ %.090237, %124 ], [ %.090237, %113 ], [ %.090237, %97 ], [ %.090237, %87 ], [ %.090237, %77 ], [ %.090237, %70 ], [ %.090237, %67 ], [ %.090237, %52 ], [ %.090237, %43 ], [ %.090237, %34 ], [ %.090237, %25 ], [ %.090237, %.tail159.thread ], [ %.090237, %.tail159 ], [ %.090237, %116 ], [ %.090237, %114 ], [ %.090237, %142 ], [ %.090237, %.thread301 ], [ %.090237, %.tail159.thread.thread ]
+  %.189 = phi i32 [ %.088238, %176 ], [ %.088238, %171 ], [ %.088238, %160 ], [ %.088238, %153 ], [ %.088238, %124 ], [ %.088238, %113 ], [ %.088238, %97 ], [ %.088238, %87 ], [ %.088238, %77 ], [ %.088238, %70 ], [ %.088238, %67 ], [ %.088238, %52 ], [ %.088238, %43 ], [ %.088238, %34 ], [ %.088238, %25 ], [ 1, %.tail159.thread ], [ 1, %.tail159 ], [ %.088238, %116 ], [ %.088238, %114 ], [ %.088238, %142 ], [ 1, %.thread301 ], [ 1, %.tail159.thread.thread ]
+  %.187 = phi ptr [ %.086239, %176 ], [ %.086239, %171 ], [ %.086239, %160 ], [ %.086239, %153 ], [ %126, %124 ], [ %.086239, %113 ], [ %.086239, %97 ], [ %.086239, %87 ], [ %.086239, %77 ], [ %.086239, %70 ], [ %.086239, %67 ], [ %.086239, %52 ], [ %.086239, %43 ], [ %.086239, %34 ], [ %.086239, %25 ], [ %.086239, %.tail159.thread ], [ %.086239, %.tail159 ], [ %.086239, %116 ], [ %.086239, %114 ], [ %.086239, %142 ], [ %.086239, %.thread301 ], [ %.086239, %.tail159.thread.thread ]
+  %.0 = phi i32 [ 1, %176 ], [ 1, %171 ], [ 2, %160 ], [ 1, %153 ], [ 2, %124 ], [ 2, %113 ], [ 2, %97 ], [ 2, %87 ], [ 2, %77 ], [ 1, %70 ], [ 1, %67 ], [ 1, %52 ], [ 1, %43 ], [ 1, %34 ], [ 1, %25 ], [ 1, %.tail159.thread ], [ 1, %.tail159 ], [ 1, %116 ], [ 1, %114 ], [ 2, %142 ], [ 1, %.thread301 ], [ 1, %.tail159.thread.thread ]
   %194 = sub nsw i32 %.094234, %.0
   %195 = zext nneg i32 %.0 to i64
   %196 = getelementptr inbounds nuw ptr, ptr %.095232, i64 %195
@@ -887,13 +887,13 @@ hwloc_utils_check_api_version.exit._crit_edge:    ; preds = %hwloc_utils_check_a
   br label %.loopexit.sink.split.i
 
 .loopexit.sink.split.i:                           ; preds = %282, %278, %273, %.outer.split.split.split.split.i, %.outer.split.split.split.i
-  %.sink89.i = phi i1 [ true, %282 ], [ true, %.outer.split.split.split.i ], [ true, %273 ], [ true, %278 ], [ false, %.outer.split.split.split.split.i ]
-  %.1.ph.i = phi i64 [ %.0.ph76.i, %282 ], [ %.0.ph76.i, %.outer.split.split.split.i ], [ %277, %273 ], [ %.0.ph76.i, %278 ], [ %.0.ph76.i, %.outer.split.split.split.split.i ]
+  %.sink89.i = phi i1 [ true, %273 ], [ true, %278 ], [ true, %282 ], [ true, %.outer.split.split.split.i ], [ false, %.outer.split.split.split.split.i ]
+  %.1.ph.i = phi i64 [ %277, %273 ], [ %.0.ph76.i, %278 ], [ %.0.ph76.i, %282 ], [ %.0.ph76.i, %.outer.split.split.split.i ], [ %.0.ph76.i, %.outer.split.split.split.split.i ]
   store i1 %.sink89.i, ptr @show_all, align 4
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.outer.backedge.i, %.loopexit.sink.split.i, %261
-  %.1.i = phi i64 [ %.1.ph.i, %.loopexit.sink.split.i ], [ 4, %261 ], [ %270, %.outer.backedge.i ]
+  %.1.i = phi i64 [ 4, %261 ], [ %.1.ph.i, %.loopexit.sink.split.i ], [ %270, %.outer.backedge.i ]
   %284 = load ptr, ptr @json_output, align 8, !tbaa !11
   %285 = call i64 @fwrite(ptr nonnull @.str.75, i64 2, i64 1, ptr %284)
   call fastcc void @run(ptr noundef %217, ptr noundef %218, i64 noundef %.1.i, ptr noundef null)
@@ -1343,7 +1343,7 @@ hwloc_get_child_covering_cpuset.exit.loopexit.i:  ; preds = %23
   br i1 %.not11.i.i, label %hwloc_get_obj_covering_cpuset.exit.preheader, label %.lr.ph.i.i, !llvm.loop !58
 
 hwloc_get_obj_covering_cpuset.exit.preheader:     ; preds = %hwloc_get_child_covering_cpuset.exit.loopexit.i, %25, %10, %14, %hwloc_get_child_covering_cpuset.exit.preheader.i
-  %.0.ph = phi ptr [ %.01226.i, %25 ], [ %15, %hwloc_get_child_covering_cpuset.exit.preheader.i ], [ null, %10 ], [ null, %14 ], [ %.03.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.i ]
+  %.0.ph = phi ptr [ %15, %hwloc_get_child_covering_cpuset.exit.preheader.i ], [ null, %10 ], [ null, %14 ], [ %.01226.i, %25 ], [ %.03.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.i ]
   br label %hwloc_get_obj_covering_cpuset.exit
 
 hwloc_get_obj_covering_cpuset.exit:               ; preds = %hwloc_get_obj_covering_cpuset.exit.preheader, %29
@@ -1448,7 +1448,7 @@ hwloc_get_child_covering_cpuset.exit.loopexit.i56: ; preds = %68
   br i1 %.not11.i.i60, label %hwloc_get_obj_covering_cpuset.exit61.preheader, label %.lr.ph.i.i52, !llvm.loop !58
 
 hwloc_get_obj_covering_cpuset.exit61.preheader:   ; preds = %hwloc_get_child_covering_cpuset.exit.loopexit.i56, %70, %57, %59, %hwloc_get_child_covering_cpuset.exit.preheader.i46
-  %.1.ph = phi ptr [ %.01226.i51, %70 ], [ %60, %hwloc_get_child_covering_cpuset.exit.preheader.i46 ], [ null, %57 ], [ null, %59 ], [ %.03.i.i53, %hwloc_get_child_covering_cpuset.exit.loopexit.i56 ]
+  %.1.ph = phi ptr [ %60, %hwloc_get_child_covering_cpuset.exit.preheader.i46 ], [ null, %57 ], [ null, %59 ], [ %.01226.i51, %70 ], [ %.03.i.i53, %hwloc_get_child_covering_cpuset.exit.loopexit.i56 ]
   br label %hwloc_get_obj_covering_cpuset.exit61
 
 hwloc_get_obj_covering_cpuset.exit61:             ; preds = %hwloc_get_obj_covering_cpuset.exit61.preheader, %74
@@ -1686,7 +1686,7 @@ hwloc_get_child_covering_cpuset.exit.loopexit.i:  ; preds = %24
   br i1 %.not11.i.i, label %hwloc_get_obj_covering_cpuset.exit, label %.lr.ph.i.i, !llvm.loop !58
 
 hwloc_get_obj_covering_cpuset.exit:               ; preds = %hwloc_get_child_covering_cpuset.exit.loopexit.i, %26, %hwloc_get_child_covering_cpuset.exit.preheader.i
-  %.0.i = phi ptr [ %.01226.i, %26 ], [ %19, %hwloc_get_child_covering_cpuset.exit.preheader.i ], [ %.03.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.i ]
+  %.0.i = phi ptr [ %19, %hwloc_get_child_covering_cpuset.exit.preheader.i ], [ %.01226.i, %26 ], [ %.03.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.i ]
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   %29 = load ptr, ptr %28, align 8, !tbaa !59
   %.not5071 = icmp eq ptr %29, null
@@ -1771,7 +1771,7 @@ hwloc_get_obj_covering_cpuset.exit:               ; preds = %hwloc_get_child_cov
   br i1 %.not20.not.i, label %hwloc_get_first_largest_obj_inside_cpuset.exit, label %.lr.ph.i, !llvm.loop !68
 
 hwloc_get_first_largest_obj_inside_cpuset.exit:   ; preds = %.loopexit.i, %.lr.ph34.i, %60, %.lr.ph70
-  %.017.i = phi ptr [ %51, %.lr.ph70 ], [ %.01633.i, %60 ], [ %.01633.i, %.lr.ph34.i ], [ %.029.i, %.loopexit.i ]
+  %.017.i = phi ptr [ %51, %.lr.ph70 ], [ %.01633.i, %60 ], [ %.029.i, %.loopexit.i ], [ %.01633.i, %.lr.ph34.i ]
   %62 = load i32, ptr %.017.i, align 8, !tbaa !65
   %63 = call i32 @hwloc_obj_type_is_cache(i32 noundef %62) #15
   %.not4764 = icmp eq i32 %63, 0

@@ -584,7 +584,7 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   br label %._crit_edge96
 
 ._crit_edge96:                                    ; preds = %14, %25, %19
-  %26 = phi i32 [ 2, %19 ], [ %18, %25 ], [ %18, %14 ]
+  %26 = phi i32 [ %18, %25 ], [ 2, %19 ], [ %18, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i64 0, ptr %7, align 8
@@ -979,7 +979,7 @@ _mdnblocks.exit.us:                               ; preds = %.lr.ph.split.us.spl
   br i1 %65, label %.split93.us, label %_mdnblocks.exit
 
 .split93.us:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us
-  %.us-phi = phi ptr [ %.15891.us, %.lr.ph.split.us.split ], [ %.15891.us.us, %.lr.ph.split.us.split.us ], [ %.15891, %.lr.ph.split ]
+  %.us-phi = phi ptr [ %.15891.us.us, %.lr.ph.split.us.split.us ], [ %.15891.us, %.lr.ph.split.us.split ], [ %.15891, %.lr.ph.split ]
   %66 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   %67 = tail call i32 @errcode_for_file_access() #14
   %68 = load i32, ptr %.us-phi, align 4
@@ -1038,7 +1038,7 @@ _mdnblocks.exit:                                  ; preds = %.lr.ph.split
   unreachable
 
 .split101.us:                                     ; preds = %.split63, %.split.us, %.split.us.us
-  %.us-phi102 = phi i32 [ %.06190.us, %.split.us ], [ %.06190.us.us, %.split.us.us ], [ %.06190, %.split63 ]
+  %.us-phi102 = phi i32 [ %.06190.us.us, %.split.us.us ], [ %.06190.us, %.split.us ], [ %.06190, %.split63 ]
   %91 = and i32 %4, 2
   %.not76 = icmp eq i32 %91, 0
   br i1 %.not76, label %96, label %92
@@ -1063,7 +1063,7 @@ _mdnblocks.exit:                                  ; preds = %.lr.ph.split
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !9
 
 .critedge:                                        ; preds = %101, %61, %42, %29, %84, %92, %27, %18, %12
-  %.0 = phi ptr [ %17, %12 ], [ null, %18 ], [ null, %84 ], [ null, %27 ], [ null, %92 ], [ %.057, %29 ], [ %59, %61 ], [ %40, %42 ], [ %81, %101 ]
+  %.0 = phi ptr [ %17, %12 ], [ null, %18 ], [ null, %27 ], [ null, %92 ], [ null, %84 ], [ %.057, %29 ], [ %40, %42 ], [ %59, %61 ], [ %81, %101 ]
   ret ptr %.0
 }
 

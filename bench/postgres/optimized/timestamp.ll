@@ -122,7 +122,7 @@ define range(i32 -1, 1) i32 @tm2timestamp(ptr noundef readonly captures(none) %0
   br label %.critedge
 
 .critedge:                                        ; preds = %55, %.thread, %37, %8, %10, %16, %18
-  %.0 = phi i32 [ -1, %8 ], [ -1, %.thread ], [ -1, %37 ], [ -1, %18 ], [ -1, %16 ], [ -1, %10 ], [ %spec.select, %55 ]
+  %.0 = phi i32 [ -1, %18 ], [ -1, %16 ], [ -1, %10 ], [ -1, %8 ], [ -1, %37 ], [ -1, %.thread ], [ %spec.select, %55 ]
   ret i32 %.0
 }
 
@@ -194,8 +194,8 @@ define i64 @PGTYPEStimestamp_from_asc(ptr noundef %0, ptr noundef %1) local_unna
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %22, %25, %27, %20, %14, %17, %2, %28
-  %.sink = phi i32 [ 320, %20 ], [ %spec.select, %22 ], [ 320, %14 ], [ 320, %2 ], [ 320, %17 ], [ 0, %28 ], [ 0, %27 ], [ 0, %25 ]
-  %.0 = phi i64 [ 0, %20 ], [ %spec.select15, %22 ], [ 0, %14 ], [ 0, %2 ], [ 0, %17 ], [ 9223372036854775807, %28 ], [ -9223372036854775808, %27 ], [ %26, %25 ]
+  %.sink = phi i32 [ 320, %2 ], [ 320, %17 ], [ 320, %14 ], [ 320, %20 ], [ 0, %27 ], [ 0, %25 ], [ 0, %28 ], [ %spec.select, %22 ]
+  %.0 = phi i64 [ 0, %2 ], [ 0, %17 ], [ 0, %14 ], [ 0, %20 ], [ -9223372036854775808, %27 ], [ %26, %25 ], [ 9223372036854775807, %28 ], [ %spec.select15, %22 ]
   %29 = tail call ptr @__errno_location() #12
   store i32 %.sink, ptr %29, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -288,7 +288,7 @@ define internal fastcc i64 @SetEpochTimestamp() unnamed_addr #0 {
   br label %tm2timestamp.exit
 
 tm2timestamp.exit:                                ; preds = %30, %.thread.i, %15, %8, %0
-  %.0 = phi i64 [ 0, %0 ], [ %29, %.thread.i ], [ %42, %30 ], [ undef, %15 ], [ undef, %8 ]
+  %.0 = phi i64 [ 0, %0 ], [ %29, %.thread.i ], [ undef, %15 ], [ undef, %8 ], [ %42, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %.0
 }
@@ -1227,9 +1227,9 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   br label %.critedge252
 
 .loopexit:                                        ; preds = %205, %.preheader262, %._crit_edge307, %._crit_edge302, %._crit_edge283, %.critedge, %174, %156, %153, %50, %325, %312, %._crit_edge, %._crit_edge273, %272, %267, %._crit_edge278, %._crit_edge288, %211, %._crit_edge297, %177, %171, %167, %159, %150, %147, %144, %140, %136, %131, %127, %123, %118, %114, %53, %46, %41, %35, %29, %27, %25, %22
-  %.1224 = phi ptr [ %23, %325 ], [ %23, %25 ], [ %23, %27 ], [ %23, %29 ], [ %23, %35 ], [ %23, %22 ], [ %23, %41 ], [ %23, %46 ], [ %23, %50 ], [ %23, %53 ], [ %58, %.critedge ], [ %23, %._crit_edge307 ], [ %23, %._crit_edge302 ], [ %23, %114 ], [ %23, %118 ], [ %23, %123 ], [ %23, %127 ], [ %23, %131 ], [ %23, %136 ], [ %23, %140 ], [ %23, %144 ], [ %23, %147 ], [ %23, %150 ], [ %23, %153 ], [ %23, %156 ], [ %23, %159 ], [ %23, %167 ], [ %23, %171 ], [ %23, %174 ], [ %23, %177 ], [ %23, %._crit_edge297 ], [ %23, %312 ], [ %23, %211 ], [ %23, %._crit_edge288 ], [ %23, %._crit_edge283 ], [ %23, %._crit_edge278 ], [ %23, %267 ], [ %23, %272 ], [ %23, %._crit_edge273 ], [ %23, %._crit_edge ], [ %23, %.preheader262 ], [ %23, %205 ]
-  %.0212 = phi i32 [ 0, %325 ], [ 2, %25 ], [ 2, %27 ], [ 2, %29 ], [ 2, %35 ], [ 0, %22 ], [ 7, %41 ], [ 7, %46 ], [ 0, %50 ], [ 8, %53 ], [ 0, %.critedge ], [ 0, %._crit_edge307 ], [ 0, %._crit_edge302 ], [ 7, %114 ], [ 7, %118 ], [ 9, %123 ], [ 8, %127 ], [ 8, %131 ], [ 7, %136 ], [ 7, %140 ], [ 3, %144 ], [ 2, %147 ], [ 2, %150 ], [ 0, %153 ], [ 0, %156 ], [ 5, %159 ], [ 7, %167 ], [ 3, %171 ], [ 0, %174 ], [ 6, %177 ], [ 0, %._crit_edge297 ], [ 3, %312 ], [ 6, %211 ], [ 0, %._crit_edge288 ], [ 0, %._crit_edge283 ], [ 0, %._crit_edge278 ], [ 7, %267 ], [ 6, %272 ], [ 0, %._crit_edge273 ], [ 0, %._crit_edge ], [ 0, %.preheader262 ], [ 0, %205 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %325 ], [ %26, %25 ], [ %28, %27 ], [ %34, %29 ], [ %40, %35 ], [ %.sroa.0.0, %22 ], [ %45, %41 ], [ %49, %46 ], [ %.sroa.0.0, %50 ], [ %56, %53 ], [ %.sroa.0.0, %.critedge ], [ %.sroa.0.0, %._crit_edge307 ], [ %.sroa.0.0, %._crit_edge302 ], [ %117, %114 ], [ %122, %118 ], [ %126, %123 ], [ %130, %127 ], [ %135, %131 ], [ %139, %136 ], [ %143, %140 ], [ %146, %144 ], [ %.str.6..str.7, %147 ], [ %.str.8..str.9, %150 ], [ %.sroa.0.0, %153 ], [ %.sroa.0.0, %156 ], [ %166, %159 ], [ %170, %167 ], [ %173, %171 ], [ %.sroa.0.0, %174 ], [ %179, %177 ], [ %.sroa.0.0, %._crit_edge297 ], [ %314, %312 ], [ %213, %211 ], [ %.sroa.0.0, %._crit_edge288 ], [ %.sroa.0.0, %._crit_edge283 ], [ %.sroa.0.0, %._crit_edge278 ], [ %271, %267 ], [ %275, %272 ], [ %.sroa.0.0, %._crit_edge273 ], [ %.sroa.0.0, %._crit_edge ], [ %.sroa.0.0, %.preheader262 ], [ %.sroa.0.0, %205 ]
+  %.1224 = phi ptr [ %23, %325 ], [ %23, %25 ], [ %23, %27 ], [ %23, %29 ], [ %23, %35 ], [ %23, %22 ], [ %23, %41 ], [ %23, %46 ], [ %23, %50 ], [ %23, %53 ], [ %23, %._crit_edge307 ], [ %23, %._crit_edge302 ], [ %23, %114 ], [ %23, %118 ], [ %23, %123 ], [ %23, %127 ], [ %23, %131 ], [ %23, %136 ], [ %23, %140 ], [ %23, %144 ], [ %23, %147 ], [ %23, %150 ], [ %23, %153 ], [ %23, %156 ], [ %23, %159 ], [ %23, %167 ], [ %23, %171 ], [ %23, %174 ], [ %23, %177 ], [ %23, %._crit_edge297 ], [ %23, %211 ], [ %23, %._crit_edge288 ], [ %23, %._crit_edge283 ], [ %23, %._crit_edge278 ], [ %23, %267 ], [ %23, %272 ], [ %23, %._crit_edge273 ], [ %23, %._crit_edge ], [ %23, %312 ], [ %58, %.critedge ], [ %23, %.preheader262 ], [ %23, %205 ]
+  %.0212 = phi i32 [ 0, %325 ], [ 2, %25 ], [ 2, %27 ], [ 2, %29 ], [ 2, %35 ], [ 0, %22 ], [ 7, %41 ], [ 7, %46 ], [ 0, %50 ], [ 8, %53 ], [ 0, %._crit_edge307 ], [ 0, %._crit_edge302 ], [ 7, %114 ], [ 7, %118 ], [ 9, %123 ], [ 8, %127 ], [ 8, %131 ], [ 7, %136 ], [ 7, %140 ], [ 3, %144 ], [ 2, %147 ], [ 2, %150 ], [ 0, %153 ], [ 0, %156 ], [ 5, %159 ], [ 7, %167 ], [ 3, %171 ], [ 0, %174 ], [ 6, %177 ], [ 0, %._crit_edge297 ], [ 6, %211 ], [ 0, %._crit_edge288 ], [ 0, %._crit_edge283 ], [ 0, %._crit_edge278 ], [ 7, %267 ], [ 6, %272 ], [ 0, %._crit_edge273 ], [ 0, %._crit_edge ], [ 3, %312 ], [ 0, %.critedge ], [ 0, %.preheader262 ], [ 0, %205 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %325 ], [ %26, %25 ], [ %28, %27 ], [ %34, %29 ], [ %40, %35 ], [ %.sroa.0.0, %22 ], [ %45, %41 ], [ %49, %46 ], [ %.sroa.0.0, %50 ], [ %56, %53 ], [ %.sroa.0.0, %._crit_edge307 ], [ %.sroa.0.0, %._crit_edge302 ], [ %117, %114 ], [ %122, %118 ], [ %126, %123 ], [ %130, %127 ], [ %135, %131 ], [ %139, %136 ], [ %143, %140 ], [ %146, %144 ], [ %.str.6..str.7, %147 ], [ %.str.8..str.9, %150 ], [ %.sroa.0.0, %153 ], [ %.sroa.0.0, %156 ], [ %166, %159 ], [ %170, %167 ], [ %173, %171 ], [ %.sroa.0.0, %174 ], [ %179, %177 ], [ %.sroa.0.0, %._crit_edge297 ], [ %213, %211 ], [ %.sroa.0.0, %._crit_edge288 ], [ %.sroa.0.0, %._crit_edge283 ], [ %.sroa.0.0, %._crit_edge278 ], [ %271, %267 ], [ %275, %272 ], [ %.sroa.0.0, %._crit_edge273 ], [ %.sroa.0.0, %._crit_edge ], [ %314, %312 ], [ %.sroa.0.0, %.critedge ], [ %.sroa.0.0, %.preheader262 ], [ %.sroa.0.0, %205 ]
   %332 = call i32 @pgtypes_fmt_replace(ptr %.sroa.0.1, i32 noundef %.0212, ptr noundef nonnull %7, ptr noundef nonnull %4) #10
   %.not250 = icmp eq i32 %332, 0
   br i1 %.not250, label %342, label %.critedge252
@@ -1258,7 +1258,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   br label %20, !llvm.loop !15
 
 .critedge252:                                     ; preds = %232, %198, %97, %80, %20, %333, %.loopexit, %315, %22, %294, %276, %249, %214, %180, %174, %156, %153, %50, %79, %331
-  %.2 = phi i32 [ -1, %79 ], [ -1, %331 ], [ %52, %50 ], [ %332, %.loopexit ], [ -1, %294 ], [ -1, %276 ], [ -1, %249 ], [ -1, %198 ], [ -1, %232 ], [ -1, %97 ], [ -1, %214 ], [ %176, %174 ], [ %158, %156 ], [ %155, %153 ], [ -1, %80 ], [ -1, %180 ], [ 0, %20 ], [ -1, %333 ], [ -1, %22 ], [ -1, %315 ]
+  %.2 = phi i32 [ -1, %331 ], [ -1, %79 ], [ -1, %232 ], [ -1, %198 ], [ -1, %97 ], [ -1, %80 ], [ 0, %20 ], [ -1, %333 ], [ %332, %.loopexit ], [ -1, %315 ], [ -1, %22 ], [ -1, %294 ], [ -1, %276 ], [ -1, %249 ], [ -1, %214 ], [ -1, %180 ], [ %176, %174 ], [ %158, %156 ], [ %155, %153 ], [ %52, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.2
 }
@@ -1284,7 +1284,7 @@ define range(i32 0, 322) i32 @PGTYPEStimestamp_sub(ptr noundef readonly captures
   br label %10
 
 10:                                               ; preds = %5, %3, %7
-  %.0 = phi i32 [ 0, %7 ], [ 321, %3 ], [ 321, %5 ]
+  %.0 = phi i32 [ 0, %7 ], [ 321, %5 ], [ 321, %3 ]
   ret i32 %.0
 }
 
@@ -1462,8 +1462,8 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   br label %.thread44
 
 .thread44:                                        ; preds = %.thread64, %.thread, %66
-  %70 = phi i64 [ %62, %.thread ], [ %57, %.thread64 ], [ %52, %66 ]
-  %71 = phi i64 [ 0, %.thread ], [ 1, %.thread64 ], [ %69, %66 ]
+  %70 = phi i64 [ %52, %66 ], [ %62, %.thread ], [ %57, %.thread64 ]
+  %71 = phi i64 [ %69, %66 ], [ 0, %.thread ], [ 1, %.thread64 ]
   %72 = getelementptr inbounds nuw [13 x i32], ptr @day_tab, i64 %71
   %73 = getelementptr inbounds nuw i32, ptr %72, i64 %70
   %74 = load i32, ptr %73, align 4
@@ -1532,7 +1532,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   %or.cond59.not = or i1 %or.cond.i, %109
   br i1 %or.cond59.not, label %.thread48, label %112, !prof !16
 
-.thread48:                                        ; preds = %10, %79, %.thread.i, %99, %84
+.thread48:                                        ; preds = %10, %84, %79, %99, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %118

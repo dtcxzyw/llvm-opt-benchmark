@@ -468,12 +468,12 @@ _ZNSt14_Optional_baseISt8functionIFvPN4llvm5ValueEjS0_IFPNS1_4TypeEjEES0_IFjjjEE
   br label %_ZN4llvm15ParserCallbacksD2Ev.exit
 
 _ZN4llvm15ParserCallbacksD2Ev.exit:               ; preds = %_ZNSt14_Optional_baseISt8functionIFvPN4llvm5ValueEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEELb0ELb0EED2Ev.exit.i, %52, %55
-  %57 = and i64 %.sroa.08.1, 4294967295
-  %.not = icmp ne i64 %57, 0
-  %58 = inttoptr i64 %.sroa.08.1 to ptr
-  %spec.select = select i1 %.not, ptr null, ptr %58
+  %57 = inttoptr i64 %.sroa.08.1 to ptr
+  %58 = and i64 %.sroa.08.1, 4294967295
+  %.not = icmp ne i64 %58, 0
   %59 = inttoptr i64 %.sroa.08.1 to ptr
-  %.sink = select i1 %13, ptr %spec.select, ptr %59
+  %spec.select = select i1 %.not, ptr null, ptr %59
+  %.sink = select i1 %13, ptr %spec.select, ptr %57
   %narrow = select i1 %13, i1 %.not, i1 false
   %.020 = zext i1 %narrow to i32
   store ptr %.sink, ptr %2, align 8, !tbaa !44

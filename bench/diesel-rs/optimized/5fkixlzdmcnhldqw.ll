@@ -434,7 +434,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   unreachable
 
 common.resume:                                    ; preds = %.thread266, %100, %.thread313, %44
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %100 ], [ %.pn77269, %.thread266 ], [ %.pn317, %.thread313 ]
+  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %.pn77269, %.thread266 ], [ %lpad.phi.i, %100 ], [ %.pn317, %.thread313 ]
   resume { ptr, i32 } %common.resume.op
 
 52:                                               ; preds = %13, %46
@@ -480,7 +480,7 @@ common.resume:                                    ; preds = %.thread266, %100, %
   store i64 1, ptr %0, align 8
   br label %240
 
-.thread274:                                       ; preds = %52, %185, %69, %182
+.thread274:                                       ; preds = %52, %69, %182, %185
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread266
@@ -922,7 +922,7 @@ common.resume:                                    ; preds = %.thread266, %100, %
   store i64 0, ptr %0, align 8
   br label %240
 
-.thread322:                                       ; preds = %228, %200, %225
+.thread322:                                       ; preds = %200, %225, %228
   %lpad.thr_comm320 = landingpad { ptr, i32 }
           cleanup
   br label %.thread313

@@ -370,7 +370,7 @@ ieee80211_get_max_required_bw.exit8.loopexit:     ; preds = %133
   br label %ieee80211_get_max_required_bw.exit
 
 ieee80211_get_max_required_bw.exit:               ; preds = %85, %91, %ieee80211_get_max_required_bw.exit8.loopexit, %47, %145, %140, %45
-  %146 = phi i32 [ 0, %45 ], [ 0, %145 ], [ %144, %140 ], [ %139, %ieee80211_get_max_required_bw.exit8.loopexit ], [ 0, %47 ], [ %95, %91 ], [ %87, %85 ]
+  %146 = phi i32 [ 0, %45 ], [ 0, %145 ], [ %144, %140 ], [ 0, %47 ], [ %95, %91 ], [ %139, %ieee80211_get_max_required_bw.exit8.loopexit ], [ %87, %85 ]
   %147 = tail call i32 @llvm.umax.i32(i32 %33, i32 %146)
   br label %148
 
@@ -780,8 +780,8 @@ define dso_local void @ieee80211_recalc_chanctx_chantype(ptr noundef %0, ptr nou
   br i1 %40, label %43, label %.preheader13.backedge
 
 .preheader13.backedge:                            ; preds = %.loopexit, %.loopexit.thread
-  %.be = phi ptr [ %41, %.loopexit.thread ], [ %39, %.loopexit ]
-  %.be35 = phi ptr [ null, %.loopexit.thread ], [ %38, %.loopexit ]
+  %.be = phi ptr [ %39, %.loopexit ], [ %41, %.loopexit.thread ]
+  %.be35 = phi ptr [ %38, %.loopexit ], [ null, %.loopexit.thread ]
   br label %.preheader13, !llvm.loop !45
 
 .loopexit.thread:                                 ; preds = %29
@@ -1570,7 +1570,7 @@ ieee80211_new_chanctx.exit.thread:                ; preds = %97, %ieee80211_new_
   br i1 %151, label %.loopexit, label %.preheader, !llvm.loop !95
 
 .loopexit:                                        ; preds = %149, %145, %138
-  %152 = phi ptr [ %15, %138 ], [ %141, %145 ], [ %15, %149 ]
+  %152 = phi ptr [ %15, %138 ], [ %15, %149 ], [ %141, %145 ]
   %153 = icmp eq ptr %152, null
   br i1 %153, label %.thread22, label %.thread21
 
@@ -3347,11 +3347,11 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   br i1 %116, label %.loopexit97, label %.preheader95, !llvm.loop !158
 
 .loopexit97:                                      ; preds = %114, %8, %.thread
-  %.ph59 = phi i32 [ %14, %8 ], [ %14, %.thread ], [ %107, %114 ]
-  %.ph60 = phi i32 [ %13, %8 ], [ %13, %.thread ], [ %108, %114 ]
-  %.ph61 = phi i32 [ %12, %8 ], [ %12, %.thread ], [ %109, %114 ]
-  %.ph62 = phi i32 [ %11, %8 ], [ %27, %.thread ], [ %27, %114 ]
-  %.ph63 = phi ptr [ %10, %8 ], [ %26, %.thread ], [ %26, %114 ]
+  %.ph59 = phi i32 [ %14, %.thread ], [ %14, %8 ], [ %107, %114 ]
+  %.ph60 = phi i32 [ %13, %.thread ], [ %13, %8 ], [ %108, %114 ]
+  %.ph61 = phi i32 [ %12, %.thread ], [ %12, %8 ], [ %109, %114 ]
+  %.ph62 = phi i32 [ %27, %.thread ], [ %11, %8 ], [ %27, %114 ]
+  %.ph63 = phi ptr [ %26, %.thread ], [ %10, %8 ], [ %26, %114 ]
   %117 = load ptr, ptr %9, align 8
   %118 = icmp eq ptr %117, %3
   br i1 %118, label %119, label %8, !llvm.loop !159
@@ -4101,7 +4101,7 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   br i1 %508, label %.thread68, label %.preheader81, !llvm.loop !203
 
 .thread70:                                        ; preds = %253, %234, %140, %484, %.thread76, %.thread71, %22, %54, %.loopexit94, %137, %132, %127, %.thread69
-  %509 = phi i32 [ %205, %.loopexit94 ], [ %225, %234 ], [ -22, %.thread76 ], [ -22, %137 ], [ -22, %132 ], [ -22, %127 ], [ -22, %.thread69 ], [ -22, %484 ], [ -16, %54 ], [ -22, %22 ], [ -12, %140 ], [ -22, %.thread71 ], [ %225, %253 ]
+  %509 = phi i32 [ %205, %.loopexit94 ], [ -22, %137 ], [ -22, %132 ], [ -22, %127 ], [ -22, %.thread69 ], [ -22, %484 ], [ -16, %54 ], [ -22, %22 ], [ -22, %.thread71 ], [ -22, %.thread76 ], [ -12, %140 ], [ %225, %234 ], [ %225, %253 ]
   %510 = load ptr, ptr %3, align 8
   %511 = icmp eq ptr %510, %3
   br i1 %511, label %.thread68, label %.preheader80
@@ -4178,7 +4178,7 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   br i1 %543, label %.thread68, label %.preheader80, !llvm.loop !205
 
 .thread68:                                        ; preds = %86, %507, %.loopexit, %52, %.thread70, %.loopexit89
-  %544 = phi i32 [ %509, %.thread70 ], [ 0, %.loopexit89 ], [ -11, %52 ], [ 0, %507 ], [ %509, %.loopexit ], [ -11, %86 ]
+  %544 = phi i32 [ %509, %.thread70 ], [ 0, %.loopexit89 ], [ -11, %52 ], [ %509, %.loopexit ], [ 0, %507 ], [ -11, %86 ]
   ret i32 %544
 }
 

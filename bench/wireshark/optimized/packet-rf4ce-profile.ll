@@ -647,7 +647,7 @@ sub_2:                                            ; preds = %sub_1
   br label %37
 
 37:                                               ; preds = %.tail, %.sink.split
-  %38 = phi i32 [ 0, %.tail ], [ 1, %.sink.split ]
+  %38 = phi i32 [ 1, %.sink.split ], [ 0, %.tail ]
   %39 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %9, i64 noundef 14, i32 noundef 2, i64 noundef 14, ptr noundef nonnull @.str.358, ptr noundef nonnull @.str.359, ptr noundef %3)
   %40 = load ptr, ptr %32, align 8
   call void @col_add_str(ptr noundef %40, i32 noundef 35, ptr noundef nonnull %9)
@@ -1465,8 +1465,8 @@ dissect_rf4ce_profile_zrc20_attrs.exit:           ; preds = %82, %190
   store i32 %266, ptr %2, align 4
   br label %dissect_rf4ce_profile_zrc20_attrs.exit.thread
 
-dissect_rf4ce_profile_zrc20_attrs.exit.thread:    ; preds = %.lr.ph.i99, %.lr.ph.i, %.loopexit.sink.split.i, %196, %179, %173, %165, %142, %._crit_edge.i, %76, %77, %dissect_rf4ce_profile_zrc20_attrs.exit
-  %.191103 = phi i8 [ %.090107, %76 ], [ %.191102, %77 ], [ %.191102, %dissect_rf4ce_profile_zrc20_attrs.exit ], [ %.191102, %.loopexit.sink.split.i ], [ %.191102, %._crit_edge.i ], [ %.191102, %142 ], [ %.191102, %165 ], [ %.191102, %173 ], [ %.191102, %179 ], [ %.191102, %196 ], [ %.191102, %.lr.ph.i ], [ %.191102, %.lr.ph.i99 ]
+dissect_rf4ce_profile_zrc20_attrs.exit.thread:    ; preds = %.lr.ph.i99, %.lr.ph.i, %.loopexit.sink.split.i, %196, %179, %142, %173, %165, %._crit_edge.i, %76, %77, %dissect_rf4ce_profile_zrc20_attrs.exit
+  %.191103 = phi i8 [ %.090107, %76 ], [ %.191102, %77 ], [ %.191102, %dissect_rf4ce_profile_zrc20_attrs.exit ], [ %.191102, %._crit_edge.i ], [ %.191102, %165 ], [ %.191102, %173 ], [ %.191102, %142 ], [ %.191102, %179 ], [ %.191102, %196 ], [ %.191102, %.loopexit.sink.split.i ], [ %.191102, %.lr.ph.i ], [ %.191102, %.lr.ph.i99 ]
   %267 = load i32, ptr %2, align 4
   %268 = icmp eq i32 %.089108, %267
   br i1 %268, label %269, label %279

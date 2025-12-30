@@ -1018,7 +1018,7 @@ default.unreachable66:                            ; preds = %49
   unreachable
 
 _ZN4core3str11validations15next_code_point17hbecf436327ead3daE.exit: ; preds = %104, %112, %54, %.split25, %.split21, %58
-  %.sroa.018.1 = phi i32 [ %63, %.split21 ], [ %61, %58 ], [ %119, %.split25 ], [ %55, %54 ], [ %.sroa.018.053, %104 ], [ %114, %112 ]
+  %.sroa.018.1 = phi i32 [ %61, %58 ], [ %63, %.split21 ], [ %119, %.split25 ], [ %55, %54 ], [ %.sroa.018.053, %104 ], [ %114, %112 ]
   %64 = call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef 0)
   %65 = sub i32 %19, %18
   %.not.i39 = icmp ugt i32 %64, %65
@@ -1090,7 +1090,7 @@ _ZN4core3cmp3Ord5clamp17hab3f7f01f3a941f3E.exit:  ; preds = %_ZN4core3str11valid
   %103 = or disjoint i32 %102, %98
   br label %104
 
-104:                                              ; preds = %82, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he92257ef86ec4db1E.exit12.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he92257ef86ec4db1E.exit16.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he92257ef86ec4db1E.exit14.i"
+104:                                              ; preds = %82, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he92257ef86ec4db1E.exit16.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he92257ef86ec4db1E.exit14.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he92257ef86ec4db1E.exit12.i"
   %.sroa.0.1.ph = phi ptr [ %75, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he92257ef86ec4db1E.exit12.i" ], [ %85, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he92257ef86ec4db1E.exit14.i" ], [ %95, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he92257ef86ec4db1E.exit16.i" ], [ %69, %82 ]
   %.sroa.4.0.i.ph = phi i32 [ %80, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he92257ef86ec4db1E.exit12.i" ], [ %92, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he92257ef86ec4db1E.exit14.i" ], [ %103, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he92257ef86ec4db1E.exit16.i" ], [ %83, %82 ]
   %105 = icmp samesign ult i32 %.sroa.4.0.i.ph, 1114112
@@ -1112,7 +1112,7 @@ _ZN4core3cmp3Ord5clamp17hab3f7f01f3a941f3E.exit:  ; preds = %_ZN4core3str11valid
   br label %112
 
 112:                                              ; preds = %108, %110, %106
-  %.sroa.017.0 = phi i32 [ 2, %108 ], [ %., %110 ], [ 1, %106 ]
+  %.sroa.017.0 = phi i32 [ 1, %106 ], [ %., %110 ], [ 2, %108 ]
   %113 = call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %.sroa.017.0)
   %114 = add i32 %113, %.sroa.018.053
   %115 = icmp samesign ult i32 %.sroa.4.0.i.ph, 65536

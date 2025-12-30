@@ -152,7 +152,7 @@ define internal fastcc range(i32 -1, 1) i32 @chstat(ptr noundef %0, ptr noundef 
   br label %69
 
 69:                                               ; preds = %66, %63, %60, %54
-  %.0.i = phi i32 [ %68, %66 ], [ -38, %60 ], [ -38, %63 ], [ 0, %54 ]
+  %.0.i = phi i32 [ %68, %66 ], [ -38, %63 ], [ -38, %60 ], [ 0, %54 ]
   call void @inode_release(ptr noundef nonnull %55) #7
   br label %70
 

@@ -215,7 +215,7 @@ tailrecurse.outer.backedge:                       ; preds = %5, %20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %10, %13, %.loopexit.loopexit125, %62, %58, %52, %._crit_edge, %31, %25, %14
-  %.037 = phi i1 [ false, %31 ], [ false, %58 ], [ %65, %62 ], [ false, %10 ], [ true, %.loopexit.loopexit125 ], [ %19, %14 ], [ false, %52 ], [ %51, %._crit_edge ], [ false, %25 ], [ false, %.lr.ph ], [ false, %13 ], [ true, %tailrecurse ]
+  %.037 = phi i1 [ %19, %14 ], [ false, %25 ], [ false, %31 ], [ %51, %._crit_edge ], [ false, %52 ], [ false, %58 ], [ %65, %62 ], [ true, %.loopexit.loopexit125 ], [ false, %13 ], [ false, %10 ], [ false, %.lr.ph ], [ true, %tailrecurse ]
   ret i1 %.037
 }
 
@@ -713,7 +713,7 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %141, %58, %50, %25, %27, %42, %61, %74, %79, %81, %85, %108, %112, %126, %161, %201, %104, %102, %154
-  %.sink129 = phi ptr [ %158, %154 ], [ %103, %102 ], [ %107, %104 ], [ %203, %201 ], [ %163, %161 ], [ %.pre118, %58 ], [ %127, %126 ], [ %116, %112 ], [ %111, %108 ], [ %89, %85 ], [ %84, %81 ], [ %80, %79 ], [ %78, %74 ], [ %73, %61 ], [ %26, %25 ], [ %47, %42 ], [ %41, %27 ], [ %53, %50 ], [ %137, %141 ]
+  %.sink129 = phi ptr [ %158, %154 ], [ %103, %102 ], [ %107, %104 ], [ %203, %201 ], [ %163, %161 ], [ %127, %126 ], [ %116, %112 ], [ %111, %108 ], [ %89, %85 ], [ %84, %81 ], [ %80, %79 ], [ %78, %74 ], [ %73, %61 ], [ %47, %42 ], [ %41, %27 ], [ %26, %25 ], [ %53, %50 ], [ %.pre118, %58 ], [ %137, %141 ]
   store ptr %.sink129, ptr %3, align 16, !tbaa !40
   br label %204
 

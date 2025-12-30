@@ -1936,9 +1936,9 @@ rb_array_const_ptr.exit83:                        ; preds = %rb_array_len.exit80
   unreachable
 
 .critedge:                                        ; preds = %rb_array_len.exit80.thread, %rb_array_len.exit80, %74, %81, %68, %rb_num2int_inline.exit77
-  %.054.ph = phi ptr [ null, %68 ], [ null, %rb_num2int_inline.exit77 ], [ %72, %74 ], [ %72, %81 ], [ %72, %rb_array_len.exit80 ], [ %72, %rb_array_len.exit80.thread ]
-  %.052.ph = phi ptr [ null, %68 ], [ null, %rb_num2int_inline.exit77 ], [ null, %74 ], [ %.153, %81 ], [ %.153, %rb_array_len.exit80 ], [ %.153, %rb_array_len.exit80.thread ]
-  %.151.ph = phi ptr [ %.050, %68 ], [ null, %rb_num2int_inline.exit77 ], [ %.050, %74 ], [ %.050, %81 ], [ %.050, %rb_array_len.exit80 ], [ %.050, %rb_array_len.exit80.thread ]
+  %.054.ph = phi ptr [ %72, %74 ], [ %72, %81 ], [ null, %68 ], [ null, %rb_num2int_inline.exit77 ], [ %72, %rb_array_len.exit80 ], [ %72, %rb_array_len.exit80.thread ]
+  %.052.ph = phi ptr [ null, %74 ], [ %.153, %81 ], [ null, %68 ], [ null, %rb_num2int_inline.exit77 ], [ %.153, %rb_array_len.exit80 ], [ %.153, %rb_array_len.exit80.thread ]
+  %.151.ph = phi ptr [ %.050, %74 ], [ %.050, %81 ], [ %.050, %68 ], [ null, %rb_num2int_inline.exit77 ], [ %.050, %rb_array_len.exit80 ], [ %.050, %rb_array_len.exit80.thread ]
   call void @ASN1_TIME_free(ptr noundef %.054.ph) #5
   call void @ASN1_TIME_free(ptr noundef %.052.ph) #5
   call void @ASN1_TIME_free(ptr noundef %.151.ph) #5

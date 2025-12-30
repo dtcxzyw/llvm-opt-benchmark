@@ -299,8 +299,8 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK32btDeformableNodeAnchorConst
   br i1 %exitcond124.not, label %._crit_edge108, label %.lr.ph107, !llvm.loop !63
 
 130:                                              ; preds = %9, %12, %._crit_edge108, %1
-  %.sroa.071.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i3.i, %12 ], [ zeroinitializer, %1 ], [ %.sroa.071.4.vec.insert86, %._crit_edge108 ], [ zeroinitializer, %9 ]
-  %.sroa.13.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i4.i, %12 ], [ zeroinitializer, %1 ], [ %.sroa.13.8.vec.insert94, %._crit_edge108 ], [ zeroinitializer, %9 ]
+  %.sroa.071.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i3.i, %12 ], [ %.sroa.071.4.vec.insert86, %._crit_edge108 ], [ zeroinitializer, %1 ], [ zeroinitializer, %9 ]
+  %.sroa.13.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i4.i, %12 ], [ %.sroa.13.8.vec.insert94, %._crit_edge108 ], [ zeroinitializer, %1 ], [ zeroinitializer, %9 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.071.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.13.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -949,8 +949,8 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK34btDeformableRigidContactCon
   br i1 %exitcond124.not, label %._crit_edge108, label %.lr.ph107, !llvm.loop !86
 
 130:                                              ; preds = %9, %12, %._crit_edge108, %1
-  %.sroa.071.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i3.i, %12 ], [ zeroinitializer, %1 ], [ %.sroa.071.4.vec.insert86, %._crit_edge108 ], [ zeroinitializer, %9 ]
-  %.sroa.13.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i4.i, %12 ], [ zeroinitializer, %1 ], [ %.sroa.13.8.vec.insert94, %._crit_edge108 ], [ zeroinitializer, %9 ]
+  %.sroa.071.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i3.i, %12 ], [ %.sroa.071.4.vec.insert86, %._crit_edge108 ], [ zeroinitializer, %1 ], [ zeroinitializer, %9 ]
+  %.sroa.13.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i4.i, %12 ], [ %.sroa.13.8.vec.insert94, %._crit_edge108 ], [ zeroinitializer, %1 ], [ zeroinitializer, %9 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.071.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.13.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -1139,8 +1139,8 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK34btDeformableRigidContactCon
   br i1 %exitcond117.not, label %._crit_edge101, label %.lr.ph100, !llvm.loop !89
 
 119:                                              ; preds = %9, %12, %._crit_edge101, %1
-  %.sroa.064.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i3.i, %12 ], [ zeroinitializer, %1 ], [ %.sroa.064.4.vec.insert79, %._crit_edge101 ], [ zeroinitializer, %9 ]
-  %.sroa.13.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i4.i, %12 ], [ zeroinitializer, %1 ], [ %.sroa.13.8.vec.insert87, %._crit_edge101 ], [ zeroinitializer, %9 ]
+  %.sroa.064.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i3.i, %12 ], [ %.sroa.064.4.vec.insert79, %._crit_edge101 ], [ zeroinitializer, %1 ], [ zeroinitializer, %9 ]
+  %.sroa.13.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i4.i, %12 ], [ %.sroa.13.8.vec.insert87, %._crit_edge101 ], [ zeroinitializer, %1 ], [ zeroinitializer, %9 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.064.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.13.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -1689,7 +1689,7 @@ _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit139: ; preds = %_ZN11btMultiBo
   br i1 %exitcond.not.i145, label %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit146, label %388, !llvm.loop !64
 
 _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit146: ; preds = %388, %300, %310, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit139, %120
-  %.0 = phi float [ 0.000000e+00, %120 ], [ %143, %300 ], [ %143, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit139 ], [ %143, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit ], [ %143, %310 ], [ %143, %388 ]
+  %.0 = phi float [ 0.000000e+00, %120 ], [ %143, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit139 ], [ %143, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit ], [ %143, %310 ], [ %143, %300 ], [ %143, %388 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret float %.0
 }
@@ -2936,10 +2936,10 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK37btDeformableFaceNodeContact
   br label %38
 
 38:                                               ; preds = %.sink.split, %2
-  %.sroa.0.4.vec.insert.i19.pn = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %2 ], [ %.sroa.0.4.vec.insert.i9, %.sink.split ]
-  %.sroa.3.12.vec.insert.i20.pn = phi <2 x float> [ %.sroa.3.12.vec.insert.i, %2 ], [ %.sroa.3.12.vec.insert.i10, %.sink.split ]
-  %.fca.0.insert.i21.pn = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.0.4.vec.insert.i19.pn, 0
-  %.fca.1.insert.merged = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i21.pn, <2 x float> %.sroa.3.12.vec.insert.i20.pn, 1
+  %.sroa.0.4.vec.insert.i9.pn = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %2 ], [ %.sroa.0.4.vec.insert.i9, %.sink.split ]
+  %.sroa.3.12.vec.insert.i10.pn = phi <2 x float> [ %.sroa.3.12.vec.insert.i, %2 ], [ %.sroa.3.12.vec.insert.i10, %.sink.split ]
+  %.fca.0.insert.i11.pn = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.0.4.vec.insert.i9.pn, 0
+  %.fca.1.insert.merged = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i11.pn, <2 x float> %.sroa.3.12.vec.insert.i10.pn, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 

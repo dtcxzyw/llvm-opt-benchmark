@@ -169,7 +169,7 @@ Py_DECREF.exit42:                                 ; preds = %Py_DECREF.exit40, %
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %69, %66, %Py_DECREF.exit42, %52, %49, %Py_DECREF.exit36, %38, %35, %33, %25, %14, %70
-  %.1 = phi ptr [ null, %14 ], [ %71, %70 ], [ null, %25 ], [ null, %52 ], [ null, %38 ], [ null, %33 ], [ null, %35 ], [ null, %Py_DECREF.exit36 ], [ null, %49 ], [ null, %Py_DECREF.exit42 ], [ null, %66 ], [ null, %69 ]
+  %.1 = phi ptr [ %71, %70 ], [ null, %14 ], [ null, %25 ], [ null, %33 ], [ null, %35 ], [ null, %38 ], [ null, %Py_DECREF.exit36 ], [ null, %49 ], [ null, %52 ], [ null, %Py_DECREF.exit42 ], [ null, %66 ], [ null, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.1

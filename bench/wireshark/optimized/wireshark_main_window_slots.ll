@@ -1150,7 +1150,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i116:   ; preds = %196
   br label %.body69
 
 .body69:                                          ; preds = %.body69.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i116, %196, %151, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i221
-  %.pn31 = phi { ptr, i32 } [ %197, %196 ], [ %197, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i116 ], [ %152, %151 ], [ %152, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i221 ], [ %.pn31.ph, %.body69.sink.split ]
+  %.pn31 = phi { ptr, i32 } [ %152, %151 ], [ %152, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i221 ], [ %197, %196 ], [ %197, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i116 ], [ %.pn31.ph, %.body69.sink.split ]
   %201 = load ptr, ptr %22, align 8
   %.not.i.i.i119 = icmp eq ptr %201, null
   br i1 %.not.i.i.i119, label %_ZN17QArrayDataPointerIDsED2Ev.exit126, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i120
@@ -1199,7 +1199,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i132:   ; preds = %_ZN7QStringD2Ev.exi
   br label %.body64
 
 .body64:                                          ; preds = %.body64.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i132, %_ZN7QStringD2Ev.exit130, %137, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i217
-  %.pn31.pn.pn = phi { ptr, i32 } [ %.pn31.pn, %_ZN7QStringD2Ev.exit130 ], [ %.pn31.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i132 ], [ %138, %137 ], [ %138, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i217 ], [ %.pn31.pn.pn.ph, %.body64.sink.split ]
+  %.pn31.pn.pn = phi { ptr, i32 } [ %138, %137 ], [ %138, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i217 ], [ %.pn31.pn, %_ZN7QStringD2Ev.exit130 ], [ %.pn31.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i132 ], [ %.pn31.pn.pn.ph, %.body64.sink.split ]
   %212 = load ptr, ptr %21, align 8
   %.not.i.i.i135 = icmp eq ptr %212, null
   br i1 %.not.i.i.i135, label %_ZN17QArrayDataPointerIDsED2Ev.exit142, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i136
@@ -1232,7 +1232,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit154.sink.split: ; preds = %_ZN17QArrayDataPoi
   br label %_ZN17QArrayDataPointerIDsED2Ev.exit154
 
 _ZN17QArrayDataPointerIDsED2Ev.exit154:           ; preds = %_ZN17QArrayDataPointerIDsED2Ev.exit154.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i144, %_ZN17QArrayDataPointerIDsED2Ev.exit142, %127, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i213
-  %.pn31.pn.pn.pn = phi { ptr, i32 } [ %.pn31.pn.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit142 ], [ %.pn31.pn.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i144 ], [ %128, %127 ], [ %128, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i213 ], [ %.pn31.pn.pn.pn.ph, %_ZN17QArrayDataPointerIDsED2Ev.exit154.sink.split ]
+  %.pn31.pn.pn.pn = phi { ptr, i32 } [ %128, %127 ], [ %128, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i213 ], [ %.pn31.pn.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit142 ], [ %.pn31.pn.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i144 ], [ %.pn31.pn.pn.pn.ph, %_ZN17QArrayDataPointerIDsED2Ev.exit154.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -1424,8 +1424,8 @@ _ZN10QByteArrayD2Ev.exit185:                      ; preds = %271, %_ZN17QArrayDa
   br label %_ZN7QString5clearEv.exit
 
 _ZN7QString5clearEv.exit:                         ; preds = %258, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i175, %255, %253, %191, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %188, %186, %277, %_ZN7QStringD2Ev.exit, %278
-  %.426 = phi i1 [ false, %_ZN7QStringD2Ev.exit ], [ %.022, %277 ], [ false, %278 ], [ %.022, %191 ], [ %.022, %186 ], [ %.022, %188 ], [ %.022, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i ], [ %.022, %253 ], [ %.022, %255 ], [ %.022, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i175 ], [ %.022, %258 ]
-  %.1 = phi i32 [ 4, %_ZN7QStringD2Ev.exit ], [ 2, %277 ], [ 4, %278 ], [ 3, %191 ], [ 3, %186 ], [ 3, %188 ], [ 3, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i ], [ 3, %253 ], [ 3, %255 ], [ 3, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i175 ], [ 3, %258 ]
+  %.426 = phi i1 [ false, %278 ], [ false, %_ZN7QStringD2Ev.exit ], [ %.022, %277 ], [ %.022, %186 ], [ %.022, %188 ], [ %.022, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i ], [ %.022, %191 ], [ %.022, %253 ], [ %.022, %255 ], [ %.022, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i175 ], [ %.022, %258 ]
+  %.1 = phi i32 [ 4, %278 ], [ 4, %_ZN7QStringD2Ev.exit ], [ 2, %277 ], [ 3, %186 ], [ 3, %188 ], [ 3, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i ], [ 3, %191 ], [ 3, %253 ], [ 3, %255 ], [ 3, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i175 ], [ 3, %258 ]
   %279 = load ptr, ptr %13, align 8
   %.not.i.i.i186 = icmp eq ptr %279, null
   br i1 %.not.i.i.i186, label %_ZN7QStringD2Ev.exit189, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i187
@@ -1449,7 +1449,7 @@ _ZN7QStringD2Ev.exit189:                          ; preds = %_ZN7QString5clearEv
   ]
 
 _ZN7QStringD2Ev.exit51:                           ; preds = %263, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i179, %259, %100, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49, %96, %_ZN10QByteArrayD2Ev.exit185, %_ZN7QStringD2Ev.exit158, %123, %_ZN10QByteArrayD2Ev.exit59
-  %.pn40 = phi { ptr, i32 } [ %124, %123 ], [ %.pn37, %_ZN10QByteArrayD2Ev.exit185 ], [ %97, %100 ], [ %.pn31.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit158 ], [ %.pn29, %_ZN10QByteArrayD2Ev.exit59 ], [ %97, %96 ], [ %97, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49 ], [ %260, %259 ], [ %260, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i179 ], [ %260, %263 ]
+  %.pn40 = phi { ptr, i32 } [ %124, %123 ], [ %.pn37, %_ZN10QByteArrayD2Ev.exit185 ], [ %.pn31.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit158 ], [ %.pn29, %_ZN10QByteArrayD2Ev.exit59 ], [ %97, %96 ], [ %97, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49 ], [ %97, %100 ], [ %260, %259 ], [ %260, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i179 ], [ %260, %263 ]
   %283 = load ptr, ptr %13, align 8
   %.not.i.i.i190 = icmp eq ptr %283, null
   br i1 %.not.i.i.i190, label %_ZN7QStringD2Ev.exit193, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i191
@@ -1560,7 +1560,7 @@ default.unreachable292:                           ; preds = %_ZN7QStringD2Ev.exi
   unreachable
 
 _ZN7QStringD2Ev.exit203:                          ; preds = %.loopexit, %.loopexit.split-lp, %306, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i201, %302, %_ZN7QStringD2Ev.exit193, %77
-  %.pn43 = phi { ptr, i32 } [ %303, %306 ], [ %.pn, %77 ], [ %.pn40.pn, %_ZN7QStringD2Ev.exit193 ], [ %303, %302 ], [ %303, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i201 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn43 = phi { ptr, i32 } [ %.pn40.pn, %_ZN7QStringD2Ev.exit193 ], [ %.pn, %77 ], [ %303, %302 ], [ %303, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i201 ], [ %303, %306 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2631,7 +2631,7 @@ _ZN5QListIP8QToolBarED2Ev.exit115:                ; preds = %211, %_ZN17QArrayDa
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit74
 
 _ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit74: ; preds = %140, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i72, %142, %_ZN5QListIP8QToolBarED2Ev.exit115
-  %.pn41.pn.pn = phi { ptr, i32 } [ %.pn31.pn.pn, %_ZN5QListIP8QToolBarED2Ev.exit115 ], [ %.pn41, %142 ], [ %.pn41, %140 ], [ %.pn41, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i72 ]
+  %.pn41.pn.pn = phi { ptr, i32 } [ %.pn31.pn.pn, %_ZN5QListIP8QToolBarED2Ev.exit115 ], [ %.pn41, %140 ], [ %.pn41, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i72 ], [ %.pn41, %142 ]
   resume { ptr, i32 } %.pn41.pn.pn
 }
 
@@ -3204,13 +3204,13 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i121: ; preds = %146
   br label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i61, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i113, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i101, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i78, %149, %198
-  %.sink = phi ptr [ %.pr169, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i113 ], [ %150, %149 ], [ %119, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i78 ], [ %.pr, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i101 ], [ %199, %198 ], [ %72, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i61 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %lpad.phi, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i113 ], [ %.pn.i.i, %149 ], [ %.pn31, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i78 ], [ %209, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i101 ], [ %.pn.i.i90, %198 ], [ %.pn38, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i61 ]
+  %.sink = phi ptr [ %199, %198 ], [ %150, %149 ], [ %119, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i78 ], [ %.pr, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i101 ], [ %.pr169, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i113 ], [ %72, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i61 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %.pn.i.i90, %198 ], [ %.pn.i.i, %149 ], [ %.pn31, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i78 ], [ %209, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i101 ], [ %lpad.phi, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i113 ], [ %.pn38, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i61 ]
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink, i64 noundef 8, i64 noundef 8) #26
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i61, %114, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i78, %170, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i101, %208, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i113, %222, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i125, %195, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i121, %146
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i113 ], [ %.pn31, %170 ], [ %.pn.i.i, %146 ], [ %.pn.i.i, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i121 ], [ %.pn.i.i90, %195 ], [ %.pn.i.i90, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i125 ], [ %.pn31, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i78 ], [ %lpad.phi, %222 ], [ %209, %208 ], [ %209, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i101 ], [ %.pn38, %114 ], [ %.pn38, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i61 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %146 ], [ %.pn.i.i, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i121 ], [ %.pn.i.i90, %195 ], [ %.pn.i.i90, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i125 ], [ %.pn38, %114 ], [ %.pn38, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i61 ], [ %.pn31, %170 ], [ %.pn31, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i78 ], [ %209, %208 ], [ %209, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i101 ], [ %lpad.phi, %222 ], [ %lpad.phi, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i113 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 .lr.ph179:                                        ; preds = %_ZN5QListIP7QActionED2Ev.exit67, %168
@@ -3727,7 +3727,7 @@ select.unfold.i.i:                                ; preds = %34, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIP7QActionSt4pairIKS1_7ts_typeESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIP7QActionSt4pairIKS1_7ts_typeESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i: ; preds = %38, %select.unfold.i.i
-  %42 = phi i1 [ %41, %38 ], [ true, %select.unfold.i.i ]
+  %42 = phi i1 [ true, %select.unfold.i.i ], [ %41, %38 ]
   %43 = tail call noalias noundef dereferenceable_or_null(48) ptr @_Znwm(i64 noundef 48) #29
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr %18, ptr %44, align 8
@@ -3858,7 +3858,7 @@ select.unfold.i.i:                                ; preds = %34, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIP7QActionSt4pairIKS1_12ts_precisionESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIP7QActionSt4pairIKS1_12ts_precisionESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i: ; preds = %38, %select.unfold.i.i
-  %42 = phi i1 [ %41, %38 ], [ true, %select.unfold.i.i ]
+  %42 = phi i1 [ true, %select.unfold.i.i ], [ %41, %38 ]
   %43 = tail call noalias noundef dereferenceable_or_null(48) ptr @_Znwm(i64 noundef 48) #29
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr %18, ptr %44, align 8
@@ -4309,7 +4309,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i94:    ; preds = %.body74
   br label %.body61
 
 .body61:                                          ; preds = %.body61.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i94, %.body74, %112, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i453
-  %.pn46 = phi { ptr, i32 } [ %.pn.i66, %.body74 ], [ %.pn.i66, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i94 ], [ %113, %112 ], [ %113, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i453 ], [ %.pn46.ph, %.body61.sink.split ]
+  %.pn46 = phi { ptr, i32 } [ %113, %112 ], [ %113, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i453 ], [ %.pn.i66, %.body74 ], [ %.pn.i66, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i94 ], [ %.pn46.ph, %.body61.sink.split ]
   %166 = load ptr, ptr %21, align 8
   %.not.i.i.i97 = icmp eq ptr %166, null
   br i1 %.not.i.i.i97, label %.body56, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i98
@@ -4326,7 +4326,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i98:    ; preds = %.body61
   br label %.body56
 
 .body56:                                          ; preds = %.body56.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i98, %.body61, %_ZN7QStringD2Ev.exit9.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i449
-  %.pn46.pn = phi { ptr, i32 } [ %.pn46, %.body61 ], [ %.pn46, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i98 ], [ %.pn.i, %_ZN7QStringD2Ev.exit9.i ], [ %.pn.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i449 ], [ %.pn46.pn.ph, %.body56.sink.split ]
+  %.pn46.pn = phi { ptr, i32 } [ %.pn.i, %_ZN7QStringD2Ev.exit9.i ], [ %.pn.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i449 ], [ %.pn46, %.body61 ], [ %.pn46, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i98 ], [ %.pn46.pn.ph, %.body56.sink.split ]
   %169 = load ptr, ptr %22, align 8
   %.not.i.i.i101 = icmp eq ptr %169, null
   br i1 %.not.i.i.i101, label %.body, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i102
@@ -4342,7 +4342,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i102:   ; preds = %.body56
   br label %.body
 
 .body:                                            ; preds = %171, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i102, %.body56, %161, %72, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i445, %76
-  %.pn46.pn.pn = phi { ptr, i32 } [ %73, %76 ], [ %162, %161 ], [ %73, %72 ], [ %73, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i445 ], [ %.pn46.pn, %.body56 ], [ %.pn46.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i102 ], [ %.pn46.pn, %171 ]
+  %.pn46.pn.pn = phi { ptr, i32 } [ %162, %161 ], [ %73, %72 ], [ %73, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i445 ], [ %73, %76 ], [ %.pn46.pn, %.body56 ], [ %.pn46.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i102 ], [ %.pn46.pn, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -4669,7 +4669,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i161:   ; preds = %.body141
   br label %.body127
 
 .body127:                                         ; preds = %.body127.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i161, %.body141, %219, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i469
-  %.pn41 = phi { ptr, i32 } [ %.pn.i133, %.body141 ], [ %.pn.i133, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i161 ], [ %220, %219 ], [ %220, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i469 ], [ %.pn41.ph, %.body127.sink.split ]
+  %.pn41 = phi { ptr, i32 } [ %220, %219 ], [ %220, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i469 ], [ %.pn.i133, %.body141 ], [ %.pn.i133, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i161 ], [ %.pn41.ph, %.body127.sink.split ]
   %271 = load ptr, ptr %25, align 8
   %.not.i.i.i164 = icmp eq ptr %271, null
   br i1 %.not.i.i.i164, label %.body121, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i165
@@ -4686,7 +4686,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i165:   ; preds = %.body127
   br label %.body121
 
 .body121:                                         ; preds = %.body121.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i165, %.body127, %_ZN7QStringD2Ev.exit9.i112, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i465
-  %.pn41.pn = phi { ptr, i32 } [ %.pn41, %.body127 ], [ %.pn41, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i165 ], [ %.pn.i113, %_ZN7QStringD2Ev.exit9.i112 ], [ %.pn.i113, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i465 ], [ %.pn41.pn.ph, %.body121.sink.split ]
+  %.pn41.pn = phi { ptr, i32 } [ %.pn.i113, %_ZN7QStringD2Ev.exit9.i112 ], [ %.pn.i113, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i465 ], [ %.pn41, %.body127 ], [ %.pn41, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i165 ], [ %.pn41.pn.ph, %.body121.sink.split ]
   %274 = load ptr, ptr %26, align 8
   %.not.i.i.i168 = icmp eq ptr %274, null
   br i1 %.not.i.i.i168, label %.body107, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i169
@@ -4702,7 +4702,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i169:   ; preds = %.body121
   br label %.body107
 
 .body107:                                         ; preds = %276, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i169, %.body121, %266, %179, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i461, %183
-  %.pn41.pn.pn = phi { ptr, i32 } [ %180, %183 ], [ %267, %266 ], [ %180, %179 ], [ %180, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i461 ], [ %.pn41.pn, %.body121 ], [ %.pn41.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i169 ], [ %.pn41.pn, %276 ]
+  %.pn41.pn.pn = phi { ptr, i32 } [ %267, %266 ], [ %180, %179 ], [ %180, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i461 ], [ %180, %183 ], [ %.pn41.pn, %.body121 ], [ %.pn41.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i169 ], [ %.pn41.pn, %276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -4880,7 +4880,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i200:   ; preds = %.body188
   br label %.body174
 
 .body174:                                         ; preds = %329, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i200, %.body188, %325, %282, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i477, %286
-  %.pn38 = phi { ptr, i32 } [ %283, %286 ], [ %326, %325 ], [ %283, %282 ], [ %283, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i477 ], [ %.pn.i180, %.body188 ], [ %.pn.i180, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i200 ], [ %.pn.i180, %329 ]
+  %.pn38 = phi { ptr, i32 } [ %326, %325 ], [ %283, %282 ], [ %283, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i477 ], [ %283, %286 ], [ %.pn.i180, %.body188 ], [ %.pn.i180, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i200 ], [ %.pn.i180, %329 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZN10QByteArrayD2Ev.exit405
@@ -5201,7 +5201,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i259:   ; preds = %.body239
   br label %.body225
 
 .body225:                                         ; preds = %.body225.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i259, %.body239, %375, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i493
-  %.pn34 = phi { ptr, i32 } [ %.pn.i231, %.body239 ], [ %.pn.i231, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i259 ], [ %376, %375 ], [ %376, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i493 ], [ %.pn34.ph, %.body225.sink.split ]
+  %.pn34 = phi { ptr, i32 } [ %376, %375 ], [ %376, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i493 ], [ %.pn.i231, %.body239 ], [ %.pn.i231, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i259 ], [ %.pn34.ph, %.body225.sink.split ]
   %427 = load ptr, ptr %31, align 8
   %.not.i.i.i262 = icmp eq ptr %427, null
   br i1 %.not.i.i.i262, label %.body219, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i263
@@ -5218,7 +5218,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i263:   ; preds = %.body225
   br label %.body219
 
 .body219:                                         ; preds = %.body219.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i263, %.body225, %_ZN7QStringD2Ev.exit9.i210, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i489
-  %.pn34.pn = phi { ptr, i32 } [ %.pn34, %.body225 ], [ %.pn34, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i263 ], [ %.pn.i211, %_ZN7QStringD2Ev.exit9.i210 ], [ %.pn.i211, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i489 ], [ %.pn34.pn.ph, %.body219.sink.split ]
+  %.pn34.pn = phi { ptr, i32 } [ %.pn.i211, %_ZN7QStringD2Ev.exit9.i210 ], [ %.pn.i211, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i489 ], [ %.pn34, %.body225 ], [ %.pn34, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i263 ], [ %.pn34.pn.ph, %.body219.sink.split ]
   %430 = load ptr, ptr %32, align 8
   %.not.i.i.i266 = icmp eq ptr %430, null
   br i1 %.not.i.i.i266, label %.body205, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i267
@@ -5234,7 +5234,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i267:   ; preds = %.body219
   br label %.body205
 
 .body205:                                         ; preds = %432, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i267, %.body219, %422, %335, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i485, %339
-  %.pn34.pn.pn = phi { ptr, i32 } [ %336, %339 ], [ %423, %422 ], [ %336, %335 ], [ %336, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i485 ], [ %.pn34.pn, %.body219 ], [ %.pn34.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i267 ], [ %.pn34.pn, %432 ]
+  %.pn34.pn.pn = phi { ptr, i32 } [ %423, %422 ], [ %336, %335 ], [ %336, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i485 ], [ %336, %339 ], [ %.pn34.pn, %.body219 ], [ %.pn34.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i267 ], [ %.pn34.pn, %432 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
@@ -5408,7 +5408,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i298:   ; preds = %.body286
   br label %.body272
 
 .body272:                                         ; preds = %483, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i298, %.body286, %479, %436, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i501, %440
-  %.pn32 = phi { ptr, i32 } [ %437, %440 ], [ %480, %479 ], [ %437, %436 ], [ %437, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i501 ], [ %.pn.i278, %.body286 ], [ %.pn.i278, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i298 ], [ %.pn.i278, %483 ]
+  %.pn32 = phi { ptr, i32 } [ %480, %479 ], [ %437, %436 ], [ %437, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i501 ], [ %437, %440 ], [ %.pn.i278, %.body286 ], [ %.pn.i278, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i298 ], [ %.pn.i278, %483 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %_ZN10QByteArrayD2Ev.exit405
@@ -5729,7 +5729,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i357:   ; preds = %.body337
   br label %.body323
 
 .body323:                                         ; preds = %.body323.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i357, %.body337, %529, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i517
-  %.pn27 = phi { ptr, i32 } [ %.pn.i329, %.body337 ], [ %.pn.i329, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i357 ], [ %530, %529 ], [ %530, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i517 ], [ %.pn27.ph, %.body323.sink.split ]
+  %.pn27 = phi { ptr, i32 } [ %530, %529 ], [ %530, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i517 ], [ %.pn.i329, %.body337 ], [ %.pn.i329, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i357 ], [ %.pn27.ph, %.body323.sink.split ]
   %581 = load ptr, ptr %37, align 8
   %.not.i.i.i360 = icmp eq ptr %581, null
   br i1 %.not.i.i.i360, label %.body317, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i361
@@ -5746,7 +5746,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i361:   ; preds = %.body323
   br label %.body317
 
 .body317:                                         ; preds = %.body317.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i361, %.body323, %_ZN7QStringD2Ev.exit9.i308, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i513
-  %.pn27.pn = phi { ptr, i32 } [ %.pn27, %.body323 ], [ %.pn27, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i361 ], [ %.pn.i309, %_ZN7QStringD2Ev.exit9.i308 ], [ %.pn.i309, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i513 ], [ %.pn27.pn.ph, %.body317.sink.split ]
+  %.pn27.pn = phi { ptr, i32 } [ %.pn.i309, %_ZN7QStringD2Ev.exit9.i308 ], [ %.pn.i309, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i513 ], [ %.pn27, %.body323 ], [ %.pn27, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i361 ], [ %.pn27.pn.ph, %.body317.sink.split ]
   %584 = load ptr, ptr %38, align 8
   %.not.i.i.i364 = icmp eq ptr %584, null
   br i1 %.not.i.i.i364, label %.body303, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i365
@@ -5762,7 +5762,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i365:   ; preds = %.body317
   br label %.body303
 
 .body303:                                         ; preds = %586, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i365, %.body317, %576, %489, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i509, %493
-  %.pn27.pn.pn = phi { ptr, i32 } [ %490, %493 ], [ %577, %576 ], [ %490, %489 ], [ %490, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i509 ], [ %.pn27.pn, %.body317 ], [ %.pn27.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i365 ], [ %.pn27.pn, %586 ]
+  %.pn27.pn.pn = phi { ptr, i32 } [ %577, %576 ], [ %490, %489 ], [ %490, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i509 ], [ %490, %493 ], [ %.pn27.pn, %.body317 ], [ %.pn27.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i365 ], [ %.pn27.pn, %586 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
@@ -5936,7 +5936,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i396:   ; preds = %.body384
   br label %.body370
 
 .body370:                                         ; preds = %637, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i396, %.body384, %633, %590, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i525, %594
-  %.pn = phi { ptr, i32 } [ %591, %594 ], [ %634, %633 ], [ %591, %590 ], [ %591, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i525 ], [ %.pn.i376, %.body384 ], [ %.pn.i376, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i396 ], [ %.pn.i376, %637 ]
+  %.pn = phi { ptr, i32 } [ %634, %633 ], [ %591, %590 ], [ %591, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i525 ], [ %591, %594 ], [ %.pn.i376, %.body384 ], [ %.pn.i376, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i396 ], [ %.pn.i376, %637 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %_ZN10QByteArrayD2Ev.exit405
@@ -6194,7 +6194,7 @@ _ZN7QStringD2Ev.exit435:                          ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 _ZN10QByteArrayD2Ev.exit405:                      ; preds = %656, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i403, %652, %_ZN7QStringD2Ev.exit427, %.body370, %.body303, %.body272, %.body205, %.body174, %.body107, %.body, %159, %64
-  %.pn53 = phi { ptr, i32 } [ %160, %159 ], [ %65, %64 ], [ %.pn50.pn, %_ZN7QStringD2Ev.exit427 ], [ %.pn46.pn.pn, %.body ], [ %.pn41.pn.pn, %.body107 ], [ %.pn38, %.body174 ], [ %.pn34.pn.pn, %.body205 ], [ %.pn32, %.body272 ], [ %.pn27.pn.pn, %.body303 ], [ %.pn, %.body370 ], [ %653, %652 ], [ %653, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i403 ], [ %653, %656 ]
+  %.pn53 = phi { ptr, i32 } [ %160, %159 ], [ %.pn50.pn, %_ZN7QStringD2Ev.exit427 ], [ %.pn46.pn.pn, %.body ], [ %.pn41.pn.pn, %.body107 ], [ %.pn38, %.body174 ], [ %.pn34.pn.pn, %.body205 ], [ %.pn32, %.body272 ], [ %.pn27.pn.pn, %.body303 ], [ %.pn, %.body370 ], [ %65, %64 ], [ %653, %652 ], [ %653, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i403 ], [ %653, %656 ]
   %712 = load ptr, ptr %17, align 8
   %.not.i.i.i436 = icmp eq ptr %712, null
   br i1 %.not.i.i.i436, label %_ZN7QStringD2Ev.exit439, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i437
@@ -8047,7 +8047,7 @@ _ZNK11CaptureFile7capFileEv.exit148:              ; preds = %146, %.noexc147
   br label %159
 
 159:                                              ; preds = %_ZNK11CaptureFile7capFileEv.exit148, %154, %_ZNK11CaptureFile7capFileEv.exit146
-  %160 = phi i1 [ %158, %154 ], [ false, %_ZNK11CaptureFile7capFileEv.exit146 ], [ true, %_ZNK11CaptureFile7capFileEv.exit148 ]
+  %160 = phi i1 [ false, %_ZNK11CaptureFile7capFileEv.exit146 ], [ true, %_ZNK11CaptureFile7capFileEv.exit148 ], [ %158, %154 ]
   %161 = invoke noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable_or_null(48) %89)
           to label %.noexc149 unwind label %114
 
@@ -8163,7 +8163,7 @@ _ZNK11CaptureFile7capFileEv.exit160:              ; preds = %201, %.noexc159
   br label %214
 
 214:                                              ; preds = %_ZNK11CaptureFile7capFileEv.exit160, %209, %_ZNK11CaptureFile7capFileEv.exit158
-  %215 = phi i1 [ %213, %209 ], [ false, %_ZNK11CaptureFile7capFileEv.exit158 ], [ true, %_ZNK11CaptureFile7capFileEv.exit160 ]
+  %215 = phi i1 [ false, %_ZNK11CaptureFile7capFileEv.exit158 ], [ true, %_ZNK11CaptureFile7capFileEv.exit160 ], [ %213, %209 ]
   %216 = invoke noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable_or_null(48) %89)
           to label %.noexc161 unwind label %114
 
@@ -8631,7 +8631,7 @@ _ZN5QListIiED2Ev.exit:                            ; preds = %_ZN9QtPrivate17QFor
   br label %_ZNK11CaptureFile7capFileEv.exit.thread
 
 _ZN9QtPrivate17QForeachContainerI5QListIP18FollowStreamActionEED2Ev.exit200: ; preds = %_ZN7QStringD2Ev.exit223, %376, %_ZN17QArrayDataPointerIP18FollowStreamActionE5derefEv.exit.i.i.i225, %379, %_ZN7QStringD2Ev.exit189, %342, %_ZN17QArrayDataPointerIP18FollowStreamActionE5derefEv.exit.i.i.i198, %345, %114
-  %.pn121.pn = phi { ptr, i32 } [ %343, %345 ], [ %115, %114 ], [ %299, %_ZN7QStringD2Ev.exit189 ], [ %343, %342 ], [ %343, %_ZN17QArrayDataPointerIP18FollowStreamActionE5derefEv.exit.i.i.i198 ], [ %353, %_ZN7QStringD2Ev.exit223 ], [ %377, %376 ], [ %377, %_ZN17QArrayDataPointerIP18FollowStreamActionE5derefEv.exit.i.i.i225 ], [ %377, %379 ]
+  %.pn121.pn = phi { ptr, i32 } [ %115, %114 ], [ %299, %_ZN7QStringD2Ev.exit189 ], [ %343, %342 ], [ %343, %_ZN17QArrayDataPointerIP18FollowStreamActionE5derefEv.exit.i.i.i198 ], [ %343, %345 ], [ %353, %_ZN7QStringD2Ev.exit223 ], [ %377, %376 ], [ %377, %_ZN17QArrayDataPointerIP18FollowStreamActionE5derefEv.exit.i.i.i225 ], [ %377, %379 ]
   %385 = load ptr, ptr %20, align 8
   %.not.i.i.i230 = icmp eq ptr %385, null
   br i1 %.not.i.i.i230, label %_ZN5QListIiED2Ev.exit233, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i231
@@ -9394,7 +9394,7 @@ _ZN5QListIP7QActionED2Ev.exit291:                 ; preds = %703, %_ZN17QArrayDa
   ret void
 
 _ZN5QListIiED2Ev.exit283:                         ; preds = %598, %507, %605, %594, %_ZN5QListIiED2Ev.exit271, %_ZN5QListIiED2Ev.exit267, %_ZN5QListIiED2Ev.exit263, %_ZN5QListIiED2Ev.exit259, %_ZN5QListIiED2Ev.exit233, %110
-  %.pn121.pn.pn.pn = phi { ptr, i32 } [ %.pn121.pn.pn, %_ZN5QListIiED2Ev.exit233 ], [ %.pn104, %_ZN5QListIiED2Ev.exit259 ], [ %111, %110 ], [ %.pn110, %_ZN5QListIiED2Ev.exit271 ], [ %.pn108, %_ZN5QListIiED2Ev.exit267 ], [ %.pn106, %_ZN5QListIiED2Ev.exit263 ], [ %508, %507 ], [ %599, %598 ], [ %595, %594 ], [ %.pn115.ph, %605 ]
+  %.pn121.pn.pn.pn = phi { ptr, i32 } [ %.pn121.pn.pn, %_ZN5QListIiED2Ev.exit233 ], [ %111, %110 ], [ %.pn110, %_ZN5QListIiED2Ev.exit271 ], [ %.pn108, %_ZN5QListIiED2Ev.exit267 ], [ %.pn106, %_ZN5QListIiED2Ev.exit263 ], [ %.pn104, %_ZN5QListIiED2Ev.exit259 ], [ %508, %507 ], [ %595, %594 ], [ %.pn115.ph, %605 ], [ %599, %598 ]
   br i1 %.not.i.i.i, label %_ZN5QListIP7QActionED2Ev.exit295, label %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i293
 
 _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i293: ; preds = %612, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i285, %_ZN5QListIiED2Ev.exit283
@@ -9775,8 +9775,8 @@ _ZNK11CaptureFile7capFileEv.exit118:              ; preds = %134, %.noexc117
   br label %_ZN10QByteArrayD2Ev.exit125
 
 151:                                              ; preds = %145, %141, %140
-  %.1 = phi i1 [ false, %140 ], [ false, %141 ], [ true, %145 ]
-  %.049 = phi i32 [ -1, %140 ], [ -1, %141 ], [ %148, %145 ]
+  %.1 = phi i1 [ false, %141 ], [ false, %140 ], [ true, %145 ]
+  %.049 = phi i32 [ -1, %141 ], [ -1, %140 ], [ %148, %145 ]
   %152 = invoke noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable_or_null(48) %16)
           to label %.noexc119 unwind label %187
 
@@ -10219,7 +10219,7 @@ _ZN10QByteArrayD2Ev.exit131:                      ; preds = %329, %_ZN17QArrayDa
   ret void
 
 _ZN10QByteArrayD2Ev.exit125:                      ; preds = %193, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i123, %189, %149, %248, %244, %229, %227, %218, %213, %187, %104, %106, %108, %13
-  %.pn88 = phi { ptr, i32 } [ %14, %13 ], [ %105, %104 ], [ %109, %108 ], [ %107, %106 ], [ %150, %149 ], [ %.pn82, %244 ], [ %249, %248 ], [ %.pn80, %218 ], [ %.pn78, %213 ], [ %230, %229 ], [ %228, %227 ], [ %188, %187 ], [ %190, %189 ], [ %190, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i123 ], [ %190, %193 ]
+  %.pn88 = phi { ptr, i32 } [ %14, %13 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %150, %149 ], [ %.pn82, %244 ], [ %249, %248 ], [ %.pn80, %218 ], [ %.pn78, %213 ], [ %230, %229 ], [ %228, %227 ], [ %188, %187 ], [ %190, %189 ], [ %190, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i123 ], [ %190, %193 ]
   %334 = load ptr, ptr %3, align 8
   %.not.i.i.i132 = icmp eq ptr %334, null
   br i1 %.not.i.i.i132, label %_ZN10QByteArrayD2Ev.exit135, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i133
@@ -12519,7 +12519,7 @@ _ZN5QListIiED2Ev.exit237:                         ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 349:                                              ; preds = %_ZN5QListIiED2Ev.exit100, %_ZN7QStringD2Ev.exit209, %_ZN7QStringD2Ev.exit195, %_ZN7QStringD2Ev.exit146, %_ZN5QListIiED2Ev.exit237, %116, %_ZN7QStringD2Ev.exit96
-  %.pn81.pn.pn.pn.pn = phi { ptr, i32 } [ %111, %_ZN7QStringD2Ev.exit96 ], [ %.pn, %_ZN5QListIiED2Ev.exit237 ], [ %117, %116 ], [ %119, %_ZN5QListIiED2Ev.exit100 ], [ %.pn81.pn, %_ZN7QStringD2Ev.exit146 ], [ %.pn75.pn, %_ZN7QStringD2Ev.exit195 ], [ %298, %_ZN7QStringD2Ev.exit209 ]
+  %.pn81.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN5QListIiED2Ev.exit237 ], [ %117, %116 ], [ %111, %_ZN7QStringD2Ev.exit96 ], [ %119, %_ZN5QListIiED2Ev.exit100 ], [ %.pn81.pn, %_ZN7QStringD2Ev.exit146 ], [ %.pn75.pn, %_ZN7QStringD2Ev.exit195 ], [ %298, %_ZN7QStringD2Ev.exit209 ]
   resume { ptr, i32 } %.pn81.pn.pn.pn.pn
 }
 
@@ -13364,13 +13364,13 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i54: ; preds = %29
   br label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i46, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i, %32, %76
-  %.pr.sink = phi ptr [ %33, %32 ], [ %.pr, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i ], [ %77, %76 ], [ %.pr78, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i46 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %.pn.i.i, %32 ], [ %lpad.phi87, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i ], [ %.pn.i.i31, %76 ], [ %lpad.phi, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i46 ]
+  %.pr.sink = phi ptr [ %77, %76 ], [ %33, %32 ], [ %.pr, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i ], [ %.pr78, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i46 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %.pn.i.i31, %76 ], [ %.pn.i.i, %32 ], [ %lpad.phi87, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i ], [ %lpad.phi, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i46 ]
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.pr.sink, i64 noundef 8, i64 noundef 8) #26
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i, %45, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i46, %89, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i58, %73, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i54, %29
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi87, %45 ], [ %lpad.phi87, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i ], [ %.pn.i.i, %29 ], [ %.pn.i.i, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i54 ], [ %.pn.i.i31, %73 ], [ %.pn.i.i31, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i58 ], [ %lpad.phi, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i46 ], [ %lpad.phi, %89 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %29 ], [ %.pn.i.i, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i54 ], [ %.pn.i.i31, %73 ], [ %.pn.i.i31, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i58 ], [ %lpad.phi87, %45 ], [ %lpad.phi87, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i ], [ %lpad.phi, %89 ], [ %lpad.phi, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i46 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %.noexc.i.i, %15
@@ -14023,7 +14023,7 @@ _ZN5QListIP14AccordionFrameED2Ev.exit28:          ; preds = %88, %_ZN17QArrayDat
   ret void
 
 _ZN9QtPrivate17QForeachContainerI5QListIP14AccordionFrameEED2Ev.exit24: ; preds = %76, %_ZN17QArrayDataPointerIP14AccordionFrameE5derefEv.exit.i.i.i22, %79, %71
-  %.pn.pn = phi { ptr, i32 } [ %72, %71 ], [ %77, %79 ], [ %77, %76 ], [ %77, %_ZN17QArrayDataPointerIP14AccordionFrameE5derefEv.exit.i.i.i22 ]
+  %.pn.pn = phi { ptr, i32 } [ %72, %71 ], [ %77, %76 ], [ %77, %_ZN17QArrayDataPointerIP14AccordionFrameE5derefEv.exit.i.i.i22 ], [ %77, %79 ]
   %93 = load ptr, ptr %12, align 8
   %.not.i.i.i29 = icmp eq ptr %93, null
   br i1 %.not.i.i.i29, label %_ZN5QListIP14AccordionFrameED2Ev.exit32, label %_ZN17QArrayDataPointerIP14AccordionFrameE5derefEv.exit.i.i30
@@ -14569,7 +14569,7 @@ _ZN7QStringD2Ev.exit71:                           ; preds = %142, %_ZN17QArrayDa
   br i1 %.not99, label %._crit_edge, label %93, !llvm.loop !216
 
 149:                                              ; preds = %127, %145, %126, %120
-  %.pn37.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %126 ], [ %121, %120 ], [ %.pn37.pn.pn.pn, %145 ], [ %128, %127 ]
+  %.pn37.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %121, %120 ], [ %.pn, %126 ], [ %.pn37.pn.pn.pn, %145 ], [ %128, %127 ]
   br i1 %.not.i.i.i, label %_ZN5QListIP7QActionED2Ev.exit79, label %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i73
 
 _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i73: ; preds = %149
@@ -14591,7 +14591,7 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i77: ; preds = %_ZN17QArrayData
   br label %_ZN5QListIP7QActionED2Ev.exit79
 
 _ZN5QListIP7QActionED2Ev.exit79:                  ; preds = %149, %153, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i77, %_ZN5QListIP7QActionED2Ev.exit64
-  %.pn37.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %88, %_ZN5QListIP7QActionED2Ev.exit64 ], [ %.pn37.pn.pn.pn.pn.pn, %149 ], [ %.pn37.pn.pn.pn.pn.pn, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i77 ], [ %.pn37.pn.pn.pn.pn.pn, %153 ]
+  %.pn37.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %88, %_ZN5QListIP7QActionED2Ev.exit64 ], [ %.pn37.pn.pn.pn.pn.pn, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i77 ], [ %.pn37.pn.pn.pn.pn.pn, %153 ], [ %.pn37.pn.pn.pn.pn.pn, %149 ]
   resume { ptr, i32 } %.pn37.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -15530,7 +15530,7 @@ _ZNK23QListSpecialMethodsBaseI21register_stat_group_eE8containsIS0_EEbRKT_.exit.
   br label %_ZNK23QListSpecialMethodsBaseI21register_stat_group_eE8containsIS0_EEbRKT_.exit.thread
 
 _ZNK23QListSpecialMethodsBaseI21register_stat_group_eE8containsIS0_EEbRKT_.exit.thread: ; preds = %41, %_ZNK23QListSpecialMethodsBaseI21register_stat_group_eE8containsIS0_EEbRKT_.exit.thread.sink.split, %.lr.ph.split, %49, %_ZNK23QListSpecialMethodsBaseI21register_stat_group_eE8containsIS0_EEbRKT_.exit
-  %.1 = phi i1 [ %.021115, %.lr.ph.split ], [ %.021115, %49 ], [ %.021115, %_ZNK23QListSpecialMethodsBaseI21register_stat_group_eE8containsIS0_EEbRKT_.exit ], [ false, %_ZNK23QListSpecialMethodsBaseI21register_stat_group_eE8containsIS0_EEbRKT_.exit.thread.sink.split ], [ %.021115, %41 ]
+  %.1 = phi i1 [ %.021115, %_ZNK23QListSpecialMethodsBaseI21register_stat_group_eE8containsIS0_EEbRKT_.exit ], [ %.021115, %49 ], [ %.021115, %.lr.ph.split ], [ false, %_ZNK23QListSpecialMethodsBaseI21register_stat_group_eE8containsIS0_EEbRKT_.exit.thread.sink.split ], [ %.021115, %41 ]
   %202 = getelementptr inbounds nuw i8, ptr %.022114, i64 8
   %203 = load ptr, ptr %202, align 8
   %.not = icmp eq ptr %203, null
@@ -17242,7 +17242,7 @@ _ZN7QStringD2Ev.exit85:                           ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 _ZN7QStringD2Ev.exit81:                           ; preds = %157, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i79, %153, %143, %_ZN10QByteArrayD2Ev.exit77, %_ZN7QStringD2Ev.exit73, %22
-  %.pn19.pn = phi { ptr, i32 } [ %23, %22 ], [ %.pn.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit73 ], [ %144, %143 ], [ %.pn17, %_ZN10QByteArrayD2Ev.exit77 ], [ %154, %153 ], [ %154, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i79 ], [ %154, %157 ]
+  %.pn19.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit73 ], [ %23, %22 ], [ %.pn17, %_ZN10QByteArrayD2Ev.exit77 ], [ %144, %143 ], [ %154, %153 ], [ %154, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i79 ], [ %154, %157 ]
   %163 = load ptr, ptr %2, align 8
   %.not.i.i.i86 = icmp eq ptr %163, null
   br i1 %.not.i.i.i86, label %_ZN7QStringD2Ev.exit89, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i87
@@ -18447,12 +18447,12 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i62:    ; preds = %108
   br label %_ZN7QStringD2Ev.exit56
 
 _ZN7QStringD2Ev.exit56:                           ; preds = %111, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i62, %108, %94, %96, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i54, %99
-  %.pn19.pn = phi { ptr, i32 } [ %97, %99 ], [ %95, %94 ], [ %97, %96 ], [ %97, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i54 ], [ %.pn19, %108 ], [ %.pn19, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i62 ], [ %.pn19, %111 ]
+  %.pn19.pn = phi { ptr, i32 } [ %95, %94 ], [ %97, %96 ], [ %97, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i54 ], [ %97, %99 ], [ %.pn19, %108 ], [ %.pn19, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i62 ], [ %.pn19, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit34
 
 _ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit34: ; preds = %_ZN7QStringD2Ev.exit30, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i32, %44, %_ZN7QStringD2Ev.exit56
-  %.pn22.pn.pn = phi { ptr, i32 } [ %.pn19.pn, %_ZN7QStringD2Ev.exit56 ], [ %.pn22, %44 ], [ %.pn22, %_ZN7QStringD2Ev.exit30 ], [ %.pn22, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i32 ]
+  %.pn22.pn.pn = phi { ptr, i32 } [ %.pn19.pn, %_ZN7QStringD2Ev.exit56 ], [ %.pn22, %_ZN7QStringD2Ev.exit30 ], [ %.pn22, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i32 ], [ %.pn22, %44 ]
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %4) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %113 = load ptr, ptr %3, align 8
@@ -21529,9 +21529,9 @@ _ZN5QListIiED2Ev.exit529:                         ; preds = %_ZN5QListI7QStringE
   br label %809
 
 _ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit382: ; preds = %748, %_ZN7QStringD2Ev.exit5.i465, %604, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i380, %606, %646, %648, %_ZN7QStringD2Ev.exit417, %_ZN7QStringD2Ev.exit421, %_ZN7QStringD2Ev.exit425, %_ZN7QStringD2Ev.exit475, %_ZN7QStringD2Ev.exit442, %_ZN7QStringD2Ev.exit304, %_ZN7QStringD2Ev.exit300, %_ZN7QStringD2Ev.exit296, %_ZN5QListIiED2Ev.exit264
-  %.sroa.0603.1 = phi ptr [ %.sroa.0603.2, %606 ], [ %.sroa.0603.2, %646 ], [ %.sroa.0603.2, %_ZN7QStringD2Ev.exit425 ], [ %.sroa.0603.2, %_ZN7QStringD2Ev.exit421 ], [ %.sroa.0603.2, %_ZN7QStringD2Ev.exit417 ], [ %.sroa.0603.2, %648 ], [ %.sroa.0603.2, %_ZN7QStringD2Ev.exit442 ], [ %.sroa.0603.2, %748 ], [ %.sroa.0603.2, %_ZN7QStringD2Ev.exit475 ], [ %.sroa.0603.0, %_ZN7QStringD2Ev.exit304 ], [ %.sroa.0603.0, %_ZN7QStringD2Ev.exit300 ], [ %.sroa.0603.0, %_ZN7QStringD2Ev.exit296 ], [ %299, %_ZN5QListIiED2Ev.exit264 ], [ %.sroa.0603.2, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i380 ], [ %.sroa.0603.2, %604 ], [ %.sroa.0603.2, %_ZN7QStringD2Ev.exit5.i465 ]
-  %.sroa.0613.1 = phi ptr [ %.sroa.0613.2, %606 ], [ %.sroa.0613.2, %646 ], [ %.sroa.0613.2, %_ZN7QStringD2Ev.exit425 ], [ %.sroa.0613.2, %_ZN7QStringD2Ev.exit421 ], [ %.sroa.0613.2, %_ZN7QStringD2Ev.exit417 ], [ %.sroa.0613.2, %648 ], [ %.sroa.0613.2, %_ZN7QStringD2Ev.exit442 ], [ %.sroa.0613.2, %748 ], [ %.sroa.0613.2, %_ZN7QStringD2Ev.exit475 ], [ %.sroa.0613.0, %_ZN7QStringD2Ev.exit304 ], [ %.sroa.0613.0, %_ZN7QStringD2Ev.exit300 ], [ %.sroa.0613.0, %_ZN7QStringD2Ev.exit296 ], [ %280, %_ZN5QListIiED2Ev.exit264 ], [ %.sroa.0613.2, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i380 ], [ %.sroa.0613.2, %604 ], [ %.sroa.0613.2, %_ZN7QStringD2Ev.exit5.i465 ]
-  %.pn97.pn.pn.pn = phi { ptr, i32 } [ %.pn97.pn, %606 ], [ %647, %646 ], [ %.pn87, %_ZN7QStringD2Ev.exit425 ], [ %.pn85, %_ZN7QStringD2Ev.exit421 ], [ %.pn83, %_ZN7QStringD2Ev.exit417 ], [ %649, %648 ], [ %.pn81, %_ZN7QStringD2Ev.exit442 ], [ %749, %748 ], [ %.pn79, %_ZN7QStringD2Ev.exit475 ], [ %.pn77, %_ZN7QStringD2Ev.exit304 ], [ %.pn75, %_ZN7QStringD2Ev.exit300 ], [ %.pn73, %_ZN7QStringD2Ev.exit296 ], [ %.pn71, %_ZN5QListIiED2Ev.exit264 ], [ %.pn97.pn, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i380 ], [ %.pn97.pn, %604 ], [ %737, %_ZN7QStringD2Ev.exit5.i465 ]
+  %.sroa.0603.1 = phi ptr [ %.sroa.0603.2, %646 ], [ %.sroa.0603.2, %_ZN7QStringD2Ev.exit425 ], [ %.sroa.0603.2, %_ZN7QStringD2Ev.exit421 ], [ %.sroa.0603.2, %_ZN7QStringD2Ev.exit417 ], [ %.sroa.0603.2, %648 ], [ %.sroa.0603.2, %_ZN7QStringD2Ev.exit442 ], [ %.sroa.0603.2, %_ZN7QStringD2Ev.exit475 ], [ %.sroa.0603.0, %_ZN7QStringD2Ev.exit304 ], [ %.sroa.0603.0, %_ZN7QStringD2Ev.exit300 ], [ %.sroa.0603.0, %_ZN7QStringD2Ev.exit296 ], [ %299, %_ZN5QListIiED2Ev.exit264 ], [ %.sroa.0603.2, %606 ], [ %.sroa.0603.2, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i380 ], [ %.sroa.0603.2, %604 ], [ %.sroa.0603.2, %_ZN7QStringD2Ev.exit5.i465 ], [ %.sroa.0603.2, %748 ]
+  %.sroa.0613.1 = phi ptr [ %.sroa.0613.2, %646 ], [ %.sroa.0613.2, %_ZN7QStringD2Ev.exit425 ], [ %.sroa.0613.2, %_ZN7QStringD2Ev.exit421 ], [ %.sroa.0613.2, %_ZN7QStringD2Ev.exit417 ], [ %.sroa.0613.2, %648 ], [ %.sroa.0613.2, %_ZN7QStringD2Ev.exit442 ], [ %.sroa.0613.2, %_ZN7QStringD2Ev.exit475 ], [ %.sroa.0613.0, %_ZN7QStringD2Ev.exit304 ], [ %.sroa.0613.0, %_ZN7QStringD2Ev.exit300 ], [ %.sroa.0613.0, %_ZN7QStringD2Ev.exit296 ], [ %280, %_ZN5QListIiED2Ev.exit264 ], [ %.sroa.0613.2, %606 ], [ %.sroa.0613.2, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i380 ], [ %.sroa.0613.2, %604 ], [ %.sroa.0613.2, %_ZN7QStringD2Ev.exit5.i465 ], [ %.sroa.0613.2, %748 ]
+  %.pn97.pn.pn.pn = phi { ptr, i32 } [ %647, %646 ], [ %.pn87, %_ZN7QStringD2Ev.exit425 ], [ %.pn85, %_ZN7QStringD2Ev.exit421 ], [ %.pn83, %_ZN7QStringD2Ev.exit417 ], [ %649, %648 ], [ %.pn81, %_ZN7QStringD2Ev.exit442 ], [ %.pn79, %_ZN7QStringD2Ev.exit475 ], [ %.pn77, %_ZN7QStringD2Ev.exit304 ], [ %.pn75, %_ZN7QStringD2Ev.exit300 ], [ %.pn73, %_ZN7QStringD2Ev.exit296 ], [ %.pn71, %_ZN5QListIiED2Ev.exit264 ], [ %.pn97.pn, %606 ], [ %.pn97.pn, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i380 ], [ %.pn97.pn, %604 ], [ %737, %_ZN7QStringD2Ev.exit5.i465 ], [ %749, %748 ]
   %.not.i.i.i530 = icmp eq ptr %.sroa.0603.1, null
   br i1 %.not.i.i.i530, label %_ZN5QListIiED2Ev.exit533, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i531
 
@@ -21545,8 +21545,8 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i531:    ; preds = %_ZN9QtPrivate17QFor
   br label %_ZN5QListIiED2Ev.exit533
 
 _ZN5QListIiED2Ev.exit533:                         ; preds = %_ZN5QListIiED2Ev.exit252, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit382, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i531, %802
-  %.pn97.pn.pn.pn639 = phi { ptr, i32 } [ %.pn97.pn.pn.pn, %802 ], [ %.pn97.pn.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit382 ], [ %.pn97.pn.pn.pn, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i531 ], [ %368, %_ZN5QListIiED2Ev.exit252 ]
-  %.sroa.0613.1638 = phi ptr [ %.sroa.0613.1, %802 ], [ %.sroa.0613.1, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit382 ], [ %.sroa.0613.1, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i531 ], [ %280, %_ZN5QListIiED2Ev.exit252 ]
+  %.pn97.pn.pn.pn639 = phi { ptr, i32 } [ %.pn97.pn.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit382 ], [ %.pn97.pn.pn.pn, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i531 ], [ %.pn97.pn.pn.pn, %802 ], [ %368, %_ZN5QListIiED2Ev.exit252 ]
+  %.sroa.0613.1638 = phi ptr [ %.sroa.0613.1, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit382 ], [ %.sroa.0613.1, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i531 ], [ %.sroa.0613.1, %802 ], [ %280, %_ZN5QListIiED2Ev.exit252 ]
   %.not.i.i.i534 = icmp eq ptr %.sroa.0613.1638, null
   br i1 %.not.i.i.i534, label %_ZN5QListIiED2Ev.exit537, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i535
 
@@ -21559,8 +21559,8 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i535:    ; preds = %_ZN5QListIiED2Ev.ex
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %.sroa.0613.1638, i64 noundef 4, i64 noundef 8) #26
   br label %_ZN5QListIiED2Ev.exit537
 
-_ZN5QListIiED2Ev.exit537:                         ; preds = %_ZN7QStringD2Ev.exit314, %365, %363, %_ZN7QStringD2Ev.exit274, %_ZN5QListIiED2Ev.exit533, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i535, %804
-  %.pn97.pn.pn.pn639648 = phi { ptr, i32 } [ %.pn97.pn.pn.pn639, %804 ], [ %.pn97.pn.pn.pn639, %_ZN5QListIiED2Ev.exit533 ], [ %.pn97.pn.pn.pn639, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i535 ], [ %.pn, %_ZN7QStringD2Ev.exit314 ], [ %366, %365 ], [ %364, %363 ], [ %.pn69, %_ZN7QStringD2Ev.exit274 ]
+_ZN5QListIiED2Ev.exit537:                         ; preds = %365, %363, %_ZN7QStringD2Ev.exit274, %_ZN7QStringD2Ev.exit314, %_ZN5QListIiED2Ev.exit533, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i535, %804
+  %.pn97.pn.pn.pn639648 = phi { ptr, i32 } [ %.pn97.pn.pn.pn639, %_ZN5QListIiED2Ev.exit533 ], [ %.pn97.pn.pn.pn639, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i535 ], [ %.pn97.pn.pn.pn639, %804 ], [ %366, %365 ], [ %364, %363 ], [ %.pn69, %_ZN7QStringD2Ev.exit274 ], [ %.pn, %_ZN7QStringD2Ev.exit314 ]
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %26) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %25) #26
@@ -21785,7 +21785,7 @@ _ZN7QStringD2Ev.exit579:                          ; preds = %_ZNK11CaptureFile7c
   ret void
 
 .body:                                            ; preds = %183, %_ZN7QStringD2Ev.exit5.i146, %_ZN7QStringD2Ev.exit5.i, %_ZN7QStringD2Ev.exit5.i551, %70, %131, %204, %_ZN5QListI11QModelIndexED2Ev.exit174, %264, %_ZN5QListIiED2Ev.exit541, %_ZN7QStringD2Ev.exit575, %61
-  %.pn119.pn = phi { ptr, i32 } [ %62, %61 ], [ %265, %264 ], [ %.pn117, %_ZN7QStringD2Ev.exit575 ], [ %.pn112.pn, %131 ], [ %829, %_ZN7QStringD2Ev.exit5.i551 ], [ %205, %204 ], [ %.pn103, %_ZN5QListI11QModelIndexED2Ev.exit174 ], [ %.pn97.pn.pn.pn.pn, %_ZN5QListIiED2Ev.exit541 ], [ %145, %_ZN7QStringD2Ev.exit5.i ], [ %71, %70 ], [ %184, %183 ], [ %177, %_ZN7QStringD2Ev.exit5.i146 ]
+  %.pn119.pn = phi { ptr, i32 } [ %62, %61 ], [ %.pn117, %_ZN7QStringD2Ev.exit575 ], [ %.pn112.pn, %131 ], [ %205, %204 ], [ %.pn103, %_ZN5QListI11QModelIndexED2Ev.exit174 ], [ %.pn97.pn.pn.pn.pn, %_ZN5QListIiED2Ev.exit541 ], [ %265, %264 ], [ %145, %_ZN7QStringD2Ev.exit5.i ], [ %71, %70 ], [ %829, %_ZN7QStringD2Ev.exit5.i551 ], [ %184, %183 ], [ %177, %_ZN7QStringD2Ev.exit5.i146 ]
   %864 = load ptr, ptr %13, align 8
   %.not.i.i.i580 = icmp eq ptr %864, null
   br i1 %.not.i.i.i580, label %_ZN7QStringD2Ev.exit583, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i581
@@ -24317,7 +24317,7 @@ _ZN5QListIP8QToolBarED2Ev.exit211:                ; preds = %324, %_ZN17QArrayDa
   ret void
 
 _ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit176: ; preds = %_ZN7QStringD2Ev.exit172, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i174, %232, %245, %_ZN5QListIP8QToolBarED2Ev.exit211, %71
-  %.pn114.pn.pn.pn = phi { ptr, i32 } [ %246, %245 ], [ %72, %71 ], [ %.pn104.pn.pn, %_ZN5QListIP8QToolBarED2Ev.exit211 ], [ %.pn114.pn, %232 ], [ %.pn114.pn, %_ZN7QStringD2Ev.exit172 ], [ %.pn114.pn, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i174 ]
+  %.pn114.pn.pn.pn = phi { ptr, i32 } [ %72, %71 ], [ %.pn104.pn.pn, %_ZN5QListIP8QToolBarED2Ev.exit211 ], [ %246, %245 ], [ %.pn114.pn, %_ZN7QStringD2Ev.exit172 ], [ %.pn114.pn, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i174 ], [ %.pn114.pn, %232 ]
   resume { ptr, i32 } %.pn114.pn.pn.pn
 }
 
@@ -25116,7 +25116,7 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i30:     ; preds = %72
   br label %_ZN10QByteArrayD2Ev.exit32
 
 _ZN10QByteArrayD2Ev.exit32:                       ; preds = %76, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i30, %72, %51, %27
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %52, %51 ], [ %73, %72 ], [ %73, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i30 ], [ %73, %76 ]
+  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %28, %27 ], [ %73, %72 ], [ %73, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i30 ], [ %73, %76 ]
   %78 = load ptr, ptr %2, align 8
   %.not.i.i.i33 = icmp eq ptr %78, null
   br i1 %.not.i.i.i33, label %_ZN10QByteArrayD2Ev.exit36, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i34
@@ -27613,8 +27613,8 @@ _ZN5QListIP7QActionED2Ev.exit69:                  ; preds = %103, %_ZN17QArrayDa
   br label %_ZN7QStringD2Ev.exit65
 
 _ZN7QStringD2Ev.exit65:                           ; preds = %95, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i63, %91, %_ZN7QStringD2Ev.exit61, %89, %_ZN5QListIP7QActionED2Ev.exit69, %40
-  %.sroa.076.2 = phi ptr [ %.sroa.076.0, %_ZN5QListIP7QActionED2Ev.exit69 ], [ %.sroa.076.0, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i63 ], [ %.sroa.076.0, %89 ], [ %.sroa.076.0, %_ZN7QStringD2Ev.exit61 ], [ %.sroa.076.1, %40 ], [ %.sroa.076.0, %95 ], [ %.sroa.076.0, %91 ]
-  %.pn21.pn.pn.pn = phi { ptr, i32 } [ %.pn21, %_ZN5QListIP7QActionED2Ev.exit69 ], [ %92, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i63 ], [ %90, %89 ], [ %.pn19, %_ZN7QStringD2Ev.exit61 ], [ %41, %40 ], [ %92, %95 ], [ %92, %91 ]
+  %.sroa.076.2 = phi ptr [ %.sroa.076.0, %_ZN5QListIP7QActionED2Ev.exit69 ], [ %.sroa.076.0, %89 ], [ %.sroa.076.0, %_ZN7QStringD2Ev.exit61 ], [ %.sroa.076.1, %40 ], [ %.sroa.076.0, %91 ], [ %.sroa.076.0, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i63 ], [ %.sroa.076.0, %95 ]
+  %.pn21.pn.pn.pn = phi { ptr, i32 } [ %.pn21, %_ZN5QListIP7QActionED2Ev.exit69 ], [ %90, %89 ], [ %.pn19, %_ZN7QStringD2Ev.exit61 ], [ %41, %40 ], [ %92, %91 ], [ %92, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i63 ], [ %92, %95 ]
   %.not.i.i.i70 = icmp eq ptr %.sroa.076.2, null
   br i1 %.not.i.i.i70, label %_ZN7QStringD2Ev.exit73, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i71
 
@@ -28018,8 +28018,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i78:    ; preds = %116
   br label %_ZN7QStringD2Ev.exit80
 
 _ZN7QStringD2Ev.exit80:                           ; preds = %120, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i78, %116, %55, %_ZN7QStringD2Ev.exit67
-  %.sroa.089.1 = phi ptr [ %.sroa.089.0106, %_ZN7QStringD2Ev.exit67 ], [ %.sroa.089.0, %116 ], [ %.sroa.089.0, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i78 ], [ %.sroa.089.2, %55 ], [ %.sroa.089.0, %120 ]
-  %.pn16.pn = phi { ptr, i32 } [ %.pn16, %_ZN7QStringD2Ev.exit67 ], [ %117, %116 ], [ %117, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i78 ], [ %56, %55 ], [ %117, %120 ]
+  %.sroa.089.1 = phi ptr [ %.sroa.089.0106, %_ZN7QStringD2Ev.exit67 ], [ %.sroa.089.2, %55 ], [ %.sroa.089.0, %116 ], [ %.sroa.089.0, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i78 ], [ %.sroa.089.0, %120 ]
+  %.pn16.pn = phi { ptr, i32 } [ %.pn16, %_ZN7QStringD2Ev.exit67 ], [ %56, %55 ], [ %117, %116 ], [ %117, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i78 ], [ %117, %120 ]
   %.not.i.i.i81 = icmp eq ptr %.sroa.089.1, null
   br i1 %.not.i.i.i81, label %_ZN7QStringD2Ev.exit84, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i82
 
@@ -28438,7 +28438,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 _ZN7QStringD2Ev.exit23:                           ; preds = %53, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29, %49, %42, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i21, %38, %36
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %39, %42 ], [ %39, %38 ], [ %39, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i21 ], [ %50, %49 ], [ %50, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29 ], [ %50, %53 ]
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %39, %38 ], [ %39, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i21 ], [ %39, %42 ], [ %50, %49 ], [ %50, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29 ], [ %50, %53 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -30772,8 +30772,8 @@ _ZN17QArrayDataPointerIP13IOGraphDialogE5derefEv.exit.i.i.i: ; preds = %_ZN7QStr
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP7QWidgetEED2Ev.exit74
 
 _ZN7QStringD2Ev.exit85:                           ; preds = %82, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP13IOGraphDialogEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, %108, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i83, %_ZN7QStringD2Ev.exit81
-  %spec.select = phi ptr [ %84, %108 ], [ %84, %_ZN7QStringD2Ev.exit81 ], [ %84, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i83 ], [ null, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP13IOGraphDialogEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ], [ null, %82 ]
-  %.2 = phi ptr [ %84, %108 ], [ %84, %_ZN7QStringD2Ev.exit81 ], [ %84, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i83 ], [ null, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP13IOGraphDialogEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ], [ %84, %82 ]
+  %spec.select = phi ptr [ %84, %_ZN7QStringD2Ev.exit81 ], [ %84, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i83 ], [ %84, %108 ], [ null, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP13IOGraphDialogEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ], [ null, %82 ]
+  %.2 = phi ptr [ %84, %_ZN7QStringD2Ev.exit81 ], [ %84, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i83 ], [ %84, %108 ], [ null, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP13IOGraphDialogEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ], [ %84, %82 ]
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate17QForeachContainerI5QListIP13IOGraphDialogEED2Ev.exit99, label %_ZN17QArrayDataPointerIP13IOGraphDialogE5derefEv.exit.i.i.i97
 
 _ZN17QArrayDataPointerIP13IOGraphDialogE5derefEv.exit.i.i.i97: ; preds = %_ZN7QStringD2Ev.exit85
@@ -30801,7 +30801,7 @@ _ZN17QArrayDataPointerIP13IOGraphDialogE5derefEv.exit.i.i: ; preds = %_ZN9QtPriv
   br label %132
 
 _ZN9QtPrivate17QForeachContainerI5QListIP7QWidgetEED2Ev.exit74: ; preds = %_ZN7QStringD2Ev.exit93, %_ZN17QArrayDataPointerIP13IOGraphDialogE5derefEv.exit.i.i.i, %121, %62, %69, %_ZN17QArrayDataPointerIP7QWidgetE5derefEv.exit.i.i.i72, %72
-  %.pn47.pn = phi { ptr, i32 } [ %70, %72 ], [ %63, %62 ], [ %70, %69 ], [ %70, %_ZN17QArrayDataPointerIP7QWidgetE5derefEv.exit.i.i.i72 ], [ %111, %121 ], [ %111, %_ZN7QStringD2Ev.exit93 ], [ %111, %_ZN17QArrayDataPointerIP13IOGraphDialogE5derefEv.exit.i.i.i ]
+  %.pn47.pn = phi { ptr, i32 } [ %63, %62 ], [ %70, %69 ], [ %70, %_ZN17QArrayDataPointerIP7QWidgetE5derefEv.exit.i.i.i72 ], [ %70, %72 ], [ %111, %_ZN7QStringD2Ev.exit93 ], [ %111, %_ZN17QArrayDataPointerIP13IOGraphDialogE5derefEv.exit.i.i.i ], [ %111, %121 ]
   %128 = load ptr, ptr %9, align 8
   %.not.i.i.i102 = icmp eq ptr %128, null
   br i1 %.not.i.i.i102, label %_ZN5QListIP13IOGraphDialogED2Ev.exit105, label %_ZN17QArrayDataPointerIP13IOGraphDialogE5derefEv.exit.i.i103
@@ -31479,7 +31479,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i134:   ; preds = %120
   br label %.body119
 
 .body119:                                         ; preds = %.body119.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i134, %120, %97, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i336
-  %.pn95 = phi { ptr, i32 } [ %121, %120 ], [ %121, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i134 ], [ %98, %97 ], [ %98, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i336 ], [ %.pn95.ph, %.body119.sink.split ]
+  %.pn95 = phi { ptr, i32 } [ %98, %97 ], [ %98, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i336 ], [ %121, %120 ], [ %121, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i134 ], [ %.pn95.ph, %.body119.sink.split ]
   %125 = load ptr, ptr %13, align 8
   %.not.i.i.i137 = icmp eq ptr %125, null
   br i1 %.not.i.i.i137, label %_ZN7QStringD2Ev.exit140, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i138
@@ -31513,7 +31513,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142:   ; preds = %_ZN7QStringD2Ev.exi
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142, %_ZN7QStringD2Ev.exit140, %_ZN7QStringD2Ev.exit9.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i332
-  %.pn95.pn.pn = phi { ptr, i32 } [ %.pn95.pn, %_ZN7QStringD2Ev.exit140 ], [ %.pn95.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142 ], [ %.pn.i, %_ZN7QStringD2Ev.exit9.i ], [ %.pn.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i332 ], [ %.pn95.pn.pn.ph, %.body.sink.split ]
+  %.pn95.pn.pn = phi { ptr, i32 } [ %.pn.i, %_ZN7QStringD2Ev.exit9.i ], [ %.pn.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i332 ], [ %.pn95.pn, %_ZN7QStringD2Ev.exit140 ], [ %.pn95.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142 ], [ %.pn95.pn.pn.ph, %.body.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not.i.i.i.i, label %440, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i146
@@ -32081,7 +32081,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i242:   ; preds = %.body212
   br label %.body206
 
 .body206:                                         ; preds = %.body206.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i242, %.body212, %_ZN7QStringD2Ev.exit9.i196, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i356
-  %.pn85 = phi { ptr, i32 } [ %269, %.body212 ], [ %269, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i242 ], [ %.pn.i197, %_ZN7QStringD2Ev.exit9.i196 ], [ %.pn.i197, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i356 ], [ %.pn85.ph, %.body206.sink.split ]
+  %.pn85 = phi { ptr, i32 } [ %.pn.i197, %_ZN7QStringD2Ev.exit9.i196 ], [ %.pn.i197, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i356 ], [ %269, %.body212 ], [ %269, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i242 ], [ %.pn85.ph, %.body206.sink.split ]
   %315 = load ptr, ptr %22, align 8
   %.not.i.i.i245 = icmp eq ptr %315, null
   br i1 %.not.i.i.i245, label %.body160, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i246
@@ -32113,7 +32113,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i250:   ; preds = %.body182
   br label %322
 
 322:                                              ; preds = %.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i344, %_ZN7QStringD2Ev.exit9.i166, %.body182, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i250
-  %.pn88.pn.ph = phi { ptr, i32 } [ %.pn.i167, %_ZN7QStringD2Ev.exit9.i166 ], [ %228, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i250 ], [ %228, %.body182 ], [ %.pn.i167, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i344 ], [ %.pn88.pn.ph.ph, %.sink.split ]
+  %.pn88.pn.ph = phi { ptr, i32 } [ %228, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i250 ], [ %228, %.body182 ], [ %.pn.i167, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i344 ], [ %.pn.i167, %_ZN7QStringD2Ev.exit9.i166 ], [ %.pn88.pn.ph.ph, %.sink.split ]
   %323 = load ptr, ptr %20, align 8
   %.not.i.i.i253 = icmp eq ptr %323, null
   br i1 %.not.i.i.i253, label %327, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i254
@@ -32129,13 +32129,13 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i254:   ; preds = %322
   br label %327
 
 .body160:                                         ; preds = %317, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i246, %.body206, %310, %234, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i352, %238
-  %.pn85.pn = phi { ptr, i32 } [ %235, %238 ], [ %311, %310 ], [ %235, %234 ], [ %235, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i352 ], [ %.pn85, %.body206 ], [ %.pn85, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i246 ], [ %.pn85, %317 ]
+  %.pn85.pn = phi { ptr, i32 } [ %311, %310 ], [ %235, %234 ], [ %235, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i352 ], [ %235, %238 ], [ %.pn85, %.body206 ], [ %.pn85, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i246 ], [ %.pn85, %317 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.critedge110
 
-327:                                              ; preds = %308, %197, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i340, %193, %322, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i254, %325
-  %.pn88.pn.pn.ph = phi { ptr, i32 } [ %.pn88.pn.ph, %325 ], [ %.pn88.pn.ph, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i254 ], [ %.pn88.pn.ph, %322 ], [ %194, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i340 ], [ %194, %193 ], [ %309, %308 ], [ %194, %197 ]
+327:                                              ; preds = %197, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i340, %193, %308, %322, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i254, %325
+  %.pn88.pn.pn.ph = phi { ptr, i32 } [ %.pn88.pn.ph, %325 ], [ %.pn88.pn.ph, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i254 ], [ %.pn88.pn.ph, %322 ], [ %194, %197 ], [ %194, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i340 ], [ %194, %193 ], [ %309, %308 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.critedge110
@@ -32526,7 +32526,7 @@ _ZN7QStringD2Ev.exit326:                          ; preds = %_ZN7QStringD2Ev.exi
   br label %440
 
 440:                                              ; preds = %_ZN7QStringD2Ev.exit288, %_ZN7QStringD2Ev.exit326, %428, %133, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i146, %.body, %116
-  %.pn95.pn.pn.pn.pn = phi { ptr, i32 } [ %431, %_ZN7QStringD2Ev.exit326 ], [ %.pn92.pn, %_ZN7QStringD2Ev.exit288 ], [ %429, %428 ], [ %117, %116 ], [ %.pn95.pn.pn, %.body ], [ %.pn95.pn.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i146 ], [ %.pn95.pn.pn, %133 ]
+  %.pn95.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn, %_ZN7QStringD2Ev.exit288 ], [ %429, %428 ], [ %431, %_ZN7QStringD2Ev.exit326 ], [ %117, %116 ], [ %.pn95.pn.pn, %.body ], [ %.pn95.pn.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i146 ], [ %.pn95.pn.pn, %133 ]
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %10) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not.i.i.i327 = icmp eq ptr %.sroa.0371.0, null
@@ -33275,7 +33275,7 @@ _ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i.i42: ; preds = %114
   br label %_ZN5QListIP13_rtpstream_idED2Ev.exit31
 
 _ZN5QListIP13_rtpstream_idED2Ev.exit31:           ; preds = %114, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i.i42, %117, %90, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i29, %86, %_ZN7QStringD2Ev.exit23, %57, %45, %28, %26
-  %.pn8.pn = phi { ptr, i32 } [ %87, %90 ], [ %27, %26 ], [ %58, %57 ], [ %.pn, %_ZN7QStringD2Ev.exit23 ], [ %29, %28 ], [ %46, %45 ], [ %87, %86 ], [ %87, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i29 ], [ %115, %117 ], [ %115, %114 ], [ %115, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i.i42 ]
+  %.pn8.pn = phi { ptr, i32 } [ %58, %57 ], [ %.pn, %_ZN7QStringD2Ev.exit23 ], [ %29, %28 ], [ %46, %45 ], [ %27, %26 ], [ %87, %86 ], [ %87, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i29 ], [ %87, %90 ], [ %115, %114 ], [ %115, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i.i42 ], [ %115, %117 ]
   %118 = load ptr, ptr %3, align 8
   %.not.i.i.i45 = icmp eq ptr %118, null
   br i1 %.not.i.i.i45, label %_ZN7QStringD2Ev.exit48, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i46
@@ -33653,7 +33653,7 @@ _ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i.i42: ; preds = %114
   br label %_ZN5QListIP13_rtpstream_idED2Ev.exit31
 
 _ZN5QListIP13_rtpstream_idED2Ev.exit31:           ; preds = %114, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i.i42, %117, %90, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i29, %86, %_ZN7QStringD2Ev.exit23, %57, %45, %28, %26
-  %.pn8.pn = phi { ptr, i32 } [ %87, %90 ], [ %27, %26 ], [ %58, %57 ], [ %.pn, %_ZN7QStringD2Ev.exit23 ], [ %29, %28 ], [ %46, %45 ], [ %87, %86 ], [ %87, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i29 ], [ %115, %117 ], [ %115, %114 ], [ %115, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i.i42 ]
+  %.pn8.pn = phi { ptr, i32 } [ %58, %57 ], [ %.pn, %_ZN7QStringD2Ev.exit23 ], [ %29, %28 ], [ %46, %45 ], [ %27, %26 ], [ %87, %86 ], [ %87, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i29 ], [ %87, %90 ], [ %115, %114 ], [ %115, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i.i42 ], [ %115, %117 ]
   %118 = load ptr, ptr %3, align 8
   %.not.i.i.i45 = icmp eq ptr %118, null
   br i1 %.not.i.i.i45, label %_ZN7QStringD2Ev.exit48, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i46
@@ -39725,7 +39725,7 @@ _ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential
   br label %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit
 
 _ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit: ; preds = %13, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit78, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit80, %._crit_edge.i.i.i, %33, %39, %45
-  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.1.i.i.i, %39 ], [ %spec.select.i.i.i, %45 ], [ %7, %._crit_edge.i.i.i ], [ %.sroa.034.0.lcssa.i.i.i, %33 ], [ %51, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit80 ], [ %50, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit78 ], [ %49, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit ], [ %.sroa.034.051.i.i.i, %13 ]
+  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %33 ], [ %.sroa.034.1.i.i.i, %39 ], [ %7, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %45 ], [ %49, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit78 ], [ %51, %_ZSt7find_ifIN5QListIP14AccordionFrameE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit.loopexit.split.loop.exit80 ], [ %.sroa.034.051.i.i.i, %13 ]
   %52 = ptrtoint ptr %.sroa.010.0.in.sroa.speculated.i.i.i to i64
   %53 = sub i64 %52, %8
   %54 = ashr exact i64 %53, 3

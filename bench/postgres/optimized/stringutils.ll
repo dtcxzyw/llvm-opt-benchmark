@@ -145,7 +145,7 @@ define dso_local noundef ptr @strtokx(ptr noundef readonly captures(address_is_n
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %59, %61, %56
-  %.3 = phi ptr [ %62, %61 ], [ %57, %56 ], [ %.1144, %59 ]
+  %.3 = phi ptr [ %57, %56 ], [ %62, %61 ], [ %.1144, %59 ]
   %66 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.3, i32 noundef %7) #7
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i8, ptr %.3, i64 %67
@@ -302,7 +302,7 @@ strip_quotes.exit:                                ; preds = %.loopexit.i, %87, %
   br label %127
 
 127:                                              ; preds = %.thread137, %strip_quotes.exit, %14, %126, %40, %24
-  %.0 = phi ptr [ null, %24 ], [ %20, %40 ], [ null, %14 ], [ %20, %126 ], [ %20, %strip_quotes.exit ], [ %20, %.thread137 ]
+  %.0 = phi ptr [ null, %24 ], [ %20, %40 ], [ %20, %126 ], [ null, %14 ], [ %20, %strip_quotes.exit ], [ %20, %.thread137 ]
   ret ptr %.0
 }
 

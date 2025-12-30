@@ -213,7 +213,7 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
   br label %38
 
 38:                                               ; preds = %.sink.split, %6, %1
-  %.0 = phi i1 [ true, %6 ], [ true, %1 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i1 [ true, %1 ], [ true, %6 ], [ %.0.ph, %.sink.split ]
   ret i1 %.0
 }
 
@@ -318,7 +318,7 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
   br label %41
 
 41:                                               ; preds = %._crit_edge, %6
-  %.0 = phi i1 [ %.not3.i.lcssa, %._crit_edge ], [ true, %6 ]
+  %.0 = phi i1 [ true, %6 ], [ %.not3.i.lcssa, %._crit_edge ]
   ret i1 %.0
 }
 
@@ -647,8 +647,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang8DeclStmtEKNS1_4StmtEEEDaPT0_.exit: ; preds = 
   br label %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_9ValueDeclEEEDaPT0_.exit
 
 _ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_9ValueDeclEEEDaPT0_.exit: ; preds = %1, %28, %11, %16, %22, %_ZN4llvm16dyn_cast_or_nullIN5clang11DeclRefExprENS1_4ExprEEEDaPT0_.exit, %_ZN4llvm16dyn_cast_or_nullIN5clang8DeclStmtEKNS1_4StmtEEEDaPT0_.exit, %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4StmtEEEDaPT0_.exit
-  %.024 = phi ptr [ null, %11 ], [ %32, %_ZN4llvm16dyn_cast_or_nullIN5clang8DeclStmtEKNS1_4StmtEEEDaPT0_.exit ], [ null, %_ZN4llvm16dyn_cast_or_nullIN5clang11DeclRefExprENS1_4ExprEEEDaPT0_.exit ], [ null, %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4StmtEEEDaPT0_.exit ], [ %spec.select.i.i.i18, %22 ], [ null, %16 ], [ null, %28 ], [ null, %1 ]
-  %.0 = phi ptr [ %13, %11 ], [ %33, %_ZN4llvm16dyn_cast_or_nullIN5clang8DeclStmtEKNS1_4StmtEEEDaPT0_.exit ], [ %13, %_ZN4llvm16dyn_cast_or_nullIN5clang11DeclRefExprENS1_4ExprEEEDaPT0_.exit ], [ null, %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4StmtEEEDaPT0_.exit ], [ %13, %22 ], [ %13, %16 ], [ null, %28 ], [ null, %1 ]
+  %.024 = phi ptr [ %32, %_ZN4llvm16dyn_cast_or_nullIN5clang8DeclStmtEKNS1_4StmtEEEDaPT0_.exit ], [ null, %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4StmtEEEDaPT0_.exit ], [ %spec.select.i.i.i18, %22 ], [ null, %_ZN4llvm16dyn_cast_or_nullIN5clang11DeclRefExprENS1_4ExprEEEDaPT0_.exit ], [ null, %16 ], [ null, %11 ], [ null, %28 ], [ null, %1 ]
+  %.0 = phi ptr [ %33, %_ZN4llvm16dyn_cast_or_nullIN5clang8DeclStmtEKNS1_4StmtEEEDaPT0_.exit ], [ null, %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4StmtEEEDaPT0_.exit ], [ %13, %22 ], [ %13, %_ZN4llvm16dyn_cast_or_nullIN5clang11DeclRefExprENS1_4ExprEEEDaPT0_.exit ], [ %13, %16 ], [ %13, %11 ], [ null, %28 ], [ null, %1 ]
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %.024, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %.0, 1
   ret { ptr, ptr } %.fca.1.insert.i
@@ -676,7 +676,7 @@ define dso_local noundef signext range(i8 1, 4) i8 @_ZN5clang4ento24getNullabili
   br label %13
 
 13:                                               ; preds = %11, %6, %1
-  %.0 = phi i8 [ 2, %1 ], [ %., %11 ], [ 1, %6 ]
+  %.0 = phi i8 [ 2, %1 ], [ 1, %6 ], [ %., %11 ]
   ret i8 %.0
 }
 
@@ -730,7 +730,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang4ento18tryExpandAsIntege
   %.not.i.i.i.i.i.i = icmp eq ptr %.fca.0.extract.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit.thread51, label %_ZNK5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit
 
-_ZNK5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit.thread51: ; preds = %13, %26, %24
+_ZNK5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit.thread51: ; preds = %13, %24, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt6vectorIN5clang5TokenESaIS1_EED2Ev.exit
 
@@ -998,8 +998,8 @@ _ZN4llvm5APIntD2Ev.exit33:                        ; preds = %126, %129, %132
   br label %_ZNSt6vectorIN5clang5TokenESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5clang5TokenESaIS1_EED2Ev.exit:     ; preds = %3, %134, %133, %_ZNK5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit, %_ZNK5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit.thread51
-  %.sroa.048.0 = phi i32 [ undef, %_ZNK5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit ], [ undef, %_ZNK5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit.thread51 ], [ %.sroa.048.1, %134 ], [ %.sroa.048.1, %133 ], [ undef, %3 ]
-  %.sroa.2.0 = phi i8 [ 0, %_ZNK5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit ], [ 0, %_ZNK5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit.thread51 ], [ %.sroa.2.1, %134 ], [ %.sroa.2.1, %133 ], [ 0, %3 ]
+  %.sroa.048.0 = phi i32 [ undef, %_ZNK5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit.thread51 ], [ undef, %_ZNK5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit ], [ %.sroa.048.1, %133 ], [ %.sroa.048.1, %134 ], [ undef, %3 ]
+  %.sroa.2.0 = phi i8 [ 0, %_ZNK5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit.thread51 ], [ 0, %_ZNK5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit ], [ %.sroa.2.1, %133 ], [ %.sroa.2.1, %134 ], [ 0, %3 ]
   %.sroa.2.0.insert.ext = zext nneg i8 %.sroa.2.0 to i64
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.048.0.insert.ext = zext i32 %.sroa.048.0 to i64
@@ -3175,7 +3175,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   br label %58
 
 58:                                               ; preds = %10, %53, %57, %7, %16
-  %.018 = phi ptr [ null, %7 ], [ null, %16 ], [ null, %10 ], [ %.0, %57 ], [ %.0, %53 ]
+  %.018 = phi ptr [ null, %16 ], [ null, %7 ], [ %.0, %57 ], [ %.0, %53 ], [ null, %10 ]
   ret ptr %.018
 }
 

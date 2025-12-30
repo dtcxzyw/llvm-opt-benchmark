@@ -529,7 +529,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.tail
 
 .tail:                                            ; preds = %sub_1, %sub_0, %4, %.thread
-  %.1 = phi i32 [ 0, %4 ], [ 0, %.thread ], [ 0, %sub_0 ], [ %11, %sub_1 ]
+  %.1 = phi i32 [ 0, %.thread ], [ 0, %4 ], [ 0, %sub_0 ], [ %11, %sub_1 ]
   ret i32 %.1
 }
 
@@ -1206,13 +1206,13 @@ pyinit_core.exit.thread127:                       ; preds = %58, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !213
   br label %63
 
-pyinit_core.exit.thread119:                       ; preds = %44, %45, %51, %48, %56, %55, %62
-  %.sroa.16.0.ph = phi i32 [ %.sroa.11.i.sroa.17.0.copyload28.i, %62 ], [ %.sroa.11.i.sroa.17.0.copyload.i, %55 ], [ %.sroa.11.i.sroa.17.0.copyload27.i, %56 ], [ 0, %48 ], [ 0, %51 ], [ %.sroa.16.0.copyload64, %45 ], [ %.sroa.16.0.copyload62, %44 ]
-  %.sroa.1554.0.ph = phi i32 [ %.sroa.11.i.sroa.14.0.copyload26.i, %62 ], [ %.sroa.11.i.sroa.14.0.copyload.i, %55 ], [ %.sroa.11.i.sroa.14.0.copyload25.i, %56 ], [ 0, %48 ], [ 0, %51 ], [ %.sroa.1554.0.copyload58, %45 ], [ %.sroa.1554.0.copyload56, %44 ]
-  %.sroa.14.0.ph = phi ptr [ %.sroa.11.i.sroa.11.0.copyload24.i, %62 ], [ %.sroa.11.i.sroa.11.0.copyload.i, %55 ], [ %.sroa.11.i.sroa.11.0.copyload23.i, %56 ], [ @.str.164, %48 ], [ @.str.165, %51 ], [ %.sroa.14.0.copyload51, %45 ], [ %.sroa.14.0.copyload49, %44 ]
-  %.sroa.1341.0.ph = phi ptr [ %.sroa.11.i.sroa.8.0.copyload22.i, %62 ], [ %.sroa.11.i.sroa.8.0.copyload.i, %55 ], [ %.sroa.11.i.sroa.8.0.copyload21.i, %56 ], [ @__func__.pyinit_core_reconfigure, %48 ], [ @__func__.pyinit_core_reconfigure, %51 ], [ %.sroa.1341.0.copyload45, %45 ], [ %.sroa.1341.0.copyload43, %44 ]
-  %.sroa.1134.0.ph = phi i32 [ %.sroa.11.i.sroa.0.0.copyload20.i, %62 ], [ %.sroa.11.i.sroa.0.0.copyload.i, %55 ], [ %.sroa.11.i.sroa.0.0.copyload19.i, %56 ], [ 0, %48 ], [ 0, %51 ], [ %.sroa.1134.0.copyload38, %45 ], [ %.sroa.1134.0.copyload36, %44 ]
-  %.sroa.028.0.ph = phi i32 [ %.sroa.0.0.copyload11.i.i, %62 ], [ %.sroa.0.0.copyload.i.i, %55 ], [ %.sroa.0.0.copyload9.i.i, %56 ], [ 1, %48 ], [ 1, %51 ], [ %.sroa.028.0.copyload32, %45 ], [ %.sroa.028.0.copyload31, %44 ]
+pyinit_core.exit.thread119:                       ; preds = %45, %44, %48, %51, %55, %56, %62
+  %.sroa.16.0.ph = phi i32 [ %.sroa.11.i.sroa.17.0.copyload28.i, %62 ], [ %.sroa.11.i.sroa.17.0.copyload27.i, %56 ], [ %.sroa.11.i.sroa.17.0.copyload.i, %55 ], [ 0, %51 ], [ 0, %48 ], [ %.sroa.16.0.copyload62, %44 ], [ %.sroa.16.0.copyload64, %45 ]
+  %.sroa.1554.0.ph = phi i32 [ %.sroa.11.i.sroa.14.0.copyload26.i, %62 ], [ %.sroa.11.i.sroa.14.0.copyload25.i, %56 ], [ %.sroa.11.i.sroa.14.0.copyload.i, %55 ], [ 0, %51 ], [ 0, %48 ], [ %.sroa.1554.0.copyload56, %44 ], [ %.sroa.1554.0.copyload58, %45 ]
+  %.sroa.14.0.ph = phi ptr [ %.sroa.11.i.sroa.11.0.copyload24.i, %62 ], [ %.sroa.11.i.sroa.11.0.copyload23.i, %56 ], [ %.sroa.11.i.sroa.11.0.copyload.i, %55 ], [ @.str.165, %51 ], [ @.str.164, %48 ], [ %.sroa.14.0.copyload49, %44 ], [ %.sroa.14.0.copyload51, %45 ]
+  %.sroa.1341.0.ph = phi ptr [ %.sroa.11.i.sroa.8.0.copyload22.i, %62 ], [ %.sroa.11.i.sroa.8.0.copyload21.i, %56 ], [ %.sroa.11.i.sroa.8.0.copyload.i, %55 ], [ @__func__.pyinit_core_reconfigure, %51 ], [ @__func__.pyinit_core_reconfigure, %48 ], [ %.sroa.1341.0.copyload43, %44 ], [ %.sroa.1341.0.copyload45, %45 ]
+  %.sroa.1134.0.ph = phi i32 [ %.sroa.11.i.sroa.0.0.copyload20.i, %62 ], [ %.sroa.11.i.sroa.0.0.copyload19.i, %56 ], [ %.sroa.11.i.sroa.0.0.copyload.i, %55 ], [ 0, %51 ], [ 0, %48 ], [ %.sroa.1134.0.copyload36, %44 ], [ %.sroa.1134.0.copyload38, %45 ]
+  %.sroa.028.0.ph = phi i32 [ %.sroa.0.0.copyload11.i.i, %62 ], [ %.sroa.0.0.copyload9.i.i, %56 ], [ %.sroa.0.0.copyload.i.i, %55 ], [ 1, %51 ], [ 1, %48 ], [ %.sroa.028.0.copyload31, %44 ], [ %.sroa.028.0.copyload32, %45 ]
   call void @PyConfig_Clear(ptr noundef nonnull %13) #23, !noalias !213
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !213
   br label %pyinit_core.exit.thread
@@ -1242,12 +1242,12 @@ pyinit_core.exit._crit_edge:                      ; preds = %pyinit_core.exit
   br label %63
 
 pyinit_core.exit.thread:                          ; preds = %_Py_PreInitializeFromConfig.exit.i, %pyinit_core.exit.thread119, %pyinit_core.exit
-  %.sroa.028.1118 = phi i32 [ %.sroa.028.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.028.0.copyload33, %pyinit_core.exit ], [ %.sroa.028.0.copyload.pr, %_Py_PreInitializeFromConfig.exit.i ]
-  %.sroa.1134.1117 = phi i32 [ %.sroa.1134.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.1134.0.copyload40, %pyinit_core.exit ], [ %.sroa.1134.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
-  %.sroa.1341.1116 = phi ptr [ %.sroa.1341.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.1341.0.copyload47, %pyinit_core.exit ], [ %.sroa.1341.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
-  %.sroa.14.1115 = phi ptr [ %.sroa.14.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.14.0.copyload53, %pyinit_core.exit ], [ %.sroa.14.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
-  %.sroa.1554.1114 = phi i32 [ %.sroa.1554.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.1554.0.copyload60, %pyinit_core.exit ], [ %.sroa.1554.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
-  %.sroa.16.1113 = phi i32 [ %.sroa.16.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.16.0.copyload66, %pyinit_core.exit ], [ %.sroa.16.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
+  %.sroa.028.1118 = phi i32 [ %.sroa.028.0.copyload33, %pyinit_core.exit ], [ %.sroa.028.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.028.0.copyload.pr, %_Py_PreInitializeFromConfig.exit.i ]
+  %.sroa.1134.1117 = phi i32 [ %.sroa.1134.0.copyload40, %pyinit_core.exit ], [ %.sroa.1134.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.1134.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
+  %.sroa.1341.1116 = phi ptr [ %.sroa.1341.0.copyload47, %pyinit_core.exit ], [ %.sroa.1341.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.1341.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
+  %.sroa.14.1115 = phi ptr [ %.sroa.14.0.copyload53, %pyinit_core.exit ], [ %.sroa.14.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.14.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
+  %.sroa.1554.1114 = phi i32 [ %.sroa.1554.0.copyload60, %pyinit_core.exit ], [ %.sroa.1554.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.1554.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
+  %.sroa.16.1113 = phi i32 [ %.sroa.16.0.copyload66, %pyinit_core.exit ], [ %.sroa.16.0.ph, %pyinit_core.exit.thread119 ], [ %.sroa.16.0.copyload, %_Py_PreInitializeFromConfig.exit.i ]
   store i32 %.sroa.028.1118, ptr %0, align 8, !tbaa !191
   %.sroa.11.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.1134.1117, ptr %.sroa.11.0..sroa_idx10, align 4
@@ -1539,7 +1539,7 @@ define internal fastcc range(i32 -1, 1) i32 @_Py_Finalize() unnamed_addr #1 {
   br label %_PyRuntimeState_SetFinalizing.exit
 
 _PyRuntimeState_SetFinalizing.exit:               ; preds = %9, %10, %14, %.sink.split.i
-  %.0.i = phi ptr [ %6, %14 ], [ %3, %9 ], [ %3, %10 ], [ %.sink.i, %.sink.split.i ]
+  %.0.i = phi ptr [ %3, %9 ], [ %3, %10 ], [ %6, %14 ], [ %.sink.i, %.sink.split.i ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !228
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 7312
@@ -2075,12 +2075,12 @@ init_interp_settings.exit:                        ; preds = %75
   br label %90
 
 89:                                               ; preds = %85, %87
-  %.sroa.035.0 = phi i32 [ %.sroa.035.0.copyload47, %87 ], [ %.sroa.035.0.copyload46, %85 ]
-  %.sroa.19.0 = phi i32 [ %.sroa.19.0.copyload62, %87 ], [ %.sroa.19.0.copyload60, %85 ]
-  %.sroa.21.0 = phi ptr [ %.sroa.21.0.copyload78, %87 ], [ %.sroa.21.0.copyload76, %85 ]
-  %.sroa.23.0 = phi ptr [ %.sroa.23.0.copyload94, %87 ], [ %.sroa.23.0.copyload92, %85 ]
-  %.sroa.25.0 = phi i32 [ %.sroa.25.0.copyload110, %87 ], [ %.sroa.25.0.copyload108, %85 ]
-  %.sroa.27.0 = phi i32 [ %.sroa.27.0.copyload126, %87 ], [ %.sroa.27.0.copyload124, %85 ]
+  %.sroa.035.0 = phi i32 [ %.sroa.035.0.copyload46, %85 ], [ %.sroa.035.0.copyload47, %87 ]
+  %.sroa.19.0 = phi i32 [ %.sroa.19.0.copyload60, %85 ], [ %.sroa.19.0.copyload62, %87 ]
+  %.sroa.21.0 = phi ptr [ %.sroa.21.0.copyload76, %85 ], [ %.sroa.21.0.copyload78, %87 ]
+  %.sroa.23.0 = phi ptr [ %.sroa.23.0.copyload92, %85 ], [ %.sroa.23.0.copyload94, %87 ]
+  %.sroa.25.0 = phi i32 [ %.sroa.25.0.copyload108, %85 ], [ %.sroa.25.0.copyload110, %87 ]
+  %.sroa.27.0 = phi i32 [ %.sroa.27.0.copyload124, %85 ], [ %.sroa.27.0.copyload126, %87 ]
   store ptr null, ptr %1, align 8, !tbaa !212
   call void @PyThreadState_Clear(ptr noundef nonnull %83) #23
   call void @_PyThreadState_Detach(ptr noundef nonnull %83) #23
@@ -3334,7 +3334,7 @@ define hidden void @_Py_DumpExtensionModules(i32 noundef %0, ptr noundef %1) loc
   br label %.thread
 
 .thread:                                          ; preds = %29, %20, %17, %36, %34, %32
-  %.2 = phi ptr [ %33, %34 ], [ %spec.select, %36 ], [ null, %32 ], [ null, %17 ], [ null, %20 ], [ null, %29 ]
+  %.2 = phi ptr [ %33, %34 ], [ null, %32 ], [ %spec.select, %36 ], [ null, %17 ], [ null, %20 ], [ null, %29 ]
   %.2.fr = freeze ptr %.2
   store i64 0, ptr %3, align 8, !tbaa !286
   %38 = call i32 @_PyDict_Next(ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null) #23
@@ -3475,7 +3475,7 @@ define hidden void @_Py_DumpExtensionModules(i32 noundef %0, ptr noundef %1) loc
   br i1 %.not4165, label %.outer._crit_edge, label %.lr.ph66, !llvm.loop !306
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.outer.us, %.backedge.us.us
-  %.028.ph.lcssa = phi i64 [ %44, %.outer.us ], [ %.028.ph70.us, %.backedge.us.us ], [ %.028.ph70, %.backedge ], [ %82, %.outer ]
+  %.028.ph.lcssa = phi i64 [ %.028.ph70.us, %.backedge.us.us ], [ %44, %.outer.us ], [ %.028.ph70, %.backedge ], [ %82, %.outer ]
   %.not42 = icmp eq i64 %.028.ph.lcssa, 0
   br i1 %.not42, label %.outer._crit_edge.thread, label %84
 
@@ -3858,7 +3858,7 @@ _PyMutex_Unlock.exit.sink.split:                  ; preds = %10, %7
   br label %_PyMutex_Unlock.exit
 
 _PyMutex_Unlock.exit:                             ; preds = %_PyMutex_Unlock.exit.sink.split, %10, %7
-  %.0 = phi i32 [ 0, %10 ], [ -1, %7 ], [ %.0.ph, %_PyMutex_Unlock.exit.sink.split ]
+  %.0 = phi i32 [ -1, %7 ], [ 0, %10 ], [ %.0.ph, %_PyMutex_Unlock.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -4071,25 +4071,25 @@ define internal fastcc void @pyinit_config(ptr dead_on_unwind noalias nonnull wr
 
 pycore_init_runtime.exit.thread104:               ; preds = %22, %20, %18, %16
   %.sroa.01.0.ph = phi i32 [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ]
-  %.sroa.16.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %.sroa.16.0.copyload18 = load i32, ptr %.sroa.16.0..sroa_idx17, align 4
-  %.sroa.1825.0..sroa_idx32 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.1825.0.copyload33 = load ptr, ptr %.sroa.1825.0..sroa_idx32, align 8, !tbaa !193
-  %.sroa.20.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.20.0.copyload47 = load ptr, ptr %.sroa.20.0..sroa_idx46, align 8, !tbaa !193
-  %.sroa.22.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sroa.22.0.copyload61 = load i32, ptr %.sroa.22.0..sroa_idx60, align 8, !tbaa !191
-  %.sroa.24.0..sroa_idx74 = getelementptr inbounds nuw i8, ptr %10, i64 28
-  %.sroa.24.0.copyload75 = load i32, ptr %.sroa.24.0..sroa_idx74, align 4
+  %.sroa.16.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %.sroa.16.0.copyload24 = load i32, ptr %.sroa.16.0..sroa_idx23, align 4
+  %.sroa.1825.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.1825.0.copyload39 = load ptr, ptr %.sroa.1825.0..sroa_idx38, align 8, !tbaa !193
+  %.sroa.20.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sroa.20.0.copyload53 = load ptr, ptr %.sroa.20.0..sroa_idx52, align 8, !tbaa !193
+  %.sroa.22.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sroa.22.0.copyload67 = load i32, ptr %.sroa.22.0..sroa_idx66, align 8, !tbaa !191
+  %.sroa.24.0..sroa_idx80 = getelementptr inbounds nuw i8, ptr %10, i64 28
+  %.sroa.24.0.copyload81 = load i32, ptr %.sroa.24.0..sroa_idx80, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !311
   br label %pycore_init_runtime.exit.thread
 
 pycore_init_runtime.exit.thread:                  ; preds = %3, %pycore_init_runtime.exit.thread104
-  %.sroa.24.1103 = phi i32 [ %.sroa.24.0.copyload75, %pycore_init_runtime.exit.thread104 ], [ 0, %3 ]
-  %.sroa.22.1102 = phi i32 [ %.sroa.22.0.copyload61, %pycore_init_runtime.exit.thread104 ], [ 0, %3 ]
-  %.sroa.20.1101 = phi ptr [ %.sroa.20.0.copyload47, %pycore_init_runtime.exit.thread104 ], [ @.str.154, %3 ]
-  %.sroa.1825.1100 = phi ptr [ %.sroa.1825.0.copyload33, %pycore_init_runtime.exit.thread104 ], [ @__func__.pycore_init_runtime, %3 ]
-  %.sroa.16.199 = phi i32 [ %.sroa.16.0.copyload18, %pycore_init_runtime.exit.thread104 ], [ 0, %3 ]
+  %.sroa.24.1103 = phi i32 [ %.sroa.24.0.copyload81, %pycore_init_runtime.exit.thread104 ], [ 0, %3 ]
+  %.sroa.22.1102 = phi i32 [ %.sroa.22.0.copyload67, %pycore_init_runtime.exit.thread104 ], [ 0, %3 ]
+  %.sroa.20.1101 = phi ptr [ %.sroa.20.0.copyload53, %pycore_init_runtime.exit.thread104 ], [ @.str.154, %3 ]
+  %.sroa.1825.1100 = phi ptr [ %.sroa.1825.0.copyload39, %pycore_init_runtime.exit.thread104 ], [ @__func__.pycore_init_runtime, %3 ]
+  %.sroa.16.199 = phi i32 [ %.sroa.16.0.copyload24, %pycore_init_runtime.exit.thread104 ], [ 0, %3 ]
   %.sroa.01.198 = phi i32 [ %.sroa.01.0.ph, %pycore_init_runtime.exit.thread104 ], [ 1, %3 ]
   store i32 %.sroa.01.198, ptr %0, align 8, !tbaa !191
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4220,13 +4220,13 @@ pycore_init_runtime.exit.thread:                  ; preds = %3, %pycore_init_run
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %47
 
-46:                                               ; preds = %32, %41, %37, %30, %25, %24, %42
-  %.sroa.0.0.ph = phi i32 [ 1, %42 ], [ %.sroa.0.0.copyload.i, %24 ], [ %.sroa.0.0.copyload11.i, %25 ], [ %.sroa.0.0.copyload13.i, %30 ], [ 1, %37 ], [ %.sroa.0.0.copyload19.i, %41 ], [ %.sroa.0.0.copyload17.i, %32 ]
-  %.sroa.11.0.ph = phi i32 [ 0, %42 ], [ %.sroa.20.sroa.0.0.copyload.i, %24 ], [ %.sroa.20.sroa.0.0.copyload7.i, %25 ], [ %.sroa.20.sroa.0.0.copyload9.i, %30 ], [ 0, %37 ], [ %.sroa.20.sroa.0.0.copyload14.i, %41 ], [ %.sroa.20.sroa.0.0.copyload12.i, %32 ]
-  %.sroa.18.0.ph = phi ptr [ @__func__.pycore_create_interpreter, %42 ], [ %.sroa.20.sroa.14.0.copyload.i, %24 ], [ %.sroa.20.sroa.14.0.copyload17.i, %25 ], [ %.sroa.20.sroa.14.0.copyload19.i, %30 ], [ @__func__.pycore_create_interpreter, %37 ], [ %.sroa.20.sroa.14.0.copyload24.i, %41 ], [ %.sroa.20.sroa.14.0.copyload22.i, %32 ]
-  %.sroa.25.0.ph = phi ptr [ @.str.156, %42 ], [ %.sroa.20.sroa.15.0.copyload.i, %24 ], [ %.sroa.20.sroa.15.0.copyload27.i, %25 ], [ %.sroa.20.sroa.15.0.copyload29.i, %30 ], [ @.str.155, %37 ], [ %.sroa.20.sroa.15.0.copyload34.i, %41 ], [ %.sroa.20.sroa.15.0.copyload32.i, %32 ]
-  %.sroa.32.0.ph = phi i32 [ 0, %42 ], [ %.sroa.20.sroa.16.0.copyload.i, %24 ], [ %.sroa.20.sroa.16.0.copyload37.i, %25 ], [ %.sroa.20.sroa.16.0.copyload39.i, %30 ], [ 0, %37 ], [ %.sroa.20.sroa.16.0.copyload44.i, %41 ], [ %.sroa.20.sroa.16.0.copyload42.i, %32 ]
-  %.sroa.39.0.ph = phi i32 [ 0, %42 ], [ %.sroa.20.sroa.17.0.copyload.i, %24 ], [ %.sroa.20.sroa.17.0.copyload47.i, %25 ], [ %.sroa.20.sroa.17.0.copyload49.i, %30 ], [ 0, %37 ], [ %.sroa.20.sroa.17.0.copyload54.i, %41 ], [ %.sroa.20.sroa.17.0.copyload52.i, %32 ]
+46:                                               ; preds = %24, %25, %30, %32, %37, %41, %42
+  %.sroa.0.0.ph = phi i32 [ 1, %42 ], [ %.sroa.0.0.copyload19.i, %41 ], [ 1, %37 ], [ %.sroa.0.0.copyload17.i, %32 ], [ %.sroa.0.0.copyload13.i, %30 ], [ %.sroa.0.0.copyload11.i, %25 ], [ %.sroa.0.0.copyload.i, %24 ]
+  %.sroa.11.0.ph = phi i32 [ 0, %42 ], [ %.sroa.20.sroa.0.0.copyload14.i, %41 ], [ 0, %37 ], [ %.sroa.20.sroa.0.0.copyload12.i, %32 ], [ %.sroa.20.sroa.0.0.copyload9.i, %30 ], [ %.sroa.20.sroa.0.0.copyload7.i, %25 ], [ %.sroa.20.sroa.0.0.copyload.i, %24 ]
+  %.sroa.18.0.ph = phi ptr [ @__func__.pycore_create_interpreter, %42 ], [ %.sroa.20.sroa.14.0.copyload24.i, %41 ], [ @__func__.pycore_create_interpreter, %37 ], [ %.sroa.20.sroa.14.0.copyload22.i, %32 ], [ %.sroa.20.sroa.14.0.copyload19.i, %30 ], [ %.sroa.20.sroa.14.0.copyload17.i, %25 ], [ %.sroa.20.sroa.14.0.copyload.i, %24 ]
+  %.sroa.25.0.ph = phi ptr [ @.str.156, %42 ], [ %.sroa.20.sroa.15.0.copyload34.i, %41 ], [ @.str.155, %37 ], [ %.sroa.20.sroa.15.0.copyload32.i, %32 ], [ %.sroa.20.sroa.15.0.copyload29.i, %30 ], [ %.sroa.20.sroa.15.0.copyload27.i, %25 ], [ %.sroa.20.sroa.15.0.copyload.i, %24 ]
+  %.sroa.32.0.ph = phi i32 [ 0, %42 ], [ %.sroa.20.sroa.16.0.copyload44.i, %41 ], [ 0, %37 ], [ %.sroa.20.sroa.16.0.copyload42.i, %32 ], [ %.sroa.20.sroa.16.0.copyload39.i, %30 ], [ %.sroa.20.sroa.16.0.copyload37.i, %25 ], [ %.sroa.20.sroa.16.0.copyload.i, %24 ]
+  %.sroa.39.0.ph = phi i32 [ 0, %42 ], [ %.sroa.20.sroa.17.0.copyload54.i, %41 ], [ 0, %37 ], [ %.sroa.20.sroa.17.0.copyload52.i, %32 ], [ %.sroa.20.sroa.17.0.copyload49.i, %30 ], [ %.sroa.20.sroa.17.0.copyload47.i, %25 ], [ %.sroa.20.sroa.17.0.copyload.i, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !314
   store i32 %.sroa.0.0.ph, ptr %0, align 8, !tbaa !191
   %.sroa.16.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -5681,9 +5681,9 @@ Py_DECREF.exit:                                   ; preds = %80, %84, %87
   br label %88
 
 88:                                               ; preds = %79, %76, %74, %Py_DECREF.exit, %18, %Py_DECREF.exit54, %Py_DECREF.exit52
-  %.sroa.7.0.ph = phi ptr [ @.str.186, %79 ], [ @.str.186, %76 ], [ @.str.186, %74 ], [ @.str.186, %18 ], [ @.str.186, %Py_DECREF.exit54 ], [ @.str.186, %Py_DECREF.exit52 ], [ %.str.186., %Py_DECREF.exit ]
-  %.sroa.613.0.ph = phi ptr [ @__func__.init_sys_streams, %79 ], [ @__func__.init_sys_streams, %76 ], [ @__func__.init_sys_streams, %74 ], [ @__func__.init_sys_streams, %18 ], [ @__func__.init_sys_streams, %Py_DECREF.exit54 ], [ @__func__.init_sys_streams, %Py_DECREF.exit52 ], [ %__func__.init_sys_streams., %Py_DECREF.exit ]
-  %.sroa.011.0.ph = phi i32 [ 1, %79 ], [ 1, %76 ], [ 1, %74 ], [ 1, %18 ], [ 1, %Py_DECREF.exit54 ], [ 1, %Py_DECREF.exit52 ], [ %.lobit, %Py_DECREF.exit ]
+  %.sroa.7.0.ph = phi ptr [ @.str.186, %79 ], [ @.str.186, %76 ], [ @.str.186, %74 ], [ %.str.186., %Py_DECREF.exit ], [ @.str.186, %18 ], [ @.str.186, %Py_DECREF.exit54 ], [ @.str.186, %Py_DECREF.exit52 ]
+  %.sroa.613.0.ph = phi ptr [ @__func__.init_sys_streams, %79 ], [ @__func__.init_sys_streams, %76 ], [ @__func__.init_sys_streams, %74 ], [ %__func__.init_sys_streams., %Py_DECREF.exit ], [ @__func__.init_sys_streams, %18 ], [ @__func__.init_sys_streams, %Py_DECREF.exit54 ], [ @__func__.init_sys_streams, %Py_DECREF.exit52 ]
+  %.sroa.011.0.ph = phi i32 [ 1, %79 ], [ 1, %76 ], [ 1, %74 ], [ %.lobit, %Py_DECREF.exit ], [ 1, %18 ], [ 1, %Py_DECREF.exit54 ], [ 1, %Py_DECREF.exit52 ]
   %89 = load i32, ptr %17, align 8, !tbaa !176
   %.not.i.i63 = icmp sgt i32 %89, -1
   br i1 %.not.i.i63, label %90, label %Py_XDECREF.exit64
@@ -5699,9 +5699,9 @@ Py_DECREF.exit:                                   ; preds = %80, %84, %87
   br label %Py_XDECREF.exit64
 
 Py_XDECREF.exit64:                                ; preds = %93, %90, %88, %16, %11
-  %.sroa.011.073.sink = phi i32 [ 1, %11 ], [ %.sroa.011.0.ph, %93 ], [ %.sroa.011.0.ph, %88 ], [ %.sroa.011.0.ph, %90 ], [ 1, %16 ]
-  %.sroa.613.071.sink = phi ptr [ @__func__.init_sys_streams, %11 ], [ %.sroa.613.0.ph, %93 ], [ %.sroa.613.0.ph, %88 ], [ %.sroa.613.0.ph, %90 ], [ @__func__.init_sys_streams, %16 ]
-  %.sroa.7.069.sink = phi ptr [ @.str.177, %11 ], [ %.sroa.7.0.ph, %93 ], [ %.sroa.7.0.ph, %88 ], [ %.sroa.7.0.ph, %90 ], [ @.str.186, %16 ]
+  %.sroa.011.073.sink = phi i32 [ 1, %11 ], [ %.sroa.011.0.ph, %88 ], [ %.sroa.011.0.ph, %90 ], [ %.sroa.011.0.ph, %93 ], [ 1, %16 ]
+  %.sroa.613.071.sink = phi ptr [ @__func__.init_sys_streams, %11 ], [ %.sroa.613.0.ph, %88 ], [ %.sroa.613.0.ph, %90 ], [ %.sroa.613.0.ph, %93 ], [ @__func__.init_sys_streams, %16 ]
+  %.sroa.7.069.sink = phi ptr [ @.str.177, %11 ], [ %.sroa.7.0.ph, %88 ], [ %.sroa.7.0.ph, %90 ], [ %.sroa.7.0.ph, %93 ], [ @.str.186, %16 ]
   store i32 %.sroa.011.073.sink, ptr %0, align 8, !tbaa !191
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.512.0..sroa_idx, align 4
@@ -6384,8 +6384,8 @@ Py_DECREF.exit129:                                ; preds = %Py_DECREF.exit131, 
   br label %Py_DECREF.exit
 
 Py_DECREF.exit139:                                ; preds = %15, %25, %_Py_NewRef.exit, %28, %Py_DECREF.exit145
-  %.0105 = phi ptr [ %23, %Py_DECREF.exit145 ], [ null, %15 ], [ null, %_Py_NewRef.exit ], [ %23, %25 ], [ %23, %28 ]
-  %.0100 = phi ptr [ %.1101, %Py_DECREF.exit145 ], [ null, %15 ], [ %.1101, %_Py_NewRef.exit ], [ %.1101, %25 ], [ %.1101, %28 ]
+  %.0105 = phi ptr [ null, %15 ], [ null, %_Py_NewRef.exit ], [ %23, %25 ], [ %23, %28 ], [ %23, %Py_DECREF.exit145 ]
+  %.0100 = phi ptr [ null, %15 ], [ %.1101, %_Py_NewRef.exit ], [ %.1101, %25 ], [ %.1101, %28 ], [ %.1101, %Py_DECREF.exit145 ]
   %106 = load i32, ptr %12, align 8, !tbaa !176
   %.not.i.i = icmp sgt i32 %106, -1
   br i1 %.not.i.i, label %107, label %Py_XDECREF.exit158
@@ -6396,7 +6396,7 @@ Py_DECREF.exit139:                                ; preds = %15, %25, %_Py_NewRe
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %Py_XDECREF.exit158.sink.split, label %Py_XDECREF.exit158
 
-Py_XDECREF.exit:                                  ; preds = %97, %95
+Py_XDECREF.exit:                                  ; preds = %95, %97
   %110 = load i32, ptr %78, align 8, !tbaa !176
   %.not.i.i157 = icmp sgt i32 %110, -1
   br i1 %.not.i.i157, label %111, label %Py_XDECREF.exit158
@@ -6415,8 +6415,8 @@ Py_XDECREF.exit158.sink.split:                    ; preds = %111, %107
   br label %Py_XDECREF.exit158
 
 Py_XDECREF.exit158:                               ; preds = %Py_XDECREF.exit158.sink.split, %107, %Py_DECREF.exit139, %Py_XDECREF.exit, %111
-  %.0105614 = phi ptr [ %96, %111 ], [ %.0105, %Py_DECREF.exit139 ], [ %96, %Py_XDECREF.exit ], [ %.0105, %107 ], [ %.0105614.ph, %Py_XDECREF.exit158.sink.split ]
-  %.0100713 = phi ptr [ null, %111 ], [ %.0100, %Py_DECREF.exit139 ], [ null, %Py_XDECREF.exit ], [ %.0100, %107 ], [ %.0100713.ph, %Py_XDECREF.exit158.sink.split ]
+  %.0105614 = phi ptr [ %96, %Py_XDECREF.exit ], [ %96, %111 ], [ %.0105, %Py_DECREF.exit139 ], [ %.0105, %107 ], [ %.0105614.ph, %Py_XDECREF.exit158.sink.split ]
+  %.0100713 = phi ptr [ null, %Py_XDECREF.exit ], [ null, %111 ], [ %.0100, %Py_DECREF.exit139 ], [ %.0100, %107 ], [ %.0100713.ph, %Py_XDECREF.exit158.sink.split ]
   %.not.i159 = icmp eq ptr %.0105614, null
   br i1 %.not.i159, label %Py_XDECREF.exit161, label %114
 
@@ -6451,7 +6451,7 @@ Py_XDECREF.exit161:                               ; preds = %Py_XDECREF.exit158,
   br i1 %124, label %Py_XDECREF.exit164.sink.split, label %Py_XDECREF.exit164
 
 Py_XDECREF.exit164.sink.split:                    ; preds = %122, %74, %61
-  %.sink52 = phi ptr [ %57, %74 ], [ %12, %61 ], [ %.0100713, %122 ]
+  %.sink52 = phi ptr [ %12, %61 ], [ %57, %74 ], [ %.0100713, %122 ]
   call void @_Py_Dealloc(ptr noundef nonnull %.sink52) #23
   br label %Py_XDECREF.exit164
 
@@ -6471,7 +6471,7 @@ Py_XDECREF.exit164:                               ; preds = %Py_XDECREF.exit164.
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %105, %102, %100, %Py_XDECREF.exit164, %127, %6, %129
-  %.0 = phi ptr [ @_Py_NoneStruct, %6 ], [ @_Py_NoneStruct, %129 ], [ null, %Py_XDECREF.exit164 ], [ null, %127 ], [ %78, %100 ], [ %78, %102 ], [ %78, %105 ]
+  %.0 = phi ptr [ @_Py_NoneStruct, %129 ], [ @_Py_NoneStruct, %6 ], [ null, %127 ], [ null, %Py_XDECREF.exit164 ], [ %78, %100 ], [ %78, %102 ], [ %78, %105 ]
   ret ptr %.0
 }
 

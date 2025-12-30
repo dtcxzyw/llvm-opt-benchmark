@@ -359,7 +359,7 @@ define internal noundef i32 @_ZL24u_printf_pad_and_justifyPvPK18u_printf_spec_in
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %12, %._crit_edge, %33
-  %.2 = phi i32 [ %34, %33 ], [ %32, %._crit_edge ], [ %13, %12 ], [ %19, %17 ]
+  %.2 = phi i32 [ %32, %._crit_edge ], [ %34, %33 ], [ %13, %12 ], [ %19, %17 ]
   ret i32 %.2
 }
 

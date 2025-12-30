@@ -489,7 +489,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt7__cxx111
   br label %36
 
 36:                                               ; preds = %35, %.noexc27
-  %.0.i.i.i.i.i = phi ptr [ %30, %35 ], [ %32, %.noexc27 ]
+  %.0.i.i.i.i.i = phi ptr [ %32, %.noexc27 ], [ %30, %35 ]
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.i.i.i.i.i, ptr %37, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1107,7 +1107,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt7__cxx111
   br label %36
 
 36:                                               ; preds = %35, %.noexc27
-  %.0.i.i.i.i.i = phi ptr [ %30, %35 ], [ %32, %.noexc27 ]
+  %.0.i.i.i.i.i = phi ptr [ %32, %.noexc27 ], [ %30, %35 ]
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.i.i.i.i.i, ptr %37, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

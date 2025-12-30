@@ -599,7 +599,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit86:                 ; preds = %166, %175
   ret void
 
 228:                                              ; preds = %204, %.thread114, %183, %.thread, %202, %223, %225, %39
-  %.pn58.pn = phi { ptr, i32 } [ %40, %39 ], [ %226, %225 ], [ %224, %223 ], [ %184, %183 ], [ %203, %202 ], [ %.pn.pn112, %.thread ], [ %205, %204 ], [ %.pn52.pn117, %.thread114 ]
+  %.pn58.pn = phi { ptr, i32 } [ %40, %39 ], [ %226, %225 ], [ %224, %223 ], [ %203, %202 ], [ %.pn.pn112, %.thread ], [ %184, %183 ], [ %.pn52.pn117, %.thread114 ], [ %205, %204 ]
   %229 = load ptr, ptr %14, align 8, !tbaa !32
   %.not.i99 = icmp eq ptr %229, null
   br i1 %.not.i99, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit100, label %230
@@ -985,7 +985,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit35:    ; preds = %97, %93
   br label %_ZN5zxing8ArrayRefIiED2Ev.exit37
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit:      ; preds = %88, %83, %82, %68
-  %.pn.pn = phi { ptr, i32 } [ %84, %88 ], [ %69, %68 ], [ %71, %82 ], [ %84, %83 ]
+  %.pn.pn = phi { ptr, i32 } [ %71, %82 ], [ %69, %68 ], [ %84, %83 ], [ %84, %88 ]
   %108 = load i32, ptr %34, align 8, !tbaa !3
   %109 = add i32 %108, -1
   store i32 %109, ptr %34, align 8, !tbaa !3
@@ -1455,7 +1455,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !22
   br label %40
 

@@ -204,7 +204,7 @@ ColorSpaceIsCompatible.exit:                      ; preds = %44
   call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 9, ptr noundef nonnull @.str.2) #7
   br label %.thread122
 
-ColorSpaceIsCompatible.exit.thread:               ; preds = %41, %38, %35, %44, %ColorSpaceIsCompatible.exit
+ColorSpaceIsCompatible.exit.thread:               ; preds = %44, %41, %38, %35, %ColorSpaceIsCompatible.exit
   switch i32 %21, label %50 [
     i32 1818848875, label %52
     i32 1633842036, label %52
@@ -310,7 +310,7 @@ ColorSpaceIsCompatible.exit.thread:               ; preds = %41, %38, %35, %44, 
   br i1 %.not108, label %.thread122, label %97
 
 96:                                               ; preds = %56, %64, %73, %80, %82
-  %.1 = phi ptr [ %71, %73 ], [ %.2, %82 ], [ %53, %64 ], [ %53, %56 ], [ %71, %80 ]
+  %.1 = phi ptr [ %.2, %82 ], [ %53, %64 ], [ %53, %56 ], [ %71, %80 ], [ %71, %73 ]
   call void @cmsPipelineFree(ptr noundef nonnull %.1) #7
   br label %.thread122
 
@@ -319,7 +319,7 @@ ColorSpaceIsCompatible.exit.thread:               ; preds = %41, %38, %35, %44, 
   br label %97
 
 97:                                               ; preds = %85, %94, %87, %11, %7, %.thread122
-  %.0 = phi ptr [ null, %11 ], [ null, %7 ], [ null, %.thread122 ], [ %12, %87 ], [ %12, %94 ], [ %12, %85 ]
+  %.0 = phi ptr [ null, %.thread122 ], [ null, %7 ], [ null, %11 ], [ %12, %87 ], [ %12, %94 ], [ %12, %85 ]
   ret ptr %.0
 }
 
@@ -492,7 +492,7 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not.us43, label %.preheader, label %.split.split.us, !llvm.loop !12
 
 .preheader:                                       ; preds = %52, %23, %14
-  %.us-phi = phi i32 [ %24, %23 ], [ %15, %14 ], [ %53, %52 ]
+  %.us-phi = phi i32 [ %15, %14 ], [ %24, %23 ], [ %53, %52 ]
   %.12947 = load ptr, ptr %5, align 8
   %.not3448 = icmp eq ptr %.12947, null
   br i1 %.not3448, label %._crit_edge, label %.lr.ph
@@ -612,7 +612,7 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not34, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %63, %42, %34, %.lr.ph.split.us.split.us, %.preheader.thread, %.preheader
-  %.1.lcssa = phi i32 [ %.us-phi, %.preheader ], [ %6, %.preheader.thread ], [ %35, %34 ], [ %27, %.lr.ph.split.us.split.us ], [ %43, %42 ], [ %64, %63 ]
+  %.1.lcssa = phi i32 [ %.us-phi, %.preheader ], [ %6, %.preheader.thread ], [ %27, %.lr.ph.split.us.split.us ], [ %35, %34 ], [ %43, %42 ], [ %64, %63 ]
   ret i32 %.1.lcssa
 }
 
@@ -973,7 +973,7 @@ ComputeAbsoluteIntent.exit:                       ; preds = %68, %71, %73
   br i1 %exitcond.not, label %.loopexit, label %181, !llvm.loop !14
 
 .loopexit:                                        ; preds = %181, %ComputeAbsoluteIntent.exit, %37, %32, %29, %23
-  %.026 = phi i32 [ 0, %ComputeAbsoluteIntent.exit ], [ 0, %37 ], [ 0, %32 ], [ 0, %29 ], [ 0, %23 ], [ 1, %181 ]
+  %.026 = phi i32 [ 0, %23 ], [ 0, %29 ], [ 0, %32 ], [ 0, %37 ], [ 0, %ComputeAbsoluteIntent.exit ], [ 1, %181 ]
   ret i32 %.026
 }
 
@@ -1213,7 +1213,7 @@ IsEmptyLayer.exit80:                              ; preds = %.preheader.i75
   br label %107
 
 107:                                              ; preds = %105, %54, %92, %97, %101, %74, %55, %10, %49, %44, %25, %106
-  %.0 = phi i32 [ 0, %54 ], [ 1, %106 ], [ 0, %49 ], [ 0, %74 ], [ 0, %44 ], [ 0, %25 ], [ 0, %92 ], [ 0, %55 ], [ 0, %10 ], [ 0, %101 ], [ 0, %97 ], [ 0, %105 ]
+  %.0 = phi i32 [ 1, %106 ], [ 0, %25 ], [ 0, %44 ], [ 0, %49 ], [ 0, %10 ], [ 0, %55 ], [ 0, %74 ], [ 0, %101 ], [ 0, %97 ], [ 0, %92 ], [ 0, %54 ], [ 0, %105 ]
   ret i32 %.0
 }
 
@@ -1499,7 +1499,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader78, %18, 
   br label %71
 
 71:                                               ; preds = %34, %7, %70, %._crit_edge, %32
-  %.0 = phi ptr [ %35, %._crit_edge ], [ %33, %32 ], [ null, %7 ], [ null, %70 ], [ null, %34 ]
+  %.0 = phi ptr [ %33, %32 ], [ null, %70 ], [ %35, %._crit_edge ], [ null, %7 ], [ null, %34 ]
   ret ptr %.0
 }
 
@@ -1723,7 +1723,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader, %18, %i
   br label %97
 
 97:                                               ; preds = %94, %96, %34, %7, %32
-  %.0 = phi ptr [ null, %34 ], [ %33, %32 ], [ null, %7 ], [ %35, %96 ], [ %35, %94 ]
+  %.0 = phi ptr [ %33, %32 ], [ null, %7 ], [ null, %34 ], [ %35, %96 ], [ %35, %94 ]
   ret ptr %.0
 }
 

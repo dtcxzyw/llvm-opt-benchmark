@@ -249,7 +249,7 @@ policy_cache_set_int.exit56.i:                    ; preds = %88
   br label %96
 
 policy_cache_set_int.exit.i:                      ; preds = %88, %86, %81, %79, %41, %.thread.thread.i, %27, %24, %20
-  %.0.i = phi ptr [ null, %81 ], [ null, %.thread.thread.i ], [ null, %86 ], [ null, %79 ], [ null, %41 ], [ null, %27 ], [ null, %20 ], [ null, %24 ], [ %85, %88 ]
+  %.0.i = phi ptr [ null, %81 ], [ null, %86 ], [ null, %79 ], [ null, %41 ], [ null, %24 ], [ null, %20 ], [ null, %27 ], [ null, %.thread.thread.i ], [ %85, %88 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %94 = load i32, ptr %93, align 8, !tbaa !53
   %95 = or i32 %94, 2048

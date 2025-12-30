@@ -110,7 +110,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %"_ZN55_$
           to label %40 unwind label %.thread69.i, !noalias !8
 
 .thread69.i:                                      ; preds = %75, %74, %70, %"_ZN4core3ptr265drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc0b7a6e579cd099aE.exit.i", %58, %47, %44, %34
-  %.sroa.023.3.ph.i = phi i1 [ true, %34 ], [ false, %47 ], [ false, %58 ], [ false, %"_ZN4core3ptr265drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc0b7a6e579cd099aE.exit.i" ], [ true, %70 ], [ true, %44 ], [ true, %74 ], [ true, %75 ]
+  %.sroa.023.3.ph.i = phi i1 [ false, %58 ], [ true, %34 ], [ false, %47 ], [ false, %"_ZN4core3ptr265drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc0b7a6e579cd099aE.exit.i" ], [ true, %44 ], [ true, %74 ], [ true, %75 ], [ true, %70 ]
   %lpad.thr_comm67.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread59.i
@@ -358,7 +358,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %"_ZN55_$
           to label %31 unwind label %105, !noalias !8
 
 115:                                              ; preds = %.thread.i, %27
-  %.pn4455.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread.i ], [ %.pn42.i, %27 ]
+  %.pn4455.i = phi { ptr, i32 } [ %.pn42.i, %27 ], [ %lpad.thr_comm.i, %.thread.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %116 = load ptr, ptr %16, align 8, !alias.scope !45, !noalias !8, !nonnull !7, !noundef !7
@@ -372,7 +372,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %"_ZN55_$
           to label %"_ZN4core3ptr203drop_in_place$LT$alloc..sync..Arc$LT$signal_hook_registry..register$LT$polars_error..signals..register_polars_keyboard_interrupt_hook..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h793bfe3b158aa02cE.exit53.i" unwind label %105, !noalias !8
 
 "_ZN4core3ptr203drop_in_place$LT$alloc..sync..Arc$LT$signal_hook_registry..register$LT$polars_error..signals..register_polars_keyboard_interrupt_hook..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h793bfe3b158aa02cE.exit53.i": ; preds = %119, %115, %27
-  %.pn4454.i = phi { ptr, i32 } [ %.pn4455.i, %115 ], [ %.pn42.i, %27 ], [ %.pn4455.i, %119 ]
+  %.pn4454.i = phi { ptr, i32 } [ %.pn42.i, %27 ], [ %.pn4455.i, %119 ], [ %.pn4455.i, %115 ]
   resume { ptr, i32 } %.pn4454.i
 
 _ZN20signal_hook_registry23register_unchecked_impl17hb714d807d5249600E.exit: ; preds = %101, %110, %114

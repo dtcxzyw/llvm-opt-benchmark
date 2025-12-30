@@ -25,7 +25,7 @@ define hidden ptr @opj_procedure_list_create() local_unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %2, %0, %6
-  %.0 = phi ptr [ null, %0 ], [ null, %6 ], [ %1, %2 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %0 ], [ %1, %2 ]
   ret ptr %.0
 }
 

@@ -990,7 +990,7 @@ init_ts_config_cache.exit:                        ; preds = %18, %26
   br label %38
 
 38:                                               ; preds = %28, %37, %11, %1
-  %.0 = phi i32 [ 0, %11 ], [ %4, %1 ], [ %storemerge, %37 ], [ %31, %28 ]
+  %.0 = phi i32 [ %4, %1 ], [ 0, %11 ], [ %storemerge, %37 ], [ %31, %28 ]
   ret i32 %.0
 }
 
@@ -1047,7 +1047,7 @@ define dso_local noundef zeroext i1 @check_default_text_search_config(ptr nounde
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 649, ptr noundef nonnull @__func__.check_default_text_search_config) #7
   unreachable
 
-.thread30:                                        ; preds = %.thread, %14, %16
+.thread30:                                        ; preds = %16, %14, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 

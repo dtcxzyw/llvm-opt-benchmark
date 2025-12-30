@@ -869,7 +869,7 @@ define dso_local ptr @get_plan_rowmark(ptr noundef readonly captures(address_is_
   br i1 %.not17, label %._crit_edge25, label %8
 
 ._crit_edge25:                                    ; preds = %9, %8, %.lr.ph, %2
-  %14 = phi ptr [ null, %.lr.ph ], [ null, %2 ], [ null, %8 ], [ %11, %9 ]
+  %14 = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ null, %8 ], [ %11, %9 ]
   ret ptr %14
 }
 

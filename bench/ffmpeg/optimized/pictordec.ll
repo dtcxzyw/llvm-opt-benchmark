@@ -444,7 +444,7 @@ bytestream2_get_be24.exit:                        ; preds = %188, %189
   br label %.loopexit
 
 .loopexit:                                        ; preds = %bytestream2_get_byte.exit243, %bytestream2_get_byte.exit241, %bytestream2_get_be24.exit, %.preheader, %132, %158, %140, %178, %218, %210
-  %.0199 = phi i32 [ 16, %218 ], [ 4, %.preheader ], [ 0, %178 ], [ %159, %158 ], [ 2, %210 ], [ %141, %140 ], [ %181, %bytestream2_get_be24.exit ], [ %141, %bytestream2_get_byte.exit241 ], [ 4, %132 ], [ %159, %bytestream2_get_byte.exit243 ]
+  %.0199 = phi i32 [ 2, %210 ], [ 16, %218 ], [ 0, %178 ], [ %141, %140 ], [ %159, %158 ], [ 4, %132 ], [ 4, %.preheader ], [ %181, %bytestream2_get_be24.exit ], [ %141, %bytestream2_get_byte.exit241 ], [ %159, %bytestream2_get_byte.exit243 ]
   %219 = zext nneg i32 %.0199 to i64
   %220 = getelementptr inbounds nuw i32, ptr %116, i64 %219
   %221 = shl nuw nsw i32 %.0199, 2
@@ -857,7 +857,7 @@ thread-pre-split:                                 ; preds = %bytestream2_get_le1
   br label %441
 
 441:                                              ; preds = %._crit_edge, %97, %94, %75, %71, %bytestream2_get_le16.exit232, %22, %bytestream2_init.exit, %.critedge15, %44
-  %.0 = phi i32 [ %440, %.critedge15 ], [ -1094995529, %bytestream2_init.exit ], [ -1163346256, %44 ], [ -1094995529, %22 ], [ -1094995529, %bytestream2_get_le16.exit232 ], [ -1, %71 ], [ -1094995529, %75 ], [ %95, %94 ], [ %98, %97 ], [ -1094995529, %._crit_edge ]
+  %.0 = phi i32 [ -1163346256, %44 ], [ %440, %.critedge15 ], [ -1094995529, %bytestream2_init.exit ], [ -1094995529, %22 ], [ -1094995529, %bytestream2_get_le16.exit232 ], [ -1, %71 ], [ -1094995529, %75 ], [ %95, %94 ], [ %98, %97 ], [ -1094995529, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1149,9 +1149,9 @@ define internal fastcc void @picmemset(ptr noundef readonly captures(none) %0, p
   br i1 %122, label %.preheader127.us.backedge, label %.thread
 
 .thread:                                          ; preds = %._crit_edge.split.us232, %94, %._crit_edge.split.us.us.us, %41, %8
-  %.6 = phi i32 [ 0, %94 ], [ 0, %41 ], [ %13, %8 ], [ %.295.lcssa.us.us.us, %._crit_edge.split.us.us.us ], [ %.295.lcssa.us226, %._crit_edge.split.us232 ]
-  %.592 = phi i32 [ %96, %94 ], [ %43, %41 ], [ %14, %8 ], [ %.289.lcssa.us.us.us, %._crit_edge.split.us.us.us ], [ %.289.lcssa.us227, %._crit_edge.split.us232 ]
-  %.5 = phi i32 [ %97, %94 ], [ %44, %41 ], [ %9, %8 ], [ %.284.lcssa.us.us.us, %._crit_edge.split.us.us.us ], [ %.284.lcssa.us228, %._crit_edge.split.us232 ]
+  %.6 = phi i32 [ %13, %8 ], [ 0, %41 ], [ %.295.lcssa.us.us.us, %._crit_edge.split.us.us.us ], [ 0, %94 ], [ %.295.lcssa.us226, %._crit_edge.split.us232 ]
+  %.592 = phi i32 [ %14, %8 ], [ %43, %41 ], [ %.289.lcssa.us.us.us, %._crit_edge.split.us.us.us ], [ %96, %94 ], [ %.289.lcssa.us227, %._crit_edge.split.us232 ]
+  %.5 = phi i32 [ %9, %8 ], [ %44, %41 ], [ %.284.lcssa.us.us.us, %._crit_edge.split.us.us.us ], [ %97, %94 ], [ %.284.lcssa.us228, %._crit_edge.split.us232 ]
   store i32 %.6, ptr %4, align 4, !tbaa !43
   store i32 %.592, ptr %5, align 4, !tbaa !43
   store i32 %.5, ptr %6, align 4, !tbaa !43

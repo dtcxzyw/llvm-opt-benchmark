@@ -440,7 +440,7 @@ _ZN4cvc58internal8RationalD2Ev.exit27:            ; preds = %33
   br label %38
 
 38:                                               ; preds = %15, %_ZN4cvc58internal8RationalD2Ev.exit27, %_ZN4cvc58internal8RationalD2Ev.exit, %24, %20, %12
-  %.0 = phi i32 [ %14, %12 ], [ %34, %_ZN4cvc58internal8RationalD2Ev.exit27 ], [ %21, %20 ], [ %25, %24 ], [ %29, %_ZN4cvc58internal8RationalD2Ev.exit ], [ 1, %15 ]
+  %.0 = phi i32 [ %14, %12 ], [ %21, %20 ], [ %25, %24 ], [ %29, %_ZN4cvc58internal8RationalD2Ev.exit ], [ %34, %_ZN4cvc58internal8RationalD2Ev.exit27 ], [ 1, %15 ]
   ret i32 %.0
 }
 

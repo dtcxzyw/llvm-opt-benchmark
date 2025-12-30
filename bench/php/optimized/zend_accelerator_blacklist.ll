@@ -519,8 +519,8 @@ zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.
   br i1 %166, label %.lr.ph.i13, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %162, %.preheader.i, %126
-  %167 = phi i8 [ %136, %126 ], [ %136, %.preheader.i ], [ %163, %162 ]
-  %.163.idx.i = phi i64 [ %.062.idx89.i, %126 ], [ %.062.idx89.i, %.preheader.i ], [ %.4.idx.i, %162 ]
+  %167 = phi i8 [ %136, %.preheader.i ], [ %136, %126 ], [ %163, %162 ]
+  %.163.idx.i = phi i64 [ %.062.idx89.i, %.preheader.i ], [ %.062.idx89.i, %126 ], [ %.4.idx.i, %162 ]
   %.163.ptr.i = getelementptr inbounds i8, ptr %6, i64 %.163.idx.i
   %.not.i10 = icmp eq i8 %167, 0
   br i1 %.not.i10, label %168, label %171

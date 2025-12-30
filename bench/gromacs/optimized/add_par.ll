@@ -224,7 +224,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   br label %.body
 
 .body:                                            ; preds = %32, %63, %60
-  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %61, %63 ], [ %61, %60 ]
+  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %61, %60 ], [ %61, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %69 = load ptr, ptr %8, align 8, !tbaa !4
   %.not.i.i.i30 = icmp eq ptr %69, null
@@ -930,7 +930,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   br label %.body
 
 .body:                                            ; preds = %27, %56, %53
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %54, %56 ], [ %54, %53 ]
+  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %54, %53 ], [ %54, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %62 = load ptr, ptr %9, align 8, !tbaa !4
   %.not.i.i.i23 = icmp eq ptr %62, null

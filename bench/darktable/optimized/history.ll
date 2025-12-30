@@ -1701,8 +1701,8 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   br i1 %exitcond.not, label %537, label %549
 
 558:                                              ; preds = %527, %.lr.ph634, %537
-  %.1381 = phi i32 [ 0, %537 ], [ %.0380542633, %527 ], [ %.0380542633, %.lr.ph634 ]
-  %.19 = phi i32 [ %546, %537 ], [ %.18544631, %527 ], [ %.18544631, %.lr.ph634 ]
+  %.1381 = phi i32 [ 0, %537 ], [ %.0380542633, %.lr.ph634 ], [ %.0380542633, %527 ]
+  %.19 = phi i32 [ %546, %537 ], [ %.18544631, %.lr.ph634 ], [ %.18544631, %527 ]
   %559 = getelementptr inbounds nuw i8, ptr %.0379543632, i64 80
   %560 = load ptr, ptr %559, align 8, !tbaa !167
   %.not447 = icmp eq ptr %560, null
@@ -2321,8 +2321,8 @@ _search_history_by_module.exit86.i:               ; preds = %175
   br i1 %.not.i91.i, label %.thread102.i, label %.lr.ph.i88.i
 
 .thread102.i:                                     ; preds = %178, %_search_history_by_module.exit86.i, %181
-  %.4107.i = phi ptr [ %.064112.i, %181 ], [ %.064112.i, %178 ], [ %157, %_search_history_by_module.exit86.i ]
-  %.370106.i = phi ptr [ %151, %181 ], [ %151, %178 ], [ %159, %_search_history_by_module.exit86.i ]
+  %.4107.i = phi ptr [ %.064112.i, %181 ], [ %157, %_search_history_by_module.exit86.i ], [ %.064112.i, %178 ]
+  %.370106.i = phi ptr [ %151, %181 ], [ %159, %_search_history_by_module.exit86.i ], [ %151, %178 ]
   %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !70
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 88
   %186 = load ptr, ptr %185, align 8, !tbaa !107
@@ -2351,10 +2351,10 @@ _search_history_by_module.exit86.i:               ; preds = %175
   br label %.thread83
 
 .thread.sink.split.i:                             ; preds = %_search_history_by_module.exit86.i, %178
-  %.str.26.sink.i = phi ptr [ @.str.26, %178 ], [ @.str.27, %_search_history_by_module.exit86.i ]
+  %.str.27.sink.i = phi ptr [ @.str.26, %178 ], [ @.str.27, %_search_history_by_module.exit86.i ]
   %198 = getelementptr inbounds nuw i8, ptr %151, i64 956
   %199 = getelementptr inbounds nuw i8, ptr %159, i64 956
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull %.str.26.sink.i, ptr noundef nonnull %161, ptr noundef nonnull %198, i32 noundef 0, ptr noundef nonnull %160, ptr noundef nonnull %199, i32 noundef 0) #17
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull %.str.27.sink.i, ptr noundef nonnull %161, ptr noundef nonnull %198, i32 noundef 0, ptr noundef nonnull %160, ptr noundef nonnull %199, i32 noundef 0) #17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i88.i, %155, %158, %164, %.thread.sink.split.i
@@ -2380,9 +2380,9 @@ _search_history_by_module.exit86.i:               ; preds = %175
   br i1 %.not.i5487, label %_check_deleted_instances.exit, label %.outer
 
 ._crit_edge.i55:                                  ; preds = %.loopexit, %129, %144
-  %210 = phi i32 [ 0, %129 ], [ 0, %144 ], [ %103, %.loopexit ]
-  %.us-phi111 = phi ptr [ %.0114.i.ph.us, %129 ], [ %.0114.i.ph.us, %144 ], [ %.0114.i.ph, %.loopexit ]
-  %.us-phi112 = phi i32 [ %.062113.i.ph.us, %129 ], [ %.062113.i.ph.us, %144 ], [ %.062113.i.ph, %.loopexit ]
+  %210 = phi i32 [ 0, %144 ], [ 0, %129 ], [ %103, %.loopexit ]
+  %.us-phi111 = phi ptr [ %.0114.i.ph.us, %144 ], [ %.0114.i.ph.us, %129 ], [ %.0114.i.ph, %.loopexit ]
+  %.us-phi112 = phi i32 [ %.062113.i.ph.us, %144 ], [ %.062113.i.ph.us, %129 ], [ %.062113.i.ph, %.loopexit ]
   %.not76.i = icmp eq i32 %.us-phi112, 0
   br i1 %.not76.i, label %212, label %_check_deleted_instances.exit
 
@@ -2746,7 +2746,7 @@ define internal range(i32 0, 2) i32 @_lib_history_button_clicked_callback(ptr no
   br label %68
 
 68:                                               ; preds = %54, %._crit_edge, %20, %30, %9, %8, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %8 ], [ 0, %9 ], [ 1, %20 ], [ 1, %30 ], [ 0, %._crit_edge ], [ 0, %54 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %8 ], [ 0, %9 ], [ 1, %30 ], [ 1, %20 ], [ 0, %._crit_edge ], [ 0, %54 ]
   ret i32 %.0
 }
 
@@ -3158,7 +3158,7 @@ define internal fastcc noalias ptr @_lib_history_change_text(ptr noundef readonl
   br label %188
 
 188:                                              ; preds = %184, %.lr.ph267
-  %.1149 = phi ptr [ %spec.select, %184 ], [ %.0148212266, %.lr.ph267 ]
+  %.1149 = phi ptr [ %.0148212266, %.lr.ph267 ], [ %spec.select, %184 ]
   %189 = icmp eq i32 %182, %172
   br i1 %189, label %190, label %.lr.ph
 
@@ -3171,7 +3171,7 @@ define internal fastcc noalias ptr @_lib_history_change_text(ptr noundef readonl
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %190, %188
-  %.1147 = phi ptr [ %spec.select208, %190 ], [ %.0146213265, %188 ]
+  %.1147 = phi ptr [ %.0146213265, %188 ], [ %spec.select208, %190 ]
   %194 = getelementptr inbounds nuw i8, ptr %.0145214264, i64 24
   %195 = load ptr, ptr %194, align 8, !tbaa !144
   %.not185 = icmp eq ptr %195, null
@@ -3202,7 +3202,7 @@ define internal fastcc noalias ptr @_lib_history_change_text(ptr noundef readonl
   br label %.critedge205.thread
 
 .critedge205.thread:                              ; preds = %114, %69, %71, %67, %110, %123, %128, %133, %140, %147, %154, %170, %196, %4, %205, %.critedge205, %199, %.critedge, %164, %150, %143, %136, %131, %126, %119, %.thread, %._crit_edge228.thread
-  %.0 = phi ptr [ %204, %199 ], [ %62, %._crit_edge228.thread ], [ %75, %.critedge205 ], [ %.0150, %.thread ], [ %122, %119 ], [ %127, %126 ], [ %132, %131 ], [ %139, %136 ], [ %146, %143 ], [ %153, %150 ], [ %169, %164 ], [ %179, %.critedge ], [ null, %114 ], [ null, %205 ], [ null, %4 ], [ null, %196 ], [ null, %170 ], [ null, %154 ], [ null, %147 ], [ null, %140 ], [ null, %133 ], [ null, %128 ], [ null, %123 ], [ null, %110 ], [ null, %67 ], [ null, %71 ], [ null, %69 ]
+  %.0 = phi ptr [ %62, %._crit_edge228.thread ], [ %75, %.critedge205 ], [ %.0150, %.thread ], [ %122, %119 ], [ %127, %126 ], [ %132, %131 ], [ %139, %136 ], [ %146, %143 ], [ %153, %150 ], [ %169, %164 ], [ %179, %.critedge ], [ %204, %199 ], [ null, %205 ], [ null, %4 ], [ null, %196 ], [ null, %170 ], [ null, %154 ], [ null, %147 ], [ null, %140 ], [ null, %133 ], [ null, %128 ], [ null, %123 ], [ null, %110 ], [ null, %67 ], [ null, %71 ], [ null, %69 ], [ null, %114 ]
   ret ptr %.0
 }
 

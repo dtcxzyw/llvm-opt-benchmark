@@ -429,8 +429,8 @@ default.unreachable:                              ; preds = %31
   unreachable
 
 106:                                              ; preds = %98, %94, %92, %65, %61, %54
-  %.0142.i = phi i16 [ %105, %98 ], [ %60, %54 ], [ %64, %61 ], [ %75, %65 ], [ %93, %92 ], [ %97, %94 ]
-  %.0141.i = phi i32 [ %103, %98 ], [ %58, %54 ], [ %62, %61 ], [ %73, %65 ], [ 11, %92 ], [ %95, %94 ]
+  %.0142.i = phi i16 [ %60, %54 ], [ %64, %61 ], [ %75, %65 ], [ %93, %92 ], [ %97, %94 ], [ %105, %98 ]
+  %.0141.i = phi i32 [ %58, %54 ], [ %62, %61 ], [ %73, %65 ], [ 11, %92 ], [ %95, %94 ], [ %103, %98 ]
   %.not145.i = icmp eq i16 %.0142.i, 0
   br i1 %.not145.i, label %dissect_lisp_tcp_reliable_transport_message.exit, label %107
 
@@ -557,7 +557,7 @@ default.unreachable:                              ; preds = %31
   br label %dissect_lisp_tcp_reliable_transport_message.exit
 
 dissect_lisp_tcp_reliable_transport_message.exit: ; preds = %170, %169, %107, %106, %49, %32, %19, %176, %17
-  %.0 = phi i32 [ 4, %17 ], [ 4, %19 ], [ %.0141.i, %106 ], [ %180, %176 ], [ 20, %32 ], [ %53, %49 ], [ %111, %107 ], [ %174, %170 ], [ %.0.i79, %169 ]
+  %.0 = phi i32 [ 4, %17 ], [ %180, %176 ], [ 4, %19 ], [ %53, %49 ], [ 20, %32 ], [ %111, %107 ], [ %.0141.i, %106 ], [ %174, %170 ], [ %.0.i79, %169 ]
   %181 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0)
   %182 = load i32, ptr @hf_lisp_tcp_message_end_marker, align 4
   %183 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %182, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef 0)

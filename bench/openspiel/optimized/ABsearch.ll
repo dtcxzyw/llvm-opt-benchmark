@@ -1004,7 +1004,7 @@ _Z8EvaluatePK3posiPK10ThreadData.exit:            ; preds = %91, %114, %119
   br label %325
 
 325:                                              ; preds = %310, %321
-  %326 = phi i1 [ true, %310 ], [ %324, %321 ]
+  %326 = phi i1 [ %324, %321 ], [ true, %310 ]
   %327 = getelementptr inbounds nuw i8, ptr %3, i64 987984
   %328 = load ptr, ptr %327, align 8
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1015,7 +1015,7 @@ _Z8EvaluatePK3posiPK10ThreadData.exit:            ; preds = %91, %114, %119
   br label %.loopexit
 
 .loopexit:                                        ; preds = %186, %63, %_Z8EvaluatePK3posiPK10ThreadData.exit, %139, %133, %71, %68, %325, %137, %131
-  %.0 = phi i1 [ false, %133 ], [ %spec.select, %63 ], [ true, %68 ], [ false, %71 ], [ %132, %131 ], [ true, %139 ], [ %.1224, %325 ], [ %spec.select293, %186 ], [ %138, %137 ], [ %121, %_Z8EvaluatePK3posiPK10ThreadData.exit ]
+  %.0 = phi i1 [ %132, %131 ], [ %.1224, %325 ], [ %138, %137 ], [ true, %68 ], [ false, %71 ], [ false, %133 ], [ true, %139 ], [ %121, %_Z8EvaluatePK3posiPK10ThreadData.exit ], [ %spec.select, %63 ], [ %spec.select293, %186 ]
   ret i1 %.0
 }
 

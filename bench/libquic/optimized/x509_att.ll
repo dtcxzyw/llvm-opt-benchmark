@@ -195,7 +195,7 @@ define hidden ptr @X509at_add1_attr(ptr noundef captures(address_is_null) %0, pt
   br label %20
 
 20:                                               ; preds = %.thread41, %.thread34, %19, %15, %18
-  %.017 = phi ptr [ %.2, %15 ], [ %.2, %18 ], [ null, %19 ], [ null, %.thread41 ], [ null, %.thread34 ]
+  %.017 = phi ptr [ %.2, %18 ], [ %.2, %15 ], [ null, %19 ], [ null, %.thread34 ], [ null, %.thread41 ]
   ret ptr %.017
 }
 
@@ -314,7 +314,7 @@ X509_ATTRIBUTE_set1_object.exit.thread:           ; preds = %14, %18, %X509_ATTR
   br label %28
 
 28:                                               ; preds = %25, %27, %20, %21, %24, %13
-  %.018 = phi ptr [ null, %13 ], [ %.0, %20 ], [ %.0, %24 ], [ %.0, %21 ], [ null, %27 ], [ null, %25 ]
+  %.018 = phi ptr [ null, %13 ], [ %.0, %24 ], [ %.0, %21 ], [ %.0, %20 ], [ null, %27 ], [ null, %25 ]
   ret ptr %.018
 }
 
@@ -431,7 +431,7 @@ X509_ATTRIBUTE_create_by_txt.exit.thread13:       ; preds = %11, %X509_ATTRIBUTE
   br label %18
 
 18:                                               ; preds = %X509_ATTRIBUTE_create_by_txt.exit.thread13, %X509_ATTRIBUTE_create_by_txt.exit.thread, %16
-  %.0 = phi ptr [ %17, %16 ], [ null, %X509_ATTRIBUTE_create_by_txt.exit.thread13 ], [ null, %X509_ATTRIBUTE_create_by_txt.exit.thread ]
+  %.0 = phi ptr [ %17, %16 ], [ null, %X509_ATTRIBUTE_create_by_txt.exit.thread ], [ null, %X509_ATTRIBUTE_create_by_txt.exit.thread13 ]
   ret ptr %.0
 }
 
@@ -529,17 +529,17 @@ X509at_get_attr.exit.thread:                      ; preds = %X509at_get_attr_by_
   %.not.i24 = icmp eq i32 %37, 0
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !20
-  br i1 %.not.i24, label %X509_ATTRIBUTE_count.exit, label %40
+  br i1 %.not.i24, label %40, label %X509_ATTRIBUTE_count.exit
 
 40:                                               ; preds = %35
-  %.not3.i.not = icmp eq ptr %39, null
-  br i1 %.not3.i.not, label %X509_ATTRIBUTE_get0_data.exit, label %.thread
-
-X509_ATTRIBUTE_count.exit:                        ; preds = %35
   %41 = tail call i64 @sk_num(ptr noundef %39) #5
   %42 = and i64 %41, 4294967295
   %43 = icmp eq i64 %42, 1
   br i1 %43, label %.thread, label %X509_ATTRIBUTE_get0_data.exit
+
+X509_ATTRIBUTE_count.exit:                        ; preds = %35
+  %.not3.i.not = icmp eq ptr %39, null
+  br i1 %.not3.i.not, label %X509_ATTRIBUTE_get0_data.exit, label %.thread
 
 44:                                               ; preds = %X509at_get_attr.exit
   %45 = icmp eq ptr %32, null
@@ -551,17 +551,17 @@ X509_ATTRIBUTE_count.exit:                        ; preds = %35
   %.not.i.i.i = icmp eq i32 %47, 0
   %48 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !20
-  br i1 %.not.i.i.i, label %X509_ATTRIBUTE_count.exit.i.i, label %50
+  br i1 %.not.i.i.i, label %50, label %X509_ATTRIBUTE_count.exit.i.i
 
 50:                                               ; preds = %.thread
-  %.not3.i.i.i.not = icmp eq ptr %49, null
-  br i1 %.not3.i.i.i.not, label %X509_ATTRIBUTE_get0_data.exit, label %54
-
-X509_ATTRIBUTE_count.exit.i.i:                    ; preds = %.thread
   %51 = tail call i64 @sk_num(ptr noundef %49) #5
   %52 = trunc i64 %51 to i32
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %54, label %X509_ATTRIBUTE_get0_data.exit
+
+X509_ATTRIBUTE_count.exit.i.i:                    ; preds = %.thread
+  %.not3.i.i.i.not = icmp eq ptr %49, null
+  br i1 %.not3.i.i.i.not, label %X509_ATTRIBUTE_get0_data.exit, label %54
 
 54:                                               ; preds = %50, %X509_ATTRIBUTE_count.exit.i.i
   %55 = load i32, ptr %46, align 8, !tbaa !19
@@ -593,7 +593,7 @@ X509_ATTRIBUTE_get0_type.exit.i:                  ; preds = %57, %54
   br label %X509_ATTRIBUTE_get0_data.exit
 
 X509_ATTRIBUTE_get0_data.exit:                    ; preds = %10, %26, %X509at_get_attr.exit.thread, %50, %40, %4, %62, %61, %X509_ATTRIBUTE_get0_type.exit.i, %X509_ATTRIBUTE_count.exit.i.i, %44, %X509_ATTRIBUTE_count.exit
-  %.0 = phi ptr [ null, %X509_ATTRIBUTE_count.exit.i.i ], [ null, %50 ], [ null, %4 ], [ null, %X509_ATTRIBUTE_count.exit ], [ null, %61 ], [ %64, %62 ], [ null, %X509_ATTRIBUTE_get0_type.exit.i ], [ null, %44 ], [ null, %X509at_get_attr.exit.thread ], [ null, %40 ], [ null, %26 ], [ null, %10 ]
+  %.0 = phi ptr [ null, %X509_ATTRIBUTE_count.exit ], [ null, %61 ], [ %64, %62 ], [ null, %X509_ATTRIBUTE_get0_type.exit.i ], [ null, %44 ], [ null, %X509_ATTRIBUTE_count.exit.i.i ], [ null, %4 ], [ null, %40 ], [ null, %50 ], [ null, %X509at_get_attr.exit.thread ], [ null, %26 ], [ null, %10 ]
   ret ptr %.0
 }
 
@@ -617,7 +617,7 @@ define hidden i32 @X509_ATTRIBUTE_count(ptr noundef readonly captures(none) %0) 
   br label %10
 
 10:                                               ; preds = %9, %6
-  %.0 = phi i32 [ %., %9 ], [ %8, %6 ]
+  %.0 = phi i32 [ %8, %6 ], [ %., %9 ]
   ret i32 %.0
 }
 
@@ -645,7 +645,7 @@ define hidden ptr @X509_ATTRIBUTE_get0_data(ptr noundef readonly captures(addres
   br label %X509_ATTRIBUTE_count.exit.i
 
 X509_ATTRIBUTE_count.exit.i:                      ; preds = %14, %11
-  %.0.i.i = phi i32 [ %..i.i, %14 ], [ %13, %11 ]
+  %.0.i.i = phi i32 [ %13, %11 ], [ %..i.i, %14 ]
   %.not.i = icmp slt i32 %1, %.0.i.i
   br i1 %.not.i, label %15, label %X509_ATTRIBUTE_get0_type.exit.thread
 
@@ -792,7 +792,7 @@ define hidden range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_data(ptr noundef captures
   br label %37
 
 37:                                               ; preds = %33, %23, %4, %36, %11
-  %.028 = phi i32 [ 0, %4 ], [ 1, %23 ], [ 0, %36 ], [ 0, %11 ], [ 1, %33 ]
+  %.028 = phi i32 [ 0, %36 ], [ 0, %11 ], [ 0, %4 ], [ 1, %23 ], [ 1, %33 ]
   ret i32 %.028
 }
 
@@ -856,7 +856,7 @@ define hidden ptr @X509_ATTRIBUTE_get0_type(ptr noundef readonly captures(addres
   br label %X509_ATTRIBUTE_count.exit
 
 X509_ATTRIBUTE_count.exit:                        ; preds = %9, %12
-  %.0.i = phi i32 [ %..i, %12 ], [ %11, %9 ]
+  %.0.i = phi i32 [ %11, %9 ], [ %..i, %12 ]
   %.not = icmp slt i32 %1, %.0.i
   br i1 %.not, label %13, label %19
 

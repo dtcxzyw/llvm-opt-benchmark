@@ -83,7 +83,7 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery19downcase_identifierEPKcibb(pt
   br label %33
 
 33:                                               ; preds = %25, %30, %28, %27
-  %.0 = phi i8 [ %22, %27 ], [ %26, %25 ], [ %32, %30 ], [ %22, %28 ]
+  %.0 = phi i8 [ %26, %25 ], [ %32, %30 ], [ %22, %28 ], [ %22, %27 ]
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv35
   store i8 %.0, ptr %34, align 1, !tbaa !9
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
@@ -91,7 +91,7 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery19downcase_identifierEPKcibb(pt
   br i1 %exitcond39.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.us, %33, %.lr.ph.split.us, %4
-  %.020.lcssa = phi i32 [ %1, %33 ], [ 0, %4 ], [ %1, %.lr.ph.split.us ], [ %1, %.lr.ph.split.split.us ]
+  %.020.lcssa = phi i32 [ 0, %4 ], [ %1, %.lr.ph.split.us ], [ %1, %33 ], [ %1, %.lr.ph.split.split.us ]
   %35 = zext nneg i32 %.020.lcssa to i64
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 %35
   store i8 0, ptr %36, align 1, !tbaa !9

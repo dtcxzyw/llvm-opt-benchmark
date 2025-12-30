@@ -87,7 +87,7 @@ define ptr @evp_pkcs82pkey_legacy(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %33
 
 33:                                               ; preds = %23, %28, %3, %32, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %3 ], [ null, %32 ], [ %8, %28 ], [ %8, %23 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %32 ], [ null, %3 ], [ %8, %28 ], [ %8, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -176,7 +176,7 @@ define ptr @EVP_PKCS82PKEY_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %.not28, label %.thread, label %32
 
 .thread:                                          ; preds = %21, %.thread32, %27
-  %.031 = phi ptr [ null, %27 ], [ %.034, %.thread32 ], [ null, %21 ]
+  %.031 = phi ptr [ %.034, %.thread32 ], [ null, %27 ], [ null, %21 ]
   %31 = call ptr @evp_pkcs82pkey_legacy(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
   store ptr %31, ptr %4, align 8, !tbaa !26
   br label %32
@@ -190,7 +190,7 @@ define ptr @EVP_PKCS82PKEY_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %35
 
 35:                                               ; preds = %16, %3, %11, %13, %32
-  %.021 = phi ptr [ %34, %32 ], [ null, %3 ], [ null, %13 ], [ null, %11 ], [ null, %16 ]
+  %.021 = phi ptr [ %34, %32 ], [ null, %13 ], [ null, %11 ], [ null, %3 ], [ null, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -255,7 +255,7 @@ define ptr @EVP_PKEY2PKCS8(ptr noundef %0) local_unnamed_addr #0 {
   %17 = icmp eq ptr %15, null
   br i1 %17, label %.thread, label %18
 
-.thread:                                          ; preds = %7, %10, %12
+.thread:                                          ; preds = %10, %7, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -314,8 +314,8 @@ define ptr @EVP_PKEY2PKCS8(ptr noundef %0) local_unnamed_addr #0 {
   br label %34
 
 34:                                               ; preds = %.thread, %33, %32, %31
-  %.118 = phi ptr [ null, %.thread ], [ %20, %31 ], [ %20, %32 ], [ %20, %33 ]
-  %.016 = phi ptr [ %8, %.thread ], [ null, %31 ], [ null, %32 ], [ null, %33 ]
+  %.118 = phi ptr [ %20, %31 ], [ %20, %32 ], [ %20, %33 ], [ null, %.thread ]
+  %.016 = phi ptr [ null, %31 ], [ null, %32 ], [ null, %33 ], [ %8, %.thread ]
   call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef %.118) #3
   br label %35
 
@@ -326,7 +326,7 @@ define ptr @EVP_PKEY2PKCS8(ptr noundef %0) local_unnamed_addr #0 {
   br label %36
 
 36:                                               ; preds = %35, %22
-  %.015 = phi ptr [ null, %22 ], [ %.2, %35 ]
+  %.015 = phi ptr [ %.2, %35 ], [ null, %22 ]
   ret ptr %.015
 }
 

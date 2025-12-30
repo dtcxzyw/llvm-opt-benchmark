@@ -398,9 +398,9 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hd0450544930f6639E.exi
   br label %38
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hd0450544930f6639E.exit.thread: ; preds = %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h324569e04b0851e8E.exit.thread.i, %14
-  %.pn = phi { i64, i64 } [ %15, %14 ], [ %.pn.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h324569e04b0851e8E.exit.thread.i ]
-  %.sroa.10.030 = extractvalue { i64, i64 } %.pn, 1
-  %.sroa.5.031 = extractvalue { i64, i64 } %.pn, 0
+  %.pn.i.pn = phi { i64, i64 } [ %.pn.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h324569e04b0851e8E.exit.thread.i ], [ %15, %14 ]
+  %.sroa.10.030 = extractvalue { i64, i64 } %.pn.i.pn, 1
+  %.sroa.5.031 = extractvalue { i64, i64 } %.pn.i.pn, 0
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.031, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1077,9 +1077,9 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hd0450544930f6639E.exi
           to label %66 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 65:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h324569e04b0851e8E.exit.thread.i.i, %41
-  %.pn.i = phi { i64, i64 } [ %42, %41 ], [ %.pn.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h324569e04b0851e8E.exit.thread.i.i ]
-  %.sroa.10.030.i = extractvalue { i64, i64 } %.pn.i, 1
-  %.sroa.5.031.i = extractvalue { i64, i64 } %.pn.i, 0
+  %.pn.i.pn.i = phi { i64, i64 } [ %.pn.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h324569e04b0851e8E.exit.thread.i.i ], [ %42, %41 ]
+  %.sroa.10.030.i = extractvalue { i64, i64 } %.pn.i.pn.i, 1
+  %.sroa.5.031.i = extractvalue { i64, i64 } %.pn.i.pn.i, 0
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17h09e59be4010c373bE.exit.i
 
 .loopexit:                                        ; preds = %74, %78, %.noexc2
@@ -1365,9 +1365,9 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hd0450544930f6639E.exi
           to label %66 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 65:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h324569e04b0851e8E.exit.thread.i.i, %41
-  %.pn.i = phi { i64, i64 } [ %42, %41 ], [ %.pn.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h324569e04b0851e8E.exit.thread.i.i ]
-  %.sroa.10.030.i = extractvalue { i64, i64 } %.pn.i, 1
-  %.sroa.5.031.i = extractvalue { i64, i64 } %.pn.i, 0
+  %.pn.i.pn.i = phi { i64, i64 } [ %.pn.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h324569e04b0851e8E.exit.thread.i.i ], [ %42, %41 ]
+  %.sroa.10.030.i = extractvalue { i64, i64 } %.pn.i.pn.i, 1
+  %.sroa.5.031.i = extractvalue { i64, i64 } %.pn.i.pn.i, 0
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17h09e59be4010c373bE.exit.i
 
 .loopexit:                                        ; preds = %74, %78, %.noexc2

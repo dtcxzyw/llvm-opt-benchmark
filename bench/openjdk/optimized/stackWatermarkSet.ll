@@ -614,8 +614,8 @@ _ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.i: ; preds = %
   br label %_ZN17StackWatermarkSet16start_processingEP10JavaThread18StackWatermarkKind.exit
 
 _ZN17StackWatermarkSet16start_processingEP10JavaThread18StackWatermarkKind.exit: ; preds = %29, %24, %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.i
-  %31 = phi ptr [ %.pre7, %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.i ], [ %16, %24 ], [ %16, %29 ]
-  %32 = phi i32 [ %.pre, %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.i ], [ %18, %24 ], [ %18, %29 ]
+  %31 = phi ptr [ %16, %24 ], [ %.pre7, %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.i ], [ %16, %29 ]
+  %32 = phi i32 [ %18, %24 ], [ %.pre, %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.i ], [ %18, %29 ]
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %34 = load i32, ptr %33, align 4
   %.not.i = icmp ult i32 %32, %34

@@ -95,8 +95,8 @@ define internal range(i32 -2147483648, 1) i32 @gopher_open(ptr noundef initializ
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %gopher_connect.exit.thread, label %gopher_connect.exit
 
-gopher_connect.exit.thread:                       ; preds = %34, %32, %27, %36
-  %.0.i.ph = phi i32 [ -22, %34 ], [ -22, %27 ], [ -22, %32 ], [ -5, %36 ]
+gopher_connect.exit.thread:                       ; preds = %34, %27, %32, %36
+  %.0.i.ph = phi i32 [ -22, %32 ], [ -22, %27 ], [ -22, %34 ], [ -5, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %44
 

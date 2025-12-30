@@ -745,7 +745,7 @@ define linkonce_odr hidden noundef i32 @_ZNSt3__110__stdinbufIcE9pbackfailEi(ptr
   br label %64
 
 64:                                               ; preds = %.thread, %24, %8, %12, %62
-  %.07 = phi i32 [ -1, %.thread ], [ %1, %62 ], [ %14, %12 ], [ -1, %8 ], [ -1, %24 ]
+  %.07 = phi i32 [ %1, %62 ], [ -1, %8 ], [ %14, %12 ], [ -1, %24 ], [ -1, %.thread ]
   ret i32 %.07
 }
 
@@ -929,7 +929,7 @@ define linkonce_odr hidden noundef i32 @_ZNSt3__110__stdinbufIcE9__getcharEb(ptr
   br label %.thread65
 
 .thread65:                                        ; preds = %55, %43, %52, %65, %72, %.thread78.loopexit
-  %.10 = phi i32 [ -1, %65 ], [ %74, %72 ], [ %.pre98, %.thread78.loopexit ], [ -1, %52 ], [ -1, %43 ], [ -1, %55 ]
+  %.10 = phi i32 [ %.pre98, %.thread78.loopexit ], [ %74, %72 ], [ -1, %65 ], [ -1, %52 ], [ -1, %43 ], [ -1, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -941,7 +941,7 @@ define linkonce_odr hidden noundef i32 @_ZNSt3__110__stdinbufIcE9__getcharEb(ptr
   br label %_ZNSt3__19__do_getcEP8_IO_FILEPc.exit
 
 _ZNSt3__19__do_getcEP8_IO_FILEPc.exit:            ; preds = %24, %27, %18, %10, %13, %.thread56
-  %.031 = phi i32 [ %.5, %.thread56 ], [ %12, %10 ], [ %12, %13 ], [ %spec.select, %24 ], [ -1, %18 ], [ %23, %27 ]
+  %.031 = phi i32 [ %.5, %.thread56 ], [ %12, %13 ], [ %12, %10 ], [ -1, %18 ], [ %23, %27 ], [ %spec.select, %24 ]
   ret i32 %.031
 }
 
@@ -1224,7 +1224,7 @@ define linkonce_odr hidden noundef i32 @_ZNSt3__111__stdoutbufIcE8overflowEi(ptr
   br label %49
 
 49:                                               ; preds = %14, %2, %.loopexit, %.critedge
-  %.0 = phi i32 [ %spec.select41, %14 ], [ -1, %.critedge ], [ %1, %.loopexit ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %.critedge ], [ %1, %.loopexit ], [ 0, %2 ], [ %spec.select41, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1423,7 +1423,7 @@ define linkonce_odr hidden noundef i32 @_ZNSt3__110__stdinbufIwE9pbackfailEj(ptr
   br label %63
 
 63:                                               ; preds = %.thread, %24, %8, %12, %61
-  %.07 = phi i32 [ -1, %.thread ], [ %1, %61 ], [ %14, %12 ], [ -1, %8 ], [ -1, %24 ]
+  %.07 = phi i32 [ %1, %61 ], [ -1, %8 ], [ %14, %12 ], [ -1, %24 ], [ -1, %.thread ]
   ret i32 %.07
 }
 
@@ -1590,7 +1590,7 @@ _ZNSt3__19__do_getcEP8_IO_FILEPw.exit:            ; preds = %14
   br label %.thread63
 
 .thread63:                                        ; preds = %54, %42, %51, %65, %72, %.thread76.loopexit
-  %.10 = phi i32 [ -1, %65 ], [ %73, %72 ], [ %.pre, %.thread76.loopexit ], [ -1, %51 ], [ -1, %42 ], [ -1, %54 ]
+  %.10 = phi i32 [ %.pre, %.thread76.loopexit ], [ %73, %72 ], [ -1, %65 ], [ -1, %51 ], [ -1, %42 ], [ -1, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1602,7 +1602,7 @@ _ZNSt3__19__do_getcEP8_IO_FILEPw.exit:            ; preds = %14
   br label %75
 
 75:                                               ; preds = %27, %_ZNSt3__19__do_getcEP8_IO_FILEPw.exit, %22, %10, %13, %.thread54
-  %.031 = phi i32 [ %.5, %.thread54 ], [ %12, %10 ], [ %12, %13 ], [ %20, %27 ], [ -1, %_ZNSt3__19__do_getcEP8_IO_FILEPw.exit ], [ -1, %22 ]
+  %.031 = phi i32 [ %.5, %.thread54 ], [ %12, %13 ], [ %12, %10 ], [ %20, %27 ], [ -1, %_ZNSt3__19__do_getcEP8_IO_FILEPw.exit ], [ -1, %22 ]
   ret i32 %.031
 }
 
@@ -1875,7 +1875,7 @@ define linkonce_odr hidden noundef i32 @_ZNSt3__111__stdoutbufIwE8overflowEj(ptr
   br label %47
 
 47:                                               ; preds = %12, %2, %.loopexit, %.critedge
-  %.0 = phi i32 [ %spec.select42, %12 ], [ -1, %.critedge ], [ %1, %.loopexit ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %.critedge ], [ %1, %.loopexit ], [ 0, %2 ], [ %spec.select42, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

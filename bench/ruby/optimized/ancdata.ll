@@ -716,7 +716,7 @@ discard_cmsg.exit:                                ; preds = %.lr.ph.i, %.lr.ph, 
   %50 = icmp ugt ptr %49, %43
   br i1 %50, label %.loopexit, label %.lr.ph, !llvm.loop !69
 
-.loopexit:                                        ; preds = %45, %discard_cmsg.exit, %36, %6, %2
+.loopexit:                                        ; preds = %45, %36, %discard_cmsg.exit, %6, %2
   ret void
 }
 
@@ -959,9 +959,9 @@ RSTRING_PTR.exit155:                              ; preds = %77, %83
     i32 24, label %rsock_discard_cmsg_resource.exit.thread
   ]
 
-rsock_discard_cmsg_resource.exit.thread:          ; preds = %159, %discard_cmsg.exit.i, %168, %130, %128, %107, %107
-  %.1108 = phi i64 [ %.0107.ph200, %107 ], [ %.0107.ph200, %107 ], [ %.2109, %130 ], [ %.2109, %128 ], [ %.2109, %168 ], [ %.2109, %discard_cmsg.exit.i ], [ %.2109, %159 ]
-  %.1 = phi i32 [ %.0106.ph201, %107 ], [ %.0106.ph201, %107 ], [ 1, %130 ], [ 1, %128 ], [ 1, %168 ], [ 1, %discard_cmsg.exit.i ], [ 1, %159 ]
+rsock_discard_cmsg_resource.exit.thread:          ; preds = %168, %159, %discard_cmsg.exit.i, %130, %128, %107, %107
+  %.1108 = phi i64 [ %.0107.ph200, %107 ], [ %.0107.ph200, %107 ], [ %.2109, %128 ], [ %.2109, %130 ], [ %.2109, %discard_cmsg.exit.i ], [ %.2109, %159 ], [ %.2109, %168 ]
+  %.1 = phi i32 [ %.0106.ph201, %107 ], [ %.0106.ph201, %107 ], [ 1, %128 ], [ 1, %130 ], [ 1, %discard_cmsg.exit.i ], [ 1, %159 ], [ 1, %168 ]
   call void @rb_gc() #11
   br label %.outer196
 
@@ -1121,7 +1121,7 @@ discard_cmsg.exit.i:                              ; preds = %.lr.ph.i.i, %141, %
   br i1 %181, label %.outer.outer.backedge, label %186
 
 .outer.outer.backedge:                            ; preds = %discard_cmsg.exit.i160, %215, %224, %.loopexit583, %186
-  %.1111.ph.ph.be = phi i32 [ %84, %.loopexit583 ], [ %84, %186 ], [ %spec.select144, %224 ], [ %spec.select144, %215 ], [ %spec.select144, %discard_cmsg.exit.i160 ]
+  %.1111.ph.ph.be = phi i32 [ %84, %186 ], [ %84, %.loopexit583 ], [ %spec.select144, %224 ], [ %spec.select144, %215 ], [ %spec.select144, %discard_cmsg.exit.i160 ]
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %.outer.outer.backedge, %.preheader
@@ -1587,7 +1587,7 @@ make_io_for_unix_rights.exit:                     ; preds = %._crit_edge.i, %395
   %449 = icmp ugt ptr %448, %442
   br i1 %449, label %select.unfold._crit_edge, label %.lr.ph.split, !llvm.loop !81
 
-select.unfold._crit_edge:                         ; preds = %444, %make_io_for_unix_rights.exit, %435, %361, %make_io_for_unix_rights.exit.us, %352, %296
+select.unfold._crit_edge:                         ; preds = %444, %435, %make_io_for_unix_rights.exit, %361, %352, %make_io_for_unix_rights.exit.us, %296
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %14, ptr %15, align 8, !tbaa !28
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %15) #11, !srcloc !86
@@ -1597,7 +1597,7 @@ select.unfold._crit_edge:                         ; preds = %444, %make_io_for_u
   br label %.loopexit
 
 .loopexit:                                        ; preds = %88, %285, %select.unfold._crit_edge, %103
-  %.0 = phi i64 [ %104, %103 ], [ %293, %285 ], [ %293, %select.unfold._crit_edge ], [ 4, %88 ]
+  %.0 = phi i64 [ %104, %103 ], [ %293, %select.unfold._crit_edge ], [ %293, %285 ], [ 4, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1982,7 +1982,7 @@ ancillary_data.exit:                              ; preds = %.lr.ph.i.i110, %anc
   br label %ip_cmsg_type_to_sym.exit
 
 ip_cmsg_type_to_sym.exit:                         ; preds = %72, %74, %79, %81, %86, %88, %93, %95, %98
-  %.0.i = phi i64 [ %100, %98 ], [ %90, %88 ], [ %83, %81 ], [ %76, %74 ], [ %73, %72 ], [ %80, %79 ], [ %87, %86 ], [ %94, %93 ], [ %97, %95 ]
+  %.0.i = phi i64 [ %100, %98 ], [ %73, %72 ], [ %76, %74 ], [ %80, %79 ], [ %83, %81 ], [ %87, %86 ], [ %90, %88 ], [ %94, %93 ], [ %97, %95 ]
   %101 = and i64 %.0.i, 255
   %102 = icmp eq i64 %101, 12
   br i1 %102, label %RB_SYMBOL_P.exit.thread, label %103
@@ -2303,7 +2303,7 @@ RSTRING_PTR.exit.i139:                            ; preds = %225, %221
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %inspect_timeval_as_abstime.exit
 
-242:                                              ; preds = %118, %119, %120, %133, %215, %178, %166, %179, %180, %148, %216
+242:                                              ; preds = %118, %119, %178, %179, %215, %120, %133, %148, %166, %180, %216
   %243 = call i64 @rb_str_cat(i64 noundef %43, ptr noundef nonnull @.str.42, i64 noundef 1) #11
   %244 = call i64 @rb_str_dump(i64 noundef %41) #11
   %245 = call i64 @rb_str_append(i64 noundef %43, i64 noundef %244) #11

@@ -462,7 +462,7 @@ common.resume:                                    ; preds = %16, %27, %.body.i
   resume { ptr, i32 } %common.resume.op
 
 .body.i:                                          ; preds = %81, %77, %73, %70
-  %eh.lpad-body.i = phi { ptr, i32 } [ %71, %77 ], [ %82, %81 ], [ %71, %70 ], [ %71, %73 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %82, %81 ], [ %71, %70 ], [ %71, %73 ], [ %71, %77 ]
   call void @_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #30, !noalias !24
   call void @_ZdlPvm(ptr noundef nonnull %29, i64 noundef 64) #32, !noalias !24
   br label %common.resume
@@ -1283,46 +1283,46 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi35EEERS2_RAT__Kc.exit: ; pr
   %62 = load i16, ptr %., align 4
   %63 = icmp eq i16 %62, 2
   %or.cond = select i1 %61, i1 %63, i1 false
-  br i1 %or.cond, label %64, label %69
+  br i1 %or.cond, label %64, label %71
 
 64:                                               ; preds = %60
   %..sroa.sel115.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %13, ptr %16
   %..sroa.sel115.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..sroa.sel115.v.sroa.sel.v.sroa.sel.v, i64 4
   %65 = load i32, ptr %..sroa.sel115.v.sroa.sel.v.sroa.sel, align 4, !tbaa !83
   %66 = invoke noundef i32 @_Z10grpc_htonlj(i32 noundef %65)
-          to label %74 unwind label %67
+          to label %67 unwind label %69
 
 67:                                               ; preds = %64
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  br label %73
-
-69:                                               ; preds = %60
-  %70 = icmp eq i16 %62, 10
-  %or.cond75 = select i1 %61, i1 %70, i1 false
-  br i1 %or.cond75, label %71, label %.thread122
-
-.thread122:                                       ; preds = %55, %69
-  call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %.sink.split
-
-71:                                               ; preds = %69
-  %..sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %13, ptr %16
-  %..sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %..sroa.sel.v.sroa.sel.v.sroa.sel, ptr noundef nonnull dereferenceable(16) @in6addr_loopback, i64 16)
-  %72 = icmp eq i32 %bcmp, 0
+  %68 = icmp eq i32 %66, 2130706433
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 1, ptr %17, align 8, !tbaa !67
-  br i1 %72, label %112, label %76
+  br i1 %68, label %112, label %76
 
-73:                                               ; preds = %58, %67, %56
-  %.pn56.pn = phi { ptr, i32 } [ %57, %56 ], [ %68, %67 ], [ %59, %58 ]
+69:                                               ; preds = %64
+  %70 = landingpad { ptr, i32 }
+          cleanup
+  br label %73
+
+71:                                               ; preds = %60
+  %72 = icmp eq i16 %62, 10
+  %or.cond75 = select i1 %61, i1 %72, i1 false
+  br i1 %or.cond75, label %74, label %.thread122
+
+.thread122:                                       ; preds = %55, %71
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  br label %.sink.split
+
+73:                                               ; preds = %58, %69, %56
+  %.pn56.pn = phi { ptr, i32 } [ %57, %56 ], [ %70, %69 ], [ %59, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %295
 
-74:                                               ; preds = %64
-  %75 = icmp eq i32 %66, 2130706433
+74:                                               ; preds = %71
+  %..sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %13, ptr %16
+  %..sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %..sroa.sel.v.sroa.sel.v.sroa.sel, ptr noundef nonnull dereferenceable(16) @in6addr_loopback, i64 16)
+  %75 = icmp eq i32 %bcmp, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 1, ptr %17, align 8, !tbaa !67
@@ -1333,7 +1333,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi35EEERS2_RAT__Kc.exit: ; pr
   store i64 1, ptr %17, align 8, !tbaa !67
   br label %76
 
-76:                                               ; preds = %.sink.split, %71, %74
+76:                                               ; preds = %.sink.split, %67, %74
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
@@ -1456,7 +1456,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit80:         ; preds = %100, %103
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %294
 
-112:                                              ; preds = %71, %.thread120, %74
+112:                                              ; preds = %67, %.thread120, %74
   %113 = load i64, ptr %29, align 8, !tbaa !94
   %114 = mul i64 %113, 24
   %115 = add i64 %114, 24
@@ -1724,7 +1724,7 @@ _ZN4absl12lts_2024072212log_internal12Check_EQImplB5cxx11EiiPKc.exit.i: ; preds 
   br label %209
 
 209:                                              ; preds = %207, %205, %199, %192, %186, %177, %171, %161, %159
-  %.pn33.pn.i = phi { ptr, i32 } [ %160, %159 ], [ %172, %171 ], [ %162, %161 ], [ %178, %177 ], [ %208, %207 ], [ %187, %186 ], [ %193, %192 ], [ %206, %205 ], [ %200, %199 ]
+  %.pn33.pn.i = phi { ptr, i32 } [ %162, %161 ], [ %160, %159 ], [ %178, %177 ], [ %172, %171 ], [ %208, %207 ], [ %193, %192 ], [ %187, %186 ], [ %206, %205 ], [ %200, %199 ]
   call void @_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #30
   br label %.body
 
@@ -2001,7 +2001,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core3URIEED2Ev.ex
   br label %294
 
 294:                                              ; preds = %118, %140, %.body, %290, %292, %130, %110, %108
-  %.pn65.pn.pn.pn.pn = phi { ptr, i32 } [ %109, %108 ], [ %111, %110 ], [ %119, %118 ], [ %131, %130 ], [ %293, %292 ], [ %291, %290 ], [ %141, %140 ], [ %eh.lpad-body, %.body ]
+  %.pn65.pn.pn.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %109, %108 ], [ %119, %118 ], [ %131, %130 ], [ %293, %292 ], [ %291, %290 ], [ %141, %140 ], [ %eh.lpad-body, %.body ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %295

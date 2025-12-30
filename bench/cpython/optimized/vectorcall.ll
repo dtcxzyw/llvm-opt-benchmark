@@ -183,7 +183,7 @@ define hidden range(i32 -1, 1) i32 @_PyTestCapi_Init_Vectorcall(ptr noundef %0) 
   br label %27
 
 27:                                               ; preds = %25, %22, %19, %16, %13, %10, %7, %4, %1
-  %.0 = phi i32 [ -1, %22 ], [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ %.lobit, %25 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %4 ], [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ %.lobit, %25 ]
   ret i32 %.0
 }
 
@@ -282,7 +282,7 @@ fastcall_args.exit.i:                             ; preds = %13
   br label %_testcapi_pyobject_fastcalldict_impl.exit
 
 _testcapi_pyobject_fastcalldict_impl.exit:        ; preds = %33, %31, %fastcall_args.exit.i, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %31 ], [ %34, %33 ], [ null, %fastcall_args.exit.i ]
+  %.0 = phi ptr [ null, %4 ], [ %34, %33 ], [ null, %31 ], [ null, %fastcall_args.exit.i ]
   ret ptr %.0
 }
 
@@ -399,7 +399,7 @@ PyTuple_GET_SIZE.exit.i:                          ; preds = %33
   br label %_testcapi_pyobject_vectorcall_impl.exit
 
 _testcapi_pyobject_vectorcall_impl.exit:          ; preds = %44, %42, %38, %fastcall_args.exit.i, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %42 ], [ %45, %44 ], [ null, %38 ], [ null, %fastcall_args.exit.i ]
+  %.0 = phi ptr [ null, %4 ], [ %45, %44 ], [ null, %38 ], [ null, %42 ], [ null, %fastcall_args.exit.i ]
   ret ptr %.0
 }
 
@@ -486,7 +486,7 @@ define internal ptr @_testcapi_pyvectorcall_call(ptr readnone captures(none) %0,
   br label %_testcapi_pyvectorcall_call_impl.exit
 
 .thread18:                                        ; preds = %.thread, %24, %23
-  %.01721 = phi ptr [ null, %23 ], [ %14, %24 ], [ null, %.thread ]
+  %.01721 = phi ptr [ %14, %24 ], [ null, %23 ], [ null, %.thread ]
   %30 = tail call ptr @PyVectorcall_Call(ptr noundef %8, ptr noundef nonnull %10, ptr noundef %.01721) #5
   br label %_testcapi_pyvectorcall_call_impl.exit
 
@@ -584,7 +584,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %2, %PyObject_TypeCh
   br label %11
 
 11:                                               ; preds = %PyObject_TypeCheck.exit.thread, %5
-  %.0 = phi ptr [ null, %5 ], [ %10, %PyObject_TypeCheck.exit.thread ]
+  %.0 = phi ptr [ %10, %PyObject_TypeCheck.exit.thread ], [ null, %5 ]
   ret ptr %.0
 }
 

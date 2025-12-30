@@ -299,7 +299,7 @@ _ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit.thread16.i: ; preds = %_ZN7SRBRo
   br label %_ZN7SRBRoot6addTagEPKcR10UErrorCode.exit
 
 _ZN7SRBRoot6addTagEPKcR10UErrorCode.exit:         ; preds = %_ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit.thread16.i, %_ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit.i, %37, %21, %12, %6
-  %46 = phi i32 [ -1, %6 ], [ %25, %_ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit.i ], [ -1, %12 ], [ %25, %_ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit.thread16.i ], [ -1, %21 ], [ -1, %37 ]
+  %46 = phi i32 [ -1, %6 ], [ -1, %12 ], [ %25, %_ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit.thread16.i ], [ %25, %_ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit.i ], [ -1, %21 ], [ -1, %37 ]
   store i32 %46, ptr %11, align 4, !tbaa !36
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 -1, ptr %47, align 8, !tbaa !37
@@ -391,7 +391,7 @@ _ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit.thread16: ; preds = %13, %_ZN7SR
   br label %_ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit.thread
 
 _ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit.thread: ; preds = %28, %12, %_ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit, %_ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit.thread16, %3
-  %.0 = phi i32 [ %16, %_ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit ], [ -1, %3 ], [ %16, %_ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit.thread16 ], [ -1, %12 ], [ -1, %28 ]
+  %.0 = phi i32 [ -1, %3 ], [ %16, %_ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit.thread16 ], [ %16, %_ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode.exit ], [ -1, %12 ], [ -1, %28 ]
   ret i32 %.0
 }
 
@@ -1640,7 +1640,7 @@ define dso_local noundef range(i32 -2147483648, 268435456) i32 @_ZNK7SRBRoot9mak
   br label %22
 
 22:                                               ; preds = %21, %11, %15, %2
-  %.0 = phi i32 [ 0, %2 ], [ %5, %11 ], [ -1, %21 ], [ %19, %15 ]
+  %.0 = phi i32 [ 0, %2 ], [ -1, %21 ], [ %5, %11 ], [ %19, %15 ]
   ret i32 %.0
 }
 
@@ -1965,7 +1965,7 @@ _ZNK7SRBRoot6mapKeyEi.exit.thread:                ; preds = %6, %_ZNK7SRBRoot6ma
   br label %_ZNK7SRBRoot9makeRes16Ej.exit
 
 _ZNK7SRBRoot9makeRes16Ej.exit:                    ; preds = %53, %63, %67, %73
-  %.0.i = phi i32 [ 0, %53 ], [ %57, %63 ], [ -1, %73 ], [ %71, %67 ]
+  %.0.i = phi i32 [ 0, %53 ], [ -1, %73 ], [ %57, %63 ], [ %71, %67 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.0.i, ptr %74, align 8, !tbaa !21
   ret void
@@ -2440,7 +2440,7 @@ define dso_local void @_ZN18StringBaseResource11handleWriteEP14UNewDataMemoryPj(
   br label %_ZNK18StringBaseResource9getBufferEv.exit
 
 _ZNK18StringBaseResource9getBufferEv.exit:        ; preds = %3, %16, %18
-  %.0.i.i = phi ptr [ %20, %18 ], [ %17, %16 ], [ null, %3 ]
+  %.0.i.i = phi ptr [ %17, %16 ], [ %20, %18 ], [ null, %3 ]
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i.i) #34, !srcloc !94
   %21 = add nsw i32 %11, 1
   tail call void @udata_writeUString(ptr noundef %1, ptr noundef %.0.i.i, i32 noundef %21)
@@ -3383,7 +3383,7 @@ _ZN9SResource8preWriteEPj.exit:                   ; preds = %113, %126
   br label %278
 
 278:                                              ; preds = %275, %273, %267
-  %.0.i = phi ptr [ %277, %275 ], [ %274, %273 ], [ null, %267 ]
+  %.0.i = phi ptr [ %274, %273 ], [ %277, %275 ], [ null, %267 ]
   %279 = load i16, ptr %100, align 8, !tbaa !4
   %280 = icmp slt i16 %279, 0
   %281 = ashr i16 %279, 5
@@ -3467,7 +3467,7 @@ _ZN9SResource8preWriteEPj.exit:                   ; preds = %113, %126
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit154
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit154:   ; preds = %.thread158, %324, %326
-  %.0.i152 = phi ptr [ %328, %326 ], [ %325, %324 ], [ null, %.thread158 ]
+  %.0.i152 = phi ptr [ %325, %324 ], [ %328, %326 ], [ null, %.thread158 ]
   %329 = icmp slt i16 %320, 0
   %330 = ashr i16 %320, 5
   %331 = sext i16 %330 to i32
@@ -3765,7 +3765,7 @@ _ZNKSt3setIiSt4lessIiESaIiEE5countERKi.exit:      ; preds = %_ZNKSt8_Rb_treeIiiS
   %.not181 = icmp sgt i32 %105, %97
   br i1 %.not181, label %.preheader188, label %109
 
-.preheader188:                                    ; preds = %99, %_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPKSt13_Rb_tree_nodeIiEPKSt18_Rb_tree_node_baseRKi.exit.i.i, %_ZNKSt3setIiSt4lessIiESaIiEE5countERKi.exit
+.preheader188:                                    ; preds = %_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPKSt13_Rb_tree_nodeIiEPKSt18_Rb_tree_node_baseRKi.exit.i.i, %99, %_ZNKSt3setIiSt4lessIiESaIiEE5countERKi.exit
   %106 = load i8, ptr %.2135200, align 1, !tbaa !4
   %.not173193 = icmp eq i8 %106, 0
   br i1 %.not173193, label %._crit_edge196, label %.lr.ph195
@@ -4055,7 +4055,7 @@ _ZNK7SRBRoot12getKeyStringEi.exit:                ; preds = %139, %.lr.ph223
   br i1 %exitcond275.not, label %.critedge176, label %.lr.ph236, !llvm.loop !145
 
 .critedge176:                                     ; preds = %203, %.critedge4, %193, %.critedge4.preheader
-  %.0129 = phi i32 [ %194, %193 ], [ %194, %.critedge4.preheader ], [ %.2, %.critedge4 ], [ %194, %203 ]
+  %.0129 = phi i32 [ %194, %.critedge4.preheader ], [ %194, %193 ], [ %.2, %.critedge4 ], [ %194, %203 ]
   store i32 %.0129, ptr %117, align 4, !tbaa !24
   invoke void @uprv_sortArray_77(ptr noundef nonnull %56, i32 noundef %45, i32 noundef 8, ptr noundef nonnull @_ZL16compareKeyOldposPKvS0_S0_, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %1)
           to label %220 unwind label %224
@@ -4075,7 +4075,7 @@ _ZNK7SRBRoot12getKeyStringEi.exit:                ; preds = %139, %.lr.ph223
   br label %_ZNSt14_Function_baseD2Ev.exit178
 
 226:                                              ; preds = %220, %223, %190, %127
-  %.0 = phi ptr [ %56, %127 ], [ %56, %190 ], [ null, %223 ], [ %56, %220 ]
+  %.0 = phi ptr [ %56, %190 ], [ %56, %127 ], [ null, %223 ], [ %56, %220 ]
   invoke void @uprv_free_77(ptr noundef %.0)
           to label %227 unwind label %51
 
@@ -4096,7 +4096,7 @@ _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %227
   ret void
 
 _ZNSt14_Function_baseD2Ev.exit178:                ; preds = %34, %31, %51, %224
-  %.pn.pn = phi { ptr, i32 } [ %225, %224 ], [ %32, %34 ], [ %52, %51 ], [ %32, %31 ]
+  %.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %225, %224 ], [ %32, %31 ], [ %32, %34 ]
   call void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
@@ -4160,7 +4160,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL11string_comp8UElementS_(p
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %7, %12, %29
-  %.0.i = phi i1 [ %11, %7 ], [ %36, %29 ], [ false, %12 ]
+  %.0.i = phi i1 [ %11, %7 ], [ false, %12 ], [ %36, %29 ]
   %37 = zext i1 %.0.i to i8
   ret i8 %37
 }
@@ -4754,7 +4754,7 @@ _ZN6icu_7710LocalArrayIP14StringResourceED2Ev.exit: ; preds = %266, %303, %.crit
   ret void
 
 _ZN6icu_7710LocalArrayIP14StringResourceED2Ev.exit167: ; preds = %233, %264, %262, %186, %194, %89, %25, %16
-  %.pn164 = phi { ptr, i32 } [ %26, %25 ], [ %17, %16 ], [ %263, %262 ], [ %195, %194 ], [ %90, %89 ], [ %187, %186 ], [ %234, %233 ], [ %265, %264 ]
+  %.pn164 = phi { ptr, i32 } [ %26, %25 ], [ %17, %16 ], [ %90, %89 ], [ %187, %186 ], [ %195, %194 ], [ %234, %233 ], [ %265, %264 ], [ %263, %262 ]
   call void @_ZdaPv(ptr noundef nonnull %13) #35
   resume { ptr, i32 } %.pn164
 }
@@ -5297,8 +5297,8 @@ _ZN13TableResourceC2EP7SRBRootPKcPK7UStringR10UErrorCode.exit: ; preds = %.noexc
   br label %79
 
 79:                                               ; preds = %78, %73
-  %80 = phi i32 [ %.pre, %73 ], [ %75, %78 ]
-  %81 = phi i32 [ 36, %73 ], [ 28, %78 ]
+  %80 = phi i32 [ %75, %78 ], [ %.pre, %73 ]
+  %81 = phi i32 [ 28, %78 ], [ 36, %73 ]
   store i32 %81, ptr %10, align 8, !tbaa !101
   %82 = zext nneg i32 %81 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %63, i8 0, i64 %82, i1 false)
@@ -5554,7 +5554,7 @@ define dso_local noundef i32 @_ZN7SRBRoot11addKeyBytesEPKciR10UErrorCode(ptr nou
   br label %34
 
 34:                                               ; preds = %13, %4, %29, %28, %12
-  %.0 = phi i32 [ %16, %29 ], [ -1, %12 ], [ -1, %4 ], [ -1, %28 ], [ %16, %13 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %28 ], [ %16, %29 ], [ -1, %4 ], [ %16, %13 ]
   ret i32 %.0
 }
 
@@ -5657,7 +5657,7 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %2
   unreachable
 
 common.resume:                                    ; preds = %44, %41, %22, %25
-  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %23, %25 ], [ %42, %41 ], [ %42, %44 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %25 ], [ %23, %22 ], [ %42, %41 ], [ %42, %44 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFviEEC2ERKS1_.exit:                ; preds = %15, %19
@@ -5965,7 +5965,7 @@ define internal noundef i32 @_ZL21compareStringSuffixesPKvS0_S0_(ptr readnone ca
   br label %_ZNK18StringBaseResource9getBufferEv.exit
 
 _ZNK18StringBaseResource9getBufferEv.exit:        ; preds = %3, %11, %13
-  %.0.i.i = phi ptr [ %15, %13 ], [ %12, %11 ], [ null, %3 ]
+  %.0.i.i = phi ptr [ %12, %11 ], [ %15, %13 ], [ null, %3 ]
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i.i) #34, !srcloc !94
   %16 = load i16, ptr %6, align 8, !tbaa !4
   %17 = icmp slt i16 %16, 0
@@ -5997,7 +5997,7 @@ _ZNK18StringBaseResource9getBufferEv.exit:        ; preds = %3, %11, %13
   br label %_ZNK18StringBaseResource9getBufferEv.exit24
 
 _ZNK18StringBaseResource9getBufferEv.exit24:      ; preds = %_ZNK18StringBaseResource9getBufferEv.exit, %30, %32
-  %.0.i.i22 = phi ptr [ %34, %32 ], [ %31, %30 ], [ null, %_ZNK18StringBaseResource9getBufferEv.exit ]
+  %.0.i.i22 = phi ptr [ %31, %30 ], [ %34, %32 ], [ null, %_ZNK18StringBaseResource9getBufferEv.exit ]
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i.i22) #34, !srcloc !94
   %35 = load i16, ptr %25, align 8, !tbaa !4
   %36 = icmp slt i16 %35, 0
@@ -6560,7 +6560,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %15, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i: ; preds = %19, %select.unfold.i.i.i.i.i
-  %23 = phi i1 [ %22, %19 ], [ true, %select.unfold.i.i.i.i.i ]
+  %23 = phi i1 [ true, %select.unfold.i.i.i.i.i ], [ %22, %19 ]
   %24 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #36
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i32 %.val2, ptr %25, align 4, !tbaa !7

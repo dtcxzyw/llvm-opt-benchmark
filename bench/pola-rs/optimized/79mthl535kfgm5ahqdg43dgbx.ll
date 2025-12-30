@@ -3443,7 +3443,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h3cf387b561b88e5cE"
   br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h2029c0d5c041957cE.exit": ; preds = %4, %._crit_edge.i
-  %storemerge = phi i64 [ %1, %4 ], [ %23, %._crit_edge.i ]
+  %storemerge = phi i64 [ %23, %._crit_edge.i ], [ %1, %4 ]
   store i64 %storemerge, ptr %5, align 8
   ret void
 }
@@ -4969,7 +4969,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   br label %.loopexit.us.i
 
 .loopexit.us.i:                                   ; preds = %44, %._crit_edge.i.i.i.us.i, %43
-  %.sroa.3.0.i.ph.i.us.i = phi i64 [ %54, %._crit_edge.i.i.i.us.i ], [ 1, %43 ], [ 1, %44 ]
+  %.sroa.3.0.i.ph.i.us.i = phi i64 [ 1, %43 ], [ %54, %._crit_edge.i.i.i.us.i ], [ 1, %44 ]
   %55 = load i64, ptr %.val.i.i, align 8, !noalias !980, !noundef !3
   %56 = add i64 %55, %.sroa.3.0.i.ph.i.us.i
   store i64 %56, ptr %.val.i.i, align 8, !noalias !980
@@ -5934,7 +5934,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   br label %48
 
 48:                                               ; preds = %.split.i.i.i.us.i, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.i.i.us.i"
-  %.sroa.3.0.i.ph.i.us.i = phi i64 [ %47, %.split.i.i.i.us.i ], [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.i.i.us.i" ]
+  %.sroa.3.0.i.ph.i.us.i = phi i64 [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.i.i.us.i" ], [ %47, %.split.i.i.i.us.i ]
   %49 = load i64, ptr %.val.i.i, align 8, !noalias !1245, !noundef !3
   %50 = add i64 %49, %.sroa.3.0.i.ph.i.us.i
   store i64 %50, ptr %.val.i.i, align 8, !noalias !1245
@@ -6254,7 +6254,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   br label %.loopexit.us.i
 
 .loopexit.us.i:                                   ; preds = %46, %._crit_edge.i.i.i.us.i, %45
-  %.sroa.3.0.i.ph.i.us.i = phi i64 [ %56, %._crit_edge.i.i.i.us.i ], [ 1, %45 ], [ 1, %46 ]
+  %.sroa.3.0.i.ph.i.us.i = phi i64 [ 1, %45 ], [ %56, %._crit_edge.i.i.i.us.i ], [ 1, %46 ]
   %57 = load i64, ptr %.val.i.i, align 8, !noalias !1332, !noundef !3
   %58 = add i64 %57, %.sroa.3.0.i.ph.i.us.i
   store i64 %58, ptr %.val.i.i, align 8, !noalias !1332
@@ -6553,7 +6553,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   br label %44
 
 44:                                               ; preds = %.split.i.i.i.i, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i.i.i"
-  %.sroa.3.0.i.ph.i.i = phi i64 [ %43, %.split.i.i.i.i ], [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i.i.i" ]
+  %.sroa.3.0.i.ph.i.i = phi i64 [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i.i.i" ], [ %43, %.split.i.i.i.i ]
   %45 = load i64, ptr %.val.i.i, align 8, !noalias !1407, !noundef !3
   %46 = add i64 %45, %.sroa.3.0.i.ph.i.i
   store i64 %46, ptr %.val.i.i, align 8, !noalias !1407
@@ -7191,7 +7191,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   br label %49
 
 49:                                               ; preds = %.split.i.i.i.us.i, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.i.i.us.i"
-  %.sroa.3.0.i.ph.i.us.i = phi i64 [ %48, %.split.i.i.i.us.i ], [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.i.i.us.i" ]
+  %.sroa.3.0.i.ph.i.us.i = phi i64 [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.i.i.us.i" ], [ %48, %.split.i.i.i.us.i ]
   %50 = load i64, ptr %.val.i.i, align 8, !noalias !1569, !noundef !3
   %51 = add i64 %50, %.sroa.3.0.i.ph.i.us.i
   store i64 %51, ptr %.val.i.i, align 8, !noalias !1569

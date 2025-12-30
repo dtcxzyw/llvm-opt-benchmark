@@ -381,7 +381,7 @@ if.else251:                                       ; preds = %if.end237
   br label %if.end258
 
 if.end258:                                        ; preds = %if.else251, %if.then239
-  %body.sroa.0.0 = phi ptr [ %32, %if.else251 ], [ %call242, %if.then239 ]
+  %body.sroa.0.0 = phi ptr [ %call242, %if.then239 ], [ %32, %if.else251 ]
   %cmp.i = icmp eq ptr %prepend.sroa.0.0, null
   br i1 %cmp.i, label %return, label %if.else264
 
@@ -400,7 +400,7 @@ do.end298:                                        ; preds = %entry, %entry, %ent
   br label %return
 
 return:                                           ; preds = %if.end258.thread, %if.end258, %if.then239, %if.then65, %do.end298, %if.else264
-  %retval.sroa.0.0 = phi ptr [ %call300, %do.end298 ], [ null, %if.then239 ], [ %call274, %if.else264 ], [ null, %if.then65 ], [ %body.sroa.0.0, %if.end258 ], [ %ref.tmp91.sroa.0.0, %if.end258.thread ]
+  %retval.sroa.0.0 = phi ptr [ %call274, %if.else264 ], [ %call300, %do.end298 ], [ null, %if.then65 ], [ null, %if.then239 ], [ %body.sroa.0.0, %if.end258 ], [ %ref.tmp91.sroa.0.0, %if.end258.thread ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -455,7 +455,7 @@ return.sink.split:                                ; preds = %do.body, %if.then5
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.else17, %if.then
-  %retval.sroa.0.0 = phi ptr [ %call18, %if.else17 ], [ %call, %if.then ], [ null, %return.sink.split ]
+  %retval.sroa.0.0 = phi ptr [ %call, %if.then ], [ %call18, %if.else17 ], [ null, %return.sink.split ]
   ret ptr %retval.sroa.0.0
 }
 

@@ -374,9 +374,9 @@ _ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescri
   %.237 = select i1 %or.cond, i32 %102, i32 %.03567
   br label %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread
 
-_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread: ; preds = %.noexc58, %._crit_edge.i57, %73, %56, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit
-  %.143 = phi ptr [ %.244, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit ], [ %.04266, %56 ], [ %.04266, %73 ], [ %.04266, %._crit_edge.i57 ], [ %.04266, %.noexc58 ]
-  %.136 = phi i32 [ %.237, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit ], [ %.03567, %56 ], [ %.03567, %73 ], [ %.03567, %._crit_edge.i57 ], [ %.03567, %.noexc58 ]
+_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread: ; preds = %73, %56, %.noexc58, %._crit_edge.i57, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit
+  %.143 = phi ptr [ %.244, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit ], [ %.04266, %._crit_edge.i57 ], [ %.04266, %.noexc58 ], [ %.04266, %56 ], [ %.04266, %73 ]
+  %.136 = phi i32 [ %.237, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit ], [ %.03567, %._crit_edge.i57 ], [ %.03567, %.noexc58 ], [ %.03567, %56 ], [ %.03567, %73 ]
   %104 = add nuw i64 %.03468, 1
   %105 = load ptr, ptr %4, align 8
   %106 = load ptr, ptr %3, align 8
@@ -441,7 +441,7 @@ _ZNSt6vectorIN3ue222TeddyEngineDescriptionESaIS1_EED2Ev.exit: ; preds = %_ZSt8_D
   ret void
 
 125:                                              ; preds = %51, %88, %118, %49
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %52, %51 ], [ %119, %118 ], [ %89, %88 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %52, %51 ], [ %89, %88 ], [ %119, %118 ]
   call void @_ZNSt6vectorIN3ue222TeddyEngineDescriptionESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn.pn

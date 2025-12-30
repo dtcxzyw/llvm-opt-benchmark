@@ -712,7 +712,7 @@ switch.lookup:                                    ; preds = %switch.early.test
   br label %switch.edge
 
 switch.edge:                                      ; preds = %switch.early.test, %switch.lookup, %8, %4
-  %.0 = phi i1 [ %7, %4 ], [ %switch.masked, %switch.lookup ], [ true, %8 ], [ false, %switch.early.test ]
+  %.0 = phi i1 [ %7, %4 ], [ true, %8 ], [ %switch.masked, %switch.lookup ], [ false, %switch.early.test ]
   ret i1 %.0
 }
 
@@ -726,7 +726,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9MCAsmInfo19isValidUnquotedNameENS
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.01216 = phi ptr [ %11, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.01216 = phi ptr [ %1, %.lr.ph.preheader ], [ %11, %.lr.ph ]
   %6 = load i8, ptr %.01216, align 1, !tbaa !147
   %7 = load ptr, ptr %0, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -772,7 +772,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit15.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit11, %3, %_ZN4llvmeqENS_9StringRefES0_.exit15, %_ZN4llvmeqENS_9StringRefES0_.exit15.thread, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %11 = phi i1 [ %5, %_ZN4llvmeqENS_9StringRefES0_.exit11 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit15 ], [ %10, %_ZN4llvmeqENS_9StringRefES0_.exit15.thread ], [ false, %3 ]
+  %11 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit15 ], [ %10, %_ZN4llvmeqENS_9StringRefES0_.exit15.thread ], [ false, %3 ], [ %5, %_ZN4llvmeqENS_9StringRefES0_.exit11 ]
   ret i1 %11
 }
 

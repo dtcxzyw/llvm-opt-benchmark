@@ -108,7 +108,7 @@ define dso_local noundef ptr @ExecInitLockRows(ptr noundef %0, ptr noundef %1, i
   br label %53
 
 53:                                               ; preds = %48, %51, %.lr.ph51, %35
-  %.1 = phi ptr [ %.04549, %.lr.ph51 ], [ %.04549, %35 ], [ %.04549, %48 ], [ %52, %51 ]
+  %.1 = phi ptr [ %.04549, %35 ], [ %.04549, %.lr.ph51 ], [ %.04549, %48 ], [ %52, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load i32, ptr %20, align 4
   %55 = sext i32 %54 to i64
@@ -423,8 +423,8 @@ switch.lookup:                                    ; preds = %123
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread98
 
-.thread98:                                        ; preds = %142, %76, %168
-  %.2101 = phi i1 [ %spec.select, %168 ], [ %spec.select89, %142 ], [ %.067131211, %76 ]
+.thread98:                                        ; preds = %76, %142, %168
+  %.2101 = phi i1 [ %spec.select, %168 ], [ %.067131211, %76 ], [ %spec.select89, %142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv210, 1

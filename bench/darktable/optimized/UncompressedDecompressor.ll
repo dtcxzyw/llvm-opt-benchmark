@@ -2084,8 +2084,8 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   br label %_ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary16ENS1_8Binary32EEEjj.exit.us
 
 _ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary16ENS1_8Binary32EEEjj.exit.us: ; preds = %._crit_edge.i.us, %104, %101, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us
-  %.015.i.us = phi i32 [ %102, %101 ], [ 255, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us ], [ %106, %._crit_edge.i.us ], [ 0, %104 ]
-  %.0.i.us = phi i32 [ %99, %101 ], [ %99, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us ], [ %108, %._crit_edge.i.us ], [ 0, %104 ]
+  %.015.i.us = phi i32 [ %106, %._crit_edge.i.us ], [ %102, %101 ], [ 255, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us ], [ 0, %104 ]
+  %.0.i.us = phi i32 [ %108, %._crit_edge.i.us ], [ %99, %101 ], [ %99, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us ], [ 0, %104 ]
   %109 = shl nuw i32 %93, 16
   %110 = and i32 %109, -2147483648
   %111 = shl nuw nsw i32 %.015.i.us, 23
@@ -2328,8 +2328,8 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialR
   br label %_ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary16ENS1_8Binary32EEEjj.exit.us
 
 _ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary16ENS1_8Binary32EEEjj.exit.us: ; preds = %._crit_edge.i.us, %101, %98, %_ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us
-  %.015.i.us = phi i32 [ %99, %98 ], [ 255, %_ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us ], [ %103, %._crit_edge.i.us ], [ 0, %101 ]
-  %.0.i.us = phi i32 [ %96, %98 ], [ %96, %_ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us ], [ %105, %._crit_edge.i.us ], [ 0, %101 ]
+  %.015.i.us = phi i32 [ %103, %._crit_edge.i.us ], [ %99, %98 ], [ 255, %_ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us ], [ 0, %101 ]
+  %.0.i.us = phi i32 [ %105, %._crit_edge.i.us ], [ %96, %98 ], [ %96, %_ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us ], [ 0, %101 ]
   %106 = shl i32 %90, 16
   %107 = and i32 %106, -2147483648
   %108 = shl nuw nsw i32 %.015.i.us, 23
@@ -2575,8 +2575,8 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   br label %_ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary24ENS1_8Binary32EEEjj.exit.us
 
 _ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary24ENS1_8Binary32EEEjj.exit.us: ; preds = %._crit_edge.i.us, %104, %101, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us
-  %.015.i.us = phi i32 [ %102, %101 ], [ 255, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us ], [ %106, %._crit_edge.i.us ], [ 0, %104 ]
-  %.0.i.us = phi i32 [ %99, %101 ], [ %99, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us ], [ %108, %._crit_edge.i.us ], [ 0, %104 ]
+  %.015.i.us = phi i32 [ %106, %._crit_edge.i.us ], [ %102, %101 ], [ 255, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us ], [ 0, %104 ]
+  %.0.i.us = phi i32 [ %108, %._crit_edge.i.us ], [ %99, %101 ], [ %99, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us ], [ 0, %104 ]
   %109 = shl nuw i32 %93, 8
   %110 = and i32 %109, -2147483648
   %111 = shl nuw nsw i32 %.015.i.us, 23
@@ -2819,8 +2819,8 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialR
   br label %_ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary24ENS1_8Binary32EEEjj.exit.us
 
 _ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary24ENS1_8Binary32EEEjj.exit.us: ; preds = %._crit_edge.i.us, %101, %98, %_ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us
-  %.015.i.us = phi i32 [ %99, %98 ], [ 255, %_ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us ], [ %103, %._crit_edge.i.us ], [ 0, %101 ]
-  %.0.i.us = phi i32 [ %96, %98 ], [ %96, %_ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us ], [ %105, %._crit_edge.i.us ], [ 0, %101 ]
+  %.015.i.us = phi i32 [ %103, %._crit_edge.i.us ], [ %99, %98 ], [ 255, %_ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us ], [ 0, %101 ]
+  %.0.i.us = phi i32 [ %105, %._crit_edge.i.us ], [ %96, %98 ], [ %96, %_ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us ], [ 0, %101 ]
   %106 = shl i32 %90, 8
   %107 = and i32 %106, -2147483648
   %108 = shl nuw nsw i32 %.015.i.us, 23

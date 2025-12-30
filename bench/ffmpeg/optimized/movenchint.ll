@@ -682,8 +682,8 @@ describe_payload.exit.i:                          ; preds = %find_sample_match.e
   br label %262
 
 262:                                              ; preds = %describe_payload.exit.i, %96
-  %.2.i = phi i32 [ %127, %describe_payload.exit.i ], [ %.083138.i, %96 ]
-  %.1.i = phi ptr [ %258, %describe_payload.exit.i ], [ %98, %96 ]
+  %.2.i = phi i32 [ %.083138.i, %96 ], [ %127, %describe_payload.exit.i ]
+  %.1.i = phi ptr [ %98, %96 ], [ %258, %describe_payload.exit.i ]
   %.182.i = sub nsw i32 %88, %86
   %263 = icmp sgt i32 %.182.i, 4
   br i1 %263, label %84, label %write_hint_packets.exit
@@ -798,7 +798,7 @@ write_hint_packets.exit:                          ; preds = %84, %262, %73
   br i1 %320, label %292, label %sample_queue_retain.exit
 
 sample_queue_retain.exit:                         ; preds = %319, %286, %19, %6
-  %.0 = phi i32 [ -12, %19 ], [ -2, %6 ], [ %.041, %286 ], [ %.041, %319 ]
+  %.0 = phi i32 [ -2, %6 ], [ -12, %19 ], [ %.041, %286 ], [ %.041, %319 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0

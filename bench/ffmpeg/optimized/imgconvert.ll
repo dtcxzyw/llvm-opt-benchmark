@@ -50,7 +50,7 @@ define i32 @avcodec_find_best_pix_fmt_of_list(ptr noundef readonly captures(none
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge.thread29, %._crit_edge
-  %.0.lcssa28 = phi i32 [ -1, %._crit_edge ], [ %.0.lcssa32, %._crit_edge.thread29 ], [ %8, %.lr.ph.split.us ]
+  %.0.lcssa28 = phi i32 [ %.0.lcssa32, %._crit_edge.thread29 ], [ -1, %._crit_edge ], [ %8, %.lr.ph.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.lcssa28
 }

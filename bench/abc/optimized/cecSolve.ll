@@ -691,7 +691,7 @@ define void @Cec_CollectSuper_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not, label %.lr.ph.split, label %tailrecurse.outer._crit_edge
 
 tailrecurse.outer._crit_edge:                     ; preds = %.lr.ph.split.us, %10, %.split.split.us, %.split13, %.lr.ph.split, %34, %37, %4
-  %.tr.lcssa = phi ptr [ %.tr24, %37 ], [ %0, %4 ], [ %.tr24, %34 ], [ %.tr24, %.lr.ph.split ], [ %57, %.split13 ], [ %.tr.ph45, %10 ], [ %.tr.ph45, %.lr.ph.split.us ], [ %30, %.split.split.us ]
+  %.tr.lcssa = phi ptr [ %0, %4 ], [ %.tr24, %37 ], [ %.tr24, %34 ], [ %.tr24, %.lr.ph.split ], [ %57, %.split13 ], [ %30, %.split.split.us ], [ %.tr.ph45, %10 ], [ %.tr.ph45, %.lr.ph.split.us ]
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %60 = load i32, ptr %59, align 4, !tbaa !51
   %61 = icmp sgt i32 %60, 0
@@ -2426,7 +2426,7 @@ Abc_Clock.exit69:                                 ; preds = %150, %153
   br label %176
 
 176:                                              ; preds = %21, %2, %Abc_Clock.exit69, %Abc_Clock.exit67, %Abc_Clock.exit65
-  %.0 = phi i32 [ -1, %Abc_Clock.exit69 ], [ 1, %2 ], [ 1, %Abc_Clock.exit65 ], [ 0, %Abc_Clock.exit67 ], [ 0, %21 ]
+  %.0 = phi i32 [ 1, %Abc_Clock.exit65 ], [ 0, %Abc_Clock.exit67 ], [ -1, %Abc_Clock.exit69 ], [ 1, %2 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
@@ -2753,7 +2753,7 @@ Abc_Clock.exit90:                                 ; preds = %177, %180
   br label %203
 
 203:                                              ; preds = %34, %3, %Abc_Clock.exit90, %Abc_Clock.exit88, %Abc_Clock.exit86
-  %.0 = phi i32 [ -1, %Abc_Clock.exit90 ], [ 1, %3 ], [ 1, %Abc_Clock.exit86 ], [ 0, %Abc_Clock.exit88 ], [ 0, %34 ]
+  %.0 = phi i32 [ 1, %Abc_Clock.exit86 ], [ 0, %Abc_Clock.exit88 ], [ -1, %Abc_Clock.exit90 ], [ 1, %3 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }

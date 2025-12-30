@@ -149,7 +149,7 @@ define ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %78
 
 78:                                               ; preds = %46, %8, %4, %.thread, %70, %58
-  %.0 = phi ptr [ %71, %.thread ], [ %7, %4 ], [ %11, %8 ], [ null, %58 ], [ null, %70 ], [ null, %46 ]
+  %.0 = phi ptr [ null, %58 ], [ null, %70 ], [ %71, %.thread ], [ %7, %4 ], [ %11, %8 ], [ null, %46 ]
   ret ptr %.0
 }
 
@@ -195,7 +195,7 @@ define ptr @Cudd_addPlus(ptr noundef %0, ptr noundef captures(none) %1, ptr noun
   br label %27
 
 27:                                               ; preds = %24, %26, %9, %3, %17
-  %.0 = phi ptr [ %4, %9 ], [ %5, %3 ], [ %23, %17 ], [ null, %26 ], [ null, %24 ]
+  %.0 = phi ptr [ %23, %17 ], [ %5, %3 ], [ %4, %9 ], [ null, %26 ], [ null, %24 ]
   ret ptr %.0
 }
 
@@ -251,7 +251,7 @@ define ptr @Cudd_addTimes(ptr noundef %0, ptr noundef captures(none) %1, ptr nou
   br label %32
 
 32:                                               ; preds = %3, %29, %31, %14, %10, %22
-  %.0 = phi ptr [ null, %29 ], [ %4, %14 ], [ %5, %10 ], [ %28, %22 ], [ null, %31 ], [ %7, %3 ]
+  %.0 = phi ptr [ %28, %22 ], [ %5, %10 ], [ %4, %14 ], [ null, %31 ], [ null, %29 ], [ %7, %3 ]
   ret ptr %.0
 }
 
@@ -292,7 +292,7 @@ define ptr @Cudd_addThreshold(ptr noundef readonly captures(none) %0, ptr nounde
   br label %26
 
 26:                                               ; preds = %11, %14, %17, %3, %7, %23
-  %.0 = phi ptr [ %4, %17 ], [ %4, %3 ], [ %25, %23 ], [ %4, %7 ], [ null, %14 ], [ null, %11 ]
+  %.0 = phi ptr [ %25, %23 ], [ %4, %7 ], [ %4, %3 ], [ %4, %17 ], [ null, %14 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -320,7 +320,7 @@ define ptr @Cudd_addSetNZ(ptr noundef readonly captures(none) %0, ptr noundef re
   br label %16
 
 16:                                               ; preds = %13, %11, %7, %3
-  %.0 = phi ptr [ %4, %11 ], [ %4, %3 ], [ %5, %7 ], [ %., %13 ]
+  %.0 = phi ptr [ %4, %3 ], [ %5, %7 ], [ %4, %11 ], [ %., %13 ]
   ret ptr %.0
 }
 
@@ -359,7 +359,7 @@ define ptr @Cudd_addDivide(ptr noundef %0, ptr noundef readonly captures(none) %
   br label %26
 
 26:                                               ; preds = %13, %16, %9, %3, %19
-  %.0 = phi ptr [ %4, %9 ], [ %7, %3 ], [ %25, %19 ], [ null, %16 ], [ null, %13 ]
+  %.0 = phi ptr [ %25, %19 ], [ %7, %3 ], [ %4, %9 ], [ null, %16 ], [ null, %13 ]
   ret ptr %.0
 }
 
@@ -404,7 +404,7 @@ define ptr @Cudd_addMinus(ptr noundef %0, ptr noundef readonly captures(none) %1
   br label %28
 
 28:                                               ; preds = %3, %15, %18, %13, %21, %11
-  %.0 = phi ptr [ null, %15 ], [ %12, %11 ], [ %4, %13 ], [ %27, %21 ], [ null, %18 ], [ %8, %3 ]
+  %.0 = phi ptr [ %12, %11 ], [ %27, %21 ], [ %4, %13 ], [ null, %18 ], [ null, %15 ], [ %8, %3 ]
   ret ptr %.0
 }
 
@@ -454,7 +454,7 @@ define ptr @Cudd_addMinimum(ptr noundef readonly captures(none) %0, ptr noundef 
   br label %27
 
 27:                                               ; preds = %24, %26, %18, %9, %3
-  %.0 = phi ptr [ null, %24 ], [ %5, %3 ], [ %4, %9 ], [ %., %18 ], [ null, %26 ]
+  %.0 = phi ptr [ %5, %3 ], [ %4, %9 ], [ %., %18 ], [ null, %26 ], [ null, %24 ]
   ret ptr %.0
 }
 
@@ -504,7 +504,7 @@ define ptr @Cudd_addMaximum(ptr noundef readonly captures(none) %0, ptr noundef 
   br label %28
 
 28:                                               ; preds = %25, %27, %19, %11, %7, %3
-  %.0 = phi ptr [ %4, %11 ], [ %4, %3 ], [ %5, %7 ], [ %., %19 ], [ null, %27 ], [ null, %25 ]
+  %.0 = phi ptr [ %4, %3 ], [ %5, %7 ], [ %4, %11 ], [ %., %19 ], [ null, %27 ], [ null, %25 ]
   ret ptr %.0
 }
 
@@ -541,7 +541,7 @@ define ptr @Cudd_addOneZeroMaximum(ptr noundef readonly captures(none) %0, ptr n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %17, %7, %3
-  %.sink17 = phi i64 [ 48, %7 ], [ %., %17 ], [ 48, %3 ]
+  %.sink17 = phi i64 [ 48, %3 ], [ 48, %7 ], [ %., %17 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
   %24 = load ptr, ptr %23, align 8, !tbaa !26
   br label %25
@@ -592,7 +592,7 @@ define ptr @Cudd_addDiff(ptr noundef readonly captures(none) %0, ptr noundef rea
   br label %27
 
 27:                                               ; preds = %3, %13, %16, %19, %25, %11, %9
-  %.0 = phi ptr [ null, %13 ], [ %8, %19 ], [ %5, %9 ], [ %., %25 ], [ %4, %11 ], [ null, %16 ], [ %8, %3 ]
+  %.0 = phi ptr [ %5, %9 ], [ %4, %11 ], [ %., %25 ], [ %8, %19 ], [ null, %16 ], [ null, %13 ], [ %8, %3 ]
   ret ptr %.0
 }
 
@@ -664,7 +664,7 @@ define ptr @Cudd_addOr(ptr noundef readonly captures(none) %0, ptr noundef captu
   br label %20
 
 20:                                               ; preds = %3, %17, %19, %13, %10
-  %.0 = phi ptr [ null, %19 ], [ null, %17 ], [ %5, %10 ], [ %4, %13 ], [ %7, %3 ]
+  %.0 = phi ptr [ %5, %10 ], [ %4, %13 ], [ null, %19 ], [ null, %17 ], [ %7, %3 ]
   ret ptr %.0
 }
 
@@ -807,7 +807,7 @@ define ptr @Cudd_addXor(ptr noundef readonly captures(none) %0, ptr noundef capt
   br label %36
 
 36:                                               ; preds = %33, %35, %20, %14, %30, %7
-  %.0 = phi ptr [ %9, %7 ], [ %12, %20 ], [ %12, %14 ], [ %32, %30 ], [ null, %35 ], [ null, %33 ]
+  %.0 = phi ptr [ %9, %7 ], [ %32, %30 ], [ %12, %14 ], [ %12, %20 ], [ null, %35 ], [ null, %33 ]
   ret ptr %.0
 }
 
@@ -845,7 +845,7 @@ define ptr @Cudd_addXnor(ptr noundef readonly captures(none) %0, ptr noundef cap
   br label %21
 
 21:                                               ; preds = %13, %18, %20, %7
-  %.0 = phi ptr [ %9, %7 ], [ null, %18 ], [ null, %20 ], [ %15, %13 ]
+  %.0 = phi ptr [ %9, %7 ], [ null, %20 ], [ null, %18 ], [ %15, %13 ]
   ret ptr %.0
 }
 
@@ -935,7 +935,7 @@ define ptr @cuddAddMonadicApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %42
 
 42:                                               ; preds = %7, %5, %3, %.thread, %36, %24
-  %.0 = phi ptr [ %37, %.thread ], [ %4, %3 ], [ %6, %5 ], [ null, %24 ], [ null, %36 ], [ null, %7 ]
+  %.0 = phi ptr [ null, %24 ], [ null, %36 ], [ %37, %.thread ], [ %4, %3 ], [ %6, %5 ], [ null, %7 ]
   ret ptr %.0
 }
 

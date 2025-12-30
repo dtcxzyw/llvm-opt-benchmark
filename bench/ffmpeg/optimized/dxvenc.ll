@@ -115,7 +115,7 @@ define internal range(i32 -2147483648, 1) i32 @dxv_init(ptr noundef %0) #0 {
   br label %47
 
 47:                                               ; preds = %43, %21, %46, %42, %17, %12
-  %.0 = phi i32 [ %9, %12 ], [ -1094995529, %17 ], [ -12, %21 ], [ -558323010, %46 ], [ -1094995529, %42 ], [ 0, %43 ]
+  %.0 = phi i32 [ %9, %12 ], [ -1094995529, %17 ], [ -558323010, %46 ], [ -1094995529, %42 ], [ -12, %21 ], [ 0, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -324,7 +324,7 @@ bytestream2_skip_p.exit:                          ; preds = %bytestream2_put_byt
   br label %116
 
 116:                                              ; preds = %bytestream2_skip_p.exit, %17, %4, %100
-  %.0 = phi i32 [ %15, %4 ], [ -1094995529, %17 ], [ 0, %100 ], [ %98, %bytestream2_skip_p.exit ]
+  %.0 = phi i32 [ 0, %100 ], [ %15, %4 ], [ -1094995529, %17 ], [ %98, %bytestream2_skip_p.exit ]
   ret i32 %.0
 }
 
@@ -427,7 +427,7 @@ bytestream2_put_le32.exit:                        ; preds = %26
   br label %bytestream2_put_le32.exit142
 
 bytestream2_put_le32.exit.thread:                 ; preds = %26, %ht_init.exit165, %39, %bytestream2_put_le32.exit
-  %48 = phi ptr [ %36, %bytestream2_put_le32.exit ], [ %36, %39 ], [ %22, %ht_init.exit165 ], [ %22, %26 ]
+  %48 = phi ptr [ %36, %39 ], [ %36, %bytestream2_put_le32.exit ], [ %22, %ht_init.exit165 ], [ %22, %26 ]
   store i32 1, ptr %24, align 8, !tbaa !56
   br label %bytestream2_put_le32.exit142
 
@@ -919,7 +919,7 @@ bytestream2_put_le32.exit144:                     ; preds = %230, %227, %214
   br label %bytestream2_put_le16.exit
 
 bytestream2_put_le16.exit:                        ; preds = %265, %260, %247, %242, %266
-  %.0119 = phi i32 [ %., %266 ], [ 3, %247 ], [ 3, %242 ], [ 2, %260 ], [ 2, %265 ]
+  %.0119 = phi i32 [ %., %266 ], [ 3, %242 ], [ 3, %247 ], [ 2, %260 ], [ 2, %265 ]
   %268 = load i32, ptr %.1, align 1, !tbaa !44
   %269 = shl nuw nsw i32 %.1124, 1
   %270 = shl nuw i32 %.0119, %269
@@ -1028,7 +1028,7 @@ bytestream2_put_le32.exit146:                     ; preds = %289, %286, %273
   br label %bytestream2_put_le16.exit155.thread
 
 bytestream2_put_le16.exit155.thread:              ; preds = %324, %319, %306, %301
-  %.1120.ph = phi i32 [ 2, %324 ], [ 2, %319 ], [ 3, %301 ], [ 3, %306 ]
+  %.1120.ph = phi i32 [ 2, %324 ], [ 2, %319 ], [ 3, %306 ], [ 3, %301 ]
   %325 = load i32, ptr %.3, align 1, !tbaa !44
   %326 = shl nuw nsw i32 %.3126, 1
   %327 = shl nuw i32 %.1120.ph, %326
@@ -1176,7 +1176,7 @@ bytestream2_put_le32.exit150:                     ; preds = %363, %360, %bytestr
   br label %bytestream2_put_le16.exit157
 
 bytestream2_put_le16.exit157:                     ; preds = %398, %393, %380, %375, %399
-  %.2121 = phi i32 [ %.140, %399 ], [ 3, %380 ], [ 3, %375 ], [ 2, %393 ], [ 2, %398 ]
+  %.2121 = phi i32 [ %.140, %399 ], [ 3, %375 ], [ 3, %380 ], [ 2, %393 ], [ 2, %398 ]
   %401 = load i32, ptr %.4, align 1, !tbaa !44
   %402 = shl nuw nsw i32 %.4127, 1
   %403 = shl nuw i32 %.2121, %402
@@ -1222,7 +1222,7 @@ bytestream2_put_le32.exit152:                     ; preds = %418, %415, %bytestr
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %216, %275, %349, %bytestream2_put_le32.exit152, %ht_lookup_and_upsert.exit175
-  %.0 = phi i32 [ 0, %ht_lookup_and_upsert.exit175 ], [ 0, %bytestream2_put_le32.exit152 ], [ -1094995529, %275 ], [ -1094995529, %349 ], [ -1094995529, %216 ]
+  %.0 = phi i32 [ 0, %ht_lookup_and_upsert.exit175 ], [ 0, %bytestream2_put_le32.exit152 ], [ -1094995529, %349 ], [ -1094995529, %275 ], [ -1094995529, %216 ]
   ret i32 %.0
 }
 

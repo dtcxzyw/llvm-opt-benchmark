@@ -438,8 +438,8 @@ _ZN4llvm9StringRefC2EPKc.exit132:                 ; preds = %207
 224:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit132
   unreachable
 
-225:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit132, %223, %219, %220, %221, %222
-  %.0.i.ph = phi i16 [ 22, %222 ], [ 27, %221 ], [ 26, %220 ], [ 25, %219 ], [ 23, %223 ], [ 24, %_ZN4llvm9StringRefC2EPKc.exit132 ]
+225:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit132, %219, %220, %221, %222, %223
+  %.0.i.ph = phi i16 [ 23, %223 ], [ 22, %222 ], [ 27, %221 ], [ 26, %220 ], [ 25, %219 ], [ 24, %_ZN4llvm9StringRefC2EPKc.exit132 ]
   %226 = load ptr, ptr %211, align 8, !tbaa !44
   %227 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %216, i16 noundef zeroext %.0.i.ph, ptr noundef nonnull align 8 dereferenceable(2432) %226, ptr null) #10
   br label %236
@@ -458,7 +458,7 @@ _ZL10getVariantm.exit:                            ; preds = %_ZN4llvm9StringRefC
   br label %236
 
 236:                                              ; preds = %225, %_ZL10getVariantm.exit, %230, %_ZN4llvm11raw_ostreamlsEPKc.exit121
-  %.092 = phi ptr [ null, %_ZN4llvm11raw_ostreamlsEPKc.exit121 ], [ %235, %230 ], [ %227, %225 ], [ %229, %_ZL10getVariantm.exit ]
+  %.092 = phi ptr [ %235, %230 ], [ null, %_ZN4llvm11raw_ostreamlsEPKc.exit121 ], [ %227, %225 ], [ %229, %_ZL10getVariantm.exit ]
   %237 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %238 = load i64, ptr %237, align 8, !tbaa !233
   %.not110 = icmp eq i64 %238, 0
@@ -561,7 +561,7 @@ _ZN4llvm9StringRefC2EPKc.exit134:                 ; preds = %239
   br label %287
 
 287:                                              ; preds = %282, %277, %272, %271, %278, %283
-  %.190 = phi ptr [ %286, %283 ], [ %281, %278 ], [ %.088, %271 ], [ %.092, %277 ], [ %275, %272 ], [ %.091, %282 ]
+  %.190 = phi ptr [ %281, %278 ], [ %286, %283 ], [ %275, %272 ], [ %.088, %271 ], [ %.092, %277 ], [ %.091, %282 ]
   %.fca.1.load.cast.i = ptrtoint ptr %.190 to i64
   %288 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %289 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -593,7 +593,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %287, %293
   br label %303
 
 303:                                              ; preds = %97, %173, %185, %194, %202, %198, %190, %_ZN4llvm9StringRefC2EPKc.exit, %171, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
-  %.1 = phi i1 [ true, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit ], [ false, %173 ], [ false, %171 ], [ false, %_ZN4llvm9StringRefC2EPKc.exit ], [ false, %190 ], [ false, %198 ], [ false, %202 ], [ false, %194 ], [ false, %185 ], [ false, %97 ]
+  %.1 = phi i1 [ true, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit ], [ false, %171 ], [ false, %_ZN4llvm9StringRefC2EPKc.exit ], [ false, %190 ], [ false, %198 ], [ false, %202 ], [ false, %194 ], [ false, %185 ], [ false, %173 ], [ false, %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

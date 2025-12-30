@@ -542,7 +542,7 @@ _ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeInternalNodeEjj.exit53: ; preds
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %_ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeInternalNodeEjj.exit53, %_ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeInternalNodeEjj.exit
-  %.135 = phi ptr [ %.0.i.i.i.i.i.i49, %_ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeInternalNodeEjj.exit53 ], [ null, %_ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeInternalNodeEjj.exit ], [ %.135.ph, %.thread.sink.split ]
+  %.135 = phi ptr [ null, %_ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeInternalNodeEjj.exit ], [ %.0.i.i.i.i.i.i49, %_ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeInternalNodeEjj.exit53 ], [ %.135.ph, %.thread.sink.split ]
   %181 = add i32 %.070, -1
   %182 = load ptr, ptr %8, align 8, !tbaa !59
   %183 = call noundef zeroext i1 @_ZNK4llvm22SuffixTreeInternalNode6isRootEv(ptr noundef nonnull align 8 dereferenceable(64) %182) #12
@@ -568,8 +568,8 @@ _ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeInternalNodeEjj.exit53: ; preds
   br label %193
 
 193:                                              ; preds = %90, %190, %186, %184
-  %.5 = phi ptr [ %.135, %190 ], [ %.135, %184 ], [ %.135, %186 ], [ %.03469, %90 ]
-  %.2 = phi i32 [ %181, %190 ], [ %181, %184 ], [ %181, %186 ], [ %.070, %90 ]
+  %.5 = phi ptr [ %.135, %184 ], [ %.135, %186 ], [ %.135, %190 ], [ %.03469, %90 ]
+  %.2 = phi i32 [ %181, %184 ], [ %181, %186 ], [ %181, %190 ], [ %.070, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not = icmp eq i32 %.2, 0
   br i1 %.not, label %.loopexit63, label %20
@@ -1059,7 +1059,7 @@ _ZNSt6vectorIPN4llvm18SuffixTreeLeafNodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN
   br label %_ZNSt6vectorIPN4llvm18SuffixTreeLeafNodeESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPN4llvm18SuffixTreeLeafNodeESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPN4llvm18SuffixTreeLeafNodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %123, %115, %._crit_edge, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E5beginEv.exit
-  %.1 = phi i32 [ %.047, %115 ], [ %.047, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E5beginEv.exit ], [ %.047, %._crit_edge ], [ %120, %123 ], [ %120, %_ZNSt6vectorIPN4llvm18SuffixTreeLeafNodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
+  %.1 = phi i32 [ %.047, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E5beginEv.exit ], [ %.047, %._crit_edge ], [ %.047, %115 ], [ %120, %123 ], [ %120, %_ZNSt6vectorIPN4llvm18SuffixTreeLeafNodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pr = load i32, ptr %5, align 8, !tbaa !38
   %.not.i = icmp eq i32 %.pr, 0

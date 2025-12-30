@@ -740,7 +740,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef readonl
   unreachable
 
 make_horizontal_map.exit:                         ; preds = %362, %254, %183, %257, %186, %115, %108, %35, %21, %14
-  %.0 = phi i32 [ -558323010, %14 ], [ -12, %108 ], [ -12, %35 ], [ %33, %21 ], [ 0, %254 ], [ 0, %183 ], [ 0, %115 ], [ 0, %186 ], [ 0, %257 ], [ 0, %362 ]
+  %.0 = phi i32 [ -558323010, %14 ], [ %33, %21 ], [ -12, %35 ], [ -12, %108 ], [ 0, %115 ], [ 0, %186 ], [ 0, %257 ], [ 0, %183 ], [ 0, %254 ], [ 0, %362 ]
   ret i32 %.0
 }
 
@@ -831,7 +831,7 @@ define internal noundef i32 @shuffle_horizontal8(ptr noundef readonly captures(n
   br label %._crit_edge52
 
 ._crit_edge52:                                    ; preds = %.preheader.lr.ph, %._crit_edge52.loopexit, %19
-  %50 = phi i32 [ %20, %19 ], [ %.pre63, %._crit_edge52.loopexit ], [ %20, %.preheader.lr.ph ]
+  %50 = phi i32 [ %.pre63, %._crit_edge52.loopexit ], [ %20, %19 ], [ %20, %.preheader.lr.ph ]
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next60, %51
@@ -1213,7 +1213,7 @@ define internal noundef i32 @shuffle_block8(ptr noundef readonly captures(none) 
   br label %._crit_edge63
 
 ._crit_edge63:                                    ; preds = %.preheader.lr.ph, %._crit_edge63.loopexit, %19
-  %48 = phi i32 [ %20, %19 ], [ %.pre74, %._crit_edge63.loopexit ], [ %20, %.preheader.lr.ph ]
+  %48 = phi i32 [ %.pre74, %._crit_edge63.loopexit ], [ %20, %19 ], [ %20, %.preheader.lr.ph ]
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next72, %49

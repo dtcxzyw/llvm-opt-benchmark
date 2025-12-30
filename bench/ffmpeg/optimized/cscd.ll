@@ -275,7 +275,7 @@ copy_frame_default.exit:                          ; preds = %93, %73, %100
   br label %112
 
 112:                                              ; preds = %copy_frame_default.exit, %.critedge68, %.critedge, %30, %66, %29
-  %.052 = phi i32 [ -1094995529, %29 ], [ -1094995529, %.critedge68 ], [ -1094995529, %66 ], [ %., %copy_frame_default.exit ], [ %32, %30 ], [ -1094995529, %.critedge ]
+  %.052 = phi i32 [ -1094995529, %29 ], [ -1094995529, %66 ], [ %32, %30 ], [ -1094995529, %.critedge ], [ -1094995529, %.critedge68 ], [ %., %copy_frame_default.exit ]
   ret i32 %.052
 }
 

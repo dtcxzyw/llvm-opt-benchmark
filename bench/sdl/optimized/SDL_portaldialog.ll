@@ -719,7 +719,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr noundef %0, ptr noun
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %1, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50) #5
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %133, label %17
+  br i1 %.not, label %132, label %17
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 184
@@ -728,7 +728,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr noundef %0, ptr noun
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 %19(ptr noundef %1, ptr noundef %21) #5
   %.not95 = icmp eq i32 %22, 0
-  br i1 %.not95, label %133, label %23
+  br i1 %.not95, label %132, label %23
 
 23:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -861,13 +861,13 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr noundef %0, ptr noun
   call void %81(ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   %82 = call noalias ptr @SDL_malloc_REAL(i64 noundef 16) #5
   %.not106 = icmp eq ptr %82, null
-  br i1 %.not106, label %86, label %.preheader
+  br i1 %.not106, label %86, label %.preheader133
 
-.preheader:                                       ; preds = %80
+.preheader133:                                    ; preds = %80
   %83 = load ptr, ptr %27, align 8
   %84 = call i32 %83(ptr noundef nonnull %8) #5
   %85 = icmp eq i32 %84, 115
-  br i1 %85, label %.lr.ph142, label %._crit_edge
+  br i1 %85, label %.lr.ph143, label %._crit_edge
 
 86:                                               ; preds = %80
   %87 = load ptr, ptr %2, align 8
@@ -876,26 +876,26 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr noundef %0, ptr noun
   call void %87(ptr noundef %89, ptr noundef null, i32 noundef -1) #5
   br label %.thread125
 
-.lr.ph142:                                        ; preds = %.preheader, %109
-  %.077141 = phi i64 [ %.178, %109 ], [ 2, %.preheader ]
-  %.183140 = phi ptr [ %.284, %109 ], [ %82, %.preheader ]
-  %.188139 = phi i64 [ %113, %109 ], [ 0, %.preheader ]
+.lr.ph143:                                        ; preds = %.preheader133, %109
+  %.077142 = phi i64 [ %.178, %109 ], [ 2, %.preheader133 ]
+  %.183141 = phi ptr [ %.284, %109 ], [ %82, %.preheader133 ]
+  %.188140 = phi i64 [ %113, %109 ], [ 0, %.preheader133 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8
-  %90 = add i64 %.077141, -1
-  %.not107 = icmp ult i64 %.188139, %90
+  %90 = add i64 %.077142, -1
+  %.not107 = icmp ult i64 %.188140, %90
   br i1 %.not107, label %95, label %91
 
-91:                                               ; preds = %.lr.ph142
-  %92 = add i64 %.077141, 1
+91:                                               ; preds = %.lr.ph143
+  %92 = add i64 %.077142, 1
   %93 = shl i64 %92, 3
-  %94 = call ptr @SDL_realloc_REAL(ptr noundef nonnull %.183140, i64 noundef %93) #7
+  %94 = call ptr @SDL_realloc_REAL(ptr noundef %.183141, i64 noundef %93) #7
   %.not108.not = icmp eq ptr %94, null
   br i1 %.not108.not, label %.thread119, label %95
 
-95:                                               ; preds = %91, %.lr.ph142
-  %.284 = phi ptr [ %.183140, %.lr.ph142 ], [ %94, %91 ]
-  %.178 = phi i64 [ %.077141, %.lr.ph142 ], [ %92, %91 ]
+95:                                               ; preds = %91, %.lr.ph143
+  %.284 = phi ptr [ %.183141, %.lr.ph143 ], [ %94, %91 ]
+  %.178 = phi i64 [ %.077142, %.lr.ph143 ], [ %92, %91 ]
   %96 = load ptr, ptr %31, align 8
   call void %96(ptr noundef nonnull %8, ptr noundef nonnull %12) #5
   %97 = load ptr, ptr %12, align 8
@@ -914,82 +914,82 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr noundef %0, ptr noun
   br label %.thread119
 
 .thread119:                                       ; preds = %91, %103
-  %.486.ph = phi ptr [ %.284, %103 ], [ %.183140, %91 ]
+  %.486.ph = phi ptr [ %.284, %103 ], [ %.183141, %91 ]
   %106 = load ptr, ptr %2, align 8
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %108 = load ptr, ptr %107, align 8
   call void %106(ptr noundef %108, ptr noundef null, i32 noundef -1) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %124
+  br label %.preheader
 
 109:                                              ; preds = %95
-  %110 = getelementptr inbounds nuw ptr, ptr %.284, i64 %.188139
+  %110 = getelementptr inbounds nuw ptr, ptr %.284, i64 %.188140
   store ptr %100, ptr %110, align 8
   %111 = load ptr, ptr %45, align 8
   %112 = call i32 %111(ptr noundef nonnull %8) #5
-  %113 = add i64 %.188139, 1
+  %113 = add i64 %.188140, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %114 = load ptr, ptr %27, align 8
   %115 = call i32 %114(ptr noundef nonnull %8) #5
   %116 = icmp eq i32 %115, 115
-  br i1 %116, label %.lr.ph142, label %._crit_edge
+  br i1 %116, label %.lr.ph143, label %._crit_edge
 
-._crit_edge:                                      ; preds = %109, %.preheader
-  %.188.lcssa = phi i64 [ 0, %.preheader ], [ %113, %109 ]
-  %.183.lcssa = phi ptr [ %82, %.preheader ], [ %.284, %109 ]
+._crit_edge:                                      ; preds = %109, %.preheader133
+  %.188.lcssa = phi i64 [ 0, %.preheader133 ], [ %113, %109 ]
+  %.183.lcssa = phi ptr [ %82, %.preheader133 ], [ %.284, %109 ]
   %117 = getelementptr inbounds nuw ptr, ptr %.183.lcssa, i64 %.188.lcssa
   store ptr null, ptr %117, align 8
   %118 = load ptr, ptr %2, align 8
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %120 = load ptr, ptr %119, align 8
   call void %118(ptr noundef %120, ptr noundef nonnull %.183.lcssa, i32 noundef -1) #5
-  br label %124
+  br label %.preheader
 
 .thread125:                                       ; preds = %35, %40, %86
   %121 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %122 = load ptr, ptr %121, align 8
   %123 = call i32 %122(ptr noundef %0, ptr noundef nonnull @DBus_MessageFilter, ptr noundef nonnull %2) #5
-  br label %131
+  br label %130
 
-124:                                              ; preds = %.thread119, %._crit_edge
-  %.188137 = phi i64 [ %.188139, %.thread119 ], [ %.188.lcssa, %._crit_edge ]
-  %.082 = phi ptr [ %.486.ph, %.thread119 ], [ %.183.lcssa, %._crit_edge ]
-  %125 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  %126 = load ptr, ptr %125, align 8
-  %127 = call i32 %126(ptr noundef %0, ptr noundef nonnull @DBus_MessageFilter, ptr noundef nonnull %2) #5
-  %.not148 = icmp eq i64 %.188137, 0
+.preheader:                                       ; preds = %._crit_edge, %.thread119
+  %.188138 = phi i64 [ %.188.lcssa, %._crit_edge ], [ %.188140, %.thread119 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge ], [ %.486.ph, %.thread119 ]
+  %124 = getelementptr inbounds nuw i8, ptr %13, i64 88
+  %125 = load ptr, ptr %124, align 8
+  %126 = call i32 %125(ptr noundef %0, ptr noundef nonnull @DBus_MessageFilter, ptr noundef nonnull %2) #5
+  %.not148 = icmp eq i64 %.188138, 0
   br i1 %.not148, label %._crit_edge147, label %.lr.ph146
 
-._crit_edge147:                                   ; preds = %.lr.ph146, %124
+._crit_edge147:                                   ; preds = %.lr.ph146, %.preheader
   call void @SDL_free_REAL(ptr noundef nonnull %.082) #5
-  br label %131
+  br label %130
 
-.lr.ph146:                                        ; preds = %124, %.lr.ph146
-  %.0144 = phi i64 [ %130, %.lr.ph146 ], [ 0, %124 ]
-  %128 = getelementptr inbounds nuw ptr, ptr %.082, i64 %.0144
-  %129 = load ptr, ptr %128, align 8
-  call void @SDL_free_REAL(ptr noundef %129) #5
-  %130 = add nuw i64 %.0144, 1
-  %exitcond.not = icmp eq i64 %130, %.188137
+.lr.ph146:                                        ; preds = %.preheader, %.lr.ph146
+  %.0145 = phi i64 [ %129, %.lr.ph146 ], [ 0, %.preheader ]
+  %127 = getelementptr inbounds nuw ptr, ptr %.082, i64 %.0145
+  %128 = load ptr, ptr %127, align 8
+  call void @SDL_free_REAL(ptr noundef %128) #5
+  %129 = add nuw i64 %.0145, 1
+  %exitcond.not = icmp eq i64 %129, %.188138
   br i1 %exitcond.not, label %._crit_edge147, label %.lr.ph146, !llvm.loop !6
 
-131:                                              ; preds = %._crit_edge147, %.thread125
-  %132 = load ptr, ptr %20, align 8
-  call void @SDL_free_REAL(ptr noundef %132) #5
+130:                                              ; preds = %._crit_edge147, %.thread125
+  %131 = load ptr, ptr %20, align 8
+  call void @SDL_free_REAL(ptr noundef %131) #5
   call void @SDL_free_REAL(ptr noundef nonnull %2) #5
   br label %.sink.split
 
-.sink.split:                                      ; preds = %76, %73, %.loopexit, %.thread, %44, %23, %48, %131
-  %.1.ph = phi i32 [ 0, %131 ], [ 1, %48 ], [ 1, %23 ], [ 1, %44 ], [ 1, %.thread ], [ 1, %.loopexit ], [ 1, %73 ], [ 1, %76 ]
+.sink.split:                                      ; preds = %.thread, %76, %73, %.loopexit, %48, %44, %23, %130
+  %.1.ph = phi i32 [ 0, %130 ], [ 1, %23 ], [ 1, %44 ], [ 1, %48 ], [ 1, %.loopexit ], [ 1, %73 ], [ 1, %76 ], [ 1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %133
+  br label %132
 
-133:                                              ; preds = %.sink.split, %17, %3
+132:                                              ; preds = %.sink.split, %17, %3
   %.1 = phi i32 [ 1, %3 ], [ 1, %17 ], [ %.1.ph, %.sink.split ]
   ret i32 %.1
 }

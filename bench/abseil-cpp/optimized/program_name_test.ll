@@ -585,7 +585,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %_ZN7testing15AssertionResultD2Ev.exit
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread, %112, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
-  %119 = phi ptr [ %71, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i ], [ %71, %112 ], [ %65, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ], [ %57, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread ]
+  %119 = phi ptr [ %71, %112 ], [ %71, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i ], [ %65, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ], [ %57, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread ]
   store ptr null, ptr %119, align 8, !tbaa !41
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1499,7 +1499,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205: ; preds = %_Z
   br label %419
 
 419:                                              ; preds = %306, %362, %418, %305, %249, %193, %192, %_ZN7testing7MessageD2Ev.exit88
-  %.pn68.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit88 ], [ %.pn56.pn.pn, %305 ], [ %.pn50.pn.pn, %249 ], [ %194, %193 ], [ %.pn44.pn.pn, %192 ], [ %.pn68.pn.pn, %418 ], [ %.pn62.pn.pn, %362 ], [ %307, %306 ]
+  %.pn68.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn56.pn.pn, %305 ], [ %.pn50.pn.pn, %249 ], [ %194, %193 ], [ %.pn44.pn.pn, %192 ], [ %.pn.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit88 ], [ %.pn68.pn.pn, %418 ], [ %.pn62.pn.pn, %362 ], [ %307, %306 ]
   %420 = load ptr, ptr %6, align 8, !tbaa !20
   %421 = icmp eq ptr %420, %41
   br i1 %421, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i206

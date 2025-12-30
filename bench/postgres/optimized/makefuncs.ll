@@ -178,9 +178,9 @@ list_length.exit:                                 ; preds = %21
   br label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %26, %4, %17, %list_length.exit, %21, %7, %33
-  %.sink50 = phi i16 [ 0, %17 ], [ 0, %26 ], [ 1, %33 ], [ 0, %4 ], [ 0, %7 ], [ 0, %21 ], [ 0, %list_length.exit ]
-  %.sink47 = phi i32 [ 2249, %17 ], [ %.mux, %26 ], [ %31, %33 ], [ 2249, %4 ], [ %10, %7 ], [ 2249, %21 ], [ 2249, %list_length.exit ]
-  %.sink42 = phi i32 [ 0, %17 ], [ 0, %26 ], [ %34, %33 ], [ 0, %4 ], [ 0, %7 ], [ 0, %21 ], [ 0, %list_length.exit ]
+  %.sink50 = phi i16 [ 1, %33 ], [ 0, %7 ], [ 0, %21 ], [ 0, %list_length.exit ], [ 0, %17 ], [ 0, %26 ], [ 0, %4 ]
+  %.sink47 = phi i32 [ %31, %33 ], [ %10, %7 ], [ 2249, %21 ], [ 2249, %list_length.exit ], [ 2249, %17 ], [ %.mux, %26 ], [ 2249, %4 ]
+  %.sink42 = phi i32 [ %34, %33 ], [ 0, %7 ], [ 0, %21 ], [ 0, %list_length.exit ], [ 0, %17 ], [ 0, %26 ], [ 0, %4 ]
   %35 = tail call noundef ptr @palloc0(i64 noundef 56) #6
   store i32 6, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
@@ -834,7 +834,7 @@ is_andclause.exit:                                ; preds = %3
   br label %19
 
 19:                                               ; preds = %15, %1, %.thread, %8
-  %.0 = phi ptr [ null, %1 ], [ %10, %8 ], [ %18, %.thread ], [ null, %15 ]
+  %.0 = phi ptr [ %10, %8 ], [ %18, %.thread ], [ null, %1 ], [ null, %15 ]
   ret ptr %.0
 }
 

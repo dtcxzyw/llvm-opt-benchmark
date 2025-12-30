@@ -676,7 +676,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ;
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader.i.i.i, %46, %._crit_edge, %81, %83, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit, %.lr.ph139
-  %.2 = phi i1 [ %.1136, %.lr.ph139 ], [ %.1136, %83 ], [ %.1136, %81 ], [ %.1136, %._crit_edge ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit ], [ %.1136, %46 ], [ %.1136, %.preheader.i.i.i ]
+  %.2 = phi i1 [ %.1136, %.lr.ph139 ], [ %.1136, %._crit_edge ], [ %.1136, %81 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit ], [ %.1136, %83 ], [ %.1136, %46 ], [ %.1136, %.preheader.i.i.i ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0111.0137, align 8
   %190 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i97 = icmp eq i64 %190, 0
@@ -720,7 +720,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   br label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit: ; preds = %2, %._crit_edge154, %202
-  %.0.lcssa175185 = phi i1 [ %.1.lcssa, %202 ], [ %.1.lcssa, %._crit_edge154 ], [ false, %2 ]
+  %.0.lcssa175185 = phi i1 [ %.1.lcssa, %._crit_edge154 ], [ %.1.lcssa, %202 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0.lcssa175185
 

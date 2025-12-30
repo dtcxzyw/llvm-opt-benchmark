@@ -3436,13 +3436,13 @@ define hidden void @png_handle_unknown(ptr noalias noundef %0, ptr noalias nound
   br label %39
 
 39:                                               ; preds = %34, %37, %17
-  %.0 = phi i32 [ %.1, %37 ], [ %3, %17 ], [ %.1, %34 ]
+  %.0 = phi i32 [ %3, %17 ], [ %.1, %37 ], [ %.1, %34 ]
   switch i32 %.0, label %.thread [
     i32 3, label %43
     i32 2, label %.thread52
   ]
 
-.thread52:                                        ; preds = %23, %19, %39
+.thread52:                                        ; preds = %19, %23, %39
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 536870912
@@ -3474,7 +3474,7 @@ define hidden void @png_handle_unknown(ptr noalias noundef %0, ptr noalias nound
   br label %.thread
 
 .thread:                                          ; preds = %34, %7, %15, %39, %49, %46, %43, %.thread52
-  %51 = phi i1 [ false, %49 ], [ true, %46 ], [ true, %43 ], [ true, %.thread52 ], [ true, %39 ], [ false, %15 ], [ true, %7 ], [ true, %34 ]
+  %51 = phi i1 [ false, %49 ], [ true, %46 ], [ true, %43 ], [ true, %.thread52 ], [ true, %39 ], [ true, %7 ], [ false, %15 ], [ true, %34 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %53 = load ptr, ptr %52, align 8
   %.not47 = icmp eq ptr %53, null
@@ -3792,7 +3792,7 @@ define hidden void @png_combine_row(ptr noalias noundef %0, ptr noundef %1, i32 
   br label %110
 
 110:                                              ; preds = %101, %106, %91, %96
-  %.0248.in = phi ptr [ %99, %96 ], [ %95, %91 ], [ %105, %101 ], [ %109, %106 ]
+  %.0248.in = phi ptr [ %95, %91 ], [ %99, %96 ], [ %105, %101 ], [ %109, %106 ]
   %.0248 = load i32, ptr %.0248.in, align 4
   %111 = zext nneg i8 %84 to i64
   br label %112
@@ -5130,7 +5130,7 @@ define hidden void @png_read_start_row(ptr noalias noundef %0) local_unnamed_add
   br label %66
 
 66:                                               ; preds = %57, %51, %54, %64, %61
-  %.1 = phi i32 [ %., %54 ], [ %.0, %61 ], [ %.0, %51 ], [ %spec.select130, %57 ], [ %.zext, %64 ]
+  %.1 = phi i32 [ %.zext, %64 ], [ %.0, %61 ], [ %., %54 ], [ %spec.select130, %57 ], [ %.0, %51 ]
   %67 = and i32 %40, 512
   %.not119 = icmp eq i32 %67, 0
   br i1 %.not119, label %75, label %69
@@ -5154,7 +5154,7 @@ define hidden void @png_read_start_row(ptr noalias noundef %0) local_unnamed_add
   br label %75
 
 75:                                               ; preds = %.thread, %69, %.thread141, %66
-  %.2 = phi i32 [ %.1, %66 ], [ %spec.select131, %69 ], [ %.0, %.thread141 ], [ %.0, %.thread ]
+  %.2 = phi i32 [ %.0, %.thread141 ], [ %.1, %66 ], [ %spec.select131, %69 ], [ %.0, %.thread ]
   %76 = load i32, ptr %43, align 4
   %77 = and i32 %76, 32768
   %.not121 = icmp ne i32 %77, 0
@@ -5180,7 +5180,7 @@ define hidden void @png_read_start_row(ptr noalias noundef %0) local_unnamed_add
   br label %84
 
 84:                                               ; preds = %83, %78, %81, %75
-  %.3 = phi i32 [ %.132, %81 ], [ %.2, %75 ], [ %.133, %83 ], [ %.2, %78 ]
+  %.3 = phi i32 [ %.2, %75 ], [ %.132, %81 ], [ %.2, %78 ], [ %.133, %83 ]
   %85 = and i32 %76, 16384
   %.not122 = icmp eq i32 %85, 0
   br i1 %.not122, label %101, label %86
@@ -5220,7 +5220,7 @@ define hidden void @png_read_start_row(ptr noalias noundef %0) local_unnamed_add
   br label %101
 
 101:                                              ; preds = %100, %99, %94, %84
-  %.4 = phi i32 [ %.134, %94 ], [ %.3, %84 ], [ %.135, %99 ], [ %.136, %100 ]
+  %.4 = phi i32 [ %.3, %84 ], [ %.134, %94 ], [ %.135, %99 ], [ %.136, %100 ]
   %102 = and i32 %76, 1048576
   %.not126 = icmp eq i32 %102, 0
   br i1 %.not126, label %111, label %103

@@ -3120,7 +3120,7 @@ define ptr @dt_gui_presets_popup_menu_show_for_module(ptr noundef %0) local_unna
   br label %187
 
 187:                                              ; preds = %180, %182, %183
-  %.2174 = phi i32 [ %.0172226, %182 ], [ %178, %183 ], [ %178, %180 ]
+  %.2174 = phi i32 [ %178, %183 ], [ %.0172226, %182 ], [ %178, %180 ]
   %188 = load ptr, ptr %2, align 8, !tbaa !56
   %189 = call ptr @sqlite3_column_blob(ptr noundef %188, i32 noundef 1) #17
   %190 = load ptr, ptr %2, align 8, !tbaa !56
@@ -6131,7 +6131,7 @@ define internal fastcc void @_edit_preset(ptr noundef %0, ptr noundef %1) unname
   call void @g_free(ptr noundef %.09) #17
   br label %37
 
-.critedge:                                        ; preds = %10, %5
+.critedge:                                        ; preds = %5, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %37
 

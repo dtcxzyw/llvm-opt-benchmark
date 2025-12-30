@@ -897,7 +897,7 @@ proto_item_set_generated.exit390:                 ; preds = %proto_item_set_gene
   br i1 %.not5.i398, label %proto_item_set_generated.exit393, label %proto_item_set_generated.exit393.sink.split
 
 proto_item_set_generated.exit393.sink.split:      ; preds = %129, %123, %118
-  %.sink558 = phi ptr [ %125, %123 ], [ %120, %118 ], [ %131, %129 ]
+  %.sink558 = phi ptr [ %120, %118 ], [ %125, %123 ], [ %131, %129 ]
   %132 = getelementptr inbounds nuw i8, ptr %.sink558, i64 28
   %133 = load i32, ptr %132, align 4
   %134 = or i32 %133, 2
@@ -1323,7 +1323,7 @@ proto_item_set_generated.exit402:                 ; preds = %213, %210, %206, %1
   br label %proto_item_set_generated.exit.i
 
 proto_item_set_generated.exit.i:                  ; preds = %374, %368, %366, %360, %355, %349, %342, %339, %330, %328, %326, %320
-  %.1.i = phi i32 [ %.0173.i, %374 ], [ %.0173.i, %320 ], [ %.0173.i, %326 ], [ %.0173.i, %328 ], [ %.0173.i, %368 ], [ %.0173.i, %349 ], [ %.0173.i, %355 ], [ %.0173.i, %360 ], [ %.0173.i, %366 ], [ %336, %330 ], [ %336, %339 ], [ %336, %342 ]
+  %.1.i = phi i32 [ %.0173.i, %374 ], [ %.0173.i, %320 ], [ %.0173.i, %326 ], [ %.0173.i, %328 ], [ %.0173.i, %349 ], [ %.0173.i, %355 ], [ %.0173.i, %360 ], [ %.0173.i, %366 ], [ %.0173.i, %368 ], [ %336, %330 ], [ %336, %339 ], [ %336, %342 ]
   %378 = zext nneg i8 %314 to i32
   %379 = xor i8 %314, -1
   %380 = sext i8 %379 to i16
@@ -1764,7 +1764,7 @@ proto_item_set_generated.exit.i409:               ; preds = %425, %422, %418, %4
   br label %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i
 
 dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i: ; preds = %629, %627, %624, %620, %609, %607, %604, %588, %584, %532
-  %.0.i.i = phi i32 [ -1, %532 ], [ -1, %584 ], [ %.0160.i.i, %624 ], [ %.0160.i.i, %629 ], [ %628, %627 ], [ %.0160.i.i, %588 ], [ %601, %604 ], [ %608, %607 ], [ %621, %620 ], [ %617, %609 ]
+  %.0.i.i = phi i32 [ -1, %532 ], [ -1, %584 ], [ %628, %627 ], [ %.0160.i.i, %624 ], [ %.0160.i.i, %588 ], [ %.0160.i.i, %629 ], [ %608, %607 ], [ %601, %604 ], [ %621, %620 ], [ %617, %609 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %632
 
@@ -1773,7 +1773,7 @@ dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i: ; preds = %629, %627, %624, %6
   br label %633
 
 632:                                              ; preds = %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i, %528, %516
-  %.2.i = phi i32 [ %.0.i.i, %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i ], [ %.1.i411, %528 ], [ %454, %516 ]
+  %.2.i = phi i32 [ %.1.i411, %528 ], [ %454, %516 ], [ %.0.i.i, %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i ]
   %.not133.i = icmp eq i32 %.2.i, -1
   br i1 %.not133.i, label %633, label %634
 
@@ -2641,10 +2641,10 @@ define internal fastcc i32 @dissect_rohc_pkt_type_1_r_mode(ptr noundef %0, ptr n
   br label %98
 
 98:                                               ; preds = %92, %95, %43, %51
-  %.091 = phi ptr [ %28, %43 ], [ %28, %51 ], [ %74, %95 ], [ %74, %92 ]
-  %.190 = phi i8 [ %45, %43 ], [ %56, %51 ], [ %86, %95 ], [ %86, %92 ]
-  %.088 = phi i8 [ -1, %43 ], [ -1, %51 ], [ %69, %95 ], [ 0, %92 ]
-  %.0.in = phi i32 [ %37, %43 ], [ %37, %51 ], [ %66, %95 ], [ %66, %92 ]
+  %.091 = phi ptr [ %28, %51 ], [ %28, %43 ], [ %74, %95 ], [ %74, %92 ]
+  %.190 = phi i8 [ %56, %51 ], [ %45, %43 ], [ %86, %95 ], [ %86, %92 ]
+  %.088 = phi i8 [ -1, %51 ], [ -1, %43 ], [ %69, %95 ], [ 0, %92 ]
+  %.0.in = phi i32 [ %37, %51 ], [ %37, %43 ], [ %66, %95 ], [ %66, %92 ]
   %.0 = add i32 %.0.in, 1
   %.not93 = icmp eq i8 %.190, 0
   br i1 %.not93, label %101, label %99
@@ -3269,7 +3269,7 @@ define internal fastcc i32 @dissect_rohc_ir_profile_dynamic(ptr noundef %0, ptr 
   br label %157
 
 157:                                              ; preds = %69, %116, %.thread202, %152, %.thread209, %61, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %61 ], [ %113, %.thread209 ], [ %.5, %152 ], [ %3, %.thread202 ], [ %119, %116 ], [ %.0194, %69 ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %61 ], [ %113, %.thread209 ], [ %.5, %152 ], [ %119, %116 ], [ %3, %.thread202 ], [ %.0194, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -3457,7 +3457,7 @@ default.unreachable1:                             ; preds = %3
   unreachable
 
 119:                                              ; preds = %18, %24, %78, %81, %52, %55, %98
-  %.0 = phi i32 [ %118, %98 ], [ %83, %81 ], [ %54, %52 ], [ %57, %55 ], [ %80, %78 ], [ %27, %24 ], [ %23, %18 ]
+  %.0 = phi i32 [ %54, %52 ], [ %57, %55 ], [ %80, %78 ], [ %83, %81 ], [ %118, %98 ], [ %27, %24 ], [ %23, %18 ]
   %120 = sub i32 %.0, %2
   tail call void @proto_item_set_len(ptr noundef %6, i32 noundef %120)
   ret i32 %.0

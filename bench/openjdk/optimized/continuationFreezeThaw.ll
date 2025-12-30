@@ -834,7 +834,7 @@ _ZNK5frame6senderEP11RegisterMap.exit23.i:        ; preds = %_ZNK11RegisterMap7i
   br i1 %114, label %_ZL10is_pinned0P10JavaThreadP7oopDescb.exit, label %.outer, !llvm.loop !17
 
 _ZL10is_pinned0P10JavaThreadP7oopDescb.exit:      ; preds = %82, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i, %96, %104, %110, %113, %_ZN10JNIHandles7resolveEP8_jobject.exit, %48, %51
-  %.0.i9 = phi i32 [ 4, %51 ], [ 0, %_ZN10JNIHandles7resolveEP8_jobject.exit ], [ 2, %48 ], [ 3, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i ], [ 3, %82 ], [ 0, %96 ], [ 0, %104 ], [ 4, %113 ], [ 2, %110 ]
+  %.0.i9 = phi i32 [ 0, %_ZN10JNIHandles7resolveEP8_jobject.exit ], [ 2, %48 ], [ 4, %51 ], [ 3, %82 ], [ 3, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i ], [ 0, %96 ], [ 0, %104 ], [ 4, %113 ], [ 2, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1627,7 +1627,7 @@ _ZN18ContinuationHelper5Frame7is_stubEP8CodeBlob.exit: ; preds = %_ZNK5frame20is
   br label %_ZN18ContinuationHelper5Frame7is_stubEP8CodeBlob.exit.thread
 
 _ZN18ContinuationHelper5Frame7is_stubEP8CodeBlob.exit.thread: ; preds = %_ZN18ContinuationHelper5Frame7is_stubEP8CodeBlob.exit, %_ZNK5frame20is_interpreted_frameEv.exit.thread, %_ZNK5frame7oop_mapEv.exit.thread25, %65, %_ZNK5frame7oop_mapEv.exit, %6, %76, %69, %_ZNK5frame7oop_mapEv.exit.thread
-  %.0 = phi i32 [ 3, %65 ], [ 5, %6 ], [ %49, %_ZNK5frame7oop_mapEv.exit.thread ], [ 3, %_ZNK5frame7oop_mapEv.exit ], [ %70, %69 ], [ %77, %76 ], [ 3, %_ZN18ContinuationHelper5Frame7is_stubEP8CodeBlob.exit ], [ 3, %_ZNK5frame20is_interpreted_frameEv.exit.thread ], [ 3, %_ZNK5frame7oop_mapEv.exit.thread25 ]
+  %.0 = phi i32 [ %49, %_ZNK5frame7oop_mapEv.exit.thread ], [ %70, %69 ], [ %77, %76 ], [ 5, %6 ], [ 3, %_ZNK5frame7oop_mapEv.exit ], [ 3, %65 ], [ 3, %_ZN18ContinuationHelper5Frame7is_stubEP8CodeBlob.exit ], [ 3, %_ZNK5frame20is_interpreted_frameEv.exit.thread ], [ 3, %_ZNK5frame7oop_mapEv.exit.thread25 ]
   ret i32 %.0
 }
 
@@ -2690,7 +2690,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i:    ; preds = %39, %35
   br label %_ZNK5frame11get_oop_mapEv.exit.i
 
 _ZNK5frame11get_oop_mapEv.exit.i:                 ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i, %42, %31
-  %.0.i.i = phi ptr [ %55, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i ], [ %54, %42 ], [ null, %31 ]
+  %.0.i.i = phi ptr [ %54, %42 ], [ %55, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i ], [ null, %31 ]
   store ptr %.0.i.i, ptr %28, align 8
   br label %_ZNK5frame7oop_mapEv.exit
 
@@ -3111,9 +3111,9 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i:  ; preds = %39, %_ZNK21StackChu
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit: ; preds = %2, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i, %42, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i
-  %48 = phi ptr [ %14, %2 ], [ %14, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %14, %42 ], [ %.pre8, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
-  %49 = phi ptr [ %25, %2 ], [ %25, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %25, %42 ], [ %.pre, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
-  %.0.i.i.sink.i = phi ptr [ null, %2 ], [ null, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %46, %42 ], [ %47, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
+  %48 = phi ptr [ %14, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %14, %2 ], [ %14, %42 ], [ %.pre8, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
+  %49 = phi ptr [ %25, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %25, %2 ], [ %25, %42 ], [ %.pre, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
+  %.0.i.i.sink.i = phi ptr [ null, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ null, %2 ], [ %46, %42 ], [ %47, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.0.i.i.sink.i, ptr %50, align 8
   %.not = icmp ult ptr %49, %48
@@ -3148,7 +3148,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE35unextended_sp_for_interpreter_fra
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread: ; preds = %51, %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE35unextended_sp_for_interpreter_frameEv.exit
-  %69 = phi ptr [ %68, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE35unextended_sp_for_interpreter_frameEv.exit ], [ %49, %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit ], [ %49, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ %49, %51 ]
+  %69 = phi ptr [ %68, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE35unextended_sp_for_interpreter_frameEv.exit ], [ %49, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit ], [ %49, %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit ], [ %49, %51 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %69, ptr %70, align 8
   %.not.i7 = icmp eq ptr %.0.i.i.sink.i, null
@@ -3556,7 +3556,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i: ; preds = %26, %22
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14: ; preds = %29, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i, %3
-  %.sroa.7.0 = phi ptr [ null, %3 ], [ %34, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i ], [ %33, %29 ]
+  %.sroa.7.0 = phi ptr [ null, %3 ], [ %33, %29 ], [ %34, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.7.0, i64 44
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.7.0, i64 52
@@ -3578,7 +3578,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread.i: ; preds =
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextI16SmallRegisterMapEEvPT_b.exit
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames0EE4nextI16SmallRegisterMapEEvPT_b.exit: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread.i
-  %.0.i = phi i32 [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14 ], [ %46, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread.i ], [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14 ]
+  %.0.i = phi i32 [ %46, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.thread.i ], [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14 ], [ 0, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i14 ]
   store i32 %.0.i, ptr %2, align 4
   %47 = load i32, ptr %35, align 4
   %48 = sext i32 %47 to i64
@@ -4015,7 +4015,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i:    ; preds = %49, %45
   br label %_ZNK5frame11get_oop_mapEv.exit.i
 
 _ZNK5frame11get_oop_mapEv.exit.i:                 ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i, %52, %41, %37
-  %.0.i.i = phi ptr [ %65, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i ], [ %64, %52 ], [ null, %41 ], [ null, %37 ]
+  %.0.i.i = phi ptr [ %64, %52 ], [ %65, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i ], [ null, %41 ], [ null, %37 ]
   store ptr %.0.i.i, ptr %34, align 8
   br label %_ZNK5frame7oop_mapEv.exit
 
@@ -5096,7 +5096,7 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %15
   br label %_ZN8ThawBase5alignERK5framePlRS0_b.exit
 
 _ZN8ThawBase5alignERK5framePlRS0_b.exit:          ; preds = %15, %42, %27, %_ZNK5frame20is_interpreted_frameEv.exit
-  %.026 = phi ptr [ %37, %27 ], [ %14, %_ZNK5frame20is_interpreted_frameEv.exit ], [ %43, %42 ], [ %14, %15 ]
+  %.026 = phi ptr [ %14, %_ZNK5frame20is_interpreted_frameEv.exit ], [ %43, %42 ], [ %37, %27 ], [ %14, %15 ]
   %45 = load i8, ptr @PreserveFramePointer, align 1
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %54
@@ -5168,7 +5168,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i:    ; preds = %73, %71
   br label %_ZNK5frame11get_oop_mapEv.exit.i
 
 _ZNK5frame11get_oop_mapEv.exit.i:                 ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i, %76, %67, %65
-  %.0.i.i = phi ptr [ %89, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i ], [ %88, %76 ], [ null, %67 ], [ null, %65 ]
+  %.0.i.i = phi ptr [ %88, %76 ], [ %89, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i ], [ null, %67 ], [ null, %65 ]
   store ptr %.0.i.i, ptr %62, align 8
   br label %_ZNK5frame7oop_mapEv.exit
 
@@ -5438,7 +5438,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i:  ; preds = %82, %_ZNK21StackChu
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit: ; preds = %69, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i, %85, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i
-  %.0.i.i.sink.i = phi ptr [ null, %69 ], [ null, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %89, %85 ], [ %90, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
+  %.0.i.i.sink.i = phi ptr [ null, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ null, %69 ], [ %89, %85 ], [ %90, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
   store ptr %.0.i.i.sink.i, ptr %4, align 8
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 4980
   %92 = load i8, ptr %91, align 4
@@ -5556,7 +5556,7 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %15
   br label %_ZN8ThawBase5alignERK5framePlRS0_b.exit
 
 _ZN8ThawBase5alignERK5framePlRS0_b.exit:          ; preds = %15, %42, %27, %_ZNK5frame20is_interpreted_frameEv.exit
-  %.026 = phi ptr [ %37, %27 ], [ %14, %_ZNK5frame20is_interpreted_frameEv.exit ], [ %43, %42 ], [ %14, %15 ]
+  %.026 = phi ptr [ %14, %_ZNK5frame20is_interpreted_frameEv.exit ], [ %43, %42 ], [ %37, %27 ], [ %14, %15 ]
   %45 = load i8, ptr @PreserveFramePointer, align 1
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %54
@@ -5628,7 +5628,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i:    ; preds = %73, %71
   br label %_ZNK5frame11get_oop_mapEv.exit.i
 
 _ZNK5frame11get_oop_mapEv.exit.i:                 ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i, %76, %67, %65
-  %.0.i.i = phi ptr [ %89, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i ], [ %88, %76 ], [ null, %67 ], [ null, %65 ]
+  %.0.i.i = phi ptr [ %88, %76 ], [ %89, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i ], [ null, %67 ], [ null, %65 ]
   store ptr %.0.i.i, ptr %62, align 8
   br label %_ZNK5frame7oop_mapEv.exit
 
@@ -6059,7 +6059,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br label %_ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPVP7oopDescS1_.exit
 
 _ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPVP7oopDescS1_.exit: ; preds = %8, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %19, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i
-  %.0.i = phi ptr [ %2, %8 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ], [ %29, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i ], [ %2, %19 ]
+  %.0.i = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ], [ %2, %8 ], [ %29, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i ], [ %2, %19 ]
   ret ptr %.0.i
 }
 
@@ -6210,7 +6210,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   br label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
-  %.0.i4 = phi ptr [ %39, %79 ], [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
+  %.0.i4 = phi ptr [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
   ret ptr %.0.i4
 }
 
@@ -6317,7 +6317,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -6738,7 +6738,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
   br label %_ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPVP7oopDescS1_.exit
 
 _ZN8XBarrier43load_barrier_on_phantom_oop_field_preloadedEPVP7oopDescS1_.exit: ; preds = %8, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, %19, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i
-  %.0.i = phi ptr [ %2, %8 ], [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ], [ %29, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i ], [ %2, %19 ]
+  %.0.i = phi ptr [ %18, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i ], [ %2, %8 ], [ %29, %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i ], [ %2, %19 ]
   ret ptr %.0.i
 }
 
@@ -6884,7 +6884,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   br label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
 _ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
-  %.0.i4 = phi ptr [ %39, %79 ], [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
+  %.0.i4 = phi ptr [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
   ret ptr %.0.i4
 }
 
@@ -6962,7 +6962,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 
@@ -7172,7 +7172,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
   ret ptr %.0.i.i
 }
 
@@ -8429,7 +8429,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
   ret ptr %.0.i.i
 }
 
@@ -8544,7 +8544,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
   ret ptr %.0.i.i
 }
 
@@ -9359,7 +9359,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
   br label %_ZL15freeze_internalI6ConfigIL8oop_kind0E19CardTableBarrierSetEEiP10JavaThreadPl.exit
 
 _ZL15freeze_internalI6ConfigIL8oop_kind0E19CardTableBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
-  %.0.i = phi i32 [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ 0, %132 ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
+  %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -9749,7 +9749,7 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit: ; preds = %82, %86, %99
   br label %158
 
 158:                                              ; preds = %132, %148, %150, %137, %62, %30, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit
-  %.0 = phi ptr [ null, %62 ], [ null, %30 ], [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
+  %.0 = phi ptr [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ null, %30 ], [ null, %62 ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
   ret ptr %.0
 }
 
@@ -10851,7 +10851,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
   br label %_ZL15freeze_internalI6ConfigIL8oop_kind0E17EpsilonBarrierSetEEiP10JavaThreadPl.exit
 
 _ZL15freeze_internalI6ConfigIL8oop_kind0E17EpsilonBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
-  %.0.i = phi i32 [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ 0, %132 ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
+  %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -11097,7 +11097,7 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit: ; preds = %82, %86, %99
   br label %158
 
 158:                                              ; preds = %132, %148, %150, %137, %62, %30, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit
-  %.0 = phi ptr [ null, %62 ], [ null, %30 ], [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
+  %.0 = phi ptr [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ null, %30 ], [ null, %62 ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
   ret ptr %.0
 }
 
@@ -11651,7 +11651,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
   br label %_ZL15freeze_internalI6ConfigIL8oop_kind0E12G1BarrierSetEEiP10JavaThreadPl.exit
 
 _ZL15freeze_internalI6ConfigIL8oop_kind0E12G1BarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
-  %.0.i = phi i32 [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ 0, %132 ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
+  %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -11897,7 +11897,7 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit: ; preds = %82, %86, %99
   br label %158
 
 158:                                              ; preds = %132, %148, %150, %137, %62, %30, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit
-  %.0 = phi ptr [ null, %62 ], [ null, %30 ], [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
+  %.0 = phi ptr [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ null, %30 ], [ null, %62 ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
   ret ptr %.0
 }
 
@@ -12451,7 +12451,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
   br label %_ZL15freeze_internalI6ConfigIL8oop_kind0E20ShenandoahBarrierSetEEiP10JavaThreadPl.exit
 
 _ZL15freeze_internalI6ConfigIL8oop_kind0E20ShenandoahBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
-  %.0.i = phi i32 [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ 0, %132 ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
+  %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -12697,7 +12697,7 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit: ; preds = %82, %86, %99
   br label %158
 
 158:                                              ; preds = %132, %148, %150, %137, %62, %30, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit
-  %.0 = phi ptr [ null, %62 ], [ null, %30 ], [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
+  %.0 = phi ptr [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ null, %30 ], [ null, %62 ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
   ret ptr %.0
 }
 
@@ -13251,7 +13251,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
   br label %_ZL15freeze_internalI6ConfigIL8oop_kind0E11XBarrierSetEEiP10JavaThreadPl.exit
 
 _ZL15freeze_internalI6ConfigIL8oop_kind0E11XBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
-  %.0.i = phi i32 [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ 0, %132 ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
+  %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -13497,7 +13497,7 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit: ; preds = %82, %86, %99
   br label %158
 
 158:                                              ; preds = %132, %148, %150, %137, %62, %30, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit
-  %.0 = phi ptr [ null, %62 ], [ null, %30 ], [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
+  %.0 = phi ptr [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ null, %30 ], [ null, %62 ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
   ret ptr %.0
 }
 
@@ -14051,7 +14051,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
   br label %_ZL15freeze_internalI6ConfigIL8oop_kind0E11ZBarrierSetEEiP10JavaThreadPl.exit
 
 _ZL15freeze_internalI6ConfigIL8oop_kind0E11ZBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
-  %.0.i = phi i32 [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ 0, %132 ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
+  %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -14297,7 +14297,7 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit: ; preds = %82, %86, %99
   br label %158
 
 158:                                              ; preds = %132, %148, %150, %137, %62, %30, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit
-  %.0 = phi ptr [ null, %62 ], [ null, %30 ], [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
+  %.0 = phi ptr [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ null, %30 ], [ null, %62 ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
   ret ptr %.0
 }
 
@@ -14851,7 +14851,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
   br label %_ZL15freeze_internalI6ConfigIL8oop_kind1E19CardTableBarrierSetEEiP10JavaThreadPl.exit
 
 _ZL15freeze_internalI6ConfigIL8oop_kind1E19CardTableBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
-  %.0.i = phi i32 [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ 0, %132 ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
+  %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -15097,7 +15097,7 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit: ; preds = %82, %86, %99
   br label %158
 
 158:                                              ; preds = %132, %148, %150, %137, %62, %30, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit
-  %.0 = phi ptr [ null, %62 ], [ null, %30 ], [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
+  %.0 = phi ptr [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ null, %30 ], [ null, %62 ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
   ret ptr %.0
 }
 
@@ -15651,7 +15651,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
   br label %_ZL15freeze_internalI6ConfigIL8oop_kind1E17EpsilonBarrierSetEEiP10JavaThreadPl.exit
 
 _ZL15freeze_internalI6ConfigIL8oop_kind1E17EpsilonBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
-  %.0.i = phi i32 [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ 0, %132 ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
+  %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -15897,7 +15897,7 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit: ; preds = %82, %86, %99
   br label %158
 
 158:                                              ; preds = %132, %148, %150, %137, %62, %30, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit
-  %.0 = phi ptr [ null, %62 ], [ null, %30 ], [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
+  %.0 = phi ptr [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ null, %30 ], [ null, %62 ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
   ret ptr %.0
 }
 
@@ -16451,7 +16451,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
   br label %_ZL15freeze_internalI6ConfigIL8oop_kind1E12G1BarrierSetEEiP10JavaThreadPl.exit
 
 _ZL15freeze_internalI6ConfigIL8oop_kind1E12G1BarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
-  %.0.i = phi i32 [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ 0, %132 ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
+  %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -16697,7 +16697,7 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit: ; preds = %82, %86, %99
   br label %158
 
 158:                                              ; preds = %132, %148, %150, %137, %62, %30, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit
-  %.0 = phi ptr [ null, %62 ], [ null, %30 ], [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
+  %.0 = phi ptr [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ null, %30 ], [ null, %62 ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
   ret ptr %.0
 }
 
@@ -17251,7 +17251,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
   br label %_ZL15freeze_internalI6ConfigIL8oop_kind1E20ShenandoahBarrierSetEEiP10JavaThreadPl.exit
 
 _ZL15freeze_internalI6ConfigIL8oop_kind1E20ShenandoahBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
-  %.0.i = phi i32 [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ 0, %132 ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
+  %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -17497,7 +17497,7 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit: ; preds = %82, %86, %99
   br label %158
 
 158:                                              ; preds = %132, %148, %150, %137, %62, %30, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit
-  %.0 = phi ptr [ null, %62 ], [ null, %30 ], [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
+  %.0 = phi ptr [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ null, %30 ], [ null, %62 ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
   ret ptr %.0
 }
 
@@ -18051,7 +18051,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
   br label %_ZL15freeze_internalI6ConfigIL8oop_kind1E11XBarrierSetEEiP10JavaThreadPl.exit
 
 _ZL15freeze_internalI6ConfigIL8oop_kind1E11XBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
-  %.0.i = phi i32 [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ 0, %132 ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
+  %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -18297,7 +18297,7 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit: ; preds = %82, %86, %99
   br label %158
 
 158:                                              ; preds = %132, %148, %150, %137, %62, %30, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit
-  %.0 = phi ptr [ null, %62 ], [ null, %30 ], [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
+  %.0 = phi ptr [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ null, %30 ], [ null, %62 ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
   ret ptr %.0
 }
 
@@ -18851,7 +18851,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit29.i:             ; preds = %171, %_ZN18Safepoin
   br label %_ZL15freeze_internalI6ConfigIL8oop_kind1E11ZBarrierSetEEiP10JavaThreadPl.exit
 
 _ZL15freeze_internalI6ConfigIL8oop_kind1E11ZBarrierSetEEiP10JavaThreadPl.exit: ; preds = %24, %36, %_ZN18ThreadInVMfromJavaD2Ev.exit.i, %132, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i
-  %.0.i = phi i32 [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ 0, %132 ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
+  %.0.i = phi i32 [ 0, %132 ], [ %157, %_ZN18ThreadInVMfromJavaD2Ev.exit29.i ], [ %25, %_ZN18ThreadInVMfromJavaD2Ev.exit.i ], [ %25, %24 ], [ %25, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -19097,7 +19097,7 @@ _ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit: ; preds = %82, %86, %99
   br label %158
 
 158:                                              ; preds = %132, %148, %150, %137, %62, %30, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit
-  %.0 = phi ptr [ null, %62 ], [ null, %30 ], [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
+  %.0 = phi ptr [ null, %_ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit ], [ null, %30 ], [ null, %62 ], [ %80, %137 ], [ %80, %150 ], [ %80, %148 ], [ %80, %132 ]
   ret ptr %.0
 }
 
@@ -19456,7 +19456,7 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i:    ; preds = %32
 _ZN7nmethod11is_deopt_pcEPh.exit:                 ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i
   br i1 %42, label %select.unfold21, label %_ZN7nmethod11is_deopt_pcEPh.exit.thread
 
-_ZN7nmethod11is_deopt_pcEPh.exit.thread:          ; preds = %select.unfold, %32, %43, %_ZN7nmethod11is_deopt_pcEPh.exit
+_ZN7nmethod11is_deopt_pcEPh.exit.thread:          ; preds = %32, %select.unfold, %43, %_ZN7nmethod11is_deopt_pcEPh.exit
   br i1 %.not.i, label %46, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i
 
 46:                                               ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.thread
@@ -19525,8 +19525,8 @@ _ZN7nmethod11is_deopt_pcEPh.exit.thread.i:        ; preds = %_ZN7nmethod11is_deo
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7orig_pcEv.exit
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7orig_pcEv.exit: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i, %69, %_ZN7nmethod11is_deopt_pcEPh.exit.i, %_ZN7nmethod11is_deopt_pcEPh.exit.thread.i
-  %79 = phi i32 [ %22, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %22, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i ], [ %.pre, %_ZN7nmethod11is_deopt_pcEPh.exit.thread.i ], [ %22, %_ZN7nmethod11is_deopt_pcEPh.exit.i ], [ %22, %69 ], [ %22, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i ]
-  %.0.i11 = phi ptr [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i ], [ %78, %_ZN7nmethod11is_deopt_pcEPh.exit.thread.i ], [ %21, %_ZN7nmethod11is_deopt_pcEPh.exit.i ], [ %21, %69 ], [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i ]
+  %79 = phi i32 [ %22, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i ], [ %22, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %.pre, %_ZN7nmethod11is_deopt_pcEPh.exit.thread.i ], [ %22, %_ZN7nmethod11is_deopt_pcEPh.exit.i ], [ %22, %69 ], [ %22, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i ]
+  %.0.i11 = phi ptr [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i ], [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i ], [ %78, %_ZN7nmethod11is_deopt_pcEPh.exit.thread.i ], [ %21, %_ZN7nmethod11is_deopt_pcEPh.exit.i ], [ %21, %69 ], [ %21, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7is_stubEv.exit.i ]
   %.not.i13 = icmp eq i32 %79, 8658703
   br i1 %.not.i13, label %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15, label %select.unfold21
 
@@ -19555,8 +19555,8 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i15:    ; preds = %_ZNK21StackChunkFra
   %96 = getelementptr inbounds i8, ptr %94, i64 %95
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10get_oopmapEPhi.exit
 
-select.unfold21:                                  ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15, %43, %_ZN7nmethod11is_deopt_pcEPh.exit, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7orig_pcEv.exit
-  %.06.ph = phi ptr [ %21, %43 ], [ %.0.i11, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7orig_pcEv.exit ], [ %21, %_ZN7nmethod11is_deopt_pcEPh.exit ], [ %.0.i11, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15 ]
+select.unfold21:                                  ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15, %_ZN7nmethod11is_deopt_pcEPh.exit, %43, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7orig_pcEv.exit
+  %.06.ph = phi ptr [ %.0.i11, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE7orig_pcEv.exit ], [ %21, %43 ], [ %21, %_ZN7nmethod11is_deopt_pcEPh.exit ], [ %.0.i11, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15 ]
   %97 = tail call noundef ptr @_ZNK8CodeBlob26oop_map_for_return_addressEPh(ptr noundef nonnull align 8 dereferenceable(54) %26, ptr noundef nonnull %.06.ph) #16
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10get_oopmapEPhi.exit
 
@@ -19741,7 +19741,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i:  ; preds = %81, %_ZNK21StackChu
   %89 = tail call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef nonnull %.pre.i) #16
   br label %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit
 
-_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit.thread: ; preds = %68, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i
+_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit.thread: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i, %68
   store ptr null, ptr %4, align 8
   br label %95
 

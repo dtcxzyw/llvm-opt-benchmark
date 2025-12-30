@@ -714,7 +714,7 @@ process_new_extcap.exit.i:                        ; preds = %.sink.split.i.i, %1
   br label %extcap_load_interface_list.exit
 
 .critedge.critedge.i:                             ; preds = %extcap_run_all.exit.i, %34
-  %.0.i8490.ph.i = phi ptr [ %49, %extcap_run_all.exit.i ], [ null, %34 ]
+  %.0.i8490.ph.i = phi ptr [ null, %34 ], [ %49, %extcap_run_all.exit.i ]
   call void @g_free(ptr noundef %.0.i8490.ph.i)
   call void @g_free(ptr noundef %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -845,8 +845,8 @@ extcap_find_interface_for_ifname.exit:            ; preds = %21
   %.pre = load ptr, ptr %3, align 8
   br label %extcap_find_interface_for_ifname.exit.thread
 
-extcap_find_interface_for_ifname.exit.thread:     ; preds = %.lr.ph.i, %18, %16, %13, %11, %5, %extcap_find_interface_for_ifname.exit
-  %31 = phi ptr [ %.pre, %extcap_find_interface_for_ifname.exit ], [ null, %16 ], [ null, %13 ], [ null, %11 ], [ null, %5 ], [ null, %18 ], [ null, %.lr.ph.i ]
+extcap_find_interface_for_ifname.exit.thread:     ; preds = %18, %.lr.ph.i, %16, %13, %11, %5, %extcap_find_interface_for_ifname.exit
+  %31 = phi ptr [ null, %16 ], [ null, %13 ], [ null, %11 ], [ null, %5 ], [ %.pre, %extcap_find_interface_for_ifname.exit ], [ null, %.lr.ph.i ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %31
 }
@@ -1084,8 +1084,8 @@ extcap_find_interface_for_ifname.exit:            ; preds = %17
   %22 = load ptr, ptr %21, align 8
   br label %extcap_find_interface_for_ifname.exit.thread
 
-extcap_find_interface_for_ifname.exit.thread:     ; preds = %.lr.ph.i, %14, %12, %9, %7, %1, %extcap_find_interface_for_ifname.exit
-  %23 = phi ptr [ %22, %extcap_find_interface_for_ifname.exit ], [ null, %1 ], [ null, %7 ], [ null, %9 ], [ null, %12 ], [ null, %14 ], [ null, %.lr.ph.i ]
+extcap_find_interface_for_ifname.exit.thread:     ; preds = %14, %.lr.ph.i, %12, %9, %7, %1, %extcap_find_interface_for_ifname.exit
+  %23 = phi ptr [ %22, %extcap_find_interface_for_ifname.exit ], [ null, %1 ], [ null, %7 ], [ null, %9 ], [ null, %12 ], [ null, %.lr.ph.i ], [ null, %14 ]
   ret ptr %23
 }
 
@@ -1452,8 +1452,8 @@ extcap_find_interface_for_ifname.exit:            ; preds = %18
   %.pre = load ptr, ptr %2, align 8
   br label %extcap_find_interface_for_ifname.exit.thread
 
-extcap_find_interface_for_ifname.exit.thread:     ; preds = %.lr.ph.i, %15, %13, %10, %8, %1, %extcap_find_interface_for_ifname.exit
-  %28 = phi ptr [ %.pre, %extcap_find_interface_for_ifname.exit ], [ null, %13 ], [ null, %10 ], [ null, %8 ], [ null, %1 ], [ null, %15 ], [ null, %.lr.ph.i ]
+extcap_find_interface_for_ifname.exit.thread:     ; preds = %15, %.lr.ph.i, %13, %10, %8, %1, %extcap_find_interface_for_ifname.exit
+  %28 = phi ptr [ null, %13 ], [ null, %10 ], [ null, %8 ], [ null, %1 ], [ %.pre, %extcap_find_interface_for_ifname.exit ], [ null, %.lr.ph.i ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %28
 }
@@ -1737,8 +1737,8 @@ extcap_find_interface_for_ifname.exit:            ; preds = %20
   %.pre = load ptr, ptr %4, align 8
   br label %extcap_find_interface_for_ifname.exit.thread
 
-extcap_find_interface_for_ifname.exit.thread:     ; preds = %.lr.ph.i, %17, %15, %12, %10, %3, %45
-  %46 = phi ptr [ %.pre, %45 ], [ null, %15 ], [ null, %12 ], [ null, %10 ], [ null, %3 ], [ null, %17 ], [ null, %.lr.ph.i ]
+extcap_find_interface_for_ifname.exit.thread:     ; preds = %17, %.lr.ph.i, %15, %12, %10, %3, %45
+  %46 = phi ptr [ null, %15 ], [ null, %12 ], [ null, %10 ], [ null, %3 ], [ %.pre, %45 ], [ null, %.lr.ph.i ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %46
 }
@@ -1863,7 +1863,7 @@ define hidden zeroext i1 @_extcap_requires_configuration_int(ptr noundef %0, i1 
   br label %41
 
 41:                                               ; preds = %39, %37, %33, %29, %10, %.lr.ph.us
-  %.2.us = phi i8 [ 0, %.lr.ph.us ], [ %.4.us, %33 ], [ 0, %10 ], [ %.4.us, %37 ], [ %spec.select46.us, %39 ], [ %.4.us, %29 ]
+  %.2.us = phi i8 [ 0, %.lr.ph.us ], [ 0, %10 ], [ %.4.us, %37 ], [ %.4.us, %33 ], [ %.4.us, %29 ], [ %spec.select46.us, %39 ]
   %42 = getelementptr inbounds nuw i8, ptr %.03051.us59, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
@@ -2015,8 +2015,8 @@ extcap_find_interface_for_ifname.exit:            ; preds = %20
   %.pre = load i32, ptr %4, align 4
   br label %extcap_find_interface_for_ifname.exit.thread
 
-extcap_find_interface_for_ifname.exit.thread:     ; preds = %.lr.ph.i, %17, %15, %12, %10, %3, %extcap_find_interface_for_ifname.exit
-  %32 = phi i32 [ %.pre, %extcap_find_interface_for_ifname.exit ], [ 0, %15 ], [ 0, %12 ], [ 0, %10 ], [ 0, %3 ], [ 0, %17 ], [ 0, %.lr.ph.i ]
+extcap_find_interface_for_ifname.exit.thread:     ; preds = %17, %.lr.ph.i, %15, %12, %10, %3, %extcap_find_interface_for_ifname.exit
+  %32 = phi i32 [ 0, %15 ], [ 0, %12 ], [ 0, %10 ], [ 0, %3 ], [ %.pre, %extcap_find_interface_for_ifname.exit ], [ 0, %.lr.ph.i ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %32
 }
@@ -2189,7 +2189,7 @@ define internal fastcc ptr @extcap_ensure_interface(ptr noundef %0, i1 noundef z
   br label %19
 
 19:                                               ; preds = %9, %12, %2
-  %.0 = phi ptr [ null, %2 ], [ %18, %12 ], [ null, %9 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %9 ], [ %18, %12 ]
   ret ptr %.0
 }
 

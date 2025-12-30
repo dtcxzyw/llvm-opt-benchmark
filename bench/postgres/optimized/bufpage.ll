@@ -137,10 +137,10 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   %or.cond = select i1 %.not, i1 true, i1 %29
   br i1 %or.cond, label %.thread, label %pg_memory_is_all_zeros.exit
 
-.thread:                                          ; preds = %20, %12, %16, %24, %3
-  %.029 = phi i8 [ 0, %3 ], [ %.130, %24 ], [ %.130, %16 ], [ %.130, %12 ], [ %.130, %20 ]
-  %.027 = phi i1 [ false, %3 ], [ %28, %24 ], [ false, %16 ], [ false, %12 ], [ false, %20 ]
-  %.0 = phi i16 [ 0, %3 ], [ %.1, %24 ], [ %.1, %16 ], [ %.1, %12 ], [ %.1, %20 ]
+.thread:                                          ; preds = %12, %16, %20, %24, %3
+  %.029 = phi i8 [ 0, %3 ], [ %.130, %24 ], [ %.130, %20 ], [ %.130, %16 ], [ %.130, %12 ]
+  %.027 = phi i1 [ false, %3 ], [ %28, %24 ], [ false, %20 ], [ false, %16 ], [ false, %12 ]
+  %.0 = phi i16 [ 0, %3 ], [ %.1, %24 ], [ %.1, %20 ], [ %.1, %16 ], [ %.1, %12 ]
   %30 = ptrtoint ptr %0 to i64
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8192
   %32 = ptrtoint ptr %31 to i64
@@ -279,7 +279,7 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   br label %pg_memory_is_all_zeros.exit
 
 pg_memory_is_all_zeros.exit:                      ; preds = %.preheader.i, %88, %24, %91
-  %.031 = phi i1 [ true, %24 ], [ true, %88 ], [ false, %91 ], [ true, %.preheader.i ]
+  %.031 = phi i1 [ false, %91 ], [ true, %24 ], [ true, %88 ], [ true, %.preheader.i ]
   ret i1 %.031
 }
 
@@ -413,8 +413,8 @@ define dso_local zeroext range(i16 0, 16379) i16 @PageAddItemExtended(ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %55, %50, %41, %._crit_edge, %40
-  %.074 = phi i16 [ %3, %41 ], [ %3, %40 ], [ %.1.lcssa, %._crit_edge ], [ %3, %50 ], [ %.1103, %55 ]
-  %.0 = phi i1 [ false, %41 ], [ false, %40 ], [ false, %._crit_edge ], [ %.not86, %50 ], [ false, %55 ]
+  %.074 = phi i16 [ %3, %40 ], [ %.1.lcssa, %._crit_edge ], [ %3, %41 ], [ %3, %50 ], [ %.1103, %55 ]
+  %.0 = phi i1 [ false, %40 ], [ false, %._crit_edge ], [ false, %41 ], [ %.not86, %50 ], [ false, %55 ]
   %62 = icmp ugt i16 %.074, %narrow
   br i1 %62, label %63, label %.thread94
 
@@ -488,7 +488,7 @@ define dso_local zeroext range(i16 0, 16379) i16 @PageAddItemExtended(ptr nounde
   br label %101
 
 101:                                              ; preds = %76, %72, %74, %63, %65, %46, %48, %92
-  %.073 = phi i16 [ %.07497, %92 ], [ 0, %46 ], [ 0, %63 ], [ 0, %72 ], [ 0, %48 ], [ 0, %65 ], [ 0, %74 ], [ 0, %76 ]
+  %.073 = phi i16 [ %.07497, %92 ], [ 0, %48 ], [ 0, %46 ], [ 0, %65 ], [ 0, %63 ], [ 0, %74 ], [ 0, %72 ], [ 0, %76 ]
   ret i16 %.073
 }
 
@@ -1120,8 +1120,8 @@ define dso_local void @PageTruncateLinePointerArray(ptr noundef captures(none) %
   br i1 %.not38, label %._crit_edge, label %9, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %16, %17
-  %.020.lcssa = phi i32 [ %.336, %17 ], [ %.02041, %16 ]
-  %.124 = phi i1 [ false, %17 ], [ true, %16 ]
+  %.020.lcssa = phi i32 [ %.02041, %16 ], [ %.336, %17 ]
+  %.124 = phi i1 [ true, %16 ], [ false, %17 ]
   %19 = icmp sgt i32 %.020.lcssa, 0
   br i1 %19, label %20, label %24
 

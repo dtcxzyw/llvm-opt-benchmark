@@ -2705,7 +2705,7 @@ _ZN6diesel18expression_methods25global_expression_methods17ExpressionMethods2eq1
   unreachable
 
 .thread:                                          ; preds = %10, %38
-  %.pn27 = phi { ptr, i32 } [ %.pn, %10 ], [ %39, %38 ]
+  %.pn27 = phi { ptr, i32 } [ %39, %38 ], [ %.pn, %10 ]
   resume { ptr, i32 } %.pn27
 
 38:                                               ; preds = %2

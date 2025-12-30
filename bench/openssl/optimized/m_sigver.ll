@@ -91,8 +91,8 @@ define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %0, ptr n
   br label %44
 
 44:                                               ; preds = %40, %33, %36, %32
-  %.0171 = phi ptr [ null, %32 ], [ %38, %40 ], [ null, %36 ], [ null, %33 ]
-  %45 = phi i1 [ false, %32 ], [ %43, %40 ], [ false, %36 ], [ false, %33 ]
+  %.0171 = phi ptr [ null, %32 ], [ null, %33 ], [ null, %36 ], [ %38, %40 ]
+  %45 = phi i1 [ false, %32 ], [ false, %33 ], [ false, %36 ], [ %43, %40 ]
   %46 = icmp eq ptr %5, null
   br i1 %46, label %47, label %50
 
@@ -200,9 +200,9 @@ define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %0, ptr n
   %95 = icmp eq ptr %94, null
   br i1 %95, label %.loopexit, label %96
 
-96:                                               ; preds = %90, %88
-  %.4.ph = phi ptr [ %87, %88 ], [ %94, %90 ]
-  %.1169.ph = phi ptr [ %89, %88 ], [ %92, %90 ]
+96:                                               ; preds = %88, %90
+  %.4.ph = phi ptr [ %94, %90 ], [ %87, %88 ]
+  %.1169.ph = phi ptr [ %92, %90 ], [ %89, %88 ]
   %97 = load ptr, ptr %29, align 8, !tbaa !14
   %98 = call ptr @EVP_KEYMGMT_get0_name(ptr noundef %97) #6
   %99 = load ptr, ptr %77, align 8, !tbaa !26
@@ -225,9 +225,9 @@ define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %0, ptr n
   call void @EVP_KEYMGMT_free(ptr noundef %100) #6
   br label %107
 
-107:                                              ; preds = %101, %.thread240, %84
-  %.5.ph = phi ptr [ null, %84 ], [ %.4.ph, %.thread240 ], [ %.4.ph, %101 ]
-  %.2167.ph = phi ptr [ null, %84 ], [ %.3242, %.thread240 ], [ %105, %101 ]
+107:                                              ; preds = %.thread240, %101, %84
+  %.5.ph = phi ptr [ null, %84 ], [ %.4.ph, %101 ], [ %.4.ph, %.thread240 ]
+  %.2167.ph = phi ptr [ null, %84 ], [ %105, %101 ], [ %.3242, %.thread240 ]
   %108 = icmp eq ptr %.2167.ph, null
   %109 = select i1 %82, i1 %108, i1 false
   br i1 %109, label %81, label %110, !llvm.loop !40
@@ -268,9 +268,9 @@ define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %0, ptr n
   br label %176
 
 canon_mdname.exit:                                ; preds = %72, %69, %113, %63
-  %.0180 = phi ptr [ %3, %113 ], [ %3, %63 ], [ %68, %72 ], [ null, %69 ]
-  %.2173 = phi ptr [ %.5.ph, %113 ], [ %.0171, %63 ], [ %.0171, %72 ], [ %.0171, %69 ]
-  %.0165 = phi ptr [ %.2167.ph, %113 ], [ null, %63 ], [ null, %72 ], [ null, %69 ]
+  %.0180 = phi ptr [ %3, %63 ], [ %3, %113 ], [ %68, %72 ], [ null, %69 ]
+  %.2173 = phi ptr [ %.0171, %63 ], [ %.5.ph, %113 ], [ %.0171, %72 ], [ %.0171, %69 ]
+  %.0165 = phi ptr [ null, %63 ], [ %.2167.ph, %113 ], [ null, %72 ], [ null, %69 ]
   %.not211 = icmp eq ptr %1, null
   br i1 %.not211, label %127, label %126
 
@@ -357,7 +357,7 @@ canon_mdname.exit234.thread254:                   ; preds = %142, %canon_mdname.
   br label %canon_mdname.exit231
 
 canon_mdname.exit231:                             ; preds = %142, %138, %135, %132, %canon_mdname.exit234, %156, %128
-  %.1181 = phi ptr [ null, %canon_mdname.exit234 ], [ %.0180, %128 ], [ %.2182257, %156 ], [ %131, %135 ], [ null, %132 ], [ null, %138 ], [ null, %142 ]
+  %.1181 = phi ptr [ %.0180, %128 ], [ %.2182257, %156 ], [ null, %canon_mdname.exit234 ], [ %131, %135 ], [ null, %132 ], [ null, %138 ], [ null, %142 ]
   %.not215 = icmp eq i32 %8, 0
   br i1 %.not215, label %163, label %158
 
@@ -614,7 +614,7 @@ canon_mdname.exit231:                             ; preds = %142, %138, %135, %1
   br label %275
 
 275:                                              ; preds = %253, %247, %241, %238, %228, %222, %212, %25, %10, %273, %205, %191, %176
-  %.0175 = phi i32 [ 0, %10 ], [ 0, %191 ], [ 0, %25 ], [ 0, %238 ], [ 0, %241 ], [ %.2, %273 ], [ 1, %247 ], [ 0, %212 ], [ 0, %222 ], [ 0, %228 ], [ 0, %205 ], [ 0, %176 ], [ 0, %253 ]
+  %.0175 = phi i32 [ 0, %191 ], [ %.2, %273 ], [ 0, %205 ], [ 0, %176 ], [ 0, %10 ], [ 0, %25 ], [ 0, %212 ], [ 0, %222 ], [ 0, %228 ], [ 0, %238 ], [ 0, %241 ], [ 1, %247 ], [ 0, %253 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0175
@@ -722,7 +722,7 @@ define i32 @EVP_DigestSignUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br label %43
 
 43:                                               ; preds = %32, %41, %26, %25, %9
-  %.0 = phi i32 [ 0, %9 ], [ %42, %41 ], [ %27, %26 ], [ 0, %25 ], [ 0, %32 ]
+  %.0 = phi i32 [ 0, %9 ], [ %42, %41 ], [ 0, %25 ], [ %27, %26 ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -818,7 +818,7 @@ define i32 @EVP_DigestVerifyUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %
   br label %43
 
 43:                                               ; preds = %32, %41, %26, %25, %9
-  %.0 = phi i32 [ 0, %9 ], [ %42, %41 ], [ %27, %26 ], [ 0, %25 ], [ 0, %32 ]
+  %.0 = phi i32 [ 0, %9 ], [ %42, %41 ], [ 0, %25 ], [ %27, %26 ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -1057,7 +1057,7 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br label %122
 
 122:                                              ; preds = %121, %102
-  %.1107 = phi i32 [ %.3109, %121 ], [ %103, %102 ]
+  %.1107 = phi i32 [ %103, %102 ], [ %.3109, %121 ]
   %123 = icmp ne i32 %.1107, 0
   %or.cond5 = select i1 %.not124, i1 %123, i1 false
   br i1 %or.cond5, label %.critedge136, label %.critedge136.thread
@@ -1102,7 +1102,7 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br label %141
 
 141:                                              ; preds = %.critedge136.thread, %137, %132, %129, %79, %88, %85, %59, %46, %49, %.critedge136, %.critedge138, %72, %.critedge, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %.critedge ], [ %75, %72 ], [ 0, %85 ], [ 0, %59 ], [ 1, %.critedge138 ], [ 0, %.critedge136 ], [ %93, %88 ], [ 0, %129 ], [ %44, %46 ], [ %50, %49 ], [ %82, %79 ], [ 0, %132 ], [ 0, %137 ], [ %.3.ph, %.critedge136.thread ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %.critedge ], [ %75, %72 ], [ 1, %.critedge138 ], [ 0, %.critedge136 ], [ %50, %49 ], [ %44, %46 ], [ 0, %59 ], [ 0, %85 ], [ %82, %79 ], [ %93, %88 ], [ 0, %129 ], [ 0, %132 ], [ 0, %137 ], [ %.3.ph, %.critedge136.thread ]
   ret i32 %.0
 }
 
@@ -1405,7 +1405,7 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br label %87
 
 87:                                               ; preds = %86, %66
-  %.058 = phi i32 [ %.2, %86 ], [ %67, %66 ]
+  %.058 = phi i32 [ %67, %66 ], [ %.2, %86 ]
   %88 = icmp ne i32 %.058, 0
   %or.cond = select i1 %.not69, i1 %88, i1 false
   br i1 %or.cond, label %89, label %.critedge76
@@ -1417,7 +1417,7 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br label %.critedge76
 
 .critedge76:                                      ; preds = %.thread, %73, %68, %87, %49, %36, %40, %89, %.critedge, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %.critedge ], [ %92, %89 ], [ 0, %49 ], [ %.058, %87 ], [ %37, %36 ], [ %34, %40 ], [ -1, %68 ], [ -1, %73 ], [ %63, %.thread ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %.critedge ], [ %92, %89 ], [ %34, %40 ], [ %37, %36 ], [ 0, %49 ], [ %.058, %87 ], [ -1, %68 ], [ -1, %73 ], [ %63, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1510,7 +1510,7 @@ define i32 @EVP_DigestVerify(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr
   br label %47
 
 47:                                               ; preds = %42, %45, %40, %27, %14, %9
-  %.0 = phi i32 [ -1, %9 ], [ 0, %14 ], [ %33, %27 ], [ %41, %40 ], [ %46, %45 ], [ -1, %42 ]
+  %.0 = phi i32 [ -1, %9 ], [ 0, %14 ], [ %33, %27 ], [ %46, %45 ], [ %41, %40 ], [ -1, %42 ]
   ret i32 %.0
 }
 

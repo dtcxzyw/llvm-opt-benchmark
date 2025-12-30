@@ -245,7 +245,7 @@ define noundef zeroext i1 @ECPGtrans(i32 noundef %0, ptr noundef %1, ptr noundef
   br label %38
 
 38:                                               ; preds = %7, %37, %.critedge, %32, %26, %3
-  %.0 = phi i1 [ false, %32 ], [ false, %26 ], [ false, %3 ], [ true, %.critedge ], [ true, %37 ], [ true, %7 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %26 ], [ false, %32 ], [ true, %.critedge ], [ true, %37 ], [ true, %7 ]
   ret i1 %.0
 }
 
@@ -616,7 +616,7 @@ define noundef zeroext i1 @ECPGis_noind_null(i32 noundef %0, ptr noundef readonl
   br label %_check.exit
 
 _check.exit:                                      ; preds = %46, %.preheader32, %42, %.preheader29, %23, %.preheader26, %19, %.preheader, %37, %33, %30, %26, %15, %12, %9, %6, %3, %49
-  %.0 = phi i1 [ false, %49 ], [ %41, %42 ], [ true, %3 ], [ true, %6 ], [ true, %9 ], [ true, %12 ], [ true, %37 ], [ %22, %23 ], [ true, %15 ], [ true, %26 ], [ true, %30 ], [ true, %33 ], [ %18, %19 ], [ %18, %.preheader ], [ %22, %.preheader26 ], [ %41, %.preheader29 ], [ %45, %.preheader32 ], [ %45, %46 ]
+  %.0 = phi i1 [ false, %49 ], [ true, %3 ], [ true, %6 ], [ true, %9 ], [ true, %12 ], [ true, %15 ], [ true, %26 ], [ true, %30 ], [ true, %33 ], [ true, %37 ], [ %18, %.preheader ], [ %18, %19 ], [ %22, %.preheader26 ], [ %22, %23 ], [ %41, %.preheader29 ], [ %41, %42 ], [ %45, %.preheader32 ], [ %45, %46 ]
   ret i1 %.0
 }
 

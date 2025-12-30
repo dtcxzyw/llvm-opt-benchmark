@@ -292,7 +292,7 @@ lean_obj_tag.exit34:                              ; preds = %72, %75
   br label %l_List_beq___at_Lean_beqOpenDecl____x40_Lean_Data_OpenDecl___hyg_41____spec__1.exit
 
 l_List_beq___at_Lean_beqOpenDecl____x40_Lean_Data_OpenDecl___hyg_41____spec__1.exit: ; preds = %60, %lean_obj_tag.exit30.i, %lean_obj_tag.exit26.i, %90, %79, %lean_obj_tag.exit34, %lean_obj_tag.exit30, %22
-  %.1 = phi i8 [ 0, %lean_obj_tag.exit34 ], [ 0, %22 ], [ 0, %lean_obj_tag.exit30 ], [ 0, %79 ], [ %91, %90 ], [ %..i, %lean_obj_tag.exit26.i ], [ 0, %lean_obj_tag.exit30.i ], [ 0, %60 ]
+  %.1 = phi i8 [ 0, %22 ], [ 0, %lean_obj_tag.exit30 ], [ 0, %lean_obj_tag.exit34 ], [ %91, %90 ], [ 0, %79 ], [ %..i, %lean_obj_tag.exit26.i ], [ 0, %lean_obj_tag.exit30.i ], [ 0, %60 ]
   ret i8 %.1
 }
 
@@ -1165,7 +1165,7 @@ lean_dec.exit41:                                  ; preds = %105, %104, %102, %l
   br label %lean_dec.exit43
 
 lean_dec.exit43:                                  ; preds = %lean_dec.exit41, %117, %119, %120, %lean_dec.exit44, %69, %71, %72, %lean_dec.exit42
-  %.1 = phi ptr [ %63, %lean_dec.exit44 ], [ %81, %lean_dec.exit42 ], [ %63, %72 ], [ %63, %71 ], [ %63, %69 ], [ %111, %120 ], [ %111, %119 ], [ %111, %117 ], [ %111, %lean_dec.exit41 ]
+  %.1 = phi ptr [ %81, %lean_dec.exit42 ], [ %63, %72 ], [ %63, %71 ], [ %63, %69 ], [ %63, %lean_dec.exit44 ], [ %111, %120 ], [ %111, %119 ], [ %111, %117 ], [ %111, %lean_dec.exit41 ]
   ret ptr %.1
 }
 

@@ -1029,7 +1029,7 @@ compute_next.exit:                                ; preds = %238
   br label %319
 
 319:                                              ; preds = %.loopexit, %267, %118, %46
-  %.0112 = phi i32 [ -1, %46 ], [ -1, %118 ], [ %spec.select153, %.loopexit ], [ -1, %267 ]
+  %.0112 = phi i32 [ -1, %46 ], [ -1, %118 ], [ -1, %267 ], [ %spec.select153, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1965,7 +1965,7 @@ compute_next.exit:                                ; preds = %327
   br label %391
 
 391:                                              ; preds = %359, %390, %102, %70, %39
-  %.074 = phi ptr [ null, %70 ], [ null, %102 ], [ null, %39 ], [ null, %390 ], [ %74, %359 ]
+  %.074 = phi ptr [ null, %70 ], [ null, %102 ], [ null, %390 ], [ null, %39 ], [ %74, %359 ]
   ret ptr %.074
 }
 
@@ -2486,7 +2486,7 @@ define internal i64 @H5FD_multi_get_eoa(ptr noundef readonly captures(none) %0, 
   br label %120
 
 118:                                              ; preds = %86, %79, %49
-  %.049 = phi i64 [ %82, %79 ], [ %41, %49 ], [ %88, %86 ]
+  %.049 = phi i64 [ %82, %79 ], [ %88, %86 ], [ %41, %49 ]
   %spec.select75 = call i64 @llvm.umax.i64(i64 %.049, i64 %.05286)
   br label %119
 
@@ -2673,7 +2673,7 @@ define internal i64 @H5FD_multi_get_eoa(ptr noundef readonly captures(none) %0, 
   br label %.thread81
 
 .thread81:                                        ; preds = %189, %180, %150, %.thread79, %177, %219, %120
-  %.459 = phi i64 [ -1, %177 ], [ -1, %120 ], [ -1, %219 ], [ %.153, %.thread79 ], [ %192, %189 ], [ %142, %150 ], [ %184, %180 ]
+  %.459 = phi i64 [ -1, %120 ], [ -1, %219 ], [ -1, %177 ], [ %.153, %.thread79 ], [ %142, %150 ], [ %192, %189 ], [ %184, %180 ]
   ret i64 %.459
 }
 
@@ -2804,7 +2804,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_set_eoa(ptr noundef readonly ca
   br label %79
 
 79:                                               ; preds = %48, %17, %76
-  %.0 = phi i32 [ 0, %17 ], [ -1, %76 ], [ 0, %48 ]
+  %.0 = phi i32 [ -1, %76 ], [ 0, %17 ], [ 0, %48 ]
   ret i32 %.0
 }
 
@@ -3013,7 +3013,7 @@ define internal i64 @H5FD_multi_get_eof(ptr noundef readonly captures(none) %0, 
   br label %120
 
 118:                                              ; preds = %86, %79, %49
-  %.049 = phi i64 [ %82, %79 ], [ %41, %49 ], [ %88, %86 ]
+  %.049 = phi i64 [ %82, %79 ], [ %88, %86 ], [ %41, %49 ]
   %spec.select76 = call i64 @llvm.umax.i64(i64 %.049, i64 %.05287)
   br label %119
 
@@ -3200,7 +3200,7 @@ define internal i64 @H5FD_multi_get_eof(ptr noundef readonly captures(none) %0, 
   br label %.thread82
 
 .thread82:                                        ; preds = %189, %180, %150, %.thread80, %177, %219, %120
-  %.459 = phi i64 [ -1, %177 ], [ -1, %120 ], [ -1, %219 ], [ %.153, %.thread80 ], [ %192, %189 ], [ %142, %150 ], [ %184, %180 ]
+  %.459 = phi i64 [ -1, %120 ], [ -1, %219 ], [ -1, %177 ], [ %.153, %.thread80 ], [ %142, %150 ], [ %192, %189 ], [ %184, %180 ]
   ret i64 %.459
 }
 
@@ -4219,12 +4219,12 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_delete(ptr noundef %0, i64 noun
   br i1 %exitcond.not, label %.loopexit, label %99, !llvm.loop !65
 
 .loopexit:                                        ; preds = %175, %172, %138
-  %spec.select37 = phi i32 [ -1, %138 ], [ -1, %172 ], [ 0, %175 ]
+  %spec.select37 = phi i32 [ -1, %172 ], [ -1, %138 ], [ 0, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %93, %61
-  %.2 = phi i32 [ -1, %93 ], [ %spec.select37, %.loopexit ], [ -1, %61 ]
+  %.2 = phi i32 [ %spec.select37, %.loopexit ], [ -1, %61 ], [ -1, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2
@@ -4735,7 +4735,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD_split_populate_config(ptr noun
   br i1 %exitcond80.not, label %.critedge, label %154, !llvm.loop !68
 
 .critedge:                                        ; preds = %200, %197, %146, %112, %68
-  %.3 = phi i32 [ -1, %146 ], [ -1, %68 ], [ -1, %112 ], [ -1, %197 ], [ 0, %200 ]
+  %.3 = phi i32 [ -1, %68 ], [ -1, %112 ], [ -1, %146 ], [ -1, %197 ], [ 0, %200 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

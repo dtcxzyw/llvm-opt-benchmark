@@ -414,8 +414,8 @@ define internal i32 @theora_decode_init(ptr noundef initializes((136, 140)) %0) 
   %66 = call i32 @vp3_decode_init(ptr noundef %0) #11
   br label %.thread43
 
-.thread43:                                        ; preds = %50, %27, %53, %65, %21, %11
-  %.029 = phi i32 [ -1, %21 ], [ %66, %65 ], [ -1, %11 ], [ -1, %53 ], [ -1094995529, %27 ], [ -1, %50 ]
+.thread43:                                        ; preds = %53, %50, %27, %65, %21, %11
+  %.029 = phi i32 [ -1, %21 ], [ %66, %65 ], [ -1, %11 ], [ -1094995529, %27 ], [ -1, %50 ], [ -1, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1308,9 +1308,9 @@ init_dequantizer.exit:                            ; preds = %196, %179
   br label %get_vlc2.exit.i
 
 get_vlc2.exit.i:                                  ; preds = %520, %502
-  %.064.i.i = phi i32 [ %503, %502 ], [ %522, %520 ]
-  %.062.i.i = phi i32 [ %515, %502 ], [ %536, %520 ]
-  %.0.i.i277 = phi i32 [ %518, %502 ], [ %539, %520 ]
+  %.064.i.i = phi i32 [ %522, %520 ], [ %503, %502 ]
+  %.062.i.i = phi i32 [ %536, %520 ], [ %515, %502 ]
+  %.0.i.i277 = phi i32 [ %539, %520 ], [ %518, %502 ]
   %540 = add i32 %.0.i.i277, %.064.i.i
   %541 = tail call i32 @llvm.umin.i32(i32 %468, i32 %540)
   store i32 %541, ptr %28, align 8, !tbaa !59
@@ -1469,9 +1469,9 @@ get_vlc2.exit.i:                                  ; preds = %520, %502
   br label %get_vlc2.exit244.i
 
 get_vlc2.exit244.i:                               ; preds = %627, %607
-  %.064.i241.i = phi i32 [ %610, %607 ], [ %629, %627 ]
-  %.062.i242.i = phi i32 [ %622, %607 ], [ %643, %627 ]
-  %.0.i243.i = phi i32 [ %625, %607 ], [ %646, %627 ]
+  %.064.i241.i = phi i32 [ %629, %627 ], [ %610, %607 ]
+  %.062.i242.i = phi i32 [ %643, %627 ], [ %622, %607 ]
+  %.0.i243.i = phi i32 [ %646, %627 ], [ %625, %607 ]
   %647 = add i32 %.0.i243.i, %.064.i241.i
   %648 = tail call i32 @llvm.umin.i32(i32 %609, i32 %647)
   store i32 %648, ptr %28, align 8, !tbaa !59
@@ -1771,9 +1771,9 @@ get_vlc2.exit244.i:                               ; preds = %627, %607
   br label %get_vlc2.exit248.i
 
 get_vlc2.exit248.i:                               ; preds = %779, %759
-  %.064.i245.i = phi i32 [ %761, %759 ], [ %781, %779 ]
-  %.062.i246.i = phi i32 [ %774, %759 ], [ %795, %779 ]
-  %.0.i247.i = phi i32 [ %777, %759 ], [ %798, %779 ]
+  %.064.i245.i = phi i32 [ %781, %779 ], [ %761, %759 ]
+  %.062.i246.i = phi i32 [ %795, %779 ], [ %774, %759 ]
+  %.0.i247.i = phi i32 [ %798, %779 ], [ %777, %759 ]
   %799 = add i32 %.0.i247.i, %.064.i245.i
   %800 = tail call i32 @llvm.umin.i32(i32 %762, i32 %799)
   store i32 %800, ptr %28, align 8, !tbaa !59
@@ -1812,9 +1812,9 @@ get_vlc2.exit248.i:                               ; preds = %779, %759
   br i1 %exitcond355.not.i, label %746, label %748, !llvm.loop !111
 
 .critedge11.thread.i:                             ; preds = %746, %739, %._crit_edge.i268, %720, %.preheader274.i
-  %.8206.i = phi i32 [ %.7205339.i, %._crit_edge.i268 ], [ %.7205339.i, %720 ], [ %.7205339.i, %.preheader274.i ], [ %.13211.i, %746 ], [ %.9207326.i, %739 ]
-  %.8181.i = phi i32 [ %.7180342.i, %._crit_edge.i268 ], [ %.7180342.i, %720 ], [ %.7180342.i, %.preheader274.i ], [ %.13.i, %746 ], [ %.9182327.i, %739 ]
-  %.3.i = phi i32 [ %.0164.lcssa.i, %._crit_edge.i268 ], [ %722, %720 ], [ 0, %.preheader274.i ], [ %.7.i, %746 ], [ %.4328.i, %739 ]
+  %.8206.i = phi i32 [ %.7205339.i, %._crit_edge.i268 ], [ %.7205339.i, %720 ], [ %.7205339.i, %.preheader274.i ], [ %.9207326.i, %739 ], [ %.13211.i, %746 ]
+  %.8181.i = phi i32 [ %.7180342.i, %._crit_edge.i268 ], [ %.7180342.i, %720 ], [ %.7180342.i, %.preheader274.i ], [ %.9182327.i, %739 ], [ %.13.i, %746 ]
+  %.3.i = phi i32 [ %.0164.lcssa.i, %._crit_edge.i268 ], [ %722, %720 ], [ 0, %.preheader274.i ], [ %.4328.i, %739 ], [ %.7.i, %746 ]
   %813 = load i32, ptr %697, align 16, !tbaa !101
   %814 = add nsw i32 %813, %.3.i
   store i32 %814, ptr %697, align 16, !tbaa !101
@@ -2428,9 +2428,9 @@ vp4_unpack_macroblocks.exit:                      ; preds = %._crit_edge181.i, %
   br label %get_vlc2.exit.i303
 
 get_vlc2.exit.i303:                               ; preds = %1117, %1107
-  %.064.i.i304 = phi i32 [ %1093, %1107 ], [ %1119, %1117 ]
-  %.062.i.i305 = phi i32 [ %1112, %1107 ], [ %1133, %1117 ]
-  %.0.i.i306 = phi i32 [ %1115, %1107 ], [ %1136, %1117 ]
+  %.064.i.i304 = phi i32 [ %1119, %1117 ], [ %1093, %1107 ]
+  %.062.i.i305 = phi i32 [ %1133, %1117 ], [ %1112, %1107 ]
+  %.0.i.i306 = phi i32 [ %1136, %1117 ], [ %1115, %1107 ]
   %1137 = add i32 %.0.i.i306, %.064.i.i304
   %1138 = tail call i32 @llvm.umin.i32(i32 %1094, i32 %1137)
   store i32 %1138, ptr %28, align 8, !tbaa !59
@@ -2623,7 +2623,7 @@ get_vlc2.exit.i303:                               ; preds = %1117, %1107
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.sink.split
 
-.loopexit381.thread:                              ; preds = %.preheader161.lr.ph.i, %.loopexit164.i
+.loopexit381.thread:                              ; preds = %.loopexit164.i, %.preheader161.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2848,9 +2848,9 @@ get_vlc2.exit.i303:                               ; preds = %1117, %1107
   br label %vp4_get_mv.exit.i
 
 vp4_get_mv.exit.i:                                ; preds = %1347, %1320
-  %.064.i.i.i = phi i32 [ %1328, %1320 ], [ %1349, %1347 ]
-  %.062.i.i.i = phi i32 [ %1342, %1320 ], [ %1363, %1347 ]
-  %.0.i.i.i = phi i32 [ %1345, %1320 ], [ %1366, %1347 ]
+  %.064.i.i.i = phi i32 [ %1349, %1347 ], [ %1328, %1320 ]
+  %.062.i.i.i = phi i32 [ %1363, %1347 ], [ %1342, %1320 ]
+  %.0.i.i.i = phi i32 [ %1366, %1347 ], [ %1345, %1320 ]
   %1367 = add i32 %.0.i.i.i, %.064.i.i.i
   %1368 = tail call i32 @llvm.umin.i32(i32 %1329, i32 %1367)
   store i32 %1368, ptr %28, align 8, !tbaa !59
@@ -2906,9 +2906,9 @@ vp4_get_mv.exit.i:                                ; preds = %1347, %1320
   br label %vp4_get_mv.exit234.i
 
 vp4_get_mv.exit234.i:                             ; preds = %1395, %vp4_get_mv.exit.i
-  %.064.i.i231.i = phi i32 [ %1368, %vp4_get_mv.exit.i ], [ %1397, %1395 ]
-  %.062.i.i232.i = phi i32 [ %1390, %vp4_get_mv.exit.i ], [ %1411, %1395 ]
-  %.0.i.i233.i = phi i32 [ %1393, %vp4_get_mv.exit.i ], [ %1414, %1395 ]
+  %.064.i.i231.i = phi i32 [ %1397, %1395 ], [ %1368, %vp4_get_mv.exit.i ]
+  %.062.i.i232.i = phi i32 [ %1411, %1395 ], [ %1390, %vp4_get_mv.exit.i ]
+  %.0.i.i233.i = phi i32 [ %1414, %1395 ], [ %1393, %vp4_get_mv.exit.i ]
   %1415 = add i32 %.0.i.i233.i, %.064.i.i231.i
   %1416 = tail call i32 @llvm.umin.i32(i32 %1329, i32 %1415)
   store i32 %1416, ptr %28, align 8, !tbaa !59
@@ -2969,9 +2969,9 @@ vp4_get_mv.exit234.i:                             ; preds = %1395, %vp4_get_mv.e
   br label %get_vlc2.exit.i324
 
 get_vlc2.exit.i324:                               ; preds = %1441, %1421
-  %.064.i.i325 = phi i32 [ %1422, %1421 ], [ %1443, %1441 ]
-  %.062.i.i326 = phi i32 [ %1436, %1421 ], [ %1457, %1441 ]
-  %.0.i.i327 = phi i32 [ %1439, %1421 ], [ %1460, %1441 ]
+  %.064.i.i325 = phi i32 [ %1443, %1441 ], [ %1422, %1421 ]
+  %.062.i.i326 = phi i32 [ %1457, %1441 ], [ %1436, %1421 ]
+  %.0.i.i327 = phi i32 [ %1460, %1441 ], [ %1439, %1421 ]
   %1461 = add i32 %.0.i.i327, %.064.i.i325
   %1462 = tail call i32 @llvm.umin.i32(i32 %1423, i32 %1461)
   store i32 %1462, ptr %28, align 8, !tbaa !59
@@ -3017,9 +3017,9 @@ get_vlc2.exit.i324:                               ; preds = %1441, %1421
   br label %get_vlc2.exit221.i
 
 get_vlc2.exit221.i:                               ; preds = %1479, %get_vlc2.exit.i324
-  %.064.i218.i = phi i32 [ %1462, %get_vlc2.exit.i324 ], [ %1481, %1479 ]
-  %.062.i219.i = phi i32 [ %1474, %get_vlc2.exit.i324 ], [ %1495, %1479 ]
-  %.0.i220.i = phi i32 [ %1477, %get_vlc2.exit.i324 ], [ %1498, %1479 ]
+  %.064.i218.i = phi i32 [ %1481, %1479 ], [ %1462, %get_vlc2.exit.i324 ]
+  %.062.i219.i = phi i32 [ %1495, %1479 ], [ %1474, %get_vlc2.exit.i324 ]
+  %.0.i220.i = phi i32 [ %1498, %1479 ], [ %1477, %get_vlc2.exit.i324 ]
   %1499 = add i32 %.0.i220.i, %.064.i218.i
   %1500 = tail call i32 @llvm.umin.i32(i32 %1423, i32 %1499)
   store i32 %1500, ptr %28, align 8, !tbaa !59
@@ -3120,9 +3120,9 @@ default.unreachable:                              ; preds = %2509, %2456
   br label %vp4_get_mv.exit238.i
 
 vp4_get_mv.exit238.i:                             ; preds = %1560, %1533
-  %.064.i.i235.i = phi i32 [ %1541, %1533 ], [ %1562, %1560 ]
-  %.062.i.i236.i = phi i32 [ %1555, %1533 ], [ %1576, %1560 ]
-  %.0.i.i237.i = phi i32 [ %1558, %1533 ], [ %1579, %1560 ]
+  %.064.i.i235.i = phi i32 [ %1562, %1560 ], [ %1541, %1533 ]
+  %.062.i.i236.i = phi i32 [ %1576, %1560 ], [ %1555, %1533 ]
+  %.0.i.i237.i = phi i32 [ %1579, %1560 ], [ %1558, %1533 ]
   %1580 = add i32 %.0.i.i237.i, %.064.i.i235.i
   %1581 = tail call i32 @llvm.umin.i32(i32 %1542, i32 %1580)
   store i32 %1581, ptr %28, align 8, !tbaa !59
@@ -3178,9 +3178,9 @@ vp4_get_mv.exit238.i:                             ; preds = %1560, %1533
   br label %vp4_get_mv.exit242.i
 
 vp4_get_mv.exit242.i:                             ; preds = %1608, %vp4_get_mv.exit238.i
-  %.064.i.i239.i = phi i32 [ %1581, %vp4_get_mv.exit238.i ], [ %1610, %1608 ]
-  %.062.i.i240.i = phi i32 [ %1603, %vp4_get_mv.exit238.i ], [ %1624, %1608 ]
-  %.0.i.i241.i = phi i32 [ %1606, %vp4_get_mv.exit238.i ], [ %1627, %1608 ]
+  %.064.i.i239.i = phi i32 [ %1610, %1608 ], [ %1581, %vp4_get_mv.exit238.i ]
+  %.062.i.i240.i = phi i32 [ %1624, %1608 ], [ %1603, %vp4_get_mv.exit238.i ]
+  %.0.i.i241.i = phi i32 [ %1627, %1608 ], [ %1606, %vp4_get_mv.exit238.i ]
   %1628 = add i32 %.0.i.i241.i, %.064.i.i239.i
   %1629 = tail call i32 @llvm.umin.i32(i32 %1542, i32 %1628)
   store i32 %1629, ptr %28, align 8, !tbaa !59
@@ -3267,9 +3267,9 @@ vp4_get_mv.exit242.i:                             ; preds = %1608, %vp4_get_mv.e
   br label %get_vlc2.exit225.i
 
 get_vlc2.exit225.i:                               ; preds = %1669, %1652
-  %.064.i222.i = phi i32 [ %1639, %1652 ], [ %1671, %1669 ]
-  %.062.i223.i = phi i32 [ %1664, %1652 ], [ %1685, %1669 ]
-  %.0.i224.i = phi i32 [ %1667, %1652 ], [ %1688, %1669 ]
+  %.064.i222.i = phi i32 [ %1671, %1669 ], [ %1639, %1652 ]
+  %.062.i223.i = phi i32 [ %1685, %1669 ], [ %1664, %1652 ]
+  %.0.i224.i = phi i32 [ %1688, %1669 ], [ %1667, %1652 ]
   %1689 = add i32 %.0.i224.i, %.064.i222.i
   %1690 = tail call i32 @llvm.umin.i32(i32 %1317, i32 %1689)
   store i32 %1690, ptr %28, align 8, !tbaa !59
@@ -3316,9 +3316,9 @@ get_vlc2.exit225.i:                               ; preds = %1669, %1652
   br label %get_vlc2.exit229.i
 
 get_vlc2.exit229.i:                               ; preds = %1708, %get_vlc2.exit225.i
-  %.064.i226.i = phi i32 [ %1690, %get_vlc2.exit225.i ], [ %1710, %1708 ]
-  %.062.i227.i = phi i32 [ %1703, %get_vlc2.exit225.i ], [ %1724, %1708 ]
-  %.0.i228.i = phi i32 [ %1706, %get_vlc2.exit225.i ], [ %1727, %1708 ]
+  %.064.i226.i = phi i32 [ %1710, %1708 ], [ %1690, %get_vlc2.exit225.i ]
+  %.062.i227.i = phi i32 [ %1724, %1708 ], [ %1703, %get_vlc2.exit225.i ]
+  %.0.i228.i = phi i32 [ %1727, %1708 ], [ %1706, %get_vlc2.exit225.i ]
   %1728 = add i32 %.0.i228.i, %.064.i226.i
   %1729 = tail call i32 @llvm.umin.i32(i32 %1317, i32 %1728)
   store i32 %1729, ptr %28, align 8, !tbaa !59
@@ -3405,9 +3405,9 @@ get_vlc2.exit229.i:                               ; preds = %1708, %get_vlc2.exi
   br label %vp4_get_mv.exit246.i
 
 vp4_get_mv.exit246.i:                             ; preds = %1781, %1760
-  %.064.i.i243.i = phi i32 [ %1639, %1760 ], [ %1783, %1781 ]
-  %.062.i.i244.i = phi i32 [ %1776, %1760 ], [ %1797, %1781 ]
-  %.0.i.i245.i = phi i32 [ %1779, %1760 ], [ %1800, %1781 ]
+  %.064.i.i243.i = phi i32 [ %1783, %1781 ], [ %1639, %1760 ]
+  %.062.i.i244.i = phi i32 [ %1797, %1781 ], [ %1776, %1760 ]
+  %.0.i.i245.i = phi i32 [ %1800, %1781 ], [ %1779, %1760 ]
   %1801 = add i32 %.0.i.i245.i, %.064.i.i243.i
   %1802 = tail call i32 @llvm.umin.i32(i32 %1317, i32 %1801)
   store i32 %1802, ptr %28, align 8, !tbaa !59
@@ -3460,9 +3460,9 @@ vp4_get_mv.exit246.i:                             ; preds = %1781, %1760
   br label %vp4_get_mv.exit250.i
 
 vp4_get_mv.exit250.i:                             ; preds = %1826, %vp4_get_mv.exit246.i
-  %.064.i.i247.i = phi i32 [ %1802, %vp4_get_mv.exit246.i ], [ %1828, %1826 ]
-  %.062.i.i248.i = phi i32 [ %1821, %vp4_get_mv.exit246.i ], [ %1842, %1826 ]
-  %.0.i.i249.i = phi i32 [ %1824, %vp4_get_mv.exit246.i ], [ %1845, %1826 ]
+  %.064.i.i247.i = phi i32 [ %1828, %1826 ], [ %1802, %vp4_get_mv.exit246.i ]
+  %.062.i.i248.i = phi i32 [ %1842, %1826 ], [ %1821, %vp4_get_mv.exit246.i ]
+  %.0.i.i249.i = phi i32 [ %1845, %1826 ], [ %1824, %vp4_get_mv.exit246.i ]
   %1846 = add i32 %.0.i.i249.i, %.064.i.i247.i
   %1847 = tail call i32 @llvm.umin.i32(i32 %1317, i32 %1846)
   store i32 %1847, ptr %28, align 8, !tbaa !59
@@ -3507,14 +3507,14 @@ vp4_get_mv.exit250.i:                             ; preds = %1826, %vp4_get_mv.e
   br label %.loopexit254.i
 
 .loopexit254.i:                                   ; preds = %.loopexit254.loopexit.i, %1857, %1856, %1855, %1637, %1633, %vp4_get_mv.exit234.i
-  %1858 = phi i32 [ 0, %1857 ], [ %1419, %vp4_get_mv.exit234.i ], [ %.sink.i, %1637 ], [ %.sink.i, %1633 ], [ %.2186288.i, %1856 ], [ %.2169293.i, %1855 ], [ %.pre337.i, %.loopexit254.loopexit.i ]
-  %1859 = phi i32 [ 0, %1857 ], [ %1371, %vp4_get_mv.exit234.i ], [ %1634, %1637 ], [ %1634, %1633 ], [ %.2191287.i, %1856 ], [ %.2159296.i, %1855 ], [ %.pre.i323, %.loopexit254.loopexit.i ]
-  %.4193.i = phi i32 [ %.2191287.i, %1857 ], [ %.2191287.i, %vp4_get_mv.exit234.i ], [ %.2159296.i, %1637 ], [ %.2191287.i, %1633 ], [ %.2159296.i, %1856 ], [ %.2191287.i, %1855 ], [ %.2159296.i, %.loopexit254.loopexit.i ]
-  %.4188.i = phi i32 [ %.2186288.i, %1857 ], [ %.2186288.i, %vp4_get_mv.exit234.i ], [ %.2169293.i, %1637 ], [ %.2186288.i, %1633 ], [ %.2169293.i, %1856 ], [ %.2186288.i, %1855 ], [ %.2169293.i, %.loopexit254.loopexit.i ]
-  %.4183.i = phi i32 [ %.2181289.i, %1857 ], [ %1371, %vp4_get_mv.exit234.i ], [ %.2181289.i, %1637 ], [ %.2181289.i, %1633 ], [ %.2181289.i, %1856 ], [ %.2181289.i, %1855 ], [ %.2181289.i, %.loopexit254.loopexit.i ]
-  %.4178.i = phi i32 [ %.2176291.i, %1857 ], [ %1419, %vp4_get_mv.exit234.i ], [ %.2176291.i, %1637 ], [ %.2176291.i, %1633 ], [ %.2176291.i, %1856 ], [ %.2176291.i, %1855 ], [ %.2176291.i, %.loopexit254.loopexit.i ]
-  %.4171.i = phi i32 [ %.2169293.i, %1857 ], [ %.2169293.i, %vp4_get_mv.exit234.i ], [ %.sink.i, %1637 ], [ %.2169293.i, %1633 ], [ %.2186288.i, %1856 ], [ %.2169293.i, %1855 ], [ %.6173.i, %.loopexit254.loopexit.i ]
-  %.4.i = phi i32 [ %.2159296.i, %1857 ], [ %.2159296.i, %vp4_get_mv.exit234.i ], [ %1634, %1637 ], [ %.2159296.i, %1633 ], [ %.2191287.i, %1856 ], [ %.2159296.i, %1855 ], [ %.6.i, %.loopexit254.loopexit.i ]
+  %1858 = phi i32 [ 0, %1857 ], [ %1419, %vp4_get_mv.exit234.i ], [ %.sink.i, %1637 ], [ %.sink.i, %1633 ], [ %.2169293.i, %1855 ], [ %.2186288.i, %1856 ], [ %.pre337.i, %.loopexit254.loopexit.i ]
+  %1859 = phi i32 [ 0, %1857 ], [ %1371, %vp4_get_mv.exit234.i ], [ %1634, %1637 ], [ %1634, %1633 ], [ %.2159296.i, %1855 ], [ %.2191287.i, %1856 ], [ %.pre.i323, %.loopexit254.loopexit.i ]
+  %.4193.i = phi i32 [ %.2191287.i, %1857 ], [ %.2191287.i, %vp4_get_mv.exit234.i ], [ %.2159296.i, %1637 ], [ %.2191287.i, %1633 ], [ %.2191287.i, %1855 ], [ %.2159296.i, %1856 ], [ %.2159296.i, %.loopexit254.loopexit.i ]
+  %.4188.i = phi i32 [ %.2186288.i, %1857 ], [ %.2186288.i, %vp4_get_mv.exit234.i ], [ %.2169293.i, %1637 ], [ %.2186288.i, %1633 ], [ %.2186288.i, %1855 ], [ %.2169293.i, %1856 ], [ %.2169293.i, %.loopexit254.loopexit.i ]
+  %.4183.i = phi i32 [ %.2181289.i, %1857 ], [ %1371, %vp4_get_mv.exit234.i ], [ %.2181289.i, %1637 ], [ %.2181289.i, %1633 ], [ %.2181289.i, %1855 ], [ %.2181289.i, %1856 ], [ %.2181289.i, %.loopexit254.loopexit.i ]
+  %.4178.i = phi i32 [ %.2176291.i, %1857 ], [ %1419, %vp4_get_mv.exit234.i ], [ %.2176291.i, %1637 ], [ %.2176291.i, %1633 ], [ %.2176291.i, %1855 ], [ %.2176291.i, %1856 ], [ %.2176291.i, %.loopexit254.loopexit.i ]
+  %.4171.i = phi i32 [ %.2169293.i, %1857 ], [ %.2169293.i, %vp4_get_mv.exit234.i ], [ %.sink.i, %1637 ], [ %.2169293.i, %1633 ], [ %.2169293.i, %1855 ], [ %.2186288.i, %1856 ], [ %.6173.i, %.loopexit254.loopexit.i ]
+  %.4.i = phi i32 [ %.2159296.i, %1857 ], [ %.2159296.i, %vp4_get_mv.exit234.i ], [ %1634, %1637 ], [ %.2159296.i, %1633 ], [ %.2159296.i, %1855 ], [ %.2191287.i, %1856 ], [ %.6.i, %.loopexit254.loopexit.i ]
   %1860 = shl nuw nsw i32 %1295, 1
   %1861 = shl nuw nsw i32 %1292, 1
   %1862 = trunc i32 %1859 to i8
@@ -3788,12 +3788,12 @@ vp4_get_mv.exit250.i:                             ; preds = %1826, %vp4_get_mv.e
   br i1 %exitcond335.not.i, label %.loopexit.i317, label %.preheader.i319, !llvm.loop !141
 
 .loopexit.i317:                                   ; preds = %2006, %2046, %1939, %1301, %1299, %1290
-  %.3192.i = phi i32 [ %.2191287.i, %1290 ], [ %.2191287.i, %1301 ], [ %.2191287.i, %1299 ], [ %.4193.i, %1939 ], [ %.4193.i, %2046 ], [ %.4193.i, %2006 ]
-  %.3187.i = phi i32 [ %.2186288.i, %1290 ], [ %.2186288.i, %1301 ], [ %.2186288.i, %1299 ], [ %.4188.i, %1939 ], [ %.4188.i, %2046 ], [ %.4188.i, %2006 ]
-  %.3182.i = phi i32 [ %.2181289.i, %1290 ], [ %.2181289.i, %1301 ], [ %.2181289.i, %1299 ], [ %.4183.i, %1939 ], [ %.4183.i, %2046 ], [ %.4183.i, %2006 ]
-  %.3177.i = phi i32 [ %.2176291.i, %1290 ], [ %.2176291.i, %1301 ], [ %.2176291.i, %1299 ], [ %.4178.i, %1939 ], [ %.4178.i, %2046 ], [ %.4178.i, %2006 ]
-  %.3170.i = phi i32 [ %.2169293.i, %1290 ], [ %.2169293.i, %1301 ], [ %.2169293.i, %1299 ], [ %.4171.i, %1939 ], [ %.4171.i, %2046 ], [ %.4171.i, %2006 ]
-  %.3160.i = phi i32 [ %.2159296.i, %1290 ], [ %.2159296.i, %1301 ], [ %.2159296.i, %1299 ], [ %.4.i, %1939 ], [ %.4.i, %2046 ], [ %.4.i, %2006 ]
+  %.3192.i = phi i32 [ %.2191287.i, %1301 ], [ %.2191287.i, %1299 ], [ %.2191287.i, %1290 ], [ %.4193.i, %1939 ], [ %.4193.i, %2046 ], [ %.4193.i, %2006 ]
+  %.3187.i = phi i32 [ %.2186288.i, %1301 ], [ %.2186288.i, %1299 ], [ %.2186288.i, %1290 ], [ %.4188.i, %1939 ], [ %.4188.i, %2046 ], [ %.4188.i, %2006 ]
+  %.3182.i = phi i32 [ %.2181289.i, %1301 ], [ %.2181289.i, %1299 ], [ %.2181289.i, %1290 ], [ %.4183.i, %1939 ], [ %.4183.i, %2046 ], [ %.4183.i, %2006 ]
+  %.3177.i = phi i32 [ %.2176291.i, %1301 ], [ %.2176291.i, %1299 ], [ %.2176291.i, %1290 ], [ %.4178.i, %1939 ], [ %.4178.i, %2046 ], [ %.4178.i, %2006 ]
+  %.3170.i = phi i32 [ %.2169293.i, %1301 ], [ %.2169293.i, %1299 ], [ %.2169293.i, %1290 ], [ %.4171.i, %1939 ], [ %.4171.i, %2046 ], [ %.4171.i, %2006 ]
+  %.3160.i = phi i32 [ %.2159296.i, %1301 ], [ %.2159296.i, %1299 ], [ %.2159296.i, %1290 ], [ %.4.i, %1939 ], [ %.4.i, %2046 ], [ %.4.i, %2006 ]
   %2050 = add nuw nsw i32 %.0161295.i, 1
   %exitcond336.not.i = icmp eq i32 %2050, 4
   br i1 %exitcond336.not.i, label %1287, label %1290, !llvm.loop !142
@@ -3820,7 +3820,7 @@ vp4_get_mv.exit250.i:                             ; preds = %1826, %vp4_get_mv.e
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.sink.split
 
-.loopexit379:                                     ; preds = %.critedge.i314, %.loopexit381.thread598, %.loopexit381, %.preheader256.lr.ph.i, %1262
+.loopexit379:                                     ; preds = %.critedge.i314, %.loopexit381.thread598, %.loopexit381, %1262, %.preheader256.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %2055 = call fastcc i32 @unpack_block_qpis(ptr noundef %17, ptr noundef %11)
@@ -4079,15 +4079,15 @@ vp4_get_mv.exit250.i:                             ; preds = %1826, %vp4_get_mv.e
   br label %2218
 
 2218:                                             ; preds = %2205, %.thread311.i
-  %2219 = phi ptr [ %2085, %.thread311.i ], [ %2089, %2205 ]
-  %2220 = phi ptr [ %2084, %.thread311.i ], [ %2088, %2205 ]
-  %.in326.i = phi ptr [ %2083, %.thread311.i ], [ %2087, %2205 ]
-  %2221 = phi i32 [ %2137, %.thread311.i ], [ %2212, %2205 ]
-  %.in327.i = phi ptr [ %2082, %.thread311.i ], [ %2086, %2205 ]
-  %2222 = phi i32 [ %2204, %.thread311.i ], [ %2206, %2205 ]
-  %2223 = phi i32 [ %2199, %.thread311.i ], [ %2195, %2205 ]
-  %2224 = phi i32 [ %.0201435, %.thread311.i ], [ %2210, %2205 ]
-  %2225 = phi i1 [ false, %.thread311.i ], [ %2217, %2205 ]
+  %2219 = phi ptr [ %2089, %2205 ], [ %2085, %.thread311.i ]
+  %2220 = phi ptr [ %2088, %2205 ], [ %2084, %.thread311.i ]
+  %.in326.i = phi ptr [ %2087, %2205 ], [ %2083, %.thread311.i ]
+  %2221 = phi i32 [ %2212, %2205 ], [ %2137, %.thread311.i ]
+  %.in327.i = phi ptr [ %2086, %2205 ], [ %2082, %.thread311.i ]
+  %2222 = phi i32 [ %2206, %2205 ], [ %2204, %.thread311.i ]
+  %2223 = phi i32 [ %2195, %2205 ], [ %2199, %.thread311.i ]
+  %2224 = phi i32 [ %2210, %2205 ], [ %.0201435, %.thread311.i ]
+  %2225 = phi i1 [ %2217, %2205 ], [ false, %.thread311.i ]
   %2226 = load ptr, ptr %.in327.i, align 8, !tbaa !53
   %2227 = load i32, ptr %.in326.i, align 4, !tbaa !42
   %2228 = load i32, ptr %2220, align 4, !tbaa !42
@@ -4205,7 +4205,7 @@ vp4_get_mv.exit250.i:                             ; preds = %1826, %vp4_get_mv.e
   br label %._crit_edge437.i
 
 ._crit_edge437.i:                                 ; preds = %2271, %2267, %2260
-  %2286 = phi ptr [ %.pre435.i, %2267 ], [ %.pre.i348, %2271 ], [ %.pre435.i, %2260 ]
+  %2286 = phi ptr [ %.pre.i348, %2271 ], [ %.pre435.i, %2267 ], [ %.pre435.i, %2260 ]
   %2287 = getelementptr inbounds %struct.Vp3Fragment, ptr %2286, i64 %2266
   %2288 = getelementptr inbounds nuw i8, ptr %2287, i64 2
   %2289 = load i8, ptr %2288, align 2, !tbaa !109
@@ -4455,10 +4455,10 @@ vp4_get_mv.exit250.i:                             ; preds = %1826, %vp4_get_mv.e
   br label %2425
 
 2425:                                             ; preds = %2422, %.thread313.i, %2417, %2291, %2291, %2291
-  %.1246.i = phi ptr [ %2295, %2291 ], [ %.0232.i, %2422 ], [ %2325, %.thread313.i ], [ %.0233.i, %2417 ], [ %2295, %2291 ], [ %2295, %2291 ]
-  %.0244.i = phi i32 [ 0, %2291 ], [ %2322, %2422 ], [ %2322, %.thread313.i ], [ %2322, %2417 ], [ 0, %2291 ], [ 0, %2291 ]
-  %.5241.i = phi i32 [ %.3239379.i, %2291 ], [ %.6242.i, %2422 ], [ %.6242.i, %.thread313.i ], [ %.6242.i, %2417 ], [ %.3239379.i, %2291 ], [ %.3239379.i, %2291 ]
-  %.5.i = phi i32 [ %.3380.i, %2291 ], [ %.6.i344, %2422 ], [ %.6.i344, %.thread313.i ], [ %.6.i344, %2417 ], [ %.3380.i, %2291 ], [ %.3380.i, %2291 ]
+  %.1246.i = phi ptr [ %2295, %2291 ], [ %.0232.i, %2422 ], [ %.0233.i, %2417 ], [ %2325, %.thread313.i ], [ %2295, %2291 ], [ %2295, %2291 ]
+  %.0244.i = phi i32 [ 0, %2291 ], [ %2322, %2422 ], [ %2322, %2417 ], [ %2322, %.thread313.i ], [ 0, %2291 ], [ 0, %2291 ]
+  %.5241.i = phi i32 [ %.3239379.i, %2291 ], [ %.6242.i, %2422 ], [ %.6242.i, %2417 ], [ %.6242.i, %.thread313.i ], [ %.3239379.i, %2291 ], [ %.3239379.i, %2291 ]
+  %.5.i = phi i32 [ %.3380.i, %2291 ], [ %.6.i344, %2422 ], [ %.6.i344, %2417 ], [ %.6.i344, %.thread313.i ], [ %.3380.i, %2291 ], [ %.3380.i, %2291 ]
   %2426 = load ptr, ptr %71, align 8, !tbaa !67
   %2427 = getelementptr inbounds %struct.Vp3Fragment, ptr %2426, i64 %2266
   %2428 = getelementptr inbounds nuw i8, ptr %2427, i64 2
@@ -5009,15 +5009,15 @@ render_slice.exit:                                ; preds = %2154, %2165
   call fastcc void @update_frames(ptr %.val)
   br label %2725
 
-.sink.split:                                      ; preds = %850, %851, %2063, %2060, %.loopexit379, %._crit_edge166.i, %867, %.loopexit383, %1242, %2054
-  %.str.39.sink = phi ptr [ @.str.38, %2060 ], [ @.str.37, %.loopexit379 ], [ @.str.34, %._crit_edge166.i ], [ @.str.36, %2054 ], [ @.str.35, %1242 ], [ @.str.33, %.loopexit383 ], [ @.str.34, %867 ], [ @.str.39, %2063 ], [ @.str.34, %851 ], [ @.str.34, %850 ]
-  %.2.ph = phi i32 [ %2061, %2060 ], [ -1, %.loopexit379 ], [ -1, %._crit_edge166.i ], [ -1, %2054 ], [ -1, %1242 ], [ %.1166.i.ph, %.loopexit383 ], [ -1094995529, %867 ], [ %2064, %2063 ], [ -1094995529, %850 ], [ -1, %851 ]
+.sink.split:                                      ; preds = %851, %850, %2063, %2060, %.loopexit379, %._crit_edge166.i, %867, %.loopexit383, %1242, %2054
+  %.str.39.sink = phi ptr [ @.str.36, %2054 ], [ @.str.35, %1242 ], [ @.str.33, %.loopexit383 ], [ @.str.34, %867 ], [ @.str.34, %._crit_edge166.i ], [ @.str.37, %.loopexit379 ], [ @.str.38, %2060 ], [ @.str.39, %2063 ], [ @.str.34, %850 ], [ @.str.34, %851 ]
+  %.2.ph = phi i32 [ -1, %2054 ], [ -1, %1242 ], [ %.1166.i.ph, %.loopexit383 ], [ -1094995529, %867 ], [ -1, %._crit_edge166.i ], [ -1, %.loopexit379 ], [ %2061, %2060 ], [ %2064, %2063 ], [ -1, %851 ], [ -1094995529, %850 ]
   %2717 = load ptr, ptr %17, align 16, !tbaa !65
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2717, i32 noundef 16, ptr noundef nonnull %.str.39.sink) #10
   br label %2718
 
 2718:                                             ; preds = %.sink.split, %283, %430
-  %.2 = phi i32 [ -12, %283 ], [ %432, %430 ], [ %.2.ph, %.sink.split ]
+  %.2 = phi i32 [ %432, %430 ], [ -12, %283 ], [ %.2.ph, %.sink.split ]
   tail call void @ff_progress_frame_report(ptr noundef nonnull %270, i32 noundef 2147483647) #10
   %2719 = load ptr, ptr %17, align 16, !tbaa !65
   %2720 = getelementptr inbounds nuw i8, ptr %2719, i64 664
@@ -5032,7 +5032,7 @@ render_slice.exit:                                ; preds = %2154, %2165
   br label %2725
 
 2725:                                             ; preds = %2718, %2723, %2685, %2716, %.loopexit, %269, %267, %42, %.thread, %.thread355, %61, %49, %57, %4, %73
-  %.0 = phi i32 [ -1, %73 ], [ -1094995529, %4 ], [ %15, %267 ], [ %15, %2685 ], [ %271, %269 ], [ %2683, %.loopexit ], [ %15, %57 ], [ -1163346256, %42 ], [ %.0202354, %.thread ], [ -1, %61 ], [ %.1203357, %.thread355 ], [ %15, %49 ], [ %15, %2716 ], [ %.2, %2723 ], [ %.2, %2718 ]
+  %.0 = phi i32 [ -1, %73 ], [ -1094995529, %4 ], [ -1163346256, %42 ], [ %.0202354, %.thread ], [ %.1203357, %.thread355 ], [ -1, %61 ], [ %15, %49 ], [ %15, %57 ], [ %15, %267 ], [ %271, %269 ], [ %2683, %.loopexit ], [ %15, %2716 ], [ %15, %2685 ], [ %.2, %2723 ], [ %.2, %2718 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
@@ -5422,7 +5422,7 @@ define internal i32 @vp3_decode_init(ptr noundef %0) #1 {
   br label %.thread247
 
 .thread247:                                       ; preds = %192, %182, %169, %.preheader256, %1, %.thread
-  %.0 = phi i32 [ %39, %.preheader256 ], [ -1163346256, %1 ], [ %206, %.thread ], [ -12, %169 ], [ %186, %182 ], [ %199, %192 ]
+  %.0 = phi i32 [ %206, %.thread ], [ -1163346256, %1 ], [ %39, %.preheader256 ], [ -12, %169 ], [ %186, %182 ], [ %199, %192 ]
   ret i32 %.0
 }
 
@@ -5895,7 +5895,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @theora_decode_header(ptr n
   br label %285
 
 285:                                              ; preds = %261, %258, %2, %284, %252, %169, %116
-  %.0 = phi i32 [ 0, %284 ], [ -1094995529, %116 ], [ -1094995529, %169 ], [ -1094995529, %252 ], [ -1094995529, %2 ], [ -1163346256, %258 ], [ %263, %261 ]
+  %.0 = phi i32 [ -1094995529, %116 ], [ -1094995529, %169 ], [ -1094995529, %252 ], [ 0, %284 ], [ -1094995529, %2 ], [ -1163346256, %258 ], [ %263, %261 ]
   ret i32 %.0
 }
 
@@ -6360,7 +6360,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   store i32 1, ptr %277, align 4, !tbaa !182
   br label %.thread184
 
-.thread184:                                       ; preds = %271, %.thread163, %264, %2, %276, %124
+.thread184:                                       ; preds = %271, %264, %.thread163, %2, %276, %124
   %.0137 = phi i32 [ -1, %124 ], [ 0, %276 ], [ -1094995529, %2 ], [ -1, %.thread163 ], [ -1, %264 ], [ -1, %271 ]
   ret i32 %.0137
 }
@@ -6585,9 +6585,9 @@ define internal fastcc range(i32 -1, 1) i32 @unpack_block_qpis(ptr noundef reado
   br label %get_vlc2.exit
 
 get_vlc2.exit:                                    ; preds = %46, %63
-  %.064.i = phi i32 [ %.val86, %46 ], [ %65, %63 ]
-  %.062.i = phi i32 [ %58, %46 ], [ %79, %63 ]
-  %.0.i = phi i32 [ %61, %46 ], [ %82, %63 ]
+  %.064.i = phi i32 [ %65, %63 ], [ %.val86, %46 ]
+  %.062.i = phi i32 [ %79, %63 ], [ %58, %46 ]
+  %.0.i = phi i32 [ %82, %63 ], [ %61, %46 ]
   %83 = add i32 %.0.i, %.064.i
   %84 = tail call i32 @llvm.umin.i32(i32 %13, i32 %83)
   store i32 %84, ptr %10, align 8, !tbaa !59
@@ -6690,7 +6690,7 @@ get_vlc2.exit:                                    ; preds = %46, %63
   br i1 %.not67.not, label %17, label %.critedge71, !llvm.loop !225
 
 .critedge71:                                      ; preds = %126, %105, %2
-  %.not67.not81 = phi i32 [ -1, %105 ], [ 0, %2 ], [ 0, %126 ]
+  %.not67.not81 = phi i32 [ 0, %2 ], [ -1, %105 ], [ 0, %126 ]
   ret i32 %.not67.not81
 }
 
@@ -6927,7 +6927,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @unpack_dct_coeffs(ptr noun
   br i1 %147, label %.loopexit, label %134
 
 .loopexit:                                        ; preds = %134, %.preheader, %140, %145, %76, %56, %46, %43, %14, %2
-  %.0105 = phi i32 [ -1094995529, %76 ], [ -1094995529, %2 ], [ %41, %14 ], [ -1094995529, %43 ], [ %54, %46 ], [ %58, %56 ], [ %146, %145 ], [ %143, %140 ], [ %138, %.preheader ], [ 0, %134 ]
+  %.0105 = phi i32 [ -1094995529, %2 ], [ %41, %14 ], [ -1094995529, %43 ], [ %54, %46 ], [ %58, %56 ], [ -1094995529, %76 ], [ %146, %145 ], [ %143, %140 ], [ %138, %.preheader ], [ 0, %134 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0105
@@ -7527,7 +7527,7 @@ get_coeff.exit.i:                                 ; preds = %307, %296
   store i32 %356, ptr %352, align 4, !tbaa !42
   br label %.loopexit
 
-.loopexit:                                        ; preds = %343, %351, %get_eob_run.exit.i
+.loopexit:                                        ; preds = %343, %get_eob_run.exit.i, %351
   %357 = load ptr, ptr %114, align 8, !tbaa !67
   %358 = getelementptr inbounds %struct.Vp3Fragment, ptr %357, i64 %176
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 2
@@ -7561,7 +7561,7 @@ get_coeff.exit.i:                                 ; preds = %307, %296
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread24.i, %368
-  %.15.i = phi i32 [ %378, %.thread24.i ], [ %370, %368 ]
+  %.15.i = phi i32 [ %370, %368 ], [ %378, %.thread24.i ]
   %379 = getelementptr inbounds nuw i8, ptr %165, i64 52
   %380 = load i32, ptr %379, align 4, !tbaa !241
   %381 = icmp eq i32 %380, %364
@@ -7579,7 +7579,7 @@ get_coeff.exit.i:                                 ; preds = %307, %296
   br label %.thread10.i
 
 .thread10.i:                                      ; preds = %.thread30.i, %.thread.i
-  %.215.i = phi i32 [ %386, %.thread30.i ], [ %.15.i, %.thread.i ]
+  %.215.i = phi i32 [ %.15.i, %.thread.i ], [ %386, %.thread30.i ]
   %387 = getelementptr inbounds nuw i8, ptr %165, i64 68
   %388 = load i32, ptr %387, align 4, !tbaa !241
   %389 = icmp eq i32 %388, %364
@@ -7616,7 +7616,7 @@ vp4_dc_pred.exit:                                 ; preds = %.thread16.i, %.crit
   store i32 %402, ptr %166, align 8, !tbaa !239
   br label %vp4_dc_pred_before.exit
 
-vp4_dc_pred_before.exit:                          ; preds = %vp4_dc_pred.exit, %vp4_dc_pred_before.exit.preheader, %170, %168
+vp4_dc_pred_before.exit:                          ; preds = %vp4_dc_pred.exit, %168, %vp4_dc_pred_before.exit.preheader, %170
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %exitcond292 = icmp eq i64 %indvars.iv.next290, 16
   br i1 %exitcond292, label %.critedge, label %vp4_dc_pred_before.exit.preheader, !llvm.loop !251
@@ -8568,9 +8568,9 @@ get_coeff.exit:                                   ; preds = %151, %162
   br label %232
 
 209:                                              ; preds = %127, %._crit_edge
-  %.2119 = phi i32 [ %.1118145, %._crit_edge ], [ %129, %127 ]
-  %.2116 = phi i32 [ %203, %._crit_edge ], [ %130, %127 ]
-  %.2 = phi i32 [ %.1149, %._crit_edge ], [ 0, %127 ]
+  %.2119 = phi i32 [ %129, %127 ], [ %.1118145, %._crit_edge ]
+  %.2116 = phi i32 [ %130, %127 ], [ %203, %._crit_edge ]
+  %.2 = phi i32 [ 0, %127 ], [ %.1149, %._crit_edge ]
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %210 = icmp slt i32 %.2116, %12
   br i1 %210, label %35, label %.critedge.loopexit, !llvm.loop !259
@@ -8759,10 +8759,10 @@ define internal fastcc void @reverse_dc_prediction(ptr noundef readonly captures
   br i1 %68, label %.thread.us, label %70
 
 70:                                               ; preds = %59, %56, %32
-  %.2107.us = phi i32 [ %.1106133.us, %32 ], [ %62, %59 ], [ %.1106133.us, %56 ]
-  %.2103.us = phi i32 [ %.1102134.us, %32 ], [ %37, %59 ], [ %37, %56 ]
-  %.299.us = phi i32 [ %.198135.us, %32 ], [ %.3100.us, %59 ], [ %.3100.us, %56 ]
-  %.1.us = phi i32 [ %.089.us, %32 ], [ %.3.us, %59 ], [ %.3.us, %56 ]
+  %.2107.us = phi i32 [ %.1106133.us, %56 ], [ %.1106133.us, %32 ], [ %62, %59 ]
+  %.2103.us = phi i32 [ %37, %56 ], [ %.1102134.us, %32 ], [ %37, %59 ]
+  %.299.us = phi i32 [ %.3100.us, %56 ], [ %.198135.us, %32 ], [ %.3100.us, %59 ]
+  %.1.us = phi i32 [ %.3.us, %56 ], [ %.089.us, %32 ], [ %.3.us, %59 ]
   %71 = icmp eq i32 %.1.us, 0
   br i1 %71, label %102, label %.thread.us
 

@@ -970,8 +970,8 @@ slot_getallattrs.exit101.i:                       ; preds = %150, %slot_getallat
   br label %226
 
 226:                                              ; preds = %215, %193, %182, %175, %171, %166, %159
-  %227 = phi i32 [ %160, %159 ], [ %160, %166 ], [ %160, %193 ], [ %.pre117.i, %215 ], [ %160, %182 ], [ %160, %175 ], [ %160, %171 ]
-  %.1.i = phi ptr [ %.090110.i, %159 ], [ %.090110.i, %166 ], [ %.090110.i, %193 ], [ %.3.i, %215 ], [ %.090110.i, %182 ], [ %.090110.i, %175 ], [ %.090110.i, %171 ]
+  %227 = phi i32 [ %160, %166 ], [ %160, %159 ], [ %160, %193 ], [ %.pre117.i, %215 ], [ %160, %182 ], [ %160, %175 ], [ %160, %171 ]
+  %.1.i = phi ptr [ %.090110.i, %166 ], [ %.090110.i, %159 ], [ %.090110.i, %193 ], [ %.3.i, %215 ], [ %.090110.i, %182 ], [ %.090110.i, %175 ], [ %.090110.i, %171 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %228 = sext i32 %227 to i64
   %229 = icmp slt i64 %indvars.iv.next.i, %228
@@ -1075,8 +1075,8 @@ pgoutput_row_filter.exit:                         ; preds = %117, %127
   br i1 %spec.select.i.i.not, label %pgoutput_row_filter.exit.thread104, label %pgoutput_row_filter.exit.thread
 
 pgoutput_row_filter.exit.thread:                  ; preds = %268, %267, %84, %pgoutput_row_filter.exit
-  %.1103 = phi ptr [ %.096, %pgoutput_row_filter.exit ], [ %spec.select, %267 ], [ %.096, %268 ], [ %.096, %84 ]
-  %.097101 = phi i32 [ %13, %pgoutput_row_filter.exit ], [ 0, %267 ], [ %spec.select108, %268 ], [ %13, %84 ]
+  %.1103 = phi ptr [ %.096, %pgoutput_row_filter.exit ], [ %.096, %84 ], [ %spec.select, %267 ], [ %.096, %268 ]
+  %.097101 = phi i32 [ %13, %pgoutput_row_filter.exit ], [ %13, %84 ], [ 0, %267 ], [ %spec.select108, %268 ]
   %.not85 = icmp eq ptr %11, null
   br i1 %.not85, label %276, label %272
 
@@ -1257,7 +1257,7 @@ define internal void @pgoutput_truncate(ptr noundef %0, ptr noundef %1, i32 noun
   br label %48
 
 48:                                               ; preds = %44, %41, %30, %.lr.ph.split.us
-  %.1.us = phi i32 [ %.04044.us, %30 ], [ %45, %44 ], [ %.04044.us, %.lr.ph.split.us ], [ %.04044.us, %41 ]
+  %.1.us = phi i32 [ %45, %44 ], [ %.04044.us, %.lr.ph.split.us ], [ %.04044.us, %30 ], [ %.04044.us, %41 ]
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
   br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !7
@@ -1311,7 +1311,7 @@ define internal void @pgoutput_truncate(ptr noundef %0, ptr noundef %1, i32 noun
   br label %76
 
 76:                                               ; preds = %65, %54, %.lr.ph.split, %75
-  %.1 = phi i32 [ %.04044, %54 ], [ %69, %75 ], [ %.04044, %.lr.ph.split ], [ %.04044, %65 ]
+  %.1 = phi i32 [ %69, %75 ], [ %.04044, %.lr.ph.split ], [ %.04044, %54 ], [ %.04044, %65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count51
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
@@ -2185,8 +2185,8 @@ list_length.exit:                                 ; preds = %105
   br i1 %or.cond3, label %.thread, label %158
 
 .thread:                                          ; preds = %127, %130, %105, %list_length.exit
-  %.1129.ph = phi i32 [ %115, %list_length.exit ], [ %98, %105 ], [ %.2130, %130 ], [ %.2130, %127 ]
-  %.1125.ph = phi i32 [ %.val, %list_length.exit ], [ 0, %105 ], [ %.2126, %130 ], [ %.2126, %127 ]
+  %.1129.ph = phi i32 [ %98, %105 ], [ %115, %list_length.exit ], [ %.2130, %130 ], [ %.2130, %127 ]
+  %.1125.ph = phi i32 [ 0, %105 ], [ %.val, %list_length.exit ], [ %.2126, %130 ], [ %.2126, %127 ]
   br i1 %.not151, label %133, label %137
 
 133:                                              ; preds = %.thread
@@ -2433,10 +2433,10 @@ init_tuple_slot.exit:                             ; preds = %168, %181
   br label %.critedge.i
 
 271:                                              ; preds = %269, %228
-  %272 = phi i8 [ %237, %228 ], [ %263, %269 ]
-  %273 = phi i8 [ %234, %228 ], [ %249, %269 ]
-  %274 = phi ptr [ %200, %228 ], [ %250, %269 ]
-  %275 = phi i8 [ %231, %228 ], [ %201, %269 ]
+  %272 = phi i8 [ %263, %269 ], [ %237, %228 ]
+  %273 = phi i8 [ %249, %269 ], [ %234, %228 ]
+  %274 = phi ptr [ %250, %269 ], [ %200, %228 ]
+  %275 = phi i8 [ %201, %269 ], [ %231, %228 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next.i159 = add nuw nsw i64 %indvars.iv.i157200, 1
   %276 = load i32, ptr %191, align 4

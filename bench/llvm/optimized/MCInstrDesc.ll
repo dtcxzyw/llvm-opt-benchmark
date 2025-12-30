@@ -252,7 +252,7 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i.i48: ; preds = %.lr.ph.i.i.i.i
   br i1 %.not.not.i, label %_ZNK4llvm11MCInstrDesc23hasImplicitDefOfPhysRegENS_10MCRegisterEPKNS_14MCRegisterInfoE.exit, label %.lr.ph.split.i
 
 _ZNK4llvm11MCInstrDesc23hasImplicitDefOfPhysRegENS_10MCRegisterEPKNS_14MCRegisterInfoE.exit: ; preds = %21, %.lr.ph.i.i.i.i.i.i.i, %61, %.lr.ph.i.i.i.i.i.i.i39, %.critedge.i, %.lr.ph.split.i, %.lr.ph.i.i.i.i.i.i.i46, %.thread51
-  %.1 = phi i1 [ true, %.lr.ph.i.i.i.i.i.i.i39 ], [ true, %.lr.ph.i.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i.i46 ], [ true, %61 ], [ %105, %.critedge.i ], [ false, %.thread51 ], [ %105, %.lr.ph.split.i ], [ true, %21 ]
+  %.1 = phi i1 [ false, %.thread51 ], [ true, %.lr.ph.i.i.i.i.i.i.i46 ], [ %105, %.lr.ph.split.i ], [ %105, %.critedge.i ], [ true, %.lr.ph.i.i.i.i.i.i.i39 ], [ true, %61 ], [ true, %.lr.ph.i.i.i.i.i.i.i ], [ true, %21 ]
   ret i1 %.1
 }
 
@@ -348,7 +348,7 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   br i1 %.not.not, label %_ZNK4llvm14MCRegisterInfo13isSubRegisterENS_10MCRegisterES1_.exit, label %.lr.ph.split
 
 _ZNK4llvm14MCRegisterInfo13isSubRegisterENS_10MCRegisterES1_.exit: ; preds = %.critedge, %.lr.ph.split, %.lr.ph.i.i.i.i.i.i, %.critedge.us, %25, %3, %.lr.ph.split.us
-  %.not29 = phi i1 [ true, %.lr.ph.i.i.i.i.i.i ], [ false, %3 ], [ %.not.us.not.not.not, %.critedge.us ], [ true, %.lr.ph.split.us ], [ %.not.us.not.not.not, %25 ], [ %32, %.lr.ph.split ], [ %32, %.critedge ]
+  %.not29 = phi i1 [ false, %3 ], [ true, %.lr.ph.split.us ], [ %.not.us.not.not.not, %25 ], [ %.not.us.not.not.not, %.critedge.us ], [ true, %.lr.ph.i.i.i.i.i.i ], [ %32, %.lr.ph.split ], [ %32, %.critedge ]
   ret i1 %.not29
 }
 

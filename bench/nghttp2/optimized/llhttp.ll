@@ -324,7 +324,7 @@ define range(i32 0, 2) i32 @llhttp__internal__c_mul_add_content_length(ptr nound
   br label %21
 
 21:                                               ; preds = %15, %11, %4, %19
-  %.0 = phi i32 [ 1, %11 ], [ 1, %4 ], [ 0, %19 ], [ 1, %15 ]
+  %.0 = phi i32 [ 0, %19 ], [ 1, %4 ], [ 1, %11 ], [ 1, %15 ]
   ret i32 %.0
 }
 
@@ -552,7 +552,7 @@ define range(i32 0, 2) i32 @llhttp__internal__c_mul_add_content_length_1(ptr nou
   br label %21
 
 21:                                               ; preds = %15, %11, %4, %19
-  %.0 = phi i32 [ 1, %11 ], [ 1, %4 ], [ 0, %19 ], [ 1, %15 ]
+  %.0 = phi i32 [ 0, %19 ], [ 1, %4 ], [ 1, %11 ], [ 1, %15 ]
   ret i32 %.0
 }
 
@@ -707,7 +707,7 @@ define range(i32 0, 2) i32 @llhttp__internal__c_mul_add_status_code(ptr noundef 
   br label %21
 
 21:                                               ; preds = %15, %12, %4, %18
-  %.0 = phi i32 [ 1, %12 ], [ 1, %4 ], [ 0, %18 ], [ 1, %15 ]
+  %.0 = phi i32 [ 0, %18 ], [ 1, %4 ], [ 1, %12 ], [ 1, %15 ]
   ret i32 %.0
 }
 
@@ -785,7 +785,7 @@ define i32 @llhttp__internal_execute(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %20, %24, %3, %13
-  %.0 = phi i32 [ %23, %24 ], [ %14, %13 ], [ %5, %3 ], [ 0, %20 ], [ 0, %15 ]
+  %.0 = phi i32 [ %14, %13 ], [ %23, %24 ], [ %5, %3 ], [ 0, %20 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -1080,7 +1080,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   br i1 %16, label %.thread, label %.lr.ph6896
 
 .preheader6639.sink.split:                        ; preds = %556, %655, %llparse__match_sequence_to_lower.exit4566, %llparse__match_sequence_to_lower.exit4584, %llparse__match_sequence_to_lower.exit4602, %llparse__match_sequence_to_lower.exit4620, %llparse__match_sequence_to_lower.exit4638, %llparse__match_sequence_to_lower.exit4656, %508
-  %.933648.ph.ph = phi ptr [ %.523607, %508 ], [ %.1093664, %655 ], [ %.1003655, %556 ], [ %.01925.i4627, %llparse__match_sequence_to_lower.exit4638 ], [ %.01925.i4555, %llparse__match_sequence_to_lower.exit4566 ], [ %.01925.i4573, %llparse__match_sequence_to_lower.exit4584 ], [ %.01925.i4591, %llparse__match_sequence_to_lower.exit4602 ], [ %.01925.i4609, %llparse__match_sequence_to_lower.exit4620 ], [ %.01925.i4645, %llparse__match_sequence_to_lower.exit4656 ]
+  %.933648.ph.ph = phi ptr [ %.523607, %508 ], [ %.1093664, %655 ], [ %.1003655, %556 ], [ %.01925.i4555, %llparse__match_sequence_to_lower.exit4566 ], [ %.01925.i4573, %llparse__match_sequence_to_lower.exit4584 ], [ %.01925.i4591, %llparse__match_sequence_to_lower.exit4602 ], [ %.01925.i4609, %llparse__match_sequence_to_lower.exit4620 ], [ %.01925.i4627, %llparse__match_sequence_to_lower.exit4638 ], [ %.01925.i4645, %llparse__match_sequence_to_lower.exit4656 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i8 0, ptr %17, align 4, !tbaa !21
   br label %.preheader6639
@@ -1096,8 +1096,8 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   br i1 %19, label %.thread, label %.lr.ph6908
 
 .preheader6616.sink.split:                        ; preds = %llparse__match_sequence_to_lower.exit4539, %llparse__match_sequence_to_lower.exit4521, %llparse__match_sequence_to_lower.exit
-  %.01925.i.lcssa.sink = phi ptr [ %.01925.i4510, %llparse__match_sequence_to_lower.exit4521 ], [ %.01925.i, %llparse__match_sequence_to_lower.exit ], [ %.01925.i4528, %llparse__match_sequence_to_lower.exit4539 ]
-  %.sink = phi i8 [ 5, %llparse__match_sequence_to_lower.exit4521 ], [ 6, %llparse__match_sequence_to_lower.exit ], [ 7, %llparse__match_sequence_to_lower.exit4539 ]
+  %.01925.i.lcssa.sink = phi ptr [ %.01925.i, %llparse__match_sequence_to_lower.exit ], [ %.01925.i4510, %llparse__match_sequence_to_lower.exit4521 ], [ %.01925.i4528, %llparse__match_sequence_to_lower.exit4539 ]
+  %.sink = phi i8 [ 6, %llparse__match_sequence_to_lower.exit ], [ 5, %llparse__match_sequence_to_lower.exit4521 ], [ 7, %llparse__match_sequence_to_lower.exit4539 ]
   %20 = getelementptr inbounds nuw i8, ptr %.01925.i.lcssa.sink, i64 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i8 %.sink, ptr %21, align 4, !tbaa !21
@@ -1161,7 +1161,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   br i1 %.not6550, label %34, label %32
 
 .thread6385:                                      ; preds = %2670, %2744, %2708, %3
-  %.43559 = phi ptr [ %677, %2708 ], [ %1, %3 ], [ %.503605, %2744 ], [ %246, %2670 ]
+  %.43559 = phi ptr [ %677, %2708 ], [ %.503605, %2744 ], [ %1, %3 ], [ %246, %2670 ]
   %41 = tail call i32 @llhttp__on_message_complete(ptr noundef nonnull %0, ptr noundef %.43559, ptr noundef %2) #9
   switch i32 %41, label %2385 [
     i32 0, label %38
@@ -1269,7 +1269,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   ]
 
 84:                                               ; preds = %.thread6352, %3
-  %.173572 = phi ptr [ %2500, %.thread6352 ], [ %1, %3 ]
+  %.173572 = phi ptr [ %1, %3 ], [ %2500, %.thread6352 ]
   %85 = tail call i32 @llhttp__on_chunk_extension_name_complete(ptr noundef nonnull %0, ptr noundef %.173572, ptr noundef %2) #9
   switch i32 %85, label %2492 [
     i32 0, label %73
@@ -1277,7 +1277,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   ]
 
 86:                                               ; preds = %.thread6355, %3
-  %.183573 = phi ptr [ %2517, %.thread6355 ], [ %1, %3 ]
+  %.183573 = phi ptr [ %1, %3 ], [ %2517, %.thread6355 ]
   %87 = tail call i32 @llhttp__on_chunk_extension_name_complete(ptr noundef nonnull %0, ptr noundef %.183573, ptr noundef %2) #9
   switch i32 %87, label %2509 [
     i32 0, label %173
@@ -1301,7 +1301,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   ]
 
 93:                                               ; preds = %.thread6360, %3
-  %.223577 = phi ptr [ %2553, %.thread6360 ], [ %1, %3 ]
+  %.223577 = phi ptr [ %1, %3 ], [ %2553, %.thread6360 ]
   %94 = tail call i32 @llhttp__on_chunk_extension_value_complete(ptr noundef nonnull %0, ptr noundef %.223577, ptr noundef %2) #9
   switch i32 %94, label %2545 [
     i32 0, label %73
@@ -1338,7 +1338,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   ]
 
 104:                                              ; preds = %.thread6365, %3
-  %.253580 = phi ptr [ %2585, %.thread6365 ], [ %1, %3 ]
+  %.253580 = phi ptr [ %1, %3 ], [ %2585, %.thread6365 ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %105, align 8, !tbaa !24
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1366,7 +1366,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   br label %.preheader6645
 
 117:                                              ; preds = %.thread6368, %3
-  %.283583 = phi ptr [ %2594, %.thread6368 ], [ %1, %3 ]
+  %.283583 = phi ptr [ %1, %3 ], [ %2594, %.thread6368 ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %118, align 8, !tbaa !24
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1407,7 +1407,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   br label %108
 
 135:                                              ; preds = %.thread6371, %3
-  %.293584 = phi ptr [ %2611, %.thread6371 ], [ %1, %3 ]
+  %.293584 = phi ptr [ %1, %3 ], [ %2611, %.thread6371 ]
   %136 = tail call i32 @llhttp__on_chunk_extension_value_complete(ptr noundef nonnull %0, ptr noundef %.293584, ptr noundef %2) #9
   switch i32 %136, label %2603 [
     i32 0, label %173
@@ -1415,7 +1415,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   ]
 
 137:                                              ; preds = %.thread6374, %3
-  %.303585 = phi ptr [ %2620, %.thread6374 ], [ %1, %3 ]
+  %.303585 = phi ptr [ %1, %3 ], [ %2620, %.thread6374 ]
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %138, align 8, !tbaa !24
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1449,7 +1449,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   br label %.preheader6645
 
 150:                                              ; preds = %.thread6377, %3
-  %.323587 = phi ptr [ %2637, %.thread6377 ], [ %1, %3 ]
+  %.323587 = phi ptr [ %1, %3 ], [ %2637, %.thread6377 ]
   %151 = icmp eq ptr %.323587, %2
   br i1 %151, label %.thread, label %152
 
@@ -1470,7 +1470,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   br i1 %156, label %.thread, label %.lr.ph6894
 
 157:                                              ; preds = %.thread6380, %3
-  %.333588 = phi ptr [ %2646, %.thread6380 ], [ %1, %3 ]
+  %.333588 = phi ptr [ %1, %3 ], [ %2646, %.thread6380 ]
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %158, align 8, !tbaa !24
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1789,7 +1789,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   ]
 
 259:                                              ; preds = %.thread6387, %676, %3
-  %.483603 = phi ptr [ %2761, %.thread6387 ], [ %677, %676 ], [ %1, %3 ]
+  %.483603 = phi ptr [ %677, %676 ], [ %1, %3 ], [ %2761, %.thread6387 ]
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 10, ptr %260, align 8, !tbaa !24
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1833,7 +1833,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   ]
 
 274:                                              ; preds = %2804, %3, %2800, %2794
-  %.553610 = phi ptr [ %.563611, %2804 ], [ %.563611, %2794 ], [ %.563611, %2800 ], [ %1, %3 ]
+  %.553610 = phi ptr [ %.563611, %2794 ], [ %.563611, %2800 ], [ %1, %3 ], [ %.563611, %2804 ]
   %275 = icmp eq ptr %.553610, %2
   br i1 %275, label %.thread, label %276
 
@@ -1885,7 +1885,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   ]
 
 .thread6397:                                      ; preds = %2872, %.thread6399, %.thread6394, %.thread6392, %3
-  %.603615 = phi ptr [ %1, %3 ], [ %2883, %.thread6399 ], [ %.613616, %.thread6392 ], [ %2867, %.thread6394 ], [ %.6236176922, %2872 ]
+  %.603615 = phi ptr [ %.613616, %.thread6392 ], [ %1, %3 ], [ %2867, %.thread6394 ], [ %2883, %.thread6399 ], [ %.6236176922, %2872 ]
   %294 = icmp eq ptr %.603615, %2
   br i1 %294, label %.thread, label %295
 
@@ -1931,7 +1931,7 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   br label %.thread
 
 .loopexit:                                        ; preds = %.lr.ph6917, %.lr.ph6917, %.lr.ph6919, %.lr.ph6921, %3, %2948, %2928
-  %.643619 = phi ptr [ %1, %3 ], [ %.6536206918, %.lr.ph6919 ], [ %.8636416903, %2948 ], [ %.8336386920, %.lr.ph6921 ], [ %.7636316912, %2928 ], [ %.6736226916, %.lr.ph6917 ], [ %.6736226916, %.lr.ph6917 ]
+  %.643619 = phi ptr [ %.7636316912, %2928 ], [ %.8636416903, %2948 ], [ %1, %3 ], [ %.8336386920, %.lr.ph6921 ], [ %.6536206918, %.lr.ph6919 ], [ %.6736226916, %.lr.ph6917 ], [ %.6736226916, %.lr.ph6917 ]
   %309 = icmp eq ptr %.643619, %2
   br i1 %309, label %.thread, label %310
 
@@ -2136,7 +2136,7 @@ llparse__match_sequence_to_lower.exit4539:        ; preds = %.lr.ph.i4525
   br i1 %394, label %.preheader6616.sink.split, label %.preheader6613
 
 .preheader6613:                                   ; preds = %.lr.ph6915, %2910, %3, %llparse__match_sequence_to_lower.exit, %llparse__match_sequence_to_lower.exit4521, %llparse__match_sequence_to_lower.exit4539
-  %.653620.ph = phi ptr [ %.01925.i4528, %llparse__match_sequence_to_lower.exit4539 ], [ %.01925.i4510, %llparse__match_sequence_to_lower.exit4521 ], [ %.01925.i, %llparse__match_sequence_to_lower.exit ], [ %.6736226916, %2910 ], [ %1, %3 ], [ %.6636216914, %.lr.ph6915 ]
+  %.653620.ph = phi ptr [ %.01925.i4528, %llparse__match_sequence_to_lower.exit4539 ], [ %.01925.i4510, %llparse__match_sequence_to_lower.exit4521 ], [ %.01925.i, %llparse__match_sequence_to_lower.exit ], [ %1, %3 ], [ %.6736226916, %2910 ], [ %.6636216914, %.lr.ph6915 ]
   %395 = icmp eq ptr %.653620.ph, %2
   br i1 %395, label %.thread, label %.lr.ph6919
 
@@ -2221,7 +2221,7 @@ llparse__match_sequence_to_lower.exit4539:        ; preds = %.lr.ph.i4525
   br i1 %419, label %.thread, label %.lr.ph6913
 
 420:                                              ; preds = %.thread6410, %3
-  %.793634 = phi ptr [ %2943, %.thread6410 ], [ %1, %3 ]
+  %.793634 = phi ptr [ %1, %3 ], [ %2943, %.thread6410 ]
   %421 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 15, ptr %421, align 8, !tbaa !24
   %422 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2232,7 +2232,7 @@ llparse__match_sequence_to_lower.exit4539:        ; preds = %.lr.ph.i4525
   br label %.thread
 
 424:                                              ; preds = %.thread6413, %3
-  %.803635 = phi ptr [ %2950, %.thread6413 ], [ %1, %3 ]
+  %.803635 = phi ptr [ %1, %3 ], [ %2950, %.thread6413 ]
   %425 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 15, ptr %425, align 8, !tbaa !24
   %426 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2305,7 +2305,7 @@ llparse__match_sequence_to_lower.exit4539:        ; preds = %.lr.ph.i4525
   br i1 %449, label %.thread, label %.lr.ph6904
 
 .loopexit6628:                                    ; preds = %.lr.ph6908, %2959, %2962, %3, %2967
-  %.823637 = phi ptr [ %.883643, %2967 ], [ %1, %3 ], [ %.8636416903, %2962 ], [ %.8636416903, %2959 ], [ %.8136366907, %.lr.ph6908 ]
+  %.823637 = phi ptr [ %.883643, %2967 ], [ %.8636416903, %2962 ], [ %.8636416903, %2959 ], [ %1, %3 ], [ %.8136366907, %.lr.ph6908 ]
   %450 = icmp eq ptr %.823637, %2
   br i1 %450, label %.thread, label %.lr.ph.preheader.i4540
 
@@ -2367,7 +2367,7 @@ llparse__match_sequence_to_lower_unsafe.exit.thread5488: ; preds = %469
   br i1 %474, label %.thread, label %.lr.ph6906
 
 .loopexit6637:                                    ; preds = %.lr.ph6902, %2828, %3, %2823
-  %.883643 = phi ptr [ %1, %3 ], [ %.593614, %2823 ], [ %.593614, %2828 ], [ %.8936446901, %.lr.ph6902 ]
+  %.883643 = phi ptr [ %.593614, %2823 ], [ %.593614, %2828 ], [ %1, %3 ], [ %.8936446901, %.lr.ph6902 ]
   %475 = icmp eq ptr %.883643, %2
   br i1 %475, label %.thread, label %476
 
@@ -2432,7 +2432,7 @@ llparse__match_sequence_to_lower_unsafe.exit.thread5488: ; preds = %469
   ]
 
 495:                                              ; preds = %.thread6419, %.thread6416, %3
-  %.913646 = phi ptr [ %3038, %.thread6419 ], [ %3029, %.thread6416 ], [ %1, %3 ]
+  %.913646 = phi ptr [ %1, %3 ], [ %3029, %.thread6416 ], [ %3038, %.thread6419 ]
   %496 = tail call i32 @llhttp__on_header_field_complete(ptr noundef nonnull %0, ptr noundef %.913646, ptr noundef %2) #9
   switch i32 %496, label %3021 [
     i32 0, label %492
@@ -2574,7 +2574,7 @@ llparse__match_sequence_to_lower.exit4584:        ; preds = %.lr.ph.i4570
   br i1 %553, label %.thread5510, label %.preheader6639.sink.split
 
 554:                                              ; preds = %.thread5541, %3
-  %.1003655 = phi ptr [ %586, %.thread5541 ], [ %1, %3 ]
+  %.1003655 = phi ptr [ %1, %3 ], [ %586, %.thread5541 ]
   %555 = icmp eq ptr %.1003655, %2
   br i1 %555, label %.thread, label %556
 
@@ -2887,7 +2887,7 @@ llparse__match_sequence_to_lower.exit4656:        ; preds = %.lr.ph.i4642
   br i1 %cond90.not, label %3049, label %672
 
 692:                                              ; preds = %701, %3, %708
-  %.1123667 = phi ptr [ %1, %3 ], [ %709, %708 ], [ %703, %701 ]
+  %.1123667 = phi ptr [ %709, %708 ], [ %1, %3 ], [ %703, %701 ]
   %693 = icmp eq ptr %.1123667, %2
   br i1 %693, label %.thread, label %694
 
@@ -4288,7 +4288,7 @@ llparse__match_sequence_id.exit4829:              ; preds = %.lr.ph.i4817
   br label %3342
 
 1252:                                             ; preds = %.thread5785, %3
-  %.1923747 = phi ptr [ %1278, %.thread5785 ], [ %1, %3 ]
+  %.1923747 = phi ptr [ %1, %3 ], [ %1278, %.thread5785 ]
   %1253 = icmp eq ptr %.1923747, %2
   br i1 %1253, label %.thread, label %1254
 
@@ -6461,7 +6461,7 @@ llparse__match_sequence_id.exit5357:              ; preds = %.lr.ph.i5345
   br label %2127
 
 2170:                                             ; preds = %.thread6467, %3, %2200
-  %.2823837 = phi ptr [ %2201, %2200 ], [ %3390, %.thread6467 ], [ %1, %3 ]
+  %.2823837 = phi ptr [ %2201, %2200 ], [ %1, %3 ], [ %3390, %.thread6467 ]
   %2171 = icmp eq ptr %.2823837, %2
   br i1 %2171, label %.thread, label %2172
 
@@ -6481,7 +6481,7 @@ llparse__match_sequence_id.exit5357:              ; preds = %.lr.ph.i5345
   br label %3351
 
 2178:                                             ; preds = %.thread6464, %3
-  %.2843839 = phi ptr [ %3381, %.thread6464 ], [ %1, %3 ]
+  %.2843839 = phi ptr [ %1, %3 ], [ %3381, %.thread6464 ]
   %2179 = getelementptr inbounds nuw i8, ptr %0, i64 78
   %2180 = load i16, ptr %2179, align 2, !tbaa !17
   %2181 = and i16 %2180, 256
@@ -6716,7 +6716,7 @@ llparse__match_sequence_id.exit5357:              ; preds = %.lr.ph.i5345
   br i1 %2262, label %switch.lookup7646, label %3505
 
 2263:                                             ; preds = %.thread6311, %3, %.thread6488
-  %.3053860 = phi ptr [ %.3123867, %.thread6488 ], [ %2288, %.thread6311 ], [ %1, %3 ]
+  %.3053860 = phi ptr [ %.3123867, %.thread6488 ], [ %1, %3 ], [ %2288, %.thread6311 ]
   %2264 = icmp eq ptr %.3053860, %2
   br i1 %2264, label %.thread, label %2265
 
@@ -6973,7 +6973,7 @@ llparse__match_sequence_id.exit5407:              ; preds = %.lr.ph.i5395
   unreachable
 
 2363:                                             ; preds = %867, %867, %701, %701, %1021, %1019, %1008, %1006, %995, %982, %971, %969, %967, %965, %963, %944, %929, %906, %896, %894, %886, %874, %864, %862, %715, %713, %698, %696
-  %.1133668 = phi ptr [ %996, %995 ], [ %895, %894 ], [ %697, %696 ], [ %699, %698 ], [ %1022, %1021 ], [ %703, %701 ], [ %897, %896 ], [ %714, %713 ], [ %716, %715 ], [ %863, %862 ], [ %865, %864 ], [ %703, %701 ], [ %869, %867 ], [ %875, %874 ], [ %887, %886 ], [ %907, %906 ], [ %983, %982 ], [ %964, %963 ], [ %966, %965 ], [ %968, %967 ], [ %970, %969 ], [ %972, %971 ], [ %945, %944 ], [ %930, %929 ], [ %1007, %1006 ], [ %1009, %1008 ], [ %1020, %1019 ], [ %869, %867 ]
+  %.1133668 = phi ptr [ %996, %995 ], [ %895, %894 ], [ %697, %696 ], [ %699, %698 ], [ %897, %896 ], [ %714, %713 ], [ %716, %715 ], [ %863, %862 ], [ %865, %864 ], [ %875, %874 ], [ %887, %886 ], [ %907, %906 ], [ %983, %982 ], [ %964, %963 ], [ %966, %965 ], [ %968, %967 ], [ %970, %969 ], [ %972, %971 ], [ %945, %944 ], [ %930, %929 ], [ %1007, %1006 ], [ %1009, %1008 ], [ %1020, %1019 ], [ %1022, %1021 ], [ %703, %701 ], [ %703, %701 ], [ %869, %867 ], [ %869, %867 ]
   %2364 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 7, ptr %2364, align 8, !tbaa !24
   %2365 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7679,8 +7679,8 @@ llparse__match_sequence_id.exit5407:              ; preds = %.lr.ph.i5395
   br label %.thread
 
 2655:                                             ; preds = %221, %201, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204
-  %.403595.sink = phi ptr [ %.383593, %214 ], [ %.383593, %213 ], [ %.383593, %212 ], [ %.383593, %211 ], [ %.383593, %210 ], [ %.403595, %221 ], [ %.403595, %237 ], [ %.403595, %236 ], [ %.403595, %235 ], [ %.403595, %234 ], [ %.403595, %233 ], [ %.403595, %232 ], [ %.403595, %231 ], [ %.403595, %230 ], [ %.403595, %229 ], [ %.403595, %228 ], [ %.403595, %227 ], [ %.403595, %226 ], [ %.403595, %225 ], [ %.403595, %224 ], [ %.403595, %223 ], [ %.383593, %209 ], [ %.383593, %208 ], [ %.383593, %207 ], [ %.383593, %206 ], [ %.383593, %205 ], [ %.383593, %204 ], [ %.383593, %201 ], [ %.383593, %218 ], [ %.383593, %217 ], [ %.383593, %216 ], [ %.383593, %215 ]
-  %.243919 = phi i64 [ 11, %214 ], [ 10, %213 ], [ 9, %212 ], [ 8, %211 ], [ 7, %210 ], [ 0, %221 ], [ 15, %237 ], [ 14, %236 ], [ 13, %235 ], [ 12, %234 ], [ 11, %233 ], [ 10, %232 ], [ 9, %231 ], [ 8, %230 ], [ 7, %229 ], [ 6, %228 ], [ 5, %227 ], [ 4, %226 ], [ 3, %225 ], [ 2, %224 ], [ 1, %223 ], [ 6, %209 ], [ 5, %208 ], [ 4, %207 ], [ 3, %206 ], [ 2, %205 ], [ 1, %204 ], [ 0, %201 ], [ 15, %218 ], [ 14, %217 ], [ 13, %216 ], [ 12, %215 ]
+  %.403595.sink = phi ptr [ %.403595, %237 ], [ %.403595, %236 ], [ %.403595, %235 ], [ %.403595, %234 ], [ %.403595, %233 ], [ %.403595, %232 ], [ %.403595, %231 ], [ %.403595, %230 ], [ %.403595, %229 ], [ %.403595, %228 ], [ %.403595, %227 ], [ %.403595, %226 ], [ %.403595, %225 ], [ %.403595, %224 ], [ %.403595, %223 ], [ %.383593, %218 ], [ %.383593, %217 ], [ %.383593, %216 ], [ %.383593, %215 ], [ %.383593, %214 ], [ %.383593, %213 ], [ %.383593, %212 ], [ %.383593, %211 ], [ %.383593, %210 ], [ %.383593, %209 ], [ %.383593, %208 ], [ %.383593, %207 ], [ %.383593, %206 ], [ %.383593, %205 ], [ %.383593, %204 ], [ %.383593, %201 ], [ %.403595, %221 ]
+  %.243919 = phi i64 [ 15, %237 ], [ 14, %236 ], [ 13, %235 ], [ 12, %234 ], [ 11, %233 ], [ 10, %232 ], [ 9, %231 ], [ 8, %230 ], [ 7, %229 ], [ 6, %228 ], [ 5, %227 ], [ 4, %226 ], [ 3, %225 ], [ 2, %224 ], [ 1, %223 ], [ 15, %218 ], [ 14, %217 ], [ 13, %216 ], [ 12, %215 ], [ 11, %214 ], [ 10, %213 ], [ 9, %212 ], [ 8, %211 ], [ 7, %210 ], [ 6, %209 ], [ 5, %208 ], [ 4, %207 ], [ 3, %206 ], [ 2, %205 ], [ 1, %204 ], [ 0, %201 ], [ 0, %221 ]
   %2656 = getelementptr inbounds nuw i8, ptr %.403595.sink, i64 1
   %2657 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %2658 = load i64, ptr %2657, align 8, !tbaa !20
@@ -8321,7 +8321,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2917
   %2923 = icmp eq ptr %.783633, %2
   br i1 %2923, label %.thread, label %416
 
-2924:                                             ; preds = %2917, %switch.lookup
+2924:                                             ; preds = %switch.lookup, %2917
   %2925 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2926 = load ptr, ptr %2925, align 8, !tbaa !25
   store ptr null, ptr %2925, align 8, !tbaa !25
@@ -8601,8 +8601,8 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2917
   br label %.thread
 
 .thread5510:                                      ; preds = %llparse__match_sequence_to_lower.exit4656, %llparse__match_sequence_to_lower.exit4638, %llparse__match_sequence_to_lower.exit4620, %llparse__match_sequence_to_lower.exit4584, %llparse__match_sequence_to_lower.exit4566
-  %.01925.i4645.lcssa.sink = phi ptr [ %.01925.i4627, %llparse__match_sequence_to_lower.exit4638 ], [ %.01925.i4609, %llparse__match_sequence_to_lower.exit4620 ], [ %.01925.i4573, %llparse__match_sequence_to_lower.exit4584 ], [ %.01925.i4555, %llparse__match_sequence_to_lower.exit4566 ], [ %.01925.i4645, %llparse__match_sequence_to_lower.exit4656 ]
-  %.643959 = phi i8 [ 3, %llparse__match_sequence_to_lower.exit4638 ], [ 1, %llparse__match_sequence_to_lower.exit4620 ], [ 2, %llparse__match_sequence_to_lower.exit4584 ], [ 1, %llparse__match_sequence_to_lower.exit4566 ], [ 4, %llparse__match_sequence_to_lower.exit4656 ]
+  %.01925.i4645.lcssa.sink = phi ptr [ %.01925.i4555, %llparse__match_sequence_to_lower.exit4566 ], [ %.01925.i4573, %llparse__match_sequence_to_lower.exit4584 ], [ %.01925.i4609, %llparse__match_sequence_to_lower.exit4620 ], [ %.01925.i4627, %llparse__match_sequence_to_lower.exit4638 ], [ %.01925.i4645, %llparse__match_sequence_to_lower.exit4656 ]
+  %.643959 = phi i8 [ 1, %llparse__match_sequence_to_lower.exit4566 ], [ 2, %llparse__match_sequence_to_lower.exit4584 ], [ 1, %llparse__match_sequence_to_lower.exit4620 ], [ 3, %llparse__match_sequence_to_lower.exit4638 ], [ 4, %llparse__match_sequence_to_lower.exit4656 ]
   %3047 = getelementptr inbounds nuw i8, ptr %.01925.i4645.lcssa.sink, i64 1
   %3048 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i8 %.643959, ptr %3048, align 4, !tbaa !21
@@ -8821,10 +8821,10 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2917
   ]
 
 3136:                                             ; preds = %755, %765, %764, %763, %762, %761, %760, %759, %758, %757
-  %cond107 = phi i1 [ false, %765 ], [ false, %757 ], [ false, %758 ], [ false, %759 ], [ false, %760 ], [ false, %761 ], [ false, %762 ], [ false, %763 ], [ false, %764 ], [ true, %755 ]
-  %switch = phi i1 [ false, %765 ], [ true, %757 ], [ false, %758 ], [ false, %759 ], [ false, %760 ], [ false, %761 ], [ false, %762 ], [ false, %763 ], [ false, %764 ], [ true, %755 ]
-  %cond114 = phi i1 [ true, %765 ], [ false, %757 ], [ false, %758 ], [ false, %759 ], [ false, %760 ], [ false, %761 ], [ false, %762 ], [ false, %763 ], [ false, %764 ], [ false, %755 ]
-  %.873982 = phi i8 [ 9, %765 ], [ 1, %757 ], [ 2, %758 ], [ 3, %759 ], [ 4, %760 ], [ 5, %761 ], [ 6, %762 ], [ 7, %763 ], [ 8, %764 ], [ 0, %755 ]
+  %cond107 = phi i1 [ false, %757 ], [ false, %758 ], [ false, %759 ], [ false, %760 ], [ false, %761 ], [ false, %762 ], [ false, %763 ], [ false, %764 ], [ false, %765 ], [ true, %755 ]
+  %switch = phi i1 [ true, %757 ], [ false, %758 ], [ false, %759 ], [ false, %760 ], [ false, %761 ], [ false, %762 ], [ false, %763 ], [ false, %764 ], [ false, %765 ], [ true, %755 ]
+  %cond114 = phi i1 [ false, %757 ], [ false, %758 ], [ false, %759 ], [ false, %760 ], [ false, %761 ], [ false, %762 ], [ false, %763 ], [ false, %764 ], [ true, %765 ], [ false, %755 ]
+  %.873982 = phi i8 [ 1, %757 ], [ 2, %758 ], [ 3, %759 ], [ 4, %760 ], [ 5, %761 ], [ 6, %762 ], [ 7, %763 ], [ 8, %764 ], [ 9, %765 ], [ 0, %755 ]
   %.1273682 = getelementptr inbounds nuw i8, ptr %.1263681, i64 1
   %3137 = getelementptr inbounds nuw i8, ptr %0, i64 75
   store i8 %.873982, ptr %3137, align 1, !tbaa !16
@@ -8942,7 +8942,7 @@ switch.lookup7635:                                ; preds = %780
   br label %.thread
 
 .thread5629:                                      ; preds = %.lr.ph6890, %llparse__match_sequence_id.exit4701, %llparse__match_sequence_id.exit4685, %llparse__match_sequence_id.exit
-  %.1363691 = phi ptr [ %.01621.i4692, %llparse__match_sequence_id.exit4701 ], [ %.01621.i4676, %llparse__match_sequence_id.exit4685 ], [ %.01621.i, %llparse__match_sequence_id.exit ], [ %.14136966889, %.lr.ph6890 ]
+  %.1363691 = phi ptr [ %.01621.i, %llparse__match_sequence_id.exit ], [ %.01621.i4676, %llparse__match_sequence_id.exit4685 ], [ %.01621.i4692, %llparse__match_sequence_id.exit4701 ], [ %.14136966889, %.lr.ph6890 ]
   %3171 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 8, ptr %3171, align 8, !tbaa !24
   %3172 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9366,8 +9366,8 @@ switch.lookup7635:                                ; preds = %780
   br label %.thread
 
 3342:                                             ; preds = %.thread6296, %.thread6280, %.thread6264, %.thread6248, %.thread6232, %.thread6216, %.thread6200, %.thread6184, %.thread6168, %.thread6152, %.thread6136, %.thread6120, %.thread6104, %.thread6088, %.thread6072, %.thread6056, %.thread6040, %.thread6024, %.thread6008, %.thread5992, %.thread5976, %.thread5960, %.thread5944, %.thread5928, %.thread5912, %.thread5896, %.thread5880, %.thread5864, %.thread5848, %.thread5832, %.thread5816, %.thread5800, %.thread5770, %.thread5754, %.thread5738, %.thread5722, %.thread5706, %.thread5690, %.thread5674, %.thread5658, %1254, %1878, %1714, %1683, %1438, %1136, %1038
-  %.1114006 = phi i8 [ 19, %1038 ], [ 36, %.thread5658 ], [ 16, %.thread5674 ], [ 22, %.thread5690 ], [ 5, %.thread5706 ], [ 8, %1136 ], [ 0, %.thread5722 ], [ 35, %.thread5738 ], [ 45, %.thread5754 ], [ 41, %.thread5770 ], [ 27, %.thread6296 ], [ 2, %.thread5800 ], [ 31, %.thread5816 ], [ 9, %.thread5832 ], [ 24, %.thread5848 ], [ 23, %.thread5864 ], [ 21, %.thread5880 ], [ 30, %.thread5896 ], [ 10, %1438 ], [ 11, %.thread5912 ], [ 25, %.thread5928 ], [ 6, %.thread5944 ], [ 28, %.thread5960 ], [ 39, %.thread5976 ], [ 38, %.thread5992 ], [ 3, %.thread6008 ], [ 34, %1683 ], [ 12, %.thread6024 ], [ 13, %.thread6040 ], [ 29, %.thread6056 ], [ 4, %1714 ], [ 46, %.thread6072 ], [ 17, %.thread6088 ], [ 44, %.thread6104 ], [ 43, %.thread6120 ], [ 20, %.thread6136 ], [ 14, %.thread6152 ], [ 37, %1878 ], [ 42, %.thread6168 ], [ 33, %.thread6184 ], [ 26, %.thread6200 ], [ 40, %.thread6216 ], [ 7, %.thread6232 ], [ 18, %.thread6248 ], [ 32, %.thread6264 ], [ 15, %.thread6280 ], [ 1, %1254 ]
-  %.1683723 = phi ptr [ %1039, %1038 ], [ %1060, %.thread5658 ], [ %1089, %.thread5674 ], [ %1110, %.thread5690 ], [ %1131, %.thread5706 ], [ %1137, %1136 ], [ %1174, %.thread5722 ], [ %1195, %.thread5738 ], [ %1230, %.thread5754 ], [ %1251, %.thread5770 ], [ %2110, %.thread6296 ], [ %1299, %.thread5800 ], [ %1320, %.thread5816 ], [ %1341, %.thread5832 ], [ %1370, %.thread5848 ], [ %1391, %.thread5864 ], [ %1412, %.thread5880 ], [ %1433, %.thread5896 ], [ %1439, %1438 ], [ %1476, %.thread5912 ], [ %1509, %.thread5928 ], [ %1530, %.thread5944 ], [ %1551, %.thread5960 ], [ %1572, %.thread5976 ], [ %1601, %.thread5992 ], [ %1622, %.thread6008 ], [ %1684, %1683 ], [ %1643, %.thread6024 ], [ %1664, %.thread6040 ], [ %1707, %.thread6056 ], [ %1715, %1714 ], [ %1750, %.thread6072 ], [ %1771, %.thread6088 ], [ %1792, %.thread6104 ], [ %1813, %.thread6120 ], [ %1834, %.thread6136 ], [ %1873, %.thread6152 ], [ %1879, %1878 ], [ %1900, %.thread6168 ], [ %1937, %.thread6184 ], [ %1958, %.thread6200 ], [ %1989, %.thread6216 ], [ %2010, %.thread6232 ], [ %2039, %.thread6248 ], [ %2060, %.thread6264 ], [ %2081, %.thread6280 ], [ %.1923747, %1254 ]
+  %.1114006 = phi i8 [ 19, %1038 ], [ 8, %1136 ], [ 10, %1438 ], [ 34, %1683 ], [ 4, %1714 ], [ 37, %1878 ], [ 1, %1254 ], [ 36, %.thread5658 ], [ 16, %.thread5674 ], [ 22, %.thread5690 ], [ 5, %.thread5706 ], [ 0, %.thread5722 ], [ 35, %.thread5738 ], [ 45, %.thread5754 ], [ 41, %.thread5770 ], [ 2, %.thread5800 ], [ 31, %.thread5816 ], [ 9, %.thread5832 ], [ 24, %.thread5848 ], [ 23, %.thread5864 ], [ 21, %.thread5880 ], [ 30, %.thread5896 ], [ 11, %.thread5912 ], [ 25, %.thread5928 ], [ 6, %.thread5944 ], [ 28, %.thread5960 ], [ 39, %.thread5976 ], [ 38, %.thread5992 ], [ 3, %.thread6008 ], [ 12, %.thread6024 ], [ 13, %.thread6040 ], [ 29, %.thread6056 ], [ 46, %.thread6072 ], [ 17, %.thread6088 ], [ 44, %.thread6104 ], [ 43, %.thread6120 ], [ 20, %.thread6136 ], [ 14, %.thread6152 ], [ 42, %.thread6168 ], [ 33, %.thread6184 ], [ 26, %.thread6200 ], [ 40, %.thread6216 ], [ 7, %.thread6232 ], [ 18, %.thread6248 ], [ 32, %.thread6264 ], [ 15, %.thread6280 ], [ 27, %.thread6296 ]
+  %.1683723 = phi ptr [ %1039, %1038 ], [ %1137, %1136 ], [ %1439, %1438 ], [ %1684, %1683 ], [ %1715, %1714 ], [ %1879, %1878 ], [ %.1923747, %1254 ], [ %1060, %.thread5658 ], [ %1089, %.thread5674 ], [ %1110, %.thread5690 ], [ %1131, %.thread5706 ], [ %1174, %.thread5722 ], [ %1195, %.thread5738 ], [ %1230, %.thread5754 ], [ %1251, %.thread5770 ], [ %1299, %.thread5800 ], [ %1320, %.thread5816 ], [ %1341, %.thread5832 ], [ %1370, %.thread5848 ], [ %1391, %.thread5864 ], [ %1412, %.thread5880 ], [ %1433, %.thread5896 ], [ %1476, %.thread5912 ], [ %1509, %.thread5928 ], [ %1530, %.thread5944 ], [ %1551, %.thread5960 ], [ %1572, %.thread5976 ], [ %1601, %.thread5992 ], [ %1622, %.thread6008 ], [ %1643, %.thread6024 ], [ %1664, %.thread6040 ], [ %1707, %.thread6056 ], [ %1750, %.thread6072 ], [ %1771, %.thread6088 ], [ %1792, %.thread6104 ], [ %1813, %.thread6120 ], [ %1834, %.thread6136 ], [ %1873, %.thread6152 ], [ %1900, %.thread6168 ], [ %1937, %.thread6184 ], [ %1958, %.thread6200 ], [ %1989, %.thread6216 ], [ %2010, %.thread6232 ], [ %2039, %.thread6248 ], [ %2060, %.thread6264 ], [ %2081, %.thread6280 ], [ %2110, %.thread6296 ]
   %3343 = getelementptr inbounds nuw i8, ptr %0, i64 73
   store i8 %.1114006, ptr %3343, align 1, !tbaa !14
   %3344 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9378,7 +9378,7 @@ switch.lookup7635:                                ; preds = %780
   br i1 %.not, label %.thread6462, label %3339
 
 3347:                                             ; preds = %llparse__match_sequence_id.exit5357, %llparse__match_sequence_id.exit5341, %llparse__match_sequence_id.exit5325, %llparse__match_sequence_id.exit5309, %llparse__match_sequence_id.exit5293, %llparse__match_sequence_id.exit5277, %llparse__match_sequence_id.exit5261, %llparse__match_sequence_id.exit5245, %llparse__match_sequence_id.exit5229, %llparse__match_sequence_id.exit5213, %llparse__match_sequence_id.exit5197, %llparse__match_sequence_id.exit5181, %llparse__match_sequence_id.exit5165, %llparse__match_sequence_id.exit5149, %llparse__match_sequence_id.exit5133, %llparse__match_sequence_id.exit5117, %llparse__match_sequence_id.exit5101, %llparse__match_sequence_id.exit5085, %llparse__match_sequence_id.exit5069, %llparse__match_sequence_id.exit5053, %llparse__match_sequence_id.exit5037, %llparse__match_sequence_id.exit5021, %llparse__match_sequence_id.exit5005, %llparse__match_sequence_id.exit4989, %llparse__match_sequence_id.exit4973, %llparse__match_sequence_id.exit4957, %llparse__match_sequence_id.exit4941, %llparse__match_sequence_id.exit4925, %llparse__match_sequence_id.exit4909, %llparse__match_sequence_id.exit4893, %llparse__match_sequence_id.exit4877, %llparse__match_sequence_id.exit4861, %llparse__match_sequence_id.exit4845, %llparse__match_sequence_id.exit4829, %llparse__match_sequence_id.exit4813, %llparse__match_sequence_id.exit4797, %llparse__match_sequence_id.exit4781, %llparse__match_sequence_id.exit4765, %llparse__match_sequence_id.exit4749, %llparse__match_sequence_id.exit4733, %llparse__match_sequence_id.exit4717, %2129, %2123, %2113, %2084, %2013, %1961, %1911, %1903, %1876, %1849, %1837, %1718, %1710, %1681, %1675, %1667, %1575, %1479, %1450, %1442, %1436, %1344, %1206, %1198, %1148, %1140, %1134, %1063, %1036
-  %.1693724 = phi ptr [ %.2803835, %2129 ], [ %.1723727, %1063 ], [ %.1673722, %1036 ], [ %.2793834, %2123 ], [ %.01621.i4708, %llparse__match_sequence_id.exit4717 ], [ %.1813736, %1148 ], [ %.01621.i4724, %llparse__match_sequence_id.exit4733 ], [ %.1803735, %1140 ], [ %.01621.i4740, %llparse__match_sequence_id.exit4749 ], [ %.1793734, %1134 ], [ %.1863741, %1198 ], [ %.01621.i4756, %llparse__match_sequence_id.exit4765 ], [ %.01621.i4772, %llparse__match_sequence_id.exit4781 ], [ %.1873742, %1206 ], [ %.01621.i4788, %llparse__match_sequence_id.exit4797 ], [ %.01621.i4804, %llparse__match_sequence_id.exit4813 ], [ %.01621.i4820, %llparse__match_sequence_id.exit4829 ], [ %.01621.i4836, %llparse__match_sequence_id.exit4845 ], [ %.2013756, %1344 ], [ %.01621.i4852, %llparse__match_sequence_id.exit4861 ], [ %.01621.i4868, %llparse__match_sequence_id.exit4877 ], [ %.2153770, %1479 ], [ %.01621.i4884, %llparse__match_sequence_id.exit4893 ], [ %.01621.i4900, %llparse__match_sequence_id.exit4909 ], [ %.2123767, %1450 ], [ %.01621.i4916, %llparse__match_sequence_id.exit4925 ], [ %.2113766, %1442 ], [ %.01621.i4932, %llparse__match_sequence_id.exit4941 ], [ %.2103765, %1436 ], [ %.01621.i4948, %llparse__match_sequence_id.exit4957 ], [ %.01621.i4964, %llparse__match_sequence_id.exit4973 ], [ %.01621.i4980, %llparse__match_sequence_id.exit4989 ], [ %.2393794, %1718 ], [ %.2243779, %1575 ], [ %.01621.i4996, %llparse__match_sequence_id.exit5005 ], [ %.01621.i5012, %llparse__match_sequence_id.exit5021 ], [ %.01621.i5028, %llparse__match_sequence_id.exit5037 ], [ %.01621.i5044, %llparse__match_sequence_id.exit5053 ], [ %.2353790, %1681 ], [ %.2333788, %1667 ], [ %.01621.i5060, %llparse__match_sequence_id.exit5069 ], [ %.01621.i5076, %llparse__match_sequence_id.exit5085 ], [ %.2343789, %1675 ], [ %.2383793, %1710 ], [ %.01621.i5092, %llparse__match_sequence_id.exit5101 ], [ %.01621.i5108, %llparse__match_sequence_id.exit5117 ], [ %.2503805, %1837 ], [ %.01621.i5124, %llparse__match_sequence_id.exit5133 ], [ %.01621.i5140, %llparse__match_sequence_id.exit5149 ], [ %.01621.i5156, %llparse__match_sequence_id.exit5165 ], [ %.01621.i5172, %llparse__match_sequence_id.exit5181 ], [ %.2513806, %1849 ], [ %.2633818, %1961 ], [ %.2583813, %1911 ], [ %.01621.i5188, %llparse__match_sequence_id.exit5197 ], [ %.2573812, %1903 ], [ %.2543809, %1876 ], [ %.01621.i5204, %llparse__match_sequence_id.exit5213 ], [ %.01621.i5220, %llparse__match_sequence_id.exit5229 ], [ %.01621.i5236, %llparse__match_sequence_id.exit5245 ], [ %.2683823, %2013 ], [ %.01621.i5252, %llparse__match_sequence_id.exit5261 ], [ %.01621.i5268, %llparse__match_sequence_id.exit5277 ], [ %.2783833, %2113 ], [ %.01621.i5284, %llparse__match_sequence_id.exit5293 ], [ %.2753830, %2084 ], [ %.01621.i5300, %llparse__match_sequence_id.exit5309 ], [ %.01621.i5316, %llparse__match_sequence_id.exit5325 ], [ %.01621.i5332, %llparse__match_sequence_id.exit5341 ], [ %.01621.i5348, %llparse__match_sequence_id.exit5357 ]
+  %.1693724 = phi ptr [ %.2803835, %2129 ], [ %.1723727, %1063 ], [ %.1673722, %1036 ], [ %.1813736, %1148 ], [ %.1803735, %1140 ], [ %.1793734, %1134 ], [ %.1863741, %1198 ], [ %.1873742, %1206 ], [ %.2013756, %1344 ], [ %.2153770, %1479 ], [ %.2123767, %1450 ], [ %.2113766, %1442 ], [ %.2103765, %1436 ], [ %.2393794, %1718 ], [ %.2243779, %1575 ], [ %.2353790, %1681 ], [ %.2333788, %1667 ], [ %.2343789, %1675 ], [ %.2383793, %1710 ], [ %.2503805, %1837 ], [ %.2513806, %1849 ], [ %.2633818, %1961 ], [ %.2583813, %1911 ], [ %.2573812, %1903 ], [ %.2543809, %1876 ], [ %.2683823, %2013 ], [ %.2783833, %2113 ], [ %.2753830, %2084 ], [ %.2793834, %2123 ], [ %.01621.i4708, %llparse__match_sequence_id.exit4717 ], [ %.01621.i4724, %llparse__match_sequence_id.exit4733 ], [ %.01621.i4740, %llparse__match_sequence_id.exit4749 ], [ %.01621.i4756, %llparse__match_sequence_id.exit4765 ], [ %.01621.i4772, %llparse__match_sequence_id.exit4781 ], [ %.01621.i4788, %llparse__match_sequence_id.exit4797 ], [ %.01621.i4804, %llparse__match_sequence_id.exit4813 ], [ %.01621.i4820, %llparse__match_sequence_id.exit4829 ], [ %.01621.i4836, %llparse__match_sequence_id.exit4845 ], [ %.01621.i4852, %llparse__match_sequence_id.exit4861 ], [ %.01621.i4868, %llparse__match_sequence_id.exit4877 ], [ %.01621.i4884, %llparse__match_sequence_id.exit4893 ], [ %.01621.i4900, %llparse__match_sequence_id.exit4909 ], [ %.01621.i4916, %llparse__match_sequence_id.exit4925 ], [ %.01621.i4932, %llparse__match_sequence_id.exit4941 ], [ %.01621.i4948, %llparse__match_sequence_id.exit4957 ], [ %.01621.i4964, %llparse__match_sequence_id.exit4973 ], [ %.01621.i4980, %llparse__match_sequence_id.exit4989 ], [ %.01621.i4996, %llparse__match_sequence_id.exit5005 ], [ %.01621.i5012, %llparse__match_sequence_id.exit5021 ], [ %.01621.i5028, %llparse__match_sequence_id.exit5037 ], [ %.01621.i5044, %llparse__match_sequence_id.exit5053 ], [ %.01621.i5060, %llparse__match_sequence_id.exit5069 ], [ %.01621.i5076, %llparse__match_sequence_id.exit5085 ], [ %.01621.i5092, %llparse__match_sequence_id.exit5101 ], [ %.01621.i5108, %llparse__match_sequence_id.exit5117 ], [ %.01621.i5124, %llparse__match_sequence_id.exit5133 ], [ %.01621.i5140, %llparse__match_sequence_id.exit5149 ], [ %.01621.i5156, %llparse__match_sequence_id.exit5165 ], [ %.01621.i5172, %llparse__match_sequence_id.exit5181 ], [ %.01621.i5188, %llparse__match_sequence_id.exit5197 ], [ %.01621.i5204, %llparse__match_sequence_id.exit5213 ], [ %.01621.i5220, %llparse__match_sequence_id.exit5229 ], [ %.01621.i5236, %llparse__match_sequence_id.exit5245 ], [ %.01621.i5252, %llparse__match_sequence_id.exit5261 ], [ %.01621.i5268, %llparse__match_sequence_id.exit5277 ], [ %.01621.i5284, %llparse__match_sequence_id.exit5293 ], [ %.01621.i5300, %llparse__match_sequence_id.exit5309 ], [ %.01621.i5316, %llparse__match_sequence_id.exit5325 ], [ %.01621.i5332, %llparse__match_sequence_id.exit5341 ], [ %.01621.i5348, %llparse__match_sequence_id.exit5357 ]
   %3348 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 6, ptr %3348, align 8, !tbaa !24
   %3349 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9527,7 +9527,7 @@ llhttp__internal__c_mul_add_status_code.exit:     ; preds = %3402
   store i16 %3408, ptr %3399, align 4, !tbaa !22
   br label %2191
 
-3409:                                             ; preds = %3402, %switch.lookup7637
+3409:                                             ; preds = %switch.lookup7637, %3402
   %3410 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 13, ptr %3410, align 8, !tbaa !24
   %3411 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9569,7 +9569,7 @@ llhttp__internal__c_mul_add_status_code.exit5432: ; preds = %3420
   store i16 %3426, ptr %3417, align 4, !tbaa !22
   br label %2204
 
-3427:                                             ; preds = %3420, %switch.lookup7640
+3427:                                             ; preds = %switch.lookup7640, %3420
   %3428 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 13, ptr %3428, align 8, !tbaa !24
   %3429 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9611,7 +9611,7 @@ llhttp__internal__c_mul_add_status_code.exit5434: ; preds = %3438
   store i16 %3444, ptr %3435, align 4, !tbaa !22
   br label %2209
 
-3445:                                             ; preds = %3438, %switch.lookup7643
+3445:                                             ; preds = %switch.lookup7643, %3438
   %3446 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 13, ptr %3446, align 8, !tbaa !24
   %3447 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9712,10 +9712,10 @@ llhttp__internal__c_mul_add_status_code.exit5434: ; preds = %3438
   ]
 
 3485:                                             ; preds = %2235, %2245, %2244, %2243, %2242, %2241, %2240, %2239, %2238, %2237
-  %cond4 = phi i1 [ false, %2245 ], [ false, %2237 ], [ false, %2238 ], [ false, %2239 ], [ false, %2240 ], [ false, %2241 ], [ false, %2242 ], [ false, %2243 ], [ false, %2244 ], [ true, %2235 ]
-  %switch4498 = phi i1 [ false, %2245 ], [ true, %2237 ], [ false, %2238 ], [ false, %2239 ], [ false, %2240 ], [ false, %2241 ], [ false, %2242 ], [ false, %2243 ], [ false, %2244 ], [ true, %2235 ]
-  %cond95 = phi i1 [ true, %2245 ], [ false, %2237 ], [ false, %2238 ], [ false, %2239 ], [ false, %2240 ], [ false, %2241 ], [ false, %2242 ], [ false, %2243 ], [ false, %2244 ], [ false, %2235 ]
-  %.2294124 = phi i8 [ 9, %2245 ], [ 1, %2237 ], [ 2, %2238 ], [ 3, %2239 ], [ 4, %2240 ], [ 5, %2241 ], [ 6, %2242 ], [ 7, %2243 ], [ 8, %2244 ], [ 0, %2235 ]
+  %cond4 = phi i1 [ false, %2237 ], [ false, %2238 ], [ false, %2239 ], [ false, %2240 ], [ false, %2241 ], [ false, %2242 ], [ false, %2243 ], [ false, %2244 ], [ false, %2245 ], [ true, %2235 ]
+  %switch4498 = phi i1 [ true, %2237 ], [ false, %2238 ], [ false, %2239 ], [ false, %2240 ], [ false, %2241 ], [ false, %2242 ], [ false, %2243 ], [ false, %2244 ], [ false, %2245 ], [ true, %2235 ]
+  %cond95 = phi i1 [ false, %2237 ], [ false, %2238 ], [ false, %2239 ], [ false, %2240 ], [ false, %2241 ], [ false, %2242 ], [ false, %2243 ], [ false, %2244 ], [ true, %2245 ], [ false, %2235 ]
+  %.2294124 = phi i8 [ 1, %2237 ], [ 2, %2238 ], [ 3, %2239 ], [ 4, %2240 ], [ 5, %2241 ], [ 6, %2242 ], [ 7, %2243 ], [ 8, %2244 ], [ 9, %2245 ], [ 0, %2235 ]
   %.2993854 = getelementptr inbounds nuw i8, ptr %.2983853, i64 1
   %3486 = getelementptr inbounds nuw i8, ptr %0, i64 75
   store i8 %.2294124, ptr %3486, align 1, !tbaa !16
@@ -9917,7 +9917,7 @@ switch.lookup7646:                                ; preds = %2260
   ]
 
 .thread:                                          ; preds = %.backedge6677, %2183, %1024, %984, %946, %908, %888, %876, %849, %187, %165, %145, %125, %270, %504, %.backedge6638, %447, %441, %.backedge6629, %llhttp__internal__c_mul_add_content_length_1.exit, %413, %.backedge6621, %322, %316, %434, %303, %.backedge, %3, %254, %.preheader6675, %.preheader6673, %.preheader6671, %.preheader6668, %.preheader6665, %.preheader6662, %.preheader6659, %.preheader6657, %.preheader6655, %.preheader6649, %.preheader6647, %.preheader6645, %.preheader6642, %.preheader6639, %.preheader6635, %.preheader6633, %.preheader6630, %.preheader6626, %.preheader6624, %.preheader6622, %.preheader6619, %.preheader6616, %.preheader6613, %.preheader6611, %.preheader6609, %.preheader, %llparse__match_sequence_id.exit5407.thread, %2311, %llparse__match_sequence_id.exit5391.thread, %2290, %llparse__match_sequence_id.exit5375.thread, %2268, %llparse__match_sequence_id.exit5357.thread, %2090, %llparse__match_sequence_id.exit5341.thread, %2061, %llparse__match_sequence_id.exit5325.thread, %2040, %llparse__match_sequence_id.exit5309.thread, %2019, %llparse__match_sequence_id.exit5293.thread, %1990, %llparse__match_sequence_id.exit5277.thread, %1969, %llparse__match_sequence_id.exit5261.thread, %1938, %llparse__match_sequence_id.exit5245.thread, %1917, %llparse__match_sequence_id.exit5229.thread, %1880, %llparse__match_sequence_id.exit5213.thread, %1853, %llparse__match_sequence_id.exit5197.thread, %1814, %llparse__match_sequence_id.exit5181.thread, %1793, %llparse__match_sequence_id.exit5165.thread, %1772, %llparse__match_sequence_id.exit5149.thread, %1751, %llparse__match_sequence_id.exit5133.thread, %1730, %llparse__match_sequence_id.exit5117.thread, %1687, %llparse__match_sequence_id.exit5101.thread, %1644, %llparse__match_sequence_id.exit5085.thread, %1623, %llparse__match_sequence_id.exit5069.thread, %1602, %llparse__match_sequence_id.exit5053.thread, %1581, %llparse__match_sequence_id.exit5037.thread, %1552, %llparse__match_sequence_id.exit5021.thread, %1531, %llparse__match_sequence_id.exit5005.thread, %1510, %llparse__match_sequence_id.exit4989.thread, %1489, %llparse__match_sequence_id.exit4973.thread, %1456, %llparse__match_sequence_id.exit4957.thread, %1413, %llparse__match_sequence_id.exit4941.thread, %1392, %llparse__match_sequence_id.exit4925.thread, %1371, %llparse__match_sequence_id.exit4909.thread, %1350, %llparse__match_sequence_id.exit4893.thread, %1321, %llparse__match_sequence_id.exit4877.thread, %1300, %llparse__match_sequence_id.exit4861.thread, %1279, %llparse__match_sequence_id.exit4845.thread, %1258, %llparse__match_sequence_id.exit4829.thread, %1231, %llparse__match_sequence_id.exit4813.thread, %1210, %llparse__match_sequence_id.exit4797.thread, %1175, %llparse__match_sequence_id.exit4781.thread, %1154, %llparse__match_sequence_id.exit4765.thread, %1111, %llparse__match_sequence_id.exit4749.thread, %1090, %llparse__match_sequence_id.exit4733.thread, %1069, %llparse__match_sequence_id.exit4717.thread, %1040, %llparse__match_sequence_id.exit4701.thread, %828, %llparse__match_sequence_id.exit4685.thread, %808, %llparse__match_sequence_id.exit.thread, %788, %721, %719, %llparse__match_sequence_to_lower.exit4656.thread, %631, %llparse__match_sequence_to_lower.exit4638.thread, %609, %llparse__match_sequence_to_lower.exit4620.thread, %587, %llparse__match_sequence_to_lower.exit4602.thread, %564, %llparse__match_sequence_to_lower.exit4584.thread, %532, %llparse__match_sequence_to_lower.exit4566.thread, %510, %llparse__match_sequence_to_lower_unsafe.exit.thread5488, %.loopexit6628, %llparse__match_sequence_to_lower.exit4539.thread, %373, %llparse__match_sequence_to_lower.exit4521.thread, %351, %llparse__match_sequence_to_lower.exit.thread, %329, %3542, %3524, %3509, %3501, %3494, %3476, %3469, %3391, %3382, %3339, %3301, %3294, %3287, %3280, %3273, %3266, %3251, %3244, %3237, %3226, %3219, %3212, %3205, %3160, %3152, %3145, %3127, %3120, %3080, %3069, %3039, %3030, %2951, %2944, %2936, %2912, %2888, %2884, %2876, %2868, %2860, %2791, %2762, %2674, %2647, %2638, %2621, %2612, %2595, %2586, %2578, %2554, %2538, %2518, %2501, %2485, %2440, %2350, %2345, %2339, %2331, %2263, %2258, %2249, %2233, %2219, %2214, %2209, %2204, %2191, %2186, %2170, %2165, %2127, %2121, %2111, %2082, %2011, %1959, %1909, %1901, %1874, %1847, %1835, %1716, %1708, %1679, %1673, %1665, %1573, %1477, %1448, %1440, %1434, %1342, %1252, %1204, %1196, %1146, %1138, %1132, %1061, %1034, %1027, %1015, %1010, %1002, %997, %987, %.loopexit6670, %959, %953, %922, %918, %.loopexit6667, %911, %.loopexit6664, %.loopexit6661, %.thread6436, %858, %783, %778, %769, %753, %732, %726, %.thread6424, %704, %.thread6422, %692, %683, %672, %667, %653, %554, %.loopexit6644, %.loopexit6641, %.loopexit6637, %.loopexit, %.thread6397, %290, %284, %280, %274, %263, %252, %247, %219, %199, %173, %168, %150, %108, %95, %73, %65, %.thread6348, %42, %58, %240, %3559, %3555, %3551, %3547, %.thread6344, %3520, %3516, %3512, %3461, %3457, %3453, %3449, %3431, %3413, %3395, %3373, %3369, %3361, %3357, %3353, %3409, %3427, %3445, %3347, %3335, %3331, %3327, %3320, %3316, %3312, %3308, %3304, %935, %3258, %3254, %3229, %3197, %3193, %3186, %3178, %.thread5629, %3167, %3112, %3108, %3104, %3100, %3096, %3088, %3083, %3072, %3057, %3053, %3049, %3043, %3021, %3017, %3004, %2939, %2852, %2848, %2831, %2819, %2811, %2787, %2783, %2807, %2779, %2992, %2757, %2753, %2736, %2732, %2721, %2717, %2704, %2700, %2689, %2685, %2679, %2666, %2651, %2629, %2625, %2603, %2599, %2574, %2570, %2566, %2562, %2545, %2541, %2530, %2526, %2522, %2509, %2505, %2492, %2488, %2477, %2473, %2469, %182, %177, %2465, %2461, %2453, %2449, %2432, %2424, %2420, %2416, %2410, %2662, %2403, %2399, %2393, %2389, %2385, %2381, %2372, %2363, %.thread6484, %.thread6482, %.thread6480, %.thread6478, %.thread6434, %.thread6432, %.thread6430, %.thread6428, %424, %420, %.thread6408, %.thread6404, %.thread6402, %259, %157, %137, %117, %104, %34
-  %.0 = phi i32 [ 0, %3555 ], [ 0, %2372 ], [ 233, %2350 ], [ 0, %3559 ], [ 0, %3551 ], [ 232, %2345 ], [ 231, %2339 ], [ 230, %2331 ], [ 224, %2263 ], [ 0, %.thread6344 ], [ 225, %llparse__match_sequence_id.exit5375.thread ], [ 0, %3520 ], [ 122, %.preheader6665 ], [ 131, %1015 ], [ 128, %997 ], [ 127, %987 ], [ 117, %.preheader6662 ], [ 0, %3320 ], [ 0, %2363 ], [ 113, %.preheader6657 ], [ 116, %.loopexit6664 ], [ 110, %.preheader6655 ], [ 0, %3258 ], [ 90, %692 ], [ 89, %683 ], [ 0, %3057 ], [ 88, %672 ], [ 87, %667 ], [ 86, %653 ], [ 81, %554 ], [ 76, %.loopexit6641 ], [ 69, %.preheader6630 ], [ 0, %3021 ], [ 72, %.loopexit6637 ], [ 67, %.preheader6626 ], [ 63, %.preheader6622 ], [ 209, %.preheader6673 ], [ 50, %.thread6397 ], [ 49, %290 ], [ 48, %284 ], [ 0, %2787 ], [ 0, %2783 ], [ 0, %2831 ], [ 0, %2848 ], [ 0, %2876 ], [ 0, %2884 ], [ 0, %.thread6402 ], [ 0, %2888 ], [ 0, %2852 ], [ 0, %2860 ], [ 0, %2868 ], [ 68, %.preheader6611 ], [ 54, %.loopexit ], [ 59, %llparse__match_sequence_to_lower.exit4539.thread ], [ 52, %.preheader6609 ], [ 57, %llparse__match_sequence_to_lower.exit.thread ], [ 58, %llparse__match_sequence_to_lower.exit4521.thread ], [ 56, %.preheader6616 ], [ 55, %.preheader6613 ], [ 0, %.thread6408 ], [ 0, %2936 ], [ 0, %.thread6404 ], [ 0, %2912 ], [ 0, %2939 ], [ 0, %420 ], [ 0, %2944 ], [ 172, %1623 ], [ 64, %.preheader6624 ], [ 1, %.preheader ], [ 60, %.preheader6619 ], [ 0, %424 ], [ 0, %2951 ], [ 46, %274 ], [ 0, %2807 ], [ 73, %.preheader6635 ], [ 0, %2791 ], [ 0, %2779 ], [ 0, %2811 ], [ 47, %280 ], [ 0, %2819 ], [ 0, %2992 ], [ 0, %3004 ], [ 0, %3017 ], [ 0, %3039 ], [ 0, %3043 ], [ 80, %llparse__match_sequence_to_lower.exit4584.thread ], [ 78, %.loopexit6644 ], [ 71, %llparse__match_sequence_to_lower_unsafe.exit.thread5488 ], [ 70, %.preheader6633 ], [ 43, %263 ], [ 0, %259 ], [ 0, %2762 ], [ 0, %3030 ], [ 79, %llparse__match_sequence_to_lower.exit4566.thread ], [ 82, %llparse__match_sequence_to_lower.exit4602.thread ], [ 83, %llparse__match_sequence_to_lower.exit4620.thread ], [ 84, %llparse__match_sequence_to_lower.exit4638.thread ], [ 0, %2393 ], [ 0, %2385 ], [ 0, %34 ], [ 0, %2381 ], [ 0, %2389 ], [ 0, %2704 ], [ 0, %2689 ], [ 0, %2685 ], [ 0, %2403 ], [ 0, %2399 ], [ 34, %199 ], [ 0, %2666 ], [ 0, %2662 ], [ 27, %.preheader6647 ], [ 32, %173 ], [ 0, %2651 ], [ 0, %2410 ], [ 9, %65 ], [ 0, %2453 ], [ 7, %.thread6348 ], [ 6, %42 ], [ 0, %2420 ], [ 0, %2416 ], [ 0, %2432 ], [ 0, %2424 ], [ 184, %1814 ], [ 0, %2440 ], [ 8, %58 ], [ 0, %2449 ], [ 0, %2461 ], [ 0, %2465 ], [ 31, %168 ], [ 24, %.preheader6645 ], [ 28, %150 ], [ 0, %157 ], [ 0, %2647 ], [ 0, %2477 ], [ 0, %2469 ], [ 0, %2473 ], [ 0, %2485 ], [ 0, %2492 ], [ 0, %2488 ], [ 0, %2501 ], [ 0, %2509 ], [ 0, %2505 ], [ 0, %2518 ], [ 44, %.preheader6642 ], [ 0, %2629 ], [ 77, %.preheader6639 ], [ 0, %137 ], [ 0, %2621 ], [ 0, %2530 ], [ 0, %2522 ], [ 0, %2526 ], [ 0, %2538 ], [ 0, %2545 ], [ 0, %2541 ], [ 0, %2554 ], [ 22, %108 ], [ 0, %117 ], [ 0, %2595 ], [ 0, %2574 ], [ 11, %73 ], [ 0, %2566 ], [ 0, %2562 ], [ 0, %2570 ], [ 0, %2578 ], [ 19, %95 ], [ 0, %104 ], [ 0, %2586 ], [ 0, %2603 ], [ 0, %2599 ], [ 0, %2612 ], [ 0, %2625 ], [ 0, %2638 ], [ 0, %177 ], [ 0, %182 ], [ 35, %219 ], [ 0, %2674 ], [ 37, %240 ], [ 30, %.preheader6649 ], [ 38, %247 ], [ 0, %2679 ], [ 0, %2700 ], [ 40, %252 ], [ 0, %2721 ], [ 0, %2717 ], [ 0, %2736 ], [ 0, %2732 ], [ 0, %2753 ], [ 0, %2757 ], [ 0, %3049 ], [ 0, %3053 ], [ 0, %3069 ], [ 92, %704 ], [ 0, %3072 ], [ 91, %.thread6422 ], [ 0, %3080 ], [ 111, %858 ], [ 69, %441 ], [ 0, %3197 ], [ 106, %783 ], [ 0, %.thread5629 ], [ 94, %721 ], [ 0, %3167 ], [ 105, %778 ], [ 103, %769 ], [ 0, %.thread6434 ], [ 0, %3160 ], [ 101, %753 ], [ 96, %732 ], [ 0, %.thread6430 ], [ 0, %3145 ], [ 0, %3112 ], [ 85, %llparse__match_sequence_to_lower.exit4656.thread ], [ 0, %3083 ], [ 0, %3088 ], [ 95, %726 ], [ 0, %3104 ], [ 93, %.thread6424 ], [ 0, %3096 ], [ 0, %3100 ], [ 0, %3108 ], [ 0, %3120 ], [ 0, %.thread6428 ], [ 0, %3127 ], [ 0, %.thread6432 ], [ 0, %3152 ], [ 107, %llparse__match_sequence_id.exit.thread ], [ 0, %3178 ], [ 108, %llparse__match_sequence_id.exit4685.thread ], [ 0, %3186 ], [ 0, %3193 ], [ 0, %3205 ], [ 112, %.thread6436 ], [ 0, %3229 ], [ 0, %3212 ], [ 0, %3219 ], [ 0, %3226 ], [ 114, %.loopexit6661 ], [ 0, %3254 ], [ 0, %3237 ], [ 0, %3244 ], [ 0, %3251 ], [ 70, %447 ], [ 125, %.loopexit6670 ], [ 0, %3316 ], [ 124, %959 ], [ 123, %953 ], [ 0, %3312 ], [ 115, %.preheader6659 ], [ 121, %922 ], [ 0, %3308 ], [ 0, %3266 ], [ 0, %3273 ], [ 0, %3280 ], [ 118, %911 ], [ 120, %918 ], [ 0, %3304 ], [ 0, %3287 ], [ 0, %3294 ], [ 0, %3301 ], [ 119, %.loopexit6667 ], [ 0, %935 ], [ 130, %1010 ], [ 129, %1002 ], [ 0, %3327 ], [ 0, %3516 ], [ 0, %3524 ], [ 227, %llparse__match_sequence_id.exit5391.thread ], [ 223, %2258 ], [ 221, %2249 ], [ 0, %.thread6484 ], [ 0, %3509 ], [ 219, %2233 ], [ 215, %2219 ], [ 0, %.thread6480 ], [ 0, %3494 ], [ 0, %3461 ], [ 214, %2214 ], [ 213, %2209 ], [ 0, %3449 ], [ 0, %3445 ], [ 212, %2204 ], [ 0, %3431 ], [ 0, %3427 ], [ 211, %2191 ], [ 0, %3413 ], [ 0, %3409 ], [ 210, %2186 ], [ 0, %3395 ], [ 0, %3357 ], [ 0, %3353 ], [ 0, %3361 ], [ 206, %2165 ], [ 0, %3369 ], [ 126, %.preheader6668 ], [ 207, %2170 ], [ 0, %3373 ], [ 0, %3382 ], [ 0, %3391 ], [ 0, %3453 ], [ 0, %3457 ], [ 0, %3469 ], [ 0, %.thread6478 ], [ 0, %3476 ], [ 0, %.thread6482 ], [ 0, %3501 ], [ 0, %3542 ], [ 205, %2127 ], [ 204, %2121 ], [ 0, %3347 ], [ 135, %1034 ], [ 133, %1027 ], [ 0, %3335 ], [ 0, %3331 ], [ 0, %3339 ], [ 109, %llparse__match_sequence_id.exit4701.thread ], [ 136, %llparse__match_sequence_id.exit4717.thread ], [ 142, %1138 ], [ 138, %llparse__match_sequence_id.exit4733.thread ], [ 141, %1132 ], [ 139, %llparse__match_sequence_id.exit4749.thread ], [ 137, %1061 ], [ 146, %1196 ], [ 143, %1146 ], [ 140, %llparse__match_sequence_id.exit4765.thread ], [ 144, %llparse__match_sequence_id.exit4781.thread ], [ 145, %llparse__match_sequence_id.exit4797.thread ], [ 149, %llparse__match_sequence_id.exit4829.thread ], [ 147, %1204 ], [ 148, %llparse__match_sequence_id.exit4813.thread ], [ 151, %llparse__match_sequence_id.exit4845.thread ], [ 150, %1252 ], [ 152, %llparse__match_sequence_id.exit4861.thread ], [ 153, %llparse__match_sequence_id.exit4877.thread ], [ 162, %1448 ], [ 154, %llparse__match_sequence_id.exit4893.thread ], [ 156, %llparse__match_sequence_id.exit4909.thread ], [ 161, %1440 ], [ 157, %llparse__match_sequence_id.exit4925.thread ], [ 160, %1434 ], [ 158, %llparse__match_sequence_id.exit4941.thread ], [ 155, %1342 ], [ 159, %llparse__match_sequence_id.exit4957.thread ], [ 163, %llparse__match_sequence_id.exit4973.thread ], [ 165, %llparse__match_sequence_id.exit4989.thread ], [ 178, %1708 ], [ 164, %1477 ], [ 166, %llparse__match_sequence_id.exit5005.thread ], [ 167, %llparse__match_sequence_id.exit5021.thread ], [ 168, %llparse__match_sequence_id.exit5037.thread ], [ 170, %llparse__match_sequence_id.exit5053.thread ], [ 175, %1673 ], [ 174, %1665 ], [ 169, %1573 ], [ 171, %llparse__match_sequence_id.exit5069.thread ], [ 172, %llparse__match_sequence_id.exit5085.thread ], [ 176, %1679 ], [ 173, %llparse__match_sequence_id.exit5101.thread ], [ 177, %llparse__match_sequence_id.exit5117.thread ], [ 185, %1835 ], [ 179, %1716 ], [ 180, %llparse__match_sequence_id.exit5133.thread ], [ 181, %llparse__match_sequence_id.exit5149.thread ], [ 182, %llparse__match_sequence_id.exit5165.thread ], [ 183, %llparse__match_sequence_id.exit5181.thread ], [ 191, %1909 ], [ 190, %1901 ], [ 184, %llparse__match_sequence_id.exit5197.thread ], [ 188, %1874 ], [ 186, %1847 ], [ 187, %llparse__match_sequence_id.exit5213.thread ], [ 189, %llparse__match_sequence_id.exit5229.thread ], [ 192, %llparse__match_sequence_id.exit5245.thread ], [ 194, %1959 ], [ 193, %llparse__match_sequence_id.exit5261.thread ], [ 195, %llparse__match_sequence_id.exit5277.thread ], [ 203, %2111 ], [ 201, %2082 ], [ 196, %llparse__match_sequence_id.exit5293.thread ], [ 197, %2011 ], [ 198, %llparse__match_sequence_id.exit5309.thread ], [ 199, %llparse__match_sequence_id.exit5325.thread ], [ 200, %llparse__match_sequence_id.exit5341.thread ], [ 202, %llparse__match_sequence_id.exit5357.thread ], [ 0, %3512 ], [ 0, %3547 ], [ 132, %.preheader6671 ], [ 57, %329 ], [ 229, %llparse__match_sequence_id.exit5407.thread ], [ 58, %351 ], [ 163, %1456 ], [ 59, %373 ], [ 229, %2311 ], [ 71, %.loopexit6628 ], [ 79, %510 ], [ 227, %2290 ], [ 80, %532 ], [ 165, %1489 ], [ 82, %564 ], [ 225, %2268 ], [ 83, %587 ], [ 183, %1793 ], [ 84, %609 ], [ 202, %2090 ], [ 85, %631 ], [ 166, %1510 ], [ 94, %719 ], [ 107, %788 ], [ 200, %2061 ], [ 108, %808 ], [ 180, %1730 ], [ 109, %828 ], [ 199, %2040 ], [ 136, %1040 ], [ 167, %1531 ], [ 138, %1069 ], [ 198, %2019 ], [ 139, %1090 ], [ 182, %1772 ], [ 140, %1111 ], [ 196, %1990 ], [ 144, %1154 ], [ 168, %1552 ], [ 145, %1175 ], [ 195, %1969 ], [ 148, %1210 ], [ 173, %1644 ], [ 149, %1231 ], [ 193, %1938 ], [ 151, %1258 ], [ 170, %1581 ], [ 152, %1279 ], [ 192, %1917 ], [ 153, %1300 ], [ 181, %1751 ], [ 154, %1321 ], [ 189, %1880 ], [ 156, %1350 ], [ 171, %1602 ], [ 157, %1371 ], [ 187, %1853 ], [ 158, %1392 ], [ 177, %1687 ], [ 159, %1413 ], [ 236, %.preheader6675 ], [ %7, %3 ], [ 115, %888 ], [ 117, %908 ], [ 122, %946 ], [ 126, %984 ], [ 132, %1024 ], [ 209, %2183 ], [ 1, %.backedge ], [ 52, %303 ], [ 68, %434 ], [ 55, %316 ], [ 56, %322 ], [ 60, %.backedge6621 ], [ 63, %413 ], [ 64, %llhttp__internal__c_mul_add_content_length_1.exit ], [ 67, %.backedge6629 ], [ 113, %876 ], [ 73, %.backedge6638 ], [ 77, %504 ], [ 44, %270 ], [ 24, %125 ], [ 27, %145 ], [ 30, %165 ], [ 33, %187 ], [ 110, %849 ], [ 39, %254 ], [ 236, %.backedge6677 ]
+  %.0 = phi i32 [ 0, %2372 ], [ 0, %3559 ], [ 0, %3551 ], [ 0, %.thread6344 ], [ 0, %3520 ], [ 0, %3320 ], [ 0, %2363 ], [ 0, %3258 ], [ 0, %3057 ], [ 0, %3021 ], [ 0, %2787 ], [ 0, %2783 ], [ 0, %2831 ], [ 0, %2848 ], [ 0, %2876 ], [ 0, %2884 ], [ 0, %.thread6402 ], [ 0, %2888 ], [ 0, %2852 ], [ 0, %2860 ], [ 0, %2868 ], [ 0, %.thread6408 ], [ 0, %2936 ], [ 0, %.thread6404 ], [ 0, %2912 ], [ 0, %2939 ], [ 0, %420 ], [ 0, %2944 ], [ 0, %424 ], [ 0, %2951 ], [ 0, %2807 ], [ 0, %2791 ], [ 0, %2779 ], [ 0, %2811 ], [ 0, %2819 ], [ 0, %2992 ], [ 0, %3004 ], [ 0, %3017 ], [ 0, %3039 ], [ 0, %3043 ], [ 0, %259 ], [ 0, %2762 ], [ 0, %3030 ], [ 0, %2393 ], [ 0, %2385 ], [ 0, %34 ], [ 0, %2381 ], [ 0, %2389 ], [ 0, %2704 ], [ 0, %2689 ], [ 0, %2685 ], [ 0, %2403 ], [ 0, %2399 ], [ 0, %2666 ], [ 0, %2662 ], [ 0, %2651 ], [ 0, %2410 ], [ 0, %2453 ], [ 0, %2420 ], [ 0, %2416 ], [ 0, %2432 ], [ 0, %2424 ], [ 0, %2440 ], [ 8, %58 ], [ 0, %2449 ], [ 0, %2461 ], [ 0, %2465 ], [ 0, %157 ], [ 0, %2647 ], [ 0, %2477 ], [ 0, %2469 ], [ 0, %2473 ], [ 0, %2485 ], [ 0, %2492 ], [ 0, %2488 ], [ 0, %2501 ], [ 0, %2509 ], [ 0, %2505 ], [ 0, %2518 ], [ 0, %2629 ], [ 0, %137 ], [ 0, %2621 ], [ 0, %2530 ], [ 0, %2522 ], [ 0, %2526 ], [ 0, %2538 ], [ 0, %2545 ], [ 0, %2541 ], [ 0, %2554 ], [ 0, %117 ], [ 0, %2595 ], [ 0, %2574 ], [ 0, %2566 ], [ 0, %2562 ], [ 0, %2570 ], [ 0, %2578 ], [ 0, %104 ], [ 0, %2586 ], [ 0, %2603 ], [ 0, %2599 ], [ 0, %2612 ], [ 0, %2625 ], [ 0, %2638 ], [ 0, %177 ], [ 0, %182 ], [ 0, %2674 ], [ 37, %240 ], [ 0, %2679 ], [ 0, %2700 ], [ 0, %2721 ], [ 0, %2717 ], [ 0, %2736 ], [ 0, %2732 ], [ 0, %2753 ], [ 0, %2757 ], [ 0, %3049 ], [ 0, %3053 ], [ 0, %3069 ], [ 0, %3072 ], [ 0, %3080 ], [ 0, %3197 ], [ 0, %.thread5629 ], [ 0, %3167 ], [ 0, %.thread6434 ], [ 0, %3160 ], [ 0, %.thread6430 ], [ 0, %3145 ], [ 0, %3112 ], [ 0, %3083 ], [ 0, %3088 ], [ 0, %3104 ], [ 0, %3096 ], [ 0, %3100 ], [ 0, %3108 ], [ 0, %3120 ], [ 0, %.thread6428 ], [ 0, %3127 ], [ 0, %.thread6432 ], [ 0, %3152 ], [ 0, %3178 ], [ 0, %3186 ], [ 0, %3193 ], [ 0, %3205 ], [ 0, %3229 ], [ 0, %3212 ], [ 0, %3219 ], [ 0, %3226 ], [ 0, %3254 ], [ 0, %3237 ], [ 0, %3244 ], [ 0, %3251 ], [ 0, %3316 ], [ 0, %3312 ], [ 0, %3308 ], [ 0, %3266 ], [ 0, %3273 ], [ 0, %3280 ], [ 0, %3304 ], [ 0, %3287 ], [ 0, %3294 ], [ 0, %3301 ], [ 0, %935 ], [ 0, %3327 ], [ 0, %3516 ], [ 0, %3524 ], [ 0, %.thread6484 ], [ 0, %3509 ], [ 0, %.thread6480 ], [ 0, %3494 ], [ 0, %3461 ], [ 0, %3449 ], [ 0, %3445 ], [ 0, %3431 ], [ 0, %3427 ], [ 0, %3413 ], [ 0, %3409 ], [ 0, %3395 ], [ 0, %3357 ], [ 0, %3353 ], [ 0, %3361 ], [ 0, %3369 ], [ 0, %3373 ], [ 0, %3382 ], [ 0, %3391 ], [ 0, %3453 ], [ 0, %3457 ], [ 0, %3469 ], [ 0, %.thread6478 ], [ 0, %3476 ], [ 0, %.thread6482 ], [ 0, %3501 ], [ 0, %3542 ], [ 0, %3347 ], [ 0, %3335 ], [ 0, %3331 ], [ 0, %3339 ], [ 0, %3512 ], [ 0, %3547 ], [ 0, %3555 ], [ 6, %42 ], [ 7, %.thread6348 ], [ 9, %65 ], [ 11, %73 ], [ 19, %95 ], [ 22, %108 ], [ 28, %150 ], [ 31, %168 ], [ 32, %173 ], [ 34, %199 ], [ 35, %219 ], [ 38, %247 ], [ 40, %252 ], [ 43, %263 ], [ 46, %274 ], [ 47, %280 ], [ 48, %284 ], [ 49, %290 ], [ 50, %.thread6397 ], [ 54, %.loopexit ], [ 72, %.loopexit6637 ], [ 76, %.loopexit6641 ], [ 78, %.loopexit6644 ], [ 81, %554 ], [ 86, %653 ], [ 87, %667 ], [ 88, %672 ], [ 89, %683 ], [ 90, %692 ], [ 91, %.thread6422 ], [ 92, %704 ], [ 93, %.thread6424 ], [ 95, %726 ], [ 96, %732 ], [ 101, %753 ], [ 103, %769 ], [ 105, %778 ], [ 106, %783 ], [ 111, %858 ], [ 112, %.thread6436 ], [ 114, %.loopexit6661 ], [ 116, %.loopexit6664 ], [ 118, %911 ], [ 119, %.loopexit6667 ], [ 120, %918 ], [ 121, %922 ], [ 123, %953 ], [ 124, %959 ], [ 125, %.loopexit6670 ], [ 127, %987 ], [ 128, %997 ], [ 129, %1002 ], [ 130, %1010 ], [ 131, %1015 ], [ 133, %1027 ], [ 135, %1034 ], [ 137, %1061 ], [ 141, %1132 ], [ 142, %1138 ], [ 143, %1146 ], [ 146, %1196 ], [ 147, %1204 ], [ 150, %1252 ], [ 155, %1342 ], [ 160, %1434 ], [ 161, %1440 ], [ 162, %1448 ], [ 164, %1477 ], [ 169, %1573 ], [ 174, %1665 ], [ 175, %1673 ], [ 176, %1679 ], [ 178, %1708 ], [ 179, %1716 ], [ 185, %1835 ], [ 186, %1847 ], [ 188, %1874 ], [ 190, %1901 ], [ 191, %1909 ], [ 194, %1959 ], [ 197, %2011 ], [ 201, %2082 ], [ 203, %2111 ], [ 204, %2121 ], [ 205, %2127 ], [ 206, %2165 ], [ 207, %2170 ], [ 210, %2186 ], [ 211, %2191 ], [ 212, %2204 ], [ 213, %2209 ], [ 214, %2214 ], [ 215, %2219 ], [ 219, %2233 ], [ 221, %2249 ], [ 223, %2258 ], [ 224, %2263 ], [ 230, %2331 ], [ 231, %2339 ], [ 232, %2345 ], [ 233, %2350 ], [ 57, %329 ], [ 57, %llparse__match_sequence_to_lower.exit.thread ], [ 58, %351 ], [ 58, %llparse__match_sequence_to_lower.exit4521.thread ], [ 59, %373 ], [ 59, %llparse__match_sequence_to_lower.exit4539.thread ], [ 71, %.loopexit6628 ], [ 71, %llparse__match_sequence_to_lower_unsafe.exit.thread5488 ], [ 79, %510 ], [ 79, %llparse__match_sequence_to_lower.exit4566.thread ], [ 80, %532 ], [ 80, %llparse__match_sequence_to_lower.exit4584.thread ], [ 82, %564 ], [ 82, %llparse__match_sequence_to_lower.exit4602.thread ], [ 83, %587 ], [ 83, %llparse__match_sequence_to_lower.exit4620.thread ], [ 84, %609 ], [ 84, %llparse__match_sequence_to_lower.exit4638.thread ], [ 85, %631 ], [ 85, %llparse__match_sequence_to_lower.exit4656.thread ], [ 94, %719 ], [ 94, %721 ], [ 107, %788 ], [ 107, %llparse__match_sequence_id.exit.thread ], [ 108, %808 ], [ 108, %llparse__match_sequence_id.exit4685.thread ], [ 109, %828 ], [ 109, %llparse__match_sequence_id.exit4701.thread ], [ 136, %1040 ], [ 136, %llparse__match_sequence_id.exit4717.thread ], [ 138, %1069 ], [ 138, %llparse__match_sequence_id.exit4733.thread ], [ 139, %1090 ], [ 139, %llparse__match_sequence_id.exit4749.thread ], [ 140, %1111 ], [ 140, %llparse__match_sequence_id.exit4765.thread ], [ 144, %1154 ], [ 144, %llparse__match_sequence_id.exit4781.thread ], [ 145, %1175 ], [ 145, %llparse__match_sequence_id.exit4797.thread ], [ 148, %1210 ], [ 148, %llparse__match_sequence_id.exit4813.thread ], [ 149, %1231 ], [ 149, %llparse__match_sequence_id.exit4829.thread ], [ 151, %1258 ], [ 151, %llparse__match_sequence_id.exit4845.thread ], [ 152, %1279 ], [ 152, %llparse__match_sequence_id.exit4861.thread ], [ 153, %1300 ], [ 153, %llparse__match_sequence_id.exit4877.thread ], [ 154, %1321 ], [ 154, %llparse__match_sequence_id.exit4893.thread ], [ 156, %1350 ], [ 156, %llparse__match_sequence_id.exit4909.thread ], [ 157, %1371 ], [ 157, %llparse__match_sequence_id.exit4925.thread ], [ 158, %1392 ], [ 158, %llparse__match_sequence_id.exit4941.thread ], [ 159, %1413 ], [ 159, %llparse__match_sequence_id.exit4957.thread ], [ 163, %1456 ], [ 163, %llparse__match_sequence_id.exit4973.thread ], [ 165, %1489 ], [ 165, %llparse__match_sequence_id.exit4989.thread ], [ 166, %1510 ], [ 166, %llparse__match_sequence_id.exit5005.thread ], [ 167, %1531 ], [ 167, %llparse__match_sequence_id.exit5021.thread ], [ 168, %1552 ], [ 168, %llparse__match_sequence_id.exit5037.thread ], [ 170, %1581 ], [ 170, %llparse__match_sequence_id.exit5053.thread ], [ 171, %1602 ], [ 171, %llparse__match_sequence_id.exit5069.thread ], [ 172, %1623 ], [ 172, %llparse__match_sequence_id.exit5085.thread ], [ 173, %1644 ], [ 173, %llparse__match_sequence_id.exit5101.thread ], [ 177, %1687 ], [ 177, %llparse__match_sequence_id.exit5117.thread ], [ 180, %1730 ], [ 180, %llparse__match_sequence_id.exit5133.thread ], [ 181, %1751 ], [ 181, %llparse__match_sequence_id.exit5149.thread ], [ 182, %1772 ], [ 182, %llparse__match_sequence_id.exit5165.thread ], [ 183, %1793 ], [ 183, %llparse__match_sequence_id.exit5181.thread ], [ 184, %1814 ], [ 184, %llparse__match_sequence_id.exit5197.thread ], [ 187, %1853 ], [ 187, %llparse__match_sequence_id.exit5213.thread ], [ 189, %1880 ], [ 189, %llparse__match_sequence_id.exit5229.thread ], [ 192, %1917 ], [ 192, %llparse__match_sequence_id.exit5245.thread ], [ 193, %1938 ], [ 193, %llparse__match_sequence_id.exit5261.thread ], [ 195, %1969 ], [ 195, %llparse__match_sequence_id.exit5277.thread ], [ 196, %1990 ], [ 196, %llparse__match_sequence_id.exit5293.thread ], [ 198, %2019 ], [ 198, %llparse__match_sequence_id.exit5309.thread ], [ 199, %2040 ], [ 199, %llparse__match_sequence_id.exit5325.thread ], [ 200, %2061 ], [ 200, %llparse__match_sequence_id.exit5341.thread ], [ 202, %2090 ], [ 202, %llparse__match_sequence_id.exit5357.thread ], [ 225, %2268 ], [ 225, %llparse__match_sequence_id.exit5375.thread ], [ 227, %2290 ], [ 227, %llparse__match_sequence_id.exit5391.thread ], [ 229, %2311 ], [ 229, %llparse__match_sequence_id.exit5407.thread ], [ 1, %.preheader ], [ 52, %.preheader6609 ], [ 68, %.preheader6611 ], [ 55, %.preheader6613 ], [ 56, %.preheader6616 ], [ 60, %.preheader6619 ], [ 63, %.preheader6622 ], [ 64, %.preheader6624 ], [ 67, %.preheader6626 ], [ 69, %.preheader6630 ], [ 70, %.preheader6633 ], [ 73, %.preheader6635 ], [ 77, %.preheader6639 ], [ 44, %.preheader6642 ], [ 24, %.preheader6645 ], [ 27, %.preheader6647 ], [ 30, %.preheader6649 ], [ 110, %.preheader6655 ], [ 113, %.preheader6657 ], [ 115, %.preheader6659 ], [ 117, %.preheader6662 ], [ 122, %.preheader6665 ], [ 126, %.preheader6668 ], [ 132, %.preheader6671 ], [ 209, %.preheader6673 ], [ 236, %.preheader6675 ], [ 39, %254 ], [ %7, %3 ], [ 1, %.backedge ], [ 52, %303 ], [ 68, %434 ], [ 55, %316 ], [ 56, %322 ], [ 60, %.backedge6621 ], [ 63, %413 ], [ 64, %llhttp__internal__c_mul_add_content_length_1.exit ], [ 67, %.backedge6629 ], [ 69, %441 ], [ 70, %447 ], [ 73, %.backedge6638 ], [ 77, %504 ], [ 44, %270 ], [ 24, %125 ], [ 27, %145 ], [ 30, %165 ], [ 33, %187 ], [ 110, %849 ], [ 113, %876 ], [ 115, %888 ], [ 117, %908 ], [ 122, %946 ], [ 126, %984 ], [ 132, %1024 ], [ 209, %2183 ], [ 236, %.backedge6677 ]
   ret i32 %.0
 }
 

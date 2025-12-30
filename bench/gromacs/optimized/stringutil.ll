@@ -623,9 +623,9 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %62, %_ZNSt
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 _ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %68, %66, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i, %52, %48
-  %.sroa.9.1 = phi ptr [ %64, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.9.040, %66 ], [ %spec.select, %68 ], [ %49, %48 ], [ %53, %52 ]
-  %.sroa.13.1 = phi ptr [ %65, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.13.041, %66 ], [ %.sroa.13.041, %68 ], [ %.sroa.13.041, %48 ], [ %.sroa.13.041, %52 ]
-  %.sroa.028.1 = phi ptr [ %55, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.028.042, %66 ], [ %.sroa.028.042, %68 ], [ %.sroa.028.042, %48 ], [ %.sroa.028.042, %52 ]
+  %.sroa.9.1 = phi ptr [ %64, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.9.040, %66 ], [ %49, %48 ], [ %53, %52 ], [ %spec.select, %68 ]
+  %.sroa.13.1 = phi ptr [ %65, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.13.041, %66 ], [ %.sroa.13.041, %48 ], [ %.sroa.13.041, %52 ], [ %.sroa.13.041, %68 ]
+  %.sroa.028.1 = phi ptr [ %55, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.028.042, %66 ], [ %.sroa.028.042, %48 ], [ %.sroa.028.042, %52 ], [ %.sroa.028.042, %68 ]
   call void @llvm.va_copy.p0(ptr nonnull %5, ptr %2)
   %70 = call i32 @vsnprintf(ptr noundef %.sroa.028.1, i64 noundef %37, ptr noundef %1, ptr noundef nonnull %5) #25
   call void @llvm.va_end.p0(ptr nonnull %5)
@@ -759,7 +759,7 @@ define void @_ZN3gmx11splitStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br i1 %.not13, label %.critedge2, label %.lr.ph19, !llvm.loop !29
 
 .critedge2:                                       ; preds = %25, %.lr.ph19
-  %.lcssa = phi ptr [ %9, %25 ], [ %21, %.lr.ph19 ]
+  %.lcssa = phi ptr [ %21, %.lr.ph19 ], [ %9, %25 ]
   %27 = load ptr, ptr %10, align 8, !tbaa !30
   %28 = load ptr, ptr %11, align 8, !tbaa !33
   %.not.i = icmp eq ptr %27, %28
@@ -1276,7 +1276,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %56, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
-  %.pn = phi { ptr, i32 } [ %57, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %57, %56 ]
+  %.pn = phi { ptr, i32 } [ %57, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %57, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #25
   resume { ptr, i32 } %.pn
@@ -1934,8 +1934,8 @@ define noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_st
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.sroa.0.09.i = phi ptr [ %18, %.lr.ph.i ], [ %11, %.lr.ph.i.preheader ]
-  %.sroa.04.08.i = phi ptr [ %17, %.lr.ph.i ], [ %9, %.lr.ph.i.preheader ]
+  %.sroa.0.09.i = phi ptr [ %11, %.lr.ph.i.preheader ], [ %18, %.lr.ph.i ]
+  %.sroa.04.08.i = phi ptr [ %9, %.lr.ph.i.preheader ], [ %17, %.lr.ph.i ]
   %.val.i = load i8, ptr %.sroa.04.08.i, align 1, !tbaa !4
   %.val1.i = load i8, ptr %.sroa.0.09.i, align 1, !tbaa !4
   %12 = sext i8 %.val.i to i32
@@ -1977,8 +1977,8 @@ define noundef zeroext i1 @_ZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringI
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.exit.i", %.lr.ph.i.preheader
-  %.sroa.0.09.i = phi ptr [ %23, %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.exit.i" ], [ %11, %.lr.ph.i.preheader ]
-  %.sroa.04.08.i = phi ptr [ %22, %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.exit.i" ], [ %9, %.lr.ph.i.preheader ]
+  %.sroa.0.09.i = phi ptr [ %11, %.lr.ph.i.preheader ], [ %23, %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.exit.i" ]
+  %.sroa.04.08.i = phi ptr [ %9, %.lr.ph.i.preheader ], [ %22, %"_ZZN3gmx15equalIgnoreDashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ENK3$_0clERKcSA_.exit.i" ]
   %.val.i = load i8, ptr %.sroa.04.08.i, align 1, !tbaa !4
   %.val1.i = load i8, ptr %.sroa.0.09.i, align 1
   %12 = sext i8 %.val.i to i32
@@ -2049,8 +2049,8 @@ define noundef zeroext i1 @_ZN3gmx20equalCaseInsensitiveERKNSt7__cxx1112basic_st
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.sroa.0.09.i = phi ptr [ %22, %.lr.ph.i ], [ %15, %.lr.ph.i.preheader ]
-  %.sroa.04.08.i = phi ptr [ %21, %.lr.ph.i ], [ %13, %.lr.ph.i.preheader ]
+  %.sroa.0.09.i = phi ptr [ %15, %.lr.ph.i.preheader ], [ %22, %.lr.ph.i ]
+  %.sroa.04.08.i = phi ptr [ %13, %.lr.ph.i.preheader ], [ %21, %.lr.ph.i ]
   %.val.i = load i8, ptr %.sroa.04.08.i, align 1, !tbaa !4
   %.val1.i = load i8, ptr %.sroa.0.09.i, align 1, !tbaa !4
   %16 = sext i8 %.val.i to i32
@@ -2230,7 +2230,7 @@ define noundef zeroext i1 @_ZNK3gmx15TextLineWrapper9isTrivialEv(ptr noundef non
   br label %11
 
 11:                                               ; preds = %7, %1
-  %12 = phi i1 [ %10, %7 ], [ false, %1 ]
+  %12 = phi i1 [ false, %1 ], [ %10, %7 ]
   ret i1 %12
 }
 

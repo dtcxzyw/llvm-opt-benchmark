@@ -396,7 +396,7 @@ define range(i32 -808, 806) i32 @SUNLinSolSolve_PCG(ptr noundef readonly capture
   br label %106
 
 106:                                              ; preds = %._crit_edge, %.critedge, %105, %93, %._crit_edge215, %56, %50, %35
-  %.sink = phi i32 [ 0, %.critedge ], [ 802, %105 ], [ %37, %35 ], [ %95, %93 ], [ %68, %._crit_edge215 ], [ %58, %56 ], [ 0, %50 ], [ 801, %._crit_edge ]
+  %.sink = phi i32 [ 0, %.critedge ], [ 802, %105 ], [ %95, %93 ], [ %68, %._crit_edge215 ], [ %58, %56 ], [ 0, %50 ], [ %37, %35 ], [ 801, %._crit_edge ]
   %107 = load ptr, ptr %0, align 8, !tbaa !26
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   store i32 %.sink, ptr %108, align 8, !tbaa !27

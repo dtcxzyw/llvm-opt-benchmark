@@ -376,10 +376,10 @@ collect_numbers.exit:                             ; preds = %72, %.preheader.i
   br label %.sink.split
 
 collect_numbers.exit.thread:                      ; preds = %.critedge.i, %57, %123, %collect_numbers.exit, %77, %51, %35, %26, %137, %131, %120, %117, %110, %104, %96, %91, %50, %32, %22
-  %.082 = phi ptr [ null, %22 ], [ null, %35 ], [ null, %50 ], [ %58, %91 ], [ %58, %96 ], [ %58, %131 ], [ %.183, %137 ], [ %58, %110 ], [ %58, %104 ], [ %58, %120 ], [ %58, %117 ], [ %58, %123 ], [ %58, %77 ], [ %58, %collect_numbers.exit ], [ null, %26 ], [ null, %51 ], [ null, %32 ], [ null, %57 ], [ %58, %.critedge.i ]
-  %.080 = phi ptr [ null, %22 ], [ null, %35 ], [ null, %50 ], [ %75, %91 ], [ %75, %96 ], [ %75, %131 ], [ %.181, %137 ], [ %75, %110 ], [ %75, %104 ], [ %75, %120 ], [ %75, %117 ], [ %75, %123 ], [ %75, %77 ], [ %75, %collect_numbers.exit ], [ null, %26 ], [ null, %51 ], [ null, %32 ], [ null, %57 ], [ null, %.critedge.i ]
-  %.078 = phi ptr [ null, %22 ], [ null, %35 ], [ null, %50 ], [ %78, %91 ], [ %78, %96 ], [ %78, %131 ], [ %.179, %137 ], [ %78, %110 ], [ %78, %104 ], [ %78, %120 ], [ %78, %117 ], [ %78, %123 ], [ %78, %77 ], [ null, %collect_numbers.exit ], [ null, %26 ], [ null, %51 ], [ null, %32 ], [ null, %57 ], [ null, %.critedge.i ]
-  %.0 = phi ptr [ null, %22 ], [ null, %35 ], [ %38, %50 ], [ %.1, %91 ], [ %.1, %96 ], [ %.1, %131 ], [ %.1, %137 ], [ %.1, %110 ], [ %.1, %104 ], [ %.1, %120 ], [ %.1, %117 ], [ %.1, %123 ], [ %.1, %77 ], [ %.1, %collect_numbers.exit ], [ null, %26 ], [ %.1, %51 ], [ null, %32 ], [ %.1, %57 ], [ %.1, %.critedge.i ]
+  %.082 = phi ptr [ null, %22 ], [ null, %35 ], [ null, %50 ], [ %58, %91 ], [ %58, %96 ], [ %58, %131 ], [ %.183, %137 ], [ %58, %110 ], [ %58, %104 ], [ %58, %120 ], [ %58, %117 ], [ %58, %123 ], [ %58, %77 ], [ %58, %collect_numbers.exit ], [ null, %51 ], [ null, %32 ], [ null, %26 ], [ null, %57 ], [ %58, %.critedge.i ]
+  %.080 = phi ptr [ null, %22 ], [ null, %35 ], [ null, %50 ], [ %75, %91 ], [ %75, %96 ], [ %75, %131 ], [ %.181, %137 ], [ %75, %110 ], [ %75, %104 ], [ %75, %120 ], [ %75, %117 ], [ %75, %123 ], [ %75, %77 ], [ %75, %collect_numbers.exit ], [ null, %51 ], [ null, %32 ], [ null, %26 ], [ null, %57 ], [ null, %.critedge.i ]
+  %.078 = phi ptr [ null, %22 ], [ null, %35 ], [ null, %50 ], [ %78, %91 ], [ %78, %96 ], [ %78, %131 ], [ %.179, %137 ], [ %78, %110 ], [ %78, %104 ], [ %78, %120 ], [ %78, %117 ], [ %78, %123 ], [ %78, %77 ], [ null, %collect_numbers.exit ], [ null, %51 ], [ null, %32 ], [ null, %26 ], [ null, %57 ], [ null, %.critedge.i ]
+  %.0 = phi ptr [ null, %22 ], [ null, %35 ], [ %38, %50 ], [ %.1, %91 ], [ %.1, %96 ], [ %.1, %131 ], [ %.1, %137 ], [ %.1, %110 ], [ %.1, %104 ], [ %.1, %120 ], [ %.1, %117 ], [ %.1, %123 ], [ %.1, %77 ], [ %.1, %collect_numbers.exit ], [ %.1, %51 ], [ null, %32 ], [ null, %26 ], [ %.1, %57 ], [ %.1, %.critedge.i ]
   %141 = load ptr, ptr %7, align 8, !tbaa !3
   call void @BN_free(ptr noundef %141) #4
   %142 = load ptr, ptr %8, align 8, !tbaa !3
@@ -659,8 +659,8 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_todata(ptr noundef %0, ptr no
 38:                                               ; preds = %36, %3
   br label %.thread
 
-.thread:                                          ; preds = %31, %34, %28, %36, %38
-  %.1 = phi i32 [ 1, %38 ], [ 0, %36 ], [ 0, %28 ], [ 0, %34 ], [ 0, %31 ]
+.thread:                                          ; preds = %28, %31, %34, %36, %38
+  %.1 = phi i32 [ 1, %38 ], [ 0, %36 ], [ 0, %34 ], [ 0, %31 ], [ 0, %28 ]
   ret i32 %.1
 }
 
@@ -812,7 +812,7 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %0, ptr 
   br i1 %.not78, label %.thread92, label %65
 
 .thread92:                                        ; preds = %56, %58, %62
-  %.160.ph = phi ptr [ null, %56 ], [ null, %58 ], [ %60, %62 ]
+  %.160.ph = phi ptr [ null, %58 ], [ null, %56 ], [ %60, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread104
 
@@ -861,7 +861,7 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %0, ptr 
   br i1 %.not81, label %.thread101, label %83
 
 .thread101:                                       ; preds = %74, %76, %80
-  %.258.ph = phi ptr [ null, %74 ], [ null, %76 ], [ %78, %80 ]
+  %.258.ph = phi ptr [ null, %76 ], [ null, %74 ], [ %78, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread104
 
@@ -887,9 +887,9 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %0, ptr 
   br label %.thread104
 
 .thread104:                                       ; preds = %87, %25, %84, %.thread101, %.thread92, %85
-  %.261 = phi ptr [ %.160.ph, %.thread92 ], [ %.059, %87 ], [ %.059, %85 ], [ %.059, %.thread101 ], [ null, %25 ], [ %.059, %84 ]
-  %.056 = phi ptr [ null, %.thread92 ], [ %.157, %87 ], [ %.157, %85 ], [ %.258.ph, %.thread101 ], [ null, %25 ], [ %.157, %84 ]
-  %.055 = phi i32 [ 0, %.thread92 ], [ %spec.select, %87 ], [ 0, %85 ], [ 0, %.thread101 ], [ 1, %25 ], [ 1, %84 ]
+  %.261 = phi ptr [ %.059, %85 ], [ %.160.ph, %.thread92 ], [ %.059, %.thread101 ], [ %.059, %84 ], [ null, %25 ], [ %.059, %87 ]
+  %.056 = phi ptr [ %.157, %85 ], [ null, %.thread92 ], [ %.258.ph, %.thread101 ], [ %.157, %84 ], [ null, %25 ], [ %.157, %87 ]
+  %.055 = phi i32 [ 0, %85 ], [ 0, %.thread92 ], [ 0, %.thread101 ], [ 1, %84 ], [ 1, %25 ], [ %spec.select, %87 ]
   call void @EVP_MD_free(ptr noundef %.261) #4
   call void @EVP_MD_free(ptr noundef %.056) #4
   br label %90
@@ -899,7 +899,7 @@ define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %0, ptr 
   br label %90
 
 90:                                               ; preds = %.critedge, %30, %4, %44, %.thread104
-  %.0 = phi i32 [ 0, %4 ], [ 0, %.critedge ], [ 0, %30 ], [ %.055, %.thread104 ], [ 0, %44 ]
+  %.0 = phi i32 [ %.055, %.thread104 ], [ 0, %44 ], [ 0, %4 ], [ 0, %30 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1219,7 +1219,7 @@ rsa_bn_dup_check.exit.thread:                     ; preds = %109, %103, %98, %.l
   br label %ossl_rsa_is_foreign.exit.thread
 
 ossl_rsa_is_foreign.exit.thread:                  ; preds = %2, %133, %7, %ossl_rsa_is_foreign.exit, %rsa_bn_dup_check.exit.thread
-  %.059 = phi ptr [ null, %7 ], [ null, %ossl_rsa_is_foreign.exit ], [ null, %rsa_bn_dup_check.exit.thread ], [ %10, %133 ], [ null, %2 ]
+  %.059 = phi ptr [ null, %rsa_bn_dup_check.exit.thread ], [ null, %ossl_rsa_is_foreign.exit ], [ null, %7 ], [ %10, %133 ], [ null, %2 ]
   ret ptr %.059
 }
 
@@ -1267,7 +1267,7 @@ define ptr @ossl_rsa_pss_decode(ptr noundef readonly captures(none) %0) local_un
   br label %15
 
 15:                                               ; preds = %7, %10, %1, %14
-  %.0 = phi ptr [ null, %1 ], [ null, %14 ], [ %5, %10 ], [ %5, %7 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %1 ], [ %5, %10 ], [ %5, %7 ]
   ret ptr %.0
 }
 
@@ -1411,8 +1411,8 @@ ossl_rsa_pss_decode.exit:                         ; preds = %25, %22
   %.not9 = icmp eq i32 %30, 0
   br i1 %.not9, label %ossl_rsa_pss_decode.exit.thread, label %31
 
-ossl_rsa_pss_decode.exit.thread:                  ; preds = %29, %16, %ossl_rsa_pss_decode.exit
-  %.0.i13 = phi ptr [ %20, %ossl_rsa_pss_decode.exit ], [ null, %16 ], [ null, %29 ]
+ossl_rsa_pss_decode.exit.thread:                  ; preds = %16, %29, %ossl_rsa_pss_decode.exit
+  %.0.i13 = phi ptr [ %20, %ossl_rsa_pss_decode.exit ], [ null, %29 ], [ null, %16 ]
   call void @RSA_PSS_PARAMS_free(ptr noundef %.0.i13) #4
   br label %ossl_rsa_sync_to_pss_params_30.exit.thread
 
@@ -1490,8 +1490,8 @@ ossl_rsa_sync_to_pss_params_30.exit:              ; preds = %51
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ossl_rsa_sync_to_pss_params_30.exit.thread
 
-ossl_rsa_sync_to_pss_params_30.exit.thread:       ; preds = %34, %31, %32, %54, %ossl_rsa_sync_to_pss_params_30.exit, %13, %2, %ossl_rsa_pss_decode.exit.thread, %15
-  %.0 = phi i32 [ 1, %13 ], [ 1, %2 ], [ 0, %15 ], [ 0, %ossl_rsa_pss_decode.exit.thread ], [ 0, %54 ], [ 1, %ossl_rsa_sync_to_pss_params_30.exit ], [ 1, %32 ], [ 1, %31 ], [ 1, %34 ]
+ossl_rsa_sync_to_pss_params_30.exit.thread:       ; preds = %31, %32, %34, %54, %ossl_rsa_sync_to_pss_params_30.exit, %13, %2, %ossl_rsa_pss_decode.exit.thread, %15
+  %.0 = phi i32 [ 0, %15 ], [ 0, %ossl_rsa_pss_decode.exit.thread ], [ 1, %2 ], [ 1, %13 ], [ 0, %54 ], [ 1, %ossl_rsa_sync_to_pss_params_30.exit ], [ 1, %34 ], [ 1, %32 ], [ 1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1558,7 +1558,7 @@ define ptr @ossl_rsa_key_from_pkcs8(ptr noundef %0, ptr noundef readnone capture
   br label %24
 
 24:                                               ; preds = %22, %23, %18, %3, %17, %13
-  %.0 = phi ptr [ null, %13 ], [ null, %3 ], [ null, %17 ], [ %11, %18 ], [ %11, %23 ], [ %11, %22 ]
+  %.0 = phi ptr [ null, %13 ], [ null, %17 ], [ null, %3 ], [ %11, %18 ], [ %11, %23 ], [ %11, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

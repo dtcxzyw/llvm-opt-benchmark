@@ -36,7 +36,7 @@ define hidden void @av1_default_coef_probs(ptr noundef readonly captures(none) %
   br label %get_q_ctx.exit
 
 get_q_ctx.exit:                                   ; preds = %1, %5, %7
-  %.0.i = phi i64 [ 1, %5 ], [ 0, %1 ], [ %..i, %7 ]
+  %.0.i = phi i64 [ 0, %1 ], [ 1, %5 ], [ %..i, %7 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 27120
   %10 = load ptr, ptr %9, align 16
   %11 = getelementptr inbounds nuw [5 x [13 x [3 x i16]]], ptr @av1_default_txb_skip_cdfs, i64 %.0.i

@@ -690,8 +690,8 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %128, %124, %.lr.ph.i.i
-  %.sink3.i.i = phi i32 [ 13, %.lr.ph.i.i ], [ %129, %128 ], [ 0, %124 ]
-  %.sink.i.i = phi i32 [ -2, %.lr.ph.i.i ], [ -8, %128 ], [ -4, %124 ]
+  %.sink3.i.i = phi i32 [ %129, %128 ], [ 13, %.lr.ph.i.i ], [ 0, %124 ]
+  %.sink.i.i = phi i32 [ -8, %128 ], [ -2, %.lr.ph.i.i ], [ -4, %124 ]
   store i32 %.sink3.i.i, ptr @aesAuthAddSz, align 4, !tbaa !4
   %130 = and i32 %.sink.i.i, %.02.i.i
   br label %131
@@ -1532,8 +1532,8 @@ current_time.exit:                                ; preds = %5
   br label %get_blocktype.exit
 
 get_blocktype.exit:                               ; preds = %.sink.split.i31, %51, %.sink.split.i, %46
-  %.038 = phi double [ %39, %46 ], [ %48, %.sink.split.i ], [ %53, %.sink.split.i31 ], [ %39, %51 ]
-  %.023 = phi ptr [ @.str.125, %46 ], [ %.0.ph.i, %.sink.split.i ], [ %.0.ph.i33, %.sink.split.i31 ], [ @.str.125, %51 ]
+  %.038 = phi double [ %48, %.sink.split.i ], [ %39, %46 ], [ %53, %.sink.split.i31 ], [ %39, %51 ]
+  %.023 = phi ptr [ %.0.ph.i, %.sink.split.i ], [ @.str.125, %46 ], [ %.0.ph.i33, %.sink.split.i31 ], [ @.str.125, %51 ]
   %54 = fcmp ogt double %37, 0.000000e+00
   %55 = fdiv double 1.000000e+00, %37
   %56 = fmul double %55, %.038
@@ -2017,7 +2017,7 @@ bench_stats_check.exit:                           ; preds = %._crit_edge
   br i1 %80, label %bench_async_handle.exit.thread, label %48, !llvm.loop !32
 
 bench_async_handle.exit.thread:                   ; preds = %bench_stats_check.exit, %bench_async_handle.exit64, %54
-  %.1102 = phi i32 [ %.0101, %bench_async_handle.exit64 ], [ %.0101, %54 ], [ %72, %bench_stats_check.exit ]
+  %.1102 = phi i32 [ %.0101, %54 ], [ %.0101, %bench_async_handle.exit64 ], [ %72, %bench_stats_check.exit ]
   %.6 = phi i32 [ %62, %bench_async_handle.exit64 ], [ %55, %54 ], [ %.4.lcssa, %bench_stats_check.exit ]
   %81 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef %3, i32 noundef %.1102, i32 noundef %81, double noundef %36, i32 noundef %.6)
@@ -2122,7 +2122,7 @@ bench_async_handle.exit69:                        ; preds = %bench_async_handle.
   br i1 %.not51, label %bench_async_handle.exit67.thread, label %113, !llvm.loop !34
 
 bench_async_handle.exit67.thread:                 ; preds = %._crit_edge148, %bench_async_handle.exit69, %119
-  %.3104 = phi i32 [ %.2103, %bench_async_handle.exit69 ], [ %.2103, %119 ], [ %129, %._crit_edge148 ]
+  %.3104 = phi i32 [ %.2103, %119 ], [ %.2103, %bench_async_handle.exit69 ], [ %129, %._crit_edge148 ]
   %.12 = phi i32 [ %127, %bench_async_handle.exit69 ], [ %120, %119 ], [ %.10.lcssa, %._crit_edge148 ]
   %131 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef %4, i32 noundef %.3104, i32 noundef %131, double noundef %105, i32 noundef %.12)
@@ -3043,9 +3043,9 @@ bench_stats_check.exit:                           ; preds = %._crit_edge85
   br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !51
 
 bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit23, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
-  %.448 = phi i32 [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %77, %.lr.ph ], [ %82, %79 ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit23 ]
-  %.142 = phi i32 [ %.243, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.041, %.preheader ], [ %.243, %84 ], [ %.243, %79 ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit23 ]
-  %.0 = phi double [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %63, %84 ], [ %63, %79 ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit23 ]
+  %.448 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit23 ]
+  %.142 = phi i32 [ %.243, %84 ], [ %.243, %79 ], [ %.243, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.041, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit23 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit23 ]
   %107 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.41, i32 noundef %.142, i32 noundef %107, double noundef %.0, i32 noundef %.448)
   br label %108
@@ -3249,9 +3249,9 @@ bench_stats_check.exit:                           ; preds = %._crit_edge90
   br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !57
 
 bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
-  %.453 = phi i32 [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %77, %.lr.ph ], [ %82, %79 ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
-  %.147 = phi i32 [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %.248, %84 ], [ %.248, %79 ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
-  %.0 = phi double [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %63, %84 ], [ %63, %79 ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
   %107 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.43, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
   br label %108
@@ -3458,9 +3458,9 @@ bench_stats_check.exit:                           ; preds = %._crit_edge90
   br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !63
 
 bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
-  %.453 = phi i32 [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %77, %.lr.ph ], [ %82, %79 ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
-  %.147 = phi i32 [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %.248, %84 ], [ %.248, %79 ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
-  %.0 = phi double [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %63, %84 ], [ %63, %79 ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
   %107 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.45, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
   br label %108
@@ -3667,9 +3667,9 @@ bench_stats_check.exit:                           ; preds = %._crit_edge90
   br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !69
 
 bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
-  %.453 = phi i32 [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %77, %.lr.ph ], [ %82, %79 ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
-  %.147 = phi i32 [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %.248, %84 ], [ %.248, %79 ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
-  %.0 = phi double [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %63, %84 ], [ %63, %79 ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
   %107 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.47, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
   br label %108
@@ -3876,9 +3876,9 @@ bench_stats_check.exit:                           ; preds = %._crit_edge90
   br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !75
 
 bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
-  %.453 = phi i32 [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %77, %.lr.ph ], [ %82, %79 ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
-  %.147 = phi i32 [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %.248, %84 ], [ %.248, %79 ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
-  %.0 = phi double [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %63, %84 ], [ %63, %79 ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
   %107 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.49, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
   br label %108
@@ -4085,9 +4085,9 @@ bench_stats_check.exit:                           ; preds = %._crit_edge90
   br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !81
 
 bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
-  %.453 = phi i32 [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %77, %.lr.ph ], [ %82, %79 ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
-  %.147 = phi i32 [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %.248, %84 ], [ %.248, %79 ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
-  %.0 = phi double [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %63, %84 ], [ %63, %79 ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
   %107 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.51, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
   br label %108
@@ -4294,9 +4294,9 @@ bench_stats_check.exit:                           ; preds = %._crit_edge90
   br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !87
 
 bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
-  %.453 = phi i32 [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %77, %.lr.ph ], [ %82, %79 ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
-  %.147 = phi i32 [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %.248, %84 ], [ %.248, %79 ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
-  %.0 = phi double [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %63, %84 ], [ %63, %79 ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
   %107 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.53, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
   br label %108
@@ -4503,9 +4503,9 @@ bench_stats_check.exit:                           ; preds = %._crit_edge90
   br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !93
 
 bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
-  %.453 = phi i32 [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %77, %.lr.ph ], [ %82, %79 ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
-  %.147 = phi i32 [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %.248, %84 ], [ %.248, %79 ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
-  %.0 = phi double [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %63, %84 ], [ %63, %79 ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
   %107 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.55, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
   br label %108
@@ -4712,9 +4712,9 @@ bench_stats_check.exit:                           ; preds = %._crit_edge90
   br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !99
 
 bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
-  %.453 = phi i32 [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %77, %.lr.ph ], [ %82, %79 ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
-  %.147 = phi i32 [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %.248, %84 ], [ %.248, %79 ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
-  %.0 = phi double [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %63, %84 ], [ %63, %79 ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
   %107 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.57, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
   br label %108
@@ -4921,9 +4921,9 @@ bench_stats_check.exit:                           ; preds = %._crit_edge90
   br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !105
 
 bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
-  %.453 = phi i32 [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %77, %.lr.ph ], [ %82, %79 ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
-  %.147 = phi i32 [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %.248, %84 ], [ %.248, %79 ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
-  %.0 = phi double [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %63, %84 ], [ %63, %79 ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
   %107 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.59, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
   br label %108
@@ -5130,9 +5130,9 @@ bench_stats_check.exit:                           ; preds = %._crit_edge90
   br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !111
 
 bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
-  %.453 = phi i32 [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %77, %.lr.ph ], [ %82, %79 ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
-  %.147 = phi i32 [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %.248, %84 ], [ %.248, %79 ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
-  %.0 = phi double [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %63, %84 ], [ %63, %79 ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
   %107 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.61, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
   br label %108
@@ -5339,9 +5339,9 @@ bench_stats_check.exit:                           ; preds = %._crit_edge90
   br i1 %106, label %bench_async_handle.exit.thread, label %74, !llvm.loop !117
 
 bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit28, %._crit_edge, %.preheader, %bench_stats_check.exit, %.lr.ph, %79, %84
-  %.453 = phi i32 [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %77, %.lr.ph ], [ %82, %79 ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
-  %.147 = phi i32 [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %.248, %84 ], [ %.248, %79 ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
-  %.0 = phi double [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %63, %84 ], [ %63, %79 ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
+  %.453 = phi i32 [ %77, %.lr.ph ], [ %82, %79 ], [ %85, %84 ], [ 0, %bench_stats_check.exit ], [ %39, %.preheader ], [ %45, %._crit_edge ], [ %45, %bench_async_handle.exit28 ]
+  %.147 = phi i32 [ %.248, %84 ], [ %.248, %79 ], [ %.248, %.lr.ph ], [ %98, %bench_stats_check.exit ], [ %.046, %.preheader ], [ %44, %._crit_edge ], [ %44, %bench_async_handle.exit28 ]
+  %.0 = phi double [ %63, %84 ], [ %63, %79 ], [ %63, %.lr.ph ], [ %63, %bench_stats_check.exit ], [ %24, %.preheader ], [ %24, %._crit_edge ], [ %24, %bench_async_handle.exit28 ]
   %107 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.63, i32 noundef %.147, i32 noundef %107, double noundef %.0, i32 noundef %.453)
   br label %108
@@ -5544,9 +5544,9 @@ bench_async_handle.exit47:                        ; preds = %87
   br i1 %.not, label %bench_async_handle.exit.thread, label %80, !llvm.loop !123
 
 bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit42, %._crit_edge, %.preheader93, %._crit_edge122, %87, %.preheader
-  %.474 = phi i32 [ %46, %.preheader93 ], [ %85, %.preheader ], [ %.878.lcssa, %._crit_edge122 ], [ %88, %87 ], [ %52, %._crit_edge ], [ %52, %bench_async_handle.exit42 ]
-  %.168 = phi i32 [ %.067, %.preheader93 ], [ %.269, %87 ], [ %93, %._crit_edge122 ], [ %.269, %.preheader ], [ %51, %._crit_edge ], [ %51, %bench_async_handle.exit42 ]
-  %.0 = phi double [ %31, %.preheader93 ], [ %70, %87 ], [ %70, %._crit_edge122 ], [ %70, %.preheader ], [ %31, %._crit_edge ], [ %31, %bench_async_handle.exit42 ]
+  %.474 = phi i32 [ %88, %87 ], [ %85, %.preheader ], [ %.878.lcssa, %._crit_edge122 ], [ %46, %.preheader93 ], [ %52, %._crit_edge ], [ %52, %bench_async_handle.exit42 ]
+  %.168 = phi i32 [ %.269, %.preheader ], [ %.269, %87 ], [ %93, %._crit_edge122 ], [ %.067, %.preheader93 ], [ %51, %._crit_edge ], [ %51, %bench_async_handle.exit42 ]
+  %.0 = phi double [ %70, %.preheader ], [ %70, %87 ], [ %70, %._crit_edge122 ], [ %31, %.preheader93 ], [ %31, %._crit_edge ], [ %31, %bench_async_handle.exit42 ]
   %95 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef %3, i32 noundef %.168, i32 noundef %95, double noundef %.0, i32 noundef %.474)
   br label %96
@@ -6173,7 +6173,7 @@ define dso_local void @bench_dh(i32 %0) local_unnamed_addr #0 {
   br label %41
 
 41:                                               ; preds = %35, %33
-  %.2 = phi i32 [ %34, %33 ], [ %40, %35 ]
+  %.2 = phi i32 [ %40, %35 ], [ %34, %33 ]
   %.not52 = icmp eq i32 %.2, 0
   br i1 %.not52, label %.split118.us, label %.split120.us, !llvm.loop !136
 
@@ -6323,9 +6323,9 @@ bench_async_handle.exit56:                        ; preds = %.preheader
   br i1 %.not47, label %bench_async_handle.exit56.thread, label %115, !llvm.loop !144
 
 bench_async_handle.exit56.thread:                 ; preds = %121, %.preheader, %.split, %.split.us.preheader, %.thread, %.split120.us
-  %.083 = phi i32 [ 0, %.split120.us ], [ 0, %.split.us.preheader ], [ %.386, %.preheader ], [ %.184, %.thread ], [ 0, %.split ], [ %122, %121 ]
-  %.1 = phi i32 [ %.us-phi121, %.split120.us ], [ %26, %.split.us.preheader ], [ %118, %.preheader ], [ %68, %.thread ], [ %31, %.split ], [ %118, %121 ]
-  %.075 = phi double [ 0.000000e+00, %.split120.us ], [ 0.000000e+00, %.split.us.preheader ], [ %107, %.preheader ], [ %57, %.thread ], [ 0.000000e+00, %.split ], [ %107, %121 ]
+  %.083 = phi i32 [ 0, %.split120.us ], [ %.184, %.thread ], [ 0, %.split.us.preheader ], [ 0, %.split ], [ %.386, %.preheader ], [ %122, %121 ]
+  %.1 = phi i32 [ %.us-phi121, %.split120.us ], [ %68, %.thread ], [ %26, %.split.us.preheader ], [ %31, %.split ], [ %118, %.preheader ], [ %118, %121 ]
+  %.075 = phi double [ 0.000000e+00, %.split120.us ], [ %57, %.thread ], [ 0.000000e+00, %.split.us.preheader ], [ 0.000000e+00, %.split ], [ %107, %.preheader ], [ %107, %121 ]
   %124 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %125 = load ptr, ptr %124, align 8, !tbaa !8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.74, i32 noundef 2048, ptr noundef %125, i32 noundef %.083, double noundef %.075, i32 noundef %.1)
@@ -6578,7 +6578,7 @@ bench_stats_check.exit:                           ; preds = %42
   br i1 %59, label %bench_async_handle.exit.thread, label %34, !llvm.loop !146
 
 bench_async_handle.exit.thread:                   ; preds = %bench_stats_check.exit, %38, %.preheader
-  %.126 = phi i32 [ %.025, %38 ], [ %.025, %.preheader ], [ %51, %bench_stats_check.exit ]
+  %.126 = phi i32 [ %.025, %.preheader ], [ %.025, %38 ], [ %51, %bench_stats_check.exit ]
   %.3 = phi i32 [ %39, %38 ], [ %36, %.preheader ], [ %39, %bench_stats_check.exit ]
   %60 = sext i32 %7 to i64
   %61 = getelementptr inbounds [15 x ptr], ptr @bench_desc_words, i64 %60
@@ -7404,8 +7404,8 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge163
 
 .critedge163:                                     ; preds = %.critedge5.thread, %.critedge5, %.critedge7, %.critedge9, %.critedge11, %.critedge163.loopexit, %144, %141, %32, %27, %39, %48, %61, %67, %73, %81, %94, %101, %85, %76, %70, %64, %58, %42, %36
-  %.1105 = phi i32 [ %26, %32 ], [ %26, %27 ], [ %.0104222, %144 ], [ %.0104222, %36 ], [ %.0104222, %39 ], [ %.0104222, %42 ], [ %49, %48 ], [ %.0104222, %141 ], [ %.0104222, %58 ], [ %.0104222, %61 ], [ %.0104222, %64 ], [ %.0104222, %67 ], [ %.0104222, %70 ], [ %.0104222, %73 ], [ %.0104222, %76 ], [ %.0104222, %81 ], [ %86, %85 ], [ %.0104222, %.critedge11 ], [ %95, %94 ], [ %.0104222, %.critedge163.loopexit ], [ %102, %101 ], [ %.0104222, %.critedge9 ], [ %.0104222, %.critedge7 ], [ %.0104222, %.critedge5 ], [ %.0104222, %.critedge5.thread ]
-  %.1103 = phi ptr [ %9, %32 ], [ %9, %27 ], [ %.0102223, %144 ], [ %.0102223, %36 ], [ %.0102223, %39 ], [ %.0102223, %42 ], [ %9, %48 ], [ %.0102223, %141 ], [ %.0102223, %58 ], [ %.0102223, %61 ], [ %.0102223, %64 ], [ %.0102223, %67 ], [ %.0102223, %70 ], [ %.0102223, %73 ], [ %.0102223, %76 ], [ %.0102223, %81 ], [ %9, %85 ], [ %.0102223, %.critedge11 ], [ %9, %94 ], [ %.0102223, %.critedge163.loopexit ], [ %9, %101 ], [ %.0102223, %.critedge9 ], [ %.0102223, %.critedge7 ], [ %.0102223, %.critedge5 ], [ %.0102223, %.critedge5.thread ]
+  %.1105 = phi i32 [ %26, %32 ], [ %26, %27 ], [ %.0104222, %36 ], [ %.0104222, %39 ], [ %.0104222, %42 ], [ %49, %48 ], [ %.0104222, %58 ], [ %.0104222, %61 ], [ %.0104222, %64 ], [ %.0104222, %67 ], [ %.0104222, %70 ], [ %.0104222, %73 ], [ %.0104222, %76 ], [ %.0104222, %81 ], [ %86, %85 ], [ %95, %94 ], [ %102, %101 ], [ %.0104222, %141 ], [ %.0104222, %144 ], [ %.0104222, %.critedge11 ], [ %.0104222, %.critedge163.loopexit ], [ %.0104222, %.critedge9 ], [ %.0104222, %.critedge7 ], [ %.0104222, %.critedge5 ], [ %.0104222, %.critedge5.thread ]
+  %.1103 = phi ptr [ %9, %32 ], [ %9, %27 ], [ %.0102223, %36 ], [ %.0102223, %39 ], [ %.0102223, %42 ], [ %9, %48 ], [ %.0102223, %58 ], [ %.0102223, %61 ], [ %.0102223, %64 ], [ %.0102223, %67 ], [ %.0102223, %70 ], [ %.0102223, %73 ], [ %.0102223, %76 ], [ %.0102223, %81 ], [ %9, %85 ], [ %9, %94 ], [ %9, %101 ], [ %.0102223, %141 ], [ %.0102223, %144 ], [ %.0102223, %.critedge11 ], [ %.0102223, %.critedge163.loopexit ], [ %.0102223, %.critedge9 ], [ %.0102223, %.critedge7 ], [ %.0102223, %.critedge5 ], [ %.0102223, %.critedge5.thread ]
   %152 = add nsw i32 %.1105, -1
   %153 = getelementptr inbounds nuw i8, ptr %.1103, i64 8
   %154 = icmp sgt i32 %.1105, 2
@@ -7575,8 +7575,8 @@ print_alg.exit62:                                 ; preds = %86
   br i1 %.not55, label %.preheader87.preheader, label %.preheader88.backedge
 
 .preheader88.backedge:                            ; preds = %print_alg.exit62, %print_alg.exit62.thread
-  %indvars.iv112.be = phi i64 [ %indvars.iv.next113130, %print_alg.exit62.thread ], [ %indvars.iv.next113, %print_alg.exit62 ]
-  %.28294.be = phi i32 [ 0, %print_alg.exit62.thread ], [ %91, %print_alg.exit62 ]
+  %indvars.iv112.be = phi i64 [ %indvars.iv.next113, %print_alg.exit62 ], [ %indvars.iv.next113130, %print_alg.exit62.thread ]
+  %.28294.be = phi i32 [ %91, %print_alg.exit62 ], [ 0, %print_alg.exit62.thread ]
   br label %.preheader88, !llvm.loop !173
 
 print_alg.exit62.thread:                          ; preds = %86

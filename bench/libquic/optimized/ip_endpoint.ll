@@ -146,7 +146,7 @@ define noundef zeroext i1 @_ZNK3net10IPEndPoint10ToSockAddrEP8sockaddrPj(ptr nou
   br label %31
 
 31:                                               ; preds = %13, %24, %3, %21, %10
-  %.0 = phi i1 [ false, %21 ], [ false, %10 ], [ false, %3 ], [ true, %24 ], [ true, %13 ]
+  %.0 = phi i1 [ false, %10 ], [ false, %21 ], [ false, %3 ], [ true, %24 ], [ true, %13 ]
   ret i1 %.0
 }
 
@@ -199,8 +199,8 @@ _ZN3net9IPAddressaSERKS0_.exit:                   ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %18
 
-_ZN3net12_GLOBAL__N_124GetIPAddressFromSockAddrEPK8sockaddrjPPKhPmPt.exit.thread: ; preds = %6, %3, %8, %_ZN3net9IPAddressaSERKS0_.exit
-  %.0.i12 = phi i1 [ true, %_ZN3net9IPAddressaSERKS0_.exit ], [ false, %8 ], [ false, %3 ], [ false, %6 ]
+_ZN3net12_GLOBAL__N_124GetIPAddressFromSockAddrEPK8sockaddrjPPKhPmPt.exit.thread: ; preds = %3, %8, %6, %_ZN3net9IPAddressaSERKS0_.exit
+  %.0.i12 = phi i1 [ true, %_ZN3net9IPAddressaSERKS0_.exit ], [ false, %6 ], [ false, %8 ], [ false, %3 ]
   ret i1 %.0.i12
 }
 

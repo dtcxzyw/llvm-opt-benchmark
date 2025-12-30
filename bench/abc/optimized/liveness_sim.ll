@@ -2603,8 +2603,8 @@ Aig_ManCiCleanupBiere.exit.thread.i53:            ; preds = %1258
   br label %LivenessToSafetyTransformationOneStepLoopSim.exit
 
 LivenessToSafetyTransformationOneStepLoopSim.exit: ; preds = %1272, %Aig_ManCiCleanupBiere.exit.thread.i53, %467, %Aig_ManCiCleanupBiere.exit.thread.i
-  %.sink193 = phi ptr [ %65, %467 ], [ %65, %Aig_ManCiCleanupBiere.exit.thread.i ], [ %517, %Aig_ManCiCleanupBiere.exit.thread.i53 ], [ %517, %1272 ]
-  %.val.i451.sink.i.sink = phi i32 [ %.val.i273.i, %467 ], [ %.val.i273281.i, %Aig_ManCiCleanupBiere.exit.thread.i ], [ %.val.i451465.i, %Aig_ManCiCleanupBiere.exit.thread.i53 ], [ %.val.i451.i, %1272 ]
+  %.sink193 = phi ptr [ %65, %Aig_ManCiCleanupBiere.exit.thread.i ], [ %65, %467 ], [ %517, %Aig_ManCiCleanupBiere.exit.thread.i53 ], [ %517, %1272 ]
+  %.val.i451.sink.i.sink = phi i32 [ %.val.i273281.i, %Aig_ManCiCleanupBiere.exit.thread.i ], [ %.val.i273.i, %467 ], [ %.val.i451465.i, %Aig_ManCiCleanupBiere.exit.thread.i53 ], [ %.val.i451.i, %1272 ]
   %1280 = getelementptr i8, ptr %.sink193, i64 140
   store i32 %.val.i451.sink.i.sink, ptr %1280, align 4, !tbaa !60
   %1281 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %.sink193) #10

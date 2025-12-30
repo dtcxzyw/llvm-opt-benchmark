@@ -755,7 +755,7 @@ define internal range(i32 0, -2147483648) i32 @dissect_jfif(ptr noundef %0, ptr 
   br label %process_sof_header.exit
 
 process_sof_header.exit:                          ; preds = %.lr.ph.i, %67, %66, %99, %98, %97, %65, %64, %63
-  %.3 = phi i1 [ %.1122.ph, %99 ], [ %.1122.ph, %63 ], [ false, %64 ], [ %.1122.ph, %65 ], [ %.1122.ph, %98 ], [ %.1122.ph, %97 ], [ %.1122.ph, %66 ], [ %.1122.ph, %67 ], [ %.1122.ph, %.lr.ph.i ]
+  %.3 = phi i1 [ %.1122.ph, %99 ], [ %.1122.ph, %63 ], [ false, %64 ], [ %.1122.ph, %65 ], [ %.1122.ph, %97 ], [ %.1122.ph, %98 ], [ %.1122.ph, %66 ], [ %.1122.ph, %67 ], [ %.1122.ph, %.lr.ph.i ]
   %100 = add i32 %58, %60
   br label %.outer
 
@@ -772,7 +772,7 @@ process_sof_header.exit:                          ; preds = %.lr.ph.i, %67, %66,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %40, %.thread, %12, %7, %4
-  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ %5, %.thread ], [ 0, %12 ], [ %5, %40 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 0, %12 ], [ %5, %.thread ], [ %5, %40 ]
   ret i32 %.0
 }
 
@@ -1408,8 +1408,8 @@ switch.lookup:                                    ; preds = %.lr.ph161
   br label %107
 
 107:                                              ; preds = %102, %105, %106
-  %.0125.in = phi ptr [ @hf_ifd_tag_interop, %106 ], [ @hf_ifd_tag_gps, %105 ], [ @hf_ifd_tag_exif, %102 ]
-  %.0124 = phi ptr [ @.str.416, %106 ], [ @.str.415, %105 ], [ @.str.414, %102 ]
+  %.0125.in = phi ptr [ @hf_ifd_tag_gps, %105 ], [ @hf_ifd_tag_interop, %106 ], [ @hf_ifd_tag_exif, %102 ]
+  %.0124 = phi ptr [ @.str.415, %105 ], [ @.str.416, %106 ], [ @.str.414, %102 ]
   %.0125 = load i32, ptr %.0125.in, align 4
   %108 = call i32 @tvb_reported_length(ptr noundef %1)
   %109 = icmp ult i32 %103, %108

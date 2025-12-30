@@ -817,7 +817,7 @@ if.else:                                          ; preds = %for.body
   br label %if.end16
 
 if.end16:                                         ; preds = %delete.notnull.i.i15, %if.then.i.i12, %if.then11, %if.else
-  %it.sroa.0.1 = phi ptr [ %21, %if.else ], [ %16, %delete.notnull.i.i15 ], [ %16, %if.then.i.i12 ], [ %15, %if.then11 ]
+  %it.sroa.0.1 = phi ptr [ %21, %if.else ], [ %16, %if.then.i.i12 ], [ %16, %delete.notnull.i.i15 ], [ %15, %if.then11 ]
   %cmp.i.not = icmp eq ptr %10, %it.sroa.0.1
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !17
 
@@ -1260,7 +1260,7 @@ if.end92:                                         ; preds = %lor.rhs
   br label %for.cond, !llvm.loop !45
 
 if.end99:                                         ; preds = %lor.rhs, %for.end83, %while.end, %if.then, %if.end47
-  %nResult.1 = phi i32 [ %nResult.0, %if.end47 ], [ %., %while.end ], [ %jobWait, %if.then ], [ %nResult.5.lcssa, %lor.rhs ], [ 0, %for.end83 ]
+  %nResult.1 = phi i32 [ %nResult.0, %if.end47 ], [ %jobWait, %if.then ], [ %., %while.end ], [ %nResult.5.lcssa, %lor.rhs ], [ 0, %for.end83 ]
   ret i32 %nResult.1
 }
 
@@ -1703,7 +1703,7 @@ if.then20:                                        ; preds = %if.end16
   br label %return
 
 return:                                           ; preds = %entry, %if.end16, %if.then20
-  %retval.0 = phi i32 [ -3, %if.end16 ], [ -3, %if.then20 ], [ -1, %entry ]
+  %retval.0 = phi i32 [ -3, %if.then20 ], [ -3, %if.end16 ], [ -1, %entry ]
   ret i32 %retval.0
 }
 

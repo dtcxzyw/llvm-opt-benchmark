@@ -712,8 +712,8 @@ SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
   %86 = icmp slt i32 %84, %85
   br i1 %86, label %21, label %.loopexit, !llvm.loop !37
 
-.thread:                                          ; preds = %62, %55, %48, %41, %34, %27, %.critedge, %78, %3, %SSL_TEST_CTX_new.exit
-  %.050 = phi ptr [ null, %3 ], [ %7, %SSL_TEST_CTX_new.exit ], [ %7, %78 ], [ %7, %.critedge ], [ %7, %27 ], [ %7, %34 ], [ %7, %41 ], [ %7, %48 ], [ %7, %55 ], [ %7, %62 ]
+.thread:                                          ; preds = %62, %55, %48, %41, %34, %27, %78, %.critedge, %3, %SSL_TEST_CTX_new.exit
+  %.050 = phi ptr [ %7, %SSL_TEST_CTX_new.exit ], [ null, %3 ], [ %7, %.critedge ], [ %7, %78 ], [ %7, %27 ], [ %7, %34 ], [ %7, %41 ], [ %7, %48 ], [ %7, %55 ], [ %7, %62 ]
   tail call void @SSL_TEST_CTX_free(ptr noundef %.050)
   br label %.loopexit
 
@@ -792,8 +792,8 @@ define internal fastcc range(i32 0, 2) i32 @parse_client_options(ptr noundef %0,
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 817, ptr noundef nonnull @.str.10, ptr noundef nonnull %14) #8
   br label %.critedge26
 
-.critedge26:                                      ; preds = %8, %.preheader, %28, %.critedge, %3
-  %.0 = phi i32 [ 0, %28 ], [ 0, %3 ], [ 0, %.critedge ], [ 1, %.preheader ], [ 1, %8 ]
+.critedge26:                                      ; preds = %8, %.preheader, %.critedge, %28, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %28 ], [ 0, %.critedge ], [ 1, %.preheader ], [ 1, %8 ]
   ret i32 %.0
 }
 
@@ -856,8 +856,8 @@ define internal fastcc range(i32 0, 2) i32 @parse_server_options(ptr noundef %0,
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 850, ptr noundef nonnull @.str.10, ptr noundef nonnull %14) #8
   br label %.critedge26
 
-.critedge26:                                      ; preds = %8, %.preheader, %28, %.critedge, %3
-  %.0 = phi i32 [ 0, %28 ], [ 0, %3 ], [ 0, %.critedge ], [ 1, %.preheader ], [ 1, %8 ]
+.critedge26:                                      ; preds = %8, %.preheader, %.critedge, %28, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %28 ], [ 0, %.critedge ], [ 1, %.preheader ], [ 1, %8 ]
   ret i32 %.0
 }
 
@@ -2064,7 +2064,7 @@ thread-pre-split12:                               ; preds = %11, %thread-pre-spl
   br label %.thread
 
 .thread:                                          ; preds = %thread-pre-split12, %.thread.fold.split, %17, %18
-  %19 = phi i32 [ 927, %thread-pre-split12 ], [ 933, %18 ], [ 931, %17 ], [ %.pr15, %.thread.fold.split ]
+  %19 = phi i32 [ 931, %17 ], [ 933, %18 ], [ 927, %thread-pre-split12 ], [ %.pr15, %.thread.fold.split ]
   store i32 %19, ptr %0, align 4, !tbaa !67
   br label %20
 

@@ -970,7 +970,7 @@ define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$core..option..Opti
   unreachable
 
 common.resume.i:                                  ; preds = %51, %46, %.body.i
-  %common.resume.op.i = phi { ptr, i32 } [ %47, %46 ], [ %47, %51 ], [ %.pn6.i, %.body.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %47, %51 ], [ %47, %46 ], [ %.pn6.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op.i
 
 58:                                               ; preds = %.body.i, %23, %17, %11, %9
@@ -1941,7 +1941,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i19.i.i.i: ; pred
   br label %.body.i
 
 .body.i:                                          ; preds = %101, %91, %.body.i.i.i, %common.resume.sink.split.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %102, %101 ], [ %56, %.body.i.i.i ], [ %lpad.phi.i.i.i, %91 ], [ %common.resume.op.ph.i.i, %common.resume.sink.split.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %102, %101 ], [ %lpad.phi.i.i.i, %91 ], [ %56, %.body.i.i.i ], [ %common.resume.op.ph.i.i, %common.resume.sink.split.i.i ]
   %.val2.i = load i64, ptr %0, align 8, !range !3, !alias.scope !379, !noundef !9
   %.val3.i = load ptr, ptr %6, align 8, !alias.scope !379
   invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$C$usize$GT$$GT$17ha389c5650679a4aeE"(i64 %.val2.i, ptr %.val3.i) #14
@@ -2260,7 +2260,7 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$h2..share..RecvStre
   unreachable
 
 common.resume:                                    ; preds = %2, %5, %10
-  %common.resume.op = phi { ptr, i32 } [ %6, %5 ], [ %6, %10 ], [ %3, %2 ]
+  %common.resume.op = phi { ptr, i32 } [ %6, %10 ], [ %6, %5 ], [ %3, %2 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr43drop_in_place$LT$h2..share..FlowControl$GT$17h929086eb04a79029E.exit": ; preds = %11, %15
@@ -2654,7 +2654,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$pingora_cache..HttpCache$GT$
   br label %.body.i.i.i
 
 .body.i.i.i:                                      ; preds = %42, %34, %13
-  %.pn2.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %13 ], [ %35, %34 ], [ %35, %42 ]
+  %.pn2.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %13 ], [ %35, %42 ], [ %35, %34 ]
   %43 = getelementptr inbounds nuw i8, ptr %.val, i64 856
   %.val15.i.i.i = load ptr, ptr %43, align 8, !alias.scope !570, !align !484, !noundef !9
   %44 = getelementptr inbounds nuw i8, ptr %.val, i64 864
@@ -2712,7 +2712,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$pingora_cache..HttpCache$GT$
   br label %.body18.i.i.i
 
 .body18.i.i.i:                                    ; preds = %68, %60, %.body.i.i.i
-  %.pn4.i.i.i = phi { ptr, i32 } [ %.pn2.i.i.i, %.body.i.i.i ], [ %61, %60 ], [ %61, %68 ]
+  %.pn4.i.i.i = phi { ptr, i32 } [ %.pn2.i.i.i, %.body.i.i.i ], [ %61, %68 ], [ %61, %60 ]
   %69 = getelementptr inbounds nuw i8, ptr %.val, i64 800
   invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$pingora_cache..lock..Locked$GT$$GT$17h1ce86d3260410759E"(ptr noalias noundef align 8 dereferenceable(16) %69) #14
           to label %.body21.i.i.i unwind label %108
@@ -3020,7 +3020,7 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$pingora_http..Reque
   unreachable
 
 .body:                                            ; preds = %.body.i, %33
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn2.i, %.body.i ], [ %34, %33 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %.pn2.i, %.body.i ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 224
   invoke fastcc void @"_ZN4core3ptr131drop_in_place$LT$core..option..Option$LT$http..header..map..HeaderMap$LT$pingora_http..case_header_name..CaseHeaderName$GT$$GT$$GT$17hd86a93e6585a15f9E"(ptr noalias noundef align 8 dereferenceable(96) %37) #14
           to label %.body5 unwind label %58
@@ -3446,7 +3446,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$pingora_http..ResponseHeader
   unreachable
 
 .body:                                            ; preds = %.body.i, %22
-  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %23, %22 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %eh.lpad-body.i, %.body.i ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
   invoke fastcc void @"_ZN4core3ptr131drop_in_place$LT$core..option..Option$LT$http..header..map..HeaderMap$LT$pingora_http..case_header_name..CaseHeaderName$GT$$GT$$GT$17hd86a93e6585a15f9E"(ptr noalias noundef align 8 dereferenceable(96) %26) #14
           to label %.body5 unwind label %53
@@ -5616,7 +5616,7 @@ define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Optio
   unreachable
 
 16:                                               ; preds = %12, %4
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %5, %4 ], [ %13, %12 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %13, %12 ], [ %5, %4 ]
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 320, i64 noundef 8) #13
   resume { ptr, i32 } %eh.lpad-body.i.i
 
@@ -6199,7 +6199,7 @@ define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$cf_rustracing..span
   br label %.body
 
 .body:                                            ; preds = %54, %59, %.critedge15.i, %72
-  %eh.lpad-body = phi { ptr, i32 } [ %73, %72 ], [ %55, %54 ], [ %55, %59 ], [ %.pn21.i, %.critedge15.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %73, %72 ], [ %55, %59 ], [ %55, %54 ], [ %.pn21.i, %.critedge15.i ]
   invoke fastcc void @"_ZN4core3ptr131drop_in_place$LT$core..option..Option$LT$cf_rustracing..span..SpanInner$LT$cf_rustracing_jaeger..span..SpanContextState$GT$$GT$$GT$17h189bfd4bfe3f227aE"(ptr noalias noundef align 8 dereferenceable(216) %0) #14
           to label %77 unwind label %75
 

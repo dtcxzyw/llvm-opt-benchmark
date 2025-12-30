@@ -144,7 +144,7 @@ compare_addr.exit20.thread.us47:                  ; preds = %compare_addr.exit20
   br i1 %exitcond70.not, label %.loopexit, label %.lr.ph39.split.us42, !llvm.loop !23
 
 .loopexit:                                        ; preds = %compare_addr.exit.us35, %compare_addr.exit.us, %compare_addr.exit20.us45, %compare_addr.exit20.thread.us47, %compare_addr.exit20.us, %compare_addr.exit20.thread.us, %.lr.ph39, %.preheader, %.loopexit29
-  %.014 = phi i32 [ 0, %.loopexit29 ], [ 1, %compare_addr.exit20.thread.us47 ], [ 1, %.preheader ], [ 1, %.lr.ph39 ], [ 1, %compare_addr.exit.us ], [ 0, %compare_addr.exit20.us ], [ 1, %compare_addr.exit20.thread.us ], [ 0, %compare_addr.exit20.us45 ], [ 1, %compare_addr.exit.us35 ]
+  %.014 = phi i32 [ 0, %.loopexit29 ], [ 1, %.preheader ], [ 1, %.lr.ph39 ], [ 0, %compare_addr.exit20.us ], [ 1, %compare_addr.exit20.thread.us ], [ 0, %compare_addr.exit20.us45 ], [ 1, %compare_addr.exit20.thread.us47 ], [ 1, %compare_addr.exit.us ], [ 1, %compare_addr.exit.us35 ]
   ret i32 %.014
 }
 
@@ -182,7 +182,7 @@ define ptr @ff_ip_resolve_host(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br label %18
 
 18:                                               ; preds = %15, %15, %17, %14
-  %.015 = phi ptr [ %1, %17 ], [ null, %15 ], [ null, %15 ], [ null, %14 ]
+  %.015 = phi ptr [ %1, %17 ], [ null, %15 ], [ null, %14 ], [ null, %15 ]
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %3, ptr %19, align 8, !tbaa !27
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -387,8 +387,8 @@ ff_ip_resolve_host.exit:                          ; preds = %18, %20
   store ptr %36, ptr %7, align 8, !tbaa !33
   br label %thread-pre-split
 
-.thread:                                          ; preds = %ff_ip_resolve_host.exit, %24, %.lr.ph30
-  %.112.ph = phi i32 [ -12, %.lr.ph30 ], [ -12, %24 ], [ -22, %ff_ip_resolve_host.exit ]
+.thread:                                          ; preds = %24, %.lr.ph30, %ff_ip_resolve_host.exit
+  %.112.ph = phi i32 [ -22, %ff_ip_resolve_host.exit ], [ -12, %.lr.ph30 ], [ -12, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 

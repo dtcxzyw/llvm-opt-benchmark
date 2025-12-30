@@ -300,7 +300,7 @@ select.unfold.i.i:                                ; preds = %70, %._crit_edge.th
   br label %78
 
 78:                                               ; preds = %select.unfold.i.i, %74
-  %79 = phi i1 [ %77, %74 ], [ true, %select.unfold.i.i ]
+  %79 = phi i1 [ true, %select.unfold.i.i ], [ %77, %74 ]
   %80 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store i32 %62, ptr %81, align 4, !tbaa !22

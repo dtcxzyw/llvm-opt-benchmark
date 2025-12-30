@@ -388,7 +388,7 @@ _ZNK12_GLOBAL__N_113append_hexitsclERNSt7__cxx1112basic_stringIcSt11char_traitsI
   br label %152
 
 152:                                              ; preds = %150, %109, %90, %46, %28
-  %.pn54.pn.pn.i = phi { ptr, i32 } [ %29, %28 ], [ %47, %46 ], [ %91, %90 ], [ %151, %150 ], [ %110, %109 ]
+  %.pn54.pn.pn.i = phi { ptr, i32 } [ %29, %28 ], [ %91, %90 ], [ %47, %46 ], [ %151, %150 ], [ %110, %109 ]
   %153 = load ptr, ptr %0, align 8, !tbaa !14, !alias.scope !18
   %154 = icmp eq ptr %153, %26
   br i1 %154, label %.body, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i2

@@ -455,7 +455,7 @@ select.unfold:                                    ; preds = %.sink.split.i, %1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17had4b21ec6520c774E.llvm.12501987296349981441.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17had4b21ec6520c774E.llvm.12501987296349981441.exit": ; preds = %.sink.split.i, %select.unfold, %14
-  %.sroa.02.0.i = phi ptr [ %9, %14 ], [ null, %select.unfold ], [ %2, %.sink.split.i ]
+  %.sroa.02.0.i = phi ptr [ null, %select.unfold ], [ %9, %14 ], [ %2, %.sink.split.i ]
   ret ptr %.sroa.02.0.i
 }
 
@@ -490,7 +490,7 @@ select.unfold:                                    ; preds = %.sink.split.i, %1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h43979940d4249d4bE.llvm.12501987296349981441.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h43979940d4249d4bE.llvm.12501987296349981441.exit": ; preds = %.sink.split.i, %select.unfold, %14
-  %.sroa.02.0.i = phi ptr [ %9, %14 ], [ null, %select.unfold ], [ %2, %.sink.split.i ]
+  %.sroa.02.0.i = phi ptr [ null, %select.unfold ], [ %9, %14 ], [ %2, %.sink.split.i ]
   ret ptr %.sroa.02.0.i
 }
 
@@ -525,7 +525,7 @@ select.unfold:                                    ; preds = %.sink.split.i, %1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h35da810276294d29E.llvm.12501987296349981441.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h35da810276294d29E.llvm.12501987296349981441.exit": ; preds = %.sink.split.i, %select.unfold, %14
-  %.sroa.02.0.i = phi ptr [ %9, %14 ], [ null, %select.unfold ], [ %2, %.sink.split.i ]
+  %.sroa.02.0.i = phi ptr [ null, %select.unfold ], [ %9, %14 ], [ %2, %.sink.split.i ]
   ret ptr %.sroa.02.0.i
 }
 
@@ -1004,7 +1004,7 @@ common.resume:                                    ; preds = %102, %24, %94
   br label %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$notifications..NotificationEntry$GT$$GT$17hafc139aaca1a7b87E.exit"
 
 .body35:                                          ; preds = %63, %59, %.body32
-  %.pn13 = phi { ptr, i32 } [ %.pn11, %.body32 ], [ %60, %59 ], [ %60, %63 ]
+  %.pn13 = phi { ptr, i32 } [ %.pn11, %.body32 ], [ %60, %63 ], [ %60, %59 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 313
   store i8 0, ptr %74, align 1
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 311
@@ -1188,7 +1188,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr87drop
   br label %common.ret
 
 26:                                               ; preds = %29, %"_ZN4core3ptr87drop_in_place$LT$proto..typed_envelope..TypedEnvelope$LT$proto..AddNotification$GT$$GT$17h295b0077c2cbd9e7E.exit"
-  %.pn2 = phi { ptr, i32 } [ %30, %29 ], [ %.pn, %"_ZN4core3ptr87drop_in_place$LT$proto..typed_envelope..TypedEnvelope$LT$proto..AddNotification$GT$$GT$17h295b0077c2cbd9e7E.exit" ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr87drop_in_place$LT$proto..typed_envelope..TypedEnvelope$LT$proto..AddNotification$GT$$GT$17h295b0077c2cbd9e7E.exit" ], [ %30, %29 ]
   resume { ptr, i32 } %.pn2
 
 27:                                               ; preds = %18, %"_ZN4core3ptr87drop_in_place$LT$proto..typed_envelope..TypedEnvelope$LT$proto..AddNotification$GT$$GT$17h295b0077c2cbd9e7E.exit"
@@ -3326,7 +3326,7 @@ default.unreachable40:                            ; preds = %76, %2
   br label %70
 
 67:                                               ; preds = %.body.i.i.i.i, %59, %62
-  %.pn = phi { ptr, i32 } [ %60, %59 ], [ %60, %62 ], [ %51, %.body.i.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %51, %.body.i.i.i.i ], [ %60, %62 ], [ %60, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   invoke void @"_ZN4core3ptr89drop_in_place$LT$gpui..app..entity_map..Model$LT$notifications..NotificationStore$GT$$GT$17h78f6b5f563c06592E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20) #35
           to label %66 unwind label %68
@@ -3592,9 +3592,9 @@ default.unreachable40:                            ; preds = %76, %2
   br label %"_ZN4core3ptr80drop_in_place$LT$gpui..app..entity_map..Model$LT$client..user..UserStore$GT$$GT$17h4b203115b5d33cb7E.exit95.i"
 
 "_ZN4core3ptr80drop_in_place$LT$gpui..app..entity_map..Model$LT$client..user..UserStore$GT$$GT$17h4b203115b5d33cb7E.exit95.i": ; preds = %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hf931fb1595422929E.exit.i91.i", %146, %109
-  %149 = phi ptr [ %87, %109 ], [ %87, %146 ], [ %281, %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hf931fb1595422929E.exit.i91.i" ]
-  %150 = phi ptr [ %88, %109 ], [ %88, %146 ], [ %282, %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hf931fb1595422929E.exit.i91.i" ]
-  %.sroa.07.0.i = phi ptr [ null, %109 ], [ %148, %146 ], [ %.sroa.07.2.i, %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hf931fb1595422929E.exit.i91.i" ]
+  %149 = phi ptr [ %87, %146 ], [ %87, %109 ], [ %281, %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hf931fb1595422929E.exit.i91.i" ]
+  %150 = phi ptr [ %88, %146 ], [ %88, %109 ], [ %282, %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hf931fb1595422929E.exit.i91.i" ]
+  %.sroa.07.0.i = phi ptr [ %148, %146 ], [ null, %109 ], [ %.sroa.07.2.i, %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hf931fb1595422929E.exit.i91.i" ]
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 416
   invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfd65c999ef15fb80E.llvm.3163802790851490697"(ptr noalias noundef nonnull align 8 dereferenceable(24) %151)
           to label %160 unwind label %152
@@ -3630,9 +3630,9 @@ default.unreachable40:                            ; preds = %76, %2
   br label %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$notifications..NotificationEntry$GT$$GT$17hafc139aaca1a7b87E.exit.i"
 
 .body82.i:                                        ; preds = %392, %358, %352, %.body58.i, %232, %219, %217, %215, %211, %120
-  %167 = phi ptr [ %87, %120 ], [ %297, %352 ], [ %344, %.body58.i ], [ %281, %392 ], [ %359, %358 ], [ %87, %211 ], [ %87, %215 ], [ %87, %217 ], [ %87, %232 ], [ %87, %219 ]
-  %168 = phi ptr [ %88, %120 ], [ %298, %352 ], [ %345, %.body58.i ], [ %282, %392 ], [ %360, %358 ], [ %88, %211 ], [ %88, %215 ], [ %88, %217 ], [ %88, %232 ], [ %88, %219 ]
-  %.pn31.pn.i = phi { ptr, i32 } [ %121, %120 ], [ %353, %352 ], [ %.pn29.i, %.body58.i ], [ %393, %392 ], [ %361, %358 ], [ %212, %211 ], [ %216, %215 ], [ %218, %217 ], [ %233, %232 ], [ %220, %219 ]
+  %167 = phi ptr [ %87, %120 ], [ %344, %.body58.i ], [ %87, %211 ], [ %87, %215 ], [ %87, %217 ], [ %87, %232 ], [ %87, %219 ], [ %297, %352 ], [ %359, %358 ], [ %281, %392 ]
+  %168 = phi ptr [ %88, %120 ], [ %345, %.body58.i ], [ %88, %211 ], [ %88, %215 ], [ %88, %217 ], [ %88, %232 ], [ %88, %219 ], [ %298, %352 ], [ %360, %358 ], [ %282, %392 ]
+  %.pn31.pn.i = phi { ptr, i32 } [ %121, %120 ], [ %.pn29.i, %.body58.i ], [ %212, %211 ], [ %216, %215 ], [ %218, %217 ], [ %233, %232 ], [ %220, %219 ], [ %353, %352 ], [ %361, %358 ], [ %393, %392 ]
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 513
   %170 = load i8, ptr %169, align 1, !range !58, !noalias !700, !noundef !7
   %171 = trunc nuw i8 %170 to i1
@@ -3765,9 +3765,9 @@ default.unreachable40:                            ; preds = %76, %2
   br label %.body82.i
 
 .body.i:                                          ; preds = %431, %.body82.i, %156, %152, %107
-  %234 = phi ptr [ %149, %152 ], [ %167, %431 ], [ %167, %.body82.i ], [ %87, %107 ], [ %149, %156 ]
-  %235 = phi ptr [ %150, %152 ], [ %168, %431 ], [ %168, %.body82.i ], [ %88, %107 ], [ %150, %156 ]
-  %.pn34.i = phi { ptr, i32 } [ %153, %152 ], [ %.pn31.pn.i, %431 ], [ %.pn31.pn.i, %.body82.i ], [ %108, %107 ], [ %153, %156 ]
+  %234 = phi ptr [ %167, %431 ], [ %167, %.body82.i ], [ %87, %107 ], [ %149, %156 ], [ %149, %152 ]
+  %235 = phi ptr [ %168, %431 ], [ %168, %.body82.i ], [ %88, %107 ], [ %150, %156 ], [ %150, %152 ]
+  %.pn34.i = phi { ptr, i32 } [ %.pn31.pn.i, %431 ], [ %.pn31.pn.i, %.body82.i ], [ %108, %107 ], [ %153, %156 ], [ %153, %152 ]
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 513
   store i8 0, ptr %236, align 1, !noalias !700
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 511
@@ -3976,9 +3976,9 @@ default.unreachable40:                            ; preds = %76, %2
   unreachable
 
 292:                                              ; preds = %268, %277, %309, %335, %331, %136
-  %293 = phi ptr [ %137, %136 ], [ %297, %331 ], [ %297, %335 ], [ %297, %277 ], [ %297, %309 ], [ %243, %268 ]
-  %294 = phi ptr [ %138, %136 ], [ %298, %331 ], [ %298, %335 ], [ %298, %277 ], [ %298, %309 ], [ %244, %268 ]
-  %.pn26.pn.i = phi { ptr, i32 } [ %.pn26.i, %136 ], [ %332, %331 ], [ %336, %335 ], [ %278, %277 ], [ %310, %309 ], [ %269, %268 ]
+  %293 = phi ptr [ %137, %136 ], [ %297, %335 ], [ %297, %331 ], [ %297, %277 ], [ %297, %309 ], [ %243, %268 ]
+  %294 = phi ptr [ %138, %136 ], [ %298, %335 ], [ %298, %331 ], [ %298, %277 ], [ %298, %309 ], [ %244, %268 ]
+  %.pn26.pn.i = phi { ptr, i32 } [ %.pn26.i, %136 ], [ %336, %335 ], [ %332, %331 ], [ %278, %277 ], [ %310, %309 ], [ %269, %268 ]
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 472
   invoke void @"_ZN4core3ptr93drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_store..ChannelStore$GT$$GT$17hc569345819730f28E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %295) #35
           to label %.body58.i unwind label %290
@@ -4466,8 +4466,8 @@ common.ret:                                       ; preds = %463, %460
   br label %common.ret
 
 .body20:                                          ; preds = %452, %.body87.i
-  %466 = phi ptr [ %383, %.body87.i ], [ %77, %452 ]
-  %.pn15 = phi { ptr, i32 } [ %.pn42.i, %.body87.i ], [ %453, %452 ]
+  %466 = phi ptr [ %77, %452 ], [ %383, %.body87.i ]
+  %.pn15 = phi { ptr, i32 } [ %453, %452 ], [ %.pn42.i, %.body87.i ]
   invoke fastcc void @"_ZN4core3ptr101drop_in_place$LT$notifications..NotificationStore..add_notifications..$u7b$$u7b$closure$u7d$$u7d$$GT$17h47ca9ce2a121235bE"(ptr noundef nonnull align 8 %466) #35
           to label %70 unwind label %68
 
@@ -4847,7 +4847,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #36
   unreachable
 
-.thread78:                                        ; preds = %._crit_edge, %85, %"_ZN4core3ptr190drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..array..iter..IntoIter$LT$$LP$u64$C$core..option..Option$LT$notifications..NotificationEntry$GT$$RP$$C$1_usize$GT$$GT$$GT$17h3e0b5c7844a2aa10E.exit", %.noexc
+.thread78:                                        ; preds = %85, %"_ZN4core3ptr190drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..array..iter..IntoIter$LT$$LP$u64$C$core..option..Option$LT$notifications..NotificationEntry$GT$$RP$$C$1_usize$GT$$GT$$GT$17h3e0b5c7844a2aa10E.exit", %._crit_edge, %.noexc
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread68
@@ -4918,7 +4918,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
   br i1 %70, label %._crit_edge, label %.lr.ph
 
 71:                                               ; preds = %.thread85, %223, %96
-  %.pn = phi { ptr, i32 } [ %219, %.thread85 ], [ %lpad.phi, %223 ], [ %lpad.phi, %96 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %223 ], [ %lpad.phi, %96 ], [ %219, %.thread85 ]
   invoke void @"_ZN4core3ptr190drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..array..iter..IntoIter$LT$$LP$u64$C$core..option..Option$LT$notifications..NotificationEntry$GT$$RP$$C$1_usize$GT$$GT$$GT$17h3e0b5c7844a2aa10E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %18) #35
           to label %.thread68 unwind label %224
 
@@ -5398,8 +5398,8 @@ thread-pre-split:                                 ; preds = %194, %129, %188, %1
           to label %.thread62 unwind label %224
 
 .thread62:                                        ; preds = %.thread68, %229, %40
-  %.pn32.pn67 = phi { ptr, i32 } [ %41, %40 ], [ %.pn3273, %.thread68 ], [ %.pn3273, %229 ]
-  %.sroa.021.166 = phi i1 [ true, %40 ], [ false, %.thread68 ], [ false, %229 ]
+  %.pn32.pn67 = phi { ptr, i32 } [ %41, %40 ], [ %.pn3273, %229 ], [ %.pn3273, %.thread68 ]
+  %.sroa.021.166 = phi i1 [ true, %40 ], [ false, %229 ], [ false, %.thread68 ]
   %230 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %231 = load i32, ptr %230, align 8, !alias.scope !954, !noundef !7
   %.not.i.i.i52 = icmp eq i32 %231, 0
@@ -5513,7 +5513,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #36
   unreachable
 
-.thread76:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca09b3adfd26b37fE.exit.i.i._crit_edge", %87, %"_ZN4core3ptr321drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$notifications..NotificationEntry$GT$$C$notifications..NotificationStore..add_notifications..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49df8782aa9f12edE.exit37"
+.thread76:                                        ; preds = %87, %"_ZN4core3ptr321drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$notifications..NotificationEntry$GT$$C$notifications..NotificationStore..add_notifications..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49df8782aa9f12edE.exit37", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca09b3adfd26b37fE.exit.i.i._crit_edge"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread66
@@ -5590,7 +5590,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
   br i1 %switch, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca09b3adfd26b37fE.exit.i.i._crit_edge", label %77
 
 76:                                               ; preds = %.thread85, %225, %98
-  %.pn = phi { ptr, i32 } [ %220, %.thread85 ], [ %lpad.phi, %225 ], [ %lpad.phi, %98 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %225 ], [ %lpad.phi, %98 ], [ %220, %.thread85 ]
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf0f5cc4ed8074430E.llvm.3163802790851490697"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18)
           to label %.thread66 unwind label %226
 
@@ -6070,8 +6070,8 @@ thread-pre-split:                                 ; preds = %196, %131, %190, %2
           to label %.thread60 unwind label %226
 
 .thread60:                                        ; preds = %.thread66, %231, %40
-  %.pn32.pn65 = phi { ptr, i32 } [ %41, %40 ], [ %.pn3271, %.thread66 ], [ %.pn3271, %231 ]
-  %.sroa.021.164 = phi i1 [ true, %40 ], [ false, %.thread66 ], [ false, %231 ]
+  %.pn32.pn65 = phi { ptr, i32 } [ %41, %40 ], [ %.pn3271, %231 ], [ %.pn3271, %.thread66 ]
+  %.sroa.021.164 = phi i1 [ true, %40 ], [ false, %231 ], [ false, %.thread66 ]
   %232 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %233 = load i32, ptr %232, align 8, !alias.scope !1039, !noundef !7
   %.not.i.i.i50 = icmp eq i32 %233, 0

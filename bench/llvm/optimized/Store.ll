@@ -396,8 +396,8 @@ define dso_local { ptr, i8 } @_ZN5clang4ento12StoreManager10castRegionEPKNS0_9Me
   br label %103
 
 103:                                              ; preds = %21, %21, %21, %25, %78, %84, %101, %86, %48, %66, %24, %19
-  %.sroa.071.0 = phi ptr [ %20, %19 ], [ %1, %21 ], [ undef, %24 ], [ %1, %25 ], [ %77, %66 ], [ %1, %48 ], [ undef, %78 ], [ %102, %101 ], [ %87, %86 ], [ %80, %84 ], [ %1, %21 ], [ %1, %21 ]
-  %.sroa.9.0 = phi i8 [ 1, %19 ], [ 1, %21 ], [ 0, %24 ], [ 1, %25 ], [ 1, %66 ], [ 1, %48 ], [ 0, %78 ], [ 1, %101 ], [ 1, %86 ], [ 1, %84 ], [ 1, %21 ], [ 1, %21 ]
+  %.sroa.071.0 = phi ptr [ %20, %19 ], [ undef, %24 ], [ %1, %21 ], [ %1, %25 ], [ %77, %66 ], [ %1, %48 ], [ undef, %78 ], [ %87, %86 ], [ %102, %101 ], [ %80, %84 ], [ %1, %21 ], [ %1, %21 ]
+  %.sroa.9.0 = phi i8 [ 1, %19 ], [ 0, %24 ], [ 1, %21 ], [ 1, %25 ], [ 1, %66 ], [ 1, %48 ], [ 0, %78 ], [ 1, %86 ], [ 1, %101 ], [ 1, %84 ], [ 1, %21 ], [ 1, %21 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.071.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.9.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -1150,7 +1150,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit71.thread:      ; preds = %185, %_ZNK5clang4Ty
   %.0113.be = phi ptr [ %184, %182 ], [ %199, %_ZNK5clang4Type10isVoidTypeEv.exit71.thread ]
   br label %59
 
-_ZL16getCXXRecordTypePKN5clang4ento9MemRegionE.exit.thread: ; preds = %73, %_ZNK5clang4Type10isVoidTypeEv.exit71.thread, %_ZL16getCXXRecordTypePKN5clang4ento9MemRegionE.exit
+_ZL16getCXXRecordTypePKN5clang4ento9MemRegionE.exit.thread: ; preds = %73, %_ZL16getCXXRecordTypePKN5clang4ento9MemRegionE.exit, %_ZNK5clang4Type10isVoidTypeEv.exit71.thread
   %201 = load i32, ptr %60, align 8, !tbaa !81
   %202 = icmp ne i32 %201, 10
   %.not42 = or i1 %.not.not19.i, %202
@@ -1484,8 +1484,8 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %73, %80, %83
   br label %_ZNK5clang4ento4SVal5getAsINS0_6NonLocEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4ento4SVal5getAsINS0_6NonLocEEESt8optionalIT_Ev.exit: ; preds = %49, %42, %60, %55, %65, %_ZN4llvm5APIntD2Ev.exit, %40, %36, %39
-  %.sroa.044.3 = phi ptr [ %.sroa.044.0.copyload45, %39 ], [ %.sroa.044.0.copyload, %36 ], [ null, %40 ], [ null, %42 ], [ %54, %49 ], [ %72, %65 ], [ %90, %_ZN4llvm5APIntD2Ev.exit ], [ null, %55 ], [ null, %60 ]
-  %.sroa.10.3 = phi i8 [ %37, %39 ], [ %.sroa.10.0.copyload, %36 ], [ 1, %40 ], [ 1, %42 ], [ 4, %49 ], [ 4, %65 ], [ 4, %_ZN4llvm5APIntD2Ev.exit ], [ 1, %55 ], [ 1, %60 ]
+  %.sroa.044.3 = phi ptr [ %.sroa.044.0.copyload45, %39 ], [ %.sroa.044.0.copyload, %36 ], [ null, %40 ], [ %54, %49 ], [ null, %42 ], [ %90, %_ZN4llvm5APIntD2Ev.exit ], [ %72, %65 ], [ null, %55 ], [ null, %60 ]
+  %.sroa.10.3 = phi i8 [ %37, %39 ], [ %.sroa.10.0.copyload, %36 ], [ 1, %40 ], [ 4, %49 ], [ 1, %42 ], [ 4, %_ZN4llvm5APIntD2Ev.exit ], [ 4, %65 ], [ 1, %55 ], [ 1, %60 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.044.3, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.10.3, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -1571,7 +1571,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento12StoreManager17FindUniqueBin
   br label %18
 
 18:                                               ; preds = %6, %17, %15
-  %.0 = phi i1 [ true, %17 ], [ false, %15 ], [ true, %6 ]
+  %.0 = phi i1 [ false, %15 ], [ true, %17 ], [ true, %6 ]
   ret i1 %.0
 }
 

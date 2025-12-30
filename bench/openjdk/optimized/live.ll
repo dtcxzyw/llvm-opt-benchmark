@@ -149,7 +149,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit101: ; preds = %52, 
   br i1 %67, label %.lr.ph159, label %.loopexit155, !llvm.loop !8
 
 .loopexit155:                                     ; preds = %.lr.ph159, %._crit_edge, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit101
-  %68 = phi i32 [ %.pre, %._crit_edge ], [ 0, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit101 ], [ %65, %.lr.ph159 ]
+  %68 = phi i32 [ 0, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit101 ], [ %.pre, %._crit_edge ], [ %65, %.lr.ph159 ]
   %69 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 800
@@ -424,9 +424,9 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %182, %185
   br label %_ZN8IndexSet6insertEj.exit
 
 _ZN8IndexSet6insertEj.exit:                       ; preds = %195, %214, %225
-  %.pre-phi283 = phi i64 [ %220, %225 ], [ %220, %214 ], [ 0, %195 ]
-  %.pre-phi281 = phi i64 [ %219, %225 ], [ %219, %214 ], [ 1, %195 ]
-  %.pre-phi271 = phi i64 [ %208, %225 ], [ %208, %214 ], [ 0, %195 ]
+  %.pre-phi283 = phi i64 [ %220, %214 ], [ %220, %225 ], [ 0, %195 ]
+  %.pre-phi281 = phi i64 [ %219, %214 ], [ %219, %225 ], [ 1, %195 ]
+  %.pre-phi271 = phi i64 [ %208, %214 ], [ %208, %225 ], [ 0, %195 ]
   %228 = load ptr, ptr %179, align 8
   %229 = getelementptr inbounds nuw ptr, ptr %228, i64 %.pre-phi271
   %230 = load ptr, ptr %229, align 8
@@ -607,9 +607,9 @@ _ZNK5Block8get_nodeEj.exit109:                    ; preds = %_ZNK5Block8get_node
   br label %_ZN8IndexSet6insertEj.exit113
 
 _ZN8IndexSet6insertEj.exit113:                    ; preds = %_ZNK5Block8get_nodeEj.exit109, %322, %333
-  %.pre-phi267 = phi i64 [ %328, %333 ], [ %328, %322 ], [ 0, %_ZNK5Block8get_nodeEj.exit109 ]
-  %.pre-phi265 = phi i64 [ %327, %333 ], [ %327, %322 ], [ 1, %_ZNK5Block8get_nodeEj.exit109 ]
-  %.pre-phi255 = phi i64 [ %316, %333 ], [ %316, %322 ], [ 0, %_ZNK5Block8get_nodeEj.exit109 ]
+  %.pre-phi267 = phi i64 [ %328, %322 ], [ %328, %333 ], [ 0, %_ZNK5Block8get_nodeEj.exit109 ]
+  %.pre-phi265 = phi i64 [ %327, %322 ], [ %327, %333 ], [ 1, %_ZNK5Block8get_nodeEj.exit109 ]
+  %.pre-phi255 = phi i64 [ %316, %322 ], [ %316, %333 ], [ 0, %_ZNK5Block8get_nodeEj.exit109 ]
   %336 = load ptr, ptr %290, align 8
   %337 = getelementptr inbounds nuw ptr, ptr %336, i64 %.pre-phi255
   %338 = load ptr, ptr %337, align 8

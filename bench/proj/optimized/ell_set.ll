@@ -338,7 +338,7 @@ _ZL13pj_find_ellpsPKc.exit.thread.i:              ; preds = %43, %39
   br label %_ZL11ellps_ellpsP8PJconsts.exit
 
 _ZL11ellps_ellpsP8PJconsts.exit:                  ; preds = %37, %_ZL13pj_find_ellpsPKc.exit.thread.i, %55, %62, %137, %141, %143
-  %.0.i = phi i32 [ %146, %143 ], [ %38, %37 ], [ %54, %_ZL13pj_find_ellpsPKc.exit.thread.i ], [ %56, %55 ], [ %63, %62 ], [ %138, %137 ], [ %142, %141 ]
+  %.0.i = phi i32 [ %38, %37 ], [ %54, %_ZL13pj_find_ellpsPKc.exit.thread.i ], [ %56, %55 ], [ %63, %62 ], [ %138, %137 ], [ %142, %141 ], [ %146, %143 ]
   %.not49 = icmp eq i32 %.0.i, 0
   br i1 %.not49, label %_ZL11ellps_ellpsP8PJconsts.exit.thread, label %176
 
@@ -393,7 +393,7 @@ _ZL11ellps_ellpsP8PJconsts.exit.thread:           ; preds = %.critedge12.i.i, %1
   br label %176
 
 176:                                              ; preds = %157, %150, %148, %_ZL11ellps_ellpsP8PJconsts.exit.thread, %_ZL11ellps_ellpsP8PJconsts.exit, %21, %_ZL12pj_get_paramP8ARG_listPKc.exit, %174, %26
-  %.0 = phi i32 [ %175, %174 ], [ 1, %_ZL12pj_get_paramP8ARG_listPKc.exit ], [ %27, %26 ], [ 1, %21 ], [ 1, %_ZL11ellps_ellpsP8PJconsts.exit ], [ 2, %_ZL11ellps_ellpsP8PJconsts.exit.thread ], [ 3, %148 ], [ 4, %150 ], [ 5, %157 ]
+  %.0 = phi i32 [ %27, %26 ], [ %175, %174 ], [ 1, %_ZL12pj_get_paramP8ARG_listPKc.exit ], [ 1, %21 ], [ 1, %_ZL11ellps_ellpsP8PJconsts.exit ], [ 2, %_ZL11ellps_ellpsP8PJconsts.exit.thread ], [ 3, %148 ], [ 4, %150 ], [ 5, %157 ]
   ret i32 %.0
 }
 
@@ -520,7 +520,7 @@ _ZL14pj_param_valueP8ARG_list.exit:               ; preds = %11, %11, %17, %17
   br label %49
 
 49:                                               ; preds = %41, %44, %.thread, %39, %35, %25
-  %.030 = phi i32 [ 0, %.thread ], [ %26, %25 ], [ %36, %35 ], [ %40, %39 ], [ 0, %44 ], [ 0, %41 ]
+  %.030 = phi i32 [ %26, %25 ], [ %36, %35 ], [ %40, %39 ], [ 0, %.thread ], [ 0, %44 ], [ 0, %41 ]
   ret i32 %.030
 }
 
@@ -871,7 +871,7 @@ _ZL14pj_param_valueP8ARG_list.exit114:            ; preds = %.critedge
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %_ZL14pj_param_valueP8ARG_list.exit108, %.thread-pre-split_crit_edge, %82, %70, %49, %38
-  %88 = phi double [ %42, %38 ], [ %87, %82 ], [ %71, %70 ], [ %55, %49 ], [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %59, %_ZL14pj_param_valueP8ARG_list.exit108 ]
+  %88 = phi double [ %87, %82 ], [ %71, %70 ], [ %55, %49 ], [ %42, %38 ], [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %59, %_ZL14pj_param_valueP8ARG_list.exit108 ]
   %89 = fcmp ult double %88, 0.000000e+00
   br i1 %89, label %90, label %92
 
@@ -881,7 +881,7 @@ thread-pre-split:                                 ; preds = %_ZL14pj_param_value
   br label %92
 
 92:                                               ; preds = %thread-pre-split, %.critedge, %.split125.us, %90, %76, %68, %61, %47, %36, %20
-  %.0 = phi i32 [ %77, %76 ], [ 0, %20 ], [ 0, %.split125.us ], [ %37, %36 ], [ 1027, %.critedge ], [ %91, %90 ], [ %48, %47 ], [ %62, %61 ], [ %69, %68 ], [ 0, %thread-pre-split ]
+  %.0 = phi i32 [ 0, %20 ], [ %37, %36 ], [ %91, %90 ], [ %48, %47 ], [ %62, %61 ], [ %69, %68 ], [ %77, %76 ], [ 0, %.split125.us ], [ 1027, %.critedge ], [ 0, %thread-pre-split ]
   ret i32 %.0
 }
 
@@ -1125,7 +1125,7 @@ _ZL14pj_param_valueP8ARG_list.exit:               ; preds = %17, %17
   br label %_ZL12pj_get_paramP8ARG_listPKc.exit.thread
 
 _ZL12pj_get_paramP8ARG_listPKc.exit.thread:       ; preds = %.loopexit, %1, %_ZL12pj_get_paramP8ARG_listPKc.exit, %129, %127, %115, %85, %75, %63
-  %.0 = phi i32 [ %116, %115 ], [ %128, %127 ], [ 0, %129 ], [ %64, %63 ], [ %76, %75 ], [ %86, %85 ], [ 0, %_ZL12pj_get_paramP8ARG_listPKc.exit ], [ 0, %1 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ %128, %127 ], [ 0, %129 ], [ %64, %63 ], [ %76, %75 ], [ %86, %85 ], [ %116, %115 ], [ 0, %_ZL12pj_get_paramP8ARG_listPKc.exit ], [ 0, %1 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

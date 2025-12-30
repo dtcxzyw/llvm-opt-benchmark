@@ -2203,8 +2203,8 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captu
   br label %217
 
 217:                                              ; preds = %214, %210, %209, %.split
-  %218 = phi ptr [ %190, %214 ], [ %188, %210 ], [ %188, %.split ], [ %188, %209 ]
-  %219 = phi i8 [ 1, %214 ], [ %189, %210 ], [ %189, %.split ], [ %189, %209 ]
+  %218 = phi ptr [ %190, %214 ], [ %188, %210 ], [ %188, %209 ], [ %188, %.split ]
+  %219 = phi i8 [ 1, %214 ], [ %189, %210 ], [ %189, %209 ], [ %189, %.split ]
   %220 = load ptr, ptr %218, align 8
   %221 = icmp eq ptr %220, null
   br i1 %221, label %.split19.us, label %.split, !llvm.loop !34
@@ -2221,7 +2221,7 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captu
   br label %tcp_metrics_flush_all.exit
 
 tcp_metrics_flush_all.exit:                       ; preds = %87, %48, %22, %224
-  %226 = phi i32 [ -22, %22 ], [ %225, %224 ], [ 0, %48 ], [ 0, %87 ]
+  %226 = phi i32 [ %225, %224 ], [ -22, %22 ], [ 0, %48 ], [ 0, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %226
@@ -2350,8 +2350,8 @@ define internal fastcc noundef range(i32 -97, 1) i32 @tcp_metrics_fill_info(ptr 
   br label %73
 
 73:                                               ; preds = %59, %.thread, %69
-  %74 = phi i32 [ %72, %69 ], [ %57, %59 ], [ %65, %.thread ]
-  %75 = phi i32 [ %70, %69 ], [ %55, %59 ], [ %63, %.thread ]
+  %74 = phi i32 [ %72, %69 ], [ %65, %.thread ], [ %57, %59 ]
+  %75 = phi i32 [ %70, %69 ], [ %63, %.thread ], [ %55, %59 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %74, ptr %5, align 4
   %76 = trunc i64 %54 to i32

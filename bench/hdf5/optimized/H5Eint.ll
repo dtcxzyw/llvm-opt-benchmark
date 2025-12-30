@@ -2973,8 +2973,8 @@ H5E__set_stack_entry.exit.thread.i:               ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %H5E__push_stack.exit.thread
 
-H5E__push_stack.exit.thread:                      ; preds = %24, %H5E__set_stack_entry.exit.thread.i, %16, %40
-  %.1.ph = phi i32 [ -1, %40 ], [ 0, %16 ], [ 0, %H5E__set_stack_entry.exit.thread.i ], [ 0, %24 ]
+H5E__push_stack.exit.thread:                      ; preds = %16, %24, %H5E__set_stack_entry.exit.thread.i, %40
+  %.1.ph = phi i32 [ -1, %40 ], [ 0, %H5E__set_stack_entry.exit.thread.i ], [ 0, %24 ], [ 0, %16 ]
   call void @llvm.va_end.p0(ptr nonnull %8)
   br label %41
 
@@ -3261,7 +3261,7 @@ define range(i32 0, 4) i32 @H5E_term_package() local_unnamed_addr #0 {
   br label %43
 
 43:                                               ; preds = %42, %29, %24, %28, %22, %0
-  %.0 = phi i32 [ 0, %0 ], [ %40, %29 ], [ 0, %42 ], [ 1, %24 ], [ 1, %28 ], [ 1, %22 ]
+  %.0 = phi i32 [ 0, %0 ], [ 0, %42 ], [ %40, %29 ], [ 1, %24 ], [ 1, %28 ], [ 1, %22 ]
   ret i32 %.0
 }
 
@@ -3490,7 +3490,7 @@ define ptr @H5E__register_class(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %28, label %29, label %H5E__free_class.exit
 
 29:                                               ; preds = %25, %21, %17
-  %.sink = phi i32 [ 497, %21 ], [ 495, %17 ], [ 499, %25 ]
+  %.sink = phi i32 [ 495, %17 ], [ 497, %21 ], [ 499, %25 ]
   %30 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %31 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5E__register_class, i32 noundef %.sink, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.8)
@@ -3517,7 +3517,7 @@ define ptr @H5E__register_class(ptr noundef readonly captures(none) %0, ptr noun
   br label %H5E__free_class.exit
 
 H5E__free_class.exit:                             ; preds = %13, %25, %39, %29, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %39 ], [ null, %13 ], [ null, %29 ], [ %11, %25 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %29 ], [ null, %39 ], [ %11, %25 ], [ null, %13 ]
   ret ptr %.0
 }
 
@@ -3617,7 +3617,7 @@ define ptr @H5E__create_msg(ptr noundef %0, i32 noundef %1, ptr noundef readonly
   br label %H5E__free_msg.exit
 
 H5E__free_msg.exit:                               ; preds = %13, %17, %33, %23, %3
-  %.0 = phi ptr [ null, %33 ], [ null, %13 ], [ null, %3 ], [ null, %23 ], [ %11, %17 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %23 ], [ null, %33 ], [ %11, %17 ], [ null, %13 ]
   ret ptr %.0
 }
 
@@ -3704,7 +3704,7 @@ H5E__destroy_stack.exit:                          ; preds = %17
   br label %H5E__destroy_stack.exit.thread
 
 H5E__destroy_stack.exit.thread:                   ; preds = %10, %37, %34, %._crit_edge, %H5E__destroy_stack.exit, %0
-  %.0 = phi ptr [ null, %H5E__destroy_stack.exit ], [ null, %10 ], [ null, %0 ], [ %8, %37 ], [ %8, %34 ], [ %8, %._crit_edge ]
+  %.0 = phi ptr [ null, %H5E__destroy_stack.exit ], [ null, %0 ], [ %8, %37 ], [ %8, %34 ], [ %8, %._crit_edge ], [ null, %10 ]
   ret ptr %.0
 }
 
@@ -4017,7 +4017,7 @@ H5E__print.exit.thread:                           ; preds = %23, %21
   br label %36
 
 36:                                               ; preds = %H5E__print.exit.thread, %17, %29, %2
-  %.0 = phi i32 [ -1, %29 ], [ 0, %H5E__print.exit.thread ], [ -1, %17 ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %29 ], [ -1, %17 ], [ 0, %2 ], [ 0, %H5E__print.exit.thread ]
   ret i32 %.0
 }
 
@@ -4069,7 +4069,7 @@ define range(i32 -1, 1) i32 @H5E__print(ptr noundef %0, ptr noundef %1, i1 nound
   br label %25
 
 25:                                               ; preds = %.sink.split, %19, %16, %3
-  %.0 = phi i32 [ 0, %19 ], [ 0, %16 ], [ 0, %3 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %19 ], [ 0, %3 ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -4386,7 +4386,7 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr noundef readonly captu
   br label %53
 
 53:                                               ; preds = %48, %32
-  %.2 = phi i32 [ %spec.select, %48 ], [ -1, %32 ]
+  %.2 = phi i32 [ -1, %32 ], [ %spec.select, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %54 = load i64, ptr %0, align 8, !tbaa !13
@@ -4472,7 +4472,7 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr noundef readonly captu
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %59, %.preheader, %95, %.loopexit
-  %.3114 = phi i32 [ %.3, %.loopexit ], [ %.3117, %95 ], [ 0, %.preheader ], [ 0, %59 ]
+  %.3114 = phi i32 [ %.3117, %95 ], [ %.3, %.loopexit ], [ 0, %.preheader ], [ 0, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit81.thread
 
@@ -4508,7 +4508,7 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr noundef readonly captu
   br label %114
 
 114:                                              ; preds = %107, %.lr.ph87
-  %.7 = phi i32 [ %spec.select74, %107 ], [ -1, %.lr.ph87 ]
+  %.7 = phi i32 [ -1, %.lr.ph87 ], [ %spec.select74, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %115 = load i64, ptr %0, align 8, !tbaa !13
@@ -4703,7 +4703,7 @@ define internal range(i32 -1, 1) i32 @H5E__walk2_cb(i32 noundef %0, ptr noundef 
   br label %71
 
 71:                                               ; preds = %19, %10, %62, %3
-  %.0 = phi i32 [ 0, %62 ], [ -1, %10 ], [ 0, %3 ], [ -1, %19 ]
+  %.0 = phi i32 [ 0, %62 ], [ 0, %3 ], [ -1, %10 ], [ -1, %19 ]
   ret i32 %.0
 }
 
@@ -4786,7 +4786,7 @@ H5E__get_auto.exit:                               ; preds = %14
   br label %17
 
 17:                                               ; preds = %10, %H5E__get_auto.exit, %14
-  %.0 = phi i32 [ -1, %10 ], [ 0, %14 ], [ 0, %H5E__get_auto.exit ]
+  %.0 = phi i32 [ -1, %10 ], [ 0, %H5E__get_auto.exit ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -4863,34 +4863,34 @@ define range(i32 -1, 1) i32 @H5E__push_stack(ptr noundef captures(none) %0, i1 n
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i32 %4, ptr %37, align 8, !tbaa !27
   %.not30.i = icmp eq ptr %9, null
-  br i1 %.not30.i, label %41, label %38
+  br i1 %.not30.i, label %H5E__set_stack_entry.exit, label %38
 
 38:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !28
   %39 = call i32 @vasprintf(ptr noundef nonnull %11, ptr noundef nonnull %spec.store.select1.i, ptr noundef nonnull %9) #16
   %40 = icmp slt i32 %39, 0
-  br i1 %40, label %H5E__set_stack_entry.exit.thread19, label %H5E__set_stack_entry.exit
+  br i1 %40, label %.thread, label %41
 
-H5E__set_stack_entry.exit.thread19:               ; preds = %38
+.thread:                                          ; preds = %38
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %49
 
-41:                                               ; preds = %31
-  %42 = tail call noalias ptr @strdup(ptr noundef nonnull %spec.store.select1.i) #16
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %11, align 8, !tbaa !28
   %43 = getelementptr inbounds nuw i8, ptr %24, i64 56
   store ptr %42, ptr %43, align 8, !tbaa !29
-  %44 = icmp eq ptr %42, null
-  br i1 %44, label %49, label %H5E__set_stack_entry.exit.H5E__set_stack_entry.exit.thread_crit_edge
-
-H5E__set_stack_entry.exit:                        ; preds = %38
-  %45 = load ptr, ptr %11, align 8, !tbaa !28
-  %46 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  store ptr %45, ptr %46, align 8, !tbaa !29
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %H5E__set_stack_entry.exit.H5E__set_stack_entry.exit.thread_crit_edge
 
-H5E__set_stack_entry.exit.H5E__set_stack_entry.exit.thread_crit_edge: ; preds = %H5E__set_stack_entry.exit, %41
+H5E__set_stack_entry.exit:                        ; preds = %31
+  %44 = tail call noalias ptr @strdup(ptr noundef nonnull %spec.store.select1.i) #16
+  %45 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  store ptr %44, ptr %45, align 8, !tbaa !29
+  %46 = icmp eq ptr %44, null
+  br i1 %46, label %49, label %H5E__set_stack_entry.exit.H5E__set_stack_entry.exit.thread_crit_edge
+
+H5E__set_stack_entry.exit.H5E__set_stack_entry.exit.thread_crit_edge: ; preds = %41, %H5E__set_stack_entry.exit
   %.pre = load i64, ptr %0, align 8, !tbaa !13
   br label %H5E__set_stack_entry.exit.thread
 
@@ -4900,8 +4900,8 @@ H5E__set_stack_entry.exit.thread:                 ; preds = %H5E__set_stack_entr
   store i64 %48, ptr %0, align 8, !tbaa !13
   br label %49
 
-49:                                               ; preds = %H5E__set_stack_entry.exit.thread19, %41, %H5E__set_stack_entry.exit.thread, %19, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %H5E__set_stack_entry.exit.thread ], [ 0, %19 ], [ -1, %H5E__set_stack_entry.exit.thread19 ], [ -1, %41 ]
+49:                                               ; preds = %.thread, %H5E__set_stack_entry.exit, %H5E__set_stack_entry.exit.thread, %19, %10
+  %.0 = phi i32 [ 0, %H5E__set_stack_entry.exit.thread ], [ 0, %19 ], [ 0, %10 ], [ -1, %H5E__set_stack_entry.exit ], [ -1, %.thread ]
   ret i32 %.0
 }
 
@@ -5030,7 +5030,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5E__clear_entries(ptr noundef capt
   br label %.thread
 
 .thread:                                          ; preds = %50, %40, %26, %2, %._crit_edge
-  %.029 = phi i32 [ 0, %2 ], [ 0, %._crit_edge ], [ -1, %26 ], [ -1, %40 ], [ -1, %50 ]
+  %.029 = phi i32 [ 0, %._crit_edge ], [ 0, %2 ], [ -1, %26 ], [ -1, %40 ], [ -1, %50 ]
   ret i32 %.029
 }
 
@@ -5123,7 +5123,7 @@ define range(i32 -1, 1) i32 @H5E_dump_api_stack() local_unnamed_addr #0 {
   br label %31
 
 31:                                               ; preds = %26, %23
-  %.1 = phi i32 [ %.lobit10, %26 ], [ -1, %23 ]
+  %.1 = phi i32 [ -1, %23 ], [ %.lobit10, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %43
 
@@ -5147,7 +5147,7 @@ define range(i32 -1, 1) i32 @H5E_dump_api_stack() local_unnamed_addr #0 {
   br label %42
 
 42:                                               ; preds = %37, %34
-  %.2 = phi i32 [ %.lobit, %37 ], [ -1, %34 ]
+  %.2 = phi i32 [ -1, %34 ], [ %.lobit, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %43
 
@@ -5295,7 +5295,7 @@ H5E__close_msg.exit:                              ; preds = %14, %H5E__free_msg.
   br label %27
 
 27:                                               ; preds = %23, %H5E__close_msg.exit, %10, %3
-  %.0 = phi i32 [ 0, %3 ], [ -1, %23 ], [ 0, %H5E__close_msg.exit ], [ 0, %10 ]
+  %.0 = phi i32 [ -1, %23 ], [ 0, %H5E__close_msg.exit ], [ 0, %10 ], [ 0, %3 ]
   ret i32 %.0
 }
 

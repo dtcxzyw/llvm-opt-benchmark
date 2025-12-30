@@ -567,7 +567,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %165
   br label %240
 
 240:                                              ; preds = %236, %238
-  %.pn64.pn.pn = phi { ptr, i32 } [ %237, %236 ], [ %239, %238 ]
+  %.pn64.pn.pn = phi { ptr, i32 } [ %239, %238 ], [ %237, %236 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %343
 
@@ -817,7 +817,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %339
   br label %343
 
 343:                                              ; preds = %298, %241, %243, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99, %240, %234, %232
-  %.pn76.pn.pn.pn = phi { ptr, i32 } [ %235, %234 ], [ %233, %232 ], [ %242, %241 ], [ %.pn68.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99 ], [ %.pn64.pn.pn, %240 ], [ %244, %243 ], [ %299, %298 ]
+  %.pn76.pn.pn.pn = phi { ptr, i32 } [ %233, %232 ], [ %.pn68.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99 ], [ %.pn64.pn.pn, %240 ], [ %235, %234 ], [ %244, %243 ], [ %242, %241 ], [ %299, %298 ]
   call void @_ZNSt12__shared_ptrIN2cv2ml2EMELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #13
   br label %344
 

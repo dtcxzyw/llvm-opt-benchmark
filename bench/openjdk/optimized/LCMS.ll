@@ -241,7 +241,7 @@ switch.early.test:                                ; preds = %35
   br label %69
 
 69:                                               ; preds = %7, %67, %26
-  %.061 = phi i64 [ %68, %67 ], [ 0, %26 ], [ 0, %7 ]
+  %.061 = phi i64 [ 0, %26 ], [ %68, %67 ], [ 0, %7 ]
   ret i64 %.061
 }
 
@@ -407,7 +407,7 @@ ThrowIllegalArgumentException.exit42:             ; preds = %58
   br label %ThrowIllegalArgumentException.exit
 
 ThrowIllegalArgumentException.exit:               ; preds = %53, %51, %49, %ThrowIllegalArgumentException.exit46, %20, %18, %16, %85, %83, %25
-  %.032 = phi i64 [ 0, %20 ], [ 0, %25 ], [ %84, %83 ], [ 0, %85 ], [ 0, %16 ], [ 0, %18 ], [ 0, %ThrowIllegalArgumentException.exit46 ], [ 0, %49 ], [ 0, %51 ], [ 0, %53 ]
+  %.032 = phi i64 [ 0, %25 ], [ %84, %83 ], [ 0, %85 ], [ 0, %16 ], [ 0, %18 ], [ 0, %20 ], [ 0, %ThrowIllegalArgumentException.exit46 ], [ 0, %49 ], [ 0, %51 ], [ 0, %53 ]
   ret i64 %.032
 }
 
@@ -472,7 +472,7 @@ define ptr @Java_sun_java2d_cmm_lcms_LCMS_getProfileDataNative(ptr noundef %0, p
   br label %36
 
 36:                                               ; preds = %.sink.split, %25, %31, %19, %13, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %13 ], [ null, %31 ], [ null, %19 ], [ %17, %25 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %9 ], [ null, %13 ], [ null, %19 ], [ null, %31 ], [ %17, %25 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -611,7 +611,7 @@ _getHeaderInfo.exit:                              ; preds = %30
   br label %78
 
 78:                                               ; preds = %_getHeaderInfo.exit, %66, %72, %77, %60, %46, %54, %59, %.critedge, %42, %14, %8
-  %.0 = phi ptr [ %12, %_getHeaderInfo.exit ], [ null, %8 ], [ null, %.critedge ], [ null, %14 ], [ null, %54 ], [ null, %46 ], [ null, %60 ], [ null, %72 ], [ null, %42 ], [ null, %59 ], [ null, %77 ], [ %52, %66 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %14 ], [ null, %42 ], [ null, %.critedge ], [ %12, %_getHeaderInfo.exit ], [ null, %59 ], [ null, %54 ], [ null, %46 ], [ null, %60 ], [ null, %77 ], [ null, %72 ], [ %52, %66 ]
   ret ptr %.0
 }
 
@@ -898,7 +898,7 @@ _setHeaderInfo.exit:                              ; preds = %42
   br label %151
 
 151:                                              ; preds = %147, %145, %141, %.critedge.i, %110, %74
-  %.0.i34 = phi ptr [ %150, %147 ], [ null, %110 ], [ null, %.critedge.i ], [ null, %141 ], [ null, %145 ], [ null, %74 ]
+  %.0.i34 = phi ptr [ null, %110 ], [ null, %.critedge.i ], [ null, %141 ], [ null, %145 ], [ %150, %147 ], [ null, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not = icmp eq ptr %.0.i34, null

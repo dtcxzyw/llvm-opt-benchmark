@@ -1854,7 +1854,7 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i.i267: ; preds = %418, %_ZNK2
   br label %443
 
 433:                                              ; preds = %138, %251, %253, %255, %422, %349, %306, %100, %98
-  %.pn66.pn = phi { ptr, i32 } [ %99, %98 ], [ %101, %100 ], [ %139, %138 ], [ %350, %349 ], [ %423, %422 ], [ %307, %306 ], [ %256, %255 ], [ %254, %253 ], [ %252, %251 ]
+  %.pn66.pn = phi { ptr, i32 } [ %101, %100 ], [ %99, %98 ], [ %139, %138 ], [ %423, %422 ], [ %307, %306 ], [ %350, %349 ], [ %256, %255 ], [ %254, %253 ], [ %252, %251 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %444
@@ -2576,7 +2576,7 @@ _ZN9btVectorXIfE7setZeroEv.exit409:               ; preds = %_ZN9btVectorXIfE7se
   br label %178
 
 ._crit_edge:                                      ; preds = %194, %_ZN9btVectorXIfE7setZeroEv.exit, %_ZN9btVectorXIfE7setZeroEv.exit409
-  %109 = phi i1 [ false, %_ZN9btVectorXIfE7setZeroEv.exit ], [ false, %_ZN9btVectorXIfE7setZeroEv.exit409 ], [ true, %194 ]
+  %109 = phi i1 [ false, %_ZN9btVectorXIfE7setZeroEv.exit409 ], [ false, %_ZN9btVectorXIfE7setZeroEv.exit ], [ true, %194 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 564
@@ -3277,8 +3277,8 @@ _ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i.thread: ; preds =
           to label %380 unwind label %410
 
 380:                                              ; preds = %367, %365, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i.thread, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i
-  %.sroa.26702.7 = phi ptr [ %.sroa.26702.0801, %365 ], [ %.sroa.26702.0801, %367 ], [ %.0.i.i.i516, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i.thread ], [ %.0.i.i.i516, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i ]
-  %.sroa.17.4 = phi i32 [ %.sroa.17.0802, %365 ], [ %.sroa.3.0803, %367 ], [ %369, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i.thread ], [ %369, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i ]
+  %.sroa.26702.7 = phi ptr [ %.sroa.26702.0801, %367 ], [ %.sroa.26702.0801, %365 ], [ %.0.i.i.i516, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i.thread ], [ %.0.i.i.i516, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i ]
+  %.sroa.17.4 = phi i32 [ %.sroa.3.0803, %367 ], [ %.sroa.17.0802, %365 ], [ %369, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i.thread ], [ %369, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i ]
   %381 = add nsw i32 %.sroa.3.0803, 1
   %382 = sext i32 %.sroa.3.0803 to i64
   %383 = getelementptr inbounds %struct.btJointNode, ptr %.sroa.26702.7, i64 %382
@@ -3501,8 +3501,8 @@ _ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i535.thread: ; pred
           to label %495 unwind label %525
 
 495:                                              ; preds = %482, %480, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i535.thread, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i535
-  %.sroa.26702.8 = phi ptr [ %.sroa.26702.4, %480 ], [ %.sroa.26702.4, %482 ], [ %.0.i.i.i534, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i535.thread ], [ %.0.i.i.i534, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i535 ]
-  %.sroa.17.5 = phi i32 [ %.sroa.17.1, %480 ], [ %.sroa.17.1, %482 ], [ %484, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i535.thread ], [ %484, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i535 ]
+  %.sroa.26702.8 = phi ptr [ %.sroa.26702.4, %482 ], [ %.sroa.26702.4, %480 ], [ %.0.i.i.i534, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i535.thread ], [ %.0.i.i.i534, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i535 ]
+  %.sroa.17.5 = phi i32 [ %.sroa.17.1, %482 ], [ %.sroa.17.1, %480 ], [ %484, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i535.thread ], [ %484, %_ZNK20btAlignedObjectArrayI11btJointNodeE4copyEiiPS0_.exit.i.i535 ]
   %496 = add nsw i32 %.sroa.3.1, 1
   %497 = sext i32 %.sroa.3.1 to i64
   %498 = getelementptr inbounds %struct.btJointNode, ptr %.sroa.26702.8, i64 %497
@@ -4328,7 +4328,7 @@ _ZN9btMatrixXIfE7addElemEiif.exit.us.i608:        ; preds = %.sink.split.i.us.i6
   br label %976
 
 _ZN9btMatrixXIfE16multiplyAdd2_p8rEPKfS2_iiii.exit616: ; preds = %._crit_edge.us.i611, %857, %_ZN9btMatrixXIfE13multiply2_p8rEPKfS2_iiii.exit
-  %961 = phi i32 [ %859, %857 ], [ %861, %_ZN9btMatrixXIfE13multiply2_p8rEPKfS2_iiii.exit ], [ %861, %._crit_edge.us.i611 ]
+  %961 = phi i32 [ %861, %_ZN9btMatrixXIfE13multiply2_p8rEPKfS2_iiii.exit ], [ %859, %857 ], [ %861, %._crit_edge.us.i611 ]
   %962 = add i32 %961, %.0315828
   %indvars.iv.next904 = add nuw nsw i64 %indvars.iv903, 1
   %963 = icmp slt i32 %962, %833
@@ -4760,7 +4760,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjec
   unreachable
 
 _ZN20btAlignedObjectArrayI11btJointNodeED2Ev.exit687: ; preds = %316, %1113, %1114
-  %.pn366.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn366.pn.pn.pn.pn.pn.pn.pn, %1114 ], [ %.pn331, %316 ], [ %.pn366.pn.pn.pn.pn.pn.pn.pn, %1113 ]
+  %.pn366.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn366.pn.pn.pn.pn.pn.pn.pn, %1113 ], [ %.pn366.pn.pn.pn.pn.pn.pn.pn, %1114 ], [ %.pn331, %316 ]
   %.not.i.i.i688.not = icmp eq ptr %.sroa.14736.2, null
   br i1 %.not.i.i.i688.not, label %_ZN20btAlignedObjectArrayIiED2Ev.exit690, label %1118
 

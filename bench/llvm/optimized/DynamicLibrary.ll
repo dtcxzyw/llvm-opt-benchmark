@@ -109,7 +109,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm3sys14DynamicLibrary9HandleSet6DLO
   br label %11
 
 11:                                               ; preds = %2, %4, %5
-  %.0 = phi ptr [ @_ZN4llvm3sys14DynamicLibrary7InvalidE, %4 ], [ @_ZN4llvm3sys14DynamicLibrary7InvalidE, %5 ], [ %3, %2 ]
+  %.0 = phi ptr [ @_ZN4llvm3sys14DynamicLibrary7InvalidE, %5 ], [ @_ZN4llvm3sys14DynamicLibrary7InvalidE, %4 ], [ %3, %2 ]
   ret ptr %.0
 }
 
@@ -152,7 +152,7 @@ define dso_local noundef ptr @_ZN4llvm31SearchForAddressOfSpecialSymbolEPKc(ptr 
   br label %_ZL8DoSearchPKc.exit
 
 _ZL8DoSearchPKc.exit:                             ; preds = %1, %3, %5
-  %.0.i = phi ptr [ @stdout, %3 ], [ %stdin..i, %5 ], [ @stderr, %1 ]
+  %.0.i = phi ptr [ @stderr, %1 ], [ @stdout, %3 ], [ %stdin..i, %5 ]
   ret ptr %.0.i
 }
 
@@ -257,8 +257,8 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %.split9
   %21 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #15
   br label %.split
 
-.split:                                           ; preds = %11, %10, %_ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit
-  %.sroa.011.0 = phi ptr [ %9, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit ], [ @_ZN4llvm3sys14DynamicLibrary7InvalidE, %_ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ @_ZN4llvm3sys14DynamicLibrary7InvalidE, %10 ], [ @_ZN4llvm3sys14DynamicLibrary7InvalidE, %11 ]
+.split:                                           ; preds = %10, %11, %_ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit
+  %.sroa.011.0 = phi ptr [ %9, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit ], [ @_ZN4llvm3sys14DynamicLibrary7InvalidE, %_ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ @_ZN4llvm3sys14DynamicLibrary7InvalidE, %11 ], [ @_ZN4llvm3sys14DynamicLibrary7InvalidE, %10 ]
   ret ptr %.sroa.011.0
 }
 
@@ -375,7 +375,7 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit36: 
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit
 
 _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit: ; preds = %17, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit34, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit36, %37, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %37 ], [ %50, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit36 ], [ %49, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit34 ], [ %48, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i.i, %17 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %37 ], [ %.sroa.032.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %48, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit ], [ %49, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit34 ], [ %50, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit36 ], [ %.sroa.032.051.i.i.i.i.i, %17 ]
   %.not13 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %10
   br i1 %.not13, label %.critedge, label %51
 
@@ -473,7 +473,7 @@ _ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_itera
   br label %_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit
 
 _ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit:     ; preds = %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %58, %90, %87, %51, %52
-  %.0 = phi i1 [ false, %87 ], [ false, %51 ], [ false, %52 ], [ true, %90 ], [ true, %58 ], [ true, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ]
+  %.0 = phi i1 [ false, %52 ], [ false, %51 ], [ false, %87 ], [ true, %90 ], [ true, %58 ], [ true, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ]
   ret i1 %.0
 }
 
@@ -638,8 +638,8 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet10AddLibraryEPvbbb.exit: ; preds = %20, %_
   %43 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #15
   br label %.split
 
-.split:                                           ; preds = %5, %4, %_ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN4llvm3sys14DynamicLibrary9HandleSet10AddLibraryEPvbbb.exit
-  %.sroa.011.0 = phi ptr [ %3, %_ZN4llvm3sys14DynamicLibrary9HandleSet10AddLibraryEPvbbb.exit ], [ @_ZN4llvm3sys14DynamicLibrary7InvalidE, %_ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ @_ZN4llvm3sys14DynamicLibrary7InvalidE, %4 ], [ @_ZN4llvm3sys14DynamicLibrary7InvalidE, %5 ]
+.split:                                           ; preds = %4, %5, %_ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN4llvm3sys14DynamicLibrary9HandleSet10AddLibraryEPvbbb.exit
+  %.sroa.011.0 = phi ptr [ %3, %_ZN4llvm3sys14DynamicLibrary9HandleSet10AddLibraryEPvbbb.exit ], [ @_ZN4llvm3sys14DynamicLibrary7InvalidE, %_ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ @_ZN4llvm3sys14DynamicLibrary7InvalidE, %5 ], [ @_ZN4llvm3sys14DynamicLibrary7InvalidE, %4 ]
   ret ptr %.sroa.011.0
 }
 
@@ -779,7 +779,7 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit25
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i
 
 _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i: ; preds = %21, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit23, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit25, %._crit_edge._crit_edge57.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %41
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %41 ], [ %54, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit25 ], [ %52, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit ], [ %53, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit23 ], [ %.sroa.032.051.i.i.i.i.i.i, %21 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %41 ], [ %.sroa.032.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i.i ], [ %52, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit ], [ %53, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit23 ], [ %54, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit25 ], [ %.sroa.032.051.i.i.i.i.i.i, %21 ]
   %.not.i5 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %14
   br i1 %.not.i5, label %_ZN4llvm3sys14DynamicLibrary9HandleSet12CloseLibraryEPv.exit, label %55
 
@@ -921,7 +921,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZNSt10lock_guardIN
   br label %_ZN4llvm31SearchForAddressOfSpecialSymbolEPKc.exit
 
 _ZN4llvm31SearchForAddressOfSpecialSymbolEPKc.exit: ; preds = %36, %34, %31, %.thread
-  %.3 = phi ptr [ %.0.ph, %.thread ], [ @stdout, %34 ], [ %stdin..i.i, %36 ], [ @stderr, %31 ]
+  %.3 = phi ptr [ %.0.ph, %.thread ], [ @stderr, %31 ], [ @stdout, %34 ], [ %stdin..i.i, %36 ]
   ret ptr %.3
 }
 
@@ -1036,7 +1036,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm3sys14DynamicLibrary9HandleSet6L
   br i1 %.not30.i40, label %44, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit41.thread
 
 _ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit41.thread: ; preds = %.lr.ph.i, %22, %.lr.ph.i33, %36, %45, %44, %32, %.loopexit, %28, %.thread
-  %.2 = phi ptr [ null, %36 ], [ null, %44 ], [ %27, %.thread ], [ null, %.loopexit ], [ null, %28 ], [ null, %32 ], [ %25, %22 ], [ %48, %45 ], [ %39, %.lr.ph.i33 ], [ %16, %.lr.ph.i ]
+  %.2 = phi ptr [ %27, %.thread ], [ null, %28 ], [ null, %.loopexit ], [ null, %32 ], [ %48, %45 ], [ null, %44 ], [ %39, %.lr.ph.i33 ], [ null, %36 ], [ %25, %22 ], [ %16, %.lr.ph.i ]
   ret ptr %.2
 }
 

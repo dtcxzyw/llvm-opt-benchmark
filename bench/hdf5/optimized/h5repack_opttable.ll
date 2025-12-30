@@ -167,7 +167,7 @@ init_packobject.exit:                             ; preds = %43
   br label %53
 
 53:                                               ; preds = %33, %37, %25, %12, %16, %4, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -1, %12 ], [ -1, %4 ], [ -1, %16 ], [ -1, %25 ], [ -1, %37 ], [ -1, %33 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -1, %4 ], [ -1, %16 ], [ -1, %12 ], [ -1, %25 ], [ -1, %37 ], [ -1, %33 ]
   ret i32 %.0
 }
 
@@ -390,7 +390,7 @@ aux_tblinsert_layout.exit:                        ; preds = %66, %.preheader103
   br i1 %exitcond.not.i85, label %aux_tblinsert_layout.exit86, label %87, !llvm.loop !30
 
 aux_tblinsert_layout.exit.thread:                 ; preds = %62, %58, %57, %50, %aux_tblinsert_layout.exit
-  %.073108 = phi i32 [ %22, %aux_tblinsert_layout.exit ], [ %29, %58 ], [ %29, %57 ], [ %29, %50 ], [ %29, %62 ]
+  %.073108 = phi i32 [ %29, %58 ], [ %29, %57 ], [ %29, %50 ], [ %22, %aux_tblinsert_layout.exit ], [ %29, %62 ]
   %91 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv135
   %92 = zext i32 %.073108 to i64
   %93 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.pre.pre, i64 %92
@@ -453,9 +453,9 @@ aux_tblinsert_layout.exit86.sink.split:           ; preds = %81, %108
   br label %aux_tblinsert_layout.exit86
 
 aux_tblinsert_layout.exit86:                      ; preds = %87, %114, %aux_tblinsert_layout.exit86.sink.split, %109, %95, %82, %67, %aux_tblinsert_layout.exit.thread
-  %.pre.pre147 = phi ptr [ %.pre.pre147.ph, %aux_tblinsert_layout.exit86.sink.split ], [ %.pre.pre, %aux_tblinsert_layout.exit.thread ], [ %.val78, %67 ], [ %.val79, %109 ], [ %.val78, %82 ], [ %.val79, %95 ], [ %.val79, %114 ], [ %.val78, %87 ]
-  %.1100 = phi i1 [ %.1100.ph, %aux_tblinsert_layout.exit86.sink.split ], [ true, %aux_tblinsert_layout.exit.thread ], [ false, %67 ], [ true, %109 ], [ false, %82 ], [ true, %95 ], [ true, %114 ], [ false, %87 ]
-  %.170 = phi i32 [ %.170.ph, %aux_tblinsert_layout.exit86.sink.split ], [ %.069117, %aux_tblinsert_layout.exit.thread ], [ %69, %67 ], [ %97, %109 ], [ %69, %82 ], [ %97, %95 ], [ %97, %114 ], [ %69, %87 ]
+  %.pre.pre147 = phi ptr [ %.pre.pre, %aux_tblinsert_layout.exit.thread ], [ %.val78, %67 ], [ %.val78, %82 ], [ %.val79, %95 ], [ %.val79, %109 ], [ %.pre.pre147.ph, %aux_tblinsert_layout.exit86.sink.split ], [ %.val79, %114 ], [ %.val78, %87 ]
+  %.1100 = phi i1 [ true, %aux_tblinsert_layout.exit.thread ], [ false, %67 ], [ false, %82 ], [ true, %95 ], [ true, %109 ], [ %.1100.ph, %aux_tblinsert_layout.exit86.sink.split ], [ true, %114 ], [ false, %87 ]
+  %.170 = phi i32 [ %.069117, %aux_tblinsert_layout.exit.thread ], [ %69, %67 ], [ %69, %82 ], [ %97, %95 ], [ %97, %109 ], [ %.170.ph, %aux_tblinsert_layout.exit86.sink.split ], [ %97, %114 ], [ %69, %87 ]
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count137
   br i1 %exitcond138.not, label %.loopexit, label %.preheader103, !llvm.loop !32
@@ -517,7 +517,7 @@ aux_tblinsert_layout.exit98:                      ; preds = %141, %119, %134, %1
   br i1 %exitcond145.not, label %.loopexit, label %119, !llvm.loop !33
 
 .loopexit:                                        ; preds = %aux_tblinsert_layout.exit86, %aux_tblinsert_layout.exit98, %.preheader104, %.preheader
-  %.2 = phi i32 [ %1, %aux_tblinsert_layout.exit98 ], [ 0, %.preheader ], [ 0, %.preheader104 ], [ %.170, %aux_tblinsert_layout.exit86 ]
+  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader104 ], [ %1, %aux_tblinsert_layout.exit98 ], [ %.170, %aux_tblinsert_layout.exit86 ]
   %145 = load i32, ptr %5, align 4, !tbaa !26
   %146 = add i32 %145, %.2
   store i32 %146, ptr %5, align 4, !tbaa !26
@@ -617,7 +617,7 @@ init_packobject.exit:                             ; preds = %36
   br i1 %47, label %.lr.ph, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %init_packobject.exit, %27, %11, %23, %19
-  %.0 = phi i32 [ -1, %11 ], [ -1, %19 ], [ -1, %23 ], [ 0, %27 ], [ 0, %init_packobject.exit ]
+  %.0 = phi i32 [ -1, %19 ], [ -1, %23 ], [ -1, %11 ], [ 0, %27 ], [ 0, %init_packobject.exit ]
   ret i32 %.0
 }
 
@@ -851,8 +851,8 @@ thread-pre-split:                                 ; preds = %9
   br label %aux_tblinsert_filter.exit69
 
 aux_tblinsert_filter.exit69:                      ; preds = %115, %111, %103, %98, %77, %73, %65, %60, %81
-  %.177 = phi i1 [ false, %77 ], [ true, %81 ], [ false, %60 ], [ false, %65 ], [ false, %73 ], [ true, %98 ], [ true, %103 ], [ true, %111 ], [ true, %115 ]
-  %.157 = phi i32 [ %51, %77 ], [ %.05688, %81 ], [ %51, %60 ], [ %51, %65 ], [ %51, %73 ], [ %90, %98 ], [ %90, %103 ], [ %90, %111 ], [ %90, %115 ]
+  %.177 = phi i1 [ true, %81 ], [ false, %60 ], [ false, %65 ], [ false, %73 ], [ false, %77 ], [ true, %98 ], [ true, %103 ], [ true, %111 ], [ true, %115 ]
+  %.157 = phi i32 [ %.05688, %81 ], [ %51, %60 ], [ %51, %65 ], [ %51, %73 ], [ %51, %77 ], [ %90, %98 ], [ %90, %103 ], [ %90, %111 ], [ %90, %115 ]
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count106
   br i1 %exitcond107.not, label %.loopexit, label %.preheader79, !llvm.loop !36
@@ -915,7 +915,7 @@ aux_tblinsert_filter.exit75:                      ; preds = %131, %136, %144, %1
   br i1 %exitcond114.not, label %.loopexit, label %119, !llvm.loop !37
 
 .loopexit:                                        ; preds = %aux_tblinsert_filter.exit69, %aux_tblinsert_filter.exit75, %.preheader80, %.preheader
-  %.2 = phi i32 [ %1, %aux_tblinsert_filter.exit75 ], [ 0, %.preheader ], [ 0, %.preheader80 ], [ %.157, %aux_tblinsert_filter.exit69 ]
+  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader80 ], [ %1, %aux_tblinsert_filter.exit75 ], [ %.157, %aux_tblinsert_filter.exit69 ]
   %152 = load i32, ptr %5, align 4, !tbaa !26
   %153 = add i32 %152, %.2
   store i32 %153, ptr %5, align 4, !tbaa !26

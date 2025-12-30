@@ -256,7 +256,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.thread38
 
 .thread38:                                        ; preds = %.tail.thread, %12, %.preheader, %51
-  %.0 = phi ptr [ %13, %12 ], [ %54, %51 ], [ null, %.preheader ], [ null, %.tail.thread ]
+  %.0 = phi ptr [ %54, %51 ], [ null, %.preheader ], [ %13, %12 ], [ null, %.tail.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -1330,9 +1330,9 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br i1 %.not682, label %.sink.split, label %125
 
 .sink.split:                                      ; preds = %.critedge2.thread, %119, %120
-  %.sink931 = phi i32 [ 39, %119 ], [ 39, %120 ], [ 34, %.critedge2.thread ]
-  %.0531777.ph = phi i32 [ %.1532.lcssa, %119 ], [ %.1532.lcssa, %120 ], [ %.0531778, %.critedge2.thread ]
-  %.1529.ph = phi i8 [ 39, %119 ], [ 39, %120 ], [ 34, %.critedge2.thread ]
+  %.sink931 = phi i32 [ 39, %120 ], [ 39, %119 ], [ 34, %.critedge2.thread ]
+  %.0531777.ph = phi i32 [ %.1532.lcssa, %120 ], [ %.1532.lcssa, %119 ], [ %.0531778, %.critedge2.thread ]
+  %.1529.ph = phi i8 [ 39, %120 ], [ 39, %119 ], [ 34, %.critedge2.thread ]
   %.not683 = icmp eq i32 %.0527833, 0
   %123 = select i1 %.not683, ptr @.str.17, ptr @.str.29
   %124 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.28, ptr noundef nonnull %123, i32 noundef %.sink931)
@@ -1433,7 +1433,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br label %167
 
 167:                                              ; preds = %157, %160, %156
-  %.0533 = phi i8 [ %.0.copyload103, %156 ], [ %166, %160 ], [ 0, %157 ]
+  %.0533 = phi i8 [ %166, %160 ], [ %.0.copyload103, %156 ], [ 0, %157 ]
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %169 = load ptr, ptr %168, align 8, !tbaa !61
   %.not676 = icmp eq ptr %169, null
@@ -1460,7 +1460,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br label %183
 
 183:                                              ; preds = %173, %176, %172
-  %.0535 = phi i8 [ %.0.copyload103, %172 ], [ %182, %176 ], [ 0, %173 ]
+  %.0535 = phi i8 [ %182, %176 ], [ %.0.copyload103, %172 ], [ 0, %173 ]
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %185 = load ptr, ptr %184, align 8, !tbaa !62
   %.not674 = icmp eq ptr %185, null
@@ -1492,7 +1492,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br label %200
 
 200:                                              ; preds = %192, %195, %191
-  %.0537 = phi i32 [ %.0.copyload97, %191 ], [ %199, %195 ], [ 0, %192 ]
+  %.0537 = phi i32 [ %199, %195 ], [ %.0.copyload97, %191 ], [ 0, %192 ]
   %201 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %202 = load ptr, ptr %201, align 8, !tbaa !63
   %.not671 = icmp eq ptr %202, null
@@ -1516,7 +1516,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br label %213
 
 213:                                              ; preds = %205, %208, %204
-  %.0539 = phi i32 [ %.0.copyload97, %204 ], [ %212, %208 ], [ 0, %205 ]
+  %.0539 = phi i32 [ %212, %208 ], [ %.0.copyload97, %204 ], [ 0, %205 ]
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %215 = load ptr, ptr %214, align 8, !tbaa !64
   %.not669 = icmp eq ptr %215, null
@@ -1549,7 +1549,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br label %231
 
 231:                                              ; preds = %221, %224, %220
-  %.0540 = phi i16 [ %.0.copyload91, %220 ], [ %230, %224 ], [ 0, %221 ]
+  %.0540 = phi i16 [ %230, %224 ], [ %.0.copyload91, %220 ], [ 0, %221 ]
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %233 = load ptr, ptr %232, align 8, !tbaa !65
   %.not667 = icmp eq ptr %233, null
@@ -1576,7 +1576,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br label %247
 
 247:                                              ; preds = %237, %240, %236
-  %.0542 = phi i16 [ %.0.copyload91, %236 ], [ %246, %240 ], [ 0, %237 ]
+  %.0542 = phi i16 [ %246, %240 ], [ %.0.copyload91, %236 ], [ 0, %237 ]
   %248 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %249 = load ptr, ptr %248, align 8, !tbaa !66
   %.not665 = icmp eq ptr %249, null
@@ -1608,7 +1608,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br label %264
 
 264:                                              ; preds = %256, %259, %255
-  %.0544 = phi i64 [ %.0.copyload85, %255 ], [ %263, %259 ], [ 0, %256 ]
+  %.0544 = phi i64 [ %263, %259 ], [ %.0.copyload85, %255 ], [ 0, %256 ]
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %266 = load ptr, ptr %265, align 8, !tbaa !67
   %.not663 = icmp eq ptr %266, null
@@ -1632,7 +1632,7 @@ define ptr @h5tools_str_sprint(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br label %277
 
 277:                                              ; preds = %269, %272, %268
-  %.0545 = phi i64 [ %.0.copyload85, %268 ], [ %276, %272 ], [ 0, %269 ]
+  %.0545 = phi i64 [ %276, %272 ], [ %.0.copyload85, %268 ], [ 0, %269 ]
   %278 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %279 = load ptr, ptr %278, align 8, !tbaa !68
   %.not661 = icmp eq ptr %279, null
@@ -2872,8 +2872,8 @@ define internal fastcc noundef ptr @h5tools_escape(ptr noundef nonnull captures(
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 8, ptr noundef nonnull @.str.80, i32 noundef %24) #23
   br label %26
 
-26:                                               ; preds = %.lr.ph, %23, %15, %6, %7, %8, %9, %10, %11, %12, %13, %14
-  %.036.ph = phi ptr [ @.str.79, %14 ], [ @.str.77, %13 ], [ @.str.75, %12 ], [ @.str.73, %11 ], [ @.str.71, %10 ], [ @.str.83, %9 ], [ @.str.82, %8 ], [ @.str.69, %7 ], [ @.str.67, %6 ], [ @.str.84, %15 ], [ %2, %23 ], [ @.str.81, %.lr.ph ]
+26:                                               ; preds = %23, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %.lr.ph
+  %.036.ph = phi ptr [ @.str.81, %.lr.ph ], [ @.str.84, %15 ], [ @.str.79, %14 ], [ @.str.77, %13 ], [ @.str.75, %12 ], [ @.str.73, %11 ], [ @.str.71, %10 ], [ @.str.83, %9 ], [ @.str.82, %8 ], [ @.str.69, %7 ], [ @.str.67, %6 ], [ %2, %23 ]
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.036.ph) #26
   %28 = add i64 %.03345, 1
   %29 = add i64 %28, %27
@@ -3122,7 +3122,7 @@ define ptr @h5tools_str_replace(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !122
 
 .loopexit:                                        ; preds = %17, %3, %7, %.thread
-  %.0 = phi ptr [ %6, %3 ], [ null, %.thread ], [ %6, %7 ], [ %16, %17 ]
+  %.0 = phi ptr [ null, %.thread ], [ %6, %7 ], [ %6, %3 ], [ %16, %17 ]
   ret ptr %.0
 }
 

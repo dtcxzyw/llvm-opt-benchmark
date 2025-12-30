@@ -347,7 +347,7 @@ bsearch.exit:                                     ; preds = %25
   br label %bsearch.exit.thread
 
 bsearch.exit.thread:                              ; preds = %28, %7, %3, %5, %bsearch.exit
-  %.0 = phi i32 [ -1, %3 ], [ %30, %bsearch.exit ], [ -1, %5 ], [ -1, %7 ], [ -1, %28 ]
+  %.0 = phi i32 [ %30, %bsearch.exit ], [ -1, %5 ], [ -1, %3 ], [ -1, %7 ], [ -1, %28 ]
   ret i32 %.0
 }
 
@@ -533,7 +533,7 @@ search_ref_dir.exit:                              ; preds = %25
   br label %search_ref_dir.exit.thread
 
 search_ref_dir.exit.thread:                       ; preds = %28, %7, %4, %search_ref_dir.exit, %2, %32
-  %.0 = phi ptr [ null, %2 ], [ %38, %32 ], [ null, %search_ref_dir.exit ], [ null, %7 ], [ null, %4 ], [ null, %28 ]
+  %.0 = phi ptr [ %38, %32 ], [ null, %2 ], [ null, %search_ref_dir.exit ], [ null, %4 ], [ null, %7 ], [ null, %28 ]
   ret ptr %.0
 }
 
@@ -653,7 +653,7 @@ search_for_subdir.exit:                           ; preds = %48, %35
   br i1 %.not, label %search_for_subdir.exit.thread, label %5, !llvm.loop !30
 
 search_for_subdir.exit.thread:                    ; preds = %search_for_subdir.exit, %search_ref_dir.exit.i, %5, %10, %31, %2
-  %.1 = phi ptr [ %0, %2 ], [ null, %31 ], [ null, %search_ref_dir.exit.i ], [ null, %5 ], [ %39, %search_for_subdir.exit ], [ null, %10 ]
+  %.1 = phi ptr [ %0, %2 ], [ null, %31 ], [ %39, %search_for_subdir.exit ], [ null, %search_ref_dir.exit.i ], [ null, %5 ], [ null, %10 ]
   ret ptr %.1
 }
 

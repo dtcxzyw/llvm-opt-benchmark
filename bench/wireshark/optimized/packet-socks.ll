@@ -679,7 +679,7 @@ proto_item_set_generated.exit196:                 ; preds = %proto_item_set_gene
   br label %proto_item_set_generated.exit202
 
 proto_item_set_generated.exit202:                 ; preds = %189, %186, %181, %proto_item_set_generated.exit196, %203, %200, %204, %205, %201, %202, %125
-  %.0159 = phi ptr [ %130, %203 ], [ null, %125 ], [ %130, %proto_item_set_generated.exit196 ], [ %130, %201 ], [ %130, %202 ], [ %130, %200 ], [ %130, %204 ], [ %130, %205 ], [ %130, %181 ], [ %130, %186 ], [ %130, %189 ]
+  %.0159 = phi ptr [ %130, %201 ], [ %130, %202 ], [ %130, %204 ], [ %130, %205 ], [ null, %125 ], [ %130, %proto_item_set_generated.exit196 ], [ %130, %200 ], [ %130, %203 ], [ %130, %181 ], [ %130, %186 ], [ %130, %189 ]
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %207 = load i32, ptr %206, align 4
   %208 = getelementptr inbounds nuw i8, ptr %.0162, i64 64
@@ -1563,7 +1563,7 @@ switch.lookup:                                    ; preds = %.lr.ph
   br label %get_auth_method_name.exit
 
 get_auth_method_name.exit:                        ; preds = %switch.lookup, %31, %33
-  %.0.i = phi ptr [ %spec.select.i, %33 ], [ @.str.113, %31 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi ptr [ @.str.113, %31 ], [ %spec.select.i, %33 ], [ %switch.load, %switch.lookup ]
   %35 = load i32, ptr @hf_client_auth_method, align 4
   %36 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %20, i32 noundef %35, ptr noundef %0, i32 noundef %.0128, i32 noundef 1, i32 noundef %29, ptr noundef nonnull @.str.104, i32 noundef %.0119127, i32 noundef %29, ptr noundef nonnull %.0.i)
   %37 = add i32 %.0128, 1
@@ -1761,7 +1761,7 @@ switch.lookup:                                    ; preds = %10
   br label %get_auth_method_name.exit
 
 get_auth_method_name.exit:                        ; preds = %switch.lookup, %18, %20
-  %.0.i = phi ptr [ %spec.select.i, %20 ], [ @.str.113, %18 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi ptr [ @.str.113, %18 ], [ %spec.select.i, %20 ], [ %switch.load, %switch.lookup ]
   %22 = load i32, ptr @hf_server_accepted_auth_method, align 4
   %23 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %16, ptr noundef nonnull @.str.118, i32 noundef %16, ptr noundef nonnull %.0.i)
   br label %101

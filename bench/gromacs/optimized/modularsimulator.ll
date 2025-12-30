@@ -4420,13 +4420,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_12ForceElem
   ret void
 
 .sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
-  %.sink = phi ptr [ %11, %18 ], [ %11, %.sink.split ], [ %35, %.sink.split43 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %.pn17.pn28.ph, %.sink.split ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
 72:                                               ; preds = %.sink.split44, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %19, %18 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -4636,13 +4636,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_19StateProp
   ret void
 
 .sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
-  %.sink = phi ptr [ %11, %18 ], [ %11, %.sink.split ], [ %35, %.sink.split43 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %.pn17.pn28.ph, %.sink.split ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
 72:                                               ; preds = %.sink.split44, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %19, %18 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -4855,13 +4855,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_34VelocityS
   ret void
 
 .sink.split48:                                    ; preds = %48, %.sink.split47, %22, %.sink.split
-  %.sink = phi ptr [ %15, %22 ], [ %15, %.sink.split ], [ %41, %.sink.split47 ], [ %41, %48 ]
-  %.pn21.pn.pn.ph = phi { ptr, i32 } [ %23, %22 ], [ %.pn21.pn32.ph, %.sink.split ], [ %.pn.pn40.ph, %.sink.split47 ], [ %49, %48 ]
+  %.sink = phi ptr [ %15, %.sink.split ], [ %15, %22 ], [ %41, %.sink.split47 ], [ %41, %48 ]
+  %.pn21.pn.pn.ph = phi { ptr, i32 } [ %.pn21.pn32.ph, %.sink.split ], [ %23, %22 ], [ %.pn.pn40.ph, %.sink.split47 ], [ %49, %48 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %78
 
 78:                                               ; preds = %.sink.split48, %48, %22
-  %.pn21.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %23, %22 ], [ %.pn21.pn.pn.ph, %.sink.split48 ]
+  %.pn21.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %49, %48 ], [ %.pn21.pn.pn.ph, %.sink.split48 ]
   resume { ptr, i32 } %.pn21.pn.pn
 
 79:                                               ; preds = %45, %19
@@ -5072,13 +5072,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10Propagato
   ret void
 
 .sink.split46:                                    ; preds = %44, %.sink.split45, %20, %.sink.split
-  %.sink = phi ptr [ %13, %20 ], [ %13, %.sink.split ], [ %37, %.sink.split45 ], [ %37, %44 ]
-  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %21, %20 ], [ %.pn19.pn30.ph, %.sink.split ], [ %.pn.pn38.ph, %.sink.split45 ], [ %45, %44 ]
+  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %37, %.sink.split45 ], [ %37, %44 ]
+  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split45 ], [ %45, %44 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %74
 
 74:                                               ; preds = %.sink.split46, %44, %20
-  %.pn19.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %21, %20 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
+  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %45, %44 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
   resume { ptr, i32 } %.pn19.pn.pn
 
 75:                                               ; preds = %41, %17
@@ -5288,13 +5288,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_18Constrain
   ret void
 
 .sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
-  %.sink = phi ptr [ %11, %18 ], [ %11, %.sink.split ], [ %35, %.sink.split43 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %.pn17.pn28.ph, %.sink.split ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
 72:                                               ; preds = %.sink.split44, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %19, %18 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -5504,13 +5504,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_11PullEleme
   ret void
 
 .sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
-  %.sink = phi ptr [ %11, %18 ], [ %11, %.sink.split ], [ %35, %.sink.split43 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %.pn17.pn28.ph, %.sink.split ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
 72:                                               ; preds = %.sink.split44, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %19, %18 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -5720,13 +5720,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_21ComputeGl
   ret void
 
 .sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
-  %.sink = phi ptr [ %11, %18 ], [ %11, %.sink.split ], [ %35, %.sink.split43 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %.pn17.pn28.ph, %.sink.split ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
 72:                                               ; preds = %.sink.split44, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %19, %18 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -5937,13 +5937,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_24Parrinell
   ret void
 
 .sink.split46:                                    ; preds = %44, %.sink.split45, %20, %.sink.split
-  %.sink = phi ptr [ %13, %20 ], [ %13, %.sink.split ], [ %37, %.sink.split45 ], [ %37, %44 ]
-  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %21, %20 ], [ %.pn19.pn30.ph, %.sink.split ], [ %.pn.pn38.ph, %.sink.split45 ], [ %45, %44 ]
+  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %37, %.sink.split45 ], [ %37, %44 ]
+  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split45 ], [ %45, %44 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %74
 
 74:                                               ; preds = %.sink.split46, %44, %20
-  %.pn19.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %21, %20 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
+  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %45, %44 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
   resume { ptr, i32 } %.pn19.pn.pn
 
 75:                                               ; preds = %41, %17
@@ -6155,13 +6155,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_26FirstOrde
   ret void
 
 .sink.split46:                                    ; preds = %46, %.sink.split45, %20, %.sink.split
-  %.sink = phi ptr [ %13, %20 ], [ %13, %.sink.split ], [ %39, %.sink.split45 ], [ %39, %46 ]
-  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %21, %20 ], [ %.pn19.pn30.ph, %.sink.split ], [ %.pn.pn38.ph, %.sink.split45 ], [ %47, %46 ]
+  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %39, %.sink.split45 ], [ %39, %46 ]
+  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split45 ], [ %47, %46 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %76
 
 76:                                               ; preds = %.sink.split46, %46, %20
-  %.pn19.pn.pn = phi { ptr, i32 } [ %47, %46 ], [ %21, %20 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
+  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %47, %46 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
   resume { ptr, i32 } %.pn19.pn.pn
 
 77:                                               ; preds = %43, %17
@@ -6372,13 +6372,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10Propagato
   ret void
 
 .sink.split46:                                    ; preds = %44, %.sink.split45, %20, %.sink.split
-  %.sink = phi ptr [ %13, %20 ], [ %13, %.sink.split ], [ %37, %.sink.split45 ], [ %37, %44 ]
-  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %21, %20 ], [ %.pn19.pn30.ph, %.sink.split ], [ %.pn.pn38.ph, %.sink.split45 ], [ %45, %44 ]
+  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %37, %.sink.split45 ], [ %37, %44 ]
+  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split45 ], [ %45, %44 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %74
 
 74:                                               ; preds = %.sink.split46, %44, %20
-  %.pn19.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %21, %20 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
+  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %45, %44 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
   resume { ptr, i32 } %.pn19.pn.pn
 
 75:                                               ; preds = %41, %17
@@ -6588,13 +6588,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_18Constrain
   ret void
 
 .sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
-  %.sink = phi ptr [ %11, %18 ], [ %11, %.sink.split ], [ %35, %.sink.split43 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %.pn17.pn28.ph, %.sink.split ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
 72:                                               ; preds = %.sink.split44, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %19, %18 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -6804,13 +6804,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_21ComputeGl
   ret void
 
 .sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
-  %.sink = phi ptr [ %11, %18 ], [ %11, %.sink.split ], [ %35, %.sink.split43 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %.pn17.pn28.ph, %.sink.split ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
 72:                                               ; preds = %.sink.split44, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %19, %18 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -7020,13 +7020,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_23ExpandedE
   ret void
 
 .sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
-  %.sink = phi ptr [ %11, %18 ], [ %11, %.sink.split ], [ %35, %.sink.split43 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %.pn17.pn28.ph, %.sink.split ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
 72:                                               ; preds = %.sink.split44, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %19, %18 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -7236,13 +7236,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_27AndersenT
   ret void
 
 .sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
-  %.sink = phi ptr [ %11, %18 ], [ %11, %.sink.split ], [ %35, %.sink.split43 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %.pn17.pn28.ph, %.sink.split ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
 72:                                               ; preds = %.sink.split44, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %19, %18 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -7453,13 +7453,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10Propagato
   ret void
 
 .sink.split46:                                    ; preds = %44, %.sink.split45, %20, %.sink.split
-  %.sink = phi ptr [ %13, %20 ], [ %13, %.sink.split ], [ %37, %.sink.split45 ], [ %37, %44 ]
-  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %21, %20 ], [ %.pn19.pn30.ph, %.sink.split ], [ %.pn.pn38.ph, %.sink.split45 ], [ %45, %44 ]
+  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %37, %.sink.split45 ], [ %37, %44 ]
+  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split45 ], [ %45, %44 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %74
 
 74:                                               ; preds = %.sink.split46, %44, %20
-  %.pn19.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %21, %20 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
+  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %45, %44 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
   resume { ptr, i32 } %.pn19.pn.pn
 
 75:                                               ; preds = %41, %17
@@ -7669,13 +7669,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10Propagato
   ret void
 
 .sink.split45:                                    ; preds = %43, %.sink.split44, %19, %.sink.split
-  %.sink = phi ptr [ %12, %19 ], [ %12, %.sink.split ], [ %36, %.sink.split44 ], [ %36, %43 ]
-  %.pn18.pn.pn.ph = phi { ptr, i32 } [ %20, %19 ], [ %.pn18.pn29.ph, %.sink.split ], [ %.pn.pn37.ph, %.sink.split44 ], [ %44, %43 ]
+  %.sink = phi ptr [ %12, %.sink.split ], [ %12, %19 ], [ %36, %.sink.split44 ], [ %36, %43 ]
+  %.pn18.pn.pn.ph = phi { ptr, i32 } [ %.pn18.pn29.ph, %.sink.split ], [ %20, %19 ], [ %.pn.pn37.ph, %.sink.split44 ], [ %44, %43 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %73
 
 73:                                               ; preds = %.sink.split45, %43, %19
-  %.pn18.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %20, %19 ], [ %.pn18.pn.pn.ph, %.sink.split45 ]
+  %.pn18.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %44, %43 ], [ %.pn18.pn.pn.ph, %.sink.split45 ]
   resume { ptr, i32 } %.pn18.pn.pn
 
 74:                                               ; preds = %40, %16
@@ -7887,13 +7887,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_11MttkEleme
   ret void
 
 .sink.split47:                                    ; preds = %46, %.sink.split46, %21, %.sink.split
-  %.sink = phi ptr [ %14, %21 ], [ %14, %.sink.split ], [ %39, %.sink.split46 ], [ %39, %46 ]
-  %.pn20.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %.pn20.pn31.ph, %.sink.split ], [ %.pn.pn39.ph, %.sink.split46 ], [ %47, %46 ]
+  %.sink = phi ptr [ %14, %.sink.split ], [ %14, %21 ], [ %39, %.sink.split46 ], [ %39, %46 ]
+  %.pn20.pn.pn.ph = phi { ptr, i32 } [ %.pn20.pn31.ph, %.sink.split ], [ %22, %21 ], [ %.pn.pn39.ph, %.sink.split46 ], [ %47, %46 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %76
 
 76:                                               ; preds = %.sink.split47, %46, %21
-  %.pn20.pn.pn = phi { ptr, i32 } [ %47, %46 ], [ %22, %21 ], [ %.pn20.pn.pn.ph, %.sink.split47 ]
+  %.pn20.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %47, %46 ], [ %.pn20.pn.pn.ph, %.sink.split47 ]
   resume { ptr, i32 } %.pn20.pn.pn
 
 77:                                               ; preds = %43, %18
@@ -8107,13 +8107,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_23NoseHoove
   ret void
 
 .sink.split49:                                    ; preds = %50, %.sink.split48, %23, %.sink.split
-  %.sink = phi ptr [ %16, %23 ], [ %16, %.sink.split ], [ %43, %.sink.split48 ], [ %43, %50 ]
-  %.pn22.pn.pn.ph = phi { ptr, i32 } [ %24, %23 ], [ %.pn22.pn33.ph, %.sink.split ], [ %.pn.pn41.ph, %.sink.split48 ], [ %51, %50 ]
+  %.sink = phi ptr [ %16, %.sink.split ], [ %16, %23 ], [ %43, %.sink.split48 ], [ %43, %50 ]
+  %.pn22.pn.pn.ph = phi { ptr, i32 } [ %.pn22.pn33.ph, %.sink.split ], [ %24, %23 ], [ %.pn.pn41.ph, %.sink.split48 ], [ %51, %50 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %80
 
 80:                                               ; preds = %.sink.split49, %50, %23
-  %.pn22.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %24, %23 ], [ %.pn22.pn.pn.ph, %.sink.split49 ]
+  %.pn22.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %51, %50 ], [ %.pn22.pn.pn.ph, %.sink.split49 ]
   resume { ptr, i32 } %.pn22.pn.pn
 
 81:                                               ; preds = %47, %20
@@ -8327,13 +8327,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_23NoseHoove
   ret void
 
 .sink.split49:                                    ; preds = %50, %.sink.split48, %23, %.sink.split
-  %.sink = phi ptr [ %16, %23 ], [ %16, %.sink.split ], [ %43, %.sink.split48 ], [ %43, %50 ]
-  %.pn22.pn.pn.ph = phi { ptr, i32 } [ %24, %23 ], [ %.pn22.pn33.ph, %.sink.split ], [ %.pn.pn41.ph, %.sink.split48 ], [ %51, %50 ]
+  %.sink = phi ptr [ %16, %.sink.split ], [ %16, %23 ], [ %43, %.sink.split48 ], [ %43, %50 ]
+  %.pn22.pn.pn.ph = phi { ptr, i32 } [ %.pn22.pn33.ph, %.sink.split ], [ %24, %23 ], [ %.pn.pn41.ph, %.sink.split48 ], [ %51, %50 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %80
 
 80:                                               ; preds = %.sink.split49, %50, %23
-  %.pn22.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %24, %23 ], [ %.pn22.pn.pn.ph, %.sink.split49 ]
+  %.pn22.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %51, %50 ], [ %.pn22.pn.pn.ph, %.sink.split49 ]
   resume { ptr, i32 } %.pn22.pn.pn
 
 81:                                               ; preds = %47, %20
@@ -8547,13 +8547,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_23NoseHoove
   ret void
 
 .sink.split49:                                    ; preds = %50, %.sink.split48, %23, %.sink.split
-  %.sink = phi ptr [ %16, %23 ], [ %16, %.sink.split ], [ %43, %.sink.split48 ], [ %43, %50 ]
-  %.pn22.pn.pn.ph = phi { ptr, i32 } [ %24, %23 ], [ %.pn22.pn33.ph, %.sink.split ], [ %.pn.pn41.ph, %.sink.split48 ], [ %51, %50 ]
+  %.sink = phi ptr [ %16, %.sink.split ], [ %16, %23 ], [ %43, %.sink.split48 ], [ %43, %50 ]
+  %.pn22.pn.pn.ph = phi { ptr, i32 } [ %.pn22.pn33.ph, %.sink.split ], [ %24, %23 ], [ %.pn.pn41.ph, %.sink.split48 ], [ %51, %50 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %80
 
 80:                                               ; preds = %.sink.split49, %50, %23
-  %.pn22.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %24, %23 ], [ %.pn22.pn.pn.ph, %.sink.split49 ]
+  %.pn22.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %51, %50 ], [ %.pn22.pn.pn.ph, %.sink.split49 ]
   resume { ptr, i32 } %.pn22.pn.pn
 
 81:                                               ; preds = %47, %20
@@ -8767,13 +8767,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_23NoseHoove
   ret void
 
 .sink.split49:                                    ; preds = %50, %.sink.split48, %23, %.sink.split
-  %.sink = phi ptr [ %16, %23 ], [ %16, %.sink.split ], [ %43, %.sink.split48 ], [ %43, %50 ]
-  %.pn22.pn.pn.ph = phi { ptr, i32 } [ %24, %23 ], [ %.pn22.pn33.ph, %.sink.split ], [ %.pn.pn41.ph, %.sink.split48 ], [ %51, %50 ]
+  %.sink = phi ptr [ %16, %.sink.split ], [ %16, %23 ], [ %43, %.sink.split48 ], [ %43, %50 ]
+  %.pn22.pn.pn.ph = phi { ptr, i32 } [ %.pn22.pn33.ph, %.sink.split ], [ %24, %23 ], [ %.pn.pn41.ph, %.sink.split48 ], [ %51, %50 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %80
 
 80:                                               ; preds = %.sink.split49, %50, %23
-  %.pn22.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %24, %23 ], [ %.pn22.pn.pn.ph, %.sink.split49 ]
+  %.pn22.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %51, %50 ], [ %.pn22.pn.pn.ph, %.sink.split49 ]
   resume { ptr, i32 } %.pn22.pn.pn
 
 81:                                               ; preds = %47, %20
@@ -8985,13 +8985,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_11MttkEleme
   ret void
 
 .sink.split47:                                    ; preds = %46, %.sink.split46, %21, %.sink.split
-  %.sink = phi ptr [ %14, %21 ], [ %14, %.sink.split ], [ %39, %.sink.split46 ], [ %39, %46 ]
-  %.pn20.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %.pn20.pn31.ph, %.sink.split ], [ %.pn.pn39.ph, %.sink.split46 ], [ %47, %46 ]
+  %.sink = phi ptr [ %14, %.sink.split ], [ %14, %21 ], [ %39, %.sink.split46 ], [ %39, %46 ]
+  %.pn20.pn.pn.ph = phi { ptr, i32 } [ %.pn20.pn31.ph, %.sink.split ], [ %22, %21 ], [ %.pn.pn39.ph, %.sink.split46 ], [ %47, %46 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %76
 
 76:                                               ; preds = %.sink.split47, %46, %21
-  %.pn20.pn.pn = phi { ptr, i32 } [ %47, %46 ], [ %22, %21 ], [ %.pn20.pn.pn.ph, %.sink.split47 ]
+  %.pn20.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %47, %46 ], [ %.pn20.pn.pn.ph, %.sink.split47 ]
   resume { ptr, i32 } %.pn20.pn.pn
 
 77:                                               ; preds = %43, %18
@@ -9201,13 +9201,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10Propagato
   ret void
 
 .sink.split45:                                    ; preds = %43, %.sink.split44, %19, %.sink.split
-  %.sink = phi ptr [ %12, %19 ], [ %12, %.sink.split ], [ %36, %.sink.split44 ], [ %36, %43 ]
-  %.pn18.pn.pn.ph = phi { ptr, i32 } [ %20, %19 ], [ %.pn18.pn29.ph, %.sink.split ], [ %.pn.pn37.ph, %.sink.split44 ], [ %44, %43 ]
+  %.sink = phi ptr [ %12, %.sink.split ], [ %12, %19 ], [ %36, %.sink.split44 ], [ %36, %43 ]
+  %.pn18.pn.pn.ph = phi { ptr, i32 } [ %.pn18.pn29.ph, %.sink.split ], [ %20, %19 ], [ %.pn.pn37.ph, %.sink.split44 ], [ %44, %43 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %73
 
 73:                                               ; preds = %.sink.split45, %43, %19
-  %.pn18.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %20, %19 ], [ %.pn18.pn.pn.ph, %.sink.split45 ]
+  %.pn18.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %44, %43 ], [ %.pn18.pn.pn.ph, %.sink.split45 ]
   resume { ptr, i32 } %.pn18.pn.pn
 
 74:                                               ; preds = %40, %16
@@ -9418,13 +9418,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10Propagato
   ret void
 
 .sink.split46:                                    ; preds = %44, %.sink.split45, %20, %.sink.split
-  %.sink = phi ptr [ %13, %20 ], [ %13, %.sink.split ], [ %37, %.sink.split45 ], [ %37, %44 ]
-  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %21, %20 ], [ %.pn19.pn30.ph, %.sink.split ], [ %.pn.pn38.ph, %.sink.split45 ], [ %45, %44 ]
+  %.sink = phi ptr [ %13, %.sink.split ], [ %13, %20 ], [ %37, %.sink.split45 ], [ %37, %44 ]
+  %.pn19.pn.pn.ph = phi { ptr, i32 } [ %.pn19.pn30.ph, %.sink.split ], [ %21, %20 ], [ %.pn.pn38.ph, %.sink.split45 ], [ %45, %44 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %74
 
 74:                                               ; preds = %.sink.split46, %44, %20
-  %.pn19.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %21, %20 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
+  %.pn19.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %45, %44 ], [ %.pn19.pn.pn.ph, %.sink.split46 ]
   resume { ptr, i32 } %.pn19.pn.pn
 
 75:                                               ; preds = %41, %17
@@ -9634,13 +9634,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_14MttkBoxSc
   ret void
 
 .sink.split45:                                    ; preds = %43, %.sink.split44, %19, %.sink.split
-  %.sink = phi ptr [ %12, %19 ], [ %12, %.sink.split ], [ %36, %.sink.split44 ], [ %36, %43 ]
-  %.pn18.pn.pn.ph = phi { ptr, i32 } [ %20, %19 ], [ %.pn18.pn29.ph, %.sink.split ], [ %.pn.pn37.ph, %.sink.split44 ], [ %44, %43 ]
+  %.sink = phi ptr [ %12, %.sink.split ], [ %12, %19 ], [ %36, %.sink.split44 ], [ %36, %43 ]
+  %.pn18.pn.pn.ph = phi { ptr, i32 } [ %.pn18.pn29.ph, %.sink.split ], [ %20, %19 ], [ %.pn.pn37.ph, %.sink.split44 ], [ %44, %43 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %73
 
 73:                                               ; preds = %.sink.split45, %43, %19
-  %.pn18.pn.pn = phi { ptr, i32 } [ %44, %43 ], [ %20, %19 ], [ %.pn18.pn.pn.ph, %.sink.split45 ]
+  %.pn18.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %44, %43 ], [ %.pn18.pn.pn.ph, %.sink.split45 ]
   resume { ptr, i32 } %.pn18.pn.pn
 
 74:                                               ; preds = %40, %16
@@ -10052,13 +10052,13 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10EnergyDat
   ret void
 
 .sink.split44:                                    ; preds = %42, %.sink.split43, %18, %.sink.split
-  %.sink = phi ptr [ %11, %18 ], [ %11, %.sink.split ], [ %35, %.sink.split43 ], [ %35, %42 ]
-  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %.pn17.pn28.ph, %.sink.split ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %35, %.sink.split43 ], [ %35, %42 ]
+  %.pn17.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn28.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn36.ph, %.sink.split43 ], [ %43, %42 ]
   call void @__cxa_free_exception(ptr %.sink) #23
   br label %72
 
 72:                                               ; preds = %.sink.split44, %42, %18
-  %.pn17.pn.pn = phi { ptr, i32 } [ %43, %42 ], [ %19, %18 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
+  %.pn17.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %43, %42 ], [ %.pn17.pn.pn.ph, %.sink.split44 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 73:                                               ; preds = %39, %15
@@ -10886,7 +10886,7 @@ switch.early.test:                                ; preds = %._crit_edge
   unreachable
 
 .critedge86:                                      ; preds = %.critedge.thread, %.thread, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit", %.critedge78.thread, %105, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit148", %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit142", %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit136", %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit130", %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit121", %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit133", %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit139", %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit145", %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit151"
-  %109 = phi i1 [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit151" ], [ %107, %105 ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit145" ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit139" ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit133" ], [ false, %.thread ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit121" ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit" ], [ false, %.critedge.thread ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit130" ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit136" ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit142" ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit148" ], [ false, %.critedge78.thread ]
+  %109 = phi i1 [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit151" ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit145" ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit139" ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit133" ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit121" ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit" ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit130" ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit136" ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit142" ], [ false, %"_ZZN3gmx16ModularSimulator17isInputCompatibleEbPK10t_inputrecbRK10gmx_mtop_tPK14gmx_multisim_tRK25ReplicaExchangeParametersPK8t_fcdatabbbENK3$_0clEbPKc.exit148" ], [ %107, %105 ], [ false, %.critedge78.thread ], [ false, %.thread ], [ false, %.critedge.thread ]
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %115, label %110
 

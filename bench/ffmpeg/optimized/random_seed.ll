@@ -29,7 +29,7 @@ define range(i32 -1313558101, 1) i32 @av_random_bytes(ptr noundef writeonly capt
   br label %read_random.exit
 
 read_random.exit:                                 ; preds = %2, %4
-  %.0.i = phi i32 [ %..i, %4 ], [ -1313558101, %2 ]
+  %.0.i = phi i32 [ -1313558101, %2 ], [ %..i, %4 ]
   ret i32 %.0.i
 }
 
@@ -53,7 +53,7 @@ define i32 @av_get_random_seed() local_unnamed_addr #0 {
   %.not10.i.i = icmp eq i64 %10, 4
   br i1 %.not10.i.i, label %av_random_bytes.exit, label %12
 
-12:                                               ; preds = %8, %0
+12:                                               ; preds = %0, %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = load i64, ptr @get_generic_seed.i, align 8, !tbaa !4

@@ -554,8 +554,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %._crit_edge.i96
 
 ._crit_edge.i96:                                  ; preds = %68, %._crit_edge.i.thread
-  %.sroa.7295.1 = phi i64 [ %.sroa.7295.0307, %._crit_edge.i.thread ], [ %69, %68 ]
-  %70 = phi i64 [ %62, %._crit_edge.i.thread ], [ 0, %68 ]
+  %.sroa.7295.1 = phi i64 [ %69, %68 ], [ %.sroa.7295.0307, %._crit_edge.i.thread ]
+  %70 = phi i64 [ 0, %68 ], [ %62, %._crit_edge.i.thread ]
   %71 = getelementptr inbounds nuw double, ptr %12, i64 %.sroa.7295.1
   %.idx.i.i.i.i.i97 = shl nsw i64 %70, 5
   %72 = getelementptr inbounds i8, ptr %71, i64 %.idx.i.i.i.i.i97
@@ -589,8 +589,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %._crit_edge.i105
 
 ._crit_edge.i105:                                 ; preds = %83, %.loopexit333
-  %.sroa.7295.2 = phi i64 [ %.sroa.7295.1, %.loopexit333 ], [ %84, %83 ]
-  %85 = phi i64 [ %80, %.loopexit333 ], [ 0, %83 ]
+  %.sroa.7295.2 = phi i64 [ %84, %83 ], [ %.sroa.7295.1, %.loopexit333 ]
+  %85 = phi i64 [ 0, %83 ], [ %80, %.loopexit333 ]
   %86 = getelementptr inbounds nuw double, ptr %12, i64 %.sroa.7295.2
   %.idx.i.i.i.i.i106 = shl nsw i64 %85, 5
   %87 = getelementptr inbounds i8, ptr %86, i64 %.idx.i.i.i.i.i106

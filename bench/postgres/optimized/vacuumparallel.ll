@@ -627,7 +627,7 @@ define internal fastcc void @parallel_vacuum_process_all_indexes(ptr noundef cap
   br label %parallel_vacuum_index_is_parallel_safe.exit
 
 parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %44, %47, %50
-  %.0.i = phi i1 [ %46, %44 ], [ %or.cond8.i, %50 ], [ false, %47 ]
+  %.0.i = phi i1 [ %46, %44 ], [ false, %47 ], [ %or.cond8.i, %50 ]
   %53 = zext i1 %.0.i to i8
   br label %54
 

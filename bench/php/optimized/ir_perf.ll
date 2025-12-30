@@ -140,7 +140,7 @@ ir_perf_timestamp.exit28:                         ; preds = %43, %54
   br label %64
 
 64:                                               ; preds = %ir_perf_timestamp.exit.thread, %ir_perf_timestamp.exit28, %32, %17, %14, %ir_perf_timestamp.exit, %40
-  %.0 = phi i32 [ 0, %ir_perf_timestamp.exit ], [ 0, %14 ], [ 0, %17 ], [ 0, %40 ], [ %., %ir_perf_timestamp.exit28 ], [ 0, %32 ], [ 0, %ir_perf_timestamp.exit.thread ]
+  %.0 = phi i32 [ 0, %40 ], [ 0, %ir_perf_timestamp.exit ], [ 0, %14 ], [ 0, %17 ], [ 0, %32 ], [ %., %ir_perf_timestamp.exit28 ], [ 0, %ir_perf_timestamp.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -294,7 +294,7 @@ ir_perf_timestamp.exit:                           ; preds = %8, %17
   %40 = icmp slt i64 %39, 0
   br i1 %40, label %.thread, label %41
 
-.thread:                                          ; preds = %ir_perf_timestamp.exit, %36
+.thread:                                          ; preds = %36, %ir_perf_timestamp.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %46
 

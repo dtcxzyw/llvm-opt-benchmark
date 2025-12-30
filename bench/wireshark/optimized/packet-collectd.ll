@@ -495,11 +495,11 @@ stats_account_string.exit325.us:                  ; preds = %._crit_edge.i324.us
   br label %stats_account_string.exit334.us, !llvm.loop !6
 
 stats_account_string.exit334.us:                  ; preds = %133, %127, %121, %116, %._crit_edge.i333.us, %107, %59, %58, %58, %58, %58, %58, %58, %58
-  %.2257.us = phi ptr [ %.0255432.us, %._crit_edge.i333.us ], [ %.0255432.us, %133 ], [ %.0255432.us, %58 ], [ %spec.select.us, %127 ], [ %.0255432.us, %121 ], [ %.0255432.us, %116 ], [ %.0255432.us, %58 ], [ %.0255432.us, %59 ], [ %.0255432.us, %58 ], [ %.0255432.us, %58 ], [ %.0255432.us, %58 ], [ %.0255432.us, %58 ], [ %.0255432.us, %58 ], [ %.0255432.us, %107 ]
-  %.2252.us = phi i32 [ %.0250433.us, %._crit_edge.i333.us ], [ %.0250433.us, %133 ], [ %.0250433.us, %58 ], [ %.0250433.us, %127 ], [ %126, %121 ], [ %.0250433.us, %116 ], [ %.0250433.us, %58 ], [ %.0250433.us, %59 ], [ %.0250433.us, %58 ], [ %.0250433.us, %58 ], [ %.0250433.us, %58 ], [ %.0250433.us, %58 ], [ %.0250433.us, %58 ], [ %.0250433.us, %107 ]
-  %.2247.us = phi i32 [ %62, %._crit_edge.i333.us ], [ %.0245434.us, %133 ], [ %.0245434.us, %58 ], [ %.0245434.us, %127 ], [ %.0245434.us, %121 ], [ %.0245434.us, %116 ], [ %.0245434.us, %58 ], [ %.0245434.us, %59 ], [ %.0245434.us, %58 ], [ %.0245434.us, %58 ], [ %.0245434.us, %58 ], [ %.0245434.us, %58 ], [ %.0245434.us, %58 ], [ %62, %107 ]
-  %.2242.us = phi i32 [ %.0240435.us, %._crit_edge.i333.us ], [ %.0240435.us, %133 ], [ %.0240435.us, %58 ], [ %.0240435.us, %127 ], [ %.0240435.us, %121 ], [ %.0240435.us, %116 ], [ %.0240435.us, %58 ], [ %60, %59 ], [ %.0240435.us, %58 ], [ %.0240435.us, %58 ], [ %.0240435.us, %58 ], [ %.0240435.us, %58 ], [ %.0240435.us, %58 ], [ %.0240435.us, %107 ]
-  %.2237.us = phi i32 [ %.0235436.us, %._crit_edge.i333.us ], [ %134, %133 ], [ %.0235436.us, %58 ], [ %.0235436.us, %127 ], [ %.0235436.us, %121 ], [ %.0235436.us, %116 ], [ %.0235436.us, %58 ], [ %.0235436.us, %59 ], [ %.0235436.us, %58 ], [ %.0235436.us, %58 ], [ %.0235436.us, %58 ], [ %.0235436.us, %58 ], [ %.0235436.us, %58 ], [ %.0235436.us, %107 ]
+  %.2257.us = phi ptr [ %.0255432.us, %133 ], [ %.0255432.us, %121 ], [ %.0255432.us, %116 ], [ %.0255432.us, %59 ], [ %.0255432.us, %58 ], [ %.0255432.us, %58 ], [ %.0255432.us, %58 ], [ %.0255432.us, %58 ], [ %.0255432.us, %58 ], [ %.0255432.us, %58 ], [ %.0255432.us, %58 ], [ %spec.select.us, %127 ], [ %.0255432.us, %107 ], [ %.0255432.us, %._crit_edge.i333.us ]
+  %.2252.us = phi i32 [ %.0250433.us, %133 ], [ %126, %121 ], [ %.0250433.us, %116 ], [ %.0250433.us, %59 ], [ %.0250433.us, %58 ], [ %.0250433.us, %58 ], [ %.0250433.us, %58 ], [ %.0250433.us, %58 ], [ %.0250433.us, %58 ], [ %.0250433.us, %58 ], [ %.0250433.us, %58 ], [ %.0250433.us, %127 ], [ %.0250433.us, %107 ], [ %.0250433.us, %._crit_edge.i333.us ]
+  %.2247.us = phi i32 [ %.0245434.us, %133 ], [ %.0245434.us, %121 ], [ %.0245434.us, %116 ], [ %.0245434.us, %59 ], [ %.0245434.us, %58 ], [ %.0245434.us, %58 ], [ %.0245434.us, %58 ], [ %.0245434.us, %58 ], [ %.0245434.us, %58 ], [ %.0245434.us, %58 ], [ %.0245434.us, %58 ], [ %.0245434.us, %127 ], [ %62, %107 ], [ %62, %._crit_edge.i333.us ]
+  %.2242.us = phi i32 [ %.0240435.us, %133 ], [ %.0240435.us, %121 ], [ %.0240435.us, %116 ], [ %60, %59 ], [ %.0240435.us, %58 ], [ %.0240435.us, %58 ], [ %.0240435.us, %58 ], [ %.0240435.us, %58 ], [ %.0240435.us, %58 ], [ %.0240435.us, %58 ], [ %.0240435.us, %58 ], [ %.0240435.us, %127 ], [ %.0240435.us, %107 ], [ %.0240435.us, %._crit_edge.i333.us ]
+  %.2237.us = phi i32 [ %134, %133 ], [ %.0235436.us, %121 ], [ %.0235436.us, %116 ], [ %.0235436.us, %59 ], [ %.0235436.us, %58 ], [ %.0235436.us, %58 ], [ %.0235436.us, %58 ], [ %.0235436.us, %58 ], [ %.0235436.us, %58 ], [ %.0235436.us, %58 ], [ %.0235436.us, %58 ], [ %.0235436.us, %127 ], [ %.0235436.us, %107 ], [ %.0235436.us, %._crit_edge.i333.us ]
   %.1.us = add i32 %.0229438.us, %55
   %.1262.us = sub nsw i32 %.0261431.us, %55
   %135 = icmp sgt i32 %.1262.us, 0
@@ -913,8 +913,8 @@ collectd_proto_tree_add_assembled_metric.exit.i:  ; preds = %346, %339
   br label %dissect_collectd_part_values.exit
 
 dissect_collectd_part_values.exit:                ; preds = %201, %210, %224, %collectd_proto_tree_add_assembled_metric.exit.i
-  %.not292 = phi i1 [ true, %collectd_proto_tree_add_assembled_metric.exit.i ], [ false, %210 ], [ false, %224 ], [ false, %201 ]
-  %.0.i336 = phi i32 [ 0, %collectd_proto_tree_add_assembled_metric.exit.i ], [ -1, %210 ], [ -1, %224 ], [ -1, %201 ]
+  %.not292 = phi i1 [ false, %210 ], [ false, %224 ], [ true, %collectd_proto_tree_add_assembled_metric.exit.i ], [ false, %201 ]
+  %.0.i336 = phi i32 [ -1, %210 ], [ -1, %224 ], [ 0, %collectd_proto_tree_add_assembled_metric.exit.i ], [ -1, %201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %369 = zext i1 %.not292 to i32
   %.5 = add i32 %.0245434, %369
@@ -1300,13 +1300,13 @@ dissect_collectd_encrypted.exit.thread:           ; preds = %523, %532, %545, %5
   br label %stats_account_string.exit334
 
 stats_account_string.exit334:                     ; preds = %collectd_proto_tree_add_assembled_notification.exit, %591, %169, %179, %473, %181, %185, %189, %193, %197, %413, %._crit_edge.i362, %510, %572
-  %.2257 = phi ptr [ %.0255432, %572 ], [ %.0255432, %591 ], [ %.0255432, %473 ], [ %.0255432, %413 ], [ %.0255432, %179 ], [ %.0255432, %197 ], [ %.0255432, %189 ], [ %.0255432, %193 ], [ %.0255432, %._crit_edge.i362 ], [ %.0255432, %185 ], [ %spec.select302, %169 ], [ %.0255432, %181 ], [ %.0255432, %510 ], [ %.0255432, %collectd_proto_tree_add_assembled_notification.exit ]
-  %.2252 = phi i32 [ %.0250433, %572 ], [ %.0250433, %591 ], [ %.0250433, %473 ], [ %.0250433, %413 ], [ %180, %179 ], [ %.0250433, %197 ], [ %.0250433, %189 ], [ %.0250433, %193 ], [ %.0250433, %._crit_edge.i362 ], [ %.0250433, %185 ], [ %.0250433, %169 ], [ %.0250433, %181 ], [ %.0250433, %510 ], [ %.0250433, %collectd_proto_tree_add_assembled_notification.exit ]
-  %.2247 = phi i32 [ %.0245434, %572 ], [ %.0245434, %591 ], [ %.0245434, %473 ], [ %.5, %413 ], [ %.0245434, %179 ], [ %.0245434, %197 ], [ %.0245434, %189 ], [ %.0245434, %193 ], [ %.5, %._crit_edge.i362 ], [ %.0245434, %185 ], [ %.0245434, %169 ], [ %.0245434, %181 ], [ %.0245434, %510 ], [ %.0245434, %collectd_proto_tree_add_assembled_notification.exit ]
-  %.2242 = phi i32 [ %.0240435, %572 ], [ %.0240435, %591 ], [ %.0240435, %473 ], [ %.0240435, %413 ], [ %.0240435, %179 ], [ %.0240435, %197 ], [ %.0240435, %189 ], [ %.0240435, %193 ], [ %.0240435, %._crit_edge.i362 ], [ %.0240435, %185 ], [ %.0240435, %169 ], [ %.0240435, %181 ], [ %.0240435, %510 ], [ %430, %collectd_proto_tree_add_assembled_notification.exit ]
-  %.2237 = phi i32 [ %.0235436, %572 ], [ %592, %591 ], [ %.0235436, %473 ], [ %.0235436, %413 ], [ %.0235436, %179 ], [ %.0235436, %197 ], [ %.0235436, %189 ], [ %.0235436, %193 ], [ %.0235436, %._crit_edge.i362 ], [ %.0235436, %185 ], [ %.0235436, %169 ], [ %.0235436, %181 ], [ %.0235436, %510 ], [ %.0235436, %collectd_proto_tree_add_assembled_notification.exit ]
-  %.2234 = phi i32 [ %.0232437, %572 ], [ %.0232437, %591 ], [ %.0232437, %473 ], [ %.4, %413 ], [ %.0232437, %179 ], [ %spec.select311, %197 ], [ %spec.select307, %189 ], [ %spec.select309, %193 ], [ %.4, %._crit_edge.i362 ], [ %spec.select305, %185 ], [ %.0232437, %169 ], [ %spec.select303, %181 ], [ %.0232437, %510 ], [ %.0232437, %collectd_proto_tree_add_assembled_notification.exit ]
-  %.1231 = phi i32 [ 0, %572 ], [ 0, %591 ], [ 0, %473 ], [ %.0.i336, %413 ], [ 0, %179 ], [ %spec.select312, %197 ], [ %spec.select308, %189 ], [ %spec.select310, %193 ], [ %.0.i336, %._crit_edge.i362 ], [ %spec.select306, %185 ], [ 0, %169 ], [ %spec.select304, %181 ], [ 0, %510 ], [ 0, %collectd_proto_tree_add_assembled_notification.exit ]
+  %.2257 = phi ptr [ %.0255432, %591 ], [ %spec.select302, %169 ], [ %.0255432, %179 ], [ %.0255432, %collectd_proto_tree_add_assembled_notification.exit ], [ %.0255432, %473 ], [ %.0255432, %181 ], [ %.0255432, %185 ], [ %.0255432, %189 ], [ %.0255432, %193 ], [ %.0255432, %197 ], [ %.0255432, %413 ], [ %.0255432, %._crit_edge.i362 ], [ %.0255432, %510 ], [ %.0255432, %572 ]
+  %.2252 = phi i32 [ %.0250433, %591 ], [ %.0250433, %169 ], [ %180, %179 ], [ %.0250433, %collectd_proto_tree_add_assembled_notification.exit ], [ %.0250433, %473 ], [ %.0250433, %181 ], [ %.0250433, %185 ], [ %.0250433, %189 ], [ %.0250433, %193 ], [ %.0250433, %197 ], [ %.0250433, %413 ], [ %.0250433, %._crit_edge.i362 ], [ %.0250433, %510 ], [ %.0250433, %572 ]
+  %.2247 = phi i32 [ %.0245434, %591 ], [ %.0245434, %169 ], [ %.0245434, %179 ], [ %.0245434, %collectd_proto_tree_add_assembled_notification.exit ], [ %.0245434, %473 ], [ %.0245434, %181 ], [ %.0245434, %185 ], [ %.0245434, %189 ], [ %.0245434, %193 ], [ %.0245434, %197 ], [ %.5, %413 ], [ %.5, %._crit_edge.i362 ], [ %.0245434, %510 ], [ %.0245434, %572 ]
+  %.2242 = phi i32 [ %.0240435, %591 ], [ %.0240435, %169 ], [ %.0240435, %179 ], [ %430, %collectd_proto_tree_add_assembled_notification.exit ], [ %.0240435, %473 ], [ %.0240435, %181 ], [ %.0240435, %185 ], [ %.0240435, %189 ], [ %.0240435, %193 ], [ %.0240435, %197 ], [ %.0240435, %413 ], [ %.0240435, %._crit_edge.i362 ], [ %.0240435, %510 ], [ %.0240435, %572 ]
+  %.2237 = phi i32 [ %592, %591 ], [ %.0235436, %169 ], [ %.0235436, %179 ], [ %.0235436, %collectd_proto_tree_add_assembled_notification.exit ], [ %.0235436, %473 ], [ %.0235436, %181 ], [ %.0235436, %185 ], [ %.0235436, %189 ], [ %.0235436, %193 ], [ %.0235436, %197 ], [ %.0235436, %413 ], [ %.0235436, %._crit_edge.i362 ], [ %.0235436, %510 ], [ %.0235436, %572 ]
+  %.2234 = phi i32 [ %.0232437, %591 ], [ %.0232437, %169 ], [ %.0232437, %179 ], [ %.0232437, %collectd_proto_tree_add_assembled_notification.exit ], [ %.0232437, %473 ], [ %spec.select303, %181 ], [ %spec.select305, %185 ], [ %spec.select307, %189 ], [ %spec.select309, %193 ], [ %spec.select311, %197 ], [ %.4, %413 ], [ %.4, %._crit_edge.i362 ], [ %.0232437, %510 ], [ %.0232437, %572 ]
+  %.1231 = phi i32 [ 0, %591 ], [ 0, %169 ], [ 0, %179 ], [ 0, %collectd_proto_tree_add_assembled_notification.exit ], [ 0, %473 ], [ %spec.select304, %181 ], [ %spec.select306, %185 ], [ %spec.select308, %189 ], [ %spec.select310, %193 ], [ %spec.select312, %197 ], [ %.0.i336, %413 ], [ %.0.i336, %._crit_edge.i362 ], [ 0, %510 ], [ 0, %572 ]
   %.1 = add i32 %.0229438, %146
   %.1262 = sub nsw i32 %.0261431, %146
   %605 = icmp sgt i32 %.1262, 0
@@ -1318,13 +1318,13 @@ stats_account_string.exit334:                     ; preds = %collectd_proto_tree
   %.not804 = icmp eq i32 %.2237.us, 0
   br i1 %.not804, label %640, label %632
 
-.thread:                                          ; preds = %stats_account_string.exit334, %51, %.lr.ph.split.us, %177, %167, %dissect_collectd_encrypted.exit.thread, %471, %427, %dissect_collectd_signature.exit.thread, %161, %137
-  %.0255426 = phi ptr [ %.0255432, %137 ], [ %.0255432, %167 ], [ %.0255432, %177 ], [ %.0255432, %161 ], [ %.0255432.us, %51 ], [ %.0255432, %dissect_collectd_signature.exit.thread ], [ %.0255432, %427 ], [ %.0255432, %471 ], [ %.0255432, %dissect_collectd_encrypted.exit.thread ], [ %.0255432.us, %.lr.ph.split.us ], [ %.2257, %stats_account_string.exit334 ]
-  %.0250421 = phi i32 [ %.0250433, %137 ], [ %.0250433, %167 ], [ %.0250433, %177 ], [ %.0250433, %161 ], [ %.0250433.us, %51 ], [ %.0250433, %dissect_collectd_signature.exit.thread ], [ %.0250433, %427 ], [ %.0250433, %471 ], [ %.0250433, %dissect_collectd_encrypted.exit.thread ], [ %.0250433.us, %.lr.ph.split.us ], [ %.2252, %stats_account_string.exit334 ]
-  %.0245416 = phi i32 [ %.0245434, %137 ], [ %.0245434, %167 ], [ %.0245434, %177 ], [ %.0245434, %161 ], [ %.0245434.us, %51 ], [ %.0245434, %dissect_collectd_signature.exit.thread ], [ %.0245434, %427 ], [ %.0245434, %471 ], [ %.0245434, %dissect_collectd_encrypted.exit.thread ], [ %.0245434.us, %.lr.ph.split.us ], [ %.2247, %stats_account_string.exit334 ]
-  %.0240411 = phi i32 [ %.0240435, %137 ], [ %.0240435, %167 ], [ %.0240435, %177 ], [ %.0240435, %161 ], [ %.0240435.us, %51 ], [ %.0240435, %dissect_collectd_signature.exit.thread ], [ %.0240435, %427 ], [ %.0240435, %471 ], [ %.0240435, %dissect_collectd_encrypted.exit.thread ], [ %.0240435.us, %.lr.ph.split.us ], [ %.2242, %stats_account_string.exit334 ]
-  %.0235406 = phi i32 [ %.0235436, %137 ], [ %.0235436, %167 ], [ %.0235436, %177 ], [ %.0235436, %161 ], [ %.0235436.us, %51 ], [ %.0235436, %dissect_collectd_signature.exit.thread ], [ %.0235436, %427 ], [ %.0235436, %471 ], [ %.0235436, %dissect_collectd_encrypted.exit.thread ], [ %.0235436.us, %.lr.ph.split.us ], [ %.2237, %stats_account_string.exit334 ]
-  %.1233 = phi i32 [ %140, %137 ], [ %168, %167 ], [ %178, %177 ], [ %162, %161 ], [ 1, %51 ], [ %509, %dissect_collectd_signature.exit.thread ], [ %428, %427 ], [ %472, %471 ], [ %571, %dissect_collectd_encrypted.exit.thread ], [ 1, %.lr.ph.split.us ], [ %.2234, %stats_account_string.exit334 ]
+.thread:                                          ; preds = %stats_account_string.exit334, %51, %.lr.ph.split.us, %dissect_collectd_encrypted.exit.thread, %dissect_collectd_signature.exit.thread, %471, %427, %177, %167, %161, %137
+  %.0255426 = phi ptr [ %.0255432, %161 ], [ %.0255432, %137 ], [ %.0255432, %167 ], [ %.0255432, %177 ], [ %.0255432, %427 ], [ %.0255432, %471 ], [ %.0255432, %dissect_collectd_signature.exit.thread ], [ %.0255432, %dissect_collectd_encrypted.exit.thread ], [ %.0255432.us, %.lr.ph.split.us ], [ %.0255432.us, %51 ], [ %.2257, %stats_account_string.exit334 ]
+  %.0250421 = phi i32 [ %.0250433, %161 ], [ %.0250433, %137 ], [ %.0250433, %167 ], [ %.0250433, %177 ], [ %.0250433, %427 ], [ %.0250433, %471 ], [ %.0250433, %dissect_collectd_signature.exit.thread ], [ %.0250433, %dissect_collectd_encrypted.exit.thread ], [ %.0250433.us, %.lr.ph.split.us ], [ %.0250433.us, %51 ], [ %.2252, %stats_account_string.exit334 ]
+  %.0245416 = phi i32 [ %.0245434, %161 ], [ %.0245434, %137 ], [ %.0245434, %167 ], [ %.0245434, %177 ], [ %.0245434, %427 ], [ %.0245434, %471 ], [ %.0245434, %dissect_collectd_signature.exit.thread ], [ %.0245434, %dissect_collectd_encrypted.exit.thread ], [ %.0245434.us, %.lr.ph.split.us ], [ %.0245434.us, %51 ], [ %.2247, %stats_account_string.exit334 ]
+  %.0240411 = phi i32 [ %.0240435, %161 ], [ %.0240435, %137 ], [ %.0240435, %167 ], [ %.0240435, %177 ], [ %.0240435, %427 ], [ %.0240435, %471 ], [ %.0240435, %dissect_collectd_signature.exit.thread ], [ %.0240435, %dissect_collectd_encrypted.exit.thread ], [ %.0240435.us, %.lr.ph.split.us ], [ %.0240435.us, %51 ], [ %.2242, %stats_account_string.exit334 ]
+  %.0235406 = phi i32 [ %.0235436, %161 ], [ %.0235436, %137 ], [ %.0235436, %167 ], [ %.0235436, %177 ], [ %.0235436, %427 ], [ %.0235436, %471 ], [ %.0235436, %dissect_collectd_signature.exit.thread ], [ %.0235436, %dissect_collectd_encrypted.exit.thread ], [ %.0235436.us, %.lr.ph.split.us ], [ %.0235436.us, %51 ], [ %.2237, %stats_account_string.exit334 ]
+  %.1233 = phi i32 [ %162, %161 ], [ %140, %137 ], [ %168, %167 ], [ %178, %177 ], [ %428, %427 ], [ %472, %471 ], [ %509, %dissect_collectd_signature.exit.thread ], [ %571, %dissect_collectd_encrypted.exit.thread ], [ 1, %.lr.ph.split.us ], [ 1, %51 ], [ %.2234, %stats_account_string.exit334 ]
   %608 = icmp ne i32 %.1233, 0
   %609 = icmp ne i32 %.0235406, 0
   %or.cond = select i1 %608, i1 %609, i1 false
@@ -1512,7 +1512,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_collectd_string(ptr noundef
   br label %40
 
 40:                                               ; preds = %25, %38, %9, %23
-  %.0 = phi i32 [ -1, %9 ], [ -1, %23 ], [ 0, %38 ], [ 0, %25 ]
+  %.0 = phi i32 [ -1, %23 ], [ -1, %9 ], [ 0, %38 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
@@ -1678,7 +1678,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_collectd_integer(ptr nounde
   br label %97
 
 97:                                               ; preds = %87, %95, %8, %34, %22
-  %.0 = phi i32 [ -1, %8 ], [ -1, %22 ], [ -1, %34 ], [ 0, %95 ], [ 0, %87 ]
+  %.0 = phi i32 [ -1, %22 ], [ -1, %34 ], [ -1, %8 ], [ 0, %95 ], [ 0, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }

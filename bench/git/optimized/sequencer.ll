@@ -853,7 +853,7 @@ _.exit:                                           ; preds = %29, %31
   br label %65
 
 65:                                               ; preds = %48, %54, %51, %11, %21, %_.exit, %26, %16, %63, %41, %7
-  %.0 = phi i32 [ %64, %63 ], [ 0, %11 ], [ 0, %41 ], [ -1, %7 ], [ 0, %16 ], [ 0, %26 ], [ 0, %_.exit ], [ 0, %21 ], [ 0, %51 ], [ 0, %54 ], [ %49, %48 ]
+  %.0 = phi i32 [ %64, %63 ], [ 0, %41 ], [ -1, %7 ], [ 0, %16 ], [ 0, %26 ], [ 0, %_.exit ], [ 0, %21 ], [ 0, %11 ], [ 0, %51 ], [ 0, %54 ], [ %49, %48 ]
   ret i32 %.0
 }
 
@@ -976,7 +976,7 @@ _.exit:                                           ; preds = %23, %25
   br i1 %.not17, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %27, %13, %rebase_path_refs_to_delete.exit, %1
-  %.011 = phi i32 [ 0, %1 ], [ 0, %rebase_path_refs_to_delete.exit ], [ %.1, %13 ], [ %.3, %27 ]
+  %.011 = phi i32 [ 0, %rebase_path_refs_to_delete.exit ], [ 0, %1 ], [ %.1, %13 ], [ %.3, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %29, align 8, !tbaa !33
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1196,7 +1196,7 @@ _.exit:                                           ; preds = %13, %15
   br label %46
 
 46:                                               ; preds = %42, %_.exit, %10, %10, %45
-  %.0 = phi i32 [ 1, %45 ], [ 0, %_.exit ], [ 0, %10 ], [ 0, %10 ], [ 0, %42 ]
+  %.0 = phi i32 [ 1, %45 ], [ 0, %10 ], [ 0, %10 ], [ 0, %_.exit ], [ 0, %42 ]
   ret i32 %.0
 }
 
@@ -1251,7 +1251,7 @@ define dso_local range(i32 0, 4) i32 @get_cleanup_mode(ptr noundef %0, i32 nound
   unreachable
 
 19:                                               ; preds = %11, %9, %7, %15, %5
-  %.0 = phi i32 [ %16, %15 ], [ 0, %9 ], [ 1, %7 ], [ %6, %5 ], [ 3, %11 ]
+  %.0 = phi i32 [ %16, %15 ], [ %6, %5 ], [ 1, %7 ], [ 0, %9 ], [ 3, %11 ]
   ret i32 %.0
 }
 
@@ -1655,10 +1655,10 @@ _.exit64:                                         ; preds = %84, %86
   br label %91
 
 91:                                               ; preds = %.loopexit, %77, %68, %_.exit64, %_.exit61, %_.exit58
-  %.142 = phi i32 [ %.04180, %_.exit64 ], [ %.04180, %_.exit61 ], [ %.04180, %68 ], [ %.04180, %_.exit58 ], [ %.04180, %77 ], [ %90, %.loopexit ]
-  %.140 = phi i32 [ %.03981.ph, %_.exit64 ], [ %.03981.ph, %_.exit61 ], [ %69, %68 ], [ -1, %_.exit58 ], [ %.03981.ph, %77 ], [ %.03981.ph, %.loopexit ]
-  %.138 = phi i32 [ %.03782.ph, %_.exit64 ], [ -1, %_.exit61 ], [ %.03782.ph, %68 ], [ %.03782.ph, %_.exit58 ], [ %78, %77 ], [ %.03782.ph, %.loopexit ]
-  %.1 = phi i32 [ -1, %_.exit64 ], [ %.083.ph, %_.exit61 ], [ %.083.ph, %68 ], [ %.083.ph, %_.exit58 ], [ %.083.ph, %77 ], [ %.083.ph, %.loopexit ]
+  %.142 = phi i32 [ %.04180, %_.exit64 ], [ %.04180, %_.exit61 ], [ %.04180, %_.exit58 ], [ %.04180, %68 ], [ %.04180, %77 ], [ %90, %.loopexit ]
+  %.140 = phi i32 [ %.03981.ph, %_.exit64 ], [ %.03981.ph, %_.exit61 ], [ -1, %_.exit58 ], [ %69, %68 ], [ %.03981.ph, %77 ], [ %.03981.ph, %.loopexit ]
+  %.138 = phi i32 [ %.03782.ph, %_.exit64 ], [ -1, %_.exit61 ], [ %.03782.ph, %_.exit58 ], [ %.03782.ph, %68 ], [ %78, %77 ], [ %.03782.ph, %.loopexit ]
+  %.1 = phi i32 [ -1, %_.exit64 ], [ %.083.ph, %_.exit61 ], [ %.083.ph, %_.exit58 ], [ %.083.ph, %68 ], [ %.083.ph, %77 ], [ %.083.ph, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %92 = load i64, ptr %56, align 8, !tbaa !58
   %93 = icmp ugt i64 %92, %indvars.iv.next
@@ -1765,15 +1765,15 @@ _.exit70:                                         ; preds = %106, %108
   store ptr %134, ptr %3, align 8, !tbaa !4
   br label %parse_key_value_squoted.exit.thread
 
-parse_key_value_squoted.exit.thread:              ; preds = %.thread123, %_.exit29.i, %_.exit.i, %118, %121
-  %135 = phi i32 [ 0, %121 ], [ 1, %118 ], [ 1, %_.exit.i ], [ 1, %_.exit29.i ], [ 1, %.thread123 ]
-  %.044 = phi i32 [ 0, %121 ], [ -1, %118 ], [ -1, %_.exit.i ], [ -1, %_.exit29.i ], [ -1, %.thread123 ]
+parse_key_value_squoted.exit.thread:              ; preds = %.thread123, %_.exit.i, %_.exit29.i, %118, %121
+  %135 = phi i32 [ 1, %118 ], [ 0, %121 ], [ 1, %_.exit29.i ], [ 1, %_.exit.i ], [ 1, %.thread123 ]
+  %.044 = phi i32 [ -1, %118 ], [ 0, %121 ], [ -1, %_.exit29.i ], [ -1, %_.exit.i ], [ -1, %.thread123 ]
   call void @string_list_clear(ptr noundef nonnull %7, i32 noundef %135) #20
   call void @strbuf_release(ptr noundef nonnull %6) #20
   br label %136
 
 136:                                              ; preds = %11, %parse_key_value_squoted.exit.thread, %_.exit
-  %.045 = phi i32 [ %.044, %parse_key_value_squoted.exit.thread ], [ -1, %_.exit ], [ 0, %11 ]
+  %.045 = phi i32 [ -1, %_.exit ], [ %.044, %parse_key_value_squoted.exit.thread ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.045
@@ -1914,7 +1914,7 @@ define dso_local range(i32 0, 2) i32 @message_is_empty(ptr noundef readonly capt
   br i1 %38, label %10, label %rest_is_empty.exit, !llvm.loop !64
 
 rest_is_empty.exit:                               ; preds = %.loopexit.i, %27, %6, %7
-  %.0 = phi i32 [ 0, %27 ], [ 1, %7 ], [ %spec.select, %6 ], [ 1, %.loopexit.i ]
+  %.0 = phi i32 [ 1, %7 ], [ %spec.select, %6 ], [ 0, %27 ], [ 1, %.loopexit.i ]
   ret i32 %.0
 }
 
@@ -2041,7 +2041,7 @@ skip_prefix.exit:                                 ; preds = %21, %23
   br i1 %64, label %.lr.ph.i, label %rest_is_empty.exit, !llvm.loop !64
 
 rest_is_empty.exit:                               ; preds = %.loopexit.i, %53, %skip_prefix.exit, %9, %10, %6
-  %.0 = phi i32 [ 0, %9 ], [ 0, %6 ], [ 0, %10 ], [ 1, %skip_prefix.exit ], [ 0, %53 ], [ 1, %.loopexit.i ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %10 ], [ 0, %9 ], [ 1, %skip_prefix.exit ], [ 0, %53 ], [ 1, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -2448,7 +2448,7 @@ implicit_ident_advice.exit:                       ; preds = %45, %47, %_.exit.si
   br i1 %77, label %.preheader, label %_.exit, !llvm.loop !65
 
 _.exit:                                           ; preds = %73, %.preheader, %71, %69
-  %.0 = phi ptr [ @.str.42, %69 ], [ %72, %71 ], [ %scevgep, %.preheader ], [ %64, %73 ]
+  %.0 = phi ptr [ %72, %71 ], [ @.str.42, %69 ], [ %scevgep, %.preheader ], [ %64, %73 ]
   %78 = and i32 %3, 1
   %.not26 = icmp eq i32 %78, 0
   br i1 %.not26, label %_.exit33, label %79
@@ -2652,7 +2652,7 @@ is_command.exit16.thread:                         ; preds = %32, %is_command.exi
   br label %38
 
 38:                                               ; preds = %10, %10, %is_command.exit16.thread, %13
-  %.05 = phi i32 [ %.0, %is_command.exit16.thread ], [ -1, %13 ], [ -1, %10 ], [ -1, %10 ]
+  %.05 = phi i32 [ -1, %13 ], [ %.0, %is_command.exit16.thread ], [ -1, %10 ], [ -1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.05
 }
@@ -3048,17 +3048,17 @@ sub_0.i:                                          ; preds = %146
   unreachable
 
 .sink.split.sink.split.i:                         ; preds = %162, %158, %154
-  %.str.148.sink.i = phi ptr [ @.str.147, %158 ], [ @.str.146, %154 ], [ @.str.148, %162 ]
+  %.str.148.sink.i = phi ptr [ @.str.146, %154 ], [ @.str.147, %158 ], [ @.str.148, %162 ]
   %165 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.148.sink.i, i32 noundef 5) #20
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %162, %158, %154
-  %.0.i15.sink.i = phi ptr [ @.str.147, %158 ], [ @.str.146, %154 ], [ @.str.148, %162 ], [ %165, %.sink.split.sink.split.i ]
+  %.0.i15.sink.i = phi ptr [ @.str.146, %154 ], [ @.str.147, %158 ], [ @.str.148, %162 ], [ %165, %.sink.split.sink.split.i ]
   %166 = call i32 (ptr, ...) @error(ptr noundef %.0.i15.sink.i, ptr noundef nonnull %95) #20
   br label %check_label_or_ref_arg.exit
 
 check_label_or_ref_arg.exit:                      ; preds = %.tail.thread.i, %160, %.sink.split.i
-  %.0.i66 = phi i32 [ 0, %.tail.thread.i ], [ 0, %160 ], [ -1, %.sink.split.i ]
+  %.0.i66 = phi i32 [ 0, %160 ], [ 0, %.tail.thread.i ], [ -1, %.sink.split.i ]
   store i8 %147, ptr %.0, align 1, !tbaa !24
   br label %parse_insn_line.exit
 
@@ -3244,7 +3244,7 @@ parse_insn_line.exit.thread:                      ; preds = %parse_insn_line.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %253
 
-parse_insn_line.exit.thread74:                    ; preds = %228, %_.exit.i, %command_to_string.exit.i, %219, %command_to_string.exit70
+parse_insn_line.exit.thread74:                    ; preds = %_.exit.i, %command_to_string.exit.i, %command_to_string.exit70, %219, %228
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %242
 
@@ -4497,7 +4497,7 @@ _.exit27:                                         ; preds = %67, %69
   br label %73
 
 73:                                               ; preds = %_.exit24, %_.exit27, %git_path_seq_dir.exit, %59, %_.exit20, %_.exit16, %_.exit
-  %.0 = phi i32 [ -1, %_.exit20 ], [ %60, %59 ], [ -1, %_.exit16 ], [ -1, %_.exit ], [ 0, %git_path_seq_dir.exit ], [ -1, %_.exit27 ], [ -1, %_.exit24 ]
+  %.0 = phi i32 [ -1, %_.exit20 ], [ %60, %59 ], [ -1, %_.exit ], [ -1, %_.exit16 ], [ 0, %git_path_seq_dir.exit ], [ -1, %_.exit27 ], [ -1, %_.exit24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -5711,8 +5711,8 @@ _.exit175.i:                                      ; preds = %451, %449
   br i1 %.not83.i, label %456, label %.thread237.i
 
 .sink.split.i64:                                  ; preds = %416, %455, %peek_command.exit164.i, %._crit_edge.i, %408, %peek_command.exit159.thread.i, %rebase_path_current_fixups.exit.i63, %peek_command.exit.i, %.critedge113.i
-  %.066236.ph.i = phi i32 [ 7, %.critedge113.i ], [ 7, %._crit_edge.i ], [ 7, %peek_command.exit.i ], [ 7, %rebase_path_current_fixups.exit.i63 ], [ 7, %peek_command.exit164.i ], [ 7, %455 ], [ %410, %408 ], [ 7, %peek_command.exit159.thread.i ], [ 7, %416 ]
-  %.071232.ph.i = phi i1 [ true, %.critedge113.i ], [ true, %._crit_edge.i ], [ true, %peek_command.exit.i ], [ true, %rebase_path_current_fixups.exit.i63 ], [ true, %peek_command.exit164.i ], [ true, %455 ], [ false, %408 ], [ false, %peek_command.exit159.thread.i ], [ true, %416 ]
+  %.066236.ph.i = phi i32 [ 7, %.critedge113.i ], [ 7, %peek_command.exit.i ], [ 7, %rebase_path_current_fixups.exit.i63 ], [ 7, %455 ], [ %410, %408 ], [ 7, %peek_command.exit159.thread.i ], [ 7, %peek_command.exit164.i ], [ 7, %._crit_edge.i ], [ 7, %416 ]
+  %.071232.ph.i = phi i1 [ true, %.critedge113.i ], [ true, %peek_command.exit.i ], [ true, %rebase_path_current_fixups.exit.i63 ], [ true, %455 ], [ false, %408 ], [ false, %peek_command.exit159.thread.i ], [ true, %peek_command.exit164.i ], [ true, %._crit_edge.i ], [ true, %416 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %456
@@ -5776,7 +5776,7 @@ _.exit181.i:                                      ; preds = %475, %473
   br i1 %.071232.i, label %commit_staged_changes.exit, label %rebase_path_message.exit183.i
 
 .thread237.i:                                     ; preds = %.thread229.i, %.thread251.i
-  %.066235241.i = phi i32 [ 7, %.thread251.i ], [ 3, %.thread229.i ]
+  %.066235241.i = phi i32 [ 3, %.thread229.i ], [ 7, %.thread251.i ]
   %480 = load ptr, ptr @rebase_path_message.ret, align 8, !tbaa !4
   %.not.i182.i = icmp eq ptr %480, null
   br i1 %.not.i182.i, label %481, label %rebase_path_message.exit183.i
@@ -5787,9 +5787,9 @@ _.exit181.i:                                      ; preds = %475, %473
   br label %rebase_path_message.exit183.i
 
 rebase_path_message.exit183.i:                    ; preds = %481, %.thread237.i, %479
-  %.066234.i = phi i32 [ %.066235241.i, %481 ], [ %.066236.i, %479 ], [ %.066235241.i, %.thread237.i ]
-  %.not110228.i = phi i1 [ true, %481 ], [ false, %479 ], [ true, %.thread237.i ]
-  %483 = phi ptr [ %482, %481 ], [ null, %479 ], [ %480, %.thread237.i ]
+  %.066234.i = phi i32 [ %.066235241.i, %.thread237.i ], [ %.066235241.i, %481 ], [ %.066236.i, %479 ]
+  %.not110228.i = phi i1 [ true, %.thread237.i ], [ true, %481 ], [ false, %479 ]
+  %483 = phi ptr [ %480, %.thread237.i ], [ %482, %481 ], [ null, %479 ]
   %484 = call fastcc i32 @run_git_commit(ptr noundef %483, ptr noundef readonly %1, i32 noundef %.066234.i)
   %.not111.i = icmp eq i32 %484, 0
   br i1 %.not111.i, label %490, label %485
@@ -5909,7 +5909,7 @@ rebase_path_todo.exit.sink.split.i:               ; preds = %525
   br label %get_todo_path.exit
 
 get_todo_path.exit:                               ; preds = %525, %rebase_path_todo.exit.sink.split.i
-  %.0.i = phi ptr [ %527, %rebase_path_todo.exit.sink.split.i ], [ %526, %525 ]
+  %.0.i = phi ptr [ %526, %525 ], [ %527, %rebase_path_todo.exit.sink.split.i ]
   %528 = call i32 @file_exists(ptr noundef %.0.i) #20
   %.not37 = icmp eq i32 %528, 0
   br i1 %.not37, label %529, label %531
@@ -6046,7 +6046,7 @@ peek_command.exit:                                ; preds = %576, %577, %566
   br label %584
 
 584:                                              ; preds = %commit_staged_changes.exit.thread, %540, %531, %231, %223, %582, %544
-  %.0 = phi i32 [ -1, %223 ], [ %232, %231 ], [ -1, %531 ], [ %583, %582 ], [ %541, %540 ], [ %545, %544 ], [ -1, %commit_staged_changes.exit.thread ]
+  %.0 = phi i32 [ -1, %223 ], [ %232, %231 ], [ %583, %582 ], [ %541, %540 ], [ %545, %544 ], [ -1, %531 ], [ -1, %commit_staged_changes.exit.thread ]
   call void @strbuf_release(ptr noundef nonnull %10) #20
   %585 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %586 = load ptr, ptr %585, align 8, !tbaa !111
@@ -6054,7 +6054,7 @@ peek_command.exit:                                ; preds = %576, %577, %566
   br label %587
 
 587:                                              ; preds = %read_populate_opts.exit, %read_populate_opts.exit.thread78, %2, %584, %529
-  %.030 = phi i32 [ %530, %529 ], [ -1, %2 ], [ %.0, %584 ], [ -1, %read_populate_opts.exit ], [ -1, %read_populate_opts.exit.thread78 ]
+  %.030 = phi i32 [ %.0, %584 ], [ %530, %529 ], [ -1, %2 ], [ -1, %read_populate_opts.exit ], [ -1, %read_populate_opts.exit.thread78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.030
 }
@@ -6868,7 +6868,7 @@ _.exit17.sink.split:                              ; preds = %_.exit14
   br label %_.exit17
 
 _.exit17:                                         ; preds = %_.exit14, %_.exit17.sink.split
-  %37 = phi ptr [ %.str.203..str.202, %_.exit14 ], [ %36, %_.exit17.sink.split ]
+  %37 = phi ptr [ %36, %_.exit17.sink.split ], [ %.str.203..str.202, %_.exit14 ]
   %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef %.0.i13, ptr noundef %37) #24
   br label %39
 
@@ -7280,7 +7280,7 @@ rebase_path_done.exit61:                          ; preds = %.critedge.thread, %
   br i1 %exitcond.not.i, label %count_commands.exit, label %82, !llvm.loop !192
 
 count_commands.exit:                              ; preds = %82, %rebase_path_done.exit61, %72, %76
-  %.sink = phi i32 [ 0, %rebase_path_done.exit61 ], [ 0, %76 ], [ 0, %72 ], [ %spec.select.i63, %82 ]
+  %.sink = phi i32 [ 0, %76 ], [ 0, %72 ], [ 0, %rebase_path_done.exit61 ], [ %spec.select.i63, %82 ]
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 44
   store i32 %.sink, ptr %86, align 4, !tbaa !193
   %87 = load i32, ptr %30, align 8, !tbaa !119
@@ -7341,7 +7341,7 @@ todo_list_write_total_nr.exit:                    ; preds = %rebase_path_msgtota
   br label %.critedge.thread92
 
 .critedge.thread92:                               ; preds = %51, %45, %_.exit56, %_.exit59, %todo_list_write_total_nr.exit, %strbuf_setlen.exit, %_.exit53, %_.exit49, %_.exit
-  %.032 = phi i32 [ -1, %_.exit53 ], [ -1, %_.exit ], [ -1, %_.exit49 ], [ -1, %strbuf_setlen.exit ], [ 0, %45 ], [ 0, %todo_list_write_total_nr.exit ], [ -1, %_.exit59 ], [ -1, %_.exit56 ], [ 0, %51 ]
+  %.032 = phi i32 [ -1, %_.exit ], [ -1, %_.exit49 ], [ -1, %_.exit53 ], [ -1, %strbuf_setlen.exit ], [ 0, %todo_list_write_total_nr.exit ], [ -1, %_.exit59 ], [ -1, %_.exit56 ], [ 0, %45 ], [ 0, %51 ]
   ret i32 %.032
 }
 
@@ -8797,7 +8797,7 @@ _.exit63.i:                                       ; preds = %528, %526
   br label %545
 
 545:                                              ; preds = %.thread.i, %531
-  %.042.i = phi i32 [ %.041.lcssa.i, %.thread.i ], [ 10, %531 ]
+  %.042.i = phi i32 [ 10, %531 ], [ %.041.lcssa.i, %.thread.i ]
   call void @setup_unpack_trees_porcelain(ptr noundef nonnull %22, ptr noundef nonnull @.str.130) #20
   store i32 1, ptr %122, align 8, !tbaa !199
   %546 = load ptr, ptr %112, align 8, !tbaa !189
@@ -8979,7 +8979,7 @@ do_reset.exit:                                    ; preds = %591, %594
   br label %._crit_edge329.i
 
 ._crit_edge329.i:                                 ; preds = %609, %607, %606, %596
-  %611 = phi ptr [ null, %606 ], [ %spec.select.i235, %609 ], [ null, %607 ], [ %605, %596 ]
+  %611 = phi ptr [ null, %607 ], [ null, %606 ], [ %605, %596 ], [ %spec.select.i235, %609 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %612 = call i32 @repo_hold_locked_index(ptr noundef %0, ptr noundef nonnull @do_merge.lock, i32 noundef 4) #20
   %613 = icmp slt i32 %612, 0
@@ -9624,7 +9624,7 @@ _.exit267.i:                                      ; preds = %895, %893
   br label %do_merge.exit
 
 do_merge.exit:                                    ; preds = %._crit_edge329.i, %_.exit.i233, %_.exit237.i, %_.exit240.i, %_.exit243.i, %685, %711, %727, %_.exit253.i, %837, %838, %844, %_.exit264.i, %_.exit267.i, %.thread275.i, %902, %905, %907
-  %.0167.i = phi i32 [ -1, %_.exit.i233 ], [ -1, %_.exit243.i ], [ %688, %685 ], [ %910, %907 ], [ %714, %711 ], [ -1, %_.exit253.i ], [ %.2.i226, %837 ], [ -1, %._crit_edge329.i ], [ -1, %838 ], [ %.4.i, %_.exit264.i ], [ -1, %_.exit267.i ], [ 1, %902 ], [ 0, %905 ], [ -1, %727 ], [ -1, %_.exit240.i ], [ -1, %_.exit237.i ], [ 0, %844 ], [ 1, %.thread275.i ]
+  %.0167.i = phi i32 [ -1, %_.exit243.i ], [ %688, %685 ], [ %910, %907 ], [ %714, %711 ], [ -1, %_.exit253.i ], [ %.2.i226, %837 ], [ %.4.i, %_.exit264.i ], [ -1, %_.exit267.i ], [ 1, %902 ], [ 0, %905 ], [ -1, %727 ], [ -1, %_.exit240.i ], [ -1, %_.exit237.i ], [ -1, %_.exit.i233 ], [ -1, %._crit_edge329.i ], [ -1, %838 ], [ 0, %844 ], [ 1, %.thread275.i ]
   call void @strbuf_release(ptr noundef nonnull %10) #20
   %911 = call i32 @delete_tempfile(ptr noundef nonnull @do_merge.lock) #20
   %912 = load ptr, ptr %13, align 8, !tbaa !215
@@ -9798,15 +9798,15 @@ _.exit248:                                        ; preds = %975, %977
   %980 = call i32 (ptr, ...) @error(ptr noundef %.0.i247, i32 noundef %979) #20
   br label %.thread364
 
-pick_one_commit.exit.thread:                      ; preds = %rebase_path_message.exit13.i.i, %382, %396, %383, %rebase_path_message.exit20.i.i, %452, %do_reset.exit, %972, %973, %record_in_rewritten.exit, %do_label.exit, %pick_one_commit.exit, %pick_one_commit.exit.thread326
-  %.2319 = phi i32 [ %.0416, %pick_one_commit.exit.thread326 ], [ %.0416, %pick_one_commit.exit ], [ %.0416, %973 ], [ %.3320, %452 ], [ %.0416, %do_label.exit ], [ %.0416, %record_in_rewritten.exit ], [ %.0416, %do_reset.exit ], [ %.5322, %972 ], [ %.0416, %382 ], [ %.0416, %396 ], [ %.0416, %383 ], [ %.0416, %rebase_path_message.exit13.i.i ], [ %.0416, %rebase_path_message.exit20.i.i ]
-  %.2131 = phi i32 [ 0, %pick_one_commit.exit.thread326 ], [ %.064.i, %pick_one_commit.exit ], [ 0, %973 ], [ %.013.i334, %452 ], [ 0, %do_label.exit ], [ 0, %record_in_rewritten.exit ], [ 0, %do_reset.exit ], [ %.0.i243348, %972 ], [ %269, %382 ], [ %401, %396 ], [ %269, %383 ], [ -1, %rebase_path_message.exit13.i.i ], [ -1, %rebase_path_message.exit20.i.i ]
+pick_one_commit.exit.thread:                      ; preds = %rebase_path_message.exit20.i.i, %rebase_path_message.exit13.i.i, %383, %382, %396, %452, %do_reset.exit, %972, %973, %record_in_rewritten.exit, %do_label.exit, %pick_one_commit.exit, %pick_one_commit.exit.thread326
+  %.2319 = phi i32 [ %.0416, %pick_one_commit.exit.thread326 ], [ %.0416, %pick_one_commit.exit ], [ %.0416, %973 ], [ %.3320, %452 ], [ %.0416, %do_label.exit ], [ %.0416, %do_reset.exit ], [ %.0416, %record_in_rewritten.exit ], [ %.5322, %972 ], [ %.0416, %382 ], [ %.0416, %396 ], [ %.0416, %383 ], [ %.0416, %rebase_path_message.exit13.i.i ], [ %.0416, %rebase_path_message.exit20.i.i ]
+  %.2131 = phi i32 [ 0, %pick_one_commit.exit.thread326 ], [ %.064.i, %pick_one_commit.exit ], [ 0, %973 ], [ %.013.i334, %452 ], [ 0, %do_label.exit ], [ 0, %do_reset.exit ], [ 0, %record_in_rewritten.exit ], [ %.0.i243348, %972 ], [ %269, %382 ], [ %401, %396 ], [ %269, %383 ], [ -1, %rebase_path_message.exit13.i.i ], [ -1, %rebase_path_message.exit20.i.i ]
   %.not179 = icmp eq i32 %.2319, 0
   br i1 %.not179, label %1019, label %.thread
 
 .thread:                                          ; preds = %is_final_fixup.exit.i, %do_merge.exit, %do_reset.exit, %do_label.exit, %do_reset.exit.thread, %do_label.exit.thread, %do_label.exit.thread338, %pick_one_commit.exit.thread
-  %.2131355 = phi i32 [ %.2131, %pick_one_commit.exit.thread ], [ %.281.i, %do_reset.exit ], [ -1, %do_label.exit ], [ -1, %do_reset.exit.thread ], [ -1, %do_label.exit.thread338 ], [ -1, %do_label.exit.thread ], [ %.0167.i, %do_merge.exit ], [ -1, %is_final_fixup.exit.i ]
-  %.2319353 = phi i32 [ %.2319, %pick_one_commit.exit.thread ], [ 1, %do_reset.exit ], [ 1, %do_label.exit ], [ 1, %do_reset.exit.thread ], [ 1, %do_label.exit.thread338 ], [ 1, %do_label.exit.thread ], [ 1, %do_merge.exit ], [ 1, %is_final_fixup.exit.i ]
+  %.2131355 = phi i32 [ %.2131, %pick_one_commit.exit.thread ], [ -1, %do_reset.exit.thread ], [ -1, %do_label.exit.thread338 ], [ -1, %do_label.exit.thread ], [ -1, %do_label.exit ], [ %.281.i, %do_reset.exit ], [ %.0167.i, %do_merge.exit ], [ -1, %is_final_fixup.exit.i ]
+  %.2319353 = phi i32 [ %.2319, %pick_one_commit.exit.thread ], [ 1, %do_reset.exit.thread ], [ 1, %do_label.exit.thread338 ], [ 1, %do_label.exit.thread ], [ 1, %do_label.exit ], [ 1, %do_reset.exit ], [ 1, %do_merge.exit ], [ 1, %is_final_fixup.exit.i ]
   %981 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21
   %.not4.i249 = icmp eq i32 %981, 0
   br i1 %.not4.i249, label %_.exit251, label %982
@@ -9970,13 +9970,13 @@ write_rebase_head.exit.thread:                    ; preds = %1051, %1044
   br label %1052
 
 write_rebase_head.exit:                           ; preds = %_.exit.i257, %1009, %1019, %1006
-  %.2131354 = phi i32 [ %.2131, %1019 ], [ %.2131355, %_.exit.i257 ], [ %.2131355, %1006 ], [ %.2131355, %1009 ]
-  %.2319352 = phi i32 [ 0, %1019 ], [ %.2319353, %_.exit.i257 ], [ %.2319353, %1006 ], [ %.2319353, %1009 ]
+  %.2131354 = phi i32 [ %.2131, %1019 ], [ %.2131355, %1006 ], [ %.2131355, %1009 ], [ %.2131355, %_.exit.i257 ]
+  %.2319352 = phi i32 [ 0, %1019 ], [ %.2319353, %1006 ], [ %.2319353, %1009 ], [ %.2319353, %_.exit.i257 ]
   %.not186 = icmp eq i32 %.2131354, 0
   br i1 %.not186, label %1052, label %.thread364
 
-.thread364:                                       ; preds = %pick_one_commit.exit.thread326, %get_item_line.exit, %139, %write_rebase_head.exit, %_.exit248, %stopped_at_head.exit, %reread_todo_if_changed.exit.thread, %944
-  %.2.ph = phi i32 [ -1, %reread_todo_if_changed.exit.thread ], [ %948, %944 ], [ -1, %_.exit248 ], [ 0, %stopped_at_head.exit ], [ 0, %pick_one_commit.exit.thread326 ], [ -1, %get_item_line.exit ], [ -1, %139 ], [ %.2131354, %write_rebase_head.exit ]
+.thread364:                                       ; preds = %139, %pick_one_commit.exit.thread326, %get_item_line.exit, %write_rebase_head.exit, %stopped_at_head.exit, %944, %_.exit248, %reread_todo_if_changed.exit.thread
+  %.2.ph = phi i32 [ -1, %reread_todo_if_changed.exit.thread ], [ -1, %_.exit248 ], [ %948, %944 ], [ 0, %stopped_at_head.exit ], [ -1, %139 ], [ 0, %pick_one_commit.exit.thread326 ], [ -1, %get_item_line.exit ], [ %.2131354, %write_rebase_head.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %1269
 
@@ -10515,7 +10515,7 @@ _.exit32.i:                                       ; preds = %1262, %1259
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph41.i, %1221, %.lr.ph.split.us.split.i, %.lr.ph.split.split.i, %.critedge.thread55.i, %_.exit.i314, %_.exit32.i
-  %.022.lcssa54.i = phi i32 [ 0, %.lr.ph.split.us.split.i ], [ 0, %_.exit.i314 ], [ 1, %_.exit32.i ], [ %1230, %.critedge.thread55.i ], [ 0, %.lr.ph.split.split.i ], [ 0, %1221 ], [ %1242, %.lr.ph41.i ]
+  %.022.lcssa54.i = phi i32 [ 0, %_.exit.i314 ], [ 1, %_.exit32.i ], [ %1230, %.critedge.thread55.i ], [ 0, %.lr.ph.split.split.i ], [ 0, %.lr.ph.split.us.split.i ], [ 0, %1221 ], [ %1242, %.lr.ph41.i ]
   call void @string_list_clear(ptr noundef nonnull %4, i32 noundef 1) #20
   call void @strbuf_release(ptr noundef nonnull %5) #20
   call void @strbuf_release(ptr noundef nonnull %6) #20
@@ -10533,7 +10533,7 @@ _.exit32.i:                                       ; preds = %1262, %1259
   br label %1269
 
 1269:                                             ; preds = %.thread376, %.thread373, %.thread364, %sequencer_reflog_action.exit, %.loopexit, %1267
-  %.0128 = phi i32 [ -1, %.loopexit ], [ %.2.ph, %.thread364 ], [ %1268, %1267 ], [ -1, %sequencer_reflog_action.exit ], [ -1, %.thread373 ], [ -1, %.thread376 ]
+  %.0128 = phi i32 [ %1268, %1267 ], [ -1, %.loopexit ], [ -1, %sequencer_reflog_action.exit ], [ %.2.ph, %.thread364 ], [ -1, %.thread373 ], [ -1, %.thread376 ]
   ret i32 %.0128
 }
 
@@ -10976,7 +10976,7 @@ git_path_seq_dir.exit26.i:                        ; preds = %184, %_.exit24.i
   %187 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i23.i, ptr noundef %186) #20
   br label %create_seq_dir.exit.thread
 
-create_seq_dir.exit.thread:                       ; preds = %_.exit15.thread.i, %git_path_seq_dir.exit26.i, %172
+create_seq_dir.exit.thread:                       ; preds = %git_path_seq_dir.exit26.i, %172, %_.exit15.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %walk_revs_populate_todo.exit.thread
 
@@ -11034,7 +11034,7 @@ save_head.exit:                                   ; preds = %198, %202
   br label %walk_revs_populate_todo.exit.thread
 
 walk_revs_populate_todo.exit.thread:              ; preds = %prepare_revs.exit.i, %_.exit.i, %create_seq_dir.exit.thread, %.thread, %206, %save_head.exit, %_.exit59, %_.exit62, %76, %2, %208, %_.exit70
-  %.038 = phi i32 [ -1, %2 ], [ -1, %.thread ], [ -1, %_.exit62 ], [ -1, %_.exit70 ], [ -1, %206 ], [ -1, %save_head.exit ], [ %209, %208 ], [ -1, %_.exit59 ], [ %77, %76 ], [ -1, %create_seq_dir.exit.thread ], [ -1, %_.exit.i ], [ -1, %prepare_revs.exit.i ]
+  %.038 = phi i32 [ -1, %_.exit70 ], [ %209, %208 ], [ -1, %2 ], [ -1, %_.exit59 ], [ %77, %76 ], [ -1, %_.exit62 ], [ -1, %save_head.exit ], [ -1, %206 ], [ -1, %.thread ], [ -1, %create_seq_dir.exit.thread ], [ -1, %_.exit.i ], [ -1, %prepare_revs.exit.i ]
   call void @strbuf_release(ptr noundef nonnull %5) #20
   %210 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %211 = load ptr, ptr %210, align 8, !tbaa !111
@@ -11660,7 +11660,7 @@ define internal fastcc range(i32 0, 4) i32 @has_conforming_footer(ptr noundef re
   br label %35
 
 35:                                               ; preds = %._crit_edge.thread, %34, %31, %._crit_edge
-  %.025 = phi i32 [ 0, %._crit_edge ], [ %., %34 ], [ 3, %31 ], [ 0, %._crit_edge.thread ]
+  %.025 = phi i32 [ 0, %._crit_edge ], [ 3, %31 ], [ %., %34 ], [ 0, %._crit_edge.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.025
 }
@@ -12223,8 +12223,8 @@ st_add.exit206.i:                                 ; preds = %st_add.exit205.i
   br label %246
 
 246:                                              ; preds = %st_add.exit206.i, %st_add.exit189.i, %133, %_.exit.i, %125
-  %.1135.i = phi ptr [ %.3.i, %st_add.exit206.i ], [ %.0134265.i, %st_add.exit189.i ], [ %.0134265.i, %125 ], [ %.0134265.i, %_.exit.i ], [ %.0134265.i, %133 ]
-  %.1.i = phi i32 [ %.0267.i, %st_add.exit206.i ], [ %.0267.i, %st_add.exit189.i ], [ 1, %125 ], [ 1, %_.exit.i ], [ %.0267.i, %133 ]
+  %.1135.i = phi ptr [ %.3.i, %st_add.exit206.i ], [ %.0134265.i, %st_add.exit189.i ], [ %.0134265.i, %_.exit.i ], [ %.0134265.i, %125 ], [ %.0134265.i, %133 ]
+  %.1.i = phi i32 [ %.0267.i, %st_add.exit206.i ], [ %.0267.i, %st_add.exit189.i ], [ 1, %_.exit.i ], [ 1, %125 ], [ %.0267.i, %133 ]
   %247 = call ptr @get_revision(ptr noundef nonnull %19) #20
   %.not153.i = icmp eq ptr %247, null
   br i1 %.not153.i, label %._crit_edge.i, label %115
@@ -12248,7 +12248,7 @@ _.exit209.i:                                      ; preds = %251, %249
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %_.exit209.i, %._crit_edge.i, %106
-  %.0134.lcssa339.i = phi ptr [ %.1135.i, %._crit_edge.i ], [ %.1135.i, %_.exit209.i ], [ %10, %106 ]
+  %.0134.lcssa339.i = phi ptr [ %.1135.i, %_.exit209.i ], [ %.1135.i, %._crit_edge.i ], [ %10, %106 ]
   %.0132275.i = load ptr, ptr %9, align 8, !tbaa !215
   %.not155276.i = icmp eq ptr %.0132275.i, null
   br i1 %.not155276.i, label %._crit_edge281.i, label %.lr.ph280.i
@@ -12403,7 +12403,7 @@ strbuf_addch.exit219.i:                           ; preds = %strbuf_avail.exit.t
   br label %321
 
 ._crit_edge286.i:                                 ; preds = %303, %.lr.ph285.i, %295
-  %.0136.lcssa.i = phi ptr [ %278, %295 ], [ %.0136283.i, %.lr.ph285.i ], [ %304, %303 ]
+  %.0136.lcssa.i = phi ptr [ %278, %295 ], [ %304, %303 ], [ %.0136283.i, %.lr.ph285.i ]
   %307 = getelementptr inbounds nuw i8, ptr %.0136.lcssa.i, i64 4
   %308 = call ptr @oidmap_get(ptr noundef nonnull %15, ptr noundef nonnull %307) #20
   %.not164.i = icmp eq ptr %308, null
@@ -12603,7 +12603,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br label %367
 
 367:                                              ; preds = %353, %345, %_.exit47, %strbuf_addch.exit
-  %.1 = phi i32 [ %.059, %strbuf_addch.exit ], [ 1, %345 ], [ 1, %_.exit47 ], [ %.059, %353 ]
+  %.1 = phi i32 [ %.059, %strbuf_addch.exit ], [ 1, %_.exit47 ], [ 1, %345 ], [ %.059, %353 ]
   %368 = call ptr @get_revision(ptr noundef nonnull %19) #20
   %.not37 = icmp eq ptr %368, null
   br i1 %.not37, label %._crit_edge, label %339
@@ -12704,7 +12704,7 @@ _.exit:                                           ; preds = %4, %6
   br label %33
 
 33:                                               ; preds = %.thread, %27
-  %.112 = phi ptr [ %22, %.thread ], [ %32, %27 ]
+  %.112 = phi ptr [ %32, %27 ], [ %22, %.thread ]
   %34 = tail call ptr @get_commit_tree_oid(ptr noundef nonnull %0) #20
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %.112, ptr noundef nonnull readonly dereferenceable(32) %34, i64 32)
   %.not.i = icmp eq i32 %bcmp.i, 0
@@ -14102,7 +14102,7 @@ peek_command.exit.i:                              ; preds = %437
   br i1 %445, label %peek_command.exit59.i, label %442
 
 peek_command.exit59.i:                            ; preds = %.lr.ph.i56.i, %442
-  %.09.i55.i = phi i32 [ -1, %442 ], [ %444, %.lr.ph.i56.i ]
+  %.09.i55.i = phi i32 [ %444, %.lr.ph.i56.i ], [ -1, %442 ]
   %446 = load ptr, ptr @rebase_path_rewritten_pending.ret, align 8, !tbaa !4
   %.not.i.i.i112 = icmp eq ptr %446, null
   br i1 %.not.i.i.i112, label %447, label %rebase_path_rewritten_pending.exit.i.i
@@ -14145,7 +14145,7 @@ _.exit118:                                        ; preds = %skip_unnecessary_pi
   %460 = call i32 (ptr, ...) @error(ptr noundef %.0.i117) #20
   br label %490
 
-skip_unnecessary_picks.exit.thread:               ; preds = %436, %358, %move_array.exit.i, %.thread.i107, %456, %451, %rebase_path_rewritten_pending.exit.i.i, %peek_command.exit.i, %355
+skip_unnecessary_picks.exit.thread:               ; preds = %436, %358, %.thread.i107, %move_array.exit.i, %456, %451, %rebase_path_rewritten_pending.exit.i.i, %peek_command.exit.i, %355
   %461 = and i32 %2, -3
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) @__const.make_script_with_merges.label_from_message, i64 24, i1 false)
@@ -14230,7 +14230,7 @@ _.exit126:                                        ; preds = %478, %480
   br label %490
 
 490:                                              ; preds = %todo_list_add_update_ref_commands.exit, %311, %175, %489, %_.exit126, %_.exit118, %343, %_.exit102, %apply_autostash.exit94, %_.exit
-  %.0 = phi i32 [ %.053, %489 ], [ -1, %todo_list_add_update_ref_commands.exit ], [ -1, %_.exit ], [ -1, %175 ], [ -1, %apply_autostash.exit94 ], [ -1, %_.exit102 ], [ -1, %343 ], [ -1, %_.exit118 ], [ -1, %_.exit126 ], [ %312, %311 ]
+  %.0 = phi i32 [ -1, %_.exit ], [ -1, %apply_autostash.exit94 ], [ -1, %_.exit102 ], [ -1, %343 ], [ -1, %_.exit118 ], [ -1, %_.exit126 ], [ %.053, %489 ], [ -1, %todo_list_add_update_ref_commands.exit ], [ -1, %175 ], [ %312, %311 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -14388,7 +14388,7 @@ clear_commit_todo_item.exit:                      ; preds = %.lr.ph.i, %45
   br i1 %exitcond.i, label %.preheader271.preheader, label %67
 
 .preheader271.preheader:                          ; preds = %66, %skip_prefix.exit.i, %skip_prefix.exit9.i
-  %.4.ph = phi ptr [ %scevgep.i, %skip_prefix.exit.i ], [ %scevgep26.i, %skip_prefix.exit9.i ], [ %scevgep.i, %66 ]
+  %.4.ph = phi ptr [ %scevgep26.i, %skip_prefix.exit9.i ], [ %scevgep.i, %skip_prefix.exit.i ], [ %scevgep.i, %66 ]
   br label %.preheader271
 
 67:                                               ; preds = %66
@@ -14446,7 +14446,7 @@ skip_prefix.exit9.i:                              ; preds = %77, %skip_prefix.ex
   br i1 %.not134, label %88, label %.preheader271.backedge
 
 .preheader271.backedge:                           ; preds = %89, %skip_prefix.exit.i159, %skip_prefix.exit9.i167, %.preheader271
-  %.4.be = phi ptr [ %87, %.preheader271 ], [ %scevgep.i153, %skip_prefix.exit.i159 ], [ %scevgep26.i166, %skip_prefix.exit9.i167 ], [ %scevgep.i153, %89 ]
+  %.4.be = phi ptr [ %87, %.preheader271 ], [ %scevgep26.i166, %skip_prefix.exit9.i167 ], [ %scevgep.i153, %skip_prefix.exit.i159 ], [ %scevgep.i153, %89 ]
   br label %.preheader271, !llvm.loop !299
 
 88:                                               ; preds = %.preheader271
@@ -14660,9 +14660,9 @@ commit_todo_item_at.exit189:                      ; preds = %._crit_edge4.i.i186
   br label %.thread
 
 172:                                              ; preds = %._crit_edge, %108, %commit_todo_item_at.exit189
-  %.sroa.16.2 = phi i32 [ %.sroa.16.0291, %108 ], [ %.sroa.16.3, %._crit_edge ], [ %.sroa.16.5, %commit_todo_item_at.exit189 ]
-  %.sroa.32234.2 = phi ptr [ %.sroa.32234.0292, %108 ], [ %.sroa.32234.3, %._crit_edge ], [ %.sroa.32234.5, %commit_todo_item_at.exit189 ]
-  %.0118 = phi i32 [ %110, %108 ], [ %.2120.lcssa, %._crit_edge ], [ %163, %commit_todo_item_at.exit189 ]
+  %.sroa.16.2 = phi i32 [ %.sroa.16.3, %._crit_edge ], [ %.sroa.16.5, %commit_todo_item_at.exit189 ], [ %.sroa.16.0291, %108 ]
+  %.sroa.32234.2 = phi ptr [ %.sroa.32234.3, %._crit_edge ], [ %.sroa.32234.5, %commit_todo_item_at.exit189 ], [ %.sroa.32234.0292, %108 ]
+  %.0118 = phi i32 [ %.2120.lcssa, %._crit_edge ], [ %163, %commit_todo_item_at.exit189 ], [ %110, %108 ]
   %173 = icmp sgt i32 %.0118, -1
   %.pre354 = load ptr, ptr %6, align 8, !tbaa !4
   br i1 %173, label %174, label %.thread
@@ -14922,8 +14922,8 @@ st_mult.exit205:                                  ; preds = %253
   br label %._crit_edge298.thread
 
 ._crit_edge298.thread:                            ; preds = %st_mult.exit152, %._crit_edge311, %._crit_edge298
-  %.sroa.32234.0.lcssa385 = phi ptr [ %.sroa.32234.1.ph, %._crit_edge298 ], [ %.sroa.32234.1.ph, %._crit_edge311 ], [ null, %st_mult.exit152 ]
-  %.sroa.16.0.lcssa384 = phi i32 [ %.sroa.16.1.ph, %._crit_edge298 ], [ %.sroa.16.1.ph, %._crit_edge311 ], [ 0, %st_mult.exit152 ]
+  %.sroa.32234.0.lcssa385 = phi ptr [ %.sroa.32234.1.ph, %._crit_edge311 ], [ %.sroa.32234.1.ph, %._crit_edge298 ], [ null, %st_mult.exit152 ]
+  %.sroa.16.0.lcssa384 = phi i32 [ %.sroa.16.1.ph, %._crit_edge311 ], [ %.sroa.16.1.ph, %._crit_edge298 ], [ 0, %st_mult.exit152 ]
   call void @free(ptr noundef %15) #20
   call void @free(ptr noundef %20) #20
   %283 = load i32, ptr %8, align 8, !tbaa !119
@@ -16626,7 +16626,7 @@ _.exit57:                                         ; preds = %107, %109
   br label %112
 
 112:                                              ; preds = %57, %rebase_path_done.exit, %_.exit57, %104, %_.exit49, %_.exit46, %_.exit
-  %.036 = phi i32 [ -1, %_.exit ], [ -1, %_.exit46 ], [ -1, %_.exit49 ], [ %.0, %104 ], [ 0, %rebase_path_done.exit ], [ -1, %_.exit57 ], [ 0, %57 ]
+  %.036 = phi i32 [ -1, %_.exit ], [ -1, %_.exit46 ], [ -1, %_.exit49 ], [ 0, %rebase_path_done.exit ], [ -1, %_.exit57 ], [ %.0, %104 ], [ 0, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.036
 }
@@ -17240,7 +17240,7 @@ _.exit334:                                        ; preds = %139, %141
   br label %.critedge
 
 .sink.split:                                      ; preds = %137, %._crit_edge, %113
-  %.0229.lcssa571.sink = phi ptr [ %107, %113 ], [ %122, %._crit_edge ], [ %107, %137 ]
+  %.0229.lcssa571.sink = phi ptr [ %122, %._crit_edge ], [ %107, %113 ], [ %107, %137 ]
   %147 = load ptr, ptr %.0229.lcssa571.sink, align 8, !tbaa !217
   br label %148
 
@@ -18229,7 +18229,7 @@ _.exit108.sink.split.i:                           ; preds = %_.exit104.i
   br label %_.exit108.i
 
 _.exit108.i:                                      ; preds = %_.exit108.sink.split.i, %_.exit104.i
-  %522 = phi ptr [ %first_commit_msg_str.skip_first_commit_msg_str.i, %_.exit104.i ], [ %521, %_.exit108.sink.split.i ]
+  %522 = phi ptr [ %521, %_.exit108.sink.split.i ], [ %first_commit_msg_str.skip_first_commit_msg_str.i, %_.exit104.i ]
   %523 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %522) #21
   call void @strbuf_add(ptr noundef nonnull %13, ptr noundef nonnull %522, i64 noundef %523) #20
   call void @strbuf_add(ptr noundef nonnull %13, ptr noundef nonnull @.str.85, i64 noundef 2) #20
@@ -18389,7 +18389,7 @@ command_to_string.exit.i:                         ; preds = %rebase_path_squash_
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %update_squash_messages.exit.thread
 
-update_squash_messages.exit.thread:               ; preds = %.critedge.i, %_.exit122.i, %_.exit115.i, %.thread139.i, %rebase_path_squash_msg.exit124.i, %.critedge80.i
+update_squash_messages.exit.thread:               ; preds = %_.exit122.i, %_.exit115.i, %.critedge.i, %rebase_path_squash_msg.exit124.i, %.critedge80.i, %.thread139.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %allow_empty.exit.thread463
@@ -18504,8 +18504,8 @@ rebase_path_squash_msg.exit:                      ; preds = %275
   br label %rebase_path_squash_msg.exit.thread
 
 rebase_path_squash_msg.exit.thread:               ; preds = %593, %595, %603, %606, %.thread443, %631, %rebase_path_squash_msg.exit
-  %.3577 = phi i32 [ %.0233, %rebase_path_squash_msg.exit ], [ %.0233, %631 ], [ %604, %606 ], [ %592, %595 ], [ %625, %.thread443 ], [ %592, %593 ], [ %604, %603 ]
-  %.0236576 = phi ptr [ %52, %rebase_path_squash_msg.exit ], [ %52, %631 ], [ %607, %606 ], [ %596, %595 ], [ %609, %.thread443 ], [ %594, %593 ], [ %605, %603 ]
+  %.3577 = phi i32 [ %.0233, %631 ], [ %.0233, %rebase_path_squash_msg.exit ], [ %625, %.thread443 ], [ %604, %603 ], [ %604, %606 ], [ %592, %593 ], [ %592, %595 ]
+  %.0236576 = phi ptr [ %52, %631 ], [ %52, %rebase_path_squash_msg.exit ], [ %609, %.thread443 ], [ %605, %603 ], [ %607, %606 ], [ %594, %593 ], [ %596, %595 ]
   %.val = load i32, ptr %2, align 8, !tbaa !25
   %.not490 = icmp eq i32 %.val, 2
   br i1 %.not490, label %632, label %635
@@ -18754,8 +18754,8 @@ _.exit72.i:                                       ; preds = %738, %736, %switch.
   call void @append_conflicts_hint(ptr noundef %743, ptr noundef %28, i32 noundef %745)
   br label %746
 
-do_recursive_merge.exit.thread:                   ; preds = %_.exit.i375, %720, %_.exit72.i, %643
-  %.048.i.ph = phi i32 [ -1, %643 ], [ -1, %_.exit72.i ], [ %.049.i, %720 ], [ -1, %_.exit.i375 ]
+do_recursive_merge.exit.thread:                   ; preds = %720, %_.exit72.i, %_.exit.i375, %643
+  %.048.i.ph = phi i32 [ -1, %643 ], [ -1, %_.exit.i375 ], [ -1, %_.exit72.i ], [ %.049.i, %720 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -18807,7 +18807,7 @@ do_recursive_merge.exit.thread:                   ; preds = %_.exit.i375, %720, 
   br label %776
 
 776:                                              ; preds = %632, %746, %755
-  %.2245 = phi i32 [ %773, %755 ], [ %754, %746 ], [ -1, %632 ]
+  %.2245 = phi i32 [ %754, %746 ], [ %773, %755 ], [ -1, %632 ]
   switch i32 %53, label %783 [
     i32 3, label %777
     i32 2, label %777
@@ -18876,8 +18876,8 @@ _.exit379.sink.split:                             ; preds = %.thread459, %.threa
   br label %_.exit379
 
 _.exit379:                                        ; preds = %_.exit379.sink.split, %.thread459, %.thread452
-  %.4247451454 = phi i32 [ %.3246, %.thread459 ], [ %.4247451455, %.thread452 ], [ %.4247451454.ph, %_.exit379.sink.split ]
-  %796 = phi ptr [ @.str.336, %.thread459 ], [ @.str.335, %.thread452 ], [ %795, %_.exit379.sink.split ]
+  %.4247451454 = phi i32 [ %.4247451455, %.thread452 ], [ %.3246, %.thread459 ], [ %.4247451454.ph, %_.exit379.sink.split ]
+  %796 = phi ptr [ @.str.335, %.thread452 ], [ @.str.336, %.thread459 ], [ %795, %_.exit379.sink.split ]
   %797 = load i32, ptr @default_abbrev, align 4, !tbaa !21
   %798 = call ptr @repo_find_unique_abbrev(ptr noundef %0, ptr noundef nonnull %153, i32 noundef %797) #20
   %799 = call i32 (ptr, ...) @error(ptr noundef %796, ptr noundef %798, ptr noundef %159) #20
@@ -19219,9 +19219,9 @@ rebase_path_current_fixups.exit:                  ; preds = %rebase_path_squash_
   store i32 0, ptr %929, align 8, !tbaa !173
   br label %allow_empty.exit.thread463
 
-allow_empty.exit.thread463:                       ; preds = %865, %is_index_unchanged.exit.thread.i, %.thread472, %do_recursive_merge.exit.thread, %626, %update_squash_messages.exit.thread, %allow_empty.exit, %update_squash_messages.exit, %909, %rebase_path_current_fixups.exit, %172, %print_advice.exit
-  %.0249 = phi ptr [ %.2251, %print_advice.exit ], [ %.2251, %update_squash_messages.exit ], [ %.4253, %rebase_path_current_fixups.exit ], [ %.4253, %909 ], [ %.2251, %do_recursive_merge.exit.thread ], [ null, %172 ], [ %.2251, %626 ], [ %.2251, %allow_empty.exit ], [ %.2251, %update_squash_messages.exit.thread ], [ null, %.thread472 ], [ %.2251, %is_index_unchanged.exit.thread.i ], [ %.2251, %865 ]
-  %.0243 = phi i32 [ %.4247451454, %print_advice.exit ], [ -1, %update_squash_messages.exit ], [ 0, %rebase_path_current_fixups.exit ], [ %.5248, %909 ], [ %.048.i.ph, %do_recursive_merge.exit.thread ], [ %173, %172 ], [ -1, %626 ], [ %876, %allow_empty.exit ], [ -1, %update_squash_messages.exit.thread ], [ -1, %.thread472 ], [ -1, %is_index_unchanged.exit.thread.i ], [ -1, %865 ]
+allow_empty.exit.thread463:                       ; preds = %is_index_unchanged.exit.thread.i, %865, %.thread472, %do_recursive_merge.exit.thread, %626, %update_squash_messages.exit.thread, %allow_empty.exit, %update_squash_messages.exit, %909, %rebase_path_current_fixups.exit, %172, %print_advice.exit
+  %.0249 = phi ptr [ %.2251, %print_advice.exit ], [ %.4253, %rebase_path_current_fixups.exit ], [ %.4253, %909 ], [ %.2251, %626 ], [ null, %172 ], [ %.2251, %update_squash_messages.exit ], [ %.2251, %allow_empty.exit ], [ %.2251, %update_squash_messages.exit.thread ], [ %.2251, %do_recursive_merge.exit.thread ], [ null, %.thread472 ], [ %.2251, %865 ], [ %.2251, %is_index_unchanged.exit.thread.i ]
+  %.0243 = phi i32 [ %.4247451454, %print_advice.exit ], [ 0, %rebase_path_current_fixups.exit ], [ %.5248, %909 ], [ -1, %626 ], [ %173, %172 ], [ -1, %update_squash_messages.exit ], [ %876, %allow_empty.exit ], [ -1, %update_squash_messages.exit.thread ], [ %.048.i.ph, %do_recursive_merge.exit.thread ], [ -1, %.thread472 ], [ -1, %865 ], [ -1, %is_index_unchanged.exit.thread.i ]
   call void @free(ptr noundef %161) #20
   call void @free(ptr noundef %160) #20
   call void @free(ptr noundef %159) #20
@@ -19232,7 +19232,7 @@ allow_empty.exit.thread463:                       ; preds = %865, %is_index_unch
   br label %.critedge
 
 .critedge:                                        ; preds = %_.exit331, %_.exit328, %allow_empty.exit.thread463, %command_to_string.exit, %_.exit334, %101, %_.exit325, %_.exit
-  %.0 = phi i32 [ -1, %_.exit ], [ %102, %101 ], [ -1, %command_to_string.exit ], [ %.0243, %allow_empty.exit.thread463 ], [ -1, %_.exit325 ], [ -1, %_.exit334 ], [ -1, %_.exit328 ], [ -1, %_.exit331 ]
+  %.0 = phi i32 [ -1, %_.exit ], [ -1, %command_to_string.exit ], [ %.0243, %allow_empty.exit.thread463 ], [ -1, %_.exit334 ], [ -1, %_.exit325 ], [ %102, %101 ], [ -1, %_.exit328 ], [ -1, %_.exit331 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   ret i32 %.0
 }
@@ -19675,7 +19675,7 @@ switch.lookup:                                    ; preds = %10
   br label %36
 
 36:                                               ; preds = %5, %35, %31
-  %.0 = phi i32 [ 0, %35 ], [ -1, %31 ], [ -1, %5 ]
+  %.0 = phi i32 [ -1, %31 ], [ 0, %35 ], [ -1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -19859,12 +19859,12 @@ get_author.exit.i:                                ; preds = %47
   br label %66
 
 66:                                               ; preds = %64, %61, %.thread.i
-  %67 = phi ptr [ %41, %.thread.i ], [ %62, %64 ], [ %62, %61 ]
-  %.197.i = phi ptr [ %50, %.thread.i ], [ null, %64 ], [ null, %61 ]
-  %.193.i = phi ptr [ %.092.i, %.thread.i ], [ null, %64 ], [ null, %61 ]
-  %.283.i = phi ptr [ %58, %.thread.i ], [ null, %64 ], [ null, %61 ]
-  %.078.i = phi ptr [ %50, %.thread.i ], [ %2, %64 ], [ %2, %61 ]
-  %.1.i = phi ptr [ %.076.i, %.thread.i ], [ %., %64 ], [ %., %61 ]
+  %67 = phi ptr [ %62, %64 ], [ %62, %61 ], [ %41, %.thread.i ]
+  %.197.i = phi ptr [ null, %64 ], [ null, %61 ], [ %50, %.thread.i ]
+  %.193.i = phi ptr [ null, %64 ], [ null, %61 ], [ %.092.i, %.thread.i ]
+  %.283.i = phi ptr [ null, %64 ], [ null, %61 ], [ %58, %.thread.i ]
+  %.078.i = phi ptr [ %2, %64 ], [ %2, %61 ], [ %50, %.thread.i ]
+  %.1.i = phi ptr [ %., %64 ], [ %., %61 ], [ %.076.i, %.thread.i ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %69 = load ptr, ptr %68, align 8, !tbaa !189
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -20075,7 +20075,7 @@ git_path_commit_editmsg.exit154.i:                ; preds = %133, %_.exit152.i
   br label %.thread184.thread204.i
 
 .thread184.thread204.i:                           ; preds = %.thread184.i, %146, %.thread184.thread.i
-  %154 = phi ptr [ null, %146 ], [ %spec.select.i, %.thread184.i ], [ %138, %.thread184.thread.i ]
+  %154 = phi ptr [ %138, %.thread184.thread.i ], [ null, %146 ], [ %spec.select.i, %.thread184.i ]
   call void @strbuf_stripspace(ptr noundef %.2.i, ptr noundef %154) #20
   br label %155
 
@@ -20233,7 +20233,7 @@ _.exit160.i:                                      ; preds = %176, %174
   br label %try_to_commit.exit
 
 234:                                              ; preds = %.thread197.i, %204
-  %.179.i = phi ptr [ %231, %.thread197.i ], [ %.078.i, %204 ]
+  %.179.i = phi ptr [ %.078.i, %204 ], [ %231, %.thread197.i ]
   %235 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
   %236 = load ptr, ptr %235, align 8, !tbaa !31
   %237 = getelementptr inbounds nuw i8, ptr %.2.i, i64 8
@@ -20284,11 +20284,11 @@ _.exit166.i:                                      ; preds = %245, %243
   br label %try_to_commit.exit
 
 try_to_commit.exit:                               ; preds = %59, %_.exit143.i, %_.exit146.i, %100, %git_path_commit_editmsg.exit.i.i, %_.exit.i.i, %git_path_commit_editmsg.exit154.i, %.thread193.i, %232, %_.exit166.i, %253, %257, %260
-  %.096.i = phi ptr [ %.197.i, %_.exit143.i ], [ %.197.i, %100 ], [ %.197.i, %git_path_commit_editmsg.exit154.i ], [ null, %59 ], [ %.197.i, %_.exit166.i ], [ %.197.i, %253 ], [ %.197.i, %260 ], [ %.197.i, %257 ], [ %.197.i, %232 ], [ %.197.i, %.thread193.i ], [ %.197.i, %_.exit.i.i ], [ %.197.i, %_.exit146.i ], [ %.197.i, %git_path_commit_editmsg.exit.i.i ]
-  %.not35 = phi i1 [ false, %_.exit143.i ], [ false, %100 ], [ false, %git_path_commit_editmsg.exit154.i ], [ false, %59 ], [ false, %_.exit166.i ], [ false, %253 ], [ true, %260 ], [ true, %257 ], [ true, %232 ], [ false, %.thread193.i ], [ false, %_.exit.i.i ], [ false, %_.exit146.i ], [ false, %git_path_commit_editmsg.exit.i.i ]
-  %262 = phi i1 [ false, %_.exit143.i ], [ true, %100 ], [ false, %git_path_commit_editmsg.exit154.i ], [ false, %59 ], [ false, %_.exit166.i ], [ false, %253 ], [ false, %260 ], [ false, %257 ], [ false, %232 ], [ false, %.thread193.i ], [ false, %_.exit.i.i ], [ false, %_.exit146.i ], [ false, %git_path_commit_editmsg.exit.i.i ]
-  %.188.i = phi i32 [ -1, %_.exit143.i ], [ 1, %100 ], [ -1, %git_path_commit_editmsg.exit154.i ], [ -1, %59 ], [ -1, %_.exit166.i ], [ -1, %253 ], [ 0, %260 ], [ 0, %257 ], [ 0, %232 ], [ -1, %.thread193.i ], [ -1, %_.exit.i.i ], [ -1, %_.exit146.i ], [ -1, %git_path_commit_editmsg.exit.i.i ]
-  %.182.i = phi ptr [ %.283.i, %_.exit143.i ], [ %.283.i, %100 ], [ %.283.i, %git_path_commit_editmsg.exit154.i ], [ null, %59 ], [ %.283.i, %_.exit166.i ], [ %.283.i, %253 ], [ %.283.i, %260 ], [ %.283.i, %257 ], [ %.283.i, %232 ], [ %.283.i, %.thread193.i ], [ %.283.i, %_.exit.i.i ], [ %.283.i, %_.exit146.i ], [ %.283.i, %git_path_commit_editmsg.exit.i.i ]
+  %.096.i = phi ptr [ %.197.i, %_.exit143.i ], [ %.197.i, %git_path_commit_editmsg.exit154.i ], [ %.197.i, %_.exit166.i ], [ %.197.i, %253 ], [ %.197.i, %260 ], [ %.197.i, %257 ], [ %.197.i, %232 ], [ null, %59 ], [ %.197.i, %.thread193.i ], [ %.197.i, %_.exit146.i ], [ %.197.i, %100 ], [ %.197.i, %git_path_commit_editmsg.exit.i.i ], [ %.197.i, %_.exit.i.i ]
+  %.not35 = phi i1 [ false, %_.exit143.i ], [ false, %git_path_commit_editmsg.exit154.i ], [ false, %_.exit166.i ], [ false, %253 ], [ true, %260 ], [ true, %257 ], [ true, %232 ], [ false, %59 ], [ false, %.thread193.i ], [ false, %_.exit146.i ], [ false, %100 ], [ false, %git_path_commit_editmsg.exit.i.i ], [ false, %_.exit.i.i ]
+  %262 = phi i1 [ false, %_.exit143.i ], [ false, %git_path_commit_editmsg.exit154.i ], [ false, %_.exit166.i ], [ false, %253 ], [ false, %260 ], [ false, %257 ], [ false, %232 ], [ false, %59 ], [ false, %.thread193.i ], [ false, %_.exit146.i ], [ true, %100 ], [ false, %git_path_commit_editmsg.exit.i.i ], [ false, %_.exit.i.i ]
+  %.188.i = phi i32 [ -1, %_.exit143.i ], [ -1, %git_path_commit_editmsg.exit154.i ], [ -1, %_.exit166.i ], [ -1, %253 ], [ 0, %260 ], [ 0, %257 ], [ 0, %232 ], [ -1, %59 ], [ -1, %.thread193.i ], [ -1, %_.exit146.i ], [ 1, %100 ], [ -1, %git_path_commit_editmsg.exit.i.i ], [ -1, %_.exit.i.i ]
+  %.182.i = phi ptr [ %.283.i, %_.exit143.i ], [ %.283.i, %git_path_commit_editmsg.exit154.i ], [ %.283.i, %_.exit166.i ], [ %.283.i, %253 ], [ %.283.i, %260 ], [ %.283.i, %257 ], [ %.283.i, %232 ], [ null, %59 ], [ %.283.i, %.thread193.i ], [ %.283.i, %_.exit146.i ], [ %.283.i, %100 ], [ %.283.i, %git_path_commit_editmsg.exit.i.i ], [ %.283.i, %_.exit.i.i ]
   call void @free_commit_extra_headers(ptr noundef %.182.i) #20
   %263 = load ptr, ptr %10, align 8, !tbaa !215
   call void @free_commit_list(ptr noundef %263) #20
@@ -20316,8 +20316,8 @@ try_to_commit.exit:                               ; preds = %59, %_.exit143.i, %
   call void @print_commit_summary(ptr noundef %0, ptr noundef null, ptr noundef nonnull %18, i32 noundef 2)
   br label %.thread
 
-.thread:                                          ; preds = %_.exit, %264, %269
-  %.027.ph = phi i32 [ 0, %269 ], [ 0, %264 ], [ -1, %_.exit ]
+.thread:                                          ; preds = %_.exit, %269, %264
+  %.027.ph = phi i32 [ 0, %264 ], [ 0, %269 ], [ -1, %_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %283
@@ -20360,7 +20360,7 @@ write_rebase_head.exit.thread:                    ; preds = %273, %.thread49
   br label %283
 
 283:                                              ; preds = %write_rebase_head.exit, %.thread51, %.thread, %270, %write_rebase_head.exit.thread
-  %.128 = phi i32 [ %.027.ph, %.thread ], [ %282, %write_rebase_head.exit.thread ], [ -1, %write_rebase_head.exit ], [ %.188.i, %270 ], [ -1, %.thread51 ]
+  %.128 = phi i32 [ %282, %write_rebase_head.exit.thread ], [ -1, %write_rebase_head.exit ], [ %.188.i, %270 ], [ %.027.ph, %.thread ], [ -1, %.thread51 ]
   ret i32 %.128
 }
 
@@ -20792,7 +20792,7 @@ _.exit14:                                         ; preds = %51, %53
   br label %56
 
 56:                                               ; preds = %48, %2, %_.exit14, %_.exit11, %_.exit
-  %.0 = phi i32 [ -1, %2 ], [ -1, %_.exit ], [ -1, %_.exit11 ], [ -1, %_.exit14 ], [ 0, %48 ]
+  %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit11 ], [ -1, %_.exit14 ], [ -1, %2 ], [ 0, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -21189,8 +21189,8 @@ strbuf_addch.exit147:                             ; preds = %106, %strbuf_avail.
   br label %114
 
 114:                                              ; preds = %.thread155, %strbuf_addch.exit, %100, %101, %strbuf_addch.exit147
-  %.3102 = phi i32 [ %.099161, %strbuf_addch.exit ], [ %.1100.ph, %.thread155 ], [ %.099161, %strbuf_addch.exit147 ], [ %.099161, %101 ], [ %.099161, %100 ]
-  %.3 = phi ptr [ %.097162, %strbuf_addch.exit ], [ %.1.ph, %.thread155 ], [ %.097162, %strbuf_addch.exit147 ], [ %.097162, %101 ], [ %.097162, %100 ]
+  %.3102 = phi i32 [ %.099161, %strbuf_addch.exit ], [ %.099161, %strbuf_addch.exit147 ], [ %.099161, %101 ], [ %.099161, %100 ], [ %.1100.ph, %.thread155 ]
+  %.3 = phi ptr [ %.097162, %strbuf_addch.exit ], [ %.097162, %strbuf_addch.exit147 ], [ %.097162, %101 ], [ %.097162, %100 ], [ %.1.ph, %.thread155 ]
   %115 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %116 = load i8, ptr %115, align 1, !tbaa !24
   %.not115 = icmp eq i8 %116, 0
@@ -21201,7 +21201,7 @@ strbuf_addch.exit147:                             ; preds = %106, %strbuf_avail.
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %99, %50, %.critedgethread-pre-split.loopexit
-  %117 = phi i64 [ %80, %99 ], [ %.pr.pre, %.critedgethread-pre-split.loopexit ], [ %51, %50 ], [ %58, %.lr.ph ]
+  %117 = phi i64 [ %.pr.pre, %.critedgethread-pre-split.loopexit ], [ %51, %50 ], [ %80, %99 ], [ %58, %.lr.ph ]
   %.not123 = icmp eq i64 %117, 0
   br i1 %.not123, label %118, label %120
 

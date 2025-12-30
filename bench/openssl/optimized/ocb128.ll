@@ -496,7 +496,7 @@ ocb_double.exit.i:                                ; preds = %40
   br label %ocb_lookup_l.exit
 
 ocb_lookup_l.exit:                                ; preds = %18, %ocb_ntz.exit, %._crit_edge.i
-  %.0.lcssa.i77 = phi i64 [ %23, %._crit_edge.i ], [ %23, %ocb_ntz.exit ], [ 0, %18 ]
+  %.0.lcssa.i77 = phi i64 [ %23, %ocb_ntz.exit ], [ %23, %._crit_edge.i ], [ 0, %18 ]
   %52 = load ptr, ptr %11, align 8, !tbaa !11
   %.not56 = icmp eq ptr %52, null
   br i1 %.not56, label %.critedge, label %53
@@ -802,7 +802,7 @@ ocb_double.exit.i110:                             ; preds = %92
   br label %ocb_lookup_l.exit114
 
 ocb_lookup_l.exit114:                             ; preds = %70, %ocb_ntz.exit, %._crit_edge.i113
-  %.0.lcssa.i147 = phi i64 [ %75, %._crit_edge.i113 ], [ %75, %ocb_ntz.exit ], [ 0, %70 ]
+  %.0.lcssa.i147 = phi i64 [ %75, %ocb_ntz.exit ], [ %75, %._crit_edge.i113 ], [ 0, %70 ]
   %104 = load ptr, ptr %63, align 8, !tbaa !11
   %.not90 = icmp eq ptr %104, null
   br i1 %.not90, label %.critedge95, label %105
@@ -918,7 +918,7 @@ ocb_block_xor.exit:                               ; preds = %147
   br label %.critedge
 
 .critedge:                                        ; preds = %22, %ocb_lookup_l.exit, %.critedge95, %165
-  %.1 = phi i32 [ 1, %165 ], [ 0, %ocb_lookup_l.exit ], [ 0, %.critedge95 ], [ 0, %22 ]
+  %.1 = phi i32 [ 1, %165 ], [ 0, %.critedge95 ], [ 0, %ocb_lookup_l.exit ], [ 0, %22 ]
   ret i32 %.1
 }
 
@@ -1262,7 +1262,7 @@ ocb_block_xor.exit:                               ; preds = %150
   br label %.critedge
 
 .critedge:                                        ; preds = %22, %.thread131, %.thread128, %ocb_lookup_l.exit, %168
-  %.1 = phi i32 [ 1, %168 ], [ 0, %ocb_lookup_l.exit ], [ 0, %22 ], [ 0, %.thread131 ], [ 0, %.thread128 ]
+  %.1 = phi i32 [ 1, %168 ], [ 0, %ocb_lookup_l.exit ], [ 0, %.thread128 ], [ 0, %.thread131 ], [ 0, %22 ]
   ret i32 %.1
 }
 
@@ -1363,7 +1363,7 @@ define range(i32 -1, 2) i32 @CRYPTO_ocb128_tag(ptr noundef readonly captures(non
   br label %ocb_finish.exit
 
 ocb_finish.exit:                                  ; preds = %3, %6
-  %.0.i = phi i32 [ -1, %3 ], [ 1, %6 ]
+  %.0.i = phi i32 [ 1, %6 ], [ -1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }

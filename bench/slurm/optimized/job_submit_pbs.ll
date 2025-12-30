@@ -348,7 +348,7 @@ define internal fastcc void @_xlate_dependency(ptr noundef %0, i32 noundef %1, i
   br label %_xlate_before.exit
 
 49:                                               ; preds = %43, %41, %39, %36
-  %.043.i = phi ptr [ @.str.18, %41 ], [ @.str.16, %39 ], [ @.str.8, %36 ], [ @.str.20, %43 ]
+  %.043.i = phi ptr [ @.str.8, %36 ], [ @.str.16, %39 ], [ @.str.18, %41 ], [ @.str.20, %43 ]
   %50 = call i32 @pthread_mutex_lock(ptr noundef nonnull @depend_mutex) #12
   %.not59.i = icmp eq i32 %50, 0
   br i1 %.not59.i, label %53, label %51

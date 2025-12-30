@@ -211,7 +211,7 @@ define hidden noundef i32 @_ZNK6Symbol11index_of_atEiPKci(ptr noundef nonnull al
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph.split, %48, %.lr.ph.split.us, %35, %6, %4, %.split.us
-  %.027 = phi i32 [ %47, %.split.us ], [ 0, %4 ], [ -1, %6 ], [ -1, %.lr.ph.split.us ], [ -1, %35 ], [ -1, %48 ], [ -1, %.lr.ph.split ]
+  %.027 = phi i32 [ %47, %.split.us ], [ 0, %4 ], [ -1, %6 ], [ -1, %35 ], [ -1, %.lr.ph.split.us ], [ -1, %48 ], [ -1, %.lr.ph.split ]
   ret i32 %.027
 }
 
@@ -304,7 +304,7 @@ _ZNK6Symbol11as_C_stringEv.exit:                  ; preds = %35, %14
   br label %_ZNK6Symbol6equalsEPKc.exit
 
 _ZNK6Symbol6equalsEPKc.exit:                      ; preds = %45, %43, %_ZNK6Symbol16contains_utf8_atEiPKci.exit.i.i, %5
-  %.0 = phi i1 [ false, %5 ], [ %13, %_ZNK6Symbol16contains_utf8_atEiPKci.exit.i.i ], [ %40, %43 ], [ %40, %45 ]
+  %.0 = phi i1 [ %13, %_ZNK6Symbol16contains_utf8_atEiPKci.exit.i.i ], [ false, %5 ], [ %40, %43 ], [ %40, %45 ]
   ret i1 %.0
 }
 
@@ -1228,7 +1228,7 @@ define hidden noundef zeroext i1 @_ZN6Symbol8is_validEPS_(ptr noundef %0) local_
   br label %22
 
 22:                                               ; preds = %9, %6, %1, %15
-  %.0 = phi i1 [ false, %1 ], [ false, %6 ], [ false, %9 ], [ %21, %15 ]
+  %.0 = phi i1 [ %21, %15 ], [ false, %1 ], [ false, %6 ], [ false, %9 ]
   ret i1 %.0
 }
 

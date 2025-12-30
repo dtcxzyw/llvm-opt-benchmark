@@ -475,7 +475,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent(ptr noundef readonl
   br label %26
 
 26:                                               ; preds = %25, %24, %16
-  %.1 = phi i64 [ 0, %16 ], [ 1, %25 ], [ 1, %24 ]
+  %.1 = phi i64 [ 1, %24 ], [ 1, %25 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %27
 
@@ -714,7 +714,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_6args(ptr noundef r
   br label %33
 
 33:                                               ; preds = %32, %31, %23
-  %.1.i = phi i64 [ 0, %23 ], [ 1, %32 ], [ 1, %31 ]
+  %.1.i = phi i64 [ 1, %31 ], [ 1, %32 ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %gin_tsquery_consistent.exit
 
@@ -773,7 +773,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_oldsig(ptr noundef 
   br label %26
 
 26:                                               ; preds = %25, %24, %16
-  %.1.i = phi i64 [ 0, %16 ], [ 1, %25 ], [ 1, %24 ]
+  %.1.i = phi i64 [ 1, %24 ], [ 1, %25 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %gin_tsquery_consistent.exit
 

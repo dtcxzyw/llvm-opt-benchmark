@@ -651,7 +651,7 @@ define range(i32 0, 2) i32 @bufferevent_decref_and_unlock_(ptr noundef %0) local
   br label %53
 
 53:                                               ; preds = %31, %50, %6, %9
-  %.0 = phi i32 [ 0, %6 ], [ 0, %9 ], [ 1, %50 ], [ 1, %31 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %6 ], [ 1, %50 ], [ 1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1668,7 +1668,7 @@ bufferevent_incref_and_lock_.exit:                ; preds = %2, %5
   br label %.thread
 
 .thread:                                          ; preds = %bufferevent_incref_and_lock_.exit, %30, %21
-  %.025 = phi i32 [ %.lobit, %21 ], [ %.lobit, %30 ], [ 0, %bufferevent_incref_and_lock_.exit ]
+  %.025 = phi i32 [ %.lobit, %30 ], [ %.lobit, %21 ], [ 0, %bufferevent_incref_and_lock_.exit ]
   %31 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %0)
   ret i32 %.025
 }
@@ -2113,7 +2113,7 @@ define void @bufferevent_setwatermark(ptr noundef %0, i16 noundef signext %1, i6
   br i1 %.not15.i46, label %bufferevent_suspend_read_.exit.thread, label %bufferevent_suspend_read_.exit.sink.split
 
 bufferevent_suspend_read_.exit.sink.split:        ; preds = %101, %75, %48
-  %.sink = phi ptr [ %76, %75 ], [ %51, %48 ], [ %102, %101 ]
+  %.sink = phi ptr [ %51, %48 ], [ %76, %75 ], [ %102, %101 ]
   %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
   %104 = tail call i32 %103(i32 noundef 0, ptr noundef nonnull %.sink) #7
   br label %bufferevent_suspend_read_.exit
@@ -2314,7 +2314,7 @@ define range(i32 -1, 1) i32 @bufferevent_getwatermark(ptr noundef readonly captu
   br label %39
 
 39:                                               ; preds = %.sink.split, %4, %35, %19
-  %.0 = phi i32 [ 0, %35 ], [ 0, %19 ], [ -1, %4 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %35 ], [ -1, %4 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -3286,7 +3286,7 @@ bufferevent_add_event_.exit:                      ; preds = %4, %7
   br label %13
 
 13:                                               ; preds = %bufferevent_add_event_.exit, %11, %1
-  %.0 = phi i32 [ 0, %1 ], [ %.lobit, %bufferevent_add_event_.exit ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %1 ], [ %.lobit, %bufferevent_add_event_.exit ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %15 = tail call i32 @event_pending(ptr noundef nonnull %14, i16 noundef signext 4, ptr noundef null) #7
   %.not14 = icmp eq i32 %15, 0
@@ -3315,7 +3315,7 @@ bufferevent_add_event_.exit21:                    ; preds = %16, %19
   br label %25
 
 25:                                               ; preds = %bufferevent_add_event_.exit21, %23, %13
-  %.1 = phi i32 [ %.0, %13 ], [ %spec.select17, %bufferevent_add_event_.exit21 ], [ %.0, %23 ]
+  %.1 = phi i32 [ %.0, %23 ], [ %.0, %13 ], [ %spec.select17, %bufferevent_add_event_.exit21 ]
   ret i32 %.1
 }
 

@@ -1972,7 +1972,7 @@ define internal fastcc i32 @do_mprotect_pkey(i64 noundef %0, i64 noundef %1, i64
   br label %180
 
 180:                                              ; preds = %.thread20, %177, %91, %89, %84, %82, %66, %59, %54, %51, %46
-  %181 = phi i32 [ -12, %82 ], [ %.ph19, %.thread20 ], [ -22, %84 ], [ -12, %89 ], [ -12, %66 ], [ -22, %59 ], [ -22, %91 ], [ %179, %177 ], [ -22, %54 ], [ -22, %51 ], [ -22, %46 ]
+  %181 = phi i32 [ -12, %82 ], [ -22, %84 ], [ -12, %89 ], [ -12, %66 ], [ -22, %59 ], [ -22, %91 ], [ %179, %177 ], [ -22, %54 ], [ -22, %51 ], [ -22, %46 ], [ %.ph19, %.thread20 ]
   %182 = load ptr, ptr %34, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #6
           to label %184 [label %183], !srcloc !10

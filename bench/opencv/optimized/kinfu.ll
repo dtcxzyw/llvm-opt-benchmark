@@ -400,8 +400,8 @@ _ZN2cv5kinfu6ParamsD2Ev.exit:                     ; preds = %_ZNSt16allocator_tr
           cleanup
   br label %_ZN2cv5kinfu6ParamsD2Ev.exit19
 
-_ZN2cv5kinfu6ParamsD2Ev.exit19:                   ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu6ParamsESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, %46
-  %.pn12.pn.ph = phi { ptr, i32 } [ %47, %46 ], [ %40, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu6ParamsESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i ]
+_ZN2cv5kinfu6ParamsD2Ev.exit19:                   ; preds = %46, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu6ParamsESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i
+  %.pn12.pn.ph = phi { ptr, i32 } [ %40, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5kinfu6ParamsESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i ], [ %47, %46 ]
   tail call void @_ZdlPv(ptr noundef nonnull %18) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn12.pn.ph
@@ -1952,7 +1952,7 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i:       ; preds = %168
   br label %259
 
 259:                                              ; preds = %124, %225, %257, %255, %223
-  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %256, %255 ], [ %125, %124 ], [ %258, %257 ], [ %224, %223 ], [ %226, %225 ]
+  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %125, %124 ], [ %224, %223 ], [ %226, %225 ], [ %258, %257 ], [ %256, %255 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %282
 
@@ -2875,7 +2875,7 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i:       ; preds = %168
   br label %259
 
 259:                                              ; preds = %124, %225, %257, %255, %223
-  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %256, %255 ], [ %125, %124 ], [ %258, %257 ], [ %224, %223 ], [ %226, %225 ]
+  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %125, %124 ], [ %224, %223 ], [ %226, %225 ], [ %258, %257 ], [ %256, %255 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %282
 
@@ -3712,9 +3712,9 @@ _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   br label %138
 
 138:                                              ; preds = %94, %123, %131
-  %.052 = phi double [ %135, %131 ], [ %128, %123 ], [ 0.000000e+00, %94 ]
-  %.051 = phi double [ %136, %131 ], [ %129, %123 ], [ 0.000000e+00, %94 ]
-  %.150 = phi double [ %137, %131 ], [ %130, %123 ], [ 0.000000e+00, %94 ]
+  %.052 = phi double [ %128, %123 ], [ %135, %131 ], [ 0.000000e+00, %94 ]
+  %.051 = phi double [ %129, %123 ], [ %136, %131 ], [ 0.000000e+00, %94 ]
+  %.150 = phi double [ %130, %123 ], [ %137, %131 ], [ 0.000000e+00, %94 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store double %.052, ptr %13, align 8, !tbaa !220
   %139 = getelementptr inbounds nuw i8, ptr %13, i64 8

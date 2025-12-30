@@ -257,7 +257,7 @@ define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$core..result..Resu
   br i1 %23, label %"_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split.i", label %"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h9d98ba95dc543040E.exit", !prof !15
 
 "_ZN4core3ptr46drop_in_place$LT$uv_small_str..SmallString$GT$17h14fb8eb5ce976188E.exit.sink.split.i": ; preds = %94, %82, %70, %58, %46, %34, %21
-  %.sink.i = phi ptr [ %79, %82 ], [ %67, %70 ], [ %55, %58 ], [ %43, %46 ], [ %31, %34 ], [ %91, %94 ], [ %18, %21 ]
+  %.sink.i = phi ptr [ %31, %34 ], [ %43, %46 ], [ %55, %58 ], [ %67, %70 ], [ %79, %82 ], [ %91, %94 ], [ %18, %21 ]
   %24 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h635b3ecfe175678eE.llvm.12269864746862348372(ptr noundef nonnull %.sink.i, i8 noundef 2), !noalias !3
   tail call void @_ZN6arcstr7arc_str9ThinInner12destroy_cold17h28090481e7d68c00E(ptr noundef nonnull %.val1), !noalias !3
   br label %"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h9d98ba95dc543040E.exit"
@@ -715,8 +715,8 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br i1 %68, label %69, label %15
 
 69:                                               ; preds = %66, %9, %1, %76
-  %.sroa.6.0 = phi i64 [ undef, %1 ], [ %.sroa.6.2, %76 ], [ %12, %9 ], [ undef, %66 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.sroa.0.2, %76 ], [ %11, %9 ], [ null, %66 ]
+  %.sroa.6.0 = phi i64 [ %.sroa.6.2, %76 ], [ undef, %1 ], [ %12, %9 ], [ undef, %66 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.2, %76 ], [ null, %1 ], [ %11, %9 ], [ null, %66 ]
   %70 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %71 = insertvalue { ptr, i64 } %70, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %71
@@ -2479,7 +2479,7 @@ _ZN6memchr4arch7generic6memchr4Iter4next17h0e0fa9f53ae3598bE.exit.thread: ; pred
   unreachable
 
 common.resume:                                    ; preds = %299, %171, %410, %411, %416, %421, %426
-  %common.resume.op = phi { ptr, i32 } [ %300, %299 ], [ %172, %171 ], [ %.pn332.pn.pn.ph, %410 ], [ %427, %426 ], [ %412, %411 ], [ %417, %416 ], [ %422, %421 ]
+  %common.resume.op = phi { ptr, i32 } [ %172, %171 ], [ %.pn332.pn.pn.ph, %410 ], [ %412, %411 ], [ %417, %416 ], [ %422, %421 ], [ %427, %426 ], [ %300, %299 ]
   resume { ptr, i32 } %common.resume.op
 
 176:                                              ; preds = %167, %165
@@ -3192,7 +3192,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h6727559d40f5155cE.exit: 
   br label %409
 
 .thread570:                                       ; preds = %369, %390, %400, %.thread575
-  %.pn332.pn573 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread575 ], [ %391, %390 ], [ %401, %400 ], [ %.pn328.pn.pn, %369 ]
+  %.pn332.pn573 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread575 ], [ %401, %400 ], [ %391, %390 ], [ %.pn328.pn.pn, %369 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !600)
   call void @llvm.experimental.noalias.scope.decl(metadata !603)
   %402 = getelementptr inbounds nuw i8, ptr %30, i64 9
@@ -3922,7 +3922,7 @@ define void @"_ZN109_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u
   unreachable
 
 common.resume:                                    ; preds = %52, %63, %24, %35
-  %common.resume.op = phi { ptr, i32 } [ %36, %35 ], [ %25, %24 ], [ %53, %52 ], [ %64, %63 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %36, %35 ], [ %53, %52 ], [ %64, %63 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h62da2da42ef4ae4dE.exit.i": ; preds = %"_ZN47_$LT$url..Url$u20$as$u20$core..fmt..Display$GT$3fmt17hecb1d6f9c5f00076E.exit.i.i"

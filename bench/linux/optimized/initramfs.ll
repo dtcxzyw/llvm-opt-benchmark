@@ -448,12 +448,12 @@ define internal fastcc ptr @unpack_to_rootfs(ptr noundef %0, i64 noundef %1) unn
   br i1 %67, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %63, %48, %60, %62
-  %.sink = phi ptr [ @.str.12, %62 ], [ @unpack_to_rootfs.msg_buf, %60 ], [ @.str.10, %48 ], [ @.str.13, %63 ]
+  %.sink = phi ptr [ @unpack_to_rootfs.msg_buf, %60 ], [ @.str.10, %48 ], [ @.str.12, %62 ], [ @.str.13, %63 ]
   store ptr %.sink, ptr @message, align 8
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %59, %62, %63
-  %68 = phi ptr [ %57, %62 ], [ %51, %63 ], [ %57, %59 ], [ %.sink, %.thread.sink.split ]
+  %68 = phi ptr [ %51, %63 ], [ %57, %59 ], [ %57, %62 ], [ %.sink, %.thread.sink.split ]
   %69 = load i64, ptr @my_inptr, align 8
   %70 = add i64 %69, %21
   store i64 %70, ptr @this_header, align 8

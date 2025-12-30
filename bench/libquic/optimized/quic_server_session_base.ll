@@ -986,7 +986,7 @@ _ZNSolsEm.exit:                                   ; preds = %48
   br label %53
 
 .critedge24:                                      ; preds = %.critedge29, %37, %.critedge26, %23, %.critedge, %10, %30
-  %.022 = phi i1 [ false, %.critedge26 ], [ true, %30 ], [ false, %.critedge ], [ false, %10 ], [ false, %23 ], [ false, %37 ], [ false, %.critedge29 ]
+  %.022 = phi i1 [ true, %30 ], [ false, %10 ], [ false, %.critedge ], [ false, %23 ], [ false, %.critedge26 ], [ false, %37 ], [ false, %.critedge29 ]
   ret i1 %.022
 
 53:                                               ; preds = %51, %28, %15

@@ -254,8 +254,8 @@ define internal i32 @dissect_ldss(ptr noundef %0, ptr noundef readonly captures(
   br label %42
 
 42:                                               ; preds = %40, %38, %35, %33
-  %.not112.i = phi i1 [ false, %40 ], [ true, %33 ], [ false, %38 ], [ false, %35 ]
-  %.0.i = phi i16 [ %spec.select.i, %40 ], [ 0, %33 ], [ %..i, %38 ], [ %.mux.i, %35 ]
+  %.not112.i = phi i1 [ true, %33 ], [ false, %35 ], [ false, %38 ], [ false, %40 ]
+  %.0.i = phi i16 [ 0, %33 ], [ %.mux.i, %35 ], [ %..i, %38 ], [ %spec.select.i, %40 ]
   %43 = zext nneg i16 %.0.i to i32
   %44 = tail call ptr @val_to_str_const(i32 noundef %43, ptr noundef nonnull @ldss_inferred_info, ptr noundef nonnull @.str.81)
   %45 = load ptr, ptr %17, align 8
@@ -1061,8 +1061,8 @@ proto_item_set_generated.exit277:                 ; preds = %251, %253
   store i32 268435454, ptr %362, align 8
   br label %421
 
-proto_item_set_generated.exit277.thread:          ; preds = %357, %354, %351, %346, %349, %proto_item_set_generated.exit274, %proto_item_set_generated.exit259
-  %.0220 = phi ptr [ %56, %proto_item_set_generated.exit259 ], [ %271, %proto_item_set_generated.exit274 ], [ %271, %349 ], [ %271, %346 ], [ %271, %351 ], [ %271, %354 ], [ %271, %357 ]
+proto_item_set_generated.exit277.thread:          ; preds = %357, %354, %351, %proto_item_set_generated.exit274, %346, %349, %proto_item_set_generated.exit259
+  %.0220 = phi ptr [ %56, %proto_item_set_generated.exit259 ], [ %271, %349 ], [ %271, %346 ], [ %271, %proto_item_set_generated.exit274 ], [ %271, %351 ], [ %271, %354 ], [ %271, %357 ]
   %363 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %364 = load ptr, ptr %363, align 8
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 24
@@ -1179,7 +1179,7 @@ proto_item_set_generated.exit286:                 ; preds = %407, %404, %398, %p
   br label %421
 
 421:                                              ; preds = %proto_item_set_generated.exit277, %4, %419
-  %.0 = phi i32 [ -1, %proto_item_set_generated.exit277 ], [ %420, %419 ], [ 0, %4 ]
+  %.0 = phi i32 [ %420, %419 ], [ -1, %proto_item_set_generated.exit277 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

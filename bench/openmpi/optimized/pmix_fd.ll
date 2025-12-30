@@ -58,7 +58,7 @@ define range(i32 -26, 1) i32 @pmix_fd_read(i32 noundef %0, i32 noundef %1, ptr n
   br i1 %19, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.outer, %.split.us, %10, %3
-  %.012 = phi i32 [ -26, %10 ], [ 0, %3 ], [ 0, %.outer ], [ -24, %.split.us ]
+  %.012 = phi i32 [ 0, %3 ], [ -26, %10 ], [ 0, %.outer ], [ -24, %.split.us ]
   ret i32 %.012
 }
 
@@ -113,7 +113,7 @@ define range(i32 -26, 1) i32 @pmix_fd_write(i32 noundef %0, i32 noundef %1, ptr 
   br i1 %19, label %.lr.ph.split.us, label %.thread, !llvm.loop !9
 
 .thread:                                          ; preds = %.split.us, %.outer, %10, %3
-  %.011 = phi i32 [ 0, %3 ], [ -26, %10 ], [ -26, %.split.us ], [ 0, %.outer ]
+  %.011 = phi i32 [ 0, %3 ], [ -26, %10 ], [ 0, %.outer ], [ -26, %.split.us ]
   ret i32 %.011
 }
 

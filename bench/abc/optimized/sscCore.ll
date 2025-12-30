@@ -2113,8 +2113,8 @@ Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %Vec_IntA
   br label %Gia_ManAppendCo.exit
 
 Gia_ManAppendCo.exit:                             ; preds = %162, %Vec_IntStartNatural.exit, %131, %Vec_IntPush.exit.i
-  %.038 = phi ptr [ %17, %131 ], [ %17, %Vec_IntPush.exit.i ], [ %161, %Vec_IntStartNatural.exit ], [ %161, %162 ]
-  %.0 = phi ptr [ %13, %131 ], [ %13, %Vec_IntPush.exit.i ], [ %152, %Vec_IntStartNatural.exit ], [ %152, %162 ]
+  %.038 = phi ptr [ %17, %Vec_IntPush.exit.i ], [ %17, %131 ], [ %161, %Vec_IntStartNatural.exit ], [ %161, %162 ]
+  %.0 = phi ptr [ %13, %Vec_IntPush.exit.i ], [ %13, %131 ], [ %152, %Vec_IntStartNatural.exit ], [ %152, %162 ]
   %163 = load i32, ptr %3, align 4, !tbaa !58
   %.not39 = icmp eq i32 %163, 0
   br i1 %.not39, label %167, label %164

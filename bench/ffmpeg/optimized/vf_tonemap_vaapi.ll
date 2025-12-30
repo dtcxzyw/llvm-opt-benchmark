@@ -213,7 +213,7 @@ define internal range(i32 -22, 1) i32 @tonemap_vaapi_init(ptr noundef %0) #0 {
   br label %64
 
 64:                                               ; preds = %37, %30, %23, %.thread79, %60, %58, %63, %53
-  %.1 = phi i32 [ -22, %53 ], [ -22, %63 ], [ -22, %23 ], [ -22, %37 ], [ -22, %30 ], [ 0, %58 ], [ 0, %60 ], [ 0, %.thread79 ]
+  %.1 = phi i32 [ -22, %53 ], [ -22, %63 ], [ -22, %37 ], [ -22, %30 ], [ -22, %23 ], [ 0, %58 ], [ 0, %60 ], [ 0, %.thread79 ]
   ret i32 %.1
 }
 
@@ -767,8 +767,8 @@ tonemap_vaapi_update_sidedata.exit:               ; preds = %238
   %326 = call i32 @ff_filter_frame(ptr noundef %12, ptr noundef nonnull %184) #9
   br label %327
 
-tonemap_vaapi_save_metadata.exit.thread:          ; preds = %238, %216, %39, %139, %132, %tonemap_vaapi_set_filter_params.exit.thread, %174, %313, %295, %185
-  %.0 = phi i32 [ -12, %174 ], [ -5, %tonemap_vaapi_set_filter_params.exit.thread ], [ %191, %185 ], [ -22, %39 ], [ %297, %295 ], [ %314, %313 ], [ -22, %132 ], [ -22, %139 ], [ -12, %216 ], [ -12, %238 ]
+tonemap_vaapi_save_metadata.exit.thread:          ; preds = %238, %216, %132, %39, %139, %tonemap_vaapi_set_filter_params.exit.thread, %174, %313, %295, %185
+  %.0 = phi i32 [ %191, %185 ], [ %297, %295 ], [ %314, %313 ], [ -12, %174 ], [ -5, %tonemap_vaapi_set_filter_params.exit.thread ], [ -22, %139 ], [ -22, %39 ], [ -22, %132 ], [ -12, %216 ], [ -12, %238 ]
   call void @av_frame_free(ptr noundef nonnull %4) #9
   call void @av_frame_free(ptr noundef nonnull %5) #9
   br label %327

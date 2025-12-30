@@ -434,7 +434,7 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %23
 
 23:                                               ; preds = %20, %18, %4
-  %24 = phi i32 [ 0, %18 ], [ %22, %20 ], [ 0, %4 ]
+  %24 = phi i32 [ 0, %18 ], [ 0, %4 ], [ %22, %20 ]
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %24, ptr %25, align 16, !tbaa !135
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 1604

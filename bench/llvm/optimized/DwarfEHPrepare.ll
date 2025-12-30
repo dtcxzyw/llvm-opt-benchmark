@@ -1306,7 +1306,7 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj1EED2Ev.exit127.i.i: ; preds = %449, %446
   br label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EED2Ev.exit.i.i
 
 _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EED2Ev.exit.i.i: ; preds = %95, %450, %_ZN4llvm11SmallVectorIPNS_5ValueELj1EED2Ev.exit127.i.i, %_ZN4llvm11SmallVectorIPNS_5ValueELj1EED2Ev.exit.i.i, %210, %._crit_edge.i.i
-  %.0.i.i = phi i1 [ false, %._crit_edge.i.i ], [ true, %_ZN4llvm11SmallVectorIPNS_5ValueELj1EED2Ev.exit.i.i ], [ true, %210 ], [ true, %450 ], [ true, %_ZN4llvm11SmallVectorIPNS_5ValueELj1EED2Ev.exit127.i.i ], [ false, %95 ]
+  %.0.i.i = phi i1 [ false, %._crit_edge.i.i ], [ true, %210 ], [ true, %450 ], [ true, %_ZN4llvm11SmallVectorIPNS_5ValueELj1EED2Ev.exit127.i.i ], [ true, %_ZN4llvm11SmallVectorIPNS_5ValueELj1EED2Ev.exit.i.i ], [ false, %95 ]
   %454 = load ptr, ptr %12, align 8, !tbaa !155
   %455 = icmp eq ptr %454, %48
   br i1 %455, label %_ZN4llvm11SmallVectorIPNS_14LandingPadInstELj16EED2Ev.exit.i.i, label %456
@@ -1584,10 +1584,10 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_114DwarfEHPrepare18GetExcept
   %40 = tail call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #16
   br label %70
 
-.critedge.thread:                                 ; preds = %25, %20, %16, %7, %11, %1, %29, %.critedge
-  %.03313 = phi ptr [ %spec.select.i.i42, %.critedge ], [ null, %29 ], [ null, %1 ], [ null, %11 ], [ null, %7 ], [ null, %16 ], [ null, %20 ], [ null, %25 ]
-  %.03411 = phi ptr [ %18, %.critedge ], [ %18, %29 ], [ null, %1 ], [ null, %11 ], [ null, %7 ], [ null, %16 ], [ %18, %20 ], [ %18, %25 ]
-  %.0359 = phi i1 [ true, %.critedge ], [ false, %29 ], [ false, %1 ], [ false, %11 ], [ false, %7 ], [ false, %16 ], [ false, %20 ], [ false, %25 ]
+.critedge.thread:                                 ; preds = %25, %20, %16, %1, %7, %11, %29, %.critedge
+  %.03313 = phi ptr [ %spec.select.i.i42, %.critedge ], [ null, %29 ], [ null, %11 ], [ null, %7 ], [ null, %1 ], [ null, %16 ], [ null, %20 ], [ null, %25 ]
+  %.03411 = phi ptr [ %18, %.critedge ], [ %18, %29 ], [ null, %11 ], [ null, %7 ], [ null, %1 ], [ null, %16 ], [ %18, %20 ], [ %18, %25 ]
+  %.0359 = phi i1 [ true, %.critedge ], [ false, %29 ], [ false, %11 ], [ false, %7 ], [ false, %1 ], [ false, %16 ], [ false, %20 ], [ false, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !224
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2140,7 +2140,7 @@ _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.s
   br label %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit: ; preds = %11, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit20, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit22, %31, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %31 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %44, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit22 ], [ %43, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit20 ], [ %42, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i, %11 ]
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %31 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %42, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %43, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit20 ], [ %44, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit22 ], [ %.02946.i.i.i.i, %11 ]
   %.not = icmp eq ptr %.028.i.i.i.i, %8
   br i1 %.not, label %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread, label %55
 

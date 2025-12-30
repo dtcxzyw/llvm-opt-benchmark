@@ -235,7 +235,7 @@ define hidden zeroext i1 @phpdbg_check_watch_diff(i32 noundef %0, ptr noundef re
   br label %21
 
 21:                                               ; preds = %3, %4, %17, %15, %9, %7
-  %.0 = phi i1 [ true, %4 ], [ %20, %17 ], [ %8, %7 ], [ %14, %9 ], [ %16, %15 ], [ false, %3 ]
+  %.0 = phi i1 [ %8, %7 ], [ %14, %9 ], [ %16, %15 ], [ %20, %17 ], [ true, %4 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -418,8 +418,8 @@ phpdbg_check_for_watchpoint.exit:                 ; preds = %23
   %36 = tail call ptr @zend_hash_index_add_empty_element(ptr noundef %35, i64 noundef %8) #17
   br label %phpdbg_check_for_watchpoint.exit.thread
 
-phpdbg_check_for_watchpoint.exit.thread:          ; preds = %23, %2, %14, %phpdbg_check_for_watchpoint.exit
-  %.0 = phi i32 [ 0, %phpdbg_check_for_watchpoint.exit ], [ -1, %14 ], [ -1, %2 ], [ -1, %23 ]
+phpdbg_check_for_watchpoint.exit.thread:          ; preds = %23, %14, %2, %phpdbg_check_for_watchpoint.exit
+  %.0 = phi i32 [ 0, %phpdbg_check_for_watchpoint.exit ], [ -1, %2 ], [ -1, %14 ], [ -1, %23 ]
   ret i32 %.0
 }
 
@@ -1355,7 +1355,7 @@ phpdbg_activate_watchpoint.exit:                  ; preds = %30, %37
   br label %60
 
 60:                                               ; preds = %49, %47, %.critedge, %59
-  %.1 = phi ptr [ %1, %.critedge ], [ %1, %59 ], [ %48, %47 ], [ %48, %49 ]
+  %.1 = phi ptr [ %1, %59 ], [ %1, %.critedge ], [ %48, %47 ], [ %48, %49 ]
   ret ptr %.1
 }
 
@@ -2617,7 +2617,7 @@ zend_symtable_find.exit:                          ; preds = %91, %_zend_handle_n
   br label %.thread
 
 .thread:                                          ; preds = %2, %113, %phpdbg_add_ht_watch_element.exit, %zend_symtable_find.exit, %17, %.loopexit
-  %.037 = phi i1 [ false, %zend_symtable_find.exit ], [ false, %.loopexit ], [ false, %17 ], [ true, %phpdbg_add_ht_watch_element.exit ], [ true, %113 ], [ false, %2 ]
+  %.037 = phi i1 [ false, %.loopexit ], [ false, %17 ], [ false, %zend_symtable_find.exit ], [ true, %phpdbg_add_ht_watch_element.exit ], [ true, %113 ], [ false, %2 ]
   ret i1 %.037
 }
 
@@ -4244,7 +4244,7 @@ zend_string_release.exit:                         ; preds = %28, %27, %20, %16, 
   br label %zend_string_copy.exit
 
 zend_string_copy.exit:                            ; preds = %30, %32, %4, %67, %63, %._crit_edge
-  %.0 = phi ptr [ %.3, %67 ], [ null, %._crit_edge ], [ %.3, %63 ], [ null, %4 ], [ null, %32 ], [ %.1, %30 ]
+  %.0 = phi ptr [ null, %._crit_edge ], [ %.3, %63 ], [ %.3, %67 ], [ null, %4 ], [ null, %32 ], [ %.1, %30 ]
   ret ptr %.0
 }
 
@@ -4767,7 +4767,7 @@ phpdbg_activate_watchpoint.exit:                  ; preds = %232, %239
   br label %.critedge
 
 .thread216:                                       ; preds = %149, %.thread, %.thread201, %.thread213, %phpdbg_activate_watchpoint.exit, %244
-  %.0200206212218 = phi ptr [ %142, %149 ], [ %142, %phpdbg_activate_watchpoint.exit ], [ %142, %244 ], [ %142, %.thread213 ], [ %131, %.thread201 ], [ %135, %.thread ]
+  %.0200206212218 = phi ptr [ %142, %phpdbg_activate_watchpoint.exit ], [ %142, %244 ], [ %142, %.thread213 ], [ %131, %.thread201 ], [ %135, %.thread ], [ %142, %149 ]
   %249 = call ptr @phpdbg_watchpoint_change_collision_name(ptr noundef nonnull %0)
   %.not174 = icmp eq ptr %249, null
   br i1 %.not174, label %zend_string_release.exit, label %250
@@ -4851,7 +4851,7 @@ zend_string_release.exit:                         ; preds = %264, %263, %256, %2
   call void @phpdbg_watch_backup_data(ptr noundef %0)
   br label %.critedge
 
-.critedge:                                        ; preds = %141, %147, %.thread, %148, %198, %243, %.thread201, %127, %.loopexit, %248, %152
+.critedge:                                        ; preds = %141, %148, %.thread, %147, %243, %198, %.thread201, %127, %.loopexit, %248, %152
   ret void
 }
 
@@ -5472,7 +5472,7 @@ zend_string_alloc.exit:                           ; preds = %18
   br label %zend_string_release.exit21
 
 zend_string_release.exit21:                       ; preds = %70, %69, %62, %52, %51, %50, %43, %37
-  %.0 = phi i32 [ 0, %51 ], [ 0, %37 ], [ 0, %43 ], [ 0, %50 ], [ %56, %52 ], [ %56, %62 ], [ %56, %69 ], [ %56, %70 ]
+  %.0 = phi i32 [ 0, %37 ], [ 0, %43 ], [ 0, %50 ], [ 0, %51 ], [ %56, %52 ], [ %56, %62 ], [ %56, %69 ], [ %56, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

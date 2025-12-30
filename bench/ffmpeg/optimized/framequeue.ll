@@ -201,7 +201,7 @@ define range(i32 -12, 1) i32 @ff_framequeue_add(ptr noundef captures(none) %0, p
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %10, %27
-  %.1 = phi i32 [ 0, %27 ], [ -12, %15 ], [ -12, %10 ]
+  %.1 = phi i32 [ 0, %27 ], [ -12, %10 ], [ -12, %15 ]
   ret i32 %.1
 }
 

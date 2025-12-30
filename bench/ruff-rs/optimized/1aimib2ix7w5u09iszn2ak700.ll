@@ -665,7 +665,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
           to label %42 unwind label %.loopexit, !noalias !29
 
 .thread.i.i:                                      ; preds = %.loopexit, %.loopexit.split-lp, %144, %143, %140, %73
-  %.pn.pn.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %144 ], [ %74, %73 ], [ %eh.lpad-body20.i.i, %143 ], [ %eh.lpad-body20.i.i, %140 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %144 ], [ %eh.lpad-body20.i.i, %143 ], [ %eh.lpad-body20.i.i, %140 ], [ %74, %73 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr50drop_in_place$LT$ruff_linter..message..Message$GT$17he486853943bbdaeaE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %17) #13
           to label %.body unwind label %89, !noalias !29
 
@@ -847,7 +847,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
   br label %.body19.i.i
 
 .body19.i.i:                                      ; preds = %.loopexit12, %.loopexit.split-lp13, %131, %129
-  %eh.lpad-body20.i.i = phi { ptr, i32 } [ %130, %129 ], [ %130, %131 ], [ %lpad.loopexit14, %.loopexit12 ], [ %lpad.loopexit.split-lp15, %.loopexit.split-lp13 ]
+  %eh.lpad-body20.i.i = phi { ptr, i32 } [ %130, %131 ], [ %130, %129 ], [ %lpad.loopexit14, %.loopexit12 ], [ %lpad.loopexit.split-lp15, %.loopexit.split-lp13 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8026ca068ee1455eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #13
           to label %140 unwind label %89, !noalias !29
 
@@ -1795,7 +1795,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN190_$LT$ruff_linter..settings..
   br label %52
 
 30:                                               ; preds = %23, %21, %2, %50, %48, %46, %44, %42, %40, %38, %36, %34, %25
-  %.sroa.381.0 = phi i32 [ %22, %21 ], [ %26, %25 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %.sroa.584.0.extract.trunc, %2 ], [ %24, %23 ]
+  %.sroa.381.0 = phi i32 [ %26, %25 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %.sroa.584.0.extract.trunc, %2 ], [ %22, %21 ], [ %24, %23 ]
   %31 = zext i32 %.sroa.381.0 to i64
   %32 = shl nuw i64 %31, 32
   %33 = or disjoint i64 %32, 1
@@ -1904,7 +1904,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN191_$LT$ruff_linter..settings..
   br label %42
 
 24:                                               ; preds = %2, %40, %38, %36, %34, %32, %30, %28, %19
-  %.sroa.261.0 = phi i32 [ %41, %40 ], [ %20, %19 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %.sroa.560.0.extract.trunc, %2 ]
+  %.sroa.261.0 = phi i32 [ %20, %19 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %.sroa.560.0.extract.trunc, %2 ]
   %25 = zext i32 %.sroa.261.0 to i64
   %26 = shl nuw i64 %25, 32
   %27 = or disjoint i64 %26, 1

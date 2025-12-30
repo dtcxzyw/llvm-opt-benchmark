@@ -613,7 +613,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i75:     ; preds = %_ZN17QArrayDataPoin
   br label %_ZN5QListIiED2Ev.exit77
 
 _ZN5QListIiED2Ev.exit77:                          ; preds = %_ZN7QStringD2Ev.exit69, %120, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i75, %_ZN5QListIiED2Ev.exit29
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %64, %_ZN5QListIiED2Ev.exit29 ], [ %.pn.pn, %_ZN7QStringD2Ev.exit69 ], [ %.pn.pn, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i75 ], [ %.pn.pn, %120 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %64, %_ZN5QListIiED2Ev.exit29 ], [ %.pn.pn, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i75 ], [ %.pn.pn, %120 ], [ %.pn.pn, %_ZN7QStringD2Ev.exit69 ]
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 

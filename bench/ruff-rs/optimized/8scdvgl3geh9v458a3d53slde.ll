@@ -45,7 +45,7 @@ define noundef range(i8 0, 96) i8 @_ZN18ruff_python_stdlib9open_mode8OpenMode6re
   br label %9
 
 9:                                                ; preds = %5, %3
-  %.sroa.0.0 = phi i8 [ %spec.select, %5 ], [ %4, %3 ]
+  %.sroa.0.0 = phi i8 [ %4, %3 ], [ %spec.select, %5 ]
   ret i8 %.sroa.0.0
 }
 
@@ -71,7 +71,7 @@ define noundef zeroext i1 @"_ZN78_$LT$ruff_python_stdlib..open_mode..OpenMode$u2
   br i1 %.not1, label %18, label %13
 
 12:                                               ; preds = %54, %47, %40, %33, %27, %20, %13, %5, %59
-  %.sroa.0.0 = phi i1 [ false, %59 ], [ true, %54 ], [ true, %47 ], [ true, %40 ], [ true, %33 ], [ true, %27 ], [ true, %20 ], [ true, %13 ], [ true, %5 ]
+  %.sroa.0.0 = phi i1 [ false, %59 ], [ true, %5 ], [ true, %13 ], [ true, %20 ], [ true, %27 ], [ true, %33 ], [ true, %40 ], [ true, %47 ], [ true, %54 ]
   ret i1 %.sroa.0.0
 
 13:                                               ; preds = %10

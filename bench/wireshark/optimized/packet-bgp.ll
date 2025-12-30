@@ -4082,8 +4082,8 @@ define hidden void @dissect_bgp_path_attr(ptr noundef %0, ptr noundef %1, i16 no
   br i1 %128, label %heuristic_as2_or_4_from_as_path.exit.thread, label %heuristic_as2_or_4_from_as_path.exit.thread1787
 
 heuristic_as2_or_4_from_as_path.exit.thread:      ; preds = %.lr.ph105.i, %96, %.preheader.i, %._crit_edge100.i
-  %.31781.ph = phi i32 [ 0, %96 ], [ 0, %.preheader.i ], [ %126, %._crit_edge100.i ], [ %81, %.lr.ph105.i ]
-  %.082.i.ph = phi i8 [ 0, %96 ], [ 4, %.preheader.i ], [ %.078.i, %._crit_edge100.i ], [ 4, %.lr.ph105.i ]
+  %.31781.ph = phi i32 [ 0, %.preheader.i ], [ %126, %._crit_edge100.i ], [ 0, %96 ], [ %81, %.lr.ph105.i ]
+  %.082.i.ph = phi i8 [ 4, %.preheader.i ], [ %.078.i, %._crit_edge100.i ], [ 0, %96 ], [ 4, %.lr.ph105.i ]
   %129 = zext nneg i8 %.082.i.ph to i32
   br label %135
 
@@ -4099,7 +4099,7 @@ heuristic_as2_or_4_from_as_path.exit:             ; preds = %heuristic_as2_or_4_
   %133 = icmp eq i8 %131, -1
   br i1 %133, label %heuristic_as2_or_4_from_as_path.exit.thread1787, label %135
 
-heuristic_as2_or_4_from_as_path.exit.thread1787:  ; preds = %._crit_edge100.i, %._crit_edge94.i, %heuristic_as2_or_4_from_as_path.exit
+heuristic_as2_or_4_from_as_path.exit.thread1787:  ; preds = %._crit_edge94.i, %._crit_edge100.i, %heuristic_as2_or_4_from_as_path.exit
   %134 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %4, ptr noundef %28, ptr noundef nonnull @ei_bgp_attr_as_path_as_len_err, ptr noundef nonnull @.str.15, i32 noundef 255)
   br label %.loopexit1801
 
@@ -4697,7 +4697,7 @@ save_afi_safi_data.exit:                          ; preds = %328, %344
   br label %.thread.i
 
 413:                                              ; preds = %406, %401, %394, %384, %382, %373, %368, %366
-  %.0.i1770 = phi i32 [ %395, %394 ], [ %407, %406 ], [ %367, %366 ], [ %402, %401 ], [ %369, %368 ], [ %374, %373 ], [ %383, %382 ], [ %385, %384 ]
+  %.0.i1770 = phi i32 [ %367, %366 ], [ %369, %368 ], [ %374, %373 ], [ %383, %382 ], [ %385, %384 ], [ %395, %394 ], [ %402, %401 ], [ %407, %406 ]
   %.not141.i = icmp eq i32 %.0.i1770, 0
   br i1 %.not141.i, label %.thread.i, label %.thread157.i
 
@@ -5034,7 +5034,7 @@ save_afi_safi_data.exit1774:                      ; preds = %473, %491
   br label %611
 
 611:                                              ; preds = %578, %578, %595, %603, %607, %601
-  %.pn = phi i32 [ %560, %607 ], [ %560, %595 ], [ %560, %601 ], [ %560, %603 ], [ 4, %578 ], [ 4, %578 ]
+  %.pn = phi i32 [ %560, %607 ], [ %560, %601 ], [ %560, %603 ], [ %560, %595 ], [ 4, %578 ], [ 4, %578 ]
   %.5 = add i32 %.pn, %.41872
   %612 = icmp slt i32 %.5, %553
   br i1 %612, label %.lr.ph1874, label %.loopexit1801, !llvm.loop !17
@@ -5363,7 +5363,7 @@ save_afi_safi_data.exit1774:                      ; preds = %473, %491
   br label %.loopexit1797
 
 .loopexit1797:                                    ; preds = %822, %772, %661, %740, %749, %726, %725, %662, %675, %703, %689, %671, %835, %826, %765, %755, %730, %721, %717
-  %.9 = phi i32 [ %839, %835 ], [ %670, %662 ], [ %674, %671 ], [ %688, %675 ], [ %702, %689 ], [ %716, %703 ], [ %660, %661 ], [ %720, %717 ], [ %724, %721 ], [ %729, %726 ], [ %660, %725 ], [ %739, %730 ], [ %754, %749 ], [ %747, %740 ], [ %764, %755 ], [ %771, %765 ], [ %834, %826 ], [ %775, %772 ], [ %.11, %822 ]
+  %.9 = phi i32 [ %839, %835 ], [ %670, %662 ], [ %674, %671 ], [ %688, %675 ], [ %702, %689 ], [ %716, %703 ], [ %720, %717 ], [ %724, %721 ], [ %729, %726 ], [ %660, %725 ], [ %739, %730 ], [ %754, %749 ], [ %747, %740 ], [ %764, %755 ], [ %771, %765 ], [ %834, %826 ], [ %660, %661 ], [ %775, %772 ], [ %.11, %822 ]
   %840 = icmp slt i32 %.9, %636
   br i1 %840, label %639, label %.loopexit1800, !llvm.loop !20
 
@@ -5828,7 +5828,7 @@ save_link_state_attr_position.exit:               ; preds = %862, %869
   br label %.loopexit1798
 
 .loopexit1798:                                    ; preds = %1154, %1070, %1157
-  %.pre-phi1961 = phi i32 [ %.pre1960, %1157 ], [ %1103, %1070 ], [ %1103, %1154 ]
+  %.pre-phi1961 = phi i32 [ %1103, %1070 ], [ %.pre1960, %1157 ], [ %1103, %1154 ]
   %1173 = icmp slt i32 %.pre-phi1961, %1065
   br i1 %1173, label %.lr.ph1839, label %._crit_edge1840, !llvm.loop !26
 
@@ -5994,7 +5994,7 @@ save_link_state_attr_position.exit:               ; preds = %862, %869
   br label %.loopexit1799
 
 .loopexit1799:                                    ; preds = %1284, %1200, %1287
-  %.pre-phi1967 = phi i32 [ %.pre1966, %1287 ], [ %1233, %1200 ], [ %1233, %1284 ]
+  %.pre-phi1967 = phi i32 [ %1233, %1200 ], [ %.pre1966, %1287 ], [ %1233, %1284 ]
   %1303 = icmp slt i32 %.pre-phi1967, %1195
   br i1 %1303, label %.lr.ph1832, label %._crit_edge1833, !llvm.loop !28
 
@@ -7586,7 +7586,7 @@ decode_MPLS_stack.exit955:                        ; preds = %496, %495
   br label %680
 
 680:                                              ; preds = %672, %657, %654, %639, %636, %621, %614, %611, %587, %531, %454, %346, %290, %250, %86, %83, %26, %679, %677, %521, %459, %429, %422, %371, %362, %351, %317, %311, %257, %221, %214, %164, %155, %144, %98, %53, %47
-  %.0 = phi i32 [ -1, %677 ], [ -1, %257 ], [ -1, %639 ], [ %.3879, %679 ], [ -1, %47 ], [ -1, %53 ], [ -1, %26 ], [ -1, %83 ], [ -1, %98 ], [ -1, %144 ], [ -1, %155 ], [ -1, %164 ], [ -1, %454 ], [ -1, %214 ], [ -1, %221 ], [ -1, %86 ], [ -1, %459 ], [ -1, %250 ], [ -1, %311 ], [ -1, %317 ], [ -1, %290 ], [ -1, %351 ], [ -1, %362 ], [ -1, %371 ], [ -1, %657 ], [ -1, %422 ], [ -1, %429 ], [ -1, %346 ], [ -1, %521 ], [ -1, %531 ], [ -1, %654 ], [ -1, %587 ], [ -1, %611 ], [ -1, %614 ], [ -1, %621 ], [ -1, %636 ], [ -1, %672 ]
+  %.0 = phi i32 [ -1, %677 ], [ -1, %257 ], [ %.3879, %679 ], [ -1, %47 ], [ -1, %53 ], [ -1, %98 ], [ -1, %144 ], [ -1, %155 ], [ -1, %164 ], [ -1, %214 ], [ -1, %221 ], [ -1, %459 ], [ -1, %311 ], [ -1, %317 ], [ -1, %351 ], [ -1, %362 ], [ -1, %371 ], [ -1, %422 ], [ -1, %429 ], [ -1, %521 ], [ -1, %26 ], [ -1, %83 ], [ -1, %86 ], [ -1, %250 ], [ -1, %290 ], [ -1, %346 ], [ -1, %454 ], [ -1, %531 ], [ -1, %587 ], [ -1, %611 ], [ -1, %614 ], [ -1, %621 ], [ -1, %636 ], [ -1, %639 ], [ -1, %654 ], [ -1, %657 ], [ -1, %672 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -9208,7 +9208,7 @@ define internal fastcc range(i32 4, 65540) i32 @decode_link_state_attribute_tlv(
   br label %decode_link_state_attribute_flex_algo_subtlv.exit
 
 decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.preheader79.i, %246, %265, %267, %.preheader.i, %285, %293
-  %.pre-phi88.i = phi i32 [ %275, %287 ], [ %235, %246 ], [ %235, %.preheader79.i ], [ %275, %.preheader.i ], [ %.pre87.i, %293 ], [ %275, %285 ], [ %257, %267 ], [ %257, %265 ], [ %235, %248 ]
+  %.pre-phi88.i = phi i32 [ %235, %.preheader79.i ], [ %275, %.preheader.i ], [ %.pre87.i, %293 ], [ %275, %285 ], [ %257, %267 ], [ %257, %265 ], [ %235, %246 ], [ %275, %287 ], [ %235, %248 ]
   %296 = add i32 %.pre-phi88.i, %.013921535
   %297 = icmp slt i32 %296, %220
   br i1 %297, label %.lr.ph1536, label %.loopexit, !llvm.loop !44
@@ -10841,7 +10841,7 @@ define internal i32 @dissect_bgp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %23
 
 23:                                               ; preds = %15, %22, %21, %20, %19, %18
-  %ett_bgp.sink = phi ptr [ @ett_bgp, %22 ], [ @ett_bgp_capability, %21 ], [ @ett_bgp_route_refresh, %20 ], [ @ett_bgp_open, %15 ], [ @ett_bgp_notification, %19 ], [ @ett_bgp_update, %18 ]
+  %ett_bgp.sink = phi ptr [ @ett_bgp, %22 ], [ @ett_bgp_capability, %21 ], [ @ett_bgp_route_refresh, %20 ], [ @ett_bgp_notification, %19 ], [ @ett_bgp_update, %18 ], [ @ett_bgp_open, %15 ]
   %24 = load i32, ptr %ett_bgp.sink, align 4
   %25 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %24)
   %26 = load i32, ptr @hf_bgp_marker, align 4
@@ -11054,7 +11054,7 @@ dissect_bgp_open.exit:                            ; preds = %.loopexit.i, %55, %
   br i1 %140, label %dissect_bgp_update.exit, label %135
 
 .loopexit98.i:                                    ; preds = %128, %135, %115
-  %.0.i = phi i32 [ %136, %135 ], [ 21, %115 ], [ %129, %128 ]
+  %.0.i = phi i32 [ 21, %115 ], [ %136, %135 ], [ %129, %128 ]
   %141 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0.i)
   %142 = load i32, ptr @hf_bgp_update_total_path_attribute_length, align 4
   %143 = tail call ptr @proto_tree_add_item(ptr noundef %.07984, i32 noundef %142, ptr noundef %0, i32 noundef %.0.i, i32 noundef 2, i32 noundef 0)
@@ -11399,7 +11399,7 @@ dissect_bgp_route_refresh.exit:                   ; preds = %.loopexit.i70, %238
   br i1 %327, label %.lr.ph.i72, label %dissect_bgp_update.exit, !llvm.loop !65
 
 dissect_bgp_update.exit:                          ; preds = %.lr.ph.i72, %.lr.ph.i67, %.preheader100.i, %.preheader97.i, %.lr.ph.i64, %.lr.ph110.i, %322, %.thread84.i, %233, %221, %210, %171, %.preheader.i, %144, %.loopexit98.i, %dissect_bgp_open.exit, %dissect_bgp_route_refresh.exit, %43, %38
-  %.058 = phi i32 [ %41, %38 ], [ %44, %43 ], [ %44, %.thread84.i ], [ %44, %dissect_bgp_route_refresh.exit ], [ %44, %.lr.ph110.i ], [ %44, %dissect_bgp_open.exit ], [ %44, %.preheader100.i ], [ %44, %.preheader97.i ], [ %44, %.loopexit98.i ], [ %44, %144 ], [ %44, %.preheader.i ], [ %44, %.lr.ph.i64 ], [ %44, %171 ], [ %44, %210 ], [ %44, %221 ], [ %44, %.lr.ph.i67 ], [ %44, %233 ], [ %44, %322 ], [ %44, %.lr.ph.i72 ]
+  %.058 = phi i32 [ %41, %38 ], [ %44, %43 ], [ %44, %dissect_bgp_route_refresh.exit ], [ %44, %dissect_bgp_open.exit ], [ %44, %.loopexit98.i ], [ %44, %144 ], [ %44, %.preheader.i ], [ %44, %171 ], [ %44, %210 ], [ %44, %221 ], [ %44, %233 ], [ %44, %.thread84.i ], [ %44, %322 ], [ %44, %.lr.ph110.i ], [ %44, %.lr.ph.i64 ], [ %44, %.preheader97.i ], [ %44, %.preheader100.i ], [ %44, %.lr.ph.i67 ], [ %44, %.lr.ph.i72 ]
   ret i32 %.058
 }
 
@@ -11830,7 +11830,7 @@ define internal fastcc range(i32 0, 2) i32 @detect_add_path_prefix46(ptr noundef
   br i1 %48, label %28, label %.loopexit, !llvm.loop !67
 
 .loopexit:                                        ; preds = %20, %12, %.lr.ph, %28, %33, %41, %47, %.preheader
-  %.036 = phi i32 [ 0, %47 ], [ 0, %.preheader ], [ 1, %28 ], [ 1, %41 ], [ 1, %33 ], [ 0, %.lr.ph ], [ 0, %12 ], [ 0, %20 ]
+  %.036 = phi i32 [ 0, %.preheader ], [ 1, %28 ], [ 1, %33 ], [ 1, %41 ], [ 0, %47 ], [ 0, %.lr.ph ], [ 0, %12 ], [ 0, %20 ]
   ret i32 %.036
 }
 
@@ -12029,7 +12029,7 @@ define internal fastcc range(i32 -1, 258) i32 @decode_mcast_vpn_nlri(ptr noundef
   br label %101
 
 101:                                              ; preds = %87, %78, %49, %5, %99
-  %.0 = phi i32 [ -1, %78 ], [ %100, %99 ], [ -1, %5 ], [ -1, %49 ], [ -1, %87 ]
+  %.0 = phi i32 [ %100, %99 ], [ -1, %5 ], [ -1, %49 ], [ -1, %78 ], [ -1, %87 ]
   ret i32 %.0
 }
 
@@ -12476,8 +12476,8 @@ decode_bgp_nlri_op_tcpf_value.exit:               ; preds = %127
   br label %decode_bgp_nlri_op_dscp_value.exit
 
 decode_bgp_nlri_op_dscp_value.exit:               ; preds = %263, %216, %98, %87, %178, %decode_bgp_nlri_op_tcpf_value.exit, %120, %116, %112, %108, %104, %100
-  %.1179 = phi i32 [ %261, %263 ], [ %181, %178 ], [ %.0178, %87 ], [ %.2180, %98 ], [ %103, %100 ], [ %107, %104 ], [ %111, %108 ], [ %115, %112 ], [ %119, %116 ], [ %123, %120 ], [ %176, %decode_bgp_nlri_op_tcpf_value.exit ], [ %214, %216 ]
-  %.2 = phi i32 [ %218, %263 ], [ %179, %178 ], [ %spec.select182, %87 ], [ %spec.select184, %98 ], [ %101, %100 ], [ %105, %104 ], [ %109, %108 ], [ %113, %112 ], [ %117, %116 ], [ %121, %120 ], [ %125, %decode_bgp_nlri_op_tcpf_value.exit ], [ %183, %216 ]
+  %.1179 = phi i32 [ %103, %100 ], [ %107, %104 ], [ %111, %108 ], [ %115, %112 ], [ %119, %116 ], [ %123, %120 ], [ %176, %decode_bgp_nlri_op_tcpf_value.exit ], [ %181, %178 ], [ %.0178, %87 ], [ %.2180, %98 ], [ %214, %216 ], [ %261, %263 ]
+  %.2 = phi i32 [ %101, %100 ], [ %105, %104 ], [ %109, %108 ], [ %113, %112 ], [ %117, %116 ], [ %121, %120 ], [ %125, %decode_bgp_nlri_op_tcpf_value.exit ], [ %179, %178 ], [ %spec.select182, %87 ], [ %spec.select184, %98 ], [ %183, %216 ], [ %218, %263 ]
   %264 = icmp sgt i32 %.1179, 0
   br i1 %264, label %265, label %decode_bgp_nlri_op_dscp_value.exit.thread
 
@@ -12754,7 +12754,7 @@ decode_bgp_mup_nlri_type1_st_route.exit:          ; preds = %85, %.sink.split.i
   br label %decode_bgp_mup_nlri_type2_st_route.exit
 
 decode_bgp_mup_nlri_type2_st_route.exit:          ; preds = %101, %112, %126, %143, %154
-  %.1.i = phi i32 [ %153, %143 ], [ %160, %154 ], [ %111, %101 ], [ %138, %126 ], [ %125, %112 ]
+  %.1.i = phi i32 [ %153, %143 ], [ %160, %154 ], [ %138, %126 ], [ %125, %112 ], [ %111, %101 ]
   %162 = sub i32 %.1.i, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -12775,7 +12775,7 @@ decode_bgp_mup_nlri_type2_st_route.exit:          ; preds = %101, %112, %126, %1
   br label %decode_bgp_mup_nlri_type1_st_route.exit.thread
 
 decode_bgp_mup_nlri_type1_st_route.exit.thread:   ; preds = %94, %83, %91, %decode_bgp_mup_nlri_type2_st_route.exit, %decode_bgp_mup_nlri_type1_st_route.exit, %33, %169
-  %.0 = phi i32 [ %18, %169 ], [ -1, %decode_bgp_mup_nlri_type1_st_route.exit ], [ -1, %33 ], [ -1, %decode_bgp_mup_nlri_type2_st_route.exit ], [ -1, %91 ], [ -1, %83 ], [ -1, %94 ]
+  %.0 = phi i32 [ %18, %169 ], [ -1, %33 ], [ -1, %decode_bgp_mup_nlri_type1_st_route.exit ], [ -1, %decode_bgp_mup_nlri_type2_st_route.exit ], [ -1, %91 ], [ -1, %83 ], [ -1, %94 ]
   ret i32 %.0
 }
 
@@ -13032,7 +13032,7 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
   br label %123
 
 123:                                              ; preds = %.sink.split, %114, %108
-  %.2 = phi i32 [ %117, %114 ], [ %111, %108 ], [ %122, %.sink.split ]
+  %.2 = phi i32 [ %111, %108 ], [ %117, %114 ], [ %122, %.sink.split ]
   %124 = sub i32 %.2, %2
   br label %298
 
@@ -13347,7 +13347,7 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
   br label %298
 
 298:                                              ; preds = %123, %162, %199, %294, %51, %48, %236, %233, %254, %251, %271, %168, %129, %58, %296, %259, %255, %203, %191, %183, %166, %154, %146, %127, %90, %82, %56, %26
-  %.0 = phi i32 [ -1, %296 ], [ -1, %26 ], [ -1, %271 ], [ -1, %56 ], [ -1, %82 ], [ -1, %90 ], [ -1, %168 ], [ -1, %127 ], [ -1, %146 ], [ -1, %154 ], [ -1, %58 ], [ -1, %166 ], [ -1, %183 ], [ -1, %191 ], [ -1, %129 ], [ -1, %203 ], [ -1, %255 ], [ -1, %259 ], [ %295, %294 ], [ %124, %123 ], [ %163, %162 ], [ %200, %199 ], [ 27, %48 ], [ 36, %233 ], [ 27, %51 ], [ 36, %236 ], [ 60, %254 ], [ 60, %251 ]
+  %.0 = phi i32 [ -1, %296 ], [ -1, %26 ], [ -1, %56 ], [ -1, %82 ], [ -1, %90 ], [ -1, %127 ], [ -1, %146 ], [ -1, %154 ], [ -1, %166 ], [ -1, %183 ], [ -1, %191 ], [ -1, %203 ], [ -1, %255 ], [ -1, %259 ], [ -1, %58 ], [ -1, %129 ], [ -1, %168 ], [ -1, %271 ], [ %124, %123 ], [ %163, %162 ], [ %200, %199 ], [ %295, %294 ], [ 27, %51 ], [ 27, %48 ], [ 36, %236 ], [ 36, %233 ], [ 60, %254 ], [ 60, %251 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -14021,7 +14021,7 @@ define internal fastcc noundef i32 @decode_mcast_vpn_nlri_addresses(ptr noundef 
   br label %23
 
 23:                                               ; preds = %.sink.split51, %17, %13, %3
-  %.048 = phi i32 [ -1, %13 ], [ -1, %3 ], [ %18, %17 ], [ %22, %.sink.split51 ]
+  %.048 = phi i32 [ -1, %3 ], [ -1, %13 ], [ %18, %17 ], [ %22, %.sink.split51 ]
   ret i32 %.048
 }
 
@@ -15041,7 +15041,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @dissect_bgp_capa
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph346, %121, %.lr.ph350, %176, %133, %91, %._crit_edge, %63, %209, %214, %200, %204, %171, %128, %118, %109, %114, %81, %69, %74, %36, %41, %242, %229, %227, %167, %145, %33
-  %.1 = phi i32 [ %243, %242 ], [ %34, %33 ], [ %40, %36 ], [ %50, %41 ], [ %237, %229 ], [ %73, %69 ], [ %77, %74 ], [ %85, %81 ], [ %52, %._crit_edge ], [ %113, %109 ], [ %117, %114 ], [ %143, %.lr.ph346 ], [ %.0, %118 ], [ %132, %128 ], [ %106, %.lr.ph350 ], [ %161, %145 ], [ %168, %167 ], [ %175, %171 ], [ %124, %121 ], [ %.0, %200 ], [ %207, %204 ], [ %213, %209 ], [ %221, %214 ], [ %228, %227 ], [ %52, %63 ], [ %95, %91 ], [ %.0, %133 ], [ %189, %176 ], [ %196, %.lr.ph ]
+  %.1 = phi i32 [ %243, %242 ], [ %34, %33 ], [ %40, %36 ], [ %50, %41 ], [ %73, %69 ], [ %77, %74 ], [ %85, %81 ], [ %113, %109 ], [ %117, %114 ], [ %.0, %118 ], [ %132, %128 ], [ %161, %145 ], [ %168, %167 ], [ %175, %171 ], [ %.0, %200 ], [ %207, %204 ], [ %213, %209 ], [ %221, %214 ], [ %228, %227 ], [ %237, %229 ], [ %52, %63 ], [ %52, %._crit_edge ], [ %95, %91 ], [ %.0, %133 ], [ %189, %176 ], [ %106, %.lr.ph350 ], [ %124, %121 ], [ %143, %.lr.ph346 ], [ %196, %.lr.ph ]
   ret i32 %.1
 }
 

@@ -421,7 +421,7 @@ _ZN3tbb6detail2r117rtm_rw_mutex_impl7releaseERNS0_2d112rtm_rw_mutex11scoped_lock
   br label %_ZN3tbb6detail2r117rtm_rw_mutex_impl7upgradeERNS0_2d112rtm_rw_mutex11scoped_lockE.exit
 
 _ZN3tbb6detail2r117rtm_rw_mutex_impl7upgradeERNS0_2d112rtm_rw_mutex11scoped_lockE.exit: ; preds = %1, %4, %_ZN3tbb6detail2r117rtm_rw_mutex_impl7releaseERNS0_2d112rtm_rw_mutex11scoped_lockE.exit.i, %23
-  %.0.i = phi i1 [ false, %_ZN3tbb6detail2r117rtm_rw_mutex_impl7releaseERNS0_2d112rtm_rw_mutex11scoped_lockE.exit.i ], [ %6, %4 ], [ true, %23 ], [ false, %1 ]
+  %.0.i = phi i1 [ %6, %4 ], [ true, %23 ], [ false, %_ZN3tbb6detail2r117rtm_rw_mutex_impl7releaseERNS0_2d112rtm_rw_mutex11scoped_lockE.exit.i ], [ false, %1 ]
   ret i1 %.0.i
 }
 
@@ -448,7 +448,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r19downgradeERNS0_2d112rtm_rw_mutex11s
   br label %_ZN3tbb6detail2r117rtm_rw_mutex_impl9downgradeERNS0_2d112rtm_rw_mutex11scoped_lockE.exit
 
 _ZN3tbb6detail2r117rtm_rw_mutex_impl9downgradeERNS0_2d112rtm_rw_mutex11scoped_lockE.exit: ; preds = %1, %4, %9
-  %.0.i = phi i1 [ true, %9 ], [ true, %4 ], [ false, %1 ]
+  %.0.i = phi i1 [ true, %4 ], [ true, %9 ], [ false, %1 ]
   ret i1 %.0.i
 }
 
@@ -517,7 +517,7 @@ _ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i: ; preds = %21
   br label %_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_writerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit
 
 _ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_writerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit: ; preds = %_ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_writerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockEb.exit.i, %21, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i, %26
-  %.0.i = phi i1 [ true, %_ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_writerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockEb.exit.i ], [ true, %26 ], [ false, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i ], [ false, %21 ]
+  %.0.i = phi i1 [ true, %26 ], [ true, %_ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_writerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockEb.exit.i ], [ false, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i ], [ false, %21 ]
   ret i1 %.0.i
 }
 
@@ -593,7 +593,7 @@ _ZN3tbb6detail2d113spin_rw_mutex15try_lock_sharedEv.exit.i: ; preds = %27
   br label %_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit
 
 _ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit: ; preds = %_ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockEb.exit.i, %24, %30, %_ZN3tbb6detail2d113spin_rw_mutex15try_lock_sharedEv.exit.i
-  %.0.i = phi i1 [ true, %_ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockEb.exit.i ], [ true, %_ZN3tbb6detail2d113spin_rw_mutex15try_lock_sharedEv.exit.i ], [ false, %24 ], [ false, %30 ]
+  %.0.i = phi i1 [ true, %_ZN3tbb6detail2d113spin_rw_mutex15try_lock_sharedEv.exit.i ], [ true, %_ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockEb.exit.i ], [ false, %30 ], [ false, %24 ]
   ret i1 %.0.i
 }
 

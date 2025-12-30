@@ -247,7 +247,7 @@ define void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferen
   br i1 %.not100, label %31, label %.sink.split
 
 .sink.split:                                      ; preds = %26, %23, %20, %17
-  %.sink430 = phi ptr [ %19, %17 ], [ %25, %23 ], [ %22, %20 ], [ %28, %26 ]
+  %.sink430 = phi ptr [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ]
   %29 = getelementptr inbounds nuw i8, ptr %.sink430, i64 1
   %30 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %29) #13
   br label %31
@@ -299,7 +299,6 @@ define void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferen
   %51 = tail call noundef ptr @_ZN6LibRaw10strcasestrEPcPKc(ptr noundef nonnull %50, ptr noundef nonnull @.str.27)
   %.not109 = icmp eq ptr %51, null
   %spec.select436 = select i1 %.not109, i32 6, i32 5
-  %spec.select437 = select i1 %.not109, i32 6, i32 5
   br label %.sink.split431
 
 52:                                               ; preds = %39
@@ -318,13 +317,12 @@ define void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferen
   br label %.sink.split431
 
 .sink.split431:                                   ; preds = %49, %52, %42, %44
-  %.sink = phi i32 [ %., %52 ], [ %spec.select436, %49 ], [ 6, %44 ], [ 4, %42 ]
-  %.ph = phi i32 [ %., %52 ], [ %spec.select437, %49 ], [ 6, %44 ], [ 4, %42 ]
+  %.sink = phi i32 [ 6, %44 ], [ 4, %42 ], [ %., %52 ], [ %spec.select436, %49 ]
   store i32 %.sink, ptr %37, align 8, !tbaa !82
   br label %61
 
 61:                                               ; preds = %.sink.split431, %36
-  %62 = phi i32 [ %38, %36 ], [ %.ph, %.sink.split431 ]
+  %62 = phi i32 [ %38, %36 ], [ %.sink, %.sink.split431 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 2568
   %64 = load i8, ptr %63, align 8, !tbaa !16
   %.not110 = icmp eq i8 %64, 0
@@ -461,13 +459,13 @@ define void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferen
   store i8 0, ptr %123, align 1, !tbaa !16
   %124 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %121, i32 noundef 47) #12
   %.not121 = icmp eq ptr %124, null
-  br i1 %.not121, label %.preheader444, label %125
+  br i1 %.not121, label %.preheader443, label %125
 
 125:                                              ; preds = %120
   store i8 0, ptr %124, align 1, !tbaa !16
-  br label %.preheader444
+  br label %.preheader443
 
-.preheader444:                                    ; preds = %125, %120
+.preheader443:                                    ; preds = %125, %120
   br label %127
 
 126:                                              ; preds = %127
@@ -475,8 +473,8 @@ define void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferen
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
   br i1 %exitcond.not, label %.loopexit396, label %127, !llvm.loop !85
 
-127:                                              ; preds = %.preheader444, %126
-  %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %.preheader444 ]
+127:                                              ; preds = %.preheader443, %126
+  %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %.preheader443 ]
   %128 = getelementptr inbounds nuw ptr, ptr @_ZZN6LibRaw15parseHassyModelEvE15Hasselblad_Ctrl, i64 %indvars.iv
   %129 = load ptr, ptr %128, align 8, !tbaa !86
   %130 = call noundef ptr @_ZN6LibRaw10strcasestrEPcPKc(ptr noundef nonnull %11, ptr noundef %129)
@@ -1514,7 +1512,7 @@ sub_2:                                            ; preds = %sub_1
   br label %523
 
 523:                                              ; preds = %429, %430, %201, %199, %214, %212, %226, %224, %241, %240, %258, %264, %262, %255, %275, %273, %300, %299, %319, %318, %377, %378, %370, %369, %376, %375, %426, %421, %422, %480, %479, %505, %504, %521, %522, %512, %485, %487, %452, %459, %462, %460, %463, %397, %396, %404, %403, %333, %334, %305, %280, %282, %267, %269, %244, %246, %230, %232, %218, %220, %206, %208, %193, %195
-  %.178 = phi i32 [ %.077, %193 ], [ %.077, %195 ], [ %.077, %199 ], [ %.077, %201 ], [ %.077, %206 ], [ %.077, %208 ], [ %.077, %212 ], [ %.077, %214 ], [ 1, %218 ], [ 1, %220 ], [ %.077, %224 ], [ %.077, %226 ], [ %.077, %230 ], [ %.077, %232 ], [ %.077, %240 ], [ %.077, %241 ], [ %.077, %244 ], [ %.077, %246 ], [ %.077, %258 ], [ 0, %264 ], [ 0, %262 ], [ 0, %255 ], [ %.077, %267 ], [ %.077, %269 ], [ %.077, %273 ], [ %.077, %275 ], [ %.077, %280 ], [ %.077, %282 ], [ %.077, %299 ], [ %.077, %300 ], [ %.077, %305 ], [ %.077, %318 ], [ %.077, %319 ], [ %.077, %333 ], [ %.077, %334 ], [ %.077, %377 ], [ %.077, %378 ], [ 0, %375 ], [ 0, %376 ], [ 0, %369 ], [ 0, %370 ], [ %.077, %403 ], [ %.077, %404 ], [ %.077, %396 ], [ %.077, %397 ], [ %.077, %426 ], [ %.077, %512 ], [ %.077, %421 ], [ %.077, %422 ], [ 0, %460 ], [ 0, %462 ], [ 0, %459 ], [ 0, %463 ], [ %.077, %452 ], [ %.077, %479 ], [ %.077, %480 ], [ %.077, %485 ], [ %.077, %487 ], [ %.077, %504 ], [ %.077, %505 ], [ %.077, %521 ], [ %.077, %522 ], [ 0, %429 ], [ 0, %430 ]
+  %.178 = phi i32 [ %.077, %193 ], [ %.077, %195 ], [ %.077, %199 ], [ %.077, %201 ], [ %.077, %206 ], [ %.077, %208 ], [ %.077, %212 ], [ %.077, %214 ], [ 1, %218 ], [ 1, %220 ], [ %.077, %224 ], [ %.077, %226 ], [ %.077, %230 ], [ %.077, %232 ], [ %.077, %240 ], [ %.077, %241 ], [ %.077, %244 ], [ %.077, %246 ], [ %.077, %258 ], [ 0, %264 ], [ 0, %262 ], [ 0, %255 ], [ %.077, %267 ], [ %.077, %269 ], [ %.077, %273 ], [ %.077, %275 ], [ %.077, %280 ], [ %.077, %282 ], [ %.077, %299 ], [ %.077, %300 ], [ %.077, %305 ], [ %.077, %318 ], [ %.077, %319 ], [ %.077, %333 ], [ %.077, %334 ], [ %.077, %377 ], [ %.077, %378 ], [ 0, %375 ], [ 0, %376 ], [ 0, %369 ], [ 0, %370 ], [ %.077, %403 ], [ %.077, %404 ], [ %.077, %396 ], [ %.077, %397 ], [ %.077, %426 ], [ %.077, %421 ], [ %.077, %422 ], [ 0, %460 ], [ 0, %462 ], [ 0, %459 ], [ 0, %463 ], [ %.077, %452 ], [ %.077, %479 ], [ %.077, %480 ], [ %.077, %485 ], [ %.077, %487 ], [ %.077, %504 ], [ %.077, %505 ], [ %.077, %521 ], [ %.077, %522 ], [ %.077, %512 ], [ 0, %430 ], [ 0, %429 ]
   %524 = load i16, ptr %5, align 2, !tbaa !80
   switch i16 %524, label %527 [
     i16 4090, label %.thread386
@@ -1650,7 +1648,7 @@ sub_2:                                            ; preds = %sub_1
   br label %586
 
 586:                                              ; preds = %582, %582, %575, %585, %584
-  %.4 = phi i32 [ %583, %585 ], [ 5, %575 ], [ 1, %584 ], [ 2, %582 ], [ 2, %582 ]
+  %.4 = phi i32 [ 1, %584 ], [ %583, %585 ], [ 5, %575 ], [ 2, %582 ], [ 2, %582 ]
   br label %588
 
 587:                                              ; preds = %588

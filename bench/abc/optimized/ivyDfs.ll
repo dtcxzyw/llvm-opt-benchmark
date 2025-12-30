@@ -361,8 +361,8 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %7
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %41, %43, %33, %35
-  %.sink112 = phi ptr [ %36, %35 ], [ %34, %33 ], [ %42, %41 ], [ %44, %43 ]
-  %.sink = phi i32 [ 16, %35 ], [ 16, %33 ], [ %38, %41 ], [ %38, %43 ]
+  %.sink112 = phi ptr [ %34, %33 ], [ %36, %35 ], [ %42, %41 ], [ %44, %43 ]
+  %.sink = phi i32 [ 16, %33 ], [ 16, %35 ], [ %38, %41 ], [ %38, %43 ]
   store ptr %.sink112, ptr %12, align 8, !tbaa !23
   store i32 %.sink, ptr %4, align 8, !tbaa !22
   br label %Vec_IntPush.exit
@@ -1354,7 +1354,7 @@ define range(i32 0, 2) i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef cap
   br label %71
 
 71:                                               ; preds = %._crit_edge, %2, %69, %66, %54, %46, %7
-  %.038 = phi i32 [ 0, %._crit_edge ], [ 0, %7 ], [ 1, %46 ], [ 1, %69 ], [ 0, %66 ], [ 0, %54 ], [ 1, %2 ]
+  %.038 = phi i32 [ 0, %7 ], [ 1, %46 ], [ 1, %69 ], [ 0, %66 ], [ 0, %54 ], [ 0, %._crit_edge ], [ 1, %2 ]
   ret i32 %.038
 }
 
@@ -1848,7 +1848,7 @@ define range(i32 0, 2097152) i32 @Ivy_ManSetLevels(ptr noundef readonly captures
   br i1 %100, label %.lr.ph115, label %.critedge8, !llvm.loop !68
 
 .critedge8:                                       ; preds = %.critedge6, %.preheader, %.critedge, %.critedge2.preheader, %.critedge4.preheader, %.critedge6.preheader
-  %.2.lcssa154 = phi i32 [ 0, %.preheader ], [ %.3, %.critedge6.preheader ], [ %.1, %.critedge4.preheader ], [ 0, %.critedge2.preheader ], [ 0, %.critedge ], [ %.3, %.critedge6 ]
+  %.2.lcssa154 = phi i32 [ %.3, %.critedge6.preheader ], [ %.1, %.critedge4.preheader ], [ 0, %.critedge2.preheader ], [ 0, %.critedge ], [ 0, %.preheader ], [ %.3, %.critedge6 ]
   ret i32 %.2.lcssa154
 }
 

@@ -816,8 +816,8 @@ _match_job_name.exit:                             ; preds = %155, %._crit_edge.i
   br i1 %.not296, label %315, label %.thread376
 
 315:                                              ; preds = %273, %.thread368, %303, %313
-  %.1201358364 = phi ptr [ null, %.thread368 ], [ null, %313 ], [ %230, %303 ], [ %230, %273 ]
-  %.3 = phi ptr [ %234, %.thread368 ], [ %234, %313 ], [ null, %303 ], [ null, %273 ]
+  %.1201358364 = phi ptr [ null, %313 ], [ %230, %303 ], [ null, %.thread368 ], [ %230, %273 ]
+  %.3 = phi ptr [ %234, %313 ], [ null, %303 ], [ %234, %.thread368 ], [ null, %273 ]
   %316 = load i32, ptr @my_job_id, align 4
   %.b.i = load i1, ptr @_cli_filter_post_submit_run, align 1
   br i1 %.b.i, label %_salloc_cli_filter_post_submit.exit, label %.preheader.i
@@ -1302,8 +1302,8 @@ _fork_command.exit:                               ; preds = %477, %479
   br label %.thread376
 
 .thread376:                                       ; preds = %382, %345, %302, %313, %338, %337, %409, %535, %534
-  %.1209 = phi i32 [ -1, %338 ], [ -1, %337 ], [ %.0208, %535 ], [ %.0208, %534 ], [ -1, %302 ], [ -1, %409 ], [ -1, %313 ], [ -1, %345 ], [ -1, %382 ]
-  %.7 = phi ptr [ %.3, %338 ], [ null, %337 ], [ %.6, %535 ], [ %.6, %534 ], [ %277, %302 ], [ %.3, %409 ], [ %234, %313 ], [ %.3, %345 ], [ %359, %382 ]
+  %.1209 = phi i32 [ -1, %338 ], [ -1, %337 ], [ %.0208, %535 ], [ %.0208, %534 ], [ -1, %409 ], [ -1, %313 ], [ -1, %302 ], [ -1, %345 ], [ -1, %382 ]
+  %.7 = phi ptr [ %.3, %338 ], [ null, %337 ], [ %.6, %535 ], [ %.6, %534 ], [ %.3, %409 ], [ %234, %313 ], [ %277, %302 ], [ %.3, %345 ], [ %359, %382 ]
   %537 = call i32 @pthread_mutex_lock(ptr noundef nonnull @allocation_state_lock) #13
   %.not324 = icmp eq i32 %537, 0
   br i1 %.not324, label %540, label %538
@@ -1464,7 +1464,7 @@ switch.lookup:                                    ; preds = %602
   br label %_forward_signal.exit
 
 _forward_signal.exit:                             ; preds = %switch.lookup, %602, %591, %588, %577, %593, %582, %445, %449
-  %.0 = phi i32 [ 1, %445 ], [ 1, %449 ], [ %584, %582 ], [ 1, %577 ], [ 1, %602 ], [ %switch.load, %switch.lookup ], [ 1, %593 ], [ 1, %588 ], [ 1, %591 ]
+  %.0 = phi i32 [ 1, %449 ], [ 1, %445 ], [ %584, %582 ], [ 1, %602 ], [ 1, %593 ], [ 1, %577 ], [ 1, %588 ], [ 1, %591 ], [ %switch.load, %switch.lookup ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1965,7 +1965,7 @@ define internal fastcc range(i32 -1, 1) i32 @_proc_alloc(ptr noundef %0) unnamed
   br label %36
 
 36:                                               ; preds = %33, %31, %29
-  %.2.i = phi double [ %.036.i, %31 ], [ %35, %33 ], [ 1.000000e-01, %29 ]
+  %.2.i = phi double [ %35, %33 ], [ %.036.i, %31 ], [ 1.000000e-01, %29 ]
   %37 = icmp eq i32 %.033.i, 2
   br i1 %37, label %38, label %42
 
@@ -2082,7 +2082,7 @@ thread-pre-split._crit_edge.i.thread:             ; preds = %59, %75, %thread-pr
   br label %_wait_nodes_ready.exit
 
 _wait_nodes_ready.exit:                           ; preds = %thread-pre-split.i, %78, %74, %thread-pre-split._crit_edge.i.thread, %71, %.critedge.i, %82
-  %.0 = phi i32 [ -1, %78 ], [ -1, %82 ], [ 0, %.critedge.i ], [ 0, %71 ], [ -1, %thread-pre-split._crit_edge.i.thread ], [ -1, %74 ], [ -1, %thread-pre-split.i ]
+  %.0 = phi i32 [ -1, %82 ], [ 0, %.critedge.i ], [ 0, %71 ], [ -1, %thread-pre-split._crit_edge.i.thread ], [ -1, %74 ], [ -1, %78 ], [ -1, %thread-pre-split.i ]
   ret i32 %.0
 }
 

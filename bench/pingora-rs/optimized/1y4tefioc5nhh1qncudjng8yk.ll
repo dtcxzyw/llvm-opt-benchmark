@@ -1105,7 +1105,7 @@ define hidden noundef range(i8 0, 13) i8 @_ZN2h25proto7streams4send4Send12send_h
 84:                                               ; preds = %85
   resume { ptr, i32 } %lpad.thr_comm
 
-85:                                               ; preds = %.thread62, %.thread67, %34, %.critedge, %44, %48, %54, %64, %71, %21
+85:                                               ; preds = %21, %.thread62, %.thread67, %34, %.critedge, %44, %48, %54, %64, %71
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr48drop_in_place$LT$h2..frame..headers..Headers$GT$17h53bf6d52dcf16352E"(ptr noalias noundef nonnull align 8 dereferenceable(288) %1) #16

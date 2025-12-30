@@ -110,14 +110,14 @@ define hidden range(i32 0, 2) i32 @BN_add(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not61.i, label %.sink.split, label %.preheader.i, !llvm.loop !19
 
 .sink.split:                                      ; preds = %.preheader.i, %15, %.loopexit77.i, %.thread69.i, %13, %11
-  %.sink = phi i32 [ 0, %13 ], [ 1, %11 ], [ %5, %.thread69.i ], [ %5, %.loopexit77.i ], [ %5, %15 ], [ %5, %.preheader.i ]
-  %.0.ph = phi i32 [ 1, %13 ], [ 1, %11 ], [ 1, %.thread69.i ], [ 1, %.loopexit77.i ], [ 0, %15 ], [ 1, %.preheader.i ]
+  %.sink = phi i32 [ 1, %11 ], [ 0, %13 ], [ %5, %.thread69.i ], [ %5, %.loopexit77.i ], [ %5, %15 ], [ %5, %.preheader.i ]
+  %.0.ph = phi i32 [ 1, %11 ], [ 1, %13 ], [ 1, %.thread69.i ], [ 1, %.loopexit77.i ], [ 0, %15 ], [ 1, %.preheader.i ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sink, ptr %51, align 8, !tbaa !6
   br label %52
 
 52:                                               ; preds = %.sink.split, %13, %11
-  %.0 = phi i32 [ 0, %13 ], [ 0, %11 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %13 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -232,7 +232,7 @@ define hidden range(i32 0, 2) i32 @BN_usub(ptr noundef %0, ptr noundef readonly 
   br label %49
 
 49:                                               ; preds = %34, %11, %46, %10
-  %.057 = phi i32 [ 0, %10 ], [ 0, %11 ], [ 1, %46 ], [ 0, %34 ]
+  %.057 = phi i32 [ 0, %10 ], [ 1, %46 ], [ 0, %11 ], [ 0, %34 ]
   ret i32 %.057
 }
 
@@ -407,7 +407,7 @@ define hidden i32 @BN_add_word(ptr noundef %0, i64 noundef %1) local_unnamed_add
   br label %.critedge42
 
 .critedge42:                                      ; preds = %19, %.critedge, %31, %26, %12, %15, %2, %5
-  %.033 = phi i32 [ %6, %5 ], [ 1, %2 ], [ %13, %12 ], [ 0, %26 ], [ %13, %15 ], [ 1, %.critedge ], [ 1, %31 ], [ 1, %19 ]
+  %.033 = phi i32 [ %6, %5 ], [ 1, %2 ], [ %13, %15 ], [ %13, %12 ], [ 0, %26 ], [ 1, %31 ], [ 1, %.critedge ], [ 1, %19 ]
   ret i32 %.033
 }
 
@@ -504,7 +504,7 @@ define hidden i32 @BN_sub_word(ptr noundef %0, i64 noundef %1) local_unnamed_add
   br label %33
 
 33:                                               ; preds = %._crit_edge, %32, %5, %7, %2, %18, %11
-  %.039 = phi i32 [ 1, %2 ], [ %12, %11 ], [ 1, %18 ], [ 0, %5 ], [ %6, %7 ], [ 1, %32 ], [ 1, %._crit_edge ]
+  %.039 = phi i32 [ %12, %11 ], [ 1, %18 ], [ 1, %2 ], [ %6, %7 ], [ 0, %5 ], [ 1, %32 ], [ 1, %._crit_edge ]
   ret i32 %.039
 }
 
@@ -631,13 +631,13 @@ define hidden range(i32 0, 2) i32 @BN_sub(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not37, label %BN_uadd.exit.thread, label %BN_uadd.exit.thread.sink.split
 
 BN_uadd.exit.thread.sink.split:                   ; preds = %.preheader.i, %59, %57, %.thread69.i, %.loopexit77.i
-  %.sink = phi i32 [ %.02848, %.thread69.i ], [ 1, %57 ], [ 0, %59 ], [ %.02848, %.loopexit77.i ], [ %.02848, %.preheader.i ]
+  %.sink = phi i32 [ %.02848, %.loopexit77.i ], [ %.02848, %.thread69.i ], [ 1, %57 ], [ 0, %59 ], [ %.02848, %.preheader.i ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sink, ptr %61, align 8, !tbaa !6
   br label %BN_uadd.exit.thread
 
 BN_uadd.exit.thread:                              ; preds = %BN_uadd.exit.thread.sink.split, %10, %59, %57, %46
-  %.0 = phi i32 [ 0, %46 ], [ 0, %57 ], [ 0, %10 ], [ 0, %59 ], [ 1, %BN_uadd.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %46 ], [ 0, %57 ], [ 0, %59 ], [ 0, %10 ], [ 1, %BN_uadd.exit.thread.sink.split ]
   ret i32 %.0
 }
 

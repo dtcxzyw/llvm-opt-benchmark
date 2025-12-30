@@ -1211,7 +1211,7 @@ define hidden void @smpp_handle_dcs(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %26
 
 26:                                               ; preds = %20, %17, %24
-  %.0 = phi i8 [ %., %17 ], [ %25, %24 ], [ %.26, %20 ]
+  %.0 = phi i8 [ %25, %24 ], [ %., %17 ], [ %.26, %20 ]
   %.not25 = icmp eq ptr %3, null
   br i1 %.not25, label %40, label %27
 
@@ -1256,7 +1256,7 @@ define hidden void @smpp_handle_dcs(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %27, %39, %35, %34, %33, %32, %31, %30, %28
-  %.sink = phi i32 [ %29, %28 ], [ -1, %39 ], [ 0, %27 ], [ 10, %30 ], [ 18, %31 ], [ 24, %32 ], [ 6, %33 ], [ 82, %34 ], [ %38, %35 ]
+  %.sink = phi i32 [ %29, %28 ], [ 10, %30 ], [ 18, %31 ], [ 24, %32 ], [ 6, %33 ], [ 82, %34 ], [ %38, %35 ], [ -1, %39 ], [ 0, %27 ]
   store i32 %.sink, ptr %3, align 4
   br label %40
 
@@ -1474,8 +1474,8 @@ define internal noundef zeroext i1 @dissect_smpp_heur(ptr noundef %0, ptr nounde
   %30 = tail call i32 @dissect_smpp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %.critedge
 
-.critedge:                                        ; preds = %16, %8, %11, %21, %4, %24, %27
-  %.0 = phi i1 [ true, %27 ], [ false, %24 ], [ false, %4 ], [ false, %21 ], [ false, %11 ], [ false, %8 ], [ false, %16 ]
+.critedge:                                        ; preds = %8, %11, %16, %21, %4, %24, %27
+  %.0 = phi i1 [ true, %27 ], [ false, %24 ], [ false, %4 ], [ false, %21 ], [ false, %16 ], [ false, %11 ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -1575,7 +1575,7 @@ define internal fastcc zeroext i1 @test_smpp(ptr noundef %0) unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %14, %10, %7, %1, %4
-  %.0 = phi i1 [ false, %10 ], [ false, %1 ], [ false, %7 ], [ %17, %14 ], [ false, %4 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %1 ], [ false, %7 ], [ false, %10 ], [ %17, %14 ]
   ret i1 %.0
 }
 

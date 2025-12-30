@@ -263,7 +263,7 @@ _ZNK5Klass20is_non_strong_hiddenEv.exit.i:        ; preds = %12
   br label %_ZL7get_cldPK5Klass.exit
 
 _ZL7get_cldPK5Klass.exit:                         ; preds = %_ZNK5Klass20is_non_strong_hiddenEv.exit.i, %12
-  %18 = phi ptr [ %spec.select, %_ZNK5Klass20is_non_strong_hiddenEv.exit.i ], [ %.pre.i, %12 ]
+  %18 = phi ptr [ %.pre.i, %12 ], [ %spec.select, %_ZNK5Klass20is_non_strong_hiddenEv.exit.i ]
   %19 = getelementptr i8, ptr %1, i64 168
   %.val.i = load i64, ptr %19, align 8
   %20 = lshr i64 %.val.i, 16
@@ -529,32 +529,32 @@ _ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit: ; pr
   br i1 %.not.i23, label %_ZL11get_packagePK5Klass.exit.i, label %159
 
 159:                                              ; preds = %157
-  br i1 %2, label %_ZL22should_write_cld_klassPK5Klassb.exit, label %160
+  br i1 %2, label %160, label %164
 
 160:                                              ; preds = %159
-  %161 = load i8, ptr @_ZL13_class_unload, align 1
-  %162 = trunc nuw i8 %161 to i1
-  br i1 %162, label %_ZL22should_write_cld_klassPK5Klassb.exit.thread, label %163
-
-163:                                              ; preds = %160
-  %164 = getelementptr inbounds nuw i8, ptr %158, i64 168
-  %165 = load i64, ptr %164, align 8
-  %166 = and i64 %165, 4096
-  %.not3.i = icmp eq i64 %166, 0
-  br i1 %.not3.i, label %_ZL22should_write_cld_klassPK5Klassb.exit.thread, label %_ZL11get_packagePK5Klass.exit.i
-
-_ZL22should_write_cld_klassPK5Klassb.exit:        ; preds = %159
-  %167 = getelementptr inbounds nuw i8, ptr %158, i64 168
-  %168 = load i64, ptr %167, align 8
-  %169 = and i64 %168, 1024
-  %.not = icmp eq i64 %169, 0
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 168
+  %162 = load i64, ptr %161, align 8
+  %163 = and i64 %162, 1024
+  %.not = icmp eq i64 %163, 0
   br i1 %.not, label %_ZL11get_packagePK5Klass.exit.i, label %_ZL22should_write_cld_klassPK5Klassb.exit.thread
 
-_ZL22should_write_cld_klassPK5Klassb.exit.thread: ; preds = %160, %163, %_ZL22should_write_cld_klassPK5Klassb.exit
+164:                                              ; preds = %159
+  %165 = load i8, ptr @_ZL13_class_unload, align 1
+  %166 = trunc nuw i8 %165 to i1
+  br i1 %166, label %_ZL22should_write_cld_klassPK5Klassb.exit.thread, label %_ZL22should_write_cld_klassPK5Klassb.exit
+
+_ZL22should_write_cld_klassPK5Klassb.exit:        ; preds = %164
+  %167 = getelementptr inbounds nuw i8, ptr %158, i64 168
+  %168 = load i64, ptr %167, align 8
+  %169 = and i64 %168, 4096
+  %.not3.i = icmp eq i64 %169, 0
+  br i1 %.not3.i, label %_ZL22should_write_cld_klassPK5Klassb.exit.thread, label %_ZL11get_packagePK5Klass.exit.i
+
+_ZL22should_write_cld_klassPK5Klassb.exit.thread: ; preds = %164, %160, %_ZL22should_write_cld_klassPK5Klassb.exit
   call fastcc void @_ZL11write_klassP19JfrCheckpointWriterPK5KlassbRi(ptr noundef nonnull %0, ptr noundef nonnull %158, i1 noundef zeroext %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZL11get_packagePK5Klass.exit.i
 
-_ZL11get_packagePK5Klass.exit.i:                  ; preds = %157, %_ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit, %_ZL22should_write_cld_klassPK5Klassb.exit.thread, %_ZL22should_write_cld_klassPK5Klassb.exit, %163
+_ZL11get_packagePK5Klass.exit.i:                  ; preds = %157, %_ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit, %_ZL22should_write_cld_klassPK5Klassb.exit.thread, %_ZL22should_write_cld_klassPK5Klassb.exit, %160
   %170 = load ptr, ptr %1, align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 144
   %172 = load ptr, ptr %171, align 8
@@ -580,32 +580,32 @@ _ZL20get_module_cld_klassPK5Klassb.exit:          ; preds = %_ZL11get_packagePK5
   br i1 %.not.i25, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread29, label %181
 
 181:                                              ; preds = %_ZL20get_module_cld_klassPK5Klassb.exit
-  br i1 %2, label %_ZL22should_write_cld_klassPK5Klassb.exit27, label %182
+  br i1 %2, label %182, label %186
 
 182:                                              ; preds = %181
-  %183 = load i8, ptr @_ZL13_class_unload, align 1
-  %184 = trunc nuw i8 %183 to i1
-  br i1 %184, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread, label %185
-
-185:                                              ; preds = %182
-  %186 = getelementptr inbounds nuw i8, ptr %180, i64 168
-  %187 = load i64, ptr %186, align 8
-  %188 = and i64 %187, 4096
-  %.not3.i26 = icmp eq i64 %188, 0
-  br i1 %.not3.i26, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread29
-
-_ZL22should_write_cld_klassPK5Klassb.exit27:      ; preds = %181
-  %189 = getelementptr inbounds nuw i8, ptr %180, i64 168
-  %190 = load i64, ptr %189, align 8
-  %191 = and i64 %190, 1024
-  %.not30 = icmp eq i64 %191, 0
+  %183 = getelementptr inbounds nuw i8, ptr %180, i64 168
+  %184 = load i64, ptr %183, align 8
+  %185 = and i64 %184, 1024
+  %.not30 = icmp eq i64 %185, 0
   br i1 %.not30, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread29, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread
 
-_ZL22should_write_cld_klassPK5Klassb.exit27.thread: ; preds = %182, %185, %_ZL22should_write_cld_klassPK5Klassb.exit27
+186:                                              ; preds = %181
+  %187 = load i8, ptr @_ZL13_class_unload, align 1
+  %188 = trunc nuw i8 %187 to i1
+  br i1 %188, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread, label %_ZL22should_write_cld_klassPK5Klassb.exit27
+
+_ZL22should_write_cld_klassPK5Klassb.exit27:      ; preds = %186
+  %189 = getelementptr inbounds nuw i8, ptr %180, i64 168
+  %190 = load i64, ptr %189, align 8
+  %191 = and i64 %190, 4096
+  %.not3.i26 = icmp eq i64 %191, 0
+  br i1 %.not3.i26, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread29
+
+_ZL22should_write_cld_klassPK5Klassb.exit27.thread: ; preds = %186, %182, %_ZL22should_write_cld_klassPK5Klassb.exit27
   call fastcc void @_ZL11write_klassP19JfrCheckpointWriterPK5KlassbRi(ptr noundef nonnull %0, ptr noundef nonnull %180, i1 noundef zeroext %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread29
 
-_ZL22should_write_cld_klassPK5Klassb.exit27.thread29: ; preds = %_ZL20get_module_cld_klassPK5Klassb.exit, %185, %_ZL22should_write_cld_klassPK5Klassb.exit27.thread, %_ZL22should_write_cld_klassPK5Klassb.exit27
+_ZL22should_write_cld_klassPK5Klassb.exit27.thread29: ; preds = %_ZL20get_module_cld_klassPK5Klassb.exit, %182, %_ZL22should_write_cld_klassPK5Klassb.exit27.thread, %_ZL22should_write_cld_klassPK5Klassb.exit27
   ret void
 }
 
@@ -1076,7 +1076,7 @@ _ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i: ; preds = %44
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEPhPKT_mSD_.exit.i.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEPhPKT_mSD_.exit.i.i: ; preds = %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i, %43
-  %.pn.i.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i ], [ 1, %43 ]
+  %.pn.i.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i ], [ 1, %43 ]
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.pn.i.i.i
   store ptr %48, ptr %14, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_.exit
@@ -4085,7 +4085,7 @@ _ZL14should_enqueuePK5Klass.exit:                 ; preds = %_ZNK5Klass20is_non_
   store volatile i8 1, ptr @_ZN15JfrTraceIdEpoch10_tag_stateE, align 1
   br label %_ZN10JfrTraceId4loadEPK5Klass.exit
 
-_ZL14should_enqueuePK5Klass.exit.thread:          ; preds = %_ZL7get_cldPK5Klass.exit.i, %_ZNK5Klass20is_non_strong_hiddenEv.exit.i.i, %9, %_ZL14should_enqueuePK5Klass.exit
+_ZL14should_enqueuePK5Klass.exit.thread:          ; preds = %_ZNK5Klass20is_non_strong_hiddenEv.exit.i.i, %_ZL7get_cldPK5Klass.exit.i, %9, %_ZL14should_enqueuePK5Klass.exit
   br i1 %1, label %45, label %54
 
 45:                                               ; preds = %_ZL14should_enqueuePK5Klass.exit.thread
@@ -4135,7 +4135,7 @@ _ZL14should_enqueuePK5Klass.exit.thread:          ; preds = %_ZL7get_cldPK5Klass
   br label %_ZN10JfrTraceId4loadEPK5Klass.exit
 
 _ZN10JfrTraceId4loadEPK5Klass.exit:               ; preds = %4, %64, %54, %40, %31, %_ZL19should_do_cld_klassPK5Klassb.exit, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %_ZL19should_do_cld_klassPK5Klassb.exit ], [ %6, %40 ], [ %6, %64 ], [ %6, %31 ], [ %6, %54 ], [ null, %4 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %_ZL19should_do_cld_klassPK5Klassb.exit ], [ %6, %31 ], [ %6, %40 ], [ %6, %54 ], [ %6, %64 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -4340,7 +4340,7 @@ _ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i: ; preds = %93
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEPhPKT_mSD_.exit.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEPhPKT_mSD_.exit.i: ; preds = %87, %85, %78, %71, %64, %57, %50, %43, %38, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i
-  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
   %98 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.pn.i.i
   store ptr %98, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvPKT_m.exit
@@ -4491,7 +4491,7 @@ _ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIiEEPhPKT_mSD_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIiEEPhPKT_mSD_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i
-  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ], [ 5, %59 ]
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIiEEvPKT_m.exit
@@ -4754,7 +4754,7 @@ _ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.thread.i.i: ; preds = %51
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeItEEPhPKT_mSD_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeItEEPhPKT_mSD_.exit: ; preds = %38, %43, %45, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.thread.i.i
-  %.011.i.i.pn.i = phi i64 [ 2, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.thread.i.i ], [ 2, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.i.i ], [ 3, %45 ], [ 2, %43 ], [ 1, %38 ]
+  %.011.i.i.pn.i = phi i64 [ 2, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.i.i ], [ 2, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.thread.i.i ], [ 3, %45 ], [ 2, %43 ], [ 1, %38 ]
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %56, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeItEEvPKT_m.exit
@@ -4961,7 +4961,7 @@ _ZNK5Klass20is_non_strong_hiddenEv.exit.i:        ; preds = %20
   br label %_ZL7get_cldPK5Klass.exit
 
 _ZL7get_cldPK5Klass.exit:                         ; preds = %20, %_ZNK5Klass20is_non_strong_hiddenEv.exit.i
-  %26 = phi ptr [ %spec.select.i, %_ZNK5Klass20is_non_strong_hiddenEv.exit.i ], [ %.pre.i, %20 ]
+  %26 = phi ptr [ %.pre.i, %20 ], [ %spec.select.i, %_ZNK5Klass20is_non_strong_hiddenEv.exit.i ]
   %27 = getelementptr i8, ptr %26, i64 152
   %.val.i.i = load i64, ptr %27, align 8
   %28 = load i8, ptr @_ZL11_flushpoint, align 1
@@ -5059,7 +5059,7 @@ _ZL6cld_idPK15ClassLoaderDatab.exit:              ; preds = %_ZL7get_cldPK5Klass
   unreachable
 
 _ZL14primitive_namePK5Klass.exit.i:               ; preds = %64, %63, %62, %61, %60, %59, %58, %55
-  %.0.i.i = phi ptr [ @.str.8, %55 ], [ @.str.15, %64 ], [ @.str.9, %58 ], [ @.str.10, %59 ], [ @.str.11, %60 ], [ @.str.12, %61 ], [ @.str.13, %62 ], [ @.str.14, %63 ]
+  %.0.i.i = phi ptr [ @.str.9, %58 ], [ @.str.10, %59 ], [ @.str.11, %60 ], [ @.str.12, %61 ], [ @.str.13, %62 ], [ @.str.14, %63 ], [ @.str.15, %64 ], [ @.str.8, %55 ]
   %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #11
   %67 = trunc i64 %66 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5288,7 +5288,7 @@ _ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i.i: ; preds = %171
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEPhPKT_mSD_.exit.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEPhPKT_mSD_.exit.i: ; preds = %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i.i, %169
-  %.011.i.i.pn.i.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i.i ], [ 2, %169 ]
+  %.011.i.i.pn.i.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i.i ], [ 2, %169 ]
   %175 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.011.i.i.pn.i.i
   store ptr %175, ptr %140, align 8
   %.pr.pre = load ptr, ptr %137, align 8
@@ -8302,7 +8302,7 @@ _ZN15SymbolPredicateIPK9ListEntryIPK6SymbolmELb0EEclERKS6_.exit.i: ; preds = %1
   br label %_ZN31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEEclERKS6_.exit
 
 _ZN31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEEclERKS6_.exit: ; preds = %4, %_ZN15SymbolPredicateIPK9ListEntryIPK6SymbolmELb0EEclERKS6_.exit.i, %32, %34
-  %35 = phi i32 [ 0, %4 ], [ 0, %_ZN15SymbolPredicateIPK9ListEntryIPK6SymbolmELb0EEclERKS6_.exit.i ], [ 1, %32 ], [ 1, %34 ]
+  %35 = phi i32 [ 0, %_ZN15SymbolPredicateIPK9ListEntryIPK6SymbolmELb0EEclERKS6_.exit.i ], [ 0, %4 ], [ 1, %32 ], [ 1, %34 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load i32, ptr %36, align 8
   %38 = add nsw i32 %37, %35

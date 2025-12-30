@@ -1025,7 +1025,7 @@ _ZNK6Assimp17STransformVecInfoeqERKS0_.exit:      ; preds = %192
           cleanup
   br label %.body
 
-_ZNK6Assimp17STransformVecInfoeqERKS0_.exit.thread: ; preds = %192, %180, %174, %186, %_ZNK6Assimp17STransformVecInfoeqERKS0_.exit, %203
+_ZNK6Assimp17STransformVecInfoeqERKS0_.exit.thread: ; preds = %186, %192, %174, %180, %_ZNK6Assimp17STransformVecInfoeqERKS0_.exit, %203
   %.sroa.0509.0 = load ptr, ptr %.sroa.0509.0609, align 8
   %.not559 = icmp eq ptr %.sroa.0509.0, %168
   br i1 %.not559, label %.loopexit577.thread, label %174, !llvm.loop !23
@@ -1409,7 +1409,7 @@ _ZNSt7__cxx114listIN6Assimp17STransformVecInfoESaIS2_EE5eraseESt20_List_const_it
   br label %.loopexit575
 
 .critedge4:                                       ; preds = %324, %323, %_ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit309, %322
-  %.1221 = phi i1 [ true, %322 ], [ false, %324 ], [ false, %_ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit309 ], [ true, %323 ]
+  %.1221 = phi i1 [ true, %322 ], [ false, %_ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit309 ], [ true, %323 ], [ false, %324 ]
   %352 = load ptr, ptr %.sroa.0470.0625, align 8
   %353 = add i32 %.0225626, 1
   %.not554 = icmp eq ptr %352, %271

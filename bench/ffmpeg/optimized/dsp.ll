@@ -7158,9 +7158,9 @@ cclm_select_luma_444_12.exit67:                   ; preds = %.lr.ph133, %239
   br i1 %exitcond252.not, label %cclm_select_luma_12.exit, label %366, !llvm.loop !321
 
 cclm_select_luma_12.exit:                         ; preds = %.lr.ph135, %436, %.loopexit78.cclm_select_luma_12.exit_crit_edge, %cclm_select_luma_444_12.exit67
-  %.pre-phi300 = phi i64 [ %.pre299, %.loopexit78.cclm_select_luma_12.exit_crit_edge ], [ %365, %436 ], [ %260, %cclm_select_luma_444_12.exit67 ], [ %260, %.lr.ph135 ]
-  %437 = phi i32 [ %.sroa.6392.0..sroa.6392.4.393, %.loopexit78.cclm_select_luma_12.exit_crit_edge ], [ %.sroa.6392.0..sroa.6392.4.393, %436 ], [ %.sroa.6392.0..sroa.6392.4., %cclm_select_luma_444_12.exit67 ], [ %.sroa.6392.0..sroa.6392.4., %.lr.ph135 ]
-  %438 = phi i32 [ %.sroa.0390.0..sroa.0390.0.391, %.loopexit78.cclm_select_luma_12.exit_crit_edge ], [ %.sroa.0390.0..sroa.0390.0.391, %436 ], [ %.sroa.0390.0..sroa.0390.0., %cclm_select_luma_444_12.exit67 ], [ %.sroa.0390.0..sroa.0390.0., %.lr.ph135 ]
+  %.pre-phi300 = phi i64 [ %.pre299, %.loopexit78.cclm_select_luma_12.exit_crit_edge ], [ %260, %cclm_select_luma_444_12.exit67 ], [ %365, %436 ], [ %260, %.lr.ph135 ]
+  %437 = phi i32 [ %.sroa.6392.0..sroa.6392.4.393, %.loopexit78.cclm_select_luma_12.exit_crit_edge ], [ %.sroa.6392.0..sroa.6392.4., %cclm_select_luma_444_12.exit67 ], [ %.sroa.6392.0..sroa.6392.4.393, %436 ], [ %.sroa.6392.0..sroa.6392.4., %.lr.ph135 ]
+  %438 = phi i32 [ %.sroa.0390.0..sroa.0390.0.391, %.loopexit78.cclm_select_luma_12.exit_crit_edge ], [ %.sroa.0390.0..sroa.0390.0., %cclm_select_luma_444_12.exit67 ], [ %.sroa.0390.0..sroa.0390.0.391, %436 ], [ %.sroa.0390.0..sroa.0390.0., %.lr.ph135 ]
   %439 = sext i32 %179 to i64
   %440 = add nsw i32 %183, -1
   %441 = sext i32 %440 to i64
@@ -7653,7 +7653,7 @@ define internal void @intra_pred_12(ptr noundef %0, i32 noundef %1, i32 noundef 
   br label %94
 
 94:                                               ; preds = %91, %87, %83, %80
-  %95 = phi i32 [ 0, %87 ], [ %93, %91 ], [ 0, %83 ], [ 0, %80 ]
+  %95 = phi i32 [ 0, %87 ], [ 0, %83 ], [ 0, %80 ], [ %93, %91 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 4580528
   %97 = load i32, ptr %96, align 8, !tbaa !337
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 154
@@ -7722,13 +7722,13 @@ define internal void @intra_pred_12(ptr noundef %0, i32 noundef %1, i32 noundef 
   br label %135
 
 135:                                              ; preds = %130, %113, %111, %110, %104
-  %.0251.i = phi i32 [ undef, %104 ], [ %.1252.i, %130 ], [ undef, %111 ], [ undef, %113 ], [ undef, %110 ]
-  %.0250.i = phi i1 [ false, %104 ], [ %133, %130 ], [ false, %111 ], [ false, %113 ], [ false, %110 ]
-  %.0249.i = phi i64 [ 0, %104 ], [ %134, %130 ], [ 0, %111 ], [ 0, %113 ], [ 0, %110 ]
-  %.0245.i = phi i32 [ undef, %104 ], [ %.1.i207, %130 ], [ undef, %111 ], [ undef, %113 ], [ undef, %110 ]
-  %.0244.i = phi i32 [ %108, %104 ], [ %.1.i207, %130 ], [ %35, %111 ], [ %114, %113 ], [ %35, %110 ]
-  %.0243.i = phi i32 [ %107, %104 ], [ %.1252.i, %130 ], [ %112, %111 ], [ %36, %113 ], [ %36, %110 ]
-  %.0241.i = phi i32 [ %109, %104 ], [ 1, %130 ], [ 1, %111 ], [ 1, %113 ], [ %45, %110 ]
+  %.0251.i = phi i32 [ undef, %104 ], [ undef, %111 ], [ undef, %113 ], [ %.1252.i, %130 ], [ undef, %110 ]
+  %.0250.i = phi i1 [ false, %104 ], [ false, %111 ], [ false, %113 ], [ %133, %130 ], [ false, %110 ]
+  %.0249.i = phi i64 [ 0, %104 ], [ 0, %111 ], [ 0, %113 ], [ %134, %130 ], [ 0, %110 ]
+  %.0245.i = phi i32 [ undef, %104 ], [ undef, %111 ], [ undef, %113 ], [ %.1.i207, %130 ], [ undef, %110 ]
+  %.0244.i = phi i32 [ %108, %104 ], [ %35, %111 ], [ %114, %113 ], [ %.1.i207, %130 ], [ %35, %110 ]
+  %.0243.i = phi i32 [ %107, %104 ], [ %112, %111 ], [ %36, %113 ], [ %.1252.i, %130 ], [ %36, %110 ]
+  %.0241.i = phi i32 [ %109, %104 ], [ 1, %111 ], [ 1, %113 ], [ 1, %130 ], [ %45, %110 ]
   %136 = tail call i32 @ff_vvc_get_left_available(ptr noundef nonnull %0, i32 noundef %33, i32 noundef %34, i32 noundef %.0243.i, i32 noundef %5) #13
   %137 = icmp sgt i32 %136, 0
   %138 = sext i32 %102 to i64
@@ -8176,7 +8176,7 @@ ref_filter_12.exit:                               ; preds = %235, %._crit_edge23
   br i1 %exitcond303.not, label %prepare_intra_edge_params_12.exit, label %344, !llvm.loop !351
 
 prepare_intra_edge_params_12.exit:                ; preds = %344, %.lr.ph244, %314, %.lr.ph250, %.preheader219, %326, %.preheader216, %296, %ref_filter_12.exit, %281
-  %346 = phi i32 [ %.sink, %.lr.ph244 ], [ %.sink, %314 ], [ %.sink, %.lr.ph250 ], [ %.sink, %281 ], [ %.sink, %.preheader219 ], [ %.sink, %326 ], [ %.sink, %.preheader216 ], [ %.sink, %296 ], [ undef, %ref_filter_12.exit ], [ %.sink, %344 ]
+  %346 = phi i32 [ %.sink, %.preheader219 ], [ %.sink, %326 ], [ %.sink, %.preheader216 ], [ %.sink, %296 ], [ undef, %ref_filter_12.exit ], [ %.sink, %281 ], [ %.sink, %.lr.ph250 ], [ %.sink, %314 ], [ %.sink, %.lr.ph244 ], [ %.sink, %344 ]
   %347 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.0237.i, ptr %347, align 8, !tbaa !352
   store ptr %.0239.i, ptr %7, align 8, !tbaa !353
@@ -8346,8 +8346,8 @@ prepare_intra_edge_params_12.exit:                ; preds = %344, %.lr.ph244, %3
   br label %430
 
 430:                                              ; preds = %.thread213.us, %425, %.lr.ph252.split.us258
-  %.0191.us = phi i32 [ %429, %.thread213.us ], [ 0, %.lr.ph252.split.us258 ], [ 0, %425 ]
-  %.0190.us = phi i32 [ 0, %.thread213.us ], [ 0, %.lr.ph252.split.us258 ], [ %412, %425 ]
+  %.0191.us = phi i32 [ 0, %425 ], [ %429, %.thread213.us ], [ 0, %.lr.ph252.split.us258 ]
+  %.0190.us = phi i32 [ %412, %425 ], [ 0, %.thread213.us ], [ 0, %.lr.ph252.split.us258 ]
   %431 = sub nsw i32 %414, %416
   %432 = mul nsw i32 %431, %.0191.us
   %433 = sub nsw i32 %422, %424
@@ -8773,7 +8773,7 @@ mip_downsampling_12.exit95:                       ; preds = %.lr.ph137.split, %.
   br i1 %101, label %.preheader.us154.us, label %.preheader.us168
 
 ._crit_edge152.us:                                ; preds = %.preheader.us168, %._crit_edge148.us162.us, %._crit_edge148.us.us
-  %.us-phi.us = phi ptr [ %137, %._crit_edge148.us162.us ], [ %113, %._crit_edge148.us.us ], [ %112, %.preheader.us168 ]
+  %.us-phi.us = phi ptr [ %113, %._crit_edge148.us.us ], [ %137, %._crit_edge148.us162.us ], [ %112, %.preheader.us168 ]
   %indvars.iv.next310 = add nuw nsw i64 %indvars.iv309, 1
   %exitcond314.not = icmp eq i64 %indvars.iv.next310, %wide.trip.count313
   br i1 %exitcond314.not, label %mip_reduced_pred_12.exit, label %.preheader113.us, !llvm.loop !369
@@ -9501,7 +9501,7 @@ define internal void @pred_angular_h_12(ptr noundef writeonly captures(none) %0,
   br label %89
 
 89:                                               ; preds = %53, %49
-  %.072.us.us.us.us = phi i32 [ %52, %49 ], [ %88, %53 ]
+  %.072.us.us.us.us = phi i32 [ %88, %53 ], [ %52, %49 ]
   %gep144 = getelementptr i16, ptr %invariant.gep143, i64 %indvars.iv125
   %90 = load i16, ptr %gep144, align 2, !tbaa !124
   %91 = zext i16 %90 to i32
@@ -9577,7 +9577,7 @@ define internal void @pred_angular_h_12(ptr noundef writeonly captures(none) %0,
   br label %147
 
 147:                                              ; preds = %110, %107
-  %.072.us.us.us = phi i16 [ %109, %107 ], [ %146, %110 ]
+  %.072.us.us.us = phi i16 [ %146, %110 ], [ %109, %107 ]
   %148 = getelementptr i16, ptr %41, i64 %indvars.iv120
   store i16 %.072.us.us.us, ptr %148, align 2, !tbaa !124
   %149 = add nsw i32 %.07988.us.us.us, %15
@@ -11089,9 +11089,9 @@ define internal fastcc void @vvc_loop_filter_luma_12(ptr noundef %0, i64 noundef
   %exitcond.not.i = icmp eq i32 %812, 4
   br i1 %exitcond.not.i, label %.critedge, label %395, !llvm.loop !399
 
-loop_filter_luma_large_12.exit.thread392:         ; preds = %350, %356, %345, %182, %27
-  %.0331.in = phi i8 [ %94, %27 ], [ %190, %182 ], [ %190, %345 ], [ %190, %356 ], [ %190, %350 ]
-  %.0330 = phi i32 [ %92, %27 ], [ %189, %182 ], [ %189, %345 ], [ %189, %356 ], [ %189, %350 ]
+loop_filter_luma_large_12.exit.thread392:         ; preds = %345, %350, %356, %182, %27
+  %.0331.in = phi i8 [ %94, %27 ], [ %190, %182 ], [ %190, %356 ], [ %190, %350 ], [ %190, %345 ]
+  %.0330 = phi i32 [ %92, %27 ], [ %189, %182 ], [ %189, %356 ], [ %189, %350 ], [ %189, %345 ]
   %813 = add nuw nsw i32 %83, %82
   %814 = icmp slt i32 %813, %100
   br i1 %814, label %815, label %.critedge
@@ -11514,9 +11514,9 @@ define internal fastcc void @vvc_loop_filter_chroma_12(ptr noundef %0, i64 nound
   br label %68
 
 68:                                               ; preds = %.thread, %56, %.thread226, %63
-  %69 = phi i1 [ false, %63 ], [ false, %.thread226 ], [ true, %56 ], [ true, %.thread ]
-  %70 = phi i32 [ %57, %63 ], [ %58, %.thread226 ], [ %57, %56 ], [ %58, %.thread ]
-  %71 = phi i32 [ %67, %63 ], [ %62, %.thread226 ], [ %57, %56 ], [ %58, %.thread ]
+  %69 = phi i1 [ false, %.thread226 ], [ false, %63 ], [ true, %56 ], [ true, %.thread ]
+  %70 = phi i32 [ %58, %.thread226 ], [ %57, %63 ], [ %57, %56 ], [ %58, %.thread ]
+  %71 = phi i32 [ %62, %.thread226 ], [ %67, %63 ], [ %57, %56 ], [ %58, %.thread ]
   %.in192.in = getelementptr inbounds i16, ptr %34, i64 %.pn193
   %.in192 = load i16, ptr %.in192.in, align 2, !tbaa !124
   %72 = zext i16 %.in192 to i32
@@ -12550,12 +12550,12 @@ define internal void @sao_edge_restore_1_12(ptr noundef writeonly captures(none)
   br label %.thread240
 
 .thread240:                                       ; preds = %95, %.loopexit256
-  %.ph = phi i1 [ true, %95 ], [ false, %.loopexit256 ]
-  %.0198237.ph = phi i32 [ %.1199, %95 ], [ 0, %.loopexit256 ]
-  %.0201236.ph = phi i32 [ %.0201, %95 ], [ %7, %.loopexit256 ]
-  %.0200225235.ph = phi i32 [ %.0200224, %95 ], [ %.0200, %.loopexit256 ]
-  %.0196227234.ph = phi i32 [ %.0196226, %95 ], [ %.1197, %.loopexit256 ]
-  %.ph239 = phi i32 [ %spec.select, %95 ], [ 0, %.loopexit256 ]
+  %.ph = phi i1 [ false, %.loopexit256 ], [ true, %95 ]
+  %.0198237.ph = phi i32 [ 0, %.loopexit256 ], [ %.1199, %95 ]
+  %.0201236.ph = phi i32 [ %7, %.loopexit256 ], [ %.0201, %95 ]
+  %.0200225235.ph = phi i32 [ %.0200, %.loopexit256 ], [ %.0200224, %95 ]
+  %.0196227234.ph = phi i32 [ %.1197, %.loopexit256 ], [ %.0196226, %95 ]
+  %.ph239 = phi i32 [ 0, %.loopexit256 ], [ %spec.select, %95 ]
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 1
   br label %110
 
@@ -12612,18 +12612,18 @@ define internal void @sao_edge_restore_1_12(ptr noundef writeonly captures(none)
   br label %126
 
 126:                                              ; preds = %.thread319, %122, %119, %110
-  %127 = phi ptr [ %116, %119 ], [ %116, %122 ], [ %116, %110 ], [ %109, %.thread319 ]
-  %128 = phi i32 [ 0, %119 ], [ 0, %122 ], [ 0, %110 ], [ %.ph318, %.thread319 ]
-  %129 = phi i1 [ %115, %119 ], [ %115, %122 ], [ %115, %110 ], [ false, %.thread319 ]
-  %.0198237246328 = phi i32 [ %.0198237246, %119 ], [ %.0198237246, %122 ], [ %.0198237246, %110 ], [ %.1199, %.thread319 ]
-  %.0201236247327 = phi i32 [ %.0201236247, %119 ], [ %.0201236247, %122 ], [ %.0201236247, %110 ], [ %.0201, %.thread319 ]
-  %.0200225235248326 = phi i32 [ %.0200225235248, %119 ], [ %.0200225235248, %122 ], [ %.0200225235248, %110 ], [ %.0200224, %.thread319 ]
-  %.0196227234249325 = phi i32 [ %.0196227234249, %119 ], [ %.0196227234249, %122 ], [ %.0196227234249, %110 ], [ %.0196226, %.thread319 ]
-  %130 = phi i1 [ %114, %119 ], [ %114, %122 ], [ %114, %110 ], [ true, %.thread319 ]
-  %131 = phi i32 [ %113, %119 ], [ %113, %122 ], [ %113, %110 ], [ 0, %.thread319 ]
-  %132 = phi ptr [ %112, %119 ], [ %112, %122 ], [ %112, %110 ], [ %100, %.thread319 ]
-  %133 = phi i1 [ %111, %119 ], [ %111, %122 ], [ %111, %110 ], [ true, %.thread319 ]
-  %134 = phi i32 [ 0, %119 ], [ %125, %122 ], [ 0, %110 ], [ 0, %.thread319 ]
+  %127 = phi ptr [ %116, %119 ], [ %116, %110 ], [ %116, %122 ], [ %109, %.thread319 ]
+  %128 = phi i32 [ 0, %119 ], [ 0, %110 ], [ 0, %122 ], [ %.ph318, %.thread319 ]
+  %129 = phi i1 [ %115, %119 ], [ %115, %110 ], [ %115, %122 ], [ false, %.thread319 ]
+  %.0198237246328 = phi i32 [ %.0198237246, %119 ], [ %.0198237246, %110 ], [ %.0198237246, %122 ], [ %.1199, %.thread319 ]
+  %.0201236247327 = phi i32 [ %.0201236247, %119 ], [ %.0201236247, %110 ], [ %.0201236247, %122 ], [ %.0201, %.thread319 ]
+  %.0200225235248326 = phi i32 [ %.0200225235248, %119 ], [ %.0200225235248, %110 ], [ %.0200225235248, %122 ], [ %.0200224, %.thread319 ]
+  %.0196227234249325 = phi i32 [ %.0196227234249, %119 ], [ %.0196227234249, %110 ], [ %.0196227234249, %122 ], [ %.0196226, %.thread319 ]
+  %130 = phi i1 [ %114, %119 ], [ %114, %110 ], [ %114, %122 ], [ true, %.thread319 ]
+  %131 = phi i32 [ %113, %119 ], [ %113, %110 ], [ %113, %122 ], [ 0, %.thread319 ]
+  %132 = phi ptr [ %112, %119 ], [ %112, %110 ], [ %112, %122 ], [ %100, %.thread319 ]
+  %133 = phi i1 [ %111, %119 ], [ %111, %110 ], [ %111, %122 ], [ true, %.thread319 ]
+  %134 = phi i32 [ 0, %119 ], [ 0, %110 ], [ %125, %122 ], [ 0, %.thread319 ]
   %135 = getelementptr inbounds nuw i8, ptr %11, i64 3
   %136 = load i8, ptr %135, align 1, !tbaa !128
   %137 = icmp eq i8 %136, 0
@@ -12643,7 +12643,7 @@ define internal void @sao_edge_restore_1_12(ptr noundef writeonly captures(none)
   br label %144
 
 144:                                              ; preds = %140, %138, %126
-  %145 = phi i32 [ 0, %138 ], [ %143, %140 ], [ 0, %126 ]
+  %145 = phi i32 [ 0, %138 ], [ 0, %126 ], [ %143, %140 ]
   %146 = load i8, ptr %9, align 1, !tbaa !128
   %147 = icmp ne i8 %146, 0
   %or.cond9 = and i1 %21, %147
@@ -19933,9 +19933,9 @@ cclm_select_luma_444_10.exit67:                   ; preds = %.lr.ph133, %239
   br i1 %exitcond252.not, label %cclm_select_luma_10.exit, label %366, !llvm.loop !552
 
 cclm_select_luma_10.exit:                         ; preds = %.lr.ph135, %436, %.loopexit78.cclm_select_luma_10.exit_crit_edge, %cclm_select_luma_444_10.exit67
-  %.pre-phi300 = phi i64 [ %.pre299, %.loopexit78.cclm_select_luma_10.exit_crit_edge ], [ %365, %436 ], [ %260, %cclm_select_luma_444_10.exit67 ], [ %260, %.lr.ph135 ]
-  %437 = phi i32 [ %.sroa.6392.0..sroa.6392.4.393, %.loopexit78.cclm_select_luma_10.exit_crit_edge ], [ %.sroa.6392.0..sroa.6392.4.393, %436 ], [ %.sroa.6392.0..sroa.6392.4., %cclm_select_luma_444_10.exit67 ], [ %.sroa.6392.0..sroa.6392.4., %.lr.ph135 ]
-  %438 = phi i32 [ %.sroa.0390.0..sroa.0390.0.391, %.loopexit78.cclm_select_luma_10.exit_crit_edge ], [ %.sroa.0390.0..sroa.0390.0.391, %436 ], [ %.sroa.0390.0..sroa.0390.0., %cclm_select_luma_444_10.exit67 ], [ %.sroa.0390.0..sroa.0390.0., %.lr.ph135 ]
+  %.pre-phi300 = phi i64 [ %.pre299, %.loopexit78.cclm_select_luma_10.exit_crit_edge ], [ %260, %cclm_select_luma_444_10.exit67 ], [ %365, %436 ], [ %260, %.lr.ph135 ]
+  %437 = phi i32 [ %.sroa.6392.0..sroa.6392.4.393, %.loopexit78.cclm_select_luma_10.exit_crit_edge ], [ %.sroa.6392.0..sroa.6392.4., %cclm_select_luma_444_10.exit67 ], [ %.sroa.6392.0..sroa.6392.4.393, %436 ], [ %.sroa.6392.0..sroa.6392.4., %.lr.ph135 ]
+  %438 = phi i32 [ %.sroa.0390.0..sroa.0390.0.391, %.loopexit78.cclm_select_luma_10.exit_crit_edge ], [ %.sroa.0390.0..sroa.0390.0., %cclm_select_luma_444_10.exit67 ], [ %.sroa.0390.0..sroa.0390.0.391, %436 ], [ %.sroa.0390.0..sroa.0390.0., %.lr.ph135 ]
   %439 = sext i32 %179 to i64
   %440 = add nsw i32 %183, -1
   %441 = sext i32 %440 to i64
@@ -20428,7 +20428,7 @@ define internal void @intra_pred_10(ptr noundef %0, i32 noundef %1, i32 noundef 
   br label %94
 
 94:                                               ; preds = %91, %87, %83, %80
-  %95 = phi i32 [ 0, %87 ], [ %93, %91 ], [ 0, %83 ], [ 0, %80 ]
+  %95 = phi i32 [ 0, %87 ], [ 0, %83 ], [ 0, %80 ], [ %93, %91 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 4580528
   %97 = load i32, ptr %96, align 8, !tbaa !337
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 154
@@ -20497,13 +20497,13 @@ define internal void @intra_pred_10(ptr noundef %0, i32 noundef %1, i32 noundef 
   br label %135
 
 135:                                              ; preds = %130, %113, %111, %110, %104
-  %.0251.i = phi i32 [ undef, %104 ], [ %.1252.i, %130 ], [ undef, %111 ], [ undef, %113 ], [ undef, %110 ]
-  %.0250.i = phi i1 [ false, %104 ], [ %133, %130 ], [ false, %111 ], [ false, %113 ], [ false, %110 ]
-  %.0249.i = phi i64 [ 0, %104 ], [ %134, %130 ], [ 0, %111 ], [ 0, %113 ], [ 0, %110 ]
-  %.0245.i = phi i32 [ undef, %104 ], [ %.1.i207, %130 ], [ undef, %111 ], [ undef, %113 ], [ undef, %110 ]
-  %.0244.i = phi i32 [ %108, %104 ], [ %.1.i207, %130 ], [ %35, %111 ], [ %114, %113 ], [ %35, %110 ]
-  %.0243.i = phi i32 [ %107, %104 ], [ %.1252.i, %130 ], [ %112, %111 ], [ %36, %113 ], [ %36, %110 ]
-  %.0241.i = phi i32 [ %109, %104 ], [ 1, %130 ], [ 1, %111 ], [ 1, %113 ], [ %45, %110 ]
+  %.0251.i = phi i32 [ undef, %104 ], [ undef, %111 ], [ undef, %113 ], [ %.1252.i, %130 ], [ undef, %110 ]
+  %.0250.i = phi i1 [ false, %104 ], [ false, %111 ], [ false, %113 ], [ %133, %130 ], [ false, %110 ]
+  %.0249.i = phi i64 [ 0, %104 ], [ 0, %111 ], [ 0, %113 ], [ %134, %130 ], [ 0, %110 ]
+  %.0245.i = phi i32 [ undef, %104 ], [ undef, %111 ], [ undef, %113 ], [ %.1.i207, %130 ], [ undef, %110 ]
+  %.0244.i = phi i32 [ %108, %104 ], [ %35, %111 ], [ %114, %113 ], [ %.1.i207, %130 ], [ %35, %110 ]
+  %.0243.i = phi i32 [ %107, %104 ], [ %112, %111 ], [ %36, %113 ], [ %.1252.i, %130 ], [ %36, %110 ]
+  %.0241.i = phi i32 [ %109, %104 ], [ 1, %111 ], [ 1, %113 ], [ 1, %130 ], [ %45, %110 ]
   %136 = tail call i32 @ff_vvc_get_left_available(ptr noundef nonnull %0, i32 noundef %33, i32 noundef %34, i32 noundef %.0243.i, i32 noundef %5) #13
   %137 = icmp sgt i32 %136, 0
   %138 = sext i32 %102 to i64
@@ -20951,7 +20951,7 @@ ref_filter_10.exit:                               ; preds = %235, %._crit_edge23
   br i1 %exitcond303.not, label %prepare_intra_edge_params_10.exit, label %344, !llvm.loop !571
 
 prepare_intra_edge_params_10.exit:                ; preds = %344, %.lr.ph244, %314, %.lr.ph250, %.preheader219, %326, %.preheader216, %296, %ref_filter_10.exit, %281
-  %346 = phi i32 [ %.sink, %.lr.ph244 ], [ %.sink, %314 ], [ %.sink, %.lr.ph250 ], [ %.sink, %281 ], [ %.sink, %.preheader219 ], [ %.sink, %326 ], [ %.sink, %.preheader216 ], [ %.sink, %296 ], [ undef, %ref_filter_10.exit ], [ %.sink, %344 ]
+  %346 = phi i32 [ %.sink, %.preheader219 ], [ %.sink, %326 ], [ %.sink, %.preheader216 ], [ %.sink, %296 ], [ undef, %ref_filter_10.exit ], [ %.sink, %281 ], [ %.sink, %.lr.ph250 ], [ %.sink, %314 ], [ %.sink, %.lr.ph244 ], [ %.sink, %344 ]
   %347 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.0237.i, ptr %347, align 8, !tbaa !352
   store ptr %.0239.i, ptr %7, align 8, !tbaa !353
@@ -21121,8 +21121,8 @@ prepare_intra_edge_params_10.exit:                ; preds = %344, %.lr.ph244, %3
   br label %430
 
 430:                                              ; preds = %.thread213.us, %425, %.lr.ph252.split.us258
-  %.0191.us = phi i32 [ %429, %.thread213.us ], [ 0, %.lr.ph252.split.us258 ], [ 0, %425 ]
-  %.0190.us = phi i32 [ 0, %.thread213.us ], [ 0, %.lr.ph252.split.us258 ], [ %412, %425 ]
+  %.0191.us = phi i32 [ 0, %425 ], [ %429, %.thread213.us ], [ 0, %.lr.ph252.split.us258 ]
+  %.0190.us = phi i32 [ %412, %425 ], [ 0, %.thread213.us ], [ 0, %.lr.ph252.split.us258 ]
   %431 = sub nsw i32 %414, %416
   %432 = mul nsw i32 %431, %.0191.us
   %433 = sub nsw i32 %422, %424
@@ -21548,7 +21548,7 @@ mip_downsampling_10.exit95:                       ; preds = %.lr.ph137.split, %.
   br i1 %101, label %.preheader.us154.us, label %.preheader.us168
 
 ._crit_edge152.us:                                ; preds = %.preheader.us168, %._crit_edge148.us162.us, %._crit_edge148.us.us
-  %.us-phi.us = phi ptr [ %137, %._crit_edge148.us162.us ], [ %113, %._crit_edge148.us.us ], [ %112, %.preheader.us168 ]
+  %.us-phi.us = phi ptr [ %113, %._crit_edge148.us.us ], [ %137, %._crit_edge148.us162.us ], [ %112, %.preheader.us168 ]
   %indvars.iv.next310 = add nuw nsw i64 %indvars.iv309, 1
   %exitcond314.not = icmp eq i64 %indvars.iv.next310, %wide.trip.count313
   br i1 %exitcond314.not, label %mip_reduced_pred_10.exit, label %.preheader113.us, !llvm.loop !580
@@ -22276,7 +22276,7 @@ define internal void @pred_angular_h_10(ptr noundef writeonly captures(none) %0,
   br label %89
 
 89:                                               ; preds = %53, %49
-  %.072.us.us.us.us = phi i32 [ %52, %49 ], [ %88, %53 ]
+  %.072.us.us.us.us = phi i32 [ %88, %53 ], [ %52, %49 ]
   %gep144 = getelementptr i16, ptr %invariant.gep143, i64 %indvars.iv125
   %90 = load i16, ptr %gep144, align 2, !tbaa !124
   %91 = zext i16 %90 to i32
@@ -22352,7 +22352,7 @@ define internal void @pred_angular_h_10(ptr noundef writeonly captures(none) %0,
   br label %147
 
 147:                                              ; preds = %110, %107
-  %.072.us.us.us = phi i16 [ %109, %107 ], [ %146, %110 ]
+  %.072.us.us.us = phi i16 [ %146, %110 ], [ %109, %107 ]
   %148 = getelementptr i16, ptr %41, i64 %indvars.iv120
   store i16 %.072.us.us.us, ptr %148, align 2, !tbaa !124
   %149 = add nsw i32 %.07988.us.us.us, %15
@@ -23814,9 +23814,9 @@ define internal fastcc void @vvc_loop_filter_luma_10(ptr noundef %0, i64 noundef
   %exitcond.not.i = icmp eq i32 %813, 4
   br i1 %exitcond.not.i, label %.critedge, label %396, !llvm.loop !610
 
-loop_filter_luma_large_10.exit.thread392:         ; preds = %350, %356, %345, %182, %26
-  %.0331.in = phi i8 [ %94, %26 ], [ %190, %182 ], [ %190, %345 ], [ %190, %356 ], [ %190, %350 ]
-  %.0330 = phi i32 [ %92, %26 ], [ %189, %182 ], [ %189, %345 ], [ %189, %356 ], [ %189, %350 ]
+loop_filter_luma_large_10.exit.thread392:         ; preds = %345, %350, %356, %182, %26
+  %.0331.in = phi i8 [ %94, %26 ], [ %190, %182 ], [ %190, %356 ], [ %190, %350 ], [ %190, %345 ]
+  %.0330 = phi i32 [ %92, %26 ], [ %189, %182 ], [ %189, %356 ], [ %189, %350 ], [ %189, %345 ]
   %814 = add nuw nsw i32 %82, %81
   %815 = icmp slt i32 %814, %100
   br i1 %815, label %816, label %.critedge
@@ -24239,9 +24239,9 @@ define internal fastcc void @vvc_loop_filter_chroma_10(ptr noundef %0, i64 nound
   br label %68
 
 68:                                               ; preds = %.thread, %56, %.thread226, %63
-  %69 = phi i1 [ false, %63 ], [ false, %.thread226 ], [ true, %56 ], [ true, %.thread ]
-  %70 = phi i32 [ %57, %63 ], [ %58, %.thread226 ], [ %57, %56 ], [ %58, %.thread ]
-  %71 = phi i32 [ %67, %63 ], [ %62, %.thread226 ], [ %57, %56 ], [ %58, %.thread ]
+  %69 = phi i1 [ false, %.thread226 ], [ false, %63 ], [ true, %56 ], [ true, %.thread ]
+  %70 = phi i32 [ %58, %.thread226 ], [ %57, %63 ], [ %57, %56 ], [ %58, %.thread ]
+  %71 = phi i32 [ %62, %.thread226 ], [ %67, %63 ], [ %57, %56 ], [ %58, %.thread ]
   %.in192.in = getelementptr inbounds i16, ptr %33, i64 %.pn193
   %.in192 = load i16, ptr %.in192.in, align 2, !tbaa !124
   %72 = zext i16 %.in192 to i32
@@ -25275,12 +25275,12 @@ define internal void @sao_edge_restore_1_10(ptr noundef writeonly captures(none)
   br label %.thread240
 
 .thread240:                                       ; preds = %95, %.loopexit256
-  %.ph = phi i1 [ true, %95 ], [ false, %.loopexit256 ]
-  %.0198237.ph = phi i32 [ %.1199, %95 ], [ 0, %.loopexit256 ]
-  %.0201236.ph = phi i32 [ %.0201, %95 ], [ %7, %.loopexit256 ]
-  %.0200225235.ph = phi i32 [ %.0200224, %95 ], [ %.0200, %.loopexit256 ]
-  %.0196227234.ph = phi i32 [ %.0196226, %95 ], [ %.1197, %.loopexit256 ]
-  %.ph239 = phi i32 [ %spec.select, %95 ], [ 0, %.loopexit256 ]
+  %.ph = phi i1 [ false, %.loopexit256 ], [ true, %95 ]
+  %.0198237.ph = phi i32 [ 0, %.loopexit256 ], [ %.1199, %95 ]
+  %.0201236.ph = phi i32 [ %7, %.loopexit256 ], [ %.0201, %95 ]
+  %.0200225235.ph = phi i32 [ %.0200, %.loopexit256 ], [ %.0200224, %95 ]
+  %.0196227234.ph = phi i32 [ %.1197, %.loopexit256 ], [ %.0196226, %95 ]
+  %.ph239 = phi i32 [ 0, %.loopexit256 ], [ %spec.select, %95 ]
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 1
   br label %110
 
@@ -25337,18 +25337,18 @@ define internal void @sao_edge_restore_1_10(ptr noundef writeonly captures(none)
   br label %126
 
 126:                                              ; preds = %.thread319, %122, %119, %110
-  %127 = phi ptr [ %116, %119 ], [ %116, %122 ], [ %116, %110 ], [ %109, %.thread319 ]
-  %128 = phi i32 [ 0, %119 ], [ 0, %122 ], [ 0, %110 ], [ %.ph318, %.thread319 ]
-  %129 = phi i1 [ %115, %119 ], [ %115, %122 ], [ %115, %110 ], [ false, %.thread319 ]
-  %.0198237246328 = phi i32 [ %.0198237246, %119 ], [ %.0198237246, %122 ], [ %.0198237246, %110 ], [ %.1199, %.thread319 ]
-  %.0201236247327 = phi i32 [ %.0201236247, %119 ], [ %.0201236247, %122 ], [ %.0201236247, %110 ], [ %.0201, %.thread319 ]
-  %.0200225235248326 = phi i32 [ %.0200225235248, %119 ], [ %.0200225235248, %122 ], [ %.0200225235248, %110 ], [ %.0200224, %.thread319 ]
-  %.0196227234249325 = phi i32 [ %.0196227234249, %119 ], [ %.0196227234249, %122 ], [ %.0196227234249, %110 ], [ %.0196226, %.thread319 ]
-  %130 = phi i1 [ %114, %119 ], [ %114, %122 ], [ %114, %110 ], [ true, %.thread319 ]
-  %131 = phi i32 [ %113, %119 ], [ %113, %122 ], [ %113, %110 ], [ 0, %.thread319 ]
-  %132 = phi ptr [ %112, %119 ], [ %112, %122 ], [ %112, %110 ], [ %100, %.thread319 ]
-  %133 = phi i1 [ %111, %119 ], [ %111, %122 ], [ %111, %110 ], [ true, %.thread319 ]
-  %134 = phi i32 [ 0, %119 ], [ %125, %122 ], [ 0, %110 ], [ 0, %.thread319 ]
+  %127 = phi ptr [ %116, %119 ], [ %116, %110 ], [ %116, %122 ], [ %109, %.thread319 ]
+  %128 = phi i32 [ 0, %119 ], [ 0, %110 ], [ 0, %122 ], [ %.ph318, %.thread319 ]
+  %129 = phi i1 [ %115, %119 ], [ %115, %110 ], [ %115, %122 ], [ false, %.thread319 ]
+  %.0198237246328 = phi i32 [ %.0198237246, %119 ], [ %.0198237246, %110 ], [ %.0198237246, %122 ], [ %.1199, %.thread319 ]
+  %.0201236247327 = phi i32 [ %.0201236247, %119 ], [ %.0201236247, %110 ], [ %.0201236247, %122 ], [ %.0201, %.thread319 ]
+  %.0200225235248326 = phi i32 [ %.0200225235248, %119 ], [ %.0200225235248, %110 ], [ %.0200225235248, %122 ], [ %.0200224, %.thread319 ]
+  %.0196227234249325 = phi i32 [ %.0196227234249, %119 ], [ %.0196227234249, %110 ], [ %.0196227234249, %122 ], [ %.0196226, %.thread319 ]
+  %130 = phi i1 [ %114, %119 ], [ %114, %110 ], [ %114, %122 ], [ true, %.thread319 ]
+  %131 = phi i32 [ %113, %119 ], [ %113, %110 ], [ %113, %122 ], [ 0, %.thread319 ]
+  %132 = phi ptr [ %112, %119 ], [ %112, %110 ], [ %112, %122 ], [ %100, %.thread319 ]
+  %133 = phi i1 [ %111, %119 ], [ %111, %110 ], [ %111, %122 ], [ true, %.thread319 ]
+  %134 = phi i32 [ 0, %119 ], [ 0, %110 ], [ %125, %122 ], [ 0, %.thread319 ]
   %135 = getelementptr inbounds nuw i8, ptr %11, i64 3
   %136 = load i8, ptr %135, align 1, !tbaa !128
   %137 = icmp eq i8 %136, 0
@@ -25368,7 +25368,7 @@ define internal void @sao_edge_restore_1_10(ptr noundef writeonly captures(none)
   br label %144
 
 144:                                              ; preds = %140, %138, %126
-  %145 = phi i32 [ 0, %138 ], [ %143, %140 ], [ 0, %126 ]
+  %145 = phi i32 [ 0, %138 ], [ 0, %126 ], [ %143, %140 ]
   %146 = load i8, ptr %9, align 1, !tbaa !128
   %147 = icmp ne i8 %146, 0
   %or.cond9 = and i1 %21, %147
@@ -32610,9 +32610,9 @@ cclm_select_luma_444_8.exit67:                    ; preds = %.lr.ph133, %234
   br i1 %exitcond248.not, label %cclm_select_luma_8.exit, label %359, !llvm.loop !764
 
 cclm_select_luma_8.exit:                          ; preds = %.lr.ph135, %429, %.loopexit78.cclm_select_luma_8.exit_crit_edge, %cclm_select_luma_444_8.exit67
-  %.pre-phi296 = phi i64 [ %.pre295, %.loopexit78.cclm_select_luma_8.exit_crit_edge ], [ %358, %429 ], [ %254, %cclm_select_luma_444_8.exit67 ], [ %254, %.lr.ph135 ]
-  %430 = phi i32 [ %.sroa.6386.0..sroa.6386.4.387, %.loopexit78.cclm_select_luma_8.exit_crit_edge ], [ %.sroa.6386.0..sroa.6386.4.387, %429 ], [ %.sroa.6386.0..sroa.6386.4., %cclm_select_luma_444_8.exit67 ], [ %.sroa.6386.0..sroa.6386.4., %.lr.ph135 ]
-  %431 = phi i32 [ %.sroa.0384.0..sroa.0384.0.385, %.loopexit78.cclm_select_luma_8.exit_crit_edge ], [ %.sroa.0384.0..sroa.0384.0.385, %429 ], [ %.sroa.0384.0..sroa.0384.0., %cclm_select_luma_444_8.exit67 ], [ %.sroa.0384.0..sroa.0384.0., %.lr.ph135 ]
+  %.pre-phi296 = phi i64 [ %.pre295, %.loopexit78.cclm_select_luma_8.exit_crit_edge ], [ %254, %cclm_select_luma_444_8.exit67 ], [ %358, %429 ], [ %254, %.lr.ph135 ]
+  %430 = phi i32 [ %.sroa.6386.0..sroa.6386.4.387, %.loopexit78.cclm_select_luma_8.exit_crit_edge ], [ %.sroa.6386.0..sroa.6386.4., %cclm_select_luma_444_8.exit67 ], [ %.sroa.6386.0..sroa.6386.4.387, %429 ], [ %.sroa.6386.0..sroa.6386.4., %.lr.ph135 ]
+  %431 = phi i32 [ %.sroa.0384.0..sroa.0384.0.385, %.loopexit78.cclm_select_luma_8.exit_crit_edge ], [ %.sroa.0384.0..sroa.0384.0., %cclm_select_luma_444_8.exit67 ], [ %.sroa.0384.0..sroa.0384.0.385, %429 ], [ %.sroa.0384.0..sroa.0384.0., %.lr.ph135 ]
   %432 = sext i32 %175 to i64
   %433 = add nsw i32 %179, -1
   %434 = sext i32 %433 to i64
@@ -33104,7 +33104,7 @@ define internal void @intra_pred_8(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %93
 
 93:                                               ; preds = %90, %86, %82, %79
-  %94 = phi i32 [ 0, %86 ], [ %92, %90 ], [ 0, %82 ], [ 0, %79 ]
+  %94 = phi i32 [ 0, %86 ], [ 0, %82 ], [ 0, %79 ], [ %92, %90 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 4580528
   %96 = load i32, ptr %95, align 8, !tbaa !337
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 87
@@ -33173,13 +33173,13 @@ define internal void @intra_pred_8(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %134
 
 134:                                              ; preds = %129, %112, %110, %109, %103
-  %.0251.i = phi i32 [ undef, %103 ], [ %.1252.i, %129 ], [ undef, %110 ], [ undef, %112 ], [ undef, %109 ]
-  %.0250.i = phi i1 [ false, %103 ], [ %132, %129 ], [ false, %110 ], [ false, %112 ], [ false, %109 ]
-  %.0249.i = phi i64 [ 0, %103 ], [ %133, %129 ], [ 0, %110 ], [ 0, %112 ], [ 0, %109 ]
-  %.0245.i = phi i32 [ undef, %103 ], [ %.1.i207, %129 ], [ undef, %110 ], [ undef, %112 ], [ undef, %109 ]
-  %.0244.i = phi i32 [ %107, %103 ], [ %.1.i207, %129 ], [ %35, %110 ], [ %113, %112 ], [ %35, %109 ]
-  %.0243.i = phi i32 [ %106, %103 ], [ %.1252.i, %129 ], [ %111, %110 ], [ %36, %112 ], [ %36, %109 ]
-  %.0241.i = phi i32 [ %108, %103 ], [ 1, %129 ], [ 1, %110 ], [ 1, %112 ], [ %44, %109 ]
+  %.0251.i = phi i32 [ undef, %103 ], [ undef, %110 ], [ undef, %112 ], [ %.1252.i, %129 ], [ undef, %109 ]
+  %.0250.i = phi i1 [ false, %103 ], [ false, %110 ], [ false, %112 ], [ %132, %129 ], [ false, %109 ]
+  %.0249.i = phi i64 [ 0, %103 ], [ 0, %110 ], [ 0, %112 ], [ %133, %129 ], [ 0, %109 ]
+  %.0245.i = phi i32 [ undef, %103 ], [ undef, %110 ], [ undef, %112 ], [ %.1.i207, %129 ], [ undef, %109 ]
+  %.0244.i = phi i32 [ %107, %103 ], [ %35, %110 ], [ %113, %112 ], [ %.1.i207, %129 ], [ %35, %109 ]
+  %.0243.i = phi i32 [ %106, %103 ], [ %111, %110 ], [ %36, %112 ], [ %.1252.i, %129 ], [ %36, %109 ]
+  %.0241.i = phi i32 [ %108, %103 ], [ 1, %110 ], [ 1, %112 ], [ 1, %129 ], [ %44, %109 ]
   %135 = tail call i32 @ff_vvc_get_left_available(ptr noundef nonnull %0, i32 noundef %33, i32 noundef %34, i32 noundef %.0243.i, i32 noundef %5) #13
   %136 = icmp sgt i32 %135, 0
   %137 = sext i32 %101 to i64
@@ -33797,8 +33797,8 @@ prepare_intra_edge_params_8.exit:                 ; preds = %342, %.lr.ph244, %3
   br label %429
 
 429:                                              ; preds = %.thread213.us, %424, %.lr.ph252.split.us260
-  %.0191.us = phi i32 [ %428, %.thread213.us ], [ 0, %.lr.ph252.split.us260 ], [ 0, %424 ]
-  %.0190.us = phi i32 [ 0, %.thread213.us ], [ 0, %.lr.ph252.split.us260 ], [ %411, %424 ]
+  %.0191.us = phi i32 [ 0, %424 ], [ %428, %.thread213.us ], [ 0, %.lr.ph252.split.us260 ]
+  %.0190.us = phi i32 [ %411, %424 ], [ 0, %.thread213.us ], [ 0, %.lr.ph252.split.us260 ]
   %430 = sub nsw i32 %413, %415
   %431 = mul nsw i32 %430, %.0191.us
   %432 = sub nsw i32 %421, %423
@@ -34246,7 +34246,7 @@ mip_downsampling_8.exit95:                        ; preds = %.lr.ph137.split, %.
   br i1 %103, label %.preheader.us154.us, label %.preheader.us168
 
 ._crit_edge152.us:                                ; preds = %.preheader.us168, %._crit_edge148.us162.us, %._crit_edge148.us.us
-  %.us-phi.us = phi ptr [ %139, %._crit_edge148.us162.us ], [ %115, %._crit_edge148.us.us ], [ %114, %.preheader.us168 ]
+  %.us-phi.us = phi ptr [ %115, %._crit_edge148.us.us ], [ %139, %._crit_edge148.us162.us ], [ %114, %.preheader.us168 ]
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
   %exitcond315.not = icmp eq i64 %indvars.iv.next311, %wide.trip.count314
   br i1 %exitcond315.not, label %mip_reduced_pred_8.exit, label %.preheader113.us, !llvm.loop !792
@@ -34979,7 +34979,7 @@ define internal void @pred_angular_h_8(ptr noundef writeonly captures(none) %0, 
   br label %89
 
 89:                                               ; preds = %53, %49
-  %.072.us.us.us.us = phi i32 [ %52, %49 ], [ %88, %53 ]
+  %.072.us.us.us.us = phi i32 [ %88, %53 ], [ %52, %49 ]
   %gep146 = getelementptr i8, ptr %invariant.gep145, i64 %indvars.iv127
   %90 = load i8, ptr %gep146, align 1, !tbaa !128
   %91 = zext i8 %90 to i32
@@ -35059,7 +35059,7 @@ define internal void @pred_angular_h_8(ptr noundef writeonly captures(none) %0, 
   br label %145
 
 145:                                              ; preds = %109, %106
-  %.072.us.us.us = phi i8 [ %108, %106 ], [ %144, %109 ]
+  %.072.us.us.us = phi i8 [ %144, %109 ], [ %108, %106 ]
   %146 = getelementptr i8, ptr %41, i64 %indvars.iv122
   store i8 %.072.us.us.us, ptr %146, align 1, !tbaa !128
   %147 = add nsw i32 %.07988.us.us.us, %15
@@ -36521,9 +36521,9 @@ define internal fastcc void @vvc_loop_filter_luma_8(ptr noundef %0, i64 noundef 
   %exitcond.not.i = icmp eq i32 %825, 4
   br i1 %exitcond.not.i, label %.critedge, label %408, !llvm.loop !822
 
-loop_filter_luma_large_8.exit.thread366:          ; preds = %362, %368, %357, %194, %39
-  %.0331.in = phi i8 [ %107, %39 ], [ %202, %194 ], [ %202, %357 ], [ %202, %368 ], [ %202, %362 ]
-  %.0330 = phi i32 [ %105, %39 ], [ %201, %194 ], [ %201, %357 ], [ %201, %368 ], [ %201, %362 ]
+loop_filter_luma_large_8.exit.thread366:          ; preds = %357, %362, %368, %194, %39
+  %.0331.in = phi i8 [ %107, %39 ], [ %202, %194 ], [ %202, %368 ], [ %202, %362 ], [ %202, %357 ]
+  %.0330 = phi i32 [ %105, %39 ], [ %201, %194 ], [ %201, %368 ], [ %201, %362 ], [ %201, %357 ]
   %826 = add nuw nsw i32 %95, %94
   %827 = icmp slt i32 %826, %112
   br i1 %827, label %828, label %.critedge
@@ -38001,12 +38001,12 @@ define internal void @sao_edge_restore_1_8(ptr noundef writeonly captures(none) 
   br label %.thread240
 
 .thread240:                                       ; preds = %91, %89, %.loopexit256
-  %.ph = phi i1 [ true, %89 ], [ true, %91 ], [ false, %.loopexit256 ]
-  %.0198237.ph = phi i32 [ %.1199, %89 ], [ %.1199, %91 ], [ 0, %.loopexit256 ]
-  %.0201236.ph = phi i32 [ %.0201, %89 ], [ %.0201, %91 ], [ %7, %.loopexit256 ]
-  %.0200225235.ph = phi i32 [ %.0200224, %89 ], [ %.0200224, %91 ], [ %.0200, %.loopexit256 ]
-  %.0196227234.ph = phi i32 [ %.0196226, %89 ], [ %.0196226, %91 ], [ %.1197, %.loopexit256 ]
-  %.ph239 = phi i32 [ 0, %89 ], [ %93, %91 ], [ 0, %.loopexit256 ]
+  %.ph = phi i1 [ true, %91 ], [ true, %89 ], [ false, %.loopexit256 ]
+  %.0198237.ph = phi i32 [ %.1199, %91 ], [ %.1199, %89 ], [ 0, %.loopexit256 ]
+  %.0201236.ph = phi i32 [ %.0201, %91 ], [ %.0201, %89 ], [ %7, %.loopexit256 ]
+  %.0200225235.ph = phi i32 [ %.0200224, %91 ], [ %.0200224, %89 ], [ %.0200, %.loopexit256 ]
+  %.0196227234.ph = phi i32 [ %.0196226, %91 ], [ %.0196226, %89 ], [ %.1197, %.loopexit256 ]
+  %.ph239 = phi i32 [ %93, %91 ], [ 0, %89 ], [ 0, %.loopexit256 ]
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 1
   br label %107
 
@@ -38065,18 +38065,18 @@ define internal void @sao_edge_restore_1_8(ptr noundef writeonly captures(none) 
   br label %123
 
 123:                                              ; preds = %.thread319, %119, %116, %107
-  %124 = phi ptr [ %113, %116 ], [ %113, %119 ], [ %113, %107 ], [ %106, %.thread319 ]
-  %125 = phi i32 [ 0, %116 ], [ 0, %119 ], [ 0, %107 ], [ %.ph318, %.thread319 ]
-  %126 = phi i1 [ %112, %116 ], [ %112, %119 ], [ %112, %107 ], [ false, %.thread319 ]
-  %.0198237246328 = phi i32 [ %.0198237246, %116 ], [ %.0198237246, %119 ], [ %.0198237246, %107 ], [ %.1199, %.thread319 ]
-  %.0201236247327 = phi i32 [ %.0201236247, %116 ], [ %.0201236247, %119 ], [ %.0201236247, %107 ], [ %.0201, %.thread319 ]
-  %.0200225235248326 = phi i32 [ %.0200225235248, %116 ], [ %.0200225235248, %119 ], [ %.0200225235248, %107 ], [ %.0200224, %.thread319 ]
-  %.0196227234249325 = phi i32 [ %.0196227234249, %116 ], [ %.0196227234249, %119 ], [ %.0196227234249, %107 ], [ %.0196226, %.thread319 ]
-  %127 = phi i1 [ %111, %116 ], [ %111, %119 ], [ %111, %107 ], [ true, %.thread319 ]
-  %128 = phi i32 [ %110, %116 ], [ %110, %119 ], [ %110, %107 ], [ 0, %.thread319 ]
-  %129 = phi ptr [ %109, %116 ], [ %109, %119 ], [ %109, %107 ], [ %96, %.thread319 ]
-  %130 = phi i1 [ %108, %116 ], [ %108, %119 ], [ %108, %107 ], [ true, %.thread319 ]
-  %131 = phi i32 [ 0, %116 ], [ %122, %119 ], [ 0, %107 ], [ 0, %.thread319 ]
+  %124 = phi ptr [ %113, %116 ], [ %113, %107 ], [ %113, %119 ], [ %106, %.thread319 ]
+  %125 = phi i32 [ 0, %116 ], [ 0, %107 ], [ 0, %119 ], [ %.ph318, %.thread319 ]
+  %126 = phi i1 [ %112, %116 ], [ %112, %107 ], [ %112, %119 ], [ false, %.thread319 ]
+  %.0198237246328 = phi i32 [ %.0198237246, %116 ], [ %.0198237246, %107 ], [ %.0198237246, %119 ], [ %.1199, %.thread319 ]
+  %.0201236247327 = phi i32 [ %.0201236247, %116 ], [ %.0201236247, %107 ], [ %.0201236247, %119 ], [ %.0201, %.thread319 ]
+  %.0200225235248326 = phi i32 [ %.0200225235248, %116 ], [ %.0200225235248, %107 ], [ %.0200225235248, %119 ], [ %.0200224, %.thread319 ]
+  %.0196227234249325 = phi i32 [ %.0196227234249, %116 ], [ %.0196227234249, %107 ], [ %.0196227234249, %119 ], [ %.0196226, %.thread319 ]
+  %127 = phi i1 [ %111, %116 ], [ %111, %107 ], [ %111, %119 ], [ true, %.thread319 ]
+  %128 = phi i32 [ %110, %116 ], [ %110, %107 ], [ %110, %119 ], [ 0, %.thread319 ]
+  %129 = phi ptr [ %109, %116 ], [ %109, %107 ], [ %109, %119 ], [ %96, %.thread319 ]
+  %130 = phi i1 [ %108, %116 ], [ %108, %107 ], [ %108, %119 ], [ true, %.thread319 ]
+  %131 = phi i32 [ 0, %116 ], [ 0, %107 ], [ %122, %119 ], [ 0, %.thread319 ]
   %132 = getelementptr inbounds nuw i8, ptr %11, i64 3
   %133 = load i8, ptr %132, align 1, !tbaa !128
   %134 = icmp eq i8 %133, 0
@@ -38096,7 +38096,7 @@ define internal void @sao_edge_restore_1_8(ptr noundef writeonly captures(none) 
   br label %141
 
 141:                                              ; preds = %137, %135, %123
-  %142 = phi i32 [ 0, %135 ], [ %140, %137 ], [ 0, %123 ]
+  %142 = phi i32 [ 0, %135 ], [ 0, %123 ], [ %140, %137 ]
   %143 = load i8, ptr %9, align 1, !tbaa !128
   %144 = icmp ne i8 %143, 0
   %or.cond9 = and i1 %19, %144

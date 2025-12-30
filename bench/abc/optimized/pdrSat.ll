@@ -951,7 +951,7 @@ define range(i32 -1, 2) i32 @Pdr_ManCheckCubeCs(ptr noundef %0, i32 noundef %1, 
   br label %Pdr_ManTimeLimit.exit
 
 Pdr_ManTimeLimit.exit:                            ; preds = %3, %11, %13
-  %.0.i = phi i64 [ %..i, %13 ], [ %7, %11 ], [ %10, %3 ]
+  %.0.i = phi i64 [ %7, %11 ], [ %..i, %13 ], [ %10, %3 ]
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 512
   %15 = load i64, ptr %14, align 8, !tbaa !90
   store i64 %.0.i, ptr %14, align 8, !tbaa !90
@@ -1037,7 +1037,7 @@ Abc_Clock.exit:                                   ; preds = %19, %22
   br label %Pdr_ManTimeLimit.exit
 
 Pdr_ManTimeLimit.exit:                            ; preds = %Abc_Clock.exit, %45, %47
-  %.0.i97 = phi i64 [ %..i, %47 ], [ %41, %45 ], [ %44, %Abc_Clock.exit ]
+  %.0.i97 = phi i64 [ %41, %45 ], [ %..i, %47 ], [ %44, %Abc_Clock.exit ]
   %48 = getelementptr inbounds nuw i8, ptr %17, i64 512
   %49 = load i64, ptr %48, align 8, !tbaa !90
   store i64 %.0.i97, ptr %48, align 8, !tbaa !90
@@ -1258,7 +1258,7 @@ Abc_Clock.exit106:                                ; preds = %141, %144
   br label %Pdr_ManTimeLimit.exit109
 
 Pdr_ManTimeLimit.exit109:                         ; preds = %Abc_Clock.exit106, %156, %158
-  %.0.i108 = phi i64 [ %..i107, %158 ], [ %152, %156 ], [ %155, %Abc_Clock.exit106 ]
+  %.0.i108 = phi i64 [ %152, %156 ], [ %..i107, %158 ], [ %155, %Abc_Clock.exit106 ]
   %159 = getelementptr inbounds nuw i8, ptr %17, i64 512
   %160 = load i64, ptr %159, align 8, !tbaa !90
   store i64 %.0.i108, ptr %159, align 8, !tbaa !90
@@ -1423,7 +1423,7 @@ Abc_Clock.exit115:                                ; preds = %225, %228
   br label %248
 
 248:                                              ; preds = %201, %194, %Abc_Clock.exit115, %202, %174, %175, %Pdr_ManTimeLimit.exit
-  %.0 = phi i32 [ -1, %Pdr_ManTimeLimit.exit ], [ -1, %174 ], [ -1, %175 ], [ 1, %194 ], [ 1, %201 ], [ 0, %Abc_Clock.exit115 ], [ 0, %202 ]
+  %.0 = phi i32 [ -1, %Pdr_ManTimeLimit.exit ], [ -1, %175 ], [ -1, %174 ], [ 1, %201 ], [ 1, %194 ], [ 0, %Abc_Clock.exit115 ], [ 0, %202 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0
 }

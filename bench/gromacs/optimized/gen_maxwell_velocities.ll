@@ -654,7 +654,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj64EEEEEfRT_.e
   br i1 %exitcond77.not.i, label %358, label %359, !llvm.loop !95
 
 .loopexit.i:                                      ; preds = %358, %._crit_edge.thread, %352, %._crit_edge
-  %363 = phi float [ 0x7FF8000000000000, %._crit_edge.thread ], [ %140, %._crit_edge ], [ %140, %352 ], [ %140, %358 ]
+  %363 = phi float [ 0x7FF8000000000000, %._crit_edge.thread ], [ %140, %352 ], [ %140, %._crit_edge ], [ %140, %358 ]
   %364 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %365 = load ptr, ptr %364, align 8, !tbaa !4
   %366 = icmp eq ptr %365, null
@@ -873,13 +873,13 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
   ret void
 
 .sink.split63:                                    ; preds = %34, %.sink.split62, %18, %.sink.split
-  %.sink = phi ptr [ %11, %18 ], [ %11, %.sink.split ], [ %27, %.sink.split62 ], [ %27, %34 ]
-  %.pn39.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %.pn39.pn50.ph, %.sink.split ], [ %.pn.pn57.ph, %.sink.split62 ], [ %35, %34 ]
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %27, %.sink.split62 ], [ %27, %34 ]
+  %.pn39.pn.pn.ph = phi { ptr, i32 } [ %.pn39.pn50.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn57.ph, %.sink.split62 ], [ %35, %34 ]
   call void @__cxa_free_exception(ptr %.sink) #21
   br label %37
 
 37:                                               ; preds = %.sink.split63, %34, %18
-  %.pn39.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %19, %18 ], [ %.pn39.pn.pn.ph, %.sink.split63 ]
+  %.pn39.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %35, %34 ], [ %.pn39.pn.pn.ph, %.sink.split63 ]
   resume { ptr, i32 } %.pn39.pn.pn
 
 38:                                               ; preds = %31, %15

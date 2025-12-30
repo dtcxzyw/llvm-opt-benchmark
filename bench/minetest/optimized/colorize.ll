@@ -1380,7 +1380,7 @@ _ZNSt10unique_ptrI8Curl_URLPFvPS0_EED2Ev.exit:    ; preds = %if.then.i610, %_ZNS
   ret void
 
 ehcleanup154:                                     ; preds = %lpad.i.i, %if.then.i.i.i.i539, %lpad120, %lpad81.loopexit.split-lp, %lpad81.loopexit
-  %.pn = phi { ptr, i32 } [ %138, %lpad120 ], [ %154, %if.then.i.i.i.i539 ], [ %lpad.loopexit.split-lp, %lpad81.loopexit.split-lp ], [ %lpad.loopexit, %lpad81.loopexit ], [ %154, %lpad.i.i ]
+  %.pn = phi { ptr, i32 } [ %138, %lpad120 ], [ %154, %if.then.i.i.i.i539 ], [ %lpad.loopexit, %lpad81.loopexit ], [ %lpad.loopexit.split-lp, %lpad81.loopexit.split-lp ], [ %154, %lpad.i.i ]
   %173 = load ptr, ptr %host_s, align 8, !tbaa !4
   %cmp.i.i.i612 = icmp eq ptr %173, %114
   br i1 %cmp.i.i.i612, label %ehcleanup155, label %if.then.i.i613

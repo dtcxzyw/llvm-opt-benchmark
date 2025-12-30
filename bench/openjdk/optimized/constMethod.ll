@@ -3324,7 +3324,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i71: ; preds = %213, %211, %2
   br label %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit
 
 _ZNK11ConstMethod31localvariable_table_length_addrEv.exit: ; preds = %_ZNK11ConstMethod24checked_exceptions_startEv.exit.i71, %221, %228, %230
-  %.0.i68 = phi ptr [ %231, %230 ], [ %219, %_ZNK11ConstMethod24checked_exceptions_startEv.exit.i71 ], [ %226, %221 ], [ %229, %228 ]
+  %.0.i68 = phi ptr [ %219, %_ZNK11ConstMethod24checked_exceptions_startEv.exit.i71 ], [ %226, %221 ], [ %229, %228 ], [ %231, %230 ]
   %232 = load i16, ptr %.0.i68, align 2
   %.not48 = icmp ne i16 %232, 0
   %.not49 = icmp uge ptr %.0.i68, %.0

@@ -241,7 +241,7 @@ test_crl_reparse.exit.thread:                     ; preds = %36, %42, %61, %52, 
   br label %test_pem_certs.exit.thread
 
 test_pem_certs.exit.thread:                       ; preds = %83, %88, %69, %74, %test_crl_reparse.exit.thread, %0, %8, %92
-  %.0 = phi i32 [ 0, %92 ], [ 1, %69 ], [ 1, %0 ], [ 1, %test_crl_reparse.exit.thread ], [ 1, %8 ], [ 1, %74 ], [ 1, %88 ], [ 1, %83 ]
+  %.0 = phi i32 [ 0, %92 ], [ 1, %8 ], [ 1, %0 ], [ 1, %test_crl_reparse.exit.thread ], [ 1, %74 ], [ 1, %69 ], [ 1, %88 ], [ 1, %83 ]
   ret i32 %.0
 }
 

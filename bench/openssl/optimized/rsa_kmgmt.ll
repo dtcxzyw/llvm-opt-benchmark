@@ -159,7 +159,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %pss_params_fromdata.exit
 
 pss_params_fromdata.exit:                         ; preds = %28, %2, %24, %21, %16, %7, %ossl_param_is_empty.exit, %13
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %13 ], [ 1, %24 ], [ 0, %21 ], [ 0, %16 ], [ 0, %7 ], [ 1, %2 ], [ %spec.select, %28 ]
+  %.0 = phi i32 [ 0, %13 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %7 ], [ 0, %16 ], [ 0, %21 ], [ 1, %24 ], [ 1, %2 ], [ %spec.select, %28 ]
   ret i32 %.0
 }
 
@@ -283,7 +283,7 @@ define internal noundef ptr @rsa_load(ptr noundef captures(none) %0, i64 noundef
   br label %common_load.exit
 
 common_load.exit:                                 ; preds = %2, %6, %9
-  %.0.i = phi ptr [ null, %6 ], [ %7, %9 ], [ null, %2 ]
+  %.0.i = phi ptr [ %7, %9 ], [ null, %6 ], [ null, %2 ]
   ret ptr %.0.i
 }
 
@@ -403,7 +403,7 @@ define internal range(i32 0, 2) i32 @rsa_get_params(ptr noundef %0, ptr noundef 
   br label %49
 
 49:                                               ; preds = %.critedge.thread, %45, %42, %38, %30, %21, %22, %15, %.thread55, %8, %9
-  %.0 = phi i32 [ 0, %21 ], [ 0, %8 ], [ 0, %15 ], [ 0, %42 ], [ 0, %30 ], [ 0, %9 ], [ 0, %.thread55 ], [ 0, %22 ], [ 0, %38 ], [ 0, %.critedge.thread ], [ %48, %45 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %8 ], [ 0, %.thread55 ], [ 0, %15 ], [ 0, %22 ], [ 0, %21 ], [ 0, %30 ], [ 0, %38 ], [ 0, %42 ], [ 0, %.critedge.thread ], [ %48, %45 ]
   ret i32 %.0
 }
 
@@ -457,7 +457,7 @@ define internal range(i32 0, 2) i32 @rsa_has(ptr noundef %0, i32 noundef %1) #0 
   br label %.thread26
 
 .thread26:                                        ; preds = %14, %.thread30, %6, %2, %4
-  %.013.shrunk = phi i1 [ true, %6 ], [ false, %2 ], [ false, %4 ], [ %.1.shrunk.mux, %14 ], [ %17, %.thread30 ]
+  %.013.shrunk = phi i1 [ false, %4 ], [ false, %2 ], [ true, %6 ], [ %.1.shrunk.mux, %14 ], [ %17, %.thread30 ]
   %.013 = zext i1 %.013.shrunk to i32
   ret i32 %.013
 }
@@ -522,7 +522,7 @@ define internal range(i32 0, 2) i32 @rsa_match(ptr noundef %0, ptr noundef %1, i
   br label %30
 
 30:                                               ; preds = %20, %.thread, %27, %.thread49, %22, %5, %3
-  %.0.shrunk = phi i1 [ false, %3 ], [ %9, %5 ], [ false, %20 ], [ false, %.thread ], [ %19, %.thread49 ], [ %29, %27 ], [ false, %22 ]
+  %.0.shrunk = phi i1 [ false, %3 ], [ %9, %5 ], [ false, %20 ], [ false, %.thread ], [ %29, %27 ], [ false, %22 ], [ %19, %.thread49 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -574,7 +574,7 @@ define internal range(i32 0, 2) i32 @rsa_validate(ptr noundef %0, i32 noundef %1
   br label %23
 
 23:                                               ; preds = %16, %.thread, %11, %.thread19, %5, %3
-  %.012.shrunk = phi i1 [ false, %3 ], [ true, %5 ], [ %13, %11 ], [ %.mux, %16 ], [ true, %.thread ], [ %22, %.thread19 ]
+  %.012.shrunk = phi i1 [ false, %3 ], [ true, %5 ], [ %13, %11 ], [ %.mux, %16 ], [ %22, %.thread19 ], [ true, %.thread ]
   %.012 = zext i1 %.012.shrunk to i32
   ret i32 %.012
 }
@@ -628,7 +628,7 @@ pss_params_fromdata.exit:                         ; preds = %17, %18, %10
   br label %pss_params_fromdata.exit.thread
 
 pss_params_fromdata.exit.thread:                  ; preds = %18, %13, %pss_params_fromdata.exit, %21, %3
-  %.0.shrunk = phi i32 [ %25, %21 ], [ 0, %3 ], [ 1, %pss_params_fromdata.exit ], [ 0, %13 ], [ 0, %18 ]
+  %.0.shrunk = phi i32 [ 0, %3 ], [ 1, %pss_params_fromdata.exit ], [ %25, %21 ], [ 0, %13 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.shrunk
 }
@@ -675,7 +675,7 @@ define internal i32 @rsa_export(ptr noundef %0, i32 noundef %1, ptr noundef read
   br label %22
 
 22:                                               ; preds = %18, %16, %14
-  %.025 = phi i32 [ 1, %14 ], [ %21, %18 ], [ 1, %16 ]
+  %.025 = phi i32 [ 1, %14 ], [ 1, %16 ], [ %21, %18 ]
   %23 = and i32 %1, 3
   %.not30 = icmp eq i32 %23, 0
   br i1 %.not30, label %30, label %24
@@ -794,7 +794,7 @@ define internal noundef ptr @rsapss_load(ptr noundef captures(none) %0, i64 noun
   br label %common_load.exit
 
 common_load.exit:                                 ; preds = %2, %6, %9
-  %.0.i = phi ptr [ null, %6 ], [ %7, %9 ], [ null, %2 ]
+  %.0.i = phi ptr [ %7, %9 ], [ null, %6 ], [ null, %2 ]
   ret ptr %.0.i
 }
 
@@ -862,7 +862,7 @@ define internal fastcc ptr @gen_init(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %24
 
 24:                                               ; preds = %17, %4, %.critedge
-  %.0 = phi ptr [ null, %4 ], [ null, %.critedge ], [ %10, %17 ]
+  %.0 = phi ptr [ null, %.critedge ], [ null, %4 ], [ %10, %17 ]
   ret ptr %.0
 }
 

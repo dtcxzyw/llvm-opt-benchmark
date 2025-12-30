@@ -119,7 +119,7 @@ rpb_ensure_alloc.exit:                            ; preds = %30, %19, %._crit_ed
   br label %rpb_ensure_alloc.exit.thread
 
 rpb_ensure_alloc.exit.thread:                     ; preds = %21, %23, %rpb_ensure_alloc.exit, %36, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %rpb_ensure_alloc.exit ], [ 1, %36 ], [ 0, %23 ], [ 0, %21 ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %36 ], [ 1, %rpb_ensure_alloc.exit ], [ 0, %23 ], [ 0, %21 ]
   ret i32 %.0
 }
 

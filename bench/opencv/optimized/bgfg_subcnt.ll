@@ -1003,7 +1003,7 @@ _ZN2cv4Mat_INS_3VecIiLi4EEEEaSERKNS_7MatExprE.exit: ; preds = %_ZN2cv4Mat_INS_3V
   ret void
 
 245:                                              ; preds = %149, %165, %196, %237, %127, %117, %111, %110
-  %.pn69.pn = phi { ptr, i32 } [ %.pn63, %110 ], [ %128, %127 ], [ %.pn67, %117 ], [ %112, %111 ], [ %166, %165 ], [ %197, %196 ], [ %238, %237 ], [ %150, %149 ]
+  %.pn69.pn = phi { ptr, i32 } [ %128, %127 ], [ %.pn67, %117 ], [ %112, %111 ], [ %.pn63, %110 ], [ %166, %165 ], [ %197, %196 ], [ %238, %237 ], [ %150, %149 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #14
   br label %246
 

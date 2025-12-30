@@ -133,8 +133,8 @@ define noalias noundef ptr @Amap_CreateRulesPrime(ptr noundef %0, ptr noundef re
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %58, %60, %50, %52
-  %.sink78 = phi ptr [ %53, %52 ], [ %51, %50 ], [ %59, %58 ], [ %61, %60 ]
-  %.sink = phi i32 [ 16, %52 ], [ 16, %50 ], [ %55, %58 ], [ %55, %60 ]
+  %.sink78 = phi ptr [ %51, %50 ], [ %53, %52 ], [ %59, %58 ], [ %61, %60 ]
+  %.sink = phi i32 [ 16, %50 ], [ 16, %52 ], [ %55, %58 ], [ %55, %60 ]
   store ptr %.sink78, ptr %17, align 8, !tbaa !20
   store i32 %.sink, ptr %14, align 8, !tbaa !19
   br label %Vec_IntPush.exit
@@ -170,10 +170,10 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.lr.ph45, %.critedge2.loopexit, %.lr.ph48.split
-  %.val = phi i32 [ %.val72, %.lr.ph48.split ], [ %.val.pre, %.critedge2.loopexit ], [ %.val72, %.lr.ph45 ]
-  %.val3669 = phi i32 [ %.val3668, %.lr.ph48.split ], [ %.val36, %.critedge2.loopexit ], [ %.val3668, %.lr.ph45 ]
-  %.pre.i63 = phi ptr [ %.pre.i62, %.lr.ph48.split ], [ %.pre.i65, %.critedge2.loopexit ], [ %.pre.i62, %.lr.ph45 ]
-  %.val364359 = phi i32 [ %.val3643, %.lr.ph48.split ], [ %.val36, %.critedge2.loopexit ], [ %.val3643, %.lr.ph45 ]
+  %.val = phi i32 [ %.val.pre, %.critedge2.loopexit ], [ %.val72, %.lr.ph48.split ], [ %.val72, %.lr.ph45 ]
+  %.val3669 = phi i32 [ %.val36, %.critedge2.loopexit ], [ %.val3668, %.lr.ph48.split ], [ %.val3668, %.lr.ph45 ]
+  %.pre.i63 = phi ptr [ %.pre.i65, %.critedge2.loopexit ], [ %.pre.i62, %.lr.ph48.split ], [ %.pre.i62, %.lr.ph45 ]
+  %.val364359 = phi i32 [ %.val36, %.critedge2.loopexit ], [ %.val3643, %.lr.ph48.split ], [ %.val3643, %.lr.ph45 ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %69 = sext i32 %.val to i64
   %70 = icmp slt i64 %indvars.iv.next56, %69
@@ -374,7 +374,7 @@ define range(i32 0, 2) i32 @Amap_CreateCheckAllZero(ptr noundef readonly capture
   br i1 %.not8, label %5, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %5, %9, %13
-  %.07 = phi i32 [ 0, %9 ], [ 0, %13 ], [ 1, %5 ]
+  %.07 = phi i32 [ 0, %13 ], [ 0, %9 ], [ 1, %5 ]
   ret i32 %.07
 }
 
@@ -680,7 +680,7 @@ Vec_IntFree.exit104:                              ; preds = %Vec_IntFree.exit, %
   %indvars.iv.next167 = add nsw i64 %indvars.iv166, -1
   br i1 %124, label %.lr.ph, label %.loopexit, !llvm.loop !38
 
-125:                                              ; preds = %52, %56
+125:                                              ; preds = %56, %52
   %126 = shl nuw i32 1, %.val84
   %127 = icmp sgt i32 %126, 3
   br i1 %127, label %.lr.ph147.preheader, label %.loopexit
@@ -1296,7 +1296,7 @@ Kit_DsdNtkObj.exit37:                             ; preds = %Kit_DsdNtkObj.exit,
   br i1 %.not34, label %.loopexit, label %40
 
 .loopexit:                                        ; preds = %41, %50, %40, %.preheader, %29, %28, %Kit_DsdNtkObj.exit37
-  %.028 = phi i32 [ 0, %29 ], [ 1, %Kit_DsdNtkObj.exit37 ], [ 0, %28 ], [ 1, %.preheader ], [ 0, %50 ], [ 0, %41 ], [ 1, %40 ]
+  %.028 = phi i32 [ 1, %Kit_DsdNtkObj.exit37 ], [ 0, %28 ], [ 0, %29 ], [ 1, %.preheader ], [ 0, %41 ], [ 0, %50 ], [ 1, %40 ]
   ret i32 %.028
 }
 

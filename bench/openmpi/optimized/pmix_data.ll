@@ -1061,7 +1061,7 @@ pmix_obj_run_destructors.exit187:                 ; preds = %.lr.ph.i184, %384
   br label %.loopexit194
 
 .loopexit194:                                     ; preds = %21, %329, %332, %264, %267, %141, %144, %76, %79, %7, %370, %pmix_obj_update.exit105, %394, %393, %pmix_obj_update.exit103, %pmix_obj_update.exit101, %pmix_strncpy.exit144, %209, %pmix_obj_update.exit100, %206, %205, %pmix_obj_update.exit98, %pmix_obj_update.exit, %pmix_strncpy.exit, %207, %5
-  %.0 = phi ptr [ %6, %5 ], [ null, %329 ], [ null, %pmix_obj_update.exit105 ], [ %227, %370 ], [ null, %pmix_strncpy.exit ], [ null, %pmix_obj_update.exit ], [ null, %pmix_obj_update.exit98 ], [ %39, %207 ], [ null, %pmix_obj_update.exit100 ], [ %210, %209 ], [ null, %pmix_strncpy.exit144 ], [ null, %pmix_obj_update.exit101 ], [ null, %pmix_obj_update.exit103 ], [ %10, %7 ], [ null, %76 ], [ null, %205 ], [ null, %206 ], [ null, %141 ], [ null, %264 ], [ null, %393 ], [ null, %394 ], [ null, %79 ], [ null, %144 ], [ null, %267 ], [ null, %332 ], [ %19, %21 ]
+  %.0 = phi ptr [ %6, %5 ], [ %39, %207 ], [ null, %pmix_strncpy.exit ], [ null, %pmix_obj_update.exit ], [ null, %pmix_obj_update.exit98 ], [ null, %205 ], [ null, %206 ], [ null, %pmix_obj_update.exit100 ], [ %210, %209 ], [ null, %pmix_strncpy.exit144 ], [ null, %pmix_obj_update.exit101 ], [ null, %pmix_obj_update.exit103 ], [ null, %393 ], [ null, %394 ], [ null, %pmix_obj_update.exit105 ], [ %227, %370 ], [ %10, %7 ], [ null, %79 ], [ null, %76 ], [ null, %144 ], [ null, %141 ], [ null, %267 ], [ null, %264 ], [ null, %332 ], [ null, %329 ], [ %19, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
@@ -1436,7 +1436,7 @@ define range(i32 -27, 1) i32 @PMIx_Data_unload(ptr noundef %0, ptr noundef %1) l
   br label %25
 
 25:                                               ; preds = %4, %7, %2, %24
-  %.0 = phi i32 [ -27, %2 ], [ 0, %4 ], [ 0, %24 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %24 ], [ -27, %2 ], [ 0, %7 ], [ 0, %4 ]
   ret i32 %.0
 }
 

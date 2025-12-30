@@ -782,7 +782,7 @@ define dso_local void @iomap_readahead(ptr noundef %0, ptr noundef %1) #0 align 
   br label %117
 
 117:                                              ; preds = %114, %106
-  %118 = phi i32 [ 1, %106 ], [ %116, %114 ]
+  %118 = phi i32 [ %116, %114 ], [ 1, %106 ]
   store i32 %118, ptr %93, align 4
   %119 = icmp eq ptr %110, null
   br i1 %119, label %126, label %120
@@ -1999,7 +1999,7 @@ define dso_local i32 @iomap_file_buffered_write_punch_delalloc(ptr noundef %0, p
   br label %.thread27
 
 .thread27:                                        ; preds = %211, %.loopexit, %68, %56, %235, %.thread28
-  %238 = phi i32 [ %237, %235 ], [ 0, %.thread28 ], [ %57, %56 ], [ %69, %68 ], [ %206, %.loopexit ], [ %206, %211 ]
+  %238 = phi i32 [ %237, %235 ], [ 0, %.thread28 ], [ %69, %68 ], [ %57, %56 ], [ %206, %.loopexit ], [ %206, %211 ]
   %239 = load ptr, ptr %42, align 8
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 24
   tail call void @up_write(ptr noundef nonnull %240) #16
@@ -2173,7 +2173,7 @@ define dso_local range(i32 -2147483648, 1) i32 @iomap_file_unshare(ptr noundef %
   br i1 %105, label %.preheader, label %.loopexit, !llvm.loop !86
 
 .loopexit.sink.split:                             ; preds = %50, %96, %48
-  %.ph41 = phi i64 [ %49, %48 ], [ -5, %96 ], [ %43, %50 ]
+  %.ph41 = phi i64 [ -5, %96 ], [ %49, %48 ], [ %43, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
@@ -4017,9 +4017,9 @@ define internal noundef i32 @iomap_do_writepage(ptr noundef %0, ptr noundef %1, 
   br i1 %406, label %223, label %407, !llvm.loop !136
 
 407:                                              ; preds = %400, %249
-  %408 = phi i32 [ %225, %249 ], [ %401, %400 ]
-  %409 = phi i64 [ %224, %249 ], [ %403, %400 ]
-  %410 = phi i32 [ %252, %249 ], [ 0, %400 ]
+  %408 = phi i32 [ %401, %400 ], [ %225, %249 ]
+  %409 = phi i64 [ %403, %400 ], [ %224, %249 ]
+  %410 = phi i32 [ 0, %400 ], [ %252, %249 ]
   %411 = icmp eq i32 %408, 0
   br i1 %411, label %.thread26, label %412
 
@@ -4032,9 +4032,9 @@ define internal noundef i32 @iomap_do_writepage(ptr noundef %0, ptr noundef %1, 
   br label %.thread26
 
 .thread26:                                        ; preds = %207, %412, %407
-  %417 = phi i1 [ true, %407 ], [ false, %412 ], [ true, %207 ]
-  %418 = phi i32 [ %410, %407 ], [ %410, %412 ], [ 0, %207 ]
-  %419 = phi i64 [ %409, %407 ], [ %409, %412 ], [ %162, %207 ]
+  %417 = phi i1 [ false, %412 ], [ true, %407 ], [ true, %207 ]
+  %418 = phi i32 [ %410, %412 ], [ %410, %407 ], [ 0, %207 ]
+  %419 = phi i64 [ %409, %412 ], [ %409, %407 ], [ %162, %207 ]
   %420 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %421 = load ptr, ptr %420, align 8
   %422 = icmp eq ptr %421, null
@@ -5269,7 +5269,7 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
   br label %356
 
 .thread16:                                        ; preds = %84, %.thread15, %79
-  %91 = phi ptr [ %70, %79 ], [ %80, %.thread15 ], [ %80, %84 ]
+  %91 = phi ptr [ %80, %.thread15 ], [ %70, %79 ], [ %80, %84 ]
   %92 = add i64 %50, %1
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %94 = load i64, ptr %93, align 8
@@ -5734,7 +5734,7 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
   br label %384
 
 384:                                              ; preds = %381, %374, %355, %75, %41
-  %385 = phi i32 [ %78, %75 ], [ %358, %381 ], [ 0, %355 ], [ -4, %41 ], [ %358, %374 ]
+  %385 = phi i32 [ %78, %75 ], [ 0, %355 ], [ -4, %41 ], [ %358, %374 ], [ %358, %381 ]
   ret i32 %385
 }
 

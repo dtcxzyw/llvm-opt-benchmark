@@ -631,7 +631,7 @@ define i32 @Abc_NtkDeriveFlatGiaSop(ptr noundef %0, ptr noundef readonly capture
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.loopexit, %.preheader45, %.preheader44
-  %.138 = phi i32 [ %29, %.loopexit.loopexit ], [ 0, %.preheader44 ], [ 0, %.preheader45 ], [ %11, %.lr.ph ]
+  %.138 = phi i32 [ 0, %.preheader44 ], [ 0, %.preheader45 ], [ %29, %.loopexit.loopexit ], [ %11, %.lr.ph ]
   %30 = tail call i32 @Abc_SopIsComplement(ptr noundef %2) #21
   %.not43 = icmp ne i32 %30, 0
   %31 = zext i1 %.not43 to i32

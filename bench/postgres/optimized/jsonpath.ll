@@ -176,7 +176,7 @@ define internal fastcc noundef i64 @jsonPathFromCstring(ptr noundef %0, i32 noun
   br label %33
 
 33:                                               ; preds = %19, %14, %16, %9, %23
-  %.0 = phi i64 [ 0, %9 ], [ %32, %23 ], [ 0, %14 ], [ 0, %16 ], [ 0, %19 ]
+  %.0 = phi i64 [ %32, %23 ], [ 0, %9 ], [ 0, %16 ], [ 0, %14 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
@@ -981,7 +981,7 @@ jspGetArraySubscript.exit:                        ; preds = %.lr.ph, %94
   br label %.thread
 
 .thread:                                          ; preds = %43, %45, %25, %.split103, %.split103, %.split103, %60, %59, %103, %.loopexit, %105, %110, %107, %71, %62, %74, %119, %118, %117, %113, %79, %75, %20, %18, %14
-  %.2 = phi i32 [ %.069108, %14 ], [ %19, %18 ], [ %.069108, %20 ], [ 3, %118 ], [ %.069108, %74 ], [ %.069108, %71 ], [ %.069108, %62 ], [ %.069108, %75 ], [ %.069108, %79 ], [ 1, %105 ], [ 0, %117 ], [ %spec.select, %.loopexit ], [ %., %110 ], [ %spec.select86, %103 ], [ 0, %107 ], [ %.069108, %113 ], [ 3, %119 ], [ 3, %.split103 ], [ 2, %59 ], [ 0, %60 ], [ 3, %.split103 ], [ 3, %.split103 ], [ %.069108, %25 ], [ %.069108, %45 ], [ %.069108, %43 ]
+  %.2 = phi i32 [ %.069108, %14 ], [ %19, %18 ], [ %.069108, %20 ], [ %.069108, %74 ], [ %.069108, %62 ], [ %.069108, %75 ], [ %.069108, %79 ], [ %.069108, %113 ], [ 3, %119 ], [ 3, %118 ], [ 0, %117 ], [ %.069108, %71 ], [ %spec.select, %.loopexit ], [ %spec.select86, %103 ], [ %., %110 ], [ 0, %107 ], [ 1, %105 ], [ 3, %.split103 ], [ 3, %.split103 ], [ 3, %.split103 ], [ 2, %59 ], [ 0, %60 ], [ %.069108, %25 ], [ %.069108, %45 ], [ %.069108, %43 ]
   %120 = load i32, ptr %.0109.sroa.phi118, align 4
   %121 = icmp sgt i32 %120, 0
   br i1 %121, label %jspGetNext.exit, label %jspGetNext.exit.thread
@@ -1495,7 +1495,7 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   br label %.critedge150
 
 .critedge150:                                     ; preds = %188, %110, %207, %208, %199, %148, %150, %142, %144, %132, %92, %103
-  %.1 = phi i1 [ false, %199 ], [ false, %148 ], [ false, %188 ], [ false, %110 ], [ true, %207 ], [ false, %132 ], [ false, %142 ], [ false, %103 ], [ false, %92 ], [ false, %144 ], [ false, %150 ], [ true, %208 ]
+  %.1 = phi i1 [ false, %188 ], [ false, %103 ], [ false, %92 ], [ false, %132 ], [ false, %144 ], [ false, %142 ], [ false, %150 ], [ false, %148 ], [ false, %199 ], [ true, %208 ], [ true, %207 ], [ false, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i1 %.1
 }

@@ -104,7 +104,7 @@ define internal i32 @ftr_parse(ptr noundef captures(none) %0, ptr noundef readon
   br label %.thread
 
 .thread:                                          ; preds = %28, %37, %56, %46
-  %.139 = phi i64 [ %42, %37 ], [ %42, %56 ], [ %42, %46 ], [ %.03847, %28 ]
+  %.139 = phi i64 [ %42, %56 ], [ %42, %46 ], [ %42, %37 ], [ %.03847, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %57, label %25, label %.loopexit, !llvm.loop !44

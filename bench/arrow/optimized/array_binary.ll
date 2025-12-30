@@ -748,7 +748,7 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow6BufferEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i: ; preds = %97, %93, %91, %85
-  %.sink.i = phi ptr [ null, %91 ], [ %99, %97 ], [ null, %93 ], [ null, %85 ]
+  %.sink.i = phi ptr [ %99, %97 ], [ null, %93 ], [ null, %91 ], [ null, %85 ]
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink.i, ptr %100, align 8, !tbaa !107
   store ptr %86, ptr %12, align 8, !tbaa !34
@@ -1690,7 +1690,7 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow6BufferEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i: ; preds = %97, %93, %91, %85
-  %.sink.i = phi ptr [ null, %91 ], [ %99, %97 ], [ null, %93 ], [ null, %85 ]
+  %.sink.i = phi ptr [ %99, %97 ], [ null, %93 ], [ null, %91 ], [ null, %85 ]
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink.i, ptr %100, align 8, !tbaa !107
   store ptr %86, ptr %12, align 8, !tbaa !34
@@ -2432,7 +2432,7 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow6BufferEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i: ; preds = %96, %92, %90, %84
-  %.sink.i = phi ptr [ null, %90 ], [ %98, %96 ], [ null, %92 ], [ null, %84 ]
+  %.sink.i = phi ptr [ %98, %96 ], [ null, %92 ], [ null, %90 ], [ null, %84 ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink.i, ptr %99, align 8, !tbaa !107
   store ptr %85, ptr %12, align 8, !tbaa !34
@@ -3185,7 +3185,7 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow6BufferEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i: ; preds = %96, %92, %90, %84
-  %.sink.i = phi ptr [ null, %90 ], [ %98, %96 ], [ null, %92 ], [ null, %84 ]
+  %.sink.i = phi ptr [ %98, %96 ], [ null, %92 ], [ null, %90 ], [ null, %84 ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink.i, ptr %99, align 8, !tbaa !107
   store ptr %85, ptr %12, align 8, !tbaa !34
@@ -3665,7 +3665,7 @@ define void @_ZN5arrow15BinaryViewArrayC2ESt10shared_ptrINS_9ArrayDataEE(ptr nou
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i: ; preds = %25, %21, %19, %.critedge13
-  %.sink.i = phi ptr [ null, %19 ], [ %27, %25 ], [ null, %21 ], [ null, %.critedge13 ]
+  %.sink.i = phi ptr [ %27, %25 ], [ null, %21 ], [ null, %19 ], [ null, %.critedge13 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink.i, ptr %28, align 8, !tbaa !107
   store ptr %12, ptr %4, align 8, !tbaa !34
@@ -3988,7 +3988,7 @@ define void @_ZN5arrow15BinaryViewArrayC2ESt10shared_ptrINS_8DataTypeEElS1_INS_6
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i: ; preds = %64, %60, %58, %52
-  %.sink.i = phi ptr [ null, %58 ], [ %66, %64 ], [ null, %60 ], [ null, %52 ]
+  %.sink.i = phi ptr [ %66, %64 ], [ null, %60 ], [ null, %58 ], [ null, %52 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink.i, ptr %67, align 8, !tbaa !107
   store ptr %53, ptr %12, align 8, !tbaa !34
@@ -4405,7 +4405,7 @@ define void @_ZN5arrow15StringViewArrayC2ESt10shared_ptrINS_9ArrayDataEE(ptr nou
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i: ; preds = %25, %21, %19, %.critedge13
-  %.sink.i = phi ptr [ null, %19 ], [ %27, %25 ], [ null, %21 ], [ null, %.critedge13 ]
+  %.sink.i = phi ptr [ %27, %25 ], [ null, %21 ], [ null, %19 ], [ null, %.critedge13 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink.i, ptr %28, align 8, !tbaa !107
   store ptr %12, ptr %4, align 8, !tbaa !34
@@ -4826,7 +4826,7 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow6BufferEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i
 
 _ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit.i: ; preds = %82, %78, %76, %70
-  %.sink.i = phi ptr [ null, %76 ], [ %84, %82 ], [ null, %78 ], [ null, %70 ]
+  %.sink.i = phi ptr [ %84, %82 ], [ null, %78 ], [ null, %76 ], [ null, %70 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink.i, ptr %85, align 8, !tbaa !107
   store ptr %71, ptr %12, align 8, !tbaa !34
@@ -5817,7 +5817,7 @@ define linkonce_odr void @_ZN5arrow5Array7SetDataERKSt10shared_ptrINS_9ArrayData
   br label %_ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit
 
 _ZNK5arrow9ArrayData13GetValuesSafeIhEEPKT_il.exit: ; preds = %2, %14, %10, %8
-  %.sink = phi ptr [ null, %8 ], [ %16, %14 ], [ null, %10 ], [ null, %2 ]
+  %.sink = phi ptr [ %16, %14 ], [ null, %10 ], [ null, %8 ], [ null, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %17, align 8, !tbaa !107
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8

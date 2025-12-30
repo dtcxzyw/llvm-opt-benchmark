@@ -109,7 +109,7 @@ define dso_local ptr @hash_create(ptr noundef readonly captures(none) %0, i64 no
   br label %36
 
 36:                                               ; preds = %35, %34, %22
-  %37 = phi i1 [ %26, %22 ], [ false, %35 ], [ false, %34 ]
+  %37 = phi i1 [ false, %35 ], [ false, %34 ], [ %26, %22 ]
   %38 = and i32 %3, 128
   %.not138 = icmp eq i32 %38, 0
   br i1 %.not138, label %45, label %41
@@ -132,8 +132,8 @@ define dso_local ptr @hash_create(ptr noundef readonly captures(none) %0, i64 no
   br label %.thread177
 
 .thread177:                                       ; preds = %45, %.thread, %41
-  %string_compare.sink = phi ptr [ %44, %41 ], [ %spec.select, %45 ], [ @string_compare, %.thread ]
-  %46 = phi i1 [ %42, %41 ], [ %37, %45 ], [ true, %.thread ]
+  %string_compare.sink = phi ptr [ %44, %41 ], [ @string_compare, %.thread ], [ %spec.select, %45 ]
+  %46 = phi i1 [ %42, %41 ], [ true, %.thread ], [ %37, %45 ]
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %string_compare.sink, ptr %47, align 8
   %48 = and i32 %3, 256
@@ -1482,7 +1482,7 @@ get_hash_entry.exit:                              ; preds = %.loopexit.sink.spli
   unreachable
 
 324:                                              ; preds = %187, %.loopexit, %189, %get_hash_entry.exit, %209, %206
-  %.0 = phi ptr [ null, %.loopexit ], [ %319, %get_hash_entry.exit ], [ %207, %206 ], [ %spec.select, %187 ], [ %210, %209 ], [ null, %189 ]
+  %.0 = phi ptr [ %207, %206 ], [ %210, %209 ], [ %319, %get_hash_entry.exit ], [ null, %189 ], [ null, %.loopexit ], [ %spec.select, %187 ]
   ret ptr %.0
 }
 
@@ -2083,7 +2083,7 @@ deregister_seq_scan.exit.i71:                     ; preds = %120
   br label %hash_seq_term.exit
 
 hash_seq_term.exit:                               ; preds = %deregister_seq_scan.exit.i71, %110, %deregister_seq_scan.exit.i67, %65, %deregister_seq_scan.exit.i, %16, %._crit_edge, %53, %14
-  %.053 = phi ptr [ %15, %14 ], [ %151, %._crit_edge ], [ %54, %53 ], [ null, %deregister_seq_scan.exit.i ], [ null, %deregister_seq_scan.exit.i67 ], [ null, %16 ], [ null, %65 ], [ null, %110 ], [ null, %deregister_seq_scan.exit.i71 ]
+  %.053 = phi ptr [ %15, %14 ], [ %54, %53 ], [ %151, %._crit_edge ], [ null, %16 ], [ null, %deregister_seq_scan.exit.i ], [ null, %65 ], [ null, %deregister_seq_scan.exit.i67 ], [ null, %110 ], [ null, %deregister_seq_scan.exit.i71 ]
   ret ptr %.053
 }
 

@@ -1802,7 +1802,7 @@ _lib_histogram_process_waveform.exit:             ; preds = %._crit_edge147.spli
   br label %475
 
 475:                                              ; preds = %465, %447, %438
-  %476 = phi reassoc nsz arcp contract afn float [ %474, %465 ], [ %464, %447 ], [ %444, %438 ]
+  %476 = phi reassoc nsz arcp contract afn float [ %464, %447 ], [ %474, %465 ], [ %444, %438 ]
   %477 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i.i.i.i
   store float %476, ptr %477, align 4, !tbaa !196
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -1993,7 +1993,7 @@ dt_xyY_to_Luv.exit.i.i:                           ; preds = %527, %525
   br label %604
 
 604:                                              ; preds = %594, %576, %567
-  %605 = phi reassoc nsz arcp contract afn float [ %603, %594 ], [ %593, %576 ], [ %573, %567 ]
+  %605 = phi reassoc nsz arcp contract afn float [ %593, %576 ], [ %603, %594 ], [ %573, %567 ]
   %606 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i157.i.i
   store float %605, ptr %606, align 4, !tbaa !196
   %indvars.iv.next.i.i158.i.i = add nuw nsw i64 %indvars.iv.i.i157.i.i, 1
@@ -2311,8 +2311,8 @@ _ryb2rgb.exit.i.i:                                ; preds = %781, %780, %779, %7
   unreachable
 
 dt_XYZ_to_Rec709_D50.exit.i.i:                    ; preds = %545, %_ryb2rgb.exit.i.i, %dt_XYZ_to_Rec709_D50.exit175.i.i, %420
-  %796 = phi float [ 0.000000e+00, %420 ], [ %794, %_ryb2rgb.exit.i.i ], [ %.pre226.i.i, %dt_XYZ_to_Rec709_D50.exit175.i.i ], [ %544, %545 ]
-  %797 = phi float [ 0.000000e+00, %420 ], [ %790, %_ryb2rgb.exit.i.i ], [ %.pre.i.i, %dt_XYZ_to_Rec709_D50.exit175.i.i ], [ %542, %545 ]
+  %796 = phi float [ %794, %_ryb2rgb.exit.i.i ], [ %.pre226.i.i, %dt_XYZ_to_Rec709_D50.exit175.i.i ], [ 0.000000e+00, %420 ], [ %544, %545 ]
+  %797 = phi float [ %790, %_ryb2rgb.exit.i.i ], [ %.pre.i.i, %dt_XYZ_to_Rec709_D50.exit175.i.i ], [ 0.000000e+00, %420 ], [ %542, %545 ]
   %798 = getelementptr inbounds nuw [2 x float], ptr %406, i64 %indvars.iv.i.i
   store float %797, ptr %798, align 8, !tbaa !196
   %799 = getelementptr inbounds nuw i8, ptr %798, i64 4
@@ -5651,7 +5651,7 @@ define internal fastcc void @_get_chromaticity(ptr noundef nonnull readonly capt
   br label %77
 
 77:                                               ; preds = %67, %49, %40
-  %78 = phi reassoc nsz arcp contract afn float [ %76, %67 ], [ %66, %49 ], [ %46, %40 ]
+  %78 = phi reassoc nsz arcp contract afn float [ %66, %49 ], [ %76, %67 ], [ %46, %40 ]
   %79 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv.i.i
   store float %78, ptr %79, align 4, !tbaa !196
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -5837,7 +5837,7 @@ dt_xyY_to_Luv.exit:                               ; preds = %132, %134
   br label %204
 
 204:                                              ; preds = %194, %176, %167
-  %205 = phi reassoc nsz arcp contract afn float [ %203, %194 ], [ %193, %176 ], [ %173, %167 ]
+  %205 = phi reassoc nsz arcp contract afn float [ %193, %176 ], [ %203, %194 ], [ %173, %167 ]
   %206 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i.i21
   store float %205, ptr %206, align 4, !tbaa !196
   %indvars.iv.next.i.i22 = add nuw nsw i64 %indvars.iv.i.i21, 1

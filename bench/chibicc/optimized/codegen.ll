@@ -442,8 +442,8 @@ define dso_local void @codegen(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %39, label %47, label %.thread.i
 
 .thread.i:                                        ; preds = %37, %34, %26, %18, %14, %.lr.ph.i
-  %.157.i = phi i32 [ %38, %37 ], [ %.05671.i, %.lr.ph.i ], [ %.05671.i, %14 ], [ %.05671.i, %34 ], [ %.05671.i, %18 ], [ %.05671.i, %26 ]
-  %.155.i = phi i32 [ %.05472.i, %37 ], [ %.05472.i, %.lr.ph.i ], [ %.05472.i, %14 ], [ %35, %34 ], [ %.05472.i, %18 ], [ %.05472.i, %26 ]
+  %.157.i = phi i32 [ %38, %37 ], [ %.05671.i, %14 ], [ %.05671.i, %34 ], [ %.05671.i, %.lr.ph.i ], [ %.05671.i, %18 ], [ %.05671.i, %26 ]
+  %.155.i = phi i32 [ %.05472.i, %37 ], [ %.05472.i, %14 ], [ %35, %34 ], [ %.05472.i, %.lr.ph.i ], [ %.05472.i, %18 ], [ %.05472.i, %26 ]
   %40 = add i32 %.05073.i, 7
   %41 = srem i32 %40, 8
   %42 = sub nsw i32 %40, %41
@@ -455,9 +455,9 @@ define dso_local void @codegen(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %47
 
 47:                                               ; preds = %.thread.i, %37, %34, %26
-  %.359.i = phi i32 [ %.05671.i, %34 ], [ %.157.i, %.thread.i ], [ %38, %37 ], [ %32, %26 ]
-  %.3.i = phi i32 [ %35, %34 ], [ %.155.i, %.thread.i ], [ %.05472.i, %37 ], [ %24, %26 ]
-  %.1.i = phi i32 [ %.05073.i, %34 ], [ %46, %.thread.i ], [ %.05073.i, %37 ], [ %.05073.i, %26 ]
+  %.359.i = phi i32 [ %.157.i, %.thread.i ], [ %.05671.i, %34 ], [ %38, %37 ], [ %32, %26 ]
+  %.3.i = phi i32 [ %.155.i, %.thread.i ], [ %35, %34 ], [ %.05472.i, %37 ], [ %24, %26 ]
+  %.1.i = phi i32 [ %46, %.thread.i ], [ %.05073.i, %34 ], [ %.05073.i, %37 ], [ %.05073.i, %26 ]
   %.053.i = load ptr, ptr %.05374.i, align 8, !tbaa !27
   %.not63.i = icmp eq ptr %.053.i, null
   br i1 %.not63.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !34
@@ -1030,8 +1030,8 @@ switch.lookup42:                                  ; preds = %.split.i108.i
   br label %store_gp.exit102.i
 
 store_gp.exit102.i:                               ; preds = %281, %307, %switch.lookup42, %301, %store_fp.exit104.i, %switch.lookup39, %store_fp.exit95.i, %store_gp.exit.i, %.lr.ph125.i
-  %.179.i = phi i32 [ %.078121.i, %.lr.ph125.i ], [ %271, %switch.lookup39 ], [ %.280.i, %store_fp.exit95.i ], [ %.078121.i, %store_fp.exit104.i ], [ %.280.i, %store_gp.exit.i ], [ %295, %307 ], [ %295, %301 ], [ %295, %switch.lookup42 ], [ %271, %281 ]
-  %.1.i20 = phi i32 [ %.077122.i, %.lr.ph125.i ], [ %.2.i, %switch.lookup39 ], [ %267, %store_fp.exit95.i ], [ %290, %store_fp.exit104.i ], [ %.2.i, %store_gp.exit.i ], [ %.077122.i, %307 ], [ %.077122.i, %301 ], [ %.077122.i, %switch.lookup42 ], [ %.2.i, %281 ]
+  %.179.i = phi i32 [ %.078121.i, %.lr.ph125.i ], [ %.280.i, %store_fp.exit95.i ], [ %.280.i, %store_gp.exit.i ], [ %.078121.i, %store_fp.exit104.i ], [ %271, %switch.lookup39 ], [ %295, %301 ], [ %295, %switch.lookup42 ], [ %295, %307 ], [ %271, %281 ]
+  %.1.i20 = phi i32 [ %.077122.i, %.lr.ph125.i ], [ %267, %store_fp.exit95.i ], [ %.2.i, %store_gp.exit.i ], [ %290, %store_fp.exit104.i ], [ %.2.i, %switch.lookup39 ], [ %.077122.i, %301 ], [ %.077122.i, %switch.lookup42 ], [ %.077122.i, %307 ], [ %.2.i, %281 ]
   %.076.i = load ptr, ptr %.076123.i, align 8, !tbaa !27
   %.not92.i = icmp eq ptr %.076.i, null
   br i1 %.not92.i, label %._crit_edge126.i, label %.lr.ph125.i, !llvm.loop !65
@@ -1157,7 +1157,7 @@ define internal fastcc noundef zeroext i1 @has_flonum(ptr noundef readonly captu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %15, %16, %.preheader, %28
-  %.131 = phi i1 [ %spec.select38, %28 ], [ true, %.preheader ], [ %.not34, %15 ], [ %.not34, %16 ], [ %26, %23 ]
+  %.131 = phi i1 [ %spec.select38, %28 ], [ true, %.preheader ], [ %.not34, %16 ], [ %.not34, %15 ], [ %26, %23 ]
   ret i1 %.131
 }
 
@@ -1238,7 +1238,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %cmp_zero.exit
 
 cmp_zero.exit:                                    ; preds = %20, %21, %22, %25, %29
-  %.str.268.sink.i = phi ptr [ @.str.268, %29 ], [ @.str.262, %20 ], [ @.str.178, %22 ], [ @.str.264, %21 ], [ @.str.267, %25 ]
+  %.str.268.sink.i = phi ptr [ @.str.268, %29 ], [ @.str.178, %22 ], [ @.str.264, %21 ], [ @.str.262, %20 ], [ @.str.267, %25 ]
   tail call void (ptr, ...) @println(ptr noundef nonnull %.str.268.sink.i)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.77, i32 noundef %12)
   %30 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
@@ -1318,7 +1318,7 @@ cmp_zero.exit:                                    ; preds = %20, %21, %22, %25, 
   br label %cmp_zero.exit89
 
 cmp_zero.exit89:                                  ; preds = %50, %51, %52, %55, %59
-  %.str.268.sink.i88 = phi ptr [ @.str.268, %59 ], [ @.str.262, %50 ], [ @.str.178, %52 ], [ @.str.264, %51 ], [ @.str.267, %55 ]
+  %.str.268.sink.i88 = phi ptr [ @.str.268, %59 ], [ @.str.178, %52 ], [ @.str.264, %51 ], [ @.str.262, %50 ], [ @.str.267, %55 ]
   tail call void (ptr, ...) @println(ptr noundef nonnull %.str.268.sink.i88)
   %60 = getelementptr inbounds nuw i8, ptr %.tr, i64 88
   %61 = load ptr, ptr %60, align 8, !tbaa !93
@@ -1399,7 +1399,7 @@ cmp_zero.exit89:                                  ; preds = %50, %51, %52, %55, 
   br label %cmp_zero.exit91
 
 cmp_zero.exit91:                                  ; preds = %86, %87, %88, %91, %95
-  %.str.268.sink.i90 = phi ptr [ @.str.268, %95 ], [ @.str.262, %86 ], [ @.str.178, %88 ], [ @.str.264, %87 ], [ @.str.267, %91 ]
+  %.str.268.sink.i90 = phi ptr [ @.str.268, %95 ], [ @.str.178, %88 ], [ @.str.264, %87 ], [ @.str.262, %86 ], [ @.str.267, %91 ]
   tail call void (ptr, ...) @println(ptr noundef nonnull %.str.268.sink.i90)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.84, i32 noundef %74)
   %96 = getelementptr inbounds nuw i8, ptr %.tr, i64 88
@@ -1912,7 +1912,7 @@ common.ret438:                                    ; preds = %199, %getTypeId.exi
   br label %cmp_zero.exit.i
 
 cmp_zero.exit.i:                                  ; preds = %147, %143, %140, %139, %138
-  %.str.268.sink.i.i = phi ptr [ @.str.268, %147 ], [ @.str.262, %138 ], [ @.str.178, %140 ], [ @.str.264, %139 ], [ @.str.267, %143 ]
+  %.str.268.sink.i.i = phi ptr [ @.str.268, %147 ], [ @.str.178, %140 ], [ @.str.264, %139 ], [ @.str.262, %138 ], [ @.str.267, %143 ]
   tail call void (ptr, ...) @println(ptr noundef nonnull %.str.268.sink.i.i)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.165)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.142)
@@ -1968,7 +1968,7 @@ cmp_zero.exit.i:                                  ; preds = %147, %143, %140, %1
   br label %getTypeId.exit.i
 
 getTypeId.exit.i:                                 ; preds = %172, %171, %170, %165, %160, %155, %150, %148
-  %.0.i.i = phi i64 [ 7, %172 ], [ %154, %150 ], [ %159, %155 ], [ %164, %160 ], [ %169, %165 ], [ 10, %171 ], [ 9, %170 ], [ 8, %148 ]
+  %.0.i.i = phi i64 [ 7, %172 ], [ %154, %150 ], [ %159, %155 ], [ %164, %160 ], [ %169, %165 ], [ 9, %170 ], [ 10, %171 ], [ 8, %148 ]
   switch i32 %135, label %195 [
     i32 2, label %173
     i32 3, label %178
@@ -2017,7 +2017,7 @@ getTypeId.exit.i:                                 ; preds = %172, %171, %170, %1
   br label %getTypeId.exit10.i
 
 getTypeId.exit10.i:                               ; preds = %195, %194, %193, %188, %183, %178, %173, %getTypeId.exit.i
-  %.0.i9.i = phi i64 [ 7, %195 ], [ %177, %173 ], [ %182, %178 ], [ %187, %183 ], [ %192, %188 ], [ 10, %194 ], [ 9, %193 ], [ 8, %getTypeId.exit.i ]
+  %.0.i9.i = phi i64 [ 7, %195 ], [ %177, %173 ], [ %182, %178 ], [ %187, %183 ], [ %192, %188 ], [ 9, %193 ], [ 10, %194 ], [ 8, %getTypeId.exit.i ]
   %196 = getelementptr inbounds nuw [11 x ptr], ptr @cast_table, i64 %.0.i.i
   %197 = getelementptr inbounds nuw ptr, ptr %196, i64 %.0.i9.i
   %198 = load ptr, ptr %197, align 8, !tbaa !53
@@ -2088,7 +2088,7 @@ getTypeId.exit10.i:                               ; preds = %195, %194, %193, %1
   br label %cmp_zero.exit
 
 cmp_zero.exit:                                    ; preds = %219, %220, %221, %224, %228
-  %.str.268.sink.i = phi ptr [ @.str.268, %228 ], [ @.str.262, %219 ], [ @.str.178, %221 ], [ @.str.264, %220 ], [ @.str.267, %224 ]
+  %.str.268.sink.i = phi ptr [ @.str.268, %228 ], [ @.str.178, %221 ], [ @.str.264, %220 ], [ @.str.262, %219 ], [ @.str.267, %224 ]
   tail call void (ptr, ...) @println(ptr noundef nonnull %.str.268.sink.i)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.129, i32 noundef %211)
   %229 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
@@ -2143,7 +2143,7 @@ cmp_zero.exit:                                    ; preds = %219, %220, %221, %2
   br label %cmp_zero.exit213
 
 cmp_zero.exit213:                                 ; preds = %240, %241, %242, %245, %249
-  %.str.268.sink.i212 = phi ptr [ @.str.268, %249 ], [ @.str.262, %240 ], [ @.str.178, %242 ], [ @.str.264, %241 ], [ @.str.267, %245 ]
+  %.str.268.sink.i212 = phi ptr [ @.str.268, %249 ], [ @.str.178, %242 ], [ @.str.264, %241 ], [ @.str.262, %240 ], [ @.str.267, %245 ]
   tail call void (ptr, ...) @println(ptr noundef nonnull %.str.268.sink.i212)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.130)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.131)
@@ -2200,7 +2200,7 @@ cmp_zero.exit213:                                 ; preds = %240, %241, %242, %2
   br label %cmp_zero.exit215
 
 cmp_zero.exit215:                                 ; preds = %262, %263, %264, %267, %271
-  %.str.268.sink.i214 = phi ptr [ @.str.268, %271 ], [ @.str.262, %262 ], [ @.str.178, %264 ], [ @.str.264, %263 ], [ @.str.267, %267 ]
+  %.str.268.sink.i214 = phi ptr [ @.str.268, %271 ], [ @.str.178, %264 ], [ @.str.264, %263 ], [ @.str.262, %262 ], [ @.str.267, %267 ]
   tail call void (ptr, ...) @println(ptr noundef nonnull %.str.268.sink.i214)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.133, i32 noundef %254)
   %272 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
@@ -2243,7 +2243,7 @@ cmp_zero.exit215:                                 ; preds = %262, %263, %264, %2
   br label %cmp_zero.exit217
 
 cmp_zero.exit217:                                 ; preds = %278, %279, %280, %283, %287
-  %.str.268.sink.i216 = phi ptr [ @.str.268, %287 ], [ @.str.262, %278 ], [ @.str.178, %280 ], [ @.str.264, %279 ], [ @.str.267, %283 ]
+  %.str.268.sink.i216 = phi ptr [ @.str.268, %287 ], [ @.str.178, %280 ], [ @.str.264, %279 ], [ @.str.262, %278 ], [ @.str.267, %283 ]
   tail call void (ptr, ...) @println(ptr noundef nonnull %.str.268.sink.i216)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.133, i32 noundef %254)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.105)
@@ -2297,7 +2297,7 @@ cmp_zero.exit217:                                 ; preds = %278, %279, %280, %2
   br label %cmp_zero.exit219
 
 cmp_zero.exit219:                                 ; preds = %297, %298, %299, %302, %306
-  %.str.268.sink.i218 = phi ptr [ @.str.268, %306 ], [ @.str.262, %297 ], [ @.str.178, %299 ], [ @.str.264, %298 ], [ @.str.267, %302 ]
+  %.str.268.sink.i218 = phi ptr [ @.str.268, %306 ], [ @.str.178, %299 ], [ @.str.264, %298 ], [ @.str.262, %297 ], [ @.str.267, %302 ]
   tail call void (ptr, ...) @println(ptr noundef nonnull %.str.268.sink.i218)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.135, i32 noundef %289)
   %307 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
@@ -2340,7 +2340,7 @@ cmp_zero.exit219:                                 ; preds = %297, %298, %299, %3
   br label %cmp_zero.exit221
 
 cmp_zero.exit221:                                 ; preds = %313, %314, %315, %318, %322
-  %.str.268.sink.i220 = phi ptr [ @.str.268, %322 ], [ @.str.262, %313 ], [ @.str.178, %315 ], [ @.str.264, %314 ], [ @.str.267, %318 ]
+  %.str.268.sink.i220 = phi ptr [ @.str.268, %322 ], [ @.str.178, %315 ], [ @.str.264, %314 ], [ @.str.262, %313 ], [ @.str.267, %318 ]
   tail call void (ptr, ...) @println(ptr noundef nonnull %.str.268.sink.i220)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.135, i32 noundef %289)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.41)
@@ -2491,9 +2491,9 @@ cmp_zero.exit221:                                 ; preds = %313, %314, %315, %3
   br label %400
 
 400:                                              ; preds = %397, %394, %391, %388, %385, %380, %372, %359
-  %.250.i = phi i32 [ %.048.i280, %397 ], [ %.048.i280, %394 ], [ %.048.i280, %359 ], [ %.048.i280, %391 ], [ %386, %388 ], [ %386, %385 ], [ %.048.i280, %380 ], [ %370, %372 ]
-  %.347.i = phi i32 [ %395, %397 ], [ %395, %394 ], [ %.145.i281, %359 ], [ %.145.i281, %391 ], [ %.145.i281, %388 ], [ %.145.i281, %385 ], [ %.145.i281, %380 ], [ %378, %372 ]
-  %.2.i = phi i32 [ %399, %397 ], [ %.0.i282, %394 ], [ %363, %359 ], [ %393, %391 ], [ %390, %388 ], [ %.0.i282, %385 ], [ %384, %380 ], [ %.0.i282, %372 ]
+  %.250.i = phi i32 [ %.048.i280, %397 ], [ %.048.i280, %394 ], [ %.048.i280, %359 ], [ %386, %388 ], [ %386, %385 ], [ %.048.i280, %391 ], [ %.048.i280, %380 ], [ %370, %372 ]
+  %.347.i = phi i32 [ %395, %397 ], [ %395, %394 ], [ %.145.i281, %359 ], [ %.145.i281, %388 ], [ %.145.i281, %385 ], [ %.145.i281, %391 ], [ %.145.i281, %380 ], [ %378, %372 ]
+  %.2.i = phi i32 [ %399, %397 ], [ %.0.i282, %394 ], [ %363, %359 ], [ %390, %388 ], [ %.0.i282, %385 ], [ %393, %391 ], [ %384, %380 ], [ %.0.i282, %372 ]
   %401 = getelementptr inbounds nuw i8, ptr %.051.i283, i64 8
   %.051.i = load ptr, ptr %401, align 8, !tbaa !103
   %.not55.i = icmp eq ptr %.051.i, null
@@ -3168,7 +3168,7 @@ switch.lookup394:                                 ; preds = %624
   br label %.sink.split
 
 .sink.split:                                      ; preds = %681, %674, %671, %673
-  %.str.165.sink367 = phi ptr [ @.str.165, %673 ], [ @.str.130, %671 ], [ %.str.194..str.195, %681 ], [ %.str.192..str.193, %674 ]
+  %.str.165.sink367 = phi ptr [ @.str.165, %673 ], [ @.str.130, %671 ], [ %.str.192..str.193, %674 ], [ %.str.194..str.195, %681 ]
   tail call void (ptr, ...) @println(ptr noundef nonnull %.str.165.sink367)
   br label %688
 
@@ -3601,7 +3601,7 @@ switch.lookup:                                    ; preds = %14
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %14, %switch.lookup, %1, %12, %13
-  %.str.226.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.224, %13 ], [ @.str.223, %12 ], [ @.str.222, %1 ], [ @.str.228, %14 ]
+  %.str.226.sink = phi ptr [ @.str.224, %13 ], [ @.str.223, %12 ], [ @.str.222, %1 ], [ %switch.load, %switch.lookup ], [ @.str.228, %14 ]
   tail call void (ptr, ...) @println(ptr noundef nonnull %.str.226.sink)
   br label %.loopexit
 

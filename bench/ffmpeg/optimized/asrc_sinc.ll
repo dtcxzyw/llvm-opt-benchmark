@@ -820,7 +820,7 @@ fir_to_phase.exit:                                ; preds = %282, %thread-pre-sp
   br label %334
 
 334:                                              ; preds = %fir_to_phase.exit.thread155, %fir_to_phase.exit.thread, %311, %._crit_edge166, %19
-  %.0 = phi i32 [ -22, %19 ], [ 0, %._crit_edge166 ], [ %.0.ph.i.ph, %fir_to_phase.exit.thread155 ], [ -12, %311 ], [ -12, %fir_to_phase.exit.thread ]
+  %.0 = phi i32 [ -22, %19 ], [ 0, %._crit_edge166 ], [ -12, %311 ], [ -12, %fir_to_phase.exit.thread ], [ %.0.ph.i.ph, %fir_to_phase.exit.thread155 ]
   ret i32 %.0
 }
 

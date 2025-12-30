@@ -219,7 +219,7 @@ define dso_local noundef ptr @snd_seq_queue_alloc(i32 noundef %0, i32 noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %3, %55
-  %69 = phi ptr [ inttoptr (i64 -12 to ptr), %3 ], [ %5, %55 ], [ inttoptr (i64 -12 to ptr), %.thread.sink.split ]
+  %69 = phi ptr [ %5, %55 ], [ inttoptr (i64 -12 to ptr), %3 ], [ inttoptr (i64 -12 to ptr), %.thread.sink.split ]
   ret ptr %69
 }
 
@@ -431,7 +431,7 @@ define dso_local void @snd_seq_check_queue(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %43, label %.loopexit, label %35, !llvm.loop !17
 
 .loopexit:                                        ; preds = %29, %40, %35
-  %44 = phi i32 [ %smax13, %40 ], [ %36, %35 ], [ 1000, %29 ]
+  %44 = phi i32 [ %36, %35 ], [ %smax13, %40 ], [ 1000, %29 ]
   %45 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %8) #9
   %46 = load i8, ptr %19, align 2, !range !14, !noundef !15
   %47 = icmp eq i8 %46, 0

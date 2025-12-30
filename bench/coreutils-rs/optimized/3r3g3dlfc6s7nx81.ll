@@ -156,7 +156,7 @@ define void @_ZN8uu_tsort6uu_app17h1d099d39150a77d8E(ptr noalias noundef writeon
   unreachable
 
 common.resume:                                    ; preds = %75, %78, %27, %70, %32
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %32 ], [ %eh.lpad-body23.ph, %75 ], [ %28, %27 ], [ %79, %78 ], [ %71, %70 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %32 ], [ %eh.lpad-body23.ph, %75 ], [ %79, %78 ], [ %28, %27 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12clap_builder7builder7command7Command5about17h24476d8ea24089f9E.exit: ; preds = %38, %42
@@ -876,7 +876,7 @@ define void @_ZN8uu_tsort5Graph9run_tsort17hafd67433d5e1e8e4E(ptr noalias nounde
   br i1 %trunc.i, label %select.unfold.invoke, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h0cc3b222dd2d978bE.exit"
 
 select.unfold.invoke:                             ; preds = %58, %.noexc53, %.lr.ph, %.noexc61
-  %70 = phi ptr [ @anon.ad47d7234d56c7785824cc3a22aa1256.13, %.lr.ph ], [ @anon.ad47d7234d56c7785824cc3a22aa1256.13, %.noexc61 ], [ @anon.ad47d7234d56c7785824cc3a22aa1256.12, %.noexc53 ], [ @anon.ad47d7234d56c7785824cc3a22aa1256.12, %58 ]
+  %70 = phi ptr [ @anon.ad47d7234d56c7785824cc3a22aa1256.13, %.noexc61 ], [ @anon.ad47d7234d56c7785824cc3a22aa1256.13, %.lr.ph ], [ @anon.ad47d7234d56c7785824cc3a22aa1256.12, %.noexc53 ], [ @anon.ad47d7234d56c7785824cc3a22aa1256.12, %58 ]
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) %70) #15
           to label %select.unfold.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

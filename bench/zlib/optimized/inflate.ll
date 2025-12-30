@@ -110,8 +110,8 @@ inflateStateCheck.exit:                           ; preds = %15
   store i32 -1, ptr %43, align 4, !tbaa !34
   br label %inflateStateCheck.exit.thread
 
-inflateStateCheck.exit.thread:                    ; preds = %15, %3, %7, %1, %11, %inflateStateCheck.exit, %30
-  %.0 = phi i32 [ 0, %30 ], [ -2, %inflateStateCheck.exit ], [ -2, %11 ], [ -2, %1 ], [ -2, %7 ], [ -2, %3 ], [ -2, %15 ]
+inflateStateCheck.exit.thread:                    ; preds = %11, %15, %1, %3, %7, %inflateStateCheck.exit, %30
+  %.0 = phi i32 [ 0, %30 ], [ -2, %inflateStateCheck.exit ], [ -2, %7 ], [ -2, %3 ], [ -2, %1 ], [ -2, %15 ], [ -2, %11 ]
   ret i32 %.0
 }
 
@@ -204,8 +204,8 @@ inflateStateCheck.exit:                           ; preds = %15
   store i32 -1, ptr %46, align 4, !tbaa !34
   br label %inflateResetKeep.exit
 
-inflateResetKeep.exit:                            ; preds = %15, %3, %7, %1, %11, %33, %inflateStateCheck.exit
-  %.0 = phi i32 [ -2, %3 ], [ -2, %inflateStateCheck.exit ], [ 0, %33 ], [ -2, %1 ], [ -2, %15 ], [ -2, %7 ], [ -2, %11 ]
+inflateResetKeep.exit:                            ; preds = %11, %15, %1, %3, %7, %33, %inflateStateCheck.exit
+  %.0 = phi i32 [ -2, %inflateStateCheck.exit ], [ 0, %33 ], [ -2, %7 ], [ -2, %3 ], [ -2, %1 ], [ -2, %15 ], [ -2, %11 ]
   ret i32 %.0
 }
 
@@ -387,8 +387,8 @@ inflateStateCheck.exit.i:                         ; preds = %52
   store i32 -1, ptr %83, align 4, !tbaa !34
   br label %inflateReset.exit
 
-inflateReset.exit:                                ; preds = %16, %4, %8, %2, %12, %70, %inflateStateCheck.exit.i, %52, %49, %46, %40, %select.unfold, %23, %inflateStateCheck.exit
-  %.0 = phi i32 [ -2, %46 ], [ -2, %inflateStateCheck.exit ], [ -2, %23 ], [ -2, %select.unfold ], [ -2, %40 ], [ -2, %inflateStateCheck.exit.i ], [ 0, %70 ], [ -2, %49 ], [ -2, %52 ], [ -2, %12 ], [ -2, %2 ], [ -2, %8 ], [ -2, %4 ], [ -2, %16 ]
+inflateReset.exit:                                ; preds = %12, %16, %2, %4, %8, %70, %inflateStateCheck.exit.i, %52, %49, %46, %40, %select.unfold, %23, %inflateStateCheck.exit
+  %.0 = phi i32 [ -2, %inflateStateCheck.exit ], [ -2, %23 ], [ -2, %select.unfold ], [ -2, %inflateStateCheck.exit.i ], [ 0, %70 ], [ -2, %46 ], [ -2, %40 ], [ -2, %52 ], [ -2, %49 ], [ -2, %8 ], [ -2, %4 ], [ -2, %2 ], [ -2, %16 ], [ -2, %12 ]
   ret i32 %.0
 }
 
@@ -460,7 +460,7 @@ define range(i32 -6, 1) i32 @inflateInit2_(ptr noundef %0, i32 noundef %1, ptr n
   br label %38
 
 38:                                               ; preds = %30, %35, %25, %10, %4, %6
-  %.0 = phi i32 [ -4, %25 ], [ -6, %4 ], [ -2, %10 ], [ -6, %6 ], [ %34, %35 ], [ 0, %30 ]
+  %.0 = phi i32 [ -6, %6 ], [ -6, %4 ], [ -2, %10 ], [ -4, %25 ], [ %34, %35 ], [ 0, %30 ]
   ret i32 %.0
 }
 
@@ -536,7 +536,7 @@ define range(i32 -6, 1) i32 @inflateInit_(ptr noundef %0, ptr noundef readonly c
   br label %inflateInit2_.exit
 
 inflateInit2_.exit:                               ; preds = %3, %5, %9, %24, %29, %34
-  %.0.i = phi i32 [ -4, %24 ], [ -6, %3 ], [ -2, %9 ], [ -6, %5 ], [ %33, %34 ], [ 0, %29 ]
+  %.0.i = phi i32 [ -6, %5 ], [ -6, %3 ], [ -2, %9 ], [ -4, %24 ], [ %33, %34 ], [ 0, %29 ]
   ret i32 %.0.i
 }
 
@@ -616,8 +616,8 @@ inflateStateCheck.exit:                           ; preds = %17
   store i32 %34, ptr %32, align 8, !tbaa !29
   br label %inflateStateCheck.exit.thread
 
-inflateStateCheck.exit.thread:                    ; preds = %17, %5, %9, %3, %13, %29, %31, %22, %inflateStateCheck.exit, %36, %26
-  %.0 = phi i32 [ 0, %36 ], [ -2, %inflateStateCheck.exit ], [ 0, %26 ], [ 0, %22 ], [ -2, %31 ], [ -2, %29 ], [ -2, %13 ], [ -2, %3 ], [ -2, %9 ], [ -2, %5 ], [ -2, %17 ]
+inflateStateCheck.exit.thread:                    ; preds = %13, %17, %3, %5, %9, %29, %31, %22, %inflateStateCheck.exit, %36, %26
+  %.0 = phi i32 [ 0, %26 ], [ 0, %36 ], [ -2, %inflateStateCheck.exit ], [ 0, %22 ], [ -2, %31 ], [ -2, %29 ], [ -2, %9 ], [ -2, %5 ], [ -2, %3 ], [ -2, %17 ], [ -2, %13 ]
   ret i32 %.0
 }
 
@@ -1282,10 +1282,10 @@ inflateStateCheck.exit:                           ; preds = %17
   br label %271
 
 271:                                              ; preds = %263, %260, %258, %267, %269
-  %.291085 = phi ptr [ %.110572955, %267 ], [ %.110572955, %269 ], [ %.281084.lcssa, %258 ], [ %.281084.lcssa, %260 ], [ %.281084.lcssa, %263 ]
-  %.291021 = phi i32 [ %.19932957, %267 ], [ %.19932957, %269 ], [ %.281020.lcssa, %258 ], [ %.281020.lcssa, %260 ], [ %.281020.lcssa, %263 ]
-  %.29958 = phi i64 [ %.19302959, %267 ], [ %.19302959, %269 ], [ 0, %258 ], [ 0, %260 ], [ 0, %263 ]
-  %.29 = phi i32 [ %.19192961, %267 ], [ %.19192961, %269 ], [ 0, %258 ], [ 0, %260 ], [ 0, %263 ]
+  %.291085 = phi ptr [ %.110572955, %269 ], [ %.110572955, %267 ], [ %.281084.lcssa, %258 ], [ %.281084.lcssa, %260 ], [ %.281084.lcssa, %263 ]
+  %.291021 = phi i32 [ %.19932957, %269 ], [ %.19932957, %267 ], [ %.281020.lcssa, %258 ], [ %.281020.lcssa, %260 ], [ %.281020.lcssa, %263 ]
+  %.29958 = phi i64 [ %.19302959, %269 ], [ %.19302959, %267 ], [ 0, %258 ], [ 0, %260 ], [ 0, %263 ]
+  %.29 = phi i32 [ %.19192961, %269 ], [ %.19192961, %267 ], [ 0, %258 ], [ 0, %260 ], [ 0, %263 ]
   store i32 16185, ptr %19, align 8, !tbaa !18
   br label %272
 
@@ -1796,7 +1796,7 @@ default.unreachable2930:                          ; preds = %467
   unreachable
 
 .sink.split:                                      ; preds = %467, %477, %476
-  %.sink = phi i32 [ 16209, %477 ], [ 16196, %476 ], [ 16193, %467 ]
+  %.sink = phi i32 [ 16196, %476 ], [ 16209, %477 ], [ 16193, %467 ]
   store i32 %.sink, ptr %19, align 8, !tbaa !18
   br label %478
 
@@ -3242,22 +3242,22 @@ default.unreachable2930:                          ; preds = %467
   br label %.thread
 
 1050:                                             ; preds = %1046, %._crit_edge1763, %1031, %1029
-  %.621118 = phi ptr [ %.191075, %1029 ], [ %.191075, %1031 ], [ %.631119.lcssa, %._crit_edge1763 ], [ %.631119.lcssa, %1046 ]
-  %.62 = phi i32 [ %.191011, %1029 ], [ %.191011, %1031 ], [ %.63.lcssa, %._crit_edge1763 ], [ %.63.lcssa, %1046 ]
-  %.58987 = phi i64 [ %.19948, %1029 ], [ %.19948, %1031 ], [ 0, %._crit_edge1763 ], [ 0, %1046 ]
-  %.58 = phi i32 [ %.19, %1029 ], [ %.19, %1031 ], [ 0, %._crit_edge1763 ], [ 0, %1046 ]
+  %.621118 = phi ptr [ %.191075, %1031 ], [ %.191075, %1029 ], [ %.631119.lcssa, %._crit_edge1763 ], [ %.631119.lcssa, %1046 ]
+  %.62 = phi i32 [ %.191011, %1031 ], [ %.191011, %1029 ], [ %.63.lcssa, %._crit_edge1763 ], [ %.63.lcssa, %1046 ]
+  %.58987 = phi i64 [ %.19948, %1031 ], [ %.19948, %1029 ], [ 0, %._crit_edge1763 ], [ 0, %1046 ]
+  %.58 = phi i32 [ %.19, %1031 ], [ %.19, %1029 ], [ 0, %._crit_edge1763 ], [ 0, %1046 ]
   store i32 16208, ptr %19, align 8, !tbaa !18
   br label %.loopexit1277
 
 .thread:                                          ; preds = %644, %692, %973, %977, %719, %728, %1049, %1026, %980, %946, %905, %805, %802, %799, %713, %705, %702, %576, %543, %519, %511, %502, %478, %454, %431, %423, %166, %163, %146, %145, %131, %128, %113, %95
-  %.211077 = phi ptr [ %.01056, %95 ], [ %.221078.lcssa, %113 ], [ %.221078.lcssa, %128 ], [ %.221078.lcssa, %131 ], [ %.221078.lcssa, %145 ], [ %.221078.lcssa, %146 ], [ %.231079.lcssa, %163 ], [ %.231079.lcssa, %166 ], [ %.351091.lcssa, %423 ], [ %.341090, %431 ], [ %.81064, %454 ], [ %.371093.lcssa, %478 ], [ %.381094.lcssa, %502 ], [ %514, %511 ], [ %.101066, %519 ], [ %.391095.lcssa, %543 ], [ %.401096.lcssa, %576 ], [ %.461102.lcssa, %644 ], [ %.421098.lcssa, %702 ], [ %.421098.lcssa, %705 ], [ %.421098.lcssa, %713 ], [ %722, %728 ], [ %722, %719 ], [ %.521108, %799 ], [ %.521108, %802 ], [ %.521108, %805 ], [ %.571113, %905 ], [ %.181074, %946 ], [ %.181074, %977 ], [ %.181074, %973 ], [ %.01056, %980 ], [ %.611117.lcssa, %1026 ], [ %.631119.lcssa, %1049 ], [ %.471103, %692 ]
-  %.11054 = phi ptr [ %.01053, %95 ], [ %.01053, %113 ], [ %.01053, %128 ], [ %.01053, %131 ], [ %.01053, %145 ], [ %.01053, %146 ], [ %.01053, %163 ], [ %.01053, %166 ], [ %.01053, %423 ], [ %.01053, %431 ], [ %.01053, %454 ], [ %.01053, %478 ], [ %.01053, %502 ], [ %516, %511 ], [ %.01053, %519 ], [ %.01053, %543 ], [ %.01053, %576 ], [ %.01053, %644 ], [ %.01053, %702 ], [ %.01053, %705 ], [ %.01053, %713 ], [ %720, %728 ], [ %720, %719 ], [ %.01053, %799 ], [ %.01053, %802 ], [ %.01053, %805 ], [ %.01053, %905 ], [ %.01053, %946 ], [ %971, %977 ], [ %971, %973 ], [ %983, %980 ], [ %.01053, %1026 ], [ %.01053, %1049 ], [ %.01053, %692 ]
-  %.211013 = phi i32 [ %.0992, %95 ], [ %.221014.lcssa, %113 ], [ %.221014.lcssa, %128 ], [ %.221014.lcssa, %131 ], [ %.221014.lcssa, %145 ], [ %.221014.lcssa, %146 ], [ %.231015.lcssa, %163 ], [ %.231015.lcssa, %166 ], [ %.351027.lcssa, %423 ], [ %.341026, %431 ], [ %.81000, %454 ], [ %.371029.lcssa, %478 ], [ %.381030.lcssa, %502 ], [ %513, %511 ], [ %.101002, %519 ], [ %.391031.lcssa, %543 ], [ %.401032.lcssa, %576 ], [ %.461038.lcssa, %644 ], [ %.421034.lcssa, %702 ], [ %.421034.lcssa, %705 ], [ %.421034.lcssa, %713 ], [ %723, %728 ], [ %723, %719 ], [ %.521044, %799 ], [ %.521044, %802 ], [ %.521044, %805 ], [ %.571049, %905 ], [ %.181010, %946 ], [ %.181010, %977 ], [ %.181010, %973 ], [ %.0992, %980 ], [ %.61.lcssa, %1026 ], [ %.63.lcssa, %1049 ], [ %.471039, %692 ]
-  %.1991 = phi i32 [ %.0990, %95 ], [ %.0990, %113 ], [ %.0990, %128 ], [ %.0990, %131 ], [ %.0990, %145 ], [ %.0990, %146 ], [ %.0990, %163 ], [ %.0990, %166 ], [ %.0990, %423 ], [ %.0990, %431 ], [ %.0990, %454 ], [ %.0990, %478 ], [ %.0990, %502 ], [ %515, %511 ], [ %.0990, %519 ], [ %.0990, %543 ], [ %.0990, %576 ], [ %.0990, %644 ], [ %.0990, %702 ], [ %.0990, %705 ], [ %.0990, %713 ], [ %721, %728 ], [ %721, %719 ], [ %.0990, %799 ], [ %.0990, %802 ], [ %.0990, %805 ], [ %.0990, %905 ], [ %.0990, %946 ], [ %974, %977 ], [ %974, %973 ], [ %984, %980 ], [ %.0990, %1026 ], [ %.0990, %1049 ], [ %.0990, %692 ]
-  %.21950 = phi i64 [ %.0929, %95 ], [ 0, %113 ], [ %.22951.lcssa, %128 ], [ %.22951.lcssa, %131 ], [ %133, %145 ], [ 0, %146 ], [ %.23952.lcssa, %163 ], [ %.23952.lcssa, %166 ], [ %.31960.lcssa, %423 ], [ %.30959, %431 ], [ %457, %454 ], [ %479, %478 ], [ %.34963.lcssa, %502 ], [ %.10939, %511 ], [ %.10939, %519 ], [ %539, %543 ], [ %.36965.lcssa, %576 ], [ %641, %644 ], [ %.38967.lcssa, %702 ], [ %.38967.lcssa, %705 ], [ %.38967.lcssa, %713 ], [ %724, %728 ], [ %724, %719 ], [ %793, %799 ], [ %793, %802 ], [ %793, %805 ], [ %900, %905 ], [ %.18947, %946 ], [ %.18947, %977 ], [ %.18947, %973 ], [ %.0929, %980 ], [ %.57986.lcssa, %1026 ], [ %.59988.lcssa, %1049 ], [ %.43972, %692 ]
-  %.21 = phi i32 [ %.0918, %95 ], [ 0, %113 ], [ %.22.lcssa, %128 ], [ %.22.lcssa, %131 ], [ %134, %145 ], [ 0, %146 ], [ %.23.lcssa, %163 ], [ %.23.lcssa, %166 ], [ %.31.lcssa, %423 ], [ %.30, %431 ], [ %458, %454 ], [ %480, %478 ], [ %.34.lcssa, %502 ], [ %.10928, %511 ], [ %.10928, %519 ], [ %540, %543 ], [ %.36.lcssa, %576 ], [ %642, %644 ], [ %.38.lcssa, %702 ], [ %.38.lcssa, %705 ], [ %.38.lcssa, %713 ], [ %725, %728 ], [ %725, %719 ], [ %794, %799 ], [ %794, %802 ], [ %794, %805 ], [ %901, %905 ], [ %.18, %946 ], [ %.18, %977 ], [ %.18, %973 ], [ %.0918, %980 ], [ %.57.lcssa, %1026 ], [ %.59.lcssa, %1049 ], [ %.43, %692 ]
-  %.3915 = phi i32 [ %.0912, %95 ], [ %.0912, %113 ], [ %.0912, %128 ], [ %.0912, %131 ], [ %.0912, %145 ], [ %.0912, %146 ], [ %.0912, %163 ], [ %.0912, %166 ], [ %.0912, %423 ], [ %.0912, %431 ], [ %.0912, %454 ], [ %.0912, %478 ], [ %.0912, %502 ], [ %.0912, %511 ], [ %.0912, %519 ], [ %.0912, %543 ], [ %.0912, %576 ], [ %.0912, %644 ], [ %.0912, %702 ], [ %.0912, %705 ], [ %.0912, %713 ], [ %.0912, %728 ], [ %.0912, %719 ], [ %.0912, %799 ], [ %.0912, %802 ], [ %.0912, %805 ], [ %.0912, %905 ], [ %.0912, %946 ], [ %.0912, %977 ], [ %.0912, %973 ], [ %.0912, %980 ], [ %.0990, %1026 ], [ %.1913, %1049 ], [ %.0912, %692 ]
-  %.8 = phi i32 [ %.0, %95 ], [ %.0, %113 ], [ %.0, %128 ], [ %.0, %131 ], [ %.0, %145 ], [ %.0, %146 ], [ %.0, %163 ], [ %.0, %166 ], [ %.0, %423 ], [ %.0, %431 ], [ %.0, %454 ], [ %.0, %478 ], [ %.0, %502 ], [ %.0, %511 ], [ %.0, %519 ], [ %.0, %543 ], [ %575, %576 ], [ %.1, %644 ], [ %.1, %702 ], [ %704, %705 ], [ %712, %713 ], [ %.3, %728 ], [ %.3, %719 ], [ %.3, %799 ], [ %.3, %802 ], [ %.3, %805 ], [ %.5, %905 ], [ %.7, %946 ], [ %.7, %977 ], [ %.7, %973 ], [ %.0, %980 ], [ %.0, %1026 ], [ %.0, %1049 ], [ %.1, %692 ]
+  %.211077 = phi ptr [ %.01056, %95 ], [ %.221078.lcssa, %113 ], [ %.221078.lcssa, %128 ], [ %.221078.lcssa, %131 ], [ %.221078.lcssa, %145 ], [ %.221078.lcssa, %146 ], [ %.231079.lcssa, %163 ], [ %.231079.lcssa, %166 ], [ %.351091.lcssa, %423 ], [ %.341090, %431 ], [ %.81064, %454 ], [ %.371093.lcssa, %478 ], [ %.381094.lcssa, %502 ], [ %514, %511 ], [ %.101066, %519 ], [ %.391095.lcssa, %543 ], [ %.401096.lcssa, %576 ], [ %.421098.lcssa, %702 ], [ %.421098.lcssa, %705 ], [ %.421098.lcssa, %713 ], [ %722, %728 ], [ %722, %719 ], [ %.521108, %799 ], [ %.521108, %802 ], [ %.521108, %805 ], [ %.571113, %905 ], [ %.181074, %946 ], [ %.181074, %977 ], [ %.181074, %973 ], [ %.01056, %980 ], [ %.611117.lcssa, %1026 ], [ %.631119.lcssa, %1049 ], [ %.471103, %692 ], [ %.461102.lcssa, %644 ]
+  %.11054 = phi ptr [ %.01053, %95 ], [ %.01053, %113 ], [ %.01053, %128 ], [ %.01053, %131 ], [ %.01053, %145 ], [ %.01053, %146 ], [ %.01053, %163 ], [ %.01053, %166 ], [ %.01053, %423 ], [ %.01053, %431 ], [ %.01053, %454 ], [ %.01053, %478 ], [ %.01053, %502 ], [ %516, %511 ], [ %.01053, %519 ], [ %.01053, %543 ], [ %.01053, %576 ], [ %.01053, %702 ], [ %.01053, %705 ], [ %.01053, %713 ], [ %720, %728 ], [ %720, %719 ], [ %.01053, %799 ], [ %.01053, %802 ], [ %.01053, %805 ], [ %.01053, %905 ], [ %.01053, %946 ], [ %971, %977 ], [ %971, %973 ], [ %983, %980 ], [ %.01053, %1026 ], [ %.01053, %1049 ], [ %.01053, %692 ], [ %.01053, %644 ]
+  %.211013 = phi i32 [ %.0992, %95 ], [ %.221014.lcssa, %113 ], [ %.221014.lcssa, %128 ], [ %.221014.lcssa, %131 ], [ %.221014.lcssa, %145 ], [ %.221014.lcssa, %146 ], [ %.231015.lcssa, %163 ], [ %.231015.lcssa, %166 ], [ %.351027.lcssa, %423 ], [ %.341026, %431 ], [ %.81000, %454 ], [ %.371029.lcssa, %478 ], [ %.381030.lcssa, %502 ], [ %513, %511 ], [ %.101002, %519 ], [ %.391031.lcssa, %543 ], [ %.401032.lcssa, %576 ], [ %.421034.lcssa, %702 ], [ %.421034.lcssa, %705 ], [ %.421034.lcssa, %713 ], [ %723, %728 ], [ %723, %719 ], [ %.521044, %799 ], [ %.521044, %802 ], [ %.521044, %805 ], [ %.571049, %905 ], [ %.181010, %946 ], [ %.181010, %977 ], [ %.181010, %973 ], [ %.0992, %980 ], [ %.61.lcssa, %1026 ], [ %.63.lcssa, %1049 ], [ %.471039, %692 ], [ %.461038.lcssa, %644 ]
+  %.1991 = phi i32 [ %.0990, %95 ], [ %.0990, %113 ], [ %.0990, %128 ], [ %.0990, %131 ], [ %.0990, %145 ], [ %.0990, %146 ], [ %.0990, %163 ], [ %.0990, %166 ], [ %.0990, %423 ], [ %.0990, %431 ], [ %.0990, %454 ], [ %.0990, %478 ], [ %.0990, %502 ], [ %515, %511 ], [ %.0990, %519 ], [ %.0990, %543 ], [ %.0990, %576 ], [ %.0990, %702 ], [ %.0990, %705 ], [ %.0990, %713 ], [ %721, %728 ], [ %721, %719 ], [ %.0990, %799 ], [ %.0990, %802 ], [ %.0990, %805 ], [ %.0990, %905 ], [ %.0990, %946 ], [ %974, %977 ], [ %974, %973 ], [ %984, %980 ], [ %.0990, %1026 ], [ %.0990, %1049 ], [ %.0990, %692 ], [ %.0990, %644 ]
+  %.21950 = phi i64 [ %.0929, %95 ], [ 0, %113 ], [ %.22951.lcssa, %128 ], [ %.22951.lcssa, %131 ], [ %133, %145 ], [ 0, %146 ], [ %.23952.lcssa, %163 ], [ %.23952.lcssa, %166 ], [ %.31960.lcssa, %423 ], [ %.30959, %431 ], [ %457, %454 ], [ %479, %478 ], [ %.34963.lcssa, %502 ], [ %.10939, %511 ], [ %.10939, %519 ], [ %539, %543 ], [ %.36965.lcssa, %576 ], [ %.38967.lcssa, %702 ], [ %.38967.lcssa, %705 ], [ %.38967.lcssa, %713 ], [ %724, %728 ], [ %724, %719 ], [ %793, %799 ], [ %793, %802 ], [ %793, %805 ], [ %900, %905 ], [ %.18947, %946 ], [ %.18947, %977 ], [ %.18947, %973 ], [ %.0929, %980 ], [ %.57986.lcssa, %1026 ], [ %.59988.lcssa, %1049 ], [ %.43972, %692 ], [ %641, %644 ]
+  %.21 = phi i32 [ %.0918, %95 ], [ 0, %113 ], [ %.22.lcssa, %128 ], [ %.22.lcssa, %131 ], [ %134, %145 ], [ 0, %146 ], [ %.23.lcssa, %163 ], [ %.23.lcssa, %166 ], [ %.31.lcssa, %423 ], [ %.30, %431 ], [ %458, %454 ], [ %480, %478 ], [ %.34.lcssa, %502 ], [ %.10928, %511 ], [ %.10928, %519 ], [ %540, %543 ], [ %.36.lcssa, %576 ], [ %.38.lcssa, %702 ], [ %.38.lcssa, %705 ], [ %.38.lcssa, %713 ], [ %725, %728 ], [ %725, %719 ], [ %794, %799 ], [ %794, %802 ], [ %794, %805 ], [ %901, %905 ], [ %.18, %946 ], [ %.18, %977 ], [ %.18, %973 ], [ %.0918, %980 ], [ %.57.lcssa, %1026 ], [ %.59.lcssa, %1049 ], [ %.43, %692 ], [ %642, %644 ]
+  %.3915 = phi i32 [ %.0912, %95 ], [ %.0912, %113 ], [ %.0912, %128 ], [ %.0912, %131 ], [ %.0912, %145 ], [ %.0912, %146 ], [ %.0912, %163 ], [ %.0912, %166 ], [ %.0912, %423 ], [ %.0912, %431 ], [ %.0912, %454 ], [ %.0912, %478 ], [ %.0912, %502 ], [ %.0912, %511 ], [ %.0912, %519 ], [ %.0912, %543 ], [ %.0912, %576 ], [ %.0912, %702 ], [ %.0912, %705 ], [ %.0912, %713 ], [ %.0912, %728 ], [ %.0912, %719 ], [ %.0912, %799 ], [ %.0912, %802 ], [ %.0912, %805 ], [ %.0912, %905 ], [ %.0912, %946 ], [ %.0912, %977 ], [ %.0912, %973 ], [ %.0912, %980 ], [ %.0990, %1026 ], [ %.1913, %1049 ], [ %.0912, %692 ], [ %.0912, %644 ]
+  %.8 = phi i32 [ %.0, %95 ], [ %.0, %113 ], [ %.0, %128 ], [ %.0, %131 ], [ %.0, %145 ], [ %.0, %146 ], [ %.0, %163 ], [ %.0, %166 ], [ %.0, %423 ], [ %.0, %431 ], [ %.0, %454 ], [ %.0, %478 ], [ %.0, %502 ], [ %.0, %511 ], [ %.0, %519 ], [ %.0, %543 ], [ %575, %576 ], [ %.1, %702 ], [ %704, %705 ], [ %712, %713 ], [ %.3, %728 ], [ %.3, %719 ], [ %.3, %799 ], [ %.3, %802 ], [ %.3, %805 ], [ %.5, %905 ], [ %.7, %946 ], [ %.7, %977 ], [ %.7, %973 ], [ %.0, %980 ], [ %.0, %1026 ], [ %.0, %1049 ], [ %.1, %692 ], [ %.1, %644 ]
   %.pre = load i32, ptr %19, align 8, !tbaa !18
   br label %82
 
@@ -3370,13 +3370,13 @@ default.unreachable2930:                          ; preds = %467
   br label %.loopexit1277
 
 .loopexit1277:                                    ; preds = %312, %318, %350, %362, %394, %449, %503, %509, %714, %934, %978, %.lr.ph2125, %.lr.ph1782, %82, %.loopexit1277.loopexit3806, %.loopexit1277.loopexit2987, %.loopexit1277.loopexit2986, %.loopexit1277.loopexit2985, %.loopexit1277.loopexit2984, %.loopexit1277.loopexit2983, %.loopexit1277.loopexit2982, %.loopexit1277.loopexit2981, %.loopexit1277.loopexit2361, %.loopexit1277.loopexit2360, %.loopexit1277.loopexit2359, %.loopexit1277.loopexit2351, %.loopexit1277.loopexit2350, %.loopexit1277.loopexit2349, %.loopexit1277.loopexit2348, %.loopexit1277.loopexit2347, %.loopexit1277.loopexit2346, %.loopexit1277.loopexit2345, %.loopexit1277.loopexit2344, %.loopexit1277.loopexit2342, %.loopexit1277.loopexit2341, %.loopexit1277.loopexit, %1050, %473
-  %.09902690 = phi i32 [ %.0990, %.loopexit1277.loopexit2342 ], [ %.0990, %.loopexit1277.loopexit2346 ], [ %.0990, %.loopexit1277.loopexit2345 ], [ %.0990, %.loopexit1277.loopexit2344 ], [ %.0990, %82 ], [ %.0990, %.loopexit1277.loopexit2351 ], [ %.0990, %.loopexit1277.loopexit2981 ], [ %.0990, %.loopexit1277.loopexit2982 ], [ %.0990, %.loopexit1277.loopexit2987 ], [ %.0990, %1050 ], [ %.0990, %.loopexit1277.loopexit2985 ], [ %.0990, %.loopexit1277.loopexit2348 ], [ %.0990, %.loopexit1277.loopexit ], [ %.0990, %.loopexit1277.loopexit2347 ], [ %.0990, %473 ], [ %.0990, %.loopexit1277.loopexit2350 ], [ %.0990, %.loopexit1277.loopexit2359 ], [ %.0990, %.loopexit1277.loopexit2986 ], [ %.0990, %.loopexit1277.loopexit2983 ], [ %.0990, %.loopexit1277.loopexit2341 ], [ %.0990, %.loopexit1277.loopexit2361 ], [ %.0990, %.loopexit1277.loopexit2984 ], [ %.0990, %.lr.ph1782 ], [ %.0990, %.loopexit1277.loopexit2349 ], [ %.0990, %.loopexit1277.loopexit2360 ], [ %.0990, %312 ], [ %.0990, %318 ], [ %.0990, %350 ], [ %.0990, %362 ], [ %.0990, %394 ], [ %.0990, %449 ], [ %.0990, %503 ], [ %.0990, %509 ], [ %.0990, %714 ], [ 0, %934 ], [ 0, %978 ], [ %.0990, %.lr.ph2125 ], [ %.0990, %.loopexit1277.loopexit3806 ]
-  %.641120 = phi ptr [ %.4811041964, %.loopexit1277.loopexit2342 ], [ %.2810842310, %.loopexit1277.loopexit2346 ], [ %.3510912319, %.loopexit1277.loopexit2345 ], [ %.2210782329, %.loopexit1277.loopexit2344 ], [ %.01056, %82 ], [ %.3810942101, %.loopexit1277.loopexit2351 ], [ %scevgep.le, %.loopexit1277.loopexit2981 ], [ %scevgep2822.le, %.loopexit1277.loopexit2982 ], [ %scevgep2807.le, %.loopexit1277.loopexit2987 ], [ %.621118, %1050 ], [ %scevgep2813.le, %.loopexit1277.loopexit2985 ], [ %.2510812290, %.loopexit1277.loopexit2348 ], [ %.4911051984, %.loopexit1277.loopexit ], [ %.2710832300, %.loopexit1277.loopexit2347 ], [ %.371093.lcssa, %473 ], [ %.3610922112, %.loopexit1277.loopexit2350 ], [ %.3910951768, %.loopexit1277.loopexit2359 ], [ %scevgep2811.le, %.loopexit1277.loopexit2986 ], [ %scevgep2820.le, %.loopexit1277.loopexit2983 ], [ %.4611021974, %.loopexit1277.loopexit2341 ], [ %.6111171751, %.loopexit1277.loopexit2361 ], [ %scevgep2816.le, %.loopexit1277.loopexit2984 ], [ %.4010961932, %.lr.ph1782 ], [ %.2310792280, %.loopexit1277.loopexit2349 ], [ %.6311191758, %.loopexit1277.loopexit2360 ], [ %.311087, %312 ], [ %.31059, %318 ], [ %353, %350 ], [ %.41060, %362 ], [ %397, %394 ], [ %.71063, %449 ], [ %.381094.lcssa, %503 ], [ %.101066, %509 ], [ %.421098.lcssa, %714 ], [ %.181074, %934 ], [ %.01056, %978 ], [ %.81064, %.lr.ph2125 ], [ %.01056, %.loopexit1277.loopexit3806 ]
-  %.64 = phi i32 [ 0, %.loopexit1277.loopexit2342 ], [ 0, %.loopexit1277.loopexit2346 ], [ 0, %.loopexit1277.loopexit2345 ], [ 0, %.loopexit1277.loopexit2344 ], [ %.0992, %82 ], [ 0, %.loopexit1277.loopexit2351 ], [ 0, %.loopexit1277.loopexit2981 ], [ 0, %.loopexit1277.loopexit2982 ], [ 0, %.loopexit1277.loopexit2987 ], [ %.62, %1050 ], [ 0, %.loopexit1277.loopexit2985 ], [ 0, %.loopexit1277.loopexit2348 ], [ 0, %.loopexit1277.loopexit ], [ 0, %.loopexit1277.loopexit2347 ], [ %.371029.lcssa, %473 ], [ 0, %.loopexit1277.loopexit2350 ], [ 0, %.loopexit1277.loopexit2359 ], [ 0, %.loopexit1277.loopexit2986 ], [ 0, %.loopexit1277.loopexit2983 ], [ 0, %.loopexit1277.loopexit2341 ], [ 0, %.loopexit1277.loopexit2361 ], [ 0, %.loopexit1277.loopexit2984 ], [ 0, %.lr.ph1782 ], [ 0, %.loopexit1277.loopexit2349 ], [ 0, %.loopexit1277.loopexit2360 ], [ %.311023, %312 ], [ 0, %318 ], [ %351, %350 ], [ 0, %362 ], [ %395, %394 ], [ %.7999, %449 ], [ %.381030.lcssa, %503 ], [ %.101002, %509 ], [ %.421034.lcssa, %714 ], [ %.181010, %934 ], [ %.0992, %978 ], [ 0, %.lr.ph2125 ], [ %.0992, %.loopexit1277.loopexit3806 ]
-  %.60989 = phi i64 [ %.449731966, %.loopexit1277.loopexit2342 ], [ %.289572312, %.loopexit1277.loopexit2346 ], [ %.319602321, %.loopexit1277.loopexit2345 ], [ %.229512331, %.loopexit1277.loopexit2344 ], [ %.0929, %82 ], [ %.349632103, %.loopexit1277.loopexit2351 ], [ %.409691952, %.loopexit1277.loopexit2981 ], [ %.559842093, %.loopexit1277.loopexit2982 ], [ %.469752017, %.loopexit1277.loopexit2987 ], [ %.58987, %1050 ], [ %.509792048, %.loopexit1277.loopexit2985 ], [ %.259542292, %.loopexit1277.loopexit2348 ], [ %.459741986, %.loopexit1277.loopexit ], [ %.279562302, %.loopexit1277.loopexit2347 ], [ %474, %473 ], [ %.329612114, %.loopexit1277.loopexit2350 ], [ %.359641770, %.loopexit1277.loopexit2359 ], [ %.479762036, %.loopexit1277.loopexit2986 ], [ %.529812081, %.loopexit1277.loopexit2983 ], [ %.429711976, %.loopexit1277.loopexit2341 ], [ %.579861753, %.loopexit1277.loopexit2361 ], [ %.519802062, %.loopexit1277.loopexit2984 ], [ %.369651934, %.lr.ph1782 ], [ %.239522282, %.loopexit1277.loopexit2349 ], [ %.599881760, %.loopexit1277.loopexit2360 ], [ %.2931, %312 ], [ %.3932, %318 ], [ %.3932, %350 ], [ %.4933, %362 ], [ %.4933, %394 ], [ %.7936, %449 ], [ 0, %503 ], [ %.10939, %509 ], [ %.38967.lcssa, %714 ], [ %.18947, %934 ], [ %.0929, %978 ], [ %.8937, %.lr.ph2125 ], [ %.0929, %.loopexit1277.loopexit3806 ]
-  %.60 = phi i32 [ %1053, %.loopexit1277.loopexit2342 ], [ %1056, %.loopexit1277.loopexit2346 ], [ %1055, %.loopexit1277.loopexit2345 ], [ %1054, %.loopexit1277.loopexit2344 ], [ %.0918, %82 ], [ %1061, %.loopexit1277.loopexit2351 ], [ %1067, %.loopexit1277.loopexit2981 ], [ %1069, %.loopexit1277.loopexit2982 ], [ %1085, %.loopexit1277.loopexit2987 ], [ %.58, %1050 ], [ %1078, %.loopexit1277.loopexit2985 ], [ %1058, %.loopexit1277.loopexit2348 ], [ %1051, %.loopexit1277.loopexit ], [ %1057, %.loopexit1277.loopexit2347 ], [ %475, %473 ], [ %1060, %.loopexit1277.loopexit2350 ], [ %1062, %.loopexit1277.loopexit2359 ], [ %1082, %.loopexit1277.loopexit2986 ], [ %1073, %.loopexit1277.loopexit2983 ], [ %1052, %.loopexit1277.loopexit2341 ], [ %1064, %.loopexit1277.loopexit2361 ], [ %1076, %.loopexit1277.loopexit2984 ], [ %.361935, %.lr.ph1782 ], [ %1059, %.loopexit1277.loopexit2349 ], [ %1063, %.loopexit1277.loopexit2360 ], [ %.2920, %312 ], [ %.3921, %318 ], [ %.3921, %350 ], [ %.4922, %362 ], [ %.4922, %394 ], [ %.7925, %449 ], [ 0, %503 ], [ %.10928, %509 ], [ %.38.lcssa, %714 ], [ %.18, %934 ], [ %.0918, %978 ], [ %.8926, %.lr.ph2125 ], [ %.0918, %.loopexit1277.loopexit3806 ]
-  %.5917 = phi i32 [ %.0912, %.loopexit1277.loopexit2342 ], [ %.0912, %.loopexit1277.loopexit2346 ], [ %.0912, %.loopexit1277.loopexit2345 ], [ %.0912, %.loopexit1277.loopexit2344 ], [ %.0912, %82 ], [ %.0912, %.loopexit1277.loopexit2351 ], [ %.0912, %.loopexit1277.loopexit2981 ], [ %.0912, %.loopexit1277.loopexit2982 ], [ %.0912, %.loopexit1277.loopexit2987 ], [ %.1913, %1050 ], [ %.0912, %.loopexit1277.loopexit2985 ], [ %.0912, %.loopexit1277.loopexit2348 ], [ %.0912, %.loopexit1277.loopexit ], [ %.0912, %.loopexit1277.loopexit2347 ], [ %.0912, %473 ], [ %.0912, %.loopexit1277.loopexit2350 ], [ %.0912, %.loopexit1277.loopexit2359 ], [ %.0912, %.loopexit1277.loopexit2986 ], [ %.0912, %.loopexit1277.loopexit2983 ], [ %.0912, %.loopexit1277.loopexit2341 ], [ %.0912, %.loopexit1277.loopexit2361 ], [ %.0912, %.loopexit1277.loopexit2984 ], [ %.0912, %.lr.ph1782 ], [ %.0912, %.loopexit1277.loopexit2349 ], [ %.1913, %.loopexit1277.loopexit2360 ], [ %.0912, %.lr.ph2125 ], [ %.0912, %978 ], [ %.0912, %934 ], [ %.0912, %714 ], [ %.0912, %509 ], [ %.0912, %503 ], [ %.0912, %449 ], [ %.0912, %394 ], [ %.0912, %362 ], [ %.0912, %350 ], [ %.0912, %318 ], [ %.0912, %312 ], [ %.0912, %.loopexit1277.loopexit3806 ]
-  %.9 = phi i32 [ %.1, %.loopexit1277.loopexit2342 ], [ %.0, %.loopexit1277.loopexit2346 ], [ %.0, %.loopexit1277.loopexit2345 ], [ %.0, %.loopexit1277.loopexit2344 ], [ -3, %82 ], [ %.0, %.loopexit1277.loopexit2351 ], [ %.1, %.loopexit1277.loopexit2981 ], [ %.6, %.loopexit1277.loopexit2982 ], [ %.3, %.loopexit1277.loopexit2987 ], [ 1, %1050 ], [ %.4, %.loopexit1277.loopexit2985 ], [ %.0, %.loopexit1277.loopexit2348 ], [ %.1, %.loopexit1277.loopexit ], [ %.0, %.loopexit1277.loopexit2347 ], [ %.0, %473 ], [ %.0, %.loopexit1277.loopexit2350 ], [ %.0, %.loopexit1277.loopexit2359 ], [ %.3, %.loopexit1277.loopexit2986 ], [ %.5, %.loopexit1277.loopexit2983 ], [ %.1, %.loopexit1277.loopexit2341 ], [ %.0, %.loopexit1277.loopexit2361 ], [ %.5, %.loopexit1277.loopexit2984 ], [ %.0, %.lr.ph1782 ], [ %.0, %.loopexit1277.loopexit2349 ], [ %.0, %.loopexit1277.loopexit2360 ], [ %.0, %312 ], [ %.0, %318 ], [ %.0, %350 ], [ %.0, %362 ], [ %.0, %394 ], [ %.0, %449 ], [ %.0, %503 ], [ %.0, %509 ], [ 0, %714 ], [ %.7, %934 ], [ %.0, %978 ], [ %.0, %.lr.ph2125 ], [ 1, %.loopexit1277.loopexit3806 ]
+  %.09902690 = phi i32 [ %.0990, %473 ], [ %.0990, %1050 ], [ %.0990, %.loopexit1277.loopexit ], [ %.0990, %.loopexit1277.loopexit2341 ], [ %.0990, %.loopexit1277.loopexit2342 ], [ %.0990, %.loopexit1277.loopexit2344 ], [ %.0990, %.loopexit1277.loopexit2345 ], [ %.0990, %.loopexit1277.loopexit2346 ], [ %.0990, %.loopexit1277.loopexit2347 ], [ %.0990, %.loopexit1277.loopexit2348 ], [ %.0990, %.loopexit1277.loopexit2349 ], [ %.0990, %.loopexit1277.loopexit2350 ], [ %.0990, %.loopexit1277.loopexit2351 ], [ %.0990, %.loopexit1277.loopexit2359 ], [ %.0990, %.loopexit1277.loopexit2360 ], [ %.0990, %.loopexit1277.loopexit2361 ], [ %.0990, %.loopexit1277.loopexit2981 ], [ %.0990, %.loopexit1277.loopexit2982 ], [ %.0990, %.loopexit1277.loopexit2983 ], [ %.0990, %.loopexit1277.loopexit2984 ], [ %.0990, %.loopexit1277.loopexit2985 ], [ %.0990, %.loopexit1277.loopexit2986 ], [ %.0990, %.loopexit1277.loopexit2987 ], [ %.0990, %82 ], [ %.0990, %.lr.ph1782 ], [ %.0990, %312 ], [ %.0990, %318 ], [ %.0990, %350 ], [ %.0990, %362 ], [ %.0990, %394 ], [ %.0990, %449 ], [ %.0990, %503 ], [ %.0990, %509 ], [ %.0990, %714 ], [ 0, %934 ], [ 0, %978 ], [ %.0990, %.lr.ph2125 ], [ %.0990, %.loopexit1277.loopexit3806 ]
+  %.641120 = phi ptr [ %.371093.lcssa, %473 ], [ %.621118, %1050 ], [ %.4911051984, %.loopexit1277.loopexit ], [ %.4611021974, %.loopexit1277.loopexit2341 ], [ %.4811041964, %.loopexit1277.loopexit2342 ], [ %.2210782329, %.loopexit1277.loopexit2344 ], [ %.3510912319, %.loopexit1277.loopexit2345 ], [ %.2810842310, %.loopexit1277.loopexit2346 ], [ %.2710832300, %.loopexit1277.loopexit2347 ], [ %.2510812290, %.loopexit1277.loopexit2348 ], [ %.2310792280, %.loopexit1277.loopexit2349 ], [ %.3610922112, %.loopexit1277.loopexit2350 ], [ %.3810942101, %.loopexit1277.loopexit2351 ], [ %.3910951768, %.loopexit1277.loopexit2359 ], [ %.6311191758, %.loopexit1277.loopexit2360 ], [ %.6111171751, %.loopexit1277.loopexit2361 ], [ %scevgep.le, %.loopexit1277.loopexit2981 ], [ %scevgep2822.le, %.loopexit1277.loopexit2982 ], [ %scevgep2820.le, %.loopexit1277.loopexit2983 ], [ %scevgep2816.le, %.loopexit1277.loopexit2984 ], [ %scevgep2813.le, %.loopexit1277.loopexit2985 ], [ %scevgep2811.le, %.loopexit1277.loopexit2986 ], [ %scevgep2807.le, %.loopexit1277.loopexit2987 ], [ %.01056, %82 ], [ %.4010961932, %.lr.ph1782 ], [ %.311087, %312 ], [ %.31059, %318 ], [ %353, %350 ], [ %.41060, %362 ], [ %397, %394 ], [ %.71063, %449 ], [ %.381094.lcssa, %503 ], [ %.101066, %509 ], [ %.421098.lcssa, %714 ], [ %.181074, %934 ], [ %.01056, %978 ], [ %.81064, %.lr.ph2125 ], [ %.01056, %.loopexit1277.loopexit3806 ]
+  %.64 = phi i32 [ %.371029.lcssa, %473 ], [ %.62, %1050 ], [ 0, %.loopexit1277.loopexit ], [ 0, %.loopexit1277.loopexit2341 ], [ 0, %.loopexit1277.loopexit2342 ], [ 0, %.loopexit1277.loopexit2344 ], [ 0, %.loopexit1277.loopexit2345 ], [ 0, %.loopexit1277.loopexit2346 ], [ 0, %.loopexit1277.loopexit2347 ], [ 0, %.loopexit1277.loopexit2348 ], [ 0, %.loopexit1277.loopexit2349 ], [ 0, %.loopexit1277.loopexit2350 ], [ 0, %.loopexit1277.loopexit2351 ], [ 0, %.loopexit1277.loopexit2359 ], [ 0, %.loopexit1277.loopexit2360 ], [ 0, %.loopexit1277.loopexit2361 ], [ 0, %.loopexit1277.loopexit2981 ], [ 0, %.loopexit1277.loopexit2982 ], [ 0, %.loopexit1277.loopexit2983 ], [ 0, %.loopexit1277.loopexit2984 ], [ 0, %.loopexit1277.loopexit2985 ], [ 0, %.loopexit1277.loopexit2986 ], [ 0, %.loopexit1277.loopexit2987 ], [ %.0992, %82 ], [ 0, %.lr.ph1782 ], [ %.311023, %312 ], [ 0, %318 ], [ %351, %350 ], [ 0, %362 ], [ %395, %394 ], [ %.7999, %449 ], [ %.381030.lcssa, %503 ], [ %.101002, %509 ], [ %.421034.lcssa, %714 ], [ %.181010, %934 ], [ %.0992, %978 ], [ 0, %.lr.ph2125 ], [ %.0992, %.loopexit1277.loopexit3806 ]
+  %.60989 = phi i64 [ %474, %473 ], [ %.58987, %1050 ], [ %.459741986, %.loopexit1277.loopexit ], [ %.429711976, %.loopexit1277.loopexit2341 ], [ %.449731966, %.loopexit1277.loopexit2342 ], [ %.229512331, %.loopexit1277.loopexit2344 ], [ %.319602321, %.loopexit1277.loopexit2345 ], [ %.289572312, %.loopexit1277.loopexit2346 ], [ %.279562302, %.loopexit1277.loopexit2347 ], [ %.259542292, %.loopexit1277.loopexit2348 ], [ %.239522282, %.loopexit1277.loopexit2349 ], [ %.329612114, %.loopexit1277.loopexit2350 ], [ %.349632103, %.loopexit1277.loopexit2351 ], [ %.359641770, %.loopexit1277.loopexit2359 ], [ %.599881760, %.loopexit1277.loopexit2360 ], [ %.579861753, %.loopexit1277.loopexit2361 ], [ %.409691952, %.loopexit1277.loopexit2981 ], [ %.559842093, %.loopexit1277.loopexit2982 ], [ %.529812081, %.loopexit1277.loopexit2983 ], [ %.519802062, %.loopexit1277.loopexit2984 ], [ %.509792048, %.loopexit1277.loopexit2985 ], [ %.479762036, %.loopexit1277.loopexit2986 ], [ %.469752017, %.loopexit1277.loopexit2987 ], [ %.0929, %82 ], [ %.369651934, %.lr.ph1782 ], [ %.2931, %312 ], [ %.3932, %318 ], [ %.3932, %350 ], [ %.4933, %362 ], [ %.4933, %394 ], [ %.7936, %449 ], [ 0, %503 ], [ %.10939, %509 ], [ %.38967.lcssa, %714 ], [ %.18947, %934 ], [ %.0929, %978 ], [ %.8937, %.lr.ph2125 ], [ %.0929, %.loopexit1277.loopexit3806 ]
+  %.60 = phi i32 [ %475, %473 ], [ %.58, %1050 ], [ %1051, %.loopexit1277.loopexit ], [ %1052, %.loopexit1277.loopexit2341 ], [ %1053, %.loopexit1277.loopexit2342 ], [ %1054, %.loopexit1277.loopexit2344 ], [ %1055, %.loopexit1277.loopexit2345 ], [ %1056, %.loopexit1277.loopexit2346 ], [ %1057, %.loopexit1277.loopexit2347 ], [ %1058, %.loopexit1277.loopexit2348 ], [ %1059, %.loopexit1277.loopexit2349 ], [ %1060, %.loopexit1277.loopexit2350 ], [ %1061, %.loopexit1277.loopexit2351 ], [ %1062, %.loopexit1277.loopexit2359 ], [ %1063, %.loopexit1277.loopexit2360 ], [ %1064, %.loopexit1277.loopexit2361 ], [ %1067, %.loopexit1277.loopexit2981 ], [ %1069, %.loopexit1277.loopexit2982 ], [ %1073, %.loopexit1277.loopexit2983 ], [ %1076, %.loopexit1277.loopexit2984 ], [ %1078, %.loopexit1277.loopexit2985 ], [ %1082, %.loopexit1277.loopexit2986 ], [ %1085, %.loopexit1277.loopexit2987 ], [ %.0918, %82 ], [ %.361935, %.lr.ph1782 ], [ %.2920, %312 ], [ %.3921, %318 ], [ %.3921, %350 ], [ %.4922, %362 ], [ %.4922, %394 ], [ %.7925, %449 ], [ 0, %503 ], [ %.10928, %509 ], [ %.38.lcssa, %714 ], [ %.18, %934 ], [ %.0918, %978 ], [ %.8926, %.lr.ph2125 ], [ %.0918, %.loopexit1277.loopexit3806 ]
+  %.5917 = phi i32 [ %.0912, %473 ], [ %.1913, %1050 ], [ %.0912, %.loopexit1277.loopexit ], [ %.0912, %.loopexit1277.loopexit2341 ], [ %.0912, %.loopexit1277.loopexit2342 ], [ %.0912, %.loopexit1277.loopexit2344 ], [ %.0912, %.loopexit1277.loopexit2345 ], [ %.0912, %.loopexit1277.loopexit2346 ], [ %.0912, %.loopexit1277.loopexit2347 ], [ %.0912, %.loopexit1277.loopexit2348 ], [ %.0912, %.loopexit1277.loopexit2349 ], [ %.0912, %.loopexit1277.loopexit2350 ], [ %.0912, %.loopexit1277.loopexit2351 ], [ %.0912, %.loopexit1277.loopexit2359 ], [ %.1913, %.loopexit1277.loopexit2360 ], [ %.0912, %.loopexit1277.loopexit2361 ], [ %.0912, %.loopexit1277.loopexit2981 ], [ %.0912, %.loopexit1277.loopexit2982 ], [ %.0912, %.loopexit1277.loopexit2983 ], [ %.0912, %.loopexit1277.loopexit2984 ], [ %.0912, %.loopexit1277.loopexit2985 ], [ %.0912, %.loopexit1277.loopexit2986 ], [ %.0912, %.loopexit1277.loopexit2987 ], [ %.0912, %82 ], [ %.0912, %.lr.ph1782 ], [ %.0912, %.lr.ph2125 ], [ %.0912, %978 ], [ %.0912, %934 ], [ %.0912, %714 ], [ %.0912, %509 ], [ %.0912, %503 ], [ %.0912, %449 ], [ %.0912, %394 ], [ %.0912, %362 ], [ %.0912, %350 ], [ %.0912, %318 ], [ %.0912, %312 ], [ %.0912, %.loopexit1277.loopexit3806 ]
+  %.9 = phi i32 [ %.0, %473 ], [ 1, %1050 ], [ %.1, %.loopexit1277.loopexit ], [ %.1, %.loopexit1277.loopexit2341 ], [ %.1, %.loopexit1277.loopexit2342 ], [ %.0, %.loopexit1277.loopexit2344 ], [ %.0, %.loopexit1277.loopexit2345 ], [ %.0, %.loopexit1277.loopexit2346 ], [ %.0, %.loopexit1277.loopexit2347 ], [ %.0, %.loopexit1277.loopexit2348 ], [ %.0, %.loopexit1277.loopexit2349 ], [ %.0, %.loopexit1277.loopexit2350 ], [ %.0, %.loopexit1277.loopexit2351 ], [ %.0, %.loopexit1277.loopexit2359 ], [ %.0, %.loopexit1277.loopexit2360 ], [ %.0, %.loopexit1277.loopexit2361 ], [ %.1, %.loopexit1277.loopexit2981 ], [ %.6, %.loopexit1277.loopexit2982 ], [ %.5, %.loopexit1277.loopexit2983 ], [ %.5, %.loopexit1277.loopexit2984 ], [ %.4, %.loopexit1277.loopexit2985 ], [ %.3, %.loopexit1277.loopexit2986 ], [ %.3, %.loopexit1277.loopexit2987 ], [ -3, %82 ], [ %.0, %.lr.ph1782 ], [ %.0, %312 ], [ %.0, %318 ], [ %.0, %350 ], [ %.0, %362 ], [ %.0, %394 ], [ %.0, %449 ], [ %.0, %503 ], [ %.0, %509 ], [ 0, %714 ], [ %.7, %934 ], [ %.0, %978 ], [ %.0, %.lr.ph2125 ], [ 1, %.loopexit1277.loopexit3806 ]
   store ptr %.01053, ptr %23, align 8, !tbaa !43
   store i32 %.09902690, ptr %36, align 8, !tbaa !46
   store ptr %.641120, ptr %0, align 8, !tbaa !44
@@ -3583,8 +3583,8 @@ updatewindow.exit.thread:                         ; preds = %1122, %1147, %1155,
 inflateStateCheck.exit.thread.loopexit:           ; preds = %82
   br label %inflateStateCheck.exit.thread
 
-inflateStateCheck.exit.thread:                    ; preds = %82, %inflateStateCheck.exit.thread.loopexit, %17, %5, %9, %2, %13, %inflateStateCheck.exit, %22, %29, %1186, %updatewindow.exit, %446
-  %.01121 = phi i32 [ -2, %inflateStateCheck.exit ], [ -4, %inflateStateCheck.exit.thread.loopexit ], [ -4, %updatewindow.exit ], [ %spec.store.select, %1186 ], [ 2, %446 ], [ -2, %29 ], [ -2, %22 ], [ -2, %17 ], [ -2, %13 ], [ -2, %2 ], [ -2, %9 ], [ -2, %5 ], [ -2, %82 ]
+inflateStateCheck.exit.thread:                    ; preds = %82, %inflateStateCheck.exit.thread.loopexit, %13, %17, %2, %5, %9, %inflateStateCheck.exit, %22, %29, %1186, %updatewindow.exit, %446
+  %.01121 = phi i32 [ -4, %updatewindow.exit ], [ %spec.store.select, %1186 ], [ 2, %446 ], [ -2, %29 ], [ -2, %22 ], [ -2, %inflateStateCheck.exit ], [ -2, %9 ], [ -2, %5 ], [ -2, %2 ], [ -2, %17 ], [ -2, %13 ], [ -4, %inflateStateCheck.exit.thread.loopexit ], [ -2, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.01121
 }
@@ -3658,8 +3658,8 @@ inflateStateCheck.exit:                           ; preds = %15
   store ptr null, ptr %12, align 8, !tbaa !13
   br label %inflateStateCheck.exit.thread
 
-inflateStateCheck.exit.thread:                    ; preds = %15, %3, %7, %1, %11, %inflateStateCheck.exit, %26
-  %.0 = phi i32 [ 0, %26 ], [ -2, %inflateStateCheck.exit ], [ -2, %11 ], [ -2, %1 ], [ -2, %7 ], [ -2, %3 ], [ -2, %15 ]
+inflateStateCheck.exit.thread:                    ; preds = %11, %15, %1, %3, %7, %inflateStateCheck.exit, %26
+  %.0 = phi i32 [ 0, %26 ], [ -2, %inflateStateCheck.exit ], [ -2, %7 ], [ -2, %3 ], [ -2, %1 ], [ -2, %15 ], [ -2, %11 ]
   ret i32 %.0
 }
 
@@ -3736,8 +3736,8 @@ inflateStateCheck.exit:                           ; preds = %17
   store i32 %46, ptr %2, align 4, !tbaa !100
   br label %inflateStateCheck.exit.thread
 
-inflateStateCheck.exit.thread:                    ; preds = %17, %5, %9, %3, %13, %44, %45, %inflateStateCheck.exit
-  %.0 = phi i32 [ -2, %inflateStateCheck.exit ], [ 0, %45 ], [ 0, %44 ], [ -2, %13 ], [ -2, %3 ], [ -2, %9 ], [ -2, %5 ], [ -2, %17 ]
+inflateStateCheck.exit.thread:                    ; preds = %13, %17, %3, %5, %9, %44, %45, %inflateStateCheck.exit
+  %.0 = phi i32 [ -2, %inflateStateCheck.exit ], [ 0, %45 ], [ 0, %44 ], [ -2, %9 ], [ -2, %5 ], [ -2, %3 ], [ -2, %17 ], [ -2, %13 ]
   ret i32 %.0
 }
 
@@ -3908,8 +3908,8 @@ updatewindow.exit:                                ; preds = %39
   store i32 1, ptr %94, align 4, !tbaa !24
   br label %inflateStateCheck.exit.thread
 
-inflateStateCheck.exit.thread:                    ; preds = %17, %5, %9, %3, %13, %.thread, %26, %inflateStateCheck.exit, %93, %updatewindow.exit
-  %.0 = phi i32 [ 0, %93 ], [ -2, %inflateStateCheck.exit ], [ -2, %26 ], [ -4, %updatewindow.exit ], [ -3, %.thread ], [ -2, %13 ], [ -2, %3 ], [ -2, %9 ], [ -2, %5 ], [ -2, %17 ]
+inflateStateCheck.exit.thread:                    ; preds = %13, %17, %3, %5, %9, %.thread, %26, %inflateStateCheck.exit, %93, %updatewindow.exit
+  %.0 = phi i32 [ -4, %updatewindow.exit ], [ 0, %93 ], [ -2, %inflateStateCheck.exit ], [ -2, %26 ], [ -3, %.thread ], [ -2, %9 ], [ -2, %5 ], [ -2, %3 ], [ -2, %17 ], [ -2, %13 ]
   ret i32 %.0
 }
 
@@ -3962,8 +3962,8 @@ inflateStateCheck.exit:                           ; preds = %16
   store i32 0, ptr %28, align 8, !tbaa !52
   br label %inflateStateCheck.exit.thread
 
-inflateStateCheck.exit.thread:                    ; preds = %16, %4, %8, %2, %12, %21, %inflateStateCheck.exit, %26
-  %.0 = phi i32 [ 0, %26 ], [ -2, %inflateStateCheck.exit ], [ -2, %21 ], [ -2, %12 ], [ -2, %2 ], [ -2, %8 ], [ -2, %4 ], [ -2, %16 ]
+inflateStateCheck.exit.thread:                    ; preds = %12, %16, %2, %4, %8, %21, %inflateStateCheck.exit, %26
+  %.0 = phi i32 [ 0, %26 ], [ -2, %inflateStateCheck.exit ], [ -2, %21 ], [ -2, %8 ], [ -2, %4 ], [ -2, %2 ], [ -2, %16 ], [ -2, %12 ]
   ret i32 %.0
 }
 
@@ -4212,8 +4212,8 @@ inflateReset.exit:                                ; preds = %93, %102
   store i32 16191, ptr %18, align 8, !tbaa !18
   br label %inflateStateCheck.exit.thread
 
-inflateStateCheck.exit.thread:                    ; preds = %16, %4, %8, %1, %12, %syncsearch.exit58, %25, %inflateStateCheck.exit, %inflateReset.exit
-  %.0 = phi i32 [ 0, %inflateReset.exit ], [ -2, %inflateStateCheck.exit ], [ -5, %25 ], [ -3, %syncsearch.exit58 ], [ -2, %12 ], [ -2, %1 ], [ -2, %8 ], [ -2, %4 ], [ -2, %16 ]
+inflateStateCheck.exit.thread:                    ; preds = %12, %16, %1, %4, %8, %syncsearch.exit58, %25, %inflateStateCheck.exit, %inflateReset.exit
+  %.0 = phi i32 [ 0, %inflateReset.exit ], [ -2, %inflateStateCheck.exit ], [ -5, %25 ], [ -3, %syncsearch.exit58 ], [ -2, %8 ], [ -2, %4 ], [ -2, %1 ], [ -2, %16 ], [ -2, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -4264,8 +4264,8 @@ inflateStateCheck.exit:                           ; preds = %15
   %26 = zext i1 %25 to i32
   br label %inflateStateCheck.exit.thread
 
-inflateStateCheck.exit.thread:                    ; preds = %15, %3, %7, %1, %11, %20, %22, %inflateStateCheck.exit
-  %.0 = phi i32 [ -2, %inflateStateCheck.exit ], [ 0, %20 ], [ %26, %22 ], [ -2, %11 ], [ -2, %1 ], [ -2, %7 ], [ -2, %3 ], [ -2, %15 ]
+inflateStateCheck.exit.thread:                    ; preds = %11, %15, %1, %3, %7, %20, %22, %inflateStateCheck.exit
+  %.0 = phi i32 [ -2, %inflateStateCheck.exit ], [ 0, %20 ], [ %26, %22 ], [ -2, %7 ], [ -2, %3 ], [ -2, %1 ], [ -2, %15 ], [ -2, %11 ]
   ret i32 %.0
 }
 
@@ -4399,8 +4399,8 @@ inflateStateCheck.exit:                           ; preds = %16
   store ptr %25, ptr %75, align 8, !tbaa !13
   br label %inflateStateCheck.exit.thread
 
-inflateStateCheck.exit.thread:                    ; preds = %16, %4, %8, %2, %12, %22, %inflateStateCheck.exit, %73, %38
-  %.0 = phi i32 [ 0, %73 ], [ -2, %inflateStateCheck.exit ], [ -4, %38 ], [ -4, %22 ], [ -2, %12 ], [ -2, %2 ], [ -2, %8 ], [ -2, %4 ], [ -2, %16 ]
+inflateStateCheck.exit.thread:                    ; preds = %12, %16, %2, %4, %8, %22, %inflateStateCheck.exit, %73, %38
+  %.0 = phi i32 [ -4, %38 ], [ 0, %73 ], [ -2, %inflateStateCheck.exit ], [ -4, %22 ], [ -2, %8 ], [ -2, %4 ], [ -2, %2 ], [ -2, %16 ], [ -2, %12 ]
   ret i32 %.0
 }
 
@@ -4444,8 +4444,8 @@ inflateStateCheck.exit:                           ; preds = %16
   store i32 1, ptr %22, align 8, !tbaa !33
   br label %inflateStateCheck.exit.thread
 
-inflateStateCheck.exit.thread:                    ; preds = %16, %4, %8, %2, %12, %inflateStateCheck.exit, %21
-  %.0 = phi i32 [ -3, %21 ], [ -2, %inflateStateCheck.exit ], [ -2, %12 ], [ -2, %2 ], [ -2, %8 ], [ -2, %4 ], [ -2, %16 ]
+inflateStateCheck.exit.thread:                    ; preds = %12, %16, %2, %4, %8, %inflateStateCheck.exit, %21
+  %.0 = phi i32 [ -3, %21 ], [ -2, %inflateStateCheck.exit ], [ -2, %8 ], [ -2, %4 ], [ -2, %2 ], [ -2, %16 ], [ -2, %12 ]
   ret i32 %.0
 }
 
@@ -4509,8 +4509,8 @@ inflateStateCheck.exit:                           ; preds = %16
   store i32 %27, ptr %28, align 8, !tbaa !21
   br label %inflateStateCheck.exit.thread
 
-inflateStateCheck.exit.thread:                    ; preds = %16, %4, %8, %2, %12, %24, %26, %inflateStateCheck.exit
-  %.0 = phi i32 [ -2, %inflateStateCheck.exit ], [ 0, %26 ], [ 0, %24 ], [ -2, %12 ], [ -2, %2 ], [ -2, %8 ], [ -2, %4 ], [ -2, %16 ]
+inflateStateCheck.exit.thread:                    ; preds = %12, %16, %2, %4, %8, %24, %26, %inflateStateCheck.exit
+  %.0 = phi i32 [ -2, %inflateStateCheck.exit ], [ 0, %26 ], [ 0, %24 ], [ -2, %8 ], [ -2, %4 ], [ -2, %2 ], [ -2, %16 ], [ -2, %12 ]
   ret i32 %.0
 }
 
@@ -4578,8 +4578,8 @@ inflateStateCheck.exit:                           ; preds = %15
   %37 = add nsw i64 %24, %36
   br label %inflateStateCheck.exit.thread
 
-inflateStateCheck.exit.thread:                    ; preds = %15, %3, %7, %1, %11, %inflateStateCheck.exit, %34
-  %.0 = phi i64 [ %37, %34 ], [ -65536, %inflateStateCheck.exit ], [ -65536, %11 ], [ -65536, %1 ], [ -65536, %7 ], [ -65536, %3 ], [ -65536, %15 ]
+inflateStateCheck.exit.thread:                    ; preds = %11, %15, %1, %3, %7, %inflateStateCheck.exit, %34
+  %.0 = phi i64 [ %37, %34 ], [ -65536, %inflateStateCheck.exit ], [ -65536, %7 ], [ -65536, %3 ], [ -65536, %1 ], [ -65536, %15 ], [ -65536, %11 ]
   ret i64 %.0
 }
 
@@ -4628,8 +4628,8 @@ inflateStateCheck.exit:                           ; preds = %15
   %27 = ashr exact i64 %26, 2
   br label %inflateStateCheck.exit.thread
 
-inflateStateCheck.exit.thread:                    ; preds = %15, %3, %7, %1, %11, %inflateStateCheck.exit, %20
-  %.0 = phi i64 [ %27, %20 ], [ -1, %inflateStateCheck.exit ], [ -1, %11 ], [ -1, %1 ], [ -1, %7 ], [ -1, %3 ], [ -1, %15 ]
+inflateStateCheck.exit.thread:                    ; preds = %11, %15, %1, %3, %7, %inflateStateCheck.exit, %20
+  %.0 = phi i64 [ %27, %20 ], [ -1, %inflateStateCheck.exit ], [ -1, %7 ], [ -1, %3 ], [ -1, %1 ], [ -1, %15 ], [ -1, %11 ]
   ret i64 %.0
 }
 

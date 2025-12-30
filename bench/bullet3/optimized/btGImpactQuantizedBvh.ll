@@ -1466,7 +1466,7 @@ define dso_local noundef zeroext i1 @_ZNK21btGImpactQuantizedBvh8boxQueryERK6btA
   %87 = icmp ugt i16 %86, %59
   br i1 %87, label %_ZNK18btQuantizedBvhTree24testQuantizedBoxOverlappEiPtS0_.exit.thread, label %_ZNK18btQuantizedBvhTree24testQuantizedBoxOverlappEiPtS0_.exit
 
-_ZNK18btQuantizedBvhTree24testQuantizedBoxOverlappEiPtS0_.exit.thread: ; preds = %66, %84, %80, %76, %72
+_ZNK18btQuantizedBvhTree24testQuantizedBoxOverlappEiPtS0_.exit.thread: ; preds = %84, %80, %76, %72, %66
   %88 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %89 = load i32, ptr %88, align 4, !tbaa !39
   %90 = icmp sgt i32 %89, -1
@@ -1726,7 +1726,7 @@ define dso_local noundef zeroext i1 @_ZNK21btGImpactQuantizedBvh8rayQueryERK9btV
   %114 = fcmp ogt float %110, %113
   br i1 %114, label %_ZNK6btAABB11collide_rayERK9btVector3S2_.exit.thread, label %_ZNK6btAABB11collide_rayERK9btVector3S2_.exit
 
-_ZNK6btAABB11collide_rayERK9btVector3S2_.exit.thread: ; preds = %74, %83, %87, %105, %._crit_edge.i
+_ZNK6btAABB11collide_rayERK9btVector3S2_.exit.thread: ; preds = %74, %83, %._crit_edge.i, %105, %87
   %115 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %116 = load i32, ptr %115, align 4, !tbaa !39
   %117 = icmp sgt i32 %116, -1
@@ -2601,7 +2601,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK6btAABB23overlapping_trans
   br i1 %168, label %.critedge, label %140
 
 .critedge:                                        ; preds = %61, %93, %.loopexit, %141, %117
-  %.0 = phi i1 [ true, %.loopexit ], [ false, %93 ], [ true, %117 ], [ false, %141 ], [ false, %61 ]
+  %.0 = phi i1 [ true, %117 ], [ false, %141 ], [ true, %.loopexit ], [ false, %93 ], [ false, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

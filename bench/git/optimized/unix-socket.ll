@@ -91,7 +91,7 @@ unix_sockaddr_cleanup.exit11:                     ; preds = %28, %35
   br label %unix_sockaddr_cleanup.exit
 
 unix_sockaddr_cleanup.exit:                       ; preds = %20, %15, %2, %unix_sockaddr_cleanup.exit11
-  %.0 = phi i32 [ -1, %2 ], [ -1, %unix_sockaddr_cleanup.exit11 ], [ %8, %15 ], [ %8, %20 ]
+  %.0 = phi i32 [ -1, %unix_sockaddr_cleanup.exit11 ], [ -1, %2 ], [ %8, %15 ], [ %8, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -274,7 +274,7 @@ unix_sockaddr_cleanup.exit16:                     ; preds = %38, %45
   br label %unix_sockaddr_cleanup.exit
 
 unix_sockaddr_cleanup.exit:                       ; preds = %28, %23, %2, %unix_sockaddr_cleanup.exit16
-  %.0 = phi i32 [ -1, %2 ], [ -1, %unix_sockaddr_cleanup.exit16 ], [ %13, %23 ], [ %13, %28 ]
+  %.0 = phi i32 [ -1, %unix_sockaddr_cleanup.exit16 ], [ -1, %2 ], [ %13, %23 ], [ %13, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

@@ -174,8 +174,8 @@ checkstride.exit126:                              ; preds = %51
   br label %checkstride.exit126.thread
 
 checkstride.exit126.thread:                       ; preds = %50, %28, %checkstride.exit.thread, %checkstride.exit126
-  %.pre193 = phi ptr [ %33, %28 ], [ %45, %checkstride.exit.thread ], [ %.pre193.pre, %checkstride.exit126 ], [ %45, %50 ]
-  %.pre191 = phi ptr [ %30, %28 ], [ %47, %checkstride.exit.thread ], [ %.pre191.pre, %checkstride.exit126 ], [ %47, %50 ]
+  %.pre193 = phi ptr [ %45, %checkstride.exit.thread ], [ %.pre193.pre, %checkstride.exit126 ], [ %33, %28 ], [ %45, %50 ]
+  %.pre191 = phi ptr [ %47, %checkstride.exit.thread ], [ %.pre191.pre, %checkstride.exit126 ], [ %30, %28 ], [ %47, %50 ]
   %56 = load ptr, ptr %16, align 8, !tbaa !35
   %.not98 = icmp eq ptr %56, null
   br i1 %.not98, label %checkstride.exit135.thread, label %57
@@ -213,8 +213,8 @@ checkstride.exit135:                              ; preds = %63
   br label %checkstride.exit135.thread
 
 checkstride.exit135.thread:                       ; preds = %62, %57, %checkstride.exit135, %checkstride.exit126.thread
-  %68 = phi ptr [ %.pre193, %checkstride.exit126.thread ], [ %.pre193, %57 ], [ %.pre192, %checkstride.exit135 ], [ %.pre193, %62 ]
-  %69 = phi ptr [ %.pre191, %checkstride.exit126.thread ], [ %.pre191, %57 ], [ %.pre190, %checkstride.exit135 ], [ %.pre191, %62 ]
+  %68 = phi ptr [ %.pre193, %57 ], [ %.pre192, %checkstride.exit135 ], [ %.pre193, %checkstride.exit126.thread ], [ %.pre193, %62 ]
+  %69 = phi ptr [ %.pre191, %57 ], [ %.pre190, %checkstride.exit135 ], [ %.pre191, %checkstride.exit126.thread ], [ %.pre191, %62 ]
   %70 = load ptr, ptr %20, align 8, !tbaa !36
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -428,7 +428,7 @@ checkstride.exit144:                              ; preds = %76, %86
   br label %.thread172
 
 .thread172:                                       ; preds = %81, %.thread, %133, %116, %24, %174, %._crit_edge, %checkstride.exit144
-  %.0 = phi i32 [ -1, %checkstride.exit144 ], [ %132, %._crit_edge ], [ 0, %81 ], [ %175, %174 ], [ -12, %116 ], [ -12, %24 ], [ -12, %133 ], [ 0, %.thread ]
+  %.0 = phi i32 [ -1, %checkstride.exit144 ], [ %132, %._crit_edge ], [ %175, %174 ], [ -12, %24 ], [ -12, %116 ], [ -12, %133 ], [ 0, %.thread ], [ 0, %81 ]
   ret i32 %.0
 }
 
@@ -696,7 +696,7 @@ define range(i32 -2147483648, 1) i32 @ff_yadif_request_frame(ptr noundef readonl
   br label %.critedge
 
 .critedge:                                        ; preds = %18, %21, %39, %9, %41, %7
-  %.0 = phi i32 [ 0, %7 ], [ %16, %39 ], [ 0, %41 ], [ -12, %21 ], [ -541478725, %9 ], [ -541478725, %18 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %41 ], [ -541478725, %9 ], [ %16, %39 ], [ -12, %21 ], [ -541478725, %18 ]
   ret i32 %.0
 }
 

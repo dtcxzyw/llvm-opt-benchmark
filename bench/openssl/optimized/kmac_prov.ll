@@ -105,7 +105,7 @@ kmac_free.exit:                                   ; preds = %13, %7
   br label %42
 
 42:                                               ; preds = %3, %1, %25, %kmac_free.exit
-  %.0 = phi ptr [ null, %1 ], [ %5, %25 ], [ null, %kmac_free.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %5, %25 ], [ null, %kmac_free.exit ], [ null, %1 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -283,7 +283,7 @@ bytepad.exit:                                     ; preds = %47, %72, %70
   br label %80
 
 80:                                               ; preds = %36, %19, %12, %4, %9, %bytepad.exit, %28, %18
-  %.0 = phi i32 [ 0, %28 ], [ 0, %19 ], [ %79, %bytepad.exit ], [ 0, %36 ], [ 0, %12 ], [ 0, %4 ], [ 0, %18 ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %28 ], [ %79, %bytepad.exit ], [ 0, %18 ], [ 0, %9 ], [ 0, %4 ], [ 0, %12 ], [ 0, %19 ], [ 0, %36 ]
   ret i32 %.0
 }
 
@@ -375,7 +375,7 @@ right_encode.exit.thread:                         ; preds = %get_encode_size.exi
   br label %41
 
 41:                                               ; preds = %right_encode.exit.thread, %35, %29
-  %42 = phi i32 [ 0, %29 ], [ 0, %right_encode.exit.thread ], [ %40, %35 ]
+  %42 = phi i32 [ 0, %29 ], [ %40, %35 ], [ 0, %right_encode.exit.thread ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load i64, ptr %43, align 8, !tbaa !17
   store i64 %44, ptr %2, align 8, !tbaa !24
@@ -582,7 +582,7 @@ encode_string.exit:                               ; preds = %get_encode_size.exi
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %42, %61, %2, %29, %encode_string.exit, %23, %.critedge, %8, %ossl_param_is_empty.exit, %35
-  %.019 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %35 ], [ 1, %29 ], [ 0, %23 ], [ 0, %8 ], [ 0, %.critedge ], [ 0, %encode_string.exit ], [ 1, %2 ], [ 1, %61 ], [ 1, %42 ]
+  %.019 = phi i32 [ 0, %35 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %8 ], [ 0, %.critedge ], [ 0, %23 ], [ 0, %encode_string.exit ], [ 1, %29 ], [ 1, %2 ], [ 1, %61 ], [ 1, %42 ]
   ret i32 %.019
 }
 
@@ -650,7 +650,7 @@ kmac_free.exit15:                                 ; preds = %17
   br label %32
 
 32:                                               ; preds = %2, %29, %kmac_free.exit15, %kmac_free.exit
-  %.0 = phi ptr [ null, %kmac_free.exit ], [ null, %kmac_free.exit15 ], [ %3, %29 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %kmac_free.exit15 ], [ %3, %29 ], [ null, %kmac_free.exit ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -692,7 +692,7 @@ kmac_free.exit:                                   ; preds = %6
   br label %.split
 
 .split:                                           ; preds = %3, %kmac_free.exit, %1, %17
-  %.0 = phi ptr [ null, %1 ], [ %4, %17 ], [ null, %kmac_free.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %4, %17 ], [ null, %1 ], [ null, %kmac_free.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -850,7 +850,7 @@ kmac_bytepad_encode_key.exit:                     ; preds = %46, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %59
 
-58:                                               ; preds = %39, %encode_string.exit.i
+58:                                               ; preds = %encode_string.exit.i, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %59
 

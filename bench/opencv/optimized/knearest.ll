@@ -714,7 +714,7 @@ define linkonce_odr hidden void @_ZN2cv2ml12KNearestImpl8initImplEi(ptr noundef 
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %23, %20
-  %25 = phi ptr [ %.pr.pre.i.i.i.i, %23 ], [ %17, %20 ]
+  %25 = phi ptr [ %17, %20 ], [ %.pr.pre.i.i.i.i, %23 ]
   %.not8.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %26
 
@@ -1830,7 +1830,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %8, %23
   br i1 %.not234.us, label %111, label %._crit_edge263.us
 
 ._crit_edge263.us:                                ; preds = %111, %.lr.ph262.us
-  %.3.lcssa.us = phi i32 [ %.3260.us, %.lr.ph262.us ], [ 0, %111 ]
+  %.3.lcssa.us = phi i32 [ 0, %111 ], [ %.3260.us, %.lr.ph262.us ]
   %.not235.us = icmp slt i32 %.3.lcssa.us, %2
   br i1 %.not235.us, label %100, label %._crit_edge263.us.thread
 
@@ -2608,7 +2608,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPfN9__gnu_cxx5__ops15_Iter_le
   br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, !llvm.loop !135
 
 _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %40, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.01317.i.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %40 ]
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.018.i.i.us, %40 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
   %43 = getelementptr inbounds nuw float, ptr %0, i64 %.013.lcssa.i.i.us
   store float %21, ptr %43, align 4, !tbaa !71
   %.not.us = icmp eq i64 %.013.us, 0
@@ -3412,7 +3412,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %157
   br label %177
 
 .body:                                            ; preds = %162, %164
-  %eh.lpad-body = phi { ptr, i32 } [ %165, %164 ], [ %163, %162 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %163, %162 ], [ %165, %164 ]
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %29) #23
   br label %177
 

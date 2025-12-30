@@ -235,7 +235,7 @@ define i64 @Java_java_util_zip_Inflater_inflateBytesBytes(ptr noundef %0, ptr no
   br label %57
 
 57:                                               ; preds = %29, %33, %39, %15, %16, %22, %40
-  %.0 = phi i64 [ %56, %40 ], [ 0, %15 ], [ 0, %22 ], [ 0, %16 ], [ 0, %39 ], [ 0, %33 ], [ 0, %29 ]
+  %.0 = phi i64 [ %56, %40 ], [ 0, %22 ], [ 0, %16 ], [ 0, %15 ], [ 0, %39 ], [ 0, %33 ], [ 0, %29 ]
   ret i64 %.0
 }
 

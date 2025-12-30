@@ -432,7 +432,7 @@ define internal i64 @udp_send_internal(i64 noundef %0) #0 {
   br i1 %.not, label %rb_ll2num_inline.exit, label %.preheader, !llvm.loop !50
 
 rb_ll2num_inline.exit:                            ; preds = %30, %1, %23, %20
-  %.0 = phi i64 [ %24, %23 ], [ %22, %20 ], [ 0, %1 ], [ 0, %30 ]
+  %.0 = phi i64 [ %22, %20 ], [ %24, %23 ], [ 0, %1 ], [ 0, %30 ]
   ret i64 %.0
 }
 

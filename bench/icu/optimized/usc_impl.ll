@@ -68,7 +68,7 @@ uscript_setRunText_77.exit:                       ; preds = %17
   br label %29
 
 29:                                               ; preds = %uscript_setRunText_77.exit, %28, %3, %5, %11
-  %.011 = phi ptr [ null, %3 ], [ null, %11 ], [ null, %5 ], [ null, %28 ], [ %9, %uscript_setRunText_77.exit ]
+  %.011 = phi ptr [ null, %11 ], [ null, %5 ], [ null, %3 ], [ null, %28 ], [ %9, %uscript_setRunText_77.exit ]
   ret ptr %.011
 }
 
@@ -420,7 +420,7 @@ _ZL5fixupP10UScriptRun11UScriptCode.exit:         ; preds = %.lr.ph.i, %99
   br i1 %139, label %18, label %_ZL3popP10UScriptRun.exit98, !llvm.loop !30
 
 _ZL3popP10UScriptRun.exit98:                      ; preds = %135, %132, %130
-  %140 = phi i32 [ %92, %130 ], [ %92, %132 ], [ %114, %135 ]
+  %140 = phi i32 [ %92, %132 ], [ %92, %130 ], [ %114, %135 ]
   %.not87 = icmp eq ptr %1, null
   br i1 %.not87, label %143, label %141
 
@@ -447,7 +447,7 @@ _ZL3popP10UScriptRun.exit98:                      ; preds = %135, %132, %130
   br label %148
 
 148:                                              ; preds = %146, %147, %4, %7
-  %.0 = phi i8 [ 0, %4 ], [ 0, %7 ], [ 1, %147 ], [ 1, %146 ]
+  %.0 = phi i8 [ 0, %7 ], [ 0, %4 ], [ 1, %147 ], [ 1, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i8 %.0
 }

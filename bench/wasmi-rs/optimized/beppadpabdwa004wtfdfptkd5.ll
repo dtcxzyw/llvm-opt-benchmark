@@ -2082,7 +2082,7 @@ _ZN5wasmi6engine8executor14EngineExecutor18write_results_back17h6e45931302e294e1
   br label %278
 
 256:                                              ; preds = %223, %241, %.thread85, %234
-  %.sroa.0.0 = phi ptr [ %244, %241 ], [ %238, %.thread85 ], [ %237, %234 ], [ %226, %223 ]
+  %.sroa.0.0 = phi ptr [ %237, %234 ], [ %238, %.thread85 ], [ %244, %241 ], [ %226, %223 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %278
 
@@ -2148,7 +2148,7 @@ _ZN5wasmi6engine8executor14EngineExecutor18write_results_back17h6e45931302e294e1
   br label %278
 
 278:                                              ; preds = %275, %81, %162, %_ZN5wasmi6engine8executor14EngineExecutor18write_results_back17h6e45931302e294e1E.exit, %257, %256, %120
-  %.sroa.0.1 = phi ptr [ null, %_ZN5wasmi6engine8executor14EngineExecutor18write_results_back17h6e45931302e294e1E.exit ], [ %84, %81 ], [ %277, %275 ], [ %165, %162 ], [ %122, %120 ], [ %.sroa.0.0, %256 ], [ %260, %257 ]
+  %.sroa.0.1 = phi ptr [ %122, %120 ], [ %.sroa.0.0, %256 ], [ %165, %162 ], [ %84, %81 ], [ %277, %275 ], [ null, %_ZN5wasmi6engine8executor14EngineExecutor18write_results_back17h6e45931302e294e1E.exit ], [ %260, %257 ]
   ret ptr %.sroa.0.1
 }
 
@@ -2649,13 +2649,13 @@ define hidden void @"_ZN5wasmi6engine8executor44_$LT$impl$u20$wasmi..engine..Eng
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %122
 
-.thread45:                                        ; preds = %107, %.thread31.thread56, %109, %86
-  %.pn14.pn48 = phi { ptr, i32 } [ %lpad.thr_comm54, %.thread31.thread56 ], [ %lpad.thr_comm, %109 ], [ %lpad.thr_comm.split-lp, %86 ], [ %108, %107 ]
+.thread45:                                        ; preds = %107, %.thread31.thread56, %86, %109
+  %.pn14.pn48 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %86 ], [ %lpad.thr_comm, %109 ], [ %lpad.thr_comm54, %.thread31.thread56 ], [ %108, %107 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasmi..engine..executor..stack..Stack$GT$17hb822faf8390832aaE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %21) #18
           to label %.thread unwind label %60
 
 .thread:                                          ; preds = %56, %123, %.thread45, %33
-  %.pn14.pn.pn = phi { ptr, i32 } [ %.pn14.pn48, %.thread45 ], [ %.pn14, %123 ], [ %34, %33 ], [ %57, %56 ]
+  %.pn14.pn.pn = phi { ptr, i32 } [ %.pn14.pn48, %.thread45 ], [ %34, %33 ], [ %57, %56 ], [ %.pn14, %123 ]
   resume { ptr, i32 } %.pn14.pn.pn
 }
 

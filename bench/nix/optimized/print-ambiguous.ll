@@ -576,7 +576,7 @@ select.unfold.i.i:                                ; preds = %173, %._crit_edge.t
   br label %_ZNSt3setIPKvSt4lessIS1_ESaIS1_EE6insertEOS1_.exit.thread
 
 _ZNSt3setIPKvSt4lessIS1_ESaIS1_EE6insertEOS1_.exit.thread: ; preds = %select.unfold.i.i, %177
-  %181 = phi i1 [ %180, %177 ], [ true, %select.unfold.i.i ]
+  %181 = phi i1 [ true, %select.unfold.i.i ], [ %180, %177 ]
   %182 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 32
   store ptr %162, ptr %183, align 8
@@ -691,7 +691,7 @@ _ZN3nix10SourcePathD2Ev.exit:                     ; preds = %_ZNSt16_Sp_counted_
   ret void
 
 _ZNSt6vectorIPKN3nix4AttrESaIS3_EED2Ev.exit87:    ; preds = %154, %151, %97
-  %.pn84 = phi { ptr, i32 } [ %152, %154 ], [ %.pn, %97 ], [ %152, %151 ]
+  %.pn84 = phi { ptr, i32 } [ %.pn, %97 ], [ %152, %151 ], [ %152, %154 ]
   resume { ptr, i32 } %.pn84
 }
 
@@ -1239,7 +1239,7 @@ select.unfold.i:                                  ; preds = %13, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIPKvS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i
 
 _ZNSt8_Rb_treeIPKvS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i: ; preds = %17, %select.unfold.i
-  %21 = phi i1 [ %20, %17 ], [ true, %select.unfold.i ]
+  %21 = phi i1 [ true, %select.unfold.i ], [ %20, %17 ]
   %22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr %.pre.i.pre.pre.i, ptr %23, align 8

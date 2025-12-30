@@ -139,7 +139,7 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
   br i1 %70, label %71, label %50, !llvm.loop !14
 
 71:                                               ; preds = %65, %63
-  %72 = phi i32 [ %49, %63 ], [ %52, %65 ]
+  %72 = phi i32 [ %52, %65 ], [ %49, %63 ]
   %73 = icmp sgt i32 %72, -1
   br i1 %73, label %prev_badblocks.exit.thread7, label %.thread.i
 
@@ -193,7 +193,7 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
   br i1 %110, label %prev_badblocks.exit.thread, label %prev_badblocks.exit
 
 prev_badblocks.exit:                              ; preds = %91, %104, %79
-  %111 = phi i32 [ %87, %104 ], [ %80, %79 ], [ %93, %91 ]
+  %111 = phi i32 [ %80, %79 ], [ %87, %104 ], [ %93, %91 ]
   %112 = icmp sgt i32 %111, -1
   br i1 %112, label %prev_badblocks.exit.thread7, label %prev_badblocks.exit.thread
 
@@ -263,8 +263,8 @@ prev_badblocks.exit.thread7._crit_edge:           ; preds = %prev_badblocks.exit
   br label %175
 
 prev_badblocks.exit.thread:                       ; preds = %104, %.thread.i, %125, %prev_badblocks.exit.thread7._crit_edge, %prev_badblocks.exit
-  %155 = phi ptr [ %74, %prev_badblocks.exit ], [ %113, %125 ], [ %113, %prev_badblocks.exit.thread7._crit_edge ], [ %74, %.thread.i ], [ %74, %104 ]
-  %156 = phi i32 [ %111, %prev_badblocks.exit ], [ %114, %125 ], [ %114, %prev_badblocks.exit.thread7._crit_edge ], [ -1, %.thread.i ], [ -1, %104 ]
+  %155 = phi ptr [ %113, %125 ], [ %113, %prev_badblocks.exit.thread7._crit_edge ], [ %74, %prev_badblocks.exit ], [ %74, %.thread.i ], [ %74, %104 ]
+  %156 = phi i32 [ %114, %125 ], [ %114, %prev_badblocks.exit.thread7._crit_edge ], [ %111, %prev_badblocks.exit ], [ -1, %.thread.i ], [ -1, %104 ]
   %157 = add i32 %156, 1
   %158 = icmp slt i32 %157, %40
   br i1 %158, label %159, label %175
@@ -966,11 +966,11 @@ default.unreachable120:                           ; preds = %195
   br label %437
 
 437:                                              ; preds = %332, %.thread, %._crit_edge85, %400, %391, %381, %380, %376, %171, %154, %107, %88, %52, %36
-  %438 = phi i32 [ %27, %36 ], [ 0, %52 ], [ %48, %154 ], [ -1, %380 ], [ %48, %376 ], [ %345, %400 ], [ %345, %._crit_edge85 ], [ 0, %88 ], [ 0, %107 ], [ %48, %171 ], [ -1, %381 ], [ -1, %391 ], [ %48, %332 ], [ %48, %.thread ]
-  %439 = phi i32 [ %28, %36 ], [ %48, %52 ], [ %48, %154 ], [ %48, %380 ], [ %48, %376 ], [ %48, %400 ], [ %48, %._crit_edge85 ], [ %48, %88 ], [ %48, %107 ], [ %48, %171 ], [ %48, %381 ], [ %48, %391 ], [ %48, %332 ], [ %48, %.thread ]
-  %440 = phi i32 [ %46, %36 ], [ %69, %52 ], [ %157, %154 ], [ %29, %380 ], [ %379, %376 ], [ %29, %400 ], [ %436, %._crit_edge85 ], [ %29, %88 ], [ %108, %107 ], [ %175, %171 ], [ %29, %381 ], [ %29, %391 ], [ %278, %332 ], [ %29, %.thread ]
-  %441 = phi i32 [ %39, %36 ], [ %62, %52 ], [ 0, %154 ], [ %31, %380 ], [ %378, %376 ], [ %402, %400 ], [ %428, %._crit_edge85 ], [ %92, %88 ], [ %95, %107 ], [ %174, %171 ], [ %31, %381 ], [ %31, %391 ], [ %333, %332 ], [ %331, %.thread ]
-  %442 = phi i32 [ %30, %36 ], [ %30, %52 ], [ %30, %154 ], [ 1, %380 ], [ %30, %376 ], [ %30, %400 ], [ %30, %._crit_edge85 ], [ 1, %88 ], [ %30, %107 ], [ %30, %171 ], [ 1, %381 ], [ 1, %391 ], [ %30, %332 ], [ %30, %.thread ]
+  %438 = phi i32 [ %27, %36 ], [ 0, %52 ], [ %48, %154 ], [ %48, %376 ], [ %345, %400 ], [ %345, %._crit_edge85 ], [ 0, %88 ], [ 0, %107 ], [ %48, %171 ], [ -1, %391 ], [ -1, %380 ], [ -1, %381 ], [ %48, %332 ], [ %48, %.thread ]
+  %439 = phi i32 [ %28, %36 ], [ %48, %52 ], [ %48, %154 ], [ %48, %376 ], [ %48, %400 ], [ %48, %._crit_edge85 ], [ %48, %88 ], [ %48, %107 ], [ %48, %171 ], [ %48, %391 ], [ %48, %380 ], [ %48, %381 ], [ %48, %332 ], [ %48, %.thread ]
+  %440 = phi i32 [ %46, %36 ], [ %69, %52 ], [ %157, %154 ], [ %379, %376 ], [ %29, %400 ], [ %436, %._crit_edge85 ], [ %29, %88 ], [ %108, %107 ], [ %175, %171 ], [ %29, %391 ], [ %29, %380 ], [ %29, %381 ], [ %278, %332 ], [ %29, %.thread ]
+  %441 = phi i32 [ %39, %36 ], [ %62, %52 ], [ 0, %154 ], [ %378, %376 ], [ %402, %400 ], [ %428, %._crit_edge85 ], [ %92, %88 ], [ %95, %107 ], [ %174, %171 ], [ %31, %391 ], [ %31, %380 ], [ %31, %381 ], [ %333, %332 ], [ %331, %.thread ]
+  %442 = phi i32 [ %30, %36 ], [ %30, %52 ], [ %30, %154 ], [ %30, %376 ], [ %30, %400 ], [ %30, %._crit_edge85 ], [ 1, %88 ], [ %30, %107 ], [ %30, %171 ], [ 1, %391 ], [ 1, %380 ], [ 1, %381 ], [ %30, %332 ], [ %30, %.thread ]
   %443 = sext i32 %441 to i64
   %444 = add i64 %32, %443
   %445 = sub i32 %31, %441
@@ -1698,7 +1698,7 @@ define dso_local i64 @badblocks_show(ptr noundef %0, ptr noundef writeonly captu
   br label %.thread
 
 .thread:                                          ; preds = %80, %85, %83
-  %86 = phi i64 [ %57, %83 ], [ 0, %85 ], [ %81, %80 ]
+  %86 = phi i64 [ 0, %85 ], [ %57, %83 ], [ %81, %80 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !21
   %87 = load volatile i32, ptr %10, align 4
   %88 = icmp eq i32 %87, %54
@@ -1928,7 +1928,7 @@ define internal fastcc i32 @prev_badblocks(ptr noundef readonly captures(none) %
   br i1 %35, label %36, label %15, !llvm.loop !14
 
 36:                                               ; preds = %30, %28
-  %37 = phi i32 [ %14, %28 ], [ %17, %30 ]
+  %37 = phi i32 [ %17, %30 ], [ %14, %28 ]
   %38 = icmp sgt i32 %37, -1
   br i1 %38, label %.loopexit, label %.thread
 

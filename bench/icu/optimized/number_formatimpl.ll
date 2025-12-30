@@ -314,7 +314,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1438,7 +1438,7 @@ define noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl21getPrefixSuffix
           to label %_ZN6icu_776number4impl19NumberFormatterImpl21getPrefixSuffixUnsafeENS1_6SignumENS_14StandardPlural4FormERNS_22FormattedStringBuilderER10UErrorCode.exit unwind label %25
 
 _ZN6icu_776number4impl19NumberFormatterImpl21getPrefixSuffixUnsafeENS1_6SignumENS_14StandardPlural4FormERNS_22FormattedStringBuilderER10UErrorCode.exit: ; preds = %.noexc7, %5, %19
-  %.0.i = phi i32 [ 0, %.noexc7 ], [ 0, %5 ], [ %24, %19 ]
+  %.0.i = phi i32 [ 0, %5 ], [ 0, %.noexc7 ], [ %24, %19 ]
   call void @_ZN6icu_776number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
@@ -1930,7 +1930,7 @@ _ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i: ; preds = %4
   br i1 %68, label %_ZNK6icu_776number4impl10MacroProps11copyErrorToER10UErrorCode.exit.thread, label %_ZNK6icu_776number4impl10MacroProps11copyErrorToER10UErrorCode.exit
 
 _ZNK6icu_776number4impl10MacroProps11copyErrorToER10UErrorCode.exit.thread: ; preds = %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i, %49, %57, %61, %65
-  %.sink.i = phi i32 [ %63, %61 ], [ %59, %57 ], [ 7, %49 ], [ %30, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i ], [ %48, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i ], [ %42, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i ], [ %36, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i ], [ %67, %65 ]
+  %.sink.i = phi i32 [ %48, %_ZNK6icu_776number12IntegerWidth11copyErrorToER10UErrorCode.exit.i ], [ %42, %_ZNK6icu_776number4impl6Padder11copyErrorToER10UErrorCode.exit.i ], [ %36, %_ZNK6icu_776number9Precision11copyErrorToER10UErrorCode.exit.i ], [ %30, %_ZNK6icu_776number8Notation11copyErrorToER10UErrorCode.exit.i ], [ 7, %49 ], [ %59, %57 ], [ %63, %61 ], [ %67, %65 ]
   store i32 %.sink.i, ptr %3, align 4, !tbaa !13
   br label %606
 
@@ -2241,7 +2241,7 @@ _ZN6icu_7712LocalPointerINS_20DecimalFormatSymbolsEED2Ev.exit395: ; preds = %176
   br label %194
 
 194:                                              ; preds = %191, %190, %189
-  %.0327 = phi i32 [ %spec.select393, %191 ], [ 0, %189 ], [ 3, %190 ]
+  %.0327 = phi i32 [ 0, %189 ], [ 3, %190 ], [ %spec.select393, %191 ]
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %196 = invoke noundef ptr @_ZN6icu_776number4impl5utils18getPatternForStyleERKNS_6LocaleEPKcNS1_16CldrPatternStyleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %195, ptr noundef nonnull %137, i32 noundef %.0327, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %197 unwind label %200
@@ -3093,7 +3093,7 @@ _ZNK6icu_776number4impl17UsagePrefsHandler14getOutputUnitsEv.exit: ; preds = %46
   br label %.thread430
 
 .thread430:                                       ; preds = %472, %486, %.thread433, %546, %548
-  %.7277 = phi ptr [ %530, %.thread433 ], [ %547, %546 ], [ %.3273, %548 ], [ %487, %486 ], [ %473, %472 ]
+  %.7277 = phi ptr [ %547, %546 ], [ %.3273, %548 ], [ %530, %.thread433 ], [ %487, %486 ], [ %473, %472 ]
   %551 = load i32, ptr %3, align 4, !tbaa !13
   %552 = icmp slt i32 %551, 1
   br i1 %552, label %553, label %.thread440
@@ -3163,7 +3163,7 @@ _ZNK6icu_776number4impl17UsagePrefsHandler14getOutputUnitsEv.exit: ; preds = %46
   br i1 %584, label %.thread477, label %.thread440
 
 .thread477:                                       ; preds = %553, %.thread480, %580
-  %.8278479 = phi ptr [ %559, %.thread480 ], [ %559, %580 ], [ %.7277, %553 ]
+  %.8278479 = phi ptr [ %559, %580 ], [ %559, %.thread480 ], [ %.7277, %553 ]
   br i1 %2, label %585, label %590
 
 585:                                              ; preds = %.thread477
@@ -3181,17 +3181,17 @@ _ZNK6icu_776number4impl17UsagePrefsHandler14getOutputUnitsEv.exit: ; preds = %46
           to label %.thread440 unwind label %427
 
 .thread440:                                       ; preds = %.thread436, %568, %575, %535, %.thread425, %388, %588, %590, %580, %.thread430, %435, %300
-  %.9 = phi ptr [ null, %.thread425 ], [ null, %300 ], [ null, %388 ], [ null, %535 ], [ null, %435 ], [ null, %.thread430 ], [ null, %580 ], [ %385, %590 ], [ %589, %588 ], [ null, %575 ], [ null, %568 ], [ null, %.thread436 ]
+  %.9 = phi ptr [ null, %300 ], [ null, %388 ], [ null, %535 ], [ null, %435 ], [ null, %.thread430 ], [ null, %580 ], [ %589, %588 ], [ %385, %590 ], [ null, %.thread425 ], [ null, %575 ], [ null, %568 ], [ null, %.thread436 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN6icu_7712LocalPointerINS_20DecimalFormatSymbolsEED2Ev.exit396
 
 592:                                              ; preds = %304, %306, %319, %325, %340, %353, %370, %427, %448, %573, %488, %534, %459, %389, %295, %288, %283
-  %.pn378.pn.pn.pn = phi { ptr, i32 } [ %296, %295 ], [ %284, %283 ], [ %289, %288 ], [ %305, %304 ], [ %371, %370 ], [ %354, %353 ], [ %341, %340 ], [ %307, %306 ], [ %320, %319 ], [ %326, %325 ], [ %390, %389 ], [ %428, %427 ], [ %574, %573 ], [ %449, %448 ], [ %460, %459 ], [ %489, %488 ], [ %.pn370.pn, %534 ]
+  %.pn378.pn.pn.pn = phi { ptr, i32 } [ %284, %283 ], [ %289, %288 ], [ %296, %295 ], [ %371, %370 ], [ %354, %353 ], [ %341, %340 ], [ %307, %306 ], [ %320, %319 ], [ %326, %325 ], [ %305, %304 ], [ %390, %389 ], [ %428, %427 ], [ %574, %573 ], [ %449, %448 ], [ %460, %459 ], [ %489, %488 ], [ %.pn370.pn, %534 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %598
 
 _ZN6icu_7712LocalPointerINS_20DecimalFormatSymbolsEED2Ev.exit396: ; preds = %158, %155, %197, %226, %.thread440, %239, %206, %.thread416
-  %.4 = phi ptr [ null, %.thread416 ], [ null, %226 ], [ null, %197 ], [ null, %206 ], [ null, %239 ], [ %.9, %.thread440 ], [ null, %155 ], [ null, %158 ]
+  %.4 = phi ptr [ null, %.thread416 ], [ null, %197 ], [ null, %206 ], [ %.9, %.thread440 ], [ null, %239 ], [ null, %226 ], [ null, %155 ], [ null, %158 ]
   %593 = icmp eq ptr %.sroa.0406.0, null
   br i1 %593, label %_ZN6icu_7712LocalPointerIKNS_15NumberingSystemEED2Ev.exit, label %594
 
@@ -3209,7 +3209,7 @@ _ZN6icu_7712LocalPointerIKNS_15NumberingSystemEED2Ev.exit: ; preds = %_ZN6icu_77
   br label %606
 
 598:                                              ; preds = %200, %207, %592, %263, %253, %.body, %229, %_ZN6icu_7712LocalPointerINS_20DecimalFormatSymbolsEED2Ev.exit, %160, %148
-  %.pn378.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %208, %207 ], [ %161, %160 ], [ %149, %148 ], [ %162, %_ZN6icu_7712LocalPointerINS_20DecimalFormatSymbolsEED2Ev.exit ], [ %.pn356, %.body ], [ %201, %200 ], [ %.pn378.pn.pn.pn, %592 ], [ %230, %229 ], [ %254, %253 ], [ %264, %263 ]
+  %.pn378.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %149, %148 ], [ %162, %_ZN6icu_7712LocalPointerINS_20DecimalFormatSymbolsEED2Ev.exit ], [ %161, %160 ], [ %201, %200 ], [ %.pn378.pn.pn.pn, %592 ], [ %230, %229 ], [ %254, %253 ], [ %264, %263 ], [ %.pn356, %.body ], [ %208, %207 ]
   %599 = icmp eq ptr %.sroa.0406.0, null
   br i1 %599, label %_ZN6icu_7712LocalPointerIKNS_15NumberingSystemEED2Ev.exit397, label %600
 
@@ -3221,7 +3221,7 @@ _ZN6icu_7712LocalPointerIKNS_15NumberingSystemEED2Ev.exit: ; preds = %_ZN6icu_77
   br label %_ZN6icu_7712LocalPointerIKNS_15NumberingSystemEED2Ev.exit397
 
 _ZN6icu_7712LocalPointerIKNS_15NumberingSystemEED2Ev.exit397: ; preds = %.thread443, %598, %600, %126
-  %.pn378.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %127, %126 ], [ %.pn378.pn.pn.pn.pn.pn.pn.pn, %600 ], [ %128, %.thread443 ], [ %.pn378.pn.pn.pn.pn.pn.pn.pn, %598 ]
+  %.pn378.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %127, %126 ], [ %128, %.thread443 ], [ %.pn378.pn.pn.pn.pn.pn.pn.pn, %598 ], [ %.pn378.pn.pn.pn.pn.pn.pn.pn, %600 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %604
 

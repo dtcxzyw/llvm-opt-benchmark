@@ -172,7 +172,7 @@ pqueue_add_freelist.exit:                         ; preds = %.lr.ph.i28, %30
   br label %37
 
 37:                                               ; preds = %24, %compute_pqueue_growth.exit.thread30, %4, %2, %pqueue_add_freelist.exit, %compute_pqueue_growth.exit.thread
-  %.0 = phi i32 [ 1, %pqueue_add_freelist.exit ], [ 0, %2 ], [ 0, %compute_pqueue_growth.exit.thread ], [ 1, %4 ], [ 0, %compute_pqueue_growth.exit.thread30 ], [ 0, %24 ]
+  %.0 = phi i32 [ 0, %compute_pqueue_growth.exit.thread ], [ 1, %pqueue_add_freelist.exit ], [ 0, %2 ], [ 1, %4 ], [ 0, %compute_pqueue_growth.exit.thread30 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -389,7 +389,7 @@ pqueue_force_bottom.exit:                         ; preds = %.preheader, %25
   br label %37
 
 37:                                               ; preds = %2, %5, %8, %pqueue_force_bottom.exit, %19
-  %.0 = phi ptr [ %36, %pqueue_force_bottom.exit ], [ %24, %19 ], [ null, %8 ], [ null, %5 ], [ null, %2 ]
+  %.0 = phi ptr [ %24, %19 ], [ %36, %pqueue_force_bottom.exit ], [ null, %8 ], [ null, %5 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -454,7 +454,7 @@ pqueue_add_freelist.exit:                         ; preds = %.lr.ph.i
   br label %17
 
 17:                                               ; preds = %3, %1, %pqueue_add_freelist.exit, %ossl_pqueue_free.exit
-  %.0 = phi ptr [ %4, %pqueue_add_freelist.exit ], [ null, %1 ], [ null, %ossl_pqueue_free.exit ], [ null, %3 ]
+  %.0 = phi ptr [ null, %ossl_pqueue_free.exit ], [ %4, %pqueue_add_freelist.exit ], [ null, %1 ], [ null, %3 ]
   ret ptr %.0
 }
 

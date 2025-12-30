@@ -584,7 +584,7 @@ define range(i32 -1, 1) i32 @H5PL__open(ptr noundef %0, i32 noundef %1, ptr noun
   br label %.thread.thread139
 
 .thread.thread139:                                ; preds = %91, %66, %75, %87, %50, %62, %43, %29, %26, %23, %.thread, %.thread.thread, %103, %97
-  %.170 = phi i32 [ -1, %87 ], [ -1, %62 ], [ 0, %23 ], [ 0, %26 ], [ -1, %97 ], [ -1, %103 ], [ 0, %.thread.thread ], [ 0, %.thread ], [ -1, %43 ], [ 0, %29 ], [ -1, %50 ], [ -1, %75 ], [ 0, %66 ], [ 0, %91 ]
+  %.170 = phi i32 [ -1, %97 ], [ -1, %103 ], [ 0, %.thread.thread ], [ 0, %.thread ], [ -1, %43 ], [ 0, %23 ], [ 0, %26 ], [ 0, %29 ], [ -1, %50 ], [ -1, %62 ], [ -1, %75 ], [ -1, %87 ], [ 0, %66 ], [ 0, %91 ]
   %107 = load i8, ptr %3, align 1, !tbaa !3, !range !7, !noundef !8
   %108 = trunc nuw i8 %107 to i1
   br i1 %108, label %H5PL__close.exit, label %109
@@ -603,7 +603,7 @@ define range(i32 -1, 1) i32 @H5PL__open(ptr noundef %0, i32 noundef %1, ptr noun
   br label %H5PL__close.exit
 
 H5PL__close.exit:                                 ; preds = %116, %109, %.thread116, %6, %.thread.thread139
-  %.069 = phi i32 [ 0, %6 ], [ 0, %.thread116 ], [ %.170, %.thread.thread139 ], [ %.170, %109 ], [ %.170, %116 ]
+  %.069 = phi i32 [ %.170, %.thread.thread139 ], [ 0, %6 ], [ 0, %.thread116 ], [ %.170, %109 ], [ %.170, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.069
 }

@@ -266,7 +266,7 @@ define hidden ptr @d2i_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noun
   br label %10
 
 10:                                               ; preds = %7, %8, %5, %3
-  %.0 = phi ptr [ null, %5 ], [ null, %3 ], [ %6, %8 ], [ %6, %7 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %5 ], [ %6, %8 ], [ %6, %7 ]
   ret ptr %.0
 }
 
@@ -329,8 +329,8 @@ d2i_PUBKEY.exit:                                  ; preds = %7
   store ptr %9, ptr %0, align 8, !tbaa !21
   br label %d2i_PUBKEY.exit.thread
 
-d2i_PUBKEY.exit.thread:                           ; preds = %3, %7, %10, %12, %d2i_PUBKEY.exit
-  %.0 = phi ptr [ null, %d2i_PUBKEY.exit ], [ %9, %10 ], [ %9, %12 ], [ null, %7 ], [ null, %3 ]
+d2i_PUBKEY.exit.thread:                           ; preds = %7, %3, %10, %12, %d2i_PUBKEY.exit
+  %.0 = phi ptr [ null, %d2i_PUBKEY.exit ], [ %9, %12 ], [ %9, %10 ], [ null, %3 ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -417,8 +417,8 @@ d2i_PUBKEY.exit:                                  ; preds = %7
   store ptr %9, ptr %0, align 8, !tbaa !23
   br label %d2i_PUBKEY.exit.thread
 
-d2i_PUBKEY.exit.thread:                           ; preds = %3, %7, %10, %12, %d2i_PUBKEY.exit
-  %.0 = phi ptr [ null, %d2i_PUBKEY.exit ], [ %9, %10 ], [ %9, %12 ], [ null, %7 ], [ null, %3 ]
+d2i_PUBKEY.exit.thread:                           ; preds = %7, %3, %10, %12, %d2i_PUBKEY.exit
+  %.0 = phi ptr [ null, %d2i_PUBKEY.exit ], [ %9, %12 ], [ %9, %10 ], [ null, %3 ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -503,8 +503,8 @@ d2i_PUBKEY.exit:                                  ; preds = %7
   store ptr %9, ptr %0, align 8, !tbaa !25
   br label %d2i_PUBKEY.exit.thread
 
-d2i_PUBKEY.exit.thread:                           ; preds = %3, %7, %10, %12, %d2i_PUBKEY.exit
-  %.0 = phi ptr [ null, %d2i_PUBKEY.exit ], [ %9, %10 ], [ %9, %12 ], [ null, %7 ], [ null, %3 ]
+d2i_PUBKEY.exit.thread:                           ; preds = %7, %3, %10, %12, %d2i_PUBKEY.exit
+  %.0 = phi ptr [ null, %d2i_PUBKEY.exit ], [ %9, %12 ], [ %9, %10 ], [ null, %3 ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

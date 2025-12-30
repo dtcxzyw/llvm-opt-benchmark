@@ -69,7 +69,7 @@ define hidden double @SDL_uclibc_log10(double noundef %0) local_unnamed_addr #0 
   br label %37
 
 37:                                               ; preds = %4, %20, %18, %10
-  %.0 = phi double [ %36, %20 ], [ %12, %10 ], [ %19, %18 ], [ 0xFFF0000000000000, %4 ]
+  %.0 = phi double [ %12, %10 ], [ %19, %18 ], [ %36, %20 ], [ 0xFFF0000000000000, %4 ]
   ret double %.0
 }
 

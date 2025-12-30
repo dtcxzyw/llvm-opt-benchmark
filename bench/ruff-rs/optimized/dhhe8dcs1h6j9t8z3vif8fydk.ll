@@ -375,7 +375,7 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit62: ; preds = %82
   br i1 %.not49, label %105, label %104
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0d570ada6db82524E.exit": ; preds = %.loopexit, %15, %114, %111, %98
-  %.pn52 = phi { ptr, i32 } [ %112, %111 ], [ %99, %98 ], [ %99, %114 ], [ %lpad.phi, %.loopexit ], [ %.pn64, %15 ]
+  %.pn52 = phi { ptr, i32 } [ %112, %111 ], [ %99, %114 ], [ %99, %98 ], [ %lpad.phi, %.loopexit ], [ %.pn64, %15 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$serde_wasm_bindgen..de..ObjectAccess$GT$17h4842b4d2e97121f0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #8
           to label %117 unwind label %115
 
@@ -516,13 +516,13 @@ _ZN5serde2de9MapAccess8next_key17h71b8384f71476520E.exit: ; preds = %10
   br i1 %.not53, label %38, label %.invoke, !prof !9
 
 34:                                               ; preds = %31, %.invoke, %57, %49, %41, %13
-  %.sink = phi i32 [ %59, %57 ], [ %15, %13 ], [ %51, %49 ], [ %37, %.invoke ], [ %.sroa.651.0.extract.trunc, %41 ], [ %32, %31 ]
+  %.sink = phi i32 [ %59, %57 ], [ %51, %49 ], [ %.sroa.651.0.extract.trunc, %41 ], [ %15, %13 ], [ %37, %.invoke ], [ %32, %31 ]
   store i32 %.sink, ptr %0, align 8
   br label %77
 
 .invoke:                                          ; preds = %25, %33, %29
-  %35 = phi ptr [ @anon.2002a62f4a399853a8e260ba150a1d59.3, %29 ], [ @anon.2002a62f4a399853a8e260ba150a1d59.4, %33 ], [ @anon.2002a62f4a399853a8e260ba150a1d59.2, %25 ]
-  %36 = phi i64 [ 28, %29 ], [ 30, %33 ], [ 30, %25 ]
+  %35 = phi ptr [ @anon.2002a62f4a399853a8e260ba150a1d59.4, %33 ], [ @anon.2002a62f4a399853a8e260ba150a1d59.3, %29 ], [ @anon.2002a62f4a399853a8e260ba150a1d59.2, %25 ]
+  %36 = phi i64 [ 30, %33 ], [ 28, %29 ], [ 30, %25 ]
   %37 = invoke noundef i32 @_ZN5serde2de5Error15duplicate_field17h8a17252e7e2d5477E(ptr noalias noundef nonnull readonly align 1 %35, i64 noundef %36)
           to label %34 unwind label %.loopexit.split-lp
 
@@ -1005,7 +1005,7 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit64: ; preds = %82
   br i1 %.not49, label %"_ZN4core3ptr72drop_in_place$LT$ty_python_semantic..python_platform..PythonPlatform$GT$17ha3ef03efd05de02eE.exit", label %104
 
 "_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$ty_python_semantic..python_platform..PythonPlatform$GT$$GT$17hd9b8c099b87e07f4E.exit": ; preds = %98, %116, %14, %16, %113
-  %.pn52 = phi { ptr, i32 } [ %114, %113 ], [ %99, %98 ], [ %.pn, %14 ], [ %.pn, %16 ], [ %99, %116 ]
+  %.pn52 = phi { ptr, i32 } [ %114, %113 ], [ %.pn, %16 ], [ %.pn, %14 ], [ %99, %116 ], [ %99, %98 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$serde_wasm_bindgen..de..ObjectAccess$GT$17h4842b4d2e97121f0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #8
           to label %119 unwind label %117
 
@@ -1377,7 +1377,7 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit62: ; preds = %82
   br i1 %.not49, label %105, label %104
 
 "_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ruff_db..system..path..SystemPathBuf$GT$$GT$17he90917f5247b98ecE.exit": ; preds = %.loopexit, %15, %114, %111, %98
-  %.pn52 = phi { ptr, i32 } [ %112, %111 ], [ %99, %98 ], [ %99, %114 ], [ %lpad.phi, %.loopexit ], [ %.pn64, %15 ]
+  %.pn52 = phi { ptr, i32 } [ %112, %111 ], [ %99, %114 ], [ %99, %98 ], [ %lpad.phi, %.loopexit ], [ %.pn64, %15 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$serde_wasm_bindgen..de..ObjectAccess$GT$17h4842b4d2e97121f0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #8
           to label %117 unwind label %115
 
@@ -1518,13 +1518,13 @@ _ZN5serde2de9MapAccess8next_key17h71b8384f71476520E.exit: ; preds = %10
   br i1 %.not53, label %38, label %.invoke, !prof !9
 
 34:                                               ; preds = %31, %.invoke, %54, %46, %41, %13
-  %.sink = phi i32 [ %56, %54 ], [ %15, %13 ], [ %48, %46 ], [ %37, %.invoke ], [ %.sroa.651.0.extract.trunc, %41 ], [ %32, %31 ]
+  %.sink = phi i32 [ %56, %54 ], [ %48, %46 ], [ %.sroa.651.0.extract.trunc, %41 ], [ %15, %13 ], [ %37, %.invoke ], [ %32, %31 ]
   store i32 %.sink, ptr %0, align 8
   br label %74
 
 .invoke:                                          ; preds = %25, %33, %29
-  %35 = phi ptr [ @anon.2002a62f4a399853a8e260ba150a1d59.3, %29 ], [ @anon.2002a62f4a399853a8e260ba150a1d59.4, %33 ], [ @anon.2002a62f4a399853a8e260ba150a1d59.2, %25 ]
-  %36 = phi i64 [ 28, %29 ], [ 30, %33 ], [ 30, %25 ]
+  %35 = phi ptr [ @anon.2002a62f4a399853a8e260ba150a1d59.4, %33 ], [ @anon.2002a62f4a399853a8e260ba150a1d59.3, %29 ], [ @anon.2002a62f4a399853a8e260ba150a1d59.2, %25 ]
+  %36 = phi i64 [ 30, %33 ], [ 28, %29 ], [ 30, %25 ]
   %37 = invoke noundef i32 @_ZN5serde2de5Error15duplicate_field17h8a17252e7e2d5477E(ptr noalias noundef nonnull readonly align 1 %35, i64 noundef %36)
           to label %34 unwind label %.loopexit.split-lp
 
@@ -1769,14 +1769,14 @@ _ZN5serde2de9MapAccess8next_key17h71b8384f71476520E.exit: ; preds = %10
   br i1 %34, label %.invoke, label %40, !prof !38
 
 35:                                               ; preds = %31, %.invoke, %58, %50, %43, %13
-  %.sink = phi i32 [ %60, %58 ], [ %15, %13 ], [ %52, %50 ], [ %39, %.invoke ], [ %.sroa.760.0.extract.trunc, %43 ], [ %32, %31 ]
+  %.sink = phi i32 [ %60, %58 ], [ %52, %50 ], [ %.sroa.760.0.extract.trunc, %43 ], [ %15, %13 ], [ %39, %.invoke ], [ %32, %31 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %36, align 4
   br label %77
 
 .invoke:                                          ; preds = %25, %33, %29
-  %37 = phi ptr [ @anon.2002a62f4a399853a8e260ba150a1d59.3, %29 ], [ @anon.2002a62f4a399853a8e260ba150a1d59.4, %33 ], [ @anon.2002a62f4a399853a8e260ba150a1d59.2, %25 ]
-  %38 = phi i64 [ 28, %29 ], [ 30, %33 ], [ 30, %25 ]
+  %37 = phi ptr [ @anon.2002a62f4a399853a8e260ba150a1d59.4, %33 ], [ @anon.2002a62f4a399853a8e260ba150a1d59.3, %29 ], [ @anon.2002a62f4a399853a8e260ba150a1d59.2, %25 ]
+  %38 = phi i64 [ 30, %33 ], [ 28, %29 ], [ 30, %25 ]
   %39 = invoke noundef i32 @_ZN5serde2de5Error15duplicate_field17h8a17252e7e2d5477E(ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %38)
           to label %35 unwind label %.loopexit.split-lp
 

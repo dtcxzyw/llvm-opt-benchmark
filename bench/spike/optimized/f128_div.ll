@@ -75,9 +75,9 @@ define { i64, i64 } @f128_div(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
   br label %32
 
 32:                                               ; preds = %22, %31
-  %.sroa.079.0 = phi i64 [ %2, %22 ], [ %.sroa.674.sroa.0.0.copyload, %31 ]
-  %.sroa.15.0 = phi i64 [ %13, %22 ], [ %.sroa.674.sroa.6.0.copyload, %31 ]
-  %.0152 = phi i64 [ %12, %22 ], [ %.sroa.071.0.copyload, %31 ]
+  %.sroa.079.0 = phi i64 [ %.sroa.674.sroa.0.0.copyload, %31 ], [ %2, %22 ]
+  %.sroa.15.0 = phi i64 [ %.sroa.674.sroa.6.0.copyload, %31 ], [ %13, %22 ]
+  %.0152 = phi i64 [ %.sroa.071.0.copyload, %31 ], [ %12, %22 ]
   %.not163 = icmp eq i64 %9, 0
   br i1 %.not163, label %33, label %36
 

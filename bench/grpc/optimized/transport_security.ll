@@ -103,7 +103,7 @@ define noundef i32 @_Z27tsi_frame_protector_protectP19tsi_frame_protectorPKhPmPh
   br label %19
 
 19:                                               ; preds = %14, %5, %7, %17
-  %.0 = phi i32 [ %18, %17 ], [ 2, %5 ], [ 2, %7 ], [ 6, %14 ]
+  %.0 = phi i32 [ %18, %17 ], [ 2, %7 ], [ 2, %5 ], [ 6, %14 ]
   ret i32 %.0
 }
 
@@ -134,7 +134,7 @@ define noundef i32 @_Z33tsi_frame_protector_protect_flushP19tsi_frame_protectorP
   br label %18
 
 18:                                               ; preds = %12, %4, %6, %16
-  %.0 = phi i32 [ %17, %16 ], [ 2, %4 ], [ 2, %6 ], [ 6, %12 ]
+  %.0 = phi i32 [ %17, %16 ], [ 2, %6 ], [ 2, %4 ], [ 6, %12 ]
   ret i32 %.0
 }
 
@@ -167,7 +167,7 @@ define noundef i32 @_Z29tsi_frame_protector_unprotectP19tsi_frame_protectorPKhPm
   br label %20
 
 20:                                               ; preds = %14, %5, %7, %18
-  %.0 = phi i32 [ %19, %18 ], [ 2, %5 ], [ 2, %7 ], [ 6, %14 ]
+  %.0 = phi i32 [ %19, %18 ], [ 2, %7 ], [ 2, %5 ], [ 6, %14 ]
   ret i32 %.0
 }
 
@@ -223,7 +223,7 @@ define noundef i32 @_Z40tsi_handshaker_get_bytes_to_send_to_peerP14tsi_handshake
   br label %23
 
 23:                                               ; preds = %18, %14, %10, %3, %5, %21
-  %.0 = phi i32 [ %22, %21 ], [ 2, %3 ], [ 5, %10 ], [ 14, %14 ], [ 2, %5 ], [ 6, %18 ]
+  %.0 = phi i32 [ %22, %21 ], [ 2, %5 ], [ 2, %3 ], [ 5, %10 ], [ 14, %14 ], [ 6, %18 ]
   ret i32 %.0
 }
 
@@ -264,7 +264,7 @@ define noundef i32 @_Z38tsi_handshaker_process_bytes_from_peerP14tsi_handshakerP
   br label %24
 
 24:                                               ; preds = %18, %14, %10, %3, %5, %22
-  %.0 = phi i32 [ %23, %22 ], [ 2, %3 ], [ 5, %10 ], [ 14, %14 ], [ 2, %5 ], [ 6, %18 ]
+  %.0 = phi i32 [ %23, %22 ], [ 2, %5 ], [ 2, %3 ], [ 5, %10 ], [ 14, %14 ], [ 6, %18 ]
   ret i32 %.0
 }
 
@@ -301,7 +301,7 @@ define noundef i32 @_Z25tsi_handshaker_get_resultP14tsi_handshaker(ptr noundef %
   br label %20
 
 20:                                               ; preds = %14, %10, %6, %1, %3, %18
-  %.0 = phi i32 [ %19, %18 ], [ 2, %1 ], [ 5, %6 ], [ 14, %10 ], [ 2, %3 ], [ 6, %14 ]
+  %.0 = phi i32 [ %19, %18 ], [ 2, %3 ], [ 2, %1 ], [ 5, %6 ], [ 14, %10 ], [ 6, %14 ]
   ret i32 %.0
 }
 
@@ -357,8 +357,8 @@ _Z25tsi_handshaker_get_resultP14tsi_handshaker.exit: ; preds = %19
   %30 = tail call noundef i32 %27(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %_Z25tsi_handshaker_get_resultP14tsi_handshaker.exit.thread
 
-_Z25tsi_handshaker_get_resultP14tsi_handshaker.exit.thread: ; preds = %16, %19, %24, %_Z25tsi_handshaker_get_resultP14tsi_handshaker.exit, %12, %8, %2, %4, %29
-  %.0 = phi i32 [ %30, %29 ], [ 2, %2 ], [ 5, %8 ], [ 14, %12 ], [ 5, %_Z25tsi_handshaker_get_resultP14tsi_handshaker.exit ], [ 2, %4 ], [ 6, %24 ], [ 5, %19 ], [ 5, %16 ]
+_Z25tsi_handshaker_get_resultP14tsi_handshaker.exit.thread: ; preds = %19, %16, %24, %_Z25tsi_handshaker_get_resultP14tsi_handshaker.exit, %12, %8, %2, %4, %29
+  %.0 = phi i32 [ %30, %29 ], [ 2, %4 ], [ 2, %2 ], [ 5, %8 ], [ 14, %12 ], [ 5, %_Z25tsi_handshaker_get_resultP14tsi_handshaker.exit ], [ 6, %24 ], [ 5, %16 ], [ 5, %19 ]
   ret i32 %.0
 }
 
@@ -417,7 +417,7 @@ _Z25tsi_handshaker_get_resultP14tsi_handshaker.exit: ; preds = %17
   br label %_Z25tsi_handshaker_get_resultP14tsi_handshaker.exit.thread
 
 _Z25tsi_handshaker_get_resultP14tsi_handshaker.exit.thread: ; preds = %17, %27, %30, %22, %_Z25tsi_handshaker_get_resultP14tsi_handshaker.exit, %13, %9, %3, %5
-  %.0 = phi i32 [ 6, %22 ], [ 2, %3 ], [ 5, %9 ], [ 14, %13 ], [ 5, %_Z25tsi_handshaker_get_resultP14tsi_handshaker.exit ], [ 2, %5 ], [ 0, %30 ], [ %28, %27 ], [ 5, %17 ]
+  %.0 = phi i32 [ 2, %5 ], [ 2, %3 ], [ 5, %9 ], [ 14, %13 ], [ 5, %_Z25tsi_handshaker_get_resultP14tsi_handshaker.exit ], [ 6, %22 ], [ 0, %30 ], [ %28, %27 ], [ 5, %17 ]
   ret i32 %.0
 }
 
@@ -494,7 +494,7 @@ define noundef i32 @_Z19tsi_handshaker_nextP14tsi_handshakerPKhmPS2_PmPP21tsi_ha
   br label %48
 
 48:                                               ; preds = %41, %42, %32, %33, %23, %24, %14, %15, %46
-  %.0 = phi i32 [ %47, %46 ], [ 2, %14 ], [ 5, %23 ], [ 14, %32 ], [ 2, %15 ], [ 5, %24 ], [ 14, %33 ], [ 6, %42 ], [ 6, %41 ]
+  %.0 = phi i32 [ %47, %46 ], [ 2, %15 ], [ 2, %14 ], [ 5, %24 ], [ 5, %23 ], [ 14, %33 ], [ 14, %32 ], [ 6, %42 ], [ 6, %41 ]
   ret i32 %.0
 }
 
@@ -567,7 +567,7 @@ define noundef i32 @_Z34tsi_handshaker_result_extract_peerPK21tsi_handshaker_res
   br label %14
 
 14:                                               ; preds = %8, %2, %4, %12
-  %.0 = phi i32 [ %13, %12 ], [ 2, %2 ], [ 2, %4 ], [ 6, %8 ]
+  %.0 = phi i32 [ %13, %12 ], [ 2, %4 ], [ 2, %2 ], [ 6, %8 ]
   ret i32 %.0
 }
 
@@ -617,7 +617,7 @@ define noundef i32 @_Z44tsi_handshaker_result_create_frame_protectorPK21tsi_hand
   br label %15
 
 15:                                               ; preds = %9, %3, %5, %13
-  %.0 = phi i32 [ %14, %13 ], [ 2, %3 ], [ 2, %5 ], [ 6, %9 ]
+  %.0 = phi i32 [ %14, %13 ], [ 2, %5 ], [ 2, %3 ], [ 6, %9 ]
   ret i32 %.0
 }
 
@@ -646,7 +646,7 @@ define noundef i32 @_Z38tsi_handshaker_result_get_unused_bytesPK21tsi_handshaker
   br label %16
 
 16:                                               ; preds = %10, %3, %5, %14
-  %.0 = phi i32 [ %15, %14 ], [ 2, %3 ], [ 2, %5 ], [ 6, %10 ]
+  %.0 = phi i32 [ %15, %14 ], [ 2, %5 ], [ 2, %3 ], [ 6, %10 ]
   ret i32 %.0
 }
 
@@ -914,7 +914,7 @@ define noundef ptr @_Z29tsi_peer_get_property_by_namePK8tsi_peerPKc(ptr noundef 
   br i1 %exitcond.not, label %.thread23, label %.lr.ph.split, !llvm.loop !57
 
 .thread23:                                        ; preds = %15, %.thread, %10, %.lr.ph.split.us, %.preheader, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %7, %.lr.ph.split.us ], [ null, %10 ], [ %12, %.thread ], [ null, %15 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %.preheader ], [ null, %10 ], [ %7, %.lr.ph.split.us ], [ null, %15 ], [ %12, %.thread ]
   ret ptr %.0
 }
 

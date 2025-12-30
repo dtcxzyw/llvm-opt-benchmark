@@ -43,7 +43,7 @@ define internal i32 @av1_frame_merge_init(ptr noundef %0) #0 {
   br label %15
 
 15:                                               ; preds = %9, %1, %12
-  %.0 = phi i32 [ -12, %1 ], [ %14, %12 ], [ %10, %9 ]
+  %.0 = phi i32 [ %14, %12 ], [ -12, %1 ], [ %10, %9 ]
   ret i32 %.0
 }
 
@@ -255,7 +255,7 @@ define internal i32 @av1_frame_merge_filter(ptr noundef %0, ptr noundef %1) #0 {
   br label %110
 
 110:                                              ; preds = %.loopexit77, %102, %18, %20
-  %.067 = phi i32 [ %16, %18 ], [ -541478725, %20 ], [ %.065, %102 ], [ %.065, %.loopexit77 ]
+  %.067 = phi i32 [ -541478725, %20 ], [ %16, %18 ], [ %.065, %102 ], [ %.065, %.loopexit77 ]
   ret i32 %.067
 }
 

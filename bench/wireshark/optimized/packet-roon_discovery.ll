@@ -326,7 +326,7 @@ roon_map_name.exit90.thread:                      ; preds = %.lr.ph.i.i82, %roon
   br i1 %95, label %.lr.ph.i.i.preheader, label %._crit_edge, !llvm.loop !8
 
 96:                                               ; preds = %._crit_edge, %10, %15, %4, %7
-  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ %33, %._crit_edge ], [ 0, %10 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ %33, %._crit_edge ], [ 0, %10 ], [ 0, %15 ]
   ret i32 %.0
 }
 

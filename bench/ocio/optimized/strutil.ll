@@ -205,9 +205,9 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i: ; preds = %60, %_ZNSt
   br label %68
 
 68:                                               ; preds = %66, %42, %46, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i, %64
-  %.sroa.9.2 = phi ptr [ %62, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.9.058, %64 ], [ %spec.select, %66 ], [ %43, %42 ], [ %47, %46 ]
-  %.sroa.13.2 = phi ptr [ %63, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.13.059, %64 ], [ %.sroa.13.059, %66 ], [ %.sroa.13.059, %42 ], [ %.sroa.13.059, %46 ]
-  %.sroa.032.2 = phi ptr [ %53, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.032.060, %64 ], [ %.sroa.032.060, %66 ], [ %.sroa.032.060, %42 ], [ %.sroa.032.060, %46 ]
+  %.sroa.9.2 = phi ptr [ %62, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.9.058, %64 ], [ %43, %42 ], [ %47, %46 ], [ %spec.select, %66 ]
+  %.sroa.13.2 = phi ptr [ %63, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.13.059, %64 ], [ %.sroa.13.059, %42 ], [ %.sroa.13.059, %46 ], [ %.sroa.13.059, %66 ]
+  %.sroa.032.2 = phi ptr [ %53, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i.i ], [ %.sroa.032.060, %64 ], [ %.sroa.032.060, %42 ], [ %.sroa.032.060, %46 ], [ %.sroa.032.060, %66 ]
   call void @llvm.va_copy.p0(ptr %2, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

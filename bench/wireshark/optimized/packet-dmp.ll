@@ -1871,7 +1871,7 @@ dmp_dec_subm_time.exit.thread.i:                  ; preds = %213
   br label %dmp_dec_subm_time.exit.i
 
 dmp_dec_subm_time.exit.i:                         ; preds = %224, %222
-  %.0.i.i = phi i32 [ %225, %224 ], [ %223, %222 ]
+  %.0.i.i = phi i32 [ %223, %222 ], [ %225, %224 ]
   store i32 %.0.i.i, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 36), align 4
   %226 = load i32, ptr @hf_envelope_subm_time, align 4
   %227 = icmp samesign ugt i32 %205, 32759
@@ -2173,7 +2173,7 @@ dmp_dec_time_diff.exit.i:                         ; preds = %269, %245
   br label %398
 
 398:                                              ; preds = %396, %394
-  %.1.i.i = phi i32 [ %397, %396 ], [ %395, %394 ]
+  %.1.i.i = phi i32 [ %395, %394 ], [ %397, %396 ]
   %399 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 16), align 8
   %400 = icmp eq i32 %399, 3
   %hf_addr_int_rec.val.i.i = load i32, ptr @hf_addr_int_rec, align 4
@@ -2197,7 +2197,7 @@ dmp_dec_time_diff.exit.i:                         ; preds = %269, %245
   br label %dissect_dmp_originator.exit.i
 
 dissect_dmp_originator.exit.i:                    ; preds = %406, %403, %398, %393, %386, %384, %382, %344
-  %.087.i.i = phi i32 [ %345, %344 ], [ %.1.i.i, %406 ], [ %.1.i.i, %398 ], [ %.1.i.i, %403 ], [ %385, %384 ], [ %383, %382 ], [ %373, %386 ], [ %.2.i.i, %393 ]
+  %.087.i.i = phi i32 [ %345, %344 ], [ %.1.i.i, %398 ], [ %.1.i.i, %403 ], [ %.1.i.i, %406 ], [ %385, %384 ], [ %383, %382 ], [ %373, %386 ], [ %.2.i.i, %393 ]
   %410 = sub i32 %.087.i.i, %.3.i
   tail call void @proto_item_set_len(ptr noundef %339, i32 noundef %410)
   br label %411
@@ -2239,7 +2239,7 @@ dissect_dmp_originator.exit.i:                    ; preds = %406, %403, %398, %3
   br label %425
 
 425:                                              ; preds = %423, %417, %._crit_edge.i
-  %.6.i = phi i32 [ %424, %423 ], [ %.5.lcssa.i, %._crit_edge.i ], [ %.5.lcssa.i, %417 ]
+  %.6.i = phi i32 [ %424, %423 ], [ %.5.lcssa.i, %417 ], [ %.5.lcssa.i, %._crit_edge.i ]
   tail call void @proto_item_set_len(ptr noundef %.0297.i, i32 noundef %.6.i)
   br label %dissect_dmp_envelope.exit
 
@@ -3283,7 +3283,7 @@ define internal range(i32 0, 2) i32 @dmp_id_hash_equal(ptr noundef readonly capt
   br label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %47, %40, %38, %19, %11, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %19 ], [ 0, %5 ], [ 0, %11 ], [ 0, %47 ], [ 1, %40 ], [ 1, %38 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 0, %11 ], [ 0, %19 ], [ 0, %47 ], [ 1, %40 ], [ 1, %38 ]
   ret i32 %.0
 }
 
@@ -3537,8 +3537,8 @@ dmp_national_sec_class.exit.sink.split:           ; preds = %80, %96
   br label %dmp_national_sec_class.exit
 
 dmp_national_sec_class.exit:                      ; preds = %84, %100, %dmp_national_sec_class.exit.sink.split, %85, %68, %72
-  %103 = phi i1 [ %.ph, %dmp_national_sec_class.exit.sink.split ], [ %69, %68 ], [ true, %72 ], [ false, %100 ], [ false, %85 ], [ true, %84 ]
-  %.0382 = phi ptr [ %102, %dmp_national_sec_class.exit.sink.split ], [ null, %68 ], [ null, %72 ], [ null, %100 ], [ null, %85 ], [ null, %84 ]
+  %103 = phi i1 [ true, %72 ], [ %69, %68 ], [ false, %85 ], [ %.ph, %dmp_national_sec_class.exit.sink.split ], [ false, %100 ], [ true, %84 ]
+  %.0382 = phi ptr [ null, %72 ], [ null, %68 ], [ null, %85 ], [ %102, %dmp_national_sec_class.exit.sink.split ], [ null, %100 ], [ null, %84 ]
   %104 = and i8 %61, 24
   %or.cond6 = icmp eq i8 %104, 16
   %105 = icmp eq ptr %.0382, null
@@ -3717,7 +3717,7 @@ proto_item_set_generated.exit.thread:             ; preds = %190
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %186, %183, %180, %204, %194
-  %.1 = phi i32 [ %177, %194 ], [ %177, %186 ], [ %205, %204 ], [ %177, %180 ], [ %177, %183 ]
+  %.1 = phi i32 [ %205, %204 ], [ %177, %194 ], [ %177, %180 ], [ %177, %183 ], [ %177, %186 ]
   %or.cond18 = or i1 %or.cond6, %67
   br i1 %or.cond18, label %.preheader, label %330
 
@@ -3936,7 +3936,7 @@ dissect_dmp_security_category.exit.thread:        ; preds = %287, %291
   br label %dissect_dmp_security_category.exit
 
 dissect_dmp_security_category.exit:               ; preds = %303, %305
-  %.0104.i = phi i32 [ %304, %303 ], [ %310, %305 ]
+  %.0104.i = phi i32 [ %310, %305 ], [ %304, %303 ]
   %311 = add nuw nsw i32 %.0, 1
   %312 = icmp ne i8 %.1457, 0
   %313 = icmp samesign ult i32 %.0, 254
@@ -4071,7 +4071,7 @@ dmp_dec_exp_time.exit.thread475:                  ; preds = %382
   br label %395
 
 dmp_dec_exp_time.exit:                            ; preds = %383, %379, %374, %369, %365
-  %.0.i.i = phi i32 [ %385, %383 ], [ %366, %365 ], [ %371, %369 ], [ %376, %374 ], [ %381, %379 ]
+  %.0.i.i = phi i32 [ %366, %365 ], [ %371, %369 ], [ %376, %374 ], [ %381, %379 ], [ %385, %383 ]
   %386 = load ptr, ptr %6, align 8
   %387 = tail call ptr @signed_time_secs_to_str(ptr noundef %386, i32 noundef %.0.i.i)
   %388 = load ptr, ptr %6, align 8
@@ -4152,8 +4152,8 @@ dmp_dec_dtg.exit.thread480:                       ; preds = %418
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %402, ptr noundef nonnull @.str.706, ptr noundef %426, ptr noundef %430)
   br label %440
 
-dmp_dec_dtg.exit.thread580:                       ; preds = %415, %419, %dmp_dec_dtg.exit
-  %.0.i427583 = phi i32 [ %423, %dmp_dec_dtg.exit ], [ %417, %415 ], [ %421, %419 ]
+dmp_dec_dtg.exit.thread580:                       ; preds = %419, %415, %dmp_dec_dtg.exit
+  %.0.i427583 = phi i32 [ %423, %dmp_dec_dtg.exit ], [ %421, %419 ], [ %417, %415 ]
   %431 = load ptr, ptr %6, align 8
   %432 = tail call ptr @signed_time_secs_to_str(ptr noundef %431, i32 noundef %.0.i427583)
   %433 = icmp slt i8 %399, 0
@@ -4217,8 +4217,8 @@ dmp_dec_dtg.exit.thread580:                       ; preds = %415, %419, %dmp_dec
   br label %468
 
 468:                                              ; preds = %465, %463
-  %.sink116.i.i = phi i8 [ %spec.select.i, %465 ], [ %464, %463 ]
-  %.1.i.i = phi i1 [ %spec.select239.i, %465 ], [ %.094100.i.i, %463 ]
+  %.sink116.i.i = phi i8 [ %464, %463 ], [ %spec.select.i, %465 ]
+  %.1.i.i = phi i1 [ %.094100.i.i, %463 ], [ %spec.select239.i, %465 ]
   store i8 %.sink116.i.i, ptr %461, align 1
   %469 = zext i8 %.sink116.i.i to i64
   %470 = getelementptr i16, ptr %452, i64 %469
@@ -4679,7 +4679,7 @@ dmp_dec_xbyte_sic.exit235.i:                      ; preds = %522
   br label %726
 
 726:                                              ; preds = %724, %535
-  %.str.375.sink.i = phi ptr [ %.str.525..str.375.i, %724 ], [ @.str.375, %535 ]
+  %.str.375.sink.i = phi ptr [ @.str.375, %535 ], [ %.str.525..str.375.i, %724 ]
   %727 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %446, i64 noundef 30, i32 noundef 2, i64 noundef 30, ptr noundef nonnull %.str.375.sink.i)
   %728 = load i32, ptr @hf_message_sic, align 4
   %729 = tail call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %728, ptr noundef %0, i32 noundef %441, i32 noundef 1, ptr noundef %446)
@@ -4808,7 +4808,7 @@ proto_item_set_generated.exit435:                 ; preds = %763, %767, %770
   br label %proto_item_set_hidden.exit441
 
 proto_item_set_hidden.exit441:                    ; preds = %778, %785, %781, %proto_item_set_generated.exit435, %.thread483, %754, %761, %proto_item_set_hidden.exit, %dissect_dmp_sic.exit
-  %.6 = phi i32 [ %.3.i, %dissect_dmp_sic.exit ], [ %753, %proto_item_set_hidden.exit ], [ %.5485, %.thread483 ], [ %.7, %761 ], [ %.5485, %754 ], [ %.7, %proto_item_set_generated.exit435 ], [ %.7, %781 ], [ %.7, %785 ], [ %.7, %778 ]
+  %.6 = phi i32 [ %.3.i, %dissect_dmp_sic.exit ], [ %753, %proto_item_set_hidden.exit ], [ %.7, %761 ], [ %.5485, %754 ], [ %.5485, %.thread483 ], [ %.7, %proto_item_set_generated.exit435 ], [ %.7, %781 ], [ %.7, %785 ], [ %.7, %778 ]
   %789 = load i8, ptr @use_seq_ack_analysis, align 1, !range !11, !noundef !12
   %790 = trunc nuw i8 %789 to i1
   br i1 %790, label %791, label %792
@@ -4993,10 +4993,10 @@ proto_item_set_generated.exit.thread.i:           ; preds = %874
   br label %dissect_dmp_message.exit
 
 proto_item_set_generated.exit.i:                  ; preds = %883, %880, %876, %873
-  %.1126.i = phi ptr [ %.0125.i, %873 ], [ %879, %883 ], [ null, %876 ], [ %879, %880 ]
-  %.0124.i = phi ptr [ %0, %873 ], [ %875, %883 ], [ %875, %876 ], [ %875, %880 ]
-  %.0119.i = phi i32 [ %.1.i, %873 ], [ 0, %883 ], [ 0, %876 ], [ 0, %880 ]
-  %.0.i442 = phi i32 [ %.0121.i, %873 ], [ %877, %883 ], [ %877, %876 ], [ %877, %880 ]
+  %.1126.i = phi ptr [ %.0125.i, %873 ], [ null, %876 ], [ %879, %880 ], [ %879, %883 ]
+  %.0124.i = phi ptr [ %0, %873 ], [ %875, %876 ], [ %875, %880 ], [ %875, %883 ]
+  %.0119.i = phi i32 [ %.1.i, %873 ], [ 0, %876 ], [ 0, %880 ], [ 0, %883 ]
+  %.0.i442 = phi i32 [ %.0121.i, %873 ], [ %877, %876 ], [ %877, %880 ], [ %877, %883 ]
   %888 = icmp sgt i32 %.0.i442, 0
   %or.cond5.i = select i1 %.0123.i, i1 %888, i1 false
   br i1 %or.cond5.i, label %889, label %dissect_dmp_message.exit
@@ -5051,7 +5051,7 @@ dissect_dmp_message.exit:                         ; preds = %866, %871, %proto_i
   %916 = load i32, ptr @hf_report_type, align 4
   %917 = tail call ptr @proto_tree_add_item(ptr noundef %915, i32 noundef %916, ptr noundef %0, i32 noundef %.9506, i32 noundef 1, i32 noundef 0)
   %918 = icmp eq i32 %904, 0
-  br i1 %918, label %919, label %981
+  br i1 %918, label %919, label %993
 
 919:                                              ; preds = %.lr.ph
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 63), align 1
@@ -5103,7 +5103,7 @@ dissect_dmp_message.exit:                         ; preds = %866, %871, %proto_i
 
 958:                                              ; preds = %947
   %959 = shl nuw nsw i32 %951, 1
-  br label %1026
+  br label %981
 
 960:                                              ; preds = %947
   %961 = icmp ult i8 %949, -110
@@ -5112,7 +5112,7 @@ dissect_dmp_message.exit:                         ; preds = %866, %871, %proto_i
 962:                                              ; preds = %960
   %963 = mul nuw nsw i32 %951, 15
   %964 = add nsw i32 %963, -390
-  br label %1026
+  br label %981
 
 965:                                              ; preds = %960
   %966 = icmp samesign ult i8 %949, -68
@@ -5121,7 +5121,7 @@ dissect_dmp_message.exit:                         ; preds = %866, %871, %proto_i
 967:                                              ; preds = %965
   %968 = mul nuw nsw i32 %951, 300
   %969 = add nsw i32 %968, -42000
-  br label %1026
+  br label %981
 
 970:                                              ; preds = %965
   %971 = icmp samesign ult i8 %949, -28
@@ -5130,7 +5130,7 @@ dissect_dmp_message.exit:                         ; preds = %866, %871, %proto_i
 972:                                              ; preds = %970
   %973 = mul nuw nsw i32 %951, 1800
   %974 = add nsw i32 %973, -324000
-  br label %1026
+  br label %981
 
 975:                                              ; preds = %970
   %.not.i.i.i = icmp eq i8 %949, -1
@@ -5139,7 +5139,7 @@ dissect_dmp_message.exit:                         ; preds = %866, %871, %proto_i
 976:                                              ; preds = %975
   %977 = mul nuw nsw i32 %951, 7200
   %978 = add nsw i32 %977, -1555200
-  br label %1026
+  br label %981
 
 dmp_dec_del_time.exit.i:                          ; preds = %975
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %952, ptr noundef nonnull @.str.610, i32 noundef %951)
@@ -5148,76 +5148,76 @@ dmp_dec_del_time.exit.i:                          ; preds = %975
   %980 = call fastcc i32 @dissect_dmp_address(ptr noundef %0, ptr noundef %1, ptr noundef %909, i32 noundef %979, ptr noundef nonnull %5, i1 noundef zeroext true)
   br i1 %920, label %1038, label %dissect_dmp_report.exit
 
-981:                                              ; preds = %.lr.ph
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 64), align 8
-  %982 = and i32 %903, 64
-  %983 = lshr exact i32 %982, 6
-  store i32 %983, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 8), align 8
-  %984 = load i32, ptr @hf_report_addr_enc_ndr, align 4
-  %985 = icmp ne i32 %982, 0
-  %986 = tail call ptr @tfs_get_string(i1 noundef zeroext %985, ptr noundef nonnull @addr_enc)
-  %987 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format(ptr noundef %909, i32 noundef %984, ptr noundef %0, i32 noundef %.9506, i32 noundef 1, i64 noundef %911, ptr noundef nonnull @.str.598, ptr noundef %986)
-  %988 = load i32, ptr @ett_report_addr_enc_ndr, align 4
-  %989 = tail call ptr @proto_item_add_subtree(ptr noundef %987, i32 noundef %988)
-  %990 = load i32, ptr @hf_report_addr_enc_ndr, align 4
-  %991 = tail call ptr @proto_tree_add_item(ptr noundef %989, i32 noundef %990, ptr noundef %0, i32 noundef %.9506, i32 noundef 1, i32 noundef 0)
-  %992 = load i32, ptr @hf_report_reason, align 4
-  %993 = and i32 %903, 63
-  %994 = icmp samesign ult i32 %993, 61
-  %995 = select i1 %994, ptr @.str.756, ptr @.str.576
-  %p1_NonDeliveryReasonCode_vals.non_del_reason.i.i = select i1 %994, ptr @p1_NonDeliveryReasonCode_vals, ptr @non_del_reason
-  %996 = tail call ptr @val_to_str_const(i32 noundef range(i32 0, 64) %993, ptr noundef nonnull %p1_NonDeliveryReasonCode_vals.non_del_reason.i.i, ptr noundef nonnull @.str.446)
-  %997 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %909, i32 noundef %992, ptr noundef %0, i32 noundef %.9506, i32 noundef 1, i32 noundef %903, ptr noundef nonnull @.str.755, ptr noundef nonnull %995, ptr noundef %996, i32 noundef %993)
-  %998 = load i32, ptr @ett_report_reason, align 4
-  %999 = tail call ptr @proto_item_add_subtree(ptr noundef %997, i32 noundef %998)
-  %1000 = load i32, ptr @hf_report_reason, align 4
-  %1001 = tail call ptr @proto_tree_add_item(ptr noundef %999, i32 noundef %1000, ptr noundef %0, i32 noundef %.9506, i32 noundef 1, i32 noundef 0)
-  %1002 = add nsw i32 %.9506, 1
-  %1003 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1002)
-  %1004 = zext i8 %1003 to i32
-  %1005 = icmp slt i8 %1003, 0
-  %1006 = load i32, ptr @hf_report_info_present_ndr, align 4
-  %1007 = zext i8 %1003 to i64
-  %1008 = select i1 %1005, ptr @.str.604, ptr @.str.605
-  %1009 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format(ptr noundef %909, i32 noundef %1006, ptr noundef %0, i32 noundef %1002, i32 noundef 1, i64 noundef %1007, ptr noundef nonnull @.str.753, ptr noundef nonnull %1008)
-  %1010 = load i32, ptr @ett_report_info_present_ndr, align 4
-  %1011 = tail call ptr @proto_item_add_subtree(ptr noundef %1009, i32 noundef %1010)
-  %1012 = load i32, ptr @hf_report_info_present_ndr, align 4
-  %1013 = tail call ptr @proto_tree_add_item(ptr noundef %1011, i32 noundef %1012, ptr noundef %0, i32 noundef %1002, i32 noundef 1, i32 noundef 0)
-  %1014 = load i32, ptr @hf_report_diagn, align 4
-  %1015 = and i32 %1004, 127
-  %1016 = icmp samesign ult i32 %1015, 124
-  %1017 = select i1 %1016, ptr @.str.756, ptr @.str.576
-  %p1_NonDeliveryDiagnosticCode_vals.non_del_diagn.i.i = select i1 %1016, ptr @p1_NonDeliveryDiagnosticCode_vals, ptr @non_del_diagn
-  %1018 = tail call ptr @val_to_str_const(i32 noundef range(i32 0, 128) %1015, ptr noundef nonnull %p1_NonDeliveryDiagnosticCode_vals.non_del_diagn.i.i, ptr noundef nonnull @.str.446)
-  %1019 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %909, i32 noundef %1014, ptr noundef %0, i32 noundef %1002, i32 noundef 1, i32 noundef %1004, ptr noundef nonnull @.str.757, ptr noundef nonnull %1017, ptr noundef %1018, i32 noundef %1015)
-  %1020 = load i32, ptr @ett_report_diagn, align 4
-  %1021 = tail call ptr @proto_item_add_subtree(ptr noundef %1019, i32 noundef %1020)
-  %1022 = load i32, ptr @hf_report_diagn, align 4
-  %1023 = tail call ptr @proto_tree_add_item(ptr noundef %1021, i32 noundef %1022, ptr noundef %0, i32 noundef %1002, i32 noundef 1, i32 noundef 0)
-  %1024 = add i32 %.9506, 2
-  %1025 = call fastcc i32 @dissect_dmp_address(ptr noundef %0, ptr noundef %1, ptr noundef %909, i32 noundef %1024, ptr noundef nonnull %5, i1 noundef zeroext true)
-  br i1 %1005, label %1038, label %dissect_dmp_report.exit
-
-1026:                                             ; preds = %976, %972, %967, %962, %958
+981:                                              ; preds = %976, %972, %967, %962, %958
   %.0.i.i.ph.i = phi i32 [ %978, %976 ], [ %974, %972 ], [ %969, %967 ], [ %964, %962 ], [ %959, %958 ]
-  %1027 = load ptr, ptr %6, align 8
-  %1028 = tail call ptr @signed_time_secs_to_str(ptr noundef %1027, i32 noundef %.0.i.i.ph.i)
-  %1029 = load ptr, ptr %6, align 8
-  %1030 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 36), align 4
-  %1031 = sub i32 %1030, %.0.i.i.ph.i
-  %1032 = sext i32 %1031 to i64
-  %1033 = tail call ptr @abs_time_secs_to_str_ex(ptr noundef %1029, i64 noundef %1032, i32 noundef 18, i32 noundef 1)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %952, ptr noundef nonnull @.str.703, ptr noundef %1028, ptr noundef %1033)
-  %1034 = load ptr, ptr %6, align 8
-  %1035 = tail call ptr @signed_time_secs_to_str(ptr noundef %1034, i32 noundef %.0.i.i.ph.i)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %956, ptr noundef nonnull @.str.704, ptr noundef %1035)
-  %1036 = add i32 %.9506, 2
-  %1037 = call fastcc i32 @dissect_dmp_address(ptr noundef %0, ptr noundef %1, ptr noundef %909, i32 noundef %1036, ptr noundef nonnull %5, i1 noundef zeroext true)
+  %982 = load ptr, ptr %6, align 8
+  %983 = tail call ptr @signed_time_secs_to_str(ptr noundef %982, i32 noundef %.0.i.i.ph.i)
+  %984 = load ptr, ptr %6, align 8
+  %985 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 36), align 4
+  %986 = sub i32 %985, %.0.i.i.ph.i
+  %987 = sext i32 %986 to i64
+  %988 = tail call ptr @abs_time_secs_to_str_ex(ptr noundef %984, i64 noundef %987, i32 noundef 18, i32 noundef 1)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %952, ptr noundef nonnull @.str.703, ptr noundef %983, ptr noundef %988)
+  %989 = load ptr, ptr %6, align 8
+  %990 = tail call ptr @signed_time_secs_to_str(ptr noundef %989, i32 noundef %.0.i.i.ph.i)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %956, ptr noundef nonnull @.str.704, ptr noundef %990)
+  %991 = add i32 %.9506, 2
+  %992 = call fastcc i32 @dissect_dmp_address(ptr noundef %0, ptr noundef %1, ptr noundef %909, i32 noundef %991, ptr noundef nonnull %5, i1 noundef zeroext true)
   br i1 %920, label %1038, label %dissect_dmp_report.exit
 
-1038:                                             ; preds = %1026, %981, %dmp_dec_del_time.exit.i
-  %1039 = phi i32 [ %980, %dmp_dec_del_time.exit.i ], [ %1037, %1026 ], [ %1025, %981 ]
+993:                                              ; preds = %.lr.ph
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 64), align 8
+  %994 = and i32 %903, 64
+  %995 = lshr exact i32 %994, 6
+  store i32 %995, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 8), align 8
+  %996 = load i32, ptr @hf_report_addr_enc_ndr, align 4
+  %997 = icmp ne i32 %994, 0
+  %998 = tail call ptr @tfs_get_string(i1 noundef zeroext %997, ptr noundef nonnull @addr_enc)
+  %999 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format(ptr noundef %909, i32 noundef %996, ptr noundef %0, i32 noundef %.9506, i32 noundef 1, i64 noundef %911, ptr noundef nonnull @.str.598, ptr noundef %998)
+  %1000 = load i32, ptr @ett_report_addr_enc_ndr, align 4
+  %1001 = tail call ptr @proto_item_add_subtree(ptr noundef %999, i32 noundef %1000)
+  %1002 = load i32, ptr @hf_report_addr_enc_ndr, align 4
+  %1003 = tail call ptr @proto_tree_add_item(ptr noundef %1001, i32 noundef %1002, ptr noundef %0, i32 noundef %.9506, i32 noundef 1, i32 noundef 0)
+  %1004 = load i32, ptr @hf_report_reason, align 4
+  %1005 = and i32 %903, 63
+  %1006 = icmp samesign ult i32 %1005, 61
+  %1007 = select i1 %1006, ptr @.str.756, ptr @.str.576
+  %p1_NonDeliveryReasonCode_vals.non_del_reason.i.i = select i1 %1006, ptr @p1_NonDeliveryReasonCode_vals, ptr @non_del_reason
+  %1008 = tail call ptr @val_to_str_const(i32 noundef range(i32 0, 64) %1005, ptr noundef nonnull %p1_NonDeliveryReasonCode_vals.non_del_reason.i.i, ptr noundef nonnull @.str.446)
+  %1009 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %909, i32 noundef %1004, ptr noundef %0, i32 noundef %.9506, i32 noundef 1, i32 noundef %903, ptr noundef nonnull @.str.755, ptr noundef nonnull %1007, ptr noundef %1008, i32 noundef %1005)
+  %1010 = load i32, ptr @ett_report_reason, align 4
+  %1011 = tail call ptr @proto_item_add_subtree(ptr noundef %1009, i32 noundef %1010)
+  %1012 = load i32, ptr @hf_report_reason, align 4
+  %1013 = tail call ptr @proto_tree_add_item(ptr noundef %1011, i32 noundef %1012, ptr noundef %0, i32 noundef %.9506, i32 noundef 1, i32 noundef 0)
+  %1014 = add nsw i32 %.9506, 1
+  %1015 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1014)
+  %1016 = zext i8 %1015 to i32
+  %1017 = icmp slt i8 %1015, 0
+  %1018 = load i32, ptr @hf_report_info_present_ndr, align 4
+  %1019 = zext i8 %1015 to i64
+  %1020 = select i1 %1017, ptr @.str.604, ptr @.str.605
+  %1021 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format(ptr noundef %909, i32 noundef %1018, ptr noundef %0, i32 noundef %1014, i32 noundef 1, i64 noundef %1019, ptr noundef nonnull @.str.753, ptr noundef nonnull %1020)
+  %1022 = load i32, ptr @ett_report_info_present_ndr, align 4
+  %1023 = tail call ptr @proto_item_add_subtree(ptr noundef %1021, i32 noundef %1022)
+  %1024 = load i32, ptr @hf_report_info_present_ndr, align 4
+  %1025 = tail call ptr @proto_tree_add_item(ptr noundef %1023, i32 noundef %1024, ptr noundef %0, i32 noundef %1014, i32 noundef 1, i32 noundef 0)
+  %1026 = load i32, ptr @hf_report_diagn, align 4
+  %1027 = and i32 %1016, 127
+  %1028 = icmp samesign ult i32 %1027, 124
+  %1029 = select i1 %1028, ptr @.str.756, ptr @.str.576
+  %p1_NonDeliveryDiagnosticCode_vals.non_del_diagn.i.i = select i1 %1028, ptr @p1_NonDeliveryDiagnosticCode_vals, ptr @non_del_diagn
+  %1030 = tail call ptr @val_to_str_const(i32 noundef range(i32 0, 128) %1027, ptr noundef nonnull %p1_NonDeliveryDiagnosticCode_vals.non_del_diagn.i.i, ptr noundef nonnull @.str.446)
+  %1031 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %909, i32 noundef %1026, ptr noundef %0, i32 noundef %1014, i32 noundef 1, i32 noundef %1016, ptr noundef nonnull @.str.757, ptr noundef nonnull %1029, ptr noundef %1030, i32 noundef %1027)
+  %1032 = load i32, ptr @ett_report_diagn, align 4
+  %1033 = tail call ptr @proto_item_add_subtree(ptr noundef %1031, i32 noundef %1032)
+  %1034 = load i32, ptr @hf_report_diagn, align 4
+  %1035 = tail call ptr @proto_tree_add_item(ptr noundef %1033, i32 noundef %1034, ptr noundef %0, i32 noundef %1014, i32 noundef 1, i32 noundef 0)
+  %1036 = add i32 %.9506, 2
+  %1037 = call fastcc i32 @dissect_dmp_address(ptr noundef %0, ptr noundef %1, ptr noundef %909, i32 noundef %1036, ptr noundef nonnull %5, i1 noundef zeroext true)
+  br i1 %1017, label %1038, label %dissect_dmp_report.exit
+
+1038:                                             ; preds = %993, %981, %dmp_dec_del_time.exit.i
+  %1039 = phi i32 [ %980, %dmp_dec_del_time.exit.i ], [ %1037, %993 ], [ %992, %981 ]
   %1040 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %1039)
   %1041 = load i32, ptr @hf_report_suppl_info_len, align 4
   %1042 = add i32 %1040, -1
@@ -5247,8 +5247,8 @@ dmp_dec_del_time.exit.i:                          ; preds = %975
   %1057 = add i32 %1040, %1039
   br label %dissect_dmp_report.exit
 
-dissect_dmp_report.exit:                          ; preds = %dmp_dec_del_time.exit.i, %981, %1026, %1056
-  %.1.i444 = phi i32 [ %1057, %1056 ], [ %1037, %1026 ], [ %980, %dmp_dec_del_time.exit.i ], [ %1025, %981 ]
+dissect_dmp_report.exit:                          ; preds = %dmp_dec_del_time.exit.i, %981, %993, %1056
+  %.1.i444 = phi i32 [ %1057, %1056 ], [ %1037, %993 ], [ %980, %dmp_dec_del_time.exit.i ], [ %992, %981 ]
   %1058 = sub i32 %.1.i444, %.9506
   tail call void @proto_item_set_len(ptr noundef %907, i32 noundef %1058)
   %1059 = icmp slt i32 %.1.i444, %spec.select
@@ -5339,7 +5339,7 @@ dmp_dec_exp_time.exit.thread123.i:                ; preds = %1099
   br label %1112
 
 dmp_dec_exp_time.exit.i:                          ; preds = %1100, %1096, %1091, %1086, %1082
-  %.0.i.i.i = phi i32 [ %1102, %1100 ], [ %1083, %1082 ], [ %1088, %1086 ], [ %1093, %1091 ], [ %1098, %1096 ]
+  %.0.i.i.i = phi i32 [ %1083, %1082 ], [ %1088, %1086 ], [ %1093, %1091 ], [ %1098, %1096 ], [ %1102, %1100 ]
   %1103 = load ptr, ptr %6, align 8
   %1104 = tail call ptr @signed_time_secs_to_str(ptr noundef %1103, i32 noundef %.0.i.i.i)
   %1105 = load ptr, ptr %6, align 8
@@ -5472,7 +5472,7 @@ dissect_dmp_notification.exit.sink.split:         ; preds = %1139, %1157, %1159,
   br label %dissect_dmp_notification.exit
 
 dissect_dmp_notification.exit:                    ; preds = %dissect_dmp_report.exit, %1060, %dissect_dmp_notification.exit.sink.split, %896, %895
-  %.8 = phi i32 [ %.6, %896 ], [ %.6, %1060 ], [ %.6, %895 ], [ %.1.i447.sink, %dissect_dmp_notification.exit.sink.split ], [ %.1.i444, %dissect_dmp_report.exit ]
+  %.8 = phi i32 [ %.6, %895 ], [ %.6, %1060 ], [ %.6, %896 ], [ %.1.i447.sink, %dissect_dmp_notification.exit.sink.split ], [ %.1.i444, %dissect_dmp_report.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.8
 }
@@ -5589,7 +5589,7 @@ define internal fastcc ptr @msg_type_to_str() unnamed_addr #0 {
   br label %58
 
 58:                                               ; preds = %0, %52, %31, %20, %13, %2
-  %.0 = phi ptr [ %57, %52 ], [ %12, %2 ], [ %19, %13 ], [ %30, %20 ], [ %33, %31 ], [ @.str.446, %0 ]
+  %.0 = phi ptr [ %12, %2 ], [ %19, %13 ], [ %30, %20 ], [ %33, %31 ], [ %57, %52 ], [ @.str.446, %0 ]
   ret ptr %.0
 }
 
@@ -5780,8 +5780,8 @@ dissect_7bit_string.exit50:                       ; preds = %86
   br label %dissect_7bit_string.exit
 
 dissect_7bit_string.exit:                         ; preds = %45, %dissect_7bit_string.exit50, %48, %10, %94
-  %.051 = phi i8 [ 0, %94 ], [ 0, %48 ], [ 0, %10 ], [ %.132.i42, %dissect_7bit_string.exit50 ], [ %.132.i, %45 ]
-  %.0 = phi ptr [ %99, %94 ], [ @.str.623, %48 ], [ @.str.576, %10 ], [ %93, %dissect_7bit_string.exit50 ], [ %22, %45 ]
+  %.051 = phi i8 [ 0, %94 ], [ 0, %10 ], [ %.132.i42, %dissect_7bit_string.exit50 ], [ 0, %48 ], [ %.132.i, %45 ]
+  %.0 = phi ptr [ %99, %94 ], [ @.str.576, %10 ], [ %93, %dissect_7bit_string.exit50 ], [ @.str.623, %48 ], [ %22, %45 ]
   %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 48), align 8
   %101 = tail call i64 @strlen(ptr noundef %.0) #16
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %100, ptr noundef nonnull @.str.621, i64 noundef %101)
@@ -6038,7 +6038,7 @@ define internal fastcc i32 @dissect_dmp_address(ptr noundef %0, ptr noundef %1, 
   br label %134
 
 134:                                              ; preds = %128, %123
-  %.1.i = phi i32 [ %spec.select.i, %128 ], [ %125, %123 ]
+  %.1.i = phi i32 [ %125, %123 ], [ %spec.select.i, %128 ]
   store i32 %.1.i, ptr %4, align 4
   %135 = load i32, ptr @hf_addr_dir_rec_no_generated, align 4
   %136 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %15, i32 noundef %135, ptr noundef %0, i32 noundef %.1176.i, i32 noundef 0, i32 noundef %.1.i, ptr noundef nonnull @.str.656, i32 noundef %.1.i)
@@ -6203,7 +6203,7 @@ dissect_dmp_direct_encoding.exit:                 ; preds = %proto_item_set_gene
   br label %242
 
 242:                                              ; preds = %236, %231
-  %.1.i26 = phi i32 [ %spec.select.i31, %236 ], [ %233, %231 ]
+  %.1.i26 = phi i32 [ %233, %231 ], [ %spec.select.i31, %236 ]
   store i32 %.1.i26, ptr %4, align 4
   %243 = load i32, ptr @hf_addr_ext_rec_no_generated, align 4
   %244 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %15, i32 noundef %243, ptr noundef %0, i32 noundef %.0139.i, i32 noundef 0, i32 noundef %.1.i26, ptr noundef nonnull @.str.656, i32 noundef %.1.i26)
@@ -6495,8 +6495,8 @@ dissect_7bit_string.exit88:                       ; preds = %117, %77
   br label %dissect_7bit_string.exit
 
 dissect_7bit_string.exit:                         ; preds = %62, %133, %65, %28, %134
-  %.089 = phi i8 [ 0, %134 ], [ 0, %65 ], [ 0, %28 ], [ %.2, %133 ], [ %.132.i, %62 ]
-  %.072 = phi ptr [ %137, %134 ], [ @.str.623, %65 ], [ @.str.576, %28 ], [ %.0.i, %133 ], [ %39, %62 ]
+  %.089 = phi i8 [ 0, %134 ], [ 0, %28 ], [ %.2, %133 ], [ 0, %65 ], [ %.132.i, %62 ]
+  %.072 = phi ptr [ %137, %134 ], [ @.str.576, %28 ], [ %.0.i, %133 ], [ @.str.623, %65 ], [ %39, %62 ]
   %138 = call i64 @strlen(ptr noundef %.072) #16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.621, i64 noundef %138)
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -6927,7 +6927,7 @@ define internal fastcc void @dmp_add_recipient_info(ptr noundef %0, i8 noundef z
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %17, %18, %20
-  %.str.662.sink = phi ptr [ @.str.660, %17 ], [ @.str.663, %20 ], [ @.str.661, %18 ], [ @.str.662, %19 ]
+  %.str.662.sink = phi ptr [ @.str.663, %20 ], [ @.str.661, %18 ], [ @.str.660, %17 ], [ @.str.662, %19 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull %.str.662.sink)
   br label %21
 
@@ -7483,8 +7483,8 @@ define internal fastcc zeroext i1 @dmp_dec_xbyte_sic(i64 noundef range(i64 0, 17
   br label %62
 
 62:                                               ; preds = %59, %57
-  %.sink116 = phi i8 [ %spec.select120, %59 ], [ %58, %57 ]
-  %.1 = phi i1 [ %spec.select121, %59 ], [ %.094100, %57 ]
+  %.sink116 = phi i8 [ %58, %57 ], [ %spec.select120, %59 ]
+  %.1 = phi i1 [ %.094100, %57 ], [ %spec.select121, %59 ]
   store i8 %.sink116, ptr %55, align 1
   %63 = zext i8 %.sink116 to i64
   %64 = getelementptr i16, ptr %6, i64 %63

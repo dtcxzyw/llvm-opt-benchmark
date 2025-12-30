@@ -391,7 +391,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %40, %35, %25, %14, %9, %ossl_param_is_empty.exit, %43
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 1, %43 ], [ 0, %35 ], [ 0, %25 ], [ 0, %14 ], [ 0, %9 ], [ 0, %40 ], [ 1, %2 ]
+  %.0 = phi i32 [ 1, %43 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %9 ], [ 0, %14 ], [ 0, %25 ], [ 0, %35 ], [ 0, %40 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -455,7 +455,7 @@ define internal range(i32 0, 2) i32 @test_rng_get_ctx_params(ptr noundef readonl
   br label %27
 
 27:                                               ; preds = %22, %16, %10, %4, %26
-  %.0 = phi i32 [ 1, %26 ], [ 0, %16 ], [ 0, %10 ], [ 0, %4 ], [ 0, %22 ]
+  %.0 = phi i32 [ 1, %26 ], [ 0, %4 ], [ 0, %10 ], [ 0, %16 ], [ 0, %22 ]
   ret i32 %.0
 }
 

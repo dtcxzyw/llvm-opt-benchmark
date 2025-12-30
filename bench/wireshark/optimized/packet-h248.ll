@@ -2148,7 +2148,7 @@ define hidden ptr @gcp_msg(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2
   br label %37
 
 37:                                               ; preds = %.thread, %30
-  %.147 = phi ptr [ %20, %.thread ], [ %33, %30 ]
+  %.147 = phi ptr [ %33, %30 ], [ %20, %.thread ]
   %38 = load i32, ptr %9, align 8
   %39 = load i32, ptr %10, align 8
   %40 = icmp sgt i32 %38, %39
@@ -2188,8 +2188,8 @@ cmp_address.exit:                                 ; preds = %51
   br label %.thread67thread-pre-split
 
 .thread67thread-pre-split:                        ; preds = %cmp_address.exit, %51, %43, %49
-  %.ph = phi ptr [ %10, %43 ], [ %spec.select, %cmp_address.exit ], [ %9, %49 ], [ %10, %51 ]
-  %.ph71 = phi ptr [ %9, %43 ], [ %spec.select72, %cmp_address.exit ], [ %10, %49 ], [ %9, %51 ]
+  %.ph = phi ptr [ %9, %49 ], [ %10, %43 ], [ %10, %51 ], [ %spec.select, %cmp_address.exit ]
+  %.ph71 = phi ptr [ %10, %49 ], [ %9, %43 ], [ %9, %51 ], [ %spec.select72, %cmp_address.exit ]
   %.pr = load i32, ptr %.ph, align 8
   br label %.thread67
 
@@ -2444,7 +2444,7 @@ define hidden ptr @gcp_trx(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %69, %75, %5
-  %.047 = phi ptr [ null, %5 ], [ %.146, %69 ], [ %.146, %75 ], [ %15, %16 ]
+  %.047 = phi ptr [ null, %5 ], [ %.146, %75 ], [ %.146, %69 ], [ %15, %16 ]
   ret ptr %.047
 }
 
@@ -2834,7 +2834,7 @@ define hidden ptr @gcp_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %74, %80, %7
-  %.071 = phi ptr [ null, %7 ], [ %.070, %74 ], [ %.070, %80 ], [ %20, %24 ]
+  %.071 = phi ptr [ null, %7 ], [ %.070, %80 ], [ %.070, %74 ], [ %20, %24 ]
   ret ptr %.071
 }
 
@@ -3137,7 +3137,7 @@ define hidden ptr @gcp_cmd_add_term(ptr noundef %0, ptr noundef readonly capture
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %.lr.ph137, %23, %29, %22, %8, %7, %170, %162, %._crit_edge, %121, %93, %54, %34
-  %.0106 = phi ptr [ null, %7 ], [ @gcp_cmd_add_term.all_terms, %8 ], [ %3, %170 ], [ %35, %34 ], [ null, %23 ], [ %169, %162 ], [ %75, %54 ], [ %116, %93 ], [ %128, %121 ], [ %134, %._crit_edge ], [ null, %29 ], [ null, %22 ], [ %25, %.lr.ph137 ], [ null, %36 ]
+  %.0106 = phi ptr [ %35, %34 ], [ %169, %162 ], [ %75, %54 ], [ %116, %93 ], [ %128, %121 ], [ %134, %._crit_edge ], [ %3, %170 ], [ null, %7 ], [ @gcp_cmd_add_term.all_terms, %8 ], [ null, %22 ], [ null, %29 ], [ %25, %.lr.ph137 ], [ null, %23 ], [ null, %36 ]
   ret ptr %.0106
 }
 
@@ -3300,7 +3300,7 @@ define hidden ptr @gcp_msg_to_str(ptr noundef readonly captures(address) %0, ptr
   br label %51
 
 51:                                               ; preds = %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %27
-  %.021.i.i = phi ptr [ @.str.36, %50 ], [ @.str.789, %49 ], [ @.str.770, %30 ], [ @.str.771, %31 ], [ @.str.772, %32 ], [ @.str.773, %33 ], [ @.str.774, %34 ], [ @.str.775, %35 ], [ @.str.776, %36 ], [ @.str.777, %37 ], [ @.str.778, %38 ], [ @.str.779, %39 ], [ @.str.780, %40 ], [ @.str.781, %41 ], [ @.str.782, %42 ], [ @.str.783, %43 ], [ @.str.784, %44 ], [ @.str.785, %45 ], [ @.str.786, %46 ], [ @.str.787, %47 ], [ @.str.788, %48 ], [ @.str.769, %27 ]
+  %.021.i.i = phi ptr [ @.str.36, %50 ], [ @.str.770, %30 ], [ @.str.771, %31 ], [ @.str.772, %32 ], [ @.str.773, %33 ], [ @.str.774, %34 ], [ @.str.775, %35 ], [ @.str.776, %36 ], [ @.str.777, %37 ], [ @.str.778, %38 ], [ @.str.779, %39 ], [ @.str.780, %40 ], [ @.str.781, %41 ], [ @.str.782, %42 ], [ @.str.783, %43 ], [ @.str.784, %44 ], [ @.str.785, %45 ], [ @.str.786, %46 ], [ @.str.787, %47 ], [ @.str.788, %48 ], [ @.str.789, %49 ], [ @.str.769, %27 ]
   %52 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %.028.i.i = load ptr, ptr %52, align 8
   %.not2529.i.i = icmp eq ptr %.028.i.i, null
@@ -3350,7 +3350,7 @@ define hidden ptr @gcp_msg_to_str(ptr noundef readonly captures(address) %0, ptr
   br label %gcp_cmd_to_str.exit.i
 
 gcp_cmd_to_str.exit.i:                            ; preds = %.sink.split.i.i, %64, %27, %25
-  %.022.i.i = phi ptr [ @.str.36, %27 ], [ @.str.36, %25 ], [ %62, %64 ], [ %62, %.sink.split.i.i ]
+  %.022.i.i = phi ptr [ @.str.36, %25 ], [ @.str.36, %27 ], [ %62, %64 ], [ %62, %.sink.split.i.i ]
   tail call void @wmem_strbuf_append(ptr noundef %9, ptr noundef %.022.i.i)
   br label %69
 
@@ -4053,7 +4053,7 @@ define void @h248_register_package(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %.not151, label %.critedge, label %28, !llvm.loop !25
 
 .critedge:                                        ; preds = %28, %34
-  %storemerge.lcssa169 = phi i32 [ 58, %34 ], [ %storemerge171, %28 ]
+  %storemerge.lcssa169 = phi i32 [ %storemerge171, %28 ], [ 58, %34 ]
   store i32 %storemerge.lcssa169, ptr %3, align 4
   %36 = icmp slt i32 %26, %storemerge.lcssa169
   br i1 %36, label %37, label %59
@@ -4134,7 +4134,7 @@ define void @h248_register_package(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %.not154, label %.critedge2, label %67, !llvm.loop !27
 
 .critedge2:                                       ; preds = %67, %73
-  %storemerge153.lcssa179 = phi i32 [ 45, %73 ], [ %storemerge153181, %67 ]
+  %storemerge153.lcssa179 = phi i32 [ %storemerge153181, %67 ], [ 45, %73 ]
   store i32 %storemerge153.lcssa179, ptr %3, align 4
   %75 = icmp slt i32 %65, %storemerge153.lcssa179
   br i1 %75, label %76, label %98

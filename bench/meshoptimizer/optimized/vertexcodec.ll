@@ -829,7 +829,7 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit55.i.i: ; preds = %_ZN7meshoptL23
   br label %.thread96.i
 
 .thread83.i:                                      ; preds = %432, %.thread89.i, %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.i126
-  %.085.i = phi i64 [ 1, %.thread89.i ], [ %442, %432 ], [ 0, %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.i126 ]
+  %.085.i = phi i64 [ %442, %432 ], [ 1, %.thread89.i ], [ 0, %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.i126 ]
   %445 = getelementptr inbounds nuw i32, ptr @_ZN7meshoptL7kBitsV1E, i64 %.085.i
   %446 = select i1 %262, ptr @_ZN7meshoptL7kBitsV0E, ptr %445
   %447 = ptrtoint ptr %.058131.i to i64
@@ -1022,7 +1022,7 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i74.i: ; preds = %.preheader.i11
   br i1 %exitcond69.not.i.i.i, label %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i, label %.preheader.i.i.i, !llvm.loop !32
 
 _ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i:   ; preds = %.preheader.i.i.i, %490, %477
-  %.0.i.i.i = phi ptr [ %.05092.i.i, %477 ], [ %491, %490 ], [ %532, %.preheader.i.i.i ]
+  %.0.i.i.i = phi ptr [ %491, %490 ], [ %.05092.i.i, %477 ], [ %532, %.preheader.i.i.i ]
   %534 = add nuw i64 %.05890.i.i, 16
   %.not61.i.i = icmp uge i64 %534, %276
   %535 = ptrtoint ptr %.0.i.i.i to i64
@@ -1165,7 +1165,7 @@ _ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_S2_ii.exit: ; preds = %.thread96.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_S2_ii.exit, %_ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_S2_ii.exit.thread, %591, %575
-  %.3 = phi i64 [ 0, %_ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_S2_ii.exit.thread ], [ %593, %591 ], [ 0, %575 ], [ 0, %_ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_S2_ii.exit ]
+  %.3 = phi i64 [ %593, %591 ], [ 0, %575 ], [ 0, %_ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_S2_ii.exit.thread ], [ 0, %_ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_S2_ii.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -2790,7 +2790,7 @@ _ZN7meshoptL17decodeDeltas4SimdILi0EEEvPKhPhmmS3_i.exit: ; preds = %970, %842, %
   br label %.critedge
 
 .critedge:                                        ; preds = %684, %40, %51, %.loopexit, %.lr.ph93.i, %.critedge.thread, %8
-  %.0 = phi ptr [ null, %8 ], [ %.079.lcssa, %.critedge.thread ], [ null, %40 ], [ null, %.lr.ph93.i ], [ null, %.loopexit ], [ null, %51 ], [ null, %684 ]
+  %.0 = phi ptr [ null, %8 ], [ %.079.lcssa, %.critedge.thread ], [ null, %.lr.ph93.i ], [ null, %.loopexit ], [ null, %51 ], [ null, %40 ], [ null, %684 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
@@ -3361,7 +3361,7 @@ define internal noundef ptr @_ZN7meshoptL17decodeVertexBlockEPKhS1_PhmmS2_S1_i(p
   br label %_ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i
 
 _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %425, %297, %169, %77, %76, %.lr.ph.i
-  %.0.i.i = phi ptr [ %426, %425 ], [ %.02332.i, %76 ], [ %168, %77 ], [ %296, %169 ], [ %424, %297 ], [ %.02332.i, %.lr.ph.i ]
+  %.0.i.i = phi ptr [ %.02332.i, %76 ], [ %168, %77 ], [ %296, %169 ], [ %424, %297 ], [ %426, %425 ], [ %.02332.i, %.lr.ph.i ]
   %427 = add nuw i64 %.02431.i, 16
   %.not.i = icmp uge i64 %427, %12
   %428 = ptrtoint ptr %.0.i.i to i64
@@ -3381,7 +3381,7 @@ _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %425, %297, %169, %7
   br i1 %.not126.not.not, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %42, %46, %.thread122, %431
-  %.480108 = phi ptr [ %59, %.thread122 ], [ %.0.i.i, %431 ], [ %.278142, %46 ], [ %45, %42 ]
+  %.480108 = phi ptr [ %.0.i.i, %431 ], [ %59, %.thread122 ], [ %.278142, %46 ], [ %45, %42 ]
   %432 = add nuw nsw i64 %.082141, 1
   %exitcond = icmp eq i64 %432, 4
   br i1 %exitcond, label %.thread119, label %34, !llvm.loop !47
@@ -3584,7 +3584,7 @@ _ZN7meshoptL13decodeDeltas1IhLb0EEEvPKhPhmmS2_i.exit: ; preds = %496, %._crit_ed
   br label %.critedge
 
 .critedge:                                        ; preds = %433, %.thread122, %38, %49, %431, %.critedge.thread, %8
-  %.0 = phi ptr [ null, %8 ], [ %.076.lcssa, %.critedge.thread ], [ null, %.thread122 ], [ null, %431 ], [ null, %49 ], [ null, %38 ], [ null, %433 ]
+  %.0 = phi ptr [ null, %8 ], [ %.076.lcssa, %.critedge.thread ], [ null, %431 ], [ null, %49 ], [ null, %38 ], [ null, %.thread122 ], [ null, %433 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0

@@ -853,7 +853,7 @@ _ZN8rawspeed11NORangesSetINS_6BufferEED2Ev.exit:  ; preds = %_ZN8rawspeed7TiffIF
   br label %.body
 
 .body:                                            ; preds = %239, %237, %85, %_ZNSt6vectorItSaItEED2Ev.exit.i.i
-  %.pn52.pn.pn = phi { ptr, i32 } [ %71, %_ZNSt6vectorItSaItEED2Ev.exit.i.i ], [ %86, %85 ], [ %.pn52.pn, %237 ], [ %.pn52.pn, %239 ]
+  %.pn52.pn.pn = phi { ptr, i32 } [ %86, %85 ], [ %71, %_ZNSt6vectorItSaItEED2Ev.exit.i.i ], [ %.pn52.pn, %237 ], [ %.pn52.pn, %239 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %244
 

@@ -1746,10 +1746,10 @@ add_remote_or_group.exit128:                      ; preds = %add_remote_or_group
   br label %.loopexit
 
 .loopexit:                                        ; preds = %654, %.preheader, %628, %677, %673, %617, %622
-  %.068 = phi i1 [ true, %622 ], [ true, %617 ], [ true, %628 ], [ %680, %677 ], [ true, %673 ], [ true, %.preheader ], [ true, %654 ]
-  %.065 = phi ptr [ %625, %622 ], [ null, %617 ], [ %629, %628 ], [ %679, %677 ], [ null, %673 ], [ null, %.preheader ], [ null, %654 ]
-  %.064 = phi ptr [ %1, %622 ], [ %1, %617 ], [ %1, %628 ], [ %682, %677 ], [ %1, %673 ], [ %1, %.preheader ], [ %1, %654 ]
-  %.063 = phi i32 [ %505, %622 ], [ %505, %617 ], [ 0, %628 ], [ %681, %677 ], [ %505, %673 ], [ %505, %.preheader ], [ %505, %654 ]
+  %.068 = phi i1 [ true, %622 ], [ true, %617 ], [ true, %628 ], [ true, %673 ], [ %680, %677 ], [ true, %.preheader ], [ true, %654 ]
+  %.065 = phi ptr [ %625, %622 ], [ null, %617 ], [ %629, %628 ], [ null, %673 ], [ %679, %677 ], [ null, %.preheader ], [ null, %654 ]
+  %.064 = phi ptr [ %1, %622 ], [ %1, %617 ], [ %1, %628 ], [ %1, %673 ], [ %682, %677 ], [ %1, %.preheader ], [ %1, %654 ]
+  %.063 = phi i32 [ %505, %622 ], [ %505, %617 ], [ 0, %628 ], [ %505, %673 ], [ %681, %677 ], [ %505, %.preheader ], [ %505, %654 ]
   call void @string_list_remove_duplicates(ptr noundef nonnull %42, i32 noundef 0) #20
   %683 = load i32, ptr %52, align 4, !tbaa !9
   %.not102 = icmp eq i32 %683, 0
@@ -2219,7 +2219,7 @@ truncate_fetch_head.exit.i.i:                     ; preds = %841, %839
   br i1 %886, label %877, label %.loopexit250.i.i, !llvm.loop !117
 
 .loopexit250.i.i:                                 ; preds = %853, %852, %877, %.preheader.i.i, %866, %864, %848
-  %.1102.i.i = phi i32 [ 1, %866 ], [ 1, %.preheader.i.i ], [ 1, %864 ], [ 0, %848 ], [ 1, %877 ], [ 1, %853 ], [ 0, %852 ]
+  %.1102.i.i = phi i32 [ 1, %866 ], [ 1, %864 ], [ 1, %.preheader.i.i ], [ 0, %848 ], [ 1, %877 ], [ 1, %853 ], [ 0, %852 ]
   %887 = load i32, ptr @tags, align 4, !tbaa !9
   %888 = add i32 %887, -1
   %or.cond3.i.i = icmp ult i32 %888, 2
@@ -2589,7 +2589,7 @@ truncate_fetch_head.exit.i.i:                     ; preds = %841, %839
   br label %add_merge_config.exit.i.i.i
 
 add_merge_config.exit.i.i.i:                      ; preds = %.lr.ph130.i.i.i, %.loopexit.i.i.i.i, %1027, %1021, %996, %._crit_edge134.thread.i.i.i, %._crit_edge134.i.i.i, %._crit_edge.i.i.i
-  %.1208.i.i = phi i32 [ %825, %1027 ], [ %825, %1021 ], [ %.0207.i.i, %._crit_edge.i.i.i ], [ %.5212.i.i, %996 ], [ %.5212.i.i, %._crit_edge134.thread.i.i.i ], [ %.4211.i.i, %._crit_edge134.i.i.i ], [ %.5212.i.i, %.loopexit.i.i.i.i ], [ %.0207.i.i, %.lr.ph130.i.i.i ]
+  %.1208.i.i = phi i32 [ %825, %1027 ], [ %825, %1021 ], [ %.5212.i.i, %996 ], [ %.5212.i.i, %._crit_edge134.thread.i.i.i ], [ %.4211.i.i, %._crit_edge134.i.i.i ], [ %.0207.i.i, %._crit_edge.i.i.i ], [ %.5212.i.i, %.loopexit.i.i.i.i ], [ %.0207.i.i, %.lr.ph130.i.i.i ]
   switch i32 %918, label %1034 [
     i32 2, label %1029
     i32 1, label %1032
@@ -2931,7 +2931,7 @@ open_fetch_head.exit.i.i:                         ; preds = %1092, %1090
   br label %1163
 
 1163:                                             ; preds = %1162, %1153, %1150, %1144, %1141, %.lr.ph.split.us.i.i.i.i
-  %.1.us.i.i.i.i = phi i32 [ %spec.select.us.i.i.i.i, %1162 ], [ %.02231.us.i.i.i.i, %.lr.ph.split.us.i.i.i.i ], [ %.02231.us.i.i.i.i, %1150 ], [ %.02231.us.i.i.i.i, %1144 ], [ %.02231.us.i.i.i.i, %1141 ], [ %.02231.us.i.i.i.i, %1153 ]
+  %.1.us.i.i.i.i = phi i32 [ %spec.select.us.i.i.i.i, %1162 ], [ %.02231.us.i.i.i.i, %1144 ], [ %.02231.us.i.i.i.i, %1141 ], [ %.02231.us.i.i.i.i, %.lr.ph.split.us.i.i.i.i ], [ %.02231.us.i.i.i.i, %1150 ], [ %.02231.us.i.i.i.i, %1153 ]
   %1164 = load ptr, ptr %.032.us.i.i.i.i, align 8, !tbaa !122
   %.not25.us.i.i.i.i = icmp eq ptr %1164, null
   br i1 %.not25.us.i.i.i.i, label %refcol_width.exit.i.i.i, label %.lr.ph.split.us.i.i.i.i, !llvm.loop !149
@@ -2979,7 +2979,7 @@ open_fetch_head.exit.i.i:                         ; preds = %1092, %1090
   br label %1184
 
 1184:                                             ; preds = %1183, %1180, %1177, %1171, %1168, %.lr.ph.split.i.i.i.i
-  %.1.i.i174.i.i = phi i32 [ %spec.select.i.i.i.i, %1183 ], [ %.02231.i.i.i.i, %.lr.ph.split.i.i.i.i ], [ %.02231.i.i.i.i, %1177 ], [ %.02231.i.i.i.i, %1171 ], [ %.02231.i.i.i.i, %1168 ], [ %.02231.i.i.i.i, %1180 ]
+  %.1.i.i174.i.i = phi i32 [ %spec.select.i.i.i.i, %1183 ], [ %.02231.i.i.i.i, %1171 ], [ %.02231.i.i.i.i, %1168 ], [ %.02231.i.i.i.i, %.lr.ph.split.i.i.i.i ], [ %.02231.i.i.i.i, %1177 ], [ %.02231.i.i.i.i, %1180 ]
   %1185 = load ptr, ptr %.032.i.i.i.i, align 8, !tbaa !122
   %.not25.i.i.i.i = icmp eq ptr %1185, null
   br i1 %.not25.i.i.i.i, label %refcol_width.exit.i.i.i, label %.lr.ph.split.i.i.i.i, !llvm.loop !149
@@ -3101,8 +3101,8 @@ _.exit.thread.i.i:                                ; preds = %_.exit.i50.i, %1211
   br label %_.exit.thread47.i.i
 
 _.exit.thread47.i.i:                              ; preds = %1216, %._crit_edge.i55.i, %.preheader.i53.i, %_.exit.i50.i, %1210
-  %1225 = phi ptr [ %1212, %_.exit.i50.i ], [ @.str.196, %1210 ], [ %1213, %._crit_edge.i55.i ], [ %1213, %.preheader.i53.i ], [ %1213, %1216 ]
-  %.0.i.i = phi i32 [ 0, %_.exit.i50.i ], [ 0, %1210 ], [ %1224, %._crit_edge.i55.i ], [ 0, %.preheader.i53.i ], [ 0, %1216 ]
+  %1225 = phi ptr [ %1212, %_.exit.i50.i ], [ %1213, %._crit_edge.i55.i ], [ @.str.196, %1210 ], [ %1213, %.preheader.i53.i ], [ %1213, %1216 ]
+  %.0.i.i = phi i32 [ 0, %_.exit.i50.i ], [ %1224, %._crit_edge.i55.i ], [ 0, %1210 ], [ 0, %.preheader.i53.i ], [ 0, %1216 ]
   %1226 = load i32, ptr @verbosity, align 4, !tbaa !9
   %1227 = icmp sgt i32 %1226, -1
   br i1 %1227, label %1228, label %prune_refs.exit.i
@@ -3144,7 +3144,7 @@ _.exit45.i.i:                                     ; preds = %1232, %_.exit42.i.i
   br i1 %.not36.i.i, label %prune_refs.exit.i, label %.lr.ph62.i.i, !llvm.loop !153
 
 prune_refs.exit.i:                                ; preds = %.lr.ph.i54.i, %_.exit45.i.i, %1228, %_.exit.thread47.i.i
-  %.2.i.i = phi i32 [ %.0.i.i, %1228 ], [ %.0.i.i, %_.exit.thread47.i.i ], [ %.0.i.i, %_.exit45.i.i ], [ 1, %.lr.ph.i54.i ]
+  %.2.i.i = phi i32 [ %.0.i.i, %_.exit.thread47.i.i ], [ %.0.i.i, %1228 ], [ %.0.i.i, %_.exit45.i.i ], [ 1, %.lr.ph.i54.i ]
   call void @strbuf_release(ptr noundef nonnull %9) #20
   call void @free_refs(ptr noundef %1207) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3629,7 +3629,7 @@ report_set_head.exit.i.i.i:                       ; preds = %set_head_advice_msg
   br label %set_head.exit.i.i
 
 set_head.exit.i.i:                                ; preds = %report_set_head.exit.i.i.i, %1391, %1386, %1379, %1375, %1366, %._crit_edge.i198.i.i
-  %.030.i.i.i = phi ptr [ null, %._crit_edge.i198.i.i ], [ %1369, %1375 ], [ %1369, %report_set_head.exit.i.i.i ], [ %1369, %1391 ], [ %1369, %1386 ], [ null, %1366 ], [ %1369, %1379 ]
+  %.030.i.i.i = phi ptr [ null, %._crit_edge.i198.i.i ], [ %1369, %report_set_head.exit.i.i.i ], [ %1369, %1391 ], [ %1369, %1386 ], [ null, %1366 ], [ %1369, %1375 ], [ %1369, %1379 ]
   call void @free(ptr noundef %.030.i.i.i) #20
   %1419 = load ptr, ptr %17, align 8, !tbaa !122
   call void @free_refs(ptr noundef %1419) #20
@@ -3652,9 +3652,9 @@ set_head.exit.i.i:                                ; preds = %report_set_head.exi
   br i1 %.not150.i.i, label %1438, label %.thread225.i.i
 
 .thread225.i.i:                                   ; preds = %1420, %1271, %1270, %1241, %1189, %open_fetch_head.exit.i.i, %truncate_fetch_head.exit.i.i
-  %.098234.i.i = phi ptr [ %.199.i.i, %1420 ], [ %.199.i.i, %1241 ], [ %.199.i.i, %1271 ], [ %.199.i.i, %1270 ], [ null, %1189 ], [ null, %open_fetch_head.exit.i.i ], [ null, %truncate_fetch_head.exit.i.i ]
-  %.0105232.i.i = phi i32 [ 1, %1420 ], [ 1, %1241 ], [ %1272, %1271 ], [ 1, %1270 ], [ -1, %1189 ], [ -1, %open_fetch_head.exit.i.i ], [ -1, %truncate_fetch_head.exit.i.i ]
-  %.0109230.i.i = phi ptr [ %1084, %1420 ], [ %1084, %1241 ], [ %1084, %1271 ], [ %1084, %1270 ], [ %1084, %1189 ], [ %1084, %open_fetch_head.exit.i.i ], [ null, %truncate_fetch_head.exit.i.i ]
+  %.098234.i.i = phi ptr [ %.199.i.i, %1420 ], [ %.199.i.i, %1241 ], [ null, %1189 ], [ %.199.i.i, %1271 ], [ %.199.i.i, %1270 ], [ null, %open_fetch_head.exit.i.i ], [ null, %truncate_fetch_head.exit.i.i ]
+  %.0105232.i.i = phi i32 [ 1, %1420 ], [ 1, %1241 ], [ -1, %1189 ], [ %1272, %1271 ], [ 1, %1270 ], [ -1, %open_fetch_head.exit.i.i ], [ -1, %truncate_fetch_head.exit.i.i ]
+  %.0109230.i.i = phi ptr [ %1084, %1420 ], [ %1084, %1241 ], [ %1084, %1189 ], [ %1084, %1271 ], [ %1084, %1270 ], [ %1084, %open_fetch_head.exit.i.i ], [ null, %truncate_fetch_head.exit.i.i ]
   %1421 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %1422 = load i64, ptr %1421, align 8, !tbaa !160
   %.not151.i.i = icmp eq i64 %1422, 0
@@ -3699,8 +3699,8 @@ strbuf_setlen.exit.i.i:                           ; preds = %1428, %1423, %.thre
   br label %.thread236.i.i
 
 .thread236.i.i:                                   ; preds = %1439, %1438, %1434, %1429, %strbuf_setlen.exit.i.i
-  %.0109231242.i.i = phi ptr [ %1084, %1438 ], [ %1084, %1439 ], [ %.0109230.i.i, %1434 ], [ %.0109230.i.i, %1429 ], [ %.0109230.i.i, %strbuf_setlen.exit.i.i ]
-  %.0105233241.i.i = phi i32 [ 0, %1438 ], [ 0, %1439 ], [ %.0105232.i.i, %1434 ], [ %.0105232.i.i, %1429 ], [ %.0105232.i.i, %strbuf_setlen.exit.i.i ]
+  %.0109231242.i.i = phi ptr [ %1084, %1439 ], [ %1084, %1438 ], [ %.0109230.i.i, %1434 ], [ %.0109230.i.i, %1429 ], [ %.0109230.i.i, %strbuf_setlen.exit.i.i ]
+  %.0105233241.i.i = phi i32 [ 0, %1439 ], [ 0, %1438 ], [ %.0105232.i.i, %1434 ], [ %.0105232.i.i, %1429 ], [ %.0105232.i.i, %strbuf_setlen.exit.i.i ]
   call void @strbuf_release(ptr noundef nonnull %29) #20
   %1440 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %1441 = load ptr, ptr %1440, align 8, !tbaa !146
@@ -3953,7 +3953,7 @@ fetch_multiple.exit:                              ; preds = %truncate_fetch_head
   br label %1539
 
 1539:                                             ; preds = %.thread154, %fetch_one.exit, %fetch_multiple.exit
-  %.2 = phi i32 [ %702, %.thread154 ], [ %.0105233241.i.i, %fetch_one.exit ], [ %.1.i142, %fetch_multiple.exit ]
+  %.2 = phi i32 [ %.0105233241.i.i, %fetch_one.exit ], [ %.1.i142, %fetch_multiple.exit ], [ %702, %.thread154 ]
   %1540 = icmp eq i32 %.2, 0
   %1541 = icmp ne ptr %.065, null
   %or.cond7 = select i1 %1540, i1 %1541, i1 false
@@ -4301,7 +4301,7 @@ define internal i32 @git_fetch_config(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %66
 
 66:                                               ; preds = %50, %51, %64, %56, %38, %32, %26, %21, %16, %11, %6
-  %.0 = phi i32 [ %65, %64 ], [ -1, %56 ], [ 0, %6 ], [ 0, %38 ], [ 0, %32 ], [ 0, %26 ], [ 0, %21 ], [ 0, %16 ], [ 0, %11 ], [ 0, %51 ], [ 0, %50 ]
+  %.0 = phi i32 [ %65, %64 ], [ -1, %56 ], [ 0, %38 ], [ 0, %32 ], [ 0, %26 ], [ 0, %21 ], [ 0, %16 ], [ 0, %11 ], [ 0, %6 ], [ 0, %51 ], [ 0, %50 ]
   ret i32 %.0
 }
 
@@ -5605,8 +5605,8 @@ skip_prefix.exit79.i:                             ; preds = %154, %skip_prefix.e
   br i1 %158, label %skip_prefix.exit79.i, label %skip_prefix.exit83.i, !llvm.loop !155
 
 skip_prefix.exit83.i:                             ; preds = %.preheader.i21, %skip_prefix.exit.i, %154, %skip_prefix.exit79.i, %140
-  %.399.i = phi ptr [ @.str, %140 ], [ %scevgep130.i, %skip_prefix.exit.i ], [ %142, %154 ], [ %scevgep132.i, %skip_prefix.exit79.i ], [ %scevgep.i, %.preheader.i21 ]
-  %.045.i = phi ptr [ @.str, %140 ], [ @.str.171, %skip_prefix.exit.i ], [ @.str, %154 ], [ @.str.213, %skip_prefix.exit79.i ], [ @.str.212, %.preheader.i21 ]
+  %.399.i = phi ptr [ @.str, %140 ], [ %142, %154 ], [ %scevgep132.i, %skip_prefix.exit79.i ], [ %scevgep130.i, %skip_prefix.exit.i ], [ %scevgep.i, %.preheader.i21 ]
+  %.045.i = phi ptr [ @.str, %140 ], [ @.str, %154 ], [ @.str.213, %skip_prefix.exit79.i ], [ @.str.171, %skip_prefix.exit.i ], [ @.str.212, %.preheader.i21 ]
   store i64 0, ptr %57, align 8, !tbaa !160
   %159 = load ptr, ptr %58, align 8, !tbaa !101
   %.not9.i.i = icmp eq ptr %159, @strbuf_slopbuf
@@ -5945,14 +5945,14 @@ _.exit142.i.i:                                    ; preds = %265, %_.exit139.i.i
   br i1 %.not4.i149.i.i, label %_.exit145.i.i, label %_.exit145.sink.split.i.i
 
 _.exit145.sink.split.i.i:                         ; preds = %280, %278
-  %.str.234.sink.i.i = phi ptr [ %.str.234..str.232.i.i, %280 ], [ @.str.230, %278 ]
-  %.099.ph.i.i = phi ptr [ %.str.233..str.231.i.i, %280 ], [ @.str.229, %278 ]
+  %.str.234.sink.i.i = phi ptr [ @.str.230, %278 ], [ %.str.234..str.232.i.i, %280 ]
+  %.099.ph.i.i = phi ptr [ @.str.229, %278 ], [ %.str.233..str.231.i.i, %280 ]
   %283 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.234.sink.i.i, i32 noundef 5) #20
   br label %_.exit145.i.i
 
 _.exit145.i.i:                                    ; preds = %_.exit145.sink.split.i.i, %280, %278
-  %.099.i.i = phi ptr [ %.str.233..str.231.i.i, %280 ], [ %.099.ph.i.i, %_.exit145.sink.split.i.i ], [ @.str.229, %278 ]
-  %.098.i.i = phi ptr [ %.str.234..str.232.i.i, %280 ], [ %283, %_.exit145.sink.split.i.i ], [ @.str.230, %278 ]
+  %.099.i.i = phi ptr [ @.str.229, %278 ], [ %.099.ph.i.i, %_.exit145.sink.split.i.i ], [ %.str.233..str.231.i.i, %280 ]
+  %.098.i.i = phi ptr [ @.str.230, %278 ], [ %283, %_.exit145.sink.split.i.i ], [ %.str.234..str.232.i.i, %280 ]
   %284 = call fastcc i32 @s_update_ref(ptr noundef nonnull %.099.i.i, ptr noundef nonnull %.041.i, ptr noundef %2, i32 noundef 0)
   %.not114.i.i = icmp eq i32 %284, 0
   %285 = select i1 %.not114.i.i, i8 42, i8 33
@@ -6068,7 +6068,7 @@ _.exit160.sink.split.i.i:                         ; preds = %327
   br label %_.exit160.i.i
 
 _.exit160.i.i:                                    ; preds = %_.exit160.sink.split.i.i, %327
-  %336 = phi ptr [ %.str.240..str.227.i.i, %327 ], [ %335, %_.exit160.sink.split.i.i ]
+  %336 = phi ptr [ %335, %_.exit160.sink.split.i.i ], [ %.str.240..str.227.i.i, %327 ]
   %337 = getelementptr inbounds nuw i8, ptr %210, i64 176
   %338 = getelementptr inbounds nuw i8, ptr %.041.i, i64 176
   call fastcc void @display_ref_update(ptr noundef nonnull %0, i8 noundef signext %332, ptr noundef %333, ptr noundef %336, ptr noundef nonnull %337, ptr noundef nonnull %338, ptr noundef nonnull %218, ptr noundef nonnull %212, i32 noundef %.043.i)
@@ -6100,7 +6100,7 @@ _.exit169.i.i:                                    ; preds = %342, %_.exit166.i.i
   br label %update_local_ref.exit.i
 
 update_local_ref.exit.i:                          ; preds = %_.exit169.i.i, %_.exit160.i.i, %_.exit157.i.i, %_.exit154.i.i, %_.exit142.i.i, %_.exit136.i.i, %_.exit128.i.i, %_.exit.i.i, %219
-  %.0.i86.i = phi i32 [ 1, %_.exit128.i.i ], [ %311, %_.exit157.i.i ], [ %331, %_.exit160.i.i ], [ 1, %_.exit169.i.i ], [ %284, %_.exit154.i.i ], [ %251, %_.exit136.i.i ], [ 1, %_.exit142.i.i ], [ 0, %_.exit.i.i ], [ 0, %219 ]
+  %.0.i86.i = phi i32 [ %311, %_.exit157.i.i ], [ %331, %_.exit160.i.i ], [ 1, %_.exit169.i.i ], [ %284, %_.exit154.i.i ], [ %251, %_.exit136.i.i ], [ 1, %_.exit142.i.i ], [ 1, %_.exit128.i.i ], [ 0, %_.exit.i.i ], [ 0, %219 ]
   %346 = or i32 %.0.i86.i, %.4119.i
   call void @free(ptr noundef nonnull %.041.i) #20
   br label %359
@@ -6125,7 +6125,7 @@ update_local_ref.exit.i:                          ; preds = %_.exit169.i.i, %_.e
   br label %359
 
 359:                                              ; preds = %352, %347, %update_local_ref.exit.i, %98, %_.exit74.i, %72
-  %.5.i = phi i32 [ %.4119.i, %98 ], [ %.4119.i, %72 ], [ %.4119.i, %_.exit74.i ], [ %346, %update_local_ref.exit.i ], [ %.4119.i, %352 ], [ %.4119.i, %347 ]
+  %.5.i = phi i32 [ %.4119.i, %_.exit74.i ], [ %.4119.i, %72 ], [ %.4119.i, %98 ], [ %346, %update_local_ref.exit.i ], [ %.4119.i, %352 ], [ %.4119.i, %347 ]
   %360 = load ptr, ptr %11, align 8, !tbaa !122
   %361 = load ptr, ptr %360, align 8, !tbaa !122
   store ptr %361, ptr %11, align 8, !tbaa !122
@@ -6373,7 +6373,7 @@ ends_with.exit.thread:                            ; preds = %24, %ends_with.exit
   br label %62
 
 62:                                               ; preds = %29, %30, %34, %36, %40, %42, %52, %55, %21, %58
-  %.1 = phi ptr [ %.04572, %21 ], [ null, %52 ], [ null, %55 ], [ %60, %58 ], [ null, %42 ], [ null, %40 ], [ null, %36 ], [ null, %34 ], [ null, %30 ], [ null, %29 ]
+  %.1 = phi ptr [ null, %52 ], [ null, %55 ], [ %60, %58 ], [ %.04572, %21 ], [ null, %42 ], [ null, %40 ], [ null, %36 ], [ null, %34 ], [ null, %30 ], [ null, %29 ]
   %63 = load ptr, ptr %.04473, align 8, !tbaa !122
   %.not48 = icmp eq ptr %63, null
   br i1 %.not48, label %._crit_edge, label %21, !llvm.loop !218
@@ -6622,8 +6622,8 @@ skip_prefix.exit:                                 ; preds = %42, %43
   br label %55
 
 55:                                               ; preds = %.lr.ph45, %skip_prefix.exit, %._crit_edge
-  %56 = phi i32 [ %.pre, %skip_prefix.exit ], [ %36, %._crit_edge ], [ %7, %.lr.ph45 ]
-  %.1 = phi i32 [ %.03144, %skip_prefix.exit ], [ %37, %._crit_edge ], [ %.03144, %.lr.ph45 ]
+  %56 = phi i32 [ %36, %._crit_edge ], [ %.pre, %skip_prefix.exit ], [ %7, %.lr.ph45 ]
+  %.1 = phi i32 [ %37, %._crit_edge ], [ %.03144, %skip_prefix.exit ], [ %.03144, %.lr.ph45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %57 = add nsw i32 %.1, 1
   %58 = icmp slt i32 %57, %56
@@ -6991,7 +6991,7 @@ ends_with.exit.thread:                            ; preds = %2, %ends_with.exit
   br label %36
 
 36:                                               ; preds = %30, %22, %19, %._crit_edge
-  %.0 = phi i32 [ 0, %19 ], [ 0, %22 ], [ 1, %._crit_edge ], [ 0, %30 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %19 ], [ 0, %22 ], [ 0, %30 ]
   ret i32 %.0
 }
 
@@ -7104,7 +7104,7 @@ define internal fastcc range(i32 0, 3) i32 @s_update_ref(ptr noundef %0, ptr nou
   call void @ref_transaction_free(ptr noundef %.018) #20
   br label %30
 
-26:                                               ; preds = %22, %11, %24, %15
+26:                                               ; preds = %22, %24, %11, %15
   %.1.ph = phi ptr [ %.018, %15 ], [ null, %11 ], [ %.018, %24 ], [ %.018, %22 ]
   %.0.ph = phi i32 [ 1, %15 ], [ 1, %11 ], [ 1, %24 ], [ 2, %22 ]
   call void @ref_transaction_free(ptr noundef %.1.ph) #20
@@ -7237,7 +7237,7 @@ _.exit:                                           ; preds = %30, %32
   br label %35
 
 35:                                               ; preds = %14, %26, %_.exit, %4, %8
-  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 1, %_.exit ], [ 1, %26 ], [ 1, %14 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 1, %_.exit ], [ 1, %26 ], [ 1, %14 ]
   ret i32 %.0
 }
 

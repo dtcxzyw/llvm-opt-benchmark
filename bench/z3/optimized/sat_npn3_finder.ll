@@ -1722,7 +1722,7 @@ _ZN14core_hashtableI18default_hash_entryIN3sat11npn3_finder6binaryEENS3_4hashENS
   ret void
 
 207:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit79, %.loopexit.split-lp80
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp82, %.loopexit.split-lp80 ], [ %lpad.loopexit81, %.loopexit79 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit81, %.loopexit79 ], [ %lpad.loopexit.split-lp82, %.loopexit.split-lp80 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %18) #26
   br label %208
 
@@ -3951,7 +3951,7 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit:       ; preds = %_ZNK3sat3big9connec
   br i1 %.not, label %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread, label %.lr.ph
 
 _ZNK3sat3big9connectedENS_7literalES1_.exit.thread: ; preds = %.critedge19, %51, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit
-  %.0 = phi i1 [ true, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i ], [ true, %_ZNK3sat3big9connectedENS_7literalES1_.exit ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21 ], [ true, %51 ], [ false, %.critedge19 ]
+  %.0 = phi i1 [ true, %_ZNK3sat3big9connectedENS_7literalES1_.exit ], [ true, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21 ], [ false, %.critedge19 ], [ true, %51 ]
   ret i1 %.0
 }
 
@@ -5185,13 +5185,13 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i40:   ; preds = %_ZNK3sat3big9connec
   %.not.i45 = icmp eq ptr %147, %138
   br i1 %.not.i45, label %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49, label %.lr.ph.i42
 
-_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49.sink.split: ; preds = %73, %113, %143, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i36, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i35, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i48, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i47, %23
-  %.sink = phi ptr [ %25, %23 ], [ null, %143 ], [ null, %113 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i47 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i48 ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i35 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i36 ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i ], [ null, %73 ]
+_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49.sink.split: ; preds = %73, %113, %143, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i35, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i36, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i47, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i48, %23
+  %.sink = phi ptr [ %25, %23 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i48 ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i47 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i36 ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i35 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i ], [ null, %143 ], [ null, %113 ], [ null, %73 ]
   store ptr %.sink, ptr %5, align 8, !tbaa !77
   br label %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49
 
 _ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49: ; preds = %.critedge19.i44, %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49.sink.split, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i40, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i39
-  %.0 = phi i1 [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i40 ], [ true, %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49.sink.split ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i39 ], [ false, %.critedge19.i44 ]
+  %.0 = phi i1 [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i39 ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i40 ], [ true, %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49.sink.split ], [ false, %.critedge19.i44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -5288,7 +5288,7 @@ _ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4h
   br label %45
 
 45:                                               ; preds = %43, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit, %39, %41, %35
-  %.0 = phi i1 [ true, %35 ], [ true, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit ], [ %44, %43 ], [ true, %41 ], [ true, %39 ]
+  %.0 = phi i1 [ true, %35 ], [ true, %41 ], [ true, %39 ], [ true, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit ], [ %44, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
 }
@@ -5724,7 +5724,7 @@ _ZNKSt8functionIFbRK9hashtableIN3sat11npn3_finder6binaryENS3_4hashENS3_2eqEERKS0
   ret void
 
 158:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit107, %.loopexit.split-lp108
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp110, %.loopexit.split-lp108 ], [ %lpad.loopexit109, %.loopexit107 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit109, %.loopexit107 ], [ %lpad.loopexit.split-lp110, %.loopexit.split-lp108 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %25) #26
   br label %159
 
@@ -5890,7 +5890,7 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i:     ; preds = %_ZNK3sat3big9connec
   %.not.i = icmp eq ptr %61, %52
   br i1 %.not.i, label %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit, label %.lr.ph.i
 
-.loopexit6:                                       ; preds = %57, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i
+.loopexit6:                                       ; preds = %57, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i
   %62 = xor i32 %2, 1
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds nuw i32, ptr %12, i64 %63
@@ -5966,7 +5966,7 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i30:   ; preds = %_ZNK3sat3big9connec
   %.not.i35 = icmp eq ptr %108, %99
   br i1 %.not.i35, label %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit, label %.lr.ph.i32
 
-.loopexit4:                                       ; preds = %104, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i38, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i37
+.loopexit4:                                       ; preds = %104, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i37, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i38
   %109 = xor i32 %3, 1
   %110 = zext i32 %109 to i64
   %111 = getelementptr inbounds nuw i32, ptr %12, i64 %110
@@ -6042,7 +6042,7 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i42:   ; preds = %_ZNK3sat3big9connec
   %.not.i47 = icmp eq ptr %155, %146
   br i1 %.not.i47, label %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit, label %.lr.ph.i44
 
-.loopexit:                                        ; preds = %151, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i50, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i49
+.loopexit:                                        ; preds = %151, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i49, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i50
   %156 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %157 = load i32, ptr %156, align 4
   %158 = or i32 %157, 8
@@ -6076,7 +6076,7 @@ _ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit: ; preds = %.loo
   br label %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit
 
 _ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit: ; preds = %.critedge19.i, %.critedge19.i34, %.critedge19.i46, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i42, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i41, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i30, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i29, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit
-  %.0 = phi i1 [ true, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit ], [ false, %.critedge19.i46 ], [ false, %.critedge19.i34 ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i29 ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i30 ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i41 ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i42 ], [ false, %.critedge19.i ]
+  %.0 = phi i1 [ true, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i29 ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i30 ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i41 ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i42 ], [ false, %.critedge19.i46 ], [ false, %.critedge19.i34 ], [ false, %.critedge19.i ]
   ret i1 %.0
 }
 
@@ -6222,7 +6222,7 @@ _ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit: ; preds = %71
   br label %78
 
 78:                                               ; preds = %35, %32, %28, %24, %6, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit
-  %.0 = phi i1 [ true, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit ], [ false, %32 ], [ false, %28 ], [ false, %24 ], [ false, %6 ], [ false, %35 ]
+  %.0 = phi i1 [ true, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit ], [ false, %6 ], [ false, %24 ], [ false, %28 ], [ false, %32 ], [ false, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -6344,7 +6344,7 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i:     ; preds = %_ZNK3sat3big9connec
   %.not.i = icmp eq ptr %80, %71
   br i1 %.not.i, label %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit, label %.lr.ph.i
 
-.loopexit:                                        ; preds = %76, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i
+.loopexit:                                        ; preds = %76, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %82 = load i32, ptr %81, align 4
   %83 = or i32 %82, 8
@@ -6414,7 +6414,7 @@ _ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit: ; preds = %101
   br label %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit
 
 _ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit: ; preds = %.critedge19.i, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i, %26, %22, %6, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit
-  %.0 = phi i1 [ true, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit ], [ false, %26 ], [ false, %22 ], [ false, %6 ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i ], [ false, %.critedge19.i ]
+  %.0 = phi i1 [ true, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit ], [ false, %6 ], [ false, %22 ], [ false, %26 ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i ], [ false, %.critedge19.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -6544,7 +6544,7 @@ _ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit: ; preds = %61
   br label %68
 
 68:                                               ; preds = %31, %28, %24, %6, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit
-  %.0 = phi i1 [ true, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit ], [ false, %28 ], [ false, %24 ], [ false, %6 ], [ false, %31 ]
+  %.0 = phi i1 [ true, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit ], [ false, %6 ], [ false, %24 ], [ false, %28 ], [ false, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -6687,7 +6687,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN3sat11npn3_finder11find_onehotER
   br label %81
 
 81:                                               ; preds = %37, %34, %31, %26, %21, %6, %79
-  %.0 = phi i1 [ true, %79 ], [ false, %34 ], [ false, %31 ], [ false, %26 ], [ false, %21 ], [ false, %6 ], [ false, %37 ]
+  %.0 = phi i1 [ true, %79 ], [ false, %6 ], [ false, %21 ], [ false, %26 ], [ false, %31 ], [ false, %34 ], [ false, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -6812,7 +6812,7 @@ _ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit: ; preds = %52
   br label %59
 
 59:                                               ; preds = %23, %20, %17, %5, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit
-  %.0 = phi i1 [ true, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit ], [ false, %20 ], [ false, %17 ], [ false, %5 ], [ false, %23 ]
+  %.0 = phi i1 [ true, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit ], [ false, %5 ], [ false, %17 ], [ false, %20 ], [ false, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -6961,7 +6961,7 @@ _ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashE
   br label %122
 
 _ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit.thread: ; preds = %.lr.ph, %69, %73, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit, %66
-  %.1 = phi ptr [ %.04484, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit ], [ %.04484, %66 ], [ %.04583, %.lr.ph ], [ %.04484, %73 ], [ %.04484, %69 ]
+  %.1 = phi ptr [ %.04484, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit ], [ %.04484, %66 ], [ %.04484, %73 ], [ %.04484, %69 ], [ %.04583, %.lr.ph ]
   %92 = getelementptr inbounds nuw i8, ptr %.04583, i64 32
   %.not = icmp eq ptr %92, %63
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !138
@@ -7029,7 +7029,7 @@ _ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashE
   br label %122
 
 _ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit50.thread: ; preds = %.lr.ph89, %98, %102, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit50, %95
-  %.3 = phi ptr [ %.288, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit50 ], [ %.288, %95 ], [ %.14687, %.lr.ph89 ], [ %.288, %102 ], [ %.288, %98 ]
+  %.3 = phi ptr [ %.288, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit50 ], [ %.288, %95 ], [ %.288, %102 ], [ %.288, %98 ], [ %.14687, %.lr.ph89 ]
   %121 = getelementptr inbounds nuw i8, ptr %.14687, i64 32
   %.not47 = icmp eq ptr %121, %61
   br i1 %.not47, label %._crit_edge, label %.lr.ph89, !llvm.loop !139
@@ -8090,7 +8090,7 @@ _ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4h
   br label %164
 
 _ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit.thread: ; preds = %.lr.ph, %103, %107, %111, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit, %100
-  %.1 = phi ptr [ %.044100, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit ], [ %.044100, %100 ], [ %.04599, %.lr.ph ], [ %.044100, %111 ], [ %.044100, %107 ], [ %.044100, %103 ]
+  %.1 = phi ptr [ %.044100, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit ], [ %.044100, %100 ], [ %.044100, %111 ], [ %.044100, %107 ], [ %.044100, %103 ], [ %.04599, %.lr.ph ]
   %130 = getelementptr inbounds nuw i8, ptr %.04599, i64 32
   %.not = icmp eq ptr %130, %97
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !163
@@ -8164,7 +8164,7 @@ _ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4h
   br label %164
 
 _ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit50.thread: ; preds = %.lr.ph105, %136, %140, %144, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit50, %133
-  %.3 = phi ptr [ %.2104, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit50 ], [ %.2104, %133 ], [ %.146103, %.lr.ph105 ], [ %.2104, %144 ], [ %.2104, %140 ], [ %.2104, %136 ]
+  %.3 = phi ptr [ %.2104, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit50 ], [ %.2104, %133 ], [ %.2104, %144 ], [ %.2104, %140 ], [ %.2104, %136 ], [ %.146103, %.lr.ph105 ]
   %163 = getelementptr inbounds nuw i8, ptr %.146103, i64 32
   %.not47 = icmp eq ptr %163, %95
   br i1 %.not47, label %._crit_edge, label %.lr.ph105, !llvm.loop !164
@@ -8468,7 +8468,7 @@ _ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashE
   br i1 %.not27, label %.loopexit, label %.lr.ph53, !llvm.loop !170
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit28, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit28.thread, %.lr.ph53, %.preheader
-  %.026 = phi ptr [ null, %.preheader ], [ null, %.lr.ph53 ], [ %.152, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit28 ], [ null, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit28.thread ], [ %.050, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit ], [ null, %.lr.ph ]
+  %.026 = phi ptr [ null, %.preheader ], [ %.152, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit28 ], [ null, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit28.thread ], [ null, %.lr.ph53 ], [ null, %.lr.ph ], [ %.050, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder7ternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit ]
   ret ptr %.026
 }
 
@@ -8655,7 +8655,7 @@ _ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4h
   br i1 %.not27, label %.loopexit, label %.lr.ph69, !llvm.loop !172
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit28, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit28.thread, %.lr.ph69, %.preheader
-  %.026 = phi ptr [ null, %.preheader ], [ null, %.lr.ph69 ], [ %.168, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit28 ], [ null, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit28.thread ], [ %.066, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit ], [ null, %.lr.ph ]
+  %.026 = phi ptr [ null, %.preheader ], [ %.168, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit28 ], [ null, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit28.thread ], [ null, %.lr.ph69 ], [ null, %.lr.ph ], [ %.066, %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder10quaternaryEENS3_4hashENS3_2eqEE6equalsERKS3_S9_.exit ]
   ret ptr %.026
 }
 
@@ -8952,7 +8952,7 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI18default_hash_entr
   br i1 %.not27, label %.loopexit, label %.lr.ph49, !llvm.loop !178
 
 .loopexit:                                        ; preds = %.lr.ph, %52, %67, %75, %.lr.ph49, %.preheader
-  %.026 = phi ptr [ null, %.preheader ], [ null, %.lr.ph49 ], [ %.148, %67 ], [ null, %75 ], [ %.046, %52 ], [ null, %.lr.ph ]
+  %.026 = phi ptr [ null, %.preheader ], [ %.148, %67 ], [ null, %75 ], [ null, %.lr.ph49 ], [ null, %.lr.ph ], [ %.046, %52 ]
   ret ptr %.026
 }
 
@@ -9016,31 +9016,31 @@ _ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit.i.i.i: ; preds 
   %.not12.not.i.i.i = icmp eq i32 %30, 0
   br i1 %.not12.not.i.i.i, label %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder6binaryEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit.i.i.i, %.critedge.i.i.i
-  %.06413.i.i.i = phi ptr [ %84, %.critedge.i.i.i ], [ %27, %_ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %_ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit.i.i.i, %83
+  %.06413.i.i.i = phi ptr [ %84, %83 ], [ %27, %_ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit.i.i.i ]
   %.sroa.024.0.copyload.i.i.i = load i64, ptr %.06413.i.i.i, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.06413.i.i.i, i64 8
   %.sroa.4.0.copyload.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %.sroa.024.0.extract.trunc.i.i.i = trunc i64 %.sroa.024.0.copyload.i.i.i to i32
   %34 = icmp eq i32 %.val9, %.sroa.024.0.extract.trunc.i.i.i
-  br i1 %34, label %.critedge.i.i.i, label %35
+  br i1 %34, label %83, label %35
 
 35:                                               ; preds = %.lr.ph.i.i.i
   %36 = call noundef zeroext i1 @_ZNK3sat11npn3_finder11has_ternaryERK9hashtableINS0_7ternaryENS2_4hashENS2_2eqEENS_7literalES8_S8_RPNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(416) %.val, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 %.val7, i32 %.val8, i32 %.sroa.024.0.extract.trunc.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  br i1 %36, label %37, label %.critedge.i.i.i
+  br i1 %36, label %37, label %83
 
 37:                                               ; preds = %35
   %38 = xor i32 %.sroa.024.0.extract.trunc.i.i.i, 1
   %39 = call noundef zeroext i1 @_ZNK3sat11npn3_finder11has_ternaryERK9hashtableINS0_7ternaryENS2_4hashENS2_2eqEENS_7literalES8_S8_RPNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(416) %.val, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 %14, i32 %15, i32 %38, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  br i1 %39, label %40, label %.critedge.i.i.i
+  br i1 %39, label %40, label %83
 
 40:                                               ; preds = %37
   %41 = call noundef zeroext i1 @_ZNK3sat11npn3_finder11has_ternaryERK9hashtableINS0_7ternaryENS2_4hashENS2_2eqEENS_7literalES8_S8_RPNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(416) %.val, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 %.val7, i32 %.val9, i32 %.sroa.024.0.extract.trunc.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  br i1 %41, label %42, label %.critedge.i.i.i
+  br i1 %41, label %42, label %83
 
 42:                                               ; preds = %40
   %43 = call noundef zeroext i1 @_ZNK3sat11npn3_finder11has_ternaryERK9hashtableINS0_7ternaryENS2_4hashENS2_2eqEENS_7literalES8_S8_RPNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(416) %.val, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 %14, i32 %16, i32 %38, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  br i1 %43, label %44, label %.critedge.i.i.i
+  br i1 %43, label %44, label %83
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -9108,27 +9108,27 @@ _ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit.i.i.i: ; preds 
 76:                                               ; preds = %72, %70
   %77 = load ptr, ptr %12, align 8, !tbaa !77
   %.not75.i.i.i = icmp eq ptr %77, null
-  br i1 %.not75.i.i.i, label %82, label %78
+  br i1 %.not75.i.i.i, label %.critedge.i.i.i, label %78
 
 78:                                               ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %80 = load i32, ptr %79, align 4
   %81 = or i32 %80, 8
   store i32 %81, ptr %79, align 4
-  br label %82
+  br label %.critedge.i.i.i
 
-82:                                               ; preds = %78, %76
-  %83 = getelementptr inbounds nuw i8, ptr %.val, i64 120
-  call void @_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %83, i32 %14, i32 %.val8, i32 %.val9, i32 %.sroa.024.0.extract.trunc.i.i.i)
+.critedge.i.i.i:                                  ; preds = %78, %76
+  %82 = getelementptr inbounds nuw i8, ptr %.val, i64 120
+  call void @_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %82, i32 %14, i32 %.val8, i32 %.val9, i32 %.sroa.024.0.extract.trunc.i.i.i)
   br label %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder6binaryEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %42, %40, %37, %35, %.lr.ph.i.i.i
+83:                                               ; preds = %42, %40, %37, %35, %.lr.ph.i.i.i
   %84 = getelementptr inbounds nuw i8, ptr %.06413.i.i.i, i64 16
   %.not.not.i.i.i = icmp eq ptr %84, %33
   br i1 %.not.not.i.i.i, label %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder6binaryEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit.i.i.i, label %.lr.ph.i.i.i
 
-_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder6binaryEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit.i.i.i: ; preds = %.critedge.i.i.i, %82, %_ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit.i.i.i, %24, %_ZN3sat11npn3_finder6binaryC2ENS_7literalES2_P7svectorISt4pairIS2_PNS_6clauseEEjE.exit.i.i.i
-  %.1.i.i.i = phi i1 [ false, %_ZN3sat11npn3_finder6binaryC2ENS_7literalES2_P7svectorISt4pairIS2_PNS_6clauseEEjE.exit.i.i.i ], [ true, %82 ], [ false, %_ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit.i.i.i ], [ false, %24 ], [ false, %.critedge.i.i.i ]
+_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder6binaryEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit.i.i.i: ; preds = %83, %.critedge.i.i.i, %_ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit.i.i.i, %24, %_ZN3sat11npn3_finder6binaryC2ENS_7literalES2_P7svectorISt4pairIS2_PNS_6clauseEEjE.exit.i.i.i
+  %.1.i.i.i = phi i1 [ false, %_ZN3sat11npn3_finder6binaryC2ENS_7literalES2_P7svectorISt4pairIS2_PNS_6clauseEEjE.exit.i.i.i ], [ true, %.critedge.i.i.i ], [ false, %_ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit.i.i.i ], [ false, %24 ], [ false, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %"_ZSt10__invoke_rIbRZN3sat11npn3_finder8find_majER10ptr_vectorINS0_6clauseEEE3$_0JRK9hashtableINS1_6binaryENS9_4hashENS9_2eqEERKS8_INS1_7ternaryENSF_4hashENSF_2eqEENS0_7literalESL_SL_RS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit"
 
@@ -9302,19 +9302,19 @@ _ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit.i.i.i: ; preds 
   %82 = xor i32 %.val7, 1
   br label %83
 
-83:                                               ; preds = %.critedge.i.i.i, %.lr.ph.i.i.i
-  %.04210.i.i.i = phi ptr [ %74, %.lr.ph.i.i.i ], [ %109, %.critedge.i.i.i ]
+83:                                               ; preds = %108, %.lr.ph.i.i.i
+  %.04210.i.i.i = phi ptr [ %74, %.lr.ph.i.i.i ], [ %109, %108 ]
   %.sroa.014.0.copyload.i.i.i = load i64, ptr %.04210.i.i.i, align 8
   %.sroa.014.0.extract.trunc.i.i.i = trunc i64 %.sroa.014.0.copyload.i.i.i to i32
   %84 = icmp eq i32 %.val9, %.sroa.014.0.extract.trunc.i.i.i
-  br i1 %84, label %.critedge.i.i.i, label %85
+  br i1 %84, label %108, label %85
 
 85:                                               ; preds = %83
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.04210.i.i.i, i64 8
   %.sroa.4.0.copyload.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %86 = xor i32 %.sroa.014.0.extract.trunc.i.i.i, 1
   %87 = call noundef zeroext i1 @_ZNK3sat11npn3_finder11has_ternaryERK9hashtableINS0_7ternaryENS2_4hashENS2_2eqEENS_7literalES8_S8_RPNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(416) %.val, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 %81, i32 %86, i32 %82, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  br i1 %87, label %88, label %.critedge.i.i.i
+  br i1 %87, label %88, label %108
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -9334,16 +9334,16 @@ _ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit.i.i.i: ; preds 
 96:                                               ; preds = %92, %88
   %97 = load ptr, ptr %12, align 8, !tbaa !77
   %.not45.i.i.i = icmp eq ptr %97, null
-  br i1 %.not45.i.i.i, label %102, label %98
+  br i1 %.not45.i.i.i, label %.critedge.i.i.i, label %98
 
 98:                                               ; preds = %96
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %100 = load i32, ptr %99, align 4
   %101 = or i32 %100, 8
   store i32 %101, ptr %99, align 4
-  br label %102
+  br label %.critedge.i.i.i
 
-102:                                              ; preds = %98, %96
+.critedge.i.i.i:                                  ; preds = %98, %96
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -9352,33 +9352,33 @@ _ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit.i.i.i: ; preds 
   store i32 %14, ptr %9, align 4
   store i32 %81, ptr %10, align 4
   store i32 %86, ptr %11, align 4
-  %103 = getelementptr inbounds nuw i8, ptr %.val, i64 168
-  %104 = load ptr, ptr %103, align 8, !tbaa !47
-  %.not.i.i.i.i.i = icmp eq ptr %104, null
-  br i1 %.not.i.i.i.i.i, label %105, label %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit.i.i.i
+  %102 = getelementptr inbounds nuw i8, ptr %.val, i64 168
+  %103 = load ptr, ptr %102, align 8, !tbaa !47
+  %.not.i.i.i.i.i = icmp eq ptr %103, null
+  br i1 %.not.i.i.i.i.i, label %104, label %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit.i.i.i
 
-105:                                              ; preds = %102
+104:                                              ; preds = %.critedge.i.i.i
   call void @_ZSt25__throw_bad_function_callv() #27
   unreachable
 
-_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit.i.i.i: ; preds = %102
-  %106 = getelementptr inbounds nuw i8, ptr %.val, i64 152
-  %107 = getelementptr inbounds nuw i8, ptr %.val, i64 176
-  %108 = load ptr, ptr %107, align 8, !tbaa !98
-  call void %108(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit.i.i.i: ; preds = %.critedge.i.i.i
+  %105 = getelementptr inbounds nuw i8, ptr %.val, i64 152
+  %106 = getelementptr inbounds nuw i8, ptr %.val, i64 176
+  %107 = load ptr, ptr %106, align 8, !tbaa !98
+  call void %107(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder6binaryEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %85, %83
+108:                                              ; preds = %85, %83
   %109 = getelementptr inbounds nuw i8, ptr %.04210.i.i.i, i64 16
   %.not.not.i.i.i = icmp eq ptr %109, %80
   br i1 %.not.not.i.i.i, label %_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder6binaryEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit.i.i.i, label %83
 
-_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder6binaryEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit.i.i.i: ; preds = %.critedge.i.i.i, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit.i.i.i, %_ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit.i.i.i, %71, %_ZN3sat11npn3_finder6binaryC2ENS_7literalES2_P7svectorISt4pairIS2_PNS_6clauseEEjE.exit.i.i.i
-  %.1.i.i.i = phi i1 [ false, %_ZN3sat11npn3_finder6binaryC2ENS_7literalES2_P7svectorISt4pairIS2_PNS_6clauseEEjE.exit.i.i.i ], [ true, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit.i.i.i ], [ false, %_ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit.i.i.i ], [ false, %71 ], [ false, %.critedge.i.i.i ]
+_ZNK14core_hashtableI18default_hash_entryIN3sat11npn3_finder6binaryEENS3_4hashENS3_2eqEE4findERKS3_RS3_.exit.i.i.i: ; preds = %108, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit.i.i.i, %_ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit.i.i.i, %71, %_ZN3sat11npn3_finder6binaryC2ENS_7literalES2_P7svectorISt4pairIS2_PNS_6clauseEEjE.exit.i.i.i
+  %.1.i.i.i = phi i1 [ false, %_ZN3sat11npn3_finder6binaryC2ENS_7literalES2_P7svectorISt4pairIS2_PNS_6clauseEEjE.exit.i.i.i ], [ true, %_ZNKSt8functionIFvN3sat7literalES1_S1_S1_EEclES1_S1_S1_S1_.exit.i.i.i ], [ false, %_ZN6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE3endEv.exit.i.i.i ], [ false, %71 ], [ false, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %"_ZSt10__invoke_rIbRZN3sat11npn3_finder10find_orandER10ptr_vectorINS0_6clauseEEE3$_0JRK9hashtableINS1_6binaryENS9_4hashENS9_2eqEERKS8_INS1_7ternaryENSF_4hashENSF_2eqEENS0_7literalESL_SL_RS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit"

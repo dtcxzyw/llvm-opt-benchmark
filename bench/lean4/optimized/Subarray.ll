@@ -1203,7 +1203,7 @@ lean_dec.exit43:                                  ; preds = %94, %93, %91, %lean
   br label %lean_dec.exit42
 
 lean_dec.exit42:                                  ; preds = %99, %103, %112, %111, %109
-  %.0.i3982 = phi ptr [ %106, %112 ], [ %106, %109 ], [ %106, %111 ], [ %104, %103 ], [ %102, %99 ]
+  %.0.i3982 = phi ptr [ %106, %109 ], [ %106, %111 ], [ %106, %112 ], [ %104, %103 ], [ %102, %99 ]
   store ptr %.0.i3982, ptr %12, align 8, !tbaa !4
   br label %lean_dec.exit46
 
@@ -1269,7 +1269,7 @@ lean_dec.exit41:                                  ; preds = %121, %120, %118, %1
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %126, %130, %139, %138, %136
-  %.0.i84 = phi ptr [ %133, %139 ], [ %133, %136 ], [ %133, %138 ], [ %131, %130 ], [ %129, %126 ]
+  %.0.i84 = phi ptr [ %133, %136 ], [ %133, %138 ], [ %133, %139 ], [ %131, %130 ], [ %129, %126 ]
   tail call void @lean_inc_heartbeat() #5
   %140 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
   %141 = icmp eq ptr %140, null
@@ -1292,7 +1292,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   br label %lean_dec.exit46
 
 lean_dec.exit46:                                  ; preds = %lean_dec.exit47, %56, %58, %59, %lean_dec.exit42, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %140, %lean_alloc_ctor.exit ], [ %0, %lean_dec.exit42 ], [ %0, %59 ], [ %0, %58 ], [ %0, %56 ], [ %0, %lean_dec.exit47 ]
+  %.0 = phi ptr [ %0, %lean_dec.exit42 ], [ %140, %lean_alloc_ctor.exit ], [ %0, %59 ], [ %0, %58 ], [ %0, %56 ], [ %0, %lean_dec.exit47 ]
   ret ptr %.0
 }
 
@@ -3558,7 +3558,7 @@ lean_dec.exit:                                    ; preds = %212, %211, %209, %l
   br label %215
 
 215:                                              ; preds = %lean_dec.exit68, %lean_dec.exit, %lean_dec.exit77, %lean_dec.exit75
-  %.1 = phi ptr [ %126, %lean_dec.exit75 ], [ %114, %lean_dec.exit77 ], [ %194, %lean_dec.exit68 ], [ %214, %lean_dec.exit ]
+  %.1 = phi ptr [ %114, %lean_dec.exit77 ], [ %126, %lean_dec.exit75 ], [ %194, %lean_dec.exit68 ], [ %214, %lean_dec.exit ]
   ret ptr %.1
 }
 
@@ -3952,8 +3952,8 @@ lean_nat_le.exit.thread:                          ; preds = %120, %.thread168
   br label %lean_dec.exit77
 
 lean_dec.exit77:                                  ; preds = %lean_nat_le.exit, %135, %134, %132
-  %136 = phi ptr [ %127, %135 ], [ %127, %132 ], [ %127, %134 ], [ %125, %lean_nat_le.exit ]
-  %137 = phi i64 [ %128, %135 ], [ %128, %132 ], [ %128, %134 ], [ %126, %lean_nat_le.exit ]
+  %136 = phi ptr [ %127, %132 ], [ %127, %134 ], [ %127, %135 ], [ %125, %lean_nat_le.exit ]
+  %137 = phi i64 [ %128, %132 ], [ %128, %134 ], [ %128, %135 ], [ %126, %lean_nat_le.exit ]
   br i1 %.not170, label %lean_nat_lt.exit129.thread, label %lean_nat_lt.exit129, !prof !8
 
 lean_nat_lt.exit129:                              ; preds = %lean_dec.exit77
@@ -9132,7 +9132,7 @@ lean_dec.exit:                                    ; preds = %211, %210, %208, %l
   br label %214
 
 214:                                              ; preds = %lean_dec.exit68, %lean_dec.exit, %lean_dec.exit77, %lean_dec.exit75
-  %.1 = phi ptr [ %125, %lean_dec.exit75 ], [ %113, %lean_dec.exit77 ], [ %193, %lean_dec.exit68 ], [ %213, %lean_dec.exit ]
+  %.1 = phi ptr [ %113, %lean_dec.exit77 ], [ %125, %lean_dec.exit75 ], [ %193, %lean_dec.exit68 ], [ %213, %lean_dec.exit ]
   ret ptr %.1
 }
 
@@ -9512,7 +9512,7 @@ lean_usize_of_nat.exit33:                         ; preds = %57, %59
   br label %lean_dec.exit24
 
 lean_dec.exit24:                                  ; preds = %41, %47, %49, %50, %23, %29, %31, %32, %lean_usize_of_nat.exit33
-  %.0 = phi ptr [ %62, %lean_usize_of_nat.exit33 ], [ %1, %23 ], [ %1, %32 ], [ %1, %31 ], [ %1, %29 ], [ %1, %50 ], [ %1, %49 ], [ %1, %47 ], [ %1, %41 ]
+  %.0 = phi ptr [ %62, %lean_usize_of_nat.exit33 ], [ %1, %32 ], [ %1, %31 ], [ %1, %29 ], [ %1, %23 ], [ %1, %50 ], [ %1, %49 ], [ %1, %47 ], [ %1, %41 ]
   ret ptr %.0
 }
 
@@ -10161,7 +10161,7 @@ lean_usize_of_nat.exit58:                         ; preds = %57, %59
   br label %lean_dec.exit38
 
 lean_dec.exit38:                                  ; preds = %42, %48, %50, %51, %lean_dec.exit39, %27, %29, %30, %lean_usize_of_nat.exit58, %lean_usize_of_nat.exit
-  %.1 = phi ptr [ %37, %lean_usize_of_nat.exit ], [ %62, %lean_usize_of_nat.exit58 ], [ %1, %lean_dec.exit39 ], [ %1, %30 ], [ %1, %29 ], [ %1, %27 ], [ %1, %51 ], [ %1, %50 ], [ %1, %48 ], [ %1, %42 ]
+  %.1 = phi ptr [ %37, %lean_usize_of_nat.exit ], [ %62, %lean_usize_of_nat.exit58 ], [ %1, %30 ], [ %1, %29 ], [ %1, %27 ], [ %1, %lean_dec.exit39 ], [ %1, %51 ], [ %1, %50 ], [ %1, %48 ], [ %1, %42 ]
   ret ptr %.1
 }
 
@@ -10975,7 +10975,7 @@ lean_usize_of_nat.exit56:                         ; preds = %63, %65
   br label %lean_dec.exit37
 
 lean_dec.exit37:                                  ; preds = %lean_dec.exit36, %48, %50, %51, %22, %28, %30, %31, %lean_usize_of_nat.exit56, %lean_dec.exit34
-  %.0 = phi i8 [ %57, %lean_dec.exit34 ], [ %68, %lean_usize_of_nat.exit56 ], [ 0, %22 ], [ 0, %31 ], [ 0, %30 ], [ 0, %28 ], [ 0, %51 ], [ 0, %50 ], [ 0, %48 ], [ 0, %lean_dec.exit36 ]
+  %.0 = phi i8 [ %68, %lean_usize_of_nat.exit56 ], [ %57, %lean_dec.exit34 ], [ 0, %31 ], [ 0, %30 ], [ 0, %28 ], [ 0, %22 ], [ 0, %51 ], [ 0, %50 ], [ 0, %48 ], [ 0, %lean_dec.exit36 ]
   ret i8 %.0
 }
 
@@ -11795,7 +11795,7 @@ lean_usize_of_nat.exit61:                         ; preds = %63, %65
   br label %lean_dec.exit42
 
 lean_dec.exit42:                                  ; preds = %lean_dec.exit41, %48, %50, %51, %22, %28, %30, %31, %lean_usize_of_nat.exit61, %lean_dec.exit39
-  %.0 = phi i8 [ %., %lean_dec.exit39 ], [ %.38, %lean_usize_of_nat.exit61 ], [ 1, %22 ], [ 1, %31 ], [ 1, %30 ], [ 1, %28 ], [ 1, %51 ], [ 1, %50 ], [ 1, %48 ], [ 1, %lean_dec.exit41 ]
+  %.0 = phi i8 [ %.38, %lean_usize_of_nat.exit61 ], [ %., %lean_dec.exit39 ], [ 1, %31 ], [ 1, %30 ], [ 1, %28 ], [ 1, %22 ], [ 1, %51 ], [ 1, %50 ], [ 1, %48 ], [ 1, %lean_dec.exit41 ]
   ret i8 %.0
 }
 
@@ -13522,7 +13522,7 @@ lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit34
   br label %lean_dec.exit36
 
 lean_dec.exit36:                                  ; preds = %12, %10, %21, %20, %18
-  %.1.i57 = phi ptr [ %15, %21 ], [ %15, %18 ], [ %15, %20 ], [ inttoptr (i64 1 to ptr), %10 ], [ %14, %12 ]
+  %.1.i57 = phi ptr [ %15, %18 ], [ %15, %20 ], [ %15, %21 ], [ inttoptr (i64 1 to ptr), %10 ], [ %14, %12 ]
   %22 = tail call ptr @l_Subarray_get___rarg(ptr noundef %1, ptr noundef %.1.i57)
   br i1 %.not65, label %23, label %lean_inc.exit37
 
@@ -14085,9 +14085,9 @@ lean_inc.exit:                                    ; preds = %38, %54, %53, %51, 
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %58, %lean_inc.exit, %29, %lean_inc.exit47
-  %.sink95 = phi ptr [ %30, %29 ], [ %55, %lean_inc.exit ], [ %26, %lean_inc.exit47 ], [ %59, %58 ]
-  %.sink88 = phi ptr [ %1, %29 ], [ %2, %lean_inc.exit ], [ %7, %lean_inc.exit47 ], [ %1, %58 ]
-  %.sink = phi ptr [ %7, %29 ], [ %2, %lean_inc.exit ], [ %7, %lean_inc.exit47 ], [ %2, %58 ]
+  %.sink95 = phi ptr [ %26, %lean_inc.exit47 ], [ %30, %29 ], [ %55, %lean_inc.exit ], [ %59, %58 ]
+  %.sink88 = phi ptr [ %7, %lean_inc.exit47 ], [ %1, %29 ], [ %2, %lean_inc.exit ], [ %1, %58 ]
+  %.sink = phi ptr [ %7, %lean_inc.exit47 ], [ %7, %29 ], [ %2, %lean_inc.exit ], [ %2, %58 ]
   %62 = getelementptr inbounds nuw i8, ptr %.sink95, i64 4
   store i32 1, ptr %.sink95, align 4, !tbaa !9
   store i32 196640, ptr %62, align 4

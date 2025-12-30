@@ -190,7 +190,7 @@ define internal range(i32 0, 2) i32 @aead_ssl3_seal(ptr noundef readonly capture
   br label %78
 
 78:                                               ; preds = %74, %54, %71, %42, %39
-  %.2 = phi i32 [ 0, %42 ], [ 0, %39 ], [ 1, %74 ], [ 0, %54 ], [ 0, %71 ]
+  %.2 = phi i32 [ 0, %39 ], [ 0, %42 ], [ 1, %74 ], [ 0, %54 ], [ 0, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %79
 
@@ -344,7 +344,7 @@ define internal range(i32 0, 2) i32 @aead_ssl3_open(ptr noundef readonly capture
   br label %.critedge
 
 .critedge:                                        ; preds = %72, %59, %56, %36, %33
-  %.2 = phi i32 [ 0, %36 ], [ 0, %33 ], [ %.5, %72 ], [ 0, %59 ], [ 0, %56 ]
+  %.2 = phi i32 [ 0, %33 ], [ 0, %36 ], [ %.5, %72 ], [ 0, %59 ], [ 0, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %73
 
@@ -561,7 +561,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl3_mac(ptr noundef %0, ptr noundef
   br label %38
 
 38:                                               ; preds = %36, %30, %32, %34, %6, %20, %22, %24, %26, %28
-  %.0 = phi i32 [ 0, %30 ], [ 0, %6 ], [ 0, %28 ], [ 0, %26 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ], [ %spec.select, %36 ], [ 0, %34 ], [ 0, %32 ]
+  %.0 = phi i32 [ 0, %28 ], [ 0, %26 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ], [ 0, %6 ], [ 0, %34 ], [ 0, %32 ], [ 0, %30 ], [ %spec.select, %36 ]
   %39 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %8) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

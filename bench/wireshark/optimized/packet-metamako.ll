@@ -621,7 +621,7 @@ proto_item_set_generated.exit232.i:               ; preds = %185, %182, %proto_i
   br label %dissect_metamako.exit
 
 dissect_metamako.exit:                            ; preds = %4, %10, %76, %proto_item_set_generated.exit232.i, %222
-  %.0.i = phi i32 [ 0, %10 ], [ 0, %4 ], [ 0, %76 ], [ %223, %222 ], [ %203, %proto_item_set_generated.exit232.i ]
+  %.0.i = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %76 ], [ %223, %222 ], [ %203, %proto_item_set_generated.exit232.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

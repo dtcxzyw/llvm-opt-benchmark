@@ -459,7 +459,7 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   br label %_get_grab.exit
 
 _get_grab.exit:                                   ; preds = %82, %91, %95, %98, %102
-  %.0.i = phi i32 [ 8, %98 ], [ 2, %82 ], [ 4, %91 ], [ 1, %95 ], [ %..i, %102 ]
+  %.0.i = phi i32 [ 2, %82 ], [ 4, %91 ], [ 1, %95 ], [ 8, %98 ], [ %..i, %102 ]
   tail call void @cairo_set_line_cap(ptr noundef %1, i32 noundef 1) #21
   %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !82
   %107 = tail call i32 @dt_iop_canvas_not_sensitive(ptr noundef %106) #21
@@ -858,7 +858,7 @@ define range(i32 0, 2) i32 @mouse_moved(ptr noundef readonly captures(none) %0, 
   br label %_get_grab.exit
 
 _get_grab.exit:                                   ; preds = %119, %115, %112, %108, %99, %95
-  %.0176 = phi i32 [ %19, %95 ], [ 8, %115 ], [ 2, %99 ], [ 4, %108 ], [ 1, %112 ], [ %..i, %119 ]
+  %.0176 = phi i32 [ %19, %95 ], [ 2, %99 ], [ 4, %108 ], [ 1, %112 ], [ 8, %115 ], [ %..i, %119 ]
   %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !128
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 896
   %125 = load i32, ptr %124, align 8, !tbaa !129
@@ -1128,7 +1128,7 @@ _get_grab.exit:                                   ; preds = %119, %115, %112, %1
   br i1 %90, label %302, label %.sink.split
 
 .sink.split:                                      ; preds = %301, %298, %300, %299
-  %.sink = phi i32 [ 108, %299 ], [ 52, %298 ], [ 116, %300 ], [ 68, %301 ]
+  %.sink = phi i32 [ 108, %299 ], [ 116, %300 ], [ 52, %298 ], [ 68, %301 ]
   call void @dt_control_change_cursor(i32 noundef %.sink) #21
   br label %302
 
@@ -1439,8 +1439,8 @@ tpdf.exit:                                        ; preds = %177, %180
   br label %.loopexit
 
 188:                                              ; preds = %146, %tpdf.exit
-  %.0151 = phi nsz float [ %140, %146 ], [ %172, %tpdf.exit ]
-  %.0150 = phi nsz float [ 0.000000e+00, %146 ], [ %185, %tpdf.exit ]
+  %.0151 = phi nsz float [ %172, %tpdf.exit ], [ %140, %146 ]
+  %.0150 = phi nsz float [ %185, %tpdf.exit ], [ 0.000000e+00, %146 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %189 = shl nsw i64 %indvars.iv, 2
   %190 = getelementptr inbounds nuw float, ptr %112, i64 %189
@@ -1502,7 +1502,7 @@ tpdf.exit:                                        ; preds = %177, %180
   br label %216
 
 216:                                              ; preds = %215, %213, %.split.us
-  %217 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %.split.us ], [ 1.000000e+00, %213 ], [ %211, %215 ]
+  %217 = phi reassoc nsz arcp contract afn float [ %211, %215 ], [ 1.000000e+00, %213 ], [ 0.000000e+00, %.split.us ]
   store float %217, ptr %210, align 4, !tbaa !127
   %218 = add nuw nsw i64 %.0145188.us, 1
   %exitcond201.not = icmp eq i64 %218, 4
@@ -1539,7 +1539,7 @@ tpdf.exit:                                        ; preds = %177, %180
   br label %237
 
 237:                                              ; preds = %226, %234, %236, %232
-  %238 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %232 ], [ 1.000000e+00, %234 ], [ %231, %236 ], [ %231, %226 ]
+  %238 = phi reassoc nsz arcp contract afn float [ %231, %236 ], [ 1.000000e+00, %234 ], [ 0.000000e+00, %232 ], [ %231, %226 ]
   store float %238, ptr %227, align 4, !tbaa !127
   %239 = add nuw nsw i64 %.0191, 1
   %exitcond202.not = icmp eq i64 %239, 4
@@ -2043,7 +2043,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %47
 
 47:                                               ; preds = %44, %2, %42, %38, %34, %30, %26, %22, %18, %14, %10, %6
-  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %44 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
+  %.0 = phi ptr [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %44 ]
   ret ptr %.0
 }
 
@@ -2113,7 +2113,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %25
 
 25:                                               ; preds = %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ %., %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
+  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ %., %23 ]
   ret ptr %.0
 }
 

@@ -1071,7 +1071,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i:     ; preds = %12, %10
   resume { ptr, i32 } %24
 
 25:                                               ; preds = %19, %16, %.thread
-  %26 = phi i1 [ %15, %19 ], [ %15, %16 ], [ true, %.thread ]
+  %26 = phi i1 [ %15, %16 ], [ %15, %19 ], [ true, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %27 = zext i1 %26 to i32
   store i32 %27, ptr @_ZL22g_support_so_reuseport, align 4, !tbaa !3
@@ -1557,7 +1557,7 @@ define void @_Z32grpc_set_socket_tcp_user_timeoutiRKN9grpc_core15PosixTcpOptions
   br label %124
 
 .sink.split:                                      ; preds = %.critedge68, %43, %.critedge, %39
-  %.sink = phi i32 [ -1, %.critedge ], [ -1, %39 ], [ 1, %43 ], [ 1, %.critedge68 ]
+  %.sink = phi i32 [ -1, %39 ], [ -1, %.critedge ], [ 1, %43 ], [ 1, %.critedge68 ]
   store atomic i32 %.sink, ptr @_ZL34g_socket_supports_tcp_user_timeout.0 seq_cst, align 4
   br label %47
 

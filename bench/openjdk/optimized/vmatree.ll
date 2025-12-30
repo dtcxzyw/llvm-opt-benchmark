@@ -642,7 +642,7 @@ _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAlloca
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.thread, %201, %237, %238, %244, %._crit_edge
-  %253 = phi i64 [ %.pre127, %._crit_edge ], [ %.pre127, %237 ], [ %.pre127, %238 ], [ %.pre127, %244 ], [ %.sroa.0.0113141, %.thread ], [ %.sroa.0.0113, %201 ]
+  %253 = phi i64 [ %.pre127, %237 ], [ %.pre127, %238 ], [ %.pre127, %244 ], [ %.pre127, %._crit_edge ], [ %.sroa.0.0113141, %.thread ], [ %.sroa.0.0113, %201 ]
   %254 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %255 = load i8, ptr %254, align 4
   %256 = zext i8 %255 to i64
@@ -851,8 +851,8 @@ _ZN7VMATree18PositionComparator3cmpEmm.exit23.thread: ; preds = %12, %_ZN7VMATre
   br label %28
 
 28:                                               ; preds = %3, %_ZN7VMATree18PositionComparator3cmpEmm.exit23.thread, %17
-  %.sroa.021.0 = phi ptr [ %26, %_ZN7VMATree18PositionComparator3cmpEmm.exit23.thread ], [ %0, %17 ], [ null, %3 ]
-  %.sroa.4.0 = phi ptr [ %0, %_ZN7VMATree18PositionComparator3cmpEmm.exit23.thread ], [ %22, %17 ], [ null, %3 ]
+  %.sroa.021.0 = phi ptr [ %0, %17 ], [ %26, %_ZN7VMATree18PositionComparator3cmpEmm.exit23.thread ], [ null, %3 ]
+  %.sroa.4.0 = phi ptr [ %22, %17 ], [ %0, %_ZN7VMATree18PositionComparator3cmpEmm.exit23.thread ], [ null, %3 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.021.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -874,7 +874,7 @@ define linkonce_odr hidden noundef ptr @_ZN5TreapImN7VMATree14IntervalChangeENS0
   br i1 %9, label %10, label %14
 
 common.ret18:                                     ; preds = %4, %2, %14, %10
-  %common.ret18.op = phi ptr [ %1, %14 ], [ %0, %10 ], [ %1, %2 ], [ %0, %4 ]
+  %common.ret18.op = phi ptr [ %0, %10 ], [ %1, %14 ], [ %1, %2 ], [ %0, %4 ]
   ret ptr %common.ret18.op
 
 10:                                               ; preds = %6

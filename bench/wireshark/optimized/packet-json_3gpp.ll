@@ -571,7 +571,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   br label %24
 
 24:                                               ; preds = %21, %12
-  %.0 = phi ptr [ %23, %21 ], [ %13, %12 ]
+  %.0 = phi ptr [ %13, %12 ], [ %23, %21 ]
   %.not319 = icmp eq ptr %.0, null
   br i1 %.not319, label %.thread, label %.thread326
 

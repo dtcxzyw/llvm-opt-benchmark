@@ -161,7 +161,7 @@ define internal range(i32 -2147483648, 1) i32 @rscc_init(ptr noundef %0) #0 {
   br label %65
 
 65:                                               ; preds = %55, %13, %51, %10
-  %.0 = phi i32 [ %8, %10 ], [ -12, %13 ], [ %., %55 ], [ -1094995529, %51 ]
+  %.0 = phi i32 [ %8, %10 ], [ -1094995529, %51 ], [ -12, %13 ], [ %., %55 ]
   ret i32 %.0
 }
 
@@ -272,8 +272,8 @@ bytestream2_get_le16.exit:                        ; preds = %bytestream2_init.ex
   br label %bytestream2_get_byte.exit
 
 bytestream2_get_byte.exit:                        ; preds = %52, %51, %45, %44
-  %56 = phi ptr [ %46, %45 ], [ %35, %44 ], [ %35, %51 ], [ %53, %52 ]
-  %.0191.in = phi i32 [ %48, %45 ], [ 0, %44 ], [ 0, %51 ], [ %55, %52 ]
+  %56 = phi ptr [ %35, %44 ], [ %46, %45 ], [ %35, %51 ], [ %53, %52 ]
+  %.0191.in = phi i32 [ 0, %44 ], [ %48, %45 ], [ 0, %51 ], [ %55, %52 ]
   %.0191 = zext nneg i32 %.0191.in to i64
   %57 = shl nuw nsw i32 %23, 3
   %.not224 = icmp eq i32 %.0191.in, %57
@@ -331,9 +331,9 @@ bytestream2_get_byte.exit:                        ; preds = %52, %51, %45, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread260
 
-85:                                               ; preds = %58, %70, %65
-  %.3207.ph = phi ptr [ null, %65 ], [ %66, %70 ], [ null, %58 ]
-  %.2195.ph = phi i32 [ -12, %65 ], [ -1313558101, %70 ], [ -1094995529, %58 ]
+85:                                               ; preds = %70, %58, %65
+  %.3207.ph = phi ptr [ null, %65 ], [ null, %58 ], [ %66, %70 ]
+  %.2195.ph = phi i32 [ -12, %65 ], [ -1094995529, %58 ], [ -1313558101, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %314
 
@@ -560,9 +560,9 @@ bytestream2_get_byte.exit247:                     ; preds = %196
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.12, i32 noundef %199) #7
   br label %314
 
-bytestream2_get_byte.exit247.thread:              ; preds = %162, %175, %163, %187, %bytestream2_get_byte.exit247
-  %202 = phi ptr [ %198, %bytestream2_get_byte.exit247 ], [ %176, %175 ], [ %164, %163 ], [ %188, %187 ], [ %86, %162 ]
-  %.0199266 = phi i32 [ %199, %bytestream2_get_byte.exit247 ], [ %178, %175 ], [ %166, %163 ], [ %195, %187 ], [ 0, %162 ]
+bytestream2_get_byte.exit247.thread:              ; preds = %187, %175, %163, %162, %bytestream2_get_byte.exit247
+  %202 = phi ptr [ %198, %bytestream2_get_byte.exit247 ], [ %188, %187 ], [ %176, %175 ], [ %164, %163 ], [ %86, %162 ]
+  %.0199266 = phi i32 [ %199, %bytestream2_get_byte.exit247 ], [ %195, %187 ], [ %178, %175 ], [ %166, %163 ], [ 0, %162 ]
   %203 = icmp eq i32 %138, %.0199266
   br i1 %203, label %204, label %bytestream2_get_byte.exit247.thread.thread
 
@@ -756,8 +756,8 @@ bytestream2_get_byte.exit247.thread.thread:       ; preds = %bytestream2_get_byt
   br label %314
 
 314:                                              ; preds = %.thread268, %85, %27, %273, %231, %312, %210, %201, %151, %141, %135
-  %.0204 = phi ptr [ %.1205, %135 ], [ %.1205, %141 ], [ %.1205, %151 ], [ %.1205, %201 ], [ %.1205, %210 ], [ %.1205, %231 ], [ %.1205, %273 ], [ %.1205, %312 ], [ %.1205, %.thread268 ], [ %.3207.ph, %85 ], [ null, %27 ]
-  %.0193 = phi i32 [ -1094995529, %135 ], [ -1094995529, %141 ], [ -1094995529, %151 ], [ -1094995529, %201 ], [ -1094995529, %210 ], [ %234, %231 ], [ %275, %273 ], [ %313, %312 ], [ %.4.ph, %.thread268 ], [ %.2195.ph, %85 ], [ -12, %27 ]
+  %.0204 = phi ptr [ %.1205, %135 ], [ %.1205, %141 ], [ %.1205, %151 ], [ %.1205, %201 ], [ %.1205, %210 ], [ %.1205, %231 ], [ %.1205, %273 ], [ %.1205, %312 ], [ %.3207.ph, %85 ], [ null, %27 ], [ %.1205, %.thread268 ]
+  %.0193 = phi i32 [ -1094995529, %135 ], [ -1094995529, %141 ], [ -1094995529, %151 ], [ -1094995529, %201 ], [ -1094995529, %210 ], [ %234, %231 ], [ %275, %273 ], [ %313, %312 ], [ %.2195.ph, %85 ], [ -12, %27 ], [ %.4.ph, %.thread268 ]
   call void @av_free(ptr noundef %.0204) #7
   br label %315
 

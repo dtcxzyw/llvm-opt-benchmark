@@ -891,7 +891,7 @@ define internal i32 @rps_default_mask_sysctl(ptr noundef readonly captures(none)
   br label %50
 
 50:                                               ; preds = %14, %49, %23, %19
-  %51 = phi i32 [ 0, %49 ], [ %24, %23 ], [ %21, %19 ], [ -12, %14 ]
+  %51 = phi i32 [ 0, %49 ], [ %21, %19 ], [ %24, %23 ], [ -12, %14 ]
   call void @rtnl_unlock() #14
   ret i32 %51
 }

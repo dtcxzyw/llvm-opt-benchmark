@@ -130,7 +130,7 @@ define ptr @H5VL__native_group_create(ptr noundef %0, ptr noundef readonly captu
   br label %.thread28
 
 .thread28:                                        ; preds = %27, %14, %34, %31, %48, %45
-  %.2 = phi ptr [ null, %14 ], [ null, %48 ], [ %.3, %45 ], [ null, %27 ], [ %32, %31 ], [ null, %34 ]
+  %.2 = phi ptr [ null, %48 ], [ %.3, %45 ], [ null, %27 ], [ %32, %31 ], [ null, %34 ], [ null, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.2
 }
@@ -286,7 +286,7 @@ define range(i32 -1, 1) i32 @H5VL__native_group_get(ptr noundef %0, ptr noundef 
   br label %69
 
 69:                                               ; preds = %27, %48, %37, %65, %61, %44, %33, %20
-  %.1 = phi i32 [ -1, %20 ], [ -1, %33 ], [ -1, %65 ], [ -1, %44 ], [ -1, %61 ], [ 0, %37 ], [ 0, %48 ], [ 0, %27 ]
+  %.1 = phi i32 [ -1, %20 ], [ -1, %33 ], [ -1, %44 ], [ -1, %61 ], [ -1, %65 ], [ 0, %37 ], [ 0, %48 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %74
 
@@ -431,7 +431,7 @@ define range(i32 -1, 1) i32 @H5VL__native_group_specific(ptr noundef %0, ptr nou
   br label %77
 
 77:                                               ; preds = %50, %59, %69, %73, %63, %54, %28, %45
-  %.125 = phi i32 [ -1, %73 ], [ 0, %63 ], [ %.024, %28 ], [ -1, %69 ], [ %.2, %45 ], [ -1, %50 ], [ -1, %59 ], [ 0, %54 ]
+  %.125 = phi i32 [ -1, %73 ], [ %.024, %28 ], [ %.2, %45 ], [ -1, %50 ], [ -1, %59 ], [ 0, %54 ], [ -1, %69 ], [ 0, %63 ]
   ret i32 %.125
 }
 
@@ -545,7 +545,7 @@ define i32 @H5VL__native_group_optional(ptr noundef %0, ptr noundef readonly cap
   br label %65
 
 65:                                               ; preds = %61, %37, %60
-  %.125 = phi i32 [ -1, %61 ], [ %.2, %60 ], [ %.024, %37 ]
+  %.125 = phi i32 [ -1, %61 ], [ %.024, %37 ], [ %.2, %60 ]
   ret i32 %.125
 }
 

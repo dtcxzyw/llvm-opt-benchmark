@@ -281,7 +281,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25ArJoinPackageRelativePathERK
   br label %.loopexit28.i
 
 .loopexit28.i:                                    ; preds = %.lr.ph.i.i.i.i, %72, %63, %56, %._crit_edge.i.i.i.i, %47, %42, %37
-  %.sink.i.i.i.i = phi i64 [ %spec.select.i.i.i, %72 ], [ %65, %63 ], [ %53, %56 ], [ %.val17.i, %._crit_edge.i.i.i.i ], [ %.cast22.i.i.i.i, %47 ], [ %.cast20.i.i.i.i, %42 ], [ %.cast.i.i.i.i, %37 ], [ %30, %.lr.ph.i.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ %.cast22.i.i.i.i, %47 ], [ %.cast20.i.i.i.i, %42 ], [ %.cast.i.i.i.i, %37 ], [ %53, %56 ], [ %65, %63 ], [ %.val17.i, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i, %72 ], [ %30, %.lr.ph.i.i.i.i ]
   %77 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #7
   %78 = ptrtoint ptr %77 to i64
   %79 = sub i64 %.sink.i.i.i.i, %78
@@ -532,7 +532,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   br label %.loopexit32
 
 .loopexit32:                                      ; preds = %.lr.ph.i.i.i, %68, %59, %52, %._crit_edge.i.i.i, %43, %38, %33
-  %.sink.i.i.i = phi i64 [ %spec.select.i.i, %68 ], [ %61, %59 ], [ %49, %52 ], [ %.val31, %._crit_edge.i.i.i ], [ %.cast22.i.i.i, %43 ], [ %.cast20.i.i.i, %38 ], [ %.cast.i.i.i, %33 ], [ %26, %.lr.ph.i.i.i ]
+  %.sink.i.i.i = phi i64 [ %.cast22.i.i.i, %43 ], [ %.cast20.i.i.i, %38 ], [ %.cast.i.i.i, %33 ], [ %49, %52 ], [ %61, %59 ], [ %.val31, %._crit_edge.i.i.i ], [ %spec.select.i.i, %68 ], [ %26, %.lr.ph.i.i.i ]
   %73 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #7
   %74 = ptrtoint ptr %73 to i64
   %75 = sub i64 %.sink.i.i.i, %74
@@ -1078,8 +1078,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN9__gnu_cxx17__normal_it
   br label %.body35
 
 .body35:                                          ; preds = %74, %54, %72, %.body49, %44, %66, %.body39, %36, %60
-  %.sink = phi ptr [ %12, %.body49 ], [ %7, %.body39 ], [ %7, %60 ], [ %7, %36 ], [ %12, %66 ], [ %12, %44 ], [ %16, %72 ], [ %16, %54 ], [ %16, %74 ]
-  %.pn28.pn = phi { ptr, i32 } [ %.pn25, %.body49 ], [ %.pn, %.body39 ], [ %61, %60 ], [ %37, %36 ], [ %67, %66 ], [ %45, %44 ], [ %73, %72 ], [ %55, %54 ], [ %75, %74 ]
+  %.sink = phi ptr [ %7, %60 ], [ %7, %36 ], [ %7, %.body39 ], [ %12, %66 ], [ %12, %44 ], [ %12, %.body49 ], [ %16, %72 ], [ %16, %54 ], [ %16, %74 ]
+  %.pn28.pn = phi { ptr, i32 } [ %61, %60 ], [ %37, %36 ], [ %.pn, %.body39 ], [ %67, %66 ], [ %45, %44 ], [ %.pn25, %.body49 ], [ %73, %72 ], [ %55, %54 ], [ %75, %74 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
   br label %77
@@ -1272,8 +1272,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN9__gnu_cxx17__normal_it
   ret void
 
 65:                                               ; preds = %58, %.body, %62, %38, %29
-  %.sink32 = phi ptr [ %5, %29 ], [ %6, %38 ], [ %7, %62 ], [ %7, %.body ], [ %7, %58 ]
-  %.pn18 = phi { ptr, i32 } [ %30, %29 ], [ %39, %38 ], [ %63, %62 ], [ %eh.lpad-body, %.body ], [ %59, %58 ]
+  %.sink32 = phi ptr [ %6, %38 ], [ %5, %29 ], [ %7, %62 ], [ %7, %.body ], [ %7, %58 ]
+  %.pn18 = phi { ptr, i32 } [ %39, %38 ], [ %30, %29 ], [ %63, %62 ], [ %eh.lpad-body, %.body ], [ %59, %58 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink32) #7
   resume { ptr, i32 } %.pn18
 }
@@ -1749,8 +1749,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN9__gnu_cxx17__normal_it
   br label %.body35
 
 .body35:                                          ; preds = %74, %54, %72, %.body49, %44, %66, %.body39, %36, %60
-  %.sink = phi ptr [ %12, %.body49 ], [ %7, %.body39 ], [ %7, %60 ], [ %7, %36 ], [ %12, %66 ], [ %12, %44 ], [ %16, %72 ], [ %16, %54 ], [ %16, %74 ]
-  %.pn28.pn = phi { ptr, i32 } [ %.pn25, %.body49 ], [ %.pn, %.body39 ], [ %61, %60 ], [ %37, %36 ], [ %67, %66 ], [ %45, %44 ], [ %73, %72 ], [ %55, %54 ], [ %75, %74 ]
+  %.sink = phi ptr [ %7, %60 ], [ %7, %36 ], [ %7, %.body39 ], [ %12, %66 ], [ %12, %44 ], [ %12, %.body49 ], [ %16, %72 ], [ %16, %54 ], [ %16, %74 ]
+  %.pn28.pn = phi { ptr, i32 } [ %61, %60 ], [ %37, %36 ], [ %.pn, %.body39 ], [ %67, %66 ], [ %45, %44 ], [ %.pn25, %.body49 ], [ %73, %72 ], [ %55, %54 ], [ %75, %74 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
   br label %77

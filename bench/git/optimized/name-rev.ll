@@ -460,7 +460,7 @@ set_commit_cutoff.exit.thread:                    ; preds = %176, %178, %182
   %.mux70 = select i1 %.not5467, ptr %159, ptr %163
   br label %189
 
-set_commit_cutoff.exit:                           ; preds = %164, %161
+set_commit_cutoff.exit:                           ; preds = %161, %164
   %184 = load i32, ptr %15, align 4, !tbaa !4
   %.not54 = icmp eq i32 %184, 0
   br i1 %.not54, label %189, label %185
@@ -963,7 +963,7 @@ strip_suffix.exit.i.i.i:                          ; preds = %404, %401
   br label %get_parent_name.exit.i.i
 
 get_parent_name.exit.i.i:                         ; preds = %412, %410, %create_or_update_name.exit.thread103.i.i
-  %storemerge79.i.i = phi ptr [ %413, %412 ], [ %411, %410 ], [ %396, %create_or_update_name.exit.thread103.i.i ]
+  %storemerge79.i.i = phi ptr [ %411, %410 ], [ %413, %412 ], [ %396, %create_or_update_name.exit.thread103.i.i ]
   store ptr %storemerge79.i.i, ptr %368, align 8, !tbaa !52
   %414 = add i64 %.056114.i.i, 1
   %415 = icmp ugt i64 %414, %.163111.i.i
@@ -994,9 +994,9 @@ st_mult.exit.i.i:                                 ; preds = %416
   br label %create_or_update_name.exit.thread.i.i
 
 create_or_update_name.exit.thread.i.i:            ; preds = %423, %create_or_update_name.exit.i.i, %388, %386, %384, %382, %commit_is_before_cutoff.exit85.i.i, %323
-  %.264.i.i = phi i64 [ %.163111.i.i, %commit_is_before_cutoff.exit85.i.i ], [ %.5.i.i, %423 ], [ %.163111.i.i, %create_or_update_name.exit.i.i ], [ %.163111.i.i, %386 ], [ %.163111.i.i, %384 ], [ %.163111.i.i, %388 ], [ %.163111.i.i, %382 ], [ %.163111.i.i, %323 ]
-  %.157.i.i = phi i64 [ %.056114.i.i, %commit_is_before_cutoff.exit85.i.i ], [ %414, %423 ], [ %.056114.i.i, %create_or_update_name.exit.i.i ], [ %.056114.i.i, %386 ], [ %.056114.i.i, %384 ], [ %.056114.i.i, %388 ], [ %.056114.i.i, %382 ], [ %.056114.i.i, %323 ]
-  %.2.i.i = phi ptr [ %.1115.i.i, %commit_is_before_cutoff.exit85.i.i ], [ %.4.i.i, %423 ], [ %.1115.i.i, %create_or_update_name.exit.i.i ], [ %.1115.i.i, %386 ], [ %.1115.i.i, %384 ], [ %.1115.i.i, %388 ], [ %.1115.i.i, %382 ], [ %.1115.i.i, %323 ]
+  %.264.i.i = phi i64 [ %.163111.i.i, %commit_is_before_cutoff.exit85.i.i ], [ %.5.i.i, %423 ], [ %.163111.i.i, %create_or_update_name.exit.i.i ], [ %.163111.i.i, %384 ], [ %.163111.i.i, %388 ], [ %.163111.i.i, %386 ], [ %.163111.i.i, %382 ], [ %.163111.i.i, %323 ]
+  %.157.i.i = phi i64 [ %.056114.i.i, %commit_is_before_cutoff.exit85.i.i ], [ %414, %423 ], [ %.056114.i.i, %create_or_update_name.exit.i.i ], [ %.056114.i.i, %384 ], [ %.056114.i.i, %388 ], [ %.056114.i.i, %386 ], [ %.056114.i.i, %382 ], [ %.056114.i.i, %323 ]
+  %.2.i.i = phi ptr [ %.1115.i.i, %commit_is_before_cutoff.exit85.i.i ], [ %.4.i.i, %423 ], [ %.1115.i.i, %create_or_update_name.exit.i.i ], [ %.1115.i.i, %384 ], [ %.1115.i.i, %388 ], [ %.1115.i.i, %386 ], [ %.1115.i.i, %382 ], [ %.1115.i.i, %323 ]
   %425 = getelementptr inbounds nuw i8, ptr %.061116.i.i, i64 8
   %426 = add nuw nsw i32 %.060112.i.i, 1
   %.061.i.i = load ptr, ptr %425, align 8, !tbaa !59
@@ -1178,8 +1178,8 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br label %500
 
 500:                                              ; preds = %499, %470, %467, %460
-  %.2.i = phi ptr [ %.03660.i, %470 ], [ %.03660.i, %460 ], [ %.137.i, %499 ], [ %.03660.i, %467 ]
-  %.1.i = phi i32 [ %455, %470 ], [ 0, %460 ], [ 0, %499 ], [ %468, %467 ]
+  %.2.i = phi ptr [ %.03660.i, %470 ], [ %.137.i, %499 ], [ %.03660.i, %467 ], [ %.03660.i, %460 ]
+  %.1.i = phi i32 [ %455, %470 ], [ 0, %499 ], [ %468, %467 ], [ 0, %460 ]
   %501 = getelementptr inbounds nuw i8, ptr %.062.i, i64 1
   %502 = load i8, ptr %501, align 1, !tbaa !70
   %.not.i60 = icmp eq i8 %502, 0
@@ -1547,8 +1547,8 @@ skip_prefix.exit.i:                               ; preds = %83, %skip_prefix.ex
   br i1 %87, label %skip_prefix.exit.i, label %skip_prefix.exit16.i, !llvm.loop !118
 
 skip_prefix.exit16.i:                             ; preds = %.preheader.i, %83, %skip_prefix.exit.i, %74
-  %.019.i = phi ptr [ %scevgep25.i, %skip_prefix.exit.i ], [ %0, %74 ], [ %0, %83 ], [ %scevgep.i, %.preheader.i ]
-  %.0.i = phi ptr [ null, %83 ], [ %77, %74 ], [ null, %skip_prefix.exit.i ], [ null, %.preheader.i ]
+  %.019.i = phi ptr [ %0, %74 ], [ %0, %83 ], [ %scevgep25.i, %skip_prefix.exit.i ], [ %scevgep.i, %.preheader.i ]
+  %.0.i = phi ptr [ %77, %74 ], [ null, %skip_prefix.exit.i ], [ null, %83 ], [ null, %.preheader.i ]
   %88 = load i32, ptr @tip_table.1, align 8, !tbaa !39
   %89 = load i32, ptr @tip_table.2, align 4, !tbaa !119
   %.not10.i = icmp slt i32 %88, %89
@@ -1688,7 +1688,7 @@ define internal fastcc void @show_name(ptr noundef %0, ptr noundef %1, i32 nound
   unreachable
 
 24:                                               ; preds = %16, %14, %18
-  %str.sink = phi ptr [ %15, %14 ], [ %21, %18 ], [ @str, %16 ]
+  %str.sink = phi ptr [ %21, %18 ], [ %15, %14 ], [ @str, %16 ]
   %puts16 = call i32 @puts(ptr nonnull dereferenceable(1) %str.sink)
   call void @strbuf_release(ptr noundef nonnull %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1924,7 +1924,7 @@ strbuf_strip_suffix.exit:                         ; preds = %strbuf_setlen.exit,
   br label %get_exact_ref_match.exit
 
 get_exact_ref_match.exit:                         ; preds = %get_commit_rev_name.exit, %is_valid_rev_name.exit.i, %33, %28, %22, %15, %5, %strbuf_strip_suffix.exit
-  %.0 = phi ptr [ null, %15 ], [ %63, %strbuf_strip_suffix.exit ], [ null, %is_valid_rev_name.exit.i ], [ %27, %22 ], [ null, %5 ], [ null, %28 ], [ null, %33 ], [ %.fr.i, %get_commit_rev_name.exit ]
+  %.0 = phi ptr [ %63, %strbuf_strip_suffix.exit ], [ %27, %22 ], [ null, %5 ], [ null, %15 ], [ null, %28 ], [ null, %33 ], [ null, %is_valid_rev_name.exit.i ], [ %.fr.i, %get_commit_rev_name.exit ]
   ret ptr %.0
 }
 

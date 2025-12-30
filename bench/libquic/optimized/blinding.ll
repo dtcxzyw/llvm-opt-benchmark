@@ -189,7 +189,7 @@ bn_blinding_update.exit.thread12:                 ; preds = %44, %47
   store i32 31, ptr %8, align 8, !tbaa !14
   br label %53
 
-bn_blinding_update.exit.thread17:                 ; preds = %21, %.thread.i.i, %._crit_edge.i.i, %43, %39
+bn_blinding_update.exit.thread17:                 ; preds = %43, %39, %21, %._crit_edge.i.i, %.thread.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 31, ptr %8, align 8, !tbaa !14
   br label %53
@@ -207,7 +207,7 @@ bn_blinding_update.exit.thread:                   ; preds = %47, %bn_blinding_up
   br label %53
 
 53:                                               ; preds = %bn_blinding_update.exit.thread17, %bn_blinding_update.exit.thread12, %bn_blinding_update.exit.thread
-  %.0 = phi i32 [ 0, %bn_blinding_update.exit.thread17 ], [ %spec.select, %bn_blinding_update.exit.thread ], [ 0, %bn_blinding_update.exit.thread12 ]
+  %.0 = phi i32 [ %spec.select, %bn_blinding_update.exit.thread ], [ 0, %bn_blinding_update.exit.thread12 ], [ 0, %bn_blinding_update.exit.thread17 ]
   ret i32 %.0
 }
 

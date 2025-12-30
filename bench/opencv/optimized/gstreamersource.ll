@@ -1152,7 +1152,7 @@ _ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourc
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !20
   %.not.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i, label %101, label %62
+  br i1 %.not.i.i.i, label %_ZN2cv10MediaFrameD2Ev.exit, label %62
 
 62:                                               ; preds = %_ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourceEENS_3MatENS_7Scalar_IdEENS_6detail9VectorRefENSC_9OpaqueRefENS_10MediaFrameEEEaSISF_vEERSG_OT_.exit
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -1173,7 +1173,7 @@ _ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourc
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8
   call void %74(ptr noundef nonnull align 8 dereferenceable(16) %61) #28
-  br label %101
+  br label %_ZN2cv10MediaFrameD2Ev.exit
 
 75:                                               ; preds = %62
   %76 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !78
@@ -1192,11 +1192,15 @@ _ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourc
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %79, %77
   %.0.i.i.i.i.i = phi i32 [ %66, %77 ], [ %80, %79 ]
   %81 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %81, label %82, label %101, !prof !89
+  br i1 %81, label %82, label %_ZN2cv10MediaFrameD2Ev.exit, !prof !89
 
 82:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %61) #28
-  br label %101
+  br label %_ZN2cv10MediaFrameD2Ev.exit
+
+_ZN2cv10MediaFrameD2Ev.exit:                      ; preds = %_ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourceEENS_3MatENS_7Scalar_IdEENS_6detail9VectorRefENSC_9OpaqueRefENS_10MediaFrameEEEaSISF_vEERSG_OT_.exit, %67, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %82
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br i1 %14, label %102, label %.thread
 
 83:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1205,7 +1209,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %79, %77
           to label %85 unwind label %99
 
 85:                                               ; preds = %83
-  br i1 %84, label %86, label %_ZN2cv4gapi3wip4DataaSIRNS_3MatEEERS2_OT_.exit
+  br i1 %84, label %86, label %101
 
 86:                                               ; preds = %85
   %87 = load i64, ptr %1, align 8, !tbaa !90
@@ -1222,12 +1226,12 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %79, %77
 92:                                               ; preds = %88
   call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %91, ptr noundef nonnull align 8 dereferenceable(96) %8) #28
   store i64 3, ptr %1, align 8, !tbaa !90
-  br label %_ZN2cv4gapi3wip4DataaSIRNS_3MatEEERS2_OT_.exit.thread
+  br label %.thread59
 
 93:                                               ; preds = %86
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %95 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %94, ptr noundef nonnull align 8 dereferenceable(96) %8)
-          to label %_ZN2cv4gapi3wip4DataaSIRNS_3MatEEERS2_OT_.exit.thread unwind label %96
+          to label %.thread59 unwind label %96
 
 96:                                               ; preds = %93, %88
   %97 = landingpad { ptr, i32 }
@@ -1243,21 +1247,17 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %79, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
-_ZN2cv4gapi3wip4DataaSIRNS_3MatEEERS2_OT_.exit.thread: ; preds = %93, %92
+.thread59:                                        ; preds = %92, %93
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %102
 
-_ZN2cv4gapi3wip4DataaSIRNS_3MatEEERS2_OT_.exit:   ; preds = %85
+101:                                              ; preds = %85
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
-101:                                              ; preds = %82, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %67, %_ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourceEENS_3MatENS_7Scalar_IdEENS_6detail9VectorRefENSC_9OpaqueRefENS_10MediaFrameEEEaSISF_vEERSG_OT_.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %14, label %102, label %.thread
-
-102:                                              ; preds = %_ZN2cv4gapi3wip4DataaSIRNS_3MatEEERS2_OT_.exit.thread, %101
+102:                                              ; preds = %.thread59, %_ZN2cv10MediaFrameD2Ev.exit
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %104 = load ptr, ptr %103, align 8, !tbaa !96
   %.not.i = icmp eq ptr %104, null
@@ -1468,8 +1468,8 @@ _ZN2cv4util3anyD2Ev.exit46:                       ; preds = %165, %_ZNKSt7__cxx1
   call void %171(ptr noundef nonnull align 8 dereferenceable(8) %139) #28
   br label %common.resume
 
-.thread:                                          ; preds = %_ZN2cv4gapi3wip4DataaSIRNS_3MatEEERS2_OT_.exit, %2, %_ZN2cv4util3anyD2Ev.exit34, %101
-  %.013.shrunk57 = phi i1 [ false, %_ZN2cv4gapi3wip4DataaSIRNS_3MatEEERS2_OT_.exit ], [ true, %_ZN2cv4util3anyD2Ev.exit34 ], [ false, %101 ], [ false, %2 ]
+.thread:                                          ; preds = %2, %101, %_ZN2cv10MediaFrameD2Ev.exit, %_ZN2cv4util3anyD2Ev.exit34
+  %.013.shrunk57 = phi i1 [ true, %_ZN2cv4util3anyD2Ev.exit34 ], [ false, %101 ], [ false, %_ZN2cv10MediaFrameD2Ev.exit ], [ false, %2 ]
   ret i1 %.013.shrunk57
 }
 
@@ -2705,7 +2705,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt10unique_ptrI10_GstSamplePFvPS0_EED2Ev.exit52
 
 148:                                              ; preds = %63, %147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41, %40
-  %.pn33.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %64, %63 ], [ %.pn33.pn, %147 ], [ %.pn20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41 ], [ %41, %40 ]
+  %.pn33.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %64, %63 ], [ %.pn33.pn, %147 ], [ %41, %40 ], [ %.pn20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41 ]
   invoke void @gst_mini_object_unref(ptr noundef nonnull %26)
           to label %_ZNSt10unique_ptrI10_GstSamplePFvPS0_EED2Ev.exit52 unwind label %149
 
@@ -2900,7 +2900,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %35, %
   resume { ptr, i32 } %36
 
 40:                                               ; preds = %30, %_ZN2cv4gapi3wip3gst12GStreamerPtrI10_GstSampleEaSEPS4_.exit, %10
-  %.04 = phi i1 [ false, %_ZN2cv4gapi3wip3gst12GStreamerPtrI10_GstSampleEaSEPS4_.exit ], [ false, %10 ], [ true, %30 ]
+  %.04 = phi i1 [ false, %10 ], [ false, %_ZN2cv4gapi3wip3gst12GStreamerPtrI10_GstSampleEaSEPS4_.exit ], [ true, %30 ]
   ret i1 %.04
 }
 
@@ -3952,7 +3952,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %.not19.i.i = icmp eq i64 %45, %13
   br i1 %.not19.i.i, label %.split.i.i, label %.loopexit29, !llvm.loop !166
 
-.loopexit29:                                      ; preds = %42, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N2cv4util3anyEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N2cv4util3anyEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.us.i.i, %28, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N2cv4util3anyEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit
+.loopexit29:                                      ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N2cv4util3anyEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.i.i, %42, %28, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N2cv4util3anyEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.us.i.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N2cv4util3anyEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !168
   %46 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24

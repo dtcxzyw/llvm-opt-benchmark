@@ -536,7 +536,7 @@ _.exit80:                                         ; preds = %182, %184
   br label %.thread
 
 .thread:                                          ; preds = %_.exit, %_.exit77, %_.exit74, %_.exit71, %._crit_edge106, %_.exit80
-  %.2 = phi i32 [ 0, %._crit_edge106 ], [ -1, %_.exit80 ], [ 1, %_.exit ], [ -1, %_.exit77 ], [ -1, %_.exit74 ], [ 1, %_.exit71 ]
+  %.2 = phi i32 [ -1, %_.exit80 ], [ 0, %._crit_edge106 ], [ 1, %_.exit ], [ -1, %_.exit77 ], [ -1, %_.exit74 ], [ 1, %_.exit71 ]
   ret i32 %.2
 }
 

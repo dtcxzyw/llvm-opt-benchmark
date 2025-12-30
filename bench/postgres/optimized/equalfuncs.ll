@@ -1734,7 +1734,7 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %9, 
   unreachable
 
 _equalGroupingFunc.exit:                          ; preds = %tailrecurse.backedge, %.lr.ph, %6, %66, %321, %328, %347, %9, %9, %2, %726, %721, %716, %711, %686, %680, %661, %655, %538, %532, %380, %374, %369, %364, %359, %354, %276, %272, %265, %236, %231, %224, %219, %214, %209, %204, %199, %190, %184, %159, %154, %147, %142, %137, %122, %117, %112, %103, %97, %92, %86, %47, %42, %33, %27, %11, %13, %15, %17, %19, %21, %23, %25, %38, %40, %52, %54, %56, %58, %60, %62, %64, %72, %74, %76, %78, %80, %82, %84, %108, %110, %127, %129, %131, %133, %135, %152, %164, %166, %168, %170, %172, %174, %176, %178, %180, %182, %195, %197, %229, %241, %243, %245, %247, %250, %252, %254, %256, %258, %260, %263, %277, %279, %281, %283, %285, %287, %289, %291, %293, %295, %297, %299, %301, %303, %305, %307, %309, %311, %313, %315, %317, %319, %326, %333, %335, %337, %339, %341, %343, %345, %352, %385, %387, %389, %391, %393, %395, %397, %399, %401, %403, %405, %407, %409, %411, %413, %415, %417, %419, %421, %423, %425, %427, %429, %431, %433, %435, %437, %439, %441, %443, %445, %447, %449, %451, %453, %455, %457, %459, %461, %463, %465, %467, %469, %471, %473, %476, %478, %480, %482, %484, %486, %488, %490, %492, %494, %496, %498, %500, %502, %504, %506, %508, %510, %512, %514, %516, %518, %520, %522, %524, %526, %528, %530, %543, %545, %547, %549, %551, %553, %555, %557, %559, %561, %563, %565, %567, %569, %572, %574, %576, %578, %580, %582, %584, %586, %588, %590, %592, %594, %596, %598, %600, %602, %604, %606, %609, %612, %614, %616, %618, %620, %622, %624, %627, %629, %631, %634, %636, %638, %640, %642, %644, %646, %648, %650, %653, %666, %668, %670, %672, %674, %676, %678, %691, %693, %695, %697, %699, %701, %703, %705, %707, %709, %731, %733, %735, %737, %739, %741, %743, %745, %747, %750, %753, %756, %759, %762
-  %.0562 = phi i1 [ false, %204 ], [ false, %199 ], [ false, %219 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %763, %762 ], [ %39, %38 ], [ %41, %40 ], [ false, %27 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %.not5.i, %47 ], [ %73, %72 ], [ %75, %74 ], [ false, %716 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ false, %214 ], [ false, %86 ], [ %109, %108 ], [ %111, %110 ], [ false, %97 ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %.not8.i, %122 ], [ %153, %152 ], [ %.not8.i596, %147 ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ], [ %171, %170 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %179, %178 ], [ %181, %180 ], [ %183, %182 ], [ %.not5.i599, %159 ], [ %196, %195 ], [ %198, %197 ], [ false, %184 ], [ %.not8.i605, %209 ], [ %230, %229 ], [ %.not8.i609, %224 ], [ %242, %241 ], [ %244, %243 ], [ %246, %245 ], [ %.not.i613, %247 ], [ %251, %250 ], [ %253, %252 ], [ %255, %254 ], [ %257, %256 ], [ %259, %258 ], [ false, %711 ], [ %.not.i614, %260 ], [ %264, %263 ], [ %.not5.i612, %236 ], [ %278, %277 ], [ %280, %279 ], [ %282, %281 ], [ %284, %283 ], [ false, %272 ], [ %286, %285 ], [ %288, %287 ], [ false, %721 ], [ %290, %289 ], [ %292, %291 ], [ %294, %293 ], [ %296, %295 ], [ %298, %297 ], [ %300, %299 ], [ %302, %301 ], [ %304, %303 ], [ %306, %305 ], [ %308, %307 ], [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ false, %231 ], [ %327, %326 ], [ false, %265 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %342, %341 ], [ %344, %343 ], [ %346, %345 ], [ true, %276 ], [ %353, %352 ], [ %.not.i633, %686 ], [ %.not11.i, %369 ], [ %386, %385 ], [ %388, %387 ], [ %390, %389 ], [ %392, %391 ], [ %394, %393 ], [ %396, %395 ], [ %398, %397 ], [ %400, %399 ], [ %402, %401 ], [ %404, %403 ], [ %406, %405 ], [ %408, %407 ], [ %410, %409 ], [ %412, %411 ], [ %414, %413 ], [ %416, %415 ], [ %418, %417 ], [ %420, %419 ], [ %422, %421 ], [ %424, %423 ], [ %426, %425 ], [ %428, %427 ], [ %430, %429 ], [ %432, %431 ], [ %434, %433 ], [ %.not.i626, %380 ], [ %436, %435 ], [ %438, %437 ], [ %440, %439 ], [ %442, %441 ], [ %444, %443 ], [ %446, %445 ], [ false, %359 ], [ %448, %447 ], [ %450, %449 ], [ %452, %451 ], [ %454, %453 ], [ %456, %455 ], [ false, %354 ], [ %458, %457 ], [ %460, %459 ], [ %462, %461 ], [ %464, %463 ], [ %466, %465 ], [ %468, %467 ], [ %470, %469 ], [ %472, %471 ], [ %475, %473 ], [ %477, %476 ], [ %479, %478 ], [ %481, %480 ], [ %483, %482 ], [ %485, %484 ], [ %487, %486 ], [ %489, %488 ], [ %491, %490 ], [ %493, %492 ], [ %495, %494 ], [ %497, %496 ], [ %499, %498 ], [ %501, %500 ], [ %503, %502 ], [ %505, %504 ], [ %507, %506 ], [ %509, %508 ], [ %511, %510 ], [ %513, %512 ], [ %515, %514 ], [ %517, %516 ], [ %519, %518 ], [ %521, %520 ], [ %523, %522 ], [ %525, %524 ], [ %527, %526 ], [ %529, %528 ], [ %531, %530 ], [ false, %374 ], [ %544, %543 ], [ %546, %545 ], [ %548, %547 ], [ %550, %549 ], [ %552, %551 ], [ %554, %553 ], [ %556, %555 ], [ %558, %557 ], [ %560, %559 ], [ %562, %561 ], [ %564, %563 ], [ %566, %565 ], [ %568, %567 ], [ %571, %569 ], [ %573, %572 ], [ %575, %574 ], [ %577, %576 ], [ %579, %578 ], [ %581, %580 ], [ %583, %582 ], [ %585, %584 ], [ %587, %586 ], [ false, %364 ], [ %589, %588 ], [ %591, %590 ], [ %593, %592 ], [ %595, %594 ], [ %597, %596 ], [ %599, %598 ], [ %601, %600 ], [ %603, %602 ], [ %605, %604 ], [ %608, %606 ], [ %611, %609 ], [ %613, %612 ], [ %615, %614 ], [ %617, %616 ], [ %619, %618 ], [ %621, %620 ], [ %623, %622 ], [ %626, %624 ], [ %628, %627 ], [ %630, %629 ], [ %633, %631 ], [ %635, %634 ], [ %637, %636 ], [ %.not.i628, %538 ], [ %639, %638 ], [ %641, %640 ], [ %643, %642 ], [ %645, %644 ], [ %647, %646 ], [ %649, %648 ], [ false, %532 ], [ %.not.i629, %650 ], [ %654, %653 ], [ %.not.i631, %661 ], [ %667, %666 ], [ %669, %668 ], [ %671, %670 ], [ %673, %672 ], [ %675, %674 ], [ %677, %676 ], [ %679, %678 ], [ false, %655 ], [ %692, %691 ], [ %694, %693 ], [ %696, %695 ], [ %698, %697 ], [ %700, %699 ], [ %702, %701 ], [ %704, %703 ], [ %706, %705 ], [ %708, %707 ], [ %710, %709 ], [ false, %680 ], [ %732, %731 ], [ %734, %733 ], [ %736, %735 ], [ %738, %737 ], [ %740, %739 ], [ %742, %741 ], [ %744, %743 ], [ %746, %745 ], [ %.not.i639, %747 ], [ %752, %750 ], [ %.not.i640, %753 ], [ %758, %756 ], [ %761, %759 ], [ %.not.i, %33 ], [ false, %42 ], [ %.not11.i638, %726 ], [ %.not.i588, %92 ], [ %.not.i590, %103 ], [ false, %117 ], [ false, %112 ], [ false, %142 ], [ false, %137 ], [ false, %154 ], [ %.not.i601, %190 ], [ true, %2 ], [ false, %347 ], [ false, %328 ], [ false, %321 ], [ false, %66 ], [ true, %9 ], [ false, %6 ], [ true, %tailrecurse.backedge ], [ false, %.lr.ph ], [ true, %9 ]
+  %.0562 = phi i1 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %39, %38 ], [ %41, %40 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %109, %108 ], [ %111, %110 ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %153, %152 ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ], [ %171, %170 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %179, %178 ], [ %181, %180 ], [ %183, %182 ], [ %196, %195 ], [ %198, %197 ], [ %230, %229 ], [ %242, %241 ], [ %244, %243 ], [ %246, %245 ], [ %.not.i613, %247 ], [ %251, %250 ], [ %253, %252 ], [ %255, %254 ], [ %257, %256 ], [ %259, %258 ], [ %.not.i614, %260 ], [ %264, %263 ], [ %278, %277 ], [ %280, %279 ], [ %282, %281 ], [ %284, %283 ], [ %286, %285 ], [ %288, %287 ], [ %290, %289 ], [ %292, %291 ], [ %294, %293 ], [ %296, %295 ], [ %298, %297 ], [ %300, %299 ], [ %302, %301 ], [ %304, %303 ], [ %306, %305 ], [ %308, %307 ], [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ %327, %326 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %342, %341 ], [ %344, %343 ], [ %346, %345 ], [ %353, %352 ], [ %386, %385 ], [ %388, %387 ], [ %390, %389 ], [ %392, %391 ], [ %394, %393 ], [ %396, %395 ], [ %398, %397 ], [ %400, %399 ], [ %402, %401 ], [ %404, %403 ], [ %406, %405 ], [ %408, %407 ], [ %410, %409 ], [ %412, %411 ], [ %414, %413 ], [ %416, %415 ], [ %418, %417 ], [ %420, %419 ], [ %422, %421 ], [ %424, %423 ], [ %426, %425 ], [ %428, %427 ], [ %430, %429 ], [ %432, %431 ], [ %434, %433 ], [ %436, %435 ], [ %438, %437 ], [ %440, %439 ], [ %442, %441 ], [ %444, %443 ], [ %446, %445 ], [ %448, %447 ], [ %450, %449 ], [ %452, %451 ], [ %454, %453 ], [ %456, %455 ], [ %458, %457 ], [ %460, %459 ], [ %462, %461 ], [ %464, %463 ], [ %466, %465 ], [ %468, %467 ], [ %470, %469 ], [ %472, %471 ], [ %475, %473 ], [ %477, %476 ], [ %479, %478 ], [ %481, %480 ], [ %483, %482 ], [ %485, %484 ], [ %487, %486 ], [ %489, %488 ], [ %491, %490 ], [ %493, %492 ], [ %495, %494 ], [ %497, %496 ], [ %499, %498 ], [ %501, %500 ], [ %503, %502 ], [ %505, %504 ], [ %507, %506 ], [ %509, %508 ], [ %511, %510 ], [ %513, %512 ], [ %515, %514 ], [ %517, %516 ], [ %519, %518 ], [ %521, %520 ], [ %523, %522 ], [ %525, %524 ], [ %527, %526 ], [ %529, %528 ], [ %531, %530 ], [ %544, %543 ], [ %546, %545 ], [ %548, %547 ], [ %550, %549 ], [ %552, %551 ], [ %554, %553 ], [ %556, %555 ], [ %558, %557 ], [ %560, %559 ], [ %562, %561 ], [ %564, %563 ], [ %566, %565 ], [ %568, %567 ], [ %571, %569 ], [ %573, %572 ], [ %575, %574 ], [ %577, %576 ], [ %579, %578 ], [ %581, %580 ], [ %583, %582 ], [ %585, %584 ], [ %587, %586 ], [ %589, %588 ], [ %591, %590 ], [ %593, %592 ], [ %595, %594 ], [ %597, %596 ], [ %599, %598 ], [ %601, %600 ], [ %603, %602 ], [ %605, %604 ], [ %608, %606 ], [ %611, %609 ], [ %613, %612 ], [ %615, %614 ], [ %617, %616 ], [ %619, %618 ], [ %621, %620 ], [ %623, %622 ], [ %626, %624 ], [ %628, %627 ], [ %630, %629 ], [ %633, %631 ], [ %635, %634 ], [ %637, %636 ], [ %639, %638 ], [ %641, %640 ], [ %643, %642 ], [ %645, %644 ], [ %647, %646 ], [ %649, %648 ], [ %.not.i629, %650 ], [ %654, %653 ], [ %667, %666 ], [ %669, %668 ], [ %671, %670 ], [ %673, %672 ], [ %675, %674 ], [ %677, %676 ], [ %679, %678 ], [ %692, %691 ], [ %694, %693 ], [ %696, %695 ], [ %698, %697 ], [ %700, %699 ], [ %702, %701 ], [ %704, %703 ], [ %706, %705 ], [ %708, %707 ], [ %710, %709 ], [ %732, %731 ], [ %734, %733 ], [ %736, %735 ], [ %738, %737 ], [ %740, %739 ], [ %742, %741 ], [ %744, %743 ], [ %746, %745 ], [ %.not.i639, %747 ], [ %752, %750 ], [ %.not.i640, %753 ], [ %758, %756 ], [ %761, %759 ], [ %763, %762 ], [ false, %27 ], [ %.not.i, %33 ], [ false, %42 ], [ %.not5.i, %47 ], [ false, %86 ], [ %.not.i588, %92 ], [ false, %97 ], [ %.not.i590, %103 ], [ false, %112 ], [ false, %117 ], [ %.not8.i, %122 ], [ false, %137 ], [ false, %142 ], [ %.not8.i596, %147 ], [ false, %154 ], [ %.not5.i599, %159 ], [ false, %184 ], [ %.not.i601, %190 ], [ false, %199 ], [ false, %204 ], [ %.not8.i605, %209 ], [ false, %214 ], [ false, %219 ], [ %.not8.i609, %224 ], [ false, %231 ], [ %.not5.i612, %236 ], [ true, %276 ], [ false, %265 ], [ false, %272 ], [ false, %354 ], [ false, %359 ], [ false, %364 ], [ %.not11.i, %369 ], [ false, %374 ], [ %.not.i626, %380 ], [ false, %532 ], [ %.not.i628, %538 ], [ false, %655 ], [ %.not.i631, %661 ], [ false, %680 ], [ %.not.i633, %686 ], [ false, %711 ], [ false, %716 ], [ false, %721 ], [ %.not11.i638, %726 ], [ true, %2 ], [ true, %tailrecurse.backedge ], [ false, %.lr.ph ], [ false, %6 ], [ false, %66 ], [ false, %321 ], [ false, %328 ], [ false, %347 ], [ true, %9 ], [ true, %9 ]
   ret i1 %.0562
 }
 
@@ -1771,7 +1771,7 @@ define internal fastcc zeroext i1 @_equalAlias(ptr noundef nonnull readonly capt
   br label %.thread
 
 .thread:                                          ; preds = %5, %11, %6, %9
-  %.0 = phi i1 [ false, %6 ], [ %16, %11 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ %16, %11 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -1864,7 +1864,7 @@ define internal fastcc zeroext i1 @_equalRangeVar(ptr noundef nonnull readonly c
   br label %.thread
 
 .thread:                                          ; preds = %23, %14, %5, %39, %34, %29, %24, %27, %15, %18, %6, %9
-  %.0 = phi i1 [ false, %24 ], [ false, %29 ], [ false, %34 ], [ %44, %39 ], [ false, %15 ], [ false, %6 ], [ false, %9 ], [ false, %18 ], [ false, %27 ], [ false, %14 ], [ false, %5 ], [ false, %23 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %18 ], [ false, %15 ], [ false, %27 ], [ false, %24 ], [ false, %29 ], [ false, %34 ], [ %44, %39 ], [ false, %5 ], [ false, %14 ], [ false, %23 ]
   ret i1 %.0
 }
 
@@ -1998,7 +1998,7 @@ define internal fastcc zeroext i1 @_equalTableFunc(ptr noundef nonnull readonly 
   br label %96
 
 96:                                               ; preds = %91, %85, %79, %73, %67, %61, %55, %49, %43, %37, %31, %25, %19, %13, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not33, %91 ], [ false, %85 ], [ false, %79 ], [ false, %73 ], [ false, %67 ], [ false, %61 ], [ false, %55 ], [ false, %49 ], [ false, %43 ], [ false, %37 ], [ false, %31 ], [ false, %25 ], [ false, %19 ], [ false, %13 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %13 ], [ false, %19 ], [ false, %25 ], [ false, %31 ], [ false, %37 ], [ false, %43 ], [ false, %49 ], [ false, %55 ], [ false, %61 ], [ false, %67 ], [ false, %73 ], [ false, %79 ], [ false, %85 ], [ %.not33, %91 ]
   ret i1 %.0
 }
 
@@ -2094,7 +2094,7 @@ define internal fastcc noundef zeroext i1 @_equalIntoClause(ptr noundef nonnull 
   br label %.thread
 
 .thread:                                          ; preds = %37, %17, %49, %43, %38, %41, %29, %23, %18, %21, %8, %2
-  %.0 = phi i1 [ false, %23 ], [ %.not33, %49 ], [ false, %43 ], [ false, %38 ], [ false, %29 ], [ false, %18 ], [ false, %8 ], [ false, %2 ], [ false, %21 ], [ false, %41 ], [ false, %17 ], [ false, %37 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %21 ], [ false, %18 ], [ false, %23 ], [ false, %29 ], [ false, %41 ], [ false, %38 ], [ false, %43 ], [ %.not33, %49 ], [ false, %17 ], [ false, %37 ]
   ret i1 %.0
 }
 
@@ -2164,7 +2164,7 @@ define internal fastcc zeroext i1 @_equalVar(ptr noundef nonnull readonly captur
   br label %43
 
 43:                                               ; preds = %38, %33, %27, %22, %17, %12, %7, %2
-  %.0 = phi i1 [ false, %22 ], [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %27 ], [ %.not22, %38 ], [ false, %33 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ false, %27 ], [ false, %33 ], [ %.not22, %38 ]
   ret i1 %.0
 }
 
@@ -2276,7 +2276,7 @@ define internal fastcc zeroext i1 @_equalParam(ptr noundef nonnull readonly capt
   br label %27
 
 27:                                               ; preds = %22, %17, %12, %7, %2
-  %.0 = phi i1 [ false, %17 ], [ false, %2 ], [ false, %7 ], [ false, %12 ], [ %.not14, %22 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ %.not14, %22 ]
   ret i1 %.0
 }
 
@@ -2418,7 +2418,7 @@ define internal fastcc zeroext i1 @_equalAggref(ptr noundef nonnull readonly cap
   br label %93
 
 93:                                               ; preds = %88, %83, %78, %73, %68, %63, %58, %52, %46, %40, %34, %28, %22, %17, %12, %7, %2
-  %.0 = phi i1 [ false, %17 ], [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %52 ], [ false, %58 ], [ false, %63 ], [ false, %68 ], [ false, %73 ], [ false, %78 ], [ %.not44, %88 ], [ false, %83 ], [ false, %46 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %22 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ false, %28 ], [ false, %34 ], [ false, %40 ], [ false, %46 ], [ false, %52 ], [ false, %58 ], [ false, %63 ], [ false, %68 ], [ false, %73 ], [ false, %78 ], [ false, %83 ], [ %.not44, %88 ]
   ret i1 %.0
 }
 
@@ -2504,7 +2504,7 @@ define internal fastcc noundef zeroext i1 @_equalWindowFunc(ptr noundef nonnull 
   br label %55
 
 55:                                               ; preds = %50, %45, %40, %34, %28, %22, %17, %12, %7, %2
-  %.0 = phi i1 [ false, %17 ], [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %34 ], [ false, %40 ], [ %.not26, %50 ], [ false, %45 ], [ false, %28 ], [ false, %22 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ false, %28 ], [ false, %34 ], [ false, %40 ], [ false, %45 ], [ %.not26, %50 ]
   ret i1 %.0
 }
 
@@ -2542,7 +2542,7 @@ define internal fastcc zeroext i1 @_equalWindowFuncRunCondition(ptr noundef nonn
   br label %23
 
 23:                                               ; preds = %17, %12, %7, %2
-  %.0 = phi i1 [ %22, %17 ], [ false, %2 ], [ false, %7 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ %22, %17 ]
   ret i1 %.0
 }
 
@@ -2620,7 +2620,7 @@ define internal fastcc zeroext i1 @_equalSubscriptingRef(ptr noundef nonnull rea
   br label %51
 
 51:                                               ; preds = %45, %39, %33, %27, %22, %17, %12, %7, %2
-  %.0 = phi i1 [ false, %22 ], [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %39 ], [ %50, %45 ], [ false, %33 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ false, %27 ], [ false, %33 ], [ false, %39 ], [ %50, %45 ]
   ret i1 %.0
 }
 
@@ -2682,7 +2682,7 @@ define internal fastcc zeroext i1 @_equalFuncExpr(ptr noundef nonnull readonly c
   br label %38
 
 38:                                               ; preds = %32, %27, %22, %17, %12, %7, %2
-  %.0 = phi i1 [ %37, %32 ], [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ false, %27 ], [ %37, %32 ]
   ret i1 %.0
 }
 
@@ -2725,7 +2725,7 @@ define internal fastcc zeroext i1 @_equalNamedArgExpr(ptr noundef nonnull readon
   br label %.thread
 
 .thread:                                          ; preds = %11, %17, %12, %15, %2
-  %.0 = phi i1 [ %.not14, %17 ], [ false, %12 ], [ false, %2 ], [ false, %15 ], [ false, %11 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %15 ], [ false, %12 ], [ %.not14, %17 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -2791,7 +2791,7 @@ define internal fastcc zeroext i1 @_equalOpExpr(ptr noundef nonnull readonly cap
   br label %38
 
 38:                                               ; preds = %32, %27, %22, %17, %12, %7, %2
-  %.0 = phi i1 [ %37, %32 ], [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ false, %27 ], [ %37, %32 ]
   ret i1 %.0
 }
 
@@ -2857,7 +2857,7 @@ define internal fastcc zeroext i1 @_equalDistinctExpr(ptr noundef nonnull readon
   br label %38
 
 38:                                               ; preds = %32, %27, %22, %17, %12, %7, %2
-  %.0 = phi i1 [ %37, %32 ], [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ false, %27 ], [ %37, %32 ]
   ret i1 %.0
 }
 
@@ -2923,7 +2923,7 @@ define internal fastcc zeroext i1 @_equalNullIfExpr(ptr noundef nonnull readonly
   br label %38
 
 38:                                               ; preds = %32, %27, %22, %17, %12, %7, %2
-  %.0 = phi i1 [ %37, %32 ], [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ false, %27 ], [ %37, %32 ]
   ret i1 %.0
 }
 
@@ -2997,7 +2997,7 @@ define internal fastcc zeroext i1 @_equalScalarArrayOpExpr(ptr noundef nonnull r
   br label %38
 
 38:                                               ; preds = %32, %27, %22, %17, %12, %7, %2
-  %.0 = phi i1 [ %37, %32 ], [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ false, %27 ], [ %37, %32 ]
   ret i1 %.0
 }
 
@@ -3043,7 +3043,7 @@ define internal fastcc zeroext i1 @_equalSubLink(ptr noundef nonnull readonly ca
   br label %30
 
 30:                                               ; preds = %24, %18, %12, %7, %2
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ false, %18 ], [ %29, %24 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %18 ], [ %29, %24 ]
   ret i1 %.0
 }
 
@@ -3190,7 +3190,7 @@ define internal fastcc zeroext i1 @_equalSubPlan(ptr noundef nonnull readonly ca
   br label %.thread
 
 .thread:                                          ; preds = %27, %87, %81, %75, %69, %63, %58, %53, %48, %43, %38, %33, %28, %31, %19, %13, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %13 ], [ false, %28 ], [ false, %33 ], [ false, %38 ], [ false, %43 ], [ false, %48 ], [ false, %53 ], [ false, %75 ], [ %92, %87 ], [ false, %81 ], [ false, %69 ], [ false, %63 ], [ false, %58 ], [ false, %19 ], [ false, %7 ], [ false, %31 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %13 ], [ false, %19 ], [ false, %31 ], [ false, %28 ], [ false, %33 ], [ false, %38 ], [ false, %43 ], [ false, %48 ], [ false, %53 ], [ false, %58 ], [ false, %63 ], [ false, %69 ], [ false, %75 ], [ false, %81 ], [ %92, %87 ], [ false, %27 ]
   ret i1 %.0
 }
 
@@ -3236,7 +3236,7 @@ define internal fastcc zeroext i1 @_equalFieldSelect(ptr noundef nonnull readonl
   br label %28
 
 28:                                               ; preds = %23, %18, %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %13 ], [ %.not13, %23 ], [ false, %18 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %13 ], [ false, %18 ], [ %.not13, %23 ]
   ret i1 %.0
 }
 
@@ -3274,7 +3274,7 @@ define internal fastcc zeroext i1 @_equalFieldStore(ptr noundef nonnull readonly
   br label %25
 
 25:                                               ; preds = %20, %14, %8, %2
-  %.0 = phi i1 [ %.not, %20 ], [ false, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ %.not, %20 ]
   ret i1 %.0
 }
 
@@ -3312,7 +3312,7 @@ define internal fastcc zeroext i1 @_equalRelabelType(ptr noundef nonnull readonl
   br label %23
 
 23:                                               ; preds = %18, %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not10, %18 ], [ false, %13 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %13 ], [ %.not10, %18 ]
   ret i1 %.0
 }
 
@@ -3342,7 +3342,7 @@ define internal fastcc zeroext i1 @_equalCoerceViaIO(ptr noundef nonnull readonl
   br label %18
 
 18:                                               ; preds = %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not7, %13 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not7, %13 ]
   ret i1 %.0
 }
 
@@ -3388,7 +3388,7 @@ define internal fastcc zeroext i1 @_equalArrayCoerceExpr(ptr noundef nonnull rea
   br label %29
 
 29:                                               ; preds = %24, %19, %14, %8, %2
-  %.0 = phi i1 [ false, %8 ], [ false, %14 ], [ %.not12, %24 ], [ false, %19 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %19 ], [ %.not12, %24 ]
   ret i1 %.0
 }
 
@@ -3434,7 +3434,7 @@ define internal fastcc zeroext i1 @_equalCaseExpr(ptr noundef nonnull readonly c
   br label %30
 
 30:                                               ; preds = %24, %18, %12, %7, %2
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ false, %18 ], [ %29, %24 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %18 ], [ %29, %24 ]
   ret i1 %.0
 }
 
@@ -3502,7 +3502,7 @@ define internal fastcc noundef zeroext i1 @_equalArrayExpr(ptr noundef nonnull r
   br label %28
 
 28:                                               ; preds = %23, %17, %12, %7, %2
-  %.0 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %7 ], [ %.not13, %23 ], [ false, %17 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ %.not13, %23 ]
   ret i1 %.0
 }
 
@@ -3586,7 +3586,7 @@ define internal fastcc zeroext i1 @_equalRowCompareExpr(ptr noundef nonnull read
   br label %37
 
 37:                                               ; preds = %31, %25, %19, %13, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %25 ], [ %36, %31 ], [ false, %19 ], [ false, %13 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %13 ], [ false, %19 ], [ false, %25 ], [ %36, %31 ]
   ret i1 %.0
 }
 
@@ -3616,7 +3616,7 @@ define internal fastcc zeroext i1 @_equalCoalesceExpr(ptr noundef nonnull readon
   br label %18
 
 18:                                               ; preds = %12, %7, %2
-  %.0 = phi i1 [ %17, %12 ], [ false, %2 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ %17, %12 ]
   ret i1 %.0
 }
 
@@ -3662,7 +3662,7 @@ define internal fastcc zeroext i1 @_equalMinMaxExpr(ptr noundef nonnull readonly
   br label %28
 
 28:                                               ; preds = %22, %17, %12, %7, %2
-  %.0 = phi i1 [ %27, %22 ], [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ %27, %22 ]
   ret i1 %.0
 }
 
@@ -3753,7 +3753,7 @@ define internal fastcc zeroext i1 @_equalXmlExpr(ptr noundef nonnull readonly ca
   br label %.thread
 
 .thread:                                          ; preds = %10, %49, %44, %39, %34, %28, %22, %16, %11, %14, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %28 ], [ false, %34 ], [ false, %39 ], [ %.not30, %49 ], [ false, %44 ], [ false, %22 ], [ false, %16 ], [ false, %11 ], [ false, %14 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %11 ], [ false, %16 ], [ false, %22 ], [ false, %28 ], [ false, %34 ], [ false, %39 ], [ false, %44 ], [ %.not30, %49 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -3783,7 +3783,7 @@ define internal fastcc zeroext i1 @_equalJsonReturning(ptr noundef nonnull reado
   br label %18
 
 18:                                               ; preds = %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not7, %13 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not7, %13 ]
   ret i1 %.0
 }
 
@@ -3813,7 +3813,7 @@ define internal fastcc zeroext i1 @_equalJsonValueExpr(ptr noundef nonnull reado
   br label %20
 
 20:                                               ; preds = %14, %8, %2
-  %.0 = phi i1 [ false, %8 ], [ %19, %14 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %19, %14 ]
   ret i1 %.0
 }
 
@@ -3875,7 +3875,7 @@ define internal fastcc noundef zeroext i1 @_equalJsonConstructorExpr(ptr noundef
   br label %41
 
 41:                                               ; preds = %36, %31, %25, %19, %13, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %25 ], [ %.not16, %36 ], [ false, %31 ], [ false, %19 ], [ false, %13 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %13 ], [ false, %19 ], [ false, %25 ], [ false, %31 ], [ %.not16, %36 ]
   ret i1 %.0
 }
 
@@ -3913,7 +3913,7 @@ define internal fastcc noundef zeroext i1 @_equalJsonIsPredicate(ptr noundef non
   br label %24
 
 24:                                               ; preds = %19, %14, %8, %2
-  %.0 = phi i1 [ false, %8 ], [ %.not9, %19 ], [ false, %14 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ %.not9, %19 ]
   ret i1 %.0
 }
 
@@ -3943,7 +3943,7 @@ define internal fastcc noundef zeroext i1 @_equalJsonBehavior(ptr noundef nonnul
   br label %18
 
 18:                                               ; preds = %13, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not7, %13 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ %.not7, %13 ]
   ret i1 %.0
 }
 
@@ -4082,7 +4082,7 @@ define internal fastcc zeroext i1 @_equalJsonExpr(ptr noundef nonnull readonly c
   br label %.thread
 
 .thread:                                          ; preds = %10, %84, %79, %74, %69, %64, %58, %52, %46, %40, %34, %28, %22, %16, %11, %14, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %58 ], [ false, %64 ], [ false, %69 ], [ false, %74 ], [ %.not43, %84 ], [ false, %79 ], [ false, %52 ], [ false, %46 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %22 ], [ false, %16 ], [ false, %11 ], [ false, %14 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %11 ], [ false, %16 ], [ false, %22 ], [ false, %28 ], [ false, %34 ], [ false, %40 ], [ false, %46 ], [ false, %52 ], [ false, %58 ], [ false, %64 ], [ false, %69 ], [ false, %74 ], [ false, %79 ], [ %.not43, %84 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -4166,7 +4166,7 @@ define internal fastcc zeroext i1 @_equalJsonTablePathScan(ptr noundef nonnull r
   br label %29
 
 29:                                               ; preds = %24, %19, %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %13 ], [ %.not12, %24 ], [ false, %19 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %13 ], [ false, %19 ], [ %.not12, %24 ]
   ret i1 %.0
 }
 
@@ -4218,7 +4218,7 @@ define internal fastcc noundef zeroext i1 @_equalNullTest(ptr noundef nonnull re
   br label %18
 
 18:                                               ; preds = %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not7, %13 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not7, %13 ]
   ret i1 %.0
 }
 
@@ -4272,7 +4272,7 @@ define internal fastcc zeroext i1 @_equalMergeAction(ptr noundef nonnull readonl
   br label %35
 
 35:                                               ; preds = %29, %23, %17, %12, %7, %2
-  %.0 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %7 ], [ false, %23 ], [ %34, %29 ], [ false, %17 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %23 ], [ %34, %29 ]
   ret i1 %.0
 }
 
@@ -4310,7 +4310,7 @@ define internal fastcc zeroext i1 @_equalCoerceToDomain(ptr noundef nonnull read
   br label %23
 
 23:                                               ; preds = %18, %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not10, %18 ], [ false, %13 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %13 ], [ %.not10, %18 ]
   ret i1 %.0
 }
 
@@ -4353,7 +4353,7 @@ define internal fastcc zeroext i1 @_equalCurrentOfExpr(ptr noundef nonnull reado
   br label %.thread
 
 .thread:                                          ; preds = %10, %16, %11, %14, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not15, %16 ], [ false, %11 ], [ false, %14 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %11 ], [ %.not15, %16 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -4383,7 +4383,7 @@ define internal fastcc zeroext i1 @_equalInferenceElem(ptr noundef nonnull reado
   br label %18
 
 18:                                               ; preds = %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not7, %13 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not7, %13 ]
   ret i1 %.0
 }
 
@@ -4413,7 +4413,7 @@ define internal fastcc zeroext i1 @_equalReturningExpr(ptr noundef nonnull reado
   br label %18
 
 18:                                               ; preds = %12, %7, %2
-  %.0 = phi i1 [ %17, %12 ], [ false, %2 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ %17, %12 ]
   ret i1 %.0
 }
 
@@ -4488,7 +4488,7 @@ define internal fastcc noundef zeroext i1 @_equalTargetEntry(ptr noundef nonnull
   br label %.thread
 
 .thread:                                          ; preds = %16, %37, %32, %27, %22, %17, %20, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %17 ], [ false, %22 ], [ false, %27 ], [ %.not26, %37 ], [ false, %32 ], [ false, %8 ], [ false, %20 ], [ false, %16 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %20 ], [ false, %17 ], [ false, %22 ], [ false, %27 ], [ false, %32 ], [ %.not26, %37 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -4566,7 +4566,7 @@ define internal fastcc zeroext i1 @_equalJoinExpr(ptr noundef nonnull readonly c
   br label %53
 
 53:                                               ; preds = %48, %42, %36, %30, %24, %18, %12, %7, %2
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ %.not20, %48 ], [ false, %42 ], [ false, %36 ], [ false, %30 ], [ false, %24 ], [ false, %18 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %18 ], [ false, %24 ], [ false, %30 ], [ false, %36 ], [ false, %42 ], [ %.not20, %48 ]
   ret i1 %.0
 }
 
@@ -4658,7 +4658,7 @@ define internal fastcc zeroext i1 @_equalOnConflictExpr(ptr noundef nonnull read
   br label %47
 
 47:                                               ; preds = %41, %36, %30, %24, %19, %13, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %13 ], [ false, %30 ], [ false, %36 ], [ %46, %41 ], [ false, %24 ], [ false, %19 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %13 ], [ false, %19 ], [ false, %24 ], [ false, %30 ], [ false, %36 ], [ %46, %41 ]
   ret i1 %.0
 }
 
@@ -5034,7 +5034,7 @@ define internal fastcc zeroext i1 @_equalQuery(ptr noundef nonnull readonly capt
   br label %.thread
 
 .thread:                                          ; preds = %153, %144, %241, %235, %229, %223, %218, %212, %206, %200, %194, %188, %182, %176, %171, %165, %159, %154, %157, %145, %148, %135, %130, %124, %118, %113, %107, %101, %95, %89, %83, %78, %73, %68, %63, %58, %53, %48, %43, %38, %33, %28, %23, %17, %12, %7, %2
-  %.0 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %7 ], [ false, %17 ], [ false, %23 ], [ false, %28 ], [ false, %33 ], [ false, %38 ], [ false, %43 ], [ false, %48 ], [ false, %53 ], [ false, %58 ], [ false, %63 ], [ false, %68 ], [ false, %73 ], [ false, %107 ], [ false, %124 ], [ false, %165 ], [ false, %212 ], [ false, %235 ], [ %246, %241 ], [ false, %229 ], [ false, %223 ], [ false, %218 ], [ false, %206 ], [ false, %200 ], [ false, %194 ], [ false, %188 ], [ false, %182 ], [ false, %176 ], [ false, %171 ], [ false, %159 ], [ false, %154 ], [ false, %145 ], [ false, %135 ], [ false, %130 ], [ false, %118 ], [ false, %113 ], [ false, %101 ], [ false, %95 ], [ false, %89 ], [ false, %83 ], [ false, %78 ], [ false, %148 ], [ false, %157 ], [ false, %144 ], [ false, %153 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %23 ], [ false, %28 ], [ false, %33 ], [ false, %38 ], [ false, %43 ], [ false, %48 ], [ false, %53 ], [ false, %58 ], [ false, %63 ], [ false, %68 ], [ false, %73 ], [ false, %78 ], [ false, %83 ], [ false, %89 ], [ false, %95 ], [ false, %101 ], [ false, %107 ], [ false, %113 ], [ false, %118 ], [ false, %124 ], [ false, %130 ], [ false, %135 ], [ false, %148 ], [ false, %145 ], [ false, %157 ], [ false, %154 ], [ false, %159 ], [ false, %165 ], [ false, %171 ], [ false, %176 ], [ false, %182 ], [ false, %188 ], [ false, %194 ], [ false, %200 ], [ false, %206 ], [ false, %212 ], [ false, %218 ], [ false, %223 ], [ false, %229 ], [ false, %235 ], [ %246, %241 ], [ false, %144 ], [ false, %153 ]
   ret i1 %.0
 }
 
@@ -5096,7 +5096,7 @@ define internal fastcc zeroext i1 @_equalTypeName(ptr noundef nonnull readonly c
   br label %40
 
 40:                                               ; preds = %34, %29, %23, %18, %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %13 ], [ false, %23 ], [ false, %29 ], [ %39, %34 ], [ false, %18 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %13 ], [ false, %18 ], [ false, %23 ], [ false, %29 ], [ %39, %34 ]
   ret i1 %.0
 }
 
@@ -5134,7 +5134,7 @@ define internal fastcc zeroext i1 @_equalA_Expr(ptr noundef nonnull readonly cap
   br label %25
 
 25:                                               ; preds = %19, %13, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %13 ], [ %24, %19 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %13 ], [ %24, %19 ]
   ret i1 %.0
 }
 
@@ -5216,7 +5216,7 @@ define internal fastcc noundef zeroext i1 @_equalRoleSpec(ptr noundef nonnull re
   br label %.thread
 
 .thread:                                          ; preds = %10, %11, %14, %2, %16
-  %.0 = phi i1 [ false, %2 ], [ true, %16 ], [ false, %14 ], [ false, %11 ], [ false, %10 ]
+  %.0 = phi i1 [ true, %16 ], [ false, %2 ], [ false, %14 ], [ false, %11 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -5294,7 +5294,7 @@ define internal fastcc noundef zeroext i1 @_equalFuncCall(ptr noundef nonnull re
   br label %52
 
 52:                                               ; preds = %47, %42, %37, %32, %26, %20, %14, %8, %2
-  %.0 = phi i1 [ false, %26 ], [ false, %32 ], [ false, %37 ], [ %.not21, %47 ], [ false, %42 ], [ false, %20 ], [ false, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %20 ], [ false, %26 ], [ false, %32 ], [ false, %37 ], [ false, %42 ], [ %.not21, %47 ]
   ret i1 %.0
 }
 
@@ -5389,7 +5389,7 @@ define internal fastcc zeroext i1 @_equalResTarget(ptr noundef nonnull readonly 
   br label %.thread
 
 .thread:                                          ; preds = %5, %17, %11, %6, %9
-  %.0 = phi i1 [ false, %11 ], [ %22, %17 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ %22, %17 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -5419,7 +5419,7 @@ define internal fastcc zeroext i1 @_equalMultiAssignRef(ptr noundef nonnull read
   br label %18
 
 18:                                               ; preds = %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not7, %13 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not7, %13 ]
   ret i1 %.0
 }
 
@@ -5545,7 +5545,7 @@ define internal fastcc zeroext i1 @_equalWindowDef(ptr noundef nonnull readonly 
   br label %.thread
 
 .thread:                                          ; preds = %14, %5, %43, %37, %32, %26, %20, %15, %18, %6, %9
-  %.0 = phi i1 [ false, %26 ], [ false, %37 ], [ %48, %43 ], [ false, %32 ], [ false, %20 ], [ false, %15 ], [ false, %6 ], [ false, %9 ], [ false, %18 ], [ false, %5 ], [ false, %14 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %18 ], [ false, %15 ], [ false, %20 ], [ false, %26 ], [ false, %32 ], [ false, %37 ], [ %48, %43 ], [ false, %5 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -5629,7 +5629,7 @@ define internal fastcc zeroext i1 @_equalRangeFunction(ptr noundef nonnull reado
   br label %35
 
 35:                                               ; preds = %29, %23, %17, %12, %7, %2
-  %.0 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %7 ], [ false, %23 ], [ %34, %29 ], [ false, %17 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %23 ], [ %34, %29 ]
   ret i1 %.0
 }
 
@@ -5683,7 +5683,7 @@ define internal fastcc zeroext i1 @_equalRangeTableFunc(ptr noundef nonnull read
   br label %37
 
 37:                                               ; preds = %31, %25, %19, %13, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %25 ], [ %36, %31 ], [ false, %19 ], [ false, %13 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %13 ], [ false, %19 ], [ false, %25 ], [ %36, %31 ]
   ret i1 %.0
 }
 
@@ -5750,7 +5750,7 @@ define internal fastcc zeroext i1 @_equalRangeTableFuncCol(ptr noundef nonnull r
   br label %.thread
 
 .thread:                                          ; preds = %5, %33, %27, %22, %17, %11, %6, %9
-  %.0 = phi i1 [ false, %11 ], [ false, %17 ], [ false, %27 ], [ %38, %33 ], [ false, %22 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %17 ], [ false, %22 ], [ false, %27 ], [ %38, %33 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -5788,7 +5788,7 @@ define internal fastcc zeroext i1 @_equalRangeTableSample(ptr noundef nonnull re
   br label %26
 
 26:                                               ; preds = %20, %14, %8, %2
-  %.0 = phi i1 [ false, %14 ], [ %25, %20 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ %25, %20 ]
   ret i1 %.0
 }
 
@@ -5977,7 +5977,7 @@ define internal fastcc zeroext i1 @_equalColumnDef(ptr noundef nonnull readonly 
   br label %.thread
 
 .thread:                                          ; preds = %54, %20, %5, %105, %99, %94, %88, %83, %77, %72, %66, %60, %55, %58, %46, %41, %36, %31, %26, %21, %24, %11, %6, %9
-  %.0 = phi i1 [ false, %21 ], [ false, %26 ], [ false, %31 ], [ false, %36 ], [ false, %41 ], [ false, %66 ], [ false, %77 ], [ false, %88 ], [ false, %99 ], [ %110, %105 ], [ false, %94 ], [ false, %83 ], [ false, %72 ], [ false, %60 ], [ false, %55 ], [ false, %46 ], [ false, %11 ], [ false, %6 ], [ false, %9 ], [ false, %24 ], [ false, %58 ], [ false, %20 ], [ false, %5 ], [ false, %54 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %24 ], [ false, %21 ], [ false, %26 ], [ false, %31 ], [ false, %36 ], [ false, %41 ], [ false, %46 ], [ false, %58 ], [ false, %55 ], [ false, %60 ], [ false, %66 ], [ false, %72 ], [ false, %77 ], [ false, %83 ], [ false, %88 ], [ false, %94 ], [ false, %99 ], [ %110, %105 ], [ false, %5 ], [ false, %20 ], [ false, %54 ]
   ret i1 %.0
 }
 
@@ -6007,7 +6007,7 @@ define internal fastcc zeroext i1 @_equalTableLikeClause(ptr noundef nonnull rea
   br label %18
 
 18:                                               ; preds = %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not7, %13 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not7, %13 ]
   ret i1 %.0
 }
 
@@ -6103,7 +6103,7 @@ define internal fastcc zeroext i1 @_equalIndexElem(ptr noundef nonnull readonly 
   br label %.thread
 
 .thread:                                          ; preds = %20, %5, %49, %44, %38, %32, %26, %21, %24, %11, %6, %9
-  %.0 = phi i1 [ false, %38 ], [ %.not33, %49 ], [ false, %44 ], [ false, %32 ], [ false, %26 ], [ false, %21 ], [ false, %11 ], [ false, %6 ], [ false, %9 ], [ false, %24 ], [ false, %5 ], [ false, %20 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %24 ], [ false, %21 ], [ false, %26 ], [ false, %32 ], [ false, %38 ], [ false, %44 ], [ %.not33, %49 ], [ false, %5 ], [ false, %20 ]
   ret i1 %.0
 }
 
@@ -6167,7 +6167,7 @@ define internal fastcc zeroext i1 @_equalDefElem(ptr noundef nonnull readonly ca
   br label %.thread
 
 .thread:                                          ; preds = %14, %5, %26, %20, %15, %18, %6, %9
-  %.0 = phi i1 [ %.not24, %26 ], [ false, %20 ], [ false, %15 ], [ false, %6 ], [ false, %9 ], [ false, %18 ], [ false, %5 ], [ false, %14 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %18 ], [ false, %15 ], [ false, %20 ], [ %.not24, %26 ], [ false, %5 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -6197,7 +6197,7 @@ define internal fastcc zeroext i1 @_equalLockingClause(ptr noundef nonnull reado
   br label %18
 
 18:                                               ; preds = %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not7, %13 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not7, %13 ]
   ret i1 %.0
 }
 
@@ -6235,7 +6235,7 @@ define internal fastcc noundef zeroext i1 @_equalXmlSerialize(ptr noundef nonnul
   br label %24
 
 24:                                               ; preds = %19, %13, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not9, %19 ], [ false, %13 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %13 ], [ %.not9, %19 ]
   ret i1 %.0
 }
 
@@ -6286,7 +6286,7 @@ define internal fastcc zeroext i1 @_equalPartitionElem(ptr noundef nonnull reado
   br label %.thread
 
 .thread:                                          ; preds = %5, %23, %17, %11, %6, %9
-  %.0 = phi i1 [ false, %17 ], [ %28, %23 ], [ false, %11 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %17 ], [ %28, %23 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -6348,7 +6348,7 @@ define internal fastcc zeroext i1 @_equalPartitionBoundSpec(ptr noundef nonnull 
   br label %40
 
 40:                                               ; preds = %34, %28, %22, %17, %12, %7, %2
-  %.0 = phi i1 [ false, %17 ], [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %28 ], [ %39, %34 ], [ false, %22 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ false, %28 ], [ %39, %34 ]
   ret i1 %.0
 }
 
@@ -6378,7 +6378,7 @@ define internal fastcc noundef zeroext i1 @_equalPartitionCmd(ptr noundef nonnul
   br label %19
 
 19:                                               ; preds = %14, %8, %2
-  %.0 = phi i1 [ %.not, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not, %14 ]
   ret i1 %.0
 }
 
@@ -6674,7 +6674,7 @@ define internal fastcc zeroext i1 @_equalRangeTblEntry(ptr noundef nonnull reado
   br label %.thread
 
 .thread:                                          ; preds = %158, %121, %186, %181, %176, %170, %164, %159, %162, %149, %143, %137, %132, %127, %122, %125, %112, %106, %101, %95, %89, %83, %77, %71, %66, %61, %56, %50, %44, %39, %34, %29, %24, %19, %14, %8, %2
-  %.0 = phi i1 [ false, %8 ], [ false, %14 ], [ false, %19 ], [ false, %24 ], [ false, %29 ], [ false, %34 ], [ false, %50 ], [ false, %56 ], [ false, %61 ], [ false, %95 ], [ false, %122 ], [ false, %127 ], [ false, %159 ], [ false, %170 ], [ false, %176 ], [ false, %181 ], [ %191, %186 ], [ false, %164 ], [ false, %149 ], [ false, %143 ], [ false, %137 ], [ false, %132 ], [ false, %112 ], [ false, %106 ], [ false, %101 ], [ false, %89 ], [ false, %83 ], [ false, %77 ], [ false, %71 ], [ false, %66 ], [ false, %44 ], [ false, %39 ], [ false, %2 ], [ false, %125 ], [ false, %162 ], [ false, %121 ], [ false, %158 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %19 ], [ false, %24 ], [ false, %29 ], [ false, %34 ], [ false, %39 ], [ false, %44 ], [ false, %50 ], [ false, %56 ], [ false, %61 ], [ false, %66 ], [ false, %71 ], [ false, %77 ], [ false, %83 ], [ false, %89 ], [ false, %95 ], [ false, %101 ], [ false, %106 ], [ false, %112 ], [ false, %125 ], [ false, %122 ], [ false, %127 ], [ false, %132 ], [ false, %137 ], [ false, %143 ], [ false, %149 ], [ false, %162 ], [ false, %159 ], [ false, %164 ], [ false, %170 ], [ false, %176 ], [ false, %181 ], [ %191, %186 ], [ false, %121 ], [ false, %158 ]
   ret i1 %.0
 }
 
@@ -6736,7 +6736,7 @@ define internal fastcc zeroext i1 @_equalRTEPermissionInfo(ptr noundef nonnull r
   br label %40
 
 40:                                               ; preds = %34, %28, %22, %17, %12, %7, %2
-  %.0 = phi i1 [ false, %17 ], [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %28 ], [ %39, %34 ], [ false, %22 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ false, %28 ], [ %39, %34 ]
   ret i1 %.0
 }
 
@@ -6798,7 +6798,7 @@ define internal fastcc zeroext i1 @_equalRangeTblFunction(ptr noundef nonnull re
   br label %43
 
 43:                                               ; preds = %37, %31, %25, %19, %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %31 ], [ %42, %37 ], [ false, %25 ], [ false, %19 ], [ false, %13 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %13 ], [ false, %19 ], [ false, %25 ], [ false, %31 ], [ %42, %37 ]
   ret i1 %.0
 }
 
@@ -6900,7 +6900,7 @@ define internal fastcc noundef zeroext i1 @_equalWithCheckOption(ptr noundef non
   br label %.thread
 
 .thread:                                          ; preds = %19, %10, %31, %25, %20, %23, %11, %14, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not27, %31 ], [ false, %25 ], [ false, %20 ], [ false, %11 ], [ false, %14 ], [ false, %23 ], [ false, %10 ], [ false, %19 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %11 ], [ false, %23 ], [ false, %20 ], [ false, %25 ], [ %.not27, %31 ], [ false, %10 ], [ false, %19 ]
   ret i1 %.0
 }
 
@@ -6954,7 +6954,7 @@ define internal fastcc noundef zeroext i1 @_equalSortGroupClause(ptr noundef non
   br label %32
 
 32:                                               ; preds = %27, %22, %17, %12, %7, %2
-  %.0 = phi i1 [ false, %22 ], [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ %.not17, %27 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ %.not17, %27 ]
   ret i1 %.0
 }
 
@@ -7098,7 +7098,7 @@ define internal fastcc noundef zeroext i1 @_equalWindowClause(ptr noundef nonnul
   br label %.thread
 
 .thread:                                          ; preds = %14, %5, %79, %74, %69, %64, %59, %54, %49, %43, %37, %32, %26, %20, %15, %18, %6, %9
-  %.0 = phi i1 [ false, %26 ], [ false, %43 ], [ false, %49 ], [ false, %54 ], [ false, %59 ], [ false, %64 ], [ false, %69 ], [ %.not51, %79 ], [ false, %74 ], [ false, %37 ], [ false, %32 ], [ false, %20 ], [ false, %15 ], [ false, %6 ], [ false, %9 ], [ false, %18 ], [ false, %5 ], [ false, %14 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %18 ], [ false, %15 ], [ false, %20 ], [ false, %26 ], [ false, %32 ], [ false, %37 ], [ false, %43 ], [ false, %49 ], [ false, %54 ], [ false, %59 ], [ false, %64 ], [ false, %69 ], [ false, %74 ], [ %.not51, %79 ], [ false, %5 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -7144,7 +7144,7 @@ define internal fastcc noundef zeroext i1 @_equalInferClause(ptr noundef nonnull
   br label %.thread
 
 .thread:                                          ; preds = %17, %18, %21, %8, %2, %23
-  %.0 = phi i1 [ true, %23 ], [ false, %8 ], [ false, %2 ], [ false, %21 ], [ false, %18 ], [ false, %17 ]
+  %.0 = phi i1 [ true, %23 ], [ false, %2 ], [ false, %8 ], [ false, %21 ], [ false, %18 ], [ false, %17 ]
   ret i1 %.0
 }
 
@@ -7182,7 +7182,7 @@ define internal fastcc zeroext i1 @_equalOnConflictClause(ptr noundef nonnull re
   br label %25
 
 25:                                               ; preds = %19, %13, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %13 ], [ %24, %19 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %13 ], [ %24, %19 ]
   ret i1 %.0
 }
 
@@ -7228,7 +7228,7 @@ define internal fastcc noundef zeroext i1 @_equalCTESearchClause(ptr noundef non
   br label %.thread
 
 .thread:                                          ; preds = %16, %17, %20, %8, %2, %22
-  %.0 = phi i1 [ false, %2 ], [ true, %22 ], [ false, %8 ], [ false, %20 ], [ false, %17 ], [ false, %16 ]
+  %.0 = phi i1 [ true, %22 ], [ false, %2 ], [ false, %8 ], [ false, %20 ], [ false, %17 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -7332,7 +7332,7 @@ define internal fastcc zeroext i1 @_equalCTECycleClause(ptr noundef nonnull read
   br label %.thread
 
 .thread:                                          ; preds = %32, %11, %53, %48, %43, %38, %33, %36, %23, %17, %12, %15, %2
-  %.0 = phi i1 [ false, %33 ], [ false, %38 ], [ false, %43 ], [ %.not37, %53 ], [ false, %48 ], [ false, %23 ], [ false, %17 ], [ false, %12 ], [ false, %2 ], [ false, %15 ], [ false, %36 ], [ false, %11 ], [ false, %32 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %15 ], [ false, %12 ], [ false, %17 ], [ false, %23 ], [ false, %36 ], [ false, %33 ], [ false, %38 ], [ false, %43 ], [ false, %48 ], [ %.not37, %53 ], [ false, %11 ], [ false, %32 ]
   ret i1 %.0
 }
 
@@ -7447,7 +7447,7 @@ define internal fastcc zeroext i1 @_equalCommonTableExpr(ptr noundef nonnull rea
   br label %.thread
 
 .thread:                                          ; preds = %5, %68, %62, %56, %50, %45, %40, %34, %28, %22, %17, %11, %6, %9
-  %.0 = phi i1 [ false, %11 ], [ false, %34 ], [ false, %40 ], [ false, %62 ], [ %73, %68 ], [ false, %56 ], [ false, %50 ], [ false, %45 ], [ false, %28 ], [ false, %22 ], [ false, %17 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %17 ], [ false, %22 ], [ false, %28 ], [ false, %34 ], [ false, %40 ], [ false, %45 ], [ false, %50 ], [ false, %56 ], [ false, %62 ], [ %73, %68 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -7501,7 +7501,7 @@ define internal fastcc zeroext i1 @_equalMergeWhenClause(ptr noundef nonnull rea
   br label %35
 
 35:                                               ; preds = %29, %23, %17, %12, %7, %2
-  %.0 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %7 ], [ false, %23 ], [ %34, %29 ], [ false, %17 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %23 ], [ %34, %29 ]
   ret i1 %.0
 }
 
@@ -7539,7 +7539,7 @@ define internal fastcc noundef zeroext i1 @_equalReturningOption(ptr noundef non
   br label %.thread
 
 .thread:                                          ; preds = %10, %11, %14, %2, %16
-  %.0 = phi i1 [ false, %2 ], [ true, %16 ], [ false, %14 ], [ false, %11 ], [ false, %10 ]
+  %.0 = phi i1 [ true, %16 ], [ false, %2 ], [ false, %14 ], [ false, %11 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -7604,7 +7604,7 @@ define internal fastcc noundef zeroext i1 @_equalTriggerTransition(ptr noundef n
   br label %.thread
 
 .thread:                                          ; preds = %5, %16, %11, %6, %9
-  %.0 = phi i1 [ false, %6 ], [ %.not15, %16 ], [ false, %11 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ %.not15, %16 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -7763,7 +7763,7 @@ define internal fastcc zeroext i1 @_equalJsonFuncExpr(ptr noundef nonnull readon
   br label %.thread
 
 .thread:                                          ; preds = %10, %57, %52, %46, %40, %34, %28, %22, %16, %11, %14, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %46 ], [ %.not30, %57 ], [ false, %52 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %22 ], [ false, %16 ], [ false, %11 ], [ false, %14 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %11 ], [ false, %16 ], [ false, %22 ], [ false, %28 ], [ false, %34 ], [ false, %40 ], [ false, %46 ], [ false, %52 ], [ %.not30, %57 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -7863,7 +7863,7 @@ define internal fastcc noundef zeroext i1 @_equalJsonTable(ptr noundef nonnull r
   br label %43
 
 43:                                               ; preds = %38, %32, %26, %20, %14, %8, %2
-  %.0 = phi i1 [ %.not, %38 ], [ false, %32 ], [ false, %26 ], [ false, %20 ], [ false, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %20 ], [ false, %26 ], [ false, %32 ], [ %.not, %38 ]
   ret i1 %.0
 }
 
@@ -7962,7 +7962,7 @@ define internal fastcc zeroext i1 @_equalJsonTableColumn(ptr noundef nonnull rea
   br label %.thread
 
 .thread:                                          ; preds = %10, %56, %50, %44, %39, %34, %28, %22, %16, %11, %14, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %28 ], [ false, %34 ], [ false, %50 ], [ %61, %56 ], [ false, %44 ], [ false, %39 ], [ false, %22 ], [ false, %16 ], [ false, %11 ], [ false, %14 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %11 ], [ false, %16 ], [ false, %22 ], [ false, %28 ], [ false, %34 ], [ false, %39 ], [ false, %44 ], [ false, %50 ], [ %61, %56 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -8014,7 +8014,7 @@ define internal fastcc noundef zeroext i1 @_equalJsonParseExpr(ptr noundef nonnu
   br label %19
 
 19:                                               ; preds = %14, %8, %2
-  %.0 = phi i1 [ %.not, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not, %14 ]
   ret i1 %.0
 }
 
@@ -8096,7 +8096,7 @@ define internal fastcc noundef zeroext i1 @_equalJsonObjectConstructor(ptr nound
   br label %24
 
 24:                                               ; preds = %19, %14, %8, %2
-  %.0 = phi i1 [ false, %8 ], [ %.not9, %19 ], [ false, %14 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ %.not9, %19 ]
   ret i1 %.0
 }
 
@@ -8126,7 +8126,7 @@ define internal fastcc noundef zeroext i1 @_equalJsonArrayConstructor(ptr nounde
   br label %19
 
 19:                                               ; preds = %14, %8, %2
-  %.0 = phi i1 [ %.not, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not, %14 ]
   ret i1 %.0
 }
 
@@ -8164,7 +8164,7 @@ define internal fastcc noundef zeroext i1 @_equalJsonArrayQueryConstructor(ptr n
   br label %25
 
 25:                                               ; preds = %20, %14, %8, %2
-  %.0 = phi i1 [ %.not, %20 ], [ false, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ %.not, %20 ]
   ret i1 %.0
 }
 
@@ -8202,7 +8202,7 @@ define internal fastcc zeroext i1 @_equalJsonAggConstructor(ptr noundef nonnull 
   br label %26
 
 26:                                               ; preds = %20, %14, %8, %2
-  %.0 = phi i1 [ false, %14 ], [ %25, %20 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ %25, %20 ]
   ret i1 %.0
 }
 
@@ -8240,7 +8240,7 @@ define internal fastcc noundef zeroext i1 @_equalJsonObjectAgg(ptr noundef nonnu
   br label %24
 
 24:                                               ; preds = %19, %14, %8, %2
-  %.0 = phi i1 [ false, %8 ], [ %.not9, %19 ], [ false, %14 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ %.not9, %19 ]
   ret i1 %.0
 }
 
@@ -8270,7 +8270,7 @@ define internal fastcc noundef zeroext i1 @_equalJsonArrayAgg(ptr noundef nonnul
   br label %19
 
 19:                                               ; preds = %14, %8, %2
-  %.0 = phi i1 [ %.not, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not, %14 ]
   ret i1 %.0
 }
 
@@ -8332,7 +8332,7 @@ define internal fastcc zeroext i1 @_equalInsertStmt(ptr noundef nonnull readonly
   br label %43
 
 43:                                               ; preds = %38, %32, %26, %20, %14, %8, %2
-  %.0 = phi i1 [ %.not, %38 ], [ false, %32 ], [ false, %26 ], [ false, %20 ], [ false, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %20 ], [ false, %26 ], [ false, %32 ], [ %.not, %38 ]
   ret i1 %.0
 }
 
@@ -8378,7 +8378,7 @@ define internal fastcc zeroext i1 @_equalDeleteStmt(ptr noundef nonnull readonly
   br label %32
 
 32:                                               ; preds = %26, %20, %14, %8, %2
-  %.0 = phi i1 [ false, %20 ], [ %31, %26 ], [ false, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %20 ], [ %31, %26 ]
   ret i1 %.0
 }
 
@@ -8432,7 +8432,7 @@ define internal fastcc zeroext i1 @_equalUpdateStmt(ptr noundef nonnull readonly
   br label %38
 
 38:                                               ; preds = %32, %26, %20, %14, %8, %2
-  %.0 = phi i1 [ false, %26 ], [ %37, %32 ], [ false, %20 ], [ false, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %20 ], [ false, %26 ], [ %37, %32 ]
   ret i1 %.0
 }
 
@@ -8486,7 +8486,7 @@ define internal fastcc zeroext i1 @_equalMergeStmt(ptr noundef nonnull readonly 
   br label %38
 
 38:                                               ; preds = %32, %26, %20, %14, %8, %2
-  %.0 = phi i1 [ false, %26 ], [ %37, %32 ], [ false, %20 ], [ false, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %20 ], [ false, %26 ], [ %37, %32 ]
   ret i1 %.0
 }
 
@@ -8652,7 +8652,7 @@ define internal fastcc zeroext i1 @_equalSelectStmt(ptr noundef nonnull readonly
   br label %118
 
 118:                                              ; preds = %112, %106, %101, %96, %90, %84, %79, %73, %67, %61, %55, %49, %43, %38, %32, %26, %20, %14, %8, %2
-  %.0 = phi i1 [ false, %32 ], [ false, %73 ], [ false, %90 ], [ false, %96 ], [ false, %106 ], [ %117, %112 ], [ false, %101 ], [ false, %84 ], [ false, %79 ], [ false, %67 ], [ false, %61 ], [ false, %55 ], [ false, %49 ], [ false, %43 ], [ false, %38 ], [ false, %26 ], [ false, %20 ], [ false, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %20 ], [ false, %26 ], [ false, %32 ], [ false, %38 ], [ false, %43 ], [ false, %49 ], [ false, %55 ], [ false, %61 ], [ false, %67 ], [ false, %73 ], [ false, %79 ], [ false, %84 ], [ false, %90 ], [ false, %96 ], [ false, %101 ], [ false, %106 ], [ %117, %112 ]
   ret i1 %.0
 }
 
@@ -8722,7 +8722,7 @@ define internal fastcc zeroext i1 @_equalSetOperationStmt(ptr noundef nonnull re
   br label %48
 
 48:                                               ; preds = %42, %36, %30, %24, %18, %12, %7, %2
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ false, %36 ], [ %47, %42 ], [ false, %30 ], [ false, %24 ], [ false, %18 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %18 ], [ false, %24 ], [ false, %30 ], [ false, %36 ], [ %47, %42 ]
   ret i1 %.0
 }
 
@@ -8773,7 +8773,7 @@ define internal fastcc zeroext i1 @_equalPLAssignStmt(ptr noundef nonnull readon
   br label %.thread
 
 .thread:                                          ; preds = %5, %22, %17, %11, %6, %9
-  %.0 = phi i1 [ false, %11 ], [ false, %17 ], [ %27, %22 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %17 ], [ %27, %22 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -8824,7 +8824,7 @@ define internal fastcc noundef zeroext i1 @_equalCreateSchemaStmt(ptr noundef no
   br label %.thread
 
 .thread:                                          ; preds = %5, %23, %17, %11, %6, %9
-  %.0 = phi i1 [ %.not16, %23 ], [ false, %17 ], [ false, %11 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %17 ], [ %.not16, %23 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -8862,7 +8862,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterTableStmt(ptr noundef nonn
   br label %24
 
 24:                                               ; preds = %19, %14, %8, %2
-  %.0 = phi i1 [ false, %8 ], [ %.not9, %19 ], [ false, %14 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ %.not9, %19 ]
   ret i1 %.0
 }
 
@@ -8900,7 +8900,7 @@ define internal fastcc noundef zeroext i1 @_equalReplicaIdentityStmt(ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %10, %11, %14, %2, %16
-  %.0 = phi i1 [ false, %2 ], [ true, %16 ], [ false, %14 ], [ false, %11 ], [ false, %10 ]
+  %.0 = phi i1 [ true, %16 ], [ false, %2 ], [ false, %14 ], [ false, %11 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -8983,7 +8983,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterTableCmd(ptr noundef nonnu
   br label %.thread
 
 .thread:                                          ; preds = %10, %43, %38, %33, %27, %21, %16, %11, %14, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %11 ], [ false, %27 ], [ false, %33 ], [ %.not28, %43 ], [ false, %38 ], [ false, %21 ], [ false, %16 ], [ false, %14 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %11 ], [ false, %16 ], [ false, %21 ], [ false, %27 ], [ false, %33 ], [ false, %38 ], [ %.not28, %43 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -9050,7 +9050,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterDomainStmt(ptr noundef non
   br label %.thread
 
 .thread:                                          ; preds = %16, %33, %28, %22, %17, %20, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %22 ], [ %.not22, %33 ], [ false, %28 ], [ false, %17 ], [ false, %7 ], [ false, %20 ], [ false, %16 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %20 ], [ false, %17 ], [ false, %22 ], [ false, %28 ], [ %.not22, %33 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -9128,7 +9128,7 @@ define internal fastcc zeroext i1 @_equalGrantStmt(ptr noundef nonnull readonly 
   br label %51
 
 51:                                               ; preds = %46, %40, %35, %29, %23, %17, %12, %7, %2
-  %.0 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %7 ], [ false, %29 ], [ %.not22, %46 ], [ false, %40 ], [ false, %35 ], [ false, %23 ], [ false, %17 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %23 ], [ false, %29 ], [ false, %35 ], [ false, %40 ], [ %.not22, %46 ]
   ret i1 %.0
 }
 
@@ -9166,7 +9166,7 @@ define internal fastcc noundef zeroext i1 @_equalObjectWithArgs(ptr noundef nonn
   br label %25
 
 25:                                               ; preds = %20, %14, %8, %2
-  %.0 = phi i1 [ %.not, %20 ], [ false, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ %.not, %20 ]
   ret i1 %.0
 }
 
@@ -9201,7 +9201,7 @@ define internal fastcc zeroext i1 @_equalAccessPriv(ptr noundef nonnull readonly
   br label %.thread
 
 .thread:                                          ; preds = %5, %11, %6, %9
-  %.0 = phi i1 [ false, %6 ], [ %16, %11 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ %16, %11 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -9255,7 +9255,7 @@ define internal fastcc zeroext i1 @_equalGrantRoleStmt(ptr noundef nonnull reado
   br label %36
 
 36:                                               ; preds = %31, %25, %19, %14, %8, %2
-  %.0 = phi i1 [ false, %8 ], [ %.not13, %31 ], [ false, %25 ], [ false, %19 ], [ false, %14 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %19 ], [ false, %25 ], [ %.not13, %31 ]
   ret i1 %.0
 }
 
@@ -9360,7 +9360,7 @@ define internal fastcc zeroext i1 @_equalCopyStmt(ptr noundef nonnull readonly c
   br label %.thread
 
 .thread:                                          ; preds = %33, %45, %39, %34, %37, %25, %20, %14, %8, %2
-  %.0 = phi i1 [ false, %14 ], [ false, %20 ], [ false, %39 ], [ %50, %45 ], [ false, %34 ], [ false, %25 ], [ false, %8 ], [ false, %2 ], [ false, %37 ], [ false, %33 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %20 ], [ false, %25 ], [ false, %37 ], [ false, %34 ], [ false, %39 ], [ %50, %45 ], [ false, %33 ]
   ret i1 %.0
 }
 
@@ -9419,7 +9419,7 @@ define internal fastcc noundef zeroext i1 @_equalVariableSetStmt(ptr noundef non
   br label %.thread
 
 .thread:                                          ; preds = %10, %27, %22, %16, %11, %14, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %16 ], [ %.not20, %27 ], [ false, %22 ], [ false, %11 ], [ false, %14 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %11 ], [ false, %16 ], [ false, %22 ], [ %.not20, %27 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -9583,7 +9583,7 @@ define internal fastcc noundef zeroext i1 @_equalCreateStmt(ptr noundef nonnull 
   br label %.thread
 
 .thread:                                          ; preds = %73, %64, %79, %74, %77, %65, %68, %56, %50, %44, %38, %32, %26, %20, %14, %8, %2
-  %.0 = phi i1 [ false, %50 ], [ %.not43, %79 ], [ false, %74 ], [ false, %65 ], [ false, %56 ], [ false, %44 ], [ false, %38 ], [ false, %32 ], [ false, %26 ], [ false, %20 ], [ false, %14 ], [ false, %8 ], [ false, %2 ], [ false, %68 ], [ false, %77 ], [ false, %64 ], [ false, %73 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %20 ], [ false, %26 ], [ false, %32 ], [ false, %38 ], [ false, %44 ], [ false, %50 ], [ false, %56 ], [ false, %68 ], [ false, %65 ], [ false, %77 ], [ false, %74 ], [ %.not43, %79 ], [ false, %64 ], [ false, %73 ]
   ret i1 %.0
 }
 
@@ -9926,7 +9926,7 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr noundef nonnull readonly
   br label %.thread
 
 .thread:                                          ; preds = %131, %117, %108, %55, %10, %198, %192, %186, %181, %176, %171, %166, %161, %155, %149, %143, %137, %132, %135, %123, %118, %121, %109, %112, %99, %93, %87, %82, %76, %71, %66, %61, %56, %59, %46, %41, %36, %31, %26, %21, %16, %11, %14, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %11 ], [ false, %16 ], [ false, %21 ], [ false, %26 ], [ false, %31 ], [ false, %36 ], [ false, %56 ], [ false, %61 ], [ false, %66 ], [ false, %76 ], [ false, %118 ], [ false, %155 ], [ false, %161 ], [ false, %166 ], [ false, %171 ], [ false, %176 ], [ %.not125, %198 ], [ false, %192 ], [ false, %186 ], [ false, %181 ], [ false, %149 ], [ false, %143 ], [ false, %137 ], [ false, %132 ], [ false, %123 ], [ false, %109 ], [ false, %99 ], [ false, %93 ], [ false, %87 ], [ false, %82 ], [ false, %71 ], [ false, %46 ], [ false, %41 ], [ false, %14 ], [ false, %59 ], [ false, %112 ], [ false, %121 ], [ false, %135 ], [ false, %117 ], [ false, %10 ], [ false, %55 ], [ false, %108 ], [ false, %131 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %11 ], [ false, %16 ], [ false, %21 ], [ false, %26 ], [ false, %31 ], [ false, %36 ], [ false, %41 ], [ false, %46 ], [ false, %59 ], [ false, %56 ], [ false, %61 ], [ false, %66 ], [ false, %71 ], [ false, %76 ], [ false, %82 ], [ false, %87 ], [ false, %93 ], [ false, %99 ], [ false, %112 ], [ false, %109 ], [ false, %121 ], [ false, %118 ], [ false, %123 ], [ false, %135 ], [ false, %132 ], [ false, %137 ], [ false, %143 ], [ false, %149 ], [ false, %155 ], [ false, %161 ], [ false, %166 ], [ false, %171 ], [ false, %176 ], [ false, %181 ], [ false, %186 ], [ false, %192 ], [ %.not125, %198 ], [ false, %10 ], [ false, %55 ], [ false, %108 ], [ false, %117 ], [ false, %131 ]
   ret i1 %.0
 }
 
@@ -9990,7 +9990,7 @@ define internal fastcc zeroext i1 @_equalCreateTableSpaceStmt(ptr noundef nonnul
   br label %.thread
 
 .thread:                                          ; preds = %20, %5, %26, %21, %24, %11, %6, %9
-  %.0 = phi i1 [ false, %21 ], [ %31, %26 ], [ false, %11 ], [ false, %6 ], [ false, %9 ], [ false, %24 ], [ false, %5 ], [ false, %20 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %24 ], [ false, %21 ], [ %31, %26 ], [ false, %5 ], [ false, %20 ]
   ret i1 %.0
 }
 
@@ -10025,7 +10025,7 @@ define internal fastcc noundef zeroext i1 @_equalDropTableSpaceStmt(ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %5, %11, %6, %9
-  %.0 = phi i1 [ %.not12, %11 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ %.not12, %11 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -10068,7 +10068,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterTableSpaceOptionsStmt(ptr 
   br label %.thread
 
 .thread:                                          ; preds = %5, %17, %11, %6, %9
-  %.0 = phi i1 [ %.not14, %17 ], [ false, %11 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ %.not14, %17 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -10140,7 +10140,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterTableMoveAllStmt(ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %25, %5, %31, %26, %29, %16, %11, %6, %9
-  %.0 = phi i1 [ false, %6 ], [ %.not27, %31 ], [ false, %26 ], [ false, %16 ], [ false, %11 ], [ false, %9 ], [ false, %29 ], [ false, %5 ], [ false, %25 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %16 ], [ false, %29 ], [ false, %26 ], [ %.not27, %31 ], [ false, %5 ], [ false, %25 ]
   ret i1 %.0
 }
 
@@ -10183,7 +10183,7 @@ define internal fastcc zeroext i1 @_equalCreateExtensionStmt(ptr noundef nonnull
   br label %.thread
 
 .thread:                                          ; preds = %5, %16, %11, %6, %9
-  %.0 = phi i1 [ false, %6 ], [ false, %11 ], [ %21, %16 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ %21, %16 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -10218,7 +10218,7 @@ define internal fastcc zeroext i1 @_equalAlterExtensionStmt(ptr noundef nonnull 
   br label %.thread
 
 .thread:                                          ; preds = %5, %11, %6, %9
-  %.0 = phi i1 [ false, %6 ], [ %16, %11 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ %16, %11 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -10269,7 +10269,7 @@ define internal fastcc zeroext i1 @_equalAlterExtensionContentsStmt(ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %5, %21, %16, %11, %6, %9
-  %.0 = phi i1 [ false, %6 ], [ false, %11 ], [ false, %16 ], [ %26, %21 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %16 ], [ %26, %21 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -10312,7 +10312,7 @@ define internal fastcc zeroext i1 @_equalCreateFdwStmt(ptr noundef nonnull reado
   br label %.thread
 
 .thread:                                          ; preds = %5, %17, %11, %6, %9
-  %.0 = phi i1 [ false, %11 ], [ %22, %17 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ %22, %17 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -10355,7 +10355,7 @@ define internal fastcc zeroext i1 @_equalAlterFdwStmt(ptr noundef nonnull readon
   br label %.thread
 
 .thread:                                          ; preds = %5, %17, %11, %6, %9
-  %.0 = phi i1 [ false, %11 ], [ %22, %17 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ %22, %17 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -10461,7 +10461,7 @@ define internal fastcc zeroext i1 @_equalCreateForeignServerStmt(ptr noundef non
   br label %.thread
 
 .thread:                                          ; preds = %32, %23, %14, %5, %43, %38, %33, %36, %24, %27, %15, %18, %6, %9
-  %.0 = phi i1 [ false, %33 ], [ false, %38 ], [ %48, %43 ], [ false, %24 ], [ false, %15 ], [ false, %6 ], [ false, %9 ], [ false, %18 ], [ false, %27 ], [ false, %36 ], [ false, %23 ], [ false, %5 ], [ false, %14 ], [ false, %32 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %18 ], [ false, %15 ], [ false, %27 ], [ false, %24 ], [ false, %36 ], [ false, %33 ], [ false, %38 ], [ %48, %43 ], [ false, %5 ], [ false, %14 ], [ false, %23 ], [ false, %32 ]
   ret i1 %.0
 }
 
@@ -10525,7 +10525,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterForeignServerStmt(ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %14, %5, %26, %20, %15, %18, %6, %9
-  %.0 = phi i1 [ %.not24, %26 ], [ false, %20 ], [ false, %15 ], [ false, %6 ], [ false, %9 ], [ false, %18 ], [ false, %5 ], [ false, %14 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %18 ], [ false, %15 ], [ false, %20 ], [ %.not24, %26 ], [ false, %5 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -10690,7 +10690,7 @@ define internal fastcc zeroext i1 @_equalCreateForeignTableStmt(ptr noundef nonn
   br label %.thread
 
 .thread:                                          ; preds = %87, %73, %64, %93, %88, %91, %79, %74, %77, %65, %68, %56, %50, %44, %38, %32, %26, %20, %14, %8, %2
-  %.0 = phi i1 [ false, %50 ], [ false, %74 ], [ false, %88 ], [ %98, %93 ], [ false, %79 ], [ false, %65 ], [ false, %56 ], [ false, %44 ], [ false, %38 ], [ false, %32 ], [ false, %26 ], [ false, %20 ], [ false, %14 ], [ false, %8 ], [ false, %2 ], [ false, %68 ], [ false, %77 ], [ false, %91 ], [ false, %73 ], [ false, %64 ], [ false, %87 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %20 ], [ false, %26 ], [ false, %32 ], [ false, %38 ], [ false, %44 ], [ false, %50 ], [ false, %56 ], [ false, %68 ], [ false, %65 ], [ false, %77 ], [ false, %74 ], [ false, %79 ], [ false, %91 ], [ false, %88 ], [ %98, %93 ], [ false, %64 ], [ false, %73 ], [ false, %87 ]
   ret i1 %.0
 }
 
@@ -10741,7 +10741,7 @@ define internal fastcc zeroext i1 @_equalCreateUserMappingStmt(ptr noundef nonnu
   br label %.thread
 
 .thread:                                          ; preds = %11, %22, %17, %12, %15, %2
-  %.0 = phi i1 [ false, %12 ], [ false, %17 ], [ %27, %22 ], [ false, %2 ], [ false, %15 ], [ false, %11 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %15 ], [ false, %12 ], [ false, %17 ], [ %27, %22 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -10784,7 +10784,7 @@ define internal fastcc zeroext i1 @_equalAlterUserMappingStmt(ptr noundef nonnul
   br label %.thread
 
 .thread:                                          ; preds = %11, %17, %12, %15, %2
-  %.0 = phi i1 [ false, %12 ], [ %22, %17 ], [ false, %2 ], [ false, %15 ], [ false, %11 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %15 ], [ false, %12 ], [ %22, %17 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -10827,7 +10827,7 @@ define internal fastcc noundef zeroext i1 @_equalDropUserMappingStmt(ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %11, %17, %12, %15, %2
-  %.0 = phi i1 [ %.not14, %17 ], [ false, %12 ], [ false, %2 ], [ false, %15 ], [ false, %11 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %15 ], [ false, %12 ], [ %.not14, %17 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -10920,7 +10920,7 @@ define internal fastcc zeroext i1 @_equalImportForeignSchemaStmt(ptr noundef non
   br label %.thread
 
 .thread:                                          ; preds = %23, %14, %5, %40, %34, %29, %24, %27, %15, %18, %6, %9
-  %.0 = phi i1 [ false, %24 ], [ false, %34 ], [ %45, %40 ], [ false, %29 ], [ false, %15 ], [ false, %6 ], [ false, %9 ], [ false, %18 ], [ false, %27 ], [ false, %14 ], [ false, %5 ], [ false, %23 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %18 ], [ false, %15 ], [ false, %27 ], [ false, %24 ], [ false, %29 ], [ false, %34 ], [ %45, %40 ], [ false, %5 ], [ false, %14 ], [ false, %23 ]
   ret i1 %.0
 }
 
@@ -11008,7 +11008,7 @@ define internal fastcc zeroext i1 @_equalCreatePolicyStmt(ptr noundef nonnull re
   br label %.thread
 
 .thread:                                          ; preds = %20, %5, %43, %37, %31, %26, %21, %24, %11, %6, %9
-  %.0 = phi i1 [ false, %21 ], [ false, %37 ], [ %48, %43 ], [ false, %31 ], [ false, %26 ], [ false, %11 ], [ false, %6 ], [ false, %9 ], [ false, %24 ], [ false, %5 ], [ false, %20 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %24 ], [ false, %21 ], [ false, %26 ], [ false, %31 ], [ false, %37 ], [ %48, %43 ], [ false, %5 ], [ false, %20 ]
   ret i1 %.0
 }
 
@@ -11067,7 +11067,7 @@ define internal fastcc zeroext i1 @_equalAlterPolicyStmt(ptr noundef nonnull rea
   br label %.thread
 
 .thread:                                          ; preds = %5, %29, %23, %17, %11, %6, %9
-  %.0 = phi i1 [ false, %23 ], [ %34, %29 ], [ false, %17 ], [ false, %11 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %17 ], [ false, %23 ], [ %34, %29 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -11110,7 +11110,7 @@ define internal fastcc zeroext i1 @_equalCreateAmStmt(ptr noundef nonnull readon
   br label %.thread
 
 .thread:                                          ; preds = %5, %17, %11, %6, %9
-  %.0 = phi i1 [ %.not14, %17 ], [ false, %11 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ %.not14, %17 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -11249,7 +11249,7 @@ define internal fastcc zeroext i1 @_equalCreateTrigStmt(ptr noundef nonnull read
   br label %.thread
 
 .thread:                                          ; preds = %15, %82, %77, %72, %66, %60, %54, %49, %44, %39, %33, %27, %21, %16, %19, %7, %2
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ false, %33 ], [ false, %39 ], [ false, %44 ], [ false, %66 ], [ false, %72 ], [ false, %77 ], [ %87, %82 ], [ false, %60 ], [ false, %54 ], [ false, %49 ], [ false, %27 ], [ false, %21 ], [ false, %16 ], [ false, %19 ], [ false, %15 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %19 ], [ false, %16 ], [ false, %21 ], [ false, %27 ], [ false, %33 ], [ false, %39 ], [ false, %44 ], [ false, %49 ], [ false, %54 ], [ false, %60 ], [ false, %66 ], [ false, %72 ], [ false, %77 ], [ %87, %82 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -11313,7 +11313,7 @@ define internal fastcc zeroext i1 @_equalCreateEventTrigStmt(ptr noundef nonnull
   br label %.thread
 
 .thread:                                          ; preds = %14, %5, %26, %20, %15, %18, %6, %9
-  %.0 = phi i1 [ false, %20 ], [ %31, %26 ], [ false, %15 ], [ false, %6 ], [ false, %9 ], [ false, %18 ], [ false, %5 ], [ false, %14 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %18 ], [ false, %15 ], [ false, %20 ], [ %31, %26 ], [ false, %5 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -11348,7 +11348,7 @@ define internal fastcc zeroext i1 @_equalAlterEventTrigStmt(ptr noundef nonnull 
   br label %.thread
 
 .thread:                                          ; preds = %5, %11, %6, %9
-  %.0 = phi i1 [ %.not12, %11 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ %.not12, %11 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -11415,7 +11415,7 @@ define internal fastcc noundef zeroext i1 @_equalCreatePLangStmt(ptr noundef non
   br label %.thread
 
 .thread:                                          ; preds = %10, %34, %28, %22, %16, %11, %14, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not21, %34 ], [ false, %28 ], [ false, %22 ], [ false, %16 ], [ false, %11 ], [ false, %14 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %11 ], [ false, %16 ], [ false, %22 ], [ false, %28 ], [ %.not21, %34 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -11458,7 +11458,7 @@ define internal fastcc zeroext i1 @_equalCreateRoleStmt(ptr noundef nonnull read
   br label %.thread
 
 .thread:                                          ; preds = %10, %16, %11, %14, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %11 ], [ %21, %16 ], [ false, %14 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %11 ], [ %21, %16 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -11488,7 +11488,7 @@ define internal fastcc zeroext i1 @_equalAlterRoleStmt(ptr noundef nonnull reado
   br label %19
 
 19:                                               ; preds = %14, %8, %2
-  %.0 = phi i1 [ %.not, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not, %14 ]
   ret i1 %.0
 }
 
@@ -11531,7 +11531,7 @@ define internal fastcc zeroext i1 @_equalAlterRoleSetStmt(ptr noundef nonnull re
   br label %.thread
 
 .thread:                                          ; preds = %11, %17, %12, %15, %2
-  %.0 = phi i1 [ false, %12 ], [ %22, %17 ], [ false, %2 ], [ false, %15 ], [ false, %11 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %15 ], [ false, %12 ], [ %22, %17 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -11577,7 +11577,7 @@ define internal fastcc noundef zeroext i1 @_equalCreateSeqStmt(ptr noundef nonnu
   br label %29
 
 29:                                               ; preds = %24, %19, %14, %8, %2
-  %.0 = phi i1 [ false, %8 ], [ false, %14 ], [ %.not12, %24 ], [ false, %19 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %19 ], [ %.not12, %24 ]
   ret i1 %.0
 }
 
@@ -11615,7 +11615,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterSeqStmt(ptr noundef nonnul
   br label %24
 
 24:                                               ; preds = %19, %14, %8, %2
-  %.0 = phi i1 [ false, %8 ], [ %.not9, %19 ], [ false, %14 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ %.not9, %19 ]
   ret i1 %.0
 }
 
@@ -11677,7 +11677,7 @@ define internal fastcc noundef zeroext i1 @_equalDefineStmt(ptr noundef nonnull 
   br label %40
 
 40:                                               ; preds = %35, %30, %24, %18, %12, %7, %2
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ false, %24 ], [ %.not17, %35 ], [ false, %30 ], [ false, %18 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %18 ], [ false, %24 ], [ false, %30 ], [ %.not17, %35 ]
   ret i1 %.0
 }
 
@@ -11715,7 +11715,7 @@ define internal fastcc zeroext i1 @_equalCreateDomainStmt(ptr noundef nonnull re
   br label %26
 
 26:                                               ; preds = %20, %14, %8, %2
-  %.0 = phi i1 [ false, %14 ], [ %25, %20 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ %25, %20 ]
   ret i1 %.0
 }
 
@@ -11782,7 +11782,7 @@ define internal fastcc noundef zeroext i1 @_equalCreateOpClassStmt(ptr noundef n
   br label %.thread
 
 .thread:                                          ; preds = %17, %35, %29, %23, %18, %21, %8, %2
-  %.0 = phi i1 [ %.not20, %35 ], [ false, %29 ], [ false, %23 ], [ false, %18 ], [ false, %8 ], [ false, %2 ], [ false, %21 ], [ false, %17 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %21 ], [ false, %18 ], [ false, %23 ], [ false, %29 ], [ %.not20, %35 ], [ false, %17 ]
   ret i1 %.0
 }
 
@@ -11836,7 +11836,7 @@ define internal fastcc zeroext i1 @_equalCreateOpClassItem(ptr noundef nonnull r
   br label %36
 
 36:                                               ; preds = %30, %24, %18, %13, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %24 ], [ %35, %30 ], [ false, %18 ], [ false, %13 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %13 ], [ false, %18 ], [ false, %24 ], [ %35, %30 ]
   ret i1 %.0
 }
 
@@ -11925,7 +11925,7 @@ define internal fastcc zeroext i1 @_equalAlterOpFamilyStmt(ptr noundef nonnull r
   br label %.thread
 
 .thread:                                          ; preds = %11, %22, %17, %12, %15, %2
-  %.0 = phi i1 [ false, %12 ], [ false, %17 ], [ %27, %22 ], [ false, %2 ], [ false, %15 ], [ false, %11 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %15 ], [ false, %12 ], [ false, %17 ], [ %27, %22 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -11971,7 +11971,7 @@ define internal fastcc noundef zeroext i1 @_equalDropStmt(ptr noundef nonnull re
   br label %28
 
 28:                                               ; preds = %23, %18, %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %13 ], [ %.not13, %23 ], [ false, %18 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %13 ], [ false, %18 ], [ %.not13, %23 ]
   ret i1 %.0
 }
 
@@ -12001,7 +12001,7 @@ define internal fastcc zeroext i1 @_equalTruncateStmt(ptr noundef nonnull readon
   br label %18
 
 18:                                               ; preds = %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not7, %13 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not7, %13 ]
   ret i1 %.0
 }
 
@@ -12047,7 +12047,7 @@ define internal fastcc noundef zeroext i1 @_equalCommentStmt(ptr noundef nonnull
   br label %.thread
 
 .thread:                                          ; preds = %16, %17, %20, %7, %2, %22
-  %.0 = phi i1 [ false, %2 ], [ true, %22 ], [ false, %7 ], [ false, %20 ], [ false, %17 ], [ false, %16 ]
+  %.0 = phi i1 [ true, %22 ], [ false, %2 ], [ false, %7 ], [ false, %20 ], [ false, %17 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -12114,7 +12114,7 @@ define internal fastcc noundef zeroext i1 @_equalSecLabelStmt(ptr noundef nonnul
   br label %.thread
 
 .thread:                                          ; preds = %25, %16, %26, %29, %17, %20, %7, %2, %31
-  %.0 = phi i1 [ false, %2 ], [ true, %31 ], [ false, %17 ], [ false, %7 ], [ false, %20 ], [ false, %29 ], [ false, %26 ], [ false, %16 ], [ false, %25 ]
+  %.0 = phi i1 [ true, %31 ], [ false, %2 ], [ false, %7 ], [ false, %20 ], [ false, %17 ], [ false, %29 ], [ false, %26 ], [ false, %16 ], [ false, %25 ]
   ret i1 %.0
 }
 
@@ -12157,7 +12157,7 @@ define internal fastcc zeroext i1 @_equalDeclareCursorStmt(ptr noundef nonnull r
   br label %.thread
 
 .thread:                                          ; preds = %5, %16, %11, %6, %9
-  %.0 = phi i1 [ false, %6 ], [ false, %11 ], [ %21, %16 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ %21, %16 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -12236,7 +12236,7 @@ define internal fastcc noundef zeroext i1 @_equalFetchStmt(ptr noundef nonnull r
   br label %.thread
 
 .thread:                                          ; preds = %15, %21, %16, %19, %7, %2
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ %.not18, %21 ], [ false, %16 ], [ false, %19 ], [ false, %15 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %19 ], [ false, %16 ], [ %.not18, %21 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -12494,7 +12494,7 @@ define internal fastcc noundef zeroext i1 @_equalIndexStmt(ptr noundef nonnull r
   br label %.thread
 
 .thread:                                          ; preds = %68, %29, %20, %5, %144, %139, %134, %129, %124, %119, %114, %109, %104, %99, %94, %89, %84, %79, %74, %69, %72, %59, %53, %47, %41, %35, %30, %33, %21, %24, %11, %6, %9
-  %.0 = phi i1 [ false, %69 ], [ false, %74 ], [ false, %79 ], [ false, %84 ], [ false, %89 ], [ false, %94 ], [ false, %99 ], [ false, %104 ], [ false, %109 ], [ false, %114 ], [ false, %119 ], [ false, %124 ], [ false, %129 ], [ false, %134 ], [ %.not96, %144 ], [ false, %139 ], [ false, %59 ], [ false, %53 ], [ false, %47 ], [ false, %41 ], [ false, %35 ], [ false, %30 ], [ false, %21 ], [ false, %11 ], [ false, %6 ], [ false, %9 ], [ false, %24 ], [ false, %33 ], [ false, %72 ], [ false, %29 ], [ false, %5 ], [ false, %20 ], [ false, %68 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %24 ], [ false, %21 ], [ false, %33 ], [ false, %30 ], [ false, %35 ], [ false, %41 ], [ false, %47 ], [ false, %53 ], [ false, %59 ], [ false, %72 ], [ false, %69 ], [ false, %74 ], [ false, %79 ], [ false, %84 ], [ false, %89 ], [ false, %94 ], [ false, %99 ], [ false, %104 ], [ false, %109 ], [ false, %114 ], [ false, %119 ], [ false, %124 ], [ false, %129 ], [ false, %134 ], [ false, %139 ], [ %.not96, %144 ], [ false, %5 ], [ false, %20 ], [ false, %29 ], [ false, %68 ]
   ret i1 %.0
 }
 
@@ -12569,7 +12569,7 @@ define internal fastcc noundef zeroext i1 @_equalCreateStatsStmt(ptr noundef non
   br label %.thread
 
 .thread:                                          ; preds = %29, %40, %35, %30, %33, %20, %14, %8, %2
-  %.0 = phi i1 [ false, %30 ], [ %.not23, %40 ], [ false, %35 ], [ false, %20 ], [ false, %14 ], [ false, %8 ], [ false, %2 ], [ false, %33 ], [ false, %29 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %20 ], [ false, %33 ], [ false, %30 ], [ false, %35 ], [ %.not23, %40 ], [ false, %29 ]
   ret i1 %.0
 }
 
@@ -12604,7 +12604,7 @@ define internal fastcc zeroext i1 @_equalStatsElem(ptr noundef nonnull readonly 
   br label %.thread
 
 .thread:                                          ; preds = %5, %11, %6, %9
-  %.0 = phi i1 [ false, %6 ], [ %16, %11 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ %16, %11 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -12634,7 +12634,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterStatsStmt(ptr noundef nonn
   br label %19
 
 19:                                               ; preds = %14, %8, %2
-  %.0 = phi i1 [ %.not, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not, %14 ]
   ret i1 %.0
 }
 
@@ -12696,7 +12696,7 @@ define internal fastcc zeroext i1 @_equalCreateFunctionStmt(ptr noundef nonnull 
   br label %42
 
 42:                                               ; preds = %36, %30, %24, %18, %12, %7, %2
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ false, %30 ], [ %41, %36 ], [ false, %24 ], [ false, %18 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %18 ], [ false, %24 ], [ false, %30 ], [ %41, %36 ]
   ret i1 %.0
 }
 
@@ -12747,7 +12747,7 @@ define internal fastcc zeroext i1 @_equalFunctionParameter(ptr noundef nonnull r
   br label %.thread
 
 .thread:                                          ; preds = %5, %22, %17, %11, %6, %9
-  %.0 = phi i1 [ false, %11 ], [ false, %17 ], [ %27, %22 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %17 ], [ %27, %22 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -12807,7 +12807,7 @@ define internal fastcc zeroext i1 @_equalCallStmt(ptr noundef nonnull readonly c
   br label %20
 
 20:                                               ; preds = %14, %8, %2
-  %.0 = phi i1 [ false, %8 ], [ %19, %14 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %19, %14 ]
   ret i1 %.0
 }
 
@@ -12903,7 +12903,7 @@ define internal fastcc noundef zeroext i1 @_equalRenameStmt(ptr noundef nonnull 
   br label %.thread
 
 .thread:                                          ; preds = %36, %27, %47, %42, %37, %40, %28, %31, %18, %12, %7, %2
-  %.0 = phi i1 [ false, %7 ], [ false, %2 ], [ false, %37 ], [ %.not35, %47 ], [ false, %42 ], [ false, %28 ], [ false, %18 ], [ false, %12 ], [ false, %31 ], [ false, %40 ], [ false, %27 ], [ false, %36 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %18 ], [ false, %31 ], [ false, %28 ], [ false, %40 ], [ false, %37 ], [ false, %42 ], [ %.not35, %47 ], [ false, %27 ], [ false, %36 ]
   ret i1 %.0
 }
 
@@ -12949,7 +12949,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterObjectDependsStmt(ptr noun
   br label %30
 
 30:                                               ; preds = %25, %19, %13, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not11, %25 ], [ false, %19 ], [ false, %13 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %13 ], [ false, %19 ], [ %.not11, %25 ]
   ret i1 %.0
 }
 
@@ -13008,7 +13008,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterObjectSchemaStmt(ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %22, %28, %23, %26, %13, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not19, %28 ], [ false, %23 ], [ false, %13 ], [ false, %7 ], [ false, %26 ], [ false, %22 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %13 ], [ false, %26 ], [ false, %23 ], [ %.not19, %28 ], [ false, %22 ]
   ret i1 %.0
 }
 
@@ -13046,7 +13046,7 @@ define internal fastcc zeroext i1 @_equalAlterOwnerStmt(ptr noundef nonnull read
   br label %25
 
 25:                                               ; preds = %19, %13, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %13 ], [ %24, %19 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %13 ], [ %24, %19 ]
   ret i1 %.0
 }
 
@@ -13165,7 +13165,7 @@ define internal fastcc noundef zeroext i1 @_equalRuleStmt(ptr noundef nonnull re
   br label %.thread
 
 .thread:                                          ; preds = %11, %39, %33, %28, %23, %17, %12, %15, %2
-  %.0 = phi i1 [ false, %17 ], [ false, %23 ], [ %.not24, %39 ], [ false, %33 ], [ false, %28 ], [ false, %12 ], [ false, %2 ], [ false, %15 ], [ false, %11 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %15 ], [ false, %12 ], [ false, %17 ], [ false, %23 ], [ false, %28 ], [ false, %33 ], [ %.not24, %39 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -13216,7 +13216,7 @@ define internal fastcc noundef zeroext i1 @_equalNotifyStmt(ptr noundef nonnull 
   br label %.thread
 
 .thread:                                          ; preds = %14, %5, %15, %18, %6, %9, %20
-  %.0 = phi i1 [ true, %20 ], [ false, %6 ], [ false, %9 ], [ false, %18 ], [ false, %15 ], [ false, %5 ], [ false, %14 ]
+  %.0 = phi i1 [ true, %20 ], [ false, %9 ], [ false, %6 ], [ false, %18 ], [ false, %15 ], [ false, %5 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -13344,7 +13344,7 @@ define internal fastcc noundef zeroext i1 @_equalTransactionStmt(ptr noundef non
   br label %.thread
 
 .thread:                                          ; preds = %25, %16, %31, %26, %29, %17, %20, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not27, %31 ], [ false, %26 ], [ false, %17 ], [ false, %7 ], [ false, %20 ], [ false, %29 ], [ false, %16 ], [ false, %25 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %20 ], [ false, %17 ], [ false, %29 ], [ false, %26 ], [ %.not27, %31 ], [ false, %16 ], [ false, %25 ]
   ret i1 %.0
 }
 
@@ -13503,7 +13503,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterEnumStmt(ptr noundef nonnu
   br label %.thread
 
 .thread:                                          ; preds = %29, %20, %11, %40, %35, %30, %33, %21, %24, %12, %15, %2
-  %.0 = phi i1 [ false, %30 ], [ %.not37, %40 ], [ false, %35 ], [ false, %21 ], [ false, %12 ], [ false, %2 ], [ false, %15 ], [ false, %24 ], [ false, %33 ], [ false, %20 ], [ false, %11 ], [ false, %29 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %15 ], [ false, %12 ], [ false, %24 ], [ false, %21 ], [ false, %33 ], [ false, %30 ], [ false, %35 ], [ %.not37, %40 ], [ false, %11 ], [ false, %20 ], [ false, %29 ]
   ret i1 %.0
 }
 
@@ -13557,7 +13557,7 @@ define internal fastcc zeroext i1 @_equalViewStmt(ptr noundef nonnull readonly c
   br label %36
 
 36:                                               ; preds = %31, %25, %20, %14, %8, %2
-  %.0 = phi i1 [ false, %14 ], [ %.not13, %31 ], [ false, %25 ], [ false, %20 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %20 ], [ false, %25 ], [ %.not13, %31 ]
   ret i1 %.0
 }
 
@@ -13620,7 +13620,7 @@ define internal fastcc zeroext i1 @_equalCreatedbStmt(ptr noundef nonnull readon
   br label %.thread
 
 .thread:                                          ; preds = %5, %11, %6, %9
-  %.0 = phi i1 [ false, %6 ], [ %16, %11 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ %16, %11 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -13655,7 +13655,7 @@ define internal fastcc zeroext i1 @_equalAlterDatabaseStmt(ptr noundef nonnull r
   br label %.thread
 
 .thread:                                          ; preds = %5, %11, %6, %9
-  %.0 = phi i1 [ false, %6 ], [ %16, %11 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ %16, %11 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -13718,7 +13718,7 @@ define internal fastcc zeroext i1 @_equalAlterDatabaseSetStmt(ptr noundef nonnul
   br label %.thread
 
 .thread:                                          ; preds = %5, %11, %6, %9
-  %.0 = phi i1 [ false, %6 ], [ %16, %11 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ %16, %11 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -13761,7 +13761,7 @@ define internal fastcc zeroext i1 @_equalDropdbStmt(ptr noundef nonnull readonly
   br label %.thread
 
 .thread:                                          ; preds = %5, %16, %11, %6, %9
-  %.0 = phi i1 [ false, %6 ], [ false, %11 ], [ %21, %16 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ %21, %16 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -13804,7 +13804,7 @@ define internal fastcc zeroext i1 @_equalClusterStmt(ptr noundef nonnull readonl
   br label %.thread
 
 .thread:                                          ; preds = %11, %17, %12, %15, %2
-  %.0 = phi i1 [ false, %12 ], [ %22, %17 ], [ false, %2 ], [ false, %15 ], [ false, %11 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %15 ], [ false, %12 ], [ %22, %17 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -13834,7 +13834,7 @@ define internal fastcc noundef zeroext i1 @_equalVacuumStmt(ptr noundef nonnull 
   br label %19
 
 19:                                               ; preds = %14, %8, %2
-  %.0 = phi i1 [ %.not, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not, %14 ]
   ret i1 %.0
 }
 
@@ -13932,7 +13932,7 @@ define internal fastcc noundef zeroext i1 @_equalCreateTableAsStmt(ptr noundef n
   br label %29
 
 29:                                               ; preds = %24, %19, %14, %8, %2
-  %.0 = phi i1 [ false, %8 ], [ false, %14 ], [ %.not12, %24 ], [ false, %19 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %19 ], [ %.not12, %24 ]
   ret i1 %.0
 }
 
@@ -13962,7 +13962,7 @@ define internal fastcc zeroext i1 @_equalRefreshMatViewStmt(ptr noundef nonnull 
   br label %18
 
 18:                                               ; preds = %12, %7, %2
-  %.0 = phi i1 [ %17, %12 ], [ false, %2 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ %17, %12 ]
   ret i1 %.0
 }
 
@@ -13992,7 +13992,7 @@ define internal fastcc noundef zeroext i1 @_equalLockStmt(ptr noundef nonnull re
   br label %18
 
 18:                                               ; preds = %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not7, %13 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not7, %13 ]
   ret i1 %.0
 }
 
@@ -14043,7 +14043,7 @@ define internal fastcc zeroext i1 @_equalReindexStmt(ptr noundef nonnull readonl
   br label %.thread
 
 .thread:                                          ; preds = %16, %22, %17, %20, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %17 ], [ %27, %22 ], [ false, %7 ], [ false, %20 ], [ false, %16 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %20 ], [ false, %17 ], [ %27, %22 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -14115,7 +14115,7 @@ define internal fastcc noundef zeroext i1 @_equalCreateConversionStmt(ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %20, %11, %32, %26, %21, %24, %12, %15, %2
-  %.0 = phi i1 [ %.not26, %32 ], [ false, %26 ], [ false, %21 ], [ false, %12 ], [ false, %2 ], [ false, %15 ], [ false, %24 ], [ false, %11 ], [ false, %20 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %15 ], [ false, %12 ], [ false, %24 ], [ false, %21 ], [ false, %26 ], [ %.not26, %32 ], [ false, %11 ], [ false, %20 ]
   ret i1 %.0
 }
 
@@ -14161,7 +14161,7 @@ define internal fastcc noundef zeroext i1 @_equalCreateCastStmt(ptr noundef nonn
   br label %30
 
 30:                                               ; preds = %25, %20, %14, %8, %2
-  %.0 = phi i1 [ false, %14 ], [ %.not11, %25 ], [ false, %20 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %20 ], [ %.not11, %25 ]
   ret i1 %.0
 }
 
@@ -14220,7 +14220,7 @@ define internal fastcc zeroext i1 @_equalCreateTransformStmt(ptr noundef nonnull
   br label %.thread
 
 .thread:                                          ; preds = %16, %28, %22, %17, %20, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %22 ], [ %33, %28 ], [ false, %17 ], [ false, %7 ], [ false, %20 ], [ false, %16 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %20 ], [ false, %17 ], [ false, %22 ], [ %33, %28 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -14263,7 +14263,7 @@ define internal fastcc zeroext i1 @_equalPrepareStmt(ptr noundef nonnull readonl
   br label %.thread
 
 .thread:                                          ; preds = %5, %17, %11, %6, %9
-  %.0 = phi i1 [ false, %11 ], [ %22, %17 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ %22, %17 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -14298,7 +14298,7 @@ define internal fastcc zeroext i1 @_equalExecuteStmt(ptr noundef nonnull readonl
   br label %.thread
 
 .thread:                                          ; preds = %5, %11, %6, %9
-  %.0 = phi i1 [ false, %6 ], [ %16, %11 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ %16, %11 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -14333,7 +14333,7 @@ define internal fastcc noundef zeroext i1 @_equalDeallocateStmt(ptr noundef nonn
   br label %.thread
 
 .thread:                                          ; preds = %5, %11, %6, %9
-  %.0 = phi i1 [ %.not12, %11 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ %.not12, %11 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -14439,7 +14439,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterTSConfigurationStmt(ptr no
   br label %40
 
 40:                                               ; preds = %35, %30, %25, %19, %13, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %19 ], [ false, %25 ], [ %.not17, %35 ], [ false, %30 ], [ false, %13 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %13 ], [ false, %19 ], [ false, %25 ], [ false, %30 ], [ %.not17, %35 ]
   ret i1 %.0
 }
 
@@ -14469,7 +14469,7 @@ define internal fastcc zeroext i1 @_equalPublicationTable(ptr noundef nonnull re
   br label %20
 
 20:                                               ; preds = %14, %8, %2
-  %.0 = phi i1 [ false, %8 ], [ %19, %14 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %19, %14 ]
   ret i1 %.0
 }
 
@@ -14512,7 +14512,7 @@ define internal fastcc zeroext i1 @_equalPublicationObjSpec(ptr noundef nonnull 
   br label %.thread
 
 .thread:                                          ; preds = %10, %16, %11, %14, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %11 ], [ %21, %16 ], [ false, %14 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %11 ], [ %21, %16 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -14563,7 +14563,7 @@ define internal fastcc noundef zeroext i1 @_equalCreatePublicationStmt(ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %5, %23, %17, %11, %6, %9
-  %.0 = phi i1 [ %.not16, %23 ], [ false, %17 ], [ false, %11 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %17 ], [ %.not16, %23 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -14622,7 +14622,7 @@ define internal fastcc zeroext i1 @_equalAlterPublicationStmt(ptr noundef nonnul
   br label %.thread
 
 .thread:                                          ; preds = %5, %28, %23, %17, %11, %6, %9
-  %.0 = phi i1 [ false, %17 ], [ %.not19, %28 ], [ false, %23 ], [ false, %11 ], [ false, %6 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ false, %17 ], [ false, %23 ], [ %.not19, %28 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -14686,7 +14686,7 @@ define internal fastcc zeroext i1 @_equalCreateSubscriptionStmt(ptr noundef nonn
   br label %.thread
 
 .thread:                                          ; preds = %14, %5, %26, %20, %15, %18, %6, %9
-  %.0 = phi i1 [ false, %20 ], [ %31, %26 ], [ false, %15 ], [ false, %6 ], [ false, %9 ], [ false, %18 ], [ false, %5 ], [ false, %14 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %18 ], [ false, %15 ], [ false, %20 ], [ %31, %26 ], [ false, %5 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -14758,7 +14758,7 @@ define internal fastcc zeroext i1 @_equalAlterSubscriptionStmt(ptr noundef nonnu
   br label %.thread
 
 .thread:                                          ; preds = %19, %10, %31, %25, %20, %23, %11, %14, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %25 ], [ %36, %31 ], [ false, %20 ], [ false, %11 ], [ false, %14 ], [ false, %23 ], [ false, %10 ], [ false, %19 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %11 ], [ false, %23 ], [ false, %20 ], [ false, %25 ], [ %36, %31 ], [ false, %10 ], [ false, %19 ]
   ret i1 %.0
 }
 
@@ -14801,7 +14801,7 @@ define internal fastcc zeroext i1 @_equalDropSubscriptionStmt(ptr noundef nonnul
   br label %.thread
 
 .thread:                                          ; preds = %5, %16, %11, %6, %9
-  %.0 = phi i1 [ false, %6 ], [ %.not15, %16 ], [ false, %11 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ false, %11 ], [ %.not15, %16 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -14901,7 +14901,7 @@ define internal fastcc zeroext i1 @_equalRestrictInfo(ptr noundef nonnull readon
   br label %51
 
 51:                                               ; preds = %46, %40, %34, %28, %23, %18, %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %13 ], [ false, %18 ], [ %.not22, %46 ], [ false, %40 ], [ false, %34 ], [ false, %28 ], [ false, %23 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %13 ], [ false, %18 ], [ false, %23 ], [ false, %28 ], [ false, %34 ], [ false, %40 ], [ %.not22, %46 ]
   ret i1 %.0
 }
 
@@ -14931,7 +14931,7 @@ define internal fastcc zeroext i1 @_equalPlaceHolderVar(ptr noundef nonnull read
   br label %18
 
 18:                                               ; preds = %13, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not7, %13 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %.not7, %13 ]
   ret i1 %.0
 }
 
@@ -15057,7 +15057,7 @@ define internal fastcc zeroext i1 @_equalSpecialJoinInfo(ptr noundef nonnull rea
   br label %87
 
 87:                                               ; preds = %81, %75, %70, %65, %60, %54, %48, %42, %36, %31, %26, %20, %14, %8, %2
-  %.0 = phi i1 [ false, %20 ], [ false, %26 ], [ false, %54 ], [ false, %60 ], [ false, %65 ], [ false, %75 ], [ %86, %81 ], [ false, %70 ], [ false, %48 ], [ false, %42 ], [ false, %36 ], [ false, %31 ], [ false, %14 ], [ false, %8 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %14 ], [ false, %20 ], [ false, %26 ], [ false, %31 ], [ false, %36 ], [ false, %42 ], [ false, %48 ], [ false, %54 ], [ false, %60 ], [ false, %65 ], [ false, %70 ], [ false, %75 ], [ %86, %81 ]
   ret i1 %.0
 }
 
@@ -15130,7 +15130,7 @@ define internal fastcc zeroext i1 @_equalAppendRelInfo(ptr noundef nonnull reado
   br label %45
 
 45:                                               ; preds = %40, %33, %28, %22, %17, %12, %7, %2
-  %.0 = phi i1 [ false, %17 ], [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %22 ], [ false, %28 ], [ %.not24, %40 ], [ false, %33 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ false, %17 ], [ false, %22 ], [ false, %28 ], [ false, %33 ], [ %.not24, %40 ]
   ret i1 %.0
 }
 
@@ -15184,7 +15184,7 @@ define internal fastcc zeroext i1 @_equalPlaceHolderInfo(ptr noundef nonnull rea
   br label %36
 
 36:                                               ; preds = %31, %25, %19, %13, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ %.not13, %31 ], [ false, %25 ], [ false, %19 ], [ false, %13 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %13 ], [ false, %19 ], [ false, %25 ], [ %.not13, %31 ]
   ret i1 %.0
 }
 
@@ -15218,7 +15218,7 @@ define internal fastcc zeroext i1 @_equalExtensibleNode(ptr noundef nonnull %0, 
   br label %.thread
 
 .thread:                                          ; preds = %5, %11, %6, %9
-  %.0 = phi i1 [ false, %6 ], [ %15, %11 ], [ false, %9 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %6 ], [ %15, %11 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -15490,7 +15490,7 @@ define internal fastcc noundef zeroext i1 @_equalList(ptr noundef nonnull readon
   unreachable
 
 .critedge:                                        ; preds = %78, %80, %84, %63, %65, %69, %48, %50, %54, %29, %34, %38, %5, %2
-  %.0 = phi i1 [ false, %54 ], [ false, %2 ], [ false, %38 ], [ false, %5 ], [ true, %63 ], [ true, %34 ], [ true, %29 ], [ true, %50 ], [ true, %48 ], [ true, %65 ], [ false, %69 ], [ true, %78 ], [ false, %84 ], [ true, %80 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %5 ], [ true, %29 ], [ true, %34 ], [ false, %38 ], [ true, %48 ], [ true, %50 ], [ false, %54 ], [ true, %63 ], [ true, %65 ], [ false, %69 ], [ true, %78 ], [ true, %80 ], [ false, %84 ]
   ret i1 %.0
 }
 

@@ -149,8 +149,8 @@ define internal i32 @dissect_data(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %42, %39, %33, %30, %19
-  %.064 = phi i32 [ 0, %19 ], [ 0, %30 ], [ %34, %33 ], [ %34, %39 ], [ %34, %42 ]
-  %.061 = phi ptr [ null, %19 ], [ null, %30 ], [ %32, %33 ], [ %32, %39 ], [ %32, %42 ]
+  %.064 = phi i32 [ 0, %30 ], [ 0, %19 ], [ %34, %33 ], [ %34, %39 ], [ %34, %42 ]
+  %.061 = phi ptr [ null, %30 ], [ null, %19 ], [ %32, %33 ], [ %32, %39 ], [ %32, %42 ]
   %46 = load i8, ptr @show_as_text, align 1, !range !6, !noundef !7
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %48, label %58

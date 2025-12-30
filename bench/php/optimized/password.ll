@@ -414,8 +414,8 @@ zend_string_release_ex.exit36:                    ; preds = %zend_string_release
   call void @_efree(ptr noundef nonnull %129) #12
   br label %zend_string_free.exit
 
-zend_string_free.exit:                            ; preds = %100, %38, %35, %43, %150, %149, %143, %139, %zend_string_release_ex.exit36, %22, %8
-  %.026 = phi ptr [ null, %8 ], [ null, %22 ], [ %129, %139 ], [ null, %zend_string_release_ex.exit36 ], [ null, %150 ], [ null, %143 ], [ null, %149 ], [ null, %43 ], [ null, %35 ], [ null, %38 ], [ null, %100 ]
+zend_string_free.exit:                            ; preds = %100, %43, %38, %35, %150, %149, %143, %139, %zend_string_release_ex.exit36, %22, %8
+  %.026 = phi ptr [ null, %8 ], [ null, %22 ], [ null, %zend_string_release_ex.exit36 ], [ %129, %139 ], [ null, %143 ], [ null, %149 ], [ null, %150 ], [ null, %35 ], [ null, %38 ], [ null, %43 ], [ null, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.026
 }
@@ -485,7 +485,7 @@ zend_string_free.exit14:                          ; preds = %23, %30, %31
   br label %zend_string_free.exit
 
 zend_string_free.exit:                            ; preds = %22, %21, %15, %2, %zend_string_free.exit14
-  %.0 = phi i1 [ false, %2 ], [ %32, %zend_string_free.exit14 ], [ false, %15 ], [ false, %21 ], [ false, %22 ]
+  %.0 = phi i1 [ %32, %zend_string_free.exit14 ], [ false, %2 ], [ false, %15 ], [ false, %21 ], [ false, %22 ]
   ret i1 %.0
 }
 
@@ -542,7 +542,7 @@ php_password_bcrypt_valid.exit:                   ; preds = %11
   br label %zval_get_long.exit
 
 zval_get_long.exit:                               ; preds = %28, %26, %20, %18
-  %.0 = phi i64 [ 12, %18 ], [ 12, %20 ], [ %27, %26 ], [ %29, %28 ]
+  %.0 = phi i64 [ 12, %20 ], [ 12, %18 ], [ %27, %26 ], [ %29, %28 ]
   %30 = load i64, ptr %3, align 8, !tbaa !17
   %31 = icmp ne i64 %30, %.0
   br label %php_password_bcrypt_valid.exit.thread
@@ -681,7 +681,7 @@ define dso_local ptr @php_password_algo_find(ptr noundef %0) local_unnamed_addr 
   br label %9
 
 9:                                                ; preds = %2, %4, %1, %7
-  %.0 = phi ptr [ null, %1 ], [ %8, %7 ], [ null, %4 ], [ null, %2 ]
+  %.0 = phi ptr [ %8, %7 ], [ null, %1 ], [ null, %4 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -725,7 +725,7 @@ zend_string_alloc.exit:                           ; preds = %6
   br label %20
 
 20:                                               ; preds = %6, %1, %2, %zend_string_alloc.exit
-  %.0 = phi ptr [ null, %1 ], [ %14, %zend_string_alloc.exit ], [ null, %2 ], [ null, %6 ]
+  %.0 = phi ptr [ %14, %zend_string_alloc.exit ], [ null, %2 ], [ null, %1 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -782,7 +782,7 @@ php_password_algo_extract_ident.exit:             ; preds = %7
   br label %php_password_algo_find.exit
 
 php_password_algo_find.exit:                      ; preds = %php_password_algo_extract_ident.exit, %22, %25
-  %.0.i19 = phi ptr [ null, %php_password_algo_extract_ident.exit ], [ %26, %25 ], [ null, %22 ]
+  %.0.i19 = phi ptr [ %26, %25 ], [ null, %22 ], [ null, %php_password_algo_extract_ident.exit ]
   %27 = load i32, ptr %16, align 4, !tbaa !8
   %28 = and i32 %27, 64
   %.not.i = icmp eq i32 %28, 0
@@ -827,8 +827,8 @@ zend_string_release.exit:                         ; preds = %php_password_algo_f
 43:                                               ; preds = %41, %38
   br label %php_password_algo_extract_ident.exit.thread
 
-php_password_algo_extract_ident.exit.thread:      ; preds = %7, %3, %2, %43, %41, %zend_string_release.exit
-  %.0 = phi ptr [ %1, %7 ], [ %.0.i19, %43 ], [ %1, %41 ], [ %1, %zend_string_release.exit ], [ %1, %2 ], [ %1, %3 ]
+php_password_algo_extract_ident.exit.thread:      ; preds = %7, %2, %3, %43, %41, %zend_string_release.exit
+  %.0 = phi ptr [ %.0.i19, %43 ], [ %1, %41 ], [ %1, %zend_string_release.exit ], [ %1, %3 ], [ %1, %2 ], [ %1, %7 ]
   ret ptr %.0
 }
 
@@ -969,7 +969,7 @@ php_password_algo_find.exit:                      ; preds = %39
   call void @_efree(ptr noundef nonnull %32) #12
   br label %zend_string_release.exit72
 
-zend_string_release.exit72:                       ; preds = %24, %20, %.critedge, %59, %58, %51, %.thread112
+zend_string_release.exit72:                       ; preds = %24, %.critedge, %20, %59, %58, %51, %.thread112
   call void @add_assoc_null_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i64 noundef 4) #12
   call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.3, i64 noundef 8, ptr noundef nonnull @.str.4) #12
   call void @add_assoc_zval_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, i64 noundef 7, ptr noundef nonnull %4) #12
@@ -1013,7 +1013,7 @@ zend_string_alloc.exit.i79:                       ; preds = %66
   br label %php_password_algo_extract_ident.exit81
 
 php_password_algo_extract_ident.exit81:           ; preds = %60, %62, %66, %zend_string_alloc.exit.i79
-  %.0.i80 = phi ptr [ null, %60 ], [ %74, %zend_string_alloc.exit.i79 ], [ null, %62 ], [ null, %66 ]
+  %.0.i80 = phi ptr [ %74, %zend_string_alloc.exit.i79 ], [ null, %62 ], [ null, %60 ], [ null, %66 ]
   call void @add_assoc_str_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i64 noundef 4, ptr noundef %.0.i80) #12
   %80 = load i32, ptr %33, align 4, !tbaa !8
   %81 = and i32 %80, 64
@@ -1154,16 +1154,16 @@ zend_parse_arg_str_or_long.exit.thread:           ; preds = %21, %25, %23, %zend
   %33 = load ptr, ptr %29, align 8, !tbaa !8
   br label %.critedge
 
-.thread:                                          ; preds = %28, %zend_parse_arg_str_ex.exit, %zend_parse_arg_str_or_long.exit, %9
-  %.06595 = phi i32 [ 1, %9 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %zend_parse_arg_str_or_long.exit ], [ 9, %28 ]
-  %.06694 = phi i32 [ 0, %9 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 2, %zend_parse_arg_str_or_long.exit ], [ 3, %28 ]
-  %.06793 = phi i32 [ 0, %9 ], [ 4, %zend_parse_arg_str_ex.exit ], [ 29, %zend_parse_arg_str_or_long.exit ], [ 6, %28 ]
-  %.06892 = phi ptr [ null, %9 ], [ %11, %zend_parse_arg_str_ex.exit ], [ %18, %zend_parse_arg_str_or_long.exit ], [ %29, %28 ]
+.thread:                                          ; preds = %28, %zend_parse_arg_str_or_long.exit, %zend_parse_arg_str_ex.exit, %9
+  %.06595 = phi i32 [ 9, %zend_parse_arg_str_or_long.exit ], [ 9, %zend_parse_arg_str_ex.exit ], [ 1, %9 ], [ 9, %28 ]
+  %.06694 = phi i32 [ 2, %zend_parse_arg_str_or_long.exit ], [ 1, %zend_parse_arg_str_ex.exit ], [ 0, %9 ], [ 3, %28 ]
+  %.06793 = phi i32 [ 29, %zend_parse_arg_str_or_long.exit ], [ 4, %zend_parse_arg_str_ex.exit ], [ 0, %9 ], [ 6, %28 ]
+  %.06892 = phi ptr [ %18, %zend_parse_arg_str_or_long.exit ], [ %11, %zend_parse_arg_str_ex.exit ], [ null, %9 ], [ %29, %28 ]
   call void @zend_wrong_parameter_error(i32 noundef %.06595, i32 noundef %.06694, ptr noundef null, i32 noundef %.06793, ptr noundef %.06892) #12
   br label %51
 
 .critedge:                                        ; preds = %.thread96, %zend_parse_arg_str_or_long.exit.thread
-  %.1 = phi ptr [ %33, %.thread96 ], [ null, %zend_parse_arg_str_or_long.exit.thread ]
+  %.1 = phi ptr [ null, %zend_parse_arg_str_or_long.exit.thread ], [ %33, %.thread96 ]
   %34 = load ptr, ptr %4, align 8, !tbaa !22
   %35 = load i64, ptr %5, align 8, !tbaa !17
   %36 = call fastcc ptr @php_password_algo_find_zval(ptr noundef %34, i64 noundef %35, i1 noundef zeroext %.28084)
@@ -1262,7 +1262,7 @@ define internal fastcc ptr @php_password_algo_find_zval(ptr noundef %0, i64 noun
   br label %php_password_algo_find.exit19
 
 php_password_algo_find.exit19:                    ; preds = %13, %21, %24
-  %.0.i18 = phi ptr [ null, %13 ], [ %25, %24 ], [ null, %21 ]
+  %.0.i18 = phi ptr [ %25, %24 ], [ null, %21 ], [ null, %13 ]
   %26 = load i32, ptr %15, align 4, !tbaa !8
   %27 = and i32 %26, 64
   %.not.i11 = icmp eq i32 %27, 0
@@ -1318,7 +1318,7 @@ php_password_algo_find.exit19:                    ; preds = %13, %21, %24
   br label %php_password_algo_find.exit24
 
 php_password_algo_find.exit24:                    ; preds = %37, %45, %48
-  %.0.i23 = phi ptr [ null, %37 ], [ %49, %48 ], [ null, %45 ]
+  %.0.i23 = phi ptr [ %49, %48 ], [ null, %45 ], [ null, %37 ]
   %50 = load i32, ptr %39, align 4, !tbaa !8
   %51 = and i32 %50, 64
   %.not.i = icmp eq i32 %51, 0
@@ -1350,7 +1350,7 @@ php_password_algo_find.exit24:                    ; preds = %37, %45, %48
   br label %php_password_algo_find.exit
 
 php_password_algo_find.exit:                      ; preds = %60, %59, %52, %php_password_algo_find.exit24, %36, %35, %28, %php_password_algo_find.exit19, %12, %10, %7, %5, %3, %12, %61
-  %.0 = phi ptr [ @php_password_algo_bcrypt, %12 ], [ @php_password_algo_bcrypt, %3 ], [ null, %61 ], [ null, %7 ], [ %.0.i18, %36 ], [ @php_password_algo_bcrypt, %12 ], [ null, %5 ], [ %11, %10 ], [ %.0.i18, %php_password_algo_find.exit19 ], [ %.0.i18, %28 ], [ %.0.i18, %35 ], [ %.0.i23, %php_password_algo_find.exit24 ], [ %.0.i23, %52 ], [ %.0.i23, %59 ], [ %.0.i23, %60 ]
+  %.0 = phi ptr [ null, %61 ], [ @php_password_algo_bcrypt, %12 ], [ @php_password_algo_bcrypt, %3 ], [ %11, %10 ], [ null, %7 ], [ null, %5 ], [ @php_password_algo_bcrypt, %12 ], [ %.0.i18, %php_password_algo_find.exit19 ], [ %.0.i18, %28 ], [ %.0.i18, %35 ], [ %.0.i18, %36 ], [ %.0.i23, %php_password_algo_find.exit24 ], [ %.0.i23, %52 ], [ %.0.i23, %59 ], [ %.0.i23, %60 ]
   ret ptr %.0
 }
 
@@ -1407,10 +1407,10 @@ zend_parse_arg_str_ex.exit62..critedge_crit_edge: ; preds = %zend_parse_arg_str_
   br label %.critedge
 
 .thread74:                                        ; preds = %zend_parse_arg_str_ex.exit62, %zend_parse_arg_str_ex.exit, %7
-  %.04983 = phi i32 [ 1, %7 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %zend_parse_arg_str_ex.exit62 ]
-  %.05082 = phi i32 [ 0, %7 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 2, %zend_parse_arg_str_ex.exit62 ]
-  %.05181 = phi ptr [ null, %7 ], [ %9, %zend_parse_arg_str_ex.exit ], [ %16, %zend_parse_arg_str_ex.exit62 ]
-  %.05280 = phi i32 [ 0, %7 ], [ 4, %zend_parse_arg_str_ex.exit ], [ 4, %zend_parse_arg_str_ex.exit62 ]
+  %.04983 = phi i32 [ 9, %zend_parse_arg_str_ex.exit ], [ 1, %7 ], [ 9, %zend_parse_arg_str_ex.exit62 ]
+  %.05082 = phi i32 [ 1, %zend_parse_arg_str_ex.exit ], [ 0, %7 ], [ 2, %zend_parse_arg_str_ex.exit62 ]
+  %.05181 = phi ptr [ %9, %zend_parse_arg_str_ex.exit ], [ null, %7 ], [ %16, %zend_parse_arg_str_ex.exit62 ]
+  %.05280 = phi i32 [ 4, %zend_parse_arg_str_ex.exit ], [ 0, %7 ], [ 4, %zend_parse_arg_str_ex.exit62 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04983, i32 noundef %.05082, ptr noundef null, i32 noundef %.05280, ptr noundef %.05181) #12
   br label %35
 
@@ -1525,16 +1525,16 @@ zend_parse_arg_str_or_long.exit.thread:           ; preds = %21, %25, %23, %zend
   %33 = load ptr, ptr %29, align 8, !tbaa !8
   br label %.critedge
 
-.thread:                                          ; preds = %28, %zend_parse_arg_str_ex.exit, %zend_parse_arg_str_or_long.exit, %9
-  %.098 = phi i32 [ 0, %9 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 2, %zend_parse_arg_str_or_long.exit ], [ 3, %28 ]
-  %.06797 = phi i32 [ 1, %9 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 9, %zend_parse_arg_str_or_long.exit ], [ 9, %28 ]
-  %.06896 = phi ptr [ null, %9 ], [ %11, %zend_parse_arg_str_ex.exit ], [ %18, %zend_parse_arg_str_or_long.exit ], [ %29, %28 ]
-  %.06995 = phi i32 [ 0, %9 ], [ 4, %zend_parse_arg_str_ex.exit ], [ 29, %zend_parse_arg_str_or_long.exit ], [ 6, %28 ]
+.thread:                                          ; preds = %28, %zend_parse_arg_str_or_long.exit, %zend_parse_arg_str_ex.exit, %9
+  %.098 = phi i32 [ 2, %zend_parse_arg_str_or_long.exit ], [ 1, %zend_parse_arg_str_ex.exit ], [ 0, %9 ], [ 3, %28 ]
+  %.06797 = phi i32 [ 9, %zend_parse_arg_str_or_long.exit ], [ 9, %zend_parse_arg_str_ex.exit ], [ 1, %9 ], [ 9, %28 ]
+  %.06896 = phi ptr [ %18, %zend_parse_arg_str_or_long.exit ], [ %11, %zend_parse_arg_str_ex.exit ], [ null, %9 ], [ %29, %28 ]
+  %.06995 = phi i32 [ 29, %zend_parse_arg_str_or_long.exit ], [ 4, %zend_parse_arg_str_ex.exit ], [ 0, %9 ], [ 6, %28 ]
   call void @zend_wrong_parameter_error(i32 noundef %.06797, i32 noundef %.098, ptr noundef null, i32 noundef %.06995, ptr noundef %.06896) #12
   br label %48
 
 .critedge:                                        ; preds = %.thread99, %zend_parse_arg_str_or_long.exit.thread
-  %.1 = phi ptr [ %33, %.thread99 ], [ null, %zend_parse_arg_str_or_long.exit.thread ]
+  %.1 = phi ptr [ null, %zend_parse_arg_str_or_long.exit.thread ], [ %33, %.thread99 ]
   %34 = load ptr, ptr %4, align 8, !tbaa !22
   %35 = load i64, ptr %5, align 8, !tbaa !17
   %36 = call fastcc ptr @php_password_algo_find_zval(ptr noundef %34, i64 noundef %35, i1 noundef zeroext %.28387)

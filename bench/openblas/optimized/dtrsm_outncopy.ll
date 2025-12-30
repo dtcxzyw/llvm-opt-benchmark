@@ -175,9 +175,9 @@ define noundef i32 @dtrsm_outncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br label %._crit_edge102
 
 ._crit_edge102:                                   ; preds = %._crit_edge102.loopexit124, %.lr.ph101.split.split.us.preheader, %._crit_edge102.loopexit, %6
-  %.087.lcssa = phi ptr [ %2, %6 ], [ %scevgep, %.lr.ph101.split.split.us.preheader ], [ %30, %._crit_edge102.loopexit ], [ %79, %._crit_edge102.loopexit124 ]
-  %.085.lcssa = phi ptr [ %5, %6 ], [ %5, %.lr.ph101.split.split.us.preheader ], [ %.2.us, %._crit_edge102.loopexit ], [ %78, %._crit_edge102.loopexit124 ]
-  %.079.lcssa = phi i64 [ %4, %6 ], [ %66, %.lr.ph101.split.split.us.preheader ], [ %84, %._crit_edge102.loopexit ], [ %86, %._crit_edge102.loopexit124 ]
+  %.087.lcssa = phi ptr [ %2, %6 ], [ %30, %._crit_edge102.loopexit ], [ %scevgep, %.lr.ph101.split.split.us.preheader ], [ %79, %._crit_edge102.loopexit124 ]
+  %.085.lcssa = phi ptr [ %5, %6 ], [ %.2.us, %._crit_edge102.loopexit ], [ %5, %.lr.ph101.split.split.us.preheader ], [ %78, %._crit_edge102.loopexit124 ]
+  %.079.lcssa = phi i64 [ %4, %6 ], [ %84, %._crit_edge102.loopexit ], [ %66, %.lr.ph101.split.split.us.preheader ], [ %86, %._crit_edge102.loopexit124 ]
   %87 = and i64 %1, 1
   %.not = icmp ne i64 %87, 0
   %88 = icmp sgt i64 %0, 0

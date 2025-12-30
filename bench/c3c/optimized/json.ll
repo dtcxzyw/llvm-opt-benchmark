@@ -153,7 +153,7 @@ consume.exit40.thread:                            ; preds = %32, %26
   br label %.loopexit
 
 .loopexit:                                        ; preds = %consume.exit44, %consume.exit39.thread, %consume.exit40.thread, %json_error.exit43, %json_error.exit
-  %.0 = phi ptr [ @error, %json_error.exit ], [ @empty_array_val, %consume.exit39.thread ], [ %13, %consume.exit40.thread ], [ @error, %json_error.exit43 ], [ @error, %consume.exit44 ]
+  %.0 = phi ptr [ %13, %consume.exit40.thread ], [ @error, %json_error.exit43 ], [ @error, %json_error.exit ], [ @empty_array_val, %consume.exit39.thread ], [ @error, %consume.exit44 ]
   ret ptr %.0
 }
 
@@ -250,7 +250,7 @@ json_error.exit:                                  ; preds = %4, %4, %4, %4
   unreachable
 
 34:                                               ; preds = %4, %1, %32, %31, %30, %24, %23, %12, %json_error.exit, %10, %8
-  %.0 = phi ptr [ null, %32 ], [ @error, %1 ], [ %9, %8 ], [ %11, %10 ], [ null, %json_error.exit ], [ %15, %12 ], [ @zero_val, %23 ], [ %27, %24 ], [ @true_val, %30 ], [ @false_val, %31 ], [ null, %4 ]
+  %.0 = phi ptr [ %9, %8 ], [ %11, %10 ], [ null, %json_error.exit ], [ %15, %12 ], [ @zero_val, %23 ], [ %27, %24 ], [ @true_val, %30 ], [ @false_val, %31 ], [ null, %32 ], [ @error, %1 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -412,7 +412,7 @@ consume.exit66.thread:                            ; preds = %49, %42
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %consume.exit59.thread, %consume.exit66.thread, %json_error.exit69, %json_error.exit65, %json_error.exit62, %json_error.exit
-  %.0 = phi ptr [ @error, %json_error.exit ], [ @empty_obj_val, %consume.exit59.thread ], [ %13, %consume.exit66.thread ], [ null, %json_error.exit69 ], [ @error, %json_error.exit65 ], [ @error, %json_error.exit62 ], [ null, %30 ]
+  %.0 = phi ptr [ %13, %consume.exit66.thread ], [ null, %json_error.exit69 ], [ @error, %json_error.exit65 ], [ @error, %json_error.exit62 ], [ @error, %json_error.exit ], [ @empty_obj_val, %consume.exit59.thread ], [ null, %30 ]
   ret ptr %.0
 }
 

@@ -1587,8 +1587,8 @@ dissect_kafka_list_groups_request.exit:           ; preds = %108
   %212 = tail call fastcc i32 @dissect_kafka_produce_request(ptr noundef %0, ptr noundef %1, ptr noundef %11, i32 noundef %.1636, i16 noundef signext %92)
   br i1 %.not677, label %dissect_kafka_insert_match.exit, label %dissect_kafka_list_groups_request.exit.thread
 
-dissect_kafka_list_groups_request.exit.thread:    ; preds = %142, %140, %207, %205, %203, %201, %199, %197, %195, %193, %191, %189, %187, %185, %183, %181, %179, %177, %175, %173, %171, %169, %167, %165, %163, %161, %159, %157, %155, %153, %151, %149, %147, %144, %209, %138, %136, %134, %132, %130, %128, %126, %124, %122, %120, %118, %116, %114, %112, %110, %108, %dissect_kafka_list_groups_request.exit
-  %.2673 = phi i32 [ %212, %dissect_kafka_list_groups_request.exit ], [ %.1636, %140 ], [ %143, %142 ], [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ %202, %201 ], [ %200, %199 ], [ %198, %197 ], [ %196, %195 ], [ %194, %193 ], [ %192, %191 ], [ %190, %189 ], [ %188, %187 ], [ %186, %185 ], [ %184, %183 ], [ %182, %181 ], [ %180, %179 ], [ %178, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ %158, %157 ], [ %156, %155 ], [ %154, %153 ], [ %152, %151 ], [ %150, %149 ], [ %148, %147 ], [ %146, %144 ], [ %210, %209 ], [ %139, %138 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %129, %128 ], [ %127, %126 ], [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ], [ %117, %116 ], [ %115, %114 ], [ %113, %112 ], [ %111, %110 ], [ %.1636, %108 ]
+dissect_kafka_list_groups_request.exit.thread:    ; preds = %142, %140, %209, %207, %205, %203, %201, %199, %197, %195, %193, %191, %189, %187, %185, %183, %181, %179, %177, %175, %173, %171, %169, %167, %165, %163, %161, %159, %157, %155, %153, %151, %149, %147, %144, %138, %136, %134, %132, %130, %128, %126, %124, %122, %120, %118, %116, %114, %112, %110, %108, %dissect_kafka_list_groups_request.exit
+  %.2673 = phi i32 [ %212, %dissect_kafka_list_groups_request.exit ], [ %.1636, %140 ], [ %143, %142 ], [ %210, %209 ], [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ %202, %201 ], [ %200, %199 ], [ %198, %197 ], [ %196, %195 ], [ %194, %193 ], [ %192, %191 ], [ %190, %189 ], [ %188, %187 ], [ %186, %185 ], [ %184, %183 ], [ %182, %181 ], [ %180, %179 ], [ %178, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ %158, %157 ], [ %156, %155 ], [ %154, %153 ], [ %152, %151 ], [ %150, %149 ], [ %148, %147 ], [ %146, %144 ], [ %139, %138 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %129, %128 ], [ %127, %126 ], [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ], [ %117, %116 ], [ %115, %114 ], [ %113, %112 ], [ %111, %110 ], [ %.1636, %108 ]
   %213 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   %214 = load i32, ptr @proto_kafka, align 4
   %215 = tail call ptr @conversation_get_proto_data(ptr noundef %213, i32 noundef %214)
@@ -2082,7 +2082,7 @@ proto_item_set_generated.exit670:                 ; preds = %kafka_check_support
   br label %440
 
 440:                                              ; preds = %dissect_kafka_insert_match.exit.thread, %340, %341, %343, %345, %347, %349, %351, %353, %355, %357, %359, %361, %363, %365, %367, %369, %371, %373, %375, %.thread, %378, %380, %382, %384, %386, %388, %390, %392, %394, %396, %398, %400, %402, %404, %406, %408, %410, %412, %414, %416, %418, %420, %422, %424, %426, %428, %430, %432, %434, %436, %438, %dissect_kafka_insert_match.exit
-  %.3 = phi i32 [ %.2673, %dissect_kafka_insert_match.exit.thread ], [ %.2674, %dissect_kafka_insert_match.exit ], [ %.4.ph, %340 ], [ %342, %341 ], [ %344, %343 ], [ %346, %345 ], [ %348, %347 ], [ %350, %349 ], [ %352, %351 ], [ %354, %353 ], [ %356, %355 ], [ %358, %357 ], [ %360, %359 ], [ %362, %361 ], [ %364, %363 ], [ %366, %365 ], [ %368, %367 ], [ %370, %369 ], [ %372, %371 ], [ %374, %373 ], [ %376, %375 ], [ %377, %.thread ], [ %379, %378 ], [ %381, %380 ], [ %383, %382 ], [ %385, %384 ], [ %387, %386 ], [ %389, %388 ], [ %391, %390 ], [ %393, %392 ], [ %395, %394 ], [ %397, %396 ], [ %399, %398 ], [ %401, %400 ], [ %403, %402 ], [ %405, %404 ], [ %407, %406 ], [ %409, %408 ], [ %411, %410 ], [ %413, %412 ], [ %415, %414 ], [ %417, %416 ], [ %419, %418 ], [ %421, %420 ], [ %423, %422 ], [ %425, %424 ], [ %427, %426 ], [ %429, %428 ], [ %431, %430 ], [ %433, %432 ], [ %435, %434 ], [ %437, %436 ], [ %439, %438 ]
+  %.3 = phi i32 [ %.2674, %dissect_kafka_insert_match.exit ], [ %.4.ph, %340 ], [ %342, %341 ], [ %344, %343 ], [ %346, %345 ], [ %348, %347 ], [ %350, %349 ], [ %352, %351 ], [ %354, %353 ], [ %356, %355 ], [ %358, %357 ], [ %360, %359 ], [ %362, %361 ], [ %364, %363 ], [ %366, %365 ], [ %368, %367 ], [ %370, %369 ], [ %372, %371 ], [ %374, %373 ], [ %376, %375 ], [ %377, %.thread ], [ %379, %378 ], [ %381, %380 ], [ %383, %382 ], [ %385, %384 ], [ %387, %386 ], [ %389, %388 ], [ %391, %390 ], [ %393, %392 ], [ %395, %394 ], [ %397, %396 ], [ %399, %398 ], [ %401, %400 ], [ %403, %402 ], [ %405, %404 ], [ %407, %406 ], [ %409, %408 ], [ %411, %410 ], [ %413, %412 ], [ %415, %414 ], [ %417, %416 ], [ %419, %418 ], [ %421, %420 ], [ %423, %422 ], [ %425, %424 ], [ %427, %426 ], [ %429, %428 ], [ %431, %430 ], [ %433, %432 ], [ %435, %434 ], [ %437, %436 ], [ %439, %438 ], [ %.2673, %dissect_kafka_insert_match.exit.thread ]
   %441 = add i32 %12, 4
   %.not = icmp eq i32 %.3, %441
   br i1 %.not, label %444, label %442
@@ -2203,7 +2203,7 @@ kafka_get_api_info.exit.thread.sink.split:        ; preds = %29, %34, %27
   br label %kafka_get_api_info.exit.thread
 
 kafka_get_api_info.exit.thread:                   ; preds = %8, %kafka_get_api_info.exit.thread.sink.split, %3, %kafka_is_api_version_supported.exit, %kafka_get_api_info.exit
-  %.0 = phi i16 [ %5, %kafka_is_api_version_supported.exit ], [ %5, %3 ], [ %5, %kafka_get_api_info.exit ], [ %.0.ph, %kafka_get_api_info.exit.thread.sink.split ], [ %5, %8 ]
+  %.0 = phi i16 [ %5, %kafka_is_api_version_supported.exit ], [ %5, %kafka_get_api_info.exit ], [ %5, %3 ], [ %.0.ph, %kafka_get_api_info.exit.thread.sink.split ], [ %5, %8 ]
   ret i16 %.0
 }
 
@@ -5048,7 +5048,7 @@ dissect_kafka_array.exit.sink.split:              ; preds = %.lr.ph.i.i20.i, %20
   br label %dissect_kafka_array.exit
 
 dissect_kafka_array.exit:                         ; preds = %24, %dissect_kafka_array.exit.sink.split, %.preheader.i.i15.i
-  %.0.i = phi i32 [ %.0.i.ph, %dissect_kafka_array.exit.sink.split ], [ %18, %.preheader.i.i15.i ], [ %27, %24 ]
+  %.0.i = phi i32 [ %18, %.preheader.i.i15.i ], [ %.0.i.ph, %dissect_kafka_array.exit.sink.split ], [ %27, %24 ]
   %31 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %31, ptr noundef %0, i32 noundef %.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -6608,7 +6608,7 @@ show_compression_reduction.exit.i28:              ; preds = %117, %114, %108, %1
   br label %126
 
 126:                                              ; preds = %125, %show_compression_reduction.exit.i28, %93
-  %.1.i = phi i32 [ %102, %125 ], [ %124, %show_compression_reduction.exit.i28 ], [ %95, %93 ]
+  %.1.i = phi i32 [ %124, %show_compression_reduction.exit.i28 ], [ %102, %125 ], [ %95, %93 ]
   %127 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %127, ptr noundef %0, i32 noundef %.1.i)
   br label %dissect_kafka_message_old.exit
@@ -7013,7 +7013,7 @@ dissect_kafka_message.exit:                       ; preds = %dissect_kafka_messa
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %40, %49, %336, %._crit_edge
-  %.0.lcssa62 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %336 ], [ %27, %49 ], [ %27, %40 ]
+  %.0.lcssa62 = phi i32 [ %.0.lcssa, %336 ], [ %.0.lcssa, %._crit_edge ], [ %27, %49 ], [ %27, %40 ]
   %339 = load ptr, ptr %26, align 8
   call void @proto_item_set_end(ptr noundef %339, ptr noundef %0, i32 noundef %.0.lcssa62)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -7428,7 +7428,7 @@ switch.lookup:                                    ; preds = %111
   br i1 %.not57.i, label %.critedge.i38.thread, label %121
 
 .critedge.i38:                                    ; preds = %137, %.lr.ph.i37, %121
-  %.044.i = phi ptr [ %.172.i, %137 ], [ %.2.i39, %121 ], [ %.172.i, %.lr.ph.i37 ]
+  %.044.i = phi ptr [ %.2.i39, %121 ], [ %.172.i, %.lr.ph.i37 ], [ %.172.i, %137 ]
   %.not58.i = icmp eq ptr %.044.i, null
   br i1 %.not58.i, label %.sink.split, label %154
 
@@ -7450,7 +7450,7 @@ switch.lookup:                                    ; preds = %111
   br i1 %.043.i50, label %157, label %160
 
 157:                                              ; preds = %.thread, %154
-  %.044.i48 = phi ptr [ null, %.thread ], [ %.044.i47, %154 ]
+  %.044.i48 = phi ptr [ %.044.i47, %154 ], [ null, %.thread ]
   store ptr %.044.i48, ptr %5, align 8
   store i32 0, ptr %6, align 4
   br label %decompress_lz4.exit
@@ -7515,7 +7515,7 @@ decompress_lz4.exit:                              ; preds = %157, %160
   br label %decompress_snappy.exit
 
 decompress_snappy.exit:                           ; preds = %172, %169, %166, %163, %.critedge.i, %57, %.thread77.i, %.thread70.thread.i, %.thread.thread.i, %176, %175, %decompress_lz4.exit, %18, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %18 ], [ false, %176 ], [ true, %175 ], [ %.0436366.i, %decompress_lz4.exit ], [ true, %.thread.thread.i ], [ false, %166 ], [ true, %57 ], [ false, %.critedge.i ], [ true, %.thread77.i ], [ true, %.thread70.thread.i ], [ true, %163 ], [ true, %169 ], [ false, %172 ]
+  %.0 = phi i1 [ false, %14 ], [ false, %18 ], [ false, %176 ], [ %.0436366.i, %decompress_lz4.exit ], [ true, %175 ], [ true, %57 ], [ false, %.critedge.i ], [ true, %.thread77.i ], [ true, %.thread70.thread.i ], [ true, %.thread.thread.i ], [ true, %163 ], [ false, %166 ], [ true, %169 ], [ false, %172 ]
   ret i1 %.0
 }
 
@@ -9496,7 +9496,7 @@ dissect_kafka_array.exit.sink.split:              ; preds = %19, %5
   br label %dissect_kafka_array.exit
 
 dissect_kafka_array.exit:                         ; preds = %.preheader, %dissect_kafka_array.exit.sink.split, %.preheader.i.i15.i
-  %.0.i = phi i32 [ %17, %dissect_kafka_array.exit.sink.split ], [ %17, %.preheader.i.i15.i ], [ %25, %.preheader ]
+  %.0.i = phi i32 [ %17, %.preheader.i.i15.i ], [ %17, %dissect_kafka_array.exit.sink.split ], [ %25, %.preheader ]
   %29 = load ptr, ptr %9, align 8
   call void @proto_item_set_end(ptr noundef %29, ptr noundef %0, i32 noundef %.0.i)
   %30 = load ptr, ptr %8, align 8
@@ -9596,7 +9596,7 @@ dissect_kafka_array.exit.sink.split:              ; preds = %19, %5
   br label %dissect_kafka_array.exit
 
 dissect_kafka_array.exit:                         ; preds = %.preheader, %dissect_kafka_array.exit.sink.split, %.preheader.i.i15.i
-  %.0.i = phi i32 [ %17, %dissect_kafka_array.exit.sink.split ], [ %17, %.preheader.i.i15.i ], [ %25, %.preheader ]
+  %.0.i = phi i32 [ %17, %.preheader.i.i15.i ], [ %17, %dissect_kafka_array.exit.sink.split ], [ %25, %.preheader ]
   %29 = load ptr, ptr %9, align 8
   call void @proto_item_set_end(ptr noundef %29, ptr noundef %0, i32 noundef %.0.i)
   %30 = load ptr, ptr %8, align 8
@@ -9948,7 +9948,7 @@ dissect_kafka_array.exit.sink.split:              ; preds = %19, %5
   br label %dissect_kafka_array.exit
 
 dissect_kafka_array.exit:                         ; preds = %.preheader, %dissect_kafka_array.exit.sink.split, %.preheader.i.i15.i
-  %.0.i = phi i32 [ %17, %dissect_kafka_array.exit.sink.split ], [ %17, %.preheader.i.i15.i ], [ %25, %.preheader ]
+  %.0.i = phi i32 [ %17, %.preheader.i.i15.i ], [ %17, %dissect_kafka_array.exit.sink.split ], [ %25, %.preheader ]
   %29 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %29, ptr noundef %0, i32 noundef %.0.i)
   %30 = load ptr, ptr %6, align 8
@@ -10011,7 +10011,7 @@ dissect_kafka_array.exit.sink.split:              ; preds = %19, %5
   br label %dissect_kafka_array.exit
 
 dissect_kafka_array.exit:                         ; preds = %.preheader, %dissect_kafka_array.exit.sink.split, %.preheader.i.i15.i
-  %.0.i = phi i32 [ %17, %dissect_kafka_array.exit.sink.split ], [ %17, %.preheader.i.i15.i ], [ %25, %.preheader ]
+  %.0.i = phi i32 [ %17, %.preheader.i.i15.i ], [ %17, %dissect_kafka_array.exit.sink.split ], [ %25, %.preheader ]
   %29 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %29, ptr noundef %0, i32 noundef %.0.i)
   %30 = load ptr, ptr %6, align 8
@@ -10311,7 +10311,7 @@ dissect_kafka_array.exit.sink.split:              ; preds = %19, %5
   br label %dissect_kafka_array.exit
 
 dissect_kafka_array.exit:                         ; preds = %.preheader, %dissect_kafka_array.exit.sink.split, %.preheader.i.i15.i
-  %.0.i = phi i32 [ %17, %dissect_kafka_array.exit.sink.split ], [ %17, %.preheader.i.i15.i ], [ %25, %.preheader ]
+  %.0.i = phi i32 [ %17, %.preheader.i.i15.i ], [ %17, %dissect_kafka_array.exit.sink.split ], [ %25, %.preheader ]
   %29 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %29, ptr noundef %0, i32 noundef %.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -10392,7 +10392,7 @@ dissect_kafka_array.exit.sink.split:              ; preds = %17, %5
   br label %dissect_kafka_array.exit
 
 dissect_kafka_array.exit:                         ; preds = %.preheader, %dissect_kafka_array.exit.sink.split, %.preheader.i.i15.i
-  %.0.i = phi i32 [ %15, %dissect_kafka_array.exit.sink.split ], [ %15, %.preheader.i.i15.i ], [ %23, %.preheader ]
+  %.0.i = phi i32 [ %15, %.preheader.i.i15.i ], [ %15, %dissect_kafka_array.exit.sink.split ], [ %23, %.preheader ]
   %27 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %27, ptr noundef %0, i32 noundef %.0.i)
   %28 = load ptr, ptr %7, align 8

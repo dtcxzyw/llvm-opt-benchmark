@@ -1471,7 +1471,7 @@ _ZN9grpc_core7ExecCtxD2Ev.exit:                   ; preds = %_ZN9grpc_core4Fork1
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %157, %72, %78, %108, %117, %139, %142
-  %eh.lpad-body = phi { ptr, i32 } [ %109, %108 ], [ %143, %142 ], [ %73, %72 ], [ %79, %78 ], [ %140, %139 ], [ %118, %117 ], [ %158, %157 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %143, %142 ], [ %79, %78 ], [ %73, %72 ], [ %140, %139 ], [ %118, %117 ], [ %109, %108 ], [ %158, %157 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN9grpc_core7ExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.resume
@@ -1597,7 +1597,7 @@ define linkonce_odr i64 @_ZN9grpc_coremiENS_9TimestampES0_(i64 %0, i64 %1) local
   br label %_ZN9grpc_core11time_detail9MillisAddEll.exit
 
 _ZN9grpc_core11time_detail9MillisAddEll.exit:     ; preds = %4, %19, %16, %13, %8, %.thread, %3
-  %.sroa.04.0 = phi i64 [ %spec.select, %4 ], [ 9223372036854775807, %3 ], [ -9223372036854775808, %8 ], [ 9223372036854775807, %.thread ], [ -9223372036854775808, %16 ], [ %20, %19 ], [ 9223372036854775807, %13 ]
+  %.sroa.04.0 = phi i64 [ 9223372036854775807, %3 ], [ 9223372036854775807, %.thread ], [ -9223372036854775808, %8 ], [ %20, %19 ], [ 9223372036854775807, %13 ], [ -9223372036854775808, %16 ], [ %spec.select, %4 ]
   ret i64 %.sroa.04.0
 }
 

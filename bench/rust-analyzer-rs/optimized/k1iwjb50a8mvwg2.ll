@@ -158,7 +158,7 @@ define hidden void @"_ZN3fst3raw5build16Builder$LT$W$GT$10into_inner17h8ca3f83cf
 18:                                               ; preds = %57
   br i1 %.4, label %241, label %239
 
-.thread:                                          ; preds = %162, %23, %2
+.thread:                                          ; preds = %23, %2, %162
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %241
@@ -743,7 +743,7 @@ define hidden void @"_ZN3fst3raw5build16Builder$LT$W$GT$10into_inner17h8ca3f83cf
           to label %242 unwind label %159
 
 241:                                              ; preds = %.thread, %18
-  %.pn83128 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %.pn81, %18 ]
+  %.pn83128 = phi { ptr, i32 } [ %.pn81, %18 ], [ %lpad.thr_comm, %.thread ]
   invoke void @"_ZN4core3ptr95drop_in_place$LT$fst..raw..counting_writer..CountingWriter$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2f452030657ba6cfE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1) #20
           to label %239 unwind label %159
 
@@ -831,7 +831,7 @@ define hidden void @"_ZN3fst3raw5build16Builder$LT$W$GT$11extend_iter17hdd6d6b24
   unreachable
 
 common.resume:                                    ; preds = %18, %46, %26
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %27, %26 ], [ %19, %18 ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %47, %46 ], [ %19, %18 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr339drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$u64$RP$$GT$$C$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$..extend_iter$LT$alloc..vec..Vec$LT$u8$GT$$C$alloc..vec..Vec$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$u64$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h35a902c0c3b71852E.exit": ; preds = %._crit_edge
@@ -1452,13 +1452,13 @@ define hidden void @"_ZN3fst3raw5build16Builder$LT$W$GT$6insert17hcbfa93ebd296c7
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #22, !noalias !272
   unreachable
 
-132:                                              ; preds = %71, %.noexc16
-  %.sroa.12.045.ph = phi ptr [ undef, %.noexc16 ], [ %73, %71 ]
-  %.sroa.7.sroa.5.0.ph = phi i64 [ %45, %.noexc16 ], [ %53, %71 ]
-  %.sroa.7.sroa.6.0.ph = phi ptr [ %46, %.noexc16 ], [ %54, %71 ]
-  %.sroa.7.sroa.7.0.ph = phi i64 [ %.val15, %.noexc16 ], [ %36, %71 ]
-  %.sroa.7.sroa.8.0.ph = phi i64 [ undef, %.noexc16 ], [ %72, %71 ]
-  %.sroa.0.0.ph = phi i32 [ 4, %.noexc16 ], [ 5, %71 ]
+132:                                              ; preds = %.noexc16, %71
+  %.sroa.12.045.ph = phi ptr [ %73, %71 ], [ undef, %.noexc16 ]
+  %.sroa.7.sroa.5.0.ph = phi i64 [ %53, %71 ], [ %45, %.noexc16 ]
+  %.sroa.7.sroa.6.0.ph = phi ptr [ %54, %71 ], [ %46, %.noexc16 ]
+  %.sroa.7.sroa.7.0.ph = phi i64 [ %36, %71 ], [ %.val15, %.noexc16 ]
+  %.sroa.7.sroa.8.0.ph = phi i64 [ %72, %71 ], [ undef, %.noexc16 ]
+  %.sroa.0.0.ph = phi i32 [ 5, %71 ], [ 4, %.noexc16 ]
   store i32 %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.211.sroa.2.0..sroa.211.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.7.sroa.5.0.ph, ptr %.sroa.211.sroa.2.0..sroa.211.0..sroa_idx.sroa_idx, align 8
@@ -1507,7 +1507,7 @@ define hidden void @"_ZN3fst3raw5build16Builder$LT$W$GT$6insert17hcbfa93ebd296c7
   resume { ptr, i32 } %eh.lpad-body31
 
 .body.thread:                                     ; preds = %.body.thread36.loopexit, %.body.thread36.loopexit.split-lp, %77, %69
-  %eh.lpad-body32 = phi { ptr, i32 } [ %78, %77 ], [ %70, %69 ], [ %lpad.loopexit, %.body.thread36.loopexit ], [ %lpad.loopexit.split-lp, %.body.thread36.loopexit.split-lp ]
+  %eh.lpad-body32 = phi { ptr, i32 } [ %70, %69 ], [ %78, %77 ], [ %lpad.loopexit, %.body.thread36.loopexit ], [ %lpad.loopexit.split-lp, %.body.thread36.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0bc1d51c2821d2ccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #20
           to label %.body.thread33 unwind label %143
 

@@ -1742,7 +1742,7 @@ define internal i32 @dissect_ldp_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %20, %._crit_edge, %46, %32
-  %.060 = phi i32 [ %99, %._crit_edge ], [ %50, %46 ], [ -268435455, %32 ], [ 0, %20 ], [ 0, %22 ]
+  %.060 = phi i32 [ -268435455, %32 ], [ %50, %46 ], [ %99, %._crit_edge ], [ 0, %20 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3410,8 +3410,8 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br label %.loopexit702
 
 .loopexit:                                        ; preds = %426, %215, %407, %186, %440, %501, %492, %345, %332, %._crit_edge, %140, %114, %95, %71, %45, %22
-  %.1620 = phi i32 [ %28, %22 ], [ %73, %71 ], [ %101, %95 ], [ %50, %45 ], [ %142, %140 ], [ %158, %._crit_edge ], [ %120, %114 ], [ %457, %440 ], [ %333, %332 ], [ %370, %345 ], [ %216, %215 ], [ %505, %501 ], [ %498, %492 ], [ %192, %186 ], [ %.3622, %407 ], [ %427, %426 ]
-  %.1 = phi i32 [ %29, %22 ], [ %72, %71 ], [ %100, %95 ], [ %49, %45 ], [ %141, %140 ], [ %157, %._crit_edge ], [ %119, %114 ], [ %458, %440 ], [ %334, %332 ], [ %369, %345 ], [ %218, %215 ], [ %506, %501 ], [ %499, %492 ], [ %194, %186 ], [ %.3, %407 ], [ %430, %426 ]
+  %.1620 = phi i32 [ %28, %22 ], [ %73, %71 ], [ %101, %95 ], [ %50, %45 ], [ %142, %140 ], [ %158, %._crit_edge ], [ %120, %114 ], [ %333, %332 ], [ %370, %345 ], [ %505, %501 ], [ %498, %492 ], [ %457, %440 ], [ %192, %186 ], [ %.3622, %407 ], [ %216, %215 ], [ %427, %426 ]
+  %.1 = phi i32 [ %29, %22 ], [ %72, %71 ], [ %100, %95 ], [ %49, %45 ], [ %141, %140 ], [ %157, %._crit_edge ], [ %119, %114 ], [ %334, %332 ], [ %369, %345 ], [ %506, %501 ], [ %499, %492 ], [ %458, %440 ], [ %194, %186 ], [ %.3, %407 ], [ %218, %215 ], [ %430, %426 ]
   %512 = add i16 %.0631812, 1
   %513 = icmp sgt i32 %.1620, 0
   br i1 %513, label %20, label %.loopexit702, !llvm.loop !16
@@ -3764,8 +3764,8 @@ define internal fastcc void @dissect_tlv_common_hello_parms(ptr noundef %0, ptr 
   %16 = and i16 %15, 8192
   %.not = icmp eq i16 %16, 0
   %.not28 = icmp sgt i16 %15, -1
-  %ei_ldp_gtsm_not_supported.ei_ldp_gtsm_not_supported_basic_discovery = select i1 %.not28, ptr @ei_ldp_gtsm_not_supported, ptr @ei_ldp_gtsm_not_supported_basic_discovery
   %ei_ldp_gtsm_supported.ei_ldp_dtsm_and_target = select i1 %.not28, ptr @ei_ldp_gtsm_supported, ptr @ei_ldp_dtsm_and_target
+  %ei_ldp_gtsm_not_supported.ei_ldp_gtsm_not_supported_basic_discovery = select i1 %.not28, ptr @ei_ldp_gtsm_not_supported, ptr @ei_ldp_gtsm_not_supported_basic_discovery
   %ei_ldp_gtsm_not_supported_basic_discovery.sink = select i1 %.not, ptr %ei_ldp_gtsm_not_supported.ei_ldp_gtsm_not_supported_basic_discovery, ptr %ei_ldp_gtsm_supported.ei_ldp_dtsm_and_target
   %17 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %13, ptr noundef nonnull %ei_ldp_gtsm_not_supported_basic_discovery.sink)
   %18 = load i32, ptr @hf_ldp_tlv_val_res, align 4

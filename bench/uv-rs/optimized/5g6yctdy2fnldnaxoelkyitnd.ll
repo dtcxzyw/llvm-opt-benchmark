@@ -2093,7 +2093,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i64 2, ptr %32, align 8, !alias.scope !713
   br label %39
 
-39:                                               ; preds = %38, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hbd56a09260e50555E.exit.thread.i.i"
+39:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hbd56a09260e50555E.exit.thread.i.i", %38
   store i64 0, ptr %0, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %40, align 8
@@ -4096,7 +4096,7 @@ _ZN4core3ops8function6FnOnce9call_once17h32a26142e734eee1E.exit.thread8: ; preds
   br label %50
 
 50:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h32a26142e734eee1E.exit.thread12, %_ZN4core3ops8function6FnOnce9call_once17h32a26142e734eee1E.exit.thread, %_ZN4core3ops8function6FnOnce9call_once17h32a26142e734eee1E.exit.thread8
-  %.sroa.0.17 = phi i64 [ %.pr.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h32a26142e734eee1E.exit.thread ], [ %.pr.i4.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h32a26142e734eee1E.exit.thread12 ], [ -9223372036854775806, %_ZN4core3ops8function6FnOnce9call_once17h32a26142e734eee1E.exit.thread8 ]
+  %.sroa.0.17 = phi i64 [ %.pr.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h32a26142e734eee1E.exit.thread ], [ -9223372036854775806, %_ZN4core3ops8function6FnOnce9call_once17h32a26142e734eee1E.exit.thread8 ], [ %.pr.i4.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h32a26142e734eee1E.exit.thread12 ]
   store i64 %.sroa.0.17, ptr %0, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.8, i64 160, i1 false)
@@ -4588,7 +4588,7 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #31
   unreachable
 
-42:                                               ; preds = %19, %14
+42:                                               ; preds = %14, %19
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4bb9012c6e739e7fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #30
@@ -4735,7 +4735,7 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
           to label %57 unwind label %53
 
 .critedge11:                                      ; preds = %57, %30
-  %.pn18 = phi { ptr, i32 } [ %56, %57 ], [ %26, %30 ]
+  %.pn18 = phi { ptr, i32 } [ %26, %30 ], [ %56, %57 ]
   resume { ptr, i32 } %.pn18
 
 57:                                               ; preds = %55
@@ -4981,7 +4981,7 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #31
   unreachable
 
-42:                                               ; preds = %19, %14
+42:                                               ; preds = %14, %19
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr114drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$17h34bbd810502cb11aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #30
@@ -5214,7 +5214,7 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #31
   unreachable
 
-42:                                               ; preds = %19, %14
+42:                                               ; preds = %14, %19
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %43 = load i64, ptr %2, align 8, !range !328, !alias.scope !1327, !noundef !3
@@ -5882,7 +5882,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hf9ede7e15f7c1aa2E"
   br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h5d8dfd3fb8e81940E.llvm.5503902822965331766.exit": ; preds = %4, %._crit_edge.i
-  %storemerge = phi i64 [ %1, %4 ], [ %23, %._crit_edge.i ]
+  %storemerge = phi i64 [ %23, %._crit_edge.i ], [ %1, %4 ]
   store i64 %storemerge, ptr %5, align 8
   ret void
 }
@@ -7317,7 +7317,7 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.exit: ; preds = %2
           to label %common.resume unwind label %44
 
 common.resume:                                    ; preds = %.body, %.body37
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %41, %.body37 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %.body37 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17h38c78069c8eccf2cE.exit": ; preds = %25
@@ -8508,8 +8508,8 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h6f399403370f1fbdE.exit: ; 
   br label %72
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h6f399403370f1fbdE.exit.thread: ; preds = %57, %47
-  %.sroa.7.040 = phi i64 [ 0, %47 ], [ %3, %57 ]
-  %.sroa.11.039 = phi i64 [ undef, %47 ], [ %44, %57 ]
+  %.sroa.7.040 = phi i64 [ %3, %57 ], [ 0, %47 ]
+  %.sroa.11.039 = phi i64 [ %44, %57 ], [ undef, %47 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.7.040, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8643,9 +8643,9 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h0b72b29bf4f0b2bfE.exi
   br label %.preheader
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h0b72b29bf4f0b2bfE.exit.thread: ; preds = %48, %53, %29
-  %.pn.i.pn = phi { i64, i64 } [ %30, %29 ], [ %49, %48 ], [ %54, %53 ]
-  %.sroa.7.035 = extractvalue { i64, i64 } %.pn.i.pn, 0
-  %.sroa.12.036 = extractvalue { i64, i64 } %.pn.i.pn, 1
+  %.pn = phi { i64, i64 } [ %30, %29 ], [ %54, %53 ], [ %49, %48 ]
+  %.sroa.7.035 = extractvalue { i64, i64 } %.pn, 0
+  %.sroa.12.036 = extractvalue { i64, i64 } %.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1899
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17ha79bd230b5e415b4E.exit.i
 
@@ -9605,23 +9605,23 @@ define void @"_ZN16uv_build_backend8settings1_99_$LT$impl$u20$schemars..JsonSche
   br label %291
 
 .body:                                            ; preds = %285, %289, %.body38.thread, %284, %.body55.thread, %281, %.body89.thread, %278, %.body110.thread, %275, %.body130.thread, %270, %261, %264, %.body130, %234, %237, %.body110, %206, %209, %.body89, %179, %182, %166, %158, %161, %.body55, %131, %134, %.body38, %97, %100, %84, %70
-  %.sroa.012.2 = phi i1 [ true, %84 ], [ false, %261 ], [ false, %.body130 ], [ false, %.body130.thread ], [ false, %.body110 ], [ false, %.body110.thread ], [ true, %.body89 ], [ true, %.body89.thread ], [ true, %166 ], [ true, %278 ], [ true, %.body55 ], [ true, %.body55.thread ], [ true, %.body38 ], [ true, %.body38.thread ], [ false, %234 ], [ true, %97 ], [ true, %131 ], [ true, %158 ], [ true, %179 ], [ true, %206 ], [ %.sroa.012.1, %70 ], [ true, %100 ], [ true, %134 ], [ true, %161 ], [ true, %182 ], [ true, %209 ], [ false, %237 ], [ false, %264 ], [ false, %270 ], [ false, %275 ], [ true, %281 ], [ true, %284 ], [ true, %289 ], [ true, %285 ]
-  %.sroa.011.2 = phi i1 [ true, %84 ], [ false, %261 ], [ false, %.body130 ], [ false, %.body130.thread ], [ true, %.body110 ], [ true, %.body110.thread ], [ true, %.body89 ], [ true, %.body89.thread ], [ true, %166 ], [ true, %278 ], [ true, %.body55 ], [ true, %.body55.thread ], [ true, %.body38 ], [ true, %.body38.thread ], [ true, %234 ], [ true, %97 ], [ true, %131 ], [ true, %158 ], [ true, %179 ], [ true, %206 ], [ %.sroa.011.1, %70 ], [ true, %100 ], [ true, %134 ], [ true, %161 ], [ true, %182 ], [ true, %209 ], [ true, %237 ], [ false, %264 ], [ false, %270 ], [ true, %275 ], [ true, %281 ], [ true, %284 ], [ true, %289 ], [ true, %285 ]
-  %.sroa.013.2 = phi i1 [ true, %84 ], [ false, %261 ], [ false, %.body130 ], [ false, %.body130.thread ], [ false, %.body110 ], [ false, %.body110.thread ], [ false, %.body89 ], [ false, %.body89.thread ], [ true, %166 ], [ false, %278 ], [ true, %.body55 ], [ true, %.body55.thread ], [ true, %.body38 ], [ true, %.body38.thread ], [ false, %234 ], [ true, %97 ], [ true, %131 ], [ true, %158 ], [ true, %179 ], [ false, %206 ], [ %.sroa.013.1, %70 ], [ true, %100 ], [ true, %134 ], [ true, %161 ], [ true, %182 ], [ false, %209 ], [ false, %237 ], [ false, %264 ], [ false, %270 ], [ false, %275 ], [ true, %281 ], [ true, %284 ], [ true, %289 ], [ true, %285 ]
-  %.sroa.014.2 = phi i1 [ true, %84 ], [ false, %261 ], [ false, %.body130 ], [ false, %.body130.thread ], [ false, %.body110 ], [ false, %.body110.thread ], [ false, %.body89 ], [ false, %.body89.thread ], [ false, %166 ], [ false, %278 ], [ false, %.body55 ], [ false, %.body55.thread ], [ true, %.body38 ], [ true, %.body38.thread ], [ false, %234 ], [ true, %97 ], [ true, %131 ], [ false, %158 ], [ false, %179 ], [ false, %206 ], [ %.sroa.014.1, %70 ], [ true, %100 ], [ true, %134 ], [ false, %161 ], [ false, %182 ], [ false, %209 ], [ false, %237 ], [ false, %264 ], [ false, %270 ], [ false, %275 ], [ false, %281 ], [ true, %284 ], [ true, %289 ], [ true, %285 ]
-  %.sroa.015.2 = phi i1 [ true, %84 ], [ false, %261 ], [ false, %.body130 ], [ false, %.body130.thread ], [ false, %.body110 ], [ false, %.body110.thread ], [ false, %.body89 ], [ false, %.body89.thread ], [ false, %166 ], [ false, %278 ], [ false, %.body55 ], [ false, %.body55.thread ], [ false, %.body38 ], [ false, %.body38.thread ], [ false, %234 ], [ true, %97 ], [ false, %131 ], [ false, %158 ], [ false, %179 ], [ false, %206 ], [ %.sroa.015.1, %70 ], [ true, %100 ], [ false, %134 ], [ false, %161 ], [ false, %182 ], [ false, %209 ], [ false, %237 ], [ false, %264 ], [ false, %270 ], [ false, %275 ], [ false, %281 ], [ false, %284 ], [ true, %289 ], [ true, %285 ]
-  %.sroa.016.2 = phi i1 [ false, %84 ], [ false, %261 ], [ false, %.body130 ], [ false, %.body130.thread ], [ false, %.body110 ], [ false, %.body110.thread ], [ false, %.body89 ], [ false, %.body89.thread ], [ false, %166 ], [ false, %278 ], [ false, %.body55 ], [ false, %.body55.thread ], [ false, %.body38 ], [ false, %.body38.thread ], [ false, %234 ], [ false, %97 ], [ false, %131 ], [ false, %158 ], [ false, %179 ], [ false, %206 ], [ %.sroa.016.1, %70 ], [ false, %100 ], [ false, %134 ], [ false, %161 ], [ false, %182 ], [ false, %209 ], [ false, %237 ], [ false, %264 ], [ false, %270 ], [ false, %275 ], [ false, %281 ], [ false, %284 ], [ false, %289 ], [ false, %285 ]
-  %.pn = phi { ptr, i32 } [ %85, %84 ], [ %lpad.thr_comm.split-lp.i134, %261 ], [ %lpad.thr_comm.split-lp213, %.body130 ], [ %eh.lpad-body131211, %.body130.thread ], [ %lpad.thr_comm.split-lp205, %.body110 ], [ %eh.lpad-body111203, %.body110.thread ], [ %lpad.thr_comm.split-lp197, %.body89 ], [ %eh.lpad-body90195, %.body89.thread ], [ %167, %166 ], [ %eh.lpad-body90195, %278 ], [ %lpad.thr_comm.split-lp, %.body55 ], [ %eh.lpad-body56189, %.body55.thread ], [ %120, %.body38 ], [ %eh.lpad-body39184, %.body38.thread ], [ %lpad.thr_comm.split-lp.i115, %234 ], [ %lpad.thr_comm.split-lp.i, %97 ], [ %lpad.thr_comm.split-lp.i41, %131 ], [ %lpad.thr_comm.split-lp.i59, %158 ], [ %lpad.thr_comm.split-lp.i74, %179 ], [ %lpad.thr_comm.split-lp.i94, %206 ], [ %71, %70 ], [ %lpad.thr_comm.split-lp.i, %100 ], [ %lpad.thr_comm.split-lp.i41, %134 ], [ %lpad.thr_comm.split-lp.i59, %161 ], [ %lpad.thr_comm.split-lp.i74, %182 ], [ %lpad.thr_comm.split-lp.i94, %209 ], [ %lpad.thr_comm.split-lp.i115, %237 ], [ %lpad.thr_comm.split-lp.i134, %264 ], [ %eh.lpad-body131211, %270 ], [ %eh.lpad-body111203, %275 ], [ %eh.lpad-body56189, %281 ], [ %eh.lpad-body39184, %284 ], [ %286, %289 ], [ %286, %285 ]
+  %.sroa.012.2 = phi i1 [ false, %.body130 ], [ false, %.body110 ], [ true, %.body89 ], [ true, %166 ], [ true, %.body55 ], [ true, %.body38 ], [ true, %84 ], [ %.sroa.012.1, %70 ], [ true, %100 ], [ true, %97 ], [ true, %134 ], [ true, %131 ], [ true, %161 ], [ true, %158 ], [ true, %182 ], [ true, %179 ], [ true, %209 ], [ true, %206 ], [ false, %237 ], [ false, %234 ], [ false, %264 ], [ false, %261 ], [ false, %270 ], [ false, %.body130.thread ], [ false, %275 ], [ false, %.body110.thread ], [ true, %278 ], [ true, %.body89.thread ], [ true, %281 ], [ true, %.body55.thread ], [ true, %284 ], [ true, %.body38.thread ], [ true, %289 ], [ true, %285 ]
+  %.sroa.011.2 = phi i1 [ false, %.body130 ], [ true, %.body110 ], [ true, %.body89 ], [ true, %166 ], [ true, %.body55 ], [ true, %.body38 ], [ true, %84 ], [ %.sroa.011.1, %70 ], [ true, %100 ], [ true, %97 ], [ true, %134 ], [ true, %131 ], [ true, %161 ], [ true, %158 ], [ true, %182 ], [ true, %179 ], [ true, %209 ], [ true, %206 ], [ true, %237 ], [ true, %234 ], [ false, %264 ], [ false, %261 ], [ false, %270 ], [ false, %.body130.thread ], [ true, %275 ], [ true, %.body110.thread ], [ true, %278 ], [ true, %.body89.thread ], [ true, %281 ], [ true, %.body55.thread ], [ true, %284 ], [ true, %.body38.thread ], [ true, %289 ], [ true, %285 ]
+  %.sroa.013.2 = phi i1 [ false, %.body130 ], [ false, %.body110 ], [ false, %.body89 ], [ true, %166 ], [ true, %.body55 ], [ true, %.body38 ], [ true, %84 ], [ %.sroa.013.1, %70 ], [ true, %100 ], [ true, %97 ], [ true, %134 ], [ true, %131 ], [ true, %161 ], [ true, %158 ], [ true, %182 ], [ true, %179 ], [ false, %209 ], [ false, %206 ], [ false, %237 ], [ false, %234 ], [ false, %264 ], [ false, %261 ], [ false, %270 ], [ false, %.body130.thread ], [ false, %275 ], [ false, %.body110.thread ], [ false, %278 ], [ false, %.body89.thread ], [ true, %281 ], [ true, %.body55.thread ], [ true, %284 ], [ true, %.body38.thread ], [ true, %289 ], [ true, %285 ]
+  %.sroa.014.2 = phi i1 [ false, %.body130 ], [ false, %.body110 ], [ false, %.body89 ], [ false, %166 ], [ false, %.body55 ], [ true, %.body38 ], [ true, %84 ], [ %.sroa.014.1, %70 ], [ true, %100 ], [ true, %97 ], [ true, %134 ], [ true, %131 ], [ false, %161 ], [ false, %158 ], [ false, %182 ], [ false, %179 ], [ false, %209 ], [ false, %206 ], [ false, %237 ], [ false, %234 ], [ false, %264 ], [ false, %261 ], [ false, %270 ], [ false, %.body130.thread ], [ false, %275 ], [ false, %.body110.thread ], [ false, %278 ], [ false, %.body89.thread ], [ false, %281 ], [ false, %.body55.thread ], [ true, %284 ], [ true, %.body38.thread ], [ true, %289 ], [ true, %285 ]
+  %.sroa.015.2 = phi i1 [ false, %.body130 ], [ false, %.body110 ], [ false, %.body89 ], [ false, %166 ], [ false, %.body55 ], [ false, %.body38 ], [ true, %84 ], [ %.sroa.015.1, %70 ], [ true, %100 ], [ true, %97 ], [ false, %134 ], [ false, %131 ], [ false, %161 ], [ false, %158 ], [ false, %182 ], [ false, %179 ], [ false, %209 ], [ false, %206 ], [ false, %237 ], [ false, %234 ], [ false, %264 ], [ false, %261 ], [ false, %270 ], [ false, %.body130.thread ], [ false, %275 ], [ false, %.body110.thread ], [ false, %278 ], [ false, %.body89.thread ], [ false, %281 ], [ false, %.body55.thread ], [ false, %284 ], [ false, %.body38.thread ], [ true, %289 ], [ true, %285 ]
+  %.sroa.016.2 = phi i1 [ false, %.body130 ], [ false, %.body110 ], [ false, %.body89 ], [ false, %166 ], [ false, %.body55 ], [ false, %.body38 ], [ false, %84 ], [ %.sroa.016.1, %70 ], [ false, %100 ], [ false, %97 ], [ false, %134 ], [ false, %131 ], [ false, %161 ], [ false, %158 ], [ false, %182 ], [ false, %179 ], [ false, %209 ], [ false, %206 ], [ false, %237 ], [ false, %234 ], [ false, %264 ], [ false, %261 ], [ false, %270 ], [ false, %.body130.thread ], [ false, %275 ], [ false, %.body110.thread ], [ false, %278 ], [ false, %.body89.thread ], [ false, %281 ], [ false, %.body55.thread ], [ false, %284 ], [ false, %.body38.thread ], [ false, %289 ], [ false, %285 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp213, %.body130 ], [ %lpad.thr_comm.split-lp205, %.body110 ], [ %lpad.thr_comm.split-lp197, %.body89 ], [ %167, %166 ], [ %lpad.thr_comm.split-lp, %.body55 ], [ %120, %.body38 ], [ %85, %84 ], [ %71, %70 ], [ %lpad.thr_comm.split-lp.i, %100 ], [ %lpad.thr_comm.split-lp.i, %97 ], [ %lpad.thr_comm.split-lp.i41, %134 ], [ %lpad.thr_comm.split-lp.i41, %131 ], [ %lpad.thr_comm.split-lp.i59, %161 ], [ %lpad.thr_comm.split-lp.i59, %158 ], [ %lpad.thr_comm.split-lp.i74, %182 ], [ %lpad.thr_comm.split-lp.i74, %179 ], [ %lpad.thr_comm.split-lp.i94, %209 ], [ %lpad.thr_comm.split-lp.i94, %206 ], [ %lpad.thr_comm.split-lp.i115, %237 ], [ %lpad.thr_comm.split-lp.i115, %234 ], [ %lpad.thr_comm.split-lp.i134, %264 ], [ %lpad.thr_comm.split-lp.i134, %261 ], [ %eh.lpad-body131211, %270 ], [ %eh.lpad-body131211, %.body130.thread ], [ %eh.lpad-body111203, %275 ], [ %eh.lpad-body111203, %.body110.thread ], [ %eh.lpad-body90195, %278 ], [ %eh.lpad-body90195, %.body89.thread ], [ %eh.lpad-body56189, %281 ], [ %eh.lpad-body56189, %.body55.thread ], [ %eh.lpad-body39184, %284 ], [ %eh.lpad-body39184, %.body38.thread ], [ %286, %289 ], [ %286, %285 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h7c008e88cb83d678E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %56) #30
           to label %68 unwind label %271
 
 70:                                               ; preds = %260, %254, %233, %227, %205, %199, %178, %172, %157, %151, %130, %124, %96, %89, %241, %240, %213, %212, %186, %185, %165, %164, %138, %137, %104, %103, %82, %81, %72
-  %.sroa.012.1 = phi i1 [ false, %260 ], [ false, %241 ], [ false, %240 ], [ false, %233 ], [ true, %213 ], [ true, %212 ], [ true, %205 ], [ true, %186 ], [ true, %185 ], [ true, %178 ], [ true, %165 ], [ true, %164 ], [ true, %157 ], [ true, %138 ], [ true, %137 ], [ true, %130 ], [ true, %104 ], [ true, %103 ], [ true, %96 ], [ true, %82 ], [ true, %81 ], [ true, %72 ], [ false, %227 ], [ false, %254 ], [ true, %89 ], [ true, %124 ], [ true, %151 ], [ true, %172 ], [ true, %199 ]
-  %.sroa.011.1 = phi i1 [ false, %260 ], [ true, %241 ], [ true, %240 ], [ true, %233 ], [ true, %213 ], [ true, %212 ], [ true, %205 ], [ true, %186 ], [ true, %185 ], [ true, %178 ], [ true, %165 ], [ true, %164 ], [ true, %157 ], [ true, %138 ], [ true, %137 ], [ true, %130 ], [ true, %104 ], [ true, %103 ], [ true, %96 ], [ true, %82 ], [ true, %81 ], [ true, %72 ], [ true, %227 ], [ false, %254 ], [ true, %89 ], [ true, %124 ], [ true, %151 ], [ true, %172 ], [ true, %199 ]
-  %.sroa.013.1 = phi i1 [ false, %260 ], [ false, %241 ], [ false, %240 ], [ false, %233 ], [ false, %213 ], [ false, %212 ], [ false, %205 ], [ true, %186 ], [ true, %185 ], [ true, %178 ], [ true, %165 ], [ true, %164 ], [ true, %157 ], [ true, %138 ], [ true, %137 ], [ true, %130 ], [ true, %104 ], [ true, %103 ], [ true, %96 ], [ true, %82 ], [ true, %81 ], [ true, %72 ], [ false, %227 ], [ false, %254 ], [ true, %89 ], [ true, %124 ], [ true, %151 ], [ true, %172 ], [ false, %199 ]
-  %.sroa.014.1 = phi i1 [ false, %260 ], [ false, %241 ], [ false, %240 ], [ false, %233 ], [ false, %213 ], [ false, %212 ], [ false, %205 ], [ false, %186 ], [ false, %185 ], [ false, %178 ], [ false, %165 ], [ false, %164 ], [ false, %157 ], [ true, %138 ], [ true, %137 ], [ true, %130 ], [ true, %104 ], [ true, %103 ], [ true, %96 ], [ true, %82 ], [ true, %81 ], [ true, %72 ], [ false, %227 ], [ false, %254 ], [ true, %89 ], [ true, %124 ], [ false, %151 ], [ false, %172 ], [ false, %199 ]
-  %.sroa.015.1 = phi i1 [ false, %260 ], [ false, %241 ], [ false, %240 ], [ false, %233 ], [ false, %213 ], [ false, %212 ], [ false, %205 ], [ false, %186 ], [ false, %185 ], [ false, %178 ], [ false, %165 ], [ false, %164 ], [ false, %157 ], [ false, %138 ], [ false, %137 ], [ false, %130 ], [ true, %104 ], [ true, %103 ], [ true, %96 ], [ true, %82 ], [ true, %81 ], [ true, %72 ], [ false, %227 ], [ false, %254 ], [ true, %89 ], [ false, %124 ], [ false, %151 ], [ false, %172 ], [ false, %199 ]
-  %.sroa.016.1 = phi i1 [ false, %260 ], [ false, %241 ], [ false, %240 ], [ false, %233 ], [ false, %213 ], [ false, %212 ], [ false, %205 ], [ false, %186 ], [ false, %185 ], [ false, %178 ], [ false, %165 ], [ false, %164 ], [ false, %157 ], [ false, %138 ], [ false, %137 ], [ false, %130 ], [ false, %104 ], [ false, %103 ], [ false, %96 ], [ true, %82 ], [ true, %81 ], [ true, %72 ], [ false, %227 ], [ false, %254 ], [ false, %89 ], [ false, %124 ], [ false, %151 ], [ false, %172 ], [ false, %199 ]
+  %.sroa.012.1 = phi i1 [ false, %241 ], [ false, %240 ], [ true, %213 ], [ true, %212 ], [ true, %186 ], [ true, %185 ], [ true, %165 ], [ true, %164 ], [ true, %138 ], [ true, %137 ], [ true, %104 ], [ true, %103 ], [ true, %82 ], [ true, %81 ], [ true, %72 ], [ true, %89 ], [ true, %96 ], [ true, %124 ], [ true, %130 ], [ true, %151 ], [ true, %157 ], [ true, %172 ], [ true, %178 ], [ true, %199 ], [ true, %205 ], [ false, %227 ], [ false, %233 ], [ false, %254 ], [ false, %260 ]
+  %.sroa.011.1 = phi i1 [ true, %241 ], [ true, %240 ], [ true, %213 ], [ true, %212 ], [ true, %186 ], [ true, %185 ], [ true, %165 ], [ true, %164 ], [ true, %138 ], [ true, %137 ], [ true, %104 ], [ true, %103 ], [ true, %82 ], [ true, %81 ], [ true, %72 ], [ true, %89 ], [ true, %96 ], [ true, %124 ], [ true, %130 ], [ true, %151 ], [ true, %157 ], [ true, %172 ], [ true, %178 ], [ true, %199 ], [ true, %205 ], [ true, %227 ], [ true, %233 ], [ false, %254 ], [ false, %260 ]
+  %.sroa.013.1 = phi i1 [ false, %241 ], [ false, %240 ], [ false, %213 ], [ false, %212 ], [ true, %186 ], [ true, %185 ], [ true, %165 ], [ true, %164 ], [ true, %138 ], [ true, %137 ], [ true, %104 ], [ true, %103 ], [ true, %82 ], [ true, %81 ], [ true, %72 ], [ true, %89 ], [ true, %96 ], [ true, %124 ], [ true, %130 ], [ true, %151 ], [ true, %157 ], [ true, %172 ], [ true, %178 ], [ false, %199 ], [ false, %205 ], [ false, %227 ], [ false, %233 ], [ false, %254 ], [ false, %260 ]
+  %.sroa.014.1 = phi i1 [ false, %241 ], [ false, %240 ], [ false, %213 ], [ false, %212 ], [ false, %186 ], [ false, %185 ], [ false, %165 ], [ false, %164 ], [ true, %138 ], [ true, %137 ], [ true, %104 ], [ true, %103 ], [ true, %82 ], [ true, %81 ], [ true, %72 ], [ true, %89 ], [ true, %96 ], [ true, %124 ], [ true, %130 ], [ false, %151 ], [ false, %157 ], [ false, %172 ], [ false, %178 ], [ false, %199 ], [ false, %205 ], [ false, %227 ], [ false, %233 ], [ false, %254 ], [ false, %260 ]
+  %.sroa.015.1 = phi i1 [ false, %241 ], [ false, %240 ], [ false, %213 ], [ false, %212 ], [ false, %186 ], [ false, %185 ], [ false, %165 ], [ false, %164 ], [ false, %138 ], [ false, %137 ], [ true, %104 ], [ true, %103 ], [ true, %82 ], [ true, %81 ], [ true, %72 ], [ true, %89 ], [ true, %96 ], [ false, %124 ], [ false, %130 ], [ false, %151 ], [ false, %157 ], [ false, %172 ], [ false, %178 ], [ false, %199 ], [ false, %205 ], [ false, %227 ], [ false, %233 ], [ false, %254 ], [ false, %260 ]
+  %.sroa.016.1 = phi i1 [ false, %241 ], [ false, %240 ], [ false, %213 ], [ false, %212 ], [ false, %186 ], [ false, %185 ], [ false, %165 ], [ false, %164 ], [ false, %138 ], [ false, %137 ], [ false, %104 ], [ false, %103 ], [ true, %82 ], [ true, %81 ], [ true, %72 ], [ false, %89 ], [ false, %96 ], [ false, %124 ], [ false, %130 ], [ false, %151 ], [ false, %157 ], [ false, %172 ], [ false, %178 ], [ false, %199 ], [ false, %205 ], [ false, %227 ], [ false, %233 ], [ false, %254 ], [ false, %260 ]
   %71 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -9916,7 +9916,7 @@ _ZN10serde_json5value8to_value17h2fdf36b6995ddf43E.exit.i: ; preds = %139
   invoke void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$serde_json..value..Value$C$serde_json..error..Error$GT$$GT$17hc58b2b04508badcbE.llvm.13079985338326358297"(ptr noalias noundef nonnull align 8 dereferenceable(32) %25)
           to label %148 unwind label %.body55.thread190
 
-.body55.thread190:                                ; preds = %147, %_ZN10serde_json5value8to_value17h2fdf36b6995ddf43E.exit.i
+.body55.thread190:                                ; preds = %_ZN10serde_json5value8to_value17h2fdf36b6995ddf43E.exit.i, %147
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body55.thread
@@ -10115,7 +10115,7 @@ _ZN10serde_json5value8to_value17h2fdf36b6995ddf43E.exit.i88: ; preds = %187
   invoke void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$serde_json..value..Value$C$serde_json..error..Error$GT$$GT$17hc58b2b04508badcbE.llvm.13079985338326358297"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
           to label %196 unwind label %.body89.thread198
 
-.body89.thread198:                                ; preds = %195, %_ZN10serde_json5value8to_value17h2fdf36b6995ddf43E.exit.i88
+.body89.thread198:                                ; preds = %_ZN10serde_json5value8to_value17h2fdf36b6995ddf43E.exit.i88, %195
   %lpad.thr_comm196 = landingpad { ptr, i32 }
           cleanup
   br label %.body89.thread
@@ -10236,7 +10236,7 @@ _ZN10serde_json5value8to_value17h2fdf36b6995ddf43E.exit.i109: ; preds = %214
   invoke void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$serde_json..value..Value$C$serde_json..error..Error$GT$$GT$17hc58b2b04508badcbE.llvm.13079985338326358297"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12)
           to label %224 unwind label %.body110.thread206
 
-.body110.thread206:                               ; preds = %223, %_ZN10serde_json5value8to_value17h2fdf36b6995ddf43E.exit.i109
+.body110.thread206:                               ; preds = %_ZN10serde_json5value8to_value17h2fdf36b6995ddf43E.exit.i109, %223
   %lpad.thr_comm204 = landingpad { ptr, i32 }
           cleanup
   br label %.body110.thread
@@ -10356,7 +10356,7 @@ _ZN10serde_json5value8to_value17hb68362568af13741E.exit.i: ; preds = %242
   invoke void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$serde_json..value..Value$C$serde_json..error..Error$GT$$GT$17hc58b2b04508badcbE.llvm.13079985338326358297"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
           to label %251 unwind label %.body130.thread214
 
-.body130.thread214:                               ; preds = %250, %_ZN10serde_json5value8to_value17hb68362568af13741E.exit.i
+.body130.thread214:                               ; preds = %_ZN10serde_json5value8to_value17hb68362568af13741E.exit.i, %250
   %lpad.thr_comm212 = landingpad { ptr, i32 }
           cleanup
   br label %.body130.thread
@@ -10697,21 +10697,21 @@ define void @"_ZN16uv_build_backend8settings1_96_$LT$impl$u20$schemars..JsonSche
   br label %202
 
 .body:                                            ; preds = %63, %196, %200, %191, %195, %186, %190, %181, %185, %174, %178, %167, %170, %155, %147, %150, %135, %127, %130, %115, %107, %110, %95, %87, %90, %74, %47, %.body44
-  %.sroa.011.2 = phi i1 [ true, %.body44 ], [ false, %167 ], [ false, %155 ], [ false, %174 ], [ true, %135 ], [ true, %181 ], [ true, %115 ], [ true, %186 ], [ true, %95 ], [ true, %191 ], [ true, %74 ], [ true, %147 ], [ true, %196 ], [ true, %87 ], [ true, %107 ], [ true, %127 ], [ %.sroa.011.1, %47 ], [ true, %63 ], [ true, %90 ], [ true, %110 ], [ true, %130 ], [ true, %150 ], [ false, %170 ], [ false, %178 ], [ true, %185 ], [ true, %190 ], [ true, %195 ], [ true, %200 ]
-  %.sroa.012.2 = phi i1 [ true, %.body44 ], [ false, %167 ], [ false, %155 ], [ false, %174 ], [ false, %135 ], [ false, %181 ], [ true, %115 ], [ true, %186 ], [ true, %95 ], [ true, %191 ], [ true, %74 ], [ false, %147 ], [ true, %196 ], [ true, %87 ], [ true, %107 ], [ true, %127 ], [ %.sroa.012.1, %47 ], [ true, %63 ], [ true, %90 ], [ true, %110 ], [ true, %130 ], [ false, %150 ], [ false, %170 ], [ false, %178 ], [ false, %185 ], [ true, %190 ], [ true, %195 ], [ true, %200 ]
-  %.sroa.013.2 = phi i1 [ true, %.body44 ], [ false, %167 ], [ false, %155 ], [ false, %174 ], [ false, %135 ], [ false, %181 ], [ false, %115 ], [ false, %186 ], [ true, %95 ], [ true, %191 ], [ true, %74 ], [ false, %147 ], [ true, %196 ], [ true, %87 ], [ true, %107 ], [ false, %127 ], [ %.sroa.013.1, %47 ], [ true, %63 ], [ true, %90 ], [ true, %110 ], [ false, %130 ], [ false, %150 ], [ false, %170 ], [ false, %178 ], [ false, %185 ], [ false, %190 ], [ true, %195 ], [ true, %200 ]
-  %.sroa.014.2 = phi i1 [ true, %.body44 ], [ false, %167 ], [ false, %155 ], [ false, %174 ], [ false, %135 ], [ false, %181 ], [ false, %115 ], [ false, %186 ], [ false, %95 ], [ false, %191 ], [ true, %74 ], [ false, %147 ], [ true, %196 ], [ true, %87 ], [ false, %107 ], [ false, %127 ], [ %.sroa.014.1, %47 ], [ true, %63 ], [ true, %90 ], [ false, %110 ], [ false, %130 ], [ false, %150 ], [ false, %170 ], [ false, %178 ], [ false, %185 ], [ false, %190 ], [ false, %195 ], [ true, %200 ]
-  %.sroa.015.2 = phi i1 [ true, %.body44 ], [ false, %167 ], [ false, %155 ], [ false, %174 ], [ false, %135 ], [ false, %181 ], [ false, %115 ], [ false, %186 ], [ false, %95 ], [ false, %191 ], [ false, %74 ], [ false, %147 ], [ false, %196 ], [ false, %87 ], [ false, %107 ], [ false, %127 ], [ %.sroa.015.1, %47 ], [ true, %63 ], [ false, %90 ], [ false, %110 ], [ false, %130 ], [ false, %150 ], [ false, %170 ], [ false, %178 ], [ false, %185 ], [ false, %190 ], [ false, %195 ], [ false, %200 ]
-  %.pn = phi { ptr, i32 } [ %72, %.body44 ], [ %lpad.thr_comm.split-lp.i97, %167 ], [ %156, %155 ], [ %175, %174 ], [ %136, %135 ], [ %182, %181 ], [ %116, %115 ], [ %187, %186 ], [ %96, %95 ], [ %192, %191 ], [ %75, %74 ], [ %lpad.thr_comm.split-lp.i83, %147 ], [ %197, %196 ], [ %lpad.thr_comm.split-lp.i, %87 ], [ %lpad.thr_comm.split-lp.i55, %107 ], [ %lpad.thr_comm.split-lp.i69, %127 ], [ %48, %47 ], [ %64, %63 ], [ %lpad.thr_comm.split-lp.i, %90 ], [ %lpad.thr_comm.split-lp.i55, %110 ], [ %lpad.thr_comm.split-lp.i69, %130 ], [ %lpad.thr_comm.split-lp.i83, %150 ], [ %lpad.thr_comm.split-lp.i97, %170 ], [ %175, %178 ], [ %182, %185 ], [ %187, %190 ], [ %192, %195 ], [ %197, %200 ]
+  %.sroa.011.2 = phi i1 [ false, %155 ], [ true, %135 ], [ true, %115 ], [ true, %95 ], [ true, %74 ], [ true, %.body44 ], [ %.sroa.011.1, %47 ], [ true, %63 ], [ true, %90 ], [ true, %87 ], [ true, %110 ], [ true, %107 ], [ true, %130 ], [ true, %127 ], [ true, %150 ], [ true, %147 ], [ false, %170 ], [ false, %167 ], [ false, %178 ], [ false, %174 ], [ true, %185 ], [ true, %181 ], [ true, %190 ], [ true, %186 ], [ true, %195 ], [ true, %191 ], [ true, %200 ], [ true, %196 ]
+  %.sroa.012.2 = phi i1 [ false, %155 ], [ false, %135 ], [ true, %115 ], [ true, %95 ], [ true, %74 ], [ true, %.body44 ], [ %.sroa.012.1, %47 ], [ true, %63 ], [ true, %90 ], [ true, %87 ], [ true, %110 ], [ true, %107 ], [ true, %130 ], [ true, %127 ], [ false, %150 ], [ false, %147 ], [ false, %170 ], [ false, %167 ], [ false, %178 ], [ false, %174 ], [ false, %185 ], [ false, %181 ], [ true, %190 ], [ true, %186 ], [ true, %195 ], [ true, %191 ], [ true, %200 ], [ true, %196 ]
+  %.sroa.013.2 = phi i1 [ false, %155 ], [ false, %135 ], [ false, %115 ], [ true, %95 ], [ true, %74 ], [ true, %.body44 ], [ %.sroa.013.1, %47 ], [ true, %63 ], [ true, %90 ], [ true, %87 ], [ true, %110 ], [ true, %107 ], [ false, %130 ], [ false, %127 ], [ false, %150 ], [ false, %147 ], [ false, %170 ], [ false, %167 ], [ false, %178 ], [ false, %174 ], [ false, %185 ], [ false, %181 ], [ false, %190 ], [ false, %186 ], [ true, %195 ], [ true, %191 ], [ true, %200 ], [ true, %196 ]
+  %.sroa.014.2 = phi i1 [ false, %155 ], [ false, %135 ], [ false, %115 ], [ false, %95 ], [ true, %74 ], [ true, %.body44 ], [ %.sroa.014.1, %47 ], [ true, %63 ], [ true, %90 ], [ true, %87 ], [ false, %110 ], [ false, %107 ], [ false, %130 ], [ false, %127 ], [ false, %150 ], [ false, %147 ], [ false, %170 ], [ false, %167 ], [ false, %178 ], [ false, %174 ], [ false, %185 ], [ false, %181 ], [ false, %190 ], [ false, %186 ], [ false, %195 ], [ false, %191 ], [ true, %200 ], [ true, %196 ]
+  %.sroa.015.2 = phi i1 [ false, %155 ], [ false, %135 ], [ false, %115 ], [ false, %95 ], [ false, %74 ], [ true, %.body44 ], [ %.sroa.015.1, %47 ], [ true, %63 ], [ false, %90 ], [ false, %87 ], [ false, %110 ], [ false, %107 ], [ false, %130 ], [ false, %127 ], [ false, %150 ], [ false, %147 ], [ false, %170 ], [ false, %167 ], [ false, %178 ], [ false, %174 ], [ false, %185 ], [ false, %181 ], [ false, %190 ], [ false, %186 ], [ false, %195 ], [ false, %191 ], [ false, %200 ], [ false, %196 ]
+  %.pn = phi { ptr, i32 } [ %156, %155 ], [ %136, %135 ], [ %116, %115 ], [ %96, %95 ], [ %75, %74 ], [ %72, %.body44 ], [ %48, %47 ], [ %64, %63 ], [ %lpad.thr_comm.split-lp.i, %90 ], [ %lpad.thr_comm.split-lp.i, %87 ], [ %lpad.thr_comm.split-lp.i55, %110 ], [ %lpad.thr_comm.split-lp.i55, %107 ], [ %lpad.thr_comm.split-lp.i69, %130 ], [ %lpad.thr_comm.split-lp.i69, %127 ], [ %lpad.thr_comm.split-lp.i83, %150 ], [ %lpad.thr_comm.split-lp.i83, %147 ], [ %lpad.thr_comm.split-lp.i97, %170 ], [ %lpad.thr_comm.split-lp.i97, %167 ], [ %175, %178 ], [ %175, %174 ], [ %182, %185 ], [ %182, %181 ], [ %187, %190 ], [ %187, %186 ], [ %192, %195 ], [ %192, %191 ], [ %197, %200 ], [ %197, %196 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h7c008e88cb83d678E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %34) #30
           to label %45 unwind label %179
 
 47:                                               ; preds = %166, %160, %146, %140, %126, %120, %106, %100, %86, %79, %153, %133, %113, %93, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17he024253f2cbbb72aE.exit", %49
-  %.sroa.011.1 = phi i1 [ false, %166 ], [ true, %153 ], [ true, %146 ], [ true, %133 ], [ true, %126 ], [ true, %113 ], [ true, %106 ], [ true, %93 ], [ true, %86 ], [ true, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17he024253f2cbbb72aE.exit" ], [ true, %140 ], [ true, %49 ], [ false, %160 ], [ true, %79 ], [ true, %100 ], [ true, %120 ]
-  %.sroa.012.1 = phi i1 [ false, %166 ], [ false, %153 ], [ false, %146 ], [ true, %133 ], [ true, %126 ], [ true, %113 ], [ true, %106 ], [ true, %93 ], [ true, %86 ], [ true, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17he024253f2cbbb72aE.exit" ], [ false, %140 ], [ true, %49 ], [ false, %160 ], [ true, %79 ], [ true, %100 ], [ true, %120 ]
-  %.sroa.013.1 = phi i1 [ false, %166 ], [ false, %153 ], [ false, %146 ], [ false, %133 ], [ false, %126 ], [ true, %113 ], [ true, %106 ], [ true, %93 ], [ true, %86 ], [ true, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17he024253f2cbbb72aE.exit" ], [ false, %140 ], [ true, %49 ], [ false, %160 ], [ true, %79 ], [ true, %100 ], [ false, %120 ]
-  %.sroa.014.1 = phi i1 [ false, %166 ], [ false, %153 ], [ false, %146 ], [ false, %133 ], [ false, %126 ], [ false, %113 ], [ false, %106 ], [ true, %93 ], [ true, %86 ], [ true, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17he024253f2cbbb72aE.exit" ], [ false, %140 ], [ true, %49 ], [ false, %160 ], [ true, %79 ], [ false, %100 ], [ false, %120 ]
-  %.sroa.015.1 = phi i1 [ false, %166 ], [ false, %153 ], [ false, %146 ], [ false, %133 ], [ false, %126 ], [ false, %113 ], [ false, %106 ], [ false, %93 ], [ false, %86 ], [ true, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17he024253f2cbbb72aE.exit" ], [ false, %140 ], [ true, %49 ], [ false, %160 ], [ false, %79 ], [ false, %100 ], [ false, %120 ]
+  %.sroa.011.1 = phi i1 [ true, %153 ], [ true, %133 ], [ true, %113 ], [ true, %93 ], [ true, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17he024253f2cbbb72aE.exit" ], [ true, %49 ], [ true, %79 ], [ true, %86 ], [ true, %100 ], [ true, %106 ], [ true, %120 ], [ true, %126 ], [ true, %140 ], [ true, %146 ], [ false, %160 ], [ false, %166 ]
+  %.sroa.012.1 = phi i1 [ false, %153 ], [ true, %133 ], [ true, %113 ], [ true, %93 ], [ true, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17he024253f2cbbb72aE.exit" ], [ true, %49 ], [ true, %79 ], [ true, %86 ], [ true, %100 ], [ true, %106 ], [ true, %120 ], [ true, %126 ], [ false, %140 ], [ false, %146 ], [ false, %160 ], [ false, %166 ]
+  %.sroa.013.1 = phi i1 [ false, %153 ], [ false, %133 ], [ true, %113 ], [ true, %93 ], [ true, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17he024253f2cbbb72aE.exit" ], [ true, %49 ], [ true, %79 ], [ true, %86 ], [ true, %100 ], [ true, %106 ], [ false, %120 ], [ false, %126 ], [ false, %140 ], [ false, %146 ], [ false, %160 ], [ false, %166 ]
+  %.sroa.014.1 = phi i1 [ false, %153 ], [ false, %133 ], [ false, %113 ], [ true, %93 ], [ true, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17he024253f2cbbb72aE.exit" ], [ true, %49 ], [ true, %79 ], [ true, %86 ], [ false, %100 ], [ false, %106 ], [ false, %120 ], [ false, %126 ], [ false, %140 ], [ false, %146 ], [ false, %160 ], [ false, %166 ]
+  %.sroa.015.1 = phi i1 [ false, %153 ], [ false, %133 ], [ false, %113 ], [ false, %93 ], [ true, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17he024253f2cbbb72aE.exit" ], [ true, %49 ], [ false, %79 ], [ false, %86 ], [ false, %100 ], [ false, %106 ], [ false, %120 ], [ false, %126 ], [ false, %140 ], [ false, %146 ], [ false, %160 ], [ false, %166 ]
   %48 = landingpad { ptr, i32 }
           cleanup
   br label %.body

@@ -282,7 +282,7 @@ jbd2_journal_init_revoke_table.exit.thread:       ; preds = %36, %14
   br label %87
 
 87:                                               ; preds = %jbd2_journal_init_revoke_table.exit.thread, %.loopexit, %64
-  %88 = phi i32 [ 0, %64 ], [ -12, %jbd2_journal_init_revoke_table.exit.thread ], [ -12, %.loopexit ]
+  %88 = phi i32 [ 0, %64 ], [ -12, %.loopexit ], [ -12, %jbd2_journal_init_revoke_table.exit.thread ]
   ret i32 %88
 }
 
@@ -634,7 +634,7 @@ define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_cancel_revoke(ptr nou
   br label %.thread4
 
 .thread4:                                         ; preds = %10, %61, %47
-  %62 = phi i32 [ 0, %10 ], [ %48, %61 ], [ %48, %47 ]
+  %62 = phi i32 [ %48, %61 ], [ %48, %47 ], [ 0, %10 ]
   ret i32 %62
 }
 

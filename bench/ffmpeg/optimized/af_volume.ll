@@ -159,7 +159,7 @@ set_expr.exit.thread:                             ; preds = %10
   br label %21
 
 21:                                               ; preds = %set_expr.exit.thread, %6, %19, %15
-  %.09 = phi i32 [ %13, %set_expr.exit.thread ], [ -38, %6 ], [ 0, %19 ], [ 0, %15 ]
+  %.09 = phi i32 [ -38, %6 ], [ 0, %19 ], [ 0, %15 ], [ %13, %set_expr.exit.thread ]
   ret i32 %.09
 }
 
@@ -227,8 +227,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %35
 
 35:                                               ; preds = %30, %24, %33
-  %.093 = phi i32 [ 100000, %33 ], [ %spec.select121, %30 ], [ %spec.select, %24 ]
-  %.092 = phi i32 [ 100000, %33 ], [ %29, %30 ], [ %23, %24 ]
+  %.093 = phi i32 [ 100000, %33 ], [ %spec.select, %24 ], [ %spec.select121, %30 ]
+  %.092 = phi i32 [ 100000, %33 ], [ %23, %24 ], [ %29, %30 ]
   %36 = sitofp i32 %.092 to float
   %37 = fdiv nsz float %36, 1.000000e+05
   %38 = load ptr, ptr %5, align 8, !tbaa !32

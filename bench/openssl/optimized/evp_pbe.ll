@@ -44,7 +44,7 @@ define i32 @EVP_PBE_CipherInit_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %31
 
-24:                                               ; preds = %.thread.i, %8
+24:                                               ; preds = %8, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %25 = icmp eq ptr %0, null
@@ -89,7 +89,7 @@ define i32 @EVP_PBE_CipherInit_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %46
 
 46:                                               ; preds = %31, %41, %43
-  %.042 = phi i32 [ %2, %41 ], [ %45, %43 ], [ 0, %31 ]
+  %.042 = phi i32 [ %45, %43 ], [ %2, %41 ], [ 0, %31 ]
   %.not49 = icmp eq i32 %33, -1
   br i1 %.not49, label %60, label %47
 
@@ -244,7 +244,7 @@ define range(i32 0, 2) i32 @EVP_PBE_find_ex(i32 noundef %0, i32 noundef %1, ptr 
   br label %35
 
 35:                                               ; preds = %31, %32, %.thread, %6
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %6 ], [ 1, %32 ], [ 1, %31 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %.thread ], [ 1, %32 ], [ 1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -456,7 +456,7 @@ define range(i32 0, 2) i32 @EVP_PBE_find(i32 noundef %0, i32 noundef %1, ptr nou
   br label %EVP_PBE_find_ex.exit
 
 EVP_PBE_find_ex.exit:                             ; preds = %26, %27, %5, %.thread.i
-  %.0.i = phi i32 [ 0, %.thread.i ], [ 0, %5 ], [ 1, %27 ], [ 1, %26 ]
+  %.0.i = phi i32 [ 0, %5 ], [ 0, %.thread.i ], [ 1, %27 ], [ 1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }

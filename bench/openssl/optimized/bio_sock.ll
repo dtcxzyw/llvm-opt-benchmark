@@ -267,7 +267,7 @@ define i32 @BIO_get_accept_socket(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %27
 
 27:                                               ; preds = %11, %20, %25, %7
-  %.0 = phi i32 [ -1, %25 ], [ -1, %7 ], [ %18, %20 ], [ -1, %11 ]
+  %.0 = phi i32 [ -1, %7 ], [ %18, %20 ], [ -1, %25 ], [ -1, %11 ]
   %28 = load ptr, ptr %5, align 8, !tbaa !3
   call void @BIO_ADDRINFO_free(ptr noundef %28) #9
   %29 = load ptr, ptr %3, align 8, !tbaa !13
@@ -377,7 +377,7 @@ define i32 @BIO_accept(i32 noundef %0, ptr noundef captures(address_is_null) %1)
   br label %35
 
 35:                                               ; preds = %6, %11, %34, %8
-  %.0 = phi i32 [ %4, %11 ], [ -1, %8 ], [ %.1, %34 ], [ -2, %6 ]
+  %.0 = phi i32 [ -1, %8 ], [ %.1, %34 ], [ %4, %11 ], [ -2, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

@@ -3091,7 +3091,7 @@ lean_alloc_ctor.exit871:                          ; preds = %1106
   br label %1115
 
 1115:                                             ; preds = %1111, %784, %lean_alloc_ctor.exit772, %651, %929, %598, %271, %lean_alloc_ctor.exit659, %138, %416
-  %.4 = phi ptr [ %174, %lean_alloc_ctor.exit659 ], [ %601, %598 ], [ %419, %416 ], [ %274, %271 ], [ %139, %138 ], [ %1114, %1111 ], [ %932, %929 ], [ %787, %784 ], [ %652, %651 ], [ %687, %lean_alloc_ctor.exit772 ]
+  %.4 = phi ptr [ %601, %598 ], [ %419, %416 ], [ %274, %271 ], [ %139, %138 ], [ %174, %lean_alloc_ctor.exit659 ], [ %1114, %1111 ], [ %932, %929 ], [ %787, %784 ], [ %652, %651 ], [ %687, %lean_alloc_ctor.exit772 ]
   ret ptr %.4
 }
 
@@ -3396,7 +3396,7 @@ lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit191
 lean_dec.exit190:                                 ; preds = %114
   br i1 %109, label %120, label %116
 
-116:                                              ; preds = %112, %115, %lean_nat_eq.exit.thread, %lean_dec.exit190
+116:                                              ; preds = %115, %112, %lean_nat_eq.exit.thread, %lean_dec.exit190
   tail call void @lean_inc_heartbeat() #3
   %117 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
   %118 = icmp eq ptr %117, null
@@ -3406,7 +3406,7 @@ lean_dec.exit190:                                 ; preds = %114
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-120:                                              ; preds = %112, %115, %lean_nat_eq.exit.thread, %lean_dec.exit190
+120:                                              ; preds = %115, %112, %lean_nat_eq.exit.thread, %lean_dec.exit190
   tail call void @lean_inc_heartbeat() #3
   %121 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
   %122 = icmp eq ptr %121, null
@@ -3537,7 +3537,7 @@ lean_nat_eq.exit236.thread:                       ; preds = %lean_dec.exit188
 lean_dec.exit187:                                 ; preds = %167
   br i1 %162, label %291, label %169
 
-169:                                              ; preds = %165, %168, %lean_nat_eq.exit236.thread, %lean_dec.exit187
+169:                                              ; preds = %168, %165, %lean_nat_eq.exit236.thread, %lean_dec.exit187
   tail call void @lean_inc_heartbeat() #3
   %170 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
   %171 = icmp eq ptr %170, null
@@ -3802,7 +3802,7 @@ lean_dec.exit185:                                 ; preds = %248, %247, %245, %l
   br label %lean_dec.exit184
 
 lean_dec.exit184:                                 ; preds = %258, %254, %249, %267, %266, %264
-  %.2.i162327 = phi ptr [ %261, %267 ], [ %261, %264 ], [ %261, %266 ], [ %259, %258 ], [ %257, %254 ], [ %232, %249 ]
+  %.2.i162327 = phi ptr [ %261, %264 ], [ %261, %266 ], [ %261, %267 ], [ %259, %258 ], [ %257, %254 ], [ %232, %249 ]
   %268 = tail call ptr @l_Bool_toNat(i8 noundef zeroext %.val239) #3
   %269 = ptrtoint ptr %.2.i162327 to i64
   %270 = and i64 %269, 1
@@ -3869,7 +3869,7 @@ lean_dec.exit183.thread:                          ; preds = %lean_nat_lor.exit, 
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.2.i162327) #3
   br label %lean_dec.exit182
 
-291:                                              ; preds = %165, %168, %lean_nat_eq.exit236.thread, %lean_dec.exit187
+291:                                              ; preds = %168, %165, %lean_nat_eq.exit236.thread, %lean_dec.exit187
   tail call void @lean_inc_heartbeat() #3
   %292 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
   %293 = icmp eq ptr %292, null
@@ -4134,7 +4134,7 @@ lean_dec.exit180:                                 ; preds = %370, %369, %367, %l
   br label %lean_dec.exit179
 
 lean_dec.exit179:                                 ; preds = %380, %376, %371, %389, %388, %386
-  %.2.i329 = phi ptr [ %383, %389 ], [ %383, %386 ], [ %383, %388 ], [ %381, %380 ], [ %379, %376 ], [ %354, %371 ]
+  %.2.i329 = phi ptr [ %383, %386 ], [ %383, %388 ], [ %383, %389 ], [ %381, %380 ], [ %379, %376 ], [ %354, %371 ]
   %390 = tail call ptr @l_Bool_toNat(i8 noundef zeroext %.val) #3
   %391 = ptrtoint ptr %.2.i329 to i64
   %392 = and i64 %391, 1
@@ -4202,9 +4202,9 @@ lean_dec.exit178.thread:                          ; preds = %lean_nat_lor.exit30
   br label %lean_dec.exit182
 
 lean_dec.exit182:                                 ; preds = %lean_dec.exit178, %409, %411, %412, %lean_dec.exit178.thread527, %lean_dec.exit183, %287, %289, %290, %lean_dec.exit183.thread517
-  %.0.i307521525.sink = phi ptr [ %275, %lean_dec.exit183.thread517 ], [ %.0.i283511516, %290 ], [ %.0.i283511516, %289 ], [ %.0.i283511516, %287 ], [ %278, %lean_dec.exit183 ], [ %.0.i307521526, %412 ], [ %.0.i307521526, %411 ], [ %.0.i307521526, %409 ], [ %400, %lean_dec.exit178 ], [ %397, %lean_dec.exit178.thread527 ]
-  %.1149 = phi ptr [ %225, %lean_dec.exit183.thread517 ], [ %225, %290 ], [ %225, %289 ], [ %225, %287 ], [ %225, %lean_dec.exit183 ], [ %347, %412 ], [ %347, %411 ], [ %347, %409 ], [ %347, %lean_dec.exit178 ], [ %347, %lean_dec.exit178.thread527 ]
-  %.1143 = phi ptr [ %197, %lean_dec.exit183.thread517 ], [ %197, %290 ], [ %197, %289 ], [ %197, %287 ], [ %197, %lean_dec.exit183 ], [ %319, %412 ], [ %319, %411 ], [ %319, %409 ], [ %319, %lean_dec.exit178 ], [ %319, %lean_dec.exit178.thread527 ]
+  %.0.i307521525.sink = phi ptr [ %.0.i283511516, %290 ], [ %.0.i283511516, %289 ], [ %.0.i283511516, %287 ], [ %278, %lean_dec.exit183 ], [ %275, %lean_dec.exit183.thread517 ], [ %.0.i307521526, %412 ], [ %.0.i307521526, %411 ], [ %.0.i307521526, %409 ], [ %400, %lean_dec.exit178 ], [ %397, %lean_dec.exit178.thread527 ]
+  %.1149 = phi ptr [ %225, %290 ], [ %225, %289 ], [ %225, %287 ], [ %225, %lean_dec.exit183 ], [ %225, %lean_dec.exit183.thread517 ], [ %347, %412 ], [ %347, %411 ], [ %347, %409 ], [ %347, %lean_dec.exit178 ], [ %347, %lean_dec.exit178.thread527 ]
+  %.1143 = phi ptr [ %197, %290 ], [ %197, %289 ], [ %197, %287 ], [ %197, %lean_dec.exit183 ], [ %197, %lean_dec.exit183.thread517 ], [ %319, %412 ], [ %319, %411 ], [ %319, %409 ], [ %319, %lean_dec.exit178 ], [ %319, %lean_dec.exit178.thread527 ]
   %413 = tail call ptr @lean_array_push(ptr noundef %.0152, ptr noundef %.0.i307521525.sink) #3
   br label %18
 

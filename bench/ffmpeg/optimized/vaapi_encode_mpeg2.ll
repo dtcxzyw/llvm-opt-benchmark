@@ -430,7 +430,7 @@ av_cmp_q.exit230.thread:                          ; preds = %70, %av_cmp_q.exit2
   br label %av_cmp_q.exit.thread232
 
 av_cmp_q.exit.thread232:                          ; preds = %35, %49, %70, %66, %62, %56, %av_cmp_q.exit230.thread
-  %.sink261 = phi i8 [ 4, %70 ], [ 2, %62 ], [ 1, %av_cmp_q.exit230.thread ], [ 3, %66 ], [ 1, %56 ], [ 1, %49 ], [ 1, %35 ]
+  %.sink261 = phi i8 [ 1, %av_cmp_q.exit230.thread ], [ 1, %56 ], [ 2, %62 ], [ 3, %66 ], [ 4, %70 ], [ 1, %49 ], [ 1, %35 ]
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 2038
   store i8 %.sink261, ptr %72, align 2, !tbaa !91
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 100

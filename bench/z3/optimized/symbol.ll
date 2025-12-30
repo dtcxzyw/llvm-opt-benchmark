@@ -643,7 +643,7 @@ define hidden noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr noundef nonnull readonly
   br label %26
 
 26:                                               ; preds = %22, %21, %20, %13, %2, %23, %14
-  %.0 = phi i1 [ false, %20 ], [ %19, %14 ], [ false, %2 ], [ true, %13 ], [ %25, %23 ], [ true, %21 ], [ false, %22 ]
+  %.0 = phi i1 [ %19, %14 ], [ %25, %23 ], [ false, %2 ], [ true, %13 ], [ false, %20 ], [ true, %21 ], [ false, %22 ]
   ret i1 %.0
 }
 
@@ -1150,7 +1150,7 @@ define linkonce_odr hidden void @_ZN13string_bufferILj128EE6appendEi(ptr noundef
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !63
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %17, %15, %11, %7, %2
-  %.0.i.i = phi i32 [ %16, %15 ], [ %8, %7 ], [ %12, %11 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit.i = lshr i32 %1, 31
   %21 = add i32 %.0.i.i, %.lobit.i
   %22 = zext i32 %21 to i64

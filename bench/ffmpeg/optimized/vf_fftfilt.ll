@@ -876,8 +876,8 @@ do_eval.exit:                                     ; preds = %._crit_edge.i, %196
   store ptr @irdft_horizontal16, ptr %231, align 8, !tbaa !62
   br label %.thread187
 
-.thread187:                                       ; preds = %ff_clz_c.exit, %115, %.preheader192, %162, %157, %177, %185, %.thread, %.thread183, %232, %233
-  %.8 = phi i32 [ 0, %232 ], [ %180, %177 ], [ 0, %233 ], [ %175, %.thread183 ], [ -12, %185 ], [ %155, %.thread ], [ %160, %157 ], [ -12, %162 ], [ -12, %.preheader192 ], [ -12, %115 ], [ -12, %ff_clz_c.exit ]
+.thread187:                                       ; preds = %162, %.preheader192, %115, %ff_clz_c.exit, %157, %177, %185, %.thread, %.thread183, %232, %233
+  %.8 = phi i32 [ 0, %233 ], [ 0, %232 ], [ %175, %.thread183 ], [ %155, %.thread ], [ -12, %185 ], [ %180, %177 ], [ %160, %157 ], [ -12, %ff_clz_c.exit ], [ -12, %115 ], [ -12, %.preheader192 ], [ -12, %162 ]
   ret i32 %.8
 }
 

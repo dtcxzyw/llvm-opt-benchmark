@@ -312,7 +312,7 @@ compare.exit38:                                   ; preds = %46, %57
   br i1 %71, label %23, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %compare.exit38, %65, %18, %14, %1, %9
-  %.028 = phi ptr [ %16, %14 ], [ null, %1 ], [ %13, %9 ], [ %16, %18 ], [ %16, %65 ], [ %16, %compare.exit38 ]
+  %.028 = phi ptr [ %13, %9 ], [ null, %1 ], [ %16, %14 ], [ %16, %18 ], [ %16, %65 ], [ %16, %compare.exit38 ]
   ret ptr %.028
 }
 

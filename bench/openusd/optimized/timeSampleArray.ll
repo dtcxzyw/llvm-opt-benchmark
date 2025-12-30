@@ -3028,7 +3028,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_TryResampleINS_7VtArrayIdE
   br label %.body
 
 .body:                                            ; preds = %126, %204, %.body.i.i, %282, %360, %.body.i.i.i, %365
-  %eh.lpad-body = phi { ptr, i32 } [ %366, %365 ], [ %127, %126 ], [ %205, %204 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %283, %282 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %361, %360 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %366, %365 ], [ %127, %126 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %205, %204 ], [ %283, %282 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %361, %360 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
   br label %367
 
@@ -4206,7 +4206,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i: ; preds = %135, %_Z
   unreachable
 
 common.resume:                                    ; preds = %312, %391, %.body.i.i, %476, %555, %.body.i.i.i, %640, %719, %.body.i.i.i.i, %807, %886, %.body.i.i.i.i.i, %973, %1061, %1083, %.body.i.i.i.i.i.i, %1158, %1237, %.body.i.i.i.i.i.i.i, %1328, %1407, %.body.i.i.i.i.i.i.i.i, %227, %.body.i, %148
-  %common.resume.op = phi { ptr, i32 } [ %149, %148 ], [ %228, %227 ], [ %eh.lpad-body.i, %.body.i ], [ %313, %312 ], [ %392, %391 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %477, %476 ], [ %556, %555 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %641, %640 ], [ %720, %719 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %808, %807 ], [ %887, %886 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %974, %973 ], [ %1084, %1083 ], [ %1062, %1061 ], [ %eh.lpad-body.i.i.i.i.i.i, %.body.i.i.i.i.i.i ], [ %1159, %1158 ], [ %1238, %1237 ], [ %eh.lpad-body.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i ], [ %1329, %1328 ], [ %eh.lpad-body.i.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i.i ], [ %1408, %1407 ]
+  %common.resume.op = phi { ptr, i32 } [ %149, %148 ], [ %eh.lpad-body.i, %.body.i ], [ %228, %227 ], [ %313, %312 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %392, %391 ], [ %477, %476 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %556, %555 ], [ %641, %640 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %720, %719 ], [ %808, %807 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %887, %886 ], [ %974, %973 ], [ %1062, %1061 ], [ %eh.lpad-body.i.i.i.i.i.i, %.body.i.i.i.i.i.i ], [ %1084, %1083 ], [ %1159, %1158 ], [ %eh.lpad-body.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i ], [ %1238, %1237 ], [ %1329, %1328 ], [ %eh.lpad-body.i.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i.i ], [ %1408, %1407 ]
   resume { ptr, i32 } %common.resume.op
 
 148:                                              ; preds = %48
@@ -13018,7 +13018,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i: ; preds = %117, %_Z
   unreachable
 
 common.resume:                                    ; preds = %318, %397, %.body.i.i, %491, %570, %.body.i.i.i, %672, %768, %790, %.body.i.i.i.i, %867, %946, %.body.i.i.i.i.i, %1038, %1117, %.body.i.i.i.i.i.i, %1199, %1278, %.body.i.i.i.i.i.i.i, %1353, %1432, %.body.i.i.i.i.i.i.i.i, %221, %243, %.body.i, %130
-  %common.resume.op = phi { ptr, i32 } [ %131, %130 ], [ %244, %243 ], [ %222, %221 ], [ %eh.lpad-body.i, %.body.i ], [ %319, %318 ], [ %398, %397 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %492, %491 ], [ %571, %570 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %673, %672 ], [ %791, %790 ], [ %769, %768 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %868, %867 ], [ %947, %946 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %1039, %1038 ], [ %1118, %1117 ], [ %eh.lpad-body.i.i.i.i.i.i, %.body.i.i.i.i.i.i ], [ %1200, %1199 ], [ %1279, %1278 ], [ %eh.lpad-body.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i ], [ %1354, %1353 ], [ %eh.lpad-body.i.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i.i ], [ %1433, %1432 ]
+  %common.resume.op = phi { ptr, i32 } [ %131, %130 ], [ %222, %221 ], [ %eh.lpad-body.i, %.body.i ], [ %244, %243 ], [ %319, %318 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %398, %397 ], [ %492, %491 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %571, %570 ], [ %673, %672 ], [ %769, %768 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %791, %790 ], [ %868, %867 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i.i.i ], [ %947, %946 ], [ %1039, %1038 ], [ %eh.lpad-body.i.i.i.i.i.i, %.body.i.i.i.i.i.i ], [ %1118, %1117 ], [ %1200, %1199 ], [ %eh.lpad-body.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i ], [ %1279, %1278 ], [ %1354, %1353 ], [ %eh.lpad-body.i.i.i.i.i.i.i.i, %.body.i.i.i.i.i.i.i.i ], [ %1433, %1432 ]
   resume { ptr, i32 } %common.resume.op
 
 130:                                              ; preds = %42

@@ -1152,7 +1152,7 @@ solver_enqueue.exit171:                           ; preds = %227, %248, %vec_uin
   br label %286
 
 286:                                              ; preds = %.thread, %._crit_edge220
-  %.2 = phi i32 [ %90, %.thread ], [ %.0108.lcssa, %._crit_edge220 ]
+  %.2 = phi i32 [ %.0108.lcssa, %._crit_edge220 ], [ %90, %.thread ]
   ret i32 %.2
 }
 
@@ -2564,8 +2564,8 @@ clause_clac_lbd.exit.thread.i.i.i:                ; preds = %clause_clac_lbd.exi
   br label %clause_minimize.exit.i.i
 
 clause_minimize.exit.i.i:                         ; preds = %._crit_edge84.i.i.i.i, %._crit_edge.i.i.i.i, %.critedge.i63.i.i.i, %clause_clac_lbd.exit.i.i.i, %.critedge._crit_edge.i.i.clause_minimize.exit.i_crit_edge.i
-  %.val122.i54.i = phi i32 [ %.lcssa.i.i.i.i, %._crit_edge84.i.i.i.i ], [ %.141.lcssa.i.i.i, %.critedge._crit_edge.i.i.clause_minimize.exit.i_crit_edge.i ], [ %.val146.pr.pre.i.i, %._crit_edge.i.i.i.i ], [ %.val122.i55.i, %.critedge.i63.i.i.i ], [ %.val146.pr.pre297.i.i, %clause_clac_lbd.exit.i.i.i ]
-  %.val147.i.i = phi ptr [ %.val61.i58124.i.i.i, %._crit_edge84.i.i.i.i ], [ %.val147.i.pre.i, %.critedge._crit_edge.i.i.clause_minimize.exit.i_crit_edge.i ], [ %.val61.i58124.i.i.i, %._crit_edge.i.i.i.i ], [ %.val61.i58124.i.i.i, %.critedge.i63.i.i.i ], [ %.val147.i.pre51.i, %clause_clac_lbd.exit.i.i.i ]
+  %.val122.i54.i = phi i32 [ %.141.lcssa.i.i.i, %.critedge._crit_edge.i.i.clause_minimize.exit.i_crit_edge.i ], [ %.lcssa.i.i.i.i, %._crit_edge84.i.i.i.i ], [ %.val146.pr.pre.i.i, %._crit_edge.i.i.i.i ], [ %.val122.i55.i, %.critedge.i63.i.i.i ], [ %.val146.pr.pre297.i.i, %clause_clac_lbd.exit.i.i.i ]
+  %.val147.i.i = phi ptr [ %.val147.i.pre.i, %.critedge._crit_edge.i.i.clause_minimize.exit.i_crit_edge.i ], [ %.val61.i58124.i.i.i, %._crit_edge84.i.i.i.i ], [ %.val61.i58124.i.i.i, %._crit_edge.i.i.i.i ], [ %.val61.i58124.i.i.i, %.critedge.i63.i.i.i ], [ %.val147.i.pre51.i, %clause_clac_lbd.exit.i.i.i ]
   %.val145.i.i = load ptr, ptr %22, align 8, !tbaa !37
   %716 = getelementptr i8, ptr %.val145.i.i, i64 8
   %.val145.val.i.i = load ptr, ptr %716, align 8, !tbaa !32
@@ -4826,7 +4826,7 @@ solver_analyze_final.exit:                        ; preds = %vec_uint_reserve.ex
   br i1 %1951, label %1922, label %heap_percolate_down.exit.i.i
 
 heap_percolate_down.exit.i.i:                     ; preds = %1945, %1941
-  %.032.lcssa.i.i.i = phi i32 [ %1944, %1945 ], [ %.03251.i.i.i, %1941 ]
+  %.032.lcssa.i.i.i = phi i32 [ %.03251.i.i.i, %1941 ], [ %1944, %1945 ]
   %1952 = zext i32 %.032.lcssa.i.i.i to i64
   %1953 = getelementptr inbounds nuw i32, ptr %.val14.i.i125, i64 %1952
   store i32 %1916, ptr %1953, align 4, !tbaa !35
@@ -4849,7 +4849,7 @@ heap_remove_min.exit.i:                           ; preds = %heap_percolate_down
   br label %.backedge
 
 .backedge:                                        ; preds = %1955, %heap_remove_min.exit.i
-  %.0.i121.be = phi i32 [ %spec.select.i128, %1955 ], [ %1902, %heap_remove_min.exit.i ]
+  %.0.i121.be = phi i32 [ %1902, %heap_remove_min.exit.i ], [ %spec.select.i128, %1955 ]
   br label %1889, !llvm.loop !178
 
 solver_decide.exit:                               ; preds = %1891
@@ -5009,8 +5009,8 @@ solver_enqueue.exit.i:                            ; preds = %vec_uint_reserve.ex
   store i32 %2041, ptr %2018, align 4, !tbaa !3
   br label %solver_new_decision.exit.backedge
 
-.thread161:                                       ; preds = %solver_decide.exit, %63, %.critedge.i123, %vec_uint_push_back.exit.i112, %._crit_edge.i114, %solver_check_limits.exit.thread
-  %.1164 = phi i8 [ -1, %._crit_edge.i114 ], [ 0, %solver_check_limits.exit.thread ], [ -1, %vec_uint_push_back.exit.i112 ], [ 1, %.critedge.i123 ], [ 1, %solver_decide.exit ], [ -1, %63 ]
+.thread161:                                       ; preds = %solver_decide.exit, %63, %.critedge.i123, %._crit_edge.i114, %vec_uint_push_back.exit.i112, %solver_check_limits.exit.thread
+  %.1164 = phi i8 [ -1, %._crit_edge.i114 ], [ -1, %vec_uint_push_back.exit.i112 ], [ 0, %solver_check_limits.exit.thread ], [ 1, %.critedge.i123 ], [ 1, %solver_decide.exit ], [ -1, %63 ]
   ret i8 %.1164
 }
 
@@ -5718,7 +5718,7 @@ clause_compare.exit47.thread.split.us.us:         ; preds = %clause_compare.exit
   br i1 %or.cond94, label %.preheader, label %.thread19.i
 
 .thread19.i:                                      ; preds = %119, %118
-  %121 = phi i32 [ %.ph, %118 ], [ %112, %119 ]
+  %121 = phi i32 [ %112, %119 ], [ %.ph, %118 ]
   %122 = load i32, ptr %114, align 4
   %123 = lshr i32 %122, 4
   %124 = load i32, ptr %52, align 4

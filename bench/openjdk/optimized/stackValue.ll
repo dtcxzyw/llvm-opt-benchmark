@@ -133,7 +133,7 @@ define hidden noundef ptr @_ZN10StackValue36create_stack_value_from_oop_location
   br label %_ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit
 
 _ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit: ; preds = %16, %29, %37, %41
-  %.013.i = phi ptr [ %43, %41 ], [ %23, %16 ], [ %38, %37 ], [ %36, %29 ]
+  %.013.i = phi ptr [ %23, %16 ], [ %36, %29 ], [ %43, %41 ], [ %38, %37 ]
   %44 = icmp eq ptr %.013.i, null
   br i1 %44, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit, label %45
 
@@ -166,8 +166,8 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %59, %57
   store ptr %.013.i, ptr %.0.i.i.i.i, align 8
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
-_ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %2, %24, %_ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
-  %storemerge.i = phi ptr [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit ], [ null, %24 ], [ null, %2 ]
+_ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %24, %2, %_ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
+  %storemerge.i = phi ptr [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit ], [ null, %2 ], [ null, %24 ]
   %61 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i8 12, ptr %61, align 8
@@ -787,7 +787,7 @@ _ZNK17stackChunkOopDesc15reg_to_locationERK5framePK11RegisterMapP9VMRegImpl.exit
   br label %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit
 
 _ZNK11RegisterMap8locationEP9VMRegImplPl.exit:    ; preds = %37, %33, %_ZNK17stackChunkOopDesc15reg_to_locationERK5framePK11RegisterMapP9VMRegImpl.exit, %90, %39, %7, %3
-  %.0 = phi ptr [ null, %3 ], [ %45, %39 ], [ null, %7 ], [ %112, %90 ], [ %89, %_ZNK17stackChunkOopDesc15reg_to_locationERK5framePK11RegisterMapP9VMRegImpl.exit ], [ %36, %33 ], [ %38, %37 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %7 ], [ %45, %39 ], [ %89, %_ZNK17stackChunkOopDesc15reg_to_locationERK5framePK11RegisterMapP9VMRegImpl.exit ], [ %112, %90 ], [ %36, %33 ], [ %38, %37 ]
   ret ptr %.0
 }
 
@@ -825,7 +825,7 @@ define weak_odr hidden noundef ptr @_ZN10StackValue18create_stack_valueI16SmallR
   br label %_ZN10StackValue19stack_value_addressI16SmallRegisterMapEEPhPK5framePKT_P10ScopeValue.exit
 
 _ZN10StackValue19stack_value_addressI16SmallRegisterMapEEPhPK5framePKT_P10ScopeValue.exit: ; preds = %3, %7, %13, %16
-  %.0.i = phi ptr [ null, %3 ], [ %22, %16 ], [ null, %7 ], [ %15, %13 ]
+  %.0.i = phi ptr [ null, %3 ], [ null, %7 ], [ %15, %13 ], [ %22, %16 ]
   %23 = tail call noundef ptr @_ZN10StackValue18create_stack_valueI16SmallRegisterMapEEPS_P10ScopeValuePhPKT_(ptr noundef nonnull %2, ptr noundef %.0.i, ptr noundef %1)
   ret ptr %23
 }
@@ -1117,7 +1117,7 @@ define weak_odr hidden noundef ptr @_ZN10StackValue19stack_value_addressI16Small
   br label %23
 
 23:                                               ; preds = %13, %16, %7, %3
-  %.0 = phi ptr [ null, %3 ], [ %22, %16 ], [ null, %7 ], [ %15, %13 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %7 ], [ %15, %13 ], [ %22, %16 ]
   ret ptr %.0
 }
 
@@ -1224,7 +1224,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 

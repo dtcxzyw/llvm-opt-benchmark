@@ -72,7 +72,7 @@ define hidden i32 @mbedtls_x509_write_set_san_common(ptr noundef %0, ptr noundef
   br i1 %33, label %.critedge, label %34
 
 34:                                               ; preds = %5, %32
-  %.397.in = phi i64 [ %10, %5 ], [ %29, %32 ]
+  %.397.in = phi i64 [ %29, %32 ], [ %10, %5 ]
   %.397 = add nuw i64 %.397.in, 5
   %35 = getelementptr inbounds nuw i8, ptr %.0100148, i64 80
   %36 = load ptr, ptr %35, align 8, !tbaa !22
@@ -195,13 +195,13 @@ define hidden i32 @mbedtls_x509_write_set_san_common(ptr noundef %0, ptr noundef
   %spec.store.select = select i1 %97, i32 -102, i32 %95
   br label %.thread134
 
-.thread134:                                       ; preds = %51, %54, %44, %73, %61, %65, %.lr.ph154, %69, %88, %85, %._crit_edge155
-  %.387 = phi i32 [ %spec.store.select, %88 ], [ %83, %._crit_edge155 ], [ %86, %85 ], [ %52, %51 ], [ %49, %44 ], [ %58, %54 ], [ -8320, %.lr.ph154 ], [ %70, %69 ], [ %67, %65 ], [ %63, %61 ], [ -10240, %73 ]
+.thread134:                                       ; preds = %51, %54, %44, %73, %.lr.ph154, %69, %65, %61, %88, %85, %._crit_edge155
+  %.387 = phi i32 [ %83, %._crit_edge155 ], [ %86, %85 ], [ %spec.store.select, %88 ], [ %52, %51 ], [ %49, %44 ], [ %58, %54 ], [ %63, %61 ], [ %67, %65 ], [ %70, %69 ], [ -8320, %.lr.ph154 ], [ -10240, %73 ]
   call void @free(ptr noundef nonnull %39) #6
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %.lr.ph, %5, %14, %16, %22, %._crit_edge.thread, %._crit_edge, %.thread134
-  %.1 = phi i32 [ -10240, %14 ], [ %.387, %.thread134 ], [ -10240, %._crit_edge ], [ -106, %._crit_edge.thread ], [ -10240, %22 ], [ -10240, %16 ], [ -8320, %.lr.ph ], [ -10240, %5 ], [ -10240, %32 ]
+  %.1 = phi i32 [ %.387, %.thread134 ], [ -10240, %._crit_edge ], [ -106, %._crit_edge.thread ], [ -10240, %22 ], [ -10240, %16 ], [ -10240, %14 ], [ -10240, %32 ], [ -8320, %.lr.ph ], [ -10240, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }

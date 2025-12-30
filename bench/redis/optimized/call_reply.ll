@@ -588,7 +588,7 @@ callReplyGetCollectionElement.exit22.i:           ; preds = %34, %30
   br label %callReplyGetMapElementInternal.exit
 
 callReplyGetMapElementInternal.exit:              ; preds = %callReplyParse.exit.i, %18, %29, %callReplyGetCollectionElement.exit22.i
-  %.0.i = phi i32 [ -1, %18 ], [ -1, %callReplyParse.exit.i ], [ 0, %callReplyGetCollectionElement.exit22.i ], [ 0, %29 ]
+  %.0.i = phi i32 [ -1, %callReplyParse.exit.i ], [ -1, %18 ], [ 0, %callReplyGetCollectionElement.exit22.i ], [ 0, %29 ]
   ret i32 %.0.i
 }
 
@@ -678,7 +678,7 @@ callReplyGetCollectionElement.exit22.i:           ; preds = %34, %30
   br label %callReplyGetMapElementInternal.exit
 
 callReplyGetMapElementInternal.exit:              ; preds = %callReplyParse.exit.i, %18, %29, %callReplyGetCollectionElement.exit22.i
-  %.0.i = phi i32 [ -1, %18 ], [ -1, %callReplyParse.exit.i ], [ 0, %callReplyGetCollectionElement.exit22.i ], [ 0, %29 ]
+  %.0.i = phi i32 [ -1, %callReplyParse.exit.i ], [ -1, %18 ], [ 0, %callReplyGetCollectionElement.exit22.i ], [ 0, %29 ]
   ret i32 %.0.i
 }
 
@@ -857,7 +857,7 @@ define dso_local noalias noundef ptr @callReplyCreate(ptr noundef %0, ptr nounde
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %3, %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %29, %27 ], [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ 0, %3 ]
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.0.i, ptr %30, align 8, !tbaa !34
   store ptr %2, ptr %4, align 8, !tbaa !24
@@ -935,7 +935,7 @@ define dso_local noalias noundef ptr @callReplyCreateError(ptr noundef %0, ptr n
   br label %callReplyCreate.exit
 
 callReplyCreate.exit:                             ; preds = %7, %20, %23, %27, %31, %35
-  %.0.i.i = phi i64 [ %37, %35 ], [ %22, %20 ], [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ 0, %7 ]
+  %.0.i.i = phi i64 [ %22, %20 ], [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ %37, %35 ], [ 0, %7 ]
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 %.0.i.i, ptr %38, align 8, !tbaa !34
   store ptr %1, ptr %12, align 8, !tbaa !24

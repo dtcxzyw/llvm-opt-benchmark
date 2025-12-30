@@ -661,7 +661,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %26, %113, %117
-  %.1183221 = phi i32 [ %114, %117 ], [ %114, %113 ], [ %27, %26 ], [ %.1183221.ph, %.thread.loopexit ]
+  %.1183221 = phi i32 [ %114, %113 ], [ %114, %117 ], [ %27, %26 ], [ %.1183221.ph, %.thread.loopexit ]
   %.not197 = icmp eq i32 %.1183221, 0
   br i1 %.not197, label %120, label %26, !llvm.loop !35
 

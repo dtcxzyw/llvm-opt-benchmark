@@ -832,9 +832,9 @@ vp89_rac_get_uint.exit.i.i:                       ; preds = %vpx_rac_renorm.exit
   br label %parse_segment_info.exit.i
 
 parse_segment_info.exit.i:                        ; preds = %vp89_rac_get_uint.exit.i.i, %418, %.loopexit36.i.i
-  %420 = phi i32 [ %225, %418 ], [ %.pre333.i, %.loopexit36.i.i ], [ %415, %vp89_rac_get_uint.exit.i.i ]
-  %421 = phi i32 [ %217, %418 ], [ %.pre332.i, %.loopexit36.i.i ], [ %.018.i41.i.i, %vp89_rac_get_uint.exit.i.i ]
-  %422 = phi i32 [ %221, %418 ], [ %.pre331.i, %.loopexit36.i.i ], [ %414, %vp89_rac_get_uint.exit.i.i ]
+  %420 = phi i32 [ %.pre333.i, %.loopexit36.i.i ], [ %225, %418 ], [ %415, %vp89_rac_get_uint.exit.i.i ]
+  %421 = phi i32 [ %.pre332.i, %.loopexit36.i.i ], [ %217, %418 ], [ %.018.i41.i.i, %vp89_rac_get_uint.exit.i.i ]
+  %422 = phi i32 [ %.pre331.i, %.loopexit36.i.i ], [ %221, %418 ], [ %414, %vp89_rac_get_uint.exit.i.i ]
   %423 = sext i32 %422 to i64
   %424 = getelementptr inbounds i8, ptr @ff_vpx_norm_shift, i64 %423
   %425 = load i8, ptr %424, align 1, !tbaa !56
@@ -2815,7 +2815,7 @@ vp8_alloc_frame.exit:                             ; preds = %1479
   br label %.thread22
 
 .thread22:                                        ; preds = %.critedge240.i, %1563, %1549
-  %1569 = phi i32 [ %.pr, %1549 ], [ %.pr24, %1563 ], [ %1548, %.critedge240.i ]
+  %1569 = phi i32 [ %.pr24, %1563 ], [ %.pr, %1549 ], [ %1548, %.critedge240.i ]
   %1570 = getelementptr inbounds nuw i8, ptr %8, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1570, i8 0, i64 12, i1 false)
   %1571 = icmp eq i32 %1569, 1
@@ -2931,8 +2931,8 @@ vp8_alloc_frame.exit:                             ; preds = %1479
   %1623 = load i32, ptr %11, align 8, !tbaa !35
   br label %vp78_decode_frame.exit
 
-vp8_decode_frame_header.exit.thread:              ; preds = %vp8_decode_frame_header.exit, %1528, %1513, %1521, %1484, %vp8_find_free_buffer.exit, %.thread448.i, %1010, %1000, %934, %103, %setup_partitions.exit.thread.i, %68, %57, %21, %1579, %1448, %1380
-  %.1.i = phi i32 [ %.079.i.i.i, %vp8_decode_frame_header.exit ], [ -1094995529, %21 ], [ %1580, %1579 ], [ %1467, %vp8_find_free_buffer.exit ], [ -1094995529, %1448 ], [ -22, %1380 ], [ %922, %.thread448.i ], [ -12, %1010 ], [ -12, %1000 ], [ -22, %934 ], [ %104, %103 ], [ -1094995529, %setup_partitions.exit.thread.i ], [ -1094995529, %68 ], [ -1094995529, %57 ], [ %.0.i10, %1484 ], [ %1526, %1521 ], [ %1519, %1513 ], [ %1531, %1528 ]
+vp8_decode_frame_header.exit.thread:              ; preds = %vp8_decode_frame_header.exit, %1528, %1521, %1513, %vp8_find_free_buffer.exit, %1484, %1010, %1000, %.thread448.i, %934, %103, %setup_partitions.exit.thread.i, %68, %57, %21, %1579, %1448, %1380
+  %.1.i = phi i32 [ %.079.i.i.i, %vp8_decode_frame_header.exit ], [ %1580, %1579 ], [ -1094995529, %1448 ], [ -22, %1380 ], [ -12, %1010 ], [ -12, %1000 ], [ %922, %.thread448.i ], [ -22, %934 ], [ %104, %103 ], [ -1094995529, %setup_partitions.exit.thread.i ], [ -1094995529, %68 ], [ -1094995529, %57 ], [ -1094995529, %21 ], [ %1467, %vp8_find_free_buffer.exit ], [ %.0.i10, %1484 ], [ %1526, %1521 ], [ %1519, %1513 ], [ %1531, %1528 ]
   %1624 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %1625 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1624, ptr noundef nonnull align 8 dereferenceable(32) %1625, i64 32, i1 false)
@@ -4727,7 +4727,7 @@ vpx_rac_renorm.exit.i371.i:                       ; preds = %1060, %1056, %1046
   br label %get_submv_prob.exit.i
 
 get_submv_prob.exit.i:                            ; preds = %1108, %1107, %1104
-  %.0.i434.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @vp8_submv_prob, i64 6), %1107 ], [ %1106, %1104 ], [ %1110, %1108 ]
+  %.0.i434.i = phi ptr [ %1106, %1104 ], [ %1110, %1108 ], [ getelementptr inbounds nuw (i8, ptr @vp8_submv_prob, i64 6), %1107 ]
   %1111 = load i8, ptr %.0.i434.i, align 1, !tbaa !56
   %1112 = zext i8 %1111 to i32
   %1113 = load i32, ptr %59, align 8, !tbaa !65
@@ -6334,10 +6334,10 @@ decode_block_coeffs.exit48:                       ; preds = %vpx_rac_renorm.exit
   br label %2121
 
 2121:                                             ; preds = %2069, %2069, %decode_block_coeffs.exit48.thread, %2119, %2117, %decode_block_coeffs.exit48
-  %.0107.i = phi i32 [ 0, %2069 ], [ 0, %2069 ], [ 1, %decode_block_coeffs.exit48 ], [ 1, %2117 ], [ 1, %2119 ], [ 1, %decode_block_coeffs.exit48.thread ]
-  %.0106.i = phi i64 [ 3, %2069 ], [ 3, %2069 ], [ 0, %decode_block_coeffs.exit48 ], [ 0, %2117 ], [ 0, %2119 ], [ 0, %decode_block_coeffs.exit48.thread ]
-  %.0103.i = phi i32 [ 0, %2069 ], [ 0, %2069 ], [ %2114, %decode_block_coeffs.exit48 ], [ 1, %2117 ], [ %2114, %2119 ], [ 0, %decode_block_coeffs.exit48.thread ]
-  %.0.i6 = phi i32 [ 0, %2069 ], [ 0, %2069 ], [ %2114, %decode_block_coeffs.exit48 ], [ 1, %2117 ], [ 1, %2119 ], [ 0, %decode_block_coeffs.exit48.thread ]
+  %.0107.i = phi i32 [ 0, %2069 ], [ 1, %decode_block_coeffs.exit48 ], [ 1, %2117 ], [ 1, %2119 ], [ 1, %decode_block_coeffs.exit48.thread ], [ 0, %2069 ]
+  %.0106.i = phi i64 [ 3, %2069 ], [ 0, %decode_block_coeffs.exit48 ], [ 0, %2117 ], [ 0, %2119 ], [ 0, %decode_block_coeffs.exit48.thread ], [ 3, %2069 ]
+  %.0103.i = phi i32 [ 0, %2069 ], [ %2114, %decode_block_coeffs.exit48 ], [ 1, %2117 ], [ %2114, %2119 ], [ 0, %decode_block_coeffs.exit48.thread ], [ 0, %2069 ]
+  %.0.i6 = phi i32 [ 0, %2069 ], [ %2114, %decode_block_coeffs.exit48 ], [ 1, %2117 ], [ 1, %2119 ], [ 0, %decode_block_coeffs.exit48.thread ], [ 0, %2069 ]
   %2122 = getelementptr inbounds nuw [16 x [3 x [11 x i8]]], ptr %190, i64 %.0106.i
   %2123 = zext i8 %2073 to i64
   %2124 = getelementptr inbounds nuw %struct.anon.1, ptr %191, i64 %2123
@@ -6428,7 +6428,7 @@ vpx_rac_get_prob_branchy.exit.i.thread:           ; preds = %vpx_rac_renorm.exit
   br label %decode_block_coeffs.exit
 
 decode_block_coeffs.exit:                         ; preds = %vpx_rac_get_prob_branchy.exit.i.thread, %2171
-  %.0.i28 = phi i32 [ 0, %vpx_rac_get_prob_branchy.exit.i.thread ], [ %2173, %2171 ]
+  %.0.i28 = phi i32 [ %2173, %2171 ], [ 0, %vpx_rac_get_prob_branchy.exit.i.thread ]
   %2174 = add nsw i32 %.0.i28, %.0.i6
   %2175 = trunc i32 %2174 to i8
   %2176 = getelementptr inbounds nuw i8, ptr %2131, i64 %indvars.iv602
@@ -6537,7 +6537,7 @@ vpx_rac_get_prob_branchy.exit.i34.thread:         ; preds = %vpx_rac_renorm.exit
   br label %decode_block_coeffs.exit38
 
 decode_block_coeffs.exit38:                       ; preds = %vpx_rac_get_prob_branchy.exit.i34.thread, %2225
-  %.0.i37 = phi i32 [ 0, %vpx_rac_get_prob_branchy.exit.i34.thread ], [ %2227, %2225 ]
+  %.0.i37 = phi i32 [ %2227, %2225 ], [ 0, %vpx_rac_get_prob_branchy.exit.i34.thread ]
   %2228 = trunc i32 %.0.i37 to i8
   %2229 = getelementptr inbounds nuw i8, ptr %2182, i64 %2191
   store i8 %2228, ptr %2229, align 1, !tbaa !56
@@ -6686,7 +6686,7 @@ default.unreachable940:                           ; preds = %2288
   unreachable
 
 check_intra_pred8x8_mode_emuedge.exit:            ; preds = %2292, %2288, %2289, %2290
-  %.0.i55 = phi i64 [ %., %2292 ], [ %.0.i70, %2289 ], [ %228, %2288 ], [ %2291, %2290 ]
+  %.0.i55 = phi i64 [ %.0.i70, %2289 ], [ %2291, %2290 ], [ %228, %2288 ], [ %., %2292 ]
   %2293 = getelementptr inbounds nuw ptr, ptr %231, i64 %.0.i55
   %2294 = load ptr, ptr %2293, align 8, !tbaa !102
   %2295 = load i64, ptr %40, align 8, !tbaa !159
@@ -6875,7 +6875,7 @@ check_intra_pred4x4_mode_emuedge.exit.thread301:  ; preds = %2345, %check_intra_
   br label %2381
 
 2377:                                             ; preds = %2348, %2329, %2343, %2346, %2349
-  %.0.i62.ph = phi i32 [ %.555, %2348 ], [ %2336, %2329 ], [ %2336, %2349 ], [ %2347, %2346 ], [ %2344, %2343 ]
+  %.0.i62.ph = phi i32 [ %2336, %2329 ], [ %2336, %2349 ], [ %2347, %2346 ], [ %2344, %2343 ], [ %.555, %2348 ]
   %2378 = zext nneg i32 %.0.i62.ph to i64
   %2379 = getelementptr inbounds nuw ptr, ptr %220, i64 %2378
   %2380 = load ptr, ptr %2379, align 8, !tbaa !102
@@ -6976,7 +6976,7 @@ check_intra_pred4x4_mode_emuedge.exit.thread301:  ; preds = %2345, %check_intra_
   br label %check_intra_pred8x8_mode_emuedge.exit60
 
 check_intra_pred8x8_mode_emuedge.exit60:          ; preds = %2418, %2410, %2414, %2415, %2416
-  %.0.i57 = phi i64 [ %2413, %2410 ], [ %.0.i66, %2414 ], [ %228, %2415 ], [ %2417, %2416 ], [ %.556, %2418 ]
+  %.0.i57 = phi i64 [ %.0.i66, %2414 ], [ %228, %2415 ], [ %2417, %2416 ], [ %2413, %2410 ], [ %.556, %2418 ]
   %2419 = getelementptr inbounds nuw ptr, ptr %232, i64 %.0.i57
   %2420 = load ptr, ptr %2419, align 8, !tbaa !102
   %2421 = load i64, ptr %50, align 8, !tbaa !160
@@ -10173,7 +10173,7 @@ prefetch_motion.exit:                             ; preds = %.thread329, %4491
   br i1 %4593, label %262, label %decode_mb_row_no_filter.exit, !llvm.loop !224
 
 decode_mb_row_no_filter.exit:                     ; preds = %vpx_rac_is_end.exit.i, %vpx_rac_is_end.exit297.i, %4588, %127, %vpx_rac_is_end.exit299.i
-  %.0.i = phi i32 [ -1094995529, %vpx_rac_is_end.exit299.i ], [ 0, %127 ], [ -1094995529, %vpx_rac_is_end.exit297.i ], [ -1094995529, %vpx_rac_is_end.exit.i ], [ 0, %4588 ]
+  %.0.i = phi i32 [ -1094995529, %vpx_rac_is_end.exit299.i ], [ 0, %127 ], [ -1094995529, %vpx_rac_is_end.exit.i ], [ -1094995529, %vpx_rac_is_end.exit297.i ], [ 0, %4588 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0.i
 }
@@ -11410,9 +11410,9 @@ vp89_rac_get_uint.exit297.i:                      ; preds = %vpx_rac_renorm.exit
   br i1 %exitcond480.not.i, label %.loopexit343.i, label %390, !llvm.loop !237
 
 .loopexit343.i:                                   ; preds = %vp89_rac_get_uint.exit297.i, %382, %vpx_rac_renorm.exit.i
-  %.promoted391408.i = phi i32 [ %.promoted391406.i, %382 ], [ %271, %vpx_rac_renorm.exit.i ], [ %.promoted391409.i, %vp89_rac_get_uint.exit297.i ]
-  %.promoted388403.i = phi i32 [ %.promoted388401.i, %382 ], [ %.018.i.i, %vpx_rac_renorm.exit.i ], [ %.promoted388404.i, %vp89_rac_get_uint.exit297.i ]
-  %.promoted387399.i = phi i32 [ %.promoted387397.i, %382 ], [ %265, %vpx_rac_renorm.exit.i ], [ %.promoted387400.i, %vp89_rac_get_uint.exit297.i ]
+  %.promoted391408.i = phi i32 [ %271, %vpx_rac_renorm.exit.i ], [ %.promoted391406.i, %382 ], [ %.promoted391409.i, %vp89_rac_get_uint.exit297.i ]
+  %.promoted388403.i = phi i32 [ %.018.i.i, %vpx_rac_renorm.exit.i ], [ %.promoted388401.i, %382 ], [ %.promoted388404.i, %vp89_rac_get_uint.exit297.i ]
+  %.promoted387399.i = phi i32 [ %265, %vpx_rac_renorm.exit.i ], [ %.promoted387397.i, %382 ], [ %.promoted387400.i, %vp89_rac_get_uint.exit297.i ]
   %indvars.iv.next482.i = add nuw nsw i64 %indvars.iv481.i, 1
   %exitcond484.not.i = icmp eq i64 %indvars.iv.next482.i, 4
   br i1 %exitcond484.not.i, label %460, label %241, !llvm.loop !238
@@ -13173,7 +13173,7 @@ vp8_alloc_frame.exit:                             ; preds = %1397
   br label %.thread30
 
 .thread30:                                        ; preds = %1423, %1455, %1441
-  %1461 = phi i32 [ %.pr, %1441 ], [ %.pr32, %1455 ], [ %1440, %1423 ]
+  %1461 = phi i32 [ %.pr32, %1455 ], [ %.pr, %1441 ], [ %1440, %1423 ]
   %1462 = getelementptr inbounds nuw i8, ptr %6, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1462, i8 0, i64 12, i1 false)
   %1463 = icmp eq i32 %1461, 1
@@ -14037,9 +14037,9 @@ get_bmv_ptr.exit.i:                               ; preds = %1975, %1970
   br i1 %.not74.i.i, label %vp7_calculate_mb_offset.exit.thread.i, label %1999
 
 vp7_calculate_mb_offset.exit.thread.i:            ; preds = %1994, %1993, %1991, %1990, %get_bmv_ptr.exit.i, %1943, %1931
-  %.sroa.3.4.i.i = phi i32 [ %.sroa.3.0.i93.i, %1994 ], [ %.sroa.3.0.i93.i, %1931 ], [ %.sroa.3.0.i93.i, %1943 ], [ %.sroa.3.0.i93.i, %get_bmv_ptr.exit.i ], [ %.sroa.3.0.i93.i, %1993 ], [ %.sroa.3.0.i93.i, %1991 ], [ %1989, %1990 ]
-  %.sroa.9.4.i.i = phi i32 [ %.sroa.9.0.i94.i, %1994 ], [ %.sroa.9.0.i94.i, %1931 ], [ %.sroa.9.0.i94.i, %1943 ], [ %.sroa.9.0.i94.i, %get_bmv_ptr.exit.i ], [ %1989, %1993 ], [ %.sroa.9.0.i94.i, %1991 ], [ %.sroa.9.0.i94.i, %1990 ]
-  %.4.i.sroa.phi.i = phi ptr [ %.sroa.10.i, %1994 ], [ %.sroa.0.i, %1931 ], [ %.sroa.0.i, %1943 ], [ %.sroa.0.i, %get_bmv_ptr.exit.i ], [ %.sroa.10.i, %1993 ], [ %.sroa.7.i, %1991 ], [ %.sroa.7.i, %1990 ]
+  %.sroa.3.4.i.i = phi i32 [ %.sroa.3.0.i93.i, %1994 ], [ %.sroa.3.0.i93.i, %1943 ], [ %.sroa.3.0.i93.i, %1931 ], [ %.sroa.3.0.i93.i, %get_bmv_ptr.exit.i ], [ %1989, %1990 ], [ %.sroa.3.0.i93.i, %1993 ], [ %.sroa.3.0.i93.i, %1991 ]
+  %.sroa.9.4.i.i = phi i32 [ %.sroa.9.0.i94.i, %1994 ], [ %.sroa.9.0.i94.i, %1943 ], [ %.sroa.9.0.i94.i, %1931 ], [ %.sroa.9.0.i94.i, %get_bmv_ptr.exit.i ], [ %.sroa.9.0.i94.i, %1990 ], [ %1989, %1993 ], [ %.sroa.9.0.i94.i, %1991 ]
+  %.4.i.sroa.phi.i = phi ptr [ %.sroa.10.i, %1994 ], [ %.sroa.0.i, %1943 ], [ %.sroa.0.i, %1931 ], [ %.sroa.0.i, %get_bmv_ptr.exit.i ], [ %.sroa.7.i, %1990 ], [ %.sroa.10.i, %1993 ], [ %.sroa.7.i, %1991 ]
   %1995 = getelementptr inbounds nuw i8, ptr %1932, i64 3
   %1996 = load i8, ptr %1995, align 1, !tbaa !247
   %1997 = load i8, ptr %.4.i.sroa.phi.i, align 1, !tbaa !56
@@ -15952,8 +15952,8 @@ vp7_decode_mv_mb_modes.exit.thread:               ; preds = %._crit_edge.i, %147
   %3175 = load i32, ptr %9, align 8, !tbaa !35
   br label %vp78_decode_frame.exit
 
-vp7_decode_mv_mb_modes.exit:                      ; preds = %vpx_rac_is_end.exit.i.i, %1402, %vp8_find_free_buffer.exit, %.thread612.i, %549, %539, %vpx_rac_is_end.exit.i, %460, %45, %4, %44, %25, %vpx_rac_is_end.exit203.i, %1366, %vp7_decode_frame_header.exit
-  %.1.i = phi i32 [ %.0168.i, %vp7_decode_frame_header.exit ], [ -1094995529, %vpx_rac_is_end.exit203.i ], [ %1385, %vp8_find_free_buffer.exit ], [ -1094995529, %1366 ], [ %497, %.thread612.i ], [ -12, %549 ], [ -12, %539 ], [ -1094995529, %vpx_rac_is_end.exit.i ], [ %466, %460 ], [ %50, %45 ], [ -1094995529, %4 ], [ -1094995529, %44 ], [ -1094995529, %25 ], [ %.0.i11, %1402 ], [ -1094995529, %vpx_rac_is_end.exit.i.i ]
+vp7_decode_mv_mb_modes.exit:                      ; preds = %vpx_rac_is_end.exit.i.i, %vp8_find_free_buffer.exit, %1402, %549, %539, %.thread612.i, %vpx_rac_is_end.exit203.i, %vpx_rac_is_end.exit.i, %460, %45, %4, %44, %25, %1366, %vp7_decode_frame_header.exit
+  %.1.i = phi i32 [ %.0168.i, %vp7_decode_frame_header.exit ], [ -1094995529, %1366 ], [ -12, %549 ], [ -12, %539 ], [ %497, %.thread612.i ], [ -1094995529, %vpx_rac_is_end.exit203.i ], [ -1094995529, %vpx_rac_is_end.exit.i ], [ %466, %460 ], [ %50, %45 ], [ -1094995529, %4 ], [ -1094995529, %44 ], [ -1094995529, %25 ], [ %1385, %vp8_find_free_buffer.exit ], [ %.0.i11, %1402 ], [ -1094995529, %vpx_rac_is_end.exit.i.i ]
   %3176 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %3177 = getelementptr inbounds nuw i8, ptr %6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3176, ptr noundef nonnull align 8 dereferenceable(32) %3177, i64 32, i1 false)
@@ -17604,7 +17604,7 @@ vpx_rac_renorm.exit.i48:                          ; preds = %835, %831, %821
   br label %get_submv_prob.exit
 
 get_submv_prob.exit:                              ; preds = %879, %882, %883
-  %.0.i58 = phi ptr [ getelementptr inbounds nuw (i8, ptr @vp8_submv_prob, i64 6), %882 ], [ %881, %879 ], [ %885, %883 ]
+  %.0.i58 = phi ptr [ %881, %879 ], [ %885, %883 ], [ getelementptr inbounds nuw (i8, ptr @vp8_submv_prob, i64 6), %882 ]
   %886 = load i8, ptr %.0.i58, align 1, !tbaa !56
   %887 = zext i8 %886 to i32
   %888 = load i32, ptr %16, align 8, !tbaa !65
@@ -19231,7 +19231,7 @@ define internal range(i32 -2147483648, 1) i32 @vp7_decode_mb_row_sliced(ptr noun
   br i1 %95, label %.lr.ph.split, label %vp78_decode_mb_row_sliced.exit, !llvm.loop !257
 
 vp78_decode_mb_row_sliced.exit:                   ; preds = %51, %91, %4, %.split.us, %67
-  %.0.i = phi i32 [ %.us-phi5, %.split.us ], [ %.us-phi5, %67 ], [ 0, %91 ], [ 0, %4 ], [ 0, %51 ]
+  %.0.i = phi i32 [ %.us-phi5, %67 ], [ %.us-phi5, %.split.us ], [ 0, %4 ], [ 0, %91 ], [ 0, %51 ]
   ret i32 %.0.i
 }
 
@@ -19391,7 +19391,7 @@ define internal range(i32 -2147483648, 1) i32 @vp8_decode_mb_row_sliced(ptr noun
   br i1 %95, label %.lr.ph.split, label %vp78_decode_mb_row_sliced.exit, !llvm.loop !257
 
 vp78_decode_mb_row_sliced.exit:                   ; preds = %51, %91, %4, %.split.us, %67
-  %.0.i = phi i32 [ %.us-phi5, %.split.us ], [ %.us-phi5, %67 ], [ 0, %91 ], [ 0, %4 ], [ 0, %51 ]
+  %.0.i = phi i32 [ %.us-phi5, %67 ], [ %.us-phi5, %.split.us ], [ 0, %4 ], [ 0, %91 ], [ 0, %51 ]
   ret i32 %.0.i
 }
 
@@ -20310,8 +20310,8 @@ copy_chroma.exit:                                 ; preds = %._crit_edge.us.i, %
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next29.i, %wide.trip.count31.i
   br i1 %exitcond32.not.i, label %.critedge, label %.lr.ph.us.i, !llvm.loop !270
 
-.critedge:                                        ; preds = %._crit_edge.us.i52, %copy_chroma.exit, %61, %vp8_find_free_buffer.exit, %3, %21
-  %.3 = phi i32 [ 0, %3 ], [ -1094995529, %21 ], [ %46, %vp8_find_free_buffer.exit ], [ %.0.i, %61 ], [ 0, %copy_chroma.exit ], [ 0, %._crit_edge.us.i52 ]
+.critedge:                                        ; preds = %._crit_edge.us.i52, %copy_chroma.exit, %vp8_find_free_buffer.exit, %61, %3, %21
+  %.3 = phi i32 [ -1094995529, %21 ], [ 0, %3 ], [ %46, %vp8_find_free_buffer.exit ], [ %.0.i, %61 ], [ 0, %copy_chroma.exit ], [ 0, %._crit_edge.us.i52 ]
   ret i32 %.3
 }
 
@@ -20494,10 +20494,10 @@ vp89_rac_get_uint.exit.i:                         ; preds = %vpx_rac_renorm.exit
   br label %ref_to_update.exit
 
 ref_to_update.exit:                               ; preds = %vp89_rac_get_uint.exit.i, %vpx_rac_renorm.exit
-  %.promoted9.i.i16 = phi i32 [ %107, %vp89_rac_get_uint.exit.i ], [ %69, %vpx_rac_renorm.exit ]
-  %.promoted7.i.i15 = phi i32 [ %.018.i.i.i, %vp89_rac_get_uint.exit.i ], [ %.promoted7.i.i, %vpx_rac_renorm.exit ]
-  %.promoted.i.i14 = phi i32 [ %105, %vp89_rac_get_uint.exit.i ], [ %68, %vpx_rac_renorm.exit ]
-  %.0.i11 = phi i32 [ %switch.select26, %vp89_rac_get_uint.exit.i ], [ 0, %vpx_rac_renorm.exit ]
+  %.promoted9.i.i16 = phi i32 [ %69, %vpx_rac_renorm.exit ], [ %107, %vp89_rac_get_uint.exit.i ]
+  %.promoted7.i.i15 = phi i32 [ %.promoted7.i.i, %vpx_rac_renorm.exit ], [ %.018.i.i.i, %vp89_rac_get_uint.exit.i ]
+  %.promoted.i.i14 = phi i32 [ %68, %vpx_rac_renorm.exit ], [ %105, %vp89_rac_get_uint.exit.i ]
+  %.0.i11 = phi i32 [ 0, %vpx_rac_renorm.exit ], [ %switch.select26, %vp89_rac_get_uint.exit.i ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 4752
   store i32 %.0.i11, ptr %109, align 8, !tbaa !62
   br i1 %.not31, label %110, label %ref_to_update.exit24
@@ -20570,7 +20570,7 @@ vp89_rac_get_uint.exit.i23:                       ; preds = %vpx_rac_renorm.exit
   br label %ref_to_update.exit24
 
 ref_to_update.exit24:                             ; preds = %vp89_rac_get_uint.exit.i23, %ref_to_update.exit
-  %.0.i13 = phi i32 [ %switch.select30, %vp89_rac_get_uint.exit.i23 ], [ 0, %ref_to_update.exit ]
+  %.0.i13 = phi i32 [ 0, %ref_to_update.exit ], [ %switch.select30, %vp89_rac_get_uint.exit.i23 ]
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 4756
   store i32 %.0.i13, ptr %149, align 4, !tbaa !61
   ret void
@@ -24290,9 +24290,9 @@ get_bmv_ptr.exit:                                 ; preds = %733, %738
   br i1 %.not74.i.i, label %vp7_calculate_mb_offset.exit.thread, label %762
 
 vp7_calculate_mb_offset.exit.thread:              ; preds = %754, %756, %753, %get_bmv_ptr.exit, %694, %706, %757
-  %.sroa.3.4.i.i = phi i32 [ %.sroa.3.0.i.i496, %757 ], [ %.sroa.3.0.i.i496, %694 ], [ %.sroa.3.0.i.i496, %706 ], [ %.sroa.3.0.i.i496, %get_bmv_ptr.exit ], [ %.sroa.3.0.i.i496, %756 ], [ %.sroa.3.0.i.i496, %754 ], [ %752, %753 ]
-  %.sroa.9.4.i.i = phi i32 [ %.sroa.9.0.i.i497, %757 ], [ %.sroa.9.0.i.i497, %694 ], [ %.sroa.9.0.i.i497, %706 ], [ %.sroa.9.0.i.i497, %get_bmv_ptr.exit ], [ %752, %756 ], [ %.sroa.9.0.i.i497, %754 ], [ %.sroa.9.0.i.i497, %753 ]
-  %.4.i.i.sroa.phi = phi ptr [ %.sroa.10, %757 ], [ %.sroa.0, %694 ], [ %.sroa.0, %706 ], [ %.sroa.0, %get_bmv_ptr.exit ], [ %.sroa.10, %756 ], [ %.sroa.7, %754 ], [ %.sroa.7, %753 ]
+  %.sroa.3.4.i.i = phi i32 [ %.sroa.3.0.i.i496, %757 ], [ %.sroa.3.0.i.i496, %706 ], [ %.sroa.3.0.i.i496, %694 ], [ %.sroa.3.0.i.i496, %get_bmv_ptr.exit ], [ %752, %753 ], [ %.sroa.3.0.i.i496, %756 ], [ %.sroa.3.0.i.i496, %754 ]
+  %.sroa.9.4.i.i = phi i32 [ %.sroa.9.0.i.i497, %757 ], [ %.sroa.9.0.i.i497, %706 ], [ %.sroa.9.0.i.i497, %694 ], [ %.sroa.9.0.i.i497, %get_bmv_ptr.exit ], [ %.sroa.9.0.i.i497, %753 ], [ %752, %756 ], [ %.sroa.9.0.i.i497, %754 ]
+  %.4.i.i.sroa.phi = phi ptr [ %.sroa.10, %757 ], [ %.sroa.0, %706 ], [ %.sroa.0, %694 ], [ %.sroa.0, %get_bmv_ptr.exit ], [ %.sroa.7, %753 ], [ %.sroa.10, %756 ], [ %.sroa.7, %754 ]
   %758 = getelementptr inbounds nuw i8, ptr %695, i64 3
   %759 = load i8, ptr %758, align 1, !tbaa !247
   %760 = load i8, ptr %.4.i.i.sroa.phi, align 1, !tbaa !56
@@ -26243,7 +26243,7 @@ vpx_rac_get_prob_branchy.exit.i42.thread:         ; preds = %vpx_rac_renorm.exit
   br label %decode_block_coeffs.exit46
 
 decode_block_coeffs.exit46:                       ; preds = %vpx_rac_get_prob_branchy.exit.i42.thread, %1976
-  %.0.i45 = phi i32 [ 0, %vpx_rac_get_prob_branchy.exit.i42.thread ], [ %1978, %1976 ]
+  %.0.i45 = phi i32 [ %1978, %1976 ], [ 0, %vpx_rac_get_prob_branchy.exit.i42.thread ]
   %1979 = icmp ne i32 %.0.i45, 0
   %1980 = zext i1 %1979 to i8
   store i8 %1980, ptr %1940, align 1, !tbaa !56
@@ -26409,7 +26409,7 @@ vpx_rac_get_prob_branchy.exit.i.thread:           ; preds = %vpx_rac_renorm.exit
   br label %decode_block_coeffs.exit
 
 decode_block_coeffs.exit:                         ; preds = %vpx_rac_get_prob_branchy.exit.i.thread, %2059
-  %.0.i26 = phi i32 [ 0, %vpx_rac_get_prob_branchy.exit.i.thread ], [ %2061, %2059 ]
+  %.0.i26 = phi i32 [ %2061, %2059 ], [ 0, %vpx_rac_get_prob_branchy.exit.i.thread ]
   %2062 = add nsw i32 %.0.i26, %.0.i6
   %2063 = trunc i32 %2062 to i8
   %2064 = getelementptr inbounds nuw i8, ptr %2019, i64 %indvars.iv637
@@ -26518,7 +26518,7 @@ vpx_rac_get_prob_branchy.exit.i32.thread:         ; preds = %vpx_rac_renorm.exit
   br label %decode_block_coeffs.exit36
 
 decode_block_coeffs.exit36:                       ; preds = %vpx_rac_get_prob_branchy.exit.i32.thread, %2113
-  %.0.i35 = phi i32 [ 0, %vpx_rac_get_prob_branchy.exit.i32.thread ], [ %2115, %2113 ]
+  %.0.i35 = phi i32 [ %2115, %2113 ], [ 0, %vpx_rac_get_prob_branchy.exit.i32.thread ]
   %2116 = trunc i32 %.0.i35 to i8
   %2117 = getelementptr inbounds nuw i8, ptr %2070, i64 %2079
   store i8 %2116, ptr %2117, align 1, !tbaa !56
@@ -26667,7 +26667,7 @@ default.unreachable967:                           ; preds = %2176
   unreachable
 
 check_intra_pred8x8_mode_emuedge.exit:            ; preds = %2180, %2176, %2177, %2178
-  %.0.i55 = phi i64 [ %., %2180 ], [ %.0.i70, %2177 ], [ %222, %2176 ], [ %2179, %2178 ]
+  %.0.i55 = phi i64 [ %.0.i70, %2177 ], [ %2179, %2178 ], [ %222, %2176 ], [ %., %2180 ]
   %2181 = getelementptr inbounds nuw ptr, ptr %225, i64 %.0.i55
   %2182 = load ptr, ptr %2181, align 8, !tbaa !102
   %2183 = load i64, ptr %38, align 8, !tbaa !159
@@ -26856,7 +26856,7 @@ check_intra_pred4x4_mode_emuedge.exit.thread324:  ; preds = %2233, %check_intra_
   br label %2269
 
 2265:                                             ; preds = %2236, %2217, %2231, %2234, %2237
-  %.0.i62.ph = phi i32 [ %.581, %2236 ], [ %2224, %2217 ], [ %2224, %2237 ], [ %2235, %2234 ], [ %2232, %2231 ]
+  %.0.i62.ph = phi i32 [ %2224, %2217 ], [ %2224, %2237 ], [ %2235, %2234 ], [ %2232, %2231 ], [ %.581, %2236 ]
   %2266 = zext nneg i32 %.0.i62.ph to i64
   %2267 = getelementptr inbounds nuw ptr, ptr %215, i64 %2266
   %2268 = load ptr, ptr %2267, align 8, !tbaa !102
@@ -26957,7 +26957,7 @@ check_intra_pred4x4_mode_emuedge.exit.thread324:  ; preds = %2233, %check_intra_
   br label %check_intra_pred8x8_mode_emuedge.exit60
 
 check_intra_pred8x8_mode_emuedge.exit60:          ; preds = %2306, %2298, %2302, %2303, %2304
-  %.0.i57 = phi i64 [ %2301, %2298 ], [ %.0.i66, %2302 ], [ %222, %2303 ], [ %2305, %2304 ], [ %.582, %2306 ]
+  %.0.i57 = phi i64 [ %.0.i66, %2302 ], [ %222, %2303 ], [ %2305, %2304 ], [ %2301, %2298 ], [ %.582, %2306 ]
   %2307 = getelementptr inbounds nuw ptr, ptr %226, i64 %.0.i57
   %2308 = load ptr, ptr %2307, align 8, !tbaa !102
   %2309 = load i64, ptr %48, align 8, !tbaa !160
@@ -30138,7 +30138,7 @@ prefetch_motion.exit:                             ; preds = %.thread353, %4370
   br i1 %4472, label %256, label %decode_mb_row_no_filter.exit, !llvm.loop !224
 
 decode_mb_row_no_filter.exit:                     ; preds = %vpx_rac_is_end.exit.i, %vpx_rac_is_end.exit297.i, %4467, %128, %vpx_rac_is_end.exit299.i
-  %.0.i = phi i32 [ -1094995529, %vpx_rac_is_end.exit299.i ], [ 0, %128 ], [ -1094995529, %vpx_rac_is_end.exit297.i ], [ -1094995529, %vpx_rac_is_end.exit.i ], [ 0, %4467 ]
+  %.0.i = phi i32 [ -1094995529, %vpx_rac_is_end.exit299.i ], [ 0, %128 ], [ -1094995529, %vpx_rac_is_end.exit.i ], [ -1094995529, %vpx_rac_is_end.exit297.i ], [ 0, %4467 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0.i
 }

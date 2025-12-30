@@ -741,7 +741,7 @@ Vec_VecPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %114, label %.preheader, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.critedge, %Vec_VecStart.exit, %7, %2
-  %.0 = phi ptr [ null, %7 ], [ null, %2 ], [ %.sink66, %Vec_VecStart.exit ], [ %.sink66, %.critedge ]
+  %.0 = phi ptr [ null, %2 ], [ null, %7 ], [ %.sink66, %Vec_VecStart.exit ], [ %.sink66, %.critedge ]
   ret ptr %.0
 }
 
@@ -1007,7 +1007,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %12
   br i1 %17, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %Vec_PtrGrow.exit.i, %Vec_PtrGrow.exit.thread17.i, %10
-  %18 = phi i32 [ %8, %Vec_PtrGrow.exit.thread17.i ], [ %.pre.pre.i, %Vec_PtrGrow.exit.i ], [ %8, %10 ]
+  %18 = phi i32 [ %.pre.pre.i, %Vec_PtrGrow.exit.i ], [ %8, %Vec_PtrGrow.exit.thread17.i ], [ %8, %10 ]
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = sext i32 %18 to i64
   br label %21
@@ -1110,7 +1110,7 @@ Vec_PtrGrow.exit.i42:                             ; preds = %53
   br i1 %.not1516.i, label %._crit_edge.i48, label %.lr.ph.i43
 
 .lr.ph.i43:                                       ; preds = %51, %Vec_PtrGrow.exit.i42.thread56, %Vec_PtrGrow.exit.i42
-  %58 = phi i32 [ %50, %Vec_PtrGrow.exit.i42.thread56 ], [ %.pre.pre.i41, %Vec_PtrGrow.exit.i42 ], [ %50, %51 ]
+  %58 = phi i32 [ %.pre.pre.i41, %Vec_PtrGrow.exit.i42 ], [ %50, %Vec_PtrGrow.exit.i42.thread56 ], [ %50, %51 ]
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %60 = sext i32 %58 to i64
   br label %61
@@ -2094,7 +2094,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br i1 %268, label %.preheader.i, label %IPdr_ManRestoreAbsFlops.exit, !llvm.loop !71
 
 IPdr_ManRestoreAbsFlops.exit:                     ; preds = %.critedge.i, %Vec_IntStartFull.exit, %201, %205, %129
-  %.1425 = phi i32 [ 0, %129 ], [ %132, %201 ], [ %132, %205 ], [ %132, %Vec_IntStartFull.exit ], [ %132, %.critedge.i ]
+  %.1425 = phi i32 [ 0, %129 ], [ %132, %205 ], [ %132, %201 ], [ %132, %Vec_IntStartFull.exit ], [ %132, %.critedge.i ]
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -4082,8 +4082,8 @@ Abc_Clock.exit706:                                ; preds = %1235, %1238
   store i32 %1014, ptr %1255, align 8, !tbaa !121
   br label %.thread717
 
-.thread717:                                       ; preds = %874, %Abc_Clock.exit677, %777, %771, %861, %727, %643, %1253, %1225, %1176, %1139, %.loopexit, %1116, %1057, %557, %372, %473, %460, %200
-  %.0423 = phi i32 [ 1, %200 ], [ -1, %861 ], [ -1, %727 ], [ -1, %643 ], [ -1, %460 ], [ -1, %1253 ], [ -1, %1225 ], [ -1, %1176 ], [ -1, %1139 ], [ 1, %.loopexit ], [ %., %1116 ], [ -1, %1057 ], [ 0, %Abc_Clock.exit677 ], [ -1, %557 ], [ 0, %372 ], [ %474, %473 ], [ 0, %771 ], [ 0, %777 ], [ 0, %874 ]
+.thread717:                                       ; preds = %874, %Abc_Clock.exit677, %777, %771, %1116, %.loopexit, %861, %727, %643, %1253, %1225, %1176, %1139, %1057, %557, %372, %473, %460, %200
+  %.0423 = phi i32 [ 1, %200 ], [ %., %1116 ], [ 1, %.loopexit ], [ -1, %861 ], [ -1, %727 ], [ -1, %643 ], [ -1, %1253 ], [ -1, %1225 ], [ -1, %1176 ], [ -1, %1139 ], [ -1, %1057 ], [ -1, %557 ], [ 0, %372 ], [ %474, %473 ], [ -1, %460 ], [ 0, %771 ], [ 0, %777 ], [ 0, %Abc_Clock.exit677 ], [ 0, %874 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   ret i32 %.0423
 }
@@ -4983,7 +4983,7 @@ default.unreachable38:                            ; preds = %Abc_Clock.exit
   unreachable
 
 .sink.split:                                      ; preds = %17, %13, %Abc_Clock.exit, %25
-  %.str.32.sink = phi ptr [ @.str.30, %13 ], [ @.str.29, %Abc_Clock.exit ], [ @.str.33, %25 ], [ @.str.32, %17 ]
+  %.str.32.sink = phi ptr [ @.str.33, %25 ], [ @.str.29, %Abc_Clock.exit ], [ @.str.30, %13 ], [ @.str.32, %17 ]
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull %.str.32.sink)
   br label %26
 

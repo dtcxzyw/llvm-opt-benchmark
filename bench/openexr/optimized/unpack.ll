@@ -156,7 +156,7 @@ define hidden nonnull ptr @internal_exr_match_decode(ptr noundef readonly captur
   br label %66
 
 66:                                               ; preds = %64, %24, %25, %40, %42, %51, %62, %58, %54, %43, %44, %38, %34, %18, %65, %63, %59, %55, %39, %35
-  %.0 = phi ptr [ %generic_unpack_deep.generic_unpack_deep_pointers, %18 ], [ @generic_unpack, %65 ], [ @generic_unpack, %44 ], [ @generic_unpack, %24 ], [ @unpack_half_to_float_3chan_interleave, %35 ], [ @unpack_half_to_float_4chan_interleave, %34 ], [ @unpack_half_to_float_3chan_interleave_rev, %39 ], [ @unpack_half_to_float_4chan_interleave_rev, %38 ], [ %switch.select55, %42 ], [ @unpack_32bit, %51 ], [ @generic_unpack, %43 ], [ @unpack_16bit_3chan_interleave, %55 ], [ @unpack_16bit_4chan_interleave, %54 ], [ @unpack_16bit_3chan_interleave_rev, %59 ], [ @unpack_16bit_4chan_interleave_rev, %58 ], [ @unpack_16bit_3chan_planar, %63 ], [ @unpack_16bit_4chan_planar, %62 ], [ %switch.select59, %64 ], [ @generic_unpack, %25 ], [ @generic_unpack, %40 ]
+  %.0 = phi ptr [ @unpack_half_to_float_3chan_interleave, %35 ], [ @unpack_half_to_float_3chan_interleave_rev, %39 ], [ @unpack_16bit_3chan_interleave, %55 ], [ @unpack_16bit_3chan_interleave_rev, %59 ], [ @unpack_16bit_3chan_planar, %63 ], [ @generic_unpack, %65 ], [ %generic_unpack_deep.generic_unpack_deep_pointers, %18 ], [ @unpack_half_to_float_4chan_interleave, %34 ], [ @unpack_half_to_float_4chan_interleave_rev, %38 ], [ @generic_unpack, %44 ], [ @generic_unpack, %43 ], [ @unpack_16bit_4chan_interleave, %54 ], [ @unpack_16bit_4chan_interleave_rev, %58 ], [ @unpack_16bit_4chan_planar, %62 ], [ @unpack_32bit, %51 ], [ %switch.select55, %42 ], [ @generic_unpack, %40 ], [ @generic_unpack, %25 ], [ @generic_unpack, %24 ], [ %switch.select59, %64 ]
   ret ptr %.0
 }
 
@@ -490,13 +490,13 @@ half_to_float.exit:                               ; preds = %115, %117, %119, %1
   br label %half_to_float.exit.i
 
 half_to_float.exit.i:                             ; preds = %143, %142, %140
-  %.sroa.0.0.i.i.i = phi i32 [ %141, %140 ], [ 0, %142 ], [ %149, %143 ]
+  %.sroa.0.0.i.i.i = phi i32 [ %141, %140 ], [ %149, %143 ], [ 0, %142 ]
   %150 = bitcast i32 %.sroa.0.0.i.i.i to float
   %151 = fptoui float %150 to i32
   br label %half_to_uint.exit
 
 half_to_uint.exit:                                ; preds = %.lr.ph285, %135, %half_to_float.exit.i
-  %.0.i = phi i32 [ %151, %half_to_float.exit.i ], [ %..i, %135 ], [ 0, %.lr.ph285 ]
+  %.0.i = phi i32 [ %151, %half_to_float.exit.i ], [ 0, %.lr.ph285 ], [ %..i, %135 ]
   store i32 %.0.i, ptr %.2195282, align 4, !tbaa !23
   %152 = getelementptr inbounds i8, ptr %.2195282, i64 %85
   %153 = add nuw nsw i32 %.0181284, 1
@@ -606,7 +606,7 @@ half_to_uint.exit:                                ; preds = %.lr.ph285, %135, %h
   br label %float_to_half_int.exit
 
 float_to_half_int.exit:                           ; preds = %169, %172, %182, %184, %193, %207, %210
-  %.0.i.i.i = phi i16 [ %165, %193 ], [ %179, %172 ], [ %183, %182 ], [ %192, %184 ], [ %170, %169 ], [ %211, %210 ], [ %205, %207 ]
+  %.0.i.i.i = phi i16 [ %179, %172 ], [ %183, %182 ], [ %192, %184 ], [ %170, %169 ], [ %165, %193 ], [ %211, %210 ], [ %205, %207 ]
   store i16 %.0.i.i.i, ptr %.3196278, align 2, !tbaa !36
   %212 = getelementptr inbounds i8, ptr %.3196278, i64 %85
   %213 = add nuw nsw i32 %.0178280, 1
@@ -644,7 +644,7 @@ float_to_half_int.exit:                           ; preds = %169, %172, %182, %1
   br label %float_to_uint_int.exit
 
 float_to_uint_int.exit:                           ; preds = %.lr.ph273, %218
-  %.0.i.i = phi i32 [ %spec.select.i.i, %218 ], [ 0, %.lr.ph273 ]
+  %.0.i.i = phi i32 [ 0, %.lr.ph273 ], [ %spec.select.i.i, %218 ]
   store i32 %.0.i.i, ptr %.5198270, align 4, !tbaa !23
   %223 = getelementptr inbounds i8, ptr %.5198270, i64 %85
   %224 = add nuw nsw i32 %.0173272, 1
@@ -745,7 +745,7 @@ float_to_uint_int.exit:                           ; preds = %.lr.ph273, %218
   br label %uint_to_half.exit
 
 uint_to_half.exit:                                ; preds = %.lr.ph269, %238, %240, %248, %250, %257, %269, %272
-  %.0.i222 = phi i16 [ 31744, %.lr.ph269 ], [ 0, %257 ], [ %247, %240 ], [ %267, %269 ], [ %256, %250 ], [ 31744, %238 ], [ %273, %272 ], [ 31744, %248 ]
+  %.0.i222 = phi i16 [ 31744, %.lr.ph269 ], [ %247, %240 ], [ %256, %250 ], [ 31744, %238 ], [ 0, %257 ], [ %273, %272 ], [ %267, %269 ], [ 31744, %248 ]
   store i16 %.0.i222, ptr %.6199266, align 2, !tbaa !36
   %274 = getelementptr inbounds i8, ptr %.6199266, i64 %85
   %275 = add nuw nsw i32 %.0170268, 1
@@ -799,17 +799,17 @@ uint_to_half.exit:                                ; preds = %.lr.ph269, %238, %2
   br i1 %.not216, label %.lr.ph305.split, label %.thread228, !llvm.loop !27
 
 .thread228:                                       ; preds = %.loopexit248, %..loopexit251_crit_edge.us.us, %33, %.lr.ph305.split.us.split, %.preheader252
-  %289 = phi i16 [ %21, %.preheader252 ], [ %21, %33 ], [ %21, %..loopexit251_crit_edge.us.us ], [ %21, %.lr.ph305.split.us.split ], [ %286, %.loopexit248 ]
-  %290 = phi i16 [ %22, %.preheader252 ], [ %21, %33 ], [ %21, %..loopexit251_crit_edge.us.us ], [ %21, %.lr.ph305.split.us.split ], [ %287, %.loopexit248 ]
-  %291 = phi i16 [ %23, %.preheader252 ], [ %21, %33 ], [ %21, %..loopexit251_crit_edge.us.us ], [ %21, %.lr.ph305.split.us.split ], [ %287, %.loopexit248 ]
-  %.1164.lcssa = phi ptr [ %.0163319, %.preheader252 ], [ %39, %33 ], [ %50, %..loopexit251_crit_edge.us.us ], [ %.0163319, %.lr.ph305.split.us.split ], [ %.3166.ph, %.loopexit248 ]
+  %289 = phi i16 [ %21, %.preheader252 ], [ %21, %.lr.ph305.split.us.split ], [ %21, %33 ], [ %21, %..loopexit251_crit_edge.us.us ], [ %286, %.loopexit248 ]
+  %290 = phi i16 [ %22, %.preheader252 ], [ %21, %.lr.ph305.split.us.split ], [ %21, %33 ], [ %21, %..loopexit251_crit_edge.us.us ], [ %287, %.loopexit248 ]
+  %291 = phi i16 [ %23, %.preheader252 ], [ %21, %.lr.ph305.split.us.split ], [ %21, %33 ], [ %21, %..loopexit251_crit_edge.us.us ], [ %287, %.loopexit248 ]
+  %.1164.lcssa = phi ptr [ %.0163319, %.preheader252 ], [ %.0163319, %.lr.ph305.split.us.split ], [ %39, %33 ], [ %50, %..loopexit251_crit_edge.us.us ], [ %.3166.ph, %.loopexit248 ]
   %292 = getelementptr inbounds i32, ptr %.0172315, i64 %19
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
   %exitcond377.not = icmp eq i64 %indvars.iv.next374, %wide.trip.count376
   br i1 %exitcond377.not, label %.loopexit249, label %.preheader252, !llvm.loop !51
 
-.loopexit249:                                     ; preds = %.thread228, %98, %96, %154, %225, %1
-  %spec.select218 = phi i32 [ 3, %98 ], [ 0, %1 ], [ 3, %225 ], [ 3, %154 ], [ 3, %96 ], [ 0, %.thread228 ]
+.loopexit249:                                     ; preds = %.thread228, %96, %225, %154, %98, %1
+  %spec.select218 = phi i32 [ 0, %1 ], [ 3, %98 ], [ 3, %154 ], [ 3, %225 ], [ 3, %96 ], [ 0, %.thread228 ]
   ret i32 %spec.select218
 }
 
@@ -1032,7 +1032,7 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep(ptr noundef readonly ca
   br label %uint_to_half.exit.us.us
 
 uint_to_half.exit.us.us:                          ; preds = %101, %99, %92, %90, %86, %83, %71, %.lr.ph284.us.us
-  %.0.i229.us.us = phi i16 [ 31744, %.lr.ph284.us.us ], [ 0, %71 ], [ %108, %101 ], [ %81, %83 ], [ %98, %92 ], [ 31744, %99 ], [ %87, %86 ], [ 31744, %90 ]
+  %.0.i229.us.us = phi i16 [ 31744, %.lr.ph284.us.us ], [ %108, %101 ], [ %98, %92 ], [ 31744, %99 ], [ 0, %71 ], [ %87, %86 ], [ %81, %83 ], [ 31744, %90 ]
   store i16 %.0.i229.us.us, ptr %.9281.us.us, align 2, !tbaa !36
   %109 = getelementptr inbounds i8, ptr %.9281.us.us, i64 %42
   %110 = add nuw nsw i32 %.0168283.us.us, 1
@@ -1066,7 +1066,7 @@ uint_to_half.exit.us.us:                          ; preds = %101, %99, %92, %90,
   br label %float_to_uint_int.exit.us.us
 
 float_to_uint_int.exit.us.us:                     ; preds = %114, %.lr.ph289.us.us
-  %.0.i.i.us.us = phi i32 [ %spec.select.i.i.us.us, %114 ], [ 0, %.lr.ph289.us.us ]
+  %.0.i.i.us.us = phi i32 [ 0, %.lr.ph289.us.us ], [ %spec.select.i.i.us.us, %114 ]
   store i32 %.0.i.i.us.us, ptr %.8183286.us.us, align 4, !tbaa !23
   %119 = getelementptr inbounds i8, ptr %.8183286.us.us, i64 %42
   %120 = add nuw nsw i32 %.0171288.us.us, 1
@@ -1168,7 +1168,7 @@ float_to_uint_int.exit.us.us:                     ; preds = %114, %.lr.ph289.us.
   br label %float_to_half_int.exit.us.us
 
 float_to_half_int.exit.us.us:                     ; preds = %169, %166, %164, %155, %149, %146, %132
-  %.0.i.i.i.us.us = phi i16 [ %130, %132 ], [ %176, %169 ], [ %165, %164 ], [ %163, %155 ], [ %167, %166 ], [ %150, %149 ], [ %144, %146 ]
+  %.0.i.i.i.us.us = phi i16 [ %176, %169 ], [ %165, %164 ], [ %163, %155 ], [ %167, %166 ], [ %130, %132 ], [ %150, %149 ], [ %144, %146 ]
   store i16 %.0.i.i.i.us.us, ptr %.6181298.us.us, align 2, !tbaa !36
   %177 = getelementptr inbounds i8, ptr %.6181298.us.us, i64 %42
   %178 = add nuw nsw i32 %.0184297.us.us, 1
@@ -1221,7 +1221,7 @@ float_to_half_int.exit.us.us:                     ; preds = %169, %166, %164, %1
   br label %half_to_float.exit.i.us.us
 
 half_to_float.exit.i.us.us:                       ; preds = %197, %190, %189
-  %.sroa.0.0.i.i.i.us.us = phi i32 [ %198, %197 ], [ 0, %189 ], [ %196, %190 ]
+  %.sroa.0.0.i.i.i.us.us = phi i32 [ %198, %197 ], [ %196, %190 ], [ 0, %189 ]
   %199 = bitcast i32 %.sroa.0.0.i.i.i.us.us to float
   %200 = fptoui float %199 to i32
   br label %half_to_uint.exit.us.us
@@ -1233,7 +1233,7 @@ half_to_float.exit.i.us.us:                       ; preds = %197, %190, %189
   br label %half_to_uint.exit.us.us
 
 half_to_uint.exit.us.us:                          ; preds = %201, %half_to_float.exit.i.us.us, %.lr.ph304.us.us
-  %.0.i.us.us = phi i32 [ %200, %half_to_float.exit.i.us.us ], [ %..i.us.us, %201 ], [ 0, %.lr.ph304.us.us ]
+  %.0.i.us.us = phi i32 [ %200, %half_to_float.exit.i.us.us ], [ 0, %.lr.ph304.us.us ], [ %..i.us.us, %201 ]
   store i32 %.0.i.us.us, ptr %.3178303.us.us, align 4, !tbaa !23
   %203 = getelementptr inbounds i8, ptr %.3178303.us.us, i64 %42
   %204 = add nuw nsw i32 %.0195302.us.us, 1
@@ -1290,7 +1290,7 @@ half_to_float.exit.us.us:                         ; preds = %225, %223, %212, %2
   br i1 %exitcond455.not, label %.loopexit.us.us, label %.lr.ph309.us.us, !llvm.loop !60
 
 .loopexit.us.us:                                  ; preds = %.lr.ph.us.us, %.lr.ph279.us.us, %uint_to_half.exit.us.us, %float_to_uint_int.exit.us.us, %.lr.ph294.us.us, %float_to_half_int.exit.us.us, %half_to_uint.exit.us.us, %half_to_float.exit.us.us, %.lr.ph314.us.us, %.preheader261.us.us, %.preheader259.us.us, %.preheader257.us.us, %.preheader255.us.us, %.preheader253.us.us, %.preheader251.us.us, %.preheader249.us.us, %.preheader247.us.us, %.preheader.us.us
-  %.5180.us.us = phi ptr [ %.0175320.us.us, %.preheader255.us.us ], [ %.0175320.us.us, %.preheader257.us.us ], [ %.0175320.us.us, %.preheader259.us.us ], [ %.0175320.us.us, %.preheader.us.us ], [ %.0175320.us.us, %.preheader247.us.us ], [ %.0175320.us.us, %.preheader249.us.us ], [ %.0175320.us.us, %.preheader251.us.us ], [ %.0175320.us.us, %.preheader253.us.us ], [ %227, %half_to_float.exit.us.us ], [ %203, %half_to_uint.exit.us.us ], [ %177, %float_to_half_int.exit.us.us ], [ %122, %.lr.ph294.us.us ], [ %119, %float_to_uint_int.exit.us.us ], [ %109, %uint_to_half.exit.us.us ], [ %63, %.lr.ph279.us.us ], [ %234, %.lr.ph314.us.us ], [ %.0175320.us.us, %.preheader261.us.us ], [ %59, %.lr.ph.us.us ]
+  %.5180.us.us = phi ptr [ %.0175320.us.us, %.preheader.us.us ], [ %.0175320.us.us, %.preheader247.us.us ], [ %.0175320.us.us, %.preheader249.us.us ], [ %.0175320.us.us, %.preheader251.us.us ], [ %.0175320.us.us, %.preheader253.us.us ], [ %.0175320.us.us, %.preheader255.us.us ], [ %.0175320.us.us, %.preheader257.us.us ], [ %.0175320.us.us, %.preheader259.us.us ], [ %.0175320.us.us, %.preheader261.us.us ], [ %234, %.lr.ph314.us.us ], [ %227, %half_to_float.exit.us.us ], [ %203, %half_to_uint.exit.us.us ], [ %177, %float_to_half_int.exit.us.us ], [ %122, %.lr.ph294.us.us ], [ %119, %float_to_uint_int.exit.us.us ], [ %109, %uint_to_half.exit.us.us ], [ %63, %.lr.ph279.us.us ], [ %59, %.lr.ph.us.us ]
   %229 = sext i32 %spec.select223.us.us to i64
   %230 = mul nsw i64 %229, %47
   %231 = getelementptr inbounds nuw i8, ptr %.4165321.us.us, i64 %230
@@ -1392,7 +1392,7 @@ half_to_float.exit.us.us:                         ; preds = %225, %223, %212, %2
   br i1 %260, label %.lr.ph.us.us, label %.loopexit.us.us
 
 .loopexit266:                                     ; preds = %.thread241.us, %48, %56, %111, %179, %.preheader267.lr.ph, %1
-  %spec.select225 = phi i32 [ 0, %.preheader267.lr.ph ], [ 0, %1 ], [ 3, %48 ], [ 3, %179 ], [ 3, %111 ], [ 3, %56 ], [ 0, %.thread241.us ]
+  %spec.select225 = phi i32 [ 0, %1 ], [ 0, %.preheader267.lr.ph ], [ 3, %179 ], [ 3, %111 ], [ 3, %56 ], [ 3, %48 ], [ 0, %.thread241.us ]
   ret i32 %spec.select225
 }
 
@@ -2615,13 +2615,13 @@ half_to_float.exit:                               ; preds = %93, %95, %97, %98
   br label %half_to_float.exit.i
 
 half_to_float.exit.i:                             ; preds = %122, %121, %119
-  %.sroa.0.0.i.i.i = phi i32 [ %120, %119 ], [ 0, %121 ], [ %128, %122 ]
+  %.sroa.0.0.i.i.i = phi i32 [ %120, %119 ], [ %128, %122 ], [ 0, %121 ]
   %129 = bitcast i32 %.sroa.0.0.i.i.i to float
   %130 = fptoui float %129 to i32
   br label %half_to_uint.exit
 
 half_to_uint.exit:                                ; preds = %108, %114, %half_to_float.exit.i
-  %.0.i = phi i32 [ %130, %half_to_float.exit.i ], [ %..i, %114 ], [ 0, %108 ]
+  %.0.i = phi i32 [ %130, %half_to_float.exit.i ], [ 0, %108 ], [ %..i, %114 ]
   store i32 %.0.i, ptr %.3158238, align 4, !tbaa !23
   %131 = getelementptr inbounds i8, ptr %.3158238, i64 %74
   %132 = add nuw nsw i32 %.0171237, 1
@@ -2744,7 +2744,7 @@ half_to_uint.exit:                                ; preds = %108, %114, %half_to
   br label %float_to_half_int.exit
 
 float_to_half_int.exit:                           ; preds = %153, %156, %166, %168, %177, %191, %194
-  %.0.i.i.i = phi i16 [ %149, %177 ], [ %163, %156 ], [ %167, %166 ], [ %176, %168 ], [ %154, %153 ], [ %195, %194 ], [ %189, %191 ]
+  %.0.i.i.i = phi i16 [ %163, %156 ], [ %167, %166 ], [ %176, %168 ], [ %154, %153 ], [ %149, %177 ], [ %195, %194 ], [ %189, %191 ]
   store i16 %.0.i.i.i, ptr %.4159234, align 2, !tbaa !36
   %196 = getelementptr inbounds i8, ptr %.4159234, i64 %141
   %197 = add nuw nsw i32 %.0166233, 1
@@ -2782,7 +2782,7 @@ float_to_half_int.exit:                           ; preds = %153, %156, %166, %1
   br label %float_to_uint_int.exit
 
 float_to_uint_int.exit:                           ; preds = %202, %204
-  %.0.i.i = phi i32 [ %spec.select.i.i, %204 ], [ 0, %202 ]
+  %.0.i.i = phi i32 [ 0, %202 ], [ %spec.select.i.i, %204 ]
   store i32 %.0.i.i, ptr %.6226, align 4, !tbaa !23
   %209 = getelementptr inbounds i8, ptr %.6226, i64 %137
   %210 = add nuw nsw i32 %.0161225, 1
@@ -2896,7 +2896,7 @@ float_to_uint_int.exit:                           ; preds = %202, %204
   br label %uint_to_half.exit
 
 uint_to_half.exit:                                ; preds = %220, %229, %231, %239, %241, %248, %260, %263
-  %.0.i188 = phi i16 [ 31744, %220 ], [ 0, %248 ], [ %238, %231 ], [ %258, %260 ], [ %247, %241 ], [ 31744, %229 ], [ %264, %263 ], [ 31744, %239 ]
+  %.0.i188 = phi i16 [ 31744, %220 ], [ %238, %231 ], [ %247, %241 ], [ 31744, %229 ], [ 0, %248 ], [ %264, %263 ], [ %258, %260 ], [ 31744, %239 ]
   store i16 %.0.i188, ptr %.7220, align 2, !tbaa !36
   %265 = getelementptr inbounds i8, ptr %.7220, i64 %219
   %266 = add nuw nsw i32 %.0153222, 1
@@ -2936,8 +2936,8 @@ uint_to_half.exit:                                ; preds = %220, %229, %231, %2
   br label %279
 
 279:                                              ; preds = %45, %58, %.loopexit, %41
-  %280 = phi i16 [ %27, %58 ], [ %27, %45 ], [ %27, %41 ], [ %.pre279, %.loopexit ]
-  %.3152 = phi ptr [ %61, %58 ], [ %48, %45 ], [ %.1150249, %41 ], [ %278, %.loopexit ]
+  %280 = phi i16 [ %.pre279, %.loopexit ], [ %27, %45 ], [ %27, %58 ], [ %27, %41 ]
+  %.3152 = phi ptr [ %278, %.loopexit ], [ %48, %45 ], [ %61, %58 ], [ %.1150249, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %281 = sext i16 %280 to i64
   %282 = icmp slt i64 %indvars.iv.next, %281
@@ -2951,8 +2951,8 @@ uint_to_half.exit:                                ; preds = %220, %229, %231, %2
   %exitcond278.not = icmp eq i64 %indvars.iv.next276, %wide.trip.count
   br i1 %exitcond278.not, label %.thread191, label %15, !llvm.loop !88
 
-.thread191:                                       ; preds = %._crit_edge, %211, %70, %133, %67, %1
-  %spec.select = phi i32 [ 3, %211 ], [ 0, %1 ], [ 3, %67 ], [ 3, %133 ], [ 3, %70 ], [ 0, %._crit_edge ]
+.thread191:                                       ; preds = %._crit_edge, %70, %133, %211, %67, %1
+  %spec.select = phi i32 [ 0, %1 ], [ 3, %67 ], [ 3, %211 ], [ 3, %133 ], [ 3, %70 ], [ 0, %._crit_edge ]
   ret i32 %spec.select
 }
 

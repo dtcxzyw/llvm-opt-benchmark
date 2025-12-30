@@ -1004,7 +1004,7 @@ _ZNSt14_Function_baseD2Ev.exit113:                ; preds = %297, %299
   br label %304
 
 304:                                              ; preds = %247, %135, %_ZNSt14_Function_baseD2Ev.exit113
-  %.pn63.pn.pn = phi { ptr, i32 } [ %.pn52, %247 ], [ %.pn60, %135 ], [ %.pn, %_ZNSt14_Function_baseD2Ev.exit113 ]
+  %.pn63.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt14_Function_baseD2Ev.exit113 ], [ %.pn60, %135 ], [ %.pn52, %247 ]
   call void @_ZN4lean6bufferINS_4nameELm16EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn63.pn.pn
@@ -2591,7 +2591,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %55, %54, %52, %45, 
   ret void
 
 112:                                              ; preds = %93, %59, %34
-  %.pn = phi { ptr, i32 } [ %94, %93 ], [ %35, %34 ], [ %60, %59 ]
+  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %60, %59 ], [ %94, %93 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -5280,7 +5280,7 @@ _ZN4lean7sstreamlsIA40_cEERS0_RKT_.exit:          ; preds = %_ZN4lean7sstreamlsI
           cleanup
   br label %161
 
-.thread74:                                        ; preds = %_ZN4lean7sstreamlsIA40_cEERS0_RKT_.exit, %_ZN4lean7sstreamlsINS_4nameEEERS0_RKT_.exit, %153, %_ZN4lean7sstreamC2Ev.exit
+.thread74:                                        ; preds = %_ZN4lean7sstreamC2Ev.exit, %153, %_ZN4lean7sstreamlsINS_4nameEEERS0_RKT_.exit, %_ZN4lean7sstreamlsIA40_cEERS0_RKT_.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4lean7sstreamD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %9) #16
@@ -5382,7 +5382,7 @@ _ZN4lean10object_refD2Ev.exit68:                  ; preds = %_ZN4lean8optionalIN
   br label %_ZN4lean4exprC2ERKS0_.exit
 
 193:                                              ; preds = %.loopexit, %.loopexit.split-lp, %160, %161, %113
-  %.pn31 = phi { ptr, i32 } [ %114, %113 ], [ %lpad.thr_comm.split-lp, %160 ], [ %.pn2873, %161 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn31 = phi { ptr, i32 } [ %114, %113 ], [ %.pn2873, %161 ], [ %lpad.thr_comm.split-lp, %160 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN4lean8optionalINS_13constant_infoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
   br label %.body
 
@@ -6179,7 +6179,7 @@ _ZN4lean4expraSERKS0_.exit79:                     ; preds = %256, %_ZN4lean3incE
   br label %.critedge
 
 261:                                              ; preds = %_ZN4lean4expraSERKS0_.exit79, %259, %_ZN4leaneqERKNS_4exprES2_.exit69
-  %.1 = phi i1 [ false, %259 ], [ false, %_ZN4lean4expraSERKS0_.exit79 ], [ %.010201, %_ZN4leaneqERKNS_4exprES2_.exit69 ]
+  %.1 = phi i1 [ %.010201, %_ZN4leaneqERKNS_4exprES2_.exit69 ], [ false, %259 ], [ false, %_ZN4lean4expraSERKS0_.exit79 ]
   %262 = load ptr, ptr %11, align 8, !tbaa !16
   %263 = ptrtoint ptr %262 to i64
   %264 = and i64 %263, 1

@@ -632,7 +632,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
   br label %.body
 
 .body:                                            ; preds = %134, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50, %132, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %.pn = phi { ptr, i32 } [ %123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %133, %132 ], [ %135, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50 ], [ %135, %134 ]
+  %.pn = phi { ptr, i32 } [ %133, %132 ], [ %123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %135, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50 ], [ %135, %134 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %143
 
@@ -965,7 +965,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %243
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %246
 
-.thread:                                          ; preds = %71, %41, %_ZN3zmq16socks_response_tD2Ev.exit, %95, %58, %86, %27, %67, %36, %148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89, %_ZN3zmq26socks_basic_auth_request_tD2Ev.exit
+.thread:                                          ; preds = %71, %41, %86, %_ZN3zmq16socks_response_tD2Ev.exit, %95, %67, %58, %36, %27, %148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89, %_ZN3zmq26socks_basic_auth_request_tD2Ev.exit
   ret void
 
 246:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92, %174, %_ZN3zmq16socks_response_tD2Ev.exit59
@@ -1517,7 +1517,7 @@ switch.lookup:                                    ; preds = %1
   br label %.critedge
 
 .critedge:                                        ; preds = %switch.lookup, %6
-  %.in = phi ptr [ %switch.gep, %switch.lookup ], [ %3, %6 ]
+  %.in = phi ptr [ %3, %6 ], [ %switch.gep, %switch.lookup ]
   %12 = load i32, ptr %.in, align 4
   switch i32 %12, label %89 [
     i32 2, label %13
@@ -1806,7 +1806,7 @@ thread-pre-split:                                 ; preds = %1
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %21, %15, %13, %13, %13, %13, %13, %13
-  %.0 = phi i32 [ -1, %15 ], [ %., %21 ], [ -1, %13 ], [ -1, %13 ], [ -1, %13 ], [ -1, %13 ], [ -1, %13 ], [ -1, %13 ], [ -1, %13 ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %13 ], [ -1, %13 ], [ -1, %13 ], [ -1, %13 ], [ -1, %13 ], [ -1, %15 ], [ %., %21 ], [ -1, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

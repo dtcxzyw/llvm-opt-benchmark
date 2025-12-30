@@ -213,8 +213,8 @@ define internal noundef i32 @lj_cf_jit_on(ptr noundef %0) #0 {
   br label %20
 
 20:                                               ; preds = %12, %15, %18, %7, %1
-  %.019.i = phi i32 [ 256, %1 ], [ %19, %18 ], [ 256, %7 ], [ 258, %15 ], [ 258, %12 ]
-  %.0.i = phi i32 [ 0, %1 ], [ %.1.i, %18 ], [ 0, %7 ], [ %.1.i, %15 ], [ %.1.i, %12 ]
+  %.019.i = phi i32 [ %19, %18 ], [ 256, %7 ], [ 256, %1 ], [ 258, %15 ], [ 258, %12 ]
+  %.0.i = phi i32 [ %.1.i, %18 ], [ 0, %7 ], [ 0, %1 ], [ %.1.i, %15 ], [ %.1.i, %12 ]
   %21 = tail call i32 @luaJIT_setmode(ptr noundef nonnull %0, i32 noundef %.0.i, i32 noundef %.019.i) #8
   %.not25.i = icmp eq i32 %21, 1
   br i1 %.not25.i, label %setjitmode.exit, label %22
@@ -281,8 +281,8 @@ define internal noundef i32 @lj_cf_jit_off(ptr noundef %0) #0 {
   br label %20
 
 20:                                               ; preds = %12, %15, %18, %7, %1
-  %.019.i = phi i32 [ 0, %1 ], [ %19, %18 ], [ 0, %7 ], [ 2, %15 ], [ 2, %12 ]
-  %.0.i = phi i32 [ 0, %1 ], [ %.1.i, %18 ], [ 0, %7 ], [ %.1.i, %15 ], [ %.1.i, %12 ]
+  %.019.i = phi i32 [ %19, %18 ], [ 0, %7 ], [ 0, %1 ], [ 2, %15 ], [ 2, %12 ]
+  %.0.i = phi i32 [ %.1.i, %18 ], [ 0, %7 ], [ 0, %1 ], [ %.1.i, %15 ], [ %.1.i, %12 ]
   %21 = tail call i32 @luaJIT_setmode(ptr noundef nonnull %0, i32 noundef %.0.i, i32 noundef %.019.i) #8
   %.not25.i = icmp eq i32 %21, 1
   br i1 %.not25.i, label %setjitmode.exit, label %22
@@ -362,8 +362,8 @@ define internal noundef i32 @lj_cf_jit_flush(ptr noundef %0) #0 {
   br label %28
 
 28:                                               ; preds = %20, %23, %26, %15, %13
-  %.019.i = phi i32 [ 512, %13 ], [ %27, %26 ], [ 512, %15 ], [ 514, %23 ], [ 514, %20 ]
-  %.0.i = phi i32 [ 0, %13 ], [ %.1.i, %26 ], [ 0, %15 ], [ %.1.i, %23 ], [ %.1.i, %20 ]
+  %.019.i = phi i32 [ %27, %26 ], [ 512, %15 ], [ 512, %13 ], [ 514, %23 ], [ 514, %20 ]
+  %.0.i = phi i32 [ %.1.i, %26 ], [ 0, %15 ], [ 0, %13 ], [ %.1.i, %23 ], [ %.1.i, %20 ]
   %29 = tail call i32 @luaJIT_setmode(ptr noundef nonnull %0, i32 noundef %.0.i, i32 noundef %.019.i) #8
   %.not25.i = icmp eq i32 %29, 1
   br i1 %.not25.i, label %setjitmode.exit, label %30
@@ -1403,7 +1403,7 @@ jit_checktrace.exit:                              ; preds = %6
   br label %73
 
 73:                                               ; preds = %jit_checktrace.exit.thread, %jit_checktrace.exit, %19, %69, %58
-  %.1 = phi i32 [ 2, %58 ], [ 3, %69 ], [ 0, %19 ], [ 0, %jit_checktrace.exit ], [ 0, %jit_checktrace.exit.thread ]
+  %.1 = phi i32 [ 3, %69 ], [ 2, %58 ], [ 0, %19 ], [ 0, %jit_checktrace.exit ], [ 0, %jit_checktrace.exit.thread ]
   ret i32 %.1
 }
 
@@ -1926,7 +1926,7 @@ jitopt_flag.exit:                                 ; preds = %69, %99
   tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %0, i32 noundef 2096, ptr noundef nonnull %24) #9
   unreachable
 
-jitopt_param.exit:                                ; preds = %65, %62, %98, %94, %jitopt_level.exit
+jitopt_param.exit:                                ; preds = %62, %65, %98, %94, %jitopt_level.exit
   %103 = add nuw i32 %.040, 1
   %exitcond.not = icmp eq i32 %.040, %13
   br i1 %exitcond.not, label %.loopexit30, label %22, !llvm.loop !99

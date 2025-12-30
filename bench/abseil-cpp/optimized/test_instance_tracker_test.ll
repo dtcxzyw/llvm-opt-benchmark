@@ -2696,7 +2696,7 @@ _ZN4absl13test_internal15InstanceTrackerD2Ev.exit: ; preds = %801
   br label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit393
 
 _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit393: ; preds = %803, %760, %716, %672, %629, %586, %542, %499, %456, %413
-  %.pn127.pn.pn.pn = phi { ptr, i32 } [ %.pn127.pn.pn, %803 ], [ %.pn123.pn.pn, %760 ], [ %.pn119.pn.pn, %716 ], [ %.pn115.pn.pn, %672 ], [ %.pn111.pn.pn, %629 ], [ %.pn91.pn.pn, %413 ], [ %.pn107.pn.pn, %586 ], [ %.pn103.pn.pn, %542 ], [ %.pn99.pn.pn, %499 ], [ %.pn95.pn.pn, %456 ]
+  %.pn127.pn.pn.pn = phi { ptr, i32 } [ %.pn127.pn.pn, %803 ], [ %.pn123.pn.pn, %760 ], [ %.pn119.pn.pn, %716 ], [ %.pn115.pn.pn, %672 ], [ %.pn111.pn.pn, %629 ], [ %.pn107.pn.pn, %586 ], [ %.pn103.pn.pn, %542 ], [ %.pn99.pn.pn, %499 ], [ %.pn95.pn.pn, %456 ], [ %.pn91.pn.pn, %413 ]
   %804 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4, !tbaa !20
   %805 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E, align 4, !tbaa !20
   %806 = add nsw i32 %805, -2
@@ -2705,8 +2705,8 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit393: ; preds = %803, %760, 
   store i32 %807, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4, !tbaa !20
   br label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit396
 
-808:                                              ; preds = %192, %370, %321, %278, %235
-  %.pn127.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn75.pn.pn, %235 ], [ %.pn79.pn.pn, %278 ], [ %.pn83.pn.pn, %321 ], [ %.pn87.pn.pn, %370 ], [ %.pn71.pn.pn, %192 ]
+808:                                              ; preds = %370, %321, %278, %235, %192
+  %.pn127.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn71.pn.pn, %192 ], [ %.pn75.pn.pn, %235 ], [ %.pn79.pn.pn, %278 ], [ %.pn83.pn.pn, %321 ], [ %.pn87.pn.pn, %370 ]
   %809 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4, !tbaa !20
   %810 = add nsw i32 %809, -1
   store i32 %810, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4, !tbaa !20
@@ -2716,9 +2716,9 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit393: ; preds = %803, %760, 
   br label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit396
 
 _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit396: ; preds = %808, %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit393
-  %813 = phi i32 [ %812, %808 ], [ %806, %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit393 ]
-  %814 = phi i32 [ %810, %808 ], [ %807, %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit393 ]
-  %.pn127.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn127.pn.pn.pn.pn.pn.pn.pn.ph, %808 ], [ %.pn127.pn.pn.pn, %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit393 ]
+  %813 = phi i32 [ %806, %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit393 ], [ %812, %808 ]
+  %814 = phi i32 [ %807, %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit393 ], [ %810, %808 ]
+  %.pn127.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn127.pn.pn.pn, %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit393 ], [ %.pn127.pn.pn.pn.pn.pn.pn.pn.ph, %808 ]
   %815 = add nsw i32 %813, -1
   store i32 %815, ptr @_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E, align 4, !tbaa !20
   %816 = add nsw i32 %814, -2
@@ -2737,7 +2737,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit396: ; preds = %808, %_ZN4a
   br label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit397
 
 _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit397: ; preds = %817, %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit396
-  %.pn127.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %817 ], [ %.pn127.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit396 ]
+  %.pn127.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn127.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit396 ], [ %.pn.pn.pn.pn, %817 ]
   call void @_ZN4absl13test_internal15InstanceTrackerD2Ev(ptr noundef nonnull align 4 dereferenceable(24) %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn127.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
@@ -10227,7 +10227,7 @@ _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit554: ; preds = %1156
   br label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit555
 
 _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit555: ; preds = %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit488, %1161, %1118, %1075, %1032, %265, %218, %175
-  %.pn180.pn.pn.pn = phi { ptr, i32 } [ %.pn180.pn.pn, %1161 ], [ %.pn176.pn.pn, %1118 ], [ %.pn172.pn.pn, %1075 ], [ %.pn168.pn.pn, %1032 ], [ %.pn.pn.pn, %175 ], [ %.pn94.pn.pn, %265 ], [ %.pn90.pn.pn, %218 ], [ %.pn162.pn.pn.pn, %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit488 ]
+  %.pn180.pn.pn.pn = phi { ptr, i32 } [ %.pn180.pn.pn, %1161 ], [ %.pn176.pn.pn, %1118 ], [ %.pn172.pn.pn, %1075 ], [ %.pn168.pn.pn, %1032 ], [ %.pn94.pn.pn, %265 ], [ %.pn90.pn.pn, %218 ], [ %.pn.pn.pn, %175 ], [ %.pn162.pn.pn.pn, %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit488 ]
   call void @_ZN4absl13test_internal15InstanceTrackerD2Ev(ptr noundef nonnull align 4 dereferenceable(24) %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %1162 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4, !tbaa !20
@@ -11617,7 +11617,7 @@ _ZN4absl13test_internal15InstanceTrackerD2Ev.exit: ; preds = %450
   br label %_ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit374
 
 _ZN4absl13test_internal19BaseCountedInstanceD2Ev.exit374: ; preds = %452, %409, %358, %314, %270, %226, %182, %138, %94
-  %.pn117.pn.pn.pn = phi { ptr, i32 } [ %.pn117.pn.pn, %452 ], [ %.pn113.pn.pn, %409 ], [ %.pn81.pn.pn, %226 ], [ %.pn105.pn.pn, %358 ], [ %.pn65.pn.pn, %138 ], [ %.pn97.pn.pn, %314 ], [ %.pn73.pn.pn, %182 ], [ %.pn89.pn.pn, %270 ], [ %.pn.pn.pn, %94 ]
+  %.pn117.pn.pn.pn = phi { ptr, i32 } [ %.pn117.pn.pn, %452 ], [ %.pn113.pn.pn, %409 ], [ %.pn105.pn.pn, %358 ], [ %.pn97.pn.pn, %314 ], [ %.pn89.pn.pn, %270 ], [ %.pn81.pn.pn, %226 ], [ %.pn73.pn.pn, %182 ], [ %.pn65.pn.pn, %138 ], [ %.pn.pn.pn, %94 ]
   %453 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4, !tbaa !20
   %454 = add nsw i32 %453, -1
   store i32 %454, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4, !tbaa !20
@@ -11837,7 +11837,7 @@ common.resume.sink.split:                         ; preds = %_ZNKSt7__cxx1112bas
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i9 ], [ %.pn.i32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i31 ], [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i ], [ %.pn.i54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i53 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i ], [ %.pn.i10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i9 ], [ %.pn.i32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i31 ], [ %.pn.i54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i53 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12.i

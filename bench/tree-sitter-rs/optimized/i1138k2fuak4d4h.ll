@@ -239,7 +239,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h8a
   br label %.thread
 
 .thread:                                          ; preds = %92, %88
-  %.sroa.4.0.ph = phi i64 [ %.sroa.6.1.i.i, %88 ], [ %97, %92 ]
+  %.sroa.4.0.ph = phi i64 [ %97, %92 ], [ %.sroa.6.1.i.i, %88 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %98 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -506,8 +506,8 @@ define hidden { i32, i8 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   br label %109
 
 91:                                               ; preds = %79, %75
-  %92 = phi i8 [ %77, %75 ], [ %.pre, %79 ]
-  %.sroa.4.0.ph = phi i64 [ %.sroa.6.1.i.i, %75 ], [ %84, %79 ]
+  %92 = phi i8 [ %.pre, %79 ], [ %77, %75 ]
+  %.sroa.4.0.ph = phi i64 [ %84, %79 ], [ %.sroa.6.1.i.i, %75 ]
   %93 = zext i1 %3 to i8
   call void @llvm.experimental.noalias.scope.decl(metadata !150)
   %94 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.4.0.ph

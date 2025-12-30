@@ -1090,7 +1090,7 @@ _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit: ; preds = %1, %12
   br i1 %exitcond.not, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit
 
 _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge: ; preds = %12, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit
-  %.lcssa2 = phi i64 [ %8, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit ], [ %5, %12 ]
+  %.lcssa2 = phi i64 [ %5, %12 ], [ %8, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit ]
   %14 = icmp ult i64 %.lcssa2, %3
   br i1 %14, label %16, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread, !prof !69
 
@@ -1145,7 +1145,7 @@ _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit: ; preds = %1, %11
   br i1 %exitcond.not, label %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h403e0f58edd1ec0cE.llvm.4561438521817157030.exit", label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit
 
 "_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h403e0f58edd1ec0cE.llvm.4561438521817157030.exit": ; preds = %11, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit
-  %.lcssa3 = phi i64 [ %8, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit ], [ %5, %11 ]
+  %.lcssa3 = phi i64 [ %5, %11 ], [ %8, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit ]
   %13 = icmp ult i64 %.lcssa3, %3
   br i1 %13, label %15, label %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h403e0f58edd1ec0cE.llvm.4561438521817157030.exit.thread", !prof !69
 
@@ -1200,7 +1200,7 @@ _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit: ; preds = %1, %11
   br i1 %exitcond.not, label %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17hb0a4c334e43f8614E.llvm.4561438521817157030.exit", label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit
 
 "_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17hb0a4c334e43f8614E.llvm.4561438521817157030.exit": ; preds = %11, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit
-  %.lcssa3 = phi i64 [ %8, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit ], [ %5, %11 ]
+  %.lcssa3 = phi i64 [ %5, %11 ], [ %8, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit ]
   %13 = icmp ult i64 %.lcssa3, %3
   br i1 %13, label %15, label %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17hb0a4c334e43f8614E.llvm.4561438521817157030.exit.thread", !prof !69
 
@@ -1255,7 +1255,7 @@ _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit: ; preds = %1, %16
   br i1 %exitcond.not, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit
 
 _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge: ; preds = %16, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit
-  %.lcssa2 = phi i64 [ %8, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit ], [ %5, %16 ]
+  %.lcssa2 = phi i64 [ %5, %16 ], [ %8, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit ]
   %18 = icmp ult i64 %.lcssa2, %3
   br i1 %18, label %20, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread, !prof !69
 

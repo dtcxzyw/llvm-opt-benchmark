@@ -298,7 +298,7 @@ use_component.exit.us.i:                          ; preds = %.lr.ph.i.us.i
   br label %use_component.exit.thr_comm.us.i
 
 use_component.exit.thr_comm.us.i:                 ; preds = %118, %use_component.exit.us.i, %.preheader.i.us.i
-  %122 = phi ptr [ %.pre35.i, %use_component.exit.us.i ], [ %114, %.preheader.i.us.i ], [ %114, %118 ]
+  %122 = phi ptr [ %114, %.preheader.i.us.i ], [ %.pre35.i, %use_component.exit.us.i ], [ %114, %118 ]
   %123 = getelementptr inbounds nuw i8, ptr %.027.us28.i, i64 120
   %.0.us30.i = load ptr, ptr %123, align 8, !tbaa !42
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 120
@@ -469,7 +469,7 @@ define range(i32 -1, 1) i32 @pmix_mca_base_component_parse_requested(ptr noundef
   br label %18
 
 18:                                               ; preds = %3, %5, %16, %14
-  %.0 = phi i32 [ 0, %16 ], [ -1, %14 ], [ 0, %5 ], [ 0, %3 ]
+  %.0 = phi i32 [ -1, %14 ], [ 0, %16 ], [ 0, %5 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -692,7 +692,7 @@ component_find_check.exit.thread:                 ; preds = %.critedge.i, %77, %
   br label %component_find_check.exit.thread64
 
 component_find_check.exit.thread64:               ; preds = %8, %63, %pmix_mca_base_component_parse_requested.exit, %component_find_check.exit, %component_find_check.exit.thread, %1
-  %.0 = phi i32 [ -1, %pmix_mca_base_component_parse_requested.exit ], [ 0, %1 ], [ %.02963, %component_find_check.exit.thread ], [ 0, %component_find_check.exit ], [ 0, %63 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %1 ], [ -1, %pmix_mca_base_component_parse_requested.exit ], [ %.02963, %component_find_check.exit.thread ], [ 0, %component_find_check.exit ], [ 0, %63 ], [ 0, %8 ]
   ret i32 %.0
 }
 

@@ -478,10 +478,10 @@ cli_ndecode.exit:                                 ; preds = %20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %30, %27, %cli_ndecode.exit, %cli_ndecode.exit.thread, %._crit_edge, %12, %10, %8, %4, %47, %46, %42
-  %.045 = phi ptr [ null, %10 ], [ null, %8 ], [ null, %4 ], [ null, %cli_ndecode.exit.thread ], [ null, %42 ], [ %45, %47 ], [ null, %46 ], [ null, %._crit_edge ], [ null, %12 ], [ null, %cli_ndecode.exit ], [ null, %27 ], [ null, %30 ], [ null, %34 ]
-  %.044 = phi ptr [ %9, %10 ], [ null, %8 ], [ null, %4 ], [ %9, %cli_ndecode.exit.thread ], [ %9, %42 ], [ %9, %47 ], [ %9, %46 ], [ %9, %._crit_edge ], [ %9, %12 ], [ %9, %cli_ndecode.exit ], [ %9, %27 ], [ %9, %30 ], [ %9, %34 ]
-  %.043 = phi ptr [ null, %10 ], [ null, %8 ], [ null, %4 ], [ %11, %cli_ndecode.exit.thread ], [ %11, %42 ], [ %11, %47 ], [ %11, %46 ], [ %11, %._crit_edge ], [ %11, %12 ], [ %11, %cli_ndecode.exit ], [ %11, %27 ], [ %11, %30 ], [ %11, %34 ]
-  %.042 = phi ptr [ null, %10 ], [ null, %8 ], [ null, %4 ], [ %13, %cli_ndecode.exit.thread ], [ %13, %42 ], [ %13, %47 ], [ %13, %46 ], [ %13, %._crit_edge ], [ null, %12 ], [ %13, %cli_ndecode.exit ], [ %13, %27 ], [ %13, %30 ], [ %13, %34 ]
+  %.045 = phi ptr [ null, %42 ], [ %45, %47 ], [ null, %46 ], [ null, %._crit_edge ], [ null, %12 ], [ null, %10 ], [ null, %8 ], [ null, %4 ], [ null, %cli_ndecode.exit.thread ], [ null, %cli_ndecode.exit ], [ null, %27 ], [ null, %30 ], [ null, %34 ]
+  %.044 = phi ptr [ %9, %42 ], [ %9, %47 ], [ %9, %46 ], [ %9, %._crit_edge ], [ %9, %12 ], [ %9, %10 ], [ null, %8 ], [ null, %4 ], [ %9, %cli_ndecode.exit.thread ], [ %9, %cli_ndecode.exit ], [ %9, %27 ], [ %9, %30 ], [ %9, %34 ]
+  %.043 = phi ptr [ %11, %42 ], [ %11, %47 ], [ %11, %46 ], [ %11, %._crit_edge ], [ %11, %12 ], [ null, %10 ], [ null, %8 ], [ null, %4 ], [ %11, %cli_ndecode.exit.thread ], [ %11, %cli_ndecode.exit ], [ %11, %27 ], [ %11, %30 ], [ %11, %34 ]
+  %.042 = phi ptr [ %13, %42 ], [ %13, %47 ], [ %13, %46 ], [ %13, %._crit_edge ], [ null, %12 ], [ null, %10 ], [ null, %8 ], [ null, %4 ], [ %13, %cli_ndecode.exit.thread ], [ %13, %cli_ndecode.exit ], [ %13, %27 ], [ %13, %30 ], [ %13, %34 ]
   tail call void @BN_free(ptr noundef %7) #15
   tail call void @BN_free(ptr noundef %.044) #15
   tail call void @BN_free(ptr noundef %.043) #15
@@ -649,8 +649,8 @@ define range(i32 0, 21) i32 @cli_versig2(ptr noundef readonly captures(none) %0,
   br label %.loopexit
 
 71:                                               ; preds = %26, %22, %4, %20, %18
-  %.038 = phi ptr [ null, %22 ], [ null, %4 ], [ null, %20 ], [ null, %18 ], [ %25, %26 ]
-  %.0 = phi i32 [ 6, %22 ], [ 20, %4 ], [ 6, %20 ], [ 6, %18 ], [ 6, %26 ]
+  %.038 = phi ptr [ null, %20 ], [ null, %18 ], [ null, %4 ], [ null, %22 ], [ %25, %26 ]
+  %.0 = phi i32 [ 6, %20 ], [ 6, %18 ], [ 20, %4 ], [ 6, %22 ], [ 6, %26 ]
   call void @free(ptr noundef %.038) #15
   %72 = load ptr, ptr %12, align 8, !tbaa !17
   call void @BN_free(ptr noundef %72) #15
@@ -659,7 +659,7 @@ define range(i32 0, 21) i32 @cli_versig2(ptr noundef readonly captures(none) %0,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %44, %29, %63, %57, %53, %71, %67
-  %.036 = phi i32 [ %.0, %71 ], [ 20, %63 ], [ 6, %53 ], [ %70, %67 ], [ 6, %57 ], [ 20, %29 ], [ 20, %44 ]
+  %.036 = phi i32 [ %.0, %71 ], [ %70, %67 ], [ 6, %53 ], [ 6, %57 ], [ 20, %63 ], [ 20, %29 ], [ 20, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

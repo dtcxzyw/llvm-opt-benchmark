@@ -1229,7 +1229,7 @@ _ZNK5Yosys5SExpr4listEv.exit:                     ; preds = %32
   br label %123
 
 .thread:                                          ; preds = %36, %55, %53
-  %63 = phi i1 [ false, %53 ], [ true, %55 ], [ false, %36 ]
+  %63 = phi i1 [ true, %55 ], [ false, %53 ], [ false, %36 ]
   %64 = load ptr, ptr %37, align 8, !tbaa !29
   %65 = load ptr, ptr %5, align 8, !tbaa !32
   %.not40 = icmp eq ptr %64, %65

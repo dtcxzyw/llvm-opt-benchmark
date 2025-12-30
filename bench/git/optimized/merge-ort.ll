@@ -1186,7 +1186,7 @@ define dso_local void @merge_incore_nonrecursive(ptr noundef %0, ptr noundef %1,
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %32, %27, %18, %10
-  %.sink.i = phi i32 [ 0, %10 ], [ 0, %32 ], [ 1, %18 ], [ 2, %27 ]
+  %.sink.i = phi i32 [ 0, %32 ], [ 0, %10 ], [ 1, %18 ], [ 2, %27 ]
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 1568
   store i32 %.sink.i, ptr %33, align 8, !tbaa !129
   br label %merge_check_renames_reusable.exit
@@ -1924,7 +1924,7 @@ traverse_trees_wrapper.exit.i.i:                  ; preds = %._crit_edge.i.i.i, 
   br i1 %263, label %collect_merge_info.exit.thread100, label %264
 
 264:                                              ; preds = %262, %174
-  %.2118.ph.i.i = phi i32 [ %.1117193.i.i, %174 ], [ %.3119.i.i, %262 ]
+  %.2118.ph.i.i = phi i32 [ %.3119.i.i, %262 ], [ %.1117193.i.i, %174 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %265 = call ptr @hashmap_iter_next(ptr noundef nonnull %25) #19
@@ -2979,8 +2979,8 @@ _.exit198.i.i:                                    ; preds = %745, %739
   br label %process_renames.exit.i
 
 .thread34.i.i:                                    ; preds = %.thread45.i.i, %.thread32.i.i, %756, %588, %587
-  %.115639.i.i = phi i32 [ %.2157.ph.i.i, %.thread45.i.i ], [ %.015556.i.i, %756 ], [ %.015556.i.i, %588 ], [ %.015556.i.i, %587 ], [ %.015556.i.i, %.thread32.i.i ]
-  %.115938.i.i = phi i32 [ %593, %.thread45.i.i ], [ %.015855.i.i, %756 ], [ %.015855.i.i, %588 ], [ %.015855.i.i, %587 ], [ %.015855.i.i, %.thread32.i.i ]
+  %.115639.i.i = phi i32 [ %.2157.ph.i.i, %.thread45.i.i ], [ %.015556.i.i, %588 ], [ %.015556.i.i, %587 ], [ %.015556.i.i, %.thread32.i.i ], [ %.015556.i.i, %756 ]
+  %.115938.i.i = phi i32 [ %593, %.thread45.i.i ], [ %.015855.i.i, %588 ], [ %.015855.i.i, %587 ], [ %.015855.i.i, %.thread32.i.i ], [ %.015855.i.i, %756 ]
   %764 = add nsw i32 %.115938.i.i, 1
   %765 = icmp slt i32 %764, %556
   br i1 %765, label %.lr.ph.i118.i, label %process_renames.exit.i, !llvm.loop !212
@@ -3722,9 +3722,9 @@ _.exit.i.i76:                                     ; preds = %1129, %1120
   br label %.thread.i.i78
 
 .thread.i.i78:                                    ; preds = %1087, %_.exit.i.i76, %1054
-  %.0276.i.i = phi i32 [ 0, %1054 ], [ %1123, %_.exit.i.i76 ], [ 0, %1087 ]
-  %.0274.i.i = phi ptr [ %964, %1054 ], [ %1093, %_.exit.i.i76 ], [ %964, %1087 ]
-  %.0270.i.i = phi ptr [ %962, %1054 ], [ %1125, %_.exit.i.i76 ], [ %962, %1087 ]
+  %.0276.i.i = phi i32 [ %1123, %_.exit.i.i76 ], [ 0, %1054 ], [ 0, %1087 ]
+  %.0274.i.i = phi ptr [ %1093, %_.exit.i.i76 ], [ %964, %1054 ], [ %964, %1087 ]
+  %.0270.i.i = phi ptr [ %1125, %_.exit.i.i76 ], [ %962, %1054 ], [ %962, %1087 ]
   %1132 = getelementptr inbounds nuw i8, ptr %.0274.i.i, i64 208
   %1133 = load i16, ptr %1132, align 8
   %1134 = and i16 %1133, 1792
@@ -4380,7 +4380,7 @@ _.exit356.i.i:                                    ; preds = %1437, %1435
   br label %1476
 
 1476:                                             ; preds = %1460, %1439, %_.exit356.i.i, %1432, %1425, %1423, %1365, %.thread392.i.i, %record_entry_for_tree.exit340.i.i, %1186, %1154, %1146
-  %.2272.i.i = phi ptr [ %.0270.i.i, %1146 ], [ %.0270.i.i, %1154 ], [ %.0270.i.i, %1186 ], [ %spec.select330.i.i, %record_entry_for_tree.exit340.i.i ], [ %.0270.i.i, %.thread392.i.i ], [ %.0270.i.i, %1365 ], [ %.0270.i.i, %1439 ], [ %.0270.i.i, %1460 ], [ %.0270.i.i, %_.exit356.i.i ], [ %.0270.i.i, %1432 ], [ %.0270.i.i, %1425 ], [ %.0270.i.i, %1423 ]
+  %.2272.i.i = phi ptr [ %.0270.i.i, %1146 ], [ %.0270.i.i, %1154 ], [ %.0270.i.i, %1186 ], [ %spec.select330.i.i, %record_entry_for_tree.exit340.i.i ], [ %.0270.i.i, %1439 ], [ %.0270.i.i, %1460 ], [ %.0270.i.i, %_.exit356.i.i ], [ %.0270.i.i, %1432 ], [ %.0270.i.i, %1425 ], [ %.0270.i.i, %1423 ], [ %.0270.i.i, %1365 ], [ %.0270.i.i, %.thread392.i.i ]
   %1477 = getelementptr inbounds nuw i8, ptr %.0274.i.i, i64 40
   %1478 = load i8, ptr %1477, align 8
   %1479 = and i8 %1478, 2
@@ -4630,8 +4630,8 @@ define internal fastcc void @merge_ort_internal(ptr noundef %0, ptr noundef %1, 
   br label %38
 
 38:                                               ; preds = %31, %33, %19
-  %.047 = phi ptr [ @.str.132, %19 ], [ %37, %33 ], [ @.str.133, %31 ]
-  %.046 = phi ptr [ %27, %19 ], [ %18, %33 ], [ %18, %31 ]
+  %.047 = phi ptr [ %37, %33 ], [ @.str.132, %19 ], [ @.str.133, %31 ]
+  %.046 = phi ptr [ %18, %33 ], [ %27, %19 ], [ %18, %31 ]
   %39 = call ptr @pop_commit(ptr noundef nonnull %6) #19
   %.not5156 = icmp eq ptr %39, null
   br i1 %.not5156, label %._crit_edge, label %.lr.ph
@@ -4947,7 +4947,7 @@ define internal noundef i32 @collect_merge_info_callback(i32 noundef %0, i64 nou
   br label %33
 
 33:                                               ; preds = %31, %25, %5
-  %34 = phi i1 [ false, %25 ], [ %.not.i, %31 ], [ false, %5 ]
+  %34 = phi i1 [ false, %25 ], [ false, %5 ], [ %.not.i, %31 ]
   %35 = and i64 %1, 5
   %or.cond3.not = icmp eq i64 %35, 5
   br i1 %or.cond3.not, label %36, label %44
@@ -4967,7 +4967,7 @@ define internal noundef i32 @collect_merge_info_callback(i32 noundef %0, i64 nou
   br label %44
 
 44:                                               ; preds = %42, %36, %33
-  %45 = phi i1 [ false, %36 ], [ %.not.i215, %42 ], [ false, %33 ]
+  %45 = phi i1 [ false, %36 ], [ false, %33 ], [ %.not.i215, %42 ]
   %46 = and i64 %1, 6
   %or.cond5.not = icmp eq i64 %46, 6
   br i1 %or.cond5.not, label %47, label %56
@@ -4988,7 +4988,7 @@ define internal noundef i32 @collect_merge_info_callback(i32 noundef %0, i64 nou
   br label %56
 
 56:                                               ; preds = %53, %47, %44
-  %57 = phi i1 [ false, %47 ], [ %.not.i217, %53 ], [ false, %44 ]
+  %57 = phi i1 [ false, %47 ], [ false, %44 ], [ %.not.i217, %53 ]
   %58 = icmp ne i32 %20, 0
   %59 = icmp ne i64 %2, 0
   %60 = and i1 %59, %58
@@ -6595,7 +6595,7 @@ _.exit.i:                                         ; preds = %65, %63
   %90 = load i8, ptr %89, align 8
   %91 = and i8 %90, 1
   %.not32.i.i = icmp eq i8 %91, 0
-  br i1 %.not32.i.i, label %92, label %123
+  br i1 %.not32.i.i, label %92, label %.critedge.i.i
 
 92:                                               ; preds = %88
   %93 = load ptr, ptr %10, align 8, !tbaa !118
@@ -6639,13 +6639,13 @@ _.exit.i.i:                                       ; preds = %110, %path_in_way.e
   %.0.i35.i.i = phi ptr [ %111, %110 ], [ @.str.73, %path_in_way.exit.thread3.i.i ]
   %112 = load ptr, ptr %25, align 8, !tbaa !54
   call void (ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ...) @path_msg(ptr noundef nonnull readonly %0, i32 noundef 12, i32 noundef 0, ptr noundef nonnull %83, ptr noundef null, ptr noundef null, ptr noundef nonnull %86, ptr noundef %.0.i35.i.i, ptr noundef nonnull %83, ptr noundef %112)
-  br label %123
+  br label %.critedge.i.i
 
 path_in_way.exit.thread.i.i:                      ; preds = %path_in_way.exit.i.i, %92
   %113 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %114 = load i64, ptr %113, align 8, !tbaa !295
   %115 = icmp ugt i64 %114, 1
-  br i1 %115, label %116, label %.critedge.i.i
+  br i1 %115, label %116, label %123
 
 116:                                              ; preds = %path_in_way.exit.thread.i.i
   %117 = load i8, ptr %89, align 8
@@ -6664,19 +6664,19 @@ _.exit38.i.i:                                     ; preds = %120, %116
   %.0.i37.i.i = phi ptr [ %121, %120 ], [ @.str.74, %116 ]
   %122 = load ptr, ptr %25, align 8, !tbaa !54
   call void (ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ...) @path_msg(ptr noundef nonnull readonly %0, i32 noundef 13, i32 noundef 0, ptr noundef nonnull %83, ptr noundef null, ptr noundef null, ptr noundef nonnull %86, ptr noundef %.0.i37.i.i, ptr noundef nonnull %83, ptr noundef %122)
-  br label %123
+  br label %.critedge.i.i
 
-123:                                              ; preds = %_.exit38.i.i, %_.exit.i.i, %88
+123:                                              ; preds = %path_in_way.exit.thread.i.i
+  call void @strbuf_release(ptr noundef nonnull %9) #19
+  br label %handle_path_level_conflicts.exit.i
+
+.critedge.i.i:                                    ; preds = %_.exit38.i.i, %_.exit.i.i, %88
   call void @strbuf_release(ptr noundef nonnull %9) #19
   call void @free(ptr noundef nonnull %83) #19
   br label %handle_path_level_conflicts.exit.i
 
-.critedge.i.i:                                    ; preds = %path_in_way.exit.thread.i.i
-  call void @strbuf_release(ptr noundef nonnull %9) #19
-  br label %handle_path_level_conflicts.exit.i
-
 handle_path_level_conflicts.exit.i:               ; preds = %.critedge.i.i, %123
-  %.028.i.i = phi ptr [ null, %123 ], [ %83, %.critedge.i.i ]
+  %.028.i.i = phi ptr [ null, %.critedge.i.i ], [ %83, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not33.i = icmp eq ptr %.028.i.i, null
   %124 = select i1 %.not33.i, i32 0, i32 %.04754
@@ -7580,7 +7580,7 @@ _.exit125:                                        ; preds = %73, %76
   br label %.critedge112
 
 .critedge112:                                     ; preds = %98, %90, %29, %116, %119, %123, %127, %109, %34, %_.exit125, %.critedge112.critedge.critedge, %86
-  %.1 = phi i32 [ -1, %86 ], [ -1, %.critedge112.critedge.critedge ], [ %.094, %127 ], [ %.094, %29 ], [ %.094, %34 ], [ %spec.select, %_.exit125 ], [ 0, %109 ], [ %.094, %116 ], [ 0, %119 ], [ %.094, %123 ], [ %88, %90 ], [ 0, %98 ]
+  %.1 = phi i32 [ -1, %86 ], [ -1, %.critedge112.critedge.critedge ], [ %.094, %29 ], [ %.094, %34 ], [ %spec.select, %_.exit125 ], [ 0, %109 ], [ %.094, %116 ], [ 0, %119 ], [ %.094, %123 ], [ %.094, %127 ], [ %88, %90 ], [ 0, %98 ]
   ret i32 %.1
 }
 
@@ -8412,7 +8412,7 @@ define internal fastcc i32 @find_first_merges(ptr noundef nonnull %0, ptr nounde
   br label %.thread68
 
 .thread68:                                        ; preds = %..thread68_crit_edge, %.lr.ph92
-  %50 = phi i32 [ %.pre, %..thread68_crit_edge ], [ %42, %.lr.ph92 ]
+  %50 = phi i32 [ %42, %.lr.ph92 ], [ %.pre, %..thread68_crit_edge ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = zext i32 %50 to i64
   %52 = icmp samesign ult i64 %indvars.iv.next, %51
@@ -8439,7 +8439,7 @@ define internal fastcc i32 @find_first_merges(ptr noundef nonnull %0, ptr nounde
   br label %60
 
 60:                                               ; preds = %.thread84, %.thread, %._crit_edge99
-  %.2 = phi i32 [ %29, %.thread ], [ %.fr, %.thread84 ], [ %59, %._crit_edge99 ]
+  %.2 = phi i32 [ %59, %._crit_edge99 ], [ %29, %.thread ], [ %.fr, %.thread84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

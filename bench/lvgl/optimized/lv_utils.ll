@@ -78,7 +78,7 @@ define range(i32 0, 2) i32 @lv_draw_buf_save_to_file(ptr noundef %0, ptr noundef
   br label %20
 
 20:                                               ; preds = %17, %11, %6
-  %.1 = phi i32 [ %spec.select, %17 ], [ 0, %6 ], [ 0, %11 ]
+  %.1 = phi i32 [ 0, %6 ], [ 0, %11 ], [ %spec.select, %17 ]
   %21 = call i32 @lv_fs_close(ptr noundef nonnull %3) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %22

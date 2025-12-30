@@ -167,7 +167,7 @@ define hidden noundef nonnull ptr @mbedtls_ssl_named_group_to_str(i16 noundef ze
   br label %20
 
 20:                                               ; preds = %1, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.18, %19 ], [ @.str.17, %18 ], [ @.str.1, %2 ], [ @.str.2, %3 ], [ @.str.3, %4 ], [ @.str.4, %5 ], [ @.str.5, %6 ], [ @.str.6, %7 ], [ @.str.7, %8 ], [ @.str.8, %9 ], [ @.str.9, %10 ], [ @.str.10, %11 ], [ @.str.11, %12 ], [ @.str.12, %13 ], [ @.str.13, %14 ], [ @.str.14, %15 ], [ @.str.15, %16 ], [ @.str.16, %17 ], [ @.str, %1 ]
+  %.0 = phi ptr [ @.str.18, %19 ], [ @.str.1, %2 ], [ @.str.2, %3 ], [ @.str.3, %4 ], [ @.str.4, %5 ], [ @.str.5, %6 ], [ @.str.6, %7 ], [ @.str.7, %8 ], [ @.str.8, %9 ], [ @.str.9, %10 ], [ @.str.10, %11 ], [ @.str.11, %12 ], [ @.str.12, %13 ], [ @.str.13, %14 ], [ @.str.14, %15 ], [ @.str.15, %16 ], [ @.str.16, %17 ], [ @.str.17, %18 ], [ @.str, %1 ]
   ret ptr %.0
 }
 
@@ -245,7 +245,7 @@ define hidden noundef nonnull ptr @mbedtls_ssl_sig_alg_to_str(i16 noundef zeroex
   br label %19
 
 19:                                               ; preds = %1, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.18, %18 ], [ @.str.35, %17 ], [ @.str.20, %2 ], [ @.str.21, %3 ], [ @.str.22, %4 ], [ @.str.23, %5 ], [ @.str.24, %6 ], [ @.str.25, %7 ], [ @.str.26, %8 ], [ @.str.27, %9 ], [ @.str.28, %10 ], [ @.str.29, %11 ], [ @.str.30, %12 ], [ @.str.31, %13 ], [ @.str.32, %14 ], [ @.str.33, %15 ], [ @.str.34, %16 ], [ @.str.19, %1 ]
+  %.0 = phi ptr [ @.str.18, %18 ], [ @.str.20, %2 ], [ @.str.21, %3 ], [ @.str.22, %4 ], [ @.str.23, %5 ], [ @.str.24, %6 ], [ @.str.25, %7 ], [ @.str.26, %8 ], [ @.str.27, %9 ], [ @.str.28, %10 ], [ @.str.29, %11 ], [ @.str.30, %12 ], [ @.str.31, %13 ], [ @.str.32, %14 ], [ @.str.33, %15 ], [ @.str.34, %16 ], [ @.str.35, %17 ], [ @.str.19, %1 ]
   ret ptr %.0
 }
 
@@ -283,7 +283,7 @@ define hidden noundef nonnull ptr @mbedtls_ssl_protocol_version_str(i32 noundef 
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ @.str.66, %4 ], [ @.str.69, %3 ], [ @.str.68, %2 ], [ @.str.67, %1 ]
+  %.0 = phi ptr [ @.str.66, %4 ], [ @.str.68, %2 ], [ @.str.69, %3 ], [ @.str.67, %1 ]
   ret ptr %.0
 }
 

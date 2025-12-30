@@ -194,7 +194,7 @@ define dso_local i32 @i915_active_add_request(ptr noundef %0, ptr noundef %1) lo
   br label %.thread
 
 .thread:                                          ; preds = %11, %35, %33
-  %37 = phi ptr [ %29, %33 ], [ %29, %35 ], [ %12, %11 ]
+  %37 = phi ptr [ %29, %35 ], [ %29, %33 ], [ %12, %11 ]
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %40
 
@@ -668,7 +668,7 @@ define dso_local ptr @i915_active_set_exclusive(ptr noundef %0, ptr noundef %1) 
   br label %.thread
 
 .thread:                                          ; preds = %6, %30, %28
-  %32 = phi ptr [ %24, %28 ], [ %24, %30 ], [ %7, %6 ]
+  %32 = phi ptr [ %24, %30 ], [ %24, %28 ], [ %7, %6 ]
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
 
@@ -1125,7 +1125,7 @@ define internal fastcc i32 @await_active(ptr noundef %0, i32 noundef %1, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread19, %.thread15, %79, %78, %72, %69, %.thread21
-  %84 = phi i32 [ -12, %72 ], [ %32, %.thread15 ], [ %70, %69 ], [ 0, %.thread21 ], [ 0, %79 ], [ -22, %78 ], [ %56, %.thread19 ]
+  %84 = phi i32 [ %70, %69 ], [ 0, %.thread21 ], [ 0, %79 ], [ -22, %78 ], [ -12, %72 ], [ %32, %.thread15 ], [ %56, %.thread19 ]
   %85 = load volatile i32, ptr %0, align 4
   %86 = icmp eq i32 %85, 1
   br i1 %86, label %._crit_edge, label %.lr.ph26, !prof !6
@@ -1163,7 +1163,7 @@ define internal fastcc i32 @await_active(ptr noundef %0, i32 noundef %1, ptr nou
   br label %.thread14
 
 .thread14:                                        ; preds = %14, %.lr.ph26, %5, %104, %100
-  %105 = phi i32 [ 0, %5 ], [ %84, %104 ], [ %84, %100 ], [ %84, %.lr.ph26 ], [ 0, %14 ]
+  %105 = phi i32 [ %84, %100 ], [ %84, %104 ], [ 0, %5 ], [ %84, %.lr.ph26 ], [ 0, %14 ]
   ret i32 %105
 }
 
@@ -1368,7 +1368,7 @@ define dso_local range(i32 -12, 1) i32 @i915_active_acquire_preallocate_barrier(
   br i1 %107, label %.thread27, label %.preheader36, !llvm.loop !36
 
 .thread20:                                        ; preds = %56, %104, %72, %47
-  %108 = phi ptr [ %41, %47 ], [ %66, %104 ], [ %66, %72 ], [ %52, %56 ]
+  %108 = phi ptr [ %41, %47 ], [ %66, %72 ], [ %66, %104 ], [ %52, %56 ]
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull %19) #8
   tail call void @rb_erase(ptr noundef nonnull %108, ptr noundef nonnull %17) #8
   %109 = load ptr, ptr %18, align 8

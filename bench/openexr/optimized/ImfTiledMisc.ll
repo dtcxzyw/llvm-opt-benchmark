@@ -424,7 +424,7 @@ _ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.
   resume { ptr, i32 } %47
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %18, %22, %._crit_edge.loopexit.i.i.i
-  %48 = phi i32 [ %27, %._crit_edge.loopexit.i.i.i ], [ 0, %18 ], [ 0, %22 ], [ %19, %.lr.ph.i.i.i ]
+  %48 = phi i32 [ 0, %18 ], [ 0, %22 ], [ %27, %._crit_edge.loopexit.i.i.i ], [ %19, %.lr.ph.i.i.i ]
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %7, align 4, !tbaa !25
   %.val2969 = load i32, ptr %11, align 4
@@ -462,12 +462,12 @@ _ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.
   br label %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43
 
 _ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43: ; preds = %.lr.ph.i.i.i51, %._crit_edge.loopexit.i.i.i50, %55, %51
-  %61 = phi i32 [ %60, %._crit_edge.loopexit.i.i.i50 ], [ 0, %51 ], [ 0, %55 ], [ %52, %.lr.ph.i.i.i51 ]
+  %61 = phi i32 [ 0, %51 ], [ 0, %55 ], [ %60, %._crit_edge.loopexit.i.i.i50 ], [ %52, %.lr.ph.i.i.i51 ]
   %62 = add nsw i32 %61, 1
   br label %_ZN7Imf_3_412_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit
 
 .loopexit71:                                      ; preds = %.lr.ph.i.i19.i, %._crit_edge.loopexit.i.i18.i, %37, %33
-  %63 = phi i32 [ %42, %._crit_edge.loopexit.i.i18.i ], [ 0, %33 ], [ 0, %37 ], [ %34, %.lr.ph.i.i19.i ]
+  %63 = phi i32 [ 0, %33 ], [ 0, %37 ], [ %42, %._crit_edge.loopexit.i.i18.i ], [ %34, %.lr.ph.i.i19.i ]
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %7, align 4, !tbaa !25
   %.val29 = load i32, ptr %11, align 4
@@ -508,13 +508,13 @@ _ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43: ; preds =
   br label %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30
 
 _ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30: ; preds = %.lr.ph.i.i19.i39, %._crit_edge.loopexit.i.i18.i38, %73, %69
-  %79 = phi i32 [ %78, %._crit_edge.loopexit.i.i18.i38 ], [ 0, %69 ], [ 0, %73 ], [ %70, %.lr.ph.i.i19.i39 ]
+  %79 = phi i32 [ 0, %69 ], [ 0, %73 ], [ %78, %._crit_edge.loopexit.i.i18.i38 ], [ %70, %.lr.ph.i.i19.i39 ]
   %80 = add nsw i32 %79, 1
   br label %_ZN7Imf_3_412_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit
 
 _ZN7Imf_3_412_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit: ; preds = %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30
-  %.val2966 = phi i32 [ %.val29, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30 ], [ %.val2969, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43 ], [ %.val2965, %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread ]
-  %.0.i31 = phi i32 [ %80, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30 ], [ %62, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43 ], [ 1, %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread ]
+  %.val2966 = phi i32 [ %.val2969, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43 ], [ %.val29, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30 ], [ %.val2965, %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread ]
+  %.0.i31 = phi i32 [ %62, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43 ], [ %80, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30 ], [ 1, %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread ]
   %.0.i31.fr = freeze i32 %.0.i31
   store i32 %.0.i31.fr, ptr %8, align 4, !tbaa !25
   %81 = load i32, ptr %7, align 4, !tbaa !25
@@ -800,8 +800,8 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
   br label %83
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader.lr.ph, %..loopexit_crit_edge, %.preheader39, %41
-  %74 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %.pre66, %.preheader.lr.ph ], [ %.pre67, %41 ], [ %.pre66, %.preheader39 ], [ %.pre66, %._crit_edge.us ]
-  %.028 = phi i64 [ 0, %..loopexit_crit_edge ], [ 0, %.preheader.lr.ph ], [ 0, %41 ], [ 0, %.preheader39 ], [ %35, %._crit_edge.us ]
+  %74 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %.pre67, %41 ], [ %.pre66, %.preheader39 ], [ %.pre66, %.preheader.lr.ph ], [ %.pre66, %._crit_edge.us ]
+  %.028 = phi i64 [ 0, %..loopexit_crit_edge ], [ 0, %41 ], [ 0, %.preheader39 ], [ 0, %.preheader.lr.ph ], [ %35, %._crit_edge.us ]
   %75 = icmp eq ptr %74, null
   br i1 %75, label %77, label %.loopexit.thread
 
@@ -830,7 +830,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
   ret i32 %82
 
 83:                                               ; preds = %39, %72, %61, %59, %67, %65, %37
-  %.pn38.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %73, %72 ], [ %60, %59 ], [ %40, %39 ], [ %62, %61 ], [ %68, %67 ], [ %66, %65 ]
+  %.pn38.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %40, %39 ], [ %73, %72 ], [ %62, %61 ], [ %60, %59 ], [ %68, %67 ], [ %66, %65 ]
   %.027 = extractvalue { ptr, i32 } %.pn38.pn.pn, 0
   %84 = tail call ptr @__cxa_begin_catch(ptr %.027) #13
   %85 = load ptr, ptr %2, align 8, !tbaa !37

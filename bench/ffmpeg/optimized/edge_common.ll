@@ -916,7 +916,7 @@ define void @ff_non_maximum_suppression(i32 noundef %0, i32 noundef %1, ptr noun
   br i1 %65, label %.sink.split, label %68
 
 .sink.split:                                      ; preds = %61, %51, %38, %29
-  %.sink = phi i16 [ %44, %51 ], [ %34, %38 ], [ %25, %29 ], [ %57, %61 ]
+  %.sink = phi i16 [ %25, %29 ], [ %34, %38 ], [ %44, %51 ], [ %57, %61 ]
   %.not.i.us = icmp ult i16 %.sink, 256
   %66 = trunc i16 %.sink to i8
   %.0.i.us = select i1 %.not.i.us, i8 %66, i8 -1
@@ -1049,7 +1049,7 @@ define void @ff_double_threshold(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %68
 
 68:                                               ; preds = %.lr.ph.split.us92, %27, %34, %38, %43, %48, %53, %58, %62, %67
-  %.sink107 = phi i8 [ %20, %27 ], [ 0, %67 ], [ %20, %62 ], [ %20, %58 ], [ %20, %53 ], [ %20, %48 ], [ %20, %43 ], [ %20, %38 ], [ %20, %34 ], [ %20, %.lr.ph.split.us92 ]
+  %.sink107 = phi i8 [ 0, %67 ], [ %20, %62 ], [ %20, %58 ], [ %20, %53 ], [ %20, %48 ], [ %20, %43 ], [ %20, %38 ], [ %20, %34 ], [ %20, %27 ], [ %20, %.lr.ph.split.us92 ]
   %69 = getelementptr inbounds nuw i8, ptr %.06385.us, i64 %indvars.iv96
   store i8 %.sink107, ptr %69, align 1, !tbaa !4
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1

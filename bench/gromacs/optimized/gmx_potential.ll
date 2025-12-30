@@ -1211,7 +1211,7 @@ _ZL13center_coordsPK7t_atomsPKiiPA3_fS5_.exit.i:  ; preds = %.lr.ph44.i.i, %.noe
   br i1 %exitcond153.not.i.us, label %.loopexit6.i, label %.preheader4.i.us, !llvm.loop !90
 
 .loopexit6.i:                                     ; preds = %._crit_edge46.i.loopexit.us, %._crit_edge32.i.thread, %._crit_edge32.i
-  %or.cond76.not.i215 = phi i1 [ %or.cond76.not.i213, %._crit_edge32.i.thread ], [ true, %._crit_edge32.i ], [ false, %._crit_edge46.i.loopexit.us ]
+  %or.cond76.not.i215 = phi i1 [ true, %._crit_edge32.i ], [ %or.cond76.not.i213, %._crit_edge32.i.thread ], [ false, %._crit_edge46.i.loopexit.us ]
   br label %.lr.ph50.i
 
 .lr.ph50.i:                                       ; preds = %.lr.ph50.i, %.loopexit6.i
@@ -2217,7 +2217,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   ret i32 0
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %275, %585, %.body60, %179
-  %.pn16.pn = phi { ptr, i32 } [ %.pn16, %.body60 ], [ %.pn, %179 ], [ %.pn.i, %585 ], [ %276, %275 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit113, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp114, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn16.pn = phi { ptr, i32 } [ %.pn16, %.body60 ], [ %.pn, %179 ], [ %276, %275 ], [ %.pn.i, %585 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit113, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp114, %.loopexit.split-lp.loopexit.split-lp ]
   %904 = getelementptr inbounds nuw i8, ptr %42, i64 336
   br label %905
 

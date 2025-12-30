@@ -613,8 +613,8 @@ define hidden ptr @cmsCreateExtendedTransform(ptr noundef %0, i32 noundef %1, pt
   br label %80
 
 80:                                               ; preds = %77, %74, %70
-  %.031.i = phi i32 [ %79, %77 ], [ %76, %74 ], [ %71, %70 ]
-  %.030.i = phi i32 [ %78, %77 ], [ %75, %74 ], [ 826494034, %70 ]
+  %.031.i = phi i32 [ %76, %74 ], [ %79, %77 ], [ %71, %70 ]
+  %.030.i = phi i32 [ %75, %74 ], [ %78, %77 ], [ 826494034, %70 ]
   %81 = icmp eq i64 %indvars.iv.i, 0
   %spec.select = select i1 %81, i32 %.030.i, i32 %.0114
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -626,8 +626,8 @@ define hidden ptr @cmsCreateExtendedTransform(ptr noundef %0, i32 noundef %1, pt
   br label %192
 
 GetXFormColorSpaces.exit:                         ; preds = %80, %53, %56, %59
-  %.3 = phi i32 [ 826494034, %59 ], [ %54, %53 ], [ %57, %56 ], [ %spec.select, %80 ]
-  %.0113 = phi i32 [ %60, %59 ], [ %55, %53 ], [ %58, %56 ], [ %.031.i, %80 ]
+  %.3 = phi i32 [ %57, %56 ], [ %54, %53 ], [ 826494034, %59 ], [ %spec.select, %80 ]
+  %.0113 = phi i32 [ %58, %56 ], [ %55, %53 ], [ %60, %59 ], [ %.031.i, %80 ]
   %82 = lshr i32 %8, 16
   %83 = and i32 %82, 31
   %84 = tail call i32 @_cmsLCMScolorSpace(i32 noundef %.3) #11
@@ -652,7 +652,7 @@ IsProperColorSpace.exit:                          ; preds = %87
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 9, ptr noundef nonnull @.str.1) #11
   br label %192
 
-IsProperColorSpace.exit.thread:                   ; preds = %GetXFormColorSpaces.exit, %87, %IsProperColorSpace.exit
+IsProperColorSpace.exit.thread:                   ; preds = %87, %GetXFormColorSpaces.exit, %IsProperColorSpace.exit
   %93 = lshr i32 %9, 16
   %94 = and i32 %93, 31
   %95 = tail call i32 @_cmsLCMScolorSpace(i32 noundef %.0113) #11
@@ -677,7 +677,7 @@ IsProperColorSpace.exit106:                       ; preds = %98
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 9, ptr noundef nonnull @.str.2) #11
   br label %192
 
-IsProperColorSpace.exit106.thread:                ; preds = %IsProperColorSpace.exit.thread, %98, %IsProperColorSpace.exit106
+IsProperColorSpace.exit106.thread:                ; preds = %98, %IsProperColorSpace.exit.thread, %IsProperColorSpace.exit106
   %104 = icmp eq i32 %.3, 1380401696
   %105 = and i32 %8, 7
   %106 = icmp eq i32 %105, 2
@@ -848,7 +848,7 @@ IsProperColorSpace.exit106.thread:                ; preds = %IsProperColorSpace.
   br label %192
 
 192:                                              ; preds = %174, %184, %182, %127, %126, %119, %103, %92, %.loopexit, %20
-  %.0 = phi ptr [ %21, %20 ], [ null, %119 ], [ null, %126 ], [ null, %.loopexit ], [ null, %127 ], [ null, %103 ], [ null, %92 ], [ %128, %182 ], [ %128, %184 ], [ %128, %174 ]
+  %.0 = phi ptr [ %21, %20 ], [ null, %119 ], [ null, %126 ], [ null, %103 ], [ null, %92 ], [ null, %.loopexit ], [ null, %127 ], [ %128, %182 ], [ %128, %184 ], [ %128, %174 ]
   ret ptr %.0
 }
 
@@ -1170,7 +1170,7 @@ define internal fastcc ptr @AllocEmptyTransform(ptr noundef %0, ptr noundef %1, 
   br label %ParalellizeIfSuitable.exit
 
 ParalellizeIfSuitable.exit:                       ; preds = %147, %144, %136, %51, %48, %45, %135, %108, %83, %9
-  %.0 = phi ptr [ null, %83 ], [ null, %135 ], [ %8, %51 ], [ null, %108 ], [ null, %9 ], [ %8, %45 ], [ %8, %48 ], [ %8, %136 ], [ %8, %144 ], [ %8, %147 ]
+  %.0 = phi ptr [ null, %83 ], [ null, %135 ], [ null, %108 ], [ null, %9 ], [ %8, %45 ], [ %8, %48 ], [ %8, %51 ], [ %8, %136 ], [ %8, %144 ], [ %8, %147 ]
   ret ptr %.0
 }
 

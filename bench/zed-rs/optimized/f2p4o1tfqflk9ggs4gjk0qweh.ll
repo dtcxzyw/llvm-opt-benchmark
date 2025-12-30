@@ -187,7 +187,7 @@ define hidden { ptr, ptr } @_ZN11http_client10HttpClient3get17h410954548b8fec4dE
   %eh.lpad-body55 = phi { ptr, i32 } [ %lpad.thr_comm, %45 ], [ %35, %34 ]
   resume { ptr, i32 } %eh.lpad-body55
 
-45:                                               ; preds = %15, %5, %19
+45:                                               ; preds = %19, %5, %15
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$http_client..async_body..Inner$GT$17hfe9bafa1e9230558E.llvm.6435588442613421834"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
@@ -250,7 +250,7 @@ default.unreachable15:                            ; preds = %3
   br label %21
 
 .body:                                            ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6435588442613421834.exit.i1.i.i", %43, %12, %28
-  %.pn2 = phi { ptr, i32 } [ %13, %12 ], [ %29, %28 ], [ %44, %43 ], [ %44, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6435588442613421834.exit.i1.i.i" ]
+  %.pn2 = phi { ptr, i32 } [ %29, %28 ], [ %13, %12 ], [ %44, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6435588442613421834.exit.i1.i.i" ], [ %44, %43 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 
@@ -653,7 +653,7 @@ define hidden { ptr, ptr } @_ZN11http_client10HttpClient9post_json17h2f9508cfec9
   %eh.lpad-body89 = phi { ptr, i32 } [ %lpad.thr_comm, %53 ], [ %43, %42 ]
   resume { ptr, i32 } %eh.lpad-body89
 
-53:                                               ; preds = %18, %4, %24, %21
+53:                                               ; preds = %4, %18, %21, %24
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$http_client..async_body..Inner$GT$17hfe9bafa1e9230558E.llvm.6435588442613421834"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
@@ -758,7 +758,7 @@ default.unreachable15:                            ; preds = %3
   br label %21
 
 .body:                                            ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6435588442613421834.exit.i1.i.i", %43, %12, %28
-  %.pn2 = phi { ptr, i32 } [ %13, %12 ], [ %29, %28 ], [ %44, %43 ], [ %44, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6435588442613421834.exit.i1.i.i" ]
+  %.pn2 = phi { ptr, i32 } [ %29, %28 ], [ %13, %12 ], [ %44, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6435588442613421834.exit.i1.i.i" ], [ %44, %43 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn2
 

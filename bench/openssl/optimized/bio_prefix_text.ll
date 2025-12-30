@@ -367,7 +367,7 @@ run_pipe.exit:                                    ; preds = %145, %128, %.crited
   br label %150
 
 150:                                              ; preds = %setup.exit.thread, %run_pipe.exit
-  %not. = phi i32 [ 1, %setup.exit.thread ], [ %149, %run_pipe.exit ]
+  %not. = phi i32 [ %149, %run_pipe.exit ], [ 1, %setup.exit.thread ]
   %151 = load ptr, ptr @chain, align 8, !tbaa !16
   %.not.i4 = icmp eq ptr %151, null
   br i1 %.not.i4, label %cleanup.exit, label %152

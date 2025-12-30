@@ -77,7 +77,7 @@ define dso_local void @_Z16EncodeJSONStringRKNSt7__cxx1112basic_stringIcSt11char
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.invoke: ; preds = %17, %84, %81, %35, %31, %27, %23
-  %21 = phi ptr [ @.str.8, %84 ], [ @.str.7, %81 ], [ @.str.2, %23 ], [ @.str.3, %27 ], [ @.str.4, %31 ], [ @.str.5, %35 ], [ @.str.1, %17 ]
+  %21 = phi ptr [ @.str.2, %23 ], [ @.str.3, %27 ], [ @.str.4, %31 ], [ @.str.5, %35 ], [ @.str.7, %81 ], [ @.str.8, %84 ], [ @.str.1, %17 ]
   %22 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %21, i64 noundef 2)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit unwind label %.loopexit
 

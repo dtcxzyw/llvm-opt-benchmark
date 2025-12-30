@@ -2920,8 +2920,8 @@ has_pack_ext.exit.i:                              ; preds = %1222
   br label %write_midx_included_packs.exit
 
 write_midx_included_packs.exit:                   ; preds = %get_preferred_pack.exit.i, %.critedge2.i251
-  %1253 = phi i32 [ %1183, %get_preferred_pack.exit.i ], [ %.pre416, %.critedge2.i251 ]
-  %.0.i250 = phi i32 [ 0, %get_preferred_pack.exit.i ], [ %1252, %.critedge2.i251 ]
+  %1253 = phi i32 [ %.pre416, %.critedge2.i251 ], [ %1183, %get_preferred_pack.exit.i ]
+  %.0.i250 = phi i32 [ %1252, %.critedge2.i251 ], [ 0, %get_preferred_pack.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %1254 = icmp eq i32 %.0.i250, 0
   %1255 = icmp ne i32 %1253, 0
@@ -3083,7 +3083,7 @@ remove_redundant_existing_packs.exit:             ; preds = %1291, %remove_redun
   br label %.thread259
 
 .thread259:                                       ; preds = %911, %898, %.thread267, %write_filtered_pack.exit.thread, %1258, %1316, %1318, %write_filtered_pack.exit, %835, %804
-  %.096 = phi i32 [ %805, %804 ], [ %836, %835 ], [ %1001, %write_filtered_pack.exit ], [ 0, %1318 ], [ 0, %1316 ], [ %.0.i250, %1258 ], [ %905, %898 ], [ %955, %write_filtered_pack.exit.thread ], [ %1238, %.thread267 ], [ %912, %911 ]
+  %.096 = phi i32 [ %805, %804 ], [ %836, %835 ], [ %1001, %write_filtered_pack.exit ], [ 0, %1318 ], [ 0, %1316 ], [ %.0.i250, %1258 ], [ %955, %write_filtered_pack.exit.thread ], [ %1238, %.thread267 ], [ %912, %911 ], [ %905, %898 ]
   call void @string_list_clear(ptr noundef nonnull %21, i32 noundef 0) #16
   call void @string_list_clear(ptr noundef nonnull %15, i32 noundef 1) #16
   call void @string_list_clear(ptr noundef nonnull %16, i32 noundef 0) #16

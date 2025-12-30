@@ -786,7 +786,7 @@ cleanup.sink.split:                               ; preds = %invoke.cont198, %in
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont222, %if.else216
-  %retval.1 = phi i1 [ true, %invoke.cont222 ], [ false, %if.else216 ], [ false, %cleanup.sink.split ]
+  %retval.1 = phi i1 [ false, %if.else216 ], [ true, %invoke.cont222 ], [ false, %cleanup.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_data) #23
   br label %cleanup238
 

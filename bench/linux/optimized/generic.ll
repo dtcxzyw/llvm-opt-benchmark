@@ -1523,7 +1523,7 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
   br label %86
 
 86:                                               ; preds = %84, %.thread
-  %87 = phi i64 [ %spec.select, %84 ], [ %83, %.thread ]
+  %87 = phi i64 [ %83, %.thread ], [ %spec.select, %84 ]
   %88 = add nuw nsw i64 %3, 1
   %89 = load i32, ptr @num_var_ranges, align 4
   %90 = zext i32 %89 to i64

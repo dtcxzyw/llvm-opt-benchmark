@@ -2148,7 +2148,7 @@ _ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread: ; preds = %_ZN18constantPo
   br label %_ZNK16ciBytecodeStream12get_index_u4Ev.exit.i
 
 _ZNK16ciBytecodeStream12get_index_u4Ev.exit.i:    ; preds = %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread, %64, %63
-  %66 = phi ptr [ %.pre, %63 ], [ %.pre, %64 ], [ %53, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
+  %66 = phi ptr [ %.pre, %64 ], [ %.pre, %63 ], [ %53, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
   %.0.i.i.i.i.i = load i32, ptr %67, align 1
   br label %_ZN16ciBytecodeStream16get_method_indexEv.exit
@@ -2379,7 +2379,7 @@ _ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread: ; preds = %_ZN18constantPo
   br label %_ZNK16ciBytecodeStream12get_index_u4Ev.exit.i
 
 _ZNK16ciBytecodeStream12get_index_u4Ev.exit.i:    ; preds = %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread, %49, %48
-  %51 = phi ptr [ %.pre27, %48 ], [ %.pre27, %49 ], [ %38, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
+  %51 = phi ptr [ %.pre27, %49 ], [ %.pre27, %48 ], [ %38, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %.0.i.i.i.i.i = load i32, ptr %52, align 1
   br label %_ZN16ciBytecodeStream16get_method_indexEv.exit
@@ -2531,7 +2531,7 @@ _ZNK16ciBytecodeStream12has_index_u4Ev.exit.i14.thread: ; preds = %_ZN18constant
   br label %_ZNK16ciBytecodeStream12get_index_u4Ev.exit.i22
 
 _ZNK16ciBytecodeStream12get_index_u4Ev.exit.i22:  ; preds = %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i14.thread, %124, %123
-  %126 = phi ptr [ %.pre, %123 ], [ %.pre, %124 ], [ %113, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i14.thread ]
+  %126 = phi ptr [ %.pre, %124 ], [ %.pre, %123 ], [ %113, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i14.thread ]
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 1
   %.0.i.i.i.i.i23 = load i32, ptr %127, align 1
   br label %_ZN16ciBytecodeStream16get_method_indexEv.exit24
@@ -2641,7 +2641,7 @@ _ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread: ; preds = %4
   br label %_ZNK16ciBytecodeStream12get_index_u4Ev.exit.i
 
 _ZNK16ciBytecodeStream12get_index_u4Ev.exit.i:    ; preds = %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread, %17, %16
-  %19 = phi ptr [ %.pre27, %16 ], [ %.pre27, %17 ], [ %6, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
+  %19 = phi ptr [ %.pre27, %17 ], [ %.pre27, %16 ], [ %6, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
   %.0.i.i.i.i.i = load i32, ptr %20, align 1
   br label %_ZN16ciBytecodeStream16get_method_indexEv.exit
@@ -2749,7 +2749,7 @@ _ZNK16ciBytecodeStream12has_index_u4Ev.exit.i14.thread: ; preds = %_ZN20ThreadIn
   br label %_ZNK16ciBytecodeStream12get_index_u4Ev.exit.i22
 
 _ZNK16ciBytecodeStream12get_index_u4Ev.exit.i22:  ; preds = %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i14.thread, %68, %67
-  %70 = phi ptr [ %.pre, %67 ], [ %.pre, %68 ], [ %57, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i14.thread ]
+  %70 = phi ptr [ %.pre, %68 ], [ %.pre, %67 ], [ %57, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i14.thread ]
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
   %.0.i.i.i.i.i23 = load i32, ptr %71, align 1
   br label %_ZN16ciBytecodeStream16get_method_indexEv.exit24
@@ -2951,7 +2951,7 @@ _ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread: ; preds = %_ZN18constantPo
   br label %_ZNK16ciBytecodeStream12get_index_u4Ev.exit.i
 
 _ZNK16ciBytecodeStream12get_index_u4Ev.exit.i:    ; preds = %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread, %59, %58
-  %61 = phi ptr [ %.pre, %58 ], [ %.pre, %59 ], [ %48, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
+  %61 = phi ptr [ %.pre, %59 ], [ %.pre, %58 ], [ %48, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
   %.0.i.i.i.i.i = load i32, ptr %62, align 1
   br label %_ZN16ciBytecodeStream16get_method_indexEv.exit
@@ -3142,7 +3142,7 @@ _ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread: ; preds = %_ZN18constantPo
   br label %_ZNK16ciBytecodeStream12get_index_u4Ev.exit.i
 
 _ZNK16ciBytecodeStream12get_index_u4Ev.exit.i:    ; preds = %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread, %59, %58
-  %61 = phi ptr [ %.pre, %58 ], [ %.pre, %59 ], [ %48, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
+  %61 = phi ptr [ %.pre, %59 ], [ %.pre, %58 ], [ %48, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
   %.0.i.i.i.i.i = load i32, ptr %62, align 1
   br label %_ZN16ciBytecodeStream16get_method_indexEv.exit
@@ -3421,7 +3421,7 @@ _ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread: ; preds = %1
   br label %_ZNK16ciBytecodeStream12get_index_u4Ev.exit.i
 
 _ZNK16ciBytecodeStream12get_index_u4Ev.exit.i:    ; preds = %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread, %21, %20
-  %23 = phi ptr [ %.pre, %20 ], [ %.pre, %21 ], [ %10, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
+  %23 = phi ptr [ %.pre, %21 ], [ %.pre, %20 ], [ %10, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %.0.i.i.i.i.i = load i32, ptr %24, align 1
   br label %_ZN16ciBytecodeStream16get_method_indexEv.exit

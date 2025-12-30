@@ -1026,7 +1026,7 @@ define dso_local void @i915_gem_object_do_bit_17_swizzle(ptr noundef readonly ca
   br label %77
 
 77:                                               ; preds = %74, %69
-  %78 = phi ptr [ %70, %69 ], [ %76, %74 ]
+  %78 = phi ptr [ %76, %74 ], [ %70, %69 ]
   %79 = icmp eq ptr %78, null
   br i1 %79, label %.thread, label %80
 
@@ -1180,7 +1180,7 @@ define dso_local void @i915_gem_object_save_bit_17_swizzle(ptr noundef captures(
   br label %74
 
 74:                                               ; preds = %71, %66
-  %75 = phi ptr [ %67, %66 ], [ %73, %71 ]
+  %75 = phi ptr [ %73, %71 ], [ %67, %66 ]
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.thread, label %77
 

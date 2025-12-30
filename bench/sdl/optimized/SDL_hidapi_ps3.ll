@@ -166,7 +166,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3_InitDevice(ptr noundef %0) #0 {
   br label %46
 
 46:                                               ; preds = %.critedge, %14, %43
-  %.026 = phi i1 [ %45, %43 ], [ false, %.critedge ], [ false, %14 ]
+  %.026 = phi i1 [ %45, %43 ], [ false, %14 ], [ false, %.critedge ]
   ret i1 %.026
 }
 
@@ -900,7 +900,7 @@ define internal zeroext i1 @HIDAPI_DriverPS3ThirdParty_IsSupportedDevice(ptr nou
   br label %29
 
 29:                                               ; preds = %17, %19, %20, %23, %10
-  %.0 = phi i1 [ true, %19 ], [ %or.cond9, %23 ], [ true, %10 ], [ true, %20 ], [ false, %17 ]
+  %.0 = phi i1 [ true, %10 ], [ %or.cond9, %23 ], [ true, %20 ], [ true, %19 ], [ false, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.0
 }
@@ -1878,7 +1878,7 @@ HIDAPI_DriverPS3_UpdateLEDsSonySixaxis.exit:      ; preds = %168, %171
   br label %173
 
 173:                                              ; preds = %22, %HIDAPI_DriverPS3SonySixaxis_HandleStatePacket.exit, %HIDAPI_DriverPS3_UpdateLEDsSonySixaxis.exit, %11, %1, %21
-  %.0 = phi i1 [ false, %21 ], [ false, %11 ], [ false, %1 ], [ true, %HIDAPI_DriverPS3_UpdateLEDsSonySixaxis.exit ], [ true, %HIDAPI_DriverPS3SonySixaxis_HandleStatePacket.exit ], [ true, %22 ]
+  %.0 = phi i1 [ false, %21 ], [ false, %1 ], [ false, %11 ], [ true, %HIDAPI_DriverPS3_UpdateLEDsSonySixaxis.exit ], [ true, %HIDAPI_DriverPS3SonySixaxis_HandleStatePacket.exit ], [ true, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }

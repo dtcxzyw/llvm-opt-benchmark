@@ -63,7 +63,7 @@ define void @dsytrs_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %.not459, label %38, label %.thread
 
 .thread.sink.split:                               ; preds = %31, %28, %25, %22, %20
-  %.sink = phi i32 [ -1, %20 ], [ -2, %22 ], [ -5, %28 ], [ -3, %25 ], [ -8, %31 ]
+  %.sink = phi i32 [ -1, %20 ], [ -2, %22 ], [ -3, %25 ], [ -5, %28 ], [ -8, %31 ]
   store i32 %.sink, ptr %8, align 4, !tbaa !3
   br label %.thread
 

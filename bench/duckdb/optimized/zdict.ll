@@ -209,7 +209,7 @@ define noundef i64 @_ZN11duckdb_zstd24ZDICT_finalizeDictionaryEPvmPKvmS2_PKmjNS_
   br label %55
 
 55:                                               ; preds = %45, %8, %.critedge, %50
-  %.0 = phi i64 [ %37, %.critedge ], [ -70, %8 ], [ -70, %45 ], [ %52, %50 ]
+  %.0 = phi i64 [ %52, %50 ], [ %37, %.critedge ], [ -70, %8 ], [ -70, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %.0
 }
@@ -834,10 +834,10 @@ _ZN11duckdb_zstdL21ZDICT_insertSortCountEPNS_13offsetCount_tEjj.exit: ; preds = 
   br label %.thread
 
 .thread:                                          ; preds = %278, %279, %267, %268, %256, %257, %245, %246, %161, %162, %_ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit, %287, %288, %235, %236, %221, %222, %207, %208, %52, %53, %293
-  %.0170 = phi i64 [ -64, %52 ], [ %205, %208 ], [ %205, %207 ], [ %219, %222 ], [ %219, %221 ], [ %233, %236 ], [ %233, %235 ], [ -70, %288 ], [ -70, %287 ], [ %300, %293 ], [ %265, %267 ], [ %254, %256 ], [ %243, %245 ], [ %159, %161 ], [ -34, %_ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit ], [ -64, %53 ], [ %159, %162 ], [ %243, %246 ], [ %254, %257 ], [ %265, %268 ], [ %276, %279 ], [ %276, %278 ]
-  %.sroa.10.0 = phi ptr [ %46, %52 ], [ %46, %208 ], [ %46, %207 ], [ %46, %222 ], [ %46, %221 ], [ %46, %236 ], [ %46, %235 ], [ %46, %288 ], [ %46, %287 ], [ %46, %293 ], [ %46, %267 ], [ %46, %256 ], [ %46, %245 ], [ %46, %161 ], [ null, %_ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit ], [ %46, %53 ], [ %46, %162 ], [ %46, %246 ], [ %46, %257 ], [ %46, %268 ], [ %46, %279 ], [ %46, %278 ]
-  %.sroa.7.0 = phi ptr [ %45, %52 ], [ %45, %208 ], [ %45, %207 ], [ %45, %222 ], [ %45, %221 ], [ %45, %236 ], [ %45, %235 ], [ %45, %288 ], [ %45, %287 ], [ %45, %293 ], [ %45, %267 ], [ %45, %256 ], [ %45, %245 ], [ %45, %161 ], [ null, %_ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit ], [ %45, %53 ], [ %45, %162 ], [ %45, %246 ], [ %45, %257 ], [ %45, %268 ], [ %45, %279 ], [ %45, %278 ]
-  %.sroa.0.0 = phi ptr [ %44, %52 ], [ %44, %208 ], [ %44, %207 ], [ %44, %222 ], [ %44, %221 ], [ %44, %236 ], [ %44, %235 ], [ %44, %288 ], [ %44, %287 ], [ %44, %293 ], [ %44, %267 ], [ %44, %256 ], [ %44, %245 ], [ %44, %161 ], [ null, %_ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit ], [ %44, %53 ], [ %44, %162 ], [ %44, %246 ], [ %44, %257 ], [ %44, %268 ], [ %44, %279 ], [ %44, %278 ]
+  %.0170 = phi i64 [ %205, %208 ], [ %205, %207 ], [ %219, %222 ], [ %219, %221 ], [ %233, %236 ], [ %233, %235 ], [ -70, %288 ], [ -70, %287 ], [ %300, %293 ], [ -64, %53 ], [ -64, %52 ], [ -34, %_ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit ], [ %159, %162 ], [ %159, %161 ], [ %243, %246 ], [ %243, %245 ], [ %254, %257 ], [ %254, %256 ], [ %265, %268 ], [ %265, %267 ], [ %276, %279 ], [ %276, %278 ]
+  %.sroa.10.0 = phi ptr [ %46, %208 ], [ %46, %207 ], [ %46, %222 ], [ %46, %221 ], [ %46, %236 ], [ %46, %235 ], [ %46, %288 ], [ %46, %287 ], [ %46, %293 ], [ %46, %53 ], [ %46, %52 ], [ null, %_ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit ], [ %46, %162 ], [ %46, %161 ], [ %46, %246 ], [ %46, %245 ], [ %46, %257 ], [ %46, %256 ], [ %46, %268 ], [ %46, %267 ], [ %46, %279 ], [ %46, %278 ]
+  %.sroa.7.0 = phi ptr [ %45, %208 ], [ %45, %207 ], [ %45, %222 ], [ %45, %221 ], [ %45, %236 ], [ %45, %235 ], [ %45, %288 ], [ %45, %287 ], [ %45, %293 ], [ %45, %53 ], [ %45, %52 ], [ null, %_ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit ], [ %45, %162 ], [ %45, %161 ], [ %45, %246 ], [ %45, %245 ], [ %45, %257 ], [ %45, %256 ], [ %45, %268 ], [ %45, %267 ], [ %45, %279 ], [ %45, %278 ]
+  %.sroa.0.0 = phi ptr [ %44, %208 ], [ %44, %207 ], [ %44, %222 ], [ %44, %221 ], [ %44, %236 ], [ %44, %235 ], [ %44, %288 ], [ %44, %287 ], [ %44, %293 ], [ %44, %53 ], [ %44, %52 ], [ null, %_ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit ], [ %44, %162 ], [ %44, %161 ], [ %44, %246 ], [ %44, %245 ], [ %44, %257 ], [ %44, %256 ], [ %44, %268 ], [ %44, %267 ], [ %44, %279 ], [ %44, %278 ]
   %301 = call noundef i64 @_ZN11duckdb_zstd14ZSTD_freeCDictEPNS_12ZSTD_CDict_sE(ptr noundef %.sroa.0.0)
   %302 = call noundef i64 @_ZN11duckdb_zstd13ZSTD_freeCCtxEPNS_11ZSTD_CCtx_sE(ptr noundef %.sroa.7.0)
   call void @free(ptr noundef %.sroa.10.0) #16
@@ -1601,7 +1601,7 @@ _ZN11duckdb_zstdL11ZDICT_countEPKvS1_.exit309.i.i.i: ; preds = %.lr.ph.i303.i.i.
   br label %331
 
 331:                                              ; preds = %_ZN11duckdb_zstdL11ZDICT_countEPKvS1_.exit309.i.i.i, %.lr.ph354.i.i.i
-  %.0.i.i.i = phi i32 [ %spec.select250.i.i.i, %_ZN11duckdb_zstdL11ZDICT_countEPKvS1_.exit309.i.i.i ], [ %.0202.i.i.i, %.lr.ph354.i.i.i ]
+  %.0.i.i.i = phi i32 [ %.0202.i.i.i, %.lr.ph354.i.i.i ], [ %spec.select250.i.i.i, %_ZN11duckdb_zstdL11ZDICT_countEPKvS1_.exit309.i.i.i ]
   %332 = add i32 %.0.i.i.i, %317
   %333 = icmp ult i32 %317, %332
   br i1 %333, label %.lr.ph350.preheader.i.i.i, label %._crit_edge351.i.i.i
@@ -2038,7 +2038,7 @@ _ZN11duckdb_zstdL14ZDICT_dictSizeEPKNS_8dictItemE.exit224.thread.critedge.i: ; p
   br label %.thread233.sink.split.i
 
 .thread233.sink.split.i:                          ; preds = %.lr.ph.i24, %.lr.ph270.i, %._crit_edge271.i, %_ZN11duckdb_zstdL14ZDICT_dictSizeEPKNS_8dictItemE.exit224.thread.critedge.i, %_ZN11duckdb_zstdL14ZDICT_dictSizeEPKNS_8dictItemE.exit224.i, %.critedge179.i, %42, %40
-  %.0.ph.i = phi i64 [ -1, %.lr.ph270.i ], [ -34, %_ZN11duckdb_zstdL14ZDICT_dictSizeEPKNS_8dictItemE.exit224.i ], [ -34, %42 ], [ %529, %._crit_edge271.i ], [ -70, %40 ], [ -34, %_ZN11duckdb_zstdL14ZDICT_dictSizeEPKNS_8dictItemE.exit224.thread.critedge.i ], [ -34, %.critedge179.i ], [ -1, %.lr.ph.i24 ]
+  %.0.ph.i = phi i64 [ %529, %._crit_edge271.i ], [ -70, %40 ], [ -34, %42 ], [ -34, %_ZN11duckdb_zstdL14ZDICT_dictSizeEPKNS_8dictItemE.exit224.thread.critedge.i ], [ -34, %.critedge179.i ], [ -34, %_ZN11duckdb_zstdL14ZDICT_dictSizeEPKNS_8dictItemE.exit224.i ], [ -1, %.lr.ph270.i ], [ -1, %.lr.ph.i24 ]
   tail call void @free(ptr noundef nonnull %31) #16
   br label %_ZN11duckdb_zstdL35ZDICT_trainFromBuffer_unsafe_legacyEPvmPKvPKmjNS_21ZDICT_legacy_params_tE.exit
 
@@ -2049,7 +2049,7 @@ _ZN11duckdb_zstdL35ZDICT_trainFromBuffer_unsafe_legacyEPvmPKvPKmjNS_21ZDICT_lega
   br label %_ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit.thread
 
 _ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit.thread: ; preds = %6, %15, %_ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit, %_ZN11duckdb_zstdL35ZDICT_trainFromBuffer_unsafe_legacyEPvmPKvPKmjNS_21ZDICT_legacy_params_tE.exit
-  %.0 = phi i64 [ 0, %_ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit ], [ %.0.i, %_ZN11duckdb_zstdL35ZDICT_trainFromBuffer_unsafe_legacyEPvmPKvPKmjNS_21ZDICT_legacy_params_tE.exit ], [ -64, %15 ], [ 0, %6 ]
+  %.0 = phi i64 [ %.0.i, %_ZN11duckdb_zstdL35ZDICT_trainFromBuffer_unsafe_legacyEPvmPKvPKmjNS_21ZDICT_legacy_params_tE.exit ], [ 0, %_ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit ], [ -64, %15 ], [ 0, %6 ]
   ret i64 %.0
 }
 

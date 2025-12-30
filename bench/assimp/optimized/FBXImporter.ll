@@ -710,7 +710,7 @@ _ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EED2Ev.exit50: ; preds = %159, %161
   br label %.body
 
 .body:                                            ; preds = %169, %167, %38, %30
-  %.merged31 = phi { ptr, i32 } [ %31, %30 ], [ %39, %38 ], [ %168, %167 ], [ %.merged32.ph, %169 ]
+  %.merged31 = phi { ptr, i32 } [ %39, %38 ], [ %31, %30 ], [ %168, %167 ], [ %.merged32.ph, %169 ]
   call fastcc void @"_ZNSt10unique_ptrIN6Assimp8IOStreamEZNS0_11FBXImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS0_8IOSystemEE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
   br label %170
 

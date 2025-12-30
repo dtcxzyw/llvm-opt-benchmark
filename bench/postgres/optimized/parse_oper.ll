@@ -320,7 +320,7 @@ find_oper_cache_entry.exit.thread:                ; preds = %19, %find_oper_cach
   br i1 %.not39.i, label %.thread42.i, label %.thread
 
 .thread42.i:                                      ; preds = %.thread.i, %30
-  %.0274045.i = phi i32 [ %2, %30 ], [ %3, %.thread.i ]
+  %.0274045.i = phi i32 [ %3, %.thread.i ], [ %2, %30 ]
   %35 = call i32 @getBaseType(i32 noundef %.0274045.i) #8
   %.not33.i = icmp eq i32 %35, %.0274045.i
   br i1 %.not33.i, label %binary_oper_exact.exit.thread59, label %36
@@ -413,7 +413,7 @@ binary_oper_exact.exit.thread59:                  ; preds = %36, %.thread42.i, %
   unreachable
 
 60:                                               ; preds = %55, %54, %.thread88, %25
-  %.0 = phi ptr [ %27, %25 ], [ null, %.thread88 ], [ %53, %55 ], [ %53, %54 ]
+  %.0 = phi ptr [ %27, %25 ], [ null, %.thread88 ], [ %53, %54 ], [ %53, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }
@@ -553,7 +553,7 @@ define dso_local ptr @compatible_oper(ptr noundef %0, ptr noundef %1, i32 nounde
   unreachable
 
 29:                                               ; preds = %22, %18, %6
-  %.0 = phi ptr [ %7, %18 ], [ null, %6 ], [ null, %22 ]
+  %.0 = phi ptr [ null, %6 ], [ %7, %18 ], [ null, %22 ]
   ret ptr %.0
 }
 
@@ -711,7 +711,7 @@ find_oper_cache_entry.exit.thread:                ; preds = %18, %find_oper_cach
   unreachable
 
 53:                                               ; preds = %47, %46, %.thread59, %24
-  %.023 = phi ptr [ %26, %24 ], [ null, %.thread59 ], [ %45, %47 ], [ %45, %46 ]
+  %.023 = phi ptr [ %26, %24 ], [ null, %.thread59 ], [ %45, %46 ], [ %45, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.023
 }

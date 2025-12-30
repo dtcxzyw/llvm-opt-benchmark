@@ -733,7 +733,7 @@ define internal noundef i64 @n_vclocks_store(ptr noundef %0, ptr readnone captur
   br i1 %75, label %.loopexit, label %61, !llvm.loop !15
 
 .loopexit:                                        ; preds = %61, %53, %.loopexit7
-  %76 = phi i32 [ %51, %.loopexit7 ], [ %56, %53 ], [ %73, %61 ]
+  %76 = phi i32 [ %56, %53 ], [ %51, %.loopexit7 ], [ %73, %61 ]
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 1297
   %78 = load i8, ptr %77, align 1, !range !11, !noundef !12
   %79 = icmp eq i8 %78, 0

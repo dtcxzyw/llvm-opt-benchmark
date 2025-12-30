@@ -72,7 +72,7 @@ define hidden i32 @SDL_IOReady(i32 noundef %0, i32 noundef %1, i64 noundef %2) l
   br label %.critedge
 
 .critedge:                                        ; preds = %24, %.split.split, %18, %.split.us.split, %.critedge.sink.split
-  %.us-phi = phi i32 [ %28, %.critedge.sink.split ], [ %16, %18 ], [ %16, %.split.us.split ], [ %22, %.split.split ], [ %22, %24 ]
+  %.us-phi = phi i32 [ %28, %.critedge.sink.split ], [ %16, %.split.us.split ], [ %16, %18 ], [ %22, %.split.split ], [ %22, %24 ]
   ret i32 %.us-phi
 }
 

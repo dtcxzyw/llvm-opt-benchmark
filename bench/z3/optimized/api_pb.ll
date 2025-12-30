@@ -218,7 +218,7 @@ _ZN10z3_log_ctxD2Ev.exit.critedge:                ; preds = %_Z11check_sortsP11_
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %_ZN10z3_log_ctxD2Ev.exit.critedge, %41, %49
-  %.0 = phi ptr [ null, %49 ], [ %31, %_ZN10z3_log_ctxD2Ev.exit.critedge ], [ %31, %41 ]
+  %.0 = phi ptr [ null, %49 ], [ %31, %41 ], [ %31, %_ZN10z3_log_ctxD2Ev.exit.critedge ]
   ret ptr %.0
 
 52:                                               ; preds = %50, %_ZN10z3_log_ctxD2Ev.exit34
@@ -534,7 +534,7 @@ _ZN10z3_log_ctxD2Ev.exit.critedge:                ; preds = %_Z11check_sortsP11_
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %_ZN10z3_log_ctxD2Ev.exit.critedge, %41, %49
-  %.0 = phi ptr [ null, %49 ], [ %31, %_ZN10z3_log_ctxD2Ev.exit.critedge ], [ %31, %41 ]
+  %.0 = phi ptr [ null, %49 ], [ %31, %41 ], [ %31, %_ZN10z3_log_ctxD2Ev.exit.critedge ]
   ret ptr %.0
 
 52:                                               ; preds = %50, %_ZN10z3_log_ctxD2Ev.exit34

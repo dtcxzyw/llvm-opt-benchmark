@@ -529,7 +529,7 @@ define range(i32 0, 2) i32 @ossl_quic_tserver_read(ptr noundef readonly captures
   br label %52
 
 52:                                               ; preds = %47, %49, %28, %20, %25, %19, %16, %13, %34
-  %.1 = phi i32 [ 0, %20 ], [ 0, %13 ], [ 0, %28 ], [ 0, %34 ], [ 1, %19 ], [ 0, %16 ], [ 0, %25 ], [ 1, %49 ], [ 1, %47 ]
+  %.1 = phi i32 [ 0, %34 ], [ 1, %19 ], [ 0, %16 ], [ 0, %13 ], [ 0, %25 ], [ 0, %20 ], [ 0, %28 ], [ 1, %49 ], [ 1, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
@@ -612,7 +612,7 @@ define range(i32 0, 2) i32 @ossl_quic_tserver_has_read_ended(ptr noundef readonl
   br label %37
 
 37:                                               ; preds = %23, %28, %19, %16, %11, %2, %31
-  %.0 = phi i32 [ 1, %11 ], [ 0, %2 ], [ 1, %31 ], [ 0, %19 ], [ 0, %28 ], [ 0, %16 ], [ 0, %23 ]
+  %.0 = phi i32 [ 1, %31 ], [ 0, %2 ], [ 1, %11 ], [ 0, %16 ], [ 0, %19 ], [ 0, %28 ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -680,7 +680,7 @@ define range(i32 0, 2) i32 @ossl_quic_tserver_write(ptr noundef captures(none) %
   br label %ossl_quic_tserver_tick.exit
 
 ossl_quic_tserver_tick.exit:                      ; preds = %33, %27, %18, %9, %14, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %18 ], [ 0, %9 ], [ 0, %14 ], [ 1, %27 ], [ 1, %33 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %14 ], [ 0, %9 ], [ 0, %18 ], [ 1, %27 ], [ 1, %33 ]
   ret i32 %.0
 }
 
@@ -742,7 +742,7 @@ define range(i32 0, 2) i32 @ossl_quic_tserver_conclude(ptr noundef captures(none
   br label %ossl_quic_tserver_tick.exit
 
 ossl_quic_tserver_tick.exit:                      ; preds = %29, %23, %6, %11, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %6 ], [ 0, %11 ], [ 1, %23 ], [ 1, %29 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %11 ], [ 0, %6 ], [ 1, %23 ], [ 1, %29 ]
   ret i32 %.0
 }
 
@@ -771,7 +771,7 @@ define range(i32 0, 2) i32 @ossl_quic_tserver_stream_new(ptr noundef readonly ca
   br label %14
 
 14:                                               ; preds = %7, %3, %11
-  %.0 = phi i32 [ 0, %3 ], [ 1, %11 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %11 ], [ 0, %3 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1006,7 +1006,7 @@ define range(i32 0, 2) i32 @ossl_quic_tserver_ping(ptr noundef readonly captures
   br label %12
 
 12:                                               ; preds = %5, %1, %8
-  %.0 = phi i32 [ 0, %1 ], [ 1, %8 ], [ 0, %5 ]
+  %.0 = phi i32 [ 1, %8 ], [ 0, %1 ], [ 0, %5 ]
   ret i32 %.0
 }
 

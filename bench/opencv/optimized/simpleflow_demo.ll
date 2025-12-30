@@ -572,7 +572,7 @@ _ZN2cv3VecIfLi2EEC2ERKS1_.exit.us.i.i.critedge:   ; preds = %199, %.preheader.us
   unreachable
 
 201:                                              ; preds = %172, %170
-  %.pn34.i = phi { ptr, i32 } [ %173, %172 ], [ %171, %170 ]
+  %.pn34.i = phi { ptr, i32 } [ %171, %170 ], [ %173, %172 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %202

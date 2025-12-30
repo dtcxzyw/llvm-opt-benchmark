@@ -70,7 +70,7 @@ define hidden i32 @X509_check_purpose(ptr noundef %0, i32 noundef %1, i32 nounde
   %.not8.i = icmp eq i32 %17, 0
   br i1 %.not8.i, label %X509_PURPOSE_get_by_id.exit.thread, label %X509_PURPOSE_get_by_id.exit
 
-X509_PURPOSE_get_by_id.exit.thread:               ; preds = %16, %14
+X509_PURPOSE_get_by_id.exit.thread:               ; preds = %14, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
@@ -106,7 +106,7 @@ X509_PURPOSE_get_by_id.exit:                      ; preds = %16
   br label %X509_PURPOSE_get0.exit
 
 X509_PURPOSE_get0.exit:                           ; preds = %22, %26, %29
-  %.0.i12 = phi ptr [ %33, %29 ], [ %28, %26 ], [ null, %22 ]
+  %.0.i12 = phi ptr [ %28, %26 ], [ %33, %29 ], [ null, %22 ]
   %34 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !30
   %36 = call i32 %35(ptr noundef %.0.i12, ptr noundef nonnull %0, i32 noundef %2) #10
@@ -341,7 +341,7 @@ define internal fastcc void @x509v3_cache_extensions(ptr noundef %0) unnamed_add
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph, %100, %99, %98, %97, %96, %95, %94, %93
-  %.sink150 = phi i64 [ 256, %100 ], [ 2, %93 ], [ 4, %94 ], [ 8, %95 ], [ 16, %96 ], [ 32, %97 ], [ 64, %98 ], [ 128, %99 ], [ 1, %.lr.ph ]
+  %.sink150 = phi i64 [ 2, %93 ], [ 4, %94 ], [ 8, %95 ], [ 16, %96 ], [ 32, %97 ], [ 64, %98 ], [ 128, %99 ], [ 256, %100 ], [ 1, %.lr.ph ]
   %101 = load i64, ptr %85, align 8, !tbaa !53
   %102 = or i64 %101, %.sink150
   store i64 %102, ptr %85, align 8, !tbaa !53
@@ -665,7 +665,7 @@ define hidden i32 @X509_PURPOSE_get_by_id(i32 noundef %0) local_unnamed_addr #0 
   br label %13
 
 13:                                               ; preds = %1, %7, %5, %9
-  %.0 = phi i32 [ -1, %7 ], [ %12, %9 ], [ -1, %5 ], [ %4, %1 ]
+  %.0 = phi i32 [ %12, %9 ], [ -1, %5 ], [ -1, %7 ], [ %4, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -693,7 +693,7 @@ define hidden ptr @X509_PURPOSE_get0(i32 noundef %0) local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %1, %8, %5
-  %.0 = phi ptr [ %12, %8 ], [ %7, %5 ], [ null, %1 ]
+  %.0 = phi ptr [ %7, %5 ], [ %12, %8 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -723,7 +723,7 @@ X509_PURPOSE_get_by_id.exit.thread4:              ; preds = %2
   %.not8.i = icmp eq i32 %9, 0
   br i1 %.not8.i, label %X509_PURPOSE_get_by_id.exit.thread, label %X509_PURPOSE_get_by_id.exit
 
-X509_PURPOSE_get_by_id.exit.thread:               ; preds = %8, %6
+X509_PURPOSE_get_by_id.exit.thread:               ; preds = %6, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %13
@@ -809,7 +809,7 @@ X509_PURPOSE_get_count.exit:                      ; preds = %2, %4
   br label %X509_PURPOSE_get0.exit
 
 X509_PURPOSE_get0.exit:                           ; preds = %11, %13
-  %.0.i7 = phi ptr [ %16, %13 ], [ %12, %11 ]
+  %.0.i7 = phi ptr [ %12, %11 ], [ %16, %13 ]
   %17 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !77
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %0) #11
@@ -861,7 +861,7 @@ define hidden range(i32 0, 2) i32 @X509_PURPOSE_add(i32 noundef %0, i32 noundef 
   %.not8.i = icmp eq i32 %15, 0
   br i1 %.not8.i, label %X509_PURPOSE_get_by_id.exit.thread, label %X509_PURPOSE_get_by_id.exit
 
-X509_PURPOSE_get_by_id.exit.thread:               ; preds = %14, %12
+X509_PURPOSE_get_by_id.exit.thread:               ; preds = %12, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %20
@@ -911,8 +911,8 @@ X509_PURPOSE_get_by_id.exit:                      ; preds = %14
   br label %X509_PURPOSE_get0.exit
 
 X509_PURPOSE_get0.exit:                           ; preds = %32, %29, %25, %23
-  %37 = phi i1 [ true, %23 ], [ false, %32 ], [ false, %29 ], [ false, %25 ]
-  %.039 = phi ptr [ %21, %23 ], [ %36, %32 ], [ %31, %29 ], [ null, %25 ]
+  %37 = phi i1 [ true, %23 ], [ false, %29 ], [ false, %32 ], [ false, %25 ]
+  %.039 = phi ptr [ %21, %23 ], [ %31, %29 ], [ %36, %32 ], [ null, %25 ]
   %38 = call ptr @BUF_strdup(ptr noundef %4) #10
   %39 = call ptr @BUF_strdup(ptr noundef %5) #10
   %40 = icmp eq ptr %38, null
@@ -1042,7 +1042,7 @@ X509_PURPOSE_get0.exit:                           ; preds = %32, %29, %25, %23
   br label %xptable_free.exit
 
 xptable_free.exit:                                ; preds = %91, %83, %79, %71, %57, %80, %46, %47, %22
-  %.0 = phi i32 [ 0, %22 ], [ 0, %46 ], [ 0, %79 ], [ 1, %57 ], [ 0, %47 ], [ 1, %80 ], [ 0, %71 ], [ 0, %83 ], [ 0, %91 ]
+  %.0 = phi i32 [ 0, %22 ], [ 0, %47 ], [ 0, %46 ], [ 1, %80 ], [ 1, %57 ], [ 0, %71 ], [ 0, %79 ], [ 0, %83 ], [ 0, %91 ]
   ret i32 %.0
 }
 
@@ -1207,7 +1207,7 @@ define hidden range(i32 0, 2) i32 @X509_supported_extension(ptr noundef %0) loca
   br i1 %15, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !75
 
 bsearch.exit:                                     ; preds = %14, %11, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %14 ], [ 1, %11 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %11 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -1275,7 +1275,7 @@ define hidden range(i32 0, 6) i32 @X509_check_ca(ptr noundef %0) local_unnamed_a
   br label %check_ca.exit
 
 check_ca.exit:                                    ; preds = %9, %15, %18, %23, %27
-  %.0.i = phi i32 [ %..i, %15 ], [ 0, %9 ], [ 0, %27 ], [ %.mux.i, %18 ], [ 5, %23 ]
+  %.0.i = phi i32 [ 0, %27 ], [ 0, %9 ], [ %..i, %15 ], [ %.mux.i, %18 ], [ 5, %23 ]
   ret i32 %.0.i
 }
 
@@ -1335,7 +1335,7 @@ define hidden range(i32 0, 40) i32 @X509_check_issued(ptr noundef %0, ptr nounde
   br label %29
 
 29:                                               ; preds = %9, %24, %19, %2, %28
-  %.015 = phi i32 [ %10, %9 ], [ 0, %28 ], [ 29, %2 ], [ 39, %19 ], [ 32, %24 ]
+  %.015 = phi i32 [ 0, %28 ], [ %10, %9 ], [ 29, %2 ], [ 39, %19 ], [ 32, %24 ]
   ret i32 %.015
 }
 
@@ -1419,7 +1419,7 @@ define hidden range(i32 0, 32) i32 @X509_check_akid(ptr noundef %0, ptr noundef 
   br label %34
 
 34:                                               ; preds = %17, %.thread38, %31, %13, %8, %2
-  %.023 = phi i32 [ 0, %2 ], [ 30, %8 ], [ 31, %31 ], [ 31, %13 ], [ 0, %.thread38 ], [ 0, %17 ]
+  %.023 = phi i32 [ 0, %2 ], [ 30, %8 ], [ 31, %13 ], [ 31, %31 ], [ 0, %.thread38 ], [ 0, %17 ]
   ret i32 %.023
 }
 
@@ -1490,7 +1490,7 @@ check_ca.exit.i:                                  ; preds = %18
   br i1 %cond.i, label %check_ssl_ca.exit, label %check_ca.exit.thread13.i
 
 check_ca.exit.thread13.i:                         ; preds = %check_ca.exit.i, %25, %20
-  %.0.i12.i = phi i32 [ 1, %check_ca.exit.i ], [ 5, %25 ], [ %.mux.i.i, %20 ]
+  %.0.i12.i = phi i32 [ 1, %check_ca.exit.i ], [ %.mux.i.i, %20 ], [ 5, %25 ]
   br label %check_ssl_ca.exit
 
 30:                                               ; preds = %11
@@ -1520,7 +1520,7 @@ check_ca.exit.thread13.i:                         ; preds = %check_ca.exit.i, %2
   br label %check_ssl_ca.exit
 
 check_ssl_ca.exit:                                ; preds = %check_ca.exit.thread13.i, %check_ca.exit.i, %25, %23, %14, %37, %31, %7, %41
-  %.0 = phi i32 [ 0, %37 ], [ 1, %41 ], [ 0, %31 ], [ 0, %7 ], [ %.0.i12.i, %check_ca.exit.thread13.i ], [ 0, %check_ca.exit.i ], [ 0, %23 ], [ 0, %14 ], [ 0, %25 ]
+  %.0 = phi i32 [ 1, %41 ], [ 0, %7 ], [ 0, %31 ], [ 0, %37 ], [ %.0.i12.i, %check_ca.exit.thread13.i ], [ 0, %check_ca.exit.i ], [ 0, %14 ], [ 0, %25 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -1585,7 +1585,7 @@ check_ca.exit.i:                                  ; preds = %18
   br i1 %cond.i, label %check_ssl_ca.exit, label %check_ca.exit.thread13.i
 
 check_ca.exit.thread13.i:                         ; preds = %check_ca.exit.i, %25, %20
-  %.0.i12.i = phi i32 [ 1, %check_ca.exit.i ], [ 5, %25 ], [ %.mux.i.i, %20 ]
+  %.0.i12.i = phi i32 [ 1, %check_ca.exit.i ], [ %.mux.i.i, %20 ], [ 5, %25 ]
   br label %check_ssl_ca.exit
 
 30:                                               ; preds = %11
@@ -1616,7 +1616,7 @@ check_ca.exit.thread13.i:                         ; preds = %check_ca.exit.i, %2
   br label %check_ssl_ca.exit
 
 check_ssl_ca.exit:                                ; preds = %check_ca.exit.thread13.i, %check_ca.exit.i, %25, %23, %14, %38, %32, %7, %42
-  %.0 = phi i32 [ 0, %38 ], [ 1, %42 ], [ 0, %32 ], [ 0, %7 ], [ %.0.i12.i, %check_ca.exit.thread13.i ], [ 0, %check_ca.exit.i ], [ 0, %23 ], [ 0, %14 ], [ 0, %25 ]
+  %.0 = phi i32 [ 1, %42 ], [ 0, %7 ], [ 0, %32 ], [ 0, %38 ], [ %.0.i12.i, %check_ca.exit.thread13.i ], [ 0, %check_ca.exit.i ], [ 0, %14 ], [ 0, %25 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -1681,7 +1681,7 @@ check_ca.exit.i.i:                                ; preds = %18
   br i1 %cond.i.i, label %check_purpose_ssl_server.exit.thread, label %check_ca.exit.thread13.i.i
 
 check_ca.exit.thread13.i.i:                       ; preds = %check_ca.exit.i.i, %25, %20
-  %.0.i12.i.i = phi i32 [ 1, %check_ca.exit.i.i ], [ 5, %25 ], [ %.mux.i.i.i, %20 ]
+  %.0.i12.i.i = phi i32 [ 1, %check_ca.exit.i.i ], [ %.mux.i.i.i, %20 ], [ 5, %25 ]
   br label %check_purpose_ssl_server.exit.thread
 
 30:                                               ; preds = %11
@@ -1718,8 +1718,8 @@ check_purpose_ssl_server.exit:                    ; preds = %38
 check_purpose_ssl_server.exit.thread14:           ; preds = %36, %check_purpose_ssl_server.exit
   br label %check_purpose_ssl_server.exit.thread
 
-check_purpose_ssl_server.exit.thread:             ; preds = %check_ca.exit.thread13.i.i, %25, %14, %23, %check_ca.exit.i.i, %7, %32, %38, %check_purpose_ssl_server.exit, %check_purpose_ssl_server.exit.thread14
-  %.0 = phi i32 [ 0, %38 ], [ 1, %check_purpose_ssl_server.exit.thread14 ], [ 0, %check_purpose_ssl_server.exit ], [ 0, %25 ], [ 0, %14 ], [ 0, %23 ], [ 0, %check_ca.exit.i.i ], [ %.0.i12.i.i, %check_ca.exit.thread13.i.i ], [ 0, %7 ], [ 0, %32 ]
+check_purpose_ssl_server.exit.thread:             ; preds = %check_ca.exit.thread13.i.i, %23, %25, %14, %check_ca.exit.i.i, %38, %32, %7, %check_purpose_ssl_server.exit, %check_purpose_ssl_server.exit.thread14
+  %.0 = phi i32 [ 1, %check_purpose_ssl_server.exit.thread14 ], [ 0, %check_purpose_ssl_server.exit ], [ 0, %23 ], [ 0, %25 ], [ 0, %14 ], [ 0, %check_ca.exit.i.i ], [ %.0.i12.i.i, %check_ca.exit.thread13.i.i ], [ 0, %38 ], [ 0, %32 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1784,7 +1784,7 @@ check_ca.exit.i:                                  ; preds = %18
   br i1 %cond.i, label %purpose_smime.exit.thread, label %check_ca.exit.thread25.i
 
 check_ca.exit.thread25.i:                         ; preds = %check_ca.exit.i, %25, %20
-  %.0.i24.i = phi i32 [ 1, %check_ca.exit.i ], [ 5, %25 ], [ %.mux.i.i, %20 ]
+  %.0.i24.i = phi i32 [ 1, %check_ca.exit.i ], [ %.mux.i.i, %20 ], [ 5, %25 ]
   br label %purpose_smime.exit.thread
 
 30:                                               ; preds = %11
@@ -1822,8 +1822,8 @@ purpose_smime.exit.thread13:                      ; preds = %30, %32, %purpose_s
 44:                                               ; preds = %40, %purpose_smime.exit.thread13
   br label %purpose_smime.exit.thread
 
-purpose_smime.exit.thread:                        ; preds = %check_ca.exit.thread25.i, %25, %14, %check_ca.exit.i, %23, %7, %40, %purpose_smime.exit, %44
-  %.0 = phi i32 [ 0, %purpose_smime.exit ], [ %.0.i15, %44 ], [ 0, %40 ], [ 0, %25 ], [ 0, %14 ], [ %.0.i24.i, %check_ca.exit.thread25.i ], [ 0, %check_ca.exit.i ], [ 0, %23 ], [ 0, %7 ]
+purpose_smime.exit.thread:                        ; preds = %check_ca.exit.thread25.i, %23, %25, %14, %check_ca.exit.i, %7, %40, %purpose_smime.exit, %44
+  %.0 = phi i32 [ %.0.i15, %44 ], [ 0, %purpose_smime.exit ], [ 0, %40 ], [ 0, %23 ], [ 0, %25 ], [ 0, %14 ], [ 0, %check_ca.exit.i ], [ %.0.i24.i, %check_ca.exit.thread25.i ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1888,7 +1888,7 @@ check_ca.exit.i:                                  ; preds = %18
   br i1 %cond.i, label %purpose_smime.exit.thread, label %check_ca.exit.thread25.i
 
 check_ca.exit.thread25.i:                         ; preds = %check_ca.exit.i, %25, %20
-  %.0.i24.i = phi i32 [ 1, %check_ca.exit.i ], [ 5, %25 ], [ %.mux.i.i, %20 ]
+  %.0.i24.i = phi i32 [ 1, %check_ca.exit.i ], [ %.mux.i.i, %20 ], [ 5, %25 ]
   br label %purpose_smime.exit.thread
 
 30:                                               ; preds = %11
@@ -1926,8 +1926,8 @@ purpose_smime.exit.thread13:                      ; preds = %30, %32, %purpose_s
 44:                                               ; preds = %40, %purpose_smime.exit.thread13
   br label %purpose_smime.exit.thread
 
-purpose_smime.exit.thread:                        ; preds = %check_ca.exit.thread25.i, %25, %14, %check_ca.exit.i, %23, %7, %40, %purpose_smime.exit, %44
-  %.0 = phi i32 [ 0, %purpose_smime.exit ], [ %.0.i15, %44 ], [ 0, %40 ], [ 0, %25 ], [ 0, %14 ], [ %.0.i24.i, %check_ca.exit.thread25.i ], [ 0, %check_ca.exit.i ], [ 0, %23 ], [ 0, %7 ]
+purpose_smime.exit.thread:                        ; preds = %check_ca.exit.thread25.i, %23, %25, %14, %check_ca.exit.i, %7, %40, %purpose_smime.exit, %44
+  %.0 = phi i32 [ %.0.i15, %44 ], [ 0, %purpose_smime.exit ], [ 0, %40 ], [ 0, %23 ], [ 0, %25 ], [ 0, %14 ], [ 0, %check_ca.exit.i ], [ %.0.i24.i, %check_ca.exit.thread25.i ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1998,7 +1998,7 @@ define internal range(i32 0, 6) i32 @check_purpose_crl_sign(ptr readnone capture
   br label %check_ca.exit
 
 check_ca.exit:                                    ; preds = %26, %22, %17, %14, %8, %28, %32
-  %.1 = phi i32 [ 0, %28 ], [ 1, %32 ], [ %..i, %14 ], [ 0, %8 ], [ 0, %26 ], [ %.mux.i, %17 ], [ 5, %22 ]
+  %.1 = phi i32 [ 1, %32 ], [ 0, %28 ], [ 0, %26 ], [ 0, %8 ], [ %..i, %14 ], [ %.mux.i, %17 ], [ 5, %22 ]
   ret i32 %.1
 }
 
@@ -2060,7 +2060,7 @@ define internal range(i32 0, 6) i32 @ocsp_helper(ptr readnone captures(none) %0,
   br label %check_ca.exit
 
 check_ca.exit:                                    ; preds = %26, %22, %17, %14, %8, %3
-  %.0 = phi i32 [ 1, %3 ], [ %..i, %14 ], [ 0, %8 ], [ 0, %26 ], [ %.mux.i, %17 ], [ 5, %22 ]
+  %.0 = phi i32 [ 1, %3 ], [ 0, %26 ], [ 0, %8 ], [ %..i, %14 ], [ %.mux.i, %17 ], [ 5, %22 ]
   ret i32 %.0
 }
 
@@ -2158,7 +2158,7 @@ define internal range(i32 0, 6) i32 @check_purpose_timestamp_sign(ptr readnone c
   br label %check_ca.exit
 
 check_ca.exit:                                    ; preds = %26, %22, %17, %14, %8, %33, %34, %28, %40, %43
-  %.0 = phi i32 [ 0, %33 ], [ 0, %40 ], [ 0, %28 ], [ 1, %43 ], [ 0, %34 ], [ %..i, %14 ], [ 0, %8 ], [ 0, %26 ], [ %.mux.i, %17 ], [ 5, %22 ]
+  %.0 = phi i32 [ 1, %43 ], [ 0, %40 ], [ 0, %28 ], [ 0, %34 ], [ 0, %33 ], [ 0, %26 ], [ 0, %8 ], [ %..i, %14 ], [ %.mux.i, %17 ], [ 5, %22 ]
   ret i32 %.0
 }
 

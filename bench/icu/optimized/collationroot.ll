@@ -76,7 +76,7 @@ define noundef ptr @_ZN6icu_7713CollationRoot12loadFromFileEPKcR10UErrorCode(ptr
   br label %36
 
 36:                                               ; preds = %21, %2, %35, %34, %25
-  %.0 = phi ptr [ null, %35 ], [ null, %2 ], [ %22, %25 ], [ null, %34 ], [ null, %21 ]
+  %.0 = phi ptr [ %22, %25 ], [ null, %34 ], [ null, %35 ], [ null, %2 ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -197,8 +197,8 @@ define void @_ZN6icu_7713CollationRoot4loadEPKcR10UErrorCode(ptr noundef %0, ptr
   br label %_ZN6icu_7713CollationRoot12loadFromFileEPKcR10UErrorCode.exit
 
 _ZN6icu_7713CollationRoot12loadFromFileEPKcR10UErrorCode.exit: ; preds = %18, %.noexc37, %40, %49, %50
-  %51 = phi i32 [ 2, %50 ], [ %19, %18 ], [ %38, %40 ], [ 3, %49 ], [ %38, %.noexc37 ]
-  %.0.i = phi ptr [ null, %50 ], [ null, %18 ], [ %37, %40 ], [ null, %49 ], [ null, %.noexc37 ]
+  %51 = phi i32 [ %38, %40 ], [ 3, %49 ], [ 2, %50 ], [ %19, %18 ], [ %38, %.noexc37 ]
+  %.0.i = phi ptr [ %37, %40 ], [ null, %49 ], [ null, %50 ], [ null, %18 ], [ null, %.noexc37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %55
 

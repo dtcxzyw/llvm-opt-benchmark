@@ -1080,7 +1080,7 @@ _ZL18readGSIHashBucketsRN4llvm16FixedStreamArrayINS_7support6detail31packed_endi
   %.not34 = icmp eq ptr %.pr30, null
   br i1 %.not34, label %_ZN4llvm5ErrorD2Ev.exit17.thread29.sink.split, label %_ZN4llvm5ErrorD2Ev.exit17.thread29
 
-_ZN4llvm5ErrorD2Ev.exit17.thread29.sink.split:    ; preds = %_ZN4llvm5ErrorD2Ev.exit23.thread, %_ZL18readGSIHashBucketsRN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEES7_PKNS_3pdb13GSIHashHeaderENS_15MutableArrayRefIiEERNS_18BinaryStreamReaderE.exit, %92, %45, %35, %_ZN4llvm5ErrorD2Ev.exit23.thread32, %61, %53
+_ZN4llvm5ErrorD2Ev.exit17.thread29.sink.split:    ; preds = %_ZN4llvm5ErrorD2Ev.exit23.thread, %_ZL18readGSIHashBucketsRN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEES7_PKNS_3pdb13GSIHashHeaderENS_15MutableArrayRefIiEERNS_18BinaryStreamReaderE.exit, %92, %35, %45, %_ZN4llvm5ErrorD2Ev.exit23.thread32, %61, %53
   %.sink = phi ptr [ %54, %53 ], [ %62, %61 ], [ %100, %_ZN4llvm5ErrorD2Ev.exit23.thread32 ], [ %39, %35 ], [ %46, %45 ], [ null, %92 ], [ null, %_ZL18readGSIHashBucketsRN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEES7_PKNS_3pdb13GSIHashHeaderENS_15MutableArrayRefIiEERNS_18BinaryStreamReaderE.exit ], [ null, %_ZN4llvm5ErrorD2Ev.exit23.thread ]
   store ptr %.sink, ptr %0, align 8, !tbaa !30
   br label %_ZN4llvm5ErrorD2Ev.exit17.thread29
@@ -1922,7 +1922,7 @@ _ZN4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEEaSERKS3_.exit25.thread: ; pred
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18: ; preds = %68, %65
-  %70 = phi ptr [ %.pr.pre.i.i.i.i.i.i24, %68 ], [ %58, %65 ]
+  %70 = phi ptr [ %58, %65 ], [ %.pr.pre.i.i.i.i.i.i24, %68 ]
   %.not8.i.i.i.i.i.i19 = icmp eq ptr %70, null
   br i1 %.not8.i.i.i.i.i.i19, label %_ZN4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEEaSERKS3_.exit25.thread62, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18.thread
 
@@ -2769,7 +2769,7 @@ _ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIj
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18: ; preds = %68, %65
-  %70 = phi ptr [ %.pr.pre.i.i.i.i.i.i24, %68 ], [ %58, %65 ]
+  %70 = phi ptr [ %58, %65 ], [ %.pr.pre.i.i.i.i.i.i24, %68 ]
   %.not8.i.i.i.i.i.i19 = icmp eq ptr %70, null
   br i1 %.not8.i.i.i.i.i.i19, label %_ZN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEaSERKS6_.exit25.thread62, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.i18.thread
 

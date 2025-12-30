@@ -1073,7 +1073,7 @@ define dso_local ptr @xbase64_from_base64url(ptr noundef readonly captures(none)
   br label %10
 
 10:                                               ; preds = %.lr.ph, %8, %9
-  %.sink = phi i8 [ %6, %9 ], [ 47, %8 ], [ 43, %.lr.ph ]
+  %.sink = phi i8 [ 47, %8 ], [ %6, %9 ], [ 43, %.lr.ph ]
   store i8 %.sink, ptr %7, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22

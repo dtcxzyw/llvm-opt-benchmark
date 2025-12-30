@@ -1644,7 +1644,7 @@ define internal noundef zeroext i1 @dissect_gvsp_heur(ptr noundef %0, ptr nounde
   br label %38
 
 38:                                               ; preds = %18, %21, %12, %4, %7, %29, %34
-  %.0 = phi i1 [ false, %12 ], [ false, %4 ], [ true, %34 ], [ false, %29 ], [ false, %7 ], [ false, %21 ], [ false, %18 ]
+  %.0 = phi i1 [ true, %34 ], [ false, %29 ], [ false, %7 ], [ false, %4 ], [ false, %12 ], [ false, %21 ], [ false, %18 ]
   ret i1 %.0
 }
 

@@ -152,7 +152,7 @@ bytestream2_init.exit:                            ; preds = %10
   br label %71
 
 69:                                               ; preds = %45, %26, %bytestream2_init.exit
-  %.0 = phi i32 [ %21, %bytestream2_init.exit ], [ %56, %45 ], [ %35, %26 ]
+  %.0 = phi i32 [ %21, %bytestream2_init.exit ], [ %35, %26 ], [ %56, %45 ]
   %70 = icmp slt i32 %.0, 0
   br i1 %70, label %.thread, label %71
 

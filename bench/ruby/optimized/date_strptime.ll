@@ -557,7 +557,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %54
   br i1 %.not1020, label %.loopexit1799.loopexit, label %.preheader1798.backedge
 
 .preheader1798.backedge:                          ; preds = %66, %72, %91
-  %.2839.be = phi i64 [ %59, %72 ], [ %94, %91 ], [ %59, %66 ]
+  %.2839.be = phi i64 [ %59, %66 ], [ %59, %72 ], [ %94, %91 ]
   br label %.preheader1798
 
 68:                                               ; preds = %.preheader1798
@@ -598,7 +598,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %54
   br label %.critedge63
 
 .critedge63:                                      ; preds = %80, %.critedge63.split.loop.exit2549, %.critedge63.split.loop.exit
-  %.0910.lcssa = phi i32 [ %82, %.critedge63.split.loop.exit2549 ], [ %81, %.critedge63.split.loop.exit ], [ 3, %80 ]
+  %.0910.lcssa = phi i32 [ %81, %.critedge63.split.loop.exit ], [ %82, %.critedge63.split.loop.exit2549 ], [ 3, %80 ]
   %83 = zext nneg i32 %.0910.lcssa to i64
   %84 = getelementptr i8, ptr %60, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !15
@@ -1002,7 +1002,7 @@ valid_range_p.exit.thread:                        ; preds = %216, %220, %valid_r
   br i1 %.not.i1134, label %.lr.ph.i1133, label %.loopexit1791, !llvm.loop !10
 
 .thread1667:                                      ; preds = %.lr.ph.i1118, %.lr.ph.i1127, %.lr.ph.i1112, %valid_range_p.exit.thread, %209, %202
-  %.lcssa.i1126.sink = phi i64 [ %203, %.lr.ph.i1112 ], [ %224, %.lr.ph.i1127 ], [ %.pr.i1109, %202 ], [ %.pr.i1115, %209 ], [ %.pr.i1124, %valid_range_p.exit.thread ], [ %210, %.lr.ph.i1118 ]
+  %.lcssa.i1126.sink = phi i64 [ %.pr.i1109, %202 ], [ %.pr.i1115, %209 ], [ %.pr.i1124, %valid_range_p.exit.thread ], [ %203, %.lr.ph.i1112 ], [ %224, %.lr.ph.i1127 ], [ %210, %.lr.ph.i1118 ]
   %227 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1126.sink) #10
   %228 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %227, i64 noundef 20) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1339,7 +1339,7 @@ valid_range_p.exit1209.thread:                    ; preds = %336, %339, %valid_r
   br i1 %.not.i1220, label %.lr.ph.i1219, label %.loopexit1793, !llvm.loop !10
 
 .thread1693:                                      ; preds = %.lr.ph.i1201, %.lr.ph.i1213, %.lr.ph.i1195, %valid_range_p.exit1209.thread, %329, %322
-  %.lcssa.i1212.sink = phi i64 [ %323, %.lr.ph.i1195 ], [ %343, %.lr.ph.i1213 ], [ %.pr.i1192, %322 ], [ %.pr.i1198, %329 ], [ %.pr.i1210, %valid_range_p.exit1209.thread ], [ %330, %.lr.ph.i1201 ]
+  %.lcssa.i1212.sink = phi i64 [ %.pr.i1192, %322 ], [ %.pr.i1198, %329 ], [ %.pr.i1210, %valid_range_p.exit1209.thread ], [ %323, %.lr.ph.i1195 ], [ %343, %.lr.ph.i1213 ], [ %330, %.lr.ph.i1201 ]
   %346 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1212.sink) #10
   %347 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %346, i64 noundef 20) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1450,7 +1450,7 @@ valid_range_p.exit1239.thread:                    ; preds = %373, %377, %valid_r
   br i1 %.not.i1250, label %.lr.ph.i1249, label %.loopexit1794, !llvm.loop !10
 
 .thread1704:                                      ; preds = %.lr.ph.i1231, %.lr.ph.i1243, %.lr.ph.i1225, %valid_range_p.exit1239.thread, %366, %359
-  %.lcssa.i1242.sink = phi i64 [ %360, %.lr.ph.i1225 ], [ %381, %.lr.ph.i1243 ], [ %.pr.i1222, %359 ], [ %.pr.i1228, %366 ], [ %.pr.i1240, %valid_range_p.exit1239.thread ], [ %367, %.lr.ph.i1231 ]
+  %.lcssa.i1242.sink = phi i64 [ %.pr.i1222, %359 ], [ %.pr.i1228, %366 ], [ %.pr.i1240, %valid_range_p.exit1239.thread ], [ %360, %.lr.ph.i1225 ], [ %381, %.lr.ph.i1243 ], [ %367, %.lr.ph.i1231 ]
   %384 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i1242.sink) #10
   %385 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %384, i64 noundef 20) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -3072,7 +3072,7 @@ rbimpl_intern_const.exit1624:                     ; preds = %.lr.ph.i1622, %955
   br label %.backedge1801
 
 962:                                              ; preds = %.loopexit1797, %.loopexit1796, %rbimpl_intern_const.exit1434, %rbimpl_intern_const.exit1386, %.loopexit1795, %472, %.loopexit1794, %.loopexit1793, %.loopexit1792, %.loopexit1791, %.loopexit1790, %.thread1645, %.thread1633, %876, %rbimpl_intern_const.exit1512, %rbimpl_intern_const.exit1488, %rbimpl_intern_const.exit1470, %.critedge1043, %rbimpl_intern_const.exit1416, %rbimpl_intern_const.exit1338, %rbimpl_intern_const.exit1320, %rbimpl_intern_const.exit1269, %312, %939, %950, %rbimpl_intern_const.exit1618, %rbimpl_intern_const.exit1524, %rbimpl_intern_const.exit1518, %rbimpl_intern_const.exit1494, %rbimpl_intern_const.exit1440, %rbimpl_intern_const.exit1398, %rbimpl_intern_const.exit1392, %rbimpl_intern_const.exit1344, %rbimpl_intern_const.exit1141, %rbimpl_intern_const.exit1108, %rbimpl_intern_const.exit1102, %921
-  %.8774 = phi i64 [ %951, %950 ], [ %940, %939 ], [ %.14780, %.loopexit1790 ], [ %125, %.thread1645 ], [ %105, %.thread1633 ], [ %183, %rbimpl_intern_const.exit1102 ], [ %192, %rbimpl_intern_const.exit1108 ], [ %.20786, %.loopexit1791 ], [ %239, %rbimpl_intern_const.exit1141 ], [ %.25791, %.loopexit1792 ], [ %286, %312 ], [ %.30796, %.loopexit1793 ], [ %.34800, %.loopexit1794 ], [ %395, %rbimpl_intern_const.exit1269 ], [ %.40806, %472 ], [ %483, %rbimpl_intern_const.exit1320 ], [ %506, %rbimpl_intern_const.exit1338 ], [ %531, %rbimpl_intern_const.exit1344 ], [ %572, %.loopexit1795 ], [ %588, %rbimpl_intern_const.exit1386 ], [ %607, %rbimpl_intern_const.exit1392 ], [ %616, %rbimpl_intern_const.exit1398 ], [ %624, %rbimpl_intern_const.exit1416 ], [ %651, %rbimpl_intern_const.exit1434 ], [ %669, %rbimpl_intern_const.exit1440 ], [ %677, %.critedge1043 ], [ %702, %rbimpl_intern_const.exit1470 ], [ %726, %rbimpl_intern_const.exit1488 ], [ %751, %rbimpl_intern_const.exit1494 ], [ %759, %rbimpl_intern_const.exit1512 ], [ %783, %rbimpl_intern_const.exit1518 ], [ %792, %rbimpl_intern_const.exit1524 ], [ %.65831, %.loopexit1796 ], [ %850, %876 ], [ %922, %921 ], [ %903, %.loopexit1797 ], [ %931, %rbimpl_intern_const.exit1618 ]
+  %.8774 = phi i64 [ %951, %950 ], [ %940, %939 ], [ %.14780, %.loopexit1790 ], [ %183, %rbimpl_intern_const.exit1102 ], [ %192, %rbimpl_intern_const.exit1108 ], [ %.20786, %.loopexit1791 ], [ %239, %rbimpl_intern_const.exit1141 ], [ %.25791, %.loopexit1792 ], [ %286, %312 ], [ %.30796, %.loopexit1793 ], [ %.34800, %.loopexit1794 ], [ %.40806, %472 ], [ %531, %rbimpl_intern_const.exit1344 ], [ %572, %.loopexit1795 ], [ %588, %rbimpl_intern_const.exit1386 ], [ %607, %rbimpl_intern_const.exit1392 ], [ %616, %rbimpl_intern_const.exit1398 ], [ %651, %rbimpl_intern_const.exit1434 ], [ %669, %rbimpl_intern_const.exit1440 ], [ %751, %rbimpl_intern_const.exit1494 ], [ %783, %rbimpl_intern_const.exit1518 ], [ %792, %rbimpl_intern_const.exit1524 ], [ %.65831, %.loopexit1796 ], [ %850, %876 ], [ %922, %921 ], [ %903, %.loopexit1797 ], [ %931, %rbimpl_intern_const.exit1618 ], [ %395, %rbimpl_intern_const.exit1269 ], [ %483, %rbimpl_intern_const.exit1320 ], [ %506, %rbimpl_intern_const.exit1338 ], [ %624, %rbimpl_intern_const.exit1416 ], [ %677, %.critedge1043 ], [ %702, %rbimpl_intern_const.exit1470 ], [ %726, %rbimpl_intern_const.exit1488 ], [ %759, %rbimpl_intern_const.exit1512 ], [ %105, %.thread1633 ], [ %125, %.thread1645 ]
   %963 = add i64 %.2839, 2
   br label %.backedge1801
 
@@ -3105,7 +3105,7 @@ rbimpl_intern_const.exit1624:                     ; preds = %.lr.ph.i1622, %955
   br label %.thread1733
 
 .thread1733:                                      ; preds = %rbimpl_intern_const.exit1618, %rbimpl_intern_const.exit1524, %rbimpl_intern_const.exit1518, %rbimpl_intern_const.exit1494, %rbimpl_intern_const.exit1440, %rbimpl_intern_const.exit1398, %rbimpl_intern_const.exit1392, %rbimpl_intern_const.exit1344, %rbimpl_intern_const.exit1141, %rbimpl_intern_const.exit1108, %rbimpl_intern_const.exit1102, %.backedge1801, %42, %5, %rbimpl_intern_const.exit1350, %rbimpl_intern_const.exit1362, %rbimpl_intern_const.exit1356, %.thread1780, %.thread1772, %.thread1719, %.thread1704, %.thread1693, %.thread1677, %.thread1667, %.thread1656, %.loopexit1789, %.loopexit, %.thread, %.critedge1051, %.thread1760, %.thread1755, %.thread1750, %.thread1745, %.critedge1041, %.thread1738, %.critedge1036, %.thread1727, %.thread1722, %.thread1707, %.critedge1028, %rbimpl_intern_const.exit1624, %946, %935, %917, %535, %rbimpl_intern_const.exit
-  %.1 = phi i64 [ 0, %rbimpl_intern_const.exit ], [ 0, %935 ], [ 0, %946 ], [ 0, %rbimpl_intern_const.exit1624 ], [ 0, %.thread ], [ 0, %.loopexit ], [ 0, %.loopexit1789 ], [ 0, %.thread1656 ], [ 0, %rbimpl_intern_const.exit1350 ], [ 0, %.thread1760 ], [ 0, %.thread1667 ], [ 0, %rbimpl_intern_const.exit1356 ], [ 0, %.thread1677 ], [ 0, %.critedge1028 ], [ 0, %.thread1693 ], [ 0, %.thread1704 ], [ 0, %.thread1707 ], [ 0, %.thread1719 ], [ 0, %.thread1722 ], [ 0, %.thread1727 ], [ 0, %rbimpl_intern_const.exit1362 ], [ 0, %535 ], [ 0, %.critedge1041 ], [ 0, %.thread1772 ], [ 0, %.critedge1051 ], [ 0, %.thread1780 ], [ 0, %.thread1738 ], [ 0, %.critedge1036 ], [ 0, %917 ], [ 0, %.thread1745 ], [ 0, %.thread1750 ], [ 0, %.thread1755 ], [ 0, %5 ], [ %.1767.lcssa, %42 ], [ 0, %rbimpl_intern_const.exit1618 ], [ 0, %rbimpl_intern_const.exit1524 ], [ 0, %rbimpl_intern_const.exit1518 ], [ 0, %rbimpl_intern_const.exit1494 ], [ 0, %rbimpl_intern_const.exit1440 ], [ 0, %rbimpl_intern_const.exit1398 ], [ 0, %rbimpl_intern_const.exit1102 ], [ 0, %rbimpl_intern_const.exit1392 ], [ 0, %rbimpl_intern_const.exit1344 ], [ 0, %rbimpl_intern_const.exit1141 ], [ 0, %rbimpl_intern_const.exit1108 ], [ %.0766.be, %.backedge1801 ]
+  %.1 = phi i64 [ 0, %rbimpl_intern_const.exit ], [ 0, %935 ], [ 0, %946 ], [ 0, %rbimpl_intern_const.exit1624 ], [ 0, %.loopexit ], [ 0, %.loopexit1789 ], [ 0, %.thread1707 ], [ 0, %.thread1722 ], [ 0, %.thread1727 ], [ 0, %535 ], [ 0, %.thread1738 ], [ 0, %.thread1745 ], [ 0, %.thread1750 ], [ 0, %.thread1755 ], [ 0, %.thread1760 ], [ 0, %917 ], [ 0, %.critedge1028 ], [ 0, %.critedge1036 ], [ 0, %.critedge1041 ], [ 0, %.critedge1051 ], [ 0, %.thread ], [ 0, %.thread1656 ], [ 0, %.thread1667 ], [ 0, %.thread1677 ], [ 0, %.thread1693 ], [ 0, %.thread1704 ], [ 0, %.thread1719 ], [ 0, %.thread1772 ], [ 0, %.thread1780 ], [ 0, %rbimpl_intern_const.exit1356 ], [ 0, %rbimpl_intern_const.exit1362 ], [ 0, %rbimpl_intern_const.exit1350 ], [ 0, %5 ], [ %.1767.lcssa, %42 ], [ 0, %rbimpl_intern_const.exit1618 ], [ 0, %rbimpl_intern_const.exit1524 ], [ 0, %rbimpl_intern_const.exit1518 ], [ 0, %rbimpl_intern_const.exit1494 ], [ 0, %rbimpl_intern_const.exit1440 ], [ 0, %rbimpl_intern_const.exit1398 ], [ 0, %rbimpl_intern_const.exit1392 ], [ 0, %rbimpl_intern_const.exit1344 ], [ 0, %rbimpl_intern_const.exit1141 ], [ 0, %rbimpl_intern_const.exit1108 ], [ 0, %rbimpl_intern_const.exit1102 ], [ %.0766.be, %.backedge1801 ]
   ret i64 %.1
 }
 

@@ -276,7 +276,7 @@ _ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit.us: ; preds = %35
   br label %.outer.us76.backedge
 
 .outer.us76.backedge:                             ; preds = %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit.us, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35.us
-  %.043.ph.us77.be = phi ptr [ %46, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35.us ], [ %.0.i.i38.us, %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit.us ]
+  %.043.ph.us77.be = phi ptr [ %.0.i.i38.us, %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit.us ], [ %46, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35.us ]
   br label %.outer.us76
 
 _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us83: ; preds = %.outer.split.split.us90
@@ -338,7 +338,7 @@ _ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35: ; preds = %.split.us
   br i1 %59, label %.outer.backedge, label %60
 
 .outer.backedge:                                  ; preds = %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35, %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit
-  %.043.ph.be = phi ptr [ %52, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35 ], [ %.0.i.i38, %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit ]
+  %.043.ph.be = phi ptr [ %.0.i.i38, %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit ], [ %52, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35 ]
   br label %.outer
 
 60:                                               ; preds = %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35
@@ -375,7 +375,7 @@ _ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit152: ; preds = %_ZNSt
   br label %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit
 
 _ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit: ; preds = %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit152, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit151, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit, %8, %3
-  %.0 = phi ptr [ @_ZN5folly12_GLOBAL__N_15dummyE, %3 ], [ %9, %8 ], [ %68, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit151 ], [ %67, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit ], [ %69, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit152 ]
+  %.0 = phi ptr [ @_ZN5folly12_GLOBAL__N_15dummyE, %3 ], [ %9, %8 ], [ %67, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit ], [ %68, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit151 ], [ %69, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit152 ]
   ret ptr %.0
 }
 

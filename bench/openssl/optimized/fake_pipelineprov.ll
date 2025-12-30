@@ -162,7 +162,7 @@ define dso_local range(i32 0, 2) i32 @fake_pipeline_update(ptr noundef readonly 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %33, %.lr.ph.split.us, %18, %7
-  %.016 = phi i32 [ 1, %18 ], [ 1, %7 ], [ 0, %.lr.ph.split.us ], [ 1, %33 ], [ 0, %.lr.ph.split ]
+  %.016 = phi i32 [ 1, %7 ], [ 1, %18 ], [ 0, %.lr.ph.split.us ], [ 1, %33 ], [ 0, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.016
 }
@@ -323,7 +323,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %30, %.preheader, %2, %22, %ossl_param_is_empty.exit, %42, %29, %21, %15
-  %.019 = phi i32 [ 0, %15 ], [ 0, %42 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %29 ], [ 0, %21 ], [ 1, %2 ], [ 1, %22 ], [ 1, %.preheader ], [ 1, %30 ]
+  %.019 = phi i32 [ 0, %42 ], [ 0, %29 ], [ 0, %21 ], [ 0, %15 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %22 ], [ 1, %2 ], [ 1, %.preheader ], [ 1, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -412,7 +412,7 @@ define dso_local range(i32 0, 2) i32 @fake_pipeline_aead_set_ctx_params(ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.loopexit.sink.split, %.preheader, %2
-  %.010 = phi i32 [ 1, %.preheader ], [ 0, %.loopexit.sink.split ], [ 1, %2 ], [ 1, %13 ]
+  %.010 = phi i32 [ 1, %2 ], [ 1, %.preheader ], [ 0, %.loopexit.sink.split ], [ 1, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -516,7 +516,7 @@ define internal noalias ptr @fake_pipeline_aes_256_gcm_newctx(ptr noundef %0) #0
   br label %fake_pipeline_newctx.exit
 
 fake_pipeline_newctx.exit:                        ; preds = %1, %3, %6
-  %.0.i = phi ptr [ null, %1 ], [ %4, %6 ], [ null, %3 ]
+  %.0.i = phi ptr [ %4, %6 ], [ null, %1 ], [ null, %3 ]
   ret ptr %.0.i
 }
 

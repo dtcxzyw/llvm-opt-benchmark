@@ -31,7 +31,7 @@ define internal range(i32 0, 76) i32 @fwse_probe(ptr noundef readonly captures(n
   br label %12
 
 12:                                               ; preds = %9, %5, %1
-  %.0 = phi i32 [ %spec.select, %9 ], [ 0, %1 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ %spec.select, %9 ]
   ret i32 %.0
 }
 
@@ -90,7 +90,7 @@ define internal range(i32 -1094995529, 1) i32 @fwse_read_header(ptr noundef %0) 
   br label %33
 
 33:                                               ; preds = %18, %11, %7, %1, %26
-  %.0 = phi i32 [ -1094995529, %1 ], [ -12, %7 ], [ -1094995529, %11 ], [ 0, %26 ], [ -1094995529, %18 ]
+  %.0 = phi i32 [ 0, %26 ], [ -1094995529, %1 ], [ -12, %7 ], [ -1094995529, %11 ], [ -1094995529, %18 ]
   ret i32 %.0
 }
 

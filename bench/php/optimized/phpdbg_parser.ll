@@ -95,10 +95,10 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   br label %8
 
 6:                                                ; preds = %243, %72
-  %.1503 = phi ptr [ %.2504, %72 ], [ %222, %243 ]
-  %.1490 = phi ptr [ %73, %72 ], [ %223, %243 ]
-  %.1476 = phi i32 [ %67, %72 ], [ %244, %243 ]
-  %.1 = phi i32 [ -2, %72 ], [ %.8, %243 ]
+  %.1503 = phi ptr [ %222, %243 ], [ %.2504, %72 ]
+  %.1490 = phi ptr [ %223, %243 ], [ %73, %72 ]
+  %.1476 = phi i32 [ %244, %243 ], [ %67, %72 ]
+  %.1 = phi i32 [ %.8, %243 ], [ -2, %72 ]
   %7 = getelementptr inbounds nuw i8, ptr %.1503, i64 1
   br label %8
 
@@ -900,9 +900,9 @@ yyerror.exit:                                     ; preds = %.lr.ph.i, %264
   br i1 %.not.i566, label %.thread614, label %.lr.ph.i563
 
 .thread614:                                       ; preds = %.thread589, %48, %.lr.ph.i563, %yyerror.exit, %.thread582
-  %.0487612 = phi i32 [ 2, %.lr.ph.i563 ], [ 1, %yyerror.exit ], [ 2, %.thread582 ], [ 1, %48 ], [ 0, %.thread589 ]
-  %.6517606 = phi ptr [ %.5516, %.lr.ph.i563 ], [ %.1512, %yyerror.exit ], [ %.5516, %.thread582 ], [ %.1512, %48 ], [ %.1512, %.thread589 ]
-  %.4575604 = phi ptr [ %.0572, %.lr.ph.i563 ], [ %.2, %yyerror.exit ], [ %.0572, %.thread582 ], [ %4, %48 ], [ %4, %.thread589 ]
+  %.0487612 = phi i32 [ 2, %.thread582 ], [ 1, %yyerror.exit ], [ 2, %.lr.ph.i563 ], [ 0, %.thread589 ], [ 1, %48 ]
+  %.6517606 = phi ptr [ %.5516, %.thread582 ], [ %.1512, %yyerror.exit ], [ %.5516, %.lr.ph.i563 ], [ %.1512, %48 ], [ %.1512, %.thread589 ]
+  %.4575604 = phi ptr [ %.0572, %.thread582 ], [ %.2, %yyerror.exit ], [ %.0572, %.lr.ph.i563 ], [ %4, %48 ], [ %4, %.thread589 ]
   %.not553 = icmp eq ptr %.6517606, %2
   br i1 %.not553, label %271, label %.thread614.thread
 
@@ -1049,8 +1049,8 @@ yy_syntax_error_arguments.exit:                   ; preds = %.critedge.i.i
   br label %yy_syntax_error_arguments.exit.thread6
 
 yy_syntax_error_arguments.exit.thread6:           ; preds = %24, %.critedge.thread.i.i, %1, %yy_syntax_error_arguments.exit, %35, %34, %33, %32
-  %.1.i5 = phi i32 [ 4, %34 ], [ 5, %35 ], [ 1, %.critedge.thread.i.i ], [ 2, %32 ], [ 3, %33 ], [ %31, %yy_syntax_error_arguments.exit ], [ 0, %1 ], [ 1, %24 ]
-  %.046 = phi ptr [ @.str.9, %34 ], [ @.str.10, %35 ], [ @.str.6, %.critedge.thread.i.i ], [ @.str.7, %32 ], [ @.str.8, %33 ], [ @.str, %yy_syntax_error_arguments.exit ], [ @.str, %1 ], [ @.str.6, %24 ]
+  %.1.i5 = phi i32 [ 5, %35 ], [ 2, %32 ], [ 3, %33 ], [ 4, %34 ], [ %31, %yy_syntax_error_arguments.exit ], [ 0, %1 ], [ 1, %.critedge.thread.i.i ], [ 1, %24 ]
+  %.046 = phi ptr [ @.str.10, %35 ], [ @.str.7, %32 ], [ @.str.8, %33 ], [ @.str.9, %34 ], [ @.str, %yy_syntax_error_arguments.exit ], [ @.str, %1 ], [ @.str.6, %.critedge.thread.i.i ], [ @.str.6, %24 ]
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.046) #14
   %37 = shl nsw i32 %.1.i5, 1
   %38 = sext i32 %37 to i64
@@ -1195,15 +1195,15 @@ yytnamerr.exit:                                   ; preds = %.preheader.split.us
   br label %yytnamerr.exit68
 
 yytnamerr.exit68:                                 ; preds = %62, %.preheader, %.thread.thread.i, %.split.us.thread.i
-  %.sink29 = phi i64 [ %.020.i, %.split.us.thread.i ], [ %89, %.thread.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
-  %.sink = phi i64 [ 2, %.split.us.thread.i ], [ 2, %.thread.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
-  %.1 = phi i32 [ %68, %.split.us.thread.i ], [ %68, %.thread.thread.i ], [ %.0, %.preheader ], [ %.0, %62 ]
+  %.sink29 = phi i64 [ %89, %.thread.thread.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
+  %.sink = phi i64 [ 2, %.thread.thread.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
+  %.1 = phi i32 [ %68, %.thread.thread.i ], [ %68, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %62 ]
   %90 = getelementptr inbounds i8, ptr %.039, i64 %.sink29
   %91 = getelementptr inbounds nuw i8, ptr %.147, i64 %.sink
   br label %.preheader
 
 yy_syntax_error_arguments.exit.thread8:           ; preds = %yytnamerr.exit, %.preheader, %.critedge.i.i, %59, %yy_syntax_error_arguments.exit
-  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ -2, %yy_syntax_error_arguments.exit ], [ 0, %.preheader ], [ -1, %59 ], [ -2, %yytnamerr.exit ]
+  %.041 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %59 ], [ %.2.i.i, %.critedge.i.i ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.041
 }

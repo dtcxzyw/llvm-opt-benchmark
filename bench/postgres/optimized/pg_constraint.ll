@@ -185,11 +185,11 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
   br label %90
 
 90:                                               ; preds = %56, %88, %._crit_edge229
-  %.1183 = phi ptr [ null, %._crit_edge229 ], [ %89, %88 ], [ null, %56 ]
-  %.0180 = phi ptr [ %82, %._crit_edge229 ], [ %82, %88 ], [ null, %56 ]
-  %.0179 = phi ptr [ %77, %._crit_edge229 ], [ %77, %88 ], [ null, %56 ]
-  %.0178 = phi ptr [ %72, %._crit_edge229 ], [ %72, %88 ], [ null, %56 ]
-  %.0177 = phi ptr [ %67, %._crit_edge229 ], [ %67, %88 ], [ null, %56 ]
+  %.1183 = phi ptr [ %89, %88 ], [ null, %._crit_edge229 ], [ null, %56 ]
+  %.0180 = phi ptr [ %82, %88 ], [ %82, %._crit_edge229 ], [ null, %56 ]
+  %.0179 = phi ptr [ %77, %88 ], [ %77, %._crit_edge229 ], [ null, %56 ]
+  %.0178 = phi ptr [ %72, %88 ], [ %72, %._crit_edge229 ], [ null, %56 ]
+  %.0177 = phi ptr [ %67, %88 ], [ %67, %._crit_edge229 ], [ null, %56 ]
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %100, label %91
 
@@ -2005,7 +2005,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, ptr noundef %1,
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %58, %57, %52, %50, %45, %42, %39, %36, %10
-  %.0 = phi i64 [ %11, %10 ], [ %59, %58 ], [ 0, %57 ], [ %53, %52 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %46, %45 ], [ %51, %50 ]
+  %.0 = phi i64 [ %11, %10 ], [ 0, %57 ], [ %59, %58 ], [ %53, %52 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %46, %45 ], [ %51, %50 ]
   ret i64 %.0
 }
 
@@ -2696,7 +2696,7 @@ define dso_local noundef zeroext i1 @check_functional_grouping(i32 noundef %0, i
   br label %42
 
 42:                                               ; preds = %.critedge, %5, %38
-  %.0 = phi i1 [ false, %5 ], [ true, %38 ], [ false, %.critedge ]
+  %.0 = phi i1 [ true, %38 ], [ false, %5 ], [ false, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }

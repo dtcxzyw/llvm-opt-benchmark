@@ -2807,7 +2807,7 @@ _ZN9aws_lc_rs6digest7Context10try_update17h13334513be2730afE.exit: ; preds = %22
   %.not = icmp eq i32 %27, 1
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h17ff44111de2e995E.exit", label %_ZN9aws_lc_rs6digest7Context10try_update17h13334513be2730afE.exit.thread
 
-_ZN9aws_lc_rs6digest7Context10try_update17h13334513be2730afE.exit.thread: ; preds = %17, %4, %_ZN9aws_lc_rs6digest7Context10try_update17h13334513be2730afE.exit
+_ZN9aws_lc_rs6digest7Context10try_update17h13334513be2730afE.exit.thread: ; preds = %4, %17, %_ZN9aws_lc_rs6digest7Context10try_update17h13334513be2730afE.exit
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.c12b500a9dbc3a7785a3e66a12bc69a1.28, i64 noundef 20, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c12b500a9dbc3a7785a3e66a12bc69a1.13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c12b500a9dbc3a7785a3e66a12bc69a1.30) #36
           to label %.noexc1 unwind label %40
 
@@ -2880,7 +2880,7 @@ _ZN9aws_lc_rs6digest7Context10try_finish17hde1ce64dec0bec12E.exit: ; preds = %32
   ret void
 
 .body.thread:                                     ; preds = %40, %30
-  %eh.lpad-body10 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %40 ], [ %31, %30 ]
+  %eh.lpad-body10 = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm.split-lp, %40 ]
   resume { ptr, i32 } %eh.lpad-body10
 
 40:                                               ; preds = %_ZN9aws_lc_rs6digest7Context10try_update17h13334513be2730afE.exit.thread, %22
@@ -3193,7 +3193,7 @@ _ZN9aws_lc_rs6digest7Context10try_update17h13334513be2730afE.exit: ; preds = %10
   %.not = icmp eq i32 %19, 1
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h17ff44111de2e995E.exit", label %_ZN9aws_lc_rs6digest7Context10try_update17h13334513be2730afE.exit.thread
 
-_ZN9aws_lc_rs6digest7Context10try_update17h13334513be2730afE.exit.thread: ; preds = %10, %3, %_ZN9aws_lc_rs6digest7Context10try_update17h13334513be2730afE.exit
+_ZN9aws_lc_rs6digest7Context10try_update17h13334513be2730afE.exit.thread: ; preds = %3, %10, %_ZN9aws_lc_rs6digest7Context10try_update17h13334513be2730afE.exit
   call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.c12b500a9dbc3a7785a3e66a12bc69a1.28, i64 noundef 20, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c12b500a9dbc3a7785a3e66a12bc69a1.13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c12b500a9dbc3a7785a3e66a12bc69a1.30) #36
   unreachable
 
@@ -4526,7 +4526,7 @@ define hidden void @_ZN6rustls5tls1312key_schedule31KeyScheduleClientBeforeFinis
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i.i.i.i7, %23, %.body.i.i.i
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %24, %23 ], [ %63, %.lr.ph.i.i.i.i7 ]
+  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %63, %.lr.ph.i.i.i.i7 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$rustls..tls13..key_schedule..KeyScheduleTraffic$GT$17h6ef37b7bedc61ab6E"(ptr noalias noundef nonnull align 8 dereferenceable(240) %1)
           to label %"_ZN4core3ptr81drop_in_place$LT$rustls..tls13..key_schedule..KeyScheduleClientBeforeFinished$GT$17h88630cd7a79b3031E.exit" unwind label %65
 
@@ -5058,7 +5058,7 @@ _ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c9
   br i1 %91, label %94, label %.lr.ph.i.i.i.i3.i
 
 .body:                                            ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i, %92
-  %.pn.pn = phi { ptr, i32 } [ %.pn.i, %.lr.ph.i.i.i.i.i ], [ %93, %92 ], [ %.pn, %.lr.ph.i.i.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %93, %92 ], [ %.pn.i, %.lr.ph.i.i.i.i.i ], [ %.pn, %.lr.ph.i.i.i.i ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$rustls..tls13..key_schedule..KeySchedule$GT$17h2ea041ea81ebe203E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #38
           to label %118 unwind label %116
 
@@ -5744,7 +5744,7 @@ define hidden void @_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic15extract_
   br i1 %80, label %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..cipher..AeadKey$GT$17h61f27da9a0c60915E.exit46", label %.lr.ph.i.i.i.i37
 
 "_ZN4core3ptr52drop_in_place$LT$rustls..crypto..cipher..AeadKey$GT$17h61f27da9a0c60915E.exit46": ; preds = %.lr.ph.i.i.i.i42, %.lr.ph.i.i.i.i37, %59
-  %.pn3352 = phi { ptr, i32 } [ %79, %.lr.ph.i.i.i.i37 ], [ %60, %59 ], [ %82, %.lr.ph.i.i.i.i42 ]
+  %.pn3352 = phi { ptr, i32 } [ %60, %59 ], [ %79, %.lr.ph.i.i.i.i37 ], [ %82, %.lr.ph.i.i.i.i42 ]
   resume { ptr, i32 } %.pn3352
 
 81:                                               ; preds = %41, %3
@@ -5911,7 +5911,7 @@ define internal fastcc void @_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic1
   br label %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026.exit"
 
 common.resume:                                    ; preds = %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..cipher..AeadKey$GT$17h61f27da9a0c60915E.exit", %39, %47
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %40, %47 ], [ %.pn, %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..cipher..AeadKey$GT$17h61f27da9a0c60915E.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %47 ], [ %40, %39 ], [ %.pn, %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..cipher..AeadKey$GT$17h61f27da9a0c60915E.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026.exit": ; preds = %48, %55
@@ -5983,7 +5983,7 @@ define hidden void @_ZN6rustls5tls1312key_schedule11KeySchedule13set_encrypter17
           to label %33 unwind label %31
 
 "_ZN4core3ptr52drop_in_place$LT$rustls..crypto..cipher..AeadKey$GT$17h61f27da9a0c60915E.exit": ; preds = %.lr.ph.i.i.i.i, %.body, %.body.thread, %31
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.thread ], [ %lpad.thr_comm.split-lp, %.body ], [ %32, %31 ], [ %lpad.thr_comm, %.lr.ph.i.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body ], [ %32, %31 ], [ %eh.lpad-body.i.i, %.body.thread ], [ %lpad.thr_comm, %.lr.ph.i.i.i.i ]
   invoke void @"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14) #38
           to label %common.resume unwind label %93
 
@@ -6153,7 +6153,7 @@ define hidden void @_ZN6rustls5tls1312key_schedule11KeySchedule13set_encrypter17
   br label %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026.exit"
 
 common.resume:                                    ; preds = %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..cipher..AeadKey$GT$17h61f27da9a0c60915E.exit", %74, %82
-  %common.resume.op = phi { ptr, i32 } [ %75, %74 ], [ %75, %82 ], [ %.pn, %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..cipher..AeadKey$GT$17h61f27da9a0c60915E.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %75, %82 ], [ %75, %74 ], [ %.pn, %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..cipher..AeadKey$GT$17h61f27da9a0c60915E.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026.exit": ; preds = %83, %90
@@ -6274,7 +6274,7 @@ define hidden { ptr, ptr } @_ZN6rustls5tls1312key_schedule11KeySchedule16derive_
           to label %32 unwind label %30
 
 "_ZN4core3ptr52drop_in_place$LT$rustls..crypto..cipher..AeadKey$GT$17h61f27da9a0c60915E.exit": ; preds = %.lr.ph.i.i.i.i, %48, %30
-  %.pn = phi { ptr, i32 } [ %31, %30 ], [ %lpad.thr_comm.split-lp, %48 ], [ %lpad.thr_comm, %.lr.ph.i.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %48 ], [ %31, %30 ], [ %lpad.thr_comm, %.lr.ph.i.i.i.i ]
   invoke void @"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13) #38
           to label %common.resume unwind label %76
 
@@ -6397,14 +6397,14 @@ define hidden { ptr, ptr } @_ZN6rustls5tls1312key_schedule11KeySchedule16derive_
   br label %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026.exit"
 
 common.resume:                                    ; preds = %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..cipher..AeadKey$GT$17h61f27da9a0c60915E.exit", %57, %65
-  %common.resume.op = phi { ptr, i32 } [ %58, %57 ], [ %58, %65 ], [ %.pn, %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..cipher..AeadKey$GT$17h61f27da9a0c60915E.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %58, %65 ], [ %58, %57 ], [ %.pn, %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..cipher..AeadKey$GT$17h61f27da9a0c60915E.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026.exit": ; preds = %66, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret { ptr, ptr } %54
 
-74:                                               ; preds = %47, %33
+74:                                               ; preds = %33, %47
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.lr.ph.i.i.i.i
@@ -7177,7 +7177,7 @@ define hidden void @_ZN6rustls5tls1312key_schedule11KeySchedule16sign_verify_dat
   br label %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026.exit"
 
 common.resume:                                    ; preds = %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit", %55, %63
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %56, %63 ], [ %.pn, %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %56, %63 ], [ %56, %55 ], [ %.pn, %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026.exit": ; preds = %64, %71
@@ -7304,7 +7304,7 @@ define hidden void @_ZN6rustls5tls1312key_schedule11KeySchedule11derive_next17h7
   br label %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026.exit"
 
 common.resume:                                    ; preds = %36, %40, %48
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %41, %48 ], [ %37, %36 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %48 ], [ %41, %40 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026.exit": ; preds = %49, %56
@@ -7432,7 +7432,7 @@ define hidden void @_ZN6rustls5tls1312key_schedule11KeySchedule17derive_ticket_p
   br label %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026.exit"
 
 common.resume:                                    ; preds = %39, %43, %51
-  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %44, %51 ], [ %40, %39 ]
+  %common.resume.op = phi { ptr, i32 } [ %44, %51 ], [ %44, %43 ], [ %40, %39 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026.exit": ; preds = %52, %59
@@ -7592,7 +7592,7 @@ define hidden void @_ZN6rustls5tls1312key_schedule11KeySchedule22export_keying_m
   br label %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026.exit"
 
 common.resume:                                    ; preds = %.lr.ph.i.i.i.i, %42, %68, %76
-  %common.resume.op = phi { ptr, i32 } [ %69, %68 ], [ %69, %76 ], [ %43, %42 ], [ %.pn, %.lr.ph.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %69, %76 ], [ %69, %68 ], [ %43, %42 ], [ %.pn, %.lr.ph.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026.exit": ; preds = %77, %84
@@ -7864,7 +7864,7 @@ switch.lookup:                                    ; preds = %1
   br label %5
 
 5:                                                ; preds = %switch.lookup, %1
-  %.sroa.0.0 = phi i8 [ %switch.load, %switch.lookup ], [ 6, %1 ]
+  %.sroa.0.0 = phi i8 [ 6, %1 ], [ %switch.load, %switch.lookup ]
   %6 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
   %7 = insertvalue { i8, i8 } %6, i8 0, 1
   ret { i8, i8 } %7
@@ -8191,7 +8191,7 @@ _ZN6rustls6webpki10parse_crls17he19ca7ee2f6fd9f4E.exit: ; preds = %29
   br label %.critedge28
 
 .critedge31:                                      ; preds = %49, %70, %57, %75, %71, %85
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %85 ], [ %58, %57 ], [ %eh.lpad-body, %71 ], [ %50, %49 ], [ %58, %70 ], [ %eh.lpad-body, %75 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %85 ], [ %50, %49 ], [ %58, %70 ], [ %58, %57 ], [ %eh.lpad-body, %75 ], [ %eh.lpad-body, %71 ]
   resume { ptr, i32 } %.pn.pn
 
 85:                                               ; preds = %82, %80
@@ -8942,7 +8942,7 @@ _ZN6rustls6webpki10parse_crls17he19ca7ee2f6fd9f4E.exit: ; preds = %27
   br label %.critedge
 
 .critedge18:                                      ; preds = %35, %.body, %49, %67
-  %.pn33 = phi { ptr, i32 } [ %68, %67 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %35 ], [ %50, %49 ]
+  %.pn33 = phi { ptr, i32 } [ %68, %67 ], [ %eh.lpad-body, %35 ], [ %eh.lpad-body, %.body ], [ %50, %49 ]
   resume { ptr, i32 } %.pn33
 }
 
@@ -9509,7 +9509,7 @@ define void @_ZN6rustls6client11client_conn12ClientConfig30builder_with_protocol
   unreachable
 
 common.resume:                                    ; preds = %27, %16, %20
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %17, %20 ], [ %28, %27 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %20 ], [ %17, %16 ], [ %28, %27 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN6rustls6client11client_conn12ClientConfig21builder_with_provider17h95a6fa08002475d7E.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc5af17f51c37e98eE.exit"
@@ -9646,21 +9646,21 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN6rustls6client11clie
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZN6rustls6client11client_conn12ClientConfig16supports_version17he8eb3d608f9150a7E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(160) %0, i16 noundef %1, i16 %2) unnamed_addr #18 personality ptr @rust_eh_personality {
   switch i16 %1, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h215fe7365a7f8486E.llvm.3875224068774112026.exit" [
-    i16 4, label %_ZN6rustls8versions15EnabledVersions8contains17h60e59a9e2813531dE.exit
-    i16 5, label %4
+    i16 4, label %4
+    i16 5, label %_ZN6rustls8versions15EnabledVersions8contains17h60e59a9e2813531dE.exit
   ]
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8, !alias.scope !2504, !noundef !4
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h215fe7365a7f8486E.llvm.3875224068774112026.exit", label %9
+  %.not6 = icmp eq ptr %6, null
+  br i1 %.not6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h215fe7365a7f8486E.llvm.3875224068774112026.exit", label %9
 
 _ZN6rustls8versions15EnabledVersions8contains17h60e59a9e2813531dE.exit: ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8, !alias.scope !2504, !noundef !4
-  %.not6 = icmp eq ptr %8, null
-  br i1 %.not6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h215fe7365a7f8486E.llvm.3875224068774112026.exit", label %9
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h215fe7365a7f8486E.llvm.3875224068774112026.exit", label %9
 
 9:                                                ; preds = %4, %_ZN6rustls8versions15EnabledVersions8contains17h60e59a9e2813531dE.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -9686,7 +9686,7 @@ _ZN6rustls8versions15EnabledVersions8contains17h60e59a9e2813531dE.exit: ; preds 
   br i1 %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h215fe7365a7f8486E.llvm.3875224068774112026.exit", label %17
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h215fe7365a7f8486E.llvm.3875224068774112026.exit": ; preds = %19, %17, %3, %4, %_ZN6rustls8versions15EnabledVersions8contains17h60e59a9e2813531dE.exit
-  %.0 = phi i1 [ false, %4 ], [ false, %_ZN6rustls8versions15EnabledVersions8contains17h60e59a9e2813531dE.exit ], [ false, %3 ], [ %.not.not.not.i.not.not.not, %17 ], [ %.not.not.not.i.not.not.not, %19 ]
+  %.0 = phi i1 [ false, %_ZN6rustls8versions15EnabledVersions8contains17h60e59a9e2813531dE.exit ], [ false, %4 ], [ false, %3 ], [ %.not.not.not.i.not.not.not, %17 ], [ %.not.not.not.i.not.not.not, %19 ]
   ret i1 %.0
 }
 
@@ -11046,9 +11046,9 @@ define hidden void @_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHa
           to label %753 unwind label %.loopexit.split-lp681
 
 .body:                                            ; preds = %.loopexit680, %.loopexit.split-lp681, %.body409, %.thread576, %245, %232, %221, %76
-  %.1278 = phi i8 [ 0, %232 ], [ %.6283.ph, %245 ], [ 0, %221 ], [ 1, %76 ], [ %.6283.ph, %.body409 ], [ 1, %.thread576 ], [ 1, %.loopexit680 ], [ %.0277.ph, %.loopexit.split-lp681 ]
-  %.1 = phi i8 [ 0, %232 ], [ %.5.ph, %245 ], [ 0, %221 ], [ 1, %76 ], [ %.5.ph, %.body409 ], [ 1, %.thread576 ], [ 1, %.loopexit680 ], [ %.0266.ph, %.loopexit.split-lp681 ]
-  %.pn310 = phi { ptr, i32 } [ %233, %232 ], [ %.pn308.ph, %245 ], [ %222, %221 ], [ %lpad.thr_comm.i.i, %76 ], [ %.pn308.ph, %.body409 ], [ %485, %.thread576 ], [ %lpad.loopexit682, %.loopexit680 ], [ %lpad.loopexit.split-lp683, %.loopexit.split-lp681 ]
+  %.1278 = phi i8 [ 1, %76 ], [ 0, %221 ], [ 0, %232 ], [ 1, %.thread576 ], [ %.6283.ph, %.body409 ], [ %.6283.ph, %245 ], [ 1, %.loopexit680 ], [ %.0277.ph, %.loopexit.split-lp681 ]
+  %.1 = phi i8 [ 1, %76 ], [ 0, %221 ], [ 0, %232 ], [ 1, %.thread576 ], [ %.5.ph, %.body409 ], [ %.5.ph, %245 ], [ 1, %.loopexit680 ], [ %.0266.ph, %.loopexit.split-lp681 ]
+  %.pn310 = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %76 ], [ %222, %221 ], [ %233, %232 ], [ %485, %.thread576 ], [ %.pn308.ph, %.body409 ], [ %.pn308.ph, %245 ], [ %lpad.loopexit682, %.loopexit680 ], [ %lpad.loopexit.split-lp683, %.loopexit.split-lp681 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$rustls..enums..SignatureScheme$GT$$GT$17h83f5d16024a035fcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #38
           to label %730 unwind label %240
 
@@ -11058,8 +11058,8 @@ define hidden void @_ZN6rustls6server5tls1312client_hello27CompleteClientHelloHa
   br label %.body
 
 .loopexit.split-lp681:                            ; preds = %101, %181, %193, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h381dd6d496f36450E.llvm.9964311202002838858.exit.i", %79, %84, %96, %110, %113, %142, %153, %166, %188, %204, %469, %728
-  %.0277.ph = phi i8 [ 1, %96 ], [ 1, %101 ], [ 1, %110 ], [ 1, %142 ], [ 1, %84 ], [ 0, %728 ], [ %.7284, %469 ], [ 1, %166 ], [ 1, %181 ], [ 1, %193 ], [ 1, %204 ], [ 1, %153 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h381dd6d496f36450E.llvm.9964311202002838858.exit.i" ], [ 1, %79 ], [ 1, %188 ], [ 1, %113 ]
-  %.0266.ph = phi i8 [ 1, %96 ], [ 1, %101 ], [ 1, %110 ], [ 1, %142 ], [ 1, %84 ], [ 0, %728 ], [ 1, %469 ], [ 1, %166 ], [ 1, %181 ], [ 1, %193 ], [ 1, %204 ], [ 1, %153 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h381dd6d496f36450E.llvm.9964311202002838858.exit.i" ], [ 1, %79 ], [ 1, %188 ], [ 1, %113 ]
+  %.0277.ph = phi i8 [ 0, %728 ], [ %.7284, %469 ], [ 1, %204 ], [ 1, %188 ], [ 1, %166 ], [ 1, %153 ], [ 1, %142 ], [ 1, %113 ], [ 1, %110 ], [ 1, %96 ], [ 1, %84 ], [ 1, %79 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h381dd6d496f36450E.llvm.9964311202002838858.exit.i" ], [ 1, %101 ], [ 1, %181 ], [ 1, %193 ]
+  %.0266.ph = phi i8 [ 0, %728 ], [ 1, %469 ], [ 1, %204 ], [ 1, %188 ], [ 1, %166 ], [ 1, %153 ], [ 1, %142 ], [ 1, %113 ], [ 1, %110 ], [ 1, %96 ], [ 1, %84 ], [ 1, %79 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h381dd6d496f36450E.llvm.9964311202002838858.exit.i" ], [ 1, %101 ], [ 1, %181 ], [ 1, %193 ]
   %lpad.loopexit.split-lp683 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -11465,9 +11465,9 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   br label %741
 
 .body409:                                         ; preds = %.loopexit, %.loopexit.split-lp, %718, %703, %685, %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit.i", %661, %431, %422, %372, %388, %740, %526, %508, %460
-  %.6283.ph = phi i8 [ 1, %431 ], [ 1, %460 ], [ 1, %508 ], [ 1, %526 ], [ 1, %422 ], [ %.10, %740 ], [ 1, %372 ], [ 0, %718 ], [ 1, %388 ], [ 0, %661 ], [ 0, %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit.i" ], [ 0, %685 ], [ 0, %703 ], [ 1, %.loopexit ], [ %.4281.ph, %.loopexit.split-lp ]
-  %.5.ph = phi i8 [ 1, %431 ], [ 1, %460 ], [ 1, %508 ], [ 1, %526 ], [ 1, %422 ], [ 1, %740 ], [ 1, %372 ], [ 0, %718 ], [ 1, %388 ], [ 1, %661 ], [ 1, %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit.i" ], [ 0, %685 ], [ 0, %703 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp ]
-  %.pn308.ph = phi { ptr, i32 } [ %432, %431 ], [ %461, %460 ], [ %509, %508 ], [ %527, %526 ], [ %423, %422 ], [ %.pn306, %740 ], [ %373, %372 ], [ %719, %718 ], [ %389, %388 ], [ %662, %661 ], [ %735, %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit.i" ], [ %686, %685 ], [ %704, %703 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.6283.ph = phi i8 [ 1, %431 ], [ 1, %460 ], [ 1, %508 ], [ 1, %526 ], [ %.10, %740 ], [ 1, %388 ], [ 1, %372 ], [ 1, %422 ], [ 0, %661 ], [ 0, %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit.i" ], [ 0, %685 ], [ 0, %703 ], [ 0, %718 ], [ 1, %.loopexit ], [ %.4281.ph, %.loopexit.split-lp ]
+  %.5.ph = phi i8 [ 1, %431 ], [ 1, %460 ], [ 1, %508 ], [ 1, %526 ], [ 1, %740 ], [ 1, %388 ], [ 1, %372 ], [ 1, %422 ], [ 1, %661 ], [ 1, %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit.i" ], [ 0, %685 ], [ 0, %703 ], [ 0, %718 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp ]
+  %.pn308.ph = phi { ptr, i32 } [ %432, %431 ], [ %461, %460 ], [ %509, %508 ], [ %527, %526 ], [ %.pn306, %740 ], [ %389, %388 ], [ %373, %372 ], [ %423, %422 ], [ %662, %661 ], [ %735, %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit.i" ], [ %686, %685 ], [ %704, %703 ], [ %719, %718 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.pr = load i64, ptr %64, align 8, !alias.scope !2807
   %244 = icmp eq i64 %.pr, -9223372036854775808
   br i1 %244, label %.body, label %245
@@ -11482,7 +11482,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   br label %.body409
 
 .loopexit.split-lp:                               ; preds = %_ZN6rustls4msgs9handshake18ClientHelloPayload3psk17h3a60485165861284E.exit.thread, %257, %457, %479, %498, %738, %534, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h91cc4e0d878466ecE.exit", %249, %_ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d9846e852adE.exit.thread, %266, %271, %299, %492, %518
-  %.4281.ph = phi i8 [ 1, %457 ], [ 1, %_ZN6rustls4msgs9handshake18ClientHelloPayload3psk17h3a60485165861284E.exit.thread ], [ 1, %249 ], [ 1, %_ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d9846e852adE.exit.thread ], [ 1, %257 ], [ 1, %479 ], [ 1, %492 ], [ 1, %518 ], [ 1, %498 ], [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h91cc4e0d878466ecE.exit" ], [ 1, %534 ], [ 0, %738 ], [ 1, %299 ], [ 1, %271 ], [ 1, %266 ]
+  %.4281.ph = phi i8 [ 1, %518 ], [ 1, %492 ], [ 1, %299 ], [ 1, %271 ], [ 1, %266 ], [ 1, %_ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d9846e852adE.exit.thread ], [ 1, %249 ], [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h91cc4e0d878466ecE.exit" ], [ 1, %257 ], [ 1, %457 ], [ 1, %_ZN6rustls4msgs9handshake18ClientHelloPayload3psk17h3a60485165861284E.exit.thread ], [ 1, %479 ], [ 1, %498 ], [ 1, %534 ], [ 0, %738 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body409
@@ -11499,8 +11499,8 @@ _ZN6rustls4msgs9handshake18ClientHelloPayload3psk17h3a60485165861284E.exit: ; pr
           to label %_ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d9846e852adE.exit unwind label %.loopexit.split-lp
 
 _ZN6rustls4msgs9handshake18ClientHelloPayload3psk17h3a60485165861284E.exit.thread: ; preds = %426, %176, %.noexc375, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit425"
-  %.sroa.098.0 = phi i64 [ 1, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit425" ], [ 0, %176 ], [ 0, %.noexc375 ], [ 0, %426 ]
-  %.sroa.499.0 = phi i64 [ %.sroa.8487.0703, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit425" ], [ undef, %176 ], [ undef, %.noexc375 ], [ undef, %426 ]
+  %.sroa.098.0 = phi i64 [ 1, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit425" ], [ 0, %.noexc375 ], [ 0, %176 ], [ 0, %426 ]
+  %.sroa.499.0 = phi i64 [ %.sroa.8487.0703, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit425" ], [ undef, %.noexc375 ], [ undef, %176 ], [ undef, %426 ]
   %251 = invoke noundef zeroext i1 @_ZN6rustls4msgs9handshake18ClientHelloPayload16psk_mode_offered17hb3cd2f512769fe59E(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %5, i8 noundef 1, i8 undef)
           to label %470 unwind label %.loopexit.split-lp
 
@@ -12127,7 +12127,7 @@ _ZN6rustls6server5tls1312client_hello27CompleteClientHelloHandling31attempt_tls1
   br label %466
 
 466:                                              ; preds = %401, %459, %259, %279, %462, %464, %739
-  %.7284 = phi i8 [ %.8285, %739 ], [ 1, %464 ], [ 1, %462 ], [ 1, %259 ], [ 1, %279 ], [ 1, %459 ], [ 1, %401 ]
+  %.7284 = phi i8 [ %.8285, %739 ], [ 1, %464 ], [ 1, %462 ], [ 1, %279 ], [ 1, %259 ], [ 1, %459 ], [ 1, %401 ]
   %467 = load i64, ptr %64, align 8, !range !55, !alias.scope !2922, !noundef !4
   %468 = icmp eq i64 %467, -9223372036854775808
   br i1 %468, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit427", label %469
@@ -12389,7 +12389,7 @@ _ZN6rustls6server5tls1312client_hello13emit_fake_ccs17he996375f99b9cc44E.exit436
           to label %577 unwind label %575
 
 573:                                              ; preds = %.invoke770, %.invoke, %558, %584, %637, %632, %625, %604, %594
-  %.9286 = phi i8 [ 0, %632 ], [ 0, %625 ], [ 1, %558 ], [ 0, %.invoke ], [ 0, %.invoke770 ], [ 0, %594 ], [ 0, %637 ], [ 0, %604 ], [ 0, %584 ]
+  %.9286 = phi i8 [ 0, %632 ], [ 0, %637 ], [ 0, %625 ], [ 0, %604 ], [ 0, %594 ], [ 0, %584 ], [ 1, %558 ], [ 0, %.invoke ], [ 0, %.invoke770 ]
   %574 = landingpad { ptr, i32 }
           cleanup
   br label %740
@@ -12784,8 +12784,8 @@ _ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154
   br i1 %cond, label %781, label %775
 
 731:                                              ; preds = %744, %741, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit445"
-  %.11 = phi i8 [ %.3280, %744 ], [ 0, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit445" ], [ %.3280, %741 ]
-  %.9 = phi i8 [ %.3, %744 ], [ 0, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit445" ], [ %.3, %741 ]
+  %.11 = phi i8 [ 0, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit445" ], [ %.3280, %741 ], [ %.3280, %744 ]
+  %.9 = phi i8 [ 0, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit445" ], [ %.3, %741 ], [ %.3, %744 ]
   %732 = landingpad { ptr, i32 }
           cleanup
   br label %730
@@ -12823,8 +12823,8 @@ _ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154
   br label %466
 
 740:                                              ; preds = %573, %575
-  %.10 = phi i8 [ 0, %575 ], [ %.9286, %573 ]
-  %.pn306 = phi { ptr, i32 } [ %576, %575 ], [ %574, %573 ]
+  %.10 = phi i8 [ %.9286, %573 ], [ 0, %575 ]
+  %.pn306 = phi { ptr, i32 } [ %574, %573 ], [ %576, %575 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$rustls..tls13..key_schedule..KeyScheduleHandshake$GT$17h688a3408f5bb4a3fE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %60) #38
           to label %.body409 unwind label %240
 
@@ -12833,9 +12833,9 @@ _ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154
   br label %741
 
 741:                                              ; preds = %226, %236, %242, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit427", %753, %751, %749, %107
-  %.3280 = phi i8 [ 1, %751 ], [ 1, %753 ], [ 1, %749 ], [ 1, %107 ], [ 1, %242 ], [ 0, %236 ], [ 0, %226 ], [ %.7284, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit427" ]
-  %cond325 = phi i1 [ false, %751 ], [ false, %753 ], [ false, %749 ], [ false, %107 ], [ false, %242 ], [ true, %236 ], [ true, %226 ], [ false, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit427" ]
-  %.3 = phi i8 [ 1, %751 ], [ 1, %753 ], [ 1, %749 ], [ 1, %107 ], [ 1, %242 ], [ 0, %236 ], [ 0, %226 ], [ 1, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit427" ]
+  %.3280 = phi i8 [ 1, %751 ], [ 1, %749 ], [ 1, %107 ], [ 1, %753 ], [ 1, %242 ], [ 0, %236 ], [ 0, %226 ], [ %.7284, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit427" ]
+  %cond325 = phi i1 [ false, %751 ], [ false, %749 ], [ false, %107 ], [ false, %753 ], [ false, %242 ], [ true, %236 ], [ true, %226 ], [ false, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit427" ]
+  %.3 = phi i8 [ 1, %751 ], [ 1, %749 ], [ 1, %107 ], [ 1, %753 ], [ 1, %242 ], [ 0, %236 ], [ 0, %226 ], [ 1, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..ServerSessionValue$GT$$GT$17hc65e2d8057fbda34E.exit427" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !2981
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6fa49a330d648ec3E.llvm.4248407042397360440"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %.noexc447 unwind label %731
@@ -13037,13 +13037,13 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello17emit_server_
   %59 = invoke { ptr, i64 } %58(ptr noundef nonnull align 1 %50)
           to label %62 unwind label %60
 
-"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit165.thread118": ; preds = %_ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit, %197, %189
+"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit165.thread118": ; preds = %197, %189, %_ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit
   %lpad.thr_comm116 = landingpad { ptr, i32 }
           cleanup
   br label %.thread49
 
 60:                                               ; preds = %254, %62, %48
-  %.2 = phi i1 [ false, %254 ], [ true, %62 ], [ true, %48 ]
+  %.2 = phi i1 [ true, %48 ], [ true, %62 ], [ false, %254 ]
   %61 = landingpad { ptr, i32 }
           cleanup
   br label %.thread49
@@ -13279,7 +13279,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello17emit_server_
   invoke void @_ZN6rustls12common_state11CommonState8send_msg17h8a7968f23a1802a7E(ptr noalias noundef nonnull align 8 dereferenceable(776) %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(192) %14, i1 noundef zeroext %138)
           to label %254 unwind label %.thread76
 
-.thread76:                                        ; preds = %171, %181, %149, %162, %135, %139
+.thread76:                                        ; preds = %181, %135, %139, %149, %162, %171
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread65
@@ -13642,8 +13642,8 @@ _ZN6rustls7hash_hs13HandshakeHash12current_hash17hff3704beb97df9f2E.exit: ; pred
           to label %.thread49 unwind label %228
 
 .thread49:                                        ; preds = %226, %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit165.thread118", %.thread65, %.body.i, %103, %88, %75, %60
-  %.pn.pn58 = phi { ptr, i32 } [ %lpad.thr_comm116, %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit165.thread118" ], [ %104, %103 ], [ %76, %75 ], [ %89, %88 ], [ %61, %60 ], [ %118, %.body.i ], [ %eh.lpad-body14774, %.thread65 ], [ %227, %226 ]
-  %.457 = phi i1 [ false, %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit165.thread118" ], [ true, %103 ], [ true, %75 ], [ true, %88 ], [ %.2, %60 ], [ false, %.body.i ], [ false, %.thread65 ], [ false, %226 ]
+  %.pn.pn58 = phi { ptr, i32 } [ %61, %60 ], [ %76, %75 ], [ %89, %88 ], [ %104, %103 ], [ %118, %.body.i ], [ %eh.lpad-body14774, %.thread65 ], [ %lpad.thr_comm116, %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit165.thread118" ], [ %227, %226 ]
+  %.457 = phi i1 [ %.2, %60 ], [ true, %75 ], [ true, %88 ], [ true, %103 ], [ false, %.body.i ], [ false, %.thread65 ], [ false, %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit165.thread118" ], [ false, %226 ]
   invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E"(ptr nonnull %50, ptr nonnull %52) #38
           to label %43 unwind label %228
 
@@ -13672,11 +13672,11 @@ _ZN6rustls7hash_hs13HandshakeHash12current_hash17hff3704beb97df9f2E.exit: ; pred
   br label %.thread93
 
 .body162:                                         ; preds = %245, %250, %267, %259, %278, %43
-  %.pn.pn.pn22 = phi { ptr, i32 } [ %.pn.pn58, %43 ], [ %.pn.pn.pn23, %278 ], [ %260, %259 ], [ %260, %267 ], [ %251, %250 ], [ %246, %245 ]
+  %.pn.pn.pn22 = phi { ptr, i32 } [ %.pn.pn.pn23, %278 ], [ %.pn.pn58, %43 ], [ %260, %259 ], [ %260, %267 ], [ %246, %245 ], [ %251, %250 ]
   resume { ptr, i32 } %.pn.pn.pn22
 
 278:                                              ; preds = %.body162.thread, %43
-  %.pn.pn.pn23 = phi { ptr, i32 } [ %44, %.body162.thread ], [ %.pn.pn58, %43 ]
+  %.pn.pn.pn23 = phi { ptr, i32 } [ %.pn.pn58, %43 ], [ %44, %.body162.thread ]
   invoke void @"_ZN4core3ptr84drop_in_place$LT$alloc..vec..Vec$LT$rustls..msgs..handshake..ServerExtension$GT$$GT$17ha782c5efae66e9d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #38
           to label %.body162 unwind label %228
 }
@@ -13923,7 +13923,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 
-93:                                               ; preds = %86, %54, %60, %73
+93:                                               ; preds = %54, %60, %73, %86
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$rustls..msgs..message..MessagePayload$GT$17h6de0f8096c3e035fE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(192) %12)
@@ -13936,7 +13936,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   unreachable
 
 "_ZN4core3ptr69drop_in_place$LT$rustls..msgs..handshake..HandshakeMessagePayload$GT$17h01787a119f022ad6E.exit.i": ; preds = %93, %.body.i, %.thread11
-  %.pn6 = phi { ptr, i32 } [ %49, %.body.i ], [ %eh.lpad-body10, %.thread11 ], [ %lpad.thr_comm, %93 ]
+  %.pn6 = phi { ptr, i32 } [ %eh.lpad-body10, %.thread11 ], [ %49, %.body.i ], [ %lpad.thr_comm, %93 ]
   resume { ptr, i32 } %.pn6
 
 .thread11:                                        ; preds = %22, %35
@@ -14043,13 +14043,13 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypt
 
 53:                                               ; preds = %.noexc46, %35
   %.028.i = phi i1 [ %52, %.noexc46 ], [ false, %35 ]
-  br i1 %.not6.i, label %54, label %.critedge.thread.i
+  br i1 %.not6.i, label %54, label %.critedge40.thread.i
 
 54:                                               ; preds = %53
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 141
   %56 = load i8, ptr %55, align 1, !range !176, !alias.scope !3201, !noalias !3192, !noundef !4
   %57 = trunc i8 %56 to i1
-  br i1 %57, label %58, label %.critedge.thread.i
+  br i1 %57, label %58, label %.critedge40.thread.i
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -14061,25 +14061,25 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypt
   %64 = getelementptr inbounds nuw i8, ptr %.val, i64 760
   %65 = load i16, ptr %64, align 8, !range !2743, !noalias !3200, !noundef !4
   %66 = icmp eq i16 %60, %65
-  br i1 %66, label %67, label %.critedge.thread.i
+  br i1 %66, label %67, label %.critedge40.thread.i
 
 67:                                               ; preds = %58
   %68 = icmp eq i16 %60, 9
-  br i1 %68, label %69, label %.critedge40.i
+  br i1 %68, label %69, label %.critedge.i
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %.val, i64 762
   %71 = load i16, ptr %70, align 2, !noalias !3200, !noundef !4
   %72 = icmp eq i16 %62, %71
-  br i1 %72, label %.critedge40.i, label %.critedge.thread.i
+  br i1 %72, label %.critedge.i, label %.critedge40.thread.i
 
-.critedge40.i:                                    ; preds = %69, %67
+.critedge.i:                                      ; preds = %69, %67
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 132
   %74 = load i16, ptr %73, align 4, !range !2794, !alias.scope !3189, !noalias !3192, !noundef !4
   %75 = icmp eq i16 %74, %.72.val
-  br i1 %75, label %76, label %.critedge.thread.i
+  br i1 %75, label %76, label %.critedge40.thread.i
 
-76:                                               ; preds = %.critedge40.i
+76:                                               ; preds = %.critedge.i
   %77 = icmp eq i16 %.72.val, 376
   br i1 %77, label %78, label %.critedge43.i
 
@@ -14087,7 +14087,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypt
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 134
   %80 = load i16, ptr %79, align 2, !alias.scope !3189, !noalias !3192, !noundef !4
   %81 = icmp eq i16 %80, %.74.val
-  br i1 %81, label %.critedge43.i, label %.critedge.thread.i
+  br i1 %81, label %.critedge43.i, label %.critedge40.thread.i
 
 .critedge43.i:                                    ; preds = %78, %76
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -14096,15 +14096,15 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypt
   %85 = getelementptr inbounds nuw i8, ptr %.val, i64 680
   %86 = load i64, ptr %85, align 8, !range !55, !noalias !3200, !noundef !4
   %87 = icmp eq i64 %86, -9223372036854775808
-  br i1 %84, label %.critedge.i, label %88
+  br i1 %84, label %.critedge40.i, label %88
 
-.critedge.i:                                      ; preds = %92, %.critedge43.i
+.critedge40.i:                                    ; preds = %92, %.critedge43.i
   %.0.i = phi i1 [ %87, %.critedge43.i ], [ %95, %92 ]
   %or.cond6.i = and i1 %.028.i, %.0.i
-  br i1 %or.cond6.i, label %100, label %.critedge.thread.i
+  br i1 %or.cond6.i, label %100, label %.critedge40.thread.i
 
 88:                                               ; preds = %.critedge43.i
-  br i1 %87, label %.critedge.thread.i, label %89
+  br i1 %87, label %.critedge40.thread.i, label %89
 
 89:                                               ; preds = %88
   %90 = getelementptr i8, ptr %5, i64 88
@@ -14112,7 +14112,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypt
   %91 = getelementptr i8, ptr %.val, i64 696
   %.029.val47.i = load i64, ptr %91, align 8, !noalias !3200, !noundef !4
   %.not.i.i = icmp eq i64 %.031.val48.i, %.029.val47.i
-  br i1 %.not.i.i, label %92, label %.critedge.thread.i
+  br i1 %.not.i.i, label %92, label %.critedge40.thread.i
 
 92:                                               ; preds = %89
   %93 = getelementptr i8, ptr %.val, i64 688
@@ -14121,9 +14121,9 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypt
   %.031.val.i = load ptr, ptr %94, align 8, !alias.scope !3189, !noalias !3192, !nonnull !4, !noundef !4
   %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.031.val.i, ptr nonnull readonly align 1 %.029.val.i, i64 %.031.val48.i), !alias.scope !3204, !noalias !3200
   %95 = icmp eq i32 %bcmp.i.i, 0
-  br label %.critedge.i
+  br label %.critedge40.i
 
-.critedge.thread.i:                               ; preds = %100, %89, %88, %.critedge.i, %78, %.critedge40.i, %69, %58, %54, %53
+.critedge40.thread.i:                             ; preds = %100, %89, %88, %.critedge40.i, %78, %.critedge.i, %69, %58, %54, %53
   %96 = icmp ne ptr %.val, null
   call void @llvm.assume(i1 %96)
   %97 = getelementptr inbounds nuw i8, ptr %.val, i64 772
@@ -14131,14 +14131,14 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypt
   %99 = trunc nuw i8 %98 to i1
   br i1 %99, label %104, label %_ZN6rustls6server5tls1312client_hello28decide_if_early_data_allowed17hcfe63b243b4c3baaE.exit.thread
 
-100:                                              ; preds = %.critedge.i
+100:                                              ; preds = %.critedge40.i
   %101 = icmp ne ptr %.val41, null
   call void @llvm.assume(i1 %101)
   %102 = load i64, ptr %.val41, align 8, !range !3211, !alias.scope !3212, !noalias !3200, !noundef !4
   %103 = icmp eq i64 %102, 4
-  br i1 %103, label %.critedge.thread.i, label %_ZN6rustls6server5tls1312client_hello28decide_if_early_data_allowed17hcfe63b243b4c3baaE.exit
+  br i1 %103, label %.critedge40.thread.i, label %_ZN6rustls6server5tls1312client_hello28decide_if_early_data_allowed17hcfe63b243b4c3baaE.exit
 
-104:                                              ; preds = %.critedge.thread.i
+104:                                              ; preds = %.critedge40.thread.i
   %105 = getelementptr inbounds nuw i8, ptr %.val, i64 168
   %106 = load i64, ptr %105, align 8, !range !288, !alias.scope !3215, !noalias !3200, !noundef !4
   %107 = icmp eq i64 %106, 0
@@ -14209,8 +14209,8 @@ _ZN6rustls6server5tls1312client_hello28decide_if_early_data_allowed17hcfe63b243b
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZN6rustls6server5tls1312client_hello28decide_if_early_data_allowed17hcfe63b243b4c3baaE.exit.thread
 
-_ZN6rustls6server5tls1312client_hello28decide_if_early_data_allowed17hcfe63b243b4c3baaE.exit.thread: ; preds = %.critedge.thread.i, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$rustls..crypto..tls13..OkmBlock$GT$$GT$17h11bb0e031c2981f6E.llvm.3875224068774112026.exit.i", %.noexc, %119
-  %.126.i16 = phi i8 [ 2, %119 ], [ %..i, %.noexc ], [ %..i, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$rustls..crypto..tls13..OkmBlock$GT$$GT$17h11bb0e031c2981f6E.llvm.3875224068774112026.exit.i" ], [ %..i, %.critedge.thread.i ]
+_ZN6rustls6server5tls1312client_hello28decide_if_early_data_allowed17hcfe63b243b4c3baaE.exit.thread: ; preds = %.critedge40.thread.i, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$rustls..crypto..tls13..OkmBlock$GT$$GT$17h11bb0e031c2981f6E.llvm.3875224068774112026.exit.i", %.noexc, %119
+  %.126.i16 = phi i8 [ 2, %119 ], [ %..i, %.noexc ], [ %..i, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$rustls..crypto..tls13..OkmBlock$GT$$GT$17h11bb0e031c2981f6E.llvm.3875224068774112026.exit.i" ], [ %..i, %.critedge40.thread.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -14363,7 +14363,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   ret void
 
-174:                                              ; preds = %152, %164, %139
+174:                                              ; preds = %164, %139, %152
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$rustls..msgs..message..MessagePayload$GT$17h6de0f8096c3e035fE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(192) %17)
@@ -14460,8 +14460,8 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello26emit_certifi
           to label %44 unwind label %42
 
 .body:                                            ; preds = %169, %121, %111, %.body.i, %93, %54, %42
-  %.3 = phi i1 [ true, %111 ], [ false, %121 ], [ true, %42 ], [ true, %54 ], [ true, %93 ], [ false, %.body.i ], [ false, %169 ]
-  %.pn = phi { ptr, i32 } [ %112, %111 ], [ %lpad.thr_comm.split-lp16, %121 ], [ %43, %42 ], [ %55, %54 ], [ %lpad.loopexit.i, %93 ], [ %101, %.body.i ], [ %lpad.thr_comm15, %169 ]
+  %.3 = phi i1 [ false, %121 ], [ true, %42 ], [ true, %54 ], [ true, %93 ], [ false, %.body.i ], [ true, %111 ], [ false, %169 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp16, %121 ], [ %43, %42 ], [ %55, %54 ], [ %lpad.loopexit.i, %93 ], [ %101, %.body.i ], [ %112, %111 ], [ %lpad.thr_comm15, %169 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$rustls..enums..SignatureScheme$GT$$GT$17h83f5d16024a035fcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #38
           to label %34 unwind label %170
 
@@ -14811,7 +14811,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %33
 
-169:                                              ; preds = %141, %153, %128
+169:                                              ; preds = %153, %128, %141
   %lpad.thr_comm15 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$rustls..msgs..message..MessagePayload$GT$17h6de0f8096c3e035fE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(192) %11)
@@ -14824,7 +14824,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   unreachable
 
 172:                                              ; preds = %173, %34
-  %.pn299 = phi { ptr, i32 } [ %.pn, %34 ], [ %.pn2910, %173 ]
+  %.pn299 = phi { ptr, i32 } [ %.pn2910, %173 ], [ %.pn, %34 ]
   resume { ptr, i32 } %.pn299
 
 173:                                              ; preds = %35, %34
@@ -15122,7 +15122,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret void
 
-112:                                              ; preds = %93, %105, %80
+112:                                              ; preds = %105, %80, %93
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$rustls..msgs..message..MessagePayload$GT$17h6de0f8096c3e035fE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(192) %13)
@@ -15180,7 +15180,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   br i1 %127, label %._crit_edge, label %23
 
 .thread:                                          ; preds = %112, %.body.i, %.thread75
-  %.pn70 = phi { ptr, i32 } [ %69, %.body.i ], [ %eh.lpad-body74, %.thread75 ], [ %lpad.thr_comm, %112 ]
+  %.pn70 = phi { ptr, i32 } [ %eh.lpad-body74, %.thread75 ], [ %69, %.body.i ], [ %lpad.thr_comm, %112 ]
   resume { ptr, i32 } %.pn70
 
 .thread75:                                        ; preds = %.loopexit, %.loopexit.split-lp, %119, %54
@@ -15223,7 +15223,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello29emit_certifi
           to label %32 unwind label %30
 
 .body:                                            ; preds = %126, %134, %61, %69, %30, %.body91
-  %.pn81 = phi { ptr, i32 } [ %.pn, %.body91 ], [ %62, %61 ], [ %31, %30 ], [ %62, %69 ], [ %127, %134 ], [ %127, %126 ]
+  %.pn81 = phi { ptr, i32 } [ %.pn, %.body91 ], [ %31, %30 ], [ %62, %69 ], [ %62, %61 ], [ %127, %134 ], [ %127, %126 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #38
           to label %160 unwind label %151
 
@@ -15272,7 +15272,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello29emit_certifi
   br label %"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E.exit"
 
 .body91:                                          ; preds = %150, %89, %.body.i, %45
-  %.pn = phi { ptr, i32 } [ %84, %.body.i ], [ %lpad.thr_comm.split-lp, %89 ], [ %46, %45 ], [ %lpad.thr_comm, %150 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %89 ], [ %46, %45 ], [ %84, %.body.i ], [ %lpad.thr_comm, %150 ]
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..signer..Signer$GT$$GT$17hf3de9739b3f08188E"(ptr nonnull %.fca.0.extract, ptr nonnull %.fca.1.extract) #38
           to label %.body unwind label %151
 
@@ -15553,7 +15553,7 @@ _ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret void
 
-150:                                              ; preds = %105, %117, %96
+150:                                              ; preds = %117, %96, %105
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$rustls..msgs..message..MessagePayload$GT$17h6de0f8096c3e035fE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(192) %17)
@@ -15647,8 +15647,8 @@ _ZN6rustls5tls1312key_schedule20KeyScheduleHandshake18sign_server_finish17h14d81
   unreachable
 
 .body:                                            ; preds = %.lr.ph.i.i.i.i22.i, %158, %.body33, %.body.i, %34
-  %.2 = phi i1 [ true, %158 ], [ true, %.body33 ], [ true, %34 ], [ true, %.body.i ], [ false, %.lr.ph.i.i.i.i22.i ]
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %158 ], [ %lpad.thr_comm.split-lp, %.body33 ], [ %35, %34 ], [ %46, %.body.i ], [ %.pn.pn.i, %.lr.ph.i.i.i.i22.i ]
+  %.2 = phi i1 [ true, %.body33 ], [ true, %34 ], [ true, %.body.i ], [ true, %158 ], [ false, %.lr.ph.i.i.i.i22.i ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body33 ], [ %35, %34 ], [ %46, %.body.i ], [ %lpad.thr_comm, %158 ], [ %.pn.pn.i, %.lr.ph.i.i.i.i22.i ]
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.body
@@ -16067,7 +16067,7 @@ _ZN6rustls5tls1312key_schedule20KeyScheduleHandshake41into_traffic_with_client_f
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret void
 
-158:                                              ; preds = %57, %_ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit, %68, %80
+158:                                              ; preds = %80, %57, %68, %_ZN6rustls7hash_hs13HandshakeHash11add_message17h96486aaaeca9d316E.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$rustls..msgs..message..MessagePayload$GT$17h6de0f8096c3e035fE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(192) %17)
@@ -16579,7 +16579,7 @@ define void @_ZN6rustls4quic7Secrets16next_packet_keys17h59bf23e13f4d261eE(ptr n
           to label %33 unwind label %31, !noalias !3838
 
 .body.i:                                          ; preds = %73, %60, %37, %31
-  %.pn.i = phi { ptr, i32 } [ %38, %37 ], [ %49, %73 ], [ %32, %31 ], [ %61, %60 ]
+  %.pn.i = phi { ptr, i32 } [ %49, %73 ], [ %38, %37 ], [ %32, %31 ], [ %61, %60 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$rustls..quic..KeyBuilder$GT$17h6ad19f201b954983E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #38
           to label %common.resume unwind label %71, !noalias !3838
 
@@ -16684,7 +16684,7 @@ define void @_ZN6rustls4quic7Secrets16next_packet_keys17h59bf23e13f4d261eE(ptr n
   unreachable
 
 common.resume:                                    ; preds = %74, %.body.i, %67
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %68, %67 ], [ %75, %74 ]
+  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %.pn.i, %.body.i ], [ %75, %74 ]
   resume { ptr, i32 } %common.resume.op
 
 71:                                               ; preds = %73, %48, %37, %.body.i
@@ -16864,7 +16864,7 @@ define internal fastcc void @_ZN6rustls4quic7Secrets6update17h1e7634e9eb17047aE(
   br label %70
 
 common.resume:                                    ; preds = %28, %68, %104, %112, %51, %59
-  %common.resume.op = phi { ptr, i32 } [ %105, %104 ], [ %52, %51 ], [ %52, %59 ], [ %105, %112 ], [ %69, %68 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %52, %59 ], [ %52, %51 ], [ %105, %112 ], [ %105, %104 ], [ %69, %68 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 68:                                               ; preds = %.noexc13, %70
@@ -17277,7 +17277,7 @@ define hidden { ptr, ptr } @_ZN6rustls4quic10KeyBuilder10packet_key17h79b0bd1ce5
 "_ZN4core3ptr52drop_in_place$LT$rustls..crypto..cipher..AeadKey$GT$17h61f27da9a0c60915E.exit": ; preds = %.lr.ph.i.i.i.i
   resume { ptr, i32 } %lpad.thr_comm
 
-45:                                               ; preds = %1, %40
+45:                                               ; preds = %40, %1
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.lr.ph.i.i.i.i
@@ -17615,7 +17615,7 @@ switch.lookup:
   br label %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026.exit"
 
 common.resume:                                    ; preds = %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit", %89, %97
-  %common.resume.op = phi { ptr, i32 } [ %90, %89 ], [ %90, %97 ], [ %.pn, %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %90, %97 ], [ %90, %89 ], [ %.pn, %"_ZN4core3ptr52drop_in_place$LT$rustls..crypto..tls13..OkmBlock$GT$17h8fdf0991cafbef58E.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..tls13..HkdfExpander$GT$$GT$17hfdb0fe5378005060E.llvm.3875224068774112026.exit": ; preds = %98, %105
@@ -17974,7 +17974,7 @@ define i8 @_ZN6rustls5enums16AlertDescription8to_array17h4441cd2b96ccbcb7E(i8 no
   br label %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..AlertDescription$GT$$u20$for$u20$u8$GT$4from17h36451e31673bb772E.exit"
 
 "_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..AlertDescription$GT$$u20$for$u20$u8$GT$4from17h36451e31673bb772E.exit": ; preds = %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37
-  %.0.i = phi i8 [ %1, %37 ], [ 10, %4 ], [ 20, %5 ], [ 21, %6 ], [ 22, %7 ], [ 30, %8 ], [ 40, %9 ], [ 41, %10 ], [ 42, %11 ], [ 43, %12 ], [ 44, %13 ], [ 45, %14 ], [ 46, %15 ], [ 47, %16 ], [ 48, %17 ], [ 49, %18 ], [ 50, %19 ], [ 51, %20 ], [ 60, %21 ], [ 70, %22 ], [ 71, %23 ], [ 80, %24 ], [ 86, %25 ], [ 90, %26 ], [ 100, %27 ], [ 109, %28 ], [ 110, %29 ], [ 111, %30 ], [ 112, %31 ], [ 113, %32 ], [ 114, %33 ], [ 115, %34 ], [ 116, %35 ], [ 120, %36 ], [ %0, %2 ]
+  %.0.i = phi i8 [ 10, %4 ], [ 20, %5 ], [ 21, %6 ], [ 22, %7 ], [ 30, %8 ], [ 40, %9 ], [ 41, %10 ], [ 42, %11 ], [ 43, %12 ], [ 44, %13 ], [ 45, %14 ], [ 46, %15 ], [ 47, %16 ], [ 48, %17 ], [ 49, %18 ], [ 50, %19 ], [ 51, %20 ], [ 60, %21 ], [ 70, %22 ], [ 71, %23 ], [ 80, %24 ], [ 86, %25 ], [ 90, %26 ], [ 100, %27 ], [ 109, %28 ], [ 110, %29 ], [ 111, %30 ], [ 112, %31 ], [ 113, %32 ], [ 114, %33 ], [ 115, %34 ], [ 116, %35 ], [ 120, %36 ], [ %1, %37 ], [ %0, %2 ]
   ret i8 %.0.i
 }
 
@@ -18142,7 +18142,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..AlertDescription$GT$$u20$for$u20$u8$GT$4from17h36451e31673bb772E.exit"
 
 "_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..AlertDescription$GT$$u20$for$u20$u8$GT$4from17h36451e31673bb772E.exit": ; preds = %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37
-  %.0.i = phi i8 [ %39, %37 ], [ 10, %4 ], [ 20, %5 ], [ 21, %6 ], [ 22, %7 ], [ 30, %8 ], [ 40, %9 ], [ 41, %10 ], [ 42, %11 ], [ 43, %12 ], [ 44, %13 ], [ 45, %14 ], [ 46, %15 ], [ 47, %16 ], [ 48, %17 ], [ 49, %18 ], [ 50, %19 ], [ 51, %20 ], [ 60, %21 ], [ 70, %22 ], [ 71, %23 ], [ 80, %24 ], [ 86, %25 ], [ 90, %26 ], [ 100, %27 ], [ 109, %28 ], [ 110, %29 ], [ 111, %30 ], [ 112, %31 ], [ 113, %32 ], [ 114, %33 ], [ 115, %34 ], [ 116, %35 ], [ 120, %36 ], [ %3, %2 ]
+  %.0.i = phi i8 [ 10, %4 ], [ 20, %5 ], [ 21, %6 ], [ 22, %7 ], [ 30, %8 ], [ 40, %9 ], [ 41, %10 ], [ 42, %11 ], [ 43, %12 ], [ 44, %13 ], [ 45, %14 ], [ 46, %15 ], [ 47, %16 ], [ 48, %17 ], [ 49, %18 ], [ 50, %19 ], [ 51, %20 ], [ 60, %21 ], [ 70, %22 ], [ 71, %23 ], [ 80, %24 ], [ 86, %25 ], [ 90, %26 ], [ 100, %27 ], [ 109, %28 ], [ 110, %29 ], [ 111, %30 ], [ 112, %31 ], [ 113, %32 ], [ 114, %33 ], [ 115, %34 ], [ 116, %35 ], [ 120, %36 ], [ %39, %37 ], [ %3, %2 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load i64, ptr %40, align 8, !alias.scope !4152, !noalias !4157, !noundef !4
   %42 = load i64, ptr %1, align 8, !alias.scope !4152, !noalias !4157, !noundef !4
@@ -18363,7 +18363,7 @@ define { i8, i8 } @"_ZN81_$LT$rustls..enums..AlertDescription$u20$as$u20$core..c
   br label %36
 
 36:                                               ; preds = %1, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i8 [ 33, %35 ], [ 0, %2 ], [ 1, %3 ], [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 6, %8 ], [ 7, %9 ], [ 8, %10 ], [ 9, %11 ], [ 10, %12 ], [ 11, %13 ], [ 12, %14 ], [ 13, %15 ], [ 14, %16 ], [ 15, %17 ], [ 16, %18 ], [ 17, %19 ], [ 18, %20 ], [ 19, %21 ], [ 20, %22 ], [ 21, %23 ], [ 22, %24 ], [ 23, %25 ], [ 24, %26 ], [ 25, %27 ], [ 26, %28 ], [ 27, %29 ], [ 28, %30 ], [ 29, %31 ], [ 30, %32 ], [ 31, %33 ], [ 32, %34 ], [ 34, %1 ]
+  %.sroa.0.0 = phi i8 [ 0, %2 ], [ 1, %3 ], [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 6, %8 ], [ 7, %9 ], [ 8, %10 ], [ 9, %11 ], [ 10, %12 ], [ 11, %13 ], [ 12, %14 ], [ 13, %15 ], [ 14, %16 ], [ 15, %17 ], [ 16, %18 ], [ 17, %19 ], [ 18, %20 ], [ 19, %21 ], [ 20, %22 ], [ 21, %23 ], [ 22, %24 ], [ 23, %25 ], [ 24, %26 ], [ 25, %27 ], [ 26, %28 ], [ 27, %29 ], [ 28, %30 ], [ 29, %31 ], [ 30, %32 ], [ 31, %33 ], [ 32, %34 ], [ 33, %35 ], [ 34, %1 ]
   %37 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
   %38 = insertvalue { i8, i8 } %37, i8 %0, 1
   ret { i8, i8 } %38
@@ -18515,7 +18515,7 @@ define noundef i8 @"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustl
   br label %38
 
 38:                                               ; preds = %2, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0 = phi i8 [ %1, %37 ], [ 10, %4 ], [ 20, %5 ], [ 21, %6 ], [ 22, %7 ], [ 30, %8 ], [ 40, %9 ], [ 41, %10 ], [ 42, %11 ], [ 43, %12 ], [ 44, %13 ], [ 45, %14 ], [ 46, %15 ], [ 47, %16 ], [ 48, %17 ], [ 49, %18 ], [ 50, %19 ], [ 51, %20 ], [ 60, %21 ], [ 70, %22 ], [ 71, %23 ], [ 80, %24 ], [ 86, %25 ], [ 90, %26 ], [ 100, %27 ], [ 109, %28 ], [ 110, %29 ], [ 111, %30 ], [ 112, %31 ], [ 113, %32 ], [ 114, %33 ], [ 115, %34 ], [ 116, %35 ], [ 120, %36 ], [ %0, %2 ]
+  %.0 = phi i8 [ 10, %4 ], [ 20, %5 ], [ 21, %6 ], [ 22, %7 ], [ 30, %8 ], [ 40, %9 ], [ 41, %10 ], [ 42, %11 ], [ 43, %12 ], [ 44, %13 ], [ 45, %14 ], [ 46, %15 ], [ 47, %16 ], [ 48, %17 ], [ 49, %18 ], [ 50, %19 ], [ 51, %20 ], [ 60, %21 ], [ 70, %22 ], [ 71, %23 ], [ 80, %24 ], [ 86, %25 ], [ 90, %26 ], [ 100, %27 ], [ 109, %28 ], [ 110, %29 ], [ 111, %30 ], [ 112, %31 ], [ 113, %32 ], [ 114, %33 ], [ 115, %34 ], [ 116, %35 ], [ 120, %36 ], [ %1, %37 ], [ %0, %2 ]
   ret i8 %.0
 }
 
@@ -18587,7 +18587,7 @@ define i8 @_ZN6rustls5enums13HandshakeType8to_array17h42f587f3791c21c6E(i8 nound
   br label %"_ZN6rustls5enums88_$LT$impl$u20$core..convert..From$LT$rustls..enums..HandshakeType$GT$$u20$for$u20$u8$GT$4from17h1129a3163b6bd488E.exit"
 
 "_ZN6rustls5enums88_$LT$impl$u20$core..convert..From$LT$rustls..enums..HandshakeType$GT$$u20$for$u20$u8$GT$4from17h1129a3163b6bd488E.exit": ; preds = %2, %2, %2, %2, %2, %2, %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16
-  %.0.i = phi i8 [ %1, %16 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ 8, %4 ], [ 11, %5 ], [ 12, %6 ], [ 13, %7 ], [ 14, %8 ], [ 15, %9 ], [ 16, %10 ], [ 20, %11 ], [ 21, %12 ], [ 22, %13 ], [ 24, %14 ], [ -2, %15 ], [ %0, %2 ]
+  %.0.i = phi i8 [ 8, %4 ], [ 11, %5 ], [ 12, %6 ], [ 13, %7 ], [ 14, %8 ], [ 15, %9 ], [ 16, %10 ], [ 20, %11 ], [ 21, %12 ], [ 22, %13 ], [ 24, %14 ], [ -2, %15 ], [ %1, %16 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ]
   ret i8 %.0.i
 }
 
@@ -18677,7 +18677,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls5enums88_$LT$impl$u20$core..convert..From$LT$rustls..enums..HandshakeType$GT$$u20$for$u20$u8$GT$4from17h1129a3163b6bd488E.exit"
 
 "_ZN6rustls5enums88_$LT$impl$u20$core..convert..From$LT$rustls..enums..HandshakeType$GT$$u20$for$u20$u8$GT$4from17h1129a3163b6bd488E.exit": ; preds = %2, %2, %2, %2, %2, %2, %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16
-  %.0.i = phi i8 [ %18, %16 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ 8, %4 ], [ 11, %5 ], [ 12, %6 ], [ 13, %7 ], [ 14, %8 ], [ 15, %9 ], [ 16, %10 ], [ 20, %11 ], [ 21, %12 ], [ 22, %13 ], [ 24, %14 ], [ -2, %15 ], [ %3, %2 ]
+  %.0.i = phi i8 [ 8, %4 ], [ 11, %5 ], [ 12, %6 ], [ 13, %7 ], [ 14, %8 ], [ 15, %9 ], [ 16, %10 ], [ 20, %11 ], [ 21, %12 ], [ 22, %13 ], [ 24, %14 ], [ -2, %15 ], [ %18, %16 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8, !alias.scope !4175, !noalias !4180, !noundef !4
   %21 = load i64, ptr %1, align 8, !alias.scope !4175, !noalias !4180, !noundef !4
@@ -18852,7 +18852,7 @@ define noundef i8 @"_ZN6rustls5enums88_$LT$impl$u20$core..convert..From$LT$rustl
   br label %17
 
 17:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0 = phi i8 [ %1, %16 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ 8, %4 ], [ 11, %5 ], [ 12, %6 ], [ 13, %7 ], [ 14, %8 ], [ 15, %9 ], [ 16, %10 ], [ 20, %11 ], [ 21, %12 ], [ 22, %13 ], [ 24, %14 ], [ -2, %15 ], [ %0, %2 ]
+  %.0 = phi i8 [ 8, %4 ], [ 11, %5 ], [ 12, %6 ], [ 13, %7 ], [ 14, %8 ], [ 15, %9 ], [ 16, %10 ], [ 20, %11 ], [ 21, %12 ], [ 22, %13 ], [ 24, %14 ], [ -2, %15 ], [ %1, %16 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ]
   ret i8 %.0
 }
 
@@ -18886,7 +18886,7 @@ define i8 @_ZN6rustls5enums11ContentType8to_array17h256b0a0bbe671cb1E(i8 noundef
   br label %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit"
 
 "_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit": ; preds = %2, %4, %5, %6, %7, %8
-  %.0.i = phi i8 [ %1, %8 ], [ 21, %4 ], [ 22, %5 ], [ 23, %6 ], [ 24, %7 ], [ 20, %2 ]
+  %.0.i = phi i8 [ 21, %4 ], [ 22, %5 ], [ 23, %6 ], [ 24, %7 ], [ %1, %8 ], [ 20, %2 ]
   ret i8 %.0.i
 }
 
@@ -18938,7 +18938,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit"
 
 "_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustls..enums..ContentType$GT$$u20$for$u20$u8$GT$4from17h5fc6aaa2067c3b72E.exit": ; preds = %2, %4, %5, %6, %7, %8
-  %.0.i = phi i8 [ %10, %8 ], [ 21, %4 ], [ 22, %5 ], [ 23, %6 ], [ 24, %7 ], [ 20, %2 ]
+  %.0.i = phi i8 [ 21, %4 ], [ 22, %5 ], [ 23, %6 ], [ 24, %7 ], [ %10, %8 ], [ 20, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !4199, !noalias !4204, !noundef !4
   %13 = load i64, ptr %1, align 8, !alias.scope !4199, !noalias !4204, !noundef !4
@@ -19056,7 +19056,7 @@ define noundef i8 @"_ZN6rustls5enums86_$LT$impl$u20$core..convert..From$LT$rustl
   br label %9
 
 9:                                                ; preds = %2, %8, %7, %6, %5, %4
-  %.0 = phi i8 [ %1, %8 ], [ 21, %4 ], [ 22, %5 ], [ 23, %6 ], [ 24, %7 ], [ 20, %2 ]
+  %.0 = phi i8 [ 21, %4 ], [ 22, %5 ], [ 23, %6 ], [ 24, %7 ], [ %1, %8 ], [ 20, %2 ]
   ret i8 %.0
 }
 
@@ -19107,7 +19107,7 @@ define i16 @_ZN6rustls5enums15ProtocolVersion8to_array17h79fba4cd86bbe369E(i16 n
   br label %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit"
 
 "_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit": ; preds = %2, %4, %5, %6, %7, %8, %9, %10, %11, %12
-  %.0.i = phi i16 [ %13, %12 ], [ 3, %4 ], [ 259, %5 ], [ 515, %6 ], [ 771, %7 ], [ 1027, %8 ], [ -2, %9 ], [ -514, %10 ], [ -770, %11 ], [ 2, %2 ]
+  %.0.i = phi i16 [ 3, %4 ], [ 259, %5 ], [ 515, %6 ], [ 771, %7 ], [ 1027, %8 ], [ -2, %9 ], [ -514, %10 ], [ -770, %11 ], [ %13, %12 ], [ 2, %2 ]
   ret i16 %.0.i
 }
 
@@ -19176,7 +19176,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit"
 
 "_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit": ; preds = %2, %4, %5, %6, %7, %8, %9, %10, %11, %12
-  %.0.i = phi i16 [ %15, %12 ], [ 3, %4 ], [ 259, %5 ], [ 515, %6 ], [ 771, %7 ], [ 1027, %8 ], [ -2, %9 ], [ -514, %10 ], [ -770, %11 ], [ 2, %2 ]
+  %.0.i = phi i16 [ 3, %4 ], [ 259, %5 ], [ 515, %6 ], [ 771, %7 ], [ 1027, %8 ], [ -2, %9 ], [ -514, %10 ], [ -770, %11 ], [ %15, %12 ], [ 2, %2 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !4222, !noalias !4231, !noundef !4
   %18 = load i64, ptr %1, align 8, !alias.scope !4222, !noalias !4231, !noundef !4
@@ -19276,7 +19276,7 @@ define void @"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..
   br label %"_ZN81_$LT$rustls..enums..ProtocolVersion$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17h5c556482a49d3198E.exit"
 
 "_ZN81_$LT$rustls..enums..ProtocolVersion$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17h5c556482a49d3198E.exit": ; preds = %17, %21, %22, %23, %24, %25, %26, %27, %28, %29
-  %.sroa.0.0.i = phi i16 [ 8, %29 ], [ 0, %21 ], [ 1, %22 ], [ 2, %23 ], [ 3, %24 ], [ 4, %25 ], [ 5, %26 ], [ 6, %27 ], [ 7, %28 ], [ 9, %17 ]
+  %.sroa.0.0.i = phi i16 [ 0, %21 ], [ 1, %22 ], [ 2, %23 ], [ 3, %24 ], [ 4, %25 ], [ 5, %26 ], [ 6, %27 ], [ 7, %28 ], [ 8, %29 ], [ 9, %17 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %.sroa.0.0.i, ptr %30, align 2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -19338,7 +19338,7 @@ define { i16, i16 } @"_ZN81_$LT$rustls..enums..ProtocolVersion$u20$as$u20$core..
   br label %11
 
 11:                                               ; preds = %1, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i16 [ 8, %10 ], [ 0, %2 ], [ 1, %3 ], [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 6, %8 ], [ 7, %9 ], [ 9, %1 ]
+  %.sroa.0.0 = phi i16 [ 0, %2 ], [ 1, %3 ], [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 6, %8 ], [ 7, %9 ], [ 8, %10 ], [ 9, %1 ]
   %12 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %13 = insertvalue { i16, i16 } %12, i16 %0, 1
   ret { i16, i16 } %13
@@ -19390,7 +19390,7 @@ define noundef i16 @"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rust
   br label %13
 
 13:                                               ; preds = %2, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0 = phi i16 [ %1, %12 ], [ 768, %4 ], [ 769, %5 ], [ 770, %6 ], [ 771, %7 ], [ 772, %8 ], [ -257, %9 ], [ -259, %10 ], [ -260, %11 ], [ 512, %2 ]
+  %.0 = phi i16 [ 768, %4 ], [ 769, %5 ], [ 770, %6 ], [ 771, %7 ], [ 772, %8 ], [ -257, %9 ], [ -259, %10 ], [ -260, %11 ], [ %1, %12 ], [ 512, %2 ]
   ret i16 %.0
 }
 
@@ -20807,7 +20807,7 @@ define { i16, i16 } @"_ZN77_$LT$rustls..enums..CipherSuite$u20$as$u20$core..conv
   br label %286
 
 286:                                              ; preds = %1, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i16 [ 375, %285 ], [ %0, %2 ], [ 376, %1 ], [ 374, %284 ], [ 373, %283 ], [ 372, %282 ], [ 371, %281 ], [ 370, %280 ], [ 369, %279 ], [ 368, %278 ], [ 367, %277 ], [ 366, %276 ], [ 365, %275 ], [ 364, %274 ], [ 363, %273 ], [ 362, %272 ], [ 361, %271 ], [ 360, %270 ], [ 359, %269 ], [ 358, %268 ], [ 357, %267 ], [ 356, %266 ], [ 355, %265 ], [ 354, %264 ], [ 353, %263 ], [ 352, %262 ], [ 351, %261 ], [ 350, %260 ], [ 349, %259 ], [ 348, %258 ], [ 347, %257 ], [ 346, %256 ], [ 345, %255 ], [ 344, %254 ], [ 343, %253 ], [ 342, %252 ], [ 341, %251 ], [ 340, %250 ], [ 339, %249 ], [ 338, %248 ], [ 337, %247 ], [ 336, %246 ], [ 335, %245 ], [ 334, %244 ], [ 333, %243 ], [ 332, %242 ], [ 331, %241 ], [ 330, %240 ], [ 329, %239 ], [ 328, %238 ], [ 327, %237 ], [ 326, %236 ], [ 325, %235 ], [ 324, %234 ], [ 323, %233 ], [ 322, %232 ], [ 321, %231 ], [ 320, %230 ], [ 319, %229 ], [ 318, %228 ], [ 317, %227 ], [ 316, %226 ], [ 315, %225 ], [ 314, %224 ], [ 313, %223 ], [ 312, %222 ], [ 311, %221 ], [ 310, %220 ], [ 309, %219 ], [ 308, %218 ], [ 307, %217 ], [ 306, %216 ], [ 305, %215 ], [ 304, %214 ], [ 303, %213 ], [ 302, %212 ], [ 301, %211 ], [ 300, %210 ], [ 299, %209 ], [ 298, %208 ], [ 297, %207 ], [ 296, %206 ], [ 295, %205 ], [ 294, %204 ], [ 293, %203 ], [ 292, %202 ], [ 291, %201 ], [ 290, %200 ], [ 289, %199 ], [ 288, %198 ], [ 287, %197 ], [ 286, %196 ], [ 285, %195 ], [ 284, %194 ], [ 93, %3 ], [ 94, %4 ], [ 95, %5 ], [ 96, %6 ], [ 97, %7 ], [ 98, %8 ], [ 99, %9 ], [ 100, %10 ], [ 101, %11 ], [ 102, %12 ], [ 103, %13 ], [ 104, %14 ], [ 105, %15 ], [ 106, %16 ], [ 107, %17 ], [ 108, %18 ], [ 109, %19 ], [ 110, %20 ], [ 111, %21 ], [ 112, %22 ], [ 113, %23 ], [ 114, %24 ], [ 115, %25 ], [ 116, %26 ], [ 117, %27 ], [ 118, %28 ], [ 119, %29 ], [ 120, %30 ], [ 121, %31 ], [ 122, %32 ], [ 123, %33 ], [ 124, %34 ], [ 125, %35 ], [ 126, %36 ], [ 127, %37 ], [ 128, %38 ], [ 129, %39 ], [ 130, %40 ], [ 131, %41 ], [ 132, %42 ], [ 133, %43 ], [ 134, %44 ], [ 135, %45 ], [ 136, %46 ], [ 137, %47 ], [ 138, %48 ], [ 139, %49 ], [ 140, %50 ], [ 141, %51 ], [ 142, %52 ], [ 143, %53 ], [ 144, %54 ], [ 145, %55 ], [ 146, %56 ], [ 147, %57 ], [ 148, %58 ], [ 149, %59 ], [ 150, %60 ], [ 151, %61 ], [ 152, %62 ], [ 153, %63 ], [ 154, %64 ], [ 155, %65 ], [ 156, %66 ], [ 157, %67 ], [ 158, %68 ], [ 159, %69 ], [ 160, %70 ], [ 161, %71 ], [ 162, %72 ], [ 163, %73 ], [ 164, %74 ], [ 165, %75 ], [ 166, %76 ], [ 167, %77 ], [ 168, %78 ], [ 169, %79 ], [ 170, %80 ], [ 171, %81 ], [ 172, %82 ], [ 173, %83 ], [ 174, %84 ], [ 175, %85 ], [ 176, %86 ], [ 177, %87 ], [ 178, %88 ], [ 179, %89 ], [ 180, %90 ], [ 181, %91 ], [ 182, %92 ], [ 183, %93 ], [ 184, %94 ], [ 185, %95 ], [ 186, %96 ], [ 187, %97 ], [ 188, %98 ], [ 189, %99 ], [ 190, %100 ], [ 191, %101 ], [ 192, %102 ], [ 193, %103 ], [ 194, %104 ], [ 195, %105 ], [ 196, %106 ], [ 197, %107 ], [ 198, %108 ], [ 199, %109 ], [ 200, %110 ], [ 201, %111 ], [ 202, %112 ], [ 203, %113 ], [ 204, %114 ], [ 205, %115 ], [ 206, %116 ], [ 207, %117 ], [ 208, %118 ], [ 209, %119 ], [ 210, %120 ], [ 211, %121 ], [ 212, %122 ], [ 213, %123 ], [ 214, %124 ], [ 215, %125 ], [ 216, %126 ], [ 217, %127 ], [ 218, %128 ], [ 219, %129 ], [ 220, %130 ], [ 221, %131 ], [ 222, %132 ], [ 223, %133 ], [ 224, %134 ], [ 225, %135 ], [ 226, %136 ], [ 227, %137 ], [ 228, %138 ], [ 229, %139 ], [ 230, %140 ], [ 231, %141 ], [ 232, %142 ], [ 233, %143 ], [ 234, %144 ], [ 235, %145 ], [ 236, %146 ], [ 237, %147 ], [ 238, %148 ], [ 239, %149 ], [ 240, %150 ], [ 241, %151 ], [ 242, %152 ], [ 243, %153 ], [ 244, %154 ], [ 245, %155 ], [ 246, %156 ], [ 247, %157 ], [ 248, %158 ], [ 249, %159 ], [ 250, %160 ], [ 251, %161 ], [ 252, %162 ], [ 253, %163 ], [ 254, %164 ], [ 255, %165 ], [ 256, %166 ], [ 257, %167 ], [ 258, %168 ], [ 259, %169 ], [ 260, %170 ], [ 261, %171 ], [ 262, %172 ], [ 263, %173 ], [ 264, %174 ], [ 265, %175 ], [ 266, %176 ], [ 267, %177 ], [ 268, %178 ], [ 269, %179 ], [ 270, %180 ], [ 271, %181 ], [ 272, %182 ], [ 273, %183 ], [ 274, %184 ], [ 275, %185 ], [ 276, %186 ], [ 277, %187 ], [ 278, %188 ], [ 279, %189 ], [ 280, %190 ], [ 281, %191 ], [ 282, %192 ], [ 283, %193 ]
+  %.sroa.0.0 = phi i16 [ %0, %2 ], [ 93, %3 ], [ 94, %4 ], [ 95, %5 ], [ 96, %6 ], [ 97, %7 ], [ 98, %8 ], [ 99, %9 ], [ 100, %10 ], [ 101, %11 ], [ 102, %12 ], [ 103, %13 ], [ 104, %14 ], [ 105, %15 ], [ 106, %16 ], [ 107, %17 ], [ 108, %18 ], [ 109, %19 ], [ 110, %20 ], [ 111, %21 ], [ 112, %22 ], [ 113, %23 ], [ 114, %24 ], [ 115, %25 ], [ 116, %26 ], [ 117, %27 ], [ 118, %28 ], [ 119, %29 ], [ 120, %30 ], [ 121, %31 ], [ 122, %32 ], [ 123, %33 ], [ 124, %34 ], [ 125, %35 ], [ 126, %36 ], [ 127, %37 ], [ 128, %38 ], [ 129, %39 ], [ 130, %40 ], [ 131, %41 ], [ 132, %42 ], [ 133, %43 ], [ 134, %44 ], [ 135, %45 ], [ 136, %46 ], [ 137, %47 ], [ 138, %48 ], [ 139, %49 ], [ 140, %50 ], [ 141, %51 ], [ 142, %52 ], [ 143, %53 ], [ 144, %54 ], [ 145, %55 ], [ 146, %56 ], [ 147, %57 ], [ 148, %58 ], [ 149, %59 ], [ 150, %60 ], [ 151, %61 ], [ 152, %62 ], [ 153, %63 ], [ 154, %64 ], [ 155, %65 ], [ 156, %66 ], [ 157, %67 ], [ 158, %68 ], [ 159, %69 ], [ 160, %70 ], [ 161, %71 ], [ 162, %72 ], [ 163, %73 ], [ 164, %74 ], [ 165, %75 ], [ 166, %76 ], [ 167, %77 ], [ 168, %78 ], [ 169, %79 ], [ 170, %80 ], [ 171, %81 ], [ 172, %82 ], [ 173, %83 ], [ 174, %84 ], [ 175, %85 ], [ 176, %86 ], [ 177, %87 ], [ 178, %88 ], [ 179, %89 ], [ 180, %90 ], [ 181, %91 ], [ 182, %92 ], [ 183, %93 ], [ 184, %94 ], [ 185, %95 ], [ 186, %96 ], [ 187, %97 ], [ 188, %98 ], [ 189, %99 ], [ 190, %100 ], [ 191, %101 ], [ 192, %102 ], [ 193, %103 ], [ 194, %104 ], [ 195, %105 ], [ 196, %106 ], [ 197, %107 ], [ 198, %108 ], [ 199, %109 ], [ 200, %110 ], [ 201, %111 ], [ 202, %112 ], [ 203, %113 ], [ 204, %114 ], [ 205, %115 ], [ 206, %116 ], [ 207, %117 ], [ 208, %118 ], [ 209, %119 ], [ 210, %120 ], [ 211, %121 ], [ 212, %122 ], [ 213, %123 ], [ 214, %124 ], [ 215, %125 ], [ 216, %126 ], [ 217, %127 ], [ 218, %128 ], [ 219, %129 ], [ 220, %130 ], [ 221, %131 ], [ 222, %132 ], [ 223, %133 ], [ 224, %134 ], [ 225, %135 ], [ 226, %136 ], [ 227, %137 ], [ 228, %138 ], [ 229, %139 ], [ 230, %140 ], [ 231, %141 ], [ 232, %142 ], [ 233, %143 ], [ 234, %144 ], [ 235, %145 ], [ 236, %146 ], [ 237, %147 ], [ 238, %148 ], [ 239, %149 ], [ 240, %150 ], [ 241, %151 ], [ 242, %152 ], [ 243, %153 ], [ 244, %154 ], [ 245, %155 ], [ 246, %156 ], [ 247, %157 ], [ 248, %158 ], [ 249, %159 ], [ 250, %160 ], [ 251, %161 ], [ 252, %162 ], [ 253, %163 ], [ 254, %164 ], [ 255, %165 ], [ 256, %166 ], [ 257, %167 ], [ 258, %168 ], [ 259, %169 ], [ 260, %170 ], [ 261, %171 ], [ 262, %172 ], [ 263, %173 ], [ 264, %174 ], [ 265, %175 ], [ 266, %176 ], [ 267, %177 ], [ 268, %178 ], [ 269, %179 ], [ 270, %180 ], [ 271, %181 ], [ 272, %182 ], [ 273, %183 ], [ 274, %184 ], [ 275, %185 ], [ 276, %186 ], [ 277, %187 ], [ 278, %188 ], [ 279, %189 ], [ 280, %190 ], [ 281, %191 ], [ 282, %192 ], [ 283, %193 ], [ 284, %194 ], [ 285, %195 ], [ 286, %196 ], [ 287, %197 ], [ 288, %198 ], [ 289, %199 ], [ 290, %200 ], [ 291, %201 ], [ 292, %202 ], [ 293, %203 ], [ 294, %204 ], [ 295, %205 ], [ 296, %206 ], [ 297, %207 ], [ 298, %208 ], [ 299, %209 ], [ 300, %210 ], [ 301, %211 ], [ 302, %212 ], [ 303, %213 ], [ 304, %214 ], [ 305, %215 ], [ 306, %216 ], [ 307, %217 ], [ 308, %218 ], [ 309, %219 ], [ 310, %220 ], [ 311, %221 ], [ 312, %222 ], [ 313, %223 ], [ 314, %224 ], [ 315, %225 ], [ 316, %226 ], [ 317, %227 ], [ 318, %228 ], [ 319, %229 ], [ 320, %230 ], [ 321, %231 ], [ 322, %232 ], [ 323, %233 ], [ 324, %234 ], [ 325, %235 ], [ 326, %236 ], [ 327, %237 ], [ 328, %238 ], [ 329, %239 ], [ 330, %240 ], [ 331, %241 ], [ 332, %242 ], [ 333, %243 ], [ 334, %244 ], [ 335, %245 ], [ 336, %246 ], [ 337, %247 ], [ 338, %248 ], [ 339, %249 ], [ 340, %250 ], [ 341, %251 ], [ 342, %252 ], [ 343, %253 ], [ 344, %254 ], [ 345, %255 ], [ 346, %256 ], [ 347, %257 ], [ 348, %258 ], [ 349, %259 ], [ 350, %260 ], [ 351, %261 ], [ 352, %262 ], [ 353, %263 ], [ 354, %264 ], [ 355, %265 ], [ 356, %266 ], [ 357, %267 ], [ 358, %268 ], [ 359, %269 ], [ 360, %270 ], [ 361, %271 ], [ 362, %272 ], [ 363, %273 ], [ 364, %274 ], [ 365, %275 ], [ 366, %276 ], [ 367, %277 ], [ 368, %278 ], [ 369, %279 ], [ 370, %280 ], [ 371, %281 ], [ 372, %282 ], [ 373, %283 ], [ 374, %284 ], [ 375, %285 ], [ 376, %1 ]
   %287 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %288 = insertvalue { i16, i16 } %287, i16 %0, 1
   ret { i16, i16 } %288
@@ -22051,7 +22051,7 @@ define noundef i16 @"_ZN6rustls5enums87_$LT$impl$u20$core..convert..From$LT$rust
   br label %288
 
 288:                                              ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0 = phi i16 [ %1, %287 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ 96, %4 ], [ 97, %5 ], [ 98, %6 ], [ 99, %7 ], [ 100, %8 ], [ 101, %9 ], [ 102, %10 ], [ 103, %11 ], [ 104, %12 ], [ 105, %13 ], [ 106, %14 ], [ 107, %15 ], [ 108, %16 ], [ 109, %17 ], [ 114, %18 ], [ 115, %19 ], [ 116, %20 ], [ 119, %21 ], [ 120, %22 ], [ 121, %23 ], [ 124, %24 ], [ 125, %25 ], [ 126, %26 ], [ 128, %27 ], [ 129, %28 ], [ 130, %29 ], [ 131, %30 ], [ 132, %31 ], [ 133, %32 ], [ 134, %33 ], [ 135, %34 ], [ 136, %35 ], [ 137, %36 ], [ 138, %37 ], [ 139, %38 ], [ 140, %39 ], [ 141, %40 ], [ 142, %41 ], [ 143, %42 ], [ 144, %43 ], [ 145, %44 ], [ 146, %45 ], [ 147, %46 ], [ 148, %47 ], [ 149, %48 ], [ 150, %49 ], [ 151, %50 ], [ 152, %51 ], [ 153, %52 ], [ 154, %53 ], [ 155, %54 ], [ 156, %55 ], [ 157, %56 ], [ 158, %57 ], [ 159, %58 ], [ 160, %59 ], [ 161, %60 ], [ 162, %61 ], [ 163, %62 ], [ 164, %63 ], [ 165, %64 ], [ 166, %65 ], [ 167, %66 ], [ 168, %67 ], [ 169, %68 ], [ 170, %69 ], [ 171, %70 ], [ 172, %71 ], [ 173, %72 ], [ 174, %73 ], [ 175, %74 ], [ 176, %75 ], [ 177, %76 ], [ 178, %77 ], [ 179, %78 ], [ 180, %79 ], [ 181, %80 ], [ 182, %81 ], [ 183, %82 ], [ 184, %83 ], [ 185, %84 ], [ 186, %85 ], [ 187, %86 ], [ 188, %87 ], [ 189, %88 ], [ 190, %89 ], [ 191, %90 ], [ 192, %91 ], [ 193, %92 ], [ 194, %93 ], [ 195, %94 ], [ 196, %95 ], [ 197, %96 ], [ 255, %97 ], [ 4865, %98 ], [ 4866, %99 ], [ 4867, %100 ], [ 4868, %101 ], [ 4869, %102 ], [ -16383, %103 ], [ -16382, %104 ], [ -16381, %105 ], [ -16380, %106 ], [ -16379, %107 ], [ -16378, %108 ], [ -16377, %109 ], [ -16376, %110 ], [ -16375, %111 ], [ -16374, %112 ], [ -16373, %113 ], [ -16372, %114 ], [ -16371, %115 ], [ -16370, %116 ], [ -16369, %117 ], [ -16368, %118 ], [ -16367, %119 ], [ -16366, %120 ], [ -16365, %121 ], [ -16364, %122 ], [ -16363, %123 ], [ -16362, %124 ], [ -16361, %125 ], [ -16360, %126 ], [ -16359, %127 ], [ -16358, %128 ], [ -16357, %129 ], [ -16356, %130 ], [ -16355, %131 ], [ -16354, %132 ], [ -16353, %133 ], [ -16352, %134 ], [ -16351, %135 ], [ -16350, %136 ], [ -16349, %137 ], [ -16348, %138 ], [ -16347, %139 ], [ -16346, %140 ], [ -16345, %141 ], [ -16344, %142 ], [ -16343, %143 ], [ -16342, %144 ], [ -16341, %145 ], [ -16340, %146 ], [ -16339, %147 ], [ -16338, %148 ], [ -16337, %149 ], [ -16336, %150 ], [ -16335, %151 ], [ -16334, %152 ], [ -16333, %153 ], [ -16332, %154 ], [ -16331, %155 ], [ -16330, %156 ], [ -16329, %157 ], [ -16328, %158 ], [ -16327, %159 ], [ -16326, %160 ], [ -16325, %161 ], [ -16324, %162 ], [ -16323, %163 ], [ -16322, %164 ], [ -16321, %165 ], [ -16320, %166 ], [ -16319, %167 ], [ -16318, %168 ], [ -16317, %169 ], [ -16316, %170 ], [ -16315, %171 ], [ -16314, %172 ], [ -16313, %173 ], [ -16312, %174 ], [ -16311, %175 ], [ -16310, %176 ], [ -16309, %177 ], [ -16308, %178 ], [ -16307, %179 ], [ -16306, %180 ], [ -16305, %181 ], [ -16304, %182 ], [ -16303, %183 ], [ -16302, %184 ], [ -16301, %185 ], [ -16300, %186 ], [ -16299, %187 ], [ -16298, %188 ], [ -16297, %189 ], [ -16296, %190 ], [ -16295, %191 ], [ -16294, %192 ], [ -16293, %193 ], [ -16292, %194 ], [ -16291, %195 ], [ -16290, %196 ], [ -16289, %197 ], [ -16288, %198 ], [ -16287, %199 ], [ -16286, %200 ], [ -16285, %201 ], [ -16284, %202 ], [ -16283, %203 ], [ -16282, %204 ], [ -16281, %205 ], [ -16280, %206 ], [ -16279, %207 ], [ -16278, %208 ], [ -16277, %209 ], [ -16276, %210 ], [ -16275, %211 ], [ -16274, %212 ], [ -16273, %213 ], [ -16272, %214 ], [ -16271, %215 ], [ -16270, %216 ], [ -16269, %217 ], [ -16268, %218 ], [ -16267, %219 ], [ -16266, %220 ], [ -16265, %221 ], [ -16264, %222 ], [ -16263, %223 ], [ -16262, %224 ], [ -16261, %225 ], [ -16260, %226 ], [ -16259, %227 ], [ -16258, %228 ], [ -16257, %229 ], [ -16256, %230 ], [ -16255, %231 ], [ -16254, %232 ], [ -16253, %233 ], [ -16252, %234 ], [ -16251, %235 ], [ -16250, %236 ], [ -16249, %237 ], [ -16248, %238 ], [ -16247, %239 ], [ -16246, %240 ], [ -16245, %241 ], [ -16244, %242 ], [ -16243, %243 ], [ -16242, %244 ], [ -16241, %245 ], [ -16240, %246 ], [ -16239, %247 ], [ -16238, %248 ], [ -16237, %249 ], [ -16236, %250 ], [ -16235, %251 ], [ -16234, %252 ], [ -16233, %253 ], [ -16232, %254 ], [ -16231, %255 ], [ -16230, %256 ], [ -16229, %257 ], [ -16228, %258 ], [ -16227, %259 ], [ -16226, %260 ], [ -16225, %261 ], [ -16224, %262 ], [ -16223, %263 ], [ -16222, %264 ], [ -16221, %265 ], [ -16220, %266 ], [ -16219, %267 ], [ -16218, %268 ], [ -16217, %269 ], [ -16216, %270 ], [ -16215, %271 ], [ -16214, %272 ], [ -16213, %273 ], [ -16212, %274 ], [ -16211, %275 ], [ -16210, %276 ], [ -16209, %277 ], [ -13144, %278 ], [ -13143, %279 ], [ -13142, %280 ], [ -13141, %281 ], [ -13140, %282 ], [ -13139, %283 ], [ -13138, %284 ], [ -258, %285 ], [ -257, %286 ], [ %0, %2 ]
+  %.0 = phi i16 [ 96, %4 ], [ 97, %5 ], [ 98, %6 ], [ 99, %7 ], [ 100, %8 ], [ 101, %9 ], [ 102, %10 ], [ 103, %11 ], [ 104, %12 ], [ 105, %13 ], [ 106, %14 ], [ 107, %15 ], [ 108, %16 ], [ 109, %17 ], [ 114, %18 ], [ 115, %19 ], [ 116, %20 ], [ 119, %21 ], [ 120, %22 ], [ 121, %23 ], [ 124, %24 ], [ 125, %25 ], [ 126, %26 ], [ 128, %27 ], [ 129, %28 ], [ 130, %29 ], [ 131, %30 ], [ 132, %31 ], [ 133, %32 ], [ 134, %33 ], [ 135, %34 ], [ 136, %35 ], [ 137, %36 ], [ 138, %37 ], [ 139, %38 ], [ 140, %39 ], [ 141, %40 ], [ 142, %41 ], [ 143, %42 ], [ 144, %43 ], [ 145, %44 ], [ 146, %45 ], [ 147, %46 ], [ 148, %47 ], [ 149, %48 ], [ 150, %49 ], [ 151, %50 ], [ 152, %51 ], [ 153, %52 ], [ 154, %53 ], [ 155, %54 ], [ 156, %55 ], [ 157, %56 ], [ 158, %57 ], [ 159, %58 ], [ 160, %59 ], [ 161, %60 ], [ 162, %61 ], [ 163, %62 ], [ 164, %63 ], [ 165, %64 ], [ 166, %65 ], [ 167, %66 ], [ 168, %67 ], [ 169, %68 ], [ 170, %69 ], [ 171, %70 ], [ 172, %71 ], [ 173, %72 ], [ 174, %73 ], [ 175, %74 ], [ 176, %75 ], [ 177, %76 ], [ 178, %77 ], [ 179, %78 ], [ 180, %79 ], [ 181, %80 ], [ 182, %81 ], [ 183, %82 ], [ 184, %83 ], [ 185, %84 ], [ 186, %85 ], [ 187, %86 ], [ 188, %87 ], [ 189, %88 ], [ 190, %89 ], [ 191, %90 ], [ 192, %91 ], [ 193, %92 ], [ 194, %93 ], [ 195, %94 ], [ 196, %95 ], [ 197, %96 ], [ 255, %97 ], [ 4865, %98 ], [ 4866, %99 ], [ 4867, %100 ], [ 4868, %101 ], [ 4869, %102 ], [ -16383, %103 ], [ -16382, %104 ], [ -16381, %105 ], [ -16380, %106 ], [ -16379, %107 ], [ -16378, %108 ], [ -16377, %109 ], [ -16376, %110 ], [ -16375, %111 ], [ -16374, %112 ], [ -16373, %113 ], [ -16372, %114 ], [ -16371, %115 ], [ -16370, %116 ], [ -16369, %117 ], [ -16368, %118 ], [ -16367, %119 ], [ -16366, %120 ], [ -16365, %121 ], [ -16364, %122 ], [ -16363, %123 ], [ -16362, %124 ], [ -16361, %125 ], [ -16360, %126 ], [ -16359, %127 ], [ -16358, %128 ], [ -16357, %129 ], [ -16356, %130 ], [ -16355, %131 ], [ -16354, %132 ], [ -16353, %133 ], [ -16352, %134 ], [ -16351, %135 ], [ -16350, %136 ], [ -16349, %137 ], [ -16348, %138 ], [ -16347, %139 ], [ -16346, %140 ], [ -16345, %141 ], [ -16344, %142 ], [ -16343, %143 ], [ -16342, %144 ], [ -16341, %145 ], [ -16340, %146 ], [ -16339, %147 ], [ -16338, %148 ], [ -16337, %149 ], [ -16336, %150 ], [ -16335, %151 ], [ -16334, %152 ], [ -16333, %153 ], [ -16332, %154 ], [ -16331, %155 ], [ -16330, %156 ], [ -16329, %157 ], [ -16328, %158 ], [ -16327, %159 ], [ -16326, %160 ], [ -16325, %161 ], [ -16324, %162 ], [ -16323, %163 ], [ -16322, %164 ], [ -16321, %165 ], [ -16320, %166 ], [ -16319, %167 ], [ -16318, %168 ], [ -16317, %169 ], [ -16316, %170 ], [ -16315, %171 ], [ -16314, %172 ], [ -16313, %173 ], [ -16312, %174 ], [ -16311, %175 ], [ -16310, %176 ], [ -16309, %177 ], [ -16308, %178 ], [ -16307, %179 ], [ -16306, %180 ], [ -16305, %181 ], [ -16304, %182 ], [ -16303, %183 ], [ -16302, %184 ], [ -16301, %185 ], [ -16300, %186 ], [ -16299, %187 ], [ -16298, %188 ], [ -16297, %189 ], [ -16296, %190 ], [ -16295, %191 ], [ -16294, %192 ], [ -16293, %193 ], [ -16292, %194 ], [ -16291, %195 ], [ -16290, %196 ], [ -16289, %197 ], [ -16288, %198 ], [ -16287, %199 ], [ -16286, %200 ], [ -16285, %201 ], [ -16284, %202 ], [ -16283, %203 ], [ -16282, %204 ], [ -16281, %205 ], [ -16280, %206 ], [ -16279, %207 ], [ -16278, %208 ], [ -16277, %209 ], [ -16276, %210 ], [ -16275, %211 ], [ -16274, %212 ], [ -16273, %213 ], [ -16272, %214 ], [ -16271, %215 ], [ -16270, %216 ], [ -16269, %217 ], [ -16268, %218 ], [ -16267, %219 ], [ -16266, %220 ], [ -16265, %221 ], [ -16264, %222 ], [ -16263, %223 ], [ -16262, %224 ], [ -16261, %225 ], [ -16260, %226 ], [ -16259, %227 ], [ -16258, %228 ], [ -16257, %229 ], [ -16256, %230 ], [ -16255, %231 ], [ -16254, %232 ], [ -16253, %233 ], [ -16252, %234 ], [ -16251, %235 ], [ -16250, %236 ], [ -16249, %237 ], [ -16248, %238 ], [ -16247, %239 ], [ -16246, %240 ], [ -16245, %241 ], [ -16244, %242 ], [ -16243, %243 ], [ -16242, %244 ], [ -16241, %245 ], [ -16240, %246 ], [ -16239, %247 ], [ -16238, %248 ], [ -16237, %249 ], [ -16236, %250 ], [ -16235, %251 ], [ -16234, %252 ], [ -16233, %253 ], [ -16232, %254 ], [ -16231, %255 ], [ -16230, %256 ], [ -16229, %257 ], [ -16228, %258 ], [ -16227, %259 ], [ -16226, %260 ], [ -16225, %261 ], [ -16224, %262 ], [ -16223, %263 ], [ -16222, %264 ], [ -16221, %265 ], [ -16220, %266 ], [ -16219, %267 ], [ -16218, %268 ], [ -16217, %269 ], [ -16216, %270 ], [ -16215, %271 ], [ -16214, %272 ], [ -16213, %273 ], [ -16212, %274 ], [ -16211, %275 ], [ -16210, %276 ], [ -16209, %277 ], [ -13144, %278 ], [ -13143, %279 ], [ -13142, %280 ], [ -13141, %281 ], [ -13140, %282 ], [ -13139, %283 ], [ -13138, %284 ], [ -258, %285 ], [ -257, %286 ], [ %1, %287 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ]
   ret i16 %.0
 }
 
@@ -22118,7 +22118,7 @@ define i16 @_ZN6rustls5enums15SignatureScheme8to_array17h34b2dd9caee7830aE(i16 n
   br label %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureScheme$GT$$u20$for$u20$u16$GT$4from17h52932929668e0e2bE.exit"
 
 "_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureScheme$GT$$u20$for$u20$u16$GT$4from17h52932929668e0e2bE.exit": ; preds = %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16
-  %.0.i = phi i16 [ %17, %16 ], [ 770, %4 ], [ 260, %5 ], [ 772, %6 ], [ 261, %7 ], [ 773, %8 ], [ 262, %9 ], [ 774, %10 ], [ 1032, %11 ], [ 1288, %12 ], [ 1544, %13 ], [ 1800, %14 ], [ 2056, %15 ], [ 258, %2 ]
+  %.0.i = phi i16 [ 770, %4 ], [ 260, %5 ], [ 772, %6 ], [ 261, %7 ], [ 773, %8 ], [ 262, %9 ], [ 774, %10 ], [ 1032, %11 ], [ 1288, %12 ], [ 1544, %13 ], [ 1800, %14 ], [ 2056, %15 ], [ %17, %16 ], [ 258, %2 ]
   ret i16 %.0.i
 }
 
@@ -22203,7 +22203,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureScheme$GT$$u20$for$u20$u16$GT$4from17h52932929668e0e2bE.exit"
 
 "_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureScheme$GT$$u20$for$u20$u16$GT$4from17h52932929668e0e2bE.exit": ; preds = %2, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16
-  %.0.i = phi i16 [ %19, %16 ], [ 770, %4 ], [ 260, %5 ], [ 772, %6 ], [ 261, %7 ], [ 773, %8 ], [ 262, %9 ], [ 774, %10 ], [ 1032, %11 ], [ 1288, %12 ], [ 1544, %13 ], [ 1800, %14 ], [ 2056, %15 ], [ 258, %2 ]
+  %.0.i = phi i16 [ 770, %4 ], [ 260, %5 ], [ 772, %6 ], [ 261, %7 ], [ 773, %8 ], [ 262, %9 ], [ 774, %10 ], [ 1032, %11 ], [ 1288, %12 ], [ 1544, %13 ], [ 1800, %14 ], [ 2056, %15 ], [ %19, %16 ], [ 258, %2 ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i64, ptr %20, align 8, !alias.scope !4282, !noalias !4291, !noundef !4
   %22 = load i64, ptr %1, align 8, !alias.scope !4282, !noalias !4291, !noundef !4
@@ -22319,7 +22319,7 @@ define void @"_ZN77_$LT$rustls..enums..SignatureScheme$u20$as$u20$rustls..msgs..
   br label %"_ZN81_$LT$rustls..enums..SignatureScheme$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17h2b31c1175b622cffE.exit"
 
 "_ZN81_$LT$rustls..enums..SignatureScheme$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17h2b31c1175b622cffE.exit": ; preds = %17, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33
-  %.sroa.0.0.i = phi i16 [ 12, %33 ], [ 0, %21 ], [ 1, %22 ], [ 2, %23 ], [ 3, %24 ], [ 4, %25 ], [ 5, %26 ], [ 6, %27 ], [ 7, %28 ], [ 8, %29 ], [ 9, %30 ], [ 10, %31 ], [ 11, %32 ], [ 13, %17 ]
+  %.sroa.0.0.i = phi i16 [ 0, %21 ], [ 1, %22 ], [ 2, %23 ], [ 3, %24 ], [ 4, %25 ], [ 5, %26 ], [ 6, %27 ], [ 7, %28 ], [ 8, %29 ], [ 9, %30 ], [ 10, %31 ], [ 11, %32 ], [ 12, %33 ], [ 13, %17 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %.sroa.0.0.i, ptr %34, align 2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -22397,7 +22397,7 @@ define { i16, i16 } @"_ZN81_$LT$rustls..enums..SignatureScheme$u20$as$u20$core..
   br label %15
 
 15:                                               ; preds = %1, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i16 [ 12, %14 ], [ 0, %2 ], [ 1, %3 ], [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 6, %8 ], [ 7, %9 ], [ 8, %10 ], [ 9, %11 ], [ 10, %12 ], [ 11, %13 ], [ 13, %1 ]
+  %.sroa.0.0 = phi i16 [ 0, %2 ], [ 1, %3 ], [ 2, %4 ], [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 6, %8 ], [ 7, %9 ], [ 8, %10 ], [ 9, %11 ], [ 10, %12 ], [ 11, %13 ], [ 12, %14 ], [ 13, %1 ]
   %16 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %17 = insertvalue { i16, i16 } %16, i16 %0, 1
   ret { i16, i16 } %17
@@ -22465,7 +22465,7 @@ define noundef i16 @"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rust
   br label %17
 
 17:                                               ; preds = %2, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0 = phi i16 [ %1, %16 ], [ 515, %4 ], [ 1025, %5 ], [ 1027, %6 ], [ 1281, %7 ], [ 1283, %8 ], [ 1537, %9 ], [ 1539, %10 ], [ 2052, %11 ], [ 2053, %12 ], [ 2054, %13 ], [ 2055, %14 ], [ 2056, %15 ], [ 513, %2 ]
+  %.0 = phi i16 [ 515, %4 ], [ 1025, %5 ], [ 1027, %6 ], [ 1281, %7 ], [ 1283, %8 ], [ 1537, %9 ], [ 1539, %10 ], [ 2052, %11 ], [ 2053, %12 ], [ 2054, %13 ], [ 2055, %14 ], [ 2056, %15 ], [ %1, %16 ], [ 513, %2 ]
   ret i16 %.0
 }
 
@@ -22494,7 +22494,7 @@ define i8 @_ZN6rustls5enums18SignatureAlgorithm8to_array17hdbb42ff1cb83fcb5E(i8 
   br label %"_ZN6rustls5enums93_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureAlgorithm$GT$$u20$for$u20$u8$GT$4from17h77e4c3c551ec5d49E.exit"
 
 "_ZN6rustls5enums93_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureAlgorithm$GT$$u20$for$u20$u8$GT$4from17h77e4c3c551ec5d49E.exit": ; preds = %2, %2, %2, %2, %4, %5, %6
-  %.0.i = phi i8 [ %1, %6 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ 7, %4 ], [ 8, %5 ], [ %0, %2 ]
+  %.0.i = phi i8 [ 7, %4 ], [ 8, %5 ], [ %1, %6 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ]
   ret i8 %.0.i
 }
 
@@ -22541,7 +22541,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN6rustls5enums93_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureAlgorithm$GT$$u20$for$u20$u8$GT$4from17h77e4c3c551ec5d49E.exit"
 
 "_ZN6rustls5enums93_$LT$impl$u20$core..convert..From$LT$rustls..enums..SignatureAlgorithm$GT$$u20$for$u20$u8$GT$4from17h77e4c3c551ec5d49E.exit": ; preds = %2, %2, %2, %2, %4, %5, %6
-  %.0.i = phi i8 [ %8, %6 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ 7, %4 ], [ 8, %5 ], [ %3, %2 ]
+  %.0.i = phi i8 [ 7, %4 ], [ 8, %5 ], [ %8, %6 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !4313, !noalias !4318, !noundef !4
   %11 = load i64, ptr %1, align 8, !alias.scope !4313, !noalias !4318, !noundef !4
@@ -22671,7 +22671,7 @@ define noundef i8 @"_ZN6rustls5enums93_$LT$impl$u20$core..convert..From$LT$rustl
   br label %7
 
 7:                                                ; preds = %2, %2, %2, %2, %6, %5, %4
-  %.0 = phi i8 [ %1, %6 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ 7, %4 ], [ 8, %5 ], [ %0, %2 ]
+  %.0 = phi i8 [ 7, %4 ], [ 8, %5 ], [ %1, %6 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ]
   ret i8 %.0
 }
 

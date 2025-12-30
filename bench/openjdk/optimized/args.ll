@@ -272,7 +272,7 @@ sub_1.i.i.i:                                      ; preds = %sub_0.i.i.i
   br label %84
 
 84:                                               ; preds = %83, %79
-  %.0.i.i.i = phi i64 [ %spec.select.i.i.i, %79 ], [ %spec.select9.i.i.i, %83 ]
+  %.0.i.i.i = phi i64 [ %spec.select9.i.i.i, %83 ], [ %spec.select.i.i.i, %79 ]
   %85 = load i32, ptr @firstAppArgIndex, align 4
   %86 = icmp eq i32 %85, -1
   %87 = icmp ne i64 %.0.i.i.i, 0
@@ -311,7 +311,7 @@ checkArg.exit.i.i:                                ; preds = %88, %84, %78, %74, 
   br label %readArgFile.exit.i
 
 readArgFile.exit.i:                               ; preds = %94, %91, %._crit_edge.i.i, %41
-  %.sink.i.i = phi ptr [ %.pre24.i.pre.i, %94 ], [ %.pre24.i.pre.i, %91 ], [ %42, %41 ], [ %.pre24.i.pre.i, %._crit_edge.i.i ]
+  %.sink.i.i = phi ptr [ %.pre24.i.pre.i, %91 ], [ %.pre24.i.pre.i, %94 ], [ %42, %41 ], [ %.pre24.i.pre.i, %._crit_edge.i.i ]
   call void @JLI_List_free(ptr noundef %.sink.i.i) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -329,7 +329,7 @@ expandArgFile.exit:                               ; preds = %readArgFile.exit.i
   br label %99
 
 99:                                               ; preds = %26, %expandArgFile.exit, %2, %25, %21, %17, %10
-  %.016 = phi ptr [ null, %2 ], [ null, %10 ], [ %18, %17 ], [ null, %21 ], [ null, %25 ], [ %27, %26 ], [ %45, %expandArgFile.exit ]
+  %.016 = phi ptr [ null, %10 ], [ %18, %17 ], [ null, %21 ], [ null, %25 ], [ null, %2 ], [ %27, %26 ], [ %45, %expandArgFile.exit ]
   ret ptr %.016
 }
 
@@ -403,7 +403,7 @@ sub_1:                                            ; preds = %sub_0
   br label %30
 
 30:                                               ; preds = %25, %29
-  %.0 = phi i64 [ %spec.select, %25 ], [ %spec.select9, %29 ]
+  %.0 = phi i64 [ %spec.select9, %29 ], [ %spec.select, %25 ]
   %31 = load i32, ptr @firstAppArgIndex, align 4
   %32 = icmp eq i32 %31, -1
   %33 = icmp ne i64 %.0, 0
@@ -1109,7 +1109,7 @@ define internal fastcc ptr @nextToken(ptr noundef nonnull captures(none) %0) unn
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %.critedge, %110, %108, %._crit_edge, %68
-  %.0 = phi ptr [ null, %.critedge ], [ %.0111, %68 ], [ null, %110 ], [ null, %._crit_edge ], [ null, %108 ], [ null, %37 ]
+  %.0 = phi ptr [ %.0111, %68 ], [ null, %._crit_edge ], [ null, %108 ], [ null, %110 ], [ null, %.critedge ], [ null, %37 ]
   ret ptr %.0
 }
 

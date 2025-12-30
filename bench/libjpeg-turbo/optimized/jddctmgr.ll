@@ -202,8 +202,8 @@ define internal void @start_pass(ptr noundef %0) #0 {
   br label %49
 
 49:                                               ; preds = %12, %25, %27, %29, %31, %43, %42, %41, %40, %39, %38, %37, %36, %35, %22, %21, %20, %18, %17, %15
-  %.165 = phi ptr [ %.06482, %43 ], [ @jpeg_idct_16x16, %42 ], [ %jpeg_idct_2x2.jsimd_idct_2x2, %15 ], [ @jpeg_idct_3x3, %17 ], [ %jpeg_idct_4x4.jsimd_idct_4x4, %18 ], [ @jpeg_idct_5x5, %20 ], [ @jpeg_idct_6x6, %21 ], [ @jpeg_idct_7x7, %22 ], [ %.06482, %31 ], [ %jpeg_idct_islow.jsimd_idct_islow, %25 ], [ %jpeg_idct_ifast.jsimd_idct_ifast, %27 ], [ %jpeg_idct_float.jsimd_idct_float, %29 ], [ @jpeg_idct_9x9, %35 ], [ @jpeg_idct_10x10, %36 ], [ @jpeg_idct_11x11, %37 ], [ @jpeg_idct_12x12, %38 ], [ @jpeg_idct_13x13, %39 ], [ @jpeg_idct_14x14, %40 ], [ @jpeg_idct_15x15, %41 ], [ @jpeg_idct_1x1, %12 ]
-  %.163 = phi i32 [ %.06283, %43 ], [ 0, %42 ], [ 0, %15 ], [ 0, %17 ], [ 0, %18 ], [ 0, %20 ], [ 0, %21 ], [ 0, %22 ], [ %.06283, %31 ], [ 0, %25 ], [ 1, %27 ], [ 2, %29 ], [ 0, %35 ], [ 0, %36 ], [ 0, %37 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %12 ]
+  %.165 = phi ptr [ %.06482, %43 ], [ %jpeg_idct_2x2.jsimd_idct_2x2, %15 ], [ @jpeg_idct_3x3, %17 ], [ %jpeg_idct_4x4.jsimd_idct_4x4, %18 ], [ @jpeg_idct_5x5, %20 ], [ @jpeg_idct_6x6, %21 ], [ @jpeg_idct_7x7, %22 ], [ %.06482, %31 ], [ %jpeg_idct_islow.jsimd_idct_islow, %25 ], [ %jpeg_idct_ifast.jsimd_idct_ifast, %27 ], [ %jpeg_idct_float.jsimd_idct_float, %29 ], [ @jpeg_idct_9x9, %35 ], [ @jpeg_idct_10x10, %36 ], [ @jpeg_idct_11x11, %37 ], [ @jpeg_idct_12x12, %38 ], [ @jpeg_idct_13x13, %39 ], [ @jpeg_idct_14x14, %40 ], [ @jpeg_idct_15x15, %41 ], [ @jpeg_idct_16x16, %42 ], [ @jpeg_idct_1x1, %12 ]
+  %.163 = phi i32 [ %.06283, %43 ], [ 0, %15 ], [ 0, %17 ], [ 0, %18 ], [ 0, %20 ], [ 0, %21 ], [ 0, %22 ], [ %.06283, %31 ], [ 0, %25 ], [ 1, %27 ], [ 2, %29 ], [ 0, %35 ], [ 0, %36 ], [ 0, %37 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ 0, %12 ]
   %50 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv105
   store ptr %.165, ptr %50, align 8, !tbaa !52
   %51 = getelementptr inbounds nuw i8, ptr %.06184, i64 48

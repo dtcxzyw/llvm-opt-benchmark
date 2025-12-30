@@ -2009,7 +2009,7 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   br label %188
 
 188:                                              ; preds = %183, %187, %167, %170
-  %storemerge = phi i32 [ 1, %167 ], [ 1, %170 ], [ 0, %187 ], [ 0, %183 ]
+  %storemerge = phi i32 [ 1, %170 ], [ 1, %167 ], [ 0, %187 ], [ 0, %183 ]
   store i32 %storemerge, ptr %142, align 8, !tbaa !138
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -5291,7 +5291,7 @@ define internal fastcc void @_update_style_label(ptr noundef captures(address_is
   br label %50
 
 50:                                               ; preds = %.critedge, %45
-  %51 = phi ptr [ @.str.24, %.critedge ], [ %spec.select1, %45 ]
+  %51 = phi ptr [ %spec.select1, %45 ], [ @.str.24, %.critedge ]
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.85, ptr noundef %51) #18
   br label %52
 
@@ -5535,8 +5535,8 @@ define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0
   br label %37
 
 37:                                               ; preds = %34, %32, %7, %30
-  %.0129 = phi ptr [ @.str.24, %7 ], [ %spec.select, %34 ], [ @.str.24, %32 ], [ @.str.24, %30 ]
-  %.0127 = phi i32 [ -1, %7 ], [ %spec.select144, %34 ], [ 1, %32 ], [ -1, %30 ]
+  %.0129 = phi ptr [ @.str.24, %30 ], [ @.str.24, %7 ], [ @.str.24, %32 ], [ %spec.select, %34 ]
+  %.0127 = phi i32 [ -1, %30 ], [ -1, %7 ], [ 1, %32 ], [ %spec.select144, %34 ]
   %38 = load i8, ptr %23, align 1, !tbaa !91
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %45, label %40
@@ -5555,8 +5555,8 @@ define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0
   br label %45
 
 45:                                               ; preds = %42, %40, %37
-  %.0130 = phi ptr [ @.str.24, %37 ], [ %spec.select145, %42 ], [ @.str.24, %40 ]
-  %.0128 = phi i32 [ -1, %37 ], [ %spec.select146, %42 ], [ 1, %40 ]
+  %.0130 = phi ptr [ @.str.24, %37 ], [ @.str.24, %40 ], [ %spec.select145, %42 ]
+  %.0128 = phi i32 [ -1, %37 ], [ 1, %40 ], [ %spec.select146, %42 ]
   %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0129) #21
   %47 = trunc i64 %46 to i32
   %48 = add i32 %47, 1
@@ -6771,8 +6771,8 @@ _export_and_setup_pos.exit.thread:                ; preds = %63, %101
   br label %241
 
 126:                                              ; preds = %_export_and_setup_pos.exit.thread, %23
-  %127 = phi i32 [ %.pre, %_export_and_setup_pos.exit.thread ], [ %24, %23 ]
-  %.348 = phi i32 [ %spec.select, %_export_and_setup_pos.exit.thread ], [ %.04577, %23 ]
+  %127 = phi i32 [ %24, %23 ], [ %.pre, %_export_and_setup_pos.exit.thread ]
+  %.348 = phi i32 [ %.04577, %23 ], [ %spec.select, %_export_and_setup_pos.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %128 = sext i32 %127 to i64
   %.not52 = icmp slt i64 %indvars.iv.next, %128
@@ -6997,7 +6997,7 @@ _create_pdf.exit:                                 ; preds = %.lr.ph46.i, %._crit
   br i1 %240, label %216, label %._crit_edge82
 
 241:                                              ; preds = %._crit_edge82, %_create_pdf.exit, %.thread, %137, %._crit_edge
-  %.1 = phi i32 [ 1, %.thread ], [ 0, %._crit_edge ], [ 1, %137 ], [ 0, %_create_pdf.exit ], [ 0, %._crit_edge82 ]
+  %.1 = phi i32 [ 0, %._crit_edge ], [ 1, %137 ], [ 1, %.thread ], [ 0, %_create_pdf.exit ], [ 0, %._crit_edge82 ]
   ret i32 %.1
 }
 
@@ -7203,7 +7203,7 @@ define internal range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(n
   br i1 %56, label %.lr.ph, label %._crit_edge.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge59, %.preheader46, %.preheader44, %29
-  %.042 = phi i32 [ 1, %29 ], [ 0, %.preheader44 ], [ 0, %._crit_edge59 ], [ 0, %.preheader46 ], [ 0, %._crit_edge ]
+  %.042 = phi i32 [ 1, %29 ], [ 0, %.preheader44 ], [ 0, %.preheader46 ], [ 0, %._crit_edge59 ], [ 0, %._crit_edge ]
   ret i32 %.042
 }
 

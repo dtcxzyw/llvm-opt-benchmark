@@ -264,7 +264,7 @@ bytestream2_get_be16.exit:                        ; preds = %126, %122
   br label %bytestream2_get_le32.exit.thread
 
 bytestream2_get_le32.exit.thread:                 ; preds = %126, %122, %bytestream2_get_be32.exit, %bytestream2_init.exit, %bytestream2_get_be16.exit, %bytestream2_get_le32.exit58, %bytestream2_get_le32.exit, %21, %15, %13, %1, %133
-  %.0 = phi i32 [ -1094995529, %1 ], [ -12, %13 ], [ %19, %15 ], [ -5, %21 ], [ -1094995529, %bytestream2_get_le32.exit58 ], [ 0, %133 ], [ -1094995529, %bytestream2_get_le32.exit ], [ -1094995529, %bytestream2_get_be16.exit ], [ -1094995529, %bytestream2_get_be32.exit ], [ -1094995529, %bytestream2_init.exit ], [ -1094995529, %122 ], [ -1094995529, %126 ]
+  %.0 = phi i32 [ 0, %133 ], [ -1094995529, %1 ], [ -12, %13 ], [ %19, %15 ], [ -5, %21 ], [ -1094995529, %bytestream2_get_le32.exit ], [ -1094995529, %bytestream2_get_le32.exit58 ], [ -1094995529, %bytestream2_get_be16.exit ], [ -1094995529, %bytestream2_init.exit ], [ -1094995529, %bytestream2_get_be32.exit ], [ -1094995529, %122 ], [ -1094995529, %126 ]
   ret i32 %.0
 }
 

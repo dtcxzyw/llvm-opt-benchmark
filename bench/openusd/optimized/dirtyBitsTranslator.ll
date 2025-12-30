@@ -1637,7 +1637,7 @@ define linkonce_odr ptr @_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved_
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St8functionIFvjPNS0_22HdDataSourceLocatorSetEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS3_.exit, !llvm.loop !8
 
 _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St8functionIFvjPNS0_22HdDataSourceLocatorSetEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS3_.exit: ; preds = %39, %.lr.ph.i.i.i, %9, %10, %16, %28, %..loopexit_crit_edge21.i.i.i
-  %.sroa.06.1.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i ], [ null, %9 ], [ %29, %28 ], [ null, %16 ], [ %.sroa.06.0.i, %10 ], [ null, %.lr.ph.i.i.i ], [ %47, %39 ]
+  %.sroa.06.1.i = phi ptr [ null, %16 ], [ null, %..loopexit_crit_edge21.i.i.i ], [ %29, %28 ], [ %.sroa.06.0.i, %10 ], [ null, %9 ], [ null, %.lr.ph.i.i.i ], [ %47, %39 ]
   ret ptr %.sroa.06.1.i
 }
 
@@ -2069,8 +2069,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   br i1 %.not.us.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, label %.lr.ph.split.us.i, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit: ; preds = %58, %60
-  %.12324 = phi ptr [ %.11323, %58 ], [ %61, %60 ]
-  %.011.i = phi i1 [ %.02.us.i, %58 ], [ %.2.us.i, %60 ]
+  %.12324 = phi ptr [ %61, %60 ], [ %.11323, %58 ]
+  %.011.i = phi i1 [ %.2.us.i, %60 ], [ %.02.us.i, %58 ]
   %cond.fr = freeze i1 %.011.i
   %spec.select = select i1 %cond.fr, i32 256, i32 0
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread
@@ -2138,8 +2138,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   br i1 %.not.us.i85, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87, label %.lr.ph.split.us.i82, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit87: ; preds = %85, %87
-  %.14326 = phi ptr [ %.13325, %85 ], [ %88, %87 ]
-  %.011.i86 = phi i1 [ %.02.us.i83, %85 ], [ %.2.us.i84, %87 ]
+  %.14326 = phi ptr [ %88, %87 ], [ %.13325, %85 ]
+  %.011.i86 = phi i1 [ %.2.us.i84, %87 ], [ %.02.us.i83, %85 ]
   %89 = or disjoint i32 %.0, 64
   %cond.fr339 = freeze i1 %.011.i86
   %spec.select436 = select i1 %cond.fr339, i32 %89, i32 %.0
@@ -2169,8 +2169,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i92, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit94, label %.lr.ph.split.us.i89, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit94: ; preds = %93, %95
-  %.16327 = phi ptr [ %.15, %93 ], [ %96, %95 ]
-  %.011.i93 = phi i1 [ %.02.us.i90, %93 ], [ %.2.us.i91, %95 ]
+  %.16327 = phi ptr [ %96, %95 ], [ %.15, %93 ]
+  %.011.i93 = phi i1 [ %.2.us.i91, %95 ], [ %.02.us.i90, %93 ]
   %97 = or i32 %.1, 2097152
   %cond.fr344 = freeze i1 %.011.i93
   %spec.select437 = select i1 %cond.fr344, i32 %97, i32 %.1
@@ -2240,8 +2240,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   br i1 %.not.us.i102, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104, label %.lr.ph.split.us.i99, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104: ; preds = %123, %125
-  %.18329 = phi ptr [ %.17328, %123 ], [ %126, %125 ]
-  %.011.i103 = phi i1 [ %.02.us.i100, %123 ], [ %.2.us.i101, %125 ]
+  %.18329 = phi ptr [ %126, %125 ], [ %.17328, %123 ]
+  %.011.i103 = phi i1 [ %.2.us.i101, %125 ], [ %.02.us.i100, %123 ]
   %127 = or i32 %98, 64
   %cond.fr349 = freeze i1 %.011.i103
   %spec.select438 = select i1 %cond.fr349, i32 %127, i32 %98
@@ -2311,8 +2311,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   br i1 %.not.us.i112, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit114, label %.lr.ph.split.us.i109, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit114: ; preds = %152, %154
-  %.20331 = phi ptr [ %.19330, %152 ], [ %155, %154 ]
-  %.011.i113 = phi i1 [ %.02.us.i110, %152 ], [ %.2.us.i111, %154 ]
+  %.20331 = phi ptr [ %155, %154 ], [ %.19330, %152 ]
+  %.011.i113 = phi i1 [ %.2.us.i111, %154 ], [ %.02.us.i110, %152 ]
   %156 = or i32 %.3, 64
   %cond.fr354 = freeze i1 %.011.i113
   %spec.select439 = select i1 %cond.fr354, i32 %156, i32 %.3
@@ -2382,8 +2382,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   br i1 %.not.us.i122, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124, label %.lr.ph.split.us.i119, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124: ; preds = %181, %183
-  %.22332 = phi ptr [ %.21, %181 ], [ %184, %183 ]
-  %.011.i123 = phi i1 [ %.02.us.i120, %181 ], [ %.2.us.i121, %183 ]
+  %.22332 = phi ptr [ %184, %183 ], [ %.21, %181 ]
+  %.011.i123 = phi i1 [ %.2.us.i121, %183 ], [ %.02.us.i120, %181 ]
   %185 = or i32 %.4, 64
   %cond.fr359 = freeze i1 %.011.i123
   %spec.select440 = select i1 %cond.fr359, i32 %185, i32 %.4
@@ -2433,7 +2433,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br label %202
 
 202:                                              ; preds = %199, %.preheader456
-  %.sink535 = phi i32 [ %., %199 ], [ 8192, %.preheader456 ]
+  %.sink535 = phi i32 [ 8192, %.preheader456 ], [ %., %199 ]
   %203 = or i32 %.7, %.sink535
   %204 = getelementptr inbounds nuw i8, ptr %.6319, i64 56
   %.not = icmp eq ptr %204, %33
@@ -2445,8 +2445,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %207, label %.preheader456, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %191, %189, %202, %205, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124.thread, %195
-  %.5318 = phi ptr [ %.23, %195 ], [ %204, %202 ], [ %.4317, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124.thread ], [ %204, %205 ], [ %192, %191 ], [ %.23, %189 ]
-  %.6 = phi i32 [ %196, %195 ], [ %203, %202 ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124.thread ], [ %203, %205 ], [ %.5, %189 ], [ %.5, %191 ]
+  %.5318 = phi ptr [ %.23, %195 ], [ %.4317, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124.thread ], [ %204, %205 ], [ %204, %202 ], [ %.23, %189 ], [ %192, %191 ]
+  %.6 = phi i32 [ %196, %195 ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit124.thread ], [ %203, %205 ], [ %203, %202 ], [ %.5, %189 ], [ %.5, %191 ]
   %208 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14HdExtentSchema17GetDefaultLocatorEv()
   %209 = icmp eq ptr %.5318, %33
   br i1 %209, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134.thread, label %.lr.ph.split.us.i129
@@ -2468,8 +2468,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i132, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134, label %.lr.ph.split.us.i129, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit134: ; preds = %211, %213
-  %.26 = phi ptr [ %.25334, %211 ], [ %214, %213 ]
-  %.011.i133 = phi i1 [ %.02.us.i130, %211 ], [ %.2.us.i131, %213 ]
+  %.26 = phi ptr [ %214, %213 ], [ %.25334, %211 ]
+  %.011.i133 = phi i1 [ %.2.us.i131, %213 ], [ %.02.us.i130, %211 ]
   %215 = or i32 %.6, 8
   %cond.fr366 = freeze i1 %.011.i133
   %spec.select441 = select i1 %cond.fr366, i32 %215, i32 %.6
@@ -2499,8 +2499,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i139, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141, label %.lr.ph.split.us.i136, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit141: ; preds = %220, %222
-  %.28 = phi ptr [ %.27, %220 ], [ %223, %222 ]
-  %.011.i140 = phi i1 [ %.02.us.i137, %220 ], [ %.2.us.i138, %222 ]
+  %.28 = phi ptr [ %223, %222 ], [ %.27, %220 ]
+  %.011.i140 = phi i1 [ %.2.us.i138, %222 ], [ %.02.us.i137, %220 ]
   %224 = or i32 %216, 64
   %cond.fr371 = freeze i1 %.011.i140
   %spec.select442 = select i1 %cond.fr371, i32 %224, i32 %216
@@ -2530,8 +2530,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i146, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit148, label %.lr.ph.split.us.i143, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit148: ; preds = %229, %231
-  %.30 = phi ptr [ %.29, %229 ], [ %232, %231 ]
-  %.011.i147 = phi i1 [ %.02.us.i144, %229 ], [ %.2.us.i145, %231 ]
+  %.30 = phi ptr [ %232, %231 ], [ %.29, %229 ]
+  %.011.i147 = phi i1 [ %.2.us.i145, %231 ], [ %.02.us.i144, %229 ]
   %233 = or i32 %225, 65536
   %cond.fr376 = freeze i1 %.011.i147
   %spec.select443 = select i1 %cond.fr376, i32 %233, i32 %225
@@ -2561,8 +2561,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i153, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit155, label %.lr.ph.split.us.i150, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit155: ; preds = %238, %240
-  %.32 = phi ptr [ %.31, %238 ], [ %241, %240 ]
-  %.011.i154 = phi i1 [ %.02.us.i151, %238 ], [ %.2.us.i152, %240 ]
+  %.32 = phi ptr [ %241, %240 ], [ %.31, %238 ]
+  %.011.i154 = phi i1 [ %.2.us.i152, %240 ], [ %.02.us.i151, %238 ]
   %242 = or i32 %234, 131072
   %cond.fr381 = freeze i1 %.011.i154
   %spec.select444 = select i1 %cond.fr381, i32 %242, i32 %234
@@ -2592,8 +2592,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i160, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit162, label %.lr.ph.split.us.i157, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit162: ; preds = %247, %249
-  %.34 = phi ptr [ %.33, %247 ], [ %250, %249 ]
-  %.011.i161 = phi i1 [ %.02.us.i158, %247 ], [ %.2.us.i159, %249 ]
+  %.34 = phi ptr [ %250, %249 ], [ %.33, %247 ]
+  %.011.i161 = phi i1 [ %.2.us.i159, %249 ], [ %.02.us.i158, %247 ]
   %251 = or i32 %243, 128
   %cond.fr386 = freeze i1 %.011.i161
   %spec.select445 = select i1 %cond.fr386, i32 %251, i32 %243
@@ -2663,8 +2663,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   br i1 %.not.us.i170, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172, label %.lr.ph.split.us.i167, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit172: ; preds = %277, %279
-  %.36 = phi ptr [ %.35, %277 ], [ %280, %279 ]
-  %.011.i171 = phi i1 [ %.02.us.i168, %277 ], [ %.2.us.i169, %279 ]
+  %.36 = phi ptr [ %280, %279 ], [ %.35, %277 ]
+  %.011.i171 = phi i1 [ %.2.us.i169, %279 ], [ %.02.us.i168, %277 ]
   %281 = or i32 %252, 4096
   %cond.fr391 = freeze i1 %.011.i171
   %spec.select446 = select i1 %cond.fr391, i32 %281, i32 %252
@@ -2694,8 +2694,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i177, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit179, label %.lr.ph.split.us.i174, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit179: ; preds = %286, %288
-  %.38 = phi ptr [ %.37, %286 ], [ %289, %288 ]
-  %.011.i178 = phi i1 [ %.02.us.i175, %286 ], [ %.2.us.i176, %288 ]
+  %.38 = phi ptr [ %289, %288 ], [ %.37, %286 ]
+  %.011.i178 = phi i1 [ %.2.us.i176, %288 ], [ %.02.us.i175, %286 ]
   %290 = or i32 %282, 256
   %cond.fr396 = freeze i1 %.011.i178
   %spec.select447 = select i1 %cond.fr396, i32 %290, i32 %282
@@ -2725,8 +2725,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i184, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit186, label %.lr.ph.split.us.i181, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit186: ; preds = %295, %297
-  %.40 = phi ptr [ %.39, %295 ], [ %298, %297 ]
-  %.011.i185 = phi i1 [ %.02.us.i182, %295 ], [ %.2.us.i183, %297 ]
+  %.40 = phi ptr [ %298, %297 ], [ %.39, %295 ]
+  %.011.i185 = phi i1 [ %.2.us.i183, %297 ], [ %.02.us.i182, %295 ]
   %299 = or i32 %291, 16384
   %cond.fr401 = freeze i1 %.011.i185
   %spec.select448 = select i1 %cond.fr401, i32 %299, i32 %291
@@ -2756,8 +2756,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i191, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193, label %.lr.ph.split.us.i188, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193: ; preds = %304, %306
-  %.42 = phi ptr [ %.41, %304 ], [ %307, %306 ]
-  %.011.i192 = phi i1 [ %.02.us.i189, %304 ], [ %.2.us.i190, %306 ]
+  %.42 = phi ptr [ %307, %306 ], [ %.41, %304 ]
+  %.011.i192 = phi i1 [ %.2.us.i190, %306 ], [ %.02.us.i189, %304 ]
   %308 = or i32 %300, 256
   %cond.fr406 = freeze i1 %.011.i192
   %spec.select449 = select i1 %cond.fr406, i32 %308, i32 %300
@@ -2824,8 +2824,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %333, label %.preheader, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %314, %312, %328, %331, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193.thread, %318
-  %.8321 = phi ptr [ %.43, %318 ], [ %330, %328 ], [ %.7320, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193.thread ], [ %330, %331 ], [ %315, %314 ], [ %.43, %312 ]
-  %.18 = phi i32 [ %319, %318 ], [ %329, %328 ], [ %.14, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193.thread ], [ %329, %331 ], [ %.14, %312 ], [ %.14, %314 ]
+  %.8321 = phi ptr [ %.43, %318 ], [ %.7320, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193.thread ], [ %330, %331 ], [ %330, %328 ], [ %.43, %312 ], [ %315, %314 ]
+  %.18 = phi i32 [ %319, %318 ], [ %.14, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit193.thread ], [ %329, %331 ], [ %329, %328 ], [ %.14, %312 ], [ %.14, %314 ]
   %334 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__15HdPurposeSchema17GetDefaultLocatorEv()
   %335 = icmp eq ptr %.8321, %33
   br i1 %335, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit205.thread, label %.lr.ph.split.us.i200
@@ -2847,8 +2847,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i203, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit205, label %.lr.ph.split.us.i200, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit205: ; preds = %337, %339
-  %.46 = phi ptr [ %.45, %337 ], [ %340, %339 ]
-  %.011.i204 = phi i1 [ %.02.us.i201, %337 ], [ %.2.us.i202, %339 ]
+  %.46 = phi ptr [ %340, %339 ], [ %.45, %337 ]
+  %.011.i204 = phi i1 [ %.2.us.i202, %339 ], [ %.02.us.i201, %337 ]
   %341 = or i32 %.18, 524288
   %cond.fr413 = freeze i1 %.011.i204
   %spec.select450 = select i1 %cond.fr413, i32 %341, i32 %.18
@@ -2918,8 +2918,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   br i1 %.not.us.i213, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215, label %.lr.ph.split.us.i210, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit215: ; preds = %367, %369
-  %.48 = phi ptr [ %.47, %367 ], [ %370, %369 ]
-  %.011.i214 = phi i1 [ %.02.us.i211, %367 ], [ %.2.us.i212, %369 ]
+  %.48 = phi ptr [ %370, %369 ], [ %.47, %367 ]
+  %.011.i214 = phi i1 [ %.2.us.i212, %369 ], [ %.02.us.i211, %367 ]
   %371 = or i32 %342, 64
   %cond.fr418 = freeze i1 %.011.i214
   %spec.select451 = select i1 %cond.fr418, i32 %371, i32 %342
@@ -2949,8 +2949,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i220, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit222, label %.lr.ph.split.us.i217, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit222: ; preds = %375, %377
-  %.50 = phi ptr [ %.49, %375 ], [ %378, %377 ]
-  %.011.i221 = phi i1 [ %.02.us.i218, %375 ], [ %.2.us.i219, %377 ]
+  %.50 = phi ptr [ %378, %377 ], [ %.49, %375 ]
+  %.011.i221 = phi i1 [ %.2.us.i219, %377 ], [ %.02.us.i218, %375 ]
   %379 = or i32 %.22, 1024
   %cond.fr423 = freeze i1 %.011.i221
   %spec.select452 = select i1 %cond.fr423, i32 %379, i32 %.22
@@ -2980,8 +2980,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i227, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229, label %.lr.ph.split.us.i224, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229: ; preds = %384, %386
-  %.52 = phi ptr [ %.51, %384 ], [ %387, %386 ]
-  %.011.i228 = phi i1 [ %.02.us.i225, %384 ], [ %.2.us.i226, %386 ]
+  %.52 = phi ptr [ %387, %386 ], [ %.51, %384 ]
+  %.011.i228 = phi i1 [ %.2.us.i226, %386 ], [ %.02.us.i225, %384 ]
   %388 = or i32 %380, 4194304
   %cond.fr428 = freeze i1 %.011.i228
   %spec.select453 = select i1 %cond.fr428, i32 %388, i32 %380
@@ -3011,14 +3011,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i234, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit236, label %.lr.ph.split.us.i231, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit236: ; preds = %393, %395
-  %.011.i235 = phi i1 [ %.2.us.i233, %395 ], [ %.02.us.i232, %393 ]
+  %.011.i235 = phi i1 [ %.02.us.i232, %393 ], [ %.2.us.i233, %395 ]
   %397 = or i32 %389, 512
   %cond.fr433 = freeze i1 %.011.i235
   %spec.select454 = select i1 %cond.fr433, i32 %397, i32 %389
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.thread: ; preds = %30, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit236, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229.thread, %13, %2
-  %.042 = phi i32 [ -3, %13 ], [ 0, %2 ], [ %389, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229.thread ], [ %spec.select454, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit236 ], [ -3, %30 ]
+  %.042 = phi i32 [ 0, %2 ], [ -3, %13 ], [ %389, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit229.thread ], [ %spec.select454, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit236 ], [ -3, %30 ]
   ret i32 %.042
 }
 
@@ -3164,7 +3164,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   br i1 %.not.us.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, label %.lr.ph.split.us.i, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit: ; preds = %38, %40
-  %.011.i = phi i1 [ %.2.us.i, %40 ], [ %.02.us.i, %38 ]
+  %.011.i = phi i1 [ %.02.us.i, %38 ], [ %.2.us.i, %40 ]
   br i1 %.011.i, label %42, label %.critedge
 
 42:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit
@@ -3264,8 +3264,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   br i1 %.not.us.i54, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56, label %.lr.ph.split.us.i51, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56: ; preds = %84, %86
-  %88 = phi ptr [ %87, %86 ], [ %82, %84 ]
-  %.011.i55 = phi i1 [ %.2.us.i53, %86 ], [ %.02.us.i52, %84 ]
+  %88 = phi ptr [ %82, %84 ], [ %87, %86 ]
+  %.011.i55 = phi i1 [ %.02.us.i52, %84 ], [ %.2.us.i53, %86 ]
   br i1 %.011.i55, label %89, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56.thread
 
 89:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit56
@@ -3303,7 +3303,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i61, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit63, label %.lr.ph.split.us.i58, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit63: ; preds = %98, %100
-  %.011.i62 = phi i1 [ %.2.us.i60, %100 ], [ %.02.us.i59, %98 ]
+  %.011.i62 = phi i1 [ %.02.us.i59, %98 ], [ %.2.us.i60, %100 ]
   br i1 %.011.i62, label %102, label %.critedge
 
 102:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit63
@@ -3376,8 +3376,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   br i1 %.not.us.i71, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73, label %.lr.ph.split.us.i68, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73: ; preds = %132, %134
-  %136 = phi ptr [ %135, %134 ], [ %130, %132 ]
-  %.011.i72 = phi i1 [ %.2.us.i70, %134 ], [ %.02.us.i69, %132 ]
+  %136 = phi ptr [ %130, %132 ], [ %135, %134 ]
+  %.011.i72 = phi i1 [ %.02.us.i69, %132 ], [ %.2.us.i70, %134 ]
   br i1 %.011.i72, label %137, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73.thread
 
 137:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit73
@@ -3409,7 +3409,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i78, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit80, label %.lr.ph.split.us.i75, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit80: ; preds = %144, %146
-  %.011.i79 = phi i1 [ %.2.us.i77, %146 ], [ %.02.us.i76, %144 ]
+  %.011.i79 = phi i1 [ %.02.us.i76, %144 ], [ %.2.us.i77, %146 ]
   br i1 %.011.i79, label %148, label %.critedge
 
 148:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit80
@@ -3486,8 +3486,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   br i1 %.not.us.i88, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90, label %.lr.ph.split.us.i85, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90: ; preds = %180, %182
-  %184 = phi ptr [ %183, %182 ], [ %178, %180 ]
-  %.011.i89 = phi i1 [ %.2.us.i87, %182 ], [ %.02.us.i86, %180 ]
+  %184 = phi ptr [ %178, %180 ], [ %183, %182 ]
+  %.011.i89 = phi i1 [ %.02.us.i86, %180 ], [ %.2.us.i87, %182 ]
   br i1 %.011.i89, label %185, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90.thread
 
 185:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit90
@@ -3519,8 +3519,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i95, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97, label %.lr.ph.split.us.i92, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97: ; preds = %192, %194
-  %196 = phi ptr [ %195, %194 ], [ %190, %192 ]
-  %.011.i96 = phi i1 [ %.2.us.i94, %194 ], [ %.02.us.i93, %192 ]
+  %196 = phi ptr [ %190, %192 ], [ %195, %194 ]
+  %.011.i96 = phi i1 [ %.02.us.i93, %192 ], [ %.2.us.i94, %194 ]
   br i1 %.011.i96, label %197, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97.thread
 
 197:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit97
@@ -3552,8 +3552,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i102, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104, label %.lr.ph.split.us.i99, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104: ; preds = %204, %206
-  %208 = phi ptr [ %207, %206 ], [ %202, %204 ]
-  %.011.i103 = phi i1 [ %.2.us.i101, %206 ], [ %.02.us.i100, %204 ]
+  %208 = phi ptr [ %202, %204 ], [ %207, %206 ]
+  %.011.i103 = phi i1 [ %.02.us.i100, %204 ], [ %.2.us.i101, %206 ]
   br i1 %.011.i103, label %209, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104.thread
 
 209:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit104
@@ -3585,8 +3585,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i109, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111, label %.lr.ph.split.us.i106, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111: ; preds = %216, %218
-  %220 = phi ptr [ %219, %218 ], [ %214, %216 ]
-  %.011.i110 = phi i1 [ %.2.us.i108, %218 ], [ %.02.us.i107, %216 ]
+  %220 = phi ptr [ %214, %216 ], [ %219, %218 ]
+  %.011.i110 = phi i1 [ %.02.us.i107, %216 ], [ %.2.us.i108, %218 ]
   br i1 %.011.i110, label %221, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111.thread
 
 221:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit111
@@ -3618,8 +3618,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i116, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118, label %.lr.ph.split.us.i113, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118: ; preds = %228, %230
-  %232 = phi ptr [ %231, %230 ], [ %226, %228 ]
-  %.011.i117 = phi i1 [ %.2.us.i115, %230 ], [ %.02.us.i114, %228 ]
+  %232 = phi ptr [ %226, %228 ], [ %231, %230 ]
+  %.011.i117 = phi i1 [ %.02.us.i114, %228 ], [ %.2.us.i115, %230 ]
   br i1 %.011.i117, label %233, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118.thread
 
 233:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit118
@@ -3651,7 +3651,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i123, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit125, label %.lr.ph.split.us.i120, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit125: ; preds = %240, %242
-  %.011.i124 = phi i1 [ %.2.us.i122, %242 ], [ %.02.us.i121, %240 ]
+  %.011.i124 = phi i1 [ %.02.us.i121, %240 ], [ %.2.us.i122, %242 ]
   br i1 %.011.i124, label %244, label %.critedge
 
 244:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit125
@@ -4099,7 +4099,7 @@ define linkonce_odr ptr @_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved_
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St8functionIFvRKNS0_22HdDataSourceLocatorSetEPjEEESaISB_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS3_.exit, !llvm.loop !16
 
 _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St8functionIFvRKNS0_22HdDataSourceLocatorSetEPjEEESaISB_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS3_.exit: ; preds = %39, %.lr.ph.i.i.i, %9, %10, %16, %28, %..loopexit_crit_edge21.i.i.i
-  %.sroa.06.1.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i ], [ null, %9 ], [ %29, %28 ], [ null, %16 ], [ %.sroa.06.0.i, %10 ], [ null, %.lr.ph.i.i.i ], [ %47, %39 ]
+  %.sroa.06.1.i = phi ptr [ null, %16 ], [ null, %..loopexit_crit_edge21.i.i.i ], [ %29, %28 ], [ %.sroa.06.0.i, %10 ], [ null, %9 ], [ null, %.lr.ph.i.i.i ], [ %47, %39 ]
   ret ptr %.sroa.06.1.i
 }
 
@@ -4179,8 +4179,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit: ; pred
   br i1 %.not.us.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, label %.lr.ph.split.us.i, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit: ; preds = %37, %39
-  %.145 = phi ptr [ %.0, %37 ], [ %40, %39 ]
-  %.011.i = phi i1 [ %.02.us.i, %37 ], [ %.2.us.i, %39 ]
+  %.145 = phi ptr [ %40, %39 ], [ %.0, %37 ]
+  %.011.i = phi i1 [ %.2.us.i, %39 ], [ %.02.us.i, %37 ]
   %cond.fr = freeze i1 %.011.i
   %spec.select = select i1 %cond.fr, i32 65536, i32 0
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread
@@ -4209,8 +4209,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit18, label %.lr.ph.split.us.i13, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit18: ; preds = %45, %47
-  %.347 = phi ptr [ %.246, %45 ], [ %48, %47 ]
-  %.011.i17 = phi i1 [ %.02.us.i14, %45 ], [ %.2.us.i15, %47 ]
+  %.347 = phi ptr [ %48, %47 ], [ %.246, %45 ]
+  %.011.i17 = phi i1 [ %.2.us.i15, %47 ], [ %.02.us.i14, %45 ]
   %49 = or disjoint i32 %41, 131072
   %cond.fr52 = freeze i1 %.011.i17
   %spec.select65 = select i1 %cond.fr52, i32 %49, i32 %41
@@ -4240,8 +4240,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i23, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25, label %.lr.ph.split.us.i20, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25: ; preds = %54, %56
-  %.5 = phi ptr [ %.4, %54 ], [ %57, %56 ]
-  %.011.i24 = phi i1 [ %.02.us.i21, %54 ], [ %.2.us.i22, %56 ]
+  %.5 = phi ptr [ %57, %56 ], [ %.4, %54 ]
+  %.011.i24 = phi i1 [ %.2.us.i22, %56 ], [ %.02.us.i21, %54 ]
   %58 = or i32 %50, 64
   %cond.fr57 = freeze i1 %.011.i24
   %spec.select66 = select i1 %cond.fr57, i32 %58, i32 %50
@@ -4271,14 +4271,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i30, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit32, label %.lr.ph.split.us.i27, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit32: ; preds = %63, %65
-  %.011.i31 = phi i1 [ %.2.us.i29, %65 ], [ %.02.us.i28, %63 ]
+  %.011.i31 = phi i1 [ %.02.us.i28, %63 ], [ %.2.us.i29, %65 ]
   %67 = or i32 %59, 512
   %cond.fr62 = freeze i1 %.011.i31
   %spec.select67 = select i1 %cond.fr62, i32 %67, i32 %59
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.thread: ; preds = %30, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit32, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25.thread, %13, %2
-  %.08 = phi i32 [ -3, %13 ], [ 0, %2 ], [ %59, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25.thread ], [ %spec.select67, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit32 ], [ -3, %30 ]
+  %.08 = phi i32 [ 0, %2 ], [ -3, %13 ], [ %59, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit25.thread ], [ %spec.select67, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit32 ], [ -3, %30 ]
   ret i32 %.08
 }
 
@@ -4358,7 +4358,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   br i1 %.not.us.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, label %.lr.ph.split.us.i, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit: ; preds = %32, %34
-  %.011.i = phi i1 [ %.2.us.i, %34 ], [ %.02.us.i, %32 ]
+  %.011.i = phi i1 [ %.02.us.i, %32 ], [ %.2.us.i, %34 ]
   %cond.fr = freeze i1 %.011.i
   %spec.select = zext i1 %cond.fr to i32
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread
@@ -4425,8 +4425,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   br i1 %.not.us.i37, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39, label %.lr.ph.split.us.i34, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39: ; preds = %61, %63
-  %.2125 = phi ptr [ %.1, %61 ], [ %64, %63 ]
-  %.011.i38 = phi i1 [ %.02.us.i35, %61 ], [ %.2.us.i36, %63 ]
+  %.2125 = phi ptr [ %64, %63 ], [ %.1, %61 ]
+  %.011.i38 = phi i1 [ %.2.us.i36, %63 ], [ %.02.us.i35, %61 ]
   %cond.fr133 = freeze i1 %.011.i38
   %spec.select174 = select i1 %cond.fr133, i32 2, i32 0
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit39.thread
@@ -4455,8 +4455,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i44, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit46, label %.lr.ph.split.us.i41, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit46: ; preds = %69, %71
-  %.4127 = phi ptr [ %.3126, %69 ], [ %72, %71 ]
-  %.011.i45 = phi i1 [ %.02.us.i42, %69 ], [ %.2.us.i43, %71 ]
+  %.4127 = phi ptr [ %72, %71 ], [ %.3126, %69 ]
+  %.011.i45 = phi i1 [ %.2.us.i43, %71 ], [ %.02.us.i42, %69 ]
   %73 = or disjoint i32 %65, 256
   %cond.fr138 = freeze i1 %.011.i45
   %spec.select175 = select i1 %cond.fr138, i32 %73, i32 %65
@@ -4486,8 +4486,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i51, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit53, label %.lr.ph.split.us.i48, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit53: ; preds = %78, %80
-  %.6129 = phi ptr [ %.5128, %78 ], [ %81, %80 ]
-  %.011.i52 = phi i1 [ %.02.us.i49, %78 ], [ %.2.us.i50, %80 ]
+  %.6129 = phi ptr [ %81, %80 ], [ %.5128, %78 ]
+  %.011.i52 = phi i1 [ %.2.us.i50, %80 ], [ %.02.us.i49, %78 ]
   %82 = or i32 %74, 4
   %cond.fr143 = freeze i1 %.011.i52
   %spec.select176 = select i1 %cond.fr143, i32 %82, i32 %74
@@ -4517,8 +4517,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i58, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit60, label %.lr.ph.split.us.i55, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit60: ; preds = %87, %89
-  %.8 = phi ptr [ %.7130, %87 ], [ %90, %89 ]
-  %.011.i59 = phi i1 [ %.02.us.i56, %87 ], [ %.2.us.i57, %89 ]
+  %.8 = phi ptr [ %90, %89 ], [ %.7130, %87 ]
+  %.011.i59 = phi i1 [ %.2.us.i57, %89 ], [ %.02.us.i56, %87 ]
   %91 = or i32 %83, 8
   %cond.fr148 = freeze i1 %.011.i59
   %spec.select177 = select i1 %cond.fr148, i32 %91, i32 %83
@@ -4548,8 +4548,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i65, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit67, label %.lr.ph.split.us.i62, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit67: ; preds = %96, %98
-  %.10 = phi ptr [ %.9, %96 ], [ %99, %98 ]
-  %.011.i66 = phi i1 [ %.02.us.i63, %96 ], [ %.2.us.i64, %98 ]
+  %.10 = phi ptr [ %99, %98 ], [ %.9, %96 ]
+  %.011.i66 = phi i1 [ %.2.us.i64, %98 ], [ %.02.us.i63, %96 ]
   %100 = or i32 %92, 16
   %cond.fr153 = freeze i1 %.011.i66
   %spec.select178 = select i1 %cond.fr153, i32 %100, i32 %92
@@ -4579,8 +4579,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i72, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit74, label %.lr.ph.split.us.i69, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit74: ; preds = %105, %107
-  %.12 = phi ptr [ %.11, %105 ], [ %108, %107 ]
-  %.011.i73 = phi i1 [ %.02.us.i70, %105 ], [ %.2.us.i71, %107 ]
+  %.12 = phi ptr [ %108, %107 ], [ %.11, %105 ]
+  %.011.i73 = phi i1 [ %.2.us.i71, %107 ], [ %.02.us.i70, %105 ]
   %109 = or i32 %101, 32
   %cond.fr158 = freeze i1 %.011.i73
   %spec.select179 = select i1 %cond.fr158, i32 %109, i32 %101
@@ -4610,8 +4610,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i79, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81, label %.lr.ph.split.us.i76, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81: ; preds = %114, %116
-  %.14 = phi ptr [ %.13, %114 ], [ %117, %116 ]
-  %.011.i80 = phi i1 [ %.02.us.i77, %114 ], [ %.2.us.i78, %116 ]
+  %.14 = phi ptr [ %117, %116 ], [ %.13, %114 ]
+  %.011.i80 = phi i1 [ %.2.us.i78, %116 ], [ %.02.us.i77, %114 ]
   %118 = or i32 %110, 64
   %cond.fr163 = freeze i1 %.011.i80
   %spec.select180 = select i1 %cond.fr163, i32 %118, i32 %110
@@ -4641,7 +4641,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i86, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit88, label %.lr.ph.split.us.i83, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit88: ; preds = %123, %125
-  %.011.i87 = phi i1 [ %.2.us.i85, %125 ], [ %.02.us.i84, %123 ]
+  %.011.i87 = phi i1 [ %.02.us.i84, %123 ], [ %.2.us.i85, %125 ]
   %127 = or i32 %119, 128
   %cond.fr168 = freeze i1 %.011.i87
   %spec.select181 = select i1 %cond.fr168, i32 %127, i32 %119
@@ -4673,13 +4673,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorE
   br i1 %.not.us.i93, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit95, label %.lr.ph.split.us.i90, !llvm.loop !10
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit95: ; preds = %134, %136
-  %.011.i94 = phi i1 [ %.2.us.i92, %136 ], [ %.02.us.i91, %134 ]
+  %.011.i94 = phi i1 [ %.02.us.i91, %134 ], [ %.2.us.i92, %136 ]
   %cond.fr171 = freeze i1 %.011.i94
   %spec.select182 = select i1 %cond.fr171, i32 2, i32 0
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit95, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit88, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit, %130, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81.thread, %28, %128, %2
-  %.017 = phi i32 [ 0, %2 ], [ 0, %128 ], [ 0, %28 ], [ %119, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81.thread ], [ 0, %130 ], [ %spec.select181, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit88 ], [ %spec.select, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit ], [ %spec.select182, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit95 ]
+  %.017 = phi i32 [ 0, %2 ], [ 0, %128 ], [ 0, %28 ], [ %119, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit81.thread ], [ 0, %130 ], [ %spec.select, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit ], [ %spec.select181, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit88 ], [ %spec.select182, %_ZN32pxrInternal_v0_24__pxrReserved__L12_FindLocatorERKNS_19HdDataSourceLocatorERKPS1_PS3_b.exit95 ]
   ret i32 %.017
 }
 
@@ -4774,7 +4774,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i: ; preds = %18, %13
   br label %common.resume
 
 common.resume:                                    ; preds = %116, %118, %.body.i15, %98, %.body.i, %45
-  %common.resume.op = phi { ptr, i32 } [ %88, %.body.i15 ], [ %35, %.body.i ], [ %35, %45 ], [ %88, %98 ], [ %119, %118 ], [ %117, %116 ]
+  %common.resume.op = phi { ptr, i32 } [ %35, %45 ], [ %35, %.body.i ], [ %88, %98 ], [ %88, %.body.i15 ], [ %119, %118 ], [ %117, %116 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenESt8functionIFvRKNS0_22HdDataSourceLocatorSetEPjEEEC2IRS2_RS9_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i, %30
@@ -5378,13 +5378,13 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St8fun
   br label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St8functionIFvRKNS0_22HdDataSourceLocatorSetEPjEEESaISB_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread, !llvm.loop !16
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St8functionIFvRKNS0_22HdDataSourceLocatorSetEPjEEESaISB_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread: ; preds = %.lr.ph.i.i, %.loopexit, %..loopexit_crit_edge21.i.i, %.loopexit.thread
-  %81 = phi i64 [ %56, %.loopexit ], [ %34, %..loopexit_crit_edge21.i.i ], [ %34, %.loopexit.thread ], [ %34, %.lr.ph.i.i ]
-  %82 = phi i64 [ %53, %.loopexit ], [ %31, %..loopexit_crit_edge21.i.i ], [ %31, %.loopexit.thread ], [ %31, %.lr.ph.i.i ]
+  %81 = phi i64 [ %34, %..loopexit_crit_edge21.i.i ], [ %34, %.loopexit.thread ], [ %56, %.loopexit ], [ %34, %.lr.ph.i.i ]
+  %82 = phi i64 [ %31, %..loopexit_crit_edge21.i.i ], [ %31, %.loopexit.thread ], [ %53, %.loopexit ], [ %31, %.lr.ph.i.i ]
   %83 = invoke ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St8functionIFvRKNS0_22HdDataSourceLocatorSetEPjEEESaISB_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSD_10_Hash_nodeISB_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %81, i64 noundef %82, ptr noundef nonnull %4, i64 noundef 1)
           to label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St8functionIFvRKNS0_22HdDataSourceLocatorSetEPjEEESaISB_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %48
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St8functionIFvRKNS0_22HdDataSourceLocatorSetEPjEEESaISB_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %68, %42, %57
-  %.sroa.022.0.ph = phi ptr [ %.sroa.019.0, %42 ], [ %58, %57 ], [ %76, %68 ]
+  %.sroa.022.0.ph = phi ptr [ %58, %57 ], [ %.sroa.019.0, %42 ], [ %76, %68 ]
   %.not.i.i.i.i.i.i.i14 = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i.i.i14, label %_ZNSt8functionIFvRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEPjEED2Ev.exit.i.i.i.i.i, label %84
 
@@ -5832,13 +5832,13 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St8fun
   br label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St8functionIFvjPNS0_22HdDataSourceLocatorSetEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread, !llvm.loop !8
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St8functionIFvjPNS0_22HdDataSourceLocatorSetEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread: ; preds = %.lr.ph.i.i, %.loopexit, %..loopexit_crit_edge21.i.i, %.loopexit.thread
-  %81 = phi i64 [ %56, %.loopexit ], [ %34, %..loopexit_crit_edge21.i.i ], [ %34, %.loopexit.thread ], [ %34, %.lr.ph.i.i ]
-  %82 = phi i64 [ %53, %.loopexit ], [ %31, %..loopexit_crit_edge21.i.i ], [ %31, %.loopexit.thread ], [ %31, %.lr.ph.i.i ]
+  %81 = phi i64 [ %34, %..loopexit_crit_edge21.i.i ], [ %34, %.loopexit.thread ], [ %56, %.loopexit ], [ %34, %.lr.ph.i.i ]
+  %82 = phi i64 [ %31, %..loopexit_crit_edge21.i.i ], [ %31, %.loopexit.thread ], [ %53, %.loopexit ], [ %31, %.lr.ph.i.i ]
   %83 = invoke ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St8functionIFvjPNS0_22HdDataSourceLocatorSetEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSB_10_Hash_nodeIS9_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %81, i64 noundef %82, ptr noundef nonnull %4, i64 noundef 1)
           to label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St8functionIFvjPNS0_22HdDataSourceLocatorSetEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %48
 
 _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St8functionIFvjPNS0_22HdDataSourceLocatorSetEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %68, %42, %57
-  %.sroa.022.0.ph = phi ptr [ %.sroa.019.0, %42 ], [ %58, %57 ], [ %76, %68 ]
+  %.sroa.022.0.ph = phi ptr [ %58, %57 ], [ %.sroa.019.0, %42 ], [ %76, %68 ]
   %.not.i.i.i.i.i.i.i14 = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i.i.i14, label %_ZNSt8functionIFvjPN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEEED2Ev.exit.i.i.i.i.i, label %84
 

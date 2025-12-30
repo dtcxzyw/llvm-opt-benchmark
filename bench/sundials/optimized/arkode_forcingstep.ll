@@ -115,12 +115,12 @@ define ptr @ForcingStepCreate(ptr noundef %0, ptr noundef %1, double noundef %2,
   br label %35
 
 35:                                               ; preds = %18, %32, %33, %14
-  %.1 = phi ptr [ null, %14 ], [ null, %18 ], [ %12, %33 ], [ null, %32 ]
+  %.1 = phi ptr [ null, %14 ], [ null, %18 ], [ null, %32 ], [ %12, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %36
 
 36:                                               ; preds = %5, %35, %10
-  %.0 = phi ptr [ %.1, %35 ], [ null, %10 ], [ null, %5 ]
+  %.0 = phi ptr [ null, %10 ], [ %.1, %35 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -214,7 +214,7 @@ forcingStep_CheckSUNStepper.exit22.thread:        ; preds = %19, %22, %25, %forc
   br label %37
 
 37:                                               ; preds = %33, %36, %32, %forcingStep_CheckSUNStepper.exit22.thread, %18, %16, %6
-  %.0 = phi i32 [ -22, %6 ], [ -22, %18 ], [ -22, %32 ], [ -22, %16 ], [ -22, %36 ], [ -22, %forcingStep_CheckSUNStepper.exit22.thread ], [ 0, %33 ]
+  %.0 = phi i32 [ -22, %6 ], [ -22, %18 ], [ -22, %32 ], [ -22, %36 ], [ -22, %forcingStep_CheckSUNStepper.exit22.thread ], [ -22, %16 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -303,7 +303,7 @@ forcingStep_AccessStepMem.exit:                   ; preds = %3
   br label %44
 
 44:                                               ; preds = %forcingStep_AccessStepMem.exit, %41, %42, %31, %30, %10
-  %.0 = phi i32 [ -22, %10 ], [ -22, %30 ], [ -21, %forcingStep_AccessStepMem.exit ], [ 0, %31 ], [ -51, %41 ], [ 0, %42 ]
+  %.0 = phi i32 [ -22, %30 ], [ -22, %10 ], [ -21, %forcingStep_AccessStepMem.exit ], [ 0, %31 ], [ -51, %41 ], [ 0, %42 ]
   ret i32 %.0
 }
 
@@ -509,7 +509,7 @@ forcingStep_AccessStepMem.exit:                   ; preds = %3
   br label %48
 
 48:                                               ; preds = %24, %43, %40, %31, %20, %18, %8
-  %.1 = phi i32 [ -51, %20 ], [ -51, %8 ], [ -51, %18 ], [ -51, %24 ], [ -51, %40 ], [ -51, %31 ], [ %., %43 ]
+  %.1 = phi i32 [ -51, %8 ], [ -51, %18 ], [ -51, %20 ], [ -51, %24 ], [ -51, %31 ], [ -51, %40 ], [ %., %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %49
 
@@ -558,7 +558,7 @@ forcingStep_AccessStepMem.exit:                   ; preds = %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader24, %.preheader, %forcingStep_AccessStepMem.exit, %20
-  %.016 = phi i32 [ -21, %forcingStep_AccessStepMem.exit ], [ -22, %20 ], [ 0, %.preheader ], [ 0, %.preheader24 ]
+  %.016 = phi i32 [ -22, %20 ], [ -21, %forcingStep_AccessStepMem.exit ], [ 0, %.preheader ], [ 0, %.preheader24 ]
   ret i32 %.016
 }
 
@@ -655,7 +655,7 @@ forcingStep_AccessARKODEStepMem.exit:             ; preds = %8
   br label %forcingStep_AccessARKODEStepMem.exit.thread
 
 forcingStep_AccessARKODEStepMem.exit.thread:      ; preds = %12, %7, %19, %17, %23, %16
-  %.0 = phi i32 [ %18, %17 ], [ -23, %16 ], [ 0, %19 ], [ %22, %23 ], [ -21, %7 ], [ -21, %12 ]
+  %.0 = phi i32 [ -23, %16 ], [ %22, %23 ], [ %18, %17 ], [ 0, %19 ], [ -21, %7 ], [ -21, %12 ]
   ret i32 %.0
 }
 
@@ -710,7 +710,7 @@ forcingStep_AccessARKODEStepMem.exit:             ; preds = %6
   br label %forcingStep_AccessARKODEStepMem.exit.thread
 
 forcingStep_AccessARKODEStepMem.exit.thread:      ; preds = %10, %5, %25, %12
-  %.0 = phi i32 [ 0, %25 ], [ -22, %12 ], [ -21, %5 ], [ -21, %10 ]
+  %.0 = phi i32 [ -22, %12 ], [ 0, %25 ], [ -21, %5 ], [ -21, %10 ]
   ret i32 %.0
 }
 

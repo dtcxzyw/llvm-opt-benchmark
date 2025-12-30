@@ -819,7 +819,7 @@ RelationGetSmgr.exit60:                           ; preds = %92, %95
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %RelationGetSmgr.exit60, %RelationGetSmgr.exit
-  %.0 = phi i32 [ %.052., %RelationGetSmgr.exit60 ], [ -1, %RelationGetSmgr.exit ], [ -1, %20 ]
+  %.0 = phi i32 [ -1, %RelationGetSmgr.exit ], [ %.052., %RelationGetSmgr.exit60 ], [ -1, %20 ]
   ret i32 %.0
 }
 

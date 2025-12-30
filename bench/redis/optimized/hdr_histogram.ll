@@ -534,7 +534,7 @@ define dso_local range(i32 0, 23) i32 @hdr_init(i64 noundef %0, i64 noundef %1, 
   br label %50
 
 50:                                               ; preds = %7, %4, %15, %14
-  %.0 = phi i32 [ %6, %4 ], [ 0, %15 ], [ 12, %14 ], [ 12, %7 ]
+  %.0 = phi i32 [ 0, %15 ], [ 12, %14 ], [ %6, %4 ], [ 12, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -857,7 +857,7 @@ counts_inc_normalised_atomic.exit.i:              ; preds = %33, %29
   br i1 %56, label %hdr_record_values_atomic.exit, label %52
 
 hdr_record_values_atomic.exit:                    ; preds = %52, %54, %2, %4, %26
-  %.0.i = phi i1 [ false, %4 ], [ false, %2 ], [ false, %26 ], [ true, %54 ], [ true, %52 ]
+  %.0.i = phi i1 [ false, %2 ], [ false, %26 ], [ false, %4 ], [ true, %54 ], [ true, %52 ]
   ret i1 %.0.i
 }
 
@@ -956,7 +956,7 @@ counts_inc_normalised_atomic.exit:                ; preds = %30, %34
   br i1 %57, label %update_min_max_atomic.exit, label %53
 
 update_min_max_atomic.exit:                       ; preds = %55, %53, %5, %27, %3
-  %.0 = phi i1 [ false, %5 ], [ false, %3 ], [ false, %27 ], [ true, %53 ], [ true, %55 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %27 ], [ false, %5 ], [ true, %53 ], [ true, %55 ]
   ret i1 %.0
 }
 
@@ -1109,7 +1109,7 @@ hdr_record_values.exit30:                         ; preds = %73, %74
   br i1 %.not18, label %hdr_record_values.exit.thread, label %58
 
 hdr_record_values.exit.thread:                    ; preds = %hdr_record_values.exit30, %58, %.preheader, %6, %28, %4, %40
-  %.015 = phi i1 [ false, %28 ], [ true, %40 ], [ false, %6 ], [ false, %4 ], [ true, %.preheader ], [ %or.cond47, %58 ], [ %or.cond47, %hdr_record_values.exit30 ]
+  %.015 = phi i1 [ true, %40 ], [ false, %4 ], [ false, %28 ], [ false, %6 ], [ true, %.preheader ], [ %or.cond47, %58 ], [ %or.cond47, %hdr_record_values.exit30 ]
   ret i1 %.015
 }
 
@@ -1302,8 +1302,8 @@ hdr_record_values_atomic.exit34:                  ; preds = %.split22.i.i31.loop
   %.not18 = icmp slt i64 %.0, %3
   br i1 %.not18, label %hdr_record_values_atomic.exit.thread, label %.lr.ph
 
-hdr_record_values_atomic.exit.thread:             ; preds = %hdr_record_values_atomic.exit34, %.lr.ph, %77, %28, %4, %6, %hdr_record_values_atomic.exit
-  %.015 = phi i1 [ false, %4 ], [ true, %hdr_record_values_atomic.exit ], [ false, %28 ], [ false, %6 ], [ false, %77 ], [ false, %.lr.ph ], [ true, %hdr_record_values_atomic.exit34 ]
+hdr_record_values_atomic.exit.thread:             ; preds = %hdr_record_values_atomic.exit34, %77, %.lr.ph, %6, %28, %4, %hdr_record_values_atomic.exit
+  %.015 = phi i1 [ true, %hdr_record_values_atomic.exit ], [ false, %4 ], [ false, %28 ], [ false, %6 ], [ true, %hdr_record_values_atomic.exit34 ], [ false, %77 ], [ false, %.lr.ph ]
   ret i1 %.015
 }
 
@@ -2417,7 +2417,7 @@ basic_iter_next.exit31:                           ; preds = %81
   br label %23
 
 basic_iter_next.exit:                             ; preds = %79, %81, %15, %.critedge, %6, %9
-  %.0 = phi i1 [ false, %15 ], [ true, %.critedge ], [ false, %6 ], [ true, %9 ], [ true, %81 ], [ true, %79 ]
+  %.0 = phi i1 [ true, %9 ], [ false, %6 ], [ true, %.critedge ], [ false, %15 ], [ true, %81 ], [ true, %79 ]
   ret i1 %.0
 }
 
@@ -2613,7 +2613,7 @@ next_value_greater_than_reporting_level_upper_bound.exit: ; preds = %7
   br i1 %.not, label %57, label %._crit_edge
 
 next_value_greater_than_reporting_level_upper_bound.exit.thread: ; preds = %57, %7, %next_value_greater_than_reporting_level_upper_bound.exit, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ false, %7 ], [ false, %next_value_greater_than_reporting_level_upper_bound.exit ], [ true, %57 ]
+  %.0 = phi i1 [ true, %._crit_edge ], [ false, %next_value_greater_than_reporting_level_upper_bound.exit ], [ false, %7 ], [ true, %57 ]
   ret i1 %.0
 }
 
@@ -2772,7 +2772,7 @@ next_value_greater_than_reporting_level_upper_bound.exit: ; preds = %7
   br i1 %.not, label %58, label %._crit_edge
 
 next_value_greater_than_reporting_level_upper_bound.exit.thread: ; preds = %58, %7, %next_value_greater_than_reporting_level_upper_bound.exit, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ false, %7 ], [ false, %next_value_greater_than_reporting_level_upper_bound.exit ], [ true, %58 ]
+  %.0 = phi i1 [ true, %._crit_edge ], [ false, %next_value_greater_than_reporting_level_upper_bound.exit ], [ false, %7 ], [ true, %58 ]
   ret i1 %.0
 }
 
@@ -3029,7 +3029,7 @@ hdr_max.exit:                                     ; preds = %hdr_mean.exit.hdr_m
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %hdr_max.exit, %45, %format_line_string.exit
-  %.0 = phi i32 [ %..136, %hdr_max.exit ], [ 5, %format_line_string.exit ], [ 0, %45 ], [ 5, %34 ]
+  %.0 = phi i32 [ %..136, %hdr_max.exit ], [ 0, %45 ], [ 5, %format_line_string.exit ], [ 5, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0

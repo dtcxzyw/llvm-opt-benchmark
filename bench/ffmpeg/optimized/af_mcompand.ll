@@ -543,7 +543,7 @@ get_volume.exit.i.us:                             ; preds = %._crit_edge.i.i.us,
   br label %._crit_edge87
 
 ._crit_edge87:                                    ; preds = %.lr.ph86, %._crit_edge87.loopexit, %31
-  %286 = phi ptr [ %1, %31 ], [ %.pre, %._crit_edge87.loopexit ], [ %1, %.lr.ph86 ]
+  %286 = phi ptr [ %.pre, %._crit_edge87.loopexit ], [ %1, %31 ], [ %1, %.lr.ph86 ]
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 136
   %288 = load i64, ptr %287, align 8, !tbaa !89
   %289 = getelementptr inbounds nuw i8, ptr %13, i64 136
@@ -1173,7 +1173,7 @@ count_items.exit250:                              ; preds = %.lr.ph.i247, %140
   br label %315
 
 314:                                              ; preds = %168, %.lr.ph.i251, %160
-  %.str.16.sink = phi ptr [ @.str.15, %.lr.ph.i251 ], [ @.str.15, %160 ], [ @.str.16, %168 ]
+  %.str.16.sink = phi ptr [ @.str.15, %160 ], [ @.str.15, %.lr.ph.i251 ], [ @.str.16, %168 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %7, i32 noundef 16, ptr noundef nonnull %.str.16.sink) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %7, i32 noundef 16, ptr noundef nonnull @.str.11) #10
@@ -1309,14 +1309,14 @@ split:                                            ; preds = %331
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %389
 
-.thread:                                          ; preds = %count_items.exit250, %347, %40, %27, %61, %count_items.exit245.thread, %314, %split, %330, %139, %126, %30
-  %.2.ph = phi i32 [ -22, %330 ], [ -22, %count_items.exit245.thread ], [ -22, %30 ], [ -22, %split ], [ -22, %126 ], [ -22, %139 ], [ -22, %314 ], [ -12, %count_items.exit250 ], [ %349, %347 ], [ -12, %40 ], [ -22, %27 ], [ -12, %61 ]
+.thread:                                          ; preds = %27, %61, %40, %count_items.exit250, %347, %count_items.exit245.thread, %314, %split, %330, %139, %126, %30
+  %.2.ph = phi i32 [ -22, %30 ], [ -22, %126 ], [ -22, %139 ], [ -22, %330 ], [ -22, %split ], [ -22, %314 ], [ -22, %count_items.exit245.thread ], [ -22, %27 ], [ -12, %61 ], [ -12, %40 ], [ -12, %count_items.exit250 ], [ %349, %347 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 389:                                              ; preds = %353, %388, %351
-  %.1191 = phi i32 [ %.0190319, %351 ], [ %367, %388 ], [ %367, %353 ]
+  %.1191 = phi i32 [ %367, %388 ], [ %367, %353 ], [ %.0190319, %351 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
@@ -1355,7 +1355,7 @@ split:                                            ; preds = %331
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph329, %.thread, %count_items.exit, %.critedge
-  %.0 = phi i32 [ %.2.ph, %.thread ], [ -12, %count_items.exit ], [ 0, %.critedge ], [ -12, %.lr.ph329 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ -12, %count_items.exit ], [ %.2.ph, %.thread ], [ -12, %.lr.ph329 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1498,7 +1498,7 @@ define internal fastcc range(i32 -22, 1) i32 @crossover_setup(ptr noundef readon
   br label %88
 
 88:                                               ; preds = %35, %3
-  %.024 = phi i32 [ %., %35 ], [ -22, %3 ]
+  %.024 = phi i32 [ -22, %3 ], [ %., %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.024
 }

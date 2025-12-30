@@ -116,8 +116,8 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_one(ptr noundef %0, i32 noun
   br i1 %or.cond, label %.preheader81.backedge, label %.preheader79
 
 .preheader81.backedge:                            ; preds = %25, %21, %20
-  %.be = phi i8 [ %23, %21 ], [ %.pre.pre, %25 ], [ 0, %20 ]
-  %.257.be = phi ptr [ %22, %21 ], [ %26, %25 ], [ %14, %20 ]
+  %.be = phi i8 [ %23, %21 ], [ 0, %20 ], [ %.pre.pre, %25 ]
+  %.257.be = phi ptr [ %22, %21 ], [ %14, %20 ], [ %26, %25 ]
   br label %.preheader81, !llvm.loop !8
 
 .preheader79:                                     ; preds = %25, %28
@@ -197,7 +197,7 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_one(ptr noundef %0, i32 noun
   br label %.critedge
 
 .critedge:                                        ; preds = %10, %8, %.thread78, %.preheader81, %.preheader81, %.lr.ph103, %46, %39, %._crit_edge
-  %.053 = phi i32 [ %., %._crit_edge ], [ 1, %39 ], [ 1, %46 ], [ 1, %.preheader81 ], [ 0, %.lr.ph103 ], [ 1, %.preheader81 ], [ 1, %.thread78 ], [ 1, %8 ], [ 1, %10 ]
+  %.053 = phi i32 [ %., %._crit_edge ], [ 1, %39 ], [ 0, %.lr.ph103 ], [ 1, %46 ], [ 1, %.preheader81 ], [ 1, %.preheader81 ], [ 1, %.thread78 ], [ 1, %8 ], [ 1, %10 ]
   ret i32 %.053
 }
 

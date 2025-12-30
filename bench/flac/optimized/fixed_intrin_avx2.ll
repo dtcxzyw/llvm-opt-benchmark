@@ -187,7 +187,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_wide_intri
   br i1 %.not184, label %93, label %.thread
 
 .thread:                                          ; preds = %80, %82, %84, %85
-  %.0160335 = phi i32 [ 0, %85 ], [ %.191, %84 ], [ 1, %80 ], [ 2, %82 ]
+  %.0160335 = phi i32 [ 0, %85 ], [ %.191, %84 ], [ 2, %82 ], [ 1, %80 ]
   %86 = uitofp i64 %73 to double
   %87 = fmul reassoc nsz arcp double %86, 0x3FE62E42FEFA39EF
   %88 = uitofp i32 %1 to double
@@ -665,8 +665,8 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   br label %211
 
 211:                                              ; preds = %._crit_edge717, %203, %202
-  %storemerge = phi float [ 0.000000e+00, %202 ], [ %210, %203 ], [ 3.400000e+01, %._crit_edge717 ]
-  %.1401 = phi i64 [ 0, %202 ], [ %.1.lcssa, %203 ], [ -1, %._crit_edge717 ]
+  %storemerge = phi float [ %210, %203 ], [ 0.000000e+00, %202 ], [ 3.400000e+01, %._crit_edge717 ]
+  %.1401 = phi i64 [ %.1.lcssa, %203 ], [ 0, %202 ], [ -1, %._crit_edge717 ]
   store float %storemerge, ptr %2, align 4, !tbaa !13
   %212 = icmp ult i64 %.1397.lcssa, 2147483648
   br i1 %212, label %213, label %223
@@ -688,9 +688,9 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   br label %223
 
 223:                                              ; preds = %211, %215, %213
-  %.sink = phi float [ 0.000000e+00, %213 ], [ %222, %215 ], [ 3.400000e+01, %211 ]
-  %.3403 = phi i64 [ %spec.select435, %213 ], [ %spec.select435, %215 ], [ %.1401, %211 ]
-  %.3.shrunk = phi i1 [ %214, %213 ], [ %214, %215 ], [ false, %211 ]
+  %.sink = phi float [ %222, %215 ], [ 0.000000e+00, %213 ], [ 3.400000e+01, %211 ]
+  %.3403 = phi i64 [ %spec.select435, %215 ], [ %spec.select435, %213 ], [ %.1401, %211 ]
+  %.3.shrunk = phi i1 [ %214, %215 ], [ %214, %213 ], [ false, %211 ]
   %.3 = zext i1 %.3.shrunk to i32
   %224 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float %.sink, ptr %224, align 4, !tbaa !13
@@ -715,9 +715,9 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   br label %236
 
 236:                                              ; preds = %223, %228, %226
-  %.sink801 = phi float [ 0.000000e+00, %226 ], [ %235, %228 ], [ 3.400000e+01, %223 ]
-  %.5405 = phi i64 [ %spec.select437, %226 ], [ %spec.select437, %228 ], [ %.3403, %223 ]
-  %.5 = phi i32 [ %spec.select438, %226 ], [ %spec.select438, %228 ], [ %.3, %223 ]
+  %.sink801 = phi float [ %235, %228 ], [ 0.000000e+00, %226 ], [ 3.400000e+01, %223 ]
+  %.5405 = phi i64 [ %spec.select437, %228 ], [ %spec.select437, %226 ], [ %.3403, %223 ]
+  %.5 = phi i32 [ %spec.select438, %228 ], [ %spec.select438, %226 ], [ %.3, %223 ]
   %237 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store float %.sink801, ptr %237, align 4, !tbaa !13
   %238 = icmp ult i64 %.1393.lcssa, 2147483648
@@ -741,9 +741,9 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   br label %249
 
 249:                                              ; preds = %236, %241, %239
-  %.sink803 = phi float [ 0.000000e+00, %239 ], [ %248, %241 ], [ 3.400000e+01, %236 ]
-  %.7407 = phi i64 [ %spec.select439, %239 ], [ %spec.select439, %241 ], [ %.5405, %236 ]
-  %.7 = phi i32 [ %spec.select440, %239 ], [ %spec.select440, %241 ], [ %.5, %236 ]
+  %.sink803 = phi float [ %248, %241 ], [ 0.000000e+00, %239 ], [ 3.400000e+01, %236 ]
+  %.7407 = phi i64 [ %spec.select439, %241 ], [ %spec.select439, %239 ], [ %.5405, %236 ]
+  %.7 = phi i32 [ %spec.select440, %241 ], [ %spec.select440, %239 ], [ %.5, %236 ]
   %250 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store float %.sink803, ptr %250, align 4, !tbaa !13
   %251 = icmp ult i64 %.0391.lcssa, 2147483648
@@ -766,8 +766,8 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   br label %262
 
 262:                                              ; preds = %249, %254, %252
-  %.sink805 = phi float [ 0.000000e+00, %252 ], [ %261, %254 ], [ 3.400000e+01, %249 ]
-  %.9 = phi i32 [ %spec.select441, %252 ], [ %spec.select441, %254 ], [ %.7, %249 ]
+  %.sink805 = phi float [ %261, %254 ], [ 0.000000e+00, %252 ], [ 3.400000e+01, %249 ]
+  %.9 = phi i32 [ %spec.select441, %254 ], [ %spec.select441, %252 ], [ %.7, %249 ]
   %263 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store float %.sink805, ptr %263, align 4, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

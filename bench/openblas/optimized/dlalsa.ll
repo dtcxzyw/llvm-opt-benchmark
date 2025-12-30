@@ -96,8 +96,8 @@ define void @dlalsa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %80, label %.thread, label %82
 
 .thread:                                          ; preds = %78, %75, %72, %69, %66, %63, %60, %26
-  %.sink = phi i32 [ -1, %26 ], [ -2, %60 ], [ -4, %66 ], [ -8, %72 ], [ -10, %75 ], [ -6, %69 ], [ -3, %63 ], [ -19, %78 ]
-  %.neg = phi i32 [ 1, %26 ], [ 2, %60 ], [ 4, %66 ], [ 8, %72 ], [ 10, %75 ], [ 6, %69 ], [ 3, %63 ], [ 19, %78 ]
+  %.sink = phi i32 [ -1, %26 ], [ -2, %60 ], [ -3, %63 ], [ -4, %66 ], [ -6, %69 ], [ -8, %72 ], [ -10, %75 ], [ -19, %78 ]
+  %.neg = phi i32 [ 1, %26 ], [ 2, %60 ], [ 3, %63 ], [ 4, %66 ], [ 6, %69 ], [ 8, %72 ], [ 10, %75 ], [ 19, %78 ]
   store i32 %.sink, ptr %25, align 4, !tbaa !3
   store i32 %.neg, ptr %27, align 4, !tbaa !3
   %81 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %27, i32 noundef 6) #3

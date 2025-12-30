@@ -187,7 +187,7 @@ define ptr @Abc_FlowRetime_MinReg(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %.not101, label %66, label %.sink.split
 
 .sink.split:                                      ; preds = %64, %63, %62, %61
-  %.str.6.sink = phi ptr [ @.str.5, %61 ], [ @.str.7, %63 ], [ @.str.6, %62 ], [ @.str.8, %64 ]
+  %.str.6.sink = phi ptr [ @.str.5, %61 ], [ @.str.6, %62 ], [ @.str.7, %63 ], [ @.str.8, %64 ]
   %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.6.sink)
   br label %66
 
@@ -221,7 +221,7 @@ define ptr @Abc_FlowRetime_MinReg(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %.not109, label %76, label %.sink.split286
 
 .sink.split286:                                   ; preds = %75, %74, %73, %72, %71
-  %str.5.sink = phi ptr [ @str.6, %71 ], [ @str.4, %73 ], [ @str.3, %74 ], [ @str.5, %72 ], [ @str.2, %75 ]
+  %str.5.sink = phi ptr [ @str.6, %71 ], [ @str.5, %72 ], [ @str.4, %73 ], [ @str.3, %74 ], [ @str.2, %75 ]
   %puts116 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.5.sink)
   br label %76
 
@@ -1749,8 +1749,8 @@ define i32 @Abc_FlowRetime_PushFlows(ptr noundef %0, i32 noundef %1) local_unnam
   br label %.critedge
 
 .critedge:                                        ; preds = %54, %.lr.ph93, %43
-  %57 = phi ptr [ %37, %.lr.ph93 ], [ %.pre119, %54 ], [ %37, %43 ]
-  %.257 = phi i32 [ %.15691, %.lr.ph93 ], [ %spec.select, %54 ], [ %.15691, %43 ]
+  %57 = phi ptr [ %37, %43 ], [ %37, %.lr.ph93 ], [ %.pre119, %54 ]
+  %.257 = phi i32 [ %.15691, %43 ], [ %.15691, %.lr.ph93 ], [ %spec.select, %54 ]
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %58 = getelementptr i8, ptr %57, i64 4
   %.val69 = load i32, ptr %58, align 4, !tbaa !25
@@ -1852,7 +1852,7 @@ define i32 @Abc_FlowRetime_PushFlows(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %107, label %.lr.ph101, label %.critedge6, !llvm.loop !99
 
 .critedge6:                                       ; preds = %103, %84, %.lr.ph105, %82
-  %.5 = phi i32 [ %.4103, %.lr.ph105 ], [ %.4103, %82 ], [ %85, %84 ], [ %85, %103 ]
+  %.5 = phi i32 [ %.4103, %82 ], [ %.4103, %.lr.ph105 ], [ %85, %84 ], [ %85, %103 ]
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %108 = load ptr, ptr %67, align 8, !tbaa !34
   %109 = getelementptr i8, ptr %108, i64 4
@@ -2923,7 +2923,7 @@ define range(i32 0, 2) i32 @Abc_FlowRetime_IsAcrossCut(ptr noundef readonly capt
   br label %33
 
 33:                                               ; preds = %30, %18, %20, %27, %32
-  %.0 = phi i32 [ 0, %32 ], [ 1, %18 ], [ 1, %27 ], [ 1, %30 ], [ 1, %20 ]
+  %.0 = phi i32 [ 0, %32 ], [ 1, %27 ], [ 1, %20 ], [ 1, %18 ], [ 1, %30 ]
   ret i32 %.0
 }
 
@@ -4418,7 +4418,7 @@ Vec_PtrPush.exit131:                              ; preds = %.Vec_PtrGrow.exit11
   %or.cond24.i = icmp eq i16 %228, 0
   br i1 %or.cond24.i, label %Abc_FlowRetime_IsAcrossCut.exit, label %229
 
-229:                                              ; preds = %215, %224, %227, %217
+229:                                              ; preds = %224, %217, %215, %227
   %230 = icmp eq i32 %193, %192
   br i1 %230, label %231, label %.Vec_PtrGrow.exit11_crit_edge.i135
 
@@ -4944,7 +4944,7 @@ define internal fastcc range(i32 -1, 2) i32 @Abc_FlowRetime_VerifyPathLatencies_
 
 .thread81.sink.split:                             ; preds = %64, %42, %44
   %str.15.sink = phi ptr [ @str.15, %44 ], [ @str.14, %42 ], [ @str.14, %64 ]
-  %.lcssa205.sink = phi ptr [ %23, %42 ], [ %23, %44 ], [ %56, %64 ]
+  %.lcssa205.sink = phi ptr [ %23, %44 ], [ %23, %42 ], [ %56, %64 ]
   %puts59 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.15.sink)
   tail call void @print_node(ptr noundef nonnull %.lcssa205.sink)
   %putchar60 = tail call i32 @putchar(i32 10)
@@ -4996,7 +4996,7 @@ define internal fastcc range(i32 -1, 2) i32 @Abc_FlowRetime_VerifyPathLatencies_
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %6, %._crit_edge, %2, %.critedge, %77, %.thread81
-  %.042 = phi i32 [ %.2.lcssa, %77 ], [ -1, %6 ], [ 0, %.thread81 ], [ -1, %.critedge ], [ -1, %2 ], [ -1, %._crit_edge ]
+  %.042 = phi i32 [ %.2.lcssa, %77 ], [ 0, %.thread81 ], [ -1, %.critedge ], [ -1, %2 ], [ -1, %._crit_edge ], [ -1, %6 ]
   ret i32 %.042
 }
 

@@ -437,7 +437,7 @@ define internal range(i32 0, 2) i32 @icon_scan_cb(ptr noundef captures(none) %0,
   br label %32
 
 32:                                               ; preds = %30, %27, %24, %20
-  %33 = phi ptr [ %31, %30 ], [ null, %20 ], [ null, %24 ], [ %29, %27 ]
+  %33 = phi ptr [ %31, %30 ], [ null, %24 ], [ null, %20 ], [ %29, %27 ]
   %34 = load ptr, ptr %13, align 8, !tbaa !61
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %36 = load i16, ptr %35, align 8, !tbaa !68
@@ -579,7 +579,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   br label %108
 
 108:                                              ; preds = %105, %102, %100
-  %.0549.i = phi i32 [ 2, %100 ], [ %spec.select.i, %105 ], [ 0, %102 ]
+  %.0549.i = phi i32 [ 2, %100 ], [ 0, %102 ], [ %spec.select.i, %105 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, i32 noundef %.4..4..4..4..4..i, i32 noundef %78, i32 noundef %79) #14
   switch i16 %.14..14..14..14..14..i, label %109 [
     i16 32, label %120
@@ -1494,9 +1494,9 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %exitcond807.not.i = icmp eq i64 %indvars.iv.next804.i, %wide.trip.count806.i
   br i1 %exitcond807.not.i, label %parseicon.exit, label %511
 
-parseicon.exit:                                   ; preds = %630, %.loopexit649.i, %161, %141, %14, %17, %5, %110, %140, %160, %109, %96, %84, %72, %fmap_readn.exit.thread.i, %48, %629, %.thread.i
-  %.0521.i.sink = phi i32 [ 20, %.thread.i ], [ 1, %629 ], [ 0, %.loopexit649.i ], [ 0, %48 ], [ 0, %fmap_readn.exit.thread.i ], [ 0, %72 ], [ 0, %84 ], [ 0, %96 ], [ 0, %109 ], [ 0, %160 ], [ 0, %140 ], [ 0, %110 ], [ 0, %5 ], [ 0, %17 ], [ 0, %14 ], [ 0, %141 ], [ 0, %161 ], [ 0, %630 ]
-  %631 = phi i32 [ 1, %.thread.i ], [ 1, %629 ], [ 0, %.loopexit649.i ], [ 0, %48 ], [ 0, %fmap_readn.exit.thread.i ], [ 0, %72 ], [ 0, %84 ], [ 0, %96 ], [ 0, %109 ], [ 0, %160 ], [ 0, %140 ], [ 0, %110 ], [ 0, %5 ], [ 0, %17 ], [ 0, %14 ], [ 0, %141 ], [ 0, %161 ], [ 0, %630 ]
+parseicon.exit:                                   ; preds = %630, %.loopexit649.i, %160, %161, %140, %141, %110, %5, %14, %17, %109, %96, %84, %72, %fmap_readn.exit.thread.i, %48, %629, %.thread.i
+  %.0521.i.sink = phi i32 [ 1, %629 ], [ 20, %.thread.i ], [ 0, %48 ], [ 0, %fmap_readn.exit.thread.i ], [ 0, %72 ], [ 0, %84 ], [ 0, %96 ], [ 0, %109 ], [ 0, %17 ], [ 0, %14 ], [ 0, %5 ], [ 0, %110 ], [ 0, %141 ], [ 0, %140 ], [ 0, %161 ], [ 0, %160 ], [ 0, %.loopexit649.i ], [ 0, %630 ]
+  %631 = phi i32 [ 1, %629 ], [ 1, %.thread.i ], [ 0, %48 ], [ 0, %fmap_readn.exit.thread.i ], [ 0, %72 ], [ 0, %84 ], [ 0, %96 ], [ 0, %109 ], [ 0, %17 ], [ 0, %14 ], [ 0, %5 ], [ 0, %110 ], [ 0, %141 ], [ 0, %140 ], [ 0, %161 ], [ 0, %160 ], [ 0, %.loopexit649.i ], [ 0, %630 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2174,8 +2174,8 @@ hsv.exit1044:                                     ; preds = %hsv.exit1038, %220
   br i1 %exitcond1489.not, label %.loopexit1154, label %.lr.ph1166
 
 .loopexit1154:                                    ; preds = %184, %252, %103
-  %.2927 = phi i32 [ %227, %252 ], [ %77, %103 ], [ %156, %184 ]
-  %.2922 = phi i32 [ %228, %252 ], [ %78, %103 ], [ %157, %184 ]
+  %.2927 = phi i32 [ %77, %103 ], [ %227, %252 ], [ %156, %184 ]
+  %.2922 = phi i32 [ %78, %103 ], [ %228, %252 ], [ %157, %184 ]
   %253 = add i32 %.08731177, %29
   %254 = zext i32 %253 to i64
   %255 = getelementptr inbounds nuw i32, ptr %16, i64 %254
@@ -3000,7 +3000,7 @@ labdiff.exit:                                     ; preds = %505, %507
   br i1 %exitcond1611.not, label %.loopexit1128.us, label %.lr.ph1270.us
 
 .loopexit1128.us:                                 ; preds = %594, %.lr.ph1270.us, %629
-  %.2870.us = phi i32 [ %624, %.lr.ph1270.us ], [ %633, %629 ], [ %610, %594 ]
+  %.2870.us = phi i32 [ %633, %629 ], [ %624, %.lr.ph1270.us ], [ %610, %594 ]
   %625 = add i32 %.81277.us, %580
   %626 = zext i32 %625 to i64
   %627 = getelementptr inbounds nuw i32, ptr %16, i64 %626
@@ -3196,12 +3196,12 @@ labdiff.exit:                                     ; preds = %505, %507
   br i1 %702, label %.preheader1123.us1321.us.us.us.us, label %703
 
 703:                                              ; preds = %.preheader1123.us1321.us.us.us.us, %694
-  %704 = phi i32 [ %696, %694 ], [ %701, %.preheader1123.us1321.us.us.us.us ]
+  %704 = phi i32 [ %701, %.preheader1123.us1321.us.us.us.us ], [ %696, %694 ]
   %705 = icmp ult i32 %701, %695
   br i1 %705, label %.preheader1122.us1320.us.us.us.us, label %706
 
 706:                                              ; preds = %.preheader1122.us1320.us.us.us.us, %703
-  %707 = phi i32 [ %695, %703 ], [ %701, %.preheader1122.us1320.us.us.us.us ]
+  %707 = phi i32 [ %701, %.preheader1122.us1320.us.us.us.us ], [ %695, %703 ]
   %indvars.iv.next1702 = add nuw nsw i64 %indvars.iv1701, 1
   %exitcond1705.not = icmp eq i64 %indvars.iv.next1702, %wide.trip.count1704
   br i1 %exitcond1705.not, label %._crit_edge1293.split.split.split.us.us.us.split.us.us, label %694

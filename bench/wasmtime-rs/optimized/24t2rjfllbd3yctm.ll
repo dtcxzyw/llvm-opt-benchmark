@@ -747,7 +747,7 @@ define void @_ZN14cranelift_wasm17module_translator16translate_module17hd35a17ad
   unreachable
 
 .body:                                            ; preds = %.loopexit797, %.loopexit.split-lp798, %.thread794.loopexit, %.thread794.loopexit.split-lp, %.loopexit, %.loopexit.split-lp, %421, %405, %437, %440, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.510628653122287189.exit.i.i.i.i470", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.510628653122287189.exit.i.i.i.i18.i", %158
-  %.pn436 = phi { ptr, i32 } [ %159, %158 ], [ %406, %405 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %422, %421 ], [ %438, %437 ], [ %438, %440 ], [ %438, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.510628653122287189.exit.i.i.i.i470" ], [ %159, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.510628653122287189.exit.i.i.i.i18.i" ], [ %lpad.loopexit.split-lp803, %.thread794.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit802, %.thread794.loopexit ], [ %lpad.loopexit799, %.loopexit797 ], [ %lpad.loopexit.split-lp800, %.loopexit.split-lp798 ]
+  %.pn436 = phi { ptr, i32 } [ %159, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.510628653122287189.exit.i.i.i.i18.i" ], [ %159, %158 ], [ %438, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.510628653122287189.exit.i.i.i.i470" ], [ %438, %440 ], [ %438, %437 ], [ %406, %405 ], [ %422, %421 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit802, %.thread794.loopexit ], [ %lpad.loopexit.split-lp803, %.thread794.loopexit.split-lp ], [ %lpad.loopexit799, %.loopexit797 ], [ %lpad.loopexit.split-lp800, %.loopexit.split-lp798 ]
   invoke void @"_ZN4core3ptr131drop_in_place$LT$core..iter..sources..from_fn..FromFn$LT$wasmparser..parser..Parser..parse_all..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h860c960dd6c131bdE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %83) #14
           to label %172 unwind label %413
 
@@ -841,7 +841,7 @@ define void @_ZN14cranelift_wasm17module_translator16translate_module17hd35a17ad
   br label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h64c42154ef78a57aE.exit"
 
 common.resume:                                    ; preds = %91, %479, %487, %179, %187
-  %common.resume.op = phi { ptr, i32 } [ %480, %479 ], [ %180, %179 ], [ %180, %187 ], [ %480, %487 ], [ %.pn440, %91 ]
+  %common.resume.op = phi { ptr, i32 } [ %180, %187 ], [ %180, %179 ], [ %480, %487 ], [ %480, %479 ], [ %.pn440, %91 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h64c42154ef78a57aE.exit": ; preds = %495, %488, %195, %188

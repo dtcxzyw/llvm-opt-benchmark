@@ -3320,7 +3320,7 @@ default.unreachable:                              ; preds = %101
   unreachable
 
 proto_item_set_generated.exit.sink.split.i:       ; preds = %135, %129, %123, %117, %111, %105
-  %.sink53.i = phi ptr [ %131, %129 ], [ %125, %123 ], [ %119, %117 ], [ %113, %111 ], [ %107, %105 ], [ %137, %135 ]
+  %.sink53.i = phi ptr [ %107, %105 ], [ %113, %111 ], [ %119, %117 ], [ %125, %123 ], [ %131, %129 ], [ %137, %135 ]
   %138 = getelementptr inbounds nuw i8, ptr %.sink53.i, i64 28
   %139 = load i32, ptr %138, align 4
   %140 = or i32 %139, 2
@@ -5363,7 +5363,7 @@ define internal i32 @dissect_camel_Digits(i1 noundef zeroext %0, ptr noundef %1,
   br i1 %40, label %.thread31, label %47
 
 .thread:                                          ; preds = %19, %16, %13, %10
-  %.023.ph.in = phi ptr [ @ett_camel_additionalcallingpartynumber, %16 ], [ @ett_camel_callingAddressValue, %13 ], [ @ett_camel_calledAddressValue, %10 ], [ @ett_camel_assistingSSPIPRoutingAddress, %19 ]
+  %.023.ph.in = phi ptr [ @ett_camel_calledAddressValue, %10 ], [ @ett_camel_callingAddressValue, %13 ], [ @ett_camel_additionalcallingpartynumber, %16 ], [ @ett_camel_assistingSSPIPRoutingAddress, %19 ]
   %.023.ph = load i32, ptr %.023.ph.in, align 4
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %42 = load ptr, ptr %41, align 8
@@ -5371,7 +5371,7 @@ define internal i32 @dissect_camel_Digits(i1 noundef zeroext %0, ptr noundef %1,
   br label %57
 
 .thread31:                                        ; preds = %38, %35, %32
-  %.023.ph30.in = phi ptr [ @ett_camel_dTMFDigitsTimeOut, %35 ], [ @ett_camel_dTMFDigitsCompleted, %32 ], [ @ett_camel_number, %38 ]
+  %.023.ph30.in = phi ptr [ @ett_camel_dTMFDigitsCompleted, %32 ], [ @ett_camel_dTMFDigitsTimeOut, %35 ], [ @ett_camel_number, %38 ]
   %.023.ph30 = load i32, ptr %.023.ph30.in, align 4
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %45 = load ptr, ptr %44, align 8

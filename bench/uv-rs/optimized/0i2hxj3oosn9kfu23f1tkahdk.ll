@@ -1474,23 +1474,23 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %5 = load i32, ptr %4, align 4, !alias.scope !215, !noalias !220, !noundef !12
   %6 = and i32 %5, 16
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %11
+  br i1 %7, label %8, label %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h7f3559df21e0adaeE.exit.i"
 
 8:                                                ; preds = %2
   %9 = and i32 %5, 32
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %13, label %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h7f3559df21e0adaeE.exit.i"
+  br i1 %10, label %11, label %13
 
-11:                                               ; preds = %2
-  %12 = tail call noundef zeroext i1 @"_ZN4core3fmt3num55_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$usize$GT$3fmt17ha7cd34b8a316c5b3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+11:                                               ; preds = %8
+  %12 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h375023829e7d86c9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %12, label %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0d2be52c863d09b2E.exit", label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit.i
 
 13:                                               ; preds = %8
-  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h375023829e7d86c9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %14 = tail call noundef zeroext i1 @"_ZN4core3fmt3num55_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$usize$GT$3fmt17h08e8382574e8fe19E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %14, label %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0d2be52c863d09b2E.exit", label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit.i
 
-"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h7f3559df21e0adaeE.exit.i": ; preds = %8
-  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num55_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$usize$GT$3fmt17h08e8382574e8fe19E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h7f3559df21e0adaeE.exit.i": ; preds = %2
+  %15 = tail call noundef zeroext i1 @"_ZN4core3fmt3num55_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$usize$GT$3fmt17ha7cd34b8a316c5b3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %15, label %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0d2be52c863d09b2E.exit", label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit.i
 
 _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit.i: ; preds = %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h7f3559df21e0adaeE.exit.i", %13, %11
@@ -1528,7 +1528,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit.i: ; preds = %"_ZN4cor
   br label %"_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0d2be52c863d09b2E.exit"
 
 "_ZN71_$LT$core..ops..range..Range$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0d2be52c863d09b2E.exit": ; preds = %11, %13, %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h7f3559df21e0adaeE.exit.i", %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit.i, %29, %31, %33
-  %.sroa.0.0.i = phi i1 [ true, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit.i ], [ true, %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h7f3559df21e0adaeE.exit.i" ], [ %32, %31 ], [ %34, %33 ], [ %30, %29 ], [ true, %13 ], [ true, %11 ]
+  %.sroa.0.0.i = phi i1 [ true, %"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h7f3559df21e0adaeE.exit.i" ], [ true, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit.i ], [ %32, %31 ], [ %34, %33 ], [ %30, %29 ], [ true, %11 ], [ true, %13 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2171,7 +2171,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit87.i: ; preds = %70
   br label %"_ZN70_$LT$uv_pep508..Requirement$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hb96ee5d5bd33e11cE.exit"
 
 "_ZN70_$LT$uv_pep508..Requirement$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hb96ee5d5bd33e11cE.exit": ; preds = %2, %70, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit69.i, %113, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit87.i, %119
-  %.sroa.0.0.i = phi i1 [ false, %70 ], [ %118, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit87.i ], [ true, %113 ], [ true, %2 ], [ true, %119 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit69.i ]
+  %.sroa.0.0.i = phi i1 [ true, %113 ], [ true, %119 ], [ false, %70 ], [ %118, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit87.i ], [ true, %2 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit69.i ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -2637,7 +2637,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$uv_install_wheel..Error$GT$1
           to label %"_ZN4core3ptr38drop_in_place$LT$csv..error..Error$GT$17ha6d09195406f3795E.exit" unwind label %72, !noalias !456
 
 common.resume:                                    ; preds = %212, %225, %238, %229, %234, %177, %189, %122, %97, %72
-  %common.resume.op = phi { ptr, i32 } [ %73, %72 ], [ %98, %97 ], [ %123, %122 ], [ %190, %189 ], [ %178, %177 ], [ %.pn, %212 ], [ %226, %225 ], [ %230, %238 ], [ %230, %229 ], [ %230, %234 ]
+  %common.resume.op = phi { ptr, i32 } [ %73, %72 ], [ %98, %97 ], [ %123, %122 ], [ %178, %177 ], [ %190, %189 ], [ %.pn, %212 ], [ %226, %225 ], [ %230, %238 ], [ %230, %229 ], [ %230, %234 ]
   resume { ptr, i32 } %common.resume.op
 
 72:                                               ; preds = %69
@@ -3542,7 +3542,7 @@ define internal void @"_ZN4core3ptr50drop_in_place$LT$uv_distribution..error..Er
   unreachable
 
 common.resume:                                    ; preds = %782, %787, %792, %836, %850, %863, %777, %731, %746, %737, %742, %755, %768, %759, %764, %814, %805, %810, %670, %485, %512, %526, %531, %538, %560, %581, %589, %593, %607, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17heaff160932c6e35cE.exit17.i", %621, %625, %629, %633, %296, %176, %115, %194
-  %common.resume.op = phi { ptr, i32 } [ %671, %670 ], [ %116, %115 ], [ %195, %194 ], [ %177, %176 ], [ %297, %296 ], [ %634, %633 ], [ %590, %589 ], [ %532, %531 ], [ %539, %538 ], [ %486, %485 ], [ %.pn.i.i, %512 ], [ %527, %526 ], [ %561, %560 ], [ %594, %593 ], [ %.pn.i9.i, %581 ], [ %630, %629 ], [ %608, %607 ], [ %.pn.i, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17heaff160932c6e35cE.exit17.i" ], [ %626, %625 ], [ %622, %621 ], [ %864, %863 ], [ %732, %731 ], [ %738, %742 ], [ %756, %755 ], [ %778, %777 ], [ %783, %782 ], [ %788, %787 ], [ %793, %792 ], [ %760, %764 ], [ %.pn, %836 ], [ %851, %850 ], [ %738, %746 ], [ %738, %737 ], [ %760, %768 ], [ %760, %759 ], [ %806, %814 ], [ %806, %805 ], [ %806, %810 ]
+  %common.resume.op = phi { ptr, i32 } [ %195, %194 ], [ %116, %115 ], [ %177, %176 ], [ %297, %296 ], [ %539, %538 ], [ %486, %485 ], [ %.pn.i.i, %512 ], [ %527, %526 ], [ %532, %531 ], [ %561, %560 ], [ %594, %593 ], [ %.pn.i9.i, %581 ], [ %590, %589 ], [ %608, %607 ], [ %.pn.i, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17heaff160932c6e35cE.exit17.i" ], [ %622, %621 ], [ %626, %625 ], [ %630, %629 ], [ %634, %633 ], [ %671, %670 ], [ %778, %777 ], [ %783, %782 ], [ %788, %787 ], [ %793, %792 ], [ %.pn, %836 ], [ %851, %850 ], [ %864, %863 ], [ %732, %731 ], [ %738, %746 ], [ %738, %737 ], [ %738, %742 ], [ %756, %755 ], [ %760, %768 ], [ %760, %759 ], [ %760, %764 ], [ %806, %814 ], [ %806, %805 ], [ %806, %810 ]
   resume { ptr, i32 } %common.resume.op
 
 130:                                              ; preds = %1
@@ -7023,7 +7023,7 @@ define internal void @"_ZN4core3ptr73drop_in_place$LT$uv_distribution_types..ins
   br label %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hd31cbc58c6e5a0b8E.exit"
 
 common.resume:                                    ; preds = %161, %170, %93, %108, %114, %175, %166, %119, %48
-  %common.resume.op = phi { ptr, i32 } [ %49, %48 ], [ %176, %175 ], [ %120, %119 ], [ %167, %166 ], [ %109, %108 ], [ %115, %114 ], [ %94, %93 ], [ %171, %170 ], [ %162, %161 ]
+  %common.resume.op = phi { ptr, i32 } [ %49, %48 ], [ %120, %119 ], [ %167, %166 ], [ %176, %175 ], [ %115, %114 ], [ %94, %93 ], [ %109, %108 ], [ %171, %170 ], [ %162, %161 ]
   resume { ptr, i32 } %common.resume.op
 
 48:                                               ; preds = %46, %41, %39
@@ -13726,7 +13726,7 @@ define void @_ZN12uv_installer8preparer5Error9from_dist17h9dfc63af9d7e6b84E(ptr 
           to label %9 unwind label %46
 
 _ZN21uv_distribution_types10dist_error13DistErrorKind9from_dist17h773c14f5397ed2c5E.exit: ; preds = %.noexc4, %27, %25, %.noexc
-  %.sroa.0.0.i = phi i8 [ 3, %.noexc ], [ %..i, %25 ], [ 2, %27 ], [ %.1.i, %.noexc4 ]
+  %.sroa.0.0.i = phi i8 [ 3, %.noexc ], [ %..i, %25 ], [ %.1.i, %.noexc4 ], [ 2, %27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %5, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 160, i1 false)
   %34 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3387
@@ -14045,8 +14045,8 @@ define { ptr, ptr } @"_ZN74_$LT$uv_installer..compile..CompileError$u20$as$u20$c
   br label %15
 
 15:                                               ; preds = %1, %13, %11, %9, %7, %6
-  %.sroa.11.0 = phi ptr [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %11 ], [ undef, %6 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.337.llvm.3020970440203120126, %1 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %7 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %9 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.339.llvm.3020970440203120126, %13 ]
-  %.sroa.0.0 = phi ptr [ %12, %11 ], [ null, %6 ], [ %0, %1 ], [ %8, %7 ], [ %10, %9 ], [ %14, %13 ]
+  %.sroa.11.0 = phi ptr [ undef, %6 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %7 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %9 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %11 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.339.llvm.3020970440203120126, %13 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.337.llvm.3020970440203120126, %1 ]
+  %.sroa.0.0 = phi ptr [ null, %6 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %0, %1 ]
   %16 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.11.0, 1
   ret { ptr, ptr } %17
@@ -14532,8 +14532,8 @@ define { ptr, ptr } @"_ZN78_$LT$uv_installer..uninstall..UninstallError$u20$as$u
   br label %11
 
 11:                                               ; preds = %1, %7
-  %.sroa.4.0 = phi ptr [ undef, %1 ], [ %10, %7 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %9, %7 ]
+  %.sroa.4.0 = phi ptr [ %10, %7 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %9, %7 ], [ null, %1 ]
   %12 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %13 = insertvalue { ptr, ptr } %12, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %13

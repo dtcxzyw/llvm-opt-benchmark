@@ -793,7 +793,7 @@ _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit27: ; preds = %_ZNSt3__14__fs1
   br label %.body
 
 .body:                                            ; preds = %78, %56, %52
-  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %79, %78 ], [ %53, %56 ]
+  %.pn = phi { ptr, i32 } [ %79, %78 ], [ %53, %56 ], [ %53, %52 ]
   %80 = load i8, ptr %4, align 8
   %81 = and i8 %80, 1
   %.not.i.i31 = icmp eq i8 %81, 0
@@ -821,8 +821,8 @@ _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit33: ; preds = %.body, %82
   %90 = icmp eq ptr %89, null
   br i1 %90, label %._crit_edge, label %.lr.ph
 
-91:                                               ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit27, %_ZNSt3__14__fs10filesystem12__dir_stream5closeEv.exit
-  %or.cond.not67 = phi i1 [ true, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit27 ], [ false, %_ZNSt3__14__fs10filesystem12__dir_stream5closeEv.exit ]
+91:                                               ; preds = %_ZNSt3__14__fs10filesystem12__dir_stream5closeEv.exit, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit27
+  %or.cond.not67 = phi i1 [ false, %_ZNSt3__14__fs10filesystem12__dir_stream5closeEv.exit ], [ true, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit27 ]
   ret i1 %or.cond.not67
 }
 
@@ -4488,11 +4488,11 @@ _ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_
   br label %61
 
 61:                                               ; preds = %59, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit
-  %62 = phi ptr [ %.pre90, %59 ], [ %20, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ], [ %20, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ]
-  %.promoted61 = phi ptr [ %60, %59 ], [ %51, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ], [ %51, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ]
-  %.promoted53 = phi ptr [ %58, %59 ], [ %47, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ], [ %47, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ]
-  %63 = phi ptr [ %.pre, %59 ], [ %18, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ], [ %18, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ]
-  %.promoted = phi ptr [ %58, %59 ], [ %48, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ], [ %57, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ]
+  %62 = phi ptr [ %.pre90, %59 ], [ %20, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ], [ %20, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ]
+  %.promoted61 = phi ptr [ %60, %59 ], [ %51, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ], [ %51, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ]
+  %.promoted53 = phi ptr [ %58, %59 ], [ %47, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ], [ %47, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ]
+  %63 = phi ptr [ %.pre, %59 ], [ %18, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ], [ %18, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ]
+  %.promoted = phi ptr [ %58, %59 ], [ %57, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ], [ %48, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ]
   store ptr %52, ptr %.promoted, align 8, !tbaa !27
   %64 = getelementptr inbounds nuw i8, ptr %.promoted, i64 8
   %.not65 = icmp eq ptr %63, %62

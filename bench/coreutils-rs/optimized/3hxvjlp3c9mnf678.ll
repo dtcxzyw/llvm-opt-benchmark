@@ -385,27 +385,27 @@ define hidden { ptr, i64 } @"_ZN4core3str6traits112_$LT$impl$u20$core..slice..in
 
 5:                                                ; preds = %3
   %.not.i = icmp ult i64 %0, %2
-  br i1 %.not.i, label %6, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit"
+  br i1 %.not.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit", label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 %0
-  %8 = load i8, ptr %7, align 1, !alias.scope !52, !noundef !16
-  %9 = icmp sgt i8 %8, -65
-  %10 = sub nuw i64 %2, %0
-  br i1 %9, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.thread", label %15
+  %7 = icmp eq i64 %0, %2
+  %8 = sub i64 %2, %0
+  br i1 %7, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.thread", label %15
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit": ; preds = %5
-  %11 = icmp eq i64 %0, %2
-  %12 = sub i64 %2, %0
+  %9 = getelementptr inbounds i8, ptr %1, i64 %0
+  %10 = load i8, ptr %9, align 1, !alias.scope !52, !noundef !16
+  %11 = icmp sgt i8 %10, -65
+  %12 = sub nuw i64 %2, %0
   br i1 %11, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.thread", label %15
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.thread": ; preds = %3, %6, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit"
-  %13 = phi i64 [ %10, %6 ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit" ], [ %2, %3 ]
+  %13 = phi i64 [ %12, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit" ], [ 0, %6 ], [ %2, %3 ]
   %14 = getelementptr inbounds i8, ptr %1, i64 %0
   br label %15
 
 15:                                               ; preds = %6, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.thread"
-  %16 = phi i64 [ %13, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.thread" ], [ %12, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit" ], [ %10, %6 ]
+  %16 = phi i64 [ %13, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.thread" ], [ %12, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit" ], [ %8, %6 ]
   %17 = phi ptr [ %14, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.thread" ], [ null, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit" ], [ null, %6 ]
   %18 = insertvalue { ptr, i64 } poison, ptr %17, 0
   %19 = insertvalue { ptr, i64 } %18, i64 %16, 1
@@ -514,7 +514,7 @@ define hidden noundef i64 @_ZN6uu_fmt9linebreak9BreakArgs13compute_width17hcd409
   br i1 %trunc, label %10, label %9
 
 9:                                                ; preds = %4, %5, %15
-  %.0 = phi i64 [ %23, %15 ], [ %7, %5 ], [ 0, %4 ]
+  %.0 = phi i64 [ %7, %5 ], [ %23, %15 ], [ 0, %4 ]
   ret i64 %.0
 
 10:                                               ; preds = %5
@@ -849,7 +849,7 @@ _ZN6uu_fmt9linebreak12break_simple17h0371cda92b8911d2E.exit: ; preds = %142, %.n
   ret ptr %.2
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit": ; preds = %46, %44, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit52", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit46", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit49"
-  %.3 = phi ptr [ %62, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit46" ], [ %100, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit52" ], [ %82, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit49" ], [ null, %46 ], [ %45, %44 ]
+  %.3 = phi ptr [ %82, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit49" ], [ %62, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit46" ], [ %100, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit52" ], [ null, %46 ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !129
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h45942b53d2cec07fE.llvm.3568425259640809499"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %10)
   %161 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -913,7 +913,7 @@ define hidden void @_ZN6uu_fmt9linebreak18accum_words_simple17hec876937b4d67f5bE
   unreachable
 
 _ZN6uu_fmt9linebreak9BreakArgs13compute_width17hcd40995adcd93216E.exit: ; preds = %5, %15
-  %.0.i = phi i64 [ %23, %15 ], [ %9, %5 ]
+  %.0.i = phi i64 [ %9, %5 ], [ %23, %15 ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %26 = load i8, ptr %25, align 8, !range !89, !noundef !16
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 58
@@ -1023,18 +1023,18 @@ _ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit: ; preds = %65
 
 88:                                               ; preds = %80
   %.not.i.i = icmp ult i64 %86, %84
-  br i1 %.not.i.i, label %89, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.i"
+  br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.i", label %89
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %82, i64 %86
-  %91 = load i8, ptr %90, align 1, !alias.scope !162, !noundef !16
-  %92 = icmp sgt i8 %91, -65
-  %93 = sub nuw i64 %84, %86
-  br i1 %92, label %96, label %95
+  %90 = icmp eq i64 %86, %84
+  br i1 %90, label %96, label %95
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.i": ; preds = %88
-  %94 = icmp eq i64 %86, %84
-  br i1 %94, label %96, label %95
+  %91 = getelementptr inbounds i8, ptr %82, i64 %86
+  %92 = load i8, ptr %91, align 1, !alias.scope !162, !noundef !16
+  %93 = icmp sgt i8 %92, -65
+  %94 = sub nuw i64 %84, %86
+  br i1 %93, label %96, label %95
 
 _ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit.thread32: ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit.i", %_ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit
   %.0.i2934 = phi ptr [ %74, %_ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit ], [ %63, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit.i" ]
@@ -1046,7 +1046,7 @@ _ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit.thread32: ; preds =
   unreachable
 
 96:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.i", %89, %80
-  %97 = phi i64 [ %93, %89 ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.i" ], [ %84, %80 ]
+  %97 = phi i64 [ %94, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.i" ], [ 0, %89 ], [ %84, %80 ]
   %98 = getelementptr inbounds i8, ptr %82, i64 %86
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
   %99 = load i64, ptr %41, align 8, !alias.scope !170, !noalias !173, !noundef !16
@@ -1413,7 +1413,7 @@ define hidden void @_ZN6uu_fmt9linebreak21restart_active_breaks17hc23d684a4e27bc
   unreachable
 
 _ZN6uu_fmt9linebreak9BreakArgs13compute_width17hcd40995adcd93216E.exit: ; preds = %11, %23
-  %.0.i = phi i64 [ %31, %23 ], [ %17, %11 ]
+  %.0.i = phi i64 [ %17, %11 ], [ %31, %23 ]
   %33 = sub i64 %6, %15
   %34 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %35 = load i64, ptr %34, align 8, !noundef !16
@@ -1486,18 +1486,18 @@ define hidden void @_ZN6uu_fmt9linebreak14slice_if_fresh17he2750172105604aaE(ptr
 
 13:                                               ; preds = %11
   %.not.i.i = icmp ult i64 %4, %3
-  br i1 %.not.i.i, label %14, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.i"
+  br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.i", label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %2, i64 %4
-  %16 = load i8, ptr %15, align 1, !alias.scope !229, !noundef !16
-  %17 = icmp sgt i8 %16, -65
-  %18 = sub nuw i64 %3, %4
-  br i1 %17, label %24, label %23
+  %15 = icmp eq i64 %4, %3
+  br i1 %15, label %24, label %23
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.i": ; preds = %13
-  %19 = icmp eq i64 %4, %3
-  br i1 %19, label %24, label %23
+  %16 = getelementptr inbounds i8, ptr %2, i64 %4
+  %17 = load i8, ptr %16, align 1, !alias.scope !229, !noundef !16
+  %18 = icmp sgt i8 %17, -65
+  %19 = sub nuw i64 %3, %4
+  br i1 %18, label %24, label %23
 
 20:                                               ; preds = %24, %10
   %.sink6 = phi i64 [ 0, %24 ], [ %.0.i, %10 ]
@@ -1515,7 +1515,7 @@ define hidden void @_ZN6uu_fmt9linebreak14slice_if_fresh17he2750172105604aaE(ptr
   unreachable
 
 24:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.i", %14, %11
-  %25 = phi i64 [ %18, %14 ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.i" ], [ %3, %11 ]
+  %25 = phi i64 [ %19, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.6876384978452292205.exit.i" ], [ 0, %14 ], [ %3, %11 ]
   %26 = getelementptr inbounds i8, ptr %2, i64 %4
   br label %20
 }
@@ -1650,7 +1650,7 @@ define hidden noundef ptr @_ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e3888
   br i1 %41, label %17, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit17"
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit17": ; preds = %25, %23, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit19", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit"
-  %.0 = phi ptr [ %40, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit19" ], [ %15, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit" ], [ null, %25 ], [ %24, %23 ]
+  %.0 = phi ptr [ %15, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit" ], [ %40, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit19" ], [ null, %25 ], [ %24, %23 ]
   ret ptr %.0
 }
 

@@ -411,7 +411,7 @@ thread-pre-split:                                 ; preds = %107
   call fastcc void @err_sys(ptr noundef nonnull @.str.26) #14
   unreachable
 
-.preheader150.backedge.critedge:                  ; preds = %131, %99, %120, %101
+.preheader150.backedge.critedge:                  ; preds = %120, %101, %99, %131
   %156 = call i32 @wolfSSL_shutdown(ptr noundef nonnull %74) #16
   br label %.preheader150.backedge
 

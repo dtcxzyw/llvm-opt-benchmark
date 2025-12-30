@@ -1062,8 +1062,8 @@ define noundef ptr @_ZN7Imf_3_413newCompressorENS_11CompressionEmRKNS_6HeaderE(i
           cleanup
   br label %48
 
-42:                                               ; preds = %32, %4, %8, %12, %16, %20, %24, %28, %37
-  %.025.ph = phi ptr [ %38, %37 ], [ %29, %28 ], [ %25, %24 ], [ %21, %20 ], [ %17, %16 ], [ %13, %12 ], [ %9, %8 ], [ %5, %4 ], [ %33, %32 ]
+42:                                               ; preds = %4, %8, %12, %16, %20, %24, %28, %32, %37
+  %.025.ph = phi ptr [ %38, %37 ], [ %33, %32 ], [ %29, %28 ], [ %25, %24 ], [ %21, %20 ], [ %17, %16 ], [ %13, %12 ], [ %9, %8 ], [ %5, %4 ]
   %43 = getelementptr inbounds nuw i8, ptr %.025.ph, i64 48
   %44 = load i32, ptr %43, align 8, !tbaa !51
   %45 = icmp eq i32 %44, 4
@@ -1285,8 +1285,8 @@ define noundef ptr @_ZN7Imf_3_417newTileCompressorENS_11CompressionEmmRKNS_6Head
           cleanup
   br label %.body
 
-54:                                               ; preds = %42, %13, %17, %22, %27, %32, %37, %48
-  %.031.ph = phi ptr [ %49, %48 ], [ %38, %37 ], [ %33, %32 ], [ %28, %27 ], [ %23, %22 ], [ %18, %17 ], [ %6, %13 ], [ %43, %42 ]
+54:                                               ; preds = %13, %17, %22, %27, %32, %37, %42, %48
+  %.031.ph = phi ptr [ %49, %48 ], [ %43, %42 ], [ %38, %37 ], [ %33, %32 ], [ %28, %27 ], [ %23, %22 ], [ %18, %17 ], [ %6, %13 ]
   %55 = getelementptr inbounds nuw i8, ptr %.031.ph, i64 48
   %56 = load i32, ptr %55, align 8, !tbaa !51
   %57 = icmp eq i32 %56, 4

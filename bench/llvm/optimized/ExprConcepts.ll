@@ -341,8 +341,8 @@ _ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit: ; preds = %76
   store i24 %96, ptr %0, align 8
   br label %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread
 
-_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread: ; preds = %83, %78, %73, %79, %88, %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit
-  %97 = phi i24 [ %70, %83 ], [ %70, %78 ], [ %70, %73 ], [ %70, %79 ], [ %96, %88 ], [ %70, %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit ]
+_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread: ; preds = %78, %79, %83, %73, %88, %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit
+  %97 = phi i24 [ %70, %78 ], [ %70, %79 ], [ %70, %83 ], [ %70, %73 ], [ %96, %88 ], [ %70, %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit ]
   %98 = getelementptr inbounds nuw i8, ptr %.03760, i64 8
   %.not39 = icmp eq ptr %98, %39
   br i1 %.not39, label %.critedge, label %.lr.ph64

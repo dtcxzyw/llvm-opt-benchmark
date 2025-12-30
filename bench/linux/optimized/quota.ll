@@ -191,8 +191,8 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_quotactl
   br label %.thread
 
 .thread:                                          ; preds = %44, %44, %44, %44, %.thread.fold.split, %45
-  %46 = phi i1 [ true, %44 ], [ false, %45 ], [ true, %44 ], [ true, %44 ], [ true, %44 ], [ false, %.thread.fold.split ]
-  %47 = phi i1 [ false, %44 ], [ false, %45 ], [ false, %44 ], [ false, %44 ], [ false, %44 ], [ true, %.thread.fold.split ]
+  %46 = phi i1 [ false, %45 ], [ true, %44 ], [ true, %44 ], [ true, %44 ], [ true, %44 ], [ false, %.thread.fold.split ]
+  %47 = phi i1 [ false, %45 ], [ false, %44 ], [ false, %44 ], [ false, %44 ], [ false, %44 ], [ true, %.thread.fold.split ]
   %48 = load i32, ptr %5, align 4
   %49 = call ptr @user_get_super(i32 noundef %48, i1 noundef zeroext %46) #8
   %50 = icmp eq ptr %49, null
@@ -808,7 +808,7 @@ default.unreachable4:                             ; preds = %.thread
   unreachable
 
 16:                                               ; preds = %15, %14, %.thread
-  %17 = phi i32 [ 2, %.thread ], [ 32, %15 ], [ 8, %14 ]
+  %17 = phi i32 [ 32, %15 ], [ 8, %14 ], [ 2, %.thread ]
   %18 = tail call i32 %10(ptr noundef %0, i32 noundef %17) #8
   br label %26
 
@@ -865,7 +865,7 @@ default.unreachable2:                             ; preds = %.thread
   unreachable
 
 15:                                               ; preds = %14, %13, %.thread
-  %16 = phi i32 [ 2, %.thread ], [ 32, %14 ], [ 8, %13 ]
+  %16 = phi i32 [ 32, %14 ], [ 8, %13 ], [ 2, %.thread ]
   %17 = tail call i32 %9(ptr noundef %0, i32 noundef %16) #8
   br label %20
 
@@ -1958,7 +1958,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @quota_getxstatev(ptr nound
   br label %109
 
 109:                                              ; preds = %106, %104, %14, %11, %3
-  %110 = phi i32 [ %spec.select, %106 ], [ -38, %3 ], [ -14, %11 ], [ -22, %14 ], [ %105, %104 ]
+  %110 = phi i32 [ -38, %3 ], [ -14, %11 ], [ -22, %14 ], [ %105, %104 ], [ %spec.select, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %110
 }
@@ -2065,7 +2065,7 @@ define internal fastcc i32 @quota_setxquota(ptr noundef %0, i32 noundef range(i3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %25, %64, %31
-  %67 = phi i16 [ %30, %31 ], [ %66, %64 ], [ %30, %25 ]
+  %67 = phi i16 [ %66, %64 ], [ %30, %31 ], [ %30, %25 ]
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %69 = load i64, ptr %68, align 8
   %70 = shl i64 %69, 9
@@ -2170,7 +2170,7 @@ define internal fastcc i32 @quota_setxquota(ptr noundef %0, i32 noundef range(i3
   br label %151
 
 151:                                              ; preds = %.thread, %._crit_edge, %16, %10, %4
-  %152 = phi i32 [ %150, %._crit_edge ], [ %.ph, %.thread ], [ -14, %4 ], [ -38, %10 ], [ -22, %16 ]
+  %152 = phi i32 [ %150, %._crit_edge ], [ -14, %4 ], [ -38, %10 ], [ -22, %16 ], [ %.ph, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %152

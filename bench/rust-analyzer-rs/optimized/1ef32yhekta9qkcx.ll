@@ -268,7 +268,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @"_ZN2tt6buffer18C
   br label %"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518.exit.thread"
 
 "_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518.exit.thread": ; preds = %33, %8, %39, %23, %18, %44
-  %.1 = phi ptr [ %46, %44 ], [ null, %39 ], [ null, %18 ], [ null, %23 ], [ null, %8 ], [ null, %33 ]
+  %.1 = phi ptr [ %46, %44 ], [ null, %18 ], [ null, %23 ], [ null, %39 ], [ null, %8 ], [ null, %33 ]
   ret ptr %.1
 }
 
@@ -307,7 +307,7 @@ define hidden noundef zeroext i1 @"_ZN2tt6buffer18Cursor$LT$Span$GT$3eof17h26ca2
   br i1 %22, label %23, label %"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518.exit.thread"
 
 "_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518.exit.thread": ; preds = %8, %18, %23
-  %.0 = phi i1 [ false, %18 ], [ %27, %23 ], [ true, %8 ]
+  %.0 = phi i1 [ %27, %23 ], [ false, %18 ], [ true, %8 ]
   ret i1 %.0
 
 23:                                               ; preds = %18
@@ -564,7 +564,7 @@ define hidden noundef i64 @"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$9new_inner17h6
   br label %21
 
 .thread47.thread68:                               ; preds = %64, %.thread, %.thread47.thread
-  %.pn4664 = phi { ptr, i32 } [ %.pn4665, %.thread47.thread ], [ %lpad.phi, %.thread ], [ %65, %64 ]
+  %.pn4664 = phi { ptr, i32 } [ %.pn4665, %.thread47.thread ], [ %65, %64 ], [ %lpad.phi, %.thread ]
   resume { ptr, i32 } %.pn4664
 
 21:                                               ; preds = %.noexc, %4
@@ -793,8 +793,8 @@ define hidden noundef i64 @"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$9new_inner17h6
   invoke void @"_ZN4core3ptr121drop_in_place$LT$alloc..vec..Vec$LT$tt..buffer..Entry$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$GT$17hf8c6574c83b3a5ecE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #21
           to label %.thread47.thread unwind label %92
 
-.thread47.thread:                                 ; preds = %37, %40, %94, %.thread47.thread71
-  %.pn4665 = phi { ptr, i32 } [ %lpad.thr_comm73, %.thread47.thread71 ], [ %38, %37 ], [ %38, %40 ], [ %lpad.thr_comm.split-lp, %94 ]
+.thread47.thread:                                 ; preds = %40, %37, %94, %.thread47.thread71
+  %.pn4665 = phi { ptr, i32 } [ %lpad.thr_comm73, %.thread47.thread71 ], [ %38, %40 ], [ %38, %37 ], [ %lpad.thr_comm.split-lp, %94 ]
   invoke void @"_ZN4core3ptr251drop_in_place$LT$alloc..vec..Vec$LT$$LP$usize$C$$LP$$RF$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$core..option..Option$LT$$RF$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$RP$$RP$$GT$$GT$17h8a9a42d42f1f9f29E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #21
           to label %.thread47.thread68 unwind label %92
 }
@@ -2059,7 +2059,7 @@ default.unreachable4:                             ; preds = %2
   br label %"_ZN54_$LT$mbe..CountError$u20$as$u20$core..fmt..Display$GT$3fmt17hc0e046a23e288037E.exit"
 
 "_ZN54_$LT$mbe..CountError$u20$as$u20$core..fmt..Display$GT$3fmt17hc0e046a23e288037E.exit": ; preds = %28, %26, %11, %30, %21, %19, %17, %15, %13, %4
-  %.0.shrunk = phi i1 [ %10, %4 ], [ %36, %30 ], [ true, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %27, %26 ], [ %29, %28 ]
+  %.0.shrunk = phi i1 [ %10, %4 ], [ %36, %30 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ true, %11 ], [ %27, %26 ], [ %29, %28 ]
   ret i1 %.0.shrunk
 
 30:                                               ; preds = %11
@@ -2225,7 +2225,7 @@ define void @_ZN3mbe8validate17he3828157b3017cb8E(ptr noalias noundef writeonly 
   %42 = icmp eq ptr %31, %28
   br i1 %42, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0824fca3df56a0b5E.exit", label %.lr.ph.i
 
-.critedge:                                        ; preds = %"_ZN3mbe8validate28_$u7b$$u7b$closure$u7d$$u7d$17h6bbd71c946dfd4cbE.exit.i", %.lr.ph.i, %36, %18
+.critedge:                                        ; preds = %"_ZN3mbe8validate28_$u7b$$u7b$closure$u7d$$u7d$17h6bbd71c946dfd4cbE.exit.i", %36, %.lr.ph.i, %18
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.02736, i64 104
   call void @_ZN3mbe8validate17he3828157b3017cb8E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %43)

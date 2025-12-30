@@ -719,7 +719,7 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   br i1 %exitcond240.not, label %.loopexit, label %.lr.ph193, !llvm.loop !56
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph185, %.lr.ph189, %.lr.ph193, %.lr.ph197, %.lr.ph201, %.lr.ph205, %.lr.ph209, %.preheader179, %.preheader177, %.preheader175, %.preheader173, %.preheader171, %.preheader169, %.preheader167, %.preheader
-  %.2149 = phi i32 [ %147, %.lr.ph189 ], [ %122, %.lr.ph197 ], [ %78, %.lr.ph209 ], [ %106, %.lr.ph185 ], [ %133, %.lr.ph201 ], [ %67, %.lr.ph205 ], [ %157, %.lr.ph193 ], [ 0, %.preheader ], [ 0, %.preheader167 ], [ 0, %.preheader169 ], [ 0, %.preheader171 ], [ 0, %.preheader173 ], [ 0, %.preheader175 ], [ 0, %.preheader177 ], [ 0, %.preheader179 ], [ %95, %.lr.ph ]
+  %.2149 = phi i32 [ 0, %.preheader ], [ 0, %.preheader167 ], [ 0, %.preheader169 ], [ 0, %.preheader171 ], [ 0, %.preheader173 ], [ 0, %.preheader175 ], [ 0, %.preheader177 ], [ 0, %.preheader179 ], [ %78, %.lr.ph209 ], [ %67, %.lr.ph205 ], [ %133, %.lr.ph201 ], [ %122, %.lr.ph197 ], [ %157, %.lr.ph193 ], [ %147, %.lr.ph189 ], [ %106, %.lr.ph185 ], [ %95, %.lr.ph ]
   br i1 %.not, label %162, label %158
 
 158:                                              ; preds = %.loopexit

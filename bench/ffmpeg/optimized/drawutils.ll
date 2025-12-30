@@ -147,7 +147,7 @@ define internal fastcc range(i32 -38, 1) i32 @fill_map(ptr noundef %0, ptr nound
   br i1 %58, label %.thread88.sink.split, label %.thread88
 
 .thread88.sink.split:                             ; preds = %._crit_edge, %36, %22
-  %.sink = phi i8 [ 3, %22 ], [ %39, %36 ], [ %60, %._crit_edge ]
+  %.sink = phi i8 [ %39, %36 ], [ 3, %22 ], [ %60, %._crit_edge ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %.sink, ptr %61, align 1, !tbaa !15
   br label %.thread88
@@ -214,7 +214,7 @@ define internal fastcc range(i32 -38, 1) i32 @fill_map(ptr noundef %0, ptr nound
   unreachable
 
 .loopexit:                                        ; preds = %40, %78, %19, %2
-  %.0 = phi i32 [ 0, %78 ], [ -22, %2 ], [ -22, %19 ], [ -38, %40 ]
+  %.0 = phi i32 [ -22, %2 ], [ -22, %19 ], [ 0, %78 ], [ -38, %40 ]
   ret i32 %.0
 }
 
@@ -425,7 +425,7 @@ define range(i32 -38, 1) i32 @ff_draw_init2(ptr noundef %0, i32 noundef %1, i32 
   br label %.thread124
 
 .thread124:                                       ; preds = %31, %36, %42, %45, %46, %52, %58, %._crit_edge131, %26, %18, %10, %5, %8, %71
-  %.0 = phi i32 [ -22, %5 ], [ -38, %10 ], [ -22, %18 ], [ 0, %71 ], [ -22, %8 ], [ -22, %26 ], [ -38, %._crit_edge131 ], [ -38, %58 ], [ -38, %52 ], [ -38, %46 ], [ -38, %45 ], [ -38, %42 ], [ -38, %36 ], [ -38, %31 ]
+  %.0 = phi i32 [ 0, %71 ], [ -22, %8 ], [ -22, %5 ], [ -38, %10 ], [ -22, %18 ], [ -22, %26 ], [ -38, %._crit_edge131 ], [ -38, %58 ], [ -38, %52 ], [ -38, %46 ], [ -38, %45 ], [ -38, %42 ], [ -38, %36 ], [ -38, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

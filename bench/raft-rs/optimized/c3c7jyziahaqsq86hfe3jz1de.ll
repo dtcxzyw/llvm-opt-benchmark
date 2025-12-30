@@ -756,7 +756,7 @@ define hidden { i64, i1 } @_ZN4raft6quorum8majority13Configuration15committed_in
   store i64 %74, ptr %39, align 8, !alias.scope !72
   br label %43
 
-.loopexit:                                        ; preds = %43, %47, %70
+.loopexit:                                        ; preds = %70, %43, %47
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %75
@@ -962,7 +962,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN4raft6quorum8majority13Configuration
   br label %16
 
 15:                                               ; preds = %._crit_edge, %53, %2
-  %.sroa.0.0 = phi i8 [ 2, %._crit_edge ], [ %., %53 ], [ 2, %2 ]
+  %.sroa.0.0 = phi i8 [ 2, %2 ], [ %., %53 ], [ 2, %._crit_edge ]
   ret i8 %.sroa.0.0
 
 16:                                               ; preds = %.lr.ph, %56
@@ -1101,7 +1101,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN4raft6quorum8majority13Configuration
   br i1 %.not.us, label %._crit_edge.thread, label %"_ZN4raft7tracker15ProgressTracker10has_quorum28_$u7b$$u7b$closure$u7d$$u7d$17h2584529d15f50316E.exit.us"
 
 20:                                               ; preds = %._crit_edge, %53, %2
-  %.sroa.0.0 = phi i8 [ 2, %._crit_edge ], [ %., %53 ], [ 2, %2 ]
+  %.sroa.0.0 = phi i8 [ 2, %2 ], [ %., %53 ], [ 2, %._crit_edge ]
   ret i8 %.sroa.0.0
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %"_ZN4raft7tracker15ProgressTracker10has_quorum28_$u7b$$u7b$closure$u7d$$u7d$17h2584529d15f50316E.exit"
@@ -1229,7 +1229,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN4raft6quorum8majority13Configuration
   br i1 %.not.us, label %._crit_edge.thread, label %"_ZN4raft7tracker15ProgressTracker11vote_result28_$u7b$$u7b$closure$u7d$$u7d$17h7fdb5d3ae4cad34dE.exit.thread.us"
 
 21:                                               ; preds = %._crit_edge, %54, %2
-  %.sroa.0.0 = phi i8 [ 2, %._crit_edge ], [ %., %54 ], [ 2, %2 ]
+  %.sroa.0.0 = phi i8 [ 2, %2 ], [ %., %54 ], [ 2, %._crit_edge ]
   ret i8 %.sroa.0.0
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %57
@@ -1359,7 +1359,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN4raft6quorum8majority13Configuration
   br label %16
 
 15:                                               ; preds = %._crit_edge, %53, %2
-  %.sroa.0.0 = phi i8 [ 2, %._crit_edge ], [ %., %53 ], [ 2, %2 ]
+  %.sroa.0.0 = phi i8 [ 2, %2 ], [ %., %53 ], [ 2, %._crit_edge ]
   ret i8 %.sroa.0.0
 
 16:                                               ; preds = %.lr.ph, %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17hd32defd02f39c2caE.exit"
@@ -1638,7 +1638,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
   invoke void @"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17h40564e40fea33e3dE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6)
           to label %76 unwind label %.thread20
 
-.thread49:                                        ; preds = %81, %85
+.thread49:                                        ; preds = %85, %81
   %lpad.thr_comm47 = landingpad { ptr, i32 }
           cleanup
   br label %.thread42

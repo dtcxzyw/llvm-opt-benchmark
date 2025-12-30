@@ -146,7 +146,7 @@ split.thread39:                                   ; preds = %32, %split
   br i1 %.not31, label %39, label %.sink.split
 
 .sink.split:                                      ; preds = %29, %split, %split.thread39, %6
-  %.str.16.sink = phi ptr [ @.str.15, %6 ], [ @.str.16, %split ], [ @.str.16, %split.thread39 ], [ @.str.16, %29 ]
+  %.str.16.sink = phi ptr [ @.str.15, %6 ], [ @.str.16, %split.thread39 ], [ @.str.16, %split ], [ @.str.16, %29 ]
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull %.str.16.sink) #5
   br label %39
 

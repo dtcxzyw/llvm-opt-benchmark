@@ -387,14 +387,14 @@ define dso_local noundef i64 @_ZN4absl16strings_internal20Base64EscapeInternalEP
   unreachable
 
 127:                                              ; preds = %93, %71, %66, %50, %97, %.loopexit
-  %.299 = phi ptr [ %.097, %.loopexit ], [ %125, %97 ], [ %68, %66 ], [ %63, %50 ], [ %90, %71 ], [ %94, %93 ]
+  %.299 = phi ptr [ %.097, %.loopexit ], [ %125, %97 ], [ %68, %66 ], [ %63, %50 ], [ %94, %93 ], [ %90, %71 ]
   %128 = ptrtoint ptr %.299 to i64
   %129 = ptrtoint ptr %2 to i64
   %130 = sub i64 %128, %129
   br label %.critedge
 
 .critedge:                                        ; preds = %127, %48, %69, %95, %64, %91, %6
-  %.0 = phi i64 [ 0, %6 ], [ %130, %127 ], [ 0, %69 ], [ 0, %95 ], [ 0, %48 ], [ 0, %64 ], [ 0, %91 ]
+  %.0 = phi i64 [ 0, %6 ], [ %130, %127 ], [ 0, %48 ], [ 0, %69 ], [ 0, %95 ], [ 0, %64 ], [ 0, %91 ]
   ret i64 %.0
 }
 

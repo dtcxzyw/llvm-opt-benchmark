@@ -216,7 +216,7 @@ define range(i32 0, 2) i32 @cs_updown(ptr noundef readonly captures(address_is_n
   br label %114
 
 114:                                              ; preds = %31, %15, %4, %5, %10, %._crit_edge145
-  %.0107 = phi i32 [ 0, %4 ], [ %.1, %._crit_edge145 ], [ 1, %15 ], [ 0, %10 ], [ 0, %5 ], [ 0, %31 ]
+  %.0107 = phi i32 [ %.1, %._crit_edge145 ], [ 0, %10 ], [ 0, %5 ], [ 0, %4 ], [ 1, %15 ], [ 0, %31 ]
   ret i32 %.0107
 }
 

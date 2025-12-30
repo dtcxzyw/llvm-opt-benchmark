@@ -270,8 +270,8 @@ _ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit62: ; preds = %68
   br label %common.resume
 
 73:                                               ; preds = %.thread.thread, %.thread202, %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit
-  %74 = phi ptr [ %30, %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit ], [ %26, %.thread.thread ], [ %14, %.thread202 ]
-  %.049200 = phi i32 [ %.049201, %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit ], [ %25, %.thread.thread ], [ 5, %.thread202 ]
+  %74 = phi ptr [ %30, %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit ], [ %14, %.thread202 ], [ %26, %.thread.thread ]
+  %.049200 = phi i32 [ %.049201, %_ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit ], [ 5, %.thread202 ], [ %25, %.thread.thread ]
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.1, i64 noundef 5)
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.2, i64 noundef 2)
   %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.3, i64 noundef 22)

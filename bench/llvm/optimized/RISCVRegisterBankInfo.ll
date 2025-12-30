@@ -318,7 +318,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb
   br i1 %43, label %.critedge2.i.i.i.i.i.i.i.i.backedge, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !65
 
 "_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEEEZNKS_21RISCVRegisterBankInfo15anyUseOnlyUseFPENS_8RegisterERKS2_RKNS_18TargetRegisterInfoEE3$_0EEbOT_T0_.exit": ; preds = %.critedge2.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %26, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm21RISCVRegisterBankInfo15anyUseOnlyUseFPENS2_8RegisterERKNS2_19MachineRegisterInfoERKNS2_18TargetRegisterInfoEE3$_0EclINS5_26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEEEbT_.exit.i.i.i.i.i.i", %.critedge2.i.i.i.i.i.i.i.i, %4
-  %.sroa.02.0.lcssa.i.i.i.i.i.i = phi i1 [ false, %.critedge2.i.i.i.i.i.i.i.i ], [ false, %4 ], [ true, %.lr.ph.i.i.i.i.i.i ], [ true, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm21RISCVRegisterBankInfo15anyUseOnlyUseFPENS2_8RegisterERKNS2_19MachineRegisterInfoERKNS2_18TargetRegisterInfoEE3$_0EclINS5_26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEEEbT_.exit.i.i.i.i.i.i" ], [ true, %26 ], [ true, %.lr.ph.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i ], [ false, %.critedge2.i.i.i.i ]
+  %.sroa.02.0.lcssa.i.i.i.i.i.i = phi i1 [ false, %4 ], [ false, %.critedge2.i.i.i.i.i.i.i.i ], [ true, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm21RISCVRegisterBankInfo15anyUseOnlyUseFPENS2_8RegisterERKNS2_19MachineRegisterInfoERKNS2_18TargetRegisterInfoEE3$_0EclINS5_26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEEEbT_.exit.i.i.i.i.i.i" ], [ true, %26 ], [ true, %.lr.ph.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i ], [ false, %.critedge2.i.i.i.i ]
   ret i1 %.sroa.02.0.lcssa.i.i.i.i.i.i
 }
 
@@ -568,7 +568,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %99, %101
   unreachable
 
 _ZL18getVRBValueMappingj.exit:                    ; preds = %109, %111, %113, %114
-  %.0.i = phi i64 [ 25, %114 ], [ 16, %109 ], [ 22, %113 ], [ 19, %111 ]
+  %.0.i = phi i64 [ 22, %113 ], [ 25, %114 ], [ 16, %109 ], [ 19, %111 ]
   %116 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm5RISCVL13ValueMappingsE, i64 %.0.i
   br label %125
 
@@ -594,7 +594,7 @@ _ZL18getVRBValueMappingj.exit:                    ; preds = %109, %111, %113, %1
   br label %_ZL17getFPValueMappingj.exit
 
 _ZL17getFPValueMappingj.exit:                     ; preds = %119, %122, %123
-  %.0.i255 = phi i64 [ 13, %123 ], [ 10, %122 ], [ 7, %119 ]
+  %.0.i255 = phi i64 [ 10, %122 ], [ 13, %123 ], [ 7, %119 ]
   %124 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm5RISCVL13ValueMappingsE, i64 %.0.i255
   br label %125
 
@@ -695,7 +695,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit272:           ; preds = %154, %156
   br label %_ZL17getFPValueMappingj.exit275
 
 _ZL17getFPValueMappingj.exit275:                  ; preds = %168, %170, %171
-  %.0.i274 = phi i64 [ 13, %171 ], [ 10, %170 ], [ 7, %168 ]
+  %.0.i274 = phi i64 [ 10, %170 ], [ 13, %171 ], [ 7, %168 ]
   %172 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm5RISCVL13ValueMappingsE, i64 %.0.i274
   br label %173
 
@@ -850,7 +850,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit277: ; preds = %191, %1
   br label %_ZL17getFPValueMappingj.exit280
 
 _ZL17getFPValueMappingj.exit280:                  ; preds = %222, %226, %227
-  %.0.i279 = phi i64 [ 13, %227 ], [ 10, %226 ], [ 7, %222 ]
+  %.0.i279 = phi i64 [ 10, %226 ], [ 13, %227 ], [ 7, %222 ]
   %228 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm5RISCVL13ValueMappingsE, i64 %.0.i279
   br label %.sink.split
 
@@ -880,7 +880,7 @@ _ZL17getFPValueMappingj.exit280:                  ; preds = %222, %226, %227
   br label %_ZL17getFPValueMappingj.exit282
 
 _ZL17getFPValueMappingj.exit282:                  ; preds = %234, %238, %239
-  %.0.i281 = phi i64 [ 13, %239 ], [ 10, %238 ], [ 7, %234 ]
+  %.0.i281 = phi i64 [ 10, %238 ], [ 13, %239 ], [ 7, %234 ]
   %240 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm5RISCVL13ValueMappingsE, i64 %.0.i281
   br label %.sink.split
 
@@ -975,7 +975,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit284: ; preds = %243, %2
   br label %_ZL17getFPValueMappingj.exit287
 
 _ZL17getFPValueMappingj.exit287:                  ; preds = %275, %280, %281
-  %.0.i286 = phi i64 [ 13, %281 ], [ 10, %280 ], [ 7, %275 ]
+  %.0.i286 = phi i64 [ 10, %280 ], [ 13, %281 ], [ 7, %275 ]
   %282 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm5RISCVL13ValueMappingsE, i64 %.0.i286
   %283 = load ptr, ptr %3, align 8, !tbaa !228
   store ptr %282, ptr %283, align 8, !tbaa !230
@@ -1016,7 +1016,7 @@ _ZL17getFPValueMappingj.exit287:                  ; preds = %275, %280, %281
   br label %_ZL17getFPValueMappingj.exit289
 
 _ZL17getFPValueMappingj.exit289:                  ; preds = %290, %295, %296
-  %.0.i288 = phi i64 [ 13, %296 ], [ 10, %295 ], [ 7, %290 ]
+  %.0.i288 = phi i64 [ 10, %295 ], [ 13, %296 ], [ 7, %290 ]
   %297 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm5RISCVL13ValueMappingsE, i64 %.0.i288
   %298 = load ptr, ptr %3, align 8, !tbaa !228
   store ptr %297, ptr %298, align 8, !tbaa !230
@@ -1207,7 +1207,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit294: ; preds = %320, %3
   br label %_ZL17getFPValueMappingj.exit296
 
 _ZL17getFPValueMappingj.exit296:                  ; preds = %375, %380, %381
-  %.0.i295 = phi i64 [ 13, %381 ], [ 10, %380 ], [ 7, %375 ]
+  %.0.i295 = phi i64 [ 10, %380 ], [ 13, %381 ], [ 7, %375 ]
   %382 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm5RISCVL13ValueMappingsE, i64 %.0.i295
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.pre370 = load ptr, ptr %3, align 8, !tbaa !228
@@ -1281,7 +1281,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit298: ; preds = %388, %3
   br label %_ZL17getFPValueMappingj.exit300
 
 _ZL17getFPValueMappingj.exit300:                  ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit298, %410, %411
-  %.0.i299 = phi i64 [ 13, %411 ], [ 10, %410 ], [ 7, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit298 ]
+  %.0.i299 = phi i64 [ 10, %410 ], [ 13, %411 ], [ 7, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit298 ]
   %412 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm5RISCVL13ValueMappingsE, i64 %.0.i299
   %413 = load ptr, ptr %3, align 8, !tbaa !228
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 8
@@ -1342,7 +1342,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit302: ; preds = %415, %4
   br label %_ZL17getFPValueMappingj.exit304
 
 _ZL17getFPValueMappingj.exit304:                  ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit302, %436, %437
-  %.0.i303 = phi i64 [ 13, %437 ], [ 10, %436 ], [ 7, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit302 ]
+  %.0.i303 = phi i64 [ 10, %436 ], [ 13, %437 ], [ 7, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit302 ]
   %438 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm5RISCVL13ValueMappingsE, i64 %.0.i303
   %439 = load ptr, ptr %3, align 8, !tbaa !228
   store ptr %438, ptr %439, align 8, !tbaa !230
@@ -1407,7 +1407,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit306: ; preds = %441, %4
   br label %_ZL17getFPValueMappingj.exit308
 
 _ZL17getFPValueMappingj.exit308:                  ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit306, %463, %464
-  %.0.i307 = phi i64 [ 13, %464 ], [ 10, %463 ], [ 7, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit306 ]
+  %.0.i307 = phi i64 [ 10, %463 ], [ 13, %464 ], [ 7, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit306 ]
   %465 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm5RISCVL13ValueMappingsE, i64 %.0.i307
   %466 = getelementptr inbounds nuw i8, ptr %461, i64 24
   store ptr %465, ptr %466, align 8, !tbaa !230
@@ -1485,7 +1485,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit310: ; preds = %468, %4
   br label %_ZL17getFPValueMappingj.exit312
 
 _ZL17getFPValueMappingj.exit312:                  ; preds = %490, %495, %496
-  %.0.i311 = phi i64 [ 13, %496 ], [ 10, %495 ], [ 7, %490 ]
+  %.0.i311 = phi i64 [ 10, %495 ], [ 13, %496 ], [ 7, %490 ]
   %497 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm5RISCVL13ValueMappingsE, i64 %.0.i311
   %498 = load ptr, ptr %3, align 8, !tbaa !228
   store ptr %497, ptr %498, align 8, !tbaa !230
@@ -1577,7 +1577,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit314: ; preds = %502, %5
   br label %_ZL17getFPValueMappingj.exit316
 
 _ZL17getFPValueMappingj.exit316:                  ; preds = %524, %531, %532
-  %.0.i315 = phi i64 [ 13, %532 ], [ 10, %531 ], [ 7, %524 ]
+  %.0.i315 = phi i64 [ 10, %531 ], [ 13, %532 ], [ 7, %524 ]
   %533 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm5RISCVL13ValueMappingsE, i64 %.0.i315
   %534 = load ptr, ptr %3, align 8, !tbaa !228
   %535 = getelementptr inbounds nuw i8, ptr %534, i64 16
@@ -1703,7 +1703,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit320: ; preds = %_ZNK4ll
   br label %_ZL17getFPValueMappingj.exit322
 
 _ZL17getFPValueMappingj.exit322:                  ; preds = %581, %586, %587
-  %.0.i321 = phi i64 [ 13, %587 ], [ 10, %586 ], [ 7, %581 ]
+  %.0.i321 = phi i64 [ 10, %586 ], [ 13, %587 ], [ 7, %581 ]
   %588 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm5RISCVL13ValueMappingsE, i64 %.0.i321
   %589 = load ptr, ptr %3, align 8, !tbaa !228
   %590 = getelementptr inbounds nuw i8, ptr %589, i64 8
@@ -1801,7 +1801,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit324: ; preds = %606
   br label %_ZL17getFPValueMappingj.exit327
 
 _ZL17getFPValueMappingj.exit327:                  ; preds = %625, %630, %631
-  %.0.i326 = phi i64 [ 13, %631 ], [ 10, %630 ], [ 7, %625 ]
+  %.0.i326 = phi i64 [ 10, %630 ], [ 13, %631 ], [ 7, %625 ]
   %632 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm5RISCVL13ValueMappingsE, i64 %.0.i326
   %633 = load ptr, ptr %3, align 8, !tbaa !228
   %634 = getelementptr inbounds nuw ptr, ptr %633, i64 %indvars.iv365
@@ -1913,7 +1913,7 @@ define internal fastcc noundef nonnull ptr @_ZL18getVRBValueMappingj(i32 noundef
   unreachable
 
 7:                                                ; preds = %3, %1, %5, %4
-  %.0 = phi i64 [ 25, %5 ], [ 16, %1 ], [ 22, %4 ], [ 19, %3 ]
+  %.0 = phi i64 [ 22, %4 ], [ 25, %5 ], [ 16, %1 ], [ 19, %3 ]
   %8 = getelementptr inbounds nuw %"struct.llvm::RegisterBankInfo::ValueMapping", ptr @_ZN4llvm5RISCVL13ValueMappingsE, i64 %.0
   ret ptr %8
 }

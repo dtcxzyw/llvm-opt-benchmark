@@ -311,7 +311,7 @@ switch.lookup:                                    ; preds = %24
   br label %39
 
 39:                                               ; preds = %switch.lookup, %33, %35, %37, %19, %22, %13, %15
-  %.0 = phi i1 [ false, %19 ], [ false, %13 ], [ false, %15 ], [ false, %22 ], [ true, %switch.lookup ], [ false, %33 ], [ %38, %37 ], [ false, %35 ]
+  %.0 = phi i1 [ false, %15 ], [ false, %13 ], [ false, %22 ], [ false, %19 ], [ true, %switch.lookup ], [ false, %35 ], [ false, %33 ], [ %38, %37 ]
   ret i1 %.0
 }
 
@@ -450,7 +450,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9B
   br label %_ZN7Matcher38supports_vector_predicate_op_emulationEii9BasicType.exit
 
 _ZN7Matcher38supports_vector_predicate_op_emulationEii9BasicType.exit: ; preds = %62, %63, %65
-  %.0.i = phi i1 [ %68, %65 ], [ false, %63 ], [ false, %62 ]
+  %.0.i = phi i1 [ false, %63 ], [ %68, %65 ], [ false, %62 ]
   %69 = or i1 %.0.shrunk, %.0.i
   br i1 %69, label %70, label %71
 
@@ -458,7 +458,7 @@ _ZN7Matcher38supports_vector_predicate_op_emulationEii9BasicType.exit: ; preds =
   br label %71
 
 71:                                               ; preds = %_ZN7Matcher38supports_vector_predicate_op_emulationEii9BasicType.exit, %47, %49, %41, %43, %27, %33, %21, %20, %16, %14, %10, %6, %70
-  %.047 = phi i1 [ false, %14 ], [ false, %16 ], [ false, %20 ], [ true, %70 ], [ false, %47 ], [ false, %41 ], [ false, %27 ], [ false, %21 ], [ false, %6 ], [ false, %10 ], [ false, %33 ], [ false, %43 ], [ false, %49 ], [ false, %_ZN7Matcher38supports_vector_predicate_op_emulationEii9BasicType.exit ]
+  %.047 = phi i1 [ true, %70 ], [ false, %6 ], [ false, %10 ], [ false, %14 ], [ false, %16 ], [ false, %20 ], [ false, %21 ], [ false, %33 ], [ false, %27 ], [ false, %43 ], [ false, %41 ], [ false, %49 ], [ false, %47 ], [ false, %_ZN7Matcher38supports_vector_predicate_op_emulationEii9BasicType.exit ]
   ret i1 %.047
 }
 
@@ -1069,7 +1069,7 @@ _ZN4NodenwEm.exit:                                ; preds = %64, %66
   br label %82
 
 82:                                               ; preds = %32, %6, %23, %78
-  %.0 = phi ptr [ %81, %78 ], [ null, %6 ], [ null, %23 ], [ null, %32 ]
+  %.0 = phi ptr [ %81, %78 ], [ null, %23 ], [ null, %6 ], [ null, %32 ]
   ret ptr %.0
 }
 
@@ -1826,7 +1826,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   br label %661
 
 .thread.thread:                                   ; preds = %381, %385, %.thread
-  %396 = phi i1 [ %384, %.thread ], [ %384, %385 ], [ false, %381 ]
+  %396 = phi i1 [ %384, %385 ], [ %384, %.thread ], [ false, %381 ]
   switch i32 %1, label %532 [
     i32 3, label %397
     i32 2, label %442
@@ -2173,7 +2173,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   br label %661
 
 661:                                              ; preds = %589, %595, %556, %562, %504, %510, %459, %465, %414, %420, %387, %393, %368, %374, %352, %358, %342, %348, %332, %338, %313, %319, %298, %304, %282, %288, %269, %275, %249, %255, %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread, %214, %182, %188, %103, %109, %645
-  %.0 = phi i1 [ false, %103 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread ], [ false, %269 ], [ false, %282 ], [ false, %298 ], [ false, %387 ], [ false, %414 ], [ false, %459 ], [ false, %504 ], [ false, %556 ], [ true, %645 ], [ false, %368 ], [ false, %352 ], [ false, %342 ], [ false, %332 ], [ false, %313 ], [ false, %249 ], [ false, %182 ], [ false, %109 ], [ false, %188 ], [ false, %214 ], [ false, %255 ], [ false, %275 ], [ false, %288 ], [ false, %304 ], [ false, %319 ], [ false, %338 ], [ false, %348 ], [ false, %358 ], [ false, %374 ], [ false, %393 ], [ false, %420 ], [ false, %465 ], [ false, %510 ], [ false, %562 ], [ false, %595 ], [ false, %589 ]
+  %.0 = phi i1 [ true, %645 ], [ false, %109 ], [ false, %103 ], [ false, %188 ], [ false, %182 ], [ false, %214 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread ], [ false, %255 ], [ false, %249 ], [ false, %275 ], [ false, %269 ], [ false, %288 ], [ false, %282 ], [ false, %304 ], [ false, %298 ], [ false, %319 ], [ false, %313 ], [ false, %338 ], [ false, %332 ], [ false, %348 ], [ false, %342 ], [ false, %358 ], [ false, %352 ], [ false, %374 ], [ false, %368 ], [ false, %393 ], [ false, %387 ], [ false, %420 ], [ false, %414 ], [ false, %465 ], [ false, %459 ], [ false, %510 ], [ false, %504 ], [ false, %562 ], [ false, %556 ], [ false, %595 ], [ false, %589 ]
   ret i1 %.0
 }
 
@@ -2912,7 +2912,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %277
 
 277:                                              ; preds = %.thread, %.critedge, %157, %159, %161, %148, %150, %152, %154, %146, %117, %123, %1, %81, %86, %95, %264
-  %.0 = phi i1 [ false, %1 ], [ true, %264 ], [ false, %157 ], [ false, %148 ], [ false, %146 ], [ false, %117 ], [ false, %95 ], [ false, %86 ], [ false, %81 ], [ false, %123 ], [ false, %154 ], [ false, %152 ], [ false, %150 ], [ false, %161 ], [ false, %159 ], [ false, %.critedge ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %264 ], [ false, %95 ], [ false, %86 ], [ false, %81 ], [ false, %1 ], [ false, %123 ], [ false, %117 ], [ false, %146 ], [ false, %154 ], [ false, %152 ], [ false, %150 ], [ false, %148 ], [ false, %161 ], [ false, %159 ], [ false, %157 ], [ false, %.critedge ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -3236,7 +3236,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %77, %_ZL20is_kl
   br label %199
 
 199:                                              ; preds = %133, %139, %115, %121, %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread, %101, %1, %68, %189
-  %.041 = phi i1 [ false, %1 ], [ false, %115 ], [ true, %189 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread ], [ false, %68 ], [ false, %101 ], [ false, %121 ], [ false, %139 ], [ false, %133 ]
+  %.041 = phi i1 [ true, %189 ], [ false, %68 ], [ false, %1 ], [ false, %101 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread ], [ false, %121 ], [ false, %115 ], [ false, %139 ], [ false, %133 ]
   ret i1 %.041
 }
 
@@ -3505,7 +3505,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit60.thread: ; preds = %109, %_ZL20is
   br label %178
 
 178:                                              ; preds = %145, %151, %134, %_ZL20is_klass_initializedPK11TypeInstPtr.exit60.thread, %132, %79, %85, %89, %1, %74, %154
-  %.0 = phi i1 [ false, %79 ], [ false, %1 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit60.thread ], [ true, %154 ], [ false, %134 ], [ false, %74 ], [ false, %89 ], [ false, %85 ], [ false, %132 ], [ false, %151 ], [ false, %145 ]
+  %.0 = phi i1 [ true, %154 ], [ false, %74 ], [ false, %1 ], [ false, %89 ], [ false, %85 ], [ false, %79 ], [ false, %132 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit60.thread ], [ false, %134 ], [ false, %151 ], [ false, %145 ]
   ret i1 %.0
 }
 
@@ -4010,7 +4010,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %353
 
 353:                                              ; preds = %229, %235, %208, %214, %194, %200, %104, %110, %342
-  %.0 = phi i1 [ false, %104 ], [ true, %342 ], [ false, %208 ], [ false, %194 ], [ false, %110 ], [ false, %200 ], [ false, %214 ], [ false, %235 ], [ false, %229 ]
+  %.0 = phi i1 [ true, %342 ], [ false, %110 ], [ false, %104 ], [ false, %200 ], [ false, %194 ], [ false, %214 ], [ false, %208 ], [ false, %235 ], [ false, %229 ]
   ret i1 %.0
 }
 
@@ -4577,7 +4577,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %294
   store i32 %240, ptr %239, align 8
   br label %410
 
-_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %289, %294, %287, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit
+_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %294, %289, %287, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit
   br i1 %220, label %316, label %323
 
 316:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread
@@ -4705,7 +4705,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %2
   br label %394
 
 394:                                              ; preds = %385, %389
-  %.0154 = phi ptr [ %393, %389 ], [ %388, %385 ]
+  %.0154 = phi ptr [ %388, %385 ], [ %393, %389 ]
   %395 = call noundef ptr @_ZN8GraphKit10box_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %.0154, ptr noundef %324, i8 noundef zeroext %190, i32 noundef %202, i1 noundef zeroext false)
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %395, ptr %396, align 8
@@ -4733,7 +4733,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %2
   br label %410
 
 410:                                              ; preds = %279, %285, %205, %211, %192, %198, %178, %184, %88, %94, %400, %345, %322, %319, %315
-  %.0 = phi i1 [ false, %192 ], [ false, %345 ], [ true, %400 ], [ false, %322 ], [ false, %319 ], [ false, %88 ], [ false, %178 ], [ false, %315 ], [ false, %205 ], [ false, %94 ], [ false, %184 ], [ false, %198 ], [ false, %211 ], [ false, %285 ], [ false, %279 ]
+  %.0 = phi i1 [ false, %345 ], [ true, %400 ], [ false, %322 ], [ false, %319 ], [ false, %315 ], [ false, %94 ], [ false, %88 ], [ false, %184 ], [ false, %178 ], [ false, %198 ], [ false, %192 ], [ false, %211 ], [ false, %205 ], [ false, %285 ], [ false, %279 ]
   ret i1 %.0
 }
 
@@ -5246,7 +5246,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %or.cond.i207 = and i1 %306, %307
   br i1 %or.cond.i207, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit
 
-_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %305, %299
+_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %299, %305
   br i1 %300, label %328, label %.thread212
 
 _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
@@ -5860,7 +5860,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %305
   br label %721
 
 721:                                              ; preds = %243, %249, %229, %235, %219, %225, %109, %115, %711, %567, %521, %443, %429, %415, %400, %387, %326
-  %.0 = phi i1 [ false, %109 ], [ false, %521 ], [ false, %567 ], [ true, %711 ], [ false, %443 ], [ false, %429 ], [ false, %415 ], [ false, %400 ], [ false, %387 ], [ false, %326 ], [ false, %229 ], [ false, %219 ], [ false, %115 ], [ false, %225 ], [ false, %235 ], [ false, %249 ], [ false, %243 ]
+  %.0 = phi i1 [ false, %521 ], [ false, %567 ], [ true, %711 ], [ false, %443 ], [ false, %429 ], [ false, %415 ], [ false, %400 ], [ false, %387 ], [ false, %326 ], [ false, %115 ], [ false, %109 ], [ false, %225 ], [ false, %219 ], [ false, %235 ], [ false, %229 ], [ false, %249 ], [ false, %243 ]
   ret i1 %.0
 }
 
@@ -6478,7 +6478,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %391
   store i32 %368, ptr %367, align 8
   br label %622
 
-_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %386, %391, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit
+_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %391, %386, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit
   %414 = load ptr, ptr %84, align 8
   %415 = call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %414) #9
   %416 = call noundef ptr @_ZN11TypeInstPtr10make_exactEN7TypePtr3PTREP7ciKlass(i32 noundef 4, ptr noundef %415)
@@ -6789,7 +6789,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %3
   br label %622
 
 622:                                              ; preds = %337, %343, %322, %328, %308, %314, %297, %303, %284, %290, %263, %269, %222, %228, %_ZL20is_klass_initializedPK11TypeInstPtr.exit187.thread, %214, %101, %107, %613, %512, %489, %440, %420, %413
-  %.0 = phi i1 [ false, %101 ], [ false, %222 ], [ false, %284 ], [ false, %413 ], [ false, %420 ], [ false, %489 ], [ false, %512 ], [ true, %613 ], [ false, %440 ], [ false, %322 ], [ false, %297 ], [ false, %263 ], [ false, %308 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit187.thread ], [ false, %107 ], [ false, %214 ], [ false, %228 ], [ false, %269 ], [ false, %290 ], [ false, %303 ], [ false, %314 ], [ false, %328 ], [ false, %343 ], [ false, %337 ]
+  %.0 = phi i1 [ false, %413 ], [ false, %420 ], [ false, %489 ], [ false, %512 ], [ true, %613 ], [ false, %440 ], [ false, %107 ], [ false, %101 ], [ false, %214 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit187.thread ], [ false, %228 ], [ false, %222 ], [ false, %269 ], [ false, %263 ], [ false, %290 ], [ false, %284 ], [ false, %303 ], [ false, %297 ], [ false, %314 ], [ false, %308 ], [ false, %328 ], [ false, %322 ], [ false, %343 ], [ false, %337 ]
   ret i1 %.0
 }
 
@@ -7326,7 +7326,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %478
 
 .thread:                                          ; preds = %304, %307, %305
-  %318 = phi i1 [ true, %305 ], [ false, %307 ], [ false, %304 ]
+  %318 = phi i1 [ false, %307 ], [ true, %305 ], [ false, %304 ]
   %319 = load ptr, ptr %88, align 8
   %320 = tail call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %319) #9
   %321 = tail call noundef ptr @_ZN11TypeInstPtr10make_exactEN7TypePtr3PTREP7ciKlass(i32 noundef 4, ptr noundef %320)
@@ -7566,7 +7566,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %478
 
 478:                                              ; preds = %360, %366, %.thread, %309, %315, %294, %300, %278, %284, %265, %271, %245, %251, %205, %211, %191, %197, %101, %107, %467
-  %.099 = phi i1 [ false, %101 ], [ false, %205 ], [ false, %265 ], [ false, %309 ], [ false, %.thread ], [ true, %467 ], [ false, %294 ], [ false, %278 ], [ false, %245 ], [ false, %191 ], [ false, %107 ], [ false, %197 ], [ false, %211 ], [ false, %251 ], [ false, %271 ], [ false, %284 ], [ false, %300 ], [ false, %315 ], [ false, %366 ], [ false, %360 ]
+  %.099 = phi i1 [ true, %467 ], [ false, %107 ], [ false, %101 ], [ false, %197 ], [ false, %191 ], [ false, %211 ], [ false, %205 ], [ false, %251 ], [ false, %245 ], [ false, %271 ], [ false, %265 ], [ false, %284 ], [ false, %278 ], [ false, %300 ], [ false, %294 ], [ false, %315 ], [ false, %309 ], [ false, %.thread ], [ false, %366 ], [ false, %360 ]
   ret i1 %.099
 }
 
@@ -8014,7 +8014,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %_ZN7Matcher15vectortest_maskEbbi.exit
 
 _ZN7Matcher15vectortest_maskEbbi.exit:            ; preds = %274, %289, %292, %293
-  %.0.i68 = phi i32 [ 0, %289 ], [ 3, %293 ], [ %.mux.i, %274 ], [ 0, %292 ]
+  %.0.i68 = phi i32 [ 3, %293 ], [ %.mux.i, %274 ], [ 0, %292 ], [ 0, %289 ]
   %294 = load ptr, ptr %2, align 8
   %295 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 56) #9
   %296 = icmp eq ptr %295, null
@@ -8067,7 +8067,7 @@ _ZN7Matcher15vectortest_maskEbbi.exit:            ; preds = %274, %289, %292, %2
   br label %327
 
 327:                                              ; preds = %251, %213, %219, %194, %200, %180, %186, %90, %96, %313
-  %.0 = phi i1 [ false, %90 ], [ false, %213 ], [ true, %313 ], [ false, %194 ], [ false, %180 ], [ false, %96 ], [ false, %186 ], [ false, %200 ], [ false, %219 ], [ false, %251 ]
+  %.0 = phi i1 [ true, %313 ], [ false, %96 ], [ false, %90 ], [ false, %186 ], [ false, %180 ], [ false, %200 ], [ false, %194 ], [ false, %219 ], [ false, %213 ], [ false, %251 ]
   ret i1 %.0
 }
 
@@ -8485,7 +8485,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit75.thread: ; preds = %178, %_ZL20is
   br label %309
 
 309:                                              ; preds = %230, %221, %227, %209, %215, %_ZL20is_klass_initializedPK11TypeInstPtr.exit75.thread, %201, %88, %94, %1, %294
-  %.0 = phi i1 [ false, %88 ], [ false, %1 ], [ false, %221 ], [ true, %294 ], [ false, %209 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit75.thread ], [ false, %94 ], [ false, %201 ], [ false, %215 ], [ false, %227 ], [ false, %230 ]
+  %.0 = phi i1 [ true, %294 ], [ false, %1 ], [ false, %94 ], [ false, %88 ], [ false, %201 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit75.thread ], [ false, %215 ], [ false, %209 ], [ false, %227 ], [ false, %221 ], [ false, %230 ]
   ret i1 %.0
 }
 
@@ -8931,8 +8931,8 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %396
 
 .thread116:                                       ; preds = %255, %340, %338
-  %352 = phi i1 [ true, %338 ], [ false, %340 ], [ false, %255 ]
-  %353 = phi ptr [ %326, %338 ], [ %326, %340 ], [ null, %255 ]
+  %352 = phi i1 [ false, %340 ], [ true, %338 ], [ false, %255 ]
+  %353 = phi ptr [ %326, %340 ], [ %326, %338 ], [ null, %255 ]
   %354 = icmp eq ptr %276, null
   %355 = icmp eq ptr %291, null
   %or.cond13 = or i1 %354, %355
@@ -9002,7 +9002,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %396
 
 396:                                              ; preds = %.thread116, %342, %348, %328, %334, %245, %251, %233, %239, %219, %225, %107, %113, %1, %381
-  %.0 = phi i1 [ false, %107 ], [ false, %1 ], [ false, %245 ], [ false, %342 ], [ true, %381 ], [ false, %328 ], [ false, %.thread116 ], [ false, %233 ], [ false, %219 ], [ false, %113 ], [ false, %225 ], [ false, %239 ], [ false, %348 ], [ false, %251 ], [ false, %334 ]
+  %.0 = phi i1 [ true, %381 ], [ false, %1 ], [ false, %113 ], [ false, %107 ], [ false, %225 ], [ false, %219 ], [ false, %239 ], [ false, %233 ], [ false, %251 ], [ false, %245 ], [ false, %334 ], [ false, %328 ], [ false, %348 ], [ false, %342 ], [ false, %.thread116 ]
   ret i1 %.0
 }
 
@@ -9582,7 +9582,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread: ; preds = %189, %_ZL20i
   br label %417
 
 417:                                              ; preds = %354, %360, %293, %.thread120, %290, %232, %238, %220, %226, %_ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread, %212, %99, %105, %1, %401
-  %.0 = phi i1 [ false, %99 ], [ false, %1 ], [ false, %.thread120 ], [ false, %293 ], [ true, %401 ], [ false, %232 ], [ false, %220 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread ], [ false, %105 ], [ false, %212 ], [ false, %226 ], [ false, %238 ], [ false, %290 ], [ false, %360 ], [ false, %354 ]
+  %.0 = phi i1 [ true, %401 ], [ false, %1 ], [ false, %105 ], [ false, %99 ], [ false, %212 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread ], [ false, %226 ], [ false, %220 ], [ false, %238 ], [ false, %232 ], [ false, %290 ], [ false, %.thread120 ], [ false, %293 ], [ false, %360 ], [ false, %354 ]
   ret i1 %.0
 }
 
@@ -10141,7 +10141,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %355
 
 355:                                              ; preds = %352, %346, %319
-  %356 = phi i1 [ false, %346 ], [ %354, %352 ], [ false, %319 ]
+  %356 = phi i1 [ false, %346 ], [ false, %319 ], [ %354, %352 ]
   %.demorgan = and i1 %292, %356
   %357 = xor i1 %.demorgan, true
   %358 = select i1 %225, i32 5, i32 8
@@ -10334,7 +10334,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %488
 
 488:                                              ; preds = %.thread, %476, %483, %472
-  %.0124 = phi ptr [ %471, %472 ], [ %420, %.thread ], [ %481, %483 ], [ null, %476 ]
+  %.0124 = phi ptr [ %471, %472 ], [ %481, %483 ], [ null, %476 ], [ %420, %.thread ]
   %489 = load ptr, ptr %2, align 8
   %490 = load ptr, ptr %489, align 8
   %491 = load ptr, ptr %490, align 8
@@ -10355,7 +10355,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %504
 
 504:                                              ; preds = %442, %448, %416, %365, %371, %307, %313, %294, %300, %278, %284, %264, %270, %251, %257, %231, %237, %191, %197, %101, %107, %1, %488
-  %.0 = phi i1 [ false, %101 ], [ false, %1 ], [ false, %191 ], [ false, %251 ], [ false, %278 ], [ false, %294 ], [ false, %365 ], [ false, %416 ], [ true, %488 ], [ false, %307 ], [ false, %264 ], [ false, %231 ], [ false, %107 ], [ false, %197 ], [ false, %237 ], [ false, %257 ], [ false, %270 ], [ false, %284 ], [ false, %300 ], [ false, %313 ], [ false, %371 ], [ false, %448 ], [ false, %442 ]
+  %.0 = phi i1 [ true, %488 ], [ false, %1 ], [ false, %107 ], [ false, %101 ], [ false, %197 ], [ false, %191 ], [ false, %237 ], [ false, %231 ], [ false, %257 ], [ false, %251 ], [ false, %270 ], [ false, %264 ], [ false, %284 ], [ false, %278 ], [ false, %300 ], [ false, %294 ], [ false, %313 ], [ false, %307 ], [ false, %371 ], [ false, %365 ], [ false, %416 ], [ false, %448 ], [ false, %442 ]
   ret i1 %.0
 }
 
@@ -11080,7 +11080,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_convertEv(p
   br label %.thread193
 
 .thread193:                                       ; preds = %.thread, %482, %488, %453, %459, %421, %427, %407, %413, %401, %364, %355, %361, %331, %337, %318, %324, %307, %299, %289, %281, %287, %143, %149, %1, %522
-  %.0 = phi i1 [ false, %143 ], [ false, %1 ], [ false, %281 ], [ false, %355 ], [ false, %364 ], [ true, %522 ], [ false, %407 ], [ false, %421 ], [ false, %453 ], [ false, %401 ], [ false, %331 ], [ false, %318 ], [ false, %307 ], [ false, %299 ], [ false, %289 ], [ false, %149 ], [ false, %287 ], [ false, %324 ], [ false, %337 ], [ false, %361 ], [ false, %482 ], [ false, %413 ], [ false, %427 ], [ false, %459 ], [ false, %488 ], [ false, %.thread ]
+  %.0 = phi i1 [ true, %522 ], [ false, %1 ], [ false, %149 ], [ false, %143 ], [ false, %287 ], [ false, %281 ], [ false, %289 ], [ false, %299 ], [ false, %307 ], [ false, %324 ], [ false, %318 ], [ false, %337 ], [ false, %331 ], [ false, %361 ], [ false, %355 ], [ false, %364 ], [ false, %401 ], [ false, %413 ], [ false, %407 ], [ false, %427 ], [ false, %421 ], [ false, %459 ], [ false, %453 ], [ false, %488 ], [ false, %482 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -11626,7 +11626,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %348
 
 348:                                              ; preds = %215, %206, %212, %194, %200, %180, %186, %90, %96, %1, %330
-  %.0 = phi i1 [ false, %90 ], [ false, %1 ], [ false, %206 ], [ true, %330 ], [ false, %194 ], [ false, %180 ], [ false, %96 ], [ false, %186 ], [ false, %200 ], [ false, %212 ], [ false, %215 ]
+  %.0 = phi i1 [ true, %330 ], [ false, %1 ], [ false, %96 ], [ false, %90 ], [ false, %186 ], [ false, %180 ], [ false, %200 ], [ false, %194 ], [ false, %212 ], [ false, %206 ], [ false, %215 ]
   ret i1 %.0
 }
 
@@ -12298,7 +12298,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %432
 
 432:                                              ; preds = %362, %353, %359, %322, %328, %308, %314, %245, %203, %169, %175, %155, %161, %85, %91, %1, %430
-  %.0 = phi i1 [ false, %85 ], [ false, %1 ], [ false, %169 ], [ true, %430 ], [ false, %203 ], [ false, %245 ], [ false, %353 ], [ false, %322 ], [ false, %308 ], [ false, %155 ], [ false, %91 ], [ false, %161 ], [ false, %175 ], [ false, %314 ], [ false, %328 ], [ false, %359 ], [ false, %362 ]
+  %.0 = phi i1 [ true, %430 ], [ false, %1 ], [ false, %91 ], [ false, %85 ], [ false, %161 ], [ false, %155 ], [ false, %175 ], [ false, %169 ], [ false, %203 ], [ false, %245 ], [ false, %314 ], [ false, %308 ], [ false, %328 ], [ false, %322 ], [ false, %359 ], [ false, %353 ], [ false, %362 ]
   ret i1 %.0
 }
 
@@ -12826,7 +12826,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %373
 
 373:                                              ; preds = %324, %330, %276, %282, %246, %252, %232, %238, %218, %224, %106, %112, %352
-  %.0 = phi i1 [ false, %106 ], [ false, %246 ], [ false, %276 ], [ true, %352 ], [ false, %232 ], [ false, %218 ], [ false, %112 ], [ false, %224 ], [ false, %238 ], [ false, %252 ], [ false, %282 ], [ false, %330 ], [ false, %324 ]
+  %.0 = phi i1 [ true, %352 ], [ false, %112 ], [ false, %106 ], [ false, %224 ], [ false, %218 ], [ false, %238 ], [ false, %232 ], [ false, %252 ], [ false, %246 ], [ false, %282 ], [ false, %276 ], [ false, %330 ], [ false, %324 ]
   ret i1 %.0
 }
 
@@ -13159,7 +13159,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %383
 
 242:                                              ; preds = %224, %206, %225
-  %.085 = phi i1 [ true, %224 ], [ true, %225 ], [ false, %206 ]
+  %.085 = phi i1 [ true, %225 ], [ true, %224 ], [ false, %206 ]
   %243 = load ptr, ptr %58, align 8
   %244 = tail call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %243) #9
   %245 = tail call noundef ptr @_ZN11TypeInstPtr10make_exactEN7TypePtr3PTREP7ciKlass(i32 noundef 4, ptr noundef %244)
@@ -13373,7 +13373,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %383
 
 383:                                              ; preds = %296, %302, %262, %268, %231, %237, %215, %221, %167, %173, %155, %161, %141, %147, %71, %77, %372
-  %.0 = phi i1 [ false, %71 ], [ false, %231 ], [ true, %372 ], [ false, %262 ], [ false, %215 ], [ false, %167 ], [ false, %155 ], [ false, %141 ], [ false, %77 ], [ false, %147 ], [ false, %161 ], [ false, %173 ], [ false, %221 ], [ false, %237 ], [ false, %268 ], [ false, %302 ], [ false, %296 ]
+  %.0 = phi i1 [ true, %372 ], [ false, %77 ], [ false, %71 ], [ false, %147 ], [ false, %141 ], [ false, %161 ], [ false, %155 ], [ false, %173 ], [ false, %167 ], [ false, %221 ], [ false, %215 ], [ false, %237 ], [ false, %231 ], [ false, %268 ], [ false, %262 ], [ false, %302 ], [ false, %296 ]
   ret i1 %.0
 }
 
@@ -13969,7 +13969,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %329
 
 329:                                              ; preds = %222, %228, %190, %196, %173, %179, %155, %161, %141, %147, %71, %77, %318
-  %.0 = phi i1 [ false, %71 ], [ false, %190 ], [ true, %318 ], [ false, %173 ], [ false, %155 ], [ false, %141 ], [ false, %77 ], [ false, %147 ], [ false, %161 ], [ false, %179 ], [ false, %196 ], [ false, %228 ], [ false, %222 ]
+  %.0 = phi i1 [ true, %318 ], [ false, %77 ], [ false, %71 ], [ false, %147 ], [ false, %141 ], [ false, %161 ], [ false, %155 ], [ false, %179 ], [ false, %173 ], [ false, %196 ], [ false, %190 ], [ false, %228 ], [ false, %222 ]
   ret i1 %.0
 }
 

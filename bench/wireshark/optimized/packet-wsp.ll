@@ -1872,7 +1872,7 @@ define hidden i32 @add_content_type(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread166
 
 .thread166:                                       ; preds = %39, %16, %.thread170, %.loopexit
-  %.0169 = phi i32 [ %52, %.loopexit ], [ %52, %.thread170 ], [ %29, %39 ], [ %17, %16 ]
+  %.0169 = phi i32 [ %52, %.thread170 ], [ %52, %.loopexit ], [ %29, %39 ], [ %17, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2631,7 +2631,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %17, %76, %.critedge477, %55, %53, %50, %.thread492, %.critedge479
-  %.0 = phi i32 [ %106, %.critedge479 ], [ %380, %.thread492 ], [ %79, %76 ], [ %37, %50 ], [ %37, %53 ], [ %37, %55 ], [ %85, %.critedge477 ], [ %4, %17 ], [ %4, %14 ]
+  %.0 = phi i32 [ %380, %.thread492 ], [ %106, %.critedge479 ], [ %37, %50 ], [ %37, %53 ], [ %37, %55 ], [ %85, %.critedge477 ], [ %79, %76 ], [ %4, %17 ], [ %4, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -3816,9 +3816,9 @@ proto_item_set_hidden.exit.thread:                ; preds = %132
   br label %.loopexit
 
 proto_item_set_hidden.exit:                       ; preds = %128, %125, %122, %37, %133, %23, %29
-  %.1130 = phi i32 [ %26, %23 ], [ %32, %29 ], [ %43, %37 ], [ %.2131, %128 ], [ %136, %133 ], [ %.2131, %122 ], [ %.2131, %125 ]
-  %.1125 = phi ptr [ %.0124150, %23 ], [ %.0124150, %29 ], [ %.0124150, %37 ], [ %.2126, %128 ], [ %.0124150, %133 ], [ %.2126, %122 ], [ %.2126, %125 ]
-  %.1123 = phi i8 [ 1, %23 ], [ %.0122151, %29 ], [ %39, %37 ], [ %.0122151, %128 ], [ %17, %133 ], [ %.0122151, %122 ], [ %.0122151, %125 ]
+  %.1130 = phi i32 [ %26, %23 ], [ %32, %29 ], [ %43, %37 ], [ %136, %133 ], [ %.2131, %122 ], [ %.2131, %125 ], [ %.2131, %128 ]
+  %.1125 = phi ptr [ %.0124150, %23 ], [ %.0124150, %29 ], [ %.0124150, %37 ], [ %.0124150, %133 ], [ %.2126, %122 ], [ %.2126, %125 ], [ %.2126, %128 ]
+  %.1123 = phi i8 [ 1, %23 ], [ %.0122151, %29 ], [ %39, %37 ], [ %17, %133 ], [ %.0122151, %122 ], [ %.0122151, %125 ], [ %.0122151, %128 ]
   %138 = icmp slt i32 %.1130, %9
   br i1 %138, label %16, label %.loopexit, !llvm.loop !17
 
@@ -4025,7 +4025,7 @@ switch.lookup:                                    ; preds = %53
   br label %.thread124
 
 .thread124:                                       ; preds = %82, %31, %26, %23, %20, %17, %.thread128, %86
-  %.0113127 = phi i32 [ %51, %86 ], [ %.0113131, %.thread128 ], [ %51, %82 ], [ %35, %31 ], [ %16, %26 ], [ %16, %23 ], [ %16, %20 ], [ %16, %17 ]
+  %.0113127 = phi i32 [ %.0113131, %.thread128 ], [ %51, %86 ], [ %51, %82 ], [ %35, %31 ], [ %16, %26 ], [ %16, %23 ], [ %16, %20 ], [ %16, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4231,8 +4231,8 @@ define internal i32 @wkh_age(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
   %64 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %62, ptr noundef %1, i32 noundef %2, i32 noundef %63, ptr noundef %61)
   br label %68
 
-65:                                               ; preds = %26, %.thread, %39, %45
-  %.066.ph = phi i32 [ %43, %45 ], [ %43, %39 ], [ %38, %.thread ], [ %30, %26 ]
+65:                                               ; preds = %26, %39, %.thread, %45
+  %.066.ph = phi i32 [ %43, %45 ], [ %38, %.thread ], [ %43, %39 ], [ %30, %26 ]
   %66 = load ptr, ptr %5, align 8
   %67 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %66, ptr noundef nonnull @ei_wsp_header_invalid_value)
   br label %68
@@ -4667,8 +4667,8 @@ define internal i32 @wkh_cache_control(ptr noundef %0, ptr noundef %1, i32 nound
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %129, ptr noundef nonnull @.str.1038, ptr noundef %165)
   br label %.thread193
 
-.thread199:                                       ; preds = %.thread, %105, %123, %48, %162, %15, %112
-  %.0149202 = phi i32 [ %45, %.thread ], [ %45, %105 ], [ %45, %123 ], [ %45, %48 ], [ %45, %162 ], [ %16, %15 ], [ %45, %112 ]
+.thread199:                                       ; preds = %.thread, %112, %123, %162, %105, %48, %15
+  %.0149202 = phi i32 [ %45, %.thread ], [ %45, %112 ], [ %45, %123 ], [ %45, %162 ], [ %45, %105 ], [ %45, %48 ], [ %16, %15 ]
   %179 = load ptr, ptr %5, align 8
   %180 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %179, ptr noundef nonnull @ei_wsp_header_invalid_value)
   br label %.thread193
@@ -4681,7 +4681,7 @@ define internal i32 @wkh_cache_control(ptr noundef %0, ptr noundef %1, i32 nound
   br label %.thread193
 
 .thread193:                                       ; preds = %.thread193.critedge, %178, %177, %175, %149, %107, %25, %20, %.thread199
-  %.0149196 = phi i32 [ %45, %.thread193.critedge ], [ %.0149202, %.thread199 ], [ %45, %178 ], [ %45, %177 ], [ %45, %175 ], [ %45, %149 ], [ %45, %107 ], [ %29, %25 ], [ %16, %20 ]
+  %.0149196 = phi i32 [ %.0149202, %.thread199 ], [ %45, %178 ], [ %45, %177 ], [ %45, %175 ], [ %45, %149 ], [ %45, %107 ], [ %29, %25 ], [ %16, %20 ], [ %45, %.thread193.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4756,7 +4756,7 @@ define internal i32 @wkh_connection(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %43
 
 43:                                               ; preds = %14, %40
-  %.0 = phi i32 [ %42, %40 ], [ %15, %14 ]
+  %.0 = phi i32 [ %15, %14 ], [ %42, %40 ]
   %44 = load ptr, ptr %5, align 8
   %45 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %44, ptr noundef nonnull @ei_wsp_header_invalid_value)
   br label %.thread
@@ -5243,13 +5243,13 @@ define internal i32 @wkh_if_range(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %wkh_text_or_date_value_header_func.exit
 
 60:                                               ; preds = %42, %36, %.thread.i, %17
-  %.065.ph.i = phi i32 [ %40, %42 ], [ %40, %36 ], [ %35, %.thread.i ], [ %18, %17 ]
+  %.065.ph.i = phi i32 [ %40, %42 ], [ %35, %.thread.i ], [ %40, %36 ], [ %18, %17 ]
   %61 = load ptr, ptr %5, align 8
   %62 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %61, ptr noundef nonnull @ei_wsp_header_invalid_value)
   br label %wkh_text_or_date_value_header_func.exit
 
 wkh_text_or_date_value_header_func.exit:          ; preds = %21, %54, %60
-  %.06512.i = phi i32 [ %.065.ph.i, %60 ], [ %40, %54 ], [ %25, %21 ]
+  %.06512.i = phi i32 [ %.065.ph.i, %60 ], [ %25, %21 ], [ %40, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -5353,7 +5353,7 @@ define internal i32 @wkh_pragma(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %.thread
 
 44:                                               ; preds = %14, %22
-  %.048 = phi i32 [ %26, %22 ], [ %15, %14 ]
+  %.048 = phi i32 [ %15, %14 ], [ %26, %22 ]
   %45 = load ptr, ptr %5, align 8
   %46 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %45, ptr noundef nonnull @ei_wsp_header_invalid_value)
   br label %.thread
@@ -5455,7 +5455,7 @@ define internal i32 @wkh_public(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %46
 
 46:                                               ; preds = %14, %43
-  %.0 = phi i32 [ %45, %43 ], [ %15, %14 ]
+  %.0 = phi i32 [ %15, %14 ], [ %45, %43 ]
   %47 = load ptr, ptr %5, align 8
   %48 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %47, ptr noundef nonnull @ei_wsp_header_invalid_value)
   br label %.thread
@@ -5594,7 +5594,7 @@ define internal i32 @wkh_range(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   br label %78
 
 78:                                               ; preds = %47, %58, %71, %75
-  %.097 = phi i32 [ %.0.ph, %75 ], [ %36, %71 ], [ %36, %47 ], [ %36, %58 ]
+  %.097 = phi i32 [ %.0.ph, %75 ], [ %36, %58 ], [ %36, %47 ], [ %36, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5766,7 +5766,7 @@ define internal i32 @wkh_transfer_encoding(ptr noundef %0, ptr noundef %1, i32 n
   br label %43
 
 43:                                               ; preds = %14, %40
-  %.0 = phi i32 [ %42, %40 ], [ %15, %14 ]
+  %.0 = phi i32 [ %15, %14 ], [ %42, %40 ]
   %44 = load ptr, ptr %5, align 8
   %45 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %44, ptr noundef nonnull @ei_wsp_header_invalid_value)
   br label %.thread
@@ -6822,7 +6822,7 @@ define internal i32 @wkh_te(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr 
   br label %68
 
 65:                                               ; preds = %56, %53, %15, %23, %42
-  %.066.ph = phi i32 [ %16, %15 ], [ %40, %42 ], [ %27, %23 ], [ %40, %53 ], [ %40, %56 ]
+  %.066.ph = phi i32 [ %40, %42 ], [ %27, %23 ], [ %16, %15 ], [ %40, %53 ], [ %40, %56 ]
   %66 = load ptr, ptr %5, align 8
   %67 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %66, ptr noundef nonnull @ei_wsp_header_invalid_value)
   br label %68
@@ -7339,8 +7339,8 @@ define internal fastcc i32 @wkh_content_type_header(ptr noundef %0, ptr noundef 
   %99 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %98, ptr noundef nonnull @ei_wsp_header_invalid_value)
   br label %.thread134
 
-.thread134:                                       ; preds = %94, %39, %34, %84, %19, %.thread124
-  %.0105137 = phi i32 [ %54, %.thread124 ], [ %32, %39 ], [ %32, %34 ], [ %20, %19 ], [ %54, %84 ], [ %54, %94 ]
+.thread134:                                       ; preds = %94, %34, %39, %84, %19, %.thread124
+  %.0105137 = phi i32 [ %54, %.thread124 ], [ %32, %34 ], [ %32, %39 ], [ %54, %84 ], [ %20, %19 ], [ %54, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -7518,7 +7518,7 @@ define internal fastcc i32 @wkh_accept_x_q_header_func(ptr noundef %0, ptr nound
   br label %.thread140
 
 .thread140:                                       ; preds = %92, %94, %29, %21, %.thread144
-  %.0111143 = phi i32 [ %22, %21 ], [ %48, %.thread144 ], [ %48, %94 ], [ %33, %29 ], [ %48, %92 ]
+  %.0111143 = phi i32 [ %48, %.thread144 ], [ %48, %94 ], [ %33, %29 ], [ %22, %21 ], [ %48, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -7983,8 +7983,8 @@ define internal fastcc i32 @wkh_integer_value_header_func(ptr noundef %0, ptr no
   %62 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %61, ptr noundef %60)
   br label %66
 
-63:                                               ; preds = %27, %.thread, %40, %46
-  %.066.ph = phi i32 [ %44, %46 ], [ %44, %40 ], [ %39, %.thread ], [ %31, %27 ]
+63:                                               ; preds = %27, %40, %.thread, %46
+  %.066.ph = phi i32 [ %44, %46 ], [ %39, %.thread ], [ %44, %40 ], [ %31, %27 ]
   %64 = load ptr, ptr %7, align 8
   %65 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %64, ptr noundef nonnull @ei_wsp_header_invalid_value)
   br label %66
@@ -8093,8 +8093,8 @@ define internal fastcc i32 @wkh_date_value_header_func(ptr noundef %0, ptr nound
   %58 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %57, ptr noundef %56)
   br label %62
 
-59:                                               ; preds = %18, %22, %.thread, %35, %41
-  %.058.ph = phi i32 [ %39, %41 ], [ %39, %35 ], [ %34, %.thread ], [ %26, %22 ], [ %19, %18 ]
+59:                                               ; preds = %18, %22, %35, %.thread, %41
+  %.058.ph = phi i32 [ %39, %41 ], [ %34, %.thread ], [ %39, %35 ], [ %26, %22 ], [ %19, %18 ]
   %60 = load ptr, ptr %7, align 8
   %61 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %60, ptr noundef nonnull @ei_wsp_header_invalid_value)
   br label %62
@@ -8409,8 +8409,8 @@ define internal fastcc i32 @wkh_tod_value_header_func(ptr noundef %0, ptr nounde
   %66 = call ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %62, ptr noundef nonnull %10)
   br label %70
 
-67:                                               ; preds = %19, %27, %.thread, %40, %46
-  %.072.ph = phi i32 [ %44, %46 ], [ %44, %40 ], [ %39, %.thread ], [ %31, %27 ], [ %20, %19 ]
+67:                                               ; preds = %19, %27, %40, %.thread, %46
+  %.072.ph = phi i32 [ %44, %46 ], [ %39, %.thread ], [ %44, %40 ], [ %31, %27 ], [ %20, %19 ]
   %68 = load ptr, ptr %7, align 8
   %69 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %68, ptr noundef nonnull @ei_wsp_header_invalid_value)
   br label %70
@@ -8935,7 +8935,7 @@ define internal fastcc void @dissect_wsp_common(ptr noundef %0, ptr noundef %1, 
   br i1 %135, label %86, label %add_capabilities.exit, !llvm.loop !24
 
 .thread.i:                                        ; preds = %129, %126, %123, %120, %117, %114, %111, %108, %105, %100
-  %.0.i = phi i8 [ 8, %126 ], [ 0, %100 ], [ 1, %105 ], [ 2, %108 ], [ 3, %111 ], [ 4, %114 ], [ 5, %117 ], [ 6, %120 ], [ 7, %123 ], [ 9, %129 ]
+  %.0.i = phi i8 [ 0, %100 ], [ 1, %105 ], [ 2, %108 ], [ 3, %111 ], [ 4, %114 ], [ 5, %117 ], [ 6, %120 ], [ 7, %123 ], [ 8, %126 ], [ 9, %129 ]
   %136 = load i32, ptr %11, align 4
   %137 = add i32 %136, %97
   br label %147

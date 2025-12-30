@@ -236,7 +236,7 @@ default.unreachable:                              ; preds = %.lr.ph
   br label %40
 
 40:                                               ; preds = %3, %._crit_edge, %39, %switch.lookup
-  %.0 = phi ptr [ null, %switch.lookup ], [ null, %3 ], [ %9, %39 ], [ %9, %._crit_edge ]
+  %.0 = phi ptr [ null, %3 ], [ null, %switch.lookup ], [ %9, %39 ], [ %9, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -305,7 +305,7 @@ define ptr @av_iamf_audio_element_add_layer(ptr noundef captures(none) %0) local
   br label %20
 
 20:                                               ; preds = %11, %5, %1, %17
-  %.0 = phi ptr [ null, %1 ], [ %12, %17 ], [ null, %5 ], [ null, %11 ]
+  %.0 = phi ptr [ %12, %17 ], [ null, %1 ], [ null, %5 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -402,7 +402,7 @@ define ptr @av_iamf_submix_add_element(ptr noundef captures(none) %0) local_unna
   br label %20
 
 20:                                               ; preds = %11, %5, %1, %17
-  %.0 = phi ptr [ null, %1 ], [ %12, %17 ], [ null, %5 ], [ null, %11 ]
+  %.0 = phi ptr [ %12, %17 ], [ null, %1 ], [ null, %5 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -442,7 +442,7 @@ define ptr @av_iamf_submix_add_layout(ptr noundef captures(none) %0) local_unnam
   br label %20
 
 20:                                               ; preds = %11, %5, %1, %17
-  %.0 = phi ptr [ null, %1 ], [ %12, %17 ], [ null, %5 ], [ null, %11 ]
+  %.0 = phi ptr [ %12, %17 ], [ null, %1 ], [ null, %5 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -502,7 +502,7 @@ define ptr @av_iamf_mix_presentation_add_submix(ptr noundef captures(none) %0) l
   br label %20
 
 20:                                               ; preds = %11, %5, %1, %17
-  %.0 = phi ptr [ null, %1 ], [ %12, %17 ], [ null, %5 ], [ null, %11 ]
+  %.0 = phi ptr [ %12, %17 ], [ null, %1 ], [ null, %5 ], [ null, %11 ]
   ret ptr %.0
 }
 

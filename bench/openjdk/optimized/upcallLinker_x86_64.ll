@@ -437,7 +437,7 @@ _ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit: ; preds = %120
   br label %199
 
 199:                                              ; preds = %197, %195, %192
-  %.1.i133 = phi i32 [ %198, %197 ], [ %.063.i, %192 ], [ %.063.i, %195 ]
+  %.1.i133 = phi i32 [ %.063.i, %195 ], [ %198, %197 ], [ %.063.i, %192 ]
   %200 = add nuw nsw i32 %193, 1
   %or.cond.i.i.i134 = icmp samesign ult i32 %193, 31
   %spec.select.i.i48.i = select i1 %or.cond.i.i.i134, i32 %200, i32 -1
@@ -948,7 +948,7 @@ _ZL31preserve_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; 
   br label %404
 
 404:                                              ; preds = %402, %400, %397
-  %.1.i147 = phi i32 [ %403, %402 ], [ %.052.i, %397 ], [ %.052.i, %400 ]
+  %.1.i147 = phi i32 [ %.052.i, %400 ], [ %403, %402 ], [ %.052.i, %397 ]
   %405 = add nuw nsw i32 %398, 1
   %or.cond.i.i.i148 = icmp samesign ult i32 %398, 31
   %spec.select.i.i37.i = select i1 %or.cond.i.i.i148, i32 %405, i32 -1

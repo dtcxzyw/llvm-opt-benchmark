@@ -34,7 +34,7 @@ define i32 @png_get_valid(ptr noalias noundef readonly captures(address_is_null)
   br label %16
 
 16:                                               ; preds = %3, %8, %12
-  %.0 = phi i32 [ 0, %8 ], [ %15, %12 ], [ 0, %3 ]
+  %.0 = phi i32 [ %15, %12 ], [ 0, %8 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1032,7 +1032,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone captures(a
   br label %65
 
 65:                                               ; preds = %10, %13, %59, %60
-  %.0 = phi i32 [ 4, %59 ], [ 4, %60 ], [ 0, %13 ], [ 0, %10 ]
+  %.0 = phi i32 [ 4, %60 ], [ 4, %59 ], [ 0, %13 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -1166,7 +1166,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone captur
   br label %76
 
 76:                                               ; preds = %11, %15, %19, %70, %71
-  %.0 = phi i32 [ 4, %70 ], [ 4, %71 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ]
+  %.0 = phi i32 [ 4, %71 ], [ 4, %70 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
@@ -1285,7 +1285,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ_fixed(ptr noalias noundef readnone 
   br label %58
 
 58:                                               ; preds = %11, %15, %19, %54, %55
-  %.0 = phi i32 [ 4, %54 ], [ 4, %55 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ]
+  %.0 = phi i32 [ 4, %55 ], [ 4, %54 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
@@ -1385,7 +1385,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_fixed(ptr noalias noundef readnone capt
   br label %49
 
 49:                                               ; preds = %10, %13, %45, %46
-  %.0 = phi i32 [ 4, %45 ], [ 4, %46 ], [ 0, %13 ], [ 0, %10 ]
+  %.0 = phi i32 [ 4, %46 ], [ 4, %45 ], [ 0, %13 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -1414,7 +1414,7 @@ define range(i32 0, 2) i32 @png_get_gAMA_fixed(ptr noalias noundef readnone capt
   br label %14
 
 14:                                               ; preds = %3, %6, %10, %11
-  %.0 = phi i32 [ 1, %10 ], [ 1, %11 ], [ 0, %6 ], [ 0, %3 ]
+  %.0 = phi i32 [ 1, %11 ], [ 1, %10 ], [ 0, %6 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1445,7 +1445,7 @@ define range(i32 0, 2) i32 @png_get_gAMA(ptr noalias noundef readnone captures(a
   br label %16
 
 16:                                               ; preds = %3, %6, %10, %11
-  %.0 = phi i32 [ 1, %10 ], [ 1, %11 ], [ 0, %6 ], [ 0, %3 ]
+  %.0 = phi i32 [ 1, %11 ], [ 1, %10 ], [ 0, %6 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1474,7 +1474,7 @@ define range(i32 0, 2049) i32 @png_get_sRGB(ptr noalias noundef readnone capture
   br label %14
 
 14:                                               ; preds = %3, %6, %10, %11
-  %.0 = phi i32 [ 2048, %10 ], [ 2048, %11 ], [ 0, %6 ], [ 0, %3 ]
+  %.0 = phi i32 [ 2048, %11 ], [ 2048, %10 ], [ 0, %6 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1531,7 +1531,7 @@ define range(i32 0, 4097) i32 @png_get_iCCP(ptr noalias noundef readnone capture
   br label %40
 
 40:                                               ; preds = %6, %9, %17, %39
-  %.0 = phi i32 [ 4096, %17 ], [ 4096, %39 ], [ 0, %9 ], [ 0, %6 ]
+  %.0 = phi i32 [ 4096, %39 ], [ 4096, %17 ], [ 0, %9 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -1634,7 +1634,7 @@ define range(i32 0, 262145) i32 @png_get_cLLI_fixed(ptr noalias noundef readnone
   br label %19
 
 19:                                               ; preds = %4, %7, %15, %16
-  %.0 = phi i32 [ 262144, %15 ], [ 262144, %16 ], [ 0, %7 ], [ 0, %4 ]
+  %.0 = phi i32 [ 262144, %16 ], [ 262144, %15 ], [ 0, %7 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1677,7 +1677,7 @@ define range(i32 0, 262145) i32 @png_get_cLLI(ptr noalias noundef readnone captu
   br label %23
 
 23:                                               ; preds = %4, %7, %17, %18
-  %.0 = phi i32 [ 262144, %17 ], [ 262144, %18 ], [ 0, %7 ], [ 0, %4 ]
+  %.0 = phi i32 [ 262144, %18 ], [ 262144, %17 ], [ 0, %7 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1812,7 +1812,7 @@ define range(i32 0, 524289) i32 @png_get_mDCV_fixed(ptr noalias noundef readnone
   br label %75
 
 75:                                               ; preds = %12, %15, %71, %72
-  %.0 = phi i32 [ 524288, %71 ], [ 524288, %72 ], [ 0, %15 ], [ 0, %12 ]
+  %.0 = phi i32 [ 524288, %72 ], [ 524288, %71 ], [ 0, %15 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -1951,7 +1951,7 @@ define range(i32 0, 524289) i32 @png_get_mDCV(ptr noalias noundef readnone captu
   br label %79
 
 79:                                               ; preds = %12, %15, %73, %74
-  %.0 = phi i32 [ 524288, %73 ], [ 524288, %74 ], [ 0, %15 ], [ 0, %12 ]
+  %.0 = phi i32 [ 524288, %74 ], [ 524288, %73 ], [ 0, %15 ], [ 0, %12 ]
   ret i32 %.0
 }
 

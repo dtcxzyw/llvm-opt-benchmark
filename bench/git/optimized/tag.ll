@@ -1373,7 +1373,7 @@ oidclr.exit:                                      ; preds = %551, %.split.loop.e
   unreachable
 
 584:                                              ; preds = %579, %577, %559, %575
-  %.sink = phi i32 [ 2, %559 ], [ 0, %577 ], [ 2, %575 ], [ 1, %579 ]
+  %.sink = phi i32 [ 2, %575 ], [ 2, %559 ], [ 0, %577 ], [ 1, %579 ]
   %585 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 %.sink, ptr %585, align 4, !tbaa !80
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -2218,7 +2218,7 @@ define internal i32 @git_tag_config(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %28
 
 28:                                               ; preds = %23, %26, %21, %17, %13, %11, %6
-  %.0 = phi i32 [ %22, %21 ], [ 0, %6 ], [ %27, %26 ], [ 0, %17 ], [ 0, %13 ], [ -1, %11 ], [ -1, %23 ]
+  %.0 = phi i32 [ %22, %21 ], [ %27, %26 ], [ 0, %17 ], [ 0, %13 ], [ -1, %11 ], [ 0, %6 ], [ -1, %23 ]
   ret i32 %.0
 }
 

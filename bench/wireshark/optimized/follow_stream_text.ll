@@ -459,7 +459,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i28:    ; preds = %59
   br label %.body21
 
 .body21:                                          ; preds = %63, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i28, %59, %57, %29, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36, %33
-  %.pn11 = phi { ptr, i32 } [ %30, %33 ], [ %58, %57 ], [ %30, %29 ], [ %30, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36 ], [ %60, %59 ], [ %60, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i28 ], [ %60, %63 ]
+  %.pn11 = phi { ptr, i32 } [ %58, %57 ], [ %30, %29 ], [ %30, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36 ], [ %30, %33 ], [ %60, %59 ], [ %60, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i28 ], [ %60, %63 ]
   %65 = load ptr, ptr %9, align 8
   %.not.i.i.i31 = icmp eq ptr %65, null
   br i1 %.not.i.i.i31, label %_ZN7QStringD2Ev.exit34, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i32
@@ -1397,7 +1397,7 @@ select.unfold.i.i:                                ; preds = %34, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIiSt4pairIKijESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIiSt4pairIKijESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i: ; preds = %38, %select.unfold.i.i
-  %42 = phi i1 [ %41, %38 ], [ true, %select.unfold.i.i ]
+  %42 = phi i1 [ true, %select.unfold.i.i ], [ %41, %38 ]
   %43 = tail call noalias noundef dereferenceable_or_null(40) ptr @_Znwm(i64 noundef 40) #18
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %.sroa.0.0.insert.ext = zext i32 %18 to i64

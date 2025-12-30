@@ -111,8 +111,8 @@ define dso_local noundef ptr @pg_strtok(ptr noundef writeonly captures(none) %0)
   br label %27
 
 27:                                               ; preds = %.sink.split, %.critedge2, %20, %23
-  %storemerge = phi ptr [ %.1, %20 ], [ %.1, %.critedge2 ], [ %.1, %23 ], [ %storemerge.ph, %.sink.split ]
-  %.0 = phi ptr [ %.037, %20 ], [ %.037, %.critedge2 ], [ %.037, %23 ], [ %.0.ph, %.sink.split ]
+  %storemerge = phi ptr [ %.1, %23 ], [ %.1, %20 ], [ %.1, %.critedge2 ], [ %storemerge.ph, %.sink.split ]
+  %.0 = phi ptr [ %.037, %23 ], [ %.037, %20 ], [ %.037, %.critedge2 ], [ %.0.ph, %.sink.split ]
   store ptr %storemerge, ptr @pg_strtok_ptr, align 8
   ret ptr %.0
 }
@@ -574,7 +574,7 @@ select.unfold115:                                 ; preds = %44, %38
   %199 = call ptr @makeFloat(ptr noundef %196) #9
   br label %.loopexit
 
-200:                                              ; preds = %48, %51
+200:                                              ; preds = %51, %48
   %201 = icmp eq i8 %15, 116
   %202 = tail call ptr @makeBoolean(i1 noundef zeroext %201) #9
   br label %.loopexit
@@ -650,7 +650,7 @@ debackslash.exit101:                              ; preds = %.lr.ph.i93, %218
   br label %.loopexit
 
 .loopexit:                                        ; preds = %170, %.thread130, %.thread126, %.thread122, %.thread, %189, %select.unfold115, %200, %debackslash.exit, %debackslash.exit101, %68, %185, %10
-  %.0 = phi ptr [ null, %10 ], [ %65, %68 ], [ %232, %debackslash.exit101 ], [ null, %185 ], [ %192, %189 ], [ %199, %select.unfold115 ], [ %202, %200 ], [ %217, %debackslash.exit ], [ %.064163, %.thread130 ], [ %.070170, %.thread ], [ %.272167, %.thread122 ], [ %.4164, %.thread126 ], [ %.6, %170 ]
+  %.0 = phi ptr [ null, %10 ], [ %65, %68 ], [ %192, %189 ], [ %199, %select.unfold115 ], [ %202, %200 ], [ %217, %debackslash.exit ], [ %232, %debackslash.exit101 ], [ null, %185 ], [ %.070170, %.thread ], [ %.272167, %.thread122 ], [ %.4164, %.thread126 ], [ %.064163, %.thread130 ], [ %.6, %170 ]
   ret ptr %.0
 }
 

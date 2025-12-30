@@ -381,7 +381,7 @@ define internal fastcc i32 @evp_set_parsed_default_properties(ptr noundef %0, pt
   br label %28
 
 28:                                               ; preds = %.thread, %21, %22, %10, %27
-  %.1 = phi i32 [ 0, %27 ], [ %25, %22 ], [ 0, %.thread ], [ 0, %21 ], [ 0, %10 ]
+  %.1 = phi i32 [ 0, %27 ], [ 0, %.thread ], [ 0, %21 ], [ %25, %22 ], [ 0, %10 ]
   ret i32 %.1
 }
 
@@ -503,7 +503,7 @@ define range(i32 0, 2) i32 @evp_default_properties_enable_fips_int(ptr noundef %
   br label %evp_default_properties_merge.exit
 
 evp_default_properties_merge.exit:                ; preds = %13, %14, %16, %20, %25, %26, %28
-  %.0.i = phi i32 [ 0, %28 ], [ 1, %26 ], [ 0, %20 ], [ 0, %25 ], [ 1, %14 ], [ 0, %13 ], [ 0, %16 ]
+  %.0.i = phi i32 [ 0, %20 ], [ 0, %25 ], [ 0, %28 ], [ 1, %26 ], [ 0, %13 ], [ 0, %16 ], [ 1, %14 ]
   ret i32 %.0.i
 }
 
@@ -554,7 +554,7 @@ define ptr @evp_get_global_properties_str(ptr noundef %0, i32 noundef %1) local_
   br label %20
 
 20:                                               ; preds = %15, %12, %19, %11, %5
-  %.0 = phi ptr [ %6, %5 ], [ null, %11 ], [ null, %12 ], [ null, %19 ], [ %13, %15 ]
+  %.0 = phi ptr [ %6, %5 ], [ null, %11 ], [ null, %19 ], [ null, %12 ], [ %13, %15 ]
   ret ptr %.0
 }
 
@@ -810,7 +810,7 @@ define internal ptr @get_evp_method_from_store(ptr noundef %0, ptr noundef %1, p
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %41, %23, %37, %25, %.thread38
-  %.1 = phi ptr [ %spec.select, %41 ], [ null, %25 ], [ null, %.thread38 ], [ null, %37 ], [ null, %23 ], [ null, %8 ]
+  %.1 = phi ptr [ null, %.thread38 ], [ null, %25 ], [ null, %37 ], [ null, %23 ], [ %spec.select, %41 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.1
 }
@@ -878,7 +878,7 @@ define internal i32 @put_evp_method_in_store(ptr noundef %0, ptr noundef %1, ptr
   br label %43
 
 43:                                               ; preds = %33, %16, %20, %23, %37
-  %.0 = phi i32 [ %42, %37 ], [ 0, %16 ], [ 0, %23 ], [ 0, %20 ], [ 0, %33 ]
+  %.0 = phi i32 [ %42, %37 ], [ 0, %23 ], [ 0, %20 ], [ 0, %16 ], [ 0, %33 ]
   ret i32 %.0
 }
 

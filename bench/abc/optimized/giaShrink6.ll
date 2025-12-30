@@ -2163,7 +2163,7 @@ Shr_ManComputeTruth6.exit:                        ; preds = %354, %.critedge2
   br i1 %423, label %.lr.ph245.split, label %.critedge6, !llvm.loop !84
 
 .critedge6:                                       ; preds = %420, %.lr.ph245, %.preheader
-  %.0125.lcssa = phi i64 [ %370, %.lr.ph245 ], [ %370, %.preheader ], [ %.1126, %420 ]
+  %.0125.lcssa = phi i64 [ %370, %.preheader ], [ %370, %.lr.ph245 ], [ %.1126, %420 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %424 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -328,7 +328,7 @@ define hidden i32 @SDL_GetLogPriority_REAL(i32 noundef %0) local_unnamed_addr #0
   br label %19
 
 19:                                               ; preds = %14, %.thread
-  %20 = phi i32 [ %spec.select, %14 ], [ %9, %.thread ]
+  %20 = phi i32 [ %9, %.thread ], [ %spec.select, %14 ]
   %21 = load ptr, ptr @SDL_log_lock, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %21) #8
   br label %22
@@ -409,7 +409,7 @@ CleanupLogPriorities.exit:                        ; preds = %.lr.ph.i, %0
   br i1 %exitcond.not.i.i, label %ParseLogPriorities.exit, label %.preheader.i.i, !llvm.loop !9
 
 .loopexit.sink.split.i.i:                         ; preds = %27, %20, %19, %16
-  %.2.ph.i = phi i32 [ %28, %27 ], [ 8, %20 ], [ 8, %16 ], [ %17, %19 ]
+  %.2.ph.i = phi i32 [ 8, %20 ], [ 8, %16 ], [ %28, %27 ], [ %17, %19 ]
   tail call fastcc void @SDL_CheckInitLog()
   %30 = load ptr, ptr @SDL_log_lock, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %30) #8
@@ -545,7 +545,7 @@ SDL_SetLogPriorities_REAL.exit.i:                 ; preds = %36
   br i1 %exitcond.not.i55.i, label %ParseLogCategory.exit.i, label %.preheader.i52.i, !llvm.loop !9
 
 .loopexit.sink.split.i50.i:                       ; preds = %85, %78, %77, %74
-  %.3.ph.i = phi i32 [ %86, %85 ], [ 8, %78 ], [ 8, %74 ], [ %75, %77 ]
+  %.3.ph.i = phi i32 [ 8, %78 ], [ 8, %74 ], [ %86, %85 ], [ %75, %77 ]
   %88 = icmp eq i32 %.267.ph.i, -1
   br i1 %88, label %.preheader.i, label %95
 
@@ -669,7 +669,7 @@ ParseLogPriorities.exit:                          ; preds = %ParseLogCategory.ex
   br label %.sink.split
 
 .sink.split:                                      ; preds = %121, %125, %124, %123
-  %.sink = phi i32 [ 6, %125 ], [ 5, %123 ], [ 2, %124 ], [ 4, %121 ]
+  %.sink = phi i32 [ 5, %123 ], [ 2, %124 ], [ 6, %125 ], [ 4, %121 ]
   store i32 %.sink, ptr %119, align 4
   br label %126
 
@@ -805,7 +805,7 @@ define hidden void @SDL_LogMessageV_REAL(i32 noundef %0, i32 noundef %1, ptr nou
   br label %26
 
 26:                                               ; preds = %21, %.thread.i
-  %27 = phi i32 [ %spec.select.i, %21 ], [ %16, %.thread.i ]
+  %27 = phi i32 [ %16, %.thread.i ], [ %spec.select.i, %21 ]
   %28 = load ptr, ptr @SDL_log_lock, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %28) #8
   br label %SDL_GetLogPriority_REAL.exit
@@ -1016,7 +1016,7 @@ switch.lookup:                                    ; preds = %11
   br label %GetLogPriorityPrefix.exit
 
 GetLogPriorityPrefix.exit:                        ; preds = %11, %switch.lookup, %4, %7
-  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.3, %4 ], [ %10, %7 ], [ @.str.3, %11 ]
+  %.0.i = phi ptr [ @.str.3, %4 ], [ %10, %7 ], [ %switch.load, %switch.lookup ], [ @.str.3, %11 ]
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.21, ptr noundef nonnull %.0.i, ptr noundef %3) #9
   ret void
 }

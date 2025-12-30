@@ -134,7 +134,7 @@ EC_GROUP_free.exit:                               ; preds = %21, %24
   br label %27
 
 27:                                               ; preds = %14, %4, %EC_GROUP_free.exit, %13
-  %.0 = phi ptr [ null, %EC_GROUP_free.exit ], [ null, %13 ], [ null, %4 ], [ %6, %14 ]
+  %.0 = phi ptr [ null, %13 ], [ null, %EC_GROUP_free.exit ], [ null, %4 ], [ %6, %14 ]
   ret ptr %.0
 }
 
@@ -250,7 +250,7 @@ EC_POINT_copy.exit.thread22:                      ; preds = %21, %EC_POINT_copy.
   br label %31
 
 31:                                               ; preds = %EC_POINT_copy.exit.thread, %EC_POINT_new.exit.thread, %EC_POINT_copy.exit, %EC_POINT_copy.exit.thread22, %26, %4, %7
-  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 0, %EC_POINT_copy.exit.thread22 ], [ 0, %EC_POINT_copy.exit ], [ 0, %EC_POINT_new.exit.thread ], [ %30, %26 ], [ 0, %EC_POINT_copy.exit.thread ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 0, %EC_POINT_copy.exit.thread22 ], [ 0, %EC_POINT_copy.exit ], [ %30, %26 ], [ 0, %EC_POINT_new.exit.thread ], [ 0, %EC_POINT_copy.exit.thread ]
   ret i32 %.0
 }
 
@@ -447,7 +447,7 @@ EC_POINT_is_on_curve.exit:                        ; preds = %11
   br label %16
 
 16:                                               ; preds = %EC_POINT_is_on_curve.exit, %9, %15, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %9 ], [ 0, %15 ], [ 1, %EC_POINT_is_on_curve.exit ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %15 ], [ 0, %9 ], [ 1, %EC_POINT_is_on_curve.exit ]
   ret i32 %.0
 }
 
@@ -697,12 +697,12 @@ EC_GROUP_free.exit.i:                             ; preds = %97, %94
   br i1 %.not, label %.thread, label %2, !llvm.loop !35
 
 103:                                              ; preds = %100, %EC_GROUP_free.exit.i, %87, %45, %.thread152.i, %28, %10
-  %.2167.i = phi ptr [ null, %100 ], [ null, %EC_GROUP_free.exit.i ], [ %.1.i, %87 ], [ null, %.thread152.i ], [ null, %28 ], [ null, %45 ], [ null, %10 ]
-  %.067106166.i = phi ptr [ %.067.ph129.i, %100 ], [ %.067.ph129.i, %EC_GROUP_free.exit.i ], [ %58, %87 ], [ null, %.thread152.i ], [ null, %28 ], [ null, %45 ], [ null, %10 ]
-  %.065108165.i = phi ptr [ %.065.ph131.i, %100 ], [ %.065.ph131.i, %EC_GROUP_free.exit.i ], [ %63, %87 ], [ null, %.thread152.i ], [ null, %28 ], [ null, %45 ], [ null, %10 ]
-  %.063110164.i = phi ptr [ %27, %100 ], [ %27, %EC_GROUP_free.exit.i ], [ %27, %87 ], [ %27, %.thread152.i ], [ null, %28 ], [ %27, %45 ], [ null, %10 ]
-  %.060112163.i = phi ptr [ %22, %100 ], [ %22, %EC_GROUP_free.exit.i ], [ %22, %87 ], [ %22, %.thread152.i ], [ %.161.i, %28 ], [ %22, %45 ], [ null, %10 ]
-  %.059114162.i = phi ptr [ %19, %100 ], [ %19, %EC_GROUP_free.exit.i ], [ %19, %87 ], [ %19, %.thread152.i ], [ %19, %28 ], [ %19, %45 ], [ null, %10 ]
+  %.2167.i = phi ptr [ null, %EC_GROUP_free.exit.i ], [ null, %100 ], [ null, %.thread152.i ], [ %.1.i, %87 ], [ null, %28 ], [ null, %45 ], [ null, %10 ]
+  %.067106166.i = phi ptr [ %.067.ph129.i, %EC_GROUP_free.exit.i ], [ %.067.ph129.i, %100 ], [ null, %.thread152.i ], [ %58, %87 ], [ null, %28 ], [ null, %45 ], [ null, %10 ]
+  %.065108165.i = phi ptr [ %.065.ph131.i, %EC_GROUP_free.exit.i ], [ %.065.ph131.i, %100 ], [ null, %.thread152.i ], [ %63, %87 ], [ null, %28 ], [ null, %45 ], [ null, %10 ]
+  %.063110164.i = phi ptr [ %27, %EC_GROUP_free.exit.i ], [ %27, %100 ], [ %27, %.thread152.i ], [ %27, %87 ], [ null, %28 ], [ %27, %45 ], [ null, %10 ]
+  %.060112163.i = phi ptr [ %22, %EC_GROUP_free.exit.i ], [ %22, %100 ], [ %22, %.thread152.i ], [ %22, %87 ], [ %.161.i, %28 ], [ %22, %45 ], [ null, %10 ]
+  %.059114162.i = phi ptr [ %19, %EC_GROUP_free.exit.i ], [ %19, %100 ], [ %19, %.thread152.i ], [ %19, %87 ], [ %19, %28 ], [ %19, %45 ], [ null, %10 ]
   tail call void @BN_CTX_free(ptr noundef %8) #11
   tail call void @BN_free(ptr noundef %.059114162.i) #11
   tail call void @BN_free(ptr noundef %.060112163.i) #11
@@ -857,7 +857,7 @@ EC_POINT_copy.exit.thread37:                      ; preds = %34, %EC_POINT_copy.
   br label %54
 
 54:                                               ; preds = %EC_POINT_copy.exit.thread, %EC_POINT_new.exit.thread, %EC_POINT_copy.exit.thread37, %42, %EC_POINT_copy.exit, %11, %46, %10, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %10 ], [ 0, %EC_POINT_new.exit.thread ], [ 1, %11 ], [ %53, %46 ], [ 0, %EC_POINT_copy.exit ], [ 0, %42 ], [ 0, %EC_POINT_copy.exit.thread37 ], [ 0, %EC_POINT_copy.exit.thread ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %10 ], [ %53, %46 ], [ 1, %11 ], [ 0, %EC_POINT_copy.exit ], [ 0, %42 ], [ 0, %EC_POINT_copy.exit.thread37 ], [ 0, %EC_POINT_new.exit.thread ], [ 0, %EC_POINT_copy.exit.thread ]
   ret i32 %.0
 }
 
@@ -1094,7 +1094,7 @@ EC_POINT_free.exit:                               ; preds = %EC_POINT_copy.exit.
   br label %EC_POINT_copy.exit.thread16
 
 EC_POINT_copy.exit.thread16:                      ; preds = %18, %EC_POINT_copy.exit, %2, %EC_POINT_free.exit, %15
-  %.0 = phi ptr [ null, %EC_POINT_free.exit ], [ null, %15 ], [ null, %2 ], [ %8, %EC_POINT_copy.exit ], [ %8, %18 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %EC_POINT_free.exit ], [ null, %2 ], [ %8, %EC_POINT_copy.exit ], [ %8, %18 ]
   ret ptr %.0
 }
 

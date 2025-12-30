@@ -237,9 +237,9 @@ unwind_phase1.exit.thread11:                      ; preds = %44, %92
   br label %unwind_phase1.exit.thread
 
 unwind_phase1.exit:                               ; preds = %44, %81, %92
-  %.str.15.sink.i = phi ptr [ @.str.19, %81 ], [ @.str.15, %44 ], [ @.str.21, %92 ]
-  %.not = phi i1 [ true, %81 ], [ false, %44 ], [ false, %92 ]
-  %.2.ph.ph.i = phi i32 [ 0, %81 ], [ 3, %44 ], [ 3, %92 ]
+  %.str.15.sink.i = phi ptr [ @.str.15, %44 ], [ @.str.19, %81 ], [ @.str.21, %92 ]
+  %.not = phi i1 [ false, %44 ], [ true, %81 ], [ false, %92 ]
+  %.2.ph.ph.i = phi i32 [ 3, %44 ], [ 0, %81 ], [ 3, %92 ]
   %97 = load ptr, ptr @stderr, align 8, !tbaa !4
   %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull %.str.15.sink.i, ptr noundef %0) #7
   %99 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -252,8 +252,8 @@ unwind_phase1.exit:                               ; preds = %44, %81, %92
   %102 = call fastcc i32 @unwind_phase2(ptr noundef %7, ptr noundef %8, ptr noundef %0)
   br label %unwind_phase1.exit.thread
 
-unwind_phase1.exit.thread:                        ; preds = %._crit_edge.i, %26, %36, %34, %unwind_phase1.exit.thread11, %unwind_phase1.exit, %101
-  %.0 = phi i32 [ %102, %101 ], [ %.2.ph.ph.i, %unwind_phase1.exit ], [ 3, %unwind_phase1.exit.thread11 ], [ 5, %._crit_edge.i ], [ 5, %26 ], [ 3, %36 ], [ 3, %34 ]
+unwind_phase1.exit.thread:                        ; preds = %26, %._crit_edge.i, %36, %34, %unwind_phase1.exit.thread11, %unwind_phase1.exit, %101
+  %.0 = phi i32 [ %102, %101 ], [ %.2.ph.ph.i, %unwind_phase1.exit ], [ 3, %unwind_phase1.exit.thread11 ], [ 5, %26 ], [ 5, %._crit_edge.i ], [ 3, %36 ], [ 3, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -476,7 +476,7 @@ define internal fastcc range(i32 2, 6) i32 @unwind_phase2(ptr noundef nonnull %0
   %123 = call i32 @fflush(ptr noundef %122)
   br label %.thread49
 
-.thread49:                                        ; preds = %43, %44, %119, %117
+.thread49:                                        ; preds = %44, %43, %119, %117
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
@@ -488,8 +488,8 @@ define internal fastcc range(i32 2, 6) i32 @unwind_phase2(ptr noundef nonnull %0
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %._crit_edge, label %29
 
-.thread:                                          ; preds = %32, %34, %24, %._crit_edge, %.thread49
-  %.147 = phi i32 [ 2, %.thread49 ], [ 2, %32 ], [ 2, %34 ], [ 5, %24 ], [ 5, %._crit_edge ]
+.thread:                                          ; preds = %32, %34, %._crit_edge, %24, %.thread49
+  %.147 = phi i32 [ 2, %.thread49 ], [ 2, %32 ], [ 2, %34 ], [ 5, %._crit_edge ], [ 5, %24 ]
   ret i32 %.147
 }
 

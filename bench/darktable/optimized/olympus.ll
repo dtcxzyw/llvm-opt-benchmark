@@ -59,8 +59,8 @@ switch.early.test22:                              ; preds = %6, %9
   br label %15
 
 15:                                               ; preds = %6, %9, %switch.early.test22, %switch.early.test22, %switch.early.test22, %switch.early.test22, %12, %13
-  %.sink26 = phi i64 [ 1338, %13 ], [ 1354, %12 ], [ 1354, %switch.early.test22 ], [ 1354, %switch.early.test22 ], [ 1354, %switch.early.test22 ], [ 1354, %switch.early.test22 ], [ 1354, %9 ], [ 1354, %6 ]
-  %.sink = phi i16 [ 43, %13 ], [ 10, %12 ], [ 9, %switch.early.test22 ], [ 9, %switch.early.test22 ], [ 9, %switch.early.test22 ], [ 9, %switch.early.test22 ], [ 9, %9 ], [ 9, %6 ]
+  %.sink26 = phi i64 [ 1354, %12 ], [ 1338, %13 ], [ 1354, %switch.early.test22 ], [ 1354, %switch.early.test22 ], [ 1354, %switch.early.test22 ], [ 1354, %switch.early.test22 ], [ 1354, %9 ], [ 1354, %6 ]
+  %.sink = phi i16 [ 10, %12 ], [ 43, %13 ], [ 9, %switch.early.test22 ], [ 9, %switch.early.test22 ], [ 9, %switch.early.test22 ], [ 9, %switch.early.test22 ], [ 9, %9 ], [ 9, %6 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink26
   store i16 %.sink, ptr %16, align 2, !tbaa !73
   ret void
@@ -186,8 +186,8 @@ switch.early.test22.i:                            ; preds = %44, %41
   br label %_ZN6LibRaw22setOlympusBodyFeaturesEy.exit
 
 _ZN6LibRaw22setOlympusBodyFeaturesEy.exit:        ; preds = %41, %44, %switch.early.test22.i, %switch.early.test22.i, %switch.early.test22.i, %switch.early.test22.i, %48, %49
-  %.sink26.i = phi i64 [ 1338, %49 ], [ 1354, %48 ], [ 1354, %switch.early.test22.i ], [ 1354, %switch.early.test22.i ], [ 1354, %switch.early.test22.i ], [ 1354, %switch.early.test22.i ], [ 1354, %44 ], [ 1354, %41 ]
-  %.sink.i = phi i16 [ 43, %49 ], [ 10, %48 ], [ 9, %switch.early.test22.i ], [ 9, %switch.early.test22.i ], [ 9, %switch.early.test22.i ], [ 9, %switch.early.test22.i ], [ 9, %44 ], [ 9, %41 ]
+  %.sink26.i = phi i64 [ 1354, %48 ], [ 1338, %49 ], [ 1354, %switch.early.test22.i ], [ 1354, %switch.early.test22.i ], [ 1354, %switch.early.test22.i ], [ 1354, %switch.early.test22.i ], [ 1354, %44 ], [ 1354, %41 ]
+  %.sink.i = phi i16 [ 10, %48 ], [ 43, %49 ], [ 9, %switch.early.test22.i ], [ 9, %switch.early.test22.i ], [ 9, %switch.early.test22.i ], [ 9, %switch.early.test22.i ], [ 9, %44 ], [ 9, %41 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink26.i
   store i16 %.sink.i, ptr %51, align 2, !tbaa !73
   br label %52

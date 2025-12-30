@@ -235,7 +235,7 @@ define i32 @Int_ManGlobalVars(ptr noundef readonly captures(none) %0) local_unna
   br i1 %84, label %73, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %34, %81, %.preheader63, %.critedge2
-  %.050 = phi i32 [ %.5, %81 ], [ 0, %.critedge2 ], [ %27, %.preheader63 ], [ %41, %34 ]
+  %.050 = phi i32 [ 0, %.critedge2 ], [ %27, %.preheader63 ], [ %.5, %81 ], [ %41, %34 ]
   ret i32 %.050
 }
 
@@ -1616,7 +1616,7 @@ Int_ManTruthOr.exit:                              ; preds = %.lr.ph.i215, %.lr.p
   br i1 %241, label %.preheader242, label %.loopexit244, !llvm.loop !79
 
 .loopexit244:                                     ; preds = %236, %.preheader243, %Int_ManTruthOr.exit, %96, %87
-  %.1176 = phi i32 [ %.0175278, %96 ], [ %.0175278, %87 ], [ %128, %Int_ManTruthOr.exit ], [ %128, %.preheader243 ], [ %128, %236 ]
+  %.1176 = phi i32 [ %.0175278, %96 ], [ %128, %Int_ManTruthOr.exit ], [ %.0175278, %87 ], [ %128, %.preheader243 ], [ %128, %236 ]
   %242 = icmp sgt i64 %indvars.iv320, 1
   br i1 %242, label %87, label %._crit_edge281, !llvm.loop !80
 
@@ -2200,7 +2200,7 @@ Int_ManEnqueue.exit83:                            ; preds = %136
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %Int_ManEnqueue.exit, %Int_ManCancelUntil.exit, %155, %162, %Int_ManEnqueue.exit83, %._crit_edge, %166, %120
-  %.064 = phi i32 [ 1, %Int_ManCancelUntil.exit ], [ 0, %Int_ManEnqueue.exit ], [ 0, %155 ], [ 1, %120 ], [ 0, %Int_ManEnqueue.exit83 ], [ 1, %166 ], [ 0, %._crit_edge ], [ 0, %162 ], [ 1, %23 ]
+  %.064 = phi i32 [ 1, %120 ], [ 1, %166 ], [ 1, %Int_ManCancelUntil.exit ], [ 0, %._crit_edge ], [ 0, %Int_ManEnqueue.exit83 ], [ 0, %162 ], [ 0, %155 ], [ 0, %Int_ManEnqueue.exit ], [ 1, %23 ]
   ret i32 %.064
 }
 
@@ -2338,7 +2338,7 @@ Int_ManEnqueue.exit:                              ; preds = %35
   br label %70
 
 70:                                               ; preds = %59, %66, %50, %56, %67
-  %.033 = phi i32 [ 1, %67 ], [ 0, %50 ], [ 0, %56 ], [ 0, %66 ], [ 0, %59 ]
+  %.033 = phi i32 [ 1, %67 ], [ 0, %56 ], [ 0, %50 ], [ 0, %66 ], [ 0, %59 ]
   ret i32 %.033
 }
 

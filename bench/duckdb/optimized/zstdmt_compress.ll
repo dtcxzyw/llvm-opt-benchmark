@@ -1197,7 +1197,7 @@ _ZN11duckdb_zstdL26ZSTDMT_computeTargetJobLogEPKNS_18ZSTD_CCtx_params_sE.exit.i:
   br label %_ZN11duckdb_zstdL25ZSTDMT_computeOverlapSizeEPKNS_18ZSTD_CCtx_params_sE.exit
 
 _ZN11duckdb_zstdL25ZSTDMT_computeOverlapSizeEPKNS_18ZSTD_CCtx_params_sE.exit: ; preds = %223, %227, %_ZN11duckdb_zstdL26ZSTDMT_computeTargetJobLogEPKNS_18ZSTD_CCtx_params_sE.exit.i
-  %231 = phi i32 [ 19, %223 ], [ %211, %_ZN11duckdb_zstdL26ZSTDMT_computeTargetJobLogEPKNS_18ZSTD_CCtx_params_sE.exit.i ], [ %230, %227 ]
+  %231 = phi i32 [ 19, %223 ], [ %230, %227 ], [ %211, %_ZN11duckdb_zstdL26ZSTDMT_computeTargetJobLogEPKNS_18ZSTD_CCtx_params_sE.exit.i ]
   %232 = sub i32 %231, %205
   %233 = icmp eq i32 %231, %205
   %234 = zext nneg i32 %232 to i64
@@ -1250,9 +1250,9 @@ _ZN11duckdb_zstdL25ZSTDMT_computeOverlapSizeEPKNS_18ZSTD_CCtx_params_sE.exit.thr
   br label %_ZN11duckdb_zstdL26ZSTDMT_computeTargetJobLogEPKNS_18ZSTD_CCtx_params_sE.exit
 
 _ZN11duckdb_zstdL26ZSTDMT_computeTargetJobLogEPKNS_18ZSTD_CCtx_params_sE.exit: ; preds = %247, %.thread148, %259
-  %263 = phi ptr [ %244, %.thread148 ], [ %260, %259 ], [ %237, %247 ]
-  %264 = phi ptr [ %245, %.thread148 ], [ %261, %259 ], [ %238, %247 ]
-  %265 = phi i64 [ 20, %.thread148 ], [ %262, %259 ], [ 21, %247 ]
+  %263 = phi ptr [ %237, %247 ], [ %244, %.thread148 ], [ %260, %259 ]
+  %264 = phi ptr [ %238, %247 ], [ %245, %.thread148 ], [ %261, %259 ]
+  %265 = phi i64 [ 21, %247 ], [ 20, %.thread148 ], [ %262, %259 ]
   %266 = shl nuw nsw i64 1, %265
   store i64 %266, ptr %264, align 8, !tbaa !108
   br label %267
@@ -1553,7 +1553,7 @@ _ZN11duckdb_zstdL15ZSTD_customFreeEPvNS_14ZSTD_customMemE.exit64.i: ; preds = %3
   br i1 %.not5090.i, label %_ZN11duckdb_zstdL24ZSTDMT_serialState_resetEPNS_13serialState_tEPNS_19ZSTDMT_bufferPool_sENS_18ZSTD_CCtx_params_sEmPKvmNS_22ZSTD_dictContentType_eE.exit.thread, label %.thread92.i
 
 .thread92.i:                                      ; preds = %.thread.i, %404
-  %406 = phi ptr [ %.pre.i112, %404 ], [ %391, %.thread.i ]
+  %406 = phi ptr [ %391, %.thread.i ], [ %.pre.i112, %404 ]
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %406, i8 0, i64 %357, i1 false)
   %407 = load ptr, ptr %392, align 8, !tbaa !61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %407, i8 0, i64 %367, i1 false)
@@ -1645,7 +1645,7 @@ _ZN11duckdb_zstdL18ZSTD_window_updateEPNS_13ZSTD_window_tEPKvmi.exit.i: ; preds 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %454, ptr noundef nonnull align 8 dereferenceable(40) %371, i64 40, i1 false), !tbaa.struct !130
   br label %455
 
-_ZN11duckdb_zstdL24ZSTDMT_serialState_resetEPNS_13serialState_tEPNS_19ZSTDMT_bufferPool_sENS_18ZSTD_CCtx_params_sEmPKvmNS_22ZSTD_dictContentType_eE.exit.thread: ; preds = %.thread.i, %404
+_ZN11duckdb_zstdL24ZSTDMT_serialState_resetEPNS_13serialState_tEPNS_19ZSTDMT_bufferPool_sENS_18ZSTD_CCtx_params_sEmPKvmNS_22ZSTD_dictContentType_eE.exit.thread: ; preds = %404, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN11duckdb_zstdL13ZSTDMT_resizeEPNS_13ZSTDMT_CCtx_sEj.exit.thread
 
@@ -1658,8 +1658,8 @@ _ZN11duckdb_zstdL24ZSTDMT_serialState_resetEPNS_13serialState_tEPNS_19ZSTDMT_buf
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN11duckdb_zstdL13ZSTDMT_resizeEPNS_13ZSTDMT_CCtx_sEj.exit.thread
 
-_ZN11duckdb_zstdL13ZSTDMT_resizeEPNS_13ZSTDMT_CCtx_sEj.exit.thread: ; preds = %116, %_ZN11duckdb_zstdL21ZSTDMT_expandCCtxPoolEPNS_15ZSTDMT_CCtxPoolEi.exit.thread.i, %46, %16, %_ZN11duckdb_zstdL22ZSTDMT_expandJobsTableEPNS_13ZSTDMT_CCtx_sEj.exit.i, %455, %_ZN11duckdb_zstdL24ZSTDMT_serialState_resetEPNS_13serialState_tEPNS_19ZSTDMT_bufferPool_sENS_18ZSTD_CCtx_params_sEmPKvmNS_22ZSTD_dictContentType_eE.exit.thread, %327, %181
-  %.2 = phi i64 [ -64, %_ZN11duckdb_zstdL24ZSTDMT_serialState_resetEPNS_13serialState_tEPNS_19ZSTDMT_bufferPool_sENS_18ZSTD_CCtx_params_sEmPKvmNS_22ZSTD_dictContentType_eE.exit.thread ], [ -64, %327 ], [ -64, %181 ], [ 0, %455 ], [ -64, %_ZN11duckdb_zstdL22ZSTDMT_expandJobsTableEPNS_13ZSTDMT_CCtx_sEj.exit.i ], [ -64, %16 ], [ -64, %46 ], [ -64, %_ZN11duckdb_zstdL21ZSTDMT_expandCCtxPoolEPNS_15ZSTDMT_CCtxPoolEi.exit.thread.i ], [ -64, %116 ]
+_ZN11duckdb_zstdL13ZSTDMT_resizeEPNS_13ZSTDMT_CCtx_sEj.exit.thread: ; preds = %_ZN11duckdb_zstdL21ZSTDMT_expandCCtxPoolEPNS_15ZSTDMT_CCtxPoolEi.exit.thread.i, %116, %46, %16, %_ZN11duckdb_zstdL22ZSTDMT_expandJobsTableEPNS_13ZSTDMT_CCtx_sEj.exit.i, %455, %_ZN11duckdb_zstdL24ZSTDMT_serialState_resetEPNS_13serialState_tEPNS_19ZSTDMT_bufferPool_sENS_18ZSTD_CCtx_params_sEmPKvmNS_22ZSTD_dictContentType_eE.exit.thread, %327, %181
+  %.2 = phi i64 [ -64, %327 ], [ -64, %181 ], [ 0, %455 ], [ -64, %_ZN11duckdb_zstdL24ZSTDMT_serialState_resetEPNS_13serialState_tEPNS_19ZSTDMT_bufferPool_sENS_18ZSTD_CCtx_params_sEmPKvmNS_22ZSTD_dictContentType_eE.exit.thread ], [ -64, %_ZN11duckdb_zstdL22ZSTDMT_expandJobsTableEPNS_13ZSTDMT_CCtx_sEj.exit.i ], [ -64, %16 ], [ -64, %46 ], [ -64, %116 ], [ -64, %_ZN11duckdb_zstdL21ZSTDMT_expandCCtxPoolEPNS_15ZSTDMT_CCtxPoolEi.exit.thread.i ]
   ret i64 %.2
 }
 
@@ -1981,7 +1981,7 @@ _ZN11duckdb_zstdL24ZSTD_rollingHash_computeEPKvm.exit.i: ; preds = %_ZN11duckdb_
   %167 = add i64 %166, %164
   %168 = and i64 %167, %90
   %169 = icmp eq i64 %168, %90
-  %170 = add i64 %.180.i, 1
+  %170 = add nuw i64 %.180.i, 1
   br i1 %169, label %171, label %172
 
 171:                                              ; preds = %.lr.ph.i
@@ -2594,7 +2594,7 @@ _ZN11duckdb_zstdL20ZSTDMT_releaseBufferEPNS_19ZSTDMT_bufferPool_sENS_8buffer_sE.
   br label %_ZN11duckdb_zstdL20ZSTDMT_flushProducedEPNS_13ZSTDMT_CCtx_sEPNS_16ZSTD_outBuffer_sEjNS_17ZSTD_EndDirectiveE.exit
 
 _ZN11duckdb_zstdL20ZSTDMT_flushProducedEPNS_13ZSTDMT_CCtx_sEPNS_16ZSTD_outBuffer_sEjNS_17ZSTD_EndDirectiveE.exit: ; preds = %_ZN11duckdb_zstdL29ZSTDMT_releaseAllJobResourcesEPNS_13ZSTDMT_CCtx_sE.exit.i, %456, %.thread, %458, %463, %465, %468, %472
-  %.1.i83 = phi i64 [ 1, %.thread ], [ 1, %458 ], [ 1, %463 ], [ %473, %472 ], [ 1, %465 ], [ 0, %468 ], [ %457, %456 ], [ %328, %_ZN11duckdb_zstdL29ZSTDMT_releaseAllJobResourcesEPNS_13ZSTDMT_CCtx_sE.exit.i ]
+  %.1.i83 = phi i64 [ %473, %472 ], [ 1, %.thread ], [ 1, %458 ], [ 1, %463 ], [ 1, %465 ], [ 0, %468 ], [ %457, %456 ], [ %328, %_ZN11duckdb_zstdL29ZSTDMT_releaseAllJobResourcesEPNS_13ZSTDMT_CCtx_sE.exit.i ]
   %474 = load i64, ptr %180, align 8, !tbaa !136
   %475 = load i64, ptr %182, align 8, !tbaa !134
   %476 = icmp ult i64 %474, %475
@@ -2603,7 +2603,7 @@ _ZN11duckdb_zstdL20ZSTDMT_flushProducedEPNS_13ZSTDMT_CCtx_sEPNS_16ZSTD_outBuffer
   br label %478
 
 478:                                              ; preds = %4, %_ZN11duckdb_zstdL20ZSTDMT_flushProducedEPNS_13ZSTDMT_CCtx_sEPNS_16ZSTD_outBuffer_sEjNS_17ZSTD_EndDirectiveE.exit
-  %.0 = phi i64 [ -60, %4 ], [ %.2, %_ZN11duckdb_zstdL20ZSTDMT_flushProducedEPNS_13ZSTDMT_CCtx_sEPNS_16ZSTD_outBuffer_sEjNS_17ZSTD_EndDirectiveE.exit ]
+  %.0 = phi i64 [ %.2, %_ZN11duckdb_zstdL20ZSTDMT_flushProducedEPNS_13ZSTDMT_CCtx_sEPNS_16ZSTD_outBuffer_sEjNS_17ZSTD_EndDirectiveE.exit ], [ -60, %4 ]
   ret i64 %.0
 }
 
@@ -2691,7 +2691,7 @@ _ZN11duckdb_zstdL17ZSTD_customCallocEmNS_14ZSTD_customMemE.exit17.i: ; preds = %
   br label %_ZN11duckdb_zstdL23ZSTDMT_createBufferPoolEjNS_14ZSTD_customMemE.exit.thread
 
 _ZN11duckdb_zstdL23ZSTDMT_createBufferPoolEjNS_14ZSTD_customMemE.exit.thread: ; preds = %_ZN11duckdb_zstdL17ZSTD_customCallocEmNS_14ZSTD_customMemE.exit.i, %24, %25, %4, %2
-  %.0 = phi ptr [ %0, %4 ], [ null, %2 ], [ %.0.i2325.i, %25 ], [ null, %24 ], [ null, %_ZN11duckdb_zstdL17ZSTD_customCallocEmNS_14ZSTD_customMemE.exit.i ]
+  %.0 = phi ptr [ null, %2 ], [ %0, %4 ], [ %.0.i2325.i, %25 ], [ null, %24 ], [ null, %_ZN11duckdb_zstdL17ZSTD_customCallocEmNS_14ZSTD_customMemE.exit.i ]
   ret ptr %.0
 }
 
@@ -3273,12 +3273,12 @@ _ZN11duckdb_zstdL25ZSTDMT_serialState_updateEPNS_13serialState_tEPNS_11ZSTD_CCtx
   br label %.thread186
 
 .thread197:                                       ; preds = %250, %._crit_edge
-  %.1200 = phi i64 [ %251, %250 ], [ 0, %._crit_edge ]
+  %.1200 = phi i64 [ 0, %._crit_edge ], [ %251, %250 ]
   call void @_ZN11duckdb_zstd15ZSTD_CCtx_traceEPNS_11ZSTD_CCtx_sEm(ptr noundef nonnull %.0.i, i64 noundef 0)
   br label %.thread186
 
-.thread186:                                       ; preds = %253, %131, %123, %116, %.thread201, %208, %107, %.thread197, %91, %83, %51
-  %.0 = phi i64 [ 0, %51 ], [ 0, %83 ], [ 0, %91 ], [ %.1200, %.thread197 ], [ 0, %253 ], [ 0, %208 ], [ 0, %107 ], [ 0, %.thread201 ], [ 0, %116 ], [ 0, %123 ], [ 0, %131 ]
+.thread186:                                       ; preds = %253, %131, %116, %123, %.thread201, %208, %107, %.thread197, %91, %83, %51
+  %.0 = phi i64 [ 0, %51 ], [ 0, %83 ], [ 0, %91 ], [ %.1200, %.thread197 ], [ 0, %253 ], [ 0, %208 ], [ 0, %107 ], [ 0, %.thread201 ], [ 0, %123 ], [ 0, %116 ], [ 0, %131 ]
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %256 = load ptr, ptr %255, align 8, !tbaa !152
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 104

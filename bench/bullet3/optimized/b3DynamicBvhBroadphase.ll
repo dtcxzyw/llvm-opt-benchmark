@@ -310,7 +310,7 @@ _ZN20b3AlignedObjectArrayI11b3DbvtProxyE10deallocateEv.exit.i.i: ; preds = %61, 
   br i1 %70, label %.loopexit33, label %69
 
 .loopexit33:                                      ; preds = %.preheader, %69, %38
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %69 ], [ %39, %38 ], [ %39, %.preheader ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %39, %38 ], [ %.pn, %69 ], [ %39, %.preheader ]
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -2638,7 +2638,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i: ; preds = %114, %_ZNK
   br i1 %exitcond.not.i, label %_ZN20b3AlignedObjectArrayI6b3Int4E6resizeEiRKS0_.exit, label %117, !llvm.loop !104
 
 _ZN20b3AlignedObjectArrayI6b3Int4E6resizeEiRKS0_.exit: ; preds = %117, %_ZN20b3AlignedObjectArrayI6b3Int4E9quickSortI29b3BroadphasePairSortPredicateEEvRKT_.exit, %_ZN20b3AlignedObjectArrayI6b3Int4E9quickSortI29b3BroadphasePairSortPredicateEEvRKT_.exit27
-  %120 = phi i32 [ %22, %_ZN20b3AlignedObjectArrayI6b3Int4E9quickSortI29b3BroadphasePairSortPredicateEEvRKT_.exit ], [ %91, %_ZN20b3AlignedObjectArrayI6b3Int4E9quickSortI29b3BroadphasePairSortPredicateEEvRKT_.exit27 ], [ %91, %117 ]
+  %120 = phi i32 [ %91, %_ZN20b3AlignedObjectArrayI6b3Int4E9quickSortI29b3BroadphasePairSortPredicateEEvRKT_.exit27 ], [ %22, %_ZN20b3AlignedObjectArrayI6b3Int4E9quickSortI29b3BroadphasePairSortPredicateEEvRKT_.exit ], [ %91, %117 ]
   store i32 %120, ptr %17, align 4, !tbaa !94
   br label %121
 

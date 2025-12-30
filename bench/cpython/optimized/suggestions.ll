@@ -281,7 +281,7 @@ define internal fastcc i64 @levenshtein_distance(ptr noundef nonnull readonly ca
   br label %substitution_cost.exit.us
 
 substitution_cost.exit.us:                        ; preds = %68, %66, %61
-  %.019.i.us = phi i64 [ %72, %68 ], [ 2, %61 ], [ 0, %66 ]
+  %.019.i.us = phi i64 [ 2, %61 ], [ 0, %66 ], [ %72, %68 ]
   %73 = add i64 %.019.i.us, %.094146.us
   %74 = getelementptr i64, ptr %5, i64 %.091148.us
   %75 = load i64, ptr %74, align 8, !tbaa !17
@@ -309,7 +309,7 @@ substitution_cost.exit.us:                        ; preds = %68, %66, %61
   br i1 %exitcond.not, label %.lr.ph149.us.preheader, label %.lr.ph144, !llvm.loop !25
 
 .loopexit:                                        ; preds = %59, %._crit_edge.us, %6, %51, %42, %36
-  %.0 = phi i64 [ 0, %6 ], [ %38, %36 ], [ %43, %42 ], [ %52, %51 ], [ %78, %59 ], [ %53, %._crit_edge.us ]
+  %.0 = phi i64 [ %38, %36 ], [ %43, %42 ], [ %52, %51 ], [ 0, %6 ], [ %78, %59 ], [ %53, %._crit_edge.us ]
   ret i64 %.0
 }
 

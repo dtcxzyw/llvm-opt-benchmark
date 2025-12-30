@@ -155,7 +155,7 @@ redisReaderFree.exit:                             ; preds = %40, %._crit_edge.i
   br label %57
 
 57:                                               ; preds = %1, %redisReaderFree.exit, %._crit_edge
-  %.0 = phi ptr [ %3, %._crit_edge ], [ null, %redisReaderFree.exit ], [ null, %1 ]
+  %.0 = phi ptr [ null, %redisReaderFree.exit ], [ %3, %._crit_edge ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -312,7 +312,7 @@ define range(i32 -1, 1) i32 @redisReaderFeed(ptr noundef captures(none) %0, ptr 
   br label %hi_sdsavail.exit
 
 hi_sdsavail.exit:                                 ; preds = %21, %29, %37, %44
-  %.0.i = phi i64 [ %43, %37 ], [ %49, %44 ], [ %28, %21 ], [ %36, %29 ]
+  %.0.i = phi i64 [ %28, %21 ], [ %36, %29 ], [ %43, %37 ], [ %49, %44 ]
   %50 = icmp ugt i64 %.0.i, %14
   br i1 %50, label %51, label %hi_sdsavail.exit.thread
 
@@ -378,7 +378,7 @@ hi_sdsavail.exit.thread:                          ; preds = %15, %54, %hi_sdsava
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %60, %65, %68, %72, %76, %80
-  %.0.i25 = phi i64 [ %82, %80 ], [ %67, %65 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ 0, %60 ]
+  %.0.i25 = phi i64 [ %67, %65 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ %82, %80 ], [ 0, %60 ]
   store i64 %.0.i25, ptr %9, align 8, !tbaa !30
   br label %98
 
@@ -420,7 +420,7 @@ __redisReaderSetErrorOOM.exit:                    ; preds = %83, %86, %89, %92
   br label %98
 
 98:                                               ; preds = %5, %hi_sdslen.exit, %3, %__redisReaderSetErrorOOM.exit
-  %.0 = phi i32 [ -1, %3 ], [ -1, %__redisReaderSetErrorOOM.exit ], [ 0, %hi_sdslen.exit ], [ 0, %5 ]
+  %.0 = phi i32 [ -1, %__redisReaderSetErrorOOM.exit ], [ -1, %3 ], [ 0, %hi_sdslen.exit ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -715,7 +715,7 @@ __redisReaderSetErrorProtocolByte.exit:           ; preds = %chrtos.exit.i, %88,
   ]
 
 .thread.sink.split.i:                             ; preds = %64, %61, %58, %57, %56, %55, %52
-  %.sink.i = phi i32 [ 13, %64 ], [ 5, %55 ], [ 3, %56 ], [ 7, %57 ], [ 4, %58 ], [ 8, %61 ], [ 6, %52 ]
+  %.sink.i = phi i32 [ 5, %55 ], [ 3, %56 ], [ 7, %57 ], [ 4, %58 ], [ 8, %61 ], [ 13, %64 ], [ 6, %52 ]
   store i32 %.sink.i, ptr %44, align 8, !tbaa !38
   br label %.thread.i
 
@@ -817,9 +817,9 @@ readLine.exit.i.i:                                ; preds = %.lr.ph.i.i.i.i
   br label %135
 
 135:                                              ; preds = %.thread62.i.i.i, %.thread.i.i.i
-  %136 = phi i8 [ %.pre.i.i.i, %.thread62.i.i.i ], [ %132, %.thread.i.i.i ]
-  %.046.i.i.i = phi ptr [ %134, %.thread62.i.i.i ], [ %103, %.thread.i.i.i ]
-  %.045.i.i.i = phi i64 [ 2, %.thread62.i.i.i ], [ 1, %.thread.i.i.i ]
+  %136 = phi i8 [ %132, %.thread.i.i.i ], [ %.pre.i.i.i, %.thread62.i.i.i ]
+  %.046.i.i.i = phi ptr [ %103, %.thread.i.i.i ], [ %134, %.thread62.i.i.i ]
+  %.045.i.i.i = phi i64 [ 1, %.thread.i.i.i ], [ 2, %.thread62.i.i.i ]
   %137 = add i8 %136, -49
   %or.cond56.i.i.i = icmp ult i8 %137, 9
   br i1 %or.cond56.i.i.i, label %140, label %.loopexit.i.i
@@ -909,7 +909,7 @@ readLine.exit.i.i:                                ; preds = %.lr.ph.i.i.i.i
   br label %175
 
 string2ll.exit.i.i:                               ; preds = %160, %158, %143, %.thread91.i.i.i, %133
-  %storemerge.sink.i.i.i = phi i64 [ 0, %143 ], [ 0, %133 ], [ %159, %158 ], [ %.0.lcssa.i.i.i, %160 ], [ %139, %.thread91.i.i.i ]
+  %storemerge.sink.i.i.i = phi i64 [ 0, %133 ], [ 0, %143 ], [ %159, %158 ], [ %.0.lcssa.i.i.i, %160 ], [ %139, %.thread91.i.i.i ]
   %169 = load ptr, ptr %36, align 8, !tbaa !21
   %.not127.i.i = icmp eq ptr %169, null
   br i1 %.not127.i.i, label %.thread194.i.i, label %170
@@ -1025,7 +1025,7 @@ __redisReaderSetError.exit137.i.i:                ; preds = %188, %185, %183, %1
   br label %221
 
 214:                                              ; preds = %209, %.thread184.thread.i.i, %201, %198, %195
-  %.081.i.i = phi double [ %206, %209 ], [ 0x7FF0000000000000, %195 ], [ 0xFFF0000000000000, %198 ], [ 0x7FF8000000000000, %.thread184.thread.i.i ], [ 0x7FF8000000000000, %201 ]
+  %.081.i.i = phi double [ 0x7FF0000000000000, %195 ], [ 0xFFF0000000000000, %198 ], [ 0x7FF8000000000000, %.thread184.thread.i.i ], [ 0x7FF8000000000000, %201 ], [ %206, %209 ]
   %215 = load ptr, ptr %36, align 8, !tbaa !21
   %.not125.i.i = icmp eq ptr %215, null
   br i1 %.not125.i.i, label %.thread186.i.i, label %216
@@ -1307,7 +1307,7 @@ __redisReaderSetError.exit153.i.i:                ; preds = %301, %298, %296, %2
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %312, %309, %289, %260, %239, %.thread186.i.i, %173
-  %.289.i.i = phi ptr [ %311, %309 ], [ %.390.ph.i.i, %.thread186.i.i ], [ %240, %239 ], [ %314, %312 ], [ %174, %173 ], [ %291, %289 ], [ %261, %260 ]
+  %.289.i.i = phi ptr [ %240, %239 ], [ %291, %289 ], [ %311, %309 ], [ %314, %312 ], [ %.390.ph.i.i, %.thread186.i.i ], [ %174, %173 ], [ %261, %260 ]
   %315 = icmp eq ptr %.289.i.i, null
   br i1 %315, label %316, label %.thread..thread194_crit_edge.i.i
 
@@ -1349,8 +1349,8 @@ __redisReaderSetErrorOOM.exit.i.i:                ; preds = %323, %320, %318, %3
   br label %processItem.exit.thread.thread
 
 .thread194.i.i:                                   ; preds = %.thread..thread194_crit_edge.i.i, %287, %.critedge.i.i, %257, %253, %236, %234, %170, %string2ll.exit.i.i
-  %327 = phi i32 [ %.pre231.i.i, %.thread..thread194_crit_edge.i.i ], [ %40, %.critedge.i.i ], [ %40, %287 ], [ %40, %236 ], [ %40, %234 ], [ %40, %257 ], [ %40, %253 ], [ %40, %170 ], [ %40, %string2ll.exit.i.i ]
-  %.289196.i.i = phi ptr [ %.289.i.i, %.thread..thread194_crit_edge.i.i ], [ inttoptr (i64 13 to ptr), %.critedge.i.i ], [ inttoptr (i64 13 to ptr), %287 ], [ inttoptr (i64 4 to ptr), %236 ], [ inttoptr (i64 4 to ptr), %234 ], [ inttoptr (i64 8 to ptr), %257 ], [ inttoptr (i64 8 to ptr), %253 ], [ inttoptr (i64 3 to ptr), %170 ], [ inttoptr (i64 3 to ptr), %string2ll.exit.i.i ]
+  %327 = phi i32 [ %.pre231.i.i, %.thread..thread194_crit_edge.i.i ], [ %40, %.critedge.i.i ], [ %40, %287 ], [ %40, %234 ], [ %40, %236 ], [ %40, %257 ], [ %40, %253 ], [ %40, %170 ], [ %40, %string2ll.exit.i.i ]
+  %.289196.i.i = phi ptr [ %.289.i.i, %.thread..thread194_crit_edge.i.i ], [ inttoptr (i64 13 to ptr), %.critedge.i.i ], [ inttoptr (i64 13 to ptr), %287 ], [ inttoptr (i64 4 to ptr), %234 ], [ inttoptr (i64 4 to ptr), %236 ], [ inttoptr (i64 8 to ptr), %257 ], [ inttoptr (i64 8 to ptr), %253 ], [ inttoptr (i64 3 to ptr), %170 ], [ inttoptr (i64 3 to ptr), %string2ll.exit.i.i ]
   %328 = icmp eq i32 %327, 0
   br i1 %328, label %.lr.ph.i155.thread.i.i, label %329
 
@@ -1469,9 +1469,9 @@ seekNewline.exit.i.i:                             ; preds = %.lr.ph.i.i26.i
   br label %382
 
 382:                                              ; preds = %.thread62.i.i59.i, %.thread.i.i29.i
-  %383 = phi i8 [ %.pre.i.i60.i, %.thread62.i.i59.i ], [ %379, %.thread.i.i29.i ]
-  %.046.i.i31.i = phi ptr [ %381, %.thread62.i.i59.i ], [ %356, %.thread.i.i29.i ]
-  %.045.i.i32.i = phi i64 [ 2, %.thread62.i.i59.i ], [ 1, %.thread.i.i29.i ]
+  %383 = phi i8 [ %379, %.thread.i.i29.i ], [ %.pre.i.i60.i, %.thread62.i.i59.i ]
+  %.046.i.i31.i = phi ptr [ %356, %.thread.i.i29.i ], [ %381, %.thread62.i.i59.i ]
+  %.045.i.i32.i = phi i64 [ 1, %.thread.i.i29.i ], [ 2, %.thread62.i.i59.i ]
   %384 = add i8 %383, -49
   %or.cond56.i.i33.i = icmp ult i8 %384, 9
   br i1 %or.cond56.i.i33.i, label %387, label %.loopexit.i34.i
@@ -1626,7 +1626,7 @@ __redisReaderSetError.exit66.i.i:                 ; preds = %425, %422, %420, %4
   br label %469
 
 .thread.i40.i:                                    ; preds = %429, %405, %390, %.thread91.i.i63.i, %380
-  %storemerge.sink.i8082.i.i = phi i64 [ 0, %429 ], [ %386, %.thread91.i.i63.i ], [ %.0.lcssa.i.i39.i, %405 ], [ 0, %380 ], [ 0, %390 ]
+  %storemerge.sink.i8082.i.i = phi i64 [ 0, %429 ], [ %386, %.thread91.i.i63.i ], [ %.0.lcssa.i.i39.i, %405 ], [ 0, %390 ], [ 0, %380 ]
   %438 = add i64 %374, 4
   %439 = add i64 %438, %storemerge.sink.i8082.i.i
   %440 = add i64 %439, %355
@@ -1703,8 +1703,8 @@ __redisReaderSetError.exit70.i.i:                 ; preds = %455, %452, %450, %4
   br label %469
 
 469:                                              ; preds = %466, %463, %436
-  %.1.i42.i = phi ptr [ %468, %466 ], [ %465, %463 ], [ %437, %436 ]
-  %.045.i.i = phi i64 [ %439, %466 ], [ %439, %463 ], [ %375, %436 ]
+  %.1.i42.i = phi ptr [ %437, %436 ], [ %465, %463 ], [ %468, %466 ]
+  %.045.i.i = phi i64 [ %375, %436 ], [ %439, %463 ], [ %439, %466 ]
   %470 = icmp eq ptr %.1.i42.i, null
   br i1 %470, label %471, label %..thread83_crit_edge.i.i
 
@@ -1747,10 +1747,10 @@ __redisReaderSetErrorOOM.exit.i48.i:              ; preds = %478, %475, %473, %4
   br label %processItem.exit.thread.thread
 
 .thread83.i.i:                                    ; preds = %..thread83_crit_edge.i.i, %433, %431
-  %482 = phi i32 [ %.pre102.i.i, %..thread83_crit_edge.i.i ], [ %40, %431 ], [ %40, %433 ]
-  %483 = phi i64 [ %.pre101.i.i, %..thread83_crit_edge.i.i ], [ %355, %431 ], [ %355, %433 ]
-  %.04587.i.i = phi i64 [ %.045.i.i, %..thread83_crit_edge.i.i ], [ %375, %431 ], [ %375, %433 ]
-  %.186.i.i = phi ptr [ %.1.i42.i, %..thread83_crit_edge.i.i ], [ inttoptr (i64 4 to ptr), %431 ], [ inttoptr (i64 4 to ptr), %433 ]
+  %482 = phi i32 [ %.pre102.i.i, %..thread83_crit_edge.i.i ], [ %40, %433 ], [ %40, %431 ]
+  %483 = phi i64 [ %.pre101.i.i, %..thread83_crit_edge.i.i ], [ %355, %433 ], [ %355, %431 ]
+  %.04587.i.i = phi i64 [ %.045.i.i, %..thread83_crit_edge.i.i ], [ %375, %433 ], [ %375, %431 ]
+  %.186.i.i = phi ptr [ %.1.i42.i, %..thread83_crit_edge.i.i ], [ inttoptr (i64 4 to ptr), %433 ], [ inttoptr (i64 4 to ptr), %431 ]
   %484 = add i64 %.04587.i.i, %483
   store i64 %484, ptr %32, align 8, !tbaa !36
   %485 = icmp eq i32 %482, 0
@@ -1804,7 +1804,7 @@ __redisReaderSetErrorOOM.exit.i48.i:              ; preds = %478, %475, %473, %4
   br label %processItem.exit
 
 .thread113.sink.split.i:                          ; preds = %63, %60, %59, %52
-  %.sink286.i = phi i32 [ 12, %63 ], [ 9, %59 ], [ 10, %60 ], [ 2, %52 ]
+  %.sink286.i = phi i32 [ 9, %59 ], [ 10, %60 ], [ 12, %63 ], [ 2, %52 ]
   store i32 %.sink286.i, ptr %44, align 8, !tbaa !38
   br label %.thread113.i
 
@@ -1950,9 +1950,9 @@ readLine.exit.i72.i:                              ; preds = %.lr.ph.i.i.i66.i
   br label %575
 
 575:                                              ; preds = %.thread62.i.i102.i, %.thread.i.i75.i
-  %576 = phi i8 [ %.pre.i.i103.i, %.thread62.i.i102.i ], [ %572, %.thread.i.i75.i ]
-  %.046.i.i77.i = phi ptr [ %574, %.thread62.i.i102.i ], [ %545, %.thread.i.i75.i ]
-  %.045.i.i78.i = phi i64 [ 2, %.thread62.i.i102.i ], [ 1, %.thread.i.i75.i ]
+  %576 = phi i8 [ %572, %.thread.i.i75.i ], [ %.pre.i.i103.i, %.thread62.i.i102.i ]
+  %.046.i.i77.i = phi ptr [ %545, %.thread.i.i75.i ], [ %574, %.thread62.i.i102.i ]
+  %.045.i.i78.i = phi i64 [ 1, %.thread.i.i75.i ], [ 2, %.thread62.i.i102.i ]
   %577 = add i8 %576, -49
   %or.cond56.i.i79.i = icmp ult i8 %577, 9
   br i1 %or.cond56.i.i79.i, label %580, label %.loopexit.i80.i
@@ -2055,7 +2055,7 @@ string2ll.exit.i93.i:                             ; preds = %596
   br i1 %611, label %616, label %string2ll.exit.thread83.i.i
 
 string2ll.exit.thread83.i.i:                      ; preds = %string2ll.exit.i93.i, %598, %583, %.thread91.i.i106.i, %573
-  %storemerge.sink.i85.i.i = phi i64 [ %610, %string2ll.exit.i93.i ], [ %579, %.thread91.i.i106.i ], [ %.0.lcssa.i.i87.i, %598 ], [ 0, %573 ], [ 0, %583 ]
+  %storemerge.sink.i85.i.i = phi i64 [ %610, %string2ll.exit.i93.i ], [ %579, %.thread91.i.i106.i ], [ %.0.lcssa.i.i87.i, %598 ], [ 0, %583 ], [ 0, %573 ]
   %.in.i.i = load i32, ptr %15, align 4, !tbaa !24
   %612 = icmp eq i32 %.in.i.i, 0
   %613 = load i64, ptr %35, align 8, !tbaa !23
@@ -2208,7 +2208,7 @@ processItem.exit:                                 ; preds = %329, %349, %486, %5
   %674 = icmp sgt i32 %.pr283, -1
   br i1 %674, label %39, label %processItem.exit.thread
 
-processItem.exit.thread:                          ; preds = %processItem.exit, %readBytes.exit.i, %47, %99, %readLine.exit.i.i, %.thread.i, %107, %.thread.i40.i, %.thread116.i, %360, %readLine.exit.i72.i, %redisReaderGrow.exit.thread.i.i, %549, %556, %367, %114, %._crit_edge.i44.i, %._crit_edge.i.i, %28, %653, %637, %221, %__redisReaderSetErrorProtocolByte.exit
+processItem.exit.thread:                          ; preds = %processItem.exit, %readBytes.exit.i, %99, %readLine.exit.i.i, %.thread.i, %107, %.thread.i40.i, %.thread116.i, %360, %readLine.exit.i72.i, %redisReaderGrow.exit.thread.i.i, %549, %47, %556, %367, %114, %._crit_edge.i44.i, %._crit_edge.i.i, %28, %653, %637, %221, %__redisReaderSetErrorProtocolByte.exit
   %.pr = load i32, ptr %0, align 8, !tbaa !29
   %.not39 = icmp eq i32 %.pr, 0
   br i1 %.not39, label %675, label %processItem.exit.thread.thread
@@ -2270,7 +2270,7 @@ processItem.exit.thread:                          ; preds = %processItem.exit, %
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %684, %690, %693, %697, %701, %705
-  %.0.i43 = phi i64 [ %707, %705 ], [ %692, %690 ], [ %696, %693 ], [ %700, %697 ], [ %704, %701 ], [ 0, %684 ]
+  %.0.i43 = phi i64 [ %692, %690 ], [ %696, %693 ], [ %700, %697 ], [ %704, %701 ], [ %707, %705 ], [ 0, %684 ]
   store i64 %.0.i43, ptr %11, align 8, !tbaa !30
   br label %708
 
@@ -2314,7 +2314,7 @@ hi_sdslen.exit:                                   ; preds = %684, %690, %693, %6
   br label %processItem.exit.thread.thread
 
 processItem.exit.thread.thread:                   ; preds = %__redisReaderSetErrorOOM.exit.i.i, %175, %__redisReaderSetError.exit141.i.i, %262, %__redisReaderSetError.exit149.i.i, %__redisReaderSetError.exit153.i.i, %__redisReaderSetError.exit.i.i, %__redisReaderSetError.exit66.i.i, %__redisReaderSetErrorOOM.exit.i48.i, %__redisReaderSetError.exit70.i.i, %__redisReaderSetError.exit.i84.i, %__redisReaderSetError.exit68.i.i, %redisReaderGrow.exit.i.i, %708, %723, %679, %processItem.exit.thread, %10, %8
-  %.0 = phi i32 [ -1, %679 ], [ -1, %8 ], [ 0, %10 ], [ -1, %processItem.exit.thread ], [ 0, %723 ], [ 0, %708 ], [ -1, %redisReaderGrow.exit.i.i ], [ -1, %__redisReaderSetError.exit68.i.i ], [ -1, %__redisReaderSetError.exit.i84.i ], [ -1, %__redisReaderSetError.exit70.i.i ], [ -1, %__redisReaderSetErrorOOM.exit.i48.i ], [ -1, %__redisReaderSetError.exit66.i.i ], [ -1, %__redisReaderSetError.exit.i.i ], [ -1, %__redisReaderSetError.exit153.i.i ], [ -1, %__redisReaderSetError.exit149.i.i ], [ -1, %262 ], [ -1, %__redisReaderSetError.exit141.i.i ], [ -1, %175 ], [ -1, %__redisReaderSetErrorOOM.exit.i.i ]
+  %.0 = phi i32 [ -1, %8 ], [ 0, %10 ], [ -1, %processItem.exit.thread ], [ -1, %679 ], [ 0, %723 ], [ 0, %708 ], [ -1, %redisReaderGrow.exit.i.i ], [ -1, %__redisReaderSetError.exit68.i.i ], [ -1, %__redisReaderSetError.exit.i84.i ], [ -1, %__redisReaderSetError.exit70.i.i ], [ -1, %__redisReaderSetErrorOOM.exit.i48.i ], [ -1, %__redisReaderSetError.exit66.i.i ], [ -1, %__redisReaderSetError.exit.i.i ], [ -1, %__redisReaderSetError.exit153.i.i ], [ -1, %__redisReaderSetError.exit149.i.i ], [ -1, %262 ], [ -1, %__redisReaderSetError.exit141.i.i ], [ -1, %175 ], [ -1, %__redisReaderSetErrorOOM.exit.i.i ]
   ret i32 %.0
 }
 

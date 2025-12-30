@@ -432,11 +432,11 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   br i1 %170, label %202, label %.thread10
 
 .thread10:                                        ; preds = %.thread9, %168, %166
-  %171 = phi i64 [ %156, %166 ], [ %156, %168 ], [ %163, %.thread9 ]
-  %172 = phi ptr [ %155, %166 ], [ %155, %168 ], [ %162, %.thread9 ]
-  %173 = phi i8 [ %123, %166 ], [ %123, %168 ], [ 1, %.thread9 ]
-  %174 = phi i32 [ 10, %166 ], [ 1, %168 ], [ 10, %.thread9 ]
-  %175 = phi i32 [ %157, %166 ], [ %157, %168 ], [ %164, %.thread9 ]
+  %171 = phi i64 [ %156, %168 ], [ %156, %166 ], [ %163, %.thread9 ]
+  %172 = phi ptr [ %155, %168 ], [ %155, %166 ], [ %162, %.thread9 ]
+  %173 = phi i8 [ %123, %168 ], [ %123, %166 ], [ 1, %.thread9 ]
+  %174 = phi i32 [ 1, %168 ], [ 10, %166 ], [ 10, %.thread9 ]
+  %175 = phi i32 [ %157, %168 ], [ %157, %166 ], [ %164, %.thread9 ]
   %176 = load volatile i64, ptr @jiffies, align 64
   %177 = sub i64 %176, %171
   %178 = icmp sgt i64 %177, -1
@@ -492,7 +492,7 @@ define dso_local void @intel_hpd_irq_handler(ptr noundef %0, i32 noundef %1, i32
   br label %202
 
 202:                                              ; preds = %.thread9, %199, %168, %154, %148, %131, %127, %121
-  %203 = phi i8 [ %123, %121 ], [ %123, %131 ], [ %123, %148 ], [ %123, %127 ], [ 1, %.thread9 ], [ %173, %199 ], [ %123, %154 ], [ %123, %168 ]
+  %203 = phi i8 [ %123, %121 ], [ %123, %131 ], [ %123, %148 ], [ %123, %127 ], [ %173, %199 ], [ %123, %154 ], [ %123, %168 ], [ 1, %.thread9 ]
   %204 = add nuw nsw i64 %122, 1
   %205 = icmp eq i64 %204, 15
   br i1 %205, label %214, label %121, !llvm.loop !20
@@ -1144,7 +1144,7 @@ define internal void @i915_digport_work_func(ptr noundef %0) #1 align 16 {
   br label %36
 
 36:                                               ; preds = %35, %34, %34, %34, %34
-  %37 = phi ptr [ null, %35 ], [ %17, %34 ], [ %17, %34 ], [ %17, %34 ], [ %17, %34 ]
+  %37 = phi ptr [ %17, %34 ], [ %17, %34 ], [ %17, %34 ], [ %17, %34 ], [ null, %35 ]
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 3896
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 %39(ptr noundef %37, i1 noundef zeroext %30) #8

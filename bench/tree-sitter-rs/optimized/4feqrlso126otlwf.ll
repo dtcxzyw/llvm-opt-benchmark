@@ -440,7 +440,14 @@ define noundef range(i32 0, 8) i32 @ts_tagger_add_language(ptr noundef %0, ptr n
 
 .noexc:                                           ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.noexc21.invoke
+  br label %.noexc.invoke
+
+.noexc.invoke:                                    ; preds = %.noexc21, %.noexc
+  invoke void @_ZN3std7process5abort17h27b32eaef07bb5f6E() #17
+          to label %.noexc.cont unwind label %93
+
+.noexc.cont:                                      ; preds = %.noexc.invoke
+  unreachable
 
 _ZN16tree_sitter_tags5c_lib14unwrap_mut_ptr17ha33ee68c3ab3e50cE.exit: ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -479,14 +486,7 @@ _ZN16tree_sitter_tags5c_lib14unwrap_mut_ptr17ha33ee68c3ab3e50cE.exit: ; preds = 
 .noexc21:                                         ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !162
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !162
-  br label %.noexc21.invoke
-
-.noexc21.invoke:                                  ; preds = %.noexc, %.noexc21
-  invoke void @_ZN3std7process5abort17h27b32eaef07bb5f6E() #17
-          to label %.noexc21.cont unwind label %93
-
-.noexc21.cont:                                    ; preds = %.noexc21.invoke
-  unreachable
+  br label %.noexc.invoke
 
 39:                                               ; preds = %30
   %40 = load ptr, ptr %32, align 8, !alias.scope !159, !nonnull !5, !align !171, !noundef !5
@@ -561,7 +561,7 @@ switch.lookup:                                    ; preds = %58
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 
-.thread40:                                        ; preds = %81, %74
+.thread40:                                        ; preds = %74, %81
   %lpad.thr_comm38 = landingpad { ptr, i32 }
           cleanup
   br label %84
@@ -642,10 +642,10 @@ switch.lookup:                                    ; preds = %58
   br label %91
 
 "_ZN4core3ptr42drop_in_place$LT$tree_sitter..Language$GT$17hea716aff86ee1144E.exit": ; preds = %89, %84, %93
-  %.pn30 = phi { ptr, i32 } [ %lpad.thr_comm, %93 ], [ %lpad.phi43, %89 ], [ %lpad.phi43, %84 ]
+  %.pn30 = phi { ptr, i32 } [ %lpad.thr_comm, %93 ], [ %lpad.phi43, %84 ], [ %lpad.phi43, %89 ]
   resume { ptr, i32 } %.pn30
 
-93:                                               ; preds = %.noexc21.invoke, %49, %39, %_ZN16tree_sitter_tags5c_lib14unwrap_mut_ptr17ha33ee68c3ab3e50cE.exit, %23, %33
+93:                                               ; preds = %.noexc.invoke, %49, %39, %_ZN16tree_sitter_tags5c_lib14unwrap_mut_ptr17ha33ee68c3ab3e50cE.exit, %23, %33
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN63_$LT$tree_sitter..Language$u20$as$u20$core..ops..drop..Drop$GT$4drop17h16817d4e8c1c3e09E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %21)
@@ -880,7 +880,7 @@ _ZN16tree_sitter_tags5c_lib16shrink_and_clear17h20d42158ef479d01E.exit: ; preds 
           to label %113 unwind label %.loopexit
 
 112:                                              ; preds = %.loopexit, %.loopexit.split-lp, %202, %.thread
-  %.pn41 = phi { ptr, i32 } [ %.pn37, %202 ], [ %.pn37, %.thread ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn41 = phi { ptr, i32 } [ %.pn37, %.thread ], [ %.pn37, %202 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr123drop_in_place$LT$tree_sitter_tags..TagsIter$LT$tree_sitter..QueryMatches$LT$$RF$$u5b$u8$u5d$$C$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h707b86613712968cE"(ptr noalias noundef nonnull align 8 dereferenceable(232) %19) #19
           to label %203 unwind label %180
 
@@ -1017,7 +1017,7 @@ _ZN16tree_sitter_tags5c_lib16shrink_and_clear17h20d42158ef479d01E.exit: ; preds 
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.10717008487263263189"(ptr noalias noundef nonnull readonly align 1 %84, ptr noundef nonnull %174, i64 noundef %172, i64 noundef %175)
           to label %179 unwind label %.thread65
 
-.thread65:                                        ; preds = %173, %166
+.thread65:                                        ; preds = %166, %173
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -1181,7 +1181,7 @@ define noalias noundef nonnull ptr @ts_tags_buffer_new() unnamed_addr #0 persona
   unreachable
 
 common.resume:                                    ; preds = %12, %34, %7
-  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %8, %7 ], [ %.pn, %12 ]
+  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %35, %34 ], [ %.pn, %12 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN16tree_sitter_tags11TagsContext3new17h713de8b311cdbcbcE.exit: ; preds = %0

@@ -174,7 +174,7 @@ define hidden range(i32 0, 3) i32 @mlib_ImageCopy(ptr noundef readonly captures(
   br label %mlib_c_ImageCopy_a1.exit
 
 mlib_c_ImageCopy_a1.exit:                         ; preds = %56, %52, %.lr.ph.i, %.preheader107, %.preheader, %33, %60, %61, %62, %63, %40, %15, %9, %12, %6, %5, %2
-  %.070 = phi i32 [ 1, %15 ], [ 2, %2 ], [ 0, %60 ], [ 1, %5 ], [ 1, %6 ], [ 1, %9 ], [ 1, %12 ], [ 0, %40 ], [ 0, %61 ], [ 0, %.preheader107 ], [ 0, %.preheader ], [ 0, %63 ], [ 0, %62 ], [ 0, %33 ], [ 0, %52 ], [ 0, %.lr.ph.i ], [ 0, %56 ]
+  %.070 = phi i32 [ 2, %2 ], [ 1, %5 ], [ 1, %6 ], [ 1, %12 ], [ 1, %9 ], [ 1, %15 ], [ 0, %40 ], [ 0, %63 ], [ 0, %62 ], [ 0, %61 ], [ 0, %60 ], [ 0, %33 ], [ 0, %.preheader ], [ 0, %.preheader107 ], [ 0, %.lr.ph.i ], [ 0, %52 ], [ 0, %56 ]
   ret i32 %.070
 }
 
@@ -287,16 +287,16 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %54, label %.lr.ph78, label %.lr.ph86.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader
-  %.246 = phi i32 [ %.044.lcssa, %._crit_edge ], [ %.347.lcssa, %.preheader ]
-  %.240 = phi ptr [ %.038.lcssa, %._crit_edge ], [ %.341.lcssa, %.preheader ]
-  %.2 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %.3.lcssa, %.preheader ]
+  %.246 = phi i32 [ %.347.lcssa, %.preheader ], [ %.044.lcssa, %._crit_edge ]
+  %.240 = phi ptr [ %.341.lcssa, %.preheader ], [ %.038.lcssa, %._crit_edge ]
+  %.2 = phi ptr [ %.3.lcssa, %.preheader ], [ %.0.lcssa, %._crit_edge ]
   %55 = icmp sgt i32 %.246, 0
   br i1 %55, label %.lr.ph86.preheader, label %._crit_edge87
 
 .lr.ph86.preheader:                               ; preds = %31, %.lr.ph78, %.loopexit
-  %.584.ph = phi ptr [ %52, %.lr.ph78 ], [ %.2, %.loopexit ], [ %37, %31 ]
-  %.54383.ph = phi ptr [ %51, %.lr.ph78 ], [ %.240, %.loopexit ], [ %36, %31 ]
-  %.54982.ph = phi i32 [ %53, %.lr.ph78 ], [ %.246, %.loopexit ], [ %38, %31 ]
+  %.584.ph = phi ptr [ %.2, %.loopexit ], [ %52, %.lr.ph78 ], [ %37, %31 ]
+  %.54383.ph = phi ptr [ %.240, %.loopexit ], [ %51, %.lr.ph78 ], [ %36, %31 ]
+  %.54982.ph = phi i32 [ %.246, %.loopexit ], [ %53, %.lr.ph78 ], [ %38, %31 ]
   br label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %.lr.ph86.preheader, %.lr.ph86
@@ -446,8 +446,8 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %exitcond, label %.loopexit, label %66, !llvm.loop !17
 
 .loopexit:                                        ; preds = %66, %.lr.ph123, %51, %.preheader
-  %.294 = phi i32 [ %50, %.lr.ph123 ], [ %.092.lcssa, %.preheader ], [ %.092.lcssa, %51 ], [ %73, %66 ]
-  %.pn.in.in = phi i32 [ %46, %.lr.ph123 ], [ 0, %.preheader ], [ 0, %51 ], [ %65, %66 ]
+  %.294 = phi i32 [ %.092.lcssa, %.preheader ], [ %.092.lcssa, %51 ], [ %50, %.lr.ph123 ], [ %73, %66 ]
+  %.pn.in.in = phi i32 [ 0, %.preheader ], [ 0, %51 ], [ %46, %.lr.ph123 ], [ %65, %66 ]
   %.pn.in = shl i32 %.pn.in.in, 3
   %.pn = sext i32 %.pn.in to i64
   %.1 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %.pn
@@ -763,7 +763,7 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr noundef nonnull readonly ca
   br label %.loopexit124
 
 .loopexit124:                                     ; preds = %.loopexit124.loopexit163, %.loopexit124.loopexit, %._crit_edge, %.preheader123
-  %.3 = phi i32 [ %101, %.loopexit124.loopexit ], [ %.1111.lcssa, %.preheader123 ], [ %.4.lcssa, %._crit_edge ], [ %102, %.loopexit124.loopexit163 ]
+  %.3 = phi i32 [ %.1111.lcssa, %.preheader123 ], [ %.4.lcssa, %._crit_edge ], [ %101, %.loopexit124.loopexit ], [ %102, %.loopexit124.loopexit163 ]
   %103 = icmp slt i32 %.3, %.0108
   br i1 %103, label %.lr.ph147.preheader, label %._crit_edge148
 
@@ -1054,7 +1054,7 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr noundef nonnull readonly c
   br label %.loopexit124
 
 .loopexit124:                                     ; preds = %.loopexit124.loopexit163, %.loopexit124.loopexit, %._crit_edge, %.preheader123
-  %.3 = phi i32 [ %105, %.loopexit124.loopexit ], [ %.1111.lcssa, %.preheader123 ], [ %.4.lcssa, %._crit_edge ], [ %106, %.loopexit124.loopexit163 ]
+  %.3 = phi i32 [ %.1111.lcssa, %.preheader123 ], [ %.4.lcssa, %._crit_edge ], [ %105, %.loopexit124.loopexit ], [ %106, %.loopexit124.loopexit163 ]
   %107 = icmp slt i32 %.3, %.0108
   br i1 %107, label %.lr.ph147.preheader, label %._crit_edge148
 

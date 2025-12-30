@@ -293,8 +293,8 @@ define noundef zeroext i1 @_Z32register_service_response_tablesPKvPvS1_(ptr noun
   br label %20
 
 20:                                               ; preds = %17, %14, %3
-  %.015 = phi ptr [ %10, %17 ], [ @.str.1, %3 ], [ @.str.3, %14 ]
-  %.014 = phi ptr [ %spec.select, %17 ], [ @_ZN28RpcServiceResponseTimeDialog21createDceRpcSrtDialogER7QWidget7QStringS2_R11CaptureFile, %3 ], [ @_ZN28RpcServiceResponseTimeDialog21createOncRpcSrtDialogER7QWidget7QStringS2_R11CaptureFile, %14 ]
+  %.015 = phi ptr [ @.str.1, %3 ], [ @.str.3, %14 ], [ %10, %17 ]
+  %.014 = phi ptr [ @_ZN28RpcServiceResponseTimeDialog21createDceRpcSrtDialogER7QWidget7QStringS2_R11CaptureFile, %3 ], [ @_ZN28RpcServiceResponseTimeDialog21createOncRpcSrtDialogER7QWidget7QStringS2_R11CaptureFile, %14 ], [ %spec.select, %17 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i.i = icmp eq ptr %11, null
@@ -512,7 +512,7 @@ _ZN7QStringD2Ev.exit10:                           ; preds = %26, %_ZN17QArrayDat
   resume { ptr, i32 } %27
 
 _ZN7QStringD2Ev.exit:                             ; preds = %4, %24, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %21, %_ZNK5QHashIK7QStringP12register_srtE8containsERS1_.exit
-  %.0 = phi ptr [ %11, %24 ], [ null, %_ZNK5QHashIK7QStringP12register_srtE8containsERS1_.exit ], [ %11, %21 ], [ %11, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i ], [ null, %4 ]
+  %.0 = phi ptr [ null, %_ZNK5QHashIK7QStringP12register_srtE8containsERS1_.exit ], [ %11, %21 ], [ %11, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i ], [ %11, %24 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -2204,7 +2204,7 @@ _ZN7QStringD2Ev.exit34:                           ; preds = %99, %_ZN17QArrayDat
   br label %.body
 
 .body:                                            ; preds = %104, %97, %_ZN5QListIP15QTreeWidgetItemED2Ev.exit25, %87, %57
-  %.pn14 = phi { ptr, i32 } [ %.pn, %_ZN5QListIP15QTreeWidgetItemED2Ev.exit25 ], [ %58, %57 ], [ %88, %87 ], [ %105, %104 ], [ %98, %97 ]
+  %.pn14 = phi { ptr, i32 } [ %58, %57 ], [ %88, %87 ], [ %.pn, %_ZN5QListIP15QTreeWidgetItemED2Ev.exit25 ], [ %105, %104 ], [ %98, %97 ]
   %106 = load ptr, ptr %5, align 8
   %.not.i.i.i35 = icmp eq ptr %106, null
   br i1 %.not.i.i.i35, label %_ZN7QStringD2Ev.exit38, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36
@@ -2540,7 +2540,7 @@ _ZN7QStringD2Ev.exit19:                           ; preds = %39, %_ZN17QArrayDat
   br label %59
 
 59:                                               ; preds = %55, %57, %41, %_ZN7QStringD2Ev.exit19
-  %.pn12.pn = phi { ptr, i32 } [ %.pn, %_ZN7QStringD2Ev.exit19 ], [ %42, %41 ], [ %58, %57 ], [ %56, %55 ]
+  %.pn12.pn = phi { ptr, i32 } [ %42, %41 ], [ %.pn, %_ZN7QStringD2Ev.exit19 ], [ %58, %57 ], [ %56, %55 ]
   call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef align 8 dereferenceable_or_null(92) %0) #27
   resume { ptr, i32 } %.pn12.pn
 }
@@ -4548,7 +4548,7 @@ _ZN7QStringD2Ev.exit66:                           ; preds = %_ZN7QStringD2Ev.exi
   br label %144
 
 .body:                                            ; preds = %129, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i56, %_ZN17QArrayDataPointerIDsED2Ev.exit54, %113, %67
-  %.pn14.pn = phi { ptr, i32 } [ %68, %67 ], [ %114, %113 ], [ %.pn14, %_ZN17QArrayDataPointerIDsED2Ev.exit54 ], [ %.pn14, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i56 ], [ %.pn14, %129 ]
+  %.pn14.pn = phi { ptr, i32 } [ %114, %113 ], [ %68, %67 ], [ %.pn14, %_ZN17QArrayDataPointerIDsED2Ev.exit54 ], [ %.pn14, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i56 ], [ %.pn14, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %140 = load ptr, ptr %7, align 8
   %.not.i.i.i67 = icmp eq ptr %140, null

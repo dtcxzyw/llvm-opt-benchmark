@@ -161,7 +161,7 @@ if.then.i.i.i9:                                   ; preds = %lpad3
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad.i, %if.then.i.i.i9, %lpad3
-  %.pn = phi { ptr, i32 } [ %2, %lpad.i ], [ %7, %if.then.i.i.i9 ], [ %7, %lpad3 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad.i ], [ %7, %lpad3 ], [ %7, %if.then.i.i.i9 ]
   call void @_ZN6google8protobuf29BinaryAndJsonConformanceSuiteD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %binary_and_json_suite) #17
   resume { ptr, i32 } %.pn
 }

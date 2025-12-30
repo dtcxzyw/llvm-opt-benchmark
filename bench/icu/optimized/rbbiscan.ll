@@ -426,7 +426,7 @@ _ZN6icu_7713UnicodeStringC2IA6_DsvEERKT_.exit:    ; preds = %_ZN6icu_778internal
   ret void
 
 133:                                              ; preds = %121, %.body65, %.body62, %.body59, %.body, %41
-  %.pn51 = phi { ptr, i32 } [ %42, %41 ], [ %122, %121 ], [ %.pn.pn, %.body ], [ %.pn46.pn, %.body65 ], [ %.pn43.pn, %.body62 ], [ %.pn40.pn, %.body59 ]
+  %.pn51 = phi { ptr, i32 } [ %42, %41 ], [ %122, %121 ], [ %.pn46.pn, %.body65 ], [ %.pn43.pn, %.body62 ], [ %.pn40.pn, %.body59 ], [ %.pn.pn, %.body ]
   br label %134
 
 134:                                              ; preds = %134, %133
@@ -438,7 +438,7 @@ _ZN6icu_7713UnicodeStringC2IA6_DsvEERKT_.exit:    ; preds = %_ZN6icu_778internal
   br i1 %135, label %.loopexit, label %134
 
 .loopexit:                                        ; preds = %.preheader, %134, %37
-  %.pn51.pn = phi { ptr, i32 } [ %.pn51, %134 ], [ %38, %37 ], [ %38, %.preheader ]
+  %.pn51.pn = phi { ptr, i32 } [ %38, %37 ], [ %.pn51, %134 ], [ %38, %.preheader ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #13
   resume { ptr, i32 } %.pn51.pn
 }
@@ -949,9 +949,9 @@ _ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit: ; pred
   br label %common.resume
 
 _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit180: ; preds = %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit.thread, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit, %127, %130, %145, %149
-  %158 = phi ptr [ %124, %130 ], [ %124, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit ], [ %124, %145 ], [ %124, %127 ], [ %124, %149 ], [ %118, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit.thread ]
-  %159 = phi ptr [ %123, %130 ], [ %123, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit ], [ %123, %145 ], [ %123, %127 ], [ %123, %149 ], [ %117, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit.thread ]
-  %.0.i178 = phi ptr [ null, %130 ], [ null, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit ], [ %139, %145 ], [ null, %127 ], [ null, %149 ], [ null, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit.thread ]
+  %158 = phi ptr [ %124, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit ], [ %124, %127 ], [ %124, %130 ], [ %124, %149 ], [ %124, %145 ], [ %118, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit.thread ]
+  %159 = phi ptr [ %123, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit ], [ %123, %127 ], [ %123, %130 ], [ %123, %149 ], [ %123, %145 ], [ %117, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit.thread ]
+  %.0.i178 = phi ptr [ null, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit ], [ null, %127 ], [ null, %130 ], [ null, %149 ], [ %139, %145 ], [ null, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit.thread ]
   %160 = load ptr, ptr %158, align 8, !tbaa !12
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %162 = load ptr, ptr %161, align 8, !tbaa !35
@@ -1133,9 +1133,9 @@ _ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188: ; p
   br label %common.resume
 
 _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit191: ; preds = %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188.thread, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188, %221, %224, %239, %243
-  %252 = phi ptr [ %218, %224 ], [ %218, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188 ], [ %218, %239 ], [ %218, %221 ], [ %218, %243 ], [ %212, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188.thread ]
-  %253 = phi ptr [ %217, %224 ], [ %217, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188 ], [ %217, %239 ], [ %217, %221 ], [ %217, %243 ], [ %211, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188.thread ]
-  %.0.i189 = phi ptr [ null, %224 ], [ null, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188 ], [ %233, %239 ], [ null, %221 ], [ null, %243 ], [ null, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188.thread ]
+  %252 = phi ptr [ %218, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188 ], [ %218, %221 ], [ %218, %224 ], [ %218, %243 ], [ %218, %239 ], [ %212, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188.thread ]
+  %253 = phi ptr [ %217, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188 ], [ %217, %221 ], [ %217, %224 ], [ %217, %243 ], [ %217, %239 ], [ %211, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188.thread ]
+  %.0.i189 = phi ptr [ null, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188 ], [ null, %221 ], [ null, %224 ], [ null, %243 ], [ %233, %239 ], [ null, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188.thread ]
   %254 = load ptr, ptr %252, align 8, !tbaa !12
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 16
   %256 = load ptr, ptr %255, align 8, !tbaa !35
@@ -3158,7 +3158,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit233: ; preds
   store i16 0, ptr %1354, align 4, !tbaa !50
   br label %.critedge
 
-.critedge176:                                     ; preds = %1221, %1202, %1191, %1205, %900, %881, %870, %884, %838, %819, %808, %822, %770, %751, %740, %754, %706, %687, %676, %690, %660, %642, %626, %645, %610, %592, %576, %595, %560, %542, %526, %545, %1260, %1257, %1250, %950, %947, %940, %518, %515, %508, %350, %345, %329, %326, %308, %297, %292, %276, %273, %262, %2, %2, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit, %72, %307, %418, %724, %787, %853, %915, %960, %998, %_ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit230, %1189, %1236, %1268, %1336, %360, %421, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit213, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit216, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit219, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit222, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit233, %1290, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit180, %165, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit191, %259, %437, %489, %477, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit204, %573, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit207, %623, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit210, %673, %958
+.critedge176:                                     ; preds = %1221, %1205, %1202, %1191, %900, %884, %881, %870, %838, %822, %819, %808, %770, %754, %751, %740, %706, %690, %687, %676, %660, %645, %642, %626, %610, %595, %592, %576, %560, %545, %542, %526, %1260, %1257, %1250, %950, %947, %940, %518, %515, %508, %350, %345, %329, %326, %308, %297, %292, %276, %273, %262, %2, %2, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit, %72, %307, %418, %724, %787, %853, %915, %960, %998, %_ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit230, %1189, %1236, %1268, %1336, %360, %421, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit213, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit216, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit219, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit222, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit233, %1290, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit180, %165, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit191, %259, %437, %489, %477, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit204, %573, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit207, %623, %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit210, %673, %958
   %1355 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1356 = load ptr, ptr %1355, align 8, !tbaa !12
   %1357 = getelementptr inbounds nuw i8, ptr %1356, i64 16
@@ -3169,7 +3169,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit233: ; preds
   br label %.critedge
 
 .critedge:                                        ; preds = %1347, %1344, %1337, %1328, %1325, %1318, %1310, %1307, %1300, %990, %987, %980, %500, %497, %490, %2, %.critedge176
-  %1362 = phi i8 [ %1361, %.critedge176 ], [ 0, %1328 ], [ 0, %1310 ], [ 0, %990 ], [ 0, %500 ], [ 0, %2 ], [ 0, %490 ], [ 0, %497 ], [ 0, %980 ], [ 0, %987 ], [ 0, %1300 ], [ 0, %1307 ], [ 0, %1318 ], [ 0, %1325 ], [ 0, %1337 ], [ 0, %1344 ], [ 0, %1347 ]
+  %1362 = phi i8 [ %1361, %.critedge176 ], [ 0, %2 ], [ 0, %490 ], [ 0, %497 ], [ 0, %500 ], [ 0, %980 ], [ 0, %987 ], [ 0, %990 ], [ 0, %1300 ], [ 0, %1307 ], [ 0, %1310 ], [ 0, %1318 ], [ 0, %1325 ], [ 0, %1328 ], [ 0, %1337 ], [ 0, %1344 ], [ 0, %1347 ]
   ret i8 %1362
 }
 
@@ -3251,7 +3251,7 @@ define noundef ptr @_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTy
   resume { ptr, i32 } %46
 
 _ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit: ; preds = %37, %32, %16, %13, %2
-  %.0 = phi ptr [ null, %16 ], [ null, %2 ], [ %26, %32 ], [ null, %13 ], [ null, %37 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %13 ], [ null, %16 ], [ null, %37 ], [ %26, %32 ]
   ret ptr %.0
 }
 
@@ -3691,7 +3691,7 @@ _ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit: ; preds = %53, %50, %43, %_
   br label %138
 
 138:                                              ; preds = %34, %137, %41, %32
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %137 ], [ %35, %34 ], [ %33, %32 ], [ %42, %41 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %137 ], [ %35, %34 ], [ %42, %41 ], [ %33, %32 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -3751,7 +3751,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK6icu_7713UnicodeStringeqERKS0_(ptr n
   br label %36
 
 36:                                               ; preds = %11, %28, %6
-  %.0 = phi i1 [ %10, %6 ], [ %35, %28 ], [ false, %11 ]
+  %.0 = phi i1 [ %10, %6 ], [ false, %11 ], [ %35, %28 ]
   ret i1 %.0
 }
 
@@ -4017,7 +4017,7 @@ _ZN6icu_7712LocalPointerINS_10UnicodeSetEEC2EPS1_R10UErrorCode.exit: ; preds = %
   br label %_ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit
 
 _ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit: ; preds = %31, %28, %21, %.critedge
-  %129 = phi ptr [ %17, %28 ], [ %17, %21 ], [ %128, %.critedge ], [ %17, %31 ]
+  %129 = phi ptr [ %17, %31 ], [ %17, %28 ], [ %17, %21 ], [ %128, %.critedge ]
   %130 = icmp eq ptr %129, null
   br i1 %130, label %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit, label %_ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit.thread
 
@@ -4138,7 +4138,7 @@ define void @_ZN6icu_7715RBBIRuleScanner10stripRulesERKNS_13UnicodeStringE(ptr d
   br label %29
 
 29:                                               ; preds = %27, %21, %19
-  %.pn17.pn = phi { ptr, i32 } [ %20, %19 ], [ %28, %27 ], [ %22, %21 ]
+  %.pn17.pn = phi { ptr, i32 } [ %28, %27 ], [ %22, %21 ], [ %20, %19 ]
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #13
   resume { ptr, i32 } %.pn17.pn
 

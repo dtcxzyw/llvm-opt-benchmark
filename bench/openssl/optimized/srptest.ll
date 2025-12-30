@@ -355,15 +355,15 @@ define internal fastcc range(i32 0, 2) i32 @run_srp(ptr noundef %0, ptr noundef 
   br label %60
 
 60:                                               ; preds = %48, %39, %35, %25, %17, %8
-  %.058 = phi i32 [ 0, %8 ], [ %spec.select, %48 ], [ 0, %39 ], [ 0, %35 ], [ 0, %25 ], [ 0, %17 ]
-  %.057 = phi ptr [ null, %8 ], [ %37, %48 ], [ %37, %39 ], [ %37, %35 ], [ null, %25 ], [ null, %17 ]
-  %.056 = phi ptr [ null, %8 ], [ %23, %48 ], [ %23, %39 ], [ %23, %35 ], [ %23, %25 ], [ %23, %17 ]
-  %.055 = phi ptr [ null, %8 ], [ %50, %48 ], [ null, %39 ], [ null, %35 ], [ null, %25 ], [ null, %17 ]
-  %.054 = phi ptr [ null, %8 ], [ %52, %48 ], [ null, %39 ], [ null, %35 ], [ null, %25 ], [ null, %17 ]
-  %.053 = phi ptr [ null, %8 ], [ %42, %48 ], [ %42, %39 ], [ null, %35 ], [ null, %25 ], [ null, %17 ]
-  %.052 = phi ptr [ null, %8 ], [ %29, %48 ], [ %29, %39 ], [ %29, %35 ], [ %29, %25 ], [ null, %17 ]
-  %.051 = phi ptr [ null, %8 ], [ %55, %48 ], [ null, %39 ], [ null, %35 ], [ null, %25 ], [ null, %17 ]
-  %.050 = phi ptr [ null, %8 ], [ %58, %48 ], [ null, %39 ], [ null, %35 ], [ null, %25 ], [ null, %17 ]
+  %.058 = phi i32 [ 0, %39 ], [ 0, %35 ], [ 0, %25 ], [ 0, %17 ], [ 0, %8 ], [ %spec.select, %48 ]
+  %.057 = phi ptr [ %37, %39 ], [ %37, %35 ], [ null, %25 ], [ null, %17 ], [ null, %8 ], [ %37, %48 ]
+  %.056 = phi ptr [ %23, %39 ], [ %23, %35 ], [ %23, %25 ], [ %23, %17 ], [ null, %8 ], [ %23, %48 ]
+  %.055 = phi ptr [ null, %39 ], [ null, %35 ], [ null, %25 ], [ null, %17 ], [ null, %8 ], [ %50, %48 ]
+  %.054 = phi ptr [ null, %39 ], [ null, %35 ], [ null, %25 ], [ null, %17 ], [ null, %8 ], [ %52, %48 ]
+  %.053 = phi ptr [ %42, %39 ], [ null, %35 ], [ null, %25 ], [ null, %17 ], [ null, %8 ], [ %42, %48 ]
+  %.052 = phi ptr [ %29, %39 ], [ %29, %35 ], [ %29, %25 ], [ null, %17 ], [ null, %8 ], [ %29, %48 ]
+  %.051 = phi ptr [ null, %39 ], [ null, %35 ], [ null, %25 ], [ null, %17 ], [ null, %8 ], [ %55, %48 ]
+  %.050 = phi ptr [ null, %39 ], [ null, %35 ], [ null, %25 ], [ null, %17 ], [ null, %8 ], [ %58, %48 ]
   call void @BN_clear_free(ptr noundef %.051) #3
   call void @BN_clear_free(ptr noundef %.050) #3
   call void @BN_clear_free(ptr noundef %.054) #3

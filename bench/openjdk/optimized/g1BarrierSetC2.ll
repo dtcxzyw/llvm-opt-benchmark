@@ -236,7 +236,7 @@ define hidden noundef zeroext i1 @_ZNK14G1BarrierSetC225g1_can_remove_pre_barrie
   br label %76
 
 76:                                               ; preds = %66, %71, %6, %.loopexit
-  %.0 = phi i1 [ true, %66 ], [ false, %6 ], [ false, %.loopexit ], [ true, %71 ]
+  %.0 = phi i1 [ false, %.loopexit ], [ false, %6 ], [ true, %71 ], [ true, %66 ]
   ret i1 %.0
 }
 
@@ -1742,7 +1742,7 @@ define hidden noundef zeroext i1 @_ZNK14G1BarrierSetC218is_gc_barrier_nodeEP4Nod
   br label %18
 
 18:                                               ; preds = %12, %15, %8, %4, %2
-  %.0 = phi i1 [ false, %8 ], [ true, %2 ], [ false, %4 ], [ true, %12 ], [ %17, %15 ]
+  %.0 = phi i1 [ true, %2 ], [ false, %4 ], [ false, %8 ], [ true, %12 ], [ %17, %15 ]
   ret i1 %.0
 }
 
@@ -2397,7 +2397,7 @@ define hidden noundef ptr @_ZNK14G1BarrierSetC220step_over_gc_barrierEP4Node(ptr
   br i1 %78, label %30, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %75, %.lr.ph63, %18, %23
-  %.4 = phi ptr [ %.162, %.lr.ph63 ], [ %.162, %23 ], [ %.162, %18 ], [ %.3, %75 ]
+  %.4 = phi ptr [ %.162, %23 ], [ %.162, %18 ], [ %.162, %.lr.ph63 ], [ %.3, %75 ]
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %79 = getelementptr inbounds nuw i8, ptr %.4, i64 24
   %80 = load i32, ptr %79, align 8
@@ -2406,7 +2406,7 @@ define hidden noundef ptr @_ZNK14G1BarrierSetC220step_over_gc_barrierEP4Node(ptr
   br i1 %82, label %.lr.ph63, label %.loopexit55, !llvm.loop !10
 
 .loopexit55:                                      ; preds = %.loopexit, %2, %5, %10, %71
-  %.0 = phi ptr [ %74, %71 ], [ %1, %2 ], [ %1, %10 ], [ %1, %5 ], [ %.4, %.loopexit ]
+  %.0 = phi ptr [ %74, %71 ], [ %1, %10 ], [ %1, %5 ], [ %1, %2 ], [ %.4, %.loopexit ]
   ret ptr %.0
 }
 

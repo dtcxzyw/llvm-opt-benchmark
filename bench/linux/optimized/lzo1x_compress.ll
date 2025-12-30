@@ -246,10 +246,10 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   br label %.loopexit31.i
 
 .loopexit31.i:                                    ; preds = %.loopexit31.i.loopexit, %.loopexit29.i, %.loopexit31.split.us.i
-  %.pre-phi.i = phi i64 [ %129, %.loopexit29.i ], [ %.pre.pre-phi.i, %.loopexit31.split.us.i ], [ %142, %.loopexit31.i.loopexit ]
-  %148 = phi ptr [ %.lcssa36.i, %.loopexit29.i ], [ %.lcssa37.us.i, %.loopexit31.split.us.i ], [ %134, %.loopexit31.i.loopexit ]
-  %149 = phi i32 [ %132, %.loopexit29.i ], [ 0, %.loopexit31.split.us.i ], [ 0, %.loopexit31.i.loopexit ]
-  %150 = phi ptr [ %.lcssa.i, %.loopexit29.i ], [ %77, %.loopexit31.split.us.i ], [ %147, %.loopexit31.i.loopexit ]
+  %.pre-phi.i = phi i64 [ %.pre.pre-phi.i, %.loopexit31.split.us.i ], [ %129, %.loopexit29.i ], [ %142, %.loopexit31.i.loopexit ]
+  %148 = phi ptr [ %.lcssa37.us.i, %.loopexit31.split.us.i ], [ %.lcssa36.i, %.loopexit29.i ], [ %134, %.loopexit31.i.loopexit ]
+  %149 = phi i32 [ 0, %.loopexit31.split.us.i ], [ %132, %.loopexit29.i ], [ 0, %.loopexit31.i.loopexit ]
+  %150 = phi ptr [ %77, %.loopexit31.split.us.i ], [ %.lcssa.i, %.loopexit29.i ], [ %147, %.loopexit31.i.loopexit ]
   %151 = sub i64 0, %35
   %152 = getelementptr i8, ptr %38, i64 %151
   %153 = ptrtoint ptr %152 to i64
@@ -592,10 +592,10 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   br i1 %379, label %.preheader74, label %.loopexit12, !prof !14
 
 .loopexit12:                                      ; preds = %375, %.lr.ph68.i, %78, %28
-  %.4 = phi i8 [ %.3, %78 ], [ %.064, %28 ], [ %.3, %.lr.ph68.i ], [ %376, %375 ]
-  %380 = phi ptr [ %38, %78 ], [ %17, %28 ], [ %38, %.lr.ph68.i ], [ %378, %375 ]
-  %381 = phi ptr [ %37, %78 ], [ %18, %28 ], [ %37, %.lr.ph68.i ], [ %377, %375 ]
-  %382 = phi i64 [ %35, %78 ], [ %20, %28 ], [ %35, %.lr.ph68.i ], [ 0, %375 ]
+  %.4 = phi i8 [ %.064, %28 ], [ %.3, %78 ], [ %.3, %.lr.ph68.i ], [ %376, %375 ]
+  %380 = phi ptr [ %17, %28 ], [ %38, %78 ], [ %38, %.lr.ph68.i ], [ %378, %375 ]
+  %381 = phi ptr [ %18, %28 ], [ %37, %78 ], [ %37, %.lr.ph68.i ], [ %377, %375 ]
+  %382 = phi i64 [ %20, %28 ], [ %35, %78 ], [ %35, %.lr.ph68.i ], [ 0, %375 ]
   %383 = ptrtoint ptr %381 to i64
   %384 = ptrtoint ptr %18 to i64
   %385 = sub i64 %383, %384

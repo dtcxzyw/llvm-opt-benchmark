@@ -412,7 +412,7 @@ define hidden noundef ptr @_ZN6google8protobuf7strings20GrowingArrayByteSink9Get
   br label %_ZN6google8protobuf7strings20GrowingArrayByteSink11ShrinkToFitEv.exit
 
 _ZN6google8protobuf7strings20GrowingArrayByteSink11ShrinkToFitEv.exit: ; preds = %2, %8, %18
-  %20 = phi i64 [ %19, %18 ], [ %7, %8 ], [ %7, %2 ]
+  %20 = phi i64 [ %7, %8 ], [ %19, %18 ], [ %7, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !21
   store i64 %20, ptr %1, align 8, !tbaa !23

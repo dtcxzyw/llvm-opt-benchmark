@@ -414,7 +414,7 @@ if.then4:                                         ; preds = %lor.lhs.false.i.i
   store i8 0, ptr %firstSegment, align 8
   br label %return
 
-land.rhs.i16:                                     ; preds = %lor.lhs.false.i.i, %land.rhs.i
+land.rhs.i16:                                     ; preds = %land.rhs.i, %lor.lhs.false.i.i
   %7 = load ptr, ptr %separators_, align 8
   %openBracket = getelementptr inbounds nuw i8, ptr %7, i64 3
   %8 = load i8, ptr %openBracket, align 1
@@ -459,7 +459,7 @@ cond.true:                                        ; preds = %lor.lhs.false.i.i48
   tail call void @_ZN8facebook5velox6common9Tokenizer20matchQuotedSubscriptEv(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this)
   br label %cond.end19
 
-cond.false:                                       ; preds = %land.rhs.i43, %lor.lhs.false.i.i48
+cond.false:                                       ; preds = %lor.lhs.false.i.i48, %land.rhs.i43
   %18 = load ptr, ptr %separators_, align 8
   %wildCard = getelementptr inbounds nuw i8, ptr %18, i64 5
   %19 = load i8, ptr %wildCard, align 1
@@ -487,7 +487,7 @@ cond.true17:                                      ; preds = %lor.lhs.false.i.i75
   store ptr %call.i.i, ptr %agg.result, align 8, !alias.scope !4
   br label %cond.end19
 
-cond.false18:                                     ; preds = %cond.false, %lor.lhs.false.i.i75
+cond.false18:                                     ; preds = %lor.lhs.false.i.i75, %cond.false
   tail call void @_ZN8facebook5velox6common9Tokenizer22matchUnquotedSubscriptEv(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this)
   br label %cond.end19
 
@@ -521,7 +521,7 @@ invoke.cont:                                      ; preds = %lor.lhs.false.i.i86
   store i8 0, ptr %firstSegment22, align 8
   br label %return
 
-if.end26:                                         ; preds = %land.rhs.i16, %lor.lhs.false.i.i21
+if.end26:                                         ; preds = %lor.lhs.false.i.i21, %land.rhs.i16
   %firstSegment27 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %30 = load i8, ptr %firstSegment27, align 8
   %tobool = trunc i8 %30 to i1
@@ -785,7 +785,7 @@ if.else:                                          ; preds = %lor.rhs
   br i1 %cmp16, label %if.end22, label %sw.bb.invoke
 
 if.end22:                                         ; preds = %sw.bb.invoke, %if.else
-  %escaped.1 = phi i8 [ 0, %sw.bb.invoke ], [ 1, %if.else ]
+  %escaped.1 = phi i8 [ 1, %if.else ], [ 0, %sw.bb.invoke ]
   %12 = load i32, ptr %index_.i, align 8
   %inc.i = add nsw i32 %12, 1
   store i32 %inc.i, ptr %index_.i, align 8
@@ -1138,7 +1138,7 @@ lor.rhs:                                          ; preds = %entry
   br label %lor.end
 
 lor.end:                                          ; preds = %entry, %entry, %lor.rhs
-  %0 = phi i1 [ %tobool, %lor.rhs ], [ true, %entry ], [ true, %entry ]
+  %0 = phi i1 [ true, %entry ], [ %tobool, %lor.rhs ], [ true, %entry ]
   ret i1 %0
 }
 
@@ -1808,7 +1808,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !41
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
-  %retval.0.i = phi i32 [ %add15.i, %if.then14.i ], [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
+  %retval.0.i = phi i32 [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ %add15.i, %if.then14.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
   %__val.lobit = lshr i64 %__val, 63
   %conv = trunc nuw nsw i64 %__val.lobit to i32
   %add2 = add i32 %retval.0.i, %conv
@@ -2251,8 +2251,8 @@ lpad:                                             ; preds = %lpad.loopexit.split
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
-invoke.cont46:                                    ; preds = %invoke.cont28, %for.body.lr.ph.i, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_EaSINSF_ISD_EEEERSI_T_.exit, %for.inc28.i, %entry
-  %LastMatch.sroa.0.0.lcssa = phi ptr [ %call.i.i, %entry ], [ %M.sroa.4.042, %for.inc28.i ], [ %M.sroa.4.042, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_EaSINSF_ISD_EEEERSI_T_.exit ], [ %M.sroa.4.042, %for.body.lr.ph.i ], [ %M.sroa.4.042, %invoke.cont28 ]
+invoke.cont46:                                    ; preds = %for.body.lr.ph.i, %invoke.cont28, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_EaSINSF_ISD_EEEERSI_T_.exit, %for.inc28.i, %entry
+  %LastMatch.sroa.0.0.lcssa = phi ptr [ %call.i.i, %entry ], [ %M.sroa.4.042, %for.inc28.i ], [ %M.sroa.4.042, %_ZN5boost9algorithm6detail17find_format_storeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_13const_formatFINS_14iterator_rangeIS6_EEEESG_EaSINSF_ISD_EEEERSI_T_.exit ], [ %M.sroa.4.042, %invoke.cont28 ], [ %M.sroa.4.042, %for.body.lr.ph.i ]
   %call.i.i17 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   %call.i.i18 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %Input) #21
   %call.i.i19 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21

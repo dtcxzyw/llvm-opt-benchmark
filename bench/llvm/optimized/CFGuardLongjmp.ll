@@ -616,7 +616,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %_ZN4llvm15MachineFu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge76
-  %159 = phi ptr [ %.pre85.pre, %._crit_edge76 ], [ %.pre84, %.loopexit.loopexit ]
+  %159 = phi ptr [ %.pre84, %.loopexit.loopexit ], [ %.pre85.pre, %._crit_edge76 ]
   %160 = icmp eq ptr %159, %15
   br i1 %160, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit, label %161
 
@@ -625,7 +625,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %_ZN4llvm15MachineFu
   br label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit: ; preds = %14, %.loopexit, %161
-  %.not.i104106 = phi i1 [ %.not.i.not, %161 ], [ %.not.i.not, %.loopexit ], [ false, %14 ]
+  %.not.i104106 = phi i1 [ %.not.i.not, %.loopexit ], [ %.not.i.not, %161 ], [ false, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %162
 

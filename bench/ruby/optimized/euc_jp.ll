@@ -225,7 +225,7 @@ define internal range(i32 -401, 4) i32 @code_to_mbclen(i32 noundef %0, ptr readn
   br label %12
 
 12:                                               ; preds = %9, %6, %4, %2
-  %.0 = phi i32 [ 3, %6 ], [ 1, %2 ], [ -401, %4 ], [ %., %9 ]
+  %.0 = phi i32 [ 1, %2 ], [ -401, %4 ], [ 3, %6 ], [ %., %9 ]
   ret i32 %.0
 }
 
@@ -944,7 +944,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr readnone 
   br label %code_to_mbclen.exit
 
 code_to_mbclen.exit:                              ; preds = %22, %19, %14, %26, %29, %7
-  %.0 = phi i32 [ %13, %7 ], [ 0, %14 ], [ -6, %26 ], [ %33, %29 ], [ 1, %19 ], [ %25, %22 ]
+  %.0 = phi i32 [ %13, %7 ], [ %33, %29 ], [ -6, %26 ], [ 0, %14 ], [ 1, %19 ], [ %25, %22 ]
   ret i32 %.0
 }
 

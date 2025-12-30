@@ -704,7 +704,7 @@ define noundef ptr @Msat_MmStepEntryFetch(ptr noundef readonly captures(none) %0
   br label %18
 
 18:                                               ; preds = %2, %11, %8
-  %.0 = phi ptr [ %17, %11 ], [ %10, %8 ], [ null, %2 ]
+  %.0 = phi ptr [ %10, %8 ], [ %17, %11 ], [ null, %2 ]
   ret ptr %.0
 }
 

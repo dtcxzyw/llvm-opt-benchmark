@@ -264,7 +264,7 @@ _ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit.thread: ; preds = %40, %_
   br i1 %.not.i23, label %_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit, label %69, !llvm.loop !39
 
 _ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit: ; preds = %74, %72, %60, %._crit_edge, %10, %57, %46
-  %.1 = phi i32 [ -1, %46 ], [ -1, %10 ], [ -1, %57 ], [ %.030.lcssa, %._crit_edge ], [ %73, %72 ], [ 0, %60 ], [ %.sroa.speculated.i, %74 ]
+  %.1 = phi i32 [ -1, %57 ], [ -1, %46 ], [ %.030.lcssa, %._crit_edge ], [ -1, %10 ], [ %73, %72 ], [ 0, %60 ], [ %.sroa.speculated.i, %74 ]
   ret i32 %.1
 }
 

@@ -323,7 +323,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_tiff(ptr noundef %0, ptr noundef %1,
   br label %156
 
 156:                                              ; preds = %151, %147, %30, %112, %102, %88, %81, %65, %57
-  %.1 = phi i32 [ 8, %102 ], [ 5, %57 ], [ 6, %65 ], [ 5, %81 ], [ 5, %88 ], [ 8, %112 ], [ 2, %30 ], [ 0, %151 ], [ %.0, %147 ]
+  %.1 = phi i32 [ 5, %57 ], [ 6, %65 ], [ 5, %81 ], [ 5, %88 ], [ 8, %112 ], [ 8, %102 ], [ 2, %30 ], [ 0, %151 ], [ %.0, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1360,7 +1360,7 @@ define i32 @dt_imageio_tiff_read_profile(ptr noundef %0, ptr noundef writeonly c
   br label %42
 
 42:                                               ; preds = %10, %2, %6, %40
-  %.0 = phi i32 [ 0, %2 ], [ %41, %40 ], [ 0, %6 ], [ 0, %10 ]
+  %.0 = phi i32 [ %41, %40 ], [ 0, %6 ], [ 0, %2 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

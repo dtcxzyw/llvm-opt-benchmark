@@ -243,7 +243,7 @@ define hidden range(i32 -29440, 2) i32 @mbedtls_ssl_tls13_is_supported_versions_
   br i1 %47, label %26, label %.thread, !llvm.loop !21
 
 .thread:                                          ; preds = %45, %23, %43, %40, %30, %5, %22, %13
-  %.0 = phi i32 [ 0, %5 ], [ -29440, %13 ], [ -29440, %22 ], [ -29440, %30 ], [ 1, %43 ], [ -29440, %40 ], [ 0, %23 ], [ 0, %45 ]
+  %.0 = phi i32 [ -29440, %13 ], [ -29440, %22 ], [ 0, %5 ], [ 1, %43 ], [ -29440, %40 ], [ -29440, %30 ], [ 0, %23 ], [ 0, %45 ]
   ret i32 %.0
 }
 
@@ -875,7 +875,7 @@ define hidden i32 @mbedtls_ssl_tls13_process_certificate(ptr noundef %0) local_u
   br label %mbedtls_ssl_tls13_parse_certificate.exit
 
 mbedtls_ssl_tls13_parse_certificate.exit:         ; preds = %105, %150
-  %.0.i14 = phi i32 [ %102, %105 ], [ %.0120.i, %150 ]
+  %.0.i14 = phi i32 [ %.0120.i, %150 ], [ %102, %105 ]
   %.not12 = icmp eq i32 %.0.i14, 0
   br i1 %.not12, label %154, label %mbedtls_ssl_tls13_fetch_handshake_msg.exit.thread
 
@@ -942,8 +942,8 @@ ssl_tls13_validate_certificate.exit.thread32:     ; preds = %172, %ssl_tls13_val
   %180 = tail call i32 @mbedtls_ssl_add_hs_msg_to_checksum(ptr noundef nonnull %0, i32 noundef 11, ptr noundef nonnull %13, i64 noundef %16) #8
   br label %mbedtls_ssl_tls13_fetch_handshake_msg.exit.thread
 
-mbedtls_ssl_tls13_fetch_handshake_msg.exit.thread: ; preds = %142, %177, %176, %141, %129, %91, %97, %112, %121, %74, %103, %104, %66, %62, %149, %42, %23, %11, %3, %ssl_tls13_validate_certificate.exit.thread32, %ssl_tls13_validate_certificate.exit, %mbedtls_ssl_tls13_parse_certificate.exit
-  %.0 = phi i32 [ -29440, %23 ], [ %.0.i14, %mbedtls_ssl_tls13_parse_certificate.exit ], [ %179, %ssl_tls13_validate_certificate.exit ], [ %180, %ssl_tls13_validate_certificate.exit.thread32 ], [ %2, %3 ], [ -30464, %11 ], [ -29824, %176 ], [ -29440, %141 ], [ -29440, %129 ], [ -29440, %91 ], [ -29440, %97 ], [ -29440, %112 ], [ -29440, %121 ], [ -29440, %74 ], [ -10368, %103 ], [ -9600, %104 ], [ -29440, %66 ], [ -32512, %62 ], [ -29440, %149 ], [ -29440, %42 ], [ -30592, %177 ], [ %143, %142 ]
+mbedtls_ssl_tls13_fetch_handshake_msg.exit.thread: ; preds = %142, %177, %176, %129, %141, %74, %91, %97, %112, %121, %103, %104, %66, %62, %149, %42, %23, %11, %3, %ssl_tls13_validate_certificate.exit.thread32, %ssl_tls13_validate_certificate.exit, %mbedtls_ssl_tls13_parse_certificate.exit
+  %.0 = phi i32 [ %.0.i14, %mbedtls_ssl_tls13_parse_certificate.exit ], [ %179, %ssl_tls13_validate_certificate.exit ], [ %180, %ssl_tls13_validate_certificate.exit.thread32 ], [ -30464, %11 ], [ %2, %3 ], [ -29440, %129 ], [ -29440, %141 ], [ -29440, %74 ], [ -29440, %91 ], [ -29440, %97 ], [ -29440, %112 ], [ -29440, %121 ], [ -10368, %103 ], [ -9600, %104 ], [ -29440, %66 ], [ -32512, %62 ], [ -29440, %149 ], [ -29440, %42 ], [ -29440, %23 ], [ -30592, %177 ], [ -29824, %176 ], [ %143, %142 ]
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 731, ptr noundef nonnull @.str.10) #8
   ret i32 %.0
 }
@@ -1091,7 +1091,7 @@ mbedtls_ssl_own_cert.exit.i:                      ; preds = %.thread.i.i, %14
   br label %ssl_tls13_write_certificate_body.exit.thread
 
 ssl_tls13_write_certificate_body.exit.thread:     ; preds = %.lr.ph.i, %33, %mbedtls_ssl_own_cert.exit.i, %78, %.loopexit, %1
-  %.0 = phi i32 [ %4, %1 ], [ %80, %78 ], [ %77, %.loopexit ], [ -27136, %mbedtls_ssl_own_cert.exit.i ], [ -27136, %33 ], [ -27136, %.lr.ph.i ]
+  %.0 = phi i32 [ %4, %1 ], [ %77, %.loopexit ], [ %80, %78 ], [ -27136, %mbedtls_ssl_own_cert.exit.i ], [ -27136, %33 ], [ -27136, %.lr.ph.i ]
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 847, ptr noundef nonnull @.str.12) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1318,17 +1318,17 @@ mbedtls_ssl_tls13_sig_alg_for_cert_verify_is_supported.exit.i: ; preds = %mbedtl
 
 73:                                               ; preds = %mbedtls_ssl_tls13_sig_alg_for_cert_verify_is_supported.exit.i
   switch i64 %72, label %mbedtls_ssl_sig_alg_is_offered.exit.thread.i [
-    i64 256, label %mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.i
-    i64 384, label %74
-    i64 521, label %76
+    i64 256, label %74
+    i64 384, label %76
+    i64 521, label %mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.i
   ]
 
 74:                                               ; preds = %73
-  %75 = icmp eq i16 %52, 1283
+  %75 = icmp eq i16 %52, 1027
   br i1 %75, label %mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.thread79.i, label %mbedtls_ssl_sig_alg_is_offered.exit.thread.i
 
 76:                                               ; preds = %73
-  %77 = icmp eq i16 %52, 1539
+  %77 = icmp eq i16 %52, 1283
   br i1 %77, label %mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.thread79.i, label %mbedtls_ssl_sig_alg_is_offered.exit.thread.i
 
 78:                                               ; preds = %mbedtls_ssl_tls13_sig_alg_for_cert_verify_is_supported.exit.i
@@ -1337,7 +1337,7 @@ mbedtls_ssl_tls13_sig_alg_for_cert_verify_is_supported.exit.i: ; preds = %mbedtl
   br i1 %switch.i.i, label %mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.thread79.i, label %mbedtls_ssl_sig_alg_is_offered.exit.thread.i
 
 mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.i: ; preds = %73
-  %79 = icmp eq i16 %52, 1027
+  %79 = icmp eq i16 %52, 1539
   br i1 %79, label %mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.thread79.i, label %mbedtls_ssl_sig_alg_is_offered.exit.thread.i
 
 mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.thread79.i: ; preds = %mbedtls_ssl_tls13_check_sig_alg_cert_key_match.exit.i, %78, %76, %74
@@ -1435,8 +1435,8 @@ ssl_tls13_write_certificate_verify_body.exit.thread19: ; preds = %105
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %114
 
-ssl_tls13_write_certificate_verify_body.exit.thread: ; preds = %mbedtls_ssl_own_key.exit.thread.i, %28, %.thread.i, %ssl_tls13_create_verify_structure.exit.i
-  %.047.i.ph = phi i32 [ -27136, %ssl_tls13_create_verify_structure.exit.i ], [ -28160, %.thread.i ], [ %34, %28 ], [ -27648, %mbedtls_ssl_own_key.exit.thread.i ]
+ssl_tls13_write_certificate_verify_body.exit.thread: ; preds = %mbedtls_ssl_own_key.exit.thread.i, %.thread.i, %28, %ssl_tls13_create_verify_structure.exit.i
+  %.047.i.ph = phi i32 [ -27136, %ssl_tls13_create_verify_structure.exit.i ], [ %34, %28 ], [ -28160, %.thread.i ], [ -27648, %mbedtls_ssl_own_key.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1555,7 +1555,7 @@ ssl_tls13_parse_finished_message.exit:            ; preds = %32
   br label %mbedtls_ssl_tls13_fetch_handshake_msg.exit.thread
 
 mbedtls_ssl_tls13_fetch_handshake_msg.exit.thread: ; preds = %35, %31, %11, %3, %ssl_tls13_preprocess_finished_message.exit, %ssl_tls13_parse_finished_message.exit
-  %.0 = phi i32 [ %36, %ssl_tls13_parse_finished_message.exit ], [ %26, %ssl_tls13_preprocess_finished_message.exit ], [ %2, %3 ], [ -30464, %11 ], [ -28160, %35 ], [ -29440, %31 ]
+  %.0 = phi i32 [ %26, %ssl_tls13_preprocess_finished_message.exit ], [ %36, %ssl_tls13_parse_finished_message.exit ], [ -30464, %11 ], [ %2, %3 ], [ -28160, %35 ], [ -29440, %31 ]
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1147, ptr noundef nonnull @.str.16) #8
   ret i32 %.0
 }
@@ -1611,7 +1611,7 @@ ssl_tls13_prepare_finished_message.exit:          ; preds = %1
   br label %ssl_tls13_write_finished_message_body.exit
 
 ssl_tls13_write_finished_message_body.exit:       ; preds = %15, %ssl_tls13_prepare_finished_message.exit, %24, %19, %13
-  %.0 = phi i32 [ %12, %ssl_tls13_prepare_finished_message.exit ], [ %14, %13 ], [ %26, %24 ], [ %23, %19 ], [ -27136, %15 ]
+  %.0 = phi i32 [ %12, %ssl_tls13_prepare_finished_message.exit ], [ %14, %13 ], [ %23, %19 ], [ %26, %24 ], [ -27136, %15 ]
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1226, ptr noundef nonnull @.str.18) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1686,7 +1686,7 @@ define hidden i32 @mbedtls_ssl_tls13_write_change_cipher_spec(ptr noundef %0) lo
   br label %15
 
 15:                                               ; preds = %1, %6, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %1 ], [ %11, %6 ]
+  %.0 = phi i32 [ %11, %6 ], [ 0, %12 ], [ 0, %1 ]
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1302, ptr noundef nonnull @.str.24) #8
   ret i32 %.0
 }
@@ -1907,7 +1907,7 @@ mbedtls_ssl_get_psa_ffdh_info_from_tls_id.exit._crit_edge: ; preds = %mbedtls_ss
   br label %50
 
 50:                                               ; preds = %20, %mbedtls_ssl_get_psa_ffdh_info_from_tls_id.exit, %48, %46, %41
-  %.0 = phi i32 [ 0, %48 ], [ -28160, %mbedtls_ssl_get_psa_ffdh_info_from_tls_id.exit ], [ %42, %41 ], [ %47, %46 ], [ -27136, %20 ]
+  %.0 = phi i32 [ %42, %41 ], [ %47, %46 ], [ 0, %48 ], [ -28160, %mbedtls_ssl_get_psa_ffdh_info_from_tls_id.exit ], [ -27136, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1961,7 +1961,7 @@ define hidden range(i32 -29952, 1) i32 @mbedtls_ssl_tls13_check_received_extensi
   br label %20
 
 20:                                               ; preds = %9, %15, %19, %8
-  %.0 = phi i32 [ -26112, %8 ], [ 0, %15 ], [ -29952, %19 ], [ 0, %9 ]
+  %.0 = phi i32 [ -26112, %8 ], [ -29952, %19 ], [ 0, %15 ], [ 0, %9 ]
   ret i32 %.0
 }
 

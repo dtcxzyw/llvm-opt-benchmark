@@ -287,7 +287,7 @@ if.then7.i:                                       ; preds = %if.then21
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %uv__set_recverr.exit.thread, label %uv__set_recverr.exit
 
-uv__set_recverr.exit.thread:                      ; preds = %if.then7.i, %if.then.i, %if.then21
+uv__set_recverr.exit.thread:                      ; preds = %if.then21, %if.then7.i, %if.then.i
   call void @llvm.lifetime.end.p0(ptr nonnull %yes.i)
   br label %if.end27
 
@@ -364,7 +364,7 @@ if.end56:                                         ; preds = %if.end45
   br label %return
 
 return:                                           ; preds = %uv__set_reuse.exit, %uv__set_recverr.exit, %if.then9, %land.lhs.true, %entry, %if.end56, %if.then48, %if.then42
-  %retval.0 = phi i32 [ 0, %if.end56 ], [ -22, %entry ], [ -22, %land.lhs.true ], [ %call, %if.then9 ], [ %sub12.i, %uv__set_recverr.exit ], [ %sub, %if.then42 ], [ %spec.store.select, %if.then48 ], [ %sub.i, %uv__set_reuse.exit ]
+  %retval.0 = phi i32 [ %sub, %if.then42 ], [ %spec.store.select, %if.then48 ], [ 0, %if.end56 ], [ -22, %entry ], [ -22, %land.lhs.true ], [ %call, %if.then9 ], [ %sub12.i, %uv__set_recverr.exit ], [ %sub.i, %uv__set_reuse.exit ]
   ret i32 %retval.0
 }
 
@@ -492,7 +492,7 @@ if.end10:                                         ; preds = %do.body
   br label %return
 
 return:                                           ; preds = %uv__udp_maybe_deferred_bind.exit.thread, %uv__udp_maybe_deferred_bind.exit, %if.end10, %if.then8
-  %retval.0 = phi i32 [ 0, %if.end10 ], [ %sub, %if.then8 ], [ %sub50.i, %uv__udp_maybe_deferred_bind.exit ], [ %retval.0.i.ph, %uv__udp_maybe_deferred_bind.exit.thread ]
+  %retval.0 = phi i32 [ %sub, %if.then8 ], [ 0, %if.end10 ], [ %sub50.i, %uv__udp_maybe_deferred_bind.exit ], [ %retval.0.i.ph, %uv__udp_maybe_deferred_bind.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -744,7 +744,7 @@ if.else73:                                        ; preds = %land.lhs.true, %do.
   br label %return
 
 return:                                           ; preds = %uv__udp_maybe_deferred_bind.exit.thread44, %if.else73, %if.then70, %if.then66, %uv__udp_maybe_deferred_bind.exit, %do.body32
-  %retval.0 = phi i32 [ %sub50.i, %uv__udp_maybe_deferred_bind.exit ], [ -12, %do.body32 ], [ 0, %if.then66 ], [ 0, %if.then70 ], [ 0, %if.else73 ], [ %retval.0.i.ph, %uv__udp_maybe_deferred_bind.exit.thread44 ]
+  %retval.0 = phi i32 [ -12, %do.body32 ], [ %sub50.i, %uv__udp_maybe_deferred_bind.exit ], [ 0, %if.then66 ], [ 0, %if.then70 ], [ 0, %if.else73 ], [ %retval.0.i.ph, %uv__udp_maybe_deferred_bind.exit.thread44 ]
   ret i32 %retval.0
 }
 
@@ -810,7 +810,7 @@ if.else38:                                        ; preds = %if.else
   unreachable
 
 if.end42.sink.split:                              ; preds = %if.else, %if.then26, %if.then35
-  %.sink = phi i32 [ 16, %if.then26 ], [ 110, %if.then35 ], [ 28, %if.else ]
+  %.sink = phi i32 [ 110, %if.then35 ], [ 16, %if.then26 ], [ 28, %if.else ]
   %msg_namelen19 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   store i32 %.sink, ptr %msg_namelen19, align 8
   br label %if.end42
@@ -1074,7 +1074,7 @@ if.end29:                                         ; preds = %do.body
   br label %return
 
 return:                                           ; preds = %land.rhs, %land.rhs, %uv__udp_maybe_deferred_bind.exit.thread13, %uv__udp_maybe_deferred_bind.exit, %entry, %if.end29, %if.else27
-  %retval.0 = phi i32 [ %conv30, %if.end29 ], [ -11, %entry ], [ %sub50.i, %uv__udp_maybe_deferred_bind.exit ], [ %sub, %if.else27 ], [ %retval.0.i.ph, %uv__udp_maybe_deferred_bind.exit.thread13 ], [ -11, %land.rhs ], [ -11, %land.rhs ]
+  %retval.0 = phi i32 [ %sub, %if.else27 ], [ %conv30, %if.end29 ], [ -11, %entry ], [ %sub50.i, %uv__udp_maybe_deferred_bind.exit ], [ %retval.0.i.ph, %uv__udp_maybe_deferred_bind.exit.thread13 ], [ -11, %land.rhs ], [ -11, %land.rhs ]
   ret i32 %retval.0
 }
 
@@ -1471,7 +1471,7 @@ if.then15:                                        ; preds = %if.end10
   br label %return
 
 return:                                           ; preds = %if.end10, %if.then15, %uv__set_reuse.exit, %if.end2, %if.end, %entry
-  %retval.0 = phi i32 [ %sub.i, %uv__set_reuse.exit ], [ -16, %entry ], [ -17, %if.end ], [ %call3, %if.end2 ], [ 0, %if.then15 ], [ 0, %if.end10 ]
+  %retval.0 = phi i32 [ -16, %entry ], [ -17, %if.end ], [ %call3, %if.end2 ], [ %sub.i, %uv__set_reuse.exit ], [ 0, %if.then15 ], [ 0, %if.end10 ]
   ret i32 %retval.0
 }
 
@@ -1558,7 +1558,7 @@ if.then12.i:                                      ; preds = %sw.epilog.i
   br label %uv__udp_set_membership4.exit
 
 uv__udp_set_membership4.exit:                     ; preds = %if.then.i, %if.end6.i, %sw.epilog.i, %if.then12.i
-  %retval.0.i10 = phi i32 [ -22, %if.end6.i ], [ %call.i, %if.then.i ], [ %sub.i, %if.then12.i ], [ 0, %sw.epilog.i ]
+  %retval.0.i10 = phi i32 [ %sub.i, %if.then12.i ], [ %call.i, %if.then.i ], [ -22, %if.end6.i ], [ 0, %sw.epilog.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %mreq.i)
   br label %return
 
@@ -1632,13 +1632,13 @@ if.then8.i:                                       ; preds = %sw.epilog.i27
   br label %uv__udp_set_membership6.exit
 
 uv__udp_set_membership6.exit:                     ; preds = %if.then.i21, %if.end4.i, %sw.epilog.i27, %if.then8.i
-  %retval.0.i24 = phi i32 [ -22, %if.end4.i ], [ -22, %if.then.i21 ], [ %sub.i30, %if.then8.i ], [ 0, %sw.epilog.i27 ]
+  %retval.0.i24 = phi i32 [ %sub.i30, %if.then8.i ], [ -22, %if.then.i21 ], [ -22, %if.end4.i ], [ 0, %sw.epilog.i27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %mreq.i19)
   call void @llvm.lifetime.end.p0(ptr nonnull %addr6.i)
   br label %return
 
 return:                                           ; preds = %if.else, %uv__udp_maybe_deferred_bind.exit18, %uv__udp_maybe_deferred_bind.exit, %uv__udp_set_membership6.exit, %uv__udp_set_membership4.exit
-  %retval.0 = phi i32 [ %call7.i17, %uv__udp_maybe_deferred_bind.exit18 ], [ %retval.0.i10, %uv__udp_set_membership4.exit ], [ %call7.i, %uv__udp_maybe_deferred_bind.exit ], [ %retval.0.i24, %uv__udp_set_membership6.exit ], [ -22, %if.else ]
+  %retval.0 = phi i32 [ %retval.0.i10, %uv__udp_set_membership4.exit ], [ %retval.0.i24, %uv__udp_set_membership6.exit ], [ %call7.i, %uv__udp_maybe_deferred_bind.exit ], [ %call7.i17, %uv__udp_maybe_deferred_bind.exit18 ], [ -22, %if.else ]
   ret i32 %retval.0
 }
 
@@ -1737,7 +1737,7 @@ if.then18.i:                                      ; preds = %if.end15.i
   br label %uv__udp_set_source_membership6.exit
 
 uv__udp_set_source_membership6.exit:              ; preds = %uv__udp_maybe_deferred_bind.exit.i, %if.then1.i, %if.end7.i, %if.end15.i, %if.then18.i
-  %retval.0.i = phi i32 [ %call2.i, %if.then1.i ], [ %call7.i.i, %uv__udp_maybe_deferred_bind.exit.i ], [ %sub.i, %if.then18.i ], [ -22, %if.end7.i ], [ 0, %if.end15.i ]
+  %retval.0.i = phi i32 [ %sub.i, %if.then18.i ], [ %call7.i.i, %uv__udp_maybe_deferred_bind.exit.i ], [ %call2.i, %if.then1.i ], [ -22, %if.end7.i ], [ 0, %if.end15.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %mreq.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %addr6.i)
   br label %return
@@ -1814,12 +1814,12 @@ if.then25.i:                                      ; preds = %if.end22.i
   br label %uv__udp_set_source_membership4.exit
 
 uv__udp_set_source_membership4.exit:              ; preds = %uv__udp_maybe_deferred_bind.exit.i25, %if.then1.i19, %if.end9.i, %if.end22.i, %if.then25.i
-  %retval.0.i22 = phi i32 [ %call2.i20, %if.then1.i19 ], [ %call7.i.i26, %uv__udp_maybe_deferred_bind.exit.i25 ], [ %sub.i24, %if.then25.i ], [ -22, %if.end9.i ], [ 0, %if.end22.i ]
+  %retval.0.i22 = phi i32 [ %sub.i24, %if.then25.i ], [ %call7.i.i26, %uv__udp_maybe_deferred_bind.exit.i25 ], [ %call2.i20, %if.then1.i19 ], [ -22, %if.end9.i ], [ 0, %if.end22.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %mreq.i13)
   br label %return
 
 return:                                           ; preds = %if.end9, %if.end, %if.then, %uv__udp_set_source_membership4.exit, %uv__udp_set_source_membership6.exit
-  %retval.0 = phi i32 [ %retval.0.i22, %uv__udp_set_source_membership4.exit ], [ %call1, %if.then ], [ %retval.0.i, %uv__udp_set_source_membership6.exit ], [ %call4, %if.end ], [ %call10, %if.end9 ]
+  %retval.0 = phi i32 [ %retval.0.i, %uv__udp_set_source_membership6.exit ], [ %retval.0.i22, %uv__udp_set_source_membership4.exit ], [ %call1, %if.then ], [ %call4, %if.end ], [ %call10, %if.end9 ]
   ret i32 %retval.0
 }
 
@@ -1884,7 +1884,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
   br label %uv__setsockopt_maybe_char.exit
 
 uv__setsockopt_maybe_char.exit:                   ; preds = %if.end.i.i, %if.then5.i.i
-  %retval.0.i = phi i32 [ 0, %if.end.i.i ], [ %sub.i.i, %if.then5.i.i ]
+  %retval.0.i = phi i32 [ %sub.i.i, %if.then5.i.i ], [ 0, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %arg.i)
   br label %return
 
@@ -2049,7 +2049,7 @@ return.sink.split:                                ; preds = %if.then31, %if.then
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then18, %if.then31, %if.else7
-  %retval.0 = phi i32 [ 0, %if.then31 ], [ -22, %if.else7 ], [ 0, %if.then18 ], [ %sub40, %return.sink.split ]
+  %retval.0 = phi i32 [ -22, %if.else7 ], [ 0, %if.then31 ], [ 0, %if.then18 ], [ %sub40, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -2178,7 +2178,7 @@ do.body19:                                        ; preds = %if.end13
   br label %return
 
 return:                                           ; preds = %uv__udp_maybe_deferred_bind.exit.thread18, %if.end7, %do.body19, %if.end13, %uv__udp_maybe_deferred_bind.exit, %if.end, %entry
-  %retval.0 = phi i32 [ %sub50.i, %uv__udp_maybe_deferred_bind.exit ], [ -22, %entry ], [ -114, %if.end ], [ 0, %if.end13 ], [ 0, %do.body19 ], [ 0, %if.end7 ], [ %retval.0.i.ph, %uv__udp_maybe_deferred_bind.exit.thread18 ]
+  %retval.0 = phi i32 [ -22, %entry ], [ -114, %if.end ], [ %sub50.i, %uv__udp_maybe_deferred_bind.exit ], [ 0, %if.end13 ], [ 0, %do.body19 ], [ 0, %if.end7 ], [ %retval.0.i.ph, %uv__udp_maybe_deferred_bind.exit.thread18 ]
   ret i32 %retval.0
 }
 

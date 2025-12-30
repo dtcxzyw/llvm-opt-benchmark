@@ -274,14 +274,14 @@ try_name.exit:                                    ; preds = %86, %63
   br label %136
 
 136:                                              ; preds = %133, %126, %.thread.i.i
-  %.150.i.i = phi i32 [ %109, %133 ], [ 0, %.thread.i.i ], [ %109, %126 ]
-  %.13649.i.i = phi ptr [ null, %133 ], [ %116, %.thread.i.i ], [ %127, %126 ]
-  %.138.i.i = phi ptr [ %132, %133 ], [ %.03756.i.i, %.thread.i.i ], [ %.03756.i.i, %126 ]
+  %.150.i.i = phi i32 [ %109, %133 ], [ %109, %126 ], [ 0, %.thread.i.i ]
+  %.13649.i.i = phi ptr [ null, %133 ], [ %127, %126 ], [ %116, %.thread.i.i ]
+  %.138.i.i = phi ptr [ %132, %133 ], [ %.03756.i.i, %126 ], [ %.03756.i.i, %.thread.i.i ]
   %137 = icmp eq ptr %.13649.i.i, null
   br i1 %137, label %108, label %try_key_ref.exit.i, !llvm.loop !39
 
 try_key_ref.exit.thread56.i:                      ; preds = %130, %108, %101
-  %.03755.i.i = phi ptr [ null, %101 ], [ %.03756.i.i, %108 ], [ null, %130 ]
+  %.03755.i.i = phi ptr [ null, %101 ], [ null, %130 ], [ %.03756.i.i, %108 ]
   %138 = call i32 @ERR_clear_last_mark() #5
   call void @EVP_KEYMGMT_free(ptr noundef %.03755.i.i) #5
   br label %try_name.exit.thread
@@ -488,9 +488,9 @@ thread-pre-split.i.i:                             ; preds = %165
   br label %198
 
 198:                                              ; preds = %196, %.sink.split.i, %194, %.thread125.i
-  %.1517179.i = phi i32 [ %.1517180.ph.i, %196 ], [ %.1517180.ph.i, %.sink.split.i ], [ 0, %194 ], [ 0, %.thread125.i ]
-  %.0357277.i = phi ptr [ %.0357278.ph.i, %196 ], [ %.0357278.ph.i, %.sink.split.i ], [ %192, %194 ], [ %166, %.thread125.i ]
-  %.153.i = phi ptr [ %spec.select82.i, %196 ], [ @OSSL_STORE_INFO_new_PKEY, %.sink.split.i ], [ @OSSL_STORE_INFO_new_PKEY, %194 ], [ @OSSL_STORE_INFO_new_PUBKEY, %.thread125.i ]
+  %.1517179.i = phi i32 [ 0, %194 ], [ %.1517180.ph.i, %.sink.split.i ], [ %.1517180.ph.i, %196 ], [ 0, %.thread125.i ]
+  %.0357277.i = phi ptr [ %192, %194 ], [ %.0357278.ph.i, %.sink.split.i ], [ %.0357278.ph.i, %196 ], [ %166, %.thread125.i ]
+  %.153.i = phi ptr [ @OSSL_STORE_INFO_new_PKEY, %194 ], [ @OSSL_STORE_INFO_new_PKEY, %.sink.split.i ], [ %spec.select82.i, %196 ], [ @OSSL_STORE_INFO_new_PUBKEY, %.thread125.i ]
   %199 = call ptr %.153.i(ptr noundef nonnull %.0357277.i) #5
   store ptr %199, ptr %1, align 8, !tbaa !20
   br label %200
@@ -592,7 +592,7 @@ try_key.exit.thread87:                            ; preds = %92, %try_key.exit, 
   call void @X509_free(ptr noundef %239) #5
   br label %try_cert.exit.thread92
 
-try_cert.exit.thread92:                           ; preds = %236, %.thread27.sink.split.i, %235
+try_cert.exit.thread92:                           ; preds = %.thread27.sink.split.i, %235, %236
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %try_cert.exit.thread
 
@@ -734,7 +734,7 @@ try_crl.exit:                                     ; preds = %258, %255, %244, %t
   br label %290
 
 290:                                              ; preds = %289, %274, %272, %270
-  %.044.i = phi ptr [ %3, %289 ], [ null, %270 ], [ null, %272 ], [ @.str.8, %274 ]
+  %.044.i = phi ptr [ %3, %289 ], [ null, %272 ], [ null, %270 ], [ @.str.8, %274 ]
   %291 = call i32 @PKCS12_parse(ptr noundef nonnull %269, ptr noundef %.044.i, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   %.not58.i = icmp eq i32 %291, 0
   br i1 %.not58.i, label %try_pkcs12.exit, label %292
@@ -804,10 +804,10 @@ try_crl.exit:                                     ; preds = %258, %255, %244, %t
   br i1 %.not69.i, label %.critedge.i80, label %.lr.ph.i, !llvm.loop !62
 
 .critedge.i80:                                    ; preds = %316, %313, %309, %.lr.ph.i, %304, %302, %298, %296, %292
-  %.040.i = phi ptr [ null, %292 ], [ null, %304 ], [ null, %302 ], [ %297, %298 ], [ null, %296 ], [ null, %.lr.ph.i ], [ null, %309 ], [ null, %313 ], [ null, %316 ]
-  %.038.i = phi ptr [ null, %292 ], [ %303, %304 ], [ null, %302 ], [ null, %298 ], [ null, %296 ], [ null, %.lr.ph.i ], [ null, %309 ], [ null, %313 ], [ null, %316 ]
-  %.035.i = phi ptr [ null, %292 ], [ null, %304 ], [ null, %302 ], [ null, %298 ], [ null, %296 ], [ %312, %316 ], [ %312, %313 ], [ null, %309 ], [ null, %.lr.ph.i ]
-  %.not66.i = phi i1 [ false, %292 ], [ true, %304 ], [ true, %302 ], [ true, %298 ], [ true, %296 ], [ %308, %.lr.ph.i ], [ %308, %309 ], [ %308, %313 ], [ %308, %316 ]
+  %.040.i = phi ptr [ null, %292 ], [ %297, %298 ], [ null, %296 ], [ null, %304 ], [ null, %302 ], [ null, %.lr.ph.i ], [ null, %309 ], [ null, %313 ], [ null, %316 ]
+  %.038.i = phi ptr [ null, %292 ], [ null, %298 ], [ null, %296 ], [ %303, %304 ], [ null, %302 ], [ null, %.lr.ph.i ], [ null, %309 ], [ null, %313 ], [ null, %316 ]
+  %.035.i = phi ptr [ null, %292 ], [ null, %298 ], [ null, %296 ], [ null, %304 ], [ null, %302 ], [ %312, %316 ], [ %312, %313 ], [ null, %309 ], [ null, %.lr.ph.i ]
+  %.not66.i = phi i1 [ false, %292 ], [ true, %298 ], [ true, %296 ], [ true, %304 ], [ true, %302 ], [ %308, %.lr.ph.i ], [ %308, %309 ], [ %308, %313 ], [ %308, %316 ]
   %318 = load ptr, ptr %5, align 8, !tbaa !43
   call void @EVP_PKEY_free(ptr noundef %318) #5
   %319 = load ptr, ptr %6, align 8, !tbaa !57
@@ -871,7 +871,7 @@ try_name.exit.thread:                             ; preds = %97, %try_key_ref.ex
   br label %337
 
 337:                                              ; preds = %try_pkcs12.exit.thread, %333, %60, %54, %49, %44, %35, %31, %try_name.exit.thread
-  %.0 = phi i32 [ 0, %60 ], [ 0, %try_name.exit.thread ], [ 0, %54 ], [ 0, %49 ], [ 0, %44 ], [ 0, %35 ], [ 0, %31 ], [ %335, %333 ], [ 1, %try_pkcs12.exit.thread ]
+  %.0 = phi i32 [ 0, %try_name.exit.thread ], [ 0, %31 ], [ 0, %35 ], [ 0, %44 ], [ 0, %49 ], [ 0, %54 ], [ 0, %60 ], [ %335, %333 ], [ 1, %try_pkcs12.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   ret i32 %.0
 }

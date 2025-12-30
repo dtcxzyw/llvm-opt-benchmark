@@ -113,8 +113,8 @@ define hidden void @_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E(ptr noalias
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h98e7f1d05645f318E.llvm.14751623873358387643.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h98e7f1d05645f318E.llvm.14751623873358387643.exit": ; preds = %16, %20, %33, %25
-  %.sink = phi ptr [ %32, %33 ], [ %32, %25 ], [ %21, %20 ], [ %17, %16 ]
-  %storemerge.i.sink = phi i64 [ 0, %33 ], [ 1, %25 ], [ 1, %20 ], [ 1, %16 ]
+  %.sink = phi ptr [ %32, %25 ], [ %32, %33 ], [ %17, %16 ], [ %21, %20 ]
+  %storemerge.i.sink = phi i64 [ 1, %25 ], [ 0, %33 ], [ 1, %16 ], [ 1, %20 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %37, align 8
   store i64 %storemerge.i.sink, ptr %0, align 8

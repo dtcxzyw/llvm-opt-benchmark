@@ -112,7 +112,7 @@ define internal i32 @smb_setup_connection(ptr noundef initializes((440, 448)) %0
   br label %32, !llvm.loop !82
 
 smb_parse_url_path.exit:                          ; preds = %32, %7, %17, %28
-  %.0.i = phi i32 [ %10, %7 ], [ 27, %17 ], [ 3, %28 ], [ 0, %32 ]
+  %.0.i = phi i32 [ 3, %28 ], [ %10, %7 ], [ 27, %17 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %37
 
@@ -210,7 +210,7 @@ define internal range(i32 0, 68) i32 @smb_connect(ptr noundef readonly captures(
   br label %41
 
 41:                                               ; preds = %33, %.thread, %12, %7, %2, %40
-  %.026 = phi i32 [ 0, %40 ], [ 27, %12 ], [ 27, %.thread ], [ 27, %7 ], [ 67, %2 ], [ 27, %33 ]
+  %.026 = phi i32 [ 0, %40 ], [ 67, %2 ], [ 27, %7 ], [ 27, %12 ], [ 27, %.thread ], [ 27, %33 ]
   ret i32 %.026
 }
 
@@ -865,7 +865,7 @@ smb_send_open.exit:                               ; preds = %178, %smb_send_mess
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %413
 
-240:                                              ; preds = %123, %119, %152
+240:                                              ; preds = %152, %123, %119
   %241 = getelementptr inbounds nuw i8, ptr %13, i64 1176
   store i64 0, ptr %241, align 8, !tbaa !120
   %242 = load ptr, ptr %15, align 8, !tbaa !7
@@ -1054,7 +1054,7 @@ smb_send_write.exit:                              ; preds = %select.unfold135, %
   br label %413
 
 select.unfold.sink.split:                         ; preds = %157, %160, %148, %.thread, %129, %132, %115
-  %.sink = phi i32 [ %151, %148 ], [ 8, %115 ], [ 56, %129 ], [ 56, %132 ], [ 56, %.thread ], [ 25, %160 ], [ 25, %157 ]
+  %.sink = phi i32 [ 8, %115 ], [ 56, %132 ], [ 56, %129 ], [ 56, %.thread ], [ %151, %148 ], [ 25, %160 ], [ 25, %157 ]
   %337 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 %.sink, ptr %337, align 4, !tbaa !132
   br label %select.unfold
@@ -1131,7 +1131,7 @@ smb_send_close.exit:                              ; preds = %select.unfold, %373
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %413
 
-375:                                              ; preds = %87, %102
+375:                                              ; preds = %102, %87
   %376 = getelementptr inbounds nuw i8, ptr %13, i64 1176
   store i64 0, ptr %376, align 8, !tbaa !120
   %377 = load ptr, ptr %12, align 8, !tbaa !84
@@ -1205,8 +1205,8 @@ smb_send_tree_disconnect.exit:                    ; preds = %375, %408
   br label %413
 
 413:                                              ; preds = %410, %smb_send_tree_disconnect.exit, %smb_send_close.exit, %smb_send_write.exit, %smb_send_read.exit, %smb_send_open.exit
-  %.091138 = phi i32 [ 7, %410 ], [ 2, %smb_send_open.exit ], [ 3, %smb_send_read.exit ], [ 4, %smb_send_write.exit ], [ 5, %smb_send_close.exit ], [ 6, %smb_send_tree_disconnect.exit ]
-  %.3 = phi i32 [ %411, %410 ], [ %.0.i113, %smb_send_open.exit ], [ %275, %smb_send_read.exit ], [ %329, %smb_send_write.exit ], [ %367, %smb_send_close.exit ], [ %402, %smb_send_tree_disconnect.exit ]
+  %.091138 = phi i32 [ 2, %smb_send_open.exit ], [ 3, %smb_send_read.exit ], [ 4, %smb_send_write.exit ], [ 5, %smb_send_close.exit ], [ 6, %smb_send_tree_disconnect.exit ], [ 7, %410 ]
+  %.3 = phi i32 [ %.0.i113, %smb_send_open.exit ], [ %275, %smb_send_read.exit ], [ %329, %smb_send_write.exit ], [ %367, %smb_send_close.exit ], [ %402, %smb_send_tree_disconnect.exit ], [ %411, %410 ]
   %.not107 = icmp eq i32 %.3, 0
   br i1 %.not107, label %415, label %414
 
@@ -1437,12 +1437,12 @@ smb_flush.exit:                                   ; preds = %30
   br label %smb_recv_message.exit
 
 smb_recv_message.exit:                            ; preds = %.thread46.thread, %51, %53, %57, %72, %79
-  %.0.i37 = phi i32 [ %50, %.thread46.thread ], [ 0, %51 ], [ 0, %53 ], [ 0, %57 ], [ 0, %79 ], [ 26, %72 ]
+  %.0.i37 = phi i32 [ 0, %79 ], [ %50, %.thread46.thread ], [ 0, %51 ], [ 0, %53 ], [ 0, %57 ], [ 26, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %80
 
 80:                                               ; preds = %smb_flush.exit, %.thread, %41, %.thread46, %smb_recv_message.exit
-  %.1 = phi i32 [ %.025.ph, %.thread ], [ %34, %smb_flush.exit ], [ %.0.i37, %smb_recv_message.exit ], [ 81, %.thread46 ], [ 81, %41 ]
+  %.1 = phi i32 [ %.0.i37, %smb_recv_message.exit ], [ %34, %smb_flush.exit ], [ 81, %.thread46 ], [ 81, %41 ], [ %.025.ph, %.thread ]
   ret i32 %.1
 }
 

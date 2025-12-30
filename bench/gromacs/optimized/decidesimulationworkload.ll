@@ -95,7 +95,7 @@ define void @_ZN3gmx24createSimulationWorkloadERKNS_8MDLoggerERK10t_inputrecbbRK
   br label %40
 
 40:                                               ; preds = %32, %16
-  %41 = phi i8 [ %39, %32 ], [ 0, %16 ]
+  %41 = phi i8 [ 0, %16 ], [ %39, %32 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %41, ptr %42, align 1, !tbaa !20
   %43 = tail call noundef zeroext i1 @_Z17inputrecNeedMutotPK10t_inputrec(ptr noundef nonnull %2)
@@ -291,7 +291,7 @@ define range(i64 0, 72620543991349248) i64 @_ZN3gmx27setupDomainLifetimeWorkload
   br label %_ZN3gmxL17haveSpecialForcesERK10t_inputrecRKNS_14ForceProvidersEPK6pull_tPK9gmx_edsam.exit
 
 _ZN3gmxL17haveSpecialForcesERK10t_inputrecRKNS_14ForceProvidersEPK6pull_tPK9gmx_edsam.exit: ; preds = %6, %14, %16, %21
-  %25 = phi i1 [ %24, %21 ], [ true, %16 ], [ true, %14 ], [ true, %6 ]
+  %25 = phi i1 [ true, %16 ], [ true, %14 ], [ true, %6 ], [ %24, %21 ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 464
   %27 = load ptr, ptr %26, align 8, !tbaa !254
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 472
@@ -548,7 +548,7 @@ define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22Do
   br label %117
 
 117:                                              ; preds = %111, %105, %85
-  %118 = phi i8 [ 0, %85 ], [ %116, %111 ], [ 0, %105 ]
+  %118 = phi i8 [ 0, %105 ], [ 0, %85 ], [ %116, %111 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 %118, ptr %119, align 1, !tbaa !280
   %120 = trunc nuw i8 %95 to i1

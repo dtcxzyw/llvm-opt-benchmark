@@ -298,7 +298,7 @@ define hidden noalias noundef align 8 ptr @"_ZN16wasmtime_environ8tunables1_88_$
   br label %103
 
 103:                                              ; preds = %100, %55, %64, %68, %72, %76, %80, %84, %88, %92, %96
-  %.1 = phi ptr [ %102, %100 ], [ %98, %96 ], [ %94, %92 ], [ %90, %88 ], [ %86, %84 ], [ %82, %80 ], [ %78, %76 ], [ %74, %72 ], [ %70, %68 ], [ %66, %64 ], [ %62, %55 ]
+  %.1 = phi ptr [ %62, %55 ], [ %66, %64 ], [ %70, %68 ], [ %74, %72 ], [ %78, %76 ], [ %82, %80 ], [ %86, %84 ], [ %90, %88 ], [ %94, %92 ], [ %98, %96 ], [ %102, %100 ]
   ret ptr %.1
 }
 
@@ -1774,7 +1774,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h7a06
   br i1 %43, label %22, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h904cc5ba7f72f8deE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h904cc5ba7f72f8deE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hec3340ab86f35c92E.exit.loopexit.i.i", %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i", %2
-  %.1 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ null, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hec3340ab86f35c92E.exit.loopexit.i.i" ]
+  %.1 = phi ptr [ null, %2 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hec3340ab86f35c92E.exit.loopexit.i.i" ]
   ret ptr %.1
 }
 
@@ -2321,7 +2321,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17hcbf6
   br i1 %43, label %22, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hfebdd84cd261810eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hfebdd84cd261810eE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h948d5a19e54f5376E.exit.loopexit.i.i", %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i", %2
-  %.1 = phi ptr [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ null, %2 ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h948d5a19e54f5376E.exit.loopexit.i.i" ]
+  %.1 = phi ptr [ null, %2 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h948d5a19e54f5376E.exit.loopexit.i.i" ]
   ret ptr %.1
 }
 
@@ -8553,7 +8553,7 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls63_$LT$impl$u20$serde..se
   br i1 %26, label %.preheader.i, label %_ZN5serde3ser10Serializer11collect_seq17h48d3e5e62f5a6e28E.llvm.12642593798105491766.exit
 
 _ZN5serde3ser10Serializer11collect_seq17h48d3e5e62f5a6e28E.llvm.12642593798105491766.exit: ; preds = %.preheader.i, %23
-  %.1.i = phi ptr [ null, %.preheader.i ], [ %25, %23 ]
+  %.1.i = phi ptr [ %25, %23 ], [ null, %.preheader.i ]
   ret ptr %.1.i
 }
 
@@ -8812,7 +8812,7 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..se
   br i1 %27, label %.preheader.i, label %_ZN5serde3ser10Serializer11collect_seq17hec29ee47fa604654E.llvm.12642593798105491766.exit
 
 _ZN5serde3ser10Serializer11collect_seq17hec29ee47fa604654E.llvm.12642593798105491766.exit: ; preds = %.preheader.i, %24
-  %.1.i = phi ptr [ null, %.preheader.i ], [ %26, %24 ]
+  %.1.i = phi ptr [ %26, %24 ], [ null, %.preheader.i ]
   ret ptr %.1.i
 }
 
@@ -9064,7 +9064,7 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls78_$LT$impl$u20$serde..se
   br i1 %28, label %.preheader.i.i, label %"_ZN5serde3ser5impls63_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$u5b$T$u5d$$GT$9serialize17h2166fce8a237e2ccE.llvm.12642593798105491766.exit"
 
 "_ZN5serde3ser5impls63_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$u5b$T$u5d$$GT$9serialize17h2166fce8a237e2ccE.llvm.12642593798105491766.exit": ; preds = %.preheader.i.i, %25
-  %.1.i.i = phi ptr [ null, %.preheader.i.i ], [ %27, %25 ]
+  %.1.i.i = phi ptr [ %27, %25 ], [ null, %.preheader.i.i ]
   ret ptr %.1.i.i
 }
 
@@ -9441,7 +9441,7 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u
   br label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit"
 
 "_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit": ; preds = %6, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit.sink.split", %2
-  %.0.shrunk = phi i1 [ false, %2 ], [ false, %6 ], [ %11, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit.sink.split" ]
+  %.0.shrunk = phi i1 [ false, %2 ], [ %11, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit.sink.split" ], [ false, %6 ]
   ret i1 %.0.shrunk
 }
 
@@ -13810,7 +13810,7 @@ define hidden noundef align 8 ptr @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializ
   br i1 %45, label %.preheader.i.i, label %"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h31cdcee90cc519ccE.llvm.12642593798105491766.exit"
 
 "_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h31cdcee90cc519ccE.llvm.12642593798105491766.exit": ; preds = %42, %.preheader.i.i
-  %.1.i.i = phi ptr [ null, %.preheader.i.i ], [ %44, %42 ]
+  %.1.i.i = phi ptr [ %44, %42 ], [ null, %.preheader.i.i ]
   ret ptr %.1.i.i
 }
 
@@ -14627,7 +14627,7 @@ define hidden noundef align 8 ptr @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializ
   br i1 %46, label %.preheader.i.i.i, label %"_ZN5serde3ser5impls78_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$9serialize17hd783b220cd24300eE.llvm.12642593798105491766.exit"
 
 "_ZN5serde3ser5impls78_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$9serialize17hd783b220cd24300eE.llvm.12642593798105491766.exit": ; preds = %43, %.preheader.i.i.i
-  %.1.i.i.i = phi ptr [ null, %.preheader.i.i.i ], [ %45, %43 ]
+  %.1.i.i.i = phi ptr [ %45, %43 ], [ null, %.preheader.i.i.i ]
   ret ptr %.1.i.i.i
 }
 

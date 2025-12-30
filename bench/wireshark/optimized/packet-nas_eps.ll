@@ -2149,7 +2149,7 @@ define hidden zeroext i16 @de_emm_ue_net_cap(ptr noundef %0, ptr noundef %1, ptr
   br label %43
 
 43:                                               ; preds = %27, %21, %15, %24, %18, %12, %._crit_edge, %10
-  %.076 = phi i16 [ %11, %10 ], [ %42, %._crit_edge ], [ 7, %24 ], [ 3, %12 ], [ 4, %15 ], [ 5, %18 ], [ 6, %21 ], [ 8, %27 ]
+  %.076 = phi i16 [ %11, %10 ], [ %42, %._crit_edge ], [ 3, %12 ], [ 5, %18 ], [ 7, %24 ], [ 4, %15 ], [ 6, %21 ], [ 8, %27 ]
   ret i16 %.076
 }
 
@@ -2472,7 +2472,7 @@ calc_bitrate_ext.exit183:                         ; preds = %102, %107, %109, %1
   br label %173
 
 173:                                              ; preds = %131, %145, %92, %166, %53
-  %.0158 = phi i16 [ %54, %53 ], [ %172, %166 ], [ 5, %145 ], [ 3, %92 ], [ 4, %131 ]
+  %.0158 = phi i16 [ %54, %53 ], [ %172, %166 ], [ 3, %92 ], [ 5, %145 ], [ 4, %131 ]
   ret i16 %.0158
 }
 
@@ -3045,7 +3045,7 @@ calc_bitrate_ext2.exit263:                        ; preds = %280, %285, %288, %2
   br label %295
 
 295:                                              ; preds = %199, %147, %calc_bitrate.exit226, %173, %121, %calc_bitrate.exit221, %59, %35, %293, %12
-  %.0 = phi i16 [ %13, %12 ], [ %294, %293 ], [ 2, %35 ], [ 3, %59 ], [ 8, %173 ], [ 4, %calc_bitrate.exit221 ], [ 5, %calc_bitrate.exit226 ], [ 6, %121 ], [ 7, %147 ], [ 9, %199 ]
+  %.0 = phi i16 [ %13, %12 ], [ %294, %293 ], [ 2, %35 ], [ 3, %59 ], [ 4, %calc_bitrate.exit221 ], [ 6, %121 ], [ 8, %173 ], [ 5, %calc_bitrate.exit226 ], [ 7, %147 ], [ 9, %199 ]
   ret i16 %.0
 }
 
@@ -3113,8 +3113,8 @@ define hidden noundef zeroext i16 @de_esm_ext_apn_agr_max_br(ptr noundef %0, ptr
   br label %get_ext_ambr_unit.exit
 
 get_ext_ambr_unit.exit:                           ; preds = %7, %16, %22, %28, %32, %34
-  %.str.46.sink.i = phi ptr [ @.str.46, %16 ], [ @.str.954, %28 ], [ @.str.952, %7 ], [ @.str.955, %34 ], [ @.str.953, %22 ], [ @.str.955, %32 ]
-  %.0.i = phi i32 [ %19, %16 ], [ %31, %28 ], [ 0, %7 ], [ %37, %34 ], [ %25, %22 ], [ 256, %32 ]
+  %.str.46.sink.i = phi ptr [ @.str.46, %16 ], [ @.str.954, %28 ], [ @.str.955, %34 ], [ @.str.953, %22 ], [ @.str.952, %7 ], [ @.str.955, %32 ]
+  %.0.i = phi i32 [ %19, %16 ], [ %31, %28 ], [ %37, %34 ], [ %25, %22 ], [ 0, %7 ], [ 256, %32 ]
   %38 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %11)
   %39 = zext i16 %38 to i32
   %40 = load i32, ptr @hf_nas_eps_esm_ext_apn_ambr_dl, align 4
@@ -3168,8 +3168,8 @@ get_ext_ambr_unit.exit:                           ; preds = %7, %16, %22, %28, %
   br label %get_ext_ambr_unit.exit30
 
 get_ext_ambr_unit.exit30:                         ; preds = %get_ext_ambr_unit.exit, %50, %56, %62, %66, %68
-  %.str.46.sink.i28 = phi ptr [ @.str.46, %50 ], [ @.str.954, %62 ], [ @.str.952, %get_ext_ambr_unit.exit ], [ @.str.955, %68 ], [ @.str.953, %56 ], [ @.str.955, %66 ]
-  %.0.i29 = phi i32 [ %53, %50 ], [ %65, %62 ], [ 0, %get_ext_ambr_unit.exit ], [ %71, %68 ], [ %59, %56 ], [ 256, %66 ]
+  %.str.46.sink.i28 = phi ptr [ @.str.46, %50 ], [ @.str.954, %62 ], [ @.str.955, %68 ], [ @.str.953, %56 ], [ @.str.952, %get_ext_ambr_unit.exit ], [ @.str.955, %66 ]
+  %.0.i29 = phi i32 [ %53, %50 ], [ %65, %62 ], [ %71, %68 ], [ %59, %56 ], [ 0, %get_ext_ambr_unit.exit ], [ 256, %66 ]
   %72 = add i32 %3, 4
   %73 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %72)
   %74 = zext i16 %73 to i32
@@ -3244,8 +3244,8 @@ define hidden noundef zeroext i16 @de_esm_ext_eps_qos(ptr noundef %0, ptr nounde
   br label %get_ext_eps_qos_unit.exit
 
 get_ext_eps_qos_unit.exit:                        ; preds = %7, %13, %16, %22, %28, %32, %34
-  %.str.47.sink.i = phi ptr [ @.str.47, %13 ], [ @.str.953, %22 ], [ @.str.955, %34 ], [ @.str.952, %7 ], [ @.str.954, %28 ], [ @.str.46, %16 ], [ @.str.955, %32 ]
-  %.0.i = phi i32 [ 200, %13 ], [ %25, %22 ], [ %37, %34 ], [ %12, %7 ], [ %31, %28 ], [ %19, %16 ], [ 256, %32 ]
+  %.str.47.sink.i = phi ptr [ @.str.47, %13 ], [ @.str.953, %22 ], [ @.str.955, %34 ], [ @.str.954, %28 ], [ @.str.46, %16 ], [ @.str.952, %7 ], [ @.str.955, %32 ]
+  %.0.i = phi i32 [ 200, %13 ], [ %25, %22 ], [ %37, %34 ], [ %31, %28 ], [ %19, %16 ], [ %12, %7 ], [ 256, %32 ]
   %38 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %11)
   %39 = zext i16 %38 to i32
   %40 = load i32, ptr @hf_nas_eps_esm_ext_mbr_ul, align 4
@@ -3310,8 +3310,8 @@ get_ext_eps_qos_unit.exit:                        ; preds = %7, %13, %16, %22, %
   br label %get_ext_eps_qos_unit.exit50
 
 get_ext_eps_qos_unit.exit50:                      ; preds = %get_ext_eps_qos_unit.exit, %53, %56, %62, %68, %72, %74
-  %.str.47.sink.i48 = phi ptr [ @.str.47, %53 ], [ @.str.953, %62 ], [ @.str.955, %74 ], [ @.str.952, %get_ext_eps_qos_unit.exit ], [ @.str.954, %68 ], [ @.str.46, %56 ], [ @.str.955, %72 ]
-  %.0.i49 = phi i32 [ 200, %53 ], [ %65, %62 ], [ %77, %74 ], [ %52, %get_ext_eps_qos_unit.exit ], [ %71, %68 ], [ %59, %56 ], [ 256, %72 ]
+  %.str.47.sink.i48 = phi ptr [ @.str.47, %53 ], [ @.str.953, %62 ], [ @.str.955, %74 ], [ @.str.954, %68 ], [ @.str.46, %56 ], [ @.str.952, %get_ext_eps_qos_unit.exit ], [ @.str.955, %72 ]
+  %.0.i49 = phi i32 [ 200, %53 ], [ %65, %62 ], [ %77, %74 ], [ %71, %68 ], [ %59, %56 ], [ %52, %get_ext_eps_qos_unit.exit ], [ 256, %72 ]
   %78 = add i32 %3, 6
   %79 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %78)
   %80 = zext i16 %79 to i32
@@ -4048,7 +4048,7 @@ default.unreachable171:                           ; preds = %25
   unreachable
 
 .loopexit:                                        ; preds = %.preheader123, %proto_item_set_generated.exit, %.preheader, %42
-  %.2112 = phi i32 [ %41, %.preheader ], [ %46, %42 ], [ %46, %proto_item_set_generated.exit ], [ %68, %.preheader123 ]
+  %.2112 = phi i32 [ %46, %42 ], [ %41, %.preheader ], [ %46, %proto_item_set_generated.exit ], [ %68, %.preheader123 ]
   %70 = sub i32 %.2112, %3
   %71 = icmp ult i32 %70, %4
   br i1 %71, label %.lr.ph147, label %.loopexit125, !llvm.loop !11
@@ -5347,7 +5347,7 @@ define internal noundef zeroext i16 @de_esm_user_data_cont(ptr noundef %0, ptr n
   br label %34
 
 34:                                               ; preds = %25, %23, %30, %32
-  %.sink = phi ptr [ %24, %23 ], [ %33, %32 ], [ %spec.select, %25 ], [ %31, %30 ]
+  %.sink = phi ptr [ %24, %23 ], [ %31, %30 ], [ %33, %32 ], [ %spec.select, %25 ]
   store volatile ptr %.sink, ptr %8, align 8
   %.0..0..0..0.28 = load volatile ptr, ptr %8, align 8
   %.not52 = icmp eq ptr %.0..0..0..0.28, null

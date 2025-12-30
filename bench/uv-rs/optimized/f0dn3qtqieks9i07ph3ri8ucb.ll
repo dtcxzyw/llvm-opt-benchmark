@@ -615,7 +615,7 @@ define hidden void @"_ZN8uv_shell5Shell13contains_path28_$u7b$$u7b$closure$u7d$$
   br label %.body
 
 .body:                                            ; preds = %53, %44, %19
-  %eh.lpad-body = phi { ptr, i32 } [ %45, %44 ], [ %20, %19 ], [ %54, %53 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %20, %19 ], [ %45, %44 ], [ %54, %53 ]
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h56da160fa230bc53E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 1, i64 noundef 1)
           to label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h99b75d85bc37e920E.exit" unwind label %58
 

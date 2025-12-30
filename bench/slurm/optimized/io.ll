@@ -265,8 +265,8 @@ _incoming_buf_free.exit:                          ; preds = %40
   tail call void (i32, ptr, ...) @log_var(i32 noundef 9, ptr noundef nonnull @.str.26) #11
   br label %_incoming_buf_free.exit.thread
 
-_incoming_buf_free.exit.thread:                   ; preds = %44, %33, %_incoming_buf_free.exit, %54, %30, %27, %15
-  %.0 = phi i1 [ false, %15 ], [ false, %27 ], [ true, %30 ], [ false, %_incoming_buf_free.exit ], [ false, %54 ], [ true, %33 ], [ true, %44 ]
+_incoming_buf_free.exit.thread:                   ; preds = %33, %44, %_incoming_buf_free.exit, %54, %30, %27, %15
+  %.0 = phi i1 [ false, %15 ], [ false, %27 ], [ true, %30 ], [ false, %54 ], [ false, %_incoming_buf_free.exit ], [ true, %44 ], [ true, %33 ]
   ret i1 %.0
 }
 
@@ -384,7 +384,7 @@ define internal noundef zeroext i1 @_client_writable(ptr noundef %0) #0 {
   br label %58
 
 58:                                               ; preds = %.sink.split, %55, %50, %52, %11
-  %.0 = phi i1 [ true, %50 ], [ false, %11 ], [ false, %55 ], [ true, %52 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ false, %11 ], [ true, %52 ], [ true, %50 ], [ false, %55 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -437,7 +437,7 @@ define internal range(i32 -1, 1) i32 @_client_read(ptr noundef readonly captures
   store i32 %31, ptr %21, align 8
   br label %32
 
-32:                                               ; preds = %13, %24
+32:                                               ; preds = %24, %13
   %33 = load ptr, ptr %14, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 528
   %35 = load ptr, ptr %34, align 8
@@ -870,7 +870,7 @@ _send_connection_okay_response.exit:              ; preds = %93
   br label %262
 
 262:                                              ; preds = %_send_connection_okay_response.exit, %.loopexit88, %261, %194, %171, %174, %_incoming_buf_free.exit, %45, %200, %187, %.loopexit, %80, %48
-  %.072 = phi i32 [ 0, %48 ], [ -1, %80 ], [ 0, %_incoming_buf_free.exit ], [ 0, %.loopexit ], [ -1, %200 ], [ 0, %194 ], [ 0, %_send_connection_okay_response.exit ], [ 0, %187 ], [ 0, %171 ], [ 0, %45 ], [ 0, %174 ], [ 0, %261 ], [ 0, %.loopexit88 ]
+  %.072 = phi i32 [ 0, %48 ], [ -1, %80 ], [ 0, %.loopexit ], [ -1, %200 ], [ 0, %187 ], [ 0, %45 ], [ 0, %_incoming_buf_free.exit ], [ 0, %_send_connection_okay_response.exit ], [ 0, %174 ], [ 0, %171 ], [ 0, %194 ], [ 0, %261 ], [ 0, %.loopexit88 ]
   ret i32 %.072
 }
 
@@ -1060,7 +1060,7 @@ define internal zeroext i1 @_local_file_writable(ptr noundef readonly captures(n
   br label %14
 
 14:                                               ; preds = %10, %7, %1
-  %.0 = phi i1 [ true, %7 ], [ false, %1 ], [ %.not5, %10 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %7 ], [ %.not5, %10 ]
   ret i1 %.0
 }
 
@@ -1189,7 +1189,7 @@ _free_all_outgoing_msgs.exit:                     ; preds = %.lr.ph.i, %64
   br label %80
 
 80:                                               ; preds = %73, %77, %9, %_free_all_outgoing_msgs.exit, %34
-  %.0 = phi i32 [ 0, %9 ], [ 0, %34 ], [ -1, %_free_all_outgoing_msgs.exit ], [ 0, %77 ], [ 0, %73 ]
+  %.0 = phi i32 [ 0, %34 ], [ -1, %_free_all_outgoing_msgs.exit ], [ 0, %9 ], [ 0, %77 ], [ 0, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1257,7 +1257,7 @@ define internal noundef zeroext i1 @_task_writable(ptr noundef readonly captures
   br label %35
 
 35:                                               ; preds = %29, %32, %22, %25, %10, %13
-  %.0 = phi i1 [ true, %22 ], [ false, %10 ], [ false, %13 ], [ true, %25 ], [ false, %32 ], [ false, %29 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %10 ], [ true, %25 ], [ true, %22 ], [ false, %32 ], [ false, %29 ]
   ret i1 %.0
 }
 
@@ -1425,7 +1425,7 @@ _free_incoming_msg.exit35:                        ; preds = %82, %89
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %78, %17, %20, %_free_incoming_msg.exit35, %_free_incoming_msg.exit34, %_free_incoming_msg.exit
-  %.0 = phi i32 [ 0, %_free_incoming_msg.exit35 ], [ 0, %_free_incoming_msg.exit ], [ 0, %17 ], [ -1, %_free_incoming_msg.exit34 ], [ 0, %78 ], [ 0, %20 ], [ 0, %60 ]
+  %.0 = phi i32 [ 0, %_free_incoming_msg.exit ], [ -1, %_free_incoming_msg.exit34 ], [ 0, %_free_incoming_msg.exit35 ], [ 0, %20 ], [ 0, %17 ], [ 0, %78 ], [ 0, %60 ]
   ret i32 %.0
 }
 
@@ -1507,7 +1507,7 @@ define internal noundef zeroext i1 @_task_readable(ptr noundef readonly captures
   br label %35
 
 35:                                               ; preds = %33, %34, %29, %30, %18, %21
-  %.0 = phi i1 [ true, %29 ], [ false, %18 ], [ false, %21 ], [ true, %30 ], [ false, %34 ], [ false, %33 ]
+  %.0 = phi i1 [ false, %21 ], [ false, %18 ], [ true, %30 ], [ true, %29 ], [ false, %34 ], [ false, %33 ]
   ret i1 %.0
 }
 
@@ -1830,7 +1830,7 @@ define dso_local range(i32 -1, 1) i32 @io_init_tasks_stdio(ptr noundef %0) local
   br label %io_get_file_flags.exit.i
 
 io_get_file_flags.exit.i:                         ; preds = %30, %29, %24
-  %.0.i.i = phi i32 [ 525377, %24 ], [ 525889, %29 ], [ %32, %30 ]
+  %.0.i.i = phi i32 [ 525889, %29 ], [ 525377, %24 ], [ %32, %30 ]
   %33 = load i32, ptr %14, align 8
   %34 = and i32 %33, 4
   %.not.i = icmp eq i32 %34, 0
@@ -2419,8 +2419,8 @@ _create_task_out_eio.exit.i:                      ; preds = %265, %238
   br label %_init_task_stdio_fds.exit
 
 325:                                              ; preds = %317, %314, %304, %._crit_edge232.i
-  %.1172.i = phi i32 [ %.0171.i, %314 ], [ %.0171.i, %317 ], [ %.pre235.i, %._crit_edge232.i ], [ %306, %304 ]
-  %.1164.i = phi i1 [ true, %314 ], [ true, %317 ], [ %.0163.i, %._crit_edge232.i ], [ %.0163.i, %304 ]
+  %.1172.i = phi i32 [ %.0171.i, %317 ], [ %.0171.i, %314 ], [ %.pre235.i, %._crit_edge232.i ], [ %306, %304 ]
+  %.1164.i = phi i1 [ true, %317 ], [ true, %314 ], [ %.0163.i, %._crit_edge232.i ], [ %.0163.i, %304 ]
   %326 = icmp slt i32 %.1172.i, 10
   br i1 %326, label %294, label %split225.i, !llvm.loop !19
 
@@ -2700,8 +2700,8 @@ _create_task_out_eio.exit198.i:                   ; preds = %397, %373
   br label %_init_task_stdio_fds.exit
 
 472:                                              ; preds = %464, %461, %450, %._crit_edge233.i
-  %.1162.i = phi i32 [ %.0161.i, %461 ], [ %.0161.i, %464 ], [ %.pre234.i, %._crit_edge233.i ], [ %454, %450 ]
-  %.1.i = phi i1 [ true, %461 ], [ true, %464 ], [ %.0.i, %._crit_edge233.i ], [ %.0.i, %450 ]
+  %.1162.i = phi i32 [ %.0161.i, %464 ], [ %.0161.i, %461 ], [ %.pre234.i, %._crit_edge233.i ], [ %454, %450 ]
+  %.1.i = phi i1 [ true, %464 ], [ true, %461 ], [ %.0.i, %._crit_edge233.i ], [ %.0.i, %450 ]
   %473 = icmp slt i32 %.1162.i, 10
   br i1 %473, label %440, label %split229.i, !llvm.loop !20
 
@@ -2800,8 +2800,8 @@ split229.thread.i:                                ; preds = %455, %split229.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_init_task_stdio_fds.exit
 
-_init_task_stdio_fds.exit:                        ; preds = %467, %320, %.thread203.i, %162, %.critedge194.i, %228, %516, %split225.thread.i, %split229.thread.i, %55, %412, %418, %.thread211.i, %.thread212.i
-  %518 = phi i32 [ %.0822, %412 ], [ %.0822, %.thread212.i ], [ %.0822, %.thread211.i ], [ %.0822, %418 ], [ -1, %55 ], [ -1, %split229.thread.i ], [ -1, %split225.thread.i ], [ -1, %516 ], [ -1, %228 ], [ -1, %.critedge194.i ], [ -1, %162 ], [ -1, %.thread203.i ], [ -1, %320 ], [ -1, %467 ]
+_init_task_stdio_fds.exit:                        ; preds = %.thread203.i, %split229.thread.i, %467, %split225.thread.i, %320, %.critedge194.i, %228, %162, %516, %55, %412, %418, %.thread211.i, %.thread212.i
+  %518 = phi i32 [ %.0822, %.thread212.i ], [ %.0822, %.thread211.i ], [ %.0822, %418 ], [ %.0822, %412 ], [ -1, %55 ], [ -1, %516 ], [ -1, %162 ], [ -1, %228 ], [ -1, %.critedge194.i ], [ -1, %320 ], [ -1, %split225.thread.i ], [ -1, %467 ], [ -1, %split229.thread.i ], [ -1, %.thread203.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %519 = load i32, ptr %10, align 4
   %520 = zext i32 %519 to i64
@@ -3350,7 +3350,7 @@ define dso_local range(i32 -1, 1) i32 @io_initial_client_connect(ptr noundef %0,
   br label %52
 
 52:                                               ; preds = %32, %49, %17, %19, %26
-  %.0 = phi i32 [ -1, %26 ], [ 0, %17 ], [ 0, %19 ], [ 0, %49 ], [ 0, %32 ]
+  %.0 = phi i32 [ -1, %26 ], [ 0, %19 ], [ 0, %17 ], [ 0, %49 ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -4060,7 +4060,7 @@ define dso_local range(i32 1089, 1602) i32 @io_get_file_flags(ptr noundef readon
   br label %7
 
 7:                                                ; preds = %5, %1, %4
-  %.0 = phi i32 [ 1089, %1 ], [ 1601, %4 ], [ %., %5 ]
+  %.0 = phi i32 [ 1601, %4 ], [ 1089, %1 ], [ %., %5 ]
   ret i32 %.0
 }
 
@@ -4148,7 +4148,7 @@ define internal fastcc void @_free_outgoing_msg(ptr noundef %0, ptr noundef capt
   store i32 %34, ptr %12, align 4
   br label %_outgoing_buf_free.exit.thread
 
-_outgoing_buf_free.exit.thread:                   ; preds = %27, %20, %.lr.ph
+_outgoing_buf_free.exit.thread:                   ; preds = %20, %27, %.lr.ph
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
@@ -4184,7 +4184,7 @@ _outgoing_buf_free.exit.thread:                   ; preds = %27, %20, %.lr.ph
   store i32 %54, ptr %12, align 4
   br label %_outgoing_buf_free.exit22.thread
 
-_outgoing_buf_free.exit22.thread:                 ; preds = %47, %40, %_outgoing_buf_free.exit.thread
+_outgoing_buf_free.exit22.thread:                 ; preds = %40, %47, %_outgoing_buf_free.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %13, align 4
   %56 = zext i32 %55 to i64
@@ -4258,7 +4258,7 @@ _shrink_msg_cache.exit.loopexit:                  ; preds = %.lr.ph47, %._crit_e
   store i32 %37, ptr %27, align 4
   br label %38
 
-38:                                               ; preds = %20, %30
+38:                                               ; preds = %30, %20
   %39 = call i32 @get_log_level() #11
   %40 = icmp sgt i32 %39, 8
   br i1 %40, label %41, label %44
@@ -4336,7 +4336,7 @@ _shrink_msg_cache.exit.loopexit:                  ; preds = %.lr.ph47, %._crit_e
   br label %85
 
 85:                                               ; preds = %82, %80, %77, %71
-  %.038.i = phi i1 [ false, %71 ], [ true, %77 ], [ %84, %82 ], [ false, %80 ]
+  %.038.i = phi i1 [ false, %80 ], [ false, %71 ], [ true, %77 ], [ %84, %82 ]
   %86 = call i32 @get_log_level() #11
   %87 = icmp sgt i32 %86, 8
   br i1 %87, label %88, label %90

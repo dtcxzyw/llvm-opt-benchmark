@@ -1119,8 +1119,8 @@ _ZN2cv11bioinspired17BasicRetinaFilter26centerReductImageLuminanceEv.exit: ; pre
   br label %93
 
 93:                                               ; preds = %92, %90, %.lr.ph.i.i.i
-  %.128.i.i.i = phi float [ %.02737.i.i.i, %90 ], [ %88, %92 ], [ %.02737.i.i.i, %.lr.ph.i.i.i ]
-  %.1.i.i.i = phi float [ %.02638.i.i.i, %90 ], [ %.02638.i.i.i, %92 ], [ %88, %.lr.ph.i.i.i ]
+  %.128.i.i.i = phi float [ %88, %92 ], [ %.02737.i.i.i, %90 ], [ %.02737.i.i.i, %.lr.ph.i.i.i ]
+  %.1.i.i.i = phi float [ %.02638.i.i.i, %92 ], [ %.02638.i.i.i, %90 ], [ %88, %.lr.ph.i.i.i ]
   %94 = add nuw i64 %.03135.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %94, %81
   br i1 %exitcond.not.i.i.i, label %.lr.ph43.preheader.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !99
@@ -1191,8 +1191,8 @@ _ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.e
   br label %128
 
 128:                                              ; preds = %127, %125, %.lr.ph.i.i.i38
-  %.128.i.i.i43 = phi float [ %.02737.i.i.i40, %125 ], [ %123, %127 ], [ %.02737.i.i.i40, %.lr.ph.i.i.i38 ]
-  %.1.i.i.i44 = phi float [ %.02638.i.i.i39, %125 ], [ %.02638.i.i.i39, %127 ], [ %123, %.lr.ph.i.i.i38 ]
+  %.128.i.i.i43 = phi float [ %123, %127 ], [ %.02737.i.i.i40, %125 ], [ %.02737.i.i.i40, %.lr.ph.i.i.i38 ]
+  %.1.i.i.i44 = phi float [ %.02638.i.i.i39, %127 ], [ %.02638.i.i.i39, %125 ], [ %123, %.lr.ph.i.i.i38 ]
   %129 = add nuw i64 %.03135.i.i.i42, 1
   %exitcond.not.i.i.i45 = icmp eq i64 %129, %116
   br i1 %exitcond.not.i.i.i45, label %.lr.ph43.preheader.i.i.i46, label %.lr.ph.i.i.i38, !llvm.loop !99
@@ -1310,8 +1310,8 @@ _ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigm
   br label %186
 
 186:                                              ; preds = %185, %183, %.lr.ph.i.i57
-  %.128.i.i = phi float [ %.02737.i.i, %183 ], [ %181, %185 ], [ %.02737.i.i, %.lr.ph.i.i57 ]
-  %.1.i.i = phi float [ %.02638.i.i, %183 ], [ %.02638.i.i, %185 ], [ %181, %.lr.ph.i.i57 ]
+  %.128.i.i = phi float [ %181, %185 ], [ %.02737.i.i, %183 ], [ %.02737.i.i, %.lr.ph.i.i57 ]
+  %.1.i.i = phi float [ %.02638.i.i, %185 ], [ %.02638.i.i, %183 ], [ %181, %.lr.ph.i.i57 ]
   %187 = add nuw nsw i64 %.03135.i.i, 1
   %exitcond.not.i.i58 = icmp eq i64 %187, %174
   br i1 %exitcond.not.i.i58, label %.lr.ph43.preheader.i.i, label %.lr.ph.i.i57, !llvm.loop !99
@@ -1434,8 +1434,8 @@ define hidden void @_ZN2cv11bioinspired12RetinaFilter31_processRetinaParvoMagnoM
   br label %25
 
 25:                                               ; preds = %24, %22, %.lr.ph.i
-  %.128.i = phi float [ %.02737.i, %22 ], [ %20, %24 ], [ %.02737.i, %.lr.ph.i ]
-  %.1.i = phi float [ %.02638.i, %22 ], [ %.02638.i, %24 ], [ %20, %.lr.ph.i ]
+  %.128.i = phi float [ %20, %24 ], [ %.02737.i, %22 ], [ %.02737.i, %.lr.ph.i ]
+  %.1.i = phi float [ %.02638.i, %24 ], [ %.02638.i, %22 ], [ %20, %.lr.ph.i ]
   %26 = add nuw nsw i64 %.03135.i, 1
   %exitcond.not.i = icmp eq i64 %26, %13
   br i1 %exitcond.not.i, label %.lr.ph43.preheader.i, label %.lr.ph.i, !llvm.loop !99

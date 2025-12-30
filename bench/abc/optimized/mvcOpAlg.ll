@@ -432,7 +432,7 @@ define range(i32 0, 2) i32 @Mvc_CoverAlgebraicEqual(ptr noundef readonly capture
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !32
 
 .critedge:                                        ; preds = %.thread, %.backedge.us48, %.backedge.us, %.critedge36.loopexit, %2, %.lr.ph54
-  %.027 = phi i32 [ 0, %.lr.ph54 ], [ 0, %.backedge.us48 ], [ 1, %2 ], [ 0, %.critedge36.loopexit ], [ 0, %.backedge.us ], [ 1, %.thread ]
+  %.027 = phi i32 [ 0, %.lr.ph54 ], [ 1, %2 ], [ 0, %.critedge36.loopexit ], [ 0, %.backedge.us ], [ 0, %.backedge.us48 ], [ 1, %.thread ]
   ret i32 %.027
 }
 

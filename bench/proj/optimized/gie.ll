@@ -178,7 +178,7 @@ define hidden noundef ptr @_Z12opt_filenameP7OPTARGS(ptr noundef readonly captur
   br label %17
 
 17:                                               ; preds = %1, %9, %7
-  %.0 = phi ptr [ %16, %9 ], [ %8, %7 ], [ null, %1 ]
+  %.0 = phi ptr [ %8, %7 ], [ %16, %9 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -290,7 +290,7 @@ thread-pre-split:                                 ; preds = %16
   br label %46
 
 46:                                               ; preds = %45, %42, %33, %29, %thread-pre-split, %5, %24, %12
-  %.0 = phi i32 [ 1, %12 ], [ 1, %24 ], [ 0, %5 ], [ 0, %thread-pre-split ], [ 0, %29 ], [ 0, %42 ], [ 0, %45 ], [ 1, %33 ]
+  %.0 = phi i32 [ 1, %24 ], [ 1, %12 ], [ 0, %5 ], [ 0, %thread-pre-split ], [ 0, %29 ], [ 0, %45 ], [ 0, %42 ], [ 1, %33 ]
   ret i32 %.0
 }
 
@@ -340,7 +340,7 @@ define hidden noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %0, ptr noundef 
   br label %25
 
 25:                                               ; preds = %2, %19, %14
-  %.0 = phi i32 [ %24, %19 ], [ %18, %14 ], [ 0, %2 ]
+  %.0 = phi i32 [ %18, %14 ], [ %24, %19 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -427,7 +427,7 @@ define internal fastcc noundef range(i32 -128, 256) i32 @_ZL11opt_ordinalP7OPTAR
   %spec.select = select i1 %50, i32 0, i32 %51
   br label %.thread77
 
-52:                                               ; preds = %33, %40, %36
+52:                                               ; preds = %40, %36, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %.thread73.split, label %.preheader.split, !llvm.loop !25
@@ -493,8 +493,8 @@ define internal fastcc noundef range(i32 -128, 256) i32 @_ZL11opt_ordinalP7OPTAR
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 64
   br i1 %exitcond100.not, label %.thread77, label %.thread73.split.split, !llvm.loop !28
 
-.thread77:                                        ; preds = %87, %.thread73.split.split, %59, %.thread73.split, %65, %79, %30, %44, %15, %5, %2
-  %.0 = phi i32 [ %32, %30 ], [ 0, %2 ], [ %67, %65 ], [ %., %15 ], [ 0, %5 ], [ %spec.select, %44 ], [ %spec.select68, %79 ], [ 0, %.thread73.split ], [ 0, %59 ], [ 0, %.thread73.split.split ], [ 0, %87 ]
+.thread77:                                        ; preds = %87, %.thread73.split.split, %59, %.thread73.split, %79, %65, %30, %44, %15, %5, %2
+  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ %., %15 ], [ %32, %30 ], [ %spec.select, %44 ], [ %spec.select68, %79 ], [ %67, %65 ], [ 0, %.thread73.split ], [ 0, %59 ], [ 0, %.thread73.split.split ], [ 0, %87 ]
   ret i32 %.0
 }
 
@@ -977,8 +977,8 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
   %exitcond428.not = icmp eq i64 %indvars.iv.next425, %wide.trip.count427
   br i1 %exitcond428.not, label %.loopexit, label %123, !llvm.loop !36
 
-206:                                              ; preds = %202, %169, %201, %147, %166, %167
-  %.12.ph = phi i32 [ %.6221375, %169 ], [ %.6221375, %202 ], [ %.6221375, %167 ], [ %156, %166 ], [ %.6221375, %147 ], [ %191, %201 ]
+206:                                              ; preds = %201, %202, %147, %166, %167, %169
+  %.12.ph = phi i32 [ %.6221375, %169 ], [ %.6221375, %167 ], [ %156, %166 ], [ %.6221375, %147 ], [ %.6221375, %202 ], [ %191, %201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
@@ -989,7 +989,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
   br i1 %208, label %108, label %._crit_edge377, !llvm.loop !37
 
 ._crit_edge377:                                   ; preds = %.loopexit, %108
-  %.6221.lcssa = phi i32 [ %.6221375, %108 ], [ %207, %.loopexit ]
+  %.6221.lcssa = phi i32 [ %207, %.loopexit ], [ %.6221375, %108 ]
   %209 = sext i32 %.6221.lcssa to i64
   %210 = getelementptr inbounds ptr, ptr %1, i64 %209
   %211 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -1115,7 +1115,7 @@ sub_2:                                            ; preds = %sub_1
   br label %262
 
 262:                                              ; preds = %._crit_edge384.thread, %.thread285, %._crit_edge384, %258, %231, %239, %9, %6, %248, %.split364, %.split356, %.split345, %.split
-  %.0 = phi ptr [ %10, %231 ], [ null, %6 ], [ null, %.split ], [ null, %.split345 ], [ null, %.split356 ], [ null, %.split364 ], [ null, %.thread285 ], [ null, %9 ], [ null, %248 ], [ %10, %239 ], [ %10, %258 ], [ %10, %._crit_edge384 ], [ %10, %._crit_edge384.thread ]
+  %.0 = phi ptr [ null, %.split ], [ null, %.split345 ], [ null, %.split356 ], [ null, %.split364 ], [ null, %248 ], [ null, %6 ], [ null, %9 ], [ %10, %239 ], [ %10, %231 ], [ %10, %258 ], [ %10, %._crit_edge384 ], [ null, %.thread285 ], [ %10, %._crit_edge384.thread ]
   ret ptr %.0
 }
 
@@ -1218,7 +1218,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   br label %_Z9opt_givenP7OPTARGSPKc.exit
 
 _Z9opt_givenP7OPTARGSPKc.exit:                    ; preds = %37, %49, %55
-  %.0.i = phi i1 [ %59, %55 ], [ %54, %49 ], [ false, %37 ]
+  %.0.i = phi i1 [ %54, %49 ], [ %59, %55 ], [ false, %37 ]
   %60 = icmp eq i32 %0, 1
   %or.cond = or i1 %60, %.0.i
   br i1 %or.cond, label %61, label %65
@@ -1245,22 +1245,22 @@ _Z9opt_givenP7OPTARGSPKc.exit:                    ; preds = %37, %49, %55
   %75 = getelementptr inbounds nuw i8, ptr %35, i64 92
   %76 = icmp ugt ptr %72, %75
   %narrow.i.not.i56 = select i1 %74, i1 true, i1 %76
-  br i1 %narrow.i.not.i56, label %77, label %_Z9opt_givenP7OPTARGSPKc.exit58
+  br i1 %narrow.i.not.i56, label %_Z9opt_givenP7OPTARGSPKc.exit58, label %77
 
 77:                                               ; preds = %68
-  %78 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !22
-  %80 = load ptr, ptr %79, align 8, !tbaa !16
-  %.not = icmp eq ptr %80, %72
-  br i1 %.not, label %_Z9opt_givenP7OPTARGSPKc.exit58.thread, label %86
+  %78 = ptrtoint ptr %72 to i64
+  %79 = ptrtoint ptr %73 to i64
+  %80 = sub i64 %78, %79
+  %81 = and i64 %80, 4294967295
+  %82 = icmp eq i64 %81, 0
+  br i1 %82, label %_Z9opt_givenP7OPTARGSPKc.exit58.thread, label %86
 
 _Z9opt_givenP7OPTARGSPKc.exit58:                  ; preds = %68
-  %81 = ptrtoint ptr %72 to i64
-  %82 = ptrtoint ptr %73 to i64
-  %83 = sub i64 %81, %82
-  %84 = and i64 %83, 4294967295
-  %85 = icmp eq i64 %84, 0
-  br i1 %85, label %_Z9opt_givenP7OPTARGSPKc.exit58.thread, label %86
+  %83 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %84 = load ptr, ptr %83, align 8, !tbaa !22
+  %85 = load ptr, ptr %84, align 8, !tbaa !16
+  %.not = icmp eq ptr %85, %72
+  br i1 %.not, label %_Z9opt_givenP7OPTARGSPKc.exit58.thread, label %86
 
 86:                                               ; preds = %77, %_Z9opt_givenP7OPTARGSPKc.exit58
   %87 = load ptr, ptr @stdout, align 8, !tbaa !21
@@ -1290,23 +1290,23 @@ _Z9opt_givenP7OPTARGSPKc.exit61.thread:           ; preds = %_Z9opt_givenP7OPTAR
   %101 = getelementptr inbounds nuw i8, ptr %35, i64 92
   %102 = icmp ugt ptr %98, %101
   %narrow.i.not.i59 = select i1 %100, i1 true, i1 %102
-  br i1 %narrow.i.not.i59, label %103, label %_Z9opt_givenP7OPTARGSPKc.exit61
+  br i1 %narrow.i.not.i59, label %_Z9opt_givenP7OPTARGSPKc.exit61, label %103
 
 103:                                              ; preds = %94
-  %104 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %105 = load ptr, ptr %104, align 8, !tbaa !22
-  %106 = load ptr, ptr %105, align 8, !tbaa !16
-  %107 = icmp ne ptr %106, %98
-  %spec.store.select284 = sext i1 %107 to i32
+  %104 = ptrtoint ptr %98 to i64
+  %105 = ptrtoint ptr %99 to i64
+  %106 = sub i64 %104, %105
+  %107 = and i64 %106, 4294967295
+  %108 = icmp ne i64 %107, 0
+  %spec.store.select284 = sext i1 %108 to i32
   store i32 %spec.store.select284, ptr getelementptr inbounds nuw (i8, ptr @_ZL1T, i64 30116), align 4
-  br i1 %107, label %137, label %113
+  br i1 %108, label %137, label %113
 
 _Z9opt_givenP7OPTARGSPKc.exit61:                  ; preds = %94
-  %108 = ptrtoint ptr %98 to i64
-  %109 = ptrtoint ptr %99 to i64
-  %110 = sub i64 %108, %109
-  %111 = and i64 %110, 4294967295
-  %112 = icmp ne i64 %111, 0
+  %109 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %110 = load ptr, ptr %109, align 8, !tbaa !22
+  %111 = load ptr, ptr %110, align 8, !tbaa !16
+  %112 = icmp ne ptr %111, %98
   %spec.store.select = sext i1 %112 to i32
   store i32 %spec.store.select, ptr getelementptr inbounds nuw (i8, ptr @_ZL1T, i64 30116), align 4
   br i1 %112, label %137, label %113
@@ -1344,7 +1344,7 @@ _Z9opt_givenP7OPTARGSPKc.exit61:                  ; preds = %94
   br label %_Z9opt_givenP7OPTARGSPKc.exit64
 
 _Z9opt_givenP7OPTARGSPKc.exit64:                  ; preds = %113, %125, %130
-  %.0.i63 = phi i32 [ %135, %130 ], [ %129, %125 ], [ 0, %113 ]
+  %.0.i63 = phi i32 [ %129, %125 ], [ %135, %130 ], [ 0, %113 ]
   %136 = add nsw i32 %.0.i63, 1
   store i32 %136, ptr getelementptr inbounds nuw (i8, ptr @_ZL1T, i64 30116), align 4, !tbaa !47
   br label %137
@@ -1366,22 +1366,22 @@ _Z9opt_givenP7OPTARGSPKc.exit64:                  ; preds = %113, %125, %130
   %148 = getelementptr inbounds nuw i8, ptr %35, i64 92
   %149 = icmp ugt ptr %145, %148
   %narrow.i.not.i65 = select i1 %147, i1 true, i1 %149
-  br i1 %narrow.i.not.i65, label %150, label %_Z9opt_givenP7OPTARGSPKc.exit67
+  br i1 %narrow.i.not.i65, label %_Z9opt_givenP7OPTARGSPKc.exit67, label %150
 
 150:                                              ; preds = %141
-  %151 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %152 = load ptr, ptr %151, align 8, !tbaa !22
-  %153 = load ptr, ptr %152, align 8, !tbaa !16
-  %.not88 = icmp eq ptr %153, %145
-  br i1 %.not88, label %_Z9opt_givenP7OPTARGSPKc.exit67.thread, label %159
+  %151 = ptrtoint ptr %145 to i64
+  %152 = ptrtoint ptr %146 to i64
+  %153 = sub i64 %151, %152
+  %154 = and i64 %153, 4294967295
+  %155 = icmp eq i64 %154, 0
+  br i1 %155, label %_Z9opt_givenP7OPTARGSPKc.exit67.thread, label %159
 
 _Z9opt_givenP7OPTARGSPKc.exit67:                  ; preds = %141
-  %154 = ptrtoint ptr %145 to i64
-  %155 = ptrtoint ptr %146 to i64
-  %156 = sub i64 %154, %155
-  %157 = and i64 %156, 4294967295
-  %158 = icmp eq i64 %157, 0
-  br i1 %158, label %_Z9opt_givenP7OPTARGSPKc.exit67.thread, label %159
+  %156 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %157 = load ptr, ptr %156, align 8, !tbaa !22
+  %158 = load ptr, ptr %157, align 8, !tbaa !16
+  %.not88 = icmp eq ptr %158, %145
+  br i1 %.not88, label %_Z9opt_givenP7OPTARGSPKc.exit67.thread, label %159
 
 159:                                              ; preds = %150, %_Z9opt_givenP7OPTARGSPKc.exit67
   %160 = call fastcc noundef i32 @_ZL11opt_ordinalP7OPTARGSPKc(ptr noundef nonnull readonly %35, ptr noundef nonnull @.str.26)
@@ -1401,7 +1401,7 @@ _Z7opt_argP7OPTARGSPKc.exit:                      ; preds = %159, %162
   br label %_Z9opt_givenP7OPTARGSPKc.exit67.thread
 
 _Z9opt_givenP7OPTARGSPKc.exit67.thread:           ; preds = %_Z9opt_givenP7OPTARGSPKc.exit67, %150, %137, %_Z7opt_argP7OPTARGSPKc.exit
-  %167 = phi ptr [ %138, %137 ], [ %166, %_Z7opt_argP7OPTARGSPKc.exit ], [ %138, %150 ], [ %138, %_Z9opt_givenP7OPTARGSPKc.exit67 ]
+  %167 = phi ptr [ %166, %_Z7opt_argP7OPTARGSPKc.exit ], [ %138, %137 ], [ %138, %150 ], [ %138, %_Z9opt_givenP7OPTARGSPKc.exit67 ]
   %168 = icmp eq ptr %167, null
   br i1 %168, label %169, label %181
 
@@ -1441,22 +1441,22 @@ _Z7opt_argP7OPTARGSPKc.exit70:                    ; preds = %169, %175
   %191 = getelementptr inbounds nuw i8, ptr %35, i64 92
   %192 = icmp ugt ptr %188, %191
   %narrow.i.not.i71 = select i1 %190, i1 true, i1 %192
-  br i1 %narrow.i.not.i71, label %193, label %_Z9opt_givenP7OPTARGSPKc.exit73
+  br i1 %narrow.i.not.i71, label %_Z9opt_givenP7OPTARGSPKc.exit73, label %193
 
 193:                                              ; preds = %184
-  %194 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %195 = load ptr, ptr %194, align 8, !tbaa !22
-  %196 = load ptr, ptr %195, align 8, !tbaa !16
-  %.not89 = icmp eq ptr %196, %188
-  br i1 %.not89, label %_Z9opt_givenP7OPTARGSPKc.exit73.thread, label %202
+  %194 = ptrtoint ptr %188 to i64
+  %195 = ptrtoint ptr %189 to i64
+  %196 = sub i64 %194, %195
+  %197 = and i64 %196, 4294967295
+  %198 = icmp eq i64 %197, 0
+  br i1 %198, label %_Z9opt_givenP7OPTARGSPKc.exit73.thread, label %202
 
 _Z9opt_givenP7OPTARGSPKc.exit73:                  ; preds = %184
-  %197 = ptrtoint ptr %188 to i64
-  %198 = ptrtoint ptr %189 to i64
-  %199 = sub i64 %197, %198
-  %200 = and i64 %199, 4294967295
-  %201 = icmp eq i64 %200, 0
-  br i1 %201, label %_Z9opt_givenP7OPTARGSPKc.exit73.thread, label %202
+  %199 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %200 = load ptr, ptr %199, align 8, !tbaa !22
+  %201 = load ptr, ptr %200, align 8, !tbaa !16
+  %.not89 = icmp eq ptr %201, %188
+  br i1 %.not89, label %_Z9opt_givenP7OPTARGSPKc.exit73.thread, label %202
 
 202:                                              ; preds = %193, %_Z9opt_givenP7OPTARGSPKc.exit73
   call void @free(ptr noundef nonnull %35) #25
@@ -3199,7 +3199,7 @@ _ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %_ZL11tode
   br label %1028
 
 1028:                                             ; preds = %1026, %1023, %1016
-  %.070.i.i = phi double [ %1027, %1026 ], [ %1025, %1023 ], [ 0.000000e+00, %1016 ]
+  %.070.i.i = phi double [ %1025, %1023 ], [ %1027, %1026 ], [ 0.000000e+00, %1016 ]
   %1029 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZL1T, i64 30192), align 8, !tbaa !48
   %1030 = fcmp ugt double %.070.i.i, %1029
   br i1 %1030, label %1031, label %1094
@@ -3796,7 +3796,7 @@ _ZL12process_filePKc.exit:                        ; preds = %267, %1274, %1301, 
   br label %_ZL14list_err_codesv.exit
 
 _ZL14list_err_codesv.exit:                        ; preds = %203, %.thread, %214, %2, %1356, %235, %217, %_Z7opt_argP7OPTARGSPKc.exit70, %86, %61
-  %.0 = phi i32 [ %1358, %1356 ], [ 0, %61 ], [ 0, %86 ], [ 1, %_Z7opt_argP7OPTARGSPKc.exit70 ], [ -1, %214 ], [ 0, %2 ], [ 0, %217 ], [ 1, %235 ], [ 1, %.thread ], [ 0, %203 ]
+  %.0 = phi i32 [ 0, %61 ], [ 0, %86 ], [ 1, %_Z7opt_argP7OPTARGSPKc.exit70 ], [ 0, %217 ], [ 1, %235 ], [ %1358, %1356 ], [ 0, %2 ], [ -1, %214 ], [ 1, %.thread ], [ 0, %203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   ret i32 %.0
@@ -4047,7 +4047,7 @@ _ZL8nextlineP4ffio.exit:                          ; preds = %23
   br label %_ZL8nextlineP4ffio.exit13
 
 _ZL8nextlineP4ffio.exit13:                        ; preds = %23, %15, %13, %52, %49, %40, %38, %1, %36
-  %.0 = phi i32 [ 0, %49 ], [ 1, %1 ], [ 0, %36 ], [ 1, %52 ], [ 0, %38 ], [ 0, %40 ], [ 0, %13 ], [ 0, %15 ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %36 ], [ 1, %1 ], [ 1, %52 ], [ 0, %38 ], [ 0, %40 ], [ 0, %49 ], [ 0, %13 ], [ 0, %15 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -4439,7 +4439,7 @@ define internal fastcc void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias nonn
   br label %46
 
 46:                                               ; preds = %44, %38, %33
-  %.2 = phi double [ %36, %44 ], [ %.02542, %33 ], [ %.02542, %38 ]
+  %.2 = phi double [ %36, %44 ], [ %.02542, %38 ], [ %.02542, %33 ]
   %47 = fcmp oeq double %.2, %36
   %.pre54 = load ptr, ptr %3, align 8, !tbaa !16
   br i1 %47, label %48, label %51
@@ -4574,7 +4574,7 @@ tolower.exit:                                     ; preds = %7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %21, %34
-  %.0 = phi i32 [ %24, %21 ], [ %36, %34 ], [ 9999, %27 ]
+  %.0 = phi i32 [ %36, %34 ], [ %24, %21 ], [ 9999, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -4803,7 +4803,7 @@ sub_152:                                          ; preds = %sub_0
   br label %72
 
 72:                                               ; preds = %.tail, %30, %37, %48, %60, %70, %64, %54, %43, %67, %1
-  %.0 = phi double [ 0x7FF0000000000000, %1 ], [ %31, %30 ], [ %3, %.tail ], [ %38, %37 ], [ %44, %43 ], [ %49, %48 ], [ %55, %54 ], [ %61, %60 ], [ %66, %64 ], [ %71, %70 ], [ %3, %67 ]
+  %.0 = phi double [ 0x7FF0000000000000, %1 ], [ %31, %30 ], [ %38, %37 ], [ %44, %43 ], [ %49, %48 ], [ %55, %54 ], [ %61, %60 ], [ %66, %64 ], [ %71, %70 ], [ %3, %.tail ], [ %3, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret double %.0
 }

@@ -1034,22 +1034,22 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %122
 
 122:                                              ; preds = %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %.lr.ph.i
-  %.0207.in.i = phi ptr [ @ett_unknown_info, %121 ], [ @ett_command_extension, %120 ], [ @ett_service_info, %108 ], [ @ett_router_identity_info, %109 ], [ @ett_wc_identity_info, %110 ], [ @ett_router_view_info, %111 ], [ @ett_wc_view_info, %112 ], [ @ett_router_assignment_info, %113 ], [ @ett_query_info, %114 ], [ @ett_capabilities_info, %115 ], [ @ett_alt_assignment_info, %116 ], [ @ett_alt_assignment_map, %117 ], [ @ett_address_table, %118 ], [ @ett_assignment_map, %119 ], [ @ett_security_info, %.lr.ph.i ]
-  %.not.i = phi i1 [ true, %121 ], [ false, %120 ], [ false, %108 ], [ false, %109 ], [ false, %110 ], [ false, %111 ], [ false, %112 ], [ false, %113 ], [ false, %114 ], [ false, %115 ], [ false, %116 ], [ false, %117 ], [ false, %118 ], [ false, %119 ], [ false, %.lr.ph.i ]
-  %.0206.i = phi ptr [ null, %121 ], [ @dissect_wccp2_command_extension, %120 ], [ @dissect_wccp2_service_info, %108 ], [ @dissect_wccp2_router_identity_info, %109 ], [ @dissect_wccp2_wc_identity_info, %110 ], [ @dissect_wccp2_router_view_info, %111 ], [ @dissect_wccp2_web_cache_view_info, %112 ], [ @dissect_wccp2_assignment_info, %113 ], [ @dissect_wccp2_router_query_info, %114 ], [ @dissect_wccp2_capability_info, %115 ], [ @dissect_wccp2_alternate_assignment_info, %116 ], [ @dissect_wccp2r1_alt_assignment_map_info, %117 ], [ @dissect_wccp2r1_address_table_info, %118 ], [ @dissect_wccp2_assignment_map, %119 ], [ @dissect_wccp2_security_info, %.lr.ph.i ]
-  %.1205.i = phi i1 [ %.0204212.i, %121 ], [ %.0204212.i, %120 ], [ %.0204212.i, %108 ], [ %.0204212.i, %109 ], [ %.0204212.i, %110 ], [ %.0204212.i, %111 ], [ %.0204212.i, %112 ], [ %.0204212.i, %113 ], [ %.0204212.i, %114 ], [ %.0204212.i, %115 ], [ %.0204212.i, %116 ], [ %.0204212.i, %117 ], [ %.0204212.i, %118 ], [ %.0204212.i, %119 ], [ true, %.lr.ph.i ]
-  %.1203.i = phi i1 [ %.0202213.i, %121 ], [ %.0202213.i, %120 ], [ true, %108 ], [ %.0202213.i, %109 ], [ %.0202213.i, %110 ], [ %.0202213.i, %111 ], [ %.0202213.i, %112 ], [ %.0202213.i, %113 ], [ %.0202213.i, %114 ], [ %.0202213.i, %115 ], [ %.0202213.i, %116 ], [ %.0202213.i, %117 ], [ %.0202213.i, %118 ], [ %.0202213.i, %119 ], [ %.0202213.i, %.lr.ph.i ]
-  %.1201.i = phi i1 [ %.0200214.i, %121 ], [ %.0200214.i, %120 ], [ %.0200214.i, %108 ], [ true, %109 ], [ %.0200214.i, %110 ], [ %.0200214.i, %111 ], [ %.0200214.i, %112 ], [ %.0200214.i, %113 ], [ %.0200214.i, %114 ], [ %.0200214.i, %115 ], [ %.0200214.i, %116 ], [ %.0200214.i, %117 ], [ %.0200214.i, %118 ], [ %.0200214.i, %119 ], [ %.0200214.i, %.lr.ph.i ]
-  %.1199.i = phi i1 [ %.0198215.i, %121 ], [ %.0198215.i, %120 ], [ %.0198215.i, %108 ], [ %.0198215.i, %109 ], [ true, %110 ], [ %.0198215.i, %111 ], [ %.0198215.i, %112 ], [ %.0198215.i, %113 ], [ %.0198215.i, %114 ], [ %.0198215.i, %115 ], [ %.0198215.i, %116 ], [ %.0198215.i, %117 ], [ %.0198215.i, %118 ], [ %.0198215.i, %119 ], [ %.0198215.i, %.lr.ph.i ]
-  %.1197.i = phi i1 [ %.0196216.i, %121 ], [ %.0196216.i, %120 ], [ %.0196216.i, %108 ], [ %.0196216.i, %109 ], [ %.0196216.i, %110 ], [ true, %111 ], [ %.0196216.i, %112 ], [ %.0196216.i, %113 ], [ %.0196216.i, %114 ], [ %.0196216.i, %115 ], [ %.0196216.i, %116 ], [ %.0196216.i, %117 ], [ %.0196216.i, %118 ], [ %.0196216.i, %119 ], [ %.0196216.i, %.lr.ph.i ]
-  %.1195.i = phi i1 [ %.0194217.i, %121 ], [ %.0194217.i, %120 ], [ %.0194217.i, %108 ], [ %.0194217.i, %109 ], [ %.0194217.i, %110 ], [ %.0194217.i, %111 ], [ true, %112 ], [ %.0194217.i, %113 ], [ %.0194217.i, %114 ], [ %.0194217.i, %115 ], [ %.0194217.i, %116 ], [ %.0194217.i, %117 ], [ %.0194217.i, %118 ], [ %.0194217.i, %119 ], [ %.0194217.i, %.lr.ph.i ]
-  %.1193.i = phi i1 [ %.0192218.i, %121 ], [ %.0192218.i, %120 ], [ %.0192218.i, %108 ], [ %.0192218.i, %109 ], [ %.0192218.i, %110 ], [ %.0192218.i, %111 ], [ %.0192218.i, %112 ], [ true, %113 ], [ %.0192218.i, %114 ], [ %.0192218.i, %115 ], [ %.0192218.i, %116 ], [ %.0192218.i, %117 ], [ %.0192218.i, %118 ], [ %.0192218.i, %119 ], [ %.0192218.i, %.lr.ph.i ]
-  %.1191.i = phi i1 [ %.0190219.i, %121 ], [ %.0190219.i, %120 ], [ %.0190219.i, %108 ], [ %.0190219.i, %109 ], [ %.0190219.i, %110 ], [ %.0190219.i, %111 ], [ %.0190219.i, %112 ], [ %.0190219.i, %113 ], [ true, %114 ], [ %.0190219.i, %115 ], [ %.0190219.i, %116 ], [ %.0190219.i, %117 ], [ %.0190219.i, %118 ], [ %.0190219.i, %119 ], [ %.0190219.i, %.lr.ph.i ]
-  %.1189.i = phi i1 [ %.0188220.i, %121 ], [ %.0188220.i, %120 ], [ %.0188220.i, %108 ], [ %.0188220.i, %109 ], [ %.0188220.i, %110 ], [ %.0188220.i, %111 ], [ %.0188220.i, %112 ], [ %.0188220.i, %113 ], [ %.0188220.i, %114 ], [ true, %115 ], [ %.0188220.i, %116 ], [ %.0188220.i, %117 ], [ %.0188220.i, %118 ], [ %.0188220.i, %119 ], [ %.0188220.i, %.lr.ph.i ]
-  %.1187.i = phi i1 [ %.0186221.i, %121 ], [ %.0186221.i, %120 ], [ %.0186221.i, %108 ], [ %.0186221.i, %109 ], [ %.0186221.i, %110 ], [ %.0186221.i, %111 ], [ %.0186221.i, %112 ], [ %.0186221.i, %113 ], [ %.0186221.i, %114 ], [ %.0186221.i, %115 ], [ true, %116 ], [ %.0186221.i, %117 ], [ %.0186221.i, %118 ], [ %.0186221.i, %119 ], [ %.0186221.i, %.lr.ph.i ]
-  %.1185.i = phi i1 [ %.0184222.i, %121 ], [ %.0184222.i, %120 ], [ %.0184222.i, %108 ], [ %.0184222.i, %109 ], [ %.0184222.i, %110 ], [ %.0184222.i, %111 ], [ %.0184222.i, %112 ], [ %.0184222.i, %113 ], [ %.0184222.i, %114 ], [ %.0184222.i, %115 ], [ %.0184222.i, %116 ], [ %.0184222.i, %117 ], [ %.0184222.i, %118 ], [ true, %119 ], [ %.0184222.i, %.lr.ph.i ]
-  %.1183.i = phi i1 [ %.0182223.i, %121 ], [ true, %120 ], [ %.0182223.i, %108 ], [ %.0182223.i, %109 ], [ %.0182223.i, %110 ], [ %.0182223.i, %111 ], [ %.0182223.i, %112 ], [ %.0182223.i, %113 ], [ %.0182223.i, %114 ], [ %.0182223.i, %115 ], [ %.0182223.i, %116 ], [ %.0182223.i, %117 ], [ %.0182223.i, %118 ], [ %.0182223.i, %119 ], [ %.0182223.i, %.lr.ph.i ]
-  %.1.i = phi i1 [ %.0181224.i, %121 ], [ %.0181224.i, %120 ], [ %.0181224.i, %108 ], [ %.0181224.i, %109 ], [ %.0181224.i, %110 ], [ %.0181224.i, %111 ], [ %.0181224.i, %112 ], [ %.0181224.i, %113 ], [ %.0181224.i, %114 ], [ %.0181224.i, %115 ], [ %.0181224.i, %116 ], [ true, %117 ], [ %.0181224.i, %118 ], [ %.0181224.i, %119 ], [ %.0181224.i, %.lr.ph.i ]
+  %.0207.in.i = phi ptr [ @ett_unknown_info, %121 ], [ @ett_service_info, %108 ], [ @ett_router_identity_info, %109 ], [ @ett_wc_identity_info, %110 ], [ @ett_router_view_info, %111 ], [ @ett_wc_view_info, %112 ], [ @ett_router_assignment_info, %113 ], [ @ett_query_info, %114 ], [ @ett_capabilities_info, %115 ], [ @ett_alt_assignment_info, %116 ], [ @ett_alt_assignment_map, %117 ], [ @ett_address_table, %118 ], [ @ett_assignment_map, %119 ], [ @ett_command_extension, %120 ], [ @ett_security_info, %.lr.ph.i ]
+  %.not.i = phi i1 [ true, %121 ], [ false, %108 ], [ false, %109 ], [ false, %110 ], [ false, %111 ], [ false, %112 ], [ false, %113 ], [ false, %114 ], [ false, %115 ], [ false, %116 ], [ false, %117 ], [ false, %118 ], [ false, %119 ], [ false, %120 ], [ false, %.lr.ph.i ]
+  %.0206.i = phi ptr [ null, %121 ], [ @dissect_wccp2_service_info, %108 ], [ @dissect_wccp2_router_identity_info, %109 ], [ @dissect_wccp2_wc_identity_info, %110 ], [ @dissect_wccp2_router_view_info, %111 ], [ @dissect_wccp2_web_cache_view_info, %112 ], [ @dissect_wccp2_assignment_info, %113 ], [ @dissect_wccp2_router_query_info, %114 ], [ @dissect_wccp2_capability_info, %115 ], [ @dissect_wccp2_alternate_assignment_info, %116 ], [ @dissect_wccp2r1_alt_assignment_map_info, %117 ], [ @dissect_wccp2r1_address_table_info, %118 ], [ @dissect_wccp2_assignment_map, %119 ], [ @dissect_wccp2_command_extension, %120 ], [ @dissect_wccp2_security_info, %.lr.ph.i ]
+  %.1205.i = phi i1 [ %.0204212.i, %121 ], [ %.0204212.i, %108 ], [ %.0204212.i, %109 ], [ %.0204212.i, %110 ], [ %.0204212.i, %111 ], [ %.0204212.i, %112 ], [ %.0204212.i, %113 ], [ %.0204212.i, %114 ], [ %.0204212.i, %115 ], [ %.0204212.i, %116 ], [ %.0204212.i, %117 ], [ %.0204212.i, %118 ], [ %.0204212.i, %119 ], [ %.0204212.i, %120 ], [ true, %.lr.ph.i ]
+  %.1203.i = phi i1 [ %.0202213.i, %121 ], [ true, %108 ], [ %.0202213.i, %109 ], [ %.0202213.i, %110 ], [ %.0202213.i, %111 ], [ %.0202213.i, %112 ], [ %.0202213.i, %113 ], [ %.0202213.i, %114 ], [ %.0202213.i, %115 ], [ %.0202213.i, %116 ], [ %.0202213.i, %117 ], [ %.0202213.i, %118 ], [ %.0202213.i, %119 ], [ %.0202213.i, %120 ], [ %.0202213.i, %.lr.ph.i ]
+  %.1201.i = phi i1 [ %.0200214.i, %121 ], [ %.0200214.i, %108 ], [ true, %109 ], [ %.0200214.i, %110 ], [ %.0200214.i, %111 ], [ %.0200214.i, %112 ], [ %.0200214.i, %113 ], [ %.0200214.i, %114 ], [ %.0200214.i, %115 ], [ %.0200214.i, %116 ], [ %.0200214.i, %117 ], [ %.0200214.i, %118 ], [ %.0200214.i, %119 ], [ %.0200214.i, %120 ], [ %.0200214.i, %.lr.ph.i ]
+  %.1199.i = phi i1 [ %.0198215.i, %121 ], [ %.0198215.i, %108 ], [ %.0198215.i, %109 ], [ true, %110 ], [ %.0198215.i, %111 ], [ %.0198215.i, %112 ], [ %.0198215.i, %113 ], [ %.0198215.i, %114 ], [ %.0198215.i, %115 ], [ %.0198215.i, %116 ], [ %.0198215.i, %117 ], [ %.0198215.i, %118 ], [ %.0198215.i, %119 ], [ %.0198215.i, %120 ], [ %.0198215.i, %.lr.ph.i ]
+  %.1197.i = phi i1 [ %.0196216.i, %121 ], [ %.0196216.i, %108 ], [ %.0196216.i, %109 ], [ %.0196216.i, %110 ], [ true, %111 ], [ %.0196216.i, %112 ], [ %.0196216.i, %113 ], [ %.0196216.i, %114 ], [ %.0196216.i, %115 ], [ %.0196216.i, %116 ], [ %.0196216.i, %117 ], [ %.0196216.i, %118 ], [ %.0196216.i, %119 ], [ %.0196216.i, %120 ], [ %.0196216.i, %.lr.ph.i ]
+  %.1195.i = phi i1 [ %.0194217.i, %121 ], [ %.0194217.i, %108 ], [ %.0194217.i, %109 ], [ %.0194217.i, %110 ], [ %.0194217.i, %111 ], [ true, %112 ], [ %.0194217.i, %113 ], [ %.0194217.i, %114 ], [ %.0194217.i, %115 ], [ %.0194217.i, %116 ], [ %.0194217.i, %117 ], [ %.0194217.i, %118 ], [ %.0194217.i, %119 ], [ %.0194217.i, %120 ], [ %.0194217.i, %.lr.ph.i ]
+  %.1193.i = phi i1 [ %.0192218.i, %121 ], [ %.0192218.i, %108 ], [ %.0192218.i, %109 ], [ %.0192218.i, %110 ], [ %.0192218.i, %111 ], [ %.0192218.i, %112 ], [ true, %113 ], [ %.0192218.i, %114 ], [ %.0192218.i, %115 ], [ %.0192218.i, %116 ], [ %.0192218.i, %117 ], [ %.0192218.i, %118 ], [ %.0192218.i, %119 ], [ %.0192218.i, %120 ], [ %.0192218.i, %.lr.ph.i ]
+  %.1191.i = phi i1 [ %.0190219.i, %121 ], [ %.0190219.i, %108 ], [ %.0190219.i, %109 ], [ %.0190219.i, %110 ], [ %.0190219.i, %111 ], [ %.0190219.i, %112 ], [ %.0190219.i, %113 ], [ true, %114 ], [ %.0190219.i, %115 ], [ %.0190219.i, %116 ], [ %.0190219.i, %117 ], [ %.0190219.i, %118 ], [ %.0190219.i, %119 ], [ %.0190219.i, %120 ], [ %.0190219.i, %.lr.ph.i ]
+  %.1189.i = phi i1 [ %.0188220.i, %121 ], [ %.0188220.i, %108 ], [ %.0188220.i, %109 ], [ %.0188220.i, %110 ], [ %.0188220.i, %111 ], [ %.0188220.i, %112 ], [ %.0188220.i, %113 ], [ %.0188220.i, %114 ], [ true, %115 ], [ %.0188220.i, %116 ], [ %.0188220.i, %117 ], [ %.0188220.i, %118 ], [ %.0188220.i, %119 ], [ %.0188220.i, %120 ], [ %.0188220.i, %.lr.ph.i ]
+  %.1187.i = phi i1 [ %.0186221.i, %121 ], [ %.0186221.i, %108 ], [ %.0186221.i, %109 ], [ %.0186221.i, %110 ], [ %.0186221.i, %111 ], [ %.0186221.i, %112 ], [ %.0186221.i, %113 ], [ %.0186221.i, %114 ], [ %.0186221.i, %115 ], [ true, %116 ], [ %.0186221.i, %117 ], [ %.0186221.i, %118 ], [ %.0186221.i, %119 ], [ %.0186221.i, %120 ], [ %.0186221.i, %.lr.ph.i ]
+  %.1185.i = phi i1 [ %.0184222.i, %121 ], [ %.0184222.i, %108 ], [ %.0184222.i, %109 ], [ %.0184222.i, %110 ], [ %.0184222.i, %111 ], [ %.0184222.i, %112 ], [ %.0184222.i, %113 ], [ %.0184222.i, %114 ], [ %.0184222.i, %115 ], [ %.0184222.i, %116 ], [ %.0184222.i, %117 ], [ %.0184222.i, %118 ], [ true, %119 ], [ %.0184222.i, %120 ], [ %.0184222.i, %.lr.ph.i ]
+  %.1183.i = phi i1 [ %.0182223.i, %121 ], [ %.0182223.i, %108 ], [ %.0182223.i, %109 ], [ %.0182223.i, %110 ], [ %.0182223.i, %111 ], [ %.0182223.i, %112 ], [ %.0182223.i, %113 ], [ %.0182223.i, %114 ], [ %.0182223.i, %115 ], [ %.0182223.i, %116 ], [ %.0182223.i, %117 ], [ %.0182223.i, %118 ], [ %.0182223.i, %119 ], [ true, %120 ], [ %.0182223.i, %.lr.ph.i ]
+  %.1.i = phi i1 [ %.0181224.i, %121 ], [ %.0181224.i, %108 ], [ %.0181224.i, %109 ], [ %.0181224.i, %110 ], [ %.0181224.i, %111 ], [ %.0181224.i, %112 ], [ %.0181224.i, %113 ], [ %.0181224.i, %114 ], [ %.0181224.i, %115 ], [ %.0181224.i, %116 ], [ true, %117 ], [ %.0181224.i, %118 ], [ %.0181224.i, %119 ], [ %.0181224.i, %120 ], [ %.0181224.i, %.lr.ph.i ]
   %.0207.i = load i32, ptr %.0207.in.i, align 4
   %123 = call ptr @val_to_str(i32 noundef %107, ptr noundef nonnull @info_type_vals, ptr noundef nonnull @.str.413)
   %124 = call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %0, i32 noundef %.0225.i, i32 noundef -1, i32 noundef %.0207.i, ptr noundef nonnull %5, ptr noundef %123)
@@ -1408,7 +1408,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br i1 %.0182.lcssa.i, label %.sink.split.i, label %dissect_wccp2_info.exit
 
 .sink.split.i:                                    ; preds = %273, %245, %208, %183
-  %ei_wccp_contains_command_extension.sink.i = phi ptr [ @ei_wccp_contains_alt_assignment_map, %245 ], [ @ei_wccp_contains_alt_assignment_map, %208 ], [ @ei_wccp_contains_alt_assignment_map, %183 ], [ @ei_wccp_contains_command_extension, %273 ]
+  %ei_wccp_contains_command_extension.sink.i = phi ptr [ @ei_wccp_contains_alt_assignment_map, %183 ], [ @ei_wccp_contains_alt_assignment_map, %208 ], [ @ei_wccp_contains_alt_assignment_map, %245 ], [ @ei_wccp_contains_command_extension, %273 ]
   %274 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull %ei_wccp_contains_command_extension.sink.i)
   br label %dissect_wccp2_info.exit
 
@@ -1570,7 +1570,7 @@ define internal noundef i32 @dissect_wccp2_security_info(ptr noundef %0, i32 nou
   br label %18
 
 18:                                               ; preds = %8, %6, %13
-  %.sink = phi i32 [ -4, %6 ], [ -20, %13 ], [ -4, %8 ]
+  %.sink = phi i32 [ -20, %13 ], [ -4, %6 ], [ -4, %8 ]
   %19 = add i32 %2, %.sink
   ret i32 %19
 }
@@ -1950,7 +1950,7 @@ dissect_wccp2_assignment_key_element.exit:        ; preds = %6
   br i1 %exitcond152.not, label %.thread, label %.lr.ph139, !llvm.loop !16
 
 .thread:                                          ; preds = %57, %48, %._crit_edge.thread, %46, %dissect_wccp2_assignment_key_element.exit, %38, %28, %8
-  %.0 = phi i32 [ %9, %8 ], [ %30, %28 ], [ %39, %38 ], [ %47, %46 ], [ 8, %dissect_wccp2_assignment_key_element.exit ], [ %43, %._crit_edge.thread ], [ %55, %48 ], [ %55, %57 ]
+  %.0 = phi i32 [ %9, %8 ], [ %30, %28 ], [ %39, %38 ], [ 8, %dissect_wccp2_assignment_key_element.exit ], [ %47, %46 ], [ %43, %._crit_edge.thread ], [ %55, %48 ], [ %55, %57 ]
   ret i32 %.0
 }
 
@@ -2075,7 +2075,7 @@ dissect_wccp2_router_identity_element.exit:       ; preds = %22, %38
   br i1 %exitcond109.not, label %.loopexit, label %.lr.ph98, !llvm.loop !18
 
 .loopexit:                                        ; preds = %51, %._crit_edge.thread, %49, %42, %19, %8
-  %.0 = phi i32 [ %9, %8 ], [ %50, %49 ], [ %21, %19 ], [ %43, %42 ], [ %.16592, %._crit_edge.thread ], [ %.165, %51 ]
+  %.0 = phi i32 [ %9, %8 ], [ %21, %19 ], [ %43, %42 ], [ %50, %49 ], [ %.16592, %._crit_edge.thread ], [ %.165, %51 ]
   ret i32 %.0
 }
 
@@ -2271,7 +2271,7 @@ dissect_wccp2_hash_buckets_assignment_element.exit: ; preds = %assignment_bucket
   br label %.thread
 
 .thread:                                          ; preds = %79, %dissect_wccp2_hash_buckets_assignment_element.exit.thread, %dissect_wccp2_hash_buckets_assignment_element.exit, %11, %26, %9
-  %.0 = phi i32 [ %10, %9 ], [ %29, %26 ], [ 8, %11 ], [ %.0.i89.fr, %dissect_wccp2_hash_buckets_assignment_element.exit ], [ %spec.select, %79 ], [ %.0.i89.ph, %dissect_wccp2_hash_buckets_assignment_element.exit.thread ]
+  %.0 = phi i32 [ %10, %9 ], [ %29, %26 ], [ 8, %11 ], [ %.0.i89.ph, %dissect_wccp2_hash_buckets_assignment_element.exit.thread ], [ %.0.i89.fr, %dissect_wccp2_hash_buckets_assignment_element.exit ], [ %spec.select, %79 ]
   ret i32 %.0
 }
 
@@ -2480,7 +2480,7 @@ dissect_transmit_t_capability.exit.i:             ; preds = %99, %87, %85, %82, 
   br label %dissect_wccp2_capability_element.exit
 
 dissect_wccp2_capability_element.exit:            ; preds = %27, %dissect_transmit_t_capability.exit.i
-  %.0.i = phi i32 [ %103, %dissect_transmit_t_capability.exit.i ], [ %28, %27 ]
+  %.0.i = phi i32 [ %28, %27 ], [ %103, %dissect_transmit_t_capability.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %104 = icmp slt i32 %.0.i, 0
   br i1 %104, label %.thread, label %105
@@ -2717,7 +2717,7 @@ dissect_wccp2_hash_assignment_info.exit:          ; preds = %assignment_bucket_n
   br label %109
 
 109:                                              ; preds = %.thread, %._crit_edge, %32, %107, %105, %dissect_wccp2_hash_assignment_info.exit, %48, %9
-  %.0 = phi i32 [ %10, %9 ], [ 8, %32 ], [ %50, %48 ], [ %108, %107 ], [ %.0.i122, %dissect_wccp2_hash_assignment_info.exit ], [ %106, %105 ], [ %.1105.lcssa, %._crit_edge ], [ %31, %.thread ]
+  %.0 = phi i32 [ %10, %9 ], [ %50, %48 ], [ %.0.i122, %dissect_wccp2_hash_assignment_info.exit ], [ %106, %105 ], [ %108, %107 ], [ 8, %32 ], [ %.1105.lcssa, %._crit_edge ], [ %31, %.thread ]
   ret i32 %.0
 }
 
@@ -2781,7 +2781,7 @@ define internal i32 @dissect_wccp2r1_alt_assignment_map_info(ptr noundef %0, i32
   br label %39
 
 39:                                               ; preds = %29, %36, %33, %30, %8
-  %.052 = phi i32 [ %9, %8 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %18, %29 ]
+  %.052 = phi i32 [ %9, %8 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ], [ %18, %29 ]
   ret i32 %.052
 }
 
@@ -3088,7 +3088,7 @@ define internal range(i32 2147483644, 2147483643) i32 @dissect_wccp2_command_ext
   br i1 %46, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %42, %6, %37, %28, %10
-  %.0 = phi i32 [ %29, %28 ], [ %11, %10 ], [ %38, %37 ], [ 0, %6 ], [ 0, %42 ]
+  %.0 = phi i32 [ %11, %10 ], [ %29, %28 ], [ %38, %37 ], [ 0, %6 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -3383,7 +3383,7 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
   br i1 %.not15.i.i, label %.thread10.i.i, label %dissect_wccp2_alternate_mask_assignment_data_element.exit.i
 
 .thread10.i.i:                                    ; preds = %85, %78
-  %.036913.i.i = phi i32 [ %84, %85 ], [ %55, %78 ]
+  %.036913.i.i = phi i32 [ %55, %78 ], [ %84, %85 ]
   %86 = load i32, ptr @hf_assignment_weight, align 4
   %87 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %86, ptr noundef %0, i32 noundef %.036913.i.i, i32 noundef 2, i32 noundef 0)
   %88 = add i32 %.036913.i.i, 2
@@ -3412,7 +3412,7 @@ dissect_wccp2_assignment_weight_and_status_element.exit.i: ; preds = %94, %92
   br label %dissect_wccp2_extended_assignment_data_element.exit
 
 dissect_wccp2_extended_assignment_data_element.exit: ; preds = %41, %65, %68, %71, %dissect_wccp2_alternate_mask_assignment_data_element.exit.i, %dissect_wccp2_assignment_weight_and_status_element.exit.i
-  %.071.i = phi i32 [ %42, %41 ], [ %100, %dissect_wccp2_assignment_weight_and_status_element.exit.i ], [ %91, %dissect_wccp2_alternate_mask_assignment_data_element.exit.i ], [ %70, %68 ], [ %73, %71 ], [ %54, %65 ]
+  %.071.i = phi i32 [ %42, %41 ], [ %70, %68 ], [ %73, %71 ], [ %91, %dissect_wccp2_alternate_mask_assignment_data_element.exit.i ], [ %100, %dissect_wccp2_assignment_weight_and_status_element.exit.i ], [ %54, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %101
 
@@ -3420,7 +3420,7 @@ default.unreachable68:                            ; preds = %22
   unreachable
 
 101:                                              ; preds = %dissect_wccp2_extended_assignment_data_element.exit, %36, %34, %32, %9
-  %.0 = phi i32 [ %10, %9 ], [ %.071.i, %dissect_wccp2_extended_assignment_data_element.exit ], [ %30, %36 ], [ %35, %34 ], [ %33, %32 ]
+  %.0 = phi i32 [ %10, %9 ], [ %33, %32 ], [ %35, %34 ], [ %30, %36 ], [ %.071.i, %dissect_wccp2_extended_assignment_data_element.exit ]
   ret i32 %.0
 }
 
@@ -3711,13 +3711,13 @@ dissect_wccp2_mask_value_set_element.exit.thread2: ; preds = %dissect_wccp2_valu
   call void @proto_item_set_len(ptr noundef %89, i32 noundef %.pre-phi.i)
   br label %dissect_wccp2_mask_value_set_element.exit
 
-dissect_wccp2_mask_value_set_element.exit.thread: ; preds = %.lr.ph, %30, %57, %43, %78, %72, %66
-  %.1.i.ph = phi i32 [ %67, %66 ], [ %73, %72 ], [ %79, %78 ], [ %44, %43 ], [ %31, %30 ], [ %58, %57 ], [ %23, %.lr.ph ]
+dissect_wccp2_mask_value_set_element.exit.thread: ; preds = %.lr.ph, %30, %78, %72, %66, %57, %43
+  %.1.i.ph = phi i32 [ %44, %43 ], [ %58, %57 ], [ %67, %66 ], [ %73, %72 ], [ %79, %78 ], [ %31, %30 ], [ %23, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
 dissect_wccp2_mask_value_set_element.exit:        ; preds = %25, %._crit_edge.i
-  %.1.i = phi i32 [ %26, %25 ], [ %.164.lcssa.i, %._crit_edge.i ]
+  %.1.i = phi i32 [ %.164.lcssa.i, %._crit_edge.i ], [ %26, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %90 = icmp slt i32 %.1.i, 0
   br i1 %90, label %.thread, label %91
@@ -3738,7 +3738,7 @@ dissect_wccp2_mask_value_set_element.exit:        ; preds = %25, %._crit_edge.i
   br label %.thread
 
 .thread:                                          ; preds = %dissect_wccp2_mask_value_set_element.exit, %91, %dissect_wccp2_mask_value_set_element.exit.thread, %._crit_edge, %9
-  %.0 = phi i32 [ %10, %9 ], [ %.1.i.ph, %dissect_wccp2_mask_value_set_element.exit.thread ], [ %.043.lcssa, %._crit_edge ], [ %.1.i, %dissect_wccp2_mask_value_set_element.exit ], [ %92, %91 ]
+  %.0 = phi i32 [ %10, %9 ], [ %.043.lcssa, %._crit_edge ], [ %.1.i.ph, %dissect_wccp2_mask_value_set_element.exit.thread ], [ %.1.i, %dissect_wccp2_mask_value_set_element.exit ], [ %92, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -4084,7 +4084,7 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
   br i1 %exitcond8.not.i.i, label %dissect_wccp2_web_cache_value_element.exit.i, label %.lr.ph.i.i, !llvm.loop !35
 
 dissect_wccp2_web_cache_value_element.exit.i:     ; preds = %66, %64, %56
-  %.037.i.i = phi i32 [ %61, %56 ], [ %65, %64 ], [ %71, %66 ]
+  %.037.i.i = phi i32 [ %65, %64 ], [ %61, %56 ], [ %71, %66 ]
   %73 = icmp slt i32 %.037.i.i, 0
   br i1 %73, label %dissect_wccp2_alternate_mask_value_set_element.exit.thread, label %74
 
@@ -4103,7 +4103,7 @@ dissect_wccp2_alternate_mask_value_set_element.exit.thread2: ; preds = %40, %31
   br label %79
 
 dissect_wccp2_alternate_mask_value_set_element.exit.thread: ; preds = %.lr.ph, %dissect_wccp2_web_cache_value_element.exit.i, %29, %54, %44
-  %.1.i.ph = phi i32 [ %30, %29 ], [ %45, %44 ], [ %.037.i.i, %dissect_wccp2_web_cache_value_element.exit.i ], [ %55, %54 ], [ %22, %.lr.ph ]
+  %.1.i.ph = phi i32 [ %45, %44 ], [ %55, %54 ], [ %30, %29 ], [ %.037.i.i, %dissect_wccp2_web_cache_value_element.exit.i ], [ %22, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
@@ -4121,7 +4121,7 @@ dissect_wccp2_alternate_mask_value_set_element.exit: ; preds = %74, %25
   br i1 %.not, label %18, label %.thread
 
 .thread:                                          ; preds = %79, %18, %dissect_wccp2_alternate_mask_value_set_element.exit, %10, %dissect_wccp2_alternate_mask_value_set_element.exit.thread, %8
-  %.0 = phi i32 [ %9, %8 ], [ %.1.i.ph, %dissect_wccp2_alternate_mask_value_set_element.exit.thread ], [ %16, %10 ], [ %.1.i4, %18 ], [ %80, %79 ], [ %.1.i, %dissect_wccp2_alternate_mask_value_set_element.exit ]
+  %.0 = phi i32 [ %9, %8 ], [ %.1.i.ph, %dissect_wccp2_alternate_mask_value_set_element.exit.thread ], [ %16, %10 ], [ %80, %79 ], [ %.1.i4, %18 ], [ %.1.i, %dissect_wccp2_alternate_mask_value_set_element.exit ]
   ret i32 %.0
 }
 

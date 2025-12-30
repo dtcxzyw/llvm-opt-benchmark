@@ -198,7 +198,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %11
   br label %82
 
 82:                                               ; preds = %78, %78, %79
-  %83 = phi i32 [ 0, %78 ], [ 0, %78 ], [ %81, %79 ]
+  %83 = phi i32 [ 0, %78 ], [ %81, %79 ], [ 0, %78 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 3952
   store i32 %83, ptr %84, align 8, !tbaa !97
   %.sink.i.i41 = load i64, ptr %4, align 8, !tbaa !3
@@ -359,7 +359,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %11
   br label %80
 
 80:                                               ; preds = %76, %76, %77
-  %81 = phi i32 [ 0, %76 ], [ 0, %76 ], [ %79, %77 ]
+  %81 = phi i32 [ 0, %76 ], [ %79, %77 ], [ 0, %76 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 3952
   store i32 %81, ptr %82, align 8, !tbaa !97
   %.sink.i.i41 = load i64, ptr %4, align 8, !tbaa !3
@@ -509,7 +509,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %11
   br label %82
 
 82:                                               ; preds = %78, %78, %79
-  %83 = phi i32 [ 0, %78 ], [ 0, %78 ], [ %81, %79 ]
+  %83 = phi i32 [ 0, %78 ], [ %81, %79 ], [ 0, %78 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 3952
   store i32 %83, ptr %84, align 8, !tbaa !97
   %.sink.i.i41 = load i64, ptr %4, align 8, !tbaa !3
@@ -657,7 +657,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %11
   br label %80
 
 80:                                               ; preds = %76, %76, %77
-  %81 = phi i32 [ 0, %76 ], [ 0, %76 ], [ %79, %77 ]
+  %81 = phi i32 [ 0, %76 ], [ %79, %77 ], [ 0, %76 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 3952
   store i32 %81, ptr %82, align 8, !tbaa !97
   %.sink.i.i41 = load i64, ptr %4, align 8, !tbaa !3
@@ -823,7 +823,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %19
   br label %89
 
 89:                                               ; preds = %85, %85, %86
-  %90 = phi i32 [ 0, %85 ], [ 0, %85 ], [ %88, %86 ]
+  %90 = phi i32 [ 0, %85 ], [ %88, %86 ], [ 0, %85 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 3952
   store i32 %90, ptr %91, align 8, !tbaa !97
   %.sink.i.i45 = load i64, ptr %4, align 8, !tbaa !3
@@ -987,7 +987,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %19
   br label %87
 
 87:                                               ; preds = %83, %83, %84
-  %88 = phi i32 [ 0, %83 ], [ 0, %83 ], [ %86, %84 ]
+  %88 = phi i32 [ 0, %83 ], [ %86, %84 ], [ 0, %83 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 3952
   store i32 %88, ptr %89, align 8, !tbaa !97
   %.sink.i.i45 = load i64, ptr %4, align 8, !tbaa !3
@@ -1153,7 +1153,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %19
   br label %89
 
 89:                                               ; preds = %85, %85, %86
-  %90 = phi i32 [ 0, %85 ], [ 0, %85 ], [ %88, %86 ]
+  %90 = phi i32 [ 0, %85 ], [ %88, %86 ], [ 0, %85 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 3952
   store i32 %90, ptr %91, align 8, !tbaa !97
   %.sink.i.i45 = load i64, ptr %4, align 8, !tbaa !3
@@ -1317,7 +1317,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %19
   br label %87
 
 87:                                               ; preds = %83, %83, %84
-  %88 = phi i32 [ 0, %83 ], [ 0, %83 ], [ %86, %84 ]
+  %88 = phi i32 [ 0, %83 ], [ %86, %84 ], [ 0, %83 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 3952
   store i32 %88, ptr %89, align 8, !tbaa !97
   %.sink.i.i45 = load i64, ptr %4, align 8, !tbaa !3

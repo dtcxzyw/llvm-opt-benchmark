@@ -1234,7 +1234,7 @@ select.unfold.i.i:                                ; preds = %34, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIiSt4pairIKiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEESt10_Select1stIS4_ESt4lessIiESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIiSt4pairIKiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEESt10_Select1stIS4_ESt4lessIiESaIS4_EE10_M_insert_IS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i: ; preds = %38, %select.unfold.i.i
-  %42 = phi i1 [ %41, %38 ], [ true, %select.unfold.i.i ]
+  %42 = phi i1 [ true, %select.unfold.i.i ], [ %41, %38 ]
   %43 = tail call noalias noundef dereferenceable_or_null(40) ptr @_Znwm(i64 noundef 40) #26
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %.sroa.0.0.insert.ext = zext i32 %18 to i64
@@ -1920,7 +1920,7 @@ _ZNK4QMapIiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEE4k
   br label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exitthread-pre-split
 
 _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exitthread-pre-split: ; preds = %141, %146, %_ZNK4QMapIiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEE4keysEv.exit
-  %.1.i.i.i.ph = phi i1 [ %150, %146 ], [ false, %_ZNK4QMapIiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEE4keysEv.exit ], [ false, %141 ]
+  %.1.i.i.i.ph = phi i1 [ false, %_ZNK4QMapIiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEE4keysEv.exit ], [ %150, %146 ], [ false, %141 ]
   %.pr127 = load ptr, ptr %8, align 8
   br label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit
 
@@ -2025,7 +2025,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN35AStringListListSortFilterProxyModel25AStringListLi
   br label %179
 
 179:                                              ; preds = %165, %177, %178, %_ZN5QListIiED2Ev.exit
-  %.0 = phi ptr [ @_ZL10AContainsBRK8QVariantS1_N2Qt15CaseSensitivityE, %178 ], [ @_ZL10AContainsBRK8QVariantS1_N2Qt15CaseSensitivityE, %_ZN5QListIiED2Ev.exit ], [ @_ZL16AIsEquivalentToBRK8QVariantS1_N2Qt15CaseSensitivityE, %177 ], [ @_ZL12AStartsWithBRK8QVariantS1_N2Qt15CaseSensitivityE, %165 ]
+  %.0 = phi ptr [ @_ZL10AContainsBRK8QVariantS1_N2Qt15CaseSensitivityE, %178 ], [ @_ZL16AIsEquivalentToBRK8QVariantS1_N2Qt15CaseSensitivityE, %177 ], [ @_ZL10AContainsBRK8QVariantS1_N2Qt15CaseSensitivityE, %_ZN5QListIiED2Ev.exit ], [ @_ZL12AStartsWithBRK8QVariantS1_N2Qt15CaseSensitivityE, %165 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable_or_null(32) %10, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %180 unwind label %187
@@ -2079,7 +2079,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN35AStringListListSortFilterProxyModel25AStringListLi
   br label %202
 
 195:                                              ; preds = %185, %165
-  %.2 = phi i1 [ %186, %185 ], [ false, %165 ]
+  %.2 = phi i1 [ false, %165 ], [ %186, %185 ]
   %196 = load ptr, ptr %6, align 8
   %.not.i.i.i37 = icmp eq ptr %196, null
   br i1 %.not.i.i.i37, label %200, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
@@ -2509,7 +2509,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i31:     ; preds = %41
   br label %common.resume
 
 common.resume:                                    ; preds = %94, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i35, %91, %44, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i31, %41, %_ZN5QListIiED2Ev.exit25
-  %common.resume.op = phi { ptr, i32 } [ %126, %_ZN5QListIiED2Ev.exit25 ], [ %.pn.i.i, %44 ], [ %.pn.i.i, %41 ], [ %.pn.i.i, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i31 ], [ %.pn.i.i7, %91 ], [ %.pn.i.i7, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i35 ], [ %.pn.i.i7, %94 ]
+  %common.resume.op = phi { ptr, i32 } [ %126, %_ZN5QListIiED2Ev.exit25 ], [ %.pn.i.i, %41 ], [ %.pn.i.i, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i31 ], [ %.pn.i.i, %44 ], [ %.pn.i.i7, %91 ], [ %.pn.i.i7, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i35 ], [ %.pn.i.i7, %94 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNK4QMapIiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEE4keysEv.exit: ; preds = %.noexc.i.i, %23, %27
@@ -3039,7 +3039,7 @@ _ZN5QListIiE6appendEi.exit:                       ; preds = %43
   br label %48
 
 48:                                               ; preds = %_ZN5QListIiE6appendEi.exit, %.critedge, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit
-  %.1 = phi i1 [ %.0424, %.critedge ], [ %.0424, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit ], [ true, %_ZN5QListIiE6appendEi.exit ]
+  %.1 = phi i1 [ %.0424, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit ], [ %.0424, %.critedge ], [ true, %_ZN5QListIiE6appendEi.exit ]
   %49 = getelementptr i8, ptr %.sroa.12.023, i64 4
   %.not = icmp eq ptr %49, %12
   br i1 %.not, label %._crit_edge, label %20, !llvm.loop !58
@@ -6218,7 +6218,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIiSt4pairIKiN35AStringListListSortFilterP
   br label %.thread
 
 .thread:                                          ; preds = %19, %22
-  %27 = phi i1 [ %26, %22 ], [ true, %19 ]
+  %27 = phi i1 [ true, %19 ], [ %26, %22 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef %6, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %20) #24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8
@@ -6457,8 +6457,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN35AStringListListSo
   br label %_ZNSt8_Rb_treeIiSt4pairIKiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEESt10_Select1stIS4_ESt4lessIiESaIS4_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIiSt4pairIKiN35AStringListListSortFilterProxyModel25AStringListListFilterTypeEESt10_Select1stIS4_ESt4lessIiESaIS4_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
-  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

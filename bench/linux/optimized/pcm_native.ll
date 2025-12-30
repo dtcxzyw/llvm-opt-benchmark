@@ -733,7 +733,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr noundef re
   br label %.thread16
 
 .thread16:                                        ; preds = %35, %84, %70, %.thread, %181, %.thread20, %.thread19
-  %182 = phi i32 [ 0, %.thread19 ], [ -12, %.thread20 ], [ -22, %.thread ], [ %155, %181 ], [ %86, %84 ], [ -22, %70 ], [ -22, %35 ]
+  %182 = phi i32 [ 0, %.thread19 ], [ %155, %181 ], [ -12, %.thread20 ], [ -22, %.thread ], [ -22, %70 ], [ %86, %84 ], [ -22, %35 ]
   ret i32 %182
 }
 
@@ -1226,7 +1226,7 @@ define internal fastcc i32 @snd_pcm_action(ptr noundef readonly captures(none) %
   br label %.thread
 
 .thread:                                          ; preds = %6, %15, %18, %22, %41, %40
-  %42 = phi i32 [ %24, %40 ], [ %24, %41 ], [ 0, %15 ], [ %13, %22 ], [ %13, %18 ], [ %8, %6 ]
+  %42 = phi i32 [ %24, %41 ], [ %24, %40 ], [ 0, %15 ], [ %13, %22 ], [ %13, %18 ], [ %8, %6 ]
   ret i32 %42
 }
 
@@ -2191,7 +2191,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_open_substream(ptr nound
   br label %309
 
 .thread:                                          ; preds = %286, %278, %271, %263, %256, %247, %240, %233, %229, %224, %220, %168, %165, %162, %159, %156, %153, %150, %147, %144, %141, %138, %135, %132, %129, %126, %123, %120, %117, %114, %174, %171
-  %307 = phi i32 [ %172, %171 ], [ %179, %174 ], [ %115, %114 ], [ %169, %168 ], [ %166, %165 ], [ %163, %162 ], [ %160, %159 ], [ %157, %156 ], [ %154, %153 ], [ %151, %150 ], [ %148, %147 ], [ %145, %144 ], [ %142, %141 ], [ %139, %138 ], [ %136, %135 ], [ %133, %132 ], [ %130, %129 ], [ %127, %126 ], [ %124, %123 ], [ %121, %120 ], [ %118, %117 ], [ %287, %286 ], [ %280, %278 ], [ %272, %271 ], [ %269, %263 ], [ %261, %256 ], [ %254, %247 ], [ %245, %240 ], [ %238, %233 ], [ %231, %229 ], [ %227, %224 ], [ %222, %220 ]
+  %307 = phi i32 [ %172, %171 ], [ %179, %174 ], [ %169, %168 ], [ %166, %165 ], [ %163, %162 ], [ %160, %159 ], [ %157, %156 ], [ %154, %153 ], [ %151, %150 ], [ %148, %147 ], [ %145, %144 ], [ %142, %141 ], [ %139, %138 ], [ %136, %135 ], [ %133, %132 ], [ %130, %129 ], [ %127, %126 ], [ %124, %123 ], [ %121, %120 ], [ %118, %117 ], [ %115, %114 ], [ %287, %286 ], [ %280, %278 ], [ %272, %271 ], [ %269, %263 ], [ %261, %256 ], [ %254, %247 ], [ %245, %240 ], [ %238, %233 ], [ %231, %229 ], [ %227, %224 ], [ %222, %220 ]
   %308 = load ptr, ptr %5, align 8
   call void @snd_pcm_release_substream(ptr noundef %308)
   br label %309
@@ -2428,7 +2428,7 @@ define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @snd_pcm
   br label %.thread
 
 .thread:                                          ; preds = %13, %17, %21, %22, %66, %62, %23
-  %78 = phi i64 [ %25, %23 ], [ %77, %66 ], [ 0, %62 ], [ -77, %17 ], [ -77, %22 ], [ -32, %21 ], [ -86, %13 ]
+  %78 = phi i64 [ %25, %23 ], [ %77, %66 ], [ 0, %62 ], [ -77, %17 ], [ -32, %21 ], [ -77, %22 ], [ -86, %13 ]
   %79 = load ptr, ptr %0, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 369
   %81 = load i8, ptr %80, align 1, !range !6, !noundef !7
@@ -2988,7 +2988,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_pcm_hw_params(ptr noun
   br label %.thread23
 
 .thread23:                                        ; preds = %268, %271, %284, %322, %317, %50
-  %324 = phi i32 [ %41, %50 ], [ %.ph, %322 ], [ %.ph, %317 ], [ 0, %271 ], [ 0, %284 ], [ 0, %268 ]
+  %324 = phi i32 [ %41, %50 ], [ %.ph, %322 ], [ %.ph, %317 ], [ 0, %284 ], [ 0, %271 ], [ 0, %268 ]
   tail call void @mutex_unlock(ptr noundef nonnull %22) #18
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, ptr nonnull elementtype(i32) %9) #18, !srcloc !38
   br label %.thread
@@ -3605,7 +3605,7 @@ define internal fastcc i32 @snd_pcm_drain(ptr noundef %0, ptr noundef readonly c
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge, %166, %94, %49, %175, %171, %30
-  %177 = phi i32 [ %34, %30 ], [ -86, %171 ], [ -5, %175 ], [ -512, %49 ], [ %31, %94 ], [ -19, %166 ], [ -512, %.critedge ]
+  %177 = phi i32 [ %34, %30 ], [ -5, %175 ], [ -86, %171 ], [ -512, %49 ], [ %31, %94 ], [ -19, %166 ], [ -512, %.critedge ]
   %178 = load ptr, ptr %0, align 8
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 369
   %180 = load i8, ptr %179, align 1, !range !6, !noundef !7
@@ -3739,7 +3739,7 @@ define internal fastcc i32 @snd_pcm_delay(ptr noundef %0, ptr noundef writeonly 
   br label %.thread
 
 .thread:                                          ; preds = %11, %15, %21, %22, %68, %23
-  %73 = phi i32 [ %24, %23 ], [ 0, %68 ], [ -77, %15 ], [ -77, %22 ], [ -32, %21 ], [ -86, %11 ]
+  %73 = phi i32 [ 0, %68 ], [ %24, %23 ], [ -77, %15 ], [ -32, %21 ], [ -77, %22 ], [ -86, %11 ]
   %74 = load ptr, ptr %0, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 369
   %76 = load i8, ptr %75, align 1, !range !6, !noundef !7
@@ -4679,7 +4679,7 @@ define internal i32 @snd_pcm_mmap(ptr noundef readonly captures(none) %0, ptr no
   br label %snd_pcm_mmap_data.exit
 
 snd_pcm_mmap_data.exit:                           ; preds = %151, %148, %127, %122, %117, %115, %112, %109, %100, %80, %75, %.thread, %69, %65, %61, %41, %36, %29, %24, %20, %11, %7, %2
-  %153 = phi i32 [ -6, %69 ], [ -6, %7 ], [ -77, %11 ], [ -6, %20 ], [ -6, %29 ], [ -6, %65 ], [ -6, %2 ], [ 0, %61 ], [ -22, %36 ], [ -22, %41 ], [ 0, %100 ], [ -22, %75 ], [ -22, %80 ], [ -6, %24 ], [ -6, %.thread ], [ -22, %109 ], [ -22, %112 ], [ -77, %115 ], [ -6, %117 ], [ -22, %122 ], [ -22, %127 ], [ %149, %148 ], [ 0, %151 ]
+  %153 = phi i32 [ -6, %7 ], [ -77, %11 ], [ -6, %20 ], [ -6, %29 ], [ -6, %65 ], [ -6, %2 ], [ 0, %61 ], [ -22, %36 ], [ -22, %41 ], [ 0, %100 ], [ -22, %75 ], [ -22, %80 ], [ -6, %24 ], [ -6, %.thread ], [ -6, %69 ], [ -22, %109 ], [ -22, %112 ], [ -77, %115 ], [ -6, %117 ], [ -22, %122 ], [ -22, %127 ], [ 0, %151 ], [ %149, %148 ]
   ret i32 %153
 }
 
@@ -5300,8 +5300,8 @@ define internal fastcc i32 @snd_pcm_action_group(ptr noundef readonly captures(n
   br i1 %103, label %.loopexit, label %95, !llvm.loop !52
 
 .loopexit:                                        ; preds = %51, %22, %.preheader, %95, %79, %75, %.loopexit17
-  %104 = phi i32 [ %73, %75 ], [ %61, %.loopexit17 ], [ %73, %79 ], [ %73, %.preheader ], [ %24, %22 ], [ %61, %95 ], [ %53, %51 ]
-  %105 = phi ptr [ null, %75 ], [ %64, %.loopexit17 ], [ null, %79 ], [ null, %.preheader ], [ %11, %22 ], [ %100, %95 ], [ %45, %51 ]
+  %104 = phi i32 [ %73, %75 ], [ %61, %.loopexit17 ], [ %73, %79 ], [ %61, %95 ], [ %73, %.preheader ], [ %24, %22 ], [ %53, %51 ]
+  %105 = phi ptr [ null, %75 ], [ %64, %.loopexit17 ], [ null, %79 ], [ %100, %95 ], [ null, %.preheader ], [ %11, %22 ], [ %45, %51 ]
   %106 = load ptr, ptr %5, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 40
   br i1 %3, label %.split.us, label %.split
@@ -6076,8 +6076,8 @@ define internal i32 @snd_pcm_hw_rule_sample_bits(ptr noundef %0, ptr noundef rea
   br label %21
 
 21:                                               ; preds = %20, %17, %5
-  %22 = phi i32 [ %6, %5 ], [ %spec.select4, %20 ], [ %6, %17 ]
-  %23 = phi i32 [ %7, %5 ], [ %spec.select, %20 ], [ %7, %17 ]
+  %22 = phi i32 [ %6, %17 ], [ %6, %5 ], [ %spec.select4, %20 ]
+  %23 = phi i32 [ %7, %17 ], [ %7, %5 ], [ %spec.select, %20 ]
   %24 = add nuw nsw i32 %8, 1
   %25 = icmp eq i32 %24, 53
   br i1 %25, label %26, label %5, !llvm.loop !55
@@ -10246,7 +10246,7 @@ define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @snd_pcm
   br label %.thread
 
 .thread:                                          ; preds = %13, %17, %21, %22, %74, %61, %23
-  %79 = phi i64 [ %25, %23 ], [ %78, %74 ], [ 0, %61 ], [ -77, %17 ], [ -77, %22 ], [ -32, %21 ], [ -86, %13 ]
+  %79 = phi i64 [ %25, %23 ], [ %78, %74 ], [ 0, %61 ], [ -77, %17 ], [ -32, %21 ], [ -77, %22 ], [ -86, %13 ]
   %80 = load ptr, ptr %0, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 369
   %82 = load i8, ptr %81, align 1, !range !6, !noundef !7
@@ -11111,12 +11111,12 @@ define internal fastcc i32 @snd_pcm_ioctl_xfern_compat(ptr noundef nonnull %0, i
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %.preheader, %.loopexit, %69
-  %.ph = phi i32 [ %77, %69 ], [ %67, %.loopexit ], [ -14, %.preheader ]
+  %.ph = phi i32 [ %67, %.loopexit ], [ %77, %69 ], [ -14, %.preheader ]
   tail call void @kfree(ptr noundef nonnull %46) #18
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %40, %43, %29, %18, %14, %11, %7, %3
-  %78 = phi i32 [ -12, %40 ], [ -25, %3 ], [ -22, %7 ], [ -77, %11 ], [ -22, %14 ], [ -14, %29 ], [ -14, %18 ], [ -12, %43 ], [ %.ph, %.thread.sink.split ]
+  %78 = phi i32 [ -25, %3 ], [ -22, %7 ], [ -77, %11 ], [ -22, %14 ], [ -14, %29 ], [ -14, %18 ], [ -12, %43 ], [ -12, %40 ], [ %.ph, %.thread.sink.split ]
   ret i32 %78
 }
 

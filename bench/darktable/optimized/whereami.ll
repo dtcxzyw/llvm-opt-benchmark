@@ -52,7 +52,7 @@ define i32 @wai_getExecutablePath(ptr noundef captures(none) %0, i32 noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %19, %6, %9, %3
-  %.015 = phi i32 [ -1, %3 ], [ %8, %9 ], [ %8, %6 ], [ %8, %19 ], [ %8, %.preheader ]
+  %.015 = phi i32 [ %8, %9 ], [ %8, %6 ], [ -1, %3 ], [ %8, %19 ], [ %8, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.015
 }
@@ -182,7 +182,7 @@ define i32 @wai_getModulePath(ptr noundef captures(none) %0, i32 noundef %1, ptr
   %.not39 = icmp eq ptr %43, null
   br i1 %.not39, label %.thread.thread, label %.lr.ph
 
-.thread.thread:                                   ; preds = %42, %.preheader55, %25
+.thread.thread:                                   ; preds = %42, %25, %.preheader55
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -210,7 +210,7 @@ define i32 @wai_getModulePath(ptr noundef captures(none) %0, i32 noundef %1, ptr
   br i1 %.not45, label %13, label %46
 
 46:                                               ; preds = %13, %15, %.thread
-  %.1 = phi i32 [ -1, %15 ], [ -1, %13 ], [ %29, %.thread ]
+  %.1 = phi i32 [ -1, %13 ], [ -1, %15 ], [ %29, %.thread ]
   ret i32 %.1
 }
 

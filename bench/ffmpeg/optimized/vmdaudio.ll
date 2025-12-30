@@ -154,9 +154,9 @@ define internal i32 @vmdaudio_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   br label %48
 
 48:                                               ; preds = %.thread, %22, %47
-  %.195 = phi i32 [ %43, %.thread ], [ 1, %47 ], [ 0, %22 ]
-  %.186 = phi i32 [ %45, %.thread ], [ 0, %47 ], [ %24, %22 ]
-  %.183 = phi ptr [ %44, %.thread ], [ %23, %47 ], [ %23, %22 ]
+  %.195 = phi i32 [ 1, %47 ], [ 0, %22 ], [ %43, %.thread ]
+  %.186 = phi i32 [ 0, %47 ], [ %24, %22 ], [ %45, %.thread ]
+  %.183 = phi ptr [ %23, %47 ], [ %23, %22 ], [ %44, %.thread ]
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !33
   %51 = sdiv i32 %.186, %50
@@ -365,7 +365,7 @@ decode_audio_s16.exit:                            ; preds = %133, %.preheader.i
   br label %155
 
 155:                                              ; preds = %46, %57, %48, %.loopexit, %20, %15
-  %.0 = phi i32 [ %9, %15 ], [ -22, %20 ], [ -22, %46 ], [ -1094995529, %48 ], [ %154, %.loopexit ], [ %61, %57 ]
+  %.0 = phi i32 [ %9, %15 ], [ -22, %20 ], [ %154, %.loopexit ], [ -22, %46 ], [ -1094995529, %48 ], [ %61, %57 ]
   ret i32 %.0
 }
 

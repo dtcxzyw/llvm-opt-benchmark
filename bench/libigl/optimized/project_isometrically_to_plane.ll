@@ -593,7 +593,7 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit: ; preds = %166, %167
   br label %_ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit80
 
 _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EED2Ev.exit80: ; preds = %.thread, %174, %127, %125, %123, %121, %119
-  %.pn67.pn.pn.pn.pn = phi { ptr, i32 } [ %120, %119 ], [ %128, %127 ], [ %126, %125 ], [ %.pn67.pn.pn, %.thread ], [ %122, %121 ], [ %124, %123 ], [ %.pn67.pn.pn, %174 ]
+  %.pn67.pn.pn.pn.pn = phi { ptr, i32 } [ %120, %119 ], [ %122, %121 ], [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %.pn67.pn.pn, %174 ], [ %.pn67.pn.pn, %.thread ]
   %178 = load ptr, ptr %19, align 8, !tbaa !23
   call void @free(ptr noundef %178) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -1745,7 +1745,7 @@ _ZN5Eigen12SparseMatrixIdLi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   br label %77
 
 75:                                               ; preds = %54, %36
-  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %37, %36 ]
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %55, %54 ]
   %76 = load ptr, ptr %6, align 8, !tbaa !141
   call void @free(ptr noundef %76) #25
   br label %.body

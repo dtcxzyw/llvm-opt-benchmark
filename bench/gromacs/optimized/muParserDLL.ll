@@ -299,8 +299,8 @@ define noundef ptr @mupCreate(i32 noundef %0) local_unnamed_addr #10 personality
   ret ptr %.04
 
 .body:                                            ; preds = %18, %16, %9, %7
-  %.sink18 = phi ptr [ %3, %9 ], [ %3, %7 ], [ %12, %16 ], [ %12, %18 ]
-  %.pn = phi { ptr, i32 } [ %10, %9 ], [ %8, %7 ], [ %17, %16 ], [ %19, %18 ]
+  %.sink18 = phi ptr [ %3, %7 ], [ %3, %9 ], [ %12, %16 ], [ %12, %18 ]
+  %.pn = phi { ptr, i32 } [ %8, %7 ], [ %10, %9 ], [ %17, %16 ], [ %19, %18 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sink18) #25
   resume { ptr, i32 } %.pn
 }

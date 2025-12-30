@@ -619,8 +619,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h05e7ca1748e3cd71E(pt
           to label %82 unwind label %71
 
 82:                                               ; preds = %80, %62, %48, %36, %24, %.invoke, %77
-  %.sink26 = phi ptr [ %78, %77 ], [ %26, %24 ], [ %67, %.invoke ], [ %64, %62 ], [ %50, %48 ], [ %38, %36 ], [ %81, %80 ]
-  %.sink = phi i32 [ 0, %77 ], [ 1, %24 ], [ 1, %.invoke ], [ 1, %62 ], [ 1, %48 ], [ 1, %36 ], [ 1, %80 ]
+  %.sink26 = phi ptr [ %78, %77 ], [ %64, %62 ], [ %50, %48 ], [ %38, %36 ], [ %26, %24 ], [ %67, %.invoke ], [ %81, %80 ]
+  %.sink = phi i32 [ 0, %77 ], [ 1, %62 ], [ 1, %48 ], [ 1, %36 ], [ 1, %24 ], [ 1, %.invoke ], [ 1, %80 ]
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink26, ptr %.sroa.417.0..sroa_idx, align 8
   store i32 %.sink, ptr %0, align 8
@@ -1290,7 +1290,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h08b5b9015c76fa84E(pt
   br label %176
 
 176:                                              ; preds = %.invoke, %90, %78, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$lsp_types..TagSupport$LT$lsp_types..completion..CompletionItemTag$GT$$GT$$GT$17h8d9d8414829da7b0E.exit206.i"
-  %.sroa.16.3 = phi ptr [ %.sroa.16.2, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$lsp_types..TagSupport$LT$lsp_types..completion..CompletionItemTag$GT$$GT$$GT$17h8d9d8414829da7b0E.exit206.i" ], [ %105, %.invoke ], [ %80, %78 ], [ %92, %90 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.2, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$lsp_types..TagSupport$LT$lsp_types..completion..CompletionItemTag$GT$$GT$$GT$17h8d9d8414829da7b0E.exit206.i" ], [ %80, %78 ], [ %92, %90 ], [ %105, %.invoke ]
   %177 = load i64, ptr %23, align 8, !range !31, !alias.scope !280, !noalias !155, !noundef !3
   %178 = icmp eq i64 %177, -9223372036854775808
   br i1 %178, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..MarkupKind$GT$$GT$$GT$17h8fba09555293f2d9E.exit207.i", label %179
@@ -1300,7 +1300,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h08b5b9015c76fa84E(pt
           to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..MarkupKind$GT$$GT$$GT$17h8fba09555293f2d9E.exit207.i" unwind label %180
 
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..MarkupKind$GT$$GT$$GT$17h8fba09555293f2d9E.exit207.i": ; preds = %179, %.thread251.i, %.thread256.i, %176
-  %.sroa.16.4 = phi ptr [ %63, %.thread256.i ], [ %.sroa.16.3, %176 ], [ %62, %.thread251.i ], [ %.sroa.16.3, %179 ]
+  %.sroa.16.4 = phi ptr [ %.sroa.16.3, %176 ], [ %62, %.thread251.i ], [ %63, %.thread256.i ], [ %.sroa.16.3, %179 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !155
   br label %"_ZN188_$LT$lsp_types..completion.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..completion..CompletionItemCapability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h010e166b20572981E.exit.thread"
 
@@ -1328,8 +1328,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h08b5b9015c76fa84E(pt
   %183 = icmp eq i64 %.sroa.098.i.sroa.0.0.copyload, -9223372036854775807
   br i1 %183, label %"_ZN188_$LT$lsp_types..completion.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..completion..CompletionItemCapability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h010e166b20572981E.exit.thread", label %188
 
-"_ZN188_$LT$lsp_types..completion.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..completion..CompletionItemCapability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h010e166b20572981E.exit.thread": ; preds = %.invoke35, %50, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..MarkupKind$GT$$GT$$GT$17h8fba09555293f2d9E.exit207.i", %38, %"_ZN188_$LT$lsp_types..completion.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..completion..CompletionItemCapability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h010e166b20572981E.exit"
-  %.sroa.16.724 = phi ptr [ %.sroa.098.i.sroa.4.0.copyload, %"_ZN188_$LT$lsp_types..completion.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..completion..CompletionItemCapability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h010e166b20572981E.exit" ], [ %68, %.invoke35 ], [ %52, %50 ], [ %40, %38 ], [ %.sroa.16.4, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..MarkupKind$GT$$GT$$GT$17h8fba09555293f2d9E.exit207.i" ]
+"_ZN188_$LT$lsp_types..completion.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..completion..CompletionItemCapability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h010e166b20572981E.exit.thread": ; preds = %.invoke35, %50, %38, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..MarkupKind$GT$$GT$$GT$17h8fba09555293f2d9E.exit207.i", %"_ZN188_$LT$lsp_types..completion.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..completion..CompletionItemCapability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h010e166b20572981E.exit"
+  %.sroa.16.724 = phi ptr [ %.sroa.098.i.sroa.4.0.copyload, %"_ZN188_$LT$lsp_types..completion.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..completion..CompletionItemCapability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h010e166b20572981E.exit" ], [ %52, %50 ], [ %40, %38 ], [ %.sroa.16.4, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..MarkupKind$GT$$GT$$GT$17h8fba09555293f2d9E.exit207.i" ], [ %68, %.invoke35 ]
   %184 = icmp ne ptr %.sroa.16.724, null
   call void @llvm.assume(i1 %184)
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1591,7 +1591,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h0c6558b473e02278E(pt
           to label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureInformationSettings$GT$$GT$17heb67470a2c31fc53E.exit53.i" unwind label %64
 
 "_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureInformationSettings$GT$$GT$17heb67470a2c31fc53E.exit53.i": ; preds = %61, %39, %46, %58
-  %.sroa.9.0 = phi ptr [ %47, %46 ], [ %.sink90.i, %58 ], [ %36, %39 ], [ %.sink90.i, %61 ]
+  %.sroa.9.0 = phi ptr [ %.sink90.i, %58 ], [ %36, %39 ], [ %47, %46 ], [ %.sink90.i, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !306
   br label %.thread20
 
@@ -2313,7 +2313,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h13efe6ad1193fcfeE(pt
           to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionCapabilityResolveSupport$GT$$GT$17ha8589a77bb58c0b0E.exit133.i" unwind label %59, !noalias !422
 
 "_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionCapabilityResolveSupport$GT$$GT$17ha8589a77bb58c0b0E.exit133.i": ; preds = %.thread208.i, %.thread213.i, %122, %119
-  %.sroa.13.1 = phi ptr [ %.sroa.13.0, %122 ], [ %.sroa.13.0, %119 ], [ %97, %.thread208.i ], [ %101, %.thread213.i ]
+  %.sroa.13.1 = phi ptr [ %.sroa.13.0, %119 ], [ %.sroa.13.0, %122 ], [ %97, %.thread208.i ], [ %101, %.thread213.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !422
   br label %125
 
@@ -2324,7 +2324,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h13efe6ad1193fcfeE(pt
   unreachable
 
 125:                                              ; preds = %.invoke, %85, %73, %61, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionCapabilityResolveSupport$GT$$GT$17ha8589a77bb58c0b0E.exit133.i"
-  %.sroa.13.2 = phi ptr [ %.sroa.13.1, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionCapabilityResolveSupport$GT$$GT$17ha8589a77bb58c0b0E.exit133.i" ], [ %87, %85 ], [ %100, %.invoke ], [ %63, %61 ], [ %75, %73 ]
+  %.sroa.13.2 = phi ptr [ %.sroa.13.1, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionCapabilityResolveSupport$GT$$GT$17ha8589a77bb58c0b0E.exit133.i" ], [ %63, %61 ], [ %75, %73 ], [ %87, %85 ], [ %100, %.invoke ]
   %126 = load i64, ptr %17, align 8, !range !31, !alias.scope !530, !noalias !422, !noundef !3
   %127 = icmp eq i64 %126, -9223372036854775808
   br i1 %127, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionLiteralSupport$GT$$GT$17hc60baca6106963a3E.exit134.i", label %128
@@ -2334,7 +2334,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h13efe6ad1193fcfeE(pt
           to label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionLiteralSupport$GT$$GT$17hc60baca6106963a3E.exit134.i" unwind label %129
 
 "_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionLiteralSupport$GT$$GT$17hc60baca6106963a3E.exit134.i": ; preds = %128, %47, %54, %125
-  %.sroa.13.3 = phi ptr [ %55, %54 ], [ %.sroa.13.2, %125 ], [ %44, %47 ], [ %.sroa.13.2, %128 ]
+  %.sroa.13.3 = phi ptr [ %.sroa.13.2, %125 ], [ %44, %47 ], [ %55, %54 ], [ %.sroa.13.2, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !422
   br label %"_ZN194_$LT$lsp_types..code_action.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..code_action..CodeActionClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h9aa570a7f86ad720E.exit.thread"
 
@@ -2854,7 +2854,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h1867550a77080e4aE(pt
           to label %106 unwind label %71, !noalias !556
 
 106:                                              ; preds = %.thread207.invoke.i, %.thread202.i, %88, %76
-  %.sink229.sink.i = phi ptr [ %105, %.thread207.invoke.i ], [ %102, %.thread202.i ], [ %78, %76 ], [ %90, %88 ]
+  %.sink229.sink.i = phi ptr [ %78, %76 ], [ %90, %88 ], [ %102, %.thread202.i ], [ %105, %.thread207.invoke.i ]
   %107 = load i64, ptr %15, align 8, !range !175, !alias.scope !661, !noalias !556, !noundef !3
   %108 = icmp eq i64 %107, -9223372036854775807
   br i1 %108, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$lsp_types..completion..CompletionItemKindCapability$GT$$GT$17h3c41303e496ad12bE.exit129.i", label %109
@@ -2864,7 +2864,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h1867550a77080e4aE(pt
           to label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$lsp_types..completion..CompletionItemKindCapability$GT$$GT$17h3c41303e496ad12bE.exit129.i" unwind label %60, !noalias !556
 
 "_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$lsp_types..completion..CompletionItemKindCapability$GT$$GT$17h3c41303e496ad12bE.exit129.i": ; preds = %62, %69, %109, %106
-  %.sroa.10.0 = phi ptr [ %.sink229.sink.i, %109 ], [ %.sink229.sink.i, %106 ], [ %54, %62 ], [ %70, %69 ]
+  %.sroa.10.0 = phi ptr [ %.sink229.sink.i, %106 ], [ %.sink229.sink.i, %109 ], [ %54, %62 ], [ %70, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !556
   %110 = load i64, ptr %16, align 8, !range !175, !alias.scope !664, !noalias !556, !noundef !3
   %111 = icmp eq i64 %110, -9223372036854775807
@@ -2881,7 +2881,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h1867550a77080e4aE(pt
   unreachable
 
 "_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..completion..CompletionItemCapability$GT$$GT$17he90594357f88df00E.exit130.i": ; preds = %112, %46, %55, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$lsp_types..completion..CompletionItemKindCapability$GT$$GT$17h3c41303e496ad12bE.exit129.i"
-  %.sroa.10.1 = phi ptr [ %56, %55 ], [ %.sroa.10.0, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$lsp_types..completion..CompletionItemKindCapability$GT$$GT$17h3c41303e496ad12bE.exit129.i" ], [ %43, %46 ], [ %.sroa.10.0, %112 ]
+  %.sroa.10.1 = phi ptr [ %.sroa.10.0, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$lsp_types..completion..CompletionItemKindCapability$GT$$GT$17h3c41303e496ad12bE.exit129.i" ], [ %43, %46 ], [ %56, %55 ], [ %.sroa.10.0, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !556
   br label %.thread19
 
@@ -3492,12 +3492,12 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h23f8d6b12c733c0aE(pt
   br i1 %.not151.i, label %.invoke56, label %204, !prof !270
 
 .invoke56:                                        ; preds = %189, %180, %171, %161, %153, %144, %135, %126, %118
-  %190 = phi i64 [ 12, %180 ], [ 11, %171 ], [ 10, %161 ], [ 9, %153 ], [ 8, %144 ], [ 7, %135 ], [ 6, %126 ], [ 5, %118 ], [ 13, %189 ]
+  %190 = phi i64 [ 5, %118 ], [ 6, %126 ], [ 7, %135 ], [ 8, %144 ], [ 9, %153 ], [ 10, %161 ], [ 11, %171 ], [ 12, %180 ], [ 13, %189 ]
   %191 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error14invalid_length17h21c374973c0556c1E(i64 noundef %190, ptr noundef nonnull align 1 @anon.2803e3af945a6f4e8618eb296876dfe0.37, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2803e3af945a6f4e8618eb296876dfe0.2)
           to label %192 unwind label %107, !noalias !690
 
 192:                                              ; preds = %.invoke56, %182, %173, %164, %158, %146, %137, %128, %119, %112
-  %.sroa.20.0 = phi ptr [ %191, %.invoke56 ], [ %132, %128 ], [ %141, %137 ], [ %150, %146 ], [ %160, %158 ], [ %168, %164 ], [ %177, %173 ], [ %186, %182 ], [ %114, %112 ], [ %123, %119 ]
+  %.sroa.20.0 = phi ptr [ %114, %112 ], [ %123, %119 ], [ %132, %128 ], [ %141, %137 ], [ %150, %146 ], [ %160, %158 ], [ %168, %164 ], [ %177, %173 ], [ %186, %182 ], [ %191, %.invoke56 ]
   %193 = load i64, ptr %23, align 8, !range !175, !alias.scope !796, !noalias !690, !noundef !3
   %194 = icmp eq i64 %193, -9223372036854775807
   br i1 %194, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..workspace_symbols..WorkspaceSymbolClientCapabilities$GT$$GT$17h04506c4fba8498a9E.exit203.i", label %195
@@ -3507,7 +3507,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h23f8d6b12c733c0aE(pt
           to label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..workspace_symbols..WorkspaceSymbolClientCapabilities$GT$$GT$17h04506c4fba8498a9E.exit203.i" unwind label %66, !noalias !690
 
 "_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..workspace_symbols..WorkspaceSymbolClientCapabilities$GT$$GT$17h04506c4fba8498a9E.exit203.i": ; preds = %98, %105, %195, %192
-  %.sroa.20.1 = phi ptr [ %.sroa.20.0, %195 ], [ %.sroa.20.0, %192 ], [ %94, %98 ], [ %106, %105 ]
+  %.sroa.20.1 = phi ptr [ %.sroa.20.0, %192 ], [ %.sroa.20.0, %195 ], [ %94, %98 ], [ %106, %105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !690
   br label %198
 
@@ -3518,7 +3518,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h23f8d6b12c733c0aE(pt
   unreachable
 
 198:                                              ; preds = %.invoke, %80, %68, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..workspace_symbols..WorkspaceSymbolClientCapabilities$GT$$GT$17h04506c4fba8498a9E.exit203.i"
-  %.sroa.20.2 = phi ptr [ %.sroa.20.1, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..workspace_symbols..WorkspaceSymbolClientCapabilities$GT$$GT$17h04506c4fba8498a9E.exit203.i" ], [ %97, %.invoke ], [ %70, %68 ], [ %82, %80 ]
+  %.sroa.20.2 = phi ptr [ %.sroa.20.1, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$lsp_types..workspace_symbols..WorkspaceSymbolClientCapabilities$GT$$GT$17h04506c4fba8498a9E.exit203.i" ], [ %70, %68 ], [ %82, %80 ], [ %97, %.invoke ]
   %199 = load i64, ptr %24, align 8, !range !175, !alias.scope !799, !noalias !690, !noundef !3
   %200 = icmp eq i64 %199, -9223372036854775807
   br i1 %200, label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceEditClientCapabilities$GT$$GT$17h4d9645131b8e9e45E.exit204.i", label %201
@@ -3528,7 +3528,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h23f8d6b12c733c0aE(pt
           to label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceEditClientCapabilities$GT$$GT$17h4d9645131b8e9e45E.exit204.i" unwind label %202
 
 "_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$lsp_types..WorkspaceEditClientCapabilities$GT$$GT$17h4d9645131b8e9e45E.exit204.i": ; preds = %201, %54, %61, %198
-  %.sroa.20.3 = phi ptr [ %62, %61 ], [ %.sroa.20.2, %198 ], [ %51, %54 ], [ %.sroa.20.2, %201 ]
+  %.sroa.20.3 = phi ptr [ %.sroa.20.2, %198 ], [ %51, %54 ], [ %62, %61 ], [ %.sroa.20.2, %201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !690
   br label %.thread24
 
@@ -3921,7 +3921,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h25ad29411e85c0efE(pt
   unreachable
 
 "_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h0eb0567cd8dbd373E.exit104.i": ; preds = %85, %42, %51, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$lsp_types..TagSupport$LT$lsp_types..SymbolTag$GT$$GT$$GT$17h4cda5e1ee9818d3cE.exit103.i"
-  %.sroa.10.1 = phi ptr [ %52, %51 ], [ %.sroa.10.0, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$lsp_types..TagSupport$LT$lsp_types..SymbolTag$GT$$GT$$GT$17h4cda5e1ee9818d3cE.exit103.i" ], [ %39, %42 ], [ %.sroa.10.0, %85 ]
+  %.sroa.10.1 = phi ptr [ %.sroa.10.0, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$lsp_types..TagSupport$LT$lsp_types..SymbolTag$GT$$GT$$GT$17h4cda5e1ee9818d3cE.exit103.i" ], [ %39, %42 ], [ %52, %51 ], [ %.sroa.10.0, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !825
   br label %"_ZN211_$LT$lsp_types..workspace_symbols.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..workspace_symbols..WorkspaceSymbolClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h3bab648dfd19ceb6E.exit.thread"
 
@@ -4160,8 +4160,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h30b7622bc25480ecE(pt
           cleanup
   br label %.body
 
-.thread18:                                        ; preds = %24, %31, %40
-  %.sroa.8.0.ph = phi ptr [ %.sink48.i, %40 ], [ %23, %24 ], [ %32, %31 ]
+.thread18:                                        ; preds = %31, %24, %40
+  %.sroa.8.0.ph = phi ptr [ %.sink48.i, %40 ], [ %32, %31 ], [ %23, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !901
   br label %49
 
@@ -4571,7 +4571,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h34096eb43815e385E(pt
   br label %38
 
 41:                                               ; preds = %.invoke, %20, %32
-  %.sroa.99.0.ph = phi ptr [ %37, %.invoke ], [ %34, %32 ], [ %22, %20 ]
+  %.sroa.99.0.ph = phi ptr [ %34, %32 ], [ %22, %20 ], [ %37, %.invoke ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.99.0.ph, ptr %42, align 8
   br label %56
@@ -5009,8 +5009,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h3b6382d083d3ab89E(pt
           cleanup
   br label %.body
 
-.thread:                                          ; preds = %24, %33, %40
-  %.sroa.8.0.ph = phi ptr [ %.sink80.i, %40 ], [ %23, %24 ], [ %34, %33 ]
+.thread:                                          ; preds = %33, %24, %40
+  %.sroa.8.0.ph = phi ptr [ %.sink80.i, %40 ], [ %34, %33 ], [ %23, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1058
   br label %47
 
@@ -5208,7 +5208,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h3cbf9e39177a194bE(pt
   br label %39
 
 42:                                               ; preds = %.invoke, %21, %35
-  %.sroa.8.0.ph = phi ptr [ %38, %.invoke ], [ %33, %35 ], [ %23, %21 ]
+  %.sroa.8.0.ph = phi ptr [ %33, %35 ], [ %23, %21 ], [ %38, %.invoke ]
   %43 = icmp ne ptr %.sroa.8.0.ph, null
   tail call void @llvm.assume(i1 %43)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5707,7 +5707,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h3f28a55487868971E(pt
           to label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17hc8b7471de908e161E.exit119.i" unwind label %55, !noalias !1170
 
 "_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17hc8b7471de908e161E.exit119.i": ; preds = %72, %81, %94, %91
-  %.sroa.11.0 = phi ptr [ %.sink196.i, %94 ], [ %.sink196.i, %91 ], [ %69, %72 ], [ %82, %81 ]
+  %.sroa.11.0 = phi ptr [ %.sink196.i, %91 ], [ %.sink196.i, %94 ], [ %69, %72 ], [ %82, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1170
   br label %97
 
@@ -5738,8 +5738,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h3f28a55487868971E(pt
           cleanup
   br label %.body
 
-.thread21:                                        ; preds = %32, %41, %98
-  %.sroa.11.3.ph = phi ptr [ %.sroa.11.2, %98 ], [ %31, %32 ], [ %42, %41 ]
+.thread21:                                        ; preds = %41, %32, %98
+  %.sroa.11.3.ph = phi ptr [ %.sroa.11.2, %98 ], [ %42, %41 ], [ %31, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1170
   br label %103
 
@@ -5966,8 +5966,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h3f8554ecdae38985E(pt
           cleanup
   br label %.body
 
-.thread19:                                        ; preds = %24, %33, %40
-  %.sroa.8.0.ph = phi ptr [ %.sink68.i, %40 ], [ %23, %24 ], [ %34, %33 ]
+.thread19:                                        ; preds = %33, %24, %40
+  %.sroa.8.0.ph = phi ptr [ %.sink68.i, %40 ], [ %34, %33 ], [ %23, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1282
   br label %47
 
@@ -6407,7 +6407,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h41cdab162aa42be7E(pt
           to label %89 unwind label %54, !noalias !1347
 
 89:                                               ; preds = %.invoke.i, %83, %71, %59
-  %.sink172.sink.i = phi ptr [ %88, %.invoke.i ], [ %85, %83 ], [ %61, %59 ], [ %73, %71 ]
+  %.sink172.sink.i = phi ptr [ %61, %59 ], [ %73, %71 ], [ %85, %83 ], [ %88, %.invoke.i ]
   %90 = load i64, ptr %13, align 8, !range !31, !alias.scope !1428, !noalias !1347, !noundef !3
   %91 = icmp eq i64 %90, -9223372036854775808
   br i1 %91, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$lsp_types..TagSupport$LT$lsp_types..DiagnosticTag$GT$$GT$$GT$17hfb77d2d945fe8552E.exit97.i", label %92
@@ -6656,8 +6656,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h4206877b42848ad5E(pt
           cleanup
   br label %.body
 
-.thread19:                                        ; preds = %24, %33, %40
-  %.sroa.8.0.ph = phi ptr [ %.sink68.i, %40 ], [ %23, %24 ], [ %34, %33 ]
+.thread19:                                        ; preds = %33, %24, %40
+  %.sroa.8.0.ph = phi ptr [ %.sink68.i, %40 ], [ %34, %33 ], [ %23, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1434
   br label %47
 
@@ -7291,7 +7291,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h4ba07837d1093ed9E(pt
           to label %58 unwind label %35, !noalias !1502
 
 58:                                               ; preds = %.invoke.i, %52, %40
-  %.sink99.i = phi ptr [ %54, %52 ], [ %57, %.invoke.i ], [ %42, %40 ]
+  %.sink99.i = phi ptr [ %54, %52 ], [ %42, %40 ], [ %57, %.invoke.i ]
   %59 = load i64, ptr %9, align 8, !range !31, !alias.scope !1565, !noalias !1502, !noundef !3
   %60 = icmp eq i64 %59, -9223372036854775808
   br i1 %60, label %.thread, label %61
@@ -7316,8 +7316,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h4ba07837d1093ed9E(pt
           cleanup
   br label %.body
 
-.thread:                                          ; preds = %58, %26, %33, %61
-  %.sroa.8.0.ph = phi ptr [ %.sink99.i, %61 ], [ %25, %26 ], [ %34, %33 ], [ %.sink99.i, %58 ]
+.thread:                                          ; preds = %58, %33, %26, %61
+  %.sroa.8.0.ph = phi ptr [ %.sink99.i, %61 ], [ %34, %33 ], [ %25, %26 ], [ %.sink99.i, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1502
   br label %70
 
@@ -7627,7 +7627,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h4cc07182b0d9c655E(pt
           to label %72 unwind label %52, !noalias !1571
 
 72:                                               ; preds = %.invoke.i, %68, %54
-  %.sink150.i = phi ptr [ %66, %68 ], [ %71, %.invoke.i ], [ %56, %54 ]
+  %.sink150.i = phi ptr [ %66, %68 ], [ %56, %54 ], [ %71, %.invoke.i ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4c11bd06e1390470E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
           to label %73 unwind label %41, !noalias !1571
 
@@ -7653,8 +7653,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h4cc07182b0d9c655E(pt
           cleanup
   br label %.body
 
-.thread17:                                        ; preds = %29, %38, %73
-  %.sroa.9.1.ph = phi ptr [ %.sroa.9.0, %73 ], [ %28, %29 ], [ %39, %38 ]
+.thread17:                                        ; preds = %38, %29, %73
+  %.sroa.9.1.ph = phi ptr [ %.sroa.9.0, %73 ], [ %39, %38 ], [ %28, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1571
   br label %80
 
@@ -7855,7 +7855,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h515ac7ccfc83156bE(pt
   br label %38
 
 41:                                               ; preds = %.invoke, %20, %32
-  %.sroa.99.0.ph = phi ptr [ %37, %.invoke ], [ %34, %32 ], [ %22, %20 ]
+  %.sroa.99.0.ph = phi ptr [ %34, %32 ], [ %22, %20 ], [ %37, %.invoke ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.99.0.ph, ptr %42, align 8
   br label %56
@@ -8117,7 +8117,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h51ecf76420f4317dE(pt
   br label %66
 
 69:                                               ; preds = %.invoke, %24, %36, %48, %60
-  %.sroa.1017.0.ph = phi ptr [ %65, %.invoke ], [ %62, %60 ], [ %50, %48 ], [ %38, %36 ], [ %26, %24 ]
+  %.sroa.1017.0.ph = phi ptr [ %62, %60 ], [ %50, %48 ], [ %38, %36 ], [ %26, %24 ], [ %65, %.invoke ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.1017.0.ph, ptr %70, align 8
   br label %83
@@ -8833,7 +8833,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h57a439c61d4e2aaeE(pt
           to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h12bfafbd756f5a87E.exit174.i" unwind label %109, !noalias !1800
 
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h12bfafbd756f5a87E.exit174.i": ; preds = %.thread242.i, %.thread247.i, %131, %128
-  %.sroa.13.1 = phi ptr [ %.sroa.13.0, %131 ], [ %.sroa.13.0, %128 ], [ %103, %.thread242.i ], [ %111, %.thread247.i ]
+  %.sroa.13.1 = phi ptr [ %.sroa.13.0, %128 ], [ %.sroa.13.0, %131 ], [ %103, %.thread242.i ], [ %111, %.thread247.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1800
   %132 = load i64, ptr %17, align 8, !range !175, !alias.scope !1940, !noalias !1800, !noundef !3
   %133 = icmp eq i64 %132, -9223372036854775807
@@ -8850,12 +8850,12 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h57a439c61d4e2aaeE(pt
   unreachable
 
 "_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$lsp_types..GeneralClientCapabilities$GT$$GT$17h6c5105c1bddedacfE.exit176.i": ; preds = %95, %104, %134, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h12bfafbd756f5a87E.exit174.i"
-  %.sroa.13.2 = phi ptr [ %.sroa.13.1, %134 ], [ %.sroa.13.1, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h12bfafbd756f5a87E.exit174.i" ], [ %92, %95 ], [ %105, %104 ]
+  %.sroa.13.2 = phi ptr [ %.sroa.13.1, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h12bfafbd756f5a87E.exit174.i" ], [ %.sroa.13.1, %134 ], [ %92, %95 ], [ %105, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !1800
   br label %137
 
 137:                                              ; preds = %.invoke, %80, %66, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$lsp_types..GeneralClientCapabilities$GT$$GT$17h6c5105c1bddedacfE.exit176.i"
-  %.sroa.13.3 = phi ptr [ %.sroa.13.2, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$lsp_types..GeneralClientCapabilities$GT$$GT$17h6c5105c1bddedacfE.exit176.i" ], [ %94, %.invoke ], [ %68, %66 ], [ %82, %80 ]
+  %.sroa.13.3 = phi ptr [ %.sroa.13.2, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$lsp_types..GeneralClientCapabilities$GT$$GT$17h6c5105c1bddedacfE.exit176.i" ], [ %68, %66 ], [ %82, %80 ], [ %94, %.invoke ]
   %138 = load i64, ptr %18, align 8, !range !175, !alias.scope !1943, !noalias !1800, !noundef !3
   %139 = icmp eq i64 %138, -9223372036854775807
   br i1 %139, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..TextDocumentClientCapabilities$GT$$GT$17hcc4d802c59ed8436E.exit178.i", label %140
@@ -8865,7 +8865,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h57a439c61d4e2aaeE(pt
           to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..TextDocumentClientCapabilities$GT$$GT$17hcc4d802c59ed8436E.exit178.i" unwind label %50, !noalias !1800
 
 "_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..TextDocumentClientCapabilities$GT$$GT$17hcc4d802c59ed8436E.exit178.i": ; preds = %52, %59, %140, %137
-  %.sroa.13.4 = phi ptr [ %.sroa.13.3, %140 ], [ %.sroa.13.3, %137 ], [ %44, %52 ], [ %60, %59 ]
+  %.sroa.13.4 = phi ptr [ %.sroa.13.3, %137 ], [ %.sroa.13.3, %140 ], [ %44, %52 ], [ %60, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !1800
   %141 = load i64, ptr %19, align 8, !range !261, !alias.scope !1946, !noalias !1800, !noundef !3
   %142 = icmp eq i64 %141, -9223372036854775806
@@ -8885,8 +8885,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h57a439c61d4e2aaeE(pt
           cleanup
   br label %.body
 
-.thread27:                                        ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..TextDocumentClientCapabilities$GT$$GT$17hcc4d802c59ed8436E.exit178.i", %36, %45, %143
-  %.sroa.13.5.ph = phi ptr [ %.sroa.13.4, %143 ], [ %35, %36 ], [ %46, %45 ], [ %.sroa.13.4, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..TextDocumentClientCapabilities$GT$$GT$17hcc4d802c59ed8436E.exit178.i" ]
+.thread27:                                        ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..TextDocumentClientCapabilities$GT$$GT$17hcc4d802c59ed8436E.exit178.i", %45, %36, %143
+  %.sroa.13.5.ph = phi ptr [ %.sroa.13.4, %143 ], [ %46, %45 ], [ %35, %36 ], [ %.sroa.13.4, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..TextDocumentClientCapabilities$GT$$GT$17hcc4d802c59ed8436E.exit178.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !1800
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.380.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.582.i)
@@ -9905,8 +9905,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h63a42eb8545279b2E(pt
           cleanup
   br label %.body
 
-.thread19:                                        ; preds = %24, %33, %40
-  %.sroa.8.0.ph = phi ptr [ %.sink68.i, %40 ], [ %23, %24 ], [ %34, %33 ]
+.thread19:                                        ; preds = %33, %24, %40
+  %.sroa.8.0.ph = phi ptr [ %.sink68.i, %40 ], [ %34, %33 ], [ %23, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2047
   br label %47
 
@@ -10254,7 +10254,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h63c177a606940c7cE(pt
           to label %87 unwind label %52, !noalias !2112
 
 87:                                               ; preds = %.invoke.i, %81, %69, %57
-  %.sink167.sink.i = phi ptr [ %86, %.invoke.i ], [ %83, %81 ], [ %59, %57 ], [ %71, %69 ]
+  %.sink167.sink.i = phi ptr [ %59, %57 ], [ %71, %69 ], [ %83, %81 ], [ %86, %.invoke.i ]
   %88 = load i64, ptr %13, align 8, !range !31, !alias.scope !2193, !noalias !2112, !noundef !3
   %89 = icmp eq i64 %88, -9223372036854775808
   br i1 %89, label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..ResourceOperationKind$GT$$GT$$GT$17hf63944ac8a015c5cE.exit90.i", label %90
@@ -10264,7 +10264,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h63c177a606940c7cE(pt
           to label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..ResourceOperationKind$GT$$GT$$GT$17hf63944ac8a015c5cE.exit90.i" unwind label %93
 
 "_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$lsp_types..ResourceOperationKind$GT$$GT$$GT$17hf63944ac8a015c5cE.exit90.i": ; preds = %90, %43, %50, %87
-  %.sroa.9.0 = phi ptr [ %51, %50 ], [ %.sink167.sink.i, %87 ], [ %40, %43 ], [ %.sink167.sink.i, %90 ]
+  %.sroa.9.0 = phi ptr [ %.sink167.sink.i, %87 ], [ %40, %43 ], [ %51, %50 ], [ %.sink167.sink.i, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !2112
   br label %"_ZN171_$LT$lsp_types.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..WorkspaceEditClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h98900cb1914bdd99E.exit.thread"
 
@@ -11050,7 +11050,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h7466fd916ec9b736E(pt
   br i1 %.not65.i, label %.invoke, label %112, !prof !270
 
 .invoke:                                          ; preds = %102, %40, %52, %64, %76, %88, %101
-  %103 = phi i64 [ 0, %40 ], [ 5, %101 ], [ 4, %88 ], [ 3, %76 ], [ 2, %64 ], [ 1, %52 ], [ 6, %102 ]
+  %103 = phi i64 [ 5, %101 ], [ 4, %88 ], [ 3, %76 ], [ 2, %64 ], [ 1, %52 ], [ 0, %40 ], [ 6, %102 ]
   %104 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error14invalid_length17h21c374973c0556c1E(i64 noundef %103, ptr noundef nonnull align 1 @anon.2803e3af945a6f4e8618eb296876dfe0.147, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2803e3af945a6f4e8618eb296876dfe0.2)
           to label %108 unwind label %106
 
@@ -11064,8 +11064,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h7466fd916ec9b736E(pt
           cleanup
   br label %105
 
-108:                                              ; preds = %.invoke, %89, %29, %41, %53, %65, %77, %.noexc16
-  %.sroa.13.0.ph = phi ptr [ %104, %.invoke ], [ %98, %.noexc16 ], [ %91, %89 ], [ %79, %77 ], [ %67, %65 ], [ %55, %53 ], [ %43, %41 ], [ %31, %29 ]
+108:                                              ; preds = %.invoke, %29, %41, %53, %65, %77, %89, %.noexc16
+  %.sroa.13.0.ph = phi ptr [ %98, %.noexc16 ], [ %91, %89 ], [ %79, %77 ], [ %67, %65 ], [ %55, %53 ], [ %43, %41 ], [ %31, %29 ], [ %104, %.invoke ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.13.0.ph, ptr %109, align 8
   br label %120
@@ -11638,7 +11638,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h7e0d4c3b391a0788E(pt
   br label %38
 
 41:                                               ; preds = %.invoke, %20, %32
-  %.sroa.99.0.ph = phi ptr [ %37, %.invoke ], [ %34, %32 ], [ %22, %20 ]
+  %.sroa.99.0.ph = phi ptr [ %34, %32 ], [ %22, %20 ], [ %37, %.invoke ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.99.0.ph, ptr %42, align 8
   br label %56
@@ -11937,7 +11937,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h81dfc0b78c15ecc7E(pt
   br label %38
 
 41:                                               ; preds = %.invoke, %20, %32
-  %.sroa.7.0.ph = phi ptr [ %37, %.invoke ], [ %34, %32 ], [ %22, %20 ]
+  %.sroa.7.0.ph = phi ptr [ %34, %32 ], [ %22, %20 ], [ %37, %.invoke ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.0.ph, ptr %42, align 8
   br label %56
@@ -12236,7 +12236,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h8396c2f0e19ea80cE(pt
   br label %38
 
 41:                                               ; preds = %.invoke, %20, %32
-  %.sroa.99.0.ph = phi ptr [ %37, %.invoke ], [ %34, %32 ], [ %22, %20 ]
+  %.sroa.99.0.ph = phi ptr [ %34, %32 ], [ %22, %20 ], [ %37, %.invoke ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.99.0.ph, ptr %42, align 8
   br label %56
@@ -12464,7 +12464,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h84d178cfae1f65c7E(pt
   br label %54
 
 57:                                               ; preds = %.invoke, %23, %34, %50
-  %.sroa.9.0.ph = phi ptr [ %53, %.invoke ], [ %48, %50 ], [ %36, %34 ], [ %25, %23 ]
+  %.sroa.9.0.ph = phi ptr [ %48, %50 ], [ %36, %34 ], [ %25, %23 ], [ %53, %.invoke ]
   %58 = icmp ne ptr %.sroa.9.0.ph, null
   tail call void @llvm.assume(i1 %58)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13524,7 +13524,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9d96416d04e9f2eeE(pt
   br label %52
 
 55:                                               ; preds = %.invoke, %22, %34, %46
-  %.sroa.911.0.ph = phi ptr [ %51, %.invoke ], [ %48, %46 ], [ %36, %34 ], [ %24, %22 ]
+  %.sroa.911.0.ph = phi ptr [ %48, %46 ], [ %36, %34 ], [ %24, %22 ], [ %51, %.invoke ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.911.0.ph, ptr %56, align 8
   br label %69
@@ -13836,8 +13836,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9e7d519d859d15a5E(pt
           cleanup
   br label %.body
 
-.thread:                                          ; preds = %24, %33, %40
-  %.sroa.8.0.ph = phi ptr [ %.sink80.i, %40 ], [ %23, %24 ], [ %34, %33 ]
+.thread:                                          ; preds = %33, %24, %40
+  %.sroa.8.0.ph = phi ptr [ %.sink80.i, %40 ], [ %34, %33 ], [ %23, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2868
   br label %47
 
@@ -14527,7 +14527,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9fdcc677985e9daaE(pt
           to label %234 unwind label %159
 
 .invoke94:                                        ; preds = %230, %219, %208, %197, %186, %177, %168
-  %232 = phi i64 [ 12, %219 ], [ 11, %208 ], [ 10, %197 ], [ 9, %186 ], [ 8, %177 ], [ 7, %168 ], [ 13, %230 ]
+  %232 = phi i64 [ 7, %168 ], [ 8, %177 ], [ 9, %186 ], [ 10, %197 ], [ 11, %208 ], [ 12, %219 ], [ 13, %230 ]
   %233 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error14invalid_length17h21c374973c0556c1E(i64 noundef %232, ptr noundef nonnull align 1 @anon.2803e3af945a6f4e8618eb296876dfe0.41, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2803e3af945a6f4e8618eb296876dfe0.2)
           to label %448 unwind label %159, !noalias !2910
 
@@ -14658,7 +14658,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9fdcc677985e9daaE(pt
           to label %288 unwind label %247
 
 .invoke95:                                        ; preds = %284, %276, %267, %256
-  %286 = phi i64 [ 17, %276 ], [ 16, %267 ], [ 15, %256 ], [ 18, %284 ]
+  %286 = phi i64 [ 15, %256 ], [ 16, %267 ], [ 17, %276 ], [ 18, %284 ]
   %287 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error14invalid_length17h21c374973c0556c1E(i64 noundef %286, ptr noundef nonnull align 1 @anon.2803e3af945a6f4e8618eb296876dfe0.41, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2803e3af945a6f4e8618eb296876dfe0.2)
           to label %444 unwind label %247, !noalias !2910
 
@@ -14816,7 +14816,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9fdcc677985e9daaE(pt
           to label %347 unwind label %316
 
 .invoke96:                                        ; preds = %343, %334, %325
-  %345 = phi i64 [ 22, %334 ], [ 21, %325 ], [ 23, %343 ]
+  %345 = phi i64 [ 21, %325 ], [ 22, %334 ], [ 23, %343 ]
   %346 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error14invalid_length17h21c374973c0556c1E(i64 noundef %345, ptr noundef nonnull align 1 @anon.2803e3af945a6f4e8618eb296876dfe0.41, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2803e3af945a6f4e8618eb296876dfe0.2)
           to label %437 unwind label %316, !noalias !2910
 
@@ -14926,7 +14926,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9fdcc677985e9daaE(pt
           to label %391 unwind label %360
 
 .invoke97:                                        ; preds = %387, %378, %369
-  %389 = phi i64 [ 26, %378 ], [ 25, %369 ], [ 27, %387 ]
+  %389 = phi i64 [ 25, %369 ], [ 26, %378 ], [ 27, %387 ]
   %390 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error14invalid_length17h21c374973c0556c1E(i64 noundef %389, ptr noundef nonnull align 1 @anon.2803e3af945a6f4e8618eb296876dfe0.41, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2803e3af945a6f4e8618eb296876dfe0.2)
           to label %433 unwind label %360, !noalias !2910
 
@@ -15014,7 +15014,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9fdcc677985e9daaE(pt
           to label %427 unwind label %401, !noalias !2910
 
 427:                                              ; preds = %.invoke.i, %417, %406
-  %.sink687.i = phi ptr [ %426, %.invoke.i ], [ %421, %417 ], [ %410, %406 ]
+  %.sink687.i = phi ptr [ %410, %406 ], [ %421, %417 ], [ %426, %.invoke.i ]
   %428 = load i64, ptr %18, align 8, !range !175, !alias.scope !3066, !noalias !2934, !noundef !3
   %429 = icmp eq i64 %428, -9223372036854775807
   br i1 %429, label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17hda17fa3b86edf13eE.exit473.i", label %430
@@ -15024,7 +15024,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9fdcc677985e9daaE(pt
           to label %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17hda17fa3b86edf13eE.exit473.i" unwind label %360, !noalias !2910
 
 "_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17hda17fa3b86edf13eE.exit473.i": ; preds = %396, %399, %430, %427
-  %.sroa.36.0 = phi ptr [ %.sink687.i, %430 ], [ %.sink687.i, %427 ], [ %395, %396 ], [ %400, %399 ]
+  %.sroa.36.0 = phi ptr [ %.sink687.i, %427 ], [ %.sink687.i, %430 ], [ %395, %396 ], [ %400, %399 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !2934
   br label %433
 
@@ -15035,7 +15035,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9fdcc677985e9daaE(pt
   unreachable
 
 433:                                              ; preds = %.invoke97, %380, %371, %362, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17hda17fa3b86edf13eE.exit473.i"
-  %.sroa.36.1 = phi ptr [ %.sroa.36.0, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17hda17fa3b86edf13eE.exit473.i" ], [ %384, %380 ], [ %390, %.invoke97 ], [ %366, %362 ], [ %375, %371 ]
+  %.sroa.36.1 = phi ptr [ %.sroa.36.0, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$lsp_types..inlay_hint..InlayHintClientCapabilities$GT$$GT$17hda17fa3b86edf13eE.exit473.i" ], [ %366, %362 ], [ %375, %371 ], [ %384, %380 ], [ %390, %.invoke97 ]
   %434 = load i64, ptr %23, align 8, !range !31, !alias.scope !3069, !noalias !2934, !noundef !3
   %435 = icmp eq i64 %434, -9223372036854775808
   br i1 %435, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$$GT$17h3d3ff9069492cbc9E.exit475.i", label %436
@@ -15045,12 +15045,12 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9fdcc677985e9daaE(pt
           to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$$GT$17h3d3ff9069492cbc9E.exit475.i" unwind label %316, !noalias !2910
 
 "_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$$GT$17h3d3ff9069492cbc9E.exit475.i": ; preds = %352, %355, %436, %433
-  %.sroa.36.2 = phi ptr [ %.sroa.36.1, %436 ], [ %.sroa.36.1, %433 ], [ %351, %352 ], [ %356, %355 ]
+  %.sroa.36.2 = phi ptr [ %.sroa.36.1, %433 ], [ %.sroa.36.1, %436 ], [ %351, %352 ], [ %356, %355 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !2934
   br label %437
 
 437:                                              ; preds = %.invoke96, %336, %327, %318, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$$GT$17h3d3ff9069492cbc9E.exit475.i"
-  %.sroa.36.3 = phi ptr [ %.sroa.36.2, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$$GT$17h3d3ff9069492cbc9E.exit475.i" ], [ %340, %336 ], [ %346, %.invoke96 ], [ %322, %318 ], [ %331, %327 ]
+  %.sroa.36.3 = phi ptr [ %.sroa.36.2, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$$GT$17h3d3ff9069492cbc9E.exit475.i" ], [ %322, %318 ], [ %331, %327 ], [ %340, %336 ], [ %346, %.invoke96 ]
   %438 = load i64, ptr %28, align 8, !range !261, !alias.scope !3072, !noalias !2934, !noundef !3
   %439 = icmp eq i64 %438, -9223372036854775806
   br i1 %439, label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17h9ead194c350cbc7fE.exit477.i", label %440
@@ -15060,7 +15060,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9fdcc677985e9daaE(pt
           to label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17h9ead194c350cbc7fE.exit477.i" unwind label %301, !noalias !2910
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17h9ead194c350cbc7fE.exit477.i": ; preds = %308, %311, %440, %437
-  %.sroa.36.4 = phi ptr [ %.sroa.36.3, %440 ], [ %.sroa.36.3, %437 ], [ %307, %308 ], [ %312, %311 ]
+  %.sroa.36.4 = phi ptr [ %.sroa.36.3, %437 ], [ %.sroa.36.3, %440 ], [ %307, %308 ], [ %312, %311 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !2934
   %441 = load i64, ptr %30, align 8, !range !175, !alias.scope !3075, !noalias !2934, !noundef !3
   %442 = icmp eq i64 %441, -9223372036854775807
@@ -15071,12 +15071,12 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9fdcc677985e9daaE(pt
           to label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17hcb35301d434060a0E.exit479.i" unwind label %247, !noalias !2910
 
 "_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17hcb35301d434060a0E.exit479.i": ; preds = %293, %296, %443, %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17h9ead194c350cbc7fE.exit477.i"
-  %.sroa.36.5 = phi ptr [ %.sroa.36.4, %443 ], [ %.sroa.36.4, %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17h9ead194c350cbc7fE.exit477.i" ], [ %292, %293 ], [ %297, %296 ]
+  %.sroa.36.5 = phi ptr [ %.sroa.36.4, %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$$GT$17h9ead194c350cbc7fE.exit477.i" ], [ %.sroa.36.4, %443 ], [ %292, %293 ], [ %297, %296 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !2934
   br label %444
 
 444:                                              ; preds = %.invoke95, %278, %269, %258, %249, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17hcb35301d434060a0E.exit479.i"
-  %.sroa.36.6 = phi ptr [ %.sroa.36.5, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17hcb35301d434060a0E.exit479.i" ], [ %273, %269 ], [ %282, %278 ], [ %287, %.invoke95 ], [ %253, %249 ], [ %262, %258 ]
+  %.sroa.36.6 = phi ptr [ %.sroa.36.5, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$lsp_types..PublishDiagnosticsClientCapabilities$GT$$GT$17hcb35301d434060a0E.exit479.i" ], [ %253, %249 ], [ %262, %258 ], [ %273, %269 ], [ %282, %278 ], [ %287, %.invoke95 ]
   %445 = load i64, ptr %36, align 8, !range !175, !alias.scope !3078, !noalias !2934, !noundef !3
   %446 = icmp eq i64 %445, -9223372036854775807
   br i1 %446, label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17h8dcd4d01ac16c81fE.exit481.i", label %447
@@ -15086,12 +15086,12 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9fdcc677985e9daaE(pt
           to label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17h8dcd4d01ac16c81fE.exit481.i" unwind label %159, !noalias !2910
 
 "_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17h8dcd4d01ac16c81fE.exit481.i": ; preds = %239, %242, %447, %444
-  %.sroa.36.7 = phi ptr [ %.sroa.36.6, %447 ], [ %.sroa.36.6, %444 ], [ %238, %239 ], [ %243, %242 ]
+  %.sroa.36.7 = phi ptr [ %.sroa.36.6, %444 ], [ %.sroa.36.6, %447 ], [ %238, %239 ], [ %243, %242 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !2934
   br label %448
 
 448:                                              ; preds = %.invoke94, %221, %210, %199, %188, %179, %170, %161, %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17h8dcd4d01ac16c81fE.exit481.i"
-  %.sroa.36.8 = phi ptr [ %.sroa.36.7, %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17h8dcd4d01ac16c81fE.exit481.i" ], [ %183, %179 ], [ %192, %188 ], [ %203, %199 ], [ %214, %210 ], [ %225, %221 ], [ %233, %.invoke94 ], [ %165, %161 ], [ %174, %170 ]
+  %.sroa.36.8 = phi ptr [ %.sroa.36.7, %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..code_action..CodeActionClientCapabilities$GT$$GT$17h8dcd4d01ac16c81fE.exit481.i" ], [ %165, %161 ], [ %174, %170 ], [ %183, %179 ], [ %192, %188 ], [ %203, %199 ], [ %214, %210 ], [ %225, %221 ], [ %233, %.invoke94 ]
   %449 = load i64, ptr %45, align 8, !range !175, !alias.scope !3081, !noalias !2934, !noundef !3
   %450 = icmp eq i64 %449, -9223372036854775807
   br i1 %450, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17h93bb8e3076a36006E.exit483.i", label %451
@@ -15101,12 +15101,12 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9fdcc677985e9daaE(pt
           to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17h93bb8e3076a36006E.exit483.i" unwind label %123, !noalias !2910
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17h93bb8e3076a36006E.exit483.i": ; preds = %151, %154, %451, %448
-  %.sroa.36.9 = phi ptr [ %.sroa.36.8, %451 ], [ %.sroa.36.8, %448 ], [ %150, %151 ], [ %155, %154 ]
+  %.sroa.36.9 = phi ptr [ %.sroa.36.8, %448 ], [ %.sroa.36.8, %451 ], [ %150, %151 ], [ %155, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !2934
   br label %452
 
 452:                                              ; preds = %.invoke, %137, %125, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17h93bb8e3076a36006E.exit483.i"
-  %.sroa.36.10 = phi ptr [ %.sroa.36.9, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17h93bb8e3076a36006E.exit483.i" ], [ %145, %.invoke ], [ %127, %125 ], [ %139, %137 ]
+  %.sroa.36.10 = phi ptr [ %.sroa.36.9, %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$lsp_types..document_symbols..DocumentSymbolClientCapabilities$GT$$GT$17h93bb8e3076a36006E.exit483.i" ], [ %127, %125 ], [ %139, %137 ], [ %145, %.invoke ]
   %453 = load i64, ptr %46, align 8, !range !261, !alias.scope !3084, !noalias !2934, !noundef !3
   %454 = icmp eq i64 %453, -9223372036854775806
   br i1 %454, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17hfcb21a540478f795E.exit485.i", label %455
@@ -15116,7 +15116,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9fdcc677985e9daaE(pt
           to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17hfcb21a540478f795E.exit485.i" unwind label %109, !noalias !2910
 
 "_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17hfcb21a540478f795E.exit485.i": ; preds = %111, %118, %455, %452
-  %.sroa.36.11 = phi ptr [ %.sroa.36.10, %455 ], [ %.sroa.36.10, %452 ], [ %103, %111 ], [ %119, %118 ]
+  %.sroa.36.11 = phi ptr [ %.sroa.36.10, %452 ], [ %.sroa.36.10, %455 ], [ %103, %111 ], [ %119, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !2934
   %456 = load i64, ptr %47, align 8, !range !175, !alias.scope !3087, !noalias !2934, !noundef !3
   %457 = icmp eq i64 %456, -9223372036854775807
@@ -15127,7 +15127,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9fdcc677985e9daaE(pt
           to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdcd6fd191135ae1eE.exit487.i" unwind label %93, !noalias !2910
 
 "_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdcd6fd191135ae1eE.exit487.i": ; preds = %95, %104, %458, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17hfcb21a540478f795E.exit485.i"
-  %.sroa.36.12 = phi ptr [ %.sroa.36.11, %458 ], [ %.sroa.36.11, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17hfcb21a540478f795E.exit485.i" ], [ %87, %95 ], [ %105, %104 ]
+  %.sroa.36.12 = phi ptr [ %.sroa.36.11, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$lsp_types..signature_help..SignatureHelpClientCapabilities$GT$$GT$17hfcb21a540478f795E.exit485.i" ], [ %.sroa.36.11, %458 ], [ %87, %95 ], [ %105, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !2934
   %459 = load i64, ptr %48, align 8, !range !261, !alias.scope !3090, !noalias !2934, !noundef !3
   %460 = icmp eq i64 %459, -9223372036854775806
@@ -15138,7 +15138,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h9fdcc677985e9daaE(pt
           to label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$lsp_types..completion..CompletionClientCapabilities$GT$$GT$17hd1eb3f8222427641E.exit488.i" unwind label %462
 
 "_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$lsp_types..completion..CompletionClientCapabilities$GT$$GT$17hd1eb3f8222427641E.exit488.i": ; preds = %461, %79, %88, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdcd6fd191135ae1eE.exit487.i"
-  %.sroa.36.13 = phi ptr [ %89, %88 ], [ %.sroa.36.12, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdcd6fd191135ae1eE.exit487.i" ], [ %76, %79 ], [ %.sroa.36.12, %461 ]
+  %.sroa.36.13 = phi ptr [ %.sroa.36.12, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$lsp_types..hover..HoverClientCapabilities$GT$$GT$17hdcd6fd191135ae1eE.exit487.i" ], [ %76, %79 ], [ %89, %88 ], [ %.sroa.36.12, %461 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !2934
   br label %.thread28
 
@@ -15663,7 +15663,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17ha207f0243b23761cE(pt
           to label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h0eb0567cd8dbd373E.exit86.i" unwind label %78
 
 "_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$lsp_types..SymbolKindCapability$GT$$GT$17h0eb0567cd8dbd373E.exit86.i": ; preds = %75, %41, %48, %72
-  %.sroa.9.0 = phi ptr [ %49, %48 ], [ %.sink144.i, %72 ], [ %38, %41 ], [ %.sink144.i, %75 ]
+  %.sroa.9.0 = phi ptr [ %.sink144.i, %72 ], [ %38, %41 ], [ %49, %48 ], [ %.sink144.i, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !3139
   br label %80
 
@@ -16169,12 +16169,12 @@ define hidden void @_ZN10serde_json5value2de11visit_array17ha308daf98c9cdc6aE(pt
   br i1 %.not117.i, label %.invoke.i, label %"_ZN206_$LT$lsp_types..semantic_tokens.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hebd64d75de7d8df2E.exit", !prof !270
 
 .invoke.i:                                        ; preds = %129, %120, %111, %103
-  %130 = phi i64 [ 7, %120 ], [ 6, %111 ], [ 5, %103 ], [ 8, %129 ]
+  %130 = phi i64 [ 5, %103 ], [ 6, %111 ], [ 7, %120 ], [ 8, %129 ]
   %131 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error14invalid_length17h21c374973c0556c1E(i64 noundef %130, ptr noundef nonnull align 1 @anon.2803e3af945a6f4e8618eb296876dfe0.135, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2803e3af945a6f4e8618eb296876dfe0.2)
           to label %132 unwind label %95, !noalias !3248
 
 132:                                              ; preds = %.invoke.i, %122, %113, %104, %97
-  %.sink280.sink.i = phi ptr [ %131, %.invoke.i ], [ %126, %122 ], [ %117, %113 ], [ %99, %97 ], [ %108, %104 ]
+  %.sink280.sink.i = phi ptr [ %99, %97 ], [ %108, %104 ], [ %117, %113 ], [ %126, %122 ], [ %131, %.invoke.i ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..semantic_tokens..TokenFormat$GT$$GT$17h85aa3965c10e2eeaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18)
           to label %133 unwind label %86, !noalias !3248
 
@@ -16197,7 +16197,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17ha308daf98c9cdc6aE(pt
           to label %.noexc10 unwind label %137
 
 .noexc10:                                         ; preds = %136, %62, %71
-  %.sroa.12.2 = phi ptr [ %72, %71 ], [ %59, %62 ], [ %.sroa.12.1, %136 ]
+  %.sroa.12.2 = phi ptr [ %59, %62 ], [ %72, %71 ], [ %.sroa.12.1, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !3248
   br label %"_ZN206_$LT$lsp_types..semantic_tokens.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hebd64d75de7d8df2E.exit.thread"
 
@@ -16223,8 +16223,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17ha308daf98c9cdc6aE(pt
   %140 = icmp eq i64 %.sroa.083.i.sroa.0.0.copyload, -9223372036854775808
   br i1 %140, label %"_ZN206_$LT$lsp_types..semantic_tokens.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hebd64d75de7d8df2E.exit.thread", label %145
 
-"_ZN206_$LT$lsp_types..semantic_tokens.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hebd64d75de7d8df2E.exit.thread": ; preds = %.invoke, %47, %.noexc10, %35, %"_ZN206_$LT$lsp_types..semantic_tokens.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hebd64d75de7d8df2E.exit"
-  %.sroa.12.326 = phi ptr [ %.sroa.083.i.sroa.4.0.copyload, %"_ZN206_$LT$lsp_types..semantic_tokens.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hebd64d75de7d8df2E.exit" ], [ %61, %.invoke ], [ %49, %47 ], [ %37, %35 ], [ %.sroa.12.2, %.noexc10 ]
+"_ZN206_$LT$lsp_types..semantic_tokens.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hebd64d75de7d8df2E.exit.thread": ; preds = %.invoke, %47, %35, %.noexc10, %"_ZN206_$LT$lsp_types..semantic_tokens.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hebd64d75de7d8df2E.exit"
+  %.sroa.12.326 = phi ptr [ %.sroa.083.i.sroa.4.0.copyload, %"_ZN206_$LT$lsp_types..semantic_tokens.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..semantic_tokens..SemanticTokensClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hebd64d75de7d8df2E.exit" ], [ %49, %47 ], [ %37, %35 ], [ %.sroa.12.2, %.noexc10 ], [ %61, %.invoke ]
   %141 = icmp ne ptr %.sroa.12.326, null
   call void @llvm.assume(i1 %141)
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16616,8 +16616,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17ha9759fede5f038fbE(pt
           cleanup
   br label %.body
 
-.thread18:                                        ; preds = %24, %31, %40
-  %.sroa.8.0.ph = phi ptr [ %.sink48.i, %40 ], [ %23, %24 ], [ %32, %31 ]
+.thread18:                                        ; preds = %31, %24, %40
+  %.sroa.8.0.ph = phi ptr [ %.sink48.i, %40 ], [ %32, %31 ], [ %23, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !3332
   br label %49
 
@@ -16987,7 +16987,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hb460c2135fa15888E(pt
   br label %40
 
 43:                                               ; preds = %.invoke, %20, %34
-  %.sroa.7.0.ph = phi ptr [ %39, %.invoke ], [ %36, %34 ], [ %22, %20 ]
+  %.sroa.7.0.ph = phi ptr [ %36, %34 ], [ %22, %20 ], [ %39, %.invoke ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.0.ph, ptr %44, align 8
   br label %60
@@ -17328,7 +17328,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hb72ce8634036a362E(pt
           to label %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeKindCapability$GT$$GT$17hc612d0c1f86734bdE.exit87.i" unwind label %95
 
 "_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeKindCapability$GT$$GT$17hc612d0c1f86734bdE.exit87.i": ; preds = %92, %70, %77, %89
-  %.sroa.11.0 = phi ptr [ %78, %77 ], [ %.sink164.i, %89 ], [ %66, %70 ], [ %.sink164.i, %92 ]
+  %.sroa.11.0 = phi ptr [ %.sink164.i, %89 ], [ %66, %70 ], [ %78, %77 ], [ %.sink164.i, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !3476
   br label %"_ZN200_$LT$lsp_types..folding_range.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h9be733e1a6eb4085E.exit.thread"
 
@@ -17360,8 +17360,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hb72ce8634036a362E(pt
   %99 = icmp eq i64 %.sroa.0.0.copyload14, -9223372036854775806
   br i1 %99, label %"_ZN200_$LT$lsp_types..folding_range.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h9be733e1a6eb4085E.exit.thread", label %104
 
-"_ZN200_$LT$lsp_types..folding_range.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h9be733e1a6eb4085E.exit.thread": ; preds = %.invoke, %54, %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeKindCapability$GT$$GT$17hc612d0c1f86734bdE.exit87.i", %40, %28, %"_ZN200_$LT$lsp_types..folding_range.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h9be733e1a6eb4085E.exit"
-  %.sroa.11.130 = phi ptr [ %.sroa.11.0.copyload16, %"_ZN200_$LT$lsp_types..folding_range.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h9be733e1a6eb4085E.exit" ], [ %69, %.invoke ], [ %56, %54 ], [ %42, %40 ], [ %30, %28 ], [ %.sroa.11.0, %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeKindCapability$GT$$GT$17hc612d0c1f86734bdE.exit87.i" ]
+"_ZN200_$LT$lsp_types..folding_range.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h9be733e1a6eb4085E.exit.thread": ; preds = %.invoke, %54, %40, %28, %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeKindCapability$GT$$GT$17hc612d0c1f86734bdE.exit87.i", %"_ZN200_$LT$lsp_types..folding_range.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h9be733e1a6eb4085E.exit"
+  %.sroa.11.130 = phi ptr [ %.sroa.11.0.copyload16, %"_ZN200_$LT$lsp_types..folding_range.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..folding_range..FoldingRangeClientCapabilities$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h9be733e1a6eb4085E.exit" ], [ %56, %54 ], [ %42, %40 ], [ %30, %28 ], [ %.sroa.11.0, %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$lsp_types..folding_range..FoldingRangeKindCapability$GT$$GT$17hc612d0c1f86734bdE.exit87.i" ], [ %69, %.invoke ]
   %100 = icmp ne ptr %.sroa.11.130, null
   call void @llvm.assume(i1 %100)
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17675,7 +17675,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hb8de4040fdd7db18E(pt
   br label %39
 
 42:                                               ; preds = %.invoke, %21, %35
-  %.sroa.8.0.ph = phi ptr [ %38, %.invoke ], [ %33, %35 ], [ %23, %21 ]
+  %.sroa.8.0.ph = phi ptr [ %33, %35 ], [ %23, %21 ], [ %38, %.invoke ]
   %43 = icmp ne ptr %.sroa.8.0.ph, null
   tail call void @llvm.assume(i1 %43)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17972,7 +17972,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hbdf3758d3b0e37fdE(pt
   br label %38
 
 41:                                               ; preds = %.invoke, %20, %32
-  %.sroa.99.0.ph = phi ptr [ %37, %.invoke ], [ %34, %32 ], [ %22, %20 ]
+  %.sroa.99.0.ph = phi ptr [ %34, %32 ], [ %22, %20 ], [ %37, %.invoke ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.99.0.ph, ptr %42, align 8
   br label %56
@@ -18294,8 +18294,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hc68a57f832718aeaE(pt
           cleanup
   br label %.body
 
-.thread19:                                        ; preds = %24, %33, %40
-  %.sroa.8.0.ph = phi ptr [ %.sink68.i, %40 ], [ %23, %24 ], [ %34, %33 ]
+.thread19:                                        ; preds = %33, %24, %40
+  %.sroa.8.0.ph = phi ptr [ %.sink68.i, %40 ], [ %34, %33 ], [ %23, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !3681
   br label %47
 
@@ -18580,7 +18580,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hcd094d66c8f1736aE(pt
   br label %38
 
 41:                                               ; preds = %.invoke, %20, %32
-  %.sroa.99.0.ph = phi ptr [ %37, %.invoke ], [ %34, %32 ], [ %22, %20 ]
+  %.sroa.99.0.ph = phi ptr [ %34, %32 ], [ %22, %20 ], [ %37, %.invoke ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.99.0.ph, ptr %42, align 8
   br label %57
@@ -18756,7 +18756,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hd039d2982b2e807fE(pt
   br label %39
 
 42:                                               ; preds = %.invoke, %21, %35
-  %.sroa.8.0.ph = phi ptr [ %38, %.invoke ], [ %33, %35 ], [ %23, %21 ]
+  %.sroa.8.0.ph = phi ptr [ %33, %35 ], [ %23, %21 ], [ %38, %.invoke ]
   %43 = icmp ne ptr %.sroa.8.0.ph, null
   tail call void @llvm.assume(i1 %43)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19088,7 +19088,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hd89e099190e0eddaE(pt
           to label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$lsp_types..StaleRequestSupportClientCapabilities$GT$$GT$17h147df1b6d8992577E.exit106.i" unwind label %60, !noalias !3811
 
 "_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$lsp_types..StaleRequestSupportClientCapabilities$GT$$GT$17h147df1b6d8992577E.exit106.i": ; preds = %62, %71, %84, %81
-  %.sroa.10.0 = phi ptr [ %.sink161.i, %84 ], [ %.sink161.i, %81 ], [ %54, %62 ], [ %72, %71 ]
+  %.sroa.10.0 = phi ptr [ %.sink161.i, %81 ], [ %.sink161.i, %84 ], [ %54, %62 ], [ %72, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !3811
   %85 = load i64, ptr %12, align 8, !range !31, !alias.scope !3905, !noalias !3811, !noundef !3
   %86 = icmp eq i64 %85, -9223372036854775808
@@ -19105,7 +19105,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hd89e099190e0eddaE(pt
   unreachable
 
 "_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$lsp_types..MarkdownClientCapabilities$GT$$GT$17h3299c6a7f50c99d6E.exit108.i": ; preds = %46, %55, %87, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$lsp_types..StaleRequestSupportClientCapabilities$GT$$GT$17h147df1b6d8992577E.exit106.i"
-  %.sroa.10.1 = phi ptr [ %.sroa.10.0, %87 ], [ %.sroa.10.0, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$lsp_types..StaleRequestSupportClientCapabilities$GT$$GT$17h147df1b6d8992577E.exit106.i" ], [ %38, %46 ], [ %56, %55 ]
+  %.sroa.10.1 = phi ptr [ %.sroa.10.0, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$lsp_types..StaleRequestSupportClientCapabilities$GT$$GT$17h147df1b6d8992577E.exit106.i" ], [ %.sroa.10.0, %87 ], [ %38, %46 ], [ %56, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !3811
   %90 = load i64, ptr %13, align 8, !range !31, !alias.scope !3908, !noalias !3811, !noundef !3
   %91 = icmp eq i64 %90, -9223372036854775808
@@ -19125,8 +19125,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hd89e099190e0eddaE(pt
           cleanup
   br label %.body
 
-.thread26:                                        ; preds = %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$lsp_types..MarkdownClientCapabilities$GT$$GT$17h3299c6a7f50c99d6E.exit108.i", %30, %39, %92
-  %.sroa.10.2.ph = phi ptr [ %.sroa.10.1, %92 ], [ %29, %30 ], [ %40, %39 ], [ %.sroa.10.1, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$lsp_types..MarkdownClientCapabilities$GT$$GT$17h3299c6a7f50c99d6E.exit108.i" ]
+.thread26:                                        ; preds = %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$lsp_types..MarkdownClientCapabilities$GT$$GT$17h3299c6a7f50c99d6E.exit108.i", %39, %30, %92
+  %.sroa.10.2.ph = phi ptr [ %.sroa.10.1, %92 ], [ %40, %39 ], [ %29, %30 ], [ %.sroa.10.1, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$lsp_types..MarkdownClientCapabilities$GT$$GT$17h3299c6a7f50c99d6E.exit108.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !3811
   br label %97
 
@@ -19330,7 +19330,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hd9c5ff31b9b59fb2E(pt
   br label %39
 
 42:                                               ; preds = %.invoke, %21, %35
-  %.sroa.8.0.ph = phi ptr [ %38, %.invoke ], [ %33, %35 ], [ %23, %21 ]
+  %.sroa.8.0.ph = phi ptr [ %33, %35 ], [ %23, %21 ], [ %38, %.invoke ]
   %43 = icmp ne ptr %.sroa.8.0.ph, null
   tail call void @llvm.assume(i1 %43)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19839,7 +19839,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hdddf4ec4cfd5ced0E(pt
           to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h3cd75758604f11ccE.exit78.i" unwind label %38, !noalias !4004
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h3cd75758604f11ccE.exit78.i": ; preds = %40, %49, %62, %59
-  %.sroa.9.0 = phi ptr [ %.sink134.i, %62 ], [ %.sink134.i, %59 ], [ %35, %40 ], [ %50, %49 ]
+  %.sroa.9.0 = phi ptr [ %.sink134.i, %59 ], [ %.sink134.i, %62 ], [ %35, %40 ], [ %50, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !4004
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4c11bd06e1390470E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %.thread unwind label %65
@@ -19860,8 +19860,8 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hdddf4ec4cfd5ced0E(pt
           cleanup
   br label %.body
 
-.thread:                                          ; preds = %27, %36, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h3cd75758604f11ccE.exit78.i"
-  %.sroa.9.1.ph = phi ptr [ %.sroa.9.0, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h3cd75758604f11ccE.exit78.i" ], [ %26, %27 ], [ %37, %36 ]
+.thread:                                          ; preds = %36, %27, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h3cd75758604f11ccE.exit78.i"
+  %.sroa.9.1.ph = phi ptr [ %.sroa.9.0, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h3cd75758604f11ccE.exit78.i" ], [ %37, %36 ], [ %26, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !4004
   br label %70
 
@@ -20190,7 +20190,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hdeb86c28179c8d78E(pt
           to label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17hc8b7471de908e161E.exit81.i" unwind label %53, !noalias !4096
 
 "_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17hc8b7471de908e161E.exit81.i": ; preds = %55, %62, %77, %74
-  %.sroa.10.0 = phi ptr [ %.sink133.i, %77 ], [ %.sink133.i, %74 ], [ %50, %55 ], [ %63, %62 ]
+  %.sroa.10.0 = phi ptr [ %.sink133.i, %74 ], [ %.sink133.i, %77 ], [ %50, %55 ], [ %63, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !4096
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h8d88a75f5713fbc4E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %12)
           to label %.noexc8 unwind label %80
@@ -20202,7 +20202,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hdeb86c28179c8d78E(pt
   unreachable
 
 .noexc8:                                          ; preds = %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17hc8b7471de908e161E.exit81.i", %42, %51
-  %.sroa.10.1 = phi ptr [ %52, %51 ], [ %39, %42 ], [ %.sroa.10.0, %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17hc8b7471de908e161E.exit81.i" ]
+  %.sroa.10.1 = phi ptr [ %39, %42 ], [ %52, %51 ], [ %.sroa.10.0, %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17hc8b7471de908e161E.exit81.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !4096
   br label %.thread25
 
@@ -20920,7 +20920,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17hfd4b1f7006499383E(pt
   br label %38
 
 41:                                               ; preds = %.invoke, %20, %32
-  %.sroa.7.0.ph = phi ptr [ %37, %.invoke ], [ %34, %32 ], [ %22, %20 ]
+  %.sroa.7.0.ph = phi ptr [ %34, %32 ], [ %22, %20 ], [ %37, %.invoke ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.0.ph, ptr %42, align 8
   br label %56

@@ -324,7 +324,7 @@ _ZN7nmethod12pc_desc_nearEPh.exit.thread.sink.split: ; preds = %55, %95, %47
   br label %_ZN7nmethod12pc_desc_nearEPh.exit.thread
 
 _ZN7nmethod12pc_desc_nearEPh.exit.thread:         ; preds = %101, %110, %119, %_ZN12StubRoutines12is_stub_codeEPh.exit.i, %_ZNK5frame6senderEP11RegisterMap.exit, %97, %_ZNK5frame13is_stub_frameEv.exit, %_ZNK5frame13is_stub_frameEv.exit.thread34, %18, %22, %_ZN7nmethod12pc_desc_nearEPh.exit.thread.sink.split, %62, %_ZN7nmethod12pc_desc_nearEPh.exit, %_ZN7nmethod12pc_desc_nearEPh.exit.thread31, %54, %45
-  %.0 = phi i1 [ false, %_ZN7nmethod12pc_desc_nearEPh.exit.thread31 ], [ false, %_ZN7nmethod12pc_desc_nearEPh.exit ], [ false, %62 ], [ false, %54 ], [ true, %_ZN7nmethod12pc_desc_nearEPh.exit.thread.sink.split ], [ false, %45 ], [ false, %22 ], [ false, %18 ], [ false, %_ZNK5frame13is_stub_frameEv.exit.thread34 ], [ false, %_ZNK5frame13is_stub_frameEv.exit ], [ false, %97 ], [ false, %_ZNK5frame6senderEP11RegisterMap.exit ], [ false, %_ZN12StubRoutines12is_stub_codeEPh.exit.i ], [ false, %119 ], [ false, %110 ], [ false, %101 ]
+  %.0 = phi i1 [ false, %45 ], [ false, %54 ], [ false, %_ZN7nmethod12pc_desc_nearEPh.exit.thread31 ], [ false, %_ZN7nmethod12pc_desc_nearEPh.exit ], [ false, %62 ], [ true, %_ZN7nmethod12pc_desc_nearEPh.exit.thread.sink.split ], [ false, %22 ], [ false, %18 ], [ false, %_ZNK5frame13is_stub_frameEv.exit.thread34 ], [ false, %_ZNK5frame13is_stub_frameEv.exit ], [ false, %97 ], [ false, %_ZNK5frame6senderEP11RegisterMap.exit ], [ false, %_ZN12StubRoutines12is_stub_codeEPh.exit.i ], [ false, %119 ], [ false, %110 ], [ false, %101 ]
   ret i1 %.0
 }
 
@@ -384,7 +384,7 @@ define hidden noundef zeroext i1 @_ZN15JfrGetCallTrace12get_topframeEPvR5frame(p
   br label %23
 
 23:                                               ; preds = %14, %3, %22
-  %.0 = phi i1 [ false, %3 ], [ false, %14 ], [ true, %22 ]
+  %.0 = phi i1 [ true, %22 ], [ false, %3 ], [ false, %14 ]
   ret i1 %.0
 }
 

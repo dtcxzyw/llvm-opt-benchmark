@@ -1083,7 +1083,7 @@ _ZN6vectorISt4pairIP4exprjELb0EjE9push_backEOS3_.exit85: ; preds = %241, %247
   br label %.thread
 
 .thread:                                          ; preds = %12, %233, %99, %103, %_ZN16shared_occs_mark4markEP3ast.exit45, %_ZN11shared_occs6insertEP4expr.exit26, %_ZN11shared_occs6insertEP4expr.exit, %_ZN6vectorISt4pairIP4exprjELb0EjE9push_backEOS3_.exit, %78, %256, %_ZN6vectorISt4pairIP4exprjELb0EjE9push_backEOS3_.exit85, %_ZN11shared_occs6insertEP4expr.exit62
-  %.1 = phi i1 [ true, %256 ], [ true, %99 ], [ true, %78 ], [ true, %_ZN11shared_occs6insertEP4expr.exit62 ], [ false, %_ZN6vectorISt4pairIP4exprjELb0EjE9push_backEOS3_.exit85 ], [ true, %_ZN11shared_occs6insertEP4expr.exit ], [ false, %_ZN6vectorISt4pairIP4exprjELb0EjE9push_backEOS3_.exit ], [ true, %_ZN11shared_occs6insertEP4expr.exit26 ], [ true, %_ZN16shared_occs_mark4markEP3ast.exit45 ], [ true, %103 ], [ true, %233 ], [ true, %12 ]
+  %.1 = phi i1 [ true, %256 ], [ true, %_ZN11shared_occs6insertEP4expr.exit62 ], [ false, %_ZN6vectorISt4pairIP4exprjELb0EjE9push_backEOS3_.exit85 ], [ true, %_ZN11shared_occs6insertEP4expr.exit ], [ false, %_ZN6vectorISt4pairIP4exprjELb0EjE9push_backEOS3_.exit ], [ true, %78 ], [ true, %_ZN11shared_occs6insertEP4expr.exit26 ], [ true, %_ZN16shared_occs_mark4markEP3ast.exit45 ], [ true, %103 ], [ true, %99 ], [ true, %233 ], [ true, %12 ]
   ret i1 %.1
 }
 

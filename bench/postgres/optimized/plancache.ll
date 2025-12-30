@@ -413,7 +413,7 @@ define internal void @PlanCacheObjectCallback(i64 %0, i32 noundef %1, i32 nounde
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count184
   br i1 %exitcond.not, label %.critedge, label %.lr.ph132.split
 
-.critedge:                                        ; preds = %40, %27, %15, %.lr.ph, %38, %.split
+.critedge:                                        ; preds = %40, %27, %15, %.lr.ph, %.split, %38
   %41 = getelementptr inbounds i8, ptr %.sroa.055.0151, i64 -16
   %42 = load ptr, ptr %41, align 8
   %.not104 = icmp eq ptr %42, null
@@ -520,7 +520,7 @@ define internal void @PlanCacheObjectCallback(i64 %0, i32 noundef %1, i32 nounde
   br i1 %exitcond190.not, label %.critedge113, label %77
 
 .critedge113:                                     ; preds = %87, %70, %62, %.lr.ph135.split.split, %.lr.ph135.split.us.split, %.split138.us
-  %88 = phi ptr [ %.pre, %.split138.us ], [ %55, %.lr.ph135.split.us.split ], [ %55, %.lr.ph135.split.split ], [ %55, %70 ], [ %55, %62 ], [ %55, %87 ]
+  %88 = phi ptr [ %55, %62 ], [ %55, %.lr.ph135.split.split ], [ %55, %.lr.ph135.split.us.split ], [ %.pre, %.split138.us ], [ %55, %70 ], [ %55, %87 ]
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 18
   %90 = load i8, ptr %89, align 2, !range !4, !noundef !5
   %91 = trunc nuw i8 %90 to i1
@@ -834,8 +834,8 @@ define dso_local void @CompleteCachedPlan(ptr noundef initializes((88, 96), (120
   br label %21
 
 21:                                               ; preds = %9, %17, %18
-  %.046 = phi ptr [ %19, %18 ], [ %2, %17 ], [ %12, %9 ]
-  %.0 = phi ptr [ %20, %18 ], [ %1, %17 ], [ %1, %9 ]
+  %.046 = phi ptr [ %2, %17 ], [ %19, %18 ], [ %12, %9 ]
+  %.0 = phi ptr [ %1, %17 ], [ %20, %18 ], [ %1, %9 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %.046, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -961,7 +961,7 @@ QueryListGetPrimaryStmt.exit.i:                   ; preds = %.lr.ph.i, %.lr.ph.i
   br label %PlanCacheComputeResultDesc.exit
 
 PlanCacheComputeResultDesc.exit:                  ; preds = %50, %58, %QueryListGetPrimaryStmt.exit.i, %80
-  %.0.i = phi ptr [ %85, %80 ], [ %63, %58 ], [ %79, %QueryListGetPrimaryStmt.exit.i ], [ null, %50 ]
+  %.0.i = phi ptr [ %63, %58 ], [ %79, %QueryListGetPrimaryStmt.exit.i ], [ %85, %80 ], [ null, %50 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.0.i, ptr %86, align 8
   store ptr %12, ptr @CurrentMemoryContext, align 8
@@ -1205,7 +1205,7 @@ choose_custom_plan.exit:                          ; preds = %32
   %42 = fcmp uge double %41, %39
   br i1 %42, label %choose_custom_plan.exit57.thread, label %choose_custom_plan.exit.thread
 
-choose_custom_plan.exit.thread:                   ; preds = %22, %26, %24, %19, %17, %choose_custom_plan.exit
+choose_custom_plan.exit.thread:                   ; preds = %26, %24, %19, %22, %17, %choose_custom_plan.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %44 = load ptr, ptr %43, align 8
   %.not.i49 = icmp eq ptr %44, null
@@ -1296,7 +1296,7 @@ CheckCachedPlan.exit:                             ; preds = %64
   %85 = load ptr, ptr %43, align 8
   br label %choose_custom_plan.exit57.thread77
 
-86:                                               ; preds = %choose_custom_plan.exit.thread, %82, %.thread.i, %73, %78
+86:                                               ; preds = %choose_custom_plan.exit.thread, %.thread.i, %73, %78, %82
   %87 = tail call fastcc ptr @BuildCachedPlan(ptr noundef nonnull %0, ptr noundef %13, ptr noundef null, ptr noundef %3)
   %88 = load ptr, ptr %43, align 8
   %.not.i51 = icmp eq ptr %88, null
@@ -1448,8 +1448,8 @@ choose_custom_plan.exit57:                        ; preds = %153
   %162 = fcmp uge double %161, %160
   br i1 %162, label %choose_custom_plan.exit57.thread, label %choose_custom_plan.exit57.thread77
 
-choose_custom_plan.exit57.thread:                 ; preds = %145, %24, %30, %12, %32, %153, %151, %cached_plan_cost.exit, %choose_custom_plan.exit, %choose_custom_plan.exit57
-  %.04471 = phi ptr [ null, %choose_custom_plan.exit57 ], [ null, %153 ], [ null, %151 ], [ %13, %24 ], [ null, %cached_plan_cost.exit ], [ %13, %choose_custom_plan.exit ], [ %13, %32 ], [ %13, %12 ], [ %13, %30 ], [ null, %145 ]
+choose_custom_plan.exit57.thread:                 ; preds = %145, %24, %32, %30, %12, %153, %151, %cached_plan_cost.exit, %choose_custom_plan.exit, %choose_custom_plan.exit57
+  %.04471 = phi ptr [ null, %choose_custom_plan.exit57 ], [ null, %153 ], [ null, %151 ], [ null, %cached_plan_cost.exit ], [ %13, %choose_custom_plan.exit ], [ %13, %12 ], [ %13, %30 ], [ %13, %32 ], [ %13, %24 ], [ null, %145 ]
   %163 = tail call fastcc ptr @BuildCachedPlan(ptr noundef nonnull %0, ptr noundef %.04471, ptr noundef %1, ptr noundef %3)
   %164 = getelementptr i8, ptr %163, i64 8
   %.val48 = load ptr, ptr %164, align 8
@@ -1517,10 +1517,10 @@ cached_plan_cost.exit61:                          ; preds = %193, %choose_custom
   store double %196, ptr %194, align 8
   br label %choose_custom_plan.exit57.thread77
 
-choose_custom_plan.exit57.thread77:               ; preds = %choose_custom_plan.exit57, %145, %CheckCachedPlan.exit, %147, %139, %143, %140, %cached_plan_cost.exit61
-  %.sink95 = phi i64 [ 184, %cached_plan_cost.exit61 ], [ 192, %140 ], [ 192, %143 ], [ 192, %139 ], [ 192, %147 ], [ 192, %CheckCachedPlan.exit ], [ 192, %145 ], [ 192, %choose_custom_plan.exit57 ]
-  %.0.in72 = phi i1 [ true, %cached_plan_cost.exit61 ], [ false, %140 ], [ false, %143 ], [ false, %139 ], [ false, %147 ], [ false, %CheckCachedPlan.exit ], [ false, %145 ], [ false, %choose_custom_plan.exit57 ]
-  %.1 = phi ptr [ %163, %cached_plan_cost.exit61 ], [ %87, %140 ], [ %87, %143 ], [ %87, %139 ], [ %87, %147 ], [ %85, %CheckCachedPlan.exit ], [ %87, %145 ], [ %87, %choose_custom_plan.exit57 ]
+choose_custom_plan.exit57.thread77:               ; preds = %choose_custom_plan.exit57, %CheckCachedPlan.exit, %139, %143, %140, %145, %147, %cached_plan_cost.exit61
+  %.sink95 = phi i64 [ 184, %cached_plan_cost.exit61 ], [ 192, %147 ], [ 192, %145 ], [ 192, %140 ], [ 192, %143 ], [ 192, %139 ], [ 192, %CheckCachedPlan.exit ], [ 192, %choose_custom_plan.exit57 ]
+  %.0.in72 = phi i1 [ true, %cached_plan_cost.exit61 ], [ false, %147 ], [ false, %145 ], [ false, %140 ], [ false, %143 ], [ false, %139 ], [ false, %CheckCachedPlan.exit ], [ false, %choose_custom_plan.exit57 ]
+  %.1 = phi ptr [ %163, %cached_plan_cost.exit61 ], [ %87, %147 ], [ %87, %145 ], [ %87, %140 ], [ %87, %143 ], [ %87, %139 ], [ %85, %CheckCachedPlan.exit ], [ %87, %choose_custom_plan.exit57 ]
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink95
   %198 = load i64, ptr %197, align 8
   %199 = add i64 %198, 1
@@ -1808,7 +1808,7 @@ ReleaseGenericPlan.exit:                          ; preds = %89, %92, %97, %101
   br label %126
 
 126:                                              ; preds = %107, %116, %120
-  %.077 = phi ptr [ %125, %120 ], [ %119, %116 ], [ null, %107 ]
+  %.077 = phi ptr [ %119, %116 ], [ %125, %120 ], [ null, %107 ]
   br i1 %104, label %128, label %127
 
 127:                                              ; preds = %126
@@ -1876,7 +1876,7 @@ QueryListGetPrimaryStmt.exit.i:                   ; preds = %.lr.ph.i104, %.lr.p
   br label %PlanCacheComputeResultDesc.exit
 
 PlanCacheComputeResultDesc.exit:                  ; preds = %130, %QueryListGetPrimaryStmt.exit.i, %152
-  %.0.i = phi ptr [ %157, %152 ], [ %135, %130 ], [ %151, %QueryListGetPrimaryStmt.exit.i ]
+  %.0.i = phi ptr [ %135, %130 ], [ %151, %QueryListGetPrimaryStmt.exit.i ], [ %157, %152 ]
   %158 = icmp eq ptr %.0.i, null
   br i1 %158, label %PlanCacheComputeResultDesc.exit.thread, label %.critedge
 
@@ -1973,7 +1973,7 @@ PlanCacheComputeResultDesc.exit.thread:           ; preds = %128, %PlanCacheComp
   br label %AcquirePlannerLocks.exit.thread
 
 AcquirePlannerLocks.exit.thread:                  ; preds = %.lr.ph.i, %.thread122, %AcquirePlannerLocks.exit, %2, %6, %9, %192
-  %.0 = phi ptr [ %.077, %192 ], [ null, %2 ], [ null, %9 ], [ null, %6 ], [ null, %AcquirePlannerLocks.exit ], [ null, %.thread122 ], [ null, %.lr.ph.i ]
+  %.0 = phi ptr [ %.077, %192 ], [ null, %9 ], [ null, %6 ], [ null, %2 ], [ null, %AcquirePlannerLocks.exit ], [ null, %.thread122 ], [ null, %.lr.ph.i ]
   ret ptr %.0
 }
 
@@ -2007,7 +2007,7 @@ define internal fastcc noundef ptr @BuildCachedPlan(ptr noundef %0, ptr noundef 
   br label %21
 
 21:                                               ; preds = %13, %19, %11
-  %.1 = phi ptr [ %.0, %11 ], [ %20, %19 ], [ %18, %13 ]
+  %.1 = phi ptr [ %20, %19 ], [ %.0, %11 ], [ %18, %13 ]
   %22 = tail call zeroext i1 @ActiveSnapshotSet() #9
   br i1 %22, label %.thread, label %23
 
@@ -2123,7 +2123,7 @@ define internal fastcc noundef ptr @BuildCachedPlan(ptr noundef %0, ptr noundef 
   br i1 %83, label %.lr.ph66, label %.critedge
 
 .critedge67:                                      ; preds = %.critedge, %.lr.ph, %52
-  %.sink = phi i32 [ %spec.select71, %.critedge ], [ 0, %52 ], [ 0, %.lr.ph ]
+  %.sink = phi i32 [ 0, %52 ], [ 0, %.lr.ph ], [ %spec.select71, %.critedge ]
   %84 = getelementptr inbounds nuw i8, ptr %53, i64 28
   store i32 %.sink, ptr %84, align 4
   %85 = getelementptr inbounds nuw i8, ptr %53, i64 36
@@ -2340,7 +2340,7 @@ define dso_local noundef zeroext i1 @CachedPlanAllowsSimpleValidityCheck(ptr nou
   br label %.critedge76
 
 .critedge76:                                      ; preds = %27, %.critedge, %36, %33, %49, %65, %.critedge79, %71, %15, %11, %7, %3
-  %.0 = phi i1 [ true, %.critedge79 ], [ false, %3 ], [ false, %7 ], [ false, %11 ], [ false, %15 ], [ false, %49 ], [ true, %71 ], [ false, %65 ], [ false, %33 ], [ false, %36 ], [ false, %.critedge ], [ false, %27 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %7 ], [ false, %11 ], [ false, %15 ], [ true, %71 ], [ true, %.critedge79 ], [ false, %65 ], [ false, %49 ], [ false, %33 ], [ false, %36 ], [ false, %.critedge ], [ false, %27 ]
   ret i1 %.0
 }
 
@@ -2386,7 +2386,7 @@ define dso_local noundef zeroext i1 @CachedPlanIsSimplyValid(ptr noundef readonl
   br label %25
 
 25:                                               ; preds = %19, %20, %15, %3, %8, %11
-  %.0 = phi i1 [ false, %3 ], [ false, %15 ], [ false, %11 ], [ false, %8 ], [ true, %20 ], [ true, %19 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %8 ], [ false, %3 ], [ false, %15 ], [ true, %20 ], [ true, %19 ]
   ret i1 %.0
 }
 
@@ -2662,7 +2662,7 @@ define dso_local ptr @CachedPlanGetTargetList(ptr noundef %0, ptr noundef %1) lo
   br i1 %21, label %QueryListGetPrimaryStmt.exit, label %15
 
 QueryListGetPrimaryStmt.exit:                     ; preds = %15, %16, %6, %.lr.ph.i
-  %22 = phi ptr [ null, %.lr.ph.i ], [ null, %6 ], [ %18, %16 ], [ null, %15 ]
+  %22 = phi ptr [ null, %6 ], [ null, %.lr.ph.i ], [ %18, %16 ], [ null, %15 ]
   %23 = tail call ptr @FetchStatementTargetList(ptr noundef %22) #9
   br label %24
 

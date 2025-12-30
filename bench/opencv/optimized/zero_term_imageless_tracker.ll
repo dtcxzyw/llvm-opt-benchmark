@@ -553,8 +553,8 @@ _ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i:               ; preds = %180, %179
   br label %_ZNSt6vectorIiSaIiEEaSERKS1_.exit
 
 _ZNSt6vectorIiSaIiEEaSERKS1_.exit:                ; preds = %182, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i, %178, %177, %173, %_ZNSt6vectorIiSaIiEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEPimT_S9_.exit.i
-  %185 = phi ptr [ %161, %178 ], [ %161, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i ], [ %161, %182 ], [ %161, %177 ], [ %.pre258, %173 ], [ %161, %_ZNSt6vectorIiSaIiEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEPimT_S9_.exit.i ]
-  %.sroa.0187.3 = phi ptr [ %.sroa.0187.2, %178 ], [ %.sroa.0187.2, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i ], [ %.sroa.0187.2, %182 ], [ %.sroa.0187.2, %177 ], [ %171, %173 ], [ %171, %_ZNSt6vectorIiSaIiEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEPimT_S9_.exit.i ]
+  %185 = phi ptr [ %161, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i ], [ %161, %182 ], [ %161, %177 ], [ %161, %178 ], [ %.pre258, %173 ], [ %161, %_ZNSt6vectorIiSaIiEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEPimT_S9_.exit.i ]
+  %.sroa.0187.3 = phi ptr [ %.sroa.0187.2, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i ], [ %.sroa.0187.2, %182 ], [ %.sroa.0187.2, %177 ], [ %.sroa.0187.2, %178 ], [ %171, %173 ], [ %171, %_ZNSt6vectorIiSaIiEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEPimT_S9_.exit.i ]
   %.not.i.i.i.i114 = icmp eq ptr %185, null
   br i1 %.not.i.i.i.i114, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %186
 
@@ -1428,7 +1428,7 @@ _ZNKSt14default_deleteIN3vas2ot25ZeroTermImagelessTrackletEEclEPS2_.exit.i170: ;
   br label %_ZNSt10unique_ptrIN3vas2ot25ZeroTermImagelessTrackletESt14default_deleteIS2_EED2Ev.exit171
 
 _ZNSt10unique_ptrIN3vas2ot25ZeroTermImagelessTrackletESt14default_deleteIS2_EED2Ev.exit171: ; preds = %_ZNKSt14default_deleteIN3vas2ot25ZeroTermImagelessTrackletEEclEPS2_.exit.i170, %582, %568, %566
-  %.pn85.pn.pn.pn.pn = phi { ptr, i32 } [ %567, %566 ], [ %569, %568 ], [ %.pn85.pn.pn.pn, %582 ], [ %.pn85.pn.pn.pn, %_ZNKSt14default_deleteIN3vas2ot25ZeroTermImagelessTrackletEEclEPS2_.exit.i170 ]
+  %.pn85.pn.pn.pn.pn = phi { ptr, i32 } [ %569, %568 ], [ %567, %566 ], [ %.pn85.pn.pn.pn, %582 ], [ %.pn85.pn.pn.pn, %_ZNKSt14default_deleteIN3vas2ot25ZeroTermImagelessTrackletEEclEPS2_.exit.i170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %611
 
@@ -1487,8 +1487,8 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIiSaIiE
   ret i32 0
 
 611:                                              ; preds = %_ZNSt10unique_ptrIN3vas2ot25ZeroTermImagelessTrackletESt14default_deleteIS2_EED2Ev.exit171, %456, %203
-  %.sroa.0187.1 = phi ptr [ %.sroa.0187.2, %203 ], [ %.sroa.0187.0, %456 ], [ %.sroa.0187.0, %_ZNSt10unique_ptrIN3vas2ot25ZeroTermImagelessTrackletESt14default_deleteIS2_EED2Ev.exit171 ]
-  %.pn92.pn.pn = phi { ptr, i32 } [ %.pn, %203 ], [ %457, %456 ], [ %.pn85.pn.pn.pn.pn, %_ZNSt10unique_ptrIN3vas2ot25ZeroTermImagelessTrackletESt14default_deleteIS2_EED2Ev.exit171 ]
+  %.sroa.0187.1 = phi ptr [ %.sroa.0187.2, %203 ], [ %.sroa.0187.0, %_ZNSt10unique_ptrIN3vas2ot25ZeroTermImagelessTrackletESt14default_deleteIS2_EED2Ev.exit171 ], [ %.sroa.0187.0, %456 ]
+  %.pn92.pn.pn = phi { ptr, i32 } [ %.pn, %203 ], [ %.pn85.pn.pn.pn.pn, %_ZNSt10unique_ptrIN3vas2ot25ZeroTermImagelessTrackletESt14default_deleteIS2_EED2Ev.exit171 ], [ %457, %456 ]
   %.not.i.i.i174 = icmp eq ptr %.sroa.0187.1, null
   br i1 %.not.i.i.i174, label %_ZNSt6vectorIiSaIiEED2Ev.exit175, label %612
 
@@ -1516,7 +1516,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit175:                 ; preds = %612, %611, %197
   br label %.body
 
 .body:                                            ; preds = %614, %_ZNSt6vectorIiSaIiEED2Ev.exit175, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit185
-  %.pn92.pn.pn.pn.pn = phi { ptr, i32 } [ %66, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit185 ], [ %.pn92.pn.pn.pn, %614 ], [ %.pn92.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit175 ]
+  %.pn92.pn.pn.pn.pn = phi { ptr, i32 } [ %66, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit185 ], [ %.pn92.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit175 ], [ %.pn92.pn.pn.pn, %614 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %622
 
@@ -2795,7 +2795,7 @@ _ZSt4copyIPPN2cv5Rect_IfEES4_ET0_T_S6_S5_.exit26: ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPN2cv5Rect_IfEES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPPN2cv5Rect_IfEES4_ET0_T_S6_S5_.exit:   ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN2cv5Rect_IfEES4_ET0_T_S6_S5_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN2cv5Rect_IfEES4_ET0_T_S6_S5_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN2cv5Rect_IfEES4_ET0_T_S6_S5_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !110
   %57 = load ptr, ptr %.0, align 8, !tbaa !111
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24

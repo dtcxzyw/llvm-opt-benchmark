@@ -155,12 +155,12 @@ fmap_readn.exit35.i:                              ; preds = %54
   %.not25.i = icmp ugt i64 %55, 3
   br i1 %.not25.i, label %58, label %.loopexit181
 
-.loopexit:                                        ; preds = %156, %fmap_readn.exit.i, %.lr.ph, %.preheader, %48
-  %.0109196 = phi ptr [ %.0109233, %48 ], [ null, %.preheader ], [ %.1110, %156 ], [ %.0109233, %fmap_readn.exit.i ], [ %.0109233, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %156, %fmap_readn.exit.i, %.preheader, %48
+  %.0109196 = phi ptr [ %.0109233, %48 ], [ null, %.preheader ], [ %.0109233, %.lr.ph ], [ %.1110, %156 ], [ %.0109233, %fmap_readn.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread169
 
-.loopexit181:                                     ; preds = %49, %fmap_readn.exit35.i, %54, %fmap_readn.exit30.i, %45, %47
+.loopexit181:                                     ; preds = %fmap_readn.exit35.i, %49, %54, %fmap_readn.exit30.i, %47, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.1) #7
   br label %.thread169
@@ -437,8 +437,8 @@ fmap_readn.exit67.thread:                         ; preds = %fmap_readn.exit67, 
   br label %.thread169
 
 156:                                              ; preds = %tnef_attachment.exit, %tnef_message.exit.thread, %58
-  %.1110 = phi ptr [ %.0109233, %58 ], [ %69, %tnef_message.exit.thread ], [ %.3112, %tnef_attachment.exit ]
-  %.1107 = phi i64 [ %59, %58 ], [ %75, %tnef_message.exit.thread ], [ %128, %tnef_attachment.exit ]
+  %.1110 = phi ptr [ %.0109233, %58 ], [ %.3112, %tnef_attachment.exit ], [ %69, %tnef_message.exit.thread ]
+  %.1107 = phi i64 [ %59, %58 ], [ %128, %tnef_attachment.exit ], [ %75, %tnef_message.exit.thread ]
   %157 = load ptr, ptr %6, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 88
@@ -447,8 +447,8 @@ fmap_readn.exit67.thread:                         ; preds = %fmap_readn.exit67, 
   br i1 %or.cond44.not.i, label %.lr.ph, label %.loopexit
 
 .thread169:                                       ; preds = %.loopexit, %.loopexit181, %129, %.thread165, %.loopexit182, %76, %64
-  %.2178 = phi i32 [ 0, %.loopexit181 ], [ 26, %129 ], [ 26, %.thread165 ], [ 26, %.loopexit182 ], [ 26, %76 ], [ 26, %64 ], [ 0, %.loopexit ]
-  %.1110177 = phi ptr [ %.0109233, %.loopexit181 ], [ %.0109233, %129 ], [ %.0109233, %.thread165 ], [ %.5114.ph, %.loopexit182 ], [ %69, %76 ], [ %.0109233, %64 ], [ %.0109196, %.loopexit ]
+  %.2178 = phi i32 [ 26, %129 ], [ 26, %.thread165 ], [ 26, %.loopexit182 ], [ 26, %76 ], [ 26, %64 ], [ 0, %.loopexit ], [ 0, %.loopexit181 ]
+  %.1110177 = phi ptr [ %.0109233, %129 ], [ %.0109233, %.thread165 ], [ %.5114.ph, %.loopexit182 ], [ %69, %76 ], [ %.0109233, %64 ], [ %.0109196, %.loopexit ], [ %.0109233, %.loopexit181 ]
   %.not49 = icmp eq ptr %.1110177, null
   br i1 %.not49, label %165, label %160
 
@@ -472,7 +472,7 @@ fmap_readn.exit67.thread:                         ; preds = %fmap_readn.exit67, 
   br label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %22, %18, %12, %16, %165, %11
-  %.0 = phi i32 [ 0, %11 ], [ %.2178, %165 ], [ 12, %22 ], [ 26, %16 ], [ 12, %12 ], [ 12, %18 ]
+  %.0 = phi i32 [ 0, %11 ], [ %.2178, %165 ], [ 26, %16 ], [ 12, %12 ], [ 12, %18 ], [ 12, %22 ]
   ret i32 %.0
 }
 

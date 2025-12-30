@@ -656,7 +656,7 @@ define hidden noalias ptr @SDL_aligned_alloc_REAL(i64 noundef %0, i64 noundef %1
   br label %26
 
 26:                                               ; preds = %15, %18, %11, %7, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %11 ], [ null, %7 ], [ %23, %18 ], [ null, %15 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %7 ], [ null, %2 ], [ %23, %18 ], [ null, %15 ]
   ret ptr %.0
 }
 

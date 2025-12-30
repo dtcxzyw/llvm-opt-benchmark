@@ -905,7 +905,7 @@ X11SD_InitWindow.exit:                            ; preds = %70, %61
   br label %280
 
 280:                                              ; preds = %237, %242, %194, %199, %139, %144, %97, %98, %277, %60
-  %.0 = phi i32 [ -1, %60 ], [ %.1, %277 ], [ -1, %97 ], [ -1, %139 ], [ -1, %194 ], [ -1, %98 ], [ -1, %144 ], [ -1, %199 ], [ -1, %242 ], [ -1, %237 ]
+  %.0 = phi i32 [ -1, %60 ], [ %.1, %277 ], [ -1, %98 ], [ -1, %97 ], [ -1, %144 ], [ -1, %139 ], [ -1, %199 ], [ -1, %194 ], [ -1, %242 ], [ -1, %237 ]
   ret i32 %.0
 }
 
@@ -2223,7 +2223,7 @@ define internal i64 @X11SD_GetPixmapWithBg(ptr noundef %0, ptr noundef captures(
   br label %187
 
 187:                                              ; preds = %157, %158, %110, %111, %77, %78, %184, %40, %35
-  %.0 = phi i64 [ 0, %35 ], [ %42, %40 ], [ %186, %184 ], [ 0, %77 ], [ 0, %110 ], [ 0, %78 ], [ 0, %111 ], [ 0, %158 ], [ 0, %157 ]
+  %.0 = phi i64 [ 0, %35 ], [ %42, %40 ], [ %186, %184 ], [ 0, %78 ], [ 0, %77 ], [ 0, %111 ], [ 0, %110 ], [ 0, %158 ], [ 0, %157 ]
   ret i64 %.0
 }
 
@@ -2670,7 +2670,7 @@ define hidden zeroext range(i8 0, 2) i8 @XShared_initSurface(ptr noundef %0, ptr
   br label %244
 
 244:                                              ; preds = %.thread, %238, %233, %159, %85, %243, %166, %.critedge
-  %.0 = phi i8 [ 0, %243 ], [ 0, %233 ], [ 0, %.critedge ], [ 0, %85 ], [ 1, %166 ], [ 0, %159 ], [ 1, %238 ], [ 1, %.thread ]
+  %.0 = phi i8 [ 0, %243 ], [ 0, %.critedge ], [ 1, %166 ], [ 0, %85 ], [ 0, %159 ], [ 0, %233 ], [ 1, %238 ], [ 1, %.thread ]
   ret i8 %.0
 }
 
@@ -2732,7 +2732,7 @@ X11SD_DropSharedSegment.exit:                     ; preds = %13
   br label %42
 
 42:                                               ; preds = %10, %1, %40, %X11SD_DropSharedSegment.exit
-  %.0 = phi i64 [ %34, %40 ], [ 0, %1 ], [ 0, %X11SD_DropSharedSegment.exit ], [ 0, %10 ]
+  %.0 = phi i64 [ 0, %X11SD_DropSharedSegment.exit ], [ %34, %40 ], [ 0, %1 ], [ 0, %10 ]
   ret i64 %.0
 }
 
@@ -2920,7 +2920,7 @@ define hidden ptr @X11SD_CreateSharedImage(ptr noundef readonly captures(none) %
   br label %72
 
 72:                                               ; preds = %3, %68, %59, %38, %27, %15
-  %.0 = phi ptr [ %13, %68 ], [ null, %15 ], [ null, %27 ], [ null, %38 ], [ null, %59 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %27 ], [ null, %38 ], [ null, %59 ], [ %13, %68 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -3008,7 +3008,7 @@ X11SD_CachedXImageFits.exit.thread15:             ; preds = %19, %X11SD_CachedXI
   store ptr null, ptr @cachedXImage, align 8
   br label %37
 
-X11SD_CachedXImageFits.exit.thread:               ; preds = %14, %8, %X11SD_CachedXImageFits.exit, %6
+X11SD_CachedXImageFits.exit.thread:               ; preds = %8, %14, %X11SD_CachedXImageFits.exit, %6
   %27 = sext i32 %1 to i64
   %28 = sext i32 %2 to i64
   %29 = mul nsw i64 %28, %27
@@ -3063,7 +3063,7 @@ define hidden zeroext range(i8 0, 2) i8 @X11SD_CachedXImageFits(i32 noundef %0, 
   br label %22
 
 22:                                               ; preds = %17, %16, %6, %13
-  %.0 = phi i8 [ 0, %6 ], [ 1, %16 ], [ %spec.select, %17 ], [ 0, %13 ]
+  %.0 = phi i8 [ 0, %13 ], [ 0, %6 ], [ 1, %16 ], [ %spec.select, %17 ]
   ret i8 %.0
 }
 

@@ -886,8 +886,8 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %_ZSt20dynamic_pointer_castIN8facebook5velox9connector6fuzzer20FuzzerConnectorSplitENS2_14ConnectorSplitEESt10shared_ptrIT_ERKS6_IT0_E.exit
 
 _ZSt20dynamic_pointer_castIN8facebook5velox9connector6fuzzer20FuzzerConnectorSplitENS2_14ConnectorSplitEESt10shared_ptrIT_ERKS6_IT0_E.exit: ; preds = %if.end, %dynamic_cast.end.i, %if.then.i, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
-  %ref.tmp.sroa.0.0 = phi ptr [ %3, %if.then.i.i.i.i.i.i ], [ %3, %if.then.i ], [ %3, %if.else.i.i.i.i.i.i ], [ null, %dynamic_cast.end.i ], [ null, %if.end ]
-  %ref.tmp.sroa.4.0 = phi ptr [ %4, %if.then.i.i.i.i.i.i ], [ null, %if.then.i ], [ %4, %if.else.i.i.i.i.i.i ], [ null, %dynamic_cast.end.i ], [ null, %if.end ]
+  %ref.tmp.sroa.0.0 = phi ptr [ %3, %if.then.i ], [ %3, %if.else.i.i.i.i.i.i ], [ %3, %if.then.i.i.i.i.i.i ], [ null, %dynamic_cast.end.i ], [ null, %if.end ]
+  %ref.tmp.sroa.4.0 = phi ptr [ null, %if.then.i ], [ %4, %if.else.i.i.i.i.i.i ], [ %4, %if.then.i.i.i.i.i.i ], [ null, %dynamic_cast.end.i ], [ null, %if.end ]
   store ptr %ref.tmp.sroa.0.0, ptr %currentSplit_, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8

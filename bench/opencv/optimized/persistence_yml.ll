@@ -410,8 +410,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %22, %
   br label %46
 
 46:                                               ; preds = %31, %34, %39, %44, %30
-  %.027 = phi ptr [ %7, %30 ], [ %7, %34 ], [ %7, %44 ], [ %7, %39 ], [ null, %31 ]
-  %.0 = phi i32 [ 4, %30 ], [ %36, %34 ], [ %15, %44 ], [ %42, %39 ], [ %15, %31 ]
+  %.027 = phi ptr [ %7, %30 ], [ %7, %44 ], [ %7, %39 ], [ %7, %34 ], [ null, %31 ]
+  %.0 = phi i32 [ 4, %30 ], [ %15, %44 ], [ %42, %39 ], [ %36, %34 ], [ %15, %31 ]
   %47 = load ptr, ptr %1, align 8, !tbaa !14
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
   %49 = load ptr, ptr %48, align 8
@@ -1194,7 +1194,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %10
   br label %167
 
 167:                                              ; preds = %146, %156, %158, %165, %163
-  %.286 = phi ptr [ %164, %163 ], [ %161, %158 ], [ %166, %165 ], [ %155, %146 ], [ %157, %156 ]
+  %.286 = phi ptr [ %161, %158 ], [ %166, %165 ], [ %164, %163 ], [ %155, %146 ], [ %157, %156 ]
   br i1 %.not101, label %212, label %168
 
 168:                                              ; preds = %167
@@ -1332,7 +1332,7 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %.lr.ph, %switch.ear
   br label %213
 
 212:                                              ; preds = %._crit_edge, %167
-  %.387 = phi ptr [ %.286, %167 ], [ %209, %._crit_edge ]
+  %.387 = phi ptr [ %209, %._crit_edge ], [ %.286, %167 ]
   br i1 %108, label %221, label %213
 
 213:                                              ; preds = %.thread, %212
@@ -1958,8 +1958,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82: ; preds = %112
   br label %.thread
 
 .thread:                                          ; preds = %47, %97, %_Z10cv_isalnumc.exit.thread, %.split136.us, %.split133.us
-  %.196 = phi i1 [ %119, %.split133.us ], [ %.030149, %.split136.us ], [ %.030149, %97 ], [ %.030149, %_Z10cv_isalnumc.exit.thread ], [ %.030149, %47 ]
-  %.24495 = phi ptr [ %.us-phi134, %.split133.us ], [ %77, %.split136.us ], [ %.us-phi131, %97 ], [ %.us-phi131, %_Z10cv_isalnumc.exit.thread ], [ %45, %47 ]
+  %.196 = phi i1 [ %119, %.split133.us ], [ %.030149, %.split136.us ], [ %.030149, %_Z10cv_isalnumc.exit.thread ], [ %.030149, %97 ], [ %.030149, %47 ]
+  %.24495 = phi ptr [ %.us-phi134, %.split133.us ], [ %77, %.split136.us ], [ %.us-phi131, %_Z10cv_isalnumc.exit.thread ], [ %.us-phi131, %97 ], [ %45, %47 ]
   %120 = call noundef ptr @_ZN2cv10YAMLParser10skipSpacesEPcii(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef nonnull %.24495, i32 noundef 0, i32 noundef 2147483647)
   %.not64 = icmp eq ptr %120, null
   br i1 %.not64, label %.loopexit, label %121
@@ -2082,7 +2082,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %149
   br i1 %162, label %.loopexit, label %41
 
 .loopexit:                                        ; preds = %154, %157, %.thread, %121, %41, %117, %53, %31
-  %.197104 = phi i1 [ true, %117 ], [ false, %53 ], [ false, %31 ], [ %.196, %157 ], [ %.196, %.thread ], [ %.196, %121 ], [ %.196, %154 ], [ true, %41 ]
+  %.197104 = phi i1 [ false, %31 ], [ false, %53 ], [ true, %117 ], [ %.196, %154 ], [ %.196, %157 ], [ %.196, %.thread ], [ %.196, %121 ], [ true, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.197104
 
@@ -2228,7 +2228,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %54,
   br label %60
 
 60:                                               ; preds = %29, %25, %27, %59
-  %.019 = phi i1 [ false, %25 ], [ true, %59 ], [ false, %27 ], [ false, %29 ]
+  %.019 = phi i1 [ true, %59 ], [ false, %27 ], [ false, %25 ], [ false, %29 ]
   ret i1 %.019
 
 61:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -2525,7 +2525,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %126
   br label %131
 
 .loopexit:                                        ; preds = %34, %77, %47
-  %.0 = phi ptr [ %82, %77 ], [ %.136.ph, %47 ], [ %.136.ph, %34 ]
+  %.0 = phi ptr [ %.136.ph, %47 ], [ %82, %77 ], [ %.136.ph, %34 ]
   ret ptr %.0
 
 131:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -2811,12 +2811,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit445: ; preds = %11
   br label %146
 
 146:                                              ; preds = %130, %126, %124, %122, %120, %134, %143, %132
-  %.1365 = phi i1 [ true, %143 ], [ false, %134 ], [ false, %132 ], [ false, %124 ], [ false, %130 ], [ false, %126 ], [ false, %120 ], [ false, %122 ]
-  %147 = phi i1 [ false, %143 ], [ false, %134 ], [ false, %132 ], [ false, %124 ], [ false, %130 ], [ false, %126 ], [ true, %120 ], [ false, %122 ]
-  %148 = phi i1 [ false, %143 ], [ false, %134 ], [ false, %132 ], [ false, %124 ], [ false, %130 ], [ false, %126 ], [ false, %120 ], [ true, %122 ]
-  %149 = phi i1 [ false, %143 ], [ false, %134 ], [ false, %132 ], [ false, %124 ], [ %131, %130 ], [ false, %126 ], [ false, %120 ], [ false, %122 ]
-  %.1353 = phi i32 [ 4, %143 ], [ 0, %134 ], [ 0, %132 ], [ 4, %124 ], [ %spec.select439, %130 ], [ %spec.select, %126 ], [ 3, %120 ], [ 1, %122 ]
-  %.1350 = phi i8 [ %145, %143 ], [ %94, %134 ], [ %94, %132 ], [ %94, %124 ], [ %94, %130 ], [ %94, %126 ], [ %94, %120 ], [ %94, %122 ]
+  %.1365 = phi i1 [ true, %143 ], [ false, %134 ], [ false, %132 ], [ false, %120 ], [ false, %122 ], [ false, %124 ], [ false, %126 ], [ false, %130 ]
+  %147 = phi i1 [ false, %143 ], [ false, %134 ], [ false, %132 ], [ true, %120 ], [ false, %122 ], [ false, %124 ], [ false, %126 ], [ false, %130 ]
+  %148 = phi i1 [ false, %143 ], [ false, %134 ], [ false, %132 ], [ false, %120 ], [ true, %122 ], [ false, %124 ], [ false, %126 ], [ false, %130 ]
+  %149 = phi i1 [ false, %143 ], [ false, %134 ], [ false, %132 ], [ false, %120 ], [ false, %122 ], [ false, %124 ], [ false, %126 ], [ %131, %130 ]
+  %.1353 = phi i32 [ 4, %143 ], [ 0, %134 ], [ 0, %132 ], [ 3, %120 ], [ 1, %122 ], [ 4, %124 ], [ %spec.select, %126 ], [ %spec.select439, %130 ]
+  %.1350 = phi i8 [ %145, %143 ], [ %94, %134 ], [ %94, %132 ], [ %94, %120 ], [ %94, %122 ], [ %94, %124 ], [ %94, %126 ], [ %94, %130 ]
   %150 = load ptr, ptr %8, align 8, !tbaa !57
   store i8 %.1350, ptr %150, align 1, !tbaa !41
   %151 = tail call noundef ptr @_ZN2cv10YAMLParser10skipSpacesEPcii(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef nonnull %150, i32 noundef %3, i32 noundef 2147483647)
@@ -2968,7 +2968,7 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %197, %193, %.thread
   ]
 
 213:                                              ; preds = %212, %212, %171
-  %.6 = phi ptr [ %.0304519, %212 ], [ %.0304519, %212 ], [ %151, %171 ]
+  %.6 = phi ptr [ %.0304519, %212 ], [ %151, %171 ], [ %.0304519, %212 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %215 = load ptr, ptr %214, align 8, !tbaa !32
@@ -2982,7 +2982,7 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %197, %193, %.thread
   br label %222
 
 220:                                              ; preds = %212, %170
-  %.5 = phi ptr [ %.0304519, %212 ], [ %151, %170 ]
+  %.5 = phi ptr [ %151, %170 ], [ %.0304519, %212 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %221 = call i64 @strtoll(ptr noundef nonnull %.5, ptr noundef nonnull %8, i32 noundef 0) #14
   store i64 %221, ptr %14, align 8, !tbaa !66
@@ -3170,8 +3170,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit461: ; preds = %29
   br label %688
 
 _Z10cv_isalnumc.exit458.thread:                   ; preds = %279, %274, %267
-  %.sink = phi i8 [ %269, %274 ], [ %269, %267 ], [ 39, %279 ]
-  %.10 = phi ptr [ %268, %274 ], [ %268, %267 ], [ %280, %279 ]
+  %.sink = phi i8 [ %269, %267 ], [ %269, %274 ], [ 39, %279 ]
+  %.10 = phi ptr [ %268, %267 ], [ %268, %274 ], [ %280, %279 ]
   %297 = getelementptr inbounds nuw i8, ptr %266, i64 %indvars.iv
   store i8 %.sink, ptr %297, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3870,10 +3870,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit495: ; preds = %52
   br i1 %or.cond621, label %.critedge69, label %.critedge67, !llvm.loop !70
 
 .critedge67:                                      ; preds = %.critedge69, %.critedge69.us, %.lr.ph603.split.us, %.lr.ph603.split.us, %.lr.ph603.split.us, %.critedge69.us.us, %.split.us.thread715, %.split.us.thread, %.split.us
-  %.4709 = phi ptr [ %.0304519, %.split.us.thread ], [ %151, %.split.us ], [ %.4710712719, %.lr.ph603.split.us ], [ %.4710712714, %.critedge69.us ], [ %.0304519, %.split.us.thread715 ], [ %.4710712719, %.critedge69.us.us ], [ %.4710712719, %.lr.ph603.split.us ], [ %.4710712719, %.lr.ph603.split.us ], [ %.0304519, %.critedge69 ]
-  %560 = phi ptr [ %.0304519, %.split.us.thread ], [ %151, %.split.us ], [ %546, %.lr.ph603.split.us ], [ %552, %.critedge69.us ], [ %.0304519, %.split.us.thread715 ], [ %546, %.lr.ph603.split.us ], [ %546, %.lr.ph603.split.us ], [ %548, %.critedge69.us.us ], [ %556, %.critedge69 ]
-  %.us-phi = phi ptr [ %533, %.split.us.thread ], [ %535, %.split.us ], [ %547, %.lr.ph603.split.us ], [ %551, %.critedge69.us ], [ %538, %.split.us.thread715 ], [ %547, %.lr.ph603.split.us ], [ %547, %.lr.ph603.split.us ], [ %546, %.critedge69.us.us ], [ %555, %.critedge69 ]
-  %.us-phi595 = phi i8 [ %541, %.split.us.thread ], [ %536, %.split.us ], [ %545, %.lr.ph603.split.us ], [ %553, %.critedge69.us ], [ %539, %.split.us.thread715 ], [ %545, %.lr.ph603.split.us ], [ %545, %.lr.ph603.split.us ], [ %549, %.critedge69.us.us ], [ %557, %.critedge69 ]
+  %.4709 = phi ptr [ %151, %.split.us ], [ %.0304519, %.split.us.thread ], [ %.0304519, %.split.us.thread715 ], [ %.4710712719, %.critedge69.us.us ], [ %.4710712719, %.lr.ph603.split.us ], [ %.4710712719, %.lr.ph603.split.us ], [ %.4710712719, %.lr.ph603.split.us ], [ %.4710712714, %.critedge69.us ], [ %.0304519, %.critedge69 ]
+  %560 = phi ptr [ %151, %.split.us ], [ %.0304519, %.split.us.thread ], [ %.0304519, %.split.us.thread715 ], [ %546, %.lr.ph603.split.us ], [ %546, %.lr.ph603.split.us ], [ %546, %.lr.ph603.split.us ], [ %548, %.critedge69.us.us ], [ %552, %.critedge69.us ], [ %556, %.critedge69 ]
+  %.us-phi = phi ptr [ %535, %.split.us ], [ %533, %.split.us.thread ], [ %538, %.split.us.thread715 ], [ %547, %.lr.ph603.split.us ], [ %547, %.lr.ph603.split.us ], [ %547, %.lr.ph603.split.us ], [ %546, %.critedge69.us.us ], [ %551, %.critedge69.us ], [ %555, %.critedge69 ]
+  %.us-phi595 = phi i8 [ %536, %.split.us ], [ %541, %.split.us.thread ], [ %539, %.split.us.thread715 ], [ %545, %.lr.ph603.split.us ], [ %545, %.lr.ph603.split.us ], [ %545, %.lr.ph603.split.us ], [ %549, %.critedge69.us.us ], [ %553, %.critedge69.us ], [ %557, %.critedge69 ]
   %561 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 1
   %562 = icmp eq ptr %561, %.4709
   br i1 %562, label %563, label %578

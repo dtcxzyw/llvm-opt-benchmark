@@ -389,7 +389,7 @@ define internal noundef zeroext i1 @dissect_teredo_heur(ptr noundef %0, ptr noun
   br label %.critedge
 
 .critedge:                                        ; preds = %10, %29, %35, %31, %23, %4, %39
-  %.0 = phi i1 [ false, %10 ], [ false, %29 ], [ false, %23 ], [ false, %31 ], [ true, %39 ], [ false, %35 ], [ false, %4 ]
+  %.0 = phi i1 [ true, %39 ], [ false, %4 ], [ false, %23 ], [ false, %31 ], [ false, %35 ], [ false, %29 ], [ false, %10 ]
   ret i1 %.0
 }
 

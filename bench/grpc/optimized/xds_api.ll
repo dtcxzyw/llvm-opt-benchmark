@@ -804,7 +804,7 @@ upb_Arena_Malloc.exit.i.i29:                      ; preds = %132, %130
   br label %google_protobuf_ListValue_add_values.exit
 
 google_protobuf_ListValue_add_values.exit:        ; preds = %upb_Message_GetOrCreateMutableArray.exit.i, %upb_Array_Reserve.exit.i.i, %upb_Arena_Malloc.exit.i.i29, %134
-  %.0.i31 = phi ptr [ null, %upb_Array_Reserve.exit.i.i ], [ null, %upb_Message_GetOrCreateMutableArray.exit.i ], [ %.0.i.i.i30, %134 ], [ null, %upb_Arena_Malloc.exit.i.i29 ]
+  %.0.i31 = phi ptr [ null, %upb_Message_GetOrCreateMutableArray.exit.i ], [ null, %upb_Array_Reserve.exit.i.i ], [ %.0.i.i.i30, %134 ], [ null, %upb_Arena_Malloc.exit.i.i29 ]
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_121PopulateMetadataValueEP21google_protobuf_ValueRKNS_12experimental4JsonEP9upb_Arena(ptr noundef %.0.i31, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.033.039, ptr noundef %2)
   %142 = getelementptr inbounds nuw i8, ptr %.sroa.033.039, i64 56
   %.not = icmp eq ptr %142, %88

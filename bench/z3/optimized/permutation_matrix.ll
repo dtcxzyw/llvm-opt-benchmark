@@ -151,8 +151,8 @@ _ZNK6vectorIjLb1EjE8capacityEv.exit.i15:          ; preds = %29
   br i1 %34, label %_ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18, label %36
 
 _ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18:   ; preds = %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15, %29
-  %.0.i16.i1434 = phi i32 [ %.0.i16.ph.i13, %29 ], [ %.0.i16.ph.i13, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15 ], [ 0, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20 ]
-  %35 = phi ptr [ %30, %29 ], [ %30, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15 ], [ %19, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20 ]
+  %.0.i16.i1434 = phi i32 [ %.0.i16.ph.i13, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15 ], [ %.0.i16.ph.i13, %29 ], [ 0, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20 ]
+  %35 = phi ptr [ %30, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15 ], [ %30, %29 ], [ %19, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20 ]
   tail call void @_ZN6vectorIjLb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %35)
   %.pr.pre.i19 = load ptr, ptr %35, align 8, !tbaa !3
   br label %29, !llvm.loop !11
@@ -173,7 +173,7 @@ _ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18:   ; preds = %_ZNK6vectorIjLb1EjE
   br label %_ZN6vectorIjLb1EjE6resizeEj.exit22
 
 _ZN6vectorIjLb1EjE6resizeEj.exit22:               ; preds = %_ZN6vectorIjLb1EjE3endEv.exit.i.i10, %36, %.lr.ph.preheader.i17
-  %43 = phi ptr [ %.pr.i12, %.lr.ph.preheader.i17 ], [ %25, %_ZN6vectorIjLb1EjE3endEv.exit.i.i10 ], [ %.pr.i12, %36 ]
+  %43 = phi ptr [ %25, %_ZN6vectorIjLb1EjE3endEv.exit.i.i10 ], [ %.pr.i12, %36 ], [ %.pr.i12, %.lr.ph.preheader.i17 ]
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -295,8 +295,8 @@ _ZNK6vectorIjLb1EjE8capacityEv.exit.i15:          ; preds = %29
   br i1 %34, label %_ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18, label %36
 
 _ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18:   ; preds = %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15, %29
-  %.0.i16.i1434 = phi i32 [ %.0.i16.ph.i13, %29 ], [ %.0.i16.ph.i13, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15 ], [ 0, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20 ]
-  %35 = phi ptr [ %30, %29 ], [ %30, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15 ], [ %19, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20 ]
+  %.0.i16.i1434 = phi i32 [ %.0.i16.ph.i13, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15 ], [ %.0.i16.ph.i13, %29 ], [ 0, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20 ]
+  %35 = phi ptr [ %30, %_ZNK6vectorIjLb1EjE8capacityEv.exit.i15 ], [ %30, %29 ], [ %19, %_ZNK6vectorIjLb1EjE4sizeEv.exit.i20 ]
   tail call void @_ZN6vectorIjLb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %35)
   %.pr.pre.i19 = load ptr, ptr %35, align 8, !tbaa !3
   br label %29, !llvm.loop !11
@@ -317,7 +317,7 @@ _ZNK6vectorIjLb1EjE8capacityEv.exit.thread.i18:   ; preds = %_ZNK6vectorIjLb1EjE
   br label %_ZN6vectorIjLb1EjE6resizeEj.exit22
 
 _ZN6vectorIjLb1EjE6resizeEj.exit22:               ; preds = %_ZN6vectorIjLb1EjE3endEv.exit.i.i10, %36, %.lr.ph.preheader.i17
-  %43 = phi ptr [ %.pr.i12, %.lr.ph.preheader.i17 ], [ %25, %_ZN6vectorIjLb1EjE3endEv.exit.i.i10 ], [ %.pr.i12, %36 ]
+  %43 = phi ptr [ %25, %_ZN6vectorIjLb1EjE3endEv.exit.i.i10 ], [ %.pr.i12, %36 ], [ %.pr.i12, %.lr.ph.preheader.i17 ]
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

@@ -272,7 +272,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -3094,7 +3094,7 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit: ; preds = %_ZN6icu_779UVec
   br i1 %exitcond.not, label %.critedge125, label %207, !llvm.loop !143
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %334, %333, %331
-  %.pn103 = phi { ptr, i32 } [ %335, %334 ], [ %332, %331 ], [ %lpad.phi173, %333 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit164, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit167, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn103 = phi { ptr, i32 } [ %335, %334 ], [ %lpad.phi173, %333 ], [ %332, %331 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit164, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit167, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_777Array1DD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %19) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @_ZN6icu_777Array1DD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %18) #23
@@ -3244,7 +3244,7 @@ define noundef ptr @_ZN6icu_7716createVectorizerEPKNS_8LSTMDataER10UErrorCode(pt
   unreachable
 
 21:                                               ; preds = %11, %14, %17, %8, %2
-  %.0 = phi ptr [ %9, %11 ], [ null, %2 ], [ null, %8 ], [ %15, %17 ], [ null, %14 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ %9, %11 ], [ %15, %17 ], [ null, %14 ]
   ret ptr %.0
 }
 
@@ -3306,7 +3306,7 @@ _ZN6icu_7716createVectorizerEPKNS_8LSTMDataER10UErrorCode.exit.thread: ; preds =
   unreachable
 
 _ZN6icu_7716createVectorizerEPKNS_8LSTMDataER10UErrorCode.exit: ; preds = %21, %18, %15, %12
-  %.0.i.ph = phi ptr [ null, %18 ], [ %19, %21 ], [ null, %12 ], [ %13, %15 ]
+  %.0.i.ph = phi ptr [ null, %18 ], [ %19, %21 ], [ %13, %15 ], [ null, %12 ]
   %.pr = load i32, ptr %3, align 4, !tbaa !13
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %.0.i.ph, ptr %25, align 8, !tbaa !103
@@ -3574,7 +3574,7 @@ CreateLSTMData_77.exit:                           ; preds = %21
   unreachable
 
 _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit: ; preds = %33, %30, %CreateLSTMData_77.exit, %35
-  %.22331 = phi ptr [ null, %35 ], [ null, %CreateLSTMData_77.exit ], [ null, %30 ], [ %31, %33 ]
+  %.22331 = phi ptr [ null, %CreateLSTMData_77.exit ], [ null, %35 ], [ null, %30 ], [ %31, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3753,7 +3753,7 @@ _ZN6icu_7713UnicodeStringC2IA28_DsvEERKT_.exit31: ; preds = %14
   br label %42
 
 42:                                               ; preds = %29, %.thread33, %32
-  %.1 = phi ptr [ null, %.thread33 ], [ null, %32 ], [ %26, %29 ]
+  %.1 = phi ptr [ null, %32 ], [ null, %.thread33 ], [ %26, %29 ]
   call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %45

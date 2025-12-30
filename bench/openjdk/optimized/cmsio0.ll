@@ -78,7 +78,7 @@ define hidden ptr @cmsOpenIOhandlerFromNULL(ptr noundef %0) local_unnamed_addr #
   br label %16
 
 16:                                               ; preds = %1, %15, %7
-  %.0 = phi ptr [ %2, %7 ], [ null, %15 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %15 ], [ %2, %7 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -235,7 +235,7 @@ define hidden ptr @cmsOpenIOhandlerFromMem(ptr noundef %0, ptr noundef %1, i32 n
   br label %41
 
 41:                                               ; preds = %4, %.thread, %27, %25, %17
-  %.055 = phi ptr [ %5, %27 ], [ null, %25 ], [ null, %.thread ], [ null, %17 ], [ null, %4 ]
+  %.055 = phi ptr [ null, %25 ], [ null, %.thread ], [ null, %17 ], [ %5, %27 ], [ null, %4 ]
   ret ptr %.055
 }
 
@@ -386,7 +386,7 @@ define internal range(i32 0, 2) i32 @MemoryWrite(ptr noundef captures(none) %0, 
   br label %26
 
 26:                                               ; preds = %15, %25, %6, %3
-  %.0 = phi i32 [ 1, %6 ], [ 0, %3 ], [ 1, %25 ], [ 1, %15 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %6 ], [ 1, %25 ], [ 1, %15 ]
   ret i32 %.0
 }
 
@@ -513,7 +513,7 @@ define hidden ptr @cmsOpenIOhandlerFromFile(ptr noundef %0, ptr noundef %1, ptr 
   br label %55
 
 55:                                               ; preds = %3, %43, %42, %41, %36, %31, %19, %16
-  %.0 = phi ptr [ null, %41 ], [ null, %19 ], [ null, %16 ], [ null, %42 ], [ null, %31 ], [ null, %36 ], [ %5, %43 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %19 ], [ null, %16 ], [ null, %42 ], [ null, %31 ], [ null, %36 ], [ %5, %43 ], [ null, %41 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -737,7 +737,7 @@ define hidden ptr @cmsCreateProfilePlaceholder(ptr noundef %0) local_unnamed_add
   br label %18
 
 18:                                               ; preds = %1, %17, %14
-  %.0 = phi ptr [ null, %17 ], [ %2, %14 ], [ null, %1 ]
+  %.0 = phi ptr [ %2, %14 ], [ null, %17 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -854,7 +854,7 @@ SearchOneTag.exit.thread.loopexit16.split.loop.exit18: ; preds = %SearchOneTag.e
   br label %SearchOneTag.exit.thread
 
 SearchOneTag.exit.thread:                         ; preds = %16, %12, %SearchOneTag.exit.thread.loopexit16.split.loop.exit, %SearchOneTag.exit.thread.loopexit16.split.loop.exit18, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %12 ], [ %20, %SearchOneTag.exit.thread.loopexit16.split.loop.exit ], [ %21, %SearchOneTag.exit.thread.loopexit16.split.loop.exit18 ], [ -1, %16 ]
+  %.0 = phi i32 [ %20, %SearchOneTag.exit.thread.loopexit16.split.loop.exit ], [ %21, %SearchOneTag.exit.thread.loopexit16.split.loop.exit18 ], [ -1, %3 ], [ -1, %12 ], [ -1, %16 ]
   ret i32 %.0
 }
 
@@ -1184,7 +1184,7 @@ CompatibleTypes.exit:                             ; preds = %161, %.preheader.i
   store i32 %167, ptr %170, align 4
   br label %CompatibleTypes.exit.thread
 
-CompatibleTypes.exit.thread:                      ; preds = %162, %151, %141, %156, %.lr.ph, %136, %CompatibleTypes.exit
+CompatibleTypes.exit.thread:                      ; preds = %162, %156, %151, %141, %.lr.ph, %136, %CompatibleTypes.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %171 = load i32, ptr %101, align 4
   %172 = zext i32 %171 to i64
@@ -1240,7 +1240,7 @@ CompatibleTypes.exit.thread:                      ; preds = %162, %151, %141, %1
   br i1 %exitcond120.not, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %114, %112, %110, %190, %100, %.preheader99, %validDeviceClass.exit, %1, %186, %97, %81, %76, %13
-  %.0 = phi i32 [ 0, %81 ], [ 0, %13 ], [ 0, %76 ], [ 0, %97 ], [ 1, %.preheader99 ], [ 0, %1 ], [ 0, %validDeviceClass.exit ], [ 0, %186 ], [ 1, %190 ], [ 1, %100 ], [ 0, %110 ], [ 0, %112 ], [ 0, %114 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %76 ], [ 0, %97 ], [ 0, %186 ], [ 0, %81 ], [ 0, %1 ], [ 0, %validDeviceClass.exit ], [ 1, %.preheader99 ], [ 1, %100 ], [ 1, %190 ], [ 0, %110 ], [ 0, %112 ], [ 0, %114 ]
   ret i32 %.0
 }
 
@@ -1437,7 +1437,7 @@ define hidden range(i32 0, 2) i32 @_cmsWriteHeader(ptr noundef %0, i32 noundef %
   br i1 %115, label %95, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %100, %112, %.preheader, %._crit_edge, %2
-  %.040 = phi i32 [ 0, %._crit_edge ], [ 0, %2 ], [ 1, %.preheader ], [ 0, %100 ], [ 1, %112 ]
+  %.040 = phi i32 [ 0, %2 ], [ 0, %._crit_edge ], [ 1, %.preheader ], [ 0, %100 ], [ 1, %112 ]
   ret i32 %.040
 }
 
@@ -1923,7 +1923,7 @@ define hidden ptr @cmsOpenProfileFromIOhandler2THR(ptr noundef %0, ptr noundef %
   br label %cmsCreateProfilePlaceholder.exit.thread
 
 cmsCreateProfilePlaceholder.exit.thread:          ; preds = %3, %16, %22, %24, %20
-  %.0 = phi ptr [ null, %24 ], [ %4, %20 ], [ %4, %22 ], [ null, %16 ], [ null, %3 ]
+  %.0 = phi ptr [ %4, %20 ], [ null, %24 ], [ %4, %22 ], [ null, %16 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1988,7 +1988,7 @@ define hidden ptr @cmsOpenProfileFromFileTHR(ptr noundef %0, ptr noundef %1, ptr
   br label %cmsCreateProfilePlaceholder.exit.thread
 
 cmsCreateProfilePlaceholder.exit.thread:          ; preds = %3, %16, %26, %28, %24
-  %.0 = phi ptr [ %4, %26 ], [ null, %28 ], [ %4, %24 ], [ null, %16 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %28 ], [ %4, %24 ], [ %4, %26 ], [ null, %16 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -2090,7 +2090,7 @@ cmsOpenIOhandlerFromStream.exit.thread:           ; preds = %23, %24
   br label %cmsCreateProfilePlaceholder.exit.thread
 
 cmsCreateProfilePlaceholder.exit.thread:          ; preds = %3, %16, %41, %43, %39
-  %.0 = phi ptr [ %4, %41 ], [ null, %43 ], [ %4, %39 ], [ null, %16 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %43 ], [ %4, %39 ], [ %4, %41 ], [ null, %16 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -2149,7 +2149,7 @@ define hidden ptr @cmsOpenProfileFromMemTHR(ptr noundef %0, ptr noundef %1, i32 
   br label %cmsCreateProfilePlaceholder.exit.thread
 
 cmsCreateProfilePlaceholder.exit.thread:          ; preds = %3, %16, %22, %24
-  %.0 = phi ptr [ %4, %22 ], [ null, %24 ], [ null, %16 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %24 ], [ %4, %22 ], [ null, %16 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -2544,7 +2544,7 @@ cmsGetProfileVersion.exit:                        ; preds = %2, %BaseToBase.exit
   br i1 %126, label %39, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %54, %62, %66, %71, %74, %83, %107, %118, %123, %cmsGetProfileVersion.exit, %116
-  %.0 = phi i32 [ 0, %116 ], [ 1, %cmsGetProfileVersion.exit ], [ 0, %118 ], [ 0, %107 ], [ 0, %62 ], [ 0, %66 ], [ 0, %54 ], [ 0, %74 ], [ 0, %83 ], [ 0, %71 ], [ 1, %123 ]
+  %.0 = phi i32 [ 0, %116 ], [ 1, %cmsGetProfileVersion.exit ], [ 0, %54 ], [ 0, %62 ], [ 0, %66 ], [ 0, %71 ], [ 0, %74 ], [ 0, %83 ], [ 0, %107 ], [ 0, %118 ], [ 1, %123 ]
   ret i32 %.0
 }
 
@@ -3349,7 +3349,7 @@ IsTypeSupported.exit:                             ; preds = %.lr.ph.i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %25, %90, %.loopexit, %128, %149, %_cmsNewTag.exit, %21, %130, %_cmsDeleteTagByPos.exit
-  %.0.ph = phi i32 [ 1, %_cmsDeleteTagByPos.exit ], [ 1, %130 ], [ 0, %90 ], [ 0, %21 ], [ 0, %_cmsNewTag.exit ], [ 0, %149 ], [ 0, %128 ], [ 0, %.loopexit ], [ 0, %25 ]
+  %.0.ph = phi i32 [ 1, %_cmsDeleteTagByPos.exit ], [ 1, %130 ], [ 0, %21 ], [ 0, %_cmsNewTag.exit ], [ 0, %149 ], [ 0, %128 ], [ 0, %.loopexit ], [ 0, %90 ], [ 0, %25 ]
   %151 = load ptr, ptr %10, align 8
   %152 = load ptr, ptr %12, align 8
   call void @_cmsUnlockMutex(ptr noundef %151, ptr noundef %152) #19
@@ -3591,7 +3591,7 @@ _cmsSearchTag.exit.thread:                        ; preds = %23, %14, %100, %87,
   br label %134
 
 134:                                              ; preds = %73, %8, %4, %_cmsSearchTag.exit.thread, %123, %67, %60, %51, %48
-  %.090 = phi i32 [ 0, %4 ], [ 0, %_cmsSearchTag.exit.thread ], [ %spec.select, %48 ], [ %54, %51 ], [ %spec.select108, %60 ], [ %72, %67 ], [ %126, %123 ], [ 0, %8 ], [ 0, %73 ]
+  %.090 = phi i32 [ 0, %_cmsSearchTag.exit.thread ], [ %spec.select, %48 ], [ %54, %51 ], [ %spec.select108, %60 ], [ %72, %67 ], [ %126, %123 ], [ 0, %4 ], [ 0, %8 ], [ 0, %73 ]
   ret i32 %.090
 }
 
@@ -3724,7 +3724,7 @@ _cmsSearchTag.exit.thread.i:                      ; preds = %19, %11
   br label %68
 
 68:                                               ; preds = %50, %4, %67, %46
-  %.0 = phi i32 [ 0, %67 ], [ 0, %4 ], [ 0, %46 ], [ 1, %50 ]
+  %.0 = phi i32 [ 0, %67 ], [ 0, %46 ], [ 0, %4 ], [ 1, %50 ]
   ret i32 %.0
 }
 

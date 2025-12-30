@@ -81,7 +81,7 @@ define internal noundef i32 @init(ptr noundef readonly captures(none) %0) #0 {
   br label %.thread
 
 ._crit_edge:                                      ; preds = %1, %14, %9, %11, %6
-  %17 = phi double [ %13, %11 ], [ %.pre, %14 ], [ %.pre, %6 ], [ %.pre, %9 ], [ %.pre, %1 ]
+  %17 = phi double [ %.pre, %14 ], [ %.pre, %9 ], [ %13, %11 ], [ %.pre, %6 ], [ %.pre, %1 ]
   %18 = fcmp uno double %17, 0.000000e+00
   br i1 %18, label %19, label %.thread
 
@@ -562,7 +562,7 @@ define internal noundef i32 @tonemap_slice(ptr noundef readonly captures(none) %
   br label %162
 
 162:                                              ; preds = %161, %158, %.thread156.i.us, %.thread.i.us
-  %163 = phi float [ 0x3EB0C6F7A0000000, %158 ], [ %..i.us, %161 ], [ %151, %.thread156.i.us ], [ 0x3EB0C6F7A0000000, %.thread.i.us ]
+  %163 = phi float [ 0x3EB0C6F7A0000000, %158 ], [ %..i.us, %161 ], [ 0x3EB0C6F7A0000000, %.thread.i.us ], [ %151, %.thread156.i.us ]
   switch i32 %86, label %tonemap.exit.us [
     i32 6, label %210
     i32 1, label %204
@@ -674,7 +674,7 @@ define internal noundef i32 @tonemap_slice(ptr noundef readonly captures(none) %
   br label %tonemap.exit.us
 
 tonemap.exit.us:                                  ; preds = %214, %210, %204, %201, %181, %173, %164, %162
-  %.0.i.us = phi nsz float [ %163, %162 ], [ %172, %164 ], [ %209, %204 ], [ %203, %201 ], [ %..i.i.us, %181 ], [ %180, %173 ], [ %243, %214 ], [ %163, %210 ]
+  %.0.i.us = phi nsz float [ %163, %162 ], [ %209, %204 ], [ %203, %201 ], [ %..i.i.us, %181 ], [ %180, %173 ], [ %172, %164 ], [ %243, %214 ], [ %163, %210 ]
   %244 = fdiv nsz float %.0.i.us, %163
   %245 = fmul nsz float %152, %244
   store float %245, ptr %gep32.us, align 4, !tbaa !72

@@ -1332,7 +1332,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   ret i32 0
 
 _ZNSt6vectorIiSaIiEED2Ev.exit298:                 ; preds = %211, %.body, %.body.thread, %118, %113, %46
-  %.pn249.pn.pn.pn = phi { ptr, i32 } [ %.pn, %113 ], [ %.pn240, %118 ], [ %47, %46 ], [ %212, %211 ], [ %.pn249.pn, %.body ], [ %.pn249.pn388, %.body.thread ]
+  %.pn249.pn.pn.pn = phi { ptr, i32 } [ %.pn240, %118 ], [ %47, %46 ], [ %.pn, %113 ], [ %212, %211 ], [ %.pn249.pn, %.body ], [ %.pn249.pn388, %.body.thread ]
   %574 = getelementptr inbounds nuw i8, ptr %26, i64 168
   br label %575
 

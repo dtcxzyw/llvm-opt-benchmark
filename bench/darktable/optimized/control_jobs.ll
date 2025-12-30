@@ -704,7 +704,7 @@ _imageio_dng_make_tag.exit.i.i:                   ; preds = %90
   br label %_imageio_dng_make_tag.exit93.i.i
 
 _imageio_dng_make_tag.exit88.i.i:                 ; preds = %182, %181, %180, %179
-  %.083.ph.i.i = phi i32 [ 65794, %182 ], [ 16777729, %180 ], [ 16908289, %181 ], [ 33620224, %179 ]
+  %.083.ph.i.i = phi i32 [ 65794, %182 ], [ 33620224, %179 ], [ 16908289, %181 ], [ 16777729, %180 ]
   %196 = getelementptr inbounds nuw i8, ptr %2, i64 178
   store i8 -114, ptr %196, align 2, !tbaa !72
   %197 = getelementptr inbounds nuw i8, ptr %2, i64 179
@@ -2601,7 +2601,7 @@ define internal noundef i32 @dt_control_local_copy_images_job_run(ptr noundef %0
   br label %32
 
 32:                                               ; preds = %29, %23
-  %.1.us = phi i32 [ %spec.select.us, %29 ], [ %.02843.us, %23 ]
+  %.1.us = phi i32 [ %.02843.us, %23 ], [ %spec.select.us, %29 ]
   %33 = fadd reassoc nsz arcp contract afn double %.02942.us, %20
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %34 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #17
@@ -3271,7 +3271,7 @@ _safe_history_job_on_imgid.exit.thread:           ; preds = %16, %_safe_history_
   br label %30
 
 30:                                               ; preds = %_safe_history_job_on_imgid.exit.thread, %28
-  %.1 = phi i32 [ %spec.select, %_safe_history_job_on_imgid.exit.thread ], [ %.02337, %28 ]
+  %.1 = phi i32 [ %.02337, %28 ], [ %spec.select, %_safe_history_job_on_imgid.exit.thread ]
   %31 = fadd reassoc nsz arcp contract afn double %.02436, %12
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %32 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #17
@@ -3726,7 +3726,7 @@ dt_control_image_enumerator_cleanup.exit.i:       ; preds = %19
   tail call void @free(ptr noundef nonnull %18) #17
   br label %22
 
-22:                                               ; preds = %17, %dt_control_image_enumerator_cleanup.exit.i
+22:                                               ; preds = %dt_control_image_enumerator_cleanup.exit.i, %17
   tail call void @dt_control_job_dispose(ptr noundef nonnull %16) #17
   br label %61
 
@@ -3962,8 +3962,8 @@ define internal noundef i32 @dt_control_export_job_run(ptr noundef %0) #0 {
   %97 = icmp ne i32 %96, 0
   %98 = icmp ne i32 %.0102, 0
   %or.cond5 = select i1 %97, i1 %98, i1 false
-  %.0102.135 = call i32 @llvm.umax.i32(i32 %.0102, i32 %96)
   %.0102. = call i32 @llvm.umin.i32(i32 %.0102, i32 %96)
+  %.0102.135 = call i32 @llvm.umax.i32(i32 %.0102, i32 %96)
   %99 = select i1 %or.cond5, i32 %.0102., i32 %.0102.135
   %100 = load ptr, ptr %5, align 8, !tbaa !181
   store i32 %99, ptr %100, align 4, !tbaa !189
@@ -3972,8 +3972,8 @@ define internal noundef i32 @dt_control_export_job_run(ptr noundef %0) #0 {
   %103 = icmp ne i32 %102, 0
   %104 = icmp ne i32 %.0103, 0
   %or.cond7 = select i1 %103, i1 %104, i1 false
-  %.0103.136 = call i32 @llvm.umax.i32(i32 %.0103, i32 %102)
   %.0103. = call i32 @llvm.umin.i32(i32 %.0103, i32 %102)
+  %.0103.136 = call i32 @llvm.umax.i32(i32 %.0103, i32 %102)
   %105 = select i1 %or.cond7, i32 %.0103., i32 %.0103.136
   %106 = getelementptr inbounds nuw i8, ptr %100, i64 4
   store i32 %105, ptr %106, align 4, !tbaa !190
@@ -5023,7 +5023,7 @@ define internal range(i32 0, 2) i32 @dt_control_merge_hdr_process(ptr noundef re
   br i1 %exitcond293.not, label %._crit_edge.us, label %.thread229.us.us
 
 .loopexit.sink.split:                             ; preds = %84, %89, %94, %74, %.loopexit242, %.thread
-  %.str.65.sink = phi ptr [ @.str.64, %74 ], [ @.str.63, %.loopexit242 ], [ @.str.63, %.thread ], [ @.str.65, %94 ], [ @.str.65, %89 ], [ @.str.65, %84 ]
+  %.str.65.sink = phi ptr [ @.str.63, %.thread ], [ @.str.63, %.loopexit242 ], [ @.str.64, %74 ], [ @.str.65, %94 ], [ @.str.65, %89 ], [ @.str.65, %84 ]
   %227 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.65.sink, i32 noundef 5) #17
   tail call void (ptr, ...) @dt_control_log(ptr noundef %227) #17
   %228 = getelementptr inbounds nuw i8, ptr %15, i64 288
@@ -5650,8 +5650,8 @@ _dt_delete_file_display_modal_dialog.exit:        ; preds = %.lr.ph.i, %40
   br label %63
 
 63:                                               ; preds = %57, %59, %61, %17, %18
-  %.131 = phi i32 [ %.03049, %17 ], [ %.03049, %18 ], [ %.03049, %59 ], [ 0, %57 ], [ %.03049, %61 ]
-  %.1 = phi i32 [ 1, %17 ], [ 1, %18 ], [ 2, %59 ], [ 0, %57 ], [ %., %61 ]
+  %.131 = phi i32 [ %.03049, %18 ], [ %.03049, %17 ], [ 0, %57 ], [ %.03049, %59 ], [ %.03049, %61 ]
+  %.1 = phi i32 [ 1, %18 ], [ 1, %17 ], [ 0, %57 ], [ 2, %59 ], [ %., %61 ]
   %64 = load ptr, ptr %4, align 8, !tbaa !224
   %.not47 = icmp eq ptr %64, null
   br i1 %.not47, label %66, label %65
@@ -6696,15 +6696,15 @@ _collection_update.exit:                          ; preds = %_control_import_ima
   %spec.select = add i32 %.0151167, %178
   br label %_collection_update.exit.thread
 
-_collection_update.exit.thread:                   ; preds = %_collection_update.exit, %_control_import_image_copy.exit.thread, %_control_import_image_copy.exit.thread103, %_collection_update.exit.thread129
-  %.152126 = phi i32 [ %131, %_collection_update.exit.thread129 ], [ %.152.fr, %_collection_update.exit ], [ -1, %_control_import_image_copy.exit.thread ], [ -1, %_control_import_image_copy.exit.thread103 ]
-  %.157124 = phi i32 [ %131, %_collection_update.exit.thread129 ], [ %.056146171, %_collection_update.exit ], [ %.056146171, %_control_import_image_copy.exit.thread ], [ %.056146171, %_control_import_image_copy.exit.thread103 ]
-  %.1122 = phi ptr [ %.054.i, %_collection_update.exit.thread129 ], [ %.1, %_collection_update.exit ], [ %.080145172, %_control_import_image_copy.exit.thread ], [ %.054.i, %_control_import_image_copy.exit.thread103 ]
-  %.182120 = phi ptr [ %58, %_collection_update.exit.thread129 ], [ %.182, %_collection_update.exit ], [ %.081144173, %_control_import_image_copy.exit.thread ], [ %58, %_control_import_image_copy.exit.thread103 ]
-  %.185118 = phi double [ %.185.ph, %_collection_update.exit.thread129 ], [ %.185, %_collection_update.exit ], [ %.084143174, %_control_import_image_copy.exit.thread ], [ %.084143174, %_control_import_image_copy.exit.thread103 ]
-  %.188116 = phi double [ %.188.ph, %_collection_update.exit.thread129 ], [ %.188, %_collection_update.exit ], [ %.087142175, %_control_import_image_copy.exit.thread ], [ %.087142175, %_control_import_image_copy.exit.thread103 ]
-  %.193114 = phi ptr [ %.395, %_collection_update.exit.thread129 ], [ %.193, %_collection_update.exit ], [ %.092141176, %_control_import_image_copy.exit.thread ], [ %.395, %_control_import_image_copy.exit.thread103 ]
-  %179 = phi i32 [ %177, %_collection_update.exit.thread129 ], [ %spec.select, %_collection_update.exit ], [ %.0151167, %_control_import_image_copy.exit.thread ], [ %.0151167, %_control_import_image_copy.exit.thread103 ]
+_collection_update.exit.thread:                   ; preds = %_collection_update.exit, %_control_import_image_copy.exit.thread103, %_control_import_image_copy.exit.thread, %_collection_update.exit.thread129
+  %.152126 = phi i32 [ %131, %_collection_update.exit.thread129 ], [ -1, %_control_import_image_copy.exit.thread ], [ -1, %_control_import_image_copy.exit.thread103 ], [ %.152.fr, %_collection_update.exit ]
+  %.157124 = phi i32 [ %131, %_collection_update.exit.thread129 ], [ %.056146171, %_control_import_image_copy.exit.thread ], [ %.056146171, %_control_import_image_copy.exit.thread103 ], [ %.056146171, %_collection_update.exit ]
+  %.1122 = phi ptr [ %.054.i, %_collection_update.exit.thread129 ], [ %.080145172, %_control_import_image_copy.exit.thread ], [ %.054.i, %_control_import_image_copy.exit.thread103 ], [ %.1, %_collection_update.exit ]
+  %.182120 = phi ptr [ %58, %_collection_update.exit.thread129 ], [ %.081144173, %_control_import_image_copy.exit.thread ], [ %58, %_control_import_image_copy.exit.thread103 ], [ %.182, %_collection_update.exit ]
+  %.185118 = phi double [ %.185.ph, %_collection_update.exit.thread129 ], [ %.084143174, %_control_import_image_copy.exit.thread ], [ %.084143174, %_control_import_image_copy.exit.thread103 ], [ %.185, %_collection_update.exit ]
+  %.188116 = phi double [ %.188.ph, %_collection_update.exit.thread129 ], [ %.087142175, %_control_import_image_copy.exit.thread ], [ %.087142175, %_control_import_image_copy.exit.thread103 ], [ %.188, %_collection_update.exit ]
+  %.193114 = phi ptr [ %.395, %_collection_update.exit.thread129 ], [ %.092141176, %_control_import_image_copy.exit.thread ], [ %.395, %_control_import_image_copy.exit.thread103 ], [ %.193, %_collection_update.exit ]
+  %179 = phi i32 [ %177, %_collection_update.exit.thread129 ], [ %.0151167, %_control_import_image_copy.exit.thread ], [ %.0151167, %_control_import_image_copy.exit.thread103 ], [ %spec.select, %_collection_update.exit ]
   %180 = fadd reassoc nsz arcp contract afn double %.050150168, %38
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %181 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #17

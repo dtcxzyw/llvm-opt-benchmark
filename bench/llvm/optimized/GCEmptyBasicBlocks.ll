@@ -264,7 +264,7 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj8EED2Ev.exit: ; preds = %._crit_
   br i1 %.not40, label %._crit_edge55.loopexit, label %.preheader.i.i.i.preheader, !llvm.loop !199
 
 _ZNK4llvm15MachineFunction4sizeEv.exit.thread:    ; preds = %11, %._crit_edge55.loopexit, %2, %_ZNK4llvm15MachineFunction4sizeEv.exit
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK4llvm15MachineFunction4sizeEv.exit ], [ false, %11 ], [ %23, %._crit_edge55.loopexit ]
+  %.0 = phi i1 [ false, %_ZNK4llvm15MachineFunction4sizeEv.exit ], [ false, %2 ], [ false, %11 ], [ %23, %._crit_edge55.loopexit ]
   ret i1 %.0
 }
 

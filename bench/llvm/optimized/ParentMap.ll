@@ -687,7 +687,7 @@ _ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit: ; preds 
   br i1 %33, label %.split, label %_ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit.thread, !llvm.loop !50
 
 _ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit.thread: ; preds = %_ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, %.lr.ph.i.i.i.i, %2
-  %34 = phi ptr [ null, %.lr.ph.i.i.i.i ], [ null, %2 ], [ %30, %_ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit ], [ null, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ]
+  %34 = phi ptr [ null, %2 ], [ null, %.lr.ph.i.i.i.i ], [ null, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ], [ %30, %_ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit ]
   ret ptr %34
 }
 
@@ -750,7 +750,7 @@ _ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit:   ; preds = %20, %.critedge2
   br i1 %or.cond, label %.critedge2, label %.critedge, !llvm.loop !51
 
 .critedge:                                        ; preds = %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, %31, %.lr.ph.i.i.i.i, %2
-  %36 = phi ptr [ null, %.lr.ph.i.i.i.i ], [ null, %2 ], [ %30, %31 ], [ null, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ]
+  %36 = phi ptr [ null, %2 ], [ null, %.lr.ph.i.i.i.i ], [ %30, %31 ], [ null, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ]
   ret ptr %36
 }
 
@@ -816,7 +816,7 @@ _ZN4llvm15isa_and_nonnullIJN5clang4ExprEEPNS1_4StmtEEEbRKT0_.exit: ; preds = %_Z
   br i1 %.not, label %.critedge, label %.split, !llvm.loop !52
 
 .critedge:                                        ; preds = %34, %_ZN4llvm15isa_and_nonnullIJN5clang4ExprEEPNS1_4StmtEEEbRKT0_.exit, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, %.lr.ph.i.i.i.i, %2
-  %36 = phi ptr [ null, %.lr.ph.i.i.i.i ], [ null, %2 ], [ %30, %34 ], [ null, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ], [ %30, %_ZN4llvm15isa_and_nonnullIJN5clang4ExprEEPNS1_4StmtEEEbRKT0_.exit ]
+  %36 = phi ptr [ null, %2 ], [ null, %.lr.ph.i.i.i.i ], [ null, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ], [ %30, %34 ], [ %30, %_ZN4llvm15isa_and_nonnullIJN5clang4ExprEEPNS1_4StmtEEEbRKT0_.exit ]
   ret ptr %36
 }
 
@@ -1096,7 +1096,7 @@ _ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27: ; preds = %58, %.critedge2
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.lr.ph.i.i.i.i, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27, %.lr.ph.i.i.i.i22, %2, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread80, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, %73, %76, %.critedge, %.critedge, %115, %107, %103, %95, %91, %84, %80, %71
-  %.0 = phi i1 [ %spec.select.i.i.i.i.i.i.i.i28, %71 ], [ true, %73 ], [ true, %.critedge ], [ %83, %80 ], [ %90, %84 ], [ %94, %91 ], [ %102, %95 ], [ %106, %103 ], [ %114, %107 ], [ %118, %115 ], [ %79, %76 ], [ true, %.critedge ], [ false, %.lr.ph.i.i.i.i22 ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread80 ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27 ], [ false, %2 ], [ false, %.lr.ph.i.i.i.i ]
+  %.0 = phi i1 [ %spec.select.i.i.i.i.i.i.i.i28, %71 ], [ %83, %80 ], [ %90, %84 ], [ %94, %91 ], [ %102, %95 ], [ %106, %103 ], [ %114, %107 ], [ %118, %115 ], [ true, %.critedge ], [ true, %.critedge ], [ true, %73 ], [ %79, %76 ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread80 ], [ false, %2 ], [ false, %.lr.ph.i.i.i.i22 ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27 ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %.0
 }
 

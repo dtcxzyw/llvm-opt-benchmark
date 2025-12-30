@@ -228,7 +228,7 @@ if.then.i:                                        ; preds = %for.body.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !4
 
 return:                                           ; preds = %for.body.i, %if.then.i, %entry, %if.then3, %if.then10, %if.then5, %_ZN8proxygen25HTTPCommonHeadersInternal4hashEPKcm.exit
-  %retval.0 = phi ptr [ null, %if.then3 ], [ null, %entry ], [ null, %_ZN8proxygen25HTTPCommonHeadersInternal4hashEPKcm.exit ], [ null, %if.then5 ], [ null, %if.then10 ], [ null, %for.body.i ], [ %arrayidx12, %if.then.i ]
+  %retval.0 = phi ptr [ null, %_ZN8proxygen25HTTPCommonHeadersInternal4hashEPKcm.exit ], [ null, %if.then5 ], [ null, %if.then10 ], [ null, %if.then3 ], [ null, %entry ], [ null, %for.body.i ], [ %arrayidx12, %if.then.i ]
   ret ptr %retval.0
 }
 
@@ -351,8 +351,8 @@ cond.false:                                       ; preds = %if.then.i.i
   %18 = load i8, ptr %code, align 8
   br label %cond.end
 
-cond.end:                                         ; preds = %for.body.i.i, %if.then10.i, %if.then5.i, %_ZN8proxygen25HTTPCommonHeadersInternal4hashEPKcm.exit.i, %entry, %if.then3.i, %cond.false
-  %cond = phi i8 [ %18, %cond.false ], [ 1, %if.then3.i ], [ 1, %entry ], [ 1, %_ZN8proxygen25HTTPCommonHeadersInternal4hashEPKcm.exit.i ], [ 1, %if.then5.i ], [ 1, %if.then10.i ], [ 1, %for.body.i.i ]
+cond.end:                                         ; preds = %for.body.i.i, %entry, %if.then3.i, %if.then10.i, %if.then5.i, %_ZN8proxygen25HTTPCommonHeadersInternal4hashEPKcm.exit.i, %cond.false
+  %cond = phi i8 [ %18, %cond.false ], [ 1, %_ZN8proxygen25HTTPCommonHeadersInternal4hashEPKcm.exit.i ], [ 1, %if.then5.i ], [ 1, %if.then10.i ], [ 1, %if.then3.i ], [ 1, %entry ], [ 1, %for.body.i.i ]
   ret i8 %cond
 }
 
@@ -513,7 +513,7 @@ return.sink.split:                                ; preds = %invoke.cont, %invok
   br label %return
 
 return:                                           ; preds = %return.sink.split, %sw.bb1, %init.check3, %sw.bb, %init.check
-  %retval.0.in = phi ptr [ @_ZZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeEE14camelcaseTableB5cxx11, %sw.bb ], [ @_ZZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeEE14lowercaseTableB5cxx11, %init.check3 ], [ @_ZZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeEE14camelcaseTableB5cxx11, %init.check ], [ @_ZZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeEE14lowercaseTableB5cxx11, %sw.bb1 ], [ %retval.0.in.ph, %return.sink.split ]
+  %retval.0.in = phi ptr [ @_ZZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeEE14camelcaseTableB5cxx11, %init.check ], [ @_ZZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeEE14camelcaseTableB5cxx11, %sw.bb ], [ @_ZZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeEE14lowercaseTableB5cxx11, %init.check3 ], [ @_ZZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeEE14lowercaseTableB5cxx11, %sw.bb1 ], [ %retval.0.in.ph, %return.sink.split ]
   %retval.0 = load ptr, ptr %retval.0.in, align 8
   ret ptr %retval.0
 

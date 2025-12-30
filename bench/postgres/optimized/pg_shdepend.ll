@@ -1303,7 +1303,7 @@ define internal range(i32 -1, 2) i32 @shared_dependency_comparator(ptr noundef r
   br label %32
 
 32:                                               ; preds = %30, %24, %22, %16, %14, %10, %8, %2
-  %.0 = phi i32 [ -1, %24 ], [ -1, %2 ], [ 1, %8 ], [ -1, %10 ], [ 1, %14 ], [ -1, %16 ], [ 1, %22 ], [ %., %30 ]
+  %.0 = phi i32 [ -1, %2 ], [ 1, %8 ], [ -1, %10 ], [ 1, %14 ], [ -1, %16 ], [ 1, %22 ], [ -1, %24 ], [ %., %30 ]
   ret i32 %.0
 }
 
@@ -1533,7 +1533,7 @@ define dso_local void @copyTemplateDependencies(i32 noundef %0, i32 noundef %1) 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %93, %._crit_edge
-  %.062.lcssa83 = phi i32 [ %.1, %._crit_edge ], [ %.1, %93 ], [ 0, %2 ]
+  %.062.lcssa83 = phi i32 [ %.1, %93 ], [ %.1, %._crit_edge ], [ 0, %2 ]
   call void @systable_endscan(ptr noundef %10) #7
   call void @CatalogCloseIndexes(ptr noundef %8) #7
   call void @table_close(ptr noundef %4, i32 noundef 3) #7

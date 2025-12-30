@@ -154,7 +154,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %or.cond, label %.thread737, label %.thread742.sink.split
 
 .thread742.sink.split:                            ; preds = %93, %84, %81, %78, %75, %72, %69, %66, %63, %.critedge, %58
-  %.sink = phi i32 [ -2, %.critedge ], [ -4, %66 ], [ -8, %72 ], [ -12, %78 ], [ -14, %81 ], [ -10, %75 ], [ -6, %69 ], [ -3, %63 ], [ -1, %58 ], [ -16, %84 ], [ -20, %93 ]
+  %.sink = phi i32 [ -1, %58 ], [ -2, %.critedge ], [ -3, %63 ], [ -4, %66 ], [ -6, %69 ], [ -8, %72 ], [ -10, %75 ], [ -12, %78 ], [ -14, %81 ], [ -16, %84 ], [ -20, %93 ]
   store i32 %.sink, ptr %21, align 4, !tbaa !3
   br label %.thread742
 

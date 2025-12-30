@@ -518,7 +518,7 @@ lean_nat_le.exit33:                               ; preds = %13
   br label %17
 
 17:                                               ; preds = %lean_nat_le.exit33, %14, %lean_nat_le.exit30, %10, %lean_nat_le.exit, %6, %16, %12, %8
-  %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__18.sink = phi ptr [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__12, %lean_nat_le.exit30 ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__20, %16 ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__5, %lean_nat_le.exit ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__14, %12 ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__8, %8 ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__5, %6 ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__12, %10 ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__18, %14 ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__18, %lean_nat_le.exit33 ]
+  %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__18.sink = phi ptr [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__20, %16 ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__14, %12 ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__8, %8 ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__5, %6 ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__5, %lean_nat_le.exit ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__12, %10 ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__12, %lean_nat_le.exit30 ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__18, %14 ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__18, %lean_nat_le.exit33 ]
   %18 = load ptr, ptr %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__18.sink, align 8, !tbaa !10
   %19 = tail call ptr @l_Repr_addAppParen(ptr noundef %18, ptr noundef %1) #7
   ret ptr %19
@@ -608,11 +608,11 @@ l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_
   br label %lean_dec.exit
 
 l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28_.exit: ; preds = %lean_nat_le.exit33.i, %lean_nat_le.exit30.i, %lean_nat_le.exit.i
-  %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__18.sink.i = phi ptr [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__14, %lean_nat_le.exit30.i ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__20, %lean_nat_le.exit33.i ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__8, %lean_nat_le.exit.i ]
+  %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__18.sink.i = phi ptr [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__8, %lean_nat_le.exit.i ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__14, %lean_nat_le.exit30.i ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__20, %lean_nat_le.exit33.i ]
   br label %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28_.exit.thread12
 
 l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28_.exit.thread12: ; preds = %lean_nat_le.exit33.i, %lean_nat_le.exit30.i, %lean_nat_le.exit.i, %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28_.exit
-  %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__18.sink.i.sink = phi ptr [ %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__18.sink.i, %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28_.exit ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__18, %lean_nat_le.exit33.i ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__5, %lean_nat_le.exit.i ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__12, %lean_nat_le.exit30.i ]
+  %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__18.sink.i.sink = phi ptr [ %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__18.sink.i, %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28_.exit ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__18, %lean_nat_le.exit33.i ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__12, %lean_nat_le.exit30.i ], [ @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__5, %lean_nat_le.exit.i ]
   %29 = load ptr, ptr %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28____closed__18.sink.i.sink, align 8, !tbaa !10
   %30 = tail call ptr @l_Repr_addAppParen(ptr noundef %29, ptr noundef %1) #7
   %31 = load i32, ptr %1, align 4, !tbaa !4
@@ -633,7 +633,7 @@ l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28_.exit.thread16, %36, %35, %33, %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28_.exit.thread
-  %37 = phi ptr [ %26, %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28_.exit.thread ], [ %28, %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28_.exit.thread16 ], [ %30, %33 ], [ %30, %35 ], [ %30, %36 ]
+  %37 = phi ptr [ %26, %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28_.exit.thread ], [ %30, %33 ], [ %30, %35 ], [ %30, %36 ], [ %28, %l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndParamKind____x40_Lean_Meta_Tactic_FunIndInfo___hyg_28_.exit.thread16 ]
   ret ptr %37
 }
 
@@ -1239,7 +1239,7 @@ lean_dec.exit:                                    ; preds = %101, %100, %98, %le
   br label %lean_dec.exit30
 
 lean_dec.exit30:                                  ; preds = %12, %18, %20, %21, %lean_dec.exit27, %lean_dec.exit
-  %.0 = phi ptr [ %103, %lean_dec.exit ], [ %75, %lean_dec.exit27 ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
+  %.0 = phi ptr [ %75, %lean_dec.exit27 ], [ %103, %lean_dec.exit ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
   ret ptr %.0
 }
 
@@ -1952,7 +1952,7 @@ lean_dec.exit:                                    ; preds = %102, %101, %99, %le
   br label %lean_dec.exit30
 
 lean_dec.exit30:                                  ; preds = %12, %18, %20, %21, %lean_dec.exit27, %lean_dec.exit
-  %.0 = phi ptr [ %105, %lean_dec.exit ], [ %76, %lean_dec.exit27 ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
+  %.0 = phi ptr [ %76, %lean_dec.exit27 ], [ %105, %lean_dec.exit ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
   ret ptr %.0
 }
 
@@ -5007,7 +5007,7 @@ lean_alloc_ctor.exit548:                          ; preds = %lean_dec.exit
   br label %729
 
 729:                                              ; preds = %lean_alloc_ctor.exit548, %lean_dec.exit331, %534, %583, %591, %599, %401, %450, %458, %466, %125, %lean_dec.exit352, %128, %lean_dec.exit350, %186, %190, %91, %lean_dec.exit353, %259, %lean_dec.exit347, %262, %lean_dec.exit345, %320, %324, %225, %lean_dec.exit348, %lean_alloc_ctor.exit541, %lean_dec.exit335
-  %.24 = phi ptr [ %662, %lean_alloc_ctor.exit541 ], [ %.0328, %591 ], [ %.0323, %458 ], [ %321, %320 ], [ %187, %186 ], [ %118, %lean_dec.exit353 ], [ %77, %91 ], [ %77, %128 ], [ %77, %125 ], [ %77, %lean_dec.exit352 ], [ %191, %190 ], [ %183, %lean_dec.exit350 ], [ %252, %lean_dec.exit348 ], [ %211, %225 ], [ %211, %262 ], [ %211, %259 ], [ %211, %lean_dec.exit347 ], [ %325, %324 ], [ %317, %lean_dec.exit345 ], [ %.0320, %401 ], [ %.0324, %466 ], [ %.0322, %450 ], [ %.0326, %534 ], [ %.0327, %599 ], [ %.0329, %583 ], [ %15, %lean_dec.exit335 ], [ %723, %lean_alloc_ctor.exit548 ], [ %15, %lean_dec.exit331 ]
+  %.24 = phi ptr [ %77, %91 ], [ %118, %lean_dec.exit353 ], [ %77, %125 ], [ %77, %lean_dec.exit352 ], [ %77, %128 ], [ %191, %190 ], [ %183, %lean_dec.exit350 ], [ %187, %186 ], [ %211, %225 ], [ %252, %lean_dec.exit348 ], [ %211, %259 ], [ %211, %lean_dec.exit347 ], [ %211, %262 ], [ %325, %324 ], [ %317, %lean_dec.exit345 ], [ %321, %320 ], [ %.0320, %401 ], [ %.0324, %466 ], [ %.0322, %450 ], [ %.0323, %458 ], [ %.0326, %534 ], [ %.0327, %599 ], [ %.0329, %583 ], [ %.0328, %591 ], [ %15, %lean_dec.exit335 ], [ %662, %lean_alloc_ctor.exit541 ], [ %723, %lean_alloc_ctor.exit548 ], [ %15, %lean_dec.exit331 ]
   ret ptr %.24
 }
 
@@ -5303,8 +5303,8 @@ lean_dec.exit133:                                 ; preds = %51, %50, %48, %lean
   br label %lean_inc.exit146
 
 lean_inc.exit146:                                 ; preds = %71, %70, %68, %.thread234
-  %72 = phi ptr [ %62, %.thread234 ], [ %66, %68 ], [ %66, %70 ], [ %66, %71 ]
-  %73 = phi ptr [ %61, %.thread234 ], [ %65, %68 ], [ %65, %70 ], [ %65, %71 ]
+  %72 = phi ptr [ %66, %68 ], [ %66, %70 ], [ %66, %71 ], [ %62, %.thread234 ]
+  %73 = phi ptr [ %65, %68 ], [ %65, %70 ], [ %65, %71 ], [ %61, %.thread234 ]
   %74 = tail call zeroext i8 @l_Lean_MapDeclarationExtension_contains___rarg(ptr noundef %73, ptr noundef %72, ptr noundef %36, ptr noundef nonnull %53) #7
   %75 = icmp eq i8 %74, 0
   br i1 %75, label %80, label %347
@@ -6875,7 +6875,7 @@ lean_alloc_ctor.exit123:                          ; preds = %lean_dec.exit
   br label %lean_dec.exit59
 
 lean_dec.exit59:                                  ; preds = %lean_dec.exit60, %147, %149, %150, %lean_alloc_ctor.exit123, %lean_dec.exit57, %lean_alloc_ctor.exit, %lean_dec.exit64
-  %.2 = phi ptr [ %95, %lean_alloc_ctor.exit ], [ %23, %lean_dec.exit57 ], [ %23, %lean_dec.exit64 ], [ %195, %lean_alloc_ctor.exit123 ], [ %136, %150 ], [ %136, %149 ], [ %136, %147 ], [ %136, %lean_dec.exit60 ]
+  %.2 = phi ptr [ %23, %lean_dec.exit64 ], [ %95, %lean_alloc_ctor.exit ], [ %195, %lean_alloc_ctor.exit123 ], [ %23, %lean_dec.exit57 ], [ %136, %150 ], [ %136, %149 ], [ %136, %147 ], [ %136, %lean_dec.exit60 ]
   ret ptr %.2
 }
 
@@ -7511,7 +7511,7 @@ _init_l_Array_Array_repr___at___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta
   br label %_init_l_Array_Array_repr___at___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndInfo____x40_Lean_Meta_Tactic_FunIndInfo___hyg_204____spec__1___closed__6.exit
 
 _init_l_Array_Array_repr___at___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndInfo____x40_Lean_Meta_Tactic_FunIndInfo___hyg_204____spec__1___closed__6.exit: ; preds = %_init_l_Array_Array_repr___at___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndInfo____x40_Lean_Meta_Tactic_FunIndInfo___hyg_204____spec__1___closed__3.exit, %206
-  %.1.i.i = phi ptr [ %202, %_init_l_Array_Array_repr___at___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndInfo____x40_Lean_Meta_Tactic_FunIndInfo___hyg_204____spec__1___closed__3.exit ], [ %208, %206 ]
+  %.1.i.i = phi ptr [ %208, %206 ], [ %202, %_init_l_Array_Array_repr___at___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndInfo____x40_Lean_Meta_Tactic_FunIndInfo___hyg_204____spec__1___closed__3.exit ]
   store ptr %.1.i.i, ptr @l_Array_Array_repr___at___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndInfo____x40_Lean_Meta_Tactic_FunIndInfo___hyg_204____spec__1___closed__6, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #7
   %209 = load ptr, ptr @l_Array_Array_repr___at___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndInfo____x40_Lean_Meta_Tactic_FunIndInfo___hyg_204____spec__1___closed__4, align 8, !tbaa !10
@@ -7753,7 +7753,7 @@ _init_l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndInfo____x40
   br label %_init_l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndInfo____x40_Lean_Meta_Tactic_FunIndInfo___hyg_204____closed__19.exit
 
 _init_l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndInfo____x40_Lean_Meta_Tactic_FunIndInfo___hyg_204____closed__19.exit: ; preds = %_init_l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndInfo____x40_Lean_Meta_Tactic_FunIndInfo___hyg_204____closed__15.exit, %289
-  %.1.i.i32 = phi ptr [ %285, %_init_l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndInfo____x40_Lean_Meta_Tactic_FunIndInfo___hyg_204____closed__15.exit ], [ %291, %289 ]
+  %.1.i.i32 = phi ptr [ %291, %289 ], [ %285, %_init_l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndInfo____x40_Lean_Meta_Tactic_FunIndInfo___hyg_204____closed__15.exit ]
   store ptr %.1.i.i32, ptr @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndInfo____x40_Lean_Meta_Tactic_FunIndInfo___hyg_204____closed__19, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i32) #7
   %292 = load ptr, ptr @l___private_Lean_Meta_Tactic_FunIndInfo_0__Lean_Meta_reprFunIndInfo____x40_Lean_Meta_Tactic_FunIndInfo___hyg_204____closed__17, align 8, !tbaa !10
@@ -8047,7 +8047,7 @@ _init_l_Lean_Meta_setFunIndInfo___closed__4.exit: ; preds = %_init_l_Lean_Meta_s
   br label %400
 
 400:                                              ; preds = %.sink.split, %328, %lean_dec_ref.exit20, %lean_dec_ref.exit22, %7
-  %.0 = phi ptr [ %28, %lean_dec_ref.exit20 ], [ %331, %328 ], [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %.sink85, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %28, %lean_dec_ref.exit20 ], [ %331, %328 ], [ %.sink85, %.sink.split ]
   ret ptr %.0
 }
 

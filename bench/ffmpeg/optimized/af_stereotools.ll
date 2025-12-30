@@ -354,8 +354,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %154
 
 154:                                              ; preds = %152, %153, %151, %144
-  %.0280 = phi nsz double [ %74, %144 ], [ %87, %151 ], [ %.mux, %152 ], [ %81, %153 ]
-  %.0 = phi nsz double [ %76, %144 ], [ %88, %151 ], [ %.mux312, %152 ], [ %82, %153 ]
+  %.0280 = phi nsz double [ %74, %144 ], [ %87, %151 ], [ %81, %153 ], [ %.mux, %152 ]
+  %.0 = phi nsz double [ %76, %144 ], [ %88, %151 ], [ %82, %153 ], [ %.mux312, %152 ]
   %155 = fmul nsz double %149, %.0280
   %156 = fmul nsz double %150, %.0
   br i1 %.not300, label %165, label %157
@@ -536,8 +536,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %267
 
 267:                                              ; preds = %265, %266, %264, %250
-  %.1281 = phi nsz double [ %127, %250 ], [ %140, %264 ], [ %.mux315, %265 ], [ %134, %266 ]
-  %.1 = phi nsz double [ %129, %250 ], [ %141, %264 ], [ %.mux316, %265 ], [ %135, %266 ]
+  %.1281 = phi nsz double [ %127, %250 ], [ %140, %264 ], [ %134, %266 ], [ %.mux315, %265 ]
+  %.1 = phi nsz double [ %129, %250 ], [ %141, %264 ], [ %135, %266 ], [ %.mux316, %265 ]
   br i1 %.not305, label %271, label %268
 
 268:                                              ; preds = %267

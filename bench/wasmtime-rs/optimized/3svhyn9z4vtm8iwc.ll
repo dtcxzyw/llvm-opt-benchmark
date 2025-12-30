@@ -5499,7 +5499,7 @@ define void @"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Expr$GT$17h117
   unreachable
 
 common.resume:                                    ; preds = %103, %64, %.body, %.body14
-  %common.resume.op = phi { ptr, i32 } [ %65, %64 ], [ %81, %.body14 ], [ %eh.lpad-body, %.body ], [ %104, %103 ]
+  %common.resume.op = phi { ptr, i32 } [ %81, %.body14 ], [ %eh.lpad-body, %.body ], [ %65, %64 ], [ %104, %103 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..ast..Expr$GT$$GT$17ha59351da221c6490E.exit": ; preds = %73
@@ -6580,7 +6580,7 @@ define void @"_ZN4core3ptr49drop_in_place$LT$cranelift_isle..ast..Pattern$GT$17h
   unreachable
 
 common.resume:                                    ; preds = %.body17, %74, %88, %80, %.body
-  %common.resume.op = phi { ptr, i32 } [ %89, %88 ], [ %60, %.body ], [ %81, %80 ], [ %75, %74 ], [ %105, %.body17 ]
+  %common.resume.op = phi { ptr, i32 } [ %60, %.body ], [ %81, %80 ], [ %75, %74 ], [ %89, %88 ], [ %105, %.body17 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..ast..Pattern$GT$$GT$17h4d46be1c2c6c3b2eE.exit": ; preds = %52
@@ -7243,7 +7243,7 @@ define void @"_ZN4core3ptr50drop_in_place$LT$cranelift_isle..sema..Pattern$GT$17
   unreachable
 
 common.resume:                                    ; preds = %41, %24, %13
-  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %14, %13 ], [ %42, %41 ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %25, %24 ], [ %42, %41 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..sema..Pattern$GT$$GT$17h327dc5517577d480E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd599f74f06fc5724E.exit.i", %15
@@ -9663,7 +9663,7 @@ default.unreachable7:                             ; preds = %1
   unreachable
 
 common.resume:                                    ; preds = %35, %22, %9
-  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %10, %9 ], [ %36, %35 ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %9 ], [ %23, %22 ], [ %36, %35 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..serialize..MatchArm$GT$$GT$17h24142077e26027dbE.exit": ; preds = %7

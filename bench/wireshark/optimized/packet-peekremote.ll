@@ -580,9 +580,9 @@ define internal noundef zeroext i1 @dissect_peekremote_new(ptr noundef %0, ptr n
   br label %46
 
 46:                                               ; preds = %43, %41, %39, %29
-  %.0216 = phi i8 [ 0, %43 ], [ 1, %29 ], [ 4, %39 ], [ 11, %41 ]
-  %.0215 = phi i32 [ 0, %43 ], [ 4096, %29 ], [ 8192, %39 ], [ 12288, %41 ]
-  %.0 = phi i8 [ %spec.select238, %43 ], [ 1, %29 ], [ 2, %39 ], [ 3, %41 ]
+  %.0216 = phi i8 [ 1, %29 ], [ 4, %39 ], [ 11, %41 ], [ 0, %43 ]
+  %.0215 = phi i32 [ 4096, %29 ], [ 8192, %39 ], [ 12288, %41 ], [ 0, %43 ]
+  %.0 = phi i8 [ 1, %29 ], [ 2, %39 ], [ 3, %41 ], [ %spec.select238, %43 ]
   %47 = and i32 %33, 524288
   %.not226 = icmp eq i32 %47, 0
   br i1 %.not226, label %73, label %48
@@ -897,7 +897,7 @@ dissect_peekremote_extflags.exit:                 ; preds = %145, %189
   br label %257
 
 257:                                              ; preds = %255, %247, %27, %dissect_peekremote_extflags.exit
-  %.0218 = phi i32 [ %spec.select, %27 ], [ 55, %dissect_peekremote_extflags.exit ], [ %spec.select239, %247 ], [ %spec.select240, %255 ]
+  %.0218 = phi i32 [ 55, %dissect_peekremote_extflags.exit ], [ %spec.select, %27 ], [ %spec.select239, %247 ], [ %spec.select240, %255 ]
   tail call void @proto_item_set_end(ptr noundef %14, ptr noundef %0, i32 noundef %.0218)
   %258 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0218)
   %259 = load ptr, ptr @wlan_radio_handle, align 8

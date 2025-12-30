@@ -84,7 +84,7 @@ define range(i32 -1, 2) i32 @CMS_get1_ReceiptRequest(ptr noundef %0, ptr noundef
   br label %16
 
 16:                                               ; preds = %13, %14, %8, %5
-  %.0 = phi i32 [ -1, %8 ], [ 0, %5 ], [ 1, %14 ], [ 1, %13 ]
+  %.0 = phi i32 [ 0, %5 ], [ -1, %8 ], [ 1, %14 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -390,7 +390,7 @@ define internal fastcc range(i32 0, 2) i32 @cms_msgSigDigest(ptr noundef readonl
   br label %21
 
 21:                                               ; preds = %11, %3
-  %.0 = phi i32 [ %., %11 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %3 ], [ %., %11 ]
   ret i32 %.0
 }
 
@@ -602,9 +602,9 @@ define range(i32 0, 2) i32 @ossl_cms_Receipt_verify(ptr noundef %0, ptr noundef 
   br label %81
 
 81:                                               ; preds = %74, %2, %80, %73, %69, %64, %60, %55, %51, %48, %43, %30, %23, %16, %12
-  %82 = phi ptr [ null, %12 ], [ null, %16 ], [ null, %23 ], [ null, %43 ], [ null, %55 ], [ null, %60 ], [ null, %69 ], [ %.pre, %73 ], [ %75, %80 ], [ null, %2 ], [ null, %64 ], [ null, %51 ], [ null, %48 ], [ null, %30 ], [ %75, %74 ]
-  %.035 = phi ptr [ null, %12 ], [ null, %16 ], [ null, %23 ], [ %26, %43 ], [ %26, %55 ], [ %26, %60 ], [ %26, %69 ], [ %26, %73 ], [ %26, %80 ], [ null, %2 ], [ %26, %64 ], [ %26, %51 ], [ %26, %48 ], [ null, %30 ], [ %26, %74 ]
-  %.0 = phi i32 [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %43 ], [ 0, %55 ], [ 0, %60 ], [ 0, %69 ], [ 0, %73 ], [ 0, %80 ], [ 0, %2 ], [ 0, %64 ], [ 0, %51 ], [ 0, %48 ], [ 0, %30 ], [ 1, %74 ]
+  %82 = phi ptr [ null, %12 ], [ null, %16 ], [ null, %23 ], [ null, %43 ], [ null, %55 ], [ null, %60 ], [ null, %69 ], [ %.pre, %73 ], [ %75, %80 ], [ null, %64 ], [ null, %51 ], [ null, %48 ], [ null, %30 ], [ null, %2 ], [ %75, %74 ]
+  %.035 = phi ptr [ null, %12 ], [ null, %16 ], [ null, %23 ], [ %26, %43 ], [ %26, %55 ], [ %26, %60 ], [ %26, %69 ], [ %26, %73 ], [ %26, %80 ], [ %26, %64 ], [ %26, %51 ], [ %26, %48 ], [ null, %30 ], [ null, %2 ], [ %26, %74 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %43 ], [ 0, %55 ], [ 0, %60 ], [ 0, %69 ], [ 0, %73 ], [ 0, %80 ], [ 0, %64 ], [ 0, %51 ], [ 0, %48 ], [ 0, %30 ], [ 0, %2 ], [ 1, %74 ]
   %83 = call ptr @CMS_ReceiptRequest_it() #5
   call void @ASN1_item_free(ptr noundef %82, ptr noundef %83) #5
   %84 = call ptr @CMS_Receipt_it() #5
@@ -648,7 +648,7 @@ define ptr @ossl_cms_encode_Receipt(ptr noundef %0) local_unnamed_addr #0 {
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %CMS_get1_ReceiptRequest.exit
 
-10:                                               ; preds = %6, %1
+10:                                               ; preds = %1, %6
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 395, ptr noundef nonnull @__func__.ossl_cms_encode_Receipt) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 168, ptr noundef null) #5

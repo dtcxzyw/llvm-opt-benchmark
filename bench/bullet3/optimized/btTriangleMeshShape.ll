@@ -730,7 +730,7 @@ _Z24TestTriangleAgainstAabb2PK9btVector3RS0_S2_.exit: ; preds = %51
   tail call void %79(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3)
   br label %_Z24TestTriangleAgainstAabb2PK9btVector3RS0_S2_.exit.thread
 
-_Z24TestTriangleAgainstAabb2PK9btVector3RS0_S2_.exit.thread: ; preds = %41, %27, %17, %4, %51, %74, %_Z24TestTriangleAgainstAabb2PK9btVector3RS0_S2_.exit
+_Z24TestTriangleAgainstAabb2PK9btVector3RS0_S2_.exit.thread: ; preds = %51, %41, %27, %17, %4, %74, %_Z24TestTriangleAgainstAabb2PK9btVector3RS0_S2_.exit
   ret void
 }
 

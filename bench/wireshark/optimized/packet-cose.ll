@@ -422,7 +422,7 @@ define hidden i32 @cose_param_key_equal(ptr noundef readonly captures(none) %0, 
   br label %16
 
 16:                                               ; preds = %14, %11, %8, %6, %4
-  %.013 = phi i32 [ 0, %6 ], [ 0, %4 ], [ %15, %14 ], [ 0, %11 ], [ 0, %8 ]
+  %.013 = phi i32 [ 0, %4 ], [ 0, %6 ], [ %15, %14 ], [ 0, %11 ], [ 0, %8 ]
   ret i32 %.013
 }
 
@@ -2357,7 +2357,7 @@ define internal fastcc ptr @get_header_value(ptr noundef %0, ptr noundef %1, ptr
   br label %16
 
 16:                                               ; preds = %12, %14, %7, %9, %3
-  %.1 = phi ptr [ null, %3 ], [ null, %7 ], [ %11, %9 ], [ %15, %14 ], [ null, %12 ]
+  %.1 = phi ptr [ null, %3 ], [ %11, %9 ], [ null, %7 ], [ %15, %14 ], [ null, %12 ]
   tail call void @wscbor_chunk_free(ptr noundef %4)
   ret ptr %.1
 }
@@ -2429,8 +2429,8 @@ define internal fastcc noundef zeroext i1 @dissect_header_pair(ptr noundef %0, p
   br label %42
 
 42:                                               ; preds = %33, %38, %20, %25, %6
-  %.1 = phi ptr [ null, %6 ], [ null, %20 ], [ %32, %25 ], [ %35, %38 ], [ null, %33 ]
-  %.075 = phi ptr [ null, %6 ], [ %24, %20 ], [ %24, %25 ], [ %37, %38 ], [ %37, %33 ]
+  %.1 = phi ptr [ null, %6 ], [ %32, %25 ], [ null, %20 ], [ %35, %38 ], [ null, %33 ]
+  %.075 = phi ptr [ null, %6 ], [ %24, %25 ], [ %24, %20 ], [ %37, %38 ], [ %37, %33 ]
   %43 = load ptr, ptr %1, align 8
   store ptr %43, ptr %9, align 8
   %44 = call ptr @dissector_get_custom_table_handle(ptr noundef %0, ptr noundef nonnull %9)

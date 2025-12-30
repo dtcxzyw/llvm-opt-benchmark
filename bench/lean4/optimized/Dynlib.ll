@@ -1209,7 +1209,7 @@ lean_dec.exit:                                    ; preds = %83, %82, %80, %lean
   br label %lean_dec.exit25
 
 lean_dec.exit25:                                  ; preds = %12, %18, %20, %21, %lean_dec.exit23, %lean_dec.exit
-  %.0 = phi ptr [ %85, %lean_dec.exit ], [ %66, %lean_dec.exit23 ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
+  %.0 = phi ptr [ %66, %lean_dec.exit23 ], [ %85, %lean_dec.exit ], [ inttoptr (i64 1 to ptr), %21 ], [ inttoptr (i64 1 to ptr), %20 ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %12 ]
   ret ptr %.0
 }
 
@@ -1871,7 +1871,7 @@ _init_l_Array_Array_repr___at___private_Lake_Config_Dynlib_0__Lake_reprDynlib___
   br label %_init_l_Array_Array_repr___at___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____spec__1___closed__6.exit
 
 _init_l_Array_Array_repr___at___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____spec__1___closed__6.exit: ; preds = %_init_l_Array_Array_repr___at___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____spec__1___closed__3.exit, %70
-  %.1.i.i = phi ptr [ %66, %_init_l_Array_Array_repr___at___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____spec__1___closed__3.exit ], [ %72, %70 ]
+  %.1.i.i = phi ptr [ %72, %70 ], [ %66, %_init_l_Array_Array_repr___at___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____spec__1___closed__3.exit ]
   store ptr %.1.i.i, ptr @l_Array_Array_repr___at___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____spec__1___closed__6, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #4
   %73 = load ptr, ptr @l_Array_Array_repr___at___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____spec__1___closed__4, align 8, !tbaa !4
@@ -2130,7 +2130,7 @@ _init_l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynli
   br label %_init_l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__19.exit
 
 _init_l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__19.exit: ; preds = %_init_l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__16.exit, %160
-  %.1.i.i15 = phi ptr [ %156, %_init_l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__16.exit ], [ %162, %160 ]
+  %.1.i.i15 = phi ptr [ %162, %160 ], [ %156, %_init_l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__16.exit ]
   store ptr %.1.i.i15, ptr @l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__19, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i15) #4
   %163 = load ptr, ptr @l___private_Lake_Config_Dynlib_0__Lake_reprDynlib____x40_Lake_Config_Dynlib___hyg_60____closed__17, align 8, !tbaa !4

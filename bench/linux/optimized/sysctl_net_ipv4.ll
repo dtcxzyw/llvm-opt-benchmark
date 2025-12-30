@@ -421,7 +421,7 @@ define internal noundef range(i32 -12, 1) i32 @ipv4_sysctl_init_net(ptr noundef 
   br label %37
 
 37:                                               ; preds = %36, %35, %28, %3
-  %38 = phi i32 [ 0, %28 ], [ -12, %3 ], [ -12, %35 ], [ -12, %36 ]
+  %38 = phi i32 [ 0, %28 ], [ -12, %35 ], [ -12, %36 ], [ -12, %3 ]
   ret i32 %38
 }
 

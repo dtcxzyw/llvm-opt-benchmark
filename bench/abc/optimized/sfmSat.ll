@@ -1043,7 +1043,7 @@ Abc_Clock.exit262:                                ; preds = %512, %517
   br label %.loopexit
 
 .loopexit:                                        ; preds = %238, %462, %.critedge20, %Abc_Clock.exit262
-  %.0 = phi i32 [ %514, %Abc_Clock.exit262 ], [ 0, %462 ], [ 0, %.critedge20 ], [ 0, %238 ]
+  %.0 = phi i32 [ %514, %Abc_Clock.exit262 ], [ 0, %.critedge20 ], [ 0, %462 ], [ 0, %238 ]
   ret i32 %.0
 }
 
@@ -1690,7 +1690,7 @@ Abc_TtOr.exit:                                    ; preds = %.lr.ph.i150, %._cri
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge2, %35, %.critedge4, %44
-  %.0 = phi i64 [ -8690466094656961759, %.critedge4 ], [ %45, %44 ], [ 1311768465173141112, %35 ], [ 1311768465173141112, %.critedge2 ]
+  %.0 = phi i64 [ %45, %44 ], [ -8690466094656961759, %.critedge4 ], [ 1311768465173141112, %35 ], [ 1311768465173141112, %.critedge2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
@@ -2259,7 +2259,7 @@ define i64 @Sfm_ComputeInterpolant2(ptr noundef captures(none) %0) local_unnamed
   br label %54
 
 54:                                               ; preds = %1, %7, %6
-  %.0 = phi i64 [ %53, %7 ], [ -8690466094656961759, %6 ], [ 1311768465173141112, %1 ]
+  %.0 = phi i64 [ -8690466094656961759, %6 ], [ %53, %7 ], [ 1311768465173141112, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

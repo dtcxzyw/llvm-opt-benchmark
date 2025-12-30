@@ -843,7 +843,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %179, %259
   br label %279
 
 279:                                              ; preds = %267, %271, %275, %277, %273, %269, %265, %263
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %274, %273 ], [ %278, %277 ], [ %276, %275 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %266, %265 ], [ %264, %263 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %274, %273 ], [ %278, %277 ], [ %276, %275 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
@@ -2024,8 +2024,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %65
   br label %237
 
 237:                                              ; preds = %208, %206, %203, %199
-  %.3106 = phi i32 [ %195, %203 ], [ %161, %199 ], [ %161, %206 ], [ %spec.select186, %208 ]
-  %.495 = phi i32 [ %126, %203 ], [ %117, %199 ], [ %117, %206 ], [ %spec.select187, %208 ]
+  %.3106 = phi i32 [ %161, %199 ], [ %195, %203 ], [ %161, %206 ], [ %spec.select186, %208 ]
+  %.495 = phi i32 [ %117, %199 ], [ %126, %203 ], [ %117, %206 ], [ %spec.select187, %208 ]
   %238 = add nuw nsw i32 %.079192, 1
   %exitcond.not = icmp eq i32 %238, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
@@ -2035,7 +2035,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %65
   store i32 %.192.lcssa, ptr %57, align 4, !tbaa !20
   br label %297
 
-239:                                              ; preds = %198, %199, %203
+239:                                              ; preds = %199, %198, %203
   store i32 %.192191, ptr %57, align 4, !tbaa !20
   %240 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %241 = getelementptr inbounds nuw i32, ptr %240, i64 %115
@@ -2113,9 +2113,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %65
   br label %297
 
 297:                                              ; preds = %282, %296, %279, %239, %277, %._crit_edge
-  %spec.select133 = phi i32 [ 0, %._crit_edge ], [ 0, %279 ], [ %242, %239 ], [ 0, %296 ], [ 0, %282 ], [ %250, %277 ]
-  %spec.select = phi i32 [ 0, %._crit_edge ], [ %.192191, %279 ], [ 0, %239 ], [ %.192191, %296 ], [ %.192191, %282 ], [ 0, %277 ]
-  %.3101 = phi i32 [ -2, %._crit_edge ], [ 0, %279 ], [ 1, %239 ], [ 2, %296 ], [ 0, %282 ], [ 1, %277 ]
+  %spec.select133 = phi i32 [ 0, %._crit_edge ], [ 0, %296 ], [ 0, %282 ], [ 0, %279 ], [ %242, %239 ], [ %250, %277 ]
+  %spec.select = phi i32 [ 0, %._crit_edge ], [ %.192191, %296 ], [ %.192191, %282 ], [ %.192191, %279 ], [ 0, %239 ], [ 0, %277 ]
+  %.3101 = phi i32 [ -2, %._crit_edge ], [ 2, %296 ], [ 0, %282 ], [ 0, %279 ], [ 1, %239 ], [ 1, %277 ]
   store i32 %spec.select, ptr %2, align 4, !tbaa !9
   store i32 %spec.select133, ptr %3, align 4, !tbaa !9
   %298 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2780,7 +2780,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %357
   ret i32 %.0
 
 361:                                              ; preds = %335, %337, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %18
-  %.pn58.pn = phi { ptr, i32 } [ %.pn58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ], [ %338, %337 ], [ %19, %18 ], [ %.pn50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69 ], [ %336, %335 ]
+  %.pn58.pn = phi { ptr, i32 } [ %.pn58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ], [ %19, %18 ], [ %.pn50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69 ], [ %336, %335 ], [ %338, %337 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #31
@@ -3674,7 +3674,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.thread, %216
   ret i32 %.0
 
 220:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %23
-  %.pn26.pn.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ]
+  %.pn26.pn.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %.pn26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %221

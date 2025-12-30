@@ -155,7 +155,7 @@ lean_dec.exit16:                                  ; preds = %55, %54, %52, %lean
   br label %lean_dec.exit14
 
 lean_dec.exit14:                                  ; preds = %lean_dec.exit16, %58, %60, %61, %lean_dec.exit, %31, %33, %34, %35
-  %.1 = phi ptr [ %2, %lean_dec.exit ], [ %36, %35 ], [ %2, %34 ], [ %2, %33 ], [ %2, %31 ], [ %2, %61 ], [ %2, %60 ], [ %2, %58 ], [ %2, %lean_dec.exit16 ]
+  %.1 = phi ptr [ %36, %35 ], [ %2, %34 ], [ %2, %33 ], [ %2, %31 ], [ %2, %lean_dec.exit ], [ %2, %61 ], [ %2, %60 ], [ %2, %58 ], [ %2, %lean_dec.exit16 ]
   ret ptr %.1
 }
 
@@ -1154,7 +1154,7 @@ lean_dec.exit:                                    ; preds = %365, %364, %362, %l
   br label %lean_dec.exit115
 
 lean_dec.exit115:                                 ; preds = %lean_dec.exit, %370, %372, %373, %lean_dec.exit105, %307, %309, %310, %lean_inc.exit128, %232, %234, %235, %lean_inc.exit125, %185, %187, %188, %lean_inc.exit122, %138, %140, %141, %lean_dec.exit113, %91, %93, %94, %58, %62, %64, %65, %lean_alloc_ctor.exit, %lean_dec.exit102, %lean_dec.exit103
-  %.1 = phi ptr [ %301, %lean_dec.exit105 ], [ %348, %lean_dec.exit102 ], [ %2, %58 ], [ %2, %lean_dec.exit113 ], [ %132, %lean_inc.exit122 ], [ %179, %lean_inc.exit125 ], [ %226, %lean_inc.exit128 ], [ %329, %lean_dec.exit103 ], [ %67, %lean_alloc_ctor.exit ], [ %2, %65 ], [ %2, %64 ], [ %2, %62 ], [ %2, %94 ], [ %2, %93 ], [ %2, %91 ], [ %132, %141 ], [ %132, %140 ], [ %132, %138 ], [ %179, %188 ], [ %179, %187 ], [ %179, %185 ], [ %226, %235 ], [ %226, %234 ], [ %226, %232 ], [ %301, %310 ], [ %301, %309 ], [ %301, %307 ], [ %2, %373 ], [ %2, %372 ], [ %2, %370 ], [ %2, %lean_dec.exit ]
+  %.1 = phi ptr [ %329, %lean_dec.exit103 ], [ %348, %lean_dec.exit102 ], [ %67, %lean_alloc_ctor.exit ], [ %2, %65 ], [ %2, %64 ], [ %2, %62 ], [ %2, %58 ], [ %2, %94 ], [ %2, %93 ], [ %2, %91 ], [ %2, %lean_dec.exit113 ], [ %132, %141 ], [ %132, %140 ], [ %132, %138 ], [ %132, %lean_inc.exit122 ], [ %179, %188 ], [ %179, %187 ], [ %179, %185 ], [ %179, %lean_inc.exit125 ], [ %226, %235 ], [ %226, %234 ], [ %226, %232 ], [ %226, %lean_inc.exit128 ], [ %301, %310 ], [ %301, %309 ], [ %301, %307 ], [ %301, %lean_dec.exit105 ], [ %2, %373 ], [ %2, %372 ], [ %2, %370 ], [ %2, %lean_dec.exit ]
   ret ptr %.1
 }
 

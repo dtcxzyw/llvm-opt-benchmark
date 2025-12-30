@@ -308,7 +308,7 @@ define range(i32 -1, 1) i32 @H5B2_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %41, %34, %24, %1, %51, %47
-  %.021 = phi i32 [ 0, %51 ], [ 0, %1 ], [ -1, %47 ], [ -1, %24 ], [ -1, %34 ], [ -1, %41 ]
+  %.021 = phi i32 [ 0, %51 ], [ -1, %47 ], [ 0, %1 ], [ -1, %24 ], [ -1, %34 ], [ -1, %41 ]
   ret i32 %.021
 }
 
@@ -927,7 +927,7 @@ thread-pre-split:                                 ; preds = %133
   br label %149
 
 149:                                              ; preds = %144, %148, %142, %134
-  %.2157 = phi i32 [ %., %142 ], [ 3, %134 ], [ %.187, %148 ], [ 3, %144 ]
+  %.2157 = phi i32 [ 3, %134 ], [ %., %142 ], [ %.187, %148 ], [ 3, %144 ]
   %150 = load ptr, ptr %22, align 8, !tbaa !19
   %151 = load i64, ptr %6, align 8, !tbaa !54
   %152 = load i8, ptr %91, align 8, !tbaa !49, !range !7, !noundef !8
@@ -1221,8 +1221,8 @@ thread-pre-split:                                 ; preds = %133
   br label %.thread205
 
 324:                                              ; preds = %.thread198, %201, %209
-  %.1151 = phi i32 [ %.3153.ph, %.thread198 ], [ -1, %201 ], [ -1, %209 ]
-  %.0148 = phi ptr [ %.3.ph, %.thread198 ], [ %.2.lcssa, %201 ], [ %.2.lcssa, %209 ]
+  %.1151 = phi i32 [ -1, %201 ], [ -1, %209 ], [ %.3153.ph, %.thread198 ]
+  %.0148 = phi ptr [ %.2.lcssa, %201 ], [ %.2.lcssa, %209 ], [ %.3.ph, %.thread198 ]
   %.not185 = icmp eq ptr %.0148, null
   %.not186 = icmp eq ptr %.0148, %21
   %or.cond193 = or i1 %.not185, %.not186
@@ -1240,7 +1240,7 @@ thread-pre-split:                                 ; preds = %133
   br label %.thread205
 
 .thread205:                                       ; preds = %323, %319, %303, %280, %264, %261, %243, %239, %225, %87, %83, %75, %68, %57, %53, %45, %38, %27, %15, %325, %328, %324
-  %.0150 = phi i32 [ -1, %328 ], [ %.1151, %325 ], [ 0, %15 ], [ %.1151, %324 ], [ 0, %323 ], [ -1, %319 ], [ -1, %303 ], [ -1, %280 ], [ -1, %264 ], [ -1, %261 ], [ 0, %243 ], [ -1, %239 ], [ -1, %225 ], [ 0, %87 ], [ -1, %83 ], [ 0, %75 ], [ -1, %68 ], [ 0, %57 ], [ -1, %53 ], [ 0, %45 ], [ -1, %38 ], [ 0, %27 ]
+  %.0150 = phi i32 [ -1, %328 ], [ %.1151, %325 ], [ %.1151, %324 ], [ 0, %15 ], [ 0, %323 ], [ -1, %319 ], [ -1, %303 ], [ -1, %280 ], [ -1, %264 ], [ -1, %261 ], [ 0, %243 ], [ -1, %239 ], [ -1, %225 ], [ 0, %87 ], [ -1, %83 ], [ 0, %75 ], [ -1, %68 ], [ 0, %57 ], [ -1, %53 ], [ 0, %45 ], [ -1, %38 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1607,7 +1607,7 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr noundef readonly captures(none) %0, 
   br label %.thread136
 
 .thread136:                                       ; preds = %177, %178, %174, %171, %32, %25, %13, %183, %186, %182
-  %.0100 = phi i32 [ -1, %186 ], [ %.1101, %183 ], [ 0, %13 ], [ %.1101, %182 ], [ 0, %177 ], [ -1, %178 ], [ -1, %174 ], [ -1, %171 ], [ -1, %32 ], [ -1, %25 ]
+  %.0100 = phi i32 [ -1, %186 ], [ %.1101, %183 ], [ %.1101, %182 ], [ 0, %13 ], [ 0, %177 ], [ -1, %178 ], [ -1, %174 ], [ -1, %171 ], [ -1, %32 ], [ -1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0100
 }
@@ -1768,7 +1768,7 @@ define range(i32 -1, 1) i32 @H5B2_remove(ptr noundef readonly captures(none) %0,
   br label %90
 
 90:                                               ; preds = %.thread45, %11, %81, %86, %77, %23
-  %.038 = phi i32 [ -1, %23 ], [ -1, %86 ], [ 0, %81 ], [ -1, %.thread45 ], [ -1, %77 ], [ 0, %11 ]
+  %.038 = phi i32 [ -1, %23 ], [ -1, %86 ], [ 0, %81 ], [ -1, %77 ], [ 0, %11 ], [ -1, %.thread45 ]
   ret i32 %.038
 }
 
@@ -1949,7 +1949,7 @@ define range(i32 -1, 1) i32 @H5B2_remove_by_idx(ptr noundef readonly captures(no
   br label %99
 
 99:                                               ; preds = %.thread55, %12, %90, %95, %86, %29, %24
-  %.044 = phi i32 [ -1, %24 ], [ -1, %29 ], [ -1, %95 ], [ 0, %90 ], [ -1, %.thread55 ], [ -1, %86 ], [ 0, %12 ]
+  %.044 = phi i32 [ -1, %24 ], [ -1, %29 ], [ -1, %95 ], [ 0, %90 ], [ -1, %86 ], [ 0, %12 ], [ -1, %.thread55 ]
   ret i32 %.044
 }
 
@@ -2219,7 +2219,7 @@ thread-pre-split:                                 ; preds = %79
   br label %95
 
 95:                                               ; preds = %90, %94, %88, %80
-  %.2141 = phi i32 [ %., %88 ], [ 3, %80 ], [ %.156, %94 ], [ 3, %90 ]
+  %.2141 = phi i32 [ 3, %80 ], [ %., %88 ], [ %.156, %94 ], [ 3, %90 ]
   %96 = load ptr, ptr %24, align 8, !tbaa !19
   %97 = load i64, ptr %6, align 8, !tbaa !54
   %98 = load i8, ptr %37, align 8, !tbaa !49, !range !7, !noundef !8
@@ -2518,14 +2518,14 @@ thread-pre-split:                                 ; preds = %79
   br label %279
 
 279:                                              ; preds = %267, %191, %275, %256, %232, %215, %212, %192, %187, %173, %157, %149
-  %.6136 = phi i32 [ -1, %149 ], [ -1, %157 ], [ -1, %173 ], [ -1, %187 ], [ 0, %191 ], [ -1, %192 ], [ -1, %212 ], [ -1, %215 ], [ -1, %232 ], [ -1, %256 ], [ -1, %275 ], [ 0, %267 ]
-  %.7 = phi ptr [ %.2129.lcssa, %149 ], [ %.2129.lcssa, %157 ], [ null, %173 ], [ null, %187 ], [ null, %191 ], [ null, %192 ], [ null, %212 ], [ null, %215 ], [ null, %232 ], [ null, %256 ], [ null, %275 ], [ null, %267 ]
+  %.6136 = phi i32 [ -1, %149 ], [ -1, %157 ], [ -1, %173 ], [ -1, %187 ], [ -1, %192 ], [ -1, %212 ], [ -1, %215 ], [ -1, %232 ], [ -1, %256 ], [ -1, %275 ], [ 0, %191 ], [ 0, %267 ]
+  %.7 = phi ptr [ %.2129.lcssa, %149 ], [ %.2129.lcssa, %157 ], [ null, %173 ], [ null, %187 ], [ null, %192 ], [ null, %212 ], [ null, %215 ], [ null, %232 ], [ null, %256 ], [ null, %275 ], [ null, %191 ], [ null, %267 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %280
 
 280:                                              ; preds = %.thread167, %279
-  %.1131 = phi i32 [ %.3133.ph, %.thread167 ], [ %.6136, %279 ]
-  %.0127 = phi ptr [ %.3.ph, %.thread167 ], [ %.7, %279 ]
+  %.1131 = phi i32 [ %.6136, %279 ], [ %.3133.ph, %.thread167 ]
+  %.0127 = phi ptr [ %.7, %279 ], [ %.3.ph, %.thread167 ]
   %.not154 = icmp eq ptr %.0127, null
   %.not155 = icmp eq ptr %.0127, %23
   %or.cond162 = or i1 %.not154, %.not155
@@ -2542,8 +2542,8 @@ thread-pre-split:                                 ; preds = %79
   %287 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2_modify, i32 noundef 1344, i64 noundef %285, i64 noundef %286, ptr noundef nonnull @.str.18) #7
   br label %.thread174
 
-.thread174:                                       ; preds = %30, %29, %17, %281, %284, %280
-  %.0130 = phi i32 [ -1, %284 ], [ %.1131, %281 ], [ 0, %17 ], [ %.1131, %280 ], [ -1, %30 ], [ 0, %29 ]
+.thread174:                                       ; preds = %29, %30, %17, %281, %284, %280
+  %.0130 = phi i32 [ -1, %284 ], [ %.1131, %281 ], [ %.1131, %280 ], [ 0, %17 ], [ 0, %29 ], [ -1, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2616,7 +2616,7 @@ define range(i32 -1, 1) i32 @H5B2_delete(ptr noundef %0, i64 noundef %1, ptr nou
   br label %36
 
 36:                                               ; preds = %32, %26
-  %.1 = phi i32 [ -1, %32 ], [ 0, %26 ]
+  %.1 = phi i32 [ 0, %26 ], [ -1, %32 ]
   %37 = tail call i32 @H5B2__hdr_unprotect(ptr noundef nonnull %15, i32 noundef 0) #7
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %.thread21

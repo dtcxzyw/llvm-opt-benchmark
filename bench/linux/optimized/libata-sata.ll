@@ -578,7 +578,7 @@ define dso_local i32 @sata_link_debounce(ptr noundef %0, ptr noundef readonly ca
   br i1 %95, label %.thread, label %45, !llvm.loop !6
 
 .thread:                                          ; preds = %91, %58, %63, %85, %73, %23, %28, %38
-  %96 = phi i32 [ %39, %38 ], [ -95, %23 ], [ -95, %28 ], [ 0, %85 ], [ -95, %58 ], [ -95, %63 ], [ %74, %73 ], [ -32, %91 ]
+  %96 = phi i32 [ %39, %38 ], [ -95, %28 ], [ -95, %23 ], [ -95, %58 ], [ -95, %63 ], [ %74, %73 ], [ 0, %85 ], [ -32, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %96
 }
@@ -898,7 +898,7 @@ define dso_local i32 @sata_link_resume(ptr noundef %0, ptr noundef readonly capt
   br label %.thread
 
 .thread:                                          ; preds = %79, %84, %45, %50, %94, %62, %201, %157, %162, %184, %189, %13, %18, %146, %119, %113, %28
-  %204 = phi i32 [ -95, %18 ], [ %29, %28 ], [ 0, %119 ], [ 0, %113 ], [ %147, %146 ], [ -95, %184 ], [ -95, %162 ], [ -95, %189 ], [ -95, %13 ], [ -95, %157 ], [ %spec.select, %201 ], [ -95, %84 ], [ -95, %50 ], [ -95, %79 ], [ %95, %94 ], [ %63, %62 ], [ -95, %45 ]
+  %204 = phi i32 [ %29, %28 ], [ 0, %119 ], [ 0, %113 ], [ %147, %146 ], [ -95, %18 ], [ -95, %13 ], [ -95, %189 ], [ -95, %184 ], [ -95, %162 ], [ -95, %157 ], [ %spec.select, %201 ], [ -95, %79 ], [ -95, %84 ], [ -95, %45 ], [ -95, %50 ], [ %95, %94 ], [ %63, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %204
@@ -1026,8 +1026,8 @@ condstore.split:                                  ; preds = %40
   br label %67
 
 67:                                               ; preds = %66, %condstore.split, %65, %62, %36, %34, %31
-  %68 = phi i32 [ %.pre, %65 ], [ %35, %34 ], [ %33, %31 ], [ %64, %62 ], [ %39, %36 ], [ %spec.select, %condstore.split ], [ %spec.select, %66 ]
-  %69 = phi i1 [ false, %65 ], [ true, %34 ], [ false, %31 ], [ false, %62 ], [ false, %36 ], [ false, %condstore.split ], [ false, %66 ]
+  %68 = phi i32 [ %.pre, %65 ], [ %64, %62 ], [ %39, %36 ], [ %35, %34 ], [ %33, %31 ], [ %spec.select, %condstore.split ], [ %spec.select, %66 ]
+  %69 = phi i1 [ false, %65 ], [ false, %62 ], [ false, %36 ], [ true, %34 ], [ false, %31 ], [ false, %condstore.split ], [ false, %66 ]
   %70 = load ptr, ptr %0, align 64
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8256
   %72 = icmp eq ptr %71, %0
@@ -1118,7 +1118,7 @@ condstore.split:                                  ; preds = %40
   br label %.thread
 
 .thread:                                          ; preds = %77, %82, %12, %17, %125, %121, %115, %110, %94, %27
-  %127 = phi i32 [ %28, %27 ], [ %95, %94 ], [ %124, %121 ], [ %126, %125 ], [ -95, %115 ], [ -95, %110 ], [ -95, %12 ], [ -95, %17 ], [ -95, %82 ], [ -95, %77 ]
+  %127 = phi i32 [ %28, %27 ], [ %95, %94 ], [ %124, %121 ], [ %126, %125 ], [ -95, %115 ], [ -95, %110 ], [ -95, %17 ], [ -95, %12 ], [ -95, %82 ], [ -95, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %127
 }
@@ -1627,7 +1627,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr noundef readonly c
   br label %.thread19
 
 .thread19:                                        ; preds = %131, %136, %101, %106, %72, %77, %.thread25, %220, %218, %211, %209, %192, %188, %185, %146, %118, %87
-  %222 = phi i32 [ %88, %87 ], [ %119, %118 ], [ %147, %146 ], [ %186, %185 ], [ %190, %188 ], [ 0, %192 ], [ %221, %220 ], [ 0, %218 ], [ -11, %211 ], [ -11, %209 ], [ %.ph, %.thread25 ], [ -95, %72 ], [ -95, %101 ], [ -95, %77 ], [ -95, %106 ], [ -95, %136 ], [ -95, %131 ]
+  %222 = phi i32 [ %88, %87 ], [ %119, %118 ], [ %147, %146 ], [ %186, %185 ], [ %190, %188 ], [ 0, %192 ], [ %221, %220 ], [ 0, %218 ], [ -11, %211 ], [ -11, %209 ], [ %.ph, %.thread25 ], [ -95, %77 ], [ -95, %72 ], [ -95, %106 ], [ -95, %101 ], [ -95, %136 ], [ -95, %131 ]
   br i1 %9, label %225, label %223
 
 223:                                              ; preds = %.thread19
@@ -2889,7 +2889,7 @@ define dso_local void @ata_eh_analyze_ncq_error(ptr noundef %0) #1 align 16 {
   br label %131
 
 111:                                              ; preds = %33, %60
-  %112 = phi i32 [ -5, %33 ], [ -2, %60 ]
+  %112 = phi i32 [ -2, %60 ], [ -5, %33 ]
   %113 = load ptr, ptr %0, align 64
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 14728
   %115 = load i32, ptr %114, align 8

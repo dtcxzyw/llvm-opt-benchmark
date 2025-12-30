@@ -377,7 +377,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %110, %108
   br label %121
 
 121:                                              ; preds = %119, %117, %112
-  %.0 = phi i8 [ 43, %117 ], [ 35, %112 ], [ %., %119 ]
+  %.0 = phi i8 [ 35, %112 ], [ 43, %117 ], [ %., %119 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %.0, ptr %3, align 1, !tbaa !30
   %122 = load ptr, ptr %5, align 8, !tbaa !8
@@ -516,7 +516,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN5zxing8ArrayRefIcED2Ev.exit51
 
 _ZN5zxing8ArrayRefIcED2Ev.exit51:                 ; preds = %.thread61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i48, %171, %176
-  %.pn25.pn.pn.pn.pn60 = phi { ptr, i32 } [ %37, %.thread61 ], [ %.pn25.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i48 ], [ %.pn25.pn.pn, %171 ], [ %.pn25.pn.pn, %176 ]
+  %.pn25.pn.pn.pn.pn60 = phi { ptr, i32 } [ %.pn25.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i48 ], [ %.pn25.pn.pn, %171 ], [ %.pn25.pn.pn, %176 ], [ %37, %.thread61 ]
   resume { ptr, i32 } %.pn25.pn.pn.pn.pn60
 }
 

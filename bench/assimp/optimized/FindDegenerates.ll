@@ -273,7 +273,7 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   br label %.body
 
 .loopexit:                                        ; preds = %54, %.noexc, %48
-  %.pn.i.i = phi ptr [ %66, %.noexc ], [ %49, %48 ], [ %56, %54 ]
+  %.pn.i.i = phi ptr [ %49, %48 ], [ %66, %.noexc ], [ %56, %54 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 12
   store i32 %.039, ptr %.1.i.i, align 4
   %68 = load ptr, ptr %16, align 8
@@ -537,7 +537,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %12, %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit241, %.loopexit.loopexit.split.loop.exit243, %61, %58, %55
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %58 ], [ %.029.lcssa.i.i.i.i, %55 ], [ %.2.i.i.i.i, %61 ], [ %64, %.loopexit.loopexit.split.loop.exit243 ], [ %63, %.loopexit.loopexit.split.loop.exit241 ], [ %62, %.loopexit.loopexit.split.loop.exit ], [ %.02962.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %55 ], [ %.1.i.i.i.i, %58 ], [ %.2.i.i.i.i, %61 ], [ %62, %.loopexit.loopexit.split.loop.exit ], [ %63, %.loopexit.loopexit.split.loop.exit241 ], [ %64, %.loopexit.loopexit.split.loop.exit243 ], [ %.02962.i.i.i.i, %.lr.ph.i.i.i.i ]
   %65 = icmp eq ptr %41, %.028.i.i.i.i
   br i1 %65, label %.thread, label %.loopexit..thread148_crit_edge
 
@@ -861,7 +861,7 @@ _ZNK10aiVector3tIfEeqERKS0_.exit.thread:          ; preds = %72, %88, %_ZNK10aiV
   br label %219
 
 .critedge.thread:                                 ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit, %199, %.critedge, %204, %207
-  %.1 = phi i1 [ false, %.critedge ], [ false, %207 ], [ false, %204 ], [ true, %199 ], [ false, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit ]
+  %.1 = phi i1 [ false, %207 ], [ false, %204 ], [ false, %.critedge ], [ true, %199 ], [ false, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %210 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %210, null
@@ -1332,7 +1332,7 @@ define internal fastcc void @_ZL16updateSceneGraphP6aiNodeRKSt13unordered_mapIjj
   br label %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.thread, !llvm.loop !3
 
 _ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit: ; preds = %34, %18, %29
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %18 ], [ %30, %29 ], [ %36, %34 ]
+  %.sroa.06.1.i.i = phi ptr [ %30, %29 ], [ %.sroa.06.0.i.i, %18 ], [ %36, %34 ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 12
   %43 = load i32, ptr %42, align 4
   %44 = zext i32 %.01828 to i64
@@ -1342,9 +1342,9 @@ _ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit
   %.pre = load i32, ptr %3, align 8
   br label %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.thread
 
-_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader, %22, %..loopexit_crit_edge21.i.i.i.i, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit
-  %47 = phi i32 [ %.pre, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ %13, %..loopexit_crit_edge21.i.i.i.i ], [ %13, %.preheader ], [ %13, %22 ], [ %13, %.lr.ph.i.i.i.i ]
-  %.1 = phi i32 [ %46, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ %.01828, %..loopexit_crit_edge21.i.i.i.i ], [ %.01828, %.preheader ], [ %.01828, %22 ], [ %.01828, %.lr.ph.i.i.i.i ]
+_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %22, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit
+  %47 = phi i32 [ %.pre, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ %13, %22 ], [ %13, %..loopexit_crit_edge21.i.i.i.i ], [ %13, %.preheader ], [ %13, %.lr.ph.i.i.i.i ]
+  %.1 = phi i32 [ %46, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ %.01828, %22 ], [ %.01828, %..loopexit_crit_edge21.i.i.i.i ], [ %.01828, %.preheader ], [ %.01828, %.lr.ph.i.i.i.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = zext i32 %47 to i64
   %49 = icmp samesign ult i64 %indvars.iv.next, %48
@@ -1711,8 +1711,8 @@ _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS2_EEPNS4_10_Hash_nodeIS2_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert

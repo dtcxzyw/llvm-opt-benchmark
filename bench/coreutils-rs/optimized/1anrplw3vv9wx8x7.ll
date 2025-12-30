@@ -1043,7 +1043,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
 .thread:                                          ; preds = %45
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %23, %26
+.loopexit:                                        ; preds = %26, %23
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %45
@@ -1203,7 +1203,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
 .thread:                                          ; preds = %45
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %24, %27
+.loopexit:                                        ; preds = %27, %24
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %45

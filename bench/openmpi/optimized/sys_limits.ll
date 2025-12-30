@@ -248,7 +248,7 @@ sub_0:                                            ; preds = %.lr.ph, %13
   br label %97
 
 97:                                               ; preds = %.sink.split, %5, %1
-  %.048 = phi i32 [ -2, %5 ], [ 0, %1 ], [ %.048.ph, %.sink.split ]
+  %.048 = phi i32 [ 0, %1 ], [ -2, %5 ], [ %.048.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.048
 }
@@ -316,7 +316,7 @@ define internal fastcc range(i32 -1, 1) i32 @prte_setlimit(i32 noundef range(i32
   br label %30
 
 30:                                               ; preds = %14, %23, %25, %29
-  %.012 = phi i32 [ 0, %29 ], [ -1, %23 ], [ -1, %25 ], [ -1, %14 ]
+  %.012 = phi i32 [ 0, %29 ], [ -1, %25 ], [ -1, %23 ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.012

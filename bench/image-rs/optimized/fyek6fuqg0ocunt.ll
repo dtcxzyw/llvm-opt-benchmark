@@ -1011,7 +1011,7 @@ define hidden void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$15finish_int
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN4tiff7encoder6writer19TiffWriter$LT$W$GT$9write_u3217h65be8431f99c415cE.exit.i.i", %"_ZN4tiff7encoder6writer19TiffWriter$LT$W$GT$9write_u1617h430b735e1b152b13E.exit116.i", %"_ZN4tiff7encoder6writer19TiffWriter$LT$W$GT$9write_u1617h430b735e1b152b13E.exit.i", %119
-  %.sroa.12.0 = phi i64 [ %120, %119 ], [ %102, %"_ZN4tiff7encoder6writer19TiffWriter$LT$W$GT$9write_u3217h65be8431f99c415cE.exit.i.i" ], [ %86, %"_ZN4tiff7encoder6writer19TiffWriter$LT$W$GT$9write_u1617h430b735e1b152b13E.exit.i" ], [ %94, %"_ZN4tiff7encoder6writer19TiffWriter$LT$W$GT$9write_u1617h430b735e1b152b13E.exit116.i" ]
+  %.sroa.12.0 = phi i64 [ %120, %119 ], [ %102, %"_ZN4tiff7encoder6writer19TiffWriter$LT$W$GT$9write_u3217h65be8431f99c415cE.exit.i.i" ], [ %94, %"_ZN4tiff7encoder6writer19TiffWriter$LT$W$GT$9write_u1617h430b735e1b152b13E.exit116.i" ], [ %86, %"_ZN4tiff7encoder6writer19TiffWriter$LT$W$GT$9write_u1617h430b735e1b152b13E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !129
   br label %171
 
@@ -1273,8 +1273,8 @@ define hidden void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$15finish_int
   br i1 %194, label %196, label %203
 
 195:                                              ; preds = %182, %172
-  %.sroa.781.0 = phi ptr [ undef, %172 ], [ %183, %182 ]
-  %.sroa.079.0 = phi i16 [ 24, %172 ], [ 22, %182 ]
+  %.sroa.781.0 = phi ptr [ %183, %182 ], [ undef, %172 ]
+  %.sroa.079.0 = phi i16 [ 22, %182 ], [ 24, %172 ]
   store i16 %.sroa.079.0, ptr %0, align 8
   %.sroa.249.sroa.2.0..sroa.249.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.781.0, ptr %.sroa.249.sroa.2.0..sroa.249.0..sroa_idx.sroa_idx, align 8
@@ -1365,7 +1365,7 @@ define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9wr
           to label %"_ZN62_$LT$$RF$T$u20$as$u20$tiff..encoder..tiff_value..TiffValue$GT$5write17h1f9fb2a48752e84dE.exit" unwind label %63
 
 .body.thread:                                     ; preds = %39, %63
-  %eh.lpad-body30 = phi { ptr, i32 } [ %40, %39 ], [ %lpad.thr_comm.split-lp, %63 ]
+  %eh.lpad-body30 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %63 ], [ %40, %39 ]
   resume { ptr, i32 } %eh.lpad-body30
 
 "_ZN62_$LT$$RF$T$u20$as$u20$tiff..encoder..tiff_value..TiffValue$GT$5write17h1f9fb2a48752e84dE.exit": ; preds = %5
@@ -1551,7 +1551,7 @@ define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9wr
           to label %"_ZN62_$LT$$RF$T$u20$as$u20$tiff..encoder..tiff_value..TiffValue$GT$5write17hae6d34d8e8c5856cE.exit" unwind label %63
 
 .body.thread:                                     ; preds = %39, %63
-  %eh.lpad-body30 = phi { ptr, i32 } [ %40, %39 ], [ %lpad.thr_comm.split-lp, %63 ]
+  %eh.lpad-body30 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %63 ], [ %40, %39 ]
   resume { ptr, i32 } %eh.lpad-body30
 
 "_ZN62_$LT$$RF$T$u20$as$u20$tiff..encoder..tiff_value..TiffValue$GT$5write17hae6d34d8e8c5856cE.exit": ; preds = %5
@@ -1739,7 +1739,7 @@ define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9wr
   br i1 %22, label %switch.lookup, label %48
 
 .body.thread:                                     ; preds = %32, %55
-  %eh.lpad-body28 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm.split-lp, %55 ]
+  %eh.lpad-body28 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %55 ], [ %33, %32 ]
   resume { ptr, i32 } %eh.lpad-body28
 
 switch.lookup:                                    ; preds = %.noexc
@@ -1904,7 +1904,7 @@ define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9wr
   br i1 %22, label %switch.lookup, label %48
 
 .body.thread:                                     ; preds = %32, %55
-  %eh.lpad-body28 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm.split-lp, %55 ]
+  %eh.lpad-body28 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %55 ], [ %33, %32 ]
   resume { ptr, i32 } %eh.lpad-body28
 
 switch.lookup:                                    ; preds = %.noexc
@@ -2077,7 +2077,7 @@ define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9wr
   br i1 %24, label %25, label %50
 
 .body.thread:                                     ; preds = %34, %57
-  %eh.lpad-body32 = phi { ptr, i32 } [ %35, %34 ], [ %lpad.thr_comm.split-lp, %57 ]
+  %eh.lpad-body32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %57 ], [ %35, %34 ]
   resume { ptr, i32 } %eh.lpad-body32
 
 25:                                               ; preds = %.noexc21
@@ -3234,8 +3234,8 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17h604de83b4
   br label %.thread244
 
 .thread244:                                       ; preds = %62, %61, %64, %.thread253, %63, %.thread248, %78, %79, %65
-  %.0135243 = phi i8 [ 2, %65 ], [ 6, %62 ], [ 0, %.thread248 ], [ 1, %63 ], [ 2, %.thread253 ], [ 3, %64 ], [ 5, %78 ], [ 4, %61 ], [ 7, %79 ]
-  %.sroa.071.0 = phi i8 [ 25, %65 ], [ 19, %62 ], [ 13, %.thread248 ], [ 14, %63 ], [ 15, %.thread253 ], [ 16, %64 ], [ 18, %78 ], [ 17, %61 ], [ 20, %79 ]
+  %.0135243 = phi i8 [ 2, %65 ], [ 5, %78 ], [ 7, %79 ], [ 0, %.thread248 ], [ 1, %63 ], [ 2, %.thread253 ], [ 3, %64 ], [ 4, %61 ], [ 6, %62 ]
+  %.sroa.071.0 = phi i8 [ 25, %65 ], [ 18, %78 ], [ 20, %79 ], [ 13, %.thread248 ], [ 14, %63 ], [ 15, %.thread253 ], [ 16, %64 ], [ 17, %61 ], [ 19, %62 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %13, i64 352, i1 false)
   %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i32 %26, ptr %.sroa.462.0..sroa_idx, align 8
@@ -3638,8 +3638,8 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17hd232c915d
   br label %.thread244
 
 .thread244:                                       ; preds = %62, %61, %64, %.thread253, %63, %.thread248, %78, %79, %65
-  %.0135243 = phi i8 [ 2, %65 ], [ 6, %62 ], [ 0, %.thread248 ], [ 1, %63 ], [ 2, %.thread253 ], [ 3, %64 ], [ 5, %78 ], [ 4, %61 ], [ 7, %79 ]
-  %.sroa.071.0 = phi i8 [ 25, %65 ], [ 19, %62 ], [ 13, %.thread248 ], [ 14, %63 ], [ 15, %.thread253 ], [ 16, %64 ], [ 18, %78 ], [ 17, %61 ], [ 20, %79 ]
+  %.0135243 = phi i8 [ 2, %65 ], [ 5, %78 ], [ 7, %79 ], [ 0, %.thread248 ], [ 1, %63 ], [ 2, %.thread253 ], [ 3, %64 ], [ 4, %61 ], [ 6, %62 ]
+  %.sroa.071.0 = phi i8 [ 25, %65 ], [ 18, %78 ], [ 20, %79 ], [ 13, %.thread248 ], [ 14, %63 ], [ 15, %.thread253 ], [ 16, %64 ], [ 17, %61 ], [ 19, %62 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(376) %13, i64 376, i1 false)
   %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i32 %26, ptr %.sroa.462.0..sroa_idx, align 8
@@ -4054,7 +4054,7 @@ default.unreachable233:                           ; preds = %64
           to label %58 unwind label %56
 
 .thread199:                                       ; preds = %114, %131, %148, %165, %182, %199, %215, %232, %249, %84, %73, %90, %56
-  %.pn.pn = phi { ptr, i32 } [ %91, %90 ], [ %85, %84 ], [ %57, %56 ], [ %74, %73 ], [ %216, %215 ], [ %200, %199 ], [ %183, %182 ], [ %166, %165 ], [ %149, %148 ], [ %132, %131 ], [ %115, %114 ], [ %250, %249 ], [ %233, %232 ]
+  %.pn.pn = phi { ptr, i32 } [ %85, %84 ], [ %57, %56 ], [ %74, %73 ], [ %91, %90 ], [ %250, %249 ], [ %233, %232 ], [ %216, %215 ], [ %200, %199 ], [ %183, %182 ], [ %166, %165 ], [ %149, %148 ], [ %132, %131 ], [ %115, %114 ]
   invoke void @"_ZN4core3ptr111drop_in_place$LT$tiff..decoder..Decoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hf0cc9cd5e99a9f95E"(ptr noalias noundef nonnull align 8 dereferenceable(376) %29) #23
           to label %.thread unwind label %88
 
@@ -4719,7 +4719,7 @@ default.unreachable233:                           ; preds = %64
   ret void
 
 .thread:                                          ; preds = %267, %270, %.thread199
-  %.pn84191 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %267 ], [ %.pn.pn, %.thread199 ], [ %lpad.thr_comm.split-lp, %270 ]
+  %.pn84191 = phi { ptr, i32 } [ %.pn.pn, %.thread199 ], [ %lpad.thr_comm.split-lp, %270 ], [ %lpad.thr_comm.split-lp, %267 ]
   resume { ptr, i32 } %.pn84191
 
 267:                                              ; preds = %50
@@ -4837,7 +4837,7 @@ default.unreachable233:                           ; preds = %64
           to label %58 unwind label %56
 
 .thread199:                                       ; preds = %114, %131, %148, %165, %182, %199, %215, %232, %249, %84, %73, %90, %56
-  %.pn.pn = phi { ptr, i32 } [ %91, %90 ], [ %85, %84 ], [ %57, %56 ], [ %74, %73 ], [ %216, %215 ], [ %200, %199 ], [ %183, %182 ], [ %166, %165 ], [ %149, %148 ], [ %132, %131 ], [ %115, %114 ], [ %250, %249 ], [ %233, %232 ]
+  %.pn.pn = phi { ptr, i32 } [ %85, %84 ], [ %57, %56 ], [ %74, %73 ], [ %91, %90 ], [ %250, %249 ], [ %233, %232 ], [ %216, %215 ], [ %200, %199 ], [ %183, %182 ], [ %166, %165 ], [ %149, %148 ], [ %132, %131 ], [ %115, %114 ]
   invoke void @"_ZN4core3ptr98drop_in_place$LT$tiff..decoder..Decoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hce659f685e3eeebeE"(ptr noalias noundef nonnull align 8 dereferenceable(352) %29) #23
           to label %.thread unwind label %88
 
@@ -5502,7 +5502,7 @@ default.unreachable233:                           ; preds = %64
   ret void
 
 .thread:                                          ; preds = %267, %270, %.thread199
-  %.pn84191 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %267 ], [ %.pn.pn, %.thread199 ], [ %lpad.thr_comm.split-lp, %270 ]
+  %.pn84191 = phi { ptr, i32 } [ %.pn.pn, %.thread199 ], [ %lpad.thr_comm.split-lp, %270 ], [ %lpad.thr_comm.split-lp, %267 ]
   resume { ptr, i32 } %.pn84191
 
 267:                                              ; preds = %50
@@ -5844,8 +5844,8 @@ switch.lookup:
   br label %204
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0cb4d7ee5c9b0bb4E.exit": ; preds = %200, %201
-  %.sroa.8.0.i = phi ptr [ %.sroa.212.i.sroa.4.0.copyload.i, %200 ], [ %202, %201 ]
-  %.sroa.0.0.i = phi i16 [ %191, %200 ], [ 22, %201 ]
+  %.sroa.8.0.i = phi ptr [ %202, %201 ], [ %.sroa.212.i.sroa.4.0.copyload.i, %200 ]
+  %.sroa.0.0.i = phi i16 [ 22, %201 ], [ %191, %200 ]
   %.sroa.61380.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 2
   call void @llvm.lifetime.start.p0(ptr nonnull %160), !noalias !783
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.61380.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.6.i, i64 6, i1 false), !noalias !4
@@ -6450,7 +6450,7 @@ switch.lookup:
           to label %common.resume unwind label %325, !noalias !833
 
 common.resume:                                    ; preds = %1491, %.thread242.i.i.i1152, %1534, %1594, %1259, %.thread242.i.i.i909, %1302, %1362, %1026, %.thread242.i.i.i666, %1069, %1129, %782, %.thread242.i.i.i409, %825, %885, %555, %.thread242.i.i.i166, %598, %658, %328, %.thread242.i.i.i, %371, %431
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i.i1103, %1362 ], [ %lpad.phi.i.i, %431 ], [ %lpad.phi.i.i360, %658 ], [ %lpad.phi.i.i603, %885 ], [ %lpad.phi.i.i860, %1129 ], [ %329, %328 ], [ %.pn246.i.i.i, %.thread242.i.i.i ], [ %372, %371 ], [ %556, %555 ], [ %.pn246.i.i.i167, %.thread242.i.i.i166 ], [ %599, %598 ], [ %783, %782 ], [ %.pn246.i.i.i410, %.thread242.i.i.i409 ], [ %826, %825 ], [ %1027, %1026 ], [ %.pn246.i.i.i667, %.thread242.i.i.i666 ], [ %1070, %1069 ], [ %1260, %1259 ], [ %.pn246.i.i.i910, %.thread242.i.i.i909 ], [ %1303, %1302 ], [ %1492, %1491 ], [ %.pn246.i.i.i1153, %.thread242.i.i.i1152 ], [ %1535, %1534 ], [ %lpad.phi.i.i1346, %1594 ]
+  %common.resume.op = phi { ptr, i32 } [ %329, %328 ], [ %.pn246.i.i.i, %.thread242.i.i.i ], [ %lpad.phi.i.i, %431 ], [ %372, %371 ], [ %556, %555 ], [ %.pn246.i.i.i167, %.thread242.i.i.i166 ], [ %lpad.phi.i.i360, %658 ], [ %599, %598 ], [ %783, %782 ], [ %.pn246.i.i.i410, %.thread242.i.i.i409 ], [ %lpad.phi.i.i603, %885 ], [ %826, %825 ], [ %1027, %1026 ], [ %.pn246.i.i.i667, %.thread242.i.i.i666 ], [ %lpad.phi.i.i860, %1129 ], [ %1070, %1069 ], [ %1260, %1259 ], [ %.pn246.i.i.i910, %.thread242.i.i.i909 ], [ %lpad.phi.i.i1103, %1362 ], [ %1303, %1302 ], [ %1492, %1491 ], [ %.pn246.i.i.i1153, %.thread242.i.i.i1152 ], [ %lpad.phi.i.i1346, %1594 ], [ %1535, %1534 ]
   resume { ptr, i32 } %common.resume.op
 
 332:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9b5b746d84772b2cE.llvm.15109044229312055141.exit.i.i.i"
@@ -8670,12 +8670,12 @@ common.resume:                                    ; preds = %1491, %.thread242.i
   br i1 %900, label %1599, label %1370
 
 "_ZN4tiff7encoder24TiffEncoder$LT$W$C$K$GT$11write_image17hbe7c7ad75e63ca5dE.exit": ; preds = %1598, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h88ac6c9ebedc2a01E.exit.i", %1495, %1366, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9208aa19b2f720f5E.exit.i", %1263, %1133, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h607db4e53a7ce782E.exit.i", %1030, %889, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h6802cfe022394b84E.exit.i", %786, %662, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17hbcba37aabb4abdeaE.exit.i", %559, %435, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9ffc37a34dfdf83cE.exit.i", %332
-  %.sroa.01386.0 = phi ptr [ inttoptr (i64 22 to ptr), %1263 ], [ inttoptr (i64 22 to ptr), %332 ], [ inttoptr (i64 22 to ptr), %559 ], [ inttoptr (i64 22 to ptr), %786 ], [ inttoptr (i64 22 to ptr), %1030 ], [ %.sroa.17.0.i, %435 ], [ %.sroa.01386.1, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9ffc37a34dfdf83cE.exit.i" ], [ %.sroa.17.0.i183, %662 ], [ %.sroa.01386.4, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17hbcba37aabb4abdeaE.exit.i" ], [ %.sroa.17.0.i426, %889 ], [ %.sroa.01386.7, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h6802cfe022394b84E.exit.i" ], [ %.sroa.17.0.i683, %1133 ], [ %.sroa.01386.10, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h607db4e53a7ce782E.exit.i" ], [ %.sroa.17.0.i926, %1366 ], [ %.sroa.01386.13, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9208aa19b2f720f5E.exit.i" ], [ %.sroa.17.0.i1169, %1598 ], [ %.sroa.01386.16, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h88ac6c9ebedc2a01E.exit.i" ], [ inttoptr (i64 22 to ptr), %1495 ]
-  %.sroa.53.sroa.34.0 = phi i32 [ %.sroa.53.sroa.34.0.extract.trunc1505, %1263 ], [ %.sroa.53.sroa.34.0.extract.trunc1489, %332 ], [ %.sroa.53.sroa.34.0.extract.trunc1493, %559 ], [ %.sroa.53.sroa.34.0.extract.trunc1497, %786 ], [ %.sroa.53.sroa.34.0.extract.trunc1501, %1030 ], [ %.sroa.47.i.sroa.0.0, %435 ], [ %.sroa.53.sroa.34.1, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9ffc37a34dfdf83cE.exit.i" ], [ %.sroa.47.i149.sroa.0.0, %662 ], [ %.sroa.53.sroa.34.4, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17hbcba37aabb4abdeaE.exit.i" ], [ %.sroa.47.i392.sroa.0.0, %889 ], [ %.sroa.53.sroa.34.7, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h6802cfe022394b84E.exit.i" ], [ %.sroa.47.i649.sroa.0.0, %1133 ], [ %.sroa.53.sroa.34.10, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h607db4e53a7ce782E.exit.i" ], [ %.sroa.47.i892.sroa.0.0, %1366 ], [ %.sroa.53.sroa.34.13, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9208aa19b2f720f5E.exit.i" ], [ %.sroa.47.i1135.sroa.0.0, %1598 ], [ %.sroa.53.sroa.34.16, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h88ac6c9ebedc2a01E.exit.i" ], [ %.sroa.53.sroa.34.0.extract.trunc1509, %1495 ]
-  %.sroa.53.sroa.0.0 = phi i32 [ %.sroa.53.sroa.0.0.extract.trunc1462, %1263 ], [ %.sroa.53.sroa.0.0.extract.trunc1454, %332 ], [ %.sroa.53.sroa.0.0.extract.trunc1456, %559 ], [ %.sroa.53.sroa.0.0.extract.trunc1458, %786 ], [ %.sroa.53.sroa.0.0.extract.trunc1460, %1030 ], [ %.sroa.45.0.i, %435 ], [ %.sroa.53.sroa.0.1, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9ffc37a34dfdf83cE.exit.i" ], [ %.sroa.45.0.i184, %662 ], [ %.sroa.53.sroa.0.4, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17hbcba37aabb4abdeaE.exit.i" ], [ %.sroa.45.0.i427, %889 ], [ %.sroa.53.sroa.0.7, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h6802cfe022394b84E.exit.i" ], [ %.sroa.45.0.i684, %1133 ], [ %.sroa.53.sroa.0.10, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h607db4e53a7ce782E.exit.i" ], [ %.sroa.45.0.i927, %1366 ], [ %.sroa.53.sroa.0.13, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9208aa19b2f720f5E.exit.i" ], [ %.sroa.45.0.i1170, %1598 ], [ %.sroa.53.sroa.0.16, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h88ac6c9ebedc2a01E.exit.i" ], [ %.sroa.53.sroa.0.0.extract.trunc1464, %1495 ]
-  %.sroa.101.0 = phi i64 [ 0, %1263 ], [ 0, %332 ], [ 0, %559 ], [ 0, %786 ], [ 0, %1030 ], [ %.sroa.48.0.i, %435 ], [ %.sroa.101.1, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9ffc37a34dfdf83cE.exit.i" ], [ %.sroa.48.0.i185, %662 ], [ %.sroa.101.4, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17hbcba37aabb4abdeaE.exit.i" ], [ %.sroa.48.0.i428, %889 ], [ %.sroa.101.7, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h6802cfe022394b84E.exit.i" ], [ %.sroa.48.0.i685, %1133 ], [ %.sroa.101.10, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h607db4e53a7ce782E.exit.i" ], [ %.sroa.48.0.i928, %1366 ], [ %.sroa.101.13, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9208aa19b2f720f5E.exit.i" ], [ %.sroa.48.0.i1171, %1598 ], [ %.sroa.101.16, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h88ac6c9ebedc2a01E.exit.i" ], [ 0, %1495 ]
-  %.sroa.95.0 = phi ptr [ undef, %1263 ], [ undef, %332 ], [ undef, %559 ], [ undef, %786 ], [ undef, %1030 ], [ %.sroa.4765.0.i, %435 ], [ %.sroa.95.1, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9ffc37a34dfdf83cE.exit.i" ], [ %.sroa.4765.0.i186, %662 ], [ %.sroa.95.4, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17hbcba37aabb4abdeaE.exit.i" ], [ %.sroa.4765.0.i429, %889 ], [ %.sroa.95.7, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h6802cfe022394b84E.exit.i" ], [ %.sroa.4765.0.i686, %1133 ], [ %.sroa.95.10, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h607db4e53a7ce782E.exit.i" ], [ %.sroa.4765.0.i929, %1366 ], [ %.sroa.95.13, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9208aa19b2f720f5E.exit.i" ], [ %.sroa.4765.0.i1172, %1598 ], [ %.sroa.95.16, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h88ac6c9ebedc2a01E.exit.i" ], [ undef, %1495 ]
-  %.sroa.83.0 = phi ptr [ null, %1263 ], [ null, %332 ], [ null, %559 ], [ null, %786 ], [ null, %1030 ], [ %.sroa.47.i.sroa.15.0, %435 ], [ %.sroa.83.1, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9ffc37a34dfdf83cE.exit.i" ], [ %.sroa.47.i149.sroa.15.0, %662 ], [ %.sroa.83.4, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17hbcba37aabb4abdeaE.exit.i" ], [ %.sroa.47.i392.sroa.15.0, %889 ], [ %.sroa.83.7, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h6802cfe022394b84E.exit.i" ], [ %.sroa.47.i649.sroa.15.0, %1133 ], [ %.sroa.83.10, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h607db4e53a7ce782E.exit.i" ], [ %.sroa.47.i892.sroa.15.0, %1366 ], [ %.sroa.83.13, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9208aa19b2f720f5E.exit.i" ], [ %.sroa.47.i1135.sroa.15.0, %1598 ], [ %.sroa.83.16, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h88ac6c9ebedc2a01E.exit.i" ], [ null, %1495 ]
+  %.sroa.01386.0 = phi ptr [ %.sroa.17.0.i, %435 ], [ %.sroa.01386.1, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9ffc37a34dfdf83cE.exit.i" ], [ inttoptr (i64 22 to ptr), %332 ], [ %.sroa.17.0.i183, %662 ], [ %.sroa.01386.4, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17hbcba37aabb4abdeaE.exit.i" ], [ inttoptr (i64 22 to ptr), %559 ], [ %.sroa.17.0.i426, %889 ], [ %.sroa.01386.7, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h6802cfe022394b84E.exit.i" ], [ inttoptr (i64 22 to ptr), %786 ], [ %.sroa.17.0.i683, %1133 ], [ %.sroa.01386.10, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h607db4e53a7ce782E.exit.i" ], [ inttoptr (i64 22 to ptr), %1030 ], [ %.sroa.17.0.i926, %1366 ], [ %.sroa.01386.13, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9208aa19b2f720f5E.exit.i" ], [ inttoptr (i64 22 to ptr), %1263 ], [ %.sroa.17.0.i1169, %1598 ], [ %.sroa.01386.16, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h88ac6c9ebedc2a01E.exit.i" ], [ inttoptr (i64 22 to ptr), %1495 ]
+  %.sroa.53.sroa.34.0 = phi i32 [ %.sroa.47.i.sroa.0.0, %435 ], [ %.sroa.53.sroa.34.1, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9ffc37a34dfdf83cE.exit.i" ], [ %.sroa.53.sroa.34.0.extract.trunc1489, %332 ], [ %.sroa.47.i149.sroa.0.0, %662 ], [ %.sroa.53.sroa.34.4, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17hbcba37aabb4abdeaE.exit.i" ], [ %.sroa.53.sroa.34.0.extract.trunc1493, %559 ], [ %.sroa.47.i392.sroa.0.0, %889 ], [ %.sroa.53.sroa.34.7, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h6802cfe022394b84E.exit.i" ], [ %.sroa.53.sroa.34.0.extract.trunc1497, %786 ], [ %.sroa.47.i649.sroa.0.0, %1133 ], [ %.sroa.53.sroa.34.10, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h607db4e53a7ce782E.exit.i" ], [ %.sroa.53.sroa.34.0.extract.trunc1501, %1030 ], [ %.sroa.47.i892.sroa.0.0, %1366 ], [ %.sroa.53.sroa.34.13, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9208aa19b2f720f5E.exit.i" ], [ %.sroa.53.sroa.34.0.extract.trunc1505, %1263 ], [ %.sroa.47.i1135.sroa.0.0, %1598 ], [ %.sroa.53.sroa.34.16, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h88ac6c9ebedc2a01E.exit.i" ], [ %.sroa.53.sroa.34.0.extract.trunc1509, %1495 ]
+  %.sroa.53.sroa.0.0 = phi i32 [ %.sroa.45.0.i, %435 ], [ %.sroa.53.sroa.0.1, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9ffc37a34dfdf83cE.exit.i" ], [ %.sroa.53.sroa.0.0.extract.trunc1454, %332 ], [ %.sroa.45.0.i184, %662 ], [ %.sroa.53.sroa.0.4, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17hbcba37aabb4abdeaE.exit.i" ], [ %.sroa.53.sroa.0.0.extract.trunc1456, %559 ], [ %.sroa.45.0.i427, %889 ], [ %.sroa.53.sroa.0.7, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h6802cfe022394b84E.exit.i" ], [ %.sroa.53.sroa.0.0.extract.trunc1458, %786 ], [ %.sroa.45.0.i684, %1133 ], [ %.sroa.53.sroa.0.10, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h607db4e53a7ce782E.exit.i" ], [ %.sroa.53.sroa.0.0.extract.trunc1460, %1030 ], [ %.sroa.45.0.i927, %1366 ], [ %.sroa.53.sroa.0.13, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9208aa19b2f720f5E.exit.i" ], [ %.sroa.53.sroa.0.0.extract.trunc1462, %1263 ], [ %.sroa.45.0.i1170, %1598 ], [ %.sroa.53.sroa.0.16, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h88ac6c9ebedc2a01E.exit.i" ], [ %.sroa.53.sroa.0.0.extract.trunc1464, %1495 ]
+  %.sroa.101.0 = phi i64 [ %.sroa.48.0.i, %435 ], [ %.sroa.101.1, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9ffc37a34dfdf83cE.exit.i" ], [ 0, %332 ], [ %.sroa.48.0.i185, %662 ], [ %.sroa.101.4, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17hbcba37aabb4abdeaE.exit.i" ], [ 0, %559 ], [ %.sroa.48.0.i428, %889 ], [ %.sroa.101.7, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h6802cfe022394b84E.exit.i" ], [ 0, %786 ], [ %.sroa.48.0.i685, %1133 ], [ %.sroa.101.10, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h607db4e53a7ce782E.exit.i" ], [ 0, %1030 ], [ %.sroa.48.0.i928, %1366 ], [ %.sroa.101.13, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9208aa19b2f720f5E.exit.i" ], [ 0, %1263 ], [ %.sroa.48.0.i1171, %1598 ], [ %.sroa.101.16, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h88ac6c9ebedc2a01E.exit.i" ], [ 0, %1495 ]
+  %.sroa.95.0 = phi ptr [ %.sroa.4765.0.i, %435 ], [ %.sroa.95.1, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9ffc37a34dfdf83cE.exit.i" ], [ undef, %332 ], [ %.sroa.4765.0.i186, %662 ], [ %.sroa.95.4, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17hbcba37aabb4abdeaE.exit.i" ], [ undef, %559 ], [ %.sroa.4765.0.i429, %889 ], [ %.sroa.95.7, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h6802cfe022394b84E.exit.i" ], [ undef, %786 ], [ %.sroa.4765.0.i686, %1133 ], [ %.sroa.95.10, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h607db4e53a7ce782E.exit.i" ], [ undef, %1030 ], [ %.sroa.4765.0.i929, %1366 ], [ %.sroa.95.13, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9208aa19b2f720f5E.exit.i" ], [ undef, %1263 ], [ %.sroa.4765.0.i1172, %1598 ], [ %.sroa.95.16, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h88ac6c9ebedc2a01E.exit.i" ], [ undef, %1495 ]
+  %.sroa.83.0 = phi ptr [ %.sroa.47.i.sroa.15.0, %435 ], [ %.sroa.83.1, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9ffc37a34dfdf83cE.exit.i" ], [ null, %332 ], [ %.sroa.47.i149.sroa.15.0, %662 ], [ %.sroa.83.4, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17hbcba37aabb4abdeaE.exit.i" ], [ null, %559 ], [ %.sroa.47.i392.sroa.15.0, %889 ], [ %.sroa.83.7, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h6802cfe022394b84E.exit.i" ], [ null, %786 ], [ %.sroa.47.i649.sroa.15.0, %1133 ], [ %.sroa.83.10, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h607db4e53a7ce782E.exit.i" ], [ null, %1030 ], [ %.sroa.47.i892.sroa.15.0, %1366 ], [ %.sroa.83.13, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h9208aa19b2f720f5E.exit.i" ], [ null, %1263 ], [ %.sroa.47.i1135.sroa.15.0, %1598 ], [ %.sroa.83.16, %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$10write_data17h88ac6c9ebedc2a01E.exit.i" ], [ null, %1495 ]
   %902 = ptrtoint ptr %.sroa.01386.0 to i64
   %903 = and i64 %902, 65535
   %904 = icmp eq i64 %903, 26
@@ -11545,7 +11545,7 @@ common.resume:                                    ; preds = %1491, %.thread242.i
   ret void
 
 1604:                                             ; preds = %204, %207, %208, %209
-  %.sroa.0.0.i143 = phi i8 [ 24, %209 ], [ 23, %208 ], [ 14, %204 ], [ 18, %207 ]
+  %.sroa.0.0.i143 = phi i8 [ 18, %207 ], [ 23, %208 ], [ 24, %209 ], [ 14, %204 ]
   store i8 0, ptr %0, align 8
   %.sroa.01690.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 5, ptr %.sroa.01690.sroa.4.0..sroa_idx, align 1
@@ -29299,7 +29299,7 @@ default.unreachable177:                           ; preds = %2
   unreachable
 
 common.resume:                                    ; preds = %482, %439, %380, %329, %278, %232, %173, %122, %71, %25
-  %common.resume.op = phi { ptr, i32 } [ %440, %439 ], [ %lpad.phi.i, %25 ], [ %lpad.phi.i8, %71 ], [ %lpad.phi.i22, %122 ], [ %lpad.phi.i39, %173 ], [ %lpad.phi.i57, %232 ], [ %lpad.phi.i74, %278 ], [ %lpad.phi.i90, %329 ], [ %lpad.phi.i107, %380 ], [ %483, %482 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %25 ], [ %lpad.phi.i8, %71 ], [ %lpad.phi.i22, %122 ], [ %lpad.phi.i39, %173 ], [ %lpad.phi.i57, %232 ], [ %lpad.phi.i74, %278 ], [ %lpad.phi.i90, %329 ], [ %lpad.phi.i107, %380 ], [ %440, %439 ], [ %483, %482 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Container$GT$$u20$as$u20$image..buffer_..ConvertBuffer$LT$image..buffer_..ImageBuffer$LT$ToType$C$alloc..vec..Vec$LT$$LT$ToType$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$$GT$$GT$7convert17h78f5ffa84ab90cadE.exit": ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i.i", %"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h4670ece7d6f5293fE.exit.i", %38
@@ -31135,7 +31135,7 @@ default.unreachable181:                           ; preds = %2
   unreachable
 
 common.resume:                                    ; preds = %378, %339, %299, %257, %217, %184, %145, %103, %63, %30
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i114, %339 ], [ %lpad.phi.i, %30 ], [ %lpad.phi.i7, %63 ], [ %lpad.phi.i18, %103 ], [ %lpad.phi.i34, %145 ], [ %lpad.phi.i49, %184 ], [ %lpad.phi.i64, %217 ], [ %lpad.phi.i80, %257 ], [ %lpad.phi.i97, %299 ], [ %lpad.phi.i130, %378 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %30 ], [ %lpad.phi.i7, %63 ], [ %lpad.phi.i18, %103 ], [ %lpad.phi.i34, %145 ], [ %lpad.phi.i49, %184 ], [ %lpad.phi.i64, %217 ], [ %lpad.phi.i80, %257 ], [ %lpad.phi.i97, %299 ], [ %lpad.phi.i114, %339 ], [ %lpad.phi.i130, %378 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Container$GT$$u20$as$u20$image..buffer_..ConvertBuffer$LT$image..buffer_..ImageBuffer$LT$ToType$C$alloc..vec..Vec$LT$$LT$ToType$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$$GT$$GT$7convert17h975c4eeefcd27e3dE.exit": ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i.i", %"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17ha000e7fcd5ee36f0E.exit.i", %32
@@ -32383,7 +32383,7 @@ default.unreachable177:                           ; preds = %2
   unreachable
 
 common.resume:                                    ; preds = %436, %391, %340, %292, %249, %208, %157, %109, %66, %25
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i110, %391 ], [ %lpad.phi.i, %25 ], [ %lpad.phi.i7, %66 ], [ %lpad.phi.i20, %109 ], [ %lpad.phi.i33, %157 ], [ %lpad.phi.i50, %208 ], [ %lpad.phi.i63, %249 ], [ %lpad.phi.i79, %292 ], [ %lpad.phi.i96, %340 ], [ %lpad.phi.i126, %436 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %25 ], [ %lpad.phi.i7, %66 ], [ %lpad.phi.i20, %109 ], [ %lpad.phi.i33, %157 ], [ %lpad.phi.i50, %208 ], [ %lpad.phi.i63, %249 ], [ %lpad.phi.i79, %292 ], [ %lpad.phi.i96, %340 ], [ %lpad.phi.i110, %391 ], [ %lpad.phi.i126, %436 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN236_$LT$image..buffer_..ImageBuffer$LT$FromType$C$Container$GT$$u20$as$u20$image..buffer_..ConvertBuffer$LT$image..buffer_..ImageBuffer$LT$ToType$C$alloc..vec..Vec$LT$$LT$ToType$u20$as$u20$image..traits..Pixel$GT$..Subpixel$GT$$GT$$GT$$GT$7convert17hfe30c12017d0d8d3E.exit": ; preds = %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h190e6d8993a134cbE.exit.i.i", %"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17he3a3c777790678d9E.exit.i", %38
@@ -34970,7 +34970,7 @@ default.unreachable68:                            ; preds = %1
   unreachable
 
 5:                                                ; preds = %1, %1, %1, %1, %18, %16, %14, %12, %10, %8
-  %.sroa.11.0 = phi i64 [ %19, %18 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %4, %1 ]
+  %.sroa.11.0 = phi i64 [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ], [ %4, %1 ]
   %.sroa.0.0.in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8, !nonnull !4, !noundef !4
   %6 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
@@ -35264,7 +35264,7 @@ default.unreachable57:                            ; preds = %1
   unreachable
 
 145:                                              ; preds = %55, %40, %25, %5, %158, %156, %154, %152, %150, %148
-  %.sroa.11.0 = phi i64 [ %159, %158 ], [ %10, %5 ], [ %23, %25 ], [ %38, %40 ], [ %149, %148 ], [ %151, %150 ], [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %53, %55 ]
+  %.sroa.11.0 = phi i64 [ %149, %148 ], [ %151, %150 ], [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %159, %158 ], [ %10, %5 ], [ %23, %25 ], [ %38, %40 ], [ %53, %55 ]
   %.sroa.0.0.in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8, !nonnull !4, !noundef !4
   %146 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
@@ -35351,7 +35351,7 @@ default.unreachable208:                           ; preds = %2
   unreachable
 
 21:                                               ; preds = %126, %106, %86, %66, %46, %26
-  %.pn = phi { ptr, i32 } [ %127, %126 ], [ %107, %106 ], [ %87, %86 ], [ %67, %66 ], [ %27, %26 ], [ %47, %46 ]
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %47, %46 ], [ %67, %66 ], [ %87, %86 ], [ %107, %106 ], [ %127, %126 ]
   resume { ptr, i32 } %.pn
 
 22:                                               ; preds = %2
@@ -35728,7 +35728,7 @@ default.unreachable:                              ; preds = %2
   br label %_ZN5image8dynimage12DynamicImage8as_bytes17hdff9c2bb18c9aca7E.exit
 
 _ZN5image8dynimage12DynamicImage8as_bytes17hdff9c2bb18c9aca7E.exit: ; preds = %2, %2, %2, %2, %6, %8, %10, %12, %14, %16
-  %.sroa.11.0.i = phi i64 [ %17, %16 ], [ %5, %2 ], [ %5, %2 ], [ %5, %2 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %5, %2 ]
+  %.sroa.11.0.i = phi i64 [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %5, %2 ], [ %5, %2 ], [ %5, %2 ], [ %5, %2 ]
   %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !5992, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5995)

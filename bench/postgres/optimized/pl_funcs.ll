@@ -367,7 +367,7 @@ define noundef ptr @plpgsql_ns_lookup(ptr noundef readonly captures(address_is_n
   br i1 %.not43.us94, label %.loopexit.us, label %.lr.ph66.split.us105, !llvm.loop !6
 
 .loopexit.us:                                     ; preds = %40, %50, %._crit_edge.split.us98, %.preheader57.us86
-  %.1.us95 = phi ptr [ %.lcssa233.mux, %._crit_edge.split.us98 ], [ %52, %50 ], [ %.03374.us87, %.preheader57.us86 ], [ %42, %40 ]
+  %.1.us95 = phi ptr [ %.lcssa233.mux, %._crit_edge.split.us98 ], [ %.03374.us87, %.preheader57.us86 ], [ %52, %50 ], [ %42, %40 ]
   br i1 %1, label %.thread53, label %44
 
 44:                                               ; preds = %.loopexit.us
@@ -414,7 +414,7 @@ define noundef ptr @plpgsql_ns_lookup(ptr noundef readonly captures(address_is_n
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %.split69.us, %.split.us, %.thread53
-  %.232 = phi ptr [ null, %.thread53 ], [ %.us-phi, %.split.us ], [ %.us-phi70, %.split69.us ], [ %.232.ph, %.thread.sink.split ]
+  %.232 = phi ptr [ null, %.thread53 ], [ %.us-phi70, %.split69.us ], [ %.us-phi, %.split.us ], [ %.232.ph, %.thread.sink.split ]
   ret ptr %.232
 }
 
@@ -608,7 +608,7 @@ define nonnull ptr @plpgsql_stmt_typename(ptr noundef readonly captures(none) %0
   br label %46
 
 46:                                               ; preds = %1, %45, %44, %43, %38, %37, %36, %31, %30, %25, %24, %23, %22, %21, %20, %19, %18, %17, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi ptr [ @.str.32, %45 ], [ @.str.31, %44 ], [ @.str.2, %3 ], [ @.str.3, %4 ], [ @.str.4, %5 ], [ @.str.5, %6 ], [ @.str.6, %7 ], [ @.str.7, %8 ], [ @.str.8, %9 ], [ @.str.9, %10 ], [ @.str.10, %11 ], [ %16, %12 ], [ @.str.13, %17 ], [ @.str.14, %18 ], [ @.str.15, %19 ], [ @.str.16, %20 ], [ @.str.17, %21 ], [ @.str.18, %22 ], [ @.str.19, %23 ], [ @.str.20, %24 ], [ %29, %25 ], [ @.str.23, %30 ], [ %35, %31 ], [ @.str.26, %36 ], [ @.str.27, %37 ], [ %42, %38 ], [ @.str.30, %43 ], [ @.str.1, %1 ]
+  %.0 = phi ptr [ @.str.32, %45 ], [ @.str.2, %3 ], [ @.str.3, %4 ], [ @.str.4, %5 ], [ @.str.5, %6 ], [ @.str.6, %7 ], [ @.str.7, %8 ], [ @.str.8, %9 ], [ @.str.9, %10 ], [ @.str.10, %11 ], [ %16, %12 ], [ @.str.13, %17 ], [ @.str.14, %18 ], [ @.str.15, %19 ], [ @.str.16, %20 ], [ @.str.17, %21 ], [ @.str.18, %22 ], [ @.str.19, %23 ], [ @.str.20, %24 ], [ %29, %25 ], [ @.str.23, %30 ], [ %35, %31 ], [ @.str.26, %36 ], [ @.str.27, %37 ], [ %42, %38 ], [ @.str.30, %43 ], [ @.str.31, %44 ], [ @.str.1, %1 ]
   ret ptr %.0
 }
 
@@ -689,8 +689,8 @@ define internal fastcc void @mark_stmt(ptr noundef readonly captures(address_is_
   %.not41.i = icmp eq ptr %.pre, null
   br i1 %.not41.i, label %plpgsql_statement_tree_walker_impl.specialized.1.exit, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %.preheader85, %.split.us
-  %13 = phi ptr [ %.pre, %.split.us ], [ %9, %.preheader85 ], [ %9, %.lr.ph ]
+.preheader:                                       ; preds = %.preheader85, %.lr.ph, %.split.us
+  %13 = phi ptr [ %.pre, %.split.us ], [ %9, %.lr.ph ], [ %9, %.preheader85 ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
@@ -738,7 +738,7 @@ define internal fastcc void @mark_stmt(ptr noundef readonly captures(address_is_
   br label %.split97.us
 
 .split97.us:                                      ; preds = %.split97.us.loopexit, %.lr.ph91, %.lr.ph107
-  %38 = phi i32 [ %31, %.lr.ph107 ], [ %.pre121, %.split97.us.loopexit ], [ %31, %.lr.ph91 ]
+  %38 = phi i32 [ %.pre121, %.split97.us.loopexit ], [ %31, %.lr.ph91 ], [ %31, %.lr.ph107 ]
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next116, %39
@@ -1050,7 +1050,7 @@ define internal fastcc void @free_stmt(ptr noundef readonly captures(address_is_
   br label %.split134.us
 
 .split134.us:                                     ; preds = %.split134.us.loopexit, %.lr.ph128, %.lr.ph144
-  %47 = phi i32 [ %40, %.lr.ph144 ], [ %.pre228, %.split134.us.loopexit ], [ %40, %.lr.ph128 ]
+  %47 = phi i32 [ %.pre228, %.split134.us.loopexit ], [ %40, %.lr.ph128 ], [ %40, %.lr.ph144 ]
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next221, %48
@@ -5508,7 +5508,7 @@ define internal fastcc void @plpgsql_statement_tree_walker_impl.specialized.2(pt
   br label %.split134.us
 
 .split134.us:                                     ; preds = %.split134.us.loopexit, %.lr.ph128, %.lr.ph144
-  %46 = phi i32 [ %39, %.lr.ph144 ], [ %.pre228, %.split134.us.loopexit ], [ %39, %.lr.ph128 ]
+  %46 = phi i32 [ %.pre228, %.split134.us.loopexit ], [ %39, %.lr.ph128 ], [ %39, %.lr.ph144 ]
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next221, %47
@@ -6571,8 +6571,8 @@ mark_expr.exit106:                                ; preds = %.lr.ph25, %569, %57
   unreachable
 
 mark_expr.exit.sink.split:                        ; preds = %597, %590, %583, %448, %441, %339, %332, %325, %284, %269, %62
-  %.sink340 = phi i32 [ %592, %590 ], [ %585, %583 ], [ %450, %448 ], [ %443, %441 ], [ %341, %339 ], [ %334, %332 ], [ %327, %325 ], [ %286, %284 ], [ %271, %269 ], [ %64, %62 ], [ %599, %597 ]
-  %.sink = phi ptr [ %589, %590 ], [ %582, %583 ], [ %447, %448 ], [ %440, %441 ], [ %338, %339 ], [ %331, %332 ], [ %324, %325 ], [ %298, %284 ], [ %283, %269 ], [ %61, %62 ], [ %596, %597 ]
+  %.sink340 = phi i32 [ %64, %62 ], [ %271, %269 ], [ %286, %284 ], [ %327, %325 ], [ %334, %332 ], [ %341, %339 ], [ %443, %441 ], [ %450, %448 ], [ %585, %583 ], [ %592, %590 ], [ %599, %597 ]
+  %.sink = phi ptr [ %61, %62 ], [ %283, %269 ], [ %298, %284 ], [ %324, %325 ], [ %331, %332 ], [ %338, %339 ], [ %440, %441 ], [ %447, %448 ], [ %582, %583 ], [ %589, %590 ], [ %596, %597 ]
   %605 = tail call zeroext i1 @bms_is_member(i32 noundef %.sink340, ptr noundef %1) #15
   %606 = getelementptr inbounds nuw i8, ptr %.sink, i64 36
   %607 = zext i1 %605 to i8

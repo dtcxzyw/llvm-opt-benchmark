@@ -32,7 +32,7 @@ define internal range(i32 0, 101) i32 @wsvqa_probe(ptr noundef readonly captures
   br label %12
 
 12:                                               ; preds = %9, %5, %1
-  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %spec.select, %9 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ %spec.select, %9 ]
   ret i32 %.0
 }
 
@@ -171,7 +171,7 @@ define internal range(i32 -2147483648, 1) i32 @wsvqa_read_header(ptr noundef %0)
   br i1 %.not54, label %.loopexit, label %66, !llvm.loop !58
 
 .loopexit:                                        ; preds = %75, %66, %9, %1, %43
-  %.0 = phi i32 [ -12, %1 ], [ -1094995529, %43 ], [ %20, %9 ], [ 0, %75 ], [ -5, %66 ]
+  %.0 = phi i32 [ -1094995529, %43 ], [ -12, %1 ], [ %20, %9 ], [ 0, %75 ], [ -5, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -469,7 +469,7 @@ default.unreachable:                              ; preds = %58
   br i1 %147, label %.lr.ph, label %.loopexit, !llvm.loop !60
 
 .loopexit:                                        ; preds = %.outer, %24, %21, %.lr.ph, %142, %40, %78, %137, %138, %113, %125, %129, %32
-  %.0 = phi i32 [ %.1102, %137 ], [ -5, %125 ], [ %.1102, %138 ], [ %81, %78 ], [ -5, %113 ], [ -12, %40 ], [ -5, %32 ], [ -5, %129 ], [ -1094995529, %.lr.ph ], [ %.0101.ph, %142 ], [ %.0101.ph, %.outer ], [ %27, %24 ], [ -1094995529, %21 ]
+  %.0 = phi i32 [ -5, %32 ], [ -5, %129 ], [ -5, %125 ], [ -5, %113 ], [ %.1102, %138 ], [ %.1102, %137 ], [ -12, %40 ], [ %81, %78 ], [ %.0101.ph, %142 ], [ -1094995529, %.lr.ph ], [ %.0101.ph, %.outer ], [ -1094995529, %21 ], [ %27, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

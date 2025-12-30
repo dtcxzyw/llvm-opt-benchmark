@@ -145,7 +145,7 @@ define dso_local ptr @type_abi_find_single_struct_element(ptr noundef %0) local_
   br label %.loopexit54
 
 .loopexit54:                                      ; preds = %40, %.loopexit54.loopexit.critedge, %17, %20, %._crit_edge, %11, %8
-  %.041 = phi ptr [ null, %8 ], [ null, %11 ], [ null, %20 ], [ %spec.select, %._crit_edge ], [ null, %17 ], [ null, %.loopexit54.loopexit.critedge ], [ null, %40 ]
+  %.041 = phi ptr [ null, %8 ], [ null, %11 ], [ %spec.select, %._crit_edge ], [ null, %20 ], [ null, %17 ], [ null, %.loopexit54.loopexit.critedge ], [ null, %40 ]
   ret ptr %.041
 }
 
@@ -279,7 +279,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
   unreachable
 
 .loopexit:                                        ; preds = %.backedge, %44, %37, %61, %57, %53, %51, %42, %26, %24
-  %.0 = phi ptr [ %4, %44 ], [ %25, %24 ], [ %29, %26 ], [ %62, %61 ], [ %43, %42 ], [ %4, %37 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %4, %.backedge ]
+  %.0 = phi ptr [ %25, %24 ], [ %29, %26 ], [ %43, %42 ], [ %52, %51 ], [ %56, %53 ], [ %60, %57 ], [ %62, %61 ], [ %4, %37 ], [ %4, %44 ], [ %4, %.backedge ]
   ret ptr %.0
 }
 
@@ -396,7 +396,7 @@ switch.lookup:                                    ; preds = %19
   br label %36
 
 36:                                               ; preds = %19, %switch.lookup, %1, %1, %1, %1, %31, %29, %29, %29, %25, %23, %23, %23, %23, %23, %17, %17, %5, %7, %34, %28, %22, %14, %10
-  %.0 = phi i1 [ false, %7 ], [ %13, %10 ], [ true, %29 ], [ %16, %14 ], [ false, %22 ], [ false, %5 ], [ false, %1 ], [ true, %17 ], [ false, %28 ], [ %switch.masked, %switch.lookup ], [ true, %23 ], [ %switch.selectcmp, %25 ], [ false, %34 ], [ true, %23 ], [ %switch.selectcmp11, %31 ], [ true, %17 ], [ false, %1 ], [ false, %1 ], [ true, %23 ], [ true, %23 ], [ true, %23 ], [ true, %29 ], [ true, %29 ], [ false, %1 ], [ false, %19 ]
+  %.0 = phi i1 [ %13, %10 ], [ %16, %14 ], [ false, %22 ], [ false, %28 ], [ false, %34 ], [ false, %7 ], [ false, %5 ], [ true, %17 ], [ true, %17 ], [ true, %23 ], [ true, %23 ], [ true, %23 ], [ true, %23 ], [ true, %23 ], [ %switch.selectcmp, %25 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ %switch.selectcmp11, %31 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ %switch.masked, %switch.lookup ], [ false, %19 ]
   ret i1 %.0
 }
 
@@ -739,7 +739,7 @@ thread-pre-split:                                 ; preds = %49, %98
   unreachable
 
 type_homogenous_aggregate_small_enough.exit:      ; preds = %._crit_edge, %123, %117, %115, %111, %104, %104, %104, %104, %101, %98, %92, %77, %58, %54, %49, %._crit_edge82, %11, %3, %3, %3, %3, %7
-  %.062 = phi i1 [ false, %77 ], [ false, %92 ], [ false, %98 ], [ false, %101 ], [ false, %58 ], [ false, %54 ], [ true, %7 ], [ false, %3 ], [ false, %11 ], [ false, %._crit_edge82 ], [ false, %104 ], [ false, %49 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ %112, %111 ], [ %116, %115 ], [ %122, %117 ], [ %124, %123 ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %._crit_edge ]
+  %.062 = phi i1 [ true, %7 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %11 ], [ false, %._crit_edge82 ], [ false, %49 ], [ false, %54 ], [ false, %58 ], [ false, %77 ], [ false, %92 ], [ false, %98 ], [ false, %101 ], [ %112, %111 ], [ %116, %115 ], [ %122, %117 ], [ %124, %123 ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %._crit_edge ]
   ret i1 %.062
 }
 

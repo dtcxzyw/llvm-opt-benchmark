@@ -1124,7 +1124,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
   br i1 %235, label %.thread18, label %26, !llvm.loop !27
 
 .thread18:                                        ; preds = %42, %58, %231, %75, %78, %122, %125, %170, %173
-  %236 = phi i32 [ -12, %122 ], [ -12, %75 ], [ -12, %170 ], [ -12, %173 ], [ -12, %125 ], [ -12, %78 ], [ -12, %58 ], [ -12, %42 ], [ 0, %231 ]
+  %236 = phi i32 [ -12, %173 ], [ -12, %170 ], [ -12, %125 ], [ -12, %122 ], [ -12, %78 ], [ -12, %75 ], [ -12, %42 ], [ -12, %58 ], [ 0, %231 ]
   ret i32 %236
 }
 
@@ -1771,7 +1771,7 @@ define dso_local range(i32 -12, 1) i32 @__vmap_pages_range_noflush(i64 noundef %
   br label %239
 
 239:                                              ; preds = %236, %228
-  %240 = phi i32 [ %238, %236 ], [ %229, %228 ]
+  %240 = phi i32 [ %229, %228 ], [ %238, %236 ]
   %241 = icmp eq i32 %240, 0
   br i1 %241, label %.thread27, label %242, !prof !57
 
@@ -1852,7 +1852,7 @@ define dso_local range(i32 -12, 1) i32 @__vmap_pages_range_noflush(i64 noundef %
   br i1 %285, label %270, label %.thread35, !llvm.loop !69
 
 .thread35:                                        ; preds = %56, %72, %267, %89, %92, %115, %118, %145, %148, %283, %270, %170, %.thread27, %173, %14
-  %286 = phi i32 [ 0, %14 ], [ -12, %.thread27 ], [ %281, %270 ], [ -12, %170 ], [ -12, %145 ], [ -12, %115 ], [ -12, %173 ], [ -12, %89 ], [ 0, %283 ], [ -12, %148 ], [ -12, %118 ], [ -12, %92 ], [ 0, %267 ], [ -12, %72 ], [ -12, %56 ]
+  %286 = phi i32 [ 0, %14 ], [ -12, %173 ], [ -12, %.thread27 ], [ -12, %170 ], [ %281, %270 ], [ 0, %283 ], [ -12, %148 ], [ -12, %145 ], [ -12, %118 ], [ -12, %115 ], [ -12, %92 ], [ -12, %89 ], [ -12, %56 ], [ -12, %72 ], [ 0, %267 ]
   ret i32 %286
 }
 
@@ -2545,7 +2545,7 @@ define internal fastcc ptr @find_unlink_vmap_area(i64 noundef %0) unnamed_addr #
   br label %.thread4
 
 .thread4:                                         ; preds = %12, %1, %25, %24, %17
-  %31 = phi ptr [ null, %17 ], [ %18, %25 ], [ %18, %24 ], [ null, %1 ], [ null, %12 ]
+  %31 = phi ptr [ %18, %25 ], [ %18, %24 ], [ null, %17 ], [ null, %1 ], [ null, %12 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @vmap_area_lock) #20
   ret ptr %31
 }
@@ -2849,9 +2849,9 @@ define dso_local ptr @vm_map_ram(ptr noundef readonly captures(none) %0, i32 nou
   br label %156
 
 156:                                              ; preds = %.thread158, %152
-  %157 = phi ptr [ %145, %.thread158 ], [ %154, %152 ]
-  %158 = phi ptr [ %144, %.thread158 ], [ %153, %152 ]
-  %159 = phi ptr [ %145, %.thread158 ], [ %155, %152 ]
+  %157 = phi ptr [ %154, %152 ], [ %145, %.thread158 ]
+  %158 = phi ptr [ %153, %152 ], [ %144, %.thread158 ]
+  %159 = phi ptr [ %155, %152 ], [ %145, %.thread158 ]
   %160 = icmp eq ptr %159, null
   br i1 %160, label %.thread65, label %161, !prof !57
 
@@ -3061,10 +3061,10 @@ define dso_local ptr @vm_map_ram(ptr noundef readonly captures(none) %0, i32 nou
   br i1 %285, label %.thread53, label %.lr.ph100
 
 .thread53:                                        ; preds = %281, %276, %242, %231
-  %.pre-phi = phi i64 [ %.pre, %231 ], [ %248, %242 ], [ %248, %276 ], [ %248, %281 ]
-  %286 = phi ptr [ %191, %231 ], [ %238, %242 ], [ %238, %276 ], [ %238, %281 ]
-  %287 = phi ptr [ %191, %231 ], [ %237, %242 ], [ %237, %276 ], [ %237, %281 ]
-  %288 = phi ptr [ %233, %231 ], [ %244, %242 ], [ %244, %276 ], [ %244, %281 ]
+  %.pre-phi = phi i64 [ %248, %242 ], [ %.pre, %231 ], [ %248, %276 ], [ %248, %281 ]
+  %286 = phi ptr [ %238, %242 ], [ %191, %231 ], [ %238, %276 ], [ %238, %281 ]
+  %287 = phi ptr [ %237, %242 ], [ %191, %231 ], [ %237, %276 ], [ %237, %281 ]
+  %288 = phi ptr [ %244, %242 ], [ %233, %231 ], [ %244, %276 ], [ %244, %281 ]
   %289 = load ptr, ptr %192, align 8
   %290 = getelementptr inbounds nuw i8, ptr %287, i64 16
   store volatile ptr %289, ptr %290, align 8
@@ -3228,7 +3228,7 @@ define dso_local ptr @vm_map_ram(ptr noundef readonly captures(none) %0, i32 nou
   br label %379
 
 379:                                              ; preds = %.thread62, %.thread72, %364
-  %380 = phi ptr [ %177, %.thread62 ], [ %369, %.thread72 ], [ %172, %364 ]
+  %380 = phi ptr [ %369, %.thread72 ], [ %172, %364 ], [ %177, %.thread62 ]
   %381 = icmp eq ptr %380, null
   br i1 %381, label %.thread77, label %382
 
@@ -3304,7 +3304,7 @@ define dso_local ptr @vm_map_ram(ptr noundef readonly captures(none) %0, i32 nou
   br label %425
 
 425:                                              ; preds = %419, %.thread77, %74, %.loopexit
-  %426 = phi ptr [ %77, %419 ], [ %45, %.loopexit ], [ %72, %74 ], [ %418, %.thread77 ]
+  %426 = phi ptr [ %45, %.loopexit ], [ %72, %74 ], [ %418, %.thread77 ], [ %77, %419 ]
   %427 = icmp ugt ptr %426, inttoptr (i64 -4096 to ptr)
   br i1 %427, label %.thread78, label %428
 
@@ -3349,7 +3349,7 @@ define dso_local ptr @vm_map_ram(ptr noundef readonly captures(none) %0, i32 nou
   br label %.thread78
 
 .thread78:                                        ; preds = %434, %60, %451, %443, %425
-  %452 = phi ptr [ null, %451 ], [ null, %60 ], [ null, %425 ], [ %445, %443 ], [ null, %434 ]
+  %452 = phi ptr [ null, %451 ], [ null, %425 ], [ %445, %443 ], [ null, %60 ], [ null, %434 ]
   ret ptr %452
 }
 
@@ -3764,10 +3764,10 @@ select.unfold:                                    ; preds = %146
   br i1 %256, label %.thread46, label %.lr.ph
 
 .thread46:                                        ; preds = %252, %247, %213, %202
-  %.pre-phi = phi i64 [ %.pre94, %202 ], [ %219, %213 ], [ %219, %247 ], [ %219, %252 ]
-  %257 = phi ptr [ %162, %202 ], [ %209, %213 ], [ %209, %247 ], [ %209, %252 ]
-  %258 = phi ptr [ %162, %202 ], [ %208, %213 ], [ %208, %247 ], [ %208, %252 ]
-  %259 = phi ptr [ %204, %202 ], [ %215, %213 ], [ %215, %247 ], [ %215, %252 ]
+  %.pre-phi = phi i64 [ %219, %213 ], [ %.pre94, %202 ], [ %219, %247 ], [ %219, %252 ]
+  %257 = phi ptr [ %209, %213 ], [ %162, %202 ], [ %209, %247 ], [ %209, %252 ]
+  %258 = phi ptr [ %208, %213 ], [ %162, %202 ], [ %208, %247 ], [ %208, %252 ]
+  %259 = phi ptr [ %215, %213 ], [ %204, %202 ], [ %215, %247 ], [ %215, %252 ]
   %260 = load ptr, ptr %163, align 8
   %261 = getelementptr inbounds nuw i8, ptr %258, i64 16
   store volatile ptr %260, ptr %261, align 8
@@ -5098,7 +5098,7 @@ define internal noundef range(i32 -22, 1) i32 @vmap_pfn_apply(ptr noundef %0, i6
   br label %71
 
 71:                                               ; preds = %68, %60
-  %72 = phi i32 [ %70, %68 ], [ %61, %60 ]
+  %72 = phi i32 [ %61, %60 ], [ %70, %68 ]
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %.thread, label %74, !prof !197
 
@@ -5470,8 +5470,8 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   br i1 %197, label %.preheader19.split, label %.loopexit20
 
 .loopexit20:                                      ; preds = %.preheader19.split, %188, %175, %.preheader19.split.us, %169
-  %198 = phi i1 [ %52, %169 ], [ false, %175 ], [ false, %.preheader19.split.us ], [ false, %188 ], [ false, %.preheader19.split ]
-  %199 = phi i32 [ %53, %169 ], [ %50, %175 ], [ %50, %.preheader19.split.us ], [ %50, %188 ], [ %50, %.preheader19.split ]
+  %198 = phi i1 [ %52, %169 ], [ false, %.preheader19.split.us ], [ false, %175 ], [ false, %188 ], [ false, %.preheader19.split ]
+  %199 = phi i32 [ %53, %169 ], [ %50, %.preheader19.split.us ], [ %50, %175 ], [ %50, %188 ], [ %50, %.preheader19.split ]
   %200 = phi i32 [ 0, %169 ], [ %183, %175 ], [ %173, %.preheader19.split.us ], [ %186, %.preheader19.split ], [ %195, %188 ]
   %201 = icmp ult i32 %200, %141
   br i1 %201, label %202, label %.loopexit18
@@ -5966,7 +5966,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br i1 %25, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %20, %16
-  %26 = phi ptr [ %17, %16 ], [ %22, %20 ]
+  %26 = phi ptr [ %22, %20 ], [ %17, %16 ]
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.loopexit81, label %28
 
@@ -6169,7 +6169,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br i1 %161, label %.split96.us, label %.preheader69.split
 
 .split96.us:                                      ; preds = %.preheader69.split, %151, %.preheader69.split.us, %135
-  %.us-phi97 = phi i64 [ 0, %.preheader69.split.us ], [ %144, %135 ], [ %160, %151 ], [ 0, %.preheader69.split ]
+  %.us-phi97 = phi i64 [ %144, %135 ], [ 0, %.preheader69.split.us ], [ %160, %151 ], [ 0, %.preheader69.split ]
   %162 = sub i64 %130, %.us-phi97
   br label %163
 
@@ -6297,7 +6297,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br i1 %251, label %.split91.us, label %.split
 
 .split91.us:                                      ; preds = %.split, %241, %.split.us, %228
-  %.us-phi = phi i64 [ 0, %.split.us ], [ %237, %228 ], [ %250, %241 ], [ 0, %.split ]
+  %.us-phi = phi i64 [ %237, %228 ], [ 0, %.split.us ], [ %250, %241 ], [ 0, %.split ]
   %252 = sub i64 %225, %.us-phi
   %253 = getelementptr i8, ptr %204, i64 %252
   %254 = sub i64 %205, %252
@@ -6387,7 +6387,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br i1 %310, label %.split93.us, label %.preheader.split
 
 .split93.us:                                      ; preds = %.preheader.split, %300, %.preheader.split.us, %284
-  %.us-phi94 = phi i64 [ 0, %.preheader.split.us ], [ %293, %284 ], [ %309, %300 ], [ 0, %.preheader.split ]
+  %.us-phi94 = phi i64 [ %293, %284 ], [ 0, %.preheader.split.us ], [ %309, %300 ], [ 0, %.preheader.split ]
   %311 = sub i64 %279, %.us-phi94
   br label %312
 
@@ -6406,8 +6406,8 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br i1 %320, label %.thread42, label %.thread46
 
 .thread42:                                        ; preds = %317, %.thread37
-  %.pn67 = phi i64 [ %318, %317 ], [ %268, %.thread37 ]
-  %321 = phi i64 [ %319, %317 ], [ %274, %.thread37 ]
+  %.pn67 = phi i64 [ %268, %.thread37 ], [ %318, %317 ]
+  %321 = phi i64 [ %274, %.thread37 ], [ %319, %317 ]
   %322 = getelementptr i8, ptr %.fr65, i64 %.pn67
   %323 = add i64 %.fr, 1
   %324 = and i64 %323, 4294967295
@@ -6450,7 +6450,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br i1 %348, label %.loopexit70, label %332
 
 .thread46:                                        ; preds = %.split91.us, %317, %200
-  %349 = phi i64 [ 0, %200 ], [ %319, %317 ], [ %254, %.split91.us ]
+  %349 = phi i64 [ %319, %317 ], [ 0, %200 ], [ %254, %.split91.us ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %185) #20
   br label %.loopexit70
 
@@ -6527,7 +6527,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br i1 %395, label %.split99.us, label %.preheader68.split
 
 .split99.us:                                      ; preds = %.preheader68.split, %385, %.preheader68.split.us, %369
-  %.us-phi100 = phi i64 [ 0, %.preheader68.split.us ], [ %378, %369 ], [ %394, %385 ], [ 0, %.preheader68.split ]
+  %.us-phi100 = phi i64 [ %378, %369 ], [ 0, %.preheader68.split.us ], [ %394, %385 ], [ 0, %.preheader68.split ]
   %396 = sub i64 %364, %.us-phi100
   br label %397
 
@@ -6565,7 +6565,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br label %.thread56
 
 .loopexit70:                                      ; preds = %335, %163, %404, %397, %.thread46
-  %.pn = phi i64 [ %166, %163 ], [ %416, %404 ], [ %400, %397 ], [ %349, %.thread46 ], [ %347, %335 ]
+  %.pn = phi i64 [ %349, %.thread46 ], [ %400, %397 ], [ %416, %404 ], [ %166, %163 ], [ %347, %335 ]
   %.pn.fr = freeze i64 %.pn
   %420 = sub i64 %117, %.pn.fr
   %421 = getelementptr i8, ptr %113, i64 %420
@@ -6574,8 +6574,8 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br i1 %423, label %.thread56, label %.thread60
 
 .thread56:                                        ; preds = %.loopexit70, %.thread49, %73, %54, %49
-  %424 = phi ptr [ %421, %.loopexit70 ], [ %38, %49 ], [ %418, %.thread49 ], [ %38, %73 ], [ %38, %54 ]
-  %425 = phi i64 [ %422, %.loopexit70 ], [ %40, %49 ], [ %419, %.thread49 ], [ %40, %73 ], [ %40, %54 ]
+  %424 = phi ptr [ %418, %.thread49 ], [ %38, %73 ], [ %38, %54 ], [ %38, %49 ], [ %421, %.loopexit70 ]
+  %425 = phi i64 [ %419, %.thread49 ], [ %40, %73 ], [ %40, %54 ], [ %40, %49 ], [ %422, %.loopexit70 ]
   %426 = load ptr, ptr %37, align 8
   %427 = getelementptr i8, ptr %426, i64 -40
   %428 = icmp eq ptr %426, @vmap_area_list
@@ -6624,12 +6624,12 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br i1 %456, label %.loopexit, label %.split101
 
 .thread60:                                        ; preds = %103, %.loopexit70, %36
-  %457 = phi i64 [ 0, %36 ], [ %422, %.loopexit70 ], [ %107, %103 ]
+  %457 = phi i64 [ %422, %.loopexit70 ], [ 0, %36 ], [ %107, %103 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @vmap_area_lock) #20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %446, %.split101, %433, %.split101.us, %.thread60
-  %.pn33 = phi i64 [ %457, %.thread60 ], [ %442, %433 ], [ 0, %.split101.us ], [ 0, %.split101 ], [ %455, %446 ]
+  %.pn33 = phi i64 [ %457, %.thread60 ], [ 0, %.split101.us ], [ %442, %433 ], [ 0, %.split101 ], [ %455, %446 ]
   %458 = sub i64 %8, %.pn33
   ret i64 %458
 }
@@ -6739,7 +6739,7 @@ define dso_local i32 @remap_vmalloc_range_partial(ptr noundef %0, i64 noundef %1
   br label %.thread7
 
 .thread7:                                         ; preds = %57, %.thread6, %31, %69, %46, %43, %38, %34, %8, %5
-  %70 = phi i32 [ 0, %69 ], [ -22, %5 ], [ -22, %8 ], [ -22, %34 ], [ -22, %38 ], [ -22, %46 ], [ -22, %43 ], [ -22, %.thread6 ], [ -22, %31 ], [ %62, %57 ]
+  %70 = phi i32 [ 0, %69 ], [ -22, %5 ], [ -22, %8 ], [ -22, %34 ], [ -22, %38 ], [ -22, %46 ], [ -22, %43 ], [ -22, %31 ], [ -22, %.thread6 ], [ %62, %57 ]
   ret i32 %70
 }
 
@@ -7114,9 +7114,9 @@ define dso_local ptr @pcpu_get_vm_areas(ptr noundef readonly captures(none) %0, 
   br i1 %195, label %.loopexit142, label %.preheader141, !llvm.loop !236
 
 .loopexit142:                                     ; preds = %233, %.preheader144, %191, %.preheader141, %217, %177
-  %196 = phi i32 [ %.us-phi, %177 ], [ %.us-phi214, %217 ], [ %.us-phi, %191 ], [ %.us-phi, %.preheader141 ], [ %.us-phi214, %.preheader144 ], [ %.us-phi214, %233 ]
-  %197 = phi i64 [ %.us-phi209, %177 ], [ %.us-phi215, %217 ], [ %.us-phi209, %191 ], [ %.us-phi209, %.preheader141 ], [ %.us-phi215, %.preheader144 ], [ %.us-phi215, %233 ]
-  %198 = phi i64 [ %.us-phi210, %177 ], [ %.us-phi216, %217 ], [ %.us-phi210, %191 ], [ %.us-phi210, %.preheader141 ], [ %.us-phi216, %.preheader144 ], [ %.us-phi216, %233 ]
+  %196 = phi i32 [ %.us-phi, %177 ], [ %.us-phi214, %217 ], [ %.us-phi, %.preheader141 ], [ %.us-phi, %191 ], [ %.us-phi214, %.preheader144 ], [ %.us-phi214, %233 ]
+  %197 = phi i64 [ %.us-phi209, %177 ], [ %.us-phi215, %217 ], [ %.us-phi209, %.preheader141 ], [ %.us-phi209, %191 ], [ %.us-phi215, %.preheader144 ], [ %.us-phi215, %233 ]
+  %198 = phi i64 [ %.us-phi210, %177 ], [ %.us-phi216, %217 ], [ %.us-phi210, %.preheader141 ], [ %.us-phi210, %191 ], [ %.us-phi216, %.preheader144 ], [ %.us-phi216, %233 ]
   %199 = phi ptr [ %.us-phi211, %177 ], [ %214, %217 ], [ %194, %191 ], [ %184, %.preheader141 ], [ %236, %233 ], [ %226, %.preheader144 ]
   %200 = phi i64 [ 0, %177 ], [ 0, %217 ], [ 0, %191 ], [ %188, %.preheader141 ], [ 0, %233 ], [ %230, %.preheader144 ]
   %201 = sub i64 %200, %197
@@ -7219,7 +7219,7 @@ define dso_local ptr @pcpu_get_vm_areas(ptr noundef readonly captures(none) %0, 
   br i1 %264, label %265, label %249, !llvm.loop !234
 
 265:                                              ; preds = %259, %255
-  %266 = phi ptr [ %252, %255 ], [ %261, %259 ]
+  %266 = phi ptr [ %261, %259 ], [ %252, %255 ]
   %267 = icmp eq ptr %266, null
   br i1 %267, label %.thread87, label %.split, !llvm.loop !237
 
@@ -7257,7 +7257,7 @@ define dso_local ptr @pcpu_get_vm_areas(ptr noundef readonly captures(none) %0, 
   br i1 %290, label %291, label %.preheader140, !llvm.loop !234
 
 291:                                              ; preds = %285, %281
-  %292 = phi ptr [ %278, %281 ], [ %287, %285 ]
+  %292 = phi ptr [ %287, %285 ], [ %278, %281 ]
   %293 = icmp eq ptr %292, null
   br i1 %293, label %.thread88, label %294, !prof !57
 
@@ -7464,10 +7464,10 @@ select.unfold:                                    ; preds = %297
   br i1 %408, label %.thread90, label %.lr.ph
 
 .thread90:                                        ; preds = %404, %399, %365, %354
-  %.pre-phi297 = phi i64 [ %.pre296, %354 ], [ %371, %365 ], [ %371, %399 ], [ %371, %404 ]
-  %409 = phi ptr [ %314, %354 ], [ %361, %365 ], [ %361, %399 ], [ %361, %404 ]
-  %410 = phi ptr [ %314, %354 ], [ %360, %365 ], [ %360, %399 ], [ %360, %404 ]
-  %411 = phi ptr [ %356, %354 ], [ %367, %365 ], [ %367, %399 ], [ %367, %404 ]
+  %.pre-phi297 = phi i64 [ %371, %365 ], [ %.pre296, %354 ], [ %371, %399 ], [ %371, %404 ]
+  %409 = phi ptr [ %361, %365 ], [ %314, %354 ], [ %361, %399 ], [ %361, %404 ]
+  %410 = phi ptr [ %360, %365 ], [ %314, %354 ], [ %360, %399 ], [ %360, %404 ]
+  %411 = phi ptr [ %367, %365 ], [ %356, %354 ], [ %367, %399 ], [ %367, %404 ]
   %412 = load ptr, ptr %315, align 8
   %413 = getelementptr inbounds nuw i8, ptr %410, i64 16
   store volatile ptr %412, ptr %413, align 8
@@ -7817,9 +7817,9 @@ default.unreachable384:                           ; preds = %select.unfold
   br label %605
 
 605:                                              ; preds = %.thread385, %601
-  %606 = phi ptr [ %594, %.thread385 ], [ %603, %601 ]
-  %607 = phi ptr [ %593, %.thread385 ], [ %602, %601 ]
-  %608 = phi ptr [ %594, %.thread385 ], [ %604, %601 ]
+  %606 = phi ptr [ %603, %601 ], [ %594, %.thread385 ]
+  %607 = phi ptr [ %602, %601 ], [ %593, %.thread385 ]
+  %608 = phi ptr [ %604, %601 ], [ %594, %.thread385 ]
   %609 = icmp eq ptr %608, null
   br i1 %609, label %.thread125, label %610, !prof !57
 
@@ -8029,10 +8029,10 @@ default.unreachable384:                           ; preds = %select.unfold
   br i1 %734, label %free_vmap_area_rb_augment_cb_propagate.exit, label %.lr.ph.i
 
 free_vmap_area_rb_augment_cb_propagate.exit:      ; preds = %730, %725, %691, %680
-  %.pre-phi = phi i64 [ %.pre, %680 ], [ %697, %691 ], [ %697, %725 ], [ %697, %730 ]
-  %735 = phi ptr [ %640, %680 ], [ %687, %691 ], [ %687, %725 ], [ %687, %730 ]
-  %736 = phi ptr [ %640, %680 ], [ %686, %691 ], [ %686, %725 ], [ %686, %730 ]
-  %737 = phi ptr [ %682, %680 ], [ %693, %691 ], [ %693, %725 ], [ %693, %730 ]
+  %.pre-phi = phi i64 [ %697, %691 ], [ %.pre, %680 ], [ %697, %725 ], [ %697, %730 ]
+  %735 = phi ptr [ %687, %691 ], [ %640, %680 ], [ %687, %725 ], [ %687, %730 ]
+  %736 = phi ptr [ %686, %691 ], [ %640, %680 ], [ %686, %725 ], [ %686, %730 ]
+  %737 = phi ptr [ %693, %691 ], [ %682, %680 ], [ %693, %725 ], [ %693, %730 ]
   %738 = load ptr, ptr %641, align 8
   %739 = getelementptr inbounds nuw i8, ptr %736, i64 16
   store volatile ptr %738, ptr %739, align 8
@@ -8196,7 +8196,7 @@ free_vmap_area_rb_augment_cb_propagate.exit:      ; preds = %730, %725, %691, %6
   br label %828
 
 828:                                              ; preds = %.thread122, %.thread132, %813
-  %829 = phi ptr [ %626, %.thread122 ], [ %818, %.thread132 ], [ %621, %813 ]
+  %829 = phi ptr [ %818, %.thread132 ], [ %621, %813 ], [ %626, %.thread122 ]
   %830 = icmp eq ptr %829, null
   br i1 %830, label %.thread137, label %831
 
@@ -8309,8 +8309,8 @@ free_vmap_area_rb_augment_cb_propagate.exit:      ; preds = %730, %725, %691, %6
   br i1 %889, label %.thread86, label %.preheader447, !llvm.loop !248
 
 .thread86:                                        ; preds = %885, %71, %.loopexit149, %73
-  %890 = phi ptr [ %77, %73 ], [ null, %71 ], [ %77, %.loopexit149 ], [ %77, %885 ]
-  %891 = phi ptr [ %76, %73 ], [ null, %71 ], [ %76, %.loopexit149 ], [ %76, %885 ]
+  %890 = phi ptr [ %77, %.loopexit149 ], [ %77, %73 ], [ null, %71 ], [ %77, %885 ]
+  %891 = phi ptr [ %76, %.loopexit149 ], [ %76, %73 ], [ null, %71 ], [ %76, %885 ]
   tail call void @kfree(ptr noundef %890) #20
   tail call void @kfree(ptr noundef %891) #20
   br label %892
@@ -9159,7 +9159,7 @@ define internal fastcc zeroext i1 @__purge_vmap_area_lazy(i64 noundef %0, i64 no
   br i1 %47, label %59, label %.preheader69.backedge
 
 .preheader69.backedge:                            ; preds = %44, %.thread
-  %.be = phi ptr [ %49, %.thread ], [ %46, %44 ]
+  %.be = phi ptr [ %46, %44 ], [ %49, %.thread ]
   br label %.preheader69, !llvm.loop !116
 
 .thread:                                          ; preds = %.preheader69
@@ -9195,9 +9195,9 @@ define internal fastcc zeroext i1 @__purge_vmap_area_lazy(i64 noundef %0, i64 no
   br label %63
 
 63:                                               ; preds = %.thread123, %59
-  %64 = phi ptr [ %52, %.thread123 ], [ %61, %59 ]
-  %65 = phi ptr [ %51, %.thread123 ], [ %60, %59 ]
-  %66 = phi ptr [ %52, %.thread123 ], [ %62, %59 ]
+  %64 = phi ptr [ %61, %59 ], [ %52, %.thread123 ]
+  %65 = phi ptr [ %60, %59 ], [ %51, %.thread123 ]
+  %66 = phi ptr [ %62, %59 ], [ %52, %.thread123 ]
   %67 = icmp eq ptr %66, null
   br i1 %67, label %.thread56, label %68, !prof !57
 
@@ -9406,10 +9406,10 @@ define internal fastcc zeroext i1 @__purge_vmap_area_lazy(i64 noundef %0, i64 no
   br i1 %191, label %.thread44, label %.lr.ph
 
 .thread44:                                        ; preds = %187, %182, %148, %137
-  %.pre-phi = phi i64 [ %.pre, %137 ], [ %154, %148 ], [ %154, %182 ], [ %154, %187 ]
-  %192 = phi ptr [ %97, %137 ], [ %144, %148 ], [ %144, %182 ], [ %144, %187 ]
-  %193 = phi ptr [ %97, %137 ], [ %143, %148 ], [ %143, %182 ], [ %143, %187 ]
-  %194 = phi ptr [ %139, %137 ], [ %150, %148 ], [ %150, %182 ], [ %150, %187 ]
+  %.pre-phi = phi i64 [ %154, %148 ], [ %.pre, %137 ], [ %154, %182 ], [ %154, %187 ]
+  %192 = phi ptr [ %144, %148 ], [ %97, %137 ], [ %144, %182 ], [ %144, %187 ]
+  %193 = phi ptr [ %143, %148 ], [ %97, %137 ], [ %143, %182 ], [ %143, %187 ]
+  %194 = phi ptr [ %150, %148 ], [ %139, %137 ], [ %150, %182 ], [ %150, %187 ]
   %195 = load ptr, ptr %98, align 8
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 16
   store volatile ptr %195, ptr %196, align 8
@@ -9573,7 +9573,7 @@ define internal fastcc zeroext i1 @__purge_vmap_area_lazy(i64 noundef %0, i64 no
   br label %285
 
 285:                                              ; preds = %.thread53, %.thread63, %270
-  %286 = phi ptr [ %83, %.thread53 ], [ %275, %.thread63 ], [ %78, %270 ]
+  %286 = phi ptr [ %275, %.thread63 ], [ %78, %270 ], [ %83, %.thread53 ]
   %287 = icmp eq ptr %286, null
   br i1 %287, label %335, label %288
 
@@ -9651,7 +9651,7 @@ define internal fastcc zeroext i1 @__purge_vmap_area_lazy(i64 noundef %0, i64 no
   br label %335
 
 335:                                              ; preds = %.thread67, %333, %329, %285
-  %336 = phi i32 [ %25, %285 ], [ %330, %333 ], [ %330, %329 ], [ %25, %.thread67 ]
+  %336 = phi i32 [ %330, %333 ], [ %330, %329 ], [ %25, %285 ], [ %25, %.thread67 ]
   %337 = icmp eq ptr %27, %3
   br i1 %337, label %.loopexit, label %.preheader70, !llvm.loop !269
 
@@ -9888,9 +9888,9 @@ define internal fastcc void @free_vmap_area_noflush(ptr noundef %0) unnamed_addr
   br label %52
 
 52:                                               ; preds = %.thread55, %48
-  %53 = phi ptr [ %40, %.thread55 ], [ %50, %48 ]
-  %54 = phi ptr [ %39, %.thread55 ], [ %49, %48 ]
-  %55 = phi ptr [ %40, %.thread55 ], [ %51, %48 ]
+  %53 = phi ptr [ %50, %48 ], [ %40, %.thread55 ]
+  %54 = phi ptr [ %49, %48 ], [ %39, %.thread55 ]
+  %55 = phi ptr [ %51, %48 ], [ %40, %.thread55 ]
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.thread27, label %57, !prof !57
 

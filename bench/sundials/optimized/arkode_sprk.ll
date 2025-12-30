@@ -254,7 +254,7 @@ ARKodeSPRKTable_Free.exit19.i.i:                  ; preds = %6
   br label %arkodeSymplecticEuler.exit
 
 arkodeSymplecticEuler.exit:                       ; preds = %9, %ARKodeSPRKTable_Free.exit19.i.i, %ARKodeSPRKTable_Free.exit.i.i, %2, %1, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11
-  %.0 = phi ptr [ %32, %31 ], [ null, %1 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %calloc.i.i, %9 ], [ null, %ARKodeSPRKTable_Free.exit19.i.i ], [ null, %ARKodeSPRKTable_Free.exit.i.i ], [ null, %2 ]
+  %.0 = phi ptr [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ null, %1 ], [ %calloc.i.i, %9 ], [ null, %ARKodeSPRKTable_Free.exit19.i.i ], [ null, %ARKodeSPRKTable_Free.exit.i.i ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -1230,7 +1230,7 @@ ARKodeSPRKTable_Free.exit19.i.i:                  ; preds = %7
   br label %arkodeSymplecticEuler.exit
 
 arkodeSymplecticEuler.exit:                       ; preds = %10, %ARKodeSPRKTable_Free.exit19.i.i, %ARKodeSPRKTable_Free.exit.i.i, %3, %52, %54, %50, %46, %42, %38, %34, %30, %26, %22, %18, %14
-  %.0 = phi ptr [ null, %52 ], [ %55, %54 ], [ %51, %50 ], [ %47, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %calloc.i.i, %10 ], [ null, %ARKodeSPRKTable_Free.exit19.i.i ], [ null, %ARKodeSPRKTable_Free.exit.i.i ], [ null, %3 ]
+  %.0 = phi ptr [ %55, %54 ], [ %51, %50 ], [ %47, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ null, %52 ], [ %calloc.i.i, %10 ], [ null, %ARKodeSPRKTable_Free.exit19.i.i ], [ null, %ARKodeSPRKTable_Free.exit.i.i ], [ null, %3 ]
   ret ptr %.0
 }
 

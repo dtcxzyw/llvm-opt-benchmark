@@ -3294,7 +3294,7 @@ _ZNSt12_Vector_baseIPN5arrow12ArrayBuilderESaIS2_EE13_M_deallocateEPS2_m.exit36.
   br label %_ZN5arrow17BasicUnionBuilder10NextTypeIdEv.exit
 
 _ZN5arrow17BasicUnionBuilder10NextTypeIdEv.exit:  ; preds = %.lr.ph.i, %_ZNSt12_Vector_baseIPN5arrow12ArrayBuilderESaIS2_EE13_M_deallocateEPS2_m.exit36.i, %92, %108, %109
-  %110 = phi ptr [ %80, %109 ], [ %100, %_ZNSt12_Vector_baseIPN5arrow12ArrayBuilderESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ %80, %92 ], [ %80, %108 ], [ %34, %.lr.ph.i ]
+  %110 = phi ptr [ %100, %_ZNSt12_Vector_baseIPN5arrow12ArrayBuilderESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ %80, %92 ], [ %80, %108 ], [ %80, %109 ], [ %34, %.lr.ph.i ]
   %storemerge.in.i = load i8, ptr %30, align 8, !tbaa !209
   %storemerge.i = add i8 %storemerge.in.i, 1
   store i8 %storemerge.i, ptr %30, align 8, !tbaa !209
@@ -4596,7 +4596,7 @@ _ZN5arrow6StatusD2Ev.exit28:                      ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge22
 
 .critedge22:                                      ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit.i.i, %_ZN5arrow6StatusD2Ev.exit28
-  %.sink = phi ptr [ %53, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ null, %_ZN5arrow6StatusD2Ev.exit28 ], [ %37, %_ZN5arrow6StatusD2Ev.exit ]
+  %.sink = phi ptr [ null, %_ZN5arrow6StatusD2Ev.exit28 ], [ %53, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %37, %_ZN5arrow6StatusD2Ev.exit ]
   store ptr %.sink, ptr %0, align 8
   ret void
 }
@@ -5562,7 +5562,7 @@ _ZN5arrow6StatusD2Ev.exit32:                      ; preds = %_ZN5arrow6StatusD2E
   br i1 %58, label %_ZN5arrow6StatusD2Ev.exit30, label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit32, %_ZN5arrow6StatusD2Ev.exit30, %_ZN5arrow6StatusD2Ev.exit30.preheader, %_ZN5arrow6StatusD2Ev.exit.i.i
-  %.sink = phi ptr [ null, %_ZN5arrow6StatusD2Ev.exit30.preheader ], [ %16, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %57, %_ZN5arrow6StatusD2Ev.exit32 ], [ null, %_ZN5arrow6StatusD2Ev.exit30 ]
+  %.sink = phi ptr [ %16, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ null, %_ZN5arrow6StatusD2Ev.exit30.preheader ], [ %57, %_ZN5arrow6StatusD2Ev.exit32 ], [ null, %_ZN5arrow6StatusD2Ev.exit30 ]
   store ptr %.sink, ptr %0, align 8
   br label %.critedge
 
@@ -5681,7 +5681,7 @@ _ZN5arrow6StatusD2Ev.exit34:                      ; preds = %_ZN5arrow6StatusD2E
   br i1 %59, label %_ZN5arrow6StatusD2Ev.exit32, label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit34, %_ZN5arrow6StatusD2Ev.exit32, %_ZN5arrow6StatusD2Ev.exit32.preheader, %_ZN5arrow6StatusD2Ev.exit.i
-  %.sink = phi ptr [ null, %_ZN5arrow6StatusD2Ev.exit32.preheader ], [ %.pr.i, %_ZN5arrow6StatusD2Ev.exit.i ], [ %58, %_ZN5arrow6StatusD2Ev.exit34 ], [ null, %_ZN5arrow6StatusD2Ev.exit32 ]
+  %.sink = phi ptr [ %.pr.i, %_ZN5arrow6StatusD2Ev.exit.i ], [ null, %_ZN5arrow6StatusD2Ev.exit32.preheader ], [ %58, %_ZN5arrow6StatusD2Ev.exit34 ], [ null, %_ZN5arrow6StatusD2Ev.exit32 ]
   store ptr %.sink, ptr %0, align 8
   br label %.critedge
 
@@ -5761,7 +5761,7 @@ _ZN5arrow6StatusD2Ev.exit16:                      ; preds = %_ZN5arrow6StatusD2E
   br i1 %39, label %28, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit16, %28, %17, %_ZN5arrow6StatusD2Ev.exit.i.i
-  %.sink = phi ptr [ null, %17 ], [ %15, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %38, %_ZN5arrow6StatusD2Ev.exit16 ], [ null, %28 ]
+  %.sink = phi ptr [ %15, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ null, %17 ], [ %38, %_ZN5arrow6StatusD2Ev.exit16 ], [ null, %28 ]
   store ptr %.sink, ptr %0, align 8
   ret void
 }
@@ -5849,7 +5849,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   br i1 %40, label %29, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit17, %29, %24, %_ZN5arrow6StatusD2Ev.exit.i
-  %.sink = phi ptr [ null, %24 ], [ %.pr.i, %_ZN5arrow6StatusD2Ev.exit.i ], [ %39, %_ZN5arrow6StatusD2Ev.exit17 ], [ null, %29 ]
+  %.sink = phi ptr [ %.pr.i, %_ZN5arrow6StatusD2Ev.exit.i ], [ null, %24 ], [ %39, %_ZN5arrow6StatusD2Ev.exit17 ], [ null, %29 ]
   store ptr %.sink, ptr %0, align 8
   ret void
 }
@@ -8106,7 +8106,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !189
   br label %41
 
@@ -8205,7 +8205,7 @@ _ZSt6fill_nIPPN5arrow12ArrayBuilderEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i: ; pr
   br label %_ZSt27__uninitialized_default_n_aIPPN5arrow12ArrayBuilderEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN5arrow12ArrayBuilderEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN5arrow12ArrayBuilderEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPN5arrow12ArrayBuilderEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPN5arrow12ArrayBuilderEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !190
   br label %41
 

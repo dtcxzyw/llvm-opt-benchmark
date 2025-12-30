@@ -158,7 +158,7 @@ define hidden void @_ZN14deltalake_core5table7builder16ensure_table_uri17hae3ecd
   br i1 %trunc, label %39, label %38
 
 .thread:                                          ; preds = %.thread165, %111, %90, %.body.thread135
-  %.pn.pn184 = phi { ptr, i32 } [ %91, %90 ], [ %112, %111 ], [ %eh.lpad-body138, %.body.thread135 ], [ %.pn168, %.thread165 ]
+  %.pn.pn184 = phi { ptr, i32 } [ %112, %111 ], [ %91, %90 ], [ %eh.lpad-body138, %.body.thread135 ], [ %.pn168, %.thread165 ]
   resume { ptr, i32 } %.pn.pn184
 
 38:                                               ; preds = %2
@@ -196,7 +196,7 @@ define hidden void @_ZN14deltalake_core5table7builder16ensure_table_uri17hae3ecd
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx191, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
   br label %129
 
-.body.thread140:                                  ; preds = %72, %56, %54, %41, %49, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i
+.body.thread140:                                  ; preds = %41, %49, %54, %56, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i, %72
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread135
@@ -720,7 +720,7 @@ define internal fastcc void @_ZN14deltalake_core5table7builder16resolve_uri_type
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h21fd3546efccbf38E.exit" unwind label %33
 
 "_ZN4core3ptr155drop_in_place$LT$alloc..sync..Arc$LT$dashmap..DashMap$LT$url..Url$C$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$GT$$GT$17hba46f75b63632e48E.exit": ; preds = %33, %38, %200, %175, %43
-  %.pn70 = phi { ptr, i32 } [ %44, %43 ], [ %.pn68, %200 ], [ %.pn68, %175 ], [ %34, %38 ], [ %34, %33 ]
+  %.pn70 = phi { ptr, i32 } [ %.pn68, %200 ], [ %.pn68, %175 ], [ %44, %43 ], [ %34, %38 ], [ %34, %33 ]
   resume { ptr, i32 } %.pn70
 
 33:                                               ; preds = %3
@@ -794,16 +794,16 @@ define internal fastcc void @_ZN14deltalake_core5table7builder16resolve_uri_type
 
 60:                                               ; preds = %51
   %.not.i.i.i.i = icmp ugt i64 %57, %58
-  br i1 %.not.i.i.i.i, label %61, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i"
+  br i1 %.not.i.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds nuw i8, ptr %55, i64 %58
-  %63 = load i8, ptr %62, align 1, !alias.scope !217, !noalias !224, !noundef !4
-  %64 = icmp sgt i8 %63, -65
-  br i1 %64, label %69, label %66
+  %62 = icmp eq i64 %57, %58
+  br i1 %62, label %69, label %66
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i": ; preds = %60
-  %65 = icmp eq i64 %57, %58
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 %58
+  %64 = load i8, ptr %63, align 1, !alias.scope !217, !noalias !224, !noundef !4
+  %65 = icmp sgt i8 %64, -65
   br i1 %65, label %69, label %66
 
 66:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", %61
@@ -819,7 +819,7 @@ define internal fastcc void @_ZN14deltalake_core5table7builder16resolve_uri_type
   invoke void @_ZN3std3sys6os_str5bytes5Slice8to_owned17had945b6c4cd6e040E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 1 %45, i64 noundef %46)
           to label %185 unwind label %162
 
-.thread109:                                       ; preds = %140, %69, %66
+.thread109:                                       ; preds = %69, %66, %140
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -854,16 +854,16 @@ define internal fastcc void @_ZN14deltalake_core5table7builder16resolve_uri_type
 
 80:                                               ; preds = %71
   %.not.i.i.i.i76 = icmp ugt i64 %77, %78
-  br i1 %.not.i.i.i.i76, label %81, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i77"
+  br i1 %.not.i.i.i.i76, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i77", label %81
 
 81:                                               ; preds = %80
-  %82 = getelementptr inbounds nuw i8, ptr %76, i64 %78
-  %83 = load i8, ptr %82, align 1, !alias.scope !229, !noalias !236, !noundef !4
-  %84 = icmp sgt i8 %83, -65
-  br i1 %84, label %88, label %86
+  %82 = icmp eq i64 %77, %78
+  br i1 %82, label %88, label %86
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i77": ; preds = %80
-  %85 = icmp eq i64 %77, %78
+  %83 = getelementptr inbounds nuw i8, ptr %76, i64 %78
+  %84 = load i8, ptr %83, align 1, !alias.scope !229, !noalias !236, !noundef !4
+  %85 = icmp sgt i8 %84, -65
   br i1 %85, label %88, label %86
 
 86:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i77", %81
@@ -1179,7 +1179,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %120
           to label %175 unwind label %183
 
 162:                                              ; preds = %165, %152, %67
-  %.0 = phi i8 [ 0, %152 ], [ 0, %165 ], [ 1, %67 ]
+  %.0 = phi i8 [ 1, %67 ], [ 0, %152 ], [ 0, %165 ]
   %163 = landingpad { ptr, i32 }
           cleanup
   br label %161
@@ -1250,7 +1250,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %120
   unreachable
 
 .thread:                                          ; preds = %87, %.thread109, %68
-  %.pn108 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread109 ], [ %lpad.thr_comm.split-lp, %68 ], [ %lpad.phi, %87 ]
+  %.pn108 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %68 ], [ %lpad.thr_comm, %.thread109 ], [ %lpad.phi, %87 ]
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17hacc1c410795975a5E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %24) #15
           to label %161 unwind label %183
 
@@ -1319,16 +1319,16 @@ define hidden void @"_ZN14deltalake_core5table7builder16resolve_uri_type28_$u7b$
 
 14:                                               ; preds = %3
   %.not.i.i.i.i = icmp ugt i64 %11, %12
-  br i1 %.not.i.i.i.i, label %15, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i"
+  br i1 %.not.i.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 %12
-  %17 = load i8, ptr %16, align 1, !alias.scope !349, !noalias !356, !noundef !4
-  %18 = icmp sgt i8 %17, -65
-  br i1 %18, label %23, label %20
+  %16 = icmp eq i64 %11, %12
+  br i1 %16, label %23, label %20
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i": ; preds = %14
-  %19 = icmp eq i64 %11, %12
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 %12
+  %18 = load i8, ptr %17, align 1, !alias.scope !349, !noalias !356, !noundef !4
+  %19 = icmp sgt i8 %18, -65
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", %15
@@ -1480,7 +1480,7 @@ define hidden void @_ZN14deltalake_core5table7builder17DeltaTableBuilder14from_v
           to label %73 unwind label %71
 
 .body:                                            ; preds = %91, %367, %208, %229, %.body.thread135.i, %.thread165.i, %.thread289, %71, %407, %386, %131
-  %.pn127 = phi { ptr, i32 } [ %387, %386 ], [ %.pn168.i, %.thread165.i ], [ %lpad.thr_comm.split-lp, %131 ], [ %lpad.thr_comm.split-lp, %407 ], [ %72, %71 ], [ %lpad.thr_comm, %.thread289 ], [ %364, %367 ], [ %209, %208 ], [ %230, %229 ], [ %eh.lpad-body138.i, %.body.thread135.i ], [ %92, %91 ]
+  %.pn127 = phi { ptr, i32 } [ %387, %386 ], [ %lpad.thr_comm.split-lp, %407 ], [ %lpad.thr_comm.split-lp, %131 ], [ %72, %71 ], [ %lpad.thr_comm, %.thread289 ], [ %230, %229 ], [ %209, %208 ], [ %eh.lpad-body138.i, %.body.thread135.i ], [ %.pn168.i, %.thread165.i ], [ %364, %367 ], [ %92, %91 ]
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17hacc1c410795975a5E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1) #15
           to label %408 unwind label %147
 
@@ -1511,16 +1511,16 @@ define hidden void @_ZN14deltalake_core5table7builder17DeltaTableBuilder14from_v
 
 84:                                               ; preds = %75
   %.not.i.i.i.i = icmp ugt i64 %81, %82
-  br i1 %.not.i.i.i.i, label %85, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i"
+  br i1 %.not.i.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", label %85
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds nuw i8, ptr %79, i64 %82
-  %87 = load i8, ptr %86, align 1, !alias.scope !371, !noalias !378, !noundef !4
-  %88 = icmp sgt i8 %87, -65
-  br i1 %88, label %93, label %90
+  %86 = icmp eq i64 %81, %82
+  br i1 %86, label %93, label %90
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i": ; preds = %84
-  %89 = icmp eq i64 %81, %82
+  %87 = getelementptr inbounds nuw i8, ptr %79, i64 %82
+  %88 = load i8, ptr %87, align 1, !alias.scope !371, !noalias !378, !noundef !4
+  %89 = icmp sgt i8 %88, -65
   br i1 %89, label %93, label %90
 
 90:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", %85
@@ -2788,7 +2788,7 @@ define hidden void @_ZN14deltalake_core5table7builder17DeltaTableBuilder8from_ur
   br label %.body
 
 .body:                                            ; preds = %27, %15, %9
-  %eh.lpad-body = phi { ptr, i32 } [ %16, %15 ], [ %10, %9 ], [ %28, %27 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %10, %9 ], [ %16, %15 ], [ %28, %27 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4a738b5e8f2dfe73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #15
           to label %43 unwind label %41
 
@@ -2905,16 +2905,16 @@ define hidden { ptr, i64 } @_ZN3url3Url5slice17h24d9bdee859d0b54E.llvm.147531863
 
 9:                                                ; preds = %2
   %.not.i.i.i = icmp ugt i64 %6, %7
-  br i1 %.not.i.i.i, label %10, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i"
+  br i1 %.not.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %7
-  %12 = load i8, ptr %11, align 1, !alias.scope !715, !noalias !722, !noundef !4
-  %13 = icmp sgt i8 %12, -65
-  br i1 %13, label %"_ZN70_$LT$core..ops..range..RangeTo$LT$u32$GT$$u20$as$u20$url..RangeArg$GT$8slice_of17h3e3ec0487d8dbe7fE.llvm.14753186397907171980.exit", label %15
+  %11 = icmp eq i64 %6, %7
+  br i1 %11, label %"_ZN70_$LT$core..ops..range..RangeTo$LT$u32$GT$$u20$as$u20$url..RangeArg$GT$8slice_of17h3e3ec0487d8dbe7fE.llvm.14753186397907171980.exit", label %15
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i": ; preds = %9
-  %14 = icmp eq i64 %6, %7
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %7
+  %13 = load i8, ptr %12, align 1, !alias.scope !715, !noalias !722, !noundef !4
+  %14 = icmp sgt i8 %13, -65
   br i1 %14, label %"_ZN70_$LT$core..ops..range..RangeTo$LT$u32$GT$$u20$as$u20$url..RangeArg$GT$8slice_of17h3e3ec0487d8dbe7fE.llvm.14753186397907171980.exit", label %15
 
 15:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %10
@@ -2994,16 +2994,16 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 
 15:                                               ; preds = %3
   %.not.i.i.i.i.i = icmp ugt i64 %12, %13
-  br i1 %.not.i.i.i.i.i, label %16, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", label %16
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %13
-  %18 = load i8, ptr %17, align 1, !alias.scope !733, !noalias !740, !noundef !4
-  %19 = icmp sgt i8 %18, -65
-  br i1 %19, label %24, label %21
+  %17 = icmp eq i64 %12, %13
+  br i1 %17, label %24, label %21
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i": ; preds = %15
-  %20 = icmp eq i64 %12, %13
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 %13
+  %19 = load i8, ptr %18, align 1, !alias.scope !733, !noalias !740, !noundef !4
+  %20 = icmp sgt i8 %19, -65
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i", %16
@@ -3284,7 +3284,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hcc80a9266ed9879eE.exit"
 
 common.resume:                                    ; preds = %299, %307, %274, %282, %249, %257, %291, %266, %241, %214, %222, %230, %167, %175, %159, %121, %128, %138, %33, %41
-  %common.resume.op = phi { ptr, i32 } [ %275, %274 ], [ %34, %33 ], [ %129, %128 ], [ %160, %159 ], [ %168, %167 ], [ %223, %222 ], [ %292, %291 ], [ %250, %249 ], [ %34, %41 ], [ %139, %138 ], [ %122, %121 ], [ %168, %175 ], [ %223, %230 ], [ %215, %214 ], [ %242, %241 ], [ %267, %266 ], [ %250, %257 ], [ %275, %282 ], [ %300, %307 ], [ %300, %299 ]
+  %common.resume.op = phi { ptr, i32 } [ %34, %41 ], [ %34, %33 ], [ %139, %138 ], [ %122, %121 ], [ %129, %128 ], [ %160, %159 ], [ %168, %175 ], [ %168, %167 ], [ %223, %230 ], [ %223, %222 ], [ %215, %214 ], [ %242, %241 ], [ %267, %266 ], [ %292, %291 ], [ %250, %257 ], [ %250, %249 ], [ %275, %282 ], [ %275, %274 ], [ %300, %307 ], [ %300, %299 ]
   resume { ptr, i32 } %common.resume.op
 
 50:                                               ; preds = %1
@@ -4183,7 +4183,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$arrow_schema..error
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hcc80a9266ed9879eE.exit"
 
 common.resume:                                    ; preds = %170, %34, %42
-  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %35, %42 ], [ %171, %170 ]
+  %common.resume.op = phi { ptr, i32 } [ %35, %42 ], [ %35, %34 ], [ %171, %170 ]
   resume { ptr, i32 } %common.resume.op
 
 51:                                               ; preds = %1
@@ -4648,7 +4648,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$deltalake_core..ker
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hcc80a9266ed9879eE.exit"
 
 common.resume:                                    ; preds = %.body, %176, %44, %52, %137
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %138, %137 ], [ %45, %52 ], [ %177, %176 ], [ %152, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %138, %137 ], [ %45, %52 ], [ %45, %44 ], [ %177, %176 ], [ %152, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 61:                                               ; preds = %1
@@ -5213,7 +5213,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$deltalake_core..errors..Delt
   br label %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hd0c9db7436bdbc88E.exit.i"
 
 common.resume:                                    ; preds = %.body, %.body8, %472, %421, %429, %242, %264, %272, %285, %293, %330, %338, %346, %405, %390, %138, %91
-  %common.resume.op = phi { ptr, i32 } [ %92, %91 ], [ %139, %138 ], [ %422, %421 ], [ %391, %390 ], [ %406, %405 ], [ %331, %330 ], [ %243, %242 ], [ %339, %338 ], [ %286, %285 ], [ %265, %264 ], [ %265, %272 ], [ %286, %293 ], [ %339, %346 ], [ %422, %429 ], [ %123, %.body ], [ %153, %.body8 ], [ %473, %472 ]
+  %common.resume.op = phi { ptr, i32 } [ %92, %91 ], [ %139, %138 ], [ %391, %390 ], [ %406, %405 ], [ %243, %242 ], [ %265, %272 ], [ %265, %264 ], [ %286, %293 ], [ %286, %285 ], [ %339, %346 ], [ %339, %338 ], [ %331, %330 ], [ %422, %429 ], [ %422, %421 ], [ %123, %.body ], [ %153, %.body8 ], [ %473, %472 ]
   resume { ptr, i32 } %common.resume.op
 
 91:                                               ; preds = %89, %84, %82
@@ -6362,16 +6362,16 @@ define hidden { ptr, i64 } @"_ZN4core3str6traits110_$LT$impl$u20$core..slice..in
 
 5:                                                ; preds = %3
   %.not.i = icmp ult i64 %0, %2
-  br i1 %.not.i, label %6, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit"
+  br i1 %.not.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit", label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 %0
-  %8 = load i8, ptr %7, align 1, !alias.scope !1734, !noundef !4
-  %9 = icmp sgt i8 %8, -65
-  br i1 %9, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread", label %11
+  %7 = icmp eq i64 %0, %2
+  br i1 %7, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread", label %11
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit": ; preds = %5
-  %10 = icmp eq i64 %0, %2
+  %8 = getelementptr inbounds i8, ptr %1, i64 %0
+  %9 = load i8, ptr %8, align 1, !alias.scope !1734, !noundef !4
+  %10 = icmp sgt i8 %9, -65
   br i1 %10, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread", label %11
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread": ; preds = %3, %6, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit"
@@ -6488,16 +6488,16 @@ define hidden { ptr, i64 } @"_ZN70_$LT$core..ops..range..RangeTo$LT$u32$GT$$u20$
 
 7:                                                ; preds = %3
   %.not.i.i = icmp ugt i64 %2, %5
-  br i1 %.not.i.i, label %8, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
+  br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %5
-  %10 = load i8, ptr %9, align 1, !alias.scope !1737, !noundef !4
-  %11 = icmp sgt i8 %10, -65
-  br i1 %11, label %14, label %13
+  %9 = icmp eq i64 %2, %5
+  br i1 %9, label %14, label %13
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %7
-  %12 = icmp eq i64 %2, %5
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %5
+  %11 = load i8, ptr %10, align 1, !alias.scope !1737, !noundef !4
+  %12 = icmp sgt i8 %11, -65
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %8

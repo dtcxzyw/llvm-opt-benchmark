@@ -165,7 +165,7 @@ switch.lookup:                                    ; preds = %._crit_edge
   br label %switch.edge
 
 switch.edge:                                      ; preds = %10, %._crit_edge, %switch.lookup, %1
-  %.026 = phi i1 [ false, %1 ], [ false, %._crit_edge ], [ %switch.masked, %switch.lookup ], [ false, %10 ]
+  %.026 = phi i1 [ false, %1 ], [ %switch.masked, %switch.lookup ], [ false, %._crit_edge ], [ false, %10 ]
   ret i1 %.026
 }
 
@@ -739,7 +739,7 @@ _ZL8parseIntRPKc.exit405:                         ; preds = %170
   br label %188
 
 188:                                              ; preds = %182, %176, %184, %186, %187, %185, %183, %178, %180, %181, %179, %177
-  %.str.79.sink = phi ptr [ @.str.73, %176 ], [ @.str.81, %184 ], [ @.str.83, %186 ], [ @.str.84, %187 ], [ @.str.82, %185 ], [ @.str.80, %183 ], [ @.str.74, %177 ], [ @.str.75, %178 ], [ @.str.77, %180 ], [ @.str.78, %181 ], [ @.str.76, %179 ], [ @.str.79, %182 ]
+  %.str.79.sink = phi ptr [ @.str.81, %184 ], [ @.str.83, %186 ], [ @.str.84, %187 ], [ @.str.82, %185 ], [ @.str.80, %183 ], [ @.str.75, %178 ], [ @.str.77, %180 ], [ @.str.78, %181 ], [ @.str.76, %179 ], [ @.str.74, %177 ], [ @.str.73, %176 ], [ @.str.79, %182 ]
   %189 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.79.sink, i32 noundef %168, double noundef %2) #5
   %storemerge = getelementptr inbounds nuw i8, ptr %165, i64 2
   br label %.critedge

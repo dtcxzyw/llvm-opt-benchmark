@@ -955,7 +955,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %42, %_ZN6icu_775Mut
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 .thread99:                                        ; preds = %.thread, %.thread102, %105, %107, %109, %111, %.critedge, %104, %.thread95, %101, %4, %13
-  %.0 = phi ptr [ null, %4 ], [ null, %13 ], [ null, %.critedge ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ null, %104 ], [ null, %.thread95 ], [ null, %101 ], [ null, %.thread102 ], [ null, %.thread ]
+  %.0 = phi ptr [ null, %13 ], [ null, %4 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ null, %.critedge ], [ null, %104 ], [ null, %.thread95 ], [ null, %101 ], [ null, %.thread102 ], [ null, %.thread ]
   ret ptr %.0
 }
 
@@ -1162,7 +1162,7 @@ _ZN6icu_7713umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.
   br label %40
 
 40:                                               ; preds = %2, %38, %36, %_ZN6icu_7713umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.i12, %21, %_ZN6icu_7713umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.i, %6
-  %.0 = phi ptr [ %37, %36 ], [ %39, %38 ], [ %7, %6 ], [ %20, %_ZN6icu_7713umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.i ], [ %22, %21 ], [ %35, %_ZN6icu_7713umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.i12 ], [ null, %2 ]
+  %.0 = phi ptr [ %39, %38 ], [ %7, %6 ], [ %20, %_ZN6icu_7713umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.i ], [ %22, %21 ], [ %35, %_ZN6icu_7713umtx_initOnceIPKcEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES5_S7_.exit.i.i12 ], [ %37, %36 ], [ null, %2 ]
   ret ptr %.0
 }
 

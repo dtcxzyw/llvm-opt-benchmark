@@ -512,7 +512,7 @@ invoke.cont46:                                    ; preds = %call4.i.i.noexc
           to label %return unwind label %terminate.lpad
 
 return:                                           ; preds = %invoke.cont46, %cond.false, %cleanup.action, %cond.end, %entry
-  %retval.0 = phi i8 [ %retval.0.i.ph, %cond.false ], [ 1, %entry ], [ %retval.0.i.ph, %cond.end ], [ %retval.0.i.ph, %cleanup.action ], [ %call48, %invoke.cont46 ]
+  %retval.0 = phi i8 [ 1, %entry ], [ %retval.0.i.ph, %cond.end ], [ %retval.0.i.ph, %cleanup.action ], [ %call48, %invoke.cont46 ], [ %retval.0.i.ph, %cond.false ]
   ret i8 %retval.0
 
 terminate.lpad:                                   ; preds = %invoke.cont46, %if.then.i8, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11cloneAtMostERSt10unique_ptrIS4_St14default_deleteIS4_EEm.exit.i, %if.then.i.i, %invoke.cont35, %invoke.cont33, %invoke.cont31, %invoke.cont30, %cond.false26, %cond.true
@@ -1036,7 +1036,7 @@ invoke.cont55:                                    ; preds = %call4.i.i.noexc
           to label %return unwind label %terminate.lpad
 
 return:                                           ; preds = %invoke.cont55, %cond.false, %if.then43, %cleanup.action, %cond.end, %entry
-  %retval.0 = phi i8 [ 6, %if.then43 ], [ 1, %entry ], [ %retval.0.i.ph, %cond.false ], [ %retval.0.i.ph, %cond.end ], [ %retval.0.i.ph, %cleanup.action ], [ %call57, %invoke.cont55 ]
+  %retval.0 = phi i8 [ 1, %entry ], [ %retval.0.i.ph, %cond.end ], [ %retval.0.i.ph, %cleanup.action ], [ 6, %if.then43 ], [ %call57, %invoke.cont55 ], [ %retval.0.i.ph, %cond.false ]
   ret i8 %retval.0
 
 terminate.lpad:                                   ; preds = %invoke.cont55, %if.then.i10, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11cloneAtMostERSt10unique_ptrIS4_St14default_deleteIS4_EEm.exit.i, %if.then.i.i, %if.end46, %invoke.cont35, %invoke.cont33, %invoke.cont31, %invoke.cont30, %cond.false26, %cond.true
@@ -1386,7 +1386,7 @@ invoke.cont72:                                    ; preds = %call4.i.i.noexc
           to label %return unwind label %terminate.lpad
 
 return:                                           ; preds = %invoke.cont72, %cond.false, %invoke.cont62, %if.end53, %if.then43, %cleanup.action, %cond.end, %entry
-  %retval.0 = phi i8 [ 6, %if.end53 ], [ 1, %entry ], [ %retval.0.i.ph, %cond.false ], [ 6, %if.then43 ], [ 1, %invoke.cont62 ], [ %retval.0.i.ph, %cond.end ], [ %retval.0.i.ph, %cleanup.action ], [ %call74, %invoke.cont72 ]
+  %retval.0 = phi i8 [ 1, %entry ], [ %retval.0.i.ph, %cond.end ], [ %retval.0.i.ph, %cleanup.action ], [ 6, %if.then43 ], [ 6, %if.end53 ], [ 1, %invoke.cont62 ], [ %call74, %invoke.cont72 ], [ %retval.0.i.ph, %cond.false ]
   ret i8 %retval.0
 
 terminate.lpad:                                   ; preds = %invoke.cont72, %if.then.i25.invoke, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11cloneAtMostERSt10unique_ptrIS4_St14default_deleteIS4_EEm.exit.i, %if.then.i.i, %if.else.i.i.i21, %if.end46, %invoke.cont35, %invoke.cont33, %invoke.cont31, %invoke.cont30, %cond.false26, %cond.true
@@ -1505,7 +1505,7 @@ if.end.i:                                         ; preds = %_ZN5folly2io6detail
   br label %return
 
 return:                                           ; preds = %if.end.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIjEET_v.exit.i, %if.end, %entry
-  %retval.0 = phi i8 [ 1, %if.end ], [ 6, %entry ], [ 0, %if.end.i ], [ 1, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIjEET_v.exit.i ]
+  %retval.0 = phi i8 [ 6, %entry ], [ 1, %if.end ], [ 0, %if.end.i ], [ 1, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE6readBEIjEET_v.exit.i ]
   ret i8 %retval.0
 
 terminate.lpad:                                   ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i
@@ -1656,7 +1656,7 @@ for.inc:                                          ; preds = %if.then.i.i24, %if.
   br i1 %cmp30.not, label %return, label %for.body, !llvm.loop !16
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %if.end23, %if.then18, %entry
-  %retval.0 = phi i8 [ 6, %if.end23 ], [ %., %if.then18 ], [ 1, %entry ], [ 0, %for.cond.preheader ], [ 0, %for.inc ]
+  %retval.0 = phi i8 [ 1, %entry ], [ %., %if.then18 ], [ 6, %if.end23 ], [ 0, %for.cond.preheader ], [ 0, %for.inc ]
   ret i8 %retval.0
 
 terminate.lpad.loopexit:                          ; preds = %if.else.i.i, %if.else.i.i16, %if.else.i.i25
@@ -1889,7 +1889,7 @@ invoke.cont55:                                    ; preds = %call4.i.i.noexc
           to label %return unwind label %terminate.lpad
 
 return:                                           ; preds = %invoke.cont55, %cond.false, %invoke.cont45, %if.end41, %cleanup.action, %cond.end, %entry
-  %retval.0 = phi i8 [ %call57, %invoke.cont55 ], [ 1, %entry ], [ %retval.0.i.ph, %cond.false ], [ 6, %if.end41 ], [ 1, %invoke.cont45 ], [ %retval.0.i.ph, %cond.end ], [ %retval.0.i.ph, %cleanup.action ]
+  %retval.0 = phi i8 [ 1, %entry ], [ %retval.0.i.ph, %cond.end ], [ %retval.0.i.ph, %cleanup.action ], [ 6, %if.end41 ], [ 1, %invoke.cont45 ], [ %call57, %invoke.cont55 ], [ %retval.0.i.ph, %cond.false ]
   ret i8 %retval.0
 
 terminate.lpad:                                   ; preds = %invoke.cont55, %if.then.i24.invoke, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11cloneAtMostERSt10unique_ptrIS4_St14default_deleteIS4_EEm.exit.i, %if.then.i.i, %if.else.i.i.i20, %invoke.cont35, %invoke.cont33, %invoke.cont31, %invoke.cont30, %cond.false26, %cond.true
@@ -1949,7 +1949,7 @@ if.then.i.i:                                      ; preds = %call.i.i.noexc
   unreachable
 
 return:                                           ; preds = %call.i.i.noexc, %if.then3.i, %if.end, %entry
-  %retval.0 = phi i8 [ 1, %if.end ], [ 6, %entry ], [ 0, %if.then3.i ], [ 0, %call.i.i.noexc ]
+  %retval.0 = phi i8 [ 6, %entry ], [ 1, %if.end ], [ 0, %if.then3.i ], [ 0, %call.i.i.noexc ]
   ret i8 %retval.0
 
 terminate.lpad:                                   ; preds = %if.then.i.i, %if.else.i
@@ -2138,7 +2138,7 @@ if.then.i.cont:                                   ; preds = %if.then.i.invoke
   unreachable
 
 return:                                           ; preds = %call4.i.i.noexc, %cond.false, %if.end48, %cleanup.action, %cond.end, %if.end, %entry
-  %retval.0 = phi i8 [ 1, %cond.false ], [ 6, %entry ], [ 1, %if.end ], [ 1, %cond.end ], [ 1, %cleanup.action ], [ 0, %if.end48 ], [ 0, %call4.i.i.noexc ]
+  %retval.0 = phi i8 [ 6, %entry ], [ 1, %if.end ], [ 1, %cond.end ], [ 1, %cleanup.action ], [ 0, %if.end48 ], [ 1, %cond.false ], [ 0, %call4.i.i.noexc ]
   ret i8 %retval.0
 
 terminate.lpad:                                   ; preds = %if.then.i.invoke, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11cloneAtMostERSt10unique_ptrIS4_St14default_deleteIS4_EEm.exit.i, %if.then.i.i, %if.else.i.i.i19, %if.else.i.i.i, %invoke.cont42, %invoke.cont40, %invoke.cont38, %invoke.cont37, %cond.false33, %cond.true
@@ -2688,7 +2688,7 @@ if.then.i.cont:                                   ; preds = %if.then.i.invoke
   unreachable
 
 return:                                           ; preds = %call4.i.i.noexc, %invoke.cont22, %if.end, %entry
-  %retval.0 = phi i8 [ 1, %if.end ], [ 6, %entry ], [ 0, %invoke.cont22 ], [ 0, %call4.i.i.noexc ]
+  %retval.0 = phi i8 [ 6, %entry ], [ 1, %if.end ], [ 0, %invoke.cont22 ], [ 0, %call4.i.i.noexc ]
   ret i8 %retval.0
 
 terminate.lpad:                                   ; preds = %if.then.i.invoke, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11cloneAtMostERSt10unique_ptrIS4_St14default_deleteIS4_EEm.exit.i, %if.then.i.i7, %if.else.i.i
@@ -2794,7 +2794,7 @@ if.then.i.cont:                                   ; preds = %if.then.i.invoke
   unreachable
 
 return:                                           ; preds = %call4.i.i.noexc, %invoke.cont22, %if.end, %entry
-  %retval.0 = phi i8 [ 1, %if.end ], [ 6, %entry ], [ 0, %invoke.cont22 ], [ 0, %call4.i.i.noexc ]
+  %retval.0 = phi i8 [ 6, %entry ], [ 1, %if.end ], [ 0, %invoke.cont22 ], [ 0, %call4.i.i.noexc ]
   ret i8 %retval.0
 
 terminate.lpad:                                   ; preds = %if.then.i.invoke, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11cloneAtMostERSt10unique_ptrIS4_St14default_deleteIS4_EEm.exit.i, %if.then.i.i7, %if.else.i.i
@@ -3077,7 +3077,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i: ; preds = %invoke.co
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i14, %land.lhs.true4, %invoke.cont23, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i, %invoke.cont12, %invoke.cont9, %_ZNK5folly5IOBuf11isSharedOneEv.exit, %land.lhs.true, %if.end111.i
-  %payloadLength.0 = phi i64 [ 0, %_ZNK5folly5IOBuf11isSharedOneEv.exit ], [ %18, %invoke.cont23 ], [ 0, %invoke.cont12 ], [ 0, %invoke.cont9 ], [ 0, %land.lhs.true ], [ 0, %if.end111.i ], [ %18, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i ], [ 0, %land.lhs.true4 ], [ 0, %if.end.i14 ]
+  %payloadLength.0 = phi i64 [ 0, %_ZNK5folly5IOBuf11isSharedOneEv.exit ], [ 0, %invoke.cont12 ], [ 0, %invoke.cont9 ], [ 0, %land.lhs.true ], [ 0, %if.end111.i ], [ %18, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i ], [ %18, %invoke.cont23 ], [ 0, %land.lhs.true4 ], [ 0, %if.end.i14 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds nuw i8, ptr %appender, i64 24
   store ptr %queue, ptr %queue_.i.i, align 8
@@ -7976,7 +7976,7 @@ _ZSt4copyIPPSt4pairIN8proxygen10SettingsIdEjES5_ET0_T_S7_S6_.exit30: ; preds = %
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPSt4pairIN8proxygen10SettingsIdEjES5_ET0_T_S7_S6_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPSt4pairIN8proxygen10SettingsIdEjES5_ET0_T_S7_S6_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPSt4pairIN8proxygen10SettingsIdEjES5_ET0_T_S7_S6_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24

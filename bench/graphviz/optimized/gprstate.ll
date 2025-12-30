@@ -134,7 +134,7 @@ bsearch.exit.loopexit:                            ; preds = %18
   br label %bsearch.exit
 
 bsearch.exit:                                     ; preds = %bsearch.exit.loopexit, %.loopexit, %7, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %7 ], [ null, %.loopexit ], [ %23, %bsearch.exit.loopexit ]
+  %.0 = phi ptr [ null, %7 ], [ null, %5 ], [ null, %.loopexit ], [ %23, %bsearch.exit.loopexit ]
   ret ptr %.0
 }
 

@@ -1345,7 +1345,7 @@ define hidden void @"_ZN4core3ptr1319drop_in_place$LT$core..iter..adapters..flat
   br label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$proc_macro2..rcvec..RcVecIntoIter$LT$proc_macro2..TokenTree$GT$$GT$$GT$17h16f9db3f42c1fe0cE.llvm.8351105841907204142.exit2"
 
 common.resume:                                    ; preds = %.body, %39, %44
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %40, %44 ], [ %14, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %44 ], [ %40, %39 ], [ %14, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$proc_macro2..rcvec..RcVecIntoIter$LT$proc_macro2..TokenTree$GT$$GT$$GT$17h16f9db3f42c1fe0cE.llvm.8351105841907204142.exit2": ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$proc_macro2..rcvec..RcVecIntoIter$LT$proc_macro2..TokenTree$GT$$GT$$GT$17h16f9db3f42c1fe0cE.llvm.8351105841907204142.exit", %46, %50
@@ -2495,7 +2495,7 @@ common.resume.sink.split:                         ; preds = %19, %41, %57, %71, 
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %.body6, %.body.i, %.body
-  %common.resume.op = phi { ptr, i32 } [ %51, %.body6 ], [ %eh.lpad-body.i, %.body.i ], [ %12, %.body ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %.body ], [ %eh.lpad-body.i, %.body.i ], [ %51, %.body6 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr39drop_in_place$LT$syn..ty..TypeArray$GT$17h3e25e2e9fe03be32E.exit": ; preds = %8
@@ -2888,7 +2888,7 @@ define hidden void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hda2fae
   unreachable
 
 common.resume:                                    ; preds = %176, %163, %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$syn..path..QSelf$GT$$GT$17h15b9cba33f02f510E.llvm.8351105841907204142.exit23", %130, %.body.i, %108, %.body18, %74, %.body10, %.body7, %.body, %183, %170, %137, %102, %98, %81, %.body13, %49, %18
-  %common.resume.op = phi { ptr, i32 } [ %184, %183 ], [ %19, %18 ], [ %.pn.i, %.body ], [ %.pn.i1, %.body7 ], [ %50, %49 ], [ %.pn.i3, %.body13 ], [ %.pn.i2, %.body10 ], [ %82, %81 ], [ %75, %74 ], [ %99, %98 ], [ %103, %102 ], [ %.pn.i4, %.body18 ], [ %109, %108 ], [ %eh.lpad-body.i, %.body.i ], [ %138, %137 ], [ %131, %130 ], [ %.pn.i5, %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$syn..path..QSelf$GT$$GT$17h15b9cba33f02f510E.llvm.8351105841907204142.exit23" ], [ %171, %170 ], [ %164, %163 ], [ %177, %176 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %50, %49 ], [ %.pn.i3, %.body13 ], [ %82, %81 ], [ %99, %98 ], [ %103, %102 ], [ %138, %137 ], [ %171, %170 ], [ %184, %183 ], [ %.pn.i, %.body ], [ %.pn.i1, %.body7 ], [ %.pn.i2, %.body10 ], [ %75, %74 ], [ %.pn.i4, %.body18 ], [ %109, %108 ], [ %eh.lpad-body.i, %.body.i ], [ %131, %130 ], [ %.pn.i5, %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$syn..path..QSelf$GT$$GT$17h15b9cba33f02f510E.llvm.8351105841907204142.exit23" ], [ %164, %163 ], [ %177, %176 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr42drop_in_place$LT$syn..expr..ExprBinary$GT$17h75efae1e53951a96E.exit": ; preds = %8
@@ -3325,7 +3325,7 @@ common.resume:                                    ; preds = %176, %163, %"_ZN4co
   br label %"_ZN4core3ptr40drop_in_place$LT$syn..expr..ExprPath$GT$17h8dae691d199e9810E.exit"
 
 "_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$syn..path..QSelf$GT$$GT$17h15b9cba33f02f510E.llvm.8351105841907204142.exit23": ; preds = %155, %141, %146
-  %.pn.i5 = phi { ptr, i32 } [ %142, %141 ], [ %142, %146 ], [ %156, %155 ]
+  %.pn.i5 = phi { ptr, i32 } [ %142, %146 ], [ %142, %141 ], [ %156, %155 ]
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17hf53fc94e58f16349E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %157) #19
           to label %common.resume unwind label %158
@@ -5355,7 +5355,7 @@ define hidden void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h2
   unreachable
 
 common.resume:                                    ; preds = %21, %13, %7
-  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %8, %7 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %14, %13 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr45drop_in_place$LT$syn..attr..MetaNameValue$GT$17h9cb7ab59afa1b7aeE.llvm.8351105841907204142.exit": ; preds = %5
@@ -6095,7 +6095,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$syn..expr..ExprStruct$GT$17h
   br label %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$syn..path..QSelf$GT$$GT$17h15b9cba33f02f510E.llvm.8351105841907204142.exit7"
 
 "_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$syn..path..QSelf$GT$$GT$17h15b9cba33f02f510E.llvm.8351105841907204142.exit": ; preds = %36, %.body, %29
-  %.pn = phi { ptr, i32 } [ %12, %.body ], [ %12, %29 ], [ %37, %36 ]
+  %.pn = phi { ptr, i32 } [ %12, %29 ], [ %12, %.body ], [ %37, %36 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17hf53fc94e58f16349E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %38) #19
           to label %.body8 unwind label %93
@@ -6504,7 +6504,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$syn..path..Constraint$GT$17h
   unreachable
 
 common.resume:                                    ; preds = %13, %15, %24
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %25, %24 ], [ %14, %13 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %16, %15 ], [ %14, %13 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr104drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..generics..TypeParamBound$C$syn..token..Plus$GT$$GT$17h43a64659d0857680E.exit": ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$syn..path..AngleBracketedGenericArguments$GT$$GT$17h90338f259e5b6da4E.llvm.8351105841907204142.exit3"
@@ -7094,7 +7094,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$syn..generics..Generics$GT$1
           to label %"_ZN4core3ptr75drop_in_place$LT$alloc..boxed..Box$LT$syn..generics..WherePredicate$GT$$GT$17h79f38765054764cdE.llvm.8351105841907204142.exit.i.i.i.i" unwind label %18, !noalias !3334
 
 common.resume:                                    ; preds = %2, %10, %18
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %19, %18 ], [ %3, %2 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %11, %10 ], [ %3, %2 ]
   resume { ptr, i32 } %common.resume.op
 
 18:                                               ; preds = %17
@@ -7901,7 +7901,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$syn..expr..ExprMethodCall$GT
   br label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$syn..path..AngleBracketedGenericArguments$GT$$GT$17h90338f259e5b6da4E.llvm.8351105841907204142.exit11"
 
 "_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$syn..path..AngleBracketedGenericArguments$GT$$GT$17h90338f259e5b6da4E.llvm.8351105841907204142.exit": ; preds = %56, %65, %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit", %51
-  %.pn4 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit" ], [ %.pn, %51 ], [ %57, %56 ], [ %66, %65 ]
+  %.pn4 = phi { ptr, i32 } [ %.pn, %51 ], [ %.pn, %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit" ], [ %57, %56 ], [ %66, %65 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr91drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..expr..Expr$C$syn..token..Comma$GT$$GT$17h4da9d666b0fd7f52E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %67) #19
           to label %common.resume unwind label %104
@@ -7984,7 +7984,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$syn..expr..ExprMethodCall$GT
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$syn..path..AngleBracketedGenericArguments$GT$$GT$17h90338f259e5b6da4E.llvm.8351105841907204142.exit", %.body17, %100
-  %common.resume.op = phi { ptr, i32 } [ %79, %.body17 ], [ %101, %100 ], [ %.pn4, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$syn..path..AngleBracketedGenericArguments$GT$$GT$17h90338f259e5b6da4E.llvm.8351105841907204142.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %101, %100 ], [ %79, %.body17 ], [ %.pn4, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$syn..path..AngleBracketedGenericArguments$GT$$GT$17h90338f259e5b6da4E.llvm.8351105841907204142.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr91drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..expr..Expr$C$syn..token..Comma$GT$$GT$17h4da9d666b0fd7f52E.exit": ; preds = %91, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf9f5aeeea79204f4E.llvm.8351105841907204142.exit.i"
@@ -8411,7 +8411,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$syn..path..GenericArgument$G
   unreachable
 
 common.resume:                                    ; preds = %64, %47, %19
-  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %20, %19 ], [ %65, %64 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %48, %47 ], [ %65, %64 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr42drop_in_place$LT$syn..path..Constraint$GT$17h796d4017b1dc105aE.exit": ; preds = %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit", %18
@@ -11426,7 +11426,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$syn..pa
   ret void
 
 29:                                               ; preds = %27, %23, %14
-  %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %15, %14 ], [ %28, %27 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %28, %27 ], [ %24, %23 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 96, i64 noundef 8) #17, !noalias !5240
   resume { ptr, i32 } %eh.lpad-body
 }

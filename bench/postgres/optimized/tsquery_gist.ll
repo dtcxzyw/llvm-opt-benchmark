@@ -115,7 +115,7 @@ define dso_local range(i64 0, 2) i64 @gtsquery_consistent(ptr noundef readonly c
   br label %46
 
 46:                                               ; preds = %1, %42, %44, %27, %29
-  %.0.shrunk = phi i1 [ %45, %44 ], [ %28, %27 ], [ %30, %29 ], [ %43, %42 ], [ false, %1 ]
+  %.0.shrunk = phi i1 [ %28, %27 ], [ %30, %29 ], [ %43, %42 ], [ %45, %44 ], [ false, %1 ]
   %47 = zext i1 %.0.shrunk to i64
   ret i64 %47
 }
@@ -568,7 +568,7 @@ define dso_local range(i64 0, 2) i64 @gtsquery_consistent_oldsig(ptr noundef rea
   br label %gtsquery_consistent.exit
 
 gtsquery_consistent.exit:                         ; preds = %1, %27, %29, %42, %44
-  %.0.shrunk.i = phi i1 [ %45, %44 ], [ %28, %27 ], [ %30, %29 ], [ %43, %42 ], [ false, %1 ]
+  %.0.shrunk.i = phi i1 [ %28, %27 ], [ %30, %29 ], [ %43, %42 ], [ %45, %44 ], [ false, %1 ]
   %46 = zext i1 %.0.shrunk.i to i64
   ret i64 %46
 }

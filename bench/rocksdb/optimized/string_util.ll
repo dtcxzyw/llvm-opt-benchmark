@@ -882,8 +882,8 @@ define noundef zeroext i1 @_ZN7rocksdb20ConsumeDecimalNumberEPNS_5SliceEPm(ptr n
   store i64 %.024.lcssa, ptr %1, align 8, !tbaa !31
   br label %.thread
 
-.thread:                                          ; preds = %13, %10, %.thread35
-  %.3 = phi i1 [ %.028.lcssa, %.thread35 ], [ false, %10 ], [ false, %13 ]
+.thread:                                          ; preds = %10, %13, %.thread35
+  %.3 = phi i1 [ %.028.lcssa, %.thread35 ], [ false, %13 ], [ false, %10 ]
   ret i1 %.3
 }
 
@@ -1435,7 +1435,7 @@ define noundef zeroext i1 @_ZN7rocksdb12ParseBooleanERKNSt7__cxx1112basic_string
   resume { ptr, i32 } %18
 
 19:                                               ; preds = %8, %11, %2, %5
-  %.0 = phi i1 [ true, %2 ], [ true, %5 ], [ false, %11 ], [ false, %8 ]
+  %.0 = phi i1 [ true, %5 ], [ true, %2 ], [ false, %11 ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -2487,7 +2487,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %123, %.loopexit59, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
-  %.pn = phi { ptr, i32 } [ %lpad.phi64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit59 ], [ %lpad.phi64, %123 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51 ], [ %lpad.loopexit, %.loopexit59 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.phi64, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %131
 
@@ -2608,7 +2608,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %14
   br i1 %39, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !65
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %36, %34, %30, %26, %19
-  %.0.i.i = phi i32 [ %35, %34 ], [ %27, %26 ], [ %31, %30 ], [ 1, %19 ], [ %38, %36 ]
+  %.0.i.i = phi i32 [ %27, %26 ], [ %31, %30 ], [ %35, %34 ], [ 1, %19 ], [ %38, %36 ]
   %.lobit.i = lshr i32 %22, 31
   %40 = add i32 %.0.i.i, %.lobit.i
   %41 = zext i32 %40 to i64
@@ -2814,7 +2814,7 @@ define noundef range(i32 -1, 86341) i32 @_ZN7rocksdb24ParseTimeStringToSecondsER
   br label %34
 
 34:                                               ; preds = %26, %11, %19, %30
-  %.0 = phi i32 [ %33, %30 ], [ -1, %11 ], [ -1, %19 ], [ -1, %26 ]
+  %.0 = phi i32 [ %33, %30 ], [ -1, %19 ], [ -1, %11 ], [ -1, %26 ]
   %35 = load ptr, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %35, ptr %5, align 8, !tbaa !14
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
@@ -2922,8 +2922,8 @@ define noundef zeroext i1 @_ZN7rocksdb23TryParseTimeRangeStringERKNSt7__cxx1112b
   br label %27
 
 27:                                               ; preds = %25, %18, %9
-  %28 = phi ptr [ %.pre10, %18 ], [ %12, %9 ], [ %.pre, %25 ]
-  %.1 = phi i1 [ false, %18 ], [ false, %9 ], [ %26, %25 ]
+  %28 = phi ptr [ %12, %9 ], [ %.pre10, %18 ], [ %.pre, %25 ]
+  %.1 = phi i1 [ false, %9 ], [ false, %18 ], [ %26, %25 ]
   %29 = load ptr, ptr %10, align 8, !tbaa !26
   %.not4.i.i.i.i = icmp eq ptr %28, %29
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i

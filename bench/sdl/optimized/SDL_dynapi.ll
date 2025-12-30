@@ -10224,7 +10224,7 @@ define internal fastcc range(i32 -1, 1) i32 @initialize_jumptable(i32 noundef %0
   br label %11
 
 11:                                               ; preds = %7, %8, %4, %3
-  %.0 = phi i32 [ -1, %4 ], [ -1, %3 ], [ 0, %8 ], [ 0, %7 ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %4 ], [ 0, %8 ], [ 0, %7 ]
   ret i32 %.0
 }
 

@@ -357,7 +357,7 @@ lean_dec.exit42:                                  ; preds = %lean_nat_eq.exit, %
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
   br label %110
 
-110:                                              ; preds = %lean_dec.exit39, %80, %79, %77, %109, %108, %106, %lean_dec.exit42
+110:                                              ; preds = %80, %79, %77, %lean_dec.exit39, %109, %108, %106, %lean_dec.exit42
   ret ptr %.032
 }
 
@@ -440,7 +440,7 @@ lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit47
   br label %lean_dec.exit51
 
 lean_dec.exit51:                                  ; preds = %12, %10, %21, %20, %18
-  %.1.i79 = phi ptr [ %15, %21 ], [ %15, %18 ], [ %15, %20 ], [ inttoptr (i64 1 to ptr), %10 ], [ %14, %12 ]
+  %.1.i79 = phi ptr [ %15, %18 ], [ %15, %20 ], [ %15, %21 ], [ inttoptr (i64 1 to ptr), %10 ], [ %14, %12 ]
   %22 = getelementptr i8, ptr %.031, i64 8
   %.031.val = load i64, ptr %22, align 8, !tbaa !15
   %23 = shl i64 %.031.val, 1
@@ -670,7 +670,7 @@ lean_dec.exit44:                                  ; preds = %97, %96, %94, %lean
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
   br label %105
 
-105:                                              ; preds = %lean_dec.exit48, %52, %51, %49, %104, %103, %101, %lean_dec.exit44
+105:                                              ; preds = %52, %51, %49, %lean_dec.exit48, %104, %103, %101, %lean_dec.exit44
   ret ptr %.031
 }
 

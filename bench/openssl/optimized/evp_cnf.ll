@@ -111,7 +111,7 @@ define internal range(i32 0, 2) i32 @alg_module_init(ptr noundef %0, ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %.preheader, %.critedge, %34, %33, %9
-  %.017 = phi i32 [ 0, %9 ], [ 0, %.critedge ], [ 0, %33 ], [ 0, %34 ], [ 1, %.preheader ], [ 1, %39 ]
+  %.017 = phi i32 [ 0, %9 ], [ 0, %33 ], [ 0, %34 ], [ 0, %.critedge ], [ 1, %.preheader ], [ 1, %39 ]
   ret i32 %.017
 }
 

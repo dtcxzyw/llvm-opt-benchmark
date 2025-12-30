@@ -74,7 +74,7 @@ define hidden noundef zeroext i1 @_ZN11hb_buffer_t6verifyEPS_P9hb_font_tPK12hb_f
   br i1 %exitcond.not.i, label %_ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit, label %27, !llvm.loop !6
 
 _ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit: ; preds = %34, %20, %33
-  %.017.i.ph = phi i1 [ false, %33 ], [ true, %20 ], [ true, %34 ]
+  %.017.i.ph = phi i1 [ true, %20 ], [ false, %33 ], [ true, %34 ]
   %.pr = load i32, ptr %18, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -204,8 +204,8 @@ _ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit: ; preds = %34, %20, %
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %89, %94, %.critedge.loopexit119.split.loop.exit120.i, %.critedge.loopexit.split.loop.exit.i, %78, %74
-  %.288.i = phi i32 [ %.086105.i, %94 ], [ %.086105.i, %78 ], [ %spec.select.i, %74 ], [ %.086105.i, %.critedge.loopexit.split.loop.exit.i ], [ %101, %.critedge.loopexit119.split.loop.exit120.i ], [ %81, %89 ]
-  %.2.i = phi i32 [ 0, %94 ], [ %.083108.i, %78 ], [ %spec.select124.i, %74 ], [ %100, %.critedge.loopexit.split.loop.exit.i ], [ %.083108.i, %.critedge.loopexit119.split.loop.exit120.i ], [ %.083108.i, %89 ]
+  %.288.i = phi i32 [ %.086105.i, %78 ], [ %spec.select.i, %74 ], [ %.086105.i, %.critedge.loopexit.split.loop.exit.i ], [ %101, %.critedge.loopexit119.split.loop.exit120.i ], [ %.086105.i, %94 ], [ %81, %89 ]
+  %.2.i = phi i32 [ %.083108.i, %78 ], [ %spec.select124.i, %74 ], [ %100, %.critedge.loopexit.split.loop.exit.i ], [ %.083108.i, %.critedge.loopexit119.split.loop.exit120.i ], [ 0, %94 ], [ %.083108.i, %89 ]
   %.2.fr.i = freeze i32 %.2.i
   call void @hb_buffer_clear_contents(ptr noundef %36)
   %102 = call i32 @hb_buffer_get_flags(ptr noundef %36)
@@ -618,20 +618,20 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
   br i1 %.not.i.i, label %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %270, %.preheader.i.i
-  %.152.i.i = phi i32 [ %278, %.preheader.i.i ], [ 0, %270 ]
-  %276 = lshr i32 %.152.i.i, 1
-  %277 = add nuw i32 %.152.i.i, 8
+  %.153.i.i = phi i32 [ %278, %.preheader.i.i ], [ 0, %270 ]
+  %276 = lshr i32 %.153.i.i, 1
+  %277 = add nuw i32 %.153.i.i, 8
   %278 = add nuw i32 %277, %276
   %279 = icmp ugt i32 %275, %278
-  br i1 %279, label %.preheader.i.i, label %.critedge.thread.i.i, !llvm.loop !15
+  br i1 %279, label %.preheader.i.i, label %.thread39.i.i, !llvm.loop !15
 
-.critedge.thread.i.i:                             ; preds = %.preheader.i.i
+.thread39.i.i:                                    ; preds = %.preheader.i.i
   %280 = zext i32 %278 to i64
   %malloc = call ptr @malloc(i64 %280)
-  %.not51.i.i = icmp eq ptr %malloc, null
-  br i1 %.not51.i.i, label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79, label %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i
+  %.not52.i.i = icmp eq ptr %malloc, null
+  br i1 %.not52.i.i, label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79, label %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i
 
-_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i: ; preds = %.critedge.thread.i.i
+_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i: ; preds = %.thread39.i.i
   %281 = zext nneg i32 %275 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %malloc, i8 0, i64 %281, i1 false)
   br label %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
@@ -660,8 +660,8 @@ _ZN11hb_vector_tIcLb0EED2Ev.exit:                 ; preds = %284, %286
 _ZN11hb_vector_tIcLb0EE6resizeEibb.exit:          ; preds = %283
   br i1 %.not.i.i, label %_ZN11hb_vector_tIcLb0EED2Ev.exit38, label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79
 
-_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79: ; preds = %.critedge.thread.i.i, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit
-  %.sroa.14.17883 = phi ptr [ %.sroa.14.0103, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit ], [ null, %.critedge.thread.i.i ]
+_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79: ; preds = %.thread39.i.i, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit
+  %.sroa.14.17883 = phi ptr [ %.sroa.14.0103, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit ], [ null, %.thread39.i.i ]
   call void @free(ptr noundef %.sroa.14.17883) #10
   br label %_ZN11hb_vector_tIcLb0EED2Ev.exit38
 

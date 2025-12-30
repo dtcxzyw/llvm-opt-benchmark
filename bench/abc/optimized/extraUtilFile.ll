@@ -86,7 +86,7 @@ Extra_FileNameGeneric.exit:                       ; preds = %8, %11
   br label %37
 
 37:                                               ; preds = %34, %6, %35
-  %.039 = phi ptr [ null, %6 ], [ @Extra_FileNameAppend.Buffer, %35 ], [ null, %34 ]
+  %.039 = phi ptr [ @Extra_FileNameAppend.Buffer, %35 ], [ null, %6 ], [ null, %34 ]
   ret ptr %.039
 }
 
@@ -647,7 +647,7 @@ define range(i32 0, 2) i32 @Extra_FileIsType(ptr noundef readonly captures(none)
   br label %40
 
 40:                                               ; preds = %33, %22, %11, %.thread55
-  %.0 = phi i32 [ 0, %.thread55 ], [ 1, %22 ], [ 1, %11 ], [ 1, %33 ]
+  %.0 = phi i32 [ 0, %.thread55 ], [ 1, %11 ], [ 1, %22 ], [ 1, %33 ]
   ret i32 %.0
 }
 

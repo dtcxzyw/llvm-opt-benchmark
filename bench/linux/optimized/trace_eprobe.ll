@@ -194,7 +194,7 @@ define internal i32 @process_fetch_insn(ptr noundef readonly captures(none) %0, 
   br label %.thread
 
 .thread:                                          ; preds = %63, %66, %69, %59, %57, %55, %51, %49, %44, %43, %40, %38, %32, %26
-  %73 = phi i64 [ %60, %59 ], [ 0, %43 ], [ %42, %40 ], [ %39, %38 ], [ %37, %32 ], [ %31, %26 ], [ %56, %55 ], [ %58, %57 ], [ %50, %49 ], [ %52, %51 ], [ %46, %44 ], [ %65, %63 ], [ %68, %66 ], [ %72, %69 ]
+  %73 = phi i64 [ 0, %43 ], [ %42, %40 ], [ %39, %38 ], [ %37, %32 ], [ %31, %26 ], [ %56, %55 ], [ %58, %57 ], [ %50, %49 ], [ %52, %51 ], [ %46, %44 ], [ %60, %59 ], [ %65, %63 ], [ %68, %66 ], [ %72, %69 ]
   %74 = getelementptr i8, ptr %9, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %73, ptr %7, align 8
@@ -754,7 +754,7 @@ thread-pre-split:                                 ; preds = %186, %188, %196, %.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %130, %204, %145, %.loopexit16
-  %430 = phi i32 [ %429, %.loopexit16 ], [ -84, %204 ], [ -84, %145 ], [ %133, %130 ]
+  %430 = phi i32 [ %429, %.loopexit16 ], [ -84, %145 ], [ -84, %204 ], [ %133, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit18
 
@@ -1228,7 +1228,7 @@ sub_1:                                            ; preds = %sub_0
   br label %101
 
 101:                                              ; preds = %98, %91
-  %102 = phi ptr [ %100, %98 ], [ %95, %91 ]
+  %102 = phi ptr [ %95, %91 ], [ %100, %98 ]
   %103 = icmp eq ptr %102, null
   br i1 %103, label %.thread, label %104
 
@@ -2067,7 +2067,7 @@ define internal i32 @eprobe_register(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %.thread21
 
 .thread21:                                        ; preds = %89, %25, %.thread24, %.loopexit25, %131, %128, %118, %116, %23, %19, %11, %3
-  %172 = phi i32 [ 0, %3 ], [ -19, %11 ], [ %20, %19 ], [ 0, %23 ], [ %115, %116 ], [ %115, %118 ], [ 0, %.loopexit25 ], [ -19, %128 ], [ -2, %131 ], [ 0, %.thread24 ], [ 0, %25 ], [ 0, %89 ]
+  %172 = phi i32 [ 0, %3 ], [ -19, %11 ], [ %20, %19 ], [ 0, %23 ], [ %115, %116 ], [ %115, %118 ], [ -19, %128 ], [ -2, %131 ], [ 0, %.thread24 ], [ 0, %.loopexit25 ], [ 0, %25 ], [ 0, %89 ]
   ret i32 %172
 }
 
@@ -2517,7 +2517,7 @@ define internal void @eprobe_trigger_func(ptr noundef readonly captures(none) %0
   br label %.thread
 
 .thread:                                          ; preds = %106, %109, %112, %102, %100, %98, %94, %92, %87, %86, %83, %81, %75, %69
-  %116 = phi i64 [ %103, %102 ], [ 0, %86 ], [ %85, %83 ], [ %82, %81 ], [ %80, %75 ], [ %74, %69 ], [ %99, %98 ], [ %101, %100 ], [ %93, %92 ], [ %95, %94 ], [ %89, %87 ], [ %108, %106 ], [ %111, %109 ], [ %115, %112 ]
+  %116 = phi i64 [ 0, %86 ], [ %85, %83 ], [ %82, %81 ], [ %80, %75 ], [ %74, %69 ], [ %99, %98 ], [ %101, %100 ], [ %93, %92 ], [ %95, %94 ], [ %89, %87 ], [ %103, %102 ], [ %108, %106 ], [ %111, %109 ], [ %115, %112 ]
   %117 = getelementptr i8, ptr %52, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %116, ptr %7, align 8
@@ -3085,7 +3085,7 @@ thread-pre-split:                                 ; preds = %231, %233, %241, %.
   br label %.loopexit19
 
 .loopexit19:                                      ; preds = %175, %249, %190, %.loopexit20
-  %481 = phi i32 [ %480, %.loopexit20 ], [ -84, %249 ], [ -84, %190 ], [ %178, %175 ]
+  %481 = phi i32 [ %480, %.loopexit20 ], [ -84, %190 ], [ -84, %249 ], [ %178, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %482 = call i32 @llvm.smax.i32(i32 %481, i32 0)
   %483 = add i32 %482, %42

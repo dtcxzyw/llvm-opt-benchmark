@@ -618,8 +618,8 @@ Abc_Clock.exit180:                                ; preds = %303, %306
   br label %337
 
 337:                                              ; preds = %.thread198, %327, %331, %244, %144, %Abc_Clock.exit
-  %.6201.sink = phi ptr [ %12, %Abc_Clock.exit ], [ %214, %244 ], [ %.0128220, %144 ], [ %.6201, %331 ], [ %.6201, %327 ], [ %.6201, %.thread198 ]
-  %.0129 = phi i32 [ %60, %Abc_Clock.exit ], [ -1, %244 ], [ -1, %144 ], [ %.7194, %331 ], [ %.7194, %327 ], [ %.7194, %.thread198 ]
+  %.6201.sink = phi ptr [ %214, %244 ], [ %.0128220, %144 ], [ %12, %Abc_Clock.exit ], [ %.6201, %331 ], [ %.6201, %327 ], [ %.6201, %.thread198 ]
+  %.0129 = phi i32 [ -1, %244 ], [ -1, %144 ], [ %60, %Abc_Clock.exit ], [ %.7194, %331 ], [ %.7194, %327 ], [ %.7194, %.thread198 ]
   store ptr %.6201.sink, ptr %0, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

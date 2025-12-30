@@ -3057,7 +3057,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %91, label %"_ZN4core3ptr505drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f32$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$f32$C$$RF$$u5b$f32$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfe00915b202bfabeE.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %91
@@ -3311,7 +3311,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %90 unwind label %87
 
 "_ZN4core3ptr505drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f32$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$f32$C$$RF$$u5b$f32$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfe00915b202bfabeE.exit": ; preds = %83, %21, %92, %90
-  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %92 ], [ %.pn.pn61, %90 ], [ %lpad.phi, %21 ], [ %84, %83 ]
+  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %90 ], [ %.pn.pn61, %92 ], [ %lpad.phi, %21 ], [ %84, %83 ]
   resume { ptr, i32 } %.pn.pn6078
 
 92:                                               ; preds = %90
@@ -8392,7 +8392,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %93, label %"_ZN4core3ptr800drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f64$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$f64$C$$RF$$u5b$f64$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8850967ba545f1faE.exit"
 
 .thread:                                          ; preds = %3, %24, %53, %25, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %.sink.split.i ], [ true, %24 ], [ true, %3 ], [ true, %25 ]
+  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %24 ], [ true, %3 ], [ true, %25 ], [ true, %.sink.split.i ]
   %23 = landingpad { ptr, i32 }
           cleanup
   br label %93
@@ -8648,7 +8648,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %92 unwind label %89
 
 "_ZN4core3ptr800drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f64$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$f64$C$$RF$$u5b$f64$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8850967ba545f1faE.exit": ; preds = %85, %22, %94, %92
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %94 ], [ %.pn.pn60, %92 ], [ %lpad.phi, %22 ], [ %86, %85 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %92 ], [ %.pn.pn60, %94 ], [ %lpad.phi, %22 ], [ %86, %85 ]
   resume { ptr, i32 } %.pn.pn5977
 
 94:                                               ; preds = %92
@@ -8977,7 +8977,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %92, label %"_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6b6ef3b10137f5f2E.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %92
@@ -9230,7 +9230,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %91 unwind label %88
 
 "_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6b6ef3b10137f5f2E.exit": ; preds = %84, %21, %93, %91
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %93 ], [ %.pn.pn60, %91 ], [ %lpad.phi, %21 ], [ %85, %84 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %91 ], [ %.pn.pn60, %93 ], [ %lpad.phi, %21 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn.pn5977
 
 93:                                               ; preds = %91
@@ -10024,7 +10024,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread47
 
 .thread:                                          ; preds = %2, %16, %44, %17, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %.sink.split.i ], [ true, %16 ], [ true, %2 ], [ true, %17 ]
+  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %16 ], [ true, %2 ], [ true, %17 ], [ true, %.sink.split.i ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %.thread47
@@ -10833,7 +10833,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %91, label %"_ZN4core3ptr701drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f32$C$core..slice..iter..Iter$LT$f32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$f32$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h005a494bc1fe94a2E.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %91
@@ -11087,7 +11087,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %90 unwind label %87
 
 "_ZN4core3ptr701drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f32$C$core..slice..iter..Iter$LT$f32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$f32$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h005a494bc1fe94a2E.exit": ; preds = %83, %21, %92, %90
-  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %92 ], [ %.pn.pn61, %90 ], [ %lpad.phi, %21 ], [ %84, %83 ]
+  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %90 ], [ %.pn.pn61, %92 ], [ %lpad.phi, %21 ], [ %84, %83 ]
   resume { ptr, i32 } %.pn.pn6078
 
 92:                                               ; preds = %90
@@ -12631,7 +12631,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread47
 
 .thread:                                          ; preds = %2, %16, %44, %17, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %.sink.split.i ], [ true, %16 ], [ true, %2 ], [ true, %17 ]
+  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %16 ], [ true, %2 ], [ true, %17 ], [ true, %.sink.split.i ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %.thread47
@@ -13605,7 +13605,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %93, label %"_ZN4core3ptr800drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u64$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$u64$C$$RF$$u5b$u64$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h90fd1d1db756e938E.exit"
 
 .thread:                                          ; preds = %3, %24, %53, %25, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %.sink.split.i ], [ true, %24 ], [ true, %3 ], [ true, %25 ]
+  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %24 ], [ true, %3 ], [ true, %25 ], [ true, %.sink.split.i ]
   %23 = landingpad { ptr, i32 }
           cleanup
   br label %93
@@ -13861,7 +13861,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %92 unwind label %89
 
 "_ZN4core3ptr800drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u64$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$u64$C$$RF$$u5b$u64$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h90fd1d1db756e938E.exit": ; preds = %85, %22, %94, %92
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %94 ], [ %.pn.pn60, %92 ], [ %lpad.phi, %22 ], [ %86, %85 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %92 ], [ %.pn.pn60, %94 ], [ %lpad.phi, %22 ], [ %86, %85 ]
   resume { ptr, i32 } %.pn.pn5977
 
 94:                                               ; preds = %92
@@ -14209,7 +14209,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread47
 
 .thread:                                          ; preds = %2, %16, %44, %17, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %.sink.split.i ], [ true, %16 ], [ true, %2 ], [ true, %17 ]
+  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %16 ], [ true, %2 ], [ true, %17 ], [ true, %.sink.split.i ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %.thread47
@@ -14739,7 +14739,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %91, label %"_ZN4core3ptr592drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$polars_utils..hashing..BytesHash$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$polars_utils..hashing..BytesHash$C$$RF$$u5b$polars_utils..hashing..BytesHash$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2af58a057a5ee7adE.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %91
@@ -14993,7 +14993,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %90 unwind label %87
 
 "_ZN4core3ptr592drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$polars_utils..hashing..BytesHash$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$polars_utils..hashing..BytesHash$C$$RF$$u5b$polars_utils..hashing..BytesHash$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2af58a057a5ee7adE.exit": ; preds = %83, %21, %92, %90
-  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %92 ], [ %.pn.pn61, %90 ], [ %lpad.phi, %21 ], [ %84, %83 ]
+  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %90 ], [ %.pn.pn61, %92 ], [ %lpad.phi, %21 ], [ %84, %83 ]
   resume { ptr, i32 } %.pn.pn6078
 
 92:                                               ; preds = %90
@@ -15264,7 +15264,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %92, label %"_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd6079f2b7996e7e1E.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %92
@@ -15517,7 +15517,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %91 unwind label %88
 
 "_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd6079f2b7996e7e1E.exit": ; preds = %84, %21, %93, %91
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %93 ], [ %.pn.pn60, %91 ], [ %lpad.phi, %21 ], [ %85, %84 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %91 ], [ %.pn.pn60, %93 ], [ %lpad.phi, %21 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn.pn5977
 
 93:                                               ; preds = %91
@@ -15852,7 +15852,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %92, label %"_ZN4core3ptr530drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$alloc..vec..Vec$LT$polars_utils..hashing..BytesHash$GT$$GT$$C$polars_core..chunked_array..binary..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BinaryType$GT$$GT$..to_bytes_hashes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h44b670028bcbfc58E.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %92
@@ -16105,7 +16105,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %91 unwind label %88
 
 "_ZN4core3ptr530drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$alloc..vec..Vec$LT$polars_utils..hashing..BytesHash$GT$$GT$$C$polars_core..chunked_array..binary..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BinaryType$GT$$GT$..to_bytes_hashes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h44b670028bcbfc58E.exit": ; preds = %84, %21, %93, %91
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %93 ], [ %.pn.pn60, %91 ], [ %lpad.phi, %21 ], [ %85, %84 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %91 ], [ %.pn.pn60, %93 ], [ %lpad.phi, %21 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn.pn5977
 
 93:                                               ; preds = %91
@@ -16376,7 +16376,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %92, label %"_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h162d92f98026459bE.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %92
@@ -16629,7 +16629,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %91 unwind label %88
 
 "_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h162d92f98026459bE.exit": ; preds = %84, %21, %93, %91
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %93 ], [ %.pn.pn60, %91 ], [ %lpad.phi, %21 ], [ %85, %84 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %91 ], [ %.pn.pn60, %93 ], [ %lpad.phi, %21 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn.pn5977
 
 93:                                               ; preds = %91
@@ -18161,7 +18161,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %92, label %"_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h172374235a8c68dfE.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %92
@@ -18414,7 +18414,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %91 unwind label %88
 
 "_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h172374235a8c68dfE.exit": ; preds = %84, %21, %93, %91
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %93 ], [ %.pn.pn60, %91 ], [ %lpad.phi, %21 ], [ %85, %84 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %91 ], [ %.pn.pn60, %93 ], [ %lpad.phi, %21 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn.pn5977
 
 93:                                               ; preds = %91
@@ -18465,7 +18465,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread47
 
 .thread:                                          ; preds = %2, %16, %44, %17, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %.sink.split.i ], [ true, %16 ], [ true, %2 ], [ true, %17 ]
+  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %16 ], [ true, %2 ], [ true, %17 ], [ true, %.sink.split.i ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %.thread47
@@ -18694,7 +18694,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %91, label %"_ZN4core3ptr456drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_core..chunked_array..binary..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BinaryType$GT$$GT$..to_bytes_hashes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h78a9be43833e1564E.exit"
 
 .thread:                                          ; preds = %3, %22, %51, %23, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %22 ], [ true, %3 ], [ true, %23 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %22 ], [ true, %3 ], [ true, %23 ], [ true, %.sink.split.i ]
   %21 = landingpad { ptr, i32 }
           cleanup
   br label %91
@@ -18945,7 +18945,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %90 unwind label %87
 
 "_ZN4core3ptr456drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_core..chunked_array..binary..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BinaryType$GT$$GT$..to_bytes_hashes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h78a9be43833e1564E.exit": ; preds = %83, %20, %92, %90
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %92 ], [ %.pn.pn60, %90 ], [ %lpad.phi, %20 ], [ %84, %83 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %90 ], [ %.pn.pn60, %92 ], [ %lpad.phi, %20 ], [ %84, %83 ]
   resume { ptr, i32 } %.pn.pn5977
 
 92:                                               ; preds = %90
@@ -18989,7 +18989,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %92, label %"_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb5a04922b6348634E.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %92
@@ -19242,7 +19242,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %91 unwind label %88
 
 "_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb5a04922b6348634E.exit": ; preds = %84, %21, %93, %91
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %93 ], [ %.pn.pn60, %91 ], [ %lpad.phi, %21 ], [ %85, %84 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %91 ], [ %.pn.pn60, %93 ], [ %lpad.phi, %21 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn.pn5977
 
 93:                                               ; preds = %91
@@ -21366,7 +21366,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %91, label %"_ZN4core3ptr701drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u32$C$core..slice..iter..Iter$LT$u32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$u32$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2c7238aa8b14623bE.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %91
@@ -21620,7 +21620,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %90 unwind label %87
 
 "_ZN4core3ptr701drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u32$C$core..slice..iter..Iter$LT$u32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$u32$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2c7238aa8b14623bE.exit": ; preds = %83, %21, %92, %90
-  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %92 ], [ %.pn.pn61, %90 ], [ %lpad.phi, %21 ], [ %84, %83 ]
+  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %90 ], [ %.pn.pn61, %92 ], [ %lpad.phi, %21 ], [ %84, %83 ]
   resume { ptr, i32 } %.pn.pn6078
 
 92:                                               ; preds = %90
@@ -21665,7 +21665,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %93, label %"_ZN4core3ptr996drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f32$C$core..slice..iter..Iter$LT$f32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$f32$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h765c300879"
 
 .thread:                                          ; preds = %3, %24, %53, %25, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %.sink.split.i ], [ true, %24 ], [ true, %3 ], [ true, %25 ]
+  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %24 ], [ true, %3 ], [ true, %25 ], [ true, %.sink.split.i ]
   %23 = landingpad { ptr, i32 }
           cleanup
   br label %93
@@ -21921,7 +21921,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %92 unwind label %89
 
 "_ZN4core3ptr996drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f32$C$core..slice..iter..Iter$LT$f32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$f32$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h765c300879": ; preds = %85, %22, %94, %92
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %94 ], [ %.pn.pn60, %92 ], [ %lpad.phi, %22 ], [ %86, %85 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %92 ], [ %.pn.pn60, %94 ], [ %lpad.phi, %22 ], [ %86, %85 ]
   resume { ptr, i32 } %.pn.pn5977
 
 94:                                               ; preds = %92
@@ -22551,7 +22551,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread47
 
 .thread:                                          ; preds = %2, %16, %44, %17, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %.sink.split.i ], [ true, %16 ], [ true, %2 ], [ true, %17 ]
+  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %16 ], [ true, %2 ], [ true, %17 ], [ true, %.sink.split.i ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %.thread47
@@ -22782,7 +22782,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %93, label %"_ZN4core3ptr887drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$polars_utils..hashing..BytesHash$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$polars_utils..hashing..BytesHash$C$$RF$$u5b$polars_utils..hashing..BytesHash$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5a42778405f71924E.exit"
 
 .thread:                                          ; preds = %3, %24, %53, %25, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %.sink.split.i ], [ true, %24 ], [ true, %3 ], [ true, %25 ]
+  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %24 ], [ true, %3 ], [ true, %25 ], [ true, %.sink.split.i ]
   %23 = landingpad { ptr, i32 }
           cleanup
   br label %93
@@ -23038,7 +23038,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %92 unwind label %89
 
 "_ZN4core3ptr887drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$polars_utils..hashing..BytesHash$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$polars_utils..hashing..BytesHash$C$$RF$$u5b$polars_utils..hashing..BytesHash$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5a42778405f71924E.exit": ; preds = %85, %22, %94, %92
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %94 ], [ %.pn.pn60, %92 ], [ %lpad.phi, %22 ], [ %86, %85 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %92 ], [ %.pn.pn60, %94 ], [ %lpad.phi, %22 ], [ %86, %85 ]
   resume { ptr, i32 } %.pn.pn5977
 
 94:                                               ; preds = %92
@@ -23890,7 +23890,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %91, label %"_ZN4core3ptr701drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u64$C$core..slice..iter..Iter$LT$u64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$u64$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he9d376ae69721f47E.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %91
@@ -24144,7 +24144,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %90 unwind label %87
 
 "_ZN4core3ptr701drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u64$C$core..slice..iter..Iter$LT$u64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$u64$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he9d376ae69721f47E.exit": ; preds = %83, %21, %92, %90
-  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %92 ], [ %.pn.pn61, %90 ], [ %lpad.phi, %21 ], [ %84, %83 ]
+  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %90 ], [ %.pn.pn61, %92 ], [ %lpad.phi, %21 ], [ %84, %83 ]
   resume { ptr, i32 } %.pn.pn6078
 
 92:                                               ; preds = %90
@@ -24707,7 +24707,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %93, label %"_ZN4core3ptr996drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u64$C$core..slice..iter..Iter$LT$u64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$u64$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he0da405ce9"
 
 .thread:                                          ; preds = %3, %24, %53, %25, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %.sink.split.i ], [ true, %24 ], [ true, %3 ], [ true, %25 ]
+  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %24 ], [ true, %3 ], [ true, %25 ], [ true, %.sink.split.i ]
   %23 = landingpad { ptr, i32 }
           cleanup
   br label %93
@@ -24963,7 +24963,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %92 unwind label %89
 
 "_ZN4core3ptr996drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u64$C$core..slice..iter..Iter$LT$u64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$u64$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he0da405ce9": ; preds = %85, %22, %94, %92
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %94 ], [ %.pn.pn60, %92 ], [ %lpad.phi, %22 ], [ %86, %85 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %92 ], [ %.pn.pn60, %94 ], [ %lpad.phi, %22 ], [ %86, %85 ]
   resume { ptr, i32 } %.pn.pn5977
 
 94:                                               ; preds = %92
@@ -25007,7 +25007,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %92, label %"_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hab3b60bf86c8fd9fE.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %92
@@ -25260,7 +25260,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %91 unwind label %88
 
 "_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hab3b60bf86c8fd9fE.exit": ; preds = %84, %21, %93, %91
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %93 ], [ %.pn.pn60, %91 ], [ %lpad.phi, %21 ], [ %85, %84 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %91 ], [ %.pn.pn60, %93 ], [ %lpad.phi, %21 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn.pn5977
 
 93:                                               ; preds = %91
@@ -25304,7 +25304,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %92, label %"_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h18149cf6e98b12ccE.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %92
@@ -25557,7 +25557,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %91 unwind label %88
 
 "_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h18149cf6e98b12ccE.exit": ; preds = %84, %21, %93, %91
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %93 ], [ %.pn.pn60, %91 ], [ %lpad.phi, %21 ], [ %85, %84 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %91 ], [ %.pn.pn60, %93 ], [ %lpad.phi, %21 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn.pn5977
 
 93:                                               ; preds = %91
@@ -25608,7 +25608,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread47
 
 .thread:                                          ; preds = %2, %16, %44, %17, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %.sink.split.i ], [ true, %16 ], [ true, %2 ], [ true, %17 ]
+  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %16 ], [ true, %2 ], [ true, %17 ], [ true, %.sink.split.i ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %.thread47
@@ -26370,7 +26370,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %93, label %"_ZN4core3ptr800drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u32$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$u32$C$$RF$$u5b$u32$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h42b96d6f60d93894E.exit"
 
 .thread:                                          ; preds = %3, %24, %53, %25, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %.sink.split.i ], [ true, %24 ], [ true, %3 ], [ true, %25 ]
+  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %24 ], [ true, %3 ], [ true, %25 ], [ true, %.sink.split.i ]
   %23 = landingpad { ptr, i32 }
           cleanup
   br label %93
@@ -26626,7 +26626,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %92 unwind label %89
 
 "_ZN4core3ptr800drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u32$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$u32$C$$RF$$u5b$u32$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h42b96d6f60d93894E.exit": ; preds = %85, %22, %94, %92
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %94 ], [ %.pn.pn60, %92 ], [ %lpad.phi, %22 ], [ %86, %85 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %92 ], [ %.pn.pn60, %94 ], [ %lpad.phi, %22 ], [ %86, %85 ]
   resume { ptr, i32 } %.pn.pn5977
 
 94:                                               ; preds = %92
@@ -29186,7 +29186,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread47
 
 .thread:                                          ; preds = %2, %16, %44, %17, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %.sink.split.i ], [ true, %16 ], [ true, %2 ], [ true, %17 ]
+  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %16 ], [ true, %2 ], [ true, %17 ], [ true, %.sink.split.i ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %.thread47
@@ -30674,7 +30674,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %91, label %"_ZN4core3ptr701drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f64$C$core..slice..iter..Iter$LT$f64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$f64$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h09b8cdc2223d8deeE.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %91
@@ -30928,7 +30928,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %90 unwind label %87
 
 "_ZN4core3ptr701drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f64$C$core..slice..iter..Iter$LT$f64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$f64$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h09b8cdc2223d8deeE.exit": ; preds = %83, %21, %92, %90
-  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %92 ], [ %.pn.pn61, %90 ], [ %lpad.phi, %21 ], [ %84, %83 ]
+  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %90 ], [ %.pn.pn61, %92 ], [ %lpad.phi, %21 ], [ %84, %83 ]
   resume { ptr, i32 } %.pn.pn6078
 
 92:                                               ; preds = %90
@@ -30971,7 +30971,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %91, label %"_ZN4core3ptr462drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_core..chunked_array..binary..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BinaryOffsetType$GT$$GT$..to_bytes_hashes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha7cd71fa5cda422aE.exit"
 
 .thread:                                          ; preds = %3, %22, %51, %23, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %22 ], [ true, %3 ], [ true, %23 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %22 ], [ true, %3 ], [ true, %23 ], [ true, %.sink.split.i ]
   %21 = landingpad { ptr, i32 }
           cleanup
   br label %91
@@ -31222,7 +31222,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %90 unwind label %87
 
 "_ZN4core3ptr462drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_core..chunked_array..binary..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BinaryOffsetType$GT$$GT$..to_bytes_hashes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha7cd71fa5cda422aE.exit": ; preds = %83, %20, %92, %90
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %92 ], [ %.pn.pn60, %90 ], [ %lpad.phi, %20 ], [ %84, %83 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %90 ], [ %.pn.pn60, %92 ], [ %lpad.phi, %20 ], [ %84, %83 ]
   resume { ptr, i32 } %.pn.pn5977
 
 92:                                               ; preds = %90
@@ -31847,7 +31847,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %92, label %"_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha9a5d4d37a680798E.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %92
@@ -32100,7 +32100,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %91 unwind label %88
 
 "_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha9a5d4d37a680798E.exit": ; preds = %84, %21, %93, %91
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %93 ], [ %.pn.pn60, %91 ], [ %lpad.phi, %21 ], [ %85, %84 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %91 ], [ %.pn.pn60, %93 ], [ %lpad.phi, %21 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn.pn5977
 
 93:                                               ; preds = %91
@@ -33625,7 +33625,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %93, label %"_ZN4core3ptr996drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f64$C$core..slice..iter..Iter$LT$f64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$f64$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h68e51a78d7"
 
 .thread:                                          ; preds = %3, %24, %53, %25, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %.sink.split.i ], [ true, %24 ], [ true, %3 ], [ true, %25 ]
+  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %24 ], [ true, %3 ], [ true, %25 ], [ true, %.sink.split.i ]
   %23 = landingpad { ptr, i32 }
           cleanup
   br label %93
@@ -33881,7 +33881,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %92 unwind label %89
 
 "_ZN4core3ptr996drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f64$C$core..slice..iter..Iter$LT$f64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$f64$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$f64$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h68e51a78d7": ; preds = %85, %22, %94, %92
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %94 ], [ %.pn.pn60, %92 ], [ %lpad.phi, %22 ], [ %86, %85 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %92 ], [ %.pn.pn60, %94 ], [ %lpad.phi, %22 ], [ %86, %85 ]
   resume { ptr, i32 } %.pn.pn5977
 
 94:                                               ; preds = %92
@@ -34192,7 +34192,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %.noexc53 unwind label %95
 
 .noexc53:                                         ; preds = %88, %92, %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit55", %101
-  %.pn.pn62 = phi { ptr, i32 } [ %lpad.phi, %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit55" ], [ %.pn.pn63, %101 ], [ %89, %88 ], [ %89, %92 ]
+  %.pn.pn62 = phi { ptr, i32 } [ %.pn.pn63, %101 ], [ %lpad.phi, %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit55" ], [ %89, %88 ], [ %89, %92 ]
   resume { ptr, i32 } %.pn.pn62
 }
 
@@ -35635,7 +35635,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread47
 
 .thread:                                          ; preds = %2, %16, %44, %17, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %.sink.split.i ], [ true, %16 ], [ true, %2 ], [ true, %17 ]
+  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %16 ], [ true, %2 ], [ true, %17 ], [ true, %.sink.split.i ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %.thread47
@@ -36735,7 +36735,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br label %.thread47
 
 .thread:                                          ; preds = %2, %16, %44, %17, %.sink.split.i
-  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %.sink.split.i ], [ true, %16 ], [ true, %2 ], [ true, %17 ]
+  %.sroa.011.0 = phi i1 [ false, %44 ], [ true, %16 ], [ true, %2 ], [ true, %17 ], [ true, %.sink.split.i ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %.thread47
@@ -36966,7 +36966,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %93, label %"_ZN4core3ptr996drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u32$C$core..slice..iter..Iter$LT$u32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$u32$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcb405389d2"
 
 .thread:                                          ; preds = %3, %24, %53, %25, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %.sink.split.i ], [ true, %24 ], [ true, %3 ], [ true, %25 ]
+  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %24 ], [ true, %3 ], [ true, %25 ], [ true, %.sink.split.i ]
   %23 = landingpad { ptr, i32 }
           cleanup
   br label %93
@@ -37222,7 +37222,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %92 unwind label %89
 
 "_ZN4core3ptr996drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u32$C$core..slice..iter..Iter$LT$u32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$core..option..Option$LT$$RF$u32$GT$$C$$RF$polars_arrow..array..primitive..PrimitiveArray$LT$u32$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcb405389d2": ; preds = %85, %22, %94, %92
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %94 ], [ %.pn.pn60, %92 ], [ %lpad.phi, %22 ], [ %86, %85 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %92 ], [ %.pn.pn60, %94 ], [ %lpad.phi, %22 ], [ %86, %85 ]
   resume { ptr, i32 } %.pn.pn5977
 
 94:                                               ; preds = %92
@@ -37565,7 +37565,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %91, label %"_ZN4core3ptr505drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u32$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$u32$C$$RF$$u5b$u32$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbf5a6eafaec4f6eeE.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %91
@@ -37819,7 +37819,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %90 unwind label %87
 
 "_ZN4core3ptr505drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u32$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$u32$C$$RF$$u5b$u32$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbf5a6eafaec4f6eeE.exit": ; preds = %83, %21, %92, %90
-  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %92 ], [ %.pn.pn61, %90 ], [ %lpad.phi, %21 ], [ %84, %83 ]
+  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %90 ], [ %.pn.pn61, %92 ], [ %lpad.phi, %21 ], [ %84, %83 ]
   resume { ptr, i32 } %.pn.pn6078
 
 92:                                               ; preds = %90
@@ -37864,7 +37864,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %93, label %"_ZN4core3ptr800drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f32$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$f32$C$$RF$$u5b$f32$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hba45f7e2809da70aE.exit"
 
 .thread:                                          ; preds = %3, %24, %53, %25, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %.sink.split.i ], [ true, %24 ], [ true, %3 ], [ true, %25 ]
+  %.sroa.019.0 = phi i1 [ false, %53 ], [ true, %24 ], [ true, %3 ], [ true, %25 ], [ true, %.sink.split.i ]
   %23 = landingpad { ptr, i32 }
           cleanup
   br label %93
@@ -38120,7 +38120,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %92 unwind label %89
 
 "_ZN4core3ptr800drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f32$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$either..Either$LT$alloc..vec..Vec$LT$u32$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$C$either..Either$LT$alloc..vec..Vec$LT$polars_utils..index..NullableIdxSize$GT$$C$alloc..vec..Vec$LT$polars_utils..index..ChunkId$LT$24_u64$GT$$GT$$GT$$RP$$GT$$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$f32$C$$RF$$u5b$f32$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hba45f7e2809da70aE.exit": ; preds = %85, %22, %94, %92
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %94 ], [ %.pn.pn60, %92 ], [ %lpad.phi, %22 ], [ %86, %85 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %92 ], [ %.pn.pn60, %94 ], [ %lpad.phi, %22 ], [ %86, %85 ]
   resume { ptr, i32 } %.pn.pn5977
 
 94:                                               ; preds = %92
@@ -39548,7 +39548,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %92, label %"_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5cb6db0f8774de65E.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %92
@@ -39801,7 +39801,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %91 unwind label %88
 
 "_ZN4core3ptr934drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$polars_core..frame..column..Column$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5cb6db0f8774de65E.exit": ; preds = %84, %21, %93, %91
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %93 ], [ %.pn.pn60, %91 ], [ %lpad.phi, %21 ], [ %85, %84 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %91 ], [ %.pn.pn60, %93 ], [ %lpad.phi, %21 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn.pn5977
 
 93:                                               ; preds = %91
@@ -39845,7 +39845,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %92, label %"_ZN4core3ptr536drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$alloc..vec..Vec$LT$polars_utils..hashing..BytesHash$GT$$GT$$C$polars_core..chunked_array..binary..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BinaryOffsetType$GT$$GT$..to_bytes_hashes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf1a05eb154e4aeedE.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %92
@@ -40098,7 +40098,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %91 unwind label %88
 
 "_ZN4core3ptr536drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$alloc..vec..Vec$LT$polars_utils..hashing..BytesHash$GT$$GT$$C$polars_core..chunked_array..binary..$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..BinaryOffsetType$GT$$GT$..to_bytes_hashes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf1a05eb154e4aeedE.exit": ; preds = %84, %21, %93, %91
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %93 ], [ %.pn.pn60, %91 ], [ %lpad.phi, %21 ], [ %85, %84 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %91 ], [ %.pn.pn60, %93 ], [ %lpad.phi, %21 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn.pn5977
 
 93:                                               ; preds = %91
@@ -40954,7 +40954,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %91, label %"_ZN4core3ptr505drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u64$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$u64$C$$RF$$u5b$u64$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c81f9049e5bbe19E.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %91
@@ -41208,7 +41208,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %90 unwind label %87
 
 "_ZN4core3ptr505drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$u64$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$u64$C$$RF$$u5b$u64$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c81f9049e5bbe19E.exit": ; preds = %83, %21, %92, %90
-  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %92 ], [ %.pn.pn61, %90 ], [ %lpad.phi, %21 ], [ %84, %83 ]
+  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %90 ], [ %.pn.pn61, %92 ], [ %lpad.phi, %21 ], [ %84, %83 ]
   resume { ptr, i32 } %.pn.pn6078
 
 92:                                               ; preds = %90
@@ -41539,7 +41539,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %91, label %"_ZN4core3ptr505drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f64$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$f64$C$$RF$$u5b$f64$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h157565cdf90e7936E.exit"
 
 .thread:                                          ; preds = %3, %23, %51, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %51 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %91
@@ -41793,7 +41793,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %90 unwind label %87
 
 "_ZN4core3ptr505drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..zip..ZipProducer$LT$rayon..vec..DrainProducer$LT$core..slice..iter..Iter$LT$f64$GT$$GT$$C$rayon..vec..DrainProducer$LT$usize$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$polars_ops..frame..join..hash_join..single_keys_left..hash_join_tuples_left$LT$$RF$f64$C$$RF$$u5b$f64$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h157565cdf90e7936E.exit": ; preds = %83, %21, %92, %90
-  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %92 ], [ %.pn.pn61, %90 ], [ %lpad.phi, %21 ], [ %84, %83 ]
+  %.pn.pn6078 = phi { ptr, i32 } [ %.pn.pn61, %90 ], [ %.pn.pn61, %92 ], [ %lpad.phi, %21 ], [ %84, %83 ]
   resume { ptr, i32 } %.pn.pn6078
 
 92:                                               ; preds = %90
@@ -42576,7 +42576,7 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   br i1 %.sroa.018.1, label %92, label %"_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9fd13a9dba013a3aE.exit"
 
 .thread:                                          ; preds = %3, %23, %52, %24, %.sink.split.i
-  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %.sink.split.i ], [ true, %23 ], [ true, %3 ], [ true, %24 ]
+  %.sroa.019.0 = phi i1 [ false, %52 ], [ true, %23 ], [ true, %3 ], [ true, %24 ], [ true, %.sink.split.i ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %92
@@ -42829,7 +42829,7 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
           to label %91 unwind label %88
 
 "_ZN4core3ptr881drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$usize$C$usize$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$polars_expr..expressions..aggregation..parallel_op_columns$LT$$LT$polars_expr..expressions..aggregation..AggregationExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9fd13a9dba013a3aE.exit": ; preds = %84, %21, %93, %91
-  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %93 ], [ %.pn.pn60, %91 ], [ %lpad.phi, %21 ], [ %85, %84 ]
+  %.pn.pn5977 = phi { ptr, i32 } [ %.pn.pn60, %91 ], [ %.pn.pn60, %93 ], [ %lpad.phi, %21 ], [ %85, %84 ]
   resume { ptr, i32 } %.pn.pn5977
 
 93:                                               ; preds = %91
@@ -59366,7 +59366,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h0161fc8e807228
   br label %19
 
 .body.thread:                                     ; preds = %22, %40
-  %eh.lpad-body4 = phi { ptr, i32 } [ %23, %22 ], [ %lpad.thr_comm.split-lp, %40 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %40 ], [ %23, %22 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 40:                                               ; preds = %3
@@ -59657,7 +59657,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h07376ae3066ab5
   br label %19
 
 .body.thread:                                     ; preds = %22, %40
-  %eh.lpad-body4 = phi { ptr, i32 } [ %23, %22 ], [ %lpad.thr_comm.split-lp, %40 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %40 ], [ %23, %22 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 40:                                               ; preds = %3
@@ -59772,7 +59772,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h104b31130614e7
   br label %19
 
 .body.thread:                                     ; preds = %22, %40
-  %eh.lpad-body4 = phi { ptr, i32 } [ %23, %22 ], [ %lpad.thr_comm.split-lp, %40 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %40 ], [ %23, %22 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 40:                                               ; preds = %3
@@ -60523,7 +60523,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
           to label %42 unwind label %171, !noalias !1837
 
 58:                                               ; preds = %170, %55, %43
-  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %55 ], [ true, %43 ]
+  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %43 ], [ true, %55 ]
   %59 = landingpad { ptr, i32 }
           cleanup
   br label %57
@@ -60567,7 +60567,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
           to label %57 unwind label %171, !noalias !1837
 
 74:                                               ; preds = %169, %71, %60
-  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %71 ], [ true, %60 ]
+  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %60 ], [ true, %71 ]
   %75 = landingpad { ptr, i32 }
           cleanup
   br label %73
@@ -60633,7 +60633,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
           to label %73 unwind label %171, !noalias !1837
 
 100:                                              ; preds = %.invoke.i.i, %168, %111, %102
-  %.sroa.023.6.i.i = phi i1 [ true, %.invoke.i.i ], [ true, %102 ], [ false, %168 ], [ true, %111 ]
+  %.sroa.023.6.i.i = phi i1 [ false, %168 ], [ true, %102 ], [ true, %111 ], [ true, %.invoke.i.i ]
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %99
@@ -60726,7 +60726,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
           to label %99 unwind label %171, !noalias !1837
 
 133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ true, %.invoke228.i.i ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ false, %167 ]
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -60769,7 +60769,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
           to label %132 unwind label %171, !noalias !1837
 
 148:                                              ; preds = %166, %145, %135
-  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %145 ], [ true, %135 ]
+  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %135 ], [ true, %145 ]
   %149 = landingpad { ptr, i32 }
           cleanup
   br label %147
@@ -60968,9 +60968,9 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
   br i1 %exitcond.not.i.i, label %.loopexit69.i.i, label %.lr.ph.i.i
 
 .invoke.i.i:                                      ; preds = %85, %213, %208, %.lr.ph.i.i, %93, %._crit_edge.i.i
-  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %205, %.lr.ph.i.i ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
-  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %211, %208 ], [ %206, %.lr.ph.i.i ], [ %217, %213 ], [ %86, %85 ]
-  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
+  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %205, %.lr.ph.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
+  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %206, %.lr.ph.i.i ], [ %211, %208 ], [ %217, %213 ], [ %86, %85 ]
+  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %226, i64 noundef %227, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228) #16
           to label %.cont.i.i unwind label %100, !noalias !1837
 
@@ -60978,7 +60978,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
   unreachable
 
 229:                                              ; preds = %42, %.thread.i.i
-  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %41, %.thread.i.i ], [ %.pn49.pn.pn.i.i, %42 ]
+  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %.pn49.pn.pn.i.i, %42 ], [ %41, %.thread.i.i ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$core..slice..iter..Iter$LT$u32$GT$$GT$$GT$17h2dd51c964c8b6192E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %21) #17
           to label %.body.thread unwind label %171, !noalias !1839
 
@@ -60994,7 +60994,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
   br label %32
 
 .body.thread:                                     ; preds = %231, %229, %42
-  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %231 ], [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ], [ %lpad.thr_comm.split-lp, %231 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 231:                                              ; preds = %3
@@ -61220,7 +61220,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h3bd29daa82c90e
   br label %19
 
 .body.thread:                                     ; preds = %22, %40
-  %eh.lpad-body4 = phi { ptr, i32 } [ %23, %22 ], [ %lpad.thr_comm.split-lp, %40 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %40 ], [ %23, %22 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 40:                                               ; preds = %3
@@ -61389,7 +61389,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
           to label %42 unwind label %171, !noalias !1924
 
 58:                                               ; preds = %170, %55, %43
-  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %55 ], [ true, %43 ]
+  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %43 ], [ true, %55 ]
   %59 = landingpad { ptr, i32 }
           cleanup
   br label %57
@@ -61433,7 +61433,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
           to label %57 unwind label %171, !noalias !1924
 
 74:                                               ; preds = %169, %71, %60
-  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %71 ], [ true, %60 ]
+  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %60 ], [ true, %71 ]
   %75 = landingpad { ptr, i32 }
           cleanup
   br label %73
@@ -61499,7 +61499,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
           to label %73 unwind label %171, !noalias !1924
 
 100:                                              ; preds = %.invoke.i.i, %168, %111, %102
-  %.sroa.023.6.i.i = phi i1 [ true, %.invoke.i.i ], [ true, %102 ], [ false, %168 ], [ true, %111 ]
+  %.sroa.023.6.i.i = phi i1 [ false, %168 ], [ true, %102 ], [ true, %111 ], [ true, %.invoke.i.i ]
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %99
@@ -61592,7 +61592,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
           to label %99 unwind label %171, !noalias !1924
 
 133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ true, %.invoke228.i.i ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ false, %167 ]
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -61635,7 +61635,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
           to label %132 unwind label %171, !noalias !1924
 
 148:                                              ; preds = %166, %145, %135
-  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %145 ], [ true, %135 ]
+  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %135 ], [ true, %145 ]
   %149 = landingpad { ptr, i32 }
           cleanup
   br label %147
@@ -61834,9 +61834,9 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
   br i1 %exitcond.not.i.i, label %.loopexit69.i.i, label %.lr.ph.i.i
 
 .invoke.i.i:                                      ; preds = %85, %213, %208, %.lr.ph.i.i, %93, %._crit_edge.i.i
-  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %205, %.lr.ph.i.i ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
-  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %211, %208 ], [ %206, %.lr.ph.i.i ], [ %217, %213 ], [ %86, %85 ]
-  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
+  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %205, %.lr.ph.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
+  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %206, %.lr.ph.i.i ], [ %211, %208 ], [ %217, %213 ], [ %86, %85 ]
+  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %226, i64 noundef %227, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228) #16
           to label %.cont.i.i unwind label %100, !noalias !1924
 
@@ -61844,7 +61844,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
   unreachable
 
 229:                                              ; preds = %42, %.thread.i.i
-  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %41, %.thread.i.i ], [ %.pn49.pn.pn.i.i, %42 ]
+  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %.pn49.pn.pn.i.i, %42 ], [ %41, %.thread.i.i ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$core..slice..iter..Iter$LT$f64$GT$$GT$$GT$17h7268250ccfc4a67cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %21) #17
           to label %.body.thread unwind label %171, !noalias !1926
 
@@ -61860,7 +61860,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
   br label %32
 
 .body.thread:                                     ; preds = %231, %229, %42
-  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %231 ], [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ], [ %lpad.thr_comm.split-lp, %231 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 231:                                              ; preds = %3
@@ -62094,7 +62094,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
           to label %42 unwind label %171, !noalias !1984
 
 58:                                               ; preds = %170, %55, %43
-  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %55 ], [ true, %43 ]
+  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %43 ], [ true, %55 ]
   %59 = landingpad { ptr, i32 }
           cleanup
   br label %57
@@ -62138,7 +62138,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
           to label %57 unwind label %171, !noalias !1984
 
 74:                                               ; preds = %169, %71, %60
-  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %71 ], [ true, %60 ]
+  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %60 ], [ true, %71 ]
   %75 = landingpad { ptr, i32 }
           cleanup
   br label %73
@@ -62204,7 +62204,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
           to label %73 unwind label %171, !noalias !1984
 
 100:                                              ; preds = %.invoke.i.i, %168, %111, %102
-  %.sroa.023.6.i.i = phi i1 [ true, %.invoke.i.i ], [ true, %102 ], [ false, %168 ], [ true, %111 ]
+  %.sroa.023.6.i.i = phi i1 [ false, %168 ], [ true, %102 ], [ true, %111 ], [ true, %.invoke.i.i ]
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %99
@@ -62297,7 +62297,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
           to label %99 unwind label %171, !noalias !1984
 
 133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ true, %.invoke228.i.i ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ false, %167 ]
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -62340,7 +62340,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
           to label %132 unwind label %171, !noalias !1984
 
 148:                                              ; preds = %166, %145, %135
-  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %145 ], [ true, %135 ]
+  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %135 ], [ true, %145 ]
   %149 = landingpad { ptr, i32 }
           cleanup
   br label %147
@@ -62539,9 +62539,9 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
   br i1 %exitcond.not.i.i, label %.loopexit69.i.i, label %.lr.ph.i.i
 
 .invoke.i.i:                                      ; preds = %85, %213, %208, %.lr.ph.i.i, %93, %._crit_edge.i.i
-  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %205, %.lr.ph.i.i ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
-  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %211, %208 ], [ %206, %.lr.ph.i.i ], [ %217, %213 ], [ %86, %85 ]
-  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
+  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %205, %.lr.ph.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
+  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %206, %.lr.ph.i.i ], [ %211, %208 ], [ %217, %213 ], [ %86, %85 ]
+  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %226, i64 noundef %227, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228) #16
           to label %.cont.i.i unwind label %100, !noalias !1984
 
@@ -62549,7 +62549,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
   unreachable
 
 229:                                              ; preds = %42, %.thread.i.i
-  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %41, %.thread.i.i ], [ %.pn49.pn.pn.i.i, %42 ]
+  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %.pn49.pn.pn.i.i, %42 ], [ %41, %.thread.i.i ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$core..slice..iter..Iter$LT$f32$GT$$GT$$GT$17hf15240b3221efaf6E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %21) #17
           to label %.body.thread unwind label %171, !noalias !1986
 
@@ -62565,7 +62565,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
   br label %32
 
 .body.thread:                                     ; preds = %231, %229, %42
-  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %231 ], [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ], [ %lpad.thr_comm.split-lp, %231 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 231:                                              ; preds = %3
@@ -62731,7 +62731,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h649f1abde46401
   br label %21
 
 .body.thread:                                     ; preds = %36, %29
-  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %36 ], [ %lpad.thr_comm.i.i, %29 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %29 ], [ %lpad.thr_comm.split-lp, %36 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 36:                                               ; preds = %3
@@ -63097,7 +63097,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
           to label %42 unwind label %171, !noalias !2089
 
 58:                                               ; preds = %170, %55, %43
-  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %55 ], [ true, %43 ]
+  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %43 ], [ true, %55 ]
   %59 = landingpad { ptr, i32 }
           cleanup
   br label %57
@@ -63141,7 +63141,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
           to label %57 unwind label %171, !noalias !2089
 
 74:                                               ; preds = %169, %71, %60
-  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %71 ], [ true, %60 ]
+  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %60 ], [ true, %71 ]
   %75 = landingpad { ptr, i32 }
           cleanup
   br label %73
@@ -63207,7 +63207,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
           to label %73 unwind label %171, !noalias !2089
 
 100:                                              ; preds = %.invoke.i.i, %168, %111, %102
-  %.sroa.023.6.i.i = phi i1 [ true, %.invoke.i.i ], [ true, %102 ], [ false, %168 ], [ true, %111 ]
+  %.sroa.023.6.i.i = phi i1 [ false, %168 ], [ true, %102 ], [ true, %111 ], [ true, %.invoke.i.i ]
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %99
@@ -63300,7 +63300,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
           to label %99 unwind label %171, !noalias !2089
 
 133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ true, %.invoke228.i.i ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ false, %167 ]
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -63343,7 +63343,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
           to label %132 unwind label %171, !noalias !2089
 
 148:                                              ; preds = %166, %145, %135
-  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %145 ], [ true, %135 ]
+  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %135 ], [ true, %145 ]
   %149 = landingpad { ptr, i32 }
           cleanup
   br label %147
@@ -63542,9 +63542,9 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
   br i1 %exitcond.not.i.i, label %.loopexit69.i.i, label %.lr.ph.i.i
 
 .invoke.i.i:                                      ; preds = %85, %213, %208, %.lr.ph.i.i, %93, %._crit_edge.i.i
-  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %205, %.lr.ph.i.i ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
-  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %211, %208 ], [ %206, %.lr.ph.i.i ], [ %217, %213 ], [ %86, %85 ]
-  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
+  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %205, %.lr.ph.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
+  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %206, %.lr.ph.i.i ], [ %211, %208 ], [ %217, %213 ], [ %86, %85 ]
+  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %226, i64 noundef %227, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228) #16
           to label %.cont.i.i unwind label %100, !noalias !2089
 
@@ -63552,7 +63552,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
   unreachable
 
 229:                                              ; preds = %42, %.thread.i.i
-  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %41, %.thread.i.i ], [ %.pn49.pn.pn.i.i, %42 ]
+  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %.pn49.pn.pn.i.i, %42 ], [ %41, %.thread.i.i ]
   invoke void @"_ZN4core3ptr202drop_in_place$LT$alloc..vec..Vec$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u32$C$core..slice..iter..Iter$LT$u32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$GT$17hcef92e026c0bf538E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %21) #17
           to label %.body.thread unwind label %171, !noalias !2091
 
@@ -63568,7 +63568,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
   br label %32
 
 .body.thread:                                     ; preds = %231, %229, %42
-  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %231 ], [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ], [ %lpad.thr_comm.split-lp, %231 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 231:                                              ; preds = %3
@@ -63683,7 +63683,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74733044a8d259
   br label %19
 
 .body.thread:                                     ; preds = %22, %40
-  %eh.lpad-body4 = phi { ptr, i32 } [ %23, %22 ], [ %lpad.thr_comm.split-lp, %40 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %40 ], [ %23, %22 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 40:                                               ; preds = %3
@@ -63813,7 +63813,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
           to label %42 unwind label %171, !noalias !2142
 
 58:                                               ; preds = %170, %55, %43
-  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %55 ], [ true, %43 ]
+  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %43 ], [ true, %55 ]
   %59 = landingpad { ptr, i32 }
           cleanup
   br label %57
@@ -63857,7 +63857,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
           to label %57 unwind label %171, !noalias !2142
 
 74:                                               ; preds = %169, %71, %60
-  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %71 ], [ true, %60 ]
+  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %60 ], [ true, %71 ]
   %75 = landingpad { ptr, i32 }
           cleanup
   br label %73
@@ -63923,7 +63923,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
           to label %73 unwind label %171, !noalias !2142
 
 100:                                              ; preds = %.invoke.i.i, %168, %111, %102
-  %.sroa.023.6.i.i = phi i1 [ true, %.invoke.i.i ], [ true, %102 ], [ false, %168 ], [ true, %111 ]
+  %.sroa.023.6.i.i = phi i1 [ false, %168 ], [ true, %102 ], [ true, %111 ], [ true, %.invoke.i.i ]
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %99
@@ -64016,7 +64016,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
           to label %99 unwind label %171, !noalias !2142
 
 133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ true, %.invoke228.i.i ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ false, %167 ]
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -64059,7 +64059,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
           to label %132 unwind label %171, !noalias !2142
 
 148:                                              ; preds = %166, %145, %135
-  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %145 ], [ true, %135 ]
+  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %135 ], [ true, %145 ]
   %149 = landingpad { ptr, i32 }
           cleanup
   br label %147
@@ -64258,9 +64258,9 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
   br i1 %exitcond.not.i.i, label %.loopexit69.i.i, label %.lr.ph.i.i
 
 .invoke.i.i:                                      ; preds = %85, %213, %208, %.lr.ph.i.i, %93, %._crit_edge.i.i
-  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %205, %.lr.ph.i.i ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
-  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %211, %208 ], [ %206, %.lr.ph.i.i ], [ %217, %213 ], [ %86, %85 ]
-  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
+  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %205, %.lr.ph.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
+  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %206, %.lr.ph.i.i ], [ %211, %208 ], [ %217, %213 ], [ %86, %85 ]
+  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %226, i64 noundef %227, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228) #16
           to label %.cont.i.i unwind label %100, !noalias !2142
 
@@ -64268,7 +64268,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
   unreachable
 
 229:                                              ; preds = %42, %.thread.i.i
-  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %41, %.thread.i.i ], [ %.pn49.pn.pn.i.i, %42 ]
+  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %.pn49.pn.pn.i.i, %42 ], [ %41, %.thread.i.i ]
   invoke void @"_ZN4core3ptr202drop_in_place$LT$alloc..vec..Vec$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$u64$C$core..slice..iter..Iter$LT$u64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$GT$17hff9884cf23f4dbb9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %21) #17
           to label %.body.thread unwind label %171, !noalias !2144
 
@@ -64284,7 +64284,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
   br label %32
 
 .body.thread:                                     ; preds = %231, %229, %42
-  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %231 ], [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ], [ %lpad.thr_comm.split-lp, %231 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 231:                                              ; preds = %3
@@ -64535,7 +64535,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
           to label %42 unwind label %171, !noalias !2200
 
 58:                                               ; preds = %170, %55, %43
-  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %55 ], [ true, %43 ]
+  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %43 ], [ true, %55 ]
   %59 = landingpad { ptr, i32 }
           cleanup
   br label %57
@@ -64579,7 +64579,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
           to label %57 unwind label %171, !noalias !2200
 
 74:                                               ; preds = %169, %71, %60
-  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %71 ], [ true, %60 ]
+  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %60 ], [ true, %71 ]
   %75 = landingpad { ptr, i32 }
           cleanup
   br label %73
@@ -64645,7 +64645,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
           to label %73 unwind label %171, !noalias !2200
 
 100:                                              ; preds = %.invoke.i.i, %168, %111, %102
-  %.sroa.023.6.i.i = phi i1 [ true, %.invoke.i.i ], [ true, %102 ], [ false, %168 ], [ true, %111 ]
+  %.sroa.023.6.i.i = phi i1 [ false, %168 ], [ true, %102 ], [ true, %111 ], [ true, %.invoke.i.i ]
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %99
@@ -64738,7 +64738,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
           to label %99 unwind label %171, !noalias !2200
 
 133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ true, %.invoke228.i.i ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ false, %167 ]
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -64781,7 +64781,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
           to label %132 unwind label %171, !noalias !2200
 
 148:                                              ; preds = %166, %145, %135
-  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %145 ], [ true, %135 ]
+  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %135 ], [ true, %145 ]
   %149 = landingpad { ptr, i32 }
           cleanup
   br label %147
@@ -64980,9 +64980,9 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
   br i1 %exitcond.not.i.i, label %.loopexit69.i.i, label %.lr.ph.i.i
 
 .invoke.i.i:                                      ; preds = %85, %213, %208, %.lr.ph.i.i, %93, %._crit_edge.i.i
-  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %205, %.lr.ph.i.i ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
-  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %211, %208 ], [ %206, %.lr.ph.i.i ], [ %217, %213 ], [ %86, %85 ]
-  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
+  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %205, %.lr.ph.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
+  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %206, %.lr.ph.i.i ], [ %211, %208 ], [ %217, %213 ], [ %86, %85 ]
+  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %226, i64 noundef %227, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228) #16
           to label %.cont.i.i unwind label %100, !noalias !2200
 
@@ -64990,7 +64990,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
   unreachable
 
 229:                                              ; preds = %42, %.thread.i.i
-  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %41, %.thread.i.i ], [ %.pn49.pn.pn.i.i, %42 ]
+  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %.pn49.pn.pn.i.i, %42 ], [ %41, %.thread.i.i ]
   invoke void @"_ZN4core3ptr202drop_in_place$LT$alloc..vec..Vec$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f32$C$core..slice..iter..Iter$LT$f32$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$GT$17hb1579ebb176f7d48E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %21) #17
           to label %.body.thread unwind label %171, !noalias !2202
 
@@ -65006,7 +65006,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
   br label %32
 
 .body.thread:                                     ; preds = %231, %229, %42
-  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %231 ], [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ], [ %lpad.thr_comm.split-lp, %231 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 231:                                              ; preds = %3
@@ -65173,7 +65173,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h89b7e8ea4be69b
   br label %19
 
 .body.thread:                                     ; preds = %22, %40
-  %eh.lpad-body4 = phi { ptr, i32 } [ %23, %22 ], [ %lpad.thr_comm.split-lp, %40 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %40 ], [ %23, %22 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 40:                                               ; preds = %3
@@ -65303,7 +65303,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
           to label %42 unwind label %171, !noalias !2267
 
 58:                                               ; preds = %170, %55, %43
-  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %55 ], [ true, %43 ]
+  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %43 ], [ true, %55 ]
   %59 = landingpad { ptr, i32 }
           cleanup
   br label %57
@@ -65347,7 +65347,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
           to label %57 unwind label %171, !noalias !2267
 
 74:                                               ; preds = %169, %71, %60
-  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %71 ], [ true, %60 ]
+  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %60 ], [ true, %71 ]
   %75 = landingpad { ptr, i32 }
           cleanup
   br label %73
@@ -65413,7 +65413,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
           to label %73 unwind label %171, !noalias !2267
 
 100:                                              ; preds = %.invoke.i.i, %168, %111, %102
-  %.sroa.023.6.i.i = phi i1 [ true, %.invoke.i.i ], [ true, %102 ], [ false, %168 ], [ true, %111 ]
+  %.sroa.023.6.i.i = phi i1 [ false, %168 ], [ true, %102 ], [ true, %111 ], [ true, %.invoke.i.i ]
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %99
@@ -65506,7 +65506,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
           to label %99 unwind label %171, !noalias !2267
 
 133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ true, %.invoke228.i.i ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ false, %167 ]
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -65549,7 +65549,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
           to label %132 unwind label %171, !noalias !2267
 
 148:                                              ; preds = %166, %145, %135
-  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %145 ], [ true, %135 ]
+  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %135 ], [ true, %145 ]
   %149 = landingpad { ptr, i32 }
           cleanup
   br label %147
@@ -65748,9 +65748,9 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
   br i1 %exitcond.not.i.i, label %.loopexit69.i.i, label %.lr.ph.i.i
 
 .invoke.i.i:                                      ; preds = %85, %213, %208, %.lr.ph.i.i, %93, %._crit_edge.i.i
-  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %205, %.lr.ph.i.i ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
-  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %211, %208 ], [ %206, %.lr.ph.i.i ], [ %217, %213 ], [ %86, %85 ]
-  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
+  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %205, %.lr.ph.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
+  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %206, %.lr.ph.i.i ], [ %211, %208 ], [ %217, %213 ], [ %86, %85 ]
+  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %226, i64 noundef %227, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228) #16
           to label %.cont.i.i unwind label %100, !noalias !2267
 
@@ -65758,7 +65758,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
   unreachable
 
 229:                                              ; preds = %42, %.thread.i.i
-  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %41, %.thread.i.i ], [ %.pn49.pn.pn.i.i, %42 ]
+  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %.pn49.pn.pn.i.i, %42 ], [ %41, %.thread.i.i ]
   invoke void @"_ZN4core3ptr202drop_in_place$LT$alloc..vec..Vec$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$$RF$f64$C$core..slice..iter..Iter$LT$f64$GT$$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$$GT$$GT$17h210229ecfd16bad8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %21) #17
           to label %.body.thread unwind label %171, !noalias !2269
 
@@ -65774,7 +65774,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
   br label %32
 
 .body.thread:                                     ; preds = %231, %229, %42
-  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %231 ], [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ], [ %lpad.thr_comm.split-lp, %231 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 231:                                              ; preds = %3
@@ -66064,7 +66064,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haace65f2438a61
   br label %19
 
 .body.thread:                                     ; preds = %22, %40
-  %eh.lpad-body4 = phi { ptr, i32 } [ %23, %22 ], [ %lpad.thr_comm.split-lp, %40 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %40 ], [ %23, %22 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 40:                                               ; preds = %3
@@ -66194,7 +66194,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
           to label %42 unwind label %171, !noalias !2348
 
 58:                                               ; preds = %170, %55, %43
-  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %55 ], [ true, %43 ]
+  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %43 ], [ true, %55 ]
   %59 = landingpad { ptr, i32 }
           cleanup
   br label %57
@@ -66238,7 +66238,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
           to label %57 unwind label %171, !noalias !2348
 
 74:                                               ; preds = %169, %71, %60
-  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %71 ], [ true, %60 ]
+  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %60 ], [ true, %71 ]
   %75 = landingpad { ptr, i32 }
           cleanup
   br label %73
@@ -66304,7 +66304,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
           to label %73 unwind label %171, !noalias !2348
 
 100:                                              ; preds = %.invoke.i.i, %168, %111, %102
-  %.sroa.023.6.i.i = phi i1 [ true, %.invoke.i.i ], [ true, %102 ], [ false, %168 ], [ true, %111 ]
+  %.sroa.023.6.i.i = phi i1 [ false, %168 ], [ true, %102 ], [ true, %111 ], [ true, %.invoke.i.i ]
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %99
@@ -66397,7 +66397,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
           to label %99 unwind label %171, !noalias !2348
 
 133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ true, %.invoke228.i.i ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ false, %167 ]
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -66440,7 +66440,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
           to label %132 unwind label %171, !noalias !2348
 
 148:                                              ; preds = %166, %145, %135
-  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %145 ], [ true, %135 ]
+  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %135 ], [ true, %145 ]
   %149 = landingpad { ptr, i32 }
           cleanup
   br label %147
@@ -66639,9 +66639,9 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
   br i1 %exitcond.not.i.i, label %.loopexit69.i.i, label %.lr.ph.i.i
 
 .invoke.i.i:                                      ; preds = %85, %213, %208, %.lr.ph.i.i, %93, %._crit_edge.i.i
-  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %205, %.lr.ph.i.i ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
-  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %211, %208 ], [ %206, %.lr.ph.i.i ], [ %217, %213 ], [ %86, %85 ]
-  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
+  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %205, %.lr.ph.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
+  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %206, %.lr.ph.i.i ], [ %211, %208 ], [ %217, %213 ], [ %86, %85 ]
+  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %226, i64 noundef %227, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228) #16
           to label %.cont.i.i unwind label %100, !noalias !2348
 
@@ -66649,7 +66649,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
   unreachable
 
 229:                                              ; preds = %42, %.thread.i.i
-  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %41, %.thread.i.i ], [ %.pn49.pn.pn.i.i, %42 ]
+  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %.pn49.pn.pn.i.i, %42 ], [ %41, %.thread.i.i ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$core..slice..iter..Iter$LT$u64$GT$$GT$$GT$17h244864cb95ae8bc1E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %21) #17
           to label %.body.thread unwind label %171, !noalias !2350
 
@@ -66665,7 +66665,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
   br label %32
 
 .body.thread:                                     ; preds = %231, %229, %42
-  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %231 ], [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ], [ %lpad.thr_comm.split-lp, %231 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 231:                                              ; preds = %3
@@ -66835,7 +66835,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haf28514ed01a49
   br label %19
 
 .body.thread:                                     ; preds = %22, %40
-  %eh.lpad-body4 = phi { ptr, i32 } [ %23, %22 ], [ %lpad.thr_comm.split-lp, %40 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %40 ], [ %23, %22 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 40:                                               ; preds = %3
@@ -67717,7 +67717,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hecd786045cffa7
   br label %19
 
 .body.thread:                                     ; preds = %22, %40
-  %eh.lpad-body4 = phi { ptr, i32 } [ %23, %22 ], [ %lpad.thr_comm.split-lp, %40 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %40 ], [ %23, %22 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 40:                                               ; preds = %3
@@ -68058,7 +68058,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
           to label %42 unwind label %171, !noalias !2604
 
 58:                                               ; preds = %170, %55, %43
-  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %55 ], [ true, %43 ]
+  %.sroa.023.2.i.i = phi i1 [ false, %170 ], [ true, %43 ], [ true, %55 ]
   %59 = landingpad { ptr, i32 }
           cleanup
   br label %57
@@ -68102,7 +68102,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
           to label %57 unwind label %171, !noalias !2604
 
 74:                                               ; preds = %169, %71, %60
-  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %71 ], [ true, %60 ]
+  %.sroa.023.4.i.i = phi i1 [ false, %169 ], [ true, %60 ], [ true, %71 ]
   %75 = landingpad { ptr, i32 }
           cleanup
   br label %73
@@ -68168,7 +68168,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
           to label %73 unwind label %171, !noalias !2604
 
 100:                                              ; preds = %.invoke.i.i, %168, %111, %102
-  %.sroa.023.6.i.i = phi i1 [ true, %.invoke.i.i ], [ true, %102 ], [ false, %168 ], [ true, %111 ]
+  %.sroa.023.6.i.i = phi i1 [ false, %168 ], [ true, %102 ], [ true, %111 ], [ true, %.invoke.i.i ]
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %99
@@ -68261,7 +68261,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
           to label %99 unwind label %171, !noalias !2604
 
 133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ true, %.invoke228.i.i ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ false, %167 ]
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -68304,7 +68304,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
           to label %132 unwind label %171, !noalias !2604
 
 148:                                              ; preds = %166, %145, %135
-  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %145 ], [ true, %135 ]
+  %.sroa.023.10.i.i = phi i1 [ false, %166 ], [ true, %135 ], [ true, %145 ]
   %149 = landingpad { ptr, i32 }
           cleanup
   br label %147
@@ -68503,9 +68503,9 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
   br i1 %exitcond.not.i.i, label %.loopexit69.i.i, label %.lr.ph.i.i
 
 .invoke.i.i:                                      ; preds = %85, %213, %208, %.lr.ph.i.i, %93, %._crit_edge.i.i
-  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %205, %.lr.ph.i.i ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
-  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %211, %208 ], [ %206, %.lr.ph.i.i ], [ %217, %213 ], [ %86, %85 ]
-  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
+  %226 = phi i64 [ %96, %93 ], [ %90, %._crit_edge.i.i ], [ %205, %.lr.ph.i.i ], [ %.sroa.026.0109.i.i, %208 ], [ %.sroa.024.0111.i.i, %213 ], [ %.sroa.024.0111.i.i, %85 ]
+  %227 = phi i64 [ %97, %93 ], [ %91, %._crit_edge.i.i ], [ %206, %.lr.ph.i.i ], [ %211, %208 ], [ %217, %213 ], [ %86, %85 ]
+  %228 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.5, %93 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.4, %._crit_edge.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.13, %.lr.ph.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.14, %208 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.15, %213 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.12, %85 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %226, i64 noundef %227, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228) #16
           to label %.cont.i.i unwind label %100, !noalias !2604
 
@@ -68513,7 +68513,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
   unreachable
 
 229:                                              ; preds = %42, %.thread.i.i
-  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %41, %.thread.i.i ], [ %.pn49.pn.pn.i.i, %42 ]
+  %.pn49.pn.pn.pn67.i.i = phi { ptr, i32 } [ %.pn49.pn.pn.i.i, %42 ], [ %41, %.thread.i.i ]
   invoke void @"_ZN4core3ptr107drop_in_place$LT$alloc..vec..Vec$LT$core..slice..iter..Iter$LT$polars_utils..hashing..BytesHash$GT$$GT$$GT$17hde7044bd3d01024dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %21) #17
           to label %.body.thread unwind label %171, !noalias !2606
 
@@ -68529,7 +68529,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
   br label %32
 
 .body.thread:                                     ; preds = %231, %229, %42
-  %eh.lpad-body4 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %231 ], [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ]
+  %eh.lpad-body4 = phi { ptr, i32 } [ %.pn49.pn.pn.pn67.i.i, %229 ], [ %.pn49.pn.pn.i.i, %42 ], [ %lpad.thr_comm.split-lp, %231 ]
   resume { ptr, i32 } %eh.lpad-body4
 
 231:                                              ; preds = %3
@@ -68857,7 +68857,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h7d5df767548b351cE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -68955,7 +68955,7 @@ _ZN10rayon_core8registry8Registry9in_worker17hc4ec41141de26572E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %23, %27
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %23 ], [ %lpad.thr_comm.split-lp, %27 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %27 ], [ %lpad.thr_comm.split-lp.i, %23 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 27:                                               ; preds = %9, %1
@@ -69145,7 +69145,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h2b45d06de9e759acE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -69381,7 +69381,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h5997546cbd3a4e70E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -69663,7 +69663,7 @@ _ZN10rayon_core8registry8Registry9in_worker17hbc1e7ec10d37999eE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -69991,7 +69991,7 @@ _ZN10rayon_core8registry8Registry9in_worker17hb304f650bbd39e93E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -70089,7 +70089,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h76abf79366488707E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -70233,7 +70233,7 @@ _ZN10rayon_core8registry8Registry9in_worker17hca6aed09ef9a6accE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -70423,7 +70423,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h3d002bc7c815bb98E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -70567,7 +70567,7 @@ _ZN10rayon_core8registry8Registry9in_worker17he6a7d28840012706E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -70833,7 +70833,7 @@ define hidden void @_ZN10rayon_core8registry9in_worker17h30d9b832659dfc4cE(ptr d
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #15, !noalias !2973
   unreachable
 
-_ZN10rayon_core8registry8Registry9in_worker17he7d70538c451d1d2E.exit: ; preds = %21, %22, %.noexc
+_ZN10rayon_core8registry8Registry9in_worker17he7d70538c451d1d2E.exit: ; preds = %22, %21, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %26
 
@@ -70841,7 +70841,7 @@ _ZN10rayon_core8registry8Registry9in_worker17he7d70538c451d1d2E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %23, %27
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %23 ], [ %lpad.thr_comm.split-lp, %27 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %27 ], [ %lpad.thr_comm.split-lp.i, %23 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 27:                                               ; preds = %8, %2
@@ -70985,7 +70985,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h24f6c806ed86718fE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -71129,7 +71129,7 @@ _ZN10rayon_core8registry8Registry9in_worker17hd5b99294f96825fcE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -71227,7 +71227,7 @@ _ZN10rayon_core8registry8Registry9in_worker17hcd7015debb848d46E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %23, %27
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %23 ], [ %lpad.thr_comm.split-lp, %27 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %27 ], [ %lpad.thr_comm.split-lp.i, %23 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 27:                                               ; preds = %9, %1
@@ -71647,7 +71647,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h9a1e17a1b379ee45E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %23, %27
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %23 ], [ %lpad.thr_comm.split-lp, %27 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %27 ], [ %lpad.thr_comm.split-lp.i, %23 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 27:                                               ; preds = %9, %1
@@ -71883,7 +71883,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h611af8a11840bd08E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -71981,7 +71981,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h230e4f69681efd47E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -72171,7 +72171,7 @@ _ZN10rayon_core8registry8Registry9in_worker17hbb71bbade613e213E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -72315,7 +72315,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h2b12c0b864c6ed4cE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %23, %27
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %23 ], [ %lpad.thr_comm.split-lp, %27 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %27 ], [ %lpad.thr_comm.split-lp.i, %23 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 27:                                               ; preds = %9, %1
@@ -72459,7 +72459,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h596dc84163fbc1c7E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -72787,7 +72787,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h74f2a19fb8907cdcE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -73069,7 +73069,7 @@ _ZN10rayon_core8registry8Registry9in_worker17hac67839905b70a59E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -73857,7 +73857,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h55ddcbc8e2ef71cbE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -73955,7 +73955,7 @@ _ZN10rayon_core8registry8Registry9in_worker17habb3c8a3e52199bbE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -74375,7 +74375,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h92942476e2ae8f6aE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -74519,7 +74519,7 @@ _ZN10rayon_core8registry8Registry9in_worker17hdfa18f9a16a28f2fE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -74847,7 +74847,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h7927d4cb1f6115ccE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -74991,7 +74991,7 @@ _ZN10rayon_core8registry8Registry9in_worker17hd490ae9447ff8ef1E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -75227,7 +75227,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h067a00b26c3121f4E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %23, %27
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %23 ], [ %lpad.thr_comm.split-lp, %27 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %27 ], [ %lpad.thr_comm.split-lp.i, %23 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 27:                                               ; preds = %9, %1
@@ -75325,7 +75325,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h985f2fbf0d76e4ecE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %23, %27
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %23 ], [ %lpad.thr_comm.split-lp, %27 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %27 ], [ %lpad.thr_comm.split-lp.i, %23 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 27:                                               ; preds = %9, %1
@@ -75745,7 +75745,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h7744e453b5a249c7E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -76119,7 +76119,7 @@ _ZN10rayon_core8registry8Registry9in_worker17hf5638e48b4f2692fE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %23, %27
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %23 ], [ %lpad.thr_comm.split-lp, %27 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %27 ], [ %lpad.thr_comm.split-lp.i, %23 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 27:                                               ; preds = %9, %1
@@ -76217,7 +76217,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h2d7d8b4bbb514f04E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -76361,7 +76361,7 @@ _ZN10rayon_core8registry8Registry9in_worker17heeda53aca7cde6d8E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %23, %27
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %23 ], [ %lpad.thr_comm.split-lp, %27 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %27 ], [ %lpad.thr_comm.split-lp.i, %23 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 27:                                               ; preds = %9, %1
@@ -76459,7 +76459,7 @@ _ZN10rayon_core8registry8Registry9in_worker17hf38679139ea51429E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -76695,7 +76695,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h5d45dde7521da503E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -77023,7 +77023,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h23768d98f24454fcE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -77259,7 +77259,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h8ac801919b450400E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -77495,7 +77495,7 @@ _ZN10rayon_core8registry8Registry9in_worker17heeac6489c47b9b75E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %23, %27
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %23 ], [ %lpad.thr_comm.split-lp, %27 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %27 ], [ %lpad.thr_comm.split-lp.i, %23 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 27:                                               ; preds = %9, %1
@@ -77639,7 +77639,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h1b7fdabc1b45476aE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -77875,7 +77875,7 @@ _ZN10rayon_core8registry8Registry9in_worker17h6e20131b5a276a46E.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2
@@ -78479,7 +78479,7 @@ _ZN10rayon_core8registry8Registry9in_worker17ha1257c57db398feeE.exit: ; preds = 
   ret void
 
 .body.thread:                                     ; preds = %24, %28
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %24 ], [ %lpad.thr_comm.split-lp, %28 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %28 ], [ %lpad.thr_comm.split-lp.i, %24 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 28:                                               ; preds = %10, %2

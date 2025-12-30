@@ -137,7 +137,7 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3n
   ret ptr %12
 
 .body.thread:                                     ; preds = %15, %20
-  %eh.lpad-body5 = phi { ptr, i32 } [ %16, %15 ], [ %21, %20 ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %21, %20 ], [ %16, %15 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 20:                                               ; preds = %5
@@ -196,7 +196,7 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3n
   ret ptr %10
 
 .body.thread:                                     ; preds = %13, %18
-  %eh.lpad-body5 = phi { ptr, i32 } [ %14, %13 ], [ %19, %18 ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %19, %18 ], [ %14, %13 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 18:                                               ; preds = %4

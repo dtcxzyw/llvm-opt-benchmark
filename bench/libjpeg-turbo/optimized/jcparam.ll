@@ -1374,7 +1374,7 @@ define void @jpeg_simple_progression(ptr noundef %0) local_unnamed_addr #0 {
   br label %30
 
 30:                                               ; preds = %20, %26, %.thread
-  %.0 = phi i32 [ %29, %.thread ], [ %27, %26 ], [ 10, %20 ]
+  %.0 = phi i32 [ %27, %26 ], [ %29, %.thread ], [ 10, %20 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %32 = load ptr, ptr %31, align 8, !tbaa !73
   %33 = icmp eq ptr %32, null

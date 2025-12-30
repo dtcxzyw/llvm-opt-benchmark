@@ -305,7 +305,7 @@ dummy_lh_delete.exit.thread:                      ; preds = %rand_string.exit71
   br label %.thread97.sink.split
 
 .thread97.sink.split:                             ; preds = %.thread97.sink.split.sink.split, %dummy_lh_delete.exit.thread, %dummy_lh_delete.exit.thread149, %dummy_lh_insert.exit, %dummy_lh_retrieve.exit, %35
-  %.sink = phi ptr [ %20, %dummy_lh_retrieve.exit ], [ %74, %dummy_lh_delete.exit.thread ], [ %20, %35 ], [ %55, %dummy_lh_insert.exit ], [ %74, %dummy_lh_delete.exit.thread149 ], [ %.sink.ph, %.thread97.sink.split.sink.split ]
+  %.sink = phi ptr [ %20, %35 ], [ %20, %dummy_lh_retrieve.exit ], [ %55, %dummy_lh_insert.exit ], [ %74, %dummy_lh_delete.exit.thread149 ], [ %74, %dummy_lh_delete.exit.thread ], [ %.sink.ph, %.thread97.sink.split.sink.split ]
   call void @free(ptr noundef nonnull %.sink) #10
   br label %.thread97
 
@@ -337,7 +337,7 @@ dummy_lh_free.exit:                               ; preds = %.lr.ph.i75, %98
   br label %102
 
 102:                                              ; preds = %.thread121, %2, %dummy_lh_free.exit
-  %.0 = phi i32 [ 0, %dummy_lh_free.exit ], [ 1, %.thread121 ], [ 1, %2 ]
+  %.0 = phi i32 [ 0, %dummy_lh_free.exit ], [ 1, %2 ], [ 1, %.thread121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   ret i32 %.0
 }

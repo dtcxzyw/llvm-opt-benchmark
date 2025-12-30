@@ -3452,7 +3452,7 @@ _import_get_thumbnail.exit.thread:                ; preds = %.thread70.i
   br label %_import_get_thumbnail.exit
 
 _import_get_thumbnail.exit:                       ; preds = %67, %63, %72, %14, %19
-  %.0 = phi ptr [ %21, %19 ], [ %18, %14 ], [ %74, %72 ], [ %.5.i, %63 ], [ %71, %67 ]
+  %.0 = phi ptr [ %18, %14 ], [ %21, %19 ], [ %74, %72 ], [ %.5.i, %63 ], [ %71, %67 ]
   %75 = getelementptr inbounds nuw i8, ptr %.280.val, i64 168
   %76 = load ptr, ptr %75, align 8, !tbaa !50
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %76, ptr noundef %1, i32 noundef 0, i32 noundef %2, i32 noundef 1, ptr noundef %.0, i32 noundef -1) #16
@@ -3747,7 +3747,7 @@ define internal range(i32 0, 2) i32 @_files_button_press(ptr noundef %0, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %3, %12, %42, %40, %.critedge29, %56, %.critedge
-  %.1 = phi i32 [ 1, %56 ], [ 1, %.critedge ], [ 0, %.critedge29 ], [ 0, %40 ], [ 0, %3 ], [ 0, %42 ], [ 0, %12 ]
+  %.1 = phi i32 [ 1, %56 ], [ 1, %.critedge ], [ 0, %.critedge29 ], [ 0, %40 ], [ 0, %42 ], [ 0, %12 ], [ 0, %3 ]
   ret i32 %.1
 }
 
@@ -4609,7 +4609,7 @@ define internal fastcc void @_get_folders_list(ptr noundef %0, ptr noundef reado
   br label %.loopexit
 
 53:                                               ; preds = %.thread, %23
-  %.4 = phi i32 [ %52, %.thread ], [ %.193, %23 ]
+  %.4 = phi i32 [ %.193, %23 ], [ %52, %.thread ]
   call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 2, i32 noundef 1, i32 noundef -1) #16
   call void @g_object_unref(ptr noundef nonnull %21) #16
   br label %54

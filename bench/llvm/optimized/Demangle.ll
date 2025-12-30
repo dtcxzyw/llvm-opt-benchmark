@@ -79,8 +79,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm20nonMicrosoftDemangleESt17basic_st
   br label %16
 
 16:                                               ; preds = %10, %5
-  %.sroa.10.0 = phi ptr [ %1, %5 ], [ %11, %10 ]
-  %.sroa.0.0 = phi i64 [ %0, %5 ], [ %12, %10 ]
+  %.sroa.10.0 = phi ptr [ %11, %10 ], [ %1, %5 ]
+  %.sroa.0.0 = phi i64 [ %12, %10 ], [ %0, %5 ]
   %.not.i = icmp eq i64 %.sroa.0.0, 0
   br i1 %.not.i, label %.thread42, label %.lr.ph.i.i.preheader
 
@@ -157,7 +157,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %34
   br label %.thread42
 
 .thread42:                                        ; preds = %6, %16, %_ZL17isItaniumEncodingSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, %_ZL15isDLangEncodingSt17basic_string_viewIcSt11char_traitsIcEE.exit, %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
-  %.not1845 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ], [ false, %33 ], [ false, %_ZL15isDLangEncodingSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ false, %_ZL17isItaniumEncodingSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread ], [ false, %16 ], [ false, %6 ]
+  %.not1845 = phi i1 [ false, %33 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ], [ false, %_ZL15isDLangEncodingSt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ false, %_ZL17isItaniumEncodingSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread ], [ false, %16 ], [ false, %6 ]
   ret i1 %.not1845
 }
 

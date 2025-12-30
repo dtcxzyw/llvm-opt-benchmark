@@ -1559,9 +1559,9 @@ thread-pre-split:                                 ; preds = %73
   br label %.thread21
 
 138:                                              ; preds = %129, %.thread20
-  %139 = phi i64 [ %135, %.thread20 ], [ %.pre38, %129 ]
-  %140 = phi i64 [ %97, %.thread20 ], [ %126, %129 ]
-  %141 = phi i64 [ %134, %.thread20 ], [ %123, %129 ]
+  %139 = phi i64 [ %.pre38, %129 ], [ %135, %.thread20 ]
+  %140 = phi i64 [ %126, %129 ], [ %97, %.thread20 ]
+  %141 = phi i64 [ %123, %129 ], [ %134, %.thread20 ]
   %142 = sub i64 %127, %140
   %143 = call i64 @llvm.umin.i64(i64 %142, i64 %141)
   %144 = add i64 %143, %140
@@ -2136,8 +2136,8 @@ define dso_local nonnull ptr @alloc_large_system_hash(ptr noundef %0, i64 nounde
   br label %90
 
 90:                                               ; preds = %88, %80, %69, %67
-  %spec.select = phi ptr [ @.str.25, %67 ], [ @.str.25, %69 ], [ @.str.25, %88 ], [ @.str.24, %80 ]
-  %91 = phi ptr [ %68, %67 ], [ %70, %69 ], [ %89, %88 ], [ null, %80 ]
+  %spec.select = phi ptr [ @.str.25, %67 ], [ @.str.25, %69 ], [ @.str.24, %80 ], [ @.str.25, %88 ]
+  %91 = phi ptr [ %68, %67 ], [ %70, %69 ], [ null, %80 ], [ %89, %88 ]
   %92 = icmp eq ptr %91, null
   %93 = icmp ugt i64 %65, 4096
   %94 = select i1 %92, i1 %93, i1 false
@@ -2160,9 +2160,9 @@ define dso_local nonnull ptr @alloc_large_system_hash(ptr noundef %0, i64 nounde
   br label %101
 
 101:                                              ; preds = %99, %.thread29
-  %.in = phi i32 [ %100, %99 ], [ %87, %.thread29 ]
-  %102 = phi ptr [ %91, %99 ], [ %81, %.thread29 ]
-  %103 = phi ptr [ %spec.select, %99 ], [ %86, %.thread29 ]
+  %.in = phi i32 [ %87, %.thread29 ], [ %100, %99 ]
+  %102 = phi ptr [ %81, %.thread29 ], [ %91, %99 ]
+  %103 = phi ptr [ %86, %.thread29 ], [ %spec.select, %99 ]
   %104 = shl nuw i64 1, %64
   %105 = add i32 %.in, -12
   %106 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, ptr noundef %0, i64 noundef %104, i32 noundef %105, i64 noundef %65, ptr noundef nonnull %103) #21
@@ -2810,7 +2810,7 @@ define internal fastcc i64 @zone_absent_pages_in_node(i32 noundef %0, i64 nounde
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %35, %40, %48, %43
-  %51 = phi i64 [ %20, %43 ], [ %50, %48 ], [ %20, %.preheader ], [ %20, %35 ], [ %42, %40 ]
+  %51 = phi i64 [ %20, %43 ], [ %50, %48 ], [ %20, %35 ], [ %42, %40 ], [ %20, %.preheader ]
   %52 = getelementptr i8, ptr %21, i64 24
   %53 = icmp ult ptr %52, %18
   br i1 %53, label %.preheader, label %.loopexit, !llvm.loop !67
@@ -3078,7 +3078,7 @@ define internal fastcc void @init_unavailable_range(i64 noundef %0, i64 noundef 
   br label %76
 
 76:                                               ; preds = %73, %65
-  %77 = phi i32 [ %75, %73 ], [ %66, %65 ]
+  %77 = phi i32 [ %66, %65 ], [ %75, %73 ]
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %.thread, label %80
 

@@ -220,7 +220,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   br label %12
 
 12:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i30, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i23, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit35.thread, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i2 ], [ 3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9 ], [ 11, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16 ], [ 10, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i23 ], [ 6, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i30 ], [ 7, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit35.thread ]
+  %.0 = phi i32 [ 0, %11 ], [ 7, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit35.thread ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i2 ], [ 3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9 ], [ 11, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i16 ], [ 10, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i23 ], [ 6, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i30 ]
   ret i32 %.0
 }
 

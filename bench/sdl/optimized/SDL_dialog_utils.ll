@@ -95,7 +95,7 @@ define hidden ptr @convert_filters(ptr noundef readonly captures(address_is_null
   br label %.critedge
 
 .critedge:                                        ; preds = %35, %24, %15, %45, %44, %13
-  %.0 = phi ptr [ null, %15 ], [ %43, %45 ], [ null, %44 ], [ null, %13 ], [ null, %24 ], [ null, %35 ]
+  %.0 = phi ptr [ %43, %45 ], [ null, %44 ], [ null, %13 ], [ null, %15 ], [ null, %24 ], [ null, %35 ]
   ret ptr %.0
 }
 
@@ -388,8 +388,8 @@ define hidden noundef ptr @validate_filters(ptr noundef readonly captures(addres
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !8
 
-.thread:                                          ; preds = %29, %._crit_edge.i, %14, %17, %15, %2
-  %.3 = phi ptr [ null, %2 ], [ @.str.3, %15 ], [ @.str.3, %17 ], [ @.str.5, %14 ], [ @.str.3, %._crit_edge.i ], [ null, %29 ]
+.thread:                                          ; preds = %29, %._crit_edge.i, %14, %15, %17, %2
+  %.3 = phi ptr [ null, %2 ], [ @.str.3, %17 ], [ @.str.3, %15 ], [ @.str.5, %14 ], [ null, %29 ], [ @.str.3, %._crit_edge.i ]
   ret ptr %.3
 }
 
@@ -448,8 +448,8 @@ define hidden ptr @validate_list(ptr noundef %0) local_unnamed_addr #0 {
   %.str.3. = select i1 %23, ptr @.str.3, ptr null
   br label %.thread
 
-.thread:                                          ; preds = %9, %12, %10, %._crit_edge, %1
-  %.021 = phi ptr [ null, %1 ], [ %.str.3., %._crit_edge ], [ @.str.3, %10 ], [ @.str.3, %12 ], [ @.str.5, %9 ]
+.thread:                                          ; preds = %9, %10, %12, %._crit_edge, %1
+  %.021 = phi ptr [ null, %1 ], [ %.str.3., %._crit_edge ], [ @.str.3, %12 ], [ @.str.3, %10 ], [ @.str.5, %9 ]
   ret ptr %.021
 }
 

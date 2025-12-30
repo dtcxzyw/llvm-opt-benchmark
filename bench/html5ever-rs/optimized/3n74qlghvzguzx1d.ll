@@ -256,7 +256,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br label %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.llvm.9547364939642047668.exit"
 
 "_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.llvm.9547364939642047668.exit": ; preds = %8, %10, %.critedge.i, %15
-  %.0.i = phi i1 [ false, %8 ], [ %20, %15 ], [ false, %10 ], [ false, %.critedge.i ]
+  %.0.i = phi i1 [ false, %10 ], [ false, %.critedge.i ], [ false, %8 ], [ %20, %15 ]
   ret i1 %.0.i
 }
 
@@ -327,7 +327,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$markup5ever..interface..QualName$u2
   br label %.critedge7
 
 .critedge7:                                       ; preds = %15, %8, %.critedge, %10
-  %.0 = phi i1 [ false, %8 ], [ %20, %15 ], [ false, %10 ], [ false, %.critedge ]
+  %.0 = phi i1 [ false, %10 ], [ false, %.critedge ], [ false, %8 ], [ %20, %15 ]
   ret i1 %.0
 }
 

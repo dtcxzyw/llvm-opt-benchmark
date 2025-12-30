@@ -419,7 +419,7 @@ _ZN9grpc_coreL8ValidHexEPKhS1_.exit57.thread:     ; preds = %switch.early.test76
   br label %_ZN9grpc_coreL5DeHexEh.exit
 
 _ZN9grpc_coreL5DeHexEh.exit:                      ; preds = %57, %53, %_ZN9grpc_coreL8ValidHexEPKhS1_.exit57.thread
-  %.0.i59 = phi i8 [ %58, %57 ], [ %54, %53 ], [ %50, %_ZN9grpc_coreL8ValidHexEPKhS1_.exit57.thread ]
+  %.0.i59 = phi i8 [ %54, %53 ], [ %58, %57 ], [ %50, %_ZN9grpc_coreL8ValidHexEPKhS1_.exit57.thread ]
   %59 = add nsw i8 %.fr77, -48
   %or.cond.i60 = icmp slt i8 %.fr77, 58
   br i1 %or.cond.i60, label %_ZN9grpc_coreL5DeHexEh.exit65, label %60
@@ -450,7 +450,7 @@ _ZN9grpc_coreL5DeHexEh.exit:                      ; preds = %57, %53, %_ZN9grpc_
   unreachable
 
 _ZN9grpc_coreL5DeHexEh.exit65:                    ; preds = %66, %62, %_ZN9grpc_coreL5DeHexEh.exit
-  %.0.i63 = phi i8 [ %67, %66 ], [ %63, %62 ], [ %59, %_ZN9grpc_coreL5DeHexEh.exit ]
+  %.0.i63 = phi i8 [ %63, %62 ], [ %67, %66 ], [ %59, %_ZN9grpc_coreL5DeHexEh.exit ]
   %68 = shl nuw i8 %.0.i59, 4
   %69 = add nuw nsw i8 %.0.i63, %68
   store i8 %69, ptr %.03585, align 1, !tbaa !9
@@ -525,7 +525,7 @@ _ZN9grpc_core12MutableSliceD2Ev.exit68:           ; preds = %_ZN9grpc_core12Muta
   br label %92
 
 92:                                               ; preds = %90, %48
-  %.pn43.pn.pn = phi { ptr, i32 } [ %91, %90 ], [ %49, %48 ]
+  %.pn43.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %91, %90 ]
   call void @_ZN9grpc_core12MutableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn43.pn.pn

@@ -476,8 +476,8 @@ default.unreachable63:                            ; preds = %16
   br label %38
 
 38:                                               ; preds = %33, %36, %35
-  %.sroa.031.1 = phi i64 [ 2, %36 ], [ 3, %35 ], [ 1, %33 ]
-  %.sroa.934.1 = phi ptr [ %37, %36 ], [ undef, %35 ], [ undef, %33 ]
+  %.sroa.031.1 = phi i64 [ 3, %35 ], [ 2, %36 ], [ 1, %33 ]
+  %.sroa.934.1 = phi ptr [ undef, %35 ], [ %37, %36 ], [ undef, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %31
 
@@ -522,7 +522,7 @@ default.unreachable63:                            ; preds = %16
   br label %52
 
 "_ZN4core3ptr204drop_in_place$LT$core..option..Option$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$$GT$17hcc146d83e5a880d1E.exit46": ; preds = %52, %55, %48, %26
-  %.pn.pn = phi { ptr, i32 } [ %27, %48 ], [ %27, %26 ], [ %.pn49, %55 ], [ %.pn49, %52 ]
+  %.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %27, %48 ], [ %.pn49, %55 ], [ %.pn49, %52 ]
   resume { ptr, i32 } %.pn.pn
 
 48:                                               ; preds = %26
@@ -789,7 +789,7 @@ default.unreachable23:                            ; preds = %37, %24, %3
   unreachable
 
 .body9:                                           ; preds = %.body, %112, %117, %11
-  %.pn4.pn = phi { ptr, i32 } [ %12, %11 ], [ %113, %112 ], [ %.pn, %.body ], [ %118, %117 ]
+  %.pn4.pn = phi { ptr, i32 } [ %12, %11 ], [ %.pn, %.body ], [ %118, %117 ], [ %113, %112 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn4.pn
 
@@ -838,9 +838,9 @@ default.unreachable23:                            ; preds = %37, %24, %3
   br label %38
 
 "_ZN4core3ptr148drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..http3..driver..InboundFrame$GT$..reserve_inner..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfed8dee70d0965bdE.exit19.i": ; preds = %95, %.body.i, %.body.thread.i
-  %32 = phi ptr [ %26, %95 ], [ %61, %.body.thread.i ], [ %26, %.body.i ]
-  %33 = phi ptr [ %25, %95 ], [ %62, %.body.thread.i ], [ %25, %.body.i ]
-  %.pn11.i = phi { ptr, i32 } [ %75, %95 ], [ %.pn10.i.i, %.body.thread.i ], [ %75, %.body.i ]
+  %32 = phi ptr [ %61, %.body.thread.i ], [ %26, %.body.i ], [ %26, %95 ]
+  %33 = phi ptr [ %62, %.body.thread.i ], [ %25, %.body.i ], [ %25, %95 ]
+  %.pn11.i = phi { ptr, i32 } [ %.pn10.i.i, %.body.thread.i ], [ %75, %.body.i ], [ %75, %95 ]
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   invoke void @"_ZN4core3ptr104drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h8c4457eef87edbd2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %34) #26
           to label %90 unwind label %97
@@ -1116,8 +1116,8 @@ common.ret.sink.split.i:                          ; preds = %107, %110
   br label %common.ret
 
 .body:                                            ; preds = %99, %90
-  %120 = phi ptr [ %92, %90 ], [ %25, %99 ]
-  %.pn = phi { ptr, i32 } [ %.pn13.i, %90 ], [ %100, %99 ]
+  %120 = phi ptr [ %25, %99 ], [ %92, %90 ]
+  %.pn = phi { ptr, i32 } [ %100, %99 ], [ %.pn13.i, %90 ]
   invoke fastcc void @"_ZN4core3ptr148drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..http3..driver..InboundFrame$GT$..reserve_owned..$u7b$$u7b$closure$u7d$$u7d$$GT$17h60e3c97db67cacc1E"(ptr noundef nonnull align 8 %120) #26
           to label %.body9 unwind label %121
 
@@ -1176,7 +1176,7 @@ default.unreachable24:                            ; preds = %37, %24, %3
   unreachable
 
 .body9:                                           ; preds = %.body, %112, %117, %11
-  %.pn4.pn = phi { ptr, i32 } [ %12, %11 ], [ %113, %112 ], [ %.pn, %.body ], [ %118, %117 ]
+  %.pn4.pn = phi { ptr, i32 } [ %12, %11 ], [ %.pn, %.body ], [ %118, %117 ], [ %113, %112 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn4.pn
 
@@ -1225,9 +1225,9 @@ default.unreachable24:                            ; preds = %37, %24, %3
   br label %38
 
 "_ZN4core3ptr149drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..http3..driver..OutboundFrame$GT$..reserve_inner..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5bada6447dd90b09E.exit19.i": ; preds = %95, %.body.i, %.body.thread.i
-  %32 = phi ptr [ %26, %95 ], [ %61, %.body.thread.i ], [ %26, %.body.i ]
-  %33 = phi ptr [ %25, %95 ], [ %62, %.body.thread.i ], [ %25, %.body.i ]
-  %.pn11.i = phi { ptr, i32 } [ %75, %95 ], [ %.pn10.i.i, %.body.thread.i ], [ %75, %.body.i ]
+  %32 = phi ptr [ %61, %.body.thread.i ], [ %26, %.body.i ], [ %26, %95 ]
+  %33 = phi ptr [ %62, %.body.thread.i ], [ %25, %.body.i ], [ %25, %95 ]
+  %.pn11.i = phi { ptr, i32 } [ %.pn10.i.i, %.body.thread.i ], [ %75, %.body.i ], [ %75, %95 ]
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   invoke void @"_ZN4core3ptr105drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..http3..driver..OutboundFrame$GT$$GT$17h774c43871a79f522E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %34) #26
           to label %90 unwind label %97
@@ -1503,8 +1503,8 @@ common.ret.sink.split.i:                          ; preds = %107, %110
   br label %common.ret
 
 .body:                                            ; preds = %99, %90
-  %120 = phi ptr [ %92, %90 ], [ %25, %99 ]
-  %.pn = phi { ptr, i32 } [ %.pn13.i, %90 ], [ %100, %99 ]
+  %120 = phi ptr [ %25, %99 ], [ %92, %90 ]
+  %.pn = phi { ptr, i32 } [ %100, %99 ], [ %.pn13.i, %90 ]
   invoke fastcc void @"_ZN4core3ptr149drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..http3..driver..OutboundFrame$GT$..reserve_owned..$u7b$$u7b$closure$u7d$$u7d$$GT$17h895fc3524d104f36E"(ptr noundef nonnull align 8 %120) #26
           to label %.body9 unwind label %121
 
@@ -2846,7 +2846,7 @@ define hidden void @"_ZN10tokio_util4time11delay_queue19DelayQueue$LT$T$GT$6remo
   unreachable
 
 common.resume:                                    ; preds = %117, %102, %110
-  %common.resume.op = phi { ptr, i32 } [ %111, %110 ], [ %103, %102 ], [ %118, %117 ]
+  %common.resume.op = phi { ptr, i32 } [ %111, %110 ], [ %118, %117 ], [ %103, %102 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hd0a178b862e0a5b4E.exit": ; preds = %105
@@ -4079,7 +4079,7 @@ _ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit.thread31: ; preds =
   br label %_ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit.thread
 
 _ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit.thread: ; preds = %26, %18, %_ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit, %13, %_ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit.thread31
-  %.sroa.0.0 = phi i64 [ 45, %13 ], [ 45, %_ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit.thread31 ], [ 44, %_ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit ], [ 44, %18 ], [ 44, %26 ]
+  %.sroa.0.0 = phi i64 [ 45, %_ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit.thread31 ], [ 45, %13 ], [ 44, %_ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit ], [ 44, %18 ], [ 44, %26 ]
   %41 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %42 = insertvalue { i64, i64 } %41, i64 undef, 1
   ret { i64, i64 } %42
@@ -4161,8 +4161,8 @@ define { i64, i64 } @"_ZN116_$LT$tokio_quiche..http3..driver..server..ServerHook
           to label %42 unwind label %.thread.i, !noalias !481
 
 41:                                               ; preds = %.thread97.i, %38
-  %.sroa.5.0.i = phi i64 [ %88, %.thread97.i ], [ undef, %38 ]
-  %.sroa.0.0.i = phi i64 [ %64, %.thread97.i ], [ 45, %38 ]
+  %.sroa.5.0.i = phi i64 [ undef, %38 ], [ %88, %.thread97.i ]
+  %.sroa.0.0.i = phi i64 [ 45, %38 ], [ %64, %.thread97.i ]
   call void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$quiche..h3..Header$GT$$GT$17h5d98a1c0680f73c1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
   br label %103
 
@@ -4330,7 +4330,7 @@ define { i64, i64 } @"_ZN116_$LT$tokio_quiche..http3..driver..server..ServerHook
   br label %41
 
 96:                                               ; preds = %79, %77, %67
-  %.sroa.016.3.ph.i = phi i1 [ true, %77 ], [ false, %79 ], [ true, %67 ]
+  %.sroa.016.3.ph.i = phi i1 [ true, %67 ], [ true, %77 ], [ false, %79 ]
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr67drop_in_place$LT$tokio_quiche..http3..driver..IncomingH3Headers$GT$17hc85625a1dc3ed190E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %11) #26
@@ -4383,7 +4383,7 @@ define { i64, i64 } @"_ZN116_$LT$tokio_quiche..http3..driver..server..ServerHook
   br label %104
 
 .body.thread:                                     ; preds = %102, %92, %36, %108
-  %eh.lpad-body9 = phi { ptr, i32 } [ %lpad.thr_comm.i, %92 ], [ %lpad.thr_comm, %108 ], [ %.pn3338.i, %102 ], [ %.pn3192.i, %36 ]
+  %eh.lpad-body9 = phi { ptr, i32 } [ %lpad.thr_comm, %108 ], [ %.pn3338.i, %102 ], [ %.pn3192.i, %36 ], [ %lpad.thr_comm.i, %92 ]
   resume { ptr, i32 } %eh.lpad-body9
 
 108:                                              ; preds = %30, %32, %3
@@ -4507,8 +4507,8 @@ define hidden noundef ptr @"_ZN80_$LT$tokio_quiche..metrics..labels..H3Error$u20
   br i1 %10, label %11, label %6
 
 11:                                               ; preds = %6, %7, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13
-  %.sroa.24.0 = phi i64 [ 26, %33 ], [ 9, %7 ], [ 17, %13 ], [ 11, %14 ], [ 25, %15 ], [ 17, %16 ], [ 24, %17 ], [ 25, %18 ], [ 19, %19 ], [ 14, %20 ], [ 17, %21 ], [ 11, %22 ], [ 17, %23 ], [ 19, %24 ], [ 19, %25 ], [ 20, %26 ], [ 21, %27 ], [ 16, %28 ], [ 16, %29 ], [ 19, %30 ], [ 26, %31 ], [ 26, %32 ], [ 10, %6 ]
-  %.sroa.0.0 = phi ptr [ @anon.b6fca53bb9b23298a37822d813339071.97, %33 ], [ @anon.b6fca53bb9b23298a37822d813339071.76, %7 ], [ @anon.b6fca53bb9b23298a37822d813339071.77, %13 ], [ @anon.b6fca53bb9b23298a37822d813339071.78, %14 ], [ @anon.b6fca53bb9b23298a37822d813339071.79, %15 ], [ @anon.b6fca53bb9b23298a37822d813339071.80, %16 ], [ @anon.b6fca53bb9b23298a37822d813339071.81, %17 ], [ @anon.b6fca53bb9b23298a37822d813339071.82, %18 ], [ @anon.b6fca53bb9b23298a37822d813339071.83, %19 ], [ @anon.b6fca53bb9b23298a37822d813339071.84, %20 ], [ @anon.b6fca53bb9b23298a37822d813339071.85, %21 ], [ @anon.b6fca53bb9b23298a37822d813339071.86, %22 ], [ @anon.b6fca53bb9b23298a37822d813339071.87, %23 ], [ @anon.b6fca53bb9b23298a37822d813339071.88, %24 ], [ @anon.b6fca53bb9b23298a37822d813339071.89, %25 ], [ @anon.b6fca53bb9b23298a37822d813339071.90, %26 ], [ @anon.b6fca53bb9b23298a37822d813339071.91, %27 ], [ @anon.b6fca53bb9b23298a37822d813339071.92, %28 ], [ @anon.b6fca53bb9b23298a37822d813339071.93, %29 ], [ @anon.b6fca53bb9b23298a37822d813339071.94, %30 ], [ @anon.b6fca53bb9b23298a37822d813339071.95, %31 ], [ @anon.b6fca53bb9b23298a37822d813339071.96, %32 ], [ @anon.b6fca53bb9b23298a37822d813339071.98, %6 ]
+  %.sroa.24.0 = phi i64 [ 17, %13 ], [ 11, %14 ], [ 25, %15 ], [ 17, %16 ], [ 24, %17 ], [ 25, %18 ], [ 19, %19 ], [ 14, %20 ], [ 17, %21 ], [ 11, %22 ], [ 17, %23 ], [ 19, %24 ], [ 19, %25 ], [ 20, %26 ], [ 21, %27 ], [ 16, %28 ], [ 16, %29 ], [ 19, %30 ], [ 26, %31 ], [ 26, %32 ], [ 26, %33 ], [ 9, %7 ], [ 10, %6 ]
+  %.sroa.0.0 = phi ptr [ @anon.b6fca53bb9b23298a37822d813339071.77, %13 ], [ @anon.b6fca53bb9b23298a37822d813339071.78, %14 ], [ @anon.b6fca53bb9b23298a37822d813339071.79, %15 ], [ @anon.b6fca53bb9b23298a37822d813339071.80, %16 ], [ @anon.b6fca53bb9b23298a37822d813339071.81, %17 ], [ @anon.b6fca53bb9b23298a37822d813339071.82, %18 ], [ @anon.b6fca53bb9b23298a37822d813339071.83, %19 ], [ @anon.b6fca53bb9b23298a37822d813339071.84, %20 ], [ @anon.b6fca53bb9b23298a37822d813339071.85, %21 ], [ @anon.b6fca53bb9b23298a37822d813339071.86, %22 ], [ @anon.b6fca53bb9b23298a37822d813339071.87, %23 ], [ @anon.b6fca53bb9b23298a37822d813339071.88, %24 ], [ @anon.b6fca53bb9b23298a37822d813339071.89, %25 ], [ @anon.b6fca53bb9b23298a37822d813339071.90, %26 ], [ @anon.b6fca53bb9b23298a37822d813339071.91, %27 ], [ @anon.b6fca53bb9b23298a37822d813339071.92, %28 ], [ @anon.b6fca53bb9b23298a37822d813339071.93, %29 ], [ @anon.b6fca53bb9b23298a37822d813339071.94, %30 ], [ @anon.b6fca53bb9b23298a37822d813339071.95, %31 ], [ @anon.b6fca53bb9b23298a37822d813339071.96, %32 ], [ @anon.b6fca53bb9b23298a37822d813339071.97, %33 ], [ @anon.b6fca53bb9b23298a37822d813339071.76, %7 ], [ @anon.b6fca53bb9b23298a37822d813339071.98, %6 ]
   %12 = tail call noundef ptr @"_ZN84_$LT$prometools..serde..value..ValueSerializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hd407fed70cb2436eE"(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.24.0)
   ret ptr %12
 

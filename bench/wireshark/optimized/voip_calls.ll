@@ -985,8 +985,8 @@ define internal noundef i32 @rtp_packet(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %73, label %.thread117, label %125
 
 .thread117:                                       ; preds = %66, %.thread113, %72
-  %74 = phi ptr [ %64, %.thread113 ], [ %58, %72 ], [ %67, %66 ]
-  %75 = phi ptr [ %62, %.thread113 ], [ %56, %72 ], [ %68, %66 ]
+  %74 = phi ptr [ %58, %72 ], [ %64, %.thread113 ], [ %67, %66 ]
+  %75 = phi ptr [ %56, %72 ], [ %62, %.thread113 ], [ %68, %66 ]
   %76 = tail call ptr @rtpstream_info_malloc_and_init()
   tail call void @rtpstream_id_copy_pinfo(ptr noundef %1, ptr noundef %76, i1 noundef zeroext false)
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -1860,9 +1860,9 @@ insert_to_graph_t38.exit:                         ; preds = %126, %.sink.split.i
   br label %218
 
 218:                                              ; preds = %insert_to_graph_t38.exit, %115, %99, %90
-  %.0132 = phi i16 [ 1, %90 ], [ 2, %115 ], [ 2, %insert_to_graph_t38.exit ], [ 2, %99 ]
-  %.0127 = phi ptr [ %95, %90 ], [ %125, %115 ], [ %139, %insert_to_graph_t38.exit ], [ %114, %99 ]
-  %.0126 = phi ptr [ %94, %90 ], [ %118, %115 ], [ %135, %insert_to_graph_t38.exit ], [ %106, %99 ]
+  %.0132 = phi i16 [ 1, %90 ], [ 2, %insert_to_graph_t38.exit ], [ 2, %99 ], [ 2, %115 ]
+  %.0127 = phi ptr [ %95, %90 ], [ %139, %insert_to_graph_t38.exit ], [ %114, %99 ], [ %125, %115 ]
+  %.0126 = phi ptr [ %94, %90 ], [ %135, %insert_to_graph_t38.exit ], [ %106, %99 ], [ %118, %115 ]
   %.not139 = icmp eq ptr %.0126, null
   br i1 %.not139, label %.thread149, label %219
 
@@ -1884,8 +1884,8 @@ insert_to_graph_t38.exit:                         ; preds = %126, %.sink.split.i
   br label %.thread149
 
 .thread149:                                       ; preds = %87, %96, %218, %223, %226
-  %.0126155 = phi ptr [ null, %218 ], [ %.0126, %226 ], [ %.0126, %223 ], [ null, %96 ], [ null, %87 ]
-  %.0127154 = phi ptr [ %.0127, %218 ], [ %.0127, %226 ], [ %.0127, %223 ], [ null, %96 ], [ null, %87 ]
+  %.0126155 = phi ptr [ %.0126, %226 ], [ %.0126, %223 ], [ null, %218 ], [ null, %96 ], [ null, %87 ]
+  %.0127154 = phi ptr [ %.0127, %226 ], [ %.0127, %223 ], [ %.0127, %218 ], [ null, %96 ], [ null, %87 ]
   call void @g_free(ptr noundef %.0127154)
   call void @g_free(ptr noundef %.0126155)
   %229 = getelementptr inbounds nuw i8, ptr %9, i64 232
@@ -2487,8 +2487,8 @@ addresses_equal.exit186:                          ; preds = %240, %258, %253, %2
   br label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %153, %140, %135, %131, %187, %233, %addresses_equal.exit186, %266, %228, %116, %125, %164, %.thread224
-  %.0162 = phi ptr [ %124, %164 ], [ %124, %.thread224 ], [ %274, %addresses_equal.exit186 ], [ %124, %125 ], [ %124, %116 ], [ %198, %187 ], [ %230, %228 ], [ %239, %233 ], [ %269, %266 ], [ %124, %131 ], [ %124, %135 ], [ %124, %140 ], [ %124, %153 ]
-  %.0160 = phi ptr [ %121, %164 ], [ %121, %.thread224 ], [ %169, %addresses_equal.exit186 ], [ %121, %125 ], [ %121, %116 ], [ %169, %187 ], [ %169, %228 ], [ %169, %233 ], [ %169, %266 ], [ %121, %131 ], [ %121, %135 ], [ %121, %140 ], [ %121, %153 ]
+  %.0162 = phi ptr [ %124, %164 ], [ %124, %.thread224 ], [ %124, %125 ], [ %124, %116 ], [ %198, %187 ], [ %230, %228 ], [ %239, %233 ], [ %269, %266 ], [ %274, %addresses_equal.exit186 ], [ %124, %131 ], [ %124, %135 ], [ %124, %140 ], [ %124, %153 ]
+  %.0160 = phi ptr [ %121, %164 ], [ %121, %.thread224 ], [ %121, %125 ], [ %121, %116 ], [ %169, %187 ], [ %169, %228 ], [ %169, %233 ], [ %169, %266 ], [ %169, %addresses_equal.exit186 ], [ %121, %131 ], [ %121, %135 ], [ %121, %140 ], [ %121, %153 ]
   %275 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %276 = load ptr, ptr %275, align 8
   %277 = getelementptr inbounds nuw i8, ptr %.0159222, i64 128
@@ -2578,7 +2578,7 @@ append_to_frame_graph.exit:                       ; preds = %299, %301, %304, %3
   store ptr null, ptr %292, align 8
   br label %.thread
 
-.thread:                                          ; preds = %25, %27, %30, %free_address.exit189, %294, %append_to_frame_graph.exit, %58
+.thread:                                          ; preds = %27, %25, %30, %free_address.exit189, %294, %append_to_frame_graph.exit, %58
   %313 = getelementptr inbounds nuw i8, ptr %8, i64 232
   %314 = load i32, ptr %313, align 8
   %315 = or i32 %314, 32768
@@ -2768,13 +2768,13 @@ define internal range(i32 0, 2) i32 @isup_calls_packet(ptr noundef %0, ptr nound
   br label %62
 
 62:                                               ; preds = %61, %._crit_edge, %53, %30, %37, %26, %21
-  %.2142 = phi i8 [ %.0140185, %21 ], [ %.0140185, %37 ], [ %.0140185, %30 ], [ %.0140185, %26 ], [ %.0140185, %._crit_edge ], [ %.0140185, %53 ], [ %.3.ph, %61 ]
+  %.2142 = phi i8 [ %.0140185, %37 ], [ %.0140185, %30 ], [ %.0140185, %26 ], [ %.0140185, %21 ], [ %.3.ph, %61 ], [ %.0140185, %._crit_edge ], [ %.0140185, %53 ]
   %63 = getelementptr inbounds nuw i8, ptr %.0144184, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not151 = icmp eq ptr %64, null
   br i1 %.not151, label %.thread165, label %21, !llvm.loop !18
 
-.thread161:                                       ; preds = %56, %59
+.thread161:                                       ; preds = %59, %56
   %65 = icmp eq ptr %22, null
   br i1 %65, label %.thread165, label %.thread175
 
@@ -3472,7 +3472,7 @@ change_frame_graph.exit:                          ; preds = %159, %162, %165, %1
   %.not22.not.i = icmp eq ptr %207, null
   br i1 %.not22.not.i, label %208, label %append_to_frame_graph.exit
 
-208:                                              ; preds = %204, %198, %201
+208:                                              ; preds = %204, %201, %198
   %209 = getelementptr inbounds nuw i8, ptr %182, i64 96
   %210 = load i16, ptr %209, align 8
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -3731,7 +3731,7 @@ copy_address.exit:                                ; preds = %255, %273
   br label %348
 
 348:                                              ; preds = %340, %346, %313
-  %.1231 = phi ptr [ %345, %340 ], [ %318, %313 ], [ %347, %346 ]
+  %.1231 = phi ptr [ %318, %313 ], [ %345, %340 ], [ %347, %346 ]
   %.not252 = icmp eq ptr %.1231, null
   br i1 %.not252, label %.thread284, label %352
 
@@ -4485,7 +4485,7 @@ append_to_frame_graph.exit:                       ; preds = %284, %278, %286
   br label %294
 
 294:                                              ; preds = %12, %19, %13, %append_to_frame_graph.exit
-  %.0 = phi i32 [ 0, %13 ], [ 1, %append_to_frame_graph.exit ], [ 0, %19 ], [ 0, %12 ]
+  %.0 = phi i32 [ 1, %append_to_frame_graph.exit ], [ 0, %13 ], [ 0, %19 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -4758,7 +4758,7 @@ append_to_frame_graph.exit:                       ; preds = %102
   tail call void @g_free(ptr noundef %107)
   br label %h245_add_label.exit
 
-112:                                              ; preds = %102, %88, %99
+112:                                              ; preds = %102, %99, %88
   %113 = getelementptr inbounds nuw i8, ptr %80, i64 96
   %114 = load i16, ptr %113, align 8
   tail call fastcc void @add_to_graph(ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %96, ptr noundef nonnull %97, i16 noundef zeroext %114, ptr noundef nonnull %12, ptr noundef nonnull %16, i16 noundef zeroext 1)
@@ -5593,11 +5593,11 @@ is_mgcp_signal.exit248.thread:                    ; preds = %262, %is_mgcp_signa
   br label %.thread287
 
 is_mgcp_signal.exit232.thread:                    ; preds = %197, %is_mgcp_signal.exit232.thread278, %301, %298, %221, %220
-  %.1196 = phi ptr [ %182, %220 ], [ %182, %221 ], [ %182, %is_mgcp_signal.exit232.thread278 ], [ %.2197, %298 ], [ %.2197, %301 ], [ %182, %197 ]
+  %.1196 = phi ptr [ %182, %220 ], [ %182, %221 ], [ %.2197, %298 ], [ %.2197, %301 ], [ %182, %is_mgcp_signal.exit232.thread278 ], [ %182, %197 ]
   %314 = icmp eq ptr %.1196, null
   br i1 %314, label %.thread287, label %321
 
-.thread287:                                       ; preds = %304, %311, %313, %307, %is_mgcp_signal.exit232.thread
+.thread287:                                       ; preds = %311, %304, %313, %307, %is_mgcp_signal.exit232.thread
   %315 = tail call noalias ptr @g_strdup(ptr noundef nonnull %175)
   br label %321
 
@@ -5695,7 +5695,7 @@ append_to_frame_graph.exit:                       ; preds = %354, %356, %359, %3
   br label %.thread259
 
 .thread259:                                       ; preds = %.thread260, %86, %89, %5, %82, %is_mgcp_signal.exit.thread, %368
-  %.0 = phi i32 [ 0, %is_mgcp_signal.exit.thread ], [ 1, %368 ], [ 0, %5 ], [ 0, %86 ], [ 0, %82 ], [ 0, %89 ], [ 0, %.thread260 ]
+  %.0 = phi i32 [ 1, %368 ], [ 0, %is_mgcp_signal.exit.thread ], [ 0, %82 ], [ 0, %5 ], [ 0, %89 ], [ 0, %86 ], [ 0, %.thread260 ]
   ret i32 %.0
 }
 
@@ -6937,15 +6937,15 @@ addresses_equal.exit:                             ; preds = %67, %60, %55, %49, 
   ]
 
 addresses_equal.exit429:                          ; preds = %106, %99, %95, %89, %82, %addresses_equal.exit, %117, %117, %78, %78, %35, %35, %31, %112, %22
-  %.2390 = phi ptr [ %29, %35 ], [ %29, %35 ], [ %29, %31 ], [ %29, %78 ], [ %29, %78 ], [ %29, %117 ], [ %29, %117 ], [ %29, %112 ], [ %29, %89 ], [ %.0388449, %22 ], [ %29, %addresses_equal.exit ], [ %29, %82 ], [ %29, %95 ], [ %29, %99 ], [ %29, %106 ]
+  %.2390 = phi ptr [ %29, %35 ], [ %29, %31 ], [ %29, %78 ], [ %29, %117 ], [ %29, %112 ], [ %.0388449, %22 ], [ %29, %35 ], [ %29, %78 ], [ %29, %117 ], [ %29, %addresses_equal.exit ], [ %29, %82 ], [ %29, %89 ], [ %29, %95 ], [ %29, %99 ], [ %29, %106 ]
   %119 = getelementptr inbounds nuw i8, ptr %.0391448, i64 8
   %120 = load ptr, ptr %119, align 8
   %.not = icmp eq ptr %120, null
   br i1 %.not, label %._crit_edge, label %22, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %addresses_equal.exit429, %35, %78, %117, %5
-  %.1389 = phi ptr [ null, %5 ], [ %29, %35 ], [ %29, %78 ], [ %29, %117 ], [ %.2390, %addresses_equal.exit429 ]
-  %.0 = phi ptr [ null, %5 ], [ %23, %35 ], [ %23, %78 ], [ %23, %117 ], [ null, %addresses_equal.exit429 ]
+  %.1389 = phi ptr [ null, %5 ], [ %29, %117 ], [ %29, %78 ], [ %29, %35 ], [ %.2390, %addresses_equal.exit429 ]
+  %.0 = phi ptr [ null, %5 ], [ %23, %117 ], [ %23, %78 ], [ %23, %35 ], [ null, %addresses_equal.exit429 ]
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %122 = load i8, ptr %121, align 1
   %.off = add i8 %122, -1
@@ -7403,8 +7403,8 @@ copy_address.exit434:                             ; preds = %copy_address.exit43
   br label %372
 
 372:                                              ; preds = %.sink.split, %361, %127
-  %.3 = phi ptr [ %.4, %361 ], [ %.1389, %127 ], [ %.4, %.sink.split ]
-  %.1 = phi ptr [ %.2, %361 ], [ %.0, %127 ], [ %.2, %.sink.split ]
+  %.3 = phi ptr [ %.1389, %127 ], [ %.4, %361 ], [ %.4, %.sink.split ]
+  %.1 = phi ptr [ %.0, %127 ], [ %.2, %361 ], [ %.2, %.sink.split ]
   %373 = getelementptr inbounds nuw i8, ptr %3, i64 84
   %374 = load i32, ptr %373, align 4
   %375 = icmp eq i32 %374, 1
@@ -7697,7 +7697,7 @@ copy_address.exit437:                             ; preds = %copy_address.exit43
   br label %547
 
 547:                                              ; preds = %501, %531, %525, %539, %537, %397, %503, %495
-  %.2395 = phi ptr [ %403, %397 ], [ %498, %495 ], [ %516, %503 ], [ null, %537 ], [ %532, %531 ], [ null, %525 ], [ %542, %539 ], [ null, %501 ]
+  %.2395 = phi ptr [ %403, %397 ], [ %498, %495 ], [ %516, %503 ], [ %532, %531 ], [ null, %525 ], [ %542, %539 ], [ null, %537 ], [ null, %501 ]
   tail call void @g_free(ptr noundef %.2395)
   %548 = tail call ptr @g_string_free(ptr noundef %9, i32 noundef 1)
   %549 = getelementptr inbounds nuw i8, ptr %8, i64 232
@@ -8270,7 +8270,7 @@ copy_address.exit:                                ; preds = %66, %78
   br label %127
 
 127:                                              ; preds = %47, %51, %5, %10, %16, %117
-  %.0 = phi i32 [ 1, %117 ], [ 0, %5 ], [ 0, %16 ], [ 0, %10 ], [ 0, %51 ], [ 0, %47 ]
+  %.0 = phi i32 [ 1, %117 ], [ 0, %16 ], [ 0, %10 ], [ 0, %5 ], [ 0, %51 ], [ 0, %47 ]
   ret i32 %.0
 }
 

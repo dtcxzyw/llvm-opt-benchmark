@@ -116,7 +116,7 @@ define internal range(i32 -30, 1) i32 @archive_write_v7tar_options(ptr noundef %
   br label %19
 
 19:                                               ; preds = %3, %13, %16
-  %.011 = phi i32 [ %., %16 ], [ -25, %13 ], [ -20, %3 ]
+  %.011 = phi i32 [ -25, %13 ], [ %., %16 ], [ -20, %3 ]
   ret i32 %.011
 }
 
@@ -309,7 +309,7 @@ define internal range(i32 -2147483648, 1) i32 @archive_write_v7tar_header(ptr no
   br label %85
 
 85:                                               ; preds = %82, %76
-  %.3.ph.i = phi i32 [ -20, %82 ], [ %.2.i, %76 ]
+  %.3.ph.i = phi i32 [ %.2.i, %76 ], [ -20, %82 ]
   %.pr.i = load i64, ptr %3, align 8, !tbaa !35
   %.not75.i = icmp eq i64 %.pr.i, 0
   br i1 %.not75.i, label %93, label %.thread.i
@@ -599,7 +599,7 @@ format_number.exit107.i:                          ; preds = %172, %170
   br label %format_header_v7tar.exit
 
 format_header_v7tar.exit.thread:                  ; preds = %78, %67, %52
-  %.str.6.sink = phi ptr [ @.str.9, %67 ], [ @.str.6, %52 ], [ @.str.9, %78 ]
+  %.str.6.sink = phi ptr [ @.str.6, %52 ], [ @.str.9, %67 ], [ @.str.9, %78 ]
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull %.str.6.sink) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

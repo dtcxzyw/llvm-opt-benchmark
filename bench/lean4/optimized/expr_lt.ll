@@ -155,7 +155,7 @@ define hidden noundef zeroext i1 @_ZN4lean5is_ltERKNS_4exprES2_bPKNS_9local_ctxE
   br i1 %65, label %73, label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %61, %148, %143, %138, %133, %79
-  %.sink289 = phi i64 [ %.291, %148 ], [ 16, %143 ], [ %., %133 ], [ 24, %79 ], [ %.290, %138 ], [ 16, %61 ]
+  %.sink289 = phi i64 [ 24, %79 ], [ %., %133 ], [ %.290, %138 ], [ 16, %143 ], [ %.291, %148 ], [ 16, %61 ]
   %66 = load ptr, ptr %.tr173, align 8, !tbaa !3
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.sink289
   %68 = load ptr, ptr %.tr122174, align 8, !tbaa !3
@@ -385,7 +385,7 @@ _ZNK4lean9local_ctx15find_local_declERKNS_4exprE.exit: ; preds = %164
   unreachable
 
 _ZN4leanltERKNS_3natES2_.exit:                    ; preds = %tailrecurse.backedge, %19, %35, %37, %4, %.critedge.i.i.i117, %110, %.critedge.i.i.i, %58, %187, %197, %188, %154, %129, %122, %94, %73, %43, %16
-  %.0101 = phi i1 [ %204, %197 ], [ %17, %16 ], [ %59, %58 ], [ %.2, %187 ], [ %196, %188 ], [ %47, %43 ], [ %158, %154 ], [ %112, %.critedge.i.i.i117 ], [ %78, %73 ], [ %111, %110 ], [ %100, %94 ], [ %60, %.critedge.i.i.i ], [ %128, %122 ], [ %132, %129 ], [ false, %4 ], [ false, %35 ], [ true, %19 ], [ false, %tailrecurse.backedge ], [ false, %37 ]
+  %.0101 = phi i1 [ %17, %16 ], [ %47, %43 ], [ %78, %73 ], [ %100, %94 ], [ %128, %122 ], [ %132, %129 ], [ %158, %154 ], [ %196, %188 ], [ %.2, %187 ], [ %204, %197 ], [ %59, %58 ], [ %60, %.critedge.i.i.i ], [ %111, %110 ], [ %112, %.critedge.i.i.i117 ], [ false, %4 ], [ false, %tailrecurse.backedge ], [ true, %19 ], [ false, %35 ], [ false, %37 ]
   ret i1 %.0101
 }
 
@@ -486,7 +486,7 @@ _ZN4leanltINS_4nameENS_10data_valueEEEbRKNS_8pair_refIT_T0_EES8_.exit24: ; preds
   br label %.critedge
 
 .critedge:                                        ; preds = %41, %21, %_ZN4leanltINS_4nameENS_10data_valueEEEbRKNS_8pair_refIT_T0_EES8_.exit24, %_ZN4leanltINS_4nameENS_10data_valueEEEbRKNS_8pair_refIT_T0_EES8_.exit, %.lr.ph, %._crit_edge
-  %.1 = phi i1 [ %.not29, %._crit_edge ], [ false, %_ZN4leanltINS_4nameENS_10data_valueEEEbRKNS_8pair_refIT_T0_EES8_.exit24 ], [ true, %21 ], [ false, %41 ], [ false, %.lr.ph ], [ true, %_ZN4leanltINS_4nameENS_10data_valueEEEbRKNS_8pair_refIT_T0_EES8_.exit ]
+  %.1 = phi i1 [ %.not29, %._crit_edge ], [ true, %_ZN4leanltINS_4nameENS_10data_valueEEEbRKNS_8pair_refIT_T0_EES8_.exit ], [ false, %_ZN4leanltINS_4nameENS_10data_valueEEEbRKNS_8pair_refIT_T0_EES8_.exit24 ], [ true, %21 ], [ false, %41 ], [ false, %.lr.ph ]
   ret i1 %.1
 }
 
@@ -734,7 +734,7 @@ tailrecurse.backedge:                             ; preds = %57, %75, %80
   unreachable
 
 _ZN4lean4kindERKNS_5levelE.exit44:                ; preds = %tailrecurse.backedge, %_ZN4lean4kindERKNS_5levelE.exit47, %47, %51, %65, %69, %2, %29, %_ZN4lean4kindERKNS_5levelE.exit41, %_ZN4lean4kindERKNS_5levelE.exit35, %_ZN4lean4kindERKNS_5levelE.exit38, %40
-  %.028 = phi i1 [ false, %_ZN4lean4kindERKNS_5levelE.exit38 ], [ %32, %29 ], [ false, %_ZN4lean4kindERKNS_5levelE.exit41 ], [ false, %_ZN4lean4kindERKNS_5levelE.exit35 ], [ %46, %40 ], [ false, %2 ], [ true, %47 ], [ true, %65 ], [ false, %_ZN4lean4kindERKNS_5levelE.exit47 ], [ false, %tailrecurse.backedge ], [ false, %51 ], [ false, %69 ]
+  %.028 = phi i1 [ %46, %40 ], [ false, %_ZN4lean4kindERKNS_5levelE.exit38 ], [ false, %_ZN4lean4kindERKNS_5levelE.exit35 ], [ %32, %29 ], [ false, %_ZN4lean4kindERKNS_5levelE.exit41 ], [ false, %2 ], [ false, %tailrecurse.backedge ], [ false, %_ZN4lean4kindERKNS_5levelE.exit47 ], [ true, %47 ], [ false, %51 ], [ true, %65 ], [ false, %69 ]
   ret i1 %.028
 }
 
@@ -790,7 +790,7 @@ tailrecurse:                                      ; preds = %17
   br i1 %.not, label %.lr.ph, label %tailrecurse._crit_edge
 
 .loopexit:                                        ; preds = %17, %13, %.lr.ph, %tailrecurse._crit_edge
-  %.0 = phi i1 [ %.not11, %tailrecurse._crit_edge ], [ true, %13 ], [ false, %.lr.ph ], [ false, %17 ]
+  %.0 = phi i1 [ %.not11, %tailrecurse._crit_edge ], [ false, %17 ], [ true, %13 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -869,7 +869,7 @@ define hidden noundef zeroext i1 @_ZN4lean21is_lt_no_level_paramsERKNS_4exprES2_
   br i1 %34, label %42, label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %31, %136, %114, %104, %48
-  %.sink284 = phi i64 [ 32, %136 ], [ 24, %114 ], [ 24, %48 ], [ 16, %104 ], [ 16, %31 ]
+  %.sink284 = phi i64 [ 24, %48 ], [ 16, %104 ], [ 24, %114 ], [ 32, %136 ], [ 16, %31 ]
   %35 = load ptr, ptr %.tr134, align 8, !tbaa !3
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.sink284
   %37 = load ptr, ptr %.tr72135, align 8, !tbaa !3
@@ -1056,7 +1056,7 @@ tailrecurse.backedge:                             ; preds = %31, %136, %114, %10
   unreachable
 
 _ZN4leanltERKNS_3natES2_.exit:                    ; preds = %tailrecurse.backedge, %100, %104, %110, %114, %120, %124, %130, %136, %2, %.critedge.i.i.i69, %78, %.critedge.i.i.i, %28, %153, %146, %142, %96, %89, %62, %42, %15, %12
-  %.0 = phi i1 [ %159, %153 ], [ %13, %12 ], [ %18, %15 ], [ %29, %28 ], [ %80, %.critedge.i.i.i69 ], [ %47, %42 ], [ %79, %78 ], [ %68, %62 ], [ %30, %.critedge.i.i.i ], [ %95, %89 ], [ %99, %96 ], [ %152, %146 ], [ %145, %142 ], [ false, %2 ], [ false, %124 ], [ true, %120 ], [ false, %114 ], [ true, %110 ], [ false, %104 ], [ true, %100 ], [ false, %tailrecurse.backedge ], [ true, %130 ], [ false, %136 ]
+  %.0 = phi i1 [ %13, %12 ], [ %18, %15 ], [ %47, %42 ], [ %68, %62 ], [ %95, %89 ], [ %99, %96 ], [ %145, %142 ], [ %152, %146 ], [ %159, %153 ], [ %29, %28 ], [ %30, %.critedge.i.i.i ], [ %79, %78 ], [ %80, %.critedge.i.i.i69 ], [ false, %2 ], [ false, %tailrecurse.backedge ], [ true, %100 ], [ false, %104 ], [ true, %110 ], [ false, %114 ], [ true, %120 ], [ false, %124 ], [ true, %130 ], [ false, %136 ]
   ret i1 %.0
 }
 

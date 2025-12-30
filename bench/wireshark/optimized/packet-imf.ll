@@ -478,7 +478,7 @@ define hidden i32 @imf_find_field_end(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %.lr.ph, %26, %.loopexit.sink.split, %4, %19, %22, %16
-  %.0 = phi i32 [ %15, %22 ], [ %15, %19 ], [ %7, %16 ], [ -1, %4 ], [ %.0.ph, %.loopexit.sink.split ], [ %15, %17 ], [ -1, %26 ], [ -1, %.lr.ph ]
+  %.0 = phi i32 [ %7, %16 ], [ %15, %22 ], [ %15, %19 ], [ -1, %4 ], [ %.0.ph, %.loopexit.sink.split ], [ %15, %17 ], [ -1, %.lr.ph ], [ -1, %26 ]
   ret i32 %.0
 }
 
@@ -843,8 +843,8 @@ define internal noundef zeroext i1 @header_fields_update_cb(ptr noundef readonly
   br label %20
 
 20:                                               ; preds = %15, %17, %13, %5
-  %.sink = phi ptr [ %6, %5 ], [ %19, %17 ], [ %14, %13 ], [ null, %15 ]
-  %.0 = phi i1 [ false, %5 ], [ false, %17 ], [ false, %13 ], [ true, %15 ]
+  %.sink = phi ptr [ %19, %17 ], [ %14, %13 ], [ %6, %5 ], [ null, %15 ]
+  %.0 = phi i1 [ false, %17 ], [ false, %13 ], [ false, %5 ], [ true, %15 ]
   store ptr %.sink, ptr %1, align 8
   ret i1 %.0
 }
@@ -1395,7 +1395,7 @@ define internal i32 @dissect_imf(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %dissect_imf_content_type.exit
 
 dissect_imf_content_type.exit:                    ; preds = %137, %126, %._crit_edge.i, %149, %152, %145
-  %.1143 = phi ptr [ %.0142168, %149 ], [ %148, %145 ], [ %.0142168, %152 ], [ %.0142168, %._crit_edge.i ], [ %.0142168, %126 ], [ %.0142168, %137 ]
+  %.1143 = phi ptr [ %148, %145 ], [ %.0142168, %152 ], [ %.0142168, %149 ], [ %.0142168, %._crit_edge.i ], [ %.0142168, %126 ], [ %.0142168, %137 ]
   %154 = load i32, ptr %7, align 4
   %155 = load i8, ptr %8, align 1, !range !16, !noundef !17
   %156 = trunc nuw i8 %155 to i1
@@ -1413,8 +1413,8 @@ thread-pre-split:                                 ; preds = %dissect_imf_content
   br label %.sink.split
 
 .sink.split:                                      ; preds = %32, %thread-pre-split, %._crit_edge171
-  %storemerge = phi i32 [ %spec.select231, %thread-pre-split ], [ %spec.select228, %._crit_edge171 ], [ 0, %32 ]
-  %.0142.lcssa.ph212221 = phi ptr [ %.1143, %thread-pre-split ], [ %.0142168, %._crit_edge171 ], [ %.0142168, %32 ]
+  %storemerge = phi i32 [ %spec.select228, %._crit_edge171 ], [ %spec.select231, %thread-pre-split ], [ 0, %32 ]
+  %.0142.lcssa.ph212221 = phi ptr [ %.0142168, %._crit_edge171 ], [ %.1143, %thread-pre-split ], [ %.0142168, %32 ]
   store i32 %storemerge, ptr %7, align 4
   %159 = load ptr, ptr %5, align 8
   %160 = icmp ne ptr %159, null
@@ -1740,7 +1740,7 @@ define internal void @dissect_imf_mailbox(ptr noundef %0, i32 noundef %1, i32 no
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %21, %23, %._crit_edge
-  %.0.lcssa43 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %23 ], [ %8, %21 ]
+  %.0.lcssa43 = phi i32 [ %.0.lcssa, %23 ], [ %.0.lcssa, %._crit_edge ], [ %8, %21 ]
   %28 = add nuw i32 %8, 1
   %.neg34 = xor i32 %8, -1
   %.neg = add i32 %2, %.neg34

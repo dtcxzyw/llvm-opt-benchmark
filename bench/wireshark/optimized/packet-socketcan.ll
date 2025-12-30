@@ -1093,7 +1093,7 @@ define internal fastcc i32 @dissect_socketcan_common(ptr noundef %0, ptr noundef
   br label %324
 
 .thread:                                          ; preds = %17, %28, %34, %5
-  %.0152 = phi i32 [ %4, %5 ], [ 0, %34 ], [ 2, %17 ], [ 1, %28 ]
+  %.0152 = phi i32 [ %4, %5 ], [ 0, %34 ], [ 1, %28 ], [ 2, %17 ]
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
@@ -1145,7 +1145,7 @@ define internal fastcc i32 @dissect_socketcan_common(ptr noundef %0, ptr noundef
   br i1 %or.cond.i, label %.thread39.sink.split.i, label %.thread.i
 
 .thread.i:                                        ; preds = %62, %60, %58
-  %.02138.i = phi ptr [ null, %60 ], [ %61, %62 ], [ null, %58 ]
+  %.02138.i = phi ptr [ %61, %62 ], [ null, %60 ], [ null, %58 ]
   %66 = load ptr, ptr @data_can_interfaces_by_id, align 8
   %.not34.i = icmp eq ptr %66, null
   br i1 %.not34.i, label %71, label %67
@@ -1180,7 +1180,7 @@ define internal fastcc i32 @dissect_socketcan_common(ptr noundef %0, ptr noundef
   br label %get_bus_id.exit
 
 get_bus_id.exit:                                  ; preds = %.thread, %51, %56, %71, %76, %.thread39.sink.split.i
-  %82 = phi i16 [ 0, %.thread ], [ 0, %76 ], [ 0, %71 ], [ 0, %51 ], [ 0, %56 ], [ %81, %.thread39.sink.split.i ]
+  %82 = phi i16 [ 0, %.thread ], [ 0, %56 ], [ 0, %51 ], [ 0, %76 ], [ 0, %71 ], [ %81, %.thread39.sink.split.i ]
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i16 %82, ptr %83, align 4
   %84 = icmp eq i32 %.0152, 2
@@ -1428,8 +1428,8 @@ proto_item_set_hidden.exit192:                    ; preds = %194, %191, %187, %1
   br label %207
 
 207:                                              ; preds = %proto_item_set_hidden.exit192, %202, %204
-  %208 = phi i32 [ %205, %204 ], [ %198, %202 ], [ %198, %proto_item_set_hidden.exit192 ]
-  %.0160 = phi ptr [ %206, %204 ], [ %203, %202 ], [ @dissect_socketcan_common.can_err_flags, %proto_item_set_hidden.exit192 ]
+  %208 = phi i32 [ %198, %202 ], [ %205, %204 ], [ %198, %proto_item_set_hidden.exit192 ]
+  %.0160 = phi ptr [ %203, %202 ], [ %206, %204 ], [ @dissect_socketcan_common.can_err_flags, %proto_item_set_hidden.exit192 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %209 = load ptr, ptr @data_sender_receiver, align 8
   %210 = icmp eq ptr %209, null
@@ -1555,7 +1555,7 @@ socketcan_set_source_and_destination_columns.exit199: ; preds = %ht_lookup_sende
   br label %269
 
 269:                                              ; preds = %258, %254, %266
-  %.1155 = phi ptr [ %.0154205, %254 ], [ @.str.199, %266 ], [ %.0154205, %258 ]
+  %.1155 = phi ptr [ @.str.199, %266 ], [ %.0154205, %254 ], [ %.0154205, %258 ]
   %270 = getelementptr i8, ptr %.0156204, i64 8
   %271 = load ptr, ptr %270, align 8
   %.not173 = icmp eq ptr %271, null
@@ -1657,7 +1657,7 @@ socketcan_set_source_and_destination_columns.exit199: ; preds = %ht_lookup_sende
   br label %324
 
 324:                                              ; preds = %20, %31, %37, %322
-  %.1 = phi i32 [ %323, %322 ], [ %38, %37 ], [ %21, %20 ], [ %32, %31 ]
+  %.1 = phi i32 [ %323, %322 ], [ %21, %20 ], [ %32, %31 ], [ %38, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.1
 }

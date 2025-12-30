@@ -114,7 +114,7 @@ define internal noundef i32 @plm_slurm_init() #0 {
   br label %9
 
 9:                                                ; preds = %.sink.split, %2, %2, %0
-  %.0 = phi i32 [ %7, %2 ], [ %7, %2 ], [ %1, %0 ], [ %.sink14, %.sink.split ]
+  %.0 = phi i32 [ %1, %0 ], [ %7, %2 ], [ %7, %2 ], [ %.sink14, %.sink.split ]
   ret i32 %.0
 }
 
@@ -201,7 +201,7 @@ define internal noundef i32 @plm_slurm_launch_job(ptr noundef %0) #0 {
   br label %53
 
 53:                                               ; preds = %31, %48, %42, %32, %9, %26, %20, %10
-  %.sink = phi i32 [ 5, %9 ], [ 5, %10 ], [ 5, %20 ], [ 5, %26 ], [ 1, %32 ], [ 1, %42 ], [ 1, %48 ], [ 1, %31 ]
+  %.sink = phi i32 [ 5, %10 ], [ 5, %20 ], [ 5, %26 ], [ 5, %9 ], [ 1, %32 ], [ 1, %42 ], [ 1, %48 ], [ 1, %31 ]
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8, !tbaa !39
   tail call void %54(ptr noundef nonnull %0, i32 noundef %.sink) #17
   ret i32 0
@@ -976,8 +976,8 @@ pmix_pointer_array_get_item.exit168:              ; preds = %262, %309
   br label %343
 
 343:                                              ; preds = %307, %334, %23, %337, %28, %339, %261, %220, %88
-  %.0115 = phi i1 [ true, %28 ], [ true, %23 ], [ true, %88 ], [ true, %220 ], [ true, %261 ], [ true, %307 ], [ true, %337 ], [ true, %334 ], [ false, %339 ]
-  %.0113 = phi ptr [ null, %28 ], [ null, %23 ], [ null, %88 ], [ null, %220 ], [ null, %261 ], [ %.1114182, %307 ], [ %.5, %337 ], [ %.5, %334 ], [ %.5, %339 ]
+  %.0115 = phi i1 [ true, %28 ], [ true, %88 ], [ true, %220 ], [ true, %261 ], [ true, %307 ], [ true, %337 ], [ false, %339 ], [ true, %23 ], [ true, %334 ]
+  %.0113 = phi ptr [ null, %28 ], [ null, %88 ], [ null, %220 ], [ null, %261 ], [ %.1114182, %307 ], [ %.5, %337 ], [ %.5, %339 ], [ null, %23 ], [ %.5, %334 ]
   %344 = load ptr, ptr %4, align 8, !tbaa !42
   %.not152 = icmp eq ptr %344, null
   br i1 %.not152, label %346, label %345

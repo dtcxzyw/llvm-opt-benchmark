@@ -2287,12 +2287,12 @@ ExecHashGetBucketAndBatch.exit.thread:            ; preds = %ExecParallelHashPus
   call fastcc void @ExecParallelHashIncreaseNumBatches(ptr noundef nonnull %0)
   br label %ExecParallelHashPushTuple.exit.backedge
 
+ExecParallelHashPushTuple.exit.backedge:          ; preds = %68, %69, %82, %ExecHashGetBucketAndBatch.exit.thread
+  br label %ExecParallelHashPushTuple.exit
+
 69:                                               ; preds = %66
   call fastcc void @ExecParallelHashIncreaseNumBuckets(ptr noundef nonnull %0)
   br label %ExecParallelHashPushTuple.exit.backedge
-
-ExecParallelHashPushTuple.exit.backedge:          ; preds = %69, %68, %82, %ExecHashGetBucketAndBatch.exit.thread
-  br label %ExecParallelHashPushTuple.exit
 
 70:                                               ; preds = %59
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 48
@@ -2555,7 +2555,7 @@ define internal fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef %0, i64 nound
   br label %119
 
 119:                                              ; preds = %36, %37, %117, %83, %55, %20
-  %.0 = phi ptr [ %27, %20 ], [ %118, %117 ], [ null, %55 ], [ null, %83 ], [ null, %36 ], [ null, %37 ]
+  %.0 = phi ptr [ %27, %20 ], [ null, %55 ], [ null, %83 ], [ %118, %117 ], [ null, %37 ], [ null, %36 ]
   ret ptr %.0
 }
 
@@ -2658,7 +2658,7 @@ define dso_local noundef zeroext i1 @ExecScanHashBucket(ptr noundef captures(non
   br label %29
 
 29:                                               ; preds = %2, %15, %22
-  %.025.in = phi ptr [ %28, %22 ], [ %21, %15 ], [ %9, %2 ]
+  %.025.in = phi ptr [ %21, %15 ], [ %28, %22 ], [ %9, %2 ]
   %.12641 = load ptr, ptr %.025.in, align 8
   %.not3042.not = icmp eq ptr %.12641, null
   br i1 %.not3042.not, label %.loopexit, label %.lr.ph
@@ -4520,7 +4520,7 @@ ExecParallelHashMergeCounters.exit:               ; preds = %.lr.ph.i115, %ExecP
   br label %459
 
 459:                                              ; preds = %._crit_edge146, %.thread
-  %.sink = phi i32 [ %.mux, %._crit_edge146 ], [ 0, %.thread ]
+  %.sink = phi i32 [ 0, %.thread ], [ %.mux, %._crit_edge146 ]
   %460 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %.sink, ptr %460, align 4
   %461 = load ptr, ptr %381, align 8

@@ -808,7 +808,7 @@ terminate.lpad.i.i155:                            ; preds = %if.then.i.i.i153
   unreachable
 
 eh.resume:                                        ; preds = %if.then.i.i.i153, %lpad65, %if.then.i.i.i147, %ehcleanup, %if.then.i.i.i128, %lpad33, %if.then.i.i.i122, %lpad24, %if.then.i.i.i116, %lpad14, %if.then.i.i.i110, %lpad
-  %.pn2 = phi { ptr, i32 } [ %.pn, %if.then.i.i.i147 ], [ %70, %if.then.i.i.i128 ], [ %82, %if.then.i.i.i153 ], [ %66, %if.then.i.i.i122 ], [ %62, %if.then.i.i.i116 ], [ %58, %if.then.i.i.i110 ], [ %58, %lpad ], [ %62, %lpad14 ], [ %66, %lpad24 ], [ %70, %lpad33 ], [ %.pn, %ehcleanup ], [ %82, %lpad65 ]
+  %.pn2 = phi { ptr, i32 } [ %58, %lpad ], [ %58, %if.then.i.i.i110 ], [ %62, %lpad14 ], [ %62, %if.then.i.i.i116 ], [ %66, %lpad24 ], [ %66, %if.then.i.i.i122 ], [ %70, %lpad33 ], [ %70, %if.then.i.i.i128 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i147 ], [ %82, %lpad65 ], [ %82, %if.then.i.i.i153 ]
   resume { ptr, i32 } %.pn2
 }
 
@@ -1244,7 +1244,7 @@ terminate.lpad.i.i228:                            ; preds = %if.then.i.i.i226
   unreachable
 
 eh.resume:                                        ; preds = %if.then.i.i.i226, %lpad102, %if.then.i.i.i220, %lpad76, %if.then.i.i.i214, %lpad56, %if.then.i.i.i208, %lpad19, %if.then.i.i.i202, %lpad
-  %.pn = phi { ptr, i32 } [ %58, %if.then.i.i.i220 ], [ %54, %if.then.i.i.i214 ], [ %50, %if.then.i.i.i208 ], [ %46, %if.then.i.i.i202 ], [ %46, %lpad ], [ %50, %lpad19 ], [ %54, %lpad56 ], [ %58, %lpad76 ], [ %62, %lpad102 ], [ %62, %if.then.i.i.i226 ]
+  %.pn = phi { ptr, i32 } [ %46, %lpad ], [ %46, %if.then.i.i.i202 ], [ %50, %lpad19 ], [ %50, %if.then.i.i.i208 ], [ %54, %lpad56 ], [ %54, %if.then.i.i.i214 ], [ %58, %lpad76 ], [ %58, %if.then.i.i.i220 ], [ %62, %lpad102 ], [ %62, %if.then.i.i.i226 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1354,7 +1354,7 @@ land.rhs.i:                                       ; preds = %_ZN5eastl7variantIJ
   br label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.rhs.i, %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit
-  %8 = phi i1 [ %cmp2.i, %land.rhs.i ], [ false, %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit ]
+  %8 = phi i1 [ false, %_ZN5eastl7variantIJ10TestObjectEED2Ev.exit ], [ %cmp2.i, %land.rhs.i ]
   %call51 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %8, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 483, ptr noundef nonnull @.str.7)
   store i64 0, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 0, ptr @_ZN10TestObject12sTOCtorCountE, align 8
@@ -1512,7 +1512,7 @@ terminate.lpad.i.i82:                             ; preds = %if.then.i.i.i80
   unreachable
 
 eh.resume:                                        ; preds = %_ZN5eastl15variant_storageILb0EJ10TestObjectEE8DoOpImplIS1_EEvNS2_9StorageOpEPT_S6_.exit131, %if.then.i.i.i80, %lpad54
-  %.pn = phi { ptr, i32 } [ %25, %_ZN5eastl15variant_storageILb0EJ10TestObjectEE8DoOpImplIS1_EEvNS2_9StorageOpEPT_S6_.exit131 ], [ %28, %if.then.i.i.i80 ], [ %28, %lpad54 ]
+  %.pn = phi { ptr, i32 } [ %25, %_ZN5eastl15variant_storageILb0EJ10TestObjectEE8DoOpImplIS1_EEvNS2_9StorageOpEPT_S6_.exit131 ], [ %28, %lpad54 ], [ %28, %if.then.i.i.i80 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -2011,7 +2011,7 @@ for.cond.backedge.i.i:                            ; preds = %call1.i.i.i.i.i.i.i
   br i1 %cmp1.not.i.i, label %invoke.cont41, label %for.body.i.i, !llvm.loop !8
 
 invoke.cont41:                                    ; preds = %for.cond.backedge.i.i, %call1.i.i.i.i.i.i.i.noexc, %for.body.i.i, %arraydestroy.done28, %invoke.cont38
-  %retval.0.i.i = phi i1 [ true, %invoke.cont38 ], [ true, %arraydestroy.done28 ], [ false, %for.body.i.i ], [ true, %for.cond.backedge.i.i ], [ false, %call1.i.i.i.i.i.i.i.noexc ]
+  %retval.0.i.i = phi i1 [ true, %invoke.cont38 ], [ true, %arraydestroy.done28 ], [ true, %for.cond.backedge.i.i ], [ false, %call1.i.i.i.i.i.i.i.noexc ], [ false, %for.body.i.i ]
   %call44 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 611, ptr noundef nonnull @.str.75)
           to label %invoke.cont43 unwind label %lpad37.loopexit.split-lp
 
@@ -2200,7 +2200,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 common.resume:                                    ; preds = %lpad, %if.then.i.i.i18, %lpad24, %if.then.i.i.i24
-  %common.resume.op = phi { ptr, i32 } [ %11, %if.then.i.i.i24 ], [ %11, %lpad24 ], [ %7, %if.then.i.i.i18 ], [ %7, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %lpad ], [ %7, %if.then.i.i.i18 ], [ %11, %lpad24 ], [ %11, %if.then.i.i.i24 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit: ; preds = %invoke.cont21, %if.then.i.i.i
@@ -2603,7 +2603,7 @@ _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit41: ; preds 
   br i1 %arraydestroy.done77, label %eh.resume, label %arraydestroy.body74
 
 eh.resume:                                        ; preds = %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit41, %if.then.i.i.i, %lpad
-  %.pn = phi { ptr, i32 } [ %6, %if.then.i.i.i ], [ %6, %lpad ], [ %lpad.phi, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit41 ]
+  %.pn = phi { ptr, i32 } [ %6, %lpad ], [ %6, %if.then.i.i.i ], [ %lpad.phi, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit41 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -3109,7 +3109,7 @@ terminate.lpad.i.i189:                            ; preds = %if.then.i.i.i187
   unreachable
 
 eh.resume:                                        ; preds = %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit172, %if.then.i.i.i, %lpad, %if.then.i.i.i187, %ehcleanup, %if.then.i.i.i175, %lpad44
-  %.pn17 = phi { ptr, i32 } [ %2, %lpad ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i187 ], [ %33, %if.then.i.i.i175 ], [ %2, %if.then.i.i.i ], [ %33, %lpad44 ], [ %lpad.phi, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit172 ]
+  %.pn17 = phi { ptr, i32 } [ %33, %lpad44 ], [ %33, %if.then.i.i.i175 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i187 ], [ %2, %lpad ], [ %2, %if.then.i.i.i ], [ %lpad.phi, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEED2Ev.exit172 ]
   resume { ptr, i32 } %.pn17
 }
 
@@ -3824,7 +3824,7 @@ terminate.lpad.i.i219:                            ; preds = %if.then.i.i.i217
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i.i217, %lpad9, %lpad1
-  %.pn = phi { ptr, i32 } [ %61, %lpad1 ], [ %62, %if.then.i.i.i217 ], [ %62, %lpad9 ]
+  %.pn = phi { ptr, i32 } [ %61, %lpad1 ], [ %62, %lpad9 ], [ %62, %if.then.i.i.i217 ]
   %66 = load ptr, ptr %mpHandler.i.i, align 8
   %tobool.not.i.i.i222 = icmp eq ptr %66, null
   br i1 %tobool.not.i.i.i222, label %eh.resume, label %if.then.i.i.i223
@@ -3864,7 +3864,7 @@ terminate.lpad.i.i245:                            ; preds = %if.then.i.i.i243
   unreachable
 
 ehcleanup67:                                      ; preds = %if.then.i.i.i243, %lpad50, %lpad37
-  %.pn2 = phi { ptr, i32 } [ %69, %lpad37 ], [ %70, %if.then.i.i.i243 ], [ %70, %lpad50 ]
+  %.pn2 = phi { ptr, i32 } [ %69, %lpad37 ], [ %70, %lpad50 ], [ %70, %if.then.i.i.i243 ]
   %74 = load ptr, ptr %mpHandler.i.i55, align 8
   %tobool.not.i.i.i248 = icmp eq ptr %74, null
   br i1 %tobool.not.i.i.i248, label %eh.resume, label %if.then.i.i.i249
@@ -3899,7 +3899,7 @@ terminate.lpad.i.i270:                            ; preds = %if.then.i.i.i268
   unreachable
 
 eh.resume:                                        ; preds = %if.then.i.i.i268, %lpad75, %if.then.i.i.i249, %ehcleanup67, %if.then.i.i.i223, %ehcleanup
-  %.pn4.pn = phi { ptr, i32 } [ %.pn2, %if.then.i.i.i249 ], [ %.pn2, %ehcleanup67 ], [ %.pn, %if.then.i.i.i223 ], [ %77, %lpad75 ], [ %77, %if.then.i.i.i268 ], [ %.pn, %ehcleanup ]
+  %.pn4.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i223 ], [ %.pn2, %ehcleanup67 ], [ %.pn2, %if.then.i.i.i249 ], [ %77, %lpad75 ], [ %77, %if.then.i.i.i268 ]
   resume { ptr, i32 } %.pn4.pn
 }
 
@@ -6045,14 +6045,14 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit: ; preds = %if.th
   br label %6
 
 6:                                                ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread
-  %7 = phi ptr [ %spec.select, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit ], [ %add.ptr.i.i79, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread ]
+  %7 = phi ptr [ %add.ptr.i.i79, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit.thread ], [ %spec.select, %_ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit ]
   store i8 0, ptr %7, align 1
   %.pre = load i8, ptr %mRemainingSizeField.i.i, align 1
   br label %if.end10
 
 if.end10:                                         ; preds = %entry, %if.else, %6
-  %8 = phi i8 [ %0, %if.else ], [ %.pre, %6 ], [ %0, %entry ]
-  %n.addr.0 = phi i64 [ %n, %if.else ], [ %n, %6 ], [ %cond.i, %entry ]
+  %8 = phi i8 [ %.pre, %6 ], [ %0, %if.else ], [ %0, %entry ]
+  %n.addr.0 = phi i64 [ %n, %6 ], [ %n, %if.else ], [ %cond.i, %entry ]
   %mRemainingSizeField.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 23
   %tobool.i.i29 = icmp sgt i8 %8, -1
   %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -6574,7 +6574,7 @@ if.end18.i.i:                                     ; preds = %_ZN5eastlltIJiNS_12
   br label %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit
 
 _ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit: ; preds = %if.then.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit21.i.i, %if.else.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit29.i.i, %if.else7.i.i, %if.else9.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.i.i, %if.else13.i.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit45.i.i, %if.end18.i.i
-  %retval.0.i.i = phi ptr [ %add.ptr, %if.end18.i.i ], [ %add.ptr, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit21.i.i ], [ %first, %if.else7.i.i ], [ %add.ptr7, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit29.i.i ], [ %first, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.i.i ], [ %add.ptr7, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit45.i.i ], [ %add.ptr, %if.then.i.i ], [ %add.ptr7, %if.else.i.i ], [ %first, %if.else9.i.i ], [ %add.ptr7, %if.else13.i.i ]
+  %retval.0.i.i = phi ptr [ %first, %if.else7.i.i ], [ %add.ptr, %if.end18.i.i ], [ %add.ptr, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit21.i.i ], [ %add.ptr7, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit29.i.i ], [ %first, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.i.i ], [ %add.ptr7, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit45.i.i ], [ %add.ptr, %if.then.i.i ], [ %add.ptr7, %if.else.i.i ], [ %first, %if.else9.i.i ], [ %add.ptr7, %if.else13.i.i ]
   %call11 = tail call noundef ptr @_ZN5eastl13get_partitionIPNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEES5_EET_S7_S7_RKT0_(ptr noundef nonnull %first, ptr noundef nonnull %last.addr.022, ptr noundef nonnull align 8 dereferenceable(40) %retval.0.i.i)
   %dec = add nsw i64 %kRecursionCount.addr.021, -1
   tail call void @_ZN5eastl8Internal22quick_sort_impl_helperIPNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEElKS6_EEvT_S9_T0_(ptr noundef %call11, ptr noundef nonnull %last.addr.022, i64 noundef %dec)
@@ -6828,7 +6828,7 @@ _ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i:         ; preds = %entry
   br label %_ZN5eastl6invokeINS_4lessIvEEJRKNS_12basic_stringIcNS_9allocatorEEES7_EEEDcOT_DpOT0_.exit
 
 _ZN5eastl6invokeINS_4lessIvEEJRKNS_12basic_stringIcNS_9allocatorEEES7_EEEDcOT_DpOT0_.exit: ; preds = %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i, %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i
-  %cmp.i.i.i.i = phi i1 [ %9, %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i ], [ %6, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i ]
+  %cmp.i.i.i.i = phi i1 [ %6, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i ], [ %9, %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i ]
   ret i1 %cmp.i.i.i.i
 }
 
@@ -7078,7 +7078,7 @@ _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.e
   br label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread39
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread39: ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit, %if.end7.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread
-  %4 = phi i64 [ %childPosition.047, %if.end7.i ], [ %spec.select, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit ], [ %dec37, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread ]
+  %4 = phi i64 [ %dec37, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread ], [ %childPosition.047, %if.end7.i ], [ %spec.select, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit ]
   %add.ptr2 = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %4
   %cmp.not.i = icmp eq i64 %position.addr.045, %4
   br i1 %cmp.not.i, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit, label %if.then.i

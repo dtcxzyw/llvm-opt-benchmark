@@ -563,7 +563,7 @@ define void @lv_draw_sw_blend_image_to_rgb565(ptr noundef readonly %0) local_unn
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %113, %110, %107
-  %.sink334.i = phi i8 [ %112, %110 ], [ %117, %113 ], [ %10, %107 ]
+  %.sink334.i = phi i8 [ %117, %113 ], [ %112, %110 ], [ %10, %107 ]
   %118 = tail call zeroext i16 @lv_color_16_16_mix(i16 noundef zeroext %.0214.us.i, i16 noundef zeroext %108, i8 noundef zeroext %.sink334.i) #3
   store i16 %118, ptr %109, align 2, !tbaa !18
   br label %119
@@ -1071,7 +1071,7 @@ define void @lv_draw_sw_blend_image_to_rgb565(ptr noundef readonly %0) local_unn
   br label %lv_color_24_16_mix.exit.us.i
 
 lv_color_24_16_mix.exit.us.i:                     ; preds = %382, %366, %360
-  %.0.i.us.i = phi i16 [ %416, %382 ], [ %381, %366 ], [ %363, %360 ]
+  %.0.i.us.i = phi i16 [ %381, %366 ], [ %416, %382 ], [ %363, %360 ]
   store i16 %.0.i.us.i, ptr %362, align 2, !tbaa !18
   %indvars.iv.next392.i = add nuw nsw i64 %indvars.iv391.i, 1
   %indvars.iv.next390.i = add nuw nsw i64 %indvars.iv389.i, 4
@@ -1522,7 +1522,7 @@ lv_color_24_16_mix.exit290.us.i:                  ; preds = %547, %534
   br label %.sink.split.i22
 
 .sink.split.i22:                                  ; preds = %689, %686, %685
-  %.sink.i = phi i8 [ %688, %686 ], [ %693, %689 ], [ %591, %685 ]
+  %.sink.i = phi i8 [ %693, %689 ], [ %688, %686 ], [ %591, %685 ]
   %694 = tail call zeroext i16 @lv_color_16_16_mix(i16 noundef zeroext %.0229.us.i, i16 noundef zeroext %683, i8 noundef zeroext %.sink.i) #3
   br label %695
 
@@ -1744,7 +1744,7 @@ lv_color_8_16_mix.exit.us318.i:                   ; preds = %lv_color_8_16_mix.e
   br label %lv_color_8_16_mix.exit262.us.i
 
 lv_color_8_16_mix.exit262.us.i:                   ; preds = %783, %774, %767
-  %.0.i261.us.i = phi i16 [ %808, %783 ], [ %782, %774 ], [ %771, %767 ]
+  %.0.i261.us.i = phi i16 [ %782, %774 ], [ %808, %783 ], [ %771, %767 ]
   store i16 %.0.i261.us.i, ptr %770, align 2, !tbaa !18
   %indvars.iv.next366.i = add nuw nsw i64 %indvars.iv365.i, 1
   %exitcond371.not.i = icmp eq i64 %indvars.iv.next366.i, %wide.trip.count370.i
@@ -2110,7 +2110,7 @@ lv_color_8_16_mix.exit264.us.i:                   ; preds = %827, %819
   br label %lv_color_8_16_mix.exit.us.i
 
 lv_color_8_16_mix.exit.us.i:                      ; preds = %1010, %1001, %994
-  %.0.i.us.i66 = phi i16 [ %1035, %1010 ], [ %1009, %1001 ], [ %998, %994 ]
+  %.0.i.us.i66 = phi i16 [ %1009, %1001 ], [ %1035, %1010 ], [ %998, %994 ]
   store i16 %.0.i.us.i66, ptr %997, align 2, !tbaa !18
   %indvars.iv.next380.i67 = add nuw nsw i64 %indvars.iv379.i65, 1
   %exitcond385.not.i = icmp eq i64 %indvars.iv.next380.i67, %wide.trip.count384.i
@@ -2525,7 +2525,7 @@ lv_color_8_16_mix.exit286.us.i:                   ; preds = %1150, %1137
   br label %.sink.split.i72
 
 .sink.split.i72:                                  ; preds = %1278, %1275, %1274
-  %.sink.i73 = phi i8 [ %1277, %1275 ], [ %1282, %1278 ], [ %1186, %1274 ]
+  %.sink.i73 = phi i8 [ %1282, %1278 ], [ %1277, %1275 ], [ %1186, %1274 ]
   %1283 = tail call zeroext i16 @lv_color_16_16_mix(i16 noundef zeroext %.0183.us.i, i16 noundef zeroext %1272, i8 noundef zeroext %.sink.i73) #3
   br label %1284
 
@@ -2773,7 +2773,7 @@ lv_color_8_16_mix.exit.us272.i:                   ; preds = %lv_color_8_16_mix.e
   br label %lv_color_8_16_mix.exit219.us.i
 
 lv_color_8_16_mix.exit219.us.i:                   ; preds = %1395, %1386, %1373
-  %.0.i218.us.i = phi i16 [ %1420, %1395 ], [ %1394, %1386 ], [ %1383, %1373 ]
+  %.0.i218.us.i = phi i16 [ %1394, %1386 ], [ %1420, %1395 ], [ %1383, %1373 ]
   store i16 %.0.i218.us.i, ptr %1382, align 2, !tbaa !18
   %indvars.iv.next316.i = add nuw nsw i64 %indvars.iv315.i, 1
   %exitcond321.not.i = icmp eq i64 %indvars.iv.next316.i, %wide.trip.count320.i
@@ -3062,7 +3062,7 @@ define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(no
   br label %136
 
 136:                                              ; preds = %125, %128, %131
-  %.sink486 = phi i8 [ %130, %128 ], [ %135, %131 ], [ %8, %125 ]
+  %.sink486 = phi i8 [ %135, %131 ], [ %130, %128 ], [ %8, %125 ]
   %137 = tail call zeroext i16 @lv_color_16_16_mix(i16 noundef zeroext %.0223.us, i16 noundef zeroext %126, i8 noundef zeroext %.sink486) #3
   store i16 %137, ptr %127, align 2, !tbaa !18
   %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
@@ -3315,7 +3315,7 @@ lv_color_24_16_mix.exit.us307:                    ; preds = %.preheader277.us, %
   br label %lv_color_24_16_mix.exit265.us
 
 lv_color_24_16_mix.exit265.us:                    ; preds = %247, %231, %225
-  %.0.i264.us = phi i16 [ %281, %247 ], [ %246, %231 ], [ %228, %225 ]
+  %.0.i264.us = phi i16 [ %246, %231 ], [ %281, %247 ], [ %228, %225 ]
   store i16 %.0.i264.us, ptr %227, align 2, !tbaa !18
   %indvars.iv.next435 = add nuw nsw i64 %indvars.iv434, 1
   %indvars.iv.next433 = add nuw nsw i64 %indvars.iv432, %224

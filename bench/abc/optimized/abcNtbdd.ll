@@ -1205,7 +1205,7 @@ switch.early.test286:                             ; preds = %241
   br label %.critedge6
 
 .critedge6:                                       ; preds = %.critedge8, %139, %.critedge12, %259
-  %.0117 = phi ptr [ %13, %.critedge12 ], [ %13, %259 ], [ null, %139 ], [ null, %.critedge8 ]
+  %.0117 = phi ptr [ %13, %259 ], [ %13, %.critedge12 ], [ null, %139 ], [ null, %.critedge8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0117
 }
@@ -1697,8 +1697,8 @@ Abc_ObjSetGlobalBdd.exit144:                      ; preds = %180, %185, %199
   store ptr null, ptr %210, align 8, !tbaa !45
   br label %.critedge
 
-.critedge:                                        ; preds = %69, %Abc_ObjGlobalBdd.exit.thread, %79, %Abc_ObjGlobalBdd.exit139, %Abc_ObjSetGlobalBdd.exit144, %15
-  %.0 = phi ptr [ null, %15 ], [ %174, %Abc_ObjGlobalBdd.exit139 ], [ %174, %Abc_ObjSetGlobalBdd.exit144 ], [ null, %79 ], [ null, %Abc_ObjGlobalBdd.exit.thread ], [ null, %69 ]
+.critedge:                                        ; preds = %Abc_ObjGlobalBdd.exit.thread, %69, %79, %Abc_ObjGlobalBdd.exit139, %Abc_ObjSetGlobalBdd.exit144, %15
+  %.0 = phi ptr [ null, %15 ], [ %174, %Abc_ObjSetGlobalBdd.exit144 ], [ %174, %Abc_ObjGlobalBdd.exit139 ], [ null, %79 ], [ null, %69 ], [ null, %Abc_ObjGlobalBdd.exit.thread ]
   ret ptr %.0
 }
 

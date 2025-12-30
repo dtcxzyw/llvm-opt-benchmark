@@ -362,7 +362,7 @@ ll_sym.exit:                                      ; preds = %36
   br label %.thread42
 
 .thread42:                                        ; preds = %43, %41, %50, %.thread41, %ll_sym.exit, %29, %7
-  %.0 = phi i32 [ 1, %7 ], [ 1, %.thread41 ], [ 0, %29 ], [ 0, %ll_sym.exit ], [ %., %50 ], [ 2, %41 ], [ 2, %43 ]
+  %.0 = phi i32 [ 1, %7 ], [ 0, %29 ], [ 0, %ll_sym.exit ], [ %., %50 ], [ 1, %.thread41 ], [ 2, %41 ], [ 2, %43 ]
   ret i32 %.0
 }
 
@@ -482,7 +482,7 @@ define internal fastcc ptr @searchpath(ptr noundef %0, ptr noundef %1, ptr nound
   br label %33
 
 33:                                               ; preds = %.thread, %32
-  %.2 = phi ptr [ %26, %.thread ], [ null, %32 ]
+  %.2 = phi ptr [ null, %32 ], [ %26, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.2
 }
@@ -661,7 +661,7 @@ findfile.exit:                                    ; preds = %5, %.split10.i
   br label %23
 
 23:                                               ; preds = %15, %findfile.exit, %1, %21
-  %.0 = phi i32 [ 1, %findfile.exit ], [ 0, %1 ], [ 1, %21 ], [ 1, %15 ]
+  %.0 = phi i32 [ 1, %21 ], [ 0, %1 ], [ 1, %findfile.exit ], [ 1, %15 ]
   ret i32 %.0
 }
 

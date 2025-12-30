@@ -81,7 +81,7 @@ define internal range(i32 -2147483648, 1) i32 @ftr_init(ptr noundef captures(non
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %23, %._crit_edge, %13, %10, %7, %1
-  %.028 = phi i32 [ -22, %1 ], [ -1128613112, %13 ], [ %., %._crit_edge ], [ -12, %7 ], [ -12, %10 ], [ -12, %.lr.ph ], [ %24, %23 ]
+  %.028 = phi i32 [ -22, %1 ], [ -12, %7 ], [ -12, %10 ], [ -1128613112, %13 ], [ %., %._crit_edge ], [ -12, %.lr.ph ], [ %24, %23 ]
   ret i32 %.028
 }
 
@@ -344,8 +344,8 @@ define internal range(i32 -2147483648, 268435456) i32 @ftr_decode_frame(ptr noun
   %152 = icmp slt i64 %indvars.iv.next, %151
   br i1 %152, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !54
 
-.thread132:                                       ; preds = %43, %126, %117, %116, %113, %98, %55, %51, %40, %35, %107, %97
-  %.3.ph = phi i32 [ %95, %97 ], [ -1094995529, %107 ], [ -1094995529, %35 ], [ -1094995529, %40 ], [ %53, %51 ], [ %57, %55 ], [ %100, %98 ], [ %114, %113 ], [ -1094995529, %116 ], [ -1094995529, %117 ], [ -1094995529, %126 ], [ -1094995529, %43 ]
+.thread132:                                       ; preds = %126, %117, %116, %113, %107, %98, %55, %51, %40, %43, %35, %97
+  %.3.ph = phi i32 [ %95, %97 ], [ -1094995529, %35 ], [ -1094995529, %43 ], [ -1094995529, %40 ], [ %53, %51 ], [ %57, %55 ], [ %100, %98 ], [ -1094995529, %107 ], [ %114, %113 ], [ -1094995529, %116 ], [ -1094995529, %117 ], [ -1094995529, %126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %155
@@ -373,7 +373,7 @@ define internal range(i32 -2147483648, 268435456) i32 @ftr_decode_frame(ptr noun
   br label %155
 
 155:                                              ; preds = %.thread132, %4, %.thread126
-  %.088 = phi i32 [ %.3.ph, %.thread132 ], [ %.sroa.5.1131, %.thread126 ], [ -1094995529, %4 ]
+  %.088 = phi i32 [ %.sroa.5.1131, %.thread126 ], [ -1094995529, %4 ], [ %.3.ph, %.thread132 ]
   ret i32 %.088
 }
 

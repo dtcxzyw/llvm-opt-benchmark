@@ -433,7 +433,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_set_behavior(ptr nound
   br label %archive_read_disk_set_atime_restored.exit
 
 archive_read_disk_set_atime_restored.exit:        ; preds = %14, %9, %7, %21, %18, %2
-  %.1 = phi i32 [ -30, %2 ], [ 0, %18 ], [ 0, %21 ], [ -30, %7 ], [ 0, %14 ], [ 0, %9 ]
+  %.1 = phi i32 [ -30, %2 ], [ 0, %21 ], [ 0, %18 ], [ -30, %7 ], [ 0, %14 ], [ 0, %9 ]
   ret i32 %.1
 }
 
@@ -899,8 +899,8 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_open_w(ptr noundef %0,
   br label %_archive_read_disk_open.exit
 
 _archive_read_disk_open.exit:                     ; preds = %37, %36, %12, %13
-  %.sink.i.sink = phi i32 [ 32768, %12 ], [ 32768, %13 ], [ 2, %37 ], [ 32768, %36 ]
-  %.013 = phi i32 [ -30, %12 ], [ -30, %13 ], [ 0, %37 ], [ -30, %36 ]
+  %.sink.i.sink = phi i32 [ 32768, %13 ], [ 32768, %12 ], [ 2, %37 ], [ 32768, %36 ]
+  %.013 = phi i32 [ -30, %13 ], [ -30, %12 ], [ 0, %37 ], [ -30, %36 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink.i.sink, ptr %38, align 4, !tbaa !25
   call void @archive_string_free(ptr noundef nonnull %3) #17
@@ -1234,7 +1234,7 @@ tree_free.exit:                                   ; preds = %10, %._crit_edge.i
   br label %50
 
 50:                                               ; preds = %1, %3, %45
-  %.0 = phi i32 [ -30, %3 ], [ %.023, %45 ], [ 0, %1 ]
+  %.0 = phi i32 [ %.023, %45 ], [ -30, %3 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -1712,12 +1712,12 @@ tree_pop.exit74.i.i:                              ; preds = %254
   br i1 %.not.i.i, label %.loopexit.sink.split.i.i, label %.lr.ph.i.i, !llvm.loop !117
 
 .loopexit.sink.split.i.i:                         ; preds = %.backedge.i.i, %tree_pop.exit70.i.i, %200, %tree_pop.exit.i.i, %tree_append.exit.i.i, %68
-  %.sink.i.i = phi i32 [ -1, %tree_pop.exit.i.i ], [ 2, %200 ], [ 1, %tree_append.exit.i.i ], [ %235, %tree_pop.exit70.i.i ], [ 0, %68 ], [ 0, %.backedge.i.i ]
+  %.sink.i.i = phi i32 [ -1, %tree_pop.exit.i.i ], [ 2, %200 ], [ %235, %tree_pop.exit70.i.i ], [ 1, %tree_append.exit.i.i ], [ 0, %68 ], [ 0, %.backedge.i.i ]
   store i32 %.sink.i.i, ptr %35, align 4, !tbaa !54
   br label %tree_next.exit.i
 
 tree_next.exit.i:                                 ; preds = %205, %72, %.loopexit.sink.split.i.i
-  %.0.i.i = phi i32 [ %.sink.i.i, %.loopexit.sink.split.i.i ], [ %73, %72 ], [ %207, %205 ]
+  %.0.i.i = phi i32 [ %.sink.i.i, %.loopexit.sink.split.i.i ], [ %207, %205 ], [ %73, %72 ]
   switch i32 %.0.i.i, label %68 [
     i32 -2, label %262
     i32 -1, label %275
@@ -1941,8 +1941,8 @@ tree_next.exit.i:                                 ; preds = %205, %72, %.loopexi
   br label %tree_current_is_dir.exit.i
 
 tree_current_is_dir.exit.i:                       ; preds = %360, %355, %352, %349
-  %366 = phi i32 [ %347, %352 ], [ %361, %360 ], [ %347, %349 ], [ %.pre.i, %355 ]
-  %.0.i209.i = phi i32 [ 0, %352 ], [ %365, %360 ], [ 1, %349 ], [ 0, %355 ]
+  %366 = phi i32 [ %361, %360 ], [ %347, %352 ], [ %347, %349 ], [ %.pre.i, %355 ]
+  %.0.i209.i = phi i32 [ %365, %360 ], [ 0, %352 ], [ 1, %349 ], [ 0, %355 ]
   store i8 76, ptr %45, align 8, !tbaa !44
   store i8 1, ptr %46, align 1, !tbaa !45
   %367 = and i32 %366, 16
@@ -2304,9 +2304,9 @@ tree_current_is_symblic_link_target.exit.thread.i.i.i: ; preds = %460, %tree_cur
   br label %get_xfer_size.exit53.i.i.i
 
 get_xfer_size.exit53.i.i.i:                       ; preds = %..thread.i51_crit_edge.i.i.i, %524, %tree_current_is_symblic_link_target.exit.thread.i.i.i, %.thread.i.i.i
-  %.144.i.i.i = phi i32 [ %486, %.thread.i.i.i ], [ %515, %tree_current_is_symblic_link_target.exit.thread.i.i.i ], [ 0, %524 ], [ 0, %..thread.i51_crit_edge.i.i.i ]
-  %.142.i.i.i = phi i32 [ %485, %.thread.i.i.i ], [ %513, %tree_current_is_symblic_link_target.exit.thread.i.i.i ], [ %513, %524 ], [ %513, %..thread.i51_crit_edge.i.i.i ]
-  %.2.i.i.i = phi i32 [ %.140.i.i.i, %.thread.i.i.i ], [ 0, %tree_current_is_symblic_link_target.exit.thread.i.i.i ], [ 0, %524 ], [ %539, %..thread.i51_crit_edge.i.i.i ]
+  %.144.i.i.i = phi i32 [ %515, %tree_current_is_symblic_link_target.exit.thread.i.i.i ], [ %486, %.thread.i.i.i ], [ 0, %524 ], [ 0, %..thread.i51_crit_edge.i.i.i ]
+  %.142.i.i.i = phi i32 [ %513, %tree_current_is_symblic_link_target.exit.thread.i.i.i ], [ %485, %.thread.i.i.i ], [ %513, %524 ], [ %513, %..thread.i51_crit_edge.i.i.i ]
+  %.2.i.i.i = phi i32 [ 0, %tree_current_is_symblic_link_target.exit.thread.i.i.i ], [ %.140.i.i.i, %.thread.i.i.i ], [ 0, %524 ], [ %539, %..thread.i51_crit_edge.i.i.i ]
   %540 = icmp eq i32 %.144.i.i.i, -1
   %541 = icmp eq i32 %.2.i.i.i, -1
   %or.cond.i.i220.i = select i1 %540, i1 true, i1 %541
@@ -2643,7 +2643,7 @@ archive_read_disk_gname.exit.thread.i:            ; preds = %645, %archive_read_
   br label %next_entry.exit
 
 next_entry.exit:                                  ; preds = %262, %267, %271, %275, %279, %283, %287, %291, %295, %317, %321, %325, %333, %339, %341, %566, %570, %574, %605, %619, %625, %627, %650, %656, %658, %662, %671
-  %.0147.i = phi i32 [ %331, %333 ], [ 1, %295 ], [ -25, %325 ], [ %617, %619 ], [ -10, %339 ], [ %648, %650 ], [ -10, %625 ], [ %.0138.i, %671 ], [ -10, %656 ], [ -10, %605 ], [ -10, %662 ], [ -30, %271 ], [ -25, %283 ], [ -10, %341 ], [ -10, %627 ], [ -10, %658 ], [ -30, %262 ], [ -30, %267 ], [ -25, %275 ], [ -25, %279 ], [ 1, %287 ], [ 1, %291 ], [ -25, %317 ], [ -25, %321 ], [ -30, %566 ], [ -30, %570 ], [ -30, %574 ]
+  %.0147.i = phi i32 [ %331, %333 ], [ %617, %619 ], [ %648, %650 ], [ %.0138.i, %671 ], [ -10, %605 ], [ -10, %341 ], [ -10, %339 ], [ -10, %627 ], [ -10, %625 ], [ -10, %658 ], [ -10, %656 ], [ -10, %662 ], [ -30, %262 ], [ -30, %267 ], [ -30, %271 ], [ -25, %275 ], [ -25, %279 ], [ -25, %283 ], [ 1, %287 ], [ 1, %291 ], [ 1, %295 ], [ -25, %317 ], [ -25, %321 ], [ -25, %325 ], [ -30, %566 ], [ -30, %570 ], [ -30, %574 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %672 = load i32, ptr %13, align 8, !tbaa !96
   %673 = icmp sgt i32 %672, -1
@@ -3107,7 +3107,7 @@ setup_suitable_read_buffer.exit.thread:           ; preds = %59, %83, %tree_ente
   br label %165
 
 157:                                              ; preds = %tree_enter_initial_dir.exit, %8, %11, %134, %128, %111, %90
-  %.0100 = phi i32 [ -25, %tree_enter_initial_dir.exit ], [ -30, %90 ], [ -30, %111 ], [ -30, %128 ], [ 1, %134 ], [ 1, %11 ], [ 1, %8 ]
+  %.0100 = phi i32 [ -30, %90 ], [ -30, %111 ], [ -30, %128 ], [ 1, %134 ], [ -25, %tree_enter_initial_dir.exit ], [ 1, %11 ], [ 1, %8 ]
   store ptr null, ptr %1, align 8, !tbaa !164
   store i64 0, ptr %2, align 8, !tbaa !153
   %158 = getelementptr inbounds nuw i8, ptr %6, i64 536
@@ -3125,7 +3125,7 @@ setup_suitable_read_buffer.exit.thread:           ; preds = %59, %83, %tree_ente
   br label %165
 
 165:                                              ; preds = %157, %163, %145, %153, %155, %4
-  %.197 = phi i32 [ 0, %145 ], [ -30, %4 ], [ 0, %155 ], [ 0, %153 ], [ %.0100, %163 ], [ %.0100, %157 ]
+  %.197 = phi i32 [ -30, %4 ], [ 0, %155 ], [ 0, %153 ], [ 0, %145 ], [ %.0100, %163 ], [ %.0100, %157 ]
   ret i32 %.197
 }
 

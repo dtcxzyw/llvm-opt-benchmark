@@ -1318,7 +1318,7 @@ define void @_ZN11uu_readlink6uu_app17h2c646cdd85e518b8E(ptr noalias noundef wri
   ret void
 
 .body:                                            ; preds = %342, %335, %303, %271, %239, %207, %175, %143, %111, %77, %359, %358, %357, %356, %355, %354, %353, %352, %351, %347
-  %.pn = phi { ptr, i32 } [ %348, %347 ], [ %336, %335 ], [ %eh.lpad-body152.ph, %351 ], [ %304, %303 ], [ %eh.lpad-body135.ph, %352 ], [ %272, %271 ], [ %eh.lpad-body118.ph, %353 ], [ %240, %239 ], [ %eh.lpad-body101.ph, %354 ], [ %208, %207 ], [ %eh.lpad-body84.ph, %355 ], [ %176, %175 ], [ %eh.lpad-body67.ph, %356 ], [ %144, %143 ], [ %eh.lpad-body50.ph, %357 ], [ %112, %111 ], [ %eh.lpad-body35.ph, %358 ], [ %78, %77 ], [ %360, %359 ], [ %343, %342 ]
+  %.pn = phi { ptr, i32 } [ %348, %347 ], [ %eh.lpad-body152.ph, %351 ], [ %eh.lpad-body135.ph, %352 ], [ %eh.lpad-body118.ph, %353 ], [ %eh.lpad-body101.ph, %354 ], [ %eh.lpad-body84.ph, %355 ], [ %eh.lpad-body67.ph, %356 ], [ %eh.lpad-body50.ph, %357 ], [ %eh.lpad-body35.ph, %358 ], [ %360, %359 ], [ %78, %77 ], [ %112, %111 ], [ %144, %143 ], [ %176, %175 ], [ %208, %207 ], [ %240, %239 ], [ %272, %271 ], [ %304, %303 ], [ %336, %335 ], [ %343, %342 ]
   resume { ptr, i32 } %.pn
 
 347:                                              ; preds = %339

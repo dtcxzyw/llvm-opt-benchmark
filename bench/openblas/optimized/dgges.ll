@@ -92,14 +92,14 @@ define void @dgges_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %.not471 = icmp eq i32 %57, 0
   %not..not471 = xor i1 %.not471, true
   %. = zext i1 %not..not471 to i32
-  %not..not471624 = xor i1 %.not471, true
+  %not..not471623 = xor i1 %.not471, true
   br label %58
 
 58:                                               ; preds = %56, %21
-  %.sink = phi i32 [ %., %56 ], [ 0, %21 ]
-  %.not476 = phi i1 [ %not..not471624, %56 ], [ false, %21 ]
-  %.not480 = phi i1 [ %.not471, %56 ], [ true, %21 ]
-  %59 = phi i1 [ %.not471, %56 ], [ false, %21 ]
+  %.sink = phi i32 [ 0, %21 ], [ %., %56 ]
+  %.not476 = phi i1 [ false, %21 ], [ %not..not471623, %56 ]
+  %.not480 = phi i1 [ true, %21 ], [ %.not471, %56 ]
+  %59 = phi i1 [ false, %21 ], [ %.not471, %56 ]
   store i32 %.sink, ptr %31, align 4, !tbaa !3
   %60 = tail call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str) #5
   %.not472 = icmp eq i32 %60, 0
@@ -110,13 +110,13 @@ define void @dgges_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %.not473 = icmp eq i32 %62, 0
   %not..not473 = xor i1 %.not473, true
   %.620 = zext i1 %not..not473 to i32
-  %not..not473625 = xor i1 %.not473, true
+  %not..not473624 = xor i1 %.not473, true
   br label %63
 
 63:                                               ; preds = %61, %58
-  %.sink593 = phi i32 [ %.620, %61 ], [ 0, %58 ]
-  %.not477 = phi i1 [ %not..not473625, %61 ], [ false, %58 ]
-  %64 = phi i1 [ %.not473, %61 ], [ false, %58 ]
+  %.sink593 = phi i32 [ 0, %58 ], [ %.620, %61 ]
+  %.not477 = phi i1 [ false, %58 ], [ %not..not473624, %61 ]
+  %64 = phi i1 [ false, %58 ], [ %.not473, %61 ]
   store i32 %.sink593, ptr %32, align 4, !tbaa !3
   %65 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str.2) #5
   store i32 0, ptr %20, align 4, !tbaa !3
@@ -124,7 +124,6 @@ define void @dgges_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %67 = icmp eq i32 %66, -1
   %brmerge = select i1 %59, i1 true, i1 %64
   %.mux = select i1 %59, i32 -1, i32 -2
-  %.mux623 = select i1 %59, i32 -1, i32 -2
   br i1 %brmerge, label %.thread511.sink.split, label %68
 
 68:                                               ; preds = %63
@@ -223,13 +222,12 @@ define void @dgges_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %.not482, label %120, label %.thread511
 
 .thread511.sink.split:                            ; preds = %63, %113, %84, %80, %77, %74, %71, %69
-  %.sink596 = phi i32 [ %.mux, %63 ], [ -3, %69 ], [ -7, %74 ], [ -15, %80 ], [ -9, %77 ], [ -5, %71 ], [ -19, %113 ], [ -17, %84 ]
-  %.ph = phi i32 [ %.mux623, %63 ], [ -3, %69 ], [ -7, %74 ], [ -15, %80 ], [ -9, %77 ], [ -5, %71 ], [ -19, %113 ], [ -17, %84 ]
+  %.sink596 = phi i32 [ %.mux, %63 ], [ -3, %69 ], [ -5, %71 ], [ -7, %74 ], [ -9, %77 ], [ -15, %80 ], [ -17, %84 ], [ -19, %113 ]
   store i32 %.sink596, ptr %20, align 4, !tbaa !3
   br label %.thread511
 
 .thread511:                                       ; preds = %.thread511.sink.split, %88, %.thread
-  %117 = phi i32 [ %.pr508.pr, %.thread ], [ %.pr, %88 ], [ %.ph, %.thread511.sink.split ]
+  %117 = phi i32 [ %.pr508.pr, %.thread ], [ %.pr, %88 ], [ %.sink596, %.thread511.sink.split ]
   %118 = sub nsw i32 0, %117
   store i32 %118, ptr %22, align 4, !tbaa !3
   %119 = call i32 @xerbla_(ptr noundef nonnull @.str.7, ptr noundef nonnull %22, i32 noundef 6) #5
@@ -727,9 +725,9 @@ define void @dgges_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br label %.thread524
 
 .thread524:                                       ; preds = %.thread524.sink.split, %357, %351, %355, %361, %352
-  %.0447 = phi i32 [ %348, %352 ], [ 0, %351 ], [ 1, %361 ], [ 0, %357 ], [ %348, %355 ], [ %.0447.ph, %.thread524.sink.split ]
-  %.1445 = phi i32 [ 0, %352 ], [ 0, %351 ], [ -1, %361 ], [ -1, %357 ], [ 1, %355 ], [ %.1445.ph, %.thread524.sink.split ]
-  %.1439 = phi i32 [ %.0438554, %352 ], [ %.0438554, %351 ], [ 1, %361 ], [ 0, %357 ], [ %.0438554, %355 ], [ %.1439.ph, %.thread524.sink.split ]
+  %.0447 = phi i32 [ %348, %352 ], [ 1, %361 ], [ %348, %355 ], [ 0, %351 ], [ 0, %357 ], [ %.0447.ph, %.thread524.sink.split ]
+  %.1445 = phi i32 [ 0, %352 ], [ -1, %361 ], [ 1, %355 ], [ 0, %351 ], [ -1, %357 ], [ %.1445.ph, %.thread524.sink.split ]
+  %.1439 = phi i32 [ %.0438554, %352 ], [ 1, %361 ], [ %.0438554, %355 ], [ %.0438554, %351 ], [ 0, %357 ], [ %.1439.ph, %.thread524.sink.split ]
   %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, 1
   %367 = load i32, ptr %22, align 4, !tbaa !3
   %368 = sext i32 %367 to i64
@@ -737,7 +735,7 @@ define void @dgges_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %.not496.not, label %.lr.ph556, label %.loopexit, !llvm.loop !13
 
 .loopexit.sink.split:                             ; preds = %210, %215, %217
-  %.sink617 = phi i32 [ %216, %215 ], [ %218, %217 ], [ %209, %210 ]
+  %.sink617 = phi i32 [ %218, %217 ], [ %216, %215 ], [ %209, %210 ]
   store i32 %.sink617, ptr %20, align 4, !tbaa !3
   br label %.loopexit
 

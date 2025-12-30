@@ -140,7 +140,7 @@ define internal fastcc signext range(i16 1, 5) i16 @getQuadrant(ptr noundef %0, 
   unreachable
 
 31:                                               ; preds = %26, %22, %14, %16, %8, %10
-  %.0 = phi i16 [ 3, %22 ], [ 1, %8 ], [ 2, %14 ], [ 1, %10 ], [ 2, %16 ], [ 4, %26 ]
+  %.0 = phi i16 [ 1, %10 ], [ 1, %8 ], [ 2, %16 ], [ 2, %14 ], [ 3, %22 ], [ 4, %26 ]
   ret i16 %.0
 }
 
@@ -479,14 +479,14 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly cap
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 363, ptr noundef nonnull @__func__.spg_quad_inner_consistent) #6
   unreachable
 
-select.unfold:                                    ; preds = %99, %91, %89, %97, %103, %93
-  %.pn = phi i32 [ %122, %103 ], [ 6, %91 ], [ 24, %89 ], [ 12, %97 ], [ %96, %93 ], [ 18, %99 ]
+select.unfold:                                    ; preds = %99, %97, %91, %89, %103, %93
+  %.pn = phi i32 [ %96, %93 ], [ %122, %103 ], [ 24, %89 ], [ 6, %91 ], [ 12, %97 ], [ 18, %99 ]
   %.2 = and i32 %.pn, %.0111131
   %131 = icmp eq i32 %.2, 0
   br i1 %131, label %select.unfold._crit_edge, label %.thread
 
-.thread:                                          ; preds = %99, %91, %101, %89, %97, %select.unfold
-  %.2123 = phi i32 [ %.2, %select.unfold ], [ %.0111131, %97 ], [ %.0111131, %89 ], [ %.0111131, %101 ], [ %.0111131, %91 ], [ %.0111131, %99 ]
+.thread:                                          ; preds = %99, %97, %91, %89, %101, %select.unfold
+  %.2123 = phi i32 [ %.2, %select.unfold ], [ %.0111131, %101 ], [ %.0111131, %89 ], [ %.0111131, %91 ], [ %.0111131, %97 ], [ %.0111131, %99 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %132 = load i32, ptr %42, align 8
   %133 = sext i32 %132 to i64
@@ -684,13 +684,13 @@ define dso_local range(i64 0, 2) i64 @spg_quad_leaf_consistent(ptr noundef reado
   %20 = load i16, ptr %19, align 2
   switch i16 %20, label %31 [
     i16 1, label %21
-    i16 5, label %39
-    i16 6, label %23
-    i16 10, label %25
-    i16 29, label %25
-    i16 11, label %27
-    i16 30, label %27
-    i16 8, label %29
+    i16 5, label %23
+    i16 6, label %25
+    i16 10, label %27
+    i16 29, label %27
+    i16 11, label %29
+    i16 30, label %29
+    i16 8, label %39
   ]
 
 21:                                               ; preds = %.lr.ph
@@ -699,24 +699,24 @@ define dso_local range(i64 0, 2) i64 @spg_quad_leaf_consistent(ptr noundef reado
   br i1 %.not45, label %.thread, label %41
 
 23:                                               ; preds = %.lr.ph
-  %24 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_eq, i32 noundef 0, i64 noundef %9, i64 noundef %18) #6
-  %.not43 = icmp eq i64 %24, 0
+  %24 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_right, i32 noundef 0, i64 noundef %9, i64 noundef %18) #6
+  %.not44 = icmp eq i64 %24, 0
+  br i1 %.not44, label %.thread, label %41
+
+25:                                               ; preds = %.lr.ph
+  %26 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_eq, i32 noundef 0, i64 noundef %9, i64 noundef %18) #6
+  %.not43 = icmp eq i64 %26, 0
   br i1 %.not43, label %.thread, label %41
 
-25:                                               ; preds = %.lr.ph, %.lr.ph
-  %26 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_below, i32 noundef 0, i64 noundef %9, i64 noundef %18) #6
-  %.not42 = icmp eq i64 %26, 0
+27:                                               ; preds = %.lr.ph, %.lr.ph
+  %28 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_below, i32 noundef 0, i64 noundef %9, i64 noundef %18) #6
+  %.not42 = icmp eq i64 %28, 0
   br i1 %.not42, label %.thread, label %41
 
-27:                                               ; preds = %.lr.ph, %.lr.ph
-  %28 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_above, i32 noundef 0, i64 noundef %9, i64 noundef %18) #6
-  %.not41 = icmp eq i64 %28, 0
+29:                                               ; preds = %.lr.ph, %.lr.ph
+  %30 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_above, i32 noundef 0, i64 noundef %9, i64 noundef %18) #6
+  %.not41 = icmp eq i64 %30, 0
   br i1 %.not41, label %.thread, label %41
-
-29:                                               ; preds = %.lr.ph
-  %30 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contain_pt, i32 noundef 0, i64 noundef %18, i64 noundef %9) #6
-  %.not = icmp eq i64 %30, 0
-  br i1 %.not, label %.thread, label %41
 
 31:                                               ; preds = %.lr.ph
   %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -730,11 +730,11 @@ define dso_local range(i64 0, 2) i64 @spg_quad_leaf_consistent(ptr noundef reado
   unreachable
 
 39:                                               ; preds = %.lr.ph
-  %40 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_right, i32 noundef 0, i64 noundef %9, i64 noundef %18) #6
-  %.not44 = icmp eq i64 %40, 0
-  br i1 %.not44, label %.thread, label %41
+  %40 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contain_pt, i32 noundef 0, i64 noundef %18, i64 noundef %9) #6
+  %.not = icmp eq i64 %40, 0
+  br i1 %.not, label %.thread, label %41
 
-41:                                               ; preds = %23, %25, %27, %29, %21, %39
+41:                                               ; preds = %29, %27, %25, %23, %21, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i32, ptr %12, align 8
   %43 = sext i32 %42 to i64
@@ -756,8 +756,8 @@ define dso_local range(i64 0, 2) i64 @spg_quad_leaf_consistent(ptr noundef reado
   store ptr %51, ptr %52, align 8
   br label %.thread
 
-.thread:                                          ; preds = %23, %25, %27, %29, %21, %39, %47, %._crit_edge
-  %53 = phi i64 [ 1, %._crit_edge ], [ 1, %47 ], [ 0, %39 ], [ 0, %21 ], [ 0, %29 ], [ 0, %27 ], [ 0, %25 ], [ 0, %23 ]
+.thread:                                          ; preds = %29, %27, %25, %23, %21, %39, %47, %._crit_edge
+  %53 = phi i64 [ 1, %47 ], [ 1, %._crit_edge ], [ 0, %39 ], [ 0, %21 ], [ 0, %23 ], [ 0, %25 ], [ 0, %27 ], [ 0, %29 ]
   ret i64 %53
 }
 

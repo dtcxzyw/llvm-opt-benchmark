@@ -1218,7 +1218,7 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   ret void
 
 70:                                               ; preds = %54, %69
-  %.2 = phi i1 [ true, %69 ], [ false, %54 ]
+  %.2 = phi i1 [ false, %54 ], [ true, %69 ]
   %71 = load i64, ptr %1, align 8, !range !3, !noundef !4
   %72 = add nsw i64 %71, -8
   %73 = icmp ugt i64 %72, 3
@@ -1247,7 +1247,7 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   br label %.critedge
 
 .thread50:                                        ; preds = %.invoke, %54, %65, %55, %46, %43, %24, %26, %6
-  %.0.ph = phi i1 [ true, %6 ], [ true, %26 ], [ true, %24 ], [ true, %43 ], [ true, %46 ], [ true, %55 ], [ false, %54 ], [ true, %.invoke ], [ true, %65 ]
+  %.0.ph = phi i1 [ true, %6 ], [ true, %26 ], [ true, %24 ], [ true, %43 ], [ true, %46 ], [ true, %55 ], [ true, %65 ], [ false, %54 ], [ true, %.invoke ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %84

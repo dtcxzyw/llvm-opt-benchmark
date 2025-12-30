@@ -613,11 +613,11 @@ _ZNK6vectorIN3sat6eframeELb0EjE4sizeEv.exit58:    ; preds = %82, %85
   br label %_ZN6vectorIN3sat6eframeELb0EjE12scoped_stackD2Ev.exit
 
 _ZN6vectorIN3sat6eframeELb0EjE12scoped_stackD2Ev.exit: ; preds = %.preheader78, %.thread72, %.thread72.thread
-  %144 = phi i1 [ %.not.not.not136, %.thread72.thread ], [ false, %.thread72 ], [ true, %.preheader78 ]
+  %144 = phi i1 [ false, %.thread72 ], [ %.not.not.not136, %.thread72.thread ], [ true, %.preheader78 ]
   ret i1 %144
 
 145:                                              ; preds = %.loopexit77, %.loopexit.split-lp, %.thread69, %97, %127, %125, %81
-  %.pn48.pn.pn = phi { ptr, i32 } [ %126, %125 ], [ %.pn.pn68, %81 ], [ %74, %.thread69 ], [ %98, %97 ], [ %128, %127 ], [ %lpad.loopexit, %.loopexit77 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn48.pn.pn = phi { ptr, i32 } [ %.pn.pn68, %81 ], [ %98, %97 ], [ %128, %127 ], [ %126, %125 ], [ %74, %.thread69 ], [ %lpad.loopexit, %.loopexit77 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %146 = load ptr, ptr %35, align 8, !tbaa !3
   %.not.i.i59 = icmp eq ptr %146, null
   br i1 %.not.i.i59, label %_ZN6vectorIN3sat6eframeELb0EjE12scoped_stackD2Ev.exit60, label %147
@@ -628,7 +628,7 @@ _ZN6vectorIN3sat6eframeELb0EjE12scoped_stackD2Ev.exit: ; preds = %.preheader78, 
   br label %_ZN6vectorIN3sat6eframeELb0EjE12scoped_stackD2Ev.exit60
 
 _ZN6vectorIN3sat6eframeELb0EjE12scoped_stackD2Ev.exit60: ; preds = %147, %145, %31, %21
-  %.pn48.pn.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %22, %21 ], [ %.pn48.pn.pn, %145 ], [ %.pn48.pn.pn, %147 ]
+  %.pn48.pn.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %32, %31 ], [ %.pn48.pn.pn, %145 ], [ %.pn48.pn.pn, %147 ]
   resume { ptr, i32 } %.pn48.pn.pn.pn
 
 149:                                              ; preds = %_ZN16tactic_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -1377,9 +1377,9 @@ _ZN3euf6solver8use_dratEv.exit.i:                 ; preds = %18
   br label %_ZN3euf13th_euf_solver8add_unitEN3sat7literalEPKNS_13th_proof_hintE.exit
 
 _ZN3euf13th_euf_solver8add_unitEN3sat7literalEPKNS_13th_proof_hintE.exit: ; preds = %18, %_ZN3euf6solver8use_dratEv.exit.i
-  %26 = phi ptr [ %21, %18 ], [ %.pre, %_ZN3euf6solver8use_dratEv.exit.i ]
-  %.sroa.02.0.copyload.i = phi i32 [ %.sroa.01.0.copyload, %18 ], [ %.sroa.02.0.copyload.pre.i, %_ZN3euf6solver8use_dratEv.exit.i ]
-  %.0.i = phi ptr [ null, %18 ], [ %25, %_ZN3euf6solver8use_dratEv.exit.i ]
+  %26 = phi ptr [ %.pre, %_ZN3euf6solver8use_dratEv.exit.i ], [ %21, %18 ]
+  %.sroa.02.0.copyload.i = phi i32 [ %.sroa.02.0.copyload.pre.i, %_ZN3euf6solver8use_dratEv.exit.i ], [ %.sroa.01.0.copyload, %18 ]
+  %.0.i = phi ptr [ %25, %_ZN3euf6solver8use_dratEv.exit.i ], [ null, %18 ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 3288
   %28 = load ptr, ptr %27, align 8, !tbaa !442
   %29 = zext i32 %.sroa.02.0.copyload.i to i64
@@ -1898,8 +1898,8 @@ _ZN3euf6solver8use_dratEv.exit.i:                 ; preds = %59
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i, %59, %.noexc37
-  %.pre.i35 = phi ptr [ %56, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i ], [ %.pre.pre.i, %.noexc37 ], [ %56, %59 ]
-  %.0.i = phi ptr [ null, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i ], [ %64, %.noexc37 ], [ null, %59 ]
+  %.pre.i35 = phi ptr [ %.pre.pre.i, %.noexc37 ], [ %56, %59 ], [ %56, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i ]
+  %.0.i = phi ptr [ %64, %.noexc37 ], [ null, %59 ], [ null, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i ]
   %65 = getelementptr inbounds nuw i8, ptr %.pre.i35, i64 152
   invoke void @_ZN3euf9relevancy8add_rootEjPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(672) %65, i32 noundef %54, ptr noundef nonnull %50)
           to label %.noexc38 unwind label %82
@@ -4274,7 +4274,7 @@ _ZNK6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE8capacityEv.exit.thread.i.i: ; p
   br label %_ZN6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE4setxEjRKS4_S7_.exit
 
 _ZN6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE4setxEjRKS4_S7_.exit: ; preds = %.lr.ph.preheader.i.i, %_ZNK6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE4sizeEv.exit.i, %49, %55
-  %62 = phi ptr [ %43, %_ZNK6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE4sizeEv.exit.i ], [ %50, %55 ], [ %43, %49 ], [ %50, %.lr.ph.preheader.i.i ]
+  %62 = phi ptr [ %50, %55 ], [ %43, %49 ], [ %43, %_ZNK6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE4sizeEv.exit.i ], [ %50, %.lr.ph.preheader.i.i ]
   %63 = ptrtoint ptr %2 to i64
   %64 = or i64 %63, 1
   %65 = inttoptr i64 %64 to ptr

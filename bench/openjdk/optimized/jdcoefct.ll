@@ -288,7 +288,7 @@ smoothing_ok.exit:                                ; preds = %70
   %.not8 = icmp eq i32 %spec.select.i, 0
   br i1 %.not8, label %smoothing_ok.exit.thread, label %.sink.split
 
-smoothing_ok.exit.thread:                         ; preds = %39, %42, %.lr.ph.i, %58, %54, %50, %46, %62, %29, %9, %12, %smoothing_ok.exit, %6
+smoothing_ok.exit.thread:                         ; preds = %62, %39, %42, %46, %50, %54, %58, %.lr.ph.i, %29, %9, %12, %smoothing_ok.exit, %6
   br label %.sink.split
 
 .sink.split:                                      ; preds = %smoothing_ok.exit, %smoothing_ok.exit.thread
@@ -902,8 +902,8 @@ define internal range(i32 0, 5) i32 @decompress_onepass(ptr noundef %0, ptr noun
   br label %.loopexit84
 
 .loopexit84:                                      ; preds = %.lr.ph92.split, %.loopexit84.loopexit, %49, %45
-  %99 = phi i32 [ %40, %45 ], [ %40, %49 ], [ %40, %.lr.ph92.split ], [ %.pre123, %.loopexit84.loopexit ]
-  %.1 = phi i32 [ %48, %45 ], [ %.075100, %49 ], [ %98, %.lr.ph92.split ], [ %87, %.loopexit84.loopexit ]
+  %99 = phi i32 [ %40, %45 ], [ %40, %49 ], [ %.pre123, %.loopexit84.loopexit ], [ %40, %.lr.ph92.split ]
+  %.1 = phi i32 [ %48, %45 ], [ %.075100, %49 ], [ %87, %.loopexit84.loopexit ], [ %98, %.lr.ph92.split ]
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next120, %100
@@ -1289,7 +1289,7 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   br label %195
 
 195:                                              ; preds = %188, %185, %190
-  %.0237 = phi i32 [ %194, %190 ], [ %spec.select325, %188 ], [ %187, %185 ]
+  %.0237 = phi i32 [ %187, %185 ], [ %194, %190 ], [ %spec.select325, %188 ]
   %196 = trunc i32 %.0237 to i16
   store i16 %196, ptr %45, align 2
   br label %197
@@ -1331,7 +1331,7 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   br label %217
 
 217:                                              ; preds = %210, %207, %212
-  %.2 = phi i32 [ %216, %212 ], [ %spec.select327, %210 ], [ %209, %207 ]
+  %.2 = phi i32 [ %209, %207 ], [ %216, %212 ], [ %spec.select327, %210 ]
   %218 = trunc i32 %.2 to i16
   store i16 %218, ptr %46, align 16
   br label %219
@@ -1375,7 +1375,7 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   br label %241
 
 241:                                              ; preds = %234, %231, %236
-  %.4 = phi i32 [ %240, %236 ], [ %spec.select329, %234 ], [ %233, %231 ]
+  %.4 = phi i32 [ %233, %231 ], [ %240, %236 ], [ %spec.select329, %234 ]
   %242 = trunc i32 %.4 to i16
   store i16 %242, ptr %47, align 16
   br label %243
@@ -1419,7 +1419,7 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   br label %265
 
 265:                                              ; preds = %258, %255, %260
-  %.6 = phi i32 [ %264, %260 ], [ %spec.select331, %258 ], [ %257, %255 ]
+  %.6 = phi i32 [ %257, %255 ], [ %264, %260 ], [ %spec.select331, %258 ]
   %266 = trunc i32 %.6 to i16
   store i16 %266, ptr %48, align 2
   br label %267
@@ -1463,7 +1463,7 @@ define internal range(i32 0, 5) i32 @decompress_smooth_data(ptr noundef %0, ptr 
   br label %289
 
 289:                                              ; preds = %282, %279, %284
-  %.8 = phi i32 [ %288, %284 ], [ %spec.select333, %282 ], [ %281, %279 ]
+  %.8 = phi i32 [ %281, %279 ], [ %288, %284 ], [ %spec.select333, %282 ]
   %290 = trunc i32 %.8 to i16
   store i16 %290, ptr %49, align 4
   br label %291

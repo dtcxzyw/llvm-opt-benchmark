@@ -3917,7 +3917,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit19.i: ; preds = %932, 
   br label %"_ZN79_$LT$typst..visualize..gradient..LinearGradient$u20$as$u20$core..hash..Hash$GT$4hash17h98c7fde98cda9e1cE.exit"
 
 "_ZN79_$LT$typst..visualize..gradient..LinearGradient$u20$as$u20$core..hash..Hash$GT$4hash17h98c7fde98cda9e1cE.exit": ; preds = %974, %947, %679, %652, %281, %254
-  %.sink.i.i.i26.sink = phi i64 [ %676, %652 ], [ %278, %254 ], [ %282, %281 ], [ %680, %679 ], [ %975, %974 ], [ %971, %947 ]
+  %.sink.i.i.i26.sink = phi i64 [ %282, %281 ], [ %278, %254 ], [ %680, %679 ], [ %676, %652 ], [ %975, %974 ], [ %971, %947 ]
   store i64 %.sink.i.i.i26.sink, ptr %7, align 8, !noalias !4
   ret void
 }

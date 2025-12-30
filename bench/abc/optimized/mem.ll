@@ -925,7 +925,7 @@ define ptr @Mem_StepEntryFetch(ptr noundef captures(none) %0, i32 noundef %1) lo
   br label %47
 
 47:                                               ; preds = %2, %40, %28
-  %.0 = phi ptr [ %46, %40 ], [ %39, %28 ], [ null, %2 ]
+  %.0 = phi ptr [ %39, %28 ], [ %46, %40 ], [ null, %2 ]
   ret ptr %.0
 }
 

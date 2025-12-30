@@ -873,7 +873,7 @@ define hidden noundef zeroext i1 @_ZN3syn5token9peek_impl17hb7ec87291deb88d1E(pt
   unreachable
 
 common.resume:                                    ; preds = %11, %14, %18
-  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %15, %18 ], [ %12, %11 ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %18 ], [ %15, %14 ], [ %12, %11 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc2rc11Rc$LT$T$GT$3new17h081041f233ca159cE.exit": ; preds = %.noexc.i
@@ -1199,8 +1199,8 @@ _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %67
 
-67:                                               ; preds = %49, %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i4, %_ZN3syn6buffer6Cursor5punct17h6386474329364b2bE.exit, %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit"
-  %.0.shrunk = phi i1 [ %37, %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit" ], [ %71, %_ZN3syn6buffer6Cursor5punct17h6386474329364b2bE.exit ], [ false, %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i4 ], [ false, %49 ]
+67:                                               ; preds = %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i4, %49, %_ZN3syn6buffer6Cursor5punct17h6386474329364b2bE.exit, %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit"
+  %.0.shrunk = phi i1 [ %37, %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit" ], [ %71, %_ZN3syn6buffer6Cursor5punct17h6386474329364b2bE.exit ], [ false, %49 ], [ false, %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i4 ]
   ret i1 %.0.shrunk
 
 68:                                               ; preds = %56
@@ -1702,7 +1702,7 @@ define hidden noundef zeroext i1 @"_ZN51_$LT$syn..lit..Lit$u20$as$u20$syn..token
   unreachable
 
 common.resume.i:                                  ; preds = %49, %38, %29
-  %common.resume.op.i = phi { ptr, i32 } [ %39, %38 ], [ %30, %29 ], [ %50, %49 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %30, %29 ], [ %39, %38 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN4core3ptr37drop_in_place$LT$syn..lit..LitInt$GT$17he89f7074a65acaeaE.exit.i.i": ; preds = %26

@@ -53,7 +53,7 @@ define hidden double @__kernel_cos(double noundef %0, double noundef %1) local_u
   br label %36
 
 36:                                               ; preds = %2, %24, %17
-  %.0 = phi double [ %35, %24 ], [ %23, %17 ], [ 1.000000e+00, %2 ]
+  %.0 = phi double [ %23, %17 ], [ %35, %24 ], [ 1.000000e+00, %2 ]
   ret double %.0
 }
 

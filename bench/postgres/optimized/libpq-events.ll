@@ -147,7 +147,7 @@ define range(i32 0, 2) i32 @PQregisterEventProc(ptr noundef %0, ptr noundef %1, 
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %33, %53, %35, %4, %9, %68
-  %.0 = phi i32 [ 0, %4 ], [ 0, %35 ], [ 0, %68 ], [ 1, %53 ], [ 0, %33 ], [ 0, %9 ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %68 ], [ 0, %9 ], [ 0, %4 ], [ 0, %35 ], [ 1, %53 ], [ 0, %33 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

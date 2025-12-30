@@ -866,8 +866,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList13MakeArgStringERKN
   br label %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit
 
 _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %9, %12, %14, %16, %21, %25
-  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %24, %21 ], [ 0, %9 ], [ %20, %16 ], [ 0, %12 ], [ %15, %14 ]
-  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %22, %21 ], [ null, %9 ], [ %18, %16 ], [ null, %12 ], [ %13, %14 ]
+  %.sroa.3.0.i = phi i64 [ %27, %25 ], [ %20, %16 ], [ %24, %21 ], [ 0, %12 ], [ %15, %14 ], [ 0, %9 ]
+  %.sroa.0.0.i = phi ptr [ %26, %25 ], [ %18, %16 ], [ %22, %21 ], [ null, %12 ], [ %13, %14 ], [ null, %9 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !110
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -1428,8 +1428,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4l
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %179, %176
-  %.sink794 = phi i32 [ %180, %179 ], [ %177, %176 ], [ %.pre.i135, %.sink.split.sink.split ]
-  %.sink = phi i64 [ ptrtoint (ptr @.str.7 to i64), %179 ], [ ptrtoint (ptr @.str.8 to i64), %176 ], [ %.sink.ph, %.sink.split.sink.split ]
+  %.sink794 = phi i32 [ %177, %176 ], [ %180, %179 ], [ %.pre.i135, %.sink.split.sink.split ]
+  %.sink = phi i64 [ ptrtoint (ptr @.str.8 to i64), %176 ], [ ptrtoint (ptr @.str.7 to i64), %179 ], [ %.sink.ph, %.sink.split.sink.split ]
   %184 = load ptr, ptr %21, align 8, !tbaa !84
   %185 = zext i32 %.sink794 to i64
   %186 = getelementptr inbounds nuw ptr, ptr %184, i64 %185
@@ -1723,8 +1723,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit157: ; preds = %282
   br i1 %.not.i.i.not.i158, label %.sink.split795, label %.sink.split795.sink.split, !prof !88
 
 .sink.split795.sink.split:                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit157, %278, %244
-  %.sink832 = phi i32 [ %279, %278 ], [ %243, %244 ], [ %293, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit157 ]
-  %.sink798.ph = phi i64 [ ptrtoint (ptr @.str.17 to i64), %278 ], [ ptrtoint (ptr @.str.15 to i64), %244 ], [ ptrtoint (ptr @.str.19 to i64), %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit157 ]
+  %.sink832 = phi i32 [ %243, %244 ], [ %279, %278 ], [ %293, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit157 ]
+  %.sink798.ph = phi i64 [ ptrtoint (ptr @.str.15 to i64), %244 ], [ ptrtoint (ptr @.str.17 to i64), %278 ], [ ptrtoint (ptr @.str.19 to i64), %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit157 ]
   %295 = zext i32 %.sink832 to i64
   %296 = add nuw nsw i64 %295, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %147, i64 noundef %296, i64 noundef 8) #17
@@ -1732,8 +1732,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit157: ; preds = %282
   br label %.sink.split795
 
 .sink.split795:                                   ; preds = %.sink.split795.sink.split, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit157, %278, %244
-  %.sink802 = phi i32 [ %279, %278 ], [ %293, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit157 ], [ %243, %244 ], [ %.pre.i159, %.sink.split795.sink.split ]
-  %.sink798 = phi i64 [ ptrtoint (ptr @.str.17 to i64), %278 ], [ ptrtoint (ptr @.str.19 to i64), %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit157 ], [ ptrtoint (ptr @.str.15 to i64), %244 ], [ %.sink798.ph, %.sink.split795.sink.split ]
+  %.sink802 = phi i32 [ %243, %244 ], [ %279, %278 ], [ %293, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit157 ], [ %.pre.i159, %.sink.split795.sink.split ]
+  %.sink798 = phi i64 [ ptrtoint (ptr @.str.15 to i64), %244 ], [ ptrtoint (ptr @.str.17 to i64), %278 ], [ ptrtoint (ptr @.str.19 to i64), %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit157 ], [ %.sink798.ph, %.sink.split795.sink.split ]
   %297 = load ptr, ptr %21, align 8, !tbaa !84
   %298 = zext i32 %.sink802 to i64
   %299 = getelementptr inbounds nuw ptr, ptr %297, i64 %298
@@ -2201,7 +2201,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190: ; preds = %_Z
   br label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN5clang6driver9InputInfoELj4EEEZNKS3_5tools7openbsd6Linker12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKS4_S7_RKNS_3opt7ArgListEPKcE3$_0EEDaOT_T0_.exit"
 
 "_ZN4llvm7find_ifIRKNS_11SmallVectorIN5clang6driver9InputInfoELj4EEEZNKS3_5tools7openbsd6Linker12ConstructJobERNS3_11CompilationERKNS3_9JobActionERKS4_S7_RKNS_3opt7ArgListEPKcE3$_0EEDaOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %473, %478, %483, %486, %.loopexit.split.loop.exit34.i.i.i.i, %.loopexit.split.loop.exit36.i.i.i.i, %.loopexit.split.loop.exit38.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %478 ], [ %454, %486 ], [ %.2.i.i.i.i, %483 ], [ %.029.lcssa.i.i.i.i, %473 ], [ %488, %.loopexit.split.loop.exit36.i.i.i.i ], [ %487, %.loopexit.split.loop.exit34.i.i.i.i ], [ %489, %.loopexit.split.loop.exit38.i.i.i.i ], [ %.02943.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.028.i.i.i.i = phi ptr [ %454, %486 ], [ %.029.lcssa.i.i.i.i, %473 ], [ %.1.i.i.i.i, %478 ], [ %.2.i.i.i.i, %483 ], [ %487, %.loopexit.split.loop.exit34.i.i.i.i ], [ %488, %.loopexit.split.loop.exit36.i.i.i.i ], [ %489, %.loopexit.split.loop.exit38.i.i.i.i ], [ %.02943.i.i.i.i, %.lr.ph.i.i.i.i ]
   %490 = getelementptr inbounds nuw %"class.clang::driver::InputInfo", ptr %.val, i64 %453
   %491 = icmp eq ptr %.028.i.i.i.i, %490
   %spec.select = select i1 %491, ptr %.val, ptr %.028.i.i.i.i
@@ -2601,8 +2601,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   br label %.sink.split819
 
 .sink.split819:                                   ; preds = %.sink.split819.sink.split, %643, %640
-  %.sink826 = phi i32 [ %.pre568, %643 ], [ %641, %640 ], [ %.pre.i222, %.sink.split819.sink.split ]
-  %.sink822 = phi i64 [ ptrtoint (ptr @.str.36 to i64), %643 ], [ ptrtoint (ptr @.str.35 to i64), %640 ], [ %.sink822.ph, %.sink.split819.sink.split ]
+  %.sink826 = phi i32 [ %641, %640 ], [ %.pre568, %643 ], [ %.pre.i222, %.sink.split819.sink.split ]
+  %.sink822 = phi i64 [ ptrtoint (ptr @.str.35 to i64), %640 ], [ ptrtoint (ptr @.str.36 to i64), %643 ], [ %.sink822.ph, %.sink.split819.sink.split ]
   %647 = load ptr, ptr %21, align 8, !tbaa !84
   %648 = zext i32 %.sink826 to i64
   %649 = getelementptr inbounds nuw ptr, ptr %647, i64 %648

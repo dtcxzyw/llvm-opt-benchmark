@@ -402,7 +402,7 @@ define range(i32 -1, 1) i32 @cli_event_define(ptr noundef captures(none) %0, i32
   br label %cli_event_error_str.exit
 
 cli_event_error_str.exit:                         ; preds = %143, %142, %135, %121, %117, %108, %107, %100, %86, %82, %73, %72, %65, %51, %47, %37, %36, %29, %15, %11, %149, %156
-  %.0 = phi i32 [ 0, %149 ], [ -1, %37 ], [ -1, %73 ], [ -1, %108 ], [ 0, %156 ], [ -1, %11 ], [ -1, %15 ], [ -1, %29 ], [ -1, %36 ], [ -1, %47 ], [ -1, %51 ], [ -1, %65 ], [ -1, %72 ], [ -1, %82 ], [ -1, %86 ], [ -1, %100 ], [ -1, %107 ], [ -1, %117 ], [ -1, %121 ], [ -1, %135 ], [ -1, %142 ], [ -1, %143 ]
+  %.0 = phi i32 [ 0, %156 ], [ 0, %149 ], [ -1, %11 ], [ -1, %15 ], [ -1, %29 ], [ -1, %36 ], [ -1, %37 ], [ -1, %47 ], [ -1, %51 ], [ -1, %65 ], [ -1, %72 ], [ -1, %73 ], [ -1, %82 ], [ -1, %86 ], [ -1, %100 ], [ -1, %107 ], [ -1, %108 ], [ -1, %117 ], [ -1, %121 ], [ -1, %135 ], [ -1, %142 ], [ -1, %143 ]
   ret i32 %.0
 }
 
@@ -1194,7 +1194,7 @@ get_event.exit21:                                 ; preds = %44
   store i32 %136, ptr %134, align 8, !tbaa !18
   br label %cli_event_error_str.exit
 
-cli_event_error_str.exit:                         ; preds = %71, %64, %50, %46, %72, %3, %117, %116, %109, %95, %91, %get_event.exit21, %123
+cli_event_error_str.exit:                         ; preds = %72, %71, %64, %50, %46, %3, %117, %116, %109, %95, %91, %get_event.exit21, %123
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -1604,7 +1604,7 @@ get_event.exit20:                                 ; preds = %44
   store i64 %135, ptr %130, align 8, !tbaa !17
   br label %cli_event_error_str.exit
 
-cli_event_error_str.exit:                         ; preds = %71, %64, %50, %46, %72, %3, %117, %116, %109, %95, %91, %get_event.exit20, %123
+cli_event_error_str.exit:                         ; preds = %72, %71, %64, %50, %46, %3, %117, %116, %109, %95, %91, %get_event.exit20, %123
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -2613,7 +2613,7 @@ define range(i32 0, 2) i32 @cli_event_diff(ptr noundef captures(address_is_null)
   br label %get_event.exit
 
 get_event.exit:                                   ; preds = %3, %7, %11, %25, %32, %33, %39
-  %.0.i = phi ptr [ null, %3 ], [ %42, %39 ], [ null, %7 ], [ null, %11 ], [ null, %25 ], [ null, %32 ], [ null, %33 ]
+  %.0.i = phi ptr [ %42, %39 ], [ null, %3 ], [ null, %7 ], [ null, %11 ], [ null, %25 ], [ null, %32 ], [ null, %33 ]
   %.not.i76 = icmp eq ptr %1, null
   br i1 %.not.i76, label %get_event.exit82.thread, label %43
 
@@ -2782,7 +2782,7 @@ get_event.exit82:                                 ; preds = %43
   br label %ev_diff.exit
 
 ev_diff.exit:                                     ; preds = %114, %119, %123
-  %.0.i83 = phi i32 [ %127, %123 ], [ %118, %114 ], [ %122, %119 ]
+  %.0.i83 = phi i32 [ %118, %114 ], [ %122, %119 ], [ %127, %123 ]
   %128 = freeze i32 %.0.i83
   %.not73 = icmp eq i32 %128, 0
   br i1 %.not73, label %ev_diff.exit.thread, label %129
@@ -2816,8 +2816,8 @@ ev_diff.exit:                                     ; preds = %114, %119, %123
   br label %ev_diff.exit.thread
 
 ev_diff.exit.thread:                              ; preds = %107, %132, %ev_diff.exit
-  %144 = phi i32 [ %108, %ev_diff.exit ], [ %.pre99, %132 ], [ %108, %107 ]
-  %.0.i8388 = phi i32 [ 0, %ev_diff.exit ], [ %128, %132 ], [ 0, %107 ]
+  %144 = phi i32 [ %.pre99, %132 ], [ %108, %ev_diff.exit ], [ %108, %107 ]
+  %.0.i8388 = phi i32 [ %128, %132 ], [ 0, %ev_diff.exit ], [ 0, %107 ]
   %145 = add i32 %.0.i8388, %.056.fr95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %146 = zext i32 %144 to i64
@@ -2854,7 +2854,7 @@ ev_diff.exit.thread:                              ; preds = %107, %132, %ev_diff
   br label %get_event.exit82.thread
 
 get_event.exit82.thread:                          ; preds = %72, %71, %64, %50, %46, %get_event.exit, %.thread, %._crit_edge, %.thread91, %get_event.exit82, %102, %96
-  %.0 = phi i32 [ 1, %96 ], [ 1, %102 ], [ 1, %get_event.exit82 ], [ 1, %.thread91 ], [ 0, %.thread ], [ 1, %._crit_edge ], [ 1, %get_event.exit ], [ 1, %46 ], [ 1, %50 ], [ 1, %64 ], [ 1, %71 ], [ 1, %72 ]
+  %.0 = phi i32 [ 1, %96 ], [ 1, %102 ], [ 1, %get_event.exit82 ], [ 0, %.thread ], [ 1, %._crit_edge ], [ 1, %.thread91 ], [ 1, %get_event.exit ], [ 1, %46 ], [ 1, %50 ], [ 1, %64 ], [ 1, %71 ], [ 1, %72 ]
   ret i32 %.0
 }
 
@@ -2889,7 +2889,7 @@ define internal fastcc i32 @ev_diff(i32 noundef range(i32 0, 256) %0, ptr nounde
   br label %19
 
 19:                                               ; preds = %4, %14, %10, %5
-  %.0 = phi i32 [ %18, %14 ], [ %9, %5 ], [ %13, %10 ], [ 0, %4 ]
+  %.0 = phi i32 [ %9, %5 ], [ %13, %10 ], [ %18, %14 ], [ 0, %4 ]
   ret i32 %.0
 }
 

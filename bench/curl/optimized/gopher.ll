@@ -126,8 +126,8 @@ define internal i32 @gopher_do(ptr noundef %0, ptr noundef writeonly captures(no
   %.not62 = icmp eq i32 %52, 0
   br i1 %.not62, label %.thread68, label %33
 
-.thread68:                                        ; preds = %54, %48, %51, %38, %36
-  %.2.ph = phi i32 [ 28, %54 ], [ 28, %48 ], [ 55, %51 ], [ %41, %38 ], [ %37, %36 ]
+.thread68:                                        ; preds = %54, %51, %48, %38, %36
+  %.2.ph = phi i32 [ 28, %54 ], [ 55, %51 ], [ 28, %48 ], [ %41, %38 ], [ %37, %36 ]
   %55 = load ptr, ptr @Curl_cfree, align 8, !tbaa !81
   call void %55(ptr noundef %.047) #5
   br label %59
@@ -154,7 +154,7 @@ define internal i32 @gopher_do(ptr noundef %0, ptr noundef writeonly captures(no
   br label %63
 
 63:                                               ; preds = %60, %19, %25, %62, %59
-  %.0 = phi i32 [ %.371, %59 ], [ 27, %19 ], [ 0, %62 ], [ %27, %25 ], [ %61, %60 ]
+  %.0 = phi i32 [ %.371, %59 ], [ 0, %62 ], [ %27, %25 ], [ 27, %19 ], [ %61, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

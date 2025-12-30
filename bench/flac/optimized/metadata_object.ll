@@ -170,7 +170,7 @@ copy_cstring_.exit39:                             ; preds = %65
   br label %vorbiscomment_calculate_length_.exit
 
 vorbiscomment_calculate_length_.exit:             ; preds = %32, %24, %copy_cstring_.exit39, %3, %5, %8, %6, %1, %68, %64, %23
-  %.0 = phi ptr [ null, %23 ], [ null, %1 ], [ null, %68 ], [ null, %64 ], [ %4, %6 ], [ %4, %8 ], [ null, %3 ], [ %4, %32 ], [ %4, %copy_cstring_.exit39 ], [ %4, %5 ], [ %4, %24 ]
+  %.0 = phi ptr [ null, %68 ], [ null, %64 ], [ null, %23 ], [ null, %1 ], [ %4, %6 ], [ %4, %8 ], [ %4, %copy_cstring_.exit39 ], [ %4, %5 ], [ null, %3 ], [ %4, %24 ], [ %4, %32 ]
   ret ptr %.0
 }
 
@@ -643,7 +643,7 @@ copy_bytes_.exit125:                              ; preds = %188, %.thread.i124
   br label %199
 
 199:                                              ; preds = %copy_bytes_.exit125, %copy_bytes_.exit119, %cuesheet_track_array_copy_.exit, %copy_bytes_.exit96, %copy_bytes_.exit, %1, %109, %vorbiscomment_entry_array_copy_.exit, %12, %4, %198, %187, %159, %152, %143, %104, %74, %52, %40, %34, %19
-  %.0 = phi ptr [ null, %152 ], [ null, %198 ], [ null, %19 ], [ null, %34 ], [ null, %40 ], [ null, %52 ], [ null, %104 ], [ null, %74 ], [ null, %143 ], [ null, %187 ], [ null, %159 ], [ %3, %4 ], [ %3, %12 ], [ %3, %vorbiscomment_entry_array_copy_.exit ], [ %3, %copy_bytes_.exit ], [ %3, %copy_bytes_.exit96 ], [ %3, %cuesheet_track_array_copy_.exit ], [ %3, %109 ], [ %3, %copy_bytes_.exit119 ], [ %3, %copy_bytes_.exit125 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %198 ], [ null, %19 ], [ null, %34 ], [ null, %40 ], [ null, %52 ], [ null, %104 ], [ null, %74 ], [ null, %143 ], [ null, %187 ], [ null, %159 ], [ null, %152 ], [ %3, %4 ], [ %3, %12 ], [ %3, %vorbiscomment_entry_array_copy_.exit ], [ %3, %copy_bytes_.exit ], [ %3, %copy_bytes_.exit96 ], [ %3, %cuesheet_track_array_copy_.exit ], [ %3, %109 ], [ %3, %copy_bytes_.exit119 ], [ %3, %copy_bytes_.exit125 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -915,7 +915,7 @@ compare_block_data_unknown_.exit:                 ; preds = %43, %46
   br label %48
 
 48:                                               ; preds = %15, %10, %5, %2, %compare_block_data_unknown_.exit, %36, %32, %28, %24, %20, %16
-  %.0 = phi i32 [ %39, %36 ], [ 0, %2 ], [ 0, %5 ], [ %.0.i, %compare_block_data_unknown_.exit ], [ %19, %16 ], [ 0, %10 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %3, %15 ]
+  %.0 = phi i32 [ %.0.i, %compare_block_data_unknown_.exit ], [ %19, %16 ], [ %23, %20 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ 0, %2 ], [ 0, %5 ], [ 0, %10 ], [ %3, %15 ]
   ret i32 %.0
 }
 
@@ -991,7 +991,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_streaminfo_(ptr n
   br label %43
 
 43:                                               ; preds = %40, %35, %30, %25, %20, %15, %10, %5, %2
-  %.0 = phi i32 [ 0, %35 ], [ 0, %2 ], [ 0, %5 ], [ 0, %10 ], [ 0, %15 ], [ 0, %20 ], [ 0, %25 ], [ 0, %30 ], [ %., %40 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 0, %10 ], [ 0, %15 ], [ 0, %20 ], [ 0, %25 ], [ 0, %30 ], [ 0, %35 ], [ %., %40 ]
   ret i32 %.0
 }
 
@@ -1025,7 +1025,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_application_(ptr 
   br label %13
 
 13:                                               ; preds = %8, %._crit_edge, %3, %9
-  %.0.shrunk = phi i1 [ false, %3 ], [ %12, %9 ], [ %7, %._crit_edge ], [ false, %8 ]
+  %.0.shrunk = phi i1 [ %12, %9 ], [ false, %3 ], [ %7, %._crit_edge ], [ false, %8 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -1093,7 +1093,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_seektable_(ptr no
   br i1 %.not26, label %11, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %21, %11, %10, %._crit_edge, %.preheader, %2
-  %.021 = phi i32 [ 0, %10 ], [ 0, %2 ], [ 1, %.preheader ], [ %9, %._crit_edge ], [ 0, %21 ], [ 0, %16 ], [ 0, %.lr.ph ], [ 1, %11 ]
+  %.021 = phi i32 [ 0, %2 ], [ 1, %.preheader ], [ %9, %._crit_edge ], [ 0, %10 ], [ 0, %.lr.ph ], [ 0, %16 ], [ 0, %21 ], [ 1, %11 ]
   ret i32 %.021
 }
 
@@ -1178,7 +1178,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_vorbiscomment_(pt
   br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !53
 
 .loopexit:                                        ; preds = %25, %26, %29, %31, %8, %.preheader, %13, %11, %9, %2
-  %.028 = phi i32 [ 0, %9 ], [ 0, %2 ], [ 0, %11 ], [ 0, %13 ], [ 1, %.preheader ], [ 0, %8 ], [ 0, %25 ], [ 0, %29 ], [ 0, %26 ], [ 1, %31 ]
+  %.028 = phi i32 [ 0, %2 ], [ 0, %9 ], [ 0, %11 ], [ 0, %13 ], [ 1, %.preheader ], [ 0, %8 ], [ 0, %25 ], [ 0, %26 ], [ 0, %29 ], [ 1, %31 ]
   ret i32 %.028
 }
 
@@ -1330,7 +1330,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_cuesheet_(ptr nou
   br label %.loopexit82
 
 .loopexit82:                                      ; preds = %51, %62, %43, %36, %33, %28, %.lr.ph88, %57, %.lr.ph, %22, %65, %14, %9, %4, %2, %.loopexit84
-  %.064 = phi i32 [ 0, %57 ], [ 0, %2 ], [ 0, %4 ], [ 0, %9 ], [ 0, %14 ], [ 1, %.loopexit84 ], [ 0, %65 ], [ 0, %22 ], [ 0, %.lr.ph ], [ 0, %.lr.ph88 ], [ 0, %28 ], [ 0, %33 ], [ 0, %36 ], [ 0, %43 ], [ 0, %62 ], [ 0, %51 ]
+  %.064 = phi i32 [ 1, %.loopexit84 ], [ 0, %2 ], [ 0, %4 ], [ 0, %9 ], [ 0, %14 ], [ 0, %65 ], [ 0, %22 ], [ 0, %.lr.ph ], [ 0, %57 ], [ 0, %.lr.ph88 ], [ 0, %28 ], [ 0, %33 ], [ 0, %36 ], [ 0, %43 ], [ 0, %62 ], [ 0, %51 ]
   ret i32 %.064
 }
 
@@ -1443,7 +1443,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_picture_(ptr noun
   br label %61
 
 61:                                               ; preds = %55, %58, %45, %40, %35, %30, %25, %20, %23, %10, %13, %2, %60
-  %.0 = phi i32 [ 1, %60 ], [ 0, %2 ], [ 0, %10 ], [ 0, %20 ], [ 0, %25 ], [ 0, %30 ], [ 0, %35 ], [ 0, %40 ], [ 0, %45 ], [ 0, %13 ], [ 0, %23 ], [ 0, %58 ], [ 0, %55 ]
+  %.0 = phi i32 [ 1, %60 ], [ 0, %2 ], [ 0, %13 ], [ 0, %10 ], [ 0, %23 ], [ 0, %20 ], [ 0, %25 ], [ 0, %30 ], [ 0, %35 ], [ 0, %40 ], [ 0, %45 ], [ 0, %58 ], [ 0, %55 ]
   ret i32 %.0
 }
 
@@ -1471,7 +1471,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_application_set_data(ptr nound
   br label %copy_bytes_.exit
 
 copy_bytes_.exit:                                 ; preds = %4, %.thread.i, %7
-  %storemerge = phi ptr [ null, %7 ], [ %12, %.thread.i ], [ %1, %4 ]
+  %storemerge = phi ptr [ %12, %.thread.i ], [ null, %7 ], [ %1, %4 ]
   store ptr %storemerge, ptr %5, align 8, !tbaa !13
   tail call void @free(ptr noundef %6) #33
   %14 = load i32, ptr @FLAC__STREAM_METADATA_APPLICATION_ID_LEN, align 4, !tbaa !9
@@ -1596,7 +1596,7 @@ seekpoint_array_new_.exit:                        ; preds = %18
   br label %.critedge
 
 .critedge:                                        ; preds = %22, %29, %seekpoint_array_new_.exit.thread, %13, %2, %.critedge.thread
-  %.032 = phi i32 [ 0, %seekpoint_array_new_.exit.thread ], [ 0, %2 ], [ 1, %13 ], [ 1, %.critedge.thread ], [ 0, %29 ], [ 0, %22 ]
+  %.032 = phi i32 [ 1, %.critedge.thread ], [ 0, %2 ], [ 1, %13 ], [ 0, %seekpoint_array_new_.exit.thread ], [ 0, %29 ], [ 0, %22 ]
   ret i32 %.032
 }
 
@@ -1861,7 +1861,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_spac
   br i1 %exitcond.not, label %.thread, label %28, !llvm.loop !84
 
 .thread:                                          ; preds = %28, %20, %3, %6
-  %.141 = phi i32 [ 0, %6 ], [ 1, %20 ], [ 1, %3 ], [ 1, %28 ]
+  %.141 = phi i32 [ 0, %6 ], [ 1, %3 ], [ 1, %20 ], [ 1, %28 ]
   ret i32 %.141
 }
 
@@ -2050,7 +2050,7 @@ copy_vcentry_.exit:                               ; preds = %11
   br label %vorbiscomment_calculate_length_.exit
 
 vorbiscomment_calculate_length_.exit:             ; preds = %17, %11, %._crit_edge.i, %24
-  %.0 = phi i32 [ 0, %11 ], [ 1, %._crit_edge.i ], [ 1, %24 ], [ 0, %17 ]
+  %.0 = phi i32 [ 1, %24 ], [ 1, %._crit_edge.i ], [ 0, %11 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -2230,8 +2230,8 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(
   store i32 %87, ptr %74, align 8, !tbaa !8
   br label %vorbiscomment_calculate_length_.exit
 
-vorbiscomment_calculate_length_.exit:             ; preds = %63, %28, %49, %19, %8, %._crit_edge.i, %.critedge, %6
-  %.057 = phi i32 [ 0, %19 ], [ 1, %6 ], [ 1, %._crit_edge.i ], [ 1, %.critedge ], [ 0, %8 ], [ 0, %49 ], [ 0, %28 ], [ 0, %63 ]
+vorbiscomment_calculate_length_.exit:             ; preds = %49, %28, %63, %8, %19, %._crit_edge.i, %.critedge, %6
+  %.057 = phi i32 [ 1, %6 ], [ 1, %.critedge ], [ 1, %._crit_edge.i ], [ 0, %19 ], [ 0, %8 ], [ 0, %63 ], [ 0, %28 ], [ 0, %49 ]
   ret i32 %.057
 }
 
@@ -2543,7 +2543,7 @@ vorbiscomment_find_entry_from_.exit.thread:       ; preds = %FLAC__metadata_obje
   br label %.loopexit
 
 .loopexit:                                        ; preds = %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i54, %89, %.lr.ph, %vorbiscomment_find_entry_from_.exit74, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i67, %vorbiscomment_find_entry_from_.exit61, %FLAC__metadata_object_vorbiscomment_set_comment.exit.thread, %vorbiscomment_find_entry_from_.exit.thread, %8, %44, %48, %FLAC__metadata_object_vorbiscomment_set_comment.exit, %5
-  %.0 = phi i32 [ 0, %5 ], [ %108, %vorbiscomment_find_entry_from_.exit.thread ], [ 0, %8 ], [ 0, %FLAC__metadata_object_vorbiscomment_set_comment.exit ], [ 1, %44 ], [ 0, %FLAC__metadata_object_vorbiscomment_set_comment.exit.thread ], [ 1, %48 ], [ 1, %vorbiscomment_find_entry_from_.exit61 ], [ 1, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i67 ], [ 1, %vorbiscomment_find_entry_from_.exit74 ], [ 1, %89 ], [ 0, %.lr.ph ], [ 1, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i54 ]
+  %.0 = phi i32 [ 0, %5 ], [ %108, %vorbiscomment_find_entry_from_.exit.thread ], [ 0, %8 ], [ 0, %FLAC__metadata_object_vorbiscomment_set_comment.exit ], [ 1, %48 ], [ 1, %44 ], [ 0, %FLAC__metadata_object_vorbiscomment_set_comment.exit.thread ], [ 1, %vorbiscomment_find_entry_from_.exit61 ], [ 1, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i67 ], [ 1, %89 ], [ 0, %.lr.ph ], [ 1, %vorbiscomment_find_entry_from_.exit74 ], [ 1, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i54 ]
   ret i32 %.0
 }
 
@@ -2635,7 +2635,7 @@ safe_malloc_add_4op_.exit:                        ; preds = %14
   br label %.thread
 
 .thread:                                          ; preds = %safe_malloc_add_4op_.exit, %safe_malloc_add_4op_.exit.thread, %22, %5, %3
-  %.022 = phi i32 [ 0, %5 ], [ 0, %3 ], [ 1, %22 ], [ 0, %safe_malloc_add_4op_.exit.thread ], [ 0, %safe_malloc_add_4op_.exit ]
+  %.022 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 1, %22 ], [ 0, %safe_malloc_add_4op_.exit.thread ], [ 0, %safe_malloc_add_4op_.exit ]
   ret i32 %.022
 }
 
@@ -2708,8 +2708,8 @@ safe_malloc_add_2op_.exit26:                      ; preds = %20
   store i8 0, ptr %35, align 1, !tbaa !13
   br label %.thread
 
-.thread:                                          ; preds = %safe_malloc_add_2op_.exit.thread, %safe_malloc_add_2op_.exit, %25, %6, %27, %4
-  %.024 = phi i32 [ 0, %4 ], [ 1, %27 ], [ 0, %6 ], [ 0, %25 ], [ 0, %safe_malloc_add_2op_.exit ], [ 0, %safe_malloc_add_2op_.exit.thread ]
+.thread:                                          ; preds = %safe_malloc_add_2op_.exit.thread, %safe_malloc_add_2op_.exit, %6, %25, %27, %4
+  %.024 = phi i32 [ 0, %4 ], [ 1, %27 ], [ 0, %25 ], [ 0, %6 ], [ 0, %safe_malloc_add_2op_.exit ], [ 0, %safe_malloc_add_2op_.exit.thread ]
   ret i32 %.024
 }
 
@@ -2734,7 +2734,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_entry_matches(i3
   br label %17
 
 17:                                               ; preds = %12, %4
-  %18 = phi i32 [ %16, %12 ], [ 0, %4 ]
+  %18 = phi i32 [ 0, %4 ], [ %16, %12 ]
   ret i32 %18
 }
 
@@ -3161,7 +3161,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_resize_indices(
   br label %.critedge35
 
 .critedge35:                                      ; preds = %._crit_edge.i, %.critedge, %17, %28, %13, %11
-  %.0 = phi i32 [ 0, %13 ], [ 1, %11 ], [ 0, %17 ], [ 0, %28 ], [ 1, %.critedge ], [ 1, %._crit_edge.i ]
+  %.0 = phi i32 [ 1, %11 ], [ 0, %13 ], [ 0, %28 ], [ 0, %17 ], [ 1, %.critedge ], [ 1, %._crit_edge.i ]
   ret i32 %.0
 }
 
@@ -3434,8 +3434,8 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_resize_tracks(ptr nou
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %40, i8 noundef 0, i64 noundef range(i64 -137438953438, 137438953441) %41, i1 noundef false) #33
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %37, %34, %8
-  %42 = phi ptr [ %35, %37 ], [ %35, %34 ], [ %10, %8 ]
+.critedge.thread:                                 ; preds = %34, %37, %8
+  %42 = phi ptr [ %35, %34 ], [ %35, %37 ], [ %10, %8 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i32 %1, ptr %43, align 4, !tbaa !13
   %44 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_MEDIA_CATALOG_NUMBER_LEN, align 4, !tbaa !9
@@ -3497,7 +3497,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_resize_tracks(ptr nou
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge.i, %.critedge.thread, %12, %32, %8, %6
-  %.0 = phi i32 [ 0, %8 ], [ 1, %6 ], [ 0, %12 ], [ 0, %32 ], [ 1, %.critedge.thread ], [ 1, %._crit_edge.i ]
+  %.0 = phi i32 [ 1, %6 ], [ 0, %8 ], [ 0, %32 ], [ 0, %12 ], [ 1, %.critedge.thread ], [ 1, %._crit_edge.i ]
   ret i32 %.0
 }
 
@@ -3855,8 +3855,8 @@ get_index_01_offset_.exit:                        ; preds = %28, %16
   %.not.i18 = icmp ult i32 %.057.i, 10
   br i1 %.not.i18, label %cddb_add_digits_.exit, label %.lr.ph.i, !llvm.loop !97
 
-cddb_add_digits_.exit:                            ; preds = %.lr.ph.i, %24, %9, %10, %22, %get_index_01_offset_.exit
-  %.0.lcssa.i = phi i32 [ 0, %get_index_01_offset_.exit ], [ 0, %24 ], [ 0, %22 ], [ 0, %10 ], [ 0, %9 ], [ %37, %.lr.ph.i ]
+cddb_add_digits_.exit:                            ; preds = %.lr.ph.i, %24, %22, %9, %10, %get_index_01_offset_.exit
+  %.0.lcssa.i = phi i32 [ 0, %get_index_01_offset_.exit ], [ 0, %10 ], [ 0, %9 ], [ 0, %22 ], [ 0, %24 ], [ %37, %.lr.ph.i ]
   %39 = add i32 %.0.lcssa.i, %.029
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
@@ -3910,7 +3910,7 @@ cddb_add_digits_.exit:                            ; preds = %.lr.ph.i, %24, %9, 
   br label %get_index_01_offset_.exit24
 
 get_index_01_offset_.exit24:                      ; preds = %40, %59, %61, %.sink.split.i21
-  %.0.i20 = phi i32 [ 0, %59 ], [ 0, %40 ], [ %71, %.sink.split.i21 ], [ 0, %61 ]
+  %.0.i20 = phi i32 [ 0, %40 ], [ 0, %59 ], [ 0, %61 ], [ %71, %.sink.split.i21 ]
   %72 = sub i32 %49, %.0.i20
   %73 = urem i32 %39, 255
   %74 = shl nuw i32 %73, 24
@@ -3979,7 +3979,7 @@ copy_bytes_.exit:                                 ; preds = %.copy_bytes_.exit_c
   br label %copy_bytes_.exit.thread
 
 copy_bytes_.exit.thread:                          ; preds = %17, %12, %copy_bytes_.exit
-  %.0 = phi i32 [ 0, %12 ], [ 1, %copy_bytes_.exit ], [ 0, %17 ]
+  %.0 = phi i32 [ 1, %copy_bytes_.exit ], [ 0, %12 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -4038,7 +4038,7 @@ copy_bytes_.exit:                                 ; preds = %.copy_bytes_.exit_c
   br label %copy_bytes_.exit.thread
 
 copy_bytes_.exit.thread:                          ; preds = %17, %12, %copy_bytes_.exit
-  %.0 = phi i32 [ 0, %12 ], [ 1, %copy_bytes_.exit ], [ 0, %17 ]
+  %.0 = phi i32 [ 1, %copy_bytes_.exit ], [ 0, %12 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -4066,7 +4066,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_picture_set_data(ptr noundef c
   br label %copy_bytes_.exit
 
 copy_bytes_.exit:                                 ; preds = %4, %.thread.i, %7
-  %storemerge = phi ptr [ null, %7 ], [ %12, %.thread.i ], [ %1, %4 ]
+  %storemerge = phi ptr [ %12, %.thread.i ], [ null, %7 ], [ %1, %4 ]
   store ptr %storemerge, ptr %5, align 8, !tbaa !13
   tail call void @free(ptr noundef %6) #33
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4160,7 +4160,7 @@ define noundef ptr @FLAC__metadata_object_get_raw(ptr noundef %0) local_unnamed_
   br label %28
 
 28:                                               ; preds = %1, %26, %25, %21, %14, %11, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %21 ], [ null, %25 ], [ %23, %26 ], [ null, %14 ], [ null, %11 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %21 ], [ null, %25 ], [ %23, %26 ], [ null, %14 ], [ null, %11 ], [ null, %8 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
@@ -4245,7 +4245,7 @@ define ptr @FLAC__metadata_object_set_raw(ptr noundef %0, i32 noundef %1) local_
   br label %34
 
 34:                                               ; preds = %27, %30, %2, %31, %17
-  %.0 = phi ptr [ %33, %31 ], [ null, %17 ], [ null, %2 ], [ null, %30 ], [ null, %27 ]
+  %.0 = phi ptr [ null, %17 ], [ %33, %31 ], [ null, %2 ], [ null, %30 ], [ null, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -4323,7 +4323,7 @@ define internal range(i32 0, 3) i32 @read_callback_(ptr readnone captures(none) 
   br label %39
 
 39:                                               ; preds = %15, %8, %29, %21, %11
-  %.0 = phi i32 [ 0, %29 ], [ 0, %11 ], [ 2, %8 ], [ 1, %21 ], [ 2, %15 ]
+  %.0 = phi i32 [ 0, %11 ], [ 1, %21 ], [ 0, %29 ], [ 2, %8 ], [ 2, %15 ]
   ret i32 %.0
 }
 

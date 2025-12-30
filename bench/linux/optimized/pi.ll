@@ -632,7 +632,7 @@ define dso_local i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread11
 
 .thread11:                                        ; preds = %178, %180, %181, %149, %155, %141, %129, %117, %111, %83, %78, %17, %7
-  %182 = phi i32 [ %79, %78 ], [ -14, %7 ], [ -35, %17 ], [ %96, %83 ], [ 1, %111 ], [ %124, %117 ], [ -1, %141 ], [ %135, %129 ], [ 0, %181 ], [ %.ph, %149 ], [ -16, %155 ], [ 0, %180 ], [ 0, %178 ]
+  %182 = phi i32 [ %79, %78 ], [ -14, %7 ], [ -35, %17 ], [ %96, %83 ], [ 1, %111 ], [ %124, %117 ], [ -1, %141 ], [ %135, %129 ], [ %.ph, %149 ], [ -16, %155 ], [ 0, %181 ], [ 0, %180 ], [ 0, %178 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %182
 }
@@ -1049,13 +1049,13 @@ define dso_local i32 @futex_lock_pi(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %.split21.us
 
 .split21.us:                                      ; preds = %.split, %.split.us, %.split21.us.loopexit98, %.split21.us.loopexit90
-  %101 = phi ptr [ %42, %.split21.us.loopexit98 ], [ %32, %.split21.us.loopexit90 ], [ %32, %.split.us ], [ %42, %.split ]
-  %102 = phi i32 [ %43, %.split21.us.loopexit98 ], [ %33, %.split21.us.loopexit90 ], [ 0, %.split.us ], [ 0, %.split ]
+  %101 = phi ptr [ %32, %.split21.us.loopexit90 ], [ %42, %.split21.us.loopexit98 ], [ %32, %.split.us ], [ %42, %.split ]
+  %102 = phi i32 [ %33, %.split21.us.loopexit90 ], [ %43, %.split21.us.loopexit98 ], [ 0, %.split.us ], [ 0, %.split ]
   call void @futex_q_unlock(ptr noundef %101) #13
   br label %.loopexit8
 
 .loopexit8:                                       ; preds = %47, %110, %34, %39, %.split21.us, %91, %23
-  %103 = phi i32 [ %102, %.split21.us ], [ %98, %91 ], [ %26, %23 ], [ %37, %34 ], [ %40, %39 ], [ %111, %110 ], [ %48, %47 ]
+  %103 = phi i32 [ %102, %.split21.us ], [ %98, %91 ], [ %26, %23 ], [ %40, %39 ], [ %37, %34 ], [ %111, %110 ], [ %48, %47 ]
   %104 = icmp eq ptr %24, null
   br i1 %104, label %107, label %105
 
@@ -1366,7 +1366,7 @@ define dso_local i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %110, label %101, label %.thread27
 
 .thread27:                                        ; preds = %87, %.thread31, %101, %25, %20, %81, %.thread19, %.thread29, %94, %2
-  %111 = phi i32 [ %99, %.thread29 ], [ %91, %94 ], [ -14, %2 ], [ 0, %.thread19 ], [ %76, %87 ], [ -1, %20 ], [ %26, %25 ], [ %109, %.thread31 ], [ -14, %101 ], [ -22, %81 ]
+  %111 = phi i32 [ %99, %.thread29 ], [ %91, %94 ], [ -14, %2 ], [ 0, %.thread19 ], [ %76, %87 ], [ -14, %101 ], [ -1, %20 ], [ %26, %25 ], [ %109, %.thread31 ], [ -22, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %111

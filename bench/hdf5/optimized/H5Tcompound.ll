@@ -500,7 +500,7 @@ H5T__reopen_member_type.exit:                     ; preds = %63
   %95 = call i32 @H5CX_pop(i1 noundef zeroext true) #8
   br label %97
 
-.thread53:                                        ; preds = %25, %32, %12, %.thread62, %.thread58
+.thread53:                                        ; preds = %12, %25, %32, %.thread62, %.thread58
   %96 = call i32 @H5E_dump_api_stack() #8
   br label %97
 
@@ -1396,7 +1396,7 @@ H5T__is_packed.exit:                              ; preds = %22
   br label %H5T__is_packed.exit.thread
 
 H5T__is_packed.exit.thread:                       ; preds = %11, %22, %1, %8, %79, %51, %71, %62, %43, %33, %H5T__is_packed.exit, %47, %._crit_edge63, %119, %93
-  %.047 = phi i32 [ 0, %1 ], [ -1, %33 ], [ -1, %43 ], [ 0, %51 ], [ 0, %62 ], [ 0, %71 ], [ 0, %47 ], [ 0, %H5T__is_packed.exit ], [ 0, %8 ], [ 0, %79 ], [ -1, %93 ], [ -1, %119 ], [ 0, %._crit_edge63 ], [ 0, %22 ], [ 0, %11 ]
+  %.047 = phi i32 [ -1, %33 ], [ -1, %43 ], [ 0, %51 ], [ 0, %62 ], [ 0, %71 ], [ 0, %79 ], [ 0, %8 ], [ 0, %1 ], [ 0, %H5T__is_packed.exit ], [ 0, %47 ], [ -1, %93 ], [ -1, %119 ], [ 0, %._crit_edge63 ], [ 0, %22 ], [ 0, %11 ]
   ret i32 %.047
 }
 

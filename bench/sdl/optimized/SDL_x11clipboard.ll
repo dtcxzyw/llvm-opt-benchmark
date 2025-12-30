@@ -425,7 +425,7 @@ WaitForSelection.exit78:                          ; preds = %105
   br label %AppendDataBuffer.exit
 
 AppendDataBuffer.exit:                            ; preds = %130, %132, %136
-  %.0.i84 = phi ptr [ null, %132 ], [ %135, %136 ], [ %.3, %130 ]
+  %.0.i84 = phi ptr [ %135, %136 ], [ null, %132 ], [ %.3, %130 ]
   %139 = load i64, ptr %8, align 8
   %140 = load i64, ptr %3, align 8
   %141 = add i64 %140, %139
@@ -444,14 +444,14 @@ CloneDataBuffer.exit82.thread:                    ; preds = %123, %125, %111, %C
   br label %CloneDataBuffer.exit75
 
 CloneDataBuffer.exit75:                           ; preds = %117, %89, %86, %81, %91, %CloneDataBuffer.exit82.thread
-  %.2 = phi ptr [ null, %91 ], [ null, %CloneDataBuffer.exit82.thread ], [ null, %81 ], [ %88, %89 ], [ null, %86 ], [ %.3, %117 ]
+  %.2 = phi ptr [ null, %CloneDataBuffer.exit82.thread ], [ null, %91 ], [ %88, %89 ], [ null, %86 ], [ null, %81 ], [ %.3, %117 ]
   %143 = load ptr, ptr @X11_XFree, align 8
   %144 = load ptr, ptr %10, align 8
   %145 = call i32 %143(ptr noundef %144) #6
   br label %CloneDataBuffer.exit
 
 CloneDataBuffer.exit:                             ; preds = %56, %53, %46, %GetWindow.exit, %43, %CloneDataBuffer.exit75, %WaitForSelection.exit.thread
-  %.062 = phi ptr [ null, %WaitForSelection.exit.thread ], [ null, %GetWindow.exit ], [ null, %43 ], [ %.2, %CloneDataBuffer.exit75 ], [ %55, %56 ], [ null, %53 ], [ null, %46 ]
+  %.062 = phi ptr [ null, %43 ], [ %.2, %CloneDataBuffer.exit75 ], [ null, %WaitForSelection.exit.thread ], [ null, %GetWindow.exit ], [ %55, %56 ], [ null, %53 ], [ null, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

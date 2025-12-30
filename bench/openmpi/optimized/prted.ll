@@ -1510,7 +1510,7 @@ pmix_obj_run_constructors.exit422:                ; preds = %.lr.ph.i419, %438
   br label %.thread430
 
 593:                                              ; preds = %193, %453, %pmix_obj_run_constructors.exit422, %284, %pmix_obj_update.exit, %252, %250, %280, %298, %340, %358, %476, %484, %519, %535, %286
-  %.4 = phi i32 [ -1, %280 ], [ %285, %286 ], [ %285, %284 ], [ -1, %298 ], [ %337, %340 ], [ -8, %193 ], [ 1, %250 ], [ -1, %358 ], [ %516, %519 ], [ 1, %252 ], [ %532, %535 ], [ -8, %pmix_obj_run_constructors.exit422 ], [ 1, %pmix_obj_update.exit ], [ -8, %453 ], [ -1, %476 ], [ -1, %484 ]
+  %.4 = phi i32 [ -1, %280 ], [ %285, %286 ], [ -1, %298 ], [ %337, %340 ], [ -1, %358 ], [ -1, %476 ], [ -1, %484 ], [ %516, %519 ], [ %532, %535 ], [ -8, %193 ], [ 1, %250 ], [ 1, %252 ], [ 1, %pmix_obj_update.exit ], [ %285, %284 ], [ -8, %pmix_obj_run_constructors.exit422 ], [ -8, %453 ]
   %594 = load i32, ptr @prte_exit_status, align 4, !tbaa !4
   %595 = icmp eq i32 %594, 0
   %596 = icmp ne i32 %.4, 0
@@ -1558,7 +1558,7 @@ pmix_obj_run_constructors.exit422:                ; preds = %.lr.ph.i419, %438
   unreachable
 
 618:                                              ; preds = %156, %154, %152, %106, %104, %pmix_obj_run_constructors.exit, %68, %65, %63, %60, %58, %56, %._crit_edge, %103, %82
-  %.0 = phi i32 [ %155, %154 ], [ %55, %._crit_edge ], [ %57, %56 ], [ %59, %58 ], [ %62, %63 ], [ 1, %82 ], [ %66, %68 ], [ %97, %103 ], [ 0, %pmix_obj_run_constructors.exit ], [ 1, %106 ], [ %153, %152 ], [ %155, %156 ], [ %62, %60 ], [ %66, %65 ], [ 1, %104 ]
+  %.0 = phi i32 [ 1, %82 ], [ %97, %103 ], [ %55, %._crit_edge ], [ %57, %56 ], [ %59, %58 ], [ %62, %60 ], [ %62, %63 ], [ %66, %65 ], [ %66, %68 ], [ 0, %pmix_obj_run_constructors.exit ], [ 1, %104 ], [ 1, %106 ], [ %153, %152 ], [ %155, %154 ], [ %155, %156 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1712,7 +1712,7 @@ define internal range(i32 0, 256) i32 @wait_dvm(i32 noundef %0) #0 {
   br label %.thread
 
 .thread:                                          ; preds = %11, %20, %18, %.critedge, %25
-  %.0 = phi i32 [ 0, %.critedge ], [ %27, %25 ], [ 255, %18 ], [ 255, %20 ], [ 255, %11 ]
+  %.0 = phi i32 [ %27, %25 ], [ 0, %.critedge ], [ 255, %18 ], [ 255, %20 ], [ 255, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

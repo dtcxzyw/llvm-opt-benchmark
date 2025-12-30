@@ -225,7 +225,7 @@ define hidden void @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier12stepPrefSuf
   br label %55
 
 55:                                               ; preds = %48, %50, %42, %38
-  %.sink = phi i8 [ %39, %38 ], [ %54, %50 ], [ %47, %42 ], [ %26, %48 ]
+  %.sink = phi i8 [ %54, %50 ], [ %47, %42 ], [ %39, %38 ], [ %26, %48 ]
   store i8 %.sink, ptr %34, align 1, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = load ptr, ptr %12, align 8, !tbaa !27
@@ -715,7 +715,7 @@ define hidden noundef i32 @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier15make
   br label %60
 
 60:                                               ; preds = %56, %54, %48, %44
-  %.sink.i = phi i8 [ %45, %44 ], [ %59, %56 ], [ %53, %48 ], [ %33, %54 ]
+  %.sink.i = phi i8 [ %59, %56 ], [ %53, %48 ], [ %45, %44 ], [ %33, %54 ]
   store i8 %.sink.i, ptr %40, align 1, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next.i, %smax77
@@ -759,7 +759,7 @@ define hidden noundef i32 @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier15make
   br label %82
 
 82:                                               ; preds = %78, %76, %70, %66
-  %.sink.i29 = phi i8 [ %67, %66 ], [ %81, %78 ], [ %75, %70 ], [ %33, %76 ]
+  %.sink.i29 = phi i8 [ %81, %78 ], [ %75, %70 ], [ %67, %66 ], [ %33, %76 ]
   store i8 %.sink.i29, ptr %62, align 1, !tbaa !28
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next.i30, %smax77
@@ -821,7 +821,7 @@ _ZN2cv8tracking4impl3tld21TLDEnsembleClassifier12stepPrefSuffERSt6vectorINS_3Vec
   br label %120
 
 120:                                              ; preds = %116, %114, %108, %104
-  %.sink.i37 = phi i8 [ %105, %104 ], [ %119, %116 ], [ %113, %108 ], [ %93, %114 ]
+  %.sink.i37 = phi i8 [ %119, %116 ], [ %113, %108 ], [ %105, %104 ], [ %93, %114 ]
   store i8 %.sink.i37, ptr %100, align 1, !tbaa !28
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next.i38, %smax77
@@ -865,7 +865,7 @@ _ZN2cv8tracking4impl3tld21TLDEnsembleClassifier12stepPrefSuffERSt6vectorINS_3Vec
   br label %142
 
 142:                                              ; preds = %138, %136, %130, %126
-  %.sink.i45 = phi i8 [ %127, %126 ], [ %141, %138 ], [ %135, %130 ], [ %93, %136 ]
+  %.sink.i45 = phi i8 [ %141, %138 ], [ %135, %130 ], [ %127, %126 ], [ %93, %136 ]
   store i8 %.sink.i45, ptr %122, align 1, !tbaa !28
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next.i46, %smax77

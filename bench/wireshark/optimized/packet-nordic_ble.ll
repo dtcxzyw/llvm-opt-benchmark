@@ -733,7 +733,7 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %291, %288, %283, %2
   br label %packet_time_get.exit.i.i.i
 
 packet_time_get.exit.i.i.i:                       ; preds = %302, %299, %296, %proto_item_set_generated.exit.i.i.i
-  %.0.i36.i.i.i = phi i16 [ 0, %proto_item_set_generated.exit.i.i.i ], [ %298, %296 ], [ %301, %299 ], [ %304, %302 ]
+  %.0.i36.i.i.i = phi i16 [ %298, %296 ], [ %301, %299 ], [ 0, %proto_item_set_generated.exit.i.i.i ], [ %304, %302 ]
   %305 = zext i16 %.0.i36.i.i.i to i32
   %306 = load i32, ptr @hf_nordic_ble_packet_time, align 4
   %307 = call ptr @proto_tree_add_uint(ptr noundef %29, i32 noundef %306, ptr noundef %0, i32 noundef %223, i32 noundef 4, i32 noundef %305)
@@ -929,7 +929,7 @@ packet_times_insert.exit.i53.i.i:                 ; preds = %340, %336
   br label %packet_time_get.exit.i50.i.i
 
 packet_time_get.exit.i50.i.i:                     ; preds = %389, %386, %384, %381, %378, %374
-  %.0.i53.i.i.i = phi i16 [ 0, %374 ], [ %380, %378 ], [ %383, %381 ], [ 0, %384 ], [ %388, %386 ], [ %391, %389 ]
+  %.0.i53.i.i.i = phi i16 [ %380, %378 ], [ %383, %381 ], [ 0, %384 ], [ 0, %374 ], [ %391, %389 ], [ %388, %386 ]
   %392 = zext i16 %.0.i53.i.i.i to i32
   %393 = load i32, ptr @hf_nordic_ble_packet_time, align 4
   %394 = call ptr @proto_tree_add_uint(ptr noundef %29, i32 noundef %393, ptr noundef %0, i32 noundef %223, i32 noundef 4, i32 noundef %392)

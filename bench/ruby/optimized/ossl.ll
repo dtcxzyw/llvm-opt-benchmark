@@ -316,7 +316,7 @@ RSTRING_PTR.exit:                                 ; preds = %9, %14
   br label %.thread14
 
 .thread14:                                        ; preds = %.thread, %8, %RSTRING_PTR.exit, %7
-  %.0 = phi i64 [ 4, %.thread ], [ 4, %7 ], [ %5, %RSTRING_PTR.exit ], [ %5, %8 ]
+  %.0 = phi i64 [ 4, %7 ], [ %5, %RSTRING_PTR.exit ], [ %5, %8 ], [ 4, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
@@ -552,7 +552,7 @@ RSTRING_PTR.exit32:                               ; preds = %50, %54
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %rbimpl_RB_TYPE_P_fastpath.exit.thread, %24, %RSTRING_PTR.exit32, %._crit_edge, %37, %RSTRING_PTR.exit
-  %.0 = phi i32 [ %21, %RSTRING_PTR.exit ], [ %38, %37 ], [ -1, %._crit_edge ], [ -1, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %55, %RSTRING_PTR.exit32 ], [ -1, %24 ], [ -1, %39 ]
+  %.0 = phi i32 [ %21, %RSTRING_PTR.exit ], [ -1, %._crit_edge ], [ %55, %RSTRING_PTR.exit32 ], [ %38, %37 ], [ -1, %24 ], [ -1, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ -1, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

@@ -1389,7 +1389,7 @@ write_workspace.exit.thread:                      ; preds = %write_data.exit.i, 
   br label %635
 
 write_workspace.exit:                             ; preds = %149, %453, %461, %471, %479, %487, %495
-  %.0.i52 = phi i64 [ %150, %149 ], [ %497, %495 ], [ %455, %453 ], [ %463, %461 ], [ %473, %471 ], [ %481, %479 ], [ %489, %487 ]
+  %.0.i52 = phi i64 [ %455, %453 ], [ %463, %461 ], [ %473, %471 ], [ %481, %479 ], [ %489, %487 ], [ %497, %495 ], [ %150, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not48 = icmp eq i64 %.0.i52, 0
   br i1 %.not48, label %627, label %635
@@ -1405,7 +1405,7 @@ write_workspace.exit:                             ; preds = %149, %453, %461, %4
   br label %635
 
 635:                                              ; preds = %write_workspace.exit.thread, %627, %write_settings.exit, %write_info.exit, %write_workspace.exit, %8
-  %.0 = phi i64 [ %9, %8 ], [ %146, %write_info.exit ], [ 0, %627 ], [ %102, %write_settings.exit ], [ %.0.i52, %write_workspace.exit ], [ %.0.i52.ph, %write_workspace.exit.thread ]
+  %.0 = phi i64 [ %9, %8 ], [ 0, %627 ], [ %102, %write_settings.exit ], [ %146, %write_info.exit ], [ %.0.i52, %write_workspace.exit ], [ %.0.i52.ph, %write_workspace.exit.thread ]
   ret i64 %.0
 }
 
@@ -1755,7 +1755,7 @@ define internal fastcc range(i64 0, 11) i64 @write_OSQPMatrix(ptr noundef nonnul
   br label %16
 
 16:                                               ; preds = %5, %3, %9
-  %.0 = phi i64 [ 10, %3 ], [ 0, %9 ], [ %8, %5 ]
+  %.0 = phi i64 [ 0, %9 ], [ 10, %3 ], [ %8, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }

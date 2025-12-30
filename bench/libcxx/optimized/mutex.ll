@@ -95,8 +95,8 @@ define dso_local void @_ZNSt3__115recursive_mutexC2Ev(ptr noundef nonnull align 
   %13 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %0) #10
   br label %14
 
-14:                                               ; preds = %1, %6, %12, %8
-  %.0.i.ph = phi i32 [ %9, %8 ], [ %10, %12 ], [ %5, %6 ], [ %3, %1 ]
+14:                                               ; preds = %6, %12, %1, %8
+  %.0.i.ph = phi i32 [ %9, %8 ], [ %3, %1 ], [ %10, %12 ], [ %5, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZNSt3__120__throw_system_errorEiPKc(i32 noundef %.0.i.ph, ptr noundef nonnull @.str.1) #11
   unreachable

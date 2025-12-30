@@ -232,13 +232,13 @@ define void @_ZN3gmx13SetVelocities12processFrameEiP10t_trxframe(ptr noundef non
   ret void
 
 .sink.split43:                                    ; preds = %37, %.sink.split42, %27, %.sink.split
-  %.sink = phi ptr [ %20, %27 ], [ %20, %.sink.split ], [ %30, %.sink.split42 ], [ %30, %37 ]
-  %.pn20.pn.pn.ph = phi { ptr, i32 } [ %28, %27 ], [ %.pn.pn31.ph, %.sink.split ], [ %.pn20.pn38.ph, %.sink.split42 ], [ %38, %37 ]
+  %.sink = phi ptr [ %20, %.sink.split ], [ %20, %27 ], [ %30, %.sink.split42 ], [ %30, %37 ]
+  %.pn20.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn31.ph, %.sink.split ], [ %28, %27 ], [ %.pn20.pn38.ph, %.sink.split42 ], [ %38, %37 ]
   call void @__cxa_free_exception(ptr %.sink) #16
   br label %40
 
 40:                                               ; preds = %.sink.split43, %37, %27
-  %.pn20.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %38, %37 ], [ %.pn20.pn.pn.ph, %.sink.split43 ]
+  %.pn20.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %28, %27 ], [ %.pn20.pn.pn.ph, %.sink.split43 ]
   resume { ptr, i32 } %.pn20.pn.pn
 
 41:                                               ; preds = %34, %24

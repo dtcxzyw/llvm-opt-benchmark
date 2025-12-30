@@ -56,7 +56,7 @@ define hidden ptr @EVP_get_cipherbynid(i32 noundef %0) local_unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %1, %14, %12, %10, %8, %6, %4, %2
-  %.0 = phi ptr [ %15, %14 ], [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ null, %1 ]
+  %.0 = phi ptr [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -494,7 +494,7 @@ EVP_CIPHER_CTX_ctrl.exit.thread:                  ; preds = %51, %50, %53
   br label %100
 
 100:                                              ; preds = %88, %61, %92, %55, %EVP_CIPHER_CTX_ctrl.exit.thread, %36
-  %.051 = phi i32 [ 1, %92 ], [ 0, %61 ], [ 0, %55 ], [ 0, %EVP_CIPHER_CTX_ctrl.exit.thread ], [ 0, %36 ], [ 0, %88 ]
+  %.051 = phi i32 [ 1, %92 ], [ 0, %EVP_CIPHER_CTX_ctrl.exit.thread ], [ 0, %36 ], [ 0, %55 ], [ 0, %61 ], [ 0, %88 ]
   ret i32 %.051
 }
 
@@ -528,7 +528,7 @@ define hidden range(i32 0, -1) i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %0, i32 noun
   br label %15
 
 15:                                               ; preds = %11, %14, %10, %6
-  %.0 = phi i32 [ 0, %14 ], [ 0, %6 ], [ 0, %10 ], [ %12, %11 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %10 ], [ 0, %6 ], [ %12, %11 ]
   ret i32 %.0
 }
 
@@ -715,7 +715,7 @@ define hidden range(i32 0, 2) i32 @EVP_EncryptUpdate(ptr noundef %0, ptr noundef
   br label %86
 
 86:                                               ; preds = %70, %50, %10, %85, %43, %37, %36, %19, %16
-  %.0 = phi i32 [ 0, %10 ], [ 1, %16 ], [ %21, %19 ], [ 1, %36 ], [ 0, %37 ], [ 1, %43 ], [ 1, %85 ], [ 0, %50 ], [ 0, %70 ]
+  %.0 = phi i32 [ 1, %16 ], [ %21, %19 ], [ 1, %36 ], [ 0, %37 ], [ 1, %43 ], [ 1, %85 ], [ 0, %10 ], [ 0, %50 ], [ 0, %70 ]
   ret i32 %.0
 }
 
@@ -801,7 +801,7 @@ define hidden i32 @EVP_EncryptFinal_ex(ptr noundef %0, ptr noundef %1, ptr nound
   br label %44
 
 44:                                               ; preds = %._crit_edge, %43, %8, %27, %26, %18, %13
-  %.0 = phi i32 [ 0, %8 ], [ 1, %13 ], [ 1, %18 ], [ 0, %26 ], [ 1, %27 ], [ %42, %43 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 1, %13 ], [ 1, %18 ], [ 0, %26 ], [ 1, %27 ], [ 0, %8 ], [ %42, %43 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -1028,7 +1028,7 @@ define hidden range(i32 0, 2) i32 @EVP_DecryptFinal_ex(ptr noundef %0, ptr nound
   br label %56
 
 56:                                               ; preds = %20, %8, %.loopexit, %49, %42, %32, %23, %13
-  %.039 = phi i32 [ 1, %.loopexit ], [ 1, %13 ], [ 0, %23 ], [ 0, %8 ], [ 0, %32 ], [ 0, %42 ], [ 0, %49 ], [ 1, %20 ]
+  %.039 = phi i32 [ 1, %13 ], [ 0, %23 ], [ 0, %32 ], [ 0, %42 ], [ 0, %49 ], [ 1, %.loopexit ], [ 0, %8 ], [ 1, %20 ]
   ret i32 %.039
 }
 
@@ -1153,7 +1153,7 @@ define hidden i32 @EVP_CipherFinal_ex(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %EVP_EncryptFinal_ex.exit
 
 EVP_EncryptFinal_ex.exit:                         ; preds = %46, %._crit_edge.i, %30, %29, %21, %16, %11, %47
-  %.0 = phi i32 [ %48, %47 ], [ 0, %11 ], [ 1, %16 ], [ 1, %21 ], [ 0, %29 ], [ 1, %30 ], [ %45, %46 ], [ 0, %._crit_edge.i ]
+  %.0 = phi i32 [ %48, %47 ], [ 1, %16 ], [ 1, %21 ], [ 0, %29 ], [ 1, %30 ], [ 0, %11 ], [ %45, %46 ], [ 0, %._crit_edge.i ]
   ret i32 %.0
 }
 
@@ -1239,7 +1239,7 @@ define hidden range(i32 0, 2) i32 @EVP_CIPHER_CTX_set_key_length(ptr noundef cap
   br label %15
 
 15:                                               ; preds = %2, %14, %13
-  %.0 = phi i32 [ 1, %14 ], [ 0, %13 ], [ 1, %2 ]
+  %.0 = phi i32 [ 0, %13 ], [ 1, %14 ], [ 1, %2 ]
   ret i32 %.0
 }
 

@@ -112,8 +112,8 @@ define internal range(i32 0, 2) i32 @test_rsa_mp_gen_bad_input() #0 {
   br label %20
 
 20:                                               ; preds = %17, %14, %11, %6, %3, %0
-  %.08 = phi i32 [ 0, %0 ], [ %spec.select, %17 ], [ 0, %14 ], [ 0, %11 ], [ 0, %6 ], [ 0, %3 ]
-  %.0 = phi ptr [ null, %0 ], [ %4, %17 ], [ %4, %14 ], [ %4, %11 ], [ %4, %6 ], [ %4, %3 ]
+  %.08 = phi i32 [ 0, %14 ], [ 0, %11 ], [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ %spec.select, %17 ]
+  %.0 = phi ptr [ %4, %14 ], [ %4, %11 ], [ %4, %6 ], [ %4, %3 ], [ null, %0 ], [ %4, %17 ]
   tail call void @BN_free(ptr noundef %.0) #3
   tail call void @RSA_free(ptr noundef %1) #3
   ret i32 %.08
@@ -183,7 +183,7 @@ key2048_key.exit:                                 ; preds = %6, %12
   br label %33
 
 33:                                               ; preds = %29, %26, %21, %key2048_key.exit, %15, %1
-  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %29 ], [ 0, %26 ], [ 0, %21 ], [ 0, %15 ], [ 0, %key2048_key.exit ]
+  %.0 = phi i32 [ 0, %26 ], [ 0, %21 ], [ 0, %15 ], [ 0, %key2048_key.exit ], [ 0, %1 ], [ %spec.select, %29 ]
   call void @RSA_free(ptr noundef %4) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

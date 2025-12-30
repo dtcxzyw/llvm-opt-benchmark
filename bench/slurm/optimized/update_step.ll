@@ -264,7 +264,7 @@ _get_step_time.exit:                              ; preds = %75
   br label %.critedge69
 
 .critedge69:                                      ; preds = %58, %.loopexit, %88, %105, %.critedge, %107, %._crit_edge.thread, %94, %23
-  %.1 = phi i32 [ 0, %.critedge ], [ 0, %94 ], [ 0, %105 ], [ -1, %23 ], [ 0, %._crit_edge.thread ], [ %109, %107 ], [ 0, %88 ], [ 0, %.loopexit ], [ 0, %58 ]
+  %.1 = phi i32 [ 0, %94 ], [ -1, %23 ], [ 0, %._crit_edge.thread ], [ %109, %107 ], [ 0, %.critedge ], [ 0, %105 ], [ 0, %88 ], [ 0, %.loopexit ], [ 0, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }

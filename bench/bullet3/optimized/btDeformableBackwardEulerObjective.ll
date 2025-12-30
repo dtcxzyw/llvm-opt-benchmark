@@ -2238,7 +2238,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i206: ; preds = %397,
           to label %410 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %408, %255, %177
-  %.pn = phi { ptr, i32 } [ %409, %408 ], [ %178, %177 ], [ %256, %255 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit222, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit225, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %256, %255 ], [ %409, %408 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit222, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit225, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   tail call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) #24
   resume { ptr, i32 } %.pn
 
@@ -4357,9 +4357,9 @@ define dso_local void @_ZN34btDeformableBackwardEulerObjective18applyExplicitFor
   br i1 %54, label %32, label %.preheader54, !llvm.loop !244
 
 .preheader:                                       ; preds = %62, %.preheader55, %.preheader54
-  %.sroa.552.0.lcssa116 = phi float [ undef, %.preheader55 ], [ %.sroa.552.1, %.preheader54 ], [ %.sroa.552.1, %62 ]
-  %.sroa.451.0.lcssa115 = phi float [ undef, %.preheader55 ], [ %.sroa.451.1, %.preheader54 ], [ %.sroa.451.1, %62 ]
-  %.sroa.050.0.lcssa114 = phi float [ undef, %.preheader55 ], [ %.sroa.050.1, %.preheader54 ], [ %.sroa.050.1, %62 ]
+  %.sroa.552.0.lcssa116 = phi float [ %.sroa.552.1, %.preheader54 ], [ undef, %.preheader55 ], [ %.sroa.552.1, %62 ]
+  %.sroa.451.0.lcssa115 = phi float [ %.sroa.451.1, %.preheader54 ], [ undef, %.preheader55 ], [ %.sroa.451.1, %62 ]
+  %.sroa.050.0.lcssa114 = phi float [ %.sroa.050.1, %.preheader54 ], [ undef, %.preheader55 ], [ %.sroa.050.1, %62 ]
   %55 = load ptr, ptr %3, align 8, !tbaa !186
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = load i32, ptr %56, align 4, !tbaa !187
@@ -4465,7 +4465,7 @@ _ZNK17btCollisionObject8isActiveEv.exit.thread:   ; preds = %_ZNK17btCollisionOb
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK17btCollisionObject8isActiveEv.exit.thread, %.loopexit.loopexit81, %.preheader56, %.preheader
-  %111 = phi ptr [ %.pre, %.loopexit.loopexit81 ], [ %55, %.preheader ], [ %8, %.preheader56 ], [ %55, %_ZNK17btCollisionObject8isActiveEv.exit.thread ]
+  %111 = phi ptr [ %.pre, %.loopexit.loopexit81 ], [ %8, %.preheader56 ], [ %55, %.preheader ], [ %55, %_ZNK17btCollisionObject8isActiveEv.exit.thread ]
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %113 = load i32, ptr %112, align 4, !tbaa !187
   %114 = icmp sgt i32 %113, 0

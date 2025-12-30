@@ -508,13 +508,13 @@ define range(i32 0, 2) i32 @DH_check(ptr noundef %0, ptr noundef captures(none) 
   br label %88
 
 88:                                               ; preds = %.sink.split94, %85, %76, %82, %79, %.critedge, %56, %48, %39, %17, %12
-  %.063 = phi i32 [ 0, %12 ], [ 0, %17 ], [ 0, %48 ], [ 0, %.critedge ], [ 0, %82 ], [ 0, %39 ], [ 0, %79 ], [ 0, %56 ], [ 1, %76 ], [ 1, %85 ], [ 1, %.sink.split94 ]
+  %.063 = phi i32 [ 0, %12 ], [ 0, %17 ], [ 0, %48 ], [ 0, %.critedge ], [ 0, %82 ], [ 0, %79 ], [ 0, %56 ], [ 0, %39 ], [ 1, %76 ], [ 1, %85 ], [ 1, %.sink.split94 ]
   tail call void @BN_CTX_end(ptr noundef %15) #3
   tail call void @BN_CTX_free(ptr noundef %15) #3
   br label %89
 
 89:                                               ; preds = %10, %2, %88, %9
-  %.0 = phi i32 [ 1, %2 ], [ 0, %9 ], [ %.063, %88 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %9 ], [ %.063, %88 ], [ 1, %2 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -723,13 +723,13 @@ define range(i32 0, 2) i32 @ossl_dh_check_priv_key(ptr noundef %0, ptr noundef %
   br label %38
 
 38:                                               ; preds = %34, %27, %9
-  %.0 = phi ptr [ %8, %9 ], [ %spec.select39, %34 ], [ %8, %27 ]
+  %.0 = phi ptr [ %8, %27 ], [ %8, %9 ], [ %spec.select39, %34 ]
   %39 = tail call i32 @ossl_ffc_validate_private_key(ptr noundef nonnull %.0, ptr noundef %1, ptr noundef nonnull %2) #3
   %.not37 = icmp ne i32 %39, 0
   br label %40
 
 40:                                               ; preds = %38, %24, %21, %18, %30, %11
-  %.1.shrunk = phi i1 [ %23, %21 ], [ false, %18 ], [ false, %30 ], [ false, %11 ], [ %26, %24 ], [ %.not37, %38 ]
+  %.1.shrunk = phi i1 [ false, %30 ], [ false, %11 ], [ false, %18 ], [ %23, %21 ], [ %26, %24 ], [ %.not37, %38 ]
   %.1 = zext i1 %.1.shrunk to i32
   tail call void @BN_free(ptr noundef nonnull %4) #3
   br label %41

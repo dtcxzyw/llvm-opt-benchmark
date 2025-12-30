@@ -188,7 +188,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br i1 %69, label %"_ZN71_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h4205b48fabe0ee16E.exit", label %65
 
 "_ZN71_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h4205b48fabe0ee16E.exit": ; preds = %65, %67, %2, %19, %53, %59
-  %.0.i = phi i1 [ %64, %59 ], [ true, %19 ], [ true, %53 ], [ true, %2 ], [ true, %67 ], [ true, %65 ]
+  %.0.i = phi i1 [ %64, %59 ], [ true, %2 ], [ true, %19 ], [ true, %53 ], [ true, %67 ], [ true, %65 ]
   ret i1 %.0.i
 }
 
@@ -359,7 +359,7 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$
   br label %.loopexit
 
 .loopexit:                                        ; preds = %70, %66, %64, %"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h6972c654782f5edeE.exit", %48, %17, %2, %54
-  %.0 = phi i1 [ %59, %54 ], [ true, %17 ], [ true, %48 ], [ true, %2 ], [ true, %"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h6972c654782f5edeE.exit" ], [ true, %64 ], [ true, %66 ], [ true, %70 ]
+  %.0 = phi i1 [ %59, %54 ], [ true, %2 ], [ true, %17 ], [ true, %48 ], [ true, %"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h6972c654782f5edeE.exit" ], [ true, %64 ], [ true, %66 ], [ true, %70 ]
   ret i1 %.0
 
 60:                                               ; preds = %70, %.lr.ph
@@ -368,18 +368,18 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$
 
 62:                                               ; preds = %60
   %63 = call noundef zeroext i1 @_ZN4core3fmt9Formatter15debug_upper_hex17hf28881577cd942ccE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1), !noalias !44
-  br i1 %63, label %"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h6972c654782f5edeE.exit", label %66
+  br i1 %63, label %66, label %"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h6972c654782f5edeE.exit"
 
 64:                                               ; preds = %60
   %65 = call noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$u8$GT$3fmt17h0165a118c0043447E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.048, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %65, label %.loopexit, label %.backedge
 
 66:                                               ; preds = %62
-  %67 = call noundef zeroext i1 @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17h43ec4bf23aea5d3aE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.048, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %67 = call noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u8$GT$3fmt17h596afddd40ccdb90E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.048, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %67, label %.loopexit, label %.backedge
 
 "_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h6972c654782f5edeE.exit": ; preds = %62
-  %68 = call noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u8$GT$3fmt17h596afddd40ccdb90E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.048, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %68 = call noundef zeroext i1 @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17h43ec4bf23aea5d3aE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.048, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %68, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h6972c654782f5edeE.exit", %64, %66
@@ -506,8 +506,8 @@ define hidden void @"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$13shrink_to_fit17hdbec
   br i1 %37, label %38, label %.lr.ph.i
 
 38:                                               ; preds = %31, %.lr.ph.i
-  %storemerge.i = phi ptr [ %29, %.lr.ph.i ], [ %32, %31 ]
-  %.017.i = phi i64 [ %.020.i, %.lr.ph.i ], [ %36, %31 ]
+  %storemerge.i = phi ptr [ %32, %31 ], [ %29, %.lr.ph.i ]
+  %.017.i = phi i64 [ %36, %31 ], [ %.020.i, %.lr.ph.i ]
   %39 = trunc i64 %.017.i to i16
   store i16 %39, ptr %7, align 2
   store ptr %.sroa.0.0.copyload, ptr %6, align 8, !noalias !66

@@ -3496,7 +3496,7 @@ cleanup.action564.sink.split.sink.split:          ; preds = %cleanup.done555.thr
   br label %cleanup.action564.sink.split
 
 cleanup.action564.sink.split:                     ; preds = %cleanup.action564.sink.split.sink.split, %cleanup.done555.thread, %cleanup.done555.thread7439
-  %.pn2092.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn7292.ph = phi { ptr, i32 } [ %309, %cleanup.done555.thread ], [ %.pn2092.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %cleanup.done555.thread7439 ], [ %.pn2092.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn7292.ph.ph, %cleanup.action564.sink.split.sink.split ]
+  %.pn2092.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn7292.ph = phi { ptr, i32 } [ %.pn2092.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %cleanup.done555.thread7439 ], [ %309, %cleanup.done555.thread ], [ %.pn2092.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn7292.ph.ph, %cleanup.action564.sink.split.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp410)
   br label %cleanup.action564
 
@@ -3528,8 +3528,8 @@ ehcleanup598:                                     ; preds = %ehcleanup597, %if.t
   br label %ehcleanup613
 
 ehcleanup613:                                     ; preds = %lpad2.i.i3279, %ehcleanup598, %lpad.i3287, %if.then.i.i7.i.i3281
-  %313 = phi i1 [ true, %ehcleanup598 ], [ false, %if.then.i.i7.i.i3281 ], [ false, %lpad.i3287 ], [ false, %lpad2.i.i3279 ]
-  %.pn2111.pn.pn = phi { ptr, i32 } [ %.pn2111.pn, %ehcleanup598 ], [ %199, %if.then.i.i7.i.i3281 ], [ %201, %lpad.i3287 ], [ %199, %lpad2.i.i3279 ]
+  %313 = phi i1 [ false, %if.then.i.i7.i.i3281 ], [ false, %lpad.i3287 ], [ true, %ehcleanup598 ], [ false, %lpad2.i.i3279 ]
+  %.pn2111.pn.pn = phi { ptr, i32 } [ %199, %if.then.i.i7.i.i3281 ], [ %201, %lpad.i3287 ], [ %.pn2111.pn, %ehcleanup598 ], [ %199, %lpad2.i.i3279 ]
   %314 = load ptr, ptr %ref.tmp579, align 8, !tbaa !7
   %cmp.i.i.i3529 = icmp eq ptr %314, %197
   br i1 %cmp.i.i.i3529, label %ehcleanup614, label %if.then.i.i3530
@@ -3543,9 +3543,9 @@ ehcleanup614:                                     ; preds = %ehcleanup613, %if.t
   br label %ehcleanup617
 
 ehcleanup617:                                     ; preds = %lpad2.i.i, %ehcleanup614, %lpad.i3261, %if.then.i.i7.i.i
-  %arrayinit.endOfInit571.0 = phi ptr [ %arrayinit.element578, %ehcleanup614 ], [ %ref.tmp569, %lpad.i3261 ], [ %ref.tmp569, %if.then.i.i7.i.i ], [ %ref.tmp569, %lpad2.i.i ]
-  %cleanup.isactive585.2 = phi i1 [ %313, %ehcleanup614 ], [ false, %lpad.i3261 ], [ false, %if.then.i.i7.i.i ], [ false, %lpad2.i.i ]
-  %.pn2111.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2111.pn.pn, %ehcleanup614 ], [ %196, %lpad.i3261 ], [ %194, %if.then.i.i7.i.i ], [ %194, %lpad2.i.i ]
+  %arrayinit.endOfInit571.0 = phi ptr [ %arrayinit.element578, %ehcleanup614 ], [ %ref.tmp569, %if.then.i.i7.i.i ], [ %ref.tmp569, %lpad.i3261 ], [ %ref.tmp569, %lpad2.i.i ]
+  %cleanup.isactive585.2 = phi i1 [ %313, %ehcleanup614 ], [ false, %if.then.i.i7.i.i ], [ false, %lpad.i3261 ], [ false, %lpad2.i.i ]
+  %.pn2111.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2111.pn.pn, %ehcleanup614 ], [ %194, %if.then.i.i7.i.i ], [ %196, %lpad.i3261 ], [ %194, %lpad2.i.i ]
   %315 = load ptr, ptr %ref.tmp572, align 8, !tbaa !7
   %cmp.i.i.i3536 = icmp eq ptr %315, %192
   br i1 %cmp.i.i.i3536, label %ehcleanup618, label %if.then.i.i3537
@@ -4072,8 +4072,8 @@ ehcleanup708:                                     ; preds = %ehcleanup707, %if.t
   br label %ehcleanup723
 
 ehcleanup723:                                     ; preds = %lpad2.i.i3614, %ehcleanup708, %lpad.i3622, %if.then.i.i7.i.i3616
-  %369 = phi i1 [ true, %ehcleanup708 ], [ false, %if.then.i.i7.i.i3616 ], [ false, %lpad.i3622 ], [ false, %lpad2.i.i3614 ]
-  %.pn2124.pn.pn = phi { ptr, i32 } [ %.pn2124.pn, %ehcleanup708 ], [ %334, %if.then.i.i7.i.i3616 ], [ %336, %lpad.i3622 ], [ %334, %lpad2.i.i3614 ]
+  %369 = phi i1 [ false, %if.then.i.i7.i.i3616 ], [ false, %lpad.i3622 ], [ true, %ehcleanup708 ], [ false, %lpad2.i.i3614 ]
+  %.pn2124.pn.pn = phi { ptr, i32 } [ %334, %if.then.i.i7.i.i3616 ], [ %336, %lpad.i3622 ], [ %.pn2124.pn, %ehcleanup708 ], [ %334, %lpad2.i.i3614 ]
   %370 = load ptr, ptr %ref.tmp689, align 8, !tbaa !7
   %cmp.i.i.i3773 = icmp eq ptr %370, %332
   br i1 %cmp.i.i.i3773, label %ehcleanup724, label %if.then.i.i3774
@@ -4087,9 +4087,9 @@ ehcleanup724:                                     ; preds = %ehcleanup723, %if.t
   br label %ehcleanup727
 
 ehcleanup727:                                     ; preds = %lpad2.i.i3587, %ehcleanup724, %lpad.i3595, %if.then.i.i7.i.i3589
-  %arrayinit.endOfInit681.0 = phi ptr [ %arrayinit.element688, %ehcleanup724 ], [ %ref.tmp679, %lpad.i3595 ], [ %ref.tmp679, %if.then.i.i7.i.i3589 ], [ %ref.tmp679, %lpad2.i.i3587 ]
-  %cleanup.isactive695.2 = phi i1 [ %369, %ehcleanup724 ], [ false, %lpad.i3595 ], [ false, %if.then.i.i7.i.i3589 ], [ false, %lpad2.i.i3587 ]
-  %.pn2124.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2124.pn.pn, %ehcleanup724 ], [ %331, %lpad.i3595 ], [ %329, %if.then.i.i7.i.i3589 ], [ %329, %lpad2.i.i3587 ]
+  %arrayinit.endOfInit681.0 = phi ptr [ %arrayinit.element688, %ehcleanup724 ], [ %ref.tmp679, %if.then.i.i7.i.i3589 ], [ %ref.tmp679, %lpad.i3595 ], [ %ref.tmp679, %lpad2.i.i3587 ]
+  %cleanup.isactive695.2 = phi i1 [ %369, %ehcleanup724 ], [ false, %if.then.i.i7.i.i3589 ], [ false, %lpad.i3595 ], [ false, %lpad2.i.i3587 ]
+  %.pn2124.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2124.pn.pn, %ehcleanup724 ], [ %329, %if.then.i.i7.i.i3589 ], [ %331, %lpad.i3595 ], [ %329, %lpad2.i.i3587 ]
   %371 = load ptr, ptr %ref.tmp682, align 8, !tbaa !7
   %cmp.i.i.i3780 = icmp eq ptr %371, %327
   br i1 %cmp.i.i.i3780, label %ehcleanup728, label %if.then.i.i3781
@@ -4675,8 +4675,8 @@ ehcleanup828:                                     ; preds = %ehcleanup827, %if.t
   br label %ehcleanup843
 
 ehcleanup843:                                     ; preds = %lpad2.i.i3885, %ehcleanup828, %lpad.i3893, %if.then.i.i7.i.i3887
-  %431 = phi i1 [ true, %ehcleanup828 ], [ false, %if.then.i.i7.i.i3887 ], [ false, %lpad.i3893 ], [ false, %lpad2.i.i3885 ]
-  %.pn2137.pn.pn = phi { ptr, i32 } [ %.pn2137.pn, %ehcleanup828 ], [ %394, %if.then.i.i7.i.i3887 ], [ %396, %lpad.i3893 ], [ %394, %lpad2.i.i3885 ]
+  %431 = phi i1 [ false, %if.then.i.i7.i.i3887 ], [ false, %lpad.i3893 ], [ true, %ehcleanup828 ], [ false, %lpad2.i.i3885 ]
+  %.pn2137.pn.pn = phi { ptr, i32 } [ %394, %if.then.i.i7.i.i3887 ], [ %396, %lpad.i3893 ], [ %.pn2137.pn, %ehcleanup828 ], [ %394, %lpad2.i.i3885 ]
   %432 = load ptr, ptr %ref.tmp809, align 8, !tbaa !7
   %cmp.i.i.i4051 = icmp eq ptr %432, %392
   br i1 %cmp.i.i.i4051, label %ehcleanup844, label %if.then.i.i4052
@@ -4690,9 +4690,9 @@ ehcleanup844:                                     ; preds = %ehcleanup843, %if.t
   br label %ehcleanup847
 
 ehcleanup847:                                     ; preds = %lpad2.i.i3858, %ehcleanup844, %lpad.i3866, %if.then.i.i7.i.i3860
-  %arrayinit.endOfInit794.0 = phi ptr [ %arrayinit.element808, %ehcleanup844 ], [ %arrayinit.element801, %lpad.i3866 ], [ %arrayinit.element801, %if.then.i.i7.i.i3860 ], [ %arrayinit.element801, %lpad2.i.i3858 ]
-  %cleanup.isactive815.2 = phi i1 [ %431, %ehcleanup844 ], [ false, %lpad.i3866 ], [ false, %if.then.i.i7.i.i3860 ], [ false, %lpad2.i.i3858 ]
-  %.pn2137.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2137.pn.pn, %ehcleanup844 ], [ %391, %lpad.i3866 ], [ %389, %if.then.i.i7.i.i3860 ], [ %389, %lpad2.i.i3858 ]
+  %arrayinit.endOfInit794.0 = phi ptr [ %arrayinit.element808, %ehcleanup844 ], [ %arrayinit.element801, %if.then.i.i7.i.i3860 ], [ %arrayinit.element801, %lpad.i3866 ], [ %arrayinit.element801, %lpad2.i.i3858 ]
+  %cleanup.isactive815.2 = phi i1 [ %431, %ehcleanup844 ], [ false, %if.then.i.i7.i.i3860 ], [ false, %lpad.i3866 ], [ false, %lpad2.i.i3858 ]
+  %.pn2137.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2137.pn.pn, %ehcleanup844 ], [ %389, %if.then.i.i7.i.i3860 ], [ %391, %lpad.i3866 ], [ %389, %lpad2.i.i3858 ]
   %433 = load ptr, ptr %ref.tmp802, align 8, !tbaa !7
   %cmp.i.i.i4058 = icmp eq ptr %433, %387
   br i1 %cmp.i.i.i4058, label %ehcleanup848, label %if.then.i.i4059
@@ -4706,9 +4706,9 @@ ehcleanup848:                                     ; preds = %ehcleanup847, %if.t
   br label %ehcleanup851
 
 ehcleanup851:                                     ; preds = %lpad2.i.i3831, %ehcleanup848, %lpad.i3839, %if.then.i.i7.i.i3833
-  %arrayinit.endOfInit794.2 = phi ptr [ %arrayinit.endOfInit794.0, %ehcleanup848 ], [ %ref.tmp792, %lpad.i3839 ], [ %ref.tmp792, %if.then.i.i7.i.i3833 ], [ %ref.tmp792, %lpad2.i.i3831 ]
-  %cleanup.isactive815.4 = phi i1 [ %cleanup.isactive815.2, %ehcleanup848 ], [ false, %lpad.i3839 ], [ false, %if.then.i.i7.i.i3833 ], [ false, %lpad2.i.i3831 ]
-  %.pn2137.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2137.pn.pn.pn.pn, %ehcleanup848 ], [ %386, %lpad.i3839 ], [ %384, %if.then.i.i7.i.i3833 ], [ %384, %lpad2.i.i3831 ]
+  %arrayinit.endOfInit794.2 = phi ptr [ %arrayinit.endOfInit794.0, %ehcleanup848 ], [ %ref.tmp792, %if.then.i.i7.i.i3833 ], [ %ref.tmp792, %lpad.i3839 ], [ %ref.tmp792, %lpad2.i.i3831 ]
+  %cleanup.isactive815.4 = phi i1 [ %cleanup.isactive815.2, %ehcleanup848 ], [ false, %if.then.i.i7.i.i3833 ], [ false, %lpad.i3839 ], [ false, %lpad2.i.i3831 ]
+  %.pn2137.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2137.pn.pn.pn.pn, %ehcleanup848 ], [ %384, %if.then.i.i7.i.i3833 ], [ %386, %lpad.i3839 ], [ %384, %lpad2.i.i3831 ]
   %434 = load ptr, ptr %ref.tmp795, align 8, !tbaa !7
   %cmp.i.i.i4065 = icmp eq ptr %434, %382
   br i1 %cmp.i.i.i4065, label %ehcleanup852, label %if.then.i.i4066
@@ -5231,8 +5231,8 @@ ehcleanup945:                                     ; preds = %ehcleanup944, %if.t
   br label %ehcleanup960
 
 ehcleanup960:                                     ; preds = %lpad2.i.i4143, %ehcleanup945, %lpad.i4151, %if.then.i.i7.i.i4145
-  %487 = phi i1 [ true, %ehcleanup945 ], [ false, %if.then.i.i7.i.i4145 ], [ false, %lpad.i4151 ], [ false, %lpad2.i.i4143 ]
-  %.pn2152.pn.pn = phi { ptr, i32 } [ %.pn2152.pn, %ehcleanup945 ], [ %452, %if.then.i.i7.i.i4145 ], [ %454, %lpad.i4151 ], [ %452, %lpad2.i.i4143 ]
+  %487 = phi i1 [ false, %if.then.i.i7.i.i4145 ], [ false, %lpad.i4151 ], [ true, %ehcleanup945 ], [ false, %lpad2.i.i4143 ]
+  %.pn2152.pn.pn = phi { ptr, i32 } [ %452, %if.then.i.i7.i.i4145 ], [ %454, %lpad.i4151 ], [ %.pn2152.pn, %ehcleanup945 ], [ %452, %lpad2.i.i4143 ]
   %488 = load ptr, ptr %ref.tmp926, align 8, !tbaa !7
   %cmp.i.i.i4302 = icmp eq ptr %488, %450
   br i1 %cmp.i.i.i4302, label %ehcleanup961, label %if.then.i.i4303
@@ -5246,9 +5246,9 @@ ehcleanup961:                                     ; preds = %ehcleanup960, %if.t
   br label %ehcleanup964
 
 ehcleanup964:                                     ; preds = %lpad2.i.i4116, %ehcleanup961, %lpad.i4124, %if.then.i.i7.i.i4118
-  %arrayinit.endOfInit918.0 = phi ptr [ %arrayinit.element925, %ehcleanup961 ], [ %ref.tmp916, %lpad.i4124 ], [ %ref.tmp916, %if.then.i.i7.i.i4118 ], [ %ref.tmp916, %lpad2.i.i4116 ]
-  %cleanup.isactive932.2 = phi i1 [ %487, %ehcleanup961 ], [ false, %lpad.i4124 ], [ false, %if.then.i.i7.i.i4118 ], [ false, %lpad2.i.i4116 ]
-  %.pn2152.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2152.pn.pn, %ehcleanup961 ], [ %449, %lpad.i4124 ], [ %447, %if.then.i.i7.i.i4118 ], [ %447, %lpad2.i.i4116 ]
+  %arrayinit.endOfInit918.0 = phi ptr [ %arrayinit.element925, %ehcleanup961 ], [ %ref.tmp916, %if.then.i.i7.i.i4118 ], [ %ref.tmp916, %lpad.i4124 ], [ %ref.tmp916, %lpad2.i.i4116 ]
+  %cleanup.isactive932.2 = phi i1 [ %487, %ehcleanup961 ], [ false, %if.then.i.i7.i.i4118 ], [ false, %lpad.i4124 ], [ false, %lpad2.i.i4116 ]
+  %.pn2152.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2152.pn.pn, %ehcleanup961 ], [ %447, %if.then.i.i7.i.i4118 ], [ %449, %lpad.i4124 ], [ %447, %lpad2.i.i4116 ]
   %489 = load ptr, ptr %ref.tmp919, align 8, !tbaa !7
   %cmp.i.i.i4309 = icmp eq ptr %489, %445
   br i1 %cmp.i.i.i4309, label %ehcleanup965, label %if.then.i.i4310
@@ -6423,8 +6423,8 @@ ehcleanup1128:                                    ; preds = %ehcleanup1127, %if.
   br label %ehcleanup1143
 
 ehcleanup1143:                                    ; preds = %lpad2.i.i4657, %ehcleanup1128, %lpad.i4665, %if.then.i.i7.i.i4659
-  %614 = phi i1 [ true, %ehcleanup1128 ], [ false, %if.then.i.i7.i.i4659 ], [ false, %lpad.i4665 ], [ false, %lpad2.i.i4657 ]
-  %.pn2165.pn.pn = phi { ptr, i32 } [ %.pn2165.pn, %ehcleanup1128 ], [ %557, %if.then.i.i7.i.i4659 ], [ %559, %lpad.i4665 ], [ %557, %lpad2.i.i4657 ]
+  %614 = phi i1 [ false, %if.then.i.i7.i.i4659 ], [ false, %lpad.i4665 ], [ true, %ehcleanup1128 ], [ false, %lpad2.i.i4657 ]
+  %.pn2165.pn.pn = phi { ptr, i32 } [ %557, %if.then.i.i7.i.i4659 ], [ %559, %lpad.i4665 ], [ %.pn2165.pn, %ehcleanup1128 ], [ %557, %lpad2.i.i4657 ]
   %615 = load ptr, ptr %ref.tmp1109, align 8, !tbaa !7
   %cmp.i.i.i4886 = icmp eq ptr %615, %555
   br i1 %cmp.i.i.i4886, label %ehcleanup1144, label %if.then.i.i4887
@@ -6438,9 +6438,9 @@ ehcleanup1144:                                    ; preds = %ehcleanup1143, %if.
   br label %ehcleanup1147
 
 ehcleanup1147:                                    ; preds = %lpad2.i.i4630, %ehcleanup1144, %lpad.i4638, %if.then.i.i7.i.i4632
-  %arrayinit.endOfInit1031.0 = phi ptr [ %arrayinit.element1108, %ehcleanup1144 ], [ %arrayinit.element1101, %lpad.i4638 ], [ %arrayinit.element1101, %if.then.i.i7.i.i4632 ], [ %arrayinit.element1101, %lpad2.i.i4630 ]
-  %cleanup.isactive1115.2 = phi i1 [ %614, %ehcleanup1144 ], [ false, %lpad.i4638 ], [ false, %if.then.i.i7.i.i4632 ], [ false, %lpad2.i.i4630 ]
-  %.pn2165.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn, %ehcleanup1144 ], [ %554, %lpad.i4638 ], [ %552, %if.then.i.i7.i.i4632 ], [ %552, %lpad2.i.i4630 ]
+  %arrayinit.endOfInit1031.0 = phi ptr [ %arrayinit.element1108, %ehcleanup1144 ], [ %arrayinit.element1101, %if.then.i.i7.i.i4632 ], [ %arrayinit.element1101, %lpad.i4638 ], [ %arrayinit.element1101, %lpad2.i.i4630 ]
+  %cleanup.isactive1115.2 = phi i1 [ %614, %ehcleanup1144 ], [ false, %if.then.i.i7.i.i4632 ], [ false, %lpad.i4638 ], [ false, %lpad2.i.i4630 ]
+  %.pn2165.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn, %ehcleanup1144 ], [ %552, %if.then.i.i7.i.i4632 ], [ %554, %lpad.i4638 ], [ %552, %lpad2.i.i4630 ]
   %616 = load ptr, ptr %ref.tmp1102, align 8, !tbaa !7
   %cmp.i.i.i4893 = icmp eq ptr %616, %550
   br i1 %cmp.i.i.i4893, label %ehcleanup1148, label %if.then.i.i4894
@@ -6454,9 +6454,9 @@ ehcleanup1148:                                    ; preds = %ehcleanup1147, %if.
   br label %ehcleanup1151
 
 ehcleanup1151:                                    ; preds = %lpad2.i.i4603, %ehcleanup1148, %lpad.i4611, %if.then.i.i7.i.i4605
-  %arrayinit.endOfInit1031.2 = phi ptr [ %arrayinit.endOfInit1031.0, %ehcleanup1148 ], [ %arrayinit.element1094, %lpad.i4611 ], [ %arrayinit.element1094, %if.then.i.i7.i.i4605 ], [ %arrayinit.element1094, %lpad2.i.i4603 ]
-  %cleanup.isactive1115.4 = phi i1 [ %cleanup.isactive1115.2, %ehcleanup1148 ], [ false, %lpad.i4611 ], [ false, %if.then.i.i7.i.i4605 ], [ false, %lpad2.i.i4603 ]
-  %.pn2165.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn, %ehcleanup1148 ], [ %549, %lpad.i4611 ], [ %547, %if.then.i.i7.i.i4605 ], [ %547, %lpad2.i.i4603 ]
+  %arrayinit.endOfInit1031.2 = phi ptr [ %arrayinit.endOfInit1031.0, %ehcleanup1148 ], [ %arrayinit.element1094, %if.then.i.i7.i.i4605 ], [ %arrayinit.element1094, %lpad.i4611 ], [ %arrayinit.element1094, %lpad2.i.i4603 ]
+  %cleanup.isactive1115.4 = phi i1 [ %cleanup.isactive1115.2, %ehcleanup1148 ], [ false, %if.then.i.i7.i.i4605 ], [ false, %lpad.i4611 ], [ false, %lpad2.i.i4603 ]
+  %.pn2165.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn, %ehcleanup1148 ], [ %547, %if.then.i.i7.i.i4605 ], [ %549, %lpad.i4611 ], [ %547, %lpad2.i.i4603 ]
   %617 = load ptr, ptr %ref.tmp1095, align 8, !tbaa !7
   %cmp.i.i.i4900 = icmp eq ptr %617, %545
   br i1 %cmp.i.i.i4900, label %ehcleanup1152, label %if.then.i.i4901
@@ -6470,9 +6470,9 @@ ehcleanup1152:                                    ; preds = %ehcleanup1151, %if.
   br label %ehcleanup1155
 
 ehcleanup1155:                                    ; preds = %lpad2.i.i4576, %ehcleanup1152, %lpad.i4584, %if.then.i.i7.i.i4578
-  %arrayinit.endOfInit1031.4 = phi ptr [ %arrayinit.endOfInit1031.2, %ehcleanup1152 ], [ %arrayinit.element1087, %lpad.i4584 ], [ %arrayinit.element1087, %if.then.i.i7.i.i4578 ], [ %arrayinit.element1087, %lpad2.i.i4576 ]
-  %cleanup.isactive1115.6 = phi i1 [ %cleanup.isactive1115.4, %ehcleanup1152 ], [ false, %lpad.i4584 ], [ false, %if.then.i.i7.i.i4578 ], [ false, %lpad2.i.i4576 ]
-  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn, %ehcleanup1152 ], [ %544, %lpad.i4584 ], [ %542, %if.then.i.i7.i.i4578 ], [ %542, %lpad2.i.i4576 ]
+  %arrayinit.endOfInit1031.4 = phi ptr [ %arrayinit.endOfInit1031.2, %ehcleanup1152 ], [ %arrayinit.element1087, %if.then.i.i7.i.i4578 ], [ %arrayinit.element1087, %lpad.i4584 ], [ %arrayinit.element1087, %lpad2.i.i4576 ]
+  %cleanup.isactive1115.6 = phi i1 [ %cleanup.isactive1115.4, %ehcleanup1152 ], [ false, %if.then.i.i7.i.i4578 ], [ false, %lpad.i4584 ], [ false, %lpad2.i.i4576 ]
+  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn, %ehcleanup1152 ], [ %542, %if.then.i.i7.i.i4578 ], [ %544, %lpad.i4584 ], [ %542, %lpad2.i.i4576 ]
   %618 = load ptr, ptr %ref.tmp1088, align 8, !tbaa !7
   %cmp.i.i.i4907 = icmp eq ptr %618, %540
   br i1 %cmp.i.i.i4907, label %ehcleanup1156, label %if.then.i.i4908
@@ -6486,9 +6486,9 @@ ehcleanup1156:                                    ; preds = %ehcleanup1155, %if.
   br label %ehcleanup1159
 
 ehcleanup1159:                                    ; preds = %lpad2.i.i4549, %ehcleanup1156, %lpad.i4557, %if.then.i.i7.i.i4551
-  %arrayinit.endOfInit1031.6 = phi ptr [ %arrayinit.endOfInit1031.4, %ehcleanup1156 ], [ %arrayinit.element1080, %lpad.i4557 ], [ %arrayinit.element1080, %if.then.i.i7.i.i4551 ], [ %arrayinit.element1080, %lpad2.i.i4549 ]
-  %cleanup.isactive1115.8 = phi i1 [ %cleanup.isactive1115.6, %ehcleanup1156 ], [ false, %lpad.i4557 ], [ false, %if.then.i.i7.i.i4551 ], [ false, %lpad2.i.i4549 ]
-  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1156 ], [ %539, %lpad.i4557 ], [ %537, %if.then.i.i7.i.i4551 ], [ %537, %lpad2.i.i4549 ]
+  %arrayinit.endOfInit1031.6 = phi ptr [ %arrayinit.endOfInit1031.4, %ehcleanup1156 ], [ %arrayinit.element1080, %if.then.i.i7.i.i4551 ], [ %arrayinit.element1080, %lpad.i4557 ], [ %arrayinit.element1080, %lpad2.i.i4549 ]
+  %cleanup.isactive1115.8 = phi i1 [ %cleanup.isactive1115.6, %ehcleanup1156 ], [ false, %if.then.i.i7.i.i4551 ], [ false, %lpad.i4557 ], [ false, %lpad2.i.i4549 ]
+  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1156 ], [ %537, %if.then.i.i7.i.i4551 ], [ %539, %lpad.i4557 ], [ %537, %lpad2.i.i4549 ]
   %619 = load ptr, ptr %ref.tmp1081, align 8, !tbaa !7
   %cmp.i.i.i4914 = icmp eq ptr %619, %535
   br i1 %cmp.i.i.i4914, label %ehcleanup1160, label %if.then.i.i4915
@@ -6502,9 +6502,9 @@ ehcleanup1160:                                    ; preds = %ehcleanup1159, %if.
   br label %ehcleanup1163
 
 ehcleanup1163:                                    ; preds = %lpad2.i.i4522, %ehcleanup1160, %lpad.i4530, %if.then.i.i7.i.i4524
-  %arrayinit.endOfInit1031.8 = phi ptr [ %arrayinit.endOfInit1031.6, %ehcleanup1160 ], [ %arrayinit.element1073, %lpad.i4530 ], [ %arrayinit.element1073, %if.then.i.i7.i.i4524 ], [ %arrayinit.element1073, %lpad2.i.i4522 ]
-  %cleanup.isactive1115.10 = phi i1 [ %cleanup.isactive1115.8, %ehcleanup1160 ], [ false, %lpad.i4530 ], [ false, %if.then.i.i7.i.i4524 ], [ false, %lpad2.i.i4522 ]
-  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1160 ], [ %534, %lpad.i4530 ], [ %532, %if.then.i.i7.i.i4524 ], [ %532, %lpad2.i.i4522 ]
+  %arrayinit.endOfInit1031.8 = phi ptr [ %arrayinit.endOfInit1031.6, %ehcleanup1160 ], [ %arrayinit.element1073, %if.then.i.i7.i.i4524 ], [ %arrayinit.element1073, %lpad.i4530 ], [ %arrayinit.element1073, %lpad2.i.i4522 ]
+  %cleanup.isactive1115.10 = phi i1 [ %cleanup.isactive1115.8, %ehcleanup1160 ], [ false, %if.then.i.i7.i.i4524 ], [ false, %lpad.i4530 ], [ false, %lpad2.i.i4522 ]
+  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1160 ], [ %532, %if.then.i.i7.i.i4524 ], [ %534, %lpad.i4530 ], [ %532, %lpad2.i.i4522 ]
   %620 = load ptr, ptr %ref.tmp1074, align 8, !tbaa !7
   %cmp.i.i.i4921 = icmp eq ptr %620, %530
   br i1 %cmp.i.i.i4921, label %ehcleanup1164, label %if.then.i.i4922
@@ -6518,9 +6518,9 @@ ehcleanup1164:                                    ; preds = %ehcleanup1163, %if.
   br label %ehcleanup1167
 
 ehcleanup1167:                                    ; preds = %lpad2.i.i4495, %ehcleanup1164, %lpad.i4503, %if.then.i.i7.i.i4497
-  %arrayinit.endOfInit1031.10 = phi ptr [ %arrayinit.endOfInit1031.8, %ehcleanup1164 ], [ %arrayinit.element1066, %lpad.i4503 ], [ %arrayinit.element1066, %if.then.i.i7.i.i4497 ], [ %arrayinit.element1066, %lpad2.i.i4495 ]
-  %cleanup.isactive1115.12 = phi i1 [ %cleanup.isactive1115.10, %ehcleanup1164 ], [ false, %lpad.i4503 ], [ false, %if.then.i.i7.i.i4497 ], [ false, %lpad2.i.i4495 ]
-  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1164 ], [ %529, %lpad.i4503 ], [ %527, %if.then.i.i7.i.i4497 ], [ %527, %lpad2.i.i4495 ]
+  %arrayinit.endOfInit1031.10 = phi ptr [ %arrayinit.endOfInit1031.8, %ehcleanup1164 ], [ %arrayinit.element1066, %if.then.i.i7.i.i4497 ], [ %arrayinit.element1066, %lpad.i4503 ], [ %arrayinit.element1066, %lpad2.i.i4495 ]
+  %cleanup.isactive1115.12 = phi i1 [ %cleanup.isactive1115.10, %ehcleanup1164 ], [ false, %if.then.i.i7.i.i4497 ], [ false, %lpad.i4503 ], [ false, %lpad2.i.i4495 ]
+  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1164 ], [ %527, %if.then.i.i7.i.i4497 ], [ %529, %lpad.i4503 ], [ %527, %lpad2.i.i4495 ]
   %621 = load ptr, ptr %ref.tmp1067, align 8, !tbaa !7
   %cmp.i.i.i4928 = icmp eq ptr %621, %525
   br i1 %cmp.i.i.i4928, label %ehcleanup1168, label %if.then.i.i4929
@@ -6534,9 +6534,9 @@ ehcleanup1168:                                    ; preds = %ehcleanup1167, %if.
   br label %ehcleanup1171
 
 ehcleanup1171:                                    ; preds = %lpad2.i.i4468, %ehcleanup1168, %lpad.i4476, %if.then.i.i7.i.i4470
-  %arrayinit.endOfInit1031.12 = phi ptr [ %arrayinit.endOfInit1031.10, %ehcleanup1168 ], [ %arrayinit.element1059, %lpad.i4476 ], [ %arrayinit.element1059, %if.then.i.i7.i.i4470 ], [ %arrayinit.element1059, %lpad2.i.i4468 ]
-  %cleanup.isactive1115.14 = phi i1 [ %cleanup.isactive1115.12, %ehcleanup1168 ], [ false, %lpad.i4476 ], [ false, %if.then.i.i7.i.i4470 ], [ false, %lpad2.i.i4468 ]
-  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1168 ], [ %524, %lpad.i4476 ], [ %522, %if.then.i.i7.i.i4470 ], [ %522, %lpad2.i.i4468 ]
+  %arrayinit.endOfInit1031.12 = phi ptr [ %arrayinit.endOfInit1031.10, %ehcleanup1168 ], [ %arrayinit.element1059, %if.then.i.i7.i.i4470 ], [ %arrayinit.element1059, %lpad.i4476 ], [ %arrayinit.element1059, %lpad2.i.i4468 ]
+  %cleanup.isactive1115.14 = phi i1 [ %cleanup.isactive1115.12, %ehcleanup1168 ], [ false, %if.then.i.i7.i.i4470 ], [ false, %lpad.i4476 ], [ false, %lpad2.i.i4468 ]
+  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1168 ], [ %522, %if.then.i.i7.i.i4470 ], [ %524, %lpad.i4476 ], [ %522, %lpad2.i.i4468 ]
   %622 = load ptr, ptr %ref.tmp1060, align 8, !tbaa !7
   %cmp.i.i.i4935 = icmp eq ptr %622, %520
   br i1 %cmp.i.i.i4935, label %ehcleanup1172, label %if.then.i.i4936
@@ -6550,9 +6550,9 @@ ehcleanup1172:                                    ; preds = %ehcleanup1171, %if.
   br label %ehcleanup1175
 
 ehcleanup1175:                                    ; preds = %lpad2.i.i4441, %ehcleanup1172, %lpad.i4449, %if.then.i.i7.i.i4443
-  %arrayinit.endOfInit1031.14 = phi ptr [ %arrayinit.endOfInit1031.12, %ehcleanup1172 ], [ %arrayinit.element1052, %lpad.i4449 ], [ %arrayinit.element1052, %if.then.i.i7.i.i4443 ], [ %arrayinit.element1052, %lpad2.i.i4441 ]
-  %cleanup.isactive1115.16 = phi i1 [ %cleanup.isactive1115.14, %ehcleanup1172 ], [ false, %lpad.i4449 ], [ false, %if.then.i.i7.i.i4443 ], [ false, %lpad2.i.i4441 ]
-  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1172 ], [ %519, %lpad.i4449 ], [ %517, %if.then.i.i7.i.i4443 ], [ %517, %lpad2.i.i4441 ]
+  %arrayinit.endOfInit1031.14 = phi ptr [ %arrayinit.endOfInit1031.12, %ehcleanup1172 ], [ %arrayinit.element1052, %if.then.i.i7.i.i4443 ], [ %arrayinit.element1052, %lpad.i4449 ], [ %arrayinit.element1052, %lpad2.i.i4441 ]
+  %cleanup.isactive1115.16 = phi i1 [ %cleanup.isactive1115.14, %ehcleanup1172 ], [ false, %if.then.i.i7.i.i4443 ], [ false, %lpad.i4449 ], [ false, %lpad2.i.i4441 ]
+  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1172 ], [ %517, %if.then.i.i7.i.i4443 ], [ %519, %lpad.i4449 ], [ %517, %lpad2.i.i4441 ]
   %623 = load ptr, ptr %ref.tmp1053, align 8, !tbaa !7
   %cmp.i.i.i4942 = icmp eq ptr %623, %515
   br i1 %cmp.i.i.i4942, label %ehcleanup1176, label %if.then.i.i4943
@@ -6566,9 +6566,9 @@ ehcleanup1176:                                    ; preds = %ehcleanup1175, %if.
   br label %ehcleanup1179
 
 ehcleanup1179:                                    ; preds = %lpad2.i.i4414, %ehcleanup1176, %lpad.i4422, %if.then.i.i7.i.i4416
-  %arrayinit.endOfInit1031.16 = phi ptr [ %arrayinit.endOfInit1031.14, %ehcleanup1176 ], [ %arrayinit.element1045, %lpad.i4422 ], [ %arrayinit.element1045, %if.then.i.i7.i.i4416 ], [ %arrayinit.element1045, %lpad2.i.i4414 ]
-  %cleanup.isactive1115.18 = phi i1 [ %cleanup.isactive1115.16, %ehcleanup1176 ], [ false, %lpad.i4422 ], [ false, %if.then.i.i7.i.i4416 ], [ false, %lpad2.i.i4414 ]
-  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1176 ], [ %514, %lpad.i4422 ], [ %512, %if.then.i.i7.i.i4416 ], [ %512, %lpad2.i.i4414 ]
+  %arrayinit.endOfInit1031.16 = phi ptr [ %arrayinit.endOfInit1031.14, %ehcleanup1176 ], [ %arrayinit.element1045, %if.then.i.i7.i.i4416 ], [ %arrayinit.element1045, %lpad.i4422 ], [ %arrayinit.element1045, %lpad2.i.i4414 ]
+  %cleanup.isactive1115.18 = phi i1 [ %cleanup.isactive1115.16, %ehcleanup1176 ], [ false, %if.then.i.i7.i.i4416 ], [ false, %lpad.i4422 ], [ false, %lpad2.i.i4414 ]
+  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1176 ], [ %512, %if.then.i.i7.i.i4416 ], [ %514, %lpad.i4422 ], [ %512, %lpad2.i.i4414 ]
   %624 = load ptr, ptr %ref.tmp1046, align 8, !tbaa !7
   %cmp.i.i.i4949 = icmp eq ptr %624, %510
   br i1 %cmp.i.i.i4949, label %ehcleanup1180, label %if.then.i.i4950
@@ -6582,9 +6582,9 @@ ehcleanup1180:                                    ; preds = %ehcleanup1179, %if.
   br label %ehcleanup1183
 
 ehcleanup1183:                                    ; preds = %lpad2.i.i4387, %ehcleanup1180, %lpad.i4395, %if.then.i.i7.i.i4389
-  %arrayinit.endOfInit1031.18 = phi ptr [ %arrayinit.endOfInit1031.16, %ehcleanup1180 ], [ %arrayinit.element1038, %lpad.i4395 ], [ %arrayinit.element1038, %if.then.i.i7.i.i4389 ], [ %arrayinit.element1038, %lpad2.i.i4387 ]
-  %cleanup.isactive1115.20 = phi i1 [ %cleanup.isactive1115.18, %ehcleanup1180 ], [ false, %lpad.i4395 ], [ false, %if.then.i.i7.i.i4389 ], [ false, %lpad2.i.i4387 ]
-  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1180 ], [ %509, %lpad.i4395 ], [ %507, %if.then.i.i7.i.i4389 ], [ %507, %lpad2.i.i4387 ]
+  %arrayinit.endOfInit1031.18 = phi ptr [ %arrayinit.endOfInit1031.16, %ehcleanup1180 ], [ %arrayinit.element1038, %if.then.i.i7.i.i4389 ], [ %arrayinit.element1038, %lpad.i4395 ], [ %arrayinit.element1038, %lpad2.i.i4387 ]
+  %cleanup.isactive1115.20 = phi i1 [ %cleanup.isactive1115.18, %ehcleanup1180 ], [ false, %if.then.i.i7.i.i4389 ], [ false, %lpad.i4395 ], [ false, %lpad2.i.i4387 ]
+  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1180 ], [ %507, %if.then.i.i7.i.i4389 ], [ %509, %lpad.i4395 ], [ %507, %lpad2.i.i4387 ]
   %625 = load ptr, ptr %ref.tmp1039, align 8, !tbaa !7
   %cmp.i.i.i4956 = icmp eq ptr %625, %505
   br i1 %cmp.i.i.i4956, label %ehcleanup1184, label %if.then.i.i4957
@@ -6598,9 +6598,9 @@ ehcleanup1184:                                    ; preds = %ehcleanup1183, %if.
   br label %ehcleanup1187
 
 ehcleanup1187:                                    ; preds = %lpad2.i.i4360, %ehcleanup1184, %lpad.i4368, %if.then.i.i7.i.i4362
-  %arrayinit.endOfInit1031.20 = phi ptr [ %arrayinit.endOfInit1031.18, %ehcleanup1184 ], [ %ref.tmp1029, %lpad.i4368 ], [ %ref.tmp1029, %if.then.i.i7.i.i4362 ], [ %ref.tmp1029, %lpad2.i.i4360 ]
-  %cleanup.isactive1115.22 = phi i1 [ %cleanup.isactive1115.20, %ehcleanup1184 ], [ false, %lpad.i4368 ], [ false, %if.then.i.i7.i.i4362 ], [ false, %lpad2.i.i4360 ]
-  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1184 ], [ %504, %lpad.i4368 ], [ %502, %if.then.i.i7.i.i4362 ], [ %502, %lpad2.i.i4360 ]
+  %arrayinit.endOfInit1031.20 = phi ptr [ %arrayinit.endOfInit1031.18, %ehcleanup1184 ], [ %ref.tmp1029, %if.then.i.i7.i.i4362 ], [ %ref.tmp1029, %lpad.i4368 ], [ %ref.tmp1029, %lpad2.i.i4360 ]
+  %cleanup.isactive1115.22 = phi i1 [ %cleanup.isactive1115.20, %ehcleanup1184 ], [ false, %if.then.i.i7.i.i4362 ], [ false, %lpad.i4368 ], [ false, %lpad2.i.i4360 ]
+  %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2165.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1184 ], [ %502, %if.then.i.i7.i.i4362 ], [ %504, %lpad.i4368 ], [ %502, %lpad2.i.i4360 ]
   %626 = load ptr, ptr %ref.tmp1032, align 8, !tbaa !7
   %cmp.i.i.i4963 = icmp eq ptr %626, %500
   br i1 %cmp.i.i.i4963, label %ehcleanup1188, label %if.then.i.i4964
@@ -7775,8 +7775,8 @@ ehcleanup1351:                                    ; preds = %ehcleanup1350, %if.
   br label %ehcleanup1366
 
 ehcleanup1366:                                    ; preds = %lpad2.i.i5311, %ehcleanup1351, %lpad.i5319, %if.then.i.i7.i.i5313
-  %751 = phi i1 [ true, %ehcleanup1351 ], [ false, %if.then.i.i7.i.i5313 ], [ false, %lpad.i5319 ], [ false, %lpad2.i.i5311 ]
-  %.pn2198.pn.pn = phi { ptr, i32 } [ %.pn2198.pn, %ehcleanup1351 ], [ %694, %if.then.i.i7.i.i5313 ], [ %696, %lpad.i5319 ], [ %694, %lpad2.i.i5311 ]
+  %751 = phi i1 [ false, %if.then.i.i7.i.i5313 ], [ false, %lpad.i5319 ], [ true, %ehcleanup1351 ], [ false, %lpad2.i.i5311 ]
+  %.pn2198.pn.pn = phi { ptr, i32 } [ %694, %if.then.i.i7.i.i5313 ], [ %696, %lpad.i5319 ], [ %.pn2198.pn, %ehcleanup1351 ], [ %694, %lpad2.i.i5311 ]
   %752 = load ptr, ptr %ref.tmp1332, align 8, !tbaa !7
   %cmp.i.i.i5540 = icmp eq ptr %752, %692
   br i1 %cmp.i.i.i5540, label %ehcleanup1367, label %if.then.i.i5541
@@ -7790,9 +7790,9 @@ ehcleanup1367:                                    ; preds = %ehcleanup1366, %if.
   br label %ehcleanup1370
 
 ehcleanup1370:                                    ; preds = %lpad2.i.i5284, %ehcleanup1367, %lpad.i5292, %if.then.i.i7.i.i5286
-  %arrayinit.endOfInit1254.0 = phi ptr [ %arrayinit.element1331, %ehcleanup1367 ], [ %arrayinit.element1324, %lpad.i5292 ], [ %arrayinit.element1324, %if.then.i.i7.i.i5286 ], [ %arrayinit.element1324, %lpad2.i.i5284 ]
-  %cleanup.isactive1338.2 = phi i1 [ %751, %ehcleanup1367 ], [ false, %lpad.i5292 ], [ false, %if.then.i.i7.i.i5286 ], [ false, %lpad2.i.i5284 ]
-  %.pn2198.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn, %ehcleanup1367 ], [ %691, %lpad.i5292 ], [ %689, %if.then.i.i7.i.i5286 ], [ %689, %lpad2.i.i5284 ]
+  %arrayinit.endOfInit1254.0 = phi ptr [ %arrayinit.element1331, %ehcleanup1367 ], [ %arrayinit.element1324, %if.then.i.i7.i.i5286 ], [ %arrayinit.element1324, %lpad.i5292 ], [ %arrayinit.element1324, %lpad2.i.i5284 ]
+  %cleanup.isactive1338.2 = phi i1 [ %751, %ehcleanup1367 ], [ false, %if.then.i.i7.i.i5286 ], [ false, %lpad.i5292 ], [ false, %lpad2.i.i5284 ]
+  %.pn2198.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn, %ehcleanup1367 ], [ %689, %if.then.i.i7.i.i5286 ], [ %691, %lpad.i5292 ], [ %689, %lpad2.i.i5284 ]
   %753 = load ptr, ptr %ref.tmp1325, align 8, !tbaa !7
   %cmp.i.i.i5547 = icmp eq ptr %753, %687
   br i1 %cmp.i.i.i5547, label %ehcleanup1371, label %if.then.i.i5548
@@ -7806,9 +7806,9 @@ ehcleanup1371:                                    ; preds = %ehcleanup1370, %if.
   br label %ehcleanup1374
 
 ehcleanup1374:                                    ; preds = %lpad2.i.i5257, %ehcleanup1371, %lpad.i5265, %if.then.i.i7.i.i5259
-  %arrayinit.endOfInit1254.2 = phi ptr [ %arrayinit.endOfInit1254.0, %ehcleanup1371 ], [ %arrayinit.element1317, %lpad.i5265 ], [ %arrayinit.element1317, %if.then.i.i7.i.i5259 ], [ %arrayinit.element1317, %lpad2.i.i5257 ]
-  %cleanup.isactive1338.4 = phi i1 [ %cleanup.isactive1338.2, %ehcleanup1371 ], [ false, %lpad.i5265 ], [ false, %if.then.i.i7.i.i5259 ], [ false, %lpad2.i.i5257 ]
-  %.pn2198.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn, %ehcleanup1371 ], [ %686, %lpad.i5265 ], [ %684, %if.then.i.i7.i.i5259 ], [ %684, %lpad2.i.i5257 ]
+  %arrayinit.endOfInit1254.2 = phi ptr [ %arrayinit.endOfInit1254.0, %ehcleanup1371 ], [ %arrayinit.element1317, %if.then.i.i7.i.i5259 ], [ %arrayinit.element1317, %lpad.i5265 ], [ %arrayinit.element1317, %lpad2.i.i5257 ]
+  %cleanup.isactive1338.4 = phi i1 [ %cleanup.isactive1338.2, %ehcleanup1371 ], [ false, %if.then.i.i7.i.i5259 ], [ false, %lpad.i5265 ], [ false, %lpad2.i.i5257 ]
+  %.pn2198.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn, %ehcleanup1371 ], [ %684, %if.then.i.i7.i.i5259 ], [ %686, %lpad.i5265 ], [ %684, %lpad2.i.i5257 ]
   %754 = load ptr, ptr %ref.tmp1318, align 8, !tbaa !7
   %cmp.i.i.i5554 = icmp eq ptr %754, %682
   br i1 %cmp.i.i.i5554, label %ehcleanup1375, label %if.then.i.i5555
@@ -7822,9 +7822,9 @@ ehcleanup1375:                                    ; preds = %ehcleanup1374, %if.
   br label %ehcleanup1378
 
 ehcleanup1378:                                    ; preds = %lpad2.i.i5230, %ehcleanup1375, %lpad.i5238, %if.then.i.i7.i.i5232
-  %arrayinit.endOfInit1254.4 = phi ptr [ %arrayinit.endOfInit1254.2, %ehcleanup1375 ], [ %arrayinit.element1310, %lpad.i5238 ], [ %arrayinit.element1310, %if.then.i.i7.i.i5232 ], [ %arrayinit.element1310, %lpad2.i.i5230 ]
-  %cleanup.isactive1338.6 = phi i1 [ %cleanup.isactive1338.4, %ehcleanup1375 ], [ false, %lpad.i5238 ], [ false, %if.then.i.i7.i.i5232 ], [ false, %lpad2.i.i5230 ]
-  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn, %ehcleanup1375 ], [ %681, %lpad.i5238 ], [ %679, %if.then.i.i7.i.i5232 ], [ %679, %lpad2.i.i5230 ]
+  %arrayinit.endOfInit1254.4 = phi ptr [ %arrayinit.endOfInit1254.2, %ehcleanup1375 ], [ %arrayinit.element1310, %if.then.i.i7.i.i5232 ], [ %arrayinit.element1310, %lpad.i5238 ], [ %arrayinit.element1310, %lpad2.i.i5230 ]
+  %cleanup.isactive1338.6 = phi i1 [ %cleanup.isactive1338.4, %ehcleanup1375 ], [ false, %if.then.i.i7.i.i5232 ], [ false, %lpad.i5238 ], [ false, %lpad2.i.i5230 ]
+  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn, %ehcleanup1375 ], [ %679, %if.then.i.i7.i.i5232 ], [ %681, %lpad.i5238 ], [ %679, %lpad2.i.i5230 ]
   %755 = load ptr, ptr %ref.tmp1311, align 8, !tbaa !7
   %cmp.i.i.i5561 = icmp eq ptr %755, %677
   br i1 %cmp.i.i.i5561, label %ehcleanup1379, label %if.then.i.i5562
@@ -7838,9 +7838,9 @@ ehcleanup1379:                                    ; preds = %ehcleanup1378, %if.
   br label %ehcleanup1382
 
 ehcleanup1382:                                    ; preds = %lpad2.i.i5203, %ehcleanup1379, %lpad.i5211, %if.then.i.i7.i.i5205
-  %arrayinit.endOfInit1254.6 = phi ptr [ %arrayinit.endOfInit1254.4, %ehcleanup1379 ], [ %arrayinit.element1303, %lpad.i5211 ], [ %arrayinit.element1303, %if.then.i.i7.i.i5205 ], [ %arrayinit.element1303, %lpad2.i.i5203 ]
-  %cleanup.isactive1338.8 = phi i1 [ %cleanup.isactive1338.6, %ehcleanup1379 ], [ false, %lpad.i5211 ], [ false, %if.then.i.i7.i.i5205 ], [ false, %lpad2.i.i5203 ]
-  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1379 ], [ %676, %lpad.i5211 ], [ %674, %if.then.i.i7.i.i5205 ], [ %674, %lpad2.i.i5203 ]
+  %arrayinit.endOfInit1254.6 = phi ptr [ %arrayinit.endOfInit1254.4, %ehcleanup1379 ], [ %arrayinit.element1303, %if.then.i.i7.i.i5205 ], [ %arrayinit.element1303, %lpad.i5211 ], [ %arrayinit.element1303, %lpad2.i.i5203 ]
+  %cleanup.isactive1338.8 = phi i1 [ %cleanup.isactive1338.6, %ehcleanup1379 ], [ false, %if.then.i.i7.i.i5205 ], [ false, %lpad.i5211 ], [ false, %lpad2.i.i5203 ]
+  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1379 ], [ %674, %if.then.i.i7.i.i5205 ], [ %676, %lpad.i5211 ], [ %674, %lpad2.i.i5203 ]
   %756 = load ptr, ptr %ref.tmp1304, align 8, !tbaa !7
   %cmp.i.i.i5568 = icmp eq ptr %756, %672
   br i1 %cmp.i.i.i5568, label %ehcleanup1383, label %if.then.i.i5569
@@ -7854,9 +7854,9 @@ ehcleanup1383:                                    ; preds = %ehcleanup1382, %if.
   br label %ehcleanup1386
 
 ehcleanup1386:                                    ; preds = %lpad2.i.i5176, %ehcleanup1383, %lpad.i5184, %if.then.i.i7.i.i5178
-  %arrayinit.endOfInit1254.8 = phi ptr [ %arrayinit.endOfInit1254.6, %ehcleanup1383 ], [ %arrayinit.element1296, %lpad.i5184 ], [ %arrayinit.element1296, %if.then.i.i7.i.i5178 ], [ %arrayinit.element1296, %lpad2.i.i5176 ]
-  %cleanup.isactive1338.10 = phi i1 [ %cleanup.isactive1338.8, %ehcleanup1383 ], [ false, %lpad.i5184 ], [ false, %if.then.i.i7.i.i5178 ], [ false, %lpad2.i.i5176 ]
-  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1383 ], [ %671, %lpad.i5184 ], [ %669, %if.then.i.i7.i.i5178 ], [ %669, %lpad2.i.i5176 ]
+  %arrayinit.endOfInit1254.8 = phi ptr [ %arrayinit.endOfInit1254.6, %ehcleanup1383 ], [ %arrayinit.element1296, %if.then.i.i7.i.i5178 ], [ %arrayinit.element1296, %lpad.i5184 ], [ %arrayinit.element1296, %lpad2.i.i5176 ]
+  %cleanup.isactive1338.10 = phi i1 [ %cleanup.isactive1338.8, %ehcleanup1383 ], [ false, %if.then.i.i7.i.i5178 ], [ false, %lpad.i5184 ], [ false, %lpad2.i.i5176 ]
+  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1383 ], [ %669, %if.then.i.i7.i.i5178 ], [ %671, %lpad.i5184 ], [ %669, %lpad2.i.i5176 ]
   %757 = load ptr, ptr %ref.tmp1297, align 8, !tbaa !7
   %cmp.i.i.i5575 = icmp eq ptr %757, %667
   br i1 %cmp.i.i.i5575, label %ehcleanup1387, label %if.then.i.i5576
@@ -7870,9 +7870,9 @@ ehcleanup1387:                                    ; preds = %ehcleanup1386, %if.
   br label %ehcleanup1390
 
 ehcleanup1390:                                    ; preds = %lpad2.i.i5149, %ehcleanup1387, %lpad.i5157, %if.then.i.i7.i.i5151
-  %arrayinit.endOfInit1254.10 = phi ptr [ %arrayinit.endOfInit1254.8, %ehcleanup1387 ], [ %arrayinit.element1289, %lpad.i5157 ], [ %arrayinit.element1289, %if.then.i.i7.i.i5151 ], [ %arrayinit.element1289, %lpad2.i.i5149 ]
-  %cleanup.isactive1338.12 = phi i1 [ %cleanup.isactive1338.10, %ehcleanup1387 ], [ false, %lpad.i5157 ], [ false, %if.then.i.i7.i.i5151 ], [ false, %lpad2.i.i5149 ]
-  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1387 ], [ %666, %lpad.i5157 ], [ %664, %if.then.i.i7.i.i5151 ], [ %664, %lpad2.i.i5149 ]
+  %arrayinit.endOfInit1254.10 = phi ptr [ %arrayinit.endOfInit1254.8, %ehcleanup1387 ], [ %arrayinit.element1289, %if.then.i.i7.i.i5151 ], [ %arrayinit.element1289, %lpad.i5157 ], [ %arrayinit.element1289, %lpad2.i.i5149 ]
+  %cleanup.isactive1338.12 = phi i1 [ %cleanup.isactive1338.10, %ehcleanup1387 ], [ false, %if.then.i.i7.i.i5151 ], [ false, %lpad.i5157 ], [ false, %lpad2.i.i5149 ]
+  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1387 ], [ %664, %if.then.i.i7.i.i5151 ], [ %666, %lpad.i5157 ], [ %664, %lpad2.i.i5149 ]
   %758 = load ptr, ptr %ref.tmp1290, align 8, !tbaa !7
   %cmp.i.i.i5582 = icmp eq ptr %758, %662
   br i1 %cmp.i.i.i5582, label %ehcleanup1391, label %if.then.i.i5583
@@ -7886,9 +7886,9 @@ ehcleanup1391:                                    ; preds = %ehcleanup1390, %if.
   br label %ehcleanup1394
 
 ehcleanup1394:                                    ; preds = %lpad2.i.i5122, %ehcleanup1391, %lpad.i5130, %if.then.i.i7.i.i5124
-  %arrayinit.endOfInit1254.12 = phi ptr [ %arrayinit.endOfInit1254.10, %ehcleanup1391 ], [ %arrayinit.element1282, %lpad.i5130 ], [ %arrayinit.element1282, %if.then.i.i7.i.i5124 ], [ %arrayinit.element1282, %lpad2.i.i5122 ]
-  %cleanup.isactive1338.14 = phi i1 [ %cleanup.isactive1338.12, %ehcleanup1391 ], [ false, %lpad.i5130 ], [ false, %if.then.i.i7.i.i5124 ], [ false, %lpad2.i.i5122 ]
-  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1391 ], [ %661, %lpad.i5130 ], [ %659, %if.then.i.i7.i.i5124 ], [ %659, %lpad2.i.i5122 ]
+  %arrayinit.endOfInit1254.12 = phi ptr [ %arrayinit.endOfInit1254.10, %ehcleanup1391 ], [ %arrayinit.element1282, %if.then.i.i7.i.i5124 ], [ %arrayinit.element1282, %lpad.i5130 ], [ %arrayinit.element1282, %lpad2.i.i5122 ]
+  %cleanup.isactive1338.14 = phi i1 [ %cleanup.isactive1338.12, %ehcleanup1391 ], [ false, %if.then.i.i7.i.i5124 ], [ false, %lpad.i5130 ], [ false, %lpad2.i.i5122 ]
+  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1391 ], [ %659, %if.then.i.i7.i.i5124 ], [ %661, %lpad.i5130 ], [ %659, %lpad2.i.i5122 ]
   %759 = load ptr, ptr %ref.tmp1283, align 8, !tbaa !7
   %cmp.i.i.i5589 = icmp eq ptr %759, %657
   br i1 %cmp.i.i.i5589, label %ehcleanup1395, label %if.then.i.i5590
@@ -7902,9 +7902,9 @@ ehcleanup1395:                                    ; preds = %ehcleanup1394, %if.
   br label %ehcleanup1398
 
 ehcleanup1398:                                    ; preds = %lpad2.i.i5095, %ehcleanup1395, %lpad.i5103, %if.then.i.i7.i.i5097
-  %arrayinit.endOfInit1254.14 = phi ptr [ %arrayinit.endOfInit1254.12, %ehcleanup1395 ], [ %arrayinit.element1275, %lpad.i5103 ], [ %arrayinit.element1275, %if.then.i.i7.i.i5097 ], [ %arrayinit.element1275, %lpad2.i.i5095 ]
-  %cleanup.isactive1338.16 = phi i1 [ %cleanup.isactive1338.14, %ehcleanup1395 ], [ false, %lpad.i5103 ], [ false, %if.then.i.i7.i.i5097 ], [ false, %lpad2.i.i5095 ]
-  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1395 ], [ %656, %lpad.i5103 ], [ %654, %if.then.i.i7.i.i5097 ], [ %654, %lpad2.i.i5095 ]
+  %arrayinit.endOfInit1254.14 = phi ptr [ %arrayinit.endOfInit1254.12, %ehcleanup1395 ], [ %arrayinit.element1275, %if.then.i.i7.i.i5097 ], [ %arrayinit.element1275, %lpad.i5103 ], [ %arrayinit.element1275, %lpad2.i.i5095 ]
+  %cleanup.isactive1338.16 = phi i1 [ %cleanup.isactive1338.14, %ehcleanup1395 ], [ false, %if.then.i.i7.i.i5097 ], [ false, %lpad.i5103 ], [ false, %lpad2.i.i5095 ]
+  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1395 ], [ %654, %if.then.i.i7.i.i5097 ], [ %656, %lpad.i5103 ], [ %654, %lpad2.i.i5095 ]
   %760 = load ptr, ptr %ref.tmp1276, align 8, !tbaa !7
   %cmp.i.i.i5596 = icmp eq ptr %760, %652
   br i1 %cmp.i.i.i5596, label %ehcleanup1399, label %if.then.i.i5597
@@ -7918,9 +7918,9 @@ ehcleanup1399:                                    ; preds = %ehcleanup1398, %if.
   br label %ehcleanup1402
 
 ehcleanup1402:                                    ; preds = %lpad2.i.i5068, %ehcleanup1399, %lpad.i5076, %if.then.i.i7.i.i5070
-  %arrayinit.endOfInit1254.16 = phi ptr [ %arrayinit.endOfInit1254.14, %ehcleanup1399 ], [ %arrayinit.element1268, %lpad.i5076 ], [ %arrayinit.element1268, %if.then.i.i7.i.i5070 ], [ %arrayinit.element1268, %lpad2.i.i5068 ]
-  %cleanup.isactive1338.18 = phi i1 [ %cleanup.isactive1338.16, %ehcleanup1399 ], [ false, %lpad.i5076 ], [ false, %if.then.i.i7.i.i5070 ], [ false, %lpad2.i.i5068 ]
-  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1399 ], [ %651, %lpad.i5076 ], [ %649, %if.then.i.i7.i.i5070 ], [ %649, %lpad2.i.i5068 ]
+  %arrayinit.endOfInit1254.16 = phi ptr [ %arrayinit.endOfInit1254.14, %ehcleanup1399 ], [ %arrayinit.element1268, %if.then.i.i7.i.i5070 ], [ %arrayinit.element1268, %lpad.i5076 ], [ %arrayinit.element1268, %lpad2.i.i5068 ]
+  %cleanup.isactive1338.18 = phi i1 [ %cleanup.isactive1338.16, %ehcleanup1399 ], [ false, %if.then.i.i7.i.i5070 ], [ false, %lpad.i5076 ], [ false, %lpad2.i.i5068 ]
+  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1399 ], [ %649, %if.then.i.i7.i.i5070 ], [ %651, %lpad.i5076 ], [ %649, %lpad2.i.i5068 ]
   %761 = load ptr, ptr %ref.tmp1269, align 8, !tbaa !7
   %cmp.i.i.i5603 = icmp eq ptr %761, %647
   br i1 %cmp.i.i.i5603, label %ehcleanup1403, label %if.then.i.i5604
@@ -7934,9 +7934,9 @@ ehcleanup1403:                                    ; preds = %ehcleanup1402, %if.
   br label %ehcleanup1406
 
 ehcleanup1406:                                    ; preds = %lpad2.i.i5041, %ehcleanup1403, %lpad.i5049, %if.then.i.i7.i.i5043
-  %arrayinit.endOfInit1254.18 = phi ptr [ %arrayinit.endOfInit1254.16, %ehcleanup1403 ], [ %arrayinit.element1261, %lpad.i5049 ], [ %arrayinit.element1261, %if.then.i.i7.i.i5043 ], [ %arrayinit.element1261, %lpad2.i.i5041 ]
-  %cleanup.isactive1338.20 = phi i1 [ %cleanup.isactive1338.18, %ehcleanup1403 ], [ false, %lpad.i5049 ], [ false, %if.then.i.i7.i.i5043 ], [ false, %lpad2.i.i5041 ]
-  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1403 ], [ %646, %lpad.i5049 ], [ %644, %if.then.i.i7.i.i5043 ], [ %644, %lpad2.i.i5041 ]
+  %arrayinit.endOfInit1254.18 = phi ptr [ %arrayinit.endOfInit1254.16, %ehcleanup1403 ], [ %arrayinit.element1261, %if.then.i.i7.i.i5043 ], [ %arrayinit.element1261, %lpad.i5049 ], [ %arrayinit.element1261, %lpad2.i.i5041 ]
+  %cleanup.isactive1338.20 = phi i1 [ %cleanup.isactive1338.18, %ehcleanup1403 ], [ false, %if.then.i.i7.i.i5043 ], [ false, %lpad.i5049 ], [ false, %lpad2.i.i5041 ]
+  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1403 ], [ %644, %if.then.i.i7.i.i5043 ], [ %646, %lpad.i5049 ], [ %644, %lpad2.i.i5041 ]
   %762 = load ptr, ptr %ref.tmp1262, align 8, !tbaa !7
   %cmp.i.i.i5610 = icmp eq ptr %762, %642
   br i1 %cmp.i.i.i5610, label %ehcleanup1407, label %if.then.i.i5611
@@ -7950,9 +7950,9 @@ ehcleanup1407:                                    ; preds = %ehcleanup1406, %if.
   br label %ehcleanup1410
 
 ehcleanup1410:                                    ; preds = %lpad2.i.i5014, %ehcleanup1407, %lpad.i5022, %if.then.i.i7.i.i5016
-  %arrayinit.endOfInit1254.20 = phi ptr [ %arrayinit.endOfInit1254.18, %ehcleanup1407 ], [ %ref.tmp1252, %lpad.i5022 ], [ %ref.tmp1252, %if.then.i.i7.i.i5016 ], [ %ref.tmp1252, %lpad2.i.i5014 ]
-  %cleanup.isactive1338.22 = phi i1 [ %cleanup.isactive1338.20, %ehcleanup1407 ], [ false, %lpad.i5022 ], [ false, %if.then.i.i7.i.i5016 ], [ false, %lpad2.i.i5014 ]
-  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1407 ], [ %641, %lpad.i5022 ], [ %639, %if.then.i.i7.i.i5016 ], [ %639, %lpad2.i.i5014 ]
+  %arrayinit.endOfInit1254.20 = phi ptr [ %arrayinit.endOfInit1254.18, %ehcleanup1407 ], [ %ref.tmp1252, %if.then.i.i7.i.i5016 ], [ %ref.tmp1252, %lpad.i5022 ], [ %ref.tmp1252, %lpad2.i.i5014 ]
+  %cleanup.isactive1338.22 = phi i1 [ %cleanup.isactive1338.20, %ehcleanup1407 ], [ false, %if.then.i.i7.i.i5016 ], [ false, %lpad.i5022 ], [ false, %lpad2.i.i5014 ]
+  %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1407 ], [ %639, %if.then.i.i7.i.i5016 ], [ %641, %lpad.i5022 ], [ %639, %lpad2.i.i5014 ]
   %763 = load ptr, ptr %ref.tmp1255, align 8, !tbaa !7
   %cmp.i.i.i5617 = icmp eq ptr %763, %637
   br i1 %cmp.i.i.i5617, label %ehcleanup1411, label %if.then.i.i5618
@@ -8605,8 +8605,8 @@ ehcleanup1518:                                    ; preds = %ehcleanup1517, %if.
   br label %ehcleanup1533
 
 ehcleanup1533:                                    ; preds = %lpad2.i.i5749, %ehcleanup1518, %lpad.i5757, %if.then.i.i7.i.i5751
-  %830 = phi i1 [ true, %ehcleanup1518 ], [ false, %if.then.i.i7.i.i5751 ], [ false, %lpad.i5757 ], [ false, %lpad2.i.i5749 ]
-  %.pn2231.pn.pn = phi { ptr, i32 } [ %.pn2231.pn, %ehcleanup1518 ], [ %791, %if.then.i.i7.i.i5751 ], [ %793, %lpad.i5757 ], [ %791, %lpad2.i.i5749 ]
+  %830 = phi i1 [ false, %if.then.i.i7.i.i5751 ], [ false, %lpad.i5757 ], [ true, %ehcleanup1518 ], [ false, %lpad2.i.i5749 ]
+  %.pn2231.pn.pn = phi { ptr, i32 } [ %791, %if.then.i.i7.i.i5751 ], [ %793, %lpad.i5757 ], [ %.pn2231.pn, %ehcleanup1518 ], [ %791, %lpad2.i.i5749 ]
   %831 = load ptr, ptr %ref.tmp1499, align 8, !tbaa !7
   %cmp.i.i.i5922 = icmp eq ptr %831, %789
   br i1 %cmp.i.i.i5922, label %ehcleanup1534, label %if.then.i.i5923
@@ -8620,9 +8620,9 @@ ehcleanup1534:                                    ; preds = %ehcleanup1533, %if.
   br label %ehcleanup1537
 
 ehcleanup1537:                                    ; preds = %lpad2.i.i5722, %ehcleanup1534, %lpad.i5730, %if.then.i.i7.i.i5724
-  %arrayinit.endOfInit1477.0 = phi ptr [ %arrayinit.element1498, %ehcleanup1534 ], [ %arrayinit.element1491, %lpad.i5730 ], [ %arrayinit.element1491, %if.then.i.i7.i.i5724 ], [ %arrayinit.element1491, %lpad2.i.i5722 ]
-  %cleanup.isactive1505.2 = phi i1 [ %830, %ehcleanup1534 ], [ false, %lpad.i5730 ], [ false, %if.then.i.i7.i.i5724 ], [ false, %lpad2.i.i5722 ]
-  %.pn2231.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2231.pn.pn, %ehcleanup1534 ], [ %788, %lpad.i5730 ], [ %786, %if.then.i.i7.i.i5724 ], [ %786, %lpad2.i.i5722 ]
+  %arrayinit.endOfInit1477.0 = phi ptr [ %arrayinit.element1498, %ehcleanup1534 ], [ %arrayinit.element1491, %if.then.i.i7.i.i5724 ], [ %arrayinit.element1491, %lpad.i5730 ], [ %arrayinit.element1491, %lpad2.i.i5722 ]
+  %cleanup.isactive1505.2 = phi i1 [ %830, %ehcleanup1534 ], [ false, %if.then.i.i7.i.i5724 ], [ false, %lpad.i5730 ], [ false, %lpad2.i.i5722 ]
+  %.pn2231.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2231.pn.pn, %ehcleanup1534 ], [ %786, %if.then.i.i7.i.i5724 ], [ %788, %lpad.i5730 ], [ %786, %lpad2.i.i5722 ]
   %832 = load ptr, ptr %ref.tmp1492, align 8, !tbaa !7
   %cmp.i.i.i5929 = icmp eq ptr %832, %784
   br i1 %cmp.i.i.i5929, label %ehcleanup1538, label %if.then.i.i5930
@@ -8636,9 +8636,9 @@ ehcleanup1538:                                    ; preds = %ehcleanup1537, %if.
   br label %ehcleanup1541
 
 ehcleanup1541:                                    ; preds = %lpad2.i.i5695, %ehcleanup1538, %lpad.i5703, %if.then.i.i7.i.i5697
-  %arrayinit.endOfInit1477.2 = phi ptr [ %arrayinit.endOfInit1477.0, %ehcleanup1538 ], [ %arrayinit.element1484, %lpad.i5703 ], [ %arrayinit.element1484, %if.then.i.i7.i.i5697 ], [ %arrayinit.element1484, %lpad2.i.i5695 ]
-  %cleanup.isactive1505.4 = phi i1 [ %cleanup.isactive1505.2, %ehcleanup1538 ], [ false, %lpad.i5703 ], [ false, %if.then.i.i7.i.i5697 ], [ false, %lpad2.i.i5695 ]
-  %.pn2231.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2231.pn.pn.pn.pn, %ehcleanup1538 ], [ %783, %lpad.i5703 ], [ %781, %if.then.i.i7.i.i5697 ], [ %781, %lpad2.i.i5695 ]
+  %arrayinit.endOfInit1477.2 = phi ptr [ %arrayinit.endOfInit1477.0, %ehcleanup1538 ], [ %arrayinit.element1484, %if.then.i.i7.i.i5697 ], [ %arrayinit.element1484, %lpad.i5703 ], [ %arrayinit.element1484, %lpad2.i.i5695 ]
+  %cleanup.isactive1505.4 = phi i1 [ %cleanup.isactive1505.2, %ehcleanup1538 ], [ false, %if.then.i.i7.i.i5697 ], [ false, %lpad.i5703 ], [ false, %lpad2.i.i5695 ]
+  %.pn2231.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2231.pn.pn.pn.pn, %ehcleanup1538 ], [ %781, %if.then.i.i7.i.i5697 ], [ %783, %lpad.i5703 ], [ %781, %lpad2.i.i5695 ]
   %833 = load ptr, ptr %ref.tmp1485, align 8, !tbaa !7
   %cmp.i.i.i5936 = icmp eq ptr %833, %779
   br i1 %cmp.i.i.i5936, label %ehcleanup1542, label %if.then.i.i5937
@@ -8652,9 +8652,9 @@ ehcleanup1542:                                    ; preds = %ehcleanup1541, %if.
   br label %ehcleanup1545
 
 ehcleanup1545:                                    ; preds = %lpad2.i.i5668, %ehcleanup1542, %lpad.i5676, %if.then.i.i7.i.i5670
-  %arrayinit.endOfInit1477.4 = phi ptr [ %arrayinit.endOfInit1477.2, %ehcleanup1542 ], [ %ref.tmp1475, %lpad.i5676 ], [ %ref.tmp1475, %if.then.i.i7.i.i5670 ], [ %ref.tmp1475, %lpad2.i.i5668 ]
-  %cleanup.isactive1505.6 = phi i1 [ %cleanup.isactive1505.4, %ehcleanup1542 ], [ false, %lpad.i5676 ], [ false, %if.then.i.i7.i.i5670 ], [ false, %lpad2.i.i5668 ]
-  %.pn2231.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2231.pn.pn.pn.pn.pn.pn, %ehcleanup1542 ], [ %778, %lpad.i5676 ], [ %776, %if.then.i.i7.i.i5670 ], [ %776, %lpad2.i.i5668 ]
+  %arrayinit.endOfInit1477.4 = phi ptr [ %arrayinit.endOfInit1477.2, %ehcleanup1542 ], [ %ref.tmp1475, %if.then.i.i7.i.i5670 ], [ %ref.tmp1475, %lpad.i5676 ], [ %ref.tmp1475, %lpad2.i.i5668 ]
+  %cleanup.isactive1505.6 = phi i1 [ %cleanup.isactive1505.4, %ehcleanup1542 ], [ false, %if.then.i.i7.i.i5670 ], [ false, %lpad.i5676 ], [ false, %lpad2.i.i5668 ]
+  %.pn2231.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2231.pn.pn.pn.pn.pn.pn, %ehcleanup1542 ], [ %776, %if.then.i.i7.i.i5670 ], [ %778, %lpad.i5676 ], [ %776, %lpad2.i.i5668 ]
   %834 = load ptr, ptr %ref.tmp1478, align 8, !tbaa !7
   %cmp.i.i.i5943 = icmp eq ptr %834, %774
   br i1 %cmp.i.i.i5943, label %ehcleanup1546, label %if.then.i.i5944
@@ -9307,8 +9307,8 @@ ehcleanup1653:                                    ; preds = %ehcleanup1652, %if.
   br label %ehcleanup1668
 
 ehcleanup1668:                                    ; preds = %lpad2.i.i6075, %ehcleanup1653, %lpad.i6083, %if.then.i.i7.i.i6077
-  %901 = phi i1 [ true, %ehcleanup1653 ], [ false, %if.then.i.i7.i.i6077 ], [ false, %lpad.i6083 ], [ false, %lpad2.i.i6075 ]
-  %.pn2248.pn.pn = phi { ptr, i32 } [ %.pn2248.pn, %ehcleanup1653 ], [ %862, %if.then.i.i7.i.i6077 ], [ %864, %lpad.i6083 ], [ %862, %lpad2.i.i6075 ]
+  %901 = phi i1 [ false, %if.then.i.i7.i.i6077 ], [ false, %lpad.i6083 ], [ true, %ehcleanup1653 ], [ false, %lpad2.i.i6075 ]
+  %.pn2248.pn.pn = phi { ptr, i32 } [ %862, %if.then.i.i7.i.i6077 ], [ %864, %lpad.i6083 ], [ %.pn2248.pn, %ehcleanup1653 ], [ %862, %lpad2.i.i6075 ]
   %902 = load ptr, ptr %ref.tmp1634, align 8, !tbaa !7
   %cmp.i.i.i6248 = icmp eq ptr %902, %860
   br i1 %cmp.i.i.i6248, label %ehcleanup1669, label %if.then.i.i6249
@@ -9322,9 +9322,9 @@ ehcleanup1669:                                    ; preds = %ehcleanup1668, %if.
   br label %ehcleanup1672
 
 ehcleanup1672:                                    ; preds = %lpad2.i.i6048, %ehcleanup1669, %lpad.i6056, %if.then.i.i7.i.i6050
-  %arrayinit.endOfInit1612.0 = phi ptr [ %arrayinit.element1633, %ehcleanup1669 ], [ %arrayinit.element1626, %lpad.i6056 ], [ %arrayinit.element1626, %if.then.i.i7.i.i6050 ], [ %arrayinit.element1626, %lpad2.i.i6048 ]
-  %cleanup.isactive1640.2 = phi i1 [ %901, %ehcleanup1669 ], [ false, %lpad.i6056 ], [ false, %if.then.i.i7.i.i6050 ], [ false, %lpad2.i.i6048 ]
-  %.pn2248.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2248.pn.pn, %ehcleanup1669 ], [ %859, %lpad.i6056 ], [ %857, %if.then.i.i7.i.i6050 ], [ %857, %lpad2.i.i6048 ]
+  %arrayinit.endOfInit1612.0 = phi ptr [ %arrayinit.element1633, %ehcleanup1669 ], [ %arrayinit.element1626, %if.then.i.i7.i.i6050 ], [ %arrayinit.element1626, %lpad.i6056 ], [ %arrayinit.element1626, %lpad2.i.i6048 ]
+  %cleanup.isactive1640.2 = phi i1 [ %901, %ehcleanup1669 ], [ false, %if.then.i.i7.i.i6050 ], [ false, %lpad.i6056 ], [ false, %lpad2.i.i6048 ]
+  %.pn2248.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2248.pn.pn, %ehcleanup1669 ], [ %857, %if.then.i.i7.i.i6050 ], [ %859, %lpad.i6056 ], [ %857, %lpad2.i.i6048 ]
   %903 = load ptr, ptr %ref.tmp1627, align 8, !tbaa !7
   %cmp.i.i.i6255 = icmp eq ptr %903, %855
   br i1 %cmp.i.i.i6255, label %ehcleanup1673, label %if.then.i.i6256
@@ -9338,9 +9338,9 @@ ehcleanup1673:                                    ; preds = %ehcleanup1672, %if.
   br label %ehcleanup1676
 
 ehcleanup1676:                                    ; preds = %lpad2.i.i6021, %ehcleanup1673, %lpad.i6029, %if.then.i.i7.i.i6023
-  %arrayinit.endOfInit1612.2 = phi ptr [ %arrayinit.endOfInit1612.0, %ehcleanup1673 ], [ %arrayinit.element1619, %lpad.i6029 ], [ %arrayinit.element1619, %if.then.i.i7.i.i6023 ], [ %arrayinit.element1619, %lpad2.i.i6021 ]
-  %cleanup.isactive1640.4 = phi i1 [ %cleanup.isactive1640.2, %ehcleanup1673 ], [ false, %lpad.i6029 ], [ false, %if.then.i.i7.i.i6023 ], [ false, %lpad2.i.i6021 ]
-  %.pn2248.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2248.pn.pn.pn.pn, %ehcleanup1673 ], [ %854, %lpad.i6029 ], [ %852, %if.then.i.i7.i.i6023 ], [ %852, %lpad2.i.i6021 ]
+  %arrayinit.endOfInit1612.2 = phi ptr [ %arrayinit.endOfInit1612.0, %ehcleanup1673 ], [ %arrayinit.element1619, %if.then.i.i7.i.i6023 ], [ %arrayinit.element1619, %lpad.i6029 ], [ %arrayinit.element1619, %lpad2.i.i6021 ]
+  %cleanup.isactive1640.4 = phi i1 [ %cleanup.isactive1640.2, %ehcleanup1673 ], [ false, %if.then.i.i7.i.i6023 ], [ false, %lpad.i6029 ], [ false, %lpad2.i.i6021 ]
+  %.pn2248.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2248.pn.pn.pn.pn, %ehcleanup1673 ], [ %852, %if.then.i.i7.i.i6023 ], [ %854, %lpad.i6029 ], [ %852, %lpad2.i.i6021 ]
   %904 = load ptr, ptr %ref.tmp1620, align 8, !tbaa !7
   %cmp.i.i.i6262 = icmp eq ptr %904, %850
   br i1 %cmp.i.i.i6262, label %ehcleanup1677, label %if.then.i.i6263
@@ -9354,9 +9354,9 @@ ehcleanup1677:                                    ; preds = %ehcleanup1676, %if.
   br label %ehcleanup1680
 
 ehcleanup1680:                                    ; preds = %lpad2.i.i5994, %ehcleanup1677, %lpad.i6002, %if.then.i.i7.i.i5996
-  %arrayinit.endOfInit1612.4 = phi ptr [ %arrayinit.endOfInit1612.2, %ehcleanup1677 ], [ %ref.tmp1610, %lpad.i6002 ], [ %ref.tmp1610, %if.then.i.i7.i.i5996 ], [ %ref.tmp1610, %lpad2.i.i5994 ]
-  %cleanup.isactive1640.6 = phi i1 [ %cleanup.isactive1640.4, %ehcleanup1677 ], [ false, %lpad.i6002 ], [ false, %if.then.i.i7.i.i5996 ], [ false, %lpad2.i.i5994 ]
-  %.pn2248.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2248.pn.pn.pn.pn.pn.pn, %ehcleanup1677 ], [ %849, %lpad.i6002 ], [ %847, %if.then.i.i7.i.i5996 ], [ %847, %lpad2.i.i5994 ]
+  %arrayinit.endOfInit1612.4 = phi ptr [ %arrayinit.endOfInit1612.2, %ehcleanup1677 ], [ %ref.tmp1610, %if.then.i.i7.i.i5996 ], [ %ref.tmp1610, %lpad.i6002 ], [ %ref.tmp1610, %lpad2.i.i5994 ]
+  %cleanup.isactive1640.6 = phi i1 [ %cleanup.isactive1640.4, %ehcleanup1677 ], [ false, %if.then.i.i7.i.i5996 ], [ false, %lpad.i6002 ], [ false, %lpad2.i.i5994 ]
+  %.pn2248.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2248.pn.pn.pn.pn.pn.pn, %ehcleanup1677 ], [ %847, %if.then.i.i7.i.i5996 ], [ %849, %lpad.i6002 ], [ %847, %lpad2.i.i5994 ]
   %905 = load ptr, ptr %ref.tmp1613, align 8, !tbaa !7
   %cmp.i.i.i6269 = icmp eq ptr %905, %845
   br i1 %cmp.i.i.i6269, label %ehcleanup1681, label %if.then.i.i6270
@@ -14041,7 +14041,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   br i1 %cmp.not.i.i, label %for.cond.i.i, label %return, !llvm.loop !343
 
 return:                                           ; preds = %for.inc, %land.rhs.i.i.i, %for.inc.us, %for.body.us, %lor.lhs.false.i.i, %if.end3.i.i, %land.rhs.i.i.i.i.i.i, %lor.lhs.false.us.i.i, %if.end3.us.i.i, %land.rhs.i.us.i.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit, %if.then
-  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.036.us, %for.body.us ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ null, %lor.lhs.false.us.i.i ], [ null, %if.end3.us.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %retval.sroa.0.036.us, %for.body.us ], [ null, %for.inc.us ], [ null, %for.inc ], [ %retval.sroa.0.036, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 

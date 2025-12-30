@@ -392,13 +392,13 @@ define dso_local noundef zeroext i1 @os_supports_stacktrace(i32 noundef %0) loca
   br label %os_is_apple.exit
 
 os_is_apple.exit:                                 ; preds = %1, %1, %1, %1, %2
-  %3 = phi i1 [ true, %1 ], [ false, %2 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
+  %3 = phi i1 [ false, %2 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
   %4 = icmp eq i32 %0, 15
   %spec.select = or i1 %4, %3
   br label %5
 
 5:                                                ; preds = %1, %os_is_apple.exit
-  %6 = phi i1 [ %spec.select, %os_is_apple.exit ], [ true, %1 ]
+  %6 = phi i1 [ true, %1 ], [ %spec.select, %os_is_apple.exit ]
   ret i1 %6
 }
 
@@ -1087,12 +1087,12 @@ slice_strcmp.exit.thread:                         ; preds = %slice_strcmp.exit12
   br label %select.unfold
 
 arch_is_supported.exit.thread:                    ; preds = %212, %210, %180, %178, %176, %slice_strcmp.exit127, %slice_strcmp.exit130
-  %.0.i = phi i32 [ 48, %212 ], [ 3, %slice_strcmp.exit130 ], [ 3, %slice_strcmp.exit127 ], [ 32, %176 ], [ 32, %178 ], [ 32, %180 ], [ 47, %210 ]
+  %.0.i = phi i32 [ 3, %slice_strcmp.exit130 ], [ 3, %slice_strcmp.exit127 ], [ 32, %176 ], [ 32, %178 ], [ 32, %180 ], [ 47, %210 ], [ 48, %212 ]
   store i32 %.0.i, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
   br label %218
 
-select.unfold:                                    ; preds = %216, %214, %slice_strcmp.exit.i, %slice_strcmp.exit171.i, %slice_strcmp.exit174.i, %slice_strcmp.exit177.i, %slice_strcmp.exit180.i, %slice_strcmp.exit183.i, %slice_strcmp.exit133, %slice_strcmp.exit124, %slice_strcmp.exit, %slice_strcmp.exit.thread, %72, %74, %76, %78, %80, %82, %84, %86, %88, %90, %92, %94, %96, %98, %100, %102, %104, %106, %108, %110, %112, %114, %116, %118, %120, %122, %124, %126, %128, %130, %132, %134, %136, %138, %140, %142, %144, %146, %148, %150, %152, %154, %156, %158, %160, %162, %164, %166, %168, %170, %172, %174, %182, %184, %186, %188, %190, %192, %194, %196, %198, %200, %202, %204, %206, %208
-  %.0.i.ph = phi i32 [ 49, %214 ], [ %spec.select, %216 ], [ 45, %208 ], [ 46, %206 ], [ 44, %204 ], [ 43, %202 ], [ 42, %200 ], [ 41, %198 ], [ 40, %196 ], [ 39, %194 ], [ 38, %192 ], [ 37, %190 ], [ 36, %188 ], [ 35, %186 ], [ 34, %184 ], [ 33, %182 ], [ 30, %174 ], [ 29, %172 ], [ 28, %170 ], [ 27, %168 ], [ 26, %166 ], [ 26, %164 ], [ 24, %162 ], [ 24, %160 ], [ 25, %158 ], [ 23, %156 ], [ 22, %154 ], [ 21, %152 ], [ 20, %150 ], [ 19, %148 ], [ 16, %146 ], [ 16, %144 ], [ 16, %142 ], [ 18, %140 ], [ 18, %138 ], [ 17, %136 ], [ 17, %134 ], [ 17, %132 ], [ 15, %130 ], [ 14, %128 ], [ 14, %126 ], [ 14, %124 ], [ 14, %122 ], [ 14, %120 ], [ 13, %118 ], [ 13, %116 ], [ 13, %114 ], [ 13, %112 ], [ 13, %110 ], [ 13, %108 ], [ 12, %106 ], [ 12, %104 ], [ 12, %102 ], [ 12, %100 ], [ 11, %98 ], [ 11, %96 ], [ 11, %94 ], [ 11, %92 ], [ 11, %90 ], [ 10, %88 ], [ 8, %86 ], [ 9, %84 ], [ 7, %82 ], [ 6, %80 ], [ 2, %78 ], [ 2, %76 ], [ 1, %74 ], [ 1, %72 ], [ 5, %slice_strcmp.exit.thread ], [ 5, %slice_strcmp.exit ], [ 4, %slice_strcmp.exit124 ], [ 31, %slice_strcmp.exit133 ], [ 31, %slice_strcmp.exit183.i ], [ 31, %slice_strcmp.exit180.i ], [ 31, %slice_strcmp.exit177.i ], [ 31, %slice_strcmp.exit174.i ], [ 31, %slice_strcmp.exit171.i ], [ 31, %slice_strcmp.exit.i ]
+select.unfold:                                    ; preds = %216, %slice_strcmp.exit.i, %slice_strcmp.exit171.i, %slice_strcmp.exit174.i, %slice_strcmp.exit177.i, %slice_strcmp.exit180.i, %slice_strcmp.exit183.i, %slice_strcmp.exit133, %slice_strcmp.exit124, %slice_strcmp.exit, %slice_strcmp.exit.thread, %72, %74, %76, %78, %80, %82, %84, %86, %88, %90, %92, %94, %96, %98, %100, %102, %104, %106, %108, %110, %112, %114, %116, %118, %120, %122, %124, %126, %128, %130, %132, %134, %136, %138, %140, %142, %144, %146, %148, %150, %152, %154, %156, %158, %160, %162, %164, %166, %168, %170, %172, %174, %182, %184, %186, %188, %190, %192, %194, %196, %198, %200, %202, %204, %206, %208, %214
+  %.0.i.ph = phi i32 [ 49, %214 ], [ 45, %208 ], [ 46, %206 ], [ 44, %204 ], [ 43, %202 ], [ 42, %200 ], [ 41, %198 ], [ 40, %196 ], [ 39, %194 ], [ 38, %192 ], [ 37, %190 ], [ 36, %188 ], [ 35, %186 ], [ 34, %184 ], [ 33, %182 ], [ 30, %174 ], [ 29, %172 ], [ 28, %170 ], [ 27, %168 ], [ 26, %166 ], [ 26, %164 ], [ 24, %162 ], [ 24, %160 ], [ 25, %158 ], [ 23, %156 ], [ 22, %154 ], [ 21, %152 ], [ 20, %150 ], [ 19, %148 ], [ 16, %146 ], [ 16, %144 ], [ 16, %142 ], [ 18, %140 ], [ 18, %138 ], [ 17, %136 ], [ 17, %134 ], [ 17, %132 ], [ 15, %130 ], [ 14, %128 ], [ 14, %126 ], [ 14, %124 ], [ 14, %122 ], [ 14, %120 ], [ 13, %118 ], [ 13, %116 ], [ 13, %114 ], [ 13, %112 ], [ 13, %110 ], [ 13, %108 ], [ 12, %106 ], [ 12, %104 ], [ 12, %102 ], [ 12, %100 ], [ 11, %98 ], [ 11, %96 ], [ 11, %94 ], [ 11, %92 ], [ 11, %90 ], [ 10, %88 ], [ 8, %86 ], [ 9, %84 ], [ 7, %82 ], [ 6, %80 ], [ 2, %78 ], [ 2, %76 ], [ 1, %74 ], [ 1, %72 ], [ 5, %slice_strcmp.exit.thread ], [ 5, %slice_strcmp.exit ], [ 4, %slice_strcmp.exit124 ], [ 31, %slice_strcmp.exit133 ], [ 31, %slice_strcmp.exit183.i ], [ 31, %slice_strcmp.exit180.i ], [ 31, %slice_strcmp.exit177.i ], [ 31, %slice_strcmp.exit174.i ], [ 31, %slice_strcmp.exit171.i ], [ 31, %slice_strcmp.exit.i ], [ %spec.select, %216 ]
   store i32 %.0.i.ph, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %218
@@ -1207,7 +1207,7 @@ slice_strcmp.exit136.thread:                      ; preds = %slice_strcmp.exit.i
   br label %vendor_from_llvm_string.exit
 
 vendor_from_llvm_string.exit:                     ; preds = %slice_strcmp.exit.i67, %slice_strcmp.exit33.i, %slice_strcmp.exit36.i, %slice_strcmp.exit39.i, %slice_strcmp.exit42.i.tail, %slice_strcmp.exit45.i.tail, %slice_strcmp.exit148, %slice_strcmp.exit145, %slice_strcmp.exit142, %slice_strcmp.exit139, %slice_strcmp.exit136, %slice_strcmp.exit136.thread, %252, %254, %256, %258
-  %.0.i66 = phi i32 [ 15, %256 ], [ 1, %slice_strcmp.exit.i67 ], [ 2, %slice_strcmp.exit33.i ], [ 3, %slice_strcmp.exit36.i ], [ 4, %slice_strcmp.exit39.i ], [ 5, %slice_strcmp.exit42.i.tail ], [ 6, %slice_strcmp.exit45.i.tail ], [ 7, %slice_strcmp.exit148 ], [ 8, %slice_strcmp.exit145 ], [ 9, %slice_strcmp.exit142 ], [ 10, %slice_strcmp.exit139 ], [ 11, %slice_strcmp.exit136 ], [ 12, %slice_strcmp.exit136.thread ], [ 13, %252 ], [ 14, %254 ], [ %..i65, %258 ]
+  %.0.i66 = phi i32 [ 1, %slice_strcmp.exit.i67 ], [ 2, %slice_strcmp.exit33.i ], [ 3, %slice_strcmp.exit36.i ], [ 4, %slice_strcmp.exit39.i ], [ 5, %slice_strcmp.exit42.i.tail ], [ 6, %slice_strcmp.exit45.i.tail ], [ 7, %slice_strcmp.exit148 ], [ 8, %slice_strcmp.exit145 ], [ 9, %slice_strcmp.exit142 ], [ 10, %slice_strcmp.exit139 ], [ 11, %slice_strcmp.exit136 ], [ 12, %slice_strcmp.exit136.thread ], [ 13, %252 ], [ 14, %254 ], [ 15, %256 ], [ %..i65, %258 ]
   store i32 %.0.i66, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 40), align 8
   %260 = call { ptr, i64 } @slice_next_token(ptr noundef nonnull %6, i8 noundef signext 45) #17
   %261 = extractvalue { ptr, i64 } %260, 0
@@ -1228,7 +1228,7 @@ vendor_from_llvm_string.exit:                     ; preds = %slice_strcmp.exit.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %266, %.lr.ph.i
-  %.sroa.38.0.i = phi i64 [ %.0100.i, %.lr.ph.i ], [ %262, %266 ]
+  %.sroa.38.0.i = phi i64 [ %262, %266 ], [ %.0100.i, %.lr.ph.i ]
   switch i64 %.sroa.38.0.i, label %slice_strcmp.exit151.thread [
     i64 6, label %slice_strcmp.exit.i69
     i64 8, label %slice_strcmp.exit81.i
@@ -1298,8 +1298,8 @@ slice_strcmp.exit151:                             ; preds = %slice_strcmp.exit15
   %291 = icmp eq i32 %290, 0
   br i1 %291, label %os_from_llvm_string.exit, label %slice_strcmp.exit151.thread
 
-slice_strcmp.exit151.thread:                      ; preds = %._crit_edge.i, %vendor_from_llvm_string.exit, %slice_strcmp.exit93.i, %slice_strcmp.exit87.i, %slice_strcmp.exit157, %slice_strcmp.exit160, %slice_strcmp.exit163, %slice_strcmp.exit151
-  %.sroa.38.0105.i290 = phi i64 [ 3, %slice_strcmp.exit157 ], [ 5, %slice_strcmp.exit160 ], [ %.sroa.38.0.i, %._crit_edge.i ], [ 6, %slice_strcmp.exit151 ], [ 8, %slice_strcmp.exit163 ], [ 0, %vendor_from_llvm_string.exit ], [ 7, %slice_strcmp.exit93.i ], [ 9, %slice_strcmp.exit87.i ]
+slice_strcmp.exit151.thread:                      ; preds = %._crit_edge.i, %vendor_from_llvm_string.exit, %slice_strcmp.exit87.i, %slice_strcmp.exit93.i, %slice_strcmp.exit157, %slice_strcmp.exit160, %slice_strcmp.exit163, %slice_strcmp.exit151
+  %.sroa.38.0105.i290 = phi i64 [ 6, %slice_strcmp.exit151 ], [ 8, %slice_strcmp.exit163 ], [ 5, %slice_strcmp.exit160 ], [ 3, %slice_strcmp.exit157 ], [ 0, %vendor_from_llvm_string.exit ], [ 9, %slice_strcmp.exit87.i ], [ 7, %slice_strcmp.exit93.i ], [ %.sroa.38.0.i, %._crit_edge.i ]
   %292 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.158)
   br i1 %292, label %os_from_llvm_string.exit, label %293
 
@@ -1397,7 +1397,7 @@ slice_strcmp.exit151.thread:                      ; preds = %._crit_edge.i, %ven
   br label %os_from_llvm_string.exit
 
 os_from_llvm_string.exit:                         ; preds = %slice_strcmp.exit.i69, %slice_strcmp.exit81.i, %slice_strcmp.exit84.i, %slice_strcmp.exit87.i, %slice_strcmp.exit90.i, %slice_strcmp.exit93.i, %slice_strcmp.exit166, %slice_strcmp.exit163, %slice_strcmp.exit160, %slice_strcmp.exit157, %slice_strcmp.exit154, %slice_strcmp.exit151, %slice_strcmp.exit151.thread, %293, %295, %297, %299, %301, %303, %305, %307, %309, %311, %313, %315, %317, %319, %321, %323, %325, %327, %329, %331, %333, %335, %337
-  %.077.i = phi i32 [ 35, %335 ], [ 2, %slice_strcmp.exit.i69 ], [ 3, %slice_strcmp.exit81.i ], [ 11, %slice_strcmp.exit84.i ], [ 4, %slice_strcmp.exit87.i ], [ 5, %slice_strcmp.exit90.i ], [ 6, %slice_strcmp.exit93.i ], [ 7, %slice_strcmp.exit166 ], [ 8, %slice_strcmp.exit163 ], [ 9, %slice_strcmp.exit160 ], [ 10, %slice_strcmp.exit157 ], [ 11, %slice_strcmp.exit154 ], [ 12, %slice_strcmp.exit151 ], [ 13, %slice_strcmp.exit151.thread ], [ 14, %293 ], [ 15, %295 ], [ 16, %297 ], [ 17, %299 ], [ 18, %301 ], [ 19, %303 ], [ 20, %305 ], [ 21, %307 ], [ 22, %309 ], [ 23, %311 ], [ 24, %313 ], [ 25, %315 ], [ 26, %317 ], [ 27, %319 ], [ 28, %321 ], [ 29, %323 ], [ 30, %325 ], [ 31, %327 ], [ 32, %329 ], [ 33, %331 ], [ 34, %333 ], [ %..i68, %337 ]
+  %.077.i = phi i32 [ 2, %slice_strcmp.exit.i69 ], [ 3, %slice_strcmp.exit81.i ], [ 11, %slice_strcmp.exit84.i ], [ 4, %slice_strcmp.exit87.i ], [ 5, %slice_strcmp.exit90.i ], [ 6, %slice_strcmp.exit93.i ], [ 7, %slice_strcmp.exit166 ], [ 8, %slice_strcmp.exit163 ], [ 9, %slice_strcmp.exit160 ], [ 10, %slice_strcmp.exit157 ], [ 11, %slice_strcmp.exit154 ], [ 12, %slice_strcmp.exit151 ], [ 13, %slice_strcmp.exit151.thread ], [ 14, %293 ], [ 15, %295 ], [ 16, %297 ], [ 17, %299 ], [ 18, %301 ], [ 19, %303 ], [ 20, %305 ], [ 21, %307 ], [ 22, %309 ], [ 23, %311 ], [ 24, %313 ], [ 25, %315 ], [ 26, %317 ], [ 27, %319 ], [ 28, %321 ], [ 29, %323 ], [ 30, %325 ], [ 31, %327 ], [ 32, %329 ], [ 33, %331 ], [ 34, %333 ], [ 35, %335 ], [ %..i68, %337 ]
   store i32 %.077.i, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 36), align 4
   %339 = load ptr, ptr %6, align 8
   %340 = load i64, ptr %45, align 8
@@ -1417,7 +1417,7 @@ os_from_llvm_string.exit:                         ; preds = %slice_strcmp.exit.i
   br i1 %exitcond.not.i72, label %._crit_edge.i73, label %.lr.ph.i71, !llvm.loop !9
 
 ._crit_edge.i73:                                  ; preds = %344, %.lr.ph.i71
-  %.sroa.23.0.i = phi i64 [ %.070.i, %.lr.ph.i71 ], [ %340, %344 ]
+  %.sroa.23.0.i = phi i64 [ %340, %344 ], [ %.070.i, %.lr.ph.i71 ]
   switch i64 %.sroa.23.0.i, label %slice_strcmp.exit169.thread [
     i64 3, label %sub_0255
     i64 9, label %slice_strcmp.exit51.i
@@ -1500,8 +1500,8 @@ slice_strcmp.exit169:                             ; preds = %slice_strcmp.exit60
   %373 = icmp eq i32 %372, 0
   br i1 %373, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169.thread
 
-slice_strcmp.exit169.thread:                      ; preds = %._crit_edge.i73, %sub_1256, %sub_0255, %os_from_llvm_string.exit, %slice_strcmp.exit54.i, %slice_strcmp.exit57.i, %slice_strcmp.exit.i75.tail, %slice_strcmp.exit178, %slice_strcmp.exit181, %slice_strcmp.exit172, %slice_strcmp.exit169
-  %.sroa.23.075.i300 = phi i64 [ 6, %slice_strcmp.exit178 ], [ 5, %slice_strcmp.exit172 ], [ %.sroa.23.0.i, %._crit_edge.i73 ], [ 7, %slice_strcmp.exit169 ], [ 4, %slice_strcmp.exit181 ], [ 3, %slice_strcmp.exit.i75.tail ], [ 0, %os_from_llvm_string.exit ], [ 8, %slice_strcmp.exit54.i ], [ 9, %slice_strcmp.exit57.i ], [ 3, %sub_0255 ], [ 3, %sub_1256 ]
+slice_strcmp.exit169.thread:                      ; preds = %._crit_edge.i73, %sub_1256, %sub_0255, %os_from_llvm_string.exit, %slice_strcmp.exit57.i, %slice_strcmp.exit54.i, %slice_strcmp.exit.i75.tail, %slice_strcmp.exit178, %slice_strcmp.exit181, %slice_strcmp.exit172, %slice_strcmp.exit169
+  %.sroa.23.075.i300 = phi i64 [ 5, %slice_strcmp.exit172 ], [ 7, %slice_strcmp.exit169 ], [ 4, %slice_strcmp.exit181 ], [ 6, %slice_strcmp.exit178 ], [ 0, %os_from_llvm_string.exit ], [ 9, %slice_strcmp.exit57.i ], [ 8, %slice_strcmp.exit54.i ], [ 3, %slice_strcmp.exit.i75.tail ], [ 3, %sub_0255 ], [ 3, %sub_1256 ], [ %.sroa.23.0.i, %._crit_edge.i73 ]
   %374 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.075.i300, ptr noundef nonnull @.str.194)
   br i1 %374, label %environment_type_from_llvm_string.exit, label %375
 
@@ -1539,7 +1539,7 @@ slice_strcmp.exit169.thread:                      ; preds = %._crit_edge.i73, %s
   br label %environment_type_from_llvm_string.exit
 
 environment_type_from_llvm_string.exit:           ; preds = %slice_strcmp.exit.i75.tail, %slice_strcmp.exit51.i, %slice_strcmp.exit54.i, %slice_strcmp.exit57.i, %slice_strcmp.exit60.i, %slice_strcmp.exit63.i, %slice_strcmp.exit184, %slice_strcmp.exit181, %slice_strcmp.exit178, %slice_strcmp.exit175, %slice_strcmp.exit172, %slice_strcmp.exit169, %slice_strcmp.exit169.thread, %375, %377, %379, %381, %383, %385, %387, %389
-  %.047.i = phi i32 [ 20, %387 ], [ 1, %slice_strcmp.exit.i75.tail ], [ 2, %slice_strcmp.exit51.i ], [ 3, %slice_strcmp.exit54.i ], [ 5, %slice_strcmp.exit57.i ], [ 4, %slice_strcmp.exit60.i ], [ 6, %slice_strcmp.exit63.i ], [ 7, %slice_strcmp.exit184 ], [ 8, %slice_strcmp.exit181 ], [ 9, %slice_strcmp.exit178 ], [ 10, %slice_strcmp.exit175 ], [ 11, %slice_strcmp.exit172 ], [ 12, %slice_strcmp.exit169 ], [ 13, %slice_strcmp.exit169.thread ], [ 14, %375 ], [ 15, %377 ], [ 16, %379 ], [ 17, %381 ], [ 18, %383 ], [ 19, %385 ], [ %..i74, %389 ]
+  %.047.i = phi i32 [ 1, %slice_strcmp.exit.i75.tail ], [ 2, %slice_strcmp.exit51.i ], [ 3, %slice_strcmp.exit54.i ], [ 5, %slice_strcmp.exit57.i ], [ 4, %slice_strcmp.exit60.i ], [ 6, %slice_strcmp.exit63.i ], [ 7, %slice_strcmp.exit184 ], [ 8, %slice_strcmp.exit181 ], [ 9, %slice_strcmp.exit178 ], [ 10, %slice_strcmp.exit175 ], [ 11, %slice_strcmp.exit172 ], [ 12, %slice_strcmp.exit169 ], [ 13, %slice_strcmp.exit169.thread ], [ 14, %375 ], [ 15, %377 ], [ 16, %379 ], [ 17, %381 ], [ 18, %383 ], [ 19, %385 ], [ 20, %387 ], [ %..i74, %389 ]
   store i32 %.047.i, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 44), align 4
   %391 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %392 = load i32, ptr %391, align 8
@@ -1689,12 +1689,12 @@ arch_big_endian.exit:                             ; preds = %switch.lookup, %swi
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.object_format_from_os, ptr noundef nonnull @.str.18, i32 noundef 1384) #16
   unreachable
 
-object_format_from_os.exit.thread212:             ; preds = %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %409
-  %.0.i78.ph211 = phi i32 [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 4, %409 ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ]
+object_format_from_os.exit.thread212:             ; preds = %409, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit, %arch_big_endian.exit
+  %.0.i78.ph211 = phi i32 [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 0, %arch_big_endian.exit ], [ 4, %409 ]
   store i32 %.0.i78.ph211, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 48), align 8
   br label %415
 
-412:                                              ; preds = %arch_big_endian.exit, %410, %408, %405
+412:                                              ; preds = %arch_big_endian.exit, %408, %410, %405
   %.0.i78.ph = phi i32 [ 5, %405 ], [ 5, %410 ], [ 3, %408 ], [ 1, %arch_big_endian.exit ]
   store i32 %.0.i78.ph, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 48), align 8
   %413 = load i16, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
@@ -1733,7 +1733,7 @@ os_target_supports_vec.exit.thread:               ; preds = %os_target_supports_
   br label %os_target_supports_vec.exit
 
 os_target_supports_vec.exit:                      ; preds = %os_target_supports_int128.exit, %os_target_supports_int128.exit, %os_target_supports_int128.exit, %419
-  %.0.i80 = phi i8 [ 1, %os_target_supports_int128.exit ], [ 0, %419 ], [ 1, %os_target_supports_int128.exit ], [ 1, %os_target_supports_int128.exit ]
+  %.0.i80 = phi i8 [ 0, %419 ], [ 1, %os_target_supports_int128.exit ], [ 1, %os_target_supports_int128.exit ], [ 1, %os_target_supports_int128.exit ]
   store i8 %.0.i80, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 279), align 1
   switch i32 %404, label %422 [
     i32 3, label %os_target_supports_vec.exit82
@@ -1752,7 +1752,7 @@ os_target_supports_vec.exit82.thread:             ; preds = %os_target_supports_
   br label %os_target_supports_vec.exit82
 
 os_target_supports_vec.exit82:                    ; preds = %os_target_supports_vec.exit, %os_target_supports_vec.exit, %os_target_supports_vec.exit, %422
-  %.0.i81 = phi i8 [ 1, %os_target_supports_vec.exit ], [ 0, %422 ], [ 1, %os_target_supports_vec.exit ], [ 1, %os_target_supports_vec.exit ]
+  %.0.i81 = phi i8 [ 0, %422 ], [ 1, %os_target_supports_vec.exit ], [ 1, %os_target_supports_vec.exit ], [ 1, %os_target_supports_vec.exit ]
   store i8 %.0.i81, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 277), align 1
   switch i32 %404, label %423 [
     i32 3, label %os_target_supports_vec.exit84
@@ -1769,7 +1769,7 @@ os_target_supports_vec.exit84.thread:             ; preds = %os_target_supports_
   br label %os_target_supports_vec.exit86.thread
 
 os_target_supports_vec.exit84:                    ; preds = %os_target_supports_vec.exit82, %os_target_supports_vec.exit82, %os_target_supports_vec.exit82, %423
-  %.0.i83 = phi i8 [ 1, %os_target_supports_vec.exit82 ], [ 0, %423 ], [ 1, %os_target_supports_vec.exit82 ], [ 1, %os_target_supports_vec.exit82 ]
+  %.0.i83 = phi i8 [ 0, %423 ], [ 1, %os_target_supports_vec.exit82 ], [ 1, %os_target_supports_vec.exit82 ], [ 1, %os_target_supports_vec.exit82 ]
   store i8 %.0.i83, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 280), align 8
   switch i32 %404, label %426 [
     i32 3, label %os_target_supports_vec.exit86
@@ -1788,7 +1788,7 @@ os_target_supports_vec.exit86.thread:             ; preds = %os_target_supports_
   br label %os_target_supports_vec.exit86
 
 os_target_supports_vec.exit86:                    ; preds = %os_target_supports_vec.exit84, %os_target_supports_vec.exit84, %os_target_supports_vec.exit84, %426
-  %.0.i85 = phi i8 [ 1, %os_target_supports_vec.exit84 ], [ 0, %426 ], [ 1, %os_target_supports_vec.exit84 ], [ 1, %os_target_supports_vec.exit84 ]
+  %.0.i85 = phi i8 [ 0, %426 ], [ 1, %os_target_supports_vec.exit84 ], [ 1, %os_target_supports_vec.exit84 ], [ 1, %os_target_supports_vec.exit84 ]
   store i8 %.0.i85, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 278), align 2
   switch i32 %404, label %427 [
     i32 22, label %os_target_supports_float128.exit
@@ -1961,8 +1961,8 @@ os_is_apple.exit57.thread.i:                      ; preds = %449, %449, %449, %4
   br label %os_target_alignment_of_int.exit.thread
 
 os_target_alignment_of_int.exit.thread:           ; preds = %450, %452, %453, %.fold.split.i
-  %.sroa.0.0.i.ph = phi i32 [ 64, %.fold.split.i ], [ %439, %450 ], [ 32, %452 ], [ 32, %453 ]
-  %.sroa.11.0.i.ph = phi i32 [ 64, %.fold.split.i ], [ %439, %450 ], [ 32, %452 ], [ 64, %453 ]
+  %.sroa.0.0.i.ph = phi i32 [ 64, %.fold.split.i ], [ 32, %452 ], [ %439, %450 ], [ 32, %453 ]
+  %.sroa.11.0.i.ph = phi i32 [ 64, %.fold.split.i ], [ 32, %452 ], [ %439, %450 ], [ 64, %453 ]
   %.sroa.11.0.insert.ext.i220 = zext nneg i32 %.sroa.11.0.i.ph to i64
   %.sroa.11.0.insert.shift.i221 = shl nuw nsw i64 %.sroa.11.0.insert.ext.i220, 32
   %.sroa.0.0.insert.ext.i222 = zext nneg i32 %.sroa.0.0.i.ph to i64
@@ -1972,8 +1972,8 @@ os_target_alignment_of_int.exit.thread:           ; preds = %450, %452, %453, %.
   br label %458
 
 os_target_alignment_of_int.exit:                  ; preds = %os_is_apple.exit.i, %445, %449, %os_is_apple.exit57.thread.i
-  %.sroa.0.0.i = phi i32 [ %..i90, %os_is_apple.exit.i ], [ %439, %os_is_apple.exit57.thread.i ], [ %446, %445 ], [ %439, %449 ]
-  %.sroa.11.0.i = phi i32 [ %444, %os_is_apple.exit.i ], [ %439, %os_is_apple.exit57.thread.i ], [ %446, %445 ], [ 32, %449 ]
+  %.sroa.0.0.i = phi i32 [ %446, %445 ], [ %439, %os_is_apple.exit57.thread.i ], [ %..i90, %os_is_apple.exit.i ], [ %439, %449 ]
+  %.sroa.11.0.i = phi i32 [ %446, %445 ], [ %439, %os_is_apple.exit57.thread.i ], [ %444, %os_is_apple.exit.i ], [ 32, %449 ]
   %.sroa.11.0.insert.ext.i = zext nneg i32 %.sroa.11.0.i to i64
   %.sroa.11.0.insert.shift.i = shl nuw nsw i64 %.sroa.11.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext nneg i32 %.sroa.0.0.i to i64
@@ -2067,9 +2067,9 @@ default.unreachable:                              ; preds = %os_target_alignment
   unreachable
 
 os_target_alignment_of_float.exit:                ; preds = %os_target_alignment_of_int.exit.thread224, %os_target_alignment_of_int.exit, %os_target_alignment_of_int.exit, %os_target_alignment_of_int.exit, %os_target_alignment_of_int.exit, %os_target_alignment_of_int.exit, %os_target_alignment_of_int.exit, %os_target_alignment_of_int.exit, %os_target_alignment_of_int.exit, %os_target_alignment_of_int.exit, %458, %461, %461, %462, %os_is_apple.exit.i94, %465
-  %467 = phi ptr [ %456, %os_target_alignment_of_int.exit ], [ %459, %458 ], [ %459, %462 ], [ %459, %461 ], [ %456, %os_is_apple.exit.i94 ], [ %456, %os_target_alignment_of_int.exit ], [ %456, %465 ], [ %459, %461 ], [ %456, %os_target_alignment_of_int.exit ], [ %456, %os_target_alignment_of_int.exit ], [ %456, %os_target_alignment_of_int.exit ], [ %456, %os_target_alignment_of_int.exit ], [ %456, %os_target_alignment_of_int.exit ], [ %456, %os_target_alignment_of_int.exit ], [ %456, %os_target_alignment_of_int.exit ], [ %441, %os_target_alignment_of_int.exit.thread224 ]
-  %.sroa.0.0.i91 = phi i32 [ %439, %os_target_alignment_of_int.exit ], [ 32, %458 ], [ %463, %462 ], [ %439, %461 ], [ %..i95, %os_is_apple.exit.i94 ], [ %439, %os_target_alignment_of_int.exit ], [ %.36.i, %465 ], [ %439, %461 ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit.thread224 ]
-  %.sroa.9.0.i = phi i32 [ %439, %os_target_alignment_of_int.exit ], [ 32, %458 ], [ %439, %462 ], [ %439, %461 ], [ %439, %os_is_apple.exit.i94 ], [ %439, %os_target_alignment_of_int.exit ], [ %.36.i, %465 ], [ %439, %461 ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit.thread224 ]
+  %467 = phi ptr [ %459, %462 ], [ %459, %458 ], [ %459, %461 ], [ %459, %461 ], [ %456, %os_target_alignment_of_int.exit ], [ %456, %os_target_alignment_of_int.exit ], [ %456, %os_target_alignment_of_int.exit ], [ %456, %os_target_alignment_of_int.exit ], [ %456, %os_target_alignment_of_int.exit ], [ %456, %os_target_alignment_of_int.exit ], [ %456, %os_target_alignment_of_int.exit ], [ %456, %os_target_alignment_of_int.exit ], [ %456, %os_target_alignment_of_int.exit ], [ %456, %os_is_apple.exit.i94 ], [ %456, %465 ], [ %441, %os_target_alignment_of_int.exit.thread224 ]
+  %.sroa.0.0.i91 = phi i32 [ %463, %462 ], [ 32, %458 ], [ %439, %461 ], [ %439, %461 ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %..i95, %os_is_apple.exit.i94 ], [ %.36.i, %465 ], [ %439, %os_target_alignment_of_int.exit.thread224 ]
+  %.sroa.9.0.i = phi i32 [ %439, %462 ], [ 32, %458 ], [ %439, %461 ], [ %439, %461 ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_target_alignment_of_int.exit ], [ %439, %os_is_apple.exit.i94 ], [ %.36.i, %465 ], [ %439, %os_target_alignment_of_int.exit.thread224 ]
   %.sroa.9.0.insert.ext.i = zext nneg i32 %.sroa.9.0.i to i64
   %.sroa.9.0.insert.shift.i = shl nuw nsw i64 %.sroa.9.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i92 = zext nneg i32 %.sroa.0.0.i91 to i64
@@ -2135,7 +2135,7 @@ os_target_c_type_bits.exit:                       ; preds = %468
   br label %os_target_c_type_bits.exit99
 
 os_target_c_type_bits.exit99:                     ; preds = %os_target_c_type_bits.exit, %os_target_c_type_bits.exit, %os_target_c_type_bits.exit, %os_target_c_type_bits.exit, %os_target_c_type_bits.exit.thread, %473
-  %.0.i98 = phi i32 [ 16, %os_target_c_type_bits.exit.thread ], [ 32, %473 ], [ 32, %os_target_c_type_bits.exit ], [ 32, %os_target_c_type_bits.exit ], [ 32, %os_target_c_type_bits.exit ], [ 32, %os_target_c_type_bits.exit ]
+  %.0.i98 = phi i32 [ 32, %473 ], [ 16, %os_target_c_type_bits.exit.thread ], [ 32, %os_target_c_type_bits.exit ], [ 32, %os_target_c_type_bits.exit ], [ 32, %os_target_c_type_bits.exit ], [ 32, %os_target_c_type_bits.exit ]
   store i32 %.0.i98, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 312), align 8
   %474 = call fastcc i32 @os_target_c_type_bits(i32 noundef %403, i32 noundef %404, i32 noundef 2)
   store i32 %474, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 316), align 4
@@ -2216,7 +2216,7 @@ os_target_signed_c_char_type.exit:                ; preds = %478
   br label %os_target_signed_c_char_type.exit.thread
 
 os_target_signed_c_char_type.exit.thread:         ; preds = %478, %478, %478, %478, %478, %os_target_c_type_bits.exit101, %479, %479, %479, %479, %os_target_signed_c_char_type.exit, %os_target_signed_c_char_type.exit.thread233
-  %480 = phi i16 [ 0, %os_target_signed_c_char_type.exit.thread233 ], [ 0, %os_target_signed_c_char_type.exit ], [ 2, %os_target_c_type_bits.exit101 ], [ 2, %479 ], [ 2, %479 ], [ 2, %479 ], [ 2, %479 ], [ 2, %478 ], [ 2, %478 ], [ 2, %478 ], [ 2, %478 ], [ 2, %478 ]
+  %480 = phi i16 [ 0, %os_target_signed_c_char_type.exit.thread233 ], [ 0, %os_target_signed_c_char_type.exit ], [ 2, %479 ], [ 2, %479 ], [ 2, %479 ], [ 2, %479 ], [ 2, %os_target_c_type_bits.exit101 ], [ 2, %478 ], [ 2, %478 ], [ 2, %478 ], [ 2, %478 ], [ 2, %478 ]
   %481 = load i16, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
   %482 = and i16 %481, -3
   %483 = or disjoint i16 %482, %480
@@ -2349,7 +2349,7 @@ os_is_apple.exit:                                 ; preds = %485, %485, %485, %4
   br label %514
 
 514:                                              ; preds = %512, %510, %506
-  %.sink.i = phi i8 [ %511, %510 ], [ %513, %512 ], [ %509, %506 ]
+  %.sink.i = phi i8 [ %513, %512 ], [ %511, %510 ], [ %509, %506 ]
   store i8 %.sink.i, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 240), align 8
   %515 = lshr i8 %.sink.i, 1
   %516 = and i8 %515, 7
@@ -2596,7 +2596,7 @@ switch.lookup317:                                 ; preds = %550
   br label %x64_cpu_default.exit.i
 
 x64_cpu_default.exit.i:                           ; preds = %613, %607, %601, %593
-  %.0.i.i = phi i32 [ 2, %607 ], [ 4, %593 ], [ 3, %601 ], [ %..i.i, %613 ]
+  %.0.i.i = phi i32 [ 4, %593 ], [ 3, %601 ], [ 2, %607 ], [ %..i.i, %613 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %619 = load i8, ptr @debug_log, align 1
@@ -2613,7 +2613,7 @@ x64_cpu_default.exit.i:                           ; preds = %613, %607, %601, %5
   br label %627
 
 627:                                              ; preds = %621, %x64_cpu_default.exit.i, %584
-  %.0.i108 = phi i32 [ %.0.i.i, %x64_cpu_default.exit.i ], [ %.0.i.i, %621 ], [ %592, %584 ]
+  %.0.i108 = phi i32 [ %.0.i.i, %621 ], [ %.0.i.i, %x64_cpu_default.exit.i ], [ %592, %584 ]
   switch i32 %.0.i108, label %633 [
     i32 7, label %631
     i32 0, label %x86_cpu_from_set.exit.i
@@ -2643,7 +2643,7 @@ x64_cpu_default.exit.i:                           ; preds = %613, %607, %601, %5
   unreachable
 
 x86_cpu_from_set.exit.i:                          ; preds = %631, %630, %629, %628, %627, %627
-  %.0.i18.i = phi ptr [ %632, %631 ], [ @.str.322, %628 ], [ @.str.323, %629 ], [ @.str.324, %630 ], [ @.str.321, %627 ], [ @.str.321, %627 ]
+  %.0.i18.i = phi ptr [ @.str.322, %628 ], [ @.str.323, %629 ], [ @.str.324, %630 ], [ %632, %631 ], [ @.str.321, %627 ], [ @.str.321, %627 ]
   store ptr %.0.i18.i, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 16), align 8
   call fastcc void @x86features_from_cpu(ptr noundef %5, i32 noundef %.0.i108)
   %634 = load i16, ptr %590, align 8
@@ -2962,7 +2962,7 @@ os_is_apple.exit.i113:                            ; preds = %727, %target_setup_
   br label %os_arch_max_alignment_of_vector.exit
 
 os_arch_max_alignment_of_vector.exit:             ; preds = %target_setup_x86_abi.exit, %723, %725, %727, %728, %730, %os_is_apple.exit.i113
-  %.0.i111 = phi i32 [ 0, %os_is_apple.exit.i113 ], [ 64, %728 ], [ 16, %target_setup_x86_abi.exit ], [ %726, %725 ], [ 0, %723 ], [ 1024, %727 ], [ %..i112, %730 ]
+  %.0.i111 = phi i32 [ 0, %os_is_apple.exit.i113 ], [ 16, %target_setup_x86_abi.exit ], [ 0, %723 ], [ %726, %725 ], [ 1024, %727 ], [ 64, %728 ], [ %..i112, %730 ]
   store i32 %.0.i111, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 292), align 4
   %cond.i114 = icmp eq i32 %718, 31
   %732 = icmp eq i32 %717, 15
@@ -3096,12 +3096,12 @@ switch.lookup321:                                 ; preds = %742
   br label %arch_os_reloc_default.exit.thread
 
 arch_os_reloc_default.exit.thread:                ; preds = %742, %switch.lookup321, %734
-  %.0.i117.ph = phi i32 [ %switch.load323, %switch.lookup321 ], [ 0, %734 ], [ 0, %742 ]
+  %.0.i117.ph = phi i32 [ 0, %734 ], [ %switch.load323, %switch.lookup321 ], [ 0, %742 ]
   store i32 %.0.i117.ph, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
   br label %arch_os_pic_default_forced.exit
 
 arch_os_reloc_default.exit:                       ; preds = %734, %734, %734, %734, %734, %738, %740, %740, %741
-  %.0.i117 = phi i32 [ 1, %734 ], [ 1, %734 ], [ 0, %740 ], [ 1, %734 ], [ %..i118, %738 ], [ 1, %734 ], [ 3, %741 ], [ 0, %740 ], [ 1, %734 ]
+  %.0.i117 = phi i32 [ 3, %741 ], [ 1, %734 ], [ 1, %734 ], [ 1, %734 ], [ 1, %734 ], [ 1, %734 ], [ %..i118, %738 ], [ 0, %740 ], [ 0, %740 ]
   store i32 %.0.i117, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
   switch i32 %717, label %default.unreachable245 [
     i32 15, label %747
@@ -3373,7 +3373,7 @@ define internal fastcc range(i32 0, 65) i32 @arch_pointer_bit_width(i32 noundef 
   unreachable
 
 10:                                               ; preds = %7, %5, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %4, %3
-  %.0 = phi i32 [ 0, %2 ], [ 32, %3 ], [ 64, %4 ], [ %., %5 ], [ 0, %2 ], [ %.4, %7 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ]
+  %.0 = phi i32 [ 32, %3 ], [ 64, %4 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ %., %5 ], [ %.4, %7 ]
   ret i32 %.0
 }
 
@@ -3462,7 +3462,7 @@ switch.lookup13:                                  ; preds = %3, %3, %3
   br label %15
 
 15:                                               ; preds = %switch.lookup13, %switch.lookup10, %switch.lookup, %7, %11, %9, %8
-  %.0 = phi i32 [ %switch.load15, %switch.lookup13 ], [ 32, %8 ], [ %10, %9 ], [ 64, %11 ], [ %switch.load12, %switch.lookup10 ], [ 16, %7 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi i32 [ 32, %8 ], [ %10, %9 ], [ 64, %11 ], [ 16, %7 ], [ %switch.load, %switch.lookup ], [ %switch.load12, %switch.lookup10 ], [ %switch.load15, %switch.lookup13 ]
   ret i32 %.0
 }
 
@@ -3939,7 +3939,7 @@ x64features_add_feature_single.exit:              ; preds = %6, %11
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %26, %27, %28, %29, %30, %43, %44, %47, %51, %52, %58, %x64features_add_feature_single.exit
-  %.tr28.be = phi i32 [ 13, %58 ], [ 85, %26 ], [ 86, %27 ], [ 45, %28 ], [ 7, %29 ], [ 7, %30 ], [ 17, %43 ], [ 7, %44 ], [ 46, %47 ], [ 8, %51 ], [ 23, %52 ], [ 88, %x64features_add_feature_single.exit ]
+  %.tr28.be = phi i32 [ 85, %26 ], [ 86, %27 ], [ 45, %28 ], [ 7, %29 ], [ 7, %30 ], [ 17, %43 ], [ 7, %44 ], [ 46, %47 ], [ 8, %51 ], [ 23, %52 ], [ 13, %58 ], [ 88, %x64features_add_feature_single.exit ]
   br label %tailrecurse
 
 27:                                               ; preds = %x64features_add_feature_single.exit

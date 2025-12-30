@@ -4450,7 +4450,7 @@ define internal fastcc void @zend_persist_type_calc(ptr noundef captures(address
   br label %55
 
 55:                                               ; preds = %.sink.split, %44, %40
-  %.129 = phi ptr [ %45, %44 ], [ %31, %40 ], [ %31, %.sink.split ]
+  %.129 = phi ptr [ %31, %40 ], [ %45, %44 ], [ %31, %.sink.split ]
   store ptr %.129, ptr %.1, align 8, !tbaa !179
   br label %56
 

@@ -203,7 +203,7 @@ sub_165:                                          ; preds = %.tail
 72:                                               ; preds = %68
   br i1 %.not58.lcssa, label %78, label %.critedge
 
-.critedge:                                        ; preds = %39, %42, %47, %72
+.critedge:                                        ; preds = %42, %39, %47, %72
   %73 = load ptr, ptr %27, align 8
   %74 = tail call i32 @mkdir(ptr noundef %73, i32 noundef 448) #14
   %75 = icmp slt i32 %74, 0

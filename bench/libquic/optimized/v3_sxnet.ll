@@ -65,7 +65,7 @@ SXNET_add_id_asc.exit:                            ; preds = %.lr.ph
   br label %.loopexit
 
 .loopexit:                                        ; preds = %SXNET_add_id_asc.exit, %3, %._crit_edge.loopexit, %SXNET_add_id_asc.exit.thread
-  %.07 = phi ptr [ null, %3 ], [ null, %SXNET_add_id_asc.exit.thread ], [ %.pre, %._crit_edge.loopexit ], [ null, %SXNET_add_id_asc.exit ]
+  %.07 = phi ptr [ null, %SXNET_add_id_asc.exit.thread ], [ %.pre, %._crit_edge.loopexit ], [ null, %3 ], [ null, %SXNET_add_id_asc.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.07
 }

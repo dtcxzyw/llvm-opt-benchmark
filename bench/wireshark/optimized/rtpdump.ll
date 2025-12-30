@@ -317,7 +317,7 @@ g_string_append_c_inline.exit:                    ; preds = %71, %65, %42
   br label %153
 
 153:                                              ; preds = %17, %142, %122, %114, %107, %97, %85, %80, %73, %52, %46, %39, %26, %13
-  %.0 = phi i32 [ %16, %13 ], [ -1, %80 ], [ 1, %142 ], [ %125, %122 ], [ %117, %114 ], [ %110, %107 ], [ %100, %97 ], [ %88, %85 ], [ -1, %39 ], [ -1, %52 ], [ -1, %46 ], [ 0, %73 ], [ %30, %26 ], [ 0, %17 ]
+  %.0 = phi i32 [ -1, %80 ], [ 1, %142 ], [ %125, %122 ], [ %117, %114 ], [ %110, %107 ], [ %100, %97 ], [ %88, %85 ], [ -1, %39 ], [ -1, %52 ], [ -1, %46 ], [ 0, %73 ], [ %30, %26 ], [ %16, %13 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -514,7 +514,7 @@ define internal fastcc zeroext i1 @rtpdump_read_packet(ptr %.96.val, ptr noundef
   br label %53
 
 53:                                               ; preds = %14, %11, %4, %31
-  %.0 = phi i1 [ %52, %31 ], [ false, %11 ], [ false, %4 ], [ false, %14 ]
+  %.0 = phi i1 [ %52, %31 ], [ false, %4 ], [ false, %11 ], [ false, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -111,7 +111,7 @@ define dso_local ptr @bufferevent_mbedtls_filter_new(ptr noundef %0, ptr noundef
   br label %be_mbedtls_bio_set_fd.exit
 
 be_mbedtls_bio_set_fd.exit:                       ; preds = %17, %14, %19, %21, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %19 ], [ null, %21 ], [ %7, %14 ], [ %7, %17 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %21 ], [ null, %19 ], [ %7, %14 ], [ %7, %17 ]
   ret ptr %.0
 }
 
@@ -273,7 +273,7 @@ define internal noundef i32 @bio_bufferevent_write(ptr noundef %0, ptr noundef %
   br label %17
 
 17:                                               ; preds = %11, %3, %14
-  %.0 = phi i32 [ -69, %3 ], [ %16, %14 ], [ -26752, %11 ]
+  %.0 = phi i32 [ %16, %14 ], [ -69, %3 ], [ -26752, %11 ]
   ret i32 %.0
 }
 
@@ -297,7 +297,7 @@ define internal i32 @bio_bufferevent_read(ptr noundef %0, ptr noundef %1, i64 no
   br label %11
 
 11:                                               ; preds = %5, %4, %3, %9
-  %.0 = phi i32 [ -69, %4 ], [ %10, %9 ], [ 0, %3 ], [ -26880, %5 ]
+  %.0 = phi i32 [ %10, %9 ], [ 0, %3 ], [ -69, %4 ], [ -26880, %5 ]
   ret i32 %.0
 }
 

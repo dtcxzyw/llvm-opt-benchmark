@@ -345,7 +345,7 @@ module_run.exit.thread:                           ; preds = %133
   br label %142
 
 142:                                              ; preds = %.sink.split.i32.i, %115, %112
-  %.032.i.i = phi i32 [ %.1.i.i, %115 ], [ 1, %112 ], [ %.1.i.i, %.sink.split.i32.i ]
+  %.032.i.i = phi i32 [ 1, %112 ], [ %.1.i.i, %115 ], [ %.1.i.i, %.sink.split.i32.i ]
   %143 = getelementptr inbounds nuw i8, ptr %.020.i, i64 24
   %144 = load ptr, ptr %143, align 8, !tbaa !35
   %145 = icmp ne ptr %144, null
@@ -390,7 +390,7 @@ module_run.exit:                                  ; preds = %45, %99, %100, %mod
   br i1 %158, label %45, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %154, %38, %34, %36, %3, %152, %.thread44
-  %.028 = phi i32 [ 1, %3 ], [ -1, %152 ], [ 0, %34 ], [ 1, %.thread44 ], [ 0, %36 ], [ 1, %38 ], [ 1, %154 ]
+  %.028 = phi i32 [ -1, %152 ], [ 1, %.thread44 ], [ 1, %3 ], [ 0, %36 ], [ 0, %34 ], [ 1, %38 ], [ 1, %154 ]
   ret i32 %.028
 }
 
@@ -464,8 +464,8 @@ define range(i32 -1, 2) i32 @CONF_modules_load_file_ex(ptr noundef %0, ptr nound
   br label %30
 
 30:                                               ; preds = %22, %20, %14, %27
-  %.021 = phi i32 [ %spec.select, %22 ], [ %28, %27 ], [ 0, %14 ], [ 0, %20 ]
-  %.0 = phi i32 [ %5, %22 ], [ %29, %27 ], [ %5, %14 ], [ %5, %20 ]
+  %.021 = phi i32 [ 0, %14 ], [ 0, %20 ], [ %28, %27 ], [ %spec.select, %22 ]
+  %.0 = phi i32 [ %5, %14 ], [ %5, %20 ], [ %29, %27 ], [ %5, %22 ]
   br i1 %7, label %.thread, label %31
 
 .thread:                                          ; preds = %8, %11, %30
@@ -715,7 +715,7 @@ module_finish.exit:                               ; preds = %.lr.ph, %21
   br label %32
 
 32:                                               ; preds = %6, %0, %._crit_edge
-  %.0 = phi i32 [ 0, %0 ], [ 1, %._crit_edge ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %0 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -1030,7 +1030,7 @@ define range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i32 nounde
   br label %.thread
 
 .thread:                                          ; preds = %.critedge.loopexit, %.critedge.loopexit.thread
-  %46 = phi ptr [ %45, %.critedge.loopexit.thread ], [ %43, %.critedge.loopexit ]
+  %46 = phi ptr [ %43, %.critedge.loopexit ], [ %45, %.critedge.loopexit.thread ]
   %47 = tail call i32 %3(ptr noundef null, i32 noundef 0, ptr noundef %4) #7
   br label %66
 
@@ -1081,7 +1081,7 @@ define range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i32 nounde
   br i1 %70, label %.loopexit43, label %.preheader41
 
 .loopexit43:                                      ; preds = %66, %69, %27, %25, %30
-  %.0 = phi i32 [ 0, %30 ], [ %.033.us, %25 ], [ 1, %27 ], [ 1, %69 ], [ %.033, %66 ]
+  %.0 = phi i32 [ 0, %30 ], [ 1, %27 ], [ %.033.us, %25 ], [ 1, %69 ], [ %.033, %66 ]
   ret i32 %.0
 }
 

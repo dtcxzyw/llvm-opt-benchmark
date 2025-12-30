@@ -196,7 +196,7 @@ define ptr @RTreeSearch(ptr noundef readnone captures(none) %0, ptr noundef %1, 
   br label %18
 
 18:                                               ; preds = %17, %13, %.preheader36, %11
-  %.2 = phi ptr [ %.03042, %.preheader36 ], [ %.03042, %11 ], [ %.03042, %17 ], [ %15, %13 ]
+  %.2 = phi ptr [ %.03042, %11 ], [ %.03042, %.preheader36 ], [ %.03042, %17 ], [ %15, %13 ]
   %19 = add nuw nsw i64 %.03141, 1
   %exitcond44.not = icmp eq i64 %19, 64
   br i1 %exitcond44.not, label %.loopexit, label %.preheader36, !llvm.loop !27
@@ -354,7 +354,7 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
   br label %40
 
 40:                                               ; preds = %35, %20, %24, %37
-  %.1 = phi i32 [ 0, %20 ], [ %39, %37 ], [ %34, %24 ], [ 0, %35 ]
+  %.1 = phi i32 [ %39, %37 ], [ %34, %24 ], [ 0, %20 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1

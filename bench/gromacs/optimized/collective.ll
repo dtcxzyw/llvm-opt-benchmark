@@ -74,7 +74,7 @@ define noundef range(i32 0, 2) i32 @_Z18tMPI_Coll_env_initP8coll_envi(ptr nounde
   br i1 %exitcond.not, label %_ZL19tMPI_Coll_envt_initP15coll_env_threadi.exit.thread, label %14, !llvm.loop !26
 
 _ZL19tMPI_Coll_envt_initP15coll_env_threadi.exit.thread: ; preds = %29, %14, %21, %25, %7, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %7 ], [ 1, %21 ], [ 1, %14 ], [ 0, %29 ], [ 1, %25 ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %7 ], [ 0, %29 ], [ 1, %14 ], [ 1, %21 ], [ 1, %25 ]
   ret i32 %.0
 }
 

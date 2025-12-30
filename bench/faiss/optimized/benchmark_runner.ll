@@ -292,7 +292,7 @@ _ZN9benchmark8internal19GetErrorLogInstanceEv.exit.sink.split.i: ; preds = %40, 
   br label %_ZN9benchmark8internal22GetLogInstanceForLevelEi.exit
 
 _ZN9benchmark8internal22GetLogInstanceForLevelEi.exit: ; preds = %29, %32, %35, %38, %_ZN9benchmark8internal19GetErrorLogInstanceEv.exit.sink.split.i
-  %.0.i = phi ptr [ @_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log, %38 ], [ @_ZZN9benchmark8internal19GetErrorLogInstanceEvE9error_log, %29 ], [ @_ZZN9benchmark8internal19GetErrorLogInstanceEvE9error_log, %32 ], [ @_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log, %35 ], [ %.0.ph.i, %_ZN9benchmark8internal19GetErrorLogInstanceEv.exit.sink.split.i ]
+  %.0.i = phi ptr [ @_ZZN9benchmark8internal19GetErrorLogInstanceEvE9error_log, %29 ], [ @_ZZN9benchmark8internal19GetErrorLogInstanceEvE9error_log, %32 ], [ @_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log, %35 ], [ @_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log, %38 ], [ %.0.ph.i, %_ZN9benchmark8internal19GetErrorLogInstanceEv.exit.sink.split.i ]
   %41 = load ptr, ptr %.0.i, align 8, !tbaa !17
   %.not.i14 = icmp eq ptr %41, null
   br i1 %.not.i14, label %_ZN9benchmark8internallsIA86_cEERNS0_7LogTypeES4_RKT_.exit, label %_ZN9benchmark8internallsIA8_cEERNS0_7LogTypeES4_RKT_.exit
@@ -369,8 +369,8 @@ _ZN9benchmark8internallsIA43_cEERNS0_7LogTypeES4_RKT_.exit: ; preds = %_ZN9bench
   br label %63
 
 63:                                               ; preds = %1, %_ZN9benchmark8internallsIA43_cEERNS0_7LogTypeES4_RKT_.exit, %_ZN9benchmark8internallsIA45_cEERNS0_7LogTypeES4_RKT_.exit
-  %.sroa.59.0 = phi i64 [ %62, %_ZN9benchmark8internallsIA43_cEERNS0_7LogTypeES4_RKT_.exit ], [ %14, %_ZN9benchmark8internallsIA45_cEERNS0_7LogTypeES4_RKT_.exit ], [ 0, %1 ]
-  %.sroa.0.0 = phi i32 [ 2, %_ZN9benchmark8internallsIA43_cEERNS0_7LogTypeES4_RKT_.exit ], [ 1, %_ZN9benchmark8internallsIA45_cEERNS0_7LogTypeES4_RKT_.exit ], [ 2, %1 ]
+  %.sroa.59.0 = phi i64 [ %14, %_ZN9benchmark8internallsIA45_cEERNS0_7LogTypeES4_RKT_.exit ], [ %62, %_ZN9benchmark8internallsIA43_cEERNS0_7LogTypeES4_RKT_.exit ], [ 0, %1 ]
+  %.sroa.0.0 = phi i32 [ 1, %_ZN9benchmark8internallsIA45_cEERNS0_7LogTypeES4_RKT_.exit ], [ 2, %_ZN9benchmark8internallsIA43_cEERNS0_7LogTypeES4_RKT_.exit ], [ 2, %1 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.59.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -805,7 +805,7 @@ _ZN9benchmark8internal19GetErrorLogInstanceEv.exit.sink.split.i: ; preds = %19, 
   br label %_ZN9benchmark8internal22GetLogInstanceForLevelEi.exit
 
 _ZN9benchmark8internal22GetLogInstanceForLevelEi.exit: ; preds = %8, %11, %14, %17, %_ZN9benchmark8internal19GetErrorLogInstanceEv.exit.sink.split.i
-  %.0.i = phi ptr [ @_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log, %17 ], [ @_ZZN9benchmark8internal19GetErrorLogInstanceEvE9error_log, %8 ], [ @_ZZN9benchmark8internal19GetErrorLogInstanceEvE9error_log, %11 ], [ @_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log, %14 ], [ %.0.ph.i, %_ZN9benchmark8internal19GetErrorLogInstanceEv.exit.sink.split.i ]
+  %.0.i = phi ptr [ @_ZZN9benchmark8internal19GetErrorLogInstanceEvE9error_log, %8 ], [ @_ZZN9benchmark8internal19GetErrorLogInstanceEvE9error_log, %11 ], [ @_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log, %14 ], [ @_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log, %17 ], [ %.0.ph.i, %_ZN9benchmark8internal19GetErrorLogInstanceEv.exit.sink.split.i ]
   %20 = load ptr, ptr %.0.i, align 8, !tbaa !17
   %.not.i21 = icmp eq ptr %20, null
   br i1 %.not.i21, label %_ZN9benchmark8internallsIA9_cEERNS0_7LogTypeES4_RKT_.exit, label %_ZN9benchmark8internallsIA8_cEERNS0_7LogTypeES4_RKT_.exit
@@ -882,7 +882,7 @@ _ZN9benchmark8internallsIlEERNS0_7LogTypeES3_RKT_.exit: ; preds = %38
           to label %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit unwind label %86
 
 _ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit: ; preds = %_ZN9benchmark8internallsIlEERNS0_7LogTypeES3_RKT_.exit.thread, %_ZN9benchmark8internallsIA6_cEERNS0_7LogTypeES4_RKT_.exit, %_ZN9benchmark8internallsIlEERNS0_7LogTypeES3_RKT_.exit, %41
-  %43 = phi ptr [ %37, %41 ], [ %37, %_ZN9benchmark8internallsIlEERNS0_7LogTypeES3_RKT_.exit ], [ %37, %_ZN9benchmark8internallsIA6_cEERNS0_7LogTypeES4_RKT_.exit ], [ %36, %_ZN9benchmark8internallsIlEERNS0_7LogTypeES3_RKT_.exit.thread ]
+  %43 = phi ptr [ %37, %_ZN9benchmark8internallsIlEERNS0_7LogTypeES3_RKT_.exit ], [ %37, %41 ], [ %37, %_ZN9benchmark8internallsIA6_cEERNS0_7LogTypeES4_RKT_.exit ], [ %36, %_ZN9benchmark8internallsIlEERNS0_7LogTypeES3_RKT_.exit.thread ]
   %44 = load ptr, ptr %4, align 8, !tbaa !11
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %46 = icmp eq ptr %44, %45
@@ -1230,7 +1230,7 @@ _ZN9benchmark8internal19GetErrorLogInstanceEv.exit.sink.split.i50: ; preds = %18
   br label %_ZN9benchmark8internal22GetLogInstanceForLevelEi.exit54
 
 _ZN9benchmark8internal22GetLogInstanceForLevelEi.exit54: ; preds = %_ZN9benchmark8internal19GetErrorLogInstanceEv.exit.sink.split.i50, %180, %177, %174, %171
-  %.0.i48 = phi ptr [ @_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log, %180 ], [ @_ZZN9benchmark8internal19GetErrorLogInstanceEvE9error_log, %171 ], [ @_ZZN9benchmark8internal19GetErrorLogInstanceEvE9error_log, %174 ], [ @_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log, %177 ], [ %.0.ph.i52, %_ZN9benchmark8internal19GetErrorLogInstanceEv.exit.sink.split.i50 ]
+  %.0.i48 = phi ptr [ @_ZZN9benchmark8internal19GetErrorLogInstanceEvE9error_log, %171 ], [ @_ZZN9benchmark8internal19GetErrorLogInstanceEvE9error_log, %174 ], [ @_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log, %177 ], [ @_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log, %180 ], [ %.0.ph.i52, %_ZN9benchmark8internal19GetErrorLogInstanceEv.exit.sink.split.i50 ]
   %183 = load ptr, ptr %.0.i48, align 8, !tbaa !17
   %.not.i55 = icmp eq ptr %183, null
   br i1 %.not.i55, label %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit.thread, label %184
@@ -1316,8 +1316,8 @@ _ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit74: ; preds = %201
           to label %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit77 unwind label %228
 
 _ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit77: ; preds = %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit74.thread, %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit71, %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit74, %204
-  %206 = phi ptr [ %193, %204 ], [ %193, %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit74 ], [ %193, %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit71 ], [ %.ph119, %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit74.thread ]
-  %207 = phi ptr [ %200, %204 ], [ %200, %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit74 ], [ %200, %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit71 ], [ %199, %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit74.thread ]
+  %206 = phi ptr [ %193, %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit74 ], [ %193, %204 ], [ %193, %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit71 ], [ %.ph119, %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit74.thread ]
+  %207 = phi ptr [ %200, %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit74 ], [ %200, %204 ], [ %200, %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit71 ], [ %199, %_ZN9benchmark8internallsIdEERNS0_7LogTypeES3_RKT_.exit74.thread ]
   %208 = load i64, ptr %0, align 8, !tbaa !143
   %209 = load ptr, ptr %26, align 8, !tbaa !50
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 400
@@ -1819,7 +1819,7 @@ _ZN9benchmark8internal19GetErrorLogInstanceEv.exit.sink.split.i: ; preds = %34, 
   br label %_ZN9benchmark8internal22GetLogInstanceForLevelEi.exit
 
 _ZN9benchmark8internal22GetLogInstanceForLevelEi.exit: ; preds = %23, %26, %29, %32, %_ZN9benchmark8internal19GetErrorLogInstanceEv.exit.sink.split.i
-  %.0.i = phi ptr [ @_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log, %32 ], [ @_ZZN9benchmark8internal19GetErrorLogInstanceEvE9error_log, %23 ], [ @_ZZN9benchmark8internal19GetErrorLogInstanceEvE9error_log, %26 ], [ @_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log, %29 ], [ %.0.ph.i, %_ZN9benchmark8internal19GetErrorLogInstanceEv.exit.sink.split.i ]
+  %.0.i = phi ptr [ @_ZZN9benchmark8internal19GetErrorLogInstanceEvE9error_log, %23 ], [ @_ZZN9benchmark8internal19GetErrorLogInstanceEvE9error_log, %26 ], [ @_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log, %29 ], [ @_ZZN9benchmark8internal18GetNullLogInstanceEvE8null_log, %32 ], [ %.0.ph.i, %_ZN9benchmark8internal19GetErrorLogInstanceEv.exit.sink.split.i ]
   %35 = load ptr, ptr %.0.i, align 8, !tbaa !17
   %.not.i9 = icmp eq ptr %35, null
   br i1 %.not.i9, label %_ZN9benchmark8internallsIA2_cEERNS0_7LogTypeES4_RKT_.exit, label %_ZN9benchmark8internallsIA8_cEERNS0_7LogTypeES4_RKT_.exit
@@ -1931,7 +1931,7 @@ define hidden noundef zeroext i1 @_ZNK9benchmark8internal15BenchmarkRunner28Shou
   br label %31
 
 31:                                               ; preds = %19, %24, %11, %2
-  %32 = phi i1 [ true, %11 ], [ %30, %24 ], [ true, %2 ], [ false, %19 ]
+  %32 = phi i1 [ true, %11 ], [ true, %2 ], [ false, %19 ], [ %30, %24 ]
   ret i1 %32
 }
 
@@ -3084,7 +3084,7 @@ _ZN9benchmark8internal15BenchmarkRunner16IterationResultsD2Ev.exit35: ; preds = 
   br label %263
 
 263:                                              ; preds = %.split45, %.split45.us, %105, %.body, %98, %97
-  %.pn.pn.pn = phi { ptr, i32 } [ %.us-phi48, %97 ], [ %99, %98 ], [ %106, %105 ], [ %.pn, %.body ], [ %95, %.split45 ], [ %51, %.split45.us ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %99, %98 ], [ %.us-phi48, %97 ], [ %.pn, %.body ], [ %106, %105 ], [ %95, %.split45 ], [ %51, %.split45.us ]
   call void @_ZN9benchmark8internal15BenchmarkRunner16IterationResultsD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn.pn

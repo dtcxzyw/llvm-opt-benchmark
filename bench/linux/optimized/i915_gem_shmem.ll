@@ -191,7 +191,7 @@ define dso_local void @shmem_sg_free_table(ptr noundef %0, ptr noundef %1, i1 no
   br label %93
 
 93:                                               ; preds = %90, %85
-  %94 = phi ptr [ %86, %85 ], [ %92, %90 ]
+  %94 = phi ptr [ %92, %90 ], [ %86, %85 ]
   %95 = icmp eq ptr %94, null
   br i1 %95, label %.thread, label %96
 
@@ -1142,7 +1142,7 @@ define internal i32 @shmem_get_pages(ptr noundef %0) #0 align 16 {
   br label %104
 
 104:                                              ; preds = %101, %96
-  %105 = phi ptr [ %97, %96 ], [ %103, %101 ]
+  %105 = phi ptr [ %103, %101 ], [ %97, %96 ]
   %106 = icmp eq ptr %105, null
   br i1 %106, label %.thread, label %107
 

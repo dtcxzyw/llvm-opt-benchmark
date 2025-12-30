@@ -1255,7 +1255,7 @@ _ZNSt3__111unique_lockINS_5mutexEED2B8ne190000Ev.exit.i.i.i: ; preds = %84, %_ZN
   br label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %31, %.sink.split.i.i13.i.i.i, %94, %.noexc
-  %98 = phi i1 [ true, %94 ], [ true, %.sink.split.i.i13.i.i.i ], [ false, %.noexc ], [ false, %31 ]
+  %98 = phi i1 [ true, %.sink.split.i.i13.i.i.i ], [ true, %94 ], [ false, %.noexc ], [ false, %31 ]
   %99 = load i8, ptr %14, align 8
   %100 = trunc i8 %99 to i1
   br i1 %100, label %101, label %_ZNSt3__111unique_lockINS_5mutexEED2B8ne190000Ev.exit16.i.i.i
@@ -1315,7 +1315,7 @@ _ZNKSt3__114default_deleteINS_15__thread_structEEclB8ne190000EPS1_.exit.i.i.i.i.
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt3__18functionIFvvEED2Ev.exit.i.i.i, %105
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %_ZNSt3__18functionIFvvEED2Ev.exit.i.i.i ], [ %.pn.i.i.i, %105 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i, %105 ], [ %.pn.i.i.i, %_ZNSt3__18functionIFvvEED2Ev.exit.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call fastcc void @"_ZNSt3__110unique_ptrINS_5tupleIJNS0_INS_15__thread_structENS_14default_deleteIS2_EEEEZN3tev10ThreadPool12startThreadsEmE3$_0EEENS3_IS9_EEED2B8ne190000Ev"(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   resume { ptr, i32 } %eh.lpad-body
 }

@@ -144,7 +144,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %76, %65, %61
-  %77 = phi i64 [ %64, %61 ], [ %spec.select, %76 ], [ %.pre, %65 ]
+  %77 = phi i64 [ %64, %61 ], [ %.pre, %65 ], [ %spec.select, %76 ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
@@ -319,7 +319,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %164, %260, %187
-  %189 = phi ptr [ %.pre11, %187 ], [ %261, %260 ], [ %165, %164 ]
+  %189 = phi ptr [ %261, %260 ], [ %.pre11, %187 ], [ %165, %164 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %190 = load volatile i64, ptr %189, align 8
   store volatile i64 %190, ptr %3, align 8
@@ -371,7 +371,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   br label %218
 
 218:                                              ; preds = %.thread8, %213
-  %219 = phi i64 [ %209, %.thread8 ], [ %217, %213 ]
+  %219 = phi i64 [ %217, %213 ], [ %209, %.thread8 ]
   %220 = load i64, ptr %0, align 8
   %221 = sub i64 %219, %220
   %222 = load i64, ptr %58, align 8
@@ -682,7 +682,7 @@ define dso_local noundef range(i32 0, 2) i32 @page_mapped_in_vma(ptr noundef %0,
   br label %47
 
 47:                                               ; preds = %45, %37
-  %48 = phi i64 [ %46, %45 ], [ %35, %37 ]
+  %48 = phi i64 [ %35, %37 ], [ %46, %45 ]
   store i64 %48, ptr %12, align 8
   %49 = icmp eq i64 %48, -14
   br i1 %49, label %.thread, label %50

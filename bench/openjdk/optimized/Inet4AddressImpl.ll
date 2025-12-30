@@ -231,8 +231,8 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br label %._crit_edge125
 
 .loopexit:                                        ; preds = %56, %66, %71, %.lr.ph113, %._crit_edge, %35
-  %.068 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %.1107, %35 ], [ %.1.lcssa, %.lr.ph113 ], [ %.1.lcssa, %71 ], [ %.1.lcssa, %66 ], [ %.1.lcssa, %56 ]
-  %.067 = phi ptr [ null, %._crit_edge ], [ null, %35 ], [ %47, %56 ], [ %47, %66 ], [ %47, %71 ], [ null, %.lr.ph113 ]
+  %.068 = phi ptr [ %.1107, %35 ], [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %.lr.ph113 ], [ %.1.lcssa, %71 ], [ %.1.lcssa, %66 ], [ %.1.lcssa, %56 ]
+  %.067 = phi ptr [ null, %35 ], [ null, %._crit_edge ], [ %47, %56 ], [ %47, %66 ], [ %47, %71 ], [ null, %.lr.ph113 ]
   call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %14) #12
   %.not94121 = icmp eq ptr %.068, null
   br i1 %.not94121, label %._crit_edge125, label %.lr.ph124
@@ -256,7 +256,7 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br label %82
 
 82:                                               ; preds = %._crit_edge125, %81, %13, %3, %12
-  %.0 = phi ptr [ null, %13 ], [ null, %12 ], [ null, %3 ], [ %.067139, %81 ], [ %.067139, %._crit_edge125 ]
+  %.0 = phi ptr [ null, %12 ], [ null, %3 ], [ null, %13 ], [ %.067139, %81 ], [ %.067139, %._crit_edge125 ]
   ret ptr %.0
 }
 
@@ -742,7 +742,7 @@ ping4.exit:                                       ; preds = %170, %170, %.thread
   br label %208
 
 208:                                              ; preds = %6, %ping4.exit, %tcp_ping4.exit
-  %.029 = phi i8 [ %.0.i33, %ping4.exit ], [ %.0.i, %tcp_ping4.exit ], [ 0, %6 ]
+  %.029 = phi i8 [ %.0.i, %tcp_ping4.exit ], [ %.0.i33, %ping4.exit ], [ 0, %6 ]
   ret i8 %.029
 }
 

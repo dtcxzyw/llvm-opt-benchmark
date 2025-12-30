@@ -491,7 +491,7 @@ define i32 @Llb4_Nonlin4SweepCutpoints(ptr noundef %0, ptr noundef readonly capt
   br i1 %152, label %.lr.ph127, label %.critedge4, !llvm.loop !45
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge.preheader, %.critedge2.preheader
-  %.0.lcssa140 = phi i32 [ 0, %.critedge.preheader ], [ %.2, %.critedge2.preheader ], [ %.2, %.critedge2 ]
+  %.0.lcssa140 = phi i32 [ %.2, %.critedge2.preheader ], [ 0, %.critedge.preheader ], [ %.2, %.critedge2 ]
   tail call void @Extra_StopManager(ptr noundef %7) #14
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %155, label %153
@@ -689,7 +689,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %91
 
 91:                                               ; preds = %16, %90, %Vec_PtrPush.exit, %9, %7
-  %.0 = phi ptr [ %8, %7 ], [ %15, %9 ], [ %.055, %90 ], [ null, %Vec_PtrPush.exit ], [ %18, %16 ]
+  %.0 = phi ptr [ %8, %7 ], [ %15, %9 ], [ null, %Vec_PtrPush.exit ], [ %.055, %90 ], [ %18, %16 ]
   ret ptr %.0
 }
 

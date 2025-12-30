@@ -406,8 +406,8 @@ DecodeWebP.exit:                                  ; preds = %94, %98
 .loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %106, %DecodeWebP.exit, %104
   br i1 %102, label %130, label %.thread126
 
-.thread126:                                       ; preds = %42, %45, %.loopexit
-  %.0107130 = phi i32 [ %101, %.loopexit ], [ 1, %45 ], [ 1, %42 ]
+.thread126:                                       ; preds = %45, %42, %.loopexit
+  %.0107130 = phi i32 [ %101, %.loopexit ], [ 1, %42 ], [ 1, %45 ]
   call void @PrintWebPError(ptr noundef nonnull @.str.6, i32 noundef %.0107130)
   br label %130
 
@@ -509,7 +509,7 @@ DecodeWebP.exit:                                  ; preds = %94, %98
   br label %172
 
 172:                                              ; preds = %.thread137, %170, %171, %5, %20, %15
-  %.0105 = phi i32 [ 0, %15 ], [ 0, %20 ], [ 0, %5 ], [ 0, %171 ], [ 1, %170 ], [ 1, %.thread137 ]
+  %.0105 = phi i32 [ 0, %20 ], [ 0, %15 ], [ 0, %5 ], [ 0, %171 ], [ 1, %170 ], [ 1, %.thread137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0105
 }

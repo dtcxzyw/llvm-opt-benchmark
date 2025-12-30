@@ -1121,11 +1121,11 @@ _ZN4llvm5APIntD2Ev.exit29.i.i:                    ; preds = %166, %.critedge.thr
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load i32, ptr %173, align 8, !tbaa !234
   %175 = icmp ult i32 %174, 65
-  br i1 %175, label %_ZNK5clang17ConstantArrayType10isZeroSizeEv.exit.i.i, label %176
+  br i1 %175, label %176, label %_ZNK5clang17ConstantArrayType10isZeroSizeEv.exit.i.i
 
 176:                                              ; preds = %171
-  %177 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %172) #20
-  %178 = icmp eq i32 %177, %174
+  %177 = load i64, ptr %172, align 8, !tbaa !46
+  %178 = icmp eq i64 %177, 0
   br i1 %178, label %.critedge24.i.i, label %_ZL21evenFlexibleArraySizeRN5clang10ASTContextENS_9CharUnitsES2_NS_8QualTypeE.exit.thread.i
 
 179:                                              ; preds = %167
@@ -1134,8 +1134,8 @@ _ZN4llvm5APIntD2Ev.exit29.i.i:                    ; preds = %166, %.critedge.thr
   br i1 %181, label %.critedge24.i.i, label %_ZL21evenFlexibleArraySizeRN5clang10ASTContextENS_9CharUnitsES2_NS_8QualTypeE.exit.thread.i
 
 _ZNK5clang17ConstantArrayType10isZeroSizeEv.exit.i.i: ; preds = %171
-  %182 = load i64, ptr %172, align 8, !tbaa !46
-  %183 = icmp eq i64 %182, 0
+  %182 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %172) #20
+  %183 = icmp eq i32 %182, %174
   br i1 %183, label %.critedge24.i.i, label %_ZL21evenFlexibleArraySizeRN5clang10ASTContextENS_9CharUnitsES2_NS_8QualTypeE.exit.thread.i
 
 184:                                              ; preds = %122, %._crit_edge.i.i

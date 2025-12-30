@@ -157,7 +157,7 @@ define internal range(i32 -1163346256, 1) i32 @utvideo_encode_init(ptr noundef %
   br label %125
 
 55:                                               ; preds = %52, %53, %44, %45, %33, %34, %16, %13
-  %.0 = phi i32 [ 402718720, %13 ], [ 402784256, %16 ], [ 844715353, %44 ], [ 842094169, %33 ], [ 842094169, %34 ], [ 844715353, %45 ], [ 875714137, %53 ], [ 875714137, %52 ]
+  %.0 = phi i32 [ 402718720, %13 ], [ 402784256, %16 ], [ 842094169, %34 ], [ 842094169, %33 ], [ 844715353, %45 ], [ 844715353, %44 ], [ 875714137, %53 ], [ 875714137, %52 ]
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @ff_bswapdsp_init(ptr noundef nonnull %56) #10
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -725,7 +725,7 @@ bytestream2_put_le32.exit:                        ; preds = %.loopexit, %220, %2
   br label %234
 
 234:                                              ; preds = %4, %bytestream2_put_le32.exit, %215, %210, %192, %175, %161, %42
-  %.0104 = phi i32 [ -12, %42 ], [ -1094995529, %215 ], [ %160, %161 ], [ 0, %bytestream2_put_le32.exit ], [ %174, %175 ], [ %191, %192 ], [ %209, %210 ], [ %23, %4 ]
+  %.0104 = phi i32 [ -1094995529, %215 ], [ %160, %161 ], [ 0, %bytestream2_put_le32.exit ], [ %174, %175 ], [ %191, %192 ], [ %209, %210 ], [ -12, %42 ], [ %23, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0104
 }

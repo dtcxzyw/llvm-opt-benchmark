@@ -2348,7 +2348,7 @@ common.resume.sink.split.i.i.i.i.i.i.i:           ; preds = %160, %90
   br label %common.resume.i.i.i.i.i.i.i
 
 common.resume.i.i.i.i.i.i.i:                      ; preds = %369, %365, %.loopexit.split-lp.i.i.i.i.i.i.i.i, %137, %133, %131, %common.resume.sink.split.i.i.i.i.i.i.i
-  %common.resume.op.i.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn.ph.i.i.i.i.i.i.i.i, %133 ], [ %.pn.ph.i4.i.i.i.i.i.i.i, %.loopexit.split-lp.i.i.i.i.i.i.i.i ], [ %.pn.ph.i.i.i.i.i.i.i.i, %137 ], [ %.pn.ph.i.i.i.i.i.i.i.i, %131 ], [ %.pn.ph.i4.i.i.i.i.i.i.i, %365 ], [ %.pn.ph.i4.i.i.i.i.i.i.i, %369 ], [ %common.resume.op.ph.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i ]
+  %common.resume.op.i.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn.ph.i.i.i.i.i.i.i.i, %137 ], [ %.pn.ph.i.i.i.i.i.i.i.i, %131 ], [ %.pn.ph.i.i.i.i.i.i.i.i, %133 ], [ %.pn.ph.i4.i.i.i.i.i.i.i, %369 ], [ %.pn.ph.i4.i.i.i.i.i.i.i, %.loopexit.split-lp.i.i.i.i.i.i.i.i ], [ %.pn.ph.i4.i.i.i.i.i.i.i, %365 ], [ %common.resume.op.ph.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i.i.i.i
 
 131:                                              ; preds = %99, %92
@@ -3158,7 +3158,7 @@ common.resume.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %296, %229
   br label %.loopexit.loopexit.i.i.i.i
 
 .loopexit.split-lp.i.i.i.i.i.i.i.i:               ; preds = %339, %335, %333, %273, %269, %267, %common.resume.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %167, %.loopexit.split-lp.i.i.i.i.loopexit.split-lp.i.i.i.i, %.loopexit.split-lp.i.i.i.i.loopexit.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i
-  %.pn.ph.i4.i.i.i.i.i.i.i = phi { ptr, i32 } [ %168, %167 ], [ %common.resume.op.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %269 ], [ %.pn.ph.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %333 ], [ %.pn.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %273 ], [ %.pn.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %267 ], [ %.pn.ph.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %335 ], [ %.pn.ph.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %339 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %.loopexit.split-lp.i.i.i.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.loopexit.split-lp.i.i.i.i.loopexit.split-lp.i.i.i.i ]
+  %.pn.ph.i4.i.i.i.i.i.i.i = phi { ptr, i32 } [ %168, %167 ], [ %.pn.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %273 ], [ %.pn.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %267 ], [ %.pn.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %269 ], [ %.pn.ph.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %339 ], [ %.pn.ph.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %333 ], [ %.pn.ph.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %335 ], [ %common.resume.op.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %.loopexit.split-lp.i.i.i.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.loopexit.split-lp.i.i.i.i.loopexit.split-lp.i.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1200)
   call void @llvm.experimental.noalias.scope.decl(metadata !1203)
   call void @llvm.experimental.noalias.scope.decl(metadata !1206)
@@ -3617,7 +3617,7 @@ common.resume.sink.split.i.i.i.i.i.i.i:           ; preds = %160, %90
   br label %common.resume.i.i.i.i.i.i.i
 
 common.resume.i.i.i.i.i.i.i:                      ; preds = %369, %365, %.loopexit.split-lp.i.i.i.i.i.i.i.i, %137, %133, %131, %common.resume.sink.split.i.i.i.i.i.i.i
-  %common.resume.op.i.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn.ph.i.i.i.i.i.i.i.i, %133 ], [ %.pn.ph.i4.i.i.i.i.i.i.i, %.loopexit.split-lp.i.i.i.i.i.i.i.i ], [ %.pn.ph.i.i.i.i.i.i.i.i, %137 ], [ %.pn.ph.i.i.i.i.i.i.i.i, %131 ], [ %.pn.ph.i4.i.i.i.i.i.i.i, %365 ], [ %.pn.ph.i4.i.i.i.i.i.i.i, %369 ], [ %common.resume.op.ph.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i ]
+  %common.resume.op.i.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn.ph.i.i.i.i.i.i.i.i, %137 ], [ %.pn.ph.i.i.i.i.i.i.i.i, %131 ], [ %.pn.ph.i.i.i.i.i.i.i.i, %133 ], [ %.pn.ph.i4.i.i.i.i.i.i.i, %369 ], [ %.pn.ph.i4.i.i.i.i.i.i.i, %.loopexit.split-lp.i.i.i.i.i.i.i.i ], [ %.pn.ph.i4.i.i.i.i.i.i.i, %365 ], [ %common.resume.op.ph.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i.i.i.i
 
 131:                                              ; preds = %99, %92
@@ -4427,7 +4427,7 @@ common.resume.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %296, %229
   br label %.loopexit.loopexit.i.i.i.i
 
 .loopexit.split-lp.i.i.i.i.i.i.i.i:               ; preds = %339, %335, %333, %273, %269, %267, %common.resume.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %167, %.loopexit.split-lp.i.i.i.i.loopexit.split-lp.i.i.i.i, %.loopexit.split-lp.i.i.i.i.loopexit.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i
-  %.pn.ph.i4.i.i.i.i.i.i.i = phi { ptr, i32 } [ %168, %167 ], [ %common.resume.op.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.pn.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %269 ], [ %.pn.ph.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %333 ], [ %.pn.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %273 ], [ %.pn.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %267 ], [ %.pn.ph.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %335 ], [ %.pn.ph.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %339 ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %.loopexit.split-lp.i.i.i.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.loopexit.split-lp.i.i.i.i.loopexit.split-lp.i.i.i.i ]
+  %.pn.ph.i4.i.i.i.i.i.i.i = phi { ptr, i32 } [ %168, %167 ], [ %.pn.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %273 ], [ %.pn.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %267 ], [ %.pn.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %269 ], [ %.pn.ph.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %339 ], [ %.pn.ph.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %333 ], [ %.pn.ph.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %335 ], [ %common.resume.op.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i, %.loopexit.split-lp.i.i.i.i.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.loopexit.split-lp.i.i.i.i.loopexit.split-lp.i.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1724)
   call void @llvm.experimental.noalias.scope.decl(metadata !1727)
   call void @llvm.experimental.noalias.scope.decl(metadata !1730)
@@ -40801,7 +40801,7 @@ define hidden void @"_ZN8zvariant4dbus3ser22SeqSerializer$LT$W$GT$7end_seq17hbed
   unreachable
 
 common.resume:                                    ; preds = %75, %58, %39
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %40, %39 ], [ %76, %75 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %59, %58 ], [ %76, %75 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h2cff001341fc2a09E.llvm.16031720769602754933.exit103": ; preds = %32
@@ -41255,7 +41255,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %59, %39
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %40, %39 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %60, %59 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %43, %44, %49
@@ -41533,7 +41533,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %40, %70, %50
-  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %51, %50 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %71, %70 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %54, %55, %60
@@ -41774,7 +41774,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -42017,7 +42017,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %30, %62, %42
-  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %43, %42 ], [ %31, %30 ]
+  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %63, %62 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %46, %47, %52
@@ -42303,7 +42303,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %48, %80, %60
-  %common.resume.op = phi { ptr, i32 } [ %81, %80 ], [ %61, %60 ], [ %49, %48 ]
+  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %81, %80 ], [ %49, %48 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %64, %65, %70
@@ -42558,7 +42558,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %34, %66, %46
-  %common.resume.op = phi { ptr, i32 } [ %67, %66 ], [ %47, %46 ], [ %35, %34 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %67, %66 ], [ %35, %34 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %50, %51, %56
@@ -42796,7 +42796,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -43034,7 +43034,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %59, %39
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %40, %39 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %60, %59 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %43, %44, %49
@@ -43270,7 +43270,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %59, %39
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %40, %39 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %60, %59 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %43, %44, %49
@@ -43522,7 +43522,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %33, %63, %43
-  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %44, %43 ], [ %34, %33 ]
+  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %64, %63 ], [ %34, %33 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %47, %48, %53
@@ -43763,7 +43763,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -44001,7 +44001,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -44239,7 +44239,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -44477,7 +44477,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -44716,7 +44716,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %28, %60, %40
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %44, %45, %50
@@ -44994,7 +44994,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %40, %70, %50
-  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %51, %50 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %71, %70 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %54, %55, %60
@@ -45233,7 +45233,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %59, %39
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %40, %39 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %60, %59 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %43, %44, %49
@@ -45474,7 +45474,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %28, %60, %40
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %44, %45, %50
@@ -45710,7 +45710,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %59, %39
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %40, %39 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %60, %59 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %43, %44, %49
@@ -45948,7 +45948,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -46186,7 +46186,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -46422,7 +46422,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %59, %39
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %40, %39 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %60, %59 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %43, %44, %49
@@ -46660,7 +46660,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -46898,7 +46898,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -47141,7 +47141,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %30, %62, %42
-  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %43, %42 ], [ %31, %30 ]
+  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %63, %62 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %46, %47, %52
@@ -47381,7 +47381,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %28, %60, %40
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %44, %45, %50
@@ -47654,7 +47654,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %41, %71, %51
-  %common.resume.op = phi { ptr, i32 } [ %72, %71 ], [ %52, %51 ], [ %42, %41 ]
+  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %72, %71 ], [ %42, %41 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %55, %56, %61
@@ -47896,7 +47896,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %28, %60, %40
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %44, %45, %50
@@ -48132,7 +48132,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %59, %39
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %40, %39 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %60, %59 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %43, %44, %49
@@ -48372,7 +48372,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %28, %60, %40
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %44, %45, %50
@@ -48612,7 +48612,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %28, %60, %40
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %44, %45, %50
@@ -48848,7 +48848,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %59, %39
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %40, %39 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %60, %59 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %43, %44, %49
@@ -49090,7 +49090,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %28, %60, %40
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %44, %45, %50
@@ -49330,7 +49330,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %28, %60, %40
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %44, %45, %50
@@ -49568,7 +49568,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %59, %39
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %40, %39 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %60, %59 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %43, %44, %49
@@ -49821,7 +49821,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %34, %66, %46
-  %common.resume.op = phi { ptr, i32 } [ %67, %66 ], [ %47, %46 ], [ %35, %34 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %67, %66 ], [ %35, %34 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %50, %51, %56
@@ -50059,7 +50059,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -50295,7 +50295,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %59, %39
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %40, %39 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %60, %59 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %43, %44, %49
@@ -50534,7 +50534,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %28, %60, %40
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %44, %45, %50
@@ -50770,7 +50770,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %59, %39
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %40, %39 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %60, %59 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %43, %44, %49
@@ -51008,7 +51008,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -51246,7 +51246,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -51524,7 +51524,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %40, %70, %50
-  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %51, %50 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %71, %70 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %54, %55, %60
@@ -51766,7 +51766,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %28, %60, %40
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %44, %45, %50
@@ -52019,7 +52019,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %34, %66, %46
-  %common.resume.op = phi { ptr, i32 } [ %67, %66 ], [ %47, %46 ], [ %35, %34 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %67, %66 ], [ %35, %34 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %50, %51, %56
@@ -52257,7 +52257,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -52493,7 +52493,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %59, %39
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %40, %39 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %60, %59 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %43, %44, %49
@@ -52745,7 +52745,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %33, %63, %43
-  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %44, %43 ], [ %34, %33 ]
+  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %64, %63 ], [ %34, %33 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %47, %48, %53
@@ -52993,7 +52993,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %32, %64, %44
-  %common.resume.op = phi { ptr, i32 } [ %65, %64 ], [ %45, %44 ], [ %33, %32 ]
+  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %65, %64 ], [ %33, %32 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %48, %49, %54
@@ -53229,7 +53229,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %59, %39
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %40, %39 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %60, %59 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %43, %44, %49
@@ -53467,7 +53467,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -53708,7 +53708,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %28, %60, %40
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %44, %45, %50
@@ -53946,7 +53946,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -54186,7 +54186,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %28, %60, %40
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %44, %45, %50
@@ -54424,7 +54424,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -54663,7 +54663,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %28, %60, %40
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %44, %45, %50
@@ -54899,7 +54899,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %59, %39
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %40, %39 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %60, %59 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %43, %44, %49
@@ -55172,7 +55172,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %41, %71, %51
-  %common.resume.op = phi { ptr, i32 } [ %72, %71 ], [ %52, %51 ], [ %42, %41 ]
+  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %72, %71 ], [ %42, %41 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %55, %56, %61
@@ -55413,7 +55413,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %26, %58, %38
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %39, %38 ], [ %27, %26 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %59, %58 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %42, %43, %48
@@ -55691,7 +55691,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %40, %70, %50
-  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %51, %50 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %71, %70 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %54, %55, %60
@@ -55949,7 +55949,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %34, %66, %46
-  %common.resume.op = phi { ptr, i32 } [ %67, %66 ], [ %47, %46 ], [ %35, %34 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %67, %66 ], [ %35, %34 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %50, %51, %56
@@ -56235,7 +56235,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %48, %80, %60
-  %common.resume.op = phi { ptr, i32 } [ %81, %80 ], [ %61, %60 ], [ %49, %48 ]
+  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %81, %80 ], [ %49, %48 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %64, %65, %70
@@ -56475,7 +56475,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %28, %60, %40
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %44, %45, %50
@@ -56720,7 +56720,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %32, %64, %44
-  %common.resume.op = phi { ptr, i32 } [ %65, %64 ], [ %45, %44 ], [ %33, %32 ]
+  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %65, %64 ], [ %33, %32 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %48, %49, %54
@@ -56962,7 +56962,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %28, %60, %40
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr88drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$zvariant..ser..NullWriteSeek$GT$$GT$17hb76c756ef3e21e6eE.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %44, %45, %50
@@ -57201,7 +57201,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   unreachable
 
 common.resume:                                    ; preds = %28, %60, %40
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr128drop_in_place$LT$zvariant..dbus..ser..Serializer$LT$std..io..cursor..Cursor$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hbd9ee175f2888e96E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$zvariant..signature_parser..SignatureParser$GT$17hfad1d94f3180e4adE.exit.i.i", %44, %45, %50
@@ -59569,7 +59569,7 @@ _ZN4endi6endian6Endian9write_u3217hd996943a299b7634E.llvm.16031720769602754933.e
   unreachable
 
 common.resume:                                    ; preds = %69, %154, %166, %148, %133, %117, %102
-  %common.resume.op = phi { ptr, i32 } [ %149, %148 ], [ %103, %102 ], [ %118, %117 ], [ %134, %133 ], [ %155, %154 ], [ %70, %69 ], [ %167, %166 ]
+  %common.resume.op = phi { ptr, i32 } [ %103, %102 ], [ %118, %117 ], [ %134, %133 ], [ %149, %148 ], [ %155, %154 ], [ %70, %69 ], [ %167, %166 ]
   resume { ptr, i32 } %common.resume.op
 
 106:                                              ; preds = %95
@@ -60067,7 +60067,7 @@ _ZN4endi6endian6Endian9write_u3217hd996943a299b7634E.llvm.16031720769602754933.e
   unreachable
 
 common.resume:                                    ; preds = %69, %154, %166, %148, %133, %117, %102
-  %common.resume.op = phi { ptr, i32 } [ %149, %148 ], [ %103, %102 ], [ %118, %117 ], [ %134, %133 ], [ %155, %154 ], [ %70, %69 ], [ %167, %166 ]
+  %common.resume.op = phi { ptr, i32 } [ %103, %102 ], [ %118, %117 ], [ %134, %133 ], [ %149, %148 ], [ %155, %154 ], [ %70, %69 ], [ %167, %166 ]
   resume { ptr, i32 } %common.resume.op
 
 106:                                              ; preds = %95
@@ -62220,11 +62220,11 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   br label %153
 
 105:                                              ; preds = %84, %88, %90, %95, %80, %75
-  %.sroa.12.sroa.12.1 = phi i32 [ %.sroa.12.sroa.12.0.extract.trunc91, %75 ], [ %.sroa.12.sroa.12.0.extract.trunc95, %95 ], [ %.sroa.12.sroa.12.0.extract.trunc93, %80 ], [ undef, %90 ], [ undef, %88 ], [ undef, %84 ]
-  %.sroa.12.sroa.0.1 = phi i32 [ %.sroa.12.sroa.0.0.extract.trunc81, %75 ], [ %.sroa.12.sroa.0.0.extract.trunc83, %95 ], [ %.sroa.12.sroa.0.0.extract.trunc82, %80 ], [ 2, %90 ], [ 1, %88 ], [ 0, %84 ]
-  %.sroa.24.1 = phi i8 [ %.sroa.24.16.copyload, %75 ], [ %.sroa.24.8.copyload, %95 ], [ %.sroa.24.16.copyload78, %80 ], [ undef, %90 ], [ undef, %88 ], [ undef, %84 ]
-  %.sroa.21.1 = phi i32 [ %.sroa.21.16.copyload, %75 ], [ %.sroa.21.8.copyload, %95 ], [ %.sroa.21.16.copyload73, %80 ], [ undef, %90 ], [ undef, %88 ], [ undef, %84 ]
-  %.sroa.063.1 = phi i64 [ %70, %75 ], [ %82, %95 ], [ %77, %80 ], [ 13, %90 ], [ 13, %88 ], [ 13, %84 ]
+  %.sroa.12.sroa.12.1 = phi i32 [ %.sroa.12.sroa.12.0.extract.trunc95, %95 ], [ %.sroa.12.sroa.12.0.extract.trunc93, %80 ], [ %.sroa.12.sroa.12.0.extract.trunc91, %75 ], [ undef, %90 ], [ undef, %88 ], [ undef, %84 ]
+  %.sroa.12.sroa.0.1 = phi i32 [ %.sroa.12.sroa.0.0.extract.trunc83, %95 ], [ %.sroa.12.sroa.0.0.extract.trunc82, %80 ], [ %.sroa.12.sroa.0.0.extract.trunc81, %75 ], [ 2, %90 ], [ 1, %88 ], [ 0, %84 ]
+  %.sroa.24.1 = phi i8 [ %.sroa.24.8.copyload, %95 ], [ %.sroa.24.16.copyload78, %80 ], [ %.sroa.24.16.copyload, %75 ], [ undef, %90 ], [ undef, %88 ], [ undef, %84 ]
+  %.sroa.21.1 = phi i32 [ %.sroa.21.8.copyload, %95 ], [ %.sroa.21.16.copyload73, %80 ], [ %.sroa.21.16.copyload, %75 ], [ undef, %90 ], [ undef, %88 ], [ undef, %84 ]
+  %.sroa.063.1 = phi i64 [ %82, %95 ], [ %77, %80 ], [ %70, %75 ], [ 13, %90 ], [ 13, %88 ], [ 13, %84 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !19780)
   call void @llvm.experimental.noalias.scope.decl(metadata !19783)
   %106 = load i64, ptr %13, align 8, !range !126, !alias.scope !19786, !noalias !19739, !noundef !4
@@ -62817,11 +62817,11 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   br label %153
 
 105:                                              ; preds = %84, %88, %90, %95, %80, %75
-  %.sroa.12.sroa.12.1 = phi i32 [ %.sroa.12.sroa.12.0.extract.trunc91, %75 ], [ %.sroa.12.sroa.12.0.extract.trunc95, %95 ], [ %.sroa.12.sroa.12.0.extract.trunc93, %80 ], [ undef, %90 ], [ undef, %88 ], [ undef, %84 ]
-  %.sroa.12.sroa.0.1 = phi i32 [ %.sroa.12.sroa.0.0.extract.trunc81, %75 ], [ %.sroa.12.sroa.0.0.extract.trunc83, %95 ], [ %.sroa.12.sroa.0.0.extract.trunc82, %80 ], [ 2, %90 ], [ 1, %88 ], [ 0, %84 ]
-  %.sroa.24.1 = phi i8 [ %.sroa.24.16.copyload, %75 ], [ %.sroa.24.8.copyload, %95 ], [ %.sroa.24.16.copyload78, %80 ], [ undef, %90 ], [ undef, %88 ], [ undef, %84 ]
-  %.sroa.21.1 = phi i32 [ %.sroa.21.16.copyload, %75 ], [ %.sroa.21.8.copyload, %95 ], [ %.sroa.21.16.copyload73, %80 ], [ undef, %90 ], [ undef, %88 ], [ undef, %84 ]
-  %.sroa.063.1 = phi i64 [ %70, %75 ], [ %82, %95 ], [ %77, %80 ], [ 13, %90 ], [ 13, %88 ], [ 13, %84 ]
+  %.sroa.12.sroa.12.1 = phi i32 [ %.sroa.12.sroa.12.0.extract.trunc95, %95 ], [ %.sroa.12.sroa.12.0.extract.trunc93, %80 ], [ %.sroa.12.sroa.12.0.extract.trunc91, %75 ], [ undef, %90 ], [ undef, %88 ], [ undef, %84 ]
+  %.sroa.12.sroa.0.1 = phi i32 [ %.sroa.12.sroa.0.0.extract.trunc83, %95 ], [ %.sroa.12.sroa.0.0.extract.trunc82, %80 ], [ %.sroa.12.sroa.0.0.extract.trunc81, %75 ], [ 2, %90 ], [ 1, %88 ], [ 0, %84 ]
+  %.sroa.24.1 = phi i8 [ %.sroa.24.8.copyload, %95 ], [ %.sroa.24.16.copyload78, %80 ], [ %.sroa.24.16.copyload, %75 ], [ undef, %90 ], [ undef, %88 ], [ undef, %84 ]
+  %.sroa.21.1 = phi i32 [ %.sroa.21.8.copyload, %95 ], [ %.sroa.21.16.copyload73, %80 ], [ %.sroa.21.16.copyload, %75 ], [ undef, %90 ], [ undef, %88 ], [ undef, %84 ]
+  %.sroa.063.1 = phi i64 [ %82, %95 ], [ %77, %80 ], [ %70, %75 ], [ 13, %90 ], [ 13, %88 ], [ 13, %84 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !19854)
   call void @llvm.experimental.noalias.scope.decl(metadata !19857)
   %106 = load i64, ptr %13, align 8, !range !126, !alias.scope !19860, !noalias !19813, !noundef !4

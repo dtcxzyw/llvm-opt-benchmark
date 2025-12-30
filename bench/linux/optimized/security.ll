@@ -1453,7 +1453,7 @@ define dso_local i32 @security_sb_alloc(ptr noundef initializes((160, 168)) %0) 
   br label %.thread
 
 .thread:                                          ; preds = %11, %6, %20
-  %21 = phi i32 [ -12, %6 ], [ %18, %20 ], [ 0, %11 ]
+  %21 = phi i32 [ %18, %20 ], [ -12, %6 ], [ 0, %11 ]
   ret i32 %21
 }
 
@@ -1857,7 +1857,7 @@ define dso_local i32 @security_inode_alloc(ptr noundef initializes((56, 64)) %0)
   br label %.thread
 
 .thread:                                          ; preds = %10, %6, %19
-  %20 = phi i32 [ -12, %6 ], [ %17, %19 ], [ 0, %10 ]
+  %20 = phi i32 [ %17, %19 ], [ -12, %6 ], [ 0, %10 ]
   ret i32 %20
 }
 
@@ -2045,7 +2045,7 @@ define dso_local noundef i32 @security_inode_init_security(ptr noundef %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %50, %.thread5, %16, %21, %11, %5
-  %51 = phi i32 [ -12, %16 ], [ 0, %5 ], [ 0, %11 ], [ -12, %21 ], [ 0, %50 ], [ %.fr, %.thread5 ]
+  %51 = phi i32 [ 0, %5 ], [ 0, %11 ], [ -12, %21 ], [ -12, %16 ], [ 0, %50 ], [ %.fr, %.thread5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %51
 }
@@ -2320,7 +2320,7 @@ define dso_local i32 @security_inode_rename(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %41, label %.thread, label %.loopexit, !llvm.loop !84
 
 .loopexit:                                        ; preds = %29, %37, %.thread, %16, %5
-  %42 = phi i32 [ 0, %.thread ], [ 0, %16 ], [ 0, %5 ], [ %40, %37 ], [ %32, %29 ]
+  %42 = phi i32 [ 0, %16 ], [ 0, %5 ], [ 0, %.thread ], [ %40, %37 ], [ %32, %29 ]
   ret i32 %42
 }
 
@@ -2497,7 +2497,7 @@ define dso_local i32 @security_inode_setxattr(ptr noundef %0, ptr noundef %1, pt
   br label %.thread4
 
 .thread4:                                         ; preds = %.preheader, %16, %.thread, %6
-  %24 = phi i32 [ 0, %6 ], [ %23, %.thread ], [ 0, %16 ], [ %22, %.preheader ]
+  %24 = phi i32 [ 0, %6 ], [ %23, %.thread ], [ %22, %.preheader ], [ 0, %16 ]
   ret i32 %24
 }
 
@@ -2705,7 +2705,7 @@ define dso_local i32 @security_inode_removexattr(ptr noundef %0, ptr noundef %1,
   br label %.thread4
 
 .thread4:                                         ; preds = %.preheader, %13, %.thread, %3
-  %21 = phi i32 [ 0, %3 ], [ %20, %.thread ], [ 0, %13 ], [ %19, %.preheader ]
+  %21 = phi i32 [ 0, %3 ], [ %20, %.thread ], [ %19, %.preheader ], [ 0, %13 ]
   ret i32 %21
 }
 
@@ -2980,7 +2980,7 @@ define dso_local i32 @security_file_alloc(ptr noundef initializes((192, 200)) %0
   br label %.thread
 
 .thread:                                          ; preds = %10, %6, %19
-  %20 = phi i32 [ -12, %6 ], [ %17, %19 ], [ 0, %10 ]
+  %20 = phi i32 [ %17, %19 ], [ -12, %6 ], [ 0, %10 ]
   ret i32 %20
 }
 
@@ -3349,7 +3349,7 @@ define dso_local i32 @security_task_alloc(ptr noundef initializes((2696, 2704)) 
   br label %.thread
 
 .thread:                                          ; preds = %12, %7, %21
-  %22 = phi i32 [ -12, %7 ], [ %19, %21 ], [ 0, %12 ]
+  %22 = phi i32 [ %19, %21 ], [ -12, %7 ], [ 0, %12 ]
   ret i32 %22
 }
 
@@ -3417,7 +3417,7 @@ define dso_local i32 @security_cred_alloc_blank(ptr noundef initializes((128, 13
   br label %.thread
 
 .thread:                                          ; preds = %13, %7, %22
-  %23 = phi i32 [ -12, %7 ], [ %20, %22 ], [ 0, %13 ]
+  %23 = phi i32 [ %20, %22 ], [ -12, %7 ], [ 0, %13 ]
   ret i32 %23
 }
 
@@ -3497,7 +3497,7 @@ define dso_local i32 @security_prepare_creds(ptr noundef initializes((128, 136))
   br label %.thread
 
 .thread:                                          ; preds = %14, %8, %23
-  %24 = phi i32 [ -12, %8 ], [ %21, %23 ], [ 0, %14 ]
+  %24 = phi i32 [ %21, %23 ], [ -12, %8 ], [ 0, %14 ]
   ret i32 %24
 }
 
@@ -4218,7 +4218,7 @@ define dso_local i32 @security_msg_msg_alloc(ptr noundef initializes((40, 48)) %
   br label %.thread
 
 .thread:                                          ; preds = %11, %6, %20
-  %21 = phi i32 [ -12, %6 ], [ %18, %20 ], [ 0, %11 ]
+  %21 = phi i32 [ %18, %20 ], [ -12, %6 ], [ 0, %11 ]
   ret i32 %21
 }
 
@@ -4285,7 +4285,7 @@ define dso_local i32 @security_msg_queue_alloc(ptr noundef initializes((48, 56))
   br label %.thread
 
 .thread:                                          ; preds = %11, %6, %20
-  %21 = phi i32 [ -12, %6 ], [ %18, %20 ], [ 0, %11 ]
+  %21 = phi i32 [ %18, %20 ], [ -12, %6 ], [ 0, %11 ]
   ret i32 %21
 }
 
@@ -4440,7 +4440,7 @@ define dso_local i32 @security_shm_alloc(ptr noundef initializes((48, 56)) %0) l
   br label %.thread
 
 .thread:                                          ; preds = %11, %6, %20
-  %21 = phi i32 [ -12, %6 ], [ %18, %20 ], [ 0, %11 ]
+  %21 = phi i32 [ %18, %20 ], [ -12, %6 ], [ 0, %11 ]
   ret i32 %21
 }
 
@@ -4573,7 +4573,7 @@ define dso_local i32 @security_sem_alloc(ptr noundef initializes((48, 56)) %0) l
   br label %.thread
 
 .thread:                                          ; preds = %11, %6, %20
-  %21 = phi i32 [ -12, %6 ], [ %18, %20 ], [ 0, %11 ]
+  %21 = phi i32 [ %18, %20 ], [ -12, %6 ], [ 0, %11 ]
   ret i32 %21
 }
 
@@ -4800,10 +4800,10 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
   br label %57
 
 57:                                               ; preds = %.split.us.split.us, %50
-  %58 = phi i32 [ %41, %.split.us.split.us ], [ %56, %50 ]
-  %59 = phi i8 [ %40, %.split.us.split.us ], [ %53, %50 ]
-  %60 = phi i64 [ %39, %.split.us.split.us ], [ %54, %50 ]
-  %61 = phi i64 [ %38, %.split.us.split.us ], [ %55, %50 ]
+  %58 = phi i32 [ %56, %50 ], [ %41, %.split.us.split.us ]
+  %59 = phi i8 [ %53, %50 ], [ %40, %.split.us.split.us ]
+  %60 = phi i64 [ %54, %50 ], [ %39, %.split.us.split.us ]
+  %61 = phi i64 [ %55, %50 ], [ %38, %.split.us.split.us ]
   %62 = load ptr, ptr %37, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %.split8.us, label %.split.us.split.us, !llvm.loop !180
@@ -4847,10 +4847,10 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
   br label %85
 
 85:                                               ; preds = %78, %.split.us.split
-  %86 = phi i32 [ %68, %.split.us.split ], [ %84, %78 ]
-  %87 = phi i8 [ %67, %.split.us.split ], [ %81, %78 ]
-  %88 = phi i64 [ %66, %.split.us.split ], [ %82, %78 ]
-  %89 = phi i64 [ %65, %.split.us.split ], [ %83, %78 ]
+  %86 = phi i32 [ %84, %78 ], [ %68, %.split.us.split ]
+  %87 = phi i8 [ %81, %78 ], [ %67, %.split.us.split ]
+  %88 = phi i64 [ %82, %78 ], [ %66, %.split.us.split ]
+  %89 = phi i64 [ %83, %78 ], [ %65, %.split.us.split ]
   %90 = load ptr, ptr %64, align 8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %.split8.us, label %.split.us.split, !llvm.loop !180
@@ -4891,9 +4891,9 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
   br i1 %110, label %.split8.us, label %.split.split, !llvm.loop !180
 
 .split8.us:                                       ; preds = %108, %85, %57, %.loopexit25
-  %.us-phi9 = phi i32 [ %58, %57 ], [ %105, %.loopexit25 ], [ %86, %85 ], [ 0, %108 ]
-  %.us-phi10 = phi i8 [ %59, %57 ], [ %106, %.loopexit25 ], [ %87, %85 ], [ 0, %108 ]
-  %.us-phi11 = phi i64 [ %61, %57 ], [ %107, %.loopexit25 ], [ %89, %85 ], [ 0, %108 ]
+  %.us-phi9 = phi i32 [ %105, %.loopexit25 ], [ %58, %57 ], [ %86, %85 ], [ 0, %108 ]
+  %.us-phi10 = phi i8 [ %106, %.loopexit25 ], [ %59, %57 ], [ %87, %85 ], [ 0, %108 ]
+  %.us-phi11 = phi i64 [ %107, %.loopexit25 ], [ %61, %57 ], [ %89, %85 ], [ 0, %108 ]
   %111 = icmp ne i8 %.us-phi10, 0
   br label %112
 
@@ -4919,7 +4919,7 @@ define dso_local i32 @security_getselfattr(i32 noundef %0, ptr noundef %1, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %73, %45, %103, %125, %112, %28, %25, %21, %10, %4
-  %128 = phi i32 [ -22, %4 ], [ -14, %10 ], [ -22, %21 ], [ -14, %25 ], [ -22, %28 ], [ %124, %112 ], [ %127, %125 ], [ %44, %45 ], [ %102, %103 ], [ %72, %73 ]
+  %128 = phi i32 [ -22, %4 ], [ -14, %10 ], [ -22, %21 ], [ -14, %25 ], [ -22, %28 ], [ %124, %112 ], [ %127, %125 ], [ %102, %103 ], [ %44, %45 ], [ %72, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %128

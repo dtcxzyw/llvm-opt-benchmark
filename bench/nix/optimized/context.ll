@@ -1314,7 +1314,7 @@ _ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableIN3nix20NixStringContextElem7Drv
   br label %common.resume
 
 common.resume:                                    ; preds = %43, %_ZN2rc2fn8ConstantINS_10ShrinkableIN3nix20NixStringContextElem7DrvDeepEEEED2Ev.exit5, %34, %11, %_ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableIN3nix20NixStringContextElem7DrvDeepEEEE8ISeqImplEEclEPS8_.exit.i.i3.i
-  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %12, %_ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableIN3nix20NixStringContextElem7DrvDeepEEEE8ISeqImplEEclEPS8_.exit.i.i3.i ], [ %35, %43 ], [ %35, %_ZN2rc2fn8ConstantINS_10ShrinkableIN3nix20NixStringContextElem7DrvDeepEEEED2Ev.exit5 ], [ %35, %34 ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %_ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableIN3nix20NixStringContextElem7DrvDeepEEEE8ISeqImplEEclEPS8_.exit.i.i3.i ], [ %12, %11 ], [ %35, %_ZN2rc2fn8ConstantINS_10ShrinkableIN3nix20NixStringContextElem7DrvDeepEEEED2Ev.exit5 ], [ %35, %43 ], [ %35, %34 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %_ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableIN3nix20NixStringContextElem7DrvDeepEEEE8ISeqImplEEclEPS8_.exit.i.i.i, %6
@@ -2313,8 +2313,8 @@ _ZN3nix22SingleDerivedPathBuiltD2Ev.exit:         ; preds = %_ZNSt7__cxx1112basi
   unreachable
 
 _ZN2rc3GenIN3nix17DerivedPathOpaqueEED2Ev.exit.sink.split: ; preds = %201, %109, %67
-  %.sink58 = phi ptr [ %111, %109 ], [ %69, %67 ], [ %203, %201 ]
-  %.sink.ph = phi ptr [ %110, %109 ], [ %68, %67 ], [ %202, %201 ]
+  %.sink58 = phi ptr [ %69, %67 ], [ %111, %109 ], [ %203, %201 ]
+  %.sink.ph = phi ptr [ %68, %67 ], [ %110, %109 ], [ %202, %201 ]
   call void @_ZdlPv(ptr noundef %.sink58) #23
   br label %_ZN2rc3GenIN3nix17DerivedPathOpaqueEED2Ev.exit
 
@@ -2630,7 +2630,7 @@ _ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableIN3nix20NixStringContextElemEEEE
   br label %common.resume
 
 common.resume:                                    ; preds = %43, %_ZN2rc2fn8ConstantINS_10ShrinkableIN3nix20NixStringContextElemEEEED2Ev.exit5, %34, %11, %_ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableIN3nix20NixStringContextElemEEEE8ISeqImplEEclEPS7_.exit.i.i3.i
-  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %12, %_ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableIN3nix20NixStringContextElemEEEE8ISeqImplEEclEPS7_.exit.i.i3.i ], [ %35, %43 ], [ %35, %_ZN2rc2fn8ConstantINS_10ShrinkableIN3nix20NixStringContextElemEEEED2Ev.exit5 ], [ %35, %34 ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %_ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableIN3nix20NixStringContextElemEEEE8ISeqImplEEclEPS7_.exit.i.i3.i ], [ %12, %11 ], [ %35, %_ZN2rc2fn8ConstantINS_10ShrinkableIN3nix20NixStringContextElemEEEED2Ev.exit5 ], [ %35, %43 ], [ %35, %34 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %_ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableIN3nix20NixStringContextElemEEEE8ISeqImplEEclEPS7_.exit.i.i.i, %6
@@ -6584,7 +6584,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !132
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %16, %15 ], [ %8, %7 ], [ %12, %11 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
   %21 = add i32 %.0.i, %.lobit
   %22 = zext i32 %21 to i64

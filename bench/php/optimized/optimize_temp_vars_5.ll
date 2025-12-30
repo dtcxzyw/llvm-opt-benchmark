@@ -373,7 +373,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph227, %.critedge, %194, %91
-  %.1167 = phi i32 [ %.0166244, %91 ], [ %.2, %194 ], [ %124, %.critedge ], [ %124, %.lr.ph227 ]
+  %.1167 = phi i32 [ %.2, %194 ], [ %.0166244, %91 ], [ %124, %.critedge ], [ %124, %.lr.ph227 ]
   %199 = getelementptr inbounds nuw i8, ptr %.1165245, i64 30
   %200 = load i8, ptr %199, align 2, !tbaa !48
   %201 = and i8 %200, 6
@@ -562,7 +562,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
   br i1 %305, label %293, label %.thread
 
 .thread:                                          ; preds = %293, %284, %269, %261, %272, %232
-  %.7 = phi i32 [ %.4, %232 ], [ %.8, %272 ], [ %.8, %261 ], [ %.8, %269 ], [ %.8, %284 ], [ %.8, %293 ]
+  %.7 = phi i32 [ %.8, %272 ], [ %.8, %261 ], [ %.4, %232 ], [ %.8, %269 ], [ %.8, %284 ], [ %.8, %293 ]
   %306 = getelementptr inbounds i8, ptr %.1165245, i64 -32
   %.not176 = icmp ult ptr %306, %85
   br i1 %.not176, label %._crit_edge252, label %91

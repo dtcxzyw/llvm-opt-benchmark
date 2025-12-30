@@ -213,8 +213,8 @@ define hidden void @_ZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP1
   br label %_ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit.i.i
 
 _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit.i.i: ; preds = %39, %.preheader.i.i.i.i.i, %.lr.ph.i.i
-  %.sroa.10.2.i.i = phi i32 [ %.0.i.i.i.i.i.i, %39 ], [ %.0.i.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.sroa.10.126.i.i, %.lr.ph.i.i ]
-  %.sroa.16.2.i.i = phi ptr [ %25, %39 ], [ %25, %.preheader.i.i.i.i.i ], [ %.sroa.16.127.i.i, %.lr.ph.i.i ]
+  %.sroa.10.2.i.i = phi i32 [ %.0.i.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.0.i.i.i.i.i.i, %39 ], [ %.sroa.10.126.i.i, %.lr.ph.i.i ]
+  %.sroa.16.2.i.i = phi ptr [ %25, %.preheader.i.i.i.i.i ], [ %25, %39 ], [ %.sroa.16.127.i.i, %.lr.ph.i.i ]
   %40 = getelementptr inbounds ptr, ptr %.sroa.16.2.i.i, i64 %indvars.iv.i.i
   store ptr %.028.i.i, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 32

@@ -170,7 +170,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockINS_6MatrixIdLin1ELin1ELi0EL
   br i1 %exitcond100.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit, label %.lr.ph93.i.i.i.i, !llvm.loop !23
 
 _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph88.i.i.i.i, %.lr.ph93.i.i.i.i, %.preheader.i.i.i.i, %70
-  %.2.i.i.i.i = phi double [ %76, %.lr.ph93.i.i.i.i ], [ %71, %70 ], [ %.069.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %67, %.lr.ph88.i.i.i.i ]
+  %.2.i.i.i.i = phi double [ %71, %70 ], [ %.069.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %76, %.lr.ph93.i.i.i.i ], [ %67, %.lr.ph88.i.i.i.i ]
   br i1 %.not.i.i.i.i.i.i.i.i, label %78, label %_ZN5Eigen8internalL21first_default_alignedINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i34
 
 78:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit
@@ -290,7 +290,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockINS_6MatrixIdLin1ELin1ELi0EL
   br i1 %exitcond100.not.i.i.i.i65, label %.loopexit82, label %.lr.ph93.i.i.i.i62, !llvm.loop !28
 
 .loopexit82:                                      ; preds = %.lr.ph88.i.i.i.i44, %.lr.ph93.i.i.i.i62, %.preheader.i.i.i.i41, %127
-  %.2.i.i.i.i43 = phi double [ %133, %.lr.ph93.i.i.i.i62 ], [ %128, %127 ], [ %.069.lcssa.i.i.i.i42, %.preheader.i.i.i.i41 ], [ %124, %.lr.ph88.i.i.i.i44 ]
+  %.2.i.i.i.i43 = phi double [ %128, %127 ], [ %.069.lcssa.i.i.i.i42, %.preheader.i.i.i.i41 ], [ %133, %.lr.ph93.i.i.i.i62 ], [ %124, %.lr.ph88.i.i.i.i44 ]
   %135 = fsub double %.2.i.i.i.i, %.2.i.i.i.i43
   %136 = load i32, ptr %8, align 4, !tbaa !29
   %137 = add nsw i32 %136, -1
@@ -574,7 +574,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockINS_6MatrixIdLin1ELin1ELi0EL
   br i1 %exitcond100.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit, label %.lr.ph93.i.i.i.i, !llvm.loop !23
 
 _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph88.i.i.i.i, %.lr.ph93.i.i.i.i, %.preheader.i.i.i.i, %69
-  %.2.i.i.i.i = phi double [ %75, %.lr.ph93.i.i.i.i ], [ %70, %69 ], [ %.069.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %66, %.lr.ph88.i.i.i.i ]
+  %.2.i.i.i.i = phi double [ %70, %69 ], [ %.069.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %75, %.lr.ph93.i.i.i.i ], [ %66, %.lr.ph88.i.i.i.i ]
   br i1 %.not.i.i.i.i.i.i.i.i, label %77, label %_ZN5Eigen8internalL21first_default_alignedINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i34
 
 77:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit
@@ -694,7 +694,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockINS_6MatrixIdLin1ELin1ELi0EL
   br i1 %exitcond100.not.i.i.i.i65, label %.loopexit82, label %.lr.ph93.i.i.i.i62, !llvm.loop !28
 
 .loopexit82:                                      ; preds = %.lr.ph88.i.i.i.i44, %.lr.ph93.i.i.i.i62, %.preheader.i.i.i.i41, %126
-  %.2.i.i.i.i43 = phi double [ %132, %.lr.ph93.i.i.i.i62 ], [ %127, %126 ], [ %.069.lcssa.i.i.i.i42, %.preheader.i.i.i.i41 ], [ %123, %.lr.ph88.i.i.i.i44 ]
+  %.2.i.i.i.i43 = phi double [ %127, %126 ], [ %.069.lcssa.i.i.i.i42, %.preheader.i.i.i.i41 ], [ %132, %.lr.ph93.i.i.i.i62 ], [ %123, %.lr.ph88.i.i.i.i44 ]
   %134 = fsub double %.2.i.i.i.i, %.2.i.i.i.i43
   %135 = load i32, ptr %8, align 4, !tbaa !29
   %136 = add nsw i32 %135, -1
@@ -998,7 +998,7 @@ _ZNK5Eigen8internal13scalar_max_opIffLi0EE6preduxIDv4_fEEfRKT_.exit.i.i.i.i: ; p
   br i1 %exitcond99.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit, label %.lr.ph92.i.i.i.i, !llvm.loop !67
 
 _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph87.i.i.i.i, %.lr.ph92.i.i.i.i, %.preheader.i.i.i.i, %80
-  %.2.i.i.i.i = phi float [ %86, %.lr.ph92.i.i.i.i ], [ %81, %80 ], [ %.069.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %77, %.lr.ph87.i.i.i.i ]
+  %.2.i.i.i.i = phi float [ %81, %80 ], [ %.069.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %86, %.lr.ph92.i.i.i.i ], [ %77, %.lr.ph87.i.i.i.i ]
   br i1 %.not.i.i.i.i.i.i.i.i, label %88, label %_ZN5Eigen8internalL21first_default_alignedINS_5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i34
 
 88:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit
@@ -1143,7 +1143,7 @@ _ZNK5Eigen8internal13scalar_min_opIffLi0EE6preduxIDv4_fEEfRKT_.exit.i.i.i.i: ; p
   br i1 %exitcond99.not.i.i.i.i68, label %.loopexit87, label %.lr.ph92.i.i.i.i65, !llvm.loop !72
 
 .loopexit87:                                      ; preds = %.lr.ph87.i.i.i.i47, %.lr.ph92.i.i.i.i65, %.preheader.i.i.i.i44, %146
-  %.2.i.i.i.i46 = phi float [ %152, %.lr.ph92.i.i.i.i65 ], [ %147, %146 ], [ %.069.lcssa.i.i.i.i45, %.preheader.i.i.i.i44 ], [ %143, %.lr.ph87.i.i.i.i47 ]
+  %.2.i.i.i.i46 = phi float [ %147, %146 ], [ %.069.lcssa.i.i.i.i45, %.preheader.i.i.i.i44 ], [ %152, %.lr.ph92.i.i.i.i65 ], [ %143, %.lr.ph87.i.i.i.i47 ]
   %154 = fsub float %.2.i.i.i.i, %.2.i.i.i.i46
   %155 = load i32, ptr %8, align 4, !tbaa !29
   %156 = add nsw i32 %155, -1
@@ -1426,7 +1426,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockINS_6MatrixIdLin1ELin1ELi0EL
   br i1 %exitcond100.not.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit, label %.lr.ph93.i.i.i.i, !llvm.loop !23
 
 _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit: ; preds = %.lr.ph88.i.i.i.i, %.lr.ph93.i.i.i.i, %.preheader.i.i.i.i, %69
-  %.2.i.i.i.i = phi double [ %75, %.lr.ph93.i.i.i.i ], [ %70, %69 ], [ %.069.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %66, %.lr.ph88.i.i.i.i ]
+  %.2.i.i.i.i = phi double [ %70, %69 ], [ %.069.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %75, %.lr.ph93.i.i.i.i ], [ %66, %.lr.ph88.i.i.i.i ]
   br i1 %.not.i.i.i.i.i.i.i.i, label %77, label %_ZN5Eigen8internalL21first_default_alignedINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i34
 
 77:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEE8maxCoeffEv.exit
@@ -1546,7 +1546,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockINS_6MatrixIdLin1ELin1ELi0EL
   br i1 %exitcond100.not.i.i.i.i65, label %.loopexit82, label %.lr.ph93.i.i.i.i62, !llvm.loop !28
 
 .loopexit82:                                      ; preds = %.lr.ph88.i.i.i.i44, %.lr.ph93.i.i.i.i62, %.preheader.i.i.i.i41, %126
-  %.2.i.i.i.i43 = phi double [ %132, %.lr.ph93.i.i.i.i62 ], [ %127, %126 ], [ %.069.lcssa.i.i.i.i42, %.preheader.i.i.i.i41 ], [ %123, %.lr.ph88.i.i.i.i44 ]
+  %.2.i.i.i.i43 = phi double [ %127, %126 ], [ %.069.lcssa.i.i.i.i42, %.preheader.i.i.i.i41 ], [ %132, %.lr.ph93.i.i.i.i62 ], [ %123, %.lr.ph88.i.i.i.i44 ]
   %134 = fsub double %.2.i.i.i.i, %.2.i.i.i.i43
   %135 = load i32, ptr %8, align 4, !tbaa !29
   %136 = add nsw i32 %135, -1

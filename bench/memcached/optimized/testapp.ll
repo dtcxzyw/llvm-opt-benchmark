@@ -4183,7 +4183,7 @@ lookuphost.exit:                                  ; preds = %13, %19, %23
   br label %68
 
 68:                                               ; preds = %51, %55, %40, %47, %62
-  %.2 = phi i32 [ -1, %40 ], [ -1, %62 ], [ %32, %47 ], [ -1, %55 ], [ %32, %51 ]
+  %.2 = phi i32 [ -1, %40 ], [ %32, %47 ], [ -1, %62 ], [ -1, %55 ], [ %32, %51 ]
   call void @freeaddrinfo(ptr noundef nonnull %24) #21
   br label %69
 
@@ -4854,7 +4854,7 @@ define internal fastcc noundef zeroext i1 @safe_recv(ptr noundef nonnull %0, i64
   br label %24
 
 24:                                               ; preds = %22, %11
-  %.217 = phi i64 [ %23, %22 ], [ %.015, %11 ]
+  %.217 = phi i64 [ %.015, %11 ], [ %23, %22 ]
   %25 = icmp ult i64 %.217, %1
   br i1 %25, label %.preheader, label %.thread, !llvm.loop !76
 
@@ -7876,7 +7876,7 @@ safe_recv_packet.exit69.sink.split:               ; preds = %safe_send.exit75, %
   br label %safe_recv_packet.exit69
 
 safe_recv_packet.exit69:                          ; preds = %safe_recv_packet.exit69.sink.split, %safe_send.exit75, %117
-  %.sink = phi i8 [ 10, %safe_send.exit75 ], [ %1, %117 ], [ %.sink.ph, %safe_recv_packet.exit69.sink.split ]
+  %.sink = phi i8 [ %1, %117 ], [ 10, %safe_send.exit75 ], [ %.sink.ph, %safe_recv_packet.exit69.sink.split ]
   call fastcc void @validate_response_header(ptr noundef %4, i8 noundef zeroext %.sink, i16 noundef zeroext 0)
   %148 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
   %149 = add i64 %148, 24

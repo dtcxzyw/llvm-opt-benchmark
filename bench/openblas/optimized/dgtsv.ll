@@ -361,7 +361,7 @@ define void @dgtsv_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   br i1 %exitcond527.not, label %.loopexit481, label %.lr.ph489, !llvm.loop !12
 
 .loopexit481:                                     ; preds = %.lr.ph489.lver.orig, %.lr.ph489, %161, %._crit_edge
-  %indvars.iv.next529.pre-phi = phi i64 [ %146, %._crit_edge ], [ %162, %161 ], [ %162, %.lr.ph489 ], [ %162, %.lr.ph489.lver.orig ]
+  %indvars.iv.next529.pre-phi = phi i64 [ %162, %161 ], [ %146, %._crit_edge ], [ %162, %.lr.ph489 ], [ %162, %.lr.ph489.lver.orig ]
   %exitcond532.not = icmp eq i64 %indvars.iv.next529.pre-phi, %wide.trip.count531
   %indvar.next = add i64 %indvar, 1
   br i1 %exitcond532.not, label %._crit_edge495, label %131, !llvm.loop !13

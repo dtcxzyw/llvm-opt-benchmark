@@ -391,7 +391,7 @@ define dso_local ptr @bdi_get_by_id(i64 noundef %0) local_unnamed_addr #1 align 
   br label %.thread
 
 .thread:                                          ; preds = %9, %1, %23, %19
-  %25 = phi ptr [ null, %1 ], [ %15, %19 ], [ %15, %23 ], [ null, %9 ]
+  %25 = phi ptr [ %15, %19 ], [ %15, %23 ], [ null, %1 ], [ null, %9 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @bdi_lock) #14
   ret ptr %25
 }

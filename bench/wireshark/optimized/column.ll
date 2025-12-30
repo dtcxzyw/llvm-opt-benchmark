@@ -876,7 +876,7 @@ define void @get_column_format_matches(ptr noundef writeonly captures(none) %0, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %7, %9, %11, %13, %15, %17, %19, %20, %21, %22, %23
-  %.sink23 = phi i64 [ 9, %23 ], [ 41, %22 ], [ 26, %21 ], [ 28, %20 ], [ 18, %19 ], [ 28, %7 ], [ 27, %17 ], [ 26, %15 ], [ 26, %13 ], [ 29, %11 ], [ 28, %9 ], [ 20, %6 ]
+  %.sink23 = phi i64 [ 9, %23 ], [ 41, %22 ], [ 26, %21 ], [ 28, %20 ], [ 18, %19 ], [ 27, %17 ], [ 26, %15 ], [ 26, %13 ], [ 29, %11 ], [ 28, %9 ], [ 28, %7 ], [ 20, %6 ]
   %24 = getelementptr i8, ptr %0, i64 %.sink23
   store i8 1, ptr %24, align 1
   br label %25
@@ -1153,7 +1153,7 @@ define ptr @get_column_longest_string(i32 noundef %0) local_unnamed_addr #1 {
   br label %get_timestamp_column_longest_string.exit
 
 get_timestamp_column_longest_string.exit:         ; preds = %.sink.split.i24, %70, %.sink.split.i20, %62, %.sink.split.i16, %54, %.sink.split.i13, %46, %.sink.split.i10, %38, %.sink.split.i7, %30, %.sink.split.i4, %22, %.sink.split.i1, %14, %.sink.split.i, %6, %1, %1, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %2
-  %.0 = phi ptr [ @.str.164, %90 ], [ @.str.163, %89 ], [ %5, %2 ], [ @.str.152, %1 ], [ @.str.216, %6 ], [ @.str.236, %14 ], [ @.str.226, %22 ], [ @.str.246, %30 ], [ %45, %.sink.split.i10 ], [ %53, %.sink.split.i13 ], [ %61, %.sink.split.i16 ], [ %69, %.sink.split.i20 ], [ @.str.153, %78 ], [ @.str.154, %79 ], [ @.str.82, %80 ], [ @.str.155, %81 ], [ @.str.156, %82 ], [ @.str.157, %83 ], [ @.str.158, %84 ], [ @.str.159, %85 ], [ @.str.160, %86 ], [ @.str.161, %87 ], [ @.str.162, %88 ], [ @.str.152, %1 ], [ %13, %.sink.split.i ], [ %21, %.sink.split.i1 ], [ %29, %.sink.split.i4 ], [ %37, %.sink.split.i7 ], [ @.str.256, %38 ], [ @.str.266, %46 ], [ @.str.275, %54 ], [ @.str.275, %62 ], [ @.str.275, %70 ], [ %77, %.sink.split.i24 ]
+  %.0 = phi ptr [ @.str.164, %90 ], [ %5, %2 ], [ @.str.153, %78 ], [ @.str.154, %79 ], [ @.str.82, %80 ], [ @.str.155, %81 ], [ @.str.156, %82 ], [ @.str.157, %83 ], [ @.str.158, %84 ], [ @.str.159, %85 ], [ @.str.160, %86 ], [ @.str.161, %87 ], [ @.str.162, %88 ], [ @.str.163, %89 ], [ @.str.152, %1 ], [ @.str.152, %1 ], [ @.str.216, %6 ], [ %13, %.sink.split.i ], [ @.str.236, %14 ], [ %21, %.sink.split.i1 ], [ @.str.226, %22 ], [ %29, %.sink.split.i4 ], [ @.str.246, %30 ], [ %37, %.sink.split.i7 ], [ @.str.256, %38 ], [ %45, %.sink.split.i10 ], [ @.str.266, %46 ], [ %53, %.sink.split.i13 ], [ @.str.275, %54 ], [ %61, %.sink.split.i16 ], [ @.str.275, %62 ], [ %69, %.sink.split.i20 ], [ @.str.275, %70 ], [ %77, %.sink.split.i24 ]
   ret ptr %.0
 }
 
@@ -1274,14 +1274,14 @@ define internal fastcc ptr @get_timestamp_column_longest_string(i32 noundef %0, 
   unreachable
 
 .sink.split:                                      ; preds = %33, %29, %25, %21, %17, %13, %9, %5
-  %ts_epoch_time.sink = phi ptr [ @ts_rel_delta_time, %29 ], [ @ts_abstime_utc, %25 ], [ @ts_abstime, %21 ], [ @ts_ydoy_utc, %17 ], [ @ts_ydoy, %13 ], [ @ts_ymd_utc, %9 ], [ @ts_ymd, %5 ], [ @ts_epoch_time, %33 ]
+  %ts_epoch_time.sink = phi ptr [ @ts_ymd, %5 ], [ @ts_ymd_utc, %9 ], [ @ts_ydoy, %13 ], [ @ts_ydoy_utc, %17 ], [ @ts_abstime, %21 ], [ @ts_abstime_utc, %25 ], [ @ts_rel_delta_time, %29 ], [ @ts_epoch_time, %33 ]
   %36 = zext nneg i32 %1 to i64
   %37 = getelementptr ptr, ptr %ts_epoch_time.sink, i64 %36
   %38 = load ptr, ptr %37, align 8
   br label %39
 
 39:                                               ; preds = %.sink.split, %2, %31, %27, %23, %19, %15, %11, %7, %3
-  %.0 = phi ptr [ @.str.285, %31 ], [ @.str.206, %2 ], [ @.str.216, %3 ], [ @.str.256, %19 ], [ @.str.226, %7 ], [ @.str.275, %27 ], [ @.str.236, %11 ], [ @.str.266, %23 ], [ @.str.246, %15 ], [ %38, %.sink.split ]
+  %.0 = phi ptr [ @.str.216, %3 ], [ @.str.226, %7 ], [ @.str.236, %11 ], [ @.str.246, %15 ], [ @.str.256, %19 ], [ @.str.266, %23 ], [ @.str.275, %27 ], [ @.str.285, %31 ], [ @.str.206, %2 ], [ %38, %.sink.split ]
   ret ptr %.0
 }
 
@@ -1927,7 +1927,7 @@ define void @col_finalize(ptr noundef readonly captures(none) %0) local_unnamed_
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %80, %79, %78, %77, %76, %74, %72, %70, %68, %66, %64, %63
-  %.sink23.i = phi i64 [ 9, %80 ], [ 41, %79 ], [ 26, %78 ], [ 28, %77 ], [ 18, %76 ], [ 28, %64 ], [ 27, %74 ], [ 26, %72 ], [ 26, %70 ], [ 29, %68 ], [ 28, %66 ], [ 20, %63 ]
+  %.sink23.i = phi i64 [ 9, %80 ], [ 41, %79 ], [ 26, %78 ], [ 28, %77 ], [ 18, %76 ], [ 27, %74 ], [ 26, %72 ], [ 26, %70 ], [ 29, %68 ], [ 28, %66 ], [ 28, %64 ], [ 20, %63 ]
   %81 = getelementptr i8, ptr %57, i64 %.sink23.i
   store i8 1, ptr %81, align 1
   br label %get_column_format_matches.exit

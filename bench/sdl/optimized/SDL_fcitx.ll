@@ -72,7 +72,7 @@ define hidden noundef zeroext i1 @SDL_Fcitx_Init() local_unnamed_addr #0 {
   br label %GetAppName.exit.i
 
 GetAppName.exit.i:                                ; preds = %15, %0
-  %.str.14.sink.i.i = phi ptr [ %spec.select.i.i, %15 ], [ @.str.14, %0 ]
+  %.str.14.sink.i.i = phi ptr [ @.str.14, %0 ], [ %spec.select.i.i, %15 ]
   %20 = call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %.str.14.sink.i.i) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -668,7 +668,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr readnone captures(no
   %112 = icmp eq i32 %111, 114
   br i1 %112, label %.lr.ph88.i, label %Fcitx_GetPreeditString.exit.thread31, !llvm.loop !6
 
-Fcitx_GetPreeditString.exit.thread:               ; preds = %26, %._crit_edge.i, %84, %34
+Fcitx_GetPreeditString.exit.thread:               ; preds = %26, %84, %._crit_edge.i, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -129,12 +129,12 @@ define internal range(i32 -22, 1) i32 @init(ptr noundef %0) #0 {
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %.lr.ph, %32, %._crit_edge, %41
-  %.0.ph = phi i32 [ 0, %._crit_edge ], [ -22, %41 ], [ -22, %32 ], [ -22, %.lr.ph ]
+  %.0.ph = phi i32 [ -22, %41 ], [ 0, %._crit_edge ], [ -22, %32 ], [ -22, %.lr.ph ]
   call void @av_free(ptr noundef nonnull %26) #5
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %24, %13, %22
-  %.0 = phi i32 [ -12, %24 ], [ -12, %22 ], [ -12, %13 ], [ %.0.ph, %.critedge.sink.split ]
+  %.0 = phi i32 [ -12, %22 ], [ -12, %13 ], [ -12, %24 ], [ %.0.ph, %.critedge.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

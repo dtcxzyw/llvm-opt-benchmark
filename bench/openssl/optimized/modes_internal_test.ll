@@ -261,7 +261,7 @@ define internal range(i32 0, 2) i32 @test_gcm128(i32 noundef %0) #0 {
   br label %44
 
 44:                                               ; preds = %35, %41, %21, %27, %18, %43
-  %.0 = phi i32 [ 1, %43 ], [ 0, %21 ], [ 0, %18 ], [ 0, %27 ], [ 0, %41 ], [ 0, %35 ]
+  %.0 = phi i32 [ 1, %43 ], [ 0, %18 ], [ 0, %27 ], [ 0, %21 ], [ 0, %41 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -409,7 +409,7 @@ cts128_decrypt_key_schedule.exit:                 ; preds = %cts128_encrypt_key_
   br label %63
 
 63:                                               ; preds = %61, %54, %59, %45, %50, %52, %31, %41, %43, %cts128_decrypt_key_schedule.exit, %24, %26
-  %.0 = phi i32 [ 0, %54 ], [ 0, %45 ], [ 0, %31 ], [ 0, %cts128_decrypt_key_schedule.exit ], [ 0, %26 ], [ 0, %24 ], [ 0, %43 ], [ 0, %41 ], [ 0, %52 ], [ 0, %50 ], [ %spec.select, %61 ], [ 0, %59 ]
+  %.0 = phi i32 [ 0, %26 ], [ 0, %24 ], [ 0, %cts128_decrypt_key_schedule.exit ], [ 0, %43 ], [ 0, %41 ], [ 0, %31 ], [ 0, %52 ], [ 0, %50 ], [ 0, %45 ], [ 0, %59 ], [ 0, %54 ], [ %spec.select, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

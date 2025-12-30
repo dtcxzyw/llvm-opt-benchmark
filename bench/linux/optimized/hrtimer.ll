@@ -692,7 +692,7 @@ define dso_local void @hrtimer_start_range_ns(ptr noundef %0, i64 noundef %1, i6
   br label %80
 
 .loopexit:                                        ; preds = %108, %106, %85, %105
-  %117 = phi ptr [ %83, %105 ], [ %83, %106 ], [ %15, %85 ], [ %83, %108 ]
+  %117 = phi ptr [ %83, %105 ], [ %83, %108 ], [ %83, %106 ], [ %15, %85 ]
   %118 = tail call fastcc i32 @enqueue_hrtimer(ptr noundef %0, ptr noundef %117, i32 noundef %3), !range !32
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %.thread4, label %127
@@ -1412,11 +1412,11 @@ define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_next_event_with
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %77, %69
-  %.be90 = phi i64 [ %76, %69 ], [ %75, %77 ]
+  %.be90 = phi i64 [ %75, %77 ], [ %76, %69 ]
   br label %.split
 
 .thread:                                          ; preds = %19, %22, %52, %49
-  %.us-phi = phi i64 [ %48, %52 ], [ %48, %49 ], [ %18, %22 ], [ %18, %19 ]
+  %.us-phi = phi i64 [ %48, %49 ], [ %48, %52 ], [ %18, %22 ], [ %18, %19 ]
   %83 = tail call i64 @llvm.smax.i64(i64 %.us-phi, i64 0)
   br label %84
 
@@ -1526,11 +1526,11 @@ define dso_local range(i64 0, -9223372036854775808) i64 @hrtimer_next_event_with
   br label %.split19.backedge
 
 .split19.backedge:                                ; preds = %150, %142
-  %.be = phi i64 [ %149, %142 ], [ %148, %150 ]
+  %.be = phi i64 [ %148, %150 ], [ %149, %142 ]
   br label %.split19
 
 .thread13:                                        ; preds = %92, %95, %125, %122
-  %.us-phi20 = phi i64 [ %121, %125 ], [ %121, %122 ], [ %91, %95 ], [ %91, %92 ]
+  %.us-phi20 = phi i64 [ %121, %122 ], [ %121, %125 ], [ %91, %95 ], [ %91, %92 ]
   %156 = tail call i64 @llvm.smax.i64(i64 %.us-phi20, i64 0)
   br label %157
 

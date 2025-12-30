@@ -54,7 +54,7 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli28BrotliSharedDictionaryAt
   br label %16
 
 16:                                               ; preds = %6, %4, %9
-  %.0 = phi i32 [ 0, %4 ], [ 1, %9 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %9 ], [ 0, %4 ], [ 0, %6 ]
   ret i32 %.0
 }
 

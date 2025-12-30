@@ -317,7 +317,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h0cdbf60c6bc4
   br label %.thread121
 
 .thread121:                                       ; preds = %..loopexit_crit_edge.split.us.us, %..loopexit_crit_edge.split.us163.us, %.thread121.sink.split, %.lr.ph159.split, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit97
-  %.0 = phi i1 [ true, %.lr.ph159.split ], [ true, %..loopexit_crit_edge.split.us163.us ], [ true, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit97 ], [ %22, %.thread121.sink.split ], [ true, %..loopexit_crit_edge.split.us.us ]
+  %.0 = phi i1 [ true, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit97 ], [ true, %.lr.ph159.split ], [ %22, %.thread121.sink.split ], [ true, %..loopexit_crit_edge.split.us163.us ], [ true, %..loopexit_crit_edge.split.us.us ]
   ret i1 %.0
 
 143:                                              ; preds = %44
@@ -892,7 +892,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h3c7c22b86ba8
   br label %.thread133
 
 .thread133:                                       ; preds = %..loopexit_crit_edge.us, %.thread133.sink.split, %.lr.ph166.split, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit98
-  %.0 = phi i1 [ true, %.lr.ph166.split ], [ %32, %.thread133.sink.split ], [ true, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit98 ], [ true, %..loopexit_crit_edge.us ]
+  %.0 = phi i1 [ true, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit98 ], [ true, %.lr.ph166.split ], [ %32, %.thread133.sink.split ], [ true, %..loopexit_crit_edge.us ]
   ret i1 %.0
 
 172:                                              ; preds = %54
@@ -1444,7 +1444,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h709fa1febefc
   br label %.thread126
 
 .thread126:                                       ; preds = %..loopexit_crit_edge.us, %.thread126.sink.split, %.lr.ph165.split, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit96
-  %.0 = phi i1 [ true, %.lr.ph165.split ], [ %26, %.thread126.sink.split ], [ true, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit96 ], [ true, %..loopexit_crit_edge.us ]
+  %.0 = phi i1 [ true, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit96 ], [ true, %.lr.ph165.split ], [ %26, %.thread126.sink.split ], [ true, %..loopexit_crit_edge.us ]
   ret i1 %.0
 
 182:                                              ; preds = %48

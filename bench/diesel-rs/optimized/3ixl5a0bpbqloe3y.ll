@@ -264,7 +264,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
           to label %99 unwind label %.split72.us.split
 
 99:                                               ; preds = %97, %94
-  %.051.us = phi ptr [ %98, %97 ], [ null, %94 ]
+  %.051.us = phi ptr [ null, %94 ], [ %98, %97 ]
   invoke void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVariablesMap11process_pat17hc0d3f3fc831e3cafE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %9, ptr align 8 %1, ptr nonnull align 8 %.fca.1.extract.us, ptr align 8 null, ptr align 8 %.051.us)
           to label %100 unwind label %.split72.us.split
 
@@ -301,7 +301,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
           to label %112 unwind label %.split72.split.us
 
 112:                                              ; preds = %110, %107
-  %.052.us80 = phi ptr [ %111, %110 ], [ null, %107 ]
+  %.052.us80 = phi ptr [ null, %107 ], [ %111, %110 ]
   invoke void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVariablesMap11process_pat17hc0d3f3fc831e3cafE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %9, ptr align 8 %1, ptr nonnull align 8 %.fca.1.extract.us79, ptr align 8 %.052.us80, ptr align 8 null)
           to label %113 unwind label %.split72.split.us
 
@@ -353,7 +353,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
   br label %.split72.us
 
 .split72.us:                                      ; preds = %.split72.split, %.split72.split.us, %.split72.us.split, %.split72.us.split.us
-  %.us-phi = phi { ptr, i32 } [ %90, %.split72.us.split.us ], [ %103, %.split72.us.split ], [ %132, %.split72.split ], [ %116, %.split72.split.us ]
+  %.us-phi = phi { ptr, i32 } [ %103, %.split72.us.split ], [ %90, %.split72.us.split.us ], [ %132, %.split72.split ], [ %116, %.split72.split.us ]
   invoke void @"_ZN4core3ptr113drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$syn..punctuated..Iter$LT$syn..pat..Pat$GT$$GT$$GT$17h441ed21324aec38eE"(ptr nonnull align 8 %10) #6
           to label %65 unwind label %63
 
@@ -377,7 +377,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
           to label %140 unwind label %.split72.split
 
 140:                                              ; preds = %138, %135
-  %.052 = phi ptr [ %139, %138 ], [ null, %135 ]
+  %.052 = phi ptr [ null, %135 ], [ %139, %138 ]
   %141 = load i64, ptr %.fr, align 8, !range !7, !noundef !4
   %142 = icmp eq i64 %141, 33
   br i1 %142, label %143, label %145
@@ -387,7 +387,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
           to label %145 unwind label %.split72.split
 
 145:                                              ; preds = %143, %140
-  %.051 = phi ptr [ %144, %143 ], [ null, %140 ]
+  %.051 = phi ptr [ null, %140 ], [ %144, %143 ]
   invoke void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVariablesMap11process_pat17hc0d3f3fc831e3cafE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %9, ptr align 8 %1, ptr nonnull align 8 %.fca.1.extract, ptr align 8 %.052, ptr align 8 %.051)
           to label %146 unwind label %.split72.split
 
@@ -397,7 +397,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type19local_variables_map17LocalVari
   br i1 %148, label %.split.split, label %.split76.us
 
 .split76.us:                                      ; preds = %146, %113, %100, %87
-  %.us-phi77 = phi i64 [ %114, %113 ], [ %101, %100 ], [ %88, %87 ], [ %147, %146 ]
+  %.us-phi77 = phi i64 [ %88, %87 ], [ %101, %100 ], [ %114, %113 ], [ %147, %146 ]
   %.sroa.043.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %.us-phi77, ptr %0, align 8
   %.sroa.247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8

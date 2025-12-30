@@ -552,7 +552,7 @@ define internal range(i32 4, 0) i32 @decode_frame(ptr noundef %0, ptr noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %77, %48, %46, %34, %.critedge, %.loopexit, %267, %240, %._crit_edge312, %69, %58, %51, %22, %13
-  %.0 = phi i32 [ -1094995529, %13 ], [ -1163346256, %22 ], [ %11, %46 ], [ -1094995529, %._crit_edge312 ], [ %11, %.loopexit ], [ %238, %240 ], [ %265, %267 ], [ -1094995529, %34 ], [ %94, %.critedge ], [ 8, %51 ], [ -1094995529, %58 ], [ -1094995529, %69 ], [ -1094995529, %48 ], [ -12, %77 ]
+  %.0 = phi i32 [ -1094995529, %13 ], [ -1163346256, %22 ], [ -1094995529, %._crit_edge312 ], [ %11, %.loopexit ], [ %238, %240 ], [ %265, %267 ], [ -1094995529, %34 ], [ 8, %51 ], [ -1094995529, %58 ], [ -1094995529, %69 ], [ %94, %.critedge ], [ -1094995529, %48 ], [ %11, %46 ], [ -12, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -822,12 +822,12 @@ get_vlc2.exit.us.us:                              ; preds = %144, %124, %.lr.ph.
   br i1 %167, label %.sink.split, label %121
 
 .sink.split:                                      ; preds = %._crit_edge.us, %get_vlc2.exit.us57, %get_vlc2.exit.us.us, %.preheader44, %.preheader.lr.ph
-  %.034.ph = phi i32 [ 0, %.preheader44 ], [ -1094995529, %get_vlc2.exit.us57 ], [ -1094995529, %get_vlc2.exit.us.us ], [ 0, %.preheader.lr.ph ], [ 0, %._crit_edge.us ]
+  %.034.ph = phi i32 [ 0, %.preheader.lr.ph ], [ 0, %.preheader44 ], [ -1094995529, %get_vlc2.exit.us.us ], [ -1094995529, %get_vlc2.exit.us57 ], [ 0, %._crit_edge.us ]
   call void @ff_vlc_free(ptr noundef nonnull %10) #7
   br label %168
 
 168:                                              ; preds = %.sink.split, %21, %17
-  %.034 = phi i32 [ -1094995529, %21 ], [ %19, %17 ], [ %.034.ph, %.sink.split ]
+  %.034 = phi i32 [ %19, %17 ], [ -1094995529, %21 ], [ %.034.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.034

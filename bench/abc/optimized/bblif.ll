@@ -345,8 +345,8 @@ Bbl_ManFileSize.exit:                             ; preds = %4, %5
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %56, %58, %48, %50
-  %.sink34 = phi ptr [ %51, %50 ], [ %49, %48 ], [ %57, %56 ], [ %59, %58 ]
-  %.sink = phi i32 [ 16, %50 ], [ 16, %48 ], [ %53, %56 ], [ %53, %58 ]
+  %.sink34 = phi ptr [ %49, %48 ], [ %51, %50 ], [ %57, %56 ], [ %59, %58 ]
+  %.sink = phi i32 [ 16, %48 ], [ 16, %50 ], [ %53, %56 ], [ %53, %58 ]
   store ptr %.sink34, ptr %34, align 8, !tbaa !28
   store i32 %.sink, ptr %31, align 8, !tbaa !27
   br label %Vec_IntPush.exit
@@ -2542,7 +2542,7 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %..loopexit25_crit_e
   br i1 %exitcond165.not, label %.loopexit, label %.lr.ph126, !llvm.loop !67
 
 .loopexit:                                        ; preds = %.lr.ph126, %105, %2, %14
-  %.067 = phi ptr [ null, %2 ], [ null, %14 ], [ %18, %105 ], [ %18, %.lr.ph126 ]
+  %.067 = phi ptr [ null, %14 ], [ null, %2 ], [ %18, %105 ], [ %18, %.lr.ph126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.067
 }

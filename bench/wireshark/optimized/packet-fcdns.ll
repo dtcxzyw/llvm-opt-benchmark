@@ -553,8 +553,8 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %98
 
 98:                                               ; preds = %95, %90
-  %.1 = phi i32 [ %., %95 ], [ %23, %90 ]
-  %.0222 = phi i32 [ %.237, %95 ], [ 0, %90 ]
+  %.1 = phi i32 [ %23, %90 ], [ %., %95 ]
+  %.0222 = phi i32 [ 0, %90 ], [ %.237, %95 ]
   %.not242 = icmp eq i32 %.1, 32769
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %100 = load ptr, ptr %99, align 8
@@ -576,7 +576,7 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %162
 
 106:                                              ; preds = %.thread, %83, %102, %78
-  %.0223 = phi i32 [ %23, %78 ], [ %23, %83 ], [ %.1, %102 ], [ 32769, %.thread ]
+  %.0223 = phi i32 [ %23, %78 ], [ %.1, %102 ], [ %23, %83 ], [ 32769, %.thread ]
   br i1 %.not, label %107, label %112
 
 107:                                              ; preds = %106
@@ -827,7 +827,7 @@ dissect_fcdns_daid.exit:                          ; preds = %147, %147, %148, %1
   br label %162
 
 162:                                              ; preds = %4, %dissect_fcdns_daid.exit, %104, %85
-  %.0 = phi i32 [ 0, %85 ], [ %161, %dissect_fcdns_daid.exit ], [ 0, %104 ], [ 0, %4 ]
+  %.0 = phi i32 [ %161, %dissect_fcdns_daid.exit ], [ 0, %104 ], [ 0, %85 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

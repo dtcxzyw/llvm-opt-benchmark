@@ -1859,7 +1859,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %108, %140, %67, %97, %46
-  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %47, %46 ], [ %eh.lpad-body16.i, %97 ], [ %eh.lpad-body16.i22, %140 ], [ %109, %108 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %eh.lpad-body16.i, %97 ], [ %68, %67 ], [ %eh.lpad-body16.i22, %140 ], [ %109, %108 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17hcfb62ea6f5469724E.exit.i": ; preds = %44
@@ -2329,7 +2329,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %123, %156, %76, %109, %53
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %77, %76 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h0385b5c81392d121E.exit.i": ; preds = %51
@@ -2808,7 +2808,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %108, %140, %67, %97, %46
-  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %47, %46 ], [ %eh.lpad-body16.i, %97 ], [ %eh.lpad-body16.i22, %140 ], [ %109, %108 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %eh.lpad-body16.i, %97 ], [ %68, %67 ], [ %eh.lpad-body16.i22, %140 ], [ %109, %108 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h0f52b6c42a50b932E.exit.i": ; preds = %44
@@ -3278,7 +3278,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %123, %156, %76, %109, %53
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %77, %76 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h92b9eedaf9ee8590E.exit.i": ; preds = %51
@@ -3762,7 +3762,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %123, %156, %76, %109, %53
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %77, %76 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17he23f18ff4d7d5b4aE.exit.i": ; preds = %51
@@ -4246,7 +4246,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %123, %156, %76, %109, %53
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %77, %76 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17hfaa38124ce6b536dE.exit.i": ; preds = %51
@@ -4730,7 +4730,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %123, %156, %76, %109, %53
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %77, %76 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h3dd1a457539efc70E.exit.i": ; preds = %51
@@ -5214,7 +5214,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %123, %156, %76, %109, %53
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %77, %76 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h90d3fbe6bf70429eE.exit.i": ; preds = %51
@@ -5698,7 +5698,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %123, %156, %76, %109, %53
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %77, %76 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h0fac2170a436d687E.exit.i": ; preds = %51
@@ -6182,7 +6182,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %123, %156, %76, %109, %53
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %77, %76 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h5e2255aa23471257E.exit.i": ; preds = %51
@@ -6666,7 +6666,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %123, %156, %76, %109, %53
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %77, %76 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h3df45b693e99e591E.exit.i": ; preds = %51
@@ -7145,7 +7145,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %108, %140, %67, %97, %46
-  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %47, %46 ], [ %eh.lpad-body16.i, %97 ], [ %eh.lpad-body16.i22, %140 ], [ %109, %108 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %eh.lpad-body16.i, %97 ], [ %68, %67 ], [ %eh.lpad-body16.i22, %140 ], [ %109, %108 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h7abfcebe03058ba3E.exit.i": ; preds = %44
@@ -7610,7 +7610,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %108, %140, %67, %97, %46
-  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %47, %46 ], [ %eh.lpad-body16.i, %97 ], [ %eh.lpad-body16.i22, %140 ], [ %109, %108 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %eh.lpad-body16.i, %97 ], [ %68, %67 ], [ %eh.lpad-body16.i22, %140 ], [ %109, %108 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h102762ebaa262161E.exit.i": ; preds = %44
@@ -8080,7 +8080,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %123, %156, %76, %109, %53
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %77, %76 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17hf3728b1785e97299E.exit.i": ; preds = %51
@@ -8563,7 +8563,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %104, %136, %63, %93, %42
-  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %43, %42 ], [ %eh.lpad-body16.i, %93 ], [ %eh.lpad-body16.i23, %136 ], [ %105, %104 ]
+  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %eh.lpad-body16.i, %93 ], [ %64, %63 ], [ %eh.lpad-body16.i23, %136 ], [ %105, %104 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h246c7aff923359b9E.exit.i": ; preds = %39
@@ -9033,7 +9033,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %123, %156, %76, %109, %53
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %77, %76 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h8e3d785f66161e43E.exit.i": ; preds = %51
@@ -9517,7 +9517,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %123, %156, %76, %109, %53
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %77, %76 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17hbda86d5f9f69fe5fE.exit.i": ; preds = %51
@@ -10001,7 +10001,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %123, %156, %76, %109, %53
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %77, %76 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h6e62bcd434911b07E.exit.i": ; preds = %51
@@ -10480,7 +10480,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %108, %140, %67, %97, %46
-  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %47, %46 ], [ %eh.lpad-body16.i, %97 ], [ %eh.lpad-body16.i22, %140 ], [ %109, %108 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %eh.lpad-body16.i, %97 ], [ %68, %67 ], [ %eh.lpad-body16.i22, %140 ], [ %109, %108 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb39be3beaf69b75eE.exit.i": ; preds = %44
@@ -10945,7 +10945,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %108, %140, %67, %97, %46
-  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %47, %46 ], [ %eh.lpad-body16.i, %97 ], [ %eh.lpad-body16.i22, %140 ], [ %109, %108 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %eh.lpad-body16.i, %97 ], [ %68, %67 ], [ %eh.lpad-body16.i22, %140 ], [ %109, %108 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h565a10656253db45E.exit.i": ; preds = %44
@@ -11415,7 +11415,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %123, %156, %76, %109, %53
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %77, %76 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h249e9f62c5619fa4E.exit.i": ; preds = %51
@@ -11899,7 +11899,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %123, %156, %76, %109, %53
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %eh.lpad-body16.i, %109 ], [ %77, %76 ], [ %eh.lpad-body16.i23, %156 ], [ %124, %123 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17hac24d637e12446acE.exit.i": ; preds = %51
@@ -12378,7 +12378,7 @@ define internal fastcc void @"_ZN135_$LT$clap_builder..builder..value_parser..En
   unreachable
 
 common.resume:                                    ; preds = %108, %140, %67, %97, %46
-  %common.resume.op = phi { ptr, i32 } [ %68, %67 ], [ %47, %46 ], [ %eh.lpad-body16.i, %97 ], [ %eh.lpad-body16.i22, %140 ], [ %109, %108 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %eh.lpad-body16.i, %97 ], [ %68, %67 ], [ %eh.lpad-body16.i22, %140 ], [ %109, %108 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN135_$LT$clap_builder..builder..value_parser..EnumValueParser$LT$E$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h7b1ca42b398fe74cE.exit.i": ; preds = %44
@@ -14514,7 +14514,7 @@ thread-pre-split.i:                               ; preds = %63
   br label %505
 
 .loopexit117:                                     ; preds = %.preheader89.i, %100, %.preheader85.i, %128, %.preheader.i, %.preheader87.i
-  %.sroa.1662.0 = phi i64 [ %105, %100 ], [ %133, %128 ], [ %.sroa.023.0.i, %.preheader85.i ], [ 0, %.preheader.i ], [ 0, %.preheader87.i ], [ %.sroa.023.3.i, %.preheader89.i ]
+  %.sroa.1662.0 = phi i64 [ 0, %.preheader.i ], [ 0, %.preheader87.i ], [ %133, %128 ], [ %.sroa.023.0.i, %.preheader85.i ], [ %105, %100 ], [ %.sroa.023.3.i, %.preheader89.i ]
   store i64 %.sroa.1662.0, ptr %61, align 8
   %137 = load i64, ptr %1, align 8, !range !13, !alias.scope !1855, !noundef !11
   switch i64 %137, label %default.unreachable [
@@ -14542,25 +14542,25 @@ default.unreachable:                              ; preds = %291, %246, %"_ZN134
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %146 = load i64, ptr %145, align 8, !range !13, !alias.scope !1870, !noundef !11
   switch i64 %146, label %default.unreachable [
-    i64 0, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit
-    i64 1, label %147
+    i64 0, label %147
+    i64 1, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit
     i64 2, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread99
   ]
 
 147:                                              ; preds = %"_ZN134_$LT$$LP$core..ops..range..Bound$LT$T$GT$$C$core..ops..range..Bound$LT$T$GT$$RP$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$11start_bound17h342a438552d7c53aE.exit.i"
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %149 = load i64, ptr %148, align 8, !alias.scope !1873, !noalias !1876, !noundef !11
-  %150 = icmp slt i64 %.sroa.1662.0, %149
-  br i1 %150, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread99, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread
-
-_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit: ; preds = %"_ZN134_$LT$$LP$core..ops..range..Bound$LT$T$GT$$C$core..ops..range..Bound$LT$T$GT$$RP$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$11start_bound17h342a438552d7c53aE.exit.i"
-  %151 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %152 = load i64, ptr %151, align 8, !alias.scope !1878, !noalias !1881, !noundef !11
-  %.not = icmp sgt i64 %.sroa.1662.0, %152
+  %.not = icmp sgt i64 %.sroa.1662.0, %149
   br i1 %.not, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread99
 
-.loopexit:                                        ; preds = %91, %89, %80, %.lr.ph.i, %108, %117, %119, %.lr.ph107.i, %68, %68, %63
-  %.sroa.5.0.ph = phi i8 [ 2, %119 ], [ 1, %68 ], [ 0, %63 ], [ 1, %68 ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph107.i ], [ 1, %108 ], [ 2, %117 ], [ 1, %80 ], [ 3, %91 ], [ 3, %89 ]
+_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit: ; preds = %"_ZN134_$LT$$LP$core..ops..range..Bound$LT$T$GT$$C$core..ops..range..Bound$LT$T$GT$$RP$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$11start_bound17h342a438552d7c53aE.exit.i"
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %151 = load i64, ptr %150, align 8, !alias.scope !1878, !noalias !1881, !noundef !11
+  %152 = icmp slt i64 %.sroa.1662.0, %151
+  br i1 %152, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread99, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread
+
+.loopexit:                                        ; preds = %80, %89, %91, %.lr.ph.i, %108, %117, %119, %.lr.ph107.i, %63, %68, %68
+  %.sroa.5.0.ph = phi i8 [ 1, %68 ], [ 1, %68 ], [ 0, %63 ], [ 1, %.lr.ph107.i ], [ 1, %108 ], [ 2, %117 ], [ 2, %119 ], [ 1, %.lr.ph.i ], [ 1, %80 ], [ 3, %89 ], [ 3, %91 ]
   %153 = icmp eq ptr %3, null
   br i1 %153, label %154, label %163
 
@@ -14634,7 +14634,7 @@ _ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit: ; preds = %"_
   unreachable
 
 common.resume:                                    ; preds = %475, %502, %456, %219, %167, %203
-  %common.resume.op = phi { ptr, i32 } [ %503, %502 ], [ %.pn.ph.i, %203 ], [ %220, %219 ], [ %168, %167 ], [ %.pn.pn.ph, %456 ], [ %476, %475 ]
+  %common.resume.op = phi { ptr, i32 } [ %168, %167 ], [ %.pn.ph.i, %203 ], [ %220, %219 ], [ %.pn.pn.ph, %456 ], [ %476, %475 ], [ %503, %502 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hceac92d9ab184821E.exit.i": ; preds = %169
@@ -15099,7 +15099,7 @@ _ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread99: ; pr
   br label %291
 
 .body.i:                                          ; preds = %408, %381, %352, %336, %323, %313, %289
-  %.pn.i = phi { ptr, i32 } [ %409, %408 ], [ %353, %352 ], [ %382, %381 ], [ %324, %323 ], [ %314, %313 ], [ %290, %289 ], [ %337, %336 ]
+  %.pn.i = phi { ptr, i32 } [ %353, %352 ], [ %382, %381 ], [ %409, %408 ], [ %290, %289 ], [ %314, %313 ], [ %324, %323 ], [ %337, %336 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h058b106c7de892c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %39) #30
           to label %.thread110 unwind label %369, !noalias !1929
 
@@ -15588,7 +15588,7 @@ _ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread99: ; pr
   unreachable
 
 .thread110:                                       ; preds = %253, %266, %276, %.body.i, %427, %438, %445
-  %.pn109 = phi { ptr, i32 } [ %446, %445 ], [ %439, %438 ], [ %428, %427 ], [ %.pn.i, %.body.i ], [ %267, %266 ], [ %254, %253 ], [ %277, %276 ]
+  %.pn109 = phi { ptr, i32 } [ %446, %445 ], [ %428, %427 ], [ %439, %438 ], [ %.pn.i, %.body.i ], [ %277, %276 ], [ %267, %266 ], [ %254, %253 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h058b106c7de892c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %59) #30
           to label %456 unwind label %454
 
@@ -16009,7 +16009,7 @@ thread-pre-split.i:                               ; preds = %63
   br label %505
 
 .loopexit116:                                     ; preds = %.preheader89.i, %100, %.preheader85.i, %128, %.preheader.i, %.preheader87.i
-  %.sroa.1661.0 = phi i64 [ %105, %100 ], [ %133, %128 ], [ %.sroa.023.0.i, %.preheader85.i ], [ 0, %.preheader.i ], [ 0, %.preheader87.i ], [ %.sroa.023.3.i, %.preheader89.i ]
+  %.sroa.1661.0 = phi i64 [ 0, %.preheader.i ], [ 0, %.preheader87.i ], [ %133, %128 ], [ %.sroa.023.0.i, %.preheader85.i ], [ %105, %100 ], [ %.sroa.023.3.i, %.preheader89.i ]
   store i64 %.sroa.1661.0, ptr %61, align 8
   %137 = load i64, ptr %1, align 8, !range !13, !alias.scope !2090, !noundef !11
   switch i64 %137, label %default.unreachable [
@@ -16037,25 +16037,25 @@ default.unreachable:                              ; preds = %291, %246, %"_ZN134
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %146 = load i64, ptr %145, align 8, !range !13, !alias.scope !2105, !noundef !11
   switch i64 %146, label %default.unreachable [
-    i64 0, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit
-    i64 1, label %147
+    i64 0, label %147
+    i64 1, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit
     i64 2, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread98
   ]
 
 147:                                              ; preds = %"_ZN134_$LT$$LP$core..ops..range..Bound$LT$T$GT$$C$core..ops..range..Bound$LT$T$GT$$RP$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$11start_bound17h342a438552d7c53aE.exit.i"
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %149 = load i64, ptr %148, align 8, !alias.scope !2108, !noalias !2111, !noundef !11
-  %150 = icmp slt i64 %.sroa.1661.0, %149
-  br i1 %150, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread98, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread
-
-_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit: ; preds = %"_ZN134_$LT$$LP$core..ops..range..Bound$LT$T$GT$$C$core..ops..range..Bound$LT$T$GT$$RP$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$11start_bound17h342a438552d7c53aE.exit.i"
-  %151 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %152 = load i64, ptr %151, align 8, !alias.scope !2113, !noalias !2116, !noundef !11
-  %.not = icmp sgt i64 %.sroa.1661.0, %152
+  %.not = icmp sgt i64 %.sroa.1661.0, %149
   br i1 %.not, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread98
 
-.loopexit:                                        ; preds = %91, %89, %80, %.lr.ph.i, %108, %117, %119, %.lr.ph107.i, %68, %68, %63
-  %.sroa.5.0.ph = phi i8 [ 2, %119 ], [ 1, %68 ], [ 0, %63 ], [ 1, %68 ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph107.i ], [ 1, %108 ], [ 2, %117 ], [ 1, %80 ], [ 3, %91 ], [ 3, %89 ]
+_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit: ; preds = %"_ZN134_$LT$$LP$core..ops..range..Bound$LT$T$GT$$C$core..ops..range..Bound$LT$T$GT$$RP$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$11start_bound17h342a438552d7c53aE.exit.i"
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %151 = load i64, ptr %150, align 8, !alias.scope !2113, !noalias !2116, !noundef !11
+  %152 = icmp slt i64 %.sroa.1661.0, %151
+  br i1 %152, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread98, label %_ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread
+
+.loopexit:                                        ; preds = %80, %89, %91, %.lr.ph.i, %108, %117, %119, %.lr.ph107.i, %63, %68, %68
+  %.sroa.5.0.ph = phi i8 [ 1, %68 ], [ 1, %68 ], [ 0, %63 ], [ 1, %.lr.ph107.i ], [ 1, %108 ], [ 2, %117 ], [ 2, %119 ], [ 1, %.lr.ph.i ], [ 1, %80 ], [ 3, %89 ], [ 3, %91 ]
   %153 = icmp eq ptr %3, null
   br i1 %153, label %154, label %163
 
@@ -16129,7 +16129,7 @@ _ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit: ; preds = %"_
   unreachable
 
 common.resume:                                    ; preds = %475, %502, %456, %219, %167, %203
-  %common.resume.op = phi { ptr, i32 } [ %503, %502 ], [ %.pn.ph.i, %203 ], [ %220, %219 ], [ %168, %167 ], [ %.pn.pn.ph, %456 ], [ %476, %475 ]
+  %common.resume.op = phi { ptr, i32 } [ %168, %167 ], [ %.pn.ph.i, %203 ], [ %220, %219 ], [ %.pn.pn.ph, %456 ], [ %476, %475 ], [ %503, %502 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hceac92d9ab184821E.exit.i": ; preds = %169
@@ -16594,7 +16594,7 @@ _ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread98: ; pr
   br label %291
 
 .body.i:                                          ; preds = %408, %381, %352, %336, %323, %313, %289
-  %.pn.i = phi { ptr, i32 } [ %409, %408 ], [ %353, %352 ], [ %382, %381 ], [ %324, %323 ], [ %314, %313 ], [ %290, %289 ], [ %337, %336 ]
+  %.pn.i = phi { ptr, i32 } [ %353, %352 ], [ %382, %381 ], [ %409, %408 ], [ %290, %289 ], [ %314, %313 ], [ %324, %323 ], [ %337, %336 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h058b106c7de892c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %39) #30
           to label %.thread109 unwind label %369, !noalias !2164
 
@@ -17083,7 +17083,7 @@ _ZN4core3ops5range11RangeBounds8contains17h411d3d3b6611e33bE.exit.thread98: ; pr
   unreachable
 
 .thread109:                                       ; preds = %253, %266, %276, %.body.i, %427, %438, %445
-  %.pn108 = phi { ptr, i32 } [ %446, %445 ], [ %439, %438 ], [ %428, %427 ], [ %.pn.i, %.body.i ], [ %267, %266 ], [ %254, %253 ], [ %277, %276 ]
+  %.pn108 = phi { ptr, i32 } [ %446, %445 ], [ %428, %427 ], [ %439, %438 ], [ %.pn.i, %.body.i ], [ %277, %276 ], [ %267, %266 ], [ %254, %253 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h058b106c7de892c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %59) #30
           to label %456 unwind label %454
 
@@ -27124,7 +27124,7 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 common.resume:                                    ; preds = %36, %25, %27
-  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %26, %27 ], [ %37, %36 ]
+  %common.resume.op = phi { ptr, i32 } [ %26, %27 ], [ %26, %25 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN102_$LT$clap_builder..builder..value_parser..UnknownArgumentValueParser$u20$as$u20$core..clone..Clone$GT$5clone17hd89f1b388a521bd3E.exit": ; preds = %7
@@ -30366,11 +30366,11 @@ define internal fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..valu
           to label %51 unwind label %77, !noalias !4553
 
 80:                                               ; preds = %.body.thread.i, %51
-  %.pn734.i = phi { ptr, i32 } [ %.pn.ph.i, %51 ], [ %.pn735.i, %.body.thread.i ]
+  %.pn734.i = phi { ptr, i32 } [ %.pn735.i, %.body.thread.i ], [ %.pn.ph.i, %51 ]
   resume { ptr, i32 } %.pn734.i
 
 .body.thread.i:                                   ; preds = %.body.thread38.i, %51, %45
-  %.pn735.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body.thread38.i ], [ %.pn.ph.i, %51 ], [ %46, %45 ]
+  %.pn735.i = phi { ptr, i32 } [ %.pn.ph.i, %51 ], [ %lpad.thr_comm.i, %.body.thread38.i ], [ %46, %45 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h058b106c7de892c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #30
           to label %80 unwind label %77, !noalias !4575
 
@@ -30885,11 +30885,11 @@ define internal fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..valu
           to label %51 unwind label %77, !noalias !4609
 
 80:                                               ; preds = %.body.thread.i, %51
-  %.pn734.i = phi { ptr, i32 } [ %.pn.ph.i, %51 ], [ %.pn735.i, %.body.thread.i ]
+  %.pn734.i = phi { ptr, i32 } [ %.pn735.i, %.body.thread.i ], [ %.pn.ph.i, %51 ]
   resume { ptr, i32 } %.pn734.i
 
 .body.thread.i:                                   ; preds = %.body.thread38.i, %51, %45
-  %.pn735.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body.thread38.i ], [ %.pn.ph.i, %51 ], [ %46, %45 ]
+  %.pn735.i = phi { ptr, i32 } [ %.pn.ph.i, %51 ], [ %lpad.thr_comm.i, %.body.thread38.i ], [ %46, %45 ]
   invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$uv_normalize..InvalidPipGroupError$GT$17h17289586f02e3b43E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #30
           to label %80 unwind label %77, !noalias !4628
 
@@ -31159,11 +31159,11 @@ define internal fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..valu
           to label %52 unwind label %78, !noalias !4638
 
 81:                                               ; preds = %.body.thread.i, %52
-  %.pn734.i = phi { ptr, i32 } [ %.pn.ph.i, %52 ], [ %.pn735.i, %.body.thread.i ]
+  %.pn734.i = phi { ptr, i32 } [ %.pn735.i, %.body.thread.i ], [ %.pn.ph.i, %52 ]
   resume { ptr, i32 } %.pn734.i
 
 .body.thread.i:                                   ; preds = %.body.thread38.i, %52, %46
-  %.pn735.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body.thread38.i ], [ %.pn.ph.i, %52 ], [ %47, %46 ]
+  %.pn735.i = phi { ptr, i32 } [ %.pn.ph.i, %52 ], [ %lpad.thr_comm.i, %.body.thread38.i ], [ %47, %46 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h058b106c7de892c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #30
           to label %81 unwind label %78, !noalias !4660
 
@@ -31427,11 +31427,11 @@ define internal fastcc { i64, ptr } @"_ZN75_$LT$F$u20$as$u20$clap_builder..build
           to label %51 unwind label %77, !noalias !4670
 
 80:                                               ; preds = %.body.thread.i, %51
-  %.pn734.i = phi { ptr, i32 } [ %.pn.ph.i, %51 ], [ %.pn735.i, %.body.thread.i ]
+  %.pn734.i = phi { ptr, i32 } [ %.pn735.i, %.body.thread.i ], [ %.pn.ph.i, %51 ]
   resume { ptr, i32 } %.pn734.i
 
 .body.thread.i:                                   ; preds = %.body.thread38.i, %51, %45
-  %.pn735.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body.thread38.i ], [ %.pn.ph.i, %51 ], [ %46, %45 ]
+  %.pn735.i = phi { ptr, i32 } [ %.pn.ph.i, %51 ], [ %lpad.thr_comm.i, %.body.thread38.i ], [ %46, %45 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$uv_normalize..InvalidNameError$GT$17hfa33088a33d77b48E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #30
           to label %80 unwind label %77, !noalias !4689
 
@@ -31704,11 +31704,11 @@ define internal fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..valu
           to label %56 unwind label %82, !noalias !4699
 
 85:                                               ; preds = %.body.thread.i, %56
-  %.pn734.i = phi { ptr, i32 } [ %.pn.ph.i, %56 ], [ %.pn735.i, %.body.thread.i ]
+  %.pn734.i = phi { ptr, i32 } [ %.pn735.i, %.body.thread.i ], [ %.pn.ph.i, %56 ]
   resume { ptr, i32 } %.pn734.i
 
 .body.thread.i:                                   ; preds = %.body.thread38.i, %56, %50
-  %.pn735.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body.thread38.i ], [ %.pn.ph.i, %56 ], [ %51, %50 ]
+  %.pn735.i = phi { ptr, i32 } [ %.pn.ph.i, %56 ], [ %lpad.thr_comm.i, %.body.thread38.i ], [ %51, %50 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$uv_normalize..InvalidNameError$GT$17hfa33088a33d77b48E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #30
           to label %85 unwind label %82, !noalias !4718
 
@@ -31978,11 +31978,11 @@ define internal fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..valu
           to label %52 unwind label %78, !noalias !4728
 
 81:                                               ; preds = %.body.thread.i, %52
-  %.pn734.i = phi { ptr, i32 } [ %.pn.ph.i, %52 ], [ %.pn735.i, %.body.thread.i ]
+  %.pn734.i = phi { ptr, i32 } [ %.pn735.i, %.body.thread.i ], [ %.pn.ph.i, %52 ]
   resume { ptr, i32 } %.pn734.i
 
 .body.thread.i:                                   ; preds = %.body.thread38.i, %52, %46
-  %.pn735.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body.thread38.i ], [ %.pn.ph.i, %52 ], [ %47, %46 ]
+  %.pn735.i = phi { ptr, i32 } [ %.pn.ph.i, %52 ], [ %lpad.thr_comm.i, %.body.thread38.i ], [ %47, %46 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h058b106c7de892c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #30
           to label %81 unwind label %78, !noalias !4750
 
@@ -32254,11 +32254,11 @@ define internal fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..valu
           to label %56 unwind label %82, !noalias !4761
 
 85:                                               ; preds = %.body.thread.i, %56
-  %.pn734.i = phi { ptr, i32 } [ %.pn.ph.i, %56 ], [ %.pn735.i, %.body.thread.i ]
+  %.pn734.i = phi { ptr, i32 } [ %.pn735.i, %.body.thread.i ], [ %.pn.ph.i, %56 ]
   resume { ptr, i32 } %.pn734.i
 
 .body.thread.i:                                   ; preds = %.body.thread38.i, %56, %50
-  %.pn735.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body.thread38.i ], [ %.pn.ph.i, %56 ], [ %51, %50 ]
+  %.pn735.i = phi { ptr, i32 } [ %.pn.ph.i, %56 ], [ %lpad.thr_comm.i, %.body.thread38.i ], [ %51, %50 ]
   invoke fastcc void @"_ZN4core3ptr68drop_in_place$LT$uv_distribution_types..index_url..IndexUrlError$GT$17hd8211f2e9a2b1988E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #30
           to label %85 unwind label %82, !noalias !4780
 
@@ -32522,11 +32522,11 @@ define internal fastcc { i64, ptr } @"_ZN75_$LT$F$u20$as$u20$clap_builder..build
           to label %51 unwind label %77, !noalias !4790
 
 80:                                               ; preds = %.body.thread.i, %51
-  %.pn734.i = phi { ptr, i32 } [ %.pn.ph.i, %51 ], [ %.pn735.i, %.body.thread.i ]
+  %.pn734.i = phi { ptr, i32 } [ %.pn735.i, %.body.thread.i ], [ %.pn.ph.i, %51 ]
   resume { ptr, i32 } %.pn734.i
 
 .body.thread.i:                                   ; preds = %.body.thread38.i, %51, %45
-  %.pn735.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body.thread38.i ], [ %.pn.ph.i, %51 ], [ %46, %45 ]
+  %.pn735.i = phi { ptr, i32 } [ %.pn.ph.i, %51 ], [ %lpad.thr_comm.i, %.body.thread38.i ], [ %46, %45 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$uv_normalize..InvalidNameError$GT$17hfa33088a33d77b48E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #30
           to label %80 unwind label %77, !noalias !4809
 
@@ -32791,11 +32791,11 @@ define internal fastcc { i64, ptr } @"_ZN75_$LT$F$u20$as$u20$clap_builder..build
           to label %51 unwind label %77, !noalias !4819
 
 80:                                               ; preds = %.body.thread.i, %51
-  %.pn734.i = phi { ptr, i32 } [ %.pn.ph.i, %51 ], [ %.pn735.i, %.body.thread.i ]
+  %.pn734.i = phi { ptr, i32 } [ %.pn735.i, %.body.thread.i ], [ %.pn.ph.i, %51 ]
   resume { ptr, i32 } %.pn734.i
 
 .body.thread.i:                                   ; preds = %.body.thread38.i, %51, %45
-  %.pn735.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body.thread38.i ], [ %.pn.ph.i, %51 ], [ %46, %45 ]
+  %.pn735.i = phi { ptr, i32 } [ %.pn.ph.i, %51 ], [ %lpad.thr_comm.i, %.body.thread38.i ], [ %46, %45 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$uv_normalize..InvalidNameError$GT$17hfa33088a33d77b48E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #30
           to label %80 unwind label %77, !noalias !4838
 
@@ -33065,11 +33065,11 @@ define internal fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..valu
           to label %57 unwind label %83, !noalias !4848
 
 86:                                               ; preds = %.body.thread.i, %57
-  %.pn734.i = phi { ptr, i32 } [ %.pn.ph.i, %57 ], [ %.pn735.i, %.body.thread.i ]
+  %.pn734.i = phi { ptr, i32 } [ %.pn735.i, %.body.thread.i ], [ %.pn.ph.i, %57 ]
   resume { ptr, i32 } %.pn734.i
 
 .body.thread.i:                                   ; preds = %.body.thread38.i, %57, %51
-  %.pn735.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body.thread38.i ], [ %.pn.ph.i, %57 ], [ %52, %51 ]
+  %.pn735.i = phi { ptr, i32 } [ %.pn.ph.i, %57 ], [ %lpad.thr_comm.i, %.body.thread38.i ], [ %52, %51 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h058b106c7de892c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #30
           to label %86 unwind label %83, !noalias !4870
 
@@ -33343,11 +33343,11 @@ define internal fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..valu
           to label %52 unwind label %78, !noalias !4880
 
 81:                                               ; preds = %.body.thread.i, %52
-  %.pn734.i = phi { ptr, i32 } [ %.pn.ph.i, %52 ], [ %.pn735.i, %.body.thread.i ]
+  %.pn734.i = phi { ptr, i32 } [ %.pn735.i, %.body.thread.i ], [ %.pn.ph.i, %52 ]
   resume { ptr, i32 } %.pn734.i
 
 .body.thread.i:                                   ; preds = %.body.thread38.i, %52, %46
-  %.pn735.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body.thread38.i ], [ %.pn.ph.i, %52 ], [ %47, %46 ]
+  %.pn735.i = phi { ptr, i32 } [ %.pn.ph.i, %52 ], [ %lpad.thr_comm.i, %.body.thread38.i ], [ %47, %46 ]
   invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Pep508Error$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h847f767216b8f5a7E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %14) #30
           to label %81 unwind label %78, !noalias !4899
 
@@ -36307,15 +36307,15 @@ attributes #31 = { cold noreturn nounwind }
 !1871 = distinct !{!1871, !1872, !"_ZN134_$LT$$LP$core..ops..range..Bound$LT$T$GT$$C$core..ops..range..Bound$LT$T$GT$$RP$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$9end_bound17h3eccccd176ae6bdcE: argument 0"}
 !1872 = distinct !{!1872, !"_ZN134_$LT$$LP$core..ops..range..Bound$LT$T$GT$$C$core..ops..range..Bound$LT$T$GT$$RP$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$9end_bound17h3eccccd176ae6bdcE"}
 !1873 = !{!1874, !1858}
-!1874 = distinct !{!1874, !1875, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2lt17he01529f0c1e47648E: argument 1"}
-!1875 = distinct !{!1875, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2lt17he01529f0c1e47648E"}
+!1874 = distinct !{!1874, !1875, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2le17h7ace63cd880bf303E: argument 1"}
+!1875 = distinct !{!1875, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2le17h7ace63cd880bf303E"}
 !1876 = !{!1877}
-!1877 = distinct !{!1877, !1875, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2lt17he01529f0c1e47648E: argument 0"}
+!1877 = distinct !{!1877, !1875, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2le17h7ace63cd880bf303E: argument 0"}
 !1878 = !{!1879, !1858}
-!1879 = distinct !{!1879, !1880, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2le17h7ace63cd880bf303E: argument 1"}
-!1880 = distinct !{!1880, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2le17h7ace63cd880bf303E"}
+!1879 = distinct !{!1879, !1880, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2lt17he01529f0c1e47648E: argument 1"}
+!1880 = distinct !{!1880, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2lt17he01529f0c1e47648E"}
 !1881 = !{!1882}
-!1882 = distinct !{!1882, !1880, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2le17h7ace63cd880bf303E: argument 0"}
+!1882 = distinct !{!1882, !1880, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2lt17he01529f0c1e47648E: argument 0"}
 !1883 = !{!1884, !1886, !1888, !1889}
 !1884 = distinct !{!1884, !1885, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h95ee45876561c95bE.llvm.15285229455366183170: argument 0"}
 !1885 = distinct !{!1885, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h95ee45876561c95bE.llvm.15285229455366183170"}
@@ -36542,15 +36542,15 @@ attributes #31 = { cold noreturn nounwind }
 !2106 = distinct !{!2106, !2107, !"_ZN134_$LT$$LP$core..ops..range..Bound$LT$T$GT$$C$core..ops..range..Bound$LT$T$GT$$RP$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$9end_bound17h3eccccd176ae6bdcE: argument 0"}
 !2107 = distinct !{!2107, !"_ZN134_$LT$$LP$core..ops..range..Bound$LT$T$GT$$C$core..ops..range..Bound$LT$T$GT$$RP$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$9end_bound17h3eccccd176ae6bdcE"}
 !2108 = !{!2109, !2093}
-!2109 = distinct !{!2109, !2110, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2lt17he01529f0c1e47648E: argument 1"}
-!2110 = distinct !{!2110, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2lt17he01529f0c1e47648E"}
+!2109 = distinct !{!2109, !2110, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2le17h7ace63cd880bf303E: argument 1"}
+!2110 = distinct !{!2110, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2le17h7ace63cd880bf303E"}
 !2111 = !{!2112}
-!2112 = distinct !{!2112, !2110, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2lt17he01529f0c1e47648E: argument 0"}
+!2112 = distinct !{!2112, !2110, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2le17h7ace63cd880bf303E: argument 0"}
 !2113 = !{!2114, !2093}
-!2114 = distinct !{!2114, !2115, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2le17h7ace63cd880bf303E: argument 1"}
-!2115 = distinct !{!2115, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2le17h7ace63cd880bf303E"}
+!2114 = distinct !{!2114, !2115, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2lt17he01529f0c1e47648E: argument 1"}
+!2115 = distinct !{!2115, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2lt17he01529f0c1e47648E"}
 !2116 = !{!2117}
-!2117 = distinct !{!2117, !2115, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2le17h7ace63cd880bf303E: argument 0"}
+!2117 = distinct !{!2117, !2115, !"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$2lt17he01529f0c1e47648E: argument 0"}
 !2118 = !{!2119, !2121, !2123, !2124}
 !2119 = distinct !{!2119, !2120, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h95ee45876561c95bE.llvm.15285229455366183170: argument 0"}
 !2120 = distinct !{!2120, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h95ee45876561c95bE.llvm.15285229455366183170"}

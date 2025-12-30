@@ -152,7 +152,7 @@ define dso_local range(i32 -5, -2147483648) i32 @intel_dp_init_lttpr_and_dprx_ca
   br label %32
 
 32:                                               ; preds = %.critedge, %30, %24
-  %33 = phi i32 [ -5, %30 ], [ -5, %.critedge ], [ %25, %24 ]
+  %33 = phi i32 [ -5, %30 ], [ %25, %24 ], [ -5, %.critedge ]
   ret i32 %33
 }
 

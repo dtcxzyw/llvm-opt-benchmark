@@ -71,8 +71,8 @@ define internal range(i32 0, 2) i32 @test_old() #0 {
   br label %17
 
 17:                                               ; preds = %15, %12, %14, %8, %0, %5
-  %.06 = phi ptr [ %6, %8 ], [ null, %0 ], [ %6, %15 ], [ %6, %14 ], [ %6, %12 ], [ %6, %5 ]
-  %.0 = phi i32 [ 0, %8 ], [ 0, %0 ], [ %spec.select, %15 ], [ 0, %14 ], [ 0, %12 ], [ 0, %5 ]
+  %.06 = phi ptr [ %6, %8 ], [ %6, %14 ], [ %6, %12 ], [ %6, %5 ], [ null, %0 ], [ %6, %15 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %14 ], [ 0, %12 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %15 ]
   call void @UI_free(ptr noundef %.06) #5
   call void @UI_destroy_method(ptr noundef %3) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

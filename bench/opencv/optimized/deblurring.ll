@@ -234,7 +234,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %36, %44
   br label %64
 
 64:                                               ; preds = %60, %62, %58, %56
-  %.pn27.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ]
+  %.pn27.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %57, %56 ], [ %61, %60 ], [ %63, %62 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #18
@@ -937,7 +937,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge172, %32
   br i1 %378, label %.lr.ph170, label %._crit_edge.loopexit, !llvm.loop !71
 
 379:                                              ; preds = %314, %320, %316, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %13
-  %.pn123.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %14, %13 ], [ %315, %314 ], [ %.pn121, %320 ], [ %317, %316 ]
+  %.pn123.pn.pn.pn.pn = phi { ptr, i32 } [ %14, %13 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %315, %314 ], [ %.pn121, %320 ], [ %317, %316 ]
   %380 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %381 = load i32, ptr %380, align 8, !tbaa !17
   %.not.i146 = icmp eq i32 %381, 0

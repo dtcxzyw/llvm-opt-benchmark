@@ -288,7 +288,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i
 
-select.unfold:                                    ; preds = %28, %._crit_edge.thread.i.i, %12
+select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
@@ -301,7 +301,7 @@ select.unfold:                                    ; preds = %28, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
-  %38 = phi i1 [ %37, %33 ], [ true, %select.unfold ]
+  %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
   %39 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20
           to label %.noexc6 unwind label %43
 
@@ -4740,8 +4740,8 @@ _ZN7QStringD2Ev.exit232:                          ; preds = %309, %_ZN9QtPrivate
   br label %.body
 
 .body:                                            ; preds = %330, %139, %328, %127, %326, %115, %324, %103, %322, %91, %320, %79, %318, %67, %316, %55, %378, %376, %374, %372, %370, %368, %366, %364, %362, %360, %358, %356, %354, %352, %350, %348, %346, %344, %342, %340, %338, %336, %334, %332, %314
-  %.sink = phi ptr [ %43, %378 ], [ %42, %376 ], [ %41, %374 ], [ %40, %372 ], [ %39, %370 ], [ %38, %368 ], [ %37, %366 ], [ %36, %364 ], [ %35, %362 ], [ %34, %360 ], [ %33, %358 ], [ %32, %356 ], [ %31, %354 ], [ %30, %352 ], [ %29, %350 ], [ %28, %348 ], [ %27, %346 ], [ %26, %344 ], [ %25, %342 ], [ %24, %340 ], [ %23, %338 ], [ %22, %336 ], [ %21, %334 ], [ %20, %332 ], [ %18, %328 ], [ %17, %326 ], [ %16, %324 ], [ %15, %322 ], [ %14, %320 ], [ %13, %318 ], [ %12, %316 ], [ %11, %314 ], [ %12, %55 ], [ %13, %67 ], [ %14, %79 ], [ %15, %91 ], [ %16, %103 ], [ %17, %115 ], [ %18, %127 ], [ %19, %139 ], [ %19, %330 ]
-  %.pn = phi { ptr, i32 } [ %379, %378 ], [ %377, %376 ], [ %375, %374 ], [ %373, %372 ], [ %371, %370 ], [ %369, %368 ], [ %367, %366 ], [ %365, %364 ], [ %363, %362 ], [ %361, %360 ], [ %359, %358 ], [ %357, %356 ], [ %355, %354 ], [ %353, %352 ], [ %351, %350 ], [ %349, %348 ], [ %347, %346 ], [ %345, %344 ], [ %343, %342 ], [ %341, %340 ], [ %339, %338 ], [ %337, %336 ], [ %335, %334 ], [ %333, %332 ], [ %329, %328 ], [ %327, %326 ], [ %325, %324 ], [ %323, %322 ], [ %321, %320 ], [ %319, %318 ], [ %317, %316 ], [ %315, %314 ], [ %56, %55 ], [ %68, %67 ], [ %80, %79 ], [ %92, %91 ], [ %104, %103 ], [ %116, %115 ], [ %128, %127 ], [ %140, %139 ], [ %331, %330 ]
+  %.sink = phi ptr [ %43, %378 ], [ %42, %376 ], [ %41, %374 ], [ %40, %372 ], [ %39, %370 ], [ %38, %368 ], [ %37, %366 ], [ %36, %364 ], [ %35, %362 ], [ %34, %360 ], [ %33, %358 ], [ %32, %356 ], [ %31, %354 ], [ %30, %352 ], [ %29, %350 ], [ %28, %348 ], [ %27, %346 ], [ %26, %344 ], [ %25, %342 ], [ %24, %340 ], [ %23, %338 ], [ %22, %336 ], [ %21, %334 ], [ %20, %332 ], [ %11, %314 ], [ %12, %55 ], [ %12, %316 ], [ %13, %67 ], [ %13, %318 ], [ %14, %79 ], [ %14, %320 ], [ %15, %91 ], [ %15, %322 ], [ %16, %103 ], [ %16, %324 ], [ %17, %115 ], [ %17, %326 ], [ %18, %127 ], [ %18, %328 ], [ %19, %139 ], [ %19, %330 ]
+  %.pn = phi { ptr, i32 } [ %379, %378 ], [ %377, %376 ], [ %375, %374 ], [ %373, %372 ], [ %371, %370 ], [ %369, %368 ], [ %367, %366 ], [ %365, %364 ], [ %363, %362 ], [ %361, %360 ], [ %359, %358 ], [ %357, %356 ], [ %355, %354 ], [ %353, %352 ], [ %351, %350 ], [ %349, %348 ], [ %347, %346 ], [ %345, %344 ], [ %343, %342 ], [ %341, %340 ], [ %339, %338 ], [ %337, %336 ], [ %335, %334 ], [ %333, %332 ], [ %315, %314 ], [ %56, %55 ], [ %317, %316 ], [ %68, %67 ], [ %319, %318 ], [ %80, %79 ], [ %321, %320 ], [ %92, %91 ], [ %323, %322 ], [ %104, %103 ], [ %325, %324 ], [ %116, %115 ], [ %327, %326 ], [ %128, %127 ], [ %329, %328 ], [ %140, %139 ], [ %331, %330 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #17
   resume { ptr, i32 } %.pn
 }
@@ -6033,7 +6033,7 @@ _ZN7QStringD2Ev.exit171:                          ; preds = %370, %_ZN9QtPrivate
   ret void
 
 452:                                              ; preds = %447, %440, %433, %426, %419, %412, %.body175, %.body163, %.body152, %.body141, %.body130, %.body119, %406, %.body108, %.body97, %.body94, %.body, %176, %175
-  %.pn73 = phi { ptr, i32 } [ %eh.lpad-body176, %.body175 ], [ %.pn71, %447 ], [ %eh.lpad-body95, %.body94 ], [ %eh.lpad-body164, %.body163 ], [ %.pn69, %440 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body153, %.body152 ], [ %.pn67, %433 ], [ %eh.lpad-body109, %.body108 ], [ %eh.lpad-body142, %.body141 ], [ %.pn65, %426 ], [ %eh.lpad-body98, %.body97 ], [ %eh.lpad-body131, %.body130 ], [ %.pn63, %419 ], [ %177, %176 ], [ %eh.lpad-body120, %.body119 ], [ %.pn61, %412 ], [ %.pn.pn, %175 ], [ %407, %406 ]
+  %.pn73 = phi { ptr, i32 } [ %eh.lpad-body176, %.body175 ], [ %.pn71, %447 ], [ %eh.lpad-body164, %.body163 ], [ %.pn69, %440 ], [ %eh.lpad-body153, %.body152 ], [ %.pn67, %433 ], [ %eh.lpad-body142, %.body141 ], [ %.pn65, %426 ], [ %eh.lpad-body131, %.body130 ], [ %.pn63, %419 ], [ %eh.lpad-body120, %.body119 ], [ %.pn61, %412 ], [ %407, %406 ], [ %eh.lpad-body95, %.body94 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body109, %.body108 ], [ %eh.lpad-body98, %.body97 ], [ %177, %176 ], [ %.pn.pn, %175 ]
   resume { ptr, i32 } %.pn73
 }
 
@@ -8787,9 +8787,9 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3v
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
-  %.620.i = phi ptr [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
-  %.2.i = phi i1 [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.620.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.2.i = phi i1 [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
   call void @_ZdlPv(ptr noundef nonnull %8) #16
   %75 = icmp eq ptr %1, %.620.i
   %or.cond.i = select i1 %.2.i, i1 true, i1 %75
@@ -8812,7 +8812,7 @@ _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i: ; p
   br i1 %81, label %.body.thread.i, label %.preheader.i
 
 .body.thread.i:                                   ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i, %.body.i, %.body.thread724.i
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i = phi { ptr, i32 } [ %55, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %55, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i
 
 __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit.i

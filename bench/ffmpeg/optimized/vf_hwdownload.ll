@@ -44,7 +44,7 @@ define internal i32 @hwdownload_query_formats(ptr readnone captures(none) %0, pt
   br label %11
 
 11:                                               ; preds = %7, %3
-  %.03 = phi i32 [ %10, %7 ], [ %6, %3 ]
+  %.03 = phi i32 [ %6, %3 ], [ %10, %7 ]
   ret i32 %.03
 }
 
@@ -256,7 +256,7 @@ define internal range(i32 -2147483648, 1) i32 @hwdownload_config_output(ptr noun
   br label %34
 
 34:                                               ; preds = %11, %1, %27, %._crit_edge
-  %.019 = phi i32 [ -22, %1 ], [ 0, %27 ], [ -22, %._crit_edge ], [ %12, %11 ]
+  %.019 = phi i32 [ 0, %27 ], [ -22, %._crit_edge ], [ -22, %1 ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.019
 }

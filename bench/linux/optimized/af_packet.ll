@@ -3174,8 +3174,8 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %15 = load ptr, ptr %1, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %17 = load i32, ptr %16, align 4
-  %.fr132 = freeze i32 %17
-  %18 = and i32 %.fr132, 64
+  %.fr131 = freeze i32 %17
+  %18 = and i32 %.fr131, 64
   %19 = icmp eq i32 %18, 0
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 1220
   %21 = load volatile i8, ptr %20, align 4
@@ -3353,16 +3353,16 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
 
 .outer.outer:                                     ; preds = %644, %106
   %.ph.ph = phi i32 [ %650, %644 ], [ 0, %106 ]
-  %.ph102.ph = phi i32 [ %305, %644 ], [ 0, %106 ]
-  %.ph103.ph = phi ptr [ %304, %644 ], [ null, %106 ]
-  %.ph104.ph = phi ptr [ %312, %644 ], [ null, %106 ]
+  %.ph101.ph = phi i32 [ %305, %644 ], [ 0, %106 ]
+  %.ph102.ph = phi ptr [ %304, %644 ], [ null, %106 ]
+  %.ph103.ph = phi ptr [ %312, %644 ], [ null, %106 ]
   br label %.outer
 
 .outer:                                           ; preds = %.outer.outer, %611
-  %.ph102 = phi i32 [ %605, %611 ], [ %.ph102.ph, %.outer.outer ]
-  %.ph103 = phi ptr [ %606, %611 ], [ %.ph103.ph, %.outer.outer ]
-  %.ph104 = phi ptr [ %607, %611 ], [ %.ph104.ph, %.outer.outer ]
-  %143 = icmp ne ptr %.ph104, null
+  %.ph101 = phi i32 [ %605, %611 ], [ %.ph101.ph, %.outer.outer ]
+  %.ph102 = phi ptr [ %606, %611 ], [ %.ph102.ph, %.outer.outer ]
+  %.ph103 = phi ptr [ %607, %611 ], [ %.ph103.ph, %.outer.outer ]
+  %143 = icmp ne ptr %.ph103, null
   %144 = and i1 %19, %143
   br i1 %19, label %.outer.split.us, label %.outer.split
 
@@ -3402,7 +3402,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %169 = phi i64 [ %167, %166 ], [ 0, %162 ]
   %170 = call i64 @wait_for_completion_interruptible_timeout(ptr noundef nonnull %122, i64 noundef %169) #19
   %171 = icmp slt i64 %170, 1
-  br i1 %171, label %.split119.us, label %172
+  br i1 %171, label %.split118.us, label %172
 
 172:                                              ; preds = %168, %161
   %173 = load ptr, ptr %141, align 8
@@ -3465,7 +3465,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %214 = and i1 %212, %213
   br i1 %214, label %.split.us, label %.thread86, !prof !22
 
-.split119.us:                                     ; preds = %168
+.split118.us:                                     ; preds = %168
   %215 = icmp eq i64 %170, 0
   %216 = select i1 %215, i32 -110, i32 -512
   store i32 %216, ptr %8, align 4
@@ -3596,19 +3596,19 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %297 = phi i16 [ %.pre, %._crit_edge ], [ %295, %293 ], [ %290, %280 ]
   %298 = zext i16 %297 to i32
   %299 = icmp samesign ult i32 %274, %298
-  br i1 %299, label %.thread, label %._crit_edge153
+  br i1 %299, label %.thread, label %._crit_edge152
 
-._crit_edge153:                                   ; preds = %296
-  %.pre154 = load i16, ptr %129, align 4
-  %.pre159 = zext i16 %.pre154 to i32
+._crit_edge152:                                   ; preds = %296
+  %.pre153 = load i16, ptr %129, align 4
+  %.pre158 = zext i16 %.pre153 to i32
   br label %300
 
-300:                                              ; preds = %._crit_edge153, %262
-  %.pre-phi = phi i32 [ %.pre159, %._crit_edge153 ], [ %264, %262 ]
-  %301 = phi ptr [ %273, %._crit_edge153 ], [ %260, %262 ]
-  %302 = phi i32 [ %274, %._crit_edge153 ], [ %229, %262 ]
-  %303 = phi i32 [ %298, %._crit_edge153 ], [ %.ph102, %262 ]
-  %304 = phi ptr [ %260, %._crit_edge153 ], [ %.ph103, %262 ]
+300:                                              ; preds = %._crit_edge152, %262
+  %.pre-phi = phi i32 [ %.pre158, %._crit_edge152 ], [ %264, %262 ]
+  %301 = phi ptr [ %273, %._crit_edge152 ], [ %260, %262 ]
+  %302 = phi i32 [ %274, %._crit_edge152 ], [ %229, %262 ]
+  %303 = phi i32 [ %298, %._crit_edge152 ], [ %.ph101, %262 ]
+  %304 = phi ptr [ %260, %._crit_edge152 ], [ %.ph102, %262 ]
   %305 = call i32 @llvm.smax.i32(i32 %303, i32 %.pre-phi)
   %306 = add nuw nsw i32 %271, 20
   %307 = add nuw nsw i32 %306, %269
@@ -3622,7 +3622,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
 
 314:                                              ; preds = %300
   %315 = icmp sgt i32 %.ph.ph, 0
-  br i1 %315, label %.loopexit101.sink.split, label %.loopexit101, !prof !22
+  br i1 %315, label %.loopexit100.sink.split, label %.loopexit100, !prof !22
 
 316:                                              ; preds = %300
   %317 = load ptr, ptr %97, align 16
@@ -4045,14 +4045,14 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   br i1 %603, label %.thread75, label %.thread
 
 .thread:                                          ; preds = %434, %427, %430, %414, %393, %479, %588, %591, %.thread68, %223, %221, %239, %231, %618, %296, %272, %257
-  %604 = phi i32 [ %229, %257 ], [ -22, %272 ], [ -90, %231 ], [ -22, %618 ], [ -22, %296 ], [ -22, %223 ], [ -22, %221 ], [ -22, %239 ], [ %581, %.thread68 ], [ -90, %588 ], [ -90, %591 ], [ -22, %393 ], [ -14, %479 ], [ -22, %414 ], [ -22, %430 ], [ -22, %427 ], [ -22, %434 ]
-  %605 = phi i32 [ %.ph102, %257 ], [ %.ph102, %272 ], [ %.ph102, %231 ], [ %305, %618 ], [ %.ph102, %296 ], [ %.ph102, %223 ], [ %.ph102, %221 ], [ %.ph102, %239 ], [ %305, %.thread68 ], [ %305, %588 ], [ %305, %591 ], [ %305, %393 ], [ %305, %479 ], [ %305, %414 ], [ %305, %430 ], [ %305, %427 ], [ %305, %434 ]
-  %606 = phi ptr [ %.ph103, %257 ], [ %260, %272 ], [ %.ph103, %231 ], [ %304, %618 ], [ %260, %296 ], [ %.ph103, %223 ], [ %.ph103, %221 ], [ %.ph103, %239 ], [ %304, %.thread68 ], [ %304, %588 ], [ %304, %591 ], [ %304, %393 ], [ %304, %479 ], [ %304, %414 ], [ %304, %430 ], [ %304, %427 ], [ %304, %434 ]
-  %607 = phi ptr [ null, %257 ], [ null, %272 ], [ null, %231 ], [ %312, %618 ], [ null, %296 ], [ null, %223 ], [ null, %221 ], [ null, %239 ], [ %312, %.thread68 ], [ %312, %588 ], [ %312, %591 ], [ %312, %393 ], [ %312, %479 ], [ %312, %414 ], [ %312, %430 ], [ %312, %427 ], [ %312, %434 ]
+  %604 = phi i32 [ %229, %257 ], [ -22, %272 ], [ -22, %618 ], [ -22, %296 ], [ -22, %223 ], [ -22, %221 ], [ -22, %239 ], [ -90, %231 ], [ -90, %588 ], [ -90, %591 ], [ %581, %.thread68 ], [ -22, %393 ], [ -14, %479 ], [ -22, %414 ], [ -22, %430 ], [ -22, %427 ], [ -22, %434 ]
+  %605 = phi i32 [ %.ph101, %257 ], [ %.ph101, %272 ], [ %305, %618 ], [ %.ph101, %296 ], [ %.ph101, %223 ], [ %.ph101, %221 ], [ %.ph101, %239 ], [ %.ph101, %231 ], [ %305, %588 ], [ %305, %591 ], [ %305, %.thread68 ], [ %305, %393 ], [ %305, %479 ], [ %305, %414 ], [ %305, %430 ], [ %305, %427 ], [ %305, %434 ]
+  %606 = phi ptr [ %.ph102, %257 ], [ %260, %272 ], [ %304, %618 ], [ %260, %296 ], [ %.ph102, %223 ], [ %.ph102, %221 ], [ %.ph102, %239 ], [ %.ph102, %231 ], [ %304, %588 ], [ %304, %591 ], [ %304, %.thread68 ], [ %304, %393 ], [ %304, %479 ], [ %304, %414 ], [ %304, %430 ], [ %304, %427 ], [ %304, %434 ]
+  %607 = phi ptr [ null, %257 ], [ null, %272 ], [ %312, %618 ], [ null, %296 ], [ null, %223 ], [ null, %221 ], [ null, %239 ], [ null, %231 ], [ %312, %588 ], [ %312, %591 ], [ %312, %.thread68 ], [ %312, %393 ], [ %312, %479 ], [ %312, %414 ], [ %312, %430 ], [ %312, %427 ], [ %312, %434 ]
   %608 = load volatile i64, ptr %127, align 8
   %609 = and i64 %608, 8
   %610 = icmp eq i64 %609, 0
-  br i1 %610, label %.loopexit101.sink.split, label %611
+  br i1 %610, label %.loopexit100.sink.split, label %611
 
 611:                                              ; preds = %.thread
   %.val = load i32, ptr %126, align 32
@@ -4124,7 +4124,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
 .thread76:                                        ; preds = %636, %638
   %641 = call fastcc i32 @__packet_get_status(ptr noundef %10, ptr noundef nonnull %.us-phi)
   %642 = icmp eq i32 %641, 0
-  br i1 %642, label %.loopexit101, label %643
+  br i1 %642, label %.loopexit100, label %643
 
 643:                                              ; preds = %.thread76, %638
   store i32 0, ptr %8, align 4
@@ -4144,23 +4144,23 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   store i32 %.ph.ph, ptr %8, align 4
   br label %653
 
-.loopexit101.sink.split:                          ; preds = %.thread, %314
-  %.lcssa227.sink = phi i32 [ %.ph.ph, %314 ], [ %604, %.thread ]
-  %.ph228 = phi i32 [ 1, %314 ], [ 4, %.thread ]
-  %.ph229 = phi ptr [ null, %314 ], [ %607, %.thread ]
-  store i32 %.lcssa227.sink, ptr %8, align 4
-  br label %.loopexit101
+.loopexit100.sink.split:                          ; preds = %.thread, %314
+  %.lcssa226.sink = phi i32 [ %.ph.ph, %314 ], [ %604, %.thread ]
+  %.ph227 = phi i32 [ 1, %314 ], [ 4, %.thread ]
+  %.ph228 = phi ptr [ null, %314 ], [ %607, %.thread ]
+  store i32 %.lcssa226.sink, ptr %8, align 4
+  br label %.loopexit100
 
-.loopexit101:                                     ; preds = %.thread76, %.loopexit101.sink.split, %314
-  %651 = phi i32 [ 1, %314 ], [ %.ph228, %.loopexit101.sink.split ], [ 1, %.thread76 ]
-  %652 = phi ptr [ null, %314 ], [ %.ph229, %.loopexit101.sink.split ], [ null, %.thread76 ]
+.loopexit100:                                     ; preds = %.thread76, %.loopexit100.sink.split, %314
+  %651 = phi i32 [ 1, %314 ], [ %.ph227, %.loopexit100.sink.split ], [ 1, %.thread76 ]
+  %652 = phi ptr [ null, %314 ], [ %.ph228, %.loopexit100.sink.split ], [ null, %.thread76 ]
   %.val65 = load i32, ptr %126, align 32
   call fastcc void @__packet_set_status(i32 %.val65, ptr noundef nonnull %.us-phi, i32 noundef %651)
   call void @kfree_skb_reason(ptr noundef %652, i32 noundef 2) #19
   br label %653
 
-653:                                              ; preds = %.loopexit101, %.thread86, %.split119.us, %93, %80, %65
-  %654 = phi ptr [ %78, %80 ], [ %78, %93 ], [ %78, %.split119.us ], [ %78, %.thread86 ], [ %78, %.loopexit101 ], [ %57, %65 ]
+653:                                              ; preds = %.loopexit100, %.thread86, %.split118.us, %93, %80, %65
+  %654 = phi ptr [ %78, %80 ], [ %78, %93 ], [ %78, %.split118.us ], [ %78, %.thread86 ], [ %78, %.loopexit100 ], [ %57, %65 ]
   %655 = getelementptr inbounds nuw i8, ptr %654, i64 1280
   %656 = load ptr, ptr %655, align 8
   call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %656, ptr elementtype(i32) %656) #19, !srcloc !9
@@ -4245,7 +4245,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %703 = zext i8 %702 to i64
   %704 = add nuw nsw i64 %703, 12
   %705 = icmp ugt i64 %704, %700
-  br i1 %705, label %.thread94, label %706
+  br i1 %705, label %.thread93, label %706
 
 706:                                              ; preds = %698, %696
   %707 = getelementptr inbounds nuw i8, ptr %660, i64 12
@@ -4264,7 +4264,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %715 = load i32, ptr %714, align 8
   %716 = and i32 %715, 1
   %717 = icmp eq i32 %716, 0
-  br i1 %717, label %.thread94, label %718, !prof !18
+  br i1 %717, label %.thread93, label %718, !prof !18
 
 718:                                              ; preds = %713
   %719 = getelementptr inbounds nuw i8, ptr %10, i64 616
@@ -4285,7 +4285,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %729 = call i32 @sock_cmsg_send(ptr noundef %10, ptr noundef %1, ptr noundef nonnull %5) #19
   store i32 %729, ptr %4, align 4
   %730 = icmp eq i32 %729, 0
-  br i1 %730, label %731, label %.thread94, !prof !22
+  br i1 %730, label %731, label %.thread93, !prof !22
 
 731:                                              ; preds = %728, %718
   %732 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4302,12 +4302,12 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
 739:                                              ; preds = %735, %731
   %740 = phi i32 [ %738, %735 ], [ 0, %731 ]
   %741 = icmp eq i8 %662, 0
-  br i1 %741, label %.thread89, label %742
+  br i1 %741, label %.thread88, label %742
 
 742:                                              ; preds = %739
   %743 = zext i8 %662 to i64
   %744 = icmp ult i64 %2, %743
-  br i1 %744, label %.thread93, label %745
+  br i1 %744, label %.thread92, label %745
 
 745:                                              ; preds = %742
   %746 = sub nuw i64 %2, %743
@@ -4318,17 +4318,17 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
 
 750:                                              ; preds = %745
   call void @iov_iter_revert(ptr noundef nonnull %747, i64 noundef %748) #19
-  br label %.thread93
+  br label %.thread92
 
 751:                                              ; preds = %745
   %752 = load i8, ptr %6, align 2
   %753 = and i8 %752, 1
   %754 = icmp eq i8 %753, 0
-  br i1 %754, label %._crit_edge155, label %755
+  br i1 %754, label %._crit_edge154, label %755
 
-._crit_edge155:                                   ; preds = %751
-  %.phi.trans.insert156 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %.pre157 = load i16, ptr %.phi.trans.insert156, align 2
+._crit_edge154:                                   ; preds = %751
+  %.phi.trans.insert155 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %.pre156 = load i16, ptr %.phi.trans.insert155, align 2
   br label %771
 
 755:                                              ; preds = %751
@@ -4352,31 +4352,31 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   store i16 %770, ptr %764, align 2
   br label %771
 
-771:                                              ; preds = %._crit_edge155, %768, %755
-  %772 = phi i16 [ %.pre157, %._crit_edge155 ], [ %770, %768 ], [ %765, %755 ]
+771:                                              ; preds = %._crit_edge154, %768, %755
+  %772 = phi i16 [ %.pre156, %._crit_edge154 ], [ %770, %768 ], [ %765, %755 ]
   %773 = zext i16 %772 to i64
   %774 = icmp ult i64 %746, %773
   br i1 %774, label %779, label %775
 
 775:                                              ; preds = %771
   %776 = icmp eq i8 %662, 10
-  br i1 %776, label %.thread89, label %777
+  br i1 %776, label %.thread88, label %777
 
 777:                                              ; preds = %775
   %778 = add nsw i64 %743, -10
   call void @iov_iter_advance(ptr noundef nonnull %747, i64 noundef %778) #19
-  br label %.thread89
+  br label %.thread88
 
-.thread93:                                        ; preds = %742, %750
-  %.ph92 = phi i32 [ -14, %750 ], [ -22, %742 ]
-  store i32 %.ph92, ptr %4, align 4
-  br label %.thread94
+.thread92:                                        ; preds = %742, %750
+  %.ph91 = phi i32 [ -14, %750 ], [ -22, %742 ]
+  store i32 %.ph91, ptr %4, align 4
+  br label %.thread93
 
 779:                                              ; preds = %771
   store i32 -22, ptr %4, align 4
-  br label %.thread94
+  br label %.thread93
 
-.thread89:                                        ; preds = %777, %775, %739
+.thread88:                                        ; preds = %777, %775, %739
   %780 = phi i64 [ %2, %739 ], [ %746, %775 ], [ %746, %777 ]
   %781 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %782 = load volatile i64, ptr %781, align 8
@@ -4384,7 +4384,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %784 = icmp eq i64 %783, 0
   br i1 %784, label %790, label %785, !prof !22
 
-785:                                              ; preds = %.thread89
+785:                                              ; preds = %.thread88
   %786 = load i64, ptr %711, align 8
   %787 = and i64 %786, 16384
   %788 = icmp eq i64 %787, 0
@@ -4392,10 +4392,10 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
 
 789:                                              ; preds = %785
   store i32 -93, ptr %4, align 4
-  br label %.thread94
+  br label %.thread93
 
-790:                                              ; preds = %785, %.thread89
-  %791 = phi i32 [ 0, %.thread89 ], [ 4, %785 ]
+790:                                              ; preds = %785, %.thread88
+  %791 = phi i32 [ 0, %.thread88 ], [ 4, %785 ]
   store i32 -90, ptr %4, align 4
   %792 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %793 = load i8, ptr %792, align 1
@@ -4410,7 +4410,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %800 = add i32 %799, %797
   %801 = zext i32 %800 to i64
   %802 = icmp ugt i64 %780, %801
-  br i1 %802, label %.thread94, label %803
+  br i1 %802, label %.thread93, label %803
 
 803:                                              ; preds = %795, %790
   store i32 -105, ptr %4, align 4
@@ -4451,7 +4451,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %838 = sub i64 %780, %836
   %839 = call ptr @sock_alloc_send_pskb(ptr noundef %10, i64 noundef %837, i64 noundef %838, i32 noundef %827, ptr noundef nonnull %4, i32 noundef 3) #19
   %840 = icmp eq ptr %839, null
-  br i1 %840, label %.thread94, label %841
+  br i1 %840, label %.thread93, label %841
 
 841:                                              ; preds = %803
   %842 = zext nneg i32 %812 to i64
@@ -4491,21 +4491,21 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %868 = getelementptr inbounds nuw i8, ptr %711, i64 16
   %869 = load ptr, ptr %868, align 8
   %870 = icmp eq ptr %869, null
-  br i1 %870, label %.thread96, label %871
+  br i1 %870, label %.thread95, label %871
 
 871:                                              ; preds = %866
   %872 = load ptr, ptr %869, align 8
   %873 = icmp eq ptr %872, null
-  br i1 %873, label %.thread96, label %874
+  br i1 %873, label %.thread95, label %874
 
 874:                                              ; preds = %871
   %875 = call i32 %872(ptr noundef nonnull %839, ptr noundef nonnull %711, i16 noundef zeroext %867, ptr noundef %709, ptr noundef null, i32 noundef %819) #19
   %876 = icmp slt i32 %875, 0
-  br i1 %876, label %1036, label %.thread96, !prof !72
+  br i1 %876, label %1036, label %.thread95, !prof !72
 
 877:                                              ; preds = %841
   %878 = icmp eq i32 %740, 0
-  br i1 %878, label %.thread96, label %879
+  br i1 %878, label %.thread95, label %879
 
 879:                                              ; preds = %877
   %880 = sub nsw i32 0, %740
@@ -4518,7 +4518,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %885 = add nuw nsw i32 %740, 40
   %886 = zext nneg i32 %885 to i64
   %887 = icmp ult i64 %780, %886
-  br i1 %887, label %888, label %.thread96
+  br i1 %887, label %888, label %.thread95
 
 888:                                              ; preds = %879
   %889 = getelementptr inbounds nuw i8, ptr %711, i64 554
@@ -4526,16 +4526,16 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %891 = load i16, ptr %804, align 4
   %892 = zext i8 %890 to i16
   %893 = icmp eq i16 %891, %892
-  br i1 %893, label %.thread96, label %894
+  br i1 %893, label %.thread95, label %894
 
 894:                                              ; preds = %888
   %895 = ptrtoint ptr %882 to i64
   %896 = sub i64 %895, %860
   %897 = trunc i64 %896 to i16
   store i16 %897, ptr %863, align 4
-  br label %.thread96
+  br label %.thread95
 
-.thread96:                                        ; preds = %866, %871, %894, %888, %879, %877, %874
+.thread95:                                        ; preds = %866, %871, %894, %888, %879, %877, %874
   %898 = phi i32 [ %875, %874 ], [ 0, %894 ], [ 0, %888 ], [ 0, %879 ], [ 0, %877 ], [ 0, %871 ], [ 0, %866 ]
   %899 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %900 = call i32 @skb_copy_datagram_from_iter(ptr noundef nonnull %839, i32 noundef %898, ptr noundef nonnull %899, i32 noundef %819) #19
@@ -4543,7 +4543,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %901 = icmp eq i32 %900, 0
   br i1 %901, label %902, label %1036
 
-902:                                              ; preds = %.thread96
+902:                                              ; preds = %.thread95
   %903 = load i16, ptr %732, align 4
   %904 = icmp eq i16 %903, 3
   br i1 %904, label %905, label %935
@@ -4745,13 +4745,13 @@ virtio_net_hdr_set_proto.exit:                    ; preds = %1022, %1018, %1013,
 
 1027:                                             ; preds = %virtio_net_hdr_set_proto.exit
   %1028 = icmp sgt i32 %1025, 0
-  br i1 %1028, label %1029, label %.thread94
+  br i1 %1028, label %1029, label %.thread93
 
 1029:                                             ; preds = %1027
   %1030 = icmp eq i32 %1025, 2
   %1031 = select i1 %1030, i32 0, i32 -105
   store i32 %1031, ptr %4, align 4
-  br i1 %1030, label %1032, label %.thread94
+  br i1 %1030, label %1032, label %.thread93
 
 1032:                                             ; preds = %1029, %virtio_net_hdr_set_proto.exit
   %1033 = getelementptr inbounds nuw i8, ptr %711, i64 1280
@@ -4761,24 +4761,24 @@ virtio_net_hdr_set_proto.exit:                    ; preds = %1022, %1018, %1013,
   br label %1039
 
 .sink.split:                                      ; preds = %978, %982, %910, %925, %929, %933, %935
-  %.sink = phi i32 [ -22, %910 ], [ -22, %935 ], [ -22, %933 ], [ -22, %929 ], [ -22, %925 ], [ -90, %982 ], [ -90, %978 ]
+  %.sink = phi i32 [ -22, %935 ], [ -22, %933 ], [ -22, %929 ], [ -22, %925 ], [ -22, %910 ], [ -90, %982 ], [ -90, %978 ]
   store i32 %.sink, ptr %4, align 4
   br label %1036
 
-1036:                                             ; preds = %.sink.split, %1010, %.thread96, %874
+1036:                                             ; preds = %.sink.split, %1010, %.thread95, %874
   call void @kfree_skb_reason(ptr noundef nonnull %839, i32 noundef 2) #19
-  br label %.thread94
+  br label %.thread93
 
-.thread94:                                        ; preds = %779, %1027, %803, %713, %728, %1036, %1029, %795, %789, %698, %.thread93
-  %.ph99 = phi ptr [ %711, %803 ], [ %711, %.thread93 ], [ %692, %698 ], [ %711, %789 ], [ %711, %795 ], [ %711, %1029 ], [ %711, %1036 ], [ %711, %713 ], [ %711, %779 ], [ %711, %728 ], [ %711, %1027 ]
-  %1037 = getelementptr inbounds nuw i8, ptr %.ph99, i64 1280
+.thread93:                                        ; preds = %779, %1027, %803, %713, %728, %1036, %1029, %795, %789, %698, %.thread92
+  %.ph98 = phi ptr [ %711, %.thread92 ], [ %692, %698 ], [ %711, %789 ], [ %711, %795 ], [ %711, %1029 ], [ %711, %1036 ], [ %711, %779 ], [ %711, %728 ], [ %711, %713 ], [ %711, %803 ], [ %711, %1027 ]
+  %1037 = getelementptr inbounds nuw i8, ptr %.ph98, i64 1280
   %1038 = load ptr, ptr %1037, align 8
   call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1038, ptr elementtype(i32) %1038) #19, !srcloc !9
-  %.pre158 = load i32, ptr %4, align 4
+  %.pre157 = load i32, ptr %4, align 4
   br label %1039
 
-1039:                                             ; preds = %674, %678, %.thread94, %708, %1032
-  %1040 = phi i32 [ %1035, %1032 ], [ -6, %708 ], [ %.pre158, %.thread94 ], [ -22, %678 ], [ -22, %674 ]
+1039:                                             ; preds = %674, %678, %.thread93, %708, %1032
+  %1040 = phi i32 [ %1035, %1032 ], [ -6, %708 ], [ %.pre157, %.thread93 ], [ -22, %678 ], [ -22, %674 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -5125,7 +5125,7 @@ define internal i32 @packet_recvmsg(ptr noundef readonly captures(none) %0, ptr 
   br label %195
 
 195:                                              ; preds = %.sink.split, %192, %189
-  %196 = phi i32 [ 1, %189 ], [ 1, %192 ], [ %.sink16, %.sink.split ]
+  %196 = phi i32 [ 1, %192 ], [ 1, %189 ], [ %.sink16, %.sink.split ]
   %197 = getelementptr inbounds nuw i8, ptr %22, i64 192
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds nuw i8, ptr %22, i64 188
@@ -5956,10 +5956,10 @@ define internal fastcc noundef range(i32 -22, 1) i32 @packet_set_ring(ptr nounde
   br label %.thread22
 
 .thread22:                                        ; preds = %263, %267, %271, %346, %351, %276
-  %.ph29 = phi i32 [ %339, %346 ], [ %110, %276 ], [ %339, %351 ], [ %110, %271 ], [ %110, %267 ], [ %110, %263 ]
-  %.ph30 = phi i32 [ %340, %346 ], [ -12, %276 ], [ %340, %351 ], [ -22, %271 ], [ -22, %267 ], [ -22, %263 ]
-  %.ph31 = phi ptr [ %341, %346 ], [ null, %276 ], [ %341, %351 ], [ null, %271 ], [ null, %267 ], [ null, %263 ]
-  %.ph32 = phi ptr [ %342, %346 ], [ %113, %276 ], [ %342, %351 ], [ %113, %271 ], [ %113, %267 ], [ %113, %263 ]
+  %.ph29 = phi i32 [ %110, %276 ], [ %339, %351 ], [ %339, %346 ], [ %110, %271 ], [ %110, %267 ], [ %110, %263 ]
+  %.ph30 = phi i32 [ -12, %276 ], [ %340, %351 ], [ %340, %346 ], [ -22, %271 ], [ -22, %267 ], [ -22, %263 ]
+  %.ph31 = phi ptr [ null, %276 ], [ %341, %351 ], [ %341, %346 ], [ null, %271 ], [ null, %267 ], [ null, %263 ]
+  %.ph32 = phi ptr [ %113, %276 ], [ %342, %351 ], [ %342, %346 ], [ %113, %271 ], [ %113, %267 ], [ %113, %263 ]
   call void @bitmap_free(ptr noundef %.ph31) #19
   %356 = load i32, ptr %47, align 4
   %357 = icmp eq i32 %356, 0
@@ -6000,8 +6000,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @packet_set_ring(ptr nounde
   call void @kfree(ptr noundef nonnull %.ph32) #19
   br label %.thread25
 
-.thread25:                                        ; preds = %.loopexit34, %99, %95, %91, %84, %74, %63, %60, %50, %.thread20, %344, %.loopexit, %280, %.thread, %14
-  %373 = phi i32 [ %340, %344 ], [ %.ph30, %.loopexit ], [ -16, %.thread ], [ -22, %280 ], [ -16, %14 ], [ -12, %.loopexit34 ], [ -22, %99 ], [ -22, %95 ], [ -22, %91 ], [ -22, %84 ], [ -22, %74 ], [ -22, %63 ], [ -22, %60 ], [ -16, %50 ], [ -12, %.thread20 ]
+.thread25:                                        ; preds = %.thread20, %.loopexit34, %99, %95, %91, %84, %74, %63, %60, %50, %344, %.loopexit, %280, %.thread, %14
+  %373 = phi i32 [ %.ph30, %.loopexit ], [ -22, %280 ], [ -16, %14 ], [ -16, %.thread ], [ %340, %344 ], [ -12, %.thread20 ], [ -12, %.loopexit34 ], [ -22, %99 ], [ -22, %95 ], [ -22, %91 ], [ -22, %84 ], [ -22, %74 ], [ -22, %63 ], [ -22, %60 ], [ -16, %50 ]
   ret i32 %373
 }
 
@@ -8575,7 +8575,7 @@ define internal fastcc i32 @packet_mc_add(ptr noundef captures(none) %0, ptr nou
   br label %packet_dev_mc.exit
 
 packet_dev_mc.exit:                               ; preds = %71, %73, %75, %82
-  %84 = phi i32 [ %83, %82 ], [ %72, %71 ], [ %76, %75 ], [ %74, %73 ]
+  %84 = phi i32 [ %83, %82 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ]
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %packet_dev_mc.exit.thread6, label %packet_dev_mc.exit.packet_dev_mc.exit.thread_crit_edge
 
@@ -8583,9 +8583,9 @@ packet_dev_mc.exit.packet_dev_mc.exit.thread_crit_edge: ; preds = %packet_dev_mc
   %.pre9 = load ptr, ptr %17, align 8
   br label %packet_dev_mc.exit.thread
 
-packet_dev_mc.exit.thread:                        ; preds = %packet_dev_mc.exit.packet_dev_mc.exit.thread_crit_edge, %66, %77
-  %86 = phi ptr [ %.pre9, %packet_dev_mc.exit.packet_dev_mc.exit.thread_crit_edge ], [ %21, %77 ], [ %21, %66 ]
-  %87 = phi i32 [ %84, %packet_dev_mc.exit.packet_dev_mc.exit.thread_crit_edge ], [ -22, %77 ], [ -22, %66 ]
+packet_dev_mc.exit.thread:                        ; preds = %packet_dev_mc.exit.packet_dev_mc.exit.thread_crit_edge, %77, %66
+  %86 = phi ptr [ %.pre9, %packet_dev_mc.exit.packet_dev_mc.exit.thread_crit_edge ], [ %21, %66 ], [ %21, %77 ]
+  %87 = phi i32 [ %84, %packet_dev_mc.exit.packet_dev_mc.exit.thread_crit_edge ], [ -22, %66 ], [ -22, %77 ]
   store ptr %86, ptr %20, align 16
   br label %88
 
@@ -9334,7 +9334,7 @@ define internal i32 @packet_rcv_fanout(ptr noundef %0, ptr noundef %1, ptr nound
   br label %fanout_demux_rollover.exit
 
 fanout_demux_rollover.exit:                       ; preds = %81, %89, %125, %44, %42, %39, %34, %27
-  %127 = phi i32 [ %33, %27 ], [ %43, %42 ], [ %48, %44 ], [ %41, %39 ], [ %38, %34 ], [ %126, %125 ], [ 0, %89 ], [ %58, %81 ]
+  %127 = phi i32 [ %33, %27 ], [ %48, %44 ], [ %41, %39 ], [ %38, %34 ], [ %126, %125 ], [ %43, %42 ], [ 0, %89 ], [ %58, %81 ]
   %128 = load i8, ptr %17, align 1
   %129 = and i8 %128, 16
   %130 = icmp eq i8 %129, 0
@@ -9738,14 +9738,14 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
   %110 = load i8, ptr %4, align 1
   %111 = and i8 %110, 127
   switch i8 %111, label %.critedge [
-    i8 1, label %112
-    i8 4, label %115
+    i8 1, label %115
+    i8 4, label %112
     i8 3, label %114
     i8 5, label %114
   ]
 
 112:                                              ; preds = %109
-  %113 = icmp eq i16 %107, 8
+  %113 = icmp eq i16 %107, -8826
   br i1 %113, label %117, label %.critedge
 
 114:                                              ; preds = %109, %109
@@ -9755,7 +9755,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
   ]
 
 115:                                              ; preds = %109
-  %116 = icmp eq i16 %107, -8826
+  %116 = icmp eq i16 %107, 8
   br i1 %116, label %117, label %.critedge
 
 117:                                              ; preds = %114, %114, %112, %115
@@ -9923,7 +9923,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
   br label %.thread
 
 .thread:                                          ; preds = %56, %81, %62, %58, %.critedge, %213, %207, %204, %195, %191, %187, %.thread15, %169, %167, %83, %12, %7
-  %218 = phi i32 [ -22, %83 ], [ -22, %.critedge ], [ -22, %7 ], [ -22, %12 ], [ -22, %169 ], [ 0, %213 ], [ 0, %207 ], [ 0, %.thread15 ], [ -22, %204 ], [ -22, %195 ], [ -22, %191 ], [ -22, %187 ], [ -22, %167 ], [ -22, %58 ], [ -22, %62 ], [ -22, %81 ], [ -22, %56 ]
+  %218 = phi i32 [ -22, %83 ], [ -22, %7 ], [ -22, %12 ], [ -22, %169 ], [ 0, %213 ], [ 0, %207 ], [ 0, %.thread15 ], [ -22, %204 ], [ -22, %195 ], [ -22, %191 ], [ -22, %187 ], [ -22, %167 ], [ -22, %.critedge ], [ -22, %58 ], [ -22, %62 ], [ -22, %81 ], [ -22, %56 ]
   ret i32 %218
 }
 

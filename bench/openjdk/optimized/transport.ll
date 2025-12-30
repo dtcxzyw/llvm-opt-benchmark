@@ -408,8 +408,8 @@ loadTransport.exit:                               ; preds = %93
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %125
 
-freeTransportInfo.exit:                           ; preds = %33, %100, %43, %63, %72, %120, %113, %106, %73
-  %.031.i.ph = phi i16 [ 509, %73 ], [ 510, %106 ], [ 510, %113 ], [ 510, %120 ], [ 509, %72 ], [ 509, %63 ], [ 509, %43 ], [ 510, %100 ], [ 509, %33 ]
+freeTransportInfo.exit:                           ; preds = %33, %43, %63, %72, %120, %113, %106, %100, %73
+  %.031.i.ph = phi i16 [ 509, %73 ], [ 510, %100 ], [ 510, %106 ], [ 510, %113 ], [ 510, %120 ], [ 509, %72 ], [ 509, %63 ], [ 509, %43 ], [ 509, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %122 = load ptr, ptr %15, align 8
@@ -585,8 +585,8 @@ freeTransportInfo.exit:                           ; preds = %33, %100, %43, %63,
   br label %freeTransportInfo.exit111
 
 209:                                              ; preds = %177, %156, %136, %127, %198, %194, %176, %170, %154
-  %.082 = phi ptr [ %15, %170 ], [ %15, %127 ], [ %15, %154 ], [ %15, %176 ], [ %15, %156 ], [ %15, %194 ], [ null, %198 ], [ %15, %136 ], [ %15, %177 ]
-  %.081 = phi i16 [ 510, %170 ], [ 110, %127 ], [ 510, %154 ], [ 510, %176 ], [ 110, %156 ], [ %195, %194 ], [ %200, %198 ], [ 110, %136 ], [ 110, %177 ]
+  %.082 = phi ptr [ %15, %154 ], [ %15, %176 ], [ %15, %194 ], [ null, %198 ], [ %15, %170 ], [ %15, %127 ], [ %15, %136 ], [ %15, %156 ], [ %15, %177 ]
+  %.081 = phi i16 [ 510, %154 ], [ 510, %176 ], [ %195, %194 ], [ %200, %198 ], [ 510, %170 ], [ 110, %127 ], [ 110, %136 ], [ 110, %156 ], [ 110, %177 ]
   %210 = load ptr, ptr %14, align 8
   %.not108 = icmp eq ptr %210, null
   br i1 %.not108, label %212, label %211
@@ -638,7 +638,7 @@ freeTransportInfo.exit113:                        ; preds = %219
   br label %freeTransportInfo.exit111
 
 freeTransportInfo.exit111:                        ; preds = %213, %212, %227, %5, %freeTransportInfo.exit113, %207, %freeTransportInfo.exit
-  %.0 = phi i16 [ 510, %freeTransportInfo.exit113 ], [ %.031.i.ph, %freeTransportInfo.exit ], [ 110, %5 ], [ 0, %207 ], [ %230, %227 ], [ %.081, %212 ], [ %.081, %213 ]
+  %.0 = phi i16 [ %.031.i.ph, %freeTransportInfo.exit ], [ 0, %207 ], [ 510, %freeTransportInfo.exit113 ], [ 110, %5 ], [ %230, %227 ], [ %.081, %212 ], [ %.081, %213 ]
   ret i16 %.0
 }
 
@@ -708,14 +708,14 @@ define internal fastcc void @printLastError(ptr noundef %0, i32 noundef range(i3
   br i1 %.not23, label %31, label %.sink.split
 
 .sink.split:                                      ; preds = %25, %20
-  %.sink = phi i32 [ %., %25 ], [ 87, %20 ]
-  %.str.24.sink = phi ptr [ %.str.24..0, %25 ], [ %.0, %20 ]
+  %.sink = phi i32 [ 87, %20 ], [ %., %25 ]
+  %.str.24.sink = phi ptr [ %.0, %20 ], [ %.str.24..0, %25 ]
   call void @log_message_begin(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef %.sink) #6
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.23, i32 noundef %1, ptr noundef %.str.24.sink) #6
   br label %31
 
 31:                                               ; preds = %25, %.sink.split, %20
-  %.0.sink = phi ptr [ %.str.24..0, %25 ], [ %.str.24.sink, %.sink.split ], [ %.0, %20 ]
+  %.0.sink = phi ptr [ %.0, %20 ], [ %.str.24.sink, %.sink.split ], [ %.str.24..0, %25 ]
   call void (ptr, ...) @error_message(ptr noundef nonnull @.str.23, i32 noundef %1, ptr noundef %.0.sink) #6
   %32 = load ptr, ptr %3, align 8
   call void @jvmtiDeallocate(ptr noundef %32) #6
@@ -854,7 +854,7 @@ define internal fastcc zeroext range(i16 0, 511) i16 @launch(ptr noundef nonnull
   br label %29
 
 29:                                               ; preds = %26, %3, %25
-  %.0 = phi i16 [ 110, %3 ], [ 110, %25 ], [ %., %26 ]
+  %.0 = phi i16 [ 110, %25 ], [ 110, %3 ], [ %., %26 ]
   ret i16 %.0
 }
 
@@ -981,7 +981,7 @@ define hidden range(i32 -1, 1) i32 @transport_sendPacket(ptr noundef %0) local_u
   br label %.thread
 
 .thread:                                          ; preds = %3, %16, %22, %8, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %8 ], [ -1, %22 ], [ -1, %16 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %1 ], [ -1, %22 ], [ -1, %16 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1083,7 +1083,7 @@ define internal fastcc void @connectionInitiated(ptr noundef %0) unnamed_addr #0
   tail call void @debugLoop_run() #6
   br label %22
 
-.critedge:                                        ; preds = %8, %17, %14
+.critedge:                                        ; preds = %17, %14, %8
   %21 = load ptr, ptr @listenerLock, align 8
   tail call void @debugMonitorExit(ptr noundef %21) #6
   br label %22

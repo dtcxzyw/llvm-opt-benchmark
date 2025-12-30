@@ -104,7 +104,7 @@ define noundef range(i32 0, 3) i32 @_ZNK5boost7archive6detail18utf8_codecvt_face
   br label %_ZN5boost7archive6detail18utf8_codecvt_facet20get_cont_octet_countEh.exit
 
 _ZN5boost7archive6detail18utf8_codecvt_facet20get_cont_octet_countEh.exit: ; preds = %18, %20, %22, %24
-  %.0.i.i = phi i32 [ 3, %22 ], [ %26, %24 ], [ 1, %18 ], [ 2, %20 ]
+  %.0.i.i = phi i32 [ 1, %18 ], [ 2, %20 ], [ 3, %22 ], [ %26, %24 ]
   %27 = zext i8 %12 to i32
   %28 = zext nneg i32 %.0.i.i to i64
   %29 = getelementptr inbounds nuw i32, ptr @_ZZN5boost7archive6detail6detail25get_octet1_modifier_tableEvE21octet1_modifier_table, i64 %28
@@ -216,7 +216,7 @@ define noundef range(i32 0, 2) i32 @_ZNK5boost7archive6detail18utf8_codecvt_face
   br label %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit
 
 _ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit: ; preds = %.lr.ph64, %14, %16, %18, %20
-  %.0.i.i = phi i32 [ 3, %18 ], [ 0, %.lr.ph64 ], [ 1, %14 ], [ 2, %16 ], [ %..i.i, %20 ]
+  %.0.i.i = phi i32 [ 0, %.lr.ph64 ], [ 1, %14 ], [ 2, %16 ], [ 3, %18 ], [ %..i.i, %20 ]
   %22 = mul nuw nsw i32 %.0.i.i, 6
   %23 = zext nneg i32 %.0.i.i to i64
   %24 = getelementptr inbounds nuw i32, ptr @_ZZN5boost7archive6detail6detail25get_octet1_modifier_tableEvE21octet1_modifier_table, i64 %23
@@ -288,7 +288,7 @@ _ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit: ;
   br label %55
 
 55:                                               ; preds = %._crit_edge65, %.critedge
-  %.1 = phi i32 [ %., %._crit_edge65 ], [ 1, %.critedge ]
+  %.1 = phi i32 [ 1, %.critedge ], [ %., %._crit_edge65 ]
   ret i32 %.1
 }
 
@@ -315,7 +315,7 @@ define noundef range(i32 0, 6) i32 @_ZN5boost7archive6detail18utf8_codecvt_facet
   br label %_ZN5boost7archive6detail6detail29get_cont_octet_out_count_implILm4EEEiw.exit
 
 _ZN5boost7archive6detail6detail29get_cont_octet_out_count_implILm4EEEiw.exit: ; preds = %1, %3, %5, %7, %9
-  %.0.i = phi i32 [ 3, %7 ], [ 0, %1 ], [ 1, %3 ], [ 2, %5 ], [ %..i, %9 ]
+  %.0.i = phi i32 [ 0, %1 ], [ 1, %3 ], [ 2, %5 ], [ 3, %7 ], [ %..i, %9 ]
   ret i32 %.0.i
 }
 
@@ -359,7 +359,7 @@ define noundef i32 @_ZNK5boost7archive6detail18utf8_codecvt_facet9do_lengthER11_
   br label %_ZN5boost7archive6detail18utf8_codecvt_facet15get_octet_countEh.exit
 
 _ZN5boost7archive6detail18utf8_codecvt_facet15get_octet_countEh.exit: ; preds = %10, %13, %15, %17, %19
-  %.0.i = phi i64 [ 4, %17 ], [ 1, %10 ], [ 2, %13 ], [ 3, %15 ], [ %21, %19 ]
+  %.0.i = phi i64 [ 1, %10 ], [ 2, %13 ], [ 3, %15 ], [ 4, %17 ], [ %21, %19 ]
   %22 = ptrtoint ptr %.019 to i64
   %23 = sub i64 %9, %22
   %.not = icmp ult i64 %23, %.0.i
@@ -409,7 +409,7 @@ define noundef range(i32 1, 7) i32 @_ZN5boost7archive6detail18utf8_codecvt_facet
   br label %11
 
 11:                                               ; preds = %9, %7, %5, %3, %1
-  %.0 = phi i32 [ 4, %7 ], [ 1, %1 ], [ 2, %3 ], [ 3, %5 ], [ %., %9 ]
+  %.0 = phi i32 [ 1, %1 ], [ 2, %3 ], [ 3, %5 ], [ 4, %7 ], [ %., %9 ]
   ret i32 %.0
 }
 

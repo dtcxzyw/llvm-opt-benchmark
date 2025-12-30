@@ -78,7 +78,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br label %24
 
 24:                                               ; preds = %20, %12, %23
-  %.0 = phi i32 [ %15, %12 ], [ 0, %23 ], [ %21, %20 ]
+  %.0 = phi i32 [ 0, %23 ], [ %15, %12 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -215,7 +215,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.preheader, %50, %52, %39, %30, %47
-  %.1 = phi i32 [ 0, %50 ], [ %32, %30 ], [ 0, %47 ], [ %.025, %39 ], [ 0, %52 ], [ 0, %.preheader ], [ 0, %18 ]
+  %.1 = phi i32 [ 0, %47 ], [ %32, %30 ], [ %.025, %39 ], [ 0, %52 ], [ 0, %50 ], [ 0, %.preheader ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -336,7 +336,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
   br label %61
 
 61:                                               ; preds = %41, %26, %45, %._crit_edge
-  %.0 = phi i32 [ -22, %._crit_edge ], [ 0, %26 ], [ %60, %45 ], [ %43, %41 ]
+  %.0 = phi i32 [ %60, %45 ], [ -22, %._crit_edge ], [ 0, %26 ], [ %43, %41 ]
   ret i32 %.0
 }
 
@@ -392,7 +392,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
   br label %35
 
 35:                                               ; preds = %18, %1, %15, %23
-  %.011 = phi i32 [ %34, %23 ], [ %16, %15 ], [ %13, %1 ], [ %21, %18 ]
+  %.011 = phi i32 [ %34, %23 ], [ %13, %1 ], [ %16, %15 ], [ %21, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -679,7 +679,7 @@ define internal fastcc range(i32 -12, 1) i32 @filter_frame(ptr noundef %0, ptr n
   br label %112
 
 112:                                              ; preds = %.critedge, %13, %111
-  %.0 = phi i32 [ 0, %111 ], [ -12, %.critedge ], [ -12, %13 ]
+  %.0 = phi i32 [ 0, %111 ], [ -12, %13 ], [ -12, %.critedge ]
   ret i32 %.0
 }
 

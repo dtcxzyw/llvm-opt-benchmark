@@ -869,7 +869,7 @@ zend_string_release.exit46:                       ; preds = %85, %89, %96, %97
   br label %zval_ptr_dtor_nogc.exit
 
 zval_ptr_dtor_nogc.exit:                          ; preds = %61, %107, %102, %99, %98
-  %.033 = phi i32 [ -1, %107 ], [ -1, %98 ], [ -1, %99 ], [ -1, %102 ], [ 0, %61 ]
+  %.033 = phi i32 [ -1, %98 ], [ -1, %99 ], [ -1, %102 ], [ -1, %107 ], [ 0, %61 ]
   %.not40 = icmp eq ptr %.0, null
   br i1 %.not40, label %zend_string_release.exit49, label %109
 
@@ -1189,7 +1189,7 @@ define dso_local zeroext i1 @zend_verify_const_access(ptr noundef readonly captu
   br label %18
 
 18:                                               ; preds = %2, %12, %8
-  %.0 = phi i1 [ %17, %12 ], [ %11, %8 ], [ true, %2 ]
+  %.0 = phi i1 [ %11, %8 ], [ %17, %12 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -1224,7 +1224,7 @@ zend_hash_str_find_ptr.exit.i:                    ; preds = %2
   br label %zend_get_constant_str_impl.exit
 
 zend_get_constant_str_impl.exit:                  ; preds = %zend_hash_str_find_ptr.exit.i, %6, %8, %10
-  %.0.i = phi ptr [ %7, %6 ], [ %5, %zend_hash_str_find_ptr.exit.i ], [ %11, %10 ], [ null, %8 ]
+  %.0.i = phi ptr [ %5, %zend_hash_str_find_ptr.exit.i ], [ %7, %6 ], [ %11, %10 ], [ null, %8 ]
   ret ptr %.0.i
 }
 
@@ -1258,7 +1258,7 @@ zend_hash_find_ptr.exit:                          ; preds = %1
   br label %zend_get_special_const.exit
 
 zend_get_special_const.exit:                      ; preds = %13, %10, %zend_hash_find_ptr.exit, %5
-  %.0 = phi ptr [ %9, %5 ], [ %4, %zend_hash_find_ptr.exit ], [ %14, %13 ], [ null, %10 ]
+  %.0 = phi ptr [ %4, %zend_hash_find_ptr.exit ], [ %9, %5 ], [ %14, %13 ], [ null, %10 ]
   ret ptr %.0
 }
 
@@ -1294,7 +1294,7 @@ zend_hash_find_ptr.exit:                          ; preds = %6, %12
   br label %14
 
 14:                                               ; preds = %5, %2, %zend_hash_find_ptr.exit
-  %.0 = phi ptr [ null, %2 ], [ %.0.i, %zend_hash_find_ptr.exit ], [ null, %5 ]
+  %.0 = phi ptr [ %.0.i, %zend_hash_find_ptr.exit ], [ null, %2 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -1328,7 +1328,7 @@ zend_hash_find_ptr.exit.i:                        ; preds = %1
   br label %zend_get_constant_ptr.exit
 
 zend_get_constant_ptr.exit:                       ; preds = %zend_hash_find_ptr.exit.i, %5, %10, %13
-  %.0.i = phi ptr [ %9, %5 ], [ %4, %zend_hash_find_ptr.exit.i ], [ %14, %13 ], [ null, %10 ]
+  %.0.i = phi ptr [ %4, %zend_hash_find_ptr.exit.i ], [ %9, %5 ], [ %14, %13 ], [ null, %10 ]
   ret ptr %.0.i
 }
 
@@ -1524,21 +1524,21 @@ zend_class_constants_table.exit:                  ; preds = %81, %84, %86
 100:                                              ; preds = %95
   %101 = and i32 %98, 4
   %.not8.i = icmp eq i32 %101, 0
-  br i1 %.not8.i, label %102, label %zend_verify_const_access.exit
+  br i1 %.not8.i, label %zend_verify_const_access.exit, label %102
 
 102:                                              ; preds = %100
-  %103 = and i32 %98, 2
-  %104 = icmp ne i32 %103, 0
-  tail call void @llvm.assume(i1 %104)
-  %105 = getelementptr inbounds nuw i8, ptr %96, i64 32
-  %106 = load ptr, ptr %105, align 8, !tbaa !55
-  %107 = tail call zeroext i1 @zend_check_protected(ptr noundef %106, ptr noundef %2) #11
-  br i1 %107, label %zend_verify_const_access.exit.thread, label %111
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 32
+  %104 = load ptr, ptr %103, align 8, !tbaa !55
+  %105 = icmp eq ptr %104, %2
+  br i1 %105, label %zend_verify_const_access.exit.thread, label %111
 
 zend_verify_const_access.exit:                    ; preds = %100
+  %106 = and i32 %98, 2
+  %107 = icmp ne i32 %106, 0
+  tail call void @llvm.assume(i1 %107)
   %108 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %109 = load ptr, ptr %108, align 8, !tbaa !55
-  %110 = icmp eq ptr %109, %2
+  %110 = tail call zeroext i1 @zend_check_protected(ptr noundef %109, ptr noundef %2) #11
   br i1 %110, label %zend_verify_const_access.exit.thread, label %111
 
 111:                                              ; preds = %102, %zend_verify_const_access.exit
@@ -1620,7 +1620,7 @@ zend_verify_const_access.exit.thread:             ; preds = %95, %102, %zend_ver
   br label %152
 
 152:                                              ; preds = %.thread, %89, %34, %48, %52, %68, %92, %114, %111, %124, %121, %133, %135, %145, %142
-  %.059 = phi ptr [ null, %92 ], [ null, %34 ], [ null, %52 ], [ %96, %135 ], [ %.1., %145 ], [ null, %124 ], [ null, %121 ], [ null, %133 ], [ null, %114 ], [ null, %111 ], [ null, %68 ], [ null, %48 ], [ null, %142 ], [ null, %89 ], [ null, %.thread ]
+  %.059 = phi ptr [ null, %92 ], [ %96, %135 ], [ null, %124 ], [ null, %121 ], [ null, %133 ], [ null, %114 ], [ null, %111 ], [ null, %68 ], [ null, %48 ], [ null, %52 ], [ null, %34 ], [ null, %142 ], [ %.1., %145 ], [ null, %89 ], [ null, %.thread ]
   ret ptr %.059
 }
 
@@ -1840,11 +1840,11 @@ zend_hash_str_find_ptr.exit:                      ; preds = %63, %70
   br label %zend_get_constant_str_impl.exit
 
 zend_get_constant_str_impl.exit:                  ; preds = %105, %97, %83
-  %.1 = phi ptr [ %98, %97 ], [ %84, %83 ], [ %106, %105 ]
+  %.1 = phi ptr [ %84, %83 ], [ %98, %97 ], [ %106, %105 ]
   %.not113 = icmp eq ptr %.1, null
   br i1 %.not113, label %zend_get_constant_str_impl.exit.thread134, label %zend_get_constant_str_impl.exit.thread
 
-zend_get_constant_str_impl.exit.thread134:        ; preds = %103, %74, %81, %94, %zend_get_constant_str_impl.exit
+zend_get_constant_str_impl.exit.thread134:        ; preds = %103, %94, %81, %74, %zend_get_constant_str_impl.exit
   %107 = and i32 %2, 256
   %.not114 = icmp eq i32 %107, 0
   br i1 %.not114, label %108, label %116
@@ -1854,12 +1854,12 @@ zend_get_constant_str_impl.exit.thread134:        ; preds = %103, %74, %81, %94,
   br label %116
 
 zend_get_constant_str_impl.exit.thread.sink.split: ; preds = %99, %87, %76
-  %.sink = phi ptr [ %88, %87 ], [ %78, %76 ], [ %100, %99 ]
+  %.sink = phi ptr [ %78, %76 ], [ %88, %87 ], [ %100, %99 ]
   %109 = load ptr, ptr %.sink, align 8, !tbaa !4, !nonnull !49, !noundef !49
   br label %zend_get_constant_str_impl.exit.thread
 
 zend_get_constant_str_impl.exit.thread:           ; preds = %zend_get_constant_str_impl.exit.thread.sink.split, %101, %89, %79, %73, %zend_get_constant_str_impl.exit
-  %.1132 = phi ptr [ %.1, %zend_get_constant_str_impl.exit ], [ %.0.i, %73 ], [ %102, %101 ], [ %80, %79 ], [ %93, %89 ], [ %109, %zend_get_constant_str_impl.exit.thread.sink.split ]
+  %.1132 = phi ptr [ %.1, %zend_get_constant_str_impl.exit ], [ %102, %101 ], [ %93, %89 ], [ %80, %79 ], [ %.0.i, %73 ], [ %109, %zend_get_constant_str_impl.exit.thread.sink.split ]
   %110 = and i32 %2, 256
   %.not115 = icmp eq i32 %110, 0
   br i1 %.not115, label %111, label %116
@@ -1876,7 +1876,7 @@ zend_get_constant_str_impl.exit.thread:           ; preds = %zend_get_constant_s
   br label %116
 
 116:                                              ; preds = %zend_get_constant_str_impl.exit.thread, %111, %115, %zend_get_constant_str_impl.exit.thread134, %108, %zend_string_release_ex.exit
-  %.0 = phi ptr [ %35, %zend_string_release_ex.exit ], [ null, %zend_get_constant_str_impl.exit.thread134 ], [ null, %108 ], [ %.1132, %115 ], [ %.1132, %111 ], [ %.1132, %zend_get_constant_str_impl.exit.thread ]
+  %.0 = phi ptr [ %35, %zend_string_release_ex.exit ], [ null, %108 ], [ null, %zend_get_constant_str_impl.exit.thread134 ], [ %.1132, %115 ], [ %.1132, %111 ], [ %.1132, %zend_get_constant_str_impl.exit.thread ]
   ret ptr %.0
 }
 

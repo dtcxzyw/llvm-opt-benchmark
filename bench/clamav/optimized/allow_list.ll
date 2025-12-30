@@ -232,7 +232,7 @@ allow_list_free.exit56:                           ; preds = %.lr.ph7.i54, %threa
   br label %.thread58
 
 .thread58:                                        ; preds = %allow_list_free.exit, %allow_list_free.exit56, %._crit_edge, %6
-  %.036 = phi i32 [ 1, %allow_list_free.exit ], [ 0, %._crit_edge ], [ 1, %6 ], [ 1, %allow_list_free.exit56 ]
+  %.036 = phi i32 [ 0, %._crit_edge ], [ 1, %6 ], [ 1, %allow_list_free.exit56 ], [ 1, %allow_list_free.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.036
 }
@@ -445,10 +445,10 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   br label %.thread
 
 .thread:                                          ; preds = %18, %11, %20, %.lr.ph190, %.lr.ph190, %.lr.ph190, %._crit_edge
-  %.3107 = phi ptr [ %.2106186, %20 ], [ %.2106186, %.lr.ph190 ], [ %.4108, %._crit_edge ], [ %.2106186, %.lr.ph190 ], [ %.2106186, %.lr.ph190 ], [ %.2106186, %11 ], [ %.2106186, %18 ]
-  %.199 = phi i32 [ %.098187, %20 ], [ %.098187, %.lr.ph190 ], [ %.2100, %._crit_edge ], [ %.098187, %.lr.ph190 ], [ %.098187, %.lr.ph190 ], [ %.098187, %11 ], [ %.098187, %18 ]
-  %.192 = phi i32 [ %.091188, %20 ], [ %.091188, %.lr.ph190 ], [ %58, %._crit_edge ], [ %.091188, %.lr.ph190 ], [ %.091188, %.lr.ph190 ], [ %.091188, %11 ], [ %.091188, %18 ]
-  %.186 = phi i32 [ %.085189, %20 ], [ %.085189, %.lr.ph190 ], [ %55, %._crit_edge ], [ %.085189, %.lr.ph190 ], [ %.085189, %.lr.ph190 ], [ %.085189, %11 ], [ %.085189, %18 ]
+  %.3107 = phi ptr [ %.4108, %._crit_edge ], [ %.2106186, %.lr.ph190 ], [ %.2106186, %.lr.ph190 ], [ %.2106186, %.lr.ph190 ], [ %.2106186, %20 ], [ %.2106186, %11 ], [ %.2106186, %18 ]
+  %.199 = phi i32 [ %.2100, %._crit_edge ], [ %.098187, %.lr.ph190 ], [ %.098187, %.lr.ph190 ], [ %.098187, %.lr.ph190 ], [ %.098187, %20 ], [ %.098187, %11 ], [ %.098187, %18 ]
+  %.192 = phi i32 [ %58, %._crit_edge ], [ %.091188, %.lr.ph190 ], [ %.091188, %.lr.ph190 ], [ %.091188, %.lr.ph190 ], [ %.091188, %20 ], [ %.091188, %11 ], [ %.091188, %18 ]
+  %.186 = phi i32 [ %55, %._crit_edge ], [ %.085189, %.lr.ph190 ], [ %.085189, %.lr.ph190 ], [ %.085189, %.lr.ph190 ], [ %.085189, %20 ], [ %.085189, %11 ], [ %.085189, %18 ]
   %59 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 2048, ptr noundef nonnull %6)
   %.not120 = icmp eq ptr %59, null
   br i1 %.not120, label %._crit_edge191, label %.lr.ph190
@@ -515,7 +515,7 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   br label %78
 
 78:                                               ; preds = %.thread165, %.thread145, %75, %.thread162
-  %.5 = phi i32 [ 1, %.thread165 ], [ 0, %.thread162 ], [ 1, %75 ], [ 1, %.thread145 ]
+  %.5 = phi i32 [ 0, %.thread162 ], [ 1, %75 ], [ 1, %.thread145 ], [ 1, %.thread165 ]
   ret i32 %.5
 }
 

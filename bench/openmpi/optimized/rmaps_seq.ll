@@ -68,14 +68,14 @@ define internal i32 @prte_rmaps_seq_map(ptr noundef %0, ptr noundef %1) #0 {
   store ptr null, ptr %6, align 8, !tbaa !3
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !8
   %or.cond = icmp ult i32 %7, 64
-  %.0244.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 240
-  %.0244.sroa.gep463 = getelementptr inbounds nuw i8, ptr %5, i64 240
-  %.0244.sroa.gep472 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %.0244.sroa.gep473 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %.0244.sroa.gep477 = getelementptr inbounds nuw i8, ptr %3, i64 264
-  %.0244.sroa.gep478 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  %.0244.sroa.gep497 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %.0244.sroa.gep498 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %.0244.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 240
+  %.0244.sroa.gep463 = getelementptr inbounds nuw i8, ptr %3, i64 240
+  %.0244.sroa.gep472 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  %.0244.sroa.gep473 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %.0244.sroa.gep477 = getelementptr inbounds nuw i8, ptr %5, i64 264
+  %.0244.sroa.gep478 = getelementptr inbounds nuw i8, ptr %3, i64 264
+  %.0244.sroa.gep497 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %.0244.sroa.gep498 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br i1 %or.cond, label %8, label %18
 
 8:                                                ; preds = %2
@@ -222,7 +222,7 @@ define internal i32 @prte_rmaps_seq_map(ptr noundef %0, ptr noundef %1) #0 {
   br label %88
 
 88:                                               ; preds = %87, %81
-  store ptr @pmix_list_t_class, ptr %.0244.sroa.gep497, align 8, !tbaa !40
+  store ptr @pmix_list_t_class, ptr %.0244.sroa.gep498, align 8, !tbaa !40
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 1, ptr %89, align 8, !tbaa !41
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -252,15 +252,15 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %88
   br i1 %.not289, label %143, label %.preheader528
 
 .preheader528:                                    ; preds = %97
-  %99 = load volatile i64, ptr %.0244.sroa.gep477, align 8, !tbaa !46
+  %99 = load volatile i64, ptr %.0244.sroa.gep478, align 8, !tbaa !46
   %100 = icmp eq i64 %99, 0
   br i1 %100, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader528, %133
-  %101 = load volatile i64, ptr %.0244.sroa.gep477, align 8, !tbaa !46
+  %101 = load volatile i64, ptr %.0244.sroa.gep478, align 8, !tbaa !46
   %102 = add i64 %101, -1
-  store volatile i64 %102, ptr %.0244.sroa.gep477, align 8, !tbaa !46
-  %103 = load ptr, ptr %.0244.sroa.gep, align 8, !tbaa !47
+  store volatile i64 %102, ptr %.0244.sroa.gep478, align 8, !tbaa !46
+  %103 = load ptr, ptr %.0244.sroa.gep463, align 8, !tbaa !47
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 128
   %105 = load volatile ptr, ptr %104, align 8, !tbaa !48
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 120
@@ -268,7 +268,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %88
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 128
   store volatile ptr %105, ptr %108, align 8, !tbaa !48
   %109 = load volatile ptr, ptr %106, align 8, !tbaa !49
-  store ptr %109, ptr %.0244.sroa.gep, align 8, !tbaa !47
+  store ptr %109, ptr %.0244.sroa.gep463, align 8, !tbaa !47
   %110 = call i32 @pthread_mutex_lock(ptr noundef nonnull %103) #15
   %111 = icmp eq i32 %110, 35
   br i1 %111, label %112, label %pmix_obj_update.exit
@@ -323,12 +323,12 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i337, %119
   br label %133
 
 133:                                              ; preds = %130, %132, %pmix_obj_update.exit
-  %134 = load volatile i64, ptr %.0244.sroa.gep477, align 8, !tbaa !46
+  %134 = load volatile i64, ptr %.0244.sroa.gep478, align 8, !tbaa !46
   %135 = icmp eq i64 %134, 0
   br i1 %135, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %133, %.preheader528
-  %136 = load ptr, ptr %.0244.sroa.gep497, align 8, !tbaa !40
+  %136 = load ptr, ptr %.0244.sroa.gep498, align 8, !tbaa !40
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 48
   %138 = load ptr, ptr %137, align 8, !tbaa !50
   %139 = load ptr, ptr %138, align 8, !tbaa !43
@@ -347,7 +347,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i337, %119
 143:                                              ; preds = %97, %pmix_obj_run_constructors.exit
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 468
   store i32 0, ptr %144, align 4, !tbaa !54
-  %145 = load volatile i64, ptr %.0244.sroa.gep477, align 8, !tbaa !46
+  %145 = load volatile i64, ptr %.0244.sroa.gep478, align 8, !tbaa !46
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %147 = load ptr, ptr %146, align 8, !tbaa !55
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 128
@@ -357,7 +357,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i337, %119
 
 pmix_pointer_array_get_item.exit.lr.ph:           ; preds = %143
   %.not290 = icmp eq i64 %145, 0
-  %.val = load ptr, ptr %.0244.sroa.gep, align 8
+  %.val = load ptr, ptr %.0244.sroa.gep463, align 8
   %spec.select = select i1 %.not290, ptr null, ptr %.val
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %152 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -423,7 +423,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   br label %188
 
 188:                                              ; preds = %187, %184
-  store ptr @pmix_list_t_class, ptr %.0244.sroa.gep498, align 8, !tbaa !40
+  store ptr @pmix_list_t_class, ptr %.0244.sroa.gep497, align 8, !tbaa !40
   store i32 1, ptr %152, align 8, !tbaa !41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %153, i8 0, i64 64, i1 false)
   %189 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 40), align 8, !tbaa !42
@@ -447,15 +447,15 @@ pmix_obj_run_constructors.exit352:                ; preds = %.lr.ph.i349, %188
   br i1 %.not303, label %pmix_obj_run_destructors.exit389, label %.preheader
 
 .preheader:                                       ; preds = %pmix_obj_run_constructors.exit352
-  %196 = load volatile i64, ptr %.0244.sroa.gep478, align 8, !tbaa !46
+  %196 = load volatile i64, ptr %.0244.sroa.gep477, align 8, !tbaa !46
   %197 = icmp eq i64 %196, 0
   br i1 %197, label %._crit_edge627, label %.lr.ph626
 
 .lr.ph626:                                        ; preds = %.preheader, %230
-  %198 = load volatile i64, ptr %.0244.sroa.gep478, align 8, !tbaa !46
+  %198 = load volatile i64, ptr %.0244.sroa.gep477, align 8, !tbaa !46
   %199 = add i64 %198, -1
-  store volatile i64 %199, ptr %.0244.sroa.gep478, align 8, !tbaa !46
-  %200 = load ptr, ptr %.0244.sroa.gep463, align 8, !tbaa !47
+  store volatile i64 %199, ptr %.0244.sroa.gep477, align 8, !tbaa !46
+  %200 = load ptr, ptr %.0244.sroa.gep, align 8, !tbaa !47
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 128
   %202 = load volatile ptr, ptr %201, align 8, !tbaa !48
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 120
@@ -463,7 +463,7 @@ pmix_obj_run_constructors.exit352:                ; preds = %.lr.ph.i349, %188
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 128
   store volatile ptr %202, ptr %205, align 8, !tbaa !48
   %206 = load volatile ptr, ptr %203, align 8, !tbaa !49
-  store ptr %206, ptr %.0244.sroa.gep463, align 8, !tbaa !47
+  store ptr %206, ptr %.0244.sroa.gep, align 8, !tbaa !47
   %207 = call i32 @pthread_mutex_lock(ptr noundef nonnull %200) #15
   %208 = icmp eq i32 %207, 35
   br i1 %208, label %209, label %pmix_obj_update.exit325
@@ -518,12 +518,12 @@ pmix_obj_run_destructors.exit359:                 ; preds = %.lr.ph.i356, %216
   br label %230
 
 230:                                              ; preds = %227, %229, %pmix_obj_update.exit325
-  %231 = load volatile i64, ptr %.0244.sroa.gep478, align 8, !tbaa !46
+  %231 = load volatile i64, ptr %.0244.sroa.gep477, align 8, !tbaa !46
   %232 = icmp eq i64 %231, 0
   br i1 %232, label %._crit_edge627, label %.lr.ph626, !llvm.loop !63
 
 ._crit_edge627:                                   ; preds = %230, %.preheader
-  %233 = load ptr, ptr %.0244.sroa.gep498, align 8, !tbaa !40
+  %233 = load ptr, ptr %.0244.sroa.gep497, align 8, !tbaa !40
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 48
   %235 = load ptr, ptr %234, align 8, !tbaa !50
   %236 = load ptr, ptr %235, align 8, !tbaa !43
@@ -615,7 +615,7 @@ pmix_obj_run_constructors.exit370:                ; preds = %.lr.ph.i367, %258
   br label %272
 
 272:                                              ; preds = %271, %268
-  store ptr @pmix_list_t_class, ptr %.0244.sroa.gep498, align 8, !tbaa !40
+  store ptr @pmix_list_t_class, ptr %.0244.sroa.gep497, align 8, !tbaa !40
   store i32 1, ptr %152, align 8, !tbaa !41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %153, i8 0, i64 64, i1 false)
   %273 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 40), align 8, !tbaa !42
@@ -701,11 +701,11 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %294, %
   %312 = getelementptr inbounds nuw i8, ptr %310, i64 120
   store volatile ptr %290, ptr %312, align 8, !tbaa !49
   %313 = getelementptr inbounds nuw i8, ptr %290, i64 120
-  store ptr %.0244.sroa.gep473, ptr %313, align 8, !tbaa !49
+  store ptr %.0244.sroa.gep472, ptr %313, align 8, !tbaa !49
   store ptr %290, ptr %159, align 8, !tbaa !48
-  %314 = load volatile i64, ptr %.0244.sroa.gep478, align 8, !tbaa !46
+  %314 = load volatile i64, ptr %.0244.sroa.gep477, align 8, !tbaa !46
   %315 = add i64 %314, 1
-  store volatile i64 %315, ptr %.0244.sroa.gep478, align 8, !tbaa !46
+  store volatile i64 %315, ptr %.0244.sroa.gep477, align 8, !tbaa !46
   %316 = call i32 @pthread_mutex_lock(ptr noundef nonnull %282) #15
   %317 = icmp eq i32 %316, 35
   br i1 %317, label %318, label %pmix_obj_update.exit326
@@ -820,7 +820,7 @@ pmix_obj_run_destructors.exit383:                 ; preds = %.lr.ph.i380, %325
   br label %369
 
 369:                                              ; preds = %368, %365
-  store ptr @pmix_list_t_class, ptr %.0244.sroa.gep498, align 8, !tbaa !40
+  store ptr @pmix_list_t_class, ptr %.0244.sroa.gep497, align 8, !tbaa !40
   store i32 1, ptr %152, align 8, !tbaa !41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %153, i8 0, i64 64, i1 false)
   %370 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 40), align 8, !tbaa !42
@@ -844,15 +844,15 @@ pmix_obj_run_constructors.exit394:                ; preds = %.lr.ph.i391, %369
   br i1 %.not293, label %pmix_obj_run_destructors.exit389, label %.preheader523
 
 .preheader523:                                    ; preds = %pmix_obj_run_constructors.exit394
-  %377 = load volatile i64, ptr %.0244.sroa.gep478, align 8, !tbaa !46
+  %377 = load volatile i64, ptr %.0244.sroa.gep477, align 8, !tbaa !46
   %378 = icmp eq i64 %377, 0
   br i1 %378, label %._crit_edge625, label %.lr.ph624
 
 .lr.ph624:                                        ; preds = %.preheader523, %411
-  %379 = load volatile i64, ptr %.0244.sroa.gep478, align 8, !tbaa !46
+  %379 = load volatile i64, ptr %.0244.sroa.gep477, align 8, !tbaa !46
   %380 = add i64 %379, -1
-  store volatile i64 %380, ptr %.0244.sroa.gep478, align 8, !tbaa !46
-  %381 = load ptr, ptr %.0244.sroa.gep463, align 8, !tbaa !47
+  store volatile i64 %380, ptr %.0244.sroa.gep477, align 8, !tbaa !46
+  %381 = load ptr, ptr %.0244.sroa.gep, align 8, !tbaa !47
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 128
   %383 = load volatile ptr, ptr %382, align 8, !tbaa !48
   %384 = getelementptr inbounds nuw i8, ptr %381, i64 120
@@ -860,7 +860,7 @@ pmix_obj_run_constructors.exit394:                ; preds = %.lr.ph.i391, %369
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 128
   store volatile ptr %383, ptr %386, align 8, !tbaa !48
   %387 = load volatile ptr, ptr %384, align 8, !tbaa !49
-  store ptr %387, ptr %.0244.sroa.gep463, align 8, !tbaa !47
+  store ptr %387, ptr %.0244.sroa.gep, align 8, !tbaa !47
   %388 = call i32 @pthread_mutex_lock(ptr noundef nonnull %381) #15
   %389 = icmp eq i32 %388, 35
   br i1 %389, label %390, label %pmix_obj_update.exit327
@@ -915,12 +915,12 @@ pmix_obj_run_destructors.exit401:                 ; preds = %.lr.ph.i398, %397
   br label %411
 
 411:                                              ; preds = %408, %410, %pmix_obj_update.exit327
-  %412 = load volatile i64, ptr %.0244.sroa.gep478, align 8, !tbaa !46
+  %412 = load volatile i64, ptr %.0244.sroa.gep477, align 8, !tbaa !46
   %413 = icmp eq i64 %412, 0
   br i1 %413, label %._crit_edge625, label %.lr.ph624, !llvm.loop !72
 
 ._crit_edge625:                                   ; preds = %411, %.preheader523
-  %414 = load ptr, ptr %.0244.sroa.gep498, align 8, !tbaa !40
+  %414 = load ptr, ptr %.0244.sroa.gep497, align 8, !tbaa !40
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 48
   %416 = load ptr, ptr %415, align 8, !tbaa !50
   %417 = load ptr, ptr %416, align 8, !tbaa !43
@@ -937,7 +937,7 @@ pmix_obj_run_destructors.exit401:                 ; preds = %.lr.ph.i398, %397
   br i1 %.not.i406, label %pmix_obj_run_destructors.exit365, label %.lr.ph.i404, !llvm.loop !51
 
 421:                                              ; preds = %349
-  %422 = load volatile i64, ptr %.0244.sroa.gep477, align 8, !tbaa !46
+  %422 = load volatile i64, ptr %.0244.sroa.gep478, align 8, !tbaa !46
   %.not291 = icmp eq i64 %422, 0
   br i1 %.not291, label %437, label %423
 
@@ -971,11 +971,11 @@ pmix_obj_run_destructors.exit401:                 ; preds = %.lr.ph.i398, %397
   br label %pmix_obj_run_destructors.exit365
 
 pmix_obj_run_destructors.exit389:                 ; preds = %.lr.ph.i386, %._crit_edge600, %pmix_obj_run_constructors.exit394, %pmix_obj_run_constructors.exit352, %434
-  %.0244.sroa.phi = phi ptr [ %.0244.sroa.gep, %434 ], [ %.0244.sroa.gep463, %pmix_obj_run_constructors.exit394 ], [ %.0244.sroa.gep463, %pmix_obj_run_constructors.exit352 ], [ %.0244.sroa.gep463, %._crit_edge600 ], [ %.0244.sroa.gep463, %.lr.ph.i386 ]
-  %.0244.sroa.phi471 = phi ptr [ %.0244.sroa.gep472, %434 ], [ %.0244.sroa.gep473, %pmix_obj_run_constructors.exit394 ], [ %.0244.sroa.gep473, %pmix_obj_run_constructors.exit352 ], [ %.0244.sroa.gep473, %._crit_edge600 ], [ %.0244.sroa.gep473, %.lr.ph.i386 ]
-  %.0244.sroa.phi476 = phi ptr [ %.0244.sroa.gep477, %434 ], [ %.0244.sroa.gep478, %pmix_obj_run_constructors.exit394 ], [ %.0244.sroa.gep478, %pmix_obj_run_constructors.exit352 ], [ %.0244.sroa.gep478, %._crit_edge600 ], [ %.0244.sroa.gep478, %.lr.ph.i386 ]
-  %.0244.sroa.phi496 = phi ptr [ %.0244.sroa.gep497, %434 ], [ %.0244.sroa.gep498, %pmix_obj_run_constructors.exit394 ], [ %.0244.sroa.gep498, %pmix_obj_run_constructors.exit352 ], [ %.0244.sroa.gep498, %._crit_edge600 ], [ %.0244.sroa.gep498, %.lr.ph.i386 ]
-  %.0244 = phi ptr [ %3, %434 ], [ %5, %pmix_obj_run_constructors.exit394 ], [ %5, %pmix_obj_run_constructors.exit352 ], [ %5, %._crit_edge600 ], [ %5, %.lr.ph.i386 ]
+  %.0244.sroa.phi = phi ptr [ %.0244.sroa.gep463, %434 ], [ %.0244.sroa.gep, %pmix_obj_run_constructors.exit352 ], [ %.0244.sroa.gep, %pmix_obj_run_constructors.exit394 ], [ %.0244.sroa.gep, %._crit_edge600 ], [ %.0244.sroa.gep, %.lr.ph.i386 ]
+  %.0244.sroa.phi471 = phi ptr [ %.0244.sroa.gep473, %434 ], [ %.0244.sroa.gep472, %pmix_obj_run_constructors.exit352 ], [ %.0244.sroa.gep472, %pmix_obj_run_constructors.exit394 ], [ %.0244.sroa.gep472, %._crit_edge600 ], [ %.0244.sroa.gep472, %.lr.ph.i386 ]
+  %.0244.sroa.phi476 = phi ptr [ %.0244.sroa.gep478, %434 ], [ %.0244.sroa.gep477, %pmix_obj_run_constructors.exit352 ], [ %.0244.sroa.gep477, %pmix_obj_run_constructors.exit394 ], [ %.0244.sroa.gep477, %._crit_edge600 ], [ %.0244.sroa.gep477, %.lr.ph.i386 ]
+  %.0244.sroa.phi496 = phi ptr [ %.0244.sroa.gep498, %434 ], [ %.0244.sroa.gep497, %pmix_obj_run_constructors.exit352 ], [ %.0244.sroa.gep497, %pmix_obj_run_constructors.exit394 ], [ %.0244.sroa.gep497, %._crit_edge600 ], [ %.0244.sroa.gep497, %.lr.ph.i386 ]
+  %.0244 = phi ptr [ %3, %434 ], [ %5, %pmix_obj_run_constructors.exit352 ], [ %5, %pmix_obj_run_constructors.exit394 ], [ %5, %._crit_edge600 ], [ %5, %.lr.ph.i386 ]
   %439 = load i16, ptr %160, align 8, !tbaa !35
   %440 = and i16 %439, 256
   %.not304 = icmp eq i16 %440, 0
@@ -1235,7 +1235,7 @@ quickmatch.exit:                                  ; preds = %554, %.preheader.i,
   %562 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef %561) #15
   br label %pmix_obj_run_destructors.exit365
 
-.thread515:                                       ; preds = %547, %544, %535, %.lr.ph.i418
+.thread515:                                       ; preds = %544, %547, %535, %.lr.ph.i418
   call void @prte_rmaps_base_get_cpuset(ptr noundef %0, ptr noundef nonnull %533, ptr noundef %1) #15
   %563 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef %0, ptr noundef nonnull %166, ptr noundef nonnull %533, ptr noundef nonnull %.0244, ptr noundef null, ptr noundef %1) #15
   br i1 %563, label %564, label %675
@@ -1615,16 +1615,16 @@ pmix_obj_run_destructors.exit449:                 ; preds = %.lr.ph.i446, %._cri
   br label %pmix_obj_run_destructors.exit345
 
 pmix_obj_run_destructors.exit365:                 ; preds = %351, %pmix_obj_run_constructors.exit370, %170, %.lr.ph.i404, %.lr.ph.i362, %._crit_edge625, %._crit_edge627, %pmix_obj_update.exit331, %634, %632, %pmix_obj_update.exit330, %609, %607, %437, %494, %514, %.thread512, %567, %266
-  %.0245 = phi i32 [ -43, %437 ], [ %611, %pmix_obj_update.exit331 ], [ -43, %494 ], [ -43, %567 ], [ %195, %._crit_edge627 ], [ %586, %pmix_obj_update.exit330 ], [ -43, %.thread512 ], [ -43, %514 ], [ %265, %266 ], [ %376, %._crit_edge625 ], [ %195, %.lr.ph.i362 ], [ %376, %.lr.ph.i404 ], [ %586, %607 ], [ %586, %609 ], [ %611, %632 ], [ %611, %634 ], [ -13, %170 ], [ %265, %pmix_obj_run_constructors.exit370 ], [ -13, %351 ]
-  %734 = load volatile i64, ptr %.0244.sroa.gep477, align 8, !tbaa !46
+  %.0245 = phi i32 [ -43, %494 ], [ -43, %567 ], [ -43, %.thread512 ], [ -43, %514 ], [ %265, %266 ], [ -43, %437 ], [ %586, %607 ], [ %586, %609 ], [ %586, %pmix_obj_update.exit330 ], [ %611, %632 ], [ %611, %634 ], [ %611, %pmix_obj_update.exit331 ], [ %195, %._crit_edge627 ], [ %376, %._crit_edge625 ], [ %195, %.lr.ph.i362 ], [ %376, %.lr.ph.i404 ], [ -13, %351 ], [ %265, %pmix_obj_run_constructors.exit370 ], [ -13, %170 ]
+  %734 = load volatile i64, ptr %.0244.sroa.gep478, align 8, !tbaa !46
   %735 = icmp eq i64 %734, 0
   br i1 %735, label %._crit_edge629, label %.lr.ph628
 
 .lr.ph628:                                        ; preds = %pmix_obj_run_destructors.exit365, %768
-  %736 = load volatile i64, ptr %.0244.sroa.gep477, align 8, !tbaa !46
+  %736 = load volatile i64, ptr %.0244.sroa.gep478, align 8, !tbaa !46
   %737 = add i64 %736, -1
-  store volatile i64 %737, ptr %.0244.sroa.gep477, align 8, !tbaa !46
-  %738 = load ptr, ptr %.0244.sroa.gep, align 8, !tbaa !47
+  store volatile i64 %737, ptr %.0244.sroa.gep478, align 8, !tbaa !46
+  %738 = load ptr, ptr %.0244.sroa.gep463, align 8, !tbaa !47
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 128
   %740 = load volatile ptr, ptr %739, align 8, !tbaa !48
   %741 = getelementptr inbounds nuw i8, ptr %738, i64 120
@@ -1632,7 +1632,7 @@ pmix_obj_run_destructors.exit365:                 ; preds = %351, %pmix_obj_run_
   %743 = getelementptr inbounds nuw i8, ptr %742, i64 128
   store volatile ptr %740, ptr %743, align 8, !tbaa !48
   %744 = load volatile ptr, ptr %741, align 8, !tbaa !49
-  store ptr %744, ptr %.0244.sroa.gep, align 8, !tbaa !47
+  store ptr %744, ptr %.0244.sroa.gep463, align 8, !tbaa !47
   %745 = call i32 @pthread_mutex_lock(ptr noundef nonnull %738) #15
   %746 = icmp eq i32 %745, 35
   br i1 %746, label %747, label %pmix_obj_update.exit334
@@ -1687,12 +1687,12 @@ pmix_obj_run_destructors.exit456:                 ; preds = %.lr.ph.i453, %754
   br label %768
 
 768:                                              ; preds = %765, %767, %pmix_obj_update.exit334
-  %769 = load volatile i64, ptr %.0244.sroa.gep477, align 8, !tbaa !46
+  %769 = load volatile i64, ptr %.0244.sroa.gep478, align 8, !tbaa !46
   %770 = icmp eq i64 %769, 0
   br i1 %770, label %._crit_edge629, label %.lr.ph628, !llvm.loop !87
 
 ._crit_edge629:                                   ; preds = %768, %pmix_obj_run_destructors.exit365
-  %771 = load ptr, ptr %.0244.sroa.gep497, align 8, !tbaa !40
+  %771 = load ptr, ptr %.0244.sroa.gep498, align 8, !tbaa !40
   %772 = getelementptr inbounds nuw i8, ptr %771, i64 48
   %773 = load ptr, ptr %772, align 8, !tbaa !50
   %774 = load ptr, ptr %773, align 8, !tbaa !43
@@ -1737,7 +1737,7 @@ pmix_obj_run_destructors.exit462:                 ; preds = %.lr.ph.i459, %._cri
   br label %pmix_obj_run_destructors.exit345
 
 pmix_obj_run_destructors.exit345:                 ; preds = %.lr.ph.i342, %._crit_edge, %780, %781, %56, %57, %63, %40, %42, %48, %22, %24, %30, %._crit_edge623
-  %.0 = phi i32 [ %733, %._crit_edge623 ], [ -46, %22 ], [ -46, %40 ], [ -43, %780 ], [ -46, %56 ], [ -46, %30 ], [ -46, %24 ], [ -46, %48 ], [ -46, %42 ], [ -46, %63 ], [ -46, %57 ], [ -43, %781 ], [ %98, %._crit_edge ], [ %98, %.lr.ph.i342 ]
+  %.0 = phi i32 [ %733, %._crit_edge623 ], [ -46, %30 ], [ -46, %24 ], [ -46, %22 ], [ -46, %48 ], [ -46, %42 ], [ -46, %40 ], [ -46, %63 ], [ -46, %57 ], [ -46, %56 ], [ -43, %781 ], [ -43, %780 ], [ %98, %._crit_edge ], [ %98, %.lr.ph.i342 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

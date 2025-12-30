@@ -240,7 +240,7 @@ define internal range(i32 0, 4) i32 @default_pack(ptr noundef captures(none) %0)
   br label %float_to_half.exit
 
 float_to_half.exit:                               ; preds = %83, %86, %96, %98, %107, %121, %124
-  %.0.i.i = phi i16 [ %79, %107 ], [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %125, %124 ], [ %119, %121 ]
+  %.0.i.i = phi i16 [ %93, %86 ], [ %97, %96 ], [ %106, %98 ], [ %84, %83 ], [ %79, %107 ], [ %125, %124 ], [ %119, %121 ]
   store i16 %.0.i.i, ptr %.0163238, align 1
   %126 = getelementptr inbounds nuw i8, ptr %.0163238, i64 2
   %127 = getelementptr inbounds i8, ptr %.2144240, i64 %64
@@ -321,7 +321,7 @@ float_to_half.exit:                               ; preds = %83, %86, %96, %98, 
   br label %uint_to_half.exit
 
 uint_to_half.exit:                                ; preds = %129, %138, %140, %148, %150, %157, %169, %172
-  %.0.i = phi i16 [ 31744, %129 ], [ 0, %157 ], [ %147, %140 ], [ %167, %169 ], [ %156, %150 ], [ 31744, %138 ], [ %173, %172 ], [ 31744, %148 ]
+  %.0.i = phi i16 [ 31744, %129 ], [ %147, %140 ], [ %156, %150 ], [ 31744, %138 ], [ 0, %157 ], [ %173, %172 ], [ %167, %169 ], [ 31744, %148 ]
   store i16 %.0.i, ptr %.0160234, align 1
   %174 = getelementptr inbounds nuw i8, ptr %.0160234, i64 2
   %175 = getelementptr inbounds i8, ptr %.3145236, i64 %62
@@ -512,13 +512,13 @@ half_to_float_int.exit:                           ; preds = %196, %198, %200, %2
   br label %half_to_float.exit.i
 
 half_to_float.exit.i:                             ; preds = %246, %245, %243
-  %.sroa.0.0.i.i.i179 = phi i32 [ %244, %243 ], [ 0, %245 ], [ %252, %246 ]
+  %.sroa.0.0.i.i.i179 = phi i32 [ %244, %243 ], [ %252, %246 ], [ 0, %245 ]
   %253 = bitcast i32 %.sroa.0.0.i.i.i179 to float
   %254 = fptoui float %253 to i32
   br label %half_to_uint.exit
 
 half_to_uint.exit:                                ; preds = %232, %238, %half_to_float.exit.i
-  %.0.i177 = phi i32 [ %254, %half_to_float.exit.i ], [ %..i, %238 ], [ 0, %232 ]
+  %.0.i177 = phi i32 [ %254, %half_to_float.exit.i ], [ 0, %232 ], [ %..i, %238 ]
   store i32 %.0.i177, ptr %.0141219, align 1
   %255 = getelementptr inbounds nuw i8, ptr %.0141219, i64 4
   %256 = getelementptr inbounds i8, ptr %.7218, i64 %231
@@ -544,7 +544,7 @@ half_to_uint.exit:                                ; preds = %232, %238, %half_to
   br label %float_to_uint.exit
 
 float_to_uint.exit:                               ; preds = %258, %260
-  %.0.i180 = phi i32 [ %spec.select.i, %260 ], [ 0, %258 ]
+  %.0.i180 = phi i32 [ 0, %258 ], [ %spec.select.i, %260 ]
   store i32 %.0.i180, ptr %.0135215, align 1
   %265 = getelementptr inbounds nuw i8, ptr %.0135215, i64 4
   %266 = getelementptr inbounds i8, ptr %.8214, i64 %229
@@ -571,9 +571,9 @@ float_to_uint.exit:                               ; preds = %258, %260
   br label %275
 
 275:                                              ; preds = %.loopexit, %.lr.ph250, %36
-  %276 = phi i16 [ %17, %36 ], [ %17, %.lr.ph250 ], [ %.pre279, %.loopexit ]
-  %.4156 = phi i64 [ %.2154247, %36 ], [ %.2154247, %.lr.ph250 ], [ %274, %.loopexit ]
-  %.3139 = phi ptr [ %.1137248, %36 ], [ %.1137248, %.lr.ph250 ], [ %273, %.loopexit ]
+  %276 = phi i16 [ %.pre279, %.loopexit ], [ %17, %.lr.ph250 ], [ %17, %36 ]
+  %.4156 = phi i64 [ %274, %.loopexit ], [ %.2154247, %.lr.ph250 ], [ %.2154247, %36 ]
+  %.3139 = phi ptr [ %273, %.loopexit ], [ %.1137248, %.lr.ph250 ], [ %.1137248, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %277 = sext i16 %276 to i64
   %278 = icmp slt i64 %indvars.iv.next, %277
@@ -600,8 +600,8 @@ float_to_uint.exit:                               ; preds = %258, %260
   store i64 %.0152.lcssa, ptr %283, align 8, !tbaa !47
   br label %.loopexit207
 
-.loopexit207:                                     ; preds = %53, %58, %223, %177, %.thread188
-  %.5 = phi i32 [ 0, %.thread188 ], [ 3, %177 ], [ 3, %223 ], [ 3, %58 ], [ 3, %53 ]
+.loopexit207:                                     ; preds = %53, %223, %177, %58, %.thread188
+  %.5 = phi i32 [ 0, %.thread188 ], [ 3, %58 ], [ 3, %177 ], [ 3, %223 ], [ 3, %53 ]
   ret i32 %.5
 }
 

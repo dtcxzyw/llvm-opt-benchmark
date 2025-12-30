@@ -41,7 +41,7 @@ define dso_local noundef ptr @slab_automove_init(ptr noundef readonly captures(n
   br label %19
 
 19:                                               ; preds = %1, %16, %15
-  %.0 = phi ptr [ %6, %16 ], [ null, %15 ], [ null, %1 ]
+  %.0 = phi ptr [ null, %15 ], [ %6, %16 ], [ null, %1 ]
   ret ptr %.0
 }
 

@@ -741,7 +741,7 @@ define internal noundef zeroext i1 @update_ipdum_message_list(ptr noundef readon
   br i1 %17, label %.sink.split, label %19
 
 .sink.split:                                      ; preds = %11, %15, %10, %6, %2
-  %.str.102.sink = phi ptr [ @.str.101, %10 ], [ @.str.100, %6 ], [ @.str.99, %2 ], [ @.str.102, %15 ], [ @.str.102, %11 ]
+  %.str.102.sink = phi ptr [ @.str.99, %2 ], [ @.str.100, %6 ], [ @.str.101, %10 ], [ @.str.102, %15 ], [ @.str.102, %11 ]
   %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull %.str.102.sink)
   store ptr %18, ptr %1, align 8
   br label %19

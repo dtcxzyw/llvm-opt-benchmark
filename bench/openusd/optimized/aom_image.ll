@@ -49,7 +49,7 @@ define internal fastcc noundef ptr @img_alloc_helper(ptr noundef captures(addres
   br label %21
 
 21:                                               ; preds = %18, %18, %18, %18, %20, %19
-  %.097 = phi i32 [ 16, %20 ], [ 12, %18 ], [ 12, %18 ], [ 24, %19 ], [ 12, %18 ], [ 12, %18 ]
+  %.097 = phi i32 [ 16, %20 ], [ 24, %19 ], [ 12, %18 ], [ 12, %18 ], [ 12, %18 ], [ 12, %18 ]
   %22 = and i32 %1, 2048
   %.not109 = icmp eq i32 %22, 0
   %23 = select i1 %.not109, i32 8, i32 16
@@ -451,7 +451,7 @@ define hidden range(i32 -1, 1) i32 @aom_img_set_rect(ptr noundef captures(none) 
   br label %94
 
 94:                                               ; preds = %.sink.split, %6, %10
-  %.0 = phi i32 [ -1, %6 ], [ -1, %10 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -1, %10 ], [ -1, %6 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -757,7 +757,7 @@ define hidden noalias noundef ptr @aom_img_metadata_alloc(i32 noundef %0, ptr no
   br label %16
 
 16:                                               ; preds = %7, %4, %13, %12
-  %.0 = phi ptr [ null, %4 ], [ %8, %13 ], [ null, %12 ], [ null, %7 ]
+  %.0 = phi ptr [ %8, %13 ], [ null, %12 ], [ null, %4 ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -816,7 +816,7 @@ aom_img_metadata_array_free.exit:                 ; preds = %4
   br label %8
 
 8:                                                ; preds = %3, %7, %1, %aom_img_metadata_array_free.exit
-  %.0 = phi ptr [ null, %1 ], [ null, %aom_img_metadata_array_free.exit ], [ %2, %7 ], [ %2, %3 ]
+  %.0 = phi ptr [ null, %aom_img_metadata_array_free.exit ], [ null, %1 ], [ %2, %7 ], [ %2, %3 ]
   ret ptr %.0
 }
 
@@ -970,8 +970,8 @@ aom_img_metadata_free.exit:                       ; preds = %21
   store i64 %40, ptr %38, align 8
   br label %aom_img_metadata_alloc.exit.thread
 
-aom_img_metadata_alloc.exit.thread:               ; preds = %15, %20, %11, %aom_img_metadata_array_alloc.exit.thread, %5, %30, %aom_img_metadata_free.exit
-  %.0 = phi i32 [ 0, %30 ], [ -1, %aom_img_metadata_free.exit ], [ -1, %aom_img_metadata_array_alloc.exit.thread ], [ -1, %5 ], [ -1, %11 ], [ -1, %20 ], [ -1, %15 ]
+aom_img_metadata_alloc.exit.thread:               ; preds = %15, %11, %20, %aom_img_metadata_array_alloc.exit.thread, %5, %30, %aom_img_metadata_free.exit
+  %.0 = phi i32 [ 0, %30 ], [ -1, %aom_img_metadata_free.exit ], [ -1, %5 ], [ -1, %aom_img_metadata_array_alloc.exit.thread ], [ -1, %20 ], [ -1, %11 ], [ -1, %15 ]
   ret i32 %.0
 }
 

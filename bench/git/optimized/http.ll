@@ -587,7 +587,7 @@ skip_iprefix.exit22.i.i.i:                        ; preds = %skip_iprefix.exit22
   br i1 %67, label %.preheader.i.i.i, label %redact_sensitive_info_header.exit.i, !llvm.loop !28
 
 .loopexit.i.i:                                    ; preds = %11, %.preheader35.i.i.i, %.preheader.i.i.i
-  %.0.ph.i.i = phi ptr [ %scevgep45.i.i.i, %.preheader35.i.i.i ], [ %indvars.iv.i.i.i, %.preheader.i.i.i ], [ %scevgep.i.i.i, %11 ]
+  %.0.ph.i.i = phi ptr [ %indvars.iv.i.i.i, %.preheader.i.i.i ], [ %scevgep45.i.i.i, %.preheader35.i.i.i ], [ %scevgep.i.i.i, %11 ]
   %68 = ptrtoint ptr %.0.ph.i.i to i64
   %69 = ptrtoint ptr %10 to i64
   %70 = sub i64 %68, %69
@@ -2433,7 +2433,7 @@ _.exit183:                                        ; preds = %205, %207
   br label %211
 
 211:                                              ; preds = %198, %204, %_.exit183, %201, %186, %190, %189, %167, %166, %135, %138, %209, %194, %180, %172, %162, %157, %153, %150, %141, %123, %119, %115, %111, %107, %103, %99, %95, %91, %85, %79, %74, %69, %65, %61, %xstrdup_or_null.exit, %50, %46, %42, %38, %34, %30, %26, %22, %18, %14, %10, %6
-  %.0 = phi i32 [ %210, %209 ], [ 0, %186 ], [ -1, %194 ], [ 0, %167 ], [ 0, %180 ], [ -1, %172 ], [ 0, %135 ], [ -1, %162 ], [ %158, %157 ], [ %154, %153 ], [ 0, %150 ], [ %142, %141 ], [ %7, %6 ], [ 0, %123 ], [ %120, %119 ], [ 0, %115 ], [ %112, %111 ], [ %108, %107 ], [ %104, %103 ], [ %100, %99 ], [ %96, %95 ], [ 0, %91 ], [ 0, %85 ], [ 0, %79 ], [ 0, %74 ], [ 0, %69 ], [ 0, %65 ], [ 0, %61 ], [ 0, %xstrdup_or_null.exit ], [ 0, %50 ], [ 0, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ 0, %10 ], [ 0, %138 ], [ 0, %166 ], [ 0, %189 ], [ 0, %190 ], [ 0, %201 ], [ 0, %_.exit183 ], [ 0, %204 ], [ 0, %198 ]
+  %.0 = phi i32 [ %210, %209 ], [ -1, %194 ], [ 0, %180 ], [ -1, %172 ], [ -1, %162 ], [ %158, %157 ], [ %154, %153 ], [ 0, %150 ], [ %142, %141 ], [ 0, %123 ], [ %120, %119 ], [ 0, %115 ], [ %112, %111 ], [ %108, %107 ], [ %104, %103 ], [ %100, %99 ], [ %96, %95 ], [ 0, %91 ], [ 0, %85 ], [ 0, %79 ], [ 0, %74 ], [ 0, %69 ], [ 0, %65 ], [ 0, %61 ], [ 0, %xstrdup_or_null.exit ], [ 0, %50 ], [ 0, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ 0, %10 ], [ %7, %6 ], [ 0, %138 ], [ 0, %135 ], [ 0, %166 ], [ 0, %167 ], [ 0, %189 ], [ 0, %190 ], [ 0, %186 ], [ 0, %201 ], [ 0, %_.exit183 ], [ 0, %204 ], [ 0, %198 ]
   ret i32 %.0
 }
 
@@ -2708,8 +2708,8 @@ define dso_local ptr @get_active_slot() local_unnamed_addr #2 {
   %.not50 = icmp eq ptr %.pre77, null
   br i1 %.not50, label %.critedge.thread, label %32
 
-.critedge.thread:                                 ; preds = %26, %23, %.critedge
-  %.191 = phi ptr [ %.073, %.critedge ], [ %19, %23 ], [ %19, %26 ]
+.critedge.thread:                                 ; preds = %23, %26, %.critedge
+  %.191 = phi ptr [ %.073, %.critedge ], [ %19, %26 ], [ %19, %23 ]
   %28 = load ptr, ptr @curl_default, align 8, !tbaa !62
   %29 = call ptr @curl_easy_duphandle(ptr noundef %28) #23
   store ptr %29, ptr %.191, align 8, !tbaa !87
@@ -3058,7 +3058,7 @@ curl_empty_auth_enabled.exit.thread:              ; preds = %13, %curl_empty_aut
   %23 = tail call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %0, i32 noundef 10005, ptr noundef nonnull @.str.180) #23
   br label %36
 
-.thread:                                          ; preds = %21, %19, %7, %3
+.thread:                                          ; preds = %19, %21, %7, %3
   %24 = load ptr, ptr @the_repository, align 8, !tbaa !39
   tail call void @credential_fill(ptr noundef %24, ptr noundef nonnull @http_auth, i32 noundef 1) #23
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @http_auth, i64 136), align 8, !tbaa !70
@@ -3672,7 +3672,7 @@ missing__target.exit.i:                           ; preds = %36
   br label %handle_curl_result.exit
 
 handle_curl_result.exit:                          ; preds = %77, %75, %67, %62, %61, %57, %56, %missing__target.exit.i, %36, %32, %30, %26, %normalize_curl_result.exit.i, %9
-  %.0 = phi i32 [ 3, %9 ], [ 0, %26 ], [ 5, %30 ], [ 4, %62 ], [ 6, %normalize_curl_result.exit.i ], [ 4, %56 ], [ 1, %missing__target.exit.i ], [ 5, %57 ], [ 5, %61 ], [ 4, %67 ], [ 2, %77 ], [ 2, %75 ], [ 1, %36 ], [ 1, %32 ]
+  %.0 = phi i32 [ 3, %9 ], [ 0, %26 ], [ 5, %30 ], [ 4, %56 ], [ 6, %normalize_curl_result.exit.i ], [ 1, %missing__target.exit.i ], [ 5, %61 ], [ 5, %57 ], [ 4, %67 ], [ 4, %62 ], [ 2, %77 ], [ 2, %75 ], [ 1, %32 ], [ 1, %36 ]
   ret i32 %.0
 }
 
@@ -3935,7 +3935,7 @@ st_mult.exit87.i:                                 ; preds = %.thread.i.st_mult.e
   br i1 %exitcond131.not.i, label %write_accept_language.exit, label %.lr.ph115.i, !llvm.loop !131
 
 write_accept_language.exit:                       ; preds = %.lr.ph115.i, %47, %.loopexit.i
-  %.367145.i = phi ptr [ %.266.i, %47 ], [ %55, %.loopexit.i ], [ %55, %.lr.ph115.i ]
+  %.367145.i = phi ptr [ %55, %.loopexit.i ], [ %.266.i, %47 ], [ %55, %.lr.ph115.i ]
   call void @free(ptr noundef %.367145.i) #23
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !30
@@ -4075,7 +4075,7 @@ strip_suffix_mem.exit.i:                          ; preds = %38
   br label %update_url_from_redirect.exit.thread
 
 update_url_from_redirect.exit.thread:             ; preds = %19, %46, %16, %13, %12
-  %.033 = phi ptr [ %53, %46 ], [ %0, %12 ], [ %0, %16 ], [ %0, %13 ], [ %0, %19 ]
+  %.033 = phi ptr [ %53, %46 ], [ %0, %16 ], [ %0, %13 ], [ %0, %12 ], [ %0, %19 ]
   %54 = icmp eq i32 %10, 4
   br i1 %54, label %.lr.ph, label %.critedge
 
@@ -4139,7 +4139,7 @@ strbuf_setlen.exit:                               ; preds = %70, %68
   br label %.critedge
 
 .critedge:                                        ; preds = %strbuf_setlen.exit, %.lr.ph.split, %strbuf_setlen.exit.us, %.lr.ph.split.us, %.critedge.sink.split, %update_url_from_redirect.exit.thread, %9
-  %.0 = phi i32 [ %10, %9 ], [ 3, %.critedge.sink.split ], [ %65, %strbuf_setlen.exit.us ], [ %10, %update_url_from_redirect.exit.thread ], [ 4, %.lr.ph.split.us ], [ %72, %strbuf_setlen.exit ], [ 4, %.lr.ph.split ]
+  %.0 = phi i32 [ %10, %9 ], [ %10, %update_url_from_redirect.exit.thread ], [ 3, %.critedge.sink.split ], [ %65, %strbuf_setlen.exit.us ], [ 4, %.lr.ph.split.us ], [ %72, %strbuf_setlen.exit ], [ 4, %.lr.ph.split ]
   ret i32 %.0
 }
 
@@ -4174,7 +4174,7 @@ define dso_local range(i32 0, 7) i32 @http_get_file(ptr noundef %0, ptr noundef 
   br label %18
 
 18:                                               ; preds = %15, %11, %8
-  %.0 = phi i32 [ 2, %8 ], [ %spec.select, %15 ], [ %12, %11 ]
+  %.0 = phi i32 [ %12, %11 ], [ 2, %8 ], [ %spec.select, %15 ]
   call void @strbuf_release(ptr noundef nonnull %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -4496,7 +4496,7 @@ fetch_pack_index.exit.i:                          ; preds = %50
   br label %fetch_and_setup_pack_index.exit
 
 skip_prefix.exit:                                 ; preds = %16, %25, %30, %21
-  %70 = phi ptr [ %.pre, %25 ], [ %.pre, %21 ], [ %scevgep21, %30 ], [ %14, %16 ]
+  %70 = phi ptr [ %scevgep21, %30 ], [ %.pre, %21 ], [ %.pre, %25 ], [ %14, %16 ]
   %71 = call ptr @strchrnul(ptr noundef %70, i32 noundef 10) #24
   store ptr %71, ptr %5, align 8, !tbaa !41
   br label %fetch_and_setup_pack_index.exit
@@ -4887,8 +4887,8 @@ thread-pre-split:                                 ; preds = %41, %44
   %67 = add nuw nsw i64 %62, %.169
   br i1 %66, label %.preheader, label %68, !llvm.loop !186
 
-68:                                               ; preds = %64, %.preheader
-  %.1.ph = phi i64 [ %62, %.preheader ], [ -1, %64 ]
+68:                                               ; preds = %.preheader, %64
+  %.1.ph = phi i64 [ -1, %64 ], [ %62, %.preheader ]
   %69 = call i32 @close(i32 noundef %61) #23
   %70 = icmp eq i64 %.1.ph, -1
   br label %71
@@ -4995,7 +4995,7 @@ object_request_headers.exit:                      ; preds = %.lr.ph.i.i, %87
   br label %136
 
 thread-pre-split.thread:                          ; preds = %81, %thread-pre-split, %37
-  %.str.54.sink = phi ptr [ @.str.53, %thread-pre-split ], [ @.str.53, %37 ], [ @.str.54, %81 ]
+  %.str.54.sink = phi ptr [ @.str.53, %37 ], [ @.str.53, %thread-pre-split ], [ @.str.54, %81 ]
   %133 = load ptr, ptr %24, align 8, !tbaa !183
   %134 = call i32 (ptr, ...) @error_errno(ptr noundef nonnull %.str.54.sink, ptr noundef %133) #23
   call void @strbuf_release(ptr noundef nonnull %6) #23
@@ -5126,7 +5126,7 @@ define internal i64 @fwrite_sha1_file(ptr noundef %0, i64 noundef %1, i64 nounde
   br i1 %54, label %42, label %.critedge, !llvm.loop !196
 
 .critedge:                                        ; preds = %52, %42, %27, %15
-  %.2 = phi i64 [ %2, %15 ], [ %28, %27 ], [ %2, %42 ], [ %2, %52 ]
+  %.2 = phi i64 [ %28, %27 ], [ %2, %15 ], [ %2, %42 ], [ %2, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.2
 }
@@ -6208,7 +6208,7 @@ http_copy_default_headers.exit:                   ; preds = %.lr.ph.i, %4
   br i1 %88, label %.lr.ph96, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph96, %.lr.ph96.preheader, %72, %.critedge73, %66
-  %.1 = phi ptr [ %65, %.critedge73 ], [ %69, %66 ], [ %69, %72 ], [ %69, %.lr.ph96.preheader ], [ %81, %.lr.ph96 ]
+  %.1 = phi ptr [ %69, %66 ], [ %65, %.critedge73 ], [ %69, %72 ], [ %69, %.lr.ph96.preheader ], [ %81, %.lr.ph96 ]
   %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @http_auth, i64 192), align 8, !tbaa !14
   %.not.i = icmp eq ptr %89, null
   br i1 %.not.i, label %http_append_auth_header.exit, label %90
@@ -6598,7 +6598,7 @@ skip_iprefix_mem.exit:                            ; preds = %8
   store i16 %30, ptr getelementptr inbounds nuw (i8, ptr @http_auth, i64 112), align 8
   br label %skip_iprefix_mem.exit36.thread
 
-31:                                               ; preds = %11, %10
+31:                                               ; preds = %10, %11
   %32 = load i16, ptr getelementptr inbounds nuw (i8, ptr @http_auth, i64 112), align 8
   %33 = and i16 %32, 1
   %.not21 = icmp eq i16 %33, 0
@@ -6688,7 +6688,7 @@ skip_iprefix_mem.exit36:                          ; preds = %53
   tail call void @strvec_clear(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @http_auth, i64 40)) #23
   br label %skip_iprefix_mem.exit36.thread
 
-skip_iprefix_mem.exit36.thread:                   ; preds = %55, %56, %skip_iprefix_mem.exit36, %41, %38, %skip_iprefix_mem.exit
+skip_iprefix_mem.exit36.thread:                   ; preds = %56, %55, %skip_iprefix_mem.exit36, %41, %38, %skip_iprefix_mem.exit
   call void @strbuf_release(ptr noundef nonnull %5) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %6

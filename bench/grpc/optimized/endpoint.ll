@@ -736,8 +736,8 @@ _ZN17grpc_event_engine12experimental14QueryExtensionINS0_27EndpointSupportsFdExt
   br label %_ZN17grpc_event_engine12experimental14QueryExtensionINS0_27EndpointSupportsFdExtensionEEEPT_PNS0_11EventEngine8EndpointE.exit.thread
 
 _ZN17grpc_event_engine12experimental14QueryExtensionINS0_27EndpointSupportsFdExtensionEEEPT_PNS0_11EventEngine8EndpointE.exit.thread: ; preds = %2, %9, %_ZN17grpc_event_engine12experimental14QueryExtensionINS0_27EndpointSupportsFdExtensionEEEPT_PNS0_11EventEngine8EndpointE.exit
-  %.not.not = phi i1 [ false, %_ZN17grpc_event_engine12experimental14QueryExtensionINS0_27EndpointSupportsFdExtensionEEEPT_PNS0_11EventEngine8EndpointE.exit ], [ true, %9 ], [ false, %2 ]
-  %.0.i11 = phi ptr [ null, %_ZN17grpc_event_engine12experimental14QueryExtensionINS0_27EndpointSupportsFdExtensionEEEPT_PNS0_11EventEngine8EndpointE.exit ], [ %8, %9 ], [ null, %2 ]
+  %.not.not = phi i1 [ true, %9 ], [ false, %_ZN17grpc_event_engine12experimental14QueryExtensionINS0_27EndpointSupportsFdExtensionEEEPT_PNS0_11EventEngine8EndpointE.exit ], [ false, %2 ]
+  %.0.i11 = phi ptr [ %8, %9 ], [ null, %_ZN17grpc_event_engine12experimental14QueryExtensionINS0_27EndpointSupportsFdExtensionEEEPT_PNS0_11EventEngine8EndpointE.exit ], [ null, %2 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load atomic i64, ptr %19 acquire, align 8
   %21 = and i64 %20, 4294967296
@@ -1385,7 +1385,7 @@ _ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit.i: ; preds = %_ZN17gr
   br label %common.resume
 
 common.resume:                                    ; preds = %34, %111, %75, %76, %97
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %75 ], [ %98, %97 ], [ %77, %76 ], [ %112, %111 ], [ %35, %34 ]
+  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %77, %76 ], [ %.pn.i, %75 ], [ %112, %111 ], [ %35, %34 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5WriteEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint9WriteArgsE.exit: ; preds = %_ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit.i
@@ -1777,7 +1777,7 @@ _ZN9grpc_core4Fork15IncExecCtxCountEv.exit.i:     ; preds = %70, %65
   br label %_ZN9grpc_core7ExecCtxC2Ev.exit
 
 common.resume:                                    ; preds = %52, %50, %.body, %108
-  %common.resume.op = phi { ptr, i32 } [ %109, %108 ], [ %138, %.body ], [ %51, %50 ], [ %53, %52 ]
+  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %51, %50 ], [ %109, %108 ], [ %138, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %71, %_ZN9grpc_core4Fork15IncExecCtxCountEv.exit.i
@@ -2582,7 +2582,7 @@ _ZN9grpc_core4Fork15IncExecCtxCountEv.exit.i:     ; preds = %43, %38
   br label %_ZN9grpc_core7ExecCtxC2Ev.exit
 
 common.resume:                                    ; preds = %85, %.body, %86
-  %common.resume.op = phi { ptr, i32 } [ %87, %86 ], [ %116, %.body ], [ %.pn, %85 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn, %85 ], [ %87, %86 ], [ %116, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %44, %_ZN9grpc_core4Fork15IncExecCtxCountEv.exit.i

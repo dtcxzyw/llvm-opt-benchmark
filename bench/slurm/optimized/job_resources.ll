@@ -165,7 +165,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
   br i1 %.not67.us, label %46, label %.loopexit
 
 46:                                               ; preds = %39, %44, %._crit_edge.split.us.us
-  %.152.us = phi i32 [ %38, %._crit_edge.split.us.us ], [ %.05182.us, %44 ], [ %.05182.us, %39 ]
+  %.152.us = phi i32 [ %.05182.us, %44 ], [ %38, %._crit_edge.split.us.us ], [ %.05182.us, %39 ]
   %47 = load i32, ptr %4, align 4
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %4, align 4
@@ -308,7 +308,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
   br label %107
 
 107:                                              ; preds = %82, %85, %78, %._crit_edge.split
-  %.152 = phi i32 [ %106, %._crit_edge.split ], [ %.05182, %82 ], [ %.05182, %85 ], [ %.05182, %78 ]
+  %.152 = phi i32 [ %.05182, %82 ], [ %.05182, %85 ], [ %.05182, %78 ], [ %106, %._crit_edge.split ]
   %108 = load i32, ptr %4, align 4
   %109 = add nsw i32 %108, 1
   store i32 %109, ptr %4, align 4
@@ -318,12 +318,12 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
   br i1 %.not60, label %.loopexit, label %.lr.ph86.split, !llvm.loop !11
 
 .loopexit:                                        ; preds = %107, %46, %44, %63, %.loopexit70
-  %.not6076 = phi i32 [ 0, %63 ], [ 1, %46 ], [ 1, %.loopexit70 ], [ 0, %44 ], [ 1, %107 ]
+  %.not6076 = phi i32 [ 1, %.loopexit70 ], [ 0, %63 ], [ 1, %46 ], [ 0, %44 ], [ 1, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %112
 
 112:                                              ; preds = %.loopexit, %9, %3
-  %.048 = phi i32 [ 1, %9 ], [ %.not6076, %.loopexit ], [ 1, %3 ]
+  %.048 = phi i32 [ 1, %3 ], [ 1, %9 ], [ %.not6076, %.loopexit ]
   ret i32 %.048
 }
 
@@ -780,7 +780,7 @@ job_res_fit_in_row.exit.thread:                   ; preds = %.lr.ph128, %145, %j
   br label %225
 
 225:                                              ; preds = %104, %224, %._crit_edge133, %.critedge, %9
-  %.086 = phi i32 [ -1, %9 ], [ -1, %.critedge ], [ 0, %._crit_edge133 ], [ 0, %224 ], [ 0, %104 ]
+  %.086 = phi i32 [ -1, %.critedge ], [ -1, %9 ], [ 0, %._crit_edge133 ], [ 0, %224 ], [ 0, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.086
@@ -1378,7 +1378,7 @@ job_res_job_action_string.exit170:                ; preds = %41, %switch.lookup2
   br label %278
 
 278:                                              ; preds = %274, %277, %118, %.critedge, %128, %.thread, %23, %13, %16, %27
-  %.0121 = phi i32 [ -1, %27 ], [ 0, %23 ], [ 0, %.thread ], [ 0, %13 ], [ 0, %16 ], [ -1, %.critedge ], [ 0, %128 ], [ -1, %118 ], [ 0, %277 ], [ 0, %274 ]
+  %.0121 = phi i32 [ -1, %27 ], [ 0, %16 ], [ 0, %13 ], [ 0, %23 ], [ 0, %.thread ], [ -1, %.critedge ], [ -1, %118 ], [ 0, %128 ], [ 0, %277 ], [ 0, %274 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0121
 }

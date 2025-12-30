@@ -417,7 +417,7 @@ _ZN4ncnn3Mat4fillEf.exit.preheader:               ; preds = %.lr.ph429.preheader
   br i1 %exitcond533.not, label %_ZNK4ncnn3Mat5emptyEv.exit237.thread, label %.lr.ph438.us, !llvm.loop !55
 
 _ZNK4ncnn3Mat5emptyEv.exit237.thread:             ; preds = %._crit_edge.us443, %.lr.ph433, %_ZN4ncnn3Mat4fillEf.exit.preheader, %95, %_ZNK4ncnn3Mat5emptyEv.exit237
-  %155 = phi i1 [ false, %_ZNK4ncnn3Mat5emptyEv.exit237 ], [ false, %95 ], [ true, %.lr.ph433 ], [ true, %_ZN4ncnn3Mat4fillEf.exit.preheader ], [ true, %._crit_edge.us443 ]
+  %155 = phi i1 [ false, %_ZNK4ncnn3Mat5emptyEv.exit237 ], [ false, %95 ], [ true, %_ZN4ncnn3Mat4fillEf.exit.preheader ], [ true, %.lr.ph433 ], [ true, %._crit_edge.us443 ]
   %156 = load ptr, ptr %90, align 8, !tbaa !48
   %.not.i324 = icmp eq ptr %156, null
   br i1 %.not.i324, label %_ZN4ncnn3MatD2Ev.exit259, label %157
@@ -822,7 +822,7 @@ _ZN4ncnn3Mat4fillEf.exit247:                      ; preds = %.lr.ph473, %.noexc2
   br i1 %exitcond569.not, label %_ZN4ncnn3Mat4fillEf.exit247, label %.lr.ph473, !llvm.loop !71
 
 _ZNK4ncnn3Mat5emptyEv.exit239.thread:             ; preds = %285, %_ZNK4ncnn3Mat5emptyEv.exit239, %_ZN4ncnn3Mat4fillEf.exit247._crit_edge
-  %324 = phi i1 [ true, %_ZN4ncnn3Mat4fillEf.exit247._crit_edge ], [ false, %_ZNK4ncnn3Mat5emptyEv.exit239 ], [ false, %285 ]
+  %324 = phi i1 [ false, %_ZNK4ncnn3Mat5emptyEv.exit239 ], [ true, %_ZN4ncnn3Mat4fillEf.exit247._crit_edge ], [ false, %285 ]
   %325 = load ptr, ptr %273, align 8, !tbaa !48
   %.not.i300 = icmp eq ptr %325, null
   br i1 %.not.i300, label %_ZN4ncnn3MatD2Ev.exit265, label %326
@@ -943,7 +943,7 @@ _ZN4ncnn3MatD2Ev.exit267:                         ; preds = %357, %293, %363, %3
   br label %372
 
 372:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit267, %256
-  %.pn228 = phi { ptr, i32 } [ %257, %256 ], [ %294, %_ZN4ncnn3MatD2Ev.exit267 ]
+  %.pn228 = phi { ptr, i32 } [ %294, %_ZN4ncnn3MatD2Ev.exit267 ], [ %257, %256 ]
   %373 = load ptr, ptr %242, align 8, !tbaa !48
   %.not.i288 = icmp eq ptr %373, null
   br i1 %.not.i288, label %_ZN4ncnn3MatD2Ev.exit268, label %374
@@ -1148,7 +1148,7 @@ _ZN4ncnn3Mat4fillEf.exit253:                      ; preds = %.lr.ph485.preheader
   br label %_ZNK4ncnn3Mat5emptyEv.exit241.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit241.thread:             ; preds = %428, %_ZNK4ncnn3Mat5emptyEv.exit241, %_ZN4ncnn3Mat4fillEf.exit253
-  %spec.select = phi i32 [ 0, %_ZN4ncnn3Mat4fillEf.exit253 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit241 ], [ -100, %428 ]
+  %spec.select = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit241 ], [ 0, %_ZN4ncnn3Mat4fillEf.exit253 ], [ -100, %428 ]
   %462 = load ptr, ptr %421, align 8, !tbaa !48
   %.not.i280 = icmp eq ptr %462, null
   br i1 %.not.i280, label %_ZN4ncnn3MatD2Ev.exit270, label %463
@@ -1437,7 +1437,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %555, %.critedge236,
   br label %.thread
 
 .thread:                                          ; preds = %_ZN4ncnn3MatD2Ev.exit271, %511, %513, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit257, %_ZN4ncnn3MatD2Ev.exit258, %_ZN4ncnn3MatD2Ev.exit260, %_ZN4ncnn3MatD2Ev.exit266
-  %.3 = phi i32 [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ %spec.select, %_ZN4ncnn3MatD2Ev.exit271 ], [ -100, %_ZN4ncnn3MatD2Ev.exit266 ], [ -100, %_ZN4ncnn3MatD2Ev.exit260 ], [ -100, %_ZN4ncnn3MatD2Ev.exit258 ], [ -100, %_ZN4ncnn3MatD2Ev.exit257 ], [ 0, %513 ], [ 0, %511 ]
+  %.3 = phi i32 [ -100, %_ZN4ncnn3MatD2Ev.exit266 ], [ -100, %_ZN4ncnn3MatD2Ev.exit260 ], [ -100, %_ZN4ncnn3MatD2Ev.exit258 ], [ -100, %_ZN4ncnn3MatD2Ev.exit257 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ 0, %513 ], [ 0, %511 ], [ %spec.select, %_ZN4ncnn3MatD2Ev.exit271 ]
   ret i32 %.3
 
 570:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit272, %_ZN4ncnn3MatD2Ev.exit268, %_ZN4ncnn3MatD2Ev.exit262

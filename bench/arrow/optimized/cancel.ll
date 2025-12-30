@@ -1638,7 +1638,7 @@ _ZN5arrow6ResultINS_8internal13SignalHandlerEED2Ev.exit52.i: ; preds = %200, %19
   br label %_ZN5arrow12_GLOBAL__N_115SignalStopState16RegisterHandlersERKSt6vectorIiSaIiEE.exit
 
 .body.i:                                          ; preds = %_ZN5arrow6ResultINS_8internal13SignalHandlerEED2Ev.exit52.i, %157, %.body.i.i.i, %42, %40, %30
-  %.pn33.pn.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %41, %40 ], [ %43, %42 ], [ %31, %30 ], [ %.pn33.i, %_ZN5arrow6ResultINS_8internal13SignalHandlerEED2Ev.exit52.i ], [ %158, %157 ]
+  %.pn33.pn.pn.i = phi { ptr, i32 } [ %43, %42 ], [ %41, %40 ], [ %31, %30 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %.pn33.i, %_ZN5arrow6ResultINS_8internal13SignalHandlerEED2Ev.exit52.i ], [ %158, %157 ]
   %201 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #27
   br label %common.resume
 
@@ -3337,7 +3337,7 @@ _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i
   br i1 %.not.i.i.i.i.i.i, label %_ZNKSt8weak_ptrIN5arrow12_GLOBAL__N_115SignalStopStateEE4lockEv.exit.thread.i.i.i, label %_ZNKSt8weak_ptrIN5arrow12_GLOBAL__N_115SignalStopStateEE4lockEv.exit.i.i.i
 
 _ZNKSt8weak_ptrIN5arrow12_GLOBAL__N_115SignalStopStateEE4lockEv.exit.thread.i.i.i: ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i.i.i.i, %2
-  %18 = phi ptr [ %6, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i.i ], [ null, %2 ], [ null, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i.i.i.i ]
+  %18 = phi ptr [ %6, %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i.i ], [ null, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i.i.i.i ], [ null, %2 ]
   store ptr null, ptr %3, align 8, !tbaa !52, !alias.scope !159, !noalias !146
   br label %_ZSt13__invoke_implISt10shared_ptrIN5arrow12_GLOBAL__N_115SignalStopStateEERZNS3_4InitEvEUlvE_JEET_St14__invoke_otherOT0_DpOT1_.exit.i
 

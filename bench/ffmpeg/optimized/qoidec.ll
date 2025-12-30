@@ -266,7 +266,7 @@ default.unreachable:                              ; preds = %68
   br label %127
 
 127:                                              ; preds = %.sink.split, %37, %30, %bytestream2_get_byte.exit71.thread, %bytestream2_get_byte.exit, %4
-  %.0 = phi i32 [ -1094995529, %30 ], [ -1094995529, %4 ], [ -1094995529, %bytestream2_get_byte.exit ], [ %28, %bytestream2_get_byte.exit71.thread ], [ %38, %37 ], [ %126, %.sink.split ]
+  %.0 = phi i32 [ -1094995529, %4 ], [ -1094995529, %bytestream2_get_byte.exit ], [ %28, %bytestream2_get_byte.exit71.thread ], [ -1094995529, %30 ], [ %38, %37 ], [ %126, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.093)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

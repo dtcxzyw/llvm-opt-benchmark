@@ -195,8 +195,8 @@ jss_skip_whitespace.exit.i:                       ; preds = %43, %25
   br label %52
 
 52:                                               ; preds = %50, %48, %jss_skip_whitespace.exit.i
-  %53 = phi i1 [ %.not73.i, %50 ], [ true, %jss_skip_whitespace.exit.i ], [ true, %48 ]
-  %.064.i = phi i32 [ %spec.select82.i, %50 ], [ 1, %jss_skip_whitespace.exit.i ], [ 2, %48 ]
+  %53 = phi i1 [ true, %jss_skip_whitespace.exit.i ], [ true, %48 ], [ %.not73.i, %50 ]
+  %.064.i = phi i32 [ 1, %jss_skip_whitespace.exit.i ], [ 2, %48 ], [ %spec.select82.i, %50 ]
   %54 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.5) #7
   %.not74.i = icmp eq ptr %54, null
   br i1 %.not74.i, label %55, label %.thread4.i
@@ -224,8 +224,8 @@ jss_skip_whitespace.exit.i:                       ; preds = %43, %25
   br label %60
 
 60:                                               ; preds = %59, %.thread4.i
-  %spec.store.select9.i = phi i32 [ %spec.store.select.i, %59 ], [ %spec.store.select6.i, %.thread4.i ]
-  %61 = phi i32 [ %spec.select17.i, %59 ], [ %.065.ph.i, %.thread4.i ]
+  %spec.store.select9.i = phi i32 [ %spec.store.select6.i, %.thread4.i ], [ %spec.store.select.i, %59 ]
+  %61 = phi i32 [ %.065.ph.i, %.thread4.i ], [ %spec.select17.i, %59 ]
   %62 = or disjoint i32 %61, %spec.store.select9.i
   switch i32 %62, label %.backedge.i.preheader [
     i32 17, label %.sink.split.i
@@ -264,7 +264,7 @@ jss_skip_whitespace.exit.i:                       ; preds = %43, %25
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %70, %69, %68, %67, %66, %65, %64, %63, %60
-  %.str.8.sink.i = phi ptr [ @.str.16, %70 ], [ @.str.9, %63 ], [ @.str.10, %64 ], [ @.str.11, %65 ], [ @.str.12, %66 ], [ @.str.13, %67 ], [ @.str.14, %68 ], [ @.str.15, %69 ], [ @.str.8, %60 ]
+  %.str.8.sink.i = phi ptr [ @.str.9, %63 ], [ @.str.10, %64 ], [ @.str.11, %65 ], [ @.str.12, %66 ], [ @.str.13, %67 ], [ @.str.14, %68 ], [ @.str.15, %69 ], [ @.str.16, %70 ], [ @.str.8, %60 ]
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %6, ptr noundef nonnull %.str.8.sink.i) #8
   br label %.backedge.i.preheader
 
@@ -341,7 +341,7 @@ jss_skip_whitespace.exit.i:                       ; preds = %43, %25
   br label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %78, %96, %.thread15.i
-  %.2.i.be = phi ptr [ %94, %.thread15.i ], [ %97, %96 ], [ %.3.i, %78 ]
+  %.2.i.be = phi ptr [ %97, %96 ], [ %94, %.thread15.i ], [ %.3.i, %78 ]
   br label %.backedge.i, !llvm.loop !33
 
 jacosub_to_ass.exit:                              ; preds = %.backedge.i, %.backedge.i
@@ -355,7 +355,7 @@ jacosub_to_ass.exit:                              ; preds = %.backedge.i, %.back
   %104 = icmp slt i32 %102, 0
   br i1 %104, label %105, label %.thread
 
-.thread:                                          ; preds = %jacosub_to_ass.exit, %22, %jss_skip_whitespace.exit
+.thread:                                          ; preds = %jss_skip_whitespace.exit, %22, %jacosub_to_ass.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %106
 

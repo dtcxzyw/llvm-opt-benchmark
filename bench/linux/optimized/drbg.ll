@@ -628,7 +628,7 @@ define internal i32 @drbg_kcapi_seed(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %.thread19
 
 .thread19:                                        ; preds = %116, %104
-  %124 = phi i32 [ %123, %116 ], [ %114, %104 ]
+  %124 = phi i32 [ %114, %104 ], [ %123, %116 ]
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %.thread21, label %126
 
@@ -750,7 +750,7 @@ define internal i32 @drbg_kcapi_seed(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %192
 
 192:                                              ; preds = %182, %156, %152
-  %193 = phi i32 [ %157, %156 ], [ %153, %152 ], [ %153, %182 ]
+  %193 = phi i32 [ %157, %156 ], [ %153, %182 ], [ %153, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %193
 }
@@ -1448,7 +1448,7 @@ define internal i32 @drbg_hmac_generate(ptr noundef readonly captures(address_is
   br label %.thread
 
 .thread:                                          ; preds = %90, %.thread38, %97
-  %101 = phi i32 [ %96, %.thread38 ], [ %100, %97 ], [ 0, %90 ]
+  %101 = phi i32 [ %100, %97 ], [ %96, %.thread38 ], [ 0, %90 ]
   %102 = sext i32 %62 to i64
   %103 = getelementptr i8, ptr %1, i64 %102
   %104 = load ptr, ptr %16, align 8

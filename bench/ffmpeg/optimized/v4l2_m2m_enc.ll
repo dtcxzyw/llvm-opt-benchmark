@@ -594,10 +594,10 @@ v4l2_set_ext_ctrl.exit89.i:                       ; preds = %237, %233
   br label %240
 
 240:                                              ; preds = %239, %238, %v4l2_set_ext_ctrl.exit89.i, %219, %v4l2_h264_profile_from_ff.exit.i, %v4l2_h264_profile_from_ff.exit.thread.i, %201, %v4l2_set_ext_ctrl.exit84.i
-  %.066.i = phi i32 [ 10029819, %239 ], [ 10029665, %201 ], [ 10029715, %219 ], [ 10029819, %238 ], [ 10029665, %v4l2_h264_profile_from_ff.exit.thread.i ], [ 10029665, %v4l2_h264_profile_from_ff.exit.i ], [ 10029715, %v4l2_set_ext_ctrl.exit89.i ], [ 10029615, %v4l2_set_ext_ctrl.exit84.i ]
-  %.065.i = phi i32 [ 10029820, %239 ], [ 10029666, %201 ], [ 10029716, %219 ], [ 10029820, %238 ], [ 10029666, %v4l2_h264_profile_from_ff.exit.thread.i ], [ 10029666, %v4l2_h264_profile_from_ff.exit.i ], [ 10029716, %v4l2_set_ext_ctrl.exit89.i ], [ 10029616, %v4l2_set_ext_ctrl.exit84.i ]
-  %.063.i = phi i32 [ 0, %239 ], [ 0, %201 ], [ 1, %219 ], [ 0, %238 ], [ 0, %v4l2_h264_profile_from_ff.exit.thread.i ], [ 0, %v4l2_h264_profile_from_ff.exit.i ], [ 1, %v4l2_set_ext_ctrl.exit89.i ], [ 1, %v4l2_set_ext_ctrl.exit84.i ]
-  %.062.i = phi i32 [ 255, %239 ], [ 51, %201 ], [ 31, %219 ], [ 127, %238 ], [ 51, %v4l2_h264_profile_from_ff.exit.thread.i ], [ 51, %v4l2_h264_profile_from_ff.exit.i ], [ 31, %v4l2_set_ext_ctrl.exit89.i ], [ 31, %v4l2_set_ext_ctrl.exit84.i ]
+  %.066.i = phi i32 [ 10029819, %238 ], [ 10029819, %239 ], [ 10029665, %v4l2_h264_profile_from_ff.exit.thread.i ], [ 10029665, %v4l2_h264_profile_from_ff.exit.i ], [ 10029665, %201 ], [ 10029715, %v4l2_set_ext_ctrl.exit89.i ], [ 10029715, %219 ], [ 10029615, %v4l2_set_ext_ctrl.exit84.i ]
+  %.065.i = phi i32 [ 10029820, %238 ], [ 10029820, %239 ], [ 10029666, %v4l2_h264_profile_from_ff.exit.thread.i ], [ 10029666, %v4l2_h264_profile_from_ff.exit.i ], [ 10029666, %201 ], [ 10029716, %v4l2_set_ext_ctrl.exit89.i ], [ 10029716, %219 ], [ 10029616, %v4l2_set_ext_ctrl.exit84.i ]
+  %.063.i = phi i32 [ 0, %238 ], [ 0, %239 ], [ 0, %v4l2_h264_profile_from_ff.exit.thread.i ], [ 0, %v4l2_h264_profile_from_ff.exit.i ], [ 0, %201 ], [ 1, %v4l2_set_ext_ctrl.exit89.i ], [ 1, %219 ], [ 1, %v4l2_set_ext_ctrl.exit84.i ]
+  %.062.i = phi i32 [ 127, %238 ], [ 255, %239 ], [ 51, %v4l2_h264_profile_from_ff.exit.thread.i ], [ 51, %v4l2_h264_profile_from_ff.exit.i ], [ 51, %201 ], [ 31, %v4l2_set_ext_ctrl.exit89.i ], [ 31, %219 ], [ 31, %v4l2_set_ext_ctrl.exit84.i ]
   %241 = load i32, ptr %196, align 4, !tbaa !67
   %242 = icmp sgt i32 %241, -1
   %.pre107.i = load i32, ptr %198, align 8, !tbaa !68
@@ -702,7 +702,7 @@ v4l2_set_ext_ctrl.exit96.i:                       ; preds = %280, %._crit_edge.i
   br label %v4l2_prepare_encoder.exit
 
 v4l2_prepare_encoder.exit:                        ; preds = %v4l2_set_ext_ctrl.exit96.i, %v4l2_set_ext_ctrl.exit84.i, %v4l2_check_b_frame_support.exit.i, %1, %51, %47
-  %.0 = phi i32 [ %25, %1 ], [ %46, %47 ], [ -22, %51 ], [ 0, %v4l2_set_ext_ctrl.exit96.i ], [ -1163346256, %v4l2_check_b_frame_support.exit.i ], [ 0, %v4l2_set_ext_ctrl.exit84.i ]
+  %.0 = phi i32 [ %46, %47 ], [ -22, %51 ], [ %25, %1 ], [ 0, %v4l2_set_ext_ctrl.exit96.i ], [ -1163346256, %v4l2_check_b_frame_support.exit.i ], [ 0, %v4l2_set_ext_ctrl.exit84.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   ret i32 %.0
 }
@@ -789,8 +789,8 @@ v4l2_set_ext_ctrl.exit.i:                         ; preds = %43, %39
   br label %v4l2_send_frame.exit
 
 v4l2_send_frame.exit:                             ; preds = %22, %._crit_edge, %v4l2_set_ext_ctrl.exit.i
-  %.val.val51 = phi ptr [ %.val.val46, %v4l2_set_ext_ctrl.exit.i ], [ %.val.val46, %._crit_edge ], [ %.val.val, %22 ]
-  %.049 = phi ptr [ %12, %v4l2_set_ext_ctrl.exit.i ], [ %12, %._crit_edge ], [ null, %22 ]
+  %.val.val51 = phi ptr [ %.val.val46, %._crit_edge ], [ %.val.val46, %v4l2_set_ext_ctrl.exit.i ], [ %.val.val, %22 ]
+  %.049 = phi ptr [ %12, %._crit_edge ], [ %12, %v4l2_set_ext_ctrl.exit.i ], [ null, %22 ]
   %44 = getelementptr inbounds nuw i8, ptr %.val.val51, i64 4376
   %45 = call i32 @ff_v4l2_context_enqueue_frame(ptr noundef nonnull %44, ptr noundef %.049) #8
   %.not54 = icmp eq i32 %45, -11
@@ -836,7 +836,7 @@ v4l2_send_frame.exit:                             ; preds = %22, %._crit_edge, %
   br label %61
 
 61:                                               ; preds = %46, %18, %59, %58, %52
-  %.034 = phi i32 [ %60, %59 ], [ %19, %18 ], [ %57, %58 ], [ %51, %52 ], [ %45, %46 ]
+  %.034 = phi i32 [ %60, %59 ], [ %57, %58 ], [ %51, %52 ], [ %19, %18 ], [ %45, %46 ]
   ret i32 %.034
 }
 

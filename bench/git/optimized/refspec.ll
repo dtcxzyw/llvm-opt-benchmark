@@ -206,7 +206,7 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
   br label %91
 
 91:                                               ; preds = %88, %86, %77
-  %.1.i = phi i32 [ %..i, %88 ], [ 0, %86 ], [ 0, %77 ]
+  %.1.i = phi i32 [ 0, %77 ], [ 0, %86 ], [ %..i, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %parse_refspec.exit
 
@@ -310,7 +310,7 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
   br label %parse_refspec.exit
 
 parse_refspec.exit:                               ; preds = %._crit_edge.i, %24, %49, %52, %55, %91, %117, %121, %126, %129, %131, %133
-  %.0.i = phi i32 [ 1, %24 ], [ %.1.i, %91 ], [ 1, %133 ], [ 0, %117 ], [ 0, %55 ], [ 0, %129 ], [ 0, %126 ], [ 0, %121 ], [ 0, %._crit_edge.i ], [ 0, %49 ], [ 0, %52 ], [ 0, %131 ]
+  %.0.i = phi i32 [ %.1.i, %91 ], [ 1, %133 ], [ 0, %117 ], [ 1, %24 ], [ 0, %._crit_edge.i ], [ 0, %52 ], [ 0, %49 ], [ 0, %55 ], [ 0, %121 ], [ 0, %126 ], [ 0, %129 ], [ 0, %131 ]
   ret i32 %.0.i
 }
 

@@ -123,7 +123,7 @@ define internal range(i32 -1, 2) i32 @des_ctrl(ptr readnone captures(none) %0, i
   br label %9
 
 9:                                                ; preds = %4, %5, %8
-  %.0 = phi i32 [ 0, %5 ], [ 1, %8 ], [ -1, %4 ]
+  %.0 = phi i32 [ 1, %8 ], [ 0, %5 ], [ -1, %4 ]
   ret i32 %.0
 }
 

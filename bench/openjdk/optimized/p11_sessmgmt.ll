@@ -146,7 +146,7 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1OpenSession(ptr noundef %
   br label %putNotifyEntry.exit
 
 putNotifyEntry.exit:                              ; preds = %66, %50, %45, %33, %41, %6, %14
-  %.0 = phi i64 [ 0, %33 ], [ 0, %14 ], [ 0, %6 ], [ 0, %41 ], [ %46, %45 ], [ %46, %50 ], [ %46, %66 ]
+  %.0 = phi i64 [ 0, %14 ], [ 0, %6 ], [ 0, %41 ], [ 0, %33 ], [ %46, %45 ], [ %46, %50 ], [ %46, %66 ]
   ret i64 %.0
 }
 
@@ -260,7 +260,7 @@ define hidden i64 @notifyCallback(i64 noundef %0, i64 noundef %1, ptr noundef re
   br label %76
 
 76:                                               ; preds = %69, %70, %56, %49, %29, %22, %6, %3
-  %.030 = phi i64 [ 0, %56 ], [ 0, %3 ], [ 0, %6 ], [ 0, %22 ], [ 0, %29 ], [ 0, %49 ], [ %.029, %70 ], [ %.029, %69 ]
+  %.030 = phi i64 [ 0, %3 ], [ 0, %6 ], [ 0, %22 ], [ 0, %29 ], [ 0, %49 ], [ 0, %56 ], [ %.029, %70 ], [ %.029, %69 ]
   ret i64 %.030
 }
 
@@ -388,7 +388,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1CloseSession(ptr noundef
   br label %removeNotifyEntry.exit
 
 removeNotifyEntry.exit:                           ; preds = %.lr.ph.i, %11, %30
-  %.018.i = phi ptr [ null, %11 ], [ %32, %30 ], [ null, %.lr.ph.i ]
+  %.018.i = phi ptr [ %32, %30 ], [ null, %11 ], [ null, %.lr.ph.i ]
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 1744
   %35 = load ptr, ptr %34, align 8
@@ -472,7 +472,7 @@ define hidden ptr @removeNotifyEntry(ptr noundef %0, i64 noundef %1) local_unnam
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %2, %21
-  %.018 = phi ptr [ null, %2 ], [ %23, %21 ], [ null, %.lr.ph ]
+  %.018 = phi ptr [ %23, %21 ], [ null, %2 ], [ null, %.lr.ph ]
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1744
   %26 = load ptr, ptr %25, align 8
@@ -569,7 +569,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetOperationState(ptr nou
   br label %26
 
 26:                                               ; preds = %7, %3, %25, %16
-  %.0 = phi ptr [ %.019, %25 ], [ null, %3 ], [ null, %16 ], [ null, %7 ]
+  %.0 = phi ptr [ null, %16 ], [ %.019, %25 ], [ null, %3 ], [ null, %7 ]
   ret ptr %.0
 }
 

@@ -1739,7 +1739,7 @@ define internal fastcc ptr @libpqrcv_PQexec(ptr noundef %0, ptr noundef %1) unna
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %.thread, label %.preheader
 
-.thread:                                          ; preds = %15, %9, %12, %.preheader, %6, %2
+.thread:                                          ; preds = %15, %6, %9, %12, %.preheader, %2
   %.0 = phi ptr [ null, %2 ], [ %4, %15 ], [ %.013, %.preheader ], [ %4, %12 ], [ %4, %9 ], [ %4, %6 ]
   ret ptr %.0
 }

@@ -2339,7 +2339,7 @@ define dso_local i32 @__sys_bind(i32 noundef %0, ptr noundef %1, i32 noundef %2)
   br label %.thread6
 
 .thread6:                                         ; preds = %.thread, %22, %21, %3, %52, %.thread11
-  %55 = phi i32 [ %51, %52 ], [ %51, %.thread11 ], [ -88, %.thread ], [ -88, %22 ], [ -88, %21 ], [ -9, %3 ]
+  %55 = phi i32 [ %51, %.thread11 ], [ %51, %52 ], [ -88, %.thread ], [ -88, %22 ], [ -88, %21 ], [ -9, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %55
 }
@@ -2446,7 +2446,7 @@ define dso_local i32 @__sys_listen(i32 noundef %0, i32 noundef %1) local_unnamed
   br label %.thread3
 
 .thread3:                                         ; preds = %.thread3.sink.split, %.thread, %19, %2, %36
-  %41 = phi i32 [ -88, %19 ], [ %37, %36 ], [ -88, %.thread ], [ -9, %2 ], [ %.ph, %.thread3.sink.split ]
+  %41 = phi i32 [ %37, %36 ], [ -88, %.thread ], [ -88, %19 ], [ -9, %2 ], [ %.ph, %.thread3.sink.split ]
   ret i32 %41
 }
 
@@ -2525,7 +2525,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_listen(ptr no
   br label %__sys_listen.exit
 
 __sys_listen.exit:                                ; preds = %1, %.thread.i, %24, %41, %.thread3.sink.split.i
-  %46 = phi i32 [ -88, %24 ], [ %42, %41 ], [ -88, %.thread.i ], [ -9, %1 ], [ %.ph.i, %.thread3.sink.split.i ]
+  %46 = phi i32 [ %42, %41 ], [ -88, %.thread.i ], [ -88, %24 ], [ -9, %1 ], [ %.ph.i, %.thread3.sink.split.i ]
   %47 = sext i32 %46 to i64
   ret i64 %47
 }
@@ -2602,7 +2602,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_listen(ptr n
   br label %__sys_listen.exit
 
 __sys_listen.exit:                                ; preds = %1, %.thread.i, %24, %41, %.thread3.sink.split.i
-  %46 = phi i32 [ -88, %24 ], [ %42, %41 ], [ -88, %.thread.i ], [ -9, %1 ], [ %.ph.i, %.thread3.sink.split.i ]
+  %46 = phi i32 [ %42, %41 ], [ -88, %.thread.i ], [ -88, %24 ], [ -9, %1 ], [ %.ph.i, %.thread3.sink.split.i ]
   %47 = sext i32 %46 to i64
   ret i64 %47
 }
@@ -3107,7 +3107,7 @@ define dso_local i32 @__sys_connect(i32 noundef %0, ptr noundef %1, i32 noundef 
   br label %.thread6
 
 .thread6:                                         ; preds = %.thread, %14, %9, %39, %36, %32, %26
-  %49 = phi i32 [ %27, %26 ], [ %37, %36 ], [ %48, %39 ], [ -88, %32 ], [ -22, %9 ], [ -14, %14 ], [ -88, %.thread ]
+  %49 = phi i32 [ %27, %26 ], [ %37, %36 ], [ %48, %39 ], [ -88, %32 ], [ -14, %14 ], [ -22, %9 ], [ -88, %.thread ]
   %50 = and i64 %5, 1
   %51 = icmp eq i64 %50, 0
   br i1 %51, label %53, label %52
@@ -3284,7 +3284,7 @@ move_addr_to_user.exit:                           ; preds = %66, %62, %59, %44, 
   br label %.thread4
 
 .thread4:                                         ; preds = %.thread, %22, %21, %3, %74, %move_addr_to_user.exit
-  %77 = phi i32 [ %73, %74 ], [ %73, %move_addr_to_user.exit ], [ -88, %.thread ], [ -88, %22 ], [ -88, %21 ], [ -9, %3 ]
+  %77 = phi i32 [ %73, %move_addr_to_user.exit ], [ %73, %74 ], [ -88, %.thread ], [ -88, %22 ], [ -88, %21 ], [ -9, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %77
 }
@@ -3456,7 +3456,7 @@ move_addr_to_user.exit:                           ; preds = %67, %63, %60, %45, 
   br label %.thread4
 
 .thread4:                                         ; preds = %.thread, %22, %21, %3, %75, %move_addr_to_user.exit, %28
-  %79 = phi i32 [ %76, %75 ], [ %26, %28 ], [ %74, %move_addr_to_user.exit ], [ -88, %.thread ], [ -88, %22 ], [ -88, %21 ], [ -9, %3 ]
+  %79 = phi i32 [ %26, %28 ], [ %74, %move_addr_to_user.exit ], [ %76, %75 ], [ -88, %.thread ], [ -88, %22 ], [ -88, %21 ], [ -9, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %79
 }
@@ -3620,7 +3620,7 @@ define dso_local i32 @__sys_sendto(i32 noundef %0, ptr noundef %1, i64 noundef %
   br label %.thread7
 
 .thread7:                                         ; preds = %.thread7.sink.split, %.thread, %29, %12, %.thread12, %6
-  %71 = phi i32 [ %10, %6 ], [ -88, %29 ], [ %67, %.thread12 ], [ -88, %.thread ], [ -9, %12 ], [ %.ph, %.thread7.sink.split ]
+  %71 = phi i32 [ %10, %6 ], [ %67, %.thread12 ], [ -88, %.thread ], [ -88, %29 ], [ -9, %12 ], [ %.ph, %.thread7.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %71
@@ -3851,7 +3851,7 @@ move_addr_to_user.exit:                           ; preds = %49, %79
   br label %move_addr_to_user.exit.thread
 
 move_addr_to_user.exit.thread:                    ; preds = %move_addr_to_user.exit, %75, %72, %57, %33
-  %88 = phi i32 [ %41, %33 ], [ %spec.select, %move_addr_to_user.exit ], [ -22, %57 ], [ -14, %75 ], [ -12, %72 ]
+  %88 = phi i32 [ %41, %33 ], [ -14, %75 ], [ -12, %72 ], [ -22, %57 ], [ %spec.select, %move_addr_to_user.exit ]
   br i1 %31, label %.thread5, label %89
 
 89:                                               ; preds = %move_addr_to_user.exit.thread
@@ -3865,7 +3865,7 @@ move_addr_to_user.exit.thread:                    ; preds = %move_addr_to_user.e
   br label %.thread5
 
 .thread5:                                         ; preds = %.thread5.sink.split, %.thread, %32, %15, %move_addr_to_user.exit.thread, %6
-  %91 = phi i32 [ %13, %6 ], [ -88, %32 ], [ %88, %move_addr_to_user.exit.thread ], [ -88, %.thread ], [ -9, %15 ], [ %.ph, %.thread5.sink.split ]
+  %91 = phi i32 [ %13, %6 ], [ %88, %move_addr_to_user.exit.thread ], [ -88, %.thread ], [ -88, %32 ], [ -9, %15 ], [ %.ph, %.thread5.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %91
@@ -4105,7 +4105,7 @@ define dso_local i32 @__sys_setsockopt(i32 noundef %0, i32 noundef %1, i32 nound
   br label %.thread5
 
 .thread5:                                         ; preds = %.thread5.sink.split, %.thread, %23, %5, %48
-  %53 = phi i32 [ -88, %23 ], [ %49, %48 ], [ -88, %.thread ], [ -9, %5 ], [ %.ph, %.thread5.sink.split ]
+  %53 = phi i32 [ %49, %48 ], [ -88, %.thread ], [ -88, %23 ], [ -9, %5 ], [ %.ph, %.thread5.sink.split ]
   ret i32 %53
 }
 
@@ -4274,7 +4274,7 @@ define dso_local i32 @__sys_getsockopt(i32 noundef %0, i32 noundef %1, i32 nound
   br label %.thread2
 
 .thread2:                                         ; preds = %.thread2.sink.split, %.thread, %23, %5, %24
-  %31 = phi i32 [ -88, %23 ], [ %27, %24 ], [ -88, %.thread ], [ -9, %5 ], [ %.ph, %.thread2.sink.split ]
+  %31 = phi i32 [ %27, %24 ], [ -88, %.thread ], [ -88, %23 ], [ -9, %5 ], [ %.ph, %.thread2.sink.split ]
   ret i32 %31
 }
 
@@ -4345,7 +4345,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_getsockopt(pt
   br label %__sys_getsockopt.exit
 
 __sys_getsockopt.exit:                            ; preds = %1, %.thread.i, %34, %35, %.thread2.sink.split.i
-  %42 = phi i32 [ -88, %34 ], [ %38, %35 ], [ -88, %.thread.i ], [ -9, %1 ], [ %.ph.i, %.thread2.sink.split.i ]
+  %42 = phi i32 [ %38, %35 ], [ -88, %.thread.i ], [ -88, %34 ], [ -9, %1 ], [ %.ph.i, %.thread2.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %43 = sext i32 %42 to i64
   ret i64 %43
@@ -4420,7 +4420,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_getsockopt(p
   br label %__sys_getsockopt.exit
 
 __sys_getsockopt.exit:                            ; preds = %1, %.thread.i, %36, %37, %.thread2.sink.split.i
-  %44 = phi i32 [ -88, %36 ], [ %40, %37 ], [ -88, %.thread.i ], [ -9, %1 ], [ %.ph.i, %.thread2.sink.split.i ]
+  %44 = phi i32 [ %40, %37 ], [ -88, %.thread.i ], [ -88, %36 ], [ -9, %1 ], [ %.ph.i, %.thread2.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %45 = sext i32 %44 to i64
   ret i64 %45
@@ -4507,7 +4507,7 @@ define dso_local i32 @__sys_shutdown(i32 noundef %0, i32 noundef %1) local_unnam
   br label %.thread3
 
 .thread3:                                         ; preds = %.thread3.sink.split, %.thread, %19, %2, %29
-  %34 = phi i32 [ -88, %19 ], [ %30, %29 ], [ -88, %.thread ], [ -9, %2 ], [ %.ph, %.thread3.sink.split ]
+  %34 = phi i32 [ %30, %29 ], [ -88, %.thread ], [ -88, %19 ], [ -9, %2 ], [ %.ph, %.thread3.sink.split ]
   ret i32 %34
 }
 
@@ -4576,7 +4576,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_shutdown(ptr 
   br label %__sys_shutdown.exit
 
 __sys_shutdown.exit:                              ; preds = %1, %.thread.i, %24, %34, %.thread3.sink.split.i
-  %39 = phi i32 [ -88, %24 ], [ %35, %34 ], [ -88, %.thread.i ], [ -9, %1 ], [ %.ph.i, %.thread3.sink.split.i ]
+  %39 = phi i32 [ %35, %34 ], [ -88, %.thread.i ], [ -88, %24 ], [ -9, %1 ], [ %.ph.i, %.thread3.sink.split.i ]
   %40 = sext i32 %39 to i64
   ret i64 %40
 }
@@ -4646,7 +4646,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_shutdown(ptr
   br label %__sys_shutdown.exit
 
 __sys_shutdown.exit:                              ; preds = %1, %.thread.i, %24, %34, %.thread3.sink.split.i
-  %39 = phi i32 [ -88, %24 ], [ %35, %34 ], [ -88, %.thread.i ], [ -9, %1 ], [ %.ph.i, %.thread3.sink.split.i ]
+  %39 = phi i32 [ %35, %34 ], [ -88, %.thread.i ], [ -88, %24 ], [ -9, %1 ], [ %.ph.i, %.thread3.sink.split.i ]
   %40 = sext i32 %39 to i64
   ret i64 %40
 }
@@ -4819,7 +4819,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sendmsg_copy_msghdr(ptr noundef 
   br i1 %30, label %54, label %.thread6
 
 .thread6:                                         ; preds = %35, %.thread
-  %37 = phi i32 [ %27, %35 ], [ 128, %.thread ]
+  %37 = phi i32 [ 128, %.thread ], [ %27, %35 ]
   %38 = load ptr, ptr %0, align 8
   %39 = zext nneg i32 %37 to i64
   %40 = call i64 @_copy_from_user(ptr noundef %38, ptr noundef nonnull %29, i64 noundef %39) #20
@@ -4868,7 +4868,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sendmsg_copy_msghdr(ptr noundef 
   br label %__copy_msghdr.exit.thread
 
 __copy_msghdr.exit.thread:                        ; preds = %.thread6, %.thread7.i, %51, %12, %58, %9
-  %67 = phi i32 [ %66, %58 ], [ -14, %9 ], [ -22, %12 ], [ -14, %.thread6 ], [ -90, %.thread7.i ], [ %52, %51 ]
+  %67 = phi i32 [ %66, %58 ], [ -14, %9 ], [ -14, %.thread6 ], [ -90, %.thread7.i ], [ %52, %51 ], [ -22, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %68
 
@@ -5093,7 +5093,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_sendmsg(i32 nound
   br label %.thread2
 
 .thread2:                                         ; preds = %.thread, %26, %25, %8, %29, %27
-  %32 = phi i32 [ %28, %29 ], [ %28, %27 ], [ -88, %.thread ], [ -88, %26 ], [ -88, %25 ], [ -9, %8 ]
+  %32 = phi i32 [ %28, %27 ], [ %28, %29 ], [ -88, %.thread ], [ -88, %26 ], [ -88, %25 ], [ -9, %8 ]
   %33 = sext i32 %32 to i64
   br label %34
 
@@ -5172,7 +5172,7 @@ define internal fastcc i32 @___sys_sendmsg(ptr noundef nonnull %0, ptr noundef %
   br i1 %35, label %59, label %.thread7
 
 .thread7:                                         ; preds = %40, %.thread
-  %42 = phi i32 [ %32, %40 ], [ 128, %.thread ]
+  %42 = phi i32 [ 128, %.thread ], [ %32, %40 ]
   %43 = load ptr, ptr %2, align 8
   %44 = zext nneg i32 %42 to i64
   %45 = call i64 @_copy_from_user(ptr noundef %43, ptr noundef nonnull %34, i64 noundef %44) #20
@@ -5221,7 +5221,7 @@ define internal fastcc i32 @___sys_sendmsg(ptr noundef nonnull %0, ptr noundef %
   br label %__copy_msghdr.exit.thread
 
 __copy_msghdr.exit.thread:                        ; preds = %.thread7, %.thread7.i, %56, %17, %63, %14
-  %72 = phi i32 [ %71, %63 ], [ -14, %14 ], [ -22, %17 ], [ -14, %.thread7 ], [ -90, %.thread7.i ], [ %57, %56 ]
+  %72 = phi i32 [ %71, %63 ], [ -14, %14 ], [ -14, %.thread7 ], [ -90, %.thread7.i ], [ %57, %56 ], [ -22, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %73
 
@@ -5305,7 +5305,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_sendmsg(ptr n
   br label %.thread2.i
 
 .thread2.i:                                       ; preds = %34, %32, %31, %30, %.thread.i, %12
-  %37 = phi i32 [ %33, %34 ], [ %33, %32 ], [ -88, %.thread.i ], [ -88, %31 ], [ -88, %30 ], [ -9, %12 ]
+  %37 = phi i32 [ %33, %32 ], [ %33, %34 ], [ -88, %.thread.i ], [ -88, %31 ], [ -88, %30 ], [ -9, %12 ]
   %38 = sext i32 %37 to i64
   br label %__sys_sendmsg.exit
 
@@ -5377,7 +5377,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_sendmsg(ptr 
   br label %.thread2.i
 
 .thread2.i:                                       ; preds = %35, %33, %32, %31, %.thread.i, %13
-  %38 = phi i32 [ %34, %35 ], [ %34, %33 ], [ -88, %.thread.i ], [ -88, %32 ], [ -88, %31 ], [ -9, %13 ]
+  %38 = phi i32 [ %34, %33 ], [ %34, %35 ], [ -88, %.thread.i ], [ -88, %32 ], [ -88, %31 ], [ -9, %13 ]
   %39 = sext i32 %38 to i64
   br label %__sys_sendmsg.exit
 
@@ -5844,7 +5844,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_recvmsg(i32 nound
   br label %.thread2
 
 .thread2:                                         ; preds = %.thread, %26, %25, %8, %29, %27
-  %32 = phi i32 [ %28, %29 ], [ %28, %27 ], [ -88, %.thread ], [ -88, %26 ], [ -88, %25 ], [ -9, %8 ]
+  %32 = phi i32 [ %28, %27 ], [ %28, %29 ], [ -88, %.thread ], [ -88, %26 ], [ -88, %25 ], [ -9, %8 ]
   %33 = sext i32 %32 to i64
   br label %34
 
@@ -6032,7 +6032,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_recvmsg(ptr n
   br label %.thread2.i
 
 .thread2.i:                                       ; preds = %34, %32, %31, %30, %.thread.i, %12
-  %37 = phi i32 [ %33, %34 ], [ %33, %32 ], [ -88, %.thread.i ], [ -88, %31 ], [ -88, %30 ], [ -9, %12 ]
+  %37 = phi i32 [ %33, %32 ], [ %33, %34 ], [ -88, %.thread.i ], [ -88, %31 ], [ -88, %30 ], [ -9, %12 ]
   %38 = sext i32 %37 to i64
   br label %__sys_recvmsg.exit
 
@@ -6104,7 +6104,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_recvmsg(ptr 
   br label %.thread2.i
 
 .thread2.i:                                       ; preds = %35, %33, %32, %31, %.thread.i, %13
-  %38 = phi i32 [ %34, %35 ], [ %34, %33 ], [ -88, %.thread.i ], [ -88, %32 ], [ -88, %31 ], [ -9, %13 ]
+  %38 = phi i32 [ %34, %33 ], [ %34, %35 ], [ -88, %.thread.i ], [ -88, %32 ], [ -88, %31 ], [ -9, %13 ]
   %39 = sext i32 %38 to i64
   br label %__sys_recvmsg.exit
 
@@ -6177,7 +6177,7 @@ define dso_local i32 @__sys_recvmmsg(i32 noundef %0, ptr noundef %1, i32 noundef
   br label %33
 
 33:                                               ; preds = %.thread25, %.thread.thread, %.thread23, %.thread, %15, %12, %8
-  %34 = phi i32 [ %16, %15 ], [ -14, %8 ], [ -14, %12 ], [ %17, %.thread ], [ %23, %.thread25 ], [ %32, %.thread23 ], [ %19, %.thread.thread ]
+  %34 = phi i32 [ %16, %15 ], [ -14, %8 ], [ -14, %12 ], [ %17, %.thread ], [ %32, %.thread23 ], [ %19, %.thread.thread ], [ %23, %.thread25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %34
 }
@@ -6384,7 +6384,7 @@ define internal fastcc i32 @do_recvmmsg(i32 noundef %0, ptr noundef %1, i32 noun
   br label %.thread22
 
 .thread22:                                        ; preds = %112, %108, %105, %.thread19, %104, %119, %117, %115, %44
-  %124 = phi i32 [ %spec.select, %.thread19 ], [ %57, %119 ], [ %57, %117 ], [ %46, %44 ], [ %.ph24, %115 ], [ %90, %104 ], [ %90, %108 ], [ %2, %112 ], [ %90, %105 ]
+  %124 = phi i32 [ %57, %119 ], [ %57, %117 ], [ %46, %44 ], [ %.ph24, %115 ], [ %90, %104 ], [ %spec.select, %.thread19 ], [ %90, %105 ], [ %90, %108 ], [ %2, %112 ]
   br i1 %33, label %.thread18, label %125
 
 125:                                              ; preds = %.thread22
@@ -6399,7 +6399,7 @@ define internal fastcc i32 @do_recvmmsg(i32 noundef %0, ptr noundef %1, i32 noun
   br label %.thread18
 
 .thread18:                                        ; preds = %.thread18.sink.split, %.thread, %34, %17, %.thread22, %11
-  %128 = phi i32 [ -22, %11 ], [ -88, %34 ], [ %124, %.thread22 ], [ -88, %.thread ], [ -9, %17 ], [ %.ph, %.thread18.sink.split ]
+  %128 = phi i32 [ -22, %11 ], [ %124, %.thread22 ], [ -88, %.thread ], [ -88, %34 ], [ -9, %17 ], [ %.ph, %.thread18.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -8011,7 +8011,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @compat_sock_ioctl(ptr no
   br label %.critedge
 
 .critedge:                                        ; preds = %60, %52, %66
-  %70 = phi i32 [ %69, %66 ], [ -14, %60 ], [ -14, %52 ]
+  %70 = phi i32 [ %69, %66 ], [ -14, %52 ], [ -14, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %77
 

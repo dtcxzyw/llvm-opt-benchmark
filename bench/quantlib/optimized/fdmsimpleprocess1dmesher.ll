@@ -513,7 +513,7 @@ invoke.cont173:                                   ; preds = %for.body158, %"_ZSt
   ret void
 
 ehcleanup180:                                     ; preds = %lpad10, %lpad106, %lpad96, %lpad29, %lpad39, %lpad19, %lpad61, %lpad71, %lpad51
-  %.pn35.pn.pn.pn.pn = phi { ptr, i32 } [ %77, %lpad61 ], [ %76, %lpad51 ], [ %78, %lpad71 ], [ %72, %lpad10 ], [ %97, %lpad96 ], [ %74, %lpad29 ], [ %98, %lpad106 ], [ %73, %lpad19 ], [ %75, %lpad39 ]
+  %.pn35.pn.pn.pn.pn = phi { ptr, i32 } [ %72, %lpad10 ], [ %98, %lpad106 ], [ %97, %lpad96 ], [ %73, %lpad19 ], [ %75, %lpad39 ], [ %74, %lpad29 ], [ %76, %lpad51 ], [ %78, %lpad71 ], [ %77, %lpad61 ]
   tail call void @_ZN8QuantLib11Fdm1dMesherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #9
   resume { ptr, i32 } %.pn35.pn.pn.pn.pn
 }
@@ -607,7 +607,7 @@ if.end.i.i.i.i.i.i.i37:                           ; preds = %call5.i.i.i.i2.i.i.
   br label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %if.end.i.i.i.i.i.i.i37, %call5.i.i.i.i2.i.i.noexc45, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42
-  %__first.addr.0.i.i.i.i.i40 = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42 ], [ %incdec.ptr.i.i.i.i.i34, %call5.i.i.i.i2.i.i.noexc45 ], [ %add.ptr.i.i.i.i.i.i.i39, %if.end.i.i.i.i.i.i.i37 ]
+  %__first.addr.0.i.i.i.i.i40 = phi ptr [ %incdec.ptr.i.i.i.i.i34, %call5.i.i.i.i2.i.i.noexc45 ], [ %add.ptr.i.i.i.i.i.i.i39, %if.end.i.i.i.i.i.i.i37 ], [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42 ]
   %_M_finish.i.i7.i41 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %__first.addr.0.i.i.i.i.i40, ptr %_M_finish.i.i7.i41, align 8, !tbaa !24
   ret void

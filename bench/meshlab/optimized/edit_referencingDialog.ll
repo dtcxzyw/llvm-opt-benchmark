@@ -302,7 +302,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i
 
-select.unfold:                                    ; preds = %28, %._crit_edge.thread.i.i, %12
+select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
@@ -315,7 +315,7 @@ select.unfold:                                    ; preds = %28, %._crit_edge.th
   br label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
-  %38 = phi i1 [ %37, %33 ], [ true, %select.unfold ]
+  %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
   %39 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20
           to label %.noexc6 unwind label %43
 
@@ -3532,7 +3532,7 @@ _ZN7QStringD2Ev.exit323:                          ; preds = %825, %_ZN9QtPrivate
   br label %934
 
 934:                                              ; preds = %933, %872, %870, %868, %866, %864, %862, %860, %858, %856, %854, %852, %850, %848, %846, %844, %842, %840, %539, %537, %535, %533, %531, %529, %527, %525, %523, %521, %519, %517, %515, %513, %511, %509, %507, %505, %503, %501, %499, %497, %495, %493, %491, %489, %487, %485, %483, %481, %479, %477, %475, %473, %471, %469, %467, %465, %463, %461, %459, %457, %455, %453, %451, %449, %447, %445, %184, %182, %180, %178, %176, %174, %172, %170, %168, %166, %164, %162, %160, %158, %156, %154, %152, %66
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %933 ], [ %873, %872 ], [ %871, %870 ], [ %67, %66 ], [ %869, %868 ], [ %867, %866 ], [ %865, %864 ], [ %863, %862 ], [ %861, %860 ], [ %859, %858 ], [ %857, %856 ], [ %855, %854 ], [ %853, %852 ], [ %851, %850 ], [ %849, %848 ], [ %847, %846 ], [ %845, %844 ], [ %843, %842 ], [ %841, %840 ], [ %540, %539 ], [ %538, %537 ], [ %536, %535 ], [ %534, %533 ], [ %532, %531 ], [ %530, %529 ], [ %528, %527 ], [ %526, %525 ], [ %524, %523 ], [ %522, %521 ], [ %520, %519 ], [ %518, %517 ], [ %516, %515 ], [ %514, %513 ], [ %512, %511 ], [ %510, %509 ], [ %508, %507 ], [ %506, %505 ], [ %504, %503 ], [ %502, %501 ], [ %500, %499 ], [ %498, %497 ], [ %496, %495 ], [ %494, %493 ], [ %492, %491 ], [ %490, %489 ], [ %488, %487 ], [ %486, %485 ], [ %484, %483 ], [ %482, %481 ], [ %480, %479 ], [ %478, %477 ], [ %476, %475 ], [ %474, %473 ], [ %472, %471 ], [ %470, %469 ], [ %468, %467 ], [ %466, %465 ], [ %464, %463 ], [ %462, %461 ], [ %460, %459 ], [ %458, %457 ], [ %456, %455 ], [ %454, %453 ], [ %452, %451 ], [ %450, %449 ], [ %448, %447 ], [ %446, %445 ], [ %185, %184 ], [ %183, %182 ], [ %181, %180 ], [ %179, %178 ], [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %171, %170 ], [ %169, %168 ], [ %167, %166 ], [ %165, %164 ], [ %163, %162 ], [ %161, %160 ], [ %159, %158 ], [ %157, %156 ], [ %155, %154 ], [ %153, %152 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %933 ], [ %873, %872 ], [ %871, %870 ], [ %869, %868 ], [ %867, %866 ], [ %865, %864 ], [ %863, %862 ], [ %861, %860 ], [ %859, %858 ], [ %857, %856 ], [ %855, %854 ], [ %853, %852 ], [ %851, %850 ], [ %849, %848 ], [ %847, %846 ], [ %845, %844 ], [ %843, %842 ], [ %841, %840 ], [ %540, %539 ], [ %538, %537 ], [ %536, %535 ], [ %534, %533 ], [ %532, %531 ], [ %530, %529 ], [ %528, %527 ], [ %526, %525 ], [ %524, %523 ], [ %522, %521 ], [ %520, %519 ], [ %518, %517 ], [ %516, %515 ], [ %514, %513 ], [ %512, %511 ], [ %510, %509 ], [ %508, %507 ], [ %506, %505 ], [ %504, %503 ], [ %502, %501 ], [ %500, %499 ], [ %498, %497 ], [ %496, %495 ], [ %494, %493 ], [ %492, %491 ], [ %490, %489 ], [ %488, %487 ], [ %486, %485 ], [ %484, %483 ], [ %482, %481 ], [ %480, %479 ], [ %478, %477 ], [ %476, %475 ], [ %474, %473 ], [ %472, %471 ], [ %470, %469 ], [ %468, %467 ], [ %466, %465 ], [ %464, %463 ], [ %462, %461 ], [ %460, %459 ], [ %458, %457 ], [ %456, %455 ], [ %454, %453 ], [ %452, %451 ], [ %450, %449 ], [ %448, %447 ], [ %446, %445 ], [ %185, %184 ], [ %183, %182 ], [ %181, %180 ], [ %179, %178 ], [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %171, %170 ], [ %169, %168 ], [ %167, %166 ], [ %165, %164 ], [ %163, %162 ], [ %161, %160 ], [ %159, %158 ], [ %157, %156 ], [ %155, %154 ], [ %153, %152 ], [ %67, %66 ]
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -5551,8 +5551,8 @@ _ZN7QStringD2Ev.exit363:                          ; preds = %481, %_ZN9QtPrivate
   br label %.body
 
 .body:                                            ; preds = %550, %400, %548, %388, %546, %376, %544, %364, %542, %352, %540, %340, %538, %328, %536, %316, %534, %304, %532, %292, %530, %280, %528, %268, %504, %175, %502, %163, %500, %151, %498, %139, %496, %127, %494, %115, %492, %103, %490, %91, %488, %79, %572, %570, %568, %566, %564, %562, %560, %558, %556, %554, %552, %526, %524, %522, %520, %518, %516, %514, %512, %510, %508, %506, %486
-  %.sink = phi ptr [ %67, %572 ], [ %66, %570 ], [ %65, %568 ], [ %64, %566 ], [ %63, %564 ], [ %62, %562 ], [ %61, %560 ], [ %60, %558 ], [ %59, %556 ], [ %58, %554 ], [ %57, %552 ], [ %55, %548 ], [ %54, %546 ], [ %53, %544 ], [ %52, %542 ], [ %51, %540 ], [ %50, %538 ], [ %49, %536 ], [ %48, %534 ], [ %47, %532 ], [ %46, %530 ], [ %45, %528 ], [ %33, %504 ], [ %44, %526 ], [ %43, %524 ], [ %42, %522 ], [ %41, %520 ], [ %40, %518 ], [ %39, %516 ], [ %38, %514 ], [ %37, %512 ], [ %36, %510 ], [ %35, %508 ], [ %34, %506 ], [ %32, %502 ], [ %31, %500 ], [ %30, %498 ], [ %29, %496 ], [ %28, %494 ], [ %27, %492 ], [ %26, %490 ], [ %25, %488 ], [ %24, %486 ], [ %25, %79 ], [ %26, %91 ], [ %27, %103 ], [ %28, %115 ], [ %29, %127 ], [ %30, %139 ], [ %31, %151 ], [ %32, %163 ], [ %33, %175 ], [ %45, %268 ], [ %46, %280 ], [ %47, %292 ], [ %48, %304 ], [ %49, %316 ], [ %50, %328 ], [ %51, %340 ], [ %52, %352 ], [ %53, %364 ], [ %54, %376 ], [ %55, %388 ], [ %56, %400 ], [ %56, %550 ]
-  %.pn = phi { ptr, i32 } [ %573, %572 ], [ %571, %570 ], [ %569, %568 ], [ %567, %566 ], [ %565, %564 ], [ %563, %562 ], [ %561, %560 ], [ %559, %558 ], [ %557, %556 ], [ %555, %554 ], [ %553, %552 ], [ %549, %548 ], [ %547, %546 ], [ %545, %544 ], [ %543, %542 ], [ %541, %540 ], [ %539, %538 ], [ %537, %536 ], [ %535, %534 ], [ %533, %532 ], [ %531, %530 ], [ %529, %528 ], [ %505, %504 ], [ %527, %526 ], [ %525, %524 ], [ %523, %522 ], [ %521, %520 ], [ %519, %518 ], [ %517, %516 ], [ %515, %514 ], [ %513, %512 ], [ %511, %510 ], [ %509, %508 ], [ %507, %506 ], [ %503, %502 ], [ %501, %500 ], [ %499, %498 ], [ %497, %496 ], [ %495, %494 ], [ %493, %492 ], [ %491, %490 ], [ %489, %488 ], [ %487, %486 ], [ %80, %79 ], [ %92, %91 ], [ %104, %103 ], [ %116, %115 ], [ %128, %127 ], [ %140, %139 ], [ %152, %151 ], [ %164, %163 ], [ %176, %175 ], [ %269, %268 ], [ %281, %280 ], [ %293, %292 ], [ %305, %304 ], [ %317, %316 ], [ %329, %328 ], [ %341, %340 ], [ %353, %352 ], [ %365, %364 ], [ %377, %376 ], [ %389, %388 ], [ %401, %400 ], [ %551, %550 ]
+  %.sink = phi ptr [ %67, %572 ], [ %66, %570 ], [ %65, %568 ], [ %64, %566 ], [ %63, %564 ], [ %62, %562 ], [ %61, %560 ], [ %60, %558 ], [ %59, %556 ], [ %58, %554 ], [ %57, %552 ], [ %44, %526 ], [ %43, %524 ], [ %42, %522 ], [ %41, %520 ], [ %40, %518 ], [ %39, %516 ], [ %38, %514 ], [ %37, %512 ], [ %36, %510 ], [ %35, %508 ], [ %34, %506 ], [ %24, %486 ], [ %25, %79 ], [ %25, %488 ], [ %26, %91 ], [ %26, %490 ], [ %27, %103 ], [ %27, %492 ], [ %28, %115 ], [ %28, %494 ], [ %29, %127 ], [ %29, %496 ], [ %30, %139 ], [ %30, %498 ], [ %31, %151 ], [ %31, %500 ], [ %32, %163 ], [ %32, %502 ], [ %33, %175 ], [ %33, %504 ], [ %45, %268 ], [ %45, %528 ], [ %46, %280 ], [ %46, %530 ], [ %47, %292 ], [ %47, %532 ], [ %48, %304 ], [ %48, %534 ], [ %49, %316 ], [ %49, %536 ], [ %50, %328 ], [ %50, %538 ], [ %51, %340 ], [ %51, %540 ], [ %52, %352 ], [ %52, %542 ], [ %53, %364 ], [ %53, %544 ], [ %54, %376 ], [ %54, %546 ], [ %55, %388 ], [ %55, %548 ], [ %56, %400 ], [ %56, %550 ]
+  %.pn = phi { ptr, i32 } [ %573, %572 ], [ %571, %570 ], [ %569, %568 ], [ %567, %566 ], [ %565, %564 ], [ %563, %562 ], [ %561, %560 ], [ %559, %558 ], [ %557, %556 ], [ %555, %554 ], [ %553, %552 ], [ %527, %526 ], [ %525, %524 ], [ %523, %522 ], [ %521, %520 ], [ %519, %518 ], [ %517, %516 ], [ %515, %514 ], [ %513, %512 ], [ %511, %510 ], [ %509, %508 ], [ %507, %506 ], [ %487, %486 ], [ %80, %79 ], [ %489, %488 ], [ %92, %91 ], [ %491, %490 ], [ %104, %103 ], [ %493, %492 ], [ %116, %115 ], [ %495, %494 ], [ %128, %127 ], [ %497, %496 ], [ %140, %139 ], [ %499, %498 ], [ %152, %151 ], [ %501, %500 ], [ %164, %163 ], [ %503, %502 ], [ %176, %175 ], [ %505, %504 ], [ %269, %268 ], [ %529, %528 ], [ %281, %280 ], [ %531, %530 ], [ %293, %292 ], [ %533, %532 ], [ %305, %304 ], [ %535, %534 ], [ %317, %316 ], [ %537, %536 ], [ %329, %328 ], [ %539, %538 ], [ %341, %340 ], [ %541, %540 ], [ %353, %352 ], [ %543, %542 ], [ %365, %364 ], [ %545, %544 ], [ %377, %376 ], [ %547, %546 ], [ %389, %388 ], [ %549, %548 ], [ %401, %400 ], [ %551, %550 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #17
   resume { ptr, i32 } %.pn
 }
@@ -6906,7 +6906,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
   br label %503
 
 _ZN7QStringD2Ev.exit198.sink.split:               ; preds = %459, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i202, %401, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i196
-  %.sink859 = phi ptr [ %402, %401 ], [ %.pre.i197, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i196 ], [ %.pre.i203, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i202 ], [ %460, %459 ]
+  %.sink859 = phi ptr [ %.pre.i197, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i196 ], [ %402, %401 ], [ %.pre.i203, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i202 ], [ %460, %459 ]
   call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %.sink859, i64 noundef 2, i64 noundef 8) #17
   br label %_ZN7QStringD2Ev.exit198
 
@@ -6989,7 +6989,7 @@ _ZN7QStringD2Ev.exit198:                          ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 503:                                              ; preds = %467, %453, %446, %439, %432, %425, %418, %411, %.body208, %.body188, %.body177, %.body166, %.body155, %.body144, %.body133, %405, %.body122, %.body111, %.body108, %.body, %182, %181
-  %.pn87 = phi { ptr, i32 } [ %eh.lpad-body209, %.body208 ], [ %.pn85, %453 ], [ %406, %405 ], [ %.pn83, %467 ], [ %.pn.pn, %181 ], [ %eh.lpad-body189, %.body188 ], [ %.pn81, %446 ], [ %eh.lpad-body109, %.body108 ], [ %eh.lpad-body178, %.body177 ], [ %.pn79, %439 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body167, %.body166 ], [ %.pn77, %432 ], [ %eh.lpad-body123, %.body122 ], [ %eh.lpad-body156, %.body155 ], [ %.pn75, %425 ], [ %eh.lpad-body112, %.body111 ], [ %eh.lpad-body145, %.body144 ], [ %.pn73, %418 ], [ %183, %182 ], [ %eh.lpad-body134, %.body133 ], [ %.pn71, %411 ]
+  %.pn87 = phi { ptr, i32 } [ %eh.lpad-body209, %.body208 ], [ %.pn85, %453 ], [ %.pn83, %467 ], [ %eh.lpad-body189, %.body188 ], [ %.pn81, %446 ], [ %eh.lpad-body178, %.body177 ], [ %.pn79, %439 ], [ %eh.lpad-body167, %.body166 ], [ %.pn77, %432 ], [ %eh.lpad-body156, %.body155 ], [ %.pn75, %425 ], [ %eh.lpad-body145, %.body144 ], [ %.pn73, %418 ], [ %eh.lpad-body134, %.body133 ], [ %.pn71, %411 ], [ %406, %405 ], [ %eh.lpad-body109, %.body108 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body123, %.body122 ], [ %eh.lpad-body112, %.body111 ], [ %183, %182 ], [ %.pn.pn, %181 ]
   resume { ptr, i32 } %.pn87
 }
 
@@ -10122,7 +10122,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
   br label %672
 
 _ZN7QStringD2Ev.exit273.sink.split:               ; preds = %606, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i279, %594, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i271
-  %.sink1455 = phi ptr [ %595, %594 ], [ %.pre.i272, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i271 ], [ %.pre.i280, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i279 ], [ %607, %606 ]
+  %.sink1455 = phi ptr [ %.pre.i272, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i271 ], [ %595, %594 ], [ %.pre.i280, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i279 ], [ %607, %606 ]
   call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %.sink1455, i64 noundef 2, i64 noundef 8) #17
   br label %_ZN7QStringD2Ev.exit273
 
@@ -10265,7 +10265,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
   br label %672
 
 _ZN7QStringD2Ev.exit293.sink.split:               ; preds = %663, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i297, %656, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i291
-  %.sink1456 = phi ptr [ %657, %656 ], [ %.pre.i292, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i291 ], [ %.pre.i298, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i297 ], [ %664, %663 ]
+  %.sink1456 = phi ptr [ %.pre.i292, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i291 ], [ %657, %656 ], [ %.pre.i298, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i297 ], [ %664, %663 ]
   call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %.sink1456, i64 noundef 2, i64 noundef 8) #17
   br label %_ZN7QStringD2Ev.exit293
 
@@ -10277,7 +10277,7 @@ _ZN7QStringD2Ev.exit293:                          ; preds = %_ZN7QStringD2Ev.exi
   ret void
 
 672:                                              ; preds = %614, %602, %560, %553, %546, %539, %532, %525, %518, %511, %504, %667, %660, %.body285, %.body261, %.body256, %.body244, %.body233, %.body221, %.body210, %.body199, %.body188, %.body177, %.body166, %498, %.body155, %.body144, %.body141, %.body, %203, %202
-  %.pn120 = phi { ptr, i32 } [ %eh.lpad-body286, %.body285 ], [ %.pn118, %602 ], [ %.pn.pn, %202 ], [ %.pn116, %614 ], [ %.pn98, %504 ], [ %eh.lpad-body257, %.body256 ], [ %eh.lpad-body262, %.body261 ], [ %.pn114, %560 ], [ %499, %498 ], [ %eh.lpad-body245, %.body244 ], [ %.pn112, %553 ], [ %eh.lpad-body142, %.body141 ], [ %eh.lpad-body234, %.body233 ], [ %.pn110, %546 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body222, %.body221 ], [ %.pn108, %539 ], [ %eh.lpad-body156, %.body155 ], [ %eh.lpad-body211, %.body210 ], [ %.pn106, %532 ], [ %eh.lpad-body145, %.body144 ], [ %eh.lpad-body200, %.body199 ], [ %.pn104, %525 ], [ %204, %203 ], [ %eh.lpad-body189, %.body188 ], [ %.pn102, %518 ], [ %661, %660 ], [ %eh.lpad-body178, %.body177 ], [ %.pn100, %511 ], [ %668, %667 ], [ %eh.lpad-body167, %.body166 ]
+  %.pn120 = phi { ptr, i32 } [ %eh.lpad-body286, %.body285 ], [ %.pn118, %602 ], [ %.pn116, %614 ], [ %eh.lpad-body257, %.body256 ], [ %eh.lpad-body262, %.body261 ], [ %.pn114, %560 ], [ %eh.lpad-body245, %.body244 ], [ %.pn112, %553 ], [ %eh.lpad-body234, %.body233 ], [ %.pn110, %546 ], [ %eh.lpad-body222, %.body221 ], [ %.pn108, %539 ], [ %eh.lpad-body211, %.body210 ], [ %.pn106, %532 ], [ %eh.lpad-body200, %.body199 ], [ %.pn104, %525 ], [ %eh.lpad-body189, %.body188 ], [ %.pn102, %518 ], [ %eh.lpad-body178, %.body177 ], [ %.pn100, %511 ], [ %eh.lpad-body167, %.body166 ], [ %.pn98, %504 ], [ %499, %498 ], [ %eh.lpad-body142, %.body141 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body156, %.body155 ], [ %eh.lpad-body145, %.body144 ], [ %204, %203 ], [ %661, %660 ], [ %668, %667 ], [ %.pn.pn, %202 ]
   resume { ptr, i32 } %.pn120
 }
 
@@ -13158,9 +13158,9 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3v
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
-  %.620.i = phi ptr [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
-  %.2.i = phi i1 [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.620.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.2.i = phi i1 [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
   call void @_ZdlPv(ptr noundef nonnull %8) #16
   %75 = icmp eq ptr %1, %.620.i
   %or.cond.i = select i1 %.2.i, i1 true, i1 %75
@@ -13183,7 +13183,7 @@ _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i: ; p
   br i1 %81, label %.body.thread.i, label %.preheader.i
 
 .body.thread.i:                                   ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i, %.body.i, %.body.thread724.i
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i = phi { ptr, i32 } [ %55, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %55, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i
 
 __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit.i

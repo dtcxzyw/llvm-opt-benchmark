@@ -187,7 +187,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly captures(addres
   br i1 %93, label %94, label %165
 
 94:                                               ; preds = %92, %90, %88
-  %.3 = phi i32 [ 6, %90 ], [ 5, %88 ], [ 7, %92 ]
+  %.3 = phi i32 [ 5, %88 ], [ 6, %90 ], [ 7, %92 ]
   %95 = getelementptr inbounds nuw i8, ptr %.4, i64 22
   %96 = ptrtoint ptr %95 to i64
   %97 = sub i64 %38, %96
@@ -354,7 +354,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly captures(addres
   br label %165
 
 165:                                              ; preds = %.loopexit, %111, %119, %116, %110, %103, %102, %94, %99, %92, %86, %70, %75, %58, %63, %44, %16, %14, %11, %7, %.thread176, %148, %130, %124
-  %.0123 = phi i32 [ -4224, %14 ], [ -5248, %7 ], [ -4224, %11 ], [ -4352, %44 ], [ -4608, %70 ], [ -4736, %92 ], [ -4608, %94 ], [ -4352, %103 ], [ -4480, %119 ], [ -4352, %110 ], [ -5248, %116 ], [ %126, %124 ], [ -4864, %130 ], [ %.1130, %148 ], [ 0, %.thread176 ], [ -4992, %.loopexit ], [ -4736, %102 ], [ -4736, %86 ], [ -4608, %58 ], [ -4224, %16 ], [ -4608, %63 ], [ -4608, %75 ], [ -4608, %99 ], [ -4396, %111 ]
+  %.0123 = phi i32 [ %126, %124 ], [ -4864, %130 ], [ %.1130, %148 ], [ 0, %.thread176 ], [ -4992, %.loopexit ], [ -5248, %7 ], [ -4224, %11 ], [ -4224, %14 ], [ -4224, %16 ], [ -4352, %44 ], [ -4608, %63 ], [ -4608, %58 ], [ -4608, %75 ], [ -4608, %70 ], [ -4736, %86 ], [ -4736, %92 ], [ -4608, %99 ], [ -4608, %94 ], [ -4736, %102 ], [ -4352, %103 ], [ -4352, %110 ], [ -5248, %116 ], [ -4480, %119 ], [ -4396, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0123
@@ -624,7 +624,7 @@ define hidden i32 @mbedtls_pem_write_buffer(ptr noundef readonly captures(none) 
   br label %47
 
 47:                                               ; preds = %22, %._crit_edge, %27, %20
-  %.045 = phi i32 [ -42, %20 ], [ 0, %._crit_edge ], [ %26, %27 ], [ -4480, %22 ]
+  %.045 = phi i32 [ -42, %20 ], [ %26, %27 ], [ 0, %._crit_edge ], [ -4480, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.045
 }

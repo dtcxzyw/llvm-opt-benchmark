@@ -570,15 +570,15 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_logP9lua_StateP10lua_TVa
   %34 = fdiv double %32, %33
   br label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %16, %25, %31, %29
-  %.sink = phi double [ %30, %29 ], [ %34, %31 ], [ %26, %25 ], [ %17, %16 ]
+.thread.sink.split:                               ; preds = %16, %31, %29, %25
+  %.sink = phi double [ %26, %25 ], [ %30, %29 ], [ %34, %31 ], [ %17, %16 ]
   store double %.sink, ptr %1, align 8, !tbaa !9
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %35, align 4, !tbaa !4
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %6, %9, %18
-  %.2 = phi i32 [ -1, %6 ], [ -1, %18 ], [ -1, %9 ], [ 1, %.thread.sink.split ]
+  %.2 = phi i32 [ -1, %18 ], [ -1, %9 ], [ -1, %6 ], [ 1, %.thread.sink.split ]
   ret i32 %.2
 }
 
@@ -640,7 +640,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_maxP9lua_StateP10lua_TVa
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %9, %13, %.critedge
-  %.2 = phi i32 [ -1, %6 ], [ 1, %.critedge ], [ -1, %13 ], [ -1, %9 ], [ -1, %.lr.ph ]
+  %.2 = phi i32 [ 1, %.critedge ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ], [ -1, %.lr.ph ]
   ret i32 %.2
 }
 
@@ -702,7 +702,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_minP9lua_StateP10lua_TVa
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %9, %13, %.critedge
-  %.2 = phi i32 [ -1, %6 ], [ 1, %.critedge ], [ -1, %13 ], [ -1, %9 ], [ -1, %.lr.ph ]
+  %.2 = phi i32 [ 1, %.critedge ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ], [ -1, %.lr.ph ]
   ret i32 %.2
 }
 
@@ -966,7 +966,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_arshiftP9lua_StateP10lu
   br label %.thread
 
 .thread:                                          ; preds = %17, %6, %9, %13, %21
-  %.1 = phi i32 [ 1, %21 ], [ -1, %6 ], [ -1, %13 ], [ -1, %9 ], [ -1, %17 ]
+  %.1 = phi i32 [ 1, %21 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ], [ -1, %17 ]
   ret i32 %.1
 }
 
@@ -1032,7 +1032,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_bandP9lua_StateP10lua_T
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %9, %13, %.critedge
-  %.2 = phi i32 [ -1, %6 ], [ 1, %.critedge ], [ -1, %13 ], [ -1, %9 ], [ -1, %.lr.ph ]
+  %.2 = phi i32 [ 1, %.critedge ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ], [ -1, %.lr.ph ]
   ret i32 %.2
 }
 
@@ -1127,7 +1127,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_borP9lua_StateP10lua_TVa
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %9, %13, %.critedge
-  %.2 = phi i32 [ -1, %6 ], [ 1, %.critedge ], [ -1, %13 ], [ -1, %9 ], [ -1, %.lr.ph ]
+  %.2 = phi i32 [ 1, %.critedge ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ], [ -1, %.lr.ph ]
   ret i32 %.2
 }
 
@@ -1193,7 +1193,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_bxorP9lua_StateP10lua_T
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %9, %13, %.critedge
-  %.2 = phi i32 [ -1, %6 ], [ 1, %.critedge ], [ -1, %13 ], [ -1, %9 ], [ -1, %.lr.ph ]
+  %.2 = phi i32 [ 1, %.critedge ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ], [ -1, %.lr.ph ]
   ret i32 %.2
 }
 
@@ -1260,7 +1260,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_btestP9lua_StateP10lua_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %9, %13, %.critedge
-  %.2 = phi i32 [ -1, %6 ], [ 1, %.critedge ], [ -1, %13 ], [ -1, %9 ], [ -1, %.lr.ph ]
+  %.2 = phi i32 [ 1, %.critedge ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ], [ -1, %.lr.ph ]
   ret i32 %.2
 }
 
@@ -1331,7 +1331,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_extractP9lua_StateP10lu
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %24, %26, %30, %6, %9, %13
-  %.3 = phi i32 [ -1, %26 ], [ -1, %24 ], [ -1, %6 ], [ -1, %13 ], [ -1, %9 ], [ -1, %30 ], [ 1, %.thread.sink.split ]
+  %.3 = phi i32 [ -1, %13 ], [ -1, %9 ], [ -1, %6 ], [ -1, %30 ], [ -1, %26 ], [ -1, %24 ], [ 1, %.thread.sink.split ]
   ret i32 %.3
 }
 
@@ -1409,7 +1409,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_lshiftP9lua_StateP10lua
   br label %.thread
 
 .thread:                                          ; preds = %17, %6, %9, %13, %21
-  %.1 = phi i32 [ 1, %21 ], [ -1, %6 ], [ -1, %13 ], [ -1, %9 ], [ -1, %17 ]
+  %.1 = phi i32 [ 1, %21 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ], [ -1, %17 ]
   ret i32 %.1
 }
 
@@ -1499,7 +1499,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_replaceP9lua_StateP10lu
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %32, %36, %40, %6, %9, %13, %17
-  %.3 = phi i32 [ -1, %36 ], [ -1, %32 ], [ -1, %6 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %40 ], [ 1, %.thread.sink.split ]
+  %.3 = phi i32 [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ], [ -1, %40 ], [ -1, %36 ], [ -1, %32 ], [ 1, %.thread.sink.split ]
   ret i32 %.3
 }
 
@@ -1577,7 +1577,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_rshiftP9lua_StateP10lua
   br label %.thread
 
 .thread:                                          ; preds = %17, %6, %9, %13, %21
-  %.1 = phi i32 [ 1, %21 ], [ -1, %6 ], [ -1, %13 ], [ -1, %9 ], [ -1, %17 ]
+  %.1 = phi i32 [ 1, %21 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ], [ -1, %17 ]
   ret i32 %.1
 }
 
@@ -1644,7 +1644,7 @@ define internal noundef range(i32 -1, -2147483648) i32 @_ZL10luauF_byteP9lua_Sta
   br label %28
 
 28:                                               ; preds = %16, %24, %20
-  %29 = phi i32 [ 0, %20 ], [ %27, %24 ], [ %19, %16 ]
+  %29 = phi i32 [ %27, %24 ], [ 0, %20 ], [ %19, %16 ]
   %30 = icmp slt i32 %19, 1
   %.not40 = icmp slt i32 %29, %19
   %or.cond = select i1 %30, i1 true, i1 %.not40
@@ -1684,8 +1684,8 @@ define internal noundef range(i32 -1, -2147483648) i32 @_ZL10luauF_byteP9lua_Sta
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !35
 
-.critedge:                                        ; preds = %.lr.ph, %6, %8, %12, %28, %34, %31
-  %.3 = phi i32 [ -1, %6 ], [ -1, %31 ], [ -1, %34 ], [ -1, %28 ], [ -1, %12 ], [ -1, %8 ], [ %36, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %6, %8, %12, %31, %28, %34
+  %.3 = phi i32 [ -1, %34 ], [ -1, %28 ], [ -1, %31 ], [ -1, %12 ], [ -1, %8 ], [ -1, %6 ], [ %36, %.lr.ph ]
   ret i32 %.3
 }
 
@@ -1770,7 +1770,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_charP9lua_StateP10lua_T
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %33, %23, %6, %19, %10, %.critedge43
-  %.0 = phi i32 [ -1, %6 ], [ 1, %.critedge43 ], [ -1, %19 ], [ -1, %23 ], [ -1, %10 ], [ -1, %33 ], [ -1, %.lr.ph ]
+  %.0 = phi i32 [ 1, %.critedge43 ], [ -1, %10 ], [ -1, %19 ], [ -1, %6 ], [ -1, %23 ], [ -1, %33 ], [ -1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -1890,7 +1890,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_subP9lua_StateP10lua_TVa
   br label %.thread
 
 .thread:                                          ; preds = %34, %36, %6, %9, %13, %17, %41, %21
-  %.1 = phi i32 [ 1, %41 ], [ -1, %21 ], [ -1, %6 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %36 ], [ -1, %34 ]
+  %.1 = phi i32 [ 1, %41 ], [ -1, %21 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ], [ -1, %36 ], [ -1, %34 ]
   ret i32 %.1
 }
 
@@ -1938,7 +1938,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_clampP9lua_StateP10lua_
   br label %.thread
 
 .thread:                                          ; preds = %21, %6, %9, %13, %17, %26
-  %.1 = phi i32 [ 1, %26 ], [ -1, %6 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %21 ]
+  %.1 = phi i32 [ 1, %26 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ], [ -1, %21 ]
   ret i32 %.1
 }
 
@@ -2109,7 +2109,7 @@ _Z13luai_vecisnanPKf.exit:                        ; preds = %22
   br label %_Z13luai_vecisnanPKf.exit.thread
 
 _Z13luai_vecisnanPKf.exit.thread:                 ; preds = %13, %19, %22, %6, %9, %16, %_Z13luai_vecisnanPKf.exit, %32, %38, %42, %47, %.thread
-  %.2 = phi i32 [ 1, %32 ], [ -1, %_Z13luai_vecisnanPKf.exit ], [ -1, %13 ], [ -1, %16 ], [ -1, %.thread ], [ 1, %47 ], [ 1, %42 ], [ 1, %38 ], [ -1, %9 ], [ -1, %6 ], [ -1, %22 ], [ -1, %19 ]
+  %.2 = phi i32 [ -1, %13 ], [ -1, %16 ], [ -1, %_Z13luai_vecisnanPKf.exit ], [ -1, %.thread ], [ 1, %47 ], [ 1, %42 ], [ 1, %38 ], [ 1, %32 ], [ -1, %9 ], [ -1, %6 ], [ -1, %22 ], [ -1, %19 ]
   ret i32 %.2
 }
 
@@ -2206,7 +2206,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL13luauF_tinsertP9lua_StateP10lu
   br label %34
 
 34:                                               ; preds = %6, %9, %13, %33, %28, %24, %17
-  %.1 = phi i32 [ 0, %17 ], [ -1, %13 ], [ 0, %33 ], [ 0, %28 ], [ 0, %24 ], [ -1, %9 ], [ -1, %6 ]
+  %.1 = phi i32 [ -1, %13 ], [ 0, %33 ], [ 0, %28 ], [ 0, %24 ], [ 0, %17 ], [ -1, %9 ], [ -1, %6 ]
   ret i32 %.1
 }
 
@@ -2316,7 +2316,7 @@ define internal noundef range(i32 -1, -2147483648) i32 @_ZL13luauF_tunpackP9lua_
   br label %.thread49
 
 .thread49:                                        ; preds = %13, %17, %21, %26, %32, %34, %37, %6, %9, %58, %._crit_edge
-  %.1 = phi i32 [ %.039, %58 ], [ %.039, %._crit_edge ], [ -1, %6 ], [ -1, %9 ], [ -1, %37 ], [ -1, %34 ], [ -1, %32 ], [ -1, %26 ], [ -1, %21 ], [ -1, %17 ], [ -1, %13 ]
+  %.1 = phi i32 [ %.039, %58 ], [ %.039, %._crit_edge ], [ -1, %9 ], [ -1, %6 ], [ -1, %37 ], [ -1, %34 ], [ -1, %32 ], [ -1, %26 ], [ -1, %21 ], [ -1, %17 ], [ -1, %13 ]
   ret i32 %.1
 }
 
@@ -2416,7 +2416,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_vectorP9lua_StateP10lua
   br label %61
 
 61:                                               ; preds = %.sink.split, %16, %12, %10, %46, %42, %38, %36, %26
-  %.1 = phi i32 [ -1, %12 ], [ -1, %26 ], [ -1, %16 ], [ -1, %36 ], [ -1, %38 ], [ -1, %42 ], [ -1, %46 ], [ -1, %10 ], [ 1, %.sink.split ]
+  %.1 = phi i32 [ -1, %26 ], [ -1, %36 ], [ -1, %38 ], [ -1, %42 ], [ -1, %46 ], [ -1, %10 ], [ -1, %12 ], [ -1, %16 ], [ 1, %.sink.split ]
   ret i32 %.1
 }
 
@@ -2543,7 +2543,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_selectP9lua_StateP10lua
   br label %.critedge
 
 .critedge:                                        ; preds = %41, %9, %31, %6, %46, %35
-  %.3 = phi i32 [ 1, %46 ], [ 1, %35 ], [ -1, %6 ], [ -1, %31 ], [ -1, %9 ], [ -1, %41 ]
+  %.3 = phi i32 [ 1, %35 ], [ 1, %46 ], [ -1, %6 ], [ -1, %31 ], [ -1, %9 ], [ -1, %41 ]
   ret i32 %.3
 }
 
@@ -2695,7 +2695,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL18luauF_getmetatableP9lua_State
   br label %42
 
 42:                                               ; preds = %6, %36, %38, %40
-  %.1 = phi i32 [ 1, %36 ], [ 1, %40 ], [ 1, %38 ], [ -1, %6 ]
+  %.1 = phi i32 [ 1, %40 ], [ 1, %38 ], [ 1, %36 ], [ -1, %6 ]
   ret i32 %.1
 }
 
@@ -2758,7 +2758,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL18luauF_setmetatableP9lua_State
   br label %36
 
 36:                                               ; preds = %6, %9, %13, %34, %21, %17
-  %.1 = phi i32 [ -1, %17 ], [ 1, %34 ], [ -1, %21 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
+  %.1 = phi i32 [ 1, %34 ], [ -1, %21 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
   ret i32 %.1
 }
 
@@ -2884,7 +2884,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_tostringP9lua_StateP10l
   br label %46
 
 46:                                               ; preds = %6, %10, %28, %43, %35, %25, %13
-  %.0 = phi i32 [ -1, %28 ], [ 1, %13 ], [ 1, %25 ], [ 1, %43 ], [ 1, %35 ], [ -1, %10 ], [ -1, %6 ]
+  %.0 = phi i32 [ 1, %13 ], [ 1, %25 ], [ 1, %35 ], [ 1, %43 ], [ -1, %28 ], [ -1, %10 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -2957,7 +2957,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIaEiP9lua_St
   br label %29
 
 29:                                               ; preds = %6, %9, %13, %23, %17
-  %.1 = phi i32 [ -1, %17 ], [ 1, %23 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
+  %.1 = phi i32 [ 1, %23 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
   ret i32 %.1
 }
 
@@ -3001,7 +3001,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIhEiP9lua_St
   br label %29
 
 29:                                               ; preds = %6, %9, %13, %23, %17
-  %.1 = phi i32 [ -1, %17 ], [ 1, %23 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
+  %.1 = phi i32 [ 1, %23 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
   ret i32 %.1
 }
 
@@ -3051,7 +3051,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerIhEiP9lua_S
   br label %35
 
 35:                                               ; preds = %6, %9, %13, %17, %28, %22
-  %.1 = phi i32 [ -1, %22 ], [ 0, %28 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
+  %.1 = phi i32 [ 0, %28 ], [ -1, %22 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
   ret i32 %.1
 }
 
@@ -3097,7 +3097,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIsEiP9lua_St
   br label %31
 
 31:                                               ; preds = %6, %9, %13, %26, %17
-  %.1 = phi i32 [ -1, %17 ], [ 1, %26 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
+  %.1 = phi i32 [ 1, %26 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
   ret i32 %.1
 }
 
@@ -3143,7 +3143,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerItEiP9lua_St
   br label %31
 
 31:                                               ; preds = %6, %9, %13, %26, %17
-  %.1 = phi i32 [ -1, %17 ], [ 1, %26 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
+  %.1 = phi i32 [ 1, %26 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
   ret i32 %.1
 }
 
@@ -3195,7 +3195,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerItEiP9lua_S
   br label %37
 
 37:                                               ; preds = %6, %9, %13, %17, %31, %22
-  %.1 = phi i32 [ -1, %22 ], [ 0, %31 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
+  %.1 = phi i32 [ 0, %31 ], [ -1, %22 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
   ret i32 %.1
 }
 
@@ -3241,7 +3241,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIiEiP9lua_St
   br label %31
 
 31:                                               ; preds = %6, %9, %13, %26, %17
-  %.1 = phi i32 [ -1, %17 ], [ 1, %26 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
+  %.1 = phi i32 [ 1, %26 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
   ret i32 %.1
 }
 
@@ -3287,7 +3287,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIjEiP9lua_St
   br label %31
 
 31:                                               ; preds = %6, %9, %13, %26, %17
-  %.1 = phi i32 [ -1, %17 ], [ 1, %26 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
+  %.1 = phi i32 [ 1, %26 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
   ret i32 %.1
 }
 
@@ -3339,7 +3339,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerIjEiP9lua_S
   br label %37
 
 37:                                               ; preds = %6, %9, %13, %17, %31, %22
-  %.1 = phi i32 [ -1, %22 ], [ 0, %31 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
+  %.1 = phi i32 [ 0, %31 ], [ -1, %22 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
   ret i32 %.1
 }
 
@@ -3385,7 +3385,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_readfpIfEiP9lua_StateP1
   br label %31
 
 31:                                               ; preds = %6, %9, %13, %26, %17
-  %.1 = phi i32 [ -1, %17 ], [ 1, %26 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
+  %.1 = phi i32 [ 1, %26 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
   ret i32 %.1
 }
 
@@ -3436,7 +3436,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL13luauF_writefpIfEiP9lua_StateP
   br label %36
 
 36:                                               ; preds = %6, %9, %13, %17, %31, %22
-  %.1 = phi i32 [ -1, %22 ], [ 0, %31 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
+  %.1 = phi i32 [ 0, %31 ], [ -1, %22 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
   ret i32 %.1
 }
 
@@ -3481,7 +3481,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_readfpIdEiP9lua_StateP1
   br label %30
 
 30:                                               ; preds = %6, %9, %13, %26, %17
-  %.1 = phi i32 [ -1, %17 ], [ 1, %26 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
+  %.1 = phi i32 [ 1, %26 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
   ret i32 %.1
 }
 
@@ -3531,7 +3531,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL13luauF_writefpIdEiP9lua_StateP
   br label %35
 
 35:                                               ; preds = %6, %9, %13, %17, %31, %22
-  %.1 = phi i32 [ -1, %22 ], [ 0, %31 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
+  %.1 = phi i32 [ 0, %31 ], [ -1, %22 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ]
   ret i32 %.1
 }
 
@@ -3948,7 +3948,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_vectorclampP9lua_StateP
   br label %.thread
 
 .thread:                                          ; preds = %21, %26, %32, %6, %9, %13, %17, %38
-  %.1 = phi i32 [ 1, %38 ], [ -1, %6 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %32 ], [ -1, %26 ], [ -1, %21 ]
+  %.1 = phi i32 [ 1, %38 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ], [ -1, %32 ], [ -1, %26 ], [ -1, %21 ]
   ret i32 %.1
 }
 
@@ -4038,7 +4038,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL15luauF_vectorminP9lua_StateP10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %9, %13, %.critedge
-  %.2 = phi i32 [ -1, %6 ], [ 1, %.critedge ], [ -1, %13 ], [ -1, %9 ], [ -1, %.lr.ph ]
+  %.2 = phi i32 [ 1, %.critedge ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ], [ -1, %.lr.ph ]
   ret i32 %.2
 }
 
@@ -4128,7 +4128,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL15luauF_vectormaxP9lua_StateP10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %9, %13, %.critedge
-  %.2 = phi i32 [ -1, %6 ], [ 1, %.critedge ], [ -1, %13 ], [ -1, %9 ], [ -1, %.lr.ph ]
+  %.2 = phi i32 [ 1, %.critedge ], [ -1, %13 ], [ -1, %9 ], [ -1, %6 ], [ -1, %.lr.ph ]
   ret i32 %.2
 }
 

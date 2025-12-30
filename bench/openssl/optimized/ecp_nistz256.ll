@@ -309,7 +309,7 @@ ecp_nistz256_mod_inverse.exit:                    ; preds = %55
   br label %63
 
 63:                                               ; preds = %60, %57, %62, %35, %22
-  %.0 = phi i32 [ 0, %22 ], [ 1, %62 ], [ 0, %57 ], [ 0, %35 ], [ 0, %60 ]
+  %.0 = phi i32 [ 0, %22 ], [ 1, %62 ], [ 0, %35 ], [ 0, %57 ], [ 0, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -1083,9 +1083,9 @@ is_one.exit:                                      ; preds = %409, %414
   br label %.thread
 
 .thread:                                          ; preds = %53, %60, %21, %39, %394, %395, %399, %404, %197, %193, %is_one.exit, %17
-  %.0137 = phi ptr [ null, %17 ], [ null, %193 ], [ %195, %197 ], [ %.1138210, %is_one.exit ], [ %.1138210, %404 ], [ %.1138210, %399 ], [ %.1138210, %395 ], [ %.1138209260, %394 ], [ null, %21 ], [ null, %39 ], [ null, %60 ], [ null, %53 ]
-  %.0135 = phi ptr [ null, %17 ], [ null, %193 ], [ null, %197 ], [ %.1136212, %is_one.exit ], [ %.1136212, %404 ], [ %.1136212, %399 ], [ %.1136212, %395 ], [ %.1136211259, %394 ], [ null, %21 ], [ null, %39 ], [ null, %60 ], [ null, %53 ]
-  %.0133 = phi i32 [ 0, %17 ], [ 0, %193 ], [ 0, %197 ], [ 1, %is_one.exit ], [ 0, %404 ], [ 0, %399 ], [ 0, %395 ], [ 0, %394 ], [ 0, %21 ], [ 0, %39 ], [ 0, %60 ], [ 0, %53 ]
+  %.0137 = phi ptr [ null, %17 ], [ null, %193 ], [ %195, %197 ], [ %.1138210, %is_one.exit ], [ %.1138210, %404 ], [ %.1138210, %399 ], [ %.1138210, %395 ], [ %.1138209260, %394 ], [ null, %39 ], [ null, %21 ], [ null, %60 ], [ null, %53 ]
+  %.0135 = phi ptr [ null, %17 ], [ null, %193 ], [ null, %197 ], [ %.1136212, %is_one.exit ], [ %.1136212, %404 ], [ %.1136212, %399 ], [ %.1136212, %395 ], [ %.1136211259, %394 ], [ null, %39 ], [ null, %21 ], [ null, %60 ], [ null, %53 ]
+  %.0133 = phi i32 [ 0, %17 ], [ 0, %193 ], [ 0, %197 ], [ 1, %is_one.exit ], [ 0, %404 ], [ 0, %399 ], [ 0, %395 ], [ 0, %394 ], [ 0, %39 ], [ 0, %21 ], [ 0, %60 ], [ 0, %53 ]
   call void @BN_CTX_end(ptr noundef %6) #7
   call void @CRYPTO_free(ptr noundef %.0135, ptr noundef nonnull @.str, i32 noundef 1154) #7
   call void @CRYPTO_free(ptr noundef %.0137, ptr noundef nonnull @.str, i32 noundef 1155) #7
@@ -1250,7 +1250,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_mult_precompute(ptr noundef %0
   %.not97 = icmp eq i32 %68, 0
   br i1 %.not97, label %.thread, label %65
 
-.thread:                                          ; preds = %.preheader, %54, %67, %62
+.thread:                                          ; preds = %54, %.preheader, %67, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
@@ -1279,13 +1279,13 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_mult_precompute(ptr noundef %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %70, %48, %.thread, %41, %31, %28, %22, %17, %72, %27
-  %.078 = phi ptr [ null, %17 ], [ null, %22 ], [ null, %27 ], [ null, %28 ], [ %37, %31 ], [ %37, %.thread ], [ %37, %72 ], [ %37, %41 ], [ %37, %48 ], [ %37, %70 ]
-  %.077 = phi ptr [ null, %17 ], [ null, %22 ], [ null, %27 ], [ null, %28 ], [ %38, %31 ], [ %38, %.thread ], [ %38, %72 ], [ %38, %41 ], [ %38, %48 ], [ %38, %70 ]
-  %.176 = phi ptr [ null, %17 ], [ %.075, %22 ], [ %.075, %27 ], [ %.075, %28 ], [ %.075, %31 ], [ %.075, %.thread ], [ %.075, %72 ], [ %.075, %41 ], [ %.075, %48 ], [ %.075, %70 ]
-  %.074 = phi ptr [ %11, %17 ], [ %11, %22 ], [ %11, %27 ], [ %11, %28 ], [ %11, %31 ], [ %11, %.thread ], [ null, %72 ], [ %11, %41 ], [ %11, %48 ], [ %11, %70 ]
-  %.1 = phi ptr [ null, %17 ], [ %.073, %22 ], [ %.073, %27 ], [ %.073, %28 ], [ %.073, %31 ], [ %.073, %.thread ], [ %.073, %72 ], [ %.073, %41 ], [ %.073, %48 ], [ %.073, %70 ]
-  %.069 = phi i32 [ 0, %17 ], [ 0, %22 ], [ 0, %27 ], [ 0, %28 ], [ 0, %31 ], [ 0, %.thread ], [ 1, %72 ], [ 0, %41 ], [ 0, %48 ], [ 0, %70 ]
-  %.067 = phi ptr [ null, %17 ], [ null, %22 ], [ null, %27 ], [ null, %28 ], [ %29, %31 ], [ %29, %.thread ], [ null, %72 ], [ %29, %41 ], [ %29, %48 ], [ %29, %70 ]
+  %.078 = phi ptr [ null, %17 ], [ null, %22 ], [ null, %27 ], [ null, %28 ], [ %37, %31 ], [ %37, %72 ], [ %37, %41 ], [ %37, %.thread ], [ %37, %48 ], [ %37, %70 ]
+  %.077 = phi ptr [ null, %17 ], [ null, %22 ], [ null, %27 ], [ null, %28 ], [ %38, %31 ], [ %38, %72 ], [ %38, %41 ], [ %38, %.thread ], [ %38, %48 ], [ %38, %70 ]
+  %.176 = phi ptr [ null, %17 ], [ %.075, %22 ], [ %.075, %27 ], [ %.075, %28 ], [ %.075, %31 ], [ %.075, %72 ], [ %.075, %41 ], [ %.075, %.thread ], [ %.075, %48 ], [ %.075, %70 ]
+  %.074 = phi ptr [ %11, %17 ], [ %11, %22 ], [ %11, %27 ], [ %11, %28 ], [ %11, %31 ], [ null, %72 ], [ %11, %41 ], [ %11, %.thread ], [ %11, %48 ], [ %11, %70 ]
+  %.1 = phi ptr [ null, %17 ], [ %.073, %22 ], [ %.073, %27 ], [ %.073, %28 ], [ %.073, %31 ], [ %.073, %72 ], [ %.073, %41 ], [ %.073, %.thread ], [ %.073, %48 ], [ %.073, %70 ]
+  %.069 = phi i32 [ 0, %17 ], [ 0, %22 ], [ 0, %27 ], [ 0, %28 ], [ 0, %31 ], [ 1, %72 ], [ 0, %41 ], [ 0, %.thread ], [ 0, %48 ], [ 0, %70 ]
+  %.067 = phi ptr [ null, %17 ], [ null, %22 ], [ null, %27 ], [ null, %28 ], [ %29, %31 ], [ null, %72 ], [ %29, %41 ], [ %29, %.thread ], [ %29, %48 ], [ %29, %70 ]
   call void @BN_CTX_end(ptr noundef %.176) #7
   call void @BN_CTX_free(ptr noundef %.1) #7
   %77 = icmp eq ptr %.074, null
@@ -1499,7 +1499,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_inv_mod_ord(ptr noundef readon
   br label %50
 
 50:                                               ; preds = %23, %48, %10, %25
-  %.018 = phi i32 [ 0, %10 ], [ 0, %23 ], [ %spec.select, %48 ], [ 0, %25 ]
+  %.018 = phi i32 [ 0, %10 ], [ 0, %25 ], [ 0, %23 ], [ %spec.select, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

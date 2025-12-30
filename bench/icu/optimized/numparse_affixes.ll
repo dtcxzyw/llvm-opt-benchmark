@@ -264,7 +264,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -830,7 +830,7 @@ define void @_ZN6icu_778numparse4impl26AffixPatternMatcherBuilder12consumeTokenE
   br label %129
 
 126:                                              ; preds = %.thread, %109, %29, %48, %67, %83, %99
-  %127 = phi i32 [ %2, %109 ], [ %2, %.thread ], [ -1, %29 ], [ -2, %48 ], [ -4, %67 ], [ -5, %83 ], [ %1, %99 ]
+  %127 = phi i32 [ %2, %109 ], [ -1, %29 ], [ -2, %48 ], [ -4, %67 ], [ -5, %83 ], [ %1, %99 ], [ %2, %.thread ]
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %127, ptr %128, align 4, !tbaa !30
   br label %129
@@ -1681,7 +1681,7 @@ _ZN6icu_7715MaybeStackArrayIDsLi4EEC2Ei10UErrorCode.exit: ; preds = %3, %.noexc.
   br label %42
 
 42:                                               ; preds = %31, %37, %39
-  %.0.i = phi ptr [ %41, %39 ], [ %38, %37 ], [ null, %31 ]
+  %.0.i = phi ptr [ %38, %37 ], [ %41, %39 ], [ null, %31 ]
   %43 = icmp slt i16 %33, 0
   %44 = ashr i16 %33, 5
   %45 = sext i16 %44 to i32
@@ -1859,7 +1859,7 @@ _ZNK6icu_778numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv.
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %.noexc, %26, %21
-  %.0.i = phi i1 [ %25, %21 ], [ %50, %.noexc ], [ false, %26 ]
+  %.0.i = phi i1 [ %25, %21 ], [ false, %26 ], [ %50, %.noexc ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #19
@@ -2695,8 +2695,8 @@ _ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit1
   br label %247
 
 _ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit.thread156: ; preds = %203, %198, %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141
-  %.2103 = phi ptr [ %.0101193, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit ], [ %.0101193, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141 ], [ %spec.select125, %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136 ], [ %.0101193, %198 ], [ %.0101193, %203 ]
-  %.287 = phi ptr [ %.085194, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit ], [ %.085194, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141 ], [ %spec.select123, %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136 ], [ %.085194, %198 ], [ %.085194, %203 ]
+  %.2103 = phi ptr [ %.0101193, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141 ], [ %.0101193, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit ], [ %spec.select125, %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136 ], [ %.0101193, %198 ], [ %.0101193, %203 ]
+  %.287 = phi ptr [ %.085194, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141 ], [ %.085194, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit ], [ %spec.select123, %_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit136 ], [ %.085194, %198 ], [ %.085194, %203 ]
   %209 = icmp eq i8 %77, 4
   %210 = zext i1 %209 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -2805,16 +2805,16 @@ _ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit1
   br label %245
 
 245:                                              ; preds = %76, %.critedge, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit, %67, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread
-  %.1102 = phi ptr [ %.0101193, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit ], [ %.0101193, %.critedge ], [ %.3104, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread ], [ %.0101193, %67 ], [ %.0101193, %76 ]
-  %.186 = phi ptr [ %.085194, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit ], [ %.085194, %.critedge ], [ %.388, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread ], [ %.085194, %67 ], [ %.085194, %76 ]
-  %.182 = phi i32 [ %.081195, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit ], [ %.081195, %.critedge ], [ %spec.select124, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread ], [ %.081195, %67 ], [ %.081195, %76 ]
-  %.180 = phi i32 [ %.079196, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit ], [ %.079196, %.critedge ], [ %.2, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread ], [ %.079196, %67 ], [ %.079196, %76 ]
+  %.1102 = phi ptr [ %.3104, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread ], [ %.0101193, %67 ], [ %.0101193, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit ], [ %.0101193, %.critedge ], [ %.0101193, %76 ]
+  %.186 = phi ptr [ %.388, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread ], [ %.085194, %67 ], [ %.085194, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit ], [ %.085194, %.critedge ], [ %.085194, %76 ]
+  %.182 = phi i32 [ %spec.select124, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread ], [ %.081195, %67 ], [ %.081195, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit ], [ %.081195, %.critedge ], [ %.081195, %76 ]
+  %.180 = phi i32 [ %.2, %_ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit141.thread ], [ %.079196, %67 ], [ %.079196, %_ZNK6icu_778numparse4impl26AffixTokenMatcherWarehouse22hasEmptyCurrencySymbolEv.exit ], [ %.079196, %.critedge ], [ %.079196, %76 ]
   %246 = add nuw nsw i8 %.0105192, 1
   %exitcond.not = icmp eq i8 %246, 6
   br i1 %exitcond.not, label %.preheader172, label %57, !llvm.loop !113
 
 247:                                              ; preds = %207, %243, %227, %225, %223, %194, %192
-  %.pn112.pn.pn = phi { ptr, i32 } [ %193, %192 ], [ %195, %194 ], [ %208, %207 ], [ %244, %243 ], [ %226, %225 ], [ %228, %227 ], [ %224, %223 ]
+  %.pn112.pn.pn = phi { ptr, i32 } [ %195, %194 ], [ %193, %192 ], [ %208, %207 ], [ %244, %243 ], [ %226, %225 ], [ %228, %227 ], [ %224, %223 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %248
 
@@ -2859,7 +2859,7 @@ _ZN12_GLOBAL__N_16equalsEPKN6icu_778numparse4impl19AffixPatternMatcherES5_.exit1
   ret void
 
 258:                                              ; preds = %.split.us, %255, %68, %248
-  %.pn112.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %.pn112.pn.pn.pn, %248 ], [ %56, %.split.us ], [ %256, %255 ]
+  %.pn112.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn.pn, %248 ], [ %69, %68 ], [ %56, %.split.us ], [ %256, %255 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn112.pn.pn.pn.pn.pn
@@ -3354,7 +3354,7 @@ _ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit24: ; preds = %
   br label %67
 
 67:                                               ; preds = %50, %_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit24, %36, %41, %45, %19, %_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit, %10, %15
-  %.0 = phi i1 [ %25, %19 ], [ false, %36 ], [ false, %10 ], [ false, %15 ], [ %25, %_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit ], [ false, %45 ], [ false, %41 ], [ %56, %_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit24 ], [ %56, %50 ]
+  %.0 = phi i1 [ false, %15 ], [ false, %10 ], [ %25, %_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit ], [ %25, %19 ], [ false, %45 ], [ false, %41 ], [ false, %36 ], [ %56, %_ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit24 ], [ %56, %50 ]
   ret i1 %.0
 }
 
@@ -3449,7 +3449,7 @@ _ZNK6icu_778numparse4impl19AffixPatternMatcher10getPatternEv.exit: ; preds = %9
   br label %49
 
 49:                                               ; preds = %19, %24, %.noexc
-  %.ph = phi i1 [ false, %24 ], [ %48, %.noexc ], [ %23, %19 ]
+  %.ph = phi i1 [ %48, %.noexc ], [ false, %24 ], [ %23, %19 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge

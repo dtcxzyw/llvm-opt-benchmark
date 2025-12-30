@@ -255,7 +255,7 @@ define internal range(i32 0, 2) i32 @test_rand() #0 {
   br label %59
 
 59:                                               ; preds = %50, %55, %41, %31, %36, %39, %0, %12, %17, %20, %22, %25, %28, %58
-  %.0 = phi i32 [ 0, %31 ], [ 1, %58 ], [ 1, %41 ], [ 0, %0 ], [ 0, %28 ], [ 0, %25 ], [ 0, %22 ], [ 0, %20 ], [ 0, %17 ], [ 0, %12 ], [ 0, %39 ], [ 0, %36 ], [ 0, %55 ], [ 0, %50 ]
+  %.0 = phi i32 [ 1, %58 ], [ 0, %28 ], [ 0, %25 ], [ 0, %22 ], [ 0, %20 ], [ 0, %17 ], [ 0, %12 ], [ 0, %0 ], [ 0, %39 ], [ 0, %36 ], [ 0, %31 ], [ 1, %41 ], [ 0, %55 ], [ 0, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -340,7 +340,7 @@ define internal range(i32 0, 2) i32 @test_rand_uniform() #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader29, %11, %13, %.lr.ph, %23, %25, %.loopexit28
-  %.021 = phi i32 [ %.0, %.loopexit28 ], [ 0, %.lr.ph ], [ 0, %25 ], [ 0, %23 ], [ 0, %13 ], [ 0, %11 ], [ 0, %.preheader29 ]
+  %.021 = phi i32 [ %.0, %.loopexit28 ], [ 0, %25 ], [ 0, %23 ], [ 0, %.lr.ph ], [ 0, %13 ], [ 0, %11 ], [ 0, %.preheader29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.021
@@ -414,7 +414,7 @@ define internal range(i32 0, 2) i32 @fips_health_tests() #0 {
   br label %33
 
 33:                                               ; preds = %28, %16, %6
-  %.022 = phi i32 [ 0, %16 ], [ %., %28 ], [ 0, %6 ]
+  %.022 = phi i32 [ 0, %6 ], [ 0, %16 ], [ %., %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.022
 }
@@ -523,8 +523,8 @@ define internal range(i32 0, 2) i32 @test_rand_random_provider() #0 {
   br label %53
 
 53:                                               ; preds = %51, %42, %48, %31, %37, %40, %0, %5, %11, %15, %21, %24, %26, %29
-  %.03 = phi ptr [ null, %0 ], [ %13, %51 ], [ %13, %48 ], [ %13, %42 ], [ %13, %40 ], [ %13, %37 ], [ %13, %31 ], [ %13, %29 ], [ %13, %26 ], [ %13, %24 ], [ %13, %21 ], [ %13, %15 ], [ %13, %11 ], [ null, %5 ]
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %51 ], [ 0, %48 ], [ 0, %42 ], [ 0, %40 ], [ 0, %37 ], [ 0, %31 ], [ 0, %29 ], [ 0, %26 ], [ 0, %24 ], [ 0, %21 ], [ 0, %15 ], [ 0, %11 ], [ 0, %5 ]
+  %.03 = phi ptr [ %13, %48 ], [ %13, %42 ], [ %13, %40 ], [ %13, %37 ], [ %13, %31 ], [ %13, %29 ], [ %13, %26 ], [ %13, %24 ], [ %13, %21 ], [ %13, %15 ], [ %13, %11 ], [ null, %5 ], [ null, %0 ], [ %13, %51 ]
+  %.0 = phi i32 [ 0, %48 ], [ 0, %42 ], [ 0, %40 ], [ 0, %37 ], [ 0, %31 ], [ 0, %29 ], [ 0, %26 ], [ 0, %24 ], [ 0, %21 ], [ 0, %15 ], [ 0, %11 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %51 ]
   %54 = call i32 @OSSL_PROVIDER_unload(ptr noundef %.03) #11
   %55 = load ptr, ptr %1, align 8, !tbaa !17
   call void @OSSL_LIB_CTX_free(ptr noundef %55) #11

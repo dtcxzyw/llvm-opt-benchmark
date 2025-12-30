@@ -71,7 +71,7 @@ ossl_quic_srt_gen_free.exit:                      ; preds = %.ossl_quic_srt_gen_
   br label %24
 
 24:                                               ; preds = %21, %4, %ossl_quic_srt_gen_free.exit
-  %.015 = phi ptr [ null, %4 ], [ null, %ossl_quic_srt_gen_free.exit ], [ %8, %21 ]
+  %.015 = phi ptr [ null, %ossl_quic_srt_gen_free.exit ], [ null, %4 ], [ %8, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.015
 }
@@ -151,7 +151,7 @@ define range(i32 0, 2) i32 @ossl_quic_srt_gen_calculate_token(ptr noundef readon
   br label %22
 
 22:                                               ; preds = %15, %9, %3, %21
-  %.0 = phi i32 [ 0, %9 ], [ 1, %21 ], [ 0, %3 ], [ 0, %15 ]
+  %.0 = phi i32 [ 1, %21 ], [ 0, %3 ], [ 0, %9 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

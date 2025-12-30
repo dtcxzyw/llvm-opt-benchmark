@@ -994,7 +994,7 @@ VP8MakeChroma8Preds.exit:                         ; preds = %38, %41
   br i1 %exitcond.not.i.i, label %IsFlatSource16.exit.i, label %69, !llvm.loop !106
 
 IsFlatSource16.exit.i:                            ; preds = %76, %74, %72, %70, %69
-  %.09.i.i = phi i32 [ 0, %69 ], [ 0, %74 ], [ 0, %72 ], [ 0, %70 ], [ 1, %76 ]
+  %.09.i.i = phi i32 [ 0, %74 ], [ 0, %72 ], [ 0, %70 ], [ 0, %69 ], [ 1, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !104
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 840
   store i32 -1, ptr %79, align 8, !tbaa !107, !alias.scope !101, !noalias !98
@@ -1424,15 +1424,15 @@ IsFlat_C.exit.i35:                                ; preds = %.preheader.i.prehea
   br label %331
 
 331:                                              ; preds = %326, %318, %IsFlat_C.exit.i35
-  %.1118.i = phi ptr [ %.0116128.i, %326 ], [ %.0117127.i, %318 ], [ %.0117127.i, %IsFlat_C.exit.i35 ]
-  %.1.i36 = phi ptr [ %.0117127.i, %326 ], [ %.0116128.i, %318 ], [ %.0116128.i, %IsFlat_C.exit.i35 ]
-  %.sroa.14106.2.i = phi i64 [ %321, %326 ], [ %.sroa.14106.1129.i, %318 ], [ %.sroa.14106.1129.i, %IsFlat_C.exit.i35 ]
-  %.sroa.17.1.i = phi i64 [ %324, %326 ], [ %.sroa.17.0130.i, %318 ], [ %.sroa.17.0130.i, %IsFlat_C.exit.i35 ]
-  %.sroa.23110.1.i = phi i32 [ %289, %326 ], [ %.sroa.23110.0131.i, %318 ], [ %.sroa.23110.0131.i, %IsFlat_C.exit.i35 ]
-  %.sroa.10103.2.i = phi i64 [ %304, %326 ], [ %.sroa.10103.1132.i, %318 ], [ %.sroa.10103.1132.i, %IsFlat_C.exit.i35 ]
-  %.sroa.7.2.i = phi i64 [ %301, %326 ], [ %.sroa.7.1133.i, %318 ], [ %.sroa.7.1133.i, %IsFlat_C.exit.i35 ]
-  %.sroa.0100.2.i = phi i64 [ %292, %326 ], [ %.sroa.0100.1134.i, %318 ], [ %.sroa.0100.1134.i, %IsFlat_C.exit.i35 ]
-  %.165.i = phi i32 [ %330, %326 ], [ %.064136.i, %318 ], [ %.064136.i, %IsFlat_C.exit.i35 ]
+  %.1118.i = phi ptr [ %.0116128.i, %326 ], [ %.0117127.i, %IsFlat_C.exit.i35 ], [ %.0117127.i, %318 ]
+  %.1.i36 = phi ptr [ %.0117127.i, %326 ], [ %.0116128.i, %IsFlat_C.exit.i35 ], [ %.0116128.i, %318 ]
+  %.sroa.14106.2.i = phi i64 [ %321, %326 ], [ %.sroa.14106.1129.i, %IsFlat_C.exit.i35 ], [ %.sroa.14106.1129.i, %318 ]
+  %.sroa.17.1.i = phi i64 [ %324, %326 ], [ %.sroa.17.0130.i, %IsFlat_C.exit.i35 ], [ %.sroa.17.0130.i, %318 ]
+  %.sroa.23110.1.i = phi i32 [ %289, %326 ], [ %.sroa.23110.0131.i, %IsFlat_C.exit.i35 ], [ %.sroa.23110.0131.i, %318 ]
+  %.sroa.10103.2.i = phi i64 [ %304, %326 ], [ %.sroa.10103.1132.i, %IsFlat_C.exit.i35 ], [ %.sroa.10103.1132.i, %318 ]
+  %.sroa.7.2.i = phi i64 [ %301, %326 ], [ %.sroa.7.1133.i, %IsFlat_C.exit.i35 ], [ %.sroa.7.1133.i, %318 ]
+  %.sroa.0100.2.i = phi i64 [ %292, %326 ], [ %.sroa.0100.1134.i, %IsFlat_C.exit.i35 ], [ %.sroa.0100.1134.i, %318 ]
+  %.165.i = phi i32 [ %330, %326 ], [ %.064136.i, %IsFlat_C.exit.i35 ], [ %.064136.i, %318 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !127
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, 10
@@ -1642,7 +1642,7 @@ IsFlat_C.exit.i48:                                ; preds = %437
   br label %IsFlat_C.exit.thread.i49
 
 IsFlat_C.exit.thread.i49:                         ; preds = %430, %IsFlat_C.exit.i48, %416
-  %441 = phi i64 [ %427, %416 ], [ %440, %IsFlat_C.exit.i48 ], [ %427, %430 ]
+  %441 = phi i64 [ %440, %IsFlat_C.exit.i48 ], [ %427, %416 ], [ %427, %430 ]
   %442 = load i64, ptr %409, align 8, !tbaa !111, !noalias !164
   %443 = add nsw i64 %442, %441
   %444 = mul nsw i64 %443, %411
@@ -1668,15 +1668,15 @@ IsFlat_C.exit.thread.i49:                         ; preds = %430, %IsFlat_C.exit
   br label %455
 
 455:                                              ; preds = %454, %451, %IsFlat_C.exit.thread.i49
-  %456 = phi i32 [ %417, %IsFlat_C.exit.thread.i49 ], [ %418, %454 ], [ %418, %451 ]
-  %.sroa.0.1.i = phi i64 [ %.sroa.0.049.i, %IsFlat_C.exit.thread.i49 ], [ %445, %454 ], [ %445, %451 ]
-  %.sroa.5.1.i = phi i64 [ %.sroa.5.050.i, %IsFlat_C.exit.thread.i49 ], [ %446, %454 ], [ %446, %451 ]
-  %.sroa.7.1.i = phi i64 [ %.sroa.7.051.i, %IsFlat_C.exit.thread.i49 ], [ %442, %454 ], [ %442, %451 ]
-  %.145.i = phi ptr [ %.04452.i, %IsFlat_C.exit.thread.i49 ], [ %.04354.i, %454 ], [ %.04354.i, %451 ]
-  %.sroa.1538.1.i = phi i32 [ %.sroa.1538.053.i, %IsFlat_C.exit.thread.i49 ], [ %452, %454 ], [ %452, %451 ]
-  %.1.i51 = phi ptr [ %.04354.i, %IsFlat_C.exit.thread.i49 ], [ %.04452.i, %454 ], [ %.04452.i, %451 ]
-  %.sroa.11.1.i = phi i64 [ %.sroa.11.055.i, %IsFlat_C.exit.thread.i49 ], [ %449, %454 ], [ %449, %451 ]
-  %.sroa.9.1.i = phi i64 [ %.sroa.9.056.i, %IsFlat_C.exit.thread.i49 ], [ %441, %454 ], [ %441, %451 ]
+  %456 = phi i32 [ %418, %454 ], [ %418, %451 ], [ %417, %IsFlat_C.exit.thread.i49 ]
+  %.sroa.0.1.i = phi i64 [ %445, %454 ], [ %445, %451 ], [ %.sroa.0.049.i, %IsFlat_C.exit.thread.i49 ]
+  %.sroa.5.1.i = phi i64 [ %446, %454 ], [ %446, %451 ], [ %.sroa.5.050.i, %IsFlat_C.exit.thread.i49 ]
+  %.sroa.7.1.i = phi i64 [ %442, %454 ], [ %442, %451 ], [ %.sroa.7.051.i, %IsFlat_C.exit.thread.i49 ]
+  %.145.i = phi ptr [ %.04354.i, %454 ], [ %.04354.i, %451 ], [ %.04452.i, %IsFlat_C.exit.thread.i49 ]
+  %.sroa.1538.1.i = phi i32 [ %452, %454 ], [ %452, %451 ], [ %.sroa.1538.053.i, %IsFlat_C.exit.thread.i49 ]
+  %.1.i51 = phi ptr [ %.04452.i, %454 ], [ %.04452.i, %451 ], [ %.04354.i, %IsFlat_C.exit.thread.i49 ]
+  %.sroa.11.1.i = phi i64 [ %449, %454 ], [ %449, %451 ], [ %.sroa.11.055.i, %IsFlat_C.exit.thread.i49 ]
+  %.sroa.9.1.i = phi i64 [ %441, %454 ], [ %441, %451 ], [ %.sroa.9.056.i, %IsFlat_C.exit.thread.i49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !164
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, 4
@@ -2209,7 +2209,7 @@ GetCostModeI4.exit.i69:                           ; preds = %695, %690
   br label %787
 
 .thread175.i:                                     ; preds = %720, %657, %.thread210.i
-  %.0107160181.i = phi i64 [ %.2.i, %657 ], [ %.2.i, %.thread210.i ], [ %.0107159.i, %720 ]
+  %.0107160181.i = phi i64 [ %.2.i, %.thread210.i ], [ %.2.i, %657 ], [ %.0107159.i, %720 ]
   %780 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %781 = load ptr, ptr %780, align 8, !tbaa !165, !alias.scope !205, !noalias !208
   %782 = getelementptr inbounds nuw i8, ptr %0, i64 64

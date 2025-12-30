@@ -83,7 +83,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.preheader, %_ZN13M
   br i1 %or.cond, label %_ZN13MonitorLockerD2Ev.exit, label %_ZN13MonitorLocker4waitEl.exit, !llvm.loop !6
 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %.preheader, %16
-  %.pre-phi = phi i1 [ %.pre9, %16 ], [ true, %.preheader ], [ %21, %_ZN13MonitorLocker4waitEl.exit ]
+  %.pre-phi = phi i1 [ true, %.preheader ], [ %.pre9, %16 ], [ %21, %_ZN13MonitorLocker4waitEl.exit ]
   %22 = xor i1 %.pre-phi, true
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #4
   ret i1 %22

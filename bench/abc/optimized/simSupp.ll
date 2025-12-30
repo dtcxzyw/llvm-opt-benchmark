@@ -2394,7 +2394,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %390, label %360, label %.critedge7, !llvm.loop !105
 
 .critedge7:                                       ; preds = %.critedge2, %385, %188, %.preheader
-  %.2 = phi i32 [ %.4, %385 ], [ 0, %.preheader ], [ 0, %188 ], [ %.1107, %.critedge2 ]
+  %.2 = phi i32 [ 0, %.preheader ], [ 0, %188 ], [ %.4, %385 ], [ %.1107, %.critedge2 ]
   %.val11.i = load i32, ptr %34, align 4, !tbaa !61
   %391 = icmp sgt i32 %.val11.i, 0
   br i1 %391, label %.lr.ph.i164, label %.critedge.i

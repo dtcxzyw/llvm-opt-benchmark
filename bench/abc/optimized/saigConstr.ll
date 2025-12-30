@@ -336,7 +336,7 @@ Vec_PtrFind.exit30:                               ; preds = %34, %Vec_PtrPush.ex
   br i1 %68, label %26, label %.critedge2, !llvm.loop !20
 
 .critedge2:                                       ; preds = %17, %Vec_PtrFind.exit30, %.lr.ph, %.critedge
-  %.019 = phi ptr [ %18, %Vec_PtrFind.exit30 ], [ %18, %.critedge ], [ null, %.lr.ph ], [ null, %17 ]
+  %.019 = phi ptr [ %18, %.critedge ], [ null, %.lr.ph ], [ %18, %Vec_PtrFind.exit30 ], [ null, %17 ]
   ret ptr %.019
 }
 
@@ -608,7 +608,7 @@ Saig_ObjIsLo.exit92.thread:                       ; preds = %58, %66, %77, %Saig
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %Vec_PtrFind.exit, %Vec_PtrFind.exit.thread
-  %.159 = phi ptr [ %.2, %.critedge2.loopexit ], [ %85, %Vec_PtrFind.exit.thread ], [ %85, %Vec_PtrFind.exit ]
+  %.159 = phi ptr [ %85, %Vec_PtrFind.exit.thread ], [ %85, %Vec_PtrFind.exit ], [ %.2, %.critedge2.loopexit ]
   %.not.i100 = icmp eq ptr %.pre.pre, null
   br i1 %.not.i100, label %Vec_PtrFree.exit101, label %107
 

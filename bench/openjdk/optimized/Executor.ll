@@ -450,7 +450,7 @@ _ZN8tstrings3anylsIPKcEERS0_T_.exit64:            ; preds = %95
   ret i32 %116
 
 117:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body60, %.body46
-  %.pn31 = phi { ptr, i32 } [ %eh.lpad-body61, %.body60 ], [ %eh.lpad-body47, %.body46 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn31 = phi { ptr, i32 } [ %eh.lpad-body47, %.body46 ], [ %eh.lpad-body61, %.body60 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.3 = extractvalue { ptr, i32 } %.pn31, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #13
   %118 = call ptr @__cxa_begin_catch(ptr %.3) #13

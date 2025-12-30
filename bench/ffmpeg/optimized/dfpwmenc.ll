@@ -110,9 +110,9 @@ define internal i32 @dfpwm_enc_frame(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %49
 
 49:                                               ; preds = %47, %42, %.thread57.i
-  %50 = phi i32 [ 127, %47 ], [ 127, %.thread57.i ], [ -128, %42 ]
-  %spec.select61.i = phi i32 [ 1, %47 ], [ 1, %.thread57.i ], [ -1, %42 ]
-  %51 = phi i32 [ %48, %47 ], [ %41, %.thread57.i ], [ %46, %42 ]
+  %50 = phi i32 [ 127, %.thread57.i ], [ 127, %47 ], [ -128, %42 ]
+  %spec.select61.i = phi i32 [ 1, %.thread57.i ], [ 1, %47 ], [ -1, %42 ]
+  %51 = phi i32 [ %41, %.thread57.i ], [ %48, %47 ], [ %46, %42 ]
   %52 = sub nsw i32 %50, %.fr62.i
   %53 = mul nsw i32 %52, %33
   %54 = add nsw i32 %53, 512

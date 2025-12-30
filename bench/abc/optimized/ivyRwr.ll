@@ -735,10 +735,10 @@ Ivy_ObjCreateGhost.exit.i.i.i:                    ; preds = %375, %Ivy_ObjFaninI
   br i1 %.not98.i.i.i, label %.thread.i.i.i, label %387
 
 .thread.i.i.i:                                    ; preds = %383, %381, %334
-  %385 = phi i1 [ true, %381 ], [ false, %383 ], [ true, %334 ]
-  %.06796.i.i.i = phi ptr [ %363, %381 ], [ %363, %383 ], [ %350, %334 ]
-  %.06894.i.i.i = phi ptr [ %358, %381 ], [ %358, %383 ], [ %348, %334 ]
-  %.06992.i.i.i = phi ptr [ null, %381 ], [ %376, %383 ], [ null, %334 ]
+  %385 = phi i1 [ false, %383 ], [ true, %381 ], [ true, %334 ]
+  %.06796.i.i.i = phi ptr [ %363, %383 ], [ %363, %381 ], [ %350, %334 ]
+  %.06894.i.i.i = phi ptr [ %358, %383 ], [ %358, %381 ], [ %348, %334 ]
+  %.06992.i.i.i = phi ptr [ %376, %383 ], [ null, %381 ], [ null, %334 ]
   %386 = add nsw i32 %.063101.i.i.i, 1
   %.not78.i.i.i = icmp slt i32 %.063101.i.i.i, %244
   br i1 %.not78.i.i.i, label %387, label %Ivy_GraphToNetworkCount.exit.i.i
@@ -784,7 +784,7 @@ Ivy_ObjCreateGhost.exit.i.i.i:                    ; preds = %375, %Ivy_ObjFaninI
   br label %412
 
 412:                                              ; preds = %.sink.split.i.i.i, %402, %396, %387
-  %.062.i.i.i = phi i32 [ %395, %387 ], [ %395, %402 ], [ 0, %396 ], [ %411, %.sink.split.i.i.i ]
+  %.062.i.i.i = phi i32 [ %395, %387 ], [ 0, %396 ], [ %411, %.sink.split.i.i.i ], [ %395, %402 ]
   %413 = icmp sgt i32 %.062.i.i.i, %105
   br i1 %413, label %Ivy_GraphToNetworkCount.exit.i.i, label %.critedge.i.i.i
 
@@ -804,7 +804,7 @@ Ivy_ObjCreateGhost.exit.i.i.i:                    ; preds = %375, %Ivy_ObjFaninI
   br i1 %422, label %334, label %Ivy_GraphToNetworkCount.exit.i.i, !llvm.loop !84
 
 Ivy_GraphToNetworkCount.exit.i.i:                 ; preds = %.critedge.i.i.i, %412, %.thread.i.i.i, %Ivy_ObjCreateGhost.exit.i.i.i, %.critedge.preheader.i.i.i, %305, %.critedge2.i.i
-  %.0.i.i.i = phi i32 [ 0, %305 ], [ 0, %.critedge2.i.i ], [ 0, %.critedge.preheader.i.i.i ], [ %.164.i.i.i, %.critedge.i.i.i ], [ -1, %.thread.i.i.i ], [ -1, %Ivy_ObjCreateGhost.exit.i.i.i ], [ -1, %412 ]
+  %.0.i.i.i = phi i32 [ 0, %305 ], [ 0, %.critedge2.i.i ], [ 0, %.critedge.preheader.i.i.i ], [ %.164.i.i.i, %.critedge.i.i.i ], [ -1, %412 ], [ -1, %.thread.i.i.i ], [ -1, %Ivy_ObjCreateGhost.exit.i.i.i ]
   %423 = icmp eq i32 %.0.i.i.i, -1
   %424 = sub nsw i32 %244, %.0.i.i.i
   %425 = icmp slt i32 %.03854.i.i, %424
@@ -825,8 +825,8 @@ Ivy_GraphToNetworkCount.exit.i.i:                 ; preds = %.critedge.i.i.i, %4
   br label %Rwt_CutEvaluate.exit.i
 
 Rwt_CutEvaluate.exit.i:                           ; preds = %.critedge.i.i, %Abc_Clock.exit174.i
-  %.2187.i = phi i32 [ %spec.select.i, %.critedge.i.i ], [ %.0185217.i, %Abc_Clock.exit174.i ]
-  %.039.i.i = phi ptr [ %spec.select188.i, %.critedge.i.i ], [ null, %Abc_Clock.exit174.i ]
+  %.2187.i = phi i32 [ %.0185217.i, %Abc_Clock.exit174.i ], [ %spec.select.i, %.critedge.i.i ]
+  %.039.i.i = phi ptr [ null, %Abc_Clock.exit174.i ], [ %spec.select188.i, %.critedge.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %429 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #12
   %430 = icmp slt i32 %429, 0
@@ -1360,7 +1360,7 @@ define i32 @Ivy_NodeGetTruth_rec(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %.not, label %common.ret39, label %24
 
 common.ret39:                                     ; preds = %._crit_edge, %11, %24
-  %common.ret39.op = phi i32 [ %33, %24 ], [ %spec.select, %._crit_edge ], [ %13, %11 ]
+  %common.ret39.op = phi i32 [ %33, %24 ], [ %13, %11 ], [ %spec.select, %._crit_edge ]
   ret i32 %common.ret39.op
 
 24:                                               ; preds = %._crit_edge

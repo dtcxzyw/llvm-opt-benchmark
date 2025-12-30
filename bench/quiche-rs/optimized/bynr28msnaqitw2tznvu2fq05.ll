@@ -189,7 +189,7 @@ define hidden noundef ptr @"_ZN121_$LT$prometheus_client..metrics..gauge..Gauge$
   br label %31
 
 31:                                               ; preds = %28, %19, %.sink.split
-  %.sroa.0.1 = phi ptr [ %30, %28 ], [ %27, %19 ], [ %.sroa.0.0.ph, %.sink.split ]
+  %.sroa.0.1 = phi ptr [ %27, %19 ], [ %.sroa.0.0.ph, %.sink.split ], [ %30, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -810,8 +810,8 @@ define hidden { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$10dgram_send17hced98
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %70, %68, %63, %10, %3, %52, %29
-  %.sroa.6.0 = phi i64 [ undef, %3 ], [ %30, %29 ], [ undef, %52 ], [ undef, %10 ], [ undef, %63 ], [ undef, %68 ], [ undef, %70 ]
-  %.sroa.0.0 = phi i64 [ 5, %3 ], [ %28, %29 ], [ 5, %52 ], [ 1, %10 ], [ 20, %63 ], [ 20, %68 ], [ 20, %70 ]
+  %.sroa.6.0 = phi i64 [ %30, %29 ], [ undef, %52 ], [ undef, %3 ], [ undef, %10 ], [ undef, %63 ], [ undef, %68 ], [ undef, %70 ]
+  %.sroa.0.0 = phi i64 [ %28, %29 ], [ 5, %52 ], [ 5, %3 ], [ 1, %10 ], [ 20, %63 ], [ 20, %68 ], [ 20, %70 ]
   %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %15 = insertvalue { i64, i64 } %14, i64 %.sroa.6.0, 1
   ret { i64, i64 } %15
@@ -1297,8 +1297,8 @@ define hidden void @"_ZN6quiche19Connection$LT$F$GT$14stream_do_send17h7014e6249
   br i1 %or.cond58.not.i.i, label %190, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %143, %130, %129
-  %.sroa.0.054.i.i.i = phi i64 [ %., %129 ], [ %., %143 ], [ %118, %130 ]
-  %.sroa.04.053.i.i.i = phi i8 [ 0, %129 ], [ 1, %143 ], [ 0, %130 ]
+  %.sroa.0.054.i.i.i = phi i64 [ %., %143 ], [ %., %129 ], [ %118, %130 ]
+  %.sroa.04.053.i.i.i = phi i8 [ 1, %143 ], [ 0, %129 ], [ 0, %130 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !99
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !99
   %133 = getelementptr inbounds nuw i8, ptr %52, i64 160
@@ -1451,7 +1451,7 @@ define hidden void @"_ZN6quiche19Connection$LT$F$GT$14stream_do_send17h7014e6249
           to label %177 unwind label %183
 
 .body:                                            ; preds = %230, %234, %183, %.body.i.i, %311
-  %.pn73 = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %312, %311 ], [ %184, %183 ], [ %.pn, %234 ], [ %.pn, %230 ]
+  %.pn73 = phi { ptr, i32 } [ %312, %311 ], [ %184, %183 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %.pn, %234 ], [ %.pn, %230 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
   call void @llvm.experimental.noalias.scope.decl(metadata !111)
   %179 = load ptr, ptr %18, align 8, !alias.scope !114, !nonnull !8, !noundef !8
@@ -1486,9 +1486,9 @@ define hidden void @"_ZN6quiche19Connection$LT$F$GT$14stream_do_send17h7014e6249
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %325
 
-190:                                              ; preds = %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h1aff8f6b1889ab5eE.exit.i", %124, %112, %130
-  %spec.select.i.sink20.i.ph = phi i64 [ 14, %130 ], [ 12, %112 ], [ 14, %124 ], [ 1, %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h1aff8f6b1889ab5eE.exit.i" ]
-  %spec.select.i.sink.i.ph = phi i64 [ undef, %130 ], [ %114, %112 ], [ undef, %124 ], [ 0, %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h1aff8f6b1889ab5eE.exit.i" ]
+190:                                              ; preds = %130, %112, %124, %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h1aff8f6b1889ab5eE.exit.i"
+  %spec.select.i.sink20.i.ph = phi i64 [ 1, %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h1aff8f6b1889ab5eE.exit.i" ], [ 14, %124 ], [ 12, %112 ], [ 14, %130 ]
+  %spec.select.i.sink.i.ph = phi i64 [ 0, %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h1aff8f6b1889ab5eE.exit.i" ], [ undef, %124 ], [ %114, %112 ], [ undef, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !86
   invoke void @"_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_writable17h5845324f443657c3E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %18)
           to label %326 unwind label %183
@@ -1736,7 +1736,7 @@ define hidden void @"_ZN6quiche19Connection$LT$F$GT$14stream_do_send17h7014e6249
   %292 = invoke { i64, i32 } @_ZN3std4time7Instant3now17hd46d520c1ad33f9eE()
           to label %293 unwind label %302
 
-.thread116:                                       ; preds = %301, %293
+.thread116:                                       ; preds = %293, %301
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %230
@@ -2048,7 +2048,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hacbbf0f12d8756e9E.exit.thread.
           to label %97 unwind label %95
 
 "_ZN6quiche19Connection$LT$F$GT$25max_send_udp_payload_size17hfa8add7a8b5b687bE.exit": ; preds = %71, %.noexc17, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hacbbf0f12d8756e9E.exit.thread.i
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i, %71 ], [ 1200, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hacbbf0f12d8756e9E.exit.thread.i ], [ 1200, %.noexc17 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i, %71 ], [ 1200, %.noexc17 ], [ 1200, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hacbbf0f12d8756e9E.exit.thread.i ]
   %76 = load i64, ptr %.sroa.518.0..sroa_idx.i, align 8
   %77 = add i64 %76, 1
   %78 = call i64 @llvm.usub.sat.i64(i64 %.sroa.0.0.i, i64 %77)
@@ -2132,7 +2132,7 @@ define hidden { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$5close17hca099a70064
   br i1 %28, label %35, label %32
 
 29:                                               ; preds = %"_ZN6quiche19Connection$LT$F$GT$11mark_closed17h06cb4a3cbaf18bd8E.exit", %55, %22, %5
-  %.sroa.0.0 = phi i64 [ 0, %22 ], [ 0, %5 ], [ 20, %55 ], [ 20, %"_ZN6quiche19Connection$LT$F$GT$11mark_closed17h06cb4a3cbaf18bd8E.exit" ]
+  %.sroa.0.0 = phi i64 [ 0, %5 ], [ 0, %22 ], [ 20, %55 ], [ 20, %"_ZN6quiche19Connection$LT$F$GT$11mark_closed17h06cb4a3cbaf18bd8E.exit" ]
   %30 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %31 = insertvalue { i64, i64 } %30, i64 undef, 1
   ret { i64, i64 } %31
@@ -2230,7 +2230,7 @@ common.resume.sink.split:                         ; preds = %63, %53
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %128, %132, %166, %170, %182, %211
-  %common.resume.op = phi { ptr, i32 } [ %167, %170 ], [ %167, %166 ], [ %.pn.i, %211 ], [ %.pn.i, %182 ], [ %129, %128 ], [ %129, %132 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %211 ], [ %.pn.i, %182 ], [ %129, %132 ], [ %129, %128 ], [ %167, %170 ], [ %167, %166 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 63:                                               ; preds = %48
@@ -2555,7 +2555,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %183, label %211, label %common.resume
 
 184:                                              ; preds = %203, %196, %186, %89
-  %.sroa.030.1.i = phi i8 [ 0, %203 ], [ 0, %196 ], [ 1, %186 ], [ 1, %89 ]
+  %.sroa.030.1.i = phi i8 [ 0, %196 ], [ 1, %186 ], [ 1, %89 ], [ 0, %203 ]
   %185 = landingpad { ptr, i32 }
           cleanup
   br label %182
@@ -2624,7 +2624,7 @@ common.resume:                                    ; preds = %common.resume.sink.
           to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$qlog..streamer..QlogStreamer$GT$$GT$17h77f525bc4de4ebe0E.exit74.i" unwind label %208
 
 208:                                              ; preds = %207, %195
-  %.sroa.030.4.i = phi i8 [ 0, %207 ], [ %.sroa.030.3.ph.i, %195 ]
+  %.sroa.030.4.i = phi i8 [ %.sroa.030.3.ph.i, %195 ], [ 0, %207 ]
   %209 = landingpad { ptr, i32 }
           cleanup
   store i64 3, ptr %187, align 16, !alias.scope !184
@@ -3388,7 +3388,7 @@ define void @_ZN12tokio_quiche4quic21addr_validation_token26AddrValidationTokenM
   br label %.body
 
 .body:                                            ; preds = %101, %91, %74, %66, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %92, %91 ], [ %67, %66 ], [ %75, %74 ], [ %63, %62 ], [ %102, %101 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %63, %62 ], [ %67, %66 ], [ %75, %74 ], [ %92, %91 ], [ %102, %101 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hf6d8c5b2d4b97d60E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #25
           to label %52 unwind label %107
 
@@ -3656,7 +3656,7 @@ define void @_ZN12tokio_quiche4quic21addr_validation_token26AddrValidationTokenM
   br label %.body
 
 .body:                                            ; preds = %140, %126, %93, %64, %54
-  %eh.lpad-body = phi { ptr, i32 } [ %65, %64 ], [ %127, %126 ], [ %94, %93 ], [ %55, %54 ], [ %141, %140 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %55, %54 ], [ %65, %64 ], [ %94, %93 ], [ %127, %126 ], [ %141, %140 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70801ec61d645c1bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #25
           to label %150 unwind label %148
 
@@ -4981,7 +4981,7 @@ define void @_ZN12tokio_quiche4quic6router16resolve_dst_addr17h7574910f9b236215E
   store i16 2, ptr %0, align 4
   br label %45
 
-"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread": ; preds = %9, %21, %27, %3, %15, %33, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit"
+"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread": ; preds = %9, %21, %27, %15, %3, %33, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit"
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %2, i64 32, i1 false)
   br label %45
 
@@ -5025,7 +5025,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   br label %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i"
 
 "_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i": ; preds = %11, %8, %4
-  %.sroa.0.0.i.i.i = phi i8 [ %13, %11 ], [ %spec.select.i.i.i.i.i, %4 ], [ %10, %8 ]
+  %.sroa.0.0.i.i.i = phi i8 [ %spec.select.i.i.i.i.i, %4 ], [ %10, %8 ], [ %13, %11 ]
   %14 = icmp eq i8 %.sroa.0.0.i.i.i, 40
   br i1 %14, label %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
 
@@ -5089,8 +5089,8 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 37:                                               ; preds = %29
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit": ; preds = %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i", %1, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", %15, %17, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", %29, %34, %35, %36, %37
-  %.sroa.02.0.i = phi i8 [ 6, %29 ], [ 10, %37 ], [ 7, %34 ], [ %.val.i, %35 ], [ 9, %36 ], [ 10, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit" ], [ 10, %17 ], [ 10, %15 ], [ 10, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit" ], [ 10, %1 ], [ 10, %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i" ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17h83838a172b0276d1E.exit": ; preds = %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i", %1, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", %17, %15, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit", %29, %34, %35, %36, %37
+  %.sroa.02.0.i = phi i8 [ 7, %34 ], [ %.val.i, %35 ], [ 9, %36 ], [ 10, %37 ], [ 6, %29 ], [ 10, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit" ], [ 10, %15 ], [ 10, %17 ], [ 10, %"_ZN4core6option15Option$LT$T$GT$6filter17h687c1914685e469fE.exit" ], [ 10, %1 ], [ 10, %"_ZN12tokio_quiche4quic6router25initial_packet_error_type28_$u7b$$u7b$closure$u7d$$u7d$17hff8ff814f02ee8a1E.exit.i" ]
   ret i8 %.sroa.02.0.i
 }
 

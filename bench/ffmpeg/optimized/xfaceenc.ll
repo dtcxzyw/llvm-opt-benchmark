@@ -440,7 +440,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %12, %tailrecurse._crit_edge, %20, %23, %26
-  %.0 = phi i32 [ %30, %26 ], [ 1, %23 ], [ 1, %20 ], [ 1, %tailrecurse._crit_edge ], [ 0, %12 ], [ 0, %8 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %23 ], [ 1, %20 ], [ 1, %tailrecurse._crit_edge ], [ %30, %26 ], [ 0, %12 ], [ 0, %8 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 

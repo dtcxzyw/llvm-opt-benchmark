@@ -371,7 +371,7 @@ _ZN3gmx10shiftAtomsERKNS_11BasicVectorIfEENS_8ArrayRefIS1_EE.exit: ; preds = %.l
   br label %_ZNSt6vectorIN3gmx5RangeIiEESaIS2_EED2Ev.exit62
 
 _ZNSt6vectorIN3gmx5RangeIiEESaIS2_EED2Ev.exit62:  ; preds = %45, %.body, %115
-  %.pn.pn.pn.pn109 = phi { ptr, i32 } [ %lpad.phi, %115 ], [ %lpad.phi, %.body ], [ %46, %45 ]
+  %.pn.pn.pn.pn109 = phi { ptr, i32 } [ %lpad.phi, %.body ], [ %lpad.phi, %115 ], [ %46, %45 ]
   resume { ptr, i32 } %.pn.pn.pn.pn109
 }
 

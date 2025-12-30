@@ -1206,7 +1206,7 @@ define internal void @lo_complete_rq(ptr noundef %0) #2 align 16 {
   br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader, %7, %12, %25, %.thread5, %17
-  %33 = phi i8 [ %19, %.thread5 ], [ 0, %17 ], [ 10, %25 ], [ 0, %7 ], [ 0, %12 ], [ 10, %.preheader ]
+  %33 = phi i8 [ %19, %.thread5 ], [ 0, %17 ], [ 10, %25 ], [ 0, %12 ], [ 0, %7 ], [ 10, %.preheader ]
   tail call void @blk_mq_end_request(ptr noundef %0, i8 noundef zeroext %33) #14
   br label %34
 
@@ -1754,7 +1754,7 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
   br label %.thread26
 
 .thread26:                                        ; preds = %317, %43
-  %319 = phi i64 [ %spec.select, %317 ], [ -5, %43 ]
+  %319 = phi i64 [ -5, %43 ], [ %spec.select, %317 ]
   %320 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 %319, ptr %320, align 8
   call void @blk_mq_complete_request(ptr noundef %33) #14
@@ -2473,7 +2473,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   br label %.thread33
 
 .thread30:                                        ; preds = %88, %85, %.critedge, %144, %67, %.thread
-  %186 = phi i32 [ -6, %.thread ], [ -22, %67 ], [ -22, %144 ], [ -22, %.critedge ], [ -9, %85 ], [ -22, %88 ]
+  %186 = phi i32 [ -6, %.thread ], [ -22, %144 ], [ -22, %67 ], [ -22, %.critedge ], [ -9, %85 ], [ -22, %88 ]
   %187 = getelementptr inbounds nuw i8, ptr %16, i64 440
   tail call void @mutex_unlock(ptr noundef nonnull %187) #14
   br i1 %63, label %.thread24.sink.split, label %.thread24
@@ -2842,7 +2842,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   br label %.thread33
 
 .thread33:                                        ; preds = %196, %189, %.thread40, %308, %306, %301, %290, %283, %.thread37, %246, %218, %214, %210, %201, %178, %28, %26, %18
-  %397 = phi i32 [ %302, %301 ], [ %279, %.thread37 ], [ %27, %26 ], [ %20, %18 ], [ -1, %306 ], [ %291, %290 ], [ -1, %283 ], [ %247, %246 ], [ -1, %218 ], [ %179, %178 ], [ -9, %28 ], [ -6, %201 ], [ 0, %210 ], [ 0, %214 ], [ %310, %308 ], [ %396, %.thread40 ], [ %194, %196 ], [ %190, %189 ]
+  %397 = phi i32 [ %302, %301 ], [ %279, %.thread37 ], [ %27, %26 ], [ %20, %18 ], [ -1, %306 ], [ %291, %290 ], [ -1, %283 ], [ %247, %246 ], [ -1, %218 ], [ %179, %178 ], [ -9, %28 ], [ -6, %201 ], [ 0, %210 ], [ 0, %214 ], [ %396, %.thread40 ], [ %310, %308 ], [ %194, %196 ], [ %190, %189 ]
   ret i32 %397
 }
 
@@ -3684,7 +3684,7 @@ define internal i32 @loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %265
 
 .thread24:                                        ; preds = %59, %56, %92, %.critedge, %120, %97, %80, %.thread45
-  %259 = phi i32 [ -16, %.thread45 ], [ -12, %120 ], [ -22, %92 ], [ %98, %97 ], [ -22, %80 ], [ -22, %.critedge ], [ -22, %59 ], [ -9, %56 ]
+  %259 = phi i32 [ -16, %.thread45 ], [ %98, %97 ], [ -22, %80 ], [ -12, %120 ], [ -22, %.critedge ], [ -22, %92 ], [ -9, %56 ], [ -22, %59 ]
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 440
   tail call void @mutex_unlock(ptr noundef nonnull %260) #14
   br i1 %23, label %.thread18.sink.split, label %.thread18
@@ -3843,7 +3843,7 @@ define internal fastcc void @loop_config_discard(ptr %.96.val, ptr initializes((
   br label %.thread
 
 36:                                               ; preds = %20, %8
-  %37 = phi i32 [ %18, %8 ], [ %22, %20 ]
+  %37 = phi i32 [ %22, %20 ], [ %18, %8 ]
   %38 = icmp eq i32 %13, 0
   %spec.select2 = select i1 %38, i32 0, i32 %37
   br label %.thread
@@ -4268,7 +4268,7 @@ define internal fastcc i32 @loop_set_status(ptr noundef %0, ptr noundef readonly
   br label %112
 
 112:                                              ; preds = %.thread6, %109, %98, %2
-  %113 = phi i32 [ %4, %2 ], [ %.ph5, %.thread6 ], [ 0, %98 ], [ 0, %109 ]
+  %113 = phi i32 [ %4, %2 ], [ 0, %98 ], [ 0, %109 ], [ %.ph5, %.thread6 ]
   ret i32 %113
 }
 

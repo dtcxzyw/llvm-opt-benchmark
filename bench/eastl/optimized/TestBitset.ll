@@ -2113,7 +2113,7 @@ _ZNK5eastl10BitsetBaseILm1EhE10DoFindNextEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EhE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EhE10DoFindNextEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EhE10DoFindNextEm.exit, %if.then.i, %entry
-  %5 = phi i64 [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EhE10DoFindNextEm.exit ], [ 1, %entry ]
+  %5 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EhE10DoFindNextEm.exit ]
   ret i64 %5
 }
 
@@ -2177,7 +2177,7 @@ _ZNK5eastl10BitsetBaseILm1EhE10DoFindPrevEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EhE10DoFindPrevEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EhE10DoFindPrevEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EhE10DoFindPrevEm.exit, %if.then.i, %entry
-  %3 = phi i64 [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EhE10DoFindPrevEm.exit ], [ 1, %entry ]
+  %3 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EhE10DoFindPrevEm.exit ]
   ret i64 %3
 }
 
@@ -5750,7 +5750,7 @@ _ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit, %if.then.i, %entry
-  %8 = phi i64 [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit ], [ 1, %entry ]
+  %8 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit ]
   ret i64 %8
 }
 
@@ -5824,7 +5824,7 @@ _ZNK5eastl10BitsetBaseILm1EtE10DoFindPrevEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EtE10DoFindPrevEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EtE10DoFindPrevEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EtE10DoFindPrevEm.exit, %if.then.i, %entry
-  %4 = phi i64 [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EtE10DoFindPrevEm.exit ], [ 1, %entry ]
+  %4 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EtE10DoFindPrevEm.exit ]
   ret i64 %4
 }
 
@@ -9460,7 +9460,7 @@ _ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit, %if.then.i, %entry
-  %4 = phi i64 [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit ], [ 1, %entry ]
+  %4 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit ]
   ret i64 %4
 }
 
@@ -9549,7 +9549,7 @@ _ZNK5eastl10BitsetBaseILm1EjE10DoFindPrevEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EjE10DoFindPrevEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EjE10DoFindPrevEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EjE10DoFindPrevEm.exit, %if.then.i, %entry
-  %4 = phi i64 [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EjE10DoFindPrevEm.exit ], [ 1, %entry ]
+  %4 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EjE10DoFindPrevEm.exit ]
   ret i64 %4
 }
 
@@ -10392,7 +10392,7 @@ _ZN5eastl11GetFirstBitEj.exit66:                  ; preds = %if.then12
   br label %return
 
 return:                                           ; preds = %if.then12, %if.end, %if.else, %_ZN5eastl11GetFirstBitEj.exit66, %_ZN5eastl11GetFirstBitEj.exit37, %_ZN5eastl11GetFirstBitEj.exit
-  %retval.0 = phi i64 [ %conv, %_ZN5eastl11GetFirstBitEj.exit ], [ %add, %_ZN5eastl11GetFirstBitEj.exit37 ], [ %add24, %_ZN5eastl11GetFirstBitEj.exit66 ], [ 64, %if.else ], [ 64, %if.then12 ], [ 64, %if.end ]
+  %retval.0 = phi i64 [ %conv, %_ZN5eastl11GetFirstBitEj.exit ], [ %add, %_ZN5eastl11GetFirstBitEj.exit37 ], [ %add24, %_ZN5eastl11GetFirstBitEj.exit66 ], [ 64, %if.else ], [ 64, %if.end ], [ 64, %if.then12 ]
   ret i64 %retval.0
 }
 
@@ -10473,7 +10473,7 @@ _ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit: ; preds = %_ZN5eastl10GetLastB
   br label %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit.thread
 
 _ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit, %_ZN5eastl10GetLastBitEj.exit28.i, %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit.thread6
-  %4 = phi i64 [ 33, %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit.thread6 ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit ], [ %conv5.i, %_ZN5eastl10GetLastBitEj.exit28.i ]
+  %4 = phi i64 [ 33, %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit.thread6 ], [ %conv5.i, %_ZN5eastl10GetLastBitEj.exit28.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm2EjE10DoFindLastEv.exit ]
   ret i64 %4
 }
 
@@ -10614,7 +10614,7 @@ _ZN5eastl10GetLastBitEj.exit59.thread:            ; preds = %if.then13, %_ZN5eas
   br label %return
 
 return:                                           ; preds = %_ZN5eastl10GetLastBitEj.exit59.thread, %_ZN5eastl10GetLastBitEj.exit59, %_ZN5eastl10GetLastBitEj.exit34.thread, %_ZN5eastl10GetLastBitEj.exit34, %if.else, %if.then4
-  %retval.0 = phi i64 [ %add, %if.then4 ], [ %conv8, %_ZN5eastl10GetLastBitEj.exit34 ], [ 64, %if.else ], [ 64, %_ZN5eastl10GetLastBitEj.exit34.thread ], [ 64, %_ZN5eastl10GetLastBitEj.exit59.thread ], [ %conv23, %_ZN5eastl10GetLastBitEj.exit59 ]
+  %retval.0 = phi i64 [ %add, %if.then4 ], [ 64, %if.else ], [ 64, %_ZN5eastl10GetLastBitEj.exit34.thread ], [ %conv8, %_ZN5eastl10GetLastBitEj.exit34 ], [ 64, %_ZN5eastl10GetLastBitEj.exit59.thread ], [ %conv23, %_ZN5eastl10GetLastBitEj.exit59 ]
   ret i64 %retval.0
 }
 
@@ -13308,7 +13308,7 @@ _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit, %if.then.i, %entry
-  %1 = phi i64 [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ], [ 1, %entry ]
+  %1 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ]
   ret i64 %1
 }
 
@@ -13429,7 +13429,7 @@ _ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit, %if.then.i, %entry
-  %2 = phi i64 [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit ], [ 1, %entry ]
+  %2 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit ]
   ret i64 %2
 }
 
@@ -14004,7 +14004,7 @@ _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit, %if.then.i, %entry
-  %1 = phi i64 [ 33, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ], [ 33, %entry ]
+  %1 = phi i64 [ 33, %entry ], [ 33, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ]
   ret i64 %1
 }
 
@@ -14125,7 +14125,7 @@ _ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit, %if.then.i, %entry
-  %1 = phi i64 [ 33, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit ], [ 33, %entry ]
+  %1 = phi i64 [ 33, %entry ], [ 33, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit ]
   ret i64 %1
 }
 
@@ -14711,7 +14711,7 @@ _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit, %if.then.i, %entry
-  %1 = phi i64 [ 65, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ], [ 65, %entry ]
+  %1 = phi i64 [ 65, %entry ], [ 65, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ]
   ret i64 %1
 }
 
@@ -14832,7 +14832,7 @@ _ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit, %if.then.i, %entry
-  %1 = phi i64 [ 65, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit ], [ 65, %entry ]
+  %1 = phi i64 [ 65, %entry ], [ 65, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindPrevEm.exit ]
   ret i64 %1
 }
 
@@ -16063,7 +16063,7 @@ _ZN5eastl10GetLastBitEo.exit97.thread:            ; preds = %if.then14, %_ZN5eas
   br label %return
 
 return:                                           ; preds = %_ZN5eastl10GetLastBitEo.exit97.thread, %_ZN5eastl10GetLastBitEo.exit97, %_ZN5eastl10GetLastBitEo.exit53.thread, %_ZN5eastl10GetLastBitEo.exit53, %if.else, %if.then4
-  %retval.0 = phi i64 [ %add, %if.then4 ], [ %conv9, %_ZN5eastl10GetLastBitEo.exit53 ], [ 256, %if.else ], [ 256, %_ZN5eastl10GetLastBitEo.exit53.thread ], [ 256, %_ZN5eastl10GetLastBitEo.exit97.thread ], [ %conv25, %_ZN5eastl10GetLastBitEo.exit97 ]
+  %retval.0 = phi i64 [ %add, %if.then4 ], [ 256, %if.else ], [ 256, %_ZN5eastl10GetLastBitEo.exit53.thread ], [ %conv9, %_ZN5eastl10GetLastBitEo.exit53 ], [ 256, %_ZN5eastl10GetLastBitEo.exit97.thread ], [ %conv25, %_ZN5eastl10GetLastBitEo.exit97 ]
   ret i64 %retval.0
 }
 
@@ -17227,7 +17227,7 @@ land.rhs1918:                                     ; preds = %land.lhs.true1912
   br label %land.end1924
 
 land.end1924:                                     ; preds = %land.rhs1918, %land.lhs.true1912, %_ZN5eastl6bitsetILm129EmEaNERKS1_.exit
-  %134 = phi i1 [ false, %land.lhs.true1912 ], [ %cmp.i2330.not, %land.rhs1918 ], [ false, %_ZN5eastl6bitsetILm129EmEaNERKS1_.exit ]
+  %134 = phi i1 [ false, %land.lhs.true1912 ], [ false, %_ZN5eastl6bitsetILm129EmEaNERKS1_.exit ], [ %cmp.i2330.not, %land.rhs1918 ]
   %call1925 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %134, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 902, ptr noundef nonnull @.str.224)
   br label %for.body.i.i2331
 
@@ -17262,7 +17262,7 @@ land.rhs1944:                                     ; preds = %land.lhs.true1938
   br label %land.end1950
 
 land.end1950:                                     ; preds = %land.rhs1944, %land.lhs.true1938, %_ZN5eastl6bitsetILm129EmEoRERKS1_.exit
-  %141 = phi i1 [ false, %land.lhs.true1938 ], [ %cmp.i2369, %land.rhs1944 ], [ false, %_ZN5eastl6bitsetILm129EmEoRERKS1_.exit ]
+  %141 = phi i1 [ false, %land.lhs.true1938 ], [ false, %_ZN5eastl6bitsetILm129EmEoRERKS1_.exit ], [ %cmp.i2369, %land.rhs1944 ]
   %call1951 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %141, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 904, ptr noundef nonnull @.str.225)
   br label %for.body.i.i2370
 
@@ -17297,7 +17297,7 @@ land.rhs1970:                                     ; preds = %land.lhs.true1964
   br label %land.end1976
 
 land.end1976:                                     ; preds = %land.rhs1970, %land.lhs.true1964, %_ZN5eastl6bitsetILm129EmEeOERKS1_.exit
-  %148 = phi i1 [ false, %land.lhs.true1964 ], [ %cmp.i2408.not, %land.rhs1970 ], [ false, %_ZN5eastl6bitsetILm129EmEeOERKS1_.exit ]
+  %148 = phi i1 [ false, %land.lhs.true1964 ], [ false, %_ZN5eastl6bitsetILm129EmEeOERKS1_.exit ], [ %cmp.i2408.not, %land.rhs1970 ]
   %call1977 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %148, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 906, ptr noundef nonnull @.str.224)
   br label %for.body.i.i2409
 
@@ -17332,7 +17332,7 @@ land.rhs1996:                                     ; preds = %land.lhs.true1990
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.rhs1996, %land.lhs.true1990, %_ZN5eastl6bitsetILm129EmEoRERKS1_.exit2416
-  %155 = phi i1 [ false, %land.lhs.true1990 ], [ %cmp.i2448, %land.rhs1996 ], [ false, %_ZN5eastl6bitsetILm129EmEoRERKS1_.exit2416 ]
+  %155 = phi i1 [ false, %land.lhs.true1990 ], [ false, %_ZN5eastl6bitsetILm129EmEoRERKS1_.exit2416 ], [ %cmp.i2448, %land.rhs1996 ]
   %call2003 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %155, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 908, ptr noundef nonnull @.str.225)
   %call2010 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 916, ptr noundef nonnull @.str.226)
   %call2014 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 926, ptr noundef nonnull @.str.227)
@@ -17540,7 +17540,7 @@ _ZNK5eastl6bitsetILm64EmE9find_nextEm.exit3713:   ; preds = %if.then.i.i3672
   %cmp2130.not = icmp ugt i32 %sub.i.i.i3710, 63
   br i1 %cmp2130.not, label %for.end2135, label %for.body2131, !llvm.loop !148
 
-for.end2135:                                      ; preds = %for.body2131, %if.then.i.i3672, %_ZNK5eastl6bitsetILm64EmE9find_nextEm.exit3713
+for.end2135:                                      ; preds = %if.then.i.i3672, %for.body2131, %_ZNK5eastl6bitsetILm64EmE9find_nextEm.exit3713
   %cmp2136 = icmp eq i64 %inc2132, 64
   %call2137 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2136, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1018, ptr noundef nonnull @.str.240)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %b79, i8 0, i64 16, i1 false)
@@ -18388,7 +18388,7 @@ _ZNK5eastl6bitsetILm7EmE9find_prevEm.exit4696:    ; preds = %if.then.i.i4658
   %cmp2283.not = icmp eq i32 %n.5.i.i.i4693, 7
   br i1 %cmp2283.not, label %if.then.i.i4771, label %for.body2284, !llvm.loop !154
 
-if.then.i.i4771:                                  ; preds = %for.body2284, %if.then.i.i4658, %_ZNK5eastl6bitsetILm7EmE9find_prevEm.exit4696
+if.then.i.i4771:                                  ; preds = %if.then.i.i4658, %for.body2284, %_ZNK5eastl6bitsetILm7EmE9find_prevEm.exit4696
   %cmp2289 = icmp eq i64 %inc2285, 7
   %call2290 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2289, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1135, ptr noundef nonnull @.str.232)
   %call2294 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1141, ptr noundef nonnull @.str.233)
@@ -18441,7 +18441,7 @@ _ZNK5eastl6bitsetILm32EmE9find_prevEm.exit4922:   ; preds = %if.then.i.i4884
   %cmp2309.not = icmp eq i32 %n.5.i.i.i4919, 32
   br i1 %cmp2309.not, label %if.then.i.i5000, label %for.body2310, !llvm.loop !155
 
-if.then.i.i5000:                                  ; preds = %for.body2310, %if.then.i.i4884, %_ZNK5eastl6bitsetILm32EmE9find_prevEm.exit4922
+if.then.i.i5000:                                  ; preds = %if.then.i.i4884, %for.body2310, %_ZNK5eastl6bitsetILm32EmE9find_prevEm.exit4922
   %cmp2315 = icmp eq i64 %inc2311, 32
   %call2316 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2315, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1154, ptr noundef nonnull @.str.235)
   %call2320 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1160, ptr noundef nonnull @.str.236)
@@ -18501,7 +18501,7 @@ _ZNK5eastl6bitsetILm41EmE9find_prevEm.exit5191:   ; preds = %if.then.i.i5153
   %cmp2339.not = icmp ugt i32 %n.5.i.i.i5188, 40
   br i1 %cmp2339.not, label %if.then.i.i5269, label %for.body2340, !llvm.loop !156
 
-if.then.i.i5269:                                  ; preds = %for.body2340, %if.then.i.i5153, %_ZNK5eastl6bitsetILm41EmE9find_prevEm.exit5191
+if.then.i.i5269:                                  ; preds = %if.then.i.i5153, %for.body2340, %_ZNK5eastl6bitsetILm41EmE9find_prevEm.exit5191
   %cmp2345 = icmp eq i64 %inc2341, 41
   %call2346 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2345, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1176, ptr noundef nonnull @.str.238)
   %call2350 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1182, ptr noundef nonnull @.str.239)
@@ -18560,7 +18560,7 @@ _ZNK5eastl6bitsetILm64EmE9find_prevEm.exit5460:   ; preds = %if.then.i.i5422
   %cmp2369.not = icmp ugt i32 %n.5.i.i.i5457, 63
   br i1 %cmp2369.not, label %for.end2374, label %for.body2370, !llvm.loop !157
 
-for.end2374:                                      ; preds = %for.body2370, %if.then.i.i5422, %_ZNK5eastl6bitsetILm64EmE9find_prevEm.exit5460
+for.end2374:                                      ; preds = %if.then.i.i5422, %for.body2370, %_ZNK5eastl6bitsetILm64EmE9find_prevEm.exit5460
   %cmp2375 = icmp eq i64 %inc2371, 64
   %call2376 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2375, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1198, ptr noundef nonnull @.str.240)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %b792377, i8 0, i64 16, i1 false)
@@ -19882,7 +19882,7 @@ _ZN5eastl10GetLastBitEm.exit73.thread:            ; preds = %if.then13, %_ZN5eas
   br label %return
 
 return:                                           ; preds = %_ZN5eastl10GetLastBitEm.exit73.thread, %_ZN5eastl10GetLastBitEm.exit73, %_ZN5eastl10GetLastBitEm.exit41.thread, %_ZN5eastl10GetLastBitEm.exit41, %if.else, %if.then4
-  %retval.0 = phi i64 [ %add, %if.then4 ], [ %conv8, %_ZN5eastl10GetLastBitEm.exit41 ], [ 128, %if.else ], [ 128, %_ZN5eastl10GetLastBitEm.exit41.thread ], [ 128, %_ZN5eastl10GetLastBitEm.exit73.thread ], [ %conv22, %_ZN5eastl10GetLastBitEm.exit73 ]
+  %retval.0 = phi i64 [ %add, %if.then4 ], [ 128, %if.else ], [ 128, %_ZN5eastl10GetLastBitEm.exit41.thread ], [ %conv8, %_ZN5eastl10GetLastBitEm.exit41 ], [ 128, %_ZN5eastl10GetLastBitEm.exit73.thread ], [ %conv22, %_ZN5eastl10GetLastBitEm.exit73 ]
   ret i64 %retval.0
 }
 

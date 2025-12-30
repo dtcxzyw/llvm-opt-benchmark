@@ -126,7 +126,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #0 {
   br label %38
 
 38:                                               ; preds = %14, %29, %26, %13
-  %.0 = phi i32 [ 0, %13 ], [ -12, %26 ], [ %37, %29 ], [ -1497649742, %14 ]
+  %.0 = phi i32 [ 0, %13 ], [ %37, %29 ], [ -12, %26 ], [ -1497649742, %14 ]
   ret i32 %.0
 }
 

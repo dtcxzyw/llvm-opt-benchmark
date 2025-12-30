@@ -147,8 +147,8 @@ tailrecurse.i2.i:                                 ; preds = %tailrecurse.i2.i.pr
   br i1 %33, label %.loopexit20, label %tailrecurse.backedge.i.i
 
 tailrecurse.backedge.i.i:                         ; preds = %41, %38, %.thread.i.i, %32
-  %.tr42.be.i.i = phi i64 [ 0, %32 ], [ %42, %41 ], [ 0, %38 ], [ 0, %.thread.i.i ]
-  %.tr43.be.i.i = phi i1 [ true, %32 ], [ true, %41 ], [ false, %38 ], [ false, %.thread.i.i ]
+  %.tr42.be.i.i = phi i64 [ %42, %41 ], [ 0, %32 ], [ 0, %38 ], [ 0, %.thread.i.i ]
+  %.tr43.be.i.i = phi i1 [ true, %41 ], [ true, %32 ], [ false, %38 ], [ false, %.thread.i.i ]
   %.tr41.be.i.i = add i64 %.tr41.i.i, 1
   br label %tailrecurse.i.i
 
@@ -306,8 +306,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %25, label %.loopexit, label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %.thread, %30, %24, %33
-  %.tr42.be = phi i64 [ 0, %24 ], [ %34, %33 ], [ 0, %30 ], [ 0, %.thread ]
-  %.tr43.be = phi i1 [ true, %24 ], [ true, %33 ], [ false, %30 ], [ false, %.thread ]
+  %.tr42.be = phi i64 [ %34, %33 ], [ 0, %24 ], [ 0, %30 ], [ 0, %.thread ]
+  %.tr43.be = phi i1 [ true, %33 ], [ true, %24 ], [ false, %30 ], [ false, %.thread ]
   %.tr41.be = add i64 %.tr41, 1
   br label %tailrecurse
 

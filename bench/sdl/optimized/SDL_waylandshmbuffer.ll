@@ -119,7 +119,7 @@ SetTempFileSize.exit.i:                           ; preds = %39, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %46
 
-46:                                               ; preds = %.critedge.i, %44
+46:                                               ; preds = %44, %.critedge.i
   %47 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #7
   br label %77
 

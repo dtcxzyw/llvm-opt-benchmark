@@ -150,8 +150,8 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #2 {
   %50 = call i32 @ff_filter_frame(ptr noundef %12, ptr noundef %49) #6
   br label %.thread61
 
-.thread61:                                        ; preds = %44, %48
-  %.2.ph = phi i32 [ %50, %48 ], [ %45, %44 ]
+.thread61:                                        ; preds = %48, %44
+  %.2.ph = phi i32 [ %45, %44 ], [ %50, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %60
 
@@ -186,7 +186,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #2 {
   br label %60
 
 60:                                               ; preds = %54, %.thread61, %14, %57, %59
-  %.1 = phi i32 [ 0, %59 ], [ 0, %14 ], [ 0, %54 ], [ %.2.ph, %.thread61 ], [ -1497649742, %57 ]
+  %.1 = phi i32 [ 0, %59 ], [ 0, %54 ], [ 0, %14 ], [ -1497649742, %57 ], [ %.2.ph, %.thread61 ]
   ret i32 %.1
 }
 

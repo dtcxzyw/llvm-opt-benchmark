@@ -165,7 +165,7 @@ define void @_ZNK5boost4urls22implementation_defined19relative_ref_rule_t5parseE
   br label %33
 
 33:                                               ; preds = %32, %.thread36, %31
-  %34 = phi ptr [ inttoptr (i64 208 to ptr), %32 ], [ %.sroa.gep2337, %.thread36 ], [ %.sroa.gep2340, %31 ]
+  %34 = phi ptr [ %.sroa.gep2337, %.thread36 ], [ %.sroa.gep2340, %31 ], [ inttoptr (i64 208 to ptr), %32 ]
   %35 = load i64, ptr %34, align 8, !tbaa !35
   call void @_ZN5boost4urls6detail8url_impl10apply_pathENS0_15pct_string_viewEm(ptr noundef nonnull align 8 dereferenceable(171) %9, ptr noundef nonnull byval(%"class.boost::urls::pct_string_view") align 8 %12, i64 noundef %35) #8
   %.pre27 = load i32, ptr %19, align 8, !tbaa !17

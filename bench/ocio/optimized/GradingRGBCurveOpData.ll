@@ -1417,7 +1417,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev21GradingRGBCurveOpDa
   br label %39
 
 39:                                               ; preds = %30, %2, %8, %38
-  %.0 = phi i1 [ false, %38 ], [ false, %2 ], [ false, %8 ], [ true, %30 ]
+  %.0 = phi i1 [ false, %38 ], [ false, %8 ], [ false, %2 ], [ true, %30 ]
   ret i1 %.0
 }
 
@@ -2490,7 +2490,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev21GradingRGBCurveOpDa
   br label %25
 
 25:                                               ; preds = %19, %14, %9, %4, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %4 ], [ %24, %19 ], [ false, %14 ], [ false, %9 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ false, %9 ], [ false, %4 ], [ %24, %19 ]
   ret i1 %.0
 }
 

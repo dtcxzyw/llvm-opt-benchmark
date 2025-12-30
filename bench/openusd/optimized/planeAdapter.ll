@@ -1222,8 +1222,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit74: ; preds = %314, %311, 
   ret void
 
 .body:                                            ; preds = %259, %272, %315, %159, %172, %215, %55, %68, %111
-  %.sink = phi ptr [ %7, %159 ], [ %6, %55 ], [ %6, %111 ], [ %6, %68 ], [ %7, %215 ], [ %7, %172 ], [ %8, %315 ], [ %8, %272 ], [ %8, %259 ]
-  %.pn = phi { ptr, i32 } [ %160, %159 ], [ %56, %55 ], [ %112, %111 ], [ %69, %68 ], [ %216, %215 ], [ %173, %172 ], [ %316, %315 ], [ %273, %272 ], [ %260, %259 ]
+  %.sink = phi ptr [ %6, %111 ], [ %6, %68 ], [ %6, %55 ], [ %7, %215 ], [ %7, %172 ], [ %7, %159 ], [ %8, %315 ], [ %8, %272 ], [ %8, %259 ]
+  %.pn = phi { ptr, i32 } [ %112, %111 ], [ %69, %68 ], [ %56, %55 ], [ %216, %215 ], [ %173, %172 ], [ %160, %159 ], [ %316, %315 ], [ %273, %272 ], [ %260, %259 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #17
   resume { ptr, i32 } %.pn
 }
@@ -1872,7 +1872,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %170, %176
   br label %.body
 
 .body:                                            ; preds = %196, %192, %180, %19
-  %.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %181, %180 ], [ %.pn, %192 ], [ %.pn, %196 ]
+  %.pn.pn = phi { ptr, i32 } [ %181, %180 ], [ %20, %19 ], [ %.pn, %192 ], [ %.pn, %196 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdGeomPlaneD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   resume { ptr, i32 } %.pn.pn
 }

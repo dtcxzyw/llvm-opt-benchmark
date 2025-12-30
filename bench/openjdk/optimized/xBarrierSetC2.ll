@@ -364,7 +364,7 @@ _ZN10Node_Array3mapEjP4Node.exit.i:               ; preds = %39, %_ZN5Arena12Ama
   br label %_ZN18XBarrierSetC2State4liveEPK4Node.exit
 
 _ZN18XBarrierSetC2State4liveEPK4Node.exit:        ; preds = %_ZNK10Node_ArrayixEj.exit.i, %_ZN10Node_Array3mapEjP4Node.exit.i
-  %.010.i = phi ptr [ %21, %_ZNK10Node_ArrayixEj.exit.i ], [ %.0.i.i.i, %_ZN10Node_Array3mapEjP4Node.exit.i ]
+  %.010.i = phi ptr [ %.0.i.i.i, %_ZN10Node_Array3mapEjP4Node.exit.i ], [ %21, %_ZNK10Node_ArrayixEj.exit.i ]
   ret ptr %.010.i
 }
 
@@ -721,7 +721,7 @@ _ZN9Node_List4pushEP4Node.exit105:                ; preds = %129, %133
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %137, %121
-  %.sink = phi i32 [ %138, %137 ], [ %122, %121 ], [ %.sink255, %.sink.split.sink.split ]
+  %.sink = phi i32 [ %122, %121 ], [ %138, %137 ], [ %.sink255, %.sink.split.sink.split ]
   %141 = load ptr, ptr %50, align 8
   %142 = zext i32 %.sink to i64
   %143 = getelementptr inbounds nuw ptr, ptr %141, i64 %142
@@ -1569,7 +1569,7 @@ define hidden noundef zeroext i1 @_ZNK13XBarrierSetC231array_copy_requires_gc_ba
   br label %11
 
 11:                                               ; preds = %6, %8, %7
-  %.0 = phi i1 [ %10, %8 ], [ %4, %7 ], [ false, %6 ]
+  %.0 = phi i1 [ %4, %7 ], [ %10, %8 ], [ false, %6 ]
   ret i1 %.0
 }
 

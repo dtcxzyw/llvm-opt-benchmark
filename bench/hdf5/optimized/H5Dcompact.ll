@@ -324,7 +324,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5D__compact_readvv(ptr
   br label %49
 
 49:                                               ; preds = %10, %37, %45, %36
-  %.026 = phi i64 [ -1, %10 ], [ %.1, %36 ], [ -1, %45 ], [ %43, %37 ]
+  %.026 = phi i64 [ %.1, %36 ], [ -1, %45 ], [ %43, %37 ], [ -1, %10 ]
   ret i64 %.026
 }
 
@@ -389,7 +389,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5D__compact_writevv(pt
   br label %53
 
 48:                                               ; preds = %.thread, %36
-  %.2 = phi i64 [ %30, %.thread ], [ %42, %36 ]
+  %.2 = phi i64 [ %42, %36 ], [ %30, %.thread ]
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !62
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8

@@ -163,7 +163,7 @@ _ZNK7LIR_Opr10is_addressEv.exit:                  ; preds = %38
   br label %_ZNK7LIR_Opr10is_addressEv.exit.thread
 
 _ZNK7LIR_Opr10is_addressEv.exit.thread:           ; preds = %38, %58, %.critedge, %_ZNK7LIR_Opr10is_addressEv.exit
-  %.sroa.082.0 = phi i64 [ %51, %58 ], [ %2, %_ZNK7LIR_Opr10is_addressEv.exit ], [ %51, %.critedge ], [ %2, %38 ]
+  %.sroa.082.0 = phi i64 [ %2, %_ZNK7LIR_Opr10is_addressEv.exit ], [ %51, %.critedge ], [ %51, %58 ], [ %2, %38 ]
   %64 = tail call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %7, i8 noundef zeroext 11) #6
   %65 = load ptr, ptr %13, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 1808

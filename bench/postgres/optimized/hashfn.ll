@@ -340,9 +340,9 @@ define i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %201
 
 201:                                              ; preds = %._crit_edge224, %61, %84, %99, %._crit_edge, %197
-  %.4201 = phi i32 [ %200, %197 ], [ %.5202.lcssa, %._crit_edge ], [ %.0197.lcssa, %._crit_edge224 ], [ %66, %61 ], [ %86, %84 ], [ %102, %99 ]
-  %.5188 = phi i32 [ %.13196, %197 ], [ %.6189.lcssa, %._crit_edge ], [ %.0183.lcssa, %._crit_edge224 ], [ %64, %61 ], [ %.4187, %84 ], [ %.0183.lcssa, %99 ]
-  %.5 = phi i32 [ %.16, %197 ], [ %.6.lcssa, %._crit_edge ], [ %.0181.lcssa, %._crit_edge224 ], [ %.4, %61 ], [ %.0181.lcssa, %84 ], [ %.0181.lcssa, %99 ]
+  %.4201 = phi i32 [ %.5202.lcssa, %._crit_edge ], [ %200, %197 ], [ %.0197.lcssa, %._crit_edge224 ], [ %66, %61 ], [ %86, %84 ], [ %102, %99 ]
+  %.5188 = phi i32 [ %.6189.lcssa, %._crit_edge ], [ %.13196, %197 ], [ %.0183.lcssa, %._crit_edge224 ], [ %64, %61 ], [ %.4187, %84 ], [ %.0183.lcssa, %99 ]
+  %.5 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.16, %197 ], [ %.0181.lcssa, %._crit_edge224 ], [ %.4, %61 ], [ %.0181.lcssa, %84 ], [ %.0181.lcssa, %99 ]
   %202 = xor i32 %.5, %.5188
   %203 = tail call noundef i32 @llvm.fshl.i32(i32 %.5188, i32 %.5188, i32 14)
   %204 = sub i32 %202, %203
@@ -741,9 +741,9 @@ define i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %231
 
 231:                                              ; preds = %._crit_edge269, %91, %114, %129, %._crit_edge, %227
-  %.5245 = phi i32 [ %230, %227 ], [ %.6246.lcssa, %._crit_edge ], [ %.1241.lcssa, %._crit_edge269 ], [ %96, %91 ], [ %116, %114 ], [ %132, %129 ]
-  %.6231 = phi i32 [ %.14239, %227 ], [ %.7232.lcssa, %._crit_edge ], [ %.1226.lcssa, %._crit_edge269 ], [ %94, %91 ], [ %.5230, %114 ], [ %.1226.lcssa, %129 ]
-  %.6 = phi i32 [ %.17, %227 ], [ %.7.lcssa, %._crit_edge ], [ %.1224.lcssa, %._crit_edge269 ], [ %.5, %91 ], [ %.1224.lcssa, %114 ], [ %.1224.lcssa, %129 ]
+  %.5245 = phi i32 [ %.6246.lcssa, %._crit_edge ], [ %230, %227 ], [ %.1241.lcssa, %._crit_edge269 ], [ %96, %91 ], [ %116, %114 ], [ %132, %129 ]
+  %.6231 = phi i32 [ %.7232.lcssa, %._crit_edge ], [ %.14239, %227 ], [ %.1226.lcssa, %._crit_edge269 ], [ %94, %91 ], [ %.5230, %114 ], [ %.1226.lcssa, %129 ]
+  %.6 = phi i32 [ %.7.lcssa, %._crit_edge ], [ %.17, %227 ], [ %.1224.lcssa, %._crit_edge269 ], [ %.5, %91 ], [ %.1224.lcssa, %114 ], [ %.1224.lcssa, %129 ]
   %232 = xor i32 %.6, %.6231
   %233 = tail call noundef i32 @llvm.fshl.i32(i32 %.6231, i32 %.6231, i32 14)
   %234 = sub i32 %232, %233

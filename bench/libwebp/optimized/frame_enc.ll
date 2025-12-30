@@ -200,7 +200,7 @@ InitPassStats.exit.i:                             ; preds = %76, %73
   br label %124
 
 124:                                              ; preds = %121, %115
-  %125 = phi i1 [ %123, %121 ], [ true, %115 ]
+  %125 = phi i1 [ true, %115 ], [ %123, %121 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @VP8IteratorInit(ptr noundef nonnull %0, ptr noundef nonnull %4) #9
   call fastcc void @SetLoopParams(ptr noundef nonnull %0, float noundef %.sroa.10.094.i)
@@ -432,7 +432,7 @@ FinalizeSkipProba.exit.i.i:                       ; preds = %196, %CalcSkipProba
   br label %OneStatPass.exit.i
 
 OneStatPass.exit.i:                               ; preds = %216, %214, %FinalizeSkipProba.exit.i.i
-  %.sroa.22.1.i = phi double [ 9.900000e+01, %214 ], [ %213, %FinalizeSkipProba.exit.i.i ], [ %220, %216 ]
+  %.sroa.22.1.i = phi double [ %213, %FinalizeSkipProba.exit.i.i ], [ %220, %216 ], [ 9.900000e+01, %214 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %221 = icmp eq i64 %181, 0
   br i1 %221, label %StatLoop.exit, label %222
@@ -496,12 +496,12 @@ ComputeNextQ.exit.i:                              ; preds = %237, %235, %231
   br i1 %256, label %257, label %.thread.i
 
 257:                                              ; preds = %ComputeNextQ.exit.i, %229, %226
-  %.sroa.26.1.i = phi double [ %.sroa.26.092.i, %229 ], [ %.sroa.26.092.i, %226 ], [ %.sroa.22.1.i, %ComputeNextQ.exit.i ]
-  %.sroa.15.1.i = phi float [ %.sroa.15.093.i, %229 ], [ %.sroa.15.093.i, %226 ], [ %.sroa.10.094.i, %ComputeNextQ.exit.i ]
-  %.sroa.10.1.i = phi float [ %.sroa.10.094.i, %229 ], [ %.sroa.10.094.i, %226 ], [ %253, %ComputeNextQ.exit.i ]
-  %.sroa.5.1.i = phi float [ %.sroa.5.095.i, %229 ], [ %.sroa.5.095.i, %226 ], [ %248, %ComputeNextQ.exit.i ]
-  %.sroa.0.1.i = phi i32 [ %.sroa.0.096.i, %229 ], [ %.sroa.0.096.i, %226 ], [ 0, %ComputeNextQ.exit.i ]
-  %.153.i = phi i32 [ %116, %229 ], [ %.05297.i, %226 ], [ %116, %ComputeNextQ.exit.i ]
+  %.sroa.26.1.i = phi double [ %.sroa.26.092.i, %226 ], [ %.sroa.26.092.i, %229 ], [ %.sroa.22.1.i, %ComputeNextQ.exit.i ]
+  %.sroa.15.1.i = phi float [ %.sroa.15.093.i, %226 ], [ %.sroa.15.093.i, %229 ], [ %.sroa.10.094.i, %ComputeNextQ.exit.i ]
+  %.sroa.10.1.i = phi float [ %.sroa.10.094.i, %226 ], [ %.sroa.10.094.i, %229 ], [ %253, %ComputeNextQ.exit.i ]
+  %.sroa.5.1.i = phi float [ %.sroa.5.095.i, %226 ], [ %.sroa.5.095.i, %229 ], [ %248, %ComputeNextQ.exit.i ]
+  %.sroa.0.1.i = phi i32 [ %.sroa.0.096.i, %226 ], [ %.sroa.0.096.i, %229 ], [ 0, %ComputeNextQ.exit.i ]
+  %.153.i = phi i32 [ %.05297.i, %226 ], [ %116, %229 ], [ %116, %ComputeNextQ.exit.i ]
   %258 = icmp sgt i32 %.153.i, 0
   br i1 %258, label %115, label %.thread.i
 
@@ -956,7 +956,7 @@ define internal fastcc void @StoreSideInfo(ptr noundef nonnull readonly captures
   br label %.sink.split
 
 .sink.split:                                      ; preds = %63, %95, %91, %114, %103, %99, %82, %78, %75
-  %.sink = phi i8 [ %77, %75 ], [ %81, %78 ], [ %90, %82 ], [ -1, %91 ], [ %102, %99 ], [ %113, %103 ], [ %116, %114 ], [ %98, %95 ], [ 0, %63 ]
+  %.sink = phi i8 [ %77, %75 ], [ %81, %78 ], [ %90, %82 ], [ %102, %99 ], [ %113, %103 ], [ %116, %114 ], [ %98, %95 ], [ -1, %91 ], [ 0, %63 ]
   store i8 %.sink, ptr %72, align 1, !tbaa !24
   br label %117
 
@@ -1208,7 +1208,7 @@ PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitial
   br label %99
 
 99:                                               ; preds = %96, %90
-  %100 = phi i1 [ %98, %96 ], [ true, %90 ]
+  %100 = phi i1 [ true, %90 ], [ %98, %96 ]
   %101 = add nuw nsw i32 %.082181, 1
   %102 = sdiv i32 %.088180, %101
   %103 = sub nsw i32 %.088180, %102
@@ -1492,12 +1492,12 @@ ComputeNextQ.exit:                                ; preds = %199, %203, %205
   br label %222
 
 222:                                              ; preds = %197, %ComputeNextQ.exit, %185, %ResetSideInfo.exit
-  %.sroa.25.1 = phi double [ %.sroa.25.0175, %197 ], [ %.sroa.25.0175, %ResetSideInfo.exit ], [ %.sroa.25.0175, %185 ], [ %.sroa.21.0, %ComputeNextQ.exit ]
-  %.sroa.14.1 = phi float [ %.sroa.14.0176, %197 ], [ %.sroa.14.0176, %ResetSideInfo.exit ], [ %.sroa.14.0176, %185 ], [ %.sroa.9.0177, %ComputeNextQ.exit ]
-  %.sroa.9.1 = phi float [ %.sroa.9.0177, %197 ], [ %.sroa.9.0177, %ResetSideInfo.exit ], [ %.sroa.9.0177, %185 ], [ %221, %ComputeNextQ.exit ]
-  %.sroa.5.1 = phi float [ %.sroa.5.0178, %197 ], [ %.sroa.5.0178, %ResetSideInfo.exit ], [ %.sroa.5.0178, %185 ], [ %216, %ComputeNextQ.exit ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0179, %197 ], [ %.sroa.0.0179, %ResetSideInfo.exit ], [ %.sroa.0.0179, %185 ], [ 0, %ComputeNextQ.exit ]
-  %.183 = phi i32 [ %91, %197 ], [ %.082181, %ResetSideInfo.exit ], [ %.082181, %185 ], [ %91, %ComputeNextQ.exit ]
+  %.sroa.25.1 = phi double [ %.sroa.25.0175, %ResetSideInfo.exit ], [ %.sroa.25.0175, %185 ], [ %.sroa.25.0175, %197 ], [ %.sroa.21.0, %ComputeNextQ.exit ]
+  %.sroa.14.1 = phi float [ %.sroa.14.0176, %ResetSideInfo.exit ], [ %.sroa.14.0176, %185 ], [ %.sroa.14.0176, %197 ], [ %.sroa.9.0177, %ComputeNextQ.exit ]
+  %.sroa.9.1 = phi float [ %.sroa.9.0177, %ResetSideInfo.exit ], [ %.sroa.9.0177, %185 ], [ %.sroa.9.0177, %197 ], [ %221, %ComputeNextQ.exit ]
+  %.sroa.5.1 = phi float [ %.sroa.5.0178, %ResetSideInfo.exit ], [ %.sroa.5.0178, %185 ], [ %.sroa.5.0178, %197 ], [ %216, %ComputeNextQ.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0179, %ResetSideInfo.exit ], [ %.sroa.0.0179, %185 ], [ %.sroa.0.0179, %197 ], [ 0, %ComputeNextQ.exit ]
+  %.183 = phi i32 [ %.082181, %ResetSideInfo.exit ], [ %.082181, %185 ], [ %91, %197 ], [ %91, %ComputeNextQ.exit ]
   %223 = icmp sgt i32 %.183, 0
   br i1 %223, label %90, label %.critedge.thread150
 
@@ -2142,7 +2142,7 @@ define internal fastcc range(i32 0, 2) i32 @PutCoeffs(ptr noundef %0, i32 nounde
   br i1 %.not104, label %.loopexit, label %129, !llvm.loop !130
 
 .loopexit:                                        ; preds = %129, %60, %53, %81, %85, %39
-  %.sink117 = phi i64 [ 11, %39 ], [ 22, %60 ], [ 22, %85 ], [ 22, %81 ], [ 22, %53 ], [ 22, %129 ]
+  %.sink117 = phi i64 [ 11, %39 ], [ 22, %85 ], [ 22, %81 ], [ 22, %53 ], [ 22, %60 ], [ 22, %129 ]
   %138 = load ptr, ptr %5, align 8, !tbaa !126
   %139 = getelementptr inbounds i8, ptr @VP8EncBands, i64 %indvars.iv.next
   %140 = load i8, ptr %139, align 1, !tbaa !24

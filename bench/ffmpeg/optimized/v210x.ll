@@ -257,7 +257,7 @@ select.unfold.backedge:                           ; preds = %132, %114
   %.095.be = phi ptr [ %148, %132 ], [ %.3, %114 ]
   br label %select.unfold
 
-151:                                              ; preds = %132, %57, %95
+151:                                              ; preds = %57, %95, %132
   store i32 1, ptr %2, align 4, !tbaa !34
   %152 = load i32, ptr %9, align 8, !tbaa !31
   br label %153

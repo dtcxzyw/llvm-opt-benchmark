@@ -282,7 +282,7 @@ define internal range(i32 -558323010, 1) i32 @config_input(ptr noundef readonly 
   br label %83
 
 83:                                               ; preds = %36, %30, %24, %1, %52
-  %.0 = phi i32 [ -12, %30 ], [ 0, %52 ], [ -12, %24 ], [ -12, %1 ], [ -558323010, %36 ]
+  %.0 = phi i32 [ 0, %52 ], [ -12, %1 ], [ -12, %24 ], [ -12, %30 ], [ -558323010, %36 ]
   ret i32 %.0
 }
 
@@ -1119,8 +1119,8 @@ define internal noundef i32 @median_8(ptr noundef readonly captures(none) %0, pt
   br label %._crit_edge91
 
 ._crit_edge91:                                    ; preds = %71, %._crit_edge91.loopexit.split.loop.exit, %.preheader
-  %.070110 = phi i32 [ %.070, %._crit_edge91.loopexit.split.loop.exit ], [ %31, %.preheader ], [ %.070, %71 ]
-  %.069 = phi i32 [ %75, %._crit_edge91.loopexit.split.loop.exit ], [ %31, %.preheader ], [ %31, %71 ]
+  %.070110 = phi i32 [ %31, %.preheader ], [ %.070, %._crit_edge91.loopexit.split.loop.exit ], [ %.070, %71 ]
+  %.069 = phi i32 [ %31, %.preheader ], [ %75, %._crit_edge91.loopexit.split.loop.exit ], [ %31, %71 ]
   %76 = sitofp i32 %.070110 to float
   %77 = tail call nsz float @llvm.fmuladd.f32(float %8, float %76, float -5.000000e-01)
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 104
@@ -1270,8 +1270,8 @@ define internal noundef i32 @median_16(ptr noundef readonly captures(none) %0, p
   br label %._crit_edge91
 
 ._crit_edge91:                                    ; preds = %73, %._crit_edge91.loopexit.split.loop.exit, %.preheader
-  %.070110 = phi i32 [ %.070, %._crit_edge91.loopexit.split.loop.exit ], [ %33, %.preheader ], [ %.070, %73 ]
-  %.069 = phi i32 [ %77, %._crit_edge91.loopexit.split.loop.exit ], [ %33, %.preheader ], [ %33, %73 ]
+  %.070110 = phi i32 [ %33, %.preheader ], [ %.070, %._crit_edge91.loopexit.split.loop.exit ], [ %.070, %73 ]
+  %.069 = phi i32 [ %33, %.preheader ], [ %77, %._crit_edge91.loopexit.split.loop.exit ], [ %33, %73 ]
   %78 = sitofp i32 %.070110 to float
   %79 = tail call nsz float @llvm.fmuladd.f32(float %8, float %78, float -5.000000e-01)
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 104

@@ -476,7 +476,7 @@ flush_put_bits.exit:                              ; preds = %39, %27
   br i1 %exitcond.not, label %.loopexit.sink.split, label %229, !llvm.loop !52
 
 .loopexit.sink.split:                             ; preds = %229, %173, %109
-  %spec.select119.lcssa.sink = phi i8 [ %spec.select118, %173 ], [ %spec.select, %109 ], [ %spec.select119, %229 ]
+  %spec.select119.lcssa.sink = phi i8 [ %spec.select, %109 ], [ %spec.select118, %173 ], [ %spec.select119, %229 ]
   store i8 %spec.select119.lcssa.sink, ptr %6, align 1, !tbaa !32
   br label %.loopexit
 

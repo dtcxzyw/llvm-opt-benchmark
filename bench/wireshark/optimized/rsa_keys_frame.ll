@@ -1362,7 +1362,7 @@ _ZN7QStringD2Ev.exit159:                          ; preds = %325, %_ZN17QArrayDa
   br label %331
 
 331:                                              ; preds = %_ZN7QStringD2Ev.exit159, %323, %_ZN7QStringD2Ev.exit155, %315, %_ZN7QStringD2Ev.exit151, %307, %_ZN7QStringD2Ev.exit147, %299, %_ZN7QStringD2Ev.exit143, %291, %_ZN7QStringD2Ev.exit139, %283, %_ZN7QStringD2Ev.exit135, %275, %_ZN7QStringD2Ev.exit131, %267, %_ZN7QStringD2Ev.exit127, %259, %_ZN7QStringD2Ev.exit123, %251, %_ZN7QStringD2Ev.exit119, %243, %_ZN7QStringD2Ev.exit115, %235, %_ZN7QStringD2Ev.exit111, %227, %_ZN7QStringD2Ev.exit107, %219, %_ZN7QStringD2Ev.exit19
-  %.pn = phi { ptr, i32 } [ %220, %219 ], [ %326, %_ZN7QStringD2Ev.exit159 ], [ %324, %323 ], [ %318, %_ZN7QStringD2Ev.exit155 ], [ %316, %315 ], [ %310, %_ZN7QStringD2Ev.exit151 ], [ %308, %307 ], [ %302, %_ZN7QStringD2Ev.exit147 ], [ %300, %299 ], [ %294, %_ZN7QStringD2Ev.exit143 ], [ %292, %291 ], [ %34, %_ZN7QStringD2Ev.exit19 ], [ %286, %_ZN7QStringD2Ev.exit139 ], [ %284, %283 ], [ %278, %_ZN7QStringD2Ev.exit135 ], [ %276, %275 ], [ %270, %_ZN7QStringD2Ev.exit131 ], [ %268, %267 ], [ %262, %_ZN7QStringD2Ev.exit127 ], [ %260, %259 ], [ %254, %_ZN7QStringD2Ev.exit123 ], [ %252, %251 ], [ %246, %_ZN7QStringD2Ev.exit119 ], [ %244, %243 ], [ %238, %_ZN7QStringD2Ev.exit115 ], [ %236, %235 ], [ %230, %_ZN7QStringD2Ev.exit111 ], [ %228, %227 ], [ %222, %_ZN7QStringD2Ev.exit107 ]
+  %.pn = phi { ptr, i32 } [ %326, %_ZN7QStringD2Ev.exit159 ], [ %324, %323 ], [ %318, %_ZN7QStringD2Ev.exit155 ], [ %316, %315 ], [ %310, %_ZN7QStringD2Ev.exit151 ], [ %308, %307 ], [ %302, %_ZN7QStringD2Ev.exit147 ], [ %300, %299 ], [ %294, %_ZN7QStringD2Ev.exit143 ], [ %292, %291 ], [ %286, %_ZN7QStringD2Ev.exit139 ], [ %284, %283 ], [ %278, %_ZN7QStringD2Ev.exit135 ], [ %276, %275 ], [ %270, %_ZN7QStringD2Ev.exit131 ], [ %268, %267 ], [ %262, %_ZN7QStringD2Ev.exit127 ], [ %260, %259 ], [ %254, %_ZN7QStringD2Ev.exit123 ], [ %252, %251 ], [ %246, %_ZN7QStringD2Ev.exit119 ], [ %244, %243 ], [ %238, %_ZN7QStringD2Ev.exit115 ], [ %236, %235 ], [ %230, %_ZN7QStringD2Ev.exit111 ], [ %228, %227 ], [ %222, %_ZN7QStringD2Ev.exit107 ], [ %220, %219 ], [ %34, %_ZN7QStringD2Ev.exit19 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1399,7 +1399,7 @@ define void @_ZN12RsaKeysFrame17libCurrentChangedERK11QModelIndexS2_(ptr noundef
   br label %_ZNK11QModelIndex7isValidEv.exit
 
 _ZNK11QModelIndex7isValidEv.exit:                 ; preds = %3, %13
-  %17 = phi i1 [ %16, %13 ], [ false, %3 ]
+  %17 = phi i1 [ false, %3 ], [ %16, %13 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %7, i1 noundef zeroext %17)
   ret void
 }
@@ -1428,7 +1428,7 @@ define void @_ZN12RsaKeysFrame17keyCurrentChangedERK11QModelIndexS2_(ptr noundef
   br label %_ZNK11QModelIndex7isValidEv.exit
 
 _ZNK11QModelIndex7isValidEv.exit:                 ; preds = %3, %13
-  %17 = phi i1 [ %16, %13 ], [ false, %3 ]
+  %17 = phi i1 [ false, %3 ], [ %16, %13 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %7, i1 noundef zeroext %17)
   ret void
 }
@@ -3398,7 +3398,7 @@ _ZN7QStringD2Ev.exit287:                          ; preds = %473, %_ZN17QArrayDa
   br label %475
 
 475:                                              ; preds = %89, %_ZN7QStringD2Ev.exit94, %_ZN7QStringD2Ev.exit287, %_ZN7QStringD2Ev.exit111, %67, %_ZN7QStringD2Ev.exit86
-  %.pn79.pn = phi { ptr, i32 } [ %.pn79, %_ZN7QStringD2Ev.exit86 ], [ %68, %67 ], [ %.pn71.pn, %_ZN7QStringD2Ev.exit111 ], [ %.pn63.pn.pn.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit287 ], [ %.pn76, %_ZN7QStringD2Ev.exit94 ], [ %90, %89 ]
+  %.pn79.pn = phi { ptr, i32 } [ %.pn79, %_ZN7QStringD2Ev.exit86 ], [ %.pn71.pn, %_ZN7QStringD2Ev.exit111 ], [ %.pn63.pn.pn.pn.pn.pn.pn, %_ZN7QStringD2Ev.exit287 ], [ %68, %67 ], [ %.pn76, %_ZN7QStringD2Ev.exit94 ], [ %90, %89 ]
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %8) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn79.pn
@@ -7304,7 +7304,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit, %.loopexit.split.loop.exit41, %.loopexit.split.loop.exit43, %.loopexit.split.loop.exit45, %._crit_edge, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit22, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit21
-  %.sroa.010.0.in.sroa.speculated = phi ptr [ %.sroa.033.1, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit22 ], [ %1, %._crit_edge ], [ %.sroa.033.0.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit21 ], [ %1, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread ], [ %.sroa.033.2, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23 ], [ %88, %.loopexit.split.loop.exit43 ], [ %87, %.loopexit.split.loop.exit41 ], [ %89, %.loopexit.split.loop.exit45 ], [ %.sroa.033.050, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit ]
+  %.sroa.010.0.in.sroa.speculated = phi ptr [ %.sroa.033.0.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit21 ], [ %.sroa.033.1, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit22 ], [ %.sroa.033.2, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23 ], [ %1, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit23.thread ], [ %1, %._crit_edge ], [ %87, %.loopexit.split.loop.exit41 ], [ %88, %.loopexit.split.loop.exit43 ], [ %89, %.loopexit.split.loop.exit45 ], [ %.sroa.033.050, %_ZN9__gnu_cxx5__ops10_Iter_predIZN9QtPrivate16sequential_eraseI5QListI7QStringES5_EEDaRT_RKT0_EUlS8_E_EclINS6_14const_iteratorEEEbS7_.exit ]
   ret ptr %.sroa.010.0.in.sroa.speculated
 }
 

@@ -163,7 +163,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re210PCREWalker9PostVisitEPNS_6Reg
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %37, %33, %25, %13, %41
-  %.1 = phi i1 [ true, %41 ], [ false, %._crit_edge ], [ false, %13 ], [ false, %25 ], [ false, %33 ], [ false, %37 ], [ false, %.lr.ph ]
+  %.1 = phi i1 [ true, %41 ], [ false, %13 ], [ false, %25 ], [ false, %33 ], [ false, %37 ], [ false, %._crit_edge ], [ false, %.lr.ph ]
   ret i1 %.1
 }
 
@@ -388,7 +388,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re217EmptyStringWalker9PostVisitEP
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph30, %.preheader23, %.preheader, %19, %22, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %26, %16
-  %.018 = phi i1 [ false, %26 ], [ true, %19 ], [ %18, %16 ], [ true, %6 ], [ %25, %22 ], [ true, %.preheader23 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ %15, %.lr.ph30 ], [ false, %.preheader ], [ %12, %.lr.ph ]
+  %.018 = phi i1 [ false, %26 ], [ %18, %16 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %19 ], [ %25, %22 ], [ false, %.preheader ], [ true, %.preheader23 ], [ %15, %.lr.ph30 ], [ %12, %.lr.ph ]
   ret i1 %.018
 }
 
@@ -1560,7 +1560,7 @@ _ZSt4copyIPPN10duckdb_re29WalkStateIbEES4_ET0_T_S6_S5_.exit26: ; preds = %_ZNSt1
   br label %_ZSt4copyIPPN10duckdb_re29WalkStateIbEES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPPN10duckdb_re29WalkStateIbEES4_ET0_T_S6_S5_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN10duckdb_re29WalkStateIbEES4_ET0_T_S6_S5_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN10duckdb_re29WalkStateIbEES4_ET0_T_S6_S5_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN10duckdb_re29WalkStateIbEES4_ET0_T_S6_S5_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !57
   %57 = load ptr, ptr %.0, align 8, !tbaa !38
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24

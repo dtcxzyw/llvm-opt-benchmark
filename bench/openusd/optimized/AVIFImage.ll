@@ -756,7 +756,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit182:                 ; preds = %_ZNSt6vectorIfSaIfE
   resume { ptr, i32 } %.pn153
 
 _ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage7CleanupEv.exit: ; preds = %229, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit, %69, %61, %27, %22, %18, %6
-  %.0135 = phi i1 [ false, %6 ], [ false, %18 ], [ false, %27 ], [ false, %69 ], [ false, %22 ], [ false, %61 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit ], [ true, %229 ]
+  %.0135 = phi i1 [ false, %6 ], [ false, %18 ], [ false, %22 ], [ false, %27 ], [ false, %61 ], [ false, %69 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit ], [ true, %229 ]
   ret i1 %.0135
 }
 
@@ -873,7 +873,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %6
   br label %15
 
 15:                                               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %6, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread
-  %.0.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread ], [ %11, %6 ], [ %14, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i = phi ptr [ %11, %6 ], [ %14, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i, ptr %16, align 8
   ret void
@@ -1849,13 +1849,13 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__7ArAssetEED2Ev.exit: ; pred
   br label %136
 
 136:                                              ; preds = %121, %131, %127
-  %137 = phi i8 [ 0, %127 ], [ 0, %121 ], [ %135, %131 ]
+  %137 = phi i8 [ 0, %127 ], [ %135, %131 ], [ 0, %121 ]
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 %137, ptr %138, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage7CleanupEv.exit24
 
 _ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage7CleanupEv.exit24: ; preds = %120, %113, %97, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__7ArAssetEED2Ev.exit, %136
-  %.0 = phi i1 [ false, %97 ], [ true, %136 ], [ false, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__7ArAssetEED2Ev.exit ], [ false, %113 ], [ false, %120 ]
+  %.0 = phi i1 [ true, %136 ], [ false, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__7ArAssetEED2Ev.exit ], [ false, %97 ], [ false, %113 ], [ false, %120 ]
   ret i1 %.0
 }
 
@@ -2095,7 +2095,7 @@ switch.lookup:                                    ; preds = %._crit_edge
   br label %16
 
 16:                                               ; preds = %._crit_edge, %switch.lookup, %8, %5, %1
-  %.0 = phi i1 [ %switch.masked, %switch.lookup ], [ true, %1 ], [ false, %5 ], [ true, %8 ], [ false, %._crit_edge ]
+  %.0 = phi i1 [ true, %1 ], [ false, %5 ], [ true, %8 ], [ %switch.masked, %switch.lookup ], [ false, %._crit_edge ]
   ret i1 %.0
 }
 
@@ -2415,7 +2415,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 

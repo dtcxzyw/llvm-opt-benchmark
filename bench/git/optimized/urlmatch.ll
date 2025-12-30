@@ -355,7 +355,7 @@ _.exit322:                                        ; preds = %123, %125
   br label %.thread
 
 129:                                              ; preds = %118, %.critedge, %119
-  %.1227 = phi ptr [ %55, %.critedge ], [ %.0226, %119 ], [ %55, %118 ]
+  %.1227 = phi ptr [ %.0226, %119 ], [ %55, %.critedge ], [ %55, %118 ]
   %.not283 = icmp eq i8 %2, 0
   %.str.11..str.10 = select i1 %.not283, ptr @.str.11, ptr @.str.10
   %130 = call i64 @strspn(ptr noundef nonnull %.1206, ptr noundef nonnull %.str.11..str.10) #15
@@ -590,8 +590,8 @@ _.exit342:                                        ; preds = %211, %213
   br label %._crit_edge448
 
 ._crit_edge448:                                   ; preds = %173, %217, %.tail, %.tail381
-  %.1238 = phi i64 [ 0, %.tail381 ], [ %219, %217 ], [ 0, %.tail ], [ 0, %173 ]
-  %.1235 = phi i64 [ 0, %.tail381 ], [ %177, %217 ], [ 0, %.tail ], [ 0, %173 ]
+  %.1238 = phi i64 [ %219, %217 ], [ 0, %.tail ], [ 0, %.tail381 ], [ 0, %173 ]
+  %.1235 = phi i64 [ %177, %217 ], [ 0, %.tail ], [ 0, %.tail381 ], [ 0, %173 ]
   %.neg290 = sub i64 %131, %.pre451
   %220 = add i64 %.neg290, %.1214.lcssa
   br label %221
@@ -804,14 +804,14 @@ strbuf_setlen.exit355:                            ; preds = %276, %_.exit352
   br label %.thread
 
 strbuf_setlen.exit.sink.split:                    ; preds = %300, %293, %266, %261
-  %.sink503 = phi i64 [ %263, %266 ], [ %290, %293 ], [ %258, %261 ], [ %297, %300 ]
-  %.not303.ph = phi i1 [ true, %266 ], [ false, %293 ], [ false, %261 ], [ true, %300 ]
+  %.sink503 = phi i64 [ %258, %261 ], [ %263, %266 ], [ %290, %293 ], [ %297, %300 ]
+  %.not303.ph = phi i1 [ false, %261 ], [ true, %266 ], [ false, %293 ], [ true, %300 ]
   %301 = getelementptr inbounds nuw i8, ptr %247, i64 %.sink503
   store i8 0, ptr %301, align 1, !tbaa !4
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %strbuf_setlen.exit.sink.split, %sub_0386, %sub_1391, %293, %300, %266, %261, %.tail389
-  %.not303 = phi i1 [ true, %.tail389 ], [ false, %293 ], [ true, %sub_0386 ], [ false, %261 ], [ true, %266 ], [ true, %sub_1391 ], [ true, %300 ], [ %.not303.ph, %strbuf_setlen.exit.sink.split ]
+  %.not303 = phi i1 [ true, %.tail389 ], [ false, %261 ], [ true, %266 ], [ true, %300 ], [ false, %293 ], [ true, %sub_1391 ], [ true, %sub_0386 ], [ %.not303.ph, %strbuf_setlen.exit.sink.split ]
   %302 = sub i64 %.4217421, %245
   %303 = load i8, ptr %244, align 1, !tbaa !4
   %.not302 = icmp eq i8 %303, 47
@@ -905,8 +905,8 @@ _.exit361:                                        ; preds = %319, %321
   store i64 %315, ptr %341, align 8, !tbaa !35
   br label %.thread
 
-.thread:                                          ; preds = %strbuf_setlen.exit355, %243, %216, %204, %325, %327, %26, %_.exit, %324, %144, %128, %110, %72
-  %.0202 = phi ptr [ null, %72 ], [ null, %144 ], [ null, %216 ], [ null, %26 ], [ null, %324 ], [ %326, %325 ], [ null, %128 ], [ null, %110 ], [ null, %_.exit ], [ %326, %327 ], [ null, %204 ], [ null, %243 ], [ null, %strbuf_setlen.exit355 ]
+.thread:                                          ; preds = %243, %strbuf_setlen.exit355, %216, %204, %325, %327, %26, %_.exit, %324, %144, %128, %110, %72
+  %.0202 = phi ptr [ null, %144 ], [ null, %324 ], [ null, %128 ], [ null, %110 ], [ null, %72 ], [ null, %_.exit ], [ null, %26 ], [ %326, %327 ], [ %326, %325 ], [ null, %204 ], [ null, %216 ], [ null, %strbuf_setlen.exit355 ], [ null, %243 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0202
@@ -1260,7 +1260,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   call void @strbuf_release(ptr noundef nonnull %6) #16
   br label %179
 
-.critedge.critedge:                               ; preds = %86, %94, %121, %113, %50, %55, %42, %33, %35, %47, %108, %match_host.exit.i, %37, %134
+.critedge.critedge:                               ; preds = %94, %86, %121, %108, %113, %match_host.exit.i, %47, %50, %55, %37, %42, %33, %35, %134
   call void @free(ptr noundef %31) #16
   call void @free(ptr noundef %32) #16
   br label %.critedge
@@ -1270,7 +1270,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br label %179
 
 179:                                              ; preds = %154, %146, %.critedge, %skip_prefix.exit, %strbuf_addch.exit, %23
-  %.0 = phi i32 [ %24, %23 ], [ 0, %154 ], [ 0, %.critedge ], [ 0, %146 ], [ %178, %strbuf_addch.exit ], [ 0, %skip_prefix.exit ]
+  %.0 = phi i32 [ %24, %23 ], [ %178, %strbuf_addch.exit ], [ 0, %skip_prefix.exit ], [ 0, %.critedge ], [ 0, %146 ], [ 0, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1516,7 +1516,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %.not = icmp eq i64 %.130, 0
   br i1 %.not, label %.thread, label %6
 
-.thread:                                          ; preds = %51, %hex2chr.exit, %11, %3
+.thread:                                          ; preds = %51, %11, %hex2chr.exit, %3
   %.2 = phi i32 [ 1, %3 ], [ 0, %hex2chr.exit ], [ 0, %11 ], [ 1, %51 ]
   ret i32 %.2
 }
@@ -1594,7 +1594,7 @@ define internal fastcc i64 @url_match_prefix(ptr noundef readonly captures(addre
   br label %30
 
 30:                                               ; preds = %24, %14, %3, %28, %10
-  %.019 = phi i64 [ %13, %10 ], [ 0, %3 ], [ %29, %28 ], [ 0, %14 ], [ 0, %24 ]
+  %.019 = phi i64 [ %13, %10 ], [ %29, %28 ], [ 0, %3 ], [ 0, %14 ], [ 0, %24 ]
   ret i64 %.019
 }
 

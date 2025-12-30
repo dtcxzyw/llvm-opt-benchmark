@@ -114,8 +114,8 @@ define void @dgsvj0_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %69, %66, %.thread1404, %56, %60, %52, %48, %46, %43, %41
-  %.sink = phi i32 [ -1, %41 ], [ -3, %46 ], [ -8, %52 ], [ -13, %.thread1404 ], [ -14, %66 ], [ -10, %56 ], [ -5, %48 ], [ -2, %43 ], [ -10, %60 ], [ -16, %69 ]
-  %.ph.neg = phi i32 [ 1, %41 ], [ 3, %46 ], [ 8, %52 ], [ 13, %.thread1404 ], [ 14, %66 ], [ 10, %56 ], [ 5, %48 ], [ 2, %43 ], [ 10, %60 ], [ 16, %69 ]
+  %.sink = phi i32 [ -1, %41 ], [ -2, %43 ], [ -3, %46 ], [ -5, %48 ], [ -8, %52 ], [ -10, %60 ], [ -10, %56 ], [ -13, %.thread1404 ], [ -14, %66 ], [ -16, %69 ]
+  %.ph.neg = phi i32 [ 1, %41 ], [ 2, %43 ], [ 3, %46 ], [ 5, %48 ], [ 8, %52 ], [ 10, %60 ], [ 10, %56 ], [ 13, %.thread1404 ], [ 14, %66 ], [ 16, %69 ]
   store i32 %.sink, ptr %16, align 4, !tbaa !3
   store i32 %.ph.neg, ptr %18, align 4, !tbaa !3
   %73 = call i32 @xerbla_(ptr noundef nonnull @.str.3, ptr noundef nonnull %18, i32 noundef 6) #6
@@ -878,11 +878,11 @@ thread-pre-split:                                 ; preds = %152, %170
   br label %.loopexit1425
 
 .loopexit1425:                                    ; preds = %.loopexit1425.loopexit, %490, %491
-  %493 = phi double [ %.pre1604, %490 ], [ %492, %491 ], [ %.pre, %.loopexit1425.loopexit ]
-  %.51278 = phi double [ %.41277, %490 ], [ %.41277, %491 ], [ %.31276, %.loopexit1425.loopexit ]
-  %.61262 = phi double [ %.51261, %490 ], [ %.51261, %491 ], [ %.31259, %.loopexit1425.loopexit ]
-  %.81248 = phi i32 [ 0, %490 ], [ 0, %491 ], [ %.31243, %.loopexit1425.loopexit ]
-  %.6 = phi i32 [ %.5, %490 ], [ %.5, %491 ], [ %.3, %.loopexit1425.loopexit ]
+  %493 = phi double [ %492, %491 ], [ %.pre1604, %490 ], [ %.pre, %.loopexit1425.loopexit ]
+  %.51278 = phi double [ %.41277, %491 ], [ %.41277, %490 ], [ %.31276, %.loopexit1425.loopexit ]
+  %.61262 = phi double [ %.51261, %491 ], [ %.51261, %490 ], [ %.31259, %.loopexit1425.loopexit ]
+  %.81248 = phi i32 [ 0, %491 ], [ 0, %490 ], [ %.31243, %.loopexit1425.loopexit ]
+  %.6 = phi i32 [ %.5, %491 ], [ %.5, %490 ], [ %.3, %.loopexit1425.loopexit ]
   store double %493, ptr %123, align 8, !tbaa !7
   br label %500
 
@@ -1616,10 +1616,10 @@ thread-pre-split:                                 ; preds = %152, %170
   br i1 %exitcond1594.not, label %.loopexit1427, label %.lr.ph1520, !llvm.loop !16
 
 .loopexit1427:                                    ; preds = %._crit_edge1508, %._crit_edge1475, %861
-  %.111284 = phi double [ %.11274.lcssa, %._crit_edge1475 ], [ %.101283, %861 ], [ %.81281.lcssa, %._crit_edge1508 ]
-  %.131269 = phi double [ %.11257.lcssa, %._crit_edge1475 ], [ %.121268, %861 ], [ %.91265.lcssa, %._crit_edge1508 ]
-  %.141254 = phi i32 [ %.11241.lcssa, %._crit_edge1475 ], [ 0, %861 ], [ %.111251.lcssa, %._crit_edge1508 ]
-  %.12 = phi i32 [ %.1.lcssa, %._crit_edge1475 ], [ %.11, %861 ], [ %.9.lcssa, %._crit_edge1508 ]
+  %.111284 = phi double [ %.101283, %861 ], [ %.11274.lcssa, %._crit_edge1475 ], [ %.81281.lcssa, %._crit_edge1508 ]
+  %.131269 = phi double [ %.121268, %861 ], [ %.11257.lcssa, %._crit_edge1475 ], [ %.91265.lcssa, %._crit_edge1508 ]
+  %.141254 = phi i32 [ 0, %861 ], [ %.11241.lcssa, %._crit_edge1475 ], [ %.111251.lcssa, %._crit_edge1508 ]
+  %.12 = phi i32 [ %.11, %861 ], [ %.1.lcssa, %._crit_edge1475 ], [ %.9.lcssa, %._crit_edge1508 ]
   %880 = load i32, ptr %2, align 4, !tbaa !3
   %.1401 = call i32 @llvm.smin.i32(i32 %503, i32 %880)
   %.not13721525.not = icmp slt i32 %106, %.1401

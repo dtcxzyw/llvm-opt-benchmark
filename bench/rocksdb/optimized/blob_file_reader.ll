@@ -981,7 +981,7 @@ _ZN7rocksdb6Status10CorruptionERKNS_5SliceES3_.exit35: ; preds = %52
   br label %.critedge
 
 59:                                               ; preds = %48, %55, %30
-  %.pn20.pn = phi { ptr, i32 } [ %31, %30 ], [ %56, %55 ], [ %49, %48 ]
+  %.pn20.pn = phi { ptr, i32 } [ %31, %30 ], [ %49, %48 ], [ %56, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %81
 
@@ -2643,7 +2643,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt10unique
   br label %269
 
 267:                                              ; preds = %224, %205, %_ZN7rocksdb6StatusD2Ev.exit85, %89
-  %.pn70.pn = phi { ptr, i32 } [ %225, %224 ], [ %.pn, %_ZN7rocksdb6StatusD2Ev.exit85 ], [ %90, %89 ], [ %.pn66.pn, %205 ]
+  %.pn70.pn = phi { ptr, i32 } [ %225, %224 ], [ %90, %89 ], [ %.pn66.pn, %205 ], [ %.pn, %_ZN7rocksdb6StatusD2Ev.exit85 ]
   call void @_ZNSt10unique_ptrIvSt8functionIFvPvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %268 = load ptr, ptr %18, align 8, !tbaa !29
@@ -3585,7 +3585,7 @@ _ZN7rocksdb20UncompressionContextD2Ev.exit:       ; preds = %203, %206
   br label %215
 
 214:                                              ; preds = %198, %174, %173
-  %.pn21 = phi { ptr, i32 } [ %199, %198 ], [ %.pn.pn.pn, %173 ], [ %175, %174 ]
+  %.pn21 = phi { ptr, i32 } [ %199, %198 ], [ %175, %174 ], [ %.pn.pn.pn, %173 ]
   call void @_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -4816,7 +4816,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN7rocksdb6StatusaSERKS0_.exit, %.thread, %._crit_edge303, %526
-  %.sroa.22318.2388 = phi ptr [ %319, %526 ], [ %.sroa.22318.2389, %.thread ], [ %319, %._crit_edge303 ], [ %.sroa.22318.2389, %_ZN7rocksdb6StatusaSERKS0_.exit ]
+  %.sroa.22318.2388 = phi ptr [ %.sroa.22318.2389, %.thread ], [ %319, %._crit_edge303 ], [ %319, %526 ], [ %.sroa.22318.2389, %_ZN7rocksdb6StatusaSERKS0_.exit ]
   %527 = load ptr, ptr %278, align 8, !tbaa !129
   %.not5.i.i.i = icmp eq ptr %527, null
   br i1 %.not5.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph.i.i.i
@@ -5025,7 +5025,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit229
 
 _ZN7rocksdb6StatusD2Ev.exit229:                   ; preds = %.thread400, %593, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i227
-  %.pn114.pn.pn.pn.pn.pn399 = phi { ptr, i32 } [ %320, %.thread400 ], [ %.pn114.pn.pn.pn, %593 ], [ %.pn114.pn.pn.pn409, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i227 ]
+  %.pn114.pn.pn.pn.pn.pn399 = phi { ptr, i32 } [ %.pn114.pn.pn.pn, %593 ], [ %.pn114.pn.pn.pn409, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i227 ], [ %320, %.thread400 ]
   call void @_ZNSt10unique_ptrIvSt8functionIFvPvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %.not.i230 = icmp eq ptr %.sroa.0252.1, null
@@ -5036,7 +5036,7 @@ _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit232
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit232: ; preds = %_ZN7rocksdb6StatusD2Ev.exit229.thread, %.loopexit270, %.loopexit.split-lp, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i231, %_ZN7rocksdb6StatusD2Ev.exit229, %207, %117, %142, %75
-  %.pn125.pn = phi { ptr, i32 } [ %76, %75 ], [ %.pn114.pn.pn.pn.pn.pn399, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i231 ], [ %143, %142 ], [ %118, %117 ], [ %208, %207 ], [ %.pn114.pn.pn.pn.pn.pn399, %_ZN7rocksdb6StatusD2Ev.exit229 ], [ %lpad.loopexit, %.loopexit270 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %231, %_ZN7rocksdb6StatusD2Ev.exit229.thread ]
+  %.pn125.pn = phi { ptr, i32 } [ %76, %75 ], [ %143, %142 ], [ %118, %117 ], [ %208, %207 ], [ %.pn114.pn.pn.pn.pn.pn399, %_ZN7rocksdb6StatusD2Ev.exit229 ], [ %.pn114.pn.pn.pn.pn.pn399, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i231 ], [ %lpad.loopexit, %.loopexit270 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %231, %_ZN7rocksdb6StatusD2Ev.exit229.thread ]
   %.pr.i.i233 = load i64, ptr %11, align 8, !tbaa !310
   %.not1.i.i234 = icmp eq i64 %.pr.i.i233, 0
   br i1 %.not1.i.i234, label %594, label %.lr.ph.preheader.i.i235
@@ -6586,7 +6586,7 @@ define linkonce_odr void @_ZN7rocksdb25FSRandomAccessFileWrapper9ReadAsyncERNS_1
   unreachable
 
 common.resume:                                    ; preds = %44, %41, %23, %26
-  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %24, %26 ], [ %42, %41 ], [ %42, %44 ]
+  %common.resume.op = phi { ptr, i32 } [ %24, %26 ], [ %24, %23 ], [ %42, %41 ], [ %42, %44 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvRN7rocksdb13FSReadRequestEPvEEC2ERKS5_.exit: ; preds = %9, %19
@@ -7191,8 +7191,8 @@ _ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit: ; preds = %_ZN7
   br label %29
 
 29:                                               ; preds = %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread, %24
-  %.047 = phi i64 [ %23, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ], [ %3, %24 ]
-  %.0 = phi ptr [ %.1.i13.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ], [ %2, %24 ]
+  %.047 = phi i64 [ %3, %24 ], [ %23, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
+  %.0 = phi ptr [ %2, %24 ], [ %.1.i13.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 112, i1 false)
   %30 = icmp sgt i32 %7, 0
@@ -7449,7 +7449,7 @@ _ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit35: ; preds = %.thread, 
   br label %129
 
 .loopexit:                                        ; preds = %.split53, %.split53.us, %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %104, %.split53 ], [ %79, %.split53.us ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %104, %.split53 ], [ %79, %.split53.us ]
   call void @_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -7528,9 +7528,9 @@ _ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit: ; preds = %_ZN7
   br label %29
 
 29:                                               ; preds = %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread, %25
-  %30 = phi i32 [ %.pre, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ], [ %26, %25 ]
-  %.024 = phi ptr [ %.1.i13.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ], [ %28, %25 ]
-  %.0 = phi i64 [ %21, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ], [ %27, %25 ]
+  %30 = phi i32 [ %26, %25 ], [ %.pre, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
+  %.024 = phi ptr [ %28, %25 ], [ %.1.i13.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
+  %.0 = phi i64 [ %27, %25 ], [ %21, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %31 = zext i32 %30 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !420)

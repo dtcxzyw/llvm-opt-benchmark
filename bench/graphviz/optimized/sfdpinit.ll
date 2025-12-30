@@ -228,7 +228,7 @@ sfdp_init_graph.exit:                             ; preds = %._crit_edge24.i.i, 
   br label %late_smooth.exit.i
 
 late_smooth.exit.i:                               ; preds = %97, %95, %93, %91, %89, %87, %85, %81, %77, %58
-  %.019.i.i = phi i32 [ 0, %58 ], [ %..i.i, %77 ], [ 2, %85 ], [ 4, %95 ], [ %.29.i.i, %97 ], [ 6, %93 ], [ 3, %91 ], [ 0, %89 ], [ 1, %87 ], [ 0, %81 ]
+  %.019.i.i = phi i32 [ 0, %58 ], [ %..i.i, %77 ], [ 2, %85 ], [ 1, %87 ], [ 0, %89 ], [ 3, %91 ], [ 6, %93 ], [ 4, %95 ], [ %.29.i.i, %97 ], [ 0, %81 ]
   %99 = getelementptr inbounds nuw i8, ptr %52, i64 48
   store i32 %.019.i.i, ptr %99, align 8, !tbaa !45
   %100 = call ptr @agattr(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef null) #12
@@ -288,7 +288,7 @@ late_smooth.exit.i:                               ; preds = %97, %95, %93, %91, 
   br label %late_quadtree_scheme.exit.i
 
 late_quadtree_scheme.exit.i:                      ; preds = %124, %122, %120, %118, %116, %114, %110, %107, %late_smooth.exit.i
-  %.020.i.i = phi i32 [ 1, %late_smooth.exit.i ], [ %..i39.i, %107 ], [ 1, %120 ], [ 1, %118 ], [ %.29.i38.i, %124 ], [ 0, %114 ], [ 0, %116 ], [ 1, %122 ], [ 1, %110 ]
+  %.020.i.i = phi i32 [ 1, %late_smooth.exit.i ], [ %..i39.i, %107 ], [ 0, %116 ], [ 0, %114 ], [ 1, %122 ], [ 1, %120 ], [ 1, %118 ], [ %.29.i38.i, %124 ], [ 1, %110 ]
   %126 = getelementptr inbounds nuw i8, ptr %52, i64 60
   store i32 %.020.i.i, ptr %126, align 4, !tbaa !46
   %127 = call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.10) #12

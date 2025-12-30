@@ -578,8 +578,8 @@ _ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit:   ; preds = %land.rhs.i
   br label %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread50
 
 _ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread50: ; preds = %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit, %land.rhs.i, %lor.rhs
-  %idxprom = phi i64 [ 1, %land.rhs.i ], [ %2, %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit ], [ 0, %lor.rhs ]
-  %3 = phi i64 [ 366, %land.rhs.i ], [ %spec.select54, %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit ], [ 365, %lor.rhs ]
+  %idxprom = phi i64 [ 0, %lor.rhs ], [ 1, %land.rhs.i ], [ %2, %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit ]
+  %3 = phi i64 [ 365, %lor.rhs ], [ 366, %land.rhs.i ], [ %spec.select54, %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit ]
   %cmp25.not = icmp samesign ult i64 %days.1, %3
   br i1 %cmp25.not, label %while.end39, label %while.body26
 
@@ -689,7 +689,7 @@ sw.default.i:                                     ; preds = %entry
   unreachable
 
 _ZN8facebook5velox12_GLOBAL__N_111getCapacityERKNS0_24TimestampToStringOptionsE.exit: ; preds = %entry, %sw.bb1.i, %sw.bb3.i
-  %retval.0.i = phi i64 [ %add5.i, %sw.bb3.i ], [ %add.i, %sw.bb1.i ], [ 10, %entry ]
+  %retval.0.i = phi i64 [ %add.i, %sw.bb1.i ], [ %add5.i, %sw.bb3.i ], [ 10, %entry ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %retval.0.i)
           to label %invoke.cont1 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1534,7 +1534,7 @@ _ZNK4date14year_month_day2okEv.exit:              ; preds = %land.rhs.i.i.i, %co
   %cmp.i.i6.i.not = icmp ult i8 %retval.sroa.0.0.i.i, %7
   br i1 %cmp.i.i6.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %if.end.i, %land.lhs.true.i, %invoke.cont39, %_ZNK4date14year_month_day2okEv.exit
+if.then:                                          ; preds = %if.end.i, %invoke.cont39, %land.lhs.true.i, %_ZNK4date14year_month_day2okEv.exit
   %call43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.4)
           to label %if.end unwind label %lpad
 

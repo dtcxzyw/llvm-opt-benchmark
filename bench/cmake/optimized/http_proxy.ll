@@ -503,7 +503,7 @@ hd_name_eq.exit121.thread.i:                      ; preds = %150, %hd_name_eq.ex
   br i1 %.not102.i, label %dynhds_add_custom.exit.thread, label %.preheader.i, !llvm.loop !118
 
 dynhds_add_custom.exit:                           ; preds = %hd_name_eq.exit121.thread.i, %Curl_http_proxy_get_destination.exit, %88, %80, %68, %61, %50, %47
-  %.0 = phi i32 [ %64, %61 ], [ %49, %47 ], [ %55, %50 ], [ %71, %68 ], [ 27, %Curl_http_proxy_get_destination.exit ], [ %91, %88 ], [ %83, %80 ], [ %152, %hd_name_eq.exit121.thread.i ]
+  %.0 = phi i32 [ %49, %47 ], [ %55, %50 ], [ %71, %68 ], [ %91, %88 ], [ %83, %80 ], [ %64, %61 ], [ 27, %Curl_http_proxy_get_destination.exit ], [ %152, %hd_name_eq.exit121.thread.i ]
   %154 = load ptr, ptr %5, align 8
   %.not65 = icmp eq ptr %154, null
   br i1 %.not65, label %dynhds_add_custom.exit.thread, label %155
@@ -514,7 +514,7 @@ dynhds_add_custom.exit:                           ; preds = %hd_name_eq.exit121.
   br label %dynhds_add_custom.exit.thread
 
 dynhds_add_custom.exit.thread:                    ; preds = %.critedge.thread.i, %92, %155, %dynhds_add_custom.exit
-  %.064 = phi i32 [ %.0, %dynhds_add_custom.exit ], [ %.0, %155 ], [ 0, %92 ], [ 0, %.critedge.thread.i ]
+  %.064 = phi i32 [ %.0, %155 ], [ %.0, %dynhds_add_custom.exit ], [ 0, %92 ], [ 0, %.critedge.thread.i ]
   %156 = load ptr, ptr @Curl_cfree, align 8, !tbaa !119
   call void %156(ptr noundef %46) #6
   %157 = load ptr, ptr %5, align 8, !tbaa !45
@@ -862,8 +862,8 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
   store i8 1, ptr %3, align 1, !tbaa !43
   br label %.loopexit
 
-.loopexit:                                        ; preds = %39, %113, %.critedge114, %.critedge, %29, %102, %103, %108, %112, %118, %10
-  %.0 = phi i32 [ 0, %10 ], [ 7, %108 ], [ 7, %112 ], [ 0, %118 ], [ 7, %102 ], [ 7, %103 ], [ %35, %29 ], [ %117, %113 ], [ %101, %.critedge114 ], [ 0, %39 ], [ %77, %.critedge ]
+.loopexit:                                        ; preds = %39, %113, %.critedge, %.critedge114, %29, %102, %103, %108, %112, %118, %10
+  %.0 = phi i32 [ 0, %10 ], [ 0, %118 ], [ 7, %102 ], [ 7, %103 ], [ 7, %108 ], [ 7, %112 ], [ %35, %29 ], [ 0, %39 ], [ %117, %113 ], [ %77, %.critedge ], [ %101, %.critedge114 ]
   ret i32 %.0
 }
 

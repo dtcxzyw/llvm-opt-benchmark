@@ -321,7 +321,7 @@ markScratchInUse.exit.thread:                     ; preds = %15
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %153, %149, %152, %5, %9, %13, %35, %2
-  %.0 = phi i32 [ -1, %2 ], [ %6, %5 ], [ -1, %9 ], [ -1, %13 ], [ 0, %153 ], [ %.0.i131, %35 ], [ %150, %152 ], [ 0, %149 ], [ -10, %15 ]
+  %.0 = phi i32 [ -1, %2 ], [ %6, %5 ], [ -1, %9 ], [ -1, %13 ], [ %.0.i131, %35 ], [ %150, %152 ], [ 0, %149 ], [ 0, %153 ], [ -10, %15 ]
   ret i32 %.0
 }
 
@@ -603,7 +603,7 @@ define dso_local range(i32 -9, 1) i32 @hs_clone_scratch(ptr noundef %0, ptr noun
   br label %13
 
 13:                                               ; preds = %12, %10, %2, %8
-  %.0 = phi i32 [ -1, %2 ], [ -1, %8 ], [ %11, %12 ], [ 0, %10 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %2 ], [ %11, %12 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -639,7 +639,7 @@ define dso_local range(i32 -10, 1) i32 @hs_free_scratch(ptr noundef %0) local_un
   br label %markScratchInUse.exit
 
 markScratchInUse.exit:                            ; preds = %8, %1, %11, %6, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %6 ], [ 0, %1 ], [ 0, %11 ], [ -10, %8 ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %6 ], [ 0, %11 ], [ 0, %1 ], [ -10, %8 ]
   ret i32 %.0
 }
 

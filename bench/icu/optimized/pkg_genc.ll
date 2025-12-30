@@ -244,7 +244,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -819,8 +819,8 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
   br label %91
 
 91:                                               ; preds = %82, %80, %.lr.ph54
-  %.028.i = phi ptr [ %90, %82 ], [ %70, %80 ], [ %8, %.lr.ph54 ]
-  %.0.i = phi i32 [ 1, %82 ], [ %81, %80 ], [ 1, %.lr.ph54 ]
+  %.028.i = phi ptr [ %70, %80 ], [ %90, %82 ], [ %8, %.lr.ph54 ]
+  %.0.i = phi i32 [ %81, %80 ], [ 1, %82 ], [ 1, %.lr.ph54 ]
   %92 = icmp ult i32 %76, 10
   br i1 %92, label %93, label %98
 
@@ -1472,7 +1472,7 @@ define void @writeCCode(ptr noundef %0, ptr noundef %1, ptr noundef readonly cap
   br label %_ZL6write8P11_FileStreamhj.exit
 
 _ZL6write8P11_FileStreamhj.exit:                  ; preds = %86, %93, %96
-  %.020.i = phi i32 [ 1, %96 ], [ %95, %93 ], [ 1, %86 ]
+  %.020.i = phi i32 [ %95, %93 ], [ 1, %96 ], [ 1, %86 ]
   %98 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %40, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %99 = add nuw i64 %.13955, 1

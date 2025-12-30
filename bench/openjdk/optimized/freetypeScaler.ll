@@ -241,7 +241,7 @@ setInterpreterVersion.exit:                       ; preds = %22, %27, %34
   br label %104
 
 104:                                              ; preds = %7, %.thread101, %102, %18
-  %.0 = phi i64 [ %103, %.thread101 ], [ 0, %18 ], [ 0, %102 ], [ 0, %7 ]
+  %.0 = phi i64 [ 0, %18 ], [ 0, %102 ], [ %103, %.thread101 ], [ 0, %7 ]
   ret i64 %.0
 }
 
@@ -445,7 +445,7 @@ define internal i64 @ReadTTFontFileFunc(ptr noundef readonly captures(none) %0, 
   br label %119
 
 119:                                              ; preds = %46, %113, %60, %17, %14, %9, %115, %82, %62
-  %.0 = phi i64 [ %., %9 ], [ %spec.select123, %115 ], [ 0, %60 ], [ 0, %14 ], [ 0, %17 ], [ 0, %113 ], [ %spec.select124, %46 ], [ %spec.select122, %62 ], [ %spec.select, %82 ]
+  %.0 = phi i64 [ %spec.select122, %62 ], [ %spec.select, %82 ], [ %spec.select123, %115 ], [ %., %9 ], [ 0, %14 ], [ 0, %17 ], [ 0, %60 ], [ 0, %113 ], [ %spec.select124, %46 ]
   ret i64 %.0
 }
 
@@ -986,8 +986,8 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   br label %35
 
 35:                                               ; preds = %.thread, %30, %34, %33
-  %spec.select165171 = phi i32 [ %spec.select165, %34 ], [ %spec.select165, %30 ], [ %spec.select165, %33 ], [ %spec.select165169, %.thread ]
-  %.0148 = phi i32 [ 262144, %34 ], [ 131072, %30 ], [ 196608, %33 ], [ 0, %.thread ]
+  %spec.select165171 = phi i32 [ %spec.select165, %33 ], [ %spec.select165, %34 ], [ %spec.select165, %30 ], [ %spec.select165169, %.thread ]
+  %.0148 = phi i32 [ 196608, %33 ], [ 262144, %34 ], [ 131072, %30 ], [ 0, %.thread ]
   %36 = or i32 %.0148, %spec.select165171
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %38 = load ptr, ptr %37, align 8
@@ -1305,7 +1305,7 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   br label %CopyFTSubpixelToSubpixel.exit
 
 CopyFTSubpixelToSubpixel.exit:                    ; preds = %208, %199, %177, %190, %221, %212, %193, %184, %106, %96, %79, %74, %40, %18, %14
-  %.0.in = phi ptr [ %15, %14 ], [ %19, %18 ], [ %41, %40 ], [ %75, %74 ], [ %80, %79 ], [ %97, %96 ], [ %107, %106 ], [ %104, %177 ], [ %104, %184 ], [ %104, %190 ], [ %104, %193 ], [ %222, %221 ], [ %104, %212 ], [ %104, %199 ], [ %104, %208 ]
+  %.0.in = phi ptr [ %15, %14 ], [ %19, %18 ], [ %41, %40 ], [ %75, %74 ], [ %80, %79 ], [ %97, %96 ], [ %107, %106 ], [ %104, %177 ], [ %104, %184 ], [ %104, %190 ], [ %104, %193 ], [ %104, %212 ], [ %222, %221 ], [ %104, %199 ], [ %104, %208 ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }
@@ -1517,7 +1517,7 @@ define i32 @Java_sun_font_FreetypeFontScaler_getGlyphCodeNative(ptr noundef %0, 
   br label %16
 
 16:                                               ; preds = %.split, %.split12, %12
-  %.0 = phi i32 [ %15, %12 ], [ 0, %.split ], [ 0, %.split12 ]
+  %.0 = phi i32 [ %15, %12 ], [ 0, %.split12 ], [ 0, %.split ]
   ret i32 %.0
 }
 
@@ -1643,7 +1643,7 @@ addToGP.exit.i:                                   ; preds = %39, %35
   call void @free(ptr noundef nonnull %79) #20
   br label %getGlyphGeneralPath.exit
 
-getGlyphGeneralPath.exit.thread:                  ; preds = %8, %18, %14
+getGlyphGeneralPath.exit.thread:                  ; preds = %14, %8, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %82
 
@@ -1717,7 +1717,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphOutlineBoundsNative(ptr nou
   %33 = icmp eq i16 %32, 0
   br i1 %33, label %getFTOutline.exit.thread, label %40
 
-getFTOutline.exit.thread:                         ; preds = %17, %11, %15, %6, %29
+getFTOutline.exit.thread:                         ; preds = %17, %15, %6, %11, %29
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 224
   %36 = load ptr, ptr %35, align 8
@@ -1836,7 +1836,7 @@ define internal fastcc noundef ptr @getFTOutline(ptr noundef %0, ptr noundef %1,
   br label %35
 
 35:                                               ; preds = %15, %13, %7, %9, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %7 ], [ null, %13 ], [ null, %9 ], [ null, %15 ]
+  %.0 = phi ptr [ %28, %27 ], [ null, %9 ], [ null, %7 ], [ null, %13 ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -2104,7 +2104,7 @@ define internal fastcc range(i32 0, 2) i32 @allocateSpaceForGP(ptr noundef nonnu
   br label %62
 
 62:                                               ; preds = %54, %.thread, %61
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %61 ], [ 1, %54 ]
+  %.0 = phi i32 [ 0, %61 ], [ 0, %.thread ], [ 1, %54 ]
   ret i32 %.0
 }
 
@@ -2194,9 +2194,9 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphPointNative(ptr noundef %0,
   %48 = fpext float %46 to double
   br label %getFTOutline.exit.thread
 
-getFTOutline.exit.thread:                         ; preds = %17, %11, %15, %7, %35, %29
-  %.017 = phi double [ %48, %35 ], [ 0.000000e+00, %29 ], [ 0.000000e+00, %7 ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %17 ]
-  %.0 = phi double [ %47, %35 ], [ 0.000000e+00, %29 ], [ 0.000000e+00, %7 ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %17 ]
+getFTOutline.exit.thread:                         ; preds = %17, %15, %7, %11, %35, %29
+  %.017 = phi double [ %48, %35 ], [ 0.000000e+00, %29 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %7 ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %17 ]
+  %.0 = phi double [ %47, %35 ], [ 0.000000e+00, %29 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %7 ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %17 ]
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 224
   %51 = load ptr, ptr %50, align 8

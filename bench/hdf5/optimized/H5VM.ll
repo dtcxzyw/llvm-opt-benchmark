@@ -209,7 +209,7 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   br i1 %.not97, label %.loopexit, label %.lr.ph.split, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %103, %100, %55, %24
-  %.0 = phi i64 [ %102, %100 ], [ %26, %24 ], [ %56, %55 ], [ %13, %103 ], [ %13, %.lr.ph.split.us ], [ %130, %.lr.ph.split ]
+  %.0 = phi i64 [ %26, %24 ], [ %56, %55 ], [ %102, %100 ], [ %13, %103 ], [ %13, %.lr.ph.split.us ], [ %130, %.lr.ph.split ]
   ret i64 %.0
 }
 
@@ -386,7 +386,7 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly c
   br i1 %71, label %.loopexit, label %56
 
 .loopexit:                                        ; preds = %69, %66, %61, %.preheader.split.split.split.split, %56, %34, %.preheader.split.split.us, %51, %44, %46, %27, %8, %7, %20, %22, %.preheader.split.split, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %.preheader.split.split ], [ 0, %44 ], [ 0, %20 ], [ 0, %8 ], [ 1, %7 ], [ 0, %27 ], [ 0, %22 ], [ 1, %34 ], [ 0, %.preheader.split.split.us ], [ 0, %51 ], [ 0, %46 ], [ 0, %69 ], [ 0, %.preheader.split.split.split.split ], [ 0, %61 ], [ 0, %66 ], [ 1, %56 ]
+  %.0 = phi i32 [ 1, %5 ], [ 0, %.preheader.split.split ], [ 0, %27 ], [ 0, %22 ], [ 0, %20 ], [ 0, %8 ], [ 1, %7 ], [ 0, %51 ], [ 0, %46 ], [ 0, %44 ], [ 0, %.preheader.split.split.us ], [ 1, %34 ], [ 0, %69 ], [ 0, %66 ], [ 0, %61 ], [ 0, %.preheader.split.split.split.split ], [ 1, %56 ]
   ret i32 %.0
 }
 
@@ -1148,18 +1148,18 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   br i1 %314, label %.lr.ph212, label %.loopexit, !llvm.loop !14
 
 .critedge.sink.split.i:                           ; preds = %200, %281, %239, %212
-  %.0126171 = phi i64 [ %.0126177, %239 ], [ %.0126172, %212 ], [ %.1.lcssa, %200 ], [ %.0126182, %281 ]
-  %.0127168 = phi i64 [ %.0127176, %239 ], [ %.0127169, %212 ], [ %.1128.lcssa, %200 ], [ %.0127181, %281 ]
-  %.sink163.i = phi i64 [ %247, %239 ], [ %214, %212 ], [ 1, %200 ], [ %289, %281 ]
+  %.0126171 = phi i64 [ %.0126172, %212 ], [ %.0126177, %239 ], [ %.0126182, %281 ], [ %.1.lcssa, %200 ]
+  %.0127168 = phi i64 [ %.0127169, %212 ], [ %.0127176, %239 ], [ %.0127181, %281 ], [ %.1128.lcssa, %200 ]
+  %.sink163.i = phi i64 [ %214, %212 ], [ %247, %239 ], [ %289, %281 ], [ 1, %200 ]
   %315 = load i64, ptr %10, align 16, !tbaa !3
   %316 = mul i64 %315, %.sink163.i
   br label %.loopexit198
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.lr.ph212, %.lr.ph.i.preheader, %200, %212, %205, %239, %228, %221, %281, %268, %257, %250
-  %.0126170.ph = phi i64 [ %.0126182, %250 ], [ %.1.lcssa, %200 ], [ %.0126182, %257 ], [ %.0126182, %268 ], [ %.0126182, %281 ], [ %.0126177, %221 ], [ %.1.lcssa, %.lr.ph.i.preheader ], [ %.0126177, %228 ], [ %.0126177, %239 ], [ %.0126172, %205 ], [ %.0126172, %212 ], [ %.1.lcssa, %.lr.ph212 ], [ %.1.lcssa, %.lr.ph.i ]
-  %.0127167.ph = phi i64 [ %.0127181, %250 ], [ %.1128.lcssa, %200 ], [ %.0127181, %257 ], [ %.0127181, %268 ], [ %.0127181, %281 ], [ %.0127176, %221 ], [ %.1128.lcssa, %.lr.ph.i.preheader ], [ %.0127176, %228 ], [ %.0127176, %239 ], [ %.0127169, %205 ], [ %.0127169, %212 ], [ %.1128.lcssa, %.lr.ph212 ], [ %.1128.lcssa, %.lr.ph.i ]
-  %.1164.ph = phi i32 [ 4, %250 ], [ 1, %200 ], [ 3, %257 ], [ 2, %268 ], [ 1, %281 ], [ 3, %221 ], [ %0, %.lr.ph.i.preheader ], [ 2, %228 ], [ 1, %239 ], [ 2, %205 ], [ 1, %212 ], [ %294, %.lr.ph.i ], [ %.0163210, %.lr.ph212 ]
-  %.1162.ph = phi i64 [ 1, %250 ], [ 1, %200 ], [ %259, %257 ], [ %271, %268 ], [ %284, %281 ], [ 1, %221 ], [ 1, %.lr.ph.i.preheader ], [ %230, %228 ], [ %242, %239 ], [ 1, %205 ], [ %214, %212 ], [ %301, %.lr.ph.i ], [ %292, %.lr.ph212 ]
+  %.0126170.ph = phi i64 [ %.0126182, %250 ], [ %.0126182, %257 ], [ %.0126182, %268 ], [ %.0126182, %281 ], [ %.0126177, %221 ], [ %.0126177, %228 ], [ %.0126177, %239 ], [ %.0126172, %205 ], [ %.0126172, %212 ], [ %.1.lcssa, %200 ], [ %.1.lcssa, %.lr.ph.i.preheader ], [ %.1.lcssa, %.lr.ph212 ], [ %.1.lcssa, %.lr.ph.i ]
+  %.0127167.ph = phi i64 [ %.0127181, %250 ], [ %.0127181, %257 ], [ %.0127181, %268 ], [ %.0127181, %281 ], [ %.0127176, %221 ], [ %.0127176, %228 ], [ %.0127176, %239 ], [ %.0127169, %205 ], [ %.0127169, %212 ], [ %.1128.lcssa, %200 ], [ %.1128.lcssa, %.lr.ph.i.preheader ], [ %.1128.lcssa, %.lr.ph212 ], [ %.1128.lcssa, %.lr.ph.i ]
+  %.1164.ph = phi i32 [ 4, %250 ], [ 3, %257 ], [ 2, %268 ], [ 1, %281 ], [ 3, %221 ], [ 2, %228 ], [ 1, %239 ], [ 2, %205 ], [ 1, %212 ], [ 1, %200 ], [ %0, %.lr.ph.i.preheader ], [ %294, %.lr.ph.i ], [ %.0163210, %.lr.ph212 ]
+  %.1162.ph = phi i64 [ 1, %250 ], [ %259, %257 ], [ %271, %268 ], [ %284, %281 ], [ 1, %221 ], [ %230, %228 ], [ %242, %239 ], [ 1, %205 ], [ %214, %212 ], [ 1, %200 ], [ 1, %.lr.ph.i.preheader ], [ %301, %.lr.ph.i ], [ %292, %.lr.ph212 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %317 = zext i32 %.1164.ph to i64
   %318 = shl nuw nsw i64 %317, 3
@@ -1234,9 +1234,9 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
   br i1 %exitcond.not.i, label %H5VM_stride_copy.exit, label %.lr.ph60.split.i, !llvm.loop !16
 
 .loopexit198:                                     ; preds = %298, %.critedge.sink.split.i, %._crit_edge
-  %.0126170 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %.0126171, %.critedge.sink.split.i ], [ %.1.lcssa, %298 ]
-  %.0127167 = phi i64 [ %.1128.lcssa, %._crit_edge ], [ %.0127168, %.critedge.sink.split.i ], [ %.1128.lcssa, %298 ]
-  %.1162 = phi i64 [ 1, %._crit_edge ], [ %316, %.critedge.sink.split.i ], [ %301, %298 ]
+  %.0126170 = phi i64 [ %.0126171, %.critedge.sink.split.i ], [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %298 ]
+  %.0127167 = phi i64 [ %.0127168, %.critedge.sink.split.i ], [ %.1128.lcssa, %._crit_edge ], [ %.1128.lcssa, %298 ]
+  %.1162 = phi i64 [ %316, %.critedge.sink.split.i ], [ 1, %._crit_edge ], [ %301, %298 ]
   %343 = getelementptr inbounds nuw i8, ptr %4, i64 %.0126170
   %344 = getelementptr inbounds nuw i8, ptr %7, i64 %.0127167
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

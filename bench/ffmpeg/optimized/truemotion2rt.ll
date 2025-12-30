@@ -285,7 +285,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br i1 %156, label %.lr.ph.split, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader230
-  %157 = phi i32 [ %120, %.lr.ph.split.us ], [ %91, %.preheader230 ], [ %155, %.lr.ph.split ]
+  %157 = phi i32 [ %91, %.preheader230 ], [ %120, %.lr.ph.split.us ], [ %155, %.lr.ph.split ]
   %158 = load i32, ptr %87, align 8, !tbaa !50
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds i8, ptr %.0189233, i64 %159
@@ -530,7 +530,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br i1 %294, label %.lr.ph250.split, label %._crit_edge251, !llvm.loop !57
 
 ._crit_edge251:                                   ; preds = %.lr.ph250.split, %.lr.ph250.split.us, %.preheader226
-  %295 = phi i32 [ %256, %.lr.ph250.split.us ], [ %226, %.preheader226 ], [ %292, %.lr.ph250.split ]
+  %295 = phi i32 [ %226, %.preheader226 ], [ %256, %.lr.ph250.split.us ], [ %292, %.lr.ph250.split ]
   %296 = load i32, ptr %225, align 4, !tbaa !50
   %297 = sext i32 %296 to i64
   %298 = getelementptr inbounds i8, ptr %.3192252, i64 %297
@@ -541,8 +541,8 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br i1 %302, label %.preheader226, label %._crit_edge255, !llvm.loop !58
 
 ._crit_edge255:                                   ; preds = %._crit_edge251, %._crit_edge247.thread, %._crit_edge247
-  %303 = phi ptr [ %218, %._crit_edge247.thread ], [ %220, %._crit_edge247 ], [ %220, %._crit_edge251 ]
-  %304 = phi i32 [ %.ph, %._crit_edge247.thread ], [ %219, %._crit_edge247 ], [ %300, %._crit_edge251 ]
+  %303 = phi ptr [ %220, %._crit_edge247 ], [ %218, %._crit_edge247.thread ], [ %220, %._crit_edge251 ]
+  %304 = phi i32 [ %219, %._crit_edge247 ], [ %.ph, %._crit_edge247.thread ], [ %300, %._crit_edge251 ]
   %305 = load i32, ptr %31, align 4, !tbaa !37
   %306 = icmp sgt i32 %305, 1
   br i1 %306, label %307, label %.loopexit225
@@ -760,7 +760,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br i1 %429, label %.lr.ph269.split, label %._crit_edge270, !llvm.loop !63
 
 ._crit_edge270:                                   ; preds = %.lr.ph269.split, %.lr.ph269.split.us, %.preheader222
-  %430 = phi i32 [ %391, %.lr.ph269.split.us ], [ %361, %.preheader222 ], [ %427, %.lr.ph269.split ]
+  %430 = phi i32 [ %361, %.preheader222 ], [ %391, %.lr.ph269.split.us ], [ %427, %.lr.ph269.split ]
   %431 = load i32, ptr %360, align 8, !tbaa !50
   %432 = sext i32 %431 to i64
   %433 = getelementptr inbounds i8, ptr %.6195271, i64 %432
@@ -771,8 +771,8 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br i1 %437, label %.preheader222, label %._crit_edge274, !llvm.loop !64
 
 ._crit_edge274:                                   ; preds = %._crit_edge270, %._crit_edge266.thread, %._crit_edge266
-  %438 = phi ptr [ %354, %._crit_edge266.thread ], [ %355, %._crit_edge266 ], [ %355, %._crit_edge270 ]
-  %439 = phi i32 [ %.ph357, %._crit_edge266.thread ], [ %346, %._crit_edge266 ], [ %435, %._crit_edge270 ]
+  %438 = phi ptr [ %355, %._crit_edge266 ], [ %354, %._crit_edge266.thread ], [ %355, %._crit_edge270 ]
+  %439 = phi i32 [ %346, %._crit_edge266 ], [ %.ph357, %._crit_edge266.thread ], [ %435, %._crit_edge270 ]
   %440 = load i32, ptr %31, align 4, !tbaa !37
   %441 = icmp sgt i32 %440, 1
   br i1 %441, label %442, label %.loopexit
@@ -879,7 +879,7 @@ truemotion2rt_decode_header.exit.thread:          ; preds = %11, %19, %21, %._cr
   br label %490
 
 490:                                              ; preds = %truemotion2rt_decode_header.exit.thread, %73, %59, %42, %._crit_edge285
-  %.0178 = phi i32 [ %489, %._crit_edge285 ], [ %.035.i.ph, %truemotion2rt_decode_header.exit.thread ], [ -1094995529, %42 ], [ -1094995529, %59 ], [ %74, %73 ]
+  %.0178 = phi i32 [ %489, %._crit_edge285 ], [ -1094995529, %42 ], [ -1094995529, %59 ], [ %74, %73 ], [ %.035.i.ph, %truemotion2rt_decode_header.exit.thread ]
   ret i32 %.0178
 }
 

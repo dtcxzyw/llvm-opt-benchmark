@@ -999,7 +999,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %_ZTWN9grpc_core9Tim
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %97, %94, %91, %86, %.thread.i, %82, %81
-  %.sroa.04.0.i = phi i64 [ %spec.select.i, %82 ], [ 9223372036854775807, %81 ], [ -9223372036854775808, %86 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %94 ], [ %98, %97 ], [ 9223372036854775807, %91 ]
+  %.sroa.04.0.i = phi i64 [ 9223372036854775807, %81 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %86 ], [ %98, %97 ], [ 9223372036854775807, %91 ], [ -9223372036854775808, %94 ], [ %spec.select.i, %82 ]
   store i64 %.sroa.04.0.i, ptr %8, align 8
   %99 = load ptr, ptr %54, align 16, !tbaa !90
   %100 = invoke i64 @_ZNK9grpc_core8DurationcvNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -1105,7 +1105,7 @@ _ZN9grpc_core13RefCountedPtrINS_16HandshakeManagerEED2Ev.exit: ; preds = %_ZN4ab
   br label %140
 
 140:                                              ; preds = %41, %47, %"_ZZN9grpc_core16HandshakeManager11DoHandshakeESt10unique_ptrI13grpc_endpointNS_16OrphanableDeleteEERKNS_11ChannelArgsENS_9TimestampEP24grpc_tcp_server_acceptorN4absl12lts_2024072212AnyInvocableIFvNSC_8StatusOrIPNS_14HandshakerArgsEEEEEEEN3$_0D2Ev.exit44", %72
-  %.pn32.pn = phi { ptr, i32 } [ %73, %72 ], [ %.pn30, %"_ZZN9grpc_core16HandshakeManager11DoHandshakeESt10unique_ptrI13grpc_endpointNS_16OrphanableDeleteEERKNS_11ChannelArgsENS_9TimestampEP24grpc_tcp_server_acceptorN4absl12lts_2024072212AnyInvocableIFvNSC_8StatusOrIPNS_14HandshakerArgsEEEEEEEN3$_0D2Ev.exit44" ], [ %48, %47 ], [ %42, %41 ]
+  %.pn32.pn = phi { ptr, i32 } [ %.pn30, %"_ZZN9grpc_core16HandshakeManager11DoHandshakeESt10unique_ptrI13grpc_endpointNS_16OrphanableDeleteEERKNS_11ChannelArgsENS_9TimestampEP24grpc_tcp_server_acceptorN4absl12lts_2024072212AnyInvocableIFvNSC_8StatusOrIPNS_14HandshakerArgsEEEEEEEN3$_0D2Ev.exit44" ], [ %73, %72 ], [ %48, %47 ], [ %42, %41 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit45 unwind label %141
 

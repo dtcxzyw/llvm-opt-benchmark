@@ -184,7 +184,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -639,7 +639,7 @@ define noundef ptr @_ZNK6icu_7716ICULocaleService3getERKNS_6LocaleER10UErrorCode
   br label %28
 
 28:                                               ; preds = %24, %19, %13
-  %.022.i = phi ptr [ null, %13 ], [ null, %19 ], [ %21, %24 ]
+  %.022.i = phi ptr [ null, %13 ], [ %21, %24 ], [ null, %19 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK6icu_7716ICULocaleService3getERKNS_6LocaleEiPS1_R10UErrorCode.exit
@@ -746,7 +746,7 @@ define noundef ptr @_ZNK6icu_7716ICULocaleService3getERKNS_6LocaleEiPS1_R10UErro
   resume { ptr, i32 } %.pn30
 
 48:                                               ; preds = %22, %43, %16
-  %.022 = phi ptr [ null, %16 ], [ null, %22 ], [ %.2, %43 ]
+  %.022 = phi ptr [ null, %16 ], [ %.2, %43 ], [ null, %22 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %49
@@ -808,7 +808,7 @@ define noundef ptr @_ZNK6icu_7716ICULocaleService3getERKNS_6LocaleEiR10UErrorCod
   br label %29
 
 29:                                               ; preds = %25, %20, %14
-  %.022.i = phi ptr [ null, %14 ], [ null, %20 ], [ %22, %25 ]
+  %.022.i = phi ptr [ null, %14 ], [ %22, %25 ], [ null, %20 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6icu_7716ICULocaleService3getERKNS_6LocaleEiPS1_R10UErrorCode.exit

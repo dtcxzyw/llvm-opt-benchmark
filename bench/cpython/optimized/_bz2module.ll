@@ -228,7 +228,7 @@ define internal range(i32 -1, 1) i32 @_bz2_exec(ptr noundef %0) #0 {
   br label %14
 
 14:                                               ; preds = %12, %8, %5, %1
-  %.0 = phi i32 [ -1, %8 ], [ -1, %1 ], [ -1, %5 ], [ %.lobit, %12 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %5 ], [ -1, %8 ], [ %.lobit, %12 ]
   ret i32 %.0
 }
 
@@ -408,7 +408,7 @@ Py_DECREF.exit20.i:                               ; preds = %47, %44, %42
   br label %_bz2_BZ2Compressor_impl.exit
 
 _bz2_BZ2Compressor_impl.exit:                     ; preds = %61, %58, %56, %49, %Py_DECREF.exit20.i, %.thread, %.thread28, %29, %20, %16
-  %.016 = phi ptr [ null, %16 ], [ null, %29 ], [ null, %20 ], [ null, %.thread28 ], [ null, %Py_DECREF.exit20.i ], [ %36, %49 ], [ null, %.thread ], [ null, %56 ], [ null, %58 ], [ null, %61 ]
+  %.016 = phi ptr [ null, %29 ], [ null, %20 ], [ null, %16 ], [ null, %Py_DECREF.exit20.i ], [ null, %.thread28 ], [ null, %.thread ], [ %36, %49 ], [ null, %56 ], [ null, %58 ], [ null, %61 ]
   ret ptr %.016
 }
 
@@ -726,7 +726,7 @@ select.unfold:                                    ; preds = %78, %32
   %.not33 = icmp eq ptr %81, null
   br i1 %.not33, label %.thread38, label %OutputBuffer_OnError.exit
 
-.thread38:                                        ; preds = %71, %74, %37, %40, %54, %57, %OutputBuffer_InitAndGrow.exit.thread, %select.unfold
+.thread38:                                        ; preds = %74, %71, %37, %40, %54, %57, %OutputBuffer_InitAndGrow.exit.thread, %select.unfold
   %82 = load ptr, ptr %5, align 8, !tbaa !30
   %.not.i.i = icmp eq ptr %82, null
   br i1 %.not.i.i, label %OutputBuffer_OnError.exit, label %83
@@ -915,7 +915,7 @@ define internal fastcc range(i32 0, 2) i32 @catch_bz2_error(i32 noundef %0) unna
   br label %19
 
 19:                                               ; preds = %1, %1, %1, %1, %1, %16, %14, %12, %10, %8, %6, %4, %2
-  %.0 = phi i32 [ 1, %16 ], [ 1, %14 ], [ 1, %2 ], [ 1, %4 ], [ 1, %6 ], [ 1, %8 ], [ 1, %10 ], [ 1, %12 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %16 ], [ 1, %2 ], [ 1, %4 ], [ 1, %6 ], [ 1, %8 ], [ 1, %10 ], [ 1, %12 ], [ 1, %14 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -1057,7 +1057,7 @@ Py_INCREF.exit.thread.i:                          ; preds = %Py_INCREF.exit.i, %
   br label %_BlocksOutputBuffer_Finish.exit
 
 _BlocksOutputBuffer_Finish.exit:                  ; preds = %Py_INCREF.exit.i, %Py_INCREF.exit.thread.i, %25, %28, %35, %59, %61, %63, %66
-  %.0.i = phi ptr [ %19, %Py_INCREF.exit.i ], [ null, %35 ], [ %33, %59 ], [ %19, %28 ], [ %19, %Py_INCREF.exit.thread.i ], [ %19, %25 ], [ %33, %61 ], [ %33, %63 ], [ %33, %66 ]
+  %.0.i = phi ptr [ null, %35 ], [ %19, %Py_INCREF.exit.i ], [ %33, %59 ], [ %19, %Py_INCREF.exit.thread.i ], [ %19, %25 ], [ %19, %28 ], [ %33, %61 ], [ %33, %63 ], [ %33, %66 ]
   ret ptr %.0.i
 }
 
@@ -1308,7 +1308,7 @@ Py_DECREF.exit18.i:                               ; preds = %40, %37, %35
   br label %_bz2_BZ2Decompressor_impl.exit
 
 _bz2_BZ2Decompressor_impl.exit:                   ; preds = %57, %54, %52, %48, %Py_DECREF.exit18.i, %26, %.thread24, %24, %17
-  %.0 = phi ptr [ null, %.thread24 ], [ null, %24 ], [ null, %17 ], [ null, %26 ], [ null, %Py_DECREF.exit18.i ], [ %29, %48 ], [ null, %52 ], [ null, %54 ], [ null, %57 ]
+  %.0 = phi ptr [ null, %24 ], [ null, %17 ], [ null, %.thread24 ], [ null, %Py_DECREF.exit18.i ], [ null, %26 ], [ %29, %48 ], [ null, %52 ], [ null, %54 ], [ null, %57 ]
   ret ptr %.0
 }
 
@@ -1726,7 +1726,7 @@ Py_XDECREF.exit.i.i:                              ; preds = %Py_XDECREF.exitthre
   br label %.thread102.i.i
 
 .thread102.i.i:                                   ; preds = %176, %169
-  %177 = phi i64 [ %.pre.i.i, %176 ], [ %163, %169 ]
+  %177 = phi i64 [ %163, %169 ], [ %.pre.i.i, %176 ]
   %178 = call ptr @PyMem_Malloc(i64 noundef %177) #7
   store ptr %178, ptr %170, align 8, !tbaa !56
   %179 = icmp eq ptr %178, null
@@ -1768,7 +1768,7 @@ Py_XDECREF.exit.i.i:                              ; preds = %Py_XDECREF.exitthre
   br label %_bz2_BZ2Decompressor_decompress_impl.exit
 
 _bz2_BZ2Decompressor_decompress_impl.exit:        ; preds = %46, %.thread.i.i, %143, %146, %Py_XDECREF.exit.i.i, %165, %167, %185, %190, %192, %195
-  %.0.i = phi ptr [ null, %46 ], [ null, %143 ], [ %135, %Py_XDECREF.exit.i.i ], [ null, %.thread.i.i ], [ %135, %165 ], [ %135, %185 ], [ %135, %167 ], [ %135, %146 ], [ null, %190 ], [ null, %192 ], [ null, %195 ]
+  %.0.i = phi ptr [ null, %46 ], [ null, %143 ], [ %135, %165 ], [ %135, %185 ], [ %135, %167 ], [ %135, %146 ], [ %135, %Py_XDECREF.exit.i.i ], [ null, %.thread.i.i ], [ null, %190 ], [ null, %192 ], [ null, %195 ]
   %196 = load ptr, ptr %36, align 8, !tbaa !58
   call void @PyThread_release_lock(ptr noundef %196) #7
   br label %197

@@ -1726,7 +1726,7 @@ _ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.ex
   br label %29
 
 29:                                               ; preds = %27, %25
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %28, %27 ]
   call void @_ZN7mitsuba10PropertiesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #25
   br label %32
 
@@ -2938,9 +2938,9 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   br label %.thread527
 
 .thread527:                                       ; preds = %.thread, %175, %186
-  %189 = phi i1 [ false, %175 ], [ true, %186 ], [ %185, %.thread ]
-  %190 = phi float [ %180, %175 ], [ %180, %186 ], [ %spec.select.i, %.thread ]
-  %191 = phi contract float [ 0.000000e+00, %175 ], [ %188, %186 ], [ %spec.select528, %.thread ]
+  %189 = phi i1 [ true, %186 ], [ false, %175 ], [ %185, %.thread ]
+  %190 = phi float [ %180, %186 ], [ %180, %175 ], [ %spec.select.i, %.thread ]
+  %191 = phi contract float [ %188, %186 ], [ 0.000000e+00, %175 ], [ %spec.select528, %.thread ]
   %192 = load i8, ptr %93, align 8
   %193 = trunc i8 %192 to i1
   %brmerge.demorgan = and i1 %113, %193
@@ -3002,8 +3002,8 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   br label %239
 
 239:                                              ; preds = %.sink.split.i, %220, %.thread527
-  %240 = phi <4 x float> [ zeroinitializer, %.thread527 ], [ %226, %.sink.split.i ], [ %226, %220 ]
-  %.0.shrunk = phi i1 [ %173, %.thread527 ], [ %238, %.sink.split.i ], [ false, %220 ]
+  %240 = phi <4 x float> [ zeroinitializer, %.thread527 ], [ %226, %220 ], [ %226, %.sink.split.i ]
+  %.0.shrunk = phi i1 [ %173, %.thread527 ], [ false, %220 ], [ %238, %.sink.split.i ]
   %.0 = zext i1 %.0.shrunk to i8
   %241 = select i1 %189, i1 %215, i1 false
   %or.cond529 = select i1 %241, i1 %217, i1 false
@@ -3168,8 +3168,8 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   br label %365
 
 365:                                              ; preds = %.sink.split.i357, %274, %270
-  %366 = phi <4 x float> [ %271, %270 ], [ %351, %.sink.split.i357 ], [ %351, %274 ]
-  %.2 = phi i8 [ %.1, %270 ], [ %364, %.sink.split.i357 ], [ 0, %274 ]
+  %366 = phi <4 x float> [ %271, %270 ], [ %351, %274 ], [ %351, %.sink.split.i357 ]
+  %.2 = phi i8 [ %.1, %270 ], [ 0, %274 ], [ %364, %.sink.split.i357 ]
   br i1 %210, label %.critedge, label %_ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImplIS4_Lm4ELb0ES5_iEEIS4_NS_6MatrixIS3_Lm4EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSB_5DepthsrSC_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESC_EE.exit.i
 
 .critedge:                                        ; preds = %365
@@ -4030,9 +4030,9 @@ define weak_odr noundef float @_ZNK7mitsuba10PrincipledIfN5drjit6MatrixINS_8Spec
   br label %.thread334
 
 .thread334:                                       ; preds = %.thread, %152, %164
-  %.not = phi i1 [ true, %152 ], [ %83, %164 ], [ %163, %.thread ]
-  %167 = phi float [ %157, %152 ], [ %157, %164 ], [ %spec.select.i, %.thread ]
-  %168 = phi contract float [ 0.000000e+00, %152 ], [ %166, %164 ], [ %spec.select337, %.thread ]
+  %.not = phi i1 [ %83, %164 ], [ true, %152 ], [ %163, %.thread ]
+  %167 = phi float [ %157, %164 ], [ %157, %152 ], [ %spec.select.i, %.thread ]
+  %168 = phi contract float [ %166, %164 ], [ 0.000000e+00, %152 ], [ %spec.select337, %.thread ]
   %169 = load i8, ptr %58, align 8
   %170 = trunc i8 %169 to i1
   %brmerge.not = and i1 %75, %170
@@ -4068,7 +4068,7 @@ define weak_odr noundef float @_ZNK7mitsuba10PrincipledIfN5drjit6MatrixINS_8Spec
   br label %198
 
 198:                                              ; preds = %.thread334, %191
-  %.sink = phi float [ %190, %.thread334 ], [ %197, %191 ]
+  %.sink = phi float [ %197, %191 ], [ %190, %.thread334 ]
   %199 = tail call contract noundef float @llvm.fabs.f32(float %.sink)
   %200 = bitcast float %.fr341 to i32
   %201 = and i32 %200, -2147483648
@@ -4581,9 +4581,9 @@ _ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6Vector
   br label %_ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6VectorIS4_Lm3EEESA_SA_RKS4_b.exit767.thread
 
 _ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6VectorIS4_Lm3EEESA_SA_RKS4_b.exit767.thread: ; preds = %_ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6VectorIS4_Lm3EEESA_SA_RKS4_b.exit767, %159
-  %.0.i765987 = phi i1 [ %238, %_ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6VectorIS4_Lm3EEESA_SA_RKS4_b.exit767 ], [ false, %159 ]
-  %.0.i980986 = phi i1 [ %229, %_ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6VectorIS4_Lm3EEESA_SA_RKS4_b.exit767 ], [ false, %159 ]
-  %240 = phi i1 [ %spec.select1017, %_ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6VectorIS4_Lm3EEESA_SA_RKS4_b.exit767 ], [ false, %159 ]
+  %.0.i765987 = phi i1 [ false, %159 ], [ %238, %_ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6VectorIS4_Lm3EEESA_SA_RKS4_b.exit767 ]
+  %.0.i980986 = phi i1 [ false, %159 ], [ %229, %_ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6VectorIS4_Lm3EEESA_SA_RKS4_b.exit767 ]
+  %240 = phi i1 [ false, %159 ], [ %spec.select1017, %_ZN7mitsuba21mac_mic_compatibilityIfEEN5drjit6detail4maskIT_iE4typeERKNS_6VectorIS4_Lm3EEESA_SA_RKS4_b.exit767 ]
   %241 = load i8, ptr %101, align 8
   %242 = trunc i8 %241 to i1
   %243 = fcmp contract ogt float %112, 0.000000e+00
@@ -5239,7 +5239,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit.i.i1.i.i.i785: ; preds = %659, %656, %_ZN7mi
   br label %709
 
 709:                                              ; preds = %533, %661, %700, %598
-  %.sroa.0.3 = phi <4 x float> [ %699, %661 ], [ %708, %700 ], [ %.sroa.0.2, %533 ], [ %.sroa.0.4, %598 ]
+  %.sroa.0.3 = phi <4 x float> [ %699, %661 ], [ %708, %700 ], [ %.sroa.0.4, %598 ], [ %.sroa.0.2, %533 ]
   store <4 x float> zeroinitializer, ptr %12, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %710
@@ -7197,7 +7197,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 
@@ -7413,7 +7413,7 @@ _ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.ex
   br label %68
 
 68:                                               ; preds = %66, %64
-  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %65, %64 ]
+  %.pn = phi { ptr, i32 } [ %65, %64 ], [ %67, %66 ]
   call void @_ZN7mitsuba10PropertiesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #25
   br label %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit22
 
@@ -7436,7 +7436,7 @@ _ZN7mitsuba3refINS_6ObjectEED2Ev.exit:            ; preds = %41, %45, %_ZN7mitsu
   ret void
 
 _ZN7mitsuba3refINS_6ObjectEED2Ev.exit22:          ; preds = %48, %46, %72, %68, %62, %17
-  %.pn17.pn = phi { ptr, i32 } [ %18, %17 ], [ %.pn, %68 ], [ %63, %62 ], [ %73, %72 ], [ %.pn17, %46 ], [ %.pn17, %48 ]
+  %.pn17.pn = phi { ptr, i32 } [ %.pn, %68 ], [ %63, %62 ], [ %73, %72 ], [ %18, %17 ], [ %.pn17, %46 ], [ %.pn17, %48 ]
   resume { ptr, i32 } %.pn17.pn
 }
 
@@ -8553,7 +8553,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -8628,7 +8628,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
   ret ptr %.069
 }
 

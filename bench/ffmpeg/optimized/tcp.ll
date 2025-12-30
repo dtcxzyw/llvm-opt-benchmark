@@ -307,7 +307,7 @@ define internal i32 @tcp_open(ptr noundef %0, ptr noundef %1, i32 %2) #0 {
   br i1 %134, label %139, label %._crit_edge100
 
 ._crit_edge100:                                   ; preds = %129, %128, %112
-  %135 = phi i32 [ %110, %112 ], [ %126, %128 ], [ %.pr89.pre, %129 ]
+  %135 = phi i32 [ %126, %128 ], [ %110, %112 ], [ %.pr89.pre, %129 ]
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %136, align 8, !tbaa !44
   %137 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -333,13 +333,13 @@ define internal i32 @tcp_open(ptr noundef %0, ptr noundef %1, i32 %2) #0 {
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %141, %139
-  %.391 = phi i32 [ %.3.ph, %139 ], [ %.3.ph, %141 ], [ %145, %.thread.loopexit ]
+  %.391 = phi i32 [ %.3.ph, %141 ], [ %.3.ph, %139 ], [ %145, %.thread.loopexit ]
   %146 = load ptr, ptr %5, align 8, !tbaa !33
   call void @freeaddrinfo(ptr noundef %146) #12
   br label %147
 
 147:                                              ; preds = %38, %33, %3, %.thread, %._crit_edge100, %77, %20
-  %.0 = phi i32 [ -22, %3 ], [ -22, %20 ], [ -5, %77 ], [ %.391, %.thread ], [ 0, %._crit_edge100 ], [ -12, %33 ], [ -12, %38 ]
+  %.0 = phi i32 [ -22, %20 ], [ -5, %77 ], [ %.391, %.thread ], [ 0, %._crit_edge100 ], [ -22, %3 ], [ -12, %33 ], [ -12, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -398,7 +398,7 @@ define internal range(i32 -2147483648, 1) i32 @tcp_accept(ptr noundef %0, ptr no
   br label %30
 
 30:                                               ; preds = %8, %28, %26
-  %.0 = phi i32 [ 0, %28 ], [ %24, %26 ], [ %14, %8 ]
+  %.0 = phi i32 [ %24, %26 ], [ 0, %28 ], [ %14, %8 ]
   ret i32 %.0
 }
 

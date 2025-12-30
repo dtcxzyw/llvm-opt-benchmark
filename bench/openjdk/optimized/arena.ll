@@ -655,7 +655,7 @@ define hidden noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(
 12:                                               ; preds = %3
   %13 = load i64, ptr @_ZN18MallocLimitHandler7_limitsE, align 8
   %.not.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i, label %24, label %14
+  br i1 %.not.i.i.i, label %26, label %14
 
 14:                                               ; preds = %12
   %15 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1800), align 8
@@ -667,35 +667,35 @@ define hidden noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(
   %21 = add i64 %20, %1
   %22 = load i64, ptr @_ZN18MallocLimitHandler7_limitsE, align 8
   %23 = icmp ugt i64 %21, %22
-  br i1 %23, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
+  br i1 %23, label %24, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
-24:                                               ; preds = %12
-  %25 = zext i8 %7 to i64
-  %26 = getelementptr inbounds nuw %struct.malloclimit, ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 %25
-  %27 = load i64, ptr %26, align 8
-  %.not19.i.i.i = icmp eq i64 %27, 0
-  br i1 %.not19.i.i.i, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread, label %28
+24:                                               ; preds = %14
+  %25 = tail call noundef zeroext i1 @_ZN19MallocMemorySummary19total_limit_reachedEmmPK11malloclimit(i64 noundef %1, i64 noundef %20, ptr noundef nonnull @_ZN18MallocLimitHandler7_limitsE) #11
+  br i1 %25, label %86, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw %class.MallocMemory, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %25
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load volatile i64, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 40
+26:                                               ; preds = %12
+  %27 = zext i8 %7 to i64
+  %28 = getelementptr inbounds nuw %struct.malloclimit, ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 %27
+  %29 = load i64, ptr %28, align 8
+  %.not19.i.i.i = icmp eq i64 %29, 0
+  br i1 %.not19.i.i.i, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread, label %30
+
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw %class.MallocMemory, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %27
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load volatile i64, ptr %32, align 8
-  %34 = add i64 %33, %31
-  %35 = add i64 %34, %1
-  %36 = icmp ugt i64 %35, %27
-  br i1 %36, label %37, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %35 = load volatile i64, ptr %34, align 8
+  %36 = add i64 %35, %33
+  %37 = add i64 %36, %1
+  %38 = icmp ugt i64 %37, %29
+  br i1 %38, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
-37:                                               ; preds = %28
-  %38 = tail call noundef zeroext i1 @_ZN19MallocMemorySummary22category_limit_reachedE8MEMFLAGSmmPK11malloclimit(i8 noundef zeroext %7, i64 noundef %1, i64 noundef %34, ptr noundef nonnull %26) #11
-  br i1 %38, label %86, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
-
-_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit: ; preds = %14
-  %39 = tail call noundef zeroext i1 @_ZN19MallocMemorySummary19total_limit_reachedEmmPK11malloclimit(i64 noundef %1, i64 noundef %20, ptr noundef nonnull @_ZN18MallocLimitHandler7_limitsE) #11
+_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit: ; preds = %30
+  %39 = tail call noundef zeroext i1 @_ZN19MallocMemorySummary22category_limit_reachedE8MEMFLAGSmmPK11malloclimit(i8 noundef zeroext %7, i64 noundef %1, i64 noundef %36, ptr noundef nonnull %28) #11
   br i1 %39, label %86, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
-_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread: ; preds = %24, %28, %14, %3, %37, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit
+_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread: ; preds = %26, %30, %14, %3, %24, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef ptr @_ZN9ChunkPool14allocate_chunkEmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %6, i32 noundef %2)
@@ -782,8 +782,8 @@ _ZN5Arena17set_size_in_bytesEm.exit:              ; preds = %_ZN10MemTracker24re
   store ptr %85, ptr %52, align 8
   br label %86
 
-86:                                               ; preds = %37, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %_ZN5Arena17set_size_in_bytesEm.exit, %44
-  %.0 = phi ptr [ %84, %_ZN5Arena17set_size_in_bytesEm.exit ], [ null, %44 ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit ], [ null, %37 ]
+86:                                               ; preds = %24, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %_ZN5Arena17set_size_in_bytesEm.exit, %44
+  %.0 = phi ptr [ null, %44 ], [ %84, %_ZN5Arena17set_size_in_bytesEm.exit ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit ], [ null, %24 ]
   ret ptr %.0
 }
 
@@ -906,7 +906,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit40: ; preds = %55, %
   br label %_ZN5Arena5AfreeEPvm.exit
 
 _ZN5Arena5AfreeEPvm.exit:                         ; preds = %63, %60, %28, %26, %14, %9, %8, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit40, %31, %36, %49
-  %.0 = phi ptr [ null, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit40 ], [ null, %14 ], [ %29, %28 ], [ %1, %49 ], [ %1, %31 ], [ %1, %36 ], [ null, %8 ], [ null, %9 ], [ %22, %26 ], [ %.0.i.i39, %60 ], [ %.0.i.i39, %63 ]
+  %.0 = phi ptr [ %1, %49 ], [ %1, %36 ], [ %1, %31 ], [ null, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit40 ], [ null, %8 ], [ null, %9 ], [ null, %14 ], [ %22, %26 ], [ %29, %28 ], [ %.0.i.i39, %60 ], [ %.0.i.i39, %63 ]
   ret ptr %.0
 }
 
@@ -958,7 +958,7 @@ define hidden noundef zeroext i1 @_ZNK5Arena8containsEPKv(ptr noundef nonnull re
   br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %16, %21, %11, %6, %2
-  %.011 = phi i1 [ true, %6 ], [ false, %2 ], [ false, %11 ], [ true, %16 ], [ false, %21 ]
+  %.011 = phi i1 [ false, %2 ], [ true, %6 ], [ false, %11 ], [ true, %16 ], [ false, %21 ]
   ret i1 %.011
 }
 

@@ -1660,7 +1660,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %27, %_ZN9QtPrivate8
   br label %53
 
 53:                                               ; preds = %.loopexit25, %.loopexit.split-lp26, %51, %33
-  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %52, %51 ], [ %lpad.loopexit27, %.loopexit25 ], [ %lpad.loopexit.split-lp28, %.loopexit.split-lp26 ]
+  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %34, %33 ], [ %lpad.loopexit27, %.loopexit25 ], [ %lpad.loopexit.split-lp28, %.loopexit.split-lp26 ]
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   br label %60
 

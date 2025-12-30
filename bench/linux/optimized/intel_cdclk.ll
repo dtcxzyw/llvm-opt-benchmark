@@ -2279,7 +2279,7 @@ intel_cdclk_can_crawl.exit.thread:                ; preds = %232, %229, %intel_c
   br label %317
 
 317:                                              ; preds = %.thread, %309, %286, %96, %90, %61, %10, %7
-  %318 = phi i32 [ %9, %7 ], [ 0, %309 ], [ %144, %.thread ], [ %22, %10 ], [ %62, %61 ], [ %97, %96 ], [ 0, %90 ], [ %287, %286 ]
+  %318 = phi i32 [ %9, %7 ], [ 0, %309 ], [ %22, %10 ], [ %62, %61 ], [ %97, %96 ], [ 0, %90 ], [ %287, %286 ], [ %144, %.thread ]
   ret i32 %318
 }
 
@@ -2786,7 +2786,7 @@ default.unreachable1:                             ; preds = %21
   unreachable
 
 28:                                               ; preds = %21, %27, %26, %25, %24, %23, %22, %19, %18, %17, %16, %15, %14, %13
-  %29 = phi i32 [ 133333, %19 ], [ 333333, %18 ], [ 266667, %17 ], [ 200000, %16 ], [ 166667, %15 ], [ 133333, %14 ], [ 100000, %21 ], [ 400000, %27 ], [ 333333, %26 ], [ 266667, %25 ], [ 200000, %24 ], [ 166667, %23 ], [ 133333, %22 ], [ 100000, %13 ]
+  %29 = phi i32 [ 133333, %19 ], [ 333333, %18 ], [ 266667, %17 ], [ 200000, %16 ], [ 166667, %15 ], [ 133333, %14 ], [ 400000, %27 ], [ 333333, %26 ], [ 266667, %25 ], [ 200000, %24 ], [ 166667, %23 ], [ 133333, %22 ], [ 100000, %13 ], [ 100000, %21 ]
   ret i32 %29
 }
 
@@ -4848,7 +4848,7 @@ define internal range(i32 -2147483648, 1) i32 @bxt_modeset_calc_cdclk(ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %38, %22
-  %48 = phi ptr [ %23, %38 ], [ %.pre, %..thread_crit_edge ], [ %23, %22 ]
+  %48 = phi ptr [ %.pre, %..thread_crit_edge ], [ %23, %22 ], [ %23, %38 ]
   %49 = add nuw nsw i64 %24, 1
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 728
   %51 = load i32, ptr %50, align 8
@@ -5667,8 +5667,8 @@ define internal range(i32 -2147483648, 1) i32 @skl_modeset_calc_cdclk(ptr nounde
   br label %76
 
 76:                                               ; preds = %.thread8, %68, %72
-  %77 = phi ptr [ %70, %68 ], [ %71, %.thread8 ], [ %73, %72 ]
-  %78 = phi i8 [ 3, %68 ], [ 2, %.thread8 ], [ %75, %72 ]
+  %77 = phi ptr [ %70, %68 ], [ %73, %72 ], [ %71, %.thread8 ]
+  %78 = phi i8 [ 3, %68 ], [ %75, %72 ], [ 2, %.thread8 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -5732,7 +5732,7 @@ define internal range(i32 -2147483648, 1) i32 @skl_modeset_calc_cdclk(ptr nounde
   br label %110
 
 110:                                              ; preds = %.thread14, %99, %105
-  %111 = phi i8 [ 3, %99 ], [ 2, %.thread14 ], [ %109, %105 ]
+  %111 = phi i8 [ 3, %99 ], [ %109, %105 ], [ 2, %.thread14 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i8 %111, ptr %112, align 4
   br label %115
@@ -5787,8 +5787,8 @@ default.unreachable:                              ; preds = %14
   br label %.thread
 
 .thread:                                          ; preds = %14, %2, %19, %18, %17
-  %.ph.sink = phi i32 [ 450000, %17 ], [ 675000, %19 ], [ 540000, %18 ], [ 800000, %2 ], [ 337500, %14 ]
-  %20 = phi i8 [ 0, %17 ], [ 3, %19 ], [ 1, %18 ], [ 2, %2 ], [ 2, %14 ]
+  %.ph.sink = phi i32 [ 675000, %19 ], [ 540000, %18 ], [ 450000, %17 ], [ 800000, %2 ], [ 337500, %14 ]
+  %20 = phi i8 [ 3, %19 ], [ 1, %18 ], [ 0, %17 ], [ 2, %2 ], [ 2, %14 ]
   store i32 %.ph.sink, ptr %1, align 4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 %20, ptr %21, align 4
@@ -6397,8 +6397,8 @@ define internal range(i32 -2147483648, 1) i32 @vlv_modeset_calc_cdclk(ptr nounde
   br label %.thread4
 
 .thread4:                                         ; preds = %34, %.thread, %36
-  %46 = phi ptr [ %37, %36 ], [ %26, %34 ], [ %30, %.thread ]
-  %47 = phi i8 [ %45, %36 ], [ %spec.select7, %34 ], [ 2, %.thread ]
+  %46 = phi ptr [ %37, %36 ], [ %30, %.thread ], [ %26, %34 ]
+  %47 = phi i8 [ %45, %36 ], [ 2, %.thread ], [ %spec.select7, %34 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %47, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -6458,7 +6458,7 @@ define internal range(i32 -2147483648, 1) i32 @vlv_modeset_calc_cdclk(ptr nounde
   br label %.thread6
 
 .thread6:                                         ; preds = %78, %.thread5, %80
-  %89 = phi i8 [ %88, %80 ], [ %spec.select, %78 ], [ 2, %.thread5 ]
+  %89 = phi i8 [ %88, %80 ], [ 2, %.thread5 ], [ %spec.select, %78 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i8 %89, ptr %90, align 4
   br label %93

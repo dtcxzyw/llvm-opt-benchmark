@@ -181,7 +181,7 @@ define internal fastcc noundef i32 @_ZN17wasmi_collections15string_interner6deta
   br i1 %20, label %24, label %21
 
 .body:                                            ; preds = %48, %52, %38, %34
-  %eh.lpad-body7 = phi { ptr, i32 } [ %35, %38 ], [ %35, %34 ], [ %49, %52 ], [ %49, %48 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %35, %34 ], [ %35, %38 ], [ %49, %52 ], [ %49, %48 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 21:                                               ; preds = %3
@@ -1433,7 +1433,7 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$14process_import17h171d1fc
   %78 = invoke noundef align 8 dereferenceable_or_null(40) ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hbda1855bac940c61E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11)
           to label %"_ZN5wasmi6linker15Linker$LT$T$GT$14get_definition17h2e4c0cb2da15c6d4E.exit" unwind label %26
 
-"_ZN5wasmi6linker15Linker$LT$T$GT$14get_definition17h2e4c0cb2da15c6d4E.exit.thread310": ; preds = %.noexc260, %.noexc259
+"_ZN5wasmi6linker15Linker$LT$T$GT$14get_definition17h2e4c0cb2da15c6d4E.exit.thread310": ; preds = %.noexc259, %.noexc260
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !159
   br label %79
 
@@ -2180,7 +2180,7 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$6define17h70b3fdbf70df8d0e
   br label %"_ZN5wasmi6linker20LinkerInner$LT$T$GT$14new_import_key17h3cb0721ffcbebaefE.exit"
 
 "_ZN5wasmi6linker20LinkerInner$LT$T$GT$14new_import_key17h3cb0721ffcbebaefE.exit": ; preds = %18, %20
-  %.sroa.0.1.i.i = phi i32 [ %21, %20 ], [ %19, %18 ]
+  %.sroa.0.1.i.i = phi i32 [ %19, %18 ], [ %21, %20 ]
   %22 = tail call noundef i32 @_ZN17wasmi_collections15string_interner6detail14StringInterner22get_or_intern_hint_new17h644ed72de437528fE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
   %23 = tail call noundef i32 @_ZN17wasmi_collections15string_interner3Sym8into_u3217hb836bbcb83180646E(i32 noundef %.sroa.0.1.i.i)
   %24 = zext i32 %23 to i64
@@ -2249,7 +2249,7 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$6define17h9b3b7990da84860f
   br label %"_ZN5wasmi6linker20LinkerInner$LT$T$GT$14new_import_key17h3cb0721ffcbebaefE.exit"
 
 "_ZN5wasmi6linker20LinkerInner$LT$T$GT$14new_import_key17h3cb0721ffcbebaefE.exit": ; preds = %18, %20
-  %.sroa.0.1.i.i = phi i32 [ %21, %20 ], [ %19, %18 ]
+  %.sroa.0.1.i.i = phi i32 [ %19, %18 ], [ %21, %20 ]
   %22 = tail call noundef i32 @_ZN17wasmi_collections15string_interner6detail14StringInterner22get_or_intern_hint_new17h644ed72de437528fE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
   %23 = tail call noundef i32 @_ZN17wasmi_collections15string_interner3Sym8into_u3217hb836bbcb83180646E(i32 noundef %.sroa.0.1.i.i)
   %24 = zext i32 %23 to i64
@@ -2318,7 +2318,7 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$6define17hd35db6a4e83bfb25
   br label %"_ZN5wasmi6linker20LinkerInner$LT$T$GT$14new_import_key17h3cb0721ffcbebaefE.exit"
 
 "_ZN5wasmi6linker20LinkerInner$LT$T$GT$14new_import_key17h3cb0721ffcbebaefE.exit": ; preds = %18, %20
-  %.sroa.0.1.i.i = phi i32 [ %21, %20 ], [ %19, %18 ]
+  %.sroa.0.1.i.i = phi i32 [ %19, %18 ], [ %21, %20 ]
   %22 = tail call noundef i32 @_ZN17wasmi_collections15string_interner6detail14StringInterner22get_or_intern_hint_new17h644ed72de437528fE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
   %23 = tail call noundef i32 @_ZN17wasmi_collections15string_interner3Sym8into_u3217hb836bbcb83180646E(i32 noundef %.sroa.0.1.i.i)
   %24 = zext i32 %23 to i64
@@ -2409,7 +2409,7 @@ define hidden { i64, ptr } @"_ZN5wasmi6linker15Linker$LT$T$GT$8instance17h637bdc
   br label %"_ZN5wasmi6linker20LinkerInner$LT$T$GT$14new_import_key17h3cb0721ffcbebaefE.exit"
 
 "_ZN5wasmi6linker20LinkerInner$LT$T$GT$14new_import_key17h3cb0721ffcbebaefE.exit": ; preds = %31, %33
-  %.sroa.0.1.i.i = phi i32 [ %34, %33 ], [ %32, %31 ]
+  %.sroa.0.1.i.i = phi i32 [ %32, %31 ], [ %34, %33 ]
   %35 = call noundef i32 @_ZN17wasmi_collections15string_interner6detail14StringInterner22get_or_intern_hint_new17h644ed72de437528fE(ptr noalias noundef nonnull align 8 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 1 %28, i64 noundef %29)
   %36 = call noundef i32 @_ZN17wasmi_collections15string_interner3Sym8into_u3217hb836bbcb83180646E(i32 noundef %.sroa.0.1.i.i)
   %37 = zext i32 %36 to i64
@@ -2550,7 +2550,7 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$9func_wrap17h017447f4d5386
 40:                                               ; preds = %37, %14, %38
   ret void
 
-41:                                               ; preds = %.noexc7, %15, %26, %"_ZN134_$LT$wasmi_collections..string_interner..detail..StringInterner$u20$as$u20$wasmi_collections..string_interner..GetOrInternWithHint$GT$23get_or_intern_with_hint17hfac049a36ae25420E.exit.i", %.noexc6
+41:                                               ; preds = %15, %26, %"_ZN134_$LT$wasmi_collections..string_interner..detail..StringInterner$u20$as$u20$wasmi_collections..string_interner..GetOrInternWithHint$GT$23get_or_intern_with_hint17hfac049a36ae25420E.exit.i", %.noexc6, %.noexc7
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr74drop_in_place$LT$wasmi..func..HostFuncTrampolineEntity$LT$$LP$$RP$$GT$$GT$17h136ddf534e92e383E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10) #18
@@ -2661,7 +2661,7 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$9func_wrap17h4497af6971491
 40:                                               ; preds = %37, %14, %38
   ret void
 
-41:                                               ; preds = %.noexc7, %15, %26, %"_ZN134_$LT$wasmi_collections..string_interner..detail..StringInterner$u20$as$u20$wasmi_collections..string_interner..GetOrInternWithHint$GT$23get_or_intern_with_hint17hfac049a36ae25420E.exit.i", %.noexc6
+41:                                               ; preds = %15, %26, %"_ZN134_$LT$wasmi_collections..string_interner..detail..StringInterner$u20$as$u20$wasmi_collections..string_interner..GetOrInternWithHint$GT$23get_or_intern_with_hint17hfac049a36ae25420E.exit.i", %.noexc6, %.noexc7
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr74drop_in_place$LT$wasmi..func..HostFuncTrampolineEntity$LT$$LP$$RP$$GT$$GT$17h136ddf534e92e383E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10) #18
@@ -2772,7 +2772,7 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$9func_wrap17h4c083a0a9584c
 40:                                               ; preds = %37, %14, %38
   ret void
 
-41:                                               ; preds = %.noexc7, %15, %26, %"_ZN134_$LT$wasmi_collections..string_interner..detail..StringInterner$u20$as$u20$wasmi_collections..string_interner..GetOrInternWithHint$GT$23get_or_intern_with_hint17hfac049a36ae25420E.exit.i", %.noexc6
+41:                                               ; preds = %15, %26, %"_ZN134_$LT$wasmi_collections..string_interner..detail..StringInterner$u20$as$u20$wasmi_collections..string_interner..GetOrInternWithHint$GT$23get_or_intern_with_hint17hfac049a36ae25420E.exit.i", %.noexc6, %.noexc7
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr74drop_in_place$LT$wasmi..func..HostFuncTrampolineEntity$LT$$LP$$RP$$GT$$GT$17h136ddf534e92e383E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10) #18
@@ -2883,7 +2883,7 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$9func_wrap17h8cd170404e62b
 40:                                               ; preds = %37, %14, %38
   ret void
 
-41:                                               ; preds = %.noexc7, %15, %26, %"_ZN134_$LT$wasmi_collections..string_interner..detail..StringInterner$u20$as$u20$wasmi_collections..string_interner..GetOrInternWithHint$GT$23get_or_intern_with_hint17hfac049a36ae25420E.exit.i", %.noexc6
+41:                                               ; preds = %15, %26, %"_ZN134_$LT$wasmi_collections..string_interner..detail..StringInterner$u20$as$u20$wasmi_collections..string_interner..GetOrInternWithHint$GT$23get_or_intern_with_hint17hfac049a36ae25420E.exit.i", %.noexc6, %.noexc7
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr74drop_in_place$LT$wasmi..func..HostFuncTrampolineEntity$LT$$LP$$RP$$GT$$GT$17h136ddf534e92e383E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10) #18
@@ -2994,7 +2994,7 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$9func_wrap17hb91f2e795b5b5
 40:                                               ; preds = %37, %14, %38
   ret void
 
-41:                                               ; preds = %.noexc7, %15, %26, %"_ZN134_$LT$wasmi_collections..string_interner..detail..StringInterner$u20$as$u20$wasmi_collections..string_interner..GetOrInternWithHint$GT$23get_or_intern_with_hint17hfac049a36ae25420E.exit.i", %.noexc6
+41:                                               ; preds = %15, %26, %"_ZN134_$LT$wasmi_collections..string_interner..detail..StringInterner$u20$as$u20$wasmi_collections..string_interner..GetOrInternWithHint$GT$23get_or_intern_with_hint17hfac049a36ae25420E.exit.i", %.noexc6, %.noexc7
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr74drop_in_place$LT$wasmi..func..HostFuncTrampolineEntity$LT$$LP$$RP$$GT$$GT$17h136ddf534e92e383E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10) #18
@@ -3105,7 +3105,7 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$9func_wrap17hbbaf7ece1704d
 40:                                               ; preds = %37, %14, %38
   ret void
 
-41:                                               ; preds = %.noexc7, %15, %26, %"_ZN134_$LT$wasmi_collections..string_interner..detail..StringInterner$u20$as$u20$wasmi_collections..string_interner..GetOrInternWithHint$GT$23get_or_intern_with_hint17hfac049a36ae25420E.exit.i", %.noexc6
+41:                                               ; preds = %15, %26, %"_ZN134_$LT$wasmi_collections..string_interner..detail..StringInterner$u20$as$u20$wasmi_collections..string_interner..GetOrInternWithHint$GT$23get_or_intern_with_hint17hfac049a36ae25420E.exit.i", %.noexc6, %.noexc7
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr74drop_in_place$LT$wasmi..func..HostFuncTrampolineEntity$LT$$LP$$RP$$GT$$GT$17h136ddf534e92e383E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10) #18
@@ -3216,7 +3216,7 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$9func_wrap17hc20733e4f1fc6
 40:                                               ; preds = %37, %14, %38
   ret void
 
-41:                                               ; preds = %.noexc7, %15, %26, %"_ZN134_$LT$wasmi_collections..string_interner..detail..StringInterner$u20$as$u20$wasmi_collections..string_interner..GetOrInternWithHint$GT$23get_or_intern_with_hint17hfac049a36ae25420E.exit.i", %.noexc6
+41:                                               ; preds = %15, %26, %"_ZN134_$LT$wasmi_collections..string_interner..detail..StringInterner$u20$as$u20$wasmi_collections..string_interner..GetOrInternWithHint$GT$23get_or_intern_with_hint17hfac049a36ae25420E.exit.i", %.noexc6, %.noexc7
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr74drop_in_place$LT$wasmi..func..HostFuncTrampolineEntity$LT$$LP$$RP$$GT$$GT$17h136ddf534e92e383E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10) #18
@@ -3257,7 +3257,7 @@ define hidden noundef align 8 ptr @"_ZN5wasmi6linker20LinkerInner$LT$T$GT$12alia
   br label %"_ZN134_$LT$wasmi_collections..string_interner..detail..StringInterner$u20$as$u20$wasmi_collections..string_interner..GetOrInternWithHint$GT$23get_or_intern_with_hint17hfac049a36ae25420E.exit"
 
 "_ZN134_$LT$wasmi_collections..string_interner..detail..StringInterner$u20$as$u20$wasmi_collections..string_interner..GetOrInternWithHint$GT$23get_or_intern_with_hint17hfac049a36ae25420E.exit": ; preds = %16, %18
-  %.sroa.0.1.i = phi i32 [ %19, %18 ], [ %17, %16 ]
+  %.sroa.0.1.i = phi i32 [ %17, %16 ], [ %19, %18 ]
   store i32 %.sroa.0.1.i, ptr %13, align 4
   %20 = tail call noundef i32 @_ZN17wasmi_collections15string_interner6detail14StringInterner22get_or_intern_hint_new17h644ed72de437528fE(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3319,7 +3319,7 @@ define hidden noundef align 8 ptr @"_ZN5wasmi6linker20LinkerInner$LT$T$GT$12alia
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b496dd7690c4fc2E.exit"
 
 "_ZN4core3ptr62drop_in_place$LT$wasmi..linker..Definition$LT$$LP$$RP$$GT$$GT$17h18f7434d8a52e164E.exit": ; preds = %.loopexit, %.loopexit.split-lp, %51, %53
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %51 ], [ %lpad.thr_comm, %53 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %53 ], [ %lpad.thr_comm, %51 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr151drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$wasmi_collections..string_interner..Sym$C$wasmi..linker..Definition$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h579550a6385fbd01E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #18
           to label %56 unwind label %54
 
@@ -3580,7 +3580,7 @@ define internal fastcc void @"_ZN5wasmi6linker20LinkerInner$LT$T$GT$6insert17h0e
 "_ZN4core3ptr62drop_in_place$LT$wasmi..linker..Definition$LT$$LP$$RP$$GT$$GT$17h18f7434d8a52e164E.exit15": ; preds = %67, %70
   resume { ptr, i32 } %lpad.thr_comm
 
-67:                                               ; preds = %49, %56, %.noexc10, %4, %27, %.noexc, %36
+67:                                               ; preds = %49, %56, %4, %27, %.noexc, %36, %.noexc10
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %68 = load i8, ptr %3, align 8, !range !113, !alias.scope !300, !noundef !3

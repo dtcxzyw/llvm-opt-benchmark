@@ -635,7 +635,7 @@ line_starts_with.exit50.thread56:                 ; preds = %43, %line_starts_wi
   unreachable
 
 line_starts_with.exit.thread:                     ; preds = %.lr.ph.i38, %.lr.ph.i45, %.line_starts_with.exit.thread_crit_edge, %line_starts_with.exit50, %line_starts_with.exit
-  %61 = phi i32 [ %.pre, %.line_starts_with.exit.thread_crit_edge ], [ %20, %.lr.ph.i45 ], [ %20, %line_starts_with.exit ], [ %20, %line_starts_with.exit50 ], [ %20, %.lr.ph.i38 ]
+  %61 = phi i32 [ %.pre, %.line_starts_with.exit.thread_crit_edge ], [ %20, %line_starts_with.exit50 ], [ %20, %line_starts_with.exit ], [ %20, %.lr.ph.i45 ], [ %20, %.lr.ph.i38 ]
   store i32 %.08.i, ptr %14, align 8
   %62 = icmp slt i32 %.08.i, %61
   br i1 %62, label %.lr.ph.i, label %._crit_edge, !llvm.loop !8

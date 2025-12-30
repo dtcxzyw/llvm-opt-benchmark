@@ -551,7 +551,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL9dump_heapP15AttachOperationP12
   br label %41
 
 41:                                               ; preds = %8, %30, %29, %25, %15
-  %.0 = phi i32 [ -1, %25 ], [ -1, %15 ], [ -1, %29 ], [ 0, %30 ], [ 0, %8 ]
+  %.0 = phi i32 [ -1, %15 ], [ -1, %29 ], [ -1, %25 ], [ 0, %30 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -851,7 +851,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL8set_flagP15AttachOperationP12o
   br label %10
 
 10:                                               ; preds = %2, %7, %8
-  %.0 = phi i32 [ %6, %2 ], [ -1, %7 ], [ -1, %8 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %7 ], [ %6, %2 ]
   ret i32 %.0
 }
 

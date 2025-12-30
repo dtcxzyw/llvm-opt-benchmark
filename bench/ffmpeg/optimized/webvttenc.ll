@@ -37,7 +37,7 @@ define internal range(i32 -1094995529, 1) i32 @webvtt_encode_init(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, -1) i32 @webvtt_encode_frame(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #1 {
+define internal i32 @webvtt_encode_frame(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -107,7 +107,7 @@ define internal range(i32 0, -1) i32 @webvtt_encode_frame(ptr noundef %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %19, %.thread.sink.split, %36, %._crit_edge
-  %.2 = phi i32 [ %35, %36 ], [ 0, %._crit_edge ], [ %.2.ph, %.thread.sink.split ], [ -12, %19 ]
+  %.2 = phi i32 [ 0, %._crit_edge ], [ %35, %36 ], [ %.2.ph, %.thread.sink.split ], [ -12, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2
 }

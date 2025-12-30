@@ -541,7 +541,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br label %162
 
 162:                                              ; preds = %32, %116, %52, %47, %158, %161, %102, %94, %86, %78, %70, %62, %17
-  %.0101 = phi i32 [ -22, %17 ], [ %30, %32 ], [ %50, %47 ], [ %55, %52 ], [ 0, %161 ], [ %159, %158 ], [ -22, %102 ], [ -22, %94 ], [ -22, %86 ], [ -22, %78 ], [ -22, %70 ], [ -22, %62 ], [ %119, %116 ]
+  %.0101 = phi i32 [ -22, %17 ], [ 0, %161 ], [ %159, %158 ], [ -22, %102 ], [ -22, %94 ], [ -22, %86 ], [ -22, %78 ], [ -22, %70 ], [ -22, %62 ], [ %30, %32 ], [ %50, %47 ], [ %55, %52 ], [ %119, %116 ]
   ret i32 %.0101
 }
 
@@ -786,7 +786,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
   br i1 %114, label %.lr.ph104, label %.loopexit, !llvm.loop !77
 
 .loopexit:                                        ; preds = %111, %84, %82
-  %115 = phi ptr [ %83, %82 ], [ %85, %84 ], [ %.pre119, %111 ]
+  %115 = phi ptr [ %85, %84 ], [ %83, %82 ], [ %.pre119, %111 ]
   %116 = load ptr, ptr %2, align 8, !tbaa !64
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = call i32 @ff_formats_ref(ptr noundef %115, ptr noundef nonnull %117) #14
@@ -817,7 +817,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
   br label %.loopexit74
 
 .loopexit74:                                      ; preds = %11, %28, %127, %.loopexit, %73, %._crit_edge95, %._crit_edge86, %._crit_edge
-  %.051 = phi i32 [ %118, %.loopexit ], [ %30, %28 ], [ %19, %._crit_edge ], [ %., %127 ], [ %36, %._crit_edge86 ], [ %43, %._crit_edge95 ], [ %77, %73 ], [ %13, %11 ]
+  %.051 = phi i32 [ %19, %._crit_edge ], [ %36, %._crit_edge86 ], [ %43, %._crit_edge95 ], [ %77, %73 ], [ %118, %.loopexit ], [ %., %127 ], [ %30, %28 ], [ %13, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.051
 }
@@ -1413,7 +1413,7 @@ scale_eval_dimensions.exit.thread:                ; preds = %179, %191
   br label %340
 
 340:                                              ; preds = %scale_eval_dimensions.exit.thread, %217, %336, %302, %339
-  %.0 = phi i32 [ %337, %336 ], [ 0, %339 ], [ %306, %302 ], [ -22, %scale_eval_dimensions.exit.thread ], [ %222, %217 ]
+  %.0 = phi i32 [ 0, %339 ], [ %306, %302 ], [ %337, %336 ], [ %222, %217 ], [ -22, %scale_eval_dimensions.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1868,9 +1868,9 @@ define internal fastcc i32 @scale_frame(ptr noundef readonly captures(none) %0, 
   br label %136
 
 136:                                              ; preds = %.sink.split178, %123, %117
-  %.sink176 = phi i64 [ 328, %123 ], [ 512, %117 ], [ %.sink176.ph, %.sink.split178 ]
-  %.sink = phi double [ 0x7FF8000000000000, %123 ], [ 0x7FF8000000000000, %117 ], [ %135, %.sink.split178 ]
-  %137 = phi ptr [ %125, %123 ], [ %119, %117 ], [ %.ph, %.sink.split178 ]
+  %.sink176 = phi i64 [ 512, %117 ], [ 328, %123 ], [ %.sink176.ph, %.sink.split178 ]
+  %.sink = phi double [ 0x7FF8000000000000, %117 ], [ 0x7FF8000000000000, %123 ], [ %135, %.sink.split178 ]
+  %137 = phi ptr [ %119, %117 ], [ %125, %123 ], [ %.ph, %.sink.split178 ]
   %138 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink176
   store double %.sink, ptr %138, align 8, !tbaa !54
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 116
@@ -1910,7 +1910,7 @@ define internal fastcc i32 @scale_frame(ptr noundef readonly captures(none) %0, 
   br i1 %165, label %.thread155, label %166
 
 .thread155:                                       ; preds = %93, %106, %136
-  %.0111.ph = phi i32 [ %104, %93 ], [ %109, %106 ], [ %164, %136 ]
+  %.0111.ph = phi i32 [ %109, %106 ], [ %104, %93 ], [ %164, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %317
@@ -2185,12 +2185,12 @@ define internal fastcc i32 @scale_frame(ptr noundef readonly captures(none) %0, 
   br label %318
 
 317:                                              ; preds = %.thread155, %167
-  %.1 = phi i32 [ %.0111.ph, %.thread155 ], [ -12, %167 ]
+  %.1 = phi i32 [ -12, %167 ], [ %.0111.ph, %.thread155 ]
   call void @av_frame_free(ptr noundef nonnull %5) #14
   br label %318
 
 318:                                              ; preds = %317, %315, %291
-  %.0110 = phi i32 [ %.1, %317 ], [ 0, %291 ], [ %307, %315 ]
+  %.0110 = phi i32 [ 0, %291 ], [ %307, %315 ], [ %.1, %317 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2606,7 +2606,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @scale_parse_expr(ptr nound
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.64) #14
   br label %check_exprs.exit.thread
 
-check_exprs.exit.thread:                          ; preds = %39, %49, %259, %26, %223
+check_exprs.exit.thread:                          ; preds = %39, %49, %259, %223, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %268
@@ -2630,7 +2630,7 @@ check_exprs.exit.thread:                          ; preds = %39, %49, %259, %26,
   br label %275
 
 268:                                              ; preds = %check_exprs.exit.thread, %261, %21
-  %.030 = phi i32 [ %19, %21 ], [ -22, %check_exprs.exit.thread ], [ %265, %261 ]
+  %.030 = phi i32 [ %19, %21 ], [ %265, %261 ], [ -22, %check_exprs.exit.thread ]
   %269 = load ptr, ptr %2, align 8, !tbaa !139
   call void @av_expr_free(ptr noundef %269) #14
   store ptr null, ptr %2, align 8, !tbaa !139
@@ -2651,7 +2651,7 @@ check_exprs.exit.thread:                          ; preds = %39, %49, %259, %26,
   br label %275
 
 275:                                              ; preds = %273, %274, %11, %267
-  %.031 = phi i32 [ -12, %11 ], [ 0, %267 ], [ %.030, %274 ], [ %.030, %273 ]
+  %.031 = phi i32 [ 0, %267 ], [ -12, %11 ], [ %.030, %274 ], [ %.030, %273 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.031
 }
@@ -2709,7 +2709,7 @@ define internal ptr @child_class_iterate(ptr noundef captures(none) %0) #1 {
   br label %7
 
 7:                                                ; preds = %1, %6, %4
-  %.0 = phi ptr [ @ff_framesync_class, %6 ], [ %5, %4 ], [ null, %1 ]
+  %.0 = phi ptr [ %5, %4 ], [ @ff_framesync_class, %6 ], [ null, %1 ]
   ret ptr %.0
 }
 

@@ -921,7 +921,7 @@ _init_l___private_Lake_Config_WorkspaceConfig_0__Lake_reprWorkspaceConfig____x40
   br label %_init_l___private_Lake_Config_WorkspaceConfig_0__Lake_reprWorkspaceConfig____x40_Lake_Config_WorkspaceConfig___hyg_32____closed__12.exit
 
 _init_l___private_Lake_Config_WorkspaceConfig_0__Lake_reprWorkspaceConfig____x40_Lake_Config_WorkspaceConfig___hyg_32____closed__12.exit: ; preds = %_init_l___private_Lake_Config_WorkspaceConfig_0__Lake_reprWorkspaceConfig____x40_Lake_Config_WorkspaceConfig___hyg_32____closed__9.exit, %76
-  %.1.i.i = phi ptr [ %72, %_init_l___private_Lake_Config_WorkspaceConfig_0__Lake_reprWorkspaceConfig____x40_Lake_Config_WorkspaceConfig___hyg_32____closed__9.exit ], [ %78, %76 ]
+  %.1.i.i = phi ptr [ %78, %76 ], [ %72, %_init_l___private_Lake_Config_WorkspaceConfig_0__Lake_reprWorkspaceConfig____x40_Lake_Config_WorkspaceConfig___hyg_32____closed__9.exit ]
   store ptr %.1.i.i, ptr @l___private_Lake_Config_WorkspaceConfig_0__Lake_reprWorkspaceConfig____x40_Lake_Config_WorkspaceConfig___hyg_32____closed__12, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #5
   %79 = load ptr, ptr @l___private_Lake_Config_WorkspaceConfig_0__Lake_reprWorkspaceConfig____x40_Lake_Config_WorkspaceConfig___hyg_32____closed__10, align 8, !tbaa !9

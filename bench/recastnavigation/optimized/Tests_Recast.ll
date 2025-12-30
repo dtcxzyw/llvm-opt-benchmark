@@ -1060,8 +1060,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit36:           ; preds = %113, %109, %92
   ret void
 
 127:                                              ; preds = %102, %126, %31, %63, %86
-  %.sink = phi ptr [ %1, %31 ], [ %1, %86 ], [ %1, %63 ], [ %10, %126 ], [ %10, %102 ]
-  %.pn29.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %.pn25, %86 ], [ %.pn22, %63 ], [ %.pn29, %126 ], [ %103, %102 ]
+  %.sink = phi ptr [ %1, %86 ], [ %1, %63 ], [ %1, %31 ], [ %10, %126 ], [ %10, %102 ]
+  %.pn29.pn.pn = phi { ptr, i32 } [ %.pn25, %86 ], [ %.pn22, %63 ], [ %32, %31 ], [ %.pn29, %126 ], [ %103, %102 ]
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #12
   resume { ptr, i32 } %.pn29.pn.pn
 
@@ -1384,8 +1384,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit36:           ; preds = %113, %109, %92
   ret void
 
 127:                                              ; preds = %102, %126, %31, %63, %86
-  %.sink = phi ptr [ %1, %31 ], [ %1, %86 ], [ %1, %63 ], [ %10, %126 ], [ %10, %102 ]
-  %.pn29.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %.pn25, %86 ], [ %.pn22, %63 ], [ %.pn29, %126 ], [ %103, %102 ]
+  %.sink = phi ptr [ %1, %86 ], [ %1, %63 ], [ %1, %31 ], [ %10, %126 ], [ %10, %102 ]
+  %.pn29.pn.pn = phi { ptr, i32 } [ %.pn25, %86 ], [ %.pn22, %63 ], [ %32, %31 ], [ %.pn29, %126 ], [ %103, %102 ]
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #12
   resume { ptr, i32 } %.pn29.pn.pn
 
@@ -2330,8 +2330,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit39:           ; preds = %125, %121, %104
   ret void
 
 139:                                              ; preds = %114, %138, %74, %98, %34, %58
-  %.sink = phi ptr [ %7, %74 ], [ %1, %34 ], [ %1, %58 ], [ %7, %98 ], [ %13, %138 ], [ %13, %114 ]
-  %.pn32.pn.pn = phi { ptr, i32 } [ %75, %74 ], [ %35, %34 ], [ %.pn24, %58 ], [ %.pn28, %98 ], [ %.pn32, %138 ], [ %115, %114 ]
+  %.sink = phi ptr [ %1, %58 ], [ %1, %34 ], [ %7, %98 ], [ %7, %74 ], [ %13, %138 ], [ %13, %114 ]
+  %.pn32.pn.pn = phi { ptr, i32 } [ %.pn24, %58 ], [ %35, %34 ], [ %.pn28, %98 ], [ %75, %74 ], [ %.pn32, %138 ], [ %115, %114 ]
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #12
   resume { ptr, i32 } %.pn32.pn.pn
 
@@ -3287,8 +3287,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit79:           ; preds = %257, %253, %156
   ret void
 
 271:                                              ; preds = %169, %207, %244, %270, %49, %87, %124, %150
-  %.sink = phi ptr [ %1, %49 ], [ %1, %150 ], [ %1, %124 ], [ %1, %87 ], [ %16, %270 ], [ %16, %244 ], [ %16, %207 ], [ %16, %169 ]
-  %.pn56.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %.pn46, %150 ], [ %.pn43, %124 ], [ %.pn40, %87 ], [ %.pn56, %270 ], [ %.pn53, %244 ], [ %.pn50, %207 ], [ %170, %169 ]
+  %.sink = phi ptr [ %1, %150 ], [ %1, %124 ], [ %1, %87 ], [ %1, %49 ], [ %16, %270 ], [ %16, %244 ], [ %16, %207 ], [ %16, %169 ]
+  %.pn56.pn.pn = phi { ptr, i32 } [ %.pn46, %150 ], [ %.pn43, %124 ], [ %.pn40, %87 ], [ %50, %49 ], [ %.pn56, %270 ], [ %.pn53, %244 ], [ %.pn50, %207 ], [ %170, %169 ]
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #12
   resume { ptr, i32 } %.pn56.pn.pn
 
@@ -3563,8 +3563,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit29:           ; preds = %93, %89, %66
   ret void
 
 107:                                              ; preds = %79, %106, %33, %60
-  %.sink = phi ptr [ %1, %33 ], [ %1, %60 ], [ %8, %106 ], [ %8, %79 ]
-  %.pn22.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %.pn18, %60 ], [ %.pn22, %106 ], [ %80, %79 ]
+  %.sink = phi ptr [ %1, %60 ], [ %1, %33 ], [ %8, %106 ], [ %8, %79 ]
+  %.pn22.pn.pn = phi { ptr, i32 } [ %.pn18, %60 ], [ %34, %33 ], [ %.pn22, %106 ], [ %80, %79 ]
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #12
   resume { ptr, i32 } %.pn22.pn.pn
 
@@ -4259,8 +4259,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit79:           ; preds = %257, %253, %156
   ret void
 
 271:                                              ; preds = %169, %207, %244, %270, %49, %87, %124, %150
-  %.sink = phi ptr [ %1, %49 ], [ %1, %150 ], [ %1, %124 ], [ %1, %87 ], [ %16, %270 ], [ %16, %244 ], [ %16, %207 ], [ %16, %169 ]
-  %.pn56.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %.pn46, %150 ], [ %.pn43, %124 ], [ %.pn40, %87 ], [ %.pn56, %270 ], [ %.pn53, %244 ], [ %.pn50, %207 ], [ %170, %169 ]
+  %.sink = phi ptr [ %1, %150 ], [ %1, %124 ], [ %1, %87 ], [ %1, %49 ], [ %16, %270 ], [ %16, %244 ], [ %16, %207 ], [ %16, %169 ]
+  %.pn56.pn.pn = phi { ptr, i32 } [ %.pn46, %150 ], [ %.pn43, %124 ], [ %.pn40, %87 ], [ %50, %49 ], [ %.pn56, %270 ], [ %.pn53, %244 ], [ %.pn50, %207 ], [ %170, %169 ]
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #12
   resume { ptr, i32 } %.pn56.pn.pn
 
@@ -6006,8 +6006,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit121:          ; preds = %392, %388, %291
   ret void
 
 406:                                              ; preds = %304, %342, %379, %405, %184, %222, %259, %285, %64, %102, %139, %165
-  %.sink = phi ptr [ %16, %184 ], [ %1, %64 ], [ %1, %165 ], [ %1, %139 ], [ %1, %102 ], [ %16, %285 ], [ %16, %259 ], [ %16, %222 ], [ %31, %405 ], [ %31, %379 ], [ %31, %342 ], [ %31, %304 ]
-  %.pn86.pn.pn = phi { ptr, i32 } [ %185, %184 ], [ %65, %64 ], [ %.pn66, %165 ], [ %.pn63, %139 ], [ %.pn60, %102 ], [ %.pn76, %285 ], [ %.pn73, %259 ], [ %.pn70, %222 ], [ %.pn86, %405 ], [ %.pn83, %379 ], [ %.pn80, %342 ], [ %305, %304 ]
+  %.sink = phi ptr [ %1, %165 ], [ %1, %139 ], [ %1, %102 ], [ %1, %64 ], [ %16, %285 ], [ %16, %259 ], [ %16, %222 ], [ %16, %184 ], [ %31, %405 ], [ %31, %379 ], [ %31, %342 ], [ %31, %304 ]
+  %.pn86.pn.pn = phi { ptr, i32 } [ %.pn66, %165 ], [ %.pn63, %139 ], [ %.pn60, %102 ], [ %65, %64 ], [ %.pn76, %285 ], [ %.pn73, %259 ], [ %.pn70, %222 ], [ %185, %184 ], [ %.pn86, %405 ], [ %.pn83, %379 ], [ %.pn80, %342 ], [ %305, %304 ]
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #12
   resume { ptr, i32 } %.pn86.pn.pn
 
@@ -7041,8 +7041,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit121:          ; preds = %392, %388, %291
   ret void
 
 406:                                              ; preds = %304, %342, %379, %405, %184, %222, %259, %285, %64, %102, %139, %165
-  %.sink = phi ptr [ %16, %184 ], [ %1, %64 ], [ %1, %165 ], [ %1, %139 ], [ %1, %102 ], [ %16, %285 ], [ %16, %259 ], [ %16, %222 ], [ %31, %405 ], [ %31, %379 ], [ %31, %342 ], [ %31, %304 ]
-  %.pn86.pn.pn = phi { ptr, i32 } [ %185, %184 ], [ %65, %64 ], [ %.pn66, %165 ], [ %.pn63, %139 ], [ %.pn60, %102 ], [ %.pn76, %285 ], [ %.pn73, %259 ], [ %.pn70, %222 ], [ %.pn86, %405 ], [ %.pn83, %379 ], [ %.pn80, %342 ], [ %305, %304 ]
+  %.sink = phi ptr [ %1, %165 ], [ %1, %139 ], [ %1, %102 ], [ %1, %64 ], [ %16, %285 ], [ %16, %259 ], [ %16, %222 ], [ %16, %184 ], [ %31, %405 ], [ %31, %379 ], [ %31, %342 ], [ %31, %304 ]
+  %.pn86.pn.pn = phi { ptr, i32 } [ %.pn66, %165 ], [ %.pn63, %139 ], [ %.pn60, %102 ], [ %65, %64 ], [ %.pn76, %285 ], [ %.pn73, %259 ], [ %.pn70, %222 ], [ %185, %184 ], [ %.pn86, %405 ], [ %.pn83, %379 ], [ %.pn80, %342 ], [ %305, %304 ]
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #12
   resume { ptr, i32 } %.pn86.pn.pn
 
@@ -8003,8 +8003,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit30:           ; preds = %100, %96, %68
   ret void
 
 114:                                              ; preds = %86, %113, %35, %62
-  %.sink = phi ptr [ %1, %35 ], [ %1, %62 ], [ %8, %113 ], [ %8, %86 ]
-  %.pn22.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %.pn18, %62 ], [ %.pn22, %113 ], [ %87, %86 ]
+  %.sink = phi ptr [ %1, %62 ], [ %1, %35 ], [ %8, %113 ], [ %8, %86 ]
+  %.pn22.pn.pn = phi { ptr, i32 } [ %.pn18, %62 ], [ %36, %35 ], [ %.pn22, %113 ], [ %87, %86 ]
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #12
   resume { ptr, i32 } %.pn22.pn.pn
 
@@ -8279,8 +8279,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit28:           ; preds = %93, %89, %66
   ret void
 
 107:                                              ; preds = %79, %106, %33, %60
-  %.sink = phi ptr [ %1, %33 ], [ %1, %60 ], [ %8, %106 ], [ %8, %79 ]
-  %.pn22.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %.pn18, %60 ], [ %.pn22, %106 ], [ %80, %79 ]
+  %.sink = phi ptr [ %1, %60 ], [ %1, %33 ], [ %8, %106 ], [ %8, %79 ]
+  %.pn22.pn.pn = phi { ptr, i32 } [ %.pn18, %60 ], [ %34, %33 ], [ %.pn22, %106 ], [ %80, %79 ]
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #12
   resume { ptr, i32 } %.pn22.pn.pn
 
@@ -10160,8 +10160,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit156:          ; preds = %557, %553, %328
   ret void
 
 571:                                              ; preds = %344, %385, %425, %464, %504, %544, %570, %84, %128, %171, %212, %254, %296, %322
-  %.sink = phi ptr [ %1, %84 ], [ %1, %322 ], [ %1, %296 ], [ %1, %254 ], [ %1, %212 ], [ %1, %171 ], [ %1, %128 ], [ %31, %570 ], [ %31, %544 ], [ %31, %504 ], [ %31, %464 ], [ %31, %425 ], [ %31, %385 ], [ %31, %344 ]
-  %.pn110.pn.pn = phi { ptr, i32 } [ %85, %84 ], [ %.pn91, %322 ], [ %.pn88, %296 ], [ %.pn85, %254 ], [ %.pn82, %212 ], [ %.pn79, %171 ], [ %.pn76, %128 ], [ %.pn110, %570 ], [ %.pn107, %544 ], [ %.pn104, %504 ], [ %.pn101, %464 ], [ %.pn98, %425 ], [ %.pn95, %385 ], [ %345, %344 ]
+  %.sink = phi ptr [ %1, %322 ], [ %1, %296 ], [ %1, %254 ], [ %1, %212 ], [ %1, %171 ], [ %1, %128 ], [ %1, %84 ], [ %31, %570 ], [ %31, %544 ], [ %31, %504 ], [ %31, %464 ], [ %31, %425 ], [ %31, %385 ], [ %31, %344 ]
+  %.pn110.pn.pn = phi { ptr, i32 } [ %.pn91, %322 ], [ %.pn88, %296 ], [ %.pn85, %254 ], [ %.pn82, %212 ], [ %.pn79, %171 ], [ %.pn76, %128 ], [ %85, %84 ], [ %.pn110, %570 ], [ %.pn107, %544 ], [ %.pn104, %504 ], [ %.pn101, %464 ], [ %.pn98, %425 ], [ %.pn95, %385 ], [ %345, %344 ]
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #12
   resume { ptr, i32 } %.pn110.pn.pn
 
@@ -12389,8 +12389,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit69:           ; preds = %193, %189, %168
   ret void
 
 207:                                              ; preds = %182, %206, %138, %162, %94, %118, %50, %74
-  %.sink = phi ptr [ %17, %138 ], [ %11, %94 ], [ %5, %50 ], [ %5, %74 ], [ %11, %118 ], [ %17, %162 ], [ %23, %206 ], [ %23, %182 ]
-  %.pn60.pn.pn = phi { ptr, i32 } [ %139, %138 ], [ %95, %94 ], [ %51, %50 ], [ %.pn48, %74 ], [ %.pn52, %118 ], [ %.pn56, %162 ], [ %.pn60, %206 ], [ %183, %182 ]
+  %.sink = phi ptr [ %5, %74 ], [ %5, %50 ], [ %11, %118 ], [ %11, %94 ], [ %17, %162 ], [ %17, %138 ], [ %23, %206 ], [ %23, %182 ]
+  %.pn60.pn.pn = phi { ptr, i32 } [ %.pn48, %74 ], [ %51, %50 ], [ %.pn52, %118 ], [ %95, %94 ], [ %.pn56, %162 ], [ %139, %138 ], [ %.pn60, %206 ], [ %183, %182 ]
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #12
   resume { ptr, i32 } %.pn60.pn.pn
 
@@ -12770,8 +12770,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit51:           ; preds = %143, %139, %118
   ret void
 
 157:                                              ; preds = %132, %156, %88, %112, %44, %68
-  %.sink = phi ptr [ %11, %88 ], [ %5, %44 ], [ %5, %68 ], [ %11, %112 ], [ %17, %156 ], [ %17, %132 ]
-  %.pn44.pn.pn = phi { ptr, i32 } [ %89, %88 ], [ %45, %44 ], [ %.pn36, %68 ], [ %.pn40, %112 ], [ %.pn44, %156 ], [ %133, %132 ]
+  %.sink = phi ptr [ %5, %68 ], [ %5, %44 ], [ %11, %112 ], [ %11, %88 ], [ %17, %156 ], [ %17, %132 ]
+  %.pn44.pn.pn = phi { ptr, i32 } [ %.pn36, %68 ], [ %45, %44 ], [ %.pn40, %112 ], [ %89, %88 ], [ %.pn44, %156 ], [ %133, %132 ]
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #12
   resume { ptr, i32 } %.pn44.pn.pn
 
@@ -18061,7 +18061,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit47:           ; preds = %115, %118
   ret void
 
 135:                                              ; preds = %.loopexit, %.loopexit.split-lp, %131, %109, %63
-  %.pn39.pn = phi { ptr, i32 } [ %.pn39, %131 ], [ %.pn, %63 ], [ %.pn36, %109 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn39.pn = phi { ptr, i32 } [ %.pn39, %131 ], [ %.pn36, %109 ], [ %.pn, %63 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN13rcHeightfieldD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #12
   resume { ptr, i32 } %.pn39.pn
 
@@ -18606,8 +18606,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit65:           ; preds = %195, %199
   ret void
 
 215:                                              ; preds = %149, %213, %151, %59, %123, %61
-  %.sink = phi ptr [ %5, %59 ], [ %5, %61 ], [ %5, %123 ], [ %20, %151 ], [ %20, %213 ], [ %20, %149 ]
-  %.pn48.pn.pn.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %62, %61 ], [ %.pn41.pn, %123 ], [ %152, %151 ], [ %.pn48.pn, %213 ], [ %150, %149 ]
+  %.sink = phi ptr [ %5, %61 ], [ %5, %123 ], [ %5, %59 ], [ %20, %151 ], [ %20, %213 ], [ %20, %149 ]
+  %.pn48.pn.pn.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %.pn41.pn, %123 ], [ %60, %59 ], [ %152, %151 ], [ %.pn48.pn, %213 ], [ %150, %149 ]
   call void @_ZN5Catch7SectionD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #12
   resume { ptr, i32 } %.pn48.pn.pn.pn.pn
 

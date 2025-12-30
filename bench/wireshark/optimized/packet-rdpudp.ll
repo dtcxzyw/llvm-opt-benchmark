@@ -374,7 +374,7 @@ define hidden zeroext i1 @rdp_isServerAddressTarget(ptr noundef %0) local_unname
   br label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %51, %43, %37, %20, %12, %6, %58, %34, %27, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %34 ], [ %33, %27 ], [ %64, %58 ], [ false, %20 ], [ false, %6 ], [ false, %12 ], [ false, %37 ], [ false, %43 ], [ false, %51 ]
+  %.0 = phi i1 [ false, %1 ], [ %33, %27 ], [ false, %34 ], [ %64, %58 ], [ false, %6 ], [ false, %12 ], [ false, %20 ], [ false, %37 ], [ false, %43 ], [ false, %51 ]
   ret i1 %.0
 }
 
@@ -650,7 +650,7 @@ copy_address_wmem.exit.i:                         ; preds = %64, %54
   br label %135
 
 135:                                              ; preds = %._crit_edge.i, %119
-  %.4.i = phi i32 [ %.2.i, %119 ], [ %.5.lcssa.i, %._crit_edge.i ]
+  %.4.i = phi i32 [ %.5.lcssa.i, %._crit_edge.i ], [ %.2.i, %119 ]
   %136 = and i32 %46, 16
   %.not155.i = icmp eq i32 %136, 0
   br i1 %.not155.i, label %153, label %137
@@ -1242,7 +1242,7 @@ proto_item_set_generated.exit282.i:               ; preds = %459, %456, %451
   br label %dissect_rdpudp_v1.exit
 
 dissect_rdpudp_v1.exit:                           ; preds = %497, %402, %162, %160
-  %.023 = phi i32 [ %.7.i, %160 ], [ %180, %162 ], [ %498, %497 ], [ %.5.i, %402 ]
+  %.023 = phi i32 [ %180, %162 ], [ %.7.i, %160 ], [ %498, %497 ], [ %.5.i, %402 ]
   ret i32 %.023
 }
 

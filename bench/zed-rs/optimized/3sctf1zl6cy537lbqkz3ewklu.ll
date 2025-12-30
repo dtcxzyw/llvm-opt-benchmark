@@ -367,7 +367,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   br label %.body.i
 
 .body.i:                                          ; preds = %24, %20, %15
-  %eh.lpad-body.i = phi { ptr, i32 } [ %25, %24 ], [ %16, %15 ], [ %21, %20 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %25, %24 ], [ %21, %20 ], [ %16, %15 ]
   invoke void @"_ZN4core3ptr194drop_in_place$LT$sqlez..util..UnboundedSyncSender$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$GT$$GT$17h471f4fdea06fe553E"(ptr noalias noundef nonnull align 8 dereferenceable(536) %0)
           to label %"_ZN4core3ptr133drop_in_place$LT$sqlez..thread_safe_connection..background_thread_queue..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h44edc3508280e3bbE.exit.i" unwind label %26
 
@@ -495,7 +495,7 @@ default.unreachable1.i.i.i.i.i.i.i:               ; preds = %34
   br label %.body.i.i.i.i.i.i
 
 .body.i.i.i.i.i.i:                                ; preds = %57, %49, %40
-  %eh.lpad-body.i.i.i.i.i.i = phi { ptr, i32 } [ %50, %49 ], [ %41, %40 ], [ %50, %57 ]
+  %eh.lpad-body.i.i.i.i.i.i = phi { ptr, i32 } [ %41, %40 ], [ %50, %57 ], [ %50, %49 ]
   invoke fastcc void @"_ZN4core3ptr133drop_in_place$LT$sqlez..thread_safe_connection..background_thread_queue..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hceebb81507fc269cE"(ptr noalias noundef align 8 dereferenceable(16) %3) #22
           to label %.body30.i unwind label %70, !noalias !61
 
@@ -701,7 +701,7 @@ default.unreachable1.i.i.i.i.i.i.i:               ; preds = %34
   br i1 %.sroa.016.0.i, label %128, label %136
 
 122:                                              ; preds = %24, %15, %14
-  %.sroa.016.0.i = phi i1 [ false, %24 ], [ false, %15 ], [ true, %14 ]
+  %.sroa.016.0.i = phi i1 [ false, %15 ], [ true, %14 ], [ false, %24 ]
   %123 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
@@ -2063,7 +2063,7 @@ define hidden { ptr, ptr } @"_ZN5sqlez22thread_safe_connection23background_threa
   br label %.thread44.i.i
 
 74:                                               ; preds = %37, %71
-  %.sroa.01.0.i.i = phi i64 [ %38, %37 ], [ %.sroa.01.0.i.i.i, %71 ]
+  %.sroa.01.0.i.i = phi i64 [ %.sroa.01.0.i.i.i, %71 ], [ %38, %37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !245
   %75 = invoke noundef nonnull ptr @_ZN3std6thread6Thread11new_unnamed17h2dbc454d12aa9d58E()
           to label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h081309897bce4bacE.exit.i.i" unwind label %73, !noalias !245
@@ -2331,8 +2331,8 @@ define hidden { ptr, ptr } @"_ZN5sqlez22thread_safe_connection23background_threa
           to label %175 unwind label %159, !noalias !245
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h72e5030986c12101E.exit60.i.i": ; preds = %179, %175, %161, %.body38.i.i, %133
-  %.pn.pn28.i.i = phi { ptr, i32 } [ %.pn.pn.ph.i.i, %175 ], [ %.pn.pn.ph.i.i, %179 ], [ %162, %161 ], [ %137, %.body38.i.i ], [ %134, %133 ]
-  %.sroa.019.326.i.i = phi i1 [ true, %175 ], [ true, %179 ], [ false, %161 ], [ false, %.body38.i.i ], [ false, %133 ]
+  %.pn.pn28.i.i = phi { ptr, i32 } [ %.pn.pn.ph.i.i, %179 ], [ %.pn.pn.ph.i.i, %175 ], [ %137, %.body38.i.i ], [ %162, %161 ], [ %134, %133 ]
+  %.sroa.019.326.i.i = phi i1 [ true, %179 ], [ true, %175 ], [ false, %.body38.i.i ], [ false, %161 ], [ false, %133 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !332)
   call void @llvm.experimental.noalias.scope.decl(metadata !335)
   %171 = load ptr, ptr %14, align 8, !alias.scope !338, !noalias !245, !nonnull !7, !noundef !7
@@ -2505,7 +2505,7 @@ define hidden { ptr, ptr } @"_ZN5sqlez22thread_safe_connection23background_threa
   resume { ptr, i32 } %eh.lpad-body25
 
 214:                                              ; preds = %189, %149, %154, %188, %.thread44.i.i, %192
-  %eh.lpad-body.ph = phi { ptr, i32 } [ %150, %154 ], [ %190, %189 ], [ %150, %149 ], [ %.pn.pn.pn20.i.i, %188 ], [ %.pn354348.i.i, %.thread44.i.i ], [ %193, %192 ]
+  %eh.lpad-body.ph = phi { ptr, i32 } [ %190, %189 ], [ %150, %149 ], [ %150, %154 ], [ %.pn.pn.pn20.i.i, %188 ], [ %.pn354348.i.i, %.thread44.i.i ], [ %193, %192 ]
   invoke void @"_ZN4core3ptr185drop_in_place$LT$std..sync..mpsc..Sender$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$GT$$GT$17h5a0f42130d43aa92E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %22) #22
           to label %.body unwind label %215
 
@@ -2560,7 +2560,7 @@ define internal void @"_ZN5sqlez22thread_safe_connection23background_thread_queu
   ret void
 
 .body.thread:                                     ; preds = %15, %20
-  %eh.lpad-body7 = phi { ptr, i32 } [ %16, %15 ], [ %21, %20 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %21, %20 ], [ %16, %15 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 20:                                               ; preds = %3
@@ -2674,7 +2674,7 @@ define internal void @"_ZN5sqlez22thread_safe_connection13locking_queue28_$u7b$$
   unreachable
 
 .thread:                                          ; preds = %30, %.body, %36
-  %.pn12 = phi { ptr, i32 } [ %12, %30 ], [ %37, %36 ], [ %12, %.body ]
+  %.pn12 = phi { ptr, i32 } [ %37, %36 ], [ %12, %.body ], [ %12, %30 ]
   resume { ptr, i32 } %.pn12
 
 36:                                               ; preds = %6

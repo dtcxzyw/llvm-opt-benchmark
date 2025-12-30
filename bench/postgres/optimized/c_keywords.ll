@@ -71,7 +71,7 @@ ScanCKeywords_hash_func.exit:                     ; preds = %4, %._crit_edge.loo
   br label %36
 
 36:                                               ; preds = %24, %ScanCKeywords_hash_func.exit, %1, %32
-  %.0 = phi i32 [ -1, %ScanCKeywords_hash_func.exit ], [ -1, %1 ], [ %35, %32 ], [ -1, %24 ]
+  %.0 = phi i32 [ %35, %32 ], [ -1, %1 ], [ -1, %ScanCKeywords_hash_func.exit ], [ -1, %24 ]
   ret i32 %.0
 }
 

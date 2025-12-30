@@ -134,7 +134,7 @@ define noundef ptr @ecpg_find_prepared_statement(ptr noundef readonly captures(n
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !3
 
 .loopexit:                                        ; preds = %.lr.ph29, %3, %.lr.ph._crit_edge, %11
-  %.01116 = phi ptr [ %.01121.lcssa, %11 ], [ %.01121.lcssa, %.lr.ph._crit_edge ], [ null, %3 ], [ null, %.lr.ph29 ]
+  %.01116 = phi ptr [ %.01121.lcssa, %.lr.ph._crit_edge ], [ %.01121.lcssa, %11 ], [ null, %3 ], [ null, %.lr.ph29 ]
   ret ptr %.01116
 }
 
@@ -436,9 +436,9 @@ isvarchar.exit.thread.i:                          ; preds = %isvarchar.exit.i, %
   br label %73
 
 73:                                               ; preds = %61, %27, %20, %.lr.ph89.i
-  %74 = phi ptr [ %15, %.lr.ph89.i ], [ %15, %20 ], [ %15, %27 ], [ %59, %61 ]
-  %.159.i = phi i32 [ %.05885.i, %.lr.ph89.i ], [ %.05885.i, %20 ], [ %28, %27 ], [ %spec.select71.i, %61 ]
-  %.156.i = phi i32 [ %.05586.i, %.lr.ph89.i ], [ %.05586.i, %20 ], [ %.05586.i, %27 ], [ %32, %61 ]
+  %74 = phi ptr [ %15, %.lr.ph89.i ], [ %15, %27 ], [ %59, %61 ], [ %15, %20 ]
+  %.159.i = phi i32 [ %.05885.i, %.lr.ph89.i ], [ %28, %27 ], [ %spec.select71.i, %61 ], [ %.05885.i, %20 ]
+  %.156.i = phi i32 [ %.05586.i, %.lr.ph89.i ], [ %.05586.i, %27 ], [ %32, %61 ], [ %.05586.i, %20 ]
   %75 = add i32 %.159.i, 1
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds i8, ptr %74, i64 %76
@@ -543,7 +543,7 @@ ecpg_find_prepared_statement.exit:                ; preds = %.lr.ph.i, %.lr.ph.i
   br label %19
 
 19:                                               ; preds = %.loopexit, %4, %18, %ecpg_find_prepared_statement.exit
-  %.0 = phi i1 [ %16, %ecpg_find_prepared_statement.exit ], [ false, %4 ], [ false, %18 ], [ true, %.loopexit ]
+  %.0 = phi i1 [ %16, %ecpg_find_prepared_statement.exit ], [ false, %18 ], [ false, %4 ], [ true, %.loopexit ]
   ret i1 %.0
 }
 
@@ -953,7 +953,7 @@ AddStmtToCache.exit:                              ; preds = %.thread.i47, %ecpg_
   br label %138
 
 138:                                              ; preds = %.critedge41, %.loopexit, %132
-  %.132 = phi i1 [ true, %132 ], [ false, %.critedge41 ], [ false, %.loopexit ]
+  %.132 = phi i1 [ true, %132 ], [ false, %.loopexit ], [ false, %.critedge41 ]
   ret i1 %.132
 }
 

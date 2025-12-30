@@ -385,7 +385,7 @@ define internal range(i32 -1, 1) i32 @_sha3_exec(ptr noundef %0) #0 {
   br label %45
 
 45:                                               ; preds = %43, %40, %36, %33, %29, %26, %22, %19, %15, %12, %8, %5, %1
-  %.0 = phi i32 [ -1, %40 ], [ -1, %1 ], [ -1, %5 ], [ -1, %8 ], [ -1, %12 ], [ -1, %15 ], [ -1, %19 ], [ -1, %22 ], [ -1, %26 ], [ -1, %29 ], [ -1, %33 ], [ -1, %36 ], [ %.lobit, %43 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %5 ], [ -1, %8 ], [ -1, %12 ], [ -1, %15 ], [ -1, %19 ], [ -1, %22 ], [ -1, %26 ], [ -1, %29 ], [ -1, %33 ], [ -1, %36 ], [ -1, %40 ], [ %.lobit, %43 ]
   ret i32 %.0
 }
 
@@ -575,7 +575,7 @@ newSHA3object.exit.i:                             ; preds = %29
   br i1 %56, label %57, label %91
 
 57:                                               ; preds = %53, %49, %45, %41, %37, %newSHA3object.exit.i
-  %.sink51.i = phi i8 [ 9, %newSHA3object.exit.i ], [ 10, %41 ], [ 12, %49 ], [ 11, %45 ], [ 8, %37 ], [ 13, %53 ]
+  %.sink51.i = phi i8 [ 9, %newSHA3object.exit.i ], [ 8, %37 ], [ 10, %41 ], [ 11, %45 ], [ 12, %49 ], [ 13, %53 ]
   %58 = call ptr @python_hashlib_Hacl_Hash_SHA3_malloc(i8 noundef zeroext %.sink51.i) #4
   %59 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr %58, ptr %59, align 8, !tbaa !16
@@ -672,7 +672,7 @@ Py_DECREF.exit.i:                                 ; preds = %96, %93, %.thread.i
   br i1 %or.cond.i, label %.sink.split.i, label %py_sha3_new_impl.exit
 
 .sink.split.i:                                    ; preds = %Py_DECREF.exit.i, %88, %83, %57
-  %.0.ph.i = phi ptr [ %32, %57 ], [ %32, %83 ], [ %32, %88 ], [ null, %Py_DECREF.exit.i ]
+  %.0.ph.i = phi ptr [ %32, %83 ], [ %32, %88 ], [ %32, %57 ], [ null, %Py_DECREF.exit.i ]
   call void @PyBuffer_Release(ptr noundef nonnull %4) #4
   br label %py_sha3_new_impl.exit
 
@@ -973,7 +973,7 @@ sha3_update.exit23:                               ; preds = %.lr.ph.i20, %51
   br label %63
 
 63:                                               ; preds = %13, %62, %20, %11, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %11 ], [ null, %20 ], [ @_Py_NoneStruct, %62 ], [ null, %13 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %20 ], [ @_Py_NoneStruct, %62 ], [ null, %11 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

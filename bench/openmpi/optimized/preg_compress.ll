@@ -38,7 +38,7 @@ define internal range(i32 -1366, 1) i32 @generate_node_regex(ptr noundef %0, ptr
   br label %14
 
 14:                                               ; preds = %7, %2, %10
-  %.0 = phi i32 [ -1366, %2 ], [ %12, %10 ], [ -32, %7 ]
+  %.0 = phi i32 [ %12, %10 ], [ -1366, %2 ], [ -32, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -67,7 +67,7 @@ define internal range(i32 -1366, 1) i32 @generate_ppn(ptr noundef %0, ptr nounde
   br label %14
 
 14:                                               ; preds = %7, %2, %10
-  %.0 = phi i32 [ -1366, %2 ], [ %12, %10 ], [ -32, %7 ]
+  %.0 = phi i32 [ %12, %10 ], [ -1366, %2 ], [ -32, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -123,7 +123,7 @@ define internal range(i32 -1366, 1) i32 @parse_nodes(ptr noundef %0, ptr noundef
   br label %28
 
 28:                                               ; preds = %12, %6, %2, %25, %24
-  %.0 = phi i32 [ -1366, %24 ], [ -1366, %2 ], [ -1366, %6 ], [ 0, %25 ], [ -32, %12 ]
+  %.0 = phi i32 [ 0, %25 ], [ -1366, %24 ], [ -1366, %2 ], [ -1366, %6 ], [ -32, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -179,7 +179,7 @@ define internal range(i32 -1366, 1) i32 @parse_procs(ptr noundef %0, ptr noundef
   br label %28
 
 28:                                               ; preds = %12, %6, %2, %25, %24
-  %.0 = phi i32 [ -1366, %24 ], [ -1366, %2 ], [ -1366, %6 ], [ 0, %25 ], [ -32, %12 ]
+  %.0 = phi i32 [ 0, %25 ], [ -1366, %24 ], [ -1366, %2 ], [ -1366, %6 ], [ -32, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -313,7 +313,7 @@ define internal range(i32 -1366, 1) i32 @unpack(ptr noundef captures(none) %0, p
   br label %24
 
 24:                                               ; preds = %.sink.split, %6, %2
-  %.0 = phi i32 [ -1366, %6 ], [ -1366, %2 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ -1366, %2 ], [ -1366, %6 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

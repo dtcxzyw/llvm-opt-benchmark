@@ -293,7 +293,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
   br label %56
 
 56:                                               ; preds = %19, %55, %45, %18, %2
-  %.0 = phi i32 [ 1, %55 ], [ 0, %45 ], [ 0, %2 ], [ 0, %18 ], [ 0, %19 ]
+  %.0 = phi i32 [ 1, %55 ], [ 0, %45 ], [ 0, %18 ], [ 0, %2 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -623,7 +623,7 @@ define internal range(i32 0, 2) i32 @test_try_certreq_poll() #0 {
   br label %execute_try_certreq_poll_test.exit
 
 execute_try_certreq_poll_test.exit:               ; preds = %4, %18, %21, %27, %30, %34
-  %41 = phi i32 [ 0, %30 ], [ 0, %27 ], [ 0, %4 ], [ 0, %21 ], [ 0, %18 ], [ %40, %34 ]
+  %41 = phi i32 [ 0, %30 ], [ 0, %27 ], [ 0, %21 ], [ 0, %18 ], [ 0, %4 ], [ %40, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %42 = load ptr, ptr %6, align 8, !tbaa !23
   call void @OSSL_CMP_CTX_free(ptr noundef %42) #4
@@ -688,7 +688,7 @@ define internal range(i32 0, 2) i32 @test_try_certreq_poll_abort() #0 {
   br label %execute_try_certreq_poll_abort_test.exit
 
 execute_try_certreq_poll_abort_test.exit:         ; preds = %4, %18, %21, %25
-  %31 = phi i32 [ 0, %21 ], [ 0, %18 ], [ %30, %25 ], [ 0, %4 ]
+  %31 = phi i32 [ 0, %21 ], [ 0, %18 ], [ 0, %4 ], [ %30, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %32 = load ptr, ptr %6, align 8, !tbaa !23
   call void @OSSL_CMP_CTX_free(ptr noundef %32) #4
@@ -1176,7 +1176,7 @@ define internal fastcc i32 @execute_exec_certrequest_ses_test(ptr noundef nonnul
   br label %35
 
 35:                                               ; preds = %26, %20, %22, %11, %14, %29, %18
-  %.0 = phi i32 [ %19, %18 ], [ %34, %29 ], [ 0, %20 ], [ 0, %11 ], [ 0, %14 ], [ 0, %22 ], [ 1, %26 ]
+  %.0 = phi i32 [ %19, %18 ], [ %34, %29 ], [ 0, %14 ], [ 0, %11 ], [ 0, %22 ], [ 0, %20 ], [ 1, %26 ]
   ret i32 %.0
 }
 

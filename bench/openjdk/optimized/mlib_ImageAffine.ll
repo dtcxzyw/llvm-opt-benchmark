@@ -199,8 +199,8 @@ switch.lookup:                                    ; preds = %10
   br label %25
 
 25:                                               ; preds = %22, %24, %23, %21, %19
-  %26 = phi i1 [ false, %19 ], [ false, %21 ], [ false, %22 ], [ true, %23 ], [ true, %24 ]
-  %.073 = phi i32 [ 0, %19 ], [ 1, %21 ], [ 2, %22 ], [ 3, %23 ], [ %.val, %24 ]
+  %26 = phi i1 [ false, %21 ], [ false, %22 ], [ true, %23 ], [ true, %24 ], [ false, %19 ]
+  %.073 = phi i32 [ 1, %21 ], [ 2, %22 ], [ 3, %23 ], [ %.val, %24 ], [ 0, %19 ]
   switch i32 %3, label %default.unreachable [
     i32 0, label %27
     i32 1, label %._crit_edge
@@ -257,9 +257,9 @@ switch.lookup:                                    ; preds = %10
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %25, %27, %._crit_edge.loopexit, %60
-  %.073.sink = phi i32 [ %.073, %60 ], [ %59, %._crit_edge.loopexit ], [ %spec.select, %27 ], [ %.073, %25 ]
-  %.val98.sink = phi i32 [ %.val98, %60 ], [ %50, %._crit_edge.loopexit ], [ %.val98, %27 ], [ %.val98, %25 ]
-  %mlib_AffineFunArr_bc.sink = phi ptr [ @mlib_AffineFunArr_bc, %60 ], [ @mlib_AffineFunArr_nn, %._crit_edge.loopexit ], [ @mlib_AffineFunArr_nn, %27 ], [ @mlib_AffineFunArr_bl, %25 ]
+  %.073.sink = phi i32 [ %.073, %60 ], [ %spec.select, %27 ], [ %59, %._crit_edge.loopexit ], [ %.073, %25 ]
+  %.val98.sink = phi i32 [ %.val98, %60 ], [ %.val98, %27 ], [ %50, %._crit_edge.loopexit ], [ %.val98, %25 ]
+  %mlib_AffineFunArr_bc.sink = phi ptr [ @mlib_AffineFunArr_bc, %60 ], [ @mlib_AffineFunArr_nn, %27 ], [ @mlib_AffineFunArr_nn, %._crit_edge.loopexit ], [ @mlib_AffineFunArr_bl, %25 ]
   %61 = shl nuw nsw i32 %.073.sink, 2
   %62 = add nsw i32 %.val98.sink, -1
   %63 = add nsw i32 %62, %61
@@ -347,13 +347,13 @@ default.unreachable:                              ; preds = %25
   br i1 %.not94, label %97, label %.sink.split
 
 .sink.split:                                      ; preds = %94, %78, %68
-  %.sink = phi ptr [ %80, %78 ], [ %70, %68 ], [ %96, %94 ]
-  %.0.ph = phi i32 [ %77, %78 ], [ %67, %68 ], [ %.277, %94 ]
+  %.sink = phi ptr [ %70, %68 ], [ %80, %78 ], [ %96, %94 ]
+  %.0.ph = phi i32 [ %67, %68 ], [ %77, %78 ], [ %.277, %94 ]
   call void @mlib_free(ptr noundef nonnull %.sink) #2
   br label %97
 
 97:                                               ; preds = %.sink.split, %94, %78, %68, %19, %switch.lookup, %10, %5
-  %.0 = phi i32 [ %18, %switch.lookup ], [ 1, %5 ], [ 1, %10 ], [ %.0.ph, %.sink.split ], [ 1, %19 ], [ %67, %68 ], [ %77, %78 ], [ %.277, %94 ]
+  %.0 = phi i32 [ 1, %5 ], [ 1, %10 ], [ %18, %switch.lookup ], [ 1, %19 ], [ %67, %68 ], [ %77, %78 ], [ %.277, %94 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

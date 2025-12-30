@@ -85,7 +85,7 @@ define hidden i32 @uv__random_readpath(ptr noundef %0, ptr noundef captures(none
   br label %37
 
 37:                                               ; preds = %3, %._crit_edge, %32, %.critedge, %19, %9
-  %.0 = phi i32 [ -5, %19 ], [ %13, %9 ], [ %31, %.critedge ], [ -5, %32 ], [ 0, %._crit_edge ], [ %5, %3 ]
+  %.0 = phi i32 [ %13, %9 ], [ %31, %.critedge ], [ -5, %32 ], [ 0, %._crit_edge ], [ -5, %19 ], [ %5, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

@@ -301,8 +301,8 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   %.not.not = icmp ult i64 %.lcssa43.promoted54, %7
   br i1 %.not.not, label %33, label %.critedge2.thread, !llvm.loop !11
 
-.critedge2.thread:                                ; preds = %33, %55, %29
-  %57 = phi i64 [ %.lcssa43.promoted95, %29 ], [ %.lcssa43.promoted54, %33 ], [ %56, %55 ]
+.critedge2.thread:                                ; preds = %55, %33, %29
+  %57 = phi i64 [ %.lcssa43.promoted95, %29 ], [ %56, %55 ], [ %.lcssa43.promoted54, %33 ]
   %gepdiff93 = sub nsw i64 %57, %.lcssa43.promoted95
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %gepdiff93, ptr %58, align 8
@@ -431,7 +431,7 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   br label %106
 
 106:                                              ; preds = %2, %104, %94, %53, %24
-  %.0 = phi i1 [ %105, %104 ], [ false, %24 ], [ false, %53 ], [ false, %94 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %24 ], [ false, %53 ], [ false, %94 ], [ %105, %104 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -1452,7 +1452,7 @@ define hidden void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP
   br i1 %exitcond.not.i, label %.critedge.i, label %21, !llvm.loop !36
 
 .critedge.i:                                      ; preds = %24, %21
-  %.0.lcssa.i = phi i64 [ %.05.i, %21 ], [ %10, %24 ]
+  %.0.lcssa.i = phi i64 [ %10, %24 ], [ %.05.i, %21 ]
   %26 = getelementptr inbounds i8, ptr %2, i64 %.sroa.7.04166
   %27 = sub i64 %.0.lcssa.i, %.sroa.7.04166
   store ptr %26, ptr %6, align 8, !alias.scope !33
@@ -1484,7 +1484,7 @@ define hidden void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP
   br label %.critedge.i.loopexit.i, !llvm.loop !6
 
 .critedge.i.loopexit.i:                           ; preds = %.lr.ph.i.i, %..critedge.i.loopexit_crit_edge.i, %.lr.ph.i.preheader.i
-  %39 = phi ptr [ %26, %.lr.ph.i.preheader.i ], [ %37, %..critedge.i.loopexit_crit_edge.i ], [ %37, %.lr.ph.i.i ]
+  %39 = phi ptr [ %37, %..critedge.i.loopexit_crit_edge.i ], [ %26, %.lr.ph.i.preheader.i ], [ %37, %.lr.ph.i.i ]
   store ptr %39, ptr %6, align 8, !alias.scope !33
   br label %.critedge.i.i
 

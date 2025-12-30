@@ -1523,8 +1523,8 @@ obj_to_asn1derstr.exit.i:                         ; preds = %RSTRING_PTR.exit.i4
   unreachable
 
 obj_to_asn1null.exit.i:                           ; preds = %obj_to_asn1derstr.exit.i, %obj_to_asn1gtime.exit.i, %obj_to_asn1utime.exit.i, %obj_to_asn1obj.exit.i, %obj_to_asn1str.exit.i, %78, %obj_to_asn1bstr.exit.i, %obj_to_asn1int.exit.i
-  %.021.i = phi ptr [ @ASN1_NULL_free, %78 ], [ @ASN1_INTEGER_free, %obj_to_asn1int.exit.i ], [ @ASN1_BIT_STRING_free, %obj_to_asn1bstr.exit.i ], [ @ASN1_STRING_free, %obj_to_asn1derstr.exit.i ], [ @ASN1_STRING_free, %obj_to_asn1str.exit.i ], [ @ASN1_OBJECT_free, %obj_to_asn1obj.exit.i ], [ @ASN1_TIME_free, %obj_to_asn1utime.exit.i ], [ @ASN1_TIME_free, %obj_to_asn1gtime.exit.i ]
-  %.0.i = phi ptr [ %79, %78 ], [ %37, %obj_to_asn1int.exit.i ], [ %53, %obj_to_asn1bstr.exit.i ], [ %135, %obj_to_asn1derstr.exit.i ], [ %84, %obj_to_asn1str.exit.i ], [ %.011.i.i, %obj_to_asn1obj.exit.i ], [ %124, %obj_to_asn1utime.exit.i ], [ %130, %obj_to_asn1gtime.exit.i ]
+  %.021.i = phi ptr [ @ASN1_INTEGER_free, %obj_to_asn1int.exit.i ], [ @ASN1_BIT_STRING_free, %obj_to_asn1bstr.exit.i ], [ @ASN1_STRING_free, %obj_to_asn1str.exit.i ], [ @ASN1_OBJECT_free, %obj_to_asn1obj.exit.i ], [ @ASN1_TIME_free, %obj_to_asn1utime.exit.i ], [ @ASN1_TIME_free, %obj_to_asn1gtime.exit.i ], [ @ASN1_STRING_free, %obj_to_asn1derstr.exit.i ], [ @ASN1_NULL_free, %78 ]
+  %.0.i = phi ptr [ %37, %obj_to_asn1int.exit.i ], [ %53, %obj_to_asn1bstr.exit.i ], [ %84, %obj_to_asn1str.exit.i ], [ %.011.i.i, %obj_to_asn1obj.exit.i ], [ %124, %obj_to_asn1utime.exit.i ], [ %130, %obj_to_asn1gtime.exit.i ], [ %135, %obj_to_asn1derstr.exit.i ], [ %79, %78 ]
   %152 = call ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str.115, i32 noundef 566) #9
   %.not.i = icmp eq ptr %152, null
   br i1 %.not.i, label %157, label %ossl_asn1_get_asn1type.exit
@@ -2531,7 +2531,7 @@ define internal fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull captures(none)
   br label %48
 
 48:                                               ; preds = %46, %44, %40
-  %.0.in = phi ptr [ @sym_CONTEXT_SPECIFIC, %44 ], [ @sym_PRIVATE, %40 ], [ %sym_UNIVERSAL.sym_APPLICATION, %46 ]
+  %.0.in = phi ptr [ @sym_PRIVATE, %40 ], [ @sym_CONTEXT_SPECIFIC, %44 ], [ %sym_UNIVERSAL.sym_APPLICATION, %46 ]
   %.0 = load i64, ptr %.0.in, align 8, !tbaa !17
   %49 = ptrtoint ptr %31 to i64
   %50 = ptrtoint ptr %29 to i64
@@ -2620,7 +2620,7 @@ rb_long2num_inline.exit66:                        ; preds = %74, %77
   br label %ossl_asn1_class2sym.exit
 
 ossl_asn1_class2sym.exit:                         ; preds = %rb_long2num_inline.exit66, %86, %88
-  %.0.in.i = phi ptr [ @sym_CONTEXT_SPECIFIC, %86 ], [ @sym_PRIVATE, %rb_long2num_inline.exit66 ], [ %sym_UNIVERSAL.sym_APPLICATION.i, %88 ]
+  %.0.in.i = phi ptr [ @sym_PRIVATE, %rb_long2num_inline.exit66 ], [ @sym_CONTEXT_SPECIFIC, %86 ], [ %sym_UNIVERSAL.sym_APPLICATION.i, %88 ]
   %.0.i67 = load i64, ptr %.0.in.i, align 8, !tbaa !17
   %90 = call i64 @rb_ary_push(i64 noundef %52, i64 noundef %.0.i67) #9
   %91 = load i32, ptr %26, align 4, !tbaa !25
@@ -3419,7 +3419,7 @@ define internal fastcc i32 @ossl_asn1_default_tag(i64 noundef %0) unnamed_addr #
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %6, %9, %10, %11, %12, %14
-  %.0.in.i = phi ptr [ %8, %6 ], [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select.i, %14 ]
+  %.0.in.i = phi ptr [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ %8, %6 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select.i, %14 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !17
   %17 = icmp eq i64 %.0.i, 4
   br i1 %17, label %.loopexit, label %.lr.ph
@@ -3495,7 +3495,7 @@ define internal fastcc i64 @to_der_internal(i64 noundef %0, i32 noundef range(i3
   unreachable
 
 ossl_asn1_tag_class.exit:                         ; preds = %4, %13, %16, %19
-  %.0.i = phi i32 [ 128, %16 ], [ 0, %4 ], [ 64, %13 ], [ 192, %19 ]
+  %.0.i = phi i32 [ 0, %4 ], [ 64, %13 ], [ 128, %16 ], [ 192, %19 ]
   %24 = load i64, ptr @sivTAG, align 8, !tbaa !17
   %25 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %24) #9
   %26 = icmp eq i64 %25, 4

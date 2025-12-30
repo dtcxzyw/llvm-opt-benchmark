@@ -413,10 +413,10 @@ sha256_finish_ctx.exit445:                        ; preds = %169
   br label %._crit_edge.i446.thread
 
 ._crit_edge.i446.thread:                          ; preds = %._crit_edge.i446, %sha256_finish_ctx.exit445
-  %182 = phi i32 [ %181, %._crit_edge.i446 ], [ 0, %sha256_finish_ctx.exit445 ]
-  %183 = phi i32 [ %.pre.fr, %._crit_edge.i446 ], [ 0, %sha256_finish_ctx.exit445 ]
-  %184 = phi i32 [ %175, %._crit_edge.i446 ], [ 0, %sha256_finish_ctx.exit445 ]
-  %185 = phi i32 [ %spec.select688, %._crit_edge.i446 ], [ 56, %sha256_finish_ctx.exit445 ]
+  %182 = phi i32 [ 0, %sha256_finish_ctx.exit445 ], [ %181, %._crit_edge.i446 ]
+  %183 = phi i32 [ 0, %sha256_finish_ctx.exit445 ], [ %.pre.fr, %._crit_edge.i446 ]
+  %184 = phi i32 [ 0, %sha256_finish_ctx.exit445 ], [ %175, %._crit_edge.i446 ]
+  %185 = phi i32 [ 56, %sha256_finish_ctx.exit445 ], [ %spec.select688, %._crit_edge.i446 ]
   %186 = sub i32 %185, %183
   %187 = zext i32 %186 to i64
   %188 = zext i32 %183 to i64
@@ -1346,8 +1346,8 @@ define internal fastcc void @sha256_process_bytes(ptr noundef %0, i64 noundef %1
   br label %41
 
 41:                                               ; preds = %37, %27
-  %.158 = phi i64 [ %.057, %27 ], [ %40, %37 ]
-  %.1 = phi ptr [ %.056, %27 ], [ %39, %37 ]
+  %.158 = phi i64 [ %40, %37 ], [ %.057, %27 ]
+  %.1 = phi ptr [ %39, %37 ], [ %.056, %27 ]
   %.not65 = icmp eq i64 %.158, 0
   br i1 %.not65, label %53, label %.thread
 

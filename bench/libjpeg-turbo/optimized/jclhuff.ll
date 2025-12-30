@@ -938,7 +938,7 @@ dump_buffer.exit107:                              ; preds = %222
   br i1 %exitcond266.not, label %emit_bits.exit96, label %.preheader, !llvm.loop !86
 
 emit_bits.exit96:                                 ; preds = %50, %35, %250, %180, %165, %222, %207, %.preheader190, %79, %65
-  %.0 = phi i32 [ %4, %250 ], [ %.078251, %222 ], [ 0, %.preheader190 ], [ 0, %65 ], [ 0, %79 ], [ %.078251, %180 ], [ %.078251, %207 ], [ %.078251, %165 ], [ 0, %35 ], [ 0, %50 ]
+  %.0 = phi i32 [ 0, %65 ], [ 0, %79 ], [ 0, %.preheader190 ], [ %.078251, %207 ], [ %.078251, %222 ], [ %.078251, %165 ], [ %.078251, %180 ], [ %4, %250 ], [ 0, %35 ], [ 0, %50 ]
   ret i32 %.0
 }
 
@@ -1031,7 +1031,7 @@ dump_buffer.exit6.i:                              ; preds = %37
   %48 = icmp sgt i32 %.032.i16.i, 15
   br i1 %48, label %16, label %flush_bits.exit, !llvm.loop !83
 
-49:                                               ; preds = %37, %22
+49:                                               ; preds = %22, %37
   %.sroa.0.4.ph = phi ptr [ %34, %37 ], [ %19, %22 ]
   %50 = load ptr, ptr %0, align 8, !tbaa !43
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 40

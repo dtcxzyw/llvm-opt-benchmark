@@ -370,8 +370,8 @@ Hash_DRBG_Instantiate.exit:                       ; preds = %70
   store i32 1, ptr %63, align 8, !tbaa !17
   br label %.lr.ph29.preheader.i
 
-wc_RNG_TestSeed.exit.thread78:                    ; preds = %.thread76, %wc_RNG_TestSeed.exit.thread, %wc_RNG_TestSeed.exit, %70, %62
-  %.4.ph = phi i32 [ 1, %62 ], [ 1, %70 ], [ %.01317.i.ph, %wc_RNG_TestSeed.exit ], [ 1, %wc_RNG_TestSeed.exit.thread ], [ 3, %.thread76 ]
+wc_RNG_TestSeed.exit.thread78:                    ; preds = %.thread76, %wc_RNG_TestSeed.exit, %wc_RNG_TestSeed.exit.thread, %70, %62
+  %.4.ph = phi i32 [ 1, %62 ], [ 1, %70 ], [ 1, %wc_RNG_TestSeed.exit.thread ], [ %.01317.i.ph, %wc_RNG_TestSeed.exit ], [ 3, %.thread76 ]
   %74 = load ptr, ptr %13, align 8, !tbaa !3
   %.not50 = icmp eq ptr %74, null
   br i1 %.not50, label %76, label %75
@@ -385,7 +385,7 @@ wc_RNG_TestSeed.exit.thread78:                    ; preds = %.thread76, %wc_RNG_
   br label %.lr.ph29.preheader.i
 
 .lr.ph29.preheader.i:                             ; preds = %17, %76, %Hash_DRBG_Instantiate.exit
-  %.2 = phi i32 [ 0, %Hash_DRBG_Instantiate.exit ], [ %.4.ph, %76 ], [ -125, %17 ]
+  %.2 = phi i32 [ %.4.ph, %76 ], [ 0, %Hash_DRBG_Instantiate.exit ], [ -125, %17 ]
   br label %.lr.ph29.i
 
 .preheader.i:                                     ; preds = %.lr.ph29.i
@@ -428,13 +428,13 @@ wc_RNG_TestSeed.exit.thread78:                    ; preds = %.thread76, %wc_RNG_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.loopexit, %.thread63, %83, %82
-  %.sink = phi i8 [ 3, %.thread63 ], [ 2, %82 ], [ 2, %83 ], [ 1, %.loopexit ]
-  %.0.ph = phi i32 [ -209, %.thread63 ], [ -199, %82 ], [ %.2, %83 ], [ %.2, %.loopexit ]
+  %.sink = phi i8 [ 2, %82 ], [ 2, %83 ], [ 3, %.thread63 ], [ 1, %.loopexit ]
+  %.0.ph = phi i32 [ -199, %82 ], [ %.2, %83 ], [ -209, %.thread63 ], [ %.2, %.loopexit ]
   store i8 %.sink, ptr %14, align 8, !tbaa !22
   br label %84
 
 84:                                               ; preds = %.sink.split, %8, %5
-  %.0 = phi i32 [ -173, %8 ], [ -173, %5 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ -173, %5 ], [ -173, %8 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -867,7 +867,7 @@ wc_RNG_HealthTestLocal.exit:                      ; preds = %.lr.ph.i.i
   br label %47
 
 47:                                               ; preds = %.sink.split, %45, %12, %10, %8, %3
-  %.0 = phi i32 [ -199, %12 ], [ -173, %3 ], [ 0, %8 ], [ -173, %10 ], [ %.027, %45 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ -173, %3 ], [ 0, %8 ], [ -173, %10 ], [ -199, %12 ], [ %.027, %45 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -966,8 +966,8 @@ array_add_one.exit.loopexit.i:                    ; preds = %34
   br label %array_add_one.exit.i
 
 array_add_one.exit.i:                             ; preds = %array_add_one.exit.loopexit.i, %40, %30
-  %.126.i = phi i32 [ 0, %30 ], [ 0, %40 ], [ %42, %array_add_one.exit.loopexit.i ]
-  %.124.i = phi ptr [ %.0236.i, %30 ], [ %.0236.i, %40 ], [ %43, %array_add_one.exit.loopexit.i ]
+  %.126.i = phi i32 [ 0, %40 ], [ 0, %30 ], [ %42, %array_add_one.exit.loopexit.i ]
+  %.124.i = phi ptr [ %.0236.i, %40 ], [ %.0236.i, %30 ], [ %43, %array_add_one.exit.loopexit.i ]
   %44 = add nuw nsw i32 %.0217.i, 1
   %exitcond.not.i = icmp eq i32 %44, %20
   br i1 %exitcond.not.i, label %.lr.ph29.preheader.i.i, label %21, !llvm.loop !31
@@ -1233,7 +1233,7 @@ ConstantCompare.exit41:                           ; preds = %.lr.ph.i36
   br label %.thread
 
 .thread:                                          ; preds = %15, %ConstantCompare.exit41, %ConstantCompare.exit, %24, %25, %5
-  %.1 = phi i32 [ %26, %25 ], [ %6, %5 ], [ %spec.select, %ConstantCompare.exit ], [ -1, %24 ], [ %spec.select29, %ConstantCompare.exit41 ], [ %16, %15 ]
+  %.1 = phi i32 [ %6, %5 ], [ %spec.select, %ConstantCompare.exit ], [ %26, %25 ], [ -1, %24 ], [ %spec.select29, %ConstantCompare.exit41 ], [ %16, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
@@ -1375,7 +1375,7 @@ define range(i32 -173, 1) i32 @wc_RNG_HealthTest_ex(i32 noundef %0, ptr noundef 
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %Hash_DRBG_Reseed.exit, label %Hash_DRBG_Reseed.exit.thread
 
-Hash_DRBG_Reseed.exit.thread:                     ; preds = %30, %.loopexit.i
+Hash_DRBG_Reseed.exit.thread:                     ; preds = %.loopexit.i, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.lr.ph29.preheader.i.i38
 
@@ -1396,7 +1396,7 @@ Hash_DRBG_Reseed.exit:                            ; preds = %.loopexit.i
   br label %.lr.ph29.preheader.i.i38
 
 .lr.ph29.preheader.i.i38:                         ; preds = %40, %42, %Hash_DRBG_Reseed.exit.thread, %25, %20
-  %.028 = phi i32 [ %spec.select, %42 ], [ -1, %Hash_DRBG_Reseed.exit.thread ], [ -1, %40 ], [ -1, %25 ], [ -1, %20 ]
+  %.028 = phi i32 [ -1, %40 ], [ %spec.select, %42 ], [ -1, %Hash_DRBG_Reseed.exit.thread ], [ -1, %25 ], [ -1, %20 ]
   br label %.lr.ph29.i.i39
 
 .lr.ph29.i.i39:                                   ; preds = %.lr.ph29.i.i39, %.lr.ph29.preheader.i.i38

@@ -1529,7 +1529,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$qlog..streamer..QlogStreamer
   br label %.body
 
 .body:                                            ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i", %20, %2
-  %.pn = phi { ptr, i32 } [ %3, %2 ], [ %21, %20 ], [ %21, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i" ]
+  %.pn = phi { ptr, i32 } [ %3, %2 ], [ %21, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i" ], [ %21, %20 ]
   invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$qlog..QlogSeq$GT$17ha55488ddbc4c92dbE"(ptr noalias noundef align 8 dereferenceable(328) %0) #14
           to label %30 unwind label %28
 
@@ -1698,7 +1698,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$qlog..events..quic.
   unreachable
 
 common.resume:                                    ; preds = %100, %95, %46, %50, %54, %.body.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %32, %.body.i.i.i ], [ %47, %54 ], [ %47, %50 ], [ %96, %95 ], [ %96, %100 ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %.body.i.i.i ], [ %47, %54 ], [ %47, %50 ], [ %47, %46 ], [ %96, %95 ], [ %96, %100 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr52drop_in_place$LT$qlog..events..quic..AckedRanges$GT$17h05e286c63cb08e29E.exit.i": ; preds = %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h60179e9c5d903b15E.exit.i.i.i.i.i", %20

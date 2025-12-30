@@ -615,7 +615,7 @@ Py_DECREF.exit137:                                ; preds = %145, %149, %152
   br label %.critedge
 
 .critedge:                                        ; preds = %Py_DECREF.exit, %Py_DECREF.exit125, %Py_DECREF.exit127, %Py_DECREF.exit129, %Py_DECREF.exit131, %Py_DECREF.exit133, %Py_DECREF.exit135, %Py_DECREF.exit137, %91, %94, %97, %100, %103, %107, %153, %156, %159, %162, %48, %61, %71, %81, %110, %123, %133, %143, %45, %detect_cpu_features.exit
-  %.0 = phi i32 [ -1, %45 ], [ -1, %detect_cpu_features.exit ], [ -1, %71 ], [ -1, %91 ], [ -1, %94 ], [ -1, %97 ], [ -1, %100 ], [ -1, %103 ], [ -1, %133 ], [ -1, %153 ], [ -1, %156 ], [ %.lobit, %162 ], [ -1, %159 ], [ -1, %Py_DECREF.exit137 ], [ -1, %Py_DECREF.exit135 ], [ -1, %Py_DECREF.exit133 ], [ -1, %Py_DECREF.exit131 ], [ -1, %Py_DECREF.exit129 ], [ -1, %Py_DECREF.exit127 ], [ -1, %Py_DECREF.exit125 ], [ -1, %Py_DECREF.exit ], [ -1, %123 ], [ -1, %48 ], [ -1, %61 ], [ -1, %107 ], [ -1, %81 ], [ -1, %110 ], [ -1, %143 ]
+  %.0 = phi i32 [ -1, %detect_cpu_features.exit ], [ -1, %45 ], [ -1, %Py_DECREF.exit137 ], [ -1, %Py_DECREF.exit135 ], [ -1, %Py_DECREF.exit133 ], [ -1, %Py_DECREF.exit131 ], [ -1, %Py_DECREF.exit129 ], [ -1, %Py_DECREF.exit127 ], [ -1, %Py_DECREF.exit125 ], [ -1, %Py_DECREF.exit ], [ -1, %91 ], [ -1, %94 ], [ -1, %97 ], [ -1, %100 ], [ -1, %103 ], [ -1, %107 ], [ -1, %153 ], [ -1, %156 ], [ -1, %159 ], [ %.lobit, %162 ], [ -1, %48 ], [ -1, %61 ], [ -1, %71 ], [ -1, %81 ], [ -1, %110 ], [ -1, %123 ], [ -1, %133 ], [ -1, %143 ]
   ret i32 %.0
 }
 
@@ -1450,7 +1450,7 @@ _PyMutex_Unlock.exit:                             ; preds = %_PyMutex_Lock.exit,
   br label %45
 
 45:                                               ; preds = %13, %44, %20, %11, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %11 ], [ null, %20 ], [ @_Py_NoneStruct, %44 ], [ null, %13 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %20 ], [ @_Py_NoneStruct, %44 ], [ null, %11 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -1797,8 +1797,8 @@ type_to_impl.exit:                                ; preds = %51
   %spec.select4.i = zext nneg i8 %57 to i32
   br label %.sink.split
 
-.sink.split:                                      ; preds = %type_to_impl.exit.thread110, %has_simd256.exit.i, %35, %39, %51, %47, %43, %type_to_impl.exit
-  %spec.select4.i.sink = phi i32 [ %spec.select4.i, %type_to_impl.exit ], [ 3, %has_simd256.exit.i ], [ 1, %type_to_impl.exit.thread110 ], [ 0, %35 ], [ 0, %39 ], [ 0, %51 ], [ 0, %47 ], [ 0, %43 ]
+.sink.split:                                      ; preds = %type_to_impl.exit.thread110, %has_simd256.exit.i, %51, %47, %43, %39, %35, %type_to_impl.exit
+  %spec.select4.i.sink = phi i32 [ %spec.select4.i, %type_to_impl.exit ], [ 1, %type_to_impl.exit.thread110 ], [ 3, %has_simd256.exit.i ], [ 0, %51 ], [ 0, %47 ], [ 0, %43 ], [ 0, %39 ], [ 0, %35 ]
   %58 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i32 %spec.select4.i.sink, ptr %58, align 8, !tbaa !42
   %59 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -2109,7 +2109,7 @@ type_to_impl.exit:                                ; preds = %51
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %207, %204, %202, %13, %171, %201
-  %.0 = phi ptr [ %18, %171 ], [ %18, %201 ], [ null, %13 ], [ null, %202 ], [ null, %204 ], [ null, %207 ]
+  %.0 = phi ptr [ %18, %201 ], [ %18, %171 ], [ null, %13 ], [ null, %202 ], [ null, %204 ], [ null, %207 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret ptr %.0
 }

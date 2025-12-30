@@ -660,7 +660,7 @@ define i32 @ossl_cmp_print_log(i32 noundef %0, ptr noundef readonly captures(add
   br label %30
 
 30:                                               ; preds = %19, %15, %7, %11, %29
-  %.017 = phi i32 [ %.0, %29 ], [ 1, %7 ], [ 1, %15 ], [ 1, %11 ], [ 0, %19 ]
+  %.017 = phi i32 [ %.0, %29 ], [ 1, %11 ], [ 1, %7 ], [ 1, %15 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.017
@@ -2114,7 +2114,7 @@ define ptr @OSSL_CMP_CTX_get0_newPkey(ptr noundef readonly captures(address_is_n
   br label %22
 
 22:                                               ; preds = %17, %16, %12, %9, %19, %4
-  %.0 = phi ptr [ null, %4 ], [ %21, %19 ], [ null, %9 ], [ %7, %12 ], [ %18, %17 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %4 ], [ %21, %19 ], [ %7, %12 ], [ null, %9 ], [ %18, %17 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -2167,7 +2167,7 @@ define ptr @ossl_cmp_ctx_get0_newPubkey(ptr noundef readonly captures(address_is
   br label %23
 
 23:                                               ; preds = %2, %1, %20, %18, %13, %8
-  %.0 = phi ptr [ null, %1 ], [ %9, %8 ], [ %14, %13 ], [ %19, %18 ], [ %22, %20 ], [ %4, %2 ]
+  %.0 = phi ptr [ %9, %8 ], [ %14, %13 ], [ %19, %18 ], [ %22, %20 ], [ null, %1 ], [ %4, %2 ]
   ret ptr %.0
 }
 

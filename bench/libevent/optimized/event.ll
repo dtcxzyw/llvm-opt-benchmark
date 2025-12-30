@@ -159,7 +159,7 @@ define hidden range(i32 -1, 1) i32 @event_debug_map_HT_GROW(ptr noundef captures
   br label %event_mm_malloc_.exit
 
 event_mm_malloc_.exit:                            ; preds = %24, %26
-  %.0.i = phi ptr [ %27, %26 ], [ %25, %24 ]
+  %.0.i = phi ptr [ %25, %24 ], [ %27, %26 ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %event_mm_malloc_.exit.thread, label %28
 
@@ -305,7 +305,7 @@ event_mm_realloc_.exit:                           ; preds = %54, %56
   br i1 %83, label %.lr.ph109, label %event_mm_free_.exit, !llvm.loop !8
 
 event_mm_free_.exit:                              ; preds = %._crit_edge106, %58, %._crit_edge99, %50, %51
-  %storemerge = phi ptr [ %.0.i, %._crit_edge99 ], [ %.0.i, %51 ], [ %.0.i, %50 ], [ %.0.i89, %58 ], [ %.0.i89, %._crit_edge106 ]
+  %storemerge = phi ptr [ %.0.i, %51 ], [ %.0.i, %50 ], [ %.0.i, %._crit_edge99 ], [ %.0.i89, %58 ], [ %.0.i89, %._crit_edge106 ]
   store ptr %storemerge, ptr %0, align 8
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %12, ptr %84, align 8
@@ -314,7 +314,7 @@ event_mm_free_.exit:                              ; preds = %._crit_edge106, %58
   br label %.critedge
 
 .critedge:                                        ; preds = %event_mm_realloc_.exit, %6, %2, %event_mm_free_.exit
-  %.070 = phi i32 [ -1, %event_mm_realloc_.exit ], [ 0, %2 ], [ 0, %event_mm_free_.exit ], [ 0, %6 ]
+  %.070 = phi i32 [ 0, %event_mm_free_.exit ], [ 0, %2 ], [ 0, %6 ], [ -1, %event_mm_realloc_.exit ]
   ret i32 %.070
 }
 
@@ -337,7 +337,7 @@ define ptr @event_mm_malloc_(i64 noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %1, %7, %5
-  %.0 = phi ptr [ %8, %7 ], [ %6, %5 ], [ null, %1 ]
+  %.0 = phi ptr [ %6, %5 ], [ %8, %7 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -523,7 +523,7 @@ define hidden range(i32 10000, 9999) i32 @event_debug_map_HT_REP_IS_BAD_(ptr nou
   br label %50
 
 50:                                               ; preds = %49, %33, %29, %25, %17, %18, %22, %12, %44, %16
-  %.033 = phi i32 [ 0, %12 ], [ 2, %17 ], [ 3, %25 ], [ 4, %29 ], [ 2, %18 ], [ %46, %44 ], [ %., %49 ], [ 5, %33 ], [ 1, %16 ], [ 2, %22 ]
+  %.033 = phi i32 [ %46, %44 ], [ 1, %16 ], [ 0, %12 ], [ 2, %22 ], [ 2, %18 ], [ 2, %17 ], [ 3, %25 ], [ 4, %29 ], [ 5, %33 ], [ %., %49 ]
   ret i32 %.033
 }
 
@@ -771,8 +771,8 @@ event_mm_calloc_.exit:                            ; preds = %1
   br label %21
 
 21:                                               ; preds = %.critedge103.thread, %13
-  %.fr = phi i1 [ false, %.critedge103.thread ], [ %18, %13 ]
-  %22 = phi i1 [ false, %.critedge103.thread ], [ %20, %13 ]
+  %.fr = phi i1 [ %18, %13 ], [ false, %.critedge103.thread ]
+  %22 = phi i1 [ %20, %13 ], [ false, %.critedge103.thread ]
   %or.cond = or i1 %.fr, %22
   br i1 %or.cond, label %29, label %23
 
@@ -1037,7 +1037,7 @@ event_config_is_avoided_method.exit.us:           ; preds = %112, %event_is_meth
   br label %event_config_is_avoided_method.exit.us128
 
 event_config_is_avoided_method.exit.us128:        ; preds = %126, %134, %.loopexit124.us
-  %138 = phi ptr [ null, %.loopexit124.us ], [ %137, %134 ], [ null, %126 ]
+  %138 = phi ptr [ %137, %134 ], [ null, %.loopexit124.us ], [ null, %126 ]
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %139 = getelementptr inbounds nuw ptr, ptr @eventops, i64 %indvars.iv.next141
   %140 = load ptr, ptr %139, align 8
@@ -1359,7 +1359,7 @@ event_config_entry_free.exit.i:                   ; preds = %28, %27
   br label %event_config_free.exit
 
 event_config_free.exit:                           ; preds = %event_mm_calloc_.exit.thread.i, %event_mm_calloc_.exit.i, %32, %31
-  %.0 = phi ptr [ %12, %32 ], [ %12, %31 ], [ null, %event_mm_calloc_.exit.i ], [ null, %event_mm_calloc_.exit.thread.i ]
+  %.0 = phi ptr [ %12, %31 ], [ %12, %32 ], [ null, %event_mm_calloc_.exit.i ], [ null, %event_mm_calloc_.exit.thread.i ]
   ret ptr %.0
 }
 
@@ -1690,7 +1690,7 @@ define ptr @event_mm_calloc_(i64 noundef %0, i64 noundef %1) local_unnamed_addr 
   br label %16
 
 16:                                               ; preds = %11, %2, %14, %12
-  %.0 = phi ptr [ %13, %12 ], [ %10, %11 ], [ null, %14 ], [ null, %2 ]
+  %.0 = phi ptr [ %10, %11 ], [ null, %14 ], [ %13, %12 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -2303,7 +2303,7 @@ event_del_.exit.sink.split.i30.us.i:              ; preds = %event_callback_canc
   br label %event_del_.exit.i23.us.i
 
 event_del_.exit.i23.us.i:                         ; preds = %event_del_.exit.sink.split.i30.us.i, %event_callback_cancel_nolock_.exit157, %136, %126
-  %.1.i24.us.i = phi i32 [ 1, %event_callback_cancel_nolock_.exit157 ], [ 0, %126 ], [ 1, %136 ], [ 1, %event_del_.exit.sink.split.i30.us.i ]
+  %.1.i24.us.i = phi i32 [ 0, %126 ], [ 1, %event_callback_cancel_nolock_.exit157 ], [ 1, %136 ], [ 1, %event_del_.exit.sink.split.i30.us.i ]
   %191 = add nsw i32 %.1.i24.us.i, %.250.us.i
   %192 = load ptr, ptr %117, align 8
   %.not.us.i = icmp eq ptr %192, null
@@ -2469,7 +2469,7 @@ event_del_.exit.sink.split.i.i:                   ; preds = %event_callback_canc
   br label %event_del_.exit.i.i
 
 event_del_.exit.i.i:                              ; preds = %event_del_.exit.sink.split.i.i, %event_callback_cancel_nolock_.exit.i, %211, %201
-  %.1.i.i = phi i32 [ 1, %event_callback_cancel_nolock_.exit.i ], [ 0, %201 ], [ 1, %211 ], [ 1, %event_del_.exit.sink.split.i.i ]
+  %.1.i.i = phi i32 [ 0, %201 ], [ 1, %event_callback_cancel_nolock_.exit.i ], [ 1, %211 ], [ 1, %event_del_.exit.sink.split.i.i ]
   br i1 %.not27.i.i, label %event_base_cancel_single_callback_.exit.i, label %266
 
 266:                                              ; preds = %event_del_.exit.i.i
@@ -2684,7 +2684,7 @@ event_del_.exit.sink.split.i30.i:                 ; preds = %event_callback_canc
   br label %event_del_.exit.i23.i
 
 event_del_.exit.i23.i:                            ; preds = %event_del_.exit.sink.split.i30.i, %event_callback_cancel_nolock_.exit, %306, %296
-  %.1.i24.i = phi i32 [ 1, %event_callback_cancel_nolock_.exit ], [ 0, %296 ], [ 1, %306 ], [ 1, %event_del_.exit.sink.split.i30.i ]
+  %.1.i24.i = phi i32 [ 0, %296 ], [ 1, %event_callback_cancel_nolock_.exit ], [ 1, %306 ], [ 1, %event_del_.exit.sink.split.i30.i ]
   %361 = load i16, ptr %293, align 8
   %362 = and i16 %361, 64
   %.not28.i26.i = icmp eq i16 %362, 0
@@ -3114,7 +3114,7 @@ define i32 @event_reinit(ptr noundef %0) local_unnamed_addr #0 {
   br label %68
 
 68:                                               ; preds = %58, %61, %67
-  %.051 = phi i32 [ %62, %61 ], [ %.lobit, %58 ], [ 0, %67 ]
+  %.051 = phi i32 [ 0, %67 ], [ %62, %61 ], [ %.lobit, %58 ]
   %69 = icmp eq i32 %.051, 0
   %or.cond3 = and i1 %.not64, %69
   br i1 %or.cond3, label %70, label %.thread
@@ -3362,8 +3362,8 @@ event_haveevents.exit:                            ; preds = %107
   br label %event_haveevents.exit.thread
 
 event_haveevents.exit.thread:                     ; preds = %107, %114, %event_haveevents.exit, %88
-  %.060 = phi i32 [ %spec.select87, %event_haveevents.exit ], [ %spec.select87, %114 ], [ 0, %88 ], [ %spec.select87, %107 ]
-  %.2 = phi i32 [ %spec.select88, %event_haveevents.exit ], [ %spec.select89, %114 ], [ %.0, %88 ], [ %spec.select88, %107 ]
+  %.060 = phi i32 [ %spec.select87, %event_haveevents.exit ], [ 0, %88 ], [ %spec.select87, %114 ], [ %spec.select87, %107 ]
+  %.2 = phi i32 [ %spec.select88, %event_haveevents.exit ], [ %.0, %88 ], [ %spec.select89, %114 ], [ %spec.select88, %107 ]
   %117 = icmp ne i32 %.060, -1
   %118 = icmp ne i32 %.2, 0
   %or.cond3 = and i1 %117, %118
@@ -3517,7 +3517,7 @@ event_debug_note_del_.exit:                       ; preds = %evthread_notify_bas
   br label %196
 
 196:                                              ; preds = %event_debug_note_del_.exit, %169, %175, %182, %185, %191, %14, %9
-  %.063 = phi i32 [ 0, %14 ], [ -1, %9 ], [ %.060, %191 ], [ %.060, %185 ], [ %.060, %182 ], [ %.060, %175 ], [ %.060, %169 ], [ %.060, %event_debug_note_del_.exit ]
+  %.063 = phi i32 [ -1, %9 ], [ 0, %14 ], [ %.060, %191 ], [ %.060, %185 ], [ %.060, %182 ], [ %.060, %175 ], [ %.060, %169 ], [ %.060, %event_debug_note_del_.exit ]
   ret i32 %.063
 }
 
@@ -4477,7 +4477,7 @@ min_heap_top_.exit:                               ; preds = %374
   br label %min_heap_top_.exit.thread
 
 min_heap_top_.exit.thread:                        ; preds = %374, %393, %391, %385, %min_heap_top_.exit, %372, %358, %366
-  %.2 = phi i32 [ %.0114, %358 ], [ %.0114, %366 ], [ %.0114, %min_heap_top_.exit ], [ 1, %393 ], [ %.0114, %385 ], [ %.0114, %391 ], [ 1, %372 ], [ %.0114, %374 ]
+  %.2 = phi i32 [ %.0114, %366 ], [ %.0114, %358 ], [ 1, %393 ], [ %.0114, %385 ], [ %.0114, %391 ], [ %.0114, %min_heap_top_.exit ], [ 1, %372 ], [ %.0114, %374 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %394
 
@@ -4520,7 +4520,7 @@ min_heap_top_.exit.thread:                        ; preds = %374, %393, %391, %3
   br label %evthread_notify_base.exit
 
 evthread_notify_base.exit:                        ; preds = %124, %411, %408, %405, %401, %398, %394
-  %.0113186201 = phi i32 [ %.0113, %411 ], [ %.0113, %394 ], [ %.0113, %401 ], [ %.0113, %398 ], [ %.0113, %405 ], [ %.0113, %408 ], [ -1, %124 ]
+  %.0113186201 = phi i32 [ %.0113, %401 ], [ %.0113, %398 ], [ %.0113, %394 ], [ %.0113, %405 ], [ %.0113, %408 ], [ %.0113, %411 ], [ -1, %124 ]
   %413 = load i32, ptr @event_debug_mode_on_, align 4
   %.not.i169 = icmp eq i32 %413, 0
   br i1 %.not.i169, label %event_debug_note_add_.exit, label %414
@@ -4591,7 +4591,7 @@ event_debug_note_add_.exit:                       ; preds = %evthread_notify_bas
   br label %min_heap_reserve_.exit
 
 min_heap_reserve_.exit:                           ; preds = %event_mm_realloc_.exit.i, %57, %event_debug_note_add_.exit
-  %.0 = phi i32 [ -1, %57 ], [ %.0113186201, %event_debug_note_add_.exit ], [ -1, %event_mm_realloc_.exit.i ]
+  %.0 = phi i32 [ %.0113186201, %event_debug_note_add_.exit ], [ -1, %57 ], [ -1, %event_mm_realloc_.exit.i ]
   ret i32 %.0
 }
 
@@ -4720,7 +4720,7 @@ event_priority_set.exit:                          ; preds = %event_debug_assert_
   br label %61
 
 61:                                               ; preds = %10, %1, %event_priority_set.exit
-  %.016 = phi i32 [ 0, %1 ], [ %60, %event_priority_set.exit ], [ -1, %10 ]
+  %.016 = phi i32 [ %60, %event_priority_set.exit ], [ 0, %1 ], [ -1, %10 ]
   ret i32 %.016
 }
 
@@ -4862,7 +4862,7 @@ define range(i32 -1, 1) i32 @event_config_avoid_method(ptr noundef captures(none
   br label %event_mm_malloc_.exit
 
 event_mm_malloc_.exit:                            ; preds = %4, %6
-  %.0.i = phi ptr [ %7, %6 ], [ %5, %4 ]
+  %.0.i = phi ptr [ %5, %4 ], [ %7, %6 ]
   %8 = icmp eq ptr %.0.i, null
   br i1 %8, label %event_mm_free_.exit, label %9
 
@@ -5505,7 +5505,7 @@ event_priority_set.exit:                          ; preds = %event_debug_assert_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %59, %event_priority_set.exit, %66, %43
-  %.2 = phi ptr [ null, %59 ], [ null, %43 ], [ %70, %event_priority_set.exit ], [ null, %66 ], [ %130, %.loopexit.loopexit ]
+  %.2 = phi ptr [ null, %43 ], [ %70, %event_priority_set.exit ], [ null, %66 ], [ null, %59 ], [ %130, %.loopexit.loopexit ]
   %131 = load ptr, ptr %3, align 8
   %.not79 = icmp eq ptr %131, null
   br i1 %.not79, label %135, label %132
@@ -5746,7 +5746,7 @@ event_debug_map_HT_FIND.exit.i48:                 ; preds = %98
   br label %event_mm_malloc_.exit.i
 
 event_mm_malloc_.exit.i:                          ; preds = %106, %104
-  %.0.i.i = phi ptr [ %107, %106 ], [ %105, %104 ]
+  %.0.i.i = phi ptr [ %105, %104 ], [ %107, %106 ]
   %.not13.i = icmp eq ptr %.0.i.i, null
   br i1 %.not13.i, label %108, label %109
 
@@ -6330,7 +6330,7 @@ min_heap_top_.exit.i:                             ; preds = %89
   br label %timeout_next.exit
 
 timeout_next.exit:                                ; preds = %89, %min_heap_top_.exit.i, %97, %126, %136, %140
-  %.1127 = phi ptr [ %13, %126 ], [ %13, %97 ], [ %13, %136 ], [ %13, %140 ], [ null, %min_heap_top_.exit.i ], [ null, %89 ]
+  %.1127 = phi ptr [ %13, %97 ], [ %13, %136 ], [ %13, %140 ], [ %13, %126 ], [ null, %min_heap_top_.exit.i ], [ null, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %144
 
@@ -6791,7 +6791,7 @@ gettime.exit.i122:                                ; preds = %343, %329, %update_
   br label %354
 
 354:                                              ; preds = %351, %gettime.exit.i122, %299
-  %.028.i = phi ptr [ %5, %gettime.exit.i122 ], [ %5, %351 ], [ null, %299 ]
+  %.028.i = phi ptr [ %5, %351 ], [ %5, %gettime.exit.i122 ], [ null, %299 ]
   %355 = load i32, ptr %80, align 8
   %356 = icmp sgt i32 %355, 0
   br i1 %356, label %.lr.ph.i118, label %event_process_active.exit
@@ -6875,7 +6875,7 @@ event_process_active.exit:                        ; preds = %370, %371, %354
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %383
 
-.thread133:                                       ; preds = %.backedge, %.lr.ph178, %40
+.thread133:                                       ; preds = %.lr.ph178, %.backedge, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
@@ -7103,7 +7103,7 @@ event_mm_calloc_.exit:                            ; preds = %8
   br label %event_mm_free_.exit
 
 event_mm_free_.exit:                              ; preds = %52, %51, %38, %37, %event_mm_calloc_.exit.thread, %58, %61, %event_mm_calloc_.exit, %6
-  %.041 = phi i32 [ -1, %6 ], [ 0, %58 ], [ -1, %38 ], [ -1, %event_mm_calloc_.exit ], [ -1, %event_mm_calloc_.exit.thread ], [ 0, %61 ], [ -1, %37 ], [ %48, %51 ], [ %48, %52 ]
+  %.041 = phi i32 [ -1, %6 ], [ -1, %event_mm_calloc_.exit ], [ 0, %61 ], [ 0, %58 ], [ -1, %event_mm_calloc_.exit.thread ], [ -1, %37 ], [ -1, %38 ], [ %48, %51 ], [ %48, %52 ]
   ret i32 %.041
 }
 
@@ -7162,7 +7162,7 @@ define i32 @event_loopbreak() local_unnamed_addr #0 {
   br label %evthread_notify_base.exit.i
 
 evthread_notify_base.exit.i:                      ; preds = %25, %22, %19, %15, %12, %9
-  %.0.i = phi i32 [ 0, %9 ], [ 0, %15 ], [ 0, %12 ], [ -1, %19 ], [ %26, %25 ], [ 0, %22 ]
+  %.0.i = phi i32 [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ %26, %25 ], [ -1, %19 ], [ 0, %22 ]
   %27 = load ptr, ptr %4, align 8
   %.not18.i = icmp eq ptr %27, null
   br i1 %.not18.i, label %event_base_loopbreak.exit, label %28
@@ -7231,7 +7231,7 @@ define i32 @event_base_loopbreak(ptr noundef %0) local_unnamed_addr #0 {
   br label %evthread_notify_base.exit
 
 evthread_notify_base.exit:                        ; preds = %25, %22, %19, %9, %12, %15
-  %.0 = phi i32 [ 0, %9 ], [ 0, %15 ], [ 0, %12 ], [ -1, %19 ], [ %26, %25 ], [ 0, %22 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ %26, %25 ], [ -1, %19 ], [ 0, %22 ]
   %27 = load ptr, ptr %4, align 8
   %.not18 = icmp eq ptr %27, null
   br i1 %.not18, label %31, label %28
@@ -7300,7 +7300,7 @@ define i32 @event_base_loopcontinue(ptr noundef %0) local_unnamed_addr #0 {
   br label %evthread_notify_base.exit
 
 evthread_notify_base.exit:                        ; preds = %25, %22, %19, %9, %12, %15
-  %.0 = phi i32 [ 0, %9 ], [ 0, %15 ], [ 0, %12 ], [ -1, %19 ], [ %26, %25 ], [ 0, %22 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ %26, %25 ], [ -1, %19 ], [ 0, %22 ]
   %27 = load ptr, ptr %4, align 8
   %.not18 = icmp eq ptr %27, null
   br i1 %.not18, label %31, label %28
@@ -7735,7 +7735,7 @@ define ptr @event_new(ptr noundef %0, i32 noundef %1, i16 noundef signext %2, pt
   br label %event_mm_malloc_.exit
 
 event_mm_malloc_.exit:                            ; preds = %7, %9
-  %.0.i = phi ptr [ %10, %9 ], [ %8, %7 ]
+  %.0.i = phi ptr [ %8, %7 ], [ %10, %9 ]
   %11 = icmp eq ptr %.0.i, null
   br i1 %11, label %event_mm_free_.exit, label %12
 
@@ -8275,7 +8275,7 @@ event_queue_insert_active.exit:                   ; preds = %28, %31
   br label %evthread_notify_base.exit
 
 evthread_notify_base.exit:                        ; preds = %79, %76, %73, %event_queue_insert_active.exit, %66, %69, %6, %2
-  %.010 = phi i32 [ 0, %6 ], [ 0, %2 ], [ %.0, %event_queue_insert_active.exit ], [ %.0, %69 ], [ %.0, %66 ], [ %.0, %73 ], [ %.0, %76 ], [ %.0, %79 ]
+  %.010 = phi i32 [ 0, %2 ], [ 0, %6 ], [ %.0, %69 ], [ %.0, %66 ], [ %.0, %event_queue_insert_active.exit ], [ %.0, %73 ], [ %.0, %76 ], [ %.0, %79 ]
   ret i32 %.010
 }
 
@@ -10027,7 +10027,7 @@ event_queue_insert_active_later.exit:             ; preds = %2
   br label %evthread_notify_base.exit
 
 evthread_notify_base.exit:                        ; preds = %38, %35, %32, %event_queue_insert_active_later.exit, %25, %28, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %event_queue_insert_active_later.exit ], [ 1, %28 ], [ 1, %25 ], [ 1, %32 ], [ 1, %35 ], [ 1, %38 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %28 ], [ 1, %25 ], [ 1, %event_queue_insert_active_later.exit ], [ 1, %32 ], [ 1, %35 ], [ 1, %38 ]
   ret i32 %.0
 }
 
@@ -10252,7 +10252,7 @@ event_queue_insert_active_later.exit.i:           ; preds = %13
   br label %event_callback_activate_later_nolock_.exit
 
 event_callback_activate_later_nolock_.exit:       ; preds = %49, %46, %43, %39, %36, %event_queue_insert_active_later.exit.i, %13, %51, %53
-  %.0 = phi i32 [ 0, %51 ], [ 1, %53 ], [ 0, %13 ], [ 1, %event_queue_insert_active_later.exit.i ], [ 1, %39 ], [ 1, %36 ], [ 1, %43 ], [ 1, %46 ], [ 1, %49 ]
+  %.0 = phi i32 [ 1, %53 ], [ 0, %51 ], [ 0, %13 ], [ 1, %39 ], [ 1, %36 ], [ 1, %event_queue_insert_active_later.exit.i ], [ 1, %43 ], [ 1, %46 ], [ 1, %49 ]
   %56 = load ptr, ptr %4, align 8
   %.not19 = icmp eq ptr %56, null
   br i1 %.not19, label %60, label %57
@@ -10455,7 +10455,7 @@ define hidden i32 @event_base_foreach_event_nolock_(ptr noundef %0, ptr noundef 
   br i1 %57, label %45, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %20, %38, %._crit_edge89, %52, %.preheader, %3
-  %.046 = phi i32 [ 0, %.preheader ], [ %4, %3 ], [ %53, %52 ], [ 0, %._crit_edge89 ], [ %39, %38 ], [ %21, %20 ]
+  %.046 = phi i32 [ %4, %3 ], [ 0, %.preheader ], [ %53, %52 ], [ 0, %._crit_edge89 ], [ %39, %38 ], [ %21, %20 ]
   ret i32 %.046
 }
 
@@ -11205,7 +11205,7 @@ define hidden range(i32 -1, 1) i32 @event_global_setup_locks_(i32 noundef %0) lo
   br label %13
 
 13:                                               ; preds = %11, %8, %5, %4
-  %.0 = phi i32 [ -1, %4 ], [ -1, %5 ], [ %.lobit, %11 ], [ -1, %8 ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %5 ], [ -1, %8 ], [ %.lobit, %11 ]
   ret i32 %.0
 }
 
@@ -12072,7 +12072,7 @@ gettime.exit:                                     ; preds = %366, %update_time_c
   br i1 %.not122, label %37, label %.thread142
 
 .thread142:                                       ; preds = %341, %339, %392, %37, %.thread
-  %.4 = phi i32 [ %spec.select, %.thread ], [ -1, %339 ], [ %spec.select, %341 ], [ %.089, %37 ], [ %spec.select, %392 ]
+  %.4 = phi i32 [ %spec.select, %.thread ], [ -1, %339 ], [ %spec.select, %341 ], [ %spec.select, %392 ], [ %.089, %37 ]
   ret i32 %.4
 }
 
@@ -12120,7 +12120,7 @@ define internal range(i32 -1, -2147483648) i32 @evthread_notify_base_eventfd(ptr
   br i1 %19, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %17, %14, %8, %1
-  %.0 = phi i32 [ %5, %1 ], [ -1, %14 ], [ -1, %8 ], [ %18, %17 ]
+  %.0 = phi i32 [ %5, %1 ], [ -1, %8 ], [ -1, %14 ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

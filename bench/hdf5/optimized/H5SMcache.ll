@@ -325,7 +325,7 @@ define internal ptr @H5SM__cache_table_deserialize(ptr noundef %0, i64 %1, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %123, %.preheader, %16, %134, %131, %4
-  %.0 = phi ptr [ null, %134 ], [ null, %131 ], [ null, %16 ], [ null, %4 ], [ %14, %.preheader ], [ %14, %123 ]
+  %.0 = phi ptr [ null, %134 ], [ null, %131 ], [ null, %4 ], [ null, %16 ], [ %14, %.preheader ], [ %14, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -791,7 +791,7 @@ define internal ptr @H5SM__cache_list_deserialize(ptr noundef %0, i64 %1, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph65, %.preheader, %15, %76, %4
-  %.0 = phi ptr [ null, %76 ], [ null, %15 ], [ null, %4 ], [ %13, %.preheader ], [ %13, %.lr.ph65 ]
+  %.0 = phi ptr [ null, %76 ], [ null, %4 ], [ null, %15 ], [ %13, %.preheader ], [ %13, %.lr.ph65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

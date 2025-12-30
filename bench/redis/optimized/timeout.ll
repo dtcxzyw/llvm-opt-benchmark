@@ -380,7 +380,7 @@ thread-pre-split:                                 ; preds = %19
   br label %34
 
 34:                                               ; preds = %19, %9, %32, %29, %24, %15
-  %.0 = phi i32 [ -1, %9 ], [ -1, %15 ], [ -1, %24 ], [ -1, %29 ], [ 0, %32 ], [ -1, %19 ]
+  %.0 = phi i32 [ -1, %15 ], [ -1, %24 ], [ -1, %29 ], [ 0, %32 ], [ -1, %9 ], [ -1, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

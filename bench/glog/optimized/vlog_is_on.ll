@@ -76,7 +76,7 @@ define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_12SafeFNMa
   br label %33
 
 33:                                               ; preds = %33, %.preheader
-  %.1 = phi i64 [ %37, %33 ], [ %.051, %.preheader ]
+  %.1 = phi i64 [ %.051, %.preheader ], [ %37, %33 ]
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 %.1
   %35 = sub i64 %3, %.1
   %36 = tail call noundef zeroext i1 @_ZN6google24glog_internal_namespace_12SafeFNMatch_EPKcmS2_m(ptr noundef %31, i64 noundef %32, ptr noundef %34, i64 noundef %35)
@@ -86,7 +86,7 @@ define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_12SafeFNMa
   br i1 %or.cond, label %.loopexit, label %33, !llvm.loop !8
 
 .loopexit:                                        ; preds = %22, %33, %4, %26, %28, %8, %11
-  %.036 = phi i1 [ false, %8 ], [ %6, %4 ], [ false, %26 ], [ %14, %11 ], [ true, %28 ], [ %36, %33 ], [ %25, %22 ]
+  %.036 = phi i1 [ false, %8 ], [ %14, %11 ], [ true, %28 ], [ false, %26 ], [ %6, %4 ], [ %36, %33 ], [ %25, %22 ]
   ret i1 %.036
 }
 
@@ -218,7 +218,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %28
   br i1 %.not52, label %.loopexit, label %.lr.ph67, !llvm.loop !33
 
 .loopexit:                                        ; preds = %49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge
-  %.0.lcssa73 = phi i32 [ %.2, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge ], [ %.0.lcssa72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ], [ %.0.lcssa72, %49 ]
+  %.0.lcssa73 = phi i32 [ %.0.lcssa72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ], [ %.2, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge ], [ %.0.lcssa72, %49 ]
   %50 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN6googleL13vmodule_mutexE) #13
   %51 = load ptr, ptr @_ZZN6google12SetVLOGLevelEPKciE8vlocal__, align 8, !tbaa !31
   %52 = icmp eq ptr %51, null
@@ -506,7 +506,7 @@ _ZN6googleL16VLOG2InitializerEv.exit:             ; preds = %57, %58
   ret i1 %102
 
 .body:                                            ; preds = %61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %.pn = phi { ptr, i32 } [ %44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %62, %61 ]
+  %.pn = phi { ptr, i32 } [ %62, %61 ], [ %44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   %104 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN6googleL13vmodule_mutexE) #13
   resume { ptr, i32 } %.pn
 }

@@ -21,7 +21,7 @@ define hidden { ptr, i64 } @_ZN4core3fmt9Arguments23as_statically_known_str17hd4
   br i1 %cond, label %7, label %5
 
 5:                                                ; preds = %1, %7, %11
-  %.sroa.7.0 = phi i64 [ undef, %7 ], [ %13, %11 ], [ 0, %1 ]
+  %.sroa.7.0 = phi i64 [ %13, %11 ], [ undef, %7 ], [ 0, %1 ]
   %6 = insertvalue { ptr, i64 } { ptr null, i64 poison }, i64 %.sroa.7.0, 1
   ret { ptr, i64 } %6
 

@@ -705,9 +705,9 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i353: ; preds = %_ZN
   br label %_ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
 
 _ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit: ; preds = %134, %130, %.noexc, %123, %120
-  %135 = phi i8 [ %119, %123 ], [ %119, %120 ], [ %.pre583, %130 ], [ %.pre583, %.noexc ], [ %.pre583, %134 ]
-  %136 = phi i8 [ %117, %123 ], [ %117, %120 ], [ %.pre, %130 ], [ %.pre, %.noexc ], [ %.pre, %134 ]
-  %.0.i = phi i32 [ 1, %123 ], [ %spec.select.i, %120 ], [ 0, %130 ], [ %128, %.noexc ], [ %..i, %134 ]
+  %135 = phi i8 [ %119, %123 ], [ %.pre583, %.noexc ], [ %.pre583, %130 ], [ %.pre583, %134 ], [ %119, %120 ]
+  %136 = phi i8 [ %117, %123 ], [ %.pre, %.noexc ], [ %.pre, %130 ], [ %.pre, %134 ], [ %117, %120 ]
+  %.0.i = phi i32 [ 1, %123 ], [ %128, %.noexc ], [ 0, %130 ], [ %..i, %134 ], [ %spec.select.i, %120 ]
   %137 = load ptr, ptr %0, align 8, !tbaa !23
   %138 = and i8 %136, 8
   %.not.i200 = icmp eq i8 %138, 0
@@ -748,7 +748,7 @@ _ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.
   br label %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
 
 _ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit: ; preds = %155, %.noexc206, %140
-  %.0.i203 = phi i32 [ %..i205, %155 ], [ %spec.select.i202, %140 ], [ %145, %.noexc206 ]
+  %.0.i203 = phi i32 [ %145, %.noexc206 ], [ %..i205, %155 ], [ %spec.select.i202, %140 ]
   %156 = icmp slt i32 %.0.i, 1
   %157 = icmp eq i32 %.0.i203, 0
   br i1 %156, label %160, label %346
@@ -1133,7 +1133,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i: ; preds = %_ZN6bu
   invoke void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %268, ptr noundef nonnull align 8 dereferenceable(8) %301, ptr noundef nonnull align 8 dereferenceable(8) %217)
           to label %.sink.split unwind label %264
 
-.thread470:                                       ; preds = %.thread464, %213, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
+.thread470:                                       ; preds = %213, %.thread464, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
   %302 = icmp eq i32 %.0.i, 0
   br i1 %302, label %345, label %303
 
@@ -1238,8 +1238,8 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i234: ; preds = %_ZN
           to label %.sink.split unwind label %264
 
 .sink.split:                                      ; preds = %.noexc241, %.noexc218, %.noexc408
-  %.sink655 = phi ptr [ %292, %.noexc218 ], [ %253, %.noexc408 ], [ %331, %.noexc241 ]
-  %.sroa.054.0.copyload.sink = phi i32 [ %.sroa.055.0.copyload, %.noexc218 ], [ %.sroa.0.0.copyload.i213, %.noexc408 ], [ %.sroa.054.0.copyload, %.noexc241 ]
+  %.sink655 = phi ptr [ %253, %.noexc408 ], [ %292, %.noexc218 ], [ %331, %.noexc241 ]
+  %.sroa.054.0.copyload.sink = phi i32 [ %.sroa.0.0.copyload.i213, %.noexc408 ], [ %.sroa.055.0.copyload, %.noexc218 ], [ %.sroa.054.0.copyload, %.noexc241 ]
   %344 = getelementptr inbounds nuw i8, ptr %.sink655, i64 4
   store i32 %.sroa.054.0.copyload.sink, ptr %344, align 4, !tbaa !26
   br label %345
@@ -1702,8 +1702,8 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EE9push_backEOS1_.exit.i295: ; preds = %_ZN
           to label %_ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EERKS4_.exit256 unwind label %444
 
 _ZN5nlsat9push_backERN17algebraic_numbers7managerER7sbufferINS_8intervalELj128EERKS4_.exit256: ; preds = %.noexc302, %.noexc278, %.noexc456
-  %.sink657 = phi ptr [ %471, %.noexc278 ], [ %433, %.noexc456 ], [ %508, %.noexc302 ]
-  %.sroa.0.0.copyload.sink = phi i32 [ %.sroa.051.0.copyload, %.noexc278 ], [ %.sroa.0.0.copyload.i254, %.noexc456 ], [ %.sroa.0.0.copyload, %.noexc302 ]
+  %.sink657 = phi ptr [ %433, %.noexc456 ], [ %471, %.noexc278 ], [ %508, %.noexc302 ]
+  %.sroa.0.0.copyload.sink = phi i32 [ %.sroa.0.0.copyload.i254, %.noexc456 ], [ %.sroa.051.0.copyload, %.noexc278 ], [ %.sroa.0.0.copyload, %.noexc302 ]
   %521 = getelementptr inbounds nuw i8, ptr %.sink657, i64 4
   store i32 %.sroa.0.0.copyload.sink, ptr %521, align 4, !tbaa !26
   %.3155 = add nuw i32 %.0152531, 1
@@ -1983,7 +1983,7 @@ _ZN6bufferIN5nlsat8intervalELb0ELj128EED2Ev.exit: ; preds = %638, %646
   br label %652
 
 652:                                              ; preds = %.loopexit515, %.loopexit.split-lp, %558, %602, %650, %636, %202, %444, %264, %204
-  %.pn196 = phi { ptr, i32 } [ %637, %636 ], [ %445, %444 ], [ %203, %202 ], [ %205, %204 ], [ %265, %264 ], [ %559, %558 ], [ %603, %602 ], [ %651, %650 ], [ %lpad.loopexit, %.loopexit515 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn196 = phi { ptr, i32 } [ %203, %202 ], [ %205, %204 ], [ %265, %264 ], [ %445, %444 ], [ %559, %558 ], [ %603, %602 ], [ %637, %636 ], [ %651, %650 ], [ %lpad.loopexit, %.loopexit515 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6bufferIN5nlsat8intervalELb0ELj128EED2Ev(ptr noundef nonnull align 8 dereferenceable(4112) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn196
@@ -2241,10 +2241,10 @@ _ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.
 
 _ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread90: ; preds = %94, %91, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
   %98 = trunc nuw i64 %indvars.iv to i32
-  %99 = add i32 %98, 1
+  %99 = add nuw i32 %98, 1
   br label %.thread106
 
-_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread: ; preds = %94, %84, %.thread, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
+_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread: ; preds = %94, %.thread, %84, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit
   %100 = icmp eq i64 %indvars.iv, %23
   br i1 %100, label %.thread113, label %101
 
@@ -2272,8 +2272,8 @@ _ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit: ; pred
   br i1 %113, label %52, label %.thread113
 
 .thread106:                                       ; preds = %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread90, %.thread85, %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread81
-  %.153 = phi i32 [ %76, %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread81 ], [ %79, %.thread85 ], [ %99, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread90 ]
-  %.148 = phi i32 [ %75, %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread81 ], [ %80, %.thread85 ], [ %.047132, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread90 ]
+  %.153 = phi i32 [ %99, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread90 ], [ %79, %.thread85 ], [ %76, %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread81 ]
+  %.148 = phi i32 [ %.047132, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread90 ], [ %80, %.thread85 ], [ %75, %_ZN5nlsat19compare_upper_upperERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread81 ]
   %114 = icmp ult i32 %.148, %15
   %115 = icmp ult i32 %.153, %16
   %116 = select i1 %114, i1 %115, i1 false
@@ -2285,7 +2285,7 @@ _ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit: ; pred
   br label %.thread113
 
 .thread113:                                       ; preds = %_ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit, %43, %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit, %101, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread, %._crit_edge, %11, %8, %6, %3
-  %.0 = phi i1 [ false, %11 ], [ true, %3 ], [ %117, %._crit_edge ], [ false, %6 ], [ true, %8 ], [ false, %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit ], [ false, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread ], [ false, %101 ], [ false, %43 ], [ false, %_ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit ]
+  %.0 = phi i1 [ true, %3 ], [ false, %6 ], [ true, %8 ], [ false, %11 ], [ %117, %._crit_edge ], [ false, %_ZN5nlsat19compare_upper_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit.thread ], [ false, %101 ], [ false, %_ZN5nlsat8adjacentERN17algebraic_numbers7managerERKNS_8intervalES5_.exit ], [ false, %43 ], [ false, %_ZN5nlsat19compare_lower_lowerERN17algebraic_numbers7managerERKNS_8intervalES5_.exit ]
   ret i1 %.0
 }
 
@@ -2395,7 +2395,7 @@ define hidden noundef zeroext i1 @_ZN5nlsat20interval_set_manager2eqEPKNS_12inte
   br i1 %37, label %14, label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %29, %24, %17, %14, %.preheader, %8, %6
-  %.0 = phi i1 [ %7, %6 ], [ false, %8 ], [ true, %.preheader ], [ false, %17 ], [ false, %24 ], [ false, %29 ], [ false, %.critedge ], [ true, %14 ]
+  %.0 = phi i1 [ %7, %6 ], [ false, %8 ], [ true, %.preheader ], [ false, %.critedge ], [ false, %29 ], [ false, %24 ], [ false, %17 ], [ true, %14 ]
   ret i1 %.0
 }
 
@@ -2848,7 +2848,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN5nlsat26compare_interval_with_zer
   br i1 %or.cond, label %14, label %.thread
 
 14:                                               ; preds = %11, %3
-  %15 = phi i8 [ %4, %3 ], [ %.pre, %11 ]
+  %15 = phi i8 [ %.pre, %11 ], [ %4, %3 ]
   %16 = and i8 %15, 4
   %.not20 = icmp eq i8 %16, 0
   br i1 %.not20, label %17, label %.thread
@@ -2874,7 +2874,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN5nlsat26compare_interval_with_zer
   br label %.thread
 
 .thread:                                          ; preds = %11, %6, %14, %22, %24, %.thread25
-  %.2 = phi i32 [ 0, %14 ], [ 1, %.thread25 ], [ 0, %24 ], [ 0, %22 ], [ -1, %6 ], [ -1, %11 ]
+  %.2 = phi i32 [ 1, %.thread25 ], [ 0, %24 ], [ 0, %22 ], [ 0, %14 ], [ -1, %6 ], [ -1, %11 ]
   ret i32 %.2
 }
 
@@ -2945,7 +2945,7 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
   br i1 %or.cond.i, label %29, label %14
 
 29:                                               ; preds = %26, %17
-  %30 = phi i8 [ %20, %17 ], [ %.pre.i, %26 ]
+  %30 = phi i8 [ %.pre.i, %26 ], [ %20, %17 ]
   %31 = and i8 %30, 4
   %.not20.i = icmp eq i8 %31, 0
   br i1 %.not20.i, label %32, label %._crit_edge.thread
@@ -2989,7 +2989,7 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
           cleanup
   br label %.split
 
-._crit_edge.thread:                               ; preds = %36, %38, %29
+._crit_edge.thread:                               ; preds = %29, %36, %38
   %44 = add i32 %10, -1
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %13, i64 %45
@@ -3204,7 +3204,7 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
   br label %123
 
 123:                                              ; preds = %120, %.lr.ph135, %109
-  %.1 = phi i32 [ %.067133, %.lr.ph135 ], [ %spec.select, %120 ], [ %.067133, %109 ]
+  %.1 = phi i32 [ %.067133, %109 ], [ %.067133, %.lr.ph135 ], [ %spec.select, %120 ]
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count161
   br i1 %exitcond162.not, label %.critedge.loopexit, label %.lr.ph135, !llvm.loop !70
@@ -3246,7 +3246,7 @@ _ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev.exit: ; preds = %.thread
   br label %.split
 
 .split:                                           ; preds = %.loopexit188, %.loopexit.split-lp189, %.loopexit, %.loopexit.split-lp, %.split.us, %.split.loopexit.split-lp, %.split.loopexit, %42, %133, %15
-  %.pn94.pn = phi { ptr, i32 } [ %16, %15 ], [ %43, %42 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp130, %.split.loopexit.split-lp ], [ %134, %133 ], [ %86, %.split.us ], [ %lpad.loopexit129, %.split.loopexit ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit190, %.loopexit188 ], [ %lpad.loopexit.split-lp191, %.loopexit.split-lp189 ]
+  %.pn94.pn = phi { ptr, i32 } [ %16, %15 ], [ %43, %42 ], [ %134, %133 ], [ %86, %.split.us ], [ %lpad.loopexit129, %.split.loopexit ], [ %lpad.loopexit.split-lp130, %.split.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit190, %.loopexit188 ], [ %lpad.loopexit.split-lp191, %.loopexit.split-lp189 ]
   call void @_ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn94.pn

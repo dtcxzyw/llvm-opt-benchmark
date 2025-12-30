@@ -84,7 +84,7 @@ define internal range(i32 -2147483648, 1) i32 @wma_decode_init(ptr noundef %0) #
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %8, %15, %19
-  %.058.shrunk = phi i32 [ 0, %8 ], [ 0, %15 ], [ 0, %19 ], [ %25, %.thread.sink.split ]
+  %.058.shrunk = phi i32 [ 0, %19 ], [ 0, %15 ], [ 0, %8 ], [ %25, %.thread.sink.split ]
   %26 = and i32 %.058.shrunk, 1
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store i32 %26, ptr %27, align 4, !tbaa !45
@@ -201,7 +201,7 @@ define internal range(i32 -2147483648, 1) i32 @wma_decode_init(ptr noundef %0) #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %73, %67, %.critedge, %80, %7
-  %.057 = phi i32 [ -22, %7 ], [ %75, %73 ], [ %44, %.critedge ], [ %69, %67 ], [ 0, %80 ], [ %63, %56 ]
+  %.057 = phi i32 [ 0, %80 ], [ -22, %7 ], [ %44, %.critedge ], [ %69, %67 ], [ %75, %73 ], [ %63, %56 ]
   ret i32 %.057
 }
 
@@ -633,13 +633,13 @@ define internal i32 @wma_decode_superframe(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread
 
 .loopexit:                                        ; preds = %.lr.ph225, %76, %140, %245, %198, %238, %135
-  %.1162 = phi i32 [ -1094995529, %140 ], [ -1094995529, %135 ], [ %246, %245 ], [ %199, %198 ], [ -1094995529, %76 ], [ -1094995529, %238 ], [ %223, %.lr.ph225 ]
+  %.1162 = phi i32 [ -1094995529, %135 ], [ %199, %198 ], [ -1094995529, %238 ], [ %246, %245 ], [ -1094995529, %140 ], [ -1094995529, %76 ], [ %223, %.lr.ph225 ]
   %249 = getelementptr inbounds nuw i8, ptr %10, i64 132516
   store i32 0, ptr %249, align 4, !tbaa !78
   br label %.thread
 
-.thread:                                          ; preds = %.critedge, %73, %._crit_edge, %204, %104, %15, %12, %.loopexit, %248, %47, %._crit_edge230
-  %.0 = phi i32 [ %spec.select, %248 ], [ 0, %12 ], [ 0, %._crit_edge230 ], [ -1094995529, %47 ], [ %.1162, %.loopexit ], [ -1094995529, %204 ], [ %19, %15 ], [ %109, %104 ], [ -1094995529, %.critedge ], [ -1094995529, %73 ], [ %spec.select, %._crit_edge ]
+.thread:                                          ; preds = %73, %.critedge, %._crit_edge, %204, %104, %15, %12, %.loopexit, %248, %47, %._crit_edge230
+  %.0 = phi i32 [ 0, %._crit_edge230 ], [ -1094995529, %47 ], [ %.1162, %.loopexit ], [ %spec.select, %248 ], [ 0, %12 ], [ %19, %15 ], [ %109, %104 ], [ -1094995529, %204 ], [ -1094995529, %73 ], [ -1094995529, %.critedge ], [ %spec.select, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -1280,9 +1280,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @wma_decode_frame(ptr nound
   br label %get_vlc2.exit.i
 
 get_vlc2.exit.i:                                  ; preds = %290, %269
-  %.064.i.i = phi i32 [ %271, %269 ], [ %292, %290 ]
-  %.062.i.i = phi i32 [ %285, %269 ], [ %306, %290 ]
-  %.0.i.i = phi i32 [ %288, %269 ], [ %309, %290 ]
+  %.064.i.i = phi i32 [ %292, %290 ], [ %271, %269 ]
+  %.062.i.i = phi i32 [ %306, %290 ], [ %285, %269 ]
+  %.0.i.i = phi i32 [ %309, %290 ], [ %288, %269 ]
   %310 = add i32 %.0.i.i, %.064.i.i
   %311 = tail call i32 @llvm.umin.i32(i32 %272, i32 %310)
   store i32 %311, ptr %13, align 8, !tbaa !84
@@ -2235,7 +2235,7 @@ align_get_bits.exit.i:                            ; preds = %586, %583, %580
   br label %.lr.ph633.i
 
 .lr.ph633.i:                                      ; preds = %813, %806, %._crit_edge630.i, %._crit_edge._crit_edge.i
-  %.sink796.i = phi i64 [ %.pre734.i, %._crit_edge._crit_edge.i ], [ %203, %813 ], [ %203, %._crit_edge630.i ], [ %203, %806 ]
+  %.sink796.i = phi i64 [ %203, %813 ], [ %.pre734.i, %._crit_edge._crit_edge.i ], [ %203, %._crit_edge630.i ], [ %203, %806 ]
   %817 = getelementptr inbounds ptr, ptr %55, i64 %.sink796.i
   %818 = load ptr, ptr %817, align 8, !tbaa !140
   %819 = getelementptr inbounds ptr, ptr %56, i64 %.sink796.i
@@ -2369,7 +2369,7 @@ wma_window.exit.i:                                ; preds = %889, %880
   br i1 %exitcond724.not.i, label %wma_decode_block.exit.loopexit, label %821, !llvm.loop !145
 
 wma_decode_block.exit.thread:                     ; preds = %548, %562, %98, %111, %133, %142, %148, %189, %decode_exp_vlc.exit.thread.i
-  %.0.i.ph = phi i32 [ %578, %562 ], [ -1094995529, %decode_exp_vlc.exit.thread.i ], [ -1094995529, %98 ], [ -1094995529, %189 ], [ -1094995529, %148 ], [ -1094995529, %142 ], [ -1094995529, %133 ], [ -1094995529, %111 ], [ -1094995529, %548 ]
+  %.0.i.ph = phi i32 [ -1094995529, %decode_exp_vlc.exit.thread.i ], [ -1094995529, %189 ], [ -1094995529, %148 ], [ -1094995529, %142 ], [ -1094995529, %133 ], [ -1094995529, %111 ], [ -1094995529, %98 ], [ %578, %562 ], [ -1094995529, %548 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 

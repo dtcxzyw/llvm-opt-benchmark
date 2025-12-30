@@ -435,7 +435,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
   br label %151
 
 151:                                              ; preds = %147, %149
-  %.pn47.pn.pn = phi { ptr, i32 } [ %148, %147 ], [ %150, %149 ]
+  %.pn47.pn.pn = phi { ptr, i32 } [ %150, %149 ], [ %148, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %167
 

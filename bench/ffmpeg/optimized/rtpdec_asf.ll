@@ -100,7 +100,7 @@ rtp_asf_fix_header.exit:                          ; preds = %41
   store i32 0, ptr %42, align 1, !tbaa !26
   br label %47
 
-.loopexit:                                        ; preds = %27, %17, %41, %22, %37
+.loopexit:                                        ; preds = %27, %22, %17, %37, %41
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1) #9
   br label %47
 
@@ -474,7 +474,7 @@ thread-pre-split:                                 ; preds = %48, %51
   br label %87
 
 87:                                               ; preds = %78, %64
-  %.1108 = phi i32 [ %70, %78 ], [ %66, %64 ]
+  %.1108 = phi i32 [ %66, %64 ], [ %70, %78 ]
   %88 = tail call i64 @avio_seek(ptr noundef nonnull %1, i64 noundef 0, i32 noundef 1) #9
   %89 = icmp slt i64 %88, %invariant.op
   br i1 %89, label %26, label %._crit_edge, !llvm.loop !74
@@ -567,8 +567,8 @@ thread-pre-split:                                 ; preds = %48, %51
   %132 = select i1 %131, i32 -1, i32 %.lcssa144
   br label %.thread134
 
-.thread134:                                       ; preds = %74, %67, %54, %57, %.thread, %16, %.thread137, %9, %._crit_edge152
-  %.0102 = phi i32 [ 1, %.thread137 ], [ %132, %._crit_edge152 ], [ -1, %9 ], [ -1, %16 ], [ -1, %.thread ], [ -5, %57 ], [ %55, %54 ], [ -1, %67 ], [ %76, %74 ]
+.thread134:                                       ; preds = %74, %67, %.thread, %57, %54, %16, %.thread137, %9, %._crit_edge152
+  %.0102 = phi i32 [ %132, %._crit_edge152 ], [ -1, %9 ], [ 1, %.thread137 ], [ -1, %16 ], [ %55, %54 ], [ -5, %57 ], [ -1, %.thread ], [ -1, %67 ], [ %76, %74 ]
   ret i32 %.0102
 }
 

@@ -229,8 +229,8 @@ Fxu_SingleCountCoincidence.exit.i:                ; preds = %71
   br label %Vec_PtrPush.exitthread-pre-split.i
 
 Vec_PtrPush.exitthread-pre-split.i:               ; preds = %94, %92, %85, %83
-  %.sink86.i = phi ptr [ %86, %85 ], [ %84, %83 ], [ %93, %92 ], [ %95, %94 ]
-  %.sink.i = phi i32 [ 16, %85 ], [ 16, %83 ], [ %88, %92 ], [ %88, %94 ]
+  %.sink86.i = phi ptr [ %84, %83 ], [ %86, %85 ], [ %93, %92 ], [ %95, %94 ]
+  %.sink.i = phi i32 [ 16, %83 ], [ 16, %85 ], [ %88, %92 ], [ %88, %94 ]
   store ptr %.sink86.i, ptr %9, align 8, !tbaa !27
   br label %Vec_PtrPush.exit.i
 
@@ -374,8 +374,8 @@ Vec_PtrPush.exit54.i:                             ; preds = %148, %Vec_PtrGrow.e
   br i1 %.not37.i, label %Fxu_MatrixComputeSinglesOneCollect.exit, label %.lr.ph66.i, !llvm.loop !49
 
 Fxu_MatrixComputeSinglesOneCollect.exit:          ; preds = %155, %13, %._crit_edge63.i
-  %160 = phi i32 [ %14, %._crit_edge63.i ], [ %14, %13 ], [ %156, %155 ]
-  %161 = phi i32 [ %15, %._crit_edge63.i ], [ %15, %13 ], [ %157, %155 ]
+  %160 = phi i32 [ %14, %13 ], [ %14, %._crit_edge63.i ], [ %156, %155 ]
+  %161 = phi i32 [ %15, %13 ], [ %15, %._crit_edge63.i ], [ %157, %155 ]
   tail call void @Fxu_MatrixRingVarsUnmark(ptr noundef nonnull %0) #9
   %162 = getelementptr inbounds nuw i8, ptr %.07195, i64 56
   %.071 = load ptr, ptr %162, align 8, !tbaa !28

@@ -182,7 +182,7 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not386, label %105, label %.thread415
 
 .thread415.sink.split:                            ; preds = %99, %84, %78, %74, %69, %64, %61, %59, %54, %52
-  %.sink = phi i32 [ -10, %78 ], [ -1, %52 ], [ -3, %59 ], [ -6, %64 ], [ -8, %69 ], [ -9, %74 ], [ -4, %61 ], [ -2, %54 ], [ -15, %84 ], [ -17, %99 ]
+  %.sink = phi i32 [ -1, %52 ], [ -2, %54 ], [ -3, %59 ], [ -4, %61 ], [ -6, %64 ], [ -8, %69 ], [ -9, %74 ], [ -10, %78 ], [ -15, %84 ], [ -17, %99 ]
   store i32 %.sink, ptr %19, align 4, !tbaa !3
   br label %.thread415
 
@@ -383,7 +383,7 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %198
 
 198:                                              ; preds = %194, %191, %176
-  %199 = phi i1 [ false, %176 ], [ %197, %194 ], [ false, %191 ]
+  %199 = phi i1 [ false, %191 ], [ false, %176 ], [ %197, %194 ]
   %or.cond9 = or i1 %55, %199
   br i1 %or.cond9, label %200, label %225
 

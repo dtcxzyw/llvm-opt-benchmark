@@ -534,7 +534,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   br label %132
 
 132:                                              ; preds = %131, %128, %124, %120, %.split.split.us
-  %133 = phi i32 [ 1, %131 ], [ 0, %.split.split.us ], [ 0, %124 ], [ 0, %128 ], [ 0, %120 ]
+  %133 = phi i32 [ 1, %131 ], [ 0, %124 ], [ 0, %128 ], [ 0, %120 ], [ 0, %.split.split.us ]
   %134 = add i32 %133, %117
   %135 = add nuw nsw i64 %116, 1
   %136 = icmp eq i64 %135, 5
@@ -573,7 +573,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   br label %153
 
 153:                                              ; preds = %152, %148, %145, %141, %.split.split
-  %154 = phi i32 [ 1, %152 ], [ 0, %.split.split ], [ 0, %141 ], [ 0, %145 ], [ 0, %148 ]
+  %154 = phi i32 [ 1, %152 ], [ 0, %141 ], [ 0, %145 ], [ 0, %148 ], [ 0, %.split.split ]
   %155 = add i32 %154, %138
   %156 = add nuw nsw i64 %137, 1
   %157 = icmp eq i64 %156, 5

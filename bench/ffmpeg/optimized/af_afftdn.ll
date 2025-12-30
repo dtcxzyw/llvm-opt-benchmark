@@ -248,7 +248,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %40, label %26, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %26, %.preheader, %11, %.tail, %6
-  %.0 = phi i32 [ %9, %6 ], [ 0, %11 ], [ 0, %.tail ], [ 0, %.preheader ], [ 0, %26 ]
+  %.0 = phi i32 [ %9, %6 ], [ 0, %.tail ], [ 0, %11 ], [ 0, %.preheader ], [ 0, %26 ]
   ret i32 %.0
 }
 
@@ -1414,7 +1414,7 @@ output_frame.exit:                                ; preds = %440, %.critedge204.
   br label %538
 
 538:                                              ; preds = %533, %19, %.critedge34, %.critedge, %537, %530, %output_frame.exit
-  %.125 = phi i32 [ 0, %19 ], [ %.0178.i, %output_frame.exit ], [ 0, %530 ], [ 0, %537 ], [ %22, %.critedge ], [ 0, %533 ], [ -1497649742, %.critedge34 ]
+  %.125 = phi i32 [ %.0178.i, %output_frame.exit ], [ 0, %530 ], [ 0, %537 ], [ 0, %533 ], [ 0, %19 ], [ %22, %.critedge ], [ -1497649742, %.critedge34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.125
 }
@@ -2683,8 +2683,8 @@ get_band_edge.exit488:                            ; preds = %590, %594
   %exitcond768.not = icmp eq i64 %indvars.iv.next766, 16
   br i1 %exitcond768.not, label %568, label %570, !llvm.loop !184
 
-.thread.thread:                                   ; preds = %326, %328, %330, %332, %334, %336, %338, %340, %342, %344, %346, %348, %350, %352, %354, %319, %reduce_mean.exit, %313, %356, %175, %._crit_edge641, %._crit_edge, %116, %17, %568
-  %.0394 = phi i32 [ 0, %568 ], [ -12, %._crit_edge ], [ -12, %._crit_edge641 ], [ -12, %116 ], [ -12, %17 ], [ -12, %356 ], [ %317, %313 ], [ %311, %reduce_mean.exit ], [ -12, %319 ], [ -12, %354 ], [ -12, %352 ], [ -12, %350 ], [ -12, %348 ], [ -12, %346 ], [ -12, %344 ], [ -12, %342 ], [ -12, %340 ], [ -12, %338 ], [ -12, %336 ], [ -12, %334 ], [ -12, %332 ], [ -12, %330 ], [ -12, %328 ], [ -12, %326 ], [ -558323010, %175 ]
+.thread.thread:                                   ; preds = %319, %326, %328, %330, %332, %334, %336, %338, %340, %342, %344, %346, %348, %350, %352, %354, %313, %reduce_mean.exit, %356, %175, %._crit_edge641, %._crit_edge, %116, %17, %568
+  %.0394 = phi i32 [ 0, %568 ], [ -12, %17 ], [ -12, %116 ], [ -12, %._crit_edge ], [ -12, %._crit_edge641 ], [ -12, %356 ], [ %311, %reduce_mean.exit ], [ %317, %313 ], [ -12, %354 ], [ -12, %352 ], [ -12, %350 ], [ -12, %348 ], [ -12, %346 ], [ -12, %344 ], [ -12, %342 ], [ -12, %340 ], [ -12, %338 ], [ -12, %336 ], [ -12, %334 ], [ -12, %332 ], [ -12, %330 ], [ -12, %328 ], [ -12, %326 ], [ -12, %319 ], [ -558323010, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0394
@@ -3460,9 +3460,9 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !205
 
 spectral_flatness.exit.i:                         ; preds = %._crit_edge.loopexit.i.i, %._crit_edge.thread.i
-  %.025.lcssa.i.i = phi double [ 0.000000e+00, %._crit_edge.thread.i ], [ %.126.i.i, %._crit_edge.loopexit.i.i ]
-  %.023.lcssa.i.i = phi double [ 1.000000e+00, %._crit_edge.thread.i ], [ %154, %._crit_edge.loopexit.i.i ]
-  %.0.lcssa.i.i = phi double [ 0.000000e+00, %._crit_edge.thread.i ], [ %.1.i.i, %._crit_edge.loopexit.i.i ]
+  %.025.lcssa.i.i = phi double [ %.126.i.i, %._crit_edge.loopexit.i.i ], [ 0.000000e+00, %._crit_edge.thread.i ]
+  %.023.lcssa.i.i = phi double [ %154, %._crit_edge.loopexit.i.i ], [ 1.000000e+00, %._crit_edge.thread.i ]
+  %.0.lcssa.i.i = phi double [ %.1.i.i, %._crit_edge.loopexit.i.i ], [ 0.000000e+00, %._crit_edge.thread.i ]
   %164 = fdiv nsz double %.0.lcssa.i.i, %.023.lcssa.i.i
   %165 = fdiv nsz double %.025.lcssa.i.i, %.023.lcssa.i.i
   %166 = tail call nsz double @llvm.exp.f64(double %164)

@@ -207,7 +207,7 @@ sub_141:                                          ; preds = %sub_136, %.tail34
   br label %merge_all.exit
 
 merge_all.exit:                                   ; preds = %74, %90, %82, %51, %.tail34
-  %.123 = phi i32 [ %.02245, %90 ], [ 1, %.tail34 ], [ 0, %51 ], [ %.02245, %82 ], [ 0, %74 ]
+  %.123 = phi i32 [ 1, %.tail34 ], [ 0, %51 ], [ %.02245, %82 ], [ %.02245, %90 ], [ 0, %74 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50

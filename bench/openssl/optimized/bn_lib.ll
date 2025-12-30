@@ -495,7 +495,7 @@ bn_expand_internal.exit:                          ; preds = %24, %29
   br label %40
 
 40:                                               ; preds = %2, %.thread, %22, %13, %8
-  %.1 = phi ptr [ null, %22 ], [ null, %8 ], [ null, %13 ], [ %0, %.thread ], [ %0, %2 ]
+  %.1 = phi ptr [ null, %8 ], [ null, %13 ], [ null, %22 ], [ %0, %.thread ], [ %0, %2 ]
   ret ptr %.1
 }
 
@@ -596,7 +596,7 @@ bn_free_d.exit.i:                                 ; preds = %44, %40, %BN_copy.e
   br label %BN_free.exit
 
 BN_free.exit:                                     ; preds = %3, %BN_secure_new.exit, %28, %47, %bn_free_d.exit.i, %1
-  %.0 = phi ptr [ %6, %BN_secure_new.exit ], [ null, %1 ], [ null, %47 ], [ null, %bn_free_d.exit.i ], [ null, %3 ], [ %6, %28 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %bn_free_d.exit.i ], [ null, %47 ], [ %6, %28 ], [ %6, %BN_secure_new.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -754,7 +754,7 @@ define i64 @BN_get_word(ptr noundef readonly captures(none) %0) local_unnamed_ad
   br label %10
 
 10:                                               ; preds = %5, %1, %7
-  %.0 = phi i64 [ -1, %1 ], [ %9, %7 ], [ 0, %5 ]
+  %.0 = phi i64 [ %9, %7 ], [ -1, %1 ], [ 0, %5 ]
   ret i64 %.0
 }
 
@@ -900,7 +900,7 @@ BN_clear.exit:                                    ; preds = %16, %18
   br label %BN_new.exit
 
 .thread:                                          ; preds = %.critedge, %44, %.thread131
-  %.17590 = phi i32 [ %46, %.thread131 ], [ %.07494, %44 ], [ %.07494, %.critedge ]
+  %.17590 = phi i32 [ %.07494, %44 ], [ %46, %.thread131 ], [ %.07494, %.critedge ]
   %49 = add nsw i32 %.17590, -1
   %50 = lshr i32 %49, 3
   %51 = add nuw nsw i32 %50, 1
@@ -1039,7 +1039,7 @@ bn_wexpand.exit.thread:                           ; preds = %.thread, %bn_wexpan
   br label %BN_new.exit
 
 BN_new.exit:                                      ; preds = %108, %106, %73, %bn_free_d.exit.i, %56, %9, %5, %47, %BN_clear.exit
-  %.0 = phi ptr [ null, %73 ], [ null, %5 ], [ %.077.ph, %BN_clear.exit ], [ %.077.ph, %47 ], [ null, %9 ], [ null, %56 ], [ null, %bn_free_d.exit.i ], [ %.077.ph, %106 ], [ %.077.ph, %108 ]
+  %.0 = phi ptr [ %.077.ph, %BN_clear.exit ], [ %.077.ph, %47 ], [ null, %5 ], [ null, %9 ], [ null, %56 ], [ null, %bn_free_d.exit.i ], [ null, %73 ], [ %.077.ph, %106 ], [ %.077.ph, %108 ]
   ret ptr %.0
 }
 
@@ -1148,7 +1148,7 @@ bn_correct_top.exit:                              ; preds = %39, %42
   br i1 %.not67, label %.loopexit, label %48
 
 48:                                               ; preds = %19, %22, %bn_correct_top.exit
-  %.058 = phi i32 [ %2, %22 ], [ %2, %bn_correct_top.exit ], [ %21, %19 ]
+  %.058 = phi i32 [ %2, %bn_correct_top.exit ], [ %2, %22 ], [ %21, %19 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %50 = load i32, ptr %49, align 4, !tbaa !12
   %51 = icmp eq i32 %50, 0
@@ -1216,7 +1216,7 @@ bn_correct_top.exit:                              ; preds = %39, %42
   br i1 %exitcond.not, label %.loopexit, label %65, !llvm.loop !26
 
 .loopexit:                                        ; preds = %65, %55, %52, %53, %bn_correct_top.exit
-  %.1 = phi i32 [ -1, %bn_correct_top.exit ], [ 0, %52 ], [ %.058, %53 ], [ 0, %55 ], [ %.058, %65 ]
+  %.1 = phi i32 [ -1, %bn_correct_top.exit ], [ %.058, %53 ], [ 0, %52 ], [ 0, %55 ], [ %.058, %65 ]
   ret i32 %.1
 }
 
@@ -1303,7 +1303,7 @@ define range(i32 -268435455, 268435456) i32 @BN_bn2bin(ptr noundef readonly capt
   br i1 %exitcond.not.i, label %bn2binpad.exit, label %21, !llvm.loop !26
 
 bn2binpad.exit:                                   ; preds = %21, %9, %10, %12
-  %.1.i = phi i32 [ 0, %12 ], [ 0, %9 ], [ %5, %10 ], [ %5, %21 ]
+  %.1.i = phi i32 [ %5, %10 ], [ 0, %9 ], [ 0, %12 ], [ %5, %21 ]
   ret i32 %.1.i
 }
 
@@ -1476,7 +1476,7 @@ define i32 @BN_ucmp(ptr noundef readonly captures(none) %0, ptr noundef readonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.lr.ph, %.preheader42, %._crit_edge, %46
-  %.034 = phi i32 [ %36, %._crit_edge ], [ %35, %.lr.ph ], [ %48, %46 ], [ 0, %.preheader42 ], [ 0, %.preheader ]
+  %.034 = phi i32 [ %48, %46 ], [ %36, %._crit_edge ], [ 0, %.preheader42 ], [ %35, %.lr.ph ], [ 0, %.preheader ]
   ret i32 %.034
 }
 
@@ -1542,7 +1542,7 @@ define range(i32 -1, 2) i32 @BN_cmp(ptr noundef readonly captures(address_is_nul
   br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.preheader, %32, %24, %6, %5, %18, %12
-  %.0 = phi i32 [ %.42, %12 ], [ %.43, %18 ], [ %spec.select, %5 ], [ %.42, %6 ], [ %.42, %24 ], [ 0, %.preheader ], [ %.43, %32 ]
+  %.0 = phi i32 [ %.42, %12 ], [ %.43, %18 ], [ %spec.select, %5 ], [ %.42, %6 ], [ 0, %.preheader ], [ %.43, %32 ], [ %.42, %24 ]
   ret i32 %.0
 }
 
@@ -1663,7 +1663,7 @@ define range(i32 0, 2) i32 @BN_clear_bit(ptr noundef captures(none) %0, i32 noun
   br label %bn_correct_top.exit
 
 bn_correct_top.exit:                              ; preds = %27, %26, %4, %2
-  %.0 = phi i32 [ 0, %4 ], [ 0, %2 ], [ 1, %26 ], [ 1, %27 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 1, %26 ], [ 1, %27 ]
   ret i32 %.0
 }
 
@@ -1777,7 +1777,7 @@ define range(i32 0, 2) i32 @ossl_bn_mask_bits_fixed_top(ptr noundef captures(non
   br label %22
 
 22:                                               ; preds = %11, %12, %4, %2
-  %.0 = phi i32 [ 0, %4 ], [ 0, %2 ], [ 1, %12 ], [ 1, %11 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 1, %12 ], [ 1, %11 ]
   ret i32 %.0
 }
 
@@ -1849,8 +1849,8 @@ ossl_bn_mask_bits_fixed_top.exit:                 ; preds = %9
   store i32 0, ptr %31, align 8, !tbaa !18
   br label %bn_correct_top.exit
 
-bn_correct_top.exit:                              ; preds = %30, %2, %4, %.thread
-  %.0.i7 = phi i32 [ 1, %.thread ], [ 1, %30 ], [ 0, %4 ], [ 0, %2 ]
+bn_correct_top.exit:                              ; preds = %30, %4, %2, %.thread
+  %.0.i7 = phi i32 [ 1, %30 ], [ 1, %.thread ], [ 0, %2 ], [ 0, %4 ]
   ret i32 %.0.i7
 }
 
@@ -1924,7 +1924,7 @@ define range(i32 -1, 2) i32 @bn_cmp_words(ptr noundef readonly captures(none) %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %15, %3, %26, %12
-  %.020 = phi i32 [ 0, %3 ], [ %14, %12 ], [ %28, %26 ], [ 0, %15 ], [ 0, %18 ]
+  %.020 = phi i32 [ %14, %12 ], [ %28, %26 ], [ 0, %3 ], [ 0, %15 ], [ 0, %18 ]
   ret i32 %.020
 }
 
@@ -2021,7 +2021,7 @@ define range(i32 -1, 2) i32 @bn_cmp_part_words(ptr noundef readonly captures(non
   br label %bn_cmp_words.exit
 
 bn_cmp_words.exit:                                ; preds = %.preheader23, %.preheader, %32, %40, %29, %26, %.loopexit
-  %.018 = phi i32 [ 1, %.preheader ], [ 0, %32 ], [ 0, %.loopexit ], [ %28, %26 ], [ %42, %40 ], [ 0, %29 ], [ -1, %.preheader23 ]
+  %.018 = phi i32 [ %28, %26 ], [ %42, %40 ], [ 0, %.loopexit ], [ 0, %29 ], [ 0, %32 ], [ 1, %.preheader ], [ -1, %.preheader23 ]
   ret i32 %.018
 }
 
@@ -2112,7 +2112,7 @@ define range(i32 0, 257) i32 @BN_security_bits(i32 noundef %0, i32 noundef %1) l
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %10, %8, %6, %4, %2
-  %.014 = phi i32 [ 112, %8 ], [ 256, %2 ], [ 192, %4 ], [ 128, %6 ], [ 80, %10 ]
+  %.014 = phi i32 [ 256, %2 ], [ 192, %4 ], [ 128, %6 ], [ 112, %8 ], [ 80, %10 ]
   %13 = icmp eq i32 %1, -1
   br i1 %13, label %19, label %14
 
@@ -2126,7 +2126,7 @@ define range(i32 0, 257) i32 @BN_security_bits(i32 noundef %0, i32 noundef %1) l
   br label %19
 
 19:                                               ; preds = %14, %12, %10, %16
-  %.0 = phi i32 [ 0, %10 ], [ %.014, %12 ], [ %18, %16 ], [ 0, %14 ]
+  %.0 = phi i32 [ %18, %16 ], [ 0, %10 ], [ %.014, %12 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -2221,7 +2221,7 @@ define range(i32 0, 2) i32 @BN_is_word(ptr noundef readonly captures(none) %0, i
   br label %BN_abs_is_word.exit.thread
 
 BN_abs_is_word.exit.thread:                       ; preds = %10, %12, %13
-  %.shrunk = phi i1 [ %spec.select, %10 ], [ true, %12 ], [ %.not4, %13 ]
+  %.shrunk = phi i1 [ true, %12 ], [ %.not4, %13 ], [ %spec.select, %10 ]
   %16 = zext i1 %.shrunk to i32
   ret i32 %16
 }
@@ -2271,7 +2271,7 @@ define range(i32 0, 2) i32 @ossl_bn_is_word_fixed_top(ptr noundef readonly captu
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.lr.ph, %10, %2, %6
-  %.0 = phi i32 [ 0, %2 ], [ 0, %6 ], [ %15, %10 ], [ %24, %.lr.ph ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %2 ], [ %15, %10 ], [ %24, %.lr.ph ]
   ret i32 %.0
 }
 

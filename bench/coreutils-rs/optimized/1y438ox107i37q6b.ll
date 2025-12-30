@@ -1411,7 +1411,7 @@ define hidden void @_ZN6notify4poll11PollWatcher3new17h76467d9338d41c5fE(ptr noa
   unreachable
 
 .body:                                            ; preds = %34, %38, %21
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %35, %34 ], [ %35, %38 ]
+  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %35, %38 ], [ %35, %34 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !116)
   call void @llvm.experimental.noalias.scope.decl(metadata !119)
   %25 = load ptr, ptr %7, align 8, !alias.scope !122, !nonnull !9, !noundef !9
@@ -3077,9 +3077,9 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16BytesChunkBuffer5print17h20328a7
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h75aaf3bb0c321b10E.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h75aaf3bb0c321b10E.exit": ; preds = %2, %17, %19
-  %.sroa.0.0.i.i = phi i64 [ %.0.i.i.i.i, %19 ], [ %.0.i.i.i.i, %17 ], [ 0, %2 ]
-  %.sroa.5.0.i.i = phi i64 [ %20, %19 ], [ %14, %17 ], [ 0, %2 ]
-  %.sroa.11.0.i.i = phi i64 [ 0, %19 ], [ %18, %17 ], [ 0, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ %.0.i.i.i.i, %17 ], [ %.0.i.i.i.i, %19 ], [ 0, %2 ]
+  %.sroa.5.0.i.i = phi i64 [ %14, %17 ], [ %20, %19 ], [ 0, %2 ]
+  %.sroa.11.0.i.i = phi i64 [ %18, %17 ], [ 0, %19 ], [ 0, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !342, !noalias !343, !nonnull !9, !noundef !9
   %23 = getelementptr inbounds ptr, ptr %22, i64 %.sroa.0.0.i.i
@@ -3207,9 +3207,9 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16BytesChunkBuffer5print17hb525581
           to label %61 unwind label %59
 
 22:                                               ; preds = %19, %17, %.noexc
-  %.sroa.0.0.i.i = phi i64 [ %.0.i.i.i.i, %19 ], [ %.0.i.i.i.i, %17 ], [ 0, %.noexc ]
-  %.sroa.5.0.i.i = phi i64 [ %20, %19 ], [ %14, %17 ], [ 0, %.noexc ]
-  %.sroa.11.0.i.i = phi i64 [ 0, %19 ], [ %18, %17 ], [ 0, %.noexc ]
+  %.sroa.0.0.i.i = phi i64 [ %.0.i.i.i.i, %17 ], [ %.0.i.i.i.i, %19 ], [ 0, %.noexc ]
+  %.sroa.5.0.i.i = phi i64 [ %14, %17 ], [ %20, %19 ], [ 0, %.noexc ]
+  %.sroa.11.0.i.i = phi i64 [ %18, %17 ], [ 0, %19 ], [ 0, %.noexc ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !368, !noalias !373, !nonnull !9, !noundef !9
   %25 = getelementptr inbounds ptr, ptr %24, i64 %.sroa.0.0.i.i
@@ -3568,7 +3568,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
           cleanup
   br label %.thread77
 
-.thread77.loopexit.split-lp:                      ; preds = %.invoke, %._crit_edge, %23
+.thread77.loopexit.split-lp:                      ; preds = %.invoke, %23, %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread77
@@ -4048,7 +4048,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
           cleanup
   br label %.thread77
 
-.thread77.loopexit.split-lp:                      ; preds = %.invoke, %._crit_edge, %23
+.thread77.loopexit.split-lp:                      ; preds = %.invoke, %23, %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread77
@@ -4489,9 +4489,9 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16LinesChunkBuffer5print17hf22b216
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h097eaeb289ca22edE.exit": ; preds = %2, %17, %19
-  %.sroa.0.0.i.i = phi i64 [ %.0.i.i.i.i, %19 ], [ %.0.i.i.i.i, %17 ], [ 0, %2 ]
-  %.sroa.5.0.i.i = phi i64 [ %20, %19 ], [ %14, %17 ], [ 0, %2 ]
-  %.sroa.11.0.i.i = phi i64 [ 0, %19 ], [ %18, %17 ], [ 0, %2 ]
+  %.sroa.0.0.i.i = phi i64 [ %.0.i.i.i.i, %17 ], [ %.0.i.i.i.i, %19 ], [ 0, %2 ]
+  %.sroa.5.0.i.i = phi i64 [ %14, %17 ], [ %20, %19 ], [ 0, %2 ]
+  %.sroa.11.0.i.i = phi i64 [ %18, %17 ], [ 0, %19 ], [ 0, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !638, !noalias !639, !nonnull !9, !noundef !9
   %23 = getelementptr inbounds ptr, ptr %22, i64 %.sroa.0.0.i.i

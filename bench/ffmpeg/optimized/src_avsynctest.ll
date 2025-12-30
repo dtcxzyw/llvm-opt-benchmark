@@ -109,7 +109,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %27
 
 27:                                               ; preds = %22, %17, %15, %11, %3, %25
-  %.0 = phi i32 [ -12, %3 ], [ -12, %15 ], [ %20, %17 ], [ %26, %25 ], [ %13, %11 ], [ %23, %22 ]
+  %.0 = phi i32 [ %26, %25 ], [ -12, %3 ], [ %13, %11 ], [ -12, %15 ], [ %20, %17 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -918,13 +918,13 @@ av_cmp_q.exit220.thread.i:                        ; preds = %av_cmp_q.exit220.i,
   br i1 %447, label %437, label %._crit_edge.i26, !llvm.loop !81
 
 video_frame.exit:                                 ; preds = %133, %144, %._crit_edge.i26
-  %.0150.i = phi i32 [ 1, %133 ], [ %436, %._crit_edge.i26 ], [ -12, %144 ]
+  %.0150.i = phi i32 [ %436, %._crit_edge.i26 ], [ 1, %133 ], [ -12, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %audio_frame.exit.thread
 
 audio_frame.exit.thread:                          ; preds = %42, %audio_frame.exit, %12, %video_frame.exit, %21
-  %.0 = phi i32 [ 0, %21 ], [ -1497649742, %12 ], [ %.0150.i, %video_frame.exit ], [ %110, %audio_frame.exit ], [ -12, %42 ]
+  %.0 = phi i32 [ 0, %21 ], [ %.0150.i, %video_frame.exit ], [ -1497649742, %12 ], [ %110, %audio_frame.exit ], [ -12, %42 ]
   ret i32 %.0
 }
 

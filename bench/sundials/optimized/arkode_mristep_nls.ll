@@ -165,7 +165,7 @@ define i32 @mriStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unn
   br label %71
 
 71:                                               ; preds = %61, %70, %2, %69, %60, %52, %46, %40, %21, %7
-  %.020 = phi i32 [ -22, %40 ], [ -22, %7 ], [ -22, %21 ], [ -22, %46 ], [ -22, %52 ], [ -22, %60 ], [ %4, %2 ], [ -22, %69 ], [ 0, %70 ], [ 0, %61 ]
+  %.020 = phi i32 [ -22, %7 ], [ -22, %21 ], [ -22, %46 ], [ -22, %52 ], [ -22, %60 ], [ -22, %69 ], [ -22, %40 ], [ %4, %2 ], [ 0, %70 ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.020
 }
@@ -271,7 +271,7 @@ define i32 @mriStep_NlsResidual(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br label %68
 
 68:                                               ; preds = %45, %44, %9, %3
-  %.0 = phi i32 [ 9, %44 ], [ %8, %3 ], [ -8, %9 ], [ %., %45 ]
+  %.0 = phi i32 [ %8, %3 ], [ -8, %9 ], [ 9, %44 ], [ %., %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -668,7 +668,7 @@ define i32 @mriStep_NlsLSetup(i32 noundef %0, ptr noundef writeonly captures(non
   br label %56
 
 56:                                               ; preds = %55, %9, %3
-  %.0 = phi i32 [ -6, %9 ], [ %6, %3 ], [ %., %55 ]
+  %.0 = phi i32 [ %6, %3 ], [ -6, %9 ], [ %., %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -730,7 +730,7 @@ define i32 @mriStep_NlsLSolve(ptr noundef %0, ptr noundef %1) #0 {
   br label %39
 
 39:                                               ; preds = %38, %12, %7, %2
-  %.0 = phi i32 [ -7, %12 ], [ %6, %2 ], [ -32, %7 ], [ %., %38 ]
+  %.0 = phi i32 [ %6, %2 ], [ -32, %7 ], [ -7, %12 ], [ %., %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -838,7 +838,7 @@ define range(i32 903, 902) i32 @mriStep_Nls(ptr noundef %0, i32 noundef %1) loca
   br label %59
 
 59:                                               ; preds = %43, %46, %38, %39, %57
-  %.048.shrunk = phi i1 [ false, %57 ], [ %42, %39 ], [ true, %38 ], [ true, %43 ], [ %56, %46 ]
+  %.048.shrunk = phi i1 [ false, %57 ], [ true, %38 ], [ %42, %39 ], [ true, %43 ], [ %56, %46 ]
   %.048 = zext i1 %.048.shrunk to i32
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %61 = load ptr, ptr %60, align 8, !tbaa !78

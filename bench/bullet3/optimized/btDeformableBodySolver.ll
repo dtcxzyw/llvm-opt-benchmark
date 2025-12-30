@@ -2326,7 +2326,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i206: ; preds = %397,
           to label %410 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %408, %255, %177
-  %.pn = phi { ptr, i32 } [ %409, %408 ], [ %178, %177 ], [ %256, %255 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit222, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit225, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %256, %255 ], [ %409, %408 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit222, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit225, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   tail call void @_ZN15btReducedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) #28
   resume { ptr, i32 } %.pn
 
@@ -4466,7 +4466,7 @@ _ZN22btDeformableBodySolver11computeStepER20btAlignedObjectArrayI9btVector3ERKS2
   ret void
 
 389:                                              ; preds = %.loopexit139, %.loopexit.split-lp, %110, %240, %242, %157, %96, %46
-  %.pn70.pn.pn = phi { ptr, i32 } [ %97, %96 ], [ %47, %46 ], [ %111, %110 ], [ %243, %242 ], [ %241, %240 ], [ %158, %157 ], [ %lpad.loopexit, %.loopexit139 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn70.pn.pn = phi { ptr, i32 } [ %47, %46 ], [ %97, %96 ], [ %111, %110 ], [ %158, %157 ], [ %241, %240 ], [ %243, %242 ], [ %lpad.loopexit, %.loopexit139 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn70.pn.pn
@@ -6817,13 +6817,13 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i281: ; preds = %.noexc284, %
   br label %.body
 
 _ZNSolsEPFRSoS_E.exit143:                         ; preds = %327, %_ZN20btAlignedObjectArrayI9btVector3EaSERKS1_.exit195, %.noexc286._ZNSolsEPFRSoS_E.exit238_crit_edge, %358, %.noexc275, %_ZNSolsEPFRSoS_E.exit173, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i174, %.noexc253, %170
-  %.0 = phi i32 [ 0, %170 ], [ 0, %.noexc253 ], [ %432, %_ZN20btAlignedObjectArrayI9btVector3EaSERKS1_.exit195 ], [ %.050329, %358 ], [ 1, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i174 ], [ %.050329, %_ZNSolsEPFRSoS_E.exit173 ], [ %.050329, %.noexc275 ], [ %.pre343, %.noexc286._ZNSolsEPFRSoS_E.exit238_crit_edge ], [ 1, %327 ]
+  %.0 = phi i32 [ 0, %170 ], [ 0, %.noexc253 ], [ 1, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i174 ], [ %.050329, %_ZNSolsEPFRSoS_E.exit173 ], [ %.050329, %.noexc275 ], [ %.050329, %358 ], [ %.pre343, %.noexc286._ZNSolsEPFRSoS_E.exit238_crit_edge ], [ %432, %_ZN20btAlignedObjectArrayI9btVector3EaSERKS1_.exit195 ], [ 1, %327 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 
 .body:                                            ; preds = %.loopexit294, %.loopexit.split-lp295, %.loopexit, %.loopexit.split-lp, %220, %460, %431, %221, %214, %158, %152, %264, %212, %54
-  %.pn76.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %213, %212 ], [ %.pn, %220 ], [ %.pn68, %431 ], [ %222, %221 ], [ %461, %460 ], [ %159, %158 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %153, %152 ], [ %215, %214 ], [ %265, %264 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit296, %.loopexit294 ], [ %lpad.loopexit.split-lp297, %.loopexit.split-lp295 ]
+  %.pn76.pn.pn = phi { ptr, i32 } [ %213, %212 ], [ %55, %54 ], [ %.pn, %220 ], [ %222, %221 ], [ %461, %460 ], [ %.pn68, %431 ], [ %153, %152 ], [ %215, %214 ], [ %159, %158 ], [ %265, %264 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit296, %.loopexit294 ], [ %lpad.loopexit.split-lp297, %.loopexit.split-lp295 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn76.pn.pn
@@ -8060,7 +8060,7 @@ _ZN20btAlignedObjectArrayI9btVector3EaSERKS1_.exit233: ; preds = %428, %_ZN20btA
   ret i32 %.0
 
 433:                                              ; preds = %116, %271, %275, %371, %366, %273, %214, %115, %109
-  %.pn63.pn.pn = phi { ptr, i32 } [ %.pn, %115 ], [ %110, %109 ], [ %117, %116 ], [ %215, %214 ], [ %272, %271 ], [ %274, %273 ], [ %276, %275 ], [ %.pn57, %371 ], [ %.pn55, %366 ]
+  %.pn63.pn.pn = phi { ptr, i32 } [ %110, %109 ], [ %.pn, %115 ], [ %117, %116 ], [ %215, %214 ], [ %272, %271 ], [ %274, %273 ], [ %276, %275 ], [ %.pn57, %371 ], [ %.pn55, %366 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn63.pn.pn

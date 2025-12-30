@@ -1419,7 +1419,7 @@ _Z9PERTURBEDRK6t_atom.exit:                       ; preds = %88
   ret void
 
 154:                                              ; preds = %49, %83, %81, %43, %19
-  %.pn59.pn = phi { ptr, i32 } [ %20, %19 ], [ %44, %43 ], [ %50, %49 ], [ %lpad.phi, %83 ], [ %82, %81 ]
+  %.pn59.pn = phi { ptr, i32 } [ %44, %43 ], [ %20, %19 ], [ %50, %49 ], [ %lpad.phi, %83 ], [ %82, %81 ]
   call void @_ZNSt10unique_ptrIN3gmx7MDAtomsESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   br label %common.resume
 }
@@ -3066,8 +3066,8 @@ define internal void @_Z8atoms2mdRK10gmx_mtop_tRK10t_inputreciN3gmx8ArrayRefIiEE
   br label %160
 
 160:                                              ; preds = %108, %108, %108, %156, %137, %115
-  %.0166 = phi float [ %159, %156 ], [ %120, %115 ], [ %155, %137 ], [ 1.000000e+00, %108 ], [ 1.000000e+00, %108 ], [ 1.000000e+00, %108 ]
-  %.0165 = phi float [ %157, %156 ], [ %120, %115 ], [ %149, %137 ], [ 1.000000e+00, %108 ], [ 1.000000e+00, %108 ], [ 1.000000e+00, %108 ]
+  %.0166 = phi float [ %120, %115 ], [ %155, %137 ], [ %159, %156 ], [ 1.000000e+00, %108 ], [ 1.000000e+00, %108 ], [ 1.000000e+00, %108 ]
+  %.0165 = phi float [ %120, %115 ], [ %149, %137 ], [ %157, %156 ], [ 1.000000e+00, %108 ], [ 1.000000e+00, %108 ], [ 1.000000e+00, %108 ]
   %161 = getelementptr inbounds nuw i8, ptr %109, i64 28
   %162 = load i32, ptr %161, align 4, !tbaa !246
   %.not176 = icmp eq i32 %162, 0
@@ -3680,7 +3680,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !268
   br label %41
 
@@ -4165,7 +4165,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !66
   br label %41
 
@@ -4264,7 +4264,7 @@ define linkonce_odr void @_ZNSt6vectorI12ParticleTypeSaIS0_EE17_M_default_append
   br label %_ZSt27__uninitialized_default_n_aIP12ParticleTypemS0_ET_S2_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIP12ParticleTypemS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %19, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %.lr.ph.preheader.i.i.i.i.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %.lr.ph.preheader.i.i.i.i.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !272
   br label %41
 
@@ -4363,7 +4363,7 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !274
   br label %41
 

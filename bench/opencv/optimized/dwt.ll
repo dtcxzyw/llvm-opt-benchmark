@@ -291,7 +291,7 @@ opj_dwt_max_resolution.exit:                      ; preds = %.lr.ph.i, %4
   br i1 %.not, label %.critedge210.sink.split, label %38, !llvm.loop !51
 
 .critedge210.sink.split:                          ; preds = %.loopexit, %.preheader214, %81, %84, %115, %118
-  %.0.ph = phi i32 [ 0, %118 ], [ 0, %115 ], [ 0, %81 ], [ 0, %84 ], [ 1, %.preheader214 ], [ 1, %.loopexit ]
+  %.0.ph = phi i32 [ 0, %118 ], [ 0, %115 ], [ 0, %84 ], [ 0, %81 ], [ 1, %.preheader214 ], [ 1, %.loopexit ]
   tail call void @opj_aligned_free(ptr noundef %33) #16
   br label %.critedge210
 
@@ -889,7 +889,7 @@ opj_dwt_fetch_cols_vertical_pass.exit.thread:     ; preds = %.preheader.i, %.pre
   br label %285
 
 285:                                              ; preds = %.lr.ph.i252, %278
-  %.0.i = phi i64 [ 0, %.lr.ph.i252 ], [ %284, %278 ]
+  %.0.i = phi i64 [ %284, %278 ], [ 0, %.lr.ph.i252 ]
   %286 = getelementptr inbounds nuw i32, ptr %.15469.i254, i64 %.0.i
   %287 = load i32, ptr %286, align 4, !tbaa !53, !alias.scope !74, !noalias !77
   %288 = getelementptr inbounds nuw i32, ptr %.15662.i255, i64 %.0.i
@@ -1442,12 +1442,12 @@ opj_dwt_max_resolution.exit.i:                    ; preds = %.lr.ph.i.i
   br i1 %.not166.i, label %.thread.sink.split.i, label %60
 
 .thread.sink.split.i:                             ; preds = %.critedge181.i, %128, %116, %95, %83
-  %.0.ph.i = phi i32 [ 0, %128 ], [ 0, %116 ], [ 0, %83 ], [ 0, %95 ], [ 1, %.critedge181.i ]
+  %.0.ph.i = phi i32 [ 0, %128 ], [ 0, %116 ], [ 0, %95 ], [ 0, %83 ], [ 1, %.critedge181.i ]
   tail call void @opj_aligned_free(ptr noundef nonnull %50) #16
   br label %opj_dwt_decode_tile.exit
 
 opj_dwt_decode_tile.exit:                         ; preds = %8, %opj_dwt_max_resolution.exit.i, %.thread.sink.split.i
-  %.0.i = phi i32 [ 0, %opj_dwt_max_resolution.exit.i ], [ 1, %8 ], [ %.0.ph.i, %.thread.sink.split.i ]
+  %.0.i = phi i32 [ 1, %8 ], [ 0, %opj_dwt_max_resolution.exit.i ], [ %.0.ph.i, %.thread.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %opj_dwt_decode_partial_tile.exit
@@ -1648,14 +1648,14 @@ opj_dwt_max_resolution.exit.i12:                  ; preds = %.lr.ph.i.i6
   br label %opj_dwt_get_band_coordinates.exit206.i
 
 opj_dwt_get_band_coordinates.exit206.i:           ; preds = %262, %229, %212
-  %268 = phi i32 [ %.ph285.i, %229 ], [ %.ph285.i, %262 ], [ %150, %212 ]
-  %269 = phi i32 [ %.ph281.i, %229 ], [ %.ph281.i, %262 ], [ %148, %212 ]
-  %270 = phi i32 [ %.ph277.i, %229 ], [ %.ph277.i, %262 ], [ %152, %212 ]
-  %271 = phi i32 [ %.ph.i, %229 ], [ %.ph.i, %262 ], [ %148, %212 ]
-  %272 = phi i32 [ %.ph274.i, %229 ], [ %.ph274.i, %262 ], [ %150, %212 ]
-  %273 = phi i32 [ %.ph279.i, %229 ], [ %.ph279.i, %262 ], [ %154, %212 ]
-  %274 = phi i32 [ %.ph283.i, %229 ], [ %.ph283.i, %262 ], [ %152, %212 ]
-  %275 = phi i32 [ 0, %229 ], [ %267, %262 ], [ %154, %212 ]
+  %268 = phi i32 [ %.ph285.i, %262 ], [ %.ph285.i, %229 ], [ %150, %212 ]
+  %269 = phi i32 [ %.ph281.i, %262 ], [ %.ph281.i, %229 ], [ %148, %212 ]
+  %270 = phi i32 [ %.ph277.i, %262 ], [ %.ph277.i, %229 ], [ %152, %212 ]
+  %271 = phi i32 [ %.ph.i, %262 ], [ %.ph.i, %229 ], [ %148, %212 ]
+  %272 = phi i32 [ %.ph274.i, %262 ], [ %.ph274.i, %229 ], [ %150, %212 ]
+  %273 = phi i32 [ %.ph279.i, %262 ], [ %.ph279.i, %229 ], [ %154, %212 ]
+  %274 = phi i32 [ %.ph283.i, %262 ], [ %.ph283.i, %229 ], [ %152, %212 ]
+  %275 = phi i32 [ %267, %262 ], [ 0, %229 ], [ %154, %212 ]
   %276 = getelementptr inbounds nuw i8, ptr %.0173312.i, i64 224
   %277 = getelementptr inbounds nuw i8, ptr %.0173312.i, i64 272
   %278 = load i32, ptr %277, align 8, !tbaa !117
@@ -2187,8 +2187,8 @@ opj_dwt_get_band_coordinates.exit206.i:           ; preds = %262, %229, %212
   br label %582
 
 582:                                              ; preds = %580, %576, %.thread202.i.i
-  %583 = phi i32 [ %578, %580 ], [ %578, %576 ], [ %575, %.thread202.i.i ]
-  %.in186.i.i = phi ptr [ %spec.select262.i.i, %580 ], [ %209, %576 ], [ %209, %.thread202.i.i ]
+  %583 = phi i32 [ %575, %.thread202.i.i ], [ %578, %576 ], [ %578, %580 ]
+  %.in186.i.i = phi ptr [ %209, %.thread202.i.i ], [ %209, %576 ], [ %spec.select262.i.i, %580 ]
   %584 = load i32, ptr %.in186.i.i, align 4, !tbaa !53
   %585 = add i32 %584, %583
   %586 = ashr i32 %585, 1
@@ -2260,8 +2260,8 @@ opj_dwt_decode_partial_1.exit.i:                  ; preds = %582, %527, %.prehea
   br label %610
 
 610:                                              ; preds = %609, %608, %602
-  %611 = phi i32 [ %607, %609 ], [ %607, %608 ], [ %605, %602 ]
-  %.in313.i.i = phi ptr [ %gep573.i.i, %609 ], [ %gep571.i.i, %608 ], [ %604, %602 ]
+  %611 = phi i32 [ %607, %608 ], [ %607, %609 ], [ %605, %602 ]
+  %.in313.i.i = phi ptr [ %gep571.i.i, %608 ], [ %gep573.i.i, %609 ], [ %604, %602 ]
   %612 = load i32, ptr %.in313.i.i, align 4, !tbaa !53
   %613 = add i32 %611, 2
   %614 = add i32 %613, %612
@@ -2955,7 +2955,7 @@ opj_dwt_decode_partial_1_parallel.exit.i:         ; preds = %.split364.us.i.i, %
   br label %opj_dwt_decode_partial_tile.exit
 
 opj_dwt_decode_partial_tile.exit:                 ; preds = %._crit_edge.i18, %.thread287.i, %589, %211, %170, %165, %159, %132, %opj_dwt_decode_tile.exit
-  %.0 = phi i32 [ %.0.i, %opj_dwt_decode_tile.exit ], [ 1, %._crit_edge.i18 ], [ 1, %132 ], [ 1, %170 ], [ 0, %211 ], [ 0, %165 ], [ 1, %159 ], [ 0, %.thread287.i ], [ 0, %589 ]
+  %.0 = phi i32 [ %.0.i, %opj_dwt_decode_tile.exit ], [ 1, %170 ], [ 1, %._crit_edge.i18 ], [ 0, %211 ], [ 1, %159 ], [ 1, %132 ], [ 0, %165 ], [ 0, %.thread287.i ], [ 0, %589 ]
   ret i32 %.0
 }
 
@@ -3572,7 +3572,7 @@ opj_v8dwt_encode_step1.exit115:                   ; preds = %.lr.ph.i111, %opj_v
   br label %308
 
 308:                                              ; preds = %.lr.ph.i128, %301
-  %.0.i = phi i64 [ 0, %.lr.ph.i128 ], [ %307, %301 ]
+  %.0.i = phi i64 [ %307, %301 ], [ 0, %.lr.ph.i128 ]
   %309 = getelementptr inbounds nuw i32, ptr %.15469.i130, i64 %.0.i
   %310 = load i32, ptr %309, align 4, !tbaa !53, !alias.scope !155, !noalias !158
   %311 = getelementptr inbounds nuw i32, ptr %.15662.i131, i64 %.0.i
@@ -5046,12 +5046,12 @@ opj_v8dwt_interleave_v.exit293.i:                 ; preds = %346, %._crit_edge.i
   br i1 %.not266.i, label %.critedge.sink.split.i, label %75, !llvm.loop !238
 
 .critedge.sink.split.i:                           ; preds = %.loopexit.i, %306, %303, %237, %234
-  %.0218.ph.i = phi i32 [ 0, %306 ], [ 0, %303 ], [ 0, %234 ], [ 0, %237 ], [ 1, %.loopexit.i ]
+  %.0218.ph.i = phi i32 [ 0, %306 ], [ 0, %303 ], [ 0, %237 ], [ 0, %234 ], [ 1, %.loopexit.i ]
   tail call void @opj_aligned_free(ptr noundef nonnull %51) #16, !noalias !181
   br label %opj_dwt_decode_tile_97.exit
 
 opj_dwt_decode_tile_97.exit:                      ; preds = %10, %opj_dwt_max_resolution.exit.i, %.critedge.sink.split.i
-  %.0218.i = phi i32 [ 0, %opj_dwt_max_resolution.exit.i ], [ 1, %10 ], [ %.0218.ph.i, %.critedge.sink.split.i ]
+  %.0218.i = phi i32 [ 1, %10 ], [ 0, %opj_dwt_max_resolution.exit.i ], [ %.0218.ph.i, %.critedge.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !181
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !181
   br label %664
@@ -5279,14 +5279,14 @@ opj_dwt_max_resolution.exit.i12:                  ; preds = %.lr.ph.i.i6
   br label %opj_dwt_get_band_coordinates.exit196.i
 
 opj_dwt_get_band_coordinates.exit196.i:           ; preds = %505, %471, %455
-  %511 = phi i32 [ %.ph258.i, %471 ], [ %.ph258.i, %505 ], [ %377, %455 ]
-  %512 = phi i32 [ %.ph254.i, %471 ], [ %.ph254.i, %505 ], [ %375, %455 ]
-  %513 = phi i32 [ %.ph250.i, %471 ], [ %.ph250.i, %505 ], [ %379, %455 ]
-  %514 = phi i32 [ %.ph.i, %471 ], [ %.ph.i, %505 ], [ %375, %455 ]
-  %515 = phi i32 [ %.ph247.i, %471 ], [ %.ph247.i, %505 ], [ %377, %455 ]
-  %516 = phi i32 [ %.ph252.i, %471 ], [ %.ph252.i, %505 ], [ %381, %455 ]
-  %517 = phi i32 [ %.ph256.i, %471 ], [ %.ph256.i, %505 ], [ %379, %455 ]
-  %518 = phi i32 [ 0, %471 ], [ %510, %505 ], [ %381, %455 ]
+  %511 = phi i32 [ %.ph258.i, %505 ], [ %.ph258.i, %471 ], [ %377, %455 ]
+  %512 = phi i32 [ %.ph254.i, %505 ], [ %.ph254.i, %471 ], [ %375, %455 ]
+  %513 = phi i32 [ %.ph250.i, %505 ], [ %.ph250.i, %471 ], [ %379, %455 ]
+  %514 = phi i32 [ %.ph.i, %505 ], [ %.ph.i, %471 ], [ %375, %455 ]
+  %515 = phi i32 [ %.ph247.i, %505 ], [ %.ph247.i, %471 ], [ %377, %455 ]
+  %516 = phi i32 [ %.ph252.i, %505 ], [ %.ph252.i, %471 ], [ %381, %455 ]
+  %517 = phi i32 [ %.ph256.i, %505 ], [ %.ph256.i, %471 ], [ %379, %455 ]
+  %518 = phi i32 [ %510, %505 ], [ 0, %471 ], [ %381, %455 ]
   %519 = getelementptr inbounds nuw i8, ptr %.0155273.i, i64 224
   %520 = getelementptr inbounds nuw i8, ptr %.0155273.i, i64 272
   %521 = load i32, ptr %520, align 8, !tbaa !117, !noalias !239
@@ -5541,7 +5541,7 @@ opj_v8dwt_interleave_partial_h.exit.loopexit.i:   ; preds = %593
   br label %opj_dwt_decode_partial_97.exit
 
 opj_dwt_decode_partial_97.exit:                   ; preds = %359, %386, %392, %397, %431, %603, %619, %645, %._crit_edge277.i
-  %.0.i = phi i32 [ 1, %._crit_edge277.i ], [ 1, %359 ], [ 1, %397 ], [ 0, %431 ], [ 0, %392 ], [ 1, %386 ], [ 0, %645 ], [ 0, %619 ], [ 0, %603 ]
+  %.0.i = phi i32 [ 1, %397 ], [ 1, %._crit_edge277.i ], [ 0, %431 ], [ 1, %386 ], [ 1, %359 ], [ 0, %392 ], [ 0, %645 ], [ 0, %619 ], [ 0, %603 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !239
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !239
   br label %664
@@ -6898,7 +6898,7 @@ define internal fastcc ptr @opj_dwt_init_sparse_array(ptr noundef readonly captu
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph111, !llvm.loop !289
 
 .loopexit:                                        ; preds = %.critedge99, %.preheader, %113, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %113 ], [ %19, %.preheader ], [ %19, %.critedge99 ]
+  %.0 = phi ptr [ null, %113 ], [ null, %2 ], [ %19, %.preheader ], [ %19, %.critedge99 ]
   ret ptr %.0
 }
 
@@ -7213,8 +7213,8 @@ define internal fastcc void @opj_v8dwt_decode(ptr noalias noundef readonly captu
   br i1 %20, label %21, label %opj_v8dwt_decode_step2_sse.exit86
 
 21:                                               ; preds = %13, %17, %5, %9
-  %.048 = phi i32 [ 1, %5 ], [ 1, %9 ], [ 0, %17 ], [ 0, %13 ]
-  %.0 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 1, %17 ], [ 1, %13 ]
+  %.048 = phi i32 [ 1, %9 ], [ 1, %5 ], [ 0, %17 ], [ 0, %13 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %5 ], [ 1, %17 ], [ 1, %13 ]
   %22 = load ptr, ptr %0, align 8, !tbaa !187
   %23 = zext nneg i32 %.0 to i64
   %24 = getelementptr inbounds nuw %union.opj_v8_t, ptr %22, i64 %23

@@ -603,7 +603,7 @@ define internal noundef range(i32 -10, 2) i32 @tid_fd_revalidate(ptr noundef rea
   br label %.thread7
 
 .thread7:                                         ; preds = %45, %43, %39, %37, %5, %.thread8, %46, %2
-  %47 = phi i32 [ 0, %5 ], [ 1, %46 ], [ -10, %2 ], [ 0, %.thread8 ], [ 1, %39 ], [ 1, %37 ], [ 0, %43 ], [ 0, %45 ]
+  %47 = phi i32 [ 1, %46 ], [ -10, %2 ], [ 0, %.thread8 ], [ 0, %5 ], [ 1, %37 ], [ 1, %39 ], [ 0, %43 ], [ 0, %45 ]
   ret i32 %47
 }
 

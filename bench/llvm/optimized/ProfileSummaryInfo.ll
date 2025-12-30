@@ -857,7 +857,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo19isFunctionEn
   br label %24
 
 24:                                               ; preds = %6, %4, %2, %22
-  %.0 = phi i1 [ false, %2 ], [ %23, %22 ], [ true, %4 ], [ false, %6 ]
+  %.0 = phi i1 [ %23, %22 ], [ false, %2 ], [ true, %4 ], [ false, %6 ]
   ret i1 %.0
 }
 

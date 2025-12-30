@@ -193,7 +193,7 @@ define noundef i32 @pmix_pnet_base_allocate(ptr noundef readonly captures(addres
   br i1 %.not41, label %pmix_obj_new_tma.exit, label %.lr.ph52, !llvm.loop !71
 
 pmix_obj_new_tma.exit:                            ; preds = %61, %63, %32, %52, %16, %13
-  %.032 = phi i32 [ -32, %32 ], [ -27, %13 ], [ 0, %16 ], [ 0, %52 ], [ %62, %61 ], [ 0, %63 ]
+  %.032 = phi i32 [ -27, %13 ], [ 0, %16 ], [ 0, %52 ], [ -32, %32 ], [ %62, %61 ], [ 0, %63 ]
   ret i32 %.032
 }
 
@@ -440,7 +440,7 @@ pmix_obj_update.exit:                             ; preds = %pmix_obj_new_tma.ex
   br i1 %.not49, label %pmix_obj_new_tma.exit, label %.lr.ph74, !llvm.loop !77
 
 pmix_obj_new_tma.exit:                            ; preds = %96, %98, %91, %38, %14, %12
-  %.041 = phi i32 [ -32, %38 ], [ -27, %12 ], [ 0, %14 ], [ 0, %91 ], [ %97, %96 ], [ 0, %98 ]
+  %.041 = phi i32 [ -27, %12 ], [ 0, %14 ], [ -32, %38 ], [ 0, %91 ], [ %97, %96 ], [ 0, %98 ]
   ret i32 %.041
 }
 
@@ -514,7 +514,7 @@ define range(i32 -27, 1) i32 @pmix_pnet_base_setup_fork(ptr noundef %0, ptr noun
   br i1 %.not25, label %.thread, label %.lr.ph36, !llvm.loop !83
 
 .thread:                                          ; preds = %19, %.lr.ph36, %.preheader, %22, %21, %11
-  %.020 = phi i32 [ -27, %11 ], [ 0, %22 ], [ 0, %21 ], [ 0, %.preheader ], [ 0, %.lr.ph36 ], [ 0, %19 ]
+  %.020 = phi i32 [ -27, %11 ], [ 0, %21 ], [ 0, %22 ], [ 0, %.preheader ], [ 0, %.lr.ph36 ], [ 0, %19 ]
   ret i32 %.020
 }
 
@@ -986,7 +986,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %22, %2
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !108
 
 .loopexit:                                        ; preds = %13, %50, %.preheader, %5, %41
-  %.0 = phi i32 [ -47, %5 ], [ -157, %41 ], [ -46, %.preheader ], [ %14, %13 ], [ -46, %50 ]
+  %.0 = phi i32 [ -157, %41 ], [ -47, %5 ], [ -46, %.preheader ], [ %14, %13 ], [ -46, %50 ]
   ret i32 %.0
 }
 
@@ -1041,7 +1041,7 @@ define i32 @pmix_pnet_base_update_fabric(ptr noundef %0) local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %.sink.split, %18, %15, %13
-  %.1 = phi ptr [ %.01932, %15 ], [ %.01932, %13 ], [ %.01932, %18 ], [ %22, %.sink.split ]
+  %.1 = phi ptr [ %.01932, %18 ], [ %.01932, %15 ], [ %.01932, %13 ], [ %22, %.sink.split ]
   %24 = getelementptr inbounds nuw i8, ptr %.033, i64 120
   %.0 = load ptr, ptr %24, align 8, !tbaa !22
   %.not = icmp eq ptr %.0, getelementptr inbounds nuw (i8, ptr @pmix_pnet_globals, i64 392)
@@ -1068,7 +1068,7 @@ define i32 @pmix_pnet_base_update_fabric(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader, %29, %32, %.loopexit, %1
-  %.020 = phi i32 [ -27, %.loopexit ], [ -27, %1 ], [ %33, %32 ], [ 0, %29 ], [ -27, %.preheader ]
+  %.020 = phi i32 [ -27, %1 ], [ -27, %.loopexit ], [ %33, %32 ], [ 0, %29 ], [ -27, %.preheader ]
   ret i32 %.020
 }
 
@@ -1123,7 +1123,7 @@ define i32 @pmix_pnet_base_deregister_fabric(ptr noundef %0) local_unnamed_addr 
   br label %23
 
 23:                                               ; preds = %.sink.split, %18, %15, %13
-  %.1 = phi ptr [ %.01932, %15 ], [ %.01932, %13 ], [ %.01932, %18 ], [ %22, %.sink.split ]
+  %.1 = phi ptr [ %.01932, %18 ], [ %.01932, %15 ], [ %.01932, %13 ], [ %22, %.sink.split ]
   %24 = getelementptr inbounds nuw i8, ptr %.033, i64 120
   %.0 = load ptr, ptr %24, align 8, !tbaa !22
   %.not = icmp eq ptr %.0, getelementptr inbounds nuw (i8, ptr @pmix_pnet_globals, i64 392)
@@ -1150,7 +1150,7 @@ define i32 @pmix_pnet_base_deregister_fabric(ptr noundef %0) local_unnamed_addr 
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader, %29, %32, %.loopexit, %1
-  %.020 = phi i32 [ -27, %.loopexit ], [ -27, %1 ], [ %33, %32 ], [ 0, %29 ], [ -27, %.preheader ]
+  %.020 = phi i32 [ -27, %1 ], [ -27, %.loopexit ], [ %33, %32 ], [ 0, %29 ], [ -27, %.preheader ]
   ret i32 %.020
 }
 

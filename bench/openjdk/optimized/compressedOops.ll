@@ -163,7 +163,7 @@ _ZN14CompressedOops4modeEv.exit:                  ; preds = %_ZN12ResourceMarkD2
   br label %_ZN14CompressedOops14mode_to_stringENS_4ModeE.exit
 
 _ZN14CompressedOops14mode_to_stringENS_4ModeE.exit: ; preds = %_ZN14CompressedOops4modeEv.exit, %_ZN14CompressedOops13base_disjointEv.exit.i
-  %.0.i6 = phi ptr [ %spec.select, %_ZN14CompressedOops4modeEv.exit ], [ %.str.7..str.8, %_ZN14CompressedOops13base_disjointEv.exit.i ]
+  %.0.i6 = phi ptr [ %.str.7..str.8, %_ZN14CompressedOops13base_disjointEv.exit.i ], [ %spec.select, %_ZN14CompressedOops4modeEv.exit ]
   call void @_ZN14SystemPropertyC1EPKcS1_bb(ptr noundef nonnull align 8 dereferenceable(26) %41, ptr noundef nonnull @.str, ptr noundef nonnull %.0.i6, i1 noundef zeroext false, i1 noundef zeroext false) #9
   call void @_ZN9Arguments16PropertyList_addEP14SystemProperty(ptr noundef nonnull %41) #9
   ret void
@@ -213,7 +213,7 @@ _ZN14CompressedOops4modeEv.exit:                  ; preds = %1
   br label %_ZN14CompressedOops14mode_to_stringENS_4ModeE.exit
 
 _ZN14CompressedOops14mode_to_stringENS_4ModeE.exit: ; preds = %_ZN14CompressedOops4modeEv.exit, %_ZN14CompressedOops13base_disjointEv.exit.i
-  %.0.i7 = phi ptr [ %spec.select, %_ZN14CompressedOops4modeEv.exit ], [ %.str.7..str.8, %_ZN14CompressedOops13base_disjointEv.exit.i ]
+  %.0.i7 = phi ptr [ %.str.7..str.8, %_ZN14CompressedOops13base_disjointEv.exit.i ], [ %spec.select, %_ZN14CompressedOops4modeEv.exit ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %.0.i7) #9
   %16 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %.not = icmp eq ptr %16, null

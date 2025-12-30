@@ -429,7 +429,7 @@ define dso_local range(i32 -1, 1) i32 @js_module_set_import_meta(ptr noundef %0,
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %40, %35, %26, %17, %.critedge, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %.critedge ], [ -1, %17 ], [ 0, %26 ], [ 0, %35 ], [ 0, %40 ]
+  %.0 = phi i32 [ -1, %17 ], [ -1, %5 ], [ -1, %.critedge ], [ 0, %26 ], [ 0, %35 ], [ 0, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -576,7 +576,7 @@ JS_FreeValue.exit:                                ; preds = %39, %44, %48
   br label %js_module_loader_so.exit
 
 js_module_loader_so.exit:                         ; preds = %26, %24, %22, %9, %JS_FreeValue.exit, %.critedge
-  %.1 = phi ptr [ null, %.critedge ], [ %41, %JS_FreeValue.exit ], [ null, %24 ], [ null, %9 ], [ null, %26 ], [ %23, %22 ]
+  %.1 = phi ptr [ null, %.critedge ], [ %41, %JS_FreeValue.exit ], [ null, %9 ], [ null, %26 ], [ null, %24 ], [ %23, %22 ]
   ret ptr %.1
 }
 
@@ -1577,7 +1577,7 @@ define dso_local { i64, i64 } @js_std_await(ptr noundef %0, i64 %1, i64 %2) loca
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %29, %24, %17, %16, %11, %7, %41
-  %.fca.1.insert.merged = phi { i64, i64 } [ %43, %41 ], [ %8, %16 ], [ %8, %7 ], [ %8, %11 ], [ %21, %17 ], [ %21, %24 ], [ %21, %29 ]
+  %.fca.1.insert.merged = phi { i64, i64 } [ %43, %41 ], [ %8, %7 ], [ %8, %11 ], [ %8, %16 ], [ %21, %17 ], [ %21, %24 ], [ %21, %29 ]
   ret { i64, i64 } %.fca.1.insert.merged
 }
 
@@ -1861,8 +1861,8 @@ js_std_file_get.exit:                             ; preds = %14, %9
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %js_std_file_get.exit.thread, label %.lr.ph, !llvm.loop !64
 
-js_std_file_get.exit.thread:                      ; preds = %.lr.ph, %24, %js_std_file_get.exit, %16, %11
-  %.sroa.7.0 = phi i64 [ 6, %11 ], [ 6, %16 ], [ 3, %js_std_file_get.exit ], [ 6, %.lr.ph ], [ 3, %24 ]
+js_std_file_get.exit.thread:                      ; preds = %.lr.ph, %24, %js_std_file_get.exit, %11, %16
+  %.sroa.7.0 = phi i64 [ 6, %16 ], [ 6, %11 ], [ 3, %js_std_file_get.exit ], [ 6, %.lr.ph ], [ 3, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.7.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -1890,9 +1890,9 @@ js_std_file_get.exit:                             ; preds = %8
   %14 = extractvalue { i64, i64 } %12, 1
   br label %js_std_file_get.exit.thread
 
-js_std_file_get.exit.thread:                      ; preds = %10, %5, %js_std_file_get.exit
-  %.sroa.4.0 = phi i64 [ %14, %js_std_file_get.exit ], [ 6, %5 ], [ 6, %10 ]
-  %.sroa.05.0.insert.insert = phi i64 [ %13, %js_std_file_get.exit ], [ 0, %5 ], [ 0, %10 ]
+js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_file_get.exit
+  %.sroa.4.0 = phi i64 [ %14, %js_std_file_get.exit ], [ 6, %10 ], [ 6, %5 ]
+  %.sroa.05.0.insert.insert = phi i64 [ %13, %js_std_file_get.exit ], [ 0, %10 ], [ 0, %5 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.05.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -1918,8 +1918,8 @@ js_std_file_get.exit:                             ; preds = %8
   %12 = tail call i32 @fflush(ptr noundef nonnull %9)
   br label %js_std_file_get.exit.thread
 
-js_std_file_get.exit.thread:                      ; preds = %10, %5, %js_std_file_get.exit
-  %.sroa.5.0 = phi i64 [ 3, %js_std_file_get.exit ], [ 6, %5 ], [ 6, %10 ]
+js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_file_get.exit
+  %.sroa.5.0 = phi i64 [ 3, %js_std_file_get.exit ], [ 6, %10 ], [ 6, %5 ]
   %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.5.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
@@ -1963,10 +1963,10 @@ JS_NewInt64.exit:                                 ; preds = %js_std_file_get.exi
   %.sroa.4.0.extract.shift9 = and i64 %.sroa.0.0.insert.ext.i.i.pn, -4294967296
   br label %js_std_file_get.exit.thread
 
-js_std_file_get.exit.thread:                      ; preds = %11, %6, %JS_NewInt64.exit, %14
-  %.sroa.07.0 = phi i64 [ %16, %14 ], [ %.sroa.0.0.insert.ext.i.i.pn, %JS_NewInt64.exit ], [ 0, %6 ], [ 0, %11 ]
-  %.sroa.4.0 = phi i64 [ %.sroa.4.0.extract.shift, %14 ], [ %.sroa.4.0.extract.shift9, %JS_NewInt64.exit ], [ 0, %6 ], [ 0, %11 ]
-  %.sroa.5.0 = phi i64 [ %17, %14 ], [ %.sroa.3.0.i, %JS_NewInt64.exit ], [ 6, %6 ], [ 6, %11 ]
+js_std_file_get.exit.thread:                      ; preds = %6, %11, %JS_NewInt64.exit, %14
+  %.sroa.07.0 = phi i64 [ %16, %14 ], [ %.sroa.0.0.insert.ext.i.i.pn, %JS_NewInt64.exit ], [ 0, %11 ], [ 0, %6 ]
+  %.sroa.4.0 = phi i64 [ %.sroa.4.0.extract.shift, %14 ], [ %.sroa.4.0.extract.shift9, %JS_NewInt64.exit ], [ 0, %11 ], [ 0, %6 ]
+  %.sroa.5.0 = phi i64 [ %17, %14 ], [ %.sroa.3.0.i, %JS_NewInt64.exit ], [ 6, %11 ], [ 6, %6 ]
   %.sroa.07.0.insert.ext = and i64 %.sroa.07.0, 4294967295
   %.sroa.07.0.insert.insert = or disjoint i64 %.sroa.4.0, %.sroa.07.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.07.0.insert.insert, 0
@@ -1992,7 +1992,7 @@ define internal { i64, i64 } @js_std_file_seek(ptr noundef %0, i64 %1, i64 %2, i
   %13 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.42) #30
   br label %js_std_file_get.exit.thread
 
-js_std_file_get.exit.thread:                      ; preds = %5, %12
+js_std_file_get.exit.thread:                      ; preds = %12, %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %35
@@ -2035,8 +2035,8 @@ js_std_file_get.exit.thread:                      ; preds = %5, %12
   br label %35
 
 35:                                               ; preds = %js_std_file_get.exit.thread, %19, %14, %34
-  %.sroa.09.0 = phi i64 [ 0, %js_std_file_get.exit.thread ], [ 0, %14 ], [ %.sroa.0.0.insert.ext.i, %34 ], [ 0, %19 ]
-  %.sroa.8.0 = phi i64 [ 6, %js_std_file_get.exit.thread ], [ 6, %14 ], [ 0, %34 ], [ 6, %19 ]
+  %.sroa.09.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %34 ], [ 0, %14 ], [ 0, %19 ], [ 0, %js_std_file_get.exit.thread ]
+  %.sroa.8.0 = phi i64 [ 0, %34 ], [ 6, %14 ], [ 6, %19 ], [ 6, %js_std_file_get.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.09.0, 0
@@ -2066,9 +2066,9 @@ js_std_file_get.exit:                             ; preds = %8
   %.sroa.0.0.insert.ext.i = zext i1 %13 to i64
   br label %js_std_file_get.exit.thread
 
-js_std_file_get.exit.thread:                      ; preds = %10, %5, %js_std_file_get.exit
-  %.sroa.04.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %js_std_file_get.exit ], [ 0, %5 ], [ 0, %10 ]
-  %.sroa.4.0 = phi i64 [ 1, %js_std_file_get.exit ], [ 6, %5 ], [ 6, %10 ]
+js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_file_get.exit
+  %.sroa.04.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %js_std_file_get.exit ], [ 0, %10 ], [ 0, %5 ]
+  %.sroa.4.0 = phi i64 [ 1, %js_std_file_get.exit ], [ 6, %10 ], [ 6, %5 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.04.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -2095,9 +2095,9 @@ js_std_file_get.exit:                             ; preds = %8
   %.sroa.0.0.insert.ext.i = zext i32 %12 to i64
   br label %js_std_file_get.exit.thread
 
-js_std_file_get.exit.thread:                      ; preds = %10, %5, %js_std_file_get.exit
-  %.sroa.04.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %js_std_file_get.exit ], [ 0, %5 ], [ 0, %10 ]
-  %.sroa.4.0 = phi i64 [ 0, %js_std_file_get.exit ], [ 6, %5 ], [ 6, %10 ]
+js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_file_get.exit
+  %.sroa.04.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %js_std_file_get.exit ], [ 0, %10 ], [ 0, %5 ]
+  %.sroa.4.0 = phi i64 [ 0, %js_std_file_get.exit ], [ 6, %10 ], [ 6, %5 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.04.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -2125,9 +2125,9 @@ js_std_file_get.exit:                             ; preds = %8
   %.sroa.0.0.insert.ext.i = zext i1 %13 to i64
   br label %js_std_file_get.exit.thread
 
-js_std_file_get.exit.thread:                      ; preds = %10, %5, %js_std_file_get.exit
-  %.sroa.04.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %js_std_file_get.exit ], [ 0, %5 ], [ 0, %10 ]
-  %.sroa.4.0 = phi i64 [ 1, %js_std_file_get.exit ], [ 6, %5 ], [ 6, %10 ]
+js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_file_get.exit
+  %.sroa.04.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %js_std_file_get.exit ], [ 0, %10 ], [ 0, %5 ]
+  %.sroa.4.0 = phi i64 [ 1, %js_std_file_get.exit ], [ 6, %10 ], [ 6, %5 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.04.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -2153,8 +2153,8 @@ js_std_file_get.exit:                             ; preds = %8
   tail call void @clearerr(ptr noundef nonnull %9) #30
   br label %js_std_file_get.exit.thread
 
-js_std_file_get.exit.thread:                      ; preds = %10, %5, %js_std_file_get.exit
-  %.sroa.5.0 = phi i64 [ 3, %js_std_file_get.exit ], [ 6, %5 ], [ 6, %10 ]
+js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_file_get.exit
+  %.sroa.5.0 = phi i64 [ 3, %js_std_file_get.exit ], [ 6, %10 ], [ 6, %5 ]
   %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.5.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
@@ -2178,7 +2178,7 @@ define internal { i64, i64 } @js_std_file_read_write(ptr noundef %0, i64 %1, i64
   %15 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.42) #30
   br label %js_std_file_get.exit.thread
 
-js_std_file_get.exit.thread:                      ; preds = %6, %14
+js_std_file_get.exit.thread:                      ; preds = %14, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2254,9 +2254,9 @@ JS_NewInt64.exit:                                 ; preds = %47, %45
   br label %53
 
 53:                                               ; preds = %js_std_file_get.exit.thread, %28, %22, %16, %JS_NewInt64.exit, %39
-  %.sroa.016.0 = phi i64 [ 0, %js_std_file_get.exit.thread ], [ 0, %16 ], [ %41, %39 ], [ %.sroa.0.0.insert.ext.i.i.pn, %JS_NewInt64.exit ], [ 0, %22 ], [ 0, %28 ]
-  %.sroa.7.0 = phi i64 [ 0, %js_std_file_get.exit.thread ], [ 0, %16 ], [ %.sroa.7.0.extract.shift, %39 ], [ %.sroa.7.0.extract.shift18, %JS_NewInt64.exit ], [ 0, %22 ], [ 0, %28 ]
-  %.sroa.11.0 = phi i64 [ 6, %js_std_file_get.exit.thread ], [ 6, %16 ], [ %42, %39 ], [ %.sroa.3.0.i, %JS_NewInt64.exit ], [ 6, %22 ], [ 6, %28 ]
+  %.sroa.016.0 = phi i64 [ %41, %39 ], [ %.sroa.0.0.insert.ext.i.i.pn, %JS_NewInt64.exit ], [ 0, %16 ], [ 0, %22 ], [ 0, %28 ], [ 0, %js_std_file_get.exit.thread ]
+  %.sroa.7.0 = phi i64 [ %.sroa.7.0.extract.shift, %39 ], [ %.sroa.7.0.extract.shift18, %JS_NewInt64.exit ], [ 0, %16 ], [ 0, %22 ], [ 0, %28 ], [ 0, %js_std_file_get.exit.thread ]
+  %.sroa.11.0 = phi i64 [ %42, %39 ], [ %.sroa.3.0.i, %JS_NewInt64.exit ], [ 6, %16 ], [ 6, %22 ], [ 6, %28 ], [ 6, %js_std_file_get.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2284,7 +2284,7 @@ define internal { i64, i64 } @js_std_file_getline(ptr noundef %0, i64 %1, i64 %2
   %12 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.42) #30
   br label %js_std_file_get.exit.thread
 
-js_std_file_get.exit.thread:                      ; preds = %5, %11
+js_std_file_get.exit.thread:                      ; preds = %11, %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %34
 
@@ -2370,7 +2370,7 @@ define internal { i64, i64 } @js_std_file_readAsString(ptr noundef %0, i64 %1, i
   %13 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.42) #30
   br label %js_std_file_get.exit.thread
 
-js_std_file_get.exit.thread:                      ; preds = %5, %12
+js_std_file_get.exit.thread:                      ; preds = %12, %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %37
@@ -2437,8 +2437,8 @@ js_std_file_get.exit.thread:                      ; preds = %5, %12
   br label %37
 
 37:                                               ; preds = %js_std_file_get.exit.thread, %18, %._crit_edge, %30
-  %.sroa.5.0 = phi i64 [ %35, %._crit_edge ], [ 0, %30 ], [ 0, %js_std_file_get.exit.thread ], [ 0, %18 ]
-  %.sroa.8.0 = phi i64 [ %36, %._crit_edge ], [ 6, %30 ], [ 6, %js_std_file_get.exit.thread ], [ 6, %18 ]
+  %.sroa.5.0 = phi i64 [ %35, %._crit_edge ], [ 0, %30 ], [ 0, %18 ], [ 0, %js_std_file_get.exit.thread ]
+  %.sroa.8.0 = phi i64 [ %36, %._crit_edge ], [ 6, %30 ], [ 6, %18 ], [ 6, %js_std_file_get.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.5.0, 0
@@ -2467,9 +2467,9 @@ js_std_file_get.exit:                             ; preds = %8
   %.sroa.0.0.insert.ext.i = zext i32 %12 to i64
   br label %js_std_file_get.exit.thread
 
-js_std_file_get.exit.thread:                      ; preds = %10, %5, %js_std_file_get.exit
-  %.sroa.04.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %js_std_file_get.exit ], [ 0, %5 ], [ 0, %10 ]
-  %.sroa.4.0 = phi i64 [ 0, %js_std_file_get.exit ], [ 6, %5 ], [ 6, %10 ]
+js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_file_get.exit
+  %.sroa.04.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %js_std_file_get.exit ], [ 0, %10 ], [ 0, %5 ]
+  %.sroa.4.0 = phi i64 [ 0, %js_std_file_get.exit ], [ 6, %10 ], [ 6, %5 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.04.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -2492,7 +2492,7 @@ define internal { i64, i64 } @js_std_file_putByte(ptr noundef %0, i64 %1, i64 %2
   %12 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.42) #30
   br label %js_std_file_get.exit.thread
 
-js_std_file_get.exit.thread:                      ; preds = %5, %11
+js_std_file_get.exit.thread:                      ; preds = %11, %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %21
 
@@ -2512,8 +2512,8 @@ js_std_file_get.exit.thread:                      ; preds = %5, %11
   br label %21
 
 21:                                               ; preds = %js_std_file_get.exit.thread, %13, %18
-  %.sroa.06.0 = phi i64 [ 0, %js_std_file_get.exit.thread ], [ %.sroa.0.0.insert.ext.i, %18 ], [ 0, %13 ]
-  %.sroa.6.0 = phi i64 [ 6, %js_std_file_get.exit.thread ], [ 0, %18 ], [ 6, %13 ]
+  %.sroa.06.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %18 ], [ 0, %13 ], [ 0, %js_std_file_get.exit.thread ]
+  %.sroa.6.0 = phi i64 [ 0, %18 ], [ 6, %13 ], [ 6, %js_std_file_get.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.06.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
@@ -3124,7 +3124,7 @@ define internal { i64, i64 } @js_evalScript(ptr noundef %0, i64 %1, i64 %2, i32 
   br label %.thread.i
 
 .thread.i:                                        ; preds = %10, %15, %18, %23
-  %.145.ph = phi i32 [ %16, %23 ], [ %16, %15 ], [ %16, %18 ], [ 0, %10 ]
+  %.145.ph = phi i32 [ %16, %15 ], [ %16, %18 ], [ %16, %23 ], [ 0, %10 ]
   %24 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.03.0.copyload, i64 %.sroa.5.0.copyload, ptr noundef nonnull @.str.70) #30
   %25 = extractvalue { i64, i64 } %24, 0
   %26 = extractvalue { i64, i64 } %24, 1
@@ -3218,8 +3218,8 @@ get_bool_option.exit41.thread:                    ; preds = %.thread.i, %35, %30
   br label %get_bool_option.exit
 
 get_bool_option.exit:                             ; preds = %.thread.i, %10, %50, %57, %67, %62, %get_bool_option.exit41.thread
-  %.sroa.529.0 = phi i64 [ 0, %10 ], [ %54, %50 ], [ 0, %get_bool_option.exit41.thread ], [ %54, %62 ], [ %54, %67 ], [ %54, %57 ], [ 0, %.thread.i ]
-  %.sroa.8.0 = phi i64 [ 6, %10 ], [ %55, %50 ], [ 6, %get_bool_option.exit41.thread ], [ %55, %62 ], [ %55, %67 ], [ %55, %57 ], [ 6, %.thread.i ]
+  %.sroa.529.0 = phi i64 [ 0, %get_bool_option.exit41.thread ], [ %54, %62 ], [ %54, %67 ], [ %54, %57 ], [ %54, %50 ], [ 0, %10 ], [ 0, %.thread.i ]
+  %.sroa.8.0 = phi i64 [ 6, %get_bool_option.exit41.thread ], [ %55, %62 ], [ %55, %67 ], [ %55, %57 ], [ %55, %50 ], [ 6, %10 ], [ 6, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.529.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
@@ -3376,8 +3376,8 @@ define internal { i64, i64 } @js_std_getenviron(ptr noundef %0, i64 %1, i64 %2, 
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %28, %10, %41, %36, %33, %5
-  %.sroa.430.0 = phi i64 [ 0, %5 ], [ 0, %41 ], [ 0, %33 ], [ 0, %36 ], [ %7, %10 ], [ %7, %28 ]
-  %.sroa.6.0 = phi i64 [ 6, %5 ], [ 6, %41 ], [ 6, %33 ], [ 6, %36 ], [ %8, %10 ], [ %8, %28 ]
+  %.sroa.430.0 = phi i64 [ 0, %5 ], [ 0, %33 ], [ 0, %36 ], [ 0, %41 ], [ %7, %10 ], [ %7, %28 ]
+  %.sroa.6.0 = phi i64 [ 6, %5 ], [ 6, %33 ], [ 6, %36 ], [ 6, %41 ], [ %8, %10 ], [ %8, %28 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.430.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -3434,7 +3434,7 @@ define internal { i64, i64 } @js_std_urlGet(ptr noundef %0, i64 %1, i64 %2, i32 
   br label %.thread.i
 
 .thread.i:                                        ; preds = %15, %20, %23, %28
-  %.1192.ph = phi i32 [ %21, %28 ], [ %21, %20 ], [ %21, %23 ], [ 0, %15 ]
+  %.1192.ph = phi i32 [ %21, %20 ], [ %21, %23 ], [ %21, %28 ], [ 0, %15 ]
   %29 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.018.0.copyload, i64 %.sroa.5.0.copyload, ptr noundef nonnull @.str.73) #30
   %30 = extractvalue { i64, i64 } %29, 0
   %31 = extractvalue { i64, i64 } %29, 1
@@ -3799,9 +3799,9 @@ http_get_header_line.exit.thread:                 ; preds = %.split.us.i, %.spli
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %164, %159, %156, %5, %153, %62, %58, %get_bool_option.exit
-  %.sroa.0139.0 = phi i64 [ 0, %get_bool_option.exit ], [ 0, %58 ], [ 0, %5 ], [ %.sroa.021.0, %153 ], [ %64, %62 ], [ 0, %156 ], [ 0, %159 ], [ 0, %164 ]
-  %.sroa.7.0 = phi i64 [ 0, %get_bool_option.exit ], [ 0, %58 ], [ 0, %5 ], [ %.sroa.7.0.extract.shift141, %153 ], [ %.sroa.7.0.extract.shift, %62 ], [ 0, %156 ], [ 0, %159 ], [ 0, %164 ]
-  %.sroa.11.0 = phi i64 [ 6, %get_bool_option.exit ], [ 6, %58 ], [ 6, %5 ], [ %.sroa.9.0, %153 ], [ %65, %62 ], [ 6, %156 ], [ 6, %159 ], [ 6, %164 ]
+  %.sroa.0139.0 = phi i64 [ 0, %get_bool_option.exit ], [ 0, %58 ], [ %.sroa.021.0, %153 ], [ %64, %62 ], [ 0, %5 ], [ 0, %156 ], [ 0, %159 ], [ 0, %164 ]
+  %.sroa.7.0 = phi i64 [ 0, %get_bool_option.exit ], [ 0, %58 ], [ %.sroa.7.0.extract.shift141, %153 ], [ %.sroa.7.0.extract.shift, %62 ], [ 0, %5 ], [ 0, %156 ], [ 0, %159 ], [ 0, %164 ]
+  %.sroa.11.0 = phi i64 [ 6, %get_bool_option.exit ], [ 6, %58 ], [ %.sroa.9.0, %153 ], [ %65, %62 ], [ 6, %5 ], [ 6, %156 ], [ 6, %159 ], [ 6, %164 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4285,8 +4285,8 @@ js_new_std_file.exit:                             ; preds = %46, %49, %52, %57, 
   br label %62
 
 62:                                               ; preds = %js_set_error_object.exit, %5, %61, %js_new_std_file.exit
-  %.sroa.5.0 = phi i64 [ 0, %5 ], [ 0, %61 ], [ %.sroa.018.0.insert.insert.i, %js_new_std_file.exit ], [ 0, %js_set_error_object.exit ]
-  %.sroa.8.0 = phi i64 [ 6, %5 ], [ 6, %61 ], [ %.sroa.5.0.i, %js_new_std_file.exit ], [ 2, %js_set_error_object.exit ]
+  %.sroa.5.0 = phi i64 [ 0, %61 ], [ %.sroa.018.0.insert.insert.i, %js_new_std_file.exit ], [ 0, %5 ], [ 0, %js_set_error_object.exit ]
+  %.sroa.8.0 = phi i64 [ 6, %61 ], [ %.sroa.5.0.i, %js_new_std_file.exit ], [ 6, %5 ], [ 2, %js_set_error_object.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.5.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
@@ -5107,7 +5107,7 @@ handle_posted_message.exit:                       ; preds = %190
   br i1 %.not141, label %JS_FreeValue.exit.thread, label %.lr.ph230, !llvm.loop !104
 
 JS_FreeValue.exit.thread:                         ; preds = %.thread, %.preheader, %free_timer.exit, %71, %76, %300, %21, %151, %169, %._crit_edge217, %36
-  %.2 = phi i32 [ 0, %21 ], [ 0, %151 ], [ -1, %36 ], [ 0, %300 ], [ 0, %._crit_edge217 ], [ 0, %free_timer.exit ], [ 0, %169 ], [ 0, %76 ], [ 0, %71 ], [ 0, %.preheader ], [ 0, %.thread ]
+  %.2 = phi i32 [ 0, %21 ], [ -1, %36 ], [ 0, %300 ], [ 0, %._crit_edge217 ], [ 0, %169 ], [ 0, %151 ], [ 0, %76 ], [ 0, %71 ], [ 0, %free_timer.exit ], [ 0, %.preheader ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -5333,9 +5333,9 @@ js_new_message_pipe.exit78.thread:                ; preds = %62, %47
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %111, %106, %103, %90, %21, %14
-  %.sroa.054.0 = phi i64 [ %23, %21 ], [ %16, %14 ], [ %80, %90 ], [ 0, %103 ], [ 0, %106 ], [ 0, %111 ]
-  %.sroa.5.0 = phi i64 [ %.sroa.5.0.extract.shift57, %21 ], [ %.sroa.5.0.extract.shift, %14 ], [ %.sroa.5.0.extract.shift59, %90 ], [ 0, %103 ], [ 0, %106 ], [ 0, %111 ]
-  %.sroa.6.0 = phi i64 [ %24, %21 ], [ %17, %14 ], [ %81, %90 ], [ 6, %103 ], [ 6, %106 ], [ 6, %111 ]
+  %.sroa.054.0 = phi i64 [ %23, %21 ], [ %80, %90 ], [ %16, %14 ], [ 0, %103 ], [ 0, %106 ], [ 0, %111 ]
+  %.sroa.5.0 = phi i64 [ %.sroa.5.0.extract.shift57, %21 ], [ %.sroa.5.0.extract.shift59, %90 ], [ %.sroa.5.0.extract.shift, %14 ], [ 0, %103 ], [ 0, %106 ], [ 0, %111 ]
+  %.sroa.6.0 = phi i64 [ %24, %21 ], [ %81, %90 ], [ %17, %14 ], [ 6, %103 ], [ 6, %106 ], [ 6, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.sroa.054.0.insert.ext = and i64 %.sroa.054.0, 4294967295
@@ -5427,8 +5427,8 @@ JS_FreeValue.exit:                                ; preds = %15, %22, %27
   br label %JS_FreeValue.exit37
 
 JS_FreeValue.exit37:                              ; preds = %11, %43, %38, %35, %31
-  %.sroa.433.0 = phi i64 [ %19, %31 ], [ 6, %43 ], [ 6, %35 ], [ 6, %38 ], [ 6, %11 ]
-  %.sroa.031.0.insert.insert = phi i64 [ %18, %31 ], [ 0, %43 ], [ 0, %35 ], [ 0, %38 ], [ 0, %11 ]
+  %.sroa.433.0 = phi i64 [ %19, %31 ], [ 6, %35 ], [ 6, %38 ], [ 6, %43 ], [ 6, %11 ]
+  %.sroa.031.0.insert.insert = phi i64 [ %18, %31 ], [ 0, %35 ], [ 0, %38 ], [ 0, %43 ], [ 0, %11 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.031.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.433.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -5745,8 +5745,8 @@ define internal { i64, i64 } @js_worker_get_onmessage(ptr noundef %0, i64 %1, i6
   br label %JS_DupValue.exit
 
 JS_DupValue.exit:                                 ; preds = %16, %9, %6, %3
-  %.sroa.4.0 = phi i64 [ 0, %6 ], [ 0, %3 ], [ %11, %9 ], [ %11, %16 ]
-  %.sroa.6.0 = phi i64 [ 2, %6 ], [ 6, %3 ], [ %13, %9 ], [ %13, %16 ]
+  %.sroa.4.0 = phi i64 [ 0, %3 ], [ 0, %6 ], [ %11, %9 ], [ %11, %16 ]
+  %.sroa.6.0 = phi i64 [ 6, %3 ], [ 2, %6 ], [ %13, %9 ], [ %13, %16 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.4.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -5890,8 +5890,8 @@ JS_DupValue.exit:                                 ; preds = %JS_FreeValue.exit, 
   br label %71
 
 71:                                               ; preds = %JS_DupValue.exit, %js_free_port.exit, %14, %41, %5, %36
-  %.sroa.5.0 = phi i64 [ 0, %41 ], [ 0, %5 ], [ %38, %36 ], [ 0, %14 ], [ 0, %js_free_port.exit ], [ 0, %JS_DupValue.exit ]
-  %.sroa.8.0 = phi i64 [ 6, %41 ], [ 6, %5 ], [ %39, %36 ], [ 3, %14 ], [ 3, %js_free_port.exit ], [ 3, %JS_DupValue.exit ]
+  %.sroa.5.0 = phi i64 [ %38, %36 ], [ 0, %5 ], [ 0, %41 ], [ 0, %14 ], [ 0, %js_free_port.exit ], [ 0, %JS_DupValue.exit ]
+  %.sroa.8.0 = phi i64 [ %39, %36 ], [ 6, %5 ], [ 6, %41 ], [ 3, %14 ], [ 3, %js_free_port.exit ], [ 3, %JS_DupValue.exit ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.5.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -6254,9 +6254,9 @@ JS_NewInt64.exit:                                 ; preds = %37
   br label %46
 
 46:                                               ; preds = %20, %13, %5, %JS_NewInt64.exit, %38
-  %.sroa.013.0 = phi i64 [ %.sroa.0.0.insert.ext.i.i.pn, %JS_NewInt64.exit ], [ 0, %5 ], [ 0, %13 ], [ %40, %38 ], [ 0, %20 ]
-  %.sroa.6.0 = phi i64 [ %.sroa.6.0.extract.shift15, %JS_NewInt64.exit ], [ 0, %5 ], [ 0, %13 ], [ %.sroa.6.0.extract.shift, %38 ], [ 0, %20 ]
-  %.sroa.9.0 = phi i64 [ %.sroa.3.0.i, %JS_NewInt64.exit ], [ 6, %5 ], [ 6, %13 ], [ %41, %38 ], [ 6, %20 ]
+  %.sroa.013.0 = phi i64 [ %40, %38 ], [ %.sroa.0.0.insert.ext.i.i.pn, %JS_NewInt64.exit ], [ 0, %5 ], [ 0, %13 ], [ 0, %20 ]
+  %.sroa.6.0 = phi i64 [ %.sroa.6.0.extract.shift, %38 ], [ %.sroa.6.0.extract.shift15, %JS_NewInt64.exit ], [ 0, %5 ], [ 0, %13 ], [ 0, %20 ]
+  %.sroa.9.0 = phi i64 [ %41, %38 ], [ %.sroa.3.0.i, %JS_NewInt64.exit ], [ 6, %5 ], [ 6, %13 ], [ 6, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -6362,9 +6362,9 @@ js_get_errno.exit:                                ; preds = %js_get_errno.exit.s
   br label %60
 
 60:                                               ; preds = %27, %21, %15, %6, %js_get_errno.exit, %39
-  %.sroa.014.0 = phi i64 [ 0, %21 ], [ 0, %6 ], [ 0, %15 ], [ %41, %39 ], [ %.sroa.0.0.insert.ext.i.i.pn, %js_get_errno.exit ], [ 0, %27 ]
-  %.sroa.7.0 = phi i64 [ 0, %21 ], [ 0, %6 ], [ 0, %15 ], [ %.sroa.7.0.extract.shift, %39 ], [ %.sroa.7.0.extract.shift16, %js_get_errno.exit ], [ 0, %27 ]
-  %.sroa.11.0 = phi i64 [ 6, %21 ], [ 6, %6 ], [ 6, %15 ], [ %42, %39 ], [ %.sroa.3.0.i, %js_get_errno.exit ], [ 6, %27 ]
+  %.sroa.014.0 = phi i64 [ %41, %39 ], [ %.sroa.0.0.insert.ext.i.i.pn, %js_get_errno.exit ], [ 0, %6 ], [ 0, %15 ], [ 0, %21 ], [ 0, %27 ]
+  %.sroa.7.0 = phi i64 [ %.sroa.7.0.extract.shift, %39 ], [ %.sroa.7.0.extract.shift16, %js_get_errno.exit ], [ 0, %6 ], [ 0, %15 ], [ 0, %21 ], [ 0, %27 ]
+  %.sroa.11.0 = phi i64 [ %42, %39 ], [ %.sroa.3.0.i, %js_get_errno.exit ], [ 6, %6 ], [ 6, %15 ], [ 6, %21 ], [ 6, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -6452,9 +6452,9 @@ define internal { i64, i64 } @js_os_ttyGetWinSize(ptr noundef %0, i64 %1, i64 %2
   br label %32
 
 32:                                               ; preds = %12, %5, %27, %26
-  %.sroa.026.0 = phi i64 [ 0, %5 ], [ %23, %26 ], [ %23, %27 ], [ 0, %12 ]
-  %.sroa.5.0 = phi i64 [ 0, %5 ], [ %.sroa.5.0.extract.shift, %26 ], [ %.sroa.5.0.extract.shift28, %27 ], [ 0, %12 ]
-  %.sroa.7.0 = phi i64 [ 6, %5 ], [ %24, %26 ], [ %24, %27 ], [ 2, %12 ]
+  %.sroa.026.0 = phi i64 [ %23, %26 ], [ %23, %27 ], [ 0, %5 ], [ 0, %12 ]
+  %.sroa.5.0 = phi i64 [ %.sroa.5.0.extract.shift, %26 ], [ %.sroa.5.0.extract.shift28, %27 ], [ 0, %5 ], [ 0, %12 ]
+  %.sroa.7.0 = phi i64 [ %24, %26 ], [ %24, %27 ], [ 6, %5 ], [ 2, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.026.0.insert.ext = and i64 %.sroa.026.0, 4294967295
@@ -6818,8 +6818,8 @@ JS_DupValue.exit:                                 ; preds = %JS_FreeValue.exit62
   br label %find_rh.exit.thread
 
 find_rh.exit.thread:                              ; preds = %19, %JS_DupValue.exit, %JS_FreeValue.exit, %41, %free_rw_handler.exit, %78, %6, %67
-  %.sroa.5.0 = phi i64 [ %69, %67 ], [ 0, %78 ], [ 0, %6 ], [ 0, %JS_DupValue.exit ], [ 0, %free_rw_handler.exit ], [ 0, %41 ], [ 0, %JS_FreeValue.exit ], [ 0, %19 ]
-  %.sroa.8.0 = phi i64 [ %70, %67 ], [ 6, %78 ], [ 6, %6 ], [ 3, %JS_DupValue.exit ], [ 3, %free_rw_handler.exit ], [ 3, %41 ], [ 3, %JS_FreeValue.exit ], [ 3, %19 ]
+  %.sroa.5.0 = phi i64 [ %69, %67 ], [ 0, %6 ], [ 0, %78 ], [ 0, %free_rw_handler.exit ], [ 0, %41 ], [ 0, %JS_FreeValue.exit ], [ 0, %JS_DupValue.exit ], [ 0, %19 ]
+  %.sroa.8.0 = phi i64 [ %70, %67 ], [ 6, %6 ], [ 6, %78 ], [ 3, %free_rw_handler.exit ], [ 3, %41 ], [ 3, %JS_FreeValue.exit ], [ 3, %JS_DupValue.exit ], [ 3, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.5.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
@@ -6931,7 +6931,7 @@ free_sh.exit:                                     ; preds = %find_sh.exit, %52, 
   br label %find_sh.exit.thread
 
 find_sh.exit.thread:                              ; preds = %39, %33, %free_sh.exit
-  %58 = phi i32 [ %.pre, %free_sh.exit ], [ %22, %33 ], [ %22, %39 ]
+  %58 = phi i32 [ %22, %33 ], [ %.pre, %free_sh.exit ], [ %22, %39 ]
   %. = select i1 %.not, ptr null, ptr inttoptr (i64 1 to ptr)
   %59 = call ptr @signal(i32 noundef %58, ptr noundef %.) #30
   br label %102
@@ -7029,9 +7029,9 @@ JS_DupValue.exit:                                 ; preds = %JS_FreeValue.exit, 
   br label %102
 
 102:                                              ; preds = %find_sh.exit.thread, %JS_DupValue.exit, %.loopexit, %16, %62, %24, %12
-  %.sroa.036.0 = phi i64 [ %14, %12 ], [ %26, %24 ], [ 0, %.loopexit ], [ 0, %16 ], [ %64, %62 ], [ 0, %JS_DupValue.exit ], [ 0, %find_sh.exit.thread ]
-  %.sroa.7.0 = phi i64 [ %.sroa.7.0.extract.shift, %12 ], [ %.sroa.7.0.extract.shift39, %24 ], [ 0, %.loopexit ], [ 0, %16 ], [ %.sroa.7.0.extract.shift41, %62 ], [ 0, %JS_DupValue.exit ], [ 0, %find_sh.exit.thread ]
-  %.sroa.10.0 = phi i64 [ %15, %12 ], [ %27, %24 ], [ 6, %.loopexit ], [ 6, %16 ], [ %65, %62 ], [ 3, %JS_DupValue.exit ], [ 3, %find_sh.exit.thread ]
+  %.sroa.036.0 = phi i64 [ %26, %24 ], [ %64, %62 ], [ %14, %12 ], [ 0, %16 ], [ 0, %.loopexit ], [ 0, %JS_DupValue.exit ], [ 0, %find_sh.exit.thread ]
+  %.sroa.7.0 = phi i64 [ %.sroa.7.0.extract.shift39, %24 ], [ %.sroa.7.0.extract.shift41, %62 ], [ %.sroa.7.0.extract.shift, %12 ], [ 0, %16 ], [ 0, %.loopexit ], [ 0, %JS_DupValue.exit ], [ 0, %find_sh.exit.thread ]
+  %.sroa.10.0 = phi i64 [ %27, %24 ], [ %65, %62 ], [ %15, %12 ], [ 6, %16 ], [ 6, %.loopexit ], [ 3, %JS_DupValue.exit ], [ 3, %find_sh.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.036.0.insert.ext = and i64 %.sroa.036.0, 4294967295
   %.sroa.036.0.insert.insert = or disjoint i64 %.sroa.7.0, %.sroa.036.0.insert.ext
@@ -7173,9 +7173,9 @@ JS_DupValue.exit:                                 ; preds = %23, %42
   br label %51
 
 51:                                               ; preds = %21, %15, %JS_DupValue.exit, %11
-  %.sroa.025.0 = phi i64 [ %13, %11 ], [ %.sroa.0.0.insert.ext.i, %JS_DupValue.exit ], [ 0, %15 ], [ 0, %21 ]
-  %.sroa.527.0 = phi i64 [ %.sroa.527.0.extract.shift, %11 ], [ 0, %JS_DupValue.exit ], [ 0, %15 ], [ 0, %21 ]
-  %.sroa.7.0 = phi i64 [ %14, %11 ], [ 0, %JS_DupValue.exit ], [ 6, %15 ], [ 6, %21 ]
+  %.sroa.025.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %JS_DupValue.exit ], [ %13, %11 ], [ 0, %15 ], [ 0, %21 ]
+  %.sroa.527.0 = phi i64 [ 0, %JS_DupValue.exit ], [ %.sroa.527.0.extract.shift, %11 ], [ 0, %15 ], [ 0, %21 ]
+  %.sroa.7.0 = phi i64 [ 0, %JS_DupValue.exit ], [ %14, %11 ], [ 6, %15 ], [ 6, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.025.0.insert.ext = and i64 %.sroa.025.0, 4294967295
   %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.527.0, %.sroa.025.0.insert.ext
@@ -7255,7 +7255,7 @@ free_timer.exit:                                  ; preds = %find_timer_by_id.ex
   br label %find_timer_by_id.exit.thread
 
 find_timer_by_id.exit.thread:                     ; preds = %21, %16, %13, %5, %free_timer.exit
-  %.sroa.7.0 = phi i64 [ 6, %5 ], [ 3, %free_timer.exit ], [ 3, %13 ], [ 3, %16 ], [ 3, %21 ]
+  %.sroa.7.0 = phi i64 [ 3, %free_timer.exit ], [ 6, %5 ], [ 3, %13 ], [ 3, %16 ], [ 3, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.7.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -7431,8 +7431,8 @@ JS_FreeValue.exit29:                              ; preds = %JS_DupValue.exit, %
   br label %JS_FreeValue.exit28
 
 JS_FreeValue.exit28:                              ; preds = %101, %96, %JS_FreeValue.exit29, %53, %48, %JS_FreeValue.exit27, %15, %5
-  %.sroa.5.0 = phi i64 [ 0, %15 ], [ 0, %5 ], [ 0, %53 ], [ 0, %JS_FreeValue.exit27 ], [ 0, %48 ], [ %17, %JS_FreeValue.exit29 ], [ %17, %96 ], [ %17, %101 ]
-  %.sroa.8.0 = phi i64 [ 6, %15 ], [ 6, %5 ], [ 6, %53 ], [ 6, %JS_FreeValue.exit27 ], [ 6, %48 ], [ %18, %JS_FreeValue.exit29 ], [ %18, %96 ], [ %18, %101 ]
+  %.sroa.5.0 = phi i64 [ 0, %5 ], [ 0, %15 ], [ 0, %JS_FreeValue.exit27 ], [ 0, %48 ], [ 0, %53 ], [ %17, %JS_FreeValue.exit29 ], [ %17, %96 ], [ %17, %101 ]
+  %.sroa.8.0 = phi i64 [ 6, %5 ], [ 6, %15 ], [ 6, %JS_FreeValue.exit27 ], [ 6, %48 ], [ 6, %53 ], [ %18, %JS_FreeValue.exit29 ], [ %18, %96 ], [ %18, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.5.0, 0
@@ -7575,8 +7575,8 @@ js_get_errno.exit:                                ; preds = %20, %24
   br label %28
 
 28:                                               ; preds = %15, %8, %js_get_errno.exit
-  %.sroa.010.0 = phi i64 [ 0, %8 ], [ %.sroa.0.0.insert.ext.i, %js_get_errno.exit ], [ 0, %15 ]
-  %.sroa.6.0 = phi i64 [ 6, %8 ], [ 0, %js_get_errno.exit ], [ 6, %15 ]
+  %.sroa.010.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %js_get_errno.exit ], [ 0, %8 ], [ 0, %15 ]
+  %.sroa.6.0 = phi i64 [ 0, %js_get_errno.exit ], [ 6, %8 ], [ 6, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.010.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
@@ -7658,8 +7658,8 @@ define internal { i64, i64 } @js_os_readdir(ptr noundef %0, i64 %1, i64 %2, i32 
   br label %make_obj_error.exit
 
 make_obj_error.exit:                              ; preds = %37, %33, %5, %15
-  %.sroa.427.0 = phi i64 [ 0, %15 ], [ 0, %5 ], [ 0, %33 ], [ %38, %37 ]
-  %.sroa.628.0 = phi i64 [ 6, %15 ], [ 6, %5 ], [ 6, %33 ], [ %35, %37 ]
+  %.sroa.427.0 = phi i64 [ 0, %15 ], [ 0, %5 ], [ %38, %37 ], [ 0, %33 ]
+  %.sroa.628.0 = phi i64 [ 6, %15 ], [ 6, %5 ], [ %35, %37 ], [ 6, %33 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.427.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.628.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -7855,8 +7855,8 @@ JS_NewInt64.exit165:                              ; preds = %22
   br label %make_obj_error.exit
 
 make_obj_error.exit:                              ; preds = %119, %115, %22, %6
-  %.sroa.490.0 = phi i64 [ 0, %22 ], [ 0, %6 ], [ 0, %115 ], [ %120, %119 ]
-  %.sroa.6.0 = phi i64 [ 6, %22 ], [ 6, %6 ], [ 6, %115 ], [ %117, %119 ]
+  %.sroa.490.0 = phi i64 [ 0, %6 ], [ 0, %22 ], [ %120, %119 ], [ 0, %115 ]
+  %.sroa.6.0 = phi i64 [ 6, %6 ], [ 6, %22 ], [ %117, %119 ], [ 6, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.490.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
@@ -7930,8 +7930,8 @@ js_get_errno.exit:                                ; preds = %25, %39
   br label %43
 
 43:                                               ; preds = %20, %14, %5, %js_get_errno.exit
-  %.sroa.011.0 = phi i64 [ 0, %14 ], [ 0, %5 ], [ %.sroa.0.0.insert.ext.i, %js_get_errno.exit ], [ 0, %20 ]
-  %.sroa.8.0 = phi i64 [ 6, %14 ], [ 6, %5 ], [ 0, %js_get_errno.exit ], [ 6, %20 ]
+  %.sroa.011.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %js_get_errno.exit ], [ 0, %5 ], [ 0, %14 ], [ 0, %20 ]
+  %.sroa.8.0 = phi i64 [ 0, %js_get_errno.exit ], [ 6, %5 ], [ 6, %14 ], [ 6, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.011.0, 0
@@ -8373,7 +8373,7 @@ JS_FreeValue.exit270:                             ; preds = %78, %81, %86
   br i1 %.not241, label %.loopexit, label %87
 
 87:                                               ; preds = %74, %JS_FreeValue.exit270
-  %.2 = phi ptr [ null, %74 ], [ %79, %JS_FreeValue.exit270 ]
+  %.2 = phi ptr [ %79, %JS_FreeValue.exit270 ], [ null, %74 ]
   %88 = call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0142.0.copyload, i64 %.sroa.11.0.copyload, ptr noundef nonnull @.str.204) #30
   %89 = extractvalue { i64, i64 } %88, 0
   %90 = extractvalue { i64, i64 } %88, 1
@@ -8405,7 +8405,7 @@ JS_FreeValue.exit271:                             ; preds = %91, %94, %99
   br i1 %.not244, label %.loopexit, label %100
 
 100:                                              ; preds = %87, %JS_FreeValue.exit271
-  %.2206 = phi ptr [ null, %87 ], [ %92, %JS_FreeValue.exit271 ]
+  %.2206 = phi ptr [ %92, %JS_FreeValue.exit271 ], [ null, %87 ]
   br label %101
 
 101:                                              ; preds = %100, %119
@@ -8491,7 +8491,7 @@ JS_FreeValue.exit273:                             ; preds = %124, %127, %132
   br i1 %.not247, label %.loopexit, label %133
 
 133:                                              ; preds = %120, %JS_FreeValue.exit273
-  %.2210 = phi ptr [ %14, %120 ], [ %125, %JS_FreeValue.exit273 ]
+  %.2210 = phi ptr [ %125, %JS_FreeValue.exit273 ], [ %14, %120 ]
   %134 = call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0142.0.copyload, i64 %.sroa.11.0.copyload, ptr noundef nonnull @.str.188) #30
   %135 = extractvalue { i64, i64 } %134, 0
   %136 = extractvalue { i64, i64 } %134, 1
@@ -8554,9 +8554,9 @@ JS_FreeValue.exit275:                             ; preds = %150, %153, %158
   br i1 %.not253, label %159, label %.loopexit
 
 159:                                              ; preds = %146, %JS_FreeValue.exit275, %67
-  %.1209 = phi ptr [ %.2210, %146 ], [ %.2210, %JS_FreeValue.exit275 ], [ %14, %67 ]
-  %.1205 = phi ptr [ %.2206, %146 ], [ %.2206, %JS_FreeValue.exit275 ], [ null, %67 ]
-  %.1 = phi ptr [ %.2, %146 ], [ %.2, %JS_FreeValue.exit275 ], [ null, %67 ]
+  %.1209 = phi ptr [ %.2210, %JS_FreeValue.exit275 ], [ %14, %67 ], [ %.2210, %146 ]
+  %.1205 = phi ptr [ %.2206, %JS_FreeValue.exit275 ], [ null, %67 ], [ %.2206, %146 ]
+  %.1 = phi ptr [ %.2, %JS_FreeValue.exit275 ], [ null, %67 ], [ %.2, %146 ]
   %160 = call i32 @fork() #30
   %161 = icmp slt i32 %160, 0
   br i1 %161, label %162, label %164
@@ -8696,11 +8696,11 @@ JS_FreeValue.exit275:                             ; preds = %150, %153, %158
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %JS_FreeValue.exit269, %101, %146, %133, %120, %87, %74, %118, %162, %69, %72, %JS_FreeValue.exit270, %JS_FreeValue.exit271, %JS_FreeValue.exit273, %JS_FreeValue.exit274, %JS_FreeValue.exit275, %213
-  %.3211 = phi ptr [ %.1209, %213 ], [ %14, %JS_FreeValue.exit271 ], [ %14, %101 ], [ %14, %69 ], [ %14, %72 ], [ %14, %74 ], [ %14, %87 ], [ %14, %JS_FreeValue.exit270 ], [ %14, %118 ], [ %14, %120 ], [ %.2210, %133 ], [ %.2210, %146 ], [ %.1209, %162 ], [ %.2210, %JS_FreeValue.exit275 ], [ %.2210, %JS_FreeValue.exit274 ], [ null, %JS_FreeValue.exit273 ], [ %14, %JS_FreeValue.exit269 ], [ %14, %.lr.ph ]
-  %.3207 = phi ptr [ %.1205, %213 ], [ null, %JS_FreeValue.exit271 ], [ %.2206, %101 ], [ null, %69 ], [ null, %72 ], [ null, %74 ], [ null, %87 ], [ null, %JS_FreeValue.exit270 ], [ %.2206, %118 ], [ %.2206, %120 ], [ %.2206, %133 ], [ %.2206, %146 ], [ %.1205, %162 ], [ %.2206, %JS_FreeValue.exit275 ], [ %.2206, %JS_FreeValue.exit274 ], [ %.2206, %JS_FreeValue.exit273 ], [ null, %JS_FreeValue.exit269 ], [ null, %.lr.ph ]
-  %.4 = phi ptr [ %.1, %213 ], [ %.2, %JS_FreeValue.exit271 ], [ %.2, %101 ], [ null, %69 ], [ null, %72 ], [ null, %74 ], [ %.2, %87 ], [ null, %JS_FreeValue.exit270 ], [ %.2, %118 ], [ %.2, %120 ], [ %.2, %133 ], [ %.2, %146 ], [ %.1, %162 ], [ %.2, %JS_FreeValue.exit275 ], [ %.2, %JS_FreeValue.exit274 ], [ %.2, %JS_FreeValue.exit273 ], [ null, %JS_FreeValue.exit269 ], [ null, %.lr.ph ]
-  %.sroa.6.0 = phi i64 [ 0, %213 ], [ 6, %JS_FreeValue.exit271 ], [ 6, %101 ], [ 6, %69 ], [ 6, %72 ], [ 6, %74 ], [ 6, %87 ], [ 6, %JS_FreeValue.exit270 ], [ 6, %118 ], [ 6, %120 ], [ 6, %133 ], [ 6, %146 ], [ 6, %162 ], [ 6, %JS_FreeValue.exit275 ], [ 6, %JS_FreeValue.exit274 ], [ 6, %JS_FreeValue.exit273 ], [ 6, %JS_FreeValue.exit269 ], [ 6, %.lr.ph ]
-  %.sroa.079.sroa.0.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %213 ], [ 0, %JS_FreeValue.exit271 ], [ 0, %101 ], [ 0, %69 ], [ 0, %72 ], [ 0, %74 ], [ 0, %87 ], [ 0, %JS_FreeValue.exit270 ], [ 0, %118 ], [ 0, %120 ], [ 0, %133 ], [ 0, %146 ], [ 0, %162 ], [ 0, %JS_FreeValue.exit275 ], [ 0, %JS_FreeValue.exit274 ], [ 0, %JS_FreeValue.exit273 ], [ 0, %JS_FreeValue.exit269 ], [ 0, %.lr.ph ]
+  %.3211 = phi ptr [ %.1209, %213 ], [ %14, %69 ], [ %14, %72 ], [ %14, %74 ], [ %14, %87 ], [ %14, %118 ], [ %14, %120 ], [ %.2210, %133 ], [ %.2210, %146 ], [ %.1209, %162 ], [ %.2210, %JS_FreeValue.exit275 ], [ %.2210, %JS_FreeValue.exit274 ], [ null, %JS_FreeValue.exit273 ], [ %14, %JS_FreeValue.exit271 ], [ %14, %JS_FreeValue.exit270 ], [ %14, %101 ], [ %14, %JS_FreeValue.exit269 ], [ %14, %.lr.ph ]
+  %.3207 = phi ptr [ %.1205, %213 ], [ null, %69 ], [ null, %72 ], [ null, %74 ], [ null, %87 ], [ %.2206, %118 ], [ %.2206, %120 ], [ %.2206, %133 ], [ %.2206, %146 ], [ %.1205, %162 ], [ %.2206, %JS_FreeValue.exit275 ], [ %.2206, %JS_FreeValue.exit274 ], [ %.2206, %JS_FreeValue.exit273 ], [ null, %JS_FreeValue.exit271 ], [ null, %JS_FreeValue.exit270 ], [ %.2206, %101 ], [ null, %JS_FreeValue.exit269 ], [ null, %.lr.ph ]
+  %.4 = phi ptr [ %.1, %213 ], [ null, %69 ], [ null, %72 ], [ null, %74 ], [ %.2, %87 ], [ %.2, %118 ], [ %.2, %120 ], [ %.2, %133 ], [ %.2, %146 ], [ %.1, %162 ], [ %.2, %JS_FreeValue.exit275 ], [ %.2, %JS_FreeValue.exit274 ], [ %.2, %JS_FreeValue.exit273 ], [ %.2, %JS_FreeValue.exit271 ], [ null, %JS_FreeValue.exit270 ], [ %.2, %101 ], [ null, %JS_FreeValue.exit269 ], [ null, %.lr.ph ]
+  %.sroa.6.0 = phi i64 [ 0, %213 ], [ 6, %69 ], [ 6, %72 ], [ 6, %74 ], [ 6, %87 ], [ 6, %118 ], [ 6, %120 ], [ 6, %133 ], [ 6, %146 ], [ 6, %162 ], [ 6, %JS_FreeValue.exit275 ], [ 6, %JS_FreeValue.exit274 ], [ 6, %JS_FreeValue.exit273 ], [ 6, %JS_FreeValue.exit271 ], [ 6, %JS_FreeValue.exit270 ], [ 6, %101 ], [ 6, %JS_FreeValue.exit269 ], [ 6, %.lr.ph ]
+  %.sroa.079.sroa.0.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %213 ], [ 0, %69 ], [ 0, %72 ], [ 0, %74 ], [ 0, %87 ], [ 0, %118 ], [ 0, %120 ], [ 0, %133 ], [ 0, %146 ], [ 0, %162 ], [ 0, %JS_FreeValue.exit275 ], [ 0, %JS_FreeValue.exit274 ], [ 0, %JS_FreeValue.exit273 ], [ 0, %JS_FreeValue.exit271 ], [ 0, %JS_FreeValue.exit270 ], [ 0, %101 ], [ 0, %JS_FreeValue.exit269 ], [ 0, %.lr.ph ]
   call void @JS_FreeCString(ptr noundef %0, ptr noundef %.4) #30
   call void @JS_FreeCString(ptr noundef %0, ptr noundef %.3207) #30
   %214 = load i32, ptr %6, align 4, !tbaa !7
@@ -8743,9 +8743,9 @@ JS_FreeValue.exit275:                             ; preds = %150, %153, %158
   br label %225
 
 225:                                              ; preds = %._crit_edge305, %._crit_edge309, %36, %JS_FreeValue.exit, %5, %32
-  %.sroa.0198.0 = phi i64 [ 0, %JS_FreeValue.exit ], [ 0, %5 ], [ %34, %32 ], [ 0, %36 ], [ %.sroa.079.sroa.0.0, %._crit_edge309 ], [ %.sroa.079.sroa.0.0, %._crit_edge305 ]
-  %.sroa.6200.0 = phi i64 [ 0, %JS_FreeValue.exit ], [ 0, %5 ], [ %.sroa.6200.0.extract.shift, %32 ], [ 0, %36 ], [ 0, %._crit_edge309 ], [ 0, %._crit_edge305 ]
-  %.sroa.9.0 = phi i64 [ 6, %JS_FreeValue.exit ], [ 6, %5 ], [ %35, %32 ], [ 6, %36 ], [ %.sroa.6.0, %._crit_edge309 ], [ %.sroa.6.0, %._crit_edge305 ]
+  %.sroa.0198.0 = phi i64 [ %34, %32 ], [ 0, %5 ], [ 0, %JS_FreeValue.exit ], [ 0, %36 ], [ %.sroa.079.sroa.0.0, %._crit_edge309 ], [ %.sroa.079.sroa.0.0, %._crit_edge305 ]
+  %.sroa.6200.0 = phi i64 [ %.sroa.6200.0.extract.shift, %32 ], [ 0, %5 ], [ 0, %JS_FreeValue.exit ], [ 0, %36 ], [ 0, %._crit_edge309 ], [ 0, %._crit_edge305 ]
+  %.sroa.9.0 = phi i64 [ %35, %32 ], [ 6, %5 ], [ 6, %JS_FreeValue.exit ], [ 6, %36 ], [ %.sroa.6.0, %._crit_edge309 ], [ %.sroa.6.0, %._crit_edge305 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -8830,9 +8830,9 @@ define internal { i64, i64 } @js_os_waitpid(ptr noundef %0, i64 %1, i64 %2, i32 
   br label %38
 
 38:                                               ; preds = %13, %5, %34, %33
-  %.sroa.022.0 = phi i64 [ %30, %34 ], [ 0, %5 ], [ %30, %33 ], [ 0, %13 ]
-  %.sroa.5.0 = phi i64 [ %.sroa.5.0.extract.shift24, %34 ], [ 0, %5 ], [ %.sroa.5.0.extract.shift, %33 ], [ 0, %13 ]
-  %.sroa.7.0 = phi i64 [ %31, %34 ], [ 6, %5 ], [ %31, %33 ], [ 6, %13 ]
+  %.sroa.022.0 = phi i64 [ %30, %33 ], [ %30, %34 ], [ 0, %5 ], [ 0, %13 ]
+  %.sroa.5.0 = phi i64 [ %.sroa.5.0.extract.shift, %33 ], [ %.sroa.5.0.extract.shift24, %34 ], [ 0, %5 ], [ 0, %13 ]
+  %.sroa.7.0 = phi i64 [ %31, %33 ], [ %31, %34 ], [ 6, %5 ], [ 6, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -8875,9 +8875,9 @@ define internal { i64, i64 } @js_os_pipe(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   br label %21
 
 21:                                               ; preds = %5, %15, %14
-  %.sroa.017.0 = phi i64 [ %11, %15 ], [ %11, %14 ], [ 0, %5 ]
-  %.sroa.419.0 = phi i64 [ %.sroa.419.0.extract.shift20, %15 ], [ %.sroa.419.0.extract.shift, %14 ], [ 0, %5 ]
-  %.sroa.5.0 = phi i64 [ %12, %15 ], [ %12, %14 ], [ 2, %5 ]
+  %.sroa.017.0 = phi i64 [ %11, %14 ], [ %11, %15 ], [ 0, %5 ]
+  %.sroa.419.0 = phi i64 [ %.sroa.419.0.extract.shift, %14 ], [ %.sroa.419.0.extract.shift20, %15 ], [ 0, %5 ]
+  %.sroa.5.0 = phi i64 [ %12, %14 ], [ %12, %15 ], [ 2, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.017.0.insert.ext = and i64 %.sroa.017.0, 4294967295
   %.sroa.017.0.insert.insert = or disjoint i64 %.sroa.419.0, %.sroa.017.0.insert.ext
@@ -9230,7 +9230,7 @@ JS_FreeValue.exit:                                ; preds = %22, %26, %31
   br i1 %60, label %.lr.ph86, label %._crit_edge87, !llvm.loop !151
 
 ._crit_edge87:                                    ; preds = %.lr.ph86, %.preheader, %.critedge
-  %.067110 = phi ptr [ %13, %.preheader ], [ %.067, %.critedge ], [ %.067, %.lr.ph86 ]
+  %.067110 = phi ptr [ %.067, %.critedge ], [ %13, %.preheader ], [ %.067, %.lr.ph86 ]
   %61 = load ptr, ptr %5, align 8, !tbaa !146
   call void @js_free(ptr noundef %0, ptr noundef %61) #30
   br label %68

@@ -1105,8 +1105,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hbbc216648a61999eE(ptr n
   br label %"_ZN63_$LT$libloading..error..Error$u20$as$u20$core..error..Error$GT$6source17he100d8fce6c79ccdE.llvm.6199602460040706727.exit"
 
 "_ZN63_$LT$libloading..error..Error$u20$as$u20$core..error..Error$GT$6source17he100d8fce6c79ccdE.llvm.6199602460040706727.exit": ; preds = %1, %6, %8, %10, %12, %13
-  %.sroa.7.0.i = phi ptr [ @anon.58183ad5cd9afa59fa72c5c38150dad1.54, %13 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %6 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %8 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %10 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.52, %12 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %14, %13 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %0, %12 ], [ null, %1 ]
+  %.sroa.7.0.i = phi ptr [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %6 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %8 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %10 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.52, %12 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.54, %13 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %0, %12 ], [ %14, %13 ], [ null, %1 ]
   %15 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %16 = insertvalue { ptr, ptr } %15, ptr %.sroa.7.0.i, 1
   ret { ptr, ptr } %16
@@ -2603,8 +2603,8 @@ define hidden { ptr, ptr } @"_ZN63_$LT$libloading..error..Error$u20$as$u20$core.
   br label %15
 
 15:                                               ; preds = %1, %13, %12, %10, %8, %6
-  %.sroa.7.0 = phi ptr [ @anon.58183ad5cd9afa59fa72c5c38150dad1.54, %13 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %6 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %8 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %10 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.52, %12 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %14, %13 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %0, %12 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %6 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %8 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.7.llvm.6199602460040706727, %10 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.52, %12 ], [ @anon.58183ad5cd9afa59fa72c5c38150dad1.54, %13 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %0, %12 ], [ %14, %13 ], [ null, %1 ]
   %16 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %17

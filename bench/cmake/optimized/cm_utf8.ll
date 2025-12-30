@@ -85,7 +85,7 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef readonly captures(add
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %13, %5, %5, %5, %._crit_edge, %31, %3
-  %.030 = phi ptr [ null, %3 ], [ null, %5 ], [ null, %13 ], [ null, %5 ], [ null, %5 ], [ %.030.ph, %.loopexit.sink.split ], [ null, %31 ], [ null, %._crit_edge ], [ null, %.lr.ph ]
+  %.030 = phi ptr [ null, %3 ], [ null, %5 ], [ null, %5 ], [ null, %5 ], [ null, %31 ], [ null, %._crit_edge ], [ null, %13 ], [ %.030.ph, %.loopexit.sink.split ], [ null, %.lr.ph ]
   ret ptr %.030
 }
 
@@ -168,8 +168,8 @@ cm_utf8_decode_character.exit:                    ; preds = %28, %.lr.ph
   %.not15 = icmp eq ptr %.030.ph.i, %4
   br i1 %.not15, label %.critedge, label %.lr.ph, !llvm.loop !11
 
-.critedge:                                        ; preds = %._crit_edge.i, %28, %10, %.lr.ph, %.lr.ph, %.lr.ph, %cm_utf8_decode_character.exit, %.lr.ph.i, %2, %1
-  %.010 = phi i32 [ 0, %1 ], [ 0, %.lr.ph.i ], [ 1, %2 ], [ 1, %cm_utf8_decode_character.exit ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %10 ], [ 0, %28 ], [ 0, %._crit_edge.i ]
+.critedge:                                        ; preds = %10, %._crit_edge.i, %28, %.lr.ph, %.lr.ph, %.lr.ph, %cm_utf8_decode_character.exit, %.lr.ph.i, %2, %1
+  %.010 = phi i32 [ 0, %1 ], [ 1, %2 ], [ 0, %.lr.ph.i ], [ 1, %cm_utf8_decode_character.exit ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %28 ], [ 0, %._crit_edge.i ], [ 0, %10 ]
   ret i32 %.010
 }
 

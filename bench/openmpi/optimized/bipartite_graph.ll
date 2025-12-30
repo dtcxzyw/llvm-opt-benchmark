@@ -205,7 +205,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %18
   br label %30
 
 30:                                               ; preds = %3, %29, %28
-  %.019 = phi i32 [ 0, %28 ], [ %.0, %29 ], [ -5, %3 ]
+  %.019 = phi i32 [ %.0, %29 ], [ 0, %28 ], [ -5, %3 ]
   ret i32 %.019
 }
 
@@ -646,12 +646,12 @@ pmix_pointer_array_get_item.exit:                 ; preds = %21
   br label %47
 
 .thread:                                          ; preds = %.lr.ph, %21, %pmix_pointer_array_get_item.exit, %.lr.ph56
-  %.131 = phi i32 [ %42, %.lr.ph56 ], [ -13, %21 ], [ -13, %pmix_pointer_array_get_item.exit ], [ %20, %.lr.ph ]
+  %.131 = phi i32 [ %42, %.lr.ph56 ], [ -13, %pmix_pointer_array_get_item.exit ], [ -13, %21 ], [ %20, %.lr.ph ]
   %46 = call i32 @prte_bp_graph_free(ptr noundef %.pre66.pre)
   br label %47
 
 47:                                               ; preds = %9, %3, %.thread, %._crit_edge59
-  %.0 = phi i32 [ 0, %._crit_edge59 ], [ -5, %3 ], [ %.131, %.thread ], [ %10, %9 ]
+  %.0 = phi i32 [ %.131, %.thread ], [ 0, %._crit_edge59 ], [ -5, %3 ], [ %10, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -957,7 +957,7 @@ pmix_pointer_array_get_item.exit58:               ; preds = %pmix_obj_update.exi
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph, %14, %pmix_obj_new_tma.exit, %pmix_pointer_array_get_item.exit55.thread, %pmix_pointer_array_get_item.exit58, %pmix_pointer_array_get_item.exit, %10, %6, %8
-  %.0 = phi i32 [ -13, %pmix_pointer_array_get_item.exit55.thread ], [ -5, %6 ], [ -5, %10 ], [ -13, %14 ], [ -5, %8 ], [ 0, %pmix_pointer_array_get_item.exit58 ], [ -13, %pmix_pointer_array_get_item.exit ], [ -2, %pmix_obj_new_tma.exit ], [ -14, %.lr.ph ]
+  %.0 = phi i32 [ -5, %8 ], [ -5, %6 ], [ -5, %10 ], [ -2, %pmix_obj_new_tma.exit ], [ -13, %pmix_pointer_array_get_item.exit55.thread ], [ 0, %pmix_pointer_array_get_item.exit58 ], [ -13, %pmix_pointer_array_get_item.exit ], [ -13, %14 ], [ -14, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -1105,8 +1105,8 @@ define zeroext i1 @prte_bp_graph_bellman_ford(ptr noundef readonly captures(addr
   br label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge146, %.preheader.preheader
-  %32 = phi i32 [ %66, %._crit_edge146 ], [ %.pre, %.preheader.preheader ]
-  %.182148 = phi i32 [ %70, %._crit_edge146 ], [ 1, %.preheader.preheader ]
+  %32 = phi i32 [ %.pre, %.preheader.preheader ], [ %66, %._crit_edge146 ]
+  %.182148 = phi i32 [ 1, %.preheader.preheader ], [ %70, %._crit_edge146 ]
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph145, label %._crit_edge160
 
@@ -1286,7 +1286,7 @@ pmix_pointer_array_get_item.exit118:              ; preds = %77
   br label %.thread125
 
 .thread125:                                       ; preds = %.lr.ph145, %pmix_pointer_array_get_item.exit, %16, %12, %14, %.thread131, %10, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %10 ], [ true, %16 ], [ true, %12 ], [ %.091, %.thread131 ], [ true, %14 ], [ false, %pmix_pointer_array_get_item.exit ], [ false, %.lr.ph145 ]
+  %.0 = phi i1 [ false, %6 ], [ false, %10 ], [ %.091, %.thread131 ], [ true, %14 ], [ true, %12 ], [ true, %16 ], [ false, %pmix_pointer_array_get_item.exit ], [ false, %.lr.ph145 ]
   ret i1 %.0
 }
 
@@ -1469,7 +1469,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %54
   br i1 %exitcond128.not, label %.thread, label %54, !llvm.loop !74
 
 .thread:                                          ; preds = %40, %34, %._crit_edge111, %pmix_pointer_array_get_item.exit, %54, %.lr.ph110, %.preheader, %49, %._crit_edge, %5, %1
-  %.0 = phi i32 [ -5, %._crit_edge ], [ %4, %1 ], [ 0, %49 ], [ %7, %5 ], [ %70, %.lr.ph110 ], [ -5, %.preheader ], [ -13, %54 ], [ 0, %._crit_edge111 ], [ -13, %pmix_pointer_array_get_item.exit ], [ %44, %40 ], [ %38, %34 ]
+  %.0 = phi i32 [ %4, %1 ], [ %7, %5 ], [ -5, %._crit_edge ], [ 0, %49 ], [ -5, %.preheader ], [ %70, %.lr.ph110 ], [ 0, %._crit_edge111 ], [ -13, %pmix_pointer_array_get_item.exit ], [ -13, %54 ], [ %38, %34 ], [ %44, %40 ]
   ret i32 %.0
 }
 
@@ -1599,7 +1599,7 @@ pmix_pointer_array_get_item.exit.i.i.i:           ; preds = %40
   br i1 %.not23.i.i.i, label %get_capacity.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !78
 
 get_capacity.exit.i.i:                            ; preds = %56, %53, %47, %pmix_pointer_array_get_item.exit.i.i.i, %40, %38, %36, %.lr.ph.i.i
-  %.0.i.i.i = phi i32 [ -5, %38 ], [ -5, %.lr.ph.i.i ], [ -5, %36 ], [ 0, %pmix_pointer_array_get_item.exit.i.i.i ], [ %55, %53 ], [ 0, %40 ], [ 0, %47 ], [ 0, %56 ]
+  %.0.i.i.i = phi i32 [ -5, %36 ], [ -5, %.lr.ph.i.i ], [ -5, %38 ], [ %55, %53 ], [ 0, %pmix_pointer_array_get_item.exit.i.i.i ], [ 0, %40 ], [ 0, %47 ], [ 0, %56 ]
   %58 = call i32 @llvm.smin.i32(i32 %.01422.i.i, i32 %.0.i.i.i)
   %.pn.i.i = sext i32 %.023.i.i to i64
   %.0.in.i.i = getelementptr inbounds i32, ptr %17, i64 %.pn.i.i
@@ -1677,7 +1677,7 @@ pmix_pointer_array_get_item.exit.i.i:             ; preds = %76
   br i1 %.not23.i.i, label %pmix_pointer_array_get_item.exit.i84.i, label %.lr.ph.i77.i, !llvm.loop !78
 
 pmix_pointer_array_get_item.exit.i84.i:           ; preds = %92, %89, %pmix_pointer_array_get_item.exit.i.i, %83
-  %.pn.pn = phi i32 [ 0, %pmix_pointer_array_get_item.exit.i.i ], [ 0, %83 ], [ %91, %89 ], [ 0, %92 ]
+  %.pn.pn = phi i32 [ 0, %83 ], [ 0, %pmix_pointer_array_get_item.exit.i.i ], [ %91, %89 ], [ 0, %92 ]
   %94 = sub nsw i32 %.pn.pn, %58
   %95 = load ptr, ptr %30, align 8, !tbaa !35
   %96 = zext nneg i32 %.064137.i to i64
@@ -1935,7 +1935,7 @@ min_cost_flow_ssp.exit:                           ; preds = %13, %19
   br label %178
 
 178:                                              ; preds = %min_cost_flow_ssp.exit, %11, %3, %.loopexit
-  %.0 = phi i32 [ %10, %11 ], [ %.051, %.loopexit ], [ -5, %3 ], [ -2, %min_cost_flow_ssp.exit ]
+  %.0 = phi i32 [ %.051, %.loopexit ], [ -5, %3 ], [ %10, %11 ], [ -2, %min_cost_flow_ssp.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

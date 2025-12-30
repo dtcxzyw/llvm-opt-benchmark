@@ -117,7 +117,7 @@ define ptr @cuddAddScalarInverseRecur(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %53
 
 53:                                               ; preds = %18, %16, %6, %.thread, %47, %34, %13
-  %.0 = phi ptr [ %48, %.thread ], [ %15, %13 ], [ null, %6 ], [ %17, %16 ], [ null, %34 ], [ null, %47 ], [ null, %18 ]
+  %.0 = phi ptr [ %15, %13 ], [ null, %34 ], [ null, %47 ], [ %48, %.thread ], [ null, %6 ], [ %17, %16 ], [ null, %18 ]
   ret ptr %.0
 }
 

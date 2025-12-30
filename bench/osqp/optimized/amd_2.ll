@@ -723,9 +723,9 @@ clear_flag.exit1003:                              ; preds = %233, %.loopexit1037
   br i1 %.not986.not, label %.lr.ph1137, label %.loopexit1032, !llvm.loop !26
 
 .loopexit1032:                                    ; preds = %284, %296, %.preheader1033, %.preheader1031
-  %.2860 = phi i64 [ %.4862, %296 ], [ 0, %.preheader1031 ], [ 0, %.preheader1033 ], [ %.1859, %284 ]
-  %.3826 = phi i64 [ %.5828, %296 ], [ 0, %.preheader1031 ], [ 0, %.preheader1033 ], [ %.2825, %284 ]
-  %.2794 = phi i64 [ %.4, %296 ], [ %266, %.preheader1031 ], [ %266, %.preheader1033 ], [ %.1793, %284 ]
+  %.2860 = phi i64 [ 0, %.preheader1031 ], [ 0, %.preheader1033 ], [ %.4862, %296 ], [ %.1859, %284 ]
+  %.3826 = phi i64 [ 0, %.preheader1031 ], [ 0, %.preheader1033 ], [ %.5828, %296 ], [ %.2825, %284 ]
+  %.2794 = phi i64 [ %266, %.preheader1031 ], [ %266, %.preheader1033 ], [ %.4, %296 ], [ %.1793, %284 ]
   %reass.sub1253 = sub i64 %.2794, %266
   %298 = add i64 %reass.sub1253, 1
   store i64 %298, ptr %267, align 8, !tbaa !9

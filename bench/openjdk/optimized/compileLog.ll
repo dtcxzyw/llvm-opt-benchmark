@@ -512,7 +512,7 @@ _ZN10CompileLog4nameEP8ciSymbol.exit72:           ; preds = %136
   br label %143
 
 143:                                              ; preds = %124, %130, %59, %142, %_ZN10CompileLog4nameEP8ciSymbol.exit72, %11, %4, %2
-  %.0 = phi i32 [ %5, %11 ], [ 0, %2 ], [ %5, %4 ], [ %5, %_ZN10CompileLog4nameEP8ciSymbol.exit72 ], [ %5, %142 ], [ %5, %59 ], [ %5, %130 ], [ %5, %124 ]
+  %.0 = phi i32 [ 0, %2 ], [ %5, %4 ], [ %5, %11 ], [ %5, %_ZN10CompileLog4nameEP8ciSymbol.exit72 ], [ %5, %142 ], [ %5, %59 ], [ %5, %130 ], [ %5, %124 ]
   ret i32 %.0
 }
 
@@ -717,7 +717,7 @@ define hidden void @_ZN10CompileLog19finish_log_on_errorEP12outputStreamPci(ptr 
   br i1 %43, label %46, label %44
 
 44:                                               ; preds = %40, %37, %42
-  %.3 = phi i32 [ 0, %37 ], [ %spec.select, %40 ], [ 0, %42 ]
+  %.3 = phi i32 [ %spec.select, %40 ], [ 0, %42 ], [ 0, %37 ]
   %45 = add nuw i64 %.06487, 1
   %exitcond.not = icmp eq i64 %45, %.17188
   br i1 %exitcond.not, label %.critedge, label %37, !llvm.loop !12

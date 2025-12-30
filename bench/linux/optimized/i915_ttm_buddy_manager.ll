@@ -442,7 +442,7 @@ define internal i32 @i915_ttm_buddy_man_alloc(ptr noundef %0, ptr noundef %1, pt
   br i1 %113, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %110, %87, %90
-  %114 = phi i64 [ %.pre, %87 ], [ %93, %90 ], [ %111, %110 ]
+  %114 = phi i64 [ %93, %90 ], [ %.pre, %87 ], [ %111, %110 ]
   %115 = icmp eq i64 %114, 0
   br i1 %115, label %120, label %116
 

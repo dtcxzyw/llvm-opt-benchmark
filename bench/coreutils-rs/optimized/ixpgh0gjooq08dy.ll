@@ -6931,9 +6931,9 @@ define hidden void @"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = trunc nuw i8 %4 to i1
-  %15 = icmp ugt i64 %.sroa.03.0.copyload, -9223372036854775808
-  %16 = icmp slt i64 %.sroa.03.0.copyload, 0
-  %.sroa.0.1.in.i.i = select i1 %14, i1 %15, i1 %16
+  %15 = icmp slt i64 %.sroa.03.0.copyload, 0
+  %16 = icmp ugt i64 %.sroa.03.0.copyload, -9223372036854775808
+  %.sroa.0.1.in.i.i = select i1 %14, i1 %16, i1 %15
   store i64 2, ptr %0, align 8, !alias.scope !3249, !noalias !3252
   br i1 %.sroa.0.1.in.i.i, label %"_ZN6uucore8features6format10num_parser12ParsedNumber9parse_i6428_$u7b$$u7b$closure$u7d$$u7d$17h494c7243cb16155cE.llvm.3307611119196902081.exit", label %17
 
@@ -7007,7 +7007,7 @@ define hidden void @"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$
   br label %26
 
 26:                                               ; preds = %2, %8, %25
-  %.sink = phi i64 [ 2, %25 ], [ 1, %8 ], [ 0, %2 ]
+  %.sink = phi i64 [ 1, %8 ], [ 2, %25 ], [ 0, %2 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -7046,7 +7046,7 @@ define hidden void @"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$
   br label %17
 
 17:                                               ; preds = %2, %8, %16
-  %.sink = phi i64 [ 2, %16 ], [ 1, %8 ], [ 0, %2 ]
+  %.sink = phi i64 [ 1, %8 ], [ 2, %16 ], [ 0, %2 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -7057,9 +7057,9 @@ define hidden void @"_ZN6uucore8features6format10num_parser12ParsedNumber9parse_
   %6 = load i8, ptr %5, align 1, !range !41, !alias.scope !3267, !noundef !4
   %7 = trunc nuw i8 %6 to i1
   %8 = load i64, ptr %1, align 8, !alias.scope !3267, !noundef !4
-  %9 = icmp ugt i64 %8, -9223372036854775808
-  %10 = icmp slt i64 %8, 0
-  %.sroa.0.1.in.i = select i1 %7, i1 %9, i1 %10
+  %9 = icmp slt i64 %8, 0
+  %10 = icmp ugt i64 %8, -9223372036854775808
+  %.sroa.0.1.in.i = select i1 %7, i1 %10, i1 %9
   store i64 2, ptr %0, align 8
   br i1 %.sroa.0.1.in.i, label %11, label %12
 

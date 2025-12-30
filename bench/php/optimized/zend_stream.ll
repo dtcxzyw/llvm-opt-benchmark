@@ -469,7 +469,7 @@ zend_stream_read.exit140:                         ; preds = %.critedge.i136, %88
   br label %zend_stream_open.exit.thread
 
 zend_stream_open.exit.thread:                     ; preds = %18, %110, %73, %zend_stream_fsize.exit, %28, %zend_stream_open.exit, %119, %9
-  %.0 = phi i32 [ 0, %9 ], [ -1, %zend_stream_open.exit ], [ -1, %28 ], [ 0, %119 ], [ -1, %73 ], [ -1, %110 ], [ -1, %zend_stream_fsize.exit ], [ -1, %18 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %119 ], [ -1, %73 ], [ -1, %110 ], [ -1, %zend_stream_open.exit ], [ -1, %28 ], [ -1, %zend_stream_fsize.exit ], [ -1, %18 ]
   ret i32 %.0
 }
 
@@ -620,7 +620,7 @@ define internal range(i32 0, 2) i32 @zend_compare_file_handles(ptr noundef reado
   br label %zend_string_equals.exit
 
 zend_string_equals.exit:                          ; preds = %8, %14, %20, %7, %2, %26, %22
-  %.0.shrunk = phi i1 [ %29, %26 ], [ false, %2 ], [ false, %7 ], [ %25, %22 ], [ true, %8 ], [ false, %14 ], [ %21, %20 ]
+  %.0.shrunk = phi i1 [ %25, %22 ], [ %29, %26 ], [ false, %2 ], [ false, %7 ], [ true, %8 ], [ false, %14 ], [ %21, %20 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

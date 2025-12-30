@@ -4826,7 +4826,7 @@ define internal i32 @dissect_inap_Digits(i1 noundef zeroext %0, ptr noundef %1, 
   br i1 %57, label %.thread37, label %64
 
 .thread:                                          ; preds = %52, %49, %46, %43, %40, %37, %34
-  %.029.ph.in = phi ptr [ @ett_inap_lineID, %49 ], [ @ett_inap_iNServiceControlCodeHigh, %46 ], [ @ett_inap_iNServiceControlCodeLow, %43 ], [ @ett_inap_iNServiceControlCode, %40 ], [ @ett_inap_callingLineID, %37 ], [ @ett_inap_dialledNumber, %34 ], [ @ett_inap_prefix, %52 ]
+  %.029.ph.in = phi ptr [ @ett_inap_dialledNumber, %34 ], [ @ett_inap_callingLineID, %37 ], [ @ett_inap_iNServiceControlCode, %40 ], [ @ett_inap_iNServiceControlCodeLow, %43 ], [ @ett_inap_iNServiceControlCodeHigh, %46 ], [ @ett_inap_lineID, %49 ], [ @ett_inap_prefix, %52 ]
   %.029.ph = load i32, ptr %.029.ph.in, align 4
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %59 = load ptr, ptr %58, align 8
@@ -4834,7 +4834,7 @@ define internal i32 @dissect_inap_Digits(i1 noundef zeroext %0, ptr noundef %1, 
   br label %71
 
 .thread37:                                        ; preds = %55, %31, %28, %25, %13, %10
-  %.029.ph36.in = phi ptr [ @ett_inap_number, %31 ], [ @ett_inap_callingAddressValue, %28 ], [ @ett_inap_calledAddressValue, %25 ], [ @ett_inap_assistingSSPIPRoutingAddress, %13 ], [ @ett_inap_additionalCallingPartyNumber, %10 ], [ @ett_inap_iPAddressValue, %55 ]
+  %.029.ph36.in = phi ptr [ @ett_inap_additionalCallingPartyNumber, %10 ], [ @ett_inap_assistingSSPIPRoutingAddress, %13 ], [ @ett_inap_calledAddressValue, %25 ], [ @ett_inap_callingAddressValue, %28 ], [ @ett_inap_number, %31 ], [ @ett_inap_iPAddressValue, %55 ]
   %.029.ph36 = load i32, ptr %.029.ph36.in, align 4
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %62 = load ptr, ptr %61, align 8

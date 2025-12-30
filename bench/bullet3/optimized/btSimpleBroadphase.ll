@@ -941,7 +941,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i64: ; preds = %
   br i1 %exitcond.not.i.i.i74, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i66, label %219, !llvm.loop !55
 
 _ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i66: ; preds = %219, %213, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i64
-  %.0.i.i.i65115 = phi ptr [ null, %213 ], [ %216, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i64 ], [ %216, %219 ]
+  %.0.i.i.i65115 = phi ptr [ %216, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i64 ], [ null, %213 ], [ %216, %219 ]
   %223 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %224 = load ptr, ptr %223, align 8, !tbaa !49
   %.not.i5.i.i67 = icmp ne ptr %224, null
@@ -977,7 +977,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i69: ; preds 
   br i1 %exitcond.not.i61, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit75, label %231, !llvm.loop !57
 
 _ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit75: ; preds = %231, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit56
-  %234 = phi i32 [ %116, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit ], [ %207, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit56 ], [ %207, %231 ]
+  %234 = phi i32 [ %207, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit56 ], [ %116, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit ], [ %207, %231 ]
   store i32 %234, ptr %108, align 4, !tbaa !44
   store i32 0, ptr %114, align 4, !tbaa !17
   br label %235

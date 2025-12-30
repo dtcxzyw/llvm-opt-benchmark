@@ -694,7 +694,7 @@ hex_blep.exit:                                    ; preds = %._crit_edge
   br i1 %exitcond.not.i.i161, label %hex_blamp.exit162, label %.lr.ph.i.i158, !llvm.loop !23
 
 hex_blamp.exit162:                                ; preds = %.lr.ph.i.i158, %hex_blep.exit.thread271, %hex_blep.exit
-  %181 = phi ptr [ %139, %hex_blep.exit.thread271 ], [ %158, %hex_blep.exit ], [ %169, %.lr.ph.i.i158 ]
+  %181 = phi ptr [ %158, %hex_blep.exit ], [ %139, %hex_blep.exit.thread271 ], [ %169, %.lr.ph.i.i158 ]
   %182 = icmp eq i32 %90, 8
   br i1 %182, label %183, label %hex_blamp.exit178.backedge
 
@@ -775,8 +775,8 @@ hex_blep.exit170:                                 ; preds = %.lr.ph.i.i166, %191
   br i1 %89, label %.lr.ph.i.i174, label %hex_blamp.exit178.backedge
 
 hex_blamp.exit178.backedge:                       ; preds = %.lr.ph.i.i174, %218, %hex_blep.exit170, %183, %hex_blamp.exit162
-  %.2130.be = phi float [ %.3131.lcssa, %hex_blamp.exit162 ], [ %184, %183 ], [ %184, %hex_blep.exit170 ], [ %184, %218 ], [ %184, %.lr.ph.i.i174 ]
-  %.2126.be = phi i32 [ %90, %hex_blamp.exit162 ], [ 0, %183 ], [ 0, %hex_blep.exit170 ], [ 0, %218 ], [ 0, %.lr.ph.i.i174 ]
+  %.2130.be = phi float [ %184, %183 ], [ %.3131.lcssa, %hex_blamp.exit162 ], [ %184, %hex_blep.exit170 ], [ %184, %218 ], [ %184, %.lr.ph.i.i174 ]
+  %.2126.be = phi i32 [ 0, %183 ], [ %90, %hex_blamp.exit162 ], [ 0, %hex_blep.exit170 ], [ 0, %218 ], [ 0, %.lr.ph.i.i174 ]
   br label %hex_blamp.exit178
 
 .lr.ph.i.i174:                                    ; preds = %218, %.lr.ph.i.i174

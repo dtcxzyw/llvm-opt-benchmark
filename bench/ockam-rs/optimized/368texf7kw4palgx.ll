@@ -338,7 +338,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h1c161b523bd1a194E.exit.thread.i: ;
   br label %19
 
 15:                                               ; preds = %.thread.i.i, %13
-  %.011 = phi i64 [ %14, %13 ], [ %12, %.thread.i.i ]
+  %.011 = phi i64 [ %12, %.thread.i.i ], [ %14, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.011, ptr %6, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1290,7 +1290,7 @@ define hidden noundef nonnull ptr @_ZN4duct3cmd17hfe2e491373a26299E(ptr noalias 
   invoke void @"_ZN70_$LT$$RF$alloc..string..String$u20$as$u20$duct..IntoExecutablePath$GT$13to_executable17hd50eebba84e41d96E"(ptr noalias noundef nonnull sret({ { { { ptr, i64 }, i64 } } }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %9 unwind label %.body.thread5
 
-.body.thread5:                                    ; preds = %._crit_edge.i, %3
+.body.thread5:                                    ; preds = %3, %._crit_edge.i
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread

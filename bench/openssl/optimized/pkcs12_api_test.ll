@@ -146,7 +146,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1, %17, %15
-  %.0 = phi i32 [ 0, %15 ], [ 1, %17 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %17 ], [ 0, %15 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -391,8 +391,8 @@ changepass.exit:                                  ; preds = %44, %52, %56, %61, 
   br label %98
 
 98:                                               ; preds = %changepass.exit, %0, %42, %36, %.thread29, %28, %.thread25, %20, %.thread, %12, %9
-  %99 = phi i32 [ 0, %9 ], [ 1, %0 ], [ 0, %.thread29 ], [ 0, %36 ], [ 0, %.thread25 ], [ 0, %28 ], [ 0, %.thread ], [ 0, %20 ], [ 0, %12 ], [ 1, %42 ], [ %not..not21, %changepass.exit ]
-  %.1 = phi ptr [ %10, %9 ], [ null, %0 ], [ %10, %.thread29 ], [ %10, %36 ], [ %10, %.thread25 ], [ %10, %28 ], [ %10, %.thread ], [ %10, %20 ], [ %10, %12 ], [ %10, %42 ], [ %10, %changepass.exit ]
+  %99 = phi i32 [ 0, %.thread29 ], [ 0, %36 ], [ 0, %.thread25 ], [ 0, %28 ], [ 0, %.thread ], [ 0, %20 ], [ 0, %12 ], [ 0, %9 ], [ 1, %42 ], [ 1, %0 ], [ %not..not21, %changepass.exit ]
+  %.1 = phi ptr [ %10, %.thread29 ], [ %10, %36 ], [ %10, %.thread25 ], [ %10, %28 ], [ %10, %.thread ], [ %10, %20 ], [ %10, %12 ], [ %10, %9 ], [ %10, %42 ], [ null, %0 ], [ %10, %changepass.exit ]
   call void @PKCS12_free(ptr noundef %.1) #5
   %100 = load ptr, ptr %5, align 8, !tbaa !15
   call void @EVP_PKEY_free(ptr noundef %100) #5

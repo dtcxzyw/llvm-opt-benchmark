@@ -619,7 +619,7 @@ zend_string_alloc.exit:                           ; preds = %.critedge132
   br label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %61, %71, %.thread157
-  %.0.be = phi i64 [ %74, %.thread157 ], [ %73, %71 ], [ %62, %61 ]
+  %.0.be = phi i64 [ %73, %71 ], [ %74, %.thread157 ], [ %62, %61 ]
   br label %.loopexit
 
 .thread157:                                       ; preds = %61, %66

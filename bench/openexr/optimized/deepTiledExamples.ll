@@ -552,7 +552,7 @@ _ZN7Imf_3_418DeepTiledInputFileD2Ev.exit:         ; preds = %_ZNSt12__shared_ptr
   br i1 %exitcond112.not, label %._crit_edge96, label %208, !llvm.loop !59
 
 227:                                              ; preds = %138, %156, %140, %136, %134, %132, %130
-  %.pn.pn.pn = phi { ptr, i32 } [ %131, %130 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %139, %138 ], [ %157, %156 ], [ %141, %140 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %139, %138 ], [ %157, %156 ], [ %141, %140 ]
   call void @_ZN7Imf_3_415DeepFrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %8) #17
   br label %.body
 
@@ -1347,7 +1347,7 @@ _ZN7Imf_3_47Array2DIPfED2Ev.exit:                 ; preds = %_ZN7Imf_3_47Array2D
   br i1 %exitcond.not, label %._crit_edge, label %193, !llvm.loop !78
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split.us.split.us, %.loopexit.split-lp.split.us.split.us, %.loopexit.split-lp.split, %.split84, %.split84.us, %174, %172, %170, %168
-  %.pn.pn = phi { ptr, i32 } [ %169, %168 ], [ %175, %174 ], [ %173, %172 ], [ %171, %170 ], [ %151, %.split84.us ], [ %176, %.split84 ], [ %lpad.loopexit.us.us, %.loopexit.split.us.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.split ], [ %lpad.loopexit.split-lp.us.us, %.loopexit.split-lp.split.us.split.us ]
+  %.pn.pn = phi { ptr, i32 } [ %175, %174 ], [ %173, %172 ], [ %171, %170 ], [ %169, %168 ], [ %176, %.split84 ], [ %151, %.split84.us ], [ %lpad.loopexit.us.us, %.loopexit.split.us.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.split ], [ %lpad.loopexit.split-lp.us.us, %.loopexit.split-lp.split.us.split.us ]
   call void @_ZN7Imf_3_415DeepFrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %14) #17
   br label %.body
 
@@ -1602,7 +1602,7 @@ _ZN7Imf_3_47Array2DIPfED2Ev.exit:                 ; preds = %_ZN7Imf_3_47Array2D
   br label %_ZN7Imf_3_47Array2DIPfED2Ev.exit27
 
 _ZN7Imf_3_47Array2DIPfED2Ev.exit27:               ; preds = %59, %61
-  %.pn.pn41 = phi { ptr, i32 } [ %.pn3846, %61 ], [ %51, %59 ]
+  %.pn.pn41 = phi { ptr, i32 } [ %51, %59 ], [ %.pn3846, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %.pn.pn41

@@ -197,7 +197,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16: ; preds = %48,
   br label %_ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit18
 
 _ZN5Ipopt8SmartPtrINS_17RegisteredOptionsEED2Ev.exit18: ; preds = %74, %69, %66, %62, %57, %54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16
-  %.pn8 = phi { ptr, i32 } [ %55, %62 ], [ %49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16 ], [ %55, %54 ], [ %55, %57 ], [ %67, %66 ], [ %67, %69 ], [ %67, %74 ]
+  %.pn8 = phi { ptr, i32 } [ %49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16 ], [ %55, %54 ], [ %55, %57 ], [ %55, %62 ], [ %67, %66 ], [ %67, %69 ], [ %67, %74 ]
   resume { ptr, i32 } %.pn8
 }
 

@@ -174,8 +174,8 @@ define hidden i32 @GetColorPalette(ptr noundef readonly captures(none) %0, ptr n
   br i1 %39, label %.loopexit65, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.lr.ph.us, %._crit_edge.us, %16
-  %.249.ph.us = phi i32 [ %.14877.us, %16 ], [ %38, %._crit_edge.us ], [ %.14877.us, %.lr.ph.us ]
-  %.2.ph.us = phi i32 [ %.178.us, %16 ], [ %18, %._crit_edge.us ], [ %18, %.lr.ph.us ]
+  %.249.ph.us = phi i32 [ %38, %._crit_edge.us ], [ %.14877.us, %16 ], [ %.14877.us, %.lr.ph.us ]
+  %.2.ph.us = phi i32 [ %18, %._crit_edge.us ], [ %.178.us, %16 ], [ %18, %.lr.ph.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge80.us, label %16, !llvm.loop !18
@@ -222,7 +222,7 @@ define hidden i32 @GetColorPalette(ptr noundef readonly captures(none) %0, ptr n
   br label %.loopexit65
 
 .loopexit65:                                      ; preds = %._crit_edge.us, %._crit_edge87, %53
-  %.3 = phi i32 [ %.047.lcssa, %._crit_edge87 ], [ %.6, %53 ], [ 257, %._crit_edge.us ]
+  %.3 = phi i32 [ %.6, %53 ], [ %.047.lcssa, %._crit_edge87 ], [ 257, %._crit_edge.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.3
@@ -937,7 +937,7 @@ PaletteSortModifiedZeng.exit:                     ; preds = %.lr.ph149.i, %103, 
   br label %PaletteSortMinimizeDeltas.exit
 
 PaletteSortMinimizeDeltas.exit:                   ; preds = %97, %62, %PaletteHasNonMonotonousDeltas.exit.i, %5, %14, %20, %PaletteSortModifiedZeng.exit
-  %.0 = phi i32 [ 1, %14 ], [ %.0.i, %PaletteSortModifiedZeng.exit ], [ 0, %5 ], [ 1, %20 ], [ 1, %PaletteHasNonMonotonousDeltas.exit.i ], [ 1, %62 ], [ 1, %97 ]
+  %.0 = phi i32 [ %.0.i, %PaletteSortModifiedZeng.exit ], [ 1, %20 ], [ 1, %14 ], [ 0, %5 ], [ 1, %PaletteHasNonMonotonousDeltas.exit.i ], [ 1, %62 ], [ 1, %97 ]
   ret i32 %.0
 }
 

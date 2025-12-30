@@ -2090,8 +2090,8 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit.i39:   ; preds = %_ZNK9VectorSet4test
   br i1 %exitcond.not, label %.preheader16.i41, label %.lr.ph.i50, !llvm.loop !33
 
 _ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit35: ; preds = %_ZNK9VectorSet4testEj.exit.thread, %.lr.ph19.preheader.i46, %.preheader16.i41
-  %.sroa.16.5 = phi i32 [ %.0.i.i.i.i.i33, %.preheader16.i41 ], [ %.0.i.i.i.i.i33, %.lr.ph19.preheader.i46 ], [ %.sroa.16.2105, %_ZNK9VectorSet4testEj.exit.thread ]
-  %.sroa.27.5 = phi ptr [ %113, %.preheader16.i41 ], [ %113, %.lr.ph19.preheader.i46 ], [ %.sroa.27.2108, %_ZNK9VectorSet4testEj.exit.thread ]
+  %.sroa.16.5 = phi i32 [ %.0.i.i.i.i.i33, %.lr.ph19.preheader.i46 ], [ %.0.i.i.i.i.i33, %.preheader16.i41 ], [ %.sroa.16.2105, %_ZNK9VectorSet4testEj.exit.thread ]
+  %.sroa.27.5 = phi ptr [ %113, %.lr.ph19.preheader.i46 ], [ %113, %.preheader16.i41 ], [ %.sroa.27.2108, %_ZNK9VectorSet4testEj.exit.thread ]
   %127 = sext i32 %.sroa.0.2106 to i64
   %128 = getelementptr inbounds ptr, ptr %.sroa.27.5, i64 %127
   store ptr %80, ptr %128, align 8

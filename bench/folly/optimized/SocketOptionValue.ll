@@ -563,7 +563,7 @@ _ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit45: ; preds = %_ZNK5folly17S
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %90, %88, %_ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit45, %_ZNK5folly17SocketOptionValue9hasStringEv.exit, %_ZNK5folly17SocketOptionValue9hasStringEv.exit42, %_ZNK5folly17SocketOptionValue6hasIntEv.exit16, %_ZNK5folly17SocketOptionValue5asIntEv.exit31
-  %.0 = phi i1 [ %55, %_ZNK5folly17SocketOptionValue5asIntEv.exit31 ], [ false, %_ZNK5folly17SocketOptionValue9hasStringEv.exit ], [ false, %_ZNK5folly17SocketOptionValue6hasIntEv.exit16 ], [ false, %_ZNK5folly17SocketOptionValue9hasStringEv.exit42 ], [ false, %_ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit45 ], [ %93, %90 ], [ true, %88 ]
+  %.0 = phi i1 [ %55, %_ZNK5folly17SocketOptionValue5asIntEv.exit31 ], [ false, %_ZNK5folly17SocketOptionValue6hasIntEv.exit16 ], [ false, %_ZNK5folly17SocketOptionValue9hasStringEv.exit42 ], [ false, %_ZNK5folly17SocketOptionValue9hasStringEv.exit ], [ false, %_ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit45 ], [ %93, %90 ], [ true, %88 ]
   ret i1 %.0
 }
 

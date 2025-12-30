@@ -1478,7 +1478,7 @@ define internal fastcc noundef ptr @attempt_merge(ptr noundef %0, ptr noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %53, %110, %66, %64, %40, %37, %33, %28, %25, %23, %23, %23, %18, %13, %10, %8, %8, %8, %3
-  %111 = phi ptr [ %2, %110 ], [ null, %28 ], [ null, %13 ], [ null, %33 ], [ null, %37 ], [ null, %40 ], [ null, %64 ], [ null, %66 ], [ null, %18 ], [ null, %10 ], [ null, %8 ], [ null, %8 ], [ null, %8 ], [ null, %3 ], [ null, %25 ], [ null, %23 ], [ null, %23 ], [ null, %23 ], [ null, %53 ]
+  %111 = phi ptr [ %2, %110 ], [ null, %28 ], [ null, %13 ], [ null, %33 ], [ null, %37 ], [ null, %40 ], [ null, %64 ], [ null, %66 ], [ null, %10 ], [ null, %8 ], [ null, %8 ], [ null, %8 ], [ null, %3 ], [ null, %25 ], [ null, %23 ], [ null, %23 ], [ null, %23 ], [ null, %18 ], [ null, %53 ]
   ret ptr %111
 }
 
@@ -1552,7 +1552,7 @@ define dso_local zeroext i1 @blk_rq_merge_ok(ptr noundef readonly captures(none)
   br label %47
 
 47:                                               ; preds = %41, %33, %25, %22, %17, %12, %9, %7, %7, %7, %2
-  %48 = phi i1 [ false, %17 ], [ false, %12 ], [ false, %22 ], [ false, %25 ], [ false, %33 ], [ %46, %41 ], [ false, %9 ], [ false, %7 ], [ false, %7 ], [ false, %7 ], [ false, %2 ]
+  %48 = phi i1 [ false, %17 ], [ false, %12 ], [ false, %22 ], [ false, %33 ], [ %46, %41 ], [ false, %9 ], [ false, %7 ], [ false, %7 ], [ false, %7 ], [ false, %2 ], [ false, %25 ]
   ret i1 %48
 }
 
@@ -1801,7 +1801,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @blk_attempt_bio_merge(ptr no
   br label %103
 
 103:                                              ; preds = %69, %.thread3, %100, %98, %86, %84, %44, %36, %28, %25, %20, %15, %12, %10, %10, %10, %5
-  %104 = phi i32 [ %102, %.thread3 ], [ %101, %100 ], [ %87, %86 ], [ 1, %44 ], [ 1, %69 ], [ 1, %28 ], [ 1, %5 ], [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 1, %12 ], [ 1, %36 ], [ 2, %98 ], [ 1, %25 ], [ 1, %15 ], [ 1, %20 ], [ 2, %84 ]
+  %104 = phi i32 [ %102, %.thread3 ], [ %101, %100 ], [ %87, %86 ], [ 1, %44 ], [ 1, %69 ], [ 1, %28 ], [ 1, %5 ], [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 1, %12 ], [ 1, %36 ], [ 1, %25 ], [ 1, %15 ], [ 1, %20 ], [ 2, %84 ], [ 2, %98 ]
   ret i32 %104
 }
 
@@ -2089,7 +2089,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_back_merge(ptr n
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %43, %.loopexit
-  %69 = phi i32 [ %.pre5, %43 ], [ %68, %.loopexit ]
+  %69 = phi i32 [ %68, %.loopexit ], [ %.pre5, %43 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %71 = and i32 %69, 32
   %72 = icmp eq i32 %71, 0
@@ -2463,7 +2463,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_front_merge(ptr 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %140, %.loopexit
-  %164 = phi i32 [ %.pre6, %140 ], [ %163, %.loopexit ]
+  %164 = phi i32 [ %163, %.loopexit ], [ %.pre6, %140 ]
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %166 = and i32 %164, 32
   %167 = icmp eq i32 %166, 0
@@ -2904,8 +2904,8 @@ define internal fastcc zeroext i1 @bio_will_gap(ptr noundef readonly captures(no
   br i1 %68, label %.loopexit, label %.preheader, !llvm.loop !60
 
 .loopexit:                                        ; preds = %65, %.preheader, %56, %55, %55
-  %69 = phi i32 [ %40, %56 ], [ %40, %55 ], [ %40, %55 ], [ %60, %.preheader ], [ %67, %65 ]
-  %70 = phi i32 [ 0, %56 ], [ %42, %55 ], [ %42, %55 ], [ %59, %.preheader ], [ 0, %65 ]
+  %69 = phi i32 [ %40, %55 ], [ %40, %55 ], [ %40, %56 ], [ %67, %65 ], [ %60, %.preheader ]
+  %70 = phi i32 [ %42, %55 ], [ %42, %55 ], [ 0, %56 ], [ 0, %65 ], [ %59, %.preheader ]
   %71 = icmp eq i32 %70, 0
   %72 = sext i1 %71 to i32
   %73 = add i32 %69, %72

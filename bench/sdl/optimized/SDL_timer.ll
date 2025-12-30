@@ -207,7 +207,7 @@ SDL_AddTimerInternal.exit:                        ; preds = %._crit_edge.thread2
   br label %65
 
 65:                                               ; preds = %45, %56
-  %.056 = phi i64 [ %64, %56 ], [ %55, %45 ]
+  %.056 = phi i64 [ %55, %45 ], [ %64, %56 ]
   %.not74 = icmp eq i64 %.056, 0
   br i1 %.not74, label %.thread, label %66
 
@@ -492,7 +492,7 @@ define internal fastcc i32 @SDL_CreateTimer(i64 noundef %0, ptr noundef %1, ptr 
   br label %44
 
 44:                                               ; preds = %.critedge, %9, %33, %32, %7
-  %.0 = phi i32 [ %43, %33 ], [ 0, %32 ], [ 0, %9 ], [ 0, %7 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ %43, %33 ], [ 0, %32 ], [ 0, %7 ], [ 0, %9 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -583,7 +583,7 @@ define hidden zeroext i1 @SDL_RemoveTimer_REAL(i32 noundef %0) local_unnamed_add
   br label %28
 
 28:                                               ; preds = %22, %.critedge27, %2
-  %.021 = phi i1 [ %3, %2 ], [ %27, %.critedge27 ], [ true, %22 ]
+  %.021 = phi i1 [ %27, %.critedge27 ], [ %3, %2 ], [ true, %22 ]
   ret i1 %.021
 }
 

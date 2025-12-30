@@ -791,8 +791,8 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table4copy17h26e63aa95c484007E(ptr no
   br label %44
 
 44:                                               ; preds = %21, %15, %39, %37, %13
-  %.sroa.6.0 = phi i64 [ %14, %13 ], [ undef, %37 ], [ %4, %15 ], [ %43, %39 ], [ %4, %21 ]
-  %.sroa.03.0 = phi i64 [ %12, %13 ], [ 11, %37 ], [ 8, %15 ], [ %42, %39 ], [ 8, %21 ]
+  %.sroa.6.0 = phi i64 [ %14, %13 ], [ %43, %39 ], [ undef, %37 ], [ %4, %15 ], [ %4, %21 ]
+  %.sroa.03.0 = phi i64 [ %12, %13 ], [ %42, %39 ], [ 11, %37 ], [ 8, %15 ], [ 8, %21 ]
   %45 = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
   %46 = insertvalue { i64, i64 } %45, i64 %.sroa.6.0, 1
   ret { i64, i64 } %46
@@ -907,8 +907,8 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table4fill17hf3514b69d449a7b3E(ptr no
   br label %_ZN10wasmi_core5table5Table12fill_untyped17hed78d2b2b6ffb045E.exit
 
 _ZN10wasmi_core5table5Table12fill_untyped17hed78d2b2b6ffb045E.exit: ; preds = %12, %19, %28, %29
-  %.sroa.4.0.i = phi i64 [ undef, %28 ], [ %33, %29 ], [ undef, %19 ], [ undef, %12 ]
-  %.sroa.02.0.i = phi i64 [ 11, %28 ], [ %32, %29 ], [ 6, %19 ], [ 6, %12 ]
+  %.sroa.4.0.i = phi i64 [ %33, %29 ], [ undef, %28 ], [ undef, %19 ], [ undef, %12 ]
+  %.sroa.02.0.i = phi i64 [ %32, %29 ], [ 11, %28 ], [ 6, %19 ], [ 6, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %34 = insertvalue { i64, i64 } poison, i64 %.sroa.02.0.i, 0
   %35 = insertvalue { i64, i64 } %34, i64 %.sroa.4.0.i, 1
@@ -958,8 +958,8 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table12fill_untyped17hed78d2b2b6ffb04
   br label %26
 
 26:                                               ; preds = %6, %11, %21, %20
-  %.sroa.4.0 = phi i64 [ undef, %20 ], [ %25, %21 ], [ undef, %11 ], [ undef, %6 ]
-  %.sroa.02.0 = phi i64 [ 11, %20 ], [ %24, %21 ], [ 6, %11 ], [ 6, %6 ]
+  %.sroa.4.0 = phi i64 [ %25, %21 ], [ undef, %20 ], [ undef, %11 ], [ undef, %6 ]
+  %.sroa.02.0 = phi i64 [ %24, %21 ], [ 11, %20 ], [ 6, %11 ], [ 6, %6 ]
   %27 = insertvalue { i64, i64 } poison, i64 %.sroa.02.0, 0
   %28 = insertvalue { i64, i64 } %27, i64 %.sroa.4.0, 1
   ret { i64, i64 } %28

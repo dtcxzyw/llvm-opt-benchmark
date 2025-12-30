@@ -1119,8 +1119,8 @@ _ZN11ZGeneration16free_empty_pagesEP22ZRelocationSetSelectori.exit: ; preds = %.
   br label %132
 
 132:                                              ; preds = %130, %128, %126
-  %.sink.i = phi i32 [ 0, %126 ], [ %131, %130 ], [ %129, %128 ]
-  %.0.i4 = phi ptr [ @.str.68, %126 ], [ @.str.70, %130 ], [ @.str.69, %128 ]
+  %.sink.i = phi i32 [ %131, %130 ], [ 0, %126 ], [ %129, %128 ]
+  %.0.i4 = phi ptr [ @.str.70, %130 ], [ @.str.68, %126 ], [ @.str.69, %128 ]
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 6596
   store i32 %.sink.i, ptr %133, align 4
   %134 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
@@ -1394,8 +1394,8 @@ define hidden void @_ZN16ZGenerationYoung25select_tenuring_thresholdE27ZRelocati
   br label %8
 
 8:                                                ; preds = %4, %3, %6
-  %.sink = phi i32 [ 0, %3 ], [ %7, %6 ], [ %5, %4 ]
-  %.0 = phi ptr [ @.str.68, %3 ], [ @.str.70, %6 ], [ @.str.69, %4 ]
+  %.sink = phi i32 [ %7, %6 ], [ 0, %3 ], [ %5, %4 ]
+  %.0 = phi ptr [ @.str.70, %6 ], [ @.str.68, %3 ], [ @.str.69, %4 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 6596
   store i32 %.sink, ptr %9, align 4
   %10 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
@@ -6343,7 +6343,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN26ZPageTableParallelIterator8
   br i1 %53, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i.i.i, label %_ZZN32ZGenerationPagesParallelIterator8do_pagesIZN20ZRemapYoungRootsTask4workEvEUlP5ZPageE_EEvT_ENKUlS3_E_clES3_.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i.i.i: ; preds = %50, %33
-  %.0.i.i.i.i.i.i.i.i.i = phi i64 [ %52, %50 ], [ %.0917.i.i.i.i.i.i.i, %33 ]
+  %.0.i.i.i.i.i.i.i.i.i = phi i64 [ %.0917.i.i.i.i.i.i.i, %33 ], [ %52, %50 ]
   %.not.not.i.i.i.i.i.i.i = icmp ult i64 %.0.i.i.i.i.i.i.i.i.i, %30
   br i1 %.not.not.i.i.i.i.i.i.i, label %54, label %_ZZN32ZGenerationPagesParallelIterator8do_pagesIZN20ZRemapYoungRootsTask4workEvEUlP5ZPageE_EEvT_ENKUlS3_E_clES3_.exit
 

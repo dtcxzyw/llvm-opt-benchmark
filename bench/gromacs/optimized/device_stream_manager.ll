@@ -244,7 +244,7 @@ _ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i51: ; preds = %_ZSt11m
   br label %.body
 
 .body:                                            ; preds = %61, %57, %50, %46, %36, %32, %27, %19, %25, %11
-  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %33, %32 ], [ %20, %19 ], [ %12, %11 ], [ %26, %25 ], [ %28, %27 ], [ %37, %36 ], [ %51, %50 ], [ %62, %61 ], [ %58, %57 ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %12, %11 ], [ %28, %27 ], [ %20, %19 ], [ %37, %36 ], [ %33, %32 ], [ %51, %50 ], [ %47, %46 ], [ %62, %61 ], [ %58, %57 ]
   %.112 = extractvalue { ptr, i32 } %.pn, 1
   %63 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %64 = icmp eq i32 %.112, %63
@@ -269,7 +269,7 @@ _ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit55: ; preds = %
   ret void
 
 70:                                               ; preds = %68, %.body, %23
-  %.merged = phi { ptr, i32 } [ %24, %23 ], [ %.pn, %.body ], [ %69, %68 ]
+  %.merged = phi { ptr, i32 } [ %.pn, %.body ], [ %24, %23 ], [ %69, %68 ]
   tail call void @_ZN3gmx16EnumerationArrayINS_16DeviceStreamTypeESt10unique_ptrI12DeviceStreamSt14default_deleteIS3_EELS1_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
   tail call void @_ZN13DeviceContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   resume { ptr, i32 } %.merged

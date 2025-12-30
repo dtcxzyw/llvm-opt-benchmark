@@ -133,7 +133,7 @@ want_recent_object.exit:                          ; preds = %7, %3
   br label %want_recent_object.exit.thread
 
 want_recent_object.exit.thread:                   ; preds = %7, %20, %14, %27, %24
-  %.0 = phi i32 [ 0, %20 ], [ 0, %14 ], [ -1, %24 ], [ 0, %27 ], [ 0, %7 ]
+  %.0 = phi i32 [ -1, %24 ], [ 0, %27 ], [ 0, %14 ], [ 0, %20 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

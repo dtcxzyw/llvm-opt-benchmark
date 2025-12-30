@@ -165,7 +165,7 @@ define noundef nonnull ptr @libraw_strerror(i32 noundef %0) local_unnamed_addr #
   br label %19
 
 19:                                               ; preds = %1, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.20, %18 ], [ @.str.19, %17 ], [ @.str.4, %2 ], [ @.str.5, %3 ], [ @.str.6, %4 ], [ @.str.7, %5 ], [ @.str.8, %6 ], [ @.str.9, %7 ], [ @.str.10, %8 ], [ @.str.11, %9 ], [ @.str.12, %10 ], [ @.str.13, %11 ], [ @.str.14, %12 ], [ @.str.15, %13 ], [ @.str.16, %14 ], [ @.str.17, %15 ], [ @.str.18, %16 ], [ @.str.3, %1 ]
+  %.0 = phi ptr [ @.str.20, %18 ], [ @.str.4, %2 ], [ @.str.5, %3 ], [ @.str.6, %4 ], [ @.str.7, %5 ], [ @.str.8, %6 ], [ @.str.9, %7 ], [ @.str.10, %8 ], [ @.str.11, %9 ], [ @.str.12, %10 ], [ @.str.13, %11 ], [ @.str.14, %12 ], [ @.str.15, %13 ], [ @.str.16, %14 ], [ @.str.17, %15 ], [ @.str.18, %16 ], [ @.str.19, %17 ], [ @.str.3, %1 ]
   ret ptr %.0
 }
 
@@ -420,7 +420,7 @@ _ZN6LibRaw4freeEPv.exit:                          ; preds = %52, %57
   br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !40
 
 .loopexit:                                        ; preds = %8, %102, %4
-  %.0 = phi i32 [ 0, %4 ], [ %.181, %102 ], [ %.080109, %8 ]
+  %.0 = phi i32 [ 0, %4 ], [ %.080109, %8 ], [ %.181, %102 ]
   ret i32 %.0
 }
 
@@ -692,7 +692,7 @@ define noundef nonnull ptr @_ZN6LibRaw8strerrorEi(i32 noundef %0) local_unnamed_
   br label %libraw_strerror.exit
 
 libraw_strerror.exit:                             ; preds = %1, %2, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18
-  %.0.i = phi ptr [ @.str.20, %18 ], [ @.str.19, %17 ], [ @.str.4, %2 ], [ @.str.5, %3 ], [ @.str.6, %4 ], [ @.str.7, %5 ], [ @.str.8, %6 ], [ @.str.9, %7 ], [ @.str.10, %8 ], [ @.str.11, %9 ], [ @.str.12, %10 ], [ @.str.13, %11 ], [ @.str.14, %12 ], [ @.str.15, %13 ], [ @.str.16, %14 ], [ @.str.17, %15 ], [ @.str.18, %16 ], [ @.str.3, %1 ]
+  %.0.i = phi ptr [ @.str.20, %18 ], [ @.str.4, %2 ], [ @.str.5, %3 ], [ @.str.6, %4 ], [ @.str.7, %5 ], [ @.str.8, %6 ], [ @.str.9, %7 ], [ @.str.10, %8 ], [ @.str.11, %9 ], [ @.str.12, %10 ], [ @.str.13, %11 ], [ @.str.14, %12 ], [ @.str.15, %13 ], [ @.str.16, %14 ], [ @.str.17, %15 ], [ @.str.18, %16 ], [ @.str.19, %17 ], [ @.str.3, %1 ]
   ret ptr %.0.i
 }
 
@@ -1164,7 +1164,7 @@ define noundef nonnull ptr @_ZN6LibRaw11strprogressE15LibRaw_progress(i32 nounde
   br label %23
 
 23:                                               ; preds = %1, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ @.str.43, %22 ], [ @.str.42, %21 ], [ @.str.23, %2 ], [ @.str.24, %3 ], [ @.str.25, %4 ], [ @.str.26, %5 ], [ @.str.27, %6 ], [ @.str.28, %7 ], [ @.str.29, %8 ], [ @.str.30, %9 ], [ @.str.31, %10 ], [ @.str.32, %11 ], [ @.str.33, %12 ], [ @.str.34, %13 ], [ @.str.35, %14 ], [ @.str.36, %15 ], [ @.str.37, %16 ], [ @.str.38, %17 ], [ @.str.39, %18 ], [ @.str.40, %19 ], [ @.str.41, %20 ], [ @.str.22, %1 ]
+  %.0 = phi ptr [ @.str.43, %22 ], [ @.str.23, %2 ], [ @.str.24, %3 ], [ @.str.25, %4 ], [ @.str.26, %5 ], [ @.str.27, %6 ], [ @.str.28, %7 ], [ @.str.29, %8 ], [ @.str.30, %9 ], [ @.str.31, %10 ], [ @.str.32, %11 ], [ @.str.33, %12 ], [ @.str.34, %13 ], [ @.str.35, %14 ], [ @.str.36, %15 ], [ @.str.37, %16 ], [ @.str.38, %17 ], [ @.str.39, %18 ], [ @.str.40, %19 ], [ @.str.41, %20 ], [ @.str.42, %21 ], [ @.str.22, %1 ]
   ret ptr %.0
 }
 
@@ -1669,7 +1669,7 @@ define noundef i32 @_ZN6LibRaw8getwordsEPcPS0_ii(ptr noundef %0, ptr noundef wri
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %23, %.split.loop.exit30, %.split.loop.exit28
-  %.020 = phi i32 [ %24, %.split.loop.exit30 ], [ %indvars.le, %.split.loop.exit28 ], [ %smax, %23 ]
+  %.020 = phi i32 [ %indvars.le, %.split.loop.exit28 ], [ %24, %.split.loop.exit30 ], [ %smax, %23 ]
   ret i32 %.020
 }
 
@@ -2122,8 +2122,8 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   br label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i, %14, %.noexc5
-  %15 = phi ptr [ %8, %14 ], [ %8, %.noexc5 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.0.i.i.i.i.i = phi ptr [ %9, %14 ], [ %11, %.noexc5 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %15 = phi ptr [ %8, %.noexc5 ], [ %8, %14 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.0.i.i.i.i.i = phi ptr [ %11, %.noexc5 ], [ %9, %14 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.0.i.i.i.i.i, ptr %16, align 8, !tbaa !168
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8

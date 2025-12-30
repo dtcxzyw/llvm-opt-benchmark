@@ -1111,7 +1111,7 @@ ggml_gallocr_free_node.exit:                      ; preds = %ggml_dyn_tallocr_fr
   br i1 %exitcond250.not.i, label %180, label %184, !llvm.loop !92
 
 ggml_gallocr_alloc_graph_impl.exit:               ; preds = %180, %.preheader122.i, %.preheader121.i
-  %387 = phi i32 [ %118, %.preheader121.i ], [ %47, %.preheader122.i ], [ %181, %180 ]
+  %387 = phi i32 [ %47, %.preheader122.i ], [ %118, %.preheader121.i ], [ %181, %180 ]
   %388 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %389 = load i32, ptr %388, align 8, !tbaa !93
   %390 = icmp slt i32 %389, %387
@@ -1818,7 +1818,7 @@ select.unfold.i:                                  ; preds = %ggml_gallocr_node_n
   %64 = icmp slt i64 %indvars.iv.next61.i, %63
   br i1 %64, label %15, label %ggml_gallocr_needs_realloc.exit, !llvm.loop !115
 
-.loopexit54:                                      ; preds = %ggml_gallocr_node_needs_realloc.exit.i, %ggml_gallocr_node_needs_realloc.exit39.i, %7, %2
+.loopexit54:                                      ; preds = %ggml_gallocr_node_needs_realloc.exit.i, %ggml_gallocr_node_needs_realloc.exit39.i, %2, %7
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load i32, ptr %65, align 8, !tbaa !28
   %67 = icmp eq i32 %66, 1
@@ -2059,7 +2059,7 @@ ggml_gallocr_init_tensor.exit51:                  ; preds = %194, %190, %189, %1
   br i1 %exitcond.not, label %140, label %172, !llvm.loop !120
 
 .loopexit:                                        ; preds = %ggml_gallocr_init_tensor.exit49, %.preheader, %.loopexit54, %68
-  %.0 = phi i1 [ false, %.loopexit54 ], [ false, %68 ], [ true, %.preheader ], [ true, %ggml_gallocr_init_tensor.exit49 ]
+  %.0 = phi i1 [ false, %68 ], [ false, %.loopexit54 ], [ true, %.preheader ], [ true, %ggml_gallocr_init_tensor.exit49 ]
   ret i1 %.0
 }
 
@@ -2110,7 +2110,7 @@ define i64 @ggml_gallocr_get_buffer_size(ptr noundef readonly captures(none) %0,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %._crit_edge
-  %.016 = phi i64 [ 0, %9 ], [ %20, %._crit_edge ], [ 0, %.lr.ph ]
+  %.016 = phi i64 [ %20, %._crit_edge ], [ 0, %9 ], [ 0, %.lr.ph ]
   ret i64 %.016
 }
 
@@ -2213,7 +2213,7 @@ define ptr @ggml_backend_alloc_ctx_tensors_from_buft(ptr noundef %0, ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %7, %34, %32, %41
-  %.348 = phi ptr [ null, %32 ], [ %.0, %41 ], [ null, %34 ], [ null, %7 ], [ null, %28 ]
+  %.348 = phi ptr [ %.0, %41 ], [ null, %32 ], [ null, %34 ], [ null, %7 ], [ null, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.348
@@ -2728,7 +2728,7 @@ ggml_gallocr_hash_get.exit78:                     ; preds = %154, %150
   store i8 0, ptr %200, align 8, !tbaa !79
   br label %ggml_gallocr_is_allocated.exit.thread
 
-ggml_are_same_layout.exit.thread:                 ; preds = %138, %133, %127, %77, %ggml_gallocr_is_own.exit, %116, %123, %179, %176, %171, %166, %ggml_gallocr_hash_get.exit78
+ggml_are_same_layout.exit.thread:                 ; preds = %138, %133, %127, %77, %ggml_gallocr_is_own.exit, %123, %116, %179, %176, %171, %166, %ggml_gallocr_hash_get.exit78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond, label %.critedge66, label %77, !llvm.loop !131

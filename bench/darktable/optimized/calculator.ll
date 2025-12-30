@@ -88,14 +88,14 @@ define double @dt_calculator_solve(double noundef %0, ptr noundef %1) local_unna
   br label %41
 
 41:                                               ; preds = %39, %37, %34
-  %.123.i.i = phi nsz double [ %.022.i4.i, %34 ], [ %38, %37 ], [ %40, %39 ]
+  %.123.i.i = phi nsz double [ %38, %37 ], [ %40, %39 ], [ %.022.i4.i, %34 ]
   %42 = load ptr, ptr %13, align 8, !tbaa !16
   %.not27.i.i = icmp eq ptr %42, null
   br i1 %.not27.i.i, label %_parse_expression.exit, label %.lr.ph.i
 
 _parse_expression.exit:                           ; preds = %.lr.ph.i, %30, %41, %7, %24
-  %43 = phi ptr [ null, %7 ], [ null, %24 ], [ null, %41 ], [ %27, %.lr.ph.i ], [ %27, %30 ]
-  %.0.i.i = phi nsz double [ 0x7FF8000000000000, %7 ], [ %25, %24 ], [ %.123.i.i, %41 ], [ %.022.i4.i, %.lr.ph.i ], [ %.022.i4.i, %30 ]
+  %43 = phi ptr [ null, %24 ], [ null, %7 ], [ %27, %30 ], [ null, %41 ], [ %27, %.lr.ph.i ]
+  %.0.i.i = phi nsz double [ %25, %24 ], [ 0x7FF8000000000000, %7 ], [ %.022.i4.i, %30 ], [ %.123.i.i, %41 ], [ %.022.i4.i, %.lr.ph.i ]
   %.not24 = icmp eq ptr %43, null
   %spec.store.select = select i1 %.not24, double %.0.i.i, double 0x7FF8000000000000
   br label %44
@@ -410,9 +410,9 @@ _parse_power_expression.exit52:                   ; preds = %32, %.lr.ph61, %35,
   br i1 %cond, label %.backedge, label %.critedge
 
 .backedge:                                        ; preds = %53, %43, %47, %45, %41
-  %.287 = phi double [ %.169, %43 ], [ %.169, %47 ], [ %.169, %45 ], [ %.2, %53 ], [ %.169, %41 ]
-  %.14186 = phi double [ %44, %43 ], [ %52, %47 ], [ %46, %45 ], [ %.04068, %53 ], [ %42, %41 ]
-  %55 = phi ptr [ %40, %43 ], [ %40, %47 ], [ %40, %45 ], [ %54, %53 ], [ %40, %41 ]
+  %.287 = phi double [ %.2, %53 ], [ %.169, %41 ], [ %.169, %45 ], [ %.169, %47 ], [ %.169, %43 ]
+  %.14186 = phi double [ %.04068, %53 ], [ %42, %41 ], [ %46, %45 ], [ %52, %47 ], [ %44, %43 ]
+  %55 = phi ptr [ %54, %53 ], [ %40, %41 ], [ %40, %45 ], [ %40, %47 ], [ %40, %43 ]
   %.not45 = icmp eq ptr %55, null
   br i1 %.not45, label %.critedge, label %.lr.ph70
 
@@ -446,7 +446,7 @@ define internal fastcc double @_parse_unary_expression(ptr noundef %0) unnamed_a
   ]
 
 common.ret82:                                     ; preds = %18, %38, %_parse_expression.exit, %14, %20, %1, %.lr.ph41, %36, %tailrecurse, %.lr.ph, %6, %9
-  %common.ret82.op = phi double [ %12, %9 ], [ 0x7FF8000000000000, %36 ], [ 0x7FF8000000000000, %1 ], [ 0x7FF8000000000000, %18 ], [ 0x7FF8000000000000, %20 ], [ %16, %14 ], [ 0x7FF8000000000000, %_parse_expression.exit ], [ %.022.i.i40, %38 ], [ 0x7FF8000000000000, %.lr.ph41 ], [ 0x7FF8000000000000, %tailrecurse ], [ 0x7FF8000000000000, %.lr.ph ], [ 0x7FF8000000000000, %6 ]
+  %common.ret82.op = phi double [ %12, %9 ], [ %16, %14 ], [ %.022.i.i40, %38 ], [ 0x7FF8000000000000, %_parse_expression.exit ], [ 0x7FF8000000000000, %18 ], [ 0x7FF8000000000000, %20 ], [ 0x7FF8000000000000, %1 ], [ 0x7FF8000000000000, %.lr.ph41 ], [ 0x7FF8000000000000, %36 ], [ 0x7FF8000000000000, %tailrecurse ], [ 0x7FF8000000000000, %.lr.ph ], [ 0x7FF8000000000000, %6 ]
   ret double %common.ret82.op
 
 9:                                                ; preds = %6
@@ -518,7 +518,7 @@ tailrecurse:                                      ; preds = %6
   br label %36
 
 36:                                               ; preds = %34, %32, %29
-  %.123.i.i = phi nsz double [ %.022.i.i40, %29 ], [ %33, %32 ], [ %35, %34 ]
+  %.123.i.i = phi nsz double [ %33, %32 ], [ %35, %34 ], [ %.022.i.i40, %29 ]
   %37 = load ptr, ptr %2, align 8, !tbaa !16
   %.not27.i.i = icmp eq ptr %37, null
   br i1 %.not27.i.i, label %common.ret82, label %.lr.ph41

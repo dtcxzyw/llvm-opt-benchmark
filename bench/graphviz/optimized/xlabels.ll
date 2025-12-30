@@ -267,7 +267,7 @@ xlspdxload.exit.i:                                ; preds = %.lr.ph.i6.i, %.loop
   br label %136
 
 136:                                              ; preds = %132, %129
-  %137 = phi ptr [ %135, %132 ], [ %131, %129 ]
+  %137 = phi ptr [ %131, %129 ], [ %135, %132 ]
   %.not16.i.i = icmp eq ptr %137, null
   br i1 %.not16.i.i, label %.thread.i.i, label %138
 
@@ -775,7 +775,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %323 = fcmp ugt double %319, %322
   br i1 %323, label %.loopexit170, label %.lr.ph418.i, !llvm.loop !69
 
-.loopexit:                                        ; preds = %.lr.ph.i, %.lr.ph404.i, %.lr.ph411.i, %.lr.ph418.i, %158, %178, %181, %186, %192, %197, %205, %208
+.loopexit:                                        ; preds = %.lr.ph.i, %.lr.ph404.i, %.lr.ph411.i, %.lr.ph418.i, %208, %205, %197, %192, %186, %181, %178, %158
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !60
   %324 = load ptr, ptr %155, align 8, !tbaa !36
   br label %.sink.split
@@ -1140,7 +1140,7 @@ aabbaabb.exit:                                    ; preds = %89
   br label %getintrsxi.exit.i
 
 getintrsxi.exit.i:                                ; preds = %158, %157, %155, %154, %149, %147, %140, %137, %128, %123
-  %159 = phi i64 [ 5, %158 ], [ 5, %140 ], [ 5, %137 ], [ 5, %128 ], [ 5, %123 ], [ 3, %157 ], [ 6, %154 ], [ %.32.i.i, %155 ], [ 0, %147 ], [ %..i.i, %149 ]
+  %159 = phi i64 [ 5, %140 ], [ 5, %137 ], [ 5, %128 ], [ 5, %123 ], [ 3, %157 ], [ %.32.i.i, %155 ], [ 6, %154 ], [ %..i.i, %149 ], [ 0, %147 ], [ 5, %158 ]
   %160 = getelementptr inbounds nuw ptr, ptr %3, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !10
   %.not.i64 = icmp eq ptr %161, null
@@ -1420,7 +1420,7 @@ aabbaabb.exit78:                                  ; preds = %251
   br label %getintrsxi.exit.i81
 
 getintrsxi.exit.i81:                              ; preds = %319, %318, %316, %315, %310, %308, %301, %298, %290, %285
-  %320 = phi i64 [ 5, %319 ], [ 5, %301 ], [ 5, %298 ], [ 5, %290 ], [ 5, %285 ], [ 3, %318 ], [ 6, %315 ], [ %.32.i.i110, %316 ], [ 0, %308 ], [ %..i.i111, %310 ]
+  %320 = phi i64 [ 5, %301 ], [ 5, %298 ], [ 5, %290 ], [ 5, %285 ], [ 3, %318 ], [ %.32.i.i110, %316 ], [ 6, %315 ], [ %..i.i111, %310 ], [ 0, %308 ], [ 5, %319 ]
   %321 = getelementptr inbounds nuw ptr, ptr %3, i64 %320
   %322 = load ptr, ptr %321, align 8, !tbaa !10
   %.not.i82 = icmp eq ptr %322, null

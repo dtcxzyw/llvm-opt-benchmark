@@ -281,7 +281,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi2ELi0ELin1ELi2EEEE18conservativeRe
   br label %.body
 
 .body:                                            ; preds = %57, %82, %24
-  %.pn61.pn = phi { ptr, i32 } [ %25, %24 ], [ %83, %82 ], [ %58, %57 ]
+  %.pn61.pn = phi { ptr, i32 } [ %25, %24 ], [ %58, %57 ], [ %83, %82 ]
   %84 = load ptr, ptr %9, align 8, !tbaa !13
   call void @free(ptr noundef %84) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -623,7 +623,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE18conservative
   br label %.body
 
 .body:                                            ; preds = %60, %85, %24
-  %.pn61.pn = phi { ptr, i32 } [ %25, %24 ], [ %86, %85 ], [ %61, %60 ]
+  %.pn61.pn = phi { ptr, i32 } [ %25, %24 ], [ %61, %60 ], [ %86, %85 ]
   %87 = load ptr, ptr %9, align 8, !tbaa !13
   call void @free(ptr noundef %87) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

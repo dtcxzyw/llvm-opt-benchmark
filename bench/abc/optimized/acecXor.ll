@@ -241,7 +241,7 @@ Vec_IntFind.exit.thread:                          ; preds = %62, %.lr.ph73.split
   br label %.critedge
 
 .critedge:                                        ; preds = %Vec_IntFind.exit.thread, %.critedge.loopexit, %.preheader
-  %.168 = phi i32 [ %63, %.critedge.loopexit ], [ 0, %.preheader ], [ %.val51, %Vec_IntFind.exit.thread ]
+  %.168 = phi i32 [ 0, %.preheader ], [ %63, %.critedge.loopexit ], [ %.val51, %Vec_IntFind.exit.thread ]
   %64 = getelementptr i8, ptr %2, i64 8
   %65 = getelementptr i8, ptr %25, i64 8
   br label %66
@@ -290,8 +290,8 @@ Vec_IntFind.exit.thread:                          ; preds = %62, %.lr.ph73.split
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %85, %87, %77, %79
-  %.sink111 = phi ptr [ %80, %79 ], [ %78, %77 ], [ %86, %85 ], [ %88, %87 ]
-  %.sink = phi i32 [ 16, %79 ], [ 16, %77 ], [ %82, %85 ], [ %82, %87 ]
+  %.sink111 = phi ptr [ %78, %77 ], [ %80, %79 ], [ %86, %85 ], [ %88, %87 ]
+  %.sink = phi i32 [ 16, %77 ], [ 16, %79 ], [ %82, %85 ], [ %82, %87 ]
   store ptr %.sink111, ptr %26, align 8, !tbaa !29
   store i32 %.sink, ptr %6, align 8, !tbaa !33
   br label %Vec_IntPush.exit
@@ -819,8 +819,8 @@ define noalias noundef ptr @Acec_FindXorRoots(ptr noundef readonly captures(none
   br label %Vec_IntGrow.exit23thread-pre-split.i.i
 
 Vec_IntGrow.exit23thread-pre-split.i.i:           ; preds = %47, %49, %39, %41
-  %storemerge = phi ptr [ %42, %41 ], [ %40, %39 ], [ %48, %47 ], [ %50, %49 ]
-  %.sink.i.i = phi i32 [ 16, %41 ], [ 16, %39 ], [ %44, %47 ], [ %44, %49 ]
+  %storemerge = phi ptr [ %40, %39 ], [ %42, %41 ], [ %48, %47 ], [ %50, %49 ]
+  %.sink.i.i = phi i32 [ 16, %39 ], [ 16, %41 ], [ %44, %47 ], [ %44, %49 ]
   store ptr %storemerge, ptr %7, align 8, !tbaa !29
   store i32 %.sink.i.i, ptr %4, align 8, !tbaa !33
   br label %Vec_IntGrow.exit23.i.i
@@ -862,9 +862,9 @@ Vec_IntPushOrder.exit.i:                          ; preds = %57, %._crit_edge.lo
   br label %Vec_IntPushUniqueOrder.exit
 
 Vec_IntPushUniqueOrder.exit:                      ; preds = %30, %Vec_IntPushOrder.exit.i, %12
-  %.val = phi i32 [ %.val24, %12 ], [ %.val.pre, %Vec_IntPushOrder.exit.i ], [ %.val24, %30 ]
-  %.pre.i22 = phi ptr [ %13, %12 ], [ %.pre.i23, %Vec_IntPushOrder.exit.i ], [ %13, %30 ]
-  %63 = phi ptr [ %14, %12 ], [ %.pre.i23, %Vec_IntPushOrder.exit.i ], [ %14, %30 ]
+  %.val = phi i32 [ %.val.pre, %Vec_IntPushOrder.exit.i ], [ %.val24, %12 ], [ %.val24, %30 ]
+  %.pre.i22 = phi ptr [ %.pre.i23, %Vec_IntPushOrder.exit.i ], [ %13, %12 ], [ %13, %30 ]
+  %63 = phi ptr [ %.pre.i23, %Vec_IntPushOrder.exit.i ], [ %14, %12 ], [ %14, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = shl nsw i64 %indvars.iv.next, 2
   %65 = sext i32 %.val to i64
@@ -1058,8 +1058,8 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br label %.Vec_IntGrow.exit10_crit_edge.i.sink.split
 
 .Vec_IntGrow.exit10_crit_edge.i.sink.split:       ; preds = %75, %77, %67, %69
-  %.sink105 = phi ptr [ %70, %69 ], [ %68, %67 ], [ %76, %75 ], [ %78, %77 ]
-  %.sink = phi i32 [ 16, %69 ], [ 16, %67 ], [ %72, %75 ], [ %72, %77 ]
+  %.sink105 = phi ptr [ %68, %67 ], [ %70, %69 ], [ %76, %75 ], [ %78, %77 ]
+  %.sink = phi i32 [ 16, %67 ], [ 16, %69 ], [ %72, %75 ], [ %72, %77 ]
   store ptr %.sink105, ptr %7, align 8, !tbaa !29
   store i32 %.sink, ptr %4, align 8, !tbaa !33
   br label %.Vec_IntGrow.exit10_crit_edge.i
@@ -1209,7 +1209,7 @@ Vec_IntAlloc.exit.i.i:                            ; preds = %Acec_MapXorOuts2.ex
   br label %Vec_IntStartFull.exit.i
 
 Vec_IntStartFull.exit.i:                          ; preds = %Acec_MapXorOuts2.exit, %44, %Vec_IntAlloc.exit.i.i
-  %47 = phi ptr [ %43, %44 ], [ null, %Vec_IntAlloc.exit.i.i ], [ null, %Acec_MapXorOuts2.exit ]
+  %47 = phi ptr [ null, %Vec_IntAlloc.exit.i.i ], [ %43, %44 ], [ null, %Acec_MapXorOuts2.exit ]
   %48 = getelementptr i8, ptr %2, i64 4
   %.val1217.i = load i32, ptr %48, align 4, !tbaa !28
   %49 = icmp sgt i32 %.val1217.i, 0

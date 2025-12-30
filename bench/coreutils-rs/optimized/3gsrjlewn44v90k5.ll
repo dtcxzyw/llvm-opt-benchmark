@@ -120,7 +120,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %.body
 
 .body:                                            ; preds = %24, %31, %38
-  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %lpad.thr_comm.i.i, %31 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %25, %24 ], [ %lpad.thr_comm.i.i, %31 ]
   invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..builder..str..Str$GT$$GT$17hd67eedb825c79237E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #13
           to label %"_ZN4core3ptr305drop_in_place$LT$core..iter..adapters..map..Map$LT$core..array..iter..IntoIter$LT$clap_builder..builder..str..Str$C$1_usize$GT$$C$clap_builder..builder..arg..Arg..value_names$LT$clap_builder..builder..str..Str$C$$u5b$clap_builder..builder..str..Str$u3b$$u20$1$u5d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7796d82cf9ec3976E.exit" unwind label %41
 
@@ -465,7 +465,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter8adapters7flatten17and_then_or
 
 14:                                               ; preds = %select.unfold.i.i.i, %5
   %15 = phi i64 [ %90, %select.unfold.i.i.i ], [ %.promoted21.i.i.i, %5 ]
-  %.sink21.i.i.lcssa33.sink.i.i20.i.i.i = phi ptr [ %.sink21.i.i.lcssa33.sink.i.i18.i.i.i, %select.unfold.i.i.i ], [ %.promoted17.i.i.i, %5 ]
+  %.lcssa.sink.i.i20.i.i.i = phi ptr [ %.lcssa.sink.i.i18.i.i.i, %select.unfold.i.i.i ], [ %.promoted17.i.i.i, %5 ]
   %.pre.i.i.i16.i.i.i = phi i64 [ %.pre.i.i.i15.i.i.i, %select.unfold.i.i.i ], [ %.promoted14.i.i.i, %5 ]
   %16 = phi i8 [ %91, %select.unfold.i.i.i ], [ %3, %5 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
@@ -475,12 +475,12 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter8adapters7flatten17and_then_or
 
 18:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
-  %19 = icmp eq ptr %.sink21.i.i.lcssa33.sink.i.i20.i.i.i, %9
+  %19 = icmp eq ptr %.lcssa.sink.i.i20.i.i.i, %9
   br i1 %19, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %18, %85
   %20 = phi i64 [ %62, %85 ], [ %15, %18 ]
-  %21 = phi ptr [ %.sink21.i.i.i.i.i.i.i, %85 ], [ %.sink21.i.i.lcssa33.sink.i.i20.i.i.i, %18 ]
+  %21 = phi ptr [ %.sink21.i.i.i.i.i.i.i, %85 ], [ %.lcssa.sink.i.i20.i.i.i, %18 ]
   %22 = ptrtoint ptr %21 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
@@ -592,7 +592,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter8adapters7flatten17and_then_or
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h72e5d0fe0979af67E.exit.i.i.i.i.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h72e5d0fe0979af67E.exit.i.i.i.i.i.i.i": ; preds = %78, %73, %70, %67
-  %.0.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %72, %70 ], [ %77, %73 ], [ %69, %67 ], [ %83, %78 ]
+  %.0.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %77, %73 ], [ %69, %67 ], [ %83, %78 ], [ %72, %70 ]
   %84 = trunc i8 %.0.i.i.i.i.i.i.i.i.i.i.i to i1
   br i1 %84, label %89, label %85
 
@@ -601,14 +601,14 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter8adapters7flatten17and_then_or
   br i1 %86, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i": ; preds = %85, %48
-  %87 = phi i64 [ %62, %85 ], [ %20, %48 ]
-  %.sink21.i.i.lcssa33.sink.i.i.i.i.i = phi ptr [ %.sink21.i.i.i.i.i.i.i, %85 ], [ %50, %48 ]
-  store ptr %.sink21.i.i.lcssa33.sink.i.i.i.i.i, ptr %7, align 8, !alias.scope !214, !noalias !212
+  %87 = phi i64 [ %20, %48 ], [ %62, %85 ]
+  %.lcssa.sink.i.i.i.i.i = phi ptr [ %50, %48 ], [ %.sink21.i.i.i.i.i.i.i, %85 ]
+  store ptr %.lcssa.sink.i.i.i.i.i, ptr %7, align 8, !alias.scope !214, !noalias !212
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i": ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i", %18
   %88 = phi i64 [ %87, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i" ], [ %15, %18 ]
-  %.sink21.i.i.lcssa33.sink.i.i19.i.i.i = phi ptr [ %.sink21.i.i.lcssa33.sink.i.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i" ], [ %.sink21.i.i.lcssa33.sink.i.i20.i.i.i, %18 ]
+  %.lcssa.sink.i.i19.i.i.i = phi ptr [ %.lcssa.sink.i.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i" ], [ %.lcssa.sink.i.i20.i.i.i, %18 ]
   store i8 1, ptr %2, align 1, !alias.scope !215
   %.not.i.i.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i.i.i, %.pre.i.i.i16.i.i.i
   %or.cond.not.i.i.i.i.i.i = select i1 %13, i1 true, i1 %.not.i.i.i.i.i.i
@@ -621,7 +621,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4iter8adapters7flatten17and_then_or
 
 select.unfold.i.i.i:                              ; preds = %89, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i"
   %90 = phi i64 [ %62, %89 ], [ %88, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i" ]
-  %.sink21.i.i.lcssa33.sink.i.i18.i.i.i = phi ptr [ %.sink21.i.i.i.i.i.i.i, %89 ], [ %.sink21.i.i.lcssa33.sink.i.i19.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i" ]
+  %.lcssa.sink.i.i18.i.i.i = phi ptr [ %.sink21.i.i.i.i.i.i.i, %89 ], [ %.lcssa.sink.i.i19.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i" ]
   %.pre.i.i.i15.i.i.i = phi i64 [ %62, %89 ], [ %.pre.i.i.i16.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i" ]
   %91 = phi i8 [ 0, %89 ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i" ]
   %.pn23.i.i.i = phi i64 [ %20, %89 ], [ %.pre5.i.i.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i" ]
@@ -948,7 +948,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he5da7e8
 
 28:                                               ; preds = %select.unfold.i.i.i.i, %24
   %29 = phi i64 [ %104, %select.unfold.i.i.i.i ], [ %.promoted21.i.i.i.i, %24 ]
-  %.sink21.i.i.lcssa33.sink.i.i20.i.i.i.i = phi ptr [ %.sink21.i.i.lcssa33.sink.i.i18.i.i.i.i, %select.unfold.i.i.i.i ], [ %.promoted17.i.i.i.i, %24 ]
+  %.lcssa.sink.i.i20.i.i.i.i = phi ptr [ %.lcssa.sink.i.i18.i.i.i.i, %select.unfold.i.i.i.i ], [ %.promoted17.i.i.i.i, %24 ]
   %.pre.i.i.i16.i.i.i.i = phi i64 [ %.pre.i.i.i15.i.i.i.i, %select.unfold.i.i.i.i ], [ %.promoted14.i.i.i.i, %24 ]
   %30 = phi i8 [ %105, %select.unfold.i.i.i.i ], [ %.sroa.5.0.copyload4.i.i.i, %24 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !335), !noalias !301
@@ -958,12 +958,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he5da7e8
 
 32:                                               ; preds = %28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !341), !noalias !301
-  %33 = icmp eq ptr %.sink21.i.i.lcssa33.sink.i.i20.i.i.i.i, %25
+  %33 = icmp eq ptr %.lcssa.sink.i.i20.i.i.i.i, %25
   br i1 %33, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %32, %99
   %34 = phi i64 [ %76, %99 ], [ %29, %32 ]
-  %35 = phi ptr [ %.sink21.i.i.i.i.i.i.i.i, %99 ], [ %.sink21.i.i.lcssa33.sink.i.i20.i.i.i.i, %32 ]
+  %35 = phi ptr [ %.sink21.i.i.i.i.i.i.i.i, %99 ], [ %.lcssa.sink.i.i20.i.i.i.i, %32 ]
   %36 = ptrtoint ptr %35 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !344), !noalias !301
   tail call void @llvm.experimental.noalias.scope.decl(metadata !347), !noalias !301
@@ -1075,7 +1075,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he5da7e8
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h72e5d0fe0979af67E.exit.i.i.i.i.i.i.i.i"
 
 "_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h72e5d0fe0979af67E.exit.i.i.i.i.i.i.i.i": ; preds = %92, %87, %84, %81
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %86, %84 ], [ %91, %87 ], [ %83, %81 ], [ %97, %92 ]
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %91, %87 ], [ %83, %81 ], [ %97, %92 ], [ %86, %84 ]
   %98 = trunc i8 %.0.i.i.i.i.i.i.i.i.i.i.i.i to i1
   br i1 %98, label %103, label %99
 
@@ -1084,14 +1084,14 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he5da7e8
   br i1 %100, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i.i": ; preds = %99, %62
-  %101 = phi i64 [ %76, %99 ], [ %34, %62 ]
-  %.sink21.i.i.lcssa33.sink.i.i.i.i.i.i = phi ptr [ %.sink21.i.i.i.i.i.i.i.i, %99 ], [ %64, %62 ]
-  store ptr %.sink21.i.i.lcssa33.sink.i.i.i.i.i.i, ptr %7, align 8, !alias.scope !359, !noalias !357
+  %101 = phi i64 [ %34, %62 ], [ %76, %99 ]
+  %.lcssa.sink.i.i.i.i.i.i = phi ptr [ %64, %62 ], [ %.sink21.i.i.i.i.i.i.i.i, %99 ]
+  store ptr %.lcssa.sink.i.i.i.i.i.i, ptr %7, align 8, !alias.scope !359, !noalias !357
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i": ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i.i", %32
   %102 = phi i64 [ %101, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i.i" ], [ %29, %32 ]
-  %.sink21.i.i.lcssa33.sink.i.i19.i.i.i.i = phi ptr [ %.sink21.i.i.lcssa33.sink.i.i.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i.i" ], [ %.sink21.i.i.lcssa33.sink.i.i20.i.i.i.i, %32 ]
+  %.lcssa.sink.i.i19.i.i.i.i = phi ptr [ %.lcssa.sink.i.i.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.sink.split.i.i.i.i.i.i" ], [ %.lcssa.sink.i.i20.i.i.i.i, %32 ]
   store i8 1, ptr %.sroa.410.0..sroa_idx.i.i.i, align 1, !alias.scope !360, !noalias !301
   %.not.i.i.i.i.i.i.i = icmp ne i64 %.pre5.i.i.i.i.i.i.i, %.pre.i.i.i16.i.i.i.i
   %or.cond.not.i.i.i.i.i.i.i = select i1 %27, i1 true, i1 %.not.i.i.i.i.i.i.i
@@ -1104,7 +1104,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he5da7e8
 
 select.unfold.i.i.i.i:                            ; preds = %103, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i"
   %104 = phi i64 [ %76, %103 ], [ %102, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i" ]
-  %.sink21.i.i.lcssa33.sink.i.i18.i.i.i.i = phi ptr [ %.sink21.i.i.i.i.i.i.i.i, %103 ], [ %.sink21.i.i.lcssa33.sink.i.i19.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i" ]
+  %.lcssa.sink.i.i18.i.i.i.i = phi ptr [ %.sink21.i.i.i.i.i.i.i.i, %103 ], [ %.lcssa.sink.i.i19.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i" ]
   %.pre.i.i.i15.i.i.i.i = phi i64 [ %76, %103 ], [ %.pre.i.i.i16.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i" ]
   %105 = phi i8 [ 0, %103 ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i" ]
   %.pn23.i.i.i.i = phi i64 [ %34, %103 ], [ %.pre5.i.i.i.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i" ]

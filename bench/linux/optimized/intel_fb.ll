@@ -191,7 +191,7 @@ define dso_local noundef ptr @intel_fb_get_format_info(ptr noundef readonly capt
   br i1 %35, label %.thread, label %28
 
 .thread:                                          ; preds = %4, %31, %28, %20, %14, %12
-  %36 = phi ptr [ null, %14 ], [ null, %12 ], [ null, %20 ], [ %33, %31 ], [ null, %28 ], [ null, %4 ]
+  %36 = phi ptr [ null, %14 ], [ null, %12 ], [ null, %20 ], [ null, %28 ], [ %33, %31 ], [ null, %4 ]
   ret ptr %36
 }
 
@@ -4234,7 +4234,7 @@ define internal fastcc i32 @calc_plane_remap_info(ptr noundef readonly captures(
   br label %.thread18
 
 .thread18:                                        ; preds = %415, %419, %423, %450, %430
-  %452 = phi i32 [ %438, %430 ], [ %438, %450 ], [ %409, %423 ], [ %409, %419 ], [ %409, %415 ]
+  %452 = phi i32 [ %438, %450 ], [ %438, %430 ], [ %409, %423 ], [ %409, %419 ], [ %409, %415 ]
   %453 = trunc i32 %452 to i16
   %454 = getelementptr inbounds nuw i8, ptr %13, i64 10
   store i16 %453, ptr %454, align 1
@@ -5589,7 +5589,7 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
   br label %371
 
 371:                                              ; preds = %369, %342, %3
-  %372 = phi i32 [ %370, %369 ], [ 0, %342 ], [ %6, %3 ]
+  %372 = phi i32 [ %370, %369 ], [ %6, %3 ], [ 0, %342 ]
   ret i32 %372
 }
 

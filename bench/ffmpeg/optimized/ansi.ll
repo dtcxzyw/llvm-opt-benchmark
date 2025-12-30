@@ -1411,7 +1411,7 @@ erase_line.exit267.i:                             ; preds = %465, %457
   br label %execute_code.exit.thread
 
 execute_code.exit.thread:                         ; preds = %360, %356, %.outer._crit_edge, %4
-  %.0 = phi i32 [ %., %.outer._crit_edge ], [ %14, %4 ], [ %358, %356 ], [ %362, %360 ]
+  %.0 = phi i32 [ %14, %4 ], [ %., %.outer._crit_edge ], [ %358, %356 ], [ %362, %360 ]
   ret i32 %.0
 }
 

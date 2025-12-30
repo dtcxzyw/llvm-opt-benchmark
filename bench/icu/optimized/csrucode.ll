@@ -129,7 +129,7 @@ _ZN6icu_77L16adjustConfidenceEDsi.exit:           ; preds = %23, %25
   br i1 %or.cond42, label %.lr.ph, label %.thread, !llvm.loop !13
 
 .thread:                                          ; preds = %.lr.ph, %_ZN6icu_77L16adjustConfidenceEDsi.exit, %3
-  %.1 = phi i32 [ 10, %3 ], [ 100, %.lr.ph ], [ %29, %_ZN6icu_77L16adjustConfidenceEDsi.exit ]
+  %.1 = phi i32 [ 10, %3 ], [ %29, %_ZN6icu_77L16adjustConfidenceEDsi.exit ], [ 100, %.lr.ph ]
   %32 = icmp slt i32 %7, 4
   %33 = icmp samesign ult i32 %.1, 100
   %or.cond6 = and i1 %32, %33
@@ -226,7 +226,7 @@ _ZN6icu_77L16adjustConfidenceEDsi.exit:           ; preds = %33, %35
   %or.cond44 = select i1 %switch, i1 %41, i1 false
   br i1 %or.cond44, label %.lr.ph, label %.thread, !llvm.loop !15
 
-.thread:                                          ; preds = %_ZN6icu_77L16adjustConfidenceEDsi.exit, %3, %23, %27, %21
+.thread:                                          ; preds = %_ZN6icu_77L16adjustConfidenceEDsi.exit, %3, %21, %23, %27
   %.1 = phi i32 [ %spec.select, %27 ], [ 100, %21 ], [ 100, %23 ], [ 10, %3 ], [ %39, %_ZN6icu_77L16adjustConfidenceEDsi.exit ]
   %42 = icmp slt i32 %7, 4
   %43 = icmp samesign ult i32 %.1, 100
@@ -311,8 +311,8 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_UTF_325match
   br label %.thread77
 
 .thread77:                                        ; preds = %33, %3, %31, %29, %26, %._crit_edge
-  %34 = phi i8 [ 1, %31 ], [ 1, %._crit_edge ], [ 1, %26 ], [ 1, %29 ], [ 0, %3 ], [ %spec.select48, %33 ]
-  %.040 = phi i32 [ 80, %31 ], [ 100, %._crit_edge ], [ 80, %26 ], [ 100, %29 ], [ 0, %3 ], [ %spec.select, %33 ]
+  %34 = phi i8 [ 1, %._crit_edge ], [ 1, %26 ], [ 1, %29 ], [ 1, %31 ], [ 0, %3 ], [ %spec.select48, %33 ]
+  %.040 = phi i32 [ 100, %._crit_edge ], [ 80, %26 ], [ 100, %29 ], [ 80, %31 ], [ 0, %3 ], [ %spec.select, %33 ]
   tail call void @_ZN6icu_7712CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef %.040, ptr noundef null, ptr noundef null)
   ret i8 %34
 }

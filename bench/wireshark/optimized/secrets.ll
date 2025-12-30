@@ -195,7 +195,7 @@ define ptr @secrets_get_available_keys() local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %11, %8, %.lr.ph.i
-  %.1.ph.i = phi ptr [ %.0914.i, %.lr.ph.i ], [ %14, %11 ], [ %.0914.i, %8 ]
+  %.1.ph.i = phi ptr [ %14, %11 ], [ %.0914.i, %.lr.ph.i ], [ %.0914.i, %8 ]
   %16 = load ptr, ptr @gnutls_free, align 8
   %17 = load ptr, ptr %1, align 8
   call void %16(ptr noundef %17)

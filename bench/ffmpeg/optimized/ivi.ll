@@ -233,7 +233,7 @@ ivi_huff_desc_cmp.exit.thread:                    ; preds = %51, %55, %ivi_huff_
   br label %73
 
 73:                                               ; preds = %66, %69, %65, %37, %7
-  %.0 = phi i32 [ %64, %65 ], [ 0, %7 ], [ -1094995529, %37 ], [ 0, %69 ], [ 0, %66 ]
+  %.0 = phi i32 [ %64, %65 ], [ -1094995529, %37 ], [ 0, %7 ], [ 0, %69 ], [ 0, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -533,7 +533,7 @@ define range(i32 -1094995529, 1) i32 @ff_ivi_init_planes(ptr noundef %0, ptr nou
   br i1 %exitcond93.not, label %.loopexit, label %41, !llvm.loop !75
 
 .loopexit:                                        ; preds = %._crit_edge, %41, %4, %14, %18
-  %.0 = phi i32 [ -1094995529, %14 ], [ -1094995529, %4 ], [ -1094995529, %18 ], [ 0, %._crit_edge ], [ -12, %41 ]
+  %.0 = phi i32 [ -1094995529, %18 ], [ -1094995529, %14 ], [ -1094995529, %4 ], [ 0, %._crit_edge ], [ -12, %41 ]
   ret i32 %.0
 }
 
@@ -899,7 +899,7 @@ ivi_init_tiles.exit:                              ; preds = %._crit_edge.i, %.pr
   br i1 %exitcond.not, label %ivi_init_tiles.exit.thread, label %12, !llvm.loop !100
 
 ivi_init_tiles.exit.thread:                       ; preds = %._crit_edge, %18, %.lr.ph.split.i, %.lr.ph.split.us.i, %126, %54, %17
-  %.052 = phi i32 [ -12, %.lr.ph.split.i ], [ -12, %.lr.ph.split.us.i ], [ -12, %54 ], [ -1163346256, %17 ], [ -1094995529, %126 ], [ -22, %18 ], [ 0, %._crit_edge ]
+  %.052 = phi i32 [ -12, %54 ], [ -1163346256, %17 ], [ -1094995529, %126 ], [ -12, %.lr.ph.split.us.i ], [ -12, %.lr.ph.split.i ], [ 0, %._crit_edge ], [ -22, %18 ]
   ret i32 %.052
 }
 
@@ -2247,7 +2247,7 @@ ivi_dec_tile_data_size.exit.i:                    ; preds = %494, %491
   br i1 %799, label %._crit_edge.i.i.i, label %.lr.ph.i219.i
 
 ._crit_edge.i.i.i:                                ; preds = %774, %751
-  %.lcssa.i.i = phi i32 [ %678, %751 ], [ %659, %774 ]
+  %.lcssa.i.i = phi i32 [ %659, %774 ], [ %678, %751 ]
   %800 = icmp slt i32 %753, 0
   br i1 %800, label %ivi_decode_coded_blocks.exit.thread.i.i, label %801
 
@@ -2394,7 +2394,7 @@ ivi_decode_coded_blocks.exit.i.i:                 ; preds = %819
   br label %ivi_process_empty_tile.exit.thread.i
 
 ivi_process_empty_tile.exit.thread.i:             ; preds = %450, %.split275.us.i, %864, %401, %300
-  %.1166.i = phi i32 [ %866, %864 ], [ %.0165276.i, %401 ], [ %.0165276.i, %.split275.us.i ], [ %.0165276.i, %300 ], [ %.0165276.i, %450 ]
+  %.1166.i = phi i32 [ %866, %864 ], [ %.0165276.i, %401 ], [ %.0165276.i, %300 ], [ %.0165276.i, %.split275.us.i ], [ %.0165276.i, %450 ]
   %indvars.iv.next334.i = add nuw nsw i64 %indvars.iv333.i, 1
   %867 = load i32, ptr %226, align 8, !tbaa !77
   %868 = sext i32 %867 to i64
@@ -2402,7 +2402,7 @@ ivi_process_empty_tile.exit.thread.i:             ; preds = %450, %.split275.us.
   br i1 %869, label %246, label %ivi_process_empty_tile.exit.i, !llvm.loop !171
 
 ivi_process_empty_tile.exit.i:                    ; preds = %ivi_process_empty_tile.exit.thread.i, %499, %.split.us.i, %.split.i, %863, %.loopexit.i, %498, %.critedge.i.i, %299, %._crit_edge.i
-  %.1.i = phi i32 [ -1094995529, %.critedge.i.i ], [ 0, %._crit_edge.i ], [ %.4.i.ph.i, %.loopexit.i ], [ -1094995529, %863 ], [ -1094995529, %498 ], [ -1094995529, %299 ], [ %423, %.split.us.i ], [ %435, %.split.i ], [ 0, %ivi_process_empty_tile.exit.thread.i ], [ %501, %499 ]
+  %.1.i = phi i32 [ %.4.i.ph.i, %.loopexit.i ], [ -1094995529, %863 ], [ -1094995529, %498 ], [ -1094995529, %299 ], [ -1094995529, %.critedge.i.i ], [ 0, %._crit_edge.i ], [ %435, %.split.i ], [ %423, %.split.us.i ], [ %501, %499 ], [ 0, %ivi_process_empty_tile.exit.thread.i ]
   %870 = load i32, ptr %177, align 8, !tbaa !133
   %871 = icmp sgt i32 %870, 0
   br i1 %871, label %.lr.ph284.i, label %._crit_edge285.i
@@ -2495,8 +2495,8 @@ decode_band.exit:                                 ; preds = %166, %._crit_edge28
   %923 = icmp slt i32 %.0.i, 0
   br i1 %923, label %decode_band.exit.thread, label %925
 
-decode_band.exit.thread:                          ; preds = %155, %prepare_buf.exit206.i, %decode_band.exit, %.loopexit179, %prepare_buf.exit206.thread.i, %252, %170
-  %.0.i169 = phi i32 [ -12, %prepare_buf.exit206.thread.i ], [ -1094995529, %252 ], [ -1094995529, %.loopexit179 ], [ -1094995529, %170 ], [ %.0.i, %decode_band.exit ], [ -12, %155 ], [ -12, %prepare_buf.exit206.i ]
+decode_band.exit.thread:                          ; preds = %155, %prepare_buf.exit206.i, %decode_band.exit, %prepare_buf.exit206.thread.i, %.loopexit179, %252, %170
+  %.0.i169 = phi i32 [ -12, %prepare_buf.exit206.thread.i ], [ -1094995529, %.loopexit179 ], [ -1094995529, %252 ], [ -1094995529, %170 ], [ %.0.i, %decode_band.exit ], [ -12, %155 ], [ -12, %prepare_buf.exit206.i ]
   %924 = trunc i64 %indvars.iv329 to i32
   %.0127249318 = trunc i64 %indvars.iv to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.10, i32 noundef %.0127249318, i32 noundef %924) #10
@@ -2774,7 +2774,7 @@ decode_band.exit.thread:                          ; preds = %155, %prepare_buf.e
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader171, %1009, %.thread, %1068, %959, %951, %948, %.loopexit172, %933, %46, %49, %33, %4, %decode_band.exit.thread, %59, %54, %32
-  %.0 = phi i32 [ -1094995529, %59 ], [ %31, %32 ], [ -1094995529, %4 ], [ -1094995529, %33 ], [ -1163346256, %54 ], [ %.0.i169, %decode_band.exit.thread ], [ -1094995529, %1009 ], [ %14, %948 ], [ %957, %951 ], [ %960, %959 ], [ %14, %.thread ], [ -1, %.loopexit172 ], [ %14, %46 ], [ -1094995529, %933 ], [ %14, %49 ], [ %14, %1068 ], [ -1094995529, %.preheader171 ]
+  %.0 = phi i32 [ %31, %32 ], [ -1163346256, %54 ], [ %.0.i169, %decode_band.exit.thread ], [ -1094995529, %59 ], [ -1094995529, %4 ], [ -1094995529, %33 ], [ %14, %49 ], [ %14, %46 ], [ -1094995529, %933 ], [ -1, %.loopexit172 ], [ %14, %948 ], [ %957, %951 ], [ %960, %959 ], [ %14, %1068 ], [ %14, %.thread ], [ -1094995529, %1009 ], [ -1094995529, %.preheader171 ]
   ret i32 %.0
 }
 
@@ -3043,8 +3043,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ivi_mc(ptr noundef readonl
   tail call void %2(ptr noundef %73, ptr noundef %81, ptr noundef nonnull %83, i64 noundef %13, i32 noundef %8, i32 noundef %9) #10, !callees !190
   br label %.critedge
 
-.critedge:                                        ; preds = %65, %53, %62, %45, %74, %77
-  %.1 = phi i32 [ 0, %45 ], [ 0, %77 ], [ 0, %74 ], [ -1094995529, %62 ], [ -1094995529, %53 ], [ -1094995529, %65 ]
+.critedge:                                        ; preds = %62, %53, %65, %45, %74, %77
+  %.1 = phi i32 [ 0, %77 ], [ 0, %74 ], [ 0, %45 ], [ -1094995529, %65 ], [ -1094995529, %53 ], [ -1094995529, %62 ]
   ret i32 %.1
 }
 

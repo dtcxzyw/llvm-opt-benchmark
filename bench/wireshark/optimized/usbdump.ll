@@ -124,7 +124,7 @@ define internal range(i32 -1, 2) i32 @usbdump_open(ptr noundef captures(none) %0
   br label %48
 
 48:                                               ; preds = %33, %28, %16, %11, %9, %35, %20
-  %.0 = phi i32 [ %., %9 ], [ 0, %20 ], [ 1, %35 ], [ %.48, %33 ], [ %.46, %16 ], [ %.47, %28 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %20 ], [ 1, %35 ], [ %., %9 ], [ 0, %11 ], [ %.46, %16 ], [ %.47, %28 ], [ %.48, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -214,7 +214,7 @@ define internal noundef zeroext i1 @usbdump_seek_read(ptr noundef readonly captu
   br label %18
 
 18:                                               ; preds = %10, %14, %17, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %14 ], [ false, %17 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %17 ], [ false, %14 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -345,7 +345,7 @@ define internal fastcc noundef zeroext i1 @usbdump_read_packet(ptr captures(none
   br label %82
 
 82:                                               ; preds = %73, %78, %80, %63, %25, %14, %4
-  %.0 = phi i1 [ false, %25 ], [ false, %14 ], [ false, %4 ], [ false, %73 ], [ true, %78 ], [ true, %80 ], [ true, %63 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %14 ], [ false, %25 ], [ false, %73 ], [ true, %78 ], [ true, %80 ], [ true, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }

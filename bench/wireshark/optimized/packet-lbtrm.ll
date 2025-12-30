@@ -689,8 +689,8 @@ define internal i32 @dissect_lbtrm(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %4, %14, %12
-  %.not457 = phi i1 [ true, %12 ], [ false, %14 ], [ true, %4 ]
-  %.0310456 = phi ptr [ null, %12 ], [ %13, %14 ], [ null, %4 ]
+  %.not457 = phi i1 [ false, %14 ], [ true, %12 ], [ true, %4 ]
+  %.0310456 = phi ptr [ %13, %14 ], [ null, %12 ], [ null, %4 ]
   %16 = load ptr, ptr %7, align 8
   tail call void @col_set_fence(ptr noundef %16, i32 noundef 25)
   %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
@@ -834,7 +834,7 @@ define internal i32 @dissect_lbtrm(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %lbtrm_transport_unicast_find.exit
 
 lbtrm_transport_unicast_find.exit:                ; preds = %101, %83, %60, %62
-  %.0312 = phi ptr [ %102, %101 ], [ %67, %62 ], [ %84, %83 ], [ %61, %60 ]
+  %.0312 = phi ptr [ %67, %62 ], [ %61, %60 ], [ %84, %83 ], [ %102, %101 ]
   %.not335 = icmp eq ptr %.0312, null
   br i1 %.not335, label %proto_item_set_generated.exit, label %103
 
@@ -859,10 +859,10 @@ lbtrm_transport_unicast_find.exit:                ; preds = %101, %83, %60, %62
   store i32 %114, ptr %112, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %85, %98, %80, %57, %46, %69, %111, %108, %103, %lbtrm_transport_unicast_find.exit
-  %.not335461 = phi i1 [ false, %111 ], [ true, %lbtrm_transport_unicast_find.exit ], [ false, %103 ], [ false, %108 ], [ true, %69 ], [ true, %46 ], [ true, %57 ], [ true, %80 ], [ true, %98 ], [ true, %85 ]
-  %.0312460 = phi ptr [ %.0312, %111 ], [ null, %lbtrm_transport_unicast_find.exit ], [ %.0312, %103 ], [ %.0312, %108 ], [ null, %69 ], [ null, %46 ], [ null, %57 ], [ null, %80 ], [ null, %98 ], [ null, %85 ]
-  %.0311 = phi i64 [ %105, %111 ], [ -1, %lbtrm_transport_unicast_find.exit ], [ %105, %103 ], [ %105, %108 ], [ -1, %69 ], [ -1, %46 ], [ -1, %57 ], [ -1, %80 ], [ -1, %98 ], [ -1, %85 ]
+proto_item_set_generated.exit:                    ; preds = %85, %98, %69, %80, %46, %57, %111, %108, %103, %lbtrm_transport_unicast_find.exit
+  %.not335461 = phi i1 [ true, %lbtrm_transport_unicast_find.exit ], [ false, %103 ], [ false, %108 ], [ false, %111 ], [ true, %57 ], [ true, %46 ], [ true, %80 ], [ true, %69 ], [ true, %98 ], [ true, %85 ]
+  %.0312460 = phi ptr [ null, %lbtrm_transport_unicast_find.exit ], [ %.0312, %103 ], [ %.0312, %108 ], [ %.0312, %111 ], [ null, %57 ], [ null, %46 ], [ null, %80 ], [ null, %69 ], [ null, %98 ], [ null, %85 ]
+  %.0311 = phi i64 [ -1, %lbtrm_transport_unicast_find.exit ], [ %105, %103 ], [ %105, %108 ], [ %105, %111 ], [ -1, %57 ], [ -1, %46 ], [ -1, %80 ], [ -1, %69 ], [ -1, %98 ], [ -1, %85 ]
   br i1 %.not457, label %proto_item_set_generated.exit365, label %115
 
 115:                                              ; preds = %proto_item_set_generated.exit
@@ -2388,29 +2388,29 @@ define internal noundef zeroext i1 @test_lbtrm_packet(ptr noundef %0, ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 3
-  br i1 %.not, label %7, label %.critedge
+  br i1 %.not, label %7, label %.critedge51
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %9 = load i32, ptr %8, align 8
   %.not35 = icmp eq i32 %9, 2
-  br i1 %.not35, label %10, label %.critedge
+  br i1 %.not35, label %10, label %.critedge51
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %12 = load i32, ptr %11, align 4
   %.not36 = icmp eq i32 %12, 4
-  br i1 %.not36, label %13, label %.critedge
+  br i1 %.not36, label %13, label %.critedge51
 
 13:                                               ; preds = %10
   %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %15 = icmp slt i32 %14, 8
-  br i1 %15, label %.critedge, label %16
+  br i1 %15, label %.critedge51, label %16
 
 16:                                               ; preds = %13
   %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %18 = and i8 %17, 15
-  switch i8 %18, label %.critedge [
+  switch i8 %18, label %.critedge51 [
     i8 0, label %19
     i8 2, label %19
     i8 3, label %19
@@ -2419,12 +2419,12 @@ define internal noundef zeroext i1 @test_lbtrm_packet(ptr noundef %0, ptr nounde
 
 19:                                               ; preds = %16, %16, %16, %16
   %.not37 = icmp ult i8 %17, 16
-  br i1 %.not37, label %20, label %.critedge
+  br i1 %.not37, label %20, label %.critedge51
 
 20:                                               ; preds = %19
   %21 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %.not38 = icmp eq i8 %21, 0
-  br i1 %.not38, label %22, label %.critedge
+  br i1 %.not38, label %22, label %.critedge51
 
 22:                                               ; preds = %20
   %23 = load i8, ptr @lbtrm_use_tag, align 1, !range !10, !noundef !11
@@ -2434,7 +2434,7 @@ define internal noundef zeroext i1 @test_lbtrm_packet(ptr noundef %0, ptr nounde
 25:                                               ; preds = %22
   %26 = tail call fastcc ptr @lbtrm_tag_find(ptr noundef %1)
   %.not45.not = icmp eq ptr %26, null
-  br i1 %.not45.not, label %.critedge, label %.critedge51
+  br i1 %.not45.not, label %.critedge51, label %.critedge
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 240
@@ -2476,7 +2476,7 @@ define internal noundef zeroext i1 @test_lbtrm_packet(ptr noundef %0, ptr nounde
   %56 = load i32, ptr @lbtrm_dest_port_high, align 4
   %.not44 = icmp ugt i32 %54, %56
   %or.cond46 = select i1 %.not43, i1 true, i1 %.not44
-  br i1 %or.cond46, label %.critedge, label %.critedge51
+  br i1 %or.cond46, label %.critedge51, label %.critedge
 
 57:                                               ; preds = %49
   %58 = load i32, ptr @mim_incoming_mc_address_host, align 4
@@ -2484,7 +2484,7 @@ define internal noundef zeroext i1 @test_lbtrm_packet(ptr noundef %0, ptr nounde
   %60 = load i32, ptr @mim_outgoing_mc_address_host, align 4
   %61 = icmp eq i32 %46, %60
   %or.cond48 = select i1 %59, i1 true, i1 %61
-  br i1 %or.cond48, label %62, label %.critedge
+  br i1 %or.cond48, label %62, label %.critedge51
 
 62:                                               ; preds = %57
   br i1 %59, label %63, label %68
@@ -2494,17 +2494,17 @@ define internal noundef zeroext i1 @test_lbtrm_packet(ptr noundef %0, ptr nounde
   %65 = load i32, ptr %64, align 8
   %66 = load i32, ptr @mim_incoming_dest_port, align 4
   %67 = icmp eq i32 %65, %66
-  br i1 %67, label %.critedge51, label %68
+  br i1 %67, label %.critedge, label %68
 
 68:                                               ; preds = %63, %62
-  br i1 %61, label %69, label %.critedge
+  br i1 %61, label %69, label %.critedge51
 
 69:                                               ; preds = %68
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %71 = load i32, ptr %70, align 8
   %72 = load i32, ptr @mim_outgoing_dest_port, align 4
   %73 = icmp eq i32 %71, %72
-  br i1 %73, label %.critedge51, label %.critedge
+  br i1 %73, label %.critedge, label %.critedge51
 
 74:                                               ; preds = %27
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -2514,14 +2514,14 @@ define internal noundef zeroext i1 @test_lbtrm_packet(ptr noundef %0, ptr nounde
   %78 = load i32, ptr @lbtrm_src_port_high, align 4
   %.not40 = icmp ugt i32 %76, %78
   %or.cond49 = select i1 %.not39, i1 true, i1 %.not40
-  br i1 %or.cond49, label %.critedge, label %.critedge51
+  br i1 %or.cond49, label %.critedge51, label %.critedge
 
-.critedge51:                                      ; preds = %52, %69, %63, %74, %25
+.critedge:                                        ; preds = %52, %69, %63, %74, %25
   %79 = tail call i32 @dissect_lbtrm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %.critedge
+  br label %.critedge51
 
-.critedge:                                        ; preds = %25, %57, %68, %69, %52, %74, %20, %19, %16, %13, %7, %10, %4, %.critedge51
-  %.031 = phi i1 [ false, %20 ], [ false, %4 ], [ false, %7 ], [ false, %13 ], [ false, %16 ], [ false, %19 ], [ true, %.critedge51 ], [ false, %10 ], [ false, %74 ], [ false, %52 ], [ false, %69 ], [ false, %68 ], [ false, %57 ], [ false, %25 ]
+.critedge51:                                      ; preds = %25, %57, %74, %68, %69, %52, %20, %19, %16, %13, %7, %10, %4, %.critedge
+  %.031 = phi i1 [ true, %.critedge ], [ false, %4 ], [ false, %10 ], [ false, %7 ], [ false, %13 ], [ false, %16 ], [ false, %19 ], [ false, %20 ], [ false, %52 ], [ false, %69 ], [ false, %68 ], [ false, %74 ], [ false, %57 ], [ false, %25 ]
   ret i1 %.031
 }
 
@@ -2670,12 +2670,12 @@ define internal fastcc ptr @lbtrm_tag_find(ptr noundef readonly captures(none) %
   br i1 %exitcond.not, label %.loopexit, label %63, !llvm.loop !19
 
 .loopexit.sink.split:                             ; preds = %68, %.thread, %50, %39
-  %.lcssa63.sink = phi ptr [ %29, %.thread ], [ %29, %39 ], [ %29, %50 ], [ %64, %68 ]
+  %.lcssa63.sink = phi ptr [ %29, %39 ], [ %29, %50 ], [ %29, %.thread ], [ %64, %68 ]
   %73 = load ptr, ptr %.lcssa63.sink, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %72, %61, %.loopexit.sink.split, %4, %1
-  %.0 = phi ptr [ null, %4 ], [ %73, %.loopexit.sink.split ], [ null, %61 ], [ null, %1 ], [ null, %72 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %4 ], [ %73, %.loopexit.sink.split ], [ null, %61 ], [ null, %72 ]
   ret ptr %.0
 }
 

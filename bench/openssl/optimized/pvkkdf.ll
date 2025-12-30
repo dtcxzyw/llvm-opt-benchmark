@@ -50,7 +50,7 @@ kdf_pvk_init.exit:                                ; preds = %7, %12
   br label %13
 
 13:                                               ; preds = %4, %1, %kdf_pvk_init.exit
-  %.0 = phi ptr [ null, %1 ], [ %5, %kdf_pvk_init.exit ], [ null, %4 ]
+  %.0 = phi ptr [ %5, %kdf_pvk_init.exit ], [ null, %1 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -373,7 +373,7 @@ pvk_set_membuf.exit24.thread:                     ; preds = %37, %43
   br label %pvk_set_membuf.exit24
 
 pvk_set_membuf.exit24:                            ; preds = %26, %20, %2, %pvk_set_membuf.exit, %37, %40, %43, %pvk_set_membuf.exit24.thread, %7, %ossl_param_is_empty.exit
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 1, %pvk_set_membuf.exit ], [ 1, %2 ], [ 0, %7 ], [ 0, %pvk_set_membuf.exit24.thread ], [ 1, %43 ], [ 1, %40 ], [ 1, %37 ], [ 0, %20 ], [ 0, %26 ]
+  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %7 ], [ 0, %pvk_set_membuf.exit24.thread ], [ 1, %43 ], [ 1, %40 ], [ 1, %37 ], [ 1, %pvk_set_membuf.exit ], [ 1, %2 ], [ 0, %20 ], [ 0, %26 ]
   ret i32 %.0
 }
 

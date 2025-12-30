@@ -208,24 +208,24 @@ define internal range(i32 0, 2) i32 @i2r_ADMISSION_SYNTAX(ptr readnone captures(
   %22 = load ptr, ptr %21, align 8, !tbaa !10
   %23 = tail call i32 @OPENSSL_sk_num(ptr noundef %22) #5
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph125, label %.thread107
+  br i1 %24, label %.lr.ph124, label %.thread107
 
-.lr.ph125:                                        ; preds = %20
+.lr.ph124:                                        ; preds = %20
   %25 = add nsw i32 %3, 2
   %26 = add nsw i32 %3, 4
   br label %30
 
-.loopexit116:                                     ; preds = %.critedge, %56
+.loopexit115:                                     ; preds = %.critedge, %56
   %27 = load ptr, ptr %21, align 8, !tbaa !10
   %28 = call i32 @OPENSSL_sk_num(ptr noundef %27) #5
   %29 = icmp slt i32 %33, %28
   br i1 %29, label %30, label %.thread107, !llvm.loop !11
 
-30:                                               ; preds = %.lr.ph125, %.loopexit116
-  %.084124 = phi i32 [ 0, %.lr.ph125 ], [ %33, %.loopexit116 ]
+30:                                               ; preds = %.lr.ph124, %.loopexit115
+  %.084123 = phi i32 [ 0, %.lr.ph124 ], [ %33, %.loopexit115 ]
   %31 = load ptr, ptr %21, align 8, !tbaa !10
-  %32 = call ptr @OPENSSL_sk_value(ptr noundef %31, i32 noundef %.084124) #5
-  %33 = add nuw nsw i32 %.084124, 1
+  %32 = call ptr @OPENSSL_sk_value(ptr noundef %31, i32 noundef %.084123) #5
+  %33 = add nuw nsw i32 %.084123, 1
   %34 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.19, i32 noundef %3, ptr noundef nonnull @.str.16, i32 noundef %33) #5
   %35 = icmp slt i32 %34, 1
   br i1 %35, label %.thread107, label %36
@@ -272,24 +272,24 @@ define internal range(i32 0, 2) i32 @i2r_ADMISSION_SYNTAX(ptr readnone captures(
   %58 = load ptr, ptr %57, align 8, !tbaa !18
   %59 = call i32 @OPENSSL_sk_num(ptr noundef %58) #5
   %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %.lr.ph123, label %.loopexit116
+  br i1 %60, label %.lr.ph122, label %.loopexit115
 
 .critedge:                                        ; preds = %118, %.preheader, %.loopexit
   %61 = load ptr, ptr %57, align 8, !tbaa !18
   %62 = call i32 @OPENSSL_sk_num(ptr noundef %61) #5
   %63 = icmp slt i32 %66, %62
-  br i1 %63, label %.lr.ph123, label %.loopexit116
+  br i1 %63, label %.lr.ph122, label %.loopexit115
 
-.lr.ph123:                                        ; preds = %56, %.critedge
-  %.086122 = phi i32 [ %66, %.critedge ], [ 0, %56 ]
+.lr.ph122:                                        ; preds = %56, %.critedge
+  %.086121 = phi i32 [ %66, %.critedge ], [ 0, %56 ]
   %64 = load ptr, ptr %57, align 8, !tbaa !18
-  %65 = call ptr @OPENSSL_sk_value(ptr noundef %64, i32 noundef %.086122) #5
-  %66 = add nuw nsw i32 %.086122, 1
+  %65 = call ptr @OPENSSL_sk_value(ptr noundef %64, i32 noundef %.086121) #5
+  %66 = add nuw nsw i32 %.086121, 1
   %67 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.22, i32 noundef %3, ptr noundef nonnull @.str.16, i32 noundef %66) #5
   %68 = icmp slt i32 %67, 1
   br i1 %68, label %.thread107, label %69
 
-69:                                               ; preds = %.lr.ph123
+69:                                               ; preds = %.lr.ph122
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %71 = load ptr, ptr %70, align 8, !tbaa !19
   %.not93 = icmp eq ptr %71, null
@@ -330,25 +330,25 @@ define internal range(i32 0, 2) i32 @i2r_ADMISSION_SYNTAX(ptr readnone captures(
 89:                                               ; preds = %86
   %90 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.24, i32 noundef %3, ptr noundef nonnull @.str.16) #5
   %91 = icmp slt i32 %90, 1
-  br i1 %91, label %.thread107, label %.preheader114
+  br i1 %91, label %.thread107, label %.preheader113
 
-.preheader114:                                    ; preds = %89
+.preheader113:                                    ; preds = %89
   %92 = load ptr, ptr %87, align 8, !tbaa !25
   %93 = call i32 @OPENSSL_sk_num(ptr noundef %92) #5
   %94 = icmp sgt i32 %93, 0
   br i1 %94, label %.lr.ph, label %.loopexit
 
 95:                                               ; preds = %107
-  %96 = add nuw nsw i32 %.087119, 1
+  %96 = add nuw nsw i32 %.087118, 1
   %97 = load ptr, ptr %87, align 8, !tbaa !25
   %98 = call i32 @OPENSSL_sk_num(ptr noundef %97) #5
   %99 = icmp slt i32 %96, %98
   br i1 %99, label %.lr.ph, label %.loopexit, !llvm.loop !26
 
-.lr.ph:                                           ; preds = %.preheader114, %95
-  %.087119 = phi i32 [ %96, %95 ], [ 0, %.preheader114 ]
+.lr.ph:                                           ; preds = %.preheader113, %95
+  %.087118 = phi i32 [ %96, %95 ], [ 0, %.preheader113 ]
   %100 = load ptr, ptr %87, align 8, !tbaa !25
-  %101 = call ptr @OPENSSL_sk_value(ptr noundef %100, i32 noundef %.087119) #5
+  %101 = call ptr @OPENSSL_sk_value(ptr noundef %100, i32 noundef %.087118) #5
   %102 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.25, i32 noundef %3, ptr noundef nonnull @.str.16) #5
   %103 = icmp slt i32 %102, 1
   br i1 %103, label %.thread107, label %104
@@ -363,7 +363,7 @@ define internal range(i32 0, 2) i32 @i2r_ADMISSION_SYNTAX(ptr readnone captures(
   %109 = icmp sgt i32 %108, 0
   br i1 %109, label %95, label %.thread107
 
-.loopexit:                                        ; preds = %95, %.preheader114, %86
+.loopexit:                                        ; preds = %95, %.preheader113, %86
   %110 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %111 = load ptr, ptr %110, align 8, !tbaa !27
   %.not96 = icmp eq ptr %111, null
@@ -378,19 +378,19 @@ define internal range(i32 0, 2) i32 @i2r_ADMISSION_SYNTAX(ptr readnone captures(
   %115 = load ptr, ptr %110, align 8, !tbaa !27
   %116 = call i32 @OPENSSL_sk_num(ptr noundef %115) #5
   %117 = icmp sgt i32 %116, 0
-  br i1 %117, label %.lr.ph121, label %.critedge
+  br i1 %117, label %.lr.ph120, label %.critedge
 
-118:                                              ; preds = %.lr.ph121
-  %119 = add nuw nsw i32 %.188120, 1
+118:                                              ; preds = %.lr.ph120
+  %119 = add nuw nsw i32 %.188119, 1
   %120 = load ptr, ptr %110, align 8, !tbaa !27
   %121 = call i32 @OPENSSL_sk_num(ptr noundef %120) #5
   %122 = icmp slt i32 %119, %121
-  br i1 %122, label %.lr.ph121, label %.critedge, !llvm.loop !28
+  br i1 %122, label %.lr.ph120, label %.critedge, !llvm.loop !28
 
-.lr.ph121:                                        ; preds = %.preheader, %118
-  %.188120 = phi i32 [ %119, %118 ], [ 0, %.preheader ]
+.lr.ph120:                                        ; preds = %.preheader, %118
+  %.188119 = phi i32 [ %119, %118 ], [ 0, %.preheader ]
   %123 = load ptr, ptr %110, align 8, !tbaa !27
-  %124 = call ptr @OPENSSL_sk_value(ptr noundef %123, i32 noundef %.188120) #5
+  %124 = call ptr @OPENSSL_sk_value(ptr noundef %123, i32 noundef %.188119) #5
   %125 = call i32 @OBJ_obj2nid(ptr noundef %124) #5
   %126 = call ptr @OBJ_nid2ln(i32 noundef %125) #5
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -404,8 +404,8 @@ define internal range(i32 0, 2) i32 @i2r_ADMISSION_SYNTAX(ptr readnone captures(
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %132, label %118, label %.thread107
 
-.thread107:                                       ; preds = %.loopexit116, %54, %30, %38, %48, %44, %41, %75, %79, %89, %84, %72, %.lr.ph123, %112, %107, %104, %.lr.ph, %.lr.ph121, %20, %17, %13, %10, %7
-  %.0 = phi i32 [ 0, %107 ], [ 0, %17 ], [ 0, %7 ], [ 0, %10 ], [ 0, %13 ], [ 0, %75 ], [ 0, %.lr.ph121 ], [ 1, %20 ], [ 0, %.lr.ph ], [ 0, %104 ], [ 0, %112 ], [ 0, %.lr.ph123 ], [ 0, %72 ], [ 0, %84 ], [ 0, %89 ], [ 0, %79 ], [ 0, %38 ], [ 0, %30 ], [ 0, %54 ], [ 1, %.loopexit116 ], [ 0, %44 ], [ 0, %41 ], [ 0, %48 ]
+.thread107:                                       ; preds = %.loopexit115, %30, %48, %44, %41, %38, %54, %112, %89, %84, %72, %75, %79, %.lr.ph122, %107, %.lr.ph, %104, %.lr.ph120, %20, %17, %13, %10, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %10 ], [ 0, %13 ], [ 0, %17 ], [ 1, %20 ], [ 0, %.lr.ph120 ], [ 0, %104 ], [ 0, %.lr.ph ], [ 0, %107 ], [ 0, %.lr.ph122 ], [ 0, %79 ], [ 0, %75 ], [ 0, %72 ], [ 0, %84 ], [ 0, %89 ], [ 0, %112 ], [ 1, %.loopexit115 ], [ 0, %30 ], [ 0, %48 ], [ 0, %44 ], [ 0, %41 ], [ 0, %38 ], [ 0, %54 ]
   ret i32 %.0
 }
 

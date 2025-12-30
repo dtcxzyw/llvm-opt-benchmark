@@ -643,7 +643,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100: ; preds = %17
   br label %187
 
 187:                                              ; preds = %185, %183, %180, %182, %166, %168, %65
-  %.merged39 = phi { ptr, i32 } [ %.pn32.pn, %182 ], [ %.pn28, %168 ], [ %25, %65 ], [ %167, %166 ], [ %181, %180 ], [ %186, %185 ], [ %184, %183 ]
+  %.merged39 = phi { ptr, i32 } [ %25, %65 ], [ %167, %166 ], [ %.pn28, %168 ], [ %181, %180 ], [ %.pn32.pn, %182 ], [ %186, %185 ], [ %184, %183 ]
   call void @_ZNSt10unique_ptrIN4cvc56SolverESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   br label %.body
 

@@ -74,8 +74,8 @@ define internal void @json_print_section_header(ptr noundef %0, ptr readnone cap
   br label %tf_get_section.exit
 
 tf_get_section.exit:                              ; preds = %8, %.thread.i
-  %13 = phi i32 [ %5, %8 ], [ %.pre, %.thread.i ]
-  %.0.i = phi ptr [ %12, %8 ], [ null, %.thread.i ]
+  %13 = phi i32 [ %.pre, %.thread.i ], [ %5, %8 ]
+  %.0.i = phi ptr [ null, %.thread.i ], [ %12, %8 ]
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %tf_get_parent_section.exit, label %15
 
@@ -98,7 +98,7 @@ tf_get_section.exit:                              ; preds = %8, %.thread.i
   br label %tf_get_parent_section.exit
 
 tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit, %18, %.thread.i.i
-  %.0.i46 = phi ptr [ null, %tf_get_section.exit ], [ %22, %18 ], [ null, %.thread.i.i ]
+  %.0.i46 = phi ptr [ null, %tf_get_section.exit ], [ null, %.thread.i.i ], [ %22, %18 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -368,8 +368,8 @@ define internal void @json_print_int(ptr noundef %0, ptr noundef readonly captur
   br label %tf_get_section.exit
 
 tf_get_section.exit:                              ; preds = %9, %.thread.i
-  %14 = phi i32 [ %6, %9 ], [ %.pre, %.thread.i ]
-  %.0.i = phi i1 [ false, %9 ], [ true, %.thread.i ]
+  %14 = phi i32 [ %.pre, %.thread.i ], [ %6, %9 ]
+  %.0.i = phi i1 [ true, %.thread.i ], [ false, %9 ]
   %15 = icmp slt i32 %14, 1
   br i1 %15, label %tf_get_parent_section.exit, label %16
 
@@ -392,7 +392,7 @@ tf_get_section.exit:                              ; preds = %9, %.thread.i
   br label %tf_get_parent_section.exit
 
 tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit, %19, %.thread.i.i
-  %.0.i22 = phi ptr [ null, %tf_get_section.exit ], [ %23, %19 ], [ null, %.thread.i.i ]
+  %.0.i22 = phi ptr [ null, %tf_get_section.exit ], [ null, %.thread.i.i ], [ %23, %19 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -479,8 +479,8 @@ define internal void @json_print_str(ptr noundef %0, ptr noundef readonly captur
   br label %tf_get_section.exit
 
 tf_get_section.exit:                              ; preds = %9, %.thread.i
-  %14 = phi i32 [ %6, %9 ], [ %.pre, %.thread.i ]
-  %.0.i = phi i1 [ false, %9 ], [ true, %.thread.i ]
+  %14 = phi i32 [ %.pre, %.thread.i ], [ %6, %9 ]
+  %.0.i = phi i1 [ true, %.thread.i ], [ false, %9 ]
   %15 = icmp slt i32 %14, 1
   br i1 %15, label %tf_get_parent_section.exit, label %16
 
@@ -503,7 +503,7 @@ tf_get_section.exit:                              ; preds = %9, %.thread.i
   br label %tf_get_parent_section.exit
 
 tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit, %19, %.thread.i.i
-  %.0.i22 = phi ptr [ null, %tf_get_section.exit ], [ %23, %19 ], [ null, %.thread.i.i ]
+  %.0.i22 = phi ptr [ null, %tf_get_section.exit ], [ null, %.thread.i.i ], [ %23, %19 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   br i1 %.0.i, label %56, label %26

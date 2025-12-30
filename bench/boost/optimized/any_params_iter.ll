@@ -100,7 +100,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %13
   br label %_ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread.i
 
 _ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %13
-  %.sink.i = phi i64 [ %spec.select.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ 0, %13 ]
+  %.sink.i = phi i64 [ 0, %13 ], [ %spec.select.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.sink.i, ptr %19, align 8, !tbaa !17
   br label %_ZN5boost4urls6detail10query_iter6rewindEv.exit
@@ -141,7 +141,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %5
   br label %_ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread
 
 _ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %5
-  %.sink = phi i64 [ %spec.select, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 0, %5 ]
+  %.sink = phi i64 [ 0, %5 ], [ %spec.select, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.sink, ptr %16, align 8, !tbaa !17
   br label %17
@@ -222,7 +222,7 @@ define noundef zeroext i1 @_ZN5boost4urls6detail10query_iter7measureERm(ptr noun
   br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !28
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %14, %15
-  %.2.i = phi i64 [ %36, %.lr.ph32.i ], [ 0, %14 ], [ 0, %15 ], [ %.1.i, %.lr.ph.i ]
+  %.2.i = phi i64 [ 0, %14 ], [ 0, %15 ], [ %36, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
   %38 = load i64, ptr %1, align 8, !tbaa !7
   %39 = add i64 %38, %.2.i
   store i64 %39, ptr %1, align 8, !tbaa !7
@@ -455,7 +455,7 @@ define void @_ZN5boost4urls6detail10query_iter4copyERPcPKc(ptr noundef nonnull a
   br i1 %.not17.i, label %.loopexit, label %.lr.ph48.i, !llvm.loop !30
 
 .loopexit:                                        ; preds = %40, %68, %.preheader.i, %.preheader40.i
-  %.236.i = phi ptr [ %.4.i, %68 ], [ %5, %.preheader.i ], [ %5, %.preheader40.i ], [ %.135.i, %40 ]
+  %.236.i = phi ptr [ %5, %.preheader.i ], [ %5, %.preheader40.i ], [ %.4.i, %68 ], [ %.135.i, %40 ]
   %69 = ptrtoint ptr %.236.i to i64
   %70 = sub i64 %69, %6
   %71 = load ptr, ptr %1, align 8, !tbaa !3
@@ -614,7 +614,7 @@ define noundef zeroext i1 @_ZN5boost4urls6detail10param_iter7measureERm(ptr noun
   br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !28
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %11, %12
-  %.2.i = phi i64 [ %33, %.lr.ph32.i ], [ 0, %11 ], [ 0, %12 ], [ %.1.i, %.lr.ph.i ]
+  %.2.i = phi i64 [ 0, %11 ], [ 0, %12 ], [ %33, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
   %35 = load i64, ptr %1, align 8, !tbaa !7
   %36 = add i64 %35, %.2.i
   store i64 %36, ptr %1, align 8, !tbaa !7
@@ -681,7 +681,7 @@ _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_vi
   br i1 %.not.i26, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit27, label %.lr.ph32.i20, !llvm.loop !28
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit27: ; preds = %.lr.ph.i11, %.lr.ph32.i20, %44, %45
-  %.2.i18 = phi i64 [ %66, %.lr.ph32.i20 ], [ 0, %44 ], [ 0, %45 ], [ %.1.i16, %.lr.ph.i11 ]
+  %.2.i18 = phi i64 [ 0, %44 ], [ 0, %45 ], [ %66, %.lr.ph32.i20 ], [ %.1.i16, %.lr.ph.i11 ]
   %68 = add i64 %.2.i18, %41
   store i64 %68, ptr %1, align 8, !tbaa !7
   br label %69
@@ -785,7 +785,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   br label %.backedge65
 
 .backedge65:                                      ; preds = %26, %34
-  %.059.be = phi ptr [ %46, %34 ], [ %27, %26 ]
+  %.059.be = phi ptr [ %27, %26 ], [ %46, %34 ]
   %.031.be = getelementptr inbounds nuw i8, ptr %.03173, i64 1
   %.not = icmp eq ptr %.031.be, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
@@ -858,7 +858,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   br label %.backedge
 
 .backedge:                                        ; preds = %64, %70, %78
-  %.160.be = phi ptr [ %90, %78 ], [ %65, %64 ], [ %71, %70 ]
+  %.160.be = phi ptr [ %65, %64 ], [ %71, %70 ], [ %90, %78 ]
   %.1.be = getelementptr inbounds nuw i8, ptr %.176, i64 1
   %.not40 = icmp eq ptr %.1.be, %12
   br i1 %.not40, label %.loopexit, label %.lr.ph77, !llvm.loop !37
@@ -912,7 +912,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   br label %.loopexit87
 
 .loopexit87:                                      ; preds = %24, %68, %62, %.loopexit, %74, %._crit_edge, %30
-  %.0 = phi i64 [ %93, %.loopexit ], [ %1, %68 ], [ %33, %30 ], [ %77, %74 ], [ %49, %._crit_edge ], [ %1, %62 ], [ %1, %24 ]
+  %.0 = phi i64 [ %93, %.loopexit ], [ %77, %74 ], [ %33, %30 ], [ %49, %._crit_edge ], [ %1, %62 ], [ %1, %68 ], [ %1, %24 ]
   ret i64 %.0
 }
 
@@ -978,7 +978,7 @@ define void @_ZN5boost4urls6detail16params_iter_base12measure_implERmRKNS0_10par
   br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !28
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %6, %7
-  %.2.i = phi i64 [ %28, %.lr.ph32.i ], [ 0, %6 ], [ 0, %7 ], [ %.1.i, %.lr.ph.i ]
+  %.2.i = phi i64 [ 0, %6 ], [ 0, %7 ], [ %28, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
   %30 = load i64, ptr %0, align 8, !tbaa !7
   %31 = add i64 %30, %.2.i
   store i64 %31, ptr %0, align 8, !tbaa !7
@@ -1045,7 +1045,7 @@ _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_vi
   br i1 %.not.i27, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit28, label %.lr.ph32.i21, !llvm.loop !28
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit28: ; preds = %.lr.ph.i12, %.lr.ph32.i21, %39, %40
-  %.2.i19 = phi i64 [ %61, %.lr.ph32.i21 ], [ 0, %39 ], [ 0, %40 ], [ %.1.i17, %.lr.ph.i12 ]
+  %.2.i19 = phi i64 [ 0, %39 ], [ 0, %40 ], [ %61, %.lr.ph32.i21 ], [ %.1.i17, %.lr.ph.i12 ]
   %63 = add i64 %.2.i19, %36
   store i64 %63, ptr %0, align 8, !tbaa !7
   br label %64
@@ -1771,7 +1771,7 @@ define hidden noundef zeroext i1 @_ZN5boost4urls6detail16param_value_iter7measur
   br i1 %.not.i, label %_ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit, label %.lr.ph32.i, !llvm.loop !28
 
 _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_NS0_13encoding_optsE.exit: ; preds = %.lr.ph.i, %.lr.ph32.i, %19, %20
-  %.2.i = phi i64 [ %41, %.lr.ph32.i ], [ 0, %19 ], [ 0, %20 ], [ %.1.i, %.lr.ph.i ]
+  %.2.i = phi i64 [ 0, %19 ], [ 0, %20 ], [ %41, %.lr.ph32.i ], [ %.1.i, %.lr.ph.i ]
   %43 = add i64 %.2.i, 1
   %44 = load i64, ptr %1, align 8, !tbaa !7
   %45 = add i64 %43, %44

@@ -284,8 +284,8 @@ if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm7Runti
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit, %if.else56, %if.else43, %if.else14, %if.end67
-  %retval.sroa.0.0 = phi i32 [ 0, %if.else43 ], [ 1, %if.end67 ], [ 0, %if.else56 ], [ 0, %if.else14 ], [ 1, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit ], [ 1, %if.then.i.i.i ]
-  %retval.sroa.6.0 = phi i64 [ undef, %if.else43 ], [ %retval.sroa.0.0.copyload.i27, %if.end67 ], [ undef, %if.else56 ], [ undef, %if.else14 ], [ %25, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit ], [ %25, %if.then.i.i.i ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.end67 ], [ 0, %if.else14 ], [ 0, %if.else43 ], [ 0, %if.else56 ], [ 1, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit ], [ 1, %if.then.i.i.i ]
+  %retval.sroa.6.0 = phi i64 [ %retval.sroa.0.0.copyload.i27, %if.end67 ], [ undef, %if.else14 ], [ undef, %if.else43 ], [ undef, %if.else56 ], [ %25, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit ], [ %25, %if.then.i.i.i ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -412,8 +412,8 @@ if.end12:                                         ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %if.end12, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call3, %if.then ], [ 1, %if.end12 ], [ 0, %if.end ]
-  %retval.sroa.4.0 = phi i64 [ undef, %if.then ], [ %retval.sroa.0.0.i6, %if.end12 ], [ undef, %if.end ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.end12 ], [ %call3, %if.then ], [ 0, %if.end ]
+  %retval.sroa.4.0 = phi i64 [ %retval.sroa.0.0.i6, %if.end12 ], [ undef, %if.then ], [ undef, %if.end ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -517,8 +517,8 @@ cond.end:                                         ; preds = %if.end18, %cond.tru
   br label %return
 
 return:                                           ; preds = %if.end9, %cond.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call3, %if.then ], [ 1, %cond.end ], [ 0, %if.end9 ]
-  %retval.sroa.4.0 = phi i64 [ undef, %if.then ], [ %retval.sroa.0.0.i15, %cond.end ], [ undef, %if.end9 ]
+  %retval.sroa.0.0 = phi i32 [ 1, %cond.end ], [ %call3, %if.then ], [ 0, %if.end9 ]
+  %retval.sroa.4.0 = phi i64 [ %retval.sroa.0.0.i15, %cond.end ], [ undef, %if.then ], [ undef, %if.end9 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -644,8 +644,8 @@ cond.end:                                         ; preds = %if.end38, %cond.tru
   br label %return
 
 return:                                           ; preds = %if.then22, %if.end9, %cond.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call3, %if.then ], [ 0, %if.end9 ], [ 1, %cond.end ], [ 0, %if.then22 ]
-  %retval.sroa.5.0 = phi i64 [ undef, %if.then ], [ undef, %if.end9 ], [ %retval.sroa.0.0.i23, %cond.end ], [ undef, %if.then22 ]
+  %retval.sroa.0.0 = phi i32 [ 1, %cond.end ], [ %call3, %if.then ], [ 0, %if.end9 ], [ 0, %if.then22 ]
+  %retval.sroa.5.0 = phi i64 [ %retval.sroa.0.0.i23, %cond.end ], [ undef, %if.then ], [ undef, %if.end9 ], [ undef, %if.then22 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -793,8 +793,8 @@ cond.end:                                         ; preds = %if.end58, %cond.tru
   br label %return
 
 return:                                           ; preds = %if.then41, %if.then22, %if.end9, %cond.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call3, %if.then ], [ 0, %if.end9 ], [ 0, %if.then22 ], [ 1, %cond.end ], [ 0, %if.then41 ]
-  %retval.sroa.6.0 = phi i64 [ undef, %if.then ], [ undef, %if.end9 ], [ undef, %if.then22 ], [ %retval.sroa.0.0.i34, %cond.end ], [ undef, %if.then41 ]
+  %retval.sroa.0.0 = phi i32 [ 1, %cond.end ], [ %call3, %if.then ], [ 0, %if.end9 ], [ 0, %if.then22 ], [ 0, %if.then41 ]
+  %retval.sroa.6.0 = phi i64 [ %retval.sroa.0.0.i34, %cond.end ], [ undef, %if.then ], [ undef, %if.end9 ], [ undef, %if.then22 ], [ undef, %if.then41 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -964,8 +964,8 @@ cond.end:                                         ; preds = %if.end78, %cond.tru
   br label %return
 
 return:                                           ; preds = %if.then61, %if.then41, %if.then22, %if.end9, %cond.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call3, %if.then ], [ 0, %if.end9 ], [ 0, %if.then22 ], [ 0, %if.then41 ], [ 1, %cond.end ], [ 0, %if.then61 ]
-  %retval.sroa.7.0 = phi i64 [ undef, %if.then ], [ undef, %if.end9 ], [ undef, %if.then22 ], [ undef, %if.then41 ], [ %retval.sroa.0.0.i45, %cond.end ], [ undef, %if.then61 ]
+  %retval.sroa.0.0 = phi i32 [ 1, %cond.end ], [ %call3, %if.then ], [ 0, %if.end9 ], [ 0, %if.then22 ], [ 0, %if.then41 ], [ 0, %if.then61 ]
+  %retval.sroa.7.0 = phi i64 [ %retval.sroa.0.0.i45, %cond.end ], [ undef, %if.then ], [ undef, %if.end9 ], [ undef, %if.then22 ], [ undef, %if.then41 ], [ undef, %if.then61 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.7.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -1069,8 +1069,8 @@ cond.end:                                         ; preds = %if.end18, %cond.tru
   br label %return
 
 return:                                           ; preds = %if.end9, %cond.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call3, %if.then ], [ 1, %cond.end ], [ 0, %if.end9 ]
-  %retval.sroa.4.0 = phi i64 [ undef, %if.then ], [ %retval.sroa.0.0.i14, %cond.end ], [ undef, %if.end9 ]
+  %retval.sroa.0.0 = phi i32 [ 1, %cond.end ], [ %call3, %if.then ], [ 0, %if.end9 ]
+  %retval.sroa.4.0 = phi i64 [ %retval.sroa.0.0.i14, %cond.end ], [ undef, %if.then ], [ undef, %if.end9 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -1195,8 +1195,8 @@ cond.end:                                         ; preds = %if.end38, %cond.tru
   br label %return
 
 return:                                           ; preds = %if.then22, %if.end9, %cond.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call3, %if.then ], [ 0, %if.end9 ], [ 1, %cond.end ], [ 0, %if.then22 ]
-  %retval.sroa.5.0 = phi i64 [ undef, %if.then ], [ undef, %if.end9 ], [ %retval.sroa.0.0.i22, %cond.end ], [ undef, %if.then22 ]
+  %retval.sroa.0.0 = phi i32 [ 1, %cond.end ], [ %call3, %if.then ], [ 0, %if.end9 ], [ 0, %if.then22 ]
+  %retval.sroa.5.0 = phi i64 [ %retval.sroa.0.0.i22, %cond.end ], [ undef, %if.then ], [ undef, %if.end9 ], [ undef, %if.then22 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -1346,8 +1346,8 @@ cond.end:                                         ; preds = %if.end61, %cond.tru
   br label %return
 
 return:                                           ; preds = %if.then44, %if.then25, %if.end9, %cond.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call3, %if.then ], [ 0, %if.end9 ], [ 0, %if.then25 ], [ 1, %cond.end ], [ 0, %if.then44 ]
-  %retval.sroa.6.0 = phi i64 [ undef, %if.then ], [ undef, %if.end9 ], [ undef, %if.then25 ], [ %retval.sroa.0.0.i34, %cond.end ], [ undef, %if.then44 ]
+  %retval.sroa.0.0 = phi i32 [ 1, %cond.end ], [ %call3, %if.then ], [ 0, %if.end9 ], [ 0, %if.then25 ], [ 0, %if.then44 ]
+  %retval.sroa.6.0 = phi i64 [ %retval.sroa.0.0.i34, %cond.end ], [ undef, %if.then ], [ undef, %if.end9 ], [ undef, %if.then25 ], [ undef, %if.then44 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -1455,8 +1455,8 @@ if.end29:                                         ; preds = %if.end18
   br label %return
 
 return:                                           ; preds = %if.end, %if.end29, %if.then22, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call3, %if.then ], [ 1, %if.then22 ], [ 1, %if.end29 ], [ 0, %if.end ]
-  %retval.sroa.5.0 = phi i64 [ undef, %if.then ], [ 9221120237041090560, %if.then22 ], [ %retval.sroa.0.0.i20, %if.end29 ], [ undef, %if.end ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.then22 ], [ 1, %if.end29 ], [ %call3, %if.then ], [ 0, %if.end ]
+  %retval.sroa.5.0 = phi i64 [ 9221120237041090560, %if.then22 ], [ %retval.sroa.0.0.i20, %if.end29 ], [ undef, %if.then ], [ undef, %if.end ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -1581,8 +1581,8 @@ if.end53:                                         ; preds = %_ZN6hermes2vm6Handl
   br label %return
 
 return:                                           ; preds = %if.end28, %land.lhs.true, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_11HermesValueE.exit, %entry, %if.end53, %if.then50
-  %retval.sroa.0.0 = phi i32 [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ 0, %entry ], [ 1, %land.lhs.true ], [ %call52, %if.then50 ], [ %20, %if.end53 ], [ 0, %if.end28 ]
-  %retval.sroa.7.0 = phi i64 [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ undef, %entry ], [ -1548112371908608, %land.lhs.true ], [ undef, %if.then50 ], [ %21, %if.end53 ], [ undef, %if.end28 ]
+  %retval.sroa.0.0 = phi i32 [ %call52, %if.then50 ], [ %20, %if.end53 ], [ 0, %entry ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ 1, %land.lhs.true ], [ 0, %if.end28 ]
+  %retval.sroa.7.0 = phi i64 [ undef, %if.then50 ], [ %21, %if.end53 ], [ undef, %entry ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ -1548112371908608, %land.lhs.true ], [ undef, %if.end28 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.7.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -1700,7 +1700,7 @@ if.else36:                                        ; preds = %if.else
   br label %return
 
 if.end40:                                         ; preds = %if.else, %if.end13, %lor.lhs.false
-  %tryFirst.0 = phi i32 [ 1, %if.end13 ], [ 1, %lor.lhs.false ], [ 2, %if.else ]
+  %tryFirst.0 = phi i32 [ 1, %lor.lhs.false ], [ 1, %if.end13 ], [ 2, %if.else ]
   %call44 = tail call { i32, i64 } @_ZN6hermes2vm19ordinaryToPrimitiveENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS0_13PreferredTypeE(ptr nonnull %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %tryFirst.0) #13
   br label %return
 
@@ -1813,8 +1813,8 @@ return.sink.split:                                ; preds = %if.end15, %if.end32
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %if.end26, %if.then5
-  %retval.sroa.0.0 = phi i32 [ 0, %if.then5 ], [ 1, %entry ], [ 0, %if.end26 ], [ 1, %return.sink.split ]
-  %retval.sroa.6.0 = phi i64 [ undef, %if.then5 ], [ 9221120237041090560, %entry ], [ undef, %if.end26 ], [ %retval.sroa.0.0.i11, %return.sink.split ]
+  %retval.sroa.0.0 = phi i32 [ 1, %entry ], [ 0, %if.then5 ], [ 0, %if.end26 ], [ 1, %return.sink.split ]
+  %retval.sroa.6.0 = phi i64 [ 9221120237041090560, %entry ], [ undef, %if.then5 ], [ undef, %if.end26 ], [ %retval.sroa.0.0.i11, %return.sink.split ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -2120,8 +2120,8 @@ if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm7Runti
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit, %if.end10, %if.then7, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call2, %if.then ], [ 1, %if.end10 ], [ %call9, %if.then7 ], [ 1, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit ], [ 1, %if.then.i.i.i ]
-  %retval.sroa.5.0 = phi i64 [ undef, %if.then ], [ %or.i.i.i, %if.end10 ], [ undef, %if.then7 ], [ %17, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit ], [ %17, %if.then.i.i.i ]
+  %retval.sroa.0.0 = phi i32 [ %call2, %if.then ], [ %call9, %if.then7 ], [ 1, %if.end10 ], [ 1, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit ], [ 1, %if.then.i.i.i ]
+  %retval.sroa.5.0 = phi i64 [ undef, %if.then ], [ undef, %if.then7 ], [ %or.i.i.i, %if.end10 ], [ %17, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit ], [ %17, %if.then.i.i.i ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
   ret { i32, i64 } %.fca.1.insert

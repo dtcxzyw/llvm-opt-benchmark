@@ -431,8 +431,8 @@ define internal range(i32 0, -1) i32 @SDL_PromptAssertion(ptr noundef readonly c
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %.thread58, label %94
 
-.thread58:                                        ; preds = %91, %85, %82, %.lr.ph, %94, %88, %.preheader
-  %.2.ph = phi i32 [ 2, %.preheader ], [ 1, %82 ], [ 2, %.lr.ph ], [ 2, %94 ], [ 3, %88 ], [ 0, %85 ], [ 4, %91 ]
+.thread58:                                        ; preds = %91, %88, %85, %82, %.lr.ph, %94, %.preheader
+  %.2.ph = phi i32 [ 2, %.preheader ], [ 2, %94 ], [ 2, %.lr.ph ], [ 1, %82 ], [ 0, %85 ], [ 3, %88 ], [ 4, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %102
 
@@ -466,7 +466,7 @@ define internal range(i32 0, -1) i32 @SDL_PromptAssertion(ptr noundef readonly c
   br label %107
 
 107:                                              ; preds = %40, %43, %46, %49, %52, %106, %105, %35, %36
-  %.0 = phi i32 [ 2, %35 ], [ 2, %36 ], [ 3, %49 ], [ 2, %40 ], [ 1, %43 ], [ 0, %46 ], [ %., %52 ], [ %.034, %106 ], [ %.034, %105 ]
+  %.0 = phi i32 [ 2, %36 ], [ 2, %35 ], [ 2, %40 ], [ 1, %43 ], [ 0, %46 ], [ 3, %49 ], [ %., %52 ], [ %.034, %106 ], [ %.034, %105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

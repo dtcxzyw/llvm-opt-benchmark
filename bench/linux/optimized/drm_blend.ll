@@ -423,7 +423,7 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
   br label %130
 
 130:                                              ; preds = %.thread15, %104
-  %131 = phi i32 [ %118, %.thread15 ], [ %106, %104 ]
+  %131 = phi i32 [ %106, %104 ], [ %118, %.thread15 ]
   %132 = load ptr, ptr %105, align 8
   %133 = icmp eq ptr %132, %99
   br i1 %133, label %134, label %104, !llvm.loop !22

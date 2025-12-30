@@ -343,7 +343,7 @@ switch.lookup:                                    ; preds = %.critedge162
   br label %.critedge
 
 .critedge:                                        ; preds = %120, %70, %149, %40, %153
-  %.0 = phi i32 [ 0, %153 ], [ -12, %149 ], [ -12, %40 ], [ -12, %70 ], [ -12, %120 ]
+  %.0 = phi i32 [ 0, %153 ], [ -12, %40 ], [ -12, %149 ], [ -12, %70 ], [ -12, %120 ]
   ret i32 %.0
 }
 
@@ -781,7 +781,7 @@ define internal range(i32 -2147483648, 1) i32 @magy_encode_frame(ptr noundef %0,
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.thread.loopexit.i.i, %190, %183, %95
-  %.1202251.i.i = phi i32 [ %184, %190 ], [ %184, %183 ], [ %96, %95 ], [ %.1202251.ph.i.i, %.thread.loopexit.i.i ]
+  %.1202251.i.i = phi i32 [ %184, %183 ], [ %184, %190 ], [ %96, %95 ], [ %.1202251.ph.i.i, %.thread.loopexit.i.i ]
   %.not.i.i = icmp eq i32 %.1202251.i.i, 0
   br i1 %.not.i.i, label %191, label %95, !llvm.loop !78
 

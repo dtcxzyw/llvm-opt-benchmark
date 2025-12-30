@@ -370,7 +370,7 @@ bytestream2_get_le32.exit91:                      ; preds = %bytestream2_get_le1
   br label %bytestream2_peek_byte.exit.thread
 
 bytestream2_peek_byte.exit.thread:                ; preds = %bytestream2_peek_byte.exit68, %bytestream2_init.exit, %168, %170, %174, %155, %.thread182, %bytestream2_peek_byte.exit, %bytestream2_get_le64.exit94.thread
-  %.0 = phi i32 [ %157, %155 ], [ 0, %bytestream2_peek_byte.exit ], [ -1094995529, %.thread182 ], [ -1094995529, %bytestream2_get_le64.exit94.thread ], [ 1, %bytestream2_peek_byte.exit68 ], [ 1, %174 ], [ 1, %170 ], [ 1, %168 ], [ 0, %bytestream2_init.exit ]
+  %.0 = phi i32 [ -1094995529, %bytestream2_get_le64.exit94.thread ], [ 0, %bytestream2_peek_byte.exit ], [ -1094995529, %.thread182 ], [ %157, %155 ], [ 1, %174 ], [ 1, %170 ], [ 1, %168 ], [ 0, %bytestream2_init.exit ], [ 1, %bytestream2_peek_byte.exit68 ]
   ret i32 %.0
 }
 
@@ -547,7 +547,7 @@ define internal range(i32 -1094995529, 2) i32 @ogm_dshow_header(ptr noundef read
   br label %70
 
 70:                                               ; preds = %29, %49, %24, %47, %27, %20, %19, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %19 ], [ -1094995529, %20 ], [ -1094995529, %47 ], [ -1094995529, %27 ], [ 1, %24 ], [ 1, %49 ], [ 1, %29 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %19 ], [ -1094995529, %20 ], [ -1094995529, %27 ], [ -1094995529, %47 ], [ 1, %24 ], [ 1, %49 ], [ 1, %29 ]
   ret i32 %.0
 }
 

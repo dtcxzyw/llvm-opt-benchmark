@@ -486,11 +486,11 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %102, %.preheader23, %123, %.thread20..loopexit.loopexit44_crit_edge
-  %263 = phi ptr [ %124, %123 ], [ %.pre.pre, %.thread20..loopexit.loopexit44_crit_edge ], [ %.pre.pre58, %.preheader23 ], [ %.pre.pre58, %102 ]
-  %264 = phi i64 [ %103, %123 ], [ %261, %.thread20..loopexit.loopexit44_crit_edge ], [ %103, %.preheader23 ], [ %103, %102 ]
-  %265 = phi i32 [ 0, %123 ], [ %252, %.thread20..loopexit.loopexit44_crit_edge ], [ 0, %.preheader23 ], [ 0, %102 ]
-  %266 = phi i64 [ %104, %123 ], [ %253, %.thread20..loopexit.loopexit44_crit_edge ], [ %104, %.preheader23 ], [ %104, %102 ]
-  %267 = phi i64 [ %105, %123 ], [ %254, %.thread20..loopexit.loopexit44_crit_edge ], [ %105, %.preheader23 ], [ %105, %102 ]
+  %263 = phi ptr [ %.pre.pre, %.thread20..loopexit.loopexit44_crit_edge ], [ %124, %123 ], [ %.pre.pre58, %.preheader23 ], [ %.pre.pre58, %102 ]
+  %264 = phi i64 [ %261, %.thread20..loopexit.loopexit44_crit_edge ], [ %103, %123 ], [ %103, %.preheader23 ], [ %103, %102 ]
+  %265 = phi i32 [ %252, %.thread20..loopexit.loopexit44_crit_edge ], [ 0, %123 ], [ 0, %.preheader23 ], [ 0, %102 ]
+  %266 = phi i64 [ %253, %.thread20..loopexit.loopexit44_crit_edge ], [ %104, %123 ], [ %104, %.preheader23 ], [ %104, %102 ]
+  %267 = phi i64 [ %254, %.thread20..loopexit.loopexit44_crit_edge ], [ %105, %123 ], [ %105, %.preheader23 ], [ %105, %102 ]
   %268 = load volatile ptr, ptr %7, align 8
   %269 = icmp eq ptr %268, %7
   br i1 %269, label %275, label %270

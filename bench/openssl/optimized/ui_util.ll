@@ -220,7 +220,7 @@ define internal range(i32 -2147483648, 2) i32 @ui_read(ptr noundef %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %16, %18, %5
-  %.0 = phi i32 [ %., %18 ], [ -1, %5 ], [ %14, %16 ]
+  %.0 = phi i32 [ -1, %5 ], [ %., %18 ], [ %14, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %23
 

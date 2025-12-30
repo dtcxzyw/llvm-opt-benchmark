@@ -189,7 +189,7 @@ parse_weights.exit:                               ; preds = %63, %.loopexit.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %.thread, %21, %._crit_edge, %parse_weights.exit
-  %.2 = phi i32 [ -12, %.thread ], [ 0, %parse_weights.exit ], [ -12, %._crit_edge ], [ -12, %21 ], [ %17, %16 ]
+  %.2 = phi i32 [ 0, %parse_weights.exit ], [ -12, %._crit_edge ], [ -12, %21 ], [ -12, %.thread ], [ %17, %16 ]
   ret i32 %.2
 }
 
@@ -730,7 +730,7 @@ frame_list_next_frame_size.exit:                  ; preds = %159, %161
   br label %.thread84
 
 .thread84:                                        ; preds = %21, %82, %71, %.preheader98, %70, %113, %calc_active_inputs.exit, %145, %152, %frame_list_next_frame_size.exit, %137
-  %.1 = phi i32 [ 0, %.preheader98 ], [ 0, %113 ], [ 0, %137 ], [ %83, %82 ], [ %146, %145 ], [ 0, %152 ], [ %163, %frame_list_next_frame_size.exit ], [ 0, %calc_active_inputs.exit ], [ -12, %70 ], [ %80, %71 ], [ 0, %21 ]
+  %.1 = phi i32 [ 0, %113 ], [ 0, %137 ], [ 0, %152 ], [ %163, %frame_list_next_frame_size.exit ], [ %146, %145 ], [ 0, %calc_active_inputs.exit ], [ -12, %70 ], [ 0, %.preheader98 ], [ %83, %82 ], [ %80, %71 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 }
@@ -869,7 +869,7 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef initializes((96
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %41, %._crit_edge, %17, %1, %._crit_edge70
-  %.0 = phi i32 [ -12, %17 ], [ 0, %._crit_edge70 ], [ -12, %._crit_edge ], [ -12, %41 ], [ -12, %1 ], [ -12, %.lr.ph ]
+  %.0 = phi i32 [ 0, %._crit_edge70 ], [ -12, %1 ], [ -12, %17 ], [ -12, %._crit_edge ], [ -12, %41 ], [ -12, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1031,7 +1031,7 @@ define internal fastcc void @calculate_scales(ptr noundef readonly captures(none
   br label %93
 
 93:                                               ; preds = %69, %82, %75
-  %.sink = phi float [ %81, %75 ], [ %92, %82 ], [ 0.000000e+00, %69 ]
+  %.sink = phi float [ %92, %82 ], [ %81, %75 ], [ 0.000000e+00, %69 ]
   %94 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv111
   store float %.sink, ptr %94, align 4, !tbaa !38
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
@@ -1155,7 +1155,7 @@ frame_list_next_frame_size.exit:                  ; preds = %15, %19
   br i1 %.not97, label %.loopexit105, label %41
 
 41:                                               ; preds = %36, %25, %30
-  %.182 = phi i32 [ %.081114, %25 ], [ %.081114, %30 ], [ %34, %36 ]
+  %.182 = phi i32 [ %.081114, %30 ], [ %.081114, %25 ], [ %34, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i32, ptr %21, align 8, !tbaa !20
   %43 = sext i32 %42 to i64
@@ -1482,7 +1482,7 @@ frame_list_remove_samples.exit:                   ; preds = %100, %.preheader.i,
   br label %.loopexit105
 
 .loopexit105:                                     ; preds = %36, %107, %frame_list_remove_samples.exit, %187, %122, %._crit_edge118.thread
-  %.0 = phi i32 [ 0, %._crit_edge118.thread ], [ -12, %107 ], [ %188, %187 ], [ -12, %122 ], [ 0, %frame_list_remove_samples.exit ], [ 0, %36 ]
+  %.0 = phi i32 [ %188, %187 ], [ -12, %122 ], [ 0, %._crit_edge118.thread ], [ 0, %frame_list_remove_samples.exit ], [ -12, %107 ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

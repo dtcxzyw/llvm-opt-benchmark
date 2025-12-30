@@ -383,7 +383,7 @@ cobs_frame_decode.exit:                           ; preds = %.preheader.i
   %141 = tail call ptr @proto_tree_add_checksum(ptr noundef %3, ptr noundef %0, i32 noundef %136, i32 noundef %137, i32 noundef %138, ptr noundef nonnull @ei_mstp_frame_checksum_bad, ptr noundef %1, i32 noundef %140, i32 noundef 0, i32 noundef 1)
   br label %199
 
-cobs_frame_decode.exit.thread:                    ; preds = %.lr.ph38.i33.i, %106, %67, %cobs_decode.exit51.i, %cobs_frame_decode.exit
+cobs_frame_decode.exit.thread:                    ; preds = %106, %.lr.ph38.i33.i, %cobs_decode.exit51.i, %67, %cobs_frame_decode.exit
   %142 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %25, i32 noundef %27)
   %143 = tail call i32 @call_data_dissector(ptr noundef %142, ptr noundef %1, ptr noundef %2)
   %144 = add i32 %25, %70

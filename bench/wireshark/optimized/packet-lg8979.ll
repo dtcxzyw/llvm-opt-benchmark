@@ -901,7 +901,7 @@ select.unfold:                                    ; preds = %39, %37, %35, %33, 
   %exitcond.not = icmp eq i32 %199, %190
   br i1 %exitcond.not, label %classify_lg8979_packet.exit.sink.split, label %.lr.ph, !llvm.loop !11
 
-200:                                              ; preds = %31, %4, %23, %33, %25, %35, %19, %37, %39
+200:                                              ; preds = %31, %4, %19, %23, %25, %33, %35, %37, %39
   %201 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %201, i32 noundef 25, ptr noundef nonnull @.str.319)
   %202 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
@@ -1552,7 +1552,7 @@ proto_item_set_generated.exit:                    ; preds = %642, %639, %636, %6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %618, %.lr.ph854, %.lr.ph859, %.lr.ph864, %.lr.ph869, %.lr.ph873, %.lr.ph878, %.lr.ph882, %294, %.lr.ph891, %606, %531, %518, %473, %425, %403, %355, %333, %264, %230, %.lr.ph997, %proto_item_set_generated.exit, %624, %620, %599, %580, %297
-  %.6787 = phi i32 [ %229, %.lr.ph997 ], [ %646, %proto_item_set_generated.exit ], [ %251, %.lr.ph891 ], [ %332, %297 ], [ %.8789, %294 ], [ %353, %.lr.ph882 ], [ %400, %.lr.ph878 ], [ %423, %.lr.ph873 ], [ %470, %.lr.ph869 ], [ %516, %.lr.ph864 ], [ %528, %.lr.ph859 ], [ %598, %580 ], [ %605, %599 ], [ %578, %.lr.ph854 ], [ %623, %620 ], [ %627, %624 ], [ %229, %230 ], [ %257, %264 ], [ %229, %333 ], [ %359, %355 ], [ %229, %403 ], [ %429, %425 ], [ %477, %473 ], [ %522, %518 ], [ %229, %531 ], [ %610, %606 ], [ %.17, %618 ]
+  %.6787 = phi i32 [ %229, %.lr.ph997 ], [ %332, %297 ], [ %598, %580 ], [ %605, %599 ], [ %623, %620 ], [ %627, %624 ], [ %646, %proto_item_set_generated.exit ], [ %229, %230 ], [ %257, %264 ], [ %229, %333 ], [ %359, %355 ], [ %229, %403 ], [ %429, %425 ], [ %477, %473 ], [ %522, %518 ], [ %229, %531 ], [ %610, %606 ], [ %251, %.lr.ph891 ], [ %.8789, %294 ], [ %353, %.lr.ph882 ], [ %400, %.lr.ph878 ], [ %423, %.lr.ph873 ], [ %470, %.lr.ph869 ], [ %516, %.lr.ph864 ], [ %528, %.lr.ph859 ], [ %578, %.lr.ph854 ], [ %.17, %618 ]
   %647 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.6787)
   %648 = icmp sgt i32 %647, 2
   br i1 %648, label %.lr.ph997, label %classify_lg8979_packet.exit.sink.split
@@ -1563,7 +1563,7 @@ proto_item_set_generated.exit:                    ; preds = %642, %639, %636, %6
   br label %classify_lg8979_packet.exit.sink.split
 
 classify_lg8979_packet.exit.sink.split:           ; preds = %.lr.ph, %.lr.ph838, %.lr.ph843, %.loopexit, %.lr.ph894.preheader, %.critedge800, %select.unfold, %51, %157, %130, %113, %108, %102, %85, %80, %75, %72, %67, %160, %174, %188
-  %.4785833.sink = phi i32 [ %186, %.lr.ph838 ], [ 3, %select.unfold ], [ 5, %51 ], [ 9, %67 ], [ 6, %72 ], [ 7, %75 ], [ 8, %80 ], [ 7, %85 ], [ 6, %102 ], [ 9, %108 ], [ 7, %113 ], [ 12, %130 ], [ 7, %157 ], [ %.6787, %.loopexit ], [ %166, %.lr.ph843 ], [ 7, %160 ], [ 8, %174 ], [ 5, %188 ], [ 3, %.critedge800 ], [ 3, %.lr.ph894.preheader ], [ %198, %.lr.ph ]
+  %.4785833.sink = phi i32 [ 3, %select.unfold ], [ 5, %51 ], [ 9, %67 ], [ 6, %72 ], [ 7, %75 ], [ 8, %80 ], [ 7, %85 ], [ 6, %102 ], [ 9, %108 ], [ 7, %113 ], [ 12, %130 ], [ 7, %157 ], [ 7, %160 ], [ 8, %174 ], [ 5, %188 ], [ 3, %.critedge800 ], [ 3, %.lr.ph894.preheader ], [ %.6787, %.loopexit ], [ %166, %.lr.ph843 ], [ %186, %.lr.ph838 ], [ %198, %.lr.ph ]
   %650 = load i32, ptr @hf_lg8979_crc16, align 4
   %651 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %650, ptr noundef %0, i32 noundef %.4785833.sink, i32 noundef 2, i32 noundef 0)
   br label %classify_lg8979_packet.exit

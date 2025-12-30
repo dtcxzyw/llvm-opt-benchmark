@@ -887,7 +887,7 @@ _ZNSt6vectorISt4pairIN2cv3dnn14dnn4_v202412237BackendENS3_6TargetEESaIS6_EE9push
   br label %225
 
 225:                                              ; preds = %102, %104, %137, %170, %223, %101
-  %.pn15.pn = phi { ptr, i32 } [ %.pn13, %101 ], [ %105, %104 ], [ %224, %223 ], [ %171, %170 ], [ %103, %102 ], [ %138, %137 ]
+  %.pn15.pn = phi { ptr, i32 } [ %.pn13, %101 ], [ %224, %223 ], [ %171, %170 ], [ %103, %102 ], [ %138, %137 ], [ %105, %104 ]
   %226 = load ptr, ptr %0, align 8, !tbaa !10
   %.not.i.i.i95 = icmp eq ptr %226, null
   br i1 %.not.i.i.i95, label %_ZNSt6vectorISt4pairIN2cv3dnn14dnn4_v202412237BackendENS3_6TargetEESaIS6_EED2Ev.exit, label %227

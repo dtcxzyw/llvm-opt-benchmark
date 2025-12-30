@@ -58,7 +58,7 @@ define hidden noundef ptr @pj_bipc(ptr noundef %0) local_unnamed_addr #0 {
   br label %_Z33pj_projection_specific_setup_bipcP8PJconsts.exit
 
 _Z33pj_projection_specific_setup_bipcP8PJconsts.exit: ; preds = %7, %5, %16, %19
-  %.0 = phi ptr [ null, %16 ], [ %17, %19 ], [ %6, %5 ], [ %0, %7 ]
+  %.0 = phi ptr [ %17, %19 ], [ null, %16 ], [ %6, %5 ], [ %0, %7 ]
   ret ptr %.0
 }
 
@@ -311,11 +311,11 @@ define internal { double, double } @_ZL14bipc_s_forward5PJ_LPP8PJconsts(double %
   br label %58
 
 58:                                               ; preds = %56, %40, %42
-  %59 = phi i1 [ true, %40 ], [ true, %42 ], [ false, %56 ]
-  %.sroa.6.1 = phi double [ 0x3FF3503EE0CA3E90, %40 ], [ 0x3FF3503EE0CA3E90, %42 ], [ 0xBFF3503EE0CA3E90, %56 ]
-  %.271 = phi double [ %.06981, %40 ], [ %45, %42 ], [ %.06985, %56 ]
-  %.1 = phi double [ %.068, %40 ], [ %.068, %42 ], [ %57, %56 ]
-  %.067 = phi double [ 0x3FEA20C5861FEB7D, %40 ], [ 0x3FEA20C5861FEB7D, %42 ], [ 0x3FFD2971F3AB5B39, %56 ]
+  %59 = phi i1 [ true, %42 ], [ true, %40 ], [ false, %56 ]
+  %.sroa.6.1 = phi double [ 0x3FF3503EE0CA3E90, %42 ], [ 0x3FF3503EE0CA3E90, %40 ], [ 0xBFF3503EE0CA3E90, %56 ]
+  %.271 = phi double [ %45, %42 ], [ %.06981, %40 ], [ %.06985, %56 ]
+  %.1 = phi double [ %.068, %42 ], [ %.068, %40 ], [ %57, %56 ]
+  %.067 = phi double [ 0x3FEA20C5861FEB7D, %42 ], [ 0x3FEA20C5861FEB7D, %40 ], [ 0x3FFD2971F3AB5B39, %56 ]
   %60 = fcmp olt double %.1, 0.000000e+00
   br i1 %60, label %.thread87, label %.thread93
 

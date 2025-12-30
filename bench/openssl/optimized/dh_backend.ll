@@ -39,7 +39,7 @@ define range(i32 0, 2) i32 @ossl_dh_params_fromdata(ptr noundef %0, ptr noundef 
   br label %dh_ffc_params_fromdata.exit.thread
 
 dh_ffc_params_fromdata.exit.thread:               ; preds = %2, %8, %10, %13
-  %.0 = phi i32 [ 1, %13 ], [ 0, %8 ], [ 0, %10 ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %13 ], [ 0, %10 ], [ 0, %8 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -187,7 +187,7 @@ define range(i32 0, 2) i32 @ossl_dh_key_todata(ptr noundef %0, ptr noundef %1, p
   br label %19
 
 19:                                               ; preds = %16, %12, %4, %18
-  %.0 = phi i32 [ 0, %4 ], [ 1, %18 ], [ 0, %12 ], [ 0, %16 ]
+  %.0 = phi i32 [ 1, %18 ], [ 0, %4 ], [ 0, %12 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -317,7 +317,7 @@ dh_bn_dup_check.exit.thread:                      ; preds = %41, %33, %21, %dh_b
   br label %ossl_dh_is_foreign.exit.thread
 
 ossl_dh_is_foreign.exit.thread:                   ; preds = %2, %dh_bn_dup_check.exit33, %7, %ossl_dh_is_foreign.exit, %dh_bn_dup_check.exit.thread
-  %.0 = phi ptr [ null, %7 ], [ null, %ossl_dh_is_foreign.exit ], [ null, %dh_bn_dup_check.exit.thread ], [ %10, %dh_bn_dup_check.exit33 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %dh_bn_dup_check.exit.thread ], [ null, %ossl_dh_is_foreign.exit ], [ null, %7 ], [ %10, %dh_bn_dup_check.exit33 ], [ null, %2 ]
   ret ptr %.0
 }
 

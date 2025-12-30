@@ -333,7 +333,7 @@ xor_buf.exit:                                     ; preds = %51
   br label %69
 
 69:                                               ; preds = %67, %68, %17, %47
-  %.0 = phi i32 [ -1, %17 ], [ -1, %47 ], [ 0, %68 ], [ 0, %67 ]
+  %.0 = phi i32 [ -1, %47 ], [ -1, %17 ], [ 0, %68 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

@@ -95,8 +95,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc1918.
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc1918.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.sroa.10.0.i = phi ptr [ %49, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %49, %.noexc1918.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %.sroa.02805.0.i = phi ptr [ %48, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ %48, %.noexc1918.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %.sroa.10.0.i = phi ptr [ %49, %.noexc1918.i ], [ %49, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %.sroa.02805.0.i = phi ptr [ %48, %.noexc1918.i ], [ %48, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %.sroa.02805.0.i, ptr %17, align 8, !tbaa !18
   %53 = mul nsw i32 %25, %6
@@ -9367,10 +9367,10 @@ define internal void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_tile_int8E
   br label %.thread
 
 .thread:                                          ; preds = %113, %136, %135, %143, %189, %111
-  %.0152 = phi <2 x i64> [ zeroinitializer, %111 ], [ zeroinitializer, %113 ], [ %191, %189 ], [ zeroinitializer, %143 ], [ zeroinitializer, %135 ], [ %142, %136 ]
-  %.0148 = phi <2 x i64> [ zeroinitializer, %111 ], [ zeroinitializer, %113 ], [ %.3151, %189 ], [ %.3151, %143 ], [ %.2150, %135 ], [ %.2150, %136 ]
-  %.0146 = phi <2 x i64> [ zeroinitializer, %111 ], [ zeroinitializer, %113 ], [ %.3, %189 ], [ %.3, %143 ], [ %.2, %135 ], [ %.2, %136 ]
-  %.0145 = phi <2 x i64> [ zeroinitializer, %111 ], [ zeroinitializer, %113 ], [ %184, %189 ], [ %184, %143 ], [ %119, %135 ], [ %119, %136 ]
+  %.0152 = phi <2 x i64> [ zeroinitializer, %111 ], [ %191, %189 ], [ zeroinitializer, %143 ], [ zeroinitializer, %135 ], [ %142, %136 ], [ zeroinitializer, %113 ]
+  %.0148 = phi <2 x i64> [ zeroinitializer, %111 ], [ %.3151, %189 ], [ %.3151, %143 ], [ %.2150, %135 ], [ %.2150, %136 ], [ zeroinitializer, %113 ]
+  %.0146 = phi <2 x i64> [ zeroinitializer, %111 ], [ %.3, %189 ], [ %.3, %143 ], [ %.2, %135 ], [ %.2, %136 ], [ zeroinitializer, %113 ]
+  %.0145 = phi <2 x i64> [ zeroinitializer, %111 ], [ %184, %189 ], [ %184, %143 ], [ %119, %135 ], [ %119, %136 ], [ zeroinitializer, %113 ]
   %192 = bitcast <2 x i64> %.0145 to <8 x i16>
   %193 = bitcast <2 x i64> %.0148 to <8 x i16>
   %194 = sub <8 x i16> %192, %193
@@ -11290,7 +11290,7 @@ _ZN4ncnn3MatD2Ev.exit353.us:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   br label %._crit_edge399
 
 ._crit_edge399:                                   ; preds = %.lr.ph, %._crit_edge399.loopexit, %7
-  %295 = phi i32 [ %37, %7 ], [ %.pre, %._crit_edge399.loopexit ], [ %37, %.lr.ph ]
+  %295 = phi i32 [ %.pre, %._crit_edge399.loopexit ], [ %37, %7 ], [ %37, %.lr.ph ]
   %296 = shl nsw i32 %39, 1
   %297 = add nsw i32 %295, %296
   store i32 %297, ptr %17, align 4, !tbaa !4
@@ -13395,12 +13395,12 @@ define internal void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_tile_int8E
   br label %.thread
 
 .thread:                                          ; preds = %125, %164, %163, %270, %269, %123
-  %.0242 = phi <8 x i16> [ zeroinitializer, %123 ], [ zeroinitializer, %125 ], [ zeroinitializer, %269 ], [ %286, %270 ], [ zeroinitializer, %163 ], [ %170, %164 ]
-  %.0238 = phi <2 x i64> [ zeroinitializer, %123 ], [ zeroinitializer, %125 ], [ %.3241, %269 ], [ %.3241, %270 ], [ %.2240, %163 ], [ %.2240, %164 ]
-  %.0234 = phi <2 x i64> [ zeroinitializer, %123 ], [ zeroinitializer, %125 ], [ %.3237, %269 ], [ %.3237, %270 ], [ %.2236, %163 ], [ %.2236, %164 ]
-  %.0230 = phi <2 x i64> [ zeroinitializer, %123 ], [ zeroinitializer, %125 ], [ %.3233, %269 ], [ %.3233, %270 ], [ %.2232, %163 ], [ %.2232, %164 ]
-  %.0228 = phi <2 x i64> [ zeroinitializer, %123 ], [ zeroinitializer, %125 ], [ %.3, %269 ], [ %.3, %270 ], [ %.2, %163 ], [ %.2, %164 ]
-  %.0227 = phi <2 x i64> [ zeroinitializer, %123 ], [ zeroinitializer, %125 ], [ %212, %269 ], [ %212, %270 ], [ %131, %163 ], [ %131, %164 ]
+  %.0242 = phi <8 x i16> [ zeroinitializer, %123 ], [ zeroinitializer, %269 ], [ %286, %270 ], [ zeroinitializer, %163 ], [ %170, %164 ], [ zeroinitializer, %125 ]
+  %.0238 = phi <2 x i64> [ zeroinitializer, %123 ], [ %.3241, %269 ], [ %.3241, %270 ], [ %.2240, %163 ], [ %.2240, %164 ], [ zeroinitializer, %125 ]
+  %.0234 = phi <2 x i64> [ zeroinitializer, %123 ], [ %.3237, %269 ], [ %.3237, %270 ], [ %.2236, %163 ], [ %.2236, %164 ], [ zeroinitializer, %125 ]
+  %.0230 = phi <2 x i64> [ zeroinitializer, %123 ], [ %.3233, %269 ], [ %.3233, %270 ], [ %.2232, %163 ], [ %.2232, %164 ], [ zeroinitializer, %125 ]
+  %.0228 = phi <2 x i64> [ zeroinitializer, %123 ], [ %.3, %269 ], [ %.3, %270 ], [ %.2, %163 ], [ %.2, %164 ], [ zeroinitializer, %125 ]
+  %.0227 = phi <2 x i64> [ zeroinitializer, %123 ], [ %212, %269 ], [ %212, %270 ], [ %131, %163 ], [ %131, %164 ], [ zeroinitializer, %125 ]
   %287 = bitcast <2 x i64> %.0228 to <8 x i16>
   %288 = shl <8 x i16> %287, splat (i16 2)
   %289 = bitcast <2 x i64> %.0234 to <8 x i16>

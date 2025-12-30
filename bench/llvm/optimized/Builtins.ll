@@ -2329,7 +2329,7 @@ _ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread: ; preds = %82
   br label %_ZNK5clang7Builtin7Context16isInStdNamespaceEj.exit
 
 _ZNK5clang7Builtin7Context16isInStdNamespaceEj.exit: ; preds = %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread, %.thread98, %113
-  %.0.i.i44 = phi ptr [ %117, %113 ], [ %112, %.thread98 ], [ %103, %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread ]
+  %.0.i.i44 = phi ptr [ %112, %.thread98 ], [ %117, %113 ], [ %103, %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread ]
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i44, i64 24
   %119 = load ptr, ptr %118, align 8, !tbaa !18
   %120 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %119, i32 noundef 122) #14
@@ -2522,7 +2522,7 @@ define internal fastcc noundef zeroext i1 @_ZL18builtinIsSupportedRKN5clang7Buil
   br label %88
 
 88:                                               ; preds = %34, %54, %49, %44, %83, %77, %73, %67, %64, %._crit_edge, %30, %24, %16, %12, %6, %87
-  %.0 = phi i1 [ false, %6 ], [ false, %12 ], [ false, %54 ], [ true, %87 ], [ false, %77 ], [ false, %73 ], [ false, %67 ], [ false, %64 ], [ false, %49 ], [ false, %44 ], [ false, %._crit_edge ], [ false, %34 ], [ false, %30 ], [ false, %24 ], [ false, %16 ], [ false, %83 ]
+  %.0 = phi i1 [ true, %87 ], [ false, %6 ], [ false, %12 ], [ false, %16 ], [ false, %24 ], [ false, %30 ], [ false, %._crit_edge ], [ false, %64 ], [ false, %67 ], [ false, %73 ], [ false, %77 ], [ false, %83 ], [ false, %44 ], [ false, %49 ], [ false, %54 ], [ false, %34 ]
   ret i1 %.0
 }
 
@@ -3192,7 +3192,7 @@ _ZNK5clang7Builtin7Context9getRecordEj.exit.thread: ; preds = %2
   br label %_ZNK5clang7Builtin7Context9getRecordEj.exit4
 
 _ZNK5clang7Builtin7Context9getRecordEj.exit4:     ; preds = %_ZNK5clang7Builtin7Context9getRecordEj.exit.thread, %.thread11, %37
-  %.0.i3 = phi ptr [ %41, %37 ], [ %36, %.thread11 ], [ %26, %_ZNK5clang7Builtin7Context9getRecordEj.exit.thread ]
+  %.0.i3 = phi ptr [ %36, %.thread11 ], [ %41, %37 ], [ %26, %_ZNK5clang7Builtin7Context9getRecordEj.exit.thread ]
   %42 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !94
   %44 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %43, i32 noundef 65) #14
@@ -3555,7 +3555,7 @@ define linkonce_odr hidden void @_ZN5clang7Builtin14TargetFeatures14getAndFeatur
   br label %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit
 
 _ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit: ; preds = %.lr.ph, %.preheader, %34, %25
-  %39 = phi i8 [ 0, %25 ], [ %38, %34 ], [ 0, %.preheader ], [ %.sroa.067.0.copyload, %.lr.ph ]
+  %39 = phi i8 [ %38, %34 ], [ 0, %25 ], [ 0, %.preheader ], [ %.sroa.067.0.copyload, %.lr.ph ]
   %40 = and i8 %39, 1
   br label %41
 
@@ -3618,7 +3618,7 @@ _ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit: ; preds 
   br label %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit59
 
 _ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit59: ; preds = %63, %52, %.thread78.thread, %.thread78
-  %.5 = phi i8 [ 0, %.thread78 ], [ 1, %.thread78.thread ], [ %67, %63 ], [ 0, %52 ]
+  %.5 = phi i8 [ 1, %.thread78.thread ], [ 0, %.thread78 ], [ %67, %63 ], [ 0, %52 ]
   store i8 %.5, ptr %0, align 8, !tbaa !110
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)

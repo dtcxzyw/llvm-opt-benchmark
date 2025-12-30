@@ -286,7 +286,7 @@ btle_rf_channel_index.exit:                       ; preds = %47
   br label %btle_rf_channel_index.exit74
 
 btle_rf_channel_index.exit74:                     ; preds = %.thread88, %62, %btle_rf_channel_index.exit, %63, %66, %.thread90
-  %.0.i73 = phi i8 [ 38, %.thread88 ], [ %64, %63 ], [ 39, %62 ], [ %67, %66 ], [ 37, %.thread90 ], [ -1, %btle_rf_channel_index.exit ]
+  %.0.i73 = phi i8 [ %64, %63 ], [ %67, %66 ], [ 37, %.thread90 ], [ 39, %62 ], [ -1, %btle_rf_channel_index.exit ], [ 38, %.thread88 ]
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 7
   store i8 %.0.i73, ptr %69, align 1
   %70 = and i32 %14, 64

@@ -115,7 +115,7 @@ define range(i32 0, 2) i32 @BrotliEncoderSetParameter(ptr noundef captures(none)
   br label %32
 
 32:                                               ; preds = %6, %27, %14, %3, %29, %25, %23, %20, %17, %15, %12, %10, %8, %7
-  %.0 = phi i32 [ 1, %29 ], [ 0, %27 ], [ 1, %7 ], [ 1, %8 ], [ 1, %10 ], [ 1, %12 ], [ 0, %3 ], [ 1, %15 ], [ 1, %17 ], [ 1, %20 ], [ 1, %23 ], [ 1, %25 ], [ 0, %14 ], [ 0, %6 ]
+  %.0 = phi i32 [ 1, %7 ], [ 1, %8 ], [ 1, %10 ], [ 1, %12 ], [ 1, %15 ], [ 1, %17 ], [ 1, %20 ], [ 1, %23 ], [ 1, %25 ], [ 1, %29 ], [ 0, %3 ], [ 0, %14 ], [ 0, %27 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -528,7 +528,7 @@ MakeUncompressedStream.exit:                      ; preds = %101
   br label %BrotliEncoderCreateInstance.exit.thread
 
 BrotliEncoderCreateInstance.exit.thread:          ; preds = %25, %BrotliEncoderMaxCompressedSize.exit.thread, %70, %.critedge, %BrotliEncoderMaxCompressedSize.exit, %MakeUncompressedStream.exit, %24
-  %.041 = phi i32 [ 0, %BrotliEncoderMaxCompressedSize.exit ], [ 1, %24 ], [ 1, %MakeUncompressedStream.exit ], [ 0, %70 ], [ 0, %BrotliEncoderMaxCompressedSize.exit.thread ], [ 1, %.critedge ], [ 0, %25 ]
+  %.041 = phi i32 [ 1, %24 ], [ 1, %MakeUncompressedStream.exit ], [ 0, %BrotliEncoderMaxCompressedSize.exit ], [ 1, %.critedge ], [ 0, %70 ], [ 0, %BrotliEncoderMaxCompressedSize.exit.thread ], [ 0, %25 ]
   ret i32 %.041
 }
 
@@ -618,7 +618,7 @@ ComputeLgBlock.exit.i:                            ; preds = %36, %SanitizeParams
   br label %ChooseDistanceParams.exit.i
 
 48:                                               ; preds = %45, %43, %40
-  %.0.i.ph.i = phi i32 [ 16, %40 ], [ %47, %45 ], [ %44, %43 ]
+  %.0.i.ph.i = phi i32 [ %47, %45 ], [ 16, %40 ], [ %44, %43 ]
   store i32 %.0.i.ph.i, ptr %34, align 4, !tbaa !38
   %49 = load i32, ptr %0, align 8, !tbaa !45
   %50 = icmp eq i32 %49, 2
@@ -735,8 +735,8 @@ ChooseDistanceParams.exit.i:                      ; preds = %63, %59, %ComputeLg
   br label %EncodeWindowBits.exit.i
 
 EncodeWindowBits.exit.i:                          ; preds = %103, %100, %97, %96, %92
-  %.sink18.i.i = phi i16 [ %95, %92 ], [ %102, %100 ], [ %105, %103 ], [ 1, %97 ], [ 0, %96 ]
-  %.sink.i.i = phi i8 [ 14, %92 ], [ 4, %100 ], [ 7, %103 ], [ 7, %97 ], [ 1, %96 ]
+  %.sink18.i.i = phi i16 [ %102, %100 ], [ %105, %103 ], [ 1, %97 ], [ %95, %92 ], [ 0, %96 ]
+  %.sink.i.i = phi i8 [ 4, %100 ], [ 7, %103 ], [ 7, %97 ], [ 14, %92 ], [ 1, %96 ]
   store i16 %.sink18.i.i, ptr %14, align 2, !tbaa !80
   store i8 %.sink.i.i, ptr %13, align 2, !tbaa !70
   br label %111
@@ -1214,10 +1214,10 @@ WriteMetadataHeader.exit.i:                       ; preds = %249, %238
   br label %.thread139.i
 
 .thread139.i:                                     ; preds = %.thread141.i, %358, %.thread.i121, %._crit_edge.i, %340
-  %.0114.i = phi ptr [ null, %358 ], [ null, %340 ], [ %361, %.thread141.i ], [ %356, %.thread.i121 ], [ %.pre.i, %._crit_edge.i ]
-  %.0113.i = phi ptr [ null, %358 ], [ null, %340 ], [ %361, %.thread141.i ], [ null, %.thread.i121 ], [ null, %._crit_edge.i ]
-  %.0110.i = phi ptr [ null, %358 ], [ null, %340 ], [ %360, %.thread141.i ], [ %.pr.i122, %.thread.i121 ], [ %351, %._crit_edge.i ]
-  %.0109.i = phi ptr [ null, %358 ], [ null, %340 ], [ %360, %.thread141.i ], [ null, %.thread.i121 ], [ null, %._crit_edge.i ]
+  %.0114.i = phi ptr [ null, %340 ], [ %361, %.thread141.i ], [ null, %358 ], [ %356, %.thread.i121 ], [ %.pre.i, %._crit_edge.i ]
+  %.0113.i = phi ptr [ null, %340 ], [ %361, %.thread141.i ], [ null, %358 ], [ null, %.thread.i121 ], [ null, %._crit_edge.i ]
+  %.0110.i = phi ptr [ null, %340 ], [ %360, %.thread141.i ], [ null, %358 ], [ %.pr.i122, %.thread.i121 ], [ %351, %._crit_edge.i ]
+  %.0109.i = phi ptr [ null, %340 ], [ %360, %.thread141.i ], [ null, %358 ], [ null, %.thread.i121 ], [ null, %._crit_edge.i ]
   %362 = getelementptr inbounds nuw i8, ptr %0, i64 1610
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 6920
@@ -1443,7 +1443,7 @@ HashTableSize.exit.i.i:                           ; preds = %466
   br label %GetHashTable.exit.i
 
 GetHashTable.exit.i:                              ; preds = %475, %._crit_edge.i128.i, %HashTableSize.exit.i.i
-  %.0.i131.i = phi ptr [ %478, %475 ], [ %.pre.i130.i, %._crit_edge.i128.i ], [ %373, %HashTableSize.exit.i.i ]
+  %.0.i131.i = phi ptr [ %.pre.i130.i, %._crit_edge.i128.i ], [ %478, %475 ], [ %373, %HashTableSize.exit.i.i ]
   %479 = shl i64 %.025.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %.0.i131.i, i8 0, i64 %479, i1 false)
   %480 = load i32, ptr %315, align 4, !tbaa !36
@@ -2006,7 +2006,7 @@ UpdateSizeHint.exit138:                           ; preds = %752, %755
   br label %ProcessMetadata.exit
 
 ProcessMetadata.exit:                             ; preds = %742, %.thread207, %UpdateSizeHint.exit138, %713, %210, %190, %762, %519, %516, %.thread158.i, %276, %145, %UpdateSizeHint.exit, %312, %309, %309, %125
-  %.0 = phi i32 [ 1, %519 ], [ 0, %125 ], [ 0, %309 ], [ 0, %312 ], [ 0, %309 ], [ 1, %762 ], [ 1, %516 ], [ 1, %276 ], [ 0, %UpdateSizeHint.exit ], [ 0, %145 ], [ 0, %210 ], [ 1, %.thread158.i ], [ 1, %190 ], [ 1, %742 ], [ 1, %.thread207 ], [ 1, %713 ], [ 0, %UpdateSizeHint.exit138 ]
+  %.0 = phi i32 [ 0, %125 ], [ 0, %309 ], [ 0, %309 ], [ 0, %312 ], [ 0, %UpdateSizeHint.exit ], [ 0, %145 ], [ 1, %276 ], [ 1, %.thread158.i ], [ 1, %516 ], [ 1, %519 ], [ 1, %762 ], [ 0, %210 ], [ 1, %190 ], [ 1, %713 ], [ 1, %742 ], [ 1, %.thread207 ], [ 0, %UpdateSizeHint.exit138 ]
   ret i32 %.0
 }
 
@@ -5216,7 +5216,7 @@ UpdateLastProcessedPos.exit402:                   ; preds = %WrapPosition.exit.i
   br label %1855
 
 1855:                                             ; preds = %.critedge, %68, %63, %59, %.thread440, %1637, %WrapPosition.exit.i, %58, %53, %39
-  %.0 = phi i32 [ 1, %53 ], [ 0, %59 ], [ 0, %63 ], [ 1, %WrapPosition.exit.i ], [ 1, %.thread440 ], [ 1, %1637 ], [ 1, %.critedge ], [ 1, %58 ], [ 1, %39 ], [ 0, %68 ]
+  %.0 = phi i32 [ 1, %WrapPosition.exit.i ], [ 1, %.thread440 ], [ 1, %1637 ], [ 1, %58 ], [ 1, %39 ], [ 1, %53 ], [ 0, %59 ], [ 0, %63 ], [ 0, %68 ], [ 1, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
@@ -5299,7 +5299,7 @@ define ptr @BrotliEncoderPrepareDictionary(i32 noundef %0, i64 noundef %1, ptr n
   br label %18
 
 18:                                               ; preds = %12, %9, %7, %17
-  %.0 = phi ptr [ null, %7 ], [ null, %17 ], [ null, %9 ], [ %10, %12 ]
+  %.0 = phi ptr [ null, %17 ], [ null, %7 ], [ null, %9 ], [ %10, %12 ]
   ret ptr %.0
 }
 
@@ -5562,7 +5562,7 @@ ComputeLgBlock.exit.thread:                       ; preds = %SanitizeParams.exit
   br label %33
 
 ComputeLgBlock.exit:                              ; preds = %23, %25, %27
-  %.0.i = phi i32 [ 16, %23 ], [ %29, %27 ], [ %26, %25 ]
+  %.0.i = phi i32 [ %26, %25 ], [ 16, %23 ], [ %29, %27 ]
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %32 = icmp samesign ugt i32 %0, 9
   br i1 %32, label %60, label %33
@@ -5629,10 +5629,10 @@ ChooseHasher.exit.thread:                         ; preds = %41
   br label %60
 
 60:                                               ; preds = %ComputeLgBlock.exit, %55, %52, %.thread, %38
-  %61 = phi i32 [ %57, %55 ], [ %53, %52 ], [ 54, %38 ], [ %11, %.thread ], [ 10, %ComputeLgBlock.exit ]
-  %62 = phi i1 [ false, %55 ], [ false, %52 ], [ false, %38 ], [ false, %.thread ], [ true, %ComputeLgBlock.exit ]
-  %63 = phi ptr [ %34, %55 ], [ %34, %52 ], [ %34, %38 ], [ %34, %.thread ], [ %31, %ComputeLgBlock.exit ]
-  %.0.i77 = phi i32 [ %.0.i78, %55 ], [ %.0.i78, %52 ], [ %.0.i78, %38 ], [ %.0.i78, %.thread ], [ %.0.i, %ComputeLgBlock.exit ]
+  %61 = phi i32 [ %57, %55 ], [ %53, %52 ], [ %11, %.thread ], [ 54, %38 ], [ 10, %ComputeLgBlock.exit ]
+  %62 = phi i1 [ false, %55 ], [ false, %52 ], [ false, %.thread ], [ false, %38 ], [ true, %ComputeLgBlock.exit ]
+  %63 = phi ptr [ %34, %55 ], [ %34, %52 ], [ %34, %.thread ], [ %34, %38 ], [ %31, %ComputeLgBlock.exit ]
+  %.0.i77 = phi i32 [ %.0.i78, %55 ], [ %.0.i78, %52 ], [ %.0.i78, %.thread ], [ %.0.i78, %38 ], [ %.0.i, %ComputeLgBlock.exit ]
   %64 = icmp samesign ugt i32 %15, 24
   br i1 %64, label %65, label %ChooseHasher.exit
 
@@ -5824,9 +5824,9 @@ HashMemAllocInBytesH65.exit:                      ; preds = %87
   br label %HasherSize.exit
 
 HasherSize.exit:                                  ; preds = %87, %107, %108, %109, %119, %129, %130, %131, %132, %144, %HashMemAllocInBytesH35.exit, %HashMemAllocInBytesH55.exit, %HashMemAllocInBytesH65.exit, %165
-  %.sroa.0.0 = phi i64 [ 0, %87 ], [ 262144, %107 ], [ 524288, %165 ], [ 524288, %108 ], [ %116, %109 ], [ %126, %119 ], [ 262144, %129 ], [ %162, %HashMemAllocInBytesH65.exit ], [ 262144, %130 ], [ 4194304, %131 ], [ %140, %132 ], [ %152, %144 ], [ 262144, %HashMemAllocInBytesH35.exit ], [ 4194304, %HashMemAllocInBytesH55.exit ]
-  %.sroa.19.0 = phi i64 [ 0, %87 ], [ 0, %107 ], [ %168, %165 ], [ 0, %108 ], [ %118, %109 ], [ %128, %119 ], [ 262144, %129 ], [ %164, %HashMemAllocInBytesH65.exit ], [ 1048576, %130 ], [ 0, %131 ], [ %141, %132 ], [ %153, %144 ], [ 0, %HashMemAllocInBytesH35.exit ], [ 0, %HashMemAllocInBytesH55.exit ]
-  %.sroa.31.0 = phi i64 [ 0, %87 ], [ 0, %107 ], [ 0, %165 ], [ 0, %108 ], [ 0, %109 ], [ 0, %119 ], [ 0, %129 ], [ 67108864, %HashMemAllocInBytesH65.exit ], [ 0, %130 ], [ 0, %131 ], [ %143, %132 ], [ %155, %144 ], [ 67108864, %HashMemAllocInBytesH35.exit ], [ 67108864, %HashMemAllocInBytesH55.exit ]
+  %.sroa.0.0 = phi i64 [ 0, %87 ], [ 262144, %107 ], [ 524288, %108 ], [ %116, %109 ], [ %126, %119 ], [ 262144, %129 ], [ 262144, %130 ], [ 4194304, %131 ], [ %140, %132 ], [ %152, %144 ], [ 262144, %HashMemAllocInBytesH35.exit ], [ 4194304, %HashMemAllocInBytesH55.exit ], [ %162, %HashMemAllocInBytesH65.exit ], [ 524288, %165 ]
+  %.sroa.19.0 = phi i64 [ 0, %87 ], [ 0, %107 ], [ 0, %108 ], [ %118, %109 ], [ %128, %119 ], [ 262144, %129 ], [ 1048576, %130 ], [ 0, %131 ], [ %141, %132 ], [ %153, %144 ], [ 0, %HashMemAllocInBytesH35.exit ], [ 0, %HashMemAllocInBytesH55.exit ], [ %164, %HashMemAllocInBytesH65.exit ], [ %168, %165 ]
+  %.sroa.31.0 = phi i64 [ 0, %87 ], [ 0, %107 ], [ 0, %108 ], [ 0, %109 ], [ 0, %119 ], [ 0, %129 ], [ 0, %130 ], [ 0, %131 ], [ %143, %132 ], [ %155, %144 ], [ 67108864, %HashMemAllocInBytesH35.exit ], [ 67108864, %HashMemAllocInBytesH55.exit ], [ 67108864, %HashMemAllocInBytesH65.exit ], [ 0, %165 ]
   %169 = icmp samesign ult i32 %0, 4
   br i1 %169, label %170, label %174
 
@@ -5853,7 +5853,7 @@ HasherSize.exit:                                  ; preds = %87, %107, %108, %10
   br label %181
 
 181:                                              ; preds = %174, %175, %177
-  %.043 = phi i64 [ 0, %175 ], [ %180, %177 ], [ 209715200, %174 ]
+  %.043 = phi i64 [ %180, %177 ], [ 0, %175 ], [ 209715200, %174 ]
   %182 = add i64 %98, 503
   %183 = add i64 %182, %104
   %184 = add i64 %183, %.sroa.0.0

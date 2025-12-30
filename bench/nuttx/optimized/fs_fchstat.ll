@@ -132,7 +132,7 @@ define i32 @file_fchstat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   br label %63
 
 63:                                               ; preds = %61, %59, %56, %53, %46, %35, %7
-  %.035 = phi i32 [ -22, %7 ], [ -22, %46 ], [ -22, %35 ], [ %60, %59 ], [ %62, %61 ], [ -38, %56 ], [ -38, %53 ]
+  %.035 = phi i32 [ -22, %7 ], [ -22, %35 ], [ -22, %46 ], [ %60, %59 ], [ %62, %61 ], [ -38, %56 ], [ -38, %53 ]
   ret i32 %.035
 }
 
@@ -191,7 +191,7 @@ define range(i32 -1, 1) i32 @fchmod(i32 noundef %0, i32 noundef %1) local_unname
   br label %file_fchstat.exit
 
 file_fchstat.exit:                                ; preds = %25, %27
-  %.035.i = phi i32 [ %28, %27 ], [ %26, %25 ]
+  %.035.i = phi i32 [ %26, %25 ], [ %28, %27 ]
   %29 = icmp sgt i32 %.035.i, -1
   br i1 %29, label %fchstat.exit, label %file_fchstat.exit.thread
 
@@ -291,7 +291,7 @@ define range(i32 -1, 1) i32 @futimens(i32 noundef %0, ptr noundef readonly captu
   br i1 %26, label %file_fchstat.exit.thread, label %27
 
 27:                                               ; preds = %15, %25, %23
-  %.2.i = phi i32 [ 24, %25 ], [ 24, %23 ], [ 16, %15 ]
+  %.2.i = phi i32 [ 24, %23 ], [ 24, %25 ], [ 16, %15 ]
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %29 = load i64, ptr %28, align 8
   switch i64 %29, label %34 [
@@ -341,12 +341,12 @@ define range(i32 -1, 1) i32 @futimens(i32 noundef %0, ptr noundef readonly captu
   br label %file_fchstat.exit
 
 file_fchstat.exit:                                ; preds = %47, %49
-  %.035.i = phi i32 [ %50, %49 ], [ %48, %47 ]
+  %.035.i = phi i32 [ %48, %47 ], [ %50, %49 ]
   %51 = icmp sgt i32 %.035.i, -1
   br i1 %51, label %fchstat.exit, label %file_fchstat.exit.thread
 
-file_fchstat.exit.thread:                         ; preds = %44, %25, %34, %41, %file_fchstat.exit, %12
-  %.0.i = phi i32 [ %13, %12 ], [ %.035.i, %file_fchstat.exit ], [ -38, %44 ], [ -22, %25 ], [ -22, %34 ], [ -38, %41 ]
+file_fchstat.exit.thread:                         ; preds = %41, %44, %34, %25, %file_fchstat.exit, %12
+  %.0.i = phi i32 [ %13, %12 ], [ %.035.i, %file_fchstat.exit ], [ -38, %41 ], [ -38, %44 ], [ -22, %34 ], [ -22, %25 ]
   %52 = sub nsw i32 0, %.0.i
   %53 = call ptr @__errno() #4
   store i32 %52, ptr %53, align 4

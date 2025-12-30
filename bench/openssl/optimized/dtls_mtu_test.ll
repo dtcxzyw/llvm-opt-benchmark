@@ -97,15 +97,15 @@ define internal range(i32 0, 3) i32 @run_mtu_tests() #0 {
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 187, ptr noundef nonnull @.str.11, ptr noundef nonnull %14) #7
   br label %26
 
-26:                                               ; preds = %25, %20, %.lr.ph
-  %.2.ph = phi i32 [ %.130, %.lr.ph ], [ 1, %20 ], [ %23, %25 ]
+26:                                               ; preds = %25, %.lr.ph, %20
+  %.2.ph = phi i32 [ 1, %20 ], [ %.130, %.lr.ph ], [ %23, %25 ]
   %27 = add nuw nsw i32 %.02131, 1
   %28 = tail call i32 @OPENSSL_sk_num(ptr noundef %10) #7
   %29 = icmp slt i32 %27, %28
   br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %26, %22, %17, %9, %4, %0
-  %.022 = phi i32 [ 0, %0 ], [ 0, %4 ], [ 0, %9 ], [ %.2.ph, %26 ], [ %23, %22 ], [ %18, %17 ]
+  %.022 = phi i32 [ 0, %4 ], [ 0, %0 ], [ 0, %9 ], [ %.2.ph, %26 ], [ %23, %22 ], [ %18, %17 ]
   tail call void @SSL_CTX_free(ptr noundef %2) #7
   ret i32 %.022
 }
@@ -167,7 +167,7 @@ define internal range(i32 0, 2) i32 @test_server_mtu_larger_than_max_fragment_le
   br label %33
 
 33:                                               ; preds = %24, %16, %11, %6, %0
-  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %24 ], [ 0, %16 ], [ 0, %11 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %11 ], [ 0, %6 ], [ 0, %0 ], [ %spec.select, %24 ]
   %34 = load ptr, ptr %2, align 8, !tbaa !6
   call void @SSL_free(ptr noundef %34) #7
   %35 = load ptr, ptr %1, align 8, !tbaa !6
@@ -413,7 +413,7 @@ define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %0, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %70, %77, %88, %16, %22, %28, %32, %3, %91, %47
-  %.047 = phi i32 [ 0, %47 ], [ 0, %3 ], [ %spec.store.select, %91 ], [ 0, %88 ], [ 0, %32 ], [ 0, %28 ], [ 0, %22 ], [ 0, %16 ], [ 0, %77 ], [ 0, %70 ], [ 0, %.lr.ph ]
+  %.047 = phi i32 [ 0, %47 ], [ %spec.store.select, %91 ], [ 0, %88 ], [ 0, %32 ], [ 0, %28 ], [ 0, %22 ], [ 0, %16 ], [ 0, %3 ], [ 0, %77 ], [ 0, %70 ], [ 0, %.lr.ph ]
   %95 = load ptr, ptr %5, align 8, !tbaa !6
   call void @SSL_free(ptr noundef %95) #7
   %96 = load ptr, ptr %4, align 8, !tbaa !6

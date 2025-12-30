@@ -946,7 +946,7 @@ _ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.i:           ; preds = %_ZSt7advanceIPKlmEv
   br label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.thread.i
 
 _ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.thread.i:    ; preds = %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.i, %_ZSt7advanceIPKlmEvRT_T0_.exit.i.i
-  %311 = phi i64 [ 16, %_ZSt7advanceIPKlmEvRT_T0_.exit.i.i ], [ %gepdiff456.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.i ]
+  %311 = phi i64 [ %gepdiff456.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.i ], [ 16, %_ZSt7advanceIPKlmEvRT_T0_.exit.i.i ]
   %.sink.i.i25.i.ptr.i = getelementptr inbounds nuw i8, ptr %22, i64 %308
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.12.1341.i, ptr nonnull align 8 %.sink.i.i25.i.ptr.i, i64 %311, i1 false)
   %312 = getelementptr inbounds nuw i8, ptr %.sroa.12.1341.i, i64 %311
@@ -1004,7 +1004,7 @@ _ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i258.i:        ; preds = %_ZSt7advanceIPKlmEv
   br label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i258.thread.i
 
 _ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i258.thread.i: ; preds = %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i258.i, %_ZSt7advanceIPKlmEvRT_T0_.exit.i254.i
-  %324 = phi i64 [ 16, %_ZSt7advanceIPKlmEvRT_T0_.exit.i254.i ], [ %gepdiff.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i258.i ]
+  %324 = phi i64 [ %gepdiff.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i258.i ], [ 16, %_ZSt7advanceIPKlmEvRT_T0_.exit.i254.i ]
   %.sink.i.i25.i259.ptr.i = getelementptr inbounds nuw i8, ptr %23, i64 %321
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.12.1341.i, ptr nonnull align 8 %.sink.i.i25.i259.ptr.i, i64 %324, i1 false)
   %325 = getelementptr inbounds nuw i8, ptr %.sroa.12.1341.i, i64 %324
@@ -1143,7 +1143,7 @@ _ZNK5arrow6Tensor20CalculateValueOffsetERKSt6vectorIlSaIlEE.exit.i: ; preds = %3
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i.i, %.loopexit.i.loopexit.split.loop.exit, %.loopexit.i.loopexit.split.loop.exit133, %.loopexit.i.loopexit.split.loop.exit135, %371, %367, %363
-  %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %367 ], [ %.029.lcssa.i.i.i.i.i.i, %363 ], [ %.2.i.i.i.i.i.i, %371 ], [ %375, %.loopexit.i.loopexit.split.loop.exit135 ], [ %373, %.loopexit.i.loopexit.split.loop.exit ], [ %374, %.loopexit.i.loopexit.split.loop.exit133 ], [ %.02946.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %363 ], [ %.1.i.i.i.i.i.i, %367 ], [ %.2.i.i.i.i.i.i, %371 ], [ %373, %.loopexit.i.loopexit.split.loop.exit ], [ %374, %.loopexit.i.loopexit.split.loop.exit133 ], [ %375, %.loopexit.i.loopexit.split.loop.exit135 ], [ %.02946.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not304.i = icmp eq ptr %346, %.028.i.i.i.i.i.i
   br i1 %.not304.i, label %.thread.i, label %376
 
@@ -3047,7 +3047,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   br label %298
 
 .body:                                            ; preds = %.split.us.split.us.split.us, %.split.us.split.us.split.split.us, %.split.us.split.us.split.split, %.split.split.split, %.split.split.split.us.split.us, %.split.split.us.split.us, %.split146.us, %.split146.split.split, %.split146.split.split.us, %.split146.split.us, %.split143.us, %.split143.split.split, %.split143.split.split.us, %.split143.split.us, %.split138.us, %.split138.split.split, %.split138.split.split.us, %.split138.split.us, %273, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6TensorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i, %157
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %158, %157 ], [ %244, %.split143.split.split.us ], [ %253, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6TensorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i ], [ %243, %.split138.split.split.us ], [ %245, %.split146.split.split.us ], [ %274, %273 ], [ %192, %.split138.us ], [ %218, %.split138.split.us ], [ %254, %.split138.split.split ], [ %193, %.split143.us ], [ %219, %.split143.split.us ], [ %262, %.split143.split.split ], [ %194, %.split146.us ], [ %220, %.split146.split.us ], [ %263, %.split146.split.split ], [ %187, %.split.us.split.us.split.split.us ], [ %182, %.split.us.split.us.split.us ], [ %195, %.split.us.split.us.split.split ], [ %221, %.split.split.us.split.us ], [ %269, %.split.split.split ], [ %246, %.split.split.split.us.split.us ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %158, %157 ], [ %274, %273 ], [ %253, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6TensorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i ], [ %192, %.split138.us ], [ %218, %.split138.split.us ], [ %254, %.split138.split.split ], [ %243, %.split138.split.split.us ], [ %193, %.split143.us ], [ %219, %.split143.split.us ], [ %262, %.split143.split.split ], [ %244, %.split143.split.split.us ], [ %194, %.split146.us ], [ %220, %.split146.split.us ], [ %263, %.split146.split.split ], [ %245, %.split146.split.split.us ], [ %182, %.split.us.split.us.split.us ], [ %195, %.split.us.split.us.split.split ], [ %187, %.split.us.split.us.split.split.us ], [ %221, %.split.split.us.split.us ], [ %269, %.split.split.split ], [ %246, %.split.split.split.us.split.us ]
   %287 = load ptr, ptr %16, align 8, !tbaa !57
   %.not.i.i.i101 = icmp eq ptr %287, null
   br i1 %.not.i.i.i101, label %_ZNSt6vectorIlSaIlEED2Ev.exit102, label %288

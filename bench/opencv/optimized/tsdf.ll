@@ -924,7 +924,7 @@ define hidden i16 @_ZNK2cv5kinfu13TSDFVolumeCPU2atERKNS_3VecIiLi3EEE(ptr noundef
   br label %36
 
 36:                                               ; preds = %2, %7, %13, %19
-  %.sroa.3.0 = phi i16 [ %35, %19 ], [ 128, %7 ], [ 128, %13 ], [ 128, %2 ]
+  %.sroa.3.0 = phi i16 [ %35, %19 ], [ 128, %13 ], [ 128, %7 ], [ 128, %2 ]
   ret i16 %.sroa.3.0
 }
 
@@ -1882,7 +1882,7 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i.i:       ; preds = %69
   br label %105
 
 105:                                              ; preds = %103, %101
-  %.pn11 = phi { ptr, i32 } [ %102, %101 ], [ %104, %103 ]
+  %.pn11 = phi { ptr, i32 } [ %104, %103 ], [ %102, %101 ]
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
   resume { ptr, i32 } %.pn11
 }
@@ -2339,7 +2339,7 @@ _ZNSt6vectorIS_IN2cv3VecIfLi4EEESaIS2_EESaIS4_EED2Ev.exit65: ; preds = %_ZSt8_De
   br label %190
 
 183:                                              ; preds = %86, %88, %162, %121, %112
-  %.pn39.pn = phi { ptr, i32 } [ %.pn.pn.pn, %121 ], [ %.pn35.pn.pn, %162 ], [ %113, %112 ], [ %89, %88 ], [ %87, %86 ]
+  %.pn39.pn = phi { ptr, i32 } [ %.pn35.pn.pn, %162 ], [ %113, %112 ], [ %.pn.pn.pn, %121 ], [ %89, %88 ], [ %87, %86 ]
   %184 = load ptr, ptr %10, align 8, !tbaa !150
   %.not.i.i.i66 = icmp eq ptr %184, null
   br i1 %.not.i.i.i66, label %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit67, label %185
@@ -4615,10 +4615,10 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu25FetchPointsNormalsInvokerclERKNS
   br label %._crit_edge95
 
 ._crit_edge95:                                    ; preds = %.lr.ph94, %._crit_edge95.loopexit, %.lr.ph99.split
-  %36 = phi i32 [ %18, %.lr.ph99.split ], [ %.pre105, %._crit_edge95.loopexit ], [ %18, %.lr.ph94 ]
-  %37 = phi ptr [ %19, %.lr.ph99.split ], [ %55, %._crit_edge95.loopexit ], [ %19, %.lr.ph94 ]
-  %38 = phi ptr [ %20, %.lr.ph99.split ], [ %55, %._crit_edge95.loopexit ], [ %20, %.lr.ph94 ]
-  %39 = phi ptr [ %21, %.lr.ph99.split ], [ %55, %._crit_edge95.loopexit ], [ %20, %.lr.ph94 ]
+  %36 = phi i32 [ %.pre105, %._crit_edge95.loopexit ], [ %18, %.lr.ph99.split ], [ %18, %.lr.ph94 ]
+  %37 = phi ptr [ %55, %._crit_edge95.loopexit ], [ %19, %.lr.ph99.split ], [ %19, %.lr.ph94 ]
+  %38 = phi ptr [ %55, %._crit_edge95.loopexit ], [ %20, %.lr.ph99.split ], [ %20, %.lr.ph94 ]
+  %39 = phi ptr [ %55, %._crit_edge95.loopexit ], [ %21, %.lr.ph99.split ], [ %20, %.lr.ph94 ]
   %40 = add nsw i32 %.096, 1
   %41 = icmp slt i32 %40, %36
   br i1 %41, label %.lr.ph99.split, label %._crit_edge100, !llvm.loop !291
@@ -4902,7 +4902,7 @@ _ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit83: ; preds = %_ZNSt6vectorIN2cv3V
   br label %166
 
 166:                                              ; preds = %161, %163, %85
-  %.pn57.pn = phi { ptr, i32 } [ %162, %161 ], [ %86, %85 ], [ %164, %163 ]
+  %.pn57.pn = phi { ptr, i32 } [ %86, %85 ], [ %164, %163 ], [ %162, %161 ]
   %167 = load ptr, ptr %4, align 8, !tbaa !150
   %.not.i.i.i84 = icmp eq ptr %167, null
   br i1 %.not.i.i.i84, label %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit85, label %168

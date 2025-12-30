@@ -312,8 +312,8 @@ define internal fastcc void @init_cache_modes(i64 noundef %0) unnamed_addr #0 se
   br label %pat_get_cache_mode.exit
 
 pat_get_cache_mode.exit:                          ; preds = %3, %11, %12, %13, %14, %15
-  %16 = phi i32 [ 0, %15 ], [ 2, %14 ], [ 3, %3 ], [ %8, %13 ], [ %8, %12 ], [ %8, %11 ]
-  %17 = phi ptr [ @.str.18, %15 ], [ @.str.19, %14 ], [ @.str.14, %3 ], [ @.str.17, %13 ], [ @.str.16, %12 ], [ @.str.15, %11 ]
+  %16 = phi i32 [ 0, %15 ], [ 2, %14 ], [ %8, %13 ], [ %8, %12 ], [ %8, %11 ], [ 3, %3 ]
+  %17 = phi ptr [ @.str.18, %15 ], [ @.str.19, %14 ], [ @.str.17, %13 ], [ @.str.16, %12 ], [ @.str.15, %11 ], [ @.str.14, %3 ]
   %18 = load i32, ptr %17, align 1
   store i32 %18, ptr %10, align 4
   %19 = trunc i64 %4 to i32
@@ -631,7 +631,7 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
   br label %.loopexit18
 
 .loopexit18:                                      ; preds = %.loopexit, %.thread16, %129, %119, %114, %105, %78, %76, %.loopexit19, %58, %57, %31, %29, %25, %23, %19
-  %132 = phi i32 [ -22, %19 ], [ %112, %114 ], [ 0, %25 ], [ 0, %23 ], [ 0, %31 ], [ 0, %29 ], [ -22, %.thread16 ], [ -12, %105 ], [ 0, %129 ], [ 0, %119 ], [ -22, %58 ], [ -22, %57 ], [ -16, %.loopexit19 ], [ -16, %76 ], [ 0, %78 ], [ 0, %.loopexit ]
+  %132 = phi i32 [ -22, %19 ], [ %112, %114 ], [ 0, %25 ], [ 0, %23 ], [ 0, %31 ], [ 0, %29 ], [ -12, %105 ], [ 0, %129 ], [ 0, %119 ], [ -22, %58 ], [ -22, %57 ], [ -16, %.loopexit19 ], [ -16, %76 ], [ 0, %78 ], [ -22, %.thread16 ], [ 0, %.loopexit ]
   ret i32 %132
 }
 
@@ -792,7 +792,7 @@ define dso_local noundef range(i32 -22, 1) i32 @memtype_free(i64 noundef %0, i64
   br label %.loopexit8
 
 .loopexit8:                                       ; preds = %.loopexit, %.thread6, %60, %57, %49, %24, %5, %2
-  %63 = phi i32 [ -22, %49 ], [ 0, %2 ], [ 0, %5 ], [ -22, %.thread6 ], [ 0, %60 ], [ 0, %57 ], [ 0, %24 ], [ 0, %.loopexit ]
+  %63 = phi i32 [ -22, %49 ], [ 0, %2 ], [ 0, %5 ], [ 0, %60 ], [ 0, %57 ], [ 0, %24 ], [ -22, %.thread6 ], [ 0, %.loopexit ]
   ret i32 %63
 }
 

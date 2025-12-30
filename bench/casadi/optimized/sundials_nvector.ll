@@ -325,7 +325,7 @@ N_VDestroyVectorArray.exit:                       ; preds = %N_VDestroy.exit.i, 
   br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !39
 
 .loopexit:                                        ; preds = %27, %4, %2, %N_VDestroyVectorArray.exit
-  %.014 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %N_VDestroyVectorArray.exit ], [ %7, %27 ]
+  %.014 = phi ptr [ null, %N_VDestroyVectorArray.exit ], [ null, %2 ], [ null, %4 ], [ %7, %27 ]
   ret ptr %.014
 }
 
@@ -438,7 +438,7 @@ N_VDestroyVectorArray.exit:                       ; preds = %N_VDestroy.exit.i, 
   br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !40
 
 .loopexit:                                        ; preds = %26, %4, %2, %N_VDestroyVectorArray.exit
-  %.014 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %N_VDestroyVectorArray.exit ], [ %7, %26 ]
+  %.014 = phi ptr [ null, %N_VDestroyVectorArray.exit ], [ null, %2 ], [ null, %4 ], [ %7, %26 ]
   ret ptr %.014
 }
 

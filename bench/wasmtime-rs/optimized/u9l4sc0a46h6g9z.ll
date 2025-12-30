@@ -121,7 +121,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN3std10sys_common4once5futex4Once5sta
   br label %12
 
 12:                                               ; preds = %1, %11, %10
-  %.0 = phi i8 [ 2, %11 ], [ 1, %10 ], [ 0, %1 ]
+  %.0 = phi i8 [ 1, %10 ], [ 2, %11 ], [ 0, %1 ]
   ret i8 %.0
 }
 
@@ -1302,7 +1302,7 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$wasmtime..runtime..component
   br label %common.resume
 
 common.resume:                                    ; preds = %.body18, %91, %.body12, %63, %.body, %32, %155, %131, %125, %114
-  %common.resume.op = phi { ptr, i32 } [ %156, %155 ], [ %24, %.body ], [ %55, %.body12 ], [ %115, %114 ], [ %126, %125 ], [ %132, %131 ], [ %24, %32 ], [ %55, %63 ], [ %83, %91 ], [ %83, %.body18 ]
+  %common.resume.op = phi { ptr, i32 } [ %115, %114 ], [ %126, %125 ], [ %132, %131 ], [ %156, %155 ], [ %24, %32 ], [ %24, %.body ], [ %55, %63 ], [ %55, %.body12 ], [ %83, %91 ], [ %83, %.body18 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$wasmtime..runtime..component..values..Val$GT$$GT$17h66432f47b0ccf567E.exit": ; preds = %16

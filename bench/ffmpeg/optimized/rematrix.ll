@@ -1061,7 +1061,7 @@ build_matrix.exit:                                ; preds = %457, %445
   br i1 %489, label %470, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit64, %11, %65, %62, %58, %55
-  %.049 = phi i32 [ %22, %11 ], [ -22, %55 ], [ -22, %65 ], [ -22, %62 ], [ -22, %58 ], [ 0, %.loopexit64 ], [ 0, %._crit_edge ]
+  %.049 = phi i32 [ %22, %11 ], [ -22, %65 ], [ -22, %62 ], [ -22, %58 ], [ -22, %55 ], [ 0, %.loopexit64 ], [ 0, %._crit_edge ]
   call void @av_channel_layout_uninit(ptr noundef nonnull %13) #12
   call void @av_channel_layout_uninit(ptr noundef nonnull %14) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -1201,7 +1201,7 @@ even.exit43:                                      ; preds = %even.exit38.thread
   br label %even.exit43.thread
 
 even.exit43.thread:                               ; preds = %11, %even.exit33.thread, %even.exit28.thread, %even.exit.thread, %16, %even.exit43, %even.exit38.thread, %.thread, %5, %1
-  %.016 = phi i32 [ 0, %1 ], [ 0, %even.exit33.thread ], [ %spec.select, %even.exit43 ], [ 0, %even.exit28.thread ], [ 0, %even.exit.thread ], [ 0, %16 ], [ 0, %.thread ], [ 0, %5 ], [ 1, %even.exit38.thread ], [ 0, %11 ]
+  %.016 = phi i32 [ 0, %1 ], [ 0, %5 ], [ 0, %.thread ], [ 1, %even.exit38.thread ], [ %spec.select, %even.exit43 ], [ 0, %16 ], [ 0, %even.exit.thread ], [ 0, %even.exit28.thread ], [ 0, %even.exit33.thread ], [ 0, %11 ]
   ret i32 %.016
 }
 
@@ -2393,7 +2393,7 @@ get_mix_any_func_s32.exit:                        ; preds = %548, %595, %599
   unreachable
 
 .thread:                                          ; preds = %get_mix_any_func_clip_s16.exit, %get_mix_any_func_s16.exit, %get_mix_any_func_float.exit, %get_mix_any_func_s32.exit, %get_mix_any_func_double.exit
-  %storemerge.sink = phi ptr [ %.0.i218, %get_mix_any_func_double.exit ], [ %.0.i212, %get_mix_any_func_float.exit ], [ %.0.i224, %get_mix_any_func_s32.exit ], [ %.0.i206, %get_mix_any_func_clip_s16.exit ], [ %.0.i, %get_mix_any_func_s16.exit ]
+  %storemerge.sink = phi ptr [ %.0.i212, %get_mix_any_func_float.exit ], [ %.0.i224, %get_mix_any_func_s32.exit ], [ %.0.i218, %get_mix_any_func_double.exit ], [ %.0.i206, %get_mix_any_func_clip_s16.exit ], [ %.0.i, %get_mix_any_func_s16.exit ]
   store ptr %storemerge.sink, ptr %31, align 8, !tbaa !50
   %601 = getelementptr inbounds nuw i8, ptr %0, i64 16232
   %602 = getelementptr inbounds nuw i8, ptr %0, i64 65416
@@ -2443,7 +2443,7 @@ get_mix_any_func_s32.exit:                        ; preds = %548, %595, %599
   br i1 %exitcond309.not, label %.loopexit, label %.preheader, !llvm.loop !65
 
 .loopexit:                                        ; preds = %622, %39, %480, %369, %257, %34, %492
-  %.2 = phi i32 [ -12, %480 ], [ -12, %39 ], [ %35, %34 ], [ -12, %257 ], [ -12, %492 ], [ -12, %369 ], [ 0, %622 ]
+  %.2 = phi i32 [ -12, %492 ], [ %35, %34 ], [ -12, %257 ], [ -12, %369 ], [ -12, %480 ], [ -12, %39 ], [ 0, %622 ]
   ret i32 %.2
 }
 

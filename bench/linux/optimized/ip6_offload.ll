@@ -217,8 +217,8 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %126, label %.thread17.loopexit, label %.lr.ph, !prof !8
 
 .thread17.loopexit:                               ; preds = %116, %92, %.lr.ph, %120, %87, %85, %111, %109, %.lr.ph.preheader
-  %.lcssa24.ph = phi i32 [ %53, %.lr.ph.preheader ], [ %74, %116 ], [ %74, %109 ], [ %74, %111 ], [ %74, %85 ], [ %74, %87 ], [ %122, %120 ], [ %122, %.lr.ph ], [ %74, %92 ]
-  %.lcssa.ph = phi i32 [ %6, %.lr.ph.preheader ], [ %75, %116 ], [ %75, %109 ], [ %75, %111 ], [ %75, %85 ], [ %75, %87 ], [ %102, %120 ], [ %102, %.lr.ph ], [ %75, %92 ]
+  %.lcssa24.ph = phi i32 [ %53, %.lr.ph.preheader ], [ %74, %116 ], [ %74, %92 ], [ %122, %.lr.ph ], [ %122, %120 ], [ %74, %87 ], [ %74, %85 ], [ %74, %111 ], [ %74, %109 ]
+  %.lcssa.ph = phi i32 [ %6, %.lr.ph.preheader ], [ %75, %116 ], [ %75, %92 ], [ %102, %.lr.ph ], [ %102, %120 ], [ %75, %87 ], [ %75, %85 ], [ %75, %111 ], [ %75, %109 ]
   %.pre = load ptr, ptr %33, align 8
   %.pre47 = load i16, ptr %39, align 4
   %.pre48 = load ptr, ptr %31, align 8
@@ -1019,7 +1019,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   br i1 %192, label %._crit_edge, label %.lr.ph, !prof !8
 
 ._crit_edge:                                      ; preds = %186, %.lr.ph, %158, %174, %156, %172, %.lr.ph.preheader, %132
-  %.in.lcssa = phi i8 [ %138, %132 ], [ %138, %.lr.ph.preheader ], [ %.in2684, %172 ], [ %182, %186 ], [ %182, %.lr.ph ], [ %.in2684, %158 ], [ %.in2684, %174 ], [ %.in2684, %156 ]
+  %.in.lcssa = phi i8 [ %138, %132 ], [ %138, %.lr.ph.preheader ], [ %.in2684, %172 ], [ %.in2684, %156 ], [ %.in2684, %174 ], [ %.in2684, %158 ], [ %182, %.lr.ph ], [ %182, %186 ]
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %194 = load i24, ptr %193, align 1
   %195 = and i24 %194, 8192
@@ -1063,7 +1063,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   br label %.thread16
 
 .thread16:                                        ; preds = %196, %212, %211, %208
-  %222 = phi i1 [ false, %196 ], [ %210, %208 ], [ false, %211 ], [ %221, %212 ]
+  %222 = phi i1 [ %210, %208 ], [ false, %211 ], [ %221, %212 ], [ false, %196 ]
   %223 = zext i8 %.in.lcssa to i64
   %224 = getelementptr ptr, ptr @inet6_offloads, i64 %223
   %225 = load volatile ptr, ptr %224, align 8
@@ -1365,7 +1365,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   br i1 %432, label %.thread18, label %.split.split, !llvm.loop !20
 
 .thread18:                                        ; preds = %430, %.split.split.us.split, %.split.split.us.split.us, %324, %.thread16, %227, %241, %.split38.us, %245, %108, %106, %65
-  %433 = phi ptr [ inttoptr (i64 -22 to ptr), %108 ], [ %239, %245 ], [ inttoptr (i64 -22 to ptr), %106 ], [ inttoptr (i64 -1 to ptr), %65 ], [ %423, %.split38.us ], [ null, %241 ], [ inttoptr (i64 -93 to ptr), %.thread16 ], [ inttoptr (i64 -93 to ptr), %227 ], [ %239, %324 ], [ %239, %.split.split.us.split ], [ %239, %.split.split.us.split.us ], [ %239, %430 ]
+  %433 = phi ptr [ inttoptr (i64 -22 to ptr), %108 ], [ %239, %245 ], [ inttoptr (i64 -22 to ptr), %106 ], [ inttoptr (i64 -1 to ptr), %65 ], [ %423, %.split38.us ], [ inttoptr (i64 -93 to ptr), %.thread16 ], [ inttoptr (i64 -93 to ptr), %227 ], [ null, %241 ], [ %239, %324 ], [ %239, %.split.split.us.split.us ], [ %239, %.split.split.us.split ], [ %239, %430 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %433
 }

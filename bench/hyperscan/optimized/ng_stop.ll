@@ -171,10 +171,10 @@ thread-pre-split.us:                              ; preds = %_ZNKSt6vectorIN3ue2
   br label %74
 
 74:                                               ; preds = %65, %thread-pre-split.us, %.lr.ph.split.us
-  %75 = phi i64 [ %30, %.lr.ph.split.us ], [ %30, %thread-pre-split.us ], [ %73, %65 ]
-  %76 = phi i64 [ %31, %.lr.ph.split.us ], [ %31, %thread-pre-split.us ], [ %71, %65 ]
-  %77 = phi i64 [ %32, %.lr.ph.split.us ], [ %32, %thread-pre-split.us ], [ %69, %65 ]
-  %78 = phi i64 [ %33, %.lr.ph.split.us ], [ %33, %thread-pre-split.us ], [ %67, %65 ]
+  %75 = phi i64 [ %30, %thread-pre-split.us ], [ %73, %65 ], [ %30, %.lr.ph.split.us ]
+  %76 = phi i64 [ %31, %thread-pre-split.us ], [ %71, %65 ], [ %31, %.lr.ph.split.us ]
+  %77 = phi i64 [ %32, %thread-pre-split.us ], [ %69, %65 ], [ %32, %.lr.ph.split.us ]
+  %78 = phi i64 [ %33, %thread-pre-split.us ], [ %67, %65 ], [ %33, %.lr.ph.split.us ]
   %.sroa.035.0.us = load ptr, ptr %.sroa.035.053.us, align 8
   %.not.us = icmp eq ptr %.sroa.035.0.us, %20
   br i1 %.not.us, label %..preheader_crit_edge, label %.lr.ph.split.us
@@ -250,11 +250,11 @@ _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i: ; preds = %103
   br i1 %.not.i.i14.i, label %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit15.i, label %.split75.us.invoke
 
 .split75.us.invoke:                               ; preds = %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i, %103, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us, %39
-  %.us-phi70.sink = phi i64 [ %32, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us ], [ %32, %39 ], [ %98, %103 ], [ %98, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i ]
-  %.us-phi69.sink = phi i64 [ %31, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us ], [ %31, %39 ], [ %97, %103 ], [ %97, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i ]
-  %.us-phi.sink = phi i64 [ %30, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us ], [ %30, %39 ], [ %96, %103 ], [ %96, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i ]
-  %.us-phi71.sink = phi i64 [ %33, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us ], [ %33, %39 ], [ %99, %103 ], [ %99, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i ]
-  %105 = phi i64 [ %40, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us ], [ %40, %39 ], [ %104, %103 ], [ %104, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i ]
+  %.us-phi70.sink = phi i64 [ %32, %39 ], [ %32, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us ], [ %98, %103 ], [ %98, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i ]
+  %.us-phi69.sink = phi i64 [ %31, %39 ], [ %31, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us ], [ %97, %103 ], [ %97, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i ]
+  %.us-phi.sink = phi i64 [ %30, %39 ], [ %30, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us ], [ %96, %103 ], [ %96, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i ]
+  %.us-phi71.sink = phi i64 [ %33, %39 ], [ %33, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us ], [ %99, %103 ], [ %99, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i ]
+  %105 = phi i64 [ %40, %39 ], [ %40, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us ], [ %104, %103 ], [ %104, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i ]
   %106 = phi i64 [ %52, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us ], [ %46, %39 ], [ %91, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i ], [ %85, %103 ]
   store i64 %.us-phi70.sink, ptr %24, align 8
   store i64 %.us-phi69.sink, ptr %25, align 8
@@ -354,7 +354,7 @@ _ZN3ue212_GLOBAL__N_110InitDepthsD2Ev.exit:       ; preds = %_ZNSt6vectorIN3ue21
   ret void
 
 146:                                              ; preds = %131, %.split83.us
-  %.pn26.pn.pn.pn = phi { ptr, i32 } [ %132, %131 ], [ %79, %.split83.us ]
+  %.pn26.pn.pn.pn = phi { ptr, i32 } [ %79, %.split83.us ], [ %132, %131 ]
   call void @_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEENS0_20BoundedRepeatSummaryESt4lessIS8_ESaISt4pairIKS8_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call fastcc void @_ZN3ue212_GLOBAL__N_110InitDepthsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #17

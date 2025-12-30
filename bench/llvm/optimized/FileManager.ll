@@ -1230,7 +1230,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %12, %_ZN4llvmneENS_
   br label %21
 
 21:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread, %_ZN4llvmneENS_9StringRefES0_.exit, %5
-  %.sroa.750.0 = phi i64 [ %3, %5 ], [ %spec.select, %_ZN4llvmneENS_9StringRefES0_.exit.thread ], [ %3, %_ZN4llvmneENS_9StringRefES0_.exit ]
+  %.sroa.750.0 = phi i64 [ %3, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %3, %5 ], [ %spec.select, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 780
   %23 = load i32, ptr %22, align 4, !tbaa !102
   %24 = add i32 %23, 1

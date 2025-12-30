@@ -16029,7 +16029,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i156: ; preds
   ret void
 
 407:                                              ; preds = %323, %386, %259, %199
-  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %.pn40.pn, %199 ], [ %.pn43.pn, %259 ], [ %.pn49.pn, %386 ], [ %.pn46.pn, %323 ]
+  %.pn49.pn.pn.pn = phi { ptr, i32 } [ %.pn43.pn, %259 ], [ %.pn40.pn, %199 ], [ %.pn49.pn, %386 ], [ %.pn46.pn, %323 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %408
 

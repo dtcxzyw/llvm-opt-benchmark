@@ -120,8 +120,8 @@ define internal range(i32 0, 2) i32 @aesni_cbc_hmac_sha256_cipher(ptr noundef %0
   br label %27
 
 27:                                               ; preds = %23, %18
-  %.0381 = phi i64 [ %spec.select, %23 ], [ 0, %18 ]
-  %.0379 = phi i64 [ %7, %23 ], [ %3, %18 ]
+  %.0381 = phi i64 [ 0, %18 ], [ %spec.select, %23 ]
+  %.0379 = phi i64 [ %3, %18 ], [ %7, %23 ]
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 4, !tbaa !3
   %29 = and i32 %28, 536870912
   %.not420 = icmp eq i32 %29, 0
@@ -965,7 +965,7 @@ sha256_update.exit480:                            ; preds = %485
   br label %539
 
 539:                                              ; preds = %152, %._crit_edge, %sha256_update.exit480.thread, %sha256_update.exit480, %sha256_update.exit480.thread497, %20, %4
-  %.0 = phi i32 [ %538, %sha256_update.exit480 ], [ 0, %sha256_update.exit480.thread497 ], [ 0, %4 ], [ 0, %20 ], [ 1, %sha256_update.exit480.thread ], [ 1, %._crit_edge ], [ 1, %152 ]
+  %.0 = phi i32 [ %538, %sha256_update.exit480 ], [ 0, %4 ], [ 0, %20 ], [ 0, %sha256_update.exit480.thread497 ], [ 1, %sha256_update.exit480.thread ], [ 1, %._crit_edge ], [ 1, %152 ]
   ret i32 %.0
 }
 
@@ -1275,7 +1275,7 @@ sha256_update.exit:                               ; preds = %41, %.thread45
   br label %56
 
 56:                                               ; preds = %.sink.split, %29, %3
-  %.038 = phi i32 [ 0, %29 ], [ -1, %3 ], [ 1, %.sink.split ]
+  %.038 = phi i32 [ -1, %3 ], [ 0, %29 ], [ 1, %.sink.split ]
   ret i32 %.038
 }
 
@@ -1362,8 +1362,8 @@ define internal range(i32 -1, 2) i32 @aesni_cbc_hmac_sha256_tls1_multiblock_aad(
   br label %44
 
 44:                                               ; preds = %31, %29, %40
-  %.048 = phi i32 [ %37, %40 ], [ %spec.select, %31 ], [ 1, %29 ]
-  %.0 = phi i32 [ %43, %40 ], [ %12, %31 ], [ %12, %29 ]
+  %.048 = phi i32 [ 1, %29 ], [ %37, %40 ], [ %spec.select, %31 ]
+  %.0 = phi i32 [ %12, %29 ], [ %43, %40 ], [ %12, %31 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 504
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %45, ptr noundef nonnull align 8 dereferenceable(112) %46, i64 112, i1 false), !tbaa.struct !17
@@ -1429,7 +1429,7 @@ sha256_update.exit:                               ; preds = %50, %.thread60
   br label %83
 
 83:                                               ; preds = %2, %34, %27, %16, %73
-  %.045 = phi i32 [ -1, %34 ], [ -1, %16 ], [ 1, %73 ], [ 0, %27 ], [ -1, %2 ]
+  %.045 = phi i32 [ 1, %73 ], [ -1, %16 ], [ 0, %27 ], [ -1, %34 ], [ -1, %2 ]
   ret i32 %.045
 }
 

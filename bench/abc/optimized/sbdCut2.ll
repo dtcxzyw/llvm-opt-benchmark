@@ -186,7 +186,7 @@ define range(i32 0, 2) i32 @Sbd_ManCutIsTopo_rec(ptr noundef %0, ptr noundef %1,
   br i1 %narrow.i.not, label %common.ret35, label %20
 
 common.ret35:                                     ; preds = %16, %3, %10, %20
-  %common.ret35.op = phi i32 [ %33, %20 ], [ 1, %10 ], [ 0, %16 ], [ 1, %3 ]
+  %common.ret35.op = phi i32 [ %33, %20 ], [ 1, %10 ], [ 1, %3 ], [ 0, %16 ]
   ret i32 %common.ret35.op
 
 20:                                               ; preds = %16
@@ -487,8 +487,8 @@ Vec_IntPushOrder.exit.i:                          ; preds = %84, %._crit_edge.lo
   br label %Vec_IntGrow.exit23thread-pre-split.i82.i
 
 Vec_IntGrow.exit23thread-pre-split.i82.i:         ; preds = %107, %109, %99, %101
-  %storemerge18 = phi ptr [ %102, %101 ], [ %100, %99 ], [ %108, %107 ], [ %110, %109 ]
-  %.sink.i83.i = phi i32 [ 16, %101 ], [ 16, %99 ], [ %104, %107 ], [ %104, %109 ]
+  %storemerge18 = phi ptr [ %100, %99 ], [ %102, %101 ], [ %108, %107 ], [ %110, %109 ]
+  %.sink.i83.i = phi i32 [ 16, %99 ], [ 16, %101 ], [ %104, %107 ], [ %104, %109 ]
   store ptr %storemerge18, ptr %6, align 8, !tbaa !28
   store i32 %.sink.i83.i, ptr %3, align 8, !tbaa !27
   %.pr.i84.i = load i32, ptr %5, align 4, !tbaa !24
@@ -532,14 +532,14 @@ Vec_IntPushOrder.exit87.i:                        ; preds = %120, %._crit_edge.l
   %.val12.pre = load i32, ptr %5, align 4, !tbaa !24
   br label %.critedge
 
-126:                                              ; preds = %Vec_IntFind.exit68.thread.i, %14, %Vec_IntFind.exit68.i, %51
+126:                                              ; preds = %14, %Vec_IntFind.exit68.i, %51, %Vec_IntFind.exit68.thread.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i.i
   br i1 %exitcond.not, label %.split34.us, label %14, !llvm.loop !57
 
 .critedge:                                        ; preds = %.split, %Vec_IntPushOrder.exit87.i, %90
-  %.val12 = phi i32 [ %.val12.pre48, %90 ], [ %.val12.pre, %Vec_IntPushOrder.exit87.i ], [ %.val1249, %.split ]
-  %.025 = phi i32 [ %57, %90 ], [ %57, %Vec_IntPushOrder.exit87.i ], [ 0, %.split ]
+  %.val12 = phi i32 [ %.val12.pre, %Vec_IntPushOrder.exit87.i ], [ %.val12.pre48, %90 ], [ %.val1249, %.split ]
+  %.025 = phi i32 [ %57, %Vec_IntPushOrder.exit87.i ], [ %57, %90 ], [ 0, %.split ]
   %127 = icmp slt i32 %.025, %.val12
   br i1 %127, label %.split, label %.split34.us, !llvm.loop !58
 
@@ -850,7 +850,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %76
 
 76:                                               ; preds = %6, %13, %63, %Vec_IntPush.exit
-  %.0.shrunk = phi i1 [ %75, %63 ], [ %62, %Vec_IntPush.exit ], [ true, %13 ], [ true, %6 ]
+  %.0.shrunk = phi i1 [ %62, %Vec_IntPush.exit ], [ %75, %63 ], [ true, %13 ], [ true, %6 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -995,7 +995,7 @@ define range(i32 0, 2) i32 @Sbd_ManCutReduceTop(ptr noundef readonly captures(no
   br label %Vec_IntRemove.exit
 
 Vec_IntRemove.exit:                               ; preds = %66, %._crit_edge.i, %._crit_edge30.i
-  %83 = phi i32 [ %82, %._crit_edge30.i ], [ %58, %._crit_edge.i ], [ %58, %66 ]
+  %83 = phi i32 [ %58, %._crit_edge.i ], [ %82, %._crit_edge30.i ], [ %58, %66 ]
   %.not53 = icmp eq i32 %spec.select, 0
   br i1 %.not53, label %Vec_IntPushUniqueOrder.exit, label %84
 
@@ -1246,12 +1246,12 @@ Vec_IntPushOrder.exit.i82:                        ; preds = %177, %._crit_edge.l
   store i32 %43, ptr %182, align 4, !tbaa !33
   br label %.critedge
 
-.critedge56:                                      ; preds = %53, %48, %25, %19
+.critedge56:                                      ; preds = %53, %25, %48, %19
   %183 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %183, label %19, label %.critedge, !llvm.loop !64
 
 .critedge:                                        ; preds = %.critedge56, %139, %7, %Vec_IntPushOrder.exit.i82, %Vec_IntPushUniqueOrder.exit
-  %.2 = phi i32 [ 0, %7 ], [ 1, %Vec_IntPushUniqueOrder.exit ], [ 1, %Vec_IntPushOrder.exit.i82 ], [ 1, %139 ], [ 0, %.critedge56 ]
+  %.2 = phi i32 [ 1, %Vec_IntPushUniqueOrder.exit ], [ 1, %Vec_IntPushOrder.exit.i82 ], [ 0, %7 ], [ 1, %139 ], [ 0, %.critedge56 ]
   ret i32 %.2
 }
 
@@ -1641,7 +1641,7 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntAppend.exit.
   br label %219
 
 219:                                              ; preds = %.sink.split, %193, %209, %182, %3
-  %.0 = phi i32 [ -1, %182 ], [ -1, %193 ], [ -1, %209 ], [ -1, %3 ], [ %.val176, %.sink.split ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %182 ], [ -1, %209 ], [ -1, %193 ], [ %.val176, %.sink.split ]
   ret i32 %.0
 }
 

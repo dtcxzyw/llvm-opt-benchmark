@@ -309,7 +309,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi26EEERS2_RAT__Kc.exit: ; pr
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge56, %78, %90
-  %.sink = phi i64 [ %99, %90 ], [ %77, %.critedge56 ], [ %79, %78 ]
+  %.sink = phi i64 [ %99, %90 ], [ %79, %78 ], [ %77, %.critedge56 ]
   store i64 %.sink, ptr %28, align 8, !tbaa !18
   br label %100
 
@@ -414,7 +414,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %.critedge59, %114
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit, %122, %127, %130, %133
-  %.0.i.i = phi i64 [ -9223372036854775808, %122 ], [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ -9223372036854775808, %130 ], [ %134, %133 ], [ 9223372036854775807, %127 ]
+  %.0.i.i = phi i64 [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ -9223372036854775808, %122 ], [ %134, %133 ], [ 9223372036854775807, %127 ], [ -9223372036854775808, %130 ]
   ret i64 %.0.i.i
 
 135:                                              ; preds = %112, %80, %56

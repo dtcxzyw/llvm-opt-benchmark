@@ -799,7 +799,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm8MCSymbol11isUndefinedEb
   br label %_ZNK4llvm8MCSymbol11getFragmentEb.exit
 
 _ZNK4llvm8MCSymbol11getFragmentEb.exit:           ; preds = %2, %4, %8
-  %.0.i = phi i1 [ %15, %8 ], [ false, %2 ], [ true, %4 ]
+  %.0.i = phi i1 [ %15, %8 ], [ true, %4 ], [ false, %2 ]
   ret i1 %.0.i
 }
 
@@ -938,7 +938,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   br label %89
 
 89:                                               ; preds = %73, %68, %48
-  %.2.i = phi i1 [ false, %73 ], [ %72, %68 ], [ true, %48 ]
+  %.2.i = phi i1 [ %72, %68 ], [ false, %73 ], [ true, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveDescEN4llvm9StringRefENS1_5SMLocE.exit
 
@@ -1249,7 +1249,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   br label %81
 
 81:                                               ; preds = %71, %66, %49
-  %.2.i = phi i1 [ %80, %71 ], [ %70, %66 ], [ true, %49 ]
+  %.2.i = phi i1 [ %70, %66 ], [ %80, %71 ], [ true, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveLsymEN4llvm9StringRefENS1_5SMLocE.exit
 
@@ -1769,8 +1769,8 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit54: ; 
   br i1 %174, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, label %_ZN4llvmneENS_9StringRefES0_.exit.thread59
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i41, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit54
-  %175 = phi i64 [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i41 ], [ 6, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit54 ]
-  %176 = phi ptr [ @.str.90, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ @.str.92, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i41 ], [ %spec.select, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit54 ]
+  %175 = phi i64 [ 6, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit54 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i41 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
+  %176 = phi ptr [ %spec.select, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit54 ], [ @.str.92, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i41 ], [ @.str.90, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %_ZNK4llvm9StringRef4findEcm.exit61, label %_ZN4llvm9StringRefC2EPKc.exit
 
@@ -2859,7 +2859,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   br label %162
 
 162:                                              ; preds = %144, %139, %132, %124, %111, %85
-  %.3.i = phi i1 [ %143, %139 ], [ %115, %111 ], [ %128, %124 ], [ %136, %132 ], [ false, %144 ], [ true, %85 ]
+  %.3.i = phi i1 [ %115, %111 ], [ %128, %124 ], [ %136, %132 ], [ false, %144 ], [ %143, %139 ], [ true, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %163
 
@@ -3268,7 +3268,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   br label %257
 
 257:                                              ; preds = %239, %234, %227, %219, %206, %180
-  %.5.i = phi i1 [ %238, %234 ], [ %210, %206 ], [ %223, %219 ], [ %231, %227 ], [ false, %239 ], [ true, %180 ]
+  %.5.i = phi i1 [ %210, %206 ], [ %223, %219 ], [ %231, %227 ], [ false, %239 ], [ %238, %234 ], [ true, %180 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %258
 
@@ -4228,8 +4228,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit47.i:              ; preds = %56
   br label %73
 
 73:                                               ; preds = %67, %_ZN4llvmplERKNS_5TwineES2_.exit47.i, %46, %40
-  %.2.i = phi i1 [ %.02.i, %67 ], [ true, %40 ], [ %66, %_ZN4llvmplERKNS_5TwineES2_.exit47.i ], [ %.02.i, %46 ]
-  %.0.i = phi i32 [ 0, %67 ], [ 1, %40 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit47.i ], [ 3, %46 ]
+  %.2.i = phi i1 [ %66, %_ZN4llvmplERKNS_5TwineES2_.exit47.i ], [ %.02.i, %67 ], [ true, %40 ], [ %.02.i, %46 ]
+  %.0.i = phi i32 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit47.i ], [ 0, %67 ], [ 1, %40 ], [ 3, %46 ]
   %74 = load ptr, ptr %8, align 8, !tbaa !95
   %75 = icmp eq ptr %74, %15
   br i1 %75, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -6057,8 +6057,8 @@ _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split: ; preds = %36, 
   br label %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread
 
 _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread: ; preds = %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split, %16, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit
-  %.sroa.024.0 = phi i64 [ 0, %16 ], [ 0, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit ], [ %44, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split ]
-  %.sroa.6.0 = phi i64 [ 0, %16 ], [ 0, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit ], [ %.sroa.6.0.ph, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split ]
+  %.sroa.024.0 = phi i64 [ 0, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit ], [ 0, %16 ], [ %44, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split ]
+  %.sroa.6.0 = phi i64 [ 0, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit ], [ 0, %16 ], [ %.sroa.6.0.ph, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split ]
   %59 = load ptr, ptr %17, align 8, !tbaa !11
   %60 = tail call noundef zeroext i1 @_ZN4llvm11MCAsmParser8parseEOLEv(ptr noundef nonnull align 8 dereferenceable(34) %59) #18
   br i1 %60, label %_ZN4llvmplERKNS_5TwineES2_.exit21, label %switch.lookup
@@ -6111,7 +6111,7 @@ switch.lookup:                                    ; preds = %_ZL17isSDKVersionTo
   br label %81
 
 81:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit21, %switch.lookup, %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit.thread, %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit.thread35, %5
-  %.0 = phi i1 [ true, %5 ], [ false, %switch.lookup ], [ %68, %_ZN4llvmplERKNS_5TwineES2_.exit21 ], [ true, %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit.thread35 ], [ true, %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit.thread ]
+  %.0 = phi i1 [ true, %5 ], [ %68, %_ZN4llvmplERKNS_5TwineES2_.exit21 ], [ false, %switch.lookup ], [ true, %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit.thread ], [ true, %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit.thread35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -6190,7 +6190,7 @@ _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread: ; preds = %18, %_ZL17isSDK
   br label %45
 
 45:                                               ; preds = %43, %7, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit, %4, %38
-  %.0 = phi i1 [ false, %7 ], [ true, %4 ], [ %42, %38 ], [ %44, %43 ], [ false, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit ]
+  %.0 = phi i1 [ %42, %38 ], [ true, %4 ], [ false, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit ], [ false, %7 ], [ %44, %43 ]
   ret i1 %.0
 }
 
@@ -6875,7 +6875,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i108.i:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit111.i
 
 _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit111.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i108.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i100.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i92.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i76.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i68.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i60.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i52.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i44.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i36.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i28.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i20.i
-  %.sroa.30.12.i = phi i64 [ 4294967300, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i44.i ], [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i28.i ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i108.i ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i36.i ], [ 4294967306, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i92.i ], [ 4294967307, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i100.i ], [ 4294967304, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i76.i ], [ 4294967305, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84.i ], [ 4294967303, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i68.i ], [ 4294967302, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i60.i ], [ 4294967301, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i52.i ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i20.i ]
+  %.sroa.30.12.i = phi i64 [ 4294967306, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i92.i ], [ 4294967307, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i100.i ], [ 4294967304, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i76.i ], [ 4294967305, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84.i ], [ 4294967302, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i60.i ], [ 4294967303, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i68.i ], [ 4294967300, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i44.i ], [ 4294967301, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i52.i ], [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i28.i ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i36.i ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i108.i ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i20.i ]
   %.not466.i = icmp samesign ult i64 %.sroa.30.12.i, 4294967296
   %.sroa.30.16.extract.trunc.i = trunc i64 %.sroa.30.12.i to i32
   %45 = icmp eq i32 %.sroa.30.16.extract.trunc.i, 0
@@ -7014,8 +7014,8 @@ _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split.i: ; preds = %_Z
   br label %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.i
 
 _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.i: ; preds = %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split.i, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.i, %72
-  %.sroa.0.0.i = phi i64 [ 0, %72 ], [ 0, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.i ], [ %99, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split.i ]
-  %.sroa.6.0.i = phi i64 [ 0, %72 ], [ 0, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.i ], [ %.sroa.6.0.ph.i, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split.i ]
+  %.sroa.0.0.i = phi i64 [ 0, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.i ], [ 0, %72 ], [ %99, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split.i ]
+  %.sroa.6.0.i = phi i64 [ 0, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.i ], [ 0, %72 ], [ %.sroa.6.0.ph.i, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.sink.split.i ]
   %114 = load ptr, ptr %17, align 8, !tbaa !11
   %115 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8parseEOLEv(ptr noundef nonnull align 8 dereferenceable(34) %114) #18
   br i1 %115, label %116, label %switch.lookup
@@ -7058,7 +7058,7 @@ switch.lookup:                                    ; preds = %_ZL17isSDKVersionTo
   br label %133
 
 133:                                              ; preds = %switch.lookup, %116, %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit.thread334.i, %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit.thread.i, %65
-  %.2.i = phi i1 [ true, %65 ], [ false, %switch.lookup ], [ %120, %116 ], [ true, %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit.thread334.i ], [ true, %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit.thread.i ]
+  %.2.i = phi i1 [ true, %65 ], [ %120, %116 ], [ false, %switch.lookup ], [ true, %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit.thread.i ], [ true, %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit.thread334.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

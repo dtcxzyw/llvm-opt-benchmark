@@ -470,7 +470,7 @@ JsonbIteratorInit.exit:                           ; preds = %108, %118
   br i1 %.not62, label %pushJsonbValueScalar.exit, label %140, !llvm.loop !8
 
 pushJsonbValueScalar.exit:                        ; preds = %140, %137, %78, %77, %._crit_edge, %132, %94, %._crit_edge72
-  %.055 = phi ptr [ %41, %._crit_edge72 ], [ %72, %78 ], [ %95, %94 ], [ %135, %132 ], [ %72, %._crit_edge ], [ %72, %77 ], [ null, %137 ], [ %148, %140 ]
+  %.055 = phi ptr [ %41, %._crit_edge72 ], [ %95, %94 ], [ %135, %132 ], [ %72, %._crit_edge ], [ %72, %77 ], [ %72, %78 ], [ null, %137 ], [ %148, %140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.055
@@ -786,14 +786,14 @@ JsonbIteratorInit.exit29:                         ; preds = %44, %54
   %130 = select i1 %129, i32 1, i32 -1
   br label %compareJsonbScalarValue.exit.thread
 
-compareJsonbScalarValue.exit.thread:              ; preds = %73, %126, %108, %114, %123, %99
-  %.1.ph = phi i32 [ %..i, %99 ], [ %125, %123 ], [ %116, %114 ], [ %110, %108 ], [ %130, %126 ], [ 0, %73 ]
+compareJsonbScalarValue.exit.thread:              ; preds = %73, %108, %114, %123, %126, %99
+  %.1.ph = phi i32 [ %..i, %99 ], [ %130, %126 ], [ %125, %123 ], [ %116, %114 ], [ %110, %108 ], [ 0, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %thread-pre-split
 
 compareJsonbScalarValue.exit:                     ; preds = %81, %95, %88, %82, %101, %111, %75
-  %.1 = phi i32 [ 0, %75 ], [ 0, %111 ], [ 0, %81 ], [ 0, %95 ], [ %87, %82 ], [ %.2, %101 ], [ %94, %88 ]
+  %.1 = phi i32 [ 0, %75 ], [ %.2, %101 ], [ 0, %111 ], [ %87, %82 ], [ %94, %88 ], [ 0, %95 ], [ 0, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %131 = icmp eq i32 %.1, 0
@@ -1045,8 +1045,8 @@ switch.early.test:                                ; preds = %55
   unreachable
 
 .backedge:                                        ; preds = %83, %73, %210, %200
-  %.sink130 = phi ptr [ %191, %210 ], [ %191, %200 ], [ %64, %73 ], [ %64, %83 ]
-  %.sink.i.sink = phi i32 [ 2, %210 ], [ 0, %200 ], [ 0, %73 ], [ 2, %83 ]
+  %.sink130 = phi ptr [ %191, %200 ], [ %191, %210 ], [ %64, %73 ], [ %64, %83 ]
+  %.sink.i.sink = phi i32 [ 0, %200 ], [ 2, %210 ], [ 0, %73 ], [ 2, %83 ]
   %91 = getelementptr inbounds nuw i8, ptr %.sink130, i64 44
   store i32 %.sink.i.sink, ptr %91, align 4
   store ptr %.sink130, ptr %0, align 8
@@ -1269,7 +1269,7 @@ switch.early.test99:                              ; preds = %182
   unreachable
 
 .loopexit:                                        ; preds = %switch.early.test99, %switch.early.test99, %switch.early.test99, %switch.early.test99, %switch.early.test99, %182, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %55, %3, %137, %124, %getJsonbOffset.exit, %33, %11
-  %.0 = phi i32 [ 1, %137 ], [ 4, %11 ], [ 5, %33 ], [ 0, %3 ], [ 6, %getJsonbOffset.exit ], [ 7, %124 ], [ 2, %switch.early.test99 ], [ 2, %switch.early.test99 ], [ 2, %switch.early.test99 ], [ 2, %switch.early.test99 ], [ 2, %182 ], [ 3, %switch.early.test ], [ 3, %switch.early.test ], [ 3, %switch.early.test ], [ 3, %switch.early.test ], [ 3, %55 ], [ 2, %switch.early.test99 ], [ 3, %switch.early.test ]
+  %.0 = phi i32 [ 4, %11 ], [ 5, %33 ], [ 6, %getJsonbOffset.exit ], [ 7, %124 ], [ 1, %137 ], [ 0, %3 ], [ 2, %switch.early.test99 ], [ 2, %switch.early.test99 ], [ 2, %switch.early.test99 ], [ 2, %switch.early.test99 ], [ 2, %182 ], [ 3, %switch.early.test ], [ 3, %switch.early.test ], [ 3, %switch.early.test ], [ 3, %switch.early.test ], [ 3, %55 ], [ 2, %switch.early.test99 ], [ 3, %switch.early.test ]
   ret i32 %.0
 }
 
@@ -1345,7 +1345,7 @@ define dso_local ptr @findJsonbValueFromContainer(ptr noundef %0, i32 noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %20, %28, %27, %3, %30
-  %.0 = phi ptr [ %35, %30 ], [ null, %3 ], [ null, %28 ], [ null, %27 ], [ %12, %20 ]
+  %.0 = phi ptr [ %35, %30 ], [ null, %3 ], [ null, %27 ], [ null, %28 ], [ %12, %20 ]
   ret ptr %.0
 }
 
@@ -1559,7 +1559,7 @@ define internal fastcc zeroext i1 @equalsJsonbScalarValue(ptr noundef readonly c
   unreachable
 
 lengthCompareJsonbStringValue.exit:               ; preds = %11, %7, %6, %25, %16
-  %.0 = phi i1 [ %30, %25 ], [ true, %6 ], [ %24, %16 ], [ %15, %11 ], [ false, %7 ]
+  %.0 = phi i1 [ %24, %16 ], [ %30, %25 ], [ true, %6 ], [ %15, %11 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -1809,7 +1809,7 @@ define internal fastcc ptr @pushJsonbValueScalar(ptr noundef captures(none) %0, 
   br label %23
 
 23:                                               ; preds = %13, %.critedge
-  %.sink = phi i64 [ %spec.select, %13 ], [ 4, %.critedge ]
+  %.sink = phi i64 [ 4, %.critedge ], [ %spec.select, %13 ]
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 %.sink, ptr %25, align 8
@@ -2358,8 +2358,8 @@ JsonbIteratorInit.exit87:                         ; preds = %76, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %95, label %96, label %.thread
 
-.thread:                                          ; preds = %33, %JsonbIteratorInit.exit87, %28, %22, %96, %.preheader
-  %.lcssa = phi i1 [ true, %.preheader ], [ true, %96 ], [ false, %22 ], [ false, %28 ], [ false, %JsonbIteratorInit.exit87 ], [ false, %33 ]
+.thread:                                          ; preds = %33, %28, %22, %96, %JsonbIteratorInit.exit87, %.preheader
+  %.lcssa = phi i1 [ true, %.preheader ], [ false, %JsonbIteratorInit.exit87 ], [ true, %96 ], [ false, %22 ], [ false, %28 ], [ false, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
@@ -2614,7 +2614,7 @@ JsonbIteratorInit.exit91:                         ; preds = %175, %185
   unreachable
 
 .critedge:                                        ; preds = %132, %119, %._crit_edge, %113, %204, %._crit_edge106, %201, %.preheader96, %.thread, %99, %13, %2
-  %.0 = phi i1 [ false, %13 ], [ false, %2 ], [ %.lcssa, %.thread ], [ false, %99 ], [ true, %.preheader96 ], [ false, %201 ], [ false, %119 ], [ false, %132 ], [ false, %._crit_edge ], [ true, %204 ], [ false, %113 ], [ false, %._crit_edge106 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %13 ], [ false, %99 ], [ %.lcssa, %.thread ], [ true, %.preheader96 ], [ false, %201 ], [ false, %132 ], [ false, %119 ], [ false, %._crit_edge ], [ false, %113 ], [ true, %204 ], [ false, %._crit_edge106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
@@ -2662,7 +2662,7 @@ define dso_local void @JsonbHashScalarValue(ptr noundef readonly captures(none) 
   unreachable
 
 24:                                               ; preds = %2, %16, %10, %4
-  %.0 = phi i32 [ %20, %16 ], [ %9, %4 ], [ %15, %10 ], [ 1, %2 ]
+  %.0 = phi i32 [ %9, %4 ], [ %15, %10 ], [ %20, %16 ], [ 1, %2 ]
   %25 = load i32, ptr %1, align 4
   %26 = tail call noundef i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 1)
   %27 = xor i32 %26, %.0

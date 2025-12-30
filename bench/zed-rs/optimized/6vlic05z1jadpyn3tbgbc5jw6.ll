@@ -83,7 +83,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h036e73206326d431E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -205,7 +205,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h036e73206326d431E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 
@@ -247,7 +247,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h03f748b7cbcfcfc1E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -378,7 +378,7 @@ _ZN5paths11crashes_dir17h03fecc3e7450ea06E.exit.i.i.i.i: ; preds = %35, %.noexc8
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %49, %22, %47
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %47 ], [ %51, %49 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %51, %49 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %47 ]
   br label %.split
 }
 
@@ -420,7 +420,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h178d14953919644eE(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -542,7 +542,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h178d14953919644eE(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 
@@ -584,7 +584,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h2956e03814465df6E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -706,7 +706,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h2956e03814465df6E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 
@@ -748,7 +748,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h2e4b20f91e0f215aE(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -870,7 +870,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h2e4b20f91e0f215aE(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 
@@ -912,7 +912,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h3e0c7b964f9d1052E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -1034,7 +1034,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h3e0c7b964f9d1052E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 
@@ -1076,7 +1076,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h4d00f7132fca9701E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -1198,7 +1198,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h4d00f7132fca9701E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 
@@ -1240,7 +1240,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h5a74643bfbb7f5a4E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -1362,7 +1362,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h5a74643bfbb7f5a4E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 
@@ -1405,7 +1405,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h5f474fbeabd245e6E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split20.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %17, %14, %12
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i16.us, %12 ], [ %16, %14 ], [ %.sroa.08.0.i.us, %17 ]
+  %.sroa.0.0.us.be = phi i32 [ %16, %14 ], [ %.sroa.08.0.i.us, %17 ], [ %.sroa.08.0.i16.us, %12 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -1541,7 +1541,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h5f474fbeabd245e6E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %55, %23, %53
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i16, %53 ], [ %57, %55 ], [ %.sroa.08.0.i, %23 ]
+  %.sroa.0.0.be = phi i32 [ %57, %55 ], [ %.sroa.08.0.i, %23 ], [ %.sroa.08.0.i16, %53 ]
   br label %.split
 }
 
@@ -1591,7 +1591,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h653c9560186a4bb6E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split21.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %24, %21, %19
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i17.us, %19 ], [ %23, %21 ], [ %.sroa.08.0.i.us, %24 ]
+  %.sroa.0.0.us.be = phi i32 [ %23, %21 ], [ %.sroa.08.0.i.us, %24 ], [ %.sroa.08.0.i17.us, %19 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -1890,7 +1890,7 @@ _ZN3std4path4Path4join17h66074a45924d7ba7E.exit39.i.i.i.i: ; preds = %83
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %121, %30, %119
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i17, %119 ], [ %123, %121 ], [ %.sroa.08.0.i, %30 ]
+  %.sroa.0.0.be = phi i32 [ %123, %121 ], [ %.sroa.08.0.i, %30 ], [ %.sroa.08.0.i17, %119 ]
   br label %.split
 }
 
@@ -1932,7 +1932,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h696910ad2e9aeec0E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -2054,7 +2054,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h696910ad2e9aeec0E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 
@@ -2096,7 +2096,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h884beb736ceb4b47E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -2218,7 +2218,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h884beb736ceb4b47E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 
@@ -2260,7 +2260,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h96ae50d53112e8efE(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -2382,7 +2382,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h96ae50d53112e8efE(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 
@@ -2424,7 +2424,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hc1e4895c7fe07988E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -2546,7 +2546,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hc1e4895c7fe07988E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 
@@ -2596,7 +2596,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hc9e1b5590e0c78cdE(pt
   br i1 %.sroa.18.0.in.i.us, label %.split21.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %24, %21, %19
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i17.us, %19 ], [ %23, %21 ], [ %.sroa.08.0.i.us, %24 ]
+  %.sroa.0.0.us.be = phi i32 [ %23, %21 ], [ %.sroa.08.0.i.us, %24 ], [ %.sroa.08.0.i17.us, %19 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -2895,7 +2895,7 @@ _ZN3std4path4Path4join17h66074a45924d7ba7E.exit39.i.i.i.i: ; preds = %83
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %121, %30, %119
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i17, %119 ], [ %123, %121 ], [ %.sroa.08.0.i, %30 ]
+  %.sroa.0.0.be = phi i32 [ %123, %121 ], [ %.sroa.08.0.i, %30 ], [ %.sroa.08.0.i17, %119 ]
   br label %.split
 }
 
@@ -2937,7 +2937,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hce4bb431d29294b2E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -3059,7 +3059,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hce4bb431d29294b2E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 
@@ -3101,7 +3101,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he6d84d73f45e0782E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -3223,7 +3223,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he6d84d73f45e0782E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 
@@ -3265,7 +3265,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he7f0ad6952ea07faE(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -3387,7 +3387,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he7f0ad6952ea07faE(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 
@@ -3429,7 +3429,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he896d918d87d1bf8E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -3551,7 +3551,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he896d918d87d1bf8E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 
@@ -3601,7 +3601,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he89906be73e1cc87E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split21.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %24, %21, %19
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i17.us, %19 ], [ %23, %21 ], [ %.sroa.08.0.i.us, %24 ]
+  %.sroa.0.0.us.be = phi i32 [ %23, %21 ], [ %.sroa.08.0.i.us, %24 ], [ %.sroa.08.0.i17.us, %19 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -3900,7 +3900,7 @@ _ZN3std4path4Path4join17h66074a45924d7ba7E.exit39.i.i.i.i: ; preds = %83
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %121, %30, %119
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i17, %119 ], [ %123, %121 ], [ %.sroa.08.0.i, %30 ]
+  %.sroa.0.0.be = phi i32 [ %123, %121 ], [ %.sroa.08.0.i, %30 ], [ %.sroa.08.0.i17, %119 ]
   br label %.split
 }
 
@@ -3942,7 +3942,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hf1857f9f9f238658E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -4064,7 +4064,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hf1857f9f9f238658E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 
@@ -4106,7 +4106,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hf1d29b5b42f9b99eE(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -4228,7 +4228,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hf1d29b5b42f9b99eE(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 
@@ -4270,7 +4270,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hf4aeeef5a6d921b0E(pt
   br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %16, %13, %11
-  %.sroa.0.0.us.be = phi i32 [ %.sroa.08.0.i15.us, %11 ], [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ]
+  %.sroa.0.0.us.be = phi i32 [ %15, %13 ], [ %.sroa.08.0.i.us, %16 ], [ %.sroa.08.0.i15.us, %11 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -4392,7 +4392,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hf4aeeef5a6d921b0E(pt
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %45, %22, %43
-  %.sroa.0.0.be = phi i32 [ %.sroa.08.0.i15, %43 ], [ %47, %45 ], [ %.sroa.08.0.i, %22 ]
+  %.sroa.0.0.be = phi i32 [ %47, %45 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %43 ]
   br label %.split
 }
 

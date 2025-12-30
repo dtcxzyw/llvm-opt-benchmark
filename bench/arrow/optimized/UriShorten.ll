@@ -340,7 +340,7 @@ uriAppendSegmentA.exit.i:                         ; preds = %103, %102
   br label %.critedge115.sink.split.i
 
 .critedge115.sink.split.i:                        ; preds = %142, %141, %129, %128
-  %.sink.i = phi ptr [ %121, %129 ], [ %121, %128 ], [ %134, %141 ], [ %134, %142 ]
+  %.sink.i = phi ptr [ %121, %128 ], [ %121, %129 ], [ %134, %141 ], [ %134, %142 ]
   store ptr %.sink.i, ptr %109, align 8, !tbaa !30
   %.pre = load ptr, ptr %.186160.i, align 8, !tbaa !22
   br label %.critedge115.i
@@ -390,7 +390,7 @@ uriAppendSegmentA.exit.i:                         ; preds = %103, %102
   br label %uriRemoveBaseUriImplA.exit.thread
 
 uriRemoveBaseUriImplA.exit:                       ; preds = %.lr.ph, %.critedge115.i, %132, %119, %59, %57, %53, %uriEqualsAuthorityA.exit.thread.i, %24, %22, %17, %14, %11
-  %.087.i = phi i32 [ 3, %24 ], [ 3, %uriEqualsAuthorityA.exit.thread.i ], [ 2, %11 ], [ 6, %14 ], [ 3, %.critedge115.i ], [ 3, %22 ], [ 7, %17 ], [ 3, %57 ], [ 3, %53 ], [ 3, %59 ], [ 3, %119 ], [ 3, %132 ], [ 3, %.lr.ph ]
+  %.087.i = phi i32 [ 2, %11 ], [ 6, %14 ], [ 7, %17 ], [ 3, %22 ], [ 3, %24 ], [ 3, %uriEqualsAuthorityA.exit.thread.i ], [ 3, %53 ], [ 3, %57 ], [ 3, %59 ], [ 3, %119 ], [ 3, %132 ], [ 3, %.critedge115.i ], [ 3, %.lr.ph ]
   %165 = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
   br label %uriRemoveBaseUriImplA.exit.thread
 
@@ -732,7 +732,7 @@ uriAppendSegmentW.exit.i:                         ; preds = %103, %102
   br label %.critedge115.sink.split.i
 
 .critedge115.sink.split.i:                        ; preds = %142, %141, %129, %128
-  %.sink.i = phi ptr [ %121, %129 ], [ %121, %128 ], [ %134, %141 ], [ %134, %142 ]
+  %.sink.i = phi ptr [ %121, %128 ], [ %121, %129 ], [ %134, %141 ], [ %134, %142 ]
   store ptr %.sink.i, ptr %109, align 8, !tbaa !52
   %.pre = load ptr, ptr %.186160.i, align 8, !tbaa !47
   br label %.critedge115.i
@@ -782,7 +782,7 @@ uriAppendSegmentW.exit.i:                         ; preds = %103, %102
   br label %uriRemoveBaseUriImplW.exit.thread
 
 uriRemoveBaseUriImplW.exit:                       ; preds = %.lr.ph, %.critedge115.i, %132, %119, %59, %57, %53, %uriEqualsAuthorityW.exit.thread.i, %24, %22, %17, %14, %11
-  %.087.i = phi i32 [ 3, %24 ], [ 3, %uriEqualsAuthorityW.exit.thread.i ], [ 2, %11 ], [ 6, %14 ], [ 3, %.critedge115.i ], [ 3, %22 ], [ 7, %17 ], [ 3, %57 ], [ 3, %53 ], [ 3, %59 ], [ 3, %119 ], [ 3, %132 ], [ 3, %.lr.ph ]
+  %.087.i = phi i32 [ 2, %11 ], [ 6, %14 ], [ 7, %17 ], [ 3, %22 ], [ 3, %24 ], [ 3, %uriEqualsAuthorityW.exit.thread.i ], [ 3, %53 ], [ 3, %57 ], [ 3, %59 ], [ 3, %119 ], [ 3, %132 ], [ 3, %.critedge115.i ], [ 3, %.lr.ph ]
   %165 = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
   br label %uriRemoveBaseUriImplW.exit.thread
 

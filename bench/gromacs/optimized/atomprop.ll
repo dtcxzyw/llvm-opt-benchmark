@@ -1481,8 +1481,8 @@ _ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.
   br label %60
 
 60:                                               ; preds = %._crit_edge.i, %55, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit.thread, %50
-  %61 = phi ptr [ %33, %._crit_edge.i ], [ %.pre108, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit.thread ], [ %.pre, %55 ], [ %.pre109, %50 ]
-  %.056 = phi i32 [ %39, %._crit_edge.i ], [ -3, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit.thread ], [ %spec.select, %55 ], [ -3, %50 ]
+  %61 = phi ptr [ %.pre109, %50 ], [ %.pre108, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit.thread ], [ %.pre, %55 ], [ %33, %._crit_edge.i ]
+  %.056 = phi i32 [ -3, %50 ], [ -3, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit.thread ], [ %spec.select, %55 ], [ %39, %._crit_edge.i ]
   %62 = getelementptr inbounds nuw %struct.BaseEntry, ptr %61, i64 %.057102
   %.val77 = load ptr, ptr %3, align 8
   %.val78 = load i64, ptr %22, align 8, !tbaa !34
@@ -1537,9 +1537,9 @@ _ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.
   br label %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95.thread
 
 _ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95.thread: ; preds = %60, %78, %80, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95
-  %.161 = phi i32 [ %73, %80 ], [ %.060100, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95 ], [ %.060100, %78 ], [ %.060100, %60 ]
-  %.159 = phi i32 [ %.056, %80 ], [ %.058101, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95 ], [ %.058101, %78 ], [ %.058101, %60 ]
-  %.1 = phi i32 [ %81, %80 ], [ %.0103, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95 ], [ %.0103, %78 ], [ %.0103, %60 ]
+  %.161 = phi i32 [ %73, %80 ], [ %.060100, %78 ], [ %.060100, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95 ], [ %.060100, %60 ]
+  %.159 = phi i32 [ %.056, %80 ], [ %.058101, %78 ], [ %.058101, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95 ], [ %.058101, %60 ]
+  %.1 = phi i32 [ %81, %80 ], [ %.0103, %78 ], [ %.0103, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95 ], [ %.0103, %60 ]
   %82 = add nuw i64 %.057102, 1
   %83 = load ptr, ptr %18, align 8, !tbaa !39
   %84 = ptrtoint ptr %83 to i64
@@ -1568,7 +1568,7 @@ _ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.
   br label %99
 
 99:                                               ; preds = %89, %95, %._crit_edge
-  %100 = phi i8 [ 0, %._crit_edge ], [ %98, %95 ], [ 1, %89 ]
+  %100 = phi i8 [ 0, %._crit_edge ], [ 1, %89 ], [ %98, %95 ]
   store i8 %100, ptr %4, align 1, !tbaa !65
   %101 = load ptr, ptr @debug, align 8, !tbaa !53
   %.not = icmp eq ptr %101, null

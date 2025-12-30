@@ -177,7 +177,7 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   br label %41
 
 41:                                               ; preds = %36, %_ZN8ciMethod16java_code_at_bciEi.exit, %_ZN8ciMethod16java_code_at_bciEi.exit
-  %42 = phi i1 [ %spec.select373, %36 ], [ true, %_ZN8ciMethod16java_code_at_bciEi.exit ], [ true, %_ZN8ciMethod16java_code_at_bciEi.exit ]
+  %42 = phi i1 [ true, %_ZN8ciMethod16java_code_at_bciEi.exit ], [ true, %_ZN8ciMethod16java_code_at_bciEi.exit ], [ %spec.select373, %36 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 166
@@ -320,7 +320,7 @@ _ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit: ; preds = %
   br label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
 114:                                              ; preds = %101, %90, %89
-  %.0278 = phi ptr [ null, %89 ], [ null, %90 ], [ %.0279, %101 ]
+  %.0278 = phi ptr [ null, %90 ], [ null, %89 ], [ %.0279, %101 ]
   %115 = call noundef zeroext i1 @_ZNK8ciMethod26is_method_handle_intrinsicEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #11
   br i1 %115, label %116, label %118
 
@@ -383,7 +383,7 @@ _ZN7Compile21should_delay_inliningEv.exit:        ; preds = %123, %131
   br label %151
 
 151:                                              ; preds = %146, %140
-  %.0280 = phi ptr [ %141, %140 ], [ %150, %146 ]
+  %.0280 = phi ptr [ %150, %146 ], [ %141, %140 ]
   %.not312 = icmp eq ptr %.0280, null
   br i1 %.not312, label %.thread371, label %.thread331
 
@@ -567,9 +567,9 @@ _ZN7Compile28too_many_traps_or_recompilesEP8ciMethodiN14Deoptimization11DeoptRea
   br label %.thread362
 
 .thread362:                                       ; preds = %237, %230, %239, %246, %247
-  %.0283366 = phi ptr [ null, %247 ], [ null, %246 ], [ null, %230 ], [ null, %237 ], [ %spec.select328, %239 ]
-  %.0284365 = phi ptr [ null, %247 ], [ null, %246 ], [ null, %230 ], [ %236, %237 ], [ %236, %239 ]
-  %249 = phi i32 [ %248, %247 ], [ 7, %246 ], [ 7, %230 ], [ 7, %237 ], [ 7, %239 ]
+  %.0283366 = phi ptr [ null, %247 ], [ null, %246 ], [ %spec.select328, %239 ], [ null, %230 ], [ null, %237 ]
+  %.0284365 = phi ptr [ null, %247 ], [ null, %246 ], [ %236, %239 ], [ null, %230 ], [ %236, %237 ]
+  %249 = phi i32 [ %248, %247 ], [ 7, %246 ], [ 7, %239 ], [ 7, %230 ], [ 7, %237 ]
   %250 = icmp eq i32 %.0282345359, 1
   %251 = icmp ne ptr %.0283366, null
   %or.cond23 = and i1 %227, %251
@@ -773,7 +773,7 @@ _ZN7Compile28too_many_traps_or_recompilesEP8ciMethodiN14Deoptimization11DeoptRea
   br label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
 _ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread: ; preds = %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread, %349, %353, %356, %.thread371, %295, %_ZN7Compile37should_delay_vector_reboxing_inliningEP8ciMethodP8JVMState.exit, %106, %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit, %347, %345, %317, %179, %172, %158, %154, %116, %112
-  %.0 = phi ptr [ %117, %116 ], [ %.0280334, %_ZN7Compile37should_delay_vector_reboxing_inliningEP8ciMethodP8JVMState.exit ], [ %314, %317 ], [ %297, %295 ], [ %346, %345 ], [ %348, %347 ], [ %.0278, %.thread371 ], [ %155, %154 ], [ %159, %158 ], [ %173, %172 ], [ %180, %179 ], [ %.0279, %106 ], [ %113, %112 ], [ %.0279, %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit ], [ %351, %353 ], [ %360, %356 ], [ %351, %349 ], [ %.0280334, %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread ]
+  %.0 = phi ptr [ %117, %116 ], [ %314, %317 ], [ %346, %345 ], [ %348, %347 ], [ %155, %154 ], [ %159, %158 ], [ %173, %172 ], [ %180, %179 ], [ %113, %112 ], [ %.0279, %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit ], [ %.0279, %106 ], [ %.0280334, %_ZN7Compile37should_delay_vector_reboxing_inliningEP8ciMethodP8JVMState.exit ], [ %297, %295 ], [ %.0278, %.thread371 ], [ %351, %353 ], [ %360, %356 ], [ %351, %349 ], [ %.0280334, %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread ]
   ret ptr %.0
 }
 
@@ -921,7 +921,7 @@ define hidden noundef zeroext i1 @_ZN7Compile28should_delay_string_inliningEP8ci
   br label %57
 
 57:                                               ; preds = %24, %42, %50, %53, %3, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %14, %56
-  %.0 = phi i1 [ true, %21 ], [ false, %56 ], [ false, %14 ], [ true, %21 ], [ %switch.selectcmp, %53 ], [ false, %3 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ false, %50 ], [ false, %42 ], [ false, %24 ]
+  %.0 = phi i1 [ false, %56 ], [ false, %14 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ false, %3 ], [ %switch.selectcmp, %53 ], [ false, %50 ], [ false, %42 ], [ false, %24 ]
   ret i1 %.0
 }
 
@@ -1209,7 +1209,7 @@ _ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread: ; pr
   br label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit
 
 _ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit: ; preds = %_ZN7Compile28should_delay_string_inliningEP8ciMethodP8JVMState.exit, %_ZN7Compile28should_delay_string_inliningEP8ciMethodP8JVMState.exit, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %68, %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread, %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit
-  %70 = phi i1 [ true, %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit ], [ true, %_ZN7Compile28should_delay_string_inliningEP8ciMethodP8JVMState.exit ], [ %69, %68 ], [ false, %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %_ZN7Compile28should_delay_string_inliningEP8ciMethodP8JVMState.exit ]
+  %70 = phi i1 [ true, %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit ], [ true, %_ZN7Compile28should_delay_string_inliningEP8ciMethodP8JVMState.exit ], [ false, %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread ], [ %69, %68 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %_ZN7Compile28should_delay_string_inliningEP8ciMethodP8JVMState.exit ]
   ret i1 %70
 }
 
@@ -1579,7 +1579,7 @@ thread-pre-split:                                 ; preds = %157
   br i1 %or.cond158, label %_ZN8GraphKit9set_stackEjP4Node.exit, label %.thread152
 
 .thread152:                                       ; preds = %171, %159
-  %.099155 = phi ptr [ %13, %171 ], [ %163, %159 ]
+  %.099155 = phi ptr [ %163, %159 ], [ %13, %171 ]
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %175 = load i32, ptr %174, align 8
   %176 = sub i32 %175, %39
@@ -1769,7 +1769,7 @@ _ZN4Node7del_outEPS_.exit.i.i.i132:               ; preds = %264, %252, %238
   store ptr %241, ptr %285, align 8
   br label %_ZN8GraphKit9set_stackEjP4Node.exit
 
-_ZN8GraphKit9set_stackEjP4Node.exit:              ; preds = %168, %171, %159, %280, %269, %_ZN4Node7del_outEPS_.exit.i.i.i132
+_ZN8GraphKit9set_stackEjP4Node.exit:              ; preds = %171, %159, %168, %280, %269, %_ZN4Node7del_outEPS_.exit.i.i.i132
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %287 = load i32, ptr %286, align 8
   %288 = sub nsw i32 %287, %39
@@ -2769,8 +2769,8 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i:          ; preds = %.loopexit286
   br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i83, !llvm.loop !9
 
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = %.loopexit286, %.lr.ph19.preheader.i, %.preheader16.i
-  %.sroa.17.3 = phi ptr [ %57, %.preheader16.i ], [ %57, %.lr.ph19.preheader.i ], [ %.sroa.17.0294, %.loopexit286 ]
-  %.sroa.10.3 = phi i32 [ %.0.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i, %.lr.ph19.preheader.i ], [ %.sroa.10.0295, %.loopexit286 ]
+  %.sroa.17.3 = phi ptr [ %57, %.lr.ph19.preheader.i ], [ %57, %.preheader16.i ], [ %.sroa.17.0294, %.loopexit286 ]
+  %.sroa.10.3 = phi i32 [ %.0.i.i.i.i, %.lr.ph19.preheader.i ], [ %.0.i.i.i.i, %.preheader16.i ], [ %.sroa.10.0295, %.loopexit286 ]
   %70 = sext i32 %.sroa.0.0296 to i64
   %71 = getelementptr inbounds i32, ptr %.sroa.17.3, i64 %70
   store i32 %26, ptr %71, align 4
@@ -4630,7 +4630,7 @@ _ZN15ciInstanceKlass14is_initializedEv.exit:      ; preds = %_ZN15ciInstanceKlas
   br label %.thread
 
 .thread:                                          ; preds = %16, %77, %69, %71, %25, %21, %11, %7, %79
-  %.0 = phi ptr [ %4, %21 ], [ %4, %7 ], [ null, %11 ], [ null, %25 ], [ %68, %69 ], [ null, %79 ], [ %68, %71 ], [ %78, %77 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %79 ], [ %4, %7 ], [ null, %11 ], [ %4, %21 ], [ null, %25 ], [ %68, %71 ], [ %68, %69 ], [ %78, %77 ], [ null, %16 ]
   ret ptr %.0
 }
 

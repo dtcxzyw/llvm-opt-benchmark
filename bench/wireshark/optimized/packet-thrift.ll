@@ -338,7 +338,7 @@ define range(i32 1, 0) i32 @dissect_thrift_t_stop(ptr noundef %0, ptr noundef %1
   br label %21
 
 21:                                               ; preds = %6, %4, %19, %11
-  %.0 = phi i32 [ %20, %19 ], [ %3, %4 ], [ -2, %11 ], [ -1, %6 ]
+  %.0 = phi i32 [ -2, %11 ], [ %20, %19 ], [ %3, %4 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -499,7 +499,7 @@ define internal fastcc i32 @dissect_thrift_raw_bool(ptr noundef %0, ptr noundef 
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %45, %42, %40, %61, %63, %49, %37, %27, %21, %13
-  %.0 = phi i32 [ -1, %49 ], [ %3, %13 ], [ -1, %21 ], [ %28, %27 ], [ %28, %37 ], [ %62, %61 ], [ %62, %63 ], [ %28, %40 ], [ %28, %42 ], [ %28, %45 ]
+  %.0 = phi i32 [ %3, %13 ], [ -1, %21 ], [ %28, %27 ], [ %28, %37 ], [ -1, %49 ], [ %62, %63 ], [ %62, %61 ], [ %28, %40 ], [ %28, %42 ], [ %28, %45 ]
   ret i32 %.0
 }
 
@@ -552,7 +552,7 @@ define range(i32 1, 0) i32 @dissect_thrift_t_i8(ptr noundef %0, ptr noundef %1, 
   br label %dissect_thrift_raw_i8.exit
 
 dissect_thrift_raw_i8.exit:                       ; preds = %17, %19, %22, %26
-  %.0.i = phi i32 [ -1, %19 ], [ %.033.i, %17 ], [ %25, %26 ], [ %25, %22 ]
+  %.0.i = phi i32 [ %.033.i, %17 ], [ -1, %19 ], [ %25, %26 ], [ %25, %22 ]
   ret i32 %.0.i
 }
 
@@ -612,7 +612,7 @@ define internal fastcc range(i32 1, 0) i32 @dissect_thrift_raw_i8(ptr noundef %0
   br label %33
 
 33:                                               ; preds = %28, %30, %18, %16
-  %.0 = phi i32 [ -1, %18 ], [ %.033, %16 ], [ %29, %30 ], [ %29, %28 ]
+  %.0 = phi i32 [ %.033, %16 ], [ -1, %18 ], [ %29, %30 ], [ %29, %28 ]
   ret i32 %.0
 }
 
@@ -720,7 +720,7 @@ define internal fastcc i32 @dissect_thrift_raw_i16(ptr noundef %0, ptr noundef %
   br label %48
 
 48:                                               ; preds = %43, %45, %25, %29, %17
-  %.0 = phi i32 [ %18, %17 ], [ -1, %29 ], [ %., %25 ], [ %44, %45 ], [ %44, %43 ]
+  %.0 = phi i32 [ %., %25 ], [ %18, %17 ], [ -1, %29 ], [ %44, %45 ], [ %44, %43 ]
   ret i32 %.0
 }
 
@@ -828,7 +828,7 @@ define internal fastcc i32 @dissect_thrift_raw_i32(ptr noundef %0, ptr noundef %
   br label %48
 
 48:                                               ; preds = %43, %45, %25, %29, %17
-  %.0 = phi i32 [ %18, %17 ], [ -1, %29 ], [ %., %25 ], [ %44, %45 ], [ %44, %43 ]
+  %.0 = phi i32 [ %., %25 ], [ %18, %17 ], [ -1, %29 ], [ %44, %45 ], [ %44, %43 ]
   ret i32 %.0
 }
 
@@ -936,7 +936,7 @@ define internal fastcc i32 @dissect_thrift_raw_i64(ptr noundef %0, ptr noundef %
   br label %48
 
 48:                                               ; preds = %43, %45, %25, %29, %17
-  %.0 = phi i32 [ %18, %17 ], [ -1, %29 ], [ %., %25 ], [ %44, %45 ], [ %44, %43 ]
+  %.0 = phi i32 [ %., %25 ], [ %18, %17 ], [ -1, %29 ], [ %44, %45 ], [ %44, %43 ]
   ret i32 %.0
 }
 
@@ -993,7 +993,7 @@ define range(i32 8, 0) i32 @dissect_thrift_t_double(ptr noundef %0, ptr noundef 
   br label %dissect_thrift_raw_double.exit
 
 dissect_thrift_raw_double.exit:                   ; preds = %17, %19, %22, %29
-  %.0.i = phi i32 [ -1, %19 ], [ %.066.i, %17 ], [ %28, %29 ], [ %28, %22 ]
+  %.0.i = phi i32 [ %.066.i, %17 ], [ -1, %19 ], [ %28, %29 ], [ %28, %22 ]
   ret i32 %.0.i
 }
 
@@ -1104,7 +1104,7 @@ define internal fastcc range(i32 8, 0) i32 @dissect_thrift_raw_double(ptr nounde
   br label %67
 
 67:                                               ; preds = %62, %64, %18, %16
-  %.0 = phi i32 [ -1, %18 ], [ %.066, %16 ], [ %63, %64 ], [ %63, %62 ]
+  %.0 = phi i32 [ %.066, %16 ], [ -1, %18 ], [ %63, %64 ], [ %63, %62 ]
   ret i32 %.0
 }
 
@@ -1157,7 +1157,7 @@ define range(i32 16, 0) i32 @dissect_thrift_t_uuid(ptr noundef %0, ptr noundef %
   br label %dissect_thrift_raw_uuid.exit
 
 dissect_thrift_raw_uuid.exit:                     ; preds = %17, %19, %22, %26
-  %.0.i = phi i32 [ -1, %19 ], [ %.033.i, %17 ], [ %25, %26 ], [ %25, %22 ]
+  %.0.i = phi i32 [ %.033.i, %17 ], [ -1, %19 ], [ %25, %26 ], [ %25, %22 ]
   ret i32 %.0.i
 }
 
@@ -1217,7 +1217,7 @@ define internal fastcc range(i32 16, 0) i32 @dissect_thrift_raw_uuid(ptr noundef
   br label %33
 
 33:                                               ; preds = %28, %30, %18, %16
-  %.0 = phi i32 [ -1, %18 ], [ %.033, %16 ], [ %29, %30 ], [ %29, %28 ]
+  %.0 = phi i32 [ %.033, %16 ], [ -1, %18 ], [ %29, %30 ], [ %29, %28 ]
   ret i32 %.0
 }
 
@@ -1353,9 +1353,9 @@ thrift_get_varint_enc.exit.thread72:              ; preds = %34
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %57, %48, %61, %44
-  %63 = phi i32 [ %45, %44 ], [ %62, %61 ], [ %.pr.pre, %57 ], [ %45, %48 ]
-  %.063 = phi ptr [ null, %44 ], [ null, %61 ], [ %60, %57 ], [ %50, %48 ]
-  %.062 = phi i32 [ %33, %44 ], [ 4, %61 ], [ 4, %57 ], [ %33, %48 ]
+  %63 = phi i32 [ %62, %61 ], [ %45, %44 ], [ %.pr.pre, %57 ], [ %45, %48 ]
+  %.063 = phi ptr [ null, %61 ], [ null, %44 ], [ %60, %57 ], [ %50, %48 ]
+  %.062 = phi i32 [ 4, %61 ], [ %33, %44 ], [ 4, %57 ], [ %33, %48 ]
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %65, label %67
 
@@ -1412,8 +1412,8 @@ thread-pre-split:                                 ; preds = %57, %48, %61, %44
   store i64 %87, ptr %88, align 8
   br label %thrift_get_varint_enc.exit.thread
 
-thrift_get_varint_enc.exit.thread:                ; preds = %31, %27, %34, %83, %86, %72, %51, %21, %65, %40, %thrift_get_varint_enc.exit.thread72
-  %.0 = phi i32 [ %33, %31 ], [ -1, %40 ], [ -2, %65 ], [ -1, %51 ], [ -1, %72 ], [ %.064, %21 ], [ -2, %thrift_get_varint_enc.exit.thread72 ], [ %85, %86 ], [ %85, %83 ], [ -1, %34 ], [ -1, %27 ]
+thrift_get_varint_enc.exit.thread:                ; preds = %31, %34, %27, %83, %86, %72, %51, %21, %65, %40, %thrift_get_varint_enc.exit.thread72
+  %.0 = phi i32 [ -1, %40 ], [ -2, %65 ], [ -2, %thrift_get_varint_enc.exit.thread72 ], [ %.064, %21 ], [ -1, %51 ], [ -1, %72 ], [ %85, %86 ], [ %85, %83 ], [ -1, %27 ], [ -1, %34 ], [ %33, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1791,8 +1791,8 @@ thrift_get_varint_enc.exit.thread113:             ; preds = %87
   call void @p_set_proto_depth(ptr noundef %1, i32 noundef %118, i32 noundef %16)
   br label %thrift_get_varint_enc.exit.thread
 
-thrift_get_varint_enc.exit.thread:                ; preds = %.lr.ph, %84, %81, %87, %34, %32, %117, %93, %thrift_get_varint_enc.exit.thread113, %69, %40
-  %.0 = phi i32 [ -2, %thrift_get_varint_enc.exit.thread113 ], [ %.096, %32 ], [ -2, %40 ], [ -2, %69 ], [ -2, %93 ], [ %86, %84 ], [ %.2.lcssa, %117 ], [ -1, %34 ], [ -1, %81 ], [ -1, %87 ], [ %112, %.lr.ph ]
+thrift_get_varint_enc.exit.thread:                ; preds = %.lr.ph, %84, %87, %81, %34, %32, %117, %93, %thrift_get_varint_enc.exit.thread113, %69, %40
+  %.0 = phi i32 [ -2, %40 ], [ -2, %69 ], [ -2, %93 ], [ %.2.lcssa, %117 ], [ -2, %thrift_get_varint_enc.exit.thread113 ], [ %.096, %32 ], [ -1, %34 ], [ -1, %81 ], [ -1, %87 ], [ %86, %84 ], [ %112, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
@@ -2006,7 +2006,7 @@ switch.lookup:                                    ; preds = %82
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.split, %.lr.ph.split.us, %78, %62, %44, %36, %110, %92, %76, %58, %33
-  %.098 = phi i32 [ -2, %33 ], [ -1, %78 ], [ %.0100, %36 ], [ -2, %58 ], [ -1, %44 ], [ -2, %76 ], [ -1, %62 ], [ -2, %92 ], [ %.2102.lcssa, %110 ], [ %97, %.lr.ph.split.us ], [ %105, %.lr.ph.split ]
+  %.098 = phi i32 [ -2, %33 ], [ -2, %58 ], [ -2, %76 ], [ -2, %92 ], [ %.2102.lcssa, %110 ], [ %.0100, %36 ], [ -1, %44 ], [ -1, %62 ], [ -1, %78 ], [ %97, %.lr.ph.split.us ], [ %105, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.098
 }
@@ -2242,8 +2242,8 @@ thrift_get_varint_enc.exit.thread145:             ; preds = %41
   call void @proto_item_set_end(ptr noundef nonnull %62, ptr noundef %0, i32 noundef %111)
   br label %116
 
-.thread:                                          ; preds = %.lr.ph, %38, %thrift_get_varint_enc.exit.thread145, %47, %56, %65, %67, %93, %104, %32, %95, %106, %41, %35
-  %.0.ph = phi i32 [ -2, %thrift_get_varint_enc.exit.thread145 ], [ -1, %35 ], [ -2, %106 ], [ -2, %95 ], [ -1, %32 ], [ -2, %104 ], [ -2, %93 ], [ -1, %67 ], [ %40, %38 ], [ %53, %65 ], [ -2, %56 ], [ -2, %47 ], [ -1, %41 ], [ %111, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %38, %47, %56, %65, %thrift_get_varint_enc.exit.thread145, %32, %67, %95, %93, %106, %104, %35, %41
+  %.0.ph = phi i32 [ -2, %104 ], [ -2, %106 ], [ -2, %93 ], [ -2, %95 ], [ -1, %67 ], [ -1, %32 ], [ -2, %thrift_get_varint_enc.exit.thread145 ], [ %53, %65 ], [ -2, %56 ], [ -2, %47 ], [ -1, %35 ], [ -1, %41 ], [ %40, %38 ], [ %111, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %122
 
@@ -2264,7 +2264,7 @@ thrift_get_varint_enc.exit.thread145:             ; preds = %41
   br label %122
 
 122:                                              ; preds = %.thread, %118, %119
-  %.1 = phi i32 [ %.0.ph, %.thread ], [ %.0126, %119 ], [ %.0126, %118 ]
+  %.1 = phi i32 [ %.0126, %119 ], [ %.0126, %118 ], [ %.0.ph, %.thread ]
   ret i32 %.1
 }
 
@@ -2359,7 +2359,7 @@ define internal fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr no
   br label %compact_struct_type_to_generic_type.exit.thread
 
 compact_struct_type_to_generic_type.exit:         ; preds = %22, %27, %27, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28
-  %.0 = phi i32 [ 2, %27 ], [ %26, %22 ], [ 16, %37 ], [ 13, %36 ], [ %26, %28 ], [ 6, %29 ], [ 8, %30 ], [ 10, %31 ], [ 4, %32 ], [ 11, %33 ], [ 15, %34 ], [ 14, %35 ], [ 2, %27 ]
+  %.0 = phi i32 [ %26, %28 ], [ 6, %29 ], [ 8, %30 ], [ 10, %31 ], [ 4, %32 ], [ 11, %33 ], [ 15, %34 ], [ 14, %35 ], [ 13, %36 ], [ 16, %37 ], [ 2, %27 ], [ 2, %27 ], [ %26, %22 ]
   %.not26 = icmp eq i32 %.0, %5
   br i1 %.not26, label %43, label %compact_struct_type_to_generic_type.exit.thread
 
@@ -2399,7 +2399,7 @@ compact_struct_type_to_generic_type.exit.thread:  ; preds = %27, %38, %compact_s
   br label %57
 
 57:                                               ; preds = %19, %55, %compact_struct_type_to_generic_type.exit.thread
-  %.021 = phi i32 [ %., %19 ], [ %56, %55 ], [ -2, %compact_struct_type_to_generic_type.exit.thread ]
+  %.021 = phi i32 [ -2, %compact_struct_type_to_generic_type.exit.thread ], [ %56, %55 ], [ %., %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.021
 }
@@ -2696,7 +2696,7 @@ define internal fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef 
   unreachable
 
 dissect_thrift_t_stop.exit:                       ; preds = %133, %132, %111, %110, %25, %17, %12, %10, %164, %150, %136, %81, %72, %63, %54, %45, %36, %27
-  %.0 = phi i32 [ %172, %164 ], [ %35, %27 ], [ %44, %36 ], [ %53, %45 ], [ %62, %54 ], [ %71, %63 ], [ %80, %72 ], [ %91, %81 ], [ -1, %12 ], [ %.0.i121, %111 ], [ %149, %136 ], [ %163, %150 ], [ %26, %25 ], [ %3, %10 ], [ -2, %17 ], [ %.0.i121, %110 ], [ %.0.i123, %132 ], [ %.0.i123, %133 ]
+  %.0 = phi i32 [ %35, %27 ], [ %44, %36 ], [ %53, %45 ], [ %62, %54 ], [ %71, %63 ], [ %80, %72 ], [ %91, %81 ], [ %149, %136 ], [ %163, %150 ], [ %172, %164 ], [ -2, %17 ], [ %26, %25 ], [ %3, %10 ], [ -1, %12 ], [ %.0.i121, %110 ], [ %.0.i121, %111 ], [ %.0.i123, %132 ], [ %.0.i123, %133 ]
   ret i32 %.0
 }
 
@@ -2905,8 +2905,8 @@ thread-pre-split102:                              ; preds = %100, %96, %105
   store i64 %118, ptr %47, align 8
   br label %119
 
-.thread:                                          ; preds = %100, %105, %111, %114, %60, %70, %82
-  %.2.ph = phi i32 [ -2, %82 ], [ -2, %70 ], [ %., %60 ], [ -1, %100 ], [ -1, %105 ], [ %112, %111 ], [ -1, %114 ]
+.thread:                                          ; preds = %100, %105, %111, %114, %70, %82, %60
+  %.2.ph = phi i32 [ %., %60 ], [ -2, %82 ], [ -2, %70 ], [ -1, %100 ], [ -1, %105 ], [ %112, %111 ], [ -1, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %150
 
@@ -2953,7 +2953,7 @@ thread-pre-split102:                              ; preds = %100, %96, %105
   br label %dissect_thrift_t_stop.exit
 
 dissect_thrift_t_stop.exit:                       ; preds = %._crit_edge, %._crit_edge.thread, %128, %136
-  %.0.i = phi i32 [ %137, %136 ], [ %.pre, %._crit_edge ], [ -2, %128 ], [ -1, %._crit_edge.thread ]
+  %.0.i = phi i32 [ -2, %128 ], [ %137, %136 ], [ %.pre, %._crit_edge ], [ -1, %._crit_edge.thread ]
   store i32 %.0.i, ptr %12, align 4
   %.not98 = icmp eq ptr %10, null
   br i1 %.not98, label %140, label %138
@@ -2988,7 +2988,7 @@ dissect_thrift_t_stop.exit:                       ; preds = %._crit_edge, %._cri
   br label %150
 
 150:                                              ; preds = %.thread, %31, %thread-pre-split, %147, %38
-  %.082 = phi i32 [ %149, %147 ], [ %29, %thread-pre-split ], [ -2, %38 ], [ %.2.ph, %.thread ], [ -1, %31 ]
+  %.082 = phi i32 [ -2, %38 ], [ %149, %147 ], [ %29, %thread-pre-split ], [ -1, %31 ], [ %.2.ph, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.082
 }
@@ -3106,49 +3106,49 @@ define internal i32 @dissect_thrift_transport(ptr noundef %0, ptr noundef %1, pt
 37:                                               ; preds = %35
   %38 = tail call signext i8 @tvb_get_int8(ptr noundef %0, i32 noundef 4)
   %39 = icmp sgt i8 %38, -1
-  br i1 %39, label %is_thrift_strict_version.exit.sink.split, label %40
+  br i1 %39, label %.critedge62, label %40
 
 40:                                               ; preds = %37
   %41 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
   %42 = and i32 %41, -65288
   %43 = icmp eq i32 %42, -2147418112
-  br i1 %43, label %is_thrift_strict_version.exit.sink.split, label %is_thrift_strict_version.exit.thread49
+  br i1 %43, label %.critedge62, label %is_thrift_strict_version.exit.thread49
 
 44:                                               ; preds = %16
   %45 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
   %46 = and i32 %45, -65288
   %47 = icmp eq i32 %46, -2147418112
-  br i1 %47, label %.critedge62, label %is_thrift_strict_version.exit47
+  br i1 %47, label %is_thrift_strict_version.exit.sink.split, label %is_thrift_strict_version.exit47
 
 is_thrift_strict_version.exit47:                  ; preds = %44
   %48 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %49 = icmp eq i8 %48, -126
-  br i1 %49, label %.critedge62, label %is_thrift_strict_version.exit.thread49
+  br i1 %49, label %is_thrift_strict_version.exit.sink.split, label %is_thrift_strict_version.exit.thread49
 
-is_thrift_strict_version.exit.sink.split:         ; preds = %40, %37
-  %.sink = phi i32 [ 3, %40 ], [ 1, %37 ]
+is_thrift_strict_version.exit.sink.split:         ; preds = %is_thrift_strict_version.exit47, %44
+  %.sink = phi i32 [ 2, %44 ], [ 4, %is_thrift_strict_version.exit47 ]
   store i32 -2147362182, ptr %5, align 8
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sink, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %52 = load ptr, ptr %51, align 8
-  tail call void @col_set_str(ptr noundef %52, i32 noundef 35, ptr noundef nonnull @.str.186)
-  %53 = load ptr, ptr %51, align 8
-  tail call void @col_clear(ptr noundef %53, i32 noundef 25)
-  %54 = load i8, ptr @framed_desegment, align 1, !range !6, !noundef !7
-  %55 = trunc nuw i8 %54 to i1
-  call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %55, i32 noundef 4, ptr noundef nonnull @get_framed_thrift_pdu_len, ptr noundef nonnull @dissect_thrift_framed, ptr noundef nonnull %5)
-  %56 = call i32 @tvb_reported_length(ptr noundef %0)
-  br label %is_thrift_strict_version.exit.thread49
-
-.critedge62:                                      ; preds = %is_thrift_strict_version.exit47, %44
-  %.sink.ph = phi i32 [ 4, %is_thrift_strict_version.exit47 ], [ 2, %44 ]
-  store i32 -2147362182, ptr %5, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %.sink.ph, ptr %57, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %31, %.critedge62
+.critedge62:                                      ; preds = %40, %37
+  %.sink.ph = phi i32 [ 3, %40 ], [ 1, %37 ]
+  store i32 -2147362182, ptr %5, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %.sink.ph, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %53 = load ptr, ptr %52, align 8
+  tail call void @col_set_str(ptr noundef %53, i32 noundef 35, ptr noundef nonnull @.str.186)
+  %54 = load ptr, ptr %52, align 8
+  tail call void @col_clear(ptr noundef %54, i32 noundef 25)
+  %55 = load i8, ptr @framed_desegment, align 1, !range !6, !noundef !7
+  %56 = trunc nuw i8 %55 to i1
+  call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %56, i32 noundef 4, ptr noundef nonnull @get_framed_thrift_pdu_len, ptr noundef nonnull @dissect_thrift_framed, ptr noundef nonnull %5)
+  %57 = call i32 @tvb_reported_length(ptr noundef %0)
+  br label %is_thrift_strict_version.exit.thread49
+
+.critedge:                                        ; preds = %31, %is_thrift_strict_version.exit.sink.split
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %59 = load ptr, ptr %58, align 8
   tail call void @col_set_str(ptr noundef %59, i32 noundef 35, ptr noundef nonnull @.str.186)
@@ -3157,15 +3157,15 @@ is_thrift_strict_version.exit.sink.split:         ; preds = %40, %37
   %61 = call fastcc i32 @dissect_thrift_loop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
   br label %is_thrift_strict_version.exit.thread49
 
-.thread:                                          ; preds = %19, %31, %10, %14
+.thread:                                          ; preds = %31, %19, %10, %14
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %63, align 8
   br label %is_thrift_strict_version.exit.thread49
 
-is_thrift_strict_version.exit.thread49:           ; preds = %40, %25, %35, %is_thrift_strict_version.exit47, %.thread, %.critedge, %is_thrift_strict_version.exit.sink.split, %12
-  %.0 = phi i32 [ 0, %12 ], [ -1, %.thread ], [ 0, %is_thrift_strict_version.exit47 ], [ %56, %is_thrift_strict_version.exit.sink.split ], [ %61, %.critedge ], [ 0, %40 ], [ -1, %25 ], [ 0, %35 ]
+is_thrift_strict_version.exit.thread49:           ; preds = %40, %35, %25, %is_thrift_strict_version.exit47, %.thread, %.critedge, %.critedge62, %12
+  %.0 = phi i32 [ 0, %12 ], [ -1, %.thread ], [ %57, %.critedge62 ], [ %61, %.critedge ], [ 0, %is_thrift_strict_version.exit47 ], [ 0, %40 ], [ 0, %35 ], [ -1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -3266,8 +3266,8 @@ define internal noundef zeroext i1 @dissect_thrift_heur(ptr noundef %0, ptr noun
   br i1 %or.cond43.i, label %43, label %18
 
 18:                                               ; preds = %14, %11
-  %.037.i = phi i32 [ 4, %14 ], [ 0, %11 ]
-  %.036.i = phi i32 [ %15, %14 ], [ 0, %11 ]
+  %.037.i = phi i32 [ 0, %11 ], [ 4, %14 ]
+  %.036.i = phi i32 [ 0, %11 ], [ %15, %14 ]
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = icmp ne i32 %.036.i, 0
   %spec.select.i = select i1 %20, i32 3, i32 2
@@ -3312,7 +3312,7 @@ test_thrift_strict.exit:                          ; preds = %39
   store i32 -2147362182, ptr %6, align 8
   br label %90
 
-43:                                               ; preds = %39, %4, %14, %27, %32, %36, %18, %24
+43:                                               ; preds = %4, %14, %27, %32, %36, %39, %18, %24
   %44 = tail call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %45 = icmp ult i32 %44, 5
@@ -3399,7 +3399,7 @@ test_thrift_strict.exit:                          ; preds = %39
   %89 = icmp slt i32 %88, 1
   br i1 %89, label %test_thrift_compact.exit.thread, label %test_thrift_compact.exit
 
-test_thrift_compact.exit.thread:                  ; preds = %87, %43, %49, %67, %72, %74, %77, %81, %84, %57, %63
+test_thrift_compact.exit.thread:                  ; preds = %43, %49, %67, %72, %74, %81, %84, %87, %57, %63, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %101
 
@@ -3430,7 +3430,7 @@ test_thrift_compact.exit:                         ; preds = %87
   br label %101
 
 101:                                              ; preds = %test_thrift_compact.exit.thread, %96, %99
-  %.0 = phi i1 [ false, %test_thrift_compact.exit.thread ], [ true, %99 ], [ true, %96 ]
+  %.0 = phi i1 [ true, %99 ], [ true, %96 ], [ false, %test_thrift_compact.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -3478,7 +3478,7 @@ thrift_get_varint_enc.exit.thread99:              ; preds = %16
   %18 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_thrift_varint_too_large, ptr noundef %0, i32 noundef %10, i32 noundef range(i32 3, 11) %5)
   br label %139
 
-thrift_get_varint_enc.exit.thread:                ; preds = %13, %8, %16
+thrift_get_varint_enc.exit.thread:                ; preds = %13, %16, %8
   %19 = load i32, ptr %3, align 4
   %20 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %19)
   %21 = icmp slt i32 %20, %5
@@ -3795,7 +3795,7 @@ thrift_get_varint_enc.exit.thread207:             ; preds = %57
   store i32 0, ptr %60, align 4
   br label %77
 
-thrift_get_varint_enc.exit.thread:                ; preds = %57, %48
+thrift_get_varint_enc.exit.thread:                ; preds = %48, %57
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 -1, ptr %61, align 4
   br label %63
@@ -4155,12 +4155,12 @@ proto_item_set_generated.exit204:                 ; preds = %258, %255, %253, %2
   br label %.critedge
 
 .critedge:                                        ; preds = %117, %178, %63, %proto_item_set_generated.exit204, %235, %89, %73, %34
-  %.1 = phi i32 [ %39, %34 ], [ -1, %73 ], [ -1, %89 ], [ %262, %proto_item_set_generated.exit204 ], [ -1, %63 ], [ -1, %235 ], [ -1, %178 ], [ -1, %117 ]
+  %.1 = phi i32 [ %39, %34 ], [ -1, %73 ], [ %262, %proto_item_set_generated.exit204 ], [ -1, %235 ], [ -1, %89 ], [ -1, %63 ], [ -1, %178 ], [ -1, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %263
 
 263:                                              ; preds = %10, %.critedge, %22
-  %.0 = phi i32 [ %.1, %.critedge ], [ -1, %22 ], [ %11, %10 ]
+  %.0 = phi i32 [ -1, %22 ], [ %.1, %.critedge ], [ %11, %10 ]
   ret i32 %.0
 }
 
@@ -4522,7 +4522,7 @@ thrift_get_varint_enc.exit.thread101:             ; preds = %186
   %188 = call ptr @proto_tree_add_expert(ptr noundef %179, ptr noundef %1, ptr noundef nonnull @ei_thrift_varint_too_large, ptr noundef %0, i32 noundef %180, i32 noundef 5)
   br label %dissect_thrift_compact_map.exit.thread
 
-thrift_get_varint_enc.exit.thread:                ; preds = %183, %172, %186
+thrift_get_varint_enc.exit.thread:                ; preds = %183, %186, %172
   %189 = load i32, ptr %3, align 4
   %190 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %189)
   %191 = icmp slt i32 %190, 5
@@ -4605,7 +4605,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %183, %172, %186
   %238 = icmp eq i32 %237, -1
   br i1 %238, label %dissect_thrift_compact_map.exit.thread, label %232
 
-dissect_thrift_compact_map.exit.thread:           ; preds = %.lr.ph108, %236, %162, %169, %205, %thrift_get_varint_enc.exit.thread, %198, %thrift_get_varint_enc.exit.thread101
+dissect_thrift_compact_map.exit.thread:           ; preds = %.lr.ph108, %236, %162, %169, %205, %198, %thrift_get_varint_enc.exit.thread, %thrift_get_varint_enc.exit.thread101
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %dissect_thrift_compact_struct.exit.thread
 
@@ -4614,7 +4614,7 @@ dissect_thrift_compact_map.exit.loopexit:         ; preds = %232
   br label %dissect_thrift_compact_map.exit
 
 dissect_thrift_compact_map.exit:                  ; preds = %dissect_thrift_compact_map.exit.loopexit, %210
-  %239 = phi i32 [ %216, %210 ], [ %.pre, %dissect_thrift_compact_map.exit.loopexit ]
+  %239 = phi i32 [ %.pre, %dissect_thrift_compact_map.exit.loopexit ], [ %216, %210 ]
   call void @proto_item_set_end(ptr noundef %177, ptr noundef %0, i32 noundef %239)
   %240 = load i32, ptr @proto_thrift, align 4
   call void @p_set_proto_depth(ptr noundef %1, i32 noundef %240, i32 noundef %152)
@@ -4741,7 +4741,7 @@ dissect_thrift_compact_struct.exit:               ; preds = %dissect_thrift_comp
   br label %dissect_thrift_compact_struct.exit.thread
 
 dissect_thrift_compact_struct.exit.thread:        ; preds = %dissect_thrift_compact_fields.exit.thread, %dissect_thrift_compact_fields.exit, %262, %255, %dissect_thrift_compact_map.exit.thread, %dissect_thrift_compact_binary.exit.thread, %dissect_thrift_compact_struct.exit, %dissect_thrift_compact_map.exit, %147, %144, %dissect_thrift_compact_binary.exit, %56, %52, %48, %302, %298, %88, %70, %40, %22
-  %.0 = phi i32 [ -1, %298 ], [ -1, %22 ], [ %303, %302 ], [ -1, %40 ], [ -1, %dissect_thrift_compact_map.exit ], [ -1, %48 ], [ -1, %52 ], [ -1, %70 ], [ -1, %88 ], [ -1, %56 ], [ -1, %dissect_thrift_compact_binary.exit ], [ -1, %144 ], [ -1, %147 ], [ -1, %dissect_thrift_compact_struct.exit ], [ -1, %dissect_thrift_compact_binary.exit.thread ], [ -1, %dissect_thrift_compact_map.exit.thread ], [ -1, %255 ], [ -1, %262 ], [ -1, %dissect_thrift_compact_fields.exit ], [ -1, %dissect_thrift_compact_fields.exit.thread ]
+  %.0 = phi i32 [ -1, %298 ], [ -1, %22 ], [ %303, %302 ], [ -1, %40 ], [ -1, %70 ], [ -1, %88 ], [ -1, %48 ], [ -1, %52 ], [ -1, %56 ], [ -1, %dissect_thrift_compact_binary.exit ], [ -1, %144 ], [ -1, %147 ], [ -1, %dissect_thrift_compact_map.exit ], [ -1, %dissect_thrift_compact_struct.exit ], [ -1, %dissect_thrift_compact_binary.exit.thread ], [ -1, %dissect_thrift_compact_map.exit.thread ], [ -1, %255 ], [ -1, %262 ], [ -1, %dissect_thrift_compact_fields.exit ], [ -1, %dissect_thrift_compact_fields.exit.thread ]
   ret i32 %.0
 }
 
@@ -5112,8 +5112,8 @@ dissect_thrift_binary_struct.exit:                ; preds = %dissect_thrift_bina
   br label %dissect_thrift_binary_struct.exit.thread
 
 .sink.split:                                      ; preds = %95, %81, %67, %53, %39, %25, %11
-  %hf_thrift_uuid.sink = phi ptr [ @hf_thrift_double, %81 ], [ @hf_thrift_i64, %67 ], [ @hf_thrift_i32, %53 ], [ @hf_thrift_i16, %39 ], [ @hf_thrift_i8, %25 ], [ @hf_thrift_bool, %11 ], [ @hf_thrift_uuid, %95 ]
-  %.sink127 = phi i32 [ 8, %81 ], [ 8, %67 ], [ 4, %53 ], [ 2, %39 ], [ 1, %25 ], [ 1, %11 ], [ 16, %95 ]
+  %hf_thrift_uuid.sink = phi ptr [ @hf_thrift_bool, %11 ], [ @hf_thrift_i8, %25 ], [ @hf_thrift_i16, %39 ], [ @hf_thrift_i32, %53 ], [ @hf_thrift_i64, %67 ], [ @hf_thrift_double, %81 ], [ @hf_thrift_uuid, %95 ]
+  %.sink127 = phi i32 [ 1, %11 ], [ 1, %25 ], [ 2, %39 ], [ 4, %53 ], [ 8, %67 ], [ 8, %81 ], [ 16, %95 ]
   %200 = load i32, ptr %hf_thrift_uuid.sink, align 4
   %201 = load i32, ptr %3, align 4
   %202 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %200, ptr noundef %0, i32 noundef %201, i32 noundef %.sink127, i32 noundef 0)
@@ -5127,7 +5127,7 @@ dissect_thrift_binary_struct.exit:                ; preds = %dissect_thrift_bina
   br label %dissect_thrift_binary_struct.exit.thread
 
 dissect_thrift_binary_struct.exit.thread:         ; preds = %dissect_thrift_binary_fields.exit.thread, %dissect_thrift_binary_fields.exit, %168, %161, %dissect_thrift_binary_binary.exit.thread, %dissect_thrift_binary_struct.exit, %146, %143, %140, %dissect_thrift_binary_binary.exit, %205, %198, %105, %91, %77, %63, %49, %35, %21
-  %.0 = phi i32 [ -1, %198 ], [ -1, %21 ], [ %206, %205 ], [ -1, %35 ], [ -1, %49 ], [ -1, %63 ], [ -1, %77 ], [ -1, %91 ], [ -1, %105 ], [ -1, %146 ], [ -1, %dissect_thrift_binary_binary.exit ], [ -1, %140 ], [ -1, %143 ], [ -1, %dissect_thrift_binary_struct.exit ], [ -1, %dissect_thrift_binary_binary.exit.thread ], [ -1, %161 ], [ -1, %168 ], [ -1, %dissect_thrift_binary_fields.exit ], [ -1, %dissect_thrift_binary_fields.exit.thread ]
+  %.0 = phi i32 [ -1, %198 ], [ -1, %21 ], [ %206, %205 ], [ -1, %35 ], [ -1, %49 ], [ -1, %63 ], [ -1, %77 ], [ -1, %91 ], [ -1, %105 ], [ -1, %dissect_thrift_binary_binary.exit ], [ -1, %140 ], [ -1, %143 ], [ -1, %146 ], [ -1, %dissect_thrift_binary_struct.exit ], [ -1, %dissect_thrift_binary_binary.exit.thread ], [ -1, %161 ], [ -1, %168 ], [ -1, %dissect_thrift_binary_fields.exit ], [ -1, %dissect_thrift_binary_fields.exit.thread ]
   ret i32 %.0
 }
 
@@ -5207,8 +5207,8 @@ define internal fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, p
   br label %.sink.split
 
 .sink.split:                                      ; preds = %31, %33, %21, %37, %27, %26, %25, %24, %23
-  %hf_thrift_string.sink = phi ptr [ @hf_thrift_binary, %37 ], [ @hf_thrift_string, %23 ], [ @hf_thrift_string, %24 ], [ @hf_thrift_string, %25 ], [ @hf_thrift_string, %26 ], [ @hf_thrift_string, %27 ], [ @hf_thrift_string, %21 ], [ @hf_thrift_string, %33 ], [ @hf_thrift_string, %31 ]
-  %.sink58 = phi i32 [ 0, %37 ], [ 8, %23 ], [ -2147483644, %24 ], [ 4, %25 ], [ 2, %26 ], [ 0, %27 ], [ -2147483640, %21 ], [ 2, %33 ], [ 2, %31 ]
+  %hf_thrift_string.sink = phi ptr [ @hf_thrift_string, %23 ], [ @hf_thrift_string, %24 ], [ @hf_thrift_string, %25 ], [ @hf_thrift_string, %26 ], [ @hf_thrift_string, %27 ], [ @hf_thrift_binary, %37 ], [ @hf_thrift_string, %21 ], [ @hf_thrift_string, %33 ], [ @hf_thrift_string, %31 ]
+  %.sink58 = phi i32 [ 8, %23 ], [ -2147483644, %24 ], [ 4, %25 ], [ 2, %26 ], [ 0, %27 ], [ 0, %37 ], [ -2147483640, %21 ], [ 2, %33 ], [ 2, %31 ]
   %38 = load i32, ptr %hf_thrift_string.sink, align 4
   %39 = load i32, ptr %3, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %38, ptr noundef %0, i32 noundef %39, i32 noundef %5, i32 noundef %.sink58)
@@ -5328,9 +5328,9 @@ define internal fastcc i32 @thrift_binary_utf8_isprint(ptr noundef %0, i32 nound
   ]
 
 47:                                               ; preds = %46, %46, %41, %39, %38, %37, %36, %34, %32
-  %.356.us = phi i32 [ 0, %41 ], [ 0, %46 ], [ 0, %46 ], [ 1, %39 ], [ 2, %36 ], [ 2, %38 ], [ 3, %32 ], [ 2, %37 ], [ 3, %34 ]
-  %.352.us = phi i8 [ %.04973.us, %41 ], [ %.04973.us, %46 ], [ %.04973.us, %46 ], [ -128, %39 ], [ -96, %36 ], [ -128, %38 ], [ -112, %32 ], [ -128, %37 ], [ -128, %34 ]
-  %.4.us = phi i8 [ %.04674.us, %41 ], [ %.04674.us, %46 ], [ %.04674.us, %46 ], [ %.04674.us, %39 ], [ %.04674.us, %36 ], [ %.04674.us, %38 ], [ %.04674.us, %32 ], [ -97, %37 ], [ %.04674.us, %34 ]
+  %.356.us = phi i32 [ 0, %41 ], [ 0, %46 ], [ 0, %46 ], [ 1, %39 ], [ 2, %36 ], [ 2, %37 ], [ 2, %38 ], [ 3, %32 ], [ 3, %34 ]
+  %.352.us = phi i8 [ %.04973.us, %41 ], [ %.04973.us, %46 ], [ %.04973.us, %46 ], [ -128, %39 ], [ -96, %36 ], [ -128, %37 ], [ -128, %38 ], [ -112, %32 ], [ -128, %34 ]
+  %.4.us = phi i8 [ %.04674.us, %41 ], [ %.04674.us, %46 ], [ %.04674.us, %46 ], [ %.04674.us, %39 ], [ %.04674.us, %36 ], [ -97, %37 ], [ %.04674.us, %38 ], [ %.04674.us, %32 ], [ %.04674.us, %34 ]
   %48 = add i32 %.04176.us, 1
   br label %select.unfold.us
 
@@ -5423,9 +5423,9 @@ select.unfold.us:                                 ; preds = %49, %47, %18, %15
   br i1 %82, label %.thread, label %83
 
 83:                                               ; preds = %81, %79, %74, %73, %68, %60, %75
-  %.356 = phi i32 [ 0, %60 ], [ 3, %81 ], [ 2, %74 ], [ 1, %68 ], [ 2, %73 ], [ 2, %75 ], [ 3, %79 ]
-  %.352 = phi i8 [ %.04973, %60 ], [ -128, %81 ], [ -128, %74 ], [ -128, %68 ], [ -96, %73 ], [ -128, %75 ], [ -112, %79 ]
-  %.4 = phi i8 [ %.04674, %60 ], [ %.04674, %81 ], [ -97, %74 ], [ %.04674, %68 ], [ %.04674, %73 ], [ %.04674, %75 ], [ %.04674, %79 ]
+  %.356 = phi i32 [ 0, %60 ], [ 1, %68 ], [ 2, %73 ], [ 2, %74 ], [ 2, %75 ], [ 3, %79 ], [ 3, %81 ]
+  %.352 = phi i8 [ %.04973, %60 ], [ -128, %68 ], [ -96, %73 ], [ -128, %74 ], [ -128, %75 ], [ -112, %79 ], [ -128, %81 ]
+  %.4 = phi i8 [ %.04674, %60 ], [ %.04674, %68 ], [ %.04674, %73 ], [ -97, %74 ], [ %.04674, %75 ], [ %.04674, %79 ], [ %.04674, %81 ]
   %84 = add i32 %.04176, 1
   br label %select.unfold
 
@@ -5450,8 +5450,8 @@ select.unfold:                                    ; preds = %52, %55, %83, %88
   %exitcond.not = icmp eq i32 %91, %6
   br i1 %exitcond.not, label %.thread, label %.lr.ph.split, !llvm.loop !14
 
-.thread:                                          ; preds = %select.unfold, %76, %85, %52, %60, %68, %81, %select.unfold.us, %29, %12, %49, %46, %39, %34, %4
-  %.2 = phi i32 [ -1, %46 ], [ 0, %4 ], [ -1, %34 ], [ -1, %39 ], [ -1, %49 ], [ -1, %12 ], [ -1, %29 ], [ %.142.us, %select.unfold.us ], [ -1, %76 ], [ -1, %85 ], [ -1, %52 ], [ -1, %60 ], [ %.142, %select.unfold ], [ -1, %68 ], [ -1, %81 ]
+.thread:                                          ; preds = %select.unfold, %60, %68, %81, %76, %85, %52, %select.unfold.us, %46, %39, %34, %29, %12, %49, %4
+  %.2 = phi i32 [ 0, %4 ], [ -1, %49 ], [ -1, %12 ], [ -1, %29 ], [ -1, %34 ], [ -1, %39 ], [ -1, %46 ], [ %.142.us, %select.unfold.us ], [ -1, %52 ], [ -1, %85 ], [ -1, %76 ], [ -1, %81 ], [ -1, %68 ], [ -1, %60 ], [ %.142, %select.unfold ]
   ret i32 %.2
 }
 
@@ -5560,7 +5560,7 @@ thrift_get_varint_enc.exit.thread96:              ; preds = %66
   %68 = call ptr @proto_tree_add_expert(ptr noundef %45, ptr noundef %1, ptr noundef nonnull @ei_thrift_varint_too_large, ptr noundef %0, i32 noundef %60, i32 noundef 5)
   br label %.loopexit
 
-thrift_get_varint_enc.exit.thread:                ; preds = %63, %57, %66
+thrift_get_varint_enc.exit.thread:                ; preds = %63, %66, %57
   %69 = load i32, ptr %3, align 4
   %70 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %69)
   %71 = icmp slt i32 %70, 5
@@ -5634,7 +5634,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %63, %57, %66
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %thrift_get_varint_enc.exit.thread96, %thrift_get_varint_enc.exit.thread, %._crit_edge, %86, %78, %37, %24
-  %.0 = phi i32 [ -1, %24 ], [ -1, %37 ], [ -1, %86 ], [ -1, %thrift_get_varint_enc.exit.thread ], [ -1, %thrift_get_varint_enc.exit.thread96 ], [ %104, %._crit_edge ], [ -1, %78 ], [ -1, %.lr.ph ]
+  %.0 = phi i32 [ -1, %24 ], [ -1, %37 ], [ -1, %86 ], [ %104, %._crit_edge ], [ -1, %78 ], [ -1, %thrift_get_varint_enc.exit.thread ], [ -1, %thrift_get_varint_enc.exit.thread96 ], [ -1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -5720,11 +5720,11 @@ default.unreachable78:                            ; preds = %6
   unreachable
 
 16:                                               ; preds = %6, %13, %14
-  %.067.in = phi ptr [ @ett_thrift_map, %14 ], [ @ett_thrift_list, %13 ], [ @ett_thrift_set, %6 ]
-  %.066.in = phi ptr [ @hf_thrift_map, %14 ], [ @hf_thrift_list, %13 ], [ @hf_thrift_set, %6 ]
-  %.065.in = phi ptr [ @hf_thrift_num_map_item, %14 ], [ @hf_thrift_num_list_item, %13 ], [ @hf_thrift_num_set_item, %6 ]
-  %.064 = phi i32 [ %15, %14 ], [ %10, %13 ], [ %10, %6 ]
-  %.063 = phi i32 [ 6, %14 ], [ 5, %13 ], [ 5, %6 ]
+  %.067.in = phi ptr [ @ett_thrift_list, %13 ], [ @ett_thrift_map, %14 ], [ @ett_thrift_set, %6 ]
+  %.066.in = phi ptr [ @hf_thrift_list, %13 ], [ @hf_thrift_map, %14 ], [ @hf_thrift_set, %6 ]
+  %.065.in = phi ptr [ @hf_thrift_num_list_item, %13 ], [ @hf_thrift_num_map_item, %14 ], [ @hf_thrift_num_set_item, %6 ]
+  %.064 = phi i32 [ %10, %13 ], [ %15, %14 ], [ %10, %6 ]
+  %.063 = phi i32 [ 5, %13 ], [ 6, %14 ], [ 5, %6 ]
   %.065 = load i32, ptr %.065.in, align 4
   %.066 = load i32, ptr %.066.in, align 4
   %.067 = load i32, ptr %.067.in, align 4
@@ -5849,7 +5849,7 @@ default.unreachable78:                            ; preds = %6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split, %65, %.lr.ph.split.us, %._crit_edge, %69, %33, %26
-  %.0 = phi i32 [ -1, %26 ], [ -1, %33 ], [ -1, %69 ], [ %80, %._crit_edge ], [ -1, %65 ], [ -1, %.lr.ph.split.us ], [ -1, %.lr.ph.split ]
+  %.0 = phi i32 [ -1, %26 ], [ -1, %33 ], [ -1, %69 ], [ %80, %._crit_edge ], [ -1, %.lr.ph.split.us ], [ -1, %65 ], [ -1, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -6646,8 +6646,8 @@ thrift_get_varint_enc.exit252:                    ; preds = %71
   store i32 268435455, ptr %312, align 8
   br label %thrift_get_varint_enc.exit.thread
 
-thrift_get_varint_enc.exit.thread:                ; preds = %77, %66, %75, %57, %42, %55, %.thread, %276, %thrift_get_varint_enc.exit252, %thrift_get_varint_enc.exit, %310, %305, %299, %270, %131, %113, %88, %83, %26
-  %.0217 = phi i32 [ 0, %26 ], [ -1, %310 ], [ 0, %131 ], [ %53, %thrift_get_varint_enc.exit ], [ 0, %83 ], [ 0, %88 ], [ 0, %.thread ], [ %271, %270 ], [ %300, %299 ], [ %303, %305 ], [ %73, %thrift_get_varint_enc.exit252 ], [ 0, %113 ], [ 0, %276 ], [ -1, %55 ], [ 0, %57 ], [ -1, %42 ], [ 0, %77 ], [ -1, %66 ], [ -1, %75 ]
+thrift_get_varint_enc.exit.thread:                ; preds = %77, %75, %66, %57, %55, %42, %.thread, %276, %thrift_get_varint_enc.exit252, %thrift_get_varint_enc.exit, %310, %305, %299, %270, %131, %113, %88, %83, %26
+  %.0217 = phi i32 [ 0, %26 ], [ -1, %310 ], [ 0, %83 ], [ 0, %88 ], [ %271, %270 ], [ %300, %299 ], [ %303, %305 ], [ 0, %113 ], [ 0, %131 ], [ %53, %thrift_get_varint_enc.exit ], [ %73, %thrift_get_varint_enc.exit252 ], [ 0, %276 ], [ 0, %.thread ], [ 0, %57 ], [ -1, %55 ], [ -1, %42 ], [ 0, %77 ], [ -1, %75 ], [ -1, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0217

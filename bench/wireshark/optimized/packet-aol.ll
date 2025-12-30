@@ -446,8 +446,8 @@ define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %dissect_aol_init.exit
 
 dissect_aol_init.exit:                            ; preds = %143, %132, %45, %.thread105
-  %.291 = phi i16 [ %38, %132 ], [ %.392109, %.thread105 ], [ %38, %45 ], [ 0, %143 ]
-  %.3 = phi i32 [ %141, %132 ], [ %156, %.thread105 ], [ %122, %45 ], [ %151, %143 ]
+  %.291 = phi i16 [ %.392109, %.thread105 ], [ %38, %45 ], [ %38, %132 ], [ 0, %143 ]
+  %.3 = phi i32 [ %156, %.thread105 ], [ %122, %45 ], [ %141, %132 ], [ %151, %143 ]
   %157 = zext i16 %.291 to i32
   %158 = add nuw nsw i32 %37, %157
   %159 = icmp samesign ult i32 %.3, %158

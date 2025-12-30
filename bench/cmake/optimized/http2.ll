@@ -204,7 +204,7 @@ define dso_local ptr @curl_pushheader_bynum(ptr noundef readonly captures(addres
   br label %20
 
 20:                                               ; preds = %11, %8, %2, %3, %5, %15
-  %.0 = phi ptr [ %19, %15 ], [ null, %2 ], [ null, %5 ], [ null, %3 ], [ null, %8 ], [ null, %11 ]
+  %.0 = phi ptr [ %19, %15 ], [ null, %5 ], [ null, %3 ], [ null, %2 ], [ null, %8 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -287,7 +287,7 @@ define dso_local ptr @curl_pushheader_byname(ptr noundef readonly captures(addre
   br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !94
 
 .loopexit:                                        ; preds = %35, %9, %19, %16, %2, %3, %5, %.tail, %.tail.thread, %32
-  %.024 = phi ptr [ null, %2 ], [ %34, %32 ], [ null, %16 ], [ null, %.tail.thread ], [ null, %.tail ], [ null, %9 ], [ null, %5 ], [ null, %3 ], [ null, %19 ], [ null, %35 ]
+  %.024 = phi ptr [ %34, %32 ], [ null, %.tail.thread ], [ null, %.tail ], [ null, %9 ], [ null, %5 ], [ null, %3 ], [ null, %2 ], [ null, %16 ], [ null, %19 ], [ null, %35 ]
   ret ptr %.024
 }
 
@@ -667,7 +667,7 @@ h2_client_new.exit.i:                             ; preds = %36
   br label %142
 
 123:                                              ; preds = %87, %76, %75
-  %.170.i = phi i32 [ 2, %75 ], [ %77, %76 ], [ 16, %87 ]
+  %.170.i = phi i32 [ 2, %75 ], [ 16, %87 ], [ %77, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %167
 
@@ -753,7 +753,7 @@ h2_client_new.exit.i:                             ; preds = %36
   br label %167
 
 167:                                              ; preds = %163, %158, %154, %147, %145, %140, %123, %53, %35
-  %.069.i = phi i32 [ 27, %35 ], [ 27, %53 ], [ 16, %145 ], [ 0, %163 ], [ 0, %158 ], [ 0, %154 ], [ %.170.i, %123 ], [ 0, %147 ], [ 16, %140 ]
+  %.069.i = phi i32 [ 27, %35 ], [ 27, %53 ], [ 16, %145 ], [ 0, %163 ], [ 0, %158 ], [ 0, %154 ], [ 0, %147 ], [ %.170.i, %123 ], [ 16, %140 ]
   %168 = load ptr, ptr %9, align 8, !tbaa !122
   %.not98.i = icmp eq ptr %168, null
   br i1 %.not98.i, label %cf_h2_ctx_open.exit, label %169
@@ -788,7 +788,7 @@ cf_h2_ctx_open.exit:                              ; preds = %167, %169
   br label %176
 
 176:                                              ; preds = %171, %173, %cf_h2_ctx_open.exit, %.critedge
-  %.044 = phi i32 [ 0, %173 ], [ %172, %171 ], [ %170, %.critedge ], [ %.069.i, %cf_h2_ctx_open.exit ]
+  %.044 = phi i32 [ 0, %173 ], [ %170, %.critedge ], [ %.069.i, %cf_h2_ctx_open.exit ], [ %172, %171 ]
   %.not56 = icmp eq ptr %1, null
   br i1 %.not56, label %196, label %177
 
@@ -1036,8 +1036,8 @@ define internal range(i32 82, 81) i32 @cf_h2_shutdown(ptr noundef %0, ptr nounde
   br label %67
 
 67:                                               ; preds = %64, %.thread62, %.thread74, %.thread64, %.thread58
-  %.261 = phi i32 [ %spec.select, %64 ], [ %spec.select, %.thread64 ], [ 55, %.thread58 ], [ 0, %.thread74 ], [ 0, %.thread62 ]
-  %68 = phi i8 [ 2, %64 ], [ 2, %.thread64 ], [ 2, %.thread58 ], [ 2, %.thread74 ], [ %63, %.thread62 ]
+  %.261 = phi i32 [ 55, %.thread58 ], [ %spec.select, %.thread64 ], [ 0, %.thread74 ], [ 0, %.thread62 ], [ %spec.select, %64 ]
+  %68 = phi i8 [ 2, %.thread58 ], [ 2, %.thread64 ], [ 2, %.thread74 ], [ %63, %.thread62 ], [ 2, %64 ]
   %69 = load i8, ptr %6, align 4
   %70 = and i8 %69, -3
   %71 = or i8 %70, %68
@@ -1119,9 +1119,9 @@ define internal void @cf_h2_adjust_pollset(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %21, %36, %32, %27
-  %39 = phi i1 [ %.not56, %32 ], [ %.not56, %36 ], [ %.not56, %27 ], [ false, %21 ]
-  %40 = phi i8 [ 1, %32 ], [ %.pre60, %36 ], [ %.pre59, %27 ], [ 0, %21 ]
-  %41 = phi i1 [ false, %32 ], [ %.not57, %36 ], [ false, %27 ], [ false, %21 ]
+  %39 = phi i1 [ %.not56, %32 ], [ %.not56, %27 ], [ %.not56, %36 ], [ false, %21 ]
+  %40 = phi i8 [ 1, %32 ], [ %.pre59, %27 ], [ %.pre60, %36 ], [ 0, %21 ]
+  %41 = phi i1 [ false, %32 ], [ false, %27 ], [ %.not57, %36 ], [ false, %21 ]
   %42 = load i8, ptr %4, align 1, !tbaa !111, !range !113, !noundef !114
   %43 = trunc nuw i8 %42 to i1
   %or.cond5 = select i1 %43, i1 true, i1 %39
@@ -1149,7 +1149,7 @@ define internal void @cf_h2_adjust_pollset(ptr noundef %0, ptr noundef %1, ptr n
   br label %53
 
 53:                                               ; preds = %.thread, %49, %46
-  %54 = phi i1 [ true, %46 ], [ true, %.thread ], [ %52, %49 ]
+  %54 = phi i1 [ true, %46 ], [ %52, %49 ], [ true, %.thread ]
   %55 = zext i1 %54 to i8
   store i8 %55, ptr %5, align 1, !tbaa !111
   %56 = load i8, ptr %4, align 1, !tbaa !111, !range !113, !noundef !114
@@ -1262,7 +1262,7 @@ define internal zeroext i1 @cf_h2_data_pending(ptr noundef readonly captures(non
   br label %26
 
 26:                                               ; preds = %.thread24, %21, %.thread25, %6, %16
-  %.0 = phi i1 [ true, %6 ], [ true, %16 ], [ %25, %21 ], [ false, %.thread25 ], [ true, %.thread24 ]
+  %.0 = phi i1 [ true, %16 ], [ true, %6 ], [ %25, %21 ], [ false, %.thread25 ], [ true, %.thread24 ]
   ret i1 %.0
 }
 
@@ -1594,7 +1594,7 @@ h2_pri_spec.exit.i:                               ; preds = %52, %47, %44
   br label %.thread172.i
 
 174:                                              ; preds = %43, %38, %34, %29, %26
-  %.2.i = phi i64 [ %32, %34 ], [ %32, %29 ], [ -1, %26 ], [ -1, %43 ], [ -1, %38 ]
+  %.2.i = phi i64 [ %32, %29 ], [ -1, %43 ], [ %32, %34 ], [ -1, %26 ], [ -1, %38 ]
   br i1 %.not, label %h2_submit.exit, label %.thread172.i
 
 .thread172.i:                                     ; preds = %174, %173, %172, %167, %._crit_edge.thread.i, %110
@@ -1752,8 +1752,8 @@ h2_submit.exit:                                   ; preds = %174, %.thread172.i,
   %.not141 = icmp eq i8 %255, 0
   br i1 %.not141, label %274, label %259
 
-.thread179:                                       ; preds = %241, %246, %237, %230, %228
-  %.1.ph = phi i64 [ %231, %230 ], [ %231, %237 ], [ %231, %241 ], [ %231, %246 ], [ %3, %228 ]
+.thread179:                                       ; preds = %228, %237, %241, %246, %230
+  %.1.ph = phi i64 [ %3, %228 ], [ %231, %230 ], [ %231, %237 ], [ %231, %241 ], [ %231, %246 ]
   %256 = tail call fastcc i32 @h2_progress_egress(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %257 = load i8, ptr %204, align 4
   %258 = and i8 %257, 2
@@ -1890,9 +1890,9 @@ should_close_session.exit.thread:                 ; preds = %277, %281, %should_
   br i1 %.not148, label %347, label %.thread195
 
 .thread195:                                       ; preds = %273, %290, %312, %should_close_session.exit.thread
-  %.0203 = phi i64 [ %.0, %should_close_session.exit.thread ], [ -1, %273 ], [ -1, %312 ], [ %291, %290 ]
-  %.0161202 = phi ptr [ %.0161, %should_close_session.exit.thread ], [ %.1162175184192, %273 ], [ %.1162176, %312 ], [ %.1162176, %290 ]
-  %.sroa.0.0.copyload166201 = phi ptr [ %.sroa.0.0.copyload166, %should_close_session.exit.thread ], [ %.sroa.0.0.copyload165173185190, %273 ], [ %.sroa.0.0.copyload165174, %312 ], [ %.sroa.0.0.copyload165174, %290 ]
+  %.0203 = phi i64 [ %.0, %should_close_session.exit.thread ], [ -1, %312 ], [ %291, %290 ], [ -1, %273 ]
+  %.0161202 = phi ptr [ %.0161, %should_close_session.exit.thread ], [ %.1162176, %312 ], [ %.1162176, %290 ], [ %.1162175184192, %273 ]
+  %.sroa.0.0.copyload166201 = phi ptr [ %.sroa.0.0.copyload166, %should_close_session.exit.thread ], [ %.sroa.0.0.copyload165174, %312 ], [ %.sroa.0.0.copyload165174, %290 ], [ %.sroa.0.0.copyload165173185190, %273 ]
   br i1 %.not, label %372, label %.thread195.thread
 
 .thread195.thread:                                ; preds = %228, %.thread195
@@ -2316,8 +2316,8 @@ define internal i32 @cf_h2_cntrl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %cf_h2_flush.exit
 
 cf_h2_flush.exit:                                 ; preds = %.thread82.i, %.thread70.i, %70, %74, %79, %89, %97, %101, %106
-  %.177.i = phi i32 [ %.176.i, %79 ], [ %.176.i, %74 ], [ %90, %89 ], [ %.176.i, %70 ], [ %.176.i, %.thread70.i ], [ %45, %.thread82.i ], [ %90, %106 ], [ %90, %101 ], [ %90, %97 ]
-  %.sroa.0.0.copyload6674.i = phi ptr [ %.sroa.0.0.copyload.i, %79 ], [ %.sroa.0.0.copyload.i, %74 ], [ %.sroa.0.0.copyload.i, %89 ], [ %.sroa.0.0.copyload.i, %70 ], [ %.sroa.0.0.copyload.i, %.thread70.i ], [ null, %.thread82.i ], [ %.sroa.0.0.copyload.i, %106 ], [ %.sroa.0.0.copyload.i, %101 ], [ %.sroa.0.0.copyload.i, %97 ]
+  %.177.i = phi i32 [ %.176.i, %79 ], [ %.176.i, %74 ], [ %.176.i, %70 ], [ %.176.i, %.thread70.i ], [ %90, %106 ], [ %90, %101 ], [ %90, %97 ], [ %90, %89 ], [ %45, %.thread82.i ]
+  %.sroa.0.0.copyload6674.i = phi ptr [ %.sroa.0.0.copyload.i, %79 ], [ %.sroa.0.0.copyload.i, %74 ], [ %.sroa.0.0.copyload.i, %70 ], [ %.sroa.0.0.copyload.i, %.thread70.i ], [ %.sroa.0.0.copyload.i, %106 ], [ %.sroa.0.0.copyload.i, %101 ], [ %.sroa.0.0.copyload.i, %97 ], [ %.sroa.0.0.copyload.i, %89 ], [ null, %.thread82.i ]
   %111 = load ptr, ptr %6, align 8, !tbaa !107
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store ptr %.sroa.0.0.copyload6674.i, ptr %112, align 8, !tbaa !115
@@ -2332,7 +2332,7 @@ cf_h2_flush.exit:                                 ; preds = %.thread82.i, %.thre
   br label %http2_data_pause.exit
 
 http2_data_pause.exit:                            ; preds = %40, %35, %31, %24, %19, %11, %9, %cf_h2_flush.exit, %113, %114, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %114 ], [ 0, %113 ], [ %.177.i, %cf_h2_flush.exit ], [ %20, %19 ], [ 0, %40 ], [ 0, %35 ], [ 0, %31 ], [ 0, %24 ], [ 0, %11 ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %114 ], [ %.177.i, %cf_h2_flush.exit ], [ 0, %113 ], [ %20, %19 ], [ 0, %40 ], [ 0, %35 ], [ 0, %31 ], [ 0, %24 ], [ 0, %11 ], [ 0, %9 ]
   %115 = load ptr, ptr %6, align 8, !tbaa !107
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store ptr %.sroa.0.0.copyload, ptr %116, align 8, !tbaa !115
@@ -2441,12 +2441,12 @@ define internal zeroext i1 @cf_h2_is_alive(ptr noundef %0, ptr noundef %1, ptr n
   br label %should_close_session.exit.i
 
 should_close_session.exit.i:                      ; preds = %54, %51, %48, %44, %41
-  %.1.i = phi i1 [ %.not32.i, %54 ], [ false, %41 ], [ true, %48 ], [ true, %44 ], [ %.not3.i.i, %51 ]
+  %.1.i = phi i1 [ false, %41 ], [ %.not32.i, %54 ], [ true, %48 ], [ true, %44 ], [ %.not3.i.i, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %http2_connisalive.exit
 
 http2_connisalive.exit:                           ; preds = %should_close_session.exit.i, %17, %12, %9, %3
-  %56 = phi i1 [ false, %3 ], [ false, %9 ], [ false, %12 ], [ %.1.i, %should_close_session.exit.i ], [ true, %17 ]
+  %56 = phi i1 [ false, %3 ], [ false, %12 ], [ false, %9 ], [ %.1.i, %should_close_session.exit.i ], [ true, %17 ]
   %57 = zext i1 %56 to i32
   %.not25 = icmp eq ptr %1, null
   br i1 %.not25, label %77, label %58
@@ -2635,7 +2635,7 @@ define internal i32 @cf_h2_query(ptr noundef readonly captures(none) %0, ptr nou
   br label %58
 
 58:                                               ; preds = %53, %.thread46, %.critedge, %.thread, %22
-  %.0 = phi i32 [ 0, %.critedge ], [ 0, %22 ], [ 0, %.thread ], [ %57, %53 ], [ 48, %.thread46 ]
+  %.0 = phi i32 [ 0, %22 ], [ 0, %.thread ], [ 0, %.critedge ], [ %57, %53 ], [ 48, %.thread46 ]
   ret i32 %.0
 }
 
@@ -2745,7 +2745,7 @@ define dso_local noundef zeroext i1 @Curl_http2_may_switch(ptr noundef %0, ptr n
   br label %Curl_conn_is_http2.exit
 
 Curl_conn_is_http2.exit:                          ; preds = %.lr.ph.i.i, %.loopexit, %21, %36, %32, %25
-  %.0 = phi i1 [ true, %21 ], [ false, %36 ], [ false, %.loopexit ], [ false, %25 ], [ false, %32 ], [ false, %.lr.ph.i.i ]
+  %.0 = phi i1 [ false, %25 ], [ false, %32 ], [ false, %36 ], [ true, %21 ], [ false, %.loopexit ], [ false, %.lr.ph.i.i ]
   ret i1 %.0
 }
 
@@ -2826,7 +2826,7 @@ define dso_local i32 @Curl_http2_switch(ptr noundef %0, ptr noundef %1, i32 noun
   br label %41
 
 41:                                               ; preds = %29, %3, %39
-  %.0 = phi i32 [ %6, %3 ], [ %40, %39 ], [ 0, %29 ]
+  %.0 = phi i32 [ %40, %39 ], [ %6, %3 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -2991,7 +2991,7 @@ http2_cfilter_insert_after.exit:                  ; preds = %2, %19, %22
   br label %40
 
 40:                                               ; preds = %http2_cfilter_insert_after.exit, %24, %38
-  %.0 = phi i32 [ %.0.ph12.i, %http2_cfilter_insert_after.exit ], [ %39, %38 ], [ 0, %24 ]
+  %.0 = phi i32 [ %39, %38 ], [ %.0.ph12.i, %http2_cfilter_insert_after.exit ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -3124,7 +3124,7 @@ define dso_local i32 @Curl_http2_upgrade(ptr noundef %0, ptr noundef %1, i32 nou
   br label %67
 
 67:                                               ; preds = %39, %43, %.thread, %5, %65
-  %.0 = phi i32 [ 0, %.thread ], [ %66, %65 ], [ %9, %5 ], [ 56, %39 ], [ 16, %43 ]
+  %.0 = phi i32 [ %66, %65 ], [ %9, %5 ], [ 0, %.thread ], [ 56, %39 ], [ 16, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -3525,7 +3525,7 @@ define internal fastcc i32 @h2_progress_ingress(ptr noundef %0, ptr noundef %1, 
   br label %158
 
 158:                                              ; preds = %138, %139, %146, %151, %152, %157, %109, %66, %31
-  %.0 = phi i32 [ %32, %31 ], [ %68, %66 ], [ %110, %109 ], [ 0, %157 ], [ 0, %152 ], [ 0, %151 ], [ 0, %146 ], [ 0, %139 ], [ 0, %138 ]
+  %.0 = phi i32 [ %68, %66 ], [ %110, %109 ], [ %32, %31 ], [ 0, %157 ], [ 0, %152 ], [ 0, %151 ], [ 0, %146 ], [ 0, %139 ], [ 0, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -3815,7 +3815,7 @@ nw_out_flush.exit:                                ; preds = %112, %119, %141, %1
   br label %148
 
 148:                                              ; preds = %107, %83, %.thread83, %90, %95, %96, %101, %nw_out_flush.exit
-  %.052 = phi i32 [ 0, %107 ], [ 55, %83 ], [ %.0.i, %nw_out_flush.exit ], [ 55, %101 ], [ 55, %96 ], [ 55, %95 ], [ 55, %90 ], [ 55, %.thread83 ]
+  %.052 = phi i32 [ %.0.i, %nw_out_flush.exit ], [ 55, %101 ], [ 55, %96 ], [ 55, %95 ], [ 55, %90 ], [ 55, %.thread83 ], [ 55, %83 ], [ 0, %107 ]
   ret i32 %.052
 }
 
@@ -5075,8 +5075,8 @@ push_promise.exit.thread.i:                       ; preds = %push_promise.exit.t
   call fastcc void @drain_stream(ptr noundef %2, ptr noundef nonnull %163, ptr noundef %187)
   br label %on_stream_frame.exit
 
-on_stream_frame.exit:                             ; preds = %522, %526, %527, %532, %196, %200, %205, %516, %push_promise.exit.thread.i, %245, %237, %189, %554, %597, %560, %164, %165, %172, %176, %181, %59, %159, %137, %56, %131, %136, %.critedge147
-  %.0 = phi i32 [ 0, %165 ], [ 0, %59 ], [ 0, %.critedge147 ], [ 0, %136 ], [ 0, %131 ], [ 0, %56 ], [ 0, %137 ], [ 0, %159 ], [ 0, %181 ], [ 0, %176 ], [ 0, %164 ], [ 0, %172 ], [ 0, %560 ], [ 0, %597 ], [ -902, %554 ], [ -902, %189 ], [ -902, %237 ], [ -902, %245 ], [ -902, %push_promise.exit.thread.i ], [ -902, %516 ], [ -902, %205 ], [ -902, %200 ], [ -902, %196 ], [ -902, %532 ], [ -902, %527 ], [ -902, %526 ], [ -902, %522 ]
+on_stream_frame.exit:                             ; preds = %554, %516, %522, %526, %527, %532, %push_promise.exit.thread.i, %245, %237, %189, %196, %200, %205, %597, %560, %164, %165, %172, %176, %181, %59, %159, %137, %56, %131, %136, %.critedge147
+  %.0 = phi i32 [ 0, %.critedge147 ], [ 0, %136 ], [ 0, %131 ], [ 0, %56 ], [ 0, %137 ], [ 0, %159 ], [ 0, %59 ], [ 0, %181 ], [ 0, %176 ], [ 0, %172 ], [ 0, %165 ], [ 0, %164 ], [ 0, %597 ], [ 0, %560 ], [ -902, %205 ], [ -902, %200 ], [ -902, %196 ], [ -902, %189 ], [ -902, %237 ], [ -902, %245 ], [ -902, %push_promise.exit.thread.i ], [ -902, %532 ], [ -902, %527 ], [ -902, %526 ], [ -902, %522 ], [ -902, %516 ], [ -902, %554 ]
   ret i32 %.0
 }
 
@@ -5531,7 +5531,7 @@ define internal range(i32 -902, 1) i32 @on_stream_close(ptr noundef %0, i32 noun
   br label %128
 
 128:                                              ; preds = %114, %116, %123, %127, %56, %63, %67, %72, %.thread, %11, %18, %22, %27, %49
-  %.0 = phi i32 [ -902, %56 ], [ 0, %.thread ], [ -902, %49 ], [ 0, %27 ], [ 0, %22 ], [ 0, %114 ], [ 0, %18 ], [ 0, %11 ], [ -902, %72 ], [ -902, %67 ], [ 0, %116 ], [ -902, %63 ], [ 0, %127 ], [ 0, %123 ]
+  %.0 = phi i32 [ -902, %49 ], [ 0, %27 ], [ 0, %22 ], [ 0, %18 ], [ 0, %11 ], [ 0, %.thread ], [ -902, %72 ], [ -902, %67 ], [ -902, %63 ], [ -902, %56 ], [ 0, %127 ], [ 0, %123 ], [ 0, %116 ], [ 0, %114 ]
   ret i32 %.0
 }
 
@@ -5870,7 +5870,7 @@ free_push_headers.exit:                           ; preds = %.lr.ph.i, %70
   br label %.critedge208
 
 .critedge208:                                     ; preds = %.critedge, %135, %138, %150, %157, %161, %166, %131, %128
-  %.5 = phi i32 [ 0, %150 ], [ -902, %128 ], [ -902, %131 ], [ 0, %157 ], [ 0, %166 ], [ 0, %161 ], [ -902, %.critedge ], [ -902, %138 ], [ -902, %135 ]
+  %.5 = phi i32 [ -902, %128 ], [ -902, %131 ], [ 0, %166 ], [ 0, %161 ], [ 0, %157 ], [ 0, %150 ], [ -902, %138 ], [ -902, %135 ], [ -902, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge215
 
@@ -5945,7 +5945,7 @@ free_push_headers.exit:                           ; preds = %.lr.ph.i, %70
   br label %.critedge215
 
 .critedge215:                                     ; preds = %86, %free_push_headers.exit, %27, %50, %.critedge213, %173, %170, %.critedge212, %187, %194, %198, %203, %121, %56, %90, %88, %8, %.critedge208, %20
-  %.0 = phi i32 [ -902, %8 ], [ %.206, %121 ], [ 0, %88 ], [ %.5, %.critedge208 ], [ 0, %90 ], [ 0, %187 ], [ -902, %20 ], [ -902, %56 ], [ -902, %27 ], [ -902, %50 ], [ 0, %194 ], [ 0, %203 ], [ 0, %198 ], [ -902, %.critedge213 ], [ -902, %.critedge212 ], [ -902, %170 ], [ -902, %173 ], [ -902, %free_push_headers.exit ], [ -902, %86 ]
+  %.0 = phi i32 [ %.5, %.critedge208 ], [ -902, %20 ], [ -902, %8 ], [ -902, %50 ], [ -902, %56 ], [ 0, %90 ], [ 0, %88 ], [ %.206, %121 ], [ 0, %203 ], [ 0, %198 ], [ 0, %194 ], [ 0, %187 ], [ -902, %.critedge212 ], [ -902, %170 ], [ -902, %173 ], [ -902, %.critedge213 ], [ -902, %27 ], [ -902, %free_push_headers.exit ], [ -902, %86 ]
   ret i32 %.0
 }
 
@@ -6133,7 +6133,7 @@ define internal i64 @nw_out_writer(ptr noundef %0, ptr noundef %1, i64 noundef %
   br label %.thread
 
 .thread:                                          ; preds = %4, %5, %10, %31, %26, %22, %15
-  %.0 = phi i64 [ %13, %10 ], [ %13, %15 ], [ %13, %22 ], [ 0, %5 ], [ %13, %26 ], [ %13, %31 ], [ 0, %4 ]
+  %.0 = phi i64 [ %13, %15 ], [ %13, %22 ], [ %13, %26 ], [ %13, %31 ], [ %13, %10 ], [ 0, %5 ], [ 0, %4 ]
   ret i64 %.0
 }
 
@@ -6589,7 +6589,7 @@ define internal fastcc range(i32 0, 17) i32 @cf_h2_update_local_win(ptr noundef 
   br label %.critedge
 
 .critedge:                                        ; preds = %26, %50, %11, %46, %41, %37, %30, %29, %70, %65, %61, %54, %53
-  %.1 = phi i32 [ 0, %11 ], [ 0, %53 ], [ 0, %54 ], [ 0, %61 ], [ 16, %50 ], [ 0, %65 ], [ 0, %70 ], [ 0, %29 ], [ 0, %30 ], [ 0, %37 ], [ 16, %26 ], [ 0, %41 ], [ 0, %46 ]
+  %.1 = phi i32 [ 0, %53 ], [ 0, %54 ], [ 0, %61 ], [ 0, %65 ], [ 0, %70 ], [ 0, %29 ], [ 0, %30 ], [ 0, %37 ], [ 0, %41 ], [ 0, %46 ], [ 0, %11 ], [ 16, %50 ], [ 16, %26 ]
   ret i32 %.1
 }
 
@@ -7090,8 +7090,8 @@ define internal fastcc i64 @cf_h2_body_send(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not46, label %.critedge, label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %66, %39, %40, %47, %51, %35, %36
-  %.sink = phi i32 [ 55, %39 ], [ 0, %35 ], [ 0, %36 ], [ 55, %51 ], [ 55, %47 ], [ 55, %40 ], [ 55, %66 ]
-  %.0.ph = phi i64 [ -1, %39 ], [ %4, %35 ], [ %4, %36 ], [ -1, %51 ], [ -1, %47 ], [ -1, %40 ], [ -1, %66 ]
+  %.sink = phi i32 [ 0, %36 ], [ 0, %35 ], [ 55, %51 ], [ 55, %47 ], [ 55, %40 ], [ 55, %39 ], [ 55, %66 ]
+  %.0.ph = phi i64 [ %4, %36 ], [ %4, %35 ], [ -1, %51 ], [ -1, %47 ], [ -1, %40 ], [ -1, %39 ], [ -1, %66 ]
   store i32 %.sink, ptr %6, align 4, !tbaa !140
   br label %.critedge
 
@@ -7374,7 +7374,7 @@ define internal fastcc range(i64 -1, 1) i64 @http2_handle_stream_close(ptr nound
   br label %142
 
 142:                                              ; preds = %120, %122, %130, %135, %136, %141, %86, %78, %69, %30
-  %.083 = phi i64 [ -1, %30 ], [ -1, %86 ], [ -1, %69 ], [ -1, %78 ], [ 0, %120 ], [ 0, %141 ], [ 0, %136 ], [ 0, %135 ], [ 0, %130 ], [ 0, %122 ]
+  %.083 = phi i64 [ -1, %30 ], [ -1, %69 ], [ -1, %78 ], [ -1, %86 ], [ 0, %141 ], [ 0, %136 ], [ 0, %135 ], [ 0, %130 ], [ 0, %122 ], [ 0, %120 ]
   ret i64 %.083
 }
 
@@ -7475,7 +7475,7 @@ define internal range(i64 -902, -9223372036854775808) i64 @req_body_read_callbac
   br label %57
 
 57:                                               ; preds = %22, %13, %11, %7, %54, %53
-  %.033 = phi i64 [ -902, %13 ], [ %.0, %53 ], [ %56, %54 ], [ -902, %11 ], [ -501, %7 ], [ -902, %22 ]
+  %.033 = phi i64 [ %.0, %53 ], [ %56, %54 ], [ -501, %7 ], [ -902, %11 ], [ -902, %13 ], [ -902, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.033
 }
@@ -7712,7 +7712,7 @@ define internal fastcc range(i64 -1, 1) i64 @stream_recv(ptr noundef %0, ptr nou
   br label %121
 
 121:                                              ; preds = %102, %109, %113, %118, %.thread, %96
-  %.02 = phi i64 [ -1, %102 ], [ -1, %109 ], [ 0, %96 ], [ -1, %113 ], [ -1, %118 ], [ -1, %.thread ]
+  %.02 = phi i64 [ -1, %102 ], [ -1, %109 ], [ -1, %113 ], [ -1, %118 ], [ -1, %.thread ], [ 0, %96 ]
   ret i64 %.02
 }
 

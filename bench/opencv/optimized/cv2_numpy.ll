@@ -141,7 +141,7 @@ switch.lookup:                                    ; preds = %18
   br label %31
 
 31:                                               ; preds = %switch.lookup, %25
-  %32 = phi i32 [ %switch.load, %switch.lookup ], [ %29, %25 ]
+  %32 = phi i32 [ %29, %25 ], [ %switch.load, %switch.lookup ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %33 = add nsw i32 %1, 1
   %34 = sext i32 %33 to i64

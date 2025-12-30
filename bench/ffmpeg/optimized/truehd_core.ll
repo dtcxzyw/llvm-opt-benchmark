@@ -352,8 +352,8 @@ define internal i32 @truehd_core_filter(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread162
 
-.thread:                                          ; preds = %.thread164, %53, %14, %50, %24, %10
-  %.0101129 = phi i32 [ %140, %.thread164 ], [ -1094995529, %53 ], [ -1094995529, %14 ], [ %51, %50 ], [ -1094995529, %24 ], [ -1094995529, %10 ]
+.thread:                                          ; preds = %.thread164, %53, %14, %10, %50, %24
+  %.0101129 = phi i32 [ -1094995529, %53 ], [ -1094995529, %14 ], [ -1094995529, %10 ], [ %51, %50 ], [ -1094995529, %24 ], [ %140, %.thread164 ]
   call void @av_packet_unref(ptr noundef nonnull %1) #7
   br label %.thread162
 

@@ -404,7 +404,7 @@ marker_is_icc.exit99.thread:                      ; preds = %.lr.ph124, %199, %.
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge, %._crit_edge130, %129, %118, %105, %96, %85
-  %.083 = phi i32 [ 0, %96 ], [ 0, %105 ], [ 0, %85 ], [ 1, %._crit_edge130 ], [ 0, %118 ], [ 0, %129 ], [ 0, %._crit_edge ], [ 0, %23 ]
+  %.083 = phi i32 [ 0, %96 ], [ 0, %105 ], [ 0, %85 ], [ 0, %118 ], [ 0, %129 ], [ 1, %._crit_edge130 ], [ 0, %._crit_edge ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

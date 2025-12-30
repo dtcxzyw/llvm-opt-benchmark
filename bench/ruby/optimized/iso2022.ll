@@ -62,7 +62,7 @@ define internal range(i64 1, 65) i64 @fun_si_iso2022jp_decoder(ptr noundef reado
   br label %9
 
 9:                                                ; preds = %6, %3
-  %.0 = phi i64 [ %spec.select, %6 ], [ 1, %3 ]
+  %.0 = phi i64 [ 1, %3 ], [ %spec.select, %6 ]
   ret i64 %.0
 }
 
@@ -305,7 +305,7 @@ switch.hole_check:                                ; preds = %16
   br i1 %switch.lobit, label %switch.lookup, label %19
 
 switch.lookup:                                    ; preds = %switch.hole_check, %5, %19, %12, %8, %22
-  %.0 = phi i64 [ 7, %22 ], [ 64, %12 ], [ 64, %19 ], [ %spec.select, %5 ], [ 15, %8 ], [ 64, %switch.hole_check ]
+  %.0 = phi i64 [ 7, %22 ], [ 15, %8 ], [ 64, %12 ], [ 64, %19 ], [ %spec.select, %5 ], [ 64, %switch.hole_check ]
   ret i64 %.0
 }
 
@@ -395,7 +395,7 @@ define internal range(i64 0, 3) i64 @fun_so_cp50221_decoder(ptr noundef captures
   br label %38
 
 38:                                               ; preds = %28, %32, %16, %15, %14, %19, %18, %17, %21, %20
-  %.0 = phi i64 [ 0, %16 ], [ 0, %21 ], [ 0, %20 ], [ 0, %17 ], [ 0, %18 ], [ 0, %19 ], [ 0, %14 ], [ 0, %15 ], [ 2, %32 ], [ 2, %28 ]
+  %.0 = phi i64 [ 0, %20 ], [ 0, %21 ], [ 0, %17 ], [ 0, %18 ], [ 0, %19 ], [ 0, %14 ], [ 0, %15 ], [ 0, %16 ], [ 2, %32 ], [ 2, %28 ]
   ret i64 %.0
 }
 
@@ -496,9 +496,9 @@ iso2022jp_put_state.exit:                         ; preds = %11, %18
   br label %53
 
 53:                                               ; preds = %47, %51, %48
-  %.018.i = phi i1 [ true, %47 ], [ true, %51 ], [ false, %48 ]
-  %.017.i = phi ptr [ %1, %47 ], [ %52, %51 ], [ %1, %48 ]
-  %.0.i87 = phi i32 [ 0, %47 ], [ 3, %51 ], [ 2, %48 ]
+  %.018.i = phi i1 [ true, %51 ], [ false, %48 ], [ true, %47 ]
+  %.017.i = phi ptr [ %52, %51 ], [ %1, %48 ], [ %1, %47 ]
+  %.0.i87 = phi i32 [ 3, %51 ], [ 2, %48 ], [ 0, %47 ]
   %54 = load i8, ptr %0, align 1, !tbaa !6
   %55 = zext i8 %54 to i32
   %.not.i.i = icmp eq i32 %.0.i87, %55
@@ -758,9 +758,9 @@ define internal i64 @fun_so_cp5022x_encoder(ptr noundef captures(none) %0, ptr n
   br label %12
 
 12:                                               ; preds = %7, %5, %10
-  %.018 = phi i1 [ true, %5 ], [ true, %10 ], [ false, %7 ]
-  %.017 = phi ptr [ %1, %5 ], [ %11, %10 ], [ %1, %7 ]
-  %.0 = phi i32 [ 0, %5 ], [ 3, %10 ], [ 2, %7 ]
+  %.018 = phi i1 [ true, %10 ], [ true, %5 ], [ false, %7 ]
+  %.017 = phi ptr [ %11, %10 ], [ %1, %5 ], [ %1, %7 ]
+  %.0 = phi i32 [ 3, %10 ], [ 0, %5 ], [ 2, %7 ]
   %13 = load i8, ptr %0, align 1, !tbaa !6
   %14 = zext i8 %13 to i32
   %.not.i = icmp eq i32 %.0, %14

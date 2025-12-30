@@ -167,7 +167,7 @@ _ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIDuSt11char_traitsIDuEE.exi
   br i1 %25, label %.preheader.i, label %.critedge.i, !llvm.loop !18
 
 .critedge.i:                                      ; preds = %22, %19, %17, %15, %9
-  %.1.i = phi i64 [ %10, %9 ], [ %18, %17 ], [ %20, %19 ], [ %16, %15 ], [ %.2.i, %22 ]
+  %.1.i = phi i64 [ %10, %9 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %.2.i, %22 ]
   %26 = add i64 %.01317.i, 1
   %27 = icmp ult i64 %.1.i, %0
   br i1 %27, label %.lr.ph.i, label %.lr.ph, !llvm.loop !20
@@ -334,7 +334,7 @@ _ZN5ZXingL14Utf8CountBytesESt17basic_string_viewIwSt11char_traitsIwEE.exit.threa
   br label %13
 
 13:                                               ; preds = %11, %9, %.lr.ph.i.i
-  %.sink.i.i = phi i32 [ 1, %.lr.ph.i.i ], [ %..i.i, %11 ], [ 2, %9 ]
+  %.sink.i.i = phi i32 [ 1, %.lr.ph.i.i ], [ 2, %9 ], [ %..i.i, %11 ]
   %14 = add nuw nsw i32 %.sink.i.i, %.012.i.i
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.4.010.i.i, i64 4
   %16 = add i64 %.sroa.0.011.i.i, -1
@@ -621,26 +621,26 @@ _ZStlsIwSt11char_traitsIwEERSt13basic_ostreamIT_T0_ES6_S3_.exit: ; preds = %49, 
 
 53:                                               ; preds = %51
   %54 = icmp samesign ult i32 %23, 255
-  br i1 %54, label %_ZN5ZXingL8iswgraphEw.exit, label %55
+  br i1 %54, label %55, label %59
 
 55:                                               ; preds = %53
-  %56 = icmp samesign ult i32 %23, 65529
-  br i1 %56, label %switch.early.test, label %57
+  %56 = add nuw nsw i32 %23, 1
+  %57 = and i32 %56, 127
+  %58 = icmp samesign ugt i32 %57, 32
+  br i1 %58, label %switch.early.test, label %75
 
-57:                                               ; preds = %55
-  %58 = icmp samesign ult i32 %23, 1114112
-  %59 = and i32 %23, 65534
-  %60 = icmp ne i32 %59, 65534
-  %or.cond12.not.i = and i1 %58, %60
+59:                                               ; preds = %53
+  %60 = icmp samesign ult i32 %23, 65529
+  br i1 %60, label %switch.early.test, label %_ZN5ZXingL8iswgraphEw.exit
+
+_ZN5ZXingL8iswgraphEw.exit:                       ; preds = %59
+  %61 = icmp samesign ult i32 %23, 1114112
+  %62 = and i32 %23, 65534
+  %63 = icmp ne i32 %62, 65534
+  %or.cond12.not.i = and i1 %61, %63
   br i1 %or.cond12.not.i, label %switch.early.test, label %75
 
-_ZN5ZXingL8iswgraphEw.exit:                       ; preds = %53
-  %61 = add nuw nsw i32 %23, 1
-  %62 = and i32 %61, 127
-  %63 = icmp samesign ugt i32 %62, 32
-  br i1 %63, label %switch.early.test, label %75
-
-switch.early.test:                                ; preds = %55, %57, %_ZN5ZXingL8iswgraphEw.exit
+switch.early.test:                                ; preds = %59, %55, %_ZN5ZXingL8iswgraphEw.exit
   switch i32 %23, label %64 [
     i32 65533, label %75
     i32 8199, label %75
@@ -672,7 +672,7 @@ _ZStlsIwSt11char_traitsIwEERSt13basic_ostreamIT_T0_ES6_S3_.exit40: ; preds = %73
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %100
 
-75:                                               ; preds = %57, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %_ZN5ZXingL8iswgraphEw.exit, %51
+75:                                               ; preds = %55, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %_ZN5ZXingL8iswgraphEw.exit, %51
   %76 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIwSt11char_traitsIwEERSt13basic_ostreamIT_T0_ES6_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.35)
           to label %77 unwind label %36
 

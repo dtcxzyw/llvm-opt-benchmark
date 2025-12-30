@@ -936,7 +936,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %619 = icmp slt i64 %indvars.iv.next513, %618
   br i1 %619, label %598, label %._crit_edge466, !llvm.loop !57
 
-._crit_edge466:                                   ; preds = %598, %.preheader409, %.preheader, %.loopexit
+._crit_edge466:                                   ; preds = %598, %.preheader, %.preheader409, %.loopexit
   %620 = load ptr, ptr %3, align 8, !tbaa !4
   %.not400 = icmp eq ptr %.0391, %620
   br i1 %.not400, label %622, label %621

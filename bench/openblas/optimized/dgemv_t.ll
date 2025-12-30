@@ -202,8 +202,8 @@ copy_x.exit:                                      ; preds = %.lr.ph.i, %41
   br i1 %40, label %38, label %98, !llvm.loop !15
 
 98:                                               ; preds = %38, %94
-  %.0456.lcssa = phi ptr [ %.0456564, %38 ], [ %97, %94 ]
-  %.0455.lcssa = phi ptr [ %.0455565, %38 ], [ %95, %94 ]
+  %.0456.lcssa = phi ptr [ %97, %94 ], [ %.0456564, %38 ]
+  %.0455.lcssa = phi ptr [ %95, %94 ], [ %.0455565, %38 ]
   switch i64 %22, label %default.unreachable [
     i64 0, label %.loopexit
     i64 3, label %99

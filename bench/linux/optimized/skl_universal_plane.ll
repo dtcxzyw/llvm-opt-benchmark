@@ -551,9 +551,9 @@ define dso_local ptr @skl_universal_plane_create(ptr noundef %0, i32 noundef %1,
   br label %.thread17
 
 .thread9:                                         ; preds = %.thread, %94, %80
-  %120 = phi i16 [ %68, %94 ], [ %68, %80 ], [ %78, %.thread ]
-  %121 = phi i32 [ %100, %94 ], [ 29, %80 ], [ 29, %.thread ]
-  %122 = phi ptr [ %101, %94 ], [ @icl_hdr_plane_formats, %80 ], [ @icl_hdr_plane_formats, %.thread ]
+  %120 = phi i16 [ %68, %80 ], [ %68, %94 ], [ %78, %.thread ]
+  %121 = phi i32 [ 29, %80 ], [ %100, %94 ], [ 29, %.thread ]
+  %122 = phi ptr [ @icl_hdr_plane_formats, %80 ], [ %101, %94 ], [ @icl_hdr_plane_formats, %.thread ]
   %123 = icmp ugt i16 %120, 11
   %124 = select i1 %123, ptr @gen12_plane_funcs, ptr @skl_plane_funcs
   %125 = icmp ult i16 %120, 13
@@ -568,21 +568,21 @@ define dso_local ptr @skl_universal_plane_create(ptr noundef %0, i32 noundef %1,
   br label %135
 
 .thread17:                                        ; preds = %114, %113, %.thread9
-  %130 = phi i16 [ %.fr, %113 ], [ %120, %.thread9 ], [ %.fr, %114 ]
-  %131 = phi ptr [ @skl_plane_funcs, %113 ], [ %124, %.thread9 ], [ @skl_plane_funcs, %114 ]
-  %132 = phi ptr [ @skl_plane_formats, %113 ], [ %122, %.thread9 ], [ %spec.select22, %114 ]
-  %133 = phi i32 [ 15, %113 ], [ %121, %.thread9 ], [ %spec.select, %114 ]
+  %130 = phi i16 [ %120, %.thread9 ], [ %.fr, %113 ], [ %.fr, %114 ]
+  %131 = phi ptr [ %124, %.thread9 ], [ @skl_plane_funcs, %113 ], [ @skl_plane_funcs, %114 ]
+  %132 = phi ptr [ %122, %.thread9 ], [ @skl_plane_formats, %113 ], [ %spec.select22, %114 ]
+  %133 = phi i32 [ %121, %.thread9 ], [ 15, %113 ], [ %spec.select, %114 ]
   %.fr52 = freeze i16 %130
   %134 = icmp ult i16 %.fr52, 12
   %spec.select51 = select i1 %134, i8 56, i8 24
   br label %135
 
 135:                                              ; preds = %.thread17, %.thread17.thread, %.thread17.thread48
-  %136 = phi i16 [ %120, %.thread17.thread48 ], [ %.fr52, %.thread17 ], [ 10, %.thread17.thread ]
-  %137 = phi i32 [ %121, %.thread17.thread48 ], [ %133, %.thread17 ], [ %111, %.thread17.thread ]
-  %138 = phi ptr [ %122, %.thread17.thread48 ], [ %132, %.thread17 ], [ %112, %.thread17.thread ]
-  %139 = phi ptr [ %124, %.thread17.thread48 ], [ %131, %.thread17 ], [ @skl_plane_funcs, %.thread17.thread ]
-  %140 = phi i8 [ %spec.select20, %.thread17.thread48 ], [ %spec.select51, %.thread17 ], [ 56, %.thread17.thread ]
+  %136 = phi i16 [ %120, %.thread17.thread48 ], [ 10, %.thread17.thread ], [ %.fr52, %.thread17 ]
+  %137 = phi i32 [ %121, %.thread17.thread48 ], [ %111, %.thread17.thread ], [ %133, %.thread17 ]
+  %138 = phi ptr [ %122, %.thread17.thread48 ], [ %112, %.thread17.thread ], [ %132, %.thread17 ]
+  %139 = phi ptr [ %124, %.thread17.thread48 ], [ @skl_plane_funcs, %.thread17.thread ], [ %131, %.thread17 ]
+  %140 = phi i8 [ %spec.select20, %.thread17.thread48 ], [ 56, %.thread17.thread ], [ %spec.select51, %.thread17 ]
   %141 = zext i1 %67 to i32
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %143 = getelementptr i8, ptr %0, i64 7188
@@ -663,8 +663,8 @@ define dso_local ptr @skl_universal_plane_create(ptr noundef %0, i32 noundef %1,
   br label %188
 
 188:                                              ; preds = %184, %169
-  %189 = phi i16 [ %.pre24, %169 ], [ %173, %184 ]
-  %190 = phi i8 [ %150, %169 ], [ %187, %184 ]
+  %189 = phi i16 [ %173, %184 ], [ %.pre24, %169 ]
+  %190 = phi i8 [ %187, %184 ], [ %150, %169 ]
   %191 = icmp ult i16 %189, 12
   br i1 %191, label %.thread19, label %192
 
@@ -771,7 +771,7 @@ define dso_local ptr @skl_universal_plane_create(ptr noundef %0, i32 noundef %1,
   br label %.thread19
 
 .thread19:                                        ; preds = %180, %183, %244, %240, %192, %216, %188
-  %247 = phi i8 [ %190, %240 ], [ %spec.select21, %244 ], [ %190, %188 ], [ %190, %216 ], [ %190, %192 ], [ %150, %183 ], [ %150, %180 ]
+  %247 = phi i8 [ %190, %188 ], [ %190, %216 ], [ %190, %192 ], [ %190, %240 ], [ %spec.select21, %244 ], [ %150, %183 ], [ %150, %180 ]
   %248 = tail call ptr @intel_fb_plane_get_modifiers(ptr noundef %0, i8 noundef zeroext %247) #12
   %249 = add i32 %2, 1
   %250 = add i32 %1, 65
@@ -6246,7 +6246,7 @@ define internal i32 @skl_plane_check(ptr noundef %0, ptr noundef %1) #2 align 16
   br label %.thread
 
 .thread:                                          ; preds = %139, %.thread33, %135, %59, %74, %111, %93, %47, %33, %524, %.thread39, %562, %531, %528, %.thread36, %.thread31
-  %565 = phi i32 [ -22, %59 ], [ %133, %.thread31 ], [ %.ph38, %.thread39 ], [ 0, %.thread36 ], [ -34, %524 ], [ %529, %528 ], [ %532, %531 ], [ 0, %562 ], [ -22, %33 ], [ -22, %47 ], [ -22, %93 ], [ -22, %111 ], [ -22, %74 ], [ -22, %.thread33 ], [ %137, %135 ], [ 0, %139 ]
+  %565 = phi i32 [ %133, %.thread31 ], [ 0, %.thread36 ], [ -34, %524 ], [ %529, %528 ], [ %532, %531 ], [ 0, %562 ], [ %.ph38, %.thread39 ], [ -22, %33 ], [ -22, %47 ], [ -22, %93 ], [ -22, %111 ], [ -22, %74 ], [ -22, %59 ], [ -22, %.thread33 ], [ %137, %135 ], [ 0, %139 ]
   ret i32 %565
 }
 
@@ -7572,7 +7572,7 @@ define internal fastcc range(i32 -2147483648, -1073741824) i32 @skl_plane_ctl(pt
   br label %82
 
 82:                                               ; preds = %81, %79, %78, %77, %76, %75, %74, %73, %72, %71, %66
-  %83 = phi i32 [ 0, %81 ], [ 46080, %73 ], [ 5120, %72 ], [ 4112, %79 ], [ 45056, %78 ], [ 36864, %77 ], [ 5136, %76 ], [ 4096, %71 ], [ 1024, %66 ], [ 37888, %75 ], [ 13328, %74 ]
+  %83 = phi i32 [ 0, %81 ], [ 4112, %79 ], [ 45056, %78 ], [ 36864, %77 ], [ 5136, %76 ], [ 37888, %75 ], [ 13328, %74 ], [ 46080, %73 ], [ 5120, %72 ], [ 4096, %71 ], [ 1024, %66 ]
   %84 = or i32 %68, %83
   %85 = and i32 %7, 15
   %86 = tail call range(i32 0, 5) i32 @llvm.ctpop.i32(i32 %85)
@@ -7775,7 +7775,7 @@ define internal fastcc range(i32 8192, 272629760) i32 @glk_plane_color_ctl(ptr n
   br label %53
 
 53:                                               ; preds = %47, %34, %19
-  %54 = phi i32 [ %22, %19 ], [ %46, %34 ], [ %52, %47 ]
+  %54 = phi i32 [ %46, %34 ], [ %52, %47 ], [ %22, %19 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 377
   %56 = load i8, ptr %55, align 1, !range !42, !noundef !43
   %57 = icmp eq i8 %56, 0

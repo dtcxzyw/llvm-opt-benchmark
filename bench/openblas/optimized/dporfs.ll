@@ -82,7 +82,7 @@ define void @dporfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %.not390, label %57, label %.thread
 
 .thread.sink.split:                               ; preds = %50, %47, %44, %41, %38, %35, %33
-  %.sink = phi i32 [ -1, %33 ], [ -2, %35 ], [ -5, %41 ], [ -9, %47 ], [ -7, %44 ], [ -3, %38 ], [ -11, %50 ]
+  %.sink = phi i32 [ -1, %33 ], [ -2, %35 ], [ -3, %38 ], [ -5, %41 ], [ -7, %44 ], [ -9, %47 ], [ -11, %50 ]
   store i32 %.sink, ptr %15, align 4, !tbaa !3
   br label %.thread
 

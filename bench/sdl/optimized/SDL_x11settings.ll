@@ -56,7 +56,7 @@ define internal void @X11_XsettingsNotify(ptr noundef %0, i32 noundef %1, ptr no
   br label %21
 
 21:                                               ; preds = %11, %12, %18
-  %.014 = phi float [ 1.000000e+00, %11 ], [ %20, %18 ], [ %15, %12 ]
+  %.014 = phi float [ %20, %18 ], [ %15, %12 ], [ 1.000000e+00, %11 ]
   %.not18 = icmp eq ptr %3, null
   br i1 %.not18, label %.loopexit, label %.preheader
 
@@ -171,7 +171,7 @@ define hidden i32 @X11_GetXsettingsIntKey(ptr noundef readonly captures(none) %0
   br label %.thread
 
 .thread:                                          ; preds = %3, %.thread14, %16
-  %.013 = phi i32 [ %2, %16 ], [ %.017, %.thread14 ], [ %2, %3 ]
+  %.013 = phi i32 [ %.017, %.thread14 ], [ %2, %16 ], [ %2, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.013
 }

@@ -251,10 +251,10 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   br label %92
 
 92:                                               ; preds = %89, %85, %87, %88, %77
-  %.1114 = phi i32 [ %.0100, %77 ], [ %.0100, %87 ], [ %.0113152, %85 ], [ %.0113152, %88 ], [ %spec.select139, %89 ]
-  %.1112 = phi i32 [ %.0101, %77 ], [ %.0101, %87 ], [ %.0111153, %85 ], [ %.0111153, %88 ], [ %.0111153, %89 ]
-  %.1110 = phi i32 [ %78, %77 ], [ %.1122149, %87 ], [ %.0109154, %85 ], [ %.0109154, %88 ], [ %spec.select140, %89 ]
-  %.1108 = phi i32 [ %81, %77 ], [ 1, %87 ], [ 1, %85 ], [ 1, %88 ], [ 0, %89 ]
+  %.1114 = phi i32 [ %.0100, %77 ], [ %.0100, %87 ], [ %.0113152, %88 ], [ %.0113152, %85 ], [ %spec.select139, %89 ]
+  %.1112 = phi i32 [ %.0101, %77 ], [ %.0101, %87 ], [ %.0111153, %88 ], [ %.0111153, %85 ], [ %.0111153, %89 ]
+  %.1110 = phi i32 [ %78, %77 ], [ %.1122149, %87 ], [ %.0109154, %88 ], [ %.0109154, %85 ], [ %spec.select140, %89 ]
+  %.1108 = phi i32 [ %81, %77 ], [ 1, %87 ], [ 1, %88 ], [ 1, %85 ], [ 0, %89 ]
   %93 = sext i32 %.1122149 to i64
   %94 = getelementptr inbounds [4 x i32], ptr %42, i64 %93
   %95 = sext i32 %.0101 to i64
@@ -354,7 +354,7 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %124, %100, %8, %4, %._crit_edge168
-  %.0 = phi i32 [ -15, %4 ], [ 1, %._crit_edge168 ], [ %10, %8 ], [ %126, %124 ], [ -98, %100 ]
+  %.0 = phi i32 [ 1, %._crit_edge168 ], [ -15, %4 ], [ %10, %8 ], [ %126, %124 ], [ -98, %100 ]
   ret i32 %.0
 }
 
@@ -530,7 +530,7 @@ define i32 @AnalyseAllPlaysBin(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   br label %16
 
 16:                                               ; preds = %13, %9, %7, %4
-  %.0 = phi i32 [ %12, %9 ], [ -101, %4 ], [ -1, %7 ], [ %., %13 ]
+  %.0 = phi i32 [ -101, %4 ], [ -1, %7 ], [ %12, %9 ], [ %., %13 ]
   ret i32 %.0
 }
 
@@ -659,7 +659,7 @@ define i32 @AnalyseAllPlaysPBN(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   br label %AnalyseAllPlaysBin.exit
 
 AnalyseAllPlaysBin.exit:                          ; preds = %12, %46, %57, %54, %52, %._crit_edge42, %4
-  %.033 = phi i32 [ %..i, %57 ], [ -101, %4 ], [ -98, %46 ], [ %56, %54 ], [ -101, %._crit_edge42 ], [ -1, %52 ], [ -99, %12 ]
+  %.033 = phi i32 [ -101, %4 ], [ -101, %._crit_edge42 ], [ -1, %52 ], [ %56, %54 ], [ %..i, %57 ], [ -98, %46 ], [ -99, %12 ]
   ret i32 %.033
 }
 
@@ -801,7 +801,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 

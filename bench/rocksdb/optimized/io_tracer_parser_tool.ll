@@ -540,7 +540,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit60: ; preds = %88, %
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit70.invoke unwind label %114
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit70.invoke: ; preds = %118, %116, %112
-  %.in = phi ptr [ %102, %116 ], [ %103, %112 ], [ %101, %118 ]
+  %.in = phi ptr [ %103, %112 ], [ %102, %116 ], [ %101, %118 ]
   %120 = load i64, ptr %.in, align 8, !tbaa !18
   %121 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %120)
           to label %_ZNSolsEm.exit64 unwind label %114

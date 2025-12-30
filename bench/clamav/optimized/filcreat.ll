@@ -75,7 +75,7 @@ define noundef zeroext i1 @_Z10FileCreateP11CommandDataP4FilePwmPblP7RarTimeb(pt
   br label %.thread
 
 .thread:                                          ; preds = %16, %17, %22, %30, %24
-  %.2 = phi i1 [ %35, %30 ], [ true, %22 ], [ %29, %24 ], [ false, %17 ], [ false, %16 ]
+  %.2 = phi i1 [ true, %22 ], [ %29, %24 ], [ %35, %30 ], [ false, %17 ], [ false, %16 ]
   ret i1 %.2
 }
 

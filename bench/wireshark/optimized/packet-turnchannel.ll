@@ -120,7 +120,7 @@ define internal i32 @dissect_turnchannel_message(ptr noundef %0, ptr noundef %1,
   br label %38
 
 38:                                               ; preds = %12, %8, %4, %36
-  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ %37, %36 ], [ 0, %12 ]
+  %.0 = phi i32 [ %37, %36 ], [ 0, %4 ], [ 0, %8 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

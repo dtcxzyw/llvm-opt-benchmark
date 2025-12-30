@@ -187,7 +187,7 @@ define internal i32 @fic_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 35
   %71 = load i16, ptr %70, align 1, !tbaa !43
   %72 = zext i16 %71 to i32
-  br label %.critedge
+  br label %.critedge185
 
 73:                                               ; preds = %63
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 33
@@ -196,7 +196,7 @@ define internal i32 @fic_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 35
   %78 = load i16, ptr %77, align 1, !tbaa !43
   %79 = zext i16 %78 to i32
-  br i1 %64, label %80, label %.critedge
+  br i1 %64, label %80, label %.critedge185
 
 80:                                               ; preds = %73
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -212,26 +212,26 @@ define internal i32 @fic_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 
 88:                                               ; preds = %84, %80
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.13, i32 noundef %76, i32 noundef %79) #9
-  br label %.critedge
+  br label %.critedge185
 
 89:                                               ; preds = %84
   %.not175 = icmp eq i16 %59, 32
   %.not176 = icmp eq i16 %62, 32
   %or.cond223 = and i1 %.not175, %.not176
-  br i1 %or.cond223, label %.critedge185, label %90
+  br i1 %or.cond223, label %.critedge, label %90
 
 90:                                               ; preds = %89
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.14) #9
-  br label %.critedge
+  br label %.critedge185
 
-.critedge185:                                     ; preds = %89
+.critedge:                                        ; preds = %89
   %91 = icmp ugt i32 %52, 4154
-  br label %.critedge
+  br label %.critedge185
 
-.critedge:                                        ; preds = %.thread189, %.critedge185, %90, %88, %73
-  %92 = phi i32 [ %79, %.critedge185 ], [ %79, %90 ], [ %79, %73 ], [ %79, %88 ], [ %72, %.thread189 ]
-  %93 = phi i32 [ %76, %.critedge185 ], [ %76, %90 ], [ %76, %73 ], [ %76, %88 ], [ %69, %.thread189 ]
-  %.4 = phi i1 [ %91, %.critedge185 ], [ false, %90 ], [ false, %73 ], [ false, %88 ], [ false, %.thread189 ]
+.critedge185:                                     ; preds = %.thread189, %.critedge, %90, %88, %73
+  %92 = phi i32 [ %79, %.critedge ], [ %79, %73 ], [ %79, %88 ], [ %79, %90 ], [ %72, %.thread189 ]
+  %93 = phi i32 [ %76, %.critedge ], [ %76, %73 ], [ %76, %88 ], [ %76, %90 ], [ %69, %.thread189 ]
+  %.4 = phi i1 [ %91, %.critedge ], [ false, %73 ], [ false, %88 ], [ false, %90 ], [ false, %.thread189 ]
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %95 = load i32, ptr %94, align 8, !tbaa !35
   %96 = and i32 %95, -16
@@ -262,11 +262,11 @@ define internal i32 @fic_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %.not179 = icmp sgt i32 %110, %116
   br i1 %.not179, label %118, label %117
 
-117:                                              ; preds = %.critedge
+117:                                              ; preds = %.critedge185
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.15) #9
   br label %.loopexit198
 
-118:                                              ; preds = %.critedge
+118:                                              ; preds = %.critedge185
   %119 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %120 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %121 = zext i8 %31 to i64
@@ -428,7 +428,7 @@ define internal i32 @fic_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit198
 
 .loopexit198:                                     ; preds = %142, %195, %163, %4, %200, %190, %186, %124, %117, %55, %33, %28, %19
-  %.0146 = phi i32 [ -1094995529, %33 ], [ -1094995529, %19 ], [ %167, %163 ], [ %201, %200 ], [ -1094995529, %28 ], [ -1094995529, %55 ], [ -1094995529, %117 ], [ %198, %195 ], [ %13, %4 ], [ %188, %190 ], [ -12, %186 ], [ -12, %124 ], [ -1094995529, %142 ]
+  %.0146 = phi i32 [ -1094995529, %19 ], [ %201, %200 ], [ -1094995529, %28 ], [ -1094995529, %55 ], [ -1094995529, %117 ], [ %188, %190 ], [ -12, %186 ], [ -12, %124 ], [ -1094995529, %33 ], [ %13, %4 ], [ %167, %163 ], [ %198, %195 ], [ -1094995529, %142 ]
   ret i32 %.0146
 }
 
@@ -1030,7 +1030,7 @@ get_se_golomb.exit.i:                             ; preds = %86, %76
   %exitcond.not = icmp eq i64 %indvars.iv.next108, 3
   br i1 %exitcond.not, label %.loopexit85, label %21, !llvm.loop !76
 
-.loopexit85:                                      ; preds = %.thread, %.lr.ph, %54, %get_se_golomb.exit.i, %2
+.loopexit85:                                      ; preds = %.thread, %54, %.lr.ph, %get_se_golomb.exit.i, %2
   %.0 = phi i32 [ -1094995529, %2 ], [ -1094995529, %get_se_golomb.exit.i ], [ -1094995529, %.lr.ph ], [ -1094995529, %54 ], [ 0, %.thread ]
   ret i32 %.0
 }

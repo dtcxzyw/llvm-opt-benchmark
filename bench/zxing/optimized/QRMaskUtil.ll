@@ -88,7 +88,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   br label %37
 
 37:                                               ; preds = %32, %27, %20
-  %.2.i = phi i32 [ %.123.i, %20 ], [ %spec.select.i, %32 ], [ %.123.i, %27 ]
+  %.2.i = phi i32 [ %.123.i, %27 ], [ %.123.i, %20 ], [ %spec.select.i, %32 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %20, !llvm.loop !21
 

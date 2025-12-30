@@ -206,7 +206,7 @@ define internal fastcc i32 @get_max_inline_xattr_value_size(ptr noundef %0, ptr 
   br label %59
 
 59:                                               ; preds = %51, %47, %43
-  %60 = phi i32 [ %36, %43 ], [ %58, %51 ], [ %36, %47 ]
+  %60 = phi i32 [ %58, %51 ], [ %36, %47 ], [ %36, %43 ]
   %61 = load i32, ptr %41, align 4
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %._crit_edge, label %.lr.ph
@@ -635,7 +635,7 @@ define internal fastcc i32 @ext4_read_inline_folio(ptr noundef %0, ptr noundef %
   br label %104
 
 104:                                              ; preds = %103, %97, %23
-  %105 = phi i32 [ %24, %23 ], [ %88, %103 ], [ %88, %97 ]
+  %105 = phi i32 [ %24, %23 ], [ %88, %97 ], [ %88, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %105
 }
@@ -780,8 +780,8 @@ define dso_local i32 @ext4_try_to_write_inline_data(ptr noundef %0, ptr noundef 
   br label %83
 
 83:                                               ; preds = %80, %47, %37, %29
-  %84 = phi i32 [ %81, %80 ], [ %31, %29 ], [ %40, %37 ], [ %49, %47 ]
-  %85 = phi ptr [ %82, %80 ], [ %25, %29 ], [ %25, %37 ], [ %25, %47 ]
+  %84 = phi i32 [ %31, %29 ], [ %40, %37 ], [ %49, %47 ], [ %81, %80 ]
+  %85 = phi ptr [ %25, %29 ], [ %25, %37 ], [ %25, %47 ], [ %82, %80 ]
   %86 = icmp ne ptr %85, null
   %87 = icmp ne i32 %84, 1
   %88 = and i1 %87, %86
@@ -1042,7 +1042,7 @@ define dso_local i32 @ext4_try_to_write_inline_data(ptr noundef %0, ptr noundef 
   br label %246
 
 .critedge:                                        ; preds = %.preheader, %173, %170, %161
-  %244 = phi i32 [ %174, %173 ], [ 0, %.preheader ], [ %171, %170 ], [ 0, %161 ]
+  %244 = phi i32 [ 0, %161 ], [ %171, %170 ], [ %174, %173 ], [ 0, %.preheader ]
   %245 = icmp eq ptr %152, null
   br i1 %245, label %.thread42, label %246
 
@@ -1084,7 +1084,7 @@ define dso_local i32 @ext4_try_to_write_inline_data(ptr noundef %0, ptr noundef 
   br label %.thread50
 
 .thread50:                                        ; preds = %239, %237, %.loopexit, %261, %257
-  %263 = phi i32 [ %259, %257 ], [ %259, %261 ], [ %143, %.loopexit ], [ %217, %237 ], [ -28, %239 ]
+  %263 = phi i32 [ %259, %261 ], [ %259, %257 ], [ %143, %.loopexit ], [ %217, %237 ], [ -28, %239 ]
   %264 = load ptr, ptr %7, align 8
   %265 = icmp eq ptr %264, null
   br i1 %265, label %267, label %266
@@ -1917,7 +1917,7 @@ define dso_local i32 @ext4_try_add_inline_entry(ptr noundef %0, ptr noundef %1, 
   br label %109
 
 109:                                              ; preds = %39, %107, %88, %20, %16, %8
-  %110 = phi i32 [ %28, %20 ], [ %105, %88 ], [ %108, %107 ], [ %41, %39 ], [ 0, %16 ], [ 0, %8 ]
+  %110 = phi i32 [ %28, %20 ], [ %105, %88 ], [ %108, %107 ], [ 0, %16 ], [ 0, %8 ], [ %41, %39 ]
   %111 = and i64 %11, 17179869184
   %112 = icmp eq i64 %111, 0
   br i1 %112, label %113, label %114
@@ -2102,9 +2102,9 @@ define internal fastcc i32 @ext4_convert_inline_data_nolock(ptr noundef %0, ptr 
   br label %.thread10
 
 .thread10:                                        ; preds = %.thread, %17, %23, %34
-  %53 = phi i32 [ %11, %34 ], [ 0, %17 ], [ %11, %23 ], [ 0, %.thread ]
-  %54 = phi i64 [ %12, %34 ], [ 0, %17 ], [ %12, %23 ], [ 0, %.thread ]
-  %55 = phi ptr [ %13, %34 ], [ %13, %17 ], [ %13, %23 ], [ %15, %.thread ]
+  %53 = phi i32 [ 0, %17 ], [ %11, %23 ], [ %11, %34 ], [ 0, %.thread ]
+  %54 = phi i64 [ 0, %17 ], [ %12, %23 ], [ %12, %34 ], [ 0, %.thread ]
+  %55 = phi ptr [ %13, %17 ], [ %13, %23 ], [ %13, %34 ], [ %15, %.thread ]
   %56 = load i16, ptr %1, align 8
   %57 = and i16 %56, -4096
   %58 = icmp eq i16 %57, 16384
@@ -2317,8 +2317,8 @@ lock_buffer.exit:                                 ; preds = %97, %102
   br label %.thread16
 
 .thread16:                                        ; preds = %.thread, %8, %65, %59, %.thread17, %185
-  %189 = phi i32 [ %130, %185 ], [ %188, %.thread17 ], [ -12, %.thread ], [ -12, %8 ], [ %66, %65 ], [ %63, %59 ]
-  %190 = phi ptr [ %55, %185 ], [ %55, %.thread17 ], [ null, %.thread ], [ null, %8 ], [ %55, %65 ], [ %55, %59 ]
+  %189 = phi i32 [ %188, %.thread17 ], [ %130, %185 ], [ -12, %.thread ], [ -12, %8 ], [ %66, %65 ], [ %63, %59 ]
+  %190 = phi ptr [ %55, %.thread17 ], [ %55, %185 ], [ null, %.thread ], [ null, %8 ], [ %55, %65 ], [ %55, %59 ]
   call void @kfree(ptr noundef %190) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %189
@@ -2597,8 +2597,8 @@ define dso_local i32 @ext4_inlinedir_to_tree(ptr noundef %0, ptr noundef %1, i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %168, %160, %155, %113, %.critedge, %33, %25
-  %171 = phi i32 [ %84, %155 ], [ -12, %33 ], [ 0, %25 ], [ 0, %.critedge ], [ %84, %113 ], [ %166, %160 ], [ %169, %168 ]
-  %172 = phi ptr [ %31, %155 ], [ null, %33 ], [ null, %25 ], [ %31, %.critedge ], [ %31, %113 ], [ %31, %160 ], [ %31, %168 ]
+  %171 = phi i32 [ -12, %33 ], [ 0, %25 ], [ 0, %.critedge ], [ %84, %113 ], [ %84, %155 ], [ %169, %168 ], [ %166, %160 ]
+  %172 = phi ptr [ null, %33 ], [ null, %25 ], [ %31, %.critedge ], [ %31, %113 ], [ %31, %155 ], [ %31, %160 ], [ %31, %168 ]
   call void @kfree(ptr noundef %172) #9
   %173 = load ptr, ptr %8, align 8
   %174 = icmp eq ptr %173, null
@@ -2878,8 +2878,8 @@ define dso_local i32 @ext4_read_inline_dir(ptr noundef %0, ptr noundef %1, ptr n
   br label %116
 
 .loopexit:                                        ; preds = %154, %122, %119, %116, %112, %102, %27, %19
-  %165 = phi i32 [ 0, %102 ], [ -12, %27 ], [ 0, %19 ], [ 0, %112 ], [ 0, %116 ], [ 0, %119 ], [ 0, %122 ], [ 0, %154 ]
-  %166 = phi ptr [ %25, %102 ], [ null, %27 ], [ null, %19 ], [ %25, %112 ], [ %25, %116 ], [ %25, %119 ], [ %25, %122 ], [ %25, %154 ]
+  %165 = phi i32 [ -12, %27 ], [ 0, %19 ], [ 0, %102 ], [ 0, %112 ], [ 0, %116 ], [ 0, %119 ], [ 0, %122 ], [ 0, %154 ]
+  %166 = phi ptr [ null, %27 ], [ null, %19 ], [ %25, %102 ], [ %25, %112 ], [ %25, %116 ], [ %25, %119 ], [ %25, %122 ], [ %25, %154 ]
   call void @kfree(ptr noundef %166) #9
   %167 = load ptr, ptr %4, align 8
   %168 = icmp eq ptr %167, null
@@ -4510,8 +4510,8 @@ define internal fastcc i32 @ext4_finish_convert_inline_dir(ptr noundef %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %5, %.thread18, %35
-  %41 = phi i1 [ %40, %.thread18 ], [ true, %35 ], [ true, %5 ]
-  %42 = phi i32 [ %spec.select, %.thread18 ], [ 0, %35 ], [ 0, %5 ]
+  %41 = phi i1 [ true, %35 ], [ %40, %.thread18 ], [ true, %5 ]
+  %42 = phi i32 [ 0, %35 ], [ %spec.select, %.thread18 ], [ 0, %5 ]
   %43 = load ptr, ptr %8, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load i64, ptr %44, align 8

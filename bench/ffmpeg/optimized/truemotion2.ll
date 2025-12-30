@@ -136,7 +136,7 @@ define internal range(i32 -22, 1) i32 @decode_init(ptr noundef %0) #0 {
   br label %59
 
 59:                                               ; preds = %29, %20, %15, %11, %46, %10
-  %.0 = phi i32 [ -22, %10 ], [ 0, %46 ], [ -12, %20 ], [ -12, %15 ], [ -12, %11 ], [ -12, %29 ]
+  %.0 = phi i32 [ -22, %10 ], [ 0, %46 ], [ -12, %11 ], [ -12, %15 ], [ -12, %20 ], [ -12, %29 ]
   ret i32 %.0
 }
 
@@ -309,8 +309,8 @@ bytestream2_get_be32.exit126.i:                   ; preds = %88
   br label %bytestream2_get_be32.exit128.i
 
 bytestream2_get_be32.exit128.i:                   ; preds = %96, %bytestream2_get_be32.exit126.i
-  %.sroa.0.1.i = phi ptr [ %97, %96 ], [ %90, %bytestream2_get_be32.exit126.i ]
-  %.0.i67 = phi i32 [ %99, %96 ], [ %92, %bytestream2_get_be32.exit126.i ]
+  %.sroa.0.1.i = phi ptr [ %90, %bytestream2_get_be32.exit126.i ], [ %97, %96 ]
+  %.0.i67 = phi i32 [ %92, %bytestream2_get_be32.exit126.i ], [ %99, %96 ]
   %100 = icmp sgt i32 %.0.i67, 0
   br i1 %100, label %101, label %bytestream2_get_be32.exit124.thread.i
 
@@ -548,7 +548,7 @@ tm2_build_huff_table.exit.thread.i:               ; preds = %176, %172
   br label %tm2_read_stream.exit.thread
 
 tm2_build_huff_table.exit.i:                      ; preds = %212, %210, %.thread.i.i, %.thread54.i.i, %.thread.i, %181
-  %.0.i146.i = phi i32 [ %208, %210 ], [ %208, %212 ], [ -1094995529, %.thread54.i.i ], [ -12, %181 ], [ -1094995529, %.thread.i.i ], [ %190, %.thread.i ]
+  %.0.i146.i = phi i32 [ %208, %210 ], [ %208, %212 ], [ -12, %181 ], [ -1094995529, %.thread.i.i ], [ -1094995529, %.thread54.i.i ], [ %190, %.thread.i ]
   %216 = load ptr, ptr %48, align 8, !tbaa !69
   call void @av_free(ptr noundef %216) #8
   %217 = load ptr, ptr %49, align 8, !tbaa !70
@@ -715,7 +715,7 @@ tm2_read_stream.exit.thread:                      ; preds = %101, %105, %135, %t
   br label %.loopexit
 
 tm2_read_stream.exit:                             ; preds = %271, %.lr.ph217.split.i, %.lr.ph217.split.us.i, %227, %236, %244, %249, %260, %268, %bytestream2_get_be32.exit132.thread.i, %.preheader.i, %.lr.ph217.split.preheader.i.split.us
-  %.0103.i = phi i32 [ -1094995529, %227 ], [ %233, %236 ], [ -1094995529, %.lr.ph217.split.preheader.i.split.us ], [ -1094995529, %260 ], [ -1094995529, %268 ], [ -1094995529, %bytestream2_get_be32.exit132.thread.i ], [ -1094995529, %244 ], [ %78, %.preheader.i ], [ %78, %.lr.ph217.split.us.i ], [ %78, %249 ], [ %78, %.lr.ph217.split.i ], [ %78, %271 ]
+  %.0103.i = phi i32 [ -1094995529, %227 ], [ %233, %236 ], [ -1094995529, %260 ], [ -1094995529, %268 ], [ -1094995529, %.lr.ph217.split.preheader.i.split.us ], [ -1094995529, %244 ], [ -1094995529, %bytestream2_get_be32.exit132.thread.i ], [ %78, %.preheader.i ], [ %78, %249 ], [ %78, %.lr.ph217.split.us.i ], [ %78, %.lr.ph217.split.i ], [ %78, %271 ]
   %279 = load ptr, ptr %52, align 8, !tbaa !76
   call void @av_free(ptr noundef %279) #8
   call void @ff_vlc_free(ptr noundef nonnull %10) #8
@@ -2890,7 +2890,7 @@ tm2_hi_res_block.exit.us.i:                       ; preds = %1492
   br label %tm2_update_block.exit.us.i
 
 tm2_update_block.exit.us.i:                       ; preds = %565, %678, %851, %1494, %tm2_hi_res_block.exit.us.i, %tm2_med_res_block.exit.us.i, %tm2_low_res_block.exit.us.i, %tm2_null_res_block.exit.us.i, %568
-  %.2218.us.i = phi i32 [ %.1217384.us.i, %1494 ], [ %.1217384.us.i, %tm2_hi_res_block.exit.us.i ], [ %.1217384.us.i, %tm2_med_res_block.exit.us.i ], [ %.1217384.us.i, %tm2_low_res_block.exit.us.i ], [ %.1217384.us.i, %tm2_null_res_block.exit.us.i ], [ 0, %678 ], [ 0, %851 ], [ 0, %568 ], [ 0, %565 ]
+  %.2218.us.i = phi i32 [ %.1217384.us.i, %1494 ], [ %.1217384.us.i, %tm2_hi_res_block.exit.us.i ], [ %.1217384.us.i, %tm2_med_res_block.exit.us.i ], [ %.1217384.us.i, %tm2_low_res_block.exit.us.i ], [ %.1217384.us.i, %tm2_null_res_block.exit.us.i ], [ 0, %568 ], [ 0, %851 ], [ 0, %678 ], [ 0, %565 ]
   %1496 = load i32, ptr %20, align 8, !tbaa !52
   %.not228.us.i = icmp eq i32 %1496, 0
   br i1 %.not228.us.i, label %368, label %tm2_decode_blocks.exit.thread
@@ -3209,7 +3209,7 @@ tm2_decode_blocks.exit.thread:                    ; preds = %tm2_update_block.ex
   br label %1675
 
 1675:                                             ; preds = %tm2_read_header.exit.thread, %.loopexit, %284, %26, %1666, %56, %25
-  %.0 = phi i32 [ -12, %25 ], [ %27, %26 ], [ -1094995529, %56 ], [ -1094995529, %tm2_read_header.exit.thread ], [ %1674, %1666 ], [ %.0105.i80, %284 ], [ %.0105.i80, %.loopexit ]
+  %.0 = phi i32 [ -1094995529, %56 ], [ %1674, %1666 ], [ -12, %25 ], [ %27, %26 ], [ %.0105.i80, %284 ], [ %.0105.i80, %.loopexit ], [ -1094995529, %tm2_read_header.exit.thread ]
   ret i32 %.0
 }
 
@@ -3580,7 +3580,7 @@ get_bits_long.exit:                               ; preds = %33, %44, %49
   br label %88
 
 88:                                               ; preds = %83, %79, %86, %get_bits_long.exit, %31, %7
-  %.0 = phi i32 [ -1094995529, %7 ], [ %spec.store.select, %get_bits_long.exit ], [ %81, %79 ], [ %87, %86 ], [ -1094995529, %31 ], [ %84, %83 ]
+  %.0 = phi i32 [ -1094995529, %7 ], [ %87, %86 ], [ -1094995529, %31 ], [ %spec.store.select, %get_bits_long.exit ], [ %81, %79 ], [ %84, %83 ]
   ret i32 %.0
 }
 

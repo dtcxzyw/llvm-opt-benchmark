@@ -713,7 +713,7 @@ _ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER
   br label %156
 
 156:                                              ; preds = %152, %_ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit, %_ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit, %2, %11
-  %.0 = phi ptr [ null, %2 ], [ null, %11 ], [ null, %_ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit ], [ null, %152 ], [ %.016, %_ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit ]
+  %.0 = phi ptr [ null, %11 ], [ null, %2 ], [ null, %152 ], [ null, %_ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit ], [ %.016, %_ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit ]
   ret ptr %.0
 }
 
@@ -1962,7 +1962,7 @@ _ZN6icu_7730CollationLocaleListEnumerationC2Ev.exit: ; preds = %35
   br label %common.resume
 
 39:                                               ; preds = %_ZN6icu_7730CollationLocaleListEnumerationC2Ev.exit, %_ZN6icu_77L10hasServiceEv.exit.thread, %32
-  %.1 = phi ptr [ %33, %_ZN6icu_7730CollationLocaleListEnumerationC2Ev.exit ], [ null, %32 ], [ null, %_ZN6icu_77L10hasServiceEv.exit.thread ]
+  %.1 = phi ptr [ null, %32 ], [ %33, %_ZN6icu_7730CollationLocaleListEnumerationC2Ev.exit ], [ null, %_ZN6icu_77L10hasServiceEv.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %40
 
@@ -2131,7 +2131,7 @@ define noundef i32 @_ZN6icu_778Collator25getEquivalentReorderCodesEiPiiR10UError
   br label %19
 
 19:                                               ; preds = %17, %13, %4, %12
-  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ %18, %17 ], [ 0, %13 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ %18, %17 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -2215,7 +2215,7 @@ define noundef i32 @_ZNK6icu_778Collator19internalCompareUTF8EPKciS2_iR10UErrorC
   br label %37
 
 37:                                               ; preds = %6, %30, %17
-  %.0 = phi i32 [ %36, %30 ], [ 0, %17 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %17 ], [ %36, %30 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -2511,7 +2511,7 @@ define linkonce_odr noundef ptr @_ZN6icu_7730CollationLocaleListEnumeration4next
   br label %19
 
 19:                                               ; preds = %.sink.split, %18, %8
-  %.0 = phi ptr [ null, %18 ], [ %14, %8 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ %14, %8 ], [ null, %18 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 

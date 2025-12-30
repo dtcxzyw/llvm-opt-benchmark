@@ -254,7 +254,7 @@ define dso_local range(i32 -1, 1) i32 @zend_get_attribute_value(ptr noundef %0, 
   br label %31
 
 31:                                               ; preds = %25, %28, %4, %30
-  %.0 = phi i32 [ -1, %4 ], [ -1, %30 ], [ 0, %28 ], [ 0, %25 ]
+  %.0 = phi i32 [ -1, %30 ], [ -1, %4 ], [ 0, %28 ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -551,10 +551,10 @@ zend_parse_arg_str_ex.exit:                       ; preds = %21
   br i1 %cond.fr76, label %.critedge, label %.thread86, !prof !27
 
 .thread86:                                        ; preds = %zend_parse_arg_str_ex.exit, %zend_parse_arg_str_ex.exit74, %10
-  %.095 = phi i32 [ 0, %10 ], [ 1, %zend_parse_arg_str_ex.exit74 ], [ 2, %zend_parse_arg_str_ex.exit ]
-  %.05594 = phi ptr [ null, %10 ], [ %14, %zend_parse_arg_str_ex.exit74 ], [ %22, %zend_parse_arg_str_ex.exit ]
-  %.05693 = phi i32 [ 0, %10 ], [ 5, %zend_parse_arg_str_ex.exit74 ], [ 5, %zend_parse_arg_str_ex.exit ]
-  %.05892 = phi i32 [ 1, %10 ], [ 9, %zend_parse_arg_str_ex.exit74 ], [ 9, %zend_parse_arg_str_ex.exit ]
+  %.095 = phi i32 [ 1, %zend_parse_arg_str_ex.exit74 ], [ 0, %10 ], [ 2, %zend_parse_arg_str_ex.exit ]
+  %.05594 = phi ptr [ %14, %zend_parse_arg_str_ex.exit74 ], [ null, %10 ], [ %22, %zend_parse_arg_str_ex.exit ]
+  %.05693 = phi i32 [ 5, %zend_parse_arg_str_ex.exit74 ], [ 0, %10 ], [ 5, %zend_parse_arg_str_ex.exit ]
+  %.05892 = phi i32 [ 9, %zend_parse_arg_str_ex.exit74 ], [ 1, %10 ], [ 9, %zend_parse_arg_str_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.05892, i32 noundef %.095, ptr noundef null, i32 noundef %.05693, ptr noundef %.05594) #16
   br label %55
 
@@ -675,7 +675,7 @@ zend_string_equals.exit.thread24.i:               ; preds = %zend_string_equals.
   br i1 %.not23.not.i, label %get_attribute.exit, label %11
 
 get_attribute.exit:                               ; preds = %20, %zend_string_equals.exit.i, %zend_string_equals.exit.thread24.i, %2, %3
-  %.1.i = phi ptr [ null, %2 ], [ null, %3 ], [ %16, %20 ], [ null, %zend_string_equals.exit.thread24.i ], [ %16, %zend_string_equals.exit.i ]
+  %.1.i = phi ptr [ null, %2 ], [ null, %3 ], [ %16, %20 ], [ %16, %zend_string_equals.exit.i ], [ null, %zend_string_equals.exit.thread24.i ]
   ret ptr %.1.i
 }
 
@@ -791,7 +791,7 @@ zend_string_equals.exit.thread24.i:               ; preds = %zend_string_equals.
   br i1 %.not23.not.i, label %get_attribute.exit, label %13
 
 get_attribute.exit:                               ; preds = %22, %zend_string_equals.exit.i, %zend_string_equals.exit.thread24.i, %3, %5
-  %.1.i = phi ptr [ null, %3 ], [ null, %5 ], [ %18, %22 ], [ null, %zend_string_equals.exit.thread24.i ], [ %18, %zend_string_equals.exit.i ]
+  %.1.i = phi ptr [ null, %3 ], [ null, %5 ], [ %18, %22 ], [ %18, %zend_string_equals.exit.i ], [ null, %zend_string_equals.exit.thread24.i ]
   ret ptr %.1.i
 }
 
@@ -992,7 +992,7 @@ zend_vm_stack_push_call_frame_ex.exit:            ; preds = %15, %21
   %.not23.i = icmp eq i32 %72, 0
   br i1 %.not23.i, label %73, label %92
 
-73:                                               ; preds = %68, %71
+73:                                               ; preds = %71, %68
   %74 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %51, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8, !tbaa !75
   %.not120 = icmp eq ptr %75, null
@@ -1284,9 +1284,9 @@ smart_str_get_len.exit:                           ; preds = %53
   br i1 %.not12.i9, label %smart_str_alloc.exit12, label %77, !prof !18
 
 77:                                               ; preds = %.thread, %69
-  %78 = phi i64 [ %56, %.thread ], [ %74, %69 ]
-  %79 = phi ptr [ %55, %.thread ], [ %73, %69 ]
-  %.0.i10 = phi i64 [ %56, %.thread ], [ %75, %69 ]
+  %78 = phi i64 [ %74, %69 ], [ %56, %.thread ]
+  %79 = phi ptr [ %73, %69 ], [ %55, %.thread ]
+  %.0.i10 = phi i64 [ %75, %69 ], [ %56, %.thread ]
   call void @smart_str_erealloc(ptr noundef nonnull %2, i64 noundef %.0.i10) #16
   %.pre26 = load ptr, ptr %2, align 8, !tbaa !82
   %.phi.trans.insert27 = getelementptr inbounds nuw i8, ptr %.pre26, i64 16
@@ -1294,11 +1294,11 @@ smart_str_get_len.exit:                           ; preds = %53
   br label %smart_str_alloc.exit12
 
 smart_str_alloc.exit12:                           ; preds = %69, %77
-  %80 = phi i64 [ %70, %69 ], [ %.pre28, %77 ]
-  %81 = phi ptr [ %71, %69 ], [ %.pre26, %77 ]
-  %82 = phi i64 [ %74, %69 ], [ %78, %77 ]
-  %83 = phi ptr [ %73, %69 ], [ %79, %77 ]
-  %.1.i11 = phi i64 [ %75, %69 ], [ %.0.i10, %77 ]
+  %80 = phi i64 [ %.pre28, %77 ], [ %70, %69 ]
+  %81 = phi ptr [ %.pre26, %77 ], [ %71, %69 ]
+  %82 = phi i64 [ %78, %77 ], [ %74, %69 ]
+  %83 = phi ptr [ %79, %77 ], [ %73, %69 ]
+  %.1.i11 = phi i64 [ %.0.i10, %77 ], [ %75, %69 ]
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 %80
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %85, ptr nonnull align 1 %83, i64 %82, i1 false)
@@ -1475,7 +1475,7 @@ zend_string_init.exit:                            ; preds = %45, %47
   br label %zend_string_copy.exit
 
 zend_string_copy.exit:                            ; preds = %zend_string_init.exit, %38, %35, %34
-  %storemerge = phi ptr [ %1, %35 ], [ %1, %34 ], [ %50, %zend_string_init.exit ], [ %1, %38 ]
+  %storemerge = phi ptr [ %1, %34 ], [ %1, %35 ], [ %50, %zend_string_init.exit ], [ %1, %38 ]
   store ptr %storemerge, ptr %28, align 8, !tbaa !88
   %56 = tail call ptr @zend_string_tolower_ex(ptr noundef nonnull %storemerge, i1 noundef zeroext %9) #16
   %57 = getelementptr inbounds nuw i8, ptr %28, i64 8

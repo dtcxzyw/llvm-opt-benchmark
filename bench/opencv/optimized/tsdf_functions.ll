@@ -143,7 +143,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc40
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc40, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.062.0 = phi ptr [ %20, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %20, %.noexc40 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.062.0 = phi ptr [ %20, %.noexc40 ], [ %20, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %24 = sext i32 %5 to i64
   %25 = icmp slt i32 %5, 0
   br i1 %25, label %26, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i41
@@ -177,7 +177,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i43: ; preds = %.noexc48
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit49
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit49:             ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i43, %.noexc48, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i41
-  %.sroa.054.0 = phi ptr [ %29, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i43 ], [ %29, %.noexc48 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i41 ]
+  %.sroa.054.0 = phi ptr [ %29, %.noexc48 ], [ %29, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i43 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i41 ]
   br i1 %.not.i.i.i.i, label %.preheader75, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit49
@@ -381,7 +381,7 @@ define hidden noundef float @_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point
   br label %60
 
 60:                                               ; preds = %49, %17, %2, %4, %11
-  %.0 = phi float [ 0x7FF8000000000000, %2 ], [ 0x7FF8000000000000, %11 ], [ 0x7FF8000000000000, %4 ], [ %59, %49 ], [ 0x7FF8000000000000, %17 ]
+  %.0 = phi float [ 0x7FF8000000000000, %11 ], [ 0x7FF8000000000000, %4 ], [ 0x7FF8000000000000, %2 ], [ %59, %49 ], [ 0x7FF8000000000000, %17 ]
   ret float %.0
 }
 
@@ -2261,8 +2261,8 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5kinfu19int
   br label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %108, %105, %103, %98
-  %.0105109.i.i.i = phi i32 [ %.fr.i.i.i, %98 ], [ %110, %108 ], [ 0, %103 ], [ %107, %105 ]
-  %111 = phi i32 [ 0, %98 ], [ %spec.select.i.i.i, %108 ], [ 0, %103 ], [ 0, %105 ]
+  %.0105109.i.i.i = phi i32 [ 0, %103 ], [ %.fr.i.i.i, %98 ], [ %107, %105 ], [ %110, %108 ]
+  %111 = phi i32 [ 0, %103 ], [ 0, %98 ], [ 0, %105 ], [ %spec.select.i.i.i, %108 ]
   %112 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %113 = load i32, ptr %112, align 4, !tbaa !165
   %.sroa.speculated75.i.i.i = tail call i32 @llvm.smin.i32(i32 %.0105109.i.i.i, i32 %113)
@@ -2383,7 +2383,7 @@ _ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i: ; preds = %
   br i1 %195, label %269, label %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i
 
 _ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i: ; preds = %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i, %153, %147, %140, %124
-  %.0.i111.i.i.i = phi float [ %194, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i ], [ 0x7FF8000000000000, %124 ], [ 0x7FF8000000000000, %147 ], [ 0x7FF8000000000000, %140 ], [ 0x7FF8000000000000, %153 ]
+  %.0.i111.i.i.i = phi float [ %194, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i ], [ 0x7FF8000000000000, %147 ], [ 0x7FF8000000000000, %140 ], [ 0x7FF8000000000000, %124 ], [ 0x7FF8000000000000, %153 ]
   %196 = fptosi float %132 to i32
   %197 = fptosi float %137 to i32
   %198 = icmp sgt i32 %196, -1
@@ -2739,8 +2739,8 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5kinfu22int
   br label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %110, %107, %105, %100
-  %.0145149.i.i.i = phi i32 [ %.fr.i.i.i, %100 ], [ %112, %110 ], [ 0, %105 ], [ %109, %107 ]
-  %113 = phi i32 [ 0, %100 ], [ %spec.select.i.i.i, %110 ], [ 0, %105 ], [ 0, %107 ]
+  %.0145149.i.i.i = phi i32 [ 0, %105 ], [ %.fr.i.i.i, %100 ], [ %109, %107 ], [ %112, %110 ]
+  %113 = phi i32 [ 0, %105 ], [ 0, %100 ], [ 0, %107 ], [ %spec.select.i.i.i, %110 ]
   %114 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %115 = load i32, ptr %114, align 4, !tbaa !165
   %.sroa.speculated115.i.i.i = tail call i32 @llvm.smin.i32(i32 %.0145149.i.i.i, i32 %115)
@@ -2871,7 +2871,7 @@ _ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i: ; preds = %
   br i1 %207, label %312, label %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i
 
 _ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i: ; preds = %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i, %165, %159, %152, %126
-  %.0.i151.i.i.i = phi float [ %206, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i ], [ 0x7FF8000000000000, %126 ], [ 0x7FF8000000000000, %159 ], [ 0x7FF8000000000000, %152 ], [ 0x7FF8000000000000, %165 ]
+  %.0.i151.i.i.i = phi float [ %206, %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i ], [ 0x7FF8000000000000, %159 ], [ 0x7FF8000000000000, %152 ], [ 0x7FF8000000000000, %126 ], [ 0x7FF8000000000000, %165 ]
   %208 = fptosi float %134 to i32
   %209 = fptosi float %139 to i32
   %210 = fptosi float %144 to i32

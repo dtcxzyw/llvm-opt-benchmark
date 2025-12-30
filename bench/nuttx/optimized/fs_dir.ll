@@ -90,8 +90,8 @@ open_pseudodir.exit:                              ; preds = %27
   %46 = call i32 @inode_addref(ptr noundef nonnull @g_dir_inode) #7
   br label %open_mountpoint.exit.thread
 
-open_mountpoint.exit.thread:                      ; preds = %27, %23, %15, %19, %11, %43, %40
-  %.0 = phi i32 [ -38, %11 ], [ %38, %40 ], [ %38, %43 ], [ %24, %23 ], [ -38, %15 ], [ -38, %19 ], [ -12, %27 ]
+open_mountpoint.exit.thread:                      ; preds = %27, %23, %11, %15, %19, %43, %40
+  %.0 = phi i32 [ %38, %40 ], [ %38, %43 ], [ %24, %23 ], [ -38, %11 ], [ -38, %15 ], [ -38, %19 ], [ -12, %27 ]
   ret i32 %.0
 }
 
@@ -281,7 +281,7 @@ read_pseudodir.exit:                              ; preds = %9
   br label %64
 
 64:                                               ; preds = %3, %60, %57
-  %.016 = phi i64 [ 34, %60 ], [ %59, %57 ], [ -22, %3 ]
+  %.016 = phi i64 [ %59, %57 ], [ 34, %60 ], [ -22, %3 ]
   ret i64 %.016
 }
 
@@ -411,7 +411,7 @@ seek_pseudodir.exit:                              ; preds = %52, %51, %seek_moun
   br label %59
 
 59:                                               ; preds = %seek_pseudodir.exit, %57, %3, %53
-  %.0 = phi i32 [ -22, %3 ], [ %55, %53 ], [ %.013, %57 ], [ %.013, %seek_pseudodir.exit ]
+  %.0 = phi i32 [ %55, %53 ], [ -22, %3 ], [ %.013, %57 ], [ %.013, %seek_pseudodir.exit ]
   ret i32 %.0
 }
 

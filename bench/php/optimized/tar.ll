@@ -121,7 +121,7 @@ define hidden noundef zeroext i1 @phar_is_tar(ptr noundef captures(none) %0, ptr
   br i1 %exitcond24.not.i, label %phar_tar_number.exit, label %.lr.ph.i
 
 phar_tar_number.exit:                             ; preds = %8, %.lr.ph.i, %14, %.critedge.i
-  %.017.lcssa.i = phi i32 [ 0, %.critedge.i ], [ %.01720.i, %.lr.ph.i ], [ %17, %14 ], [ 0, %8 ]
+  %.017.lcssa.i = phi i32 [ 0, %.critedge.i ], [ %17, %14 ], [ %.01720.i, %.lr.ph.i ], [ 0, %8 ]
   %19 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str, i64 noundef 5) #14
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %32, label %20
@@ -237,7 +237,7 @@ define hidden i32 @phar_open_or_create_tar(ptr noundef %0, i64 noundef %1, ptr n
   br label %32
 
 32:                                               ; preds = %29, %30, %15, %8, %26
-  %.0 = phi i32 [ %11, %15 ], [ -1, %8 ], [ 0, %26 ], [ -1, %30 ], [ -1, %29 ]
+  %.0 = phi i32 [ 0, %26 ], [ -1, %8 ], [ %11, %15 ], [ -1, %30 ], [ -1, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -413,7 +413,7 @@ define hidden range(i32 -1, 1) i32 @phar_parse_tarfile(ptr noundef %0, ptr nound
   br i1 %exitcond24.not.i, label %phar_tar_number.exit, label %.lr.ph.i
 
 phar_tar_number.exit:                             ; preds = %.lr.ph.i, %93
-  %.017.lcssa.i = phi i32 [ %96, %93 ], [ %.01720.i, %.lr.ph.i ]
+  %.017.lcssa.i = phi i32 [ %.01720.i, %.lr.ph.i ], [ %96, %93 ]
   %98 = icmp eq i32 %.017.lcssa.i, 0
   br i1 %98, label %.lr.ph.i528.preheader, label %103
 
@@ -516,7 +516,7 @@ phar_tar_checksum.exit539:                        ; preds = %.lr.ph.i535
   br i1 %exitcond24.not.i548, label %phar_tar_number.exit550, label %.lr.ph.i543
 
 phar_tar_number.exit550:                          ; preds = %118, %.lr.ph.i543, %124, %.critedge.i541
-  %.017.lcssa.i542 = phi i32 [ 0, %.critedge.i541 ], [ %.01720.i545, %.lr.ph.i543 ], [ %127, %124 ], [ 0, %118 ]
+  %.017.lcssa.i542 = phi i32 [ 0, %.critedge.i541 ], [ %127, %124 ], [ %.01720.i545, %.lr.ph.i543 ], [ 0, %118 ]
   %129 = icmp ne i32 %.2425, 0
   br i1 %129, label %.critedge, label %130
 
@@ -671,7 +671,7 @@ phar_tar_number.exit550:                          ; preds = %118, %.lr.ph.i543, 
   br i1 %exitcond24.not.i559, label %phar_tar_number.exit561, label %.lr.ph.i554
 
 phar_tar_number.exit561:                          ; preds = %.lr.ph.i554, %197
-  %.017.lcssa.i553 = phi i32 [ %200, %197 ], [ %.01720.i556, %.lr.ph.i554 ]
+  %.017.lcssa.i553 = phi i32 [ %.01720.i556, %.lr.ph.i554 ], [ %200, %197 ]
   %202 = icmp eq i32 %.017.lcssa.i553, 0
   br i1 %202, label %.lr.ph.i562.preheader, label %207
 
@@ -1125,7 +1125,7 @@ zend_string_release_ex.exit:                      ; preds = %363, %369, %375, %3
   br i1 %exitcond24.not.i575, label %phar_tar_number.exit577, label %.lr.ph.i570
 
 phar_tar_number.exit577:                          ; preds = %381, %.lr.ph.i570, %387, %.critedge.i568
-  %.017.lcssa.i569 = phi i32 [ 0, %.critedge.i568 ], [ %.01720.i572, %.lr.ph.i570 ], [ %390, %387 ], [ 0, %381 ]
+  %.017.lcssa.i569 = phi i32 [ 0, %.critedge.i568 ], [ %390, %387 ], [ %.01720.i572, %.lr.ph.i570 ], [ 0, %381 ]
   %392 = load i8, ptr %68, align 4, !tbaa !28
   %393 = icmp ne i8 %392, 0
   %.not467468 = icmp eq i32 %.2425, 0
@@ -1169,7 +1169,7 @@ phar_tar_number.exit577:                          ; preds = %381, %.lr.ph.i570, 
   br i1 %exitcond24.not.i586, label %phar_tar_number.exit588, label %.lr.ph.i581
 
 phar_tar_number.exit588:                          ; preds = %399, %.lr.ph.i581, %405, %.critedge.i579
-  %.017.lcssa.i580 = phi i32 [ 0, %.critedge.i579 ], [ %.01720.i583, %.lr.ph.i581 ], [ %408, %405 ], [ 0, %399 ]
+  %.017.lcssa.i580 = phi i32 [ 0, %.critedge.i579 ], [ %408, %405 ], [ %.01720.i583, %.lr.ph.i581 ], [ 0, %399 ]
   %410 = load i16, ptr %42, align 4
   %411 = and i16 %410, 256
   %412 = and i16 %.sroa.44.0.ph, -257
@@ -1928,7 +1928,7 @@ zend_hash_str_find_ptr.exit527.thread:            ; preds = %697, %699
   br label %.thread647
 
 .thread647:                                       ; preds = %.thread647.loopexit, %283, %269, %248, %218, %zend_string_release_ex.exit511, %589, %574, %546, %618, %608, %536, %zend_string_release_ex.exit, %737, %738, %.critedge498, %.critedge496, %628, %630, %670, %26
-  %.0 = phi i32 [ -1, %26 ], [ -1, %283 ], [ -1, %670 ], [ -1, %628 ], [ -1, %.critedge496 ], [ -1, %.critedge498 ], [ -1, %630 ], [ 0, %738 ], [ 0, %737 ], [ -1, %zend_string_release_ex.exit ], [ -1, %536 ], [ -1, %608 ], [ -1, %618 ], [ -1, %546 ], [ -1, %574 ], [ -1, %589 ], [ -1, %zend_string_release_ex.exit511 ], [ -1, %218 ], [ -1, %248 ], [ -1, %269 ], [ -1, %.thread647.loopexit ]
+  %.0 = phi i32 [ -1, %26 ], [ -1, %670 ], [ -1, %630 ], [ -1, %628 ], [ -1, %.critedge496 ], [ -1, %.critedge498 ], [ 0, %738 ], [ 0, %737 ], [ -1, %zend_string_release_ex.exit ], [ -1, %536 ], [ -1, %608 ], [ -1, %618 ], [ -1, %546 ], [ -1, %574 ], [ -1, %589 ], [ -1, %zend_string_release_ex.exit511 ], [ -1, %218 ], [ -1, %248 ], [ -1, %269 ], [ -1, %283 ], [ -1, %.thread647.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.31)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.41)
@@ -2843,7 +2843,7 @@ zend_hash_add_mem.exit266:                        ; preds = %240, %242
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.critedge
 
-.critedge:                                        ; preds = %252, %247, %.critedge250.sink.split, %395, %.critedge.critedge, %224, %225, %89, %88, %358, %398, %412, %362, %363, %.critedge254, %205, %206, %170, %172, %138, %140, %30, %31, %334, %305, %285, %280, %262, %134, %56, %44
+.critedge:                                        ; preds = %247, %252, %.critedge250.sink.split, %395, %.critedge.critedge, %225, %224, %89, %88, %358, %398, %412, %362, %363, %.critedge254, %205, %206, %170, %172, %138, %140, %30, %31, %334, %305, %285, %280, %262, %134, %56, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -3591,7 +3591,7 @@ phar_tar_octal.exit164:                           ; preds = %152
   br label %257
 
 257:                                              ; preds = %204, %206, %190, %192, %182, %169, %172, %154, %157, %128, %131, %110, %114, %89, %93, %31, %28, %51, %.loopexit, %10, %2, %254
-  %.0104 = phi i32 [ 0, %254 ], [ %., %10 ], [ 0, %2 ], [ 2, %31 ], [ 2, %89 ], [ 2, %110 ], [ 2, %128 ], [ 2, %154 ], [ 2, %169 ], [ 2, %182 ], [ 2, %190 ], [ 2, %.loopexit ], [ 2, %51 ], [ 2, %28 ], [ 2, %93 ], [ 2, %114 ], [ 2, %131 ], [ 2, %157 ], [ 2, %172 ], [ 2, %192 ], [ 2, %206 ], [ 2, %204 ]
+  %.0104 = phi i32 [ 0, %254 ], [ 0, %2 ], [ %., %10 ], [ 2, %.loopexit ], [ 2, %51 ], [ 2, %28 ], [ 2, %31 ], [ 2, %93 ], [ 2, %89 ], [ 2, %114 ], [ 2, %110 ], [ 2, %131 ], [ 2, %128 ], [ 2, %157 ], [ 2, %154 ], [ 2, %172 ], [ 2, %169 ], [ 2, %182 ], [ 2, %192 ], [ 2, %190 ], [ 2, %206 ], [ 2, %204 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0104

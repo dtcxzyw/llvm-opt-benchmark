@@ -100,8 +100,8 @@ define range(i32 0, 2) i32 @RECORD_LAYER_clear(ptr noundef %0) local_unnamed_add
   br label %35
 
 35:                                               ; preds = %32, %26
-  %36 = phi i64 [ %.pre.i, %32 ], [ %27, %26 ]
-  %.1.i = phi i64 [ 0, %32 ], [ %16, %26 ]
+  %36 = phi i64 [ %27, %26 ], [ %.pre.i, %32 ]
+  %.1.i = phi i64 [ %16, %26 ], [ 0, %32 ]
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %38 = sub i64 %36, %.1.i
   store i64 %38, ptr %37, align 8, !tbaa !21
@@ -251,8 +251,8 @@ define range(i32 0, 2) i32 @ssl_release_record(ptr noundef %0, ptr noundef captu
   br label %36
 
 36:                                               ; preds = %29, %33, %20
-  %37 = phi i64 [ %31, %29 ], [ %22, %20 ], [ %.pre, %33 ]
-  %.1 = phi i64 [ %2, %29 ], [ %.0, %20 ], [ %2, %33 ]
+  %37 = phi i64 [ %22, %20 ], [ %.pre, %33 ], [ %31, %29 ]
+  %.1 = phi i64 [ %.0, %20 ], [ %2, %33 ], [ %2, %29 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = sub i64 %37, %.1
   store i64 %39, ptr %38, align 8, !tbaa !21
@@ -391,8 +391,8 @@ define range(i32 0, 2) i32 @ssl_set_new_record_layer(ptr noundef %0, i32 noundef
   %ossl_tls_record_method.ossl_dtls_record_method.i = select i1 %.not8.i, ptr @ossl_tls_record_method, ptr @ossl_dtls_record_method
   br label %ssl_select_next_record_layer.exit.thread
 
-ssl_select_next_record_layer.exit.thread:         ; preds = %58, %52
-  %.0.i.ph = phi ptr [ %55, %52 ], [ %ossl_tls_record_method.ossl_dtls_record_method.i, %58 ]
+ssl_select_next_record_layer.exit.thread:         ; preds = %52, %58
+  %.0.i.ph = phi ptr [ %ossl_tls_record_method.ossl_dtls_record_method.i, %58 ], [ %55, %52 ]
   %66 = icmp eq i32 %2, 0
   %.0156187.v = select i1 %66, i64 3184, i64 3192
   %.0156187 = getelementptr inbounds nuw i8, ptr %0, i64 %.0156187.v
@@ -417,12 +417,12 @@ ssl_select_next_record_layer.exit:                ; preds = %56
   br label %ssl_post_record_layer_select.exit
 
 .thread:                                          ; preds = %ssl_select_next_record_layer.exit.thread, %ssl_select_next_record_layer.exit
-  %.0148202 = phi ptr [ %68, %ssl_select_next_record_layer.exit ], [ %.0.i.ph, %ssl_select_next_record_layer.exit.thread ]
-  %71 = phi i1 [ %67, %ssl_select_next_record_layer.exit ], [ %66, %ssl_select_next_record_layer.exit.thread ]
-  %.0156191201 = phi ptr [ %.in.i, %ssl_select_next_record_layer.exit ], [ %.0156187, %ssl_select_next_record_layer.exit.thread ]
-  %.0155.v.pn = phi i64 [ %.0155.v, %ssl_select_next_record_layer.exit ], [ %.0155188.v, %ssl_select_next_record_layer.exit.thread ]
-  %.0154.in.v.pn = phi i64 [ %.0154.in.v, %ssl_select_next_record_layer.exit ], [ %.0154.in189.v, %ssl_select_next_record_layer.exit.thread ]
-  %.0154193199.in = getelementptr inbounds nuw i8, ptr %0, i64 %.0154.in.v.pn
+  %.0148202 = phi ptr [ %.0.i.ph, %ssl_select_next_record_layer.exit.thread ], [ %68, %ssl_select_next_record_layer.exit ]
+  %71 = phi i1 [ %66, %ssl_select_next_record_layer.exit.thread ], [ %67, %ssl_select_next_record_layer.exit ]
+  %.0156191201 = phi ptr [ %.0156187, %ssl_select_next_record_layer.exit.thread ], [ %.in.i, %ssl_select_next_record_layer.exit ]
+  %.0155.v.pn = phi i64 [ %.0155188.v, %ssl_select_next_record_layer.exit.thread ], [ %.0155.v, %ssl_select_next_record_layer.exit ]
+  %.0154.in189.v.pn = phi i64 [ %.0154.in189.v, %ssl_select_next_record_layer.exit.thread ], [ %.0154.in.v, %ssl_select_next_record_layer.exit ]
+  %.0154193199.in = getelementptr inbounds nuw i8, ptr %0, i64 %.0154.in189.v.pn
   %.0154193199 = load ptr, ptr %.0154193199.in, align 8, !tbaa !107
   %.0155192200 = getelementptr inbounds nuw i8, ptr %0, i64 %.0155.v.pn
   %72 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -656,8 +656,8 @@ ossl_get_max_early_data.exit.thread211:           ; preds = %146, %149
   %..i = call i32 @llvm.umin.i32(i32 %156, i32 %161)
   br label %ossl_get_max_early_data.exit
 
-ossl_get_max_early_data.exit.thread:              ; preds = %140, %149
-  %.017.i.ph = phi i32 [ %151, %149 ], [ %144, %140 ]
+ossl_get_max_early_data.exit.thread:              ; preds = %149, %140
+  %.017.i.ph = phi i32 [ %144, %140 ], [ %151, %149 ]
   store i32 %.017.i.ph, ptr %26, align 4, !tbaa !101
   br label %162
 
@@ -919,7 +919,7 @@ ossl_get_max_early_data.exit:                     ; preds = %152, %157
   br label %ssl_post_record_layer_select.exit
 
 ssl_post_record_layer_select.exit:                ; preds = %273, %270, %267, %.thread215, %253, %70
-  %.0143 = phi i32 [ 0, %.thread215 ], [ 0, %70 ], [ 0, %253 ], [ 1, %267 ], [ 1, %270 ], [ 1, %273 ]
+  %.0143 = phi i32 [ 0, %253 ], [ 0, %70 ], [ 0, %.thread215 ], [ 1, %267 ], [ 1, %270 ], [ 1, %273 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -1081,7 +1081,7 @@ define i64 @ssl3_pending(ptr noundef %0) local_unnamed_addr #1 {
   br label %.thread
 
 .thread:                                          ; preds = %38, %7, %1, %9, %._crit_edge41
-  %.0 = phi i64 [ %54, %._crit_edge41 ], [ 0, %9 ], [ 0, %7 ], [ 0, %1 ], [ %.237, %38 ]
+  %.0 = phi i64 [ %54, %._crit_edge41 ], [ 0, %9 ], [ 0, %1 ], [ 0, %7 ], [ %.237, %38 ]
   ret i64 %.0
 }
 
@@ -1498,7 +1498,7 @@ tls_write_check_pending.exit:                     ; preds = %56, %62, %65
   br label %.critedge
 
 .critedge:                                        ; preds = %126, %120, %123, %117, %111
-  %.0161 = phi i32 [ %spec.select, %117 ], [ %spec.select, %120 ], [ %spec.select201, %126 ], [ %spec.select, %123 ], [ %spec.select, %111 ]
+  %.0161 = phi i32 [ %spec.select, %117 ], [ %spec.select, %123 ], [ %spec.select, %111 ], [ %spec.select201, %126 ], [ %spec.select, %120 ]
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 3192
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 3208
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 2536
@@ -1630,7 +1630,7 @@ tls_write_check_pending.exit:                     ; preds = %56, %62, %65
   br label %135
 
 .thread211:                                       ; preds = %188, %180, %145, %tls_write_check_pending.exit, %.thread, %51, %46, %27, %110, %100, %88, %78, %22
-  %.0155 = phi i32 [ -1, %.thread ], [ -1, %22 ], [ -1, %51 ], [ %76, %78 ], [ 1, %88 ], [ %98, %100 ], [ -1, %110 ], [ -1, %tls_write_check_pending.exit ], [ -1, %27 ], [ %49, %46 ], [ 1, %188 ], [ %178, %180 ], [ -1, %145 ]
+  %.0155 = phi i32 [ -1, %22 ], [ %76, %78 ], [ 1, %88 ], [ %98, %100 ], [ -1, %110 ], [ -1, %27 ], [ %49, %46 ], [ -1, %51 ], [ -1, %tls_write_check_pending.exit ], [ -1, %.thread ], [ 1, %188 ], [ %178, %180 ], [ -1, %145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0155
@@ -1702,8 +1702,8 @@ ossl_get_max_early_data.exit:                     ; preds = %19, %24
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef %29, i32 noundef 164, ptr noundef null) #9
   br label %42
 
-ossl_get_max_early_data.exit.thread:              ; preds = %16, %9, %ossl_get_max_early_data.exit
-  %.017.i17 = phi i32 [ %.017.i, %ossl_get_max_early_data.exit ], [ %18, %16 ], [ %11, %9 ]
+ossl_get_max_early_data.exit.thread:              ; preds = %9, %16, %ossl_get_max_early_data.exit
+  %.017.i17 = phi i32 [ %.017.i, %ossl_get_max_early_data.exit ], [ %11, %9 ], [ %18, %16 ]
   %30 = trunc nuw nsw i64 %2 to i32
   %31 = add i32 %.017.i17, %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 5448
@@ -1862,7 +1862,7 @@ define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %0, i8 noundef
   br label %26
 
 26:                                               ; preds = %22, %13
-  %27 = phi i1 [ %spec.select, %22 ], [ false, %13 ]
+  %27 = phi i1 [ false, %13 ], [ %spec.select, %22 ]
   switch i8 %1, label %31 [
     i8 23, label %28
     i8 22, label %28
@@ -1942,7 +1942,7 @@ define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %0, i8 noundef
   br i1 %56, label %.lr.ph725, label %._crit_edge, !llvm.loop !215
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph725, %.critedge
-  %.0294.lcssa903 = phi i64 [ %.0294.lcssa902, %.lr.ph725 ], [ %4, %.critedge ], [ %.0294717, %.lr.ph ]
+  %.0294.lcssa903 = phi i64 [ %4, %.critedge ], [ %.0294.lcssa902, %.lr.ph725 ], [ %.0294717, %.lr.ph ]
   %.not394 = icmp eq ptr %2, null
   br i1 %.not394, label %58, label %57
 
@@ -2344,8 +2344,8 @@ define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %0, i8 noundef
   br label %249
 
 249:                                              ; preds = %246, %243, %237
-  %250 = phi i64 [ %244, %243 ], [ %238, %237 ], [ %.pre.i411, %246 ]
-  %.1.i406 = phi i64 [ %., %243 ], [ %.0.i, %237 ], [ %., %246 ]
+  %250 = phi i64 [ %238, %237 ], [ %.pre.i411, %246 ], [ %244, %243 ]
+  %.1.i406 = phi i64 [ %.0.i, %237 ], [ %., %246 ], [ %., %243 ]
   %251 = sub i64 %250, %.1.i406
   store i64 %251, ptr %194, align 8, !tbaa !21
   %.not25.i407 = icmp eq i64 %250, %.1.i406
@@ -2357,13 +2357,13 @@ define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %0, i8 noundef
   br label %ssl_release_record.exit.thread.sink.split
 
 ssl_release_record.exit.thread.sink.split:        ; preds = %.thread.i409, %249, %.thread.i, %220, %252
-  %.sink = phi i64 [ %254, %252 ], [ 0, %.thread.i ], [ 0, %220 ], [ 0, %249 ], [ 0, %.thread.i409 ]
-  %.ph = phi i64 [ %251, %252 ], [ 0, %.thread.i ], [ 0, %220 ], [ 0, %249 ], [ 0, %.thread.i409 ]
+  %.sink = phi i64 [ %254, %252 ], [ 0, %220 ], [ 0, %.thread.i ], [ 0, %249 ], [ 0, %.thread.i409 ]
+  %.ph = phi i64 [ %251, %252 ], [ 0, %220 ], [ 0, %.thread.i ], [ 0, %249 ], [ 0, %.thread.i409 ]
   store i64 %.sink, ptr %198, align 8, !tbaa !80
   br label %ssl_release_record.exit.thread
 
 ssl_release_record.exit.thread:                   ; preds = %ssl_release_record.exit.thread.sink.split, %215, %220, %202
-  %255 = phi i64 [ %.pre.i, %220 ], [ %216, %215 ], [ %203, %202 ], [ %.ph, %ssl_release_record.exit.thread.sink.split ]
+  %255 = phi i64 [ %.pre.i, %220 ], [ %203, %202 ], [ %216, %215 ], [ %.ph, %ssl_release_record.exit.thread.sink.split ]
   %256 = add i64 %., %.0299
   br i1 %87, label %257, label %.critedge23
 
@@ -2803,8 +2803,8 @@ PACKET_buf_init.exit.thread:                      ; preds = %286, %.thread448, %
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %14, i32 noundef 10, i32 noundef 245, ptr noundef null) #9
   br label %ssl_release_record.exit
 
-ssl_release_record.exit:                          ; preds = %309, %396, %391, %377, %354, %424, %420, %229, %207, %101, %408, %359, %.thread470.thread, %.loopexit, %339, %331, %320, %315, %PACKET_buf_init.exit.thread, %361, %187, %68, %63, %426, %416, %413, %412, %386, %363, %277, %270, %265, %189, %179, %172, %158, %.thread441, %142, %58, %31
-  %.0 = phi i32 [ -1, %31 ], [ 1, %58 ], [ -1, %68 ], [ -1, %.thread441 ], [ 0, %158 ], [ -1, %172 ], [ -1, %179 ], [ 0, %189 ], [ -1, %396 ], [ 1, %265 ], [ -1, %187 ], [ 0, %331 ], [ -1, %270 ], [ -1, %277 ], [ 0, %320 ], [ -1, %PACKET_buf_init.exit.thread ], [ -1, %359 ], [ -1, %386 ], [ -1, %412 ], [ -1, %413 ], [ -1, %416 ], [ -1, %229 ], [ -1, %361 ], [ -1, %426 ], [ -1, %315 ], [ -1, %363 ], [ -1, %408 ], [ -1, %142 ], [ %66, %63 ], [ -1, %.thread470.thread ], [ -1, %.loopexit ], [ -1, %339 ], [ %113, %101 ], [ -1, %207 ], [ -1, %424 ], [ %394, %391 ], [ -1, %420 ], [ -1, %377 ], [ -1, %354 ], [ -1, %309 ]
+ssl_release_record.exit:                          ; preds = %309, %396, %391, %377, %354, %424, %420, %229, %207, %101, %408, %359, %.loopexit, %.thread470.thread, %339, %331, %320, %315, %PACKET_buf_init.exit.thread, %361, %187, %68, %63, %426, %416, %413, %412, %386, %363, %277, %270, %265, %189, %179, %172, %158, %.thread441, %142, %58, %31
+  %.0 = phi i32 [ -1, %31 ], [ 1, %58 ], [ -1, %.thread441 ], [ 0, %158 ], [ -1, %172 ], [ -1, %179 ], [ 0, %189 ], [ 1, %265 ], [ -1, %270 ], [ -1, %277 ], [ -1, %386 ], [ -1, %412 ], [ -1, %413 ], [ -1, %416 ], [ -1, %426 ], [ -1, %363 ], [ -1, %142 ], [ %66, %63 ], [ -1, %68 ], [ -1, %187 ], [ -1, %361 ], [ -1, %.loopexit ], [ -1, %.thread470.thread ], [ -1, %339 ], [ 0, %331 ], [ 0, %320 ], [ -1, %315 ], [ -1, %PACKET_buf_init.exit.thread ], [ -1, %359 ], [ -1, %408 ], [ %113, %101 ], [ -1, %207 ], [ -1, %229 ], [ -1, %420 ], [ -1, %424 ], [ -1, %354 ], [ -1, %377 ], [ -1, %396 ], [ %394, %391 ], [ -1, %309 ]
   ret i32 %.0
 }
 

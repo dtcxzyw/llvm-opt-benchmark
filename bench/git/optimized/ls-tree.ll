@@ -657,7 +657,7 @@ define internal range(i32 0, 2) i32 @show_tree_fmt(ptr noundef %0, ptr noundef %
   br i1 %.not37, label %174, label %.thread
 
 .thread:                                          ; preds = %.critedge.i, %26, %5, %.loopexit
-  %.03582 = phi i32 [ 0, %5 ], [ 1, %.loopexit ], [ 0, %26 ], [ 0, %.critedge.i ]
+  %.03582 = phi i32 [ 1, %.loopexit ], [ 0, %5 ], [ 0, %26 ], [ 0, %.critedge.i ]
   %45 = icmp eq i32 %15, 3
   br i1 %45, label %46, label %50
 
@@ -1007,7 +1007,7 @@ strbuf_addch.exit79:                              ; preds = %strbuf_avail.exit.i
   br label %174
 
 174:                                              ; preds = %46, %.loopexit, %strbuf_addch.exit79
-  %.0 = phi i32 [ 1, %.loopexit ], [ %.03582, %strbuf_addch.exit79 ], [ 0, %46 ]
+  %.0 = phi i32 [ %.03582, %strbuf_addch.exit79 ], [ 1, %.loopexit ], [ 0, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -1322,7 +1322,7 @@ show_recursive.exit:                              ; preds = %36, %11
   br label %show_recursive.exit.thread
 
 show_recursive.exit.thread:                       ; preds = %.critedge.i, %19, %show_recursive.exit, %6, %5
-  %.0 = phi i32 [ -1, %5 ], [ %sext, %6 ], [ %spec.select14, %show_recursive.exit ], [ -1, %19 ], [ -1, %.critedge.i ]
+  %.0 = phi i32 [ %sext, %6 ], [ -1, %5 ], [ %spec.select14, %show_recursive.exit ], [ -1, %19 ], [ -1, %.critedge.i ]
   ret i32 %.0
 }
 

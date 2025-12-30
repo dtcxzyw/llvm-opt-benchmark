@@ -401,7 +401,7 @@ switch.lookup:                                    ; preds = %11
   br i1 %or.cond39, label %89, label %.loopexit
 
 89:                                               ; preds = %88, %87, %86, %85, %84, %83, %82, %78, %76, %74, %72, %.critedge
-  %.0105 = phi ptr [ @out_yuv10_lowpass_pix_fmts, %87 ], [ @out_gray8_lowpass_pix_fmts, %.critedge ], [ @out_gray9_lowpass_pix_fmts, %72 ], [ @out_gray10_lowpass_pix_fmts, %74 ], [ @out_gray12_lowpass_pix_fmts, %76 ], [ @out_rgb8_lowpass_pix_fmts, %78 ], [ @out_rgb9_lowpass_pix_fmts, %82 ], [ @out_rgb10_lowpass_pix_fmts, %83 ], [ @out_rgb12_lowpass_pix_fmts, %84 ], [ @out_yuv8_lowpass_pix_fmts, %85 ], [ @out_yuv9_lowpass_pix_fmts, %86 ], [ @out_yuv12_lowpass_pix_fmts, %88 ]
+  %.0105 = phi ptr [ @out_gray8_lowpass_pix_fmts, %.critedge ], [ @out_gray9_lowpass_pix_fmts, %72 ], [ @out_gray10_lowpass_pix_fmts, %74 ], [ @out_gray12_lowpass_pix_fmts, %76 ], [ @out_rgb8_lowpass_pix_fmts, %78 ], [ @out_rgb9_lowpass_pix_fmts, %82 ], [ @out_rgb10_lowpass_pix_fmts, %83 ], [ @out_rgb12_lowpass_pix_fmts, %84 ], [ @out_yuv8_lowpass_pix_fmts, %85 ], [ @out_yuv9_lowpass_pix_fmts, %86 ], [ @out_yuv10_lowpass_pix_fmts, %87 ], [ @out_yuv12_lowpass_pix_fmts, %88 ]
   %90 = tail call ptr @ff_make_format_list(ptr noundef nonnull %.0105) #12
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %92 = load ptr, ptr %91, align 8, !tbaa !54
@@ -412,7 +412,7 @@ switch.lookup:                                    ; preds = %11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %65, %11, %89, %88, %25, %44, %17, %1, %9
-  %.0 = phi i32 [ -11, %1 ], [ %23, %17 ], [ -11, %25 ], [ %., %89 ], [ -11, %88 ], [ -11, %44 ], [ -558323010, %11 ], [ -11, %9 ], [ -11, %65 ], [ -11, %56 ]
+  %.0 = phi i32 [ -11, %9 ], [ -11, %1 ], [ -558323010, %11 ], [ %23, %17 ], [ -11, %44 ], [ -11, %25 ], [ -11, %88 ], [ %., %89 ], [ -11, %65 ], [ -11, %56 ]
   ret i32 %.0
 }
 
@@ -676,7 +676,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader245.lr.ph, %.loopexit.loopexit, %127, %.preheader246
-  %154 = phi i32 [ %103, %.preheader246 ], [ %103, %.preheader245.lr.ph ], [ %.pre, %.loopexit.loopexit ], [ %103, %127 ], [ %103, %._crit_edge.us ]
+  %154 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %103, %127 ], [ %103, %.preheader246 ], [ %103, %.preheader245.lr.ph ], [ %103, %._crit_edge.us ]
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
   %155 = sext i32 %154 to i64
   %156 = icmp slt i64 %indvars.iv.next283, %155
@@ -728,8 +728,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %182
 
 182:                                              ; preds = %178, %172, %175
-  %.0208 = phi i32 [ %177, %175 ], [ 0, %172 ], [ %., %178 ]
-  %.0 = phi i32 [ 0, %175 ], [ %174, %172 ], [ %.301, %178 ]
+  %.0208 = phi i32 [ 0, %172 ], [ %177, %175 ], [ %., %178 ]
+  %.0 = phi i32 [ %174, %172 ], [ 0, %175 ], [ %.301, %178 ]
   %.5 = add nsw i32 %.2262, 1
   %183 = load ptr, ptr %3, align 8, !tbaa !55
   store ptr %183, ptr %4, align 8, !tbaa !85
@@ -1492,9 +1492,9 @@ switch.lookup:                                    ; preds = %1
   br i1 %or.cond380, label %.sink.split258, label %193
 
 .sink.split258:                                   ; preds = %188, %186, %184, %179, %177, %175, %170, %168, %166, %161, %159, %157
-  %switch.tableidx360.sink = phi i32 [ %switch.tableidx351, %186 ], [ %switch.tableidx342, %184 ], [ %switch.tableidx333, %179 ], [ %switch.tableidx324, %177 ], [ %switch.tableidx315, %175 ], [ %switch.tableidx306, %170 ], [ %switch.tableidx297, %168 ], [ %switch.tableidx288, %166 ], [ %switch.tableidx279, %161 ], [ %switch.tableidx270, %159 ], [ %switch.tableidx265, %157 ], [ %switch.tableidx360, %188 ]
-  %switch.table.config_input.12.sink = phi ptr [ @switch.table.config_input.11, %186 ], [ @switch.table.config_input.10, %184 ], [ @switch.table.config_input.9, %179 ], [ @switch.table.config_input.8, %177 ], [ @switch.table.config_input.7, %175 ], [ @switch.table.config_input.6, %170 ], [ @switch.table.config_input.5, %168 ], [ @switch.table.config_input.4, %166 ], [ @switch.table.config_input.6, %161 ], [ @switch.table.config_input.5, %159 ], [ @switch.table.config_input.1, %157 ], [ @switch.table.config_input.12, %188 ]
-  %.sink259 = phi i32 [ 5, %186 ], [ 3, %184 ], [ 7, %179 ], [ 5, %177 ], [ 3, %175 ], [ 5, %170 ], [ 5, %168 ], [ 5, %166 ], [ 5, %161 ], [ 5, %159 ], [ 3, %157 ], [ 7, %188 ]
+  %switch.tableidx360.sink = phi i32 [ %switch.tableidx265, %157 ], [ %switch.tableidx270, %159 ], [ %switch.tableidx279, %161 ], [ %switch.tableidx288, %166 ], [ %switch.tableidx297, %168 ], [ %switch.tableidx306, %170 ], [ %switch.tableidx315, %175 ], [ %switch.tableidx324, %177 ], [ %switch.tableidx333, %179 ], [ %switch.tableidx342, %184 ], [ %switch.tableidx351, %186 ], [ %switch.tableidx360, %188 ]
+  %switch.table.config_input.12.sink = phi ptr [ @switch.table.config_input.1, %157 ], [ @switch.table.config_input.5, %159 ], [ @switch.table.config_input.6, %161 ], [ @switch.table.config_input.4, %166 ], [ @switch.table.config_input.5, %168 ], [ @switch.table.config_input.6, %170 ], [ @switch.table.config_input.7, %175 ], [ @switch.table.config_input.8, %177 ], [ @switch.table.config_input.9, %179 ], [ @switch.table.config_input.10, %184 ], [ @switch.table.config_input.11, %186 ], [ @switch.table.config_input.12, %188 ]
+  %.sink259 = phi i32 [ 3, %157 ], [ 5, %159 ], [ 5, %161 ], [ 5, %166 ], [ 5, %168 ], [ 5, %170 ], [ 3, %175 ], [ 5, %177 ], [ 7, %179 ], [ 3, %184 ], [ 5, %186 ], [ 7, %188 ]
   %190 = zext nneg i32 %switch.tableidx360.sink to i64
   %switch.gep367 = getelementptr inbounds nuw ptr, ptr %switch.table.config_input.12.sink, i64 %190
   %switch.load368 = load ptr, ptr %switch.gep367, align 8
@@ -21241,7 +21241,7 @@ define internal range(i32 -22, 1) i32 @config_output(ptr noundef %0) #1 {
   br label %179
 
 179:                                              ; preds = %._crit_edge.thread, %49, %._crit_edge, %171
-  %.0 = phi i32 [ -22, %._crit_edge ], [ 0, %171 ], [ -12, %49 ], [ -22, %._crit_edge.thread ]
+  %.0 = phi i32 [ 0, %171 ], [ -22, %._crit_edge ], [ -12, %49 ], [ -22, %._crit_edge.thread ]
   ret i32 %.0
 }
 

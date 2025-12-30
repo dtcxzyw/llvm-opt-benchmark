@@ -242,7 +242,7 @@ define hidden noalias ptr @Wayland_data_source_get_data(ptr noundef readonly cap
   br label %Wayland_clone_data_buffer.exit
 
 Wayland_clone_data_buffer.exit:                   ; preds = %19, %16, %9, %6, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %6 ], [ %18, %19 ], [ null, %16 ], [ null, %9 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %4 ], [ %18, %19 ], [ null, %16 ], [ null, %9 ]
   ret ptr %.0
 }
 
@@ -288,7 +288,7 @@ define hidden noalias ptr @Wayland_primary_selection_source_get_data(ptr noundef
   br label %Wayland_clone_data_buffer.exit
 
 Wayland_clone_data_buffer.exit:                   ; preds = %19, %16, %9, %6, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %6 ], [ %18, %19 ], [ null, %16 ], [ null, %9 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %4 ], [ %18, %19 ], [ null, %16 ], [ null, %9 ]
   ret ptr %.0
 }
 
@@ -862,7 +862,7 @@ define hidden noundef zeroext i1 @Wayland_data_offer_add_mime(ptr noundef %0, pt
   br label %mime_data_list_add.exit
 
 mime_data_list_add.exit:                          ; preds = %5, %9, %11, %17
-  %.034.i = phi i1 [ false, %11 ], [ true, %17 ], [ false, %9 ], [ true, %5 ]
+  %.034.i = phi i1 [ true, %17 ], [ false, %9 ], [ false, %11 ], [ true, %5 ]
   tail call void @SDL_free_REAL(ptr noundef null) #12
   ret i1 %.034.i
 }
@@ -907,7 +907,7 @@ define hidden noundef zeroext i1 @Wayland_primary_selection_offer_add_mime(ptr n
   br label %mime_data_list_add.exit
 
 mime_data_list_add.exit:                          ; preds = %5, %9, %11, %17
-  %.034.i = phi i1 [ false, %11 ], [ true, %17 ], [ false, %9 ], [ true, %5 ]
+  %.034.i = phi i1 [ true, %17 ], [ false, %9 ], [ false, %11 ], [ true, %5 ]
   tail call void @SDL_free_REAL(ptr noundef null) #12
   ret i1 %.034.i
 }
@@ -1367,7 +1367,7 @@ Wayland_data_source_destroy.exit:                 ; preds = %58, %59
   br label %64
 
 64:                                               ; preds = %.critedge, %62, %8, %5
-  %.0 = phi i1 [ %6, %5 ], [ %9, %8 ], [ %31, %.critedge ], [ true, %62 ]
+  %.0 = phi i1 [ %9, %8 ], [ %6, %5 ], [ %31, %.critedge ], [ true, %62 ]
   ret i1 %.0
 }
 
@@ -1475,7 +1475,7 @@ Wayland_primary_selection_source_destroy.exit:    ; preds = %41, %50
   br label %55
 
 55:                                               ; preds = %18, %53, %8, %5
-  %.023 = phi i1 [ %6, %5 ], [ %9, %8 ], [ %20, %18 ], [ true, %53 ]
+  %.023 = phi i1 [ %9, %8 ], [ %6, %5 ], [ %20, %18 ], [ true, %53 ]
   ret i1 %.023
 }
 

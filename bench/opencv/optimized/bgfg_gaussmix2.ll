@@ -3688,9 +3688,9 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
   br i1 %217, label %130, label %._crit_edge, !llvm.loop !159
 
 ._crit_edge273:                                   ; preds = %.lr.ph272, %.lr.ph292, %._crit_edge
-  %.0202.lcssa373 = phi i32 [ 0, %.lr.ph292 ], [ %.1203, %._crit_edge ], [ %.1203, %.lr.ph272 ]
-  %.0205.lcssa372 = phi i1 [ false, %.lr.ph292 ], [ %125, %._crit_edge ], [ %125, %.lr.ph272 ]
-  %.0208.lcssa371 = phi i1 [ false, %.lr.ph292 ], [ %.1209, %._crit_edge ], [ %.1209, %.lr.ph272 ]
+  %.0202.lcssa373 = phi i32 [ %.1203, %._crit_edge ], [ 0, %.lr.ph292 ], [ %.1203, %.lr.ph272 ]
+  %.0205.lcssa372 = phi i1 [ %125, %._crit_edge ], [ false, %.lr.ph292 ], [ %125, %.lr.ph272 ]
+  %.0208.lcssa371 = phi i1 [ %.1209, %._crit_edge ], [ false, %.lr.ph292 ], [ %.1209, %.lr.ph272 ]
   %218 = load float, ptr %31, align 4
   %219 = fcmp ule float %218, 0.000000e+00
   %or.cond.not = select i1 %.0205.lcssa372, i1 true, i1 %219
@@ -3906,8 +3906,8 @@ _ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit: ; preds = %._crit_edge78.us
   %305 = load i8, ptr %59, align 1, !tbaa !82
   br label %_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit.thread
 
-_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit.thread: ; preds = %._crit_edge.us.i, %291, %272, %_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit, %269, %.loopexit246
-  %306 = phi i8 [ 0, %.loopexit246 ], [ %305, %_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit ], [ -1, %269 ], [ -1, %272 ], [ -1, %291 ], [ -1, %._crit_edge.us.i ]
+_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit.thread: ; preds = %291, %._crit_edge.us.i, %272, %_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit, %269, %.loopexit246
+  %306 = phi i8 [ 0, %.loopexit246 ], [ %305, %_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit ], [ -1, %269 ], [ -1, %272 ], [ -1, %._crit_edge.us.i ], [ -1, %291 ]
   %307 = getelementptr inbounds nuw i8, ptr %108, i64 %indvars.iv343
   store i8 %306, ptr %307, align 1, !tbaa !93
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1

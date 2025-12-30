@@ -606,7 +606,7 @@ _setup_stepd_kvs.exit.thread:                     ; preds = %.loopexit43, %249
   br label %_setup_stepd_job_info.exit
 
 _setup_stepd_job_info.exit:                       ; preds = %166, %171, %_setup_stepd_kvs.exit.thread, %_setup_stepd_sockets.exit.thread, %111, %104, %.loopexit
-  %.0 = phi i32 [ %.0.i33.ph, %_setup_stepd_kvs.exit.thread ], [ %268, %.loopexit ], [ -1, %111 ], [ -1, %_setup_stepd_sockets.exit.thread ], [ -1, %104 ], [ -1, %171 ], [ -1, %166 ]
+  %.0 = phi i32 [ %268, %.loopexit ], [ -1, %111 ], [ -1, %104 ], [ -1, %_setup_stepd_sockets.exit.thread ], [ %.0.i33.ph, %_setup_stepd_kvs.exit.thread ], [ -1, %171 ], [ -1, %166 ]
   ret i32 %.0
 }
 
@@ -1326,8 +1326,8 @@ _get_proc_mapping.exit.i:                         ; preds = %200, %197
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread72
 
-.thread72:                                        ; preds = %_get_proc_mapping.exit.i, %216, %258, %266, %269, %305
-  %.375 = phi i32 [ 0, %305 ], [ 0, %269 ], [ %267, %266 ], [ -1, %258 ], [ -1, %216 ], [ -1, %_get_proc_mapping.exit.i ]
+.thread72:                                        ; preds = %216, %_get_proc_mapping.exit.i, %258, %266, %269, %305
+  %.375 = phi i32 [ 0, %269 ], [ 0, %305 ], [ %267, %266 ], [ -1, %258 ], [ -1, %_get_proc_mapping.exit.i ], [ -1, %216 ]
   %306 = call i32 @pthread_mutex_lock(ptr noundef nonnull @pmi2_setup_srun.setup_mutex) #13
   %.not62 = icmp eq i32 %306, 0
   br i1 %.not62, label %309, label %307
@@ -1420,7 +1420,7 @@ _get_proc_mapping.exit.i:                         ; preds = %200, %197
   br label %344
 
 344:                                              ; preds = %314, %334, %336
-  %.4 = phi i32 [ %.lcssa96, %334 ], [ 0, %336 ], [ %.375, %314 ]
+  %.4 = phi i32 [ 0, %336 ], [ %.lcssa96, %334 ], [ %.375, %314 ]
   ret i32 %.4
 }
 

@@ -1146,7 +1146,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %38,
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25._crit_edge
 
 44:                                               ; preds = %26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
-  %.pn.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22 ], [ %27, %26 ]
   %45 = load ptr, ptr %1, align 8, !tbaa !5
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = icmp eq ptr %45, %46
@@ -1163,7 +1163,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %44,
   resume { ptr, i32 } %.pn.pn.pn
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25._crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25, %0
-  %.1 = phi i32 [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ], [ %5, %0 ]
+  %.1 = phi i32 [ %5, %0 ], [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   ret i32 %.1
 }
 
@@ -1506,7 +1506,7 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %10
   br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
 _ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %10, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %19
-  %22 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %21, %19 ], [ true, %10 ]
+  %22 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %21, %19 ], [ true, %10 ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ]
   %23 = or i1 %11, %22
   %.sroa.0.0.insert.ext.i.i.i = select i1 %23, i64 1, i64 2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -2155,7 +2155,7 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %2
   br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
 _ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %2, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %14
-  %17 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %16, %14 ], [ true, %2 ]
+  %17 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %16, %14 ], [ true, %2 ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ]
   %18 = or i1 %6, %17
   %.sroa.0.0.insert.ext.i.i.i = select i1 %18, i64 1, i64 2
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -2237,7 +2237,7 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %14
   br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
 _ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %14, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %23
-  %26 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %25, %23 ], [ true, %14 ]
+  %26 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %25, %23 ], [ true, %14 ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ]
   %27 = or i1 %15, %26
   %.sroa.0.0.insert.ext.i.i.i = select i1 %27, i64 1, i64 2
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -2288,7 +2288,7 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %2
   br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
 _ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %2, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %14
-  %17 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %16, %14 ], [ true, %2 ]
+  %17 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %16, %14 ], [ true, %2 ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ]
   %18 = or i1 %6, %17
   %.sroa.0.0.insert.ext.i.i.i = select i1 %18, i64 1, i64 2
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -2380,7 +2380,7 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %2
   br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
 _ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %2, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %14
-  %17 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %16, %14 ], [ true, %2 ]
+  %17 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %16, %14 ], [ true, %2 ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ]
   %18 = or i1 %6, %17
   %.sroa.0.0.insert.ext.i.i.i = select i1 %18, i64 1, i64 2
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -2465,7 +2465,7 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %_ZN12CleanVisitor11
   br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
 _ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %_ZN12CleanVisitor11ensureCleanEP11AstNodeExpr.exit, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %23
-  %26 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %25, %23 ], [ true, %_ZN12CleanVisitor11ensureCleanEP11AstNodeExpr.exit ]
+  %26 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %25, %23 ], [ true, %_ZN12CleanVisitor11ensureCleanEP11AstNodeExpr.exit ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ]
   %27 = or i1 %15, %26
   %.sroa.0.0.insert.ext.i.i.i = select i1 %27, i64 1, i64 2
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -2528,7 +2528,7 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %10
   br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
 _ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %10, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %19
-  %22 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %21, %19 ], [ true, %10 ]
+  %22 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %21, %19 ], [ true, %10 ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ]
   %23 = or i1 %11, %22
   %.sroa.0.0.insert.ext.i.i.i = select i1 %23, i64 1, i64 2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -3124,7 +3124,7 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %10
   br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
 _ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %10, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %19
-  %22 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %21, %19 ], [ true, %10 ]
+  %22 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %21, %19 ], [ true, %10 ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ]
   %23 = or i1 %11, %22
   %.sroa.0.0.insert.ext.i.i.i = select i1 %23, i64 1, i64 2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 104

@@ -313,7 +313,7 @@ define dso_local void @_ZN14cmArchiveWriteC2ERSoNS_8CompressERKNSt7__cxx1112basi
   br i1 %127, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !30
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %124, %122, %118, %114, %111
-  %.0.i.i = phi i32 [ %123, %122 ], [ %115, %114 ], [ %119, %118 ], [ 1, %111 ], [ %126, %124 ]
+  %.0.i.i = phi i32 [ %115, %114 ], [ %119, %118 ], [ %123, %122 ], [ 1, %111 ], [ %126, %124 ]
   %128 = zext i32 %.0.i.i to i64
   %129 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %129, ptr %34, align 8, !tbaa !21, !alias.scope !27
@@ -2489,7 +2489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit360: ; preds = %84
   br i1 %866, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i364, label %.lr.ph.i.i361, !llvm.loop !30
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i364: ; preds = %863, %861, %857, %853, %849
-  %.0.i.i365 = phi i32 [ %862, %861 ], [ %854, %853 ], [ %858, %857 ], [ 1, %849 ], [ %865, %863 ]
+  %.0.i.i365 = phi i32 [ %854, %853 ], [ %858, %857 ], [ %862, %861 ], [ 1, %849 ], [ %865, %863 ]
   %.lobit.i366 = lshr i32 %4, 31
   %867 = add i32 %.0.i.i365, %.lobit.i366
   %868 = zext i32 %867 to i64
@@ -4623,7 +4623,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %188
 
 187:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77, %.tail.thread, %185
-  %.0 = phi i1 [ false, %.tail.thread ], [ %.4, %185 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77 ]
+  %.0 = phi i1 [ %.4, %185 ], [ false, %.tail.thread ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77 ]
   ret i1 %.0
 
 188:                                              ; preds = %186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83
@@ -5800,7 +5800,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %44
   br label %.body63
 
 .thread169:                                       ; preds = %455, %452, %456, %.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78
-  %.1 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128 ], [ %457, %456 ], [ false, %.thread ], [ true, %452 ], [ true, %455 ]
+  %.1 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128 ], [ false, %.thread ], [ %457, %456 ], [ true, %452 ], [ true, %455 ]
   invoke void @archive_entry_free(ptr noundef %53)
           to label %_ZN14cmArchiveWrite5EntryD2Ev.exit unwind label %460
 
@@ -5843,7 +5843,7 @@ _ZN12cmLocaleRAIID2Ev.exit:                       ; preds = %_ZNSt7__cxx1112basi
   br label %483
 
 .body63:                                          ; preds = %174, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit5.i58, %458, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131, %365, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105, %254, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81
-  %.pn49.pn = phi { ptr, i32 } [ %.pn49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84 ], [ %.pn47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131 ], [ %459, %458 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81 ], [ %366, %365 ], [ %.pn41.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105 ], [ %.pn38, %254 ], [ %175, %174 ], [ %98, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit5.i58 ]
+  %.pn49.pn = phi { ptr, i32 } [ %.pn49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84 ], [ %.pn47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131 ], [ %459, %458 ], [ %366, %365 ], [ %.pn41.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105 ], [ %.pn38, %254 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81 ], [ %175, %174 ], [ %98, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit5.i58 ]
   invoke void @archive_entry_free(ptr noundef %53)
           to label %_ZN14cmArchiveWrite5EntryD2Ev.exit135 unwind label %475
 
@@ -6646,7 +6646,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %229
   br label %236
 
 .thread106:                                       ; preds = %89, %86, %.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96
-  %.not113 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96 ], [ false, %.thread ], [ true, %86 ], [ true, %89 ]
+  %.not113 = phi i1 [ false, %.thread ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96 ], [ true, %86 ], [ true, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %237
 

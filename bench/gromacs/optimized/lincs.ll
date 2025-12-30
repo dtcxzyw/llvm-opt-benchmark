@@ -2853,8 +2853,8 @@ _ZN3gmxL22check_assign_connectedEPNS_5LincsENS_8ArrayRefIKiEERK22InteractionDefi
   br i1 %exitcond101.not.i, label %..loopexit21_crit_edge.us.i, label %.preheader20.us.i, !llvm.loop !207
 
 ..loopexit21_crit_edge.us.i:                      ; preds = %627, %.loopexit23.us.i, %.lr.ph47.split.us.i
-  %.lcssa3153.us.i = phi i32 [ %.lcssa3154.us.i, %.lr.ph47.split.us.i ], [ %.lcssa3152.us.i, %.loopexit23.us.i ], [ %628, %627 ]
-  %.lcssa3341.us.i = phi i32 [ %.lcssa334044.us.i, %.lr.ph47.split.us.i ], [ %.lcssa3342.us.i, %.loopexit23.us.i ], [ %629, %627 ]
+  %.lcssa3153.us.i = phi i32 [ %.lcssa3152.us.i, %.loopexit23.us.i ], [ %.lcssa3154.us.i, %.lr.ph47.split.us.i ], [ %628, %627 ]
+  %.lcssa3341.us.i = phi i32 [ %.lcssa3342.us.i, %.loopexit23.us.i ], [ %.lcssa334044.us.i, %.lr.ph47.split.us.i ], [ %629, %627 ]
   %630 = getelementptr inbounds nuw i8, ptr %.sroa.0.045.us.i, i64 4
   %.not17.us.i = icmp eq ptr %630, %595
   br i1 %.not17.us.i, label %.loopexit126.i, label %.lr.ph47.split.us.i
@@ -4553,7 +4553,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !13
   br label %41
 
@@ -5574,7 +5574,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !262
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
-  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.08.us, %.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %39 ]
+  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.08.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
   %42 = getelementptr inbounds nuw i32, ptr %.fr16, i64 %.0.lcssa.i.i.us
   store i32 %21, ptr %42, align 4, !tbaa !18
   %.not.us = icmp eq i64 %.08.us, 0
@@ -5691,7 +5691,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !212
   br label %41
 
@@ -7334,7 +7334,7 @@ define noundef zeroext i1 @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsEN
   br i1 %exitcond.not, label %.loopexit177, label %82, !llvm.loop !382
 
 .loopexit177:                                     ; preds = %82, %73, %62
-  %89 = phi i32 [ %52, %62 ], [ %74, %73 ], [ %74, %82 ]
+  %89 = phi i32 [ %74, %73 ], [ %52, %62 ], [ %74, %82 ]
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %91 = load i32, ptr %90, align 4, !tbaa !71
   %.not112 = icmp eq i32 %91, 0
@@ -7456,8 +7456,8 @@ define noundef zeroext i1 @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsEN
   br i1 %exitcond206.not, label %.loopexit174, label %134, !llvm.loop !384
 
 .loopexit174:                                     ; preds = %128, %165, %.preheader175, %.preheader173, %.loopexit177
-  %166 = phi i32 [ %89, %165 ], [ %89, %.loopexit177 ], [ %89, %.preheader175 ], [ %89, %.preheader173 ], [ %131, %128 ]
-  %167 = phi ptr [ %3, %165 ], [ %3, %.loopexit177 ], [ %3, %.preheader175 ], [ %3, %.preheader173 ], [ %129, %128 ]
+  %166 = phi i32 [ %89, %.preheader175 ], [ %89, %.preheader173 ], [ %89, %.loopexit177 ], [ %89, %165 ], [ %131, %128 ]
+  %167 = phi ptr [ %3, %.preheader175 ], [ %3, %.preheader173 ], [ %3, %.loopexit177 ], [ %3, %165 ], [ %129, %128 ]
   %168 = load ptr, ptr @debug, align 8, !tbaa !105
   %.not114 = icmp ne ptr %168, null
   %169 = icmp sgt i32 %166, 0
@@ -7507,7 +7507,7 @@ define noundef zeroext i1 @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsEN
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit174, %170
-  %202 = phi ptr [ %167, %.loopexit174 ], [ %.pre222, %170 ]
+  %202 = phi ptr [ %.pre222, %170 ], [ %167, %.loopexit174 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i8 0, ptr %39, align 1, !tbaa !200
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 344
@@ -8282,9 +8282,9 @@ define internal fastcc { <2 x float>, i64 } @_ZN3gmxL19makeLincsDeviationsERKNS_
   br i1 %115, label %70, label %._crit_edge.split.us.us.split, !llvm.loop !397
 
 ._crit_edge90:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.us.split, %._crit_edge.split.us.us.split.us.us.split.us.us, %3
-  %.sroa.057.0.lcssa = phi <2 x float> [ zeroinitializer, %3 ], [ %.sroa.057.1.lcssa.us, %._crit_edge.split.us.us.split ], [ %.sroa.057.1.lcssa.us.us.us, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %.sroa.057.1.lcssa, %._crit_edge.split ]
-  %.sroa.11.0.lcssa = phi i32 [ -1, %3 ], [ %.sroa.11.1.lcssa.us, %._crit_edge.split.us.us.split ], [ %.sroa.11.1.lcssa.us.us.us, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %.sroa.11.1.lcssa, %._crit_edge.split ]
-  %.sroa.14.0.lcssa = phi i32 [ 0, %3 ], [ %.sroa.14.1.lcssa.us, %._crit_edge.split.us.us.split ], [ %.sroa.14.1.lcssa.us.us.us, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %.sroa.14.1.lcssa, %._crit_edge.split ]
+  %.sroa.057.0.lcssa = phi <2 x float> [ zeroinitializer, %3 ], [ %.sroa.057.1.lcssa.us.us.us, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %.sroa.057.1.lcssa.us, %._crit_edge.split.us.us.split ], [ %.sroa.057.1.lcssa, %._crit_edge.split ]
+  %.sroa.11.0.lcssa = phi i32 [ -1, %3 ], [ %.sroa.11.1.lcssa.us.us.us, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %.sroa.11.1.lcssa.us, %._crit_edge.split.us.us.split ], [ %.sroa.11.1.lcssa, %._crit_edge.split ]
+  %.sroa.14.0.lcssa = phi i32 [ 0, %3 ], [ %.sroa.14.1.lcssa.us.us.us, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %.sroa.14.1.lcssa.us, %._crit_edge.split.us.us.split ], [ %.sroa.14.1.lcssa, %._crit_edge.split ]
   %116 = icmp eq ptr %.fr108, %.fr109
   br i1 %116, label %175, label %172
 

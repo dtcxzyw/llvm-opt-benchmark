@@ -2851,7 +2851,7 @@ define internal noundef zeroext i1 @dissect_mellanox_eoib(ptr noundef %0, ptr no
   br label %40
 
 40:                                               ; preds = %35, %37, %10, %7, %4
-  %.0 = phi i1 [ false, %10 ], [ false, %4 ], [ false, %7 ], [ true, %37 ], [ true, %35 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %7 ], [ false, %10 ], [ true, %37 ], [ true, %35 ]
   ret i1 %.0
 }
 
@@ -3551,7 +3551,7 @@ default.unreachable413:                           ; preds = %23
   call fastcc void @parse_VENDOR(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
   br label %.critedge
 
-.critedge:                                        ; preds = %67, %parse_RWH.exit, %164, %204, %207, %210, %213, %216, %217, %220, %223, %224, %225, %226, %227, %230, %232, %235, %238, %241, %244, %247, %248, %249, %250, %253, %256, %261, %262, %263, %266
+.critedge:                                        ; preds = %67, %164, %parse_RWH.exit, %204, %207, %210, %213, %216, %217, %220, %223, %224, %225, %226, %227, %230, %232, %235, %238, %241, %244, %247, %248, %249, %250, %253, %256, %261, %262, %263, %266
   %267 = load i32, ptr %5, align 4
   %268 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %267)
   switch i32 %268, label %284 [
@@ -3869,7 +3869,7 @@ contains.exit84:                                  ; preds = %.preheader
   br label %59
 
 59:                                               ; preds = %44, %contains.exit84, %contains.exit79, %contains.exit74, %contains.exit69, %contains.exit64, %contains.exit59, %contains.exit54, %contains.exit49, %contains.exit44, %contains.exit39, %contains.exit34, %contains.exit, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %2
-  %.0 = phi i32 [ %4, %2 ], [ -1, %58 ], [ 13, %contains.exit ], [ 14, %contains.exit34 ], [ 0, %contains.exit39 ], [ 15, %contains.exit44 ], [ 5, %contains.exit49 ], [ 18, %contains.exit54 ], [ 2, %contains.exit59 ], [ 16, %contains.exit64 ], [ 1, %contains.exit69 ], [ 21, %contains.exit74 ], [ 22, %contains.exit79 ], [ 9, %contains.exit84 ], [ 17, %45 ], [ 20, %46 ], [ 6, %47 ], [ 7, %48 ], [ 8, %49 ], [ 3, %50 ], [ 4, %51 ], [ 19, %44 ], [ 11, %52 ], [ 12, %53 ], [ 24, %54 ], [ 25, %55 ], [ 15, %56 ], [ 26, %57 ]
+  %.0 = phi i32 [ %4, %2 ], [ 17, %45 ], [ 20, %46 ], [ 6, %47 ], [ 7, %48 ], [ 8, %49 ], [ 3, %50 ], [ 4, %51 ], [ 11, %52 ], [ 12, %53 ], [ 24, %54 ], [ 25, %55 ], [ 15, %56 ], [ 26, %57 ], [ -1, %58 ], [ 13, %contains.exit ], [ 14, %contains.exit34 ], [ 0, %contains.exit39 ], [ 15, %contains.exit44 ], [ 5, %contains.exit49 ], [ 18, %contains.exit54 ], [ 2, %contains.exit59 ], [ 16, %contains.exit64 ], [ 1, %contains.exit69 ], [ 21, %contains.exit74 ], [ 22, %contains.exit79 ], [ 9, %contains.exit84 ], [ 19, %44 ]
   ret i32 %.0
 }
 
@@ -4276,7 +4276,7 @@ parse_PAYLOAD_reassemble_tvb.exit:                ; preds = %112, %138, %144
   br label %.thread
 
 .thread:                                          ; preds = %161, %150, %153, %155, %164
-  %.2134 = phi i8 [ 1, %155 ], [ 0, %164 ], [ 1, %150 ], [ %.0118, %153 ], [ 1, %161 ]
+  %.2134 = phi i8 [ 0, %164 ], [ 1, %155 ], [ %.0118, %153 ], [ 1, %150 ], [ 1, %161 ]
   br i1 %111, label %169, label %166
 
 166:                                              ; preds = %.thread
@@ -5384,7 +5384,7 @@ parse_RID.exit.i:                                 ; preds = %190, %parse_RMPP.ex
   br label %parse_SUBA_Attribute.exit
 
 parse_SUBA_Attribute.exit:                        ; preds = %.lr.ph5.i.i, %.preheader.i.i, %parse_RID.exit.i, %192, %193, %194, %195, %197, %200, %201, %202, %203, %204, %205, %206, %207, %208, %209, %210, %220, %225, %226, %251, %252, %253, %312, %313, %314, %361, %362, %396, %.preheader.i116.i, %468, %469
-  %479 = phi i32 [ %.val91.i, %parse_RID.exit.i ], [ %.val91.i, %192 ], [ %.val91.i, %193 ], [ %.val91.i, %194 ], [ %196, %195 ], [ %196, %197 ], [ %.val91.i, %200 ], [ %.val91.i, %201 ], [ %.val91.i, %202 ], [ %.val91.i, %203 ], [ %.val91.i, %204 ], [ %.val91.i, %205 ], [ %.val91.i, %206 ], [ %.val91.i, %207 ], [ %.val91.i, %208 ], [ %.val91.i, %209 ], [ %.val91.i, %210 ], [ %.val91.i, %220 ], [ %.val91.i, %469 ], [ %.val91.i, %225 ], [ %.val91.i, %226 ], [ %.val91.i, %251 ], [ %.val91.i, %252 ], [ %.val91.i, %253 ], [ %.val91.i, %312 ], [ %.val91.i, %313 ], [ %.val91.i, %314 ], [ %.val91.i, %361 ], [ %.val91.i, %362 ], [ %.val91.i, %396 ], [ %.val91.i, %.preheader.i116.i ], [ %.val91.i, %.preheader.i.i ], [ %.val91.i, %468 ], [ %.val91.i, %.lr.ph5.i.i ]
+  %479 = phi i32 [ %.val91.i, %parse_RID.exit.i ], [ %.val91.i, %192 ], [ %.val91.i, %193 ], [ %.val91.i, %194 ], [ %196, %195 ], [ %196, %197 ], [ %.val91.i, %200 ], [ %.val91.i, %201 ], [ %.val91.i, %202 ], [ %.val91.i, %203 ], [ %.val91.i, %204 ], [ %.val91.i, %205 ], [ %.val91.i, %206 ], [ %.val91.i, %207 ], [ %.val91.i, %208 ], [ %.val91.i, %209 ], [ %.val91.i, %210 ], [ %.val91.i, %220 ], [ %.val91.i, %225 ], [ %.val91.i, %226 ], [ %.val91.i, %251 ], [ %.val91.i, %252 ], [ %.val91.i, %253 ], [ %.val91.i, %312 ], [ %.val91.i, %313 ], [ %.val91.i, %314 ], [ %.val91.i, %361 ], [ %.val91.i, %362 ], [ %.val91.i, %396 ], [ %.val91.i, %.preheader.i116.i ], [ %.val91.i, %468 ], [ %.val91.i, %469 ], [ %.val91.i, %.preheader.i.i ], [ %.val91.i, %.lr.ph5.i.i ]
   %480 = add i32 %479, 200
   store i32 %480, ptr %3, align 4
   br label %481
@@ -6654,7 +6654,7 @@ define internal fastcc noundef zeroext i1 @parse_MAD_Common(ptr noundef %0, ptr 
   br label %63
 
 63:                                               ; preds = %7, %4, %9
-  %.0 = phi i1 [ false, %4 ], [ true, %9 ], [ false, %7 ]
+  %.0 = phi i1 [ true, %9 ], [ false, %4 ], [ false, %7 ]
   ret i1 %.0
 }
 

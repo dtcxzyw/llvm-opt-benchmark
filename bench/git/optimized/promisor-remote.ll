@@ -548,8 +548,8 @@ remove_fetched_oids.exit:                         ; preds = %._crit_edge41.i, %1
   unreachable
 
 .loopexit:                                        ; preds = %fetch_objects.exit, %102, %.preheader, %remove_fetched_oids.exit.thread
-  %.04470 = phi ptr [ %.044.lcssa, %.preheader ], [ %.04476, %remove_fetched_oids.exit.thread ], [ %.044.lcssa, %102 ], [ %.04476, %fetch_objects.exit ]
-  %.02157 = phi i32 [ %.021.lcssa, %.preheader ], [ %.02178, %remove_fetched_oids.exit.thread ], [ %.021.lcssa, %102 ], [ %.02178, %fetch_objects.exit ]
+  %.04470 = phi ptr [ %.04476, %remove_fetched_oids.exit.thread ], [ %.044.lcssa, %.preheader ], [ %.044.lcssa, %102 ], [ %.04476, %fetch_objects.exit ]
+  %.02157 = phi i32 [ %.02178, %remove_fetched_oids.exit.thread ], [ %.021.lcssa, %.preheader ], [ %.021.lcssa, %102 ], [ %.02178, %fetch_objects.exit ]
   %.not29 = icmp eq i32 %.02157, 0
   br i1 %.not29, label %109, label %108
 
@@ -684,7 +684,7 @@ promisor_remote_lookup.exit33:                    ; preds = %31
   br label %40
 
 40:                                               ; preds = %25, %36, %promisor_remote_lookup.exit33, %promisor_remote_lookup.exit, %13, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %promisor_remote_lookup.exit33 ], [ 0, %promisor_remote_lookup.exit ], [ 0, %13 ], [ %39, %36 ], [ 0, %25 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %13 ], [ 0, %promisor_remote_lookup.exit ], [ %39, %36 ], [ 0, %promisor_remote_lookup.exit33 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

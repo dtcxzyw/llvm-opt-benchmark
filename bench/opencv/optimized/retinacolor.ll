@@ -1855,8 +1855,8 @@ common.resume:                                    ; preds = %380, %293
   %exitcond241.not = icmp eq i64 %indvars.iv.next238, %wide.trip.count240
   br i1 %exitcond241.not, label %.loopexit, label %346, !llvm.loop !169
 
-.loopexit:                                        ; preds = %139, %346, %.preheader, %.preheader169, %._crit_edge201
-  %.pre-phi = phi i32 [ 0, %.preheader ], [ 0, %._crit_edge201 ], [ %325, %346 ], [ 0, %.preheader169 ], [ %58, %139 ]
+.loopexit:                                        ; preds = %139, %346, %.preheader169, %.preheader, %._crit_edge201
+  %.pre-phi = phi i32 [ 0, %._crit_edge201 ], [ 0, %.preheader ], [ 0, %.preheader169 ], [ %325, %346 ], [ %58, %139 ]
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %374 = load ptr, ptr %373, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2426,8 +2426,8 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor35normalizeRGBOutput_0_maxOu
   br label %20
 
 20:                                               ; preds = %19, %17, %.lr.ph.i
-  %.128.i = phi float [ %.02737.i, %17 ], [ %15, %19 ], [ %.02737.i, %.lr.ph.i ]
-  %.1.i = phi float [ %.02638.i, %17 ], [ %.02638.i, %19 ], [ %15, %.lr.ph.i ]
+  %.128.i = phi float [ %15, %19 ], [ %.02737.i, %17 ], [ %.02737.i, %.lr.ph.i ]
+  %.1.i = phi float [ %.02638.i, %19 ], [ %.02638.i, %17 ], [ %15, %.lr.ph.i ]
   %21 = add nuw nsw i64 %.03135.i, 1
   %exitcond.not.i = icmp eq i64 %21, %8
   br i1 %exitcond.not.i, label %.lr.ph43.preheader.i, label %.lr.ph.i, !llvm.loop !193
@@ -2481,8 +2481,8 @@ _ZN2cv11bioinspired14TemplateBufferIfE36normalizeGrayOutput_0_maxOutputValueEPfm
   br label %42
 
 42:                                               ; preds = %41, %39, %.lr.ph.i4
-  %.128.i9 = phi float [ %.02737.i6, %39 ], [ %37, %41 ], [ %.02737.i6, %.lr.ph.i4 ]
-  %.1.i10 = phi float [ %.02638.i5, %39 ], [ %.02638.i5, %41 ], [ %37, %.lr.ph.i4 ]
+  %.128.i9 = phi float [ %37, %41 ], [ %.02737.i6, %39 ], [ %.02737.i6, %.lr.ph.i4 ]
+  %.1.i10 = phi float [ %.02638.i5, %41 ], [ %.02638.i5, %39 ], [ %37, %.lr.ph.i4 ]
   %43 = add nuw nsw i64 %.03135.i8, 1
   %exitcond.not.i11 = icmp eq i64 %43, %30
   br i1 %exitcond.not.i11, label %.lr.ph43.preheader.i12, label %.lr.ph.i4, !llvm.loop !193

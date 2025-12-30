@@ -63,7 +63,7 @@ define range(i32 -70, 1) i32 @prte_iof_base_setup_prefork(ptr noundef %0) local_
   br i1 %27, label %.sink.split, label %29
 
 .sink.split:                                      ; preds = %24, %20, %.critedge
-  %.sink12 = phi i32 [ 125, %20 ], [ 119, %.critedge ], [ 130, %24 ]
+  %.sink12 = phi i32 [ 119, %.critedge ], [ 125, %20 ], [ 130, %24 ]
   %28 = call ptr @PMIx_Error_string(i32 noundef -70) #6
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %28, ptr noundef nonnull @.str.1, i32 noundef %.sink12) #6
   br label %29
@@ -242,7 +242,7 @@ define range(i32 -72, 1) i32 @prte_iof_base_setup_child(ptr noundef readonly cap
   br label %98
 
 98:                                               ; preds = %84, %95, %89, %67, %50, %44
-  %.1 = phi i32 [ -72, %50 ], [ -72, %67 ], [ -72, %89 ], [ -72, %44 ], [ 0, %95 ], [ 0, %84 ]
+  %.1 = phi i32 [ -72, %44 ], [ -72, %50 ], [ -72, %67 ], [ -72, %89 ], [ 0, %95 ], [ 0, %84 ]
   ret i32 %.1
 }
 
@@ -304,14 +304,14 @@ define noundef i32 @prte_iof_base_setup_parent(ptr noundef %0, ptr noundef reado
   ]
 
 .sink.split:                                      ; preds = %16, %11, %6
-  %.sink28 = phi i32 [ %15, %11 ], [ %10, %6 ], [ %20, %16 ]
-  %.sink27 = phi i32 [ 247, %11 ], [ 239, %6 ], [ 253, %16 ]
+  %.sink28 = phi i32 [ %10, %6 ], [ %15, %11 ], [ %20, %16 ]
+  %.sink27 = phi i32 [ 239, %6 ], [ 247, %11 ], [ 253, %16 ]
   %21 = tail call ptr @prte_strerror(i32 noundef %.sink28) #6
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %21, ptr noundef nonnull @.str.1, i32 noundef %.sink27) #6
   br label %22
 
 22:                                               ; preds = %.sink.split, %16, %16, %11, %6
-  %.0 = phi i32 [ %15, %11 ], [ %20, %16 ], [ %20, %16 ], [ %10, %6 ], [ %.sink28, %.sink.split ]
+  %.0 = phi i32 [ %10, %6 ], [ %15, %11 ], [ %20, %16 ], [ %20, %16 ], [ %.sink28, %.sink.split ]
   ret i32 %.0
 }
 

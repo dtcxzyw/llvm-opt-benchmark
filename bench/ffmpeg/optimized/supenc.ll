@@ -73,7 +73,7 @@ define internal range(i32 -1094995529, 1) i32 @sup_write_packet(ptr noundef %0, 
   br label %32
 
 32:                                               ; preds = %.thread, %._crit_edge, %31
-  %.2 = phi i32 [ -1094995529, %.thread ], [ -1094995529, %31 ], [ 0, %._crit_edge ]
+  %.2 = phi i32 [ -1094995529, %31 ], [ 0, %._crit_edge ], [ -1094995529, %.thread ]
   ret i32 %.2
 }
 

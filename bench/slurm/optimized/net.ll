@@ -83,7 +83,7 @@ define dso_local range(i32 -1, 2) i32 @net_stream_listen(ptr noundef captures(no
   br label %29
 
 29:                                               ; preds = %21, %2, %26
-  %.0 = phi i32 [ -1, %2 ], [ -1, %26 ], [ 1, %21 ]
+  %.0 = phi i32 [ -1, %26 ], [ -1, %2 ], [ 1, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -170,7 +170,7 @@ define dso_local void @net_set_keep_alive(i32 noundef %0) local_unnamed_addr #0 
   br i1 %29, label %.sink.split, label %31
 
 .sink.split:                                      ; preds = %26, %23, %18, %12
-  %.str.4.sink = phi ptr [ @.str.3, %23 ], [ @.str.2, %18 ], [ @.str.1, %12 ], [ @.str.4, %26 ]
+  %.str.4.sink = phi ptr [ @.str.1, %12 ], [ @.str.2, %18 ], [ @.str.3, %23 ], [ @.str.4, %26 ]
   %30 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.4.sink) #11
   br label %31
 
@@ -217,7 +217,7 @@ define dso_local i32 @net_set_nodelay(i32 noundef %0, i1 noundef zeroext %1, ptr
   br label %17
 
 17:                                               ; preds = %7, %3, %14
-  %.0 = phi i32 [ 9, %3 ], [ %11, %14 ], [ 0, %7 ]
+  %.0 = phi i32 [ %11, %14 ], [ 9, %3 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -382,7 +382,7 @@ thread-pre-split:                                 ; preds = %100, %.lr.ph
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__._is_port_ok, i32 noundef %75, i32 noundef %52) #11
   br label %_is_port_ok.exit.thread
 
-_is_port_ok.exit.thread:                          ; preds = %62, %68, %71, %74
+_is_port_ok.exit.thread:                          ; preds = %62, %71, %74, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %100
 
@@ -449,7 +449,7 @@ _is_port_ok.exit.thread:                          ; preds = %62, %68, %71, %74
   %.pre50 = load i32, ptr %0, align 4
   br i1 %exitcond.not, label %._crit_edge, label %thread-pre-split, !llvm.loop !8
 
-.critedge:                                        ; preds = %36, %33, %47, %30
+.critedge:                                        ; preds = %30, %36, %33, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 

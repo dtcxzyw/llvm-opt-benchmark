@@ -186,7 +186,7 @@ gz_reset.exit:                                    ; preds = %51, %53, %.thread56
   br label %65
 
 65:                                               ; preds = %3, %gz_reset.exit, %50, %38, %._crit_edge.thread, %22
-  %.0 = phi ptr [ %4, %gz_reset.exit ], [ null, %22 ], [ null, %._crit_edge.thread ], [ null, %38 ], [ null, %50 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %22 ], [ null, %._crit_edge.thread ], [ null, %38 ], [ null, %50 ], [ %4, %gz_reset.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -327,7 +327,7 @@ gz_reset.exit:                                    ; preds = %23, %30
   br label %33
 
 33:                                               ; preds = %8, %3, %5, %1, %gz_reset.exit
-  %.0 = phi i32 [ 0, %gz_reset.exit ], [ -1, %1 ], [ -1, %3 ], [ -1, %5 ], [ -1, %8 ]
+  %.0 = phi i32 [ 0, %gz_reset.exit ], [ -1, %1 ], [ -1, %5 ], [ -1, %3 ], [ -1, %8 ]
   ret i32 %.0
 }
 
@@ -549,7 +549,7 @@ gz_error.exit:                                    ; preds = %45, %52
   br label %.thread69
 
 .thread69:                                        ; preds = %64, %.thread, %59, %36, %7, %5, %3, %103, %gz_error.exit
-  %.0 = phi i64 [ %106, %103 ], [ -1, %3 ], [ -1, %5 ], [ -1, %7 ], [ -1, %.thread ], [ %55, %gz_error.exit ], [ -1, %36 ], [ -1, %64 ], [ -1, %59 ]
+  %.0 = phi i64 [ %55, %gz_error.exit ], [ %106, %103 ], [ -1, %3 ], [ -1, %5 ], [ -1, %7 ], [ -1, %36 ], [ -1, %59 ], [ -1, %.thread ], [ -1, %64 ]
   ret i64 %.0
 }
 
@@ -725,7 +725,7 @@ define i64 @gzoffset64(ptr noundef readonly captures(address_is_null) %0) local_
   br label %18
 
 18:                                               ; preds = %10, %13, %5, %3, %1
-  %.0 = phi i64 [ -1, %5 ], [ -1, %1 ], [ -1, %3 ], [ %17, %13 ], [ %8, %10 ]
+  %.0 = phi i64 [ -1, %1 ], [ -1, %3 ], [ -1, %5 ], [ %17, %13 ], [ %8, %10 ]
   ret i64 %.0
 }
 
@@ -761,7 +761,7 @@ define i64 @gzoffset(ptr noundef readonly captures(address_is_null) %0) local_un
   br label %gzoffset64.exit
 
 gzoffset64.exit:                                  ; preds = %1, %3, %5, %10, %13
-  %.0.i = phi i64 [ -1, %5 ], [ -1, %1 ], [ -1, %3 ], [ %17, %13 ], [ %8, %10 ]
+  %.0.i = phi i64 [ -1, %1 ], [ -1, %3 ], [ -1, %5 ], [ %17, %13 ], [ %8, %10 ]
   ret i64 %.0.i
 }
 
@@ -795,7 +795,7 @@ define range(i32 0, 2) i32 @gzeof(ptr noundef readonly captures(address_is_null)
   br label %17
 
 17:                                               ; preds = %3, %12, %8, %5, %1
-  %.0 = phi i32 [ %16, %12 ], [ 0, %1 ], [ 0, %3 ], [ 0, %8 ], [ 0, %5 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %8 ], [ 0, %5 ], [ %16, %12 ], [ 0, %3 ]
   ret i32 %.0
 }
 

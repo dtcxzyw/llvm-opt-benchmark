@@ -119,7 +119,7 @@ define internal ptr @dh_gen_init(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   br label %dh_gen_init_base.exit
 
 dh_gen_init_base.exit:                            ; preds = %3, %.split.i, %21
-  %.021.i = phi ptr [ null, %3 ], [ null, %21 ], [ %9, %.split.i ]
+  %.021.i = phi ptr [ null, %3 ], [ %9, %.split.i ], [ null, %21 ]
   ret ptr %.021.i
 }
 
@@ -203,7 +203,7 @@ define internal range(i32 0, 2) i32 @dh_gen_set_params(ptr noundef %0, ptr nound
   br label %24
 
 24:                                               ; preds = %21, %6, %2, %23
-  %.0 = phi i32 [ 0, %23 ], [ 0, %6 ], [ 0, %2 ], [ 1, %21 ]
+  %.0 = phi i32 [ 0, %23 ], [ 0, %2 ], [ 0, %6 ], [ 1, %21 ]
   ret i32 %.0
 }
 
@@ -454,7 +454,7 @@ thread-pre-split.thread:                          ; preds = %.thread132, %thread
   br label %121
 
 121:                                              ; preds = %34, %thread-pre-split.thread, %thread-pre-split, %3, %120, %12
-  %.078 = phi ptr [ null, %12 ], [ null, %3 ], [ null, %thread-pre-split ], [ %.2, %120 ], [ null, %thread-pre-split.thread ], [ null, %34 ]
+  %.078 = phi ptr [ %.2, %120 ], [ null, %12 ], [ null, %3 ], [ null, %thread-pre-split ], [ null, %thread-pre-split.thread ], [ null, %34 ]
   ret ptr %.078
 }
 
@@ -573,7 +573,7 @@ define internal range(i32 0, 2) i32 @dh_get_params(ptr noundef %0, ptr noundef %
   br label %35
 
 35:                                               ; preds = %29, %31, %22, %19, %14, %9, %4
-  %.0 = phi i32 [ 0, %14 ], [ 0, %19 ], [ 0, %22 ], [ 0, %9 ], [ 0, %4 ], [ 0, %29 ], [ %34, %31 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %14 ], [ 0, %19 ], [ 0, %22 ], [ 0, %29 ], [ %34, %31 ]
   ret i32 %.0
 }
 
@@ -679,7 +679,7 @@ define internal range(i32 0, 2) i32 @dh_has(ptr noundef %0, i32 noundef %1) #0 {
   br label %25
 
 25:                                               ; preds = %18, %.thread28, %.thread32, %22, %6, %2
-  %.015.shrunk = phi i1 [ true, %6 ], [ false, %2 ], [ %.1.shrunk.mux, %18 ], [ true, %.thread28 ], [ false, %.thread32 ], [ %24, %22 ]
+  %.015.shrunk = phi i1 [ false, %2 ], [ true, %6 ], [ %.1.shrunk.mux, %18 ], [ false, %.thread32 ], [ %24, %22 ], [ true, %.thread28 ]
   %.015 = zext i1 %.015.shrunk to i32
   ret i32 %.015
 }
@@ -732,7 +732,7 @@ define internal range(i32 0, 2) i32 @dh_match(ptr noundef %0, ptr noundef %1, i3
   br label %27
 
 27:                                               ; preds = %14, %19, %24, %17
-  %28 = phi i1 [ %16, %14 ], [ false, %17 ], [ false, %19 ], [ %26, %24 ]
+  %28 = phi i1 [ %16, %14 ], [ false, %17 ], [ %26, %24 ], [ false, %19 ]
   %29 = zext i1 %28 to i32
   br label %30
 
@@ -827,7 +827,7 @@ define internal range(i32 0, 2) i32 @dh_validate(ptr noundef %0, i32 noundef %1,
   br label %dh_validate_public.exit
 
 dh_validate_public.exit:                          ; preds = %24, %30, %32
-  %.0.i = phi i32 [ %33, %32 ], [ %31, %30 ], [ 0, %24 ]
+  %.0.i = phi i32 [ %31, %30 ], [ %33, %32 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %34 = icmp ne i32 %.0.i, 0
@@ -914,7 +914,7 @@ define internal range(i32 0, 2) i32 @dh_import(ptr noundef %0, i32 noundef %1, p
   br label %17
 
 17:                                               ; preds = %9, %13, %3
-  %.0.shrunk = phi i1 [ %16, %13 ], [ false, %3 ], [ %narrow, %9 ]
+  %.0.shrunk = phi i1 [ false, %3 ], [ %narrow, %9 ], [ %16, %13 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -1094,7 +1094,7 @@ define internal ptr @dhx_gen_init(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %dh_gen_init_base.exit
 
 dh_gen_init_base.exit:                            ; preds = %3, %.split.i, %21
-  %.021.i = phi ptr [ null, %3 ], [ null, %21 ], [ %9, %.split.i ]
+  %.021.i = phi ptr [ null, %3 ], [ %9, %.split.i ], [ null, %21 ]
   ret ptr %.021.i
 }
 
@@ -1241,7 +1241,7 @@ dh_set_gen_seed.exit.thread:                      ; preds = %24, %38, %19
   br label %dh_set_gen_seed.exit
 
 dh_set_gen_seed.exit:                             ; preds = %35, %67, %60, %57, %48, %45, %40, %21, %16, %11, %6, %2, %69
-  %.0 = phi i32 [ 0, %16 ], [ 0, %40 ], [ 0, %45 ], [ 0, %48 ], [ 0, %57 ], [ 0, %69 ], [ 0, %60 ], [ 0, %21 ], [ 0, %11 ], [ 0, %6 ], [ 0, %2 ], [ 1, %67 ], [ 0, %35 ]
+  %.0 = phi i32 [ 0, %69 ], [ 0, %2 ], [ 0, %6 ], [ 0, %11 ], [ 0, %16 ], [ 0, %21 ], [ 0, %40 ], [ 0, %45 ], [ 0, %48 ], [ 0, %57 ], [ 0, %60 ], [ 1, %67 ], [ 0, %35 ]
   ret i32 %.0
 }
 
@@ -1388,7 +1388,7 @@ dh_gen_type_name2id_w_default.exit:               ; preds = %12
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %4, %48, %43, %.critedge, %ossl_param_is_empty.exit, %2, %51, %22
-  %.026 = phi i32 [ 0, %.critedge ], [ 0, %2 ], [ 0, %22 ], [ 1, %51 ], [ 0, %43 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %48 ], [ 1, %4 ]
+  %.026 = phi i32 [ 0, %22 ], [ 1, %51 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %.critedge ], [ 0, %43 ], [ 0, %48 ], [ 1, %4 ]
   ret i32 %.026
 }
 

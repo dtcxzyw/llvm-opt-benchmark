@@ -89,8 +89,8 @@ define noundef i32 @_ZN3zmq19tune_tcp_keepalivesEiiiii(i32 noundef %0, i32 nound
   call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %0, i32 noundef %20)
   br label %select.unfold
 
-select.unfold:                                    ; preds = %19, %16, %10, %13, %5, %18
-  %.7 = phi i32 [ %20, %19 ], [ 0, %18 ], [ 0, %5 ], [ %17, %16 ], [ %11, %10 ], [ %14, %13 ]
+select.unfold:                                    ; preds = %19, %10, %13, %16, %5, %18
+  %.7 = phi i32 [ 0, %18 ], [ 0, %5 ], [ %11, %10 ], [ %14, %13 ], [ %17, %16 ], [ %20, %19 ]
   ret i32 %.7
 }
 
@@ -391,7 +391,7 @@ _ZN3zmq18tune_tcp_busy_pollEii.exit:              ; preds = %68, %70
   br label %.thread
 
 .thread:                                          ; preds = %18, %21, %27, %31, %_ZN3zmq18tune_tcp_busy_pollEii.exit, %65, %74, %72, %5
-  %.0 = phi i32 [ -1, %5 ], [ %.043, %65 ], [ -1, %27 ], [ -1, %31 ], [ %.043, %_ZN3zmq18tune_tcp_busy_pollEii.exit ], [ -1, %74 ], [ -1, %72 ], [ -1, %21 ], [ -1, %18 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %27 ], [ -1, %31 ], [ %.043, %_ZN3zmq18tune_tcp_busy_pollEii.exit ], [ %.043, %65 ], [ -1, %74 ], [ -1, %72 ], [ -1, %21 ], [ -1, %18 ]
   ret i32 %.0
 }
 

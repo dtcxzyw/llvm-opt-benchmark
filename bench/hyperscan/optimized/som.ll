@@ -3419,7 +3419,7 @@ _ZNSt6vectorIN12_GLOBAL__N_15MatchESaIS1_EED2Ev.exit: ; preds = %1055, %1056
   br label %1060
 
 1060:                                             ; preds = %522, %742, %805, %869, %933, %1000, %1026, %1059, %663, %600, %534, %521, %451, %382
-  %.pn178.pn = phi { ptr, i32 } [ %383, %382 ], [ %.pn137.pn.pn, %521 ], [ %.pn133.pn.pn, %451 ], [ %523, %522 ], [ %.pn174.pn.pn, %1059 ], [ %.pn170.pn.pn, %1026 ], [ %.pn166.pn.pn, %1000 ], [ %.pn162.pn.pn, %933 ], [ %.pn158.pn.pn, %869 ], [ %.pn154.pn.pn, %805 ], [ %.pn150.pn.pn, %742 ], [ %.pn145.pn.pn, %663 ], [ %.pn141.pn.pn, %600 ], [ %535, %534 ]
+  %.pn178.pn = phi { ptr, i32 } [ %.pn137.pn.pn, %521 ], [ %.pn133.pn.pn, %451 ], [ %383, %382 ], [ %523, %522 ], [ %.pn174.pn.pn, %1059 ], [ %.pn170.pn.pn, %1026 ], [ %.pn166.pn.pn, %1000 ], [ %.pn162.pn.pn, %933 ], [ %.pn158.pn.pn, %869 ], [ %.pn154.pn.pn, %805 ], [ %.pn150.pn.pn, %742 ], [ %.pn145.pn.pn, %663 ], [ %.pn141.pn.pn, %600 ], [ %535, %534 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %1061 = load ptr, ptr %28, align 8
   %1062 = icmp eq ptr %1061, %370
@@ -6761,7 +6761,7 @@ _ZNSt6vectorIN12_GLOBAL__N_15MatchESaIS1_EED2Ev.exit: ; preds = %1056, %1057
   br label %1061
 
 1061:                                             ; preds = %523, %743, %806, %870, %934, %1001, %1027, %1060, %664, %601, %535, %522, %451, %382
-  %.pn178.pn = phi { ptr, i32 } [ %383, %382 ], [ %.pn137.pn.pn, %522 ], [ %.pn133.pn.pn, %451 ], [ %524, %523 ], [ %.pn174.pn.pn, %1060 ], [ %.pn170.pn.pn, %1027 ], [ %.pn166.pn.pn, %1001 ], [ %.pn162.pn.pn, %934 ], [ %.pn158.pn.pn, %870 ], [ %.pn154.pn.pn, %806 ], [ %.pn150.pn.pn, %743 ], [ %.pn145.pn.pn, %664 ], [ %.pn141.pn.pn, %601 ], [ %536, %535 ]
+  %.pn178.pn = phi { ptr, i32 } [ %.pn137.pn.pn, %522 ], [ %.pn133.pn.pn, %451 ], [ %383, %382 ], [ %524, %523 ], [ %.pn174.pn.pn, %1060 ], [ %.pn170.pn.pn, %1027 ], [ %.pn166.pn.pn, %1001 ], [ %.pn162.pn.pn, %934 ], [ %.pn158.pn.pn, %870 ], [ %.pn154.pn.pn, %806 ], [ %.pn150.pn.pn, %743 ], [ %.pn145.pn.pn, %664 ], [ %.pn141.pn.pn, %601 ], [ %536, %535 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %1062 = load ptr, ptr %28, align 8
   %1063 = icmp eq ptr %1062, %370
@@ -9006,7 +9006,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59
   br label %.body46
 
 .body46:                                          ; preds = %328, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %.body.i82, %326
-  %.pn14 = phi { ptr, i32 } [ %.pn.pn.i, %.body.i82 ], [ %eh.lpad-body.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %327, %326 ], [ %329, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59 ], [ %329, %328 ]
+  %.pn14 = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %327, %326 ], [ %.pn.pn.i, %.body.i82 ], [ %329, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59 ], [ %329, %328 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %332 = load ptr, ptr %9, align 8
   %333 = icmp eq ptr %332, %54
@@ -9092,7 +9092,7 @@ _ZN7testing8internal13ParamIteratorIjED2Ev.exit39.thread: ; preds = %_ZN7testing
   unreachable
 
 _ZN7testing8internal13ParamIteratorIjED2Ev.exit70: ; preds = %.loopexit117, %.loopexit.split-lp118, %181, %.noexc.i.i69, %352, %_ZN7testing8internal13ParamIteratorIjED2Ev.exit39, %.body
-  %.pn19.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn19114, %.noexc.i.i69 ], [ %182, %181 ], [ %350, %_ZN7testing8internal13ParamIteratorIjED2Ev.exit39 ], [ %.pn19114, %352 ], [ %lpad.loopexit119, %.loopexit117 ], [ %lpad.loopexit.split-lp120, %.loopexit.split-lp118 ]
+  %.pn19.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %182, %181 ], [ %350, %_ZN7testing8internal13ParamIteratorIjED2Ev.exit39 ], [ %.pn19114, %352 ], [ %.pn19114, %.noexc.i.i69 ], [ %lpad.loopexit119, %.loopexit117 ], [ %lpad.loopexit.split-lp120, %.loopexit.split-lp118 ]
   %359 = load ptr, ptr %6, align 8
   %360 = icmp eq ptr %359, %18
   br i1 %360, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71

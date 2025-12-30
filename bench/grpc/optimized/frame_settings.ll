@@ -967,9 +967,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125: ; preds = %_Z
   %258 = trunc i8 %257 to i1
   br i1 %258, label %260, label %.critedge116.thread.outer.backedge, !prof !285
 
-.critedge116.thread.outer.backedge:               ; preds = %256, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133
-  br label %.critedge116.thread.outer, !llvm.loop !44
-
 .critedge116.thread.outer:                        ; preds = %.critedge116.thread.outer.backedge, %.preheader
   %.085.ph = phi ptr [ %26, %.preheader ], [ %162, %.critedge116.thread.outer.backedge ]
   %259 = load i32, ptr %1, align 8, !tbaa !22
@@ -1052,6 +1049,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %.c
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.critedge116.thread.outer.backedge
+
+.critedge116.thread.outer.backedge:               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133, %256
+  br label %.critedge116.thread.outer, !llvm.loop !44
 
 .critedge116:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i117
   call void @llvm.lifetime.end.p0(ptr nonnull %17)

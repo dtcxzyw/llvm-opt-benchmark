@@ -246,12 +246,12 @@ define dso_local i32 @clamfi_header(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not73, label %70, label %.sink.split
 
 .sink.split:                                      ; preds = %68, %65, %62, %59, %11
-  %.0.ph = phi i32 [ %67, %65 ], [ 3, %11 ], [ %63, %62 ], [ %61, %59 ], [ %69, %68 ]
+  %.0.ph = phi i32 [ 3, %11 ], [ %61, %59 ], [ %63, %62 ], [ %67, %65 ], [ %69, %68 ]
   tail call void @free(ptr noundef nonnull %4) #19
   br label %70
 
 70:                                               ; preds = %.sink.split, %68, %13, %3
-  %.0 = phi i32 [ 0, %13 ], [ 0, %3 ], [ 0, %68 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %13 ], [ 0, %68 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -559,7 +559,7 @@ define internal fastcc i32 @sendchunk(ptr noundef nonnull %0, ptr noundef %1, i6
   br label %92
 
 92:                                               ; preds = %61, %91
-  %.0 = phi i32 [ %.1, %91 ], [ %67, %61 ]
+  %.0 = phi i32 [ %67, %61 ], [ %.1, %91 ]
   %.not96.not = icmp eq i32 %.0, 0
   br i1 %.not96.not, label %.thread, label %93
 
@@ -570,7 +570,7 @@ define internal fastcc i32 @sendchunk(ptr noundef nonnull %0, ptr noundef %1, i6
   br label %.thread
 
 .thread:                                          ; preds = %44, %.preheader, %.thread106, %92, %21, %18, %93, %.thread102, %4
-  %.073 = phi i32 [ 0, %.thread106 ], [ %43, %.thread102 ], [ 0, %4 ], [ %95, %93 ], [ %20, %18 ], [ %22, %21 ], [ 0, %92 ], [ 0, %.preheader ], [ 0, %44 ]
+  %.073 = phi i32 [ %95, %93 ], [ 0, %4 ], [ %43, %.thread102 ], [ %22, %21 ], [ %20, %18 ], [ 0, %92 ], [ 0, %.thread106 ], [ 0, %.preheader ], [ 0, %44 ]
   ret i32 %.073
 }
 
@@ -1497,7 +1497,7 @@ define dso_local range(i32 0, 2) i32 @init_actions(ptr noundef %0) local_unnamed
   br label %.critedge
 
 15:                                               ; preds = %11, %9, %1, %5
-  %.sink = phi i32 [ 0, %1 ], [ 1, %9 ], [ 0, %5 ], [ 2, %11 ]
+  %.sink = phi i32 [ 0, %5 ], [ 0, %1 ], [ 1, %9 ], [ 2, %11 ]
   store i32 %.sink, ptr @loginfected, align 4, !tbaa !13
   %16 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.39) #19
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -1573,7 +1573,7 @@ switch.lookup:                                    ; preds = %43
   br label %52
 
 52:                                               ; preds = %switch.lookup, %39
-  %.sink77 = phi i32 [ %switch.load, %switch.lookup ], [ 4, %39 ]
+  %.sink77 = phi i32 [ 4, %39 ], [ %switch.load, %switch.lookup ]
   store i32 %.sink77, ptr @FailAction, align 4, !tbaa !13
   %53 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.44) #19
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
@@ -1600,7 +1600,7 @@ switch.lookup78:                                  ; preds = %56
   br label %65
 
 65:                                               ; preds = %switch.lookup78, %52
-  %action_accept.sink = phi ptr [ %switch.load80, %switch.lookup78 ], [ @action_accept, %52 ]
+  %action_accept.sink = phi ptr [ @action_accept, %52 ], [ %switch.load80, %switch.lookup78 ]
   store ptr %action_accept.sink, ptr @CleanAction, align 8, !tbaa !30
   %66 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.46) #19
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
@@ -1747,7 +1747,7 @@ switch.lookup78:                                  ; preds = %56
   br label %.critedge
 
 .critedge:                                        ; preds = %110, %100, %90, %125, %77, %76, %75, %74, %73, %._crit_edge, %122, %61, %48, %27, %13
-  %.041 = phi i32 [ 1, %13 ], [ 1, %27 ], [ 1, %48 ], [ 1, %61 ], [ 1, %122 ], [ 0, %125 ], [ 0, %._crit_edge ], [ 0, %73 ], [ 0, %74 ], [ 0, %75 ], [ 0, %76 ], [ 0, %77 ], [ 1, %90 ], [ 1, %100 ], [ 1, %110 ]
+  %.041 = phi i32 [ 1, %13 ], [ 1, %27 ], [ 1, %48 ], [ 1, %61 ], [ 1, %122 ], [ 0, %._crit_edge ], [ 0, %73 ], [ 0, %74 ], [ 0, %75 ], [ 0, %76 ], [ 0, %77 ], [ 0, %125 ], [ 1, %90 ], [ 1, %100 ], [ 1, %110 ]
   ret i32 %.041
 }
 
@@ -1784,7 +1784,7 @@ define internal fastcc range(i32 -1, 5) i32 @parse_action(ptr noundef %0) unname
   br label %13
 
 13:                                               ; preds = %9, %7, %5, %3, %1, %11
-  %.0 = phi i32 [ -1, %11 ], [ 3, %7 ], [ 2, %5 ], [ 1, %3 ], [ 0, %1 ], [ 4, %9 ]
+  %.0 = phi i32 [ -1, %11 ], [ 0, %1 ], [ 1, %3 ], [ 2, %5 ], [ 3, %7 ], [ 4, %9 ]
   ret i32 %.0
 }
 
@@ -1996,15 +1996,15 @@ define dso_local i32 @clamfi_envrcpt(ptr noundef %0, ptr noundef readonly captur
   br i1 %.not26, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %23, %14
-  %.str.57.sink = phi ptr [ @.str.56, %14 ], [ @.str.57, %23 ]
-  %30 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull %.str.57.sink) #19
+  %.str.56.sink = phi ptr [ @.str.56, %14 ], [ @.str.57, %23 ]
+  %30 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull %.str.56.sink) #19
   tail call fastcc void @nullify(ptr noundef %0, ptr noundef %3, i32 noundef 4)
   tail call void @free(ptr noundef nonnull %3) #19
   %31 = load i32, ptr @FailAction, align 4, !tbaa !13
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %12, %23, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %12 ], [ 0, %23 ], [ %31, %.thread.sink.split ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %23 ], [ 0, %12 ], [ %31, %.thread.sink.split ]
   ret i32 %.0
 }
 

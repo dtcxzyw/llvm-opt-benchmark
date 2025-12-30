@@ -2218,8 +2218,8 @@ _ZN7testing15AssertionResultD2Ev.exit44:          ; preds = %94, %_ZNKSt14defaul
   ret void
 
 101:                                              ; preds = %71, %_ZN7testing7MessageD2Ev.exit39, %29, %_ZN7testing7MessageD2Ev.exit29
-  %.sink = phi ptr [ %4, %29 ], [ %4, %_ZN7testing7MessageD2Ev.exit29 ], [ %8, %_ZN7testing7MessageD2Ev.exit39 ], [ %8, %71 ]
-  %.pn21.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %.pn21, %_ZN7testing7MessageD2Ev.exit39 ], [ %72, %71 ]
+  %.sink = phi ptr [ %4, %_ZN7testing7MessageD2Ev.exit29 ], [ %4, %29 ], [ %8, %_ZN7testing7MessageD2Ev.exit39 ], [ %8, %71 ]
+  %.pn21.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit29 ], [ %30, %29 ], [ %.pn21, %_ZN7testing7MessageD2Ev.exit39 ], [ %72, %71 ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #15
   resume { ptr, i32 } %.pn21.pn.pn
 }
@@ -3675,8 +3675,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %285, %291, %259, %265, %233, %239, %207, %213, %181, %187, %155, %161, %129, %135, %103, %109, %77, %83, %51, %57
-  %.sink = phi ptr [ %6, %259 ], [ %9, %233 ], [ %12, %207 ], [ %15, %181 ], [ %18, %155 ], [ %21, %129 ], [ %24, %103 ], [ %27, %77 ], [ %30, %51 ], [ %30, %57 ], [ %27, %83 ], [ %24, %109 ], [ %21, %135 ], [ %18, %161 ], [ %15, %187 ], [ %12, %213 ], [ %9, %239 ], [ %6, %265 ], [ %3, %291 ], [ %3, %285 ]
-  %common.resume.op = phi { ptr, i32 } [ %260, %259 ], [ %234, %233 ], [ %208, %207 ], [ %182, %181 ], [ %156, %155 ], [ %130, %129 ], [ %104, %103 ], [ %78, %77 ], [ %52, %51 ], [ %.pn.pn.i, %57 ], [ %.pn.i, %83 ], [ %.pn.i8, %109 ], [ %.pn.i15, %135 ], [ %.pn.i22, %161 ], [ %.pn.i29, %187 ], [ %.pn.i36, %213 ], [ %.pn.i43, %239 ], [ %.pn.i50, %265 ], [ %.pn.i57, %291 ], [ %286, %285 ]
+  %.sink = phi ptr [ %30, %57 ], [ %30, %51 ], [ %27, %83 ], [ %27, %77 ], [ %24, %109 ], [ %24, %103 ], [ %21, %135 ], [ %21, %129 ], [ %18, %161 ], [ %18, %155 ], [ %15, %187 ], [ %15, %181 ], [ %12, %213 ], [ %12, %207 ], [ %9, %239 ], [ %9, %233 ], [ %6, %265 ], [ %6, %259 ], [ %3, %291 ], [ %3, %285 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %57 ], [ %52, %51 ], [ %.pn.i, %83 ], [ %78, %77 ], [ %.pn.i8, %109 ], [ %104, %103 ], [ %.pn.i15, %135 ], [ %130, %129 ], [ %.pn.i22, %161 ], [ %156, %155 ], [ %.pn.i29, %187 ], [ %182, %181 ], [ %.pn.i36, %213 ], [ %208, %207 ], [ %.pn.i43, %239 ], [ %234, %233 ], [ %.pn.i50, %265 ], [ %260, %259 ], [ %.pn.i57, %291 ], [ %286, %285 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #15
   resume { ptr, i32 } %common.resume.op
 

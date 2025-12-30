@@ -1375,7 +1375,7 @@ proto_item_set_generated.exit108.i:               ; preds = %458, %455, %proto_i
   br label %proto_item_set_generated.exit111.i
 
 proto_item_set_generated.exit111.i:               ; preds = %479, %476, %472, %469, %466, %proto_item_set_generated.exit108.i
-  %.0.i631 = phi i1 [ true, %472 ], [ false, %476 ], [ true, %479 ], [ true, %proto_item_set_generated.exit108.i ], [ true, %466 ], [ true, %469 ]
+  %.0.i631 = phi i1 [ false, %476 ], [ true, %479 ], [ true, %proto_item_set_generated.exit108.i ], [ true, %466 ], [ true, %469 ], [ true, %472 ]
   br i1 %437, label %481, label %proto_item_set_generated.exit117.i
 
 481:                                              ; preds = %proto_item_set_generated.exit111.i
@@ -1683,16 +1683,16 @@ add_seq_analysis.exit:                            ; preds = %424, %.critedge.i, 
 613:                                              ; preds = %606, %603
   br i1 %596, label %614, label %616
 
-614:                                              ; preds = %.thread905, %.thread719, %.thread711, %604, %.thread739, %610, %613
-  %.1580648676686758 = phi i16 [ %.1580648677, %610 ], [ %.1580648677, %613 ], [ %.1580648677, %.thread739 ], [ %.1580648677, %604 ], [ %.1580648677, %.thread711 ], [ %.1580, %.thread719 ], [ %.0579, %.thread905 ]
-  %.5650672693755 = phi i32 [ %.5650673, %610 ], [ %.5650673, %613 ], [ %.5650673, %.thread739 ], [ %.5650673, %604 ], [ %.5650673, %.thread711 ], [ %.5, %.thread719 ], [ %.5.ph, %.thread905 ]
-  %.0553652668701751 = phi i32 [ %.0553652669, %610 ], [ %.0553652669, %613 ], [ %.0553652669, %.thread739 ], [ %.0553652669, %604 ], [ %.0553652669, %.thread711 ], [ %.0553, %.thread719 ], [ 0, %.thread905 ]
-  %.2654664707746 = phi i32 [ %.2654665, %610 ], [ %.2654665, %613 ], [ %.2654665, %.thread739 ], [ %.2654665, %604 ], [ %.2654665, %.thread711 ], [ %.2, %.thread719 ], [ %.0, %.thread905 ]
+614:                                              ; preds = %.thread905, %.thread719, %.thread711, %.thread739, %604, %610, %613
+  %.1580648676686758 = phi i16 [ %.1580648677, %610 ], [ %.1580648677, %613 ], [ %.1580648677, %604 ], [ %.1580648677, %.thread739 ], [ %.1580648677, %.thread711 ], [ %.1580, %.thread719 ], [ %.0579, %.thread905 ]
+  %.5650672693755 = phi i32 [ %.5650673, %610 ], [ %.5650673, %613 ], [ %.5650673, %604 ], [ %.5650673, %.thread739 ], [ %.5650673, %.thread711 ], [ %.5, %.thread719 ], [ %.5.ph, %.thread905 ]
+  %.0553652668701751 = phi i32 [ %.0553652669, %610 ], [ %.0553652669, %613 ], [ %.0553652669, %604 ], [ %.0553652669, %.thread739 ], [ %.0553652669, %.thread711 ], [ %.0553, %.thread719 ], [ 0, %.thread905 ]
+  %.2654664707746 = phi i32 [ %.2654665, %610 ], [ %.2654665, %613 ], [ %.2654665, %604 ], [ %.2654665, %.thread739 ], [ %.2654665, %.thread711 ], [ %.2, %.thread719 ], [ %.0, %.thread905 ]
   %615 = load ptr, ptr %9, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %615, i32 noundef 25, ptr noundef nonnull @.str.225, i32 noundef %.2654664707746)
   br label %622
 
-616:                                              ; preds = %.thread711, %604, %.thread739, %610, %613
+616:                                              ; preds = %.thread711, %.thread739, %604, %610, %613
   %.not611 = icmp eq ptr %.0558651671, null
   br i1 %.not611, label %622, label %617
 
@@ -1893,7 +1893,7 @@ define internal range(i32 0, 2) i32 @p_mul_id_hash_equal(ptr noundef readonly ca
   br label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %31, %24, %22, %5, %2
-  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 0, %31 ], [ 1, %24 ], [ 1, %22 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 0, %31 ], [ 1, %24 ], [ 1, %22 ]
   ret i32 %.0
 }
 
@@ -2581,7 +2581,7 @@ copy_address_wmem.exit:                           ; preds = %30, %40
   br label %65
 
 65:                                               ; preds = %59, %48
-  %.1 = phi i1 [ %or.cond159.not, %59 ], [ false, %48 ]
+  %.1 = phi i1 [ false, %48 ], [ %or.cond159.not, %59 ]
   %.not149 = icmp eq i16 %50, 0
   br i1 %.not149, label %.thread, label %66
 
@@ -2851,7 +2851,7 @@ copy_address_wmem.exit160:                        ; preds = %106, %97, %95
   unreachable
 
 204:                                              ; preds = %202, %13, %7
-  %.0135 = phi ptr [ null, %13 ], [ null, %7 ], [ %.0136, %202 ]
+  %.0135 = phi ptr [ null, %7 ], [ null, %13 ], [ %.0136, %202 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0135

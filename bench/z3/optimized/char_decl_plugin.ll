@@ -576,8 +576,8 @@ _ZNK9parameter7get_intEv.exit184:                 ; preds = %136
   br i1 %141, label %.invoke, label %146
 
 .invoke:                                          ; preds = %140, %136, %132
-  %142 = phi ptr [ @.str.8, %136 ], [ @.str.7, %132 ], [ @.str.9, %140 ]
-  %143 = phi i64 [ 31, %136 ], [ 26, %132 ], [ 41, %140 ]
+  %142 = phi ptr [ @.str.7, %132 ], [ @.str.8, %136 ], [ @.str.9, %140 ]
+  %143 = phi i64 [ 26, %132 ], [ 31, %136 ], [ 41, %140 ]
   %144 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %145 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %144, ptr noundef nonnull %142, i64 noundef %143)
           to label %_ZNSolsEj.exit175 unwind label %39
@@ -1515,7 +1515,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit335: ; preds = %45
           to label %462 unwind label %39
 
 462:                                              ; preds = %461, %_ZN9decl_infoD2Ev.exit332, %_ZN9decl_infoD2Ev.exit305, %_ZN9decl_infoD2Ev.exit261, %_ZN9decl_infoD2Ev.exit227, %_ZN9decl_infoD2Ev.exit199, %_ZN9decl_infoD2Ev.exit
-  %.0 = phi ptr [ %429, %_ZN9decl_infoD2Ev.exit332 ], [ %90, %_ZN9decl_infoD2Ev.exit ], [ %159, %_ZN9decl_infoD2Ev.exit199 ], [ %213, %_ZN9decl_infoD2Ev.exit227 ], [ %282, %_ZN9decl_infoD2Ev.exit261 ], [ %372, %_ZN9decl_infoD2Ev.exit305 ], [ null, %461 ]
+  %.0 = phi ptr [ %90, %_ZN9decl_infoD2Ev.exit ], [ %159, %_ZN9decl_infoD2Ev.exit199 ], [ %213, %_ZN9decl_infoD2Ev.exit227 ], [ %282, %_ZN9decl_infoD2Ev.exit261 ], [ %372, %_ZN9decl_infoD2Ev.exit305 ], [ %429, %_ZN9decl_infoD2Ev.exit332 ], [ null, %461 ]
   %463 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %463, ptr %8, align 8, !tbaa !11
   %464 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
@@ -2101,7 +2101,7 @@ _Z9is_app_ofPK4exprii.exit:                       ; preds = %11
   br label %_Z9is_app_ofPK4exprii.exit7
 
 _Z9is_app_ofPK4exprii.exit7:                      ; preds = %11, %4, %32, %27, %22, %_Z9is_app_ofPK4exprii.exit, %3
-  %39 = phi i1 [ false, %_Z9is_app_ofPK4exprii.exit ], [ false, %3 ], [ %38, %32 ], [ false, %22 ], [ false, %27 ], [ false, %4 ], [ false, %11 ]
+  %39 = phi i1 [ false, %_Z9is_app_ofPK4exprii.exit ], [ false, %3 ], [ false, %22 ], [ false, %27 ], [ %38, %32 ], [ false, %4 ], [ false, %11 ]
   ret i1 %39
 }
 
@@ -2589,12 +2589,12 @@ _ZNK16char_decl_plugin13is_const_charEPK4exprRj.exit62: ; preds = %122
   br label %158
 
 _ZNK10arith_util5mk_leEP4exprS1_.exit:            ; preds = %45, %131, %141, %147, %155
-  %.2 = phi ptr [ %154, %155 ], [ %133, %131 ], [ %144, %141 ], [ %150, %147 ], [ %47, %45 ]
+  %.2 = phi ptr [ %133, %131 ], [ %144, %141 ], [ %150, %147 ], [ %154, %155 ], [ %47, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN7bv_util6mk_uleEP4exprS1_.exit
 
 158:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %134, %156, %136, %77, %48
-  %.pn43 = phi { ptr, i32 } [ %49, %48 ], [ %78, %77 ], [ %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %135, %134 ], [ %157, %156 ], [ %137, %136 ]
+  %.pn43 = phi { ptr, i32 } [ %49, %48 ], [ %78, %77 ], [ %135, %134 ], [ %157, %156 ], [ %137, %136 ], [ %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %159
 

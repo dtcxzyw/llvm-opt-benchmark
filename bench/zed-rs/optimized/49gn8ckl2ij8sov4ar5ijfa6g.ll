@@ -195,7 +195,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN3std11collect
   unreachable
 
 common.resume:                                    ; preds = %37, %16, %25, %29
-  %common.resume.op = phi { ptr, i32 } [ %26, %29 ], [ %17, %16 ], [ %26, %25 ], [ %38, %37 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %26, %25 ], [ %26, %29 ], [ %38, %37 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN98_$LT$git..hosting_provider..GlobalGitHostingProviderRegistry$u20$as$u20$core..default..Default$GT$7default17h4c13d4a6125f7c98E.exit.i": ; preds = %.noexc.i.i.i
@@ -1054,7 +1054,7 @@ define hidden void @_ZN4gpui3app10AppContext10set_global17h605ea5344fb12d17E(ptr
   ret void
 
 "_ZN4core3ptr76drop_in_place$LT$git..hosting_provider..GlobalGitHostingProviderRegistry$GT$17h6c65ec9a17bdcbd6E.exit8": ; preds = %38, %46, %17, %13, %47, %51
-  %eh.lpad-body11 = phi { ptr, i32 } [ %48, %47 ], [ %39, %38 ], [ %48, %51 ], [ %14, %17 ], [ %14, %13 ], [ %39, %46 ]
+  %eh.lpad-body11 = phi { ptr, i32 } [ %48, %51 ], [ %48, %47 ], [ %14, %13 ], [ %14, %17 ], [ %39, %46 ], [ %39, %38 ]
   resume { ptr, i32 } %eh.lpad-body11
 
 47:                                               ; preds = %2
@@ -3762,7 +3762,7 @@ define hidden void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
           to label %17 unwind label %15
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h0ddc0ad595a0dea9E.exit64": ; preds = %87, %85, %75, %78, %15
-  %.pn48 = phi { ptr, i32 } [ %16, %15 ], [ %76, %75 ], [ %76, %78 ], [ %.pn.ph, %85 ], [ %.pn.ph, %87 ]
+  %.pn48 = phi { ptr, i32 } [ %16, %15 ], [ %76, %78 ], [ %76, %75 ], [ %.pn.ph, %85 ], [ %.pn.ph, %87 ]
   invoke void @"_ZN68_$LT$git2..reference..Reference$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf52815f3b610cfcaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
           to label %"_ZN4core3ptr41drop_in_place$LT$git2..branch..Branch$GT$17h05e49000f010c02dE.exit" unwind label %83
 

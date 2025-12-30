@@ -3460,7 +3460,7 @@ if.then4.i.i:                                     ; preds = %sw.bb
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %phi.call.i = phi ptr [ %OS, %if.then4.i.i ], [ %call3.i.i, %if.then.i.i ]
+  %phi.call.i = phi ptr [ %call3.i.i, %if.then.i.i ], [ %OS, %if.then4.i.i ]
   %call1 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i, i64 noundef %value.coerce) #7
   br label %sw.epilog
 
@@ -3484,7 +3484,7 @@ if.then4.i.i17:                                   ; preds = %sw.bb2
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit22
 
 _ZN4llvh11raw_ostreamlsEPKc.exit22:               ; preds = %if.then.i.i20, %if.then4.i.i17
-  %phi.call.i19 = phi ptr [ %OS, %if.then4.i.i17 ], [ %call3.i.i21, %if.then.i.i20 ]
+  %phi.call.i19 = phi ptr [ %call3.i.i21, %if.then.i.i20 ], [ %OS, %if.then4.i.i17 ]
   %call4 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i19, i64 noundef %value.coerce) #7
   br label %sw.epilog
 
@@ -3508,7 +3508,7 @@ if.then4.i.i32:                                   ; preds = %sw.bb5
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit37
 
 _ZN4llvh11raw_ostreamlsEPKc.exit37:               ; preds = %if.then.i.i35, %if.then4.i.i32
-  %phi.call.i34 = phi ptr [ %OS, %if.then4.i.i32 ], [ %call3.i.i36, %if.then.i.i35 ]
+  %phi.call.i34 = phi ptr [ %call3.i.i36, %if.then.i.i35 ], [ %OS, %if.then4.i.i32 ]
   %call7 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i34, i64 noundef %value.coerce) #7
   br label %sw.epilog
 

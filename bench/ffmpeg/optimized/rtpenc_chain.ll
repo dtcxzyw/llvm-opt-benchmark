@@ -117,7 +117,7 @@ define i32 @ff_rtp_chain_mux_open(ptr noundef writeonly captures(none) %0, ptr n
   br label %75
 
 75:                                               ; preds = %69, %73
-  %.1 = phi i32 [ %74, %73 ], [ %70, %69 ]
+  %.1 = phi i32 [ %70, %69 ], [ %74, %73 ]
   %.not66 = icmp eq i32 %.1, 0
   br i1 %.not66, label %76, label %.thread72
 
@@ -163,8 +163,8 @@ define i32 @ff_rtp_chain_mux_open(ptr noundef writeonly captures(none) %0, ptr n
   br label %90
 
 87:                                               ; preds = %12, %10, %6
-  %.053 = phi ptr [ null, %10 ], [ null, %6 ], [ %11, %12 ]
-  %.052 = phi i32 [ -12, %10 ], [ -38, %6 ], [ -12, %12 ]
+  %.053 = phi ptr [ null, %6 ], [ null, %10 ], [ %11, %12 ]
+  %.052 = phi i32 [ -38, %6 ], [ -12, %10 ], [ -12, %12 ]
   tail call void @avformat_free_context(ptr noundef %.053) #4
   %.not64 = icmp eq ptr %3, null
   br i1 %.not64, label %90, label %88

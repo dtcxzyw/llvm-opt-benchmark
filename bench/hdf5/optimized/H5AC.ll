@@ -368,7 +368,7 @@ define range(i32 -1, 1) i32 @H5AC_create(ptr noundef %0, ptr noundef %1, ptr nou
   br label %81
 
 81:                                               ; preds = %61, %77, %57, %47, %33, %23, %16
-  %.0 = phi i32 [ 0, %61 ], [ -1, %16 ], [ -1, %23 ], [ -1, %33 ], [ -1, %47 ], [ -1, %57 ], [ -1, %77 ]
+  %.0 = phi i32 [ -1, %16 ], [ -1, %23 ], [ -1, %33 ], [ -1, %47 ], [ -1, %57 ], [ -1, %77 ], [ 0, %61 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 112
@@ -556,7 +556,7 @@ define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef readonly captures(
   br label %.thread40
 
 .thread40:                                        ; preds = %37, %31, %8, %86, %89, %82, %75, %68, %62, %54, %19, %13
-  %.029 = phi i32 [ 0, %8 ], [ -1, %13 ], [ -1, %19 ], [ -1, %54 ], [ -1, %62 ], [ -1, %68 ], [ -1, %75 ], [ -1, %82 ], [ -1, %89 ], [ 0, %86 ], [ -1, %31 ], [ -1, %37 ]
+  %.029 = phi i32 [ -1, %13 ], [ -1, %19 ], [ -1, %54 ], [ -1, %62 ], [ -1, %68 ], [ -1, %75 ], [ -1, %82 ], [ -1, %89 ], [ 0, %86 ], [ 0, %8 ], [ -1, %31 ], [ -1, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.029
 }
@@ -628,7 +628,7 @@ define range(i32 -1, 1) i32 @H5AC_validate_cache_image_config(ptr noundef readon
   br label %39
 
 39:                                               ; preds = %13, %19, %35, %23, %8
-  %.0 = phi i32 [ 0, %8 ], [ -1, %13 ], [ -1, %19 ], [ -1, %35 ], [ 0, %23 ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %19 ], [ -1, %35 ], [ 0, %23 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -884,7 +884,7 @@ define range(i32 -1, 1) i32 @H5AC_set_cache_auto_resize_config(ptr noundef %0, p
   br label %151
 
 151:                                              ; preds = %141, %147, %137, %127, %43, %31, %20, %14
-  %.0 = phi i32 [ 0, %141 ], [ -1, %14 ], [ -1, %20 ], [ -1, %31 ], [ -1, %43 ], [ -1, %127 ], [ -1, %137 ], [ -1, %147 ]
+  %.0 = phi i32 [ -1, %14 ], [ -1, %20 ], [ -1, %31 ], [ -1, %43 ], [ -1, %127 ], [ -1, %137 ], [ -1, %147 ], [ 0, %141 ]
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %153 = load ptr, ptr %152, align 8, !tbaa !52
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
@@ -1006,7 +1006,7 @@ define range(i32 -1, 1) i32 @H5AC_dest(ptr noundef %0) local_unnamed_addr #3 {
   br label %59
 
 59:                                               ; preds = %19, %35, %45, %52, %56, %9
-  %.0 = phi i32 [ 0, %9 ], [ -1, %19 ], [ -1, %35 ], [ -1, %45 ], [ -1, %52 ], [ 0, %56 ]
+  %.0 = phi i32 [ -1, %19 ], [ -1, %35 ], [ -1, %45 ], [ -1, %52 ], [ 0, %56 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -1050,7 +1050,7 @@ define range(i32 -1, 1) i32 @H5AC_evict(ptr noundef %0) local_unnamed_addr #3 {
   br label %17
 
 17:                                               ; preds = %10, %13
-  %.0 = phi i32 [ 0, %10 ], [ -1, %13 ]
+  %.0 = phi i32 [ -1, %13 ], [ 0, %10 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
@@ -1112,7 +1112,7 @@ define range(i32 -1, 1) i32 @H5AC_expunge_entry(ptr noundef %0, ptr noundef %1, 
   br label %20
 
 20:                                               ; preds = %13, %16
-  %.0 = phi i32 [ 0, %13 ], [ -1, %16 ]
+  %.0 = phi i32 [ -1, %16 ], [ 0, %13 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !11
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 112
@@ -1175,7 +1175,7 @@ define range(i32 -1, 1) i32 @H5AC_flush(ptr noundef %0) local_unnamed_addr #3 {
   br label %17
 
 17:                                               ; preds = %10, %13
-  %.0 = phi i32 [ 0, %10 ], [ -1, %13 ]
+  %.0 = phi i32 [ -1, %13 ], [ 0, %10 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
@@ -1355,7 +1355,7 @@ define range(i32 -1, 1) i32 @H5AC_get_entry_status(ptr noundef %0, i64 noundef %
   br label %82
 
 82:                                               ; preds = %24, %31, %75, %79, %81, %17
-  %.0 = phi i32 [ 0, %17 ], [ -1, %24 ], [ -1, %31 ], [ 0, %79 ], [ 0, %75 ], [ 0, %81 ]
+  %.0 = phi i32 [ -1, %24 ], [ -1, %31 ], [ 0, %79 ], [ 0, %75 ], [ 0, %81 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1411,7 +1411,7 @@ define range(i32 -1, 1) i32 @H5AC_insert_entry(ptr noundef %0, ptr noundef %1, i
   br label %29
 
 29:                                               ; preds = %22, %25, %18
-  %.0 = phi i32 [ 0, %22 ], [ -1, %18 ], [ -1, %25 ]
+  %.0 = phi i32 [ -1, %18 ], [ -1, %25 ], [ 0, %22 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 112
@@ -1478,7 +1478,7 @@ define range(i32 -1, 1) i32 @H5AC_load_cache_image_on_next_protect(ptr noundef %
   br label %20
 
 20:                                               ; preds = %16, %13, %10
-  %.0 = phi i32 [ 0, %10 ], [ -1, %16 ], [ 0, %13 ]
+  %.0 = phi i32 [ -1, %16 ], [ 0, %13 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -1515,7 +1515,7 @@ define range(i32 -1, 1) i32 @H5AC_mark_entry_dirty(ptr noundef %0) local_unnamed
   br label %18
 
 18:                                               ; preds = %10, %14
-  %.0 = phi i32 [ 0, %10 ], [ -1, %14 ]
+  %.0 = phi i32 [ -1, %14 ], [ 0, %10 ]
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %33, label %19
 
@@ -1582,7 +1582,7 @@ define range(i32 -1, 1) i32 @H5AC_mark_entry_clean(ptr noundef %0) local_unnamed
   br label %18
 
 18:                                               ; preds = %10, %14
-  %.0 = phi i32 [ 0, %10 ], [ -1, %14 ]
+  %.0 = phi i32 [ -1, %14 ], [ 0, %10 ]
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %33, label %19
 
@@ -1649,7 +1649,7 @@ define range(i32 -1, 1) i32 @H5AC_mark_entry_unserialized(ptr noundef %0) local_
   br label %18
 
 18:                                               ; preds = %10, %14
-  %.0 = phi i32 [ 0, %10 ], [ -1, %14 ]
+  %.0 = phi i32 [ -1, %14 ], [ 0, %10 ]
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %33, label %19
 
@@ -1716,7 +1716,7 @@ define range(i32 -1, 1) i32 @H5AC_mark_entry_serialized(ptr noundef %0) local_un
   br label %18
 
 18:                                               ; preds = %10, %14
-  %.0 = phi i32 [ 0, %10 ], [ -1, %14 ]
+  %.0 = phi i32 [ -1, %14 ], [ 0, %10 ]
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %33, label %19
 
@@ -1786,7 +1786,7 @@ define range(i32 -1, 1) i32 @H5AC_move_entry(ptr noundef readonly captures(none)
   br label %24
 
 24:                                               ; preds = %13, %20
-  %.0 = phi i32 [ 0, %13 ], [ -1, %20 ]
+  %.0 = phi i32 [ -1, %20 ], [ 0, %13 ]
   %25 = load ptr, ptr %14, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %27 = load ptr, ptr %26, align 8, !tbaa !20
@@ -1849,7 +1849,7 @@ define range(i32 -1, 1) i32 @H5AC_pin_protected_entry(ptr noundef %0) local_unna
   br label %18
 
 18:                                               ; preds = %10, %14
-  %.0 = phi i32 [ 0, %10 ], [ -1, %14 ]
+  %.0 = phi i32 [ -1, %14 ], [ 0, %10 ]
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %33, label %19
 
@@ -1915,7 +1915,7 @@ define range(i32 -1, 1) i32 @H5AC_prep_for_file_close(ptr noundef %0) local_unna
   br label %17
 
 17:                                               ; preds = %13, %10, %7
-  %.0 = phi i32 [ 0, %7 ], [ -1, %13 ], [ 0, %10 ]
+  %.0 = phi i32 [ -1, %13 ], [ 0, %10 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1955,7 +1955,7 @@ define range(i32 -1, 1) i32 @H5AC_prep_for_file_flush(ptr noundef readonly captu
   br label %21
 
 21:                                               ; preds = %17, %10, %7
-  %.0 = phi i32 [ 0, %7 ], [ -1, %17 ], [ 0, %10 ]
+  %.0 = phi i32 [ -1, %17 ], [ 0, %10 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1995,7 +1995,7 @@ define range(i32 -1, 1) i32 @H5AC_secure_from_file_flush(ptr noundef readonly ca
   br label %21
 
 21:                                               ; preds = %17, %10, %7
-  %.0 = phi i32 [ 0, %7 ], [ -1, %17 ], [ 0, %10 ]
+  %.0 = phi i32 [ -1, %17 ], [ 0, %10 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -2030,7 +2030,7 @@ define range(i32 -1, 1) i32 @H5AC_create_flush_dependency(ptr noundef %0, ptr no
   br label %19
 
 19:                                               ; preds = %11, %15
-  %.0 = phi i32 [ 0, %11 ], [ -1, %15 ]
+  %.0 = phi i32 [ -1, %15 ], [ 0, %11 ]
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %34, label %20
 
@@ -2110,7 +2110,7 @@ define ptr @H5AC_protect(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nou
   br label %30
 
 30:                                               ; preds = %23, %26, %19
-  %.0 = phi ptr [ null, %26 ], [ null, %19 ], [ %24, %23 ]
+  %.0 = phi ptr [ null, %19 ], [ null, %26 ], [ %24, %23 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 112
@@ -2176,7 +2176,7 @@ define range(i32 -1, 1) i32 @H5AC_resize_entry(ptr noundef %0, i64 noundef %1) l
   br label %19
 
 19:                                               ; preds = %11, %15
-  %.0 = phi i32 [ 0, %11 ], [ -1, %15 ]
+  %.0 = phi i32 [ -1, %15 ], [ 0, %11 ]
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %34, label %20
 
@@ -2243,7 +2243,7 @@ define range(i32 -1, 1) i32 @H5AC_unpin_entry(ptr noundef %0) local_unnamed_addr
   br label %18
 
 18:                                               ; preds = %10, %14
-  %.0 = phi i32 [ 0, %10 ], [ -1, %14 ]
+  %.0 = phi i32 [ -1, %14 ], [ 0, %10 ]
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %33, label %19
 
@@ -2310,7 +2310,7 @@ define range(i32 -1, 1) i32 @H5AC_destroy_flush_dependency(ptr noundef %0, ptr n
   br label %19
 
 19:                                               ; preds = %11, %15
-  %.0 = phi i32 [ 0, %11 ], [ -1, %15 ]
+  %.0 = phi i32 [ -1, %15 ], [ 0, %11 ]
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %34, label %20
 
@@ -2432,7 +2432,7 @@ define range(i32 -1, 1) i32 @H5AC_unprotect(ptr noundef %0, ptr noundef readonly
   br label %50
 
 50:                                               ; preds = %.thread31, %43, %46
-  %.026 = phi i32 [ -1, %.thread31 ], [ -1, %46 ], [ 0, %43 ]
+  %.026 = phi i32 [ -1, %46 ], [ 0, %43 ], [ -1, %.thread31 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !11
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 112
@@ -2637,7 +2637,7 @@ define range(i32 -1, 1) i32 @H5AC_get_cache_auto_resize_config(ptr noundef %0, p
   br label %114
 
 114:                                              ; preds = %18, %25, %32, %36, %10
-  %.0 = phi i32 [ 0, %10 ], [ -1, %18 ], [ -1, %25 ], [ -1, %32 ], [ 0, %36 ]
+  %.0 = phi i32 [ -1, %18 ], [ -1, %25 ], [ -1, %32 ], [ 0, %36 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -2677,7 +2677,7 @@ define range(i32 -1, 1) i32 @H5AC_get_cache_size(ptr noundef %0, ptr noundef %1,
   br label %21
 
 21:                                               ; preds = %17, %14, %11
-  %.0 = phi i32 [ 0, %11 ], [ -1, %17 ], [ 0, %14 ]
+  %.0 = phi i32 [ -1, %17 ], [ 0, %14 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -2713,7 +2713,7 @@ define range(i32 -1, 1) i32 @H5AC_get_cache_flush_in_progress(ptr noundef %0, pt
   br label %18
 
 18:                                               ; preds = %14, %11, %8
-  %.0 = phi i32 [ 0, %8 ], [ -1, %14 ], [ 0, %11 ]
+  %.0 = phi i32 [ -1, %14 ], [ 0, %11 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -2749,7 +2749,7 @@ define range(i32 -1, 1) i32 @H5AC_get_cache_hit_rate(ptr noundef %0, ptr noundef
   br label %18
 
 18:                                               ; preds = %14, %11, %8
-  %.0 = phi i32 [ 0, %8 ], [ -1, %14 ], [ 0, %11 ]
+  %.0 = phi i32 [ -1, %14 ], [ 0, %11 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -2785,7 +2785,7 @@ define range(i32 -1, 1) i32 @H5AC_reset_cache_hit_rate_stats(ptr noundef %0) loc
   br label %17
 
 17:                                               ; preds = %13, %10, %7
-  %.0 = phi i32 [ 0, %7 ], [ -1, %13 ], [ 0, %10 ]
+  %.0 = phi i32 [ -1, %13 ], [ 0, %10 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -2966,7 +2966,7 @@ define range(i32 -1, 1) i32 @H5AC_ignore_tags(ptr noundef readonly captures(none
   br label %21
 
 21:                                               ; preds = %17, %10, %7
-  %.0 = phi i32 [ 0, %7 ], [ -1, %17 ], [ 0, %10 ]
+  %.0 = phi i32 [ -1, %17 ], [ 0, %10 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -3037,7 +3037,7 @@ define range(i32 -1, 1) i32 @H5AC_retag_copied_metadata(ptr noundef readonly cap
   br label %22
 
 22:                                               ; preds = %18, %11, %8
-  %.0 = phi i32 [ 0, %8 ], [ -1, %18 ], [ 0, %11 ]
+  %.0 = phi i32 [ -1, %18 ], [ 0, %11 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -3073,7 +3073,7 @@ define range(i32 -1, 1) i32 @H5AC_flush_tagged_metadata(ptr noundef %0, i64 noun
   br label %18
 
 18:                                               ; preds = %14, %11, %8
-  %.0 = phi i32 [ 0, %8 ], [ -1, %14 ], [ 0, %11 ]
+  %.0 = phi i32 [ -1, %14 ], [ 0, %11 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -3109,7 +3109,7 @@ define range(i32 -1, 1) i32 @H5AC_evict_tagged_metadata(ptr noundef %0, i64 noun
   br label %19
 
 19:                                               ; preds = %15, %12, %9
-  %.0 = phi i32 [ 0, %9 ], [ -1, %15 ], [ 0, %12 ]
+  %.0 = phi i32 [ -1, %15 ], [ 0, %12 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -3145,7 +3145,7 @@ define range(i32 -1, 1) i32 @H5AC_expunge_tag_type_metadata(ptr noundef %0, i64 
   br label %20
 
 20:                                               ; preds = %16, %13, %10
-  %.0 = phi i32 [ 0, %10 ], [ -1, %16 ], [ 0, %13 ]
+  %.0 = phi i32 [ -1, %16 ], [ 0, %13 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -3181,7 +3181,7 @@ define range(i32 -1, 1) i32 @H5AC_get_tag(ptr noundef %0, ptr noundef %1) local_
   br label %18
 
 18:                                               ; preds = %14, %11, %8
-  %.0 = phi i32 [ 0, %8 ], [ -1, %14 ], [ 0, %11 ]
+  %.0 = phi i32 [ -1, %14 ], [ 0, %11 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -3238,7 +3238,7 @@ define range(i32 -1, 1) i32 @H5AC_cork(ptr noundef readonly captures(none) %0, i
   br label %34
 
 34:                                               ; preds = %22, %30, %23, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %22 ], [ -1, %30 ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %22 ], [ -1, %30 ], [ 0, %23 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -3276,7 +3276,7 @@ define range(i32 -1, 1) i32 @H5AC_get_entry_ring(ptr noundef %0, i64 noundef %1,
   br label %19
 
 19:                                               ; preds = %15, %12, %9
-  %.0 = phi i32 [ 0, %9 ], [ -1, %15 ], [ 0, %12 ]
+  %.0 = phi i32 [ -1, %15 ], [ 0, %12 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -3343,7 +3343,7 @@ define range(i32 -1, 1) i32 @H5AC_unsettle_entry_ring(ptr noundef %0) local_unna
   br label %17
 
 17:                                               ; preds = %13, %10, %7
-  %.0 = phi i32 [ 0, %7 ], [ -1, %13 ], [ 0, %10 ]
+  %.0 = phi i32 [ -1, %13 ], [ 0, %10 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -3379,7 +3379,7 @@ define i32 @H5AC_unsettle_ring(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br label %18
 
 18:                                               ; preds = %14, %11, %8
-  %.0 = phi i32 [ 0, %8 ], [ -1, %14 ], [ %12, %11 ]
+  %.0 = phi i32 [ -1, %14 ], [ %12, %11 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -3416,7 +3416,7 @@ define range(i32 -1, 1) i32 @H5AC_remove_entry(ptr noundef %0) local_unnamed_add
   br label %18
 
 18:                                               ; preds = %10, %14
-  %.0 = phi i32 [ 0, %10 ], [ -1, %14 ]
+  %.0 = phi i32 [ -1, %14 ], [ 0, %10 ]
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %33, label %19
 
@@ -3482,7 +3482,7 @@ define range(i32 -1, 1) i32 @H5AC_get_mdc_image_info(ptr noundef %0, ptr noundef
   br label %19
 
 19:                                               ; preds = %15, %12, %9
-  %.0 = phi i32 [ 0, %9 ], [ -1, %15 ], [ 0, %12 ]
+  %.0 = phi i32 [ -1, %15 ], [ 0, %12 ], [ 0, %9 ]
   ret i32 %.0
 }
 

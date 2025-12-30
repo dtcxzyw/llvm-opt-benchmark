@@ -371,8 +371,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %118, 
   br i1 %exitcond205.not, label %.thread151, label %.preheader, !llvm.loop !24
 
 .thread151:                                       ; preds = %155, %201, %.preheader159, %.preheader157, %65, %156
-  %202 = phi i1 [ true, %65 ], [ false, %.preheader157 ], [ true, %156 ], [ false, %.preheader159 ], [ false, %201 ], [ false, %155 ]
-  %.0133149 = phi float [ 0.000000e+00, %65 ], [ %.0133, %.preheader157 ], [ %.0133, %156 ], [ %.0133, %.preheader159 ], [ %.0133, %201 ], [ %.0133, %155 ]
+  %202 = phi i1 [ true, %156 ], [ true, %65 ], [ false, %.preheader157 ], [ false, %.preheader159 ], [ false, %201 ], [ false, %155 ]
+  %.0133149 = phi float [ %.0133, %156 ], [ 0.000000e+00, %65 ], [ %.0133, %.preheader157 ], [ %.0133, %.preheader159 ], [ %.0133, %201 ], [ %.0133, %155 ]
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %204 = load i32, ptr %203, align 4, !tbaa !25
   %205 = icmp eq i32 %204, 0

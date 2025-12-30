@@ -392,7 +392,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE11setConstantERKd.exit:
   br label %102
 
 102:                                              ; preds = %100, %55, %52
-  %.pn33.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %101, %100 ], [ %.pn, %52 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %52 ], [ %56, %55 ]
   %103 = load ptr, ptr %8, align 8, !tbaa !11
   call void @free(ptr noundef %103) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -682,7 +682,7 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1EL
   br label %101
 
 101:                                              ; preds = %99, %62, %59
-  %.pn33.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %100, %99 ], [ %.pn, %59 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %.pn, %59 ], [ %63, %62 ]
   %102 = load ptr, ptr %8, align 8, !tbaa !45
   call void @free(ptr noundef %102) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -943,7 +943,7 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1EL
   br label %102
 
 102:                                              ; preds = %100, %62, %59
-  %.pn33.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %101, %100 ], [ %.pn, %59 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %59 ], [ %63, %62 ]
   %103 = load ptr, ptr %8, align 8, !tbaa !45
   call void @free(ptr noundef %103) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1204,7 +1204,7 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1EL
   br label %101
 
 101:                                              ; preds = %99, %62, %59
-  %.pn33.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %100, %99 ], [ %.pn, %59 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %.pn, %59 ], [ %63, %62 ]
   %102 = load ptr, ptr %8, align 8, !tbaa !11
   call void @free(ptr noundef %102) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1449,7 +1449,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE11setConstantERKd.exit:
   br label %101
 
 101:                                              ; preds = %99, %55, %52
-  %.pn33.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %100, %99 ], [ %.pn, %52 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %.pn, %52 ], [ %56, %55 ]
   %102 = load ptr, ptr %8, align 8, !tbaa !11
   call void @free(ptr noundef %102) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1690,7 +1690,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEEE11setConstantERKf.exit:
   br label %102
 
 102:                                              ; preds = %100, %55, %52
-  %.pn33.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %101, %100 ], [ %.pn, %52 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %52 ], [ %56, %55 ]
   %103 = load ptr, ptr %8, align 8, !tbaa !45
   call void @free(ptr noundef %103) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1931,7 +1931,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEEE11setConstantERKf.exit:
   br label %101
 
 101:                                              ; preds = %99, %55, %52
-  %.pn33.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %100, %99 ], [ %.pn, %52 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %.pn, %52 ], [ %56, %55 ]
   %102 = load ptr, ptr %8, align 8, !tbaa !45
   call void @free(ptr noundef %102) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2217,7 +2217,7 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1EL
   br label %102
 
 102:                                              ; preds = %100, %62, %59
-  %.pn33.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %101, %100 ], [ %.pn, %59 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %59 ], [ %63, %62 ]
   %103 = load ptr, ptr %8, align 8, !tbaa !11
   call void @free(ptr noundef %103) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2480,7 +2480,7 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1EL
   br label %102
 
 102:                                              ; preds = %100, %62, %59
-  %.pn33.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %101, %100 ], [ %.pn, %59 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %59 ], [ %63, %62 ]
   %103 = load ptr, ptr %8, align 8, !tbaa !11
   call void @free(ptr noundef %103) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2721,7 +2721,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE11setConstantERKd.exit:
   br label %102
 
 102:                                              ; preds = %100, %55, %52
-  %.pn33.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %101, %100 ], [ %.pn, %52 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %52 ], [ %56, %55 ]
   %103 = load ptr, ptr %8, align 8, !tbaa !11
   call void @free(ptr noundef %103) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3311,7 +3311,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEEE11setConstantERKf.exit:
   br label %100
 
 100:                                              ; preds = %98, %55, %52
-  %.pn33.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %99, %98 ], [ %.pn, %52 ]
+  %.pn33.pn.pn = phi { ptr, i32 } [ %99, %98 ], [ %.pn, %52 ], [ %56, %55 ]
   %101 = load ptr, ptr %8, align 8, !tbaa !45
   call void @free(ptr noundef %101) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3451,7 +3451,7 @@ common.resume:                                    ; preds = %68, %.body.i.i.i.i.
   br label %common.resume
 
 _ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_18scalar_quotient_opIffEEKNS_6MatrixIfLin1ELi3ELi1ELin1ELi3EEEKNS_9ReplicateINS_12CwiseUnaryOpINS0_14scalar_sqrt_opIfEEKNS_16PartialReduxExprIKNS9_INS0_14scalar_abs2_opIfEES7_EENS0_10member_sumIffEELi1EEEEELi1ELi3EEEEEEC2ERKSO_.exit: ; preds = %17, %3, %14
-  %34 = phi ptr [ %.pre.i.i.i.i.i.i.i, %14 ], [ null, %3 ], [ %.pre.i.i.i.i.i.i.i, %17 ]
+  %34 = phi ptr [ null, %3 ], [ %.pre.i.i.i.i.i.i.i, %14 ], [ %.pre.i.i.i.i.i.i.i, %17 ]
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %34, ptr %35, align 8, !tbaa !315
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 40

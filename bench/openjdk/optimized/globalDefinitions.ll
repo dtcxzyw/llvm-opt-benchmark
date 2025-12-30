@@ -245,7 +245,7 @@ define hidden noundef i64 @_Z10float2longf(float noundef %0) local_unnamed_addr 
   br label %7
 
 7:                                                ; preds = %5, %3, %1
-  %.0 = phi i64 [ 0, %3 ], [ %2, %1 ], [ %., %5 ]
+  %.0 = phi i64 [ %2, %1 ], [ 0, %3 ], [ %., %5 ]
   ret i64 %.0
 }
 
@@ -265,7 +265,7 @@ define hidden noundef i64 @_Z11double2longd(double noundef %0) local_unnamed_add
   br label %7
 
 7:                                                ; preds = %5, %3, %1
-  %.0 = phi i64 [ 0, %3 ], [ %2, %1 ], [ %., %5 ]
+  %.0 = phi i64 [ %2, %1 ], [ 0, %3 ], [ %., %5 ]
   ret i64 %.0
 }
 

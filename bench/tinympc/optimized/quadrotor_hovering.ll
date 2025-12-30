@@ -818,7 +818,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_9ReplicateINS0_IdLi12ELi1ELi0EL
   br label %.body253
 
 .body253:                                         ; preds = %279, %266, %281, %284, %219
-  %.pn83.pn.pn = phi { ptr, i32 } [ %267, %266 ], [ %220, %219 ], [ %280, %279 ], [ %285, %284 ], [ %282, %281 ]
+  %.pn83.pn.pn = phi { ptr, i32 } [ %220, %219 ], [ %285, %284 ], [ %282, %281 ], [ %280, %279 ], [ %267, %266 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %286
 

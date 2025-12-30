@@ -612,7 +612,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
   br i1 %105, label %.thread, label %.preheader, !llvm.loop !16
 
 .thread:                                          ; preds = %102, %82, %74, %84
-  %106 = phi i32 [ 0, %84 ], [ %72, %82 ], [ %72, %74 ], [ %103, %102 ]
+  %106 = phi i32 [ 0, %84 ], [ %72, %74 ], [ %72, %82 ], [ %103, %102 ]
   %107 = and i32 %70, 240
   %108 = icmp eq i32 %107, 240
   br i1 %108, label %109, label %111
@@ -696,8 +696,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @pcibios_lookup_irq(ptr nound
   br label %.thread21
 
 155:                                              ; preds = %144, %139, %136, %133, %109
-  %156 = phi i32 [ %110, %109 ], [ %134, %136 ], [ %134, %133 ], [ %134, %144 ], [ %134, %139 ]
-  %157 = phi ptr [ @.str.3, %109 ], [ null, %136 ], [ null, %133 ], [ null, %144 ], [ null, %139 ]
+  %156 = phi i32 [ %110, %109 ], [ %134, %144 ], [ %134, %139 ], [ %134, %136 ], [ %134, %133 ]
+  %157 = phi ptr [ @.str.3, %109 ], [ null, %144 ], [ null, %139 ], [ null, %136 ], [ null, %133 ]
   %158 = icmp eq i32 %156, 0
   br i1 %158, label %159, label %.thread21
 
@@ -1112,7 +1112,7 @@ define internal fastcc ptr @pirq_find_routing_table() unnamed_addr #2 section ".
   br label %.loopexit
 
 .loopexit:                                        ; preds = %77, %80, %34, %129, %.loopexit20
-  %132 = phi ptr [ %10, %34 ], [ null, %.loopexit20 ], [ null, %80 ], [ %104, %129 ], [ %50, %77 ]
+  %132 = phi ptr [ null, %.loopexit20 ], [ %104, %129 ], [ %10, %34 ], [ null, %80 ], [ %50, %77 ]
   ret ptr %132
 }
 
@@ -1363,7 +1363,7 @@ define internal fastcc ptr @pirq_get_info(ptr noundef %0, ptr noundef captures(n
   br i1 %43, label %44, label %19, !llvm.loop !27
 
 44:                                               ; preds = %40, %26
-  %45 = phi ptr [ %41, %40 ], [ %21, %26 ]
+  %45 = phi ptr [ %21, %26 ], [ %41, %40 ]
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread, label %.loopexit
 
@@ -1451,7 +1451,7 @@ define internal fastcc ptr @pirq_get_info(ptr noundef %0, ptr noundef captures(n
   br i1 %103, label %104, label %79, !llvm.loop !27
 
 104:                                              ; preds = %100, %86
-  %105 = phi ptr [ %101, %100 ], [ %81, %86 ]
+  %105 = phi ptr [ %81, %86 ], [ %101, %100 ]
   %106 = icmp eq ptr %105, null
   br i1 %106, label %.thread14, label %107, !llvm.loop !28
 

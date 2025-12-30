@@ -644,7 +644,7 @@ define hidden i32 @witness_dissect_struct_interfaceList(ptr noundef %0, i32 noun
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
